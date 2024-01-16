@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-24 21:00+0100\n"
-"PO-Revision-Date: 2023-12-24 22:58\n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-01-16 09:45\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -479,114 +479,118 @@ msgid "Manage every blog configuration directive"
 msgstr "ניהול כל הנחיית תצורת בלוג"
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
+msgid "Uninstall cleanly plugins and themes"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:14
 #: plugins/dcLegacyEditor/src/Backend.php:24
 msgid "dotclear legacy editor"
 msgstr "עורך מדור קודם ברור"
 
-#: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/_fake_plugin/_fake_l10n.php:15
 #: plugins/themeEditor/src/Backend.php:24
 msgid "Theme Editor"
 msgstr "עורך ערכה"
 
-#: plugins/_fake_plugin/_fake_l10n.php:15 plugins/simpleMenu/src/Backend.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:16 plugins/simpleMenu/src/Backend.php:25
 msgid "Simple menu for Dotclear"
 msgstr "תפריט פשוט עבור Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/_fake_plugin/_fake_l10n.php:17
 #: plugins/importExport/src/Backend.php:26
 msgid "Import and Export your blog"
 msgstr "יבוא ויצוא הבלוג שלכם"
 
-#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/userPref/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/userPref/src/Backend.php:24
 msgid "Manage every user preference directive"
 msgstr "ניהול כל הנחיית העדפת משתמש"
 
-#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/dcCKEditor/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/dcCKEditor/src/Backend.php:24
 msgid "dotclear CKEditor integration"
 msgstr "שילוב Dotclear CKEditor"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19
+#: plugins/_fake_plugin/_fake_l10n.php:20
 #: plugins/maintenance/src/Backend.php:24
 msgid "Maintain your installation"
 msgstr "שמרו על ההתקנה."
 
-#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/breadcrumb/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/breadcrumb/src/Backend.php:24
 msgid "Breadcrumb for Dotclear"
 msgstr "נתיב ניווט עבור Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/blogroll/src/Backend.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/blogroll/src/Backend.php:25
 msgid "Manage your blogroll"
 msgstr "ניהול האזור שלכם"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/pings/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/pings/src/Backend.php:26
 msgid "Ping services"
 msgstr "שירותי פינג"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/tags/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/tags/src/Backend.php:24
 msgid "Tags for posts"
 msgstr "תגים לפרסומים"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/widgets/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/widgets/src/Backend.php:26
 msgid "Widgets for your blog sidebars"
 msgstr "פקדים עבור סרגל הצד של הבלוג"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:26
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr "Cope עם טבלה/טביעת רגל שיטה V1 (< 2.24, 2.25)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:30
 msgid "Search engine form"
 msgstr "טופס מנוע חיפוש"
 
-#: plugins/_fake_plugin/_fake_l10n.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:31
 msgid "List of navigation links"
 msgstr "רשימת קישורי ניווט"
 
-#: plugins/_fake_plugin/_fake_l10n.php:31
+#: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of selected entries"
 msgstr "רשימה של הרשומות הנבחרות"
 
-#: plugins/_fake_plugin/_fake_l10n.php:32
+#: plugins/_fake_plugin/_fake_l10n.php:33
 msgid "List of available languages"
 msgstr "רשימת השפות הזמינות"
 
-#: plugins/_fake_plugin/_fake_l10n.php:33 plugins/widgets/src/Widgets.php:121
+#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:121
 msgid "List of categories"
 msgstr "רשימת סיווגים"
 
-#: plugins/_fake_plugin/_fake_l10n.php:34
+#: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "Feed subscription links (RSS or Atom)"
 msgstr "קישורי מינוי לערוץ תוכן (RSS או Atom)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35
+#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "List of last entries from feed (RSS or Atom)"
 msgstr "רשימה של רשומות אחרונות מתוך ערוץ תוכן (RSS או Atom)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:36
+#: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "Simple text"
 msgstr "תמליל פשוט"
 
-#: plugins/_fake_plugin/_fake_l10n.php:37
+#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "List of last entries published"
 msgstr "רשימה של רשומות אחרונות שפורסמו"
 
-#: plugins/_fake_plugin/_fake_l10n.php:38
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of last comments published"
 msgstr "רשימת הערות אחרונות שפורסמו"
 
-#: plugins/_fake_plugin/_fake_l10n.php:39
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of published pages"
 msgstr "רשימת דפים שפורסמו"
 
-#: plugins/_fake_plugin/_fake_l10n.php:40
+#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "List of simple menu items"
 msgstr "רשימה של פריטי תפריט פשוטים"
 
-#: plugins/_fake_plugin/_fake_l10n.php:41
+#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "Blogroll list"
 msgstr "רשימת Blogroll"
 
-#: plugins/_fake_plugin/_fake_l10n.php:42
+#: plugins/_fake_plugin/_fake_l10n.php:43
 msgid "Tags cloud"
 msgstr "ענן תגים"
 
@@ -1003,7 +1007,7 @@ msgstr "עליכם לספק כותרת קישור."
 msgid "You must provide a link URL"
 msgstr "עליכם לספק URL של קישור"
 
-#: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:391
+#: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:394
 msgid "Nothing to import"
 msgstr "אין דבר לייבוא"
 
@@ -1055,24 +1059,24 @@ msgstr "רשימת הקישורים ריקה."
 msgid "Add a new link"
 msgstr "הוספת קישור חדש"
 
-#: plugins/blogroll/src/Manage.php:354
+#: plugins/blogroll/src/Manage.php:355
 msgid "Add a category"
 msgstr "הוספת סיווג"
 
-#: plugins/blogroll/src/Manage.php:371 plugins/blogroll/src/Manage.php:376
-#: plugins/blogroll/src/Manage.php:388
+#: plugins/blogroll/src/Manage.php:373 plugins/blogroll/src/Manage.php:378
+#: plugins/blogroll/src/Manage.php:391
 msgid "Import links"
 msgstr "קישורי יבוא"
 
-#: plugins/blogroll/src/Manage.php:377
+#: plugins/blogroll/src/Manage.php:380
 msgid "OPML or XBEL File:"
 msgstr "OPML או קובץ XBEL:"
 
-#: plugins/blogroll/src/Manage.php:381 plugins/blogroll/src/Manage.php:425
+#: plugins/blogroll/src/Manage.php:384 plugins/blogroll/src/Manage.php:428
 #: plugins/importExport/src/Manage.php:116
 #: plugins/importExport/src/ModuleImportFeed.php:227
 #: plugins/importExport/src/ModuleImportFlat.php:213
-#: plugins/importExport/src/ModuleImportFlat.php:251
+#: plugins/importExport/src/ModuleImportFlat.php:252
 msgid "Import"
 msgstr "יבוא"
 
@@ -1346,12 +1350,12 @@ msgid "URL field cannot be empty."
 msgstr "שדה ה-URL אינו יכול להיות ריק."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:92
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:171
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:172
 msgid "Open the media"
 msgstr ""
 
 #: plugins/dcCKEditor/src/Manage.php:128
-#: plugins/dcLegacyEditor/src/Manage.php:43
+#: plugins/dcLegacyEditor/src/Manage.php:47
 msgid "The configuration has been updated."
 msgstr "התצורה עודכנה."
 
@@ -1443,8 +1447,8 @@ msgstr "הוספת לחצני ' ביטול/ביצוע מחדש '"
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "השבתת בודק האיות המובנה אם הדפדפן מספק אחד"
 
-#: plugins/dcCKEditor/tpl/index.php:136 plugins/dcLegacyEditor/tpl/index.php:30
-#: plugins/simpleMenu/src/Manage.php:635
+#: plugins/dcCKEditor/tpl/index.php:136 plugins/dcLegacyEditor/tpl/index.php:39
+#: plugins/simpleMenu/src/Manage.php:636
 msgid "Save configuration"
 msgstr "שמירת תצורה"
 
@@ -1570,6 +1574,10 @@ msgstr "סילוק חטיבת תמליל"
 msgid "Enable dcLegacyEditor plugin"
 msgstr "הפעלת תוסף dcLegacyEditor"
 
+#: plugins/dcLegacyEditor/tpl/index.php:31
+msgid "Adjust height of input area during editing"
+msgstr ""
+
 #: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:63
 msgid "Checks trackback source for a link to the post"
 msgstr "בדיקת מקור trackback עבור קישור להודעה."
@@ -1591,8 +1599,8 @@ msgstr "יצוא מסד נתונים"
 msgid "Download database of current blog"
 msgstr "הורדת מסד הנתונים של הבלוג הנוכחי"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:83
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:81
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:84
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:82
 #: plugins/importExport/src/ModuleExportFlat.php:214
 #: plugins/importExport/src/ModuleExportFlat.php:238
 msgid "Compress file"
@@ -1867,34 +1875,34 @@ msgid "This will import a single blog backup as new content in the current blog:
 msgstr "הדבר יבא גיבוי בלוג יחיד כתוכן חדש בבלוג הנוכחי: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFlat.php:196
-#: plugins/importExport/src/ModuleImportFlat.php:223
+#: plugins/importExport/src/ModuleImportFlat.php:224
 msgid "Upload a backup file"
 msgstr "טעינת קובץ גיבוי"
 
 #: plugins/importExport/src/ModuleImportFlat.php:197
-#: plugins/importExport/src/ModuleImportFlat.php:224
+#: plugins/importExport/src/ModuleImportFlat.php:225
 #, php-format
 msgid "maximum size %s"
 msgstr "גודל מרבי %s"
 
 #: plugins/importExport/src/ModuleImportFlat.php:203
-#: plugins/importExport/src/ModuleImportFlat.php:230
+#: plugins/importExport/src/ModuleImportFlat.php:231
 msgid "or pick up a local file in your public directory"
 msgstr "או להרים קובץ מקומי במדריך הציבורי שלכם"
 
-#: plugins/importExport/src/ModuleImportFlat.php:221
+#: plugins/importExport/src/ModuleImportFlat.php:222
 msgid "This will reset all the content of your database, except users."
 msgstr "פעולה זו תאפס את כל התוכן של מסד הנתונים שלכם, מלבד משתמשים."
 
-#: plugins/importExport/src/ModuleImportFlat.php:342
+#: plugins/importExport/src/ModuleImportFlat.php:343
 msgid "Another file with same name exists."
 msgstr "קובץ אחר עם אותו שם קיים."
 
-#: plugins/importExport/src/ModuleImportFlat.php:350
+#: plugins/importExport/src/ModuleImportFlat.php:351
 msgid "Failed to extract backup file."
 msgstr "חילוץ קובץ הגיבוי נכשל."
 
-#: plugins/importExport/src/ModuleImportFlat.php:362
+#: plugins/importExport/src/ModuleImportFlat.php:363
 msgid "No backup in compressed file."
 msgstr "אין גיבוי בקובץ דחוס."
 
@@ -2477,7 +2485,7 @@ msgstr "אזהרה: אם תגדירו את ה-URL באופן ידני, הוא ע
 msgid "Introduction to the page."
 msgstr "מבוא לדף."
 
-#: plugins/pages/src/ManagePage.php:958
+#: plugins/pages/src/ManagePage.php:960
 msgid "Select this comment"
 msgstr "בחרו הערה זו."
 
@@ -2563,8 +2571,8 @@ msgstr "משתמש הוגדר"
 msgid "Configuration successfully updated."
 msgstr "התצורה עודכנה בהצלחה."
 
-#: plugins/simpleMenu/src/Manage.php:226 plugins/simpleMenu/src/Manage.php:593
-#: plugins/simpleMenu/src/Manage.php:671
+#: plugins/simpleMenu/src/Manage.php:226 plugins/simpleMenu/src/Manage.php:594
+#: plugins/simpleMenu/src/Manage.php:672
 msgid "Label"
 msgstr "תווית"
 
@@ -2672,51 +2680,51 @@ msgstr "בחירת דף:"
 msgid "Select tag (if necessary):"
 msgstr "בחרו תג (במקרה הצורך):"
 
-#: plugins/simpleMenu/src/Manage.php:590
+#: plugins/simpleMenu/src/Manage.php:591
 msgid "Label of item menu:"
 msgstr "תווית של תפריט פריט:"
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:598
 msgid "Description of item menu:"
 msgstr "תיאור של תפריט פריט:"
 
-#: plugins/simpleMenu/src/Manage.php:608
+#: plugins/simpleMenu/src/Manage.php:609
 msgid "URL of item menu:"
 msgstr "URL של תפריט פריט:"
 
-#: plugins/simpleMenu/src/Manage.php:617 plugins/simpleMenu/src/Manage.php:674
+#: plugins/simpleMenu/src/Manage.php:618 plugins/simpleMenu/src/Manage.php:675
 msgid "Open URL on a new tab"
 msgstr "פתיחת URL בלשונית חדשה"
 
-#: plugins/simpleMenu/src/Manage.php:619
+#: plugins/simpleMenu/src/Manage.php:620
 msgid "Add this item"
 msgstr "הוספת פריט זה:"
 
-#: plugins/simpleMenu/src/Manage.php:633
+#: plugins/simpleMenu/src/Manage.php:634
 msgid "Enable simple menu for this blog"
 msgstr "הפעלת תפריט פשוט עבור בלוג זה."
 
-#: plugins/simpleMenu/src/Manage.php:646
+#: plugins/simpleMenu/src/Manage.php:647
 msgid "Add an item"
 msgstr "הוספת פריט."
 
-#: plugins/simpleMenu/src/Manage.php:660
+#: plugins/simpleMenu/src/Manage.php:661
 msgid "Menu items list"
 msgstr "רשימת פריטי תפריט"
 
-#: plugins/simpleMenu/src/Manage.php:743
+#: plugins/simpleMenu/src/Manage.php:744
 msgid "Update menu"
 msgstr "תפריט עדכון"
 
-#: plugins/simpleMenu/src/Manage.php:745
+#: plugins/simpleMenu/src/Manage.php:746
 msgid "Delete selected menu items"
 msgstr "מחיקת פריטי תפריט נבחרים."
 
-#: plugins/simpleMenu/src/Manage.php:746
+#: plugins/simpleMenu/src/Manage.php:747
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "אתם בטוחים שברצונכם לסלק את פריטי התפריט שנבחרו?"
 
-#: plugins/simpleMenu/src/Manage.php:753
+#: plugins/simpleMenu/src/Manage.php:754
 msgid "No menu items so far."
 msgstr "אין פריטי תפריט עד כה."
 

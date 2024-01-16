@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-24 21:00+0100\n"
-"PO-Revision-Date: 2023-12-25 09:29\n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-01-16 09:42\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -93,7 +93,7 @@ msgstr "Acea cheie nu există în baza de date."
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:89
 #: src/Core/Backend/Listing/ListingPostsMini.php:42
-#: src/Process/Backend/Home.php:431 src/Process/Backend/Post.php:714
+#: src/Process/Backend/Home.php:432 src/Process/Backend/Post.php:714
 msgid "Title"
 msgstr "Titlu"
 
@@ -123,8 +123,8 @@ msgstr "Id blog"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
 #: src/Core/Backend/Listing/ListingBlogs.php:55
-#: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:138
-#: src/Process/Backend/BlogPref.php:485
+#: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:141
+#: src/Process/Backend/BlogPref.php:486
 #: src/Process/Backend/UsersActions.php:231
 msgid "Blog name"
 msgstr "Nume blog"
@@ -138,7 +138,7 @@ msgstr "Nume blog"
 #: src/Core/Backend/Listing/ListingPosts.php:97
 #: src/Core/Backend/Listing/ListingPostsMini.php:45
 #: src/Core/Backend/UserPref.php:54 src/Core/Backend/UserPref.php:79
-#: src/Process/Backend/Post.php:618 src/Process/Backend/Post.php:1064
+#: src/Process/Backend/Post.php:618 src/Process/Backend/Post.php:1066
 #: src/Process/Backend/UsersActions.php:234
 msgid "Status"
 msgstr "Status"
@@ -163,8 +163,8 @@ msgstr "Setează ca eliminat"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
 #: src/Core/Backend/Listing/ListingMedia.php:203
 #: src/Core/Backend/ModulesList.php:1215 src/Core/Upgrade/PluginsList.php:120
-#: src/Process/Backend/Comment.php:311 src/Process/Backend/Langs.php:278
-#: src/Process/Backend/Post.php:802 src/Process/Backend/Users.php:42
+#: src/Process/Backend/Comment.php:315 src/Process/Backend/Langs.php:278
+#: src/Process/Backend/Post.php:803 src/Process/Backend/Users.php:42
 #: src/Process/Upgrade/Langs.php:296
 msgid "Delete"
 msgstr "Ștergere"
@@ -188,7 +188,7 @@ msgid "Password verification failed"
 msgstr "Verificarea parolei a eșuat"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:114
-#: src/Process/Backend/BlogPref.php:932
+#: src/Process/Backend/BlogPref.php:934
 msgid "The current blog cannot be deleted."
 msgstr "Blog-ul curent nu poate fi șters."
 
@@ -208,8 +208,8 @@ msgstr[2] "%d bloguri au fost şterse cu succes"
 #: src/Core/Backend/Listing/ListingPosts.php:93
 #: src/Core/Backend/Listing/ListingPosts.php:94 src/Core/Backend/Menus.php:154
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:50
-#: src/Core/Backend/UserPref.php:183 src/Process/Backend/Post.php:848
-#: src/Process/Backend/Post.php:857
+#: src/Core/Backend/UserPref.php:183 src/Process/Backend/Post.php:849
+#: src/Process/Backend/Post.php:858
 msgid "Comments"
 msgstr "Comentarii"
 
@@ -227,8 +227,8 @@ msgstr "Acțiuni comentarii"
 #: src/Core/Backend/Listing/ListingPosts.php:92
 #: src/Core/Backend/Listing/ListingPostsMini.php:44
 #: src/Core/Backend/UserPref.php:44 src/Core/Backend/UserPref.php:53
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Post.php:891
-#: src/Process/Backend/Post.php:1061
+#: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:893
+#: src/Process/Backend/Post.php:1063
 msgid "Author"
 msgstr "Autor"
 
@@ -260,7 +260,7 @@ msgid "Blocklist IP (global)"
 msgstr "Blocklist IP (global)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:72
-#: src/Process/Backend/Post.php:1063
+#: src/Process/Backend/Post.php:1065
 msgid "IP address"
 msgstr "Adresa IP"
 
@@ -413,7 +413,7 @@ msgid "Change category for this selection"
 msgstr "Modifică categoria pentru această selecţie"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:438
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:439
 #: src/Process/Backend/Post.php:654
 msgid "Category:"
 msgstr "Categorie:"
@@ -423,27 +423,27 @@ msgid "Create a new category for the post(s)"
 msgstr "Creează o categorie nouă pentru postările"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
-#: src/Process/Backend/Home.php:428 src/Process/Backend/Home.php:445
+#: src/Process/Backend/Home.php:429 src/Process/Backend/Home.php:446
 #: src/Process/Backend/Media.php:519 src/Process/Backend/Post.php:662
 #: src/Process/Backend/Post.php:710
 msgid "Title:"
 msgstr "Titlul:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:383
-#: src/Process/Backend/Category.php:243 src/Process/Backend/Category.php:297
-#: src/Process/Backend/Home.php:447 src/Process/Backend/Post.php:664
+#: src/Process/Backend/Category.php:244 src/Process/Backend/Category.php:298
+#: src/Process/Backend/Home.php:448 src/Process/Backend/Post.php:664
 msgid "Parent:"
 msgstr "Părinte:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1778 src/Process/Backend/BlogPref.php:917
-#: src/Process/Backend/Category.php:275 src/Process/Backend/Category.php:307
-#: src/Process/Backend/Category.php:341 src/Process/Backend/Comment.php:307
-#: src/Process/Backend/Home.php:453 src/Process/Backend/MediaItem.php:1056
-#: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:916
-#: src/Process/Backend/User.php:420 src/Process/Backend/UsersActions.php:356
+#: src/Core/Backend/ModulesList.php:1778 src/Process/Backend/BlogPref.php:919
+#: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
+#: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1056
+#: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:918
+#: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:357
 #: src/Process/Install/Install.php:498
 msgid "Save"
 msgstr "Salvează"
@@ -517,7 +517,7 @@ msgstr "Crescător"
 #: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:43
 #: src/Core/Backend/UserPref.php:42 src/Core/Backend/UserPref.php:52
-#: src/Core/Backend/UserPref.php:201 src/Process/Backend/Post.php:1062
+#: src/Core/Backend/UserPref.php:201 src/Process/Backend/Post.php:1064
 msgid "Date"
 msgstr "Data"
 
@@ -566,8 +566,8 @@ msgstr "IP"
 msgid "Last update"
 msgstr "Ultima actualizare"
 
-#: src/Core/Backend/Combos.php:336 src/Process/Backend/Blog.php:119
-#: src/Process/Backend/BlogPref.php:799
+#: src/Core/Backend/Combos.php:336 src/Process/Backend/Blog.php:122
+#: src/Process/Backend/BlogPref.php:801
 #: src/Process/Backend/UsersActions.php:230
 msgid "Blog ID"
 msgstr "ID Blog"
@@ -602,7 +602,7 @@ msgid "My favorites"
 msgstr "Favoritele mele"
 
 #: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:296 src/Process/Backend/Media.php:526
+#: src/Core/Backend/Page.php:304 src/Process/Backend/Media.php:526
 #: src/Process/Backend/UserPreferences.php:39
 msgid "My preferences"
 msgstr "Preferințele mele"
@@ -664,7 +664,7 @@ msgstr "Aspect blog"
 
 #: src/Core/Backend/Favorites.php:510 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:64 src/Core/Backend/UserPref.php:166
-#: src/Process/Backend/BlogPref.php:947 src/Process/Backend/User.php:235
+#: src/Process/Backend/BlogPref.php:949 src/Process/Backend/User.php:235
 #: src/Process/Backend/Users.php:100 src/Process/Backend/Users.php:105
 #: src/Process/Backend/UsersActions.php:151
 #: src/Process/Backend/UsersActions.php:159
@@ -684,7 +684,7 @@ msgstr "Gestionare plugin-uri"
 msgid "Languages"
 msgstr "Limbi"
 
-#: src/Core/Backend/Favorites.php:528 src/Core/Backend/Page.php:335
+#: src/Core/Backend/Favorites.php:528 src/Core/Backend/Page.php:343
 #: src/Process/Backend/Help.php:107 src/Process/Backend/Help.php:114
 #: src/Process/Backend/Help.php:120
 msgid "Global help"
@@ -693,27 +693,27 @@ msgstr "Ajutor global"
 #: src/Core/Backend/Filter/FilterBlogs.php:50
 #: src/Core/Backend/Filter/FilterComments.php:86
 #: src/Core/Backend/Filter/FilterPosts.php:145
-#: src/Process/Backend/Comment.php:282
+#: src/Process/Backend/Comment.php:286
 msgid "Status:"
 msgstr "Stare:"
 
-#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1002
-#: src/Process/Backend/Auth.php:370 src/Process/Backend/BlogPref.php:986
-#: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:895
-#: src/Process/Backend/User.php:344 src/Process/Backend/UserPreferences.php:541
+#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1010
+#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:988
+#: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:897
+#: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:541
 #: src/Process/Install/Install.php:465
 msgid "Email:"
 msgstr "Email:"
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1001
-#: src/Process/Backend/Comment.php:278 src/Process/Backend/Post.php:899
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1009
+#: src/Process/Backend/Comment.php:282 src/Process/Backend/Post.php:901
 msgid "Web site:"
 msgstr "Web site:"
 
 #: src/Core/Backend/Filter/FilterComments.php:56
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1043
-#: src/Process/Backend/Comment.php:266
+#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1051
+#: src/Process/Backend/Comment.php:270
 msgid "Author:"
 msgstr "Autor:"
 
@@ -722,7 +722,7 @@ msgid "Type:"
 msgstr "Tip:"
 
 #: src/Core/Backend/Filter/FilterComments.php:71
-#: src/Process/Backend/Post.php:909
+#: src/Process/Backend/Post.php:911
 msgid "Comment"
 msgstr "Comentariu"
 
@@ -731,7 +731,7 @@ msgid "Trackback"
 msgstr "Urmărire"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1003 src/Process/Backend/Comment.php:256
+#: src/Core/Backend/Page.php:1011 src/Process/Backend/Comment.php:259
 msgid "IP address:"
 msgstr "Adresa IP:"
 
@@ -760,7 +760,7 @@ msgid "Format:"
 msgstr "Format:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:451 src/Process/Backend/User.php:276
+#: src/Process/Backend/Auth.php:464 src/Process/Backend/User.php:277
 #: src/Process/Install/Install.php:528 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "Parola:"
@@ -819,7 +819,7 @@ msgstr "Închis"
 msgid "Trackbacks:"
 msgstr "Urmăriri:"
 
-#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1222
+#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1229
 msgid "Show filters and display options"
 msgstr "Arată filtrele și opțiunile de afișare"
 
@@ -855,7 +855,7 @@ msgid "Apply filters and display options"
 msgstr "Aplică filtrele și opțiunile de afișare"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:84
-#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:346
+#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:354
 msgid "Search:"
 msgstr "Căutare:"
 
@@ -878,7 +878,7 @@ msgstr "Niciun blog"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:56
 #: src/Core/Backend/ModulesList.php:1623 src/Core/Backend/UserPref.php:76
-#: src/Process/Backend/LinkPopup.php:61
+#: src/Process/Backend/LinkPopup.php:62
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
 msgstr "URL"
@@ -940,7 +940,7 @@ msgid "No comments or trackbacks matches the filter"
 msgstr "Nici un comentariu sau trackback-uri nu corespund filtrului"
 
 #: src/Core/Backend/Listing/ListingComments.php:42
-#: src/Process/Backend/Comment.php:130 src/Process/Backend/Post.php:862
+#: src/Process/Backend/Comment.php:133 src/Process/Backend/Post.php:863
 msgid "No comments"
 msgstr "Nici un comentariu"
 
@@ -1007,7 +1007,7 @@ msgstr "Intrare"
 #: src/Core/Backend/Listing/ListingPosts.php:172
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
 #: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:936
-#: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1083
+#: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1085
 msgid "Published"
 msgstr "Publicat"
 
@@ -1017,7 +1017,7 @@ msgstr "Publicat"
 #: src/Core/Backend/Listing/ListingPosts.php:177
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
 #: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:937
-#: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1088
+#: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1090
 msgid "Unpublished"
 msgstr "Nepublicat"
 
@@ -1027,13 +1027,13 @@ msgstr "Nepublicat"
 #: src/Core/Backend/Listing/ListingPosts.php:187
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
 #: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:939
-#: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1093
+#: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1095
 msgid "Pending"
 msgstr "In asteptare"
 
 #: src/Core/Backend/Listing/ListingComments.php:154
 #: src/Core/Backend/Listing/ListingComments.php:202 src/Core/Blog.php:272
-#: src/Process/Backend/Post.php:1098
+#: src/Process/Backend/Post.php:1100
 msgid "Junk"
 msgstr "Junc"
 
@@ -1057,7 +1057,7 @@ msgid "Type and author"
 msgstr "Tip și autor"
 
 #: src/Core/Backend/Listing/ListingComments.php:227
-#: src/Process/Backend/Post.php:1065 src/Process/Backend/Post.php:1136
+#: src/Process/Backend/Post.php:1067 src/Process/Backend/Post.php:1138
 msgid "Edit"
 msgstr "Editare"
 
@@ -1089,7 +1089,7 @@ msgstr "Nb de articole: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
 #: src/Core/Backend/ModulesList.php:777 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Category.php:236 src/Process/Upgrade/Plugins.php:441
+#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:441
 msgid "Name"
 msgstr "Nume"
 
@@ -1158,7 +1158,7 @@ msgstr[2] ", <a href=\"%s\">programat</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:95
 #: src/Core/Backend/Listing/ListingPosts.php:96
-#: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:939
+#: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:941
 msgid "Trackbacks"
 msgstr "Trackback-uri"
 
@@ -1248,9 +1248,9 @@ msgstr "Pagina %s / %s"
 msgid "Direct access page %s"
 msgstr "Pagina de acces direct %s"
 
-#: src/Core/Backend/Listing/Pager.php:151 src/Core/Backend/Page.php:134
+#: src/Core/Backend/Listing/Pager.php:151 src/Core/Backend/Page.php:142
 #: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:187
-#: src/Process/Backend/Post.php:875 src/Process/Backend/Post.php:967
+#: src/Process/Backend/Post.php:876 src/Process/Backend/Post.php:969
 #: src/Process/Backend/Posts.php:119 src/Process/Backend/Search.php:244
 #: src/Process/Backend/Search.php:323 src/Process/Backend/Users.php:149
 msgid "ok"
@@ -1291,7 +1291,7 @@ msgstr "altul"
 msgid "Search in repository:"
 msgstr "Căutare în repo:"
 
-#: src/Core/Backend/ModulesList.php:401 src/Core/Backend/Page.php:348
+#: src/Core/Backend/ModulesList.php:401 src/Core/Backend/Page.php:356
 #: src/Process/Backend/Categories.php:204
 msgid "OK"
 msgstr "Ok"
@@ -1349,7 +1349,7 @@ msgid "Current version"
 msgstr "Versiunea curentă"
 
 #: src/Core/Backend/ModulesList.php:797 src/Core/Backend/ModulesList.php:996
-#: src/Core/Backend/Page.php:1044 src/Core/Backend/ThemesList.php:132
+#: src/Core/Backend/Page.php:1052 src/Core/Backend/ThemesList.php:132
 #: src/Core/Backend/ThemesList.php:191
 msgid "Details"
 msgstr "Detalii"
@@ -1396,7 +1396,7 @@ msgstr "Plugin de la distribuția oficială"
 msgid "Plugin in development"
 msgstr "Plugin în dezvoltare"
 
-#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1045
+#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1053
 #: src/Core/Backend/ThemesList.php:195
 msgid "Support"
 msgstr "Suport"
@@ -1405,11 +1405,11 @@ msgstr "Suport"
 msgid "update locked"
 msgstr "actualizare blocată"
 
-#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1047
+#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1055
 msgid "Section:"
 msgstr "Secțiune:"
 
-#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1048
+#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1056
 msgid "Tags:"
 msgstr "Etichete:"
 
@@ -1551,24 +1551,13 @@ msgstr "Plugin-ul a fost actualizat cu succes."
 msgid "The plugin has been successfully installed."
 msgstr "Plugin-ul a fost instalat cu succes."
 
-#: src/Core/Backend/ModulesList.php:1600 src/Process/Backend/Langs.php:331
+#: src/Core/Backend/ModulesList.php:1600 src/Process/Backend/Langs.php:332
 msgid "Upload a zip file"
 msgstr "Incarca un fisier zip"
 
 #: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1603
 #: src/Core/Backend/ModulesList.php:1621 src/Core/Backend/ModulesList.php:1626
-#: src/Process/Backend/Blog.php:122 src/Process/Backend/Blog.php:143
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:478
-#: src/Process/Backend/BlogPref.php:798 src/Process/Backend/BlogPref.php:803
-#: src/Process/Backend/Category.php:233 src/Process/Backend/Comment.php:266
-#: src/Process/Backend/Home.php:428 src/Process/Backend/Home.php:435
-#: src/Process/Backend/Langs.php:312 src/Process/Backend/Langs.php:333
-#: src/Process/Backend/Langs.php:335 src/Process/Backend/LinkPopup.php:58
-#: src/Process/Backend/Post.php:710 src/Process/Backend/Post.php:732
-#: src/Process/Backend/Post.php:888 src/Process/Backend/Post.php:903
-#: src/Process/Backend/User.php:256 src/Process/Backend/User.php:275
-#: src/Process/Backend/User.php:290 src/Process/Backend/User.php:410
-#: src/Process/Backend/UsersActions.php:346 src/Process/Install/Install.php:475
+#: src/Process/Backend/Home.php:436 src/Process/Install/Install.php:475
 #: src/Process/Install/Install.php:483 src/Process/Install/Install.php:490
 #: src/Process/Install/Wizard.php:262 src/Process/Install/Wizard.php:280
 #: src/Process/Upgrade/Langs.php:409 src/Process/Upgrade/Langs.php:426
@@ -1580,23 +1569,23 @@ msgid "Zip file path:"
 msgstr "Calea fişierului zip:"
 
 #: src/Core/Backend/ModulesList.php:1603 src/Core/Backend/ModulesList.php:1626
-#: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:312
-#: src/Process/Backend/Langs.php:335 src/Process/Backend/User.php:410
-#: src/Process/Backend/UsersActions.php:346 src/Process/Upgrade/Langs.php:375
+#: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:313
+#: src/Process/Backend/Langs.php:337 src/Process/Backend/User.php:411
+#: src/Process/Backend/UsersActions.php:347 src/Process/Upgrade/Langs.php:375
 #: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:426
 msgid "Your password:"
 msgstr "Parola dumneavoastră:"
 
 #: src/Core/Backend/ModulesList.php:1609 src/Core/Backend/ModulesList.php:1632
-#: src/Process/Backend/Langs.php:318 src/Process/Backend/Langs.php:341
-#: src/Process/Backend/Post.php:693 src/Process/Backend/User.php:283
-#: src/Process/Backend/User.php:296 src/Process/Backend/User.php:416
-#: src/Process/Backend/UsersActions.php:352 src/Process/Install/Install.php:486
+#: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:343
+#: src/Process/Backend/Post.php:693 src/Process/Backend/User.php:284
+#: src/Process/Backend/User.php:297 src/Process/Backend/User.php:417
+#: src/Process/Backend/UsersActions.php:353 src/Process/Install/Install.php:486
 #: src/Process/Install/Install.php:492 src/Process/Upgrade/Langs.php:422
 msgid "Password"
 msgstr "Parolă"
 
-#: src/Core/Backend/ModulesList.php:1613 src/Core/Backend/Page.php:1174
+#: src/Core/Backend/ModulesList.php:1613 src/Core/Backend/Page.php:1181
 #: src/Process/Backend/Media.php:532
 msgid "Upload"
 msgstr "Incarca"
@@ -1621,7 +1610,7 @@ msgstr "ID plugin necunoscut"
 msgid "This plugin has no configuration file."
 msgstr "Acest plugin nu are niciun fișier de configurare."
 
-#: src/Core/Backend/ModulesList.php:1696 src/Process/Backend/Auth.php:273
+#: src/Core/Backend/ModulesList.php:1696 src/Process/Backend/Auth.php:279
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "Permisiuni insuficiente"
@@ -1635,8 +1624,8 @@ msgstr "Configurare \"%s\""
 msgid "Back"
 msgstr "Înapoi"
 
-#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1004
-#: src/Core/Backend/Page.php:1169 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1012
+#: src/Core/Backend/Page.php:1176 src/Core/Upgrade/Notices.php:34
 #: src/Process/Backend/Home.php:263
 msgid "Error:"
 msgstr "Eroare:"
@@ -1651,395 +1640,395 @@ msgstr "Erori:"
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
-#: src/Core/Backend/Page.php:118 src/Process/Backend/User.php:456
+#: src/Core/Backend/Page.php:126 src/Process/Backend/User.php:457
 msgid "Blog:"
 msgstr "Blog:"
 
-#: src/Core/Backend/Page.php:122
+#: src/Core/Backend/Page.php:130
 msgid "Change blog"
 msgstr "Schimbă blog-ul"
 
-#: src/Core/Backend/Page.php:131
+#: src/Core/Backend/Page.php:139
 msgid "Blogs:"
 msgstr "Bloguri:"
 
-#: src/Core/Backend/Page.php:281 src/Core/Upgrade/Page.php:130
+#: src/Core/Backend/Page.php:289 src/Core/Upgrade/Page.php:130
 msgid "Go to the content"
 msgstr "Mergeți la conținut"
 
-#: src/Core/Backend/Page.php:282 src/Core/Upgrade/Page.php:131
+#: src/Core/Backend/Page.php:290 src/Core/Upgrade/Page.php:131
 msgid "Go to the menu"
 msgstr "Du-te la meniu"
 
-#: src/Core/Backend/Page.php:283 src/Core/Upgrade/Page.php:132
+#: src/Core/Backend/Page.php:291 src/Core/Upgrade/Page.php:132
 msgid "Go to help"
 msgstr "Mergi la ajutor"
 
-#: src/Core/Backend/Page.php:286 src/Core/Upgrade/Page.php:135
+#: src/Core/Backend/Page.php:294 src/Core/Upgrade/Page.php:135
 #: src/Process/Backend/UserPreferences.php:799
 #: src/Process/Backend/UserPreferences.php:800
 msgid "My dashboard"
 msgstr "Panoul meu"
 
-#: src/Core/Backend/Page.php:291 src/Core/Backend/Page.php:292
+#: src/Core/Backend/Page.php:299 src/Core/Backend/Page.php:300
 msgid "Go to site"
 msgstr "Du-te la site"
 
-#: src/Core/Backend/Page.php:297 src/Core/Upgrade/Page.php:143
+#: src/Core/Backend/Page.php:305 src/Core/Upgrade/Page.php:143
 #, php-format
 msgid "Logout %s"
 msgstr "Deconectare %s"
 
-#: src/Core/Backend/Page.php:305 src/Core/Upgrade/Page.php:151
+#: src/Core/Backend/Page.php:313 src/Core/Upgrade/Page.php:151
 msgid "Hide main menu"
 msgstr "Ascunde meniul principal"
 
-#: src/Core/Backend/Page.php:306 src/Core/Upgrade/Page.php:152
+#: src/Core/Backend/Page.php:314 src/Core/Upgrade/Page.php:152
 msgid "Show main menu"
 msgstr "Arată meniul principal"
 
-#: src/Core/Backend/Page.php:317
+#: src/Core/Backend/Page.php:325
 msgid "Safe mode"
 msgstr "Mod sigur"
 
-#: src/Core/Backend/Page.php:318
+#: src/Core/Backend/Page.php:326
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Ești în modul sigur. Toate plugin-urile au fost dezactivate temporar. Nu uita să te deconectezi și apoi autentifică-te din nou în mod normal pentru a primi înapoi toate funcționalitățile"
 
-#: src/Core/Backend/Page.php:355 src/Core/Upgrade/Page.php:182
+#: src/Core/Backend/Page.php:363 src/Core/Upgrade/Page.php:182
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Vă mulțumim pentru utilizarea %s."
 
-#: src/Core/Backend/Page.php:368 src/Core/Backend/Page.php:491
+#: src/Core/Backend/Page.php:376 src/Core/Backend/Page.php:499
 #: src/Core/Upgrade/Page.php:189
 msgid "Page top"
 msgstr "Pagina de sus"
 
-#: src/Core/Backend/Page.php:687 src/Core/Backend/Page.php:688
+#: src/Core/Backend/Page.php:695 src/Core/Backend/Page.php:696
 #: src/Core/Upgrade/Page.php:233 src/Core/Upgrade/Page.php:234
 msgid "Go to dashboard"
 msgstr "Du-te la tabloul de bord"
 
-#: src/Core/Backend/Page.php:847 src/Core/Upgrade/Page.php:306
+#: src/Core/Backend/Page.php:855 src/Core/Upgrade/Page.php:306
 msgid "Help about this page"
 msgstr "Ajutor despre această pagină"
 
-#: src/Core/Backend/Page.php:852 src/Core/Upgrade/Page.php:311
+#: src/Core/Backend/Page.php:860 src/Core/Upgrade/Page.php:311
 #, php-format
 msgid "See also %s"
 msgstr "Vezi deasemenea %s"
 
-#: src/Core/Backend/Page.php:852 src/Core/Upgrade/Page.php:311
+#: src/Core/Backend/Page.php:860 src/Core/Upgrade/Page.php:311
 msgid "the global help"
 msgstr "ajutorul global"
 
-#: src/Core/Backend/Page.php:986
+#: src/Core/Backend/Page.php:994
 msgid "uncover"
 msgstr "descoperă"
 
-#: src/Core/Backend/Page.php:990
+#: src/Core/Backend/Page.php:998
 msgid "hide"
 msgstr "ascunde"
 
-#: src/Core/Backend/Page.php:994
+#: src/Core/Backend/Page.php:1002
 msgid "Need help?"
 msgstr "Ai nevoie de ajutor?"
 
-#: src/Core/Backend/Page.php:995
+#: src/Core/Backend/Page.php:1003
 msgid "new window"
 msgstr "fereastră nouă"
 
-#: src/Core/Backend/Page.php:996
+#: src/Core/Backend/Page.php:1004
 msgid "Hide"
 msgstr "Ascunde"
 
-#: src/Core/Backend/Page.php:997
+#: src/Core/Backend/Page.php:1005
 msgid "Select:"
 msgstr "Selectează:"
 
-#: src/Core/Backend/Page.php:998
+#: src/Core/Backend/Page.php:1006
 msgid "No selection"
 msgstr "Nicio selecţie"
 
-#: src/Core/Backend/Page.php:999
+#: src/Core/Backend/Page.php:1007
 msgid "Select all"
 msgstr "Selectează tot"
 
-#: src/Core/Backend/Page.php:1000
+#: src/Core/Backend/Page.php:1008
 msgid "Invert selection"
 msgstr "Inversează selecția"
 
-#: src/Core/Backend/Page.php:1005 src/Process/Backend/Post.php:440
+#: src/Core/Backend/Page.php:1013 src/Process/Backend/Post.php:440
 #: src/Process/Backend/Post.php:556
 msgid "Entry has been successfully created."
 msgstr "Intrarea a fost creată cu succes."
 
-#: src/Core/Backend/Page.php:1006
+#: src/Core/Backend/Page.php:1014
 msgid "Edit entry"
 msgstr "Editare intrare"
 
-#: src/Core/Backend/Page.php:1007
+#: src/Core/Backend/Page.php:1015
 msgid "view entry"
 msgstr "vizualizare intrare"
 
-#: src/Core/Backend/Page.php:1008
+#: src/Core/Backend/Page.php:1016
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi intrările selectate (%s)?"
 
-#: src/Core/Backend/Page.php:1009
+#: src/Core/Backend/Page.php:1017
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi fişierele selectate (%d)?"
 
-#: src/Core/Backend/Page.php:1010
+#: src/Core/Backend/Page.php:1018
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi categoriile selectate (%s)?"
 
-#: src/Core/Backend/Page.php:1011
+#: src/Core/Backend/Page.php:1019
 msgid "Are you sure you want to delete this entry?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi această intrare?"
 
-#: src/Core/Backend/Page.php:1012
+#: src/Core/Backend/Page.php:1020
 msgid "Click here to unlock the field"
 msgstr "Click aici pentru a debloca câmpul"
 
-#: src/Core/Backend/Page.php:1013
+#: src/Core/Backend/Page.php:1021
 msgid "Are you sure you want to delete all spams?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi toate spam-urile?"
 
-#: src/Core/Backend/Page.php:1014
+#: src/Core/Backend/Page.php:1022
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi comentariile selectate (%s)?"
 
-#: src/Core/Backend/Page.php:1015
+#: src/Core/Backend/Page.php:1023
 msgid "Are you sure you want to delete this comment?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi acest comentariu?"
 
-#: src/Core/Backend/Page.php:1016
+#: src/Core/Backend/Page.php:1024
 msgid "Users with posts cannot be deleted."
 msgstr "Utilizatorii cu postări nu pot fi șterși."
 
-#: src/Core/Backend/Page.php:1017
+#: src/Core/Backend/Page.php:1025
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi utilizatorii selectaţi (%s)?"
 
-#: src/Core/Backend/Page.php:1018
+#: src/Core/Backend/Page.php:1026
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi blogurile selectate (%s)?"
 
-#: src/Core/Backend/Page.php:1019
+#: src/Core/Backend/Page.php:1027
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi categoria \"%s\"?"
 
-#: src/Core/Backend/Page.php:1020
+#: src/Core/Backend/Page.php:1028
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Sunteţi sigur că doriţi să reordonaţi toate categoriile?"
 
-#: src/Core/Backend/Page.php:1021
+#: src/Core/Backend/Page.php:1029
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Ești sigur că vrei să ștergi piesa \"%s\"?"
 
-#: src/Core/Backend/Page.php:1022
+#: src/Core/Backend/Page.php:1030
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi directorul \"%s\"?"
 
-#: src/Core/Backend/Page.php:1023
+#: src/Core/Backend/Page.php:1031
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Sunteţi sigur că doriţi să extrageţi arhiva în directorul curent?"
 
-#: src/Core/Backend/Page.php:1024
+#: src/Core/Backend/Page.php:1032
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi ataşamentul \"%s\"?"
 
-#: src/Core/Backend/Page.php:1025
+#: src/Core/Backend/Page.php:1033
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi \"\" limba%s\" ?"
 
-#: src/Core/Backend/Page.php:1026
+#: src/Core/Backend/Page.php:1034
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi \"\"%s\" plugin?"
 
-#: src/Core/Backend/Page.php:1027
+#: src/Core/Backend/Page.php:1035
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi plugin-urile selectate?"
 
-#: src/Core/Backend/Page.php:1028
+#: src/Core/Backend/Page.php:1036
 msgid "Use this theme"
 msgstr "Utilizați această temă"
 
-#: src/Core/Backend/Page.php:1029
+#: src/Core/Backend/Page.php:1037
 msgid "Remove this theme"
 msgstr "Elimină această temă"
 
-#: src/Core/Backend/Page.php:1030
+#: src/Core/Backend/Page.php:1038
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi \"\" tema%s\" ?"
 
-#: src/Core/Backend/Page.php:1031
+#: src/Core/Backend/Page.php:1039
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi temele selectate?"
 
-#: src/Core/Backend/Page.php:1032
+#: src/Core/Backend/Page.php:1040
 msgid "Are you sure you want to delete this backup?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi această copie de rezervă?"
 
-#: src/Core/Backend/Page.php:1033
+#: src/Core/Backend/Page.php:1041
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Sunteţi sigur că doriţi să reveniţi la această copie de rezervă?"
 
-#: src/Core/Backend/Page.php:1034
+#: src/Core/Backend/Page.php:1042
 msgid "Zip file content"
 msgstr "Continutul fisierului zip"
 
-#: src/Core/Backend/Page.php:1035
+#: src/Core/Backend/Page.php:1043
 msgid "HTML markup validator"
 msgstr "HTML markup validator"
 
-#: src/Core/Backend/Page.php:1036
+#: src/Core/Backend/Page.php:1044
 msgid "HTML content is valid."
 msgstr "Conținutul HTML este valid."
 
-#: src/Core/Backend/Page.php:1037
+#: src/Core/Backend/Page.php:1045
 msgid "There are HTML markup errors."
 msgstr "Există erori de markup HTML."
 
-#: src/Core/Backend/Page.php:1038
+#: src/Core/Backend/Page.php:1046
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Atenție: un audit al unui conținut neînregistrat încă."
 
-#: src/Core/Backend/Page.php:1039
+#: src/Core/Backend/Page.php:1047
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Aveți modificări nesalvate. Schimbați formatul postării va pierde aceste modificări. Continuați oricum?"
 
-#: src/Core/Backend/Page.php:1040
+#: src/Core/Backend/Page.php:1048
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Avertisment: modificarea formatului postării nu va converti conținutul existent. Va trebui să aplicați un nou format de unul singur. Continuați oricum?"
 
-#: src/Core/Backend/Page.php:1041
+#: src/Core/Backend/Page.php:1049
 msgid "Loading enhanced uploader, please wait."
 msgstr "Încărcarea încărcării îmbunătățite, vă rugăm așteptați."
 
-#: src/Core/Backend/Page.php:1046
+#: src/Core/Backend/Page.php:1054
 msgid "Help:"
 msgstr "Ajutor:"
 
-#: src/Core/Backend/Page.php:1050
+#: src/Core/Backend/Page.php:1058
 msgid "Hide this notice"
 msgstr "Ascunde această notificare"
 
-#: src/Core/Backend/Page.php:1052
+#: src/Core/Backend/Page.php:1060
 msgid "Show password"
 msgstr "Arată parola"
 
-#: src/Core/Backend/Page.php:1053
+#: src/Core/Backend/Page.php:1061
 msgid "Hide password"
 msgstr "Ascunde parola"
 
-#: src/Core/Backend/Page.php:1055
+#: src/Core/Backend/Page.php:1063
 msgid "Reset to now"
 msgstr "Resetați la acum"
 
-#: src/Core/Backend/Page.php:1057
+#: src/Core/Backend/Page.php:1065
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "În acest tablou de bord Dotclear (Ghostery, Adblock plus, uBlock origin, …) a fost detectat un blocant de reclame, care poate interfera cu unele caracteristici. În acest caz ar trebui să îl dezactivați. Rețineți că această detectare poate fi dezactivată în preferințele dvs."
 
-#: src/Core/Backend/Page.php:1112
+#: src/Core/Backend/Page.php:1119
 msgid "You have unsaved changes."
 msgstr "Aveți modificări nesalvate."
 
-#: src/Core/Backend/Page.php:1113
+#: src/Core/Backend/Page.php:1120
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "încărcarea bateriei pare scăzută (%d%) și aveți modificări nesalvate, ar trebui să le salvați."
 
-#: src/Core/Backend/Page.php:1160
+#: src/Core/Backend/Page.php:1167
 msgid "Temporarily activate enhanced uploader"
 msgstr "Activați temporar încărcarea îmbunătățită"
 
-#: src/Core/Backend/Page.php:1161
+#: src/Core/Backend/Page.php:1168
 msgid "Temporarily disable enhanced uploader"
 msgstr "Dezactivează temporar încărcarea îmbunătățită"
 
-#: src/Core/Backend/Page.php:1165
+#: src/Core/Backend/Page.php:1172
 msgid "Limit exceeded."
 msgstr "Limita a fost depășită."
 
-#: src/Core/Backend/Page.php:1166
+#: src/Core/Backend/Page.php:1173
 msgid "File size exceeds allowed limit."
 msgstr "Dimensiunea fișierului depășește limita permisă."
 
-#: src/Core/Backend/Page.php:1167
+#: src/Core/Backend/Page.php:1174
 msgid "Canceled."
 msgstr "Anulat."
 
-#: src/Core/Backend/Page.php:1168
+#: src/Core/Backend/Page.php:1175
 msgid "HTTP Error:"
 msgstr "Eroare HTTP:"
 
-#: src/Core/Backend/Page.php:1170 src/Process/Backend/Media.php:513
+#: src/Core/Backend/Page.php:1177 src/Process/Backend/Media.php:513
 msgid "Choose file"
 msgstr "Alege fișier"
 
-#: src/Core/Backend/Page.php:1171 src/Process/Backend/Media.php:514
+#: src/Core/Backend/Page.php:1178 src/Process/Backend/Media.php:514
 msgid "Choose files"
 msgstr "Alege fişiere"
 
-#: src/Core/Backend/Page.php:1172 src/Process/Backend/Blog.php:189
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:918
-#: src/Process/Backend/Category.php:276 src/Process/Backend/Comment.php:308
-#: src/Process/Backend/LinkPopup.php:72 src/Process/Backend/Media.php:230
+#: src/Core/Backend/Page.php:1179 src/Process/Backend/Blog.php:192
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:920
+#: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
+#: src/Process/Backend/LinkPopup.php:73 src/Process/Backend/Media.php:230
 #: src/Process/Backend/Media.php:569 src/Process/Backend/MediaItem.php:527
 #: src/Process/Backend/MediaItem.php:733 src/Process/Backend/MediaItem.php:1097
-#: src/Process/Backend/Post.php:796 src/Process/Backend/Post.php:799
+#: src/Process/Backend/Post.php:797 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110 src/Process/Backend/Search.php:130
-#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:614
+#: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:614
 #: src/Process/Backend/UserPreferences.php:793
 #: src/Process/Backend/UserPreferences.php:973
 msgid "Cancel"
 msgstr "Anulează"
 
-#: src/Core/Backend/Page.php:1173
+#: src/Core/Backend/Page.php:1180
 msgid "Clean"
 msgstr "Curăță"
 
-#: src/Core/Backend/Page.php:1175 src/Process/Backend/MediaItem.php:1068
+#: src/Core/Backend/Page.php:1182 src/Process/Backend/MediaItem.php:1068
 msgid "Send"
 msgstr "Trimite"
 
-#: src/Core/Backend/Page.php:1176
+#: src/Core/Backend/Page.php:1183
 msgid "File successfully uploaded."
 msgstr "Fișier încărcat cu succes."
 
-#: src/Core/Backend/Page.php:1177
+#: src/Core/Backend/Page.php:1184
 msgid "No file in queue."
 msgstr "Nici un fişier în coadă."
 
-#: src/Core/Backend/Page.php:1178
+#: src/Core/Backend/Page.php:1185
 msgid "1 file in queue."
 msgstr "Un fișier în așteptare."
 
-#: src/Core/Backend/Page.php:1179
+#: src/Core/Backend/Page.php:1186
 #, php-format
 msgid "%d files in queue."
 msgstr "%d fișiere în așteptare."
 
-#: src/Core/Backend/Page.php:1180
+#: src/Core/Backend/Page.php:1187
 msgid "Queue error:"
 msgstr "Eroare de coadă:"
 
-#: src/Core/Backend/Page.php:1223
+#: src/Core/Backend/Page.php:1230
 msgid "Cancel filters and display options"
 msgstr "Anulează filtrele și opțiunile de afișare"
 
@@ -2141,7 +2130,7 @@ msgstr "Nicio temă nu corespunde căutării tale."
 msgid "Use this one"
 msgstr "Foloseste aceasta"
 
-#: src/Core/Backend/ThemesList.php:310 src/Process/Backend/Post.php:795
+#: src/Core/Backend/ThemesList.php:310 src/Process/Backend/Post.php:796
 msgid "Preview"
 msgstr "Previzualizare"
 
@@ -2773,7 +2762,7 @@ msgstr "Nicio parolă dată"
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "ID-ul utilizatorului trebuie să conţină cel puţin 2 caractere folosind litere, numere sau simboluri."
 
-#: src/Core/Users.php:400 src/Process/Backend/User.php:287
+#: src/Core/Users.php:400 src/Process/Backend/User.php:288
 #: src/Process/Install/Install.php:194
 msgid "Password must contain at least 6 characters."
 msgstr "Parola trebuie să conțină cel puțin 6 caractere."
@@ -3144,7 +3133,7 @@ msgid "To reset your password visit the following address, otherwise just ignore
 msgstr "Pentru a reseta parola vizitaţi următoarea adresă, în caz contrar ignoraţi acest e-mail şi nu se va întâmpla nimic."
 
 #: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:440
+#: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:453
 #: src/Process/Install/Install.php:475 src/Process/Install/Install.php:527
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
@@ -3185,86 +3174,86 @@ msgstr "Pentru a te loga, trebuie să îți schimbi parola acum."
 msgid "Safe Mode can only be used for super administrators."
 msgstr "Modul sigur poate fi folosit doar pentru super administratori."
 
-#: src/Process/Backend/Auth.php:277 src/Process/Upgrade/Auth.php:142
+#: src/Process/Backend/Auth.php:283 src/Process/Upgrade/Auth.php:142
 msgid "Administration session expired"
 msgstr "Sesiunea de administrare a expirat"
 
-#: src/Process/Backend/Auth.php:277 src/Process/Upgrade/Auth.php:142
+#: src/Process/Backend/Auth.php:283 src/Process/Upgrade/Auth.php:142
 msgid "Wrong username or password"
 msgstr "Nume utilizator sau parolă greșite"
 
-#: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:386
+#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:392
 msgid "Back to login screen"
 msgstr "Înapoi la ecranul de autentificare"
 
-#: src/Process/Backend/Auth.php:357
+#: src/Process/Backend/Auth.php:363
 msgid "Request a new password"
 msgstr "Solicită o parolă nouă"
 
-#: src/Process/Backend/Auth.php:380
+#: src/Process/Backend/Auth.php:386
 msgid "recover"
 msgstr "recuperează"
 
-#: src/Process/Backend/Auth.php:385 src/Process/Backend/Auth.php:483
+#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:496
 msgid "Other option"
 msgstr "Alte opțiuni"
 
-#: src/Process/Backend/Auth.php:392
+#: src/Process/Backend/Auth.php:398
 msgid "Change your password"
 msgstr "Schimbă-ți parola"
 
-#: src/Process/Backend/Auth.php:393 src/Process/Backend/User.php:276
+#: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:277
 #: src/Process/Backend/UserPreferences.php:579
 #: src/Process/Install/Install.php:483
 msgid "New password:"
 msgstr "Parolă nouă:"
 
-#: src/Process/Backend/Auth.php:404 src/Process/Backend/User.php:290
+#: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:291
 #: src/Process/Install/Install.php:490
 msgid "Confirm password:"
 msgstr "Confirmă parola:"
 
-#: src/Process/Backend/Auth.php:413
+#: src/Process/Backend/Auth.php:419
 msgid "change"
 msgstr "schimbă"
 
-#: src/Process/Backend/Auth.php:429
+#: src/Process/Backend/Auth.php:435
 msgid "Safe mode login"
 msgstr "Autentificare în modul sigur"
 
-#: src/Process/Backend/Auth.php:431
+#: src/Process/Backend/Auth.php:437
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Acest mod vă permite să vă conectați fără a activa niciunul dintre plugin-urile dvs. Acest lucru poate fi util pentru a rezolva probleme de compatibilitate"
 
-#: src/Process/Backend/Auth.php:432
+#: src/Process/Backend/Auth.php:438
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Actualizare, dezactivare sau ștergere a oricărui plugin suspectat de a provoca probleme, apoi deconectați-vă și autentificați-vă din nou în mod normal."
 
-#: src/Process/Backend/Auth.php:461 src/Process/Upgrade/Auth.php:234
+#: src/Process/Backend/Auth.php:474 src/Process/Upgrade/Auth.php:234
 msgid "Remember my ID on this device"
 msgstr "Ține minte ID-ul meu pe acest dispozitiv"
 
-#: src/Process/Backend/Auth.php:462 src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:475 src/Process/Upgrade/Auth.php:235
 msgid "log in"
 msgstr "Autentificare"
 
-#: src/Process/Backend/Auth.php:477 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:490 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "Trebuie să acceptați cookie-uri pentru a utiliza zona privată."
 
-#: src/Process/Backend/Auth.php:484
+#: src/Process/Backend/Auth.php:497
 msgid "Get back to normal authentication"
 msgstr "Revino la autentificarea normală"
 
-#: src/Process/Backend/Auth.php:487
+#: src/Process/Backend/Auth.php:500
 msgid "Connection issue?"
 msgstr "Probleme de conexiune?"
 
-#: src/Process/Backend/Auth.php:490
+#: src/Process/Backend/Auth.php:503
 msgid "I forgot my password"
 msgstr "Mi-am uitat parola"
 
-#: src/Process/Backend/Auth.php:493
+#: src/Process/Backend/Auth.php:506
 msgid "I want to log in in safe mode"
 msgstr "Vreau să mă loghez în modul sigur"
 
@@ -3288,32 +3277,43 @@ msgstr "Blog nou"
 msgid "System"
 msgstr "Sistem"
 
-#: src/Process/Backend/Blog.php:122 src/Process/Backend/BlogPref.php:798
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:478
+#: src/Process/Backend/BlogPref.php:799 src/Process/Backend/Category.php:233
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
+#: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
+#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
+#: src/Process/Backend/Post.php:886 src/Process/Backend/User.php:255
+#: src/Process/Backend/UsersActions.php:346
+#, php-format
+msgid "Fields preceded by %s are mandatory."
+msgstr ""
+
+#: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:800
 msgid "Blog ID:"
 msgstr "ID Blog:"
 
-#: src/Process/Backend/Blog.php:130 src/Process/Backend/BlogPref.php:800
-#: src/Process/Backend/User.php:263
+#: src/Process/Backend/Blog.php:133 src/Process/Backend/BlogPref.php:802
+#: src/Process/Backend/User.php:264
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Cel puțin 2 caractere folosind litere, numere sau simboluri."
 
-#: src/Process/Backend/Blog.php:143 src/Process/Backend/BlogPref.php:478
+#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:479
 msgid "Blog name:"
 msgstr "Numele blogului:"
 
-#: src/Process/Backend/Blog.php:156 src/Process/Backend/BlogPref.php:808
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:810
 msgid "Blog URL"
 msgstr "URL Blog"
 
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:803
+#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:805
 msgid "Blog URL:"
 msgstr "URL-ul blogului:"
 
-#: src/Process/Backend/Blog.php:176 src/Process/Backend/BlogPref.php:488
+#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:489
 msgid "Blog description:"
 msgstr "Descrierea blogului:"
 
-#: src/Process/Backend/Blog.php:187 src/Process/Backend/Media.php:457
+#: src/Process/Backend/Blog.php:190 src/Process/Backend/Media.php:457
 msgid "Create"
 msgstr "Crează"
 
@@ -3343,7 +3343,7 @@ msgstr "Urmează să ştergeţi blogul %s. Fiecare intrare, comentariu şi categ
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Vă rugăm să dați parola pentru a confirma ștergerea blogului."
 
-#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:926
+#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:928
 msgid "Delete this blog"
 msgstr "Șterge acest blog"
 
@@ -3391,8 +3391,8 @@ msgstr "H3"
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:987
-#: src/Process/Backend/Category.php:245 src/Process/Backend/MediaItem.php:615
+#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:989
+#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:615
 #: src/Process/Backend/MediaItem.php:617
 msgid "(none)"
 msgstr "(niciunul)"
@@ -3516,352 +3516,352 @@ msgstr "Parametri"
 msgid "Blog parameters"
 msgstr "Parametri blog"
 
-#: src/Process/Backend/BlogPref.php:476 src/Process/Backend/BlogPref.php:796
+#: src/Process/Backend/BlogPref.php:476 src/Process/Backend/BlogPref.php:797
 msgid "Blog details"
 msgstr "Detalii blog"
 
-#: src/Process/Backend/BlogPref.php:501
+#: src/Process/Backend/BlogPref.php:502
 msgid "Blog status:"
 msgstr "Starea blogului:"
 
-#: src/Process/Backend/BlogPref.php:517 src/Process/Backend/BlogPref.php:859
+#: src/Process/Backend/BlogPref.php:518 src/Process/Backend/BlogPref.php:861
 msgid "Blog configuration"
 msgstr "Configurare Blog"
 
-#: src/Process/Backend/BlogPref.php:518
+#: src/Process/Backend/BlogPref.php:519
 msgid "Blog editor name:"
 msgstr "Numele editorului de bloguri:"
 
-#: src/Process/Backend/BlogPref.php:521
+#: src/Process/Backend/BlogPref.php:522
 msgid "Default language:"
 msgstr "Limba implicită:"
 
-#: src/Process/Backend/BlogPref.php:524
+#: src/Process/Backend/BlogPref.php:525
 msgid "Blog timezone:"
 msgstr "Fus orar Blog:"
 
-#: src/Process/Backend/BlogPref.php:527
+#: src/Process/Backend/BlogPref.php:528
 msgid "Copyright notice:"
 msgstr "Notificare drepturi de autor:"
 
-#: src/Process/Backend/BlogPref.php:540 src/Process/Backend/Comments.php:118
+#: src/Process/Backend/BlogPref.php:541 src/Process/Backend/Comments.php:118
 #: src/Process/Backend/Comments.php:123
 msgid "Comments and trackbacks"
 msgstr "Comentarii și trackback-uri"
 
-#: src/Process/Backend/BlogPref.php:546 src/Process/Backend/Post.php:679
+#: src/Process/Backend/BlogPref.php:547 src/Process/Backend/Post.php:679
 msgid "Accept comments"
 msgstr "Acceptă comentarii"
 
-#: src/Process/Backend/BlogPref.php:549
+#: src/Process/Backend/BlogPref.php:550
 msgid "Moderate comments"
 msgstr "Moderează comentariile"
 
-#: src/Process/Backend/BlogPref.php:551
+#: src/Process/Backend/BlogPref.php:552
 #, php-format
 msgid "Leave comments open for %s days"
 msgstr "Lăsați comentariile deschise pentru %s zile"
 
-#: src/Process/Backend/BlogPref.php:562 src/Process/Backend/BlogPref.php:590
+#: src/Process/Backend/BlogPref.php:563 src/Process/Backend/BlogPref.php:591
 msgid "No limit: leave blank."
 msgstr "Fără limită: lăsaţi necompletat."
 
-#: src/Process/Backend/BlogPref.php:565
+#: src/Process/Backend/BlogPref.php:566
 msgid "Wiki syntax for comments"
 msgstr "Sintaxă Wiki pentru comentarii"
 
-#: src/Process/Backend/BlogPref.php:568
+#: src/Process/Backend/BlogPref.php:569
 msgid "Preview of comment before submit is not mandatory"
 msgstr "Previzualizarea comentariului înainte de trimitere nu este obligatorie"
 
-#: src/Process/Backend/BlogPref.php:574 src/Process/Backend/Post.php:687
+#: src/Process/Backend/BlogPref.php:575 src/Process/Backend/Post.php:687
 msgid "Accept trackbacks"
 msgstr "Acceptă trackback-urile"
 
-#: src/Process/Backend/BlogPref.php:577
+#: src/Process/Backend/BlogPref.php:578
 msgid "Moderate trackbacks"
 msgstr "Moderează trackback-urile"
 
-#: src/Process/Backend/BlogPref.php:579
+#: src/Process/Backend/BlogPref.php:580
 #, php-format
 msgid "Leave trackbacks open for %s days"
 msgstr "Lăsați trackback-urile deschise pentru %s zile"
 
-#: src/Process/Backend/BlogPref.php:593
+#: src/Process/Backend/BlogPref.php:594
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Adaugă relație \"nofollow\" pe link-uri de comentarii și trackback-uri"
 
-#: src/Process/Backend/BlogPref.php:597
+#: src/Process/Backend/BlogPref.php:598
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr "Dezactivează toate comentariile și trackback-urile pe blog după o perioadă de timp fără postări noi:"
 
-#: src/Process/Backend/BlogPref.php:604
+#: src/Process/Backend/BlogPref.php:605
 msgid "Blog presentation"
 msgstr "Prezentare blog"
 
-#: src/Process/Backend/BlogPref.php:607
+#: src/Process/Backend/BlogPref.php:608
 msgid "Date format:"
 msgstr "Format dată:"
 
-#: src/Process/Backend/BlogPref.php:609
+#: src/Process/Backend/BlogPref.php:610
 msgid "Pattern of date"
 msgstr "Model de dată"
 
-#: src/Process/Backend/BlogPref.php:611 src/Process/Backend/BlogPref.php:617
-#: src/Process/Backend/BlogPref.php:864
+#: src/Process/Backend/BlogPref.php:612 src/Process/Backend/BlogPref.php:618
+#: src/Process/Backend/BlogPref.php:866
 msgid "Sample:"
 msgstr "Exemplu:"
 
-#: src/Process/Backend/BlogPref.php:613
+#: src/Process/Backend/BlogPref.php:614
 msgid "Time format:"
 msgstr "Format oră:"
 
-#: src/Process/Backend/BlogPref.php:615
+#: src/Process/Backend/BlogPref.php:616
 msgid "Pattern of time"
 msgstr "Model de timp"
 
-#: src/Process/Backend/BlogPref.php:621
+#: src/Process/Backend/BlogPref.php:622
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr "Nu încarcă foaia de stil standard (utilizată pentru alinierea media)"
 
-#: src/Process/Backend/BlogPref.php:625
+#: src/Process/Backend/BlogPref.php:626
 msgid "Display smilies on entries and comments"
 msgstr "Afişează smile la intrări şi comentarii"
 
-#: src/Process/Backend/BlogPref.php:629
+#: src/Process/Backend/BlogPref.php:630
 msgid "Disable internal search system"
 msgstr "Dezactivează sistemul de căutare internă"
 
-#: src/Process/Backend/BlogPref.php:636
+#: src/Process/Backend/BlogPref.php:637
 #, php-format
 msgid "Display %s entries on first page"
 msgstr "Afișează %s intrări pe prima pagină"
 
-#: src/Process/Backend/BlogPref.php:648
+#: src/Process/Backend/BlogPref.php:649
 #, php-format
 msgid "Display %s entries per page"
 msgstr "Afișează %s intrări pe pagină"
 
-#: src/Process/Backend/BlogPref.php:660
+#: src/Process/Backend/BlogPref.php:661
 #, php-format
 msgid "Display %s entries per feed"
 msgstr "Afișează %s intrări per flux"
 
-#: src/Process/Backend/BlogPref.php:672
+#: src/Process/Backend/BlogPref.php:673
 #, php-format
 msgid "Display %s comments per feed"
 msgstr "Afișează %s comentarii per flux"
 
-#: src/Process/Backend/BlogPref.php:685
+#: src/Process/Backend/BlogPref.php:686
 msgid "Truncate feeds"
 msgstr "Trunchiază feed-urile"
 
-#: src/Process/Backend/BlogPref.php:689
+#: src/Process/Backend/BlogPref.php:690
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "Include sub-categorii în pagina categoriei și în fluxul de postări"
 
-#: src/Process/Backend/BlogPref.php:698
+#: src/Process/Backend/BlogPref.php:699
 msgid "Display an entry as static home page"
 msgstr "Afişează o înregistrare ca pagină de start statică"
 
-#: src/Process/Backend/BlogPref.php:700
+#: src/Process/Backend/BlogPref.php:701
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "URL de intrare (conținutul său va fi utilizat pentru pagina statică de start):"
 
-#: src/Process/Backend/BlogPref.php:702
+#: src/Process/Backend/BlogPref.php:703
 msgid "Choose an entry"
 msgstr "Alege o intrare"
 
-#: src/Process/Backend/BlogPref.php:704
+#: src/Process/Backend/BlogPref.php:705
 msgid "Leave empty to use the default presentation."
 msgstr "Lăsați gol pentru a utiliza prezentarea implicită."
 
-#: src/Process/Backend/BlogPref.php:708
+#: src/Process/Backend/BlogPref.php:709
 msgid "Media and images"
 msgstr "Mass-media și imagini"
 
-#: src/Process/Backend/BlogPref.php:710
+#: src/Process/Backend/BlogPref.php:711
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr "Vă rugăm să reţineţi că, dacă modificaţi setările curente de mai jos, acestea se vor aplica acum tuturor imaginilor noi din managerul media."
 
-#: src/Process/Backend/BlogPref.php:711
+#: src/Process/Backend/BlogPref.php:712
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Fii atent dacă o împărtășești cu alte bloguri în instalare."
 
-#: src/Process/Backend/BlogPref.php:712
+#: src/Process/Backend/BlogPref.php:713
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "Setează -1 pentru a utiliza dimensiunea implicită, setează 0 pentru a ignora această dimensiune a miniaturii (doar imagini)."
 
-#: src/Process/Backend/BlogPref.php:716
+#: src/Process/Backend/BlogPref.php:717
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Dimensiuni de imagine generate (dimensiunea max în pixeli)"
 
-#: src/Process/Backend/BlogPref.php:717
+#: src/Process/Backend/BlogPref.php:718
 msgid "Thumbnail"
 msgstr "Thumbnail"
 
-#: src/Process/Backend/BlogPref.php:725
+#: src/Process/Backend/BlogPref.php:726
 msgid "Small"
 msgstr "Mică"
 
-#: src/Process/Backend/BlogPref.php:733
+#: src/Process/Backend/BlogPref.php:734
 msgid "Medium"
 msgstr "Medie"
 
-#: src/Process/Backend/BlogPref.php:741
+#: src/Process/Backend/BlogPref.php:742
 msgid "Default size of the inserted video (in pixels)"
 msgstr "Dimensiunea implicită a videoclipului inserat (în pixeli)"
 
-#: src/Process/Backend/BlogPref.php:742
+#: src/Process/Backend/BlogPref.php:743
 msgid "Width"
 msgstr "Width"
 
-#: src/Process/Backend/BlogPref.php:750
+#: src/Process/Backend/BlogPref.php:751
 msgid "Height"
 msgstr "Înălțime"
 
-#: src/Process/Backend/BlogPref.php:760
+#: src/Process/Backend/BlogPref.php:761
 msgid "Default image insertion attributes"
 msgstr "Atributele de inserare a imaginii implicite"
 
-#: src/Process/Backend/BlogPref.php:761
+#: src/Process/Backend/BlogPref.php:762
 msgid "Inserted image legend:"
 msgstr "Legenda imaginii inserate:"
 
-#: src/Process/Backend/BlogPref.php:765
+#: src/Process/Backend/BlogPref.php:766
 msgid "Use original media date if possible"
 msgstr "Utilizați data originală a fișierului media dacă este posibil"
 
-#: src/Process/Backend/BlogPref.php:768
+#: src/Process/Backend/BlogPref.php:769
 msgid "Do not display date if alone in title"
 msgstr "Nu afişa data dacă este singur în titlu"
 
-#: src/Process/Backend/BlogPref.php:769
+#: src/Process/Backend/BlogPref.php:770
 msgid "It is retrieved from the picture's metadata."
 msgstr "Acesta este preluat din metadatele pozei."
 
-#: src/Process/Backend/BlogPref.php:771
+#: src/Process/Backend/BlogPref.php:772
 msgid "Size of inserted image:"
 msgstr "Dimensiunea inserată a imaginii:"
 
-#: src/Process/Backend/BlogPref.php:778
+#: src/Process/Backend/BlogPref.php:779
 msgid "Image alignment:"
 msgstr "Alinierea imaginii:"
 
-#: src/Process/Backend/BlogPref.php:783
+#: src/Process/Backend/BlogPref.php:784
 msgid "Insert a link to the original image"
 msgstr "Introduceți un link către imaginea originală"
 
-#: src/Process/Backend/BlogPref.php:784
+#: src/Process/Backend/BlogPref.php:785
 msgid "Image legend and alternate text:"
 msgstr "Legenda imaginii și textul alternativ:"
 
-#: src/Process/Backend/BlogPref.php:793
+#: src/Process/Backend/BlogPref.php:794
 msgid "Advanced parameters"
 msgstr "Parametri avansați"
 
-#: src/Process/Backend/BlogPref.php:801
+#: src/Process/Backend/BlogPref.php:803
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "Vă rugăm să reţineţi că schimbarea ID-ului de blog poate necesita modificări în fişierul public index.php."
 
-#: src/Process/Backend/BlogPref.php:812
+#: src/Process/Backend/BlogPref.php:814
 msgid "URL scan method:"
 msgstr "Metoda de scanare URL:"
 
-#: src/Process/Backend/BlogPref.php:835
+#: src/Process/Backend/BlogPref.php:837
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr "Este posibil ca adresa URL a blogului sau metoda de scanare a URL-ului să nu fie bine setată (<code>%s</code> returnează un status <strong>%s</strong>)."
 
-#: src/Process/Backend/BlogPref.php:846
+#: src/Process/Backend/BlogPref.php:848
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "URL-ul blogului sau metoda de scanare URL ar putea să nu fie bine setat (<code>%s</code> nu returnează un flux ATOM)."
 
-#: src/Process/Backend/BlogPref.php:861
+#: src/Process/Backend/BlogPref.php:863
 msgid "New post URL format:"
 msgstr "Format URL postare nouă:"
 
-#: src/Process/Backend/BlogPref.php:864
+#: src/Process/Backend/BlogPref.php:866
 msgid "Dotclear"
 msgstr "Dotclear"
 
-#: src/Process/Backend/BlogPref.php:867
+#: src/Process/Backend/BlogPref.php:869
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "Etichetă HTML pentru titlul notelor de pe blog:"
 
-#: src/Process/Backend/BlogPref.php:874
+#: src/Process/Backend/BlogPref.php:876
 msgid "Search engines robots policy"
 msgstr "Politica de roboți a motoarelor de căutare"
 
-#: src/Process/Backend/BlogPref.php:887
+#: src/Process/Backend/BlogPref.php:889
 msgid "jQuery javascript library"
 msgstr "jQuery javascript library"
 
-#: src/Process/Backend/BlogPref.php:890
+#: src/Process/Backend/BlogPref.php:892
 msgid "Load the jQuery library"
 msgstr "Încărcați biblioteca jQuery"
 
-#: src/Process/Backend/BlogPref.php:892
+#: src/Process/Backend/BlogPref.php:894
 msgid "jQuery version to be loaded for this blog:"
 msgstr "jQuery version to be loaded for this blog: (Automatic Copy)"
 
-#: src/Process/Backend/BlogPref.php:898
+#: src/Process/Backend/BlogPref.php:900
 msgid "Blog security"
 msgstr "Securitate Blog"
 
-#: src/Process/Backend/BlogPref.php:902
+#: src/Process/Backend/BlogPref.php:904
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Protejează blogul de Clickjacking (vezi <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 
-#: src/Process/Backend/BlogPref.php:910
+#: src/Process/Backend/BlogPref.php:912
 msgid "Plugins parameters"
 msgstr "Parametrii plugin-urilor"
 
-#: src/Process/Backend/BlogPref.php:934
+#: src/Process/Backend/BlogPref.php:936
 msgid "Only superadmin can delete a blog."
 msgstr "Doar superadmin poate șterge un blog."
 
-#: src/Process/Backend/BlogPref.php:948
+#: src/Process/Backend/BlogPref.php:950
 msgid "Users on this blog"
 msgstr "Utilizatori pe acest blog"
 
-#: src/Process/Backend/BlogPref.php:951
+#: src/Process/Backend/BlogPref.php:953
 msgid "No users"
 msgstr "Niciun utilizator"
 
-#: src/Process/Backend/BlogPref.php:992
+#: src/Process/Backend/BlogPref.php:994
 msgid "Publications on this blog:"
 msgstr "Publicații pe acest blog:"
 
-#: src/Process/Backend/BlogPref.php:999
+#: src/Process/Backend/BlogPref.php:1001
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1004
+#: src/Process/Backend/BlogPref.php:1006
 msgid "Permissions:"
 msgstr "Permisiuni:"
 
-#: src/Process/Backend/BlogPref.php:1007 src/Process/Backend/User.php:320
+#: src/Process/Backend/BlogPref.php:1009 src/Process/Backend/User.php:321
 msgid "Super administrator"
 msgstr "Super administrator"
 
-#: src/Process/Backend/BlogPref.php:1008
+#: src/Process/Backend/BlogPref.php:1010
 msgid "All rights on all blogs."
 msgstr "Toate drepturile pe toate blogurile."
 
-#: src/Process/Backend/BlogPref.php:1014
+#: src/Process/Backend/BlogPref.php:1016
 #: src/Process/Backend/UsersActions.php:337
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (permisiune fără referință)"
 
-#: src/Process/Backend/BlogPref.php:1018
+#: src/Process/Backend/BlogPref.php:1020
 msgid "All rights on this blog."
 msgstr "Toate drepturile de pe acest blog."
 
-#: src/Process/Backend/BlogPref.php:1029 src/Process/Backend/User.php:470
+#: src/Process/Backend/BlogPref.php:1031 src/Process/Backend/User.php:471
 msgid "Change permissions"
 msgstr "Schimbă permisiunile"
 
@@ -4036,8 +4036,8 @@ msgstr "%d intrare"
 msgid "total:"
 msgstr "total:"
 
-#: src/Process/Backend/Categories.php:192 src/Process/Backend/Category.php:256
-#: src/Process/Backend/User.php:360 src/Process/Backend/UserPreferences.php:555
+#: src/Process/Backend/Categories.php:192 src/Process/Backend/Category.php:257
+#: src/Process/Backend/User.php:361 src/Process/Backend/UserPreferences.php:555
 msgid "URL:"
 msgstr "URL:"
 
@@ -4086,43 +4086,43 @@ msgstr "Categoria a fost actualizată cu succes."
 msgid "Category information"
 msgstr "Informații categorie"
 
-#: src/Process/Backend/Category.php:233 src/Process/Backend/Post.php:888
+#: src/Process/Backend/Category.php:234 src/Process/Backend/Post.php:890
 msgid "Name:"
 msgstr "Nume:"
 
-#: src/Process/Backend/Category.php:260
+#: src/Process/Backend/Category.php:261
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Avertisment: Dacă setați URL-ul manual, acesta poate intra în conflict cu o altă categorie."
 
-#: src/Process/Backend/Category.php:263 src/Process/Backend/MediaItem.php:1036
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1036
 msgid "Description:"
 msgstr "Descriere:"
 
-#: src/Process/Backend/Category.php:284
+#: src/Process/Backend/Category.php:285
 msgid "Move this category"
 msgstr "Mută această categorie"
 
-#: src/Process/Backend/Category.php:295
+#: src/Process/Backend/Category.php:296
 msgid "Category parent"
 msgstr "Categorie părinte"
 
-#: src/Process/Backend/Category.php:324
+#: src/Process/Backend/Category.php:325
 msgid "Category sibling"
 msgstr "Categorie frate"
 
-#: src/Process/Backend/Category.php:326
+#: src/Process/Backend/Category.php:327
 msgid "Move current category"
 msgstr "Mută categoria curentă"
 
-#: src/Process/Backend/Category.php:331
+#: src/Process/Backend/Category.php:332
 msgid "before"
 msgstr "înainte"
 
-#: src/Process/Backend/Category.php:332
+#: src/Process/Backend/Category.php:333
 msgid "after"
 msgstr "după"
 
-#: src/Process/Backend/Category.php:334
+#: src/Process/Backend/Category.php:335
 msgid "position: "
 msgstr "poziție: "
 
@@ -4134,28 +4134,28 @@ msgstr "Intrarea nu există."
 msgid "Comment has been successfully created."
 msgstr "Comentariul a fost creat cu succes."
 
-#: src/Process/Backend/Comment.php:179 src/Process/Backend/Comment.php:239
+#: src/Process/Backend/Comment.php:182 src/Process/Backend/Comment.php:242
 msgid "Comment has been successfully updated."
 msgstr "Comentariul a fost actualizat cu succes."
 
-#: src/Process/Backend/Comment.php:195
+#: src/Process/Backend/Comment.php:198
 msgid "Comment has been successfully deleted."
 msgstr "Comentariul a fost șters cu succes."
 
-#: src/Process/Backend/Comment.php:203
+#: src/Process/Backend/Comment.php:206
 msgid "You can't edit this comment."
 msgstr "Nu poți edita acest comentariu."
 
-#: src/Process/Backend/Comment.php:224 src/Process/Backend/Comment.php:227
+#: src/Process/Backend/Comment.php:227 src/Process/Backend/Comment.php:230
 msgid "Edit comment"
 msgstr "Editare comentariu"
 
-#: src/Process/Backend/Comment.php:245
+#: src/Process/Backend/Comment.php:248
 #, php-format
 msgid "Your comment on my blog %s"
 msgstr "Comentariul tau pe blogul meu %s"
 
-#: src/Process/Backend/Comment.php:246
+#: src/Process/Backend/Comment.php:249
 #, php-format
 msgid "Hi!\n\n"
 "You wrote a comment on:\n"
@@ -4164,23 +4164,23 @@ msgstr "Salut!\n\n"
 "Ai scris un comentariu la:\n"
 "%s\n\n\n"
 
-#: src/Process/Backend/Comment.php:246
+#: src/Process/Backend/Comment.php:249
 msgid "Send an e-mail"
 msgstr "Trimite un e-mail"
 
-#: src/Process/Backend/Comment.php:252
+#: src/Process/Backend/Comment.php:255
 msgid "Information collected"
 msgstr "Informații colectate"
 
-#: src/Process/Backend/Comment.php:261
+#: src/Process/Backend/Comment.php:264
 msgid "Date:"
 msgstr "Data:"
 
-#: src/Process/Backend/Comment.php:265
+#: src/Process/Backend/Comment.php:268
 msgid "Comment submitted"
 msgstr "Comentariu trimis"
 
-#: src/Process/Backend/Comment.php:293 src/Process/Backend/Post.php:904
+#: src/Process/Backend/Comment.php:297 src/Process/Backend/Post.php:906
 msgid "Comment:"
 msgstr "Comentariu:"
 
@@ -4209,7 +4209,7 @@ msgstr "Arată-le."
 msgid "Delete all spams"
 msgstr "Şterge toate spam-urile"
 
-#: src/Process/Backend/Comments.php:180 src/Process/Backend/Post.php:870
+#: src/Process/Backend/Comments.php:180 src/Process/Backend/Post.php:871
 #: src/Process/Backend/Search.php:321
 msgid "Selected comments action:"
 msgstr "Acțiune comentarii selectate:"
@@ -4284,23 +4284,23 @@ msgstr "Au apărut erori cu următoarele plugin-uri:"
 msgid "Quick post"
 msgstr "Postare rapidă"
 
-#: src/Process/Backend/Home.php:435 src/Process/Backend/Post.php:732
+#: src/Process/Backend/Home.php:436 src/Process/Backend/Post.php:732
 msgid "Content:"
 msgstr "Conţinut:"
 
-#: src/Process/Backend/Home.php:436 src/Process/Backend/Post.php:739
+#: src/Process/Backend/Home.php:437 src/Process/Backend/Post.php:739
 msgid "Content"
 msgstr "Conținut"
 
-#: src/Process/Backend/Home.php:444 src/Process/Backend/Post.php:661
+#: src/Process/Backend/Home.php:445 src/Process/Backend/Post.php:661
 msgid "Add a new category"
 msgstr "Adaugă o nouă categorie"
 
-#: src/Process/Backend/Home.php:450
+#: src/Process/Backend/Home.php:451
 msgid "This category will be created when you will save your post."
 msgstr "Această categorie va fi creată când veți salva postarea."
 
-#: src/Process/Backend/Home.php:457
+#: src/Process/Backend/Home.php:458
 msgid "Save and publish"
 msgstr "Salvează și publică"
 
@@ -4388,29 +4388,29 @@ msgstr "Puteți instala sau elimina o limbă prin adăugarea sau ștergerea dire
 msgid "Available languages"
 msgstr "Limbi disponibile"
 
-#: src/Process/Backend/Langs.php:308 src/Process/Upgrade/Langs.php:359
+#: src/Process/Backend/Langs.php:309 src/Process/Upgrade/Langs.php:359
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
 msgstr "Puteți descărca și instala o limbă suplimentară direct din Dotclear.net. Limbile propuse sunt bazate pe versiunea dvs.: %s."
 
-#: src/Process/Backend/Langs.php:310 src/Process/Backend/User.php:380
+#: src/Process/Backend/Langs.php:311 src/Process/Backend/User.php:381
 #: src/Process/Upgrade/Langs.php:365
 msgid "Language:"
 msgstr "Limbă:"
 
-#: src/Process/Backend/Langs.php:321 src/Process/Upgrade/Langs.php:386
+#: src/Process/Backend/Langs.php:322 src/Process/Upgrade/Langs.php:386
 msgid "Install language"
 msgstr "Instalare limbă"
 
-#: src/Process/Backend/Langs.php:332 src/Process/Upgrade/Langs.php:400
+#: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:400
 msgid "You can install languages by uploading zip files."
 msgstr "Puteți instala limbile încărcând fișiere zip."
 
-#: src/Process/Backend/Langs.php:333 src/Process/Upgrade/Langs.php:409
+#: src/Process/Backend/Langs.php:335 src/Process/Upgrade/Langs.php:409
 msgid "Language zip file:"
 msgstr "Fişier zip lingvistic:"
 
-#: src/Process/Backend/Langs.php:344 src/Process/Upgrade/Langs.php:436
+#: src/Process/Backend/Langs.php:346 src/Process/Upgrade/Langs.php:436
 msgid "Upload language"
 msgstr "Încarcă limba"
 
@@ -4418,19 +4418,19 @@ msgstr "Încarcă limba"
 msgid "Add a link"
 msgstr "Adaugă un link"
 
-#: src/Process/Backend/LinkPopup.php:58
+#: src/Process/Backend/LinkPopup.php:59
 msgid "Link URL:"
 msgstr "Link URL:"
 
-#: src/Process/Backend/LinkPopup.php:64
+#: src/Process/Backend/LinkPopup.php:65
 msgid "Link title:"
 msgstr "Titlu link:"
 
-#: src/Process/Backend/LinkPopup.php:66
+#: src/Process/Backend/LinkPopup.php:67
 msgid "Link language:"
 msgstr "Limba link-ului:"
 
-#: src/Process/Backend/LinkPopup.php:73 src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:732
 msgid "Insert"
 msgstr "Insert"
 
@@ -4953,10 +4953,6 @@ msgstr "Configurare plugin"
 msgid "Edit post"
 msgstr "Editează postarea"
 
-#: src/Process/Backend/Post.php:138
-msgid "This entry does not exist."
-msgstr "Această intrare nu există."
-
 #: src/Process/Backend/Post.php:170
 msgid "Next entry"
 msgstr "Următoarea intrare"
@@ -5031,7 +5027,7 @@ msgstr "Depozit"
 msgid "Selected entry"
 msgstr "Intrare selectată"
 
-#: src/Process/Backend/Post.php:673 src/Process/Backend/User.php:378
+#: src/Process/Backend/Post.php:673 src/Process/Backend/User.php:379
 msgid "Options"
 msgstr "Opţiuni"
 
@@ -5079,51 +5075,51 @@ msgstr "Note personale:"
 msgid "Unpublished notes."
 msgstr "Note nepublicate."
 
-#: src/Process/Backend/Post.php:849 src/Process/Backend/Post.php:884
+#: src/Process/Backend/Post.php:850 src/Process/Backend/Post.php:885
 msgid "Add a comment"
 msgstr "Adaugă un comentariu"
 
-#: src/Process/Backend/Post.php:948
+#: src/Process/Backend/Post.php:950
 msgid "Trackbacks received"
 msgstr "Trackback-uri primite"
 
-#: src/Process/Backend/Post.php:954
+#: src/Process/Backend/Post.php:956
 msgid "No trackback"
 msgstr "Fără trackback"
 
-#: src/Process/Backend/Post.php:962
+#: src/Process/Backend/Post.php:964
 msgid "Selected trackbacks action:"
 msgstr "Acțiune de trackback-uri selectate:"
 
-#: src/Process/Backend/Post.php:979 src/Process/Backend/Post.php:990
+#: src/Process/Backend/Post.php:981 src/Process/Backend/Post.php:992
 msgid "Ping blogs"
 msgstr "Ping bloguri"
 
-#: src/Process/Backend/Post.php:981
+#: src/Process/Backend/Post.php:983
 msgid "URLs to ping:"
 msgstr "URL-uri de fixare:"
 
-#: src/Process/Backend/Post.php:985
+#: src/Process/Backend/Post.php:987
 msgid "Excerpt to send:"
 msgstr "Extras de trimis:"
 
-#: src/Process/Backend/Post.php:991
+#: src/Process/Backend/Post.php:993
 msgid "Auto discover ping URLs"
 msgstr "Descoperă automat adresele URL de ping"
 
-#: src/Process/Backend/Post.php:999
+#: src/Process/Backend/Post.php:1001
 msgid "Previously sent pings"
 msgstr "Ping-uri trimise anterior"
 
-#: src/Process/Backend/Post.php:1116
+#: src/Process/Backend/Post.php:1118
 msgid "select this comment"
 msgstr "selectează acest comentariu"
 
-#: src/Process/Backend/Post.php:1116
+#: src/Process/Backend/Post.php:1118
 msgid "select this trackback"
 msgstr "selectează acest trackback"
 
-#: src/Process/Backend/Post.php:1135
+#: src/Process/Backend/Post.php:1137
 msgid "Edit this comment"
 msgstr "Editează acest comentariu"
 
@@ -5396,114 +5392,114 @@ msgstr "puternic"
 msgid "User profile"
 msgstr "Profil utilizator"
 
-#: src/Process/Backend/User.php:256
+#: src/Process/Backend/User.php:257
 msgid "User ID:"
 msgstr "ID utilizator:"
 
-#: src/Process/Backend/User.php:259
+#: src/Process/Backend/User.php:260
 msgid "Login"
 msgstr "Autentificare"
 
-#: src/Process/Backend/User.php:267
+#: src/Process/Backend/User.php:268
 msgid "Warning:"
 msgstr "Avertisment:"
 
-#: src/Process/Backend/User.php:268
+#: src/Process/Backend/User.php:269
 msgid "If you change your username, you will have to log in again."
 msgstr "Dacă vă schimbați numele de utilizator, va trebui să vă autentificați din nou."
 
-#: src/Process/Backend/User.php:305
+#: src/Process/Backend/User.php:306
 msgid "Password change required to connect"
 msgstr "Este necesară schimbarea parolei pentru conectare"
 
-#: src/Process/Backend/User.php:323 src/Process/Backend/UserPreferences.php:520
+#: src/Process/Backend/User.php:324 src/Process/Backend/UserPreferences.php:520
 #: src/Process/Install/Install.php:459
 msgid "Last Name:"
 msgstr "Nume de Familie:"
 
-#: src/Process/Backend/User.php:330 src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/User.php:331 src/Process/Backend/UserPreferences.php:527
 #: src/Process/Install/Install.php:453
 msgid "First Name:"
 msgstr "Primul Nume:"
 
-#: src/Process/Backend/User.php:337 src/Process/Backend/UserPreferences.php:534
+#: src/Process/Backend/User.php:338 src/Process/Backend/UserPreferences.php:534
 msgid "Display name:"
 msgstr "Nume afișat:"
 
-#: src/Process/Backend/User.php:351
+#: src/Process/Backend/User.php:352
 msgid "Mandatory for password recovering procedure."
 msgstr "Obligatoriu pentru procedura de recuperare a parolei."
 
-#: src/Process/Backend/User.php:353 src/Process/Backend/UserPreferences.php:548
+#: src/Process/Backend/User.php:354 src/Process/Backend/UserPreferences.php:548
 msgid "Alternate emails (comma separated list):"
 msgstr "E-mailuri alternative (lista separate prin virgulă):"
 
-#: src/Process/Backend/User.php:358 src/Process/Backend/UserPreferences.php:553
+#: src/Process/Backend/User.php:359 src/Process/Backend/UserPreferences.php:553
 msgid "Invalid emails will be automatically removed from list."
 msgstr "E-mailurile nevalide vor fi eliminate automat din listă."
 
-#: src/Process/Backend/User.php:368 src/Process/Backend/UserPreferences.php:563
+#: src/Process/Backend/User.php:369 src/Process/Backend/UserPreferences.php:563
 msgid "Alternate URLs (comma separated list):"
 msgstr "URL-uri alternative (listă separată prin virgulă):"
 
-#: src/Process/Backend/User.php:373 src/Process/Backend/UserPreferences.php:568
+#: src/Process/Backend/User.php:374 src/Process/Backend/UserPreferences.php:568
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "URL-uri nevalide vor fi eliminate automat din listă."
 
-#: src/Process/Backend/User.php:379 src/Process/Backend/UserPreferences.php:627
+#: src/Process/Backend/User.php:380 src/Process/Backend/UserPreferences.php:627
 msgid "Interface"
 msgstr "Interfață"
 
-#: src/Process/Backend/User.php:384
+#: src/Process/Backend/User.php:385
 msgid "Timezone:"
 msgstr "Timezone:"
 
-#: src/Process/Backend/User.php:388 src/Process/Backend/UserPreferences.php:739
+#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:739
 msgid "Edition"
 msgstr "Ediție"
 
-#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:753
+#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:753
 msgid "Preferred format:"
 msgstr "Format preferat:"
 
-#: src/Process/Backend/User.php:393 src/Process/Backend/UserPreferences.php:756
+#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:756
 msgid "Default entry status:"
 msgstr "Starea implicită a intrării:"
 
-#: src/Process/Backend/User.php:397 src/Process/Backend/UserPreferences.php:759
+#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:759
 msgid "Entry edit field height:"
 msgstr "Înălţime câmp editare intrare:"
 
-#: src/Process/Backend/User.php:421
+#: src/Process/Backend/User.php:422
 msgid "Save and create another"
 msgstr "Salvează și creează altul"
 
-#: src/Process/Backend/User.php:432 src/Process/Backend/UsersActions.php:152
+#: src/Process/Backend/User.php:433 src/Process/Backend/UsersActions.php:152
 msgid "Permissions"
 msgstr "Permisiuni"
 
-#: src/Process/Backend/User.php:437
+#: src/Process/Backend/User.php:438
 msgid "Add new permissions"
 msgstr "Adaugă permisiuni noi"
 
-#: src/Process/Backend/User.php:450
+#: src/Process/Backend/User.php:451
 msgid "No permissions so far."
 msgstr "Nu există permisiuni până acum."
 
-#: src/Process/Backend/User.php:483
+#: src/Process/Backend/User.php:484
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s este super admin (toate drepturile pe toate blogurile)."
 
-#: src/Process/Backend/User.php:491
+#: src/Process/Backend/User.php:492
 msgid "Direct links"
 msgstr "Link-uri directe"
 
-#: src/Process/Backend/User.php:495
+#: src/Process/Backend/User.php:496
 msgid "List of posts"
 msgstr "Lista postărilor"
 
-#: src/Process/Backend/User.php:505
+#: src/Process/Backend/User.php:506
 msgid "List of comments"
 msgstr "Lista comentariilor"
 

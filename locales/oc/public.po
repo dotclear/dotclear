@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-11-25 06:45\n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-01-16 09:46\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "Language: oc_FR\n"
@@ -121,14 +121,18 @@ msgid "Extra menu"
 msgstr ""
 
 #: __html_tpl_dummy.php:24
-msgid "From"
+msgid "Fields followed by * are mandatory"
 msgstr ""
 
 #: __html_tpl_dummy.php:25
+msgid "From"
+msgstr ""
+
+#: __html_tpl_dummy.php:26
 msgid "FromDay"
 msgstr "APartir"
 
-#: __html_tpl_dummy.php:26
+#: __html_tpl_dummy.php:27
 msgid "Go to homepage"
 msgstr ""
 
@@ -147,33 +151,33 @@ msgstr "Lengas"
 msgid "Links"
 msgstr "Ligams"
 
-#: __html_tpl_dummy.php:28
+#: __html_tpl_dummy.php:29
 msgid "Name or nickname"
 msgstr "Nom o escais"
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:30
 msgid "Next entry:"
 msgstr ""
 
-#: __html_tpl_dummy.php:30
+#: __html_tpl_dummy.php:31
 msgid "On"
 msgstr "Sus"
 
 msgid "Page top"
 msgstr "Naut de la pagina"
 
-#: __html_tpl_dummy.php:33
+#: __html_tpl_dummy.php:34
 msgid "Pagination"
 msgstr ""
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:35
 msgid "Password needed"
 msgstr "Senhal requesit"
 
 msgid "Password:"
 msgstr "Senhal :"
 
-#: __html_tpl_dummy.php:36
+#: __html_tpl_dummy.php:37
 msgid "Permalink"
 msgstr "Permaligam"
 
@@ -183,7 +187,7 @@ msgstr "Propulsat per %s"
 msgid "Preview"
 msgstr ""
 
-#: __html_tpl_dummy.php:38
+#: __html_tpl_dummy.php:39
 msgid "Previous entry:"
 msgstr ""
 
@@ -193,7 +197,7 @@ msgstr "Un flux RSS es un resumit del blòg. Fornís de contenguts (siá de publ
 msgid "Read"
 msgstr "Legir"
 
-#: __html_tpl_dummy.php:40
+#: __html_tpl_dummy.php:41
 msgid "Remember me on this blog"
 msgstr "Se remembrar de ieu sul blòg"
 

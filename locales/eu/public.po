@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-11-25 06:45\n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-01-16 09:45\n"
 "Last-Translator: \n"
 "Language-Team: Basque\n"
 "Language: eu_ES\n"
@@ -121,14 +121,18 @@ msgid "Extra menu"
 msgstr ""
 
 #: __html_tpl_dummy.php:24
-msgid "From"
+msgid "Fields followed by * are mandatory"
 msgstr ""
 
 #: __html_tpl_dummy.php:25
-msgid "FromDay"
+msgid "From"
 msgstr ""
 
 #: __html_tpl_dummy.php:26
+msgid "FromDay"
+msgstr ""
+
+#: __html_tpl_dummy.php:27
 msgid "Go to homepage"
 msgstr ""
 
@@ -147,33 +151,33 @@ msgstr ""
 msgid "Links"
 msgstr "estekak "
 
-#: __html_tpl_dummy.php:28
+#: __html_tpl_dummy.php:29
 msgid "Name or nickname"
 msgstr ""
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:30
 msgid "Next entry:"
 msgstr ""
 
-#: __html_tpl_dummy.php:30
+#: __html_tpl_dummy.php:31
 msgid "On"
 msgstr ""
 
 msgid "Page top"
 msgstr ""
 
-#: __html_tpl_dummy.php:33
+#: __html_tpl_dummy.php:34
 msgid "Pagination"
 msgstr ""
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:35
 msgid "Password needed"
 msgstr ""
 
 msgid "Password:"
 msgstr "Pasahitza:"
 
-#: __html_tpl_dummy.php:36
+#: __html_tpl_dummy.php:37
 msgid "Permalink"
 msgstr "Esteka iraunkorren"
 
@@ -183,7 +187,7 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
-#: __html_tpl_dummy.php:38
+#: __html_tpl_dummy.php:39
 msgid "Previous entry:"
 msgstr ""
 
@@ -193,7 +197,7 @@ msgstr ""
 msgid "Read"
 msgstr "Irakurri"
 
-#: __html_tpl_dummy.php:40
+#: __html_tpl_dummy.php:41
 msgid "Remember me on this blog"
 msgstr "Gogora nazazu "
 

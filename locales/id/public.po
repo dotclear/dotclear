@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-12-11 16:23\n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-01-16 09:45\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -121,14 +121,18 @@ msgid "Extra menu"
 msgstr "Menu tambahan"
 
 #: __html_tpl_dummy.php:24
+msgid "Fields followed by * are mandatory"
+msgstr ""
+
+#: __html_tpl_dummy.php:25
 msgid "From"
 msgstr "Dari"
 
-#: __html_tpl_dummy.php:25
+#: __html_tpl_dummy.php:26
 msgid "FromDay"
 msgstr "FromDay"
 
-#: __html_tpl_dummy.php:26
+#: __html_tpl_dummy.php:27
 msgid "Go to homepage"
 msgstr "Pergi ke beranda"
 
@@ -147,33 +151,33 @@ msgstr "Bahasa"
 msgid "Links"
 msgstr "Tautan"
 
-#: __html_tpl_dummy.php:28
+#: __html_tpl_dummy.php:29
 msgid "Name or nickname"
 msgstr "Nama atau nama panggilan"
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:30
 msgid "Next entry:"
 msgstr "Entri berikutnya:"
 
-#: __html_tpl_dummy.php:30
+#: __html_tpl_dummy.php:31
 msgid "On"
 msgstr "Pada"
 
 msgid "Page top"
 msgstr "Halaman atas"
 
-#: __html_tpl_dummy.php:33
+#: __html_tpl_dummy.php:34
 msgid "Pagination"
 msgstr "Penomoran halaman"
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:35
 msgid "Password needed"
 msgstr "Kata sandi diperlukan"
 
 msgid "Password:"
 msgstr "Kata sandi:"
 
-#: __html_tpl_dummy.php:36
+#: __html_tpl_dummy.php:37
 msgid "Permalink"
 msgstr "Permalink"
 
@@ -183,7 +187,7 @@ msgstr "Dipersembahkan oleh %s"
 msgid "Preview"
 msgstr "Pratinjau"
 
-#: __html_tpl_dummy.php:38
+#: __html_tpl_dummy.php:39
 msgid "Previous entry:"
 msgstr "Entri sebelumnya:"
 
@@ -193,7 +197,7 @@ msgstr "Umpan RSS adalah ringkasan blog gratis. Ini menyediakan konten (baik pos
 msgid "Read"
 msgstr "Baca"
 
-#: __html_tpl_dummy.php:40
+#: __html_tpl_dummy.php:41
 msgid "Remember me on this blog"
 msgstr "Ingat saya di blog ini"
 

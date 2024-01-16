@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-24 21:00+0100\n"
-"PO-Revision-Date: 2023-12-24 22:54\n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-01-16 09:44\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -479,114 +479,118 @@ msgid "Manage every blog configuration directive"
 msgstr "Spravovat každou konfigurační direktivu blogu"
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
+msgid "Uninstall cleanly plugins and themes"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:14
 #: plugins/dcLegacyEditor/src/Backend.php:24
 msgid "dotclear legacy editor"
 msgstr "editor odkazů"
 
-#: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/_fake_plugin/_fake_l10n.php:15
 #: plugins/themeEditor/src/Backend.php:24
 msgid "Theme Editor"
 msgstr "Editor vzhledu"
 
-#: plugins/_fake_plugin/_fake_l10n.php:15 plugins/simpleMenu/src/Backend.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:16 plugins/simpleMenu/src/Backend.php:25
 msgid "Simple menu for Dotclear"
 msgstr "Jednoduché menu pro Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/_fake_plugin/_fake_l10n.php:17
 #: plugins/importExport/src/Backend.php:26
 msgid "Import and Export your blog"
 msgstr "Importovat a exportovat váš blog"
 
-#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/userPref/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/userPref/src/Backend.php:24
 msgid "Manage every user preference directive"
 msgstr "Spravovat direktivy všech uživatelských preferencí"
 
-#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/dcCKEditor/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/dcCKEditor/src/Backend.php:24
 msgid "dotclear CKEditor integration"
 msgstr "integrace CKEditoru dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19
+#: plugins/_fake_plugin/_fake_l10n.php:20
 #: plugins/maintenance/src/Backend.php:24
 msgid "Maintain your installation"
 msgstr "Udržujte vaši instalaci"
 
-#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/breadcrumb/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/breadcrumb/src/Backend.php:24
 msgid "Breadcrumb for Dotclear"
 msgstr "drobečková navigace pro Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/blogroll/src/Backend.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/blogroll/src/Backend.php:25
 msgid "Manage your blogroll"
 msgstr "Spravujte svůj blogroll"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/pings/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/pings/src/Backend.php:26
 msgid "Ping services"
 msgstr "Ping"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/tags/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/tags/src/Backend.php:24
 msgid "Tags for posts"
 msgstr "Štítky pro příspěvky"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/widgets/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/widgets/src/Backend.php:26
 msgid "Widgets for your blog sidebars"
 msgstr "Widgety pro vaše postranní panely"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:26
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr "Řádek s funkcí/metodou stopy V1 (< 2.24, 2.25)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:30
 msgid "Search engine form"
 msgstr "Formulář vyhledávače"
 
-#: plugins/_fake_plugin/_fake_l10n.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:31
 msgid "List of navigation links"
 msgstr "Seznam odkazů navigace"
 
-#: plugins/_fake_plugin/_fake_l10n.php:31
+#: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of selected entries"
 msgstr "Seznam vybraných položek"
 
-#: plugins/_fake_plugin/_fake_l10n.php:32
+#: plugins/_fake_plugin/_fake_l10n.php:33
 msgid "List of available languages"
 msgstr "Seznam dostupných jazyků"
 
-#: plugins/_fake_plugin/_fake_l10n.php:33 plugins/widgets/src/Widgets.php:121
+#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:121
 msgid "List of categories"
 msgstr "Seznam kategorií"
 
-#: plugins/_fake_plugin/_fake_l10n.php:34
+#: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "Feed subscription links (RSS or Atom)"
 msgstr "Odkazy na předplatné kanálu (RSS nebo Atom)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35
+#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "List of last entries from feed (RSS or Atom)"
 msgstr "Seznam posledních položek krmiva (RSS nebo Atom)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:36
+#: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "Simple text"
 msgstr "Jednoduchý text"
 
-#: plugins/_fake_plugin/_fake_l10n.php:37
+#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "List of last entries published"
 msgstr "Seznam posledních publikovaných záznamů"
 
-#: plugins/_fake_plugin/_fake_l10n.php:38
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of last comments published"
 msgstr "Seznam posledních zveřejněných komentářů"
 
-#: plugins/_fake_plugin/_fake_l10n.php:39
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of published pages"
 msgstr "Seznam publikovaných stránek"
 
-#: plugins/_fake_plugin/_fake_l10n.php:40
+#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "List of simple menu items"
 msgstr "Seznam jednoduchých položek nabídky"
 
-#: plugins/_fake_plugin/_fake_l10n.php:41
+#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "Blogroll list"
 msgstr "Blogroll seznam"
 
-#: plugins/_fake_plugin/_fake_l10n.php:42
+#: plugins/_fake_plugin/_fake_l10n.php:43
 msgid "Tags cloud"
 msgstr "Tagy cloud"
 
@@ -1003,7 +1007,7 @@ msgstr "Musíte vložit název odkazu"
 msgid "You must provide a link URL"
 msgstr "Musíte vložit URL odkazu"
 
-#: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:391
+#: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:394
 msgid "Nothing to import"
 msgstr "Není nic k importu"
 
@@ -1055,24 +1059,24 @@ msgstr "Seznam odkazů je prázdný."
 msgid "Add a new link"
 msgstr "Přidat nový odkaz"
 
-#: plugins/blogroll/src/Manage.php:354
+#: plugins/blogroll/src/Manage.php:355
 msgid "Add a category"
 msgstr "Přidat kategorii"
 
-#: plugins/blogroll/src/Manage.php:371 plugins/blogroll/src/Manage.php:376
-#: plugins/blogroll/src/Manage.php:388
+#: plugins/blogroll/src/Manage.php:373 plugins/blogroll/src/Manage.php:378
+#: plugins/blogroll/src/Manage.php:391
 msgid "Import links"
 msgstr "Importovat odkazy"
 
-#: plugins/blogroll/src/Manage.php:377
+#: plugins/blogroll/src/Manage.php:380
 msgid "OPML or XBEL File:"
 msgstr "OPML nebo XBEL soubor:"
 
-#: plugins/blogroll/src/Manage.php:381 plugins/blogroll/src/Manage.php:425
+#: plugins/blogroll/src/Manage.php:384 plugins/blogroll/src/Manage.php:428
 #: plugins/importExport/src/Manage.php:116
 #: plugins/importExport/src/ModuleImportFeed.php:227
 #: plugins/importExport/src/ModuleImportFlat.php:213
-#: plugins/importExport/src/ModuleImportFlat.php:251
+#: plugins/importExport/src/ModuleImportFlat.php:252
 msgid "Import"
 msgstr "Importovat"
 
@@ -1346,12 +1350,12 @@ msgid "URL field cannot be empty."
 msgstr "Pole URL nemůže být prázdné."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:92
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:171
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:172
 msgid "Open the media"
 msgstr "Otevření médií"
 
 #: plugins/dcCKEditor/src/Manage.php:128
-#: plugins/dcLegacyEditor/src/Manage.php:43
+#: plugins/dcLegacyEditor/src/Manage.php:47
 msgid "The configuration has been updated."
 msgstr "Konfigurace byla aktualizována."
 
@@ -1443,8 +1447,8 @@ msgstr "Přidat tlačítka Zpět/Zpět"
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Zakáže vestavěnou kontrolu pravopisu, pokud prohlížeč poskytuje"
 
-#: plugins/dcCKEditor/tpl/index.php:136 plugins/dcLegacyEditor/tpl/index.php:30
-#: plugins/simpleMenu/src/Manage.php:635
+#: plugins/dcCKEditor/tpl/index.php:136 plugins/dcLegacyEditor/tpl/index.php:39
+#: plugins/simpleMenu/src/Manage.php:636
 msgid "Save configuration"
 msgstr "Uložit konfiguraci"
 
@@ -1570,6 +1574,10 @@ msgstr "Odstranit formátování textu"
 msgid "Enable dcLegacyEditor plugin"
 msgstr "Povolit dcLegacyEditor plugin"
 
+#: plugins/dcLegacyEditor/tpl/index.php:31
+msgid "Adjust height of input area during editing"
+msgstr ""
+
 #: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:63
 msgid "Checks trackback source for a link to the post"
 msgstr "Zkontroluj zdroj trackbacku, jestli je tam odkaz na článek"
@@ -1591,8 +1599,8 @@ msgstr "Export databáze"
 msgid "Download database of current blog"
 msgstr "Stáhnout databázi aktuálního blogu"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:83
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:81
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:84
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:82
 #: plugins/importExport/src/ModuleExportFlat.php:214
 #: plugins/importExport/src/ModuleExportFlat.php:238
 msgid "Compress file"
@@ -1867,34 +1875,34 @@ msgid "This will import a single blog backup as new content in the current blog:
 msgstr "Tímto naimportujete zálohu jednoho blogu jako nový obsah tohoto blogu: %s."
 
 #: plugins/importExport/src/ModuleImportFlat.php:196
-#: plugins/importExport/src/ModuleImportFlat.php:223
+#: plugins/importExport/src/ModuleImportFlat.php:224
 msgid "Upload a backup file"
 msgstr "Nahrát záložní soubor"
 
 #: plugins/importExport/src/ModuleImportFlat.php:197
-#: plugins/importExport/src/ModuleImportFlat.php:224
+#: plugins/importExport/src/ModuleImportFlat.php:225
 #, php-format
 msgid "maximum size %s"
 msgstr "maximální velikost %s"
 
 #: plugins/importExport/src/ModuleImportFlat.php:203
-#: plugins/importExport/src/ModuleImportFlat.php:230
+#: plugins/importExport/src/ModuleImportFlat.php:231
 msgid "or pick up a local file in your public directory"
 msgstr "nebo vyberte lokální soubor ve svém veřejném adresáři"
 
-#: plugins/importExport/src/ModuleImportFlat.php:221
+#: plugins/importExport/src/ModuleImportFlat.php:222
 msgid "This will reset all the content of your database, except users."
 msgstr "Tímto resetujete veškerý obsah vaší databáze, s výjimkou uživatelů."
 
-#: plugins/importExport/src/ModuleImportFlat.php:342
+#: plugins/importExport/src/ModuleImportFlat.php:343
 msgid "Another file with same name exists."
 msgstr "Existuje jiný soubor se stejným názvem."
 
-#: plugins/importExport/src/ModuleImportFlat.php:350
+#: plugins/importExport/src/ModuleImportFlat.php:351
 msgid "Failed to extract backup file."
 msgstr "Nepodařilo se extrahovat záložní soubor."
 
-#: plugins/importExport/src/ModuleImportFlat.php:362
+#: plugins/importExport/src/ModuleImportFlat.php:363
 msgid "No backup in compressed file."
 msgstr "Žádná záloha v komprimovaném souboru."
 
@@ -2477,7 +2485,7 @@ msgstr "Varování: Pokud nastavít url manuálně, může dojít ke konfliktu s
 msgid "Introduction to the page."
 msgstr "Úvod na stránku."
 
-#: plugins/pages/src/ManagePage.php:958
+#: plugins/pages/src/ManagePage.php:960
 msgid "Select this comment"
 msgstr "Vyberte tento komentář"
 
@@ -2563,8 +2571,8 @@ msgstr "Definováno uživatelem"
 msgid "Configuration successfully updated."
 msgstr "Konfigurace úspěšně aktualizována."
 
-#: plugins/simpleMenu/src/Manage.php:226 plugins/simpleMenu/src/Manage.php:593
-#: plugins/simpleMenu/src/Manage.php:671
+#: plugins/simpleMenu/src/Manage.php:226 plugins/simpleMenu/src/Manage.php:594
+#: plugins/simpleMenu/src/Manage.php:672
 msgid "Label"
 msgstr "Popisek"
 
@@ -2672,51 +2680,51 @@ msgstr "Vyberte stránku:"
 msgid "Select tag (if necessary):"
 msgstr "Vyberte štítek (je-li to nutné):"
 
-#: plugins/simpleMenu/src/Manage.php:590
+#: plugins/simpleMenu/src/Manage.php:591
 msgid "Label of item menu:"
 msgstr "Označení nabídky položky:"
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:598
 msgid "Description of item menu:"
 msgstr "Popis nabídky položky:"
 
-#: plugins/simpleMenu/src/Manage.php:608
+#: plugins/simpleMenu/src/Manage.php:609
 msgid "URL of item menu:"
 msgstr "Adresa URL nabídky položky:"
 
-#: plugins/simpleMenu/src/Manage.php:617 plugins/simpleMenu/src/Manage.php:674
+#: plugins/simpleMenu/src/Manage.php:618 plugins/simpleMenu/src/Manage.php:675
 msgid "Open URL on a new tab"
 msgstr "Otevřít URL na nové kartě"
 
-#: plugins/simpleMenu/src/Manage.php:619
+#: plugins/simpleMenu/src/Manage.php:620
 msgid "Add this item"
 msgstr "Přidat tuto položku"
 
-#: plugins/simpleMenu/src/Manage.php:633
+#: plugins/simpleMenu/src/Manage.php:634
 msgid "Enable simple menu for this blog"
 msgstr "Povolit jednoduché menu pro tento blog"
 
-#: plugins/simpleMenu/src/Manage.php:646
+#: plugins/simpleMenu/src/Manage.php:647
 msgid "Add an item"
 msgstr "Přidat položku"
 
-#: plugins/simpleMenu/src/Manage.php:660
+#: plugins/simpleMenu/src/Manage.php:661
 msgid "Menu items list"
 msgstr "Seznam položek nabídky"
 
-#: plugins/simpleMenu/src/Manage.php:743
+#: plugins/simpleMenu/src/Manage.php:744
 msgid "Update menu"
 msgstr "Aktualizovat menu"
 
-#: plugins/simpleMenu/src/Manage.php:745
+#: plugins/simpleMenu/src/Manage.php:746
 msgid "Delete selected menu items"
 msgstr "Odstranit vybrané položky nabídky"
 
-#: plugins/simpleMenu/src/Manage.php:746
+#: plugins/simpleMenu/src/Manage.php:747
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Jste si jisti, že chcete odstranit vybrané položky nabídky?"
 
-#: plugins/simpleMenu/src/Manage.php:753
+#: plugins/simpleMenu/src/Manage.php:754
 msgid "No menu items so far."
 msgstr "Zatím žádné položky nabídky."
 

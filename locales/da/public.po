@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-11-25 06:45\n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-01-16 09:45\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -121,14 +121,18 @@ msgid "Extra menu"
 msgstr "Extra menu"
 
 #: __html_tpl_dummy.php:24
+msgid "Fields followed by * are mandatory"
+msgstr ""
+
+#: __html_tpl_dummy.php:25
 msgid "From"
 msgstr "Fra"
 
-#: __html_tpl_dummy.php:25
+#: __html_tpl_dummy.php:26
 msgid "FromDay"
 msgstr "Fra Dag"
 
-#: __html_tpl_dummy.php:26
+#: __html_tpl_dummy.php:27
 msgid "Go to homepage"
 msgstr "Gå til startside"
 
@@ -147,33 +151,33 @@ msgstr "Sprog"
 msgid "Links"
 msgstr "Links"
 
-#: __html_tpl_dummy.php:28
+#: __html_tpl_dummy.php:29
 msgid "Name or nickname"
 msgstr "Navn eller kaldenavn"
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:30
 msgid "Next entry:"
 msgstr "Næste indgang:"
 
-#: __html_tpl_dummy.php:30
+#: __html_tpl_dummy.php:31
 msgid "On"
 msgstr "Til"
 
 msgid "Page top"
 msgstr "Side top"
 
-#: __html_tpl_dummy.php:33
+#: __html_tpl_dummy.php:34
 msgid "Pagination"
 msgstr "Sideinddeling"
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:35
 msgid "Password needed"
 msgstr "Adgangskode nødvendig"
 
 msgid "Password:"
 msgstr "Adgangskode:"
 
-#: __html_tpl_dummy.php:36
+#: __html_tpl_dummy.php:37
 msgid "Permalink"
 msgstr "Permalink"
 
@@ -183,7 +187,7 @@ msgstr "Drevet af %s"
 msgid "Preview"
 msgstr "Eksempelvisning"
 
-#: __html_tpl_dummy.php:38
+#: __html_tpl_dummy.php:39
 msgid "Previous entry:"
 msgstr "Forrige indgang:"
 
@@ -193,7 +197,7 @@ msgstr "RSS-feed er et gratis blogsammendrag. Det giver indhold (enten indlæg e
 msgid "Read"
 msgstr "Læs"
 
-#: __html_tpl_dummy.php:40
+#: __html_tpl_dummy.php:41
 msgid "Remember me on this blog"
 msgstr "Husk mig på denne blog"
 

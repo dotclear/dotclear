@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-24 21:00+0100\n"
-"PO-Revision-Date: 2023-12-25 09:38\n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-01-16 09:44\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -93,7 +93,7 @@ msgstr "そのキーはデータベースに存在しません。"
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:89
 #: src/Core/Backend/Listing/ListingPostsMini.php:42
-#: src/Process/Backend/Home.php:431 src/Process/Backend/Post.php:714
+#: src/Process/Backend/Home.php:432 src/Process/Backend/Post.php:714
 msgid "Title"
 msgstr "タイトル"
 
@@ -123,8 +123,8 @@ msgstr "ブログ id"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
 #: src/Core/Backend/Listing/ListingBlogs.php:55
-#: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:138
-#: src/Process/Backend/BlogPref.php:485
+#: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:141
+#: src/Process/Backend/BlogPref.php:486
 #: src/Process/Backend/UsersActions.php:231
 msgid "Blog name"
 msgstr "ブログ名"
@@ -138,7 +138,7 @@ msgstr "ブログ名"
 #: src/Core/Backend/Listing/ListingPosts.php:97
 #: src/Core/Backend/Listing/ListingPostsMini.php:45
 #: src/Core/Backend/UserPref.php:54 src/Core/Backend/UserPref.php:79
-#: src/Process/Backend/Post.php:618 src/Process/Backend/Post.php:1064
+#: src/Process/Backend/Post.php:618 src/Process/Backend/Post.php:1066
 #: src/Process/Backend/UsersActions.php:234
 msgid "Status"
 msgstr "状態"
@@ -163,8 +163,8 @@ msgstr "削除済みに設定"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
 #: src/Core/Backend/Listing/ListingMedia.php:203
 #: src/Core/Backend/ModulesList.php:1215 src/Core/Upgrade/PluginsList.php:120
-#: src/Process/Backend/Comment.php:311 src/Process/Backend/Langs.php:278
-#: src/Process/Backend/Post.php:802 src/Process/Backend/Users.php:42
+#: src/Process/Backend/Comment.php:315 src/Process/Backend/Langs.php:278
+#: src/Process/Backend/Post.php:803 src/Process/Backend/Users.php:42
 #: src/Process/Upgrade/Langs.php:296
 msgid "Delete"
 msgstr "削除"
@@ -188,7 +188,7 @@ msgid "Password verification failed"
 msgstr "パスワード確認が失敗しました"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:114
-#: src/Process/Backend/BlogPref.php:932
+#: src/Process/Backend/BlogPref.php:934
 msgid "The current blog cannot be deleted."
 msgstr "現在のブログは削除できません。"
 
@@ -206,8 +206,8 @@ msgstr[0] "%d ブログは正常に削除されました"
 #: src/Core/Backend/Listing/ListingPosts.php:93
 #: src/Core/Backend/Listing/ListingPosts.php:94 src/Core/Backend/Menus.php:154
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:50
-#: src/Core/Backend/UserPref.php:183 src/Process/Backend/Post.php:848
-#: src/Process/Backend/Post.php:857
+#: src/Core/Backend/UserPref.php:183 src/Process/Backend/Post.php:849
+#: src/Process/Backend/Post.php:858
 msgid "Comments"
 msgstr "コメント"
 
@@ -225,8 +225,8 @@ msgstr "コメントアクション"
 #: src/Core/Backend/Listing/ListingPosts.php:92
 #: src/Core/Backend/Listing/ListingPostsMini.php:44
 #: src/Core/Backend/UserPref.php:44 src/Core/Backend/UserPref.php:53
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Post.php:891
-#: src/Process/Backend/Post.php:1061
+#: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:893
+#: src/Process/Backend/Post.php:1063
 msgid "Author"
 msgstr "投稿者"
 
@@ -258,7 +258,7 @@ msgid "Blocklist IP (global)"
 msgstr "ブロックリスト IP (グローバル)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:72
-#: src/Process/Backend/Post.php:1063
+#: src/Process/Backend/Post.php:1065
 msgid "IP address"
 msgstr "IPアドレス"
 
@@ -399,7 +399,7 @@ msgid "Change category for this selection"
 msgstr "エントリのカテゴリを変更"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:438
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:439
 #: src/Process/Backend/Post.php:654
 msgid "Category:"
 msgstr "カテゴリ："
@@ -409,27 +409,27 @@ msgid "Create a new category for the post(s)"
 msgstr "投稿の新しいカテゴリを作成"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
-#: src/Process/Backend/Home.php:428 src/Process/Backend/Home.php:445
+#: src/Process/Backend/Home.php:429 src/Process/Backend/Home.php:446
 #: src/Process/Backend/Media.php:519 src/Process/Backend/Post.php:662
 #: src/Process/Backend/Post.php:710
 msgid "Title:"
 msgstr "タイトル："
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:383
-#: src/Process/Backend/Category.php:243 src/Process/Backend/Category.php:297
-#: src/Process/Backend/Home.php:447 src/Process/Backend/Post.php:664
+#: src/Process/Backend/Category.php:244 src/Process/Backend/Category.php:298
+#: src/Process/Backend/Home.php:448 src/Process/Backend/Post.php:664
 msgid "Parent:"
 msgstr "親："
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1778 src/Process/Backend/BlogPref.php:917
-#: src/Process/Backend/Category.php:275 src/Process/Backend/Category.php:307
-#: src/Process/Backend/Category.php:341 src/Process/Backend/Comment.php:307
-#: src/Process/Backend/Home.php:453 src/Process/Backend/MediaItem.php:1056
-#: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:916
-#: src/Process/Backend/User.php:420 src/Process/Backend/UsersActions.php:356
+#: src/Core/Backend/ModulesList.php:1778 src/Process/Backend/BlogPref.php:919
+#: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
+#: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1056
+#: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:918
+#: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:357
 #: src/Process/Install/Install.php:498
 msgid "Save"
 msgstr "保存"
@@ -499,7 +499,7 @@ msgstr "昇順"
 #: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:43
 #: src/Core/Backend/UserPref.php:42 src/Core/Backend/UserPref.php:52
-#: src/Core/Backend/UserPref.php:201 src/Process/Backend/Post.php:1062
+#: src/Core/Backend/UserPref.php:201 src/Process/Backend/Post.php:1064
 msgid "Date"
 msgstr "日付"
 
@@ -548,8 +548,8 @@ msgstr "IP"
 msgid "Last update"
 msgstr "最終更新"
 
-#: src/Core/Backend/Combos.php:336 src/Process/Backend/Blog.php:119
-#: src/Process/Backend/BlogPref.php:799
+#: src/Core/Backend/Combos.php:336 src/Process/Backend/Blog.php:122
+#: src/Process/Backend/BlogPref.php:801
 #: src/Process/Backend/UsersActions.php:230
 msgid "Blog ID"
 msgstr "ブログID"
@@ -584,7 +584,7 @@ msgid "My favorites"
 msgstr "お気に入り"
 
 #: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:296 src/Process/Backend/Media.php:526
+#: src/Core/Backend/Page.php:304 src/Process/Backend/Media.php:526
 #: src/Process/Backend/UserPreferences.php:39
 msgid "My preferences"
 msgstr "マイ設定"
@@ -642,7 +642,7 @@ msgstr "ブログの外観"
 
 #: src/Core/Backend/Favorites.php:510 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:64 src/Core/Backend/UserPref.php:166
-#: src/Process/Backend/BlogPref.php:947 src/Process/Backend/User.php:235
+#: src/Process/Backend/BlogPref.php:949 src/Process/Backend/User.php:235
 #: src/Process/Backend/Users.php:100 src/Process/Backend/Users.php:105
 #: src/Process/Backend/UsersActions.php:151
 #: src/Process/Backend/UsersActions.php:159
@@ -662,7 +662,7 @@ msgstr "プラグインの管理"
 msgid "Languages"
 msgstr "言語"
 
-#: src/Core/Backend/Favorites.php:528 src/Core/Backend/Page.php:335
+#: src/Core/Backend/Favorites.php:528 src/Core/Backend/Page.php:343
 #: src/Process/Backend/Help.php:107 src/Process/Backend/Help.php:114
 #: src/Process/Backend/Help.php:120
 msgid "Global help"
@@ -671,27 +671,27 @@ msgstr "グローバルヘルプ"
 #: src/Core/Backend/Filter/FilterBlogs.php:50
 #: src/Core/Backend/Filter/FilterComments.php:86
 #: src/Core/Backend/Filter/FilterPosts.php:145
-#: src/Process/Backend/Comment.php:282
+#: src/Process/Backend/Comment.php:286
 msgid "Status:"
 msgstr "状態："
 
-#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1002
-#: src/Process/Backend/Auth.php:370 src/Process/Backend/BlogPref.php:986
-#: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:895
-#: src/Process/Backend/User.php:344 src/Process/Backend/UserPreferences.php:541
+#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1010
+#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:988
+#: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:897
+#: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:541
 #: src/Process/Install/Install.php:465
 msgid "Email:"
 msgstr "メール："
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1001
-#: src/Process/Backend/Comment.php:278 src/Process/Backend/Post.php:899
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1009
+#: src/Process/Backend/Comment.php:282 src/Process/Backend/Post.php:901
 msgid "Web site:"
 msgstr "ウェブサイト："
 
 #: src/Core/Backend/Filter/FilterComments.php:56
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1043
-#: src/Process/Backend/Comment.php:266
+#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1051
+#: src/Process/Backend/Comment.php:270
 msgid "Author:"
 msgstr "投稿者："
 
@@ -700,7 +700,7 @@ msgid "Type:"
 msgstr "タイプ："
 
 #: src/Core/Backend/Filter/FilterComments.php:71
-#: src/Process/Backend/Post.php:909
+#: src/Process/Backend/Post.php:911
 msgid "Comment"
 msgstr "コメント"
 
@@ -709,7 +709,7 @@ msgid "Trackback"
 msgstr "トラックバック"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1003 src/Process/Backend/Comment.php:256
+#: src/Core/Backend/Page.php:1011 src/Process/Backend/Comment.php:259
 msgid "IP address:"
 msgstr "IPアドレス："
 
@@ -738,7 +738,7 @@ msgid "Format:"
 msgstr "フォーマット:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:451 src/Process/Backend/User.php:276
+#: src/Process/Backend/Auth.php:464 src/Process/Backend/User.php:277
 #: src/Process/Install/Install.php:528 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "パスワード："
@@ -797,7 +797,7 @@ msgstr "クローズ済み"
 msgid "Trackbacks:"
 msgstr "トラックバック:"
 
-#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1222
+#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1229
 msgid "Show filters and display options"
 msgstr "フィルターと表示オプションを表示"
 
@@ -833,7 +833,7 @@ msgid "Apply filters and display options"
 msgstr "フィルターと表示オプションを適用する"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:84
-#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:346
+#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:354
 msgid "Search:"
 msgstr "検索："
 
@@ -856,7 +856,7 @@ msgstr "ブログはありません"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:56
 #: src/Core/Backend/ModulesList.php:1623 src/Core/Backend/UserPref.php:76
-#: src/Process/Backend/LinkPopup.php:61
+#: src/Process/Backend/LinkPopup.php:62
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
 msgstr "URL"
@@ -916,7 +916,7 @@ msgid "No comments or trackbacks matches the filter"
 msgstr "フィルタに一致するコメントやトラックバックはありません"
 
 #: src/Core/Backend/Listing/ListingComments.php:42
-#: src/Process/Backend/Comment.php:130 src/Process/Backend/Post.php:862
+#: src/Process/Backend/Comment.php:133 src/Process/Backend/Post.php:863
 msgid "No comments"
 msgstr "コメントはありません"
 
@@ -973,7 +973,7 @@ msgstr "項目"
 #: src/Core/Backend/Listing/ListingPosts.php:172
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
 #: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:936
-#: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1083
+#: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1085
 msgid "Published"
 msgstr "公開済み"
 
@@ -983,7 +983,7 @@ msgstr "公開済み"
 #: src/Core/Backend/Listing/ListingPosts.php:177
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
 #: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:937
-#: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1088
+#: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1090
 msgid "Unpublished"
 msgstr "未公開"
 
@@ -993,13 +993,13 @@ msgstr "未公開"
 #: src/Core/Backend/Listing/ListingPosts.php:187
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
 #: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:939
-#: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1093
+#: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1095
 msgid "Pending"
 msgstr "保留中"
 
 #: src/Core/Backend/Listing/ListingComments.php:154
 #: src/Core/Backend/Listing/ListingComments.php:202 src/Core/Blog.php:272
-#: src/Process/Backend/Post.php:1098
+#: src/Process/Backend/Post.php:1100
 msgid "Junk"
 msgstr "ジャンクコード"
 
@@ -1023,7 +1023,7 @@ msgid "Type and author"
 msgstr "タイプと作成者"
 
 #: src/Core/Backend/Listing/ListingComments.php:227
-#: src/Process/Backend/Post.php:1065 src/Process/Backend/Post.php:1136
+#: src/Process/Backend/Post.php:1067 src/Process/Backend/Post.php:1138
 msgid "Edit"
 msgstr "編集"
 
@@ -1053,7 +1053,7 @@ msgstr "商品番号: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
 #: src/Core/Backend/ModulesList.php:777 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Category.php:236 src/Process/Upgrade/Plugins.php:441
+#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:441
 msgid "Name"
 msgstr "名前"
 
@@ -1120,7 +1120,7 @@ msgstr[0] ", <a href=\"%s\">プログラムされた</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:95
 #: src/Core/Backend/Listing/ListingPosts.php:96
-#: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:939
+#: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:941
 msgid "Trackbacks"
 msgstr "トラックバック"
 
@@ -1210,9 +1210,9 @@ msgstr "ページ %s / %s"
 msgid "Direct access page %s"
 msgstr "ダイレクトアクセスページ %s"
 
-#: src/Core/Backend/Listing/Pager.php:151 src/Core/Backend/Page.php:134
+#: src/Core/Backend/Listing/Pager.php:151 src/Core/Backend/Page.php:142
 #: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:187
-#: src/Process/Backend/Post.php:875 src/Process/Backend/Post.php:967
+#: src/Process/Backend/Post.php:876 src/Process/Backend/Post.php:969
 #: src/Process/Backend/Posts.php:119 src/Process/Backend/Search.php:244
 #: src/Process/Backend/Search.php:323 src/Process/Backend/Users.php:149
 msgid "ok"
@@ -1251,7 +1251,7 @@ msgstr "その他"
 msgid "Search in repository:"
 msgstr "リポジトリで検索:"
 
-#: src/Core/Backend/ModulesList.php:401 src/Core/Backend/Page.php:348
+#: src/Core/Backend/ModulesList.php:401 src/Core/Backend/Page.php:356
 #: src/Process/Backend/Categories.php:204
 msgid "OK"
 msgstr "OK"
@@ -1305,7 +1305,7 @@ msgid "Current version"
 msgstr "現在のバージョン"
 
 #: src/Core/Backend/ModulesList.php:797 src/Core/Backend/ModulesList.php:996
-#: src/Core/Backend/Page.php:1044 src/Core/Backend/ThemesList.php:132
+#: src/Core/Backend/Page.php:1052 src/Core/Backend/ThemesList.php:132
 #: src/Core/Backend/ThemesList.php:191
 msgid "Details"
 msgstr "詳細"
@@ -1352,7 +1352,7 @@ msgstr "公式ディストリビューションからのプラグイン"
 msgid "Plugin in development"
 msgstr "開発中のプラグイン"
 
-#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1045
+#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1053
 #: src/Core/Backend/ThemesList.php:195
 msgid "Support"
 msgstr "サポート"
@@ -1361,11 +1361,11 @@ msgstr "サポート"
 msgid "update locked"
 msgstr "更新はロックされました"
 
-#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1047
+#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1055
 msgid "Section:"
 msgstr "セクション:"
 
-#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1048
+#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1056
 msgid "Tags:"
 msgstr "タグ:"
 
@@ -1497,24 +1497,13 @@ msgstr "プラグインは正常に更新されました。"
 msgid "The plugin has been successfully installed."
 msgstr "プラグインは正常にインストールされました。"
 
-#: src/Core/Backend/ModulesList.php:1600 src/Process/Backend/Langs.php:331
+#: src/Core/Backend/ModulesList.php:1600 src/Process/Backend/Langs.php:332
 msgid "Upload a zip file"
 msgstr "zipファイルのアップロード"
 
 #: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1603
 #: src/Core/Backend/ModulesList.php:1621 src/Core/Backend/ModulesList.php:1626
-#: src/Process/Backend/Blog.php:122 src/Process/Backend/Blog.php:143
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:478
-#: src/Process/Backend/BlogPref.php:798 src/Process/Backend/BlogPref.php:803
-#: src/Process/Backend/Category.php:233 src/Process/Backend/Comment.php:266
-#: src/Process/Backend/Home.php:428 src/Process/Backend/Home.php:435
-#: src/Process/Backend/Langs.php:312 src/Process/Backend/Langs.php:333
-#: src/Process/Backend/Langs.php:335 src/Process/Backend/LinkPopup.php:58
-#: src/Process/Backend/Post.php:710 src/Process/Backend/Post.php:732
-#: src/Process/Backend/Post.php:888 src/Process/Backend/Post.php:903
-#: src/Process/Backend/User.php:256 src/Process/Backend/User.php:275
-#: src/Process/Backend/User.php:290 src/Process/Backend/User.php:410
-#: src/Process/Backend/UsersActions.php:346 src/Process/Install/Install.php:475
+#: src/Process/Backend/Home.php:436 src/Process/Install/Install.php:475
 #: src/Process/Install/Install.php:483 src/Process/Install/Install.php:490
 #: src/Process/Install/Wizard.php:262 src/Process/Install/Wizard.php:280
 #: src/Process/Upgrade/Langs.php:409 src/Process/Upgrade/Langs.php:426
@@ -1526,23 +1515,23 @@ msgid "Zip file path:"
 msgstr "Zip ファイルパス:"
 
 #: src/Core/Backend/ModulesList.php:1603 src/Core/Backend/ModulesList.php:1626
-#: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:312
-#: src/Process/Backend/Langs.php:335 src/Process/Backend/User.php:410
-#: src/Process/Backend/UsersActions.php:346 src/Process/Upgrade/Langs.php:375
+#: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:313
+#: src/Process/Backend/Langs.php:337 src/Process/Backend/User.php:411
+#: src/Process/Backend/UsersActions.php:347 src/Process/Upgrade/Langs.php:375
 #: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:426
 msgid "Your password:"
 msgstr "あなたのパスワード："
 
 #: src/Core/Backend/ModulesList.php:1609 src/Core/Backend/ModulesList.php:1632
-#: src/Process/Backend/Langs.php:318 src/Process/Backend/Langs.php:341
-#: src/Process/Backend/Post.php:693 src/Process/Backend/User.php:283
-#: src/Process/Backend/User.php:296 src/Process/Backend/User.php:416
-#: src/Process/Backend/UsersActions.php:352 src/Process/Install/Install.php:486
+#: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:343
+#: src/Process/Backend/Post.php:693 src/Process/Backend/User.php:284
+#: src/Process/Backend/User.php:297 src/Process/Backend/User.php:417
+#: src/Process/Backend/UsersActions.php:353 src/Process/Install/Install.php:486
 #: src/Process/Install/Install.php:492 src/Process/Upgrade/Langs.php:422
 msgid "Password"
 msgstr "パスワード"
 
-#: src/Core/Backend/ModulesList.php:1613 src/Core/Backend/Page.php:1174
+#: src/Core/Backend/ModulesList.php:1613 src/Core/Backend/Page.php:1181
 #: src/Process/Backend/Media.php:532
 msgid "Upload"
 msgstr "アップロード"
@@ -1567,7 +1556,7 @@ msgstr "不明なプラグインID"
 msgid "This plugin has no configuration file."
 msgstr "このプラグインには設定ファイルがありません。"
 
-#: src/Core/Backend/ModulesList.php:1696 src/Process/Backend/Auth.php:273
+#: src/Core/Backend/ModulesList.php:1696 src/Process/Backend/Auth.php:279
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "権限が不足しています"
@@ -1581,8 +1570,8 @@ msgstr "設定 \"%s\""
 msgid "Back"
 msgstr "戻る"
 
-#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1004
-#: src/Core/Backend/Page.php:1169 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1012
+#: src/Core/Backend/Page.php:1176 src/Core/Upgrade/Notices.php:34
 #: src/Process/Backend/Home.php:263
 msgid "Error:"
 msgstr "エラー："
@@ -1597,395 +1586,395 @@ msgstr "エラー："
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
-#: src/Core/Backend/Page.php:118 src/Process/Backend/User.php:456
+#: src/Core/Backend/Page.php:126 src/Process/Backend/User.php:457
 msgid "Blog:"
 msgstr "ブログ："
 
-#: src/Core/Backend/Page.php:122
+#: src/Core/Backend/Page.php:130
 msgid "Change blog"
 msgstr "ブログの変更"
 
-#: src/Core/Backend/Page.php:131
+#: src/Core/Backend/Page.php:139
 msgid "Blogs:"
 msgstr "ブログ："
 
-#: src/Core/Backend/Page.php:281 src/Core/Upgrade/Page.php:130
+#: src/Core/Backend/Page.php:289 src/Core/Upgrade/Page.php:130
 msgid "Go to the content"
 msgstr "コンテンツに移動"
 
-#: src/Core/Backend/Page.php:282 src/Core/Upgrade/Page.php:131
+#: src/Core/Backend/Page.php:290 src/Core/Upgrade/Page.php:131
 msgid "Go to the menu"
 msgstr "メニューに移動"
 
-#: src/Core/Backend/Page.php:283 src/Core/Upgrade/Page.php:132
+#: src/Core/Backend/Page.php:291 src/Core/Upgrade/Page.php:132
 msgid "Go to help"
 msgstr "ヘルプに移動"
 
-#: src/Core/Backend/Page.php:286 src/Core/Upgrade/Page.php:135
+#: src/Core/Backend/Page.php:294 src/Core/Upgrade/Page.php:135
 #: src/Process/Backend/UserPreferences.php:799
 #: src/Process/Backend/UserPreferences.php:800
 msgid "My dashboard"
 msgstr "自分のダッシュボード"
 
-#: src/Core/Backend/Page.php:291 src/Core/Backend/Page.php:292
+#: src/Core/Backend/Page.php:299 src/Core/Backend/Page.php:300
 msgid "Go to site"
 msgstr "サイトに移動"
 
-#: src/Core/Backend/Page.php:297 src/Core/Upgrade/Page.php:143
+#: src/Core/Backend/Page.php:305 src/Core/Upgrade/Page.php:143
 #, php-format
 msgid "Logout %s"
 msgstr "ログアウト %s"
 
-#: src/Core/Backend/Page.php:305 src/Core/Upgrade/Page.php:151
+#: src/Core/Backend/Page.php:313 src/Core/Upgrade/Page.php:151
 msgid "Hide main menu"
 msgstr "メインメニューを非表示"
 
-#: src/Core/Backend/Page.php:306 src/Core/Upgrade/Page.php:152
+#: src/Core/Backend/Page.php:314 src/Core/Upgrade/Page.php:152
 msgid "Show main menu"
 msgstr "メインメニューを表示"
 
-#: src/Core/Backend/Page.php:317
+#: src/Core/Backend/Page.php:325
 msgid "Safe mode"
 msgstr "セーフモード"
 
-#: src/Core/Backend/Page.php:318
+#: src/Core/Backend/Page.php:326
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "セーフモードです。すべてのプラグインは一時的に無効化されています。ログアウトし、すべての機能を取り戻すために再度ログインしてください。"
 
-#: src/Core/Backend/Page.php:355 src/Core/Upgrade/Page.php:182
+#: src/Core/Backend/Page.php:363 src/Core/Upgrade/Page.php:182
 #, php-format
 msgid "Thank you for using %s."
 msgstr "%s をご利用いただき誠にありがとうございます。"
 
-#: src/Core/Backend/Page.php:368 src/Core/Backend/Page.php:491
+#: src/Core/Backend/Page.php:376 src/Core/Backend/Page.php:499
 #: src/Core/Upgrade/Page.php:189
 msgid "Page top"
 msgstr "Page top"
 
-#: src/Core/Backend/Page.php:687 src/Core/Backend/Page.php:688
+#: src/Core/Backend/Page.php:695 src/Core/Backend/Page.php:696
 #: src/Core/Upgrade/Page.php:233 src/Core/Upgrade/Page.php:234
 msgid "Go to dashboard"
 msgstr "ダッシュボードに移動"
 
-#: src/Core/Backend/Page.php:847 src/Core/Upgrade/Page.php:306
+#: src/Core/Backend/Page.php:855 src/Core/Upgrade/Page.php:306
 msgid "Help about this page"
 msgstr "このページに関するヘルプ"
 
-#: src/Core/Backend/Page.php:852 src/Core/Upgrade/Page.php:311
+#: src/Core/Backend/Page.php:860 src/Core/Upgrade/Page.php:311
 #, php-format
 msgid "See also %s"
 msgstr "%s も参照"
 
-#: src/Core/Backend/Page.php:852 src/Core/Upgrade/Page.php:311
+#: src/Core/Backend/Page.php:860 src/Core/Upgrade/Page.php:311
 msgid "the global help"
 msgstr "世界的な援助は"
 
-#: src/Core/Backend/Page.php:986
+#: src/Core/Backend/Page.php:994
 msgid "uncover"
 msgstr "展開"
 
-#: src/Core/Backend/Page.php:990
+#: src/Core/Backend/Page.php:998
 msgid "hide"
 msgstr "隠す"
 
-#: src/Core/Backend/Page.php:994
+#: src/Core/Backend/Page.php:1002
 msgid "Need help?"
 msgstr "ヘルプが必要ですか？"
 
-#: src/Core/Backend/Page.php:995
+#: src/Core/Backend/Page.php:1003
 msgid "new window"
 msgstr "新しいウィンドウ"
 
-#: src/Core/Backend/Page.php:996
+#: src/Core/Backend/Page.php:1004
 msgid "Hide"
 msgstr "非表示"
 
-#: src/Core/Backend/Page.php:997
+#: src/Core/Backend/Page.php:1005
 msgid "Select:"
 msgstr "選択:"
 
-#: src/Core/Backend/Page.php:998
+#: src/Core/Backend/Page.php:1006
 msgid "No selection"
 msgstr "選択されていません"
 
-#: src/Core/Backend/Page.php:999
+#: src/Core/Backend/Page.php:1007
 msgid "Select all"
 msgstr "すべて選択"
 
-#: src/Core/Backend/Page.php:1000
+#: src/Core/Backend/Page.php:1008
 msgid "Invert selection"
 msgstr "選択を反転"
 
-#: src/Core/Backend/Page.php:1005 src/Process/Backend/Post.php:440
+#: src/Core/Backend/Page.php:1013 src/Process/Backend/Post.php:440
 #: src/Process/Backend/Post.php:556
 msgid "Entry has been successfully created."
 msgstr "エントリは正常に作成されました。"
 
-#: src/Core/Backend/Page.php:1006
+#: src/Core/Backend/Page.php:1014
 msgid "Edit entry"
 msgstr "エントリを編集"
 
-#: src/Core/Backend/Page.php:1007
+#: src/Core/Backend/Page.php:1015
 msgid "view entry"
 msgstr "エントリの表示"
 
-#: src/Core/Backend/Page.php:1008
+#: src/Core/Backend/Page.php:1016
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "選択した項目 (%s ) を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1009
+#: src/Core/Backend/Page.php:1017
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "選択したメディア(%d)を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1010
+#: src/Core/Backend/Page.php:1018
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "選択したカテゴリ（%s）を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1011
+#: src/Core/Backend/Page.php:1019
 msgid "Are you sure you want to delete this entry?"
 msgstr "本当に、このエントリを削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1012
+#: src/Core/Backend/Page.php:1020
 msgid "Click here to unlock the field"
 msgstr "フィールドのロックを解除するにはここをクリック"
 
-#: src/Core/Backend/Page.php:1013
+#: src/Core/Backend/Page.php:1021
 msgid "Are you sure you want to delete all spams?"
 msgstr "すべてのスパムを削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1014
+#: src/Core/Backend/Page.php:1022
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "選択したコメント（%s）を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1015
+#: src/Core/Backend/Page.php:1023
 msgid "Are you sure you want to delete this comment?"
 msgstr "本当に、このコメントを削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1016
+#: src/Core/Backend/Page.php:1024
 msgid "Users with posts cannot be deleted."
 msgstr "投稿のあるユーザーは削除できません。"
 
-#: src/Core/Backend/Page.php:1017
+#: src/Core/Backend/Page.php:1025
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "選択したユーザー (%s ) を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1018
+#: src/Core/Backend/Page.php:1026
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "選択したブログ（%s）を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1019
+#: src/Core/Backend/Page.php:1027
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "本当に、カテゴリ \"%s\" を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1020
+#: src/Core/Backend/Page.php:1028
 msgid "Are you sure you want to reorder all categories?"
 msgstr "すべてのカテゴリを並べ替えてもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1021
+#: src/Core/Backend/Page.php:1029
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "本当に、メディア \"%s\" を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1022
+#: src/Core/Backend/Page.php:1030
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "ディレクトリ \"%s\" を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1023
+#: src/Core/Backend/Page.php:1031
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "本当に、現在のディレクトリにアーカイブを展開してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1024
+#: src/Core/Backend/Page.php:1032
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "本当に、添付 \"%s\" を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1025
+#: src/Core/Backend/Page.php:1033
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "本当に、言語 \"%s\" を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1026
+#: src/Core/Backend/Page.php:1034
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "本当に、プラグイン \"%s\" を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1027
+#: src/Core/Backend/Page.php:1035
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "選択したプラグインを削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1028
+#: src/Core/Backend/Page.php:1036
 msgid "Use this theme"
 msgstr "このテーマを使用"
 
-#: src/Core/Backend/Page.php:1029
+#: src/Core/Backend/Page.php:1037
 msgid "Remove this theme"
 msgstr "このテーマを削除"
 
-#: src/Core/Backend/Page.php:1030
+#: src/Core/Backend/Page.php:1038
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "本当に、テーマ \"%s\" を削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1031
+#: src/Core/Backend/Page.php:1039
 msgid "Are you sure you want to delete selected themes?"
 msgstr "選択したテーマを削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1032
+#: src/Core/Backend/Page.php:1040
 msgid "Are you sure you want to delete this backup?"
 msgstr "このバックアップを削除してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1033
+#: src/Core/Backend/Page.php:1041
 msgid "Are you sure you want to revert to this backup?"
 msgstr "このバックアップに戻してもよろしいですか？"
 
-#: src/Core/Backend/Page.php:1034
+#: src/Core/Backend/Page.php:1042
 msgid "Zip file content"
 msgstr "zipファイルの内容"
 
-#: src/Core/Backend/Page.php:1035
+#: src/Core/Backend/Page.php:1043
 msgid "HTML markup validator"
 msgstr "HTMLマークアップバリデータ"
 
-#: src/Core/Backend/Page.php:1036
+#: src/Core/Backend/Page.php:1044
 msgid "HTML content is valid."
 msgstr "HTMLコンテンツは適切です。"
 
-#: src/Core/Backend/Page.php:1037
+#: src/Core/Backend/Page.php:1045
 msgid "There are HTML markup errors."
 msgstr "HTMLマークアップエラーがあります。"
 
-#: src/Core/Backend/Page.php:1038
+#: src/Core/Backend/Page.php:1046
 msgid "Attention: an audit of a content not yet registered."
 msgstr "注意: まだ登録されていないコンテンツの監査です。"
 
-#: src/Core/Backend/Page.php:1039
+#: src/Core/Backend/Page.php:1047
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "保存されていない変更があります。投稿形式を切り替えると変更が失われます。続行しますか？"
 
-#: src/Core/Backend/Page.php:1040
+#: src/Core/Backend/Page.php:1048
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "警告：投稿フォーマットの変更は既存のコンテンツを変換しません。自分で新しいフォーマットを適用する必要があります。続行しますか？"
 
-#: src/Core/Backend/Page.php:1041
+#: src/Core/Backend/Page.php:1049
 msgid "Loading enhanced uploader, please wait."
 msgstr "強化されたアップローダーを読み込んでいます。お待ちください。"
 
-#: src/Core/Backend/Page.php:1046
+#: src/Core/Backend/Page.php:1054
 msgid "Help:"
 msgstr "ヘルプ:"
 
-#: src/Core/Backend/Page.php:1050
+#: src/Core/Backend/Page.php:1058
 msgid "Hide this notice"
 msgstr "この通知を非表示"
 
-#: src/Core/Backend/Page.php:1052
+#: src/Core/Backend/Page.php:1060
 msgid "Show password"
 msgstr "パスワードを表示"
 
-#: src/Core/Backend/Page.php:1053
+#: src/Core/Backend/Page.php:1061
 msgid "Hide password"
 msgstr "パスワードを隠す"
 
-#: src/Core/Backend/Page.php:1055
+#: src/Core/Backend/Page.php:1063
 msgid "Reset to now"
 msgstr "今すぐリセット"
 
-#: src/Core/Backend/Page.php:1057
+#: src/Core/Backend/Page.php:1065
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "この Dotclear ダッシュボード (Ghostery、Adblock plus、uBlock オリジン、 …) で広告ブロッカーが検出され、いくつかの機能が妨げられる可能性があります。 この場合、無効にする必要があります。この検出はあなたの好みで無効になる可能性があることに注意してください。"
 
-#: src/Core/Backend/Page.php:1112
+#: src/Core/Backend/Page.php:1119
 msgid "You have unsaved changes."
 msgstr "保存されていない変更があります。"
 
-#: src/Core/Backend/Page.php:1113
+#: src/Core/Backend/Page.php:1120
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "バッテリー残量が少なく(%d%)変更が保存されていない場合、保存する必要があります。"
 
-#: src/Core/Backend/Page.php:1160
+#: src/Core/Backend/Page.php:1167
 msgid "Temporarily activate enhanced uploader"
 msgstr "拡張アップローダを有効化"
 
-#: src/Core/Backend/Page.php:1161
+#: src/Core/Backend/Page.php:1168
 msgid "Temporarily disable enhanced uploader"
 msgstr "拡張アップローダを無効化"
 
-#: src/Core/Backend/Page.php:1165
+#: src/Core/Backend/Page.php:1172
 msgid "Limit exceeded."
 msgstr "制限を超過しました。"
 
-#: src/Core/Backend/Page.php:1166
+#: src/Core/Backend/Page.php:1173
 msgid "File size exceeds allowed limit."
 msgstr "ファイルサイズが許可される制限を超過しました。"
 
-#: src/Core/Backend/Page.php:1167
+#: src/Core/Backend/Page.php:1174
 msgid "Canceled."
 msgstr "キャンセルされました。"
 
-#: src/Core/Backend/Page.php:1168
+#: src/Core/Backend/Page.php:1175
 msgid "HTTP Error:"
 msgstr "HTTPエラー："
 
-#: src/Core/Backend/Page.php:1170 src/Process/Backend/Media.php:513
+#: src/Core/Backend/Page.php:1177 src/Process/Backend/Media.php:513
 msgid "Choose file"
 msgstr "ファイルの選択"
 
-#: src/Core/Backend/Page.php:1171 src/Process/Backend/Media.php:514
+#: src/Core/Backend/Page.php:1178 src/Process/Backend/Media.php:514
 msgid "Choose files"
 msgstr "ファイルの選択"
 
-#: src/Core/Backend/Page.php:1172 src/Process/Backend/Blog.php:189
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:918
-#: src/Process/Backend/Category.php:276 src/Process/Backend/Comment.php:308
-#: src/Process/Backend/LinkPopup.php:72 src/Process/Backend/Media.php:230
+#: src/Core/Backend/Page.php:1179 src/Process/Backend/Blog.php:192
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:920
+#: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
+#: src/Process/Backend/LinkPopup.php:73 src/Process/Backend/Media.php:230
 #: src/Process/Backend/Media.php:569 src/Process/Backend/MediaItem.php:527
 #: src/Process/Backend/MediaItem.php:733 src/Process/Backend/MediaItem.php:1097
-#: src/Process/Backend/Post.php:796 src/Process/Backend/Post.php:799
+#: src/Process/Backend/Post.php:797 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110 src/Process/Backend/Search.php:130
-#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:614
+#: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:614
 #: src/Process/Backend/UserPreferences.php:793
 #: src/Process/Backend/UserPreferences.php:973
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/Core/Backend/Page.php:1173
+#: src/Core/Backend/Page.php:1180
 msgid "Clean"
 msgstr "クリア"
 
-#: src/Core/Backend/Page.php:1175 src/Process/Backend/MediaItem.php:1068
+#: src/Core/Backend/Page.php:1182 src/Process/Backend/MediaItem.php:1068
 msgid "Send"
 msgstr "送信"
 
-#: src/Core/Backend/Page.php:1176
+#: src/Core/Backend/Page.php:1183
 msgid "File successfully uploaded."
 msgstr "ファイルは正常にアップロードされました。"
 
-#: src/Core/Backend/Page.php:1177
+#: src/Core/Backend/Page.php:1184
 msgid "No file in queue."
 msgstr "キューにファイルはありません。"
 
-#: src/Core/Backend/Page.php:1178
+#: src/Core/Backend/Page.php:1185
 msgid "1 file in queue."
 msgstr "キューに 1 のファイルがあります。"
 
-#: src/Core/Backend/Page.php:1179
+#: src/Core/Backend/Page.php:1186
 #, php-format
 msgid "%d files in queue."
 msgstr "キューに %d のファイルがあります。"
 
-#: src/Core/Backend/Page.php:1180
+#: src/Core/Backend/Page.php:1187
 msgid "Queue error:"
 msgstr "キューエラー："
 
-#: src/Core/Backend/Page.php:1223
+#: src/Core/Backend/Page.php:1230
 msgid "Cancel filters and display options"
 msgstr "フィルターと表示オプションをキャンセルする"
 
@@ -2087,7 +2076,7 @@ msgstr "検索に一致するテーマはありません。"
 msgid "Use this one"
 msgstr "こちらを使用"
 
-#: src/Core/Backend/ThemesList.php:310 src/Process/Backend/Post.php:795
+#: src/Core/Backend/ThemesList.php:310 src/Process/Backend/Post.php:796
 msgid "Preview"
 msgstr "プレビュー"
 
@@ -2707,7 +2696,7 @@ msgstr "パスワードが入力されていません"
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "ユーザIDは文字・数字・記号を使用した、少なくとも2文字が必要です。"
 
-#: src/Core/Users.php:400 src/Process/Backend/User.php:287
+#: src/Core/Users.php:400 src/Process/Backend/User.php:288
 #: src/Process/Install/Install.php:194
 msgid "Password must contain at least 6 characters."
 msgstr "パスワードには最低でも6文字が必要です。"
@@ -3079,7 +3068,7 @@ msgstr "パスワードをリセットするには、以下のアドレスへア
 "そうでない場合は、このメールを無視してください。"
 
 #: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:440
+#: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:453
 #: src/Process/Install/Install.php:475 src/Process/Install/Install.php:527
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
@@ -3120,86 +3109,86 @@ msgstr "ログインするには、今すぐパスワードを変更する必要
 msgid "Safe Mode can only be used for super administrators."
 msgstr "セーフモードはスーパー管理者にのみ使用できます。"
 
-#: src/Process/Backend/Auth.php:277 src/Process/Upgrade/Auth.php:142
+#: src/Process/Backend/Auth.php:283 src/Process/Upgrade/Auth.php:142
 msgid "Administration session expired"
 msgstr "管理セッションの有効期限が切れました"
 
-#: src/Process/Backend/Auth.php:277 src/Process/Upgrade/Auth.php:142
+#: src/Process/Backend/Auth.php:283 src/Process/Upgrade/Auth.php:142
 msgid "Wrong username or password"
 msgstr "ユーザ名またはパスワードが間違っています"
 
-#: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:386
+#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:392
 msgid "Back to login screen"
 msgstr "ログイン画面に戻る"
 
-#: src/Process/Backend/Auth.php:357
+#: src/Process/Backend/Auth.php:363
 msgid "Request a new password"
 msgstr "新しいパスワードをリクエスト"
 
-#: src/Process/Backend/Auth.php:380
+#: src/Process/Backend/Auth.php:386
 msgid "recover"
 msgstr "回復"
 
-#: src/Process/Backend/Auth.php:385 src/Process/Backend/Auth.php:483
+#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:496
 msgid "Other option"
 msgstr "その他のオプション"
 
-#: src/Process/Backend/Auth.php:392
+#: src/Process/Backend/Auth.php:398
 msgid "Change your password"
 msgstr "パスワードの変更"
 
-#: src/Process/Backend/Auth.php:393 src/Process/Backend/User.php:276
+#: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:277
 #: src/Process/Backend/UserPreferences.php:579
 #: src/Process/Install/Install.php:483
 msgid "New password:"
 msgstr "新しいパスワード："
 
-#: src/Process/Backend/Auth.php:404 src/Process/Backend/User.php:290
+#: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:291
 #: src/Process/Install/Install.php:490
 msgid "Confirm password:"
 msgstr "パスワードの再入力："
 
-#: src/Process/Backend/Auth.php:413
+#: src/Process/Backend/Auth.php:419
 msgid "change"
 msgstr "変更"
 
-#: src/Process/Backend/Auth.php:429
+#: src/Process/Backend/Auth.php:435
 msgid "Safe mode login"
 msgstr "セーフモードでログイン"
 
-#: src/Process/Backend/Auth.php:431
+#: src/Process/Backend/Auth.php:437
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "このモードでは、プラグインをアクティブにせずにログインできます。互換性の問題を解決するのに便利かもしれません。"
 
-#: src/Process/Backend/Auth.php:432
+#: src/Process/Backend/Auth.php:438
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "問題を引き起こす可能性のあるプラグインを更新、無効または削除し、ログアウトして正常にログインしてください。"
 
-#: src/Process/Backend/Auth.php:461 src/Process/Upgrade/Auth.php:234
+#: src/Process/Backend/Auth.php:474 src/Process/Upgrade/Auth.php:234
 msgid "Remember my ID on this device"
 msgstr "次回から入力を省略"
 
-#: src/Process/Backend/Auth.php:462 src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:475 src/Process/Upgrade/Auth.php:235
 msgid "log in"
 msgstr "ログイン"
 
-#: src/Process/Backend/Auth.php:477 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:490 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "プライベートエリアを使用するために、クッキーを受け入れる必要があります。"
 
-#: src/Process/Backend/Auth.php:484
+#: src/Process/Backend/Auth.php:497
 msgid "Get back to normal authentication"
 msgstr "通常の認証に戻る"
 
-#: src/Process/Backend/Auth.php:487
+#: src/Process/Backend/Auth.php:500
 msgid "Connection issue?"
 msgstr "接続の問題？"
 
-#: src/Process/Backend/Auth.php:490
+#: src/Process/Backend/Auth.php:503
 msgid "I forgot my password"
 msgstr "パスワードの再発行"
 
-#: src/Process/Backend/Auth.php:493
+#: src/Process/Backend/Auth.php:506
 msgid "I want to log in in safe mode"
 msgstr "セーフモードでログインしたい"
 
@@ -3223,32 +3212,43 @@ msgstr "新規ブログ"
 msgid "System"
 msgstr "システム"
 
-#: src/Process/Backend/Blog.php:122 src/Process/Backend/BlogPref.php:798
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:478
+#: src/Process/Backend/BlogPref.php:799 src/Process/Backend/Category.php:233
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
+#: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
+#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
+#: src/Process/Backend/Post.php:886 src/Process/Backend/User.php:255
+#: src/Process/Backend/UsersActions.php:346
+#, php-format
+msgid "Fields preceded by %s are mandatory."
+msgstr ""
+
+#: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:800
 msgid "Blog ID:"
 msgstr "ブログID："
 
-#: src/Process/Backend/Blog.php:130 src/Process/Backend/BlogPref.php:800
-#: src/Process/Backend/User.php:263
+#: src/Process/Backend/Blog.php:133 src/Process/Backend/BlogPref.php:802
+#: src/Process/Backend/User.php:264
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "少なくとも2文字（文字・数字・記号）を入力します。"
 
-#: src/Process/Backend/Blog.php:143 src/Process/Backend/BlogPref.php:478
+#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:479
 msgid "Blog name:"
 msgstr "ブログ名："
 
-#: src/Process/Backend/Blog.php:156 src/Process/Backend/BlogPref.php:808
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:810
 msgid "Blog URL"
 msgstr "ブログURL"
 
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:803
+#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:805
 msgid "Blog URL:"
 msgstr "ブログURL："
 
-#: src/Process/Backend/Blog.php:176 src/Process/Backend/BlogPref.php:488
+#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:489
 msgid "Blog description:"
 msgstr "ブログの説明："
 
-#: src/Process/Backend/Blog.php:187 src/Process/Backend/Media.php:457
+#: src/Process/Backend/Blog.php:190 src/Process/Backend/Media.php:457
 msgid "Create"
 msgstr "作成"
 
@@ -3278,7 +3278,7 @@ msgstr "ブログ %s を削除しようとしています。 これは同時に�
 msgid "Please give your password to confirm the blog deletion."
 msgstr "ブログの削除を確認するために、あなたのパスワードを入力してください。"
 
-#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:926
+#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:928
 msgid "Delete this blog"
 msgstr "このブログを削除"
 
@@ -3326,8 +3326,8 @@ msgstr "H3"
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:987
-#: src/Process/Backend/Category.php:245 src/Process/Backend/MediaItem.php:615
+#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:989
+#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:615
 #: src/Process/Backend/MediaItem.php:617
 msgid "(none)"
 msgstr "(なし)"
@@ -3451,352 +3451,352 @@ msgstr "パラメータ"
 msgid "Blog parameters"
 msgstr "ブログパラメータ"
 
-#: src/Process/Backend/BlogPref.php:476 src/Process/Backend/BlogPref.php:796
+#: src/Process/Backend/BlogPref.php:476 src/Process/Backend/BlogPref.php:797
 msgid "Blog details"
 msgstr "ブログの詳細"
 
-#: src/Process/Backend/BlogPref.php:501
+#: src/Process/Backend/BlogPref.php:502
 msgid "Blog status:"
 msgstr "ブログの状態："
 
-#: src/Process/Backend/BlogPref.php:517 src/Process/Backend/BlogPref.php:859
+#: src/Process/Backend/BlogPref.php:518 src/Process/Backend/BlogPref.php:861
 msgid "Blog configuration"
 msgstr "ブログの環境設定"
 
-#: src/Process/Backend/BlogPref.php:518
+#: src/Process/Backend/BlogPref.php:519
 msgid "Blog editor name:"
 msgstr "ブログの編集者名："
 
-#: src/Process/Backend/BlogPref.php:521
+#: src/Process/Backend/BlogPref.php:522
 msgid "Default language:"
 msgstr "デフォルトの言語："
 
-#: src/Process/Backend/BlogPref.php:524
+#: src/Process/Backend/BlogPref.php:525
 msgid "Blog timezone:"
 msgstr "ブログのタイムゾーン："
 
-#: src/Process/Backend/BlogPref.php:527
+#: src/Process/Backend/BlogPref.php:528
 msgid "Copyright notice:"
 msgstr "著作権情報："
 
-#: src/Process/Backend/BlogPref.php:540 src/Process/Backend/Comments.php:118
+#: src/Process/Backend/BlogPref.php:541 src/Process/Backend/Comments.php:118
 #: src/Process/Backend/Comments.php:123
 msgid "Comments and trackbacks"
 msgstr "コメントとトラックバック"
 
-#: src/Process/Backend/BlogPref.php:546 src/Process/Backend/Post.php:679
+#: src/Process/Backend/BlogPref.php:547 src/Process/Backend/Post.php:679
 msgid "Accept comments"
 msgstr "コメントを許可"
 
-#: src/Process/Backend/BlogPref.php:549
+#: src/Process/Backend/BlogPref.php:550
 msgid "Moderate comments"
 msgstr "コメントをモデレート"
 
-#: src/Process/Backend/BlogPref.php:551
+#: src/Process/Backend/BlogPref.php:552
 #, php-format
 msgid "Leave comments open for %s days"
 msgstr "コメントをオープンにしておく日数： %s 日間"
 
-#: src/Process/Backend/BlogPref.php:562 src/Process/Backend/BlogPref.php:590
+#: src/Process/Backend/BlogPref.php:563 src/Process/Backend/BlogPref.php:591
 msgid "No limit: leave blank."
 msgstr "制限なし：空白のままにします。"
 
-#: src/Process/Backend/BlogPref.php:565
+#: src/Process/Backend/BlogPref.php:566
 msgid "Wiki syntax for comments"
 msgstr "コメントでのWiki記法"
 
-#: src/Process/Backend/BlogPref.php:568
+#: src/Process/Backend/BlogPref.php:569
 msgid "Preview of comment before submit is not mandatory"
 msgstr "送信前のコメントのプレビューは必須ではありません"
 
-#: src/Process/Backend/BlogPref.php:574 src/Process/Backend/Post.php:687
+#: src/Process/Backend/BlogPref.php:575 src/Process/Backend/Post.php:687
 msgid "Accept trackbacks"
 msgstr "トラックバックを許可"
 
-#: src/Process/Backend/BlogPref.php:577
+#: src/Process/Backend/BlogPref.php:578
 msgid "Moderate trackbacks"
 msgstr "トラックバックをモデレート"
 
-#: src/Process/Backend/BlogPref.php:579
+#: src/Process/Backend/BlogPref.php:580
 #, php-format
 msgid "Leave trackbacks open for %s days"
 msgstr "トラックバックをオープンにしておく日数： %s 日間"
 
-#: src/Process/Backend/BlogPref.php:593
+#: src/Process/Backend/BlogPref.php:594
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "コメントとトラックバックリンクに \"nofollow\" 属性を加える"
 
-#: src/Process/Backend/BlogPref.php:597
+#: src/Process/Backend/BlogPref.php:598
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr "新しい投稿がない期間が経過した後、すべてのコメントとトラックバックを無効にします:"
 
-#: src/Process/Backend/BlogPref.php:604
+#: src/Process/Backend/BlogPref.php:605
 msgid "Blog presentation"
 msgstr "ブログのプレゼンテーション"
 
-#: src/Process/Backend/BlogPref.php:607
+#: src/Process/Backend/BlogPref.php:608
 msgid "Date format:"
 msgstr "日付の書式："
 
-#: src/Process/Backend/BlogPref.php:609
+#: src/Process/Backend/BlogPref.php:610
 msgid "Pattern of date"
 msgstr "日付のパターン"
 
-#: src/Process/Backend/BlogPref.php:611 src/Process/Backend/BlogPref.php:617
-#: src/Process/Backend/BlogPref.php:864
+#: src/Process/Backend/BlogPref.php:612 src/Process/Backend/BlogPref.php:618
+#: src/Process/Backend/BlogPref.php:866
 msgid "Sample:"
 msgstr "サンプル:"
 
-#: src/Process/Backend/BlogPref.php:613
+#: src/Process/Backend/BlogPref.php:614
 msgid "Time format:"
 msgstr "時刻の書式："
 
-#: src/Process/Backend/BlogPref.php:615
+#: src/Process/Backend/BlogPref.php:616
 msgid "Pattern of time"
 msgstr "時間のパターン"
 
-#: src/Process/Backend/BlogPref.php:621
+#: src/Process/Backend/BlogPref.php:622
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr "標準スタイルシートを読み込まない（メディア整列に使う）"
 
-#: src/Process/Backend/BlogPref.php:625
+#: src/Process/Backend/BlogPref.php:626
 msgid "Display smilies on entries and comments"
 msgstr "エントリとコメントでスマイリーを表示"
 
-#: src/Process/Backend/BlogPref.php:629
+#: src/Process/Backend/BlogPref.php:630
 msgid "Disable internal search system"
 msgstr "内部検索システムを無効にする"
 
-#: src/Process/Backend/BlogPref.php:636
+#: src/Process/Backend/BlogPref.php:637
 #, php-format
 msgid "Display %s entries on first page"
 msgstr "最初のページに %s 件のエントリを表示"
 
-#: src/Process/Backend/BlogPref.php:648
+#: src/Process/Backend/BlogPref.php:649
 #, php-format
 msgid "Display %s entries per page"
 msgstr "ページ単位のエントリ表示数： %s"
 
-#: src/Process/Backend/BlogPref.php:660
+#: src/Process/Backend/BlogPref.php:661
 #, php-format
 msgid "Display %s entries per feed"
 msgstr "フィード単位のエントリ表示数： %s"
 
-#: src/Process/Backend/BlogPref.php:672
+#: src/Process/Backend/BlogPref.php:673
 #, php-format
 msgid "Display %s comments per feed"
 msgstr "フィード単位のコメント表示数： %s"
 
-#: src/Process/Backend/BlogPref.php:685
+#: src/Process/Backend/BlogPref.php:686
 msgid "Truncate feeds"
 msgstr "フィードの切り詰め"
 
-#: src/Process/Backend/BlogPref.php:689
+#: src/Process/Backend/BlogPref.php:690
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "カテゴリページとカテゴリ投稿フィードにサブカテゴリを含める"
 
-#: src/Process/Backend/BlogPref.php:698
+#: src/Process/Backend/BlogPref.php:699
 msgid "Display an entry as static home page"
 msgstr "エントリを静的なホームページとして表示する"
 
-#: src/Process/Backend/BlogPref.php:700
+#: src/Process/Backend/BlogPref.php:701
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "Entry URL (its content will be used for the static home page):"
 
-#: src/Process/Backend/BlogPref.php:702
+#: src/Process/Backend/BlogPref.php:703
 msgid "Choose an entry"
 msgstr "エントリを選択"
 
-#: src/Process/Backend/BlogPref.php:704
+#: src/Process/Backend/BlogPref.php:705
 msgid "Leave empty to use the default presentation."
 msgstr "デフォルトのプレゼンテーションを使用するには空白のままにしてください。"
 
-#: src/Process/Backend/BlogPref.php:708
+#: src/Process/Backend/BlogPref.php:709
 msgid "Media and images"
 msgstr "メディアと画像"
 
-#: src/Process/Backend/BlogPref.php:710
+#: src/Process/Backend/BlogPref.php:711
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr "下記の設定を変更すると、それらはメディア・マネージャー内のすべての新しい画像に適用されることに注意してください。"
 
-#: src/Process/Backend/BlogPref.php:711
+#: src/Process/Backend/BlogPref.php:712
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "あなたのインストールで他のブログとそれを共有する場合は注意してください。"
 
-#: src/Process/Backend/BlogPref.php:712
+#: src/Process/Backend/BlogPref.php:713
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "デフォルトのサイズを使用する場合は-1に設定します。0を指定するとサムネイルのサイズが無視されます（画像のみ）。"
 
-#: src/Process/Backend/BlogPref.php:716
+#: src/Process/Backend/BlogPref.php:717
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "生成された画像サイズ（ピクセル単位の最大寸法）"
 
-#: src/Process/Backend/BlogPref.php:717
+#: src/Process/Backend/BlogPref.php:718
 msgid "Thumbnail"
 msgstr "Thumbnail"
 
-#: src/Process/Backend/BlogPref.php:725
+#: src/Process/Backend/BlogPref.php:726
 msgid "Small"
 msgstr "小"
 
-#: src/Process/Backend/BlogPref.php:733
+#: src/Process/Backend/BlogPref.php:734
 msgid "Medium"
 msgstr "ミディアム"
 
-#: src/Process/Backend/BlogPref.php:741
+#: src/Process/Backend/BlogPref.php:742
 msgid "Default size of the inserted video (in pixels)"
 msgstr "挿入されたビデオの既定のサイズ（ピクセル）"
 
-#: src/Process/Backend/BlogPref.php:742
+#: src/Process/Backend/BlogPref.php:743
 msgid "Width"
 msgstr "Width"
 
-#: src/Process/Backend/BlogPref.php:750
+#: src/Process/Backend/BlogPref.php:751
 msgid "Height"
 msgstr "高さ"
 
-#: src/Process/Backend/BlogPref.php:760
+#: src/Process/Backend/BlogPref.php:761
 msgid "Default image insertion attributes"
 msgstr "デフォルトの画像挿入属性"
 
-#: src/Process/Backend/BlogPref.php:761
+#: src/Process/Backend/BlogPref.php:762
 msgid "Inserted image legend:"
 msgstr "画像の凡例を挿入："
 
-#: src/Process/Backend/BlogPref.php:765
+#: src/Process/Backend/BlogPref.php:766
 msgid "Use original media date if possible"
 msgstr "可能であれば元のメディアの日付を使用する"
 
-#: src/Process/Backend/BlogPref.php:768
+#: src/Process/Backend/BlogPref.php:769
 msgid "Do not display date if alone in title"
 msgstr "タイトルに単独で日付を表示しない"
 
-#: src/Process/Backend/BlogPref.php:769
+#: src/Process/Backend/BlogPref.php:770
 msgid "It is retrieved from the picture's metadata."
 msgstr "画像のメタデータから取得されます。"
 
-#: src/Process/Backend/BlogPref.php:771
+#: src/Process/Backend/BlogPref.php:772
 msgid "Size of inserted image:"
 msgstr "挿入された画像のサイズ:"
 
-#: src/Process/Backend/BlogPref.php:778
+#: src/Process/Backend/BlogPref.php:779
 msgid "Image alignment:"
 msgstr "画像の配置:"
 
-#: src/Process/Backend/BlogPref.php:783
+#: src/Process/Backend/BlogPref.php:784
 msgid "Insert a link to the original image"
 msgstr "元の画像へのリンクを挿入"
 
-#: src/Process/Backend/BlogPref.php:784
+#: src/Process/Backend/BlogPref.php:785
 msgid "Image legend and alternate text:"
 msgstr "画像の凡例と代替テキスト："
 
-#: src/Process/Backend/BlogPref.php:793
+#: src/Process/Backend/BlogPref.php:794
 msgid "Advanced parameters"
 msgstr "高度なパラメータ"
 
-#: src/Process/Backend/BlogPref.php:801
+#: src/Process/Backend/BlogPref.php:803
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "ブログIDを変更した場合、index.php ファイル内にも変更が必要となることに注意してください。"
 
-#: src/Process/Backend/BlogPref.php:812
+#: src/Process/Backend/BlogPref.php:814
 msgid "URL scan method:"
 msgstr "URLのスキャン方法："
 
-#: src/Process/Backend/BlogPref.php:835
+#: src/Process/Backend/BlogPref.php:837
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr "ブログまたはURLスキャンメソッドのURLがうまく設定されていない可能性があります (<code>%s</code> return a <strong>%s</strong> status)."
 
-#: src/Process/Backend/BlogPref.php:846
+#: src/Process/Backend/BlogPref.php:848
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "ブログや URL スキャンメソッドのURL が正しく設定されていない可能性があります (<code>%s</code> はATOMフィードを返しません)。"
 
-#: src/Process/Backend/BlogPref.php:861
+#: src/Process/Backend/BlogPref.php:863
 msgid "New post URL format:"
 msgstr "新規投稿のURL形式："
 
-#: src/Process/Backend/BlogPref.php:864
+#: src/Process/Backend/BlogPref.php:866
 msgid "Dotclear"
 msgstr "Dotclear"
 
-#: src/Process/Backend/BlogPref.php:867
+#: src/Process/Backend/BlogPref.php:869
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "ブログ上のノートのタイトルの HTML タグ:"
 
-#: src/Process/Backend/BlogPref.php:874
+#: src/Process/Backend/BlogPref.php:876
 msgid "Search engines robots policy"
 msgstr "検索エンジンロボットのポリシー"
 
-#: src/Process/Backend/BlogPref.php:887
+#: src/Process/Backend/BlogPref.php:889
 msgid "jQuery javascript library"
 msgstr "jQuery javascript ライブラリ"
 
-#: src/Process/Backend/BlogPref.php:890
+#: src/Process/Backend/BlogPref.php:892
 msgid "Load the jQuery library"
 msgstr "jQuery ライブラリを読み込む"
 
-#: src/Process/Backend/BlogPref.php:892
+#: src/Process/Backend/BlogPref.php:894
 msgid "jQuery version to be loaded for this blog:"
 msgstr "このブログで読み込まれるjQuery のバージョン:"
 
-#: src/Process/Backend/BlogPref.php:898
+#: src/Process/Backend/BlogPref.php:900
 msgid "Blog security"
 msgstr "ブログのセキュリティ"
 
-#: src/Process/Backend/BlogPref.php:902
+#: src/Process/Backend/BlogPref.php:904
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Clickjacking からブログを保護する ( <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a> を参照)"
 
-#: src/Process/Backend/BlogPref.php:910
+#: src/Process/Backend/BlogPref.php:912
 msgid "Plugins parameters"
 msgstr "プラグインパラメータ"
 
-#: src/Process/Backend/BlogPref.php:934
+#: src/Process/Backend/BlogPref.php:936
 msgid "Only superadmin can delete a blog."
 msgstr "スーパー管理者のみブログを削除できます。"
 
-#: src/Process/Backend/BlogPref.php:948
+#: src/Process/Backend/BlogPref.php:950
 msgid "Users on this blog"
 msgstr "このブログでのユーザ"
 
-#: src/Process/Backend/BlogPref.php:951
+#: src/Process/Backend/BlogPref.php:953
 msgid "No users"
 msgstr "ユーザはいません"
 
-#: src/Process/Backend/BlogPref.php:992
+#: src/Process/Backend/BlogPref.php:994
 msgid "Publications on this blog:"
 msgstr "このブログでの出版物:"
 
-#: src/Process/Backend/BlogPref.php:999
+#: src/Process/Backend/BlogPref.php:1001
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1004
+#: src/Process/Backend/BlogPref.php:1006
 msgid "Permissions:"
 msgstr "権限:"
 
-#: src/Process/Backend/BlogPref.php:1007 src/Process/Backend/User.php:320
+#: src/Process/Backend/BlogPref.php:1009 src/Process/Backend/User.php:321
 msgid "Super administrator"
 msgstr "最高管理者"
 
-#: src/Process/Backend/BlogPref.php:1008
+#: src/Process/Backend/BlogPref.php:1010
 msgid "All rights on all blogs."
 msgstr "すべてのブログのすべての権利。"
 
-#: src/Process/Backend/BlogPref.php:1014
+#: src/Process/Backend/BlogPref.php:1016
 #: src/Process/Backend/UsersActions.php:337
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (参照されない権限)"
 
-#: src/Process/Backend/BlogPref.php:1018
+#: src/Process/Backend/BlogPref.php:1020
 msgid "All rights on this blog."
 msgstr "このブログのすべての権利。"
 
-#: src/Process/Backend/BlogPref.php:1029 src/Process/Backend/User.php:470
+#: src/Process/Backend/BlogPref.php:1031 src/Process/Backend/User.php:471
 msgid "Change permissions"
 msgstr "パーミッションの変更"
 
@@ -3969,8 +3969,8 @@ msgstr "%d 項目"
 msgid "total:"
 msgstr "合計："
 
-#: src/Process/Backend/Categories.php:192 src/Process/Backend/Category.php:256
-#: src/Process/Backend/User.php:360 src/Process/Backend/UserPreferences.php:555
+#: src/Process/Backend/Categories.php:192 src/Process/Backend/Category.php:257
+#: src/Process/Backend/User.php:361 src/Process/Backend/UserPreferences.php:555
 msgid "URL:"
 msgstr "URL："
 
@@ -4019,43 +4019,43 @@ msgstr "カテゴリは正常に更新されました。"
 msgid "Category information"
 msgstr "カテゴリ情報"
 
-#: src/Process/Backend/Category.php:233 src/Process/Backend/Post.php:888
+#: src/Process/Backend/Category.php:234 src/Process/Backend/Post.php:890
 msgid "Name:"
 msgstr "名前："
 
-#: src/Process/Backend/Category.php:260
+#: src/Process/Backend/Category.php:261
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "警告： URLを手作業で設定した場合、別のカテゴリと衝突する可能性があります。"
 
-#: src/Process/Backend/Category.php:263 src/Process/Backend/MediaItem.php:1036
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1036
 msgid "Description:"
 msgstr "説明："
 
-#: src/Process/Backend/Category.php:284
+#: src/Process/Backend/Category.php:285
 msgid "Move this category"
 msgstr "このカテゴリの移動"
 
-#: src/Process/Backend/Category.php:295
+#: src/Process/Backend/Category.php:296
 msgid "Category parent"
 msgstr "カテゴリの親"
 
-#: src/Process/Backend/Category.php:324
+#: src/Process/Backend/Category.php:325
 msgid "Category sibling"
 msgstr "カテゴリの兄弟"
 
-#: src/Process/Backend/Category.php:326
+#: src/Process/Backend/Category.php:327
 msgid "Move current category"
 msgstr "現在のカテゴリを移動"
 
-#: src/Process/Backend/Category.php:331
+#: src/Process/Backend/Category.php:332
 msgid "before"
 msgstr "前へ"
 
-#: src/Process/Backend/Category.php:332
+#: src/Process/Backend/Category.php:333
 msgid "after"
 msgstr "後へ"
 
-#: src/Process/Backend/Category.php:334
+#: src/Process/Backend/Category.php:335
 msgid "position: "
 msgstr "位置: "
 
@@ -4067,28 +4067,28 @@ msgstr "エントリは存在しません。"
 msgid "Comment has been successfully created."
 msgstr "コメントは正常に作成されました。"
 
-#: src/Process/Backend/Comment.php:179 src/Process/Backend/Comment.php:239
+#: src/Process/Backend/Comment.php:182 src/Process/Backend/Comment.php:242
 msgid "Comment has been successfully updated."
 msgstr "コメントは正常に更新されました。"
 
-#: src/Process/Backend/Comment.php:195
+#: src/Process/Backend/Comment.php:198
 msgid "Comment has been successfully deleted."
 msgstr "コメントは正常に削除されました。"
 
-#: src/Process/Backend/Comment.php:203
+#: src/Process/Backend/Comment.php:206
 msgid "You can't edit this comment."
 msgstr "このコメントを編集することはできません。"
 
-#: src/Process/Backend/Comment.php:224 src/Process/Backend/Comment.php:227
+#: src/Process/Backend/Comment.php:227 src/Process/Backend/Comment.php:230
 msgid "Edit comment"
 msgstr "コメントの編集"
 
-#: src/Process/Backend/Comment.php:245
+#: src/Process/Backend/Comment.php:248
 #, php-format
 msgid "Your comment on my blog %s"
 msgstr "ブログ「%s」でのあなたのコメント"
 
-#: src/Process/Backend/Comment.php:246
+#: src/Process/Backend/Comment.php:249
 #, php-format
 msgid "Hi!\n\n"
 "You wrote a comment on:\n"
@@ -4097,23 +4097,23 @@ msgstr "こんにちは！\n\n"
 "あなたは次のところでコメントを書きました：\n"
 "%s\n\n\n"
 
-#: src/Process/Backend/Comment.php:246
+#: src/Process/Backend/Comment.php:249
 msgid "Send an e-mail"
 msgstr "メールを送信"
 
-#: src/Process/Backend/Comment.php:252
+#: src/Process/Backend/Comment.php:255
 msgid "Information collected"
 msgstr "収集された情報"
 
-#: src/Process/Backend/Comment.php:261
+#: src/Process/Backend/Comment.php:264
 msgid "Date:"
 msgstr "日付："
 
-#: src/Process/Backend/Comment.php:265
+#: src/Process/Backend/Comment.php:268
 msgid "Comment submitted"
 msgstr "コメントが送信されました"
 
-#: src/Process/Backend/Comment.php:293 src/Process/Backend/Post.php:904
+#: src/Process/Backend/Comment.php:297 src/Process/Backend/Post.php:906
 msgid "Comment:"
 msgstr "コメント："
 
@@ -4142,7 +4142,7 @@ msgstr "それらを表示する。"
 msgid "Delete all spams"
 msgstr "すべてのスパムを削除"
 
-#: src/Process/Backend/Comments.php:180 src/Process/Backend/Post.php:870
+#: src/Process/Backend/Comments.php:180 src/Process/Backend/Post.php:871
 #: src/Process/Backend/Search.php:321
 msgid "Selected comments action:"
 msgstr "選択されたコメントに実行："
@@ -4217,23 +4217,23 @@ msgstr "次のプラグインでエラーが発生しました："
 msgid "Quick post"
 msgstr "クイックエントリ"
 
-#: src/Process/Backend/Home.php:435 src/Process/Backend/Post.php:732
+#: src/Process/Backend/Home.php:436 src/Process/Backend/Post.php:732
 msgid "Content:"
 msgstr "内容："
 
-#: src/Process/Backend/Home.php:436 src/Process/Backend/Post.php:739
+#: src/Process/Backend/Home.php:437 src/Process/Backend/Post.php:739
 msgid "Content"
 msgstr "コンテンツ"
 
-#: src/Process/Backend/Home.php:444 src/Process/Backend/Post.php:661
+#: src/Process/Backend/Home.php:445 src/Process/Backend/Post.php:661
 msgid "Add a new category"
 msgstr "新しいカテゴリを追加"
 
-#: src/Process/Backend/Home.php:450
+#: src/Process/Backend/Home.php:451
 msgid "This category will be created when you will save your post."
 msgstr "このカテゴリは投稿を保存するときに作成されます。"
 
-#: src/Process/Backend/Home.php:457
+#: src/Process/Backend/Home.php:458
 msgid "Save and publish"
 msgstr "保存して公開"
 
@@ -4321,29 +4321,29 @@ msgstr "%s フォルダで適切なディレクトリの追加または削除す
 msgid "Available languages"
 msgstr "利用可能な言語"
 
-#: src/Process/Backend/Langs.php:308 src/Process/Upgrade/Langs.php:359
+#: src/Process/Backend/Langs.php:309 src/Process/Upgrade/Langs.php:359
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
 msgstr "追加言語を Dotclear.net から直接ダウンロードし、インストールすることができます。 提案された言語は、バージョン %s に基づいています。"
 
-#: src/Process/Backend/Langs.php:310 src/Process/Backend/User.php:380
+#: src/Process/Backend/Langs.php:311 src/Process/Backend/User.php:381
 #: src/Process/Upgrade/Langs.php:365
 msgid "Language:"
 msgstr "言語："
 
-#: src/Process/Backend/Langs.php:321 src/Process/Upgrade/Langs.php:386
+#: src/Process/Backend/Langs.php:322 src/Process/Upgrade/Langs.php:386
 msgid "Install language"
 msgstr "言語をインストール"
 
-#: src/Process/Backend/Langs.php:332 src/Process/Upgrade/Langs.php:400
+#: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:400
 msgid "You can install languages by uploading zip files."
 msgstr "zipファイルをアップロードすることで、言語をインストールできます。"
 
-#: src/Process/Backend/Langs.php:333 src/Process/Upgrade/Langs.php:409
+#: src/Process/Backend/Langs.php:335 src/Process/Upgrade/Langs.php:409
 msgid "Language zip file:"
 msgstr "言語のzipファイル："
 
-#: src/Process/Backend/Langs.php:344 src/Process/Upgrade/Langs.php:436
+#: src/Process/Backend/Langs.php:346 src/Process/Upgrade/Langs.php:436
 msgid "Upload language"
 msgstr "言語をアップロード"
 
@@ -4351,19 +4351,19 @@ msgstr "言語をアップロード"
 msgid "Add a link"
 msgstr "リンクの追加"
 
-#: src/Process/Backend/LinkPopup.php:58
+#: src/Process/Backend/LinkPopup.php:59
 msgid "Link URL:"
 msgstr "リンクのURL："
 
-#: src/Process/Backend/LinkPopup.php:64
+#: src/Process/Backend/LinkPopup.php:65
 msgid "Link title:"
 msgstr "リンクのタイトル:"
 
-#: src/Process/Backend/LinkPopup.php:66
+#: src/Process/Backend/LinkPopup.php:67
 msgid "Link language:"
 msgstr "リンクの言語："
 
-#: src/Process/Backend/LinkPopup.php:73 src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:732
 msgid "Insert"
 msgstr "挿入"
 
@@ -4882,10 +4882,6 @@ msgstr "プラグインの設定"
 msgid "Edit post"
 msgstr "投稿を編集"
 
-#: src/Process/Backend/Post.php:138
-msgid "This entry does not exist."
-msgstr "このエントリは存在しません。"
-
 #: src/Process/Backend/Post.php:170
 msgid "Next entry"
 msgstr "次の項目"
@@ -4960,7 +4956,7 @@ msgstr "ファイリング"
 msgid "Selected entry"
 msgstr "イチ押しのエントリ"
 
-#: src/Process/Backend/Post.php:673 src/Process/Backend/User.php:378
+#: src/Process/Backend/Post.php:673 src/Process/Backend/User.php:379
 msgid "Options"
 msgstr "オプション"
 
@@ -5008,51 +5004,51 @@ msgstr "個人的なメモ:"
 msgid "Unpublished notes."
 msgstr "未公開のノート"
 
-#: src/Process/Backend/Post.php:849 src/Process/Backend/Post.php:884
+#: src/Process/Backend/Post.php:850 src/Process/Backend/Post.php:885
 msgid "Add a comment"
 msgstr "コメントを追加"
 
-#: src/Process/Backend/Post.php:948
+#: src/Process/Backend/Post.php:950
 msgid "Trackbacks received"
 msgstr "トラックバックを受け取りました"
 
-#: src/Process/Backend/Post.php:954
+#: src/Process/Backend/Post.php:956
 msgid "No trackback"
 msgstr "トラックバックはありません"
 
-#: src/Process/Backend/Post.php:962
+#: src/Process/Backend/Post.php:964
 msgid "Selected trackbacks action:"
 msgstr "選択したトラックバックアクション:"
 
-#: src/Process/Backend/Post.php:979 src/Process/Backend/Post.php:990
+#: src/Process/Backend/Post.php:981 src/Process/Backend/Post.php:992
 msgid "Ping blogs"
 msgstr "ブログPing"
 
-#: src/Process/Backend/Post.php:981
+#: src/Process/Backend/Post.php:983
 msgid "URLs to ping:"
 msgstr "Pingを送信するURL："
 
-#: src/Process/Backend/Post.php:985
+#: src/Process/Backend/Post.php:987
 msgid "Excerpt to send:"
 msgstr "送信する抜粋:"
 
-#: src/Process/Backend/Post.php:991
+#: src/Process/Backend/Post.php:993
 msgid "Auto discover ping URLs"
 msgstr "Ping URLを自動検出"
 
-#: src/Process/Backend/Post.php:999
+#: src/Process/Backend/Post.php:1001
 msgid "Previously sent pings"
 msgstr "以前に送信されたPing"
 
-#: src/Process/Backend/Post.php:1116
+#: src/Process/Backend/Post.php:1118
 msgid "select this comment"
 msgstr "このコメントを選択"
 
-#: src/Process/Backend/Post.php:1116
+#: src/Process/Backend/Post.php:1118
 msgid "select this trackback"
 msgstr "このトラックバックを選択"
 
-#: src/Process/Backend/Post.php:1135
+#: src/Process/Backend/Post.php:1137
 msgid "Edit this comment"
 msgstr "このコメントを編集"
 
@@ -5319,114 +5315,114 @@ msgstr "強い"
 msgid "User profile"
 msgstr "ユーザープロフィール"
 
-#: src/Process/Backend/User.php:256
+#: src/Process/Backend/User.php:257
 msgid "User ID:"
 msgstr "ユーザー ID:"
 
-#: src/Process/Backend/User.php:259
+#: src/Process/Backend/User.php:260
 msgid "Login"
 msgstr "ログイン"
 
-#: src/Process/Backend/User.php:267
+#: src/Process/Backend/User.php:268
 msgid "Warning:"
 msgstr "警告："
 
-#: src/Process/Backend/User.php:268
+#: src/Process/Backend/User.php:269
 msgid "If you change your username, you will have to log in again."
 msgstr "ユーザー名を変更する場合は、再度ログインする必要があります。"
 
-#: src/Process/Backend/User.php:305
+#: src/Process/Backend/User.php:306
 msgid "Password change required to connect"
 msgstr "接続にはパスワードの変更が必要です"
 
-#: src/Process/Backend/User.php:323 src/Process/Backend/UserPreferences.php:520
+#: src/Process/Backend/User.php:324 src/Process/Backend/UserPreferences.php:520
 #: src/Process/Install/Install.php:459
 msgid "Last Name:"
 msgstr "姓:"
 
-#: src/Process/Backend/User.php:330 src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/User.php:331 src/Process/Backend/UserPreferences.php:527
 #: src/Process/Install/Install.php:453
 msgid "First Name:"
 msgstr "氏名:"
 
-#: src/Process/Backend/User.php:337 src/Process/Backend/UserPreferences.php:534
+#: src/Process/Backend/User.php:338 src/Process/Backend/UserPreferences.php:534
 msgid "Display name:"
 msgstr "表示名："
 
-#: src/Process/Backend/User.php:351
+#: src/Process/Backend/User.php:352
 msgid "Mandatory for password recovering procedure."
 msgstr "パスワードを復元するために必須です。"
 
-#: src/Process/Backend/User.php:353 src/Process/Backend/UserPreferences.php:548
+#: src/Process/Backend/User.php:354 src/Process/Backend/UserPreferences.php:548
 msgid "Alternate emails (comma separated list):"
 msgstr "代替のメール (カンマ区切りリスト):"
 
-#: src/Process/Backend/User.php:358 src/Process/Backend/UserPreferences.php:553
+#: src/Process/Backend/User.php:359 src/Process/Backend/UserPreferences.php:553
 msgid "Invalid emails will be automatically removed from list."
 msgstr "無効なメールは自動的にリストから削除されます。"
 
-#: src/Process/Backend/User.php:368 src/Process/Backend/UserPreferences.php:563
+#: src/Process/Backend/User.php:369 src/Process/Backend/UserPreferences.php:563
 msgid "Alternate URLs (comma separated list):"
 msgstr "代替URL(カンマ区切りリスト):"
 
-#: src/Process/Backend/User.php:373 src/Process/Backend/UserPreferences.php:568
+#: src/Process/Backend/User.php:374 src/Process/Backend/UserPreferences.php:568
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "無効な URL は自動的にリストから削除されます。"
 
-#: src/Process/Backend/User.php:379 src/Process/Backend/UserPreferences.php:627
+#: src/Process/Backend/User.php:380 src/Process/Backend/UserPreferences.php:627
 msgid "Interface"
 msgstr "インターフェイス"
 
-#: src/Process/Backend/User.php:384
+#: src/Process/Backend/User.php:385
 msgid "Timezone:"
 msgstr "Timezone:"
 
-#: src/Process/Backend/User.php:388 src/Process/Backend/UserPreferences.php:739
+#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:739
 msgid "Edition"
 msgstr "版"
 
-#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:753
+#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:753
 msgid "Preferred format:"
 msgstr "優先書式"
 
-#: src/Process/Backend/User.php:393 src/Process/Backend/UserPreferences.php:756
+#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:756
 msgid "Default entry status:"
 msgstr "デフォルトのエントリ状態："
 
-#: src/Process/Backend/User.php:397 src/Process/Backend/UserPreferences.php:759
+#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:759
 msgid "Entry edit field height:"
 msgstr "エントリ編集フィールドの高さ"
 
-#: src/Process/Backend/User.php:421
+#: src/Process/Backend/User.php:422
 msgid "Save and create another"
 msgstr "保存して別のものを作成"
 
-#: src/Process/Backend/User.php:432 src/Process/Backend/UsersActions.php:152
+#: src/Process/Backend/User.php:433 src/Process/Backend/UsersActions.php:152
 msgid "Permissions"
 msgstr "パーミッション"
 
-#: src/Process/Backend/User.php:437
+#: src/Process/Backend/User.php:438
 msgid "Add new permissions"
 msgstr "新しいパーミッションを追加"
 
-#: src/Process/Backend/User.php:450
+#: src/Process/Backend/User.php:451
 msgid "No permissions so far."
 msgstr "権限がありません。"
 
-#: src/Process/Backend/User.php:483
+#: src/Process/Backend/User.php:484
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s はスーパー管理者です（すべてのブログのすべての権利）。"
 
-#: src/Process/Backend/User.php:491
+#: src/Process/Backend/User.php:492
 msgid "Direct links"
 msgstr "ダイレクトリンク"
 
-#: src/Process/Backend/User.php:495
+#: src/Process/Backend/User.php:496
 msgid "List of posts"
 msgstr "投稿一覧"
 
-#: src/Process/Backend/User.php:505
+#: src/Process/Backend/User.php:506
 msgid "List of comments"
 msgstr "コメント一覧"
 
