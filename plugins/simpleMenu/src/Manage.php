@@ -467,10 +467,10 @@ class Manage extends Process
         $head = '';
         if (!App::auth()->prefs()->accessibility->nodragdrop) {
             $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-                Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-                My::jsLoad('simplemenu');
+                Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }
-        $head .= Page::jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
+        $head .= My::jsLoad('simplemenu') .
+            Page::jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
 
         Page::openModule(App::backend()->page_title, $head);
 
@@ -740,13 +740,14 @@ class Manage extends Process
             if (App::backend()->step === self::STEP_LIST) {
                 echo
                 '<div class="two-cols">' .
-                '<p class="col">' . form::hidden('im_order', '') . App::nonce()->getFormNonce() .
-                '<input type="submit" name="updateaction" value="' . __('Update menu') . '">' . '</p>' .
+                '<p class="col checkboxes-helpers"></p>' .
                 '<p class="col right">' . '<input id="remove-action" type="submit" class="delete" name="removeaction" ' .
                 'value="' . __('Delete selected menu items') . '" ' .
                 'onclick="return window.confirm(\'' . Html::escapeJS(__('Are you sure you want to remove selected menu items?')) . '\');">' .
                 '</p>' .
                 '</div>' .
+                '<p class="col">' . form::hidden('im_order', '') . App::nonce()->getFormNonce() .
+                '<input type="submit" name="updateaction" value="' . __('Update menu') . '">' . '</p>' .
                 '</form>';
             }
         } else {

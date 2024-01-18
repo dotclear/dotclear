@@ -20,6 +20,14 @@ dotclear.ready(() => {
     return true;
   });
 
+  document.querySelectorAll('.checkboxes-helpers').forEach((elt) => {
+    dotclear.checkboxesHelpers(
+      elt,
+      $('#menuitems td input[name^=items_selected]'),
+      '#menuitems td input[name^=items_selected]',
+      '#menuitems #remove-action',
+    );
+  });
   dotclear.condSubmit('#menuitems tr td input[name^=items_selected]', '#menuitems #remove-action');
   dotclear.responsiveCellHeaders(document.querySelector('#menuitems table'), '#menuitems table', 2);
 });
