@@ -37,7 +37,7 @@ class Backend extends Process
         My::addBackendMenuItem(App::backend()->menus()::MENU_BLOG, [], '');
 
         App::behavior()->addBehaviors([
-            'adminPostHeaders'     => fn () => My::jsLoad('post'),
+            'adminPostHeaders'     => fn () => My::jsLoad('post') . My::cssLoad('style'),
             'adminPostFormItems'   => BackendBehaviors::pingsFormItems(...),
             'adminAfterPostCreate' => BackendBehaviors::doPings(...),
             'adminAfterPostUpdate' => BackendBehaviors::doPings(...),
