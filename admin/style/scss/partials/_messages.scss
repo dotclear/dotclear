@@ -196,12 +196,13 @@ p.warning-msg {
 span.warn,
 span.warning,
 span.info {
-  padding-top: 1px;
-  padding-bottom: 1px;
-  background-position: 0.3em 0.1em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  background-position: 0.4em 0.2em;
   background-size: 1.5em;
   text-indent: 0;
   padding-left: 2.25em;
+  margin-top: 0.25em;
 }
 
 @keyframes kf-error {
