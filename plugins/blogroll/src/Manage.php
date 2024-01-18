@@ -299,6 +299,9 @@ class Manage extends Process
             '</table></div>' .
 
             '<div class="two-cols">' .
+            '<p class="col checkboxes-helpers"></p>' .
+            '<p class="col right"><input id="remove-action" type="submit" class="delete" name="removeaction" value="' . __('Delete selected links') . ' "onclick="return window.confirm(' . Html::escapeJS(__('Are you sure you want to delete selected links?')) . ');"></p>' .
+            '</div>' .
             '<p class="col">' .
 
             form::hidden('links_order', '') .
@@ -308,8 +311,6 @@ class Manage extends Process
             '<input type="submit" name="saveorder" value="' . __('Save order') . '">' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
             '</p>' .
-            '<p class="col right"><input id="remove-action" type="submit" class="delete" name="removeaction" value="' . __('Delete selected links') . ' "onclick="return window.confirm(' . Html::escapeJS(__('Are you sure you want to delete selected links?')) . ');"></p>' .
-            '</div>' .
             '</form>';
         } else {
             echo

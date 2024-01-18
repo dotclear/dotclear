@@ -15,5 +15,8 @@ dotclear.ready(() => {
   });
   $('#links-list tr td input.position').hide();
   $('#links-list tr td.handle').addClass('handler');
+  document.querySelectorAll('.checkboxes-helpers').forEach((elt) => {
+    dotclear.checkboxesHelpers(elt, undefined, '#links-form td input[type=checkbox]', '#links-form #remove-action');
+  });
   dotclear.condSubmit('#links-form td input[type="checkbox"]', '#links-form #remove-action');
 });
