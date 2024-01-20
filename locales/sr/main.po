@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-01-16 09:44\n"
+"POT-Creation-Date: 2024-01-20 10:07+0100\n"
+"PO-Revision-Date: 2024-01-20 09:12\n"
 "Last-Translator: \n"
 "Language-Team: Serbian\n"
 "Language: srp\n"
@@ -438,13 +438,13 @@ msgstr "Родитељ:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1778 src/Process/Backend/BlogPref.php:919
+#: src/Core/Backend/ModulesList.php:1780 src/Process/Backend/BlogPref.php:919
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
 #: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1056
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:918
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:357
-#: src/Process/Install/Install.php:498
+#: src/Process/Install/Install.php:499
 msgid "Save"
 msgstr "Enregistrer"
 
@@ -573,7 +573,7 @@ msgid "Blog ID"
 msgstr "Identifiant du blog"
 
 #: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:53
-#: src/Process/Install/Install.php:478
+#: src/Process/Install/Install.php:479
 msgid "Username"
 msgstr "Nom d'utilisateur (login) :"
 
@@ -674,7 +674,7 @@ msgstr "Korisnici"
 
 #: src/Core/Backend/Favorites.php:516 src/Core/Backend/Menus.php:224
 #: src/Process/Backend/Plugins.php:93 src/Process/Backend/Plugins.php:106
-#: src/Process/Backend/Plugins.php:333 src/Process/Backend/Plugins.php:340
+#: src/Process/Backend/Plugins.php:341 src/Process/Backend/Plugins.php:348
 #: src/Process/Upgrade/Plugins.php:143 src/Process/Upgrade/Plugins.php:153
 msgid "Plugins management"
 msgstr "Gestion des plugins"
@@ -761,7 +761,7 @@ msgstr "Формат:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
 #: src/Process/Backend/Auth.php:464 src/Process/Backend/User.php:277
-#: src/Process/Install/Install.php:528 src/Process/Upgrade/Auth.php:224
+#: src/Process/Install/Install.php:529 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "Lozinka :"
 
@@ -877,7 +877,7 @@ msgid "No blog"
 msgstr "Pas de blog"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:56
-#: src/Core/Backend/ModulesList.php:1623 src/Core/Backend/UserPref.php:76
+#: src/Core/Backend/ModulesList.php:1625 src/Core/Backend/UserPref.php:76
 #: src/Process/Backend/LinkPopup.php:62
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
@@ -1089,7 +1089,7 @@ msgstr "Nb ставки: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
 #: src/Core/Backend/ModulesList.php:777 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:441
+#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:446
 msgid "Name"
 msgstr "Nom"
 
@@ -1344,7 +1344,7 @@ msgstr "Резултат"
 msgid "Version"
 msgstr "Verzija"
 
-#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:445
+#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:450
 msgid "Current version"
 msgstr "Актуелна верзија"
 
@@ -1354,7 +1354,7 @@ msgstr "Актуелна верзија"
 msgid "Details"
 msgstr "Détails"
 
-#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:457
+#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:462
 msgid "Repository"
 msgstr "Спремиште"
 
@@ -1364,7 +1364,7 @@ msgid "Action"
 msgstr "Радња"
 
 #: src/Core/Backend/ModulesList.php:888 src/Core/Backend/ModulesList.php:892
-#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:395
+#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:400
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -1379,12 +1379,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Овај модул не може бити омогућен, због следећих разлога:"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ThemesList.php:178
-#: src/Process/Upgrade/Plugins.php:411
+#: src/Process/Upgrade/Plugins.php:416
 msgid "Official repository"
 msgstr "Званично спремиште"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ModulesList.php:1032
-#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:411
+#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:416
 msgid "Third-party repository"
 msgstr "Спремиште треће стране"
 
@@ -1555,72 +1555,76 @@ msgstr "Прикључак је успешно инсталиран."
 msgid "Upload a zip file"
 msgstr "Déposer un fichier zip"
 
-#: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1603
-#: src/Core/Backend/ModulesList.php:1621 src/Core/Backend/ModulesList.php:1626
-#: src/Process/Backend/Home.php:436 src/Process/Install/Install.php:475
-#: src/Process/Install/Install.php:483 src/Process/Install/Install.php:490
-#: src/Process/Install/Wizard.php:262 src/Process/Install/Wizard.php:280
-#: src/Process/Upgrade/Langs.php:409 src/Process/Upgrade/Langs.php:426
-msgid "Required field"
-msgstr "Potrebno je podesiti ovo polje"
+#: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1622
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:478
+#: src/Process/Backend/BlogPref.php:799 src/Process/Backend/Category.php:233
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
+#: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
+#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
+#: src/Process/Backend/Post.php:886 src/Process/Backend/User.php:255
+#: src/Process/Backend/UsersActions.php:346 src/Process/Install/Install.php:475
+#: src/Process/Install/Wizard.php:262 src/Process/Upgrade/Langs.php:402
+#, php-format
+msgid "Fields preceded by %s are mandatory."
+msgstr ""
 
-#: src/Core/Backend/ModulesList.php:1601
+#: src/Core/Backend/ModulesList.php:1602
 msgid "Zip file path:"
 msgstr "Путања поштанског фајла:"
 
-#: src/Core/Backend/ModulesList.php:1603 src/Core/Backend/ModulesList.php:1626
+#: src/Core/Backend/ModulesList.php:1604 src/Core/Backend/ModulesList.php:1628
 #: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:313
 #: src/Process/Backend/Langs.php:337 src/Process/Backend/User.php:411
 #: src/Process/Backend/UsersActions.php:347 src/Process/Upgrade/Langs.php:375
-#: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:426
+#: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:429
 msgid "Your password:"
 msgstr "Vaša lozinka :"
 
-#: src/Core/Backend/ModulesList.php:1609 src/Core/Backend/ModulesList.php:1632
+#: src/Core/Backend/ModulesList.php:1610 src/Core/Backend/ModulesList.php:1634
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:343
 #: src/Process/Backend/Post.php:693 src/Process/Backend/User.php:284
 #: src/Process/Backend/User.php:297 src/Process/Backend/User.php:417
-#: src/Process/Backend/UsersActions.php:353 src/Process/Install/Install.php:486
-#: src/Process/Install/Install.php:492 src/Process/Upgrade/Langs.php:422
+#: src/Process/Backend/UsersActions.php:353 src/Process/Install/Install.php:487
+#: src/Process/Install/Install.php:493 src/Process/Upgrade/Langs.php:425
 msgid "Password"
 msgstr "Lozinka "
 
-#: src/Core/Backend/ModulesList.php:1613 src/Core/Backend/Page.php:1181
+#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1181
 #: src/Process/Backend/Media.php:532
 msgid "Upload"
 msgstr "Envoyer"
 
-#: src/Core/Backend/ModulesList.php:1620
+#: src/Core/Backend/ModulesList.php:1621
 msgid "Download a zip file"
 msgstr "Télécharger un fichier zip"
 
-#: src/Core/Backend/ModulesList.php:1621
+#: src/Core/Backend/ModulesList.php:1623
 msgid "Zip file URL:"
 msgstr "URL поштанског фајла:"
 
-#: src/Core/Backend/ModulesList.php:1636
+#: src/Core/Backend/ModulesList.php:1638
 msgid "Download"
 msgstr "Преузми"
 
-#: src/Core/Backend/ModulesList.php:1677
+#: src/Core/Backend/ModulesList.php:1679
 msgid "Unknown plugin ID"
 msgstr "Непознат ИД прикључка"
 
-#: src/Core/Backend/ModulesList.php:1688
+#: src/Core/Backend/ModulesList.php:1690
 msgid "This plugin has no configuration file."
 msgstr "Овај прикључак нема датотеку конфигурације."
 
-#: src/Core/Backend/ModulesList.php:1696 src/Process/Backend/Auth.php:279
+#: src/Core/Backend/ModulesList.php:1698 src/Process/Backend/Auth.php:279
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "Недовољне дозволе"
 
-#: src/Core/Backend/ModulesList.php:1770
+#: src/Core/Backend/ModulesList.php:1772
 #, php-format
 msgid "Configure \"%s\""
 msgstr "Конфигуриши \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1771
+#: src/Core/Backend/ModulesList.php:1773
 msgid "Back"
 msgstr "Назад"
 
@@ -1631,7 +1635,7 @@ msgid "Error:"
 msgstr "Erreur :"
 
 #: src/Core/Backend/Notices.php:67 src/Core/Upgrade/Notices.php:34
-#: src/Process/Install/Install.php:438 src/Process/Install/Install.php:546
+#: src/Process/Install/Install.php:438 src/Process/Install/Install.php:547
 #: src/Process/Install/Wizard.php:243
 msgid "Errors:"
 msgstr "Erreurs :"
@@ -2689,7 +2693,7 @@ msgid "On this page you can revert your previous installation or delete theses f
 msgstr "На овој страници можете да вратите претходну инсталацију или да избришете ове датотеке."
 
 #: src/Core/Upgrade/Utility.php:297 src/Process/Backend/Langs.php:230
-#: src/Process/Upgrade/Langs.php:445
+#: src/Process/Upgrade/Langs.php:448
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "Sur cette page, vous pouvez installer, mettre à jour ou supprimer des langues de votre installation de Dotclear."
 
@@ -3134,7 +3138,7 @@ msgstr "Da bih ste promenili lozinku, morate otici do sledece WEB adrese. Ukolik
 
 #: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
 #: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:453
-#: src/Process/Install/Install.php:475 src/Process/Install/Install.php:527
+#: src/Process/Install/Install.php:476 src/Process/Install/Install.php:528
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
 msgstr "Ime korisnika :"
@@ -3204,12 +3208,12 @@ msgstr "Changer votre mot de passe"
 
 #: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:277
 #: src/Process/Backend/UserPreferences.php:579
-#: src/Process/Install/Install.php:483
+#: src/Process/Install/Install.php:484
 msgid "New password:"
 msgstr "Nouveau mot de passe :"
 
 #: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:291
-#: src/Process/Install/Install.php:490
+#: src/Process/Install/Install.php:491
 msgid "Confirm password:"
 msgstr "Confirmez le mot de passe :"
 
@@ -3276,17 +3280,6 @@ msgstr "Novi blog"
 #: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
 msgid "System"
 msgstr "Système"
-
-#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:478
-#: src/Process/Backend/BlogPref.php:799 src/Process/Backend/Category.php:233
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
-#: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
-#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
-#: src/Process/Backend/Post.php:886 src/Process/Backend/User.php:255
-#: src/Process/Backend/UsersActions.php:346
-#, php-format
-msgid "Fields preceded by %s are mandatory."
-msgstr ""
 
 #: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:800
 msgid "Blog ID:"
@@ -3877,84 +3870,88 @@ msgstr "Podešavanje teme"
 msgid "Themes management"
 msgstr "Управљање темама"
 
-#: src/Process/Backend/BlogTheme.php:171 src/Process/Backend/Plugins.php:144
+#: src/Process/Backend/BlogTheme.php:176 src/Process/Backend/BlogTheme.php:178
+msgid "Installed themes"
+msgstr "Инсталиране теме"
+
+#: src/Process/Backend/BlogTheme.php:178
+msgid "Activated themes"
+msgstr "Активиране теме"
+
+#: src/Process/Backend/BlogTheme.php:179 src/Process/Backend/Plugins.php:153
+#: src/Process/Upgrade/Plugins.php:168
+msgid "(in normal mode)"
+msgstr "(у нормалном режиму)"
+
+#: src/Process/Backend/BlogTheme.php:181
+msgid "You can configure and manage installed themes from this list."
+msgstr "Можете да конфигуришете и управљате инсталираним темама са ове листе."
+
+#: src/Process/Backend/BlogTheme.php:202 src/Process/Backend/BlogTheme.php:203
+msgid "Deactivated themes"
+msgstr "деактивиране теме"
+
+#: src/Process/Backend/BlogTheme.php:204
+msgid "Deactivated themes are installed but not usable. You can activate them from here."
+msgstr "Деактивиране теме су инсталиране али не употребљиве. Можеш да их активираш одавде."
+
+#: src/Process/Backend/BlogTheme.php:224 src/Process/Backend/Plugins.php:196
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "Званично спремиште није било могуће ажурирати јер нема URL сета у конфигурацији."
 
-#: src/Process/Backend/BlogTheme.php:175
+#: src/Process/Backend/BlogTheme.php:228
 msgid "Manual checking of themes update done successfully."
 msgstr "Ручно проверавање ажурирања тема је успешно урађено."
 
-#: src/Process/Backend/BlogTheme.php:187
-msgid "Force checking update of themes"
-msgstr "Провера информација о ажурирању тема"
-
-#: src/Process/Backend/BlogTheme.php:204 src/Process/Backend/BlogTheme.php:205
+#: src/Process/Backend/BlogTheme.php:232 src/Process/Backend/BlogTheme.php:233
 msgid "Update themes"
 msgstr "Ажурирај теме"
 
-#: src/Process/Backend/BlogTheme.php:207
-#, php-format
-msgid "There is one theme to update available from repository."
-msgid_plural "There are %s themes to update available from repository."
-msgstr[0] "Постоји једна тема за ажурирање доступних из спремишта."
-msgstr[1] "Постоји %s тема које треба ажурирати из спремишта."
-msgstr[2] "Постоји %s тема које треба ажурирати из спремишта."
+#: src/Process/Backend/BlogTheme.php:244
+msgid "Force checking update of themes"
+msgstr "Провера информација о ажурирању тема"
 
-#: src/Process/Backend/BlogTheme.php:224 src/Process/Backend/BlogTheme.php:310
-#: src/Process/Backend/Plugins.php:197 src/Process/Backend/Plugins.php:284
-#: src/Process/Upgrade/Plugins.php:199 src/Process/Upgrade/Plugins.php:288
+#: src/Process/Backend/BlogTheme.php:261
+msgid "No updates available for themes."
+msgstr ""
+
+#: src/Process/Backend/BlogTheme.php:266
+#, php-format
+msgid "There is one theme update available:"
+msgid_plural "There are %s theme updates available:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/Process/Backend/BlogTheme.php:285 src/Process/Backend/BlogTheme.php:321
+#: src/Process/Backend/Plugins.php:257 src/Process/Backend/Plugins.php:292
+#: src/Process/Upgrade/Plugins.php:254 src/Process/Upgrade/Plugins.php:293
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "Посетите %s спремиште, центар за ресурсе за Дотбист."
 
-#: src/Process/Backend/BlogTheme.php:238 src/Process/Backend/BlogTheme.php:240
-msgid "Installed themes"
-msgstr "Инсталиране теме"
-
-#: src/Process/Backend/BlogTheme.php:240
-msgid "Activated themes"
-msgstr "Активиране теме"
-
-#: src/Process/Backend/BlogTheme.php:241 src/Process/Backend/Plugins.php:217
-#: src/Process/Upgrade/Plugins.php:218
-msgid "(in normal mode)"
-msgstr "(у нормалном режиму)"
-
-#: src/Process/Backend/BlogTheme.php:243
-msgid "You can configure and manage installed themes from this list."
-msgstr "Можете да конфигуришете и управљате инсталираним темама са ове листе."
-
-#: src/Process/Backend/BlogTheme.php:264 src/Process/Backend/BlogTheme.php:265
-msgid "Deactivated themes"
-msgstr "деактивиране теме"
-
-#: src/Process/Backend/BlogTheme.php:266
-msgid "Deactivated themes are installed but not usable. You can activate them from here."
-msgstr "Деактивиране теме су инсталиране али не употребљиве. Можеш да их активираш одавде."
-
-#: src/Process/Backend/BlogTheme.php:290
+#: src/Process/Backend/BlogTheme.php:301
 msgid "Add themes"
 msgstr "Додај теме"
 
-#: src/Process/Backend/BlogTheme.php:291
+#: src/Process/Backend/BlogTheme.php:302
 msgid "Add themes from repository"
 msgstr "Додај теме из спремишта"
 
-#: src/Process/Backend/BlogTheme.php:319 src/Process/Backend/Plugins.php:294
-#: src/Process/Upgrade/Plugins.php:298
+#: src/Process/Backend/BlogTheme.php:330 src/Process/Backend/Plugins.php:302
+#: src/Process/Upgrade/Plugins.php:303
 msgid "Install or upgrade manually"
 msgstr "Ручно инсталирај или надогради"
 
-#: src/Process/Backend/BlogTheme.php:320
+#: src/Process/Backend/BlogTheme.php:331
 msgid "Add themes from a package"
 msgstr "Додај теме из пакета"
 
-#: src/Process/Backend/BlogTheme.php:321
+#: src/Process/Backend/BlogTheme.php:332
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Vous pouvez installer des thèmes en déposant ou téléchargeant des fichier zip."
 
-#: src/Process/Backend/BlogTheme.php:335
+#: src/Process/Backend/BlogTheme.php:346
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Неке функције су онемогућене, дајте приступ писању у директоријум тема да бисте их омогућили."
 
@@ -4265,12 +4262,12 @@ msgid "The cache directory does not exist or is not writable. You should contact
 msgstr "Кеш директоријум не постоји или није уписиван. Требало би да контактирате администратора."
 
 #: src/Process/Backend/Home.php:280 src/Process/Backend/Plugins.php:119
-#: src/Process/Install/Install.php:504 src/Process/Upgrade/Plugins.php:111
+#: src/Process/Install/Install.php:505 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
 msgstr "Les plugins suivants ont été installés :"
 
 #: src/Process/Backend/Home.php:294 src/Process/Backend/Plugins.php:133
-#: src/Process/Install/Install.php:511 src/Process/Upgrade/Plugins.php:123
+#: src/Process/Install/Install.php:512 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have not been installed:"
 msgstr "Les plugins suivants n'ont pas été installés :"
 
@@ -4400,15 +4397,15 @@ msgstr "Langue :"
 msgid "Install language"
 msgstr "Installer la langue"
 
-#: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:400
+#: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:403
 msgid "You can install languages by uploading zip files."
 msgstr "Vous pouvez installer des langues en déposant des fichier zip."
 
-#: src/Process/Backend/Langs.php:335 src/Process/Upgrade/Langs.php:409
+#: src/Process/Backend/Langs.php:335 src/Process/Upgrade/Langs.php:412
 msgid "Language zip file:"
 msgstr "Fichier zip de la langue :"
 
-#: src/Process/Backend/Langs.php:346 src/Process/Upgrade/Langs.php:436
+#: src/Process/Backend/Langs.php:346 src/Process/Upgrade/Langs.php:439
 msgid "Upload language"
 msgstr "Déposer la langue"
 
@@ -4880,69 +4877,73 @@ msgstr "Plugin introuvable"
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "Le plugin que vous essayez d'atteindre n'existe pas ou n'a pas de page d'administration."
 
-#: src/Process/Backend/Plugins.php:148 src/Process/Upgrade/Plugins.php:133
-msgid "Manual checking of plugins update done successfully."
-msgstr "Ручно провера ажурирања прикључака је успешно урађено."
-
-#: src/Process/Backend/Plugins.php:160 src/Process/Upgrade/Plugins.php:171
-msgid "Force checking update of plugins"
-msgstr "Форсирај проверу прикључака за прикључке"
-
-#: src/Process/Backend/Plugins.php:177 src/Process/Backend/Plugins.php:178
-#: src/Process/Upgrade/Plugins.php:161 src/Process/Upgrade/Plugins.php:162
-msgid "Update plugins"
-msgstr "Ажурирај прикључке"
-
-#: src/Process/Backend/Plugins.php:180 src/Process/Upgrade/Plugins.php:182
-#, php-format
-msgid "There is one plugin to update available from repository."
-msgid_plural "There are %s plugins to update available from repository."
-msgstr[0] "Постоји један прикључак за ажурирање доступних из спремишта."
-msgstr[1] "Постоји %s прикључака за ажурирање доступних из спремишта."
-msgstr[2] "Постоји %s прикључака за ажурирање доступних из спремишта."
-
-#: src/Process/Backend/Plugins.php:207 src/Process/Backend/Plugins.php:216
-#: src/Process/Upgrade/Plugins.php:209
+#: src/Process/Backend/Plugins.php:143 src/Process/Backend/Plugins.php:152
+#: src/Process/Upgrade/Plugins.php:159
 msgid "Installed plugins"
 msgstr "Инсталирање прикључака"
 
-#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:218
+#: src/Process/Backend/Plugins.php:152 src/Process/Upgrade/Plugins.php:168
 msgid "Activated plugins"
 msgstr "Plugins activés"
 
-#: src/Process/Backend/Plugins.php:219 src/Process/Upgrade/Plugins.php:220
+#: src/Process/Backend/Plugins.php:155 src/Process/Upgrade/Plugins.php:170
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Можете да конфигуришете и управљате инсталираним прикључцима са ове листе."
 
-#: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:239
+#: src/Process/Backend/Plugins.php:174 src/Process/Upgrade/Plugins.php:189
 msgid "Deactivated plugins"
 msgstr "Plugins désactivées"
 
-#: src/Process/Backend/Plugins.php:239 src/Process/Upgrade/Plugins.php:240
+#: src/Process/Backend/Plugins.php:175 src/Process/Upgrade/Plugins.php:190
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "Деактивирани прикључци су инсталирани али не употребљиви. Можеш да их активираш одавде."
 
-#: src/Process/Backend/Plugins.php:264 src/Process/Upgrade/Plugins.php:268
+#: src/Process/Backend/Plugins.php:200 src/Process/Upgrade/Plugins.php:133
+msgid "Manual checking of plugins update done successfully."
+msgstr "Ручно провера ажурирања прикључака је успешно урађено."
+
+#: src/Process/Backend/Plugins.php:204 src/Process/Backend/Plugins.php:205
+#: src/Process/Upgrade/Plugins.php:211 src/Process/Upgrade/Plugins.php:212
+msgid "Update plugins"
+msgstr "Ажурирај прикључке"
+
+#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:223
+msgid "Force checking update of plugins"
+msgstr "Форсирај проверу прикључака за прикључке"
+
+#: src/Process/Backend/Plugins.php:233 src/Process/Upgrade/Plugins.php:230
+msgid "No updates available for plugins."
+msgstr ""
+
+#: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:235
+#, php-format
+msgid "There is one plugin update available:"
+msgid_plural "There are %s plugin updates available:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: src/Process/Backend/Plugins.php:272 src/Process/Upgrade/Plugins.php:273
 msgid "Add plugins"
 msgstr "Додај прикључке"
 
-#: src/Process/Backend/Plugins.php:265 src/Process/Upgrade/Plugins.php:269
+#: src/Process/Backend/Plugins.php:273 src/Process/Upgrade/Plugins.php:274
 msgid "Add plugins from repository"
 msgstr "Додај прикључке из спремишта"
 
-#: src/Process/Backend/Plugins.php:295 src/Process/Upgrade/Plugins.php:299
+#: src/Process/Backend/Plugins.php:303 src/Process/Upgrade/Plugins.php:304
 msgid "Add plugins from a package"
 msgstr "Додај прикључке из пакета"
 
-#: src/Process/Backend/Plugins.php:296 src/Process/Upgrade/Plugins.php:300
+#: src/Process/Backend/Plugins.php:304 src/Process/Upgrade/Plugins.php:305
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Vous pouvez installer des plugins en déposant ou en téléchargeant des fichiers zip."
 
-#: src/Process/Backend/Plugins.php:310 src/Process/Upgrade/Plugins.php:311
+#: src/Process/Backend/Plugins.php:318 src/Process/Upgrade/Plugins.php:316
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Неке функције су онемогућене, дајте приступ за писање у директоријум за прикључке да бисте им омогућили."
 
-#: src/Process/Backend/Plugins.php:341
+#: src/Process/Backend/Plugins.php:349
 msgid "Plugin configuration"
 msgstr "Конфигурација прикључака"
 
@@ -5935,39 +5936,39 @@ msgstr "Merci de fournir les informations suivantes pour créer le premier utili
 msgid "Username and password"
 msgstr "Login et mot de passe"
 
-#: src/Process/Install/Install.php:519
+#: src/Process/Install/Install.php:520
 msgid "All done!"
 msgstr "Terminé !"
 
-#: src/Process/Install/Install.php:523
+#: src/Process/Install/Install.php:524
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "Dotclear a été installé avec succès. Conservez les informations suivantes précieusement."
 
-#: src/Process/Install/Install.php:525
+#: src/Process/Install/Install.php:526
 msgid "Your account"
 msgstr "Votre compte"
 
-#: src/Process/Install/Install.php:531
+#: src/Process/Install/Install.php:532
 msgid "Your blog"
 msgstr "Votre blog"
 
-#: src/Process/Install/Install.php:533
+#: src/Process/Install/Install.php:534
 msgid "Blog address:"
 msgstr "Adresse du blog :"
 
-#: src/Process/Install/Install.php:534
+#: src/Process/Install/Install.php:535
 msgid "Administration interface:"
 msgstr "Interface d'administration :"
 
-#: src/Process/Install/Install.php:538
+#: src/Process/Install/Install.php:539
 msgid "Manage your blog now"
 msgstr "Gérez votre blog"
 
-#: src/Process/Install/Install.php:545
+#: src/Process/Install/Install.php:546
 msgid "Installation can not be completed"
 msgstr "Инсталација не може бити довршена"
 
-#: src/Process/Install/Install.php:547
+#: src/Process/Install/Install.php:548
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "Из наведених разлога, Дот не може да се инсталира. Молимо погледајте на <a href=\"https://dotclear.org/documentation/2.0/admin/install\">документација</a> да бисте научили како да исправите проблем."
 
@@ -6027,59 +6028,59 @@ msgstr "Informations système"
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "Merci de fournir les informations suivantes pour créer votre fichier de configuration."
 
-#: src/Process/Install/Wizard.php:262
+#: src/Process/Install/Wizard.php:263
 msgid "Database type:"
 msgstr "Type de base de données :"
 
-#: src/Process/Install/Wizard.php:266
+#: src/Process/Install/Wizard.php:267
 msgid "MySQLi"
 msgstr "МиQЛи"
 
-#: src/Process/Install/Wizard.php:267
+#: src/Process/Install/Wizard.php:268
 msgid "MySQLi (full UTF-8)"
 msgstr "MySQLi (пуна UTF-8)"
 
-#: src/Process/Install/Wizard.php:268
+#: src/Process/Install/Wizard.php:269
 msgid "PostgreSQL"
 msgstr "ПостгреQL"
 
-#: src/Process/Install/Wizard.php:269
+#: src/Process/Install/Wizard.php:270
 msgid "SQLite"
 msgstr "SQLite"
 
-#: src/Process/Install/Wizard.php:270
+#: src/Process/Install/Wizard.php:271
 msgid "Driver"
 msgstr "Возач"
 
-#: src/Process/Install/Wizard.php:272
+#: src/Process/Install/Wizard.php:273
 msgid "Database Host Name:"
 msgstr "Nom d'hôte de la base de données :"
 
-#: src/Process/Install/Wizard.php:274
+#: src/Process/Install/Wizard.php:275
 msgid "Database Name:"
 msgstr "Nom de la base de données :"
 
-#: src/Process/Install/Wizard.php:276
+#: src/Process/Install/Wizard.php:277
 msgid "Database User Name:"
 msgstr "Nom d'utilisateur de la base de données :"
 
-#: src/Process/Install/Wizard.php:278
+#: src/Process/Install/Wizard.php:279
 msgid "Database Password:"
 msgstr "Mot de passe de la base de données :"
 
-#: src/Process/Install/Wizard.php:280
+#: src/Process/Install/Wizard.php:281
 msgid "Database Tables Prefix:"
 msgstr "Préfixe des tables de la base de données :"
 
-#: src/Process/Install/Wizard.php:283
+#: src/Process/Install/Wizard.php:284
 msgid "Prefix"
 msgstr "Префикс"
 
-#: src/Process/Install/Wizard.php:286
+#: src/Process/Install/Wizard.php:287
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Мастер е-пошта: (користи се као пошиљалац за опоравак лозинке)"
 
-#: src/Process/Install/Wizard.php:294 src/Process/Upgrade/Digests.php:255
+#: src/Process/Install/Wizard.php:295 src/Process/Upgrade/Digests.php:255
 #: src/Process/Upgrade/Digests.php:276
 msgid "Continue"
 msgstr "Poursuivre :"
@@ -6348,48 +6349,48 @@ msgstr "Инсталирање или надоградња језика из о�
 msgid "Some plugins could not be loaded."
 msgstr "Неки прикључци не могу бити учитани."
 
-#: src/Process/Upgrade/Plugins.php:333
+#: src/Process/Upgrade/Plugins.php:338
 msgid "There is no module to check"
 msgstr "Не постоји модул за проверу"
 
-#: src/Process/Upgrade/Plugins.php:341
+#: src/Process/Upgrade/Plugins.php:346
 msgid "Store version"
 msgstr "Радња радње"
 
-#: src/Process/Upgrade/Plugins.php:343
+#: src/Process/Upgrade/Plugins.php:348
 msgid "Check stores versions"
 msgstr "Проверите верзије радњи"
 
-#: src/Process/Upgrade/Plugins.php:351
+#: src/Process/Upgrade/Plugins.php:356
 msgid "Check lastest stores versions"
 msgstr "Проверите последње верзије складишта"
 
-#: src/Process/Upgrade/Plugins.php:354
+#: src/Process/Upgrade/Plugins.php:359
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "Можете проверити репозиториј за модуле написане експлицитно за Dotasce издање веће од %s."
 
-#: src/Process/Upgrade/Plugins.php:378 src/Process/Upgrade/Plugins.php:420
+#: src/Process/Upgrade/Plugins.php:383 src/Process/Upgrade/Plugins.php:425
 msgid "No version available"
 msgstr "Нема доступних верзија"
 
-#: src/Process/Upgrade/Plugins.php:380
+#: src/Process/Upgrade/Plugins.php:385
 msgid "No update available"
 msgstr "Нема доступних ажурирања"
 
-#: src/Process/Upgrade/Plugins.php:382
+#: src/Process/Upgrade/Plugins.php:387
 msgid "Newer version available"
 msgstr "Доступна је новија верзија"
 
-#: src/Process/Upgrade/Plugins.php:434
+#: src/Process/Upgrade/Plugins.php:439
 msgid "Modules list"
 msgstr "Листа модула"
 
-#: src/Process/Upgrade/Plugins.php:449
+#: src/Process/Upgrade/Plugins.php:454
 msgid "Latest version"
 msgstr "Најновија верзија"
 
-#: src/Process/Upgrade/Plugins.php:453
+#: src/Process/Upgrade/Plugins.php:458
 msgid "Written for Dotclear"
 msgstr "Написано за Dotcoe"
 
