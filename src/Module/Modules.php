@@ -187,7 +187,7 @@ class Modules implements ModulesInterface
     public function getDefines(array $search = [], bool $to_array = false): array
     {
         // only compare some types of values
-        $to_string = fn ($value): ?string => is_bool($value) || is_int($value) || is_string($value) ? (string) $value : null;
+        $to_string = fn ($value): ?string => is_array($value) ? null : (string) $value;
 
         $list = [];
         foreach ($this->defines as $module) {
