@@ -1599,7 +1599,7 @@ class ModulesList
         '<form method="post" action="' . $this->getURL() . '" id="uploadpkg" enctype="multipart/form-data" class="fieldset">' .
         '<h4>' . __('Upload a zip file') . '</h4>' .
         '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-        '<p class="field"><label for="pkg_file" class="classic required">span>*</span> ' . __('Zip file path:') . '</label> ' .
+        '<p class="field"><label for="pkg_file" class="classic required"><span>*</span> ' . __('Zip file path:') . '</label> ' .
         '<input type="file" name="pkg_file" id="pkg_file" required></p>' .
         '<p class="field"><label for="your_pwd1" class="classic required"><span>*</span> ' . __('Your password:') . '</label> ' .
         form::password(
