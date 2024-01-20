@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-01-16 09:45\n"
+"POT-Creation-Date: 2024-01-20 10:07+0100\n"
+"PO-Revision-Date: 2024-01-20 09:13\n"
 "Last-Translator: \n"
 "Language-Team: Serbian\n"
 "Language: srp\n"
@@ -1007,7 +1007,7 @@ msgstr "Потребно је да унесете наслов линка"
 msgid "You must provide a link URL"
 msgstr "Потребно је да унесете URL линка"
 
-#: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:394
+#: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:395
 msgid "Nothing to import"
 msgstr "Ништа за увоз"
 
@@ -1043,36 +1043,36 @@ msgstr "Ланг"
 msgid "select this link"
 msgstr "изаберите ову везу"
 
-#: plugins/blogroll/src/Manage.php:311
+#: plugins/blogroll/src/Manage.php:303
 msgid "Are you sure you want to delete selected links?"
 msgstr "Да ли сте сигурни да желите да избришете изабране линкове?"
 
-#: plugins/blogroll/src/Manage.php:311
+#: plugins/blogroll/src/Manage.php:303
 msgid "Delete selected links"
 msgstr "Избриши изабране линкове"
 
-#: plugins/blogroll/src/Manage.php:316
+#: plugins/blogroll/src/Manage.php:317
 msgid "The link list is empty."
 msgstr "Листа линка је празна."
 
-#: plugins/blogroll/src/Manage.php:324
+#: plugins/blogroll/src/Manage.php:325
 msgid "Add a new link"
 msgstr "Додај нову везу"
 
-#: plugins/blogroll/src/Manage.php:355
+#: plugins/blogroll/src/Manage.php:356
 msgid "Add a category"
 msgstr "Додај категорију"
 
-#: plugins/blogroll/src/Manage.php:373 plugins/blogroll/src/Manage.php:378
-#: plugins/blogroll/src/Manage.php:391
+#: plugins/blogroll/src/Manage.php:374 plugins/blogroll/src/Manage.php:379
+#: plugins/blogroll/src/Manage.php:392
 msgid "Import links"
 msgstr "Увези везе"
 
-#: plugins/blogroll/src/Manage.php:380
+#: plugins/blogroll/src/Manage.php:381
 msgid "OPML or XBEL File:"
 msgstr "OPML или XBEL датотеку:"
 
-#: plugins/blogroll/src/Manage.php:384 plugins/blogroll/src/Manage.php:428
+#: plugins/blogroll/src/Manage.php:385 plugins/blogroll/src/Manage.php:429
 #: plugins/importExport/src/Manage.php:116
 #: plugins/importExport/src/ModuleImportFeed.php:227
 #: plugins/importExport/src/ModuleImportFlat.php:213
@@ -1100,115 +1100,115 @@ msgstr "Врати се у blogrol"
 msgid "Edit category"
 msgstr "Уреди категорију"
 
-#: plugins/blogroll/src/ManageEdit.php:168
+#: plugins/blogroll/src/ManageEdit.php:169
 msgid "Edit link"
 msgstr "Уреди линк"
 
-#: plugins/blogroll/src/ManageEdit.php:204
+#: plugins/blogroll/src/ManageEdit.php:206
 msgid "XFN information"
 msgstr "XFN информације"
 
-#: plugins/blogroll/src/ManageEdit.php:205
+#: plugins/blogroll/src/ManageEdit.php:207
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr "Више информација о <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Википедији</a>"
 
-#: plugins/blogroll/src/ManageEdit.php:211
+#: plugins/blogroll/src/ManageEdit.php:213
 msgid "_xfn_Me"
 msgstr "_xfn_Me"
 
-#: plugins/blogroll/src/ManageEdit.php:214
+#: plugins/blogroll/src/ManageEdit.php:216
 msgid "_xfn_Another link for myself"
 msgstr "_xfn_Друга веза за мене"
 
-#: plugins/blogroll/src/ManageEdit.php:218
+#: plugins/blogroll/src/ManageEdit.php:220
 msgid "_xfn_Friendship"
 msgstr "_xfn_Пријатељство"
 
-#: plugins/blogroll/src/ManageEdit.php:224
+#: plugins/blogroll/src/ManageEdit.php:226
 msgid "_xfn_Contact"
 msgstr "_xfn_Контакт"
 
-#: plugins/blogroll/src/ManageEdit.php:229
+#: plugins/blogroll/src/ManageEdit.php:231
 msgid "_xfn_Acquaintance"
 msgstr "_xfn_Acquepore"
 
-#: plugins/blogroll/src/ManageEdit.php:234
+#: plugins/blogroll/src/ManageEdit.php:236
 msgid "_xfn_Friend"
 msgstr "_xfn_Пријатељица"
 
-#: plugins/blogroll/src/ManageEdit.php:240
+#: plugins/blogroll/src/ManageEdit.php:242
 msgid "_xfn_Physical"
 msgstr "_xfn_физичко"
 
-#: plugins/blogroll/src/ManageEdit.php:246
+#: plugins/blogroll/src/ManageEdit.php:248
 msgid "_xfn_Met"
 msgstr "_xfn_Мет"
 
-#: plugins/blogroll/src/ManageEdit.php:251
+#: plugins/blogroll/src/ManageEdit.php:253
 msgid "_xfn_Professional"
 msgstr "_xfn_Професионални"
 
-#: plugins/blogroll/src/ManageEdit.php:257
+#: plugins/blogroll/src/ManageEdit.php:259
 msgid "_xfn_Co-worker"
 msgstr "_xfn_co-радник"
 
-#: plugins/blogroll/src/ManageEdit.php:262
+#: plugins/blogroll/src/ManageEdit.php:264
 msgid "_xfn_Colleague"
 msgstr "_xfn_Колелига"
 
-#: plugins/blogroll/src/ManageEdit.php:267
+#: plugins/blogroll/src/ManageEdit.php:269
 msgid "_xfn_Geographical"
 msgstr "_xfn_Географија"
 
-#: plugins/blogroll/src/ManageEdit.php:273
+#: plugins/blogroll/src/ManageEdit.php:275
 msgid "_xfn_Co-resident"
 msgstr "_xfn_Co-становник"
 
-#: plugins/blogroll/src/ManageEdit.php:278
+#: plugins/blogroll/src/ManageEdit.php:280
 msgid "_xfn_Neighbor"
 msgstr "_xfn_комшиница"
 
-#: plugins/blogroll/src/ManageEdit.php:284
+#: plugins/blogroll/src/ManageEdit.php:286
 msgid "_xfn_Family"
 msgstr "_xfn_Family"
 
-#: plugins/blogroll/src/ManageEdit.php:290
+#: plugins/blogroll/src/ManageEdit.php:292
 msgid "_xfn_Child"
 msgstr "_xfn_Child"
 
-#: plugins/blogroll/src/ManageEdit.php:295
+#: plugins/blogroll/src/ManageEdit.php:297
 msgid "_xfn_Parent"
 msgstr "_xfn_Parent"
 
-#: plugins/blogroll/src/ManageEdit.php:300
+#: plugins/blogroll/src/ManageEdit.php:302
 msgid "_xfn_Sibling"
 msgstr "_xfn_Сиблинг"
 
-#: plugins/blogroll/src/ManageEdit.php:305
+#: plugins/blogroll/src/ManageEdit.php:307
 msgid "_xfn_Spouse"
 msgstr "_xfn_Спајс"
 
-#: plugins/blogroll/src/ManageEdit.php:310
+#: plugins/blogroll/src/ManageEdit.php:312
 msgid "_xfn_Kin"
 msgstr "_xfn_Kин"
 
-#: plugins/blogroll/src/ManageEdit.php:316
+#: plugins/blogroll/src/ManageEdit.php:318
 msgid "_xfn_Romantic"
 msgstr "_xfn_романтично"
 
-#: plugins/blogroll/src/ManageEdit.php:322
+#: plugins/blogroll/src/ManageEdit.php:324
 msgid "_xfn_Muse"
 msgstr "_xfn_Mупотреба"
 
-#: plugins/blogroll/src/ManageEdit.php:327
+#: plugins/blogroll/src/ManageEdit.php:329
 msgid "_xfn_Crush"
 msgstr "_xfn_Crut"
 
-#: plugins/blogroll/src/ManageEdit.php:332
+#: plugins/blogroll/src/ManageEdit.php:334
 msgid "_xfn_Date"
 msgstr "_xfn_Date"
 
-#: plugins/blogroll/src/ManageEdit.php:337
+#: plugins/blogroll/src/ManageEdit.php:339
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Срце"
 
@@ -2710,19 +2710,19 @@ msgstr "Додај ставку"
 msgid "Menu items list"
 msgstr "Листа ставки менија"
 
-#: plugins/simpleMenu/src/Manage.php:744
-msgid "Update menu"
-msgstr "Ажурирај мени"
-
-#: plugins/simpleMenu/src/Manage.php:746
+#: plugins/simpleMenu/src/Manage.php:745
 msgid "Delete selected menu items"
 msgstr "Избриши изабране ставке менија"
 
-#: plugins/simpleMenu/src/Manage.php:747
+#: plugins/simpleMenu/src/Manage.php:746
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Да ли сте сигурни да желите да уклоните изабране ставке менија?"
 
-#: plugins/simpleMenu/src/Manage.php:754
+#: plugins/simpleMenu/src/Manage.php:750
+msgid "Update menu"
+msgstr "Ажурирај мени"
+
+#: plugins/simpleMenu/src/Manage.php:755
 msgid "No menu items so far."
 msgstr "Нема ставки за мени до сада."
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-01-16 09:44\n"
+"POT-Creation-Date: 2024-01-20 10:07+0100\n"
+"PO-Revision-Date: 2024-01-20 09:12\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -431,13 +431,13 @@ msgstr "పాయింట్:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1778 src/Process/Backend/BlogPref.php:919
+#: src/Core/Backend/ModulesList.php:1780 src/Process/Backend/BlogPref.php:919
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
 #: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1056
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:918
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:357
-#: src/Process/Install/Install.php:498
+#: src/Process/Install/Install.php:499
 msgid "Save"
 msgstr "భద్రపరచు"
 
@@ -564,7 +564,7 @@ msgid "Blog ID"
 msgstr "బ్లాగు ఐడీ"
 
 #: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:53
-#: src/Process/Install/Install.php:478
+#: src/Process/Install/Install.php:479
 msgid "Username"
 msgstr "Username"
 
@@ -663,7 +663,7 @@ msgstr "వాడుకరులు"
 
 #: src/Core/Backend/Favorites.php:516 src/Core/Backend/Menus.php:224
 #: src/Process/Backend/Plugins.php:93 src/Process/Backend/Plugins.php:106
-#: src/Process/Backend/Plugins.php:333 src/Process/Backend/Plugins.php:340
+#: src/Process/Backend/Plugins.php:341 src/Process/Backend/Plugins.php:348
 #: src/Process/Upgrade/Plugins.php:143 src/Process/Upgrade/Plugins.php:153
 msgid "Plugins management"
 msgstr "ప్లగిన్ల నిర్వహణ"
@@ -750,7 +750,7 @@ msgstr "ఫార్మేట్:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
 #: src/Process/Backend/Auth.php:464 src/Process/Backend/User.php:277
-#: src/Process/Install/Install.php:528 src/Process/Upgrade/Auth.php:224
+#: src/Process/Install/Install.php:529 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "సంకేతపదం:"
 
@@ -866,7 +866,7 @@ msgid "No blog"
 msgstr "బ్లాగులు లేవు"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:56
-#: src/Core/Backend/ModulesList.php:1623 src/Core/Backend/UserPref.php:76
+#: src/Core/Backend/ModulesList.php:1625 src/Core/Backend/UserPref.php:76
 #: src/Process/Backend/LinkPopup.php:62
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
@@ -1071,7 +1071,7 @@ msgstr "అంశాలు: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
 #: src/Core/Backend/ModulesList.php:777 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:441
+#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:446
 msgid "Name"
 msgstr "పేరు"
 
@@ -1322,7 +1322,7 @@ msgstr "స్కోర్"
 msgid "Version"
 msgstr "వెర్షన్"
 
-#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:445
+#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:450
 msgid "Current version"
 msgstr "ప్రస్తుత వెర్షన్"
 
@@ -1332,7 +1332,7 @@ msgstr "ప్రస్తుత వెర్షన్"
 msgid "Details"
 msgstr "వివరాలు"
 
-#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:457
+#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:462
 msgid "Repository"
 msgstr "రిపోసిటరీ"
 
@@ -1342,7 +1342,7 @@ msgid "Action"
 msgstr "చర్య"
 
 #: src/Core/Backend/ModulesList.php:888 src/Core/Backend/ModulesList.php:892
-#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:395
+#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:400
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -1357,12 +1357,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "ఈ మాడ్యూల్ చేతనము చేయలేము, క్రింది కారణాల వలన:"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ThemesList.php:178
-#: src/Process/Upgrade/Plugins.php:411
+#: src/Process/Upgrade/Plugins.php:416
 msgid "Official repository"
 msgstr "అధికారిక రిపోసిటరీ"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ModulesList.php:1032
-#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:411
+#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:416
 msgid "Third-party repository"
 msgstr "మూడవ-పార్టీ రిపోసిటరీ"
 
@@ -1528,72 +1528,76 @@ msgstr "ప్లగిన్ సమర్ధవంతంగా స్థాప�
 msgid "Upload a zip file"
 msgstr "జిప్ ఫైలును అప్లోడ్ చేయుము"
 
-#: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1603
-#: src/Core/Backend/ModulesList.php:1621 src/Core/Backend/ModulesList.php:1626
-#: src/Process/Backend/Home.php:436 src/Process/Install/Install.php:475
-#: src/Process/Install/Install.php:483 src/Process/Install/Install.php:490
-#: src/Process/Install/Wizard.php:262 src/Process/Install/Wizard.php:280
-#: src/Process/Upgrade/Langs.php:409 src/Process/Upgrade/Langs.php:426
-msgid "Required field"
-msgstr "తప్పనిసరి"
+#: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1622
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:478
+#: src/Process/Backend/BlogPref.php:799 src/Process/Backend/Category.php:233
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
+#: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
+#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
+#: src/Process/Backend/Post.php:886 src/Process/Backend/User.php:255
+#: src/Process/Backend/UsersActions.php:346 src/Process/Install/Install.php:475
+#: src/Process/Install/Wizard.php:262 src/Process/Upgrade/Langs.php:402
+#, php-format
+msgid "Fields preceded by %s are mandatory."
+msgstr ""
 
-#: src/Core/Backend/ModulesList.php:1601
+#: src/Core/Backend/ModulesList.php:1602
 msgid "Zip file path:"
 msgstr "జిప్ ఫైల్ దారి:"
 
-#: src/Core/Backend/ModulesList.php:1603 src/Core/Backend/ModulesList.php:1626
+#: src/Core/Backend/ModulesList.php:1604 src/Core/Backend/ModulesList.php:1628
 #: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:313
 #: src/Process/Backend/Langs.php:337 src/Process/Backend/User.php:411
 #: src/Process/Backend/UsersActions.php:347 src/Process/Upgrade/Langs.php:375
-#: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:426
+#: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:429
 msgid "Your password:"
 msgstr "మీ సంకేతపదం:"
 
-#: src/Core/Backend/ModulesList.php:1609 src/Core/Backend/ModulesList.php:1632
+#: src/Core/Backend/ModulesList.php:1610 src/Core/Backend/ModulesList.php:1634
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:343
 #: src/Process/Backend/Post.php:693 src/Process/Backend/User.php:284
 #: src/Process/Backend/User.php:297 src/Process/Backend/User.php:417
-#: src/Process/Backend/UsersActions.php:353 src/Process/Install/Install.php:486
-#: src/Process/Install/Install.php:492 src/Process/Upgrade/Langs.php:422
+#: src/Process/Backend/UsersActions.php:353 src/Process/Install/Install.php:487
+#: src/Process/Install/Install.php:493 src/Process/Upgrade/Langs.php:425
 msgid "Password"
 msgstr "సంకేతపదము"
 
-#: src/Core/Backend/ModulesList.php:1613 src/Core/Backend/Page.php:1181
+#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1181
 #: src/Process/Backend/Media.php:532
 msgid "Upload"
 msgstr "ఎగుమతి చెయ్యండి"
 
-#: src/Core/Backend/ModulesList.php:1620
+#: src/Core/Backend/ModulesList.php:1621
 msgid "Download a zip file"
 msgstr "జిప్ ఫైలును డౌన్లోడ్ చేయుము"
 
-#: src/Core/Backend/ModulesList.php:1621
+#: src/Core/Backend/ModulesList.php:1623
 msgid "Zip file URL:"
 msgstr "జిప్ ఫైల్ URL:"
 
-#: src/Core/Backend/ModulesList.php:1636
+#: src/Core/Backend/ModulesList.php:1638
 msgid "Download"
 msgstr "డౌన్లోడ్"
 
-#: src/Core/Backend/ModulesList.php:1677
+#: src/Core/Backend/ModulesList.php:1679
 msgid "Unknown plugin ID"
 msgstr "తెలియని ప్లగిన్ ID"
 
-#: src/Core/Backend/ModulesList.php:1688
+#: src/Core/Backend/ModulesList.php:1690
 msgid "This plugin has no configuration file."
 msgstr "ఈ ప్లగిన్కు ఆకృతీకరణను లేదు."
 
-#: src/Core/Backend/ModulesList.php:1696 src/Process/Backend/Auth.php:279
+#: src/Core/Backend/ModulesList.php:1698 src/Process/Backend/Auth.php:279
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "అన్వేషణ అనుమతి"
 
-#: src/Core/Backend/ModulesList.php:1770
+#: src/Core/Backend/ModulesList.php:1772
 #, php-format
 msgid "Configure \"%s\""
 msgstr "ఆకృతీకరించు \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1771
+#: src/Core/Backend/ModulesList.php:1773
 msgid "Back"
 msgstr "వెనుకకు"
 
@@ -1604,7 +1608,7 @@ msgid "Error:"
 msgstr "పొరపాటు:"
 
 #: src/Core/Backend/Notices.php:67 src/Core/Upgrade/Notices.php:34
-#: src/Process/Install/Install.php:438 src/Process/Install/Install.php:546
+#: src/Process/Install/Install.php:438 src/Process/Install/Install.php:547
 #: src/Process/Install/Wizard.php:243
 msgid "Errors:"
 msgstr "పొరపాట్లు:"
@@ -2656,7 +2660,7 @@ msgid "On this page you can revert your previous installation or delete theses f
 msgstr "ఈ పేజీలో మీరు మీ పూర్వ స్థాపన లేదా థెసిస్ ఫైళ్ళను తొలగించుకోవచ్చు."
 
 #: src/Core/Upgrade/Utility.php:297 src/Process/Backend/Langs.php:230
-#: src/Process/Upgrade/Langs.php:445
+#: src/Process/Upgrade/Langs.php:448
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "మీ డాట్‌క్లియర్‌ స్థాపనకై భాషలని మీరు ఇక్కడ స్థాపించుకోవచ్చు, నవీకరించుకోవచ్చు లేదా తొలగించవచ్చు."
 
@@ -3101,7 +3105,7 @@ msgstr "మీ సంకేతపదము సందర్శించడాన�
 
 #: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
 #: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:453
-#: src/Process/Install/Install.php:475 src/Process/Install/Install.php:527
+#: src/Process/Install/Install.php:476 src/Process/Install/Install.php:528
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
 msgstr "వాడుకరిపేరు:"
@@ -3171,12 +3175,12 @@ msgstr "మీ సంకేతపదాన్ని మార్చండి"
 
 #: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:277
 #: src/Process/Backend/UserPreferences.php:579
-#: src/Process/Install/Install.php:483
+#: src/Process/Install/Install.php:484
 msgid "New password:"
 msgstr "కొత్త సంకేతపదం:"
 
 #: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:291
-#: src/Process/Install/Install.php:490
+#: src/Process/Install/Install.php:491
 msgid "Confirm password:"
 msgstr "సంకేతపదాన్ని నిర్ధారించండి:"
 
@@ -3243,17 +3247,6 @@ msgstr "కొత్త బ్లాగు"
 #: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
 msgid "System"
 msgstr "వ్యవస్థ"
-
-#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:478
-#: src/Process/Backend/BlogPref.php:799 src/Process/Backend/Category.php:233
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
-#: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
-#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
-#: src/Process/Backend/Post.php:886 src/Process/Backend/User.php:255
-#: src/Process/Backend/UsersActions.php:346
-#, php-format
-msgid "Fields preceded by %s are mandatory."
-msgstr ""
 
 #: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:800
 msgid "Blog ID:"
@@ -3844,83 +3837,87 @@ msgstr "అలంకార స్వరూపణం"
 msgid "Themes management"
 msgstr "థీమ్స్ నిర్వహణ"
 
-#: src/Process/Backend/BlogTheme.php:171 src/Process/Backend/Plugins.php:144
+#: src/Process/Backend/BlogTheme.php:176 src/Process/Backend/BlogTheme.php:178
+msgid "Installed themes"
+msgstr "స్థాపించబడిన థీమ్స్"
+
+#: src/Process/Backend/BlogTheme.php:178
+msgid "Activated themes"
+msgstr "క్రియాశీల థీమ్స్"
+
+#: src/Process/Backend/BlogTheme.php:179 src/Process/Backend/Plugins.php:153
+#: src/Process/Upgrade/Plugins.php:168
+msgid "(in normal mode)"
+msgstr "(మామూలు మోడ్లో)"
+
+#: src/Process/Backend/BlogTheme.php:181
+msgid "You can configure and manage installed themes from this list."
+msgstr "ఈ జాబితా నుండి మీరు సంస్థాపించిన థీమ్లను ఆకృతి మరియు నిర్వహించగలవు."
+
+#: src/Process/Backend/BlogTheme.php:202 src/Process/Backend/BlogTheme.php:203
+msgid "Deactivated themes"
+msgstr "క్రియాశీలమైన థీమ్స్"
+
+#: src/Process/Backend/BlogTheme.php:204
+msgid "Deactivated themes are installed but not usable. You can activate them from here."
+msgstr "క్రియాశీలమైన థీమ్స్ స్థాపించబడి కానీ ব্যবহারযোগ্য కాదు. మీరు ఇక్కడ నుండి వాటిని క్రియాశీలంగా చేయవచ్చు."
+
+#: src/Process/Backend/BlogTheme.php:224 src/Process/Backend/Plugins.php:196
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "ఆకృతీకరణలో ఎటువంటి URL సెట్ లేదు వలె అధికారిక రిపోజిటరీ జతచేయబడలేకపోయింది."
 
-#: src/Process/Backend/BlogTheme.php:175
+#: src/Process/Backend/BlogTheme.php:228
 msgid "Manual checking of themes update done successfully."
 msgstr "థీమ్స్ నవీకరణను సమర్ధవంతంగా పరిశీలించుట."
 
-#: src/Process/Backend/BlogTheme.php:187
-msgid "Force checking update of themes"
-msgstr "థీమ్స్ యొక్క నవీకరణలను పరిశీలించుట बल"
-
-#: src/Process/Backend/BlogTheme.php:204 src/Process/Backend/BlogTheme.php:205
+#: src/Process/Backend/BlogTheme.php:232 src/Process/Backend/BlogTheme.php:233
 msgid "Update themes"
 msgstr "థీమ్స్ నవీకరణ"
 
-#: src/Process/Backend/BlogTheme.php:207
-#, php-format
-msgid "There is one theme to update available from repository."
-msgid_plural "There are %s themes to update available from repository."
-msgstr[0] "రిపోసిటరీ నుండి అందుబాటలో ఒక థీమ్ అందుబాటుంది."
-msgstr[1] "%s థీమ్స్ రిపోసిటరీ నుండి అందుబాట్లు నవీకరణ చేయబడుతున్నాయి."
+#: src/Process/Backend/BlogTheme.php:244
+msgid "Force checking update of themes"
+msgstr "థీమ్స్ యొక్క నవీకరణలను పరిశీలించుట बल"
 
-#: src/Process/Backend/BlogTheme.php:224 src/Process/Backend/BlogTheme.php:310
-#: src/Process/Backend/Plugins.php:197 src/Process/Backend/Plugins.php:284
-#: src/Process/Upgrade/Plugins.php:199 src/Process/Upgrade/Plugins.php:288
+#: src/Process/Backend/BlogTheme.php:261
+msgid "No updates available for themes."
+msgstr ""
+
+#: src/Process/Backend/BlogTheme.php:266
+#, php-format
+msgid "There is one theme update available:"
+msgid_plural "There are %s theme updates available:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Process/Backend/BlogTheme.php:285 src/Process/Backend/BlogTheme.php:321
+#: src/Process/Backend/Plugins.php:257 src/Process/Backend/Plugins.php:292
+#: src/Process/Upgrade/Plugins.php:254 src/Process/Upgrade/Plugins.php:293
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "%s రిపోసిటరీ, Dotclear కోసం వనరుల కేంద్రం."
 
-#: src/Process/Backend/BlogTheme.php:238 src/Process/Backend/BlogTheme.php:240
-msgid "Installed themes"
-msgstr "స్థాపించబడిన థీమ్స్"
-
-#: src/Process/Backend/BlogTheme.php:240
-msgid "Activated themes"
-msgstr "క్రియాశీల థీమ్స్"
-
-#: src/Process/Backend/BlogTheme.php:241 src/Process/Backend/Plugins.php:217
-#: src/Process/Upgrade/Plugins.php:218
-msgid "(in normal mode)"
-msgstr "(మామూలు మోడ్లో)"
-
-#: src/Process/Backend/BlogTheme.php:243
-msgid "You can configure and manage installed themes from this list."
-msgstr "ఈ జాబితా నుండి మీరు సంస్థాపించిన థీమ్లను ఆకృతి మరియు నిర్వహించగలవు."
-
-#: src/Process/Backend/BlogTheme.php:264 src/Process/Backend/BlogTheme.php:265
-msgid "Deactivated themes"
-msgstr "క్రియాశీలమైన థీమ్స్"
-
-#: src/Process/Backend/BlogTheme.php:266
-msgid "Deactivated themes are installed but not usable. You can activate them from here."
-msgstr "క్రియాశీలమైన థీమ్స్ స్థాపించబడి కానీ ব্যবহারযোগ্য కాదు. మీరు ఇక్కడ నుండి వాటిని క్రియాశీలంగా చేయవచ్చు."
-
-#: src/Process/Backend/BlogTheme.php:290
+#: src/Process/Backend/BlogTheme.php:301
 msgid "Add themes"
 msgstr "థీమ్స్ జతచేయి"
 
-#: src/Process/Backend/BlogTheme.php:291
+#: src/Process/Backend/BlogTheme.php:302
 msgid "Add themes from repository"
 msgstr "@ title: window"
 
-#: src/Process/Backend/BlogTheme.php:319 src/Process/Backend/Plugins.php:294
-#: src/Process/Upgrade/Plugins.php:298
+#: src/Process/Backend/BlogTheme.php:330 src/Process/Backend/Plugins.php:302
+#: src/Process/Upgrade/Plugins.php:303
 msgid "Install or upgrade manually"
 msgstr "మాన్యుస్ను స్థాపించు లేదా అప్గ్రేడ్"
 
-#: src/Process/Backend/BlogTheme.php:320
+#: src/Process/Backend/BlogTheme.php:331
 msgid "Add themes from a package"
 msgstr "ప్యాకేజీ నుండి థీమ్స్ జతచేయుము"
 
-#: src/Process/Backend/BlogTheme.php:321
+#: src/Process/Backend/BlogTheme.php:332
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "జిప్ ఫైళ్ళను డౌన్లోడింగ్ లేదా డౌన్లోడింగ్ ద్వారా మీరు థీమ్లను స్థాపించుకోవచ్చు."
 
-#: src/Process/Backend/BlogTheme.php:335
+#: src/Process/Backend/BlogTheme.php:346
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "కొన్ని కార్యాలు అచేతనము చేయబడతాయి, దయచేసి వాటిని అందుకునేందుకు మీ థీమ్ డైరెక్టరీకు వ్రాయండి."
 
@@ -4231,12 +4228,12 @@ msgid "The cache directory does not exist or is not writable. You should contact
 msgstr "క్యాచీ డైరెక్టరీ లేదు లేదా వ్రాయగలదు. మీరు మీ పరిపాలనతో సంప్రదించాలి."
 
 #: src/Process/Backend/Home.php:280 src/Process/Backend/Plugins.php:119
-#: src/Process/Install/Install.php:504 src/Process/Upgrade/Plugins.php:111
+#: src/Process/Install/Install.php:505 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
 msgstr "ప్లగిన్లను అనుసరించి వ్యవస్థాపించబడింది:"
 
 #: src/Process/Backend/Home.php:294 src/Process/Backend/Plugins.php:133
-#: src/Process/Install/Install.php:511 src/Process/Upgrade/Plugins.php:123
+#: src/Process/Install/Install.php:512 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have not been installed:"
 msgstr "తరువాతి ప్లగిన్లు స్థాపించబడలేదు:"
 
@@ -4366,15 +4363,15 @@ msgstr "భాష:"
 msgid "Install language"
 msgstr "భాషని స్థాపించు"
 
-#: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:400
+#: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:403
 msgid "You can install languages by uploading zip files."
 msgstr "జిప్ ఫైళ్ళను అప్లోడ్ చేయుటచే భాషలు స్థాపించవచ్చు."
 
-#: src/Process/Backend/Langs.php:335 src/Process/Upgrade/Langs.php:409
+#: src/Process/Backend/Langs.php:335 src/Process/Upgrade/Langs.php:412
 msgid "Language zip file:"
 msgstr "భాషా జిప్ ఫైలు:"
 
-#: src/Process/Backend/Langs.php:346 src/Process/Upgrade/Langs.php:436
+#: src/Process/Backend/Langs.php:346 src/Process/Upgrade/Langs.php:439
 msgid "Upload language"
 msgstr "అప్లోడ్ భాష"
 
@@ -4845,68 +4842,72 @@ msgstr "ప్లగిన్ దొరకలేదు"
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "మీరు చేరుకున్న ప్లగిన్ లేదు లేదా అడ్మిన్ పేజీ లేదు."
 
-#: src/Process/Backend/Plugins.php:148 src/Process/Upgrade/Plugins.php:133
-msgid "Manual checking of plugins update done successfully."
-msgstr "ప్లగిన్ నవీకరణ యొక్క మాన్యువల్ పరిశీలన సమర్ధవంతంగా జరిగింది."
-
-#: src/Process/Backend/Plugins.php:160 src/Process/Upgrade/Plugins.php:171
-msgid "Force checking update of plugins"
-msgstr "ప్లగిన్స్ యొక్క నవీకరణను పరిశీలించుట చూపుము"
-
-#: src/Process/Backend/Plugins.php:177 src/Process/Backend/Plugins.php:178
-#: src/Process/Upgrade/Plugins.php:161 src/Process/Upgrade/Plugins.php:162
-msgid "Update plugins"
-msgstr "ప్లగిన్లను నవీకరణ చేయుము"
-
-#: src/Process/Backend/Plugins.php:180 src/Process/Upgrade/Plugins.php:182
-#, php-format
-msgid "There is one plugin to update available from repository."
-msgid_plural "There are %s plugins to update available from repository."
-msgstr[0] "రిపోసిటరీ నుండి అందుబాటలో నవీకరణకు ఒక ప్లగిన్ ఉంది."
-msgstr[1] "రిపోసిటరీ నుండి అందుబాటులు నవీకరణకు %s ప్లగిన్లు ఉన్నాయి."
-
-#: src/Process/Backend/Plugins.php:207 src/Process/Backend/Plugins.php:216
-#: src/Process/Upgrade/Plugins.php:209
+#: src/Process/Backend/Plugins.php:143 src/Process/Backend/Plugins.php:152
+#: src/Process/Upgrade/Plugins.php:159
 msgid "Installed plugins"
 msgstr "స్థాపించబడిన ప్లగిన్లను"
 
-#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:218
+#: src/Process/Backend/Plugins.php:152 src/Process/Upgrade/Plugins.php:168
 msgid "Activated plugins"
 msgstr "చేతనంగావున్న ప్లగిన్లు"
 
-#: src/Process/Backend/Plugins.php:219 src/Process/Upgrade/Plugins.php:220
+#: src/Process/Backend/Plugins.php:155 src/Process/Upgrade/Plugins.php:170
 msgid "You can configure and manage installed plugins from this list."
 msgstr "ఈ జాబితా నుండి మీరు స్థాపించబడిన ప్లగిన్లను ఆకృతి మరియు నిర్వహించగలరు."
 
-#: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:239
+#: src/Process/Backend/Plugins.php:174 src/Process/Upgrade/Plugins.php:189
 msgid "Deactivated plugins"
 msgstr "క్రియాశీల ప్లగ్యిన్లు"
 
-#: src/Process/Backend/Plugins.php:239 src/Process/Upgrade/Plugins.php:240
+#: src/Process/Backend/Plugins.php:175 src/Process/Upgrade/Plugins.php:190
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "క్రియాశీలమైన ప్లగిన్లు స్థాపించబడతాయి కానీ usable కాదు. మీరు ఇక్కడ నుండి వాటిని క్రియాశీలంగా చేయవచ్చు."
 
-#: src/Process/Backend/Plugins.php:264 src/Process/Upgrade/Plugins.php:268
+#: src/Process/Backend/Plugins.php:200 src/Process/Upgrade/Plugins.php:133
+msgid "Manual checking of plugins update done successfully."
+msgstr "ప్లగిన్ నవీకరణ యొక్క మాన్యువల్ పరిశీలన సమర్ధవంతంగా జరిగింది."
+
+#: src/Process/Backend/Plugins.php:204 src/Process/Backend/Plugins.php:205
+#: src/Process/Upgrade/Plugins.php:211 src/Process/Upgrade/Plugins.php:212
+msgid "Update plugins"
+msgstr "ప్లగిన్లను నవీకరణ చేయుము"
+
+#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:223
+msgid "Force checking update of plugins"
+msgstr "ప్లగిన్స్ యొక్క నవీకరణను పరిశీలించుట చూపుము"
+
+#: src/Process/Backend/Plugins.php:233 src/Process/Upgrade/Plugins.php:230
+msgid "No updates available for plugins."
+msgstr ""
+
+#: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:235
+#, php-format
+msgid "There is one plugin update available:"
+msgid_plural "There are %s plugin updates available:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Process/Backend/Plugins.php:272 src/Process/Upgrade/Plugins.php:273
 msgid "Add plugins"
 msgstr "ప్లగిన్లను జతచేయుము"
 
-#: src/Process/Backend/Plugins.php:265 src/Process/Upgrade/Plugins.php:269
+#: src/Process/Backend/Plugins.php:273 src/Process/Upgrade/Plugins.php:274
 msgid "Add plugins from repository"
 msgstr "@ title: window"
 
-#: src/Process/Backend/Plugins.php:295 src/Process/Upgrade/Plugins.php:299
+#: src/Process/Backend/Plugins.php:303 src/Process/Upgrade/Plugins.php:304
 msgid "Add plugins from a package"
 msgstr "ప్యాకేజీ నుండి ప్లగిన్లను జతచేయుము"
 
-#: src/Process/Backend/Plugins.php:296 src/Process/Upgrade/Plugins.php:300
+#: src/Process/Backend/Plugins.php:304 src/Process/Upgrade/Plugins.php:305
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "జిప్ ఫైళ్ళను అప్లోడ్ చేయటం లేదా డౌన్లోడ్ చేయుటచే ప్లగిన్లను స్థాపించుకోవచ్చు."
 
-#: src/Process/Backend/Plugins.php:310 src/Process/Upgrade/Plugins.php:311
+#: src/Process/Backend/Plugins.php:318 src/Process/Upgrade/Plugins.php:316
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "కొన్ని కార్యాలు అచేతనము చేయబడతాయి, దయచేసి వాటిని అందుకునేందుకు మీ ప్లగిన్స్ డైరెక్టరీకి వ్రాయండి."
 
-#: src/Process/Backend/Plugins.php:341
+#: src/Process/Backend/Plugins.php:349
 msgid "Plugin configuration"
 msgstr "ప్లగిన్ ఆకృతి"
 
@@ -5897,39 +5898,39 @@ msgstr "మొదటి వినియోగదారు సృష్టిం�
 msgid "Username and password"
 msgstr "Username and password"
 
-#: src/Process/Install/Install.php:519
+#: src/Process/Install/Install.php:520
 msgid "All done!"
 msgstr "అంతా పూర్తయ్యింది!"
 
-#: src/Process/Install/Install.php:523
+#: src/Process/Install/Install.php:524
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "Dotclear సమర్ధవంతంగా స్థాపించబడింది. ఇక్కడ కొన్ని ఉపయోగకరమైన సమాచారం మీరు ఉంచుకోవాలి."
 
-#: src/Process/Install/Install.php:525
+#: src/Process/Install/Install.php:526
 msgid "Your account"
 msgstr "మీ ఖాతా"
 
-#: src/Process/Install/Install.php:531
+#: src/Process/Install/Install.php:532
 msgid "Your blog"
 msgstr "మీ బ్లాగు"
 
-#: src/Process/Install/Install.php:533
+#: src/Process/Install/Install.php:534
 msgid "Blog address:"
 msgstr "బ్లాగు చిరునామా:"
 
-#: src/Process/Install/Install.php:534
+#: src/Process/Install/Install.php:535
 msgid "Administration interface:"
 msgstr "నిర్వహణ అంతరవర్తి:"
 
-#: src/Process/Install/Install.php:538
+#: src/Process/Install/Install.php:539
 msgid "Manage your blog now"
 msgstr "ఇప్పుడే మీ బ్లాగుని నిర్వహించండి"
 
-#: src/Process/Install/Install.php:545
+#: src/Process/Install/Install.php:546
 msgid "Installation can not be completed"
 msgstr "@ info: status"
 
-#: src/Process/Install/Install.php:547
+#: src/Process/Install/Install.php:548
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "చెప్పిన కారణాల కోసం, Dotclear స్థాపన చేయలేకపోవచ్చు. దయచేసి <a href=\"https://dotclear.org/documentation/2.0/admin/install\">డాక్యుమెంట్మెంటు</a> ఈ సమస్యను ఎలా సరిచేయాలో తెలుసుకోవాలి."
 
@@ -5989,59 +5990,59 @@ msgstr "వ్యవస్థ సమాచారం"
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "మీ ఆకృతీకరణను సృష్టించుటకు అవసరమైన క్రింది సమాచారమును దయచేసి దయచేయుము."
 
-#: src/Process/Install/Wizard.php:262
+#: src/Process/Install/Wizard.php:263
 msgid "Database type:"
 msgstr "డాటాబేసు రకం:"
 
-#: src/Process/Install/Wizard.php:266
+#: src/Process/Install/Wizard.php:267
 msgid "MySQLi"
 msgstr "MySQL"
 
-#: src/Process/Install/Wizard.php:267
+#: src/Process/Install/Wizard.php:268
 msgid "MySQLi (full UTF-8)"
 msgstr "MySQL( పూర్తి UTF-8)"
 
-#: src/Process/Install/Wizard.php:268
+#: src/Process/Install/Wizard.php:269
 msgid "PostgreSQL"
 msgstr "PostgreSQLLanguage"
 
-#: src/Process/Install/Wizard.php:269
+#: src/Process/Install/Wizard.php:270
 msgid "SQLite"
 msgstr "SQLite"
 
-#: src/Process/Install/Wizard.php:270
+#: src/Process/Install/Wizard.php:271
 msgid "Driver"
 msgstr "డ్రైవర్"
 
-#: src/Process/Install/Wizard.php:272
+#: src/Process/Install/Wizard.php:273
 msgid "Database Host Name:"
 msgstr "డాటాబేస్ హోస్ట్ పేరు:"
 
-#: src/Process/Install/Wizard.php:274
+#: src/Process/Install/Wizard.php:275
 msgid "Database Name:"
 msgstr "డాటాబేసు పేరు:"
 
-#: src/Process/Install/Wizard.php:276
+#: src/Process/Install/Wizard.php:277
 msgid "Database User Name:"
 msgstr "డేటాబేస్ యూజర్ పేరు:"
 
-#: src/Process/Install/Wizard.php:278
+#: src/Process/Install/Wizard.php:279
 msgid "Database Password:"
 msgstr "డాటాబేసు సంకేతపదం:"
 
-#: src/Process/Install/Wizard.php:280
+#: src/Process/Install/Wizard.php:281
 msgid "Database Tables Prefix:"
 msgstr "డాటాబేస్ Tables Prefix:"
 
-#: src/Process/Install/Wizard.php:283
+#: src/Process/Install/Wizard.php:284
 msgid "Prefix"
 msgstr "ప్రొఫిసర్"
 
-#: src/Process/Install/Wizard.php:286
+#: src/Process/Install/Wizard.php:287
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "మాస్టర్ ఈమెయిల్: (సంకేతపదం పునరానికి sender as sender)"
 
-#: src/Process/Install/Wizard.php:294 src/Process/Upgrade/Digests.php:255
+#: src/Process/Install/Wizard.php:295 src/Process/Upgrade/Digests.php:255
 #: src/Process/Upgrade/Digests.php:276
 msgid "Continue"
 msgstr "కొనసాగించు"
@@ -6310,48 +6311,48 @@ msgstr "జిప్ ఫైలు అప్లోడ్ నుండి స్�
 msgid "Some plugins could not be loaded."
 msgstr "కొన్ని ప్లగిన్లు లోడ్ చేయలేకపోయాయి."
 
-#: src/Process/Upgrade/Plugins.php:333
+#: src/Process/Upgrade/Plugins.php:338
 msgid "There is no module to check"
 msgstr "పరిశీలించుటకు మాడ్యూల్ లేదు"
 
-#: src/Process/Upgrade/Plugins.php:341
+#: src/Process/Upgrade/Plugins.php:346
 msgid "Store version"
 msgstr "స్టోర్ వర్షన్"
 
-#: src/Process/Upgrade/Plugins.php:343
+#: src/Process/Upgrade/Plugins.php:348
 msgid "Check stores versions"
 msgstr "దుకాణములు వెర్షన్లు"
 
-#: src/Process/Upgrade/Plugins.php:351
+#: src/Process/Upgrade/Plugins.php:356
 msgid "Check lastest stores versions"
 msgstr "లాస్ట్ స్టోర్స్ వెర్షన్లను పరిశీలించుము"
 
-#: src/Process/Upgrade/Plugins.php:354
+#: src/Process/Upgrade/Plugins.php:359
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "Dotclear విడుదల కు %s కంటే పెద్దగా వ్రాయబడిన మాడ్యూల్స్ కోసం రిపోజిటరీలను పరిశీలించవచ్చు."
 
-#: src/Process/Upgrade/Plugins.php:378 src/Process/Upgrade/Plugins.php:420
+#: src/Process/Upgrade/Plugins.php:383 src/Process/Upgrade/Plugins.php:425
 msgid "No version available"
 msgstr "ఏ వెర్షన్ను అందుబాటలేదు"
 
-#: src/Process/Upgrade/Plugins.php:380
+#: src/Process/Upgrade/Plugins.php:385
 msgid "No update available"
 msgstr "నవీకరణను అందుబాట లేదు"
 
-#: src/Process/Upgrade/Plugins.php:382
+#: src/Process/Upgrade/Plugins.php:387
 msgid "Newer version available"
 msgstr "న్యూయర్ వెర్షన్ అందుబాటుంది"
 
-#: src/Process/Upgrade/Plugins.php:434
+#: src/Process/Upgrade/Plugins.php:439
 msgid "Modules list"
 msgstr "మాడ్యూల్ జాబితా"
 
-#: src/Process/Upgrade/Plugins.php:449
+#: src/Process/Upgrade/Plugins.php:454
 msgid "Latest version"
 msgstr "లాస్ట్ వెర్షన్"
 
-#: src/Process/Upgrade/Plugins.php:453
+#: src/Process/Upgrade/Plugins.php:458
 msgid "Written for Dotclear"
 msgstr "Dotclear కొరకు వ్రాసారు"
 

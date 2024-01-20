@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-01-16 10:06\n"
+"POT-Creation-Date: 2024-01-20 10:07+0100\n"
+"PO-Revision-Date: 2024-01-20 09:37\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -424,13 +424,13 @@ msgstr "상위분류 :"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1778 src/Process/Backend/BlogPref.php:919
+#: src/Core/Backend/ModulesList.php:1780 src/Process/Backend/BlogPref.php:919
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
 #: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1056
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:918
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:357
-#: src/Process/Install/Install.php:498
+#: src/Process/Install/Install.php:499
 msgid "Save"
 msgstr "저장"
 
@@ -555,7 +555,7 @@ msgid "Blog ID"
 msgstr "블로그 아이디"
 
 #: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:53
-#: src/Process/Install/Install.php:478
+#: src/Process/Install/Install.php:479
 msgid "Username"
 msgstr "사용자 이름"
 
@@ -652,7 +652,7 @@ msgstr "사용자"
 
 #: src/Core/Backend/Favorites.php:516 src/Core/Backend/Menus.php:224
 #: src/Process/Backend/Plugins.php:93 src/Process/Backend/Plugins.php:106
-#: src/Process/Backend/Plugins.php:333 src/Process/Backend/Plugins.php:340
+#: src/Process/Backend/Plugins.php:341 src/Process/Backend/Plugins.php:348
 #: src/Process/Upgrade/Plugins.php:143 src/Process/Upgrade/Plugins.php:153
 msgid "Plugins management"
 msgstr "플러그인 관리"
@@ -739,7 +739,7 @@ msgstr "형식:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
 #: src/Process/Backend/Auth.php:464 src/Process/Backend/User.php:277
-#: src/Process/Install/Install.php:528 src/Process/Upgrade/Auth.php:224
+#: src/Process/Install/Install.php:529 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "비밀번호:"
 
@@ -855,7 +855,7 @@ msgid "No blog"
 msgstr "블로그가 없습니다."
 
 #: src/Core/Backend/Listing/ListingBlogs.php:56
-#: src/Core/Backend/ModulesList.php:1623 src/Core/Backend/UserPref.php:76
+#: src/Core/Backend/ModulesList.php:1625 src/Core/Backend/UserPref.php:76
 #: src/Process/Backend/LinkPopup.php:62
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
@@ -1053,7 +1053,7 @@ msgstr "아이템 개수: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
 #: src/Core/Backend/ModulesList.php:777 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:441
+#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:446
 msgid "Name"
 msgstr "성"
 
@@ -1300,7 +1300,7 @@ msgstr "점수"
 msgid "Version"
 msgstr "버전"
 
-#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:445
+#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:450
 msgid "Current version"
 msgstr "현재 버전"
 
@@ -1310,7 +1310,7 @@ msgstr "현재 버전"
 msgid "Details"
 msgstr "상세정보"
 
-#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:457
+#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:462
 msgid "Repository"
 msgstr "리포지토리"
 
@@ -1320,7 +1320,7 @@ msgid "Action"
 msgstr "작업"
 
 #: src/Core/Backend/ModulesList.php:888 src/Core/Backend/ModulesList.php:892
-#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:395
+#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:400
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -1335,12 +1335,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "다음과 같은 이유로 인해 이 모듈을 활성화할 수 없습니다:"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ThemesList.php:178
-#: src/Process/Upgrade/Plugins.php:411
+#: src/Process/Upgrade/Plugins.php:416
 msgid "Official repository"
 msgstr "공식 리포지토리"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ModulesList.php:1032
-#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:411
+#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:416
 msgid "Third-party repository"
 msgstr "타사 리포지토리"
 
@@ -1501,72 +1501,76 @@ msgstr "플러그인이 성공적으로 설치되었습니다."
 msgid "Upload a zip file"
 msgstr "테마 zip 파일 올리기"
 
-#: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1603
-#: src/Core/Backend/ModulesList.php:1621 src/Core/Backend/ModulesList.php:1626
-#: src/Process/Backend/Home.php:436 src/Process/Install/Install.php:475
-#: src/Process/Install/Install.php:483 src/Process/Install/Install.php:490
-#: src/Process/Install/Wizard.php:262 src/Process/Install/Wizard.php:280
-#: src/Process/Upgrade/Langs.php:409 src/Process/Upgrade/Langs.php:426
-msgid "Required field"
-msgstr "필수 사항"
+#: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1622
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:478
+#: src/Process/Backend/BlogPref.php:799 src/Process/Backend/Category.php:233
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
+#: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
+#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
+#: src/Process/Backend/Post.php:886 src/Process/Backend/User.php:255
+#: src/Process/Backend/UsersActions.php:346 src/Process/Install/Install.php:475
+#: src/Process/Install/Wizard.php:262 src/Process/Upgrade/Langs.php:402
+#, php-format
+msgid "Fields preceded by %s are mandatory."
+msgstr "%s 앞에 오는 필드는 필수 입력 사항입니다."
 
-#: src/Core/Backend/ModulesList.php:1601
+#: src/Core/Backend/ModulesList.php:1602
 msgid "Zip file path:"
 msgstr "Zip 파일 경로:"
 
-#: src/Core/Backend/ModulesList.php:1603 src/Core/Backend/ModulesList.php:1626
+#: src/Core/Backend/ModulesList.php:1604 src/Core/Backend/ModulesList.php:1628
 #: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:313
 #: src/Process/Backend/Langs.php:337 src/Process/Backend/User.php:411
 #: src/Process/Backend/UsersActions.php:347 src/Process/Upgrade/Langs.php:375
-#: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:426
+#: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:429
 msgid "Your password:"
 msgstr "당신의 비밀번호:"
 
-#: src/Core/Backend/ModulesList.php:1609 src/Core/Backend/ModulesList.php:1632
+#: src/Core/Backend/ModulesList.php:1610 src/Core/Backend/ModulesList.php:1634
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:343
 #: src/Process/Backend/Post.php:693 src/Process/Backend/User.php:284
 #: src/Process/Backend/User.php:297 src/Process/Backend/User.php:417
-#: src/Process/Backend/UsersActions.php:353 src/Process/Install/Install.php:486
-#: src/Process/Install/Install.php:492 src/Process/Upgrade/Langs.php:422
+#: src/Process/Backend/UsersActions.php:353 src/Process/Install/Install.php:487
+#: src/Process/Install/Install.php:493 src/Process/Upgrade/Langs.php:425
 msgid "Password"
 msgstr "비밀번호"
 
-#: src/Core/Backend/ModulesList.php:1613 src/Core/Backend/Page.php:1181
+#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1181
 #: src/Process/Backend/Media.php:532
 msgid "Upload"
 msgstr "올리기"
 
-#: src/Core/Backend/ModulesList.php:1620
+#: src/Core/Backend/ModulesList.php:1621
 msgid "Download a zip file"
 msgstr "(블로그에) 테마 zip 파일 내려받기"
 
-#: src/Core/Backend/ModulesList.php:1621
+#: src/Core/Backend/ModulesList.php:1623
 msgid "Zip file URL:"
 msgstr "Zip 파일 URL:"
 
-#: src/Core/Backend/ModulesList.php:1636
+#: src/Core/Backend/ModulesList.php:1638
 msgid "Download"
 msgstr "다운로드"
 
-#: src/Core/Backend/ModulesList.php:1677
+#: src/Core/Backend/ModulesList.php:1679
 msgid "Unknown plugin ID"
 msgstr "알 수 없는 플러그인 ID"
 
-#: src/Core/Backend/ModulesList.php:1688
+#: src/Core/Backend/ModulesList.php:1690
 msgid "This plugin has no configuration file."
 msgstr "이 플러그인에는 구성 파일이 없습니다."
 
-#: src/Core/Backend/ModulesList.php:1696 src/Process/Backend/Auth.php:279
+#: src/Core/Backend/ModulesList.php:1698 src/Process/Backend/Auth.php:279
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "권한 부족"
 
-#: src/Core/Backend/ModulesList.php:1770
+#: src/Core/Backend/ModulesList.php:1772
 #, php-format
 msgid "Configure \"%s\""
 msgstr "구성 \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1771
+#: src/Core/Backend/ModulesList.php:1773
 msgid "Back"
 msgstr "뒤로"
 
@@ -1577,7 +1581,7 @@ msgid "Error:"
 msgstr "오류 :"
 
 #: src/Core/Backend/Notices.php:67 src/Core/Upgrade/Notices.php:34
-#: src/Process/Install/Install.php:438 src/Process/Install/Install.php:546
+#: src/Process/Install/Install.php:438 src/Process/Install/Install.php:547
 #: src/Process/Install/Wizard.php:243
 msgid "Errors:"
 msgstr "오류 :"
@@ -2623,7 +2627,7 @@ msgid "On this page you can revert your previous installation or delete theses f
 msgstr "이 페이지에서 이전 설치를 되돌리거나 논문 파일을 삭제할 수 있습니다."
 
 #: src/Core/Upgrade/Utility.php:297 src/Process/Backend/Langs.php:230
-#: src/Process/Upgrade/Langs.php:445
+#: src/Process/Upgrade/Langs.php:448
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "이곳에서 Dotclear에 언어를 설치, 갱신 또는 삭제할 수 있습니다."
 
@@ -3068,7 +3072,7 @@ msgstr "비밀번호를 바꾸시려면 다음 주소를 방문하십시요. 원
 
 #: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
 #: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:453
-#: src/Process/Install/Install.php:475 src/Process/Install/Install.php:527
+#: src/Process/Install/Install.php:476 src/Process/Install/Install.php:528
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
 msgstr "사용자이름:"
@@ -3138,12 +3142,12 @@ msgstr "비밀번호 변경"
 
 #: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:277
 #: src/Process/Backend/UserPreferences.php:579
-#: src/Process/Install/Install.php:483
+#: src/Process/Install/Install.php:484
 msgid "New password:"
 msgstr "새 비밀번호 :"
 
 #: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:291
-#: src/Process/Install/Install.php:490
+#: src/Process/Install/Install.php:491
 msgid "Confirm password:"
 msgstr "비밀번호 확인 :"
 
@@ -3210,17 +3214,6 @@ msgstr "새 블로그"
 #: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
 msgid "System"
 msgstr "시스템관리"
-
-#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:478
-#: src/Process/Backend/BlogPref.php:799 src/Process/Backend/Category.php:233
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
-#: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
-#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
-#: src/Process/Backend/Post.php:886 src/Process/Backend/User.php:255
-#: src/Process/Backend/UsersActions.php:346
-#, php-format
-msgid "Fields preceded by %s are mandatory."
-msgstr "%s 앞에 오는 필드는 필수 입력 사항입니다."
 
 #: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:800
 msgid "Blog ID:"
@@ -3811,82 +3804,86 @@ msgstr "테마 설정"
 msgid "Themes management"
 msgstr "테마 관리"
 
-#: src/Process/Backend/BlogTheme.php:171 src/Process/Backend/Plugins.php:144
+#: src/Process/Backend/BlogTheme.php:176 src/Process/Backend/BlogTheme.php:178
+msgid "Installed themes"
+msgstr "설치된 테마"
+
+#: src/Process/Backend/BlogTheme.php:178
+msgid "Activated themes"
+msgstr "활성화된 테마"
+
+#: src/Process/Backend/BlogTheme.php:179 src/Process/Backend/Plugins.php:153
+#: src/Process/Upgrade/Plugins.php:168
+msgid "(in normal mode)"
+msgstr "(일반 모드에서)"
+
+#: src/Process/Backend/BlogTheme.php:181
+msgid "You can configure and manage installed themes from this list."
+msgstr "이 목록에서 설치된 테마를 구성하고 관리할 수 있습니다."
+
+#: src/Process/Backend/BlogTheme.php:202 src/Process/Backend/BlogTheme.php:203
+msgid "Deactivated themes"
+msgstr "비활성화된 테마"
+
+#: src/Process/Backend/BlogTheme.php:204
+msgid "Deactivated themes are installed but not usable. You can activate them from here."
+msgstr "비활성화된 테마는 설치되어 있지만 사용할 수 없습니다. 여기에서 활성화할 수 있습니다."
+
+#: src/Process/Backend/BlogTheme.php:224 src/Process/Backend/Plugins.php:196
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "구성에 URL이 설정되어 있지 않아 공식 리포지토리를 업데이트할 수 없습니다."
 
-#: src/Process/Backend/BlogTheme.php:175
+#: src/Process/Backend/BlogTheme.php:228
 msgid "Manual checking of themes update done successfully."
 msgstr "테마 업데이트 수동 확인이 성공적으로 완료되었습니다."
 
-#: src/Process/Backend/BlogTheme.php:187
-msgid "Force checking update of themes"
-msgstr "테마 업데이트 강제 확인"
-
-#: src/Process/Backend/BlogTheme.php:204 src/Process/Backend/BlogTheme.php:205
+#: src/Process/Backend/BlogTheme.php:232 src/Process/Backend/BlogTheme.php:233
 msgid "Update themes"
 msgstr "테마 업데이트"
 
-#: src/Process/Backend/BlogTheme.php:207
-#, php-format
-msgid "There is one theme to update available from repository."
-msgid_plural "There are %s themes to update available from repository."
-msgstr[0] "리포지토리에서 업데이트할 수 있는 %s 테마가 있습니다."
+#: src/Process/Backend/BlogTheme.php:244
+msgid "Force checking update of themes"
+msgstr "테마 업데이트 강제 확인"
 
-#: src/Process/Backend/BlogTheme.php:224 src/Process/Backend/BlogTheme.php:310
-#: src/Process/Backend/Plugins.php:197 src/Process/Backend/Plugins.php:284
-#: src/Process/Upgrade/Plugins.php:199 src/Process/Upgrade/Plugins.php:288
+#: src/Process/Backend/BlogTheme.php:261
+msgid "No updates available for themes."
+msgstr "테마에 사용할 수 있는 업데이트가 없습니다."
+
+#: src/Process/Backend/BlogTheme.php:266
+#, php-format
+msgid "There is one theme update available:"
+msgid_plural "There are %s theme updates available:"
+msgstr[0] "%s 테마 업데이트가 있습니다:"
+
+#: src/Process/Backend/BlogTheme.php:285 src/Process/Backend/BlogTheme.php:321
+#: src/Process/Backend/Plugins.php:257 src/Process/Backend/Plugins.php:292
+#: src/Process/Upgrade/Plugins.php:254 src/Process/Upgrade/Plugins.php:293
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "닷클리어의 리소스 센터인 %s 리포지토리를 방문하세요."
 
-#: src/Process/Backend/BlogTheme.php:238 src/Process/Backend/BlogTheme.php:240
-msgid "Installed themes"
-msgstr "설치된 테마"
-
-#: src/Process/Backend/BlogTheme.php:240
-msgid "Activated themes"
-msgstr "활성화된 테마"
-
-#: src/Process/Backend/BlogTheme.php:241 src/Process/Backend/Plugins.php:217
-#: src/Process/Upgrade/Plugins.php:218
-msgid "(in normal mode)"
-msgstr "(일반 모드에서)"
-
-#: src/Process/Backend/BlogTheme.php:243
-msgid "You can configure and manage installed themes from this list."
-msgstr "이 목록에서 설치된 테마를 구성하고 관리할 수 있습니다."
-
-#: src/Process/Backend/BlogTheme.php:264 src/Process/Backend/BlogTheme.php:265
-msgid "Deactivated themes"
-msgstr "비활성화된 테마"
-
-#: src/Process/Backend/BlogTheme.php:266
-msgid "Deactivated themes are installed but not usable. You can activate them from here."
-msgstr "비활성화된 테마는 설치되어 있지만 사용할 수 없습니다. 여기에서 활성화할 수 있습니다."
-
-#: src/Process/Backend/BlogTheme.php:290
+#: src/Process/Backend/BlogTheme.php:301
 msgid "Add themes"
 msgstr "테마 추가"
 
-#: src/Process/Backend/BlogTheme.php:291
+#: src/Process/Backend/BlogTheme.php:302
 msgid "Add themes from repository"
 msgstr "리포지토리에서 테마 추가"
 
-#: src/Process/Backend/BlogTheme.php:319 src/Process/Backend/Plugins.php:294
-#: src/Process/Upgrade/Plugins.php:298
+#: src/Process/Backend/BlogTheme.php:330 src/Process/Backend/Plugins.php:302
+#: src/Process/Upgrade/Plugins.php:303
 msgid "Install or upgrade manually"
 msgstr "수동으로 설치 또는 업그레이드"
 
-#: src/Process/Backend/BlogTheme.php:320
+#: src/Process/Backend/BlogTheme.php:331
 msgid "Add themes from a package"
 msgstr "패키지에서 테마 추가"
 
-#: src/Process/Backend/BlogTheme.php:321
+#: src/Process/Backend/BlogTheme.php:332
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "테마를 설치하시려면 테마 zip 파일을 직접 여기로 올리시거나 다른 사이트에서 여기로 내려받기하시면 됩니다."
 
-#: src/Process/Backend/BlogTheme.php:335
+#: src/Process/Backend/BlogTheme.php:346
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "일부 기능이 비활성화되어 있으므로 이를 활성화하려면 테마 디렉터리에 쓰기 권한을 부여하세요."
 
@@ -4199,12 +4196,12 @@ msgid "The cache directory does not exist or is not writable. You should contact
 msgstr "캐시 디렉터리가 존재하지 않거나 쓸 수 없습니다. 관리자에게 문의해야 합니다."
 
 #: src/Process/Backend/Home.php:280 src/Process/Backend/Plugins.php:119
-#: src/Process/Install/Install.php:504 src/Process/Upgrade/Plugins.php:111
+#: src/Process/Install/Install.php:505 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
 msgstr "다음 플러그인들이 설치되어있습니다 :"
 
 #: src/Process/Backend/Home.php:294 src/Process/Backend/Plugins.php:133
-#: src/Process/Install/Install.php:511 src/Process/Upgrade/Plugins.php:123
+#: src/Process/Install/Install.php:512 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have not been installed:"
 msgstr "다음 플러그인들은 설치되지 않았습니다 :"
 
@@ -4334,15 +4331,15 @@ msgstr "언어 :"
 msgid "Install language"
 msgstr "추가언어 설치"
 
-#: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:400
+#: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:403
 msgid "You can install languages by uploading zip files."
 msgstr "해당 zip 파일을 올림으로써 언어를 설치할 수 있습니다."
 
-#: src/Process/Backend/Langs.php:335 src/Process/Upgrade/Langs.php:409
+#: src/Process/Backend/Langs.php:335 src/Process/Upgrade/Langs.php:412
 msgid "Language zip file:"
 msgstr "언어 zip 파일 :"
 
-#: src/Process/Backend/Langs.php:346 src/Process/Upgrade/Langs.php:436
+#: src/Process/Backend/Langs.php:346 src/Process/Upgrade/Langs.php:439
 msgid "Upload language"
 msgstr "언어 올리기"
 
@@ -4812,67 +4809,71 @@ msgstr "플러그인을 찾지 못했습니다."
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "해당 플러그인이 존재하지 않거나, 관리화면이 없는 플러그인입니다."
 
-#: src/Process/Backend/Plugins.php:148 src/Process/Upgrade/Plugins.php:133
-msgid "Manual checking of plugins update done successfully."
-msgstr "플러그인 업데이트 수동 확인이 성공적으로 완료되었습니다."
-
-#: src/Process/Backend/Plugins.php:160 src/Process/Upgrade/Plugins.php:171
-msgid "Force checking update of plugins"
-msgstr "플러그인 업데이트 강제 확인"
-
-#: src/Process/Backend/Plugins.php:177 src/Process/Backend/Plugins.php:178
-#: src/Process/Upgrade/Plugins.php:161 src/Process/Upgrade/Plugins.php:162
-msgid "Update plugins"
-msgstr "플러그인 업데이트"
-
-#: src/Process/Backend/Plugins.php:180 src/Process/Upgrade/Plugins.php:182
-#, php-format
-msgid "There is one plugin to update available from repository."
-msgid_plural "There are %s plugins to update available from repository."
-msgstr[0] "업데이트할 %s 플러그인은 리포지토리에서 확인할 수 있습니다."
-
-#: src/Process/Backend/Plugins.php:207 src/Process/Backend/Plugins.php:216
-#: src/Process/Upgrade/Plugins.php:209
+#: src/Process/Backend/Plugins.php:143 src/Process/Backend/Plugins.php:152
+#: src/Process/Upgrade/Plugins.php:159
 msgid "Installed plugins"
 msgstr "설치된 플러그인"
 
-#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:218
+#: src/Process/Backend/Plugins.php:152 src/Process/Upgrade/Plugins.php:168
 msgid "Activated plugins"
 msgstr "작동중인 플러그인"
 
-#: src/Process/Backend/Plugins.php:219 src/Process/Upgrade/Plugins.php:220
+#: src/Process/Backend/Plugins.php:155 src/Process/Upgrade/Plugins.php:170
 msgid "You can configure and manage installed plugins from this list."
 msgstr "이 목록에서 설치된 플러그인을 구성하고 관리할 수 있습니다."
 
-#: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:239
+#: src/Process/Backend/Plugins.php:174 src/Process/Upgrade/Plugins.php:189
 msgid "Deactivated plugins"
 msgstr "작동꺼진 플러그인"
 
-#: src/Process/Backend/Plugins.php:239 src/Process/Upgrade/Plugins.php:240
+#: src/Process/Backend/Plugins.php:175 src/Process/Upgrade/Plugins.php:190
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "비활성화된 플러그인은 설치되어 있지만 사용할 수 없습니다. 여기에서 활성화할 수 있습니다."
 
-#: src/Process/Backend/Plugins.php:264 src/Process/Upgrade/Plugins.php:268
+#: src/Process/Backend/Plugins.php:200 src/Process/Upgrade/Plugins.php:133
+msgid "Manual checking of plugins update done successfully."
+msgstr "플러그인 업데이트 수동 확인이 성공적으로 완료되었습니다."
+
+#: src/Process/Backend/Plugins.php:204 src/Process/Backend/Plugins.php:205
+#: src/Process/Upgrade/Plugins.php:211 src/Process/Upgrade/Plugins.php:212
+msgid "Update plugins"
+msgstr "플러그인 업데이트"
+
+#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:223
+msgid "Force checking update of plugins"
+msgstr "플러그인 업데이트 강제 확인"
+
+#: src/Process/Backend/Plugins.php:233 src/Process/Upgrade/Plugins.php:230
+msgid "No updates available for plugins."
+msgstr "플러그인에 사용할 수 있는 업데이트가 없습니다."
+
+#: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:235
+#, php-format
+msgid "There is one plugin update available:"
+msgid_plural "There are %s plugin updates available:"
+msgstr[0] "%s 플러그인 업데이트가 있습니다:"
+
+#: src/Process/Backend/Plugins.php:272 src/Process/Upgrade/Plugins.php:273
 msgid "Add plugins"
 msgstr "플러그인 추가"
 
-#: src/Process/Backend/Plugins.php:265 src/Process/Upgrade/Plugins.php:269
+#: src/Process/Backend/Plugins.php:273 src/Process/Upgrade/Plugins.php:274
 msgid "Add plugins from repository"
 msgstr "리포지토리에서 플러그인 추가"
 
-#: src/Process/Backend/Plugins.php:295 src/Process/Upgrade/Plugins.php:299
+#: src/Process/Backend/Plugins.php:303 src/Process/Upgrade/Plugins.php:304
 msgid "Add plugins from a package"
 msgstr "패키지에서 플러그인 추가"
 
-#: src/Process/Backend/Plugins.php:296 src/Process/Upgrade/Plugins.php:300
+#: src/Process/Backend/Plugins.php:304 src/Process/Upgrade/Plugins.php:305
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "플러그인 zip파일을 올리거나 (블로그로) 내려받게함으로써 플러그인을 설치할 수 있습니다."
 
-#: src/Process/Backend/Plugins.php:310 src/Process/Upgrade/Plugins.php:311
+#: src/Process/Backend/Plugins.php:318 src/Process/Upgrade/Plugins.php:316
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "일부 기능은 비활성화되어 있으므로 플러그인 디렉터리에 쓰기 권한을 부여하여 활성화하세요."
 
-#: src/Process/Backend/Plugins.php:341
+#: src/Process/Backend/Plugins.php:349
 msgid "Plugin configuration"
 msgstr "플러그인 구성"
 
@@ -5860,39 +5861,39 @@ msgstr "최초 사용자를 생성하기 위해서는 다음의 정보들이 필
 msgid "Username and password"
 msgstr "사용자 이름 및 비밀번호"
 
-#: src/Process/Install/Install.php:519
+#: src/Process/Install/Install.php:520
 msgid "All done!"
 msgstr "완료되었습니다 !"
 
-#: src/Process/Install/Install.php:523
+#: src/Process/Install/Install.php:524
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "닷클리어가 성공적으로 설치되었습니다. 다음은 보관해야 할 몇 가지 유용한 정보입니다."
 
-#: src/Process/Install/Install.php:525
+#: src/Process/Install/Install.php:526
 msgid "Your account"
 msgstr "당신의 계정"
 
-#: src/Process/Install/Install.php:531
+#: src/Process/Install/Install.php:532
 msgid "Your blog"
 msgstr "당신의 블로그"
 
-#: src/Process/Install/Install.php:533
+#: src/Process/Install/Install.php:534
 msgid "Blog address:"
 msgstr "블로그 주소 :"
 
-#: src/Process/Install/Install.php:534
+#: src/Process/Install/Install.php:535
 msgid "Administration interface:"
 msgstr "관리자 화면 :"
 
-#: src/Process/Install/Install.php:538
+#: src/Process/Install/Install.php:539
 msgid "Manage your blog now"
 msgstr "블로그 관리"
 
-#: src/Process/Install/Install.php:545
+#: src/Process/Install/Install.php:546
 msgid "Installation can not be completed"
 msgstr "설치를 완료할 수 없습니다."
 
-#: src/Process/Install/Install.php:547
+#: src/Process/Install/Install.php:548
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "위와 같은 이유로 닷클리어를 설치할 수 없습니다. <a href=\"https://dotclear.org/documentation/2.0/admin/install\">문서</a> 를 참조하여 문제를 해결하는 방법을 알아보세요."
 
@@ -5952,59 +5953,59 @@ msgstr "시스템 정보"
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "당신의 설정파일 생성을 위해 다음 사항들을 적어주세요."
 
-#: src/Process/Install/Wizard.php:262
+#: src/Process/Install/Wizard.php:263
 msgid "Database type:"
 msgstr "데이터베이스 종류 :"
 
-#: src/Process/Install/Wizard.php:266
+#: src/Process/Install/Wizard.php:267
 msgid "MySQLi"
 msgstr "MySQLi"
 
-#: src/Process/Install/Wizard.php:267
+#: src/Process/Install/Wizard.php:268
 msgid "MySQLi (full UTF-8)"
 msgstr "MySQLi(전체 UTF-8)"
 
-#: src/Process/Install/Wizard.php:268
+#: src/Process/Install/Wizard.php:269
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
-#: src/Process/Install/Wizard.php:269
+#: src/Process/Install/Wizard.php:270
 msgid "SQLite"
 msgstr "SQLite"
 
-#: src/Process/Install/Wizard.php:270
+#: src/Process/Install/Wizard.php:271
 msgid "Driver"
 msgstr "드라이버"
 
-#: src/Process/Install/Wizard.php:272
+#: src/Process/Install/Wizard.php:273
 msgid "Database Host Name:"
 msgstr "데이터베이스 호스트 이름 :"
 
-#: src/Process/Install/Wizard.php:274
+#: src/Process/Install/Wizard.php:275
 msgid "Database Name:"
 msgstr "데이터베이스 이름 :"
 
-#: src/Process/Install/Wizard.php:276
+#: src/Process/Install/Wizard.php:277
 msgid "Database User Name:"
 msgstr "데이터베이스 사용자이름 :"
 
-#: src/Process/Install/Wizard.php:278
+#: src/Process/Install/Wizard.php:279
 msgid "Database Password:"
 msgstr "데이터베이스 비밀번호 :"
 
-#: src/Process/Install/Wizard.php:280
+#: src/Process/Install/Wizard.php:281
 msgid "Database Tables Prefix:"
 msgstr "데이터베이스 테이블이름 머리씨 :"
 
-#: src/Process/Install/Wizard.php:283
+#: src/Process/Install/Wizard.php:284
 msgid "Prefix"
 msgstr "접두사"
 
-#: src/Process/Install/Wizard.php:286
+#: src/Process/Install/Wizard.php:287
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "마스터 이메일: (비밀번호 복구 시 발신자로 사용)"
 
-#: src/Process/Install/Wizard.php:294 src/Process/Upgrade/Digests.php:255
+#: src/Process/Install/Wizard.php:295 src/Process/Upgrade/Digests.php:255
 #: src/Process/Upgrade/Digests.php:276
 msgid "Continue"
 msgstr "계속"
@@ -6273,48 +6274,48 @@ msgstr "Zip 파일 업로드에서 언어 설치 또는 업그레이드하기"
 msgid "Some plugins could not be loaded."
 msgstr "일부 플러그인을 로드할 수 없습니다."
 
-#: src/Process/Upgrade/Plugins.php:333
+#: src/Process/Upgrade/Plugins.php:338
 msgid "There is no module to check"
 msgstr "확인할 모듈이 없습니다."
 
-#: src/Process/Upgrade/Plugins.php:341
+#: src/Process/Upgrade/Plugins.php:346
 msgid "Store version"
 msgstr "스토어 버전"
 
-#: src/Process/Upgrade/Plugins.php:343
+#: src/Process/Upgrade/Plugins.php:348
 msgid "Check stores versions"
 msgstr "스토어 버전 확인"
 
-#: src/Process/Upgrade/Plugins.php:351
+#: src/Process/Upgrade/Plugins.php:356
 msgid "Check lastest stores versions"
 msgstr "최신 스토어 버전 확인"
 
-#: src/Process/Upgrade/Plugins.php:354
+#: src/Process/Upgrade/Plugins.php:359
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "리포지토리에서 %s이상의 Dotclear 릴리스용으로 명시적으로 작성된 모듈이 있는지 확인할 수 있습니다."
 
-#: src/Process/Upgrade/Plugins.php:378 src/Process/Upgrade/Plugins.php:420
+#: src/Process/Upgrade/Plugins.php:383 src/Process/Upgrade/Plugins.php:425
 msgid "No version available"
 msgstr "사용 가능한 버전 없음"
 
-#: src/Process/Upgrade/Plugins.php:380
+#: src/Process/Upgrade/Plugins.php:385
 msgid "No update available"
 msgstr "사용 가능한 업데이트 없음"
 
-#: src/Process/Upgrade/Plugins.php:382
+#: src/Process/Upgrade/Plugins.php:387
 msgid "Newer version available"
 msgstr "최신 버전 사용 가능"
 
-#: src/Process/Upgrade/Plugins.php:434
+#: src/Process/Upgrade/Plugins.php:439
 msgid "Modules list"
 msgstr "모듈 목록"
 
-#: src/Process/Upgrade/Plugins.php:449
+#: src/Process/Upgrade/Plugins.php:454
 msgid "Latest version"
 msgstr "최신 버전"
 
-#: src/Process/Upgrade/Plugins.php:453
+#: src/Process/Upgrade/Plugins.php:458
 msgid "Written for Dotclear"
 msgstr "Dotclear용으로 작성"
 
