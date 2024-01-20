@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-01-16 10:07\n"
+"POT-Creation-Date: 2024-01-20 10:07+0100\n"
+"PO-Revision-Date: 2024-01-20 09:12\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -1007,7 +1007,7 @@ msgstr "Debe indicar un título al enlace"
 msgid "You must provide a link URL"
 msgstr "Debe indicar un URL"
 
-#: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:394
+#: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:395
 msgid "Nothing to import"
 msgstr "Nada que importar"
 
@@ -1043,36 +1043,36 @@ msgstr "Idioma"
 msgid "select this link"
 msgstr "seleccione este enlace"
 
-#: plugins/blogroll/src/Manage.php:311
+#: plugins/blogroll/src/Manage.php:303
 msgid "Are you sure you want to delete selected links?"
 msgstr "¿Seguro que desea borrar los enlaces seleccionados?"
 
-#: plugins/blogroll/src/Manage.php:311
+#: plugins/blogroll/src/Manage.php:303
 msgid "Delete selected links"
 msgstr "Borrar los enlaces seleccionados"
 
-#: plugins/blogroll/src/Manage.php:316
+#: plugins/blogroll/src/Manage.php:317
 msgid "The link list is empty."
 msgstr "La lista de enlaces está vacía."
 
-#: plugins/blogroll/src/Manage.php:324
+#: plugins/blogroll/src/Manage.php:325
 msgid "Add a new link"
 msgstr "Añadir un enlace nuevo"
 
-#: plugins/blogroll/src/Manage.php:355
+#: plugins/blogroll/src/Manage.php:356
 msgid "Add a category"
 msgstr "Añadir una categoría"
 
-#: plugins/blogroll/src/Manage.php:373 plugins/blogroll/src/Manage.php:378
-#: plugins/blogroll/src/Manage.php:391
+#: plugins/blogroll/src/Manage.php:374 plugins/blogroll/src/Manage.php:379
+#: plugins/blogroll/src/Manage.php:392
 msgid "Import links"
 msgstr "Importar los enlaces"
 
-#: plugins/blogroll/src/Manage.php:380
+#: plugins/blogroll/src/Manage.php:381
 msgid "OPML or XBEL File:"
 msgstr "Fichero OPML o XBEL:"
 
-#: plugins/blogroll/src/Manage.php:384 plugins/blogroll/src/Manage.php:428
+#: plugins/blogroll/src/Manage.php:385 plugins/blogroll/src/Manage.php:429
 #: plugins/importExport/src/Manage.php:116
 #: plugins/importExport/src/ModuleImportFeed.php:227
 #: plugins/importExport/src/ModuleImportFlat.php:213
@@ -1100,115 +1100,115 @@ msgstr "Volver a la lista de enlaces"
 msgid "Edit category"
 msgstr "Modificar una categoría"
 
-#: plugins/blogroll/src/ManageEdit.php:168
+#: plugins/blogroll/src/ManageEdit.php:169
 msgid "Edit link"
 msgstr "Modificar el enlace"
 
-#: plugins/blogroll/src/ManageEdit.php:204
+#: plugins/blogroll/src/ManageEdit.php:206
 msgid "XFN information"
 msgstr "Información sobre XFN"
 
-#: plugins/blogroll/src/ManageEdit.php:205
+#: plugins/blogroll/src/ManageEdit.php:207
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr "Más información en <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 
-#: plugins/blogroll/src/ManageEdit.php:211
+#: plugins/blogroll/src/ManageEdit.php:213
 msgid "_xfn_Me"
 msgstr "Yo"
 
-#: plugins/blogroll/src/ManageEdit.php:214
+#: plugins/blogroll/src/ManageEdit.php:216
 msgid "_xfn_Another link for myself"
 msgstr "Otro enlace mío"
 
-#: plugins/blogroll/src/ManageEdit.php:218
+#: plugins/blogroll/src/ManageEdit.php:220
 msgid "_xfn_Friendship"
 msgstr "Amistad"
 
-#: plugins/blogroll/src/ManageEdit.php:224
+#: plugins/blogroll/src/ManageEdit.php:226
 msgid "_xfn_Contact"
 msgstr "Contacto"
 
-#: plugins/blogroll/src/ManageEdit.php:229
+#: plugins/blogroll/src/ManageEdit.php:231
 msgid "_xfn_Acquaintance"
 msgstr "Conocido"
 
-#: plugins/blogroll/src/ManageEdit.php:234
+#: plugins/blogroll/src/ManageEdit.php:236
 msgid "_xfn_Friend"
 msgstr "Amigo(a)"
 
-#: plugins/blogroll/src/ManageEdit.php:240
+#: plugins/blogroll/src/ManageEdit.php:242
 msgid "_xfn_Physical"
 msgstr "Físico"
 
-#: plugins/blogroll/src/ManageEdit.php:246
+#: plugins/blogroll/src/ManageEdit.php:248
 msgid "_xfn_Met"
 msgstr "Conocido(a) en persona"
 
-#: plugins/blogroll/src/ManageEdit.php:251
+#: plugins/blogroll/src/ManageEdit.php:253
 msgid "_xfn_Professional"
 msgstr "Profesional"
 
-#: plugins/blogroll/src/ManageEdit.php:257
+#: plugins/blogroll/src/ManageEdit.php:259
 msgid "_xfn_Co-worker"
 msgstr "Compañero de trabajo"
 
-#: plugins/blogroll/src/ManageEdit.php:262
+#: plugins/blogroll/src/ManageEdit.php:264
 msgid "_xfn_Colleague"
 msgstr "Colega"
 
-#: plugins/blogroll/src/ManageEdit.php:267
+#: plugins/blogroll/src/ManageEdit.php:269
 msgid "_xfn_Geographical"
 msgstr "Geográfico"
 
-#: plugins/blogroll/src/ManageEdit.php:273
+#: plugins/blogroll/src/ManageEdit.php:275
 msgid "_xfn_Co-resident"
 msgstr "Compañero de piso"
 
-#: plugins/blogroll/src/ManageEdit.php:278
+#: plugins/blogroll/src/ManageEdit.php:280
 msgid "_xfn_Neighbor"
 msgstr "Vecino(a)"
 
-#: plugins/blogroll/src/ManageEdit.php:284
+#: plugins/blogroll/src/ManageEdit.php:286
 msgid "_xfn_Family"
 msgstr "Familia"
 
-#: plugins/blogroll/src/ManageEdit.php:290
+#: plugins/blogroll/src/ManageEdit.php:292
 msgid "_xfn_Child"
 msgstr "Hijo(a)"
 
-#: plugins/blogroll/src/ManageEdit.php:295
+#: plugins/blogroll/src/ManageEdit.php:297
 msgid "_xfn_Parent"
 msgstr "Padre/madre"
 
-#: plugins/blogroll/src/ManageEdit.php:300
+#: plugins/blogroll/src/ManageEdit.php:302
 msgid "_xfn_Sibling"
 msgstr "Hermano(a)"
 
-#: plugins/blogroll/src/ManageEdit.php:305
+#: plugins/blogroll/src/ManageEdit.php:307
 msgid "_xfn_Spouse"
 msgstr "Cónyuge"
 
-#: plugins/blogroll/src/ManageEdit.php:310
+#: plugins/blogroll/src/ManageEdit.php:312
 msgid "_xfn_Kin"
 msgstr "Pariente"
 
-#: plugins/blogroll/src/ManageEdit.php:316
+#: plugins/blogroll/src/ManageEdit.php:318
 msgid "_xfn_Romantic"
 msgstr "Romance"
 
-#: plugins/blogroll/src/ManageEdit.php:322
+#: plugins/blogroll/src/ManageEdit.php:324
 msgid "_xfn_Muse"
 msgstr "Musa"
 
-#: plugins/blogroll/src/ManageEdit.php:327
+#: plugins/blogroll/src/ManageEdit.php:329
 msgid "_xfn_Crush"
 msgstr "Flechazo"
 
-#: plugins/blogroll/src/ManageEdit.php:332
+#: plugins/blogroll/src/ManageEdit.php:334
 msgid "_xfn_Date"
 msgstr "Ligue"
 
-#: plugins/blogroll/src/ManageEdit.php:337
+#: plugins/blogroll/src/ManageEdit.php:339
 msgid "_xfn_Sweetheart"
 msgstr "Pareja"
 
@@ -2708,19 +2708,19 @@ msgstr "Añadir un artículo"
 msgid "Menu items list"
 msgstr "Lista de elementos del menú"
 
-#: plugins/simpleMenu/src/Manage.php:744
-msgid "Update menu"
-msgstr "Actualizar menú"
-
-#: plugins/simpleMenu/src/Manage.php:746
+#: plugins/simpleMenu/src/Manage.php:745
 msgid "Delete selected menu items"
 msgstr "Borrar los elementos de menú seleccionados"
 
-#: plugins/simpleMenu/src/Manage.php:747
+#: plugins/simpleMenu/src/Manage.php:746
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "¿Está seguro de que desea eliminar los elementos de menú seleccionados?"
 
-#: plugins/simpleMenu/src/Manage.php:754
+#: plugins/simpleMenu/src/Manage.php:750
+msgid "Update menu"
+msgstr "Actualizar menú"
+
+#: plugins/simpleMenu/src/Manage.php:755
 msgid "No menu items so far."
 msgstr "De momento no hay menú."
 
