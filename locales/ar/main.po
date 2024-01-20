@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-01-16 10:06\n"
+"POT-Creation-Date: 2024-01-20 10:07+0100\n"
+"PO-Revision-Date: 2024-01-20 09:11\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -459,13 +459,13 @@ msgstr "الأصل:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1778 src/Process/Backend/BlogPref.php:919
+#: src/Core/Backend/ModulesList.php:1780 src/Process/Backend/BlogPref.php:919
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
 #: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1056
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:918
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:357
-#: src/Process/Install/Install.php:498
+#: src/Process/Install/Install.php:499
 msgid "Save"
 msgstr "حفظ"
 
@@ -600,7 +600,7 @@ msgid "Blog ID"
 msgstr "معرف المدونة"
 
 #: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:53
-#: src/Process/Install/Install.php:478
+#: src/Process/Install/Install.php:479
 msgid "Username"
 msgstr "اسم المستخدم"
 
@@ -707,7 +707,7 @@ msgstr "المستخدمون"
 
 #: src/Core/Backend/Favorites.php:516 src/Core/Backend/Menus.php:224
 #: src/Process/Backend/Plugins.php:93 src/Process/Backend/Plugins.php:106
-#: src/Process/Backend/Plugins.php:333 src/Process/Backend/Plugins.php:340
+#: src/Process/Backend/Plugins.php:341 src/Process/Backend/Plugins.php:348
 #: src/Process/Upgrade/Plugins.php:143 src/Process/Upgrade/Plugins.php:153
 msgid "Plugins management"
 msgstr "إدارة الإضافات"
@@ -794,7 +794,7 @@ msgstr "التنسيق:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
 #: src/Process/Backend/Auth.php:464 src/Process/Backend/User.php:277
-#: src/Process/Install/Install.php:528 src/Process/Upgrade/Auth.php:224
+#: src/Process/Install/Install.php:529 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "كلمة المرور:"
 
@@ -910,7 +910,7 @@ msgid "No blog"
 msgstr "لا توجد مدونة"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:56
-#: src/Core/Backend/ModulesList.php:1623 src/Core/Backend/UserPref.php:76
+#: src/Core/Backend/ModulesList.php:1625 src/Core/Backend/UserPref.php:76
 #: src/Process/Backend/LinkPopup.php:62
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
@@ -1143,7 +1143,7 @@ msgstr "Nb من العناصر: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
 #: src/Core/Backend/ModulesList.php:777 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:441
+#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:446
 msgid "Name"
 msgstr "الاسم"
 
@@ -1410,7 +1410,7 @@ msgstr "نقاط"
 msgid "Version"
 msgstr "الإصدار"
 
-#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:445
+#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:450
 msgid "Current version"
 msgstr "الإصدار الحالي"
 
@@ -1420,7 +1420,7 @@ msgstr "الإصدار الحالي"
 msgid "Details"
 msgstr "التفاصيل"
 
-#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:457
+#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:462
 msgid "Repository"
 msgstr "المستودع"
 
@@ -1430,7 +1430,7 @@ msgid "Action"
 msgstr "اجراء"
 
 #: src/Core/Backend/ModulesList.php:888 src/Core/Backend/ModulesList.php:892
-#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:395
+#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:400
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -1445,12 +1445,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "لا يمكن تمكين هذه الوحدة النمطية بسبب الأسباب التالية:"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ThemesList.php:178
-#: src/Process/Upgrade/Plugins.php:411
+#: src/Process/Upgrade/Plugins.php:416
 msgid "Official repository"
 msgstr "المستودع الرسمي"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ModulesList.php:1032
-#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:411
+#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:416
 msgid "Third-party repository"
 msgstr "مستودع طرف ثالث"
 
@@ -1636,72 +1636,76 @@ msgstr "تم تثبيت الإضافة بنجاح."
 msgid "Upload a zip file"
 msgstr "تحميل ملف مضغوط"
 
-#: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1603
-#: src/Core/Backend/ModulesList.php:1621 src/Core/Backend/ModulesList.php:1626
-#: src/Process/Backend/Home.php:436 src/Process/Install/Install.php:475
-#: src/Process/Install/Install.php:483 src/Process/Install/Install.php:490
-#: src/Process/Install/Wizard.php:262 src/Process/Install/Wizard.php:280
-#: src/Process/Upgrade/Langs.php:409 src/Process/Upgrade/Langs.php:426
-msgid "Required field"
-msgstr "الحقل المطلوب"
+#: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1622
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:478
+#: src/Process/Backend/BlogPref.php:799 src/Process/Backend/Category.php:233
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
+#: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
+#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
+#: src/Process/Backend/Post.php:886 src/Process/Backend/User.php:255
+#: src/Process/Backend/UsersActions.php:346 src/Process/Install/Install.php:475
+#: src/Process/Install/Wizard.php:262 src/Process/Upgrade/Langs.php:402
+#, php-format
+msgid "Fields preceded by %s are mandatory."
+msgstr "الحقول التي سبقها %s إلزامية."
 
-#: src/Core/Backend/ModulesList.php:1601
+#: src/Core/Backend/ModulesList.php:1602
 msgid "Zip file path:"
 msgstr "مسار الملف المضغوط:"
 
-#: src/Core/Backend/ModulesList.php:1603 src/Core/Backend/ModulesList.php:1626
+#: src/Core/Backend/ModulesList.php:1604 src/Core/Backend/ModulesList.php:1628
 #: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:313
 #: src/Process/Backend/Langs.php:337 src/Process/Backend/User.php:411
 #: src/Process/Backend/UsersActions.php:347 src/Process/Upgrade/Langs.php:375
-#: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:426
+#: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:429
 msgid "Your password:"
 msgstr "كلمة المرور الخاصة بك:"
 
-#: src/Core/Backend/ModulesList.php:1609 src/Core/Backend/ModulesList.php:1632
+#: src/Core/Backend/ModulesList.php:1610 src/Core/Backend/ModulesList.php:1634
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:343
 #: src/Process/Backend/Post.php:693 src/Process/Backend/User.php:284
 #: src/Process/Backend/User.php:297 src/Process/Backend/User.php:417
-#: src/Process/Backend/UsersActions.php:353 src/Process/Install/Install.php:486
-#: src/Process/Install/Install.php:492 src/Process/Upgrade/Langs.php:422
+#: src/Process/Backend/UsersActions.php:353 src/Process/Install/Install.php:487
+#: src/Process/Install/Install.php:493 src/Process/Upgrade/Langs.php:425
 msgid "Password"
 msgstr "كلمة المرور"
 
-#: src/Core/Backend/ModulesList.php:1613 src/Core/Backend/Page.php:1181
+#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1181
 #: src/Process/Backend/Media.php:532
 msgid "Upload"
 msgstr "تحميل"
 
-#: src/Core/Backend/ModulesList.php:1620
+#: src/Core/Backend/ModulesList.php:1621
 msgid "Download a zip file"
 msgstr "تحميل ملف مضغوط"
 
-#: src/Core/Backend/ModulesList.php:1621
+#: src/Core/Backend/ModulesList.php:1623
 msgid "Zip file URL:"
 msgstr "رابط الملف المضغوط:"
 
-#: src/Core/Backend/ModulesList.php:1636
+#: src/Core/Backend/ModulesList.php:1638
 msgid "Download"
 msgstr "تنزيل"
 
-#: src/Core/Backend/ModulesList.php:1677
+#: src/Core/Backend/ModulesList.php:1679
 msgid "Unknown plugin ID"
 msgstr "معرف البرنامج المساعد غير معروف"
 
-#: src/Core/Backend/ModulesList.php:1688
+#: src/Core/Backend/ModulesList.php:1690
 msgid "This plugin has no configuration file."
 msgstr "هذه الإضافة لا تحتوي على ملف الإعدادات."
 
-#: src/Core/Backend/ModulesList.php:1696 src/Process/Backend/Auth.php:279
+#: src/Core/Backend/ModulesList.php:1698 src/Process/Backend/Auth.php:279
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "أذونات غير كافية"
 
-#: src/Core/Backend/ModulesList.php:1770
+#: src/Core/Backend/ModulesList.php:1772
 #, php-format
 msgid "Configure \"%s\""
 msgstr "تكوين \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1771
+#: src/Core/Backend/ModulesList.php:1773
 msgid "Back"
 msgstr "الرجوع"
 
@@ -1712,7 +1716,7 @@ msgid "Error:"
 msgstr "خطأ:"
 
 #: src/Core/Backend/Notices.php:67 src/Core/Upgrade/Notices.php:34
-#: src/Process/Install/Install.php:438 src/Process/Install/Install.php:546
+#: src/Process/Install/Install.php:438 src/Process/Install/Install.php:547
 #: src/Process/Install/Wizard.php:243
 msgid "Errors:"
 msgstr "الأخطاء:"
@@ -2788,7 +2792,7 @@ msgid "On this page you can revert your previous installation or delete theses f
 msgstr "في هذه الصفحة يمكنك تحويل عملية التركيب السابقة الخاصة بك أو حذف هذه الملفات."
 
 #: src/Core/Upgrade/Utility.php:297 src/Process/Backend/Langs.php:230
-#: src/Process/Upgrade/Langs.php:445
+#: src/Process/Upgrade/Langs.php:448
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "هنا يمكنك تثبيت أو ترقية أو إزالة اللغات لتثبيت Dotclear."
 
@@ -3233,7 +3237,7 @@ msgstr "لإعادة تعيين كلمة المرور الخاصة بك زيار
 
 #: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
 #: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:453
-#: src/Process/Install/Install.php:475 src/Process/Install/Install.php:527
+#: src/Process/Install/Install.php:476 src/Process/Install/Install.php:528
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
 msgstr "اسم المستخدم:"
@@ -3303,12 +3307,12 @@ msgstr "تغيير كلمة المرور"
 
 #: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:277
 #: src/Process/Backend/UserPreferences.php:579
-#: src/Process/Install/Install.php:483
+#: src/Process/Install/Install.php:484
 msgid "New password:"
 msgstr "كلمة المرور الجديدة:"
 
 #: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:291
-#: src/Process/Install/Install.php:490
+#: src/Process/Install/Install.php:491
 msgid "Confirm password:"
 msgstr "تأكيد كلمة المرور:"
 
@@ -3375,17 +3379,6 @@ msgstr "مدونة جديدة"
 #: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
 msgid "System"
 msgstr "النظام"
-
-#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:478
-#: src/Process/Backend/BlogPref.php:799 src/Process/Backend/Category.php:233
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
-#: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
-#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
-#: src/Process/Backend/Post.php:886 src/Process/Backend/User.php:255
-#: src/Process/Backend/UsersActions.php:346
-#, php-format
-msgid "Fields preceded by %s are mandatory."
-msgstr "الحقول التي سبقها %s إلزامية."
 
 #: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:800
 msgid "Blog ID:"
@@ -3976,87 +3969,91 @@ msgstr "تكوين السمة"
 msgid "Themes management"
 msgstr "إدارة المواضيع"
 
-#: src/Process/Backend/BlogTheme.php:171 src/Process/Backend/Plugins.php:144
+#: src/Process/Backend/BlogTheme.php:176 src/Process/Backend/BlogTheme.php:178
+msgid "Installed themes"
+msgstr "الثيمات المثبتة"
+
+#: src/Process/Backend/BlogTheme.php:178
+msgid "Activated themes"
+msgstr "الثيمات المُفعلة"
+
+#: src/Process/Backend/BlogTheme.php:179 src/Process/Backend/Plugins.php:153
+#: src/Process/Upgrade/Plugins.php:168
+msgid "(in normal mode)"
+msgstr "(في الوضع العادي)"
+
+#: src/Process/Backend/BlogTheme.php:181
+msgid "You can configure and manage installed themes from this list."
+msgstr "يمكنك تكوين وإدارة السمات المثبتة من هذه القائمة."
+
+#: src/Process/Backend/BlogTheme.php:202 src/Process/Backend/BlogTheme.php:203
+msgid "Deactivated themes"
+msgstr "المواضيع المعطلة"
+
+#: src/Process/Backend/BlogTheme.php:204
+msgid "Deactivated themes are installed but not usable. You can activate them from here."
+msgstr "تم تثبيت الثيمات غير القابلة للاستخدام. يمكنك تفعيلها من هنا."
+
+#: src/Process/Backend/BlogTheme.php:224 src/Process/Backend/Plugins.php:196
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "تعذر تحديث المستودع الرسمي لأنه لا يوجد عنوان URL محدد في التكوين."
 
-#: src/Process/Backend/BlogTheme.php:175
+#: src/Process/Backend/BlogTheme.php:228
 msgid "Manual checking of themes update done successfully."
 msgstr "التحقق اليدوي من تحديث المواضيع تم بنجاح."
 
-#: src/Process/Backend/BlogTheme.php:187
-msgid "Force checking update of themes"
-msgstr "فرض التحقق من تحديث المواضيع"
-
-#: src/Process/Backend/BlogTheme.php:204 src/Process/Backend/BlogTheme.php:205
+#: src/Process/Backend/BlogTheme.php:232 src/Process/Backend/BlogTheme.php:233
 msgid "Update themes"
 msgstr "تحديث السمات"
 
-#: src/Process/Backend/BlogTheme.php:207
-#, php-format
-msgid "There is one theme to update available from repository."
-msgid_plural "There are %s themes to update available from repository."
-msgstr[0] "هناك %s سمات لتحديث المتاحة من المستودع."
-msgstr[1] "هناك موضوع واحد للتحديث متوفر من المستودع."
-msgstr[2] "هناك %s سمات لتحديث المتاحة من المستودع."
-msgstr[3] "هناك %s سمات لتحديث المتاحة من المستودع."
-msgstr[4] "هناك %s سمات لتحديث المتاحة من المستودع."
-msgstr[5] "هناك %s سمات لتحديث المتاحة من المستودع."
+#: src/Process/Backend/BlogTheme.php:244
+msgid "Force checking update of themes"
+msgstr "فرض التحقق من تحديث المواضيع"
 
-#: src/Process/Backend/BlogTheme.php:224 src/Process/Backend/BlogTheme.php:310
-#: src/Process/Backend/Plugins.php:197 src/Process/Backend/Plugins.php:284
-#: src/Process/Upgrade/Plugins.php:199 src/Process/Upgrade/Plugins.php:288
+#: src/Process/Backend/BlogTheme.php:261
+msgid "No updates available for themes."
+msgstr "لا توجد تحديثات متاحة للثيمات."
+
+#: src/Process/Backend/BlogTheme.php:266
+#, php-format
+msgid "There is one theme update available:"
+msgid_plural "There are %s theme updates available:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: src/Process/Backend/BlogTheme.php:285 src/Process/Backend/BlogTheme.php:321
+#: src/Process/Backend/Plugins.php:257 src/Process/Backend/Plugins.php:292
+#: src/Process/Upgrade/Plugins.php:254 src/Process/Upgrade/Plugins.php:293
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "قم بزيارة مستودع %s , مركز الموارد ل Dotclear."
 
-#: src/Process/Backend/BlogTheme.php:238 src/Process/Backend/BlogTheme.php:240
-msgid "Installed themes"
-msgstr "الثيمات المثبتة"
-
-#: src/Process/Backend/BlogTheme.php:240
-msgid "Activated themes"
-msgstr "الثيمات المُفعلة"
-
-#: src/Process/Backend/BlogTheme.php:241 src/Process/Backend/Plugins.php:217
-#: src/Process/Upgrade/Plugins.php:218
-msgid "(in normal mode)"
-msgstr "(في الوضع العادي)"
-
-#: src/Process/Backend/BlogTheme.php:243
-msgid "You can configure and manage installed themes from this list."
-msgstr "يمكنك تكوين وإدارة السمات المثبتة من هذه القائمة."
-
-#: src/Process/Backend/BlogTheme.php:264 src/Process/Backend/BlogTheme.php:265
-msgid "Deactivated themes"
-msgstr "المواضيع المعطلة"
-
-#: src/Process/Backend/BlogTheme.php:266
-msgid "Deactivated themes are installed but not usable. You can activate them from here."
-msgstr "تم تثبيت الثيمات غير القابلة للاستخدام. يمكنك تفعيلها من هنا."
-
-#: src/Process/Backend/BlogTheme.php:290
+#: src/Process/Backend/BlogTheme.php:301
 msgid "Add themes"
 msgstr "إضافة سمات"
 
-#: src/Process/Backend/BlogTheme.php:291
+#: src/Process/Backend/BlogTheme.php:302
 msgid "Add themes from repository"
 msgstr "إضافة سمات من المستودع"
 
-#: src/Process/Backend/BlogTheme.php:319 src/Process/Backend/Plugins.php:294
-#: src/Process/Upgrade/Plugins.php:298
+#: src/Process/Backend/BlogTheme.php:330 src/Process/Backend/Plugins.php:302
+#: src/Process/Upgrade/Plugins.php:303
 msgid "Install or upgrade manually"
 msgstr "تثبيت أو ترقية يدوياً"
 
-#: src/Process/Backend/BlogTheme.php:320
+#: src/Process/Backend/BlogTheme.php:331
 msgid "Add themes from a package"
 msgstr "إضافة سمات من حزمة"
 
-#: src/Process/Backend/BlogTheme.php:321
+#: src/Process/Backend/BlogTheme.php:332
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "يمكنك تثبيت السمات عن طريق تحميل أو تنزيل الملفات المضغوطة."
 
-#: src/Process/Backend/BlogTheme.php:335
+#: src/Process/Backend/BlogTheme.php:346
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "بعض الوظائف معطلة، يرجى إعطاء صلاحية الكتابة إلى دليل السمات الخاص بك لتمكينها."
 
@@ -4369,12 +4366,12 @@ msgid "The cache directory does not exist or is not writable. You should contact
 msgstr "دليل ذاكرة التخزين المؤقت غير موجود أو غير قابل للكتابة. يجب عليك الاتصال بالمسؤول."
 
 #: src/Process/Backend/Home.php:280 src/Process/Backend/Plugins.php:119
-#: src/Process/Install/Install.php:504 src/Process/Upgrade/Plugins.php:111
+#: src/Process/Install/Install.php:505 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
 msgstr "الإضافات التالية تم تثبيتها:"
 
 #: src/Process/Backend/Home.php:294 src/Process/Backend/Plugins.php:133
-#: src/Process/Install/Install.php:511 src/Process/Upgrade/Plugins.php:123
+#: src/Process/Install/Install.php:512 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have not been installed:"
 msgstr "لم يتم تثبيت الإضافات التالية:"
 
@@ -4504,15 +4501,15 @@ msgstr "اللغة:"
 msgid "Install language"
 msgstr "لغة التثبيت"
 
-#: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:400
+#: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:403
 msgid "You can install languages by uploading zip files."
 msgstr "يمكنك تثبيت اللغات عن طريق تحميل الملفات المضغوطة."
 
-#: src/Process/Backend/Langs.php:335 src/Process/Upgrade/Langs.php:409
+#: src/Process/Backend/Langs.php:335 src/Process/Upgrade/Langs.php:412
 msgid "Language zip file:"
 msgstr "ملف zip اللغة:"
 
-#: src/Process/Backend/Langs.php:346 src/Process/Upgrade/Langs.php:436
+#: src/Process/Backend/Langs.php:346 src/Process/Upgrade/Langs.php:439
 msgid "Upload language"
 msgstr "رفع اللغة"
 
@@ -4987,72 +4984,76 @@ msgstr "لم يتم العثور على الإضافة"
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "الملحق الذي وصلت إليه غير موجود أو ليس لديه صفحة مسؤول."
 
-#: src/Process/Backend/Plugins.php:148 src/Process/Upgrade/Plugins.php:133
-msgid "Manual checking of plugins update done successfully."
-msgstr "التحقق اليدوي من تحديث الإضافات تم بنجاح."
-
-#: src/Process/Backend/Plugins.php:160 src/Process/Upgrade/Plugins.php:171
-msgid "Force checking update of plugins"
-msgstr "فرض التحقق من تحديث الإضافات"
-
-#: src/Process/Backend/Plugins.php:177 src/Process/Backend/Plugins.php:178
-#: src/Process/Upgrade/Plugins.php:161 src/Process/Upgrade/Plugins.php:162
-msgid "Update plugins"
-msgstr "تحديث الإضافات"
-
-#: src/Process/Backend/Plugins.php:180 src/Process/Upgrade/Plugins.php:182
-#, php-format
-msgid "There is one plugin to update available from repository."
-msgid_plural "There are %s plugins to update available from repository."
-msgstr[0] "هناك %s إضافات لتحديث المتاحة من المستودع."
-msgstr[1] "هناك إضافة واحدة للتحديث متاحة من المستودع."
-msgstr[2] "هناك %s إضافات لتحديث المتاحة من المستودع."
-msgstr[3] "هناك %s إضافات لتحديث المتاحة من المستودع."
-msgstr[4] "هناك %s إضافات لتحديث المتاحة من المستودع."
-msgstr[5] "هناك %s إضافات لتحديث المتاحة من المستودع."
-
-#: src/Process/Backend/Plugins.php:207 src/Process/Backend/Plugins.php:216
-#: src/Process/Upgrade/Plugins.php:209
+#: src/Process/Backend/Plugins.php:143 src/Process/Backend/Plugins.php:152
+#: src/Process/Upgrade/Plugins.php:159
 msgid "Installed plugins"
 msgstr "الإضافات المثبتة"
 
-#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:218
+#: src/Process/Backend/Plugins.php:152 src/Process/Upgrade/Plugins.php:168
 msgid "Activated plugins"
 msgstr "الإضافات المُفعلة"
 
-#: src/Process/Backend/Plugins.php:219 src/Process/Upgrade/Plugins.php:220
+#: src/Process/Backend/Plugins.php:155 src/Process/Upgrade/Plugins.php:170
 msgid "You can configure and manage installed plugins from this list."
 msgstr "يمكنك تكوين وإدارة الإضافات المثبتة من هذه القائمة."
 
-#: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:239
+#: src/Process/Backend/Plugins.php:174 src/Process/Upgrade/Plugins.php:189
 msgid "Deactivated plugins"
 msgstr "الإضافات المعطلة"
 
-#: src/Process/Backend/Plugins.php:239 src/Process/Upgrade/Plugins.php:240
+#: src/Process/Backend/Plugins.php:175 src/Process/Upgrade/Plugins.php:190
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "تم تثبيت الإضافات الغير نشطة ولكن غير قابلة للاستخدام. يمكنك تفعيلها من هنا."
 
-#: src/Process/Backend/Plugins.php:264 src/Process/Upgrade/Plugins.php:268
+#: src/Process/Backend/Plugins.php:200 src/Process/Upgrade/Plugins.php:133
+msgid "Manual checking of plugins update done successfully."
+msgstr "التحقق اليدوي من تحديث الإضافات تم بنجاح."
+
+#: src/Process/Backend/Plugins.php:204 src/Process/Backend/Plugins.php:205
+#: src/Process/Upgrade/Plugins.php:211 src/Process/Upgrade/Plugins.php:212
+msgid "Update plugins"
+msgstr "تحديث الإضافات"
+
+#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:223
+msgid "Force checking update of plugins"
+msgstr "فرض التحقق من تحديث الإضافات"
+
+#: src/Process/Backend/Plugins.php:233 src/Process/Upgrade/Plugins.php:230
+msgid "No updates available for plugins."
+msgstr ""
+
+#: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:235
+#, php-format
+msgid "There is one plugin update available:"
+msgid_plural "There are %s plugin updates available:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: src/Process/Backend/Plugins.php:272 src/Process/Upgrade/Plugins.php:273
 msgid "Add plugins"
 msgstr "إضافة إضافات"
 
-#: src/Process/Backend/Plugins.php:265 src/Process/Upgrade/Plugins.php:269
+#: src/Process/Backend/Plugins.php:273 src/Process/Upgrade/Plugins.php:274
 msgid "Add plugins from repository"
 msgstr "إضافة ملحقات من المستودع"
 
-#: src/Process/Backend/Plugins.php:295 src/Process/Upgrade/Plugins.php:299
+#: src/Process/Backend/Plugins.php:303 src/Process/Upgrade/Plugins.php:304
 msgid "Add plugins from a package"
 msgstr "إضافة ملحقات من حزمة"
 
-#: src/Process/Backend/Plugins.php:296 src/Process/Upgrade/Plugins.php:300
+#: src/Process/Backend/Plugins.php:304 src/Process/Upgrade/Plugins.php:305
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "يمكنك تثبيت الإضافات عن طريق تحميل أو تنزيل الملفات المضغوطة."
 
-#: src/Process/Backend/Plugins.php:310 src/Process/Upgrade/Plugins.php:311
+#: src/Process/Backend/Plugins.php:318 src/Process/Upgrade/Plugins.php:316
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "بعض الوظائف معطلة، يرجى إعطاء صلاحية الكتابة إلى دليل الإضافات الخاص بك لتمكينها."
 
-#: src/Process/Backend/Plugins.php:341
+#: src/Process/Backend/Plugins.php:349
 msgid "Plugin configuration"
 msgstr "اعدادات الاضافة"
 
@@ -6055,39 +6056,39 @@ msgstr "يرجى تقديم المعلومات التالية اللازمة ل�
 msgid "Username and password"
 msgstr "اسم المستخدم وكلمة المرور"
 
-#: src/Process/Install/Install.php:519
+#: src/Process/Install/Install.php:520
 msgid "All done!"
 msgstr "تم كل شيء!"
 
-#: src/Process/Install/Install.php:523
+#: src/Process/Install/Install.php:524
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "تم تثبيت Dotclear بنجاح. إليك بعض المعلومات المفيدة التي يجب أن تحتفظ بها."
 
-#: src/Process/Install/Install.php:525
+#: src/Process/Install/Install.php:526
 msgid "Your account"
 msgstr "حسابك"
 
-#: src/Process/Install/Install.php:531
+#: src/Process/Install/Install.php:532
 msgid "Your blog"
 msgstr "مدونتك"
 
-#: src/Process/Install/Install.php:533
+#: src/Process/Install/Install.php:534
 msgid "Blog address:"
 msgstr "عنوان المدونة:"
 
-#: src/Process/Install/Install.php:534
+#: src/Process/Install/Install.php:535
 msgid "Administration interface:"
 msgstr "واجهة الإدارة:"
 
-#: src/Process/Install/Install.php:538
+#: src/Process/Install/Install.php:539
 msgid "Manage your blog now"
 msgstr "إدارة مدونتك الآن"
 
-#: src/Process/Install/Install.php:545
+#: src/Process/Install/Install.php:546
 msgid "Installation can not be completed"
 msgstr "لا يمكن إكمال التثبيت"
 
-#: src/Process/Install/Install.php:547
+#: src/Process/Install/Install.php:548
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "للأسباب المذكورة، لا يمكن تثبيت Dotclear. يرجى الرجوع إلى <a href=\"https://dotclear.org/documentation/2.0/admin/install\">الوثائق</a> لمعرفة كيفية تصحيح المشكلة."
 
@@ -6147,59 +6148,59 @@ msgstr "معلومات النظام"
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "الرجاء تقديم المعلومات التالية المطلوبة لإنشاء ملف الإعدادات الخاص بك."
 
-#: src/Process/Install/Wizard.php:262
+#: src/Process/Install/Wizard.php:263
 msgid "Database type:"
 msgstr "نوع قاعدة البيانات:"
 
-#: src/Process/Install/Wizard.php:266
+#: src/Process/Install/Wizard.php:267
 msgid "MySQLi"
 msgstr "MySQLi"
 
-#: src/Process/Install/Wizard.php:267
+#: src/Process/Install/Wizard.php:268
 msgid "MySQLi (full UTF-8)"
 msgstr "MySQLi (كامل UTF-8)"
 
-#: src/Process/Install/Wizard.php:268
+#: src/Process/Install/Wizard.php:269
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
-#: src/Process/Install/Wizard.php:269
+#: src/Process/Install/Wizard.php:270
 msgid "SQLite"
 msgstr "SQLite"
 
-#: src/Process/Install/Wizard.php:270
+#: src/Process/Install/Wizard.php:271
 msgid "Driver"
 msgstr "سائق"
 
-#: src/Process/Install/Wizard.php:272
+#: src/Process/Install/Wizard.php:273
 msgid "Database Host Name:"
 msgstr "اسم المضيف لقاعدة البيانات:"
 
-#: src/Process/Install/Wizard.php:274
+#: src/Process/Install/Wizard.php:275
 msgid "Database Name:"
 msgstr "اسم قاعدة البيانات"
 
-#: src/Process/Install/Wizard.php:276
+#: src/Process/Install/Wizard.php:277
 msgid "Database User Name:"
 msgstr "اسم مستخدم قاعدة البيانات:"
 
-#: src/Process/Install/Wizard.php:278
+#: src/Process/Install/Wizard.php:279
 msgid "Database Password:"
 msgstr "كلمة مرور قاعدة البيانات:"
 
-#: src/Process/Install/Wizard.php:280
+#: src/Process/Install/Wizard.php:281
 msgid "Database Tables Prefix:"
 msgstr "بادئة جداول قاعدة البيانات:"
 
-#: src/Process/Install/Wizard.php:283
+#: src/Process/Install/Wizard.php:284
 msgid "Prefix"
 msgstr "بادئة"
 
-#: src/Process/Install/Wizard.php:286
+#: src/Process/Install/Wizard.php:287
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "البريد الإلكتروني الرئيسي: (يستخدم كمرسل لاسترداد كلمة المرور)"
 
-#: src/Process/Install/Wizard.php:294 src/Process/Upgrade/Digests.php:255
+#: src/Process/Install/Wizard.php:295 src/Process/Upgrade/Digests.php:255
 #: src/Process/Upgrade/Digests.php:276
 msgid "Continue"
 msgstr "متابعة"
@@ -6468,48 +6469,48 @@ msgstr "قم بتركيب أو تحديث اللغات من تحميل ملف zi
 msgid "Some plugins could not be loaded."
 msgstr "لا يمكن تحميل بعض plugins."
 
-#: src/Process/Upgrade/Plugins.php:333
+#: src/Process/Upgrade/Plugins.php:338
 msgid "There is no module to check"
 msgstr "لا توجد وحدة برامج ليتم التحقق منها"
 
-#: src/Process/Upgrade/Plugins.php:341
+#: src/Process/Upgrade/Plugins.php:346
 msgid "Store version"
 msgstr "نسخة المتجر"
 
-#: src/Process/Upgrade/Plugins.php:343
+#: src/Process/Upgrade/Plugins.php:348
 msgid "Check stores versions"
 msgstr "تحقق من نسخ المخازن"
 
-#: src/Process/Upgrade/Plugins.php:351
+#: src/Process/Upgrade/Plugins.php:356
 msgid "Check lastest stores versions"
 msgstr "فحص نسخ المخازن التي تم تخزينها"
 
-#: src/Process/Upgrade/Plugins.php:354
+#: src/Process/Upgrade/Plugins.php:359
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "يمكنك فحص مستودعات التخزين لوحدات البرامج التي تم كتابتها بوضوح لاصدار Dotmules أكبر من %s."
 
-#: src/Process/Upgrade/Plugins.php:378 src/Process/Upgrade/Plugins.php:420
+#: src/Process/Upgrade/Plugins.php:383 src/Process/Upgrade/Plugins.php:425
 msgid "No version available"
 msgstr "لا توجد نسخة متاحة"
 
-#: src/Process/Upgrade/Plugins.php:380
+#: src/Process/Upgrade/Plugins.php:385
 msgid "No update available"
 msgstr "لا يوجد تعديل متاح"
 
-#: src/Process/Upgrade/Plugins.php:382
+#: src/Process/Upgrade/Plugins.php:387
 msgid "Newer version available"
 msgstr "النسخة الأحدث متاحة"
 
-#: src/Process/Upgrade/Plugins.php:434
+#: src/Process/Upgrade/Plugins.php:439
 msgid "Modules list"
 msgstr "كشف وحدات البرامج"
 
-#: src/Process/Upgrade/Plugins.php:449
+#: src/Process/Upgrade/Plugins.php:454
 msgid "Latest version"
 msgstr "أحدث نسخة"
 
-#: src/Process/Upgrade/Plugins.php:453
+#: src/Process/Upgrade/Plugins.php:458
 msgid "Written for Dotclear"
 msgstr "مكتوبة بالنسبة الى Doctالوضوح"
 
