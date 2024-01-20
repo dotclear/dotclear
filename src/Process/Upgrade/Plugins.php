@@ -155,56 +155,6 @@ class Plugins extends Process
             )
         );
 
-        // Updated modules from repo
-        $defines = self::$plugins_list->store->getDefines(true);
-        echo
-        '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . '">' .
-        '<h3>' . Html::escapeHTML(__('Update plugins')) . '</h3>' .
-        (new Form('force-checking'))
-            ->action(self::$plugins_list->getURL('', false))
-            ->method('get')
-            ->fields([
-                (new Para())
-                ->items([
-                    (new Hidden('nocache', '1')),
-                    (new Hidden('process', 'Plugins')),
-                    (new Submit('force-checking-update', __('Force checking update of plugins'))),
-                ]),
-            ])
-            ->render();
-
-        if (empty($defines)) {
-            echo
-            '<p>' . sprintf('There are %s plugins to update available from repository.', 0) . '</p>';
-        } else {
-            echo
-            '<p>' . sprintf(
-                __('There is one plugin to update available from repository.', 'There are %s plugins to update available from repository.', count($defines)),
-                count($defines)
-            ) . '</p>';
-
-            self::$plugins_list
-                ->setList('plugin-update')
-                ->setTab('update')
-                ->setDefines($defines)
-                ->displayModules(
-                    /* cols */
-                    ['checkbox', 'name', 'version', 'repository', 'current_version', 'desc'],
-                    /* actions */
-                    ['update']
-                );
-
-            echo
-            '<p class="info vertical-separator">' . sprintf(
-                __('Visit %s repository, the resources center for Dotclear.'),
-                '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>'
-            ) .
-            '</p>';
-        }
-
-        echo
-        '</div>';
-
         echo
         '<div class="multi-part" id="plugins" title="' . __('Installed plugins') . '">';
 
@@ -250,6 +200,61 @@ class Plugins extends Process
                         ['activate', 'delete']
                     );
             }
+        }
+
+        echo
+        '</div>';
+
+        // Updated modules from repo
+        $defines = self::$plugins_list->store->getDefines(true);
+        echo
+        '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . '">' .
+        '<h3>' . Html::escapeHTML(__('Update plugins')) . '</h3>';
+
+        echo
+        (new Form('force-checking'))
+            ->action(self::$plugins_list->getURL('', false))
+            ->method('get')
+            ->fields([
+                (new Para())
+                ->items([
+                    (new Hidden('nocache', '1')),
+                    (new Hidden('process', 'Plugins')),
+                    (new Submit('force-checking-update', __('Force checking update of plugins'))),
+                ]),
+            ])
+            ->render();
+
+        if (empty($defines)) {
+            echo
+            '<p>' . __('No updates available for plugins.') . '</p>';
+        } else {
+            echo
+            '<p>' . sprintf(
+                __(
+                    'There is one plugin update available:',
+                    'There are %s plugin updates available:',
+                    count($defines)
+                )
+            ) . '</p>';
+
+            self::$plugins_list
+                ->setList('plugin-update')
+                ->setTab('update')
+                ->setDefines($defines)
+                ->displayModules(
+                    /* cols */
+                    ['checkbox', 'name', 'version', 'repository', 'current_version', 'desc'],
+                    /* actions */
+                    ['update']
+                );
+
+            echo
+            '<p class="info vertical-separator">' . sprintf(
+                __('Visit %s repository, the resources center for Dotclear.'),
+                '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>'
+            ) .
+            '</p>';
         }
 
         echo

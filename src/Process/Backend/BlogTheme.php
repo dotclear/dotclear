@@ -166,68 +166,6 @@ class BlogTheme extends Process
         );
 
         // Display themes lists --
-        if (App::auth()->isSuperAdmin()) {
-            if (null == App::blog()->settings()->system->store_theme_url) {
-                Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
-            }
-
-            if (!App::error()->flag() && !empty($_GET['nocache'])) {
-                Notices::success(__('Manual checking of themes update done successfully.'));
-            }
-
-            echo
-            (new Form('force-checking'))
-                ->action(App::backend()->list->getURL('', false))
-                ->method('get')
-                ->fields([
-                    (new Para())
-                    ->items([
-                        (new Hidden('nocache', '1')),
-                        (new Hidden(['process'], 'BlogTheme')),
-                        (new Submit('force-checking-update', __('Force checking update of themes'))),
-                    ]),
-                ])
-                ->render();
-
-            // Updated themes from repo
-            $defines = App::backend()->list->store->getDefines(true);
-
-            $tmp = new ArrayObject($defines);
-
-            # --BEHAVIOR-- afterCheckStoreUpdate -- string, ArrayObject<int, ModuleDefine>
-            App::behavior()->callBehavior('afterCheckStoreUpdate', 'themes', $tmp);
-
-            $defines = $tmp->getArrayCopy();
-
-            if (!empty($defines)) {
-                echo
-                '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update themes')) . '">' .
-                '<h3>' . Html::escapeHTML(__('Update themes')) . '</h3>' .
-                '<p>' . sprintf(
-                    __('There is one theme to update available from repository.', 'There are %s themes to update available from repository.', count($defines)),
-                    count($defines)
-                ) . '</p>';
-
-                App::backend()->list
-                    ->setList('theme-update')
-                    ->setTab('themes')
-                    ->setDefines($defines)
-                    ->displayModules(
-                        // cols
-                        ['checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'repository', 'parent'],
-                        // actions
-                        ['update', 'delete']
-                    );
-
-                echo
-                '<p class="info vertical-separator">' . sprintf(
-                    __('Visit %s repository, the resources center for Dotclear.'),
-                    '<a href="https://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>'
-                ) .
-                '</p>' .
-                '</div>';
-            }
-        }
 
         // Activated themes
         $defines = App::backend()->list->modules->getDefines(
@@ -276,6 +214,79 @@ class BlogTheme extends Process
                     ['activate', 'delete', 'try']
                 );
 
+            echo
+            '</div>';
+        }
+
+        // Updatable modules
+        if (App::auth()->isSuperAdmin()) {
+            if (null == App::blog()->settings()->system->store_theme_url) {
+                Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
+            }
+
+            if (!App::error()->flag() && !empty($_GET['nocache'])) {
+                Notices::success(__('Manual checking of themes update done successfully.'));
+            }
+
+            echo
+            '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update themes')) . '">' .
+            '<h3>' . Html::escapeHTML(__('Update themes')) . '</h3>';
+
+            echo
+            (new Form('force-checking'))
+                ->action(App::backend()->list->getURL('', false))
+                ->method('get')
+                ->fields([
+                    (new Para())
+                    ->items([
+                        (new Hidden('nocache', '1')),
+                        (new Hidden(['process'], 'BlogTheme')),
+                        (new Submit('force-checking-update', __('Force checking update of themes'))),
+                    ]),
+                ])
+                ->render();
+
+            // Updated themes from repo
+            $defines = App::backend()->list->store->getDefines(true);
+
+            $tmp = new ArrayObject($defines);
+
+            # --BEHAVIOR-- afterCheckStoreUpdate -- string, ArrayObject<int, ModuleDefine>
+            App::behavior()->callBehavior('afterCheckStoreUpdate', 'themes', $tmp);
+
+            $defines = $tmp->getArrayCopy();
+
+            if (empty($defines)) {
+                echo
+                '<p>' . __('No updates available for themes.') . '</p>';
+            } else {
+                echo
+                    '<p>' . sprintf(
+                        __(
+                            'There is one theme update available:',
+                            'There are %s theme updates available:',
+                            count($defines)
+                        )
+                    ) . '</p>';
+
+                App::backend()->list
+                    ->setList('theme-update')
+                    ->setTab('themes')
+                    ->setDefines($defines)
+                    ->displayModules(
+                        // cols
+                        ['checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'repository', 'parent'],
+                        // actions
+                        ['update', 'delete']
+                    );
+
+                echo
+                '<p class="info vertical-separator">' . sprintf(
+                    __('Visit %s repository, the resources center for Dotclear.'),
+                    '<a href="https://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>'
+                ) .
+                '</p>';
+            }
             echo
             '</div>';
         }

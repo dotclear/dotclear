@@ -139,70 +139,6 @@ class Plugins extends Process
         }
 
         // -- Display modules lists --
-        if (App::auth()->isSuperAdmin()) {
-            if (null == App::blog()->settings()->system->store_plugin_url) {
-                Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
-            }
-
-            if (!App::error()->flag() && !empty($_GET['nocache'])) {
-                Notices::success(__('Manual checking of plugins update done successfully.'));
-            }
-
-            echo
-            (new Form('force-checking'))
-                ->action(App::backend()->list->getURL('', false))
-                ->method('get')
-                ->fields([
-                    (new Para())
-                    ->items([
-                        (new Hidden('nocache', '1')),
-                        (new Hidden('process', 'Plugins')),
-                        (new Submit('force-checking-update', __('Force checking update of plugins'))),
-                    ]),
-                ])
-                ->render();
-
-            // Updated modules from repo
-            $defines = App::backend()->list->store->getDefines(true);
-
-            $tmp = new ArrayObject($defines);
-
-            # --BEHAVIOR-- afterCheckStoreUpdate -- string, ArrayObject<int, ModuleDefine>
-            App::behavior()->callBehavior('afterCheckStoreUpdate', 'plugins', $tmp);
-
-            $defines = $tmp->getArrayCopy();
-
-            if (!empty($defines)) {
-                echo
-                '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . '">' .
-                '<h3>' . Html::escapeHTML(__('Update plugins')) . '</h3>' .
-                '<p>' . sprintf(
-                    __('There is one plugin to update available from repository.', 'There are %s plugins to update available from repository.', count($defines)),
-                    count($defines)
-                ) . '</p>';
-
-                App::backend()->list
-                    ->setList('plugin-update')
-                    ->setTab('update')
-                    ->setDefines($defines)
-                    ->displayModules(
-                        /* cols */
-                        ['checkbox', 'icon', 'name', 'version', 'repository', 'current_version', 'desc'],
-                        /* actions */
-                        ['update', 'behavior']
-                    );
-
-                echo
-                '<p class="info vertical-separator">' . sprintf(
-                    __('Visit %s repository, the resources center for Dotclear.'),
-                    '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>'
-                ) .
-                '</p>' .
-
-                '</div>';
-            }
-        }
-
         echo
         '<div class="multi-part" id="plugins" title="' . __('Installed plugins') . '">';
 
@@ -253,6 +189,78 @@ class Plugins extends Process
 
         echo
         '</div>';
+
+        // Updatable modules
+        if (App::auth()->isSuperAdmin()) {
+            if (null == App::blog()->settings()->system->store_plugin_url) {
+                Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
+            }
+
+            if (!App::error()->flag() && !empty($_GET['nocache'])) {
+                Notices::success(__('Manual checking of plugins update done successfully.'));
+            }
+
+            echo
+            '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . '">' .
+            '<h3>' . Html::escapeHTML(__('Update plugins')) . '</h3>';
+
+            echo
+            (new Form('force-checking'))
+                ->action(App::backend()->list->getURL('', false))
+                ->method('get')
+                ->fields([
+                    (new Para())
+                    ->items([
+                        (new Hidden('nocache', '1')),
+                        (new Hidden('process', 'Plugins')),
+                        (new Submit('force-checking-update', __('Force checking update of plugins'))),
+                    ]),
+                ])
+                ->render();
+
+            // Updated modules from repo
+            $defines = App::backend()->list->store->getDefines(true);
+
+            $tmp = new ArrayObject($defines);
+
+            # --BEHAVIOR-- afterCheckStoreUpdate -- string, ArrayObject<int, ModuleDefine>
+            App::behavior()->callBehavior('afterCheckStoreUpdate', 'plugins', $tmp);
+
+            $defines = $tmp->getArrayCopy();
+
+            if (empty($defines)) {
+                echo
+                '<p>' . __('No updates available for plugins.') . '</p>';
+            } else {
+                echo
+                '<p>' . sprintf(
+                    __(
+                        'There is one plugin update available:',
+                        'There are %s plugin updates available:',
+                        count($defines)
+                    )
+                ) . '</p>';
+
+                App::backend()->list
+                    ->setList('plugin-update')
+                    ->setTab('update')
+                    ->setDefines($defines)
+                    ->displayModules(
+                        /* cols */
+                        ['checkbox', 'icon', 'name', 'version', 'repository', 'current_version', 'desc'],
+                        /* actions */
+                        ['update', 'behavior']
+                    );
+
+                echo
+                '<p class="info vertical-separator">' . sprintf(
+                    __('Visit %s repository, the resources center for Dotclear.'),
+                    '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>'
+                ) .
+                '</p>';
+            }
+            echo '</div>';
+        }
 
         if (App::auth()->isSuperAdmin() && App::backend()->list->isWritablePath()) {
             # New modules from repo
