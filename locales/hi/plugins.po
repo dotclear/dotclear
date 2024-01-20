@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-01-16 09:45\n"
+"POT-Creation-Date: 2024-01-20 10:07+0100\n"
+"PO-Revision-Date: 2024-01-20 09:12\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -1007,7 +1007,7 @@ msgstr "आप एक लिंक शीर्षक प्रदान कर�
 msgid "You must provide a link URL"
 msgstr "आपको एक लिंक URL प्रदान करना होगा"
 
-#: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:394
+#: plugins/blogroll/src/Manage.php:83 plugins/blogroll/src/Manage.php:395
 msgid "Nothing to import"
 msgstr "आयात के लिए कुछ नहीं"
 
@@ -1043,36 +1043,36 @@ msgstr "लैंग"
 msgid "select this link"
 msgstr "यह लिंक चुनें"
 
-#: plugins/blogroll/src/Manage.php:311
+#: plugins/blogroll/src/Manage.php:303
 msgid "Are you sure you want to delete selected links?"
 msgstr "क्या आप निश्चित हैं कि आप चयनित लिंक मिटाना चाहते हैं?"
 
-#: plugins/blogroll/src/Manage.php:311
+#: plugins/blogroll/src/Manage.php:303
 msgid "Delete selected links"
 msgstr "चयनित लिंक मिटाएँ"
 
-#: plugins/blogroll/src/Manage.php:316
+#: plugins/blogroll/src/Manage.php:317
 msgid "The link list is empty."
 msgstr "लिंक सूची खाली है."
 
-#: plugins/blogroll/src/Manage.php:324
+#: plugins/blogroll/src/Manage.php:325
 msgid "Add a new link"
 msgstr "जोड़ें a नया लिंक"
 
-#: plugins/blogroll/src/Manage.php:355
+#: plugins/blogroll/src/Manage.php:356
 msgid "Add a category"
 msgstr "एक श्रेणी जोड़ें"
 
-#: plugins/blogroll/src/Manage.php:373 plugins/blogroll/src/Manage.php:378
-#: plugins/blogroll/src/Manage.php:391
+#: plugins/blogroll/src/Manage.php:374 plugins/blogroll/src/Manage.php:379
+#: plugins/blogroll/src/Manage.php:392
 msgid "Import links"
 msgstr "कड़ियाँ आयात करें"
 
-#: plugins/blogroll/src/Manage.php:380
+#: plugins/blogroll/src/Manage.php:381
 msgid "OPML or XBEL File:"
 msgstr "ओपीएमएल या एक्सबीएल फ़ाइल:"
 
-#: plugins/blogroll/src/Manage.php:384 plugins/blogroll/src/Manage.php:428
+#: plugins/blogroll/src/Manage.php:385 plugins/blogroll/src/Manage.php:429
 #: plugins/importExport/src/Manage.php:116
 #: plugins/importExport/src/ModuleImportFeed.php:227
 #: plugins/importExport/src/ModuleImportFlat.php:213
@@ -1100,115 +1100,115 @@ msgstr "ब्लोग्रोल में वापस लौटें"
 msgid "Edit category"
 msgstr "श्रेणी संपादित करें"
 
-#: plugins/blogroll/src/ManageEdit.php:168
+#: plugins/blogroll/src/ManageEdit.php:169
 msgid "Edit link"
 msgstr "कड़ी संपादित करें"
 
-#: plugins/blogroll/src/ManageEdit.php:204
+#: plugins/blogroll/src/ManageEdit.php:206
 msgid "XFN information"
 msgstr "XFN जानकारी"
 
-#: plugins/blogroll/src/ManageEdit.php:205
+#: plugins/blogroll/src/ManageEdit.php:207
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr ""
 
-#: plugins/blogroll/src/ManageEdit.php:211
+#: plugins/blogroll/src/ManageEdit.php:213
 msgid "_xfn_Me"
 msgstr "_xfn_MO"
 
-#: plugins/blogroll/src/ManageEdit.php:214
+#: plugins/blogroll/src/ManageEdit.php:216
 msgid "_xfn_Another link for myself"
 msgstr "अपने लिए एक और लिंक करें"
 
-#: plugins/blogroll/src/ManageEdit.php:218
+#: plugins/blogroll/src/ManageEdit.php:220
 msgid "_xfn_Friendship"
 msgstr "_xfn_फ्रेंडशिप"
 
-#: plugins/blogroll/src/ManageEdit.php:224
+#: plugins/blogroll/src/ManageEdit.php:226
 msgid "_xfn_Contact"
 msgstr "_xfn_संपर्क"
 
-#: plugins/blogroll/src/ManageEdit.php:229
+#: plugins/blogroll/src/ManageEdit.php:231
 msgid "_xfn_Acquaintance"
 msgstr "_xfn_अधिग्रहण (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:234
+#: plugins/blogroll/src/ManageEdit.php:236
 msgid "_xfn_Friend"
 msgstr "_xfn_फ्रेंड"
 
-#: plugins/blogroll/src/ManageEdit.php:240
+#: plugins/blogroll/src/ManageEdit.php:242
 msgid "_xfn_Physical"
 msgstr "भौतिक (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:246
+#: plugins/blogroll/src/ManageEdit.php:248
 msgid "_xfn_Met"
 msgstr "एक्सफ़्न_मेट (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:251
+#: plugins/blogroll/src/ManageEdit.php:253
 msgid "_xfn_Professional"
 msgstr "Xfn_व्यावसायिक (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:257
+#: plugins/blogroll/src/ManageEdit.php:259
 msgid "_xfn_Co-worker"
 msgstr "_xfn_सह-कार्यकर्ता (_s)"
 
-#: plugins/blogroll/src/ManageEdit.php:262
+#: plugins/blogroll/src/ManageEdit.php:264
 msgid "_xfn_Colleague"
 msgstr "_xfn_Colllems"
 
-#: plugins/blogroll/src/ManageEdit.php:267
+#: plugins/blogroll/src/ManageEdit.php:269
 msgid "_xfn_Geographical"
 msgstr "Xfn_भौगोलिक (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:273
+#: plugins/blogroll/src/ManageEdit.php:275
 msgid "_xfn_Co-resident"
 msgstr "_xfn_सह-निवासी (_s)"
 
-#: plugins/blogroll/src/ManageEdit.php:278
+#: plugins/blogroll/src/ManageEdit.php:280
 msgid "_xfn_Neighbor"
 msgstr "Xfn_Newbor (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:284
+#: plugins/blogroll/src/ManageEdit.php:286
 msgid "_xfn_Family"
 msgstr "_xfn_फैमिली"
 
-#: plugins/blogroll/src/ManageEdit.php:290
+#: plugins/blogroll/src/ManageEdit.php:292
 msgid "_xfn_Child"
 msgstr "_xfn_Child"
 
-#: plugins/blogroll/src/ManageEdit.php:295
+#: plugins/blogroll/src/ManageEdit.php:297
 msgid "_xfn_Parent"
 msgstr "जनक (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:300
+#: plugins/blogroll/src/ManageEdit.php:302
 msgid "_xfn_Sibling"
 msgstr "Xfn_siging (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:305
+#: plugins/blogroll/src/ManageEdit.php:307
 msgid "_xfn_Spouse"
 msgstr "_xfn_Spres"
 
-#: plugins/blogroll/src/ManageEdit.php:310
+#: plugins/blogroll/src/ManageEdit.php:312
 msgid "_xfn_Kin"
 msgstr "_xfn_Kin (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:316
+#: plugins/blogroll/src/ManageEdit.php:318
 msgid "_xfn_Romantic"
 msgstr "_xfn_Romantic"
 
-#: plugins/blogroll/src/ManageEdit.php:322
+#: plugins/blogroll/src/ManageEdit.php:324
 msgid "_xfn_Muse"
 msgstr "_xfn_Muse"
 
-#: plugins/blogroll/src/ManageEdit.php:327
+#: plugins/blogroll/src/ManageEdit.php:329
 msgid "_xfn_Crush"
 msgstr "_xf_Crh (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:332
+#: plugins/blogroll/src/ManageEdit.php:334
 msgid "_xfn_Date"
 msgstr "_xfn_Date"
 
-#: plugins/blogroll/src/ManageEdit.php:337
+#: plugins/blogroll/src/ManageEdit.php:339
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Svedin"
 
@@ -2708,19 +2708,19 @@ msgstr "एक मद जोड़ें"
 msgid "Menu items list"
 msgstr "मेन्यू मद सूची"
 
-#: plugins/simpleMenu/src/Manage.php:744
-msgid "Update menu"
-msgstr "अद्यतन मेनू"
-
-#: plugins/simpleMenu/src/Manage.php:746
+#: plugins/simpleMenu/src/Manage.php:745
 msgid "Delete selected menu items"
 msgstr "चयनित मेनू मद को मिटाएँ"
 
-#: plugins/simpleMenu/src/Manage.php:747
+#: plugins/simpleMenu/src/Manage.php:746
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "क्या आप निश्चित हैं कि आप चयनित मेनू आइटम को मिटाना चाहते हैं?"
 
-#: plugins/simpleMenu/src/Manage.php:754
+#: plugins/simpleMenu/src/Manage.php:750
+msgid "Update menu"
+msgstr "अद्यतन मेनू"
+
+#: plugins/simpleMenu/src/Manage.php:755
 msgid "No menu items so far."
 msgstr "अभी तक कोई मेन्यू आइटम नहीं है."
 
