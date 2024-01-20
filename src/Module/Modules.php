@@ -194,12 +194,12 @@ class Modules implements ModulesInterface
             $add_it = true;
             foreach ($search as $key => $value) {
                 // check types
-                if (!is_string($key) || is_null($module->get($key))) {
+                if (!is_string($key) || (is_null($current = $module->get($key)))) {
                     continue;
                 }
                 // compare string format
                 $value  = $to_string($value);
-                $source = $to_string($module->get($key));
+                $source = $to_string($current);
                 if (is_null($source) || is_null($value)) {
                     continue;
                 }
@@ -471,7 +471,7 @@ class Modules implements ModulesInterface
             $class = $module->get('namespace') . Autoloader::NS_SEP . self::MODULE_CLASS_PREPEND;
             if (!empty($module->get('namespace')) && class_exists($class)) {
                 $ret = $class::init() ? $class::process() : false;
-            // by file name
+                // by file name
             } elseif (file_exists($module->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND)) {
                 $ret = $this->loadModuleFile($module->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND, true);
             }

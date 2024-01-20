@@ -329,15 +329,11 @@ class ModuleDefine
      */
     public function get(string $identifier): mixed
     {
-        if ($identifier == 'id') {
+        if ($identifier === 'id') {
             return $this->id;
         }
 
-        if (array_key_exists($identifier, $this->properties)) {
-            return $this->properties[$identifier];
-        }
-
-        return $this->default[$identifier] ?? null;
+        return $this->properties[$identifier] ?? $this->default[$identifier] ?? null;
     }
 
     /**
