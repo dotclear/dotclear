@@ -16,7 +16,7 @@
   gap: 1em;
 
   p {
-    width: 13em;
+    width: 12em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -320,10 +320,9 @@
   }
 
   .badge-icon {
-    right: -10px;
     &.badge-left {
       right: inherit;
-      left: -10px;
+      left: -0.5em;
     }
   }
 

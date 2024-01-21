@@ -73,15 +73,26 @@ tr.ui-sortable-handle {
 /* Badge position */
 
 .badge-block {
-  /* Dashboard module → badge on top right */
+  /* Dashboard module/icon → badge on top right */
   position: absolute;
   top: -10px;
   right: -10px;
 }
 
+@media screen and (max-width: $mobile-screen) {
+  .badge-block {
+    right: -5px;
+  }
+  .box .badge-block {
+    /* Dashboard module → badge on top right, inside box */
+    top: 0.25em;
+    right: 0.25em;
+  }
+}
+
 .badge-icon {
   /* Dashboard icon → badge on top right */
-  right: 2.4em;
+  right: 1.75em;
 }
 
 @media screen and (max-width: $mobile-screen) {
