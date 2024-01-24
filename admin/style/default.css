@@ -4095,6 +4095,8 @@ a.media-icon {
   width: 48px;
   height: auto;
   max-height: 48px;
+  aspect-ratio: 1;
+  object-fit: contain;
 }
 
 a.media-flag {
