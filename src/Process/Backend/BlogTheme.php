@@ -266,7 +266,8 @@ class BlogTheme extends Process
                             'There is one theme update available:',
                             'There are %s theme updates available:',
                             count($defines)
-                        )
+                        ),
+                        count($defines)
                     ) . '</p>';
 
                 App::backend()->list

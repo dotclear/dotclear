@@ -238,7 +238,8 @@ class Plugins extends Process
                         'There is one plugin update available:',
                         'There are %s plugin updates available:',
                         count($defines)
-                    )
+                    ),
+                    count($defines)
                 ) . '</p>';
 
                 App::backend()->list
