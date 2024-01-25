@@ -23,8 +23,15 @@ class My extends MyPlugin
     protected static function checkCustomContext(int $context): ?bool
     {
         return match ($context) {
-            // Allow MANAGE and MENU to also content admin
-            self::MANAGE, self::MENU => App::task()->checkContext('BACKEND')
+            // Mandatory to serve CKEditor js config stream in all authorized cases
+            self::MANAGE => App::task()->checkContext('BACKEND')
+            && App::blog()->isDefined()
+            && App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_USAGE,
+            ]), App::blog()->id()),
+
+            // Allow access to CKEditor configuration
+            self::MENU => App::task()->checkContext('BACKEND')
             && App::blog()->isDefined()
             && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,

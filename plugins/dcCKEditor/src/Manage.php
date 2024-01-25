@@ -23,7 +23,8 @@ class Manage extends Process
 {
     public static function init(): bool
     {
-        App::backend()->editor_is_admin = self::status(My::checkContext(My::MANAGE));
+        // Menu is only accessible if admin/superadmin
+        App::backend()->editor_is_admin = self::status(My::checkContext(My::MENU));
 
         if (!self::status()) {
             return false;
@@ -48,6 +49,11 @@ class Manage extends Process
             // text/javascript response stop stream just after including file
             require_once __DIR__ . '/ManagePostConfig.php';
             exit();
+        }
+
+        if (!App::backend()->editor_is_admin) {
+            // Avoid any further process if not admin/superadmin
+            return false;
         }
 
         App::backend()->editor_cke_was_actived = App::backend()->editor_cke_active;
