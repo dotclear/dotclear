@@ -804,6 +804,9 @@ class Post extends Process
             App::nonce()->getFormNonce() .
             '</p>';
 
+            # --BEHAVIOR-- adminPostAfterButtons -- MetaRecord|null, string
+            App::behavior()->callBehavior('adminPostAfterButtons', App::backend()->post ?? null, 'post');
+
             echo
             '</div></div>' . // End #entry-content
             '</div>' .       // End #entry-wrapper

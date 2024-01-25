@@ -700,6 +700,9 @@ class ManagePage extends Process
             App::nonce()->getFormNonce() .
             '</p>';
 
+            # --BEHAVIOR-- adminPostFormButtons -- MetaRecord|null
+            App::behavior()->callBehavior('adminPageAfterButtons', App::backend()->post ?? null);
+
             echo
             '</div></div>' . // End #entry-content
             '</div>' .       // End #entry-wrapper
