@@ -99,6 +99,7 @@ h1 {
   p {
     display: inline-block;
     margin: 0;
+    vertical-align: text-top;
   }
 }
 
@@ -114,6 +115,7 @@ h1 {
     margin-left: 0.5em;
     padding-left: 0.5em;
     border-left: 1px solid var(--header-link-border);
+    vertical-align: text-top;
 
     &:first-child {
       border-left: none;

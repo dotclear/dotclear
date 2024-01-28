@@ -207,20 +207,20 @@
 .upgrade-mode {
   :root &,
   :root[data-theme='light'] & {
-    --header-background: #673ab7;
-    --header-background-alt: #673ab7;
-    --collapser-focus: #673ab7;
+    --header-background: #474885;
+    --header-background-alt: #474885;
+    --collapser-focus: #474885;
   }
   :root[data-theme='dark'] & {
-    --header-background: #244757;
-    --header-background-alt: #244757;
-    --collapser-focus: #244757;
+    --header-background: #244656;
+    --header-background-alt: #244656;
+    --collapser-focus: #244656;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme='light']) {
-      --header-background: #244757;
-      --header-background-alt: #244757;
-      --collapser-focus: #244757;
+      --header-background: #244656;
+      --header-background-alt: #244656;
+      --collapser-focus: #244656;
     }
   }
 

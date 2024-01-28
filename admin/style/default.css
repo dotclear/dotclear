@@ -1604,7 +1604,6 @@ h1,
     display: none;
   }
   #top-info-blog {
-    margin-bottom: 0.5em;
     max-width: 75%;
   }
   #top-info-blog select {
@@ -2791,6 +2790,7 @@ h1 a:link {
 #top-info-blog p {
   display: inline-block;
   margin: 0;
+  vertical-align: text-top;
 }
 
 /* top-info-user */
@@ -2804,6 +2804,7 @@ h1 a:link {
   margin-left: 0.5em;
   padding-left: 0.5em;
   border-left: 1px solid var(--header-link-border);
+  vertical-align: text-top;
 }
 #top-info-user li:first-child {
   border-left: none;
@@ -3640,20 +3641,20 @@ span.ibw {
 }
 
 :root .upgrade-mode, :root[data-theme=light] .upgrade-mode {
-  --header-background: #673ab7;
-  --header-background-alt: #673ab7;
-  --collapser-focus: #673ab7;
+  --header-background: #474885;
+  --header-background-alt: #474885;
+  --collapser-focus: #474885;
 }
 :root[data-theme=dark] .upgrade-mode {
-  --header-background: #244757;
-  --header-background-alt: #244757;
-  --collapser-focus: #244757;
+  --header-background: #244656;
+  --header-background-alt: #244656;
+  --collapser-focus: #244656;
 }
 @media (prefers-color-scheme: dark) {
   .upgrade-mode :root:not([data-theme=light]) {
-    --header-background: #244757;
-    --header-background-alt: #244757;
-    --collapser-focus: #244757;
+    --header-background: #244656;
+    --header-background-alt: #244656;
+    --collapser-focus: #244656;
   }
 }
 .upgrade-mode #dashboard-main {
