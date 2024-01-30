@@ -217,6 +217,12 @@ a.metaGetMore {
   background: var(--addmeta-background);
 }
 
+.metaRemove img {
+  height: 1.25em;
+  padding-top: 0.25em;
+  padding-right: 0.25em;
+}
+
 .addMeta button:not(.metaGetMore),
 .addMeta a:not(.metaGetMore) {
   box-shadow: initial;

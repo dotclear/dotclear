@@ -73,7 +73,7 @@ class BackendBehaviors
                     'link_type' => 'attachment',
                     'remove'    => '1',
                 ]) . '">' .
-                '<img src="images/trash.png" alt="' . __('remove') . '"></a>' .
+                '<img src="images/trash.svg" alt="' . __('remove') . '"></a>' .
                     '</li>' .
 
                     '</ul>' .

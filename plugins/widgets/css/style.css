@@ -144,6 +144,8 @@
 }
 .removeWidget {
   margin-left: 1em;
+  height: 1.25em;
+  padding-top: 0.25em;
 }
 /* ------------------------------------------------------------- help */
 

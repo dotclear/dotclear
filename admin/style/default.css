@@ -2439,6 +2439,12 @@ a.metaGetMore:hover {
   background: var(--addmeta-background);
 }
 
+.metaRemove img {
+  height: 1.25em;
+  padding-top: 0.25em;
+  padding-right: 0.25em;
+}
+
 .addMeta button:not(.metaGetMore),
 .addMeta a:not(.metaGetMore) {
   box-shadow: initial;
@@ -4213,6 +4219,11 @@ tr.media-folder .media-link {
   vertical-align: middle;
 }
 
+.media-remove img {
+  height: 1.25em;
+  padding-top: 0.25em;
+}
+
 /* upload multiple */
 .enhanced_uploader .choose_files,
 .enhanced_uploader .cancel,
@@ -4537,6 +4548,12 @@ div.template-upload {
 
 #tb_excerpt {
   width: 100%;
+}
+
+/* Actions */
+.attachment-remove img {
+  height: 1.25em;
+  padding-top: 0.25em;
 }
 
 .fav-list {

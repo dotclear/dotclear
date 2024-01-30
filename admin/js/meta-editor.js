@@ -70,7 +70,7 @@ class metaEditor {
       for (const m of meta) {
         li = $(`<li>${m}</li>`);
         const a_remove = $(
-          '<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove"></button>',
+          '<button type="button" class="metaRemove meta-helper"><img src="images/trash.svg" alt="remove"></button>',
         );
         a_remove.get(0).caller = this;
         a_remove.get(0).meta_id = m;
@@ -92,7 +92,7 @@ class metaEditor {
           const { meta_id, uri } = elt;
           li = $(`<li><a href="${this.meta_url}${uri}">${meta_id}</a></li>`);
           const a_remove = $(
-            '<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove"></button>',
+            '<button type="button" class="metaRemove meta-helper"><img src="images/trash.svg" alt="remove"></button>',
           );
           a_remove.get(0).caller = this;
           a_remove.get(0).meta_id = meta_id;

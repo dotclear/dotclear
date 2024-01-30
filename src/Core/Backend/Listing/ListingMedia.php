@@ -200,7 +200,7 @@ class ListingMedia extends Listing
             } else {
                 $act .= '<a class="media-remove" title="' . __('delete') . '" ' .
                 'href="' . App::backend()->url()->get($page_adminurl, [...$filters->values(), 'remove' => rawurlencode($filename)]) . '">' .
-                '<img src="images/trash.png" alt="' . __('Delete') . '"></a>';
+                '<img src="images/trash.svg" alt="' . __('Delete') . '"></a>';
             }
         }
 

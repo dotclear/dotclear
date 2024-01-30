@@ -416,7 +416,7 @@ class Manage extends Process
             '<span class="toolsWidget remove-if-drag">' .
             '<input type="image" class="upWidget' . $upDisabled . 'up.png" name="' . $iname . '[_up]" value="' . __('Up the widget') . '"' . $altUp . '> ' .
             '<input type="image" class="downWidget' . $downDisabled . 'down.png" name="' . $iname . '[_down]" value="' . __('Down the widget') . '"' . $altDown . '> ' . ' ' .
-            '<input type="image" class="removeWidget" src="images/trash.png" name="' . $iname . '[_rem]" value="' . __('Remove widget') . '" alt="' . __('Remove the widget') . '">' .
+            '<input type="image" class="removeWidget" src="images/trash.svg" name="' . $iname . '[_rem]" value="' . __('Remove widget') . '" alt="' . __('Remove the widget') . '">' .
             '</span>' .
             '<br class="clear"></p>' .
             '<div class="widgetSettings hidden-if-drag">' . $w->formSettings($iname, $j) . '</div>' .
