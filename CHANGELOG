@@ -1,3 +1,53 @@
+Dotclear 2.29 - 2023-02-13
+===========================================================
+* 🐘 PHP 8.1+ is required, PHP 8.2 and 8.3 compliance
+* Core: New dashboard dedicated to dotclear's upgrade
+* Core: Remove ajax activity indicator
+* Core: Swap from XHTML self-closing tag (/>) to HTML5 closing tag (>)
+* Core: Add ability to delete Dotclear versions cache directory
+* Core: Remove DC_XMLRPC_URL/xmlrpc_url from config
+* Core: JS Code review, switch some functions from jQuery to Vanilla
+* Core: Update jQuery from 3.7.0 to 3.7.1, jQuery UI from 1.12.1 to 1.13.2
+* Core: Remove json data from header when extracted (unless keeping it is explicitly required)
+* Core: Use Josh's Custom CSS Reset and remove some oldies rules in backend CSS
+* Core: Try to forward to requested URL after authentication
+* Core: Allow modification of src/*.php files of themes
+* Core: Add two behaviors on post/page edition (adminPostAfterButtons, adminPageAfterButtons)
+* UX/UI: Improve a little bit the adblocker detection system
+* UX/UI: For language combo, put in a first group installed languages and then others in second group
+* UX/UI: Remove the Easter egg, may be it will be back in the future, who knows?
+* UX/UI: Back to list on access to an unexinsting element (page, comment, post)
+* UX/UI: Add checkboxes helper to blogroll plugin
+* UX/UI: Add checkboxes helper to simpleMenu plugin
+* UX/UI: Enhance checkbox helper buttons (in entry edition)
+* UX/UI: Move update tab (now always displayed) after activated/deactivated tabs (plugins/themes)
+* UX/UI: Reduce favorites icons area
+* UX/UI: Review CSS style for square thumbnails
+* UX/UI: Review vertical position of elements in header and background color of header (upgrade mode)
+* UX/UI: Switch from PNG to SVG for comments/trackbacks/trash mini icons
+* a11y: Code review alt/legend for image popup (selection, insertion)
+* - use metadata with legend rather than alternate text
+* - do not duplicate alt and legend (ignore second if it is the case)
+* - use 'alternate text' instead of 'title'/'file title'
+* - use 'description' instead of 'file description', the description will use to compose legend
+* a11y: Review displayed information about mandatory fields
+* a11y: Enforce outline on focused element if requested (OS settings)
+* a11y: Buttons appearance review
+* - more border contrast
+* - no more gradient
+* - darker background color for submit
+* a11y: Enforce contrast ratio for standard badges
+* a11y: Bigger size for very small icons (outgoing, …)
+* a11y: More space for some messages (info, warning)
+* Theme: Move ductile javacript code (including inline) in js folder
+* Theme: Use codemirror if enabled to edit CSS file of Custom CSS theme (config)
+* Fix: Install may be done using curl (or equivalent), so index.php may be not in REQUEST_URI
+* Fix: Icon width in main menu for item with a long label
+* Fix: Badge position on mobile
+* Fix: Allow USAGE permission in order to load CKEditor configuration (js content)
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.28.1 - 2023-11-19
 ===========================================================
 * Fix: Some housecleaning missing in 2.28
