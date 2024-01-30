@@ -86,15 +86,13 @@ class ListingPosts extends Listing
             }
 
             $cols = [
-                'title'    => '<th colspan="2" class="first">' . __('Title') . '</th>',
-                'date'     => '<th scope="col">' . __('Date') . '</th>',
-                'category' => '<th scope="col">' . __('Category') . '</th>',
-                'author'   => '<th scope="col">' . __('Author') . '</th>',
-                'comments' => '<th scope="col"><img src="images/comments.png" alt="' . __('Comments') .
-                '"><span class="hidden">' . __('Comments') . '</span></th>',
-                'trackbacks' => '<th scope="col"><img src="images/trackbacks.png" alt="' . __('Trackbacks') .
-                '"><span class="hidden">' . __('Trackbacks') . '</span></th>',
-                'status' => '<th scope="col">' . __('Status') . '</th>',
+                'title'      => '<th colspan="2" class="first">' . __('Title') . '</th>',
+                'date'       => '<th scope="col">' . __('Date') . '</th>',
+                'category'   => '<th scope="col">' . __('Category') . '</th>',
+                'author'     => '<th scope="col">' . __('Author') . '</th>',
+                'comments'   => '<th scope="col"><img src="images/comments.svg" class="light-only" alt="' . __('Comments') . '"><img src="images/comments-dark.svg" class="dark-only" alt="' . __('Comments') . '"><span class="hidden">' . __('Comments') . '</span></th>',
+                'trackbacks' => '<th scope="col"><img src="images/trackbacks.svg" class="light-only" alt="' . __('Trackbacks') . '"><img src="images/trackbacks-dark.svg" class="dark-only" alt="' . __('Trackbacks') . '"><span class="hidden">' . __('Trackbacks') . '</span></th>',
+                'status'     => '<th scope="col">' . __('Status') . '</th>',
             ];
             $cols = new ArrayObject($cols);
             # --BEHAVIOR-- adminPostListHeaderV2 -- MetaRecord, ArrayObject

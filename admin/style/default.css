@@ -1765,6 +1765,7 @@ th:not(.module-name) {
   padding: 0.4em 1em 0.4em 0.5em;
   vertical-align: top;
   text-align: left;
+  min-width: 2.8em;
 }
 
 td,
@@ -2633,6 +2634,11 @@ p.info {
   background-size: 1.5em;
   text-indent: 0;
   padding-left: 2.25em;
+}
+p.warn img,
+p.warning img,
+p.info img {
+  vertical-align: text-top;
 }
 
 p.error,

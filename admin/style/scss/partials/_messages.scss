@@ -181,6 +181,10 @@ p.info {
   background-size: 1.5em;
   text-indent: 0;
   padding-left: 2.25em;
+
+  img {
+    vertical-align: text-top;
+  }
 }
 
 p.error,
