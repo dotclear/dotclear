@@ -26,10 +26,12 @@ Dotclear 2.29 - 2023-02-13
 * UX/UI: Review vertical position of elements in header and background color of header (upgrade mode)
 * UX/UI: Switch from PNG to SVG for comments/trackbacks/trash mini icons
 * a11y: Code review alt/legend for image popup (selection, insertion)
-* - use metadata with legend rather than alternate text
+* - use metadata (place, date) with legend rather than alternate text
 * - do not duplicate alt and legend (ignore second if it is the case)
 * - use 'alternate text' instead of 'title'/'file title'
-* - use 'description' instead of 'file description', the description will use to compose legend
+* - use 'description' instead of 'file description', the description will be used to compose legend
+* - link to original media only if there is an alternate text
+* - do not allow legend without alternate text
 * a11y: Review displayed information about mandatory fields
 * a11y: Enforce outline on focused element if requested (OS settings)
 * a11y: Buttons appearance review
