@@ -96,7 +96,7 @@ $mfp-use-visuallyhidden: false !default; // Hide content from browsers, but make
   z-index: $mfp-z-index-base + 3;
   position: fixed;
   outline: none !important;
-  -webkit-backface-visibility: hidden; // fixes webkit bug that can cause "false" scrollbar
+  backface-visibility: hidden; // fixes webkit bug that can cause "false" scrollbar
 }
 
 // Root container
@@ -251,7 +251,7 @@ button {
     cursor: pointer;
     background: transparent;
     border: 0;
-    -webkit-appearance: none;
+    appearance: none;
     display: block;
     outline: none;
     padding: 0;

@@ -1,10 +1,9 @@
-@charset "UTF-8";
 /*
  * In admin/style folder, run, for development:
- * sass --watch ./scss:./
+ * sass --watch --no-charset ./scss:./
  *
  * And, for production
- * sass --watch --no-source-map --style=compressed ./scss:./
+ * sass --watch --no-source-map --no-charset --style=compressed ./scss:./
  */
 /** --------------------------------------------------
     Start
@@ -5369,7 +5368,7 @@ tr.ui-sortable-handle:hover {
   z-index: 1043;
   position: fixed;
   outline: none !important;
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .mfp-container {
@@ -5479,7 +5478,7 @@ button.mfp-close, button.mfp-arrow {
   cursor: pointer;
   background: transparent;
   border: 0;
-  -webkit-appearance: none;
+  appearance: none;
   display: block;
   outline: none;
   padding: 0;

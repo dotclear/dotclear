@@ -1301,7 +1301,7 @@
               zIndex: 9999,
               left: 0,
               top: 0,
-              '-webkit-backface-visibility': 'hidden',
+              'backface-visibility': 'hidden',
             };
             const t = 'transition';
 
