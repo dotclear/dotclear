@@ -152,29 +152,13 @@ button.jstb_removeFormat {
   right: 5px;
   bottom: 3px;
 }
-/* WYSIWYG Iframe */
 
+/* WYSIWYG Iframe */
 .wysiwygIframe {
   border-width: 1px;
   border-style: solid;
   border-color: #000 #ccc #ccc #000;
   width: 100%;
-}
-/* WYSIWYG Document */
-
-body.wysiwygDoc {
-  color: #000;
-  background: #f9f9f9;
-  margin: 0;
-  padding: 2px;
-  border: none;
-}
-.wysiwygDoc code {
-  color: #666;
-  font-weight: bold;
-}
-body.wysiwygDoc > p:first-child {
-  margin-top: 0;
 }
 
 /* Preview */

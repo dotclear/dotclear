@@ -2611,28 +2611,6 @@ div.info {
   margin-bottom: 1em;
 }
 
-div.warn button.action,
-div.warn input.action,
-div.warning button.action,
-div.warning input.action,
-div.info button.action,
-div.info input.action,
-div.error button.action,
-div.error input.action,
-div.message button.action,
-div.message input.action,
-div.static-msg button.action,
-div.static-msg input.action,
-div.success button.action,
-div.success input.action,
-div.warning-msg button.action,
-div.warning-msg input.action {
-  margin-right: 0;
-  margin-left: auto;
-  display: block;
-  margin-bottom: -1em;
-}
-
 p.warn,
 p.warning,
 p.info {
@@ -5343,19 +5321,6 @@ tr.ui-sortable-handle:hover {
 /** --------------------------------------------------
   Plugins
 --------------------------------------------------- */
-/* dcLegacyEditor */
-/* WYSIWYG Document */
-body.wysiwygDoc {
-  font-family: var(--sans-serif);
-}
-
-.wysiwygDoc pre,
-.wysiwygDoc code,
-.wysiwygDoc kbd,
-.wysiwygDoc samp {
-  font-family: var(--monospace);
-}
-
 /* dcCKEditor */
 .cke textarea.cke_source {
   font-family: var(--monospace);
