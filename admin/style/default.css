@@ -545,7 +545,7 @@ h6 {
   --badge-std-background: #d54e21;
   --badge-soft-background: #567686;
   --badge-info-background: #3a539b;
-  --debug-color: #ae323b;
+  --debug-color: #282828;
   --debug-background: #ffd478;
   --debug-border: #ffd478;
 }
@@ -799,7 +799,7 @@ h6 {
   --badge-std-background: #d54e21;
   --badge-soft-background: #567686;
   --badge-info-background: #3a539b;
-  --debug-color: #ae323b;
+  --debug-color: #282828;
   --debug-background: #ffd478;
   --debug-border: #ffd478;
 }
@@ -1054,7 +1054,7 @@ h6 {
     --badge-std-background: #d54e21;
     --badge-soft-background: #567686;
     --badge-info-background: #3a539b;
-    --debug-color: #ae323b;
+    --debug-color: #282828;
     --debug-background: #ffd478;
     --debug-border: #ffd478;
   }
@@ -5774,20 +5774,21 @@ img.mfp-img {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 4px;
+  height: 0.4em;
   color: var(--debug-color);
   background: var(--debug-background);
+  font-size: smaller;
 }
 #debug div {
   display: none;
-  padding: 3px 0.5em 2px;
+  padding: 0.25em;
 }
 #debug p {
-  margin: 0.5em 0;
+  margin: 0.5em;
 }
 #debug:hover {
   height: auto;
-  padding: 2px 1em;
+  padding: 0.25em;
   z-index: 100;
 }
 #debug:hover div {

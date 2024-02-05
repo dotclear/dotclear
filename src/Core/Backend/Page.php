@@ -767,13 +767,11 @@ class Page
      */
     protected static function debugInfo(): string
     {
-        $global_vars = implode(', ', array_keys($GLOBALS));
-
         $res = '<div id="debug"><div>' .
-        '<p>memory usage: ' . memory_get_usage() . ' (' . Files::size(memory_get_usage()) . ')</p>';
+        '<p>' . 'Memory: usage = <strong>' . Files::size(memory_get_usage()) . '</strong>, peak = <strong>' . Files::size(memory_get_peak_usage()) . '</strong></p>';
 
         if (self::isXdebugStackAvailable()) {
-            $res .= '<p>Elapsed time: ' . xdebug_time_index() . ' seconds</p>';
+            $res .= '<p>Elapsed time = <strong>' . xdebug_time_index() . '</strong> seconds</p>';
 
             $prof_file = xdebug_get_profiler_filename();
             if ($prof_file) {
@@ -788,13 +786,15 @@ class Page
             $start    = App::config()->startTime();
             $end      = microtime(true);
             $duration = (int) (($end - $start) * 1000); // in milliseconds
-            $res .= sprintf('<p>Page construction time (without asynchronous/secondary HTTP requests): %dms</p>', $duration);
+            $res .= sprintf('<p>Page construction time (without asynchronous/secondary HTTP requests) = <strong>%d ms</strong></p>', $duration);
         }
 
-        $res .= '<p>Global vars: ' . $global_vars . '</p>' .
-            '<p>Autoloader requests: ' . Autoloader::me()->getRequestsCount() .
-            ' | Autoloader loads: ' . Autoloader::me()->getLoadsCount() . '</p>' .
-            '</div></div>';
+        $exclude     = ['_COOKIE', '_ENV', '_FILES', '_GET', '_POST', '_REQUEST', '_SERVER', '_SESSION'];
+        $global_vars = array_diff(array_keys($GLOBALS), $exclude);
+        sort($global_vars);
+        $res .= '<p>Global vars (Dotclear only): ' . implode(', ', $global_vars) . '</p>' .
+        '<p>Autoloader: requests = <strong>' . Autoloader::me()->getRequestsCount() . '</strong>, loads = <strong>' . Autoloader::me()->getLoadsCount() . '</strong></p>' .
+        '</div></div>';
 
         return $res;
     }

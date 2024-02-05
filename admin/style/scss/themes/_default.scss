@@ -72,6 +72,9 @@
   $badge-soft: #567686;
   $badge-info: #3a539b;
 
+  $debug: #282828;
+  $debug-alt: #ffd478;
+
   // Common
 
   --body-color: #{$gray-very-dark};
@@ -448,7 +451,7 @@
 
   // Debug
 
-  --debug-color: #{$error-alt};
-  --debug-background: #{$warning-alt};
-  --debug-border: #{$warning-alt};
+  --debug-color: #{$debug};
+  --debug-background: #{$debug-alt};
+  --debug-border: #{$debug-alt};
 }
