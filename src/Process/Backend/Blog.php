@@ -189,7 +189,7 @@ class Blog extends Process
                                 ->accesskey('s')
                                 ->value(__('Create')),
                             (new Button(['cancel']))
-                                ->value(__('Cancel'))
+                                ->value(__('Back'))
                                 ->class(['go-back', 'reset', 'hidden-if-no-js']),
                         ]),
 

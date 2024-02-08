@@ -309,7 +309,7 @@ class Manage extends Process
             App::nonce()->getFormNonce() .
 
             '<input type="submit" name="saveorder" value="' . __('Save order') . '">' .
-            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+            ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
             '</p>' .
             '</form>';
         } else {
@@ -348,7 +348,7 @@ class Manage extends Process
         '<p>' . form::hidden(['p'], 'blogroll') .
         App::nonce()->getFormNonce() .
         '<input type="submit" name="add_link" value="' . __('Save') . '">' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
         '</p>' .
         '</form>' .
         '</div>' .
@@ -366,7 +366,7 @@ class Manage extends Process
         '<p>' . form::hidden(['p'], My::id()) .
         App::nonce()->getFormNonce() .
         '<input type="submit" name="add_cat" value="' . __('Save') . '">' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
         '</p>' .
         '</form>' .
         '</div>' .
@@ -383,7 +383,7 @@ class Manage extends Process
             '<p>' . form::hidden(['p'], My::id()) .
             App::nonce()->getFormNonce() .
             '<input type="submit" name="import_links" value="' . __('Import') . '">' .
-            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+            ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
             '</p>' .
             '</form>';
         } else {

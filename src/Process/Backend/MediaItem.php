@@ -1094,7 +1094,7 @@ class MediaItem extends Process
         } else {
             // Go back button
             echo
-            '<p><input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js"></p>';
+            '<p><input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js"></p>';
         }
 
         call_user_func(App::backend()->close_function);

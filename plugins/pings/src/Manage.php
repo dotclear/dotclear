@@ -121,7 +121,7 @@ class Manage extends Process
         __('Auto pings all services on first publication of entry (current blog only)') . '</label></p>' .
 
         '<p><input type="submit" value="' . __('Save') . '">' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
         App::nonce()->getFormNonce() . '</p>' .
         '</form>' .
 

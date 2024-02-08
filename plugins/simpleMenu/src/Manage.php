@@ -634,7 +634,7 @@ class Manage extends Process
             '<label class="classic" for="active">' . __('Enable simple menu for this blog') . '</label>' . '</p>' .
             '<p>' . App::nonce()->getFormNonce() .
             '<input type="submit" name="saveconfig" value="' . __('Save configuration') . '">' .
-            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+            ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
             '</p>' .
             '</form>';
 

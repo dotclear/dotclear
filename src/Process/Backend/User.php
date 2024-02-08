@@ -421,7 +421,7 @@ class User extends Process
         '<p class="clear"><input type="submit" name="save" accesskey="s" value="' . __('Save') . '">' .
         (App::backend()->user_id != '' ? '' : ' <input type="submit" name="saveplus" value="' . __('Save and create another') . '">') .
         (App::backend()->user_id != '' ? form::hidden('id', App::backend()->user_id) : '') .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
         App::nonce()->getFormNonce() .
         '</p>' .
 

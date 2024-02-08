@@ -127,7 +127,7 @@ class Search extends Process
         '<p><label for="qtype">' . __('In:') . '</label> ' .
         form::combo('qtype', App::backend()->qtype_combo, App::backend()->qtype) . '</p>' .
         '<p><input type="submit" value="' . __('Search') . '">' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
         form::hidden('process', 'Search') .
         '</p>' .
         '</div>' .

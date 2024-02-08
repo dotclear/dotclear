@@ -159,7 +159,7 @@ class ManagePosts extends Process
                 '<p><label for="new_tag_id" class="classic">' . __('Rename') . '</label> ' .
                 form::field('new_tag_id', 20, 255, Html::escapeHTML(App::backend()->tag)) .
                 '<input type="submit" value="' . __('OK') . '">' .
-                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+                ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
                 App::nonce()->getFormNonce() .
                 '</p></form>';
 

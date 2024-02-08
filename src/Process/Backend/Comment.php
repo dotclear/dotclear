@@ -309,7 +309,7 @@ class Comment extends Process
             '<p>' . form::hidden('id', App::backend()->comment_id) .
             App::nonce()->getFormNonce() .
             '<input type="submit" accesskey="s" name="update" value="' . __('Save') . '">' .
-            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">';
+            ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">';
 
             if (App::backend()->can_delete) {
                 echo ' <input type="submit" class="delete" name="delete" value="' . __('Delete') . '">';

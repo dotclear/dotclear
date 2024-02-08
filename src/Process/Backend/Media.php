@@ -566,7 +566,7 @@ class Media extends Process
 
             // Go back button
             echo
-            '<p><input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js"></p>';
+            '<p><input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js"></p>';
         }
 
         App::backend()->page->closePage();

@@ -132,7 +132,7 @@ class BlogDel extends Process
                             ->value(__('Delete this blog')),
                         (new Button('back'))
                             ->class(['go-back', 'reset', 'hidden-if-no-js'])
-                            ->value(__('Cancel')),
+                            ->value(__('Back')),
                     ]),
                 (new Hidden('blog_id', App::backend()->blog_id)),
             ])->render();

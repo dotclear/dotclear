@@ -611,7 +611,7 @@ class UserPreferences extends Process
         '<p class="clear vertical-separator">' .
         App::nonce()->getFormNonce() .
         '<input type="submit" accesskey="s" value="' . __('Update my profile') . '">' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
         '</p>' .
         '</form>' .
         '</div>' .
@@ -790,7 +790,7 @@ class UserPreferences extends Process
         '<p class="clear vertical-separator">' .
         App::nonce()->getFormNonce() .
         '<input type="submit" name="user_options_submit" accesskey="s" value="' . __('Save my options') . '">' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
         '</p>' .
         '</form>' .
         '</div>' .
@@ -970,7 +970,7 @@ class UserPreferences extends Process
         form::hidden('db-options', '-') .
         App::nonce()->getFormNonce() .
         '<input type="submit" accesskey="s" value="' . __('Save my dashboard options') . '">' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
         '</p>' .
         '</form>' .
 

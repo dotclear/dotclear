@@ -317,7 +317,7 @@ class Manage extends Process
         '<p id="sidebarsControl">' .
         App::nonce()->getFormNonce() .
         '<input type="submit" name="wup" value="' . __('Update sidebars') . '"> ' .
-        '<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js"> ' .
+        '<input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js"> ' .
         '<input type="submit" class="reset" name="wreset" value="' . __('Reset sidebars') . '">' .
         '</p>' .
         '</form>';

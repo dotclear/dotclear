@@ -291,7 +291,7 @@ class Manage extends Process
                     '<form action="' . App::backend()->getPageURL() . '" method="post">' .
                     $res_group .
                     '<p><input type="submit" value="' . __('Execute task') . '"> ' .
-                    ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+                    ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
                     form::hidden(['tab'], $tab_obj->id()) .
                     App::nonce()->getFormNonce() . '</p>' .
                     '<p class="form-note info">' . __('This may take a very long time.') . '</p>' .
@@ -313,7 +313,7 @@ class Manage extends Process
                 '<form action="' . App::backend()->getPageURL() . '" method="post">' .
                 $t->content() .
                 '<p><input type="submit" value="' . __('Execute task') . '"> ' .
-                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+                ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
                 form::hidden(['task'], $t->id()) .
                 form::hidden(['tab'], $t->id()) .
                 App::nonce()->getFormNonce() . '</p>' .
@@ -367,7 +367,7 @@ class Manage extends Process
             echo
             '</div>' .
             '<p class="field wide"><input type="submit" value="' . __('Save') . '"> ' .
-            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+            ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
             form::hidden(['tab'], 'settings') .
             form::hidden(['save_settings'], 1) .
             App::nonce()->getFormNonce() . '</p>' .
@@ -409,7 +409,7 @@ class Manage extends Process
 
                 echo
                 '<p class="field wide"><input type="submit" value="' . __('Save') . '"> ' .
-                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">' .
+                ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
                 form::hidden(['tab'], 'system') .
                 form::hidden(['save_system'], 1) .
                 App::nonce()->getFormNonce() . '</p>' .

@@ -688,7 +688,7 @@ class ManagePage extends Process
 
                 echo
                 '<a id="post-preview" href="' . $preview_url . '" class="button' . $preview_class . '" accesskey="p"' . $preview_target . '>' . __('Preview') . ' (p)' . '</a>' .
-                ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js">';
+                ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">';
             } else {
                 echo
                 '<a id="post-cancel" href="' . App::backend()->url()->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
