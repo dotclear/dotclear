@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-20 10:07+0100\n"
-"PO-Revision-Date: 2024-01-20 09:13\n"
+"POT-Creation-Date: 2024-02-08 08:31+0100\n"
+"PO-Revision-Date: 2024-02-09 18:11\n"
 "Last-Translator: \n"
 "Language-Team: Serbian\n"
 "Language: srp\n"
@@ -1354,7 +1354,7 @@ msgstr "Поље URL-а не може бити празно."
 msgid "Open the media"
 msgstr "Отвори медије"
 
-#: plugins/dcCKEditor/src/Manage.php:128
+#: plugins/dcCKEditor/src/Manage.php:134
 #: plugins/dcLegacyEditor/src/Manage.php:47
 msgid "The configuration has been updated."
 msgstr "Конфигурација је ажурирана."
@@ -2378,11 +2378,11 @@ msgstr "Изабране странице су успешно преправље
 msgid "No page"
 msgstr "Нема странице"
 
-#: plugins/pages/src/BackendList.php:94 plugins/pages/src/BackendList.php:147
+#: plugins/pages/src/BackendList.php:92 plugins/pages/src/BackendList.php:145
 msgid "Hidden"
 msgstr "Сакривено"
 
-#: plugins/pages/src/BackendList.php:176
+#: plugins/pages/src/BackendList.php:174
 msgid "Select this page"
 msgstr "Изаберите ову страницу"
 
@@ -2483,7 +2483,7 @@ msgstr "Упозорење: Ако подесите URL ручно, може с�
 msgid "Introduction to the page."
 msgstr "Увод у страницу."
 
-#: plugins/pages/src/ManagePage.php:960
+#: plugins/pages/src/ManagePage.php:963
 msgid "Select this comment"
 msgstr "Изаберите овај коментар"
 
