@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-20 10:07+0100\n"
-"PO-Revision-Date: 2024-01-20 09:12\n"
+"POT-Creation-Date: 2024-02-08 08:31+0100\n"
+"PO-Revision-Date: 2024-02-09 18:11\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -1354,7 +1354,7 @@ msgstr "Поле URL не может быть пустым."
 msgid "Open the media"
 msgstr "Откройте носитель"
 
-#: plugins/dcCKEditor/src/Manage.php:128
+#: plugins/dcCKEditor/src/Manage.php:134
 #: plugins/dcLegacyEditor/src/Manage.php:47
 msgid "The configuration has been updated."
 msgstr "Конфигурация обновлена."
@@ -2380,11 +2380,11 @@ msgstr "Выбранные страницы были успешно сортир
 msgid "No page"
 msgstr "Нет страниц"
 
-#: plugins/pages/src/BackendList.php:94 plugins/pages/src/BackendList.php:147
+#: plugins/pages/src/BackendList.php:92 plugins/pages/src/BackendList.php:145
 msgid "Hidden"
 msgstr "Hidden"
 
-#: plugins/pages/src/BackendList.php:176
+#: plugins/pages/src/BackendList.php:174
 msgid "Select this page"
 msgstr "Выбрать эту страницу"
 
@@ -2485,7 +2485,7 @@ msgstr "Внимание: если вы вводите URL вручную, эт�
 msgid "Introduction to the page."
 msgstr "Введение на эту страницу."
 
-#: plugins/pages/src/ManagePage.php:960
+#: plugins/pages/src/ManagePage.php:963
 msgid "Select this comment"
 msgstr "Выберите этот комментарий"
 
