@@ -202,7 +202,7 @@ msgid "Remember me on this blog"
 msgstr "Se souvenir de moi sur ce blog"
 
 msgid "Required field"
-msgstr "Champs obligatoire"
+msgstr "Champ obligatoire"
 
 msgid "Search"
 msgstr "Recherche"
