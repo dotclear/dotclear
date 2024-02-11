@@ -12,7 +12,11 @@ dotclear.ready(() => {
     liok.setAttribute('disabled', true);
     liok.classList.add('disabled');
     href?.addEventListener('input', function () {
-      liok.setAttribute('disabled', this.value == '');
+      if (this.value == '') {
+        liok.setAttribute('disabled', true);
+      } else {
+        liok.removeAttribute('disabled');
+      }
       liok.classList.toggle('disabled', this.value == '');
     });
 
