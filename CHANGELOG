@@ -7,7 +7,7 @@ Dotclear 2.29 - 2023-02-13
 * Core: Add ability to delete Dotclear versions cache directory
 * Core: Remove DC_XMLRPC_URL/xmlrpc_url from config
 * Core: JS Code review, switch some functions from jQuery to Vanilla
-* Core: Update jQuery from 3.7.0 to 3.7.1, jQuery UI from 1.12.1 to 1.13.2
+* Core: Update jQuery from 3.7.0 to 3.7.1
 * Core: Remove json data from header when extracted (unless keeping it is explicitly required)
 * Core: Use Josh's Custom CSS Reset and remove some oldies rules in backend CSS
 * Core: Try to forward to requested URL after authentication
