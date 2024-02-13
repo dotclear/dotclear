@@ -1845,6 +1845,7 @@ a:link img,
 a:visited img {
   border: none;
   background: initial;
+  max-width: initial;
 }
 
 a:hover,
