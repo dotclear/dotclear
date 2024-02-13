@@ -1055,7 +1055,7 @@ class Media extends Manager implements MediaInterface
                 $cur->media_creadt = date('Y-m-d H:i:s');
                 $cur->media_upddt  = date('Y-m-d H:i:s');
 
-                $cur->media_title   = !$title ? $name : $title;
+                $cur->media_title   = !$title || $title === $name ? '' : $title;
                 $cur->media_private = (int) $private;
 
                 if ($dt) {
@@ -1496,7 +1496,7 @@ class Media extends Manager implements MediaInterface
         $c             = $this->openMediaCursor();
         $c->media_meta = $xml->toXML();
 
-        if ($cur->media_title !== null && $cur->media_title == basename($cur->media_file)) {
+        if ($cur->media_title !== '' && $cur->media_title === basename($cur->media_file)) {
             if ($meta['Title']) {
                 $c->media_title = $meta['Title'];
             }
