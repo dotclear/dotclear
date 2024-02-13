@@ -1072,11 +1072,11 @@ class MediaItem extends Process
 
             if (App::backend()->file->del) {
                 echo
-                '<form id="delete-form" method="post" action="' . App::backend()->url()->getBase('admin.media.item') . '">' .
+                '<form id="delete-form" method="post" action="' . App::backend()->url()->get('admin.media') . '">' .
                 '<p><input name="delete" type="submit" class="delete" value="' . __('Delete this media') . '">' .
                 form::hidden('remove', rawurlencode(App::backend()->file->basename)) .
                 form::hidden('rmyes', 1) .
-                App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->media_page_url_params) .
+                App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->media_page_url_params) .
                 App::nonce()->getFormNonce() . '</p>' .
                 '</form>';
             }
