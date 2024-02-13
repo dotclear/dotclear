@@ -22,10 +22,10 @@ class GrowUp_2_29_lt
         Upgrade::houseCleaning(
             // Files
             [
+                'admin/js/easter.js',
             ],
             // Folders
             [
-                'admin/js/easter.js',
                 'inc/js/jquery/3.7.0',
             ]
         );
