@@ -215,9 +215,11 @@ option {
   font-weight: normal;
 }
 
-label,
-label span {
+label {
   display: block;
+}
+label span {
+  display: inline-block;
 }
 
 label.ib,
@@ -259,11 +261,6 @@ span.required {
   color: var(--required);
   font-size: 1.3em;
   text-decoration: none;
-}
-
-label.required span,
-label:has(input:required) span {
-  display: inline-block;
 }
 //
 
