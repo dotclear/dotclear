@@ -238,19 +238,31 @@ label span select {
 
 // Required field
 label.required,
-span.required {
+span.required,
+label span.required,
+label:has(input:required) {
   font-weight: bold;
+}
+
+label.required,
+label:has(input:required) {
+  input {
+    font-weight: normal;
+  }
 }
 
 label.required abbr,
 label.required span,
+label:has(input:required) abbr,
+label:has(input:required) span,
 span.required {
   color: var(--required);
   font-size: 1.3em;
   text-decoration: none;
 }
 
-label.required span {
+label.required span,
+label:has(input:required) span {
   display: inline-block;
 }
 //
