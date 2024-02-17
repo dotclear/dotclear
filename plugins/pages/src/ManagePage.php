@@ -665,7 +665,7 @@ class ManagePage extends Process
             App::behavior()->callBehavior('adminPageForm', App::backend()->post ?? null);
 
             echo
-            '<p class="border-top">' .
+            '<p class="border-top form-buttons">' .
             (App::backend()->post_id ? form::hidden('id', App::backend()->post_id) : '') .
             '<input type="submit" value="' . __('Save') . ' (s)" accesskey="s" name="save"> ';
 

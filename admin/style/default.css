@@ -2185,6 +2185,12 @@ span.form-stats {
   text-transform: none;
 }
 
+.form-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
 .focus {
   background-color: inherit;
   animation-name: kf-focus;

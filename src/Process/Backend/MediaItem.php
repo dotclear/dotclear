@@ -728,7 +728,7 @@ class MediaItem extends Process
             }
 
             echo
-            '<p>' .
+            '<p class="form-buttons">' .
             '<button type="button" id="media-insert-ok" class="submit">' . __('Insert') . '</button> ' .
             '<button type="button" id="media-insert-cancel">' . __('Cancel') . '</button>' .
             form::hidden(['type'], Html::escapeHTML($media_type)) .

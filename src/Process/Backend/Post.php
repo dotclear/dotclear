@@ -776,7 +776,7 @@ class Post extends Process
             App::behavior()->callBehavior('adminPostForm', App::backend()->post ?? null, 'post');
 
             echo
-            '<p class="border-top">' .
+            '<p class="border-top form-buttons">' .
             (App::backend()->post_id ? form::hidden('id', App::backend()->post_id) : '') .
             '<input type="submit" value="' . __('Save') . ' (s)" ' .
             'accesskey="s" name="save"> ';
