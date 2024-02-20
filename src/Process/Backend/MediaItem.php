@@ -612,9 +612,9 @@ class MediaItem extends Process
                 __('None') . '</label>' .
                 '</p>' .
                 '<p id="media-attribute">' .
-                __('Alternate text: ') . ($media_alt != '' ? '<span class="media-title">' . $media_alt . '</span>' : __('(none)')) .
+                __('Alternate text:') . ' ' . ($media_alt != '' ? '<span class="media-title">' . $media_alt . '</span>' : __('(none)')) .
                 '<br>' .
-                __('Legend: ') . ($media_legend != '' ? ' <span class="media-desc">' . $media_legend . '</span>' : __('(none)')) .
+                __('Legend:') . ' ' . ($media_legend != '' ? ' <span class="media-desc">' . $media_legend . '</span>' : __('(none)')) .
                 '</p>' .
                 '</div>' .
 
@@ -957,12 +957,12 @@ class MediaItem extends Process
 
             $details = '';
             if (App::backend()->file->media_title !== '') {
-                $details .= '<li><strong>' . __('Alternate text :') . '</strong> ' . Html::escapeHTML((string) App::backend()->file->media_title) . '</li>';
+                $details .= '<li><strong>' . __('Alternate text:') . '</strong> ' . Html::escapeHTML((string) App::backend()->file->media_title) . '</li>';
             }
             if ((is_countable(App::backend()->file->media_meta) ? count(App::backend()->file->media_meta) : 0) > 0) {
                 foreach (App::backend()->file->media_meta as $k => $v) {
                     if ((string) $v) {
-                        $details .= '<li><strong>' . $k . ':</strong> ' . Html::escapeHTML((string) $v) . '</li>';
+                        $details .= '<li><strong>' . $k . __(':') . '</strong> ' . Html::escapeHTML((string) $v) . '</li>';
                     }
                 }
             }
@@ -1034,10 +1034,10 @@ class MediaItem extends Process
             if (App::backend()->file->media_image) {
                 echo
                 '<p><label for="media_desc">' . __('Description:') . '</label>' .
-                form::field(
+                form::textArea(
                     'media_desc',
                     80,
-                    255,
+                    10,
                     [
                         'default'    => Html::escapeHTML($getImageLegend(App::backend()->file, 'Description')),
                         'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
