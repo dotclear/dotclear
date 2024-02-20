@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-08 08:31+0100\n"
+"POT-Creation-Date: 2024-02-20 21:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -416,8 +416,7 @@ msgstr ""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
 #: src/Process/Backend/Home.php:429 src/Process/Backend/Home.php:446
-#: src/Process/Backend/Media.php:519 src/Process/Backend/Post.php:662
-#: src/Process/Backend/Post.php:710
+#: src/Process/Backend/Post.php:662 src/Process/Backend/Post.php:710
 msgid "Title:"
 msgstr ""
 
@@ -892,7 +891,6 @@ msgstr ""
 #: src/Core/Backend/Listing/ListingComments.php:150
 #: src/Core/Backend/Listing/ListingPosts.php:122
 #: src/Core/Backend/Listing/ListingUsers.php:86
-#: src/Process/Backend/MediaItem.php:617
 msgid "Legend: "
 msgstr ""
 
@@ -4552,6 +4550,11 @@ msgstr ""
 msgid "Maximum file size allowed:"
 msgstr ""
 
+#: src/Process/Backend/Media.php:519 src/Process/Backend/MediaItem.php:615
+#: src/Process/Backend/MediaItem.php:960 src/Process/Backend/MediaItem.php:1023
+msgid "Alternate text:"
+msgstr ""
+
 #: src/Process/Backend/Media.php:520 src/Process/Backend/MediaItem.php:1053
 msgid "Private"
 msgstr ""
@@ -4622,8 +4625,8 @@ msgstr ""
 msgid "Image legend and alternate text"
 msgstr ""
 
-#: src/Process/Backend/MediaItem.php:615
-msgid "Alternate text: "
+#: src/Process/Backend/MediaItem.php:617
+msgid "Legend:"
 msgstr ""
 
 #: src/Process/Backend/MediaItem.php:622
@@ -4747,8 +4750,8 @@ msgstr ""
 msgid "Image details"
 msgstr ""
 
-#: src/Process/Backend/MediaItem.php:960
-msgid "Alternate text :"
+#: src/Process/Backend/MediaItem.php:965
+msgid ":"
 msgstr ""
 
 #: src/Process/Backend/MediaItem.php:974
@@ -4801,10 +4804,6 @@ msgstr ""
 
 #: src/Process/Backend/MediaItem.php:1021
 msgid "File name:"
-msgstr ""
-
-#: src/Process/Backend/MediaItem.php:1023
-msgid "Alternate text:"
 msgstr ""
 
 #: src/Process/Backend/MediaItem.php:1046
