@@ -376,11 +376,8 @@ class Page
         echo '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n";
 
         $figure = "\n" .
-
-        '           |            ' . "\n" .
-        '           |.===.       ' . "\n" .
-        '           {}o o{}      ' . "\n" .
-        '     ---ooO--(_)--Ooo---' . "\n";
+        ' ' . "\n" .
+        'ᓚᘏᗢ' . "\n";
 
         echo
             '<footer id="footer" role="contentinfo">' .
