@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-08 08:31+0100\n"
-"PO-Revision-Date: 2024-02-09 18:10\n"
+"POT-Creation-Date: 2024-02-20 21:08+0100\n"
+"PO-Revision-Date: 2024-02-21 06:09\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -416,8 +416,7 @@ msgstr "Δημιουργία νέας κατηγορίας για την(τις)
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
 #: src/Process/Backend/Home.php:429 src/Process/Backend/Home.php:446
-#: src/Process/Backend/Media.php:519 src/Process/Backend/Post.php:662
-#: src/Process/Backend/Post.php:710
+#: src/Process/Backend/Post.php:662 src/Process/Backend/Post.php:710
 msgid "Title:"
 msgstr "Τίτλος:"
 
@@ -892,7 +891,6 @@ msgstr "Λίστα ιστολογίων"
 #: src/Core/Backend/Listing/ListingComments.php:150
 #: src/Core/Backend/Listing/ListingPosts.php:122
 #: src/Core/Backend/Listing/ListingUsers.php:86
-#: src/Process/Backend/MediaItem.php:617
 msgid "Legend: "
 msgstr "Υπόμνημα: "
 
@@ -4550,6 +4548,11 @@ msgstr "Παρακαλώ φροντίστε να δημοσιεύσετε τα �
 msgid "Maximum file size allowed:"
 msgstr "Μέγιστο επιτρεπόμενο μέγεθος αρχείου:"
 
+#: src/Process/Backend/Media.php:519 src/Process/Backend/MediaItem.php:615
+#: src/Process/Backend/MediaItem.php:960 src/Process/Backend/MediaItem.php:1023
+msgid "Alternate text:"
+msgstr "Εναλλακτικό κείμενο:"
+
 #: src/Process/Backend/Media.php:520 src/Process/Backend/MediaItem.php:1053
 msgid "Private"
 msgstr "Ιδιωτικό"
@@ -4620,9 +4623,9 @@ msgstr "Εισαγωγή στοιχείου πολυμέσων"
 msgid "Image legend and alternate text"
 msgstr "Υπόμνημα εικόνας και εναλλακτικό κείμενο"
 
-#: src/Process/Backend/MediaItem.php:615
-msgid "Alternate text: "
-msgstr "Εναλλακτικό κείμενο: "
+#: src/Process/Backend/MediaItem.php:617
+msgid "Legend:"
+msgstr "Υπόμνημα:"
 
 #: src/Process/Backend/MediaItem.php:622
 msgid "Image alignment"
@@ -4745,9 +4748,9 @@ msgstr "Καμία καταχώρηση δεν φαίνεται να περιέ�
 msgid "Image details"
 msgstr "Λεπτομέρειες εικόνας"
 
-#: src/Process/Backend/MediaItem.php:960
-msgid "Alternate text :"
-msgstr "Εναλλακτικό κείμενο :"
+#: src/Process/Backend/MediaItem.php:965
+msgid ":"
+msgstr ":"
 
 #: src/Process/Backend/MediaItem.php:974
 msgid "No detail"
@@ -4800,10 +4803,6 @@ msgstr "Αλλαγή ιδιοτήτων πολυμέσων"
 #: src/Process/Backend/MediaItem.php:1021
 msgid "File name:"
 msgstr "Όνομα αρχείου:"
-
-#: src/Process/Backend/MediaItem.php:1023
-msgid "Alternate text:"
-msgstr "Εναλλακτικό κείμενο:"
 
 #: src/Process/Backend/MediaItem.php:1046
 msgid "File date:"
