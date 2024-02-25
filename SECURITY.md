@@ -1,5 +1,3 @@
-# Security Policy
+# Dotclear Security Policy
 
-## Reporting a Vulnerability
-
-Please report security issues to security@dotclear.net
+To report a Vulnerability or a security issue, please send a mail to <security@dotclear.net>

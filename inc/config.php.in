@@ -75,9 +75,7 @@ define('DC_CRYPT_ALGO', 'sha512');
 // Proxy config
 //define('HTTP_PROXY_HOST','127.0.0.1');
 //define('HTTP_PROXY_PORT','8080');
-
-// Reverse Proxy
-//define('DC_REVERSE_PROXY',false);
+//define('DC_REVERSE_PROXY',true);
 
 // Show hidden media dirs
 //define('DC_SHOW_HIDDEN_DIRS', false);

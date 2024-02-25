@@ -81,7 +81,7 @@ q {
 blockquote {
   font-size: scut-em(18);
   line-height: 1.33;
-  quotes: '\201C''\201D';
+  quotes: '\201C' '\201D';
   margin-top: scut-em(32, 18);
 }
 blockquote::before,
@@ -122,7 +122,7 @@ pre {
 }
 img {
   max-width: 97%;
-  height: auto;
+  height: auto; // Use width as main dimension
 }
 p,
 ul,
