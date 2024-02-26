@@ -271,8 +271,7 @@
             },
             // Callback for uploads start, equivalent to the global ajaxStart event:
             start: function (e) {
-                var that = $(this).data('blueimp-fileupload') ||
-                        $(this).data('fileupload');
+                var that = $(this).data('blueimp-fileupload') || $(this).data('fileupload');
                 that._resetFinishedDeferreds();
                 that._transition($(this).find('.fileupload-progress')).done(
                     function () {
