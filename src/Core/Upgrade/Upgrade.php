@@ -274,6 +274,11 @@ class Upgrade
     private static function houseCleaningHelper(string $fullname, bool $is_dir = false): void
     {
         if (file_exists($fullname)) {
+            if ($is_dir && !is_dir($fullname)) {
+                // Let some room for light mistakes (ie erroneous put files in directory list to be cleaned)
+                $is_dir = false;
+            }
+
             // First removal pass
             if ($is_dir) {
                 // Delete folder
