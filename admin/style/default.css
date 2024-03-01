@@ -4501,17 +4501,14 @@ div.template-upload {
 
 #entry-sidebar {
   display: flex;
+  gap: 1em;
   flex-wrap: wrap;
   flex-direction: column;
+  margin-bottom: 1em;
 }
 @media screen and (max-width: 82em) {
   #entry-sidebar {
     flex-direction: row;
-  }
-}
-@media screen and (max-width: 43em) {
-  #entry-sidebar {
-    padding-right: 1em;
   }
 }
 #entry-sidebar h4 {
@@ -4528,8 +4525,6 @@ div.template-upload {
 
 .sb-box {
   width: 18em;
-  margin-bottom: 1em;
-  margin-right: 1em;
   padding: 0.5em 1em;
   background-color: var(--entry-sb-background);
 }
