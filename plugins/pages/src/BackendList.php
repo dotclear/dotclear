@@ -82,15 +82,15 @@ class BackendList extends Listing
 
             echo $blocks[1];
 
-            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" src="images/%2$s"> %1$s', $title, $image);
+            $fmt = fn ($title, $image, $class) => sprintf('<img alt="%1$s" src="images/%2$s" class="mark mark-%3$s"> %1$s', $title, $image, $class);
             echo '<p class="info">' . __('Legend: ') .
-                $fmt(__('Published'), 'check-on.png') . ' - ' .
-                $fmt(__('Unpublished'), 'check-off.png') . ' - ' .
-                $fmt(__('Scheduled'), 'scheduled.png') . ' - ' .
-                $fmt(__('Pending'), 'check-wrn.png') . ' - ' .
-                $fmt(__('Protected'), 'locker.png') . ' - ' .
-                $fmt(__('Hidden'), 'hidden.png') . ' - ' .
-                $fmt(__('Attachments'), 'attach.png') .
+                $fmt(__('Published'), 'check-on.png', 'published') . ' - ' .
+                $fmt(__('Unpublished'), 'check-off.png', 'unpublished') . ' - ' .
+                $fmt(__('Scheduled'), 'scheduled.png', 'scheduled') . ' - ' .
+                $fmt(__('Pending'), 'check-wrn.png', 'pending') . ' - ' .
+                $fmt(__('Protected'), 'locker.svg', 'locked') . ' - ' .
+                $fmt(__('Hidden'), 'hidden.png', 'hidden') . ' - ' .
+                $fmt(__('Attachments'), 'attach.png', 'attach') .
                 '</p>';
 
             echo $blocks[2];
@@ -137,7 +137,7 @@ class BackendList extends Listing
 
         $protected = '';
         if ($this->rs->post_password) {
-            $protected = sprintf($img, __('Protected'), 'locker.png', 'locked');
+            $protected = sprintf($img, __('Protected'), 'locker.svg', 'locked');
         }
 
         $selected = '';

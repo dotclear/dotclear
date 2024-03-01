@@ -579,8 +579,8 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="En attente" src="images/check-wrn.png">
-                  <img alt="Protégé" src="images/locker.png">
+                  <img alt="En attente" src="images/check-wrn.png" class="mark mark-pending">
+                  <img alt="Protégé" src="images/locker.svg" class="mark mark-locked">
                                     </td>
               </tr>
             </tbody>

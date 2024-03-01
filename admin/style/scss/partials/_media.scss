@@ -52,12 +52,16 @@ span.media-file-mode {
 
     & img.media-private {
       padding-right: 0.5em;
+      width: 1.8em;
+      vertical-align: text-bottom;
     }
   }
 }
 
 tr.media-private img.media-private {
   padding-right: 0.5em;
+  width: 1.8em;
+  vertical-align: text-bottom;
 }
 
 a.media-icon {

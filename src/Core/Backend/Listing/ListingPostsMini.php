@@ -80,27 +80,27 @@ class ListingPostsMini extends Listing
      */
     private function postLine(): string
     {
-        $img        = '<img alt="%1$s" src="images/%2$s">';
+        $img        = '<img alt="%1$s" src="images/%2$s" class="mark mark-%3$s">';
         $img_status = '';
         $sts_class  = '';
         switch ($this->rs->post_status) {
             case App::blog()::POST_PUBLISHED:
-                $img_status = sprintf($img, __('Published'), 'check-on.png');
+                $img_status = sprintf($img, __('Published'), 'check-on.png', 'published');
                 $sts_class  = 'sts-online';
 
                 break;
             case App::blog()::POST_UNPUBLISHED:
-                $img_status = sprintf($img, __('Unpublished'), 'check-off.png');
+                $img_status = sprintf($img, __('Unpublished'), 'check-off.png', 'unpublished');
                 $sts_class  = 'sts-offline';
 
                 break;
             case App::blog()::POST_SCHEDULED:
-                $img_status = sprintf($img, __('Scheduled'), 'scheduled.png');
+                $img_status = sprintf($img, __('Scheduled'), 'scheduled.png', 'scheduled');
                 $sts_class  = 'sts-scheduled';
 
                 break;
             case App::blog()::POST_PENDING:
-                $img_status = sprintf($img, __('Pending'), 'check-wrn.png');
+                $img_status = sprintf($img, __('Pending'), 'check-wrn.png', 'pending');
                 $sts_class  = 'sts-pending';
 
                 break;
@@ -108,19 +108,19 @@ class ListingPostsMini extends Listing
 
         $protected = '';
         if ($this->rs->post_password) {
-            $protected = sprintf($img, __('Protected'), 'locker.png');
+            $protected = sprintf($img, __('Protected'), 'locker.svg', 'locked');
         }
 
         $selected = '';
         if ($this->rs->post_selected) {
-            $selected = sprintf($img, __('Selected'), 'selected.png');
+            $selected = sprintf($img, __('Selected'), 'selected.png', 'selected');
         }
 
         $attach   = '';
         $nb_media = $this->rs->countMedia();
         if ($nb_media > 0) {
             $attach_str = $nb_media == 1 ? __('%d attachment') : __('%d attachments');
-            $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.png');
+            $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.png', 'attach');
         }
 
         $res = '<tr class="line ' . ($this->rs->post_status != App::blog()::POST_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .

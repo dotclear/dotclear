@@ -214,7 +214,7 @@ class ListingMedia extends Listing
 
             $lst = '';
             if (!$file->d) {
-                $lst .= '<li>' . ($file->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $file->media_title . '</li>' .
+                $lst .= '<li>' . ($file->media_priv ? '<img class="media-private" src="images/locker.svg" alt="' . __('private media') . '">' : '') . $file->media_title . '</li>' .
                 '<li>' .
                 '<time datetime="' . Date::iso8601((int) strtotime($file->media_dtstr), App::auth()->getInfo('user_tz')) . '">' .
                 $file->media_dtstr .
@@ -238,7 +238,7 @@ class ListingMedia extends Listing
             $res .= '<td class="media-action">' . $act . '</td>';
             $res .= '<td class="maximal" scope="row"><a class="media-flag media-link" href="' . rawurldecode($link) . '">' .
             '<img class="media-icon-square' . (!$file->d && $file->media_preview ? ' media-icon-preview' : '') . '" src="' . $file->media_icon . '" alt="">' . ($query ? $file : $display_name) . '</a>' .
-                '<br>' . ($file->d ? '' : ($file->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $file->media_title) . '</td>';
+                '<br>' . ($file->d ? '' : ($file->media_priv ? '<img class="media-private" src="images/locker.svg" alt="' . __('private media') . '">' : '') . $file->media_title) . '</td>';
             $res .= '<td class="nowrap count">' . (
                 $file->d ? '' :
                 '<time datetime="' . Date::iso8601((int) strtotime($file->media_dtstr), App::auth()->getInfo('user_tz')) . '">' .

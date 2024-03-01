@@ -4080,10 +4080,14 @@ span.media-file-mode {
 }
 .media-item.media-private img.media-private {
   padding-right: 0.5em;
+  width: 1.8em;
+  vertical-align: text-bottom;
 }
 
 tr.media-private img.media-private {
   padding-right: 0.5em;
+  width: 1.8em;
+  vertical-align: text-bottom;
 }
 
 a.media-icon {
@@ -4955,6 +4959,10 @@ img.go_home {
 }
 
 /* ------------------------------------------------------------------------- indicateurs */
+.info img.mark {
+  vertical-align: middle;
+}
+
 .mark-attach {
   display: inline-block;
   box-sizing: border-box;
@@ -4963,6 +4971,10 @@ img.go_home {
   padding-left: 12px;
   background: var(--mark-attach-img) no-repeat;
   filter: var(--mark-attach-filter);
+}
+
+.mark-locked {
+  width: 1.4em;
 }
 
 /* ---------------------------------------------------------------- utilisables partout  */
