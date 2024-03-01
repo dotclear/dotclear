@@ -531,7 +531,7 @@ dotclear.hideLockable = () => {
       image.src = 'images/locker.png';
       image.style.position = 'absolute';
       image.style.top = '1.8em';
-      image.style.left = `${input.offsetWidth + 14}px`;
+      image.style.left = `${input.offsetWidth + 6}px`;
       image.alt = dotclear.msg.click_to_unlock;
       image.style.cursor = 'pointer';
       image.addEventListener('click', () => {
