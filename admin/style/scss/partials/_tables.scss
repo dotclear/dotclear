@@ -139,9 +139,16 @@ td.expand {
 
 .handler {
   cursor: move;
-  background: url(drag.png) no-repeat 0 50%;
+  background-image: url(drag.svg);
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
   background-color: transparent;
-  padding-left: 15px;
+  background-size: 1.4em;
+  padding-left: 1.4em;
+
+  body.dark-mode & {
+    background-image: url(drag-dark.svg);
+  }
 }
 
 /* Responsive Cell Header */
