@@ -3768,8 +3768,11 @@ span.ibw {
 }
 
 .user-perm {
+  display: flex;
+  flex-direction: column;
   margin: 0 1em 1em 0;
-  background: url(user.png) no-repeat 0.5em 0.5em;
+  background: url(user.svg) no-repeat 0.6em 0.6em;
+  background-size: 1.6em;
   background-color: transparent;
   width: 20em;
   border: 1px solid var(--blog-user-border);
@@ -3785,7 +3788,7 @@ span.ibw {
   padding: 0;
 }
 .user-perm h4 {
-  padding-left: 28px;
+  padding-left: 1.4em;
 }
 .user-perm h5 {
   margin: 1em 0 0 0;
@@ -3793,6 +3796,10 @@ span.ibw {
 .user-perm li {
   margin-left: 1em;
   padding-left: 0;
+}
+.user-perm form,
+.user-perm p:has(.button) {
+  margin-top: auto;
 }
 .user-perm.user_super {
   border-color: var(--blog-super-border);

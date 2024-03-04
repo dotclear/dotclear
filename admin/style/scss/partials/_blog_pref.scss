@@ -9,8 +9,11 @@
 }
 
 .user-perm {
+  display: flex;
+  flex-direction: column;
   margin: 0 1em 1em 0;
-  background: url(user.png) no-repeat 0.5em 0.5em;
+  background: url(user.svg) no-repeat 0.6em 0.6em;
+  background-size: 1.6em;
   background-color: transparent;
   width: 20em;
   border: 1px solid var(--blog-user-border);
@@ -25,7 +28,7 @@
     padding: 0;
   }
   h4 {
-    padding-left: 28px;
+    padding-left: 1.4em;
   }
   h5 {
     margin: 1em 0 0 0;
@@ -33,6 +36,10 @@
   li {
     margin-left: 1em;
     padding-left: 0;
+  }
+  form,
+  p:has(.button) {
+    margin-top: auto;
   }
   &.user_super {
     border-color: var(--blog-super-border);
