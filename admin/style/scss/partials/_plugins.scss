@@ -55,9 +55,16 @@
   }
 
   &.module-config {
-    background: url(settings.png) no-repeat 2px 6px;
+    background-image: url(settings.svg);
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
     background-color: transparent;
-    padding: 4px 4px 0 18px;
+    background-size: 1.4em;
+    padding: 4px 4px 0 1.6em;
+
+    body.dark-mode & {
+      background-image: url(settings-dark.svg);
+    }
   }
 }
 
