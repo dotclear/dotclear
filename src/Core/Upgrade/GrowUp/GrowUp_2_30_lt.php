@@ -23,6 +23,7 @@ class GrowUp_2_30_lt
             // Files
             [
                 'admin/style/drag.png',
+                'admin/style/search.png',
             ],
             // Folders
             [
