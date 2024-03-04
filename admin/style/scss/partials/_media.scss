@@ -304,11 +304,9 @@ label span.one-file {
 
   .upload-filecancel {
     display: block;
-    padding-right: 0;
-    margin-top: 3px;
-    width: 20px;
-    height: 20px;
-    background: url('cancel.png') no-repeat left top;
+    width: 1.4em;
+    height: auto;
+    background: url('cancel.svg') no-repeat 0 50%;
     background-color: transparent;
     text-indent: -1000px;
     cursor: pointer;
