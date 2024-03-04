@@ -150,7 +150,7 @@
   --cell-border: #{$gray-lighter};
   --cell-noborder-color: #{scale-color($gray-very-light, $lightness: -10%)};
 
-  --hr-color: #{scale-color($gray-very-light, $lightness: -10%)};
+  --hr-color: #{$marine};
 
   --code-color: var(--body-color);
   --code-background: #{$code};

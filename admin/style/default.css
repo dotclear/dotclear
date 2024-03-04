@@ -352,7 +352,7 @@ h6 {
   --line-focus-background: #ededed;
   --cell-border: #ececec;
   --cell-noborder-color: #dbdbdb;
-  --hr-color: #dbdbdb;
+  --hr-color: #3a539b;
   --code-color: var(--body-color);
   --code-background: #fefacd;
   --link-color: #2373a8;
@@ -606,7 +606,7 @@ h6 {
   --line-focus-background: #494c52;
   --cell-border: #ecedee;
   --cell-noborder-color: #dadbde;
-  --hr-color: #c9cbcf;
+  --hr-color: #caced2;
   --code-color: var(--body-background);
   --code-background: #fefacd;
   --link-color: #76c2f1;
@@ -861,7 +861,7 @@ h6 {
     --line-focus-background: #494c52;
     --cell-border: #ecedee;
     --cell-noborder-color: #dadbde;
-    --hr-color: #c9cbcf;
+    --hr-color: #caced2;
     --code-color: var(--body-background);
     --code-background: #fefacd;
     --link-color: #76c2f1;
@@ -1788,13 +1788,14 @@ pre + p {
 
 hr {
   height: 1px;
-  border-width: 1px 0 0;
-  border-color: var(--hr-color);
-  background: var(--hr-color);
-  border-style: solid;
+  border-width: 0;
+  background-color: var(--hr-color);
 }
 hr.clearer {
   clear: both;
+}
+hr.clear {
+  margin: 1em auto;
 }
 
 pre,

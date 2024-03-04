@@ -129,13 +129,15 @@ pre + p {
 
 hr {
   height: 1px;
-  border-width: 1px 0 0;
-  border-color: var(--hr-color);
-  background: var(--hr-color);
-  border-style: solid;
+  border-width: 0;
+  background-color: var(--hr-color);
 
   &.clearer {
     clear: both;
+  }
+
+  &.clear {
+    margin: 1em auto;
   }
 }
 
