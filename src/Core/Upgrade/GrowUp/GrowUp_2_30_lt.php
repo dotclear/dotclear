@@ -25,6 +25,7 @@ class GrowUp_2_30_lt
                 'admin/images/attach.png',
                 'admin/images/comments.png',
                 'admin/images/hidden.png',
+                'admin/images/junk.png',
                 'admin/images/locker.png',
                 'admin/images/scheduled.png',
                 'admin/images/selected.png',
