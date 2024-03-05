@@ -314,15 +314,6 @@ p {
     vertical-align: text-bottom;
   }
 }
-.mark-attach {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 12px;
-  height: 12px;
-  padding-left: 12px;
-  background: var(--mark-attach-img) no-repeat;
-  filter: var(--mark-attach-filter);
-}
 .mark-locked,
 .mark-scheduled,
 .mark-published,
@@ -330,8 +321,12 @@ p {
 .mark-unpublished,
 .mark-check-off,
 .mark-pending,
-.mark-check-wrn {
+.mark-check-wrn,
+.mark-attach {
   width: 1.4em;
+}
+.mark-attach {
+  filter: var(--mark-attach-filter);
 }
 
 /* ---------------------------------------------------------------- utilisables partout  */

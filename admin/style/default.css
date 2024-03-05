@@ -531,7 +531,6 @@ h6 {
   --step-border: #caced2;
   --offline: #676e78;
   --offline-background: #f3f3f3;
-  --mark-attach-img: url("../images/attach.svg");
   --mark-attach-filter: hue-rotate(300deg) saturate(0.64);
   --rch-table-1st-color: #c9c9c9;
   --rch-table-1st-background: #595959;
@@ -785,7 +784,6 @@ h6 {
   --step-border: #caced2;
   --offline: #82878f;
   --offline-background: #303236;
-  --mark-attach-img: url("../images/attach.svg");
   --mark-attach-filter: hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%);
   --rch-table-1st-color: #c9cbcf;
   --rch-table-1st-background: #565a60;
@@ -1040,7 +1038,6 @@ h6 {
     --step-border: #caced2;
     --offline: #82878f;
     --offline-background: #303236;
-    --mark-attach-img: url("../images/attach.svg");
     --mark-attach-filter: hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%);
     --rch-table-1st-color: #c9cbcf;
     --rch-table-1st-background: #565a60;
@@ -4977,16 +4974,6 @@ p img.mark {
   vertical-align: text-bottom;
 }
 
-.mark-attach {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 12px;
-  height: 12px;
-  padding-left: 12px;
-  background: var(--mark-attach-img) no-repeat;
-  filter: var(--mark-attach-filter);
-}
-
 .mark-locked,
 .mark-scheduled,
 .mark-published,
@@ -4994,8 +4981,13 @@ p img.mark {
 .mark-unpublished,
 .mark-check-off,
 .mark-pending,
-.mark-check-wrn {
+.mark-check-wrn,
+.mark-attach {
   width: 1.4em;
+}
+
+.mark-attach {
+  filter: var(--mark-attach-filter);
 }
 
 /* ---------------------------------------------------------------- utilisables partout  */

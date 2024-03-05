@@ -90,7 +90,7 @@ class BackendList extends Listing
                 $fmt(__('Pending'), 'pending.svg', 'pending') . ' - ' .
                 $fmt(__('Protected'), 'locker.svg', 'locked') . ' - ' .
                 $fmt(__('Hidden'), 'hidden.png', 'hidden') . ' - ' .
-                $fmt(__('Attachments'), 'attach.png', 'attach') .
+                $fmt(__('Attachments'), 'attach.svg', 'attach') .
                 '</p>';
 
             echo $blocks[2];
@@ -149,7 +149,7 @@ class BackendList extends Listing
         $nb_media = $this->rs->countMedia();
         if ($nb_media > 0) {
             $attach_str = $nb_media == 1 ? __('%d attachment') : __('%d attachments');
-            $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.png', 'attach');
+            $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.svg', 'attach');
         }
 
         $res = '<tr class="line ' . ($this->rs->post_status != App::blog()::POST_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
