@@ -3135,7 +3135,7 @@ table .maximal {
   max-width: 1px;
 }
 table .maximal, table.maximal {
-  width: 100%;
+  max-width: 100%;
 }
 table .minimal {
   width: 1px;
@@ -4967,7 +4967,9 @@ img.go_home {
 
 /* ------------------------------------------------------------------------- indicateurs */
 .info img.mark,
-li img.mark {
+li img.mark,
+td img.mark,
+p img.mark {
   vertical-align: middle;
 }
 
@@ -4986,7 +4988,9 @@ li img.mark {
 }
 
 .mark-locked,
-.mark-scheduled {
+.mark-scheduled,
+.mark-published,
+.mark-check-on {
   width: 1.4em;
 }
 

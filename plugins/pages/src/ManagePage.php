@@ -445,7 +445,7 @@ class ManagePage extends Process
         if (App::backend()->post_id) {
             try {
                 $img_status = match ((int) App::backend()->post_status) {
-                    App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'check-on.png', 'published'),
+                    App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
                     App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png', 'unpublished'),
                     App::blog()::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
                     App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png', 'pending'),
@@ -923,26 +923,26 @@ class ManagePage extends Process
         while ($rs->fetch()) {
             $comment_url = App::backend()->url()->get('admin.comment', ['id' => $rs->comment_id]);
 
-            $img       = '<img alt="%1$s" src="images/%2$s">';
+            $img       = '<img alt="%1$s" class="mark mark-%3$s" src="images/%2$s">';
             $sts_class = '';
             switch ($rs->comment_status) {
                 case 1:
-                    $img_status = sprintf($img, __('Published'), 'check-on.png');
+                    $img_status = sprintf($img, __('Published'), 'published.svg', 'published');
                     $sts_class  = 'sts-online';
 
                     break;
                 case 0:
-                    $img_status = sprintf($img, __('Unpublished'), 'check-off.png');
+                    $img_status = sprintf($img, __('Unpublished'), 'check-off.png', 'unpublished');
                     $sts_class  = 'sts-offline';
 
                     break;
                 case -1:
-                    $img_status = sprintf($img, __('Pending'), 'check-wrn.png');
+                    $img_status = sprintf($img, __('Pending'), 'check-wrn.png', 'pending');
                     $sts_class  = 'sts-pending';
 
                     break;
                 case -2:
-                    $img_status = sprintf($img, __('Junk'), 'junk.png');
+                    $img_status = sprintf($img, __('Junk'), 'junk.png', 'spam');
                     $sts_class  = 'sts-junk';
 
                     break;

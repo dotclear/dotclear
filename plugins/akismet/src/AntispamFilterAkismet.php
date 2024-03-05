@@ -231,7 +231,7 @@ class AntispamFilterAkismet extends SpamFilter
 
         if ($ak_verified !== null) {
             if ($ak_verified) {
-                $res .= ' <img src="images/check-on.png" alt=""> ' . __('API key verified');
+                $res .= ' <img class="mark mark-check-on" src="images/check-on.svg" alt=""> ' . __('API key verified');
             } else {
                 $res .= ' <img src="images/check-off.png" alt=""> ' . __('API key not verified');
             }

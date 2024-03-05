@@ -381,11 +381,11 @@ class Plugins extends Process
         $trs = [];
         foreach ($modules as $id => $module) {
             if (!isset($store[$id])) {
-                $img = [__('No version available'), 'check-off.png'];
+                $img = [__('No version available'), 'check-off.png', 'check-off'];
             } elseif (version_compare(App::config()->dotclearVersion(), $store[$id]->get('dc_min'), '>=')) {
-                $img = [__('No update available'), 'check-wrn.png'];
+                $img = [__('No update available'), 'check-wrn.png', 'check-wrn'];
             } else {
-                $img = [__('Newer version available'), 'check-on.png'];
+                $img = [__('Newer version available'), 'check-on.svg', 'check-on'];
             }
 
             $tds   = [];
@@ -394,7 +394,8 @@ class Plugins extends Process
                 ->items([
                     (new Img('images/' . $img[1]))
                         ->alt($img[0])
-                        ->title($img[0]),
+                        ->title($img[0])
+                        ->class('mark mark-' . $img[2]),
                 ]);
             $tds[] = (new Td())
                 ->class('module-name nowrap')

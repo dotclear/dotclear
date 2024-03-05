@@ -301,12 +301,18 @@ img.go_home {
 }
 
 /* ------------------------------------------------------------------------- indicateurs */
-.info img.mark,
-li img.mark {
-  vertical-align: middle;
+.info,
+li,
+td,
+p {
+  img.mark {
+    vertical-align: middle;
+  }
 }
-.entry-status img.mark {
-  vertical-align: text-bottom;
+.entry-status {
+  img.mark {
+    vertical-align: text-bottom;
+  }
 }
 .mark-attach {
   display: inline-block;
@@ -318,7 +324,9 @@ li img.mark {
   filter: var(--mark-attach-filter);
 }
 .mark-locked,
-.mark-scheduled {
+.mark-scheduled,
+.mark-published,
+.mark-check-on {
   width: 1.4em;
 }
 

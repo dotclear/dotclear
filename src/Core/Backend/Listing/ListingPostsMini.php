@@ -85,7 +85,7 @@ class ListingPostsMini extends Listing
         $sts_class  = '';
         switch ($this->rs->post_status) {
             case App::blog()::POST_PUBLISHED:
-                $img_status = sprintf($img, __('Published'), 'check-on.png', 'published');
+                $img_status = sprintf($img, __('Published'), 'published.svg', 'published');
                 $sts_class  = 'sts-online';
 
                 break;

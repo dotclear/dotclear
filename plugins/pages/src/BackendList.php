@@ -84,7 +84,7 @@ class BackendList extends Listing
 
             $fmt = fn ($title, $image, $class) => sprintf('<img alt="%1$s" src="images/%2$s" class="mark mark-%3$s"> %1$s', $title, $image, $class);
             echo '<p class="info">' . __('Legend: ') .
-                $fmt(__('Published'), 'check-on.png', 'published') . ' - ' .
+                $fmt(__('Published'), 'published.svg', 'published') . ' - ' .
                 $fmt(__('Unpublished'), 'check-off.png', 'unpublished') . ' - ' .
                 $fmt(__('Scheduled'), 'scheduled.svg', 'scheduled') . ' - ' .
                 $fmt(__('Pending'), 'check-wrn.png', 'pending') . ' - ' .
@@ -114,7 +114,7 @@ class BackendList extends Listing
         $img_status = '';
         switch ($this->rs->post_status) {
             case App::blog()::POST_PUBLISHED:
-                $img_status = sprintf($img, __('Published'), 'check-on.png', 'published');
+                $img_status = sprintf($img, __('Published'), 'published.svg', 'published');
                 $sts_class  = 'sts-online';
 
                 break;

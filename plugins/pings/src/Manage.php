@@ -99,7 +99,7 @@ class Manage extends Process
             if (!empty($_GET['test'])) {
                 try {
                     PingsAPI::doPings($uri, 'Example site', 'http://example.com');
-                    echo ' <img src="images/check-on.png" alt="OK">';
+                    echo ' <img class="mark mark-check-on" src="images/check-on.svg" alt="OK">';
                 } catch (Exception $e) {
                     echo ' <img src="images/check-off.png" alt="' . __('Error') . '"> ' . $e->getMessage();
                 }
