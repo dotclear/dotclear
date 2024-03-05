@@ -12,7 +12,11 @@ ul.spaminfo li {
   background-repeat: no-repeat;
 }
 ul.spaminfo .spamcount {
-  background-image: url(images/junk.png);
+  background-image: url(images/junk.svg);
+
+  body.dark-mode & {
+    background-image: url(images/junk-dark.svg);
+  }
 }
 ul.spaminfo .hamcount {
   background-image: url(images/published.svg);

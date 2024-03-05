@@ -1100,7 +1100,7 @@ class Post extends Process
 
                     break;
                 case App::blog()::COMMENT_JUNK:
-                    $img_status = sprintf($img, __('Junk'), 'junk.png', 'junk');
+                    $img_status = sprintf($img, __('Junk'), 'junk.svg', 'junk light-only') . sprintf($img, __('Junk'), 'junk-dark.svg', 'junk dark-only');
                     $sts_class  = 'sts-junk';
 
                     break;

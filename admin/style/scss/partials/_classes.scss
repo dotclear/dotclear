@@ -323,7 +323,9 @@ p {
 .mark-pending,
 .mark-check-wrn,
 .mark-attach,
-.mark-selected {
+.mark-selected,
+.mark-spam,
+.mark-junk {
   width: 1.4em;
 }
 .mark-attach {

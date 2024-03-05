@@ -942,7 +942,7 @@ class ManagePage extends Process
 
                     break;
                 case -2:
-                    $img_status = sprintf($img, __('Junk'), 'junk.png', 'junk');
+                    $img_status = sprintf($img, __('Junk'), 'junk.svg', 'junk light-only') . sprintf($img, __('Junk'), 'junk-dark.svg', 'junk dark-only');
                     $sts_class  = 'sts-junk';
 
                     break;

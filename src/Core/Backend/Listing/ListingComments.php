@@ -146,12 +146,12 @@ class ListingComments extends Listing
 
             echo $blocks[1];
 
-            $fmt = fn ($title, $image, $class) => sprintf('<img alt="%1$s" class="mark mark-%3$s" src="images/%2$s"> %1$s', $title, $image, $class);
+            $fmt = fn ($title, $image, $class) => sprintf('<img alt="%1$s" class="mark mark-%3$s" src="images/%2$s">', $title, $image, $class);
             echo '<p class="info">' . __('Legend: ') .
-                $fmt(__('Published'), 'published.svg', 'published') . ' - ' .
-                $fmt(__('Unpublished'), 'unpublished.svg', 'unpublished') . ' - ' .
-                $fmt(__('Pending'), 'pending.svg', 'pending') . ' - ' .
-                $fmt(__('Junk'), 'junk.png', 'junk') .
+                $fmt(__('Published'), 'published.svg', 'published') . ' ' . __('Published') . ' - ' .
+                $fmt(__('Unpublished'), 'unpublished.svg', 'unpublished') . ' ' . __('Unpublished') . ' - ' .
+                $fmt(__('Pending'), 'pending.svg', 'pending') . ' ' . __('Pending') . ' - ' .
+                $fmt(__('Junk'), 'junk.svg', 'junk light-only') . $fmt(__('Junk'), 'junk-dark.svg', 'junk dark-only') . ' ' . __('Junk') .
                 '</p>';
 
             echo $blocks[2];
@@ -199,7 +199,7 @@ class ListingComments extends Listing
 
                 break;
             case App::blog()::COMMENT_JUNK:
-                $img_status = sprintf($img, __('Junk'), 'junk.png', 'junk');
+                $img_status = sprintf($img, __('Junk'), 'junk.svg', 'junk light-only') . sprintf($img, __('Junk'), 'junk-dark.svg', 'junk dark-only');
                 $sts_class  = 'sts-junk';
 
                 break;
