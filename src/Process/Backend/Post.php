@@ -475,7 +475,7 @@ class Post extends Process
                 App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
                 App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
                 App::blog()::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
-                App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png', 'pending'),
+                App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending'),
                 default                       => '',
             };
 
@@ -1095,7 +1095,7 @@ class Post extends Process
 
                     break;
                 case App::blog()::COMMENT_PENDING:
-                    $img_status = sprintf($img, __('Pending'), 'check-wrn.png', 'pending');
+                    $img_status = sprintf($img, __('Pending'), 'pending.svg', 'pending');
                     $sts_class  = 'sts-pending';
 
                     break;

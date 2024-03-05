@@ -936,7 +936,7 @@ class MediaItem extends Process
                         App::blog()::POST_PUBLISHED   => sprintf($img, __('Published'), 'published.svg', 'published'),
                         App::blog()::POST_UNPUBLISHED => sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished'),
                         App::blog()::POST_SCHEDULED   => sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled'),
-                        App::blog()::POST_PENDING     => sprintf($img, __('Pending'), 'check-wrn.png', 'pending'),
+                        App::blog()::POST_PENDING     => sprintf($img, __('Pending'), 'pending.svg', 'pending'),
                         default                       => '',
                     };
 

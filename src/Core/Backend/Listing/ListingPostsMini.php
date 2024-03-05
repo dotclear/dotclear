@@ -100,7 +100,7 @@ class ListingPostsMini extends Listing
 
                 break;
             case App::blog()::POST_PENDING:
-                $img_status = sprintf($img, __('Pending'), 'check-wrn.png', 'pending');
+                $img_status = sprintf($img, __('Pending'), 'pending.svg', 'pending');
                 $sts_class  = 'sts-pending';
 
                 break;

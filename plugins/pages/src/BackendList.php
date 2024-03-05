@@ -87,7 +87,7 @@ class BackendList extends Listing
                 $fmt(__('Published'), 'published.svg', 'published') . ' - ' .
                 $fmt(__('Unpublished'), 'unpublished.svg', 'unpublished') . ' - ' .
                 $fmt(__('Scheduled'), 'scheduled.svg', 'scheduled') . ' - ' .
-                $fmt(__('Pending'), 'check-wrn.png', 'pending') . ' - ' .
+                $fmt(__('Pending'), 'pending.svg', 'pending') . ' - ' .
                 $fmt(__('Protected'), 'locker.svg', 'locked') . ' - ' .
                 $fmt(__('Hidden'), 'hidden.png', 'hidden') . ' - ' .
                 $fmt(__('Attachments'), 'attach.png', 'attach') .
@@ -129,7 +129,7 @@ class BackendList extends Listing
 
                 break;
             case App::blog()::POST_PENDING:
-                $img_status = sprintf($img, __('Pending'), 'check-wrn.png', 'pending');
+                $img_status = sprintf($img, __('Pending'), 'pending.svg', 'pending');
                 $sts_class  = 'sts-pending';
 
                 break;

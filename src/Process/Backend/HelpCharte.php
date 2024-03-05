@@ -545,7 +545,7 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="En attente" src="images/check-wrn.png">
+                  <img alt="En attente" class="mark mark-pending" src="images/pending.svg">
                                     </td>
               </tr>
               <tr class="line offline" id="p10939">
@@ -579,7 +579,7 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
-                  <img alt="En attente" src="images/check-wrn.png" class="mark mark-pending"><img alt="Protégé" src="images/locker.svg" class="mark mark-locked">
+                  <img alt="En attente" src="images/pending.svg" class="mark mark-pending"><img alt="Protégé" src="images/locker.svg" class="mark mark-locked">
                                     </td>
               </tr>
             </tbody>

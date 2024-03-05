@@ -4992,7 +4992,9 @@ p img.mark {
 .mark-published,
 .mark-check-on,
 .mark-unpublished,
-.mark-check-off {
+.mark-check-off,
+.mark-pending,
+.mark-check-wrn {
   width: 1.4em;
 }
 

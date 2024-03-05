@@ -150,7 +150,7 @@ class ListingComments extends Listing
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('Published'), 'published.svg', 'published') . ' - ' .
                 $fmt(__('Unpublished'), 'unpublished.svg', 'unpublished') . ' - ' .
-                $fmt(__('Pending'), 'check-wrn.png', 'pending') . ' - ' .
+                $fmt(__('Pending'), 'pending.svg', 'pending') . ' - ' .
                 $fmt(__('Junk'), 'junk.png', 'junk') .
                 '</p>';
 
@@ -194,7 +194,7 @@ class ListingComments extends Listing
 
                 break;
             case App::blog()::COMMENT_PENDING:
-                $img_status = sprintf($img, __('Pending'), 'check-wrn.png', 'pending');
+                $img_status = sprintf($img, __('Pending'), 'pending.svg', 'pending');
                 $sts_class  = 'sts-pending';
 
                 break;

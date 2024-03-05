@@ -383,7 +383,7 @@ class Plugins extends Process
             if (!isset($store[$id])) {
                 $img = [__('No version available'), 'check-off.svg', 'check-off'];
             } elseif (version_compare(App::config()->dotclearVersion(), $store[$id]->get('dc_min'), '>=')) {
-                $img = [__('No update available'), 'check-wrn.png', 'check-wrn'];
+                $img = [__('No update available'), 'check-wrn.svg', 'check-wrn'];
             } else {
                 $img = [__('Newer version available'), 'check-on.svg', 'check-on'];
             }
