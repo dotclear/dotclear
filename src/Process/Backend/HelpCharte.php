@@ -528,7 +528,7 @@ class HelpCharte extends Process
                 <td class="nowrap">0</td>
                 <td class="nowrap status">
                   <img alt="Publié" class="mark mark-published" src="images/published.svg">
-                  <img alt="Masqué" src="images/hidden.png">
+                  <img alt="Masqué" class="mark mark-hidden" src="images/hidden.svg">
                                     </td>
               </tr>
               <tr class="line offline" id="p11047">

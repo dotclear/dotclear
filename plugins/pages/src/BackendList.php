@@ -89,7 +89,7 @@ class BackendList extends Listing
                 $fmt(__('Scheduled'), 'scheduled.svg', 'scheduled') . ' - ' .
                 $fmt(__('Pending'), 'pending.svg', 'pending') . ' - ' .
                 $fmt(__('Protected'), 'locker.svg', 'locked') . ' - ' .
-                $fmt(__('Hidden'), 'hidden.png', 'hidden') . ' - ' .
+                $fmt(__('Hidden'), 'hidden.svg', 'hidden') . ' - ' .
                 $fmt(__('Attachments'), 'attach.svg', 'attach') .
                 '</p>';
 
@@ -142,7 +142,7 @@ class BackendList extends Listing
 
         $selected = '';
         if ($this->rs->post_selected) {
-            $selected = sprintf($img, __('Hidden'), 'hidden.png', 'hidden');
+            $selected = sprintf($img, __('Hidden'), 'hidden.svg', 'hidden');
         }
 
         $attach   = '';
