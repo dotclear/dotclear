@@ -23,6 +23,9 @@ class GrowUp_2_30_lt
             // Files
             [
                 'admin/images/attach.png',
+                'admin/images/check-on.png',
+                'admin/images/check-off.png',
+                'admin/images/check-wrn.png',
                 'admin/images/comments.png',
                 'admin/images/hidden.png',
                 'admin/images/junk.png',
