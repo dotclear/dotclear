@@ -473,7 +473,7 @@ class Post extends Process
 
             $img_status = match ((int) App::backend()->post_status) {
                 App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
-                App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png', 'unpublished'),
+                App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
                 App::blog()::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
                 App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png', 'pending'),
                 default                       => '',
@@ -1080,27 +1080,27 @@ class Post extends Process
         while ($rs->fetch()) {
             $comment_url = App::backend()->url()->get('admin.comment', ['id' => $rs->comment_id]);
 
-            $img        = '<img alt="%1$s" src="images/%2$s">';
+            $img        = '<img alt="%1$s" class="mark mark-%3$s" src="images/%2$s">';
             $img_status = '';
             $sts_class  = '';
             switch ($rs->comment_status) {
                 case App::blog()::COMMENT_PUBLISHED:
-                    $img_status = sprintf($img, __('Published'), 'published.svg');
+                    $img_status = sprintf($img, __('Published'), 'published.svg', 'published');
                     $sts_class  = 'sts-online';
 
                     break;
                 case App::blog()::COMMENT_UNPUBLISHED:
-                    $img_status = sprintf($img, __('Unpublished'), 'check-off.png');
+                    $img_status = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
                     $sts_class  = 'sts-offline';
 
                     break;
                 case App::blog()::COMMENT_PENDING:
-                    $img_status = sprintf($img, __('Pending'), 'check-wrn.png');
+                    $img_status = sprintf($img, __('Pending'), 'check-wrn.png', 'pending');
                     $sts_class  = 'sts-pending';
 
                     break;
                 case App::blog()::COMMENT_JUNK:
-                    $img_status = sprintf($img, __('Junk'), 'junk.png');
+                    $img_status = sprintf($img, __('Junk'), 'junk.png', 'junk');
                     $sts_class  = 'sts-junk';
 
                     break;

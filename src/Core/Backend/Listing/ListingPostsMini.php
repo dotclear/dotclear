@@ -90,7 +90,7 @@ class ListingPostsMini extends Listing
 
                 break;
             case App::blog()::POST_UNPUBLISHED:
-                $img_status = sprintf($img, __('Unpublished'), 'check-off.png', 'unpublished');
+                $img_status = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
                 $sts_class  = 'sts-offline';
 
                 break;

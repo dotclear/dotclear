@@ -101,7 +101,7 @@ class Manage extends Process
                     PingsAPI::doPings($uri, 'Example site', 'http://example.com');
                     echo ' <img class="mark mark-check-on" src="images/check-on.svg" alt="OK">';
                 } catch (Exception $e) {
-                    echo ' <img src="images/check-off.png" alt="' . __('Error') . '"> ' . $e->getMessage();
+                    echo ' <img class="mark mark-check-off" src="images/check-off.svg" alt="' . __('Error') . '"> ' . $e->getMessage();
                 }
             }
 

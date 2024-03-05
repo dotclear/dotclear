@@ -326,7 +326,9 @@ p {
 .mark-locked,
 .mark-scheduled,
 .mark-published,
-.mark-check-on {
+.mark-check-on,
+.mark-unpublished,
+.mark-check-off {
   width: 1.4em;
 }
 

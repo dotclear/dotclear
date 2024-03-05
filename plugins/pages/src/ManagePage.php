@@ -446,7 +446,7 @@ class ManagePage extends Process
             try {
                 $img_status = match ((int) App::backend()->post_status) {
                     App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
-                    App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png', 'unpublished'),
+                    App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
                     App::blog()::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
                     App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png', 'pending'),
                 };
@@ -932,7 +932,7 @@ class ManagePage extends Process
 
                     break;
                 case 0:
-                    $img_status = sprintf($img, __('Unpublished'), 'check-off.png', 'unpublished');
+                    $img_status = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
                     $sts_class  = 'sts-offline';
 
                     break;
@@ -942,7 +942,7 @@ class ManagePage extends Process
 
                     break;
                 case -2:
-                    $img_status = sprintf($img, __('Junk'), 'junk.png', 'spam');
+                    $img_status = sprintf($img, __('Junk'), 'junk.png', 'junk');
                     $sts_class  = 'sts-junk';
 
                     break;

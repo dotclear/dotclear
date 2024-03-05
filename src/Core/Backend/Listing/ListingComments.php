@@ -149,9 +149,9 @@ class ListingComments extends Listing
             $fmt = fn ($title, $image, $class) => sprintf('<img alt="%1$s" class="mark mark-%3$s" src="images/%2$s"> %1$s', $title, $image, $class);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('Published'), 'published.svg', 'published') . ' - ' .
-                $fmt(__('Unpublished'), 'check-off.png', 'unpublished') . ' - ' .
+                $fmt(__('Unpublished'), 'unpublished.svg', 'unpublished') . ' - ' .
                 $fmt(__('Pending'), 'check-wrn.png', 'pending') . ' - ' .
-                $fmt(__('Junk'), 'junk.png', 'spam') .
+                $fmt(__('Junk'), 'junk.png', 'junk') .
                 '</p>';
 
             echo $blocks[2];
@@ -189,7 +189,7 @@ class ListingComments extends Listing
 
                 break;
             case App::blog()::COMMENT_UNPUBLISHED:
-                $img_status = sprintf($img, __('Unpublished'), 'check-off.png', 'unpublished');
+                $img_status = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
                 $sts_class  = 'sts-offline';
 
                 break;
@@ -199,7 +199,7 @@ class ListingComments extends Listing
 
                 break;
             case App::blog()::COMMENT_JUNK:
-                $img_status = sprintf($img, __('Junk'), 'junk.png', 'spam');
+                $img_status = sprintf($img, __('Junk'), 'junk.png', 'junk');
                 $sts_class  = 'sts-junk';
 
                 break;

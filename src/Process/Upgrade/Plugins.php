@@ -381,7 +381,7 @@ class Plugins extends Process
         $trs = [];
         foreach ($modules as $id => $module) {
             if (!isset($store[$id])) {
-                $img = [__('No version available'), 'check-off.png', 'check-off'];
+                $img = [__('No version available'), 'check-off.svg', 'check-off'];
             } elseif (version_compare(App::config()->dotclearVersion(), $store[$id]->get('dc_min'), '>=')) {
                 $img = [__('No update available'), 'check-wrn.png', 'check-wrn'];
             } else {

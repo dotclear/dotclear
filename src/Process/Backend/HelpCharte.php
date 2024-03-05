@@ -434,7 +434,7 @@ class HelpCharte extends Process
               <td class="nowrap">kozlika</td>
               <td class="nowrap count">5</td>
               <td class="nowrap count">0</td>
-              <td class="nowrap status"><img alt="Non publié" src="images/check-off.png"> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png">  </td>
+              <td class="nowrap status"><img alt="Non publié" class="mark mark-unpublished" src="images/unpublished.svg"> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png">  </td>
             </tr>
             <tr class="line">
               <td class="nowrap"><input type="checkbox" name="entries[]" value="2148"></td>

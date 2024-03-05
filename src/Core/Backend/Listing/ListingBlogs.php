@@ -97,7 +97,7 @@ class ListingBlogs extends Listing
             $fmt = fn ($title, $image, $class) => sprintf('<img alt="%1$s" class="mark mark-%3$s" src="images/%2$s"> %1$s', $title, $image, $class);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('online'), 'published.svg', 'published') . ' - ' .
-                $fmt(__('offline'), 'check-off.png', 'unpublished') . ' - ' .
+                $fmt(__('offline'), 'unpublished.svg', 'unpublished') . ' - ' .
                 $fmt(__('removed'), 'check-wrn.png', 'pending') .
                 '</p>';
 
@@ -150,7 +150,7 @@ class ListingBlogs extends Listing
             'status' => '<td class="nowrap status txt-center">' .
             sprintf(
                 '<img src="images/%1$s" class="mark mark-%3$s" alt="%2$s">',
-                ($this->rs->blog_status == App::blog()::BLOG_ONLINE ? 'published.svg' : ($this->rs->blog_status == App::blog()::BLOG_OFFLINE ? 'check-off.png' : 'check-wrn.png')),
+                ($this->rs->blog_status == App::blog()::BLOG_ONLINE ? 'published.svg' : ($this->rs->blog_status == App::blog()::BLOG_OFFLINE ? 'unpublished.svg' : 'check-wrn.png')),
                 App::blogs()->getBlogStatus((int) $this->rs->blog_status),
                 ($this->rs->blog_status == App::blog()::BLOG_ONLINE ? 'published' : ($this->rs->blog_status == App::blog()::BLOG_OFFLINE ? 'unpublished' : 'pending')),
             ) .
