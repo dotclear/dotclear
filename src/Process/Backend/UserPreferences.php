@@ -905,7 +905,7 @@ class UserPreferences extends Process
             '<li id="fa-' . $k . '">' . '<label for="fak-' . $k . '">' . $icon .
             form::checkbox(['append[]', 'fak-' . $k], $k) .
             $fav['title'] . '</label>' .
-            (isset($default_fav_ids[$k]) ? ' <span class="default-fav"><img src="images/selected.png" alt="' . __('(default favorite)') . '"></span>' : '') .
+            (isset($default_fav_ids[$k]) ? ' <span class="default-fav"><img class="mark mark-selected" src="images/selected.svg" alt="' . __('(default favorite)') . '"></span>' : '') .
             '</li>';
         }
         if ($count > 0) {

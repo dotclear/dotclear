@@ -322,11 +322,21 @@ p {
 .mark-check-off,
 .mark-pending,
 .mark-check-wrn,
-.mark-attach {
+.mark-attach,
+.mark-selected {
   width: 1.4em;
 }
 .mark-attach {
   filter: var(--mark-attach-filter);
+}
+.mark-selected {
+  filter: var(--mark-selected-filter);
+}
+p.info {
+  .mark-attach,
+  .mark-selected {
+    filter: none;
+  }
 }
 
 /* ---------------------------------------------------------------- utilisables partout  */

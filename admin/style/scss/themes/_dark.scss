@@ -431,6 +431,7 @@
   --offline-background: #{$gray-very-dark};
 
   --mark-attach-filter: #{hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%)};
+  --mark-selected-filter: #{hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%)};
 
   --rch-table-1st-color: #{$gray-light};
   --rch-table-1st-background: #{$gray-darker};

@@ -113,7 +113,7 @@ class ListingPostsMini extends Listing
 
         $selected = '';
         if ($this->rs->post_selected) {
-            $selected = sprintf($img, __('Selected'), 'selected.png', 'selected');
+            $selected = sprintf($img, __('Selected'), 'selected.svg', 'selected');
         }
 
         $attach   = '';

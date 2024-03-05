@@ -125,7 +125,7 @@ class ListingPosts extends Listing
                 $fmt(__('Scheduled'), 'scheduled.svg', 'scheduled') . ' - ' .
                 $fmt(__('Pending'), 'pending.svg', 'pending') . ' - ' .
                 $fmt(__('Protected'), 'locker.svg', 'locked') . ' - ' .
-                $fmt(__('Selected'), 'selected.png', 'selected') . ' - ' .
+                $fmt(__('Selected'), 'selected.svg', 'selected') . ' - ' .
                 $fmt(__('Attachments'), 'attach.svg', 'attach') .
                 '</p>';
 
@@ -195,7 +195,7 @@ class ListingPosts extends Listing
 
         $selected = '';
         if ($this->rs->post_selected) {
-            $selected = sprintf($img, __('Selected'), 'selected.png', 'selected');
+            $selected = sprintf($img, __('Selected'), 'selected.svg', 'selected');
         }
 
         $attach   = '';
