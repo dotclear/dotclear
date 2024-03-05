@@ -26,7 +26,8 @@ body {
 }
 
 img {
-  max-width: 100%; /* do not display:block for img! */
+  /* max-width: 100%; don't do this with unsized SVG used as it may cause unexpected behavior */
+  /* display: block; do not display:block for img! */
 }
 
 picture,
