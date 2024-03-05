@@ -8,6 +8,7 @@ table {
   .maximal,
   &.maximal {
     width: 100%;
+    min-width: 10em; // Ensure minimum width for largest column in table
   }
 
   .minimal {

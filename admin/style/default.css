@@ -3137,6 +3137,7 @@ table .maximal {
 }
 table .maximal, table.maximal {
   width: 100%;
+  min-width: 10em;
 }
 table .minimal {
   width: 1px;
