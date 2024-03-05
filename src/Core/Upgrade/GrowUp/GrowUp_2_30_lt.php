@@ -26,6 +26,7 @@ class GrowUp_2_30_lt
                 'admin/style/drag.png',
                 'admin/style/search.png',
                 'admin/style/settings.png',
+                'admin/style/trash.png',
                 'admin/style/user.png',
             ],
             // Folders
