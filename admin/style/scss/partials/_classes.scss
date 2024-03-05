@@ -393,6 +393,7 @@ p.clear.vertical-separator {
   margin-top: 1em;
 }
 
+// Used by blowup config to display background behind the selected top image which may have transparent areas
 .grid {
   background: url('grid.png') repeat 0 0;
   background-color: transparent;
