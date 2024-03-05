@@ -15,7 +15,6 @@
   color: var(--breadcrumb-current);
 
   img {
-    padding-left: 0.5em;
     vertical-align: middle;
   }
 }
@@ -50,11 +49,6 @@
 #entry-sidebar h5 {
   font-weight: normal;
   color: var(--entry-sidebar-title-color);
-}
-
-.entry-status img.img_select_option {
-  padding-left: 4px;
-  vertical-align: -1px;
 }
 
 h4 label,

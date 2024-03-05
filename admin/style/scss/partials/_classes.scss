@@ -301,8 +301,12 @@ img.go_home {
 }
 
 /* ------------------------------------------------------------------------- indicateurs */
-.info img.mark {
+.info img.mark,
+li img.mark {
   vertical-align: middle;
+}
+.entry-status img.mark {
+  vertical-align: text-bottom;
 }
 .mark-attach {
   display: inline-block;
@@ -313,7 +317,8 @@ img.go_home {
   background: var(--mark-attach-img) no-repeat;
   filter: var(--mark-attach-filter);
 }
-.mark-locked {
+.mark-locked,
+.mark-scheduled {
   width: 1.4em;
 }
 

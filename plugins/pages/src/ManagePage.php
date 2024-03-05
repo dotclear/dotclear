@@ -440,15 +440,15 @@ class ManagePage extends Process
         );
 
         $img_status         = '';
-        $img_status_pattern = '<img class="img_select_option" alt="%1$s" src="images/%2$s">';
+        $img_status_pattern = '<img class="mark mark-%3$s" alt="%1$s" src="images/%2$s">';
 
         if (App::backend()->post_id) {
             try {
-                $img_status = match (App::backend()->post_status) {
-                    App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'check-on.png'),
-                    App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png'),
-                    App::blog()::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png'),
-                    App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png'),
+                $img_status = match ((int) App::backend()->post_status) {
+                    App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'check-on.png', 'published'),
+                    App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'check-off.png', 'unpublished'),
+                    App::blog()::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
+                    App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'check-wrn.png', 'pending'),
                 };
             } catch (UnhandledMatchError) {
             }
@@ -527,7 +527,7 @@ class ManagePage extends Process
                 'status-box' => [
                     'title' => __('Status'),
                     'items' => [
-                        'post_status' => '<p><label for="post_status">' . __('Page status') . '</label> ' .
+                        'post_status' => '<p class="entry-status"><label for="post_status">' . __('Page status') . ' ' . $img_status . '</label> ' .
                         form::combo(
                             'post_status',
                             App::backend()->status_combo,

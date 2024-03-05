@@ -1680,7 +1680,6 @@ h1,
   color: var(--breadcrumb-current);
 }
 .page-title img {
-  padding-left: 0.5em;
   vertical-align: middle;
 }
 
@@ -1713,11 +1712,6 @@ h1,
 #entry-sidebar h5 {
   font-weight: normal;
   color: var(--entry-sidebar-title-color);
-}
-
-.entry-status img.img_select_option {
-  padding-left: 4px;
-  vertical-align: -1px;
 }
 
 h4 label,
@@ -4972,8 +4966,13 @@ img.go_home {
 }
 
 /* ------------------------------------------------------------------------- indicateurs */
-.info img.mark {
+.info img.mark,
+li img.mark {
   vertical-align: middle;
+}
+
+.entry-status img.mark {
+  vertical-align: text-bottom;
 }
 
 .mark-attach {
@@ -4986,7 +4985,8 @@ img.go_home {
   filter: var(--mark-attach-filter);
 }
 
-.mark-locked {
+.mark-locked,
+.mark-scheduled {
   width: 1.4em;
 }
 

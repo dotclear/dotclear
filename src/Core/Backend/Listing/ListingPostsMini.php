@@ -95,7 +95,7 @@ class ListingPostsMini extends Listing
 
                 break;
             case App::blog()::POST_SCHEDULED:
-                $img_status = sprintf($img, __('Scheduled'), 'scheduled.png', 'scheduled');
+                $img_status = sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled');
                 $sts_class  = 'sts-scheduled';
 
                 break;

@@ -931,12 +931,12 @@ class MediaItem extends Process
                 echo
                 '<ul>';
                 while ($rs->fetch()) {
-                    $img        = '<img alt="%1$s" src="images/%2$s">';
+                    $img        = '<img alt="%1$s" class="mark mark-%3$s" src="images/%2$s">';
                     $img_status = match ((int) $rs->post_status) {
-                        App::blog()::POST_PUBLISHED   => sprintf($img, __('Published'), 'check-on.png'),
-                        App::blog()::POST_UNPUBLISHED => sprintf($img, __('Unpublished'), 'check-off.png'),
-                        App::blog()::POST_SCHEDULED   => sprintf($img, __('Scheduled'), 'scheduled.png'),
-                        App::blog()::POST_PENDING     => sprintf($img, __('Pending'), 'check-wrn.png'),
+                        App::blog()::POST_PUBLISHED   => sprintf($img, __('Published'), 'check-on.png', 'published'),
+                        App::blog()::POST_UNPUBLISHED => sprintf($img, __('Unpublished'), 'check-off.png', 'unpublished'),
+                        App::blog()::POST_SCHEDULED   => sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled'),
+                        App::blog()::POST_PENDING     => sprintf($img, __('Pending'), 'check-wrn.png', 'pending'),
                         default                       => '',
                     };
 
