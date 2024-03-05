@@ -224,8 +224,9 @@ class ListingComments extends Listing
             '</td>',
             'type' => '<td class="nowrap" abbr="' . __('Type and author') . '" scope="row">' .
             '<a href="' . $comment_url . '" title="' . $comment_title . '">' .
-            '<img src="images/edit-mini.png" alt="' . __('Edit') . '"> ' .
-            ($this->rs->comment_trackback ? __('trackback') : __('comment')) . ' ' . '</a></td>',
+            '<img class="mark mark-edit light-only" src="images/edit.svg" alt="' . __('Edit') . '">' .
+            '<img class="mark mark-edit dark-only" src="images/edit-dark.svg" alt="' . __('Edit') . '">' .
+            ' ' . ($this->rs->comment_trackback ? __('trackback') : __('comment')) . ' ' . '</a></td>',
             'author' => '<td class="nowrap maximal"><a href="' . $author_url . '">' .
             Html::escapeHTML($this->rs->comment_author) . '</a></td>',
             'date' => '<td class="nowrap count">' .

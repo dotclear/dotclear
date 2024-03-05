@@ -978,7 +978,9 @@ class ManagePage extends Process
             echo
             '<td class="nowrap status">' . $img_status . '</td>' .
             '<td class="nowrap status"><a href="' . $comment_url . '" title="' . __('Edit this comment') . '">' .
-            '<img src="images/edit-mini.png" alt=""> ' . __('Edit') . '</a></td>' .
+            '<img class="mark mark-edit light-only" src="images/edit.svg" alt="">' .
+            '<img class="mark mark-edit dark-only" src="images/edit-dark.svg" alt="">' .
+            ' ' . __('Edit') . '</a></td>' .
             '</tr>';
         }
 

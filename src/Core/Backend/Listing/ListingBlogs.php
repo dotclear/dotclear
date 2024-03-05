@@ -127,7 +127,9 @@ class ListingBlogs extends Listing
             (App::auth()->isSuperAdmin() ?
                 '<a href="' . App::backend()->url()->get('admin.blog', ['id' => $blog_id]) . '"  ' .
                 'title="' . sprintf(__('Edit blog settings for %s'), $blog_id) . '">' .
-                '<img src="images/edit-mini.png" alt="' . __('Edit blog settings') . '"> ' . $blog_id . '</a> ' :
+                '<img class="mark mark-edit light-only" src="images/edit.svg" alt="' . __('Edit blog settings') . '">' .
+                '<img class="mark mark-edit dark-only" src="images/edit-dark.svg" alt="' . __('Edit blog settings') . '">' .
+                ' ' . $blog_id . '</a> ' :
                 $blog_id . ' ') .
             '</td>',
             'name' => '<td class="maximal">' .

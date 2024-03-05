@@ -226,7 +226,9 @@ class Manage extends Process
                 $gui_link = '&nbsp;';
                 if ($f->hasGUI()) {
                     $gui_link = '<a href="' . Html::escapeHTML($f->guiURL()) . '" title="' . __('Filter configuration') . '">' .
-                        '<img src="images/edit-mini.png" alt="' . __('Filter configuration') . '"></a>';
+                        '<img class="mark mark-edit light-only" src="images/edit.svg" alt="' . __('Filter configuration') . '">' .
+                        '<img class="mark mark-edit dark-only" src="images/edit-dark.svg" alt="' . __('Filter configuration') . '">' .
+                        '</a>';
                 }
 
                 echo

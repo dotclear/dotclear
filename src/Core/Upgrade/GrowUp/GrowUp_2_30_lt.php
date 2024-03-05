@@ -27,6 +27,7 @@ class GrowUp_2_30_lt
                 'admin/images/check-off.png',
                 'admin/images/check-wrn.png',
                 'admin/images/comments.png',
+                'admin/images/edit-mini.png',
                 'admin/images/hidden.png',
                 'admin/images/junk.png',
                 'admin/images/locker.png',
