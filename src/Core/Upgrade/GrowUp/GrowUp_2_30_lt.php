@@ -23,6 +23,7 @@ class GrowUp_2_30_lt
             // Files
             [
                 'admin/images/attach.png',
+                'admin/images/comments.png',
                 'admin/images/scheduled.png',
                 'admin/images/selected.png',
                 'admin/images/trackbacks.png',
