@@ -4157,6 +4157,9 @@ li.media-action form {
 li.media-action input {
   border: none;
 }
+li.media-action input[type=checkbox] {
+  margin-top: -0.5em;
+}
 
 td.media-action {
   padding: 0.4em 0 0.4em 0.5em;
@@ -4228,6 +4231,16 @@ tr.media-folder .media-link {
 .media-remove img {
   height: 1.25em;
   padding-top: 0.25em;
+}
+
+.attach-media img,
+.insert-media img {
+  height: 1.25em;
+  padding-top: 0.25em;
+}
+
+.info.attach-media img {
+  vertical-align: text-bottom;
 }
 
 /* upload multiple */

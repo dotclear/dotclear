@@ -164,7 +164,7 @@ class ListingMedia extends Listing
             if ($filters->select > 0) {
                 if ($filters->select == 1) {
                     // Single media selection button
-                    $act .= '<a href="' . $link . '"><img src="images/plus.png" alt="' . __('Select this file') . '" ' .
+                    $act .= '<a class="insert-media" href="' . $link . '"><img src="images/plus.svg" alt="' . __('Select this file') . '" ' .
                     'title="' . __('Select this file') . '"></a> ';
                 } else {
                     // Multiple media selection checkbox
@@ -180,12 +180,12 @@ class ListingMedia extends Listing
                         ['media_id' => $file->media_id, 'post_id' => $filters->post_id, 'attach' => 1, 'link_type' => $filters->link_type]
                     ) .
                     '">' .
-                    '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '">' .
+                    '<img src="images/plus.svg" alt="' . __('Attach this file to entry') . '">' .
                         '</a>';
                 }
                 if ($filters->popup) {
                     // Media insertion button
-                    $act .= '<a href="' . $link . '"><img src="images/plus.png" alt="' . __('Insert this file into entry') . '" ' .
+                    $act .= '<a class="insert-media" href="' . $link . '"><img src="images/plus.svg" alt="' . __('Insert this file into entry') . '" ' .
                     'title="' . __('Insert this file into entry') . '"></a> ';
                 }
             }

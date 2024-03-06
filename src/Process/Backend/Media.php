@@ -336,10 +336,10 @@ class Media extends Process
         if (App::backend()->page->select) {
             // Select mode (popup or not)
             echo
-            '<div class="' . (App::backend()->page->popup ? 'form-note ' : '') . 'info"><p>';
+            '<div class="' . (App::backend()->page->popup ? 'form-note ' : '') . 'info attach-media"><p>';
             if (App::backend()->page->select == 1) {
                 echo
-                sprintf(__('Select a file by clicking on %s'), '<img src="images/plus.png" alt="' . __('Select this file') . '">');
+                sprintf(__('Select a file by clicking on %s'), '<img src="images/plus.svg" alt="' . __('Select this file') . '">');
             } else {
                 echo
                 sprintf(__('Select files and click on <strong>%s</strong> button'), __('Choose selected medias'));
@@ -352,10 +352,10 @@ class Media extends Process
         } else {
             if (App::backend()->page->post_id) {
                 echo
-                '<div class="form-note info"><p>' . sprintf(
+                '<div class="form-note info attach-media"><p>' . sprintf(
                     __('Choose a file to attach to entry %s by clicking on %s'),
                     '<a href="' . App::postTypes()->get(App::backend()->page->getPostType())->adminUrl(App::backend()->page->post_id) . '">' . Html::escapeHTML(App::backend()->page->getPostTitle()) . '</a>',
-                    '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '">'
+                    '<img src="images/plus.svg" alt="' . __('Attach this file to entry') . '">'
                 );
                 if (App::backend()->page->mediaWritable()) {
                     echo
@@ -366,9 +366,9 @@ class Media extends Process
             }
             if (App::backend()->page->popup) {
                 echo
-                '<div class="info"><p>' . sprintf(
+                '<div class="info attach-media"><p>' . sprintf(
                     __('Choose a file to insert into entry by clicking on %s'),
-                    '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '">'
+                    '<img src="images/plus.svg" alt="' . __('Attach this file to entry') . '">'
                 );
                 if (App::backend()->page->mediaWritable()) {
                     echo

@@ -124,6 +124,9 @@ li.media-action {
   input {
     border: none;
   }
+  input[type='checkbox'] {
+    margin-top: -0.5em;
+  }
 }
 
 td.media-action {
@@ -202,6 +205,18 @@ tr.media-folder {
 .media-remove img {
   height: 1.25em;
   padding-top: 0.25em;
+}
+.attach-media,
+.insert-media {
+  img {
+    height: 1.25em;
+    padding-top: 0.25em;
+  }
+}
+.info.attach-media {
+  img {
+    vertical-align: text-bottom;
+  }
 }
 
 /* upload multiple */
