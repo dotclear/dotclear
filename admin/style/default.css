@@ -4357,14 +4357,14 @@ label span.one-file {
 }
 
 .upload-progress {
-  padding: 0.3em 0;
+  margin: 1em 1em 1em 0;
 }
 .upload-progress div {
   width: 0;
   height: 1.2em;
   font-weight: bold;
   line-height: 1.2em;
-  text-align: right;
+  text-align: center;
   background: url(loader.png) repeat-x left top;
   background-color: var(--upload-progress-background);
   color: var(--upload-progress-color);
