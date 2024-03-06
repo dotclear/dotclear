@@ -4920,6 +4920,7 @@ img.go_home {
 .pager .btn img {
   width: 1em;
   height: auto;
+  vertical-align: middle;
 }
 .pager .btn.no-link {
   padding: 0.125em calc(0.25em + 3px);
