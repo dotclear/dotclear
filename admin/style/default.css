@@ -3091,9 +3091,8 @@ h1 a:link {
   margin: 0.3em 0 1.5em 0;
 }
 
-/* lien d'aide générale dans le help content */
 #helplink p {
-  padding: 0 0 0 0.5em;
+  padding: 1em 0 0 1em;
 }
 
 span.tooltip {
