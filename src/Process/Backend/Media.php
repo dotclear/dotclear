@@ -265,8 +265,9 @@ class Media extends Process
                     $ld_params['fav'] = 'n';
                     $fav_url          = urldecode(App::backend()->url()->get('admin.media', $ld_params));
                     unset($ld_params['fav']);
-                    $fav_img = 'images/fav-on.png';
-                    $fav_alt = __('Remove this folder from your favorites');
+                    $fav_img      = 'images/fav-on.svg';
+                    $fav_img_dark = 'images/fav-on-dark.svg';
+                    $fav_alt      = __('Remove this folder from your favorites');
                 }
             }
             if ($last_folders_item != '') {
@@ -288,8 +289,9 @@ class Media extends Process
                         $ld_params['fav'] = 'y';
                         $fav_url          = urldecode(App::backend()->url()->get('admin.media', $ld_params));
                         unset($ld_params['fav']);
-                        $fav_img = 'images/fav-off.png';
-                        $fav_alt = __('Add this folder to your favorites');
+                        $fav_img      = 'images/fav-off.svg';
+                        $fav_img_dark = 'images/fav-off-dark.svg';
+                        $fav_alt      = __('Add this folder to your favorites');
                     }
                 }
             }
@@ -299,7 +301,10 @@ class Media extends Process
                     '<select name="switchfolder" id="switchfolder">' .
                     $last_folders_item .
                     '</select>' .
-                    ' <a id="media-fav-dir" href="' . $fav_url . '" title="' . $fav_alt . '"><img src="' . $fav_img . '" alt="' . $fav_alt . '"></a>' .
+                    ' <a id="media-fav-dir" href="' . $fav_url . '" title="' . $fav_alt . '">' .
+                    '<img class="mark mark-fav light-only" src="' . $fav_img . '" alt="' . $fav_alt . '">' .
+                    '<img class="mark mark-fav dark-only" src="' . $fav_img_dark . '" alt="' . $fav_alt . '">' .
+                    '</a>' .
                     '</p>';
             }
         }

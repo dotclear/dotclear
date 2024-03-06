@@ -32,6 +32,8 @@ class GrowUp_2_30_lt
                 'admin/images/disabled_up.png',
                 'admin/images/down.png',
                 'admin/images/edit-mini.png',
+                'admin/images/fav-on.png',
+                'admin/images/fav-off.png',
                 'admin/images/hidden.png',
                 'admin/images/junk.png',
                 'admin/images/locker.png',
