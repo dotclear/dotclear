@@ -127,6 +127,14 @@ h1,
   }
 }
 
+body.light-mode,
+body.dark-mode.upgrade-mode {
+  .collapse-mm,
+  .expand-mm {
+    filter: invert(1); // black → white on dark background
+  }
+}
+
 #wrapper.hide-mm {
   background: var(--content-background);
 }

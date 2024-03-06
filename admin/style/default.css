@@ -1278,6 +1278,13 @@ h1,
   display: block;
 }
 
+body.light-mode .collapse-mm,
+body.light-mode .expand-mm,
+body.dark-mode.upgrade-mode .collapse-mm,
+body.dark-mode.upgrade-mode .expand-mm {
+  filter: invert(1);
+}
+
 #wrapper.hide-mm {
   background: var(--content-background);
 }

@@ -106,8 +106,8 @@ class HelpCharte extends Process
   </div>
   <div id="wrapper" class="clearfix">
     <div class="hidden-if-no-js collapser-box"><button type="button" id="collapser" class="void-btn">
-        <img class="collapse-mm visually-hidden" src="images/collapser-hide.png" alt="Cacher le menu">
-        <img class="expand-mm visually-hidden" src="images/collapser-show.png" alt="Montrer le menu">
+        <img class="collapse-mm visually-hidden" src="images/hide.svg" alt="Cacher le menu">
+        <img class="expand-mm visually-hidden" src="images/expand.svg" alt="Montrer le menu">
         </button></div>
     <div id="main">
       <div id="content" class="clearfix">

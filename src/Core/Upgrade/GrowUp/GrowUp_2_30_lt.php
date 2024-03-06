@@ -27,6 +27,8 @@ class GrowUp_2_30_lt
                 'admin/images/check-on.png',
                 'admin/images/check-off.png',
                 'admin/images/check-wrn.png',
+                'admin/images/collapser-hide.png',
+                'admin/images/collapser-show.png',
                 'admin/images/comments.png',
                 'admin/images/disabled_down.png',
                 'admin/images/disabled_up.png',

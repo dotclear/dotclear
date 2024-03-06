@@ -310,8 +310,8 @@ class Page
         echo
         '<div id="wrapper" class="clearfix">' . "\n" .
         '<div class="hidden-if-no-js collapser-box"><button type="button" id="collapser" class="void-btn">' .
-        '<img class="collapse-mm visually-hidden" src="images/collapser-hide.png" alt="' . __('Hide main menu') . '">' .
-        '<img class="expand-mm visually-hidden" src="images/collapser-show.png" alt="' . __('Show main menu') . '">' .
+        '<img class="collapse-mm visually-hidden" src="images/hide.svg" alt="' . __('Hide main menu') . '">' .
+        '<img class="expand-mm visually-hidden" src="images/expand.svg" alt="' . __('Show main menu') . '">' .
             '</button></div>' .
             '<main id="main" role="main">' . "\n" .
             '<div id="content" class="clearfix">' . "\n";
