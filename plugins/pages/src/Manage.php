@@ -98,10 +98,15 @@ class Manage extends Process
             return;
         }
 
+        $head = '';
+        if (!App::auth()->prefs()->accessibility->nodragdrop) {
+            $head = Page::jsLoad('js/jquery/jquery-ui.custom.js') .
+            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
+        }
+
         Page::openModule(
             __('Pages'),
-            Page::jsLoad('js/jquery/jquery-ui.custom.js') .
-            Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+            $head .
             Page::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
             My::jsLoad('list')
         );

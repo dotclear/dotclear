@@ -409,7 +409,7 @@ class Config extends Process
             $count++;
             echo
             '<tr class="line" id="l_' . $i . '">' .
-            '<td class="handle minimal">' . form::number(['order[' . $i . ']'], [
+            '<td class="' . (App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle ') . 'minimal">' . form::number(['order[' . $i . ']'], [
                 'min'     => 0,
                 'max'     => is_countable(App::backend()->ductile_stickers) ? count(App::backend()->ductile_stickers) : 0,
                 'default' => $count,

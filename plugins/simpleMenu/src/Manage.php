@@ -693,7 +693,7 @@ class Manage extends Process
                 if (App::backend()->step === self::STEP_LIST) {
                     $count++;
                     echo
-                    '<td class="handle minimal">' .
+                    '<td class="' . (App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle ') . 'minimal">' .
                     form::number(['order[' . $i . ']'], [
                         'min'        => 1,
                         'max'        => count(App::backend()->current_menu),

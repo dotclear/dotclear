@@ -4632,9 +4632,6 @@ body.dark-mode .modules a.module-config {
 #my-favs {
   border-color: var(--my-favs-border);
 }
-#my-favs input.position {
-  margin: 0 0 0.4em 0.2em;
-}
 
 #available-favs input,
 #available-favs label,

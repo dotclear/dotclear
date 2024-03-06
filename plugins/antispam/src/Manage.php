@@ -233,7 +233,7 @@ class Manage extends Process
 
                 echo
                 '<tr class="line' . ($f->active ? '' : ' offline') . '" id="f_' . $fid . '">' .
-                '<td class="handle">' . form::number(['f_order[' . $fid . ']'], [
+                '<td class="' . (App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle') . '">' . form::number(['f_order[' . $fid . ']'], [
                     'min'        => 1,
                     'max'        => is_countable(App::backend()->filters) ? count(App::backend()->filters) : 0,
                     'default'    => $i,

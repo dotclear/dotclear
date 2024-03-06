@@ -262,7 +262,7 @@ class Manage extends Process
 
                 echo
                 '<tr class="line" id="l_' . $rs->link_id . '">' .
-                '<td class="handle minimal">' . form::number(['order[' . $rs->link_id . ']'], [
+                '<td class="' . (App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle ') . 'minimal">' . form::number(['order[' . $rs->link_id . ']'], [
                     'min'        => 1,
                     'max'        => $rs->count(),
                     'default'    => $position,

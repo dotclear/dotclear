@@ -156,7 +156,7 @@ class BackendList extends Listing
         ' id="p' . $this->rs->post_id . '">';
 
         $cols = [
-            'position' => '<td class="nowrap handle minimal">' .
+            'position' => '<td class="nowrap' . (App::auth()->prefs()->accessibility->nodragdrop ? ' ' : ' handle ') . 'minimal">' .
             form::number(['order[' . $this->rs->post_id . ']'], [
                 'min'        => 1,
                 'default'    => $count + 1,
