@@ -43,6 +43,7 @@ class GrowUp_2_30_lt
                 'admin/images/superadmin.png',
                 'admin/images/trackbacks.png',
                 'admin/images/up.png',
+                'admin/js/easter.js',
                 'admin/style/cancel.png',
                 'admin/style/drag.png',
                 'admin/style/search.png',
