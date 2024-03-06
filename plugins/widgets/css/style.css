@@ -1,5 +1,4 @@
-/* ------------------------------------------------------------- side bars */
-
+/* side bars */
 #sidebarsWidgets {
   float: left;
   width: 49%;
@@ -49,28 +48,23 @@
 }
 .sortable-delete.if-drag {
   border: 1px dotted #999;
-  /*  color: #000; */
   font-weight: bold;
   list-style-type: none;
   margin: 0 0 1em;
   padding: 0.5em 1em;
   display: block;
-  /*  background: #fafafa; */
 }
 .sortable-delete > li {
   margin-bottom: 3px;
 }
 .sortable-delete > li.sortable-delete-placeholder {
   border: 0 none;
-  /*  color: #aaa; */
   font-size: 1em;
   font-weight: bold;
   text-align: center;
 }
 .widget-name {
-  /*  background: #eef;
-  color: #000; */
-  padding: 4px 6px;
+  padding: 0.25em 0.5em;
   margin: 0;
   font-weight: bold;
 }
@@ -85,7 +79,6 @@
 .widget-name a.aexpand:link,
 .widget-name a.aexpand:visited {
   border: 0 none;
-  /*  color: #000; */
   text-decoration: none;
 }
 #dndnav .form-note,
@@ -99,17 +92,15 @@
 .widgetSettings {
   border-top: 1px solid #ddd;
   padding: 8px 6px;
-  /*  background: #f5f5f5; */
 }
 #sidebarsControl {
   clear: left;
 }
-/* ------------------------------------------------------------- list Widgets ref */
 
+/* list Widgets ref */
 #listWidgets {
   float: left;
   width: 49%;
-  /*  background: #eee; */
   padding: 1.5em 1% 0;
   margin: 0 1% 0 0;
 }
@@ -120,14 +111,12 @@
 #widgets-ref > li {
   border: 1px solid #ccc;
   margin-bottom: 0.5em;
-  /*  background: #fff; */
   min-height: 3em;
   padding: 0 0 4px 0;
   list-style: none;
 }
 #widgets-ref .widget-name,
 #widgets-ref .manual-move {
-  /*  background: #fff; */
   margin-bottom: 0;
   padding: 4px 8px 0;
 }
@@ -137,18 +126,29 @@
 #widgets-ref .widget-name .form-note {
   display: block;
   font-style: normal;
-  font-size: 1.1rem;
+  font-size: 0.9em;
 }
 #widgets-ref .widgetSettings {
   display: none;
 }
-.removeWidget {
-  margin-left: 1em;
-  height: 1.25em;
-  padding-top: 0.25em;
-}
-/* ------------------------------------------------------------- help */
 
+.toolsWidget {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25em;
+}
+.upWidget,
+.downWidget,
+.removeWidget {
+  width: 1.6em;
+  padding: 0.25em;
+}
+body.dark-mode .upWidget:not(:disabled),
+body.dark-mode .downWidget:not(:disabled) {
+  filter: brightness(1.5);
+}
+
+/* help */
 #widgets-tpl dt {
   margin: 1em 0 0 0;
 }

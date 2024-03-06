@@ -397,10 +397,8 @@ class Manage extends Process
 
         $i = 0;
         foreach ($widgets->elements() as $w) {
-            $upDisabled   = $i == 0 ? ' disabled" src="images/disabled_' : '" src="images/';
-            $downDisabled = $i == count($widgets->elements()) - 1 ? ' disabled" src="images/disabled_' : '" src="images/';
-            $altUp        = $i == 0 ? ' alt=""' : ' alt="' . __('Up the widget') . '"';
-            $altDown      = $i == count($widgets->elements()) - 1 ? ' alt=""' : ' alt="' . __('Down the widget') . '"';
+            $upDisabled   = $i === 0;
+            $downDisabled = $i == count($widgets->elements()) - 1;
 
             $iname   = 'w[' . $pr . '][' . $i . ']';
             $offline = $w->isOffline() ? ' offline' : '';
@@ -414,9 +412,9 @@ class Manage extends Process
             ' ' . $w->name() .
             ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') .
             '<span class="toolsWidget remove-if-drag">' .
-            '<input type="image" class="upWidget' . $upDisabled . 'up.png" name="' . $iname . '[_up]" value="' . __('Up the widget') . '"' . $altUp . '> ' .
-            '<input type="image" class="downWidget' . $downDisabled . 'down.png" name="' . $iname . '[_down]" value="' . __('Down the widget') . '"' . $altDown . '> ' . ' ' .
-            '<input type="image" class="removeWidget" src="images/trash.svg" name="' . $iname . '[_rem]" value="' . __('Remove widget') . '" alt="' . __('Remove the widget') . '">' .
+            '<input type="image" class="upWidget" ' . ($upDisabled ? 'disabled' : '') . ' src="images/' . ($upDisabled ? 'disabled_' : '') . 'up.svg" name="' . $iname . '[_up]" alt="' . __('Up the widget') . '" title="' . __('Up the widget') . '"> ' .
+            '<input type="image" class="downWidget" ' . ($downDisabled ? 'disabled' : '') . ' src="images/' . ($downDisabled ? 'disabled_' : '') . 'down.svg" name="' . $iname . '[_down]" alt="' . __('Down the widget') . '" title="' . __('Down the widget') . '"> ' . ' ' .
+            '<input type="image" class="removeWidget" src="images/trash.svg" name="' . $iname . '[_rem]" alt="' . __('Remove the widget') . '" title="' . __('Remove the widget') . '">' .
             '</span>' .
             '<br class="clear"></p>' .
             '<div class="widgetSettings hidden-if-drag">' . $w->formSettings($iname, $j) . '</div>' .
