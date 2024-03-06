@@ -82,10 +82,10 @@ class ListingUsers extends Listing
 
             echo $blocks[1];
 
-            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" src="images/%2$s"> %1$s', $title, $image);
+            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" class="mark mark-admin" src="images/%2$s"> %1$s', $title, $image);
             echo '<p class="info">' . __('Legend: ') .
-                $fmt(__('admin'), 'admin.png') . ' - ' .
-                $fmt(__('superadmin'), 'superadmin.png') .
+                $fmt(__('admin'), 'admin.svg') . ' - ' .
+                $fmt(__('superadmin'), 'superadmin.svg') .
                 '</p>';
 
             echo $blocks[2];
@@ -101,16 +101,16 @@ class ListingUsers extends Listing
      */
     private function userLine(): string
     {
-        $img        = '<img alt="%1$s" src="images/%2$s">';
+        $img        = '<img alt="%1$s" class="mark mark-admin" src="images/%2$s">';
         $img_status = '';
 
         $p = App::users()->getUserPermissions($this->rs->user_id);
 
         if (isset($p[App::blog()->id()]['p']['admin'])) {
-            $img_status = sprintf($img, __('admin'), 'admin.png');
+            $img_status = sprintf($img, __('admin'), 'admin.svg');
         }
         if ($this->rs->user_super) {
-            $img_status = sprintf($img, __('superadmin'), 'superadmin.png');
+            $img_status = sprintf($img, __('superadmin'), 'superadmin.svg');
         }
 
         $res = '<tr class="line">';

@@ -22,6 +22,7 @@ class GrowUp_2_30_lt
         Upgrade::houseCleaning(
             // Files
             [
+                'admin/images/admin.png',
                 'admin/images/attach.png',
                 'admin/images/check-on.png',
                 'admin/images/check-off.png',
@@ -34,6 +35,7 @@ class GrowUp_2_30_lt
                 'admin/images/plus.png',
                 'admin/images/scheduled.png',
                 'admin/images/selected.png',
+                'admin/images/superadmin.png',
                 'admin/images/trackbacks.png',
                 'admin/style/cancel.png',
                 'admin/style/drag.png',

@@ -3805,14 +3805,15 @@ span.ibw {
 li.user_super,
 li.user_admin {
   margin-left: 0;
-  padding-left: 20px;
+  padding-left: 1.6em;
   list-style: none;
-  background: url(../images/superadmin.png) no-repeat 0 0.3em;
+  background: url(../images/superadmin.svg) no-repeat 0 0;
+  background-size: 1.4em;
   background-color: transparent;
 }
 
 li.user_admin {
-  background-image: url(../images/admin.png);
+  background-image: url(../images/admin.svg);
 }
 
 /* pour les alignements verticaux */
@@ -5002,7 +5003,8 @@ p img.mark {
 .mark-spam,
 .mark-junk,
 .mark-hidden,
-.mark-edit {
+.mark-edit,
+.mark-admin {
   width: 1.4em;
 }
 
