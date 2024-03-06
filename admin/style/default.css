@@ -1992,7 +1992,7 @@ input:not([type=file]):invalid:placeholder-shown {
   box-shadow: 1px 1px 2px var(--input-shadow) inset;
   padding: 3px;
   border-width: 1px;
-  border-style: solid;
+  border-style: inset;
   border-color: var(--input-border);
 }
 
@@ -2014,7 +2014,7 @@ input:not([type=file]):invalid:not(:focus):not(:required) {
 input:invalid:not(:required),
 textarea:invalid:not(:required),
 input:not([type=file]):invalid:not(:focus):not(:required) {
-  border: 1px solid var(--invalid-input-border);
+  border: 1px inset var(--invalid-input-border);
   background: var(--invalid-input-background);
 }
 
