@@ -669,9 +669,9 @@ h6 {
   --msg-background: #676e78;
   --msg-background-alt: #caced2;
   --msg-shadow: rgba(48, 50, 54, 0.1);
-  --msg-info-color: #303236;
-  --msg-info-background: #d9edf7;
-  --msg-info-border: #d9edf7;
+  --msg-info-color: #fff;
+  --msg-info-background: #494c52;
+  --msg-info-border: #494c52;
   --msg-warn-color: #303236;
   --msg-warn-background: #fefacd;
   --msg-warn-background-alt: #ffd478;
@@ -924,9 +924,9 @@ h6 {
     --msg-background: #676e78;
     --msg-background-alt: #caced2;
     --msg-shadow: rgba(48, 50, 54, 0.1);
-    --msg-info-color: #303236;
-    --msg-info-background: #d9edf7;
-    --msg-info-border: #d9edf7;
+    --msg-info-color: #fff;
+    --msg-info-background: #494c52;
+    --msg-info-border: #494c52;
     --msg-warn-color: #303236;
     --msg-warn-background: #fefacd;
     --msg-warn-background-alt: #ffd478;
@@ -5015,11 +5015,6 @@ p img.mark {
 
 .mark-selected {
   filter: var(--mark-selected-filter);
-}
-
-p.info .mark-attach,
-p.info .mark-selected {
-  filter: none;
 }
 
 /* ---------------------------------------------------------------- utilisables partout  */

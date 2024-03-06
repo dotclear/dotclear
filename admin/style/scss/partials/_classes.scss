@@ -338,12 +338,6 @@ p {
 .mark-selected {
   filter: var(--mark-selected-filter);
 }
-p.info {
-  .mark-attach,
-  .mark-selected {
-    filter: none;
-  }
-}
 
 /* ---------------------------------------------------------------- utilisables partout  */
 
