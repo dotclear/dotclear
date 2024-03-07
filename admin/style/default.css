@@ -3371,7 +3371,7 @@ span.ibw {
   padding: 0 2em 0 0;
 }
 #filters-form .filters-sibling-cell {
-  padding-top: 3.8em;
+  padding-top: 4em;
 }
 #filters-form .filters-options {
   padding-left: 2em;
@@ -4052,15 +4052,20 @@ p.cat-title {
   width: 100%;
 }
 
-.media-file-mode a {
-  border-bottom: none;
-}
-.media-file-mode img {
-  margin-right: 1em;
-}
-
 span.media-file-mode {
   margin-right: 1em;
+  display: flex;
+  gap: 0.5em;
+}
+span.media-file-mode a {
+  border-bottom: none;
+}
+span.media-file-mode img {
+  width: 2.4em;
+  height: auto;
+}
+span.media-file-mode img.disabled {
+  filter: grayscale(1) opacity(0.5);
 }
 
 .media-item {

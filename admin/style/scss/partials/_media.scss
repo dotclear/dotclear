@@ -1,15 +1,17 @@
-.media-file-mode {
+span.media-file-mode {
+  margin-right: 1em;
+  display: flex;
+  gap: 0.5em;
   a {
     border-bottom: none;
   }
-
   img {
-    margin-right: 1em;
+    width: 2.4em;
+    height: auto;
+    &.disabled {
+      filter: grayscale(1) opacity(0.5);
+    }
   }
-}
-
-span.media-file-mode {
-  margin-right: 1em;
 }
 
 .media-item {

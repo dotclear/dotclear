@@ -391,10 +391,12 @@ class Media extends Process
         App::backend()->page->add((new Filter('file_mode'))->value(App::backend()->page->file_mode)->html(
             '<p><span class="media-file-mode">' .
             '<a href="' . App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => 'grid'])) . '" title="' . __('Grid display mode') . '">' .
-            '<img src="images/grid-' . (App::backend()->page->file_mode == 'grid' ? 'on' : 'off') . '.png" alt="' . __('Grid display mode') . '">' .
+            '<img class="light-only' . (App::backend()->page->file_mode === 'grid' ? '' : ' disabled') . '" src="images/grid.svg" alt="' . __('Grid display mode') . '">' .
+            '<img class="dark-only' . (App::backend()->page->file_mode === 'grid' ? '' : ' disabled') . '" src="images/grid-dark.svg" alt="' . __('Grid display mode') . '">' .
             '</a>' .
             '<a href="' . App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => 'list'])) . '" title="' . __('List display mode') . '">' .
-            '<img src="images/list-' . (App::backend()->page->file_mode == 'list' ? 'on' : 'off') . '.png" alt="' . __('List display mode') . '">' .
+            '<img class="light-only' . (App::backend()->page->file_mode === 'list' ? '' : ' disabled') . '" src="images/list.svg" alt="' . __('List display mode') . '">' .
+            '<img class="dark-only' . (App::backend()->page->file_mode === 'list' ? '' : ' disabled') . '" src="images/list-dark.svg" alt="' . __('List display mode') . '">' .
             '</a>' .
             '</span></p>',
             false
