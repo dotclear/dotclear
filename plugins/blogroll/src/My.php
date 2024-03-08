@@ -3,7 +3,7 @@
  * @package     Dotclear
  *
  * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   GPL-2.0-only
+ * @copyright   AGPL-3.0
  */
 declare(strict_types=1);
 
@@ -25,7 +25,8 @@ class My extends MyPlugin
         return match ($context) {
             // Limit backend to (content) admin and blogroll user
             self::MODULE => !App::task()->checkContext('BACKEND')
-                || (App::blog()->isDefined()
+                || (
+                    App::blog()->isDefined()
                     && App::auth()->check(App::auth()->makePermissions([
                         Blogroll::PERMISSION_BLOGROLL,
                         App::auth()::PERMISSION_ADMIN,
@@ -42,7 +43,7 @@ class My extends MyPlugin
                     App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]), App::blog()->id()),
 
-            default =>  null,
+            default => null,
         };
     }
 }

@@ -7,7 +7,7 @@
  * @package   Dotclear
  *
  * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   GPL-2.0-only
+ * @copyright   AGPL-3.0
  */
 echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcLegacyEditor') => '']) . \Dotclear\Core\Backend\Notices::getNotices(); ?>
 

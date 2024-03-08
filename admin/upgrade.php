@@ -7,7 +7,7 @@
  * @package 	Dotclear
  *
  * @copyright 	Olivier Meunier & Association Dotclear
- * @copyright 	GPL-2.0-only
+ * @copyright 	AGPL-3.0
  */
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'App.php']);
 

@@ -3,7 +3,7 @@
  * @package     Dotclear
  *
  * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   GPL-2.0-only
+ * @copyright   AGPL-3.0
  */
 declare(strict_types=1);
 

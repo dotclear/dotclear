@@ -4,7 +4,7 @@
  * @subpackage  Upgrade
  *
  * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   GPL-2.0-only
+ * @copyright   AGPL-3.0
  */
 declare(strict_types=1);
 
@@ -156,7 +156,7 @@ class Digests extends Process
             ->render();
 
         if (isset($_POST['override'])) {
-            $item = empty(self::$zip_name) ? (new Text()) :(new Text(
+            $item = empty(self::$zip_name) ? (new Text()) : (new Text(
                 null,
                 is_file(self::$path_helpus) ?
                 sprintf((string) file_get_contents(self::$path_helpus), App::upgrade()->url()->get('upgrade.digests', ['download' => self::$zip_name]), self::$zip_name, 'fakemeup@dotclear.org') :
@@ -187,7 +187,6 @@ class Digests extends Process
                             ->text(__('Update Dotclear')),
                     ])
                     ->render();
-
             } else {
                 $changed       = [];
                 $block_changed = '';
@@ -216,8 +215,8 @@ class Digests extends Process
                         ->items([
                             (new Para())
                                 ->items([
-                                (new Text(null, __('The following files digests will have their checksum cleaned:'))),
-                            ]),
+                                    (new Text(null, __('The following files digests will have their checksum cleaned:'))),
+                                ]),
                             (new Para(null, 'ul'))
                                 ->items($removed),
                         ])
@@ -255,7 +254,7 @@ class Digests extends Process
                                 (new Submit(['confirm'], __('Continue'))),
                                 App::nonce()->formNonce(),
                             ]),
-                ])
+                    ])
                 ->render();
             } else {
                 echo (new Form('frm-disclaimer'))

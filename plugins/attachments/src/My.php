@@ -3,7 +3,7 @@
  * @package     Dotclear
  *
  * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   GPL-2.0-only
+ * @copyright   AGPL-3.0
  */
 declare(strict_types=1);
 
@@ -23,7 +23,7 @@ class My extends MyPlugin
 {
     public static function checkCustomContext(int $context): ?bool
     {
-        return match($context) {
+        return match ($context) {
             // Whole module: Limit backend to registered user and pages user
             self::MODULE => !App::task()->checkContext('BACKEND')
                 || (

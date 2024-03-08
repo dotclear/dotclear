@@ -4,7 +4,7 @@
  * @subpackage Backend
  *
  * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright AGPL-3.0
  */
 declare(strict_types=1);
 
@@ -62,7 +62,7 @@ class Plugin extends Process
                 $class::render();
                 $res = (string) ob_get_contents();
                 ob_end_clean();
-            // by file name
+                // by file name
             } elseif (App::plugins()->moduleExists($plugin)) {
                 $p_file = App::plugins()->moduleInfo($plugin, 'root') . DIRECTORY_SEPARATOR . App::plugins()::MODULE_FILE_MANAGE;
                 if (file_exists($p_file)) {

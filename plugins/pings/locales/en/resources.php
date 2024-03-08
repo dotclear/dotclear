@@ -7,7 +7,7 @@
  * @package     Dotclear
  *
  * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   GPL-2.0-only
+ * @copyright   AGPL-3.0
  */
 \Dotclear\App::backend()->resources()
     ->set('help', 'pings', __DIR__ . '/help/pings.html')

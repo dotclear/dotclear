@@ -4,7 +4,7 @@
  * @subpackage  Upgrade
  *
  * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   GPL-2.0-only
+ * @copyright   AGPL-3.0
  */
 declare(strict_types=1);
 
@@ -96,7 +96,7 @@ class Backup extends Process
             $done  = false;
             $stack = self::$archives;
             array_pop($stack); // keep last backup
-            foreach($stack as $b_file) {
+            foreach ($stack as $b_file) {
                 try {
                     @unlink(App::config()->backupRoot() . '/' . $b_file);
                     $done = true;
@@ -158,7 +158,7 @@ class Backup extends Process
                             ->items([
                                 (new Radio(['backup_file', 'backup_file' . $i]))
                                     ->value(Html::escapeHTML($archive)),
-                                ]),
+                            ]),
                         (new Td())
                             ->class('maximal')
                             ->items([
@@ -219,7 +219,7 @@ class Backup extends Process
                 (new Note())
                         ->class('static-msg')
                         ->text(__('On this page you can revert your previous installation or delete theses files.')),
-                ...$items
+                ...$items,
             ])
             ->render();
 

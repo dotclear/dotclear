@@ -4,7 +4,7 @@
  * @subpackage Backend
  *
  * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright AGPL-3.0
  */
 declare(strict_types=1);
 
@@ -218,7 +218,7 @@ class ThemesList extends ModulesList
                 $class = $define->get('namespace') . Autoloader::NS_SEP . $this->modules::MODULE_CLASS_CONFIG;
                 if (!empty($define->get('namespace')) && class_exists($class)) {
                     $config = $class::init();
-                // by file name
+                    // by file name
                 } else {
                     $config = file_exists(Path::real(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_CONFIG);
                 }

@@ -5,7 +5,7 @@
  * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright AGPL-3.0
  */
 try {
     $js = (!empty($_SERVER['argv'][1])) ? $_SERVER['argv'][1] : null;
@@ -28,4 +28,3 @@ try {
     fwrite(STDERR, $e->getMessage() . ($js ? "($js)" : '') . "\n");
     exit(1);
 }
-?>

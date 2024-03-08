@@ -3,7 +3,7 @@
  * @package     Dotclear
  *
  * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   GPL-2.0-only
+ * @copyright   AGPL-3.0
  */
 declare(strict_types=1);
 
@@ -30,7 +30,7 @@ class My extends MyPlugin
                     Pages::PERMISSION_PAGES,
                     App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]), App::blog()->id()),
-            
+
             default => null,
         };
     }

@@ -2,7 +2,7 @@
 # @package Dotclear
 #
 # @copyright Olivier Meunier & Association Dotclear
-# @copyright GPL-2.0-only
+# @copyright AGPL-3.0
 #
 # Usage (from dotclear root)
 # po_update_core_all.sh

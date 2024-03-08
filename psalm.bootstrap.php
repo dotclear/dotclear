@@ -5,7 +5,7 @@
  * @package Dotclear
  *
  * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright AGPL-3.0
  */
 declare(strict_types=1);
 
@@ -24,7 +24,7 @@ $autoloader->addNamespace('Dotclear', implode(DIRECTORY_SEPARATOR, [__DIR__, 'sr
 
 $__autoload = [
     // Core
-    'dcCore' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.core.php']),
+    'dcCore'  => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.core.php']),
     'dcUtils' => implode(DIRECTORY_SEPARATOR, [__DIR__, 'inc', 'core', 'class.dc.utils.php']),
 
     // Moved to src

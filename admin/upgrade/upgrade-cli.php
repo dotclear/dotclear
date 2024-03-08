@@ -10,6 +10,6 @@
  * @package 	Dotclear
  *
  * @copyright 	Olivier Meunier & Association Dotclear
- * @copyright 	GPL-2.0-only
+ * @copyright 	AGPL-3.0
  */
 echo 'You should run: php ' . dirname(__DIR__) . '/upgrade.php' . "\n";

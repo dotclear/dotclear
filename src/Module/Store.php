@@ -3,7 +3,7 @@
  * @package     Dotclear
  *
  * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   GPL-2.0-only
+ * @copyright   AGPL-3.0
  */
 declare(strict_types=1);
 
@@ -135,7 +135,7 @@ class Store
                             }
                         }
                     }
-                // it's new
+                    // it's new
                 } else {
                     $new_defines[] = $str_define;
                 }
@@ -162,7 +162,7 @@ class Store
                             // if no update from main repository, add third party update
                             if (!isset($upd_versions[$str_define->getId()])) {
                                 $upd_defines[] = $str_define;
-                            // if update from third party repo is more recent than main repo, replace this last one
+                                // if update from third party repo is more recent than main repo, replace this last one
                             } elseif ($this->modules->versionsCompare($str_define->get('version'), $upd_versions[$str_define->getID()][1], '>')) {
                                 $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
 

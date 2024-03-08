@@ -4,7 +4,7 @@
  * @subpackage Zip
  *
  * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright AGPL-3.0
  */
 
 namespace Dotclear\Helper\File\Zip;

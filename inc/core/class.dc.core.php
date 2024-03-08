@@ -4,7 +4,7 @@
  * @subpackage Core
  *
  * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
+ * @copyright AGPL-3.0
  */
 
 use Dotclear\App;

@@ -1,11 +1,12 @@
 #!/usr/bin/env php
 <?php
+
 $license_block = <<<EOF
     /**
      * @package Dotclear
      *
      * @copyright Olivier Meunier & Association Dotclear
-     * @copyright GPL-2.0-only
+     * @copyright AGPL-3.0
      */
     EOF;
 
