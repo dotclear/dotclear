@@ -94,7 +94,7 @@ class SpamFilter
 
         $this->name ??= (string) $this->id;
 
-        if (App::task()->checkContext('BACKEND')) {
+        if (App::task()->checkContext('BACKEND') && !App::task()->checkContext('INSTALL')) {
             $this->gui_url = App::backend()->url()->get('admin.plugin.antispam', ['f' => $this->id], '&');
         }
     }
