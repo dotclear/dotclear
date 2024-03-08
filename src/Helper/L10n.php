@@ -89,14 +89,14 @@ namespace Dotclear\Helper {
          *
          * @var        int
          */
-        protected static int $language_pluralsnumber;
+        protected static int $language_pluralsnumber = 1;
 
         /**
          * Plural expression according to a language code
          *
          * @var        string
          */
-        protected static string $language_pluralexpression;
+        protected static string $language_pluralexpression = '';
 
         /**
          * Find plural msgstr index from gettext expression
