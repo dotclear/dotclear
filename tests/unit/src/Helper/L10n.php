@@ -108,6 +108,10 @@ class l10n extends atoum
         $this
             ->boolean(\Dotclear\Helper\L10n::isCode('fr'))
             ->isEqualTo(true);
+
+        $this
+            ->boolean(\Dotclear\Helper\L10n::isCode('ja'))
+            ->isEqualTo(true);
     }
 
     public function testChangeNonExistingLangShouldUseDefaultOne()
@@ -139,6 +143,10 @@ class l10n extends atoum
         $this
             ->string(\Dotclear\Helper\L10n::getCode(\Dotclear\Helper\L10n::getLanguageName('es')))
             ->isEqualTo('es');
+
+        $this
+            ->string(\Dotclear\Helper\L10n::getCode(\Dotclear\Helper\L10n::getLanguageName('ja')))
+            ->isEqualTo('ja');
     }
 
     public function testPhpFormatSingular()
@@ -222,6 +230,28 @@ class l10n extends atoum
         $this
             ->string(__('The category has been successfully removed.', 'The categories have been successfully removed.', 2))
             ->isEqualTo('Catégories supprimées avec succès.');
+    }
+
+    public function testSimplePluralNone()
+    {
+        $l10n_dir = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', 'fixtures', 'src', 'Helper', 'L10n']));
+
+        \Dotclear\Helper\L10n::init();
+        \Dotclear\Helper\L10n::set(implode(DIRECTORY_SEPARATOR, [$l10n_dir, 'ja','core']));
+        \Dotclear\Helper\L10n::lang('ja');
+
+        /*
+        msgid "The category has been successfully removed."
+        msgstr "カテゴリを削除しました。"
+        */
+
+        $this
+            ->string(__('The category has been successfully removed.', 'The categories have been successfully removed.', 1))
+            ->isEqualTo('カテゴリを削除しました。');
+
+        $this
+            ->string(__('The category has been successfully removed.', 'The categories have been successfully removed.', 2))
+            ->isEqualTo('カテゴリを削除しました。');
     }
 
     public function testNotExistingPhpAndPoFiles()
