@@ -534,6 +534,7 @@ dotclear.hideLockable = () => {
       image.style.left = `${input.offsetWidth + 4}px`;
       image.style.width = '1.4em';
       image.alt = dotclear.msg.click_to_unlock;
+      image.classList.add('mark', 'mark-locked');
       image.style.cursor = 'pointer';
       image.addEventListener('click', () => {
         image.style.display = 'none';

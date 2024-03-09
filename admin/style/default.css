@@ -534,6 +534,8 @@ h6 {
   --offline-background: #f3f3f3;
   --mark-attach-filter: hue-rotate(300deg) saturate(0.64);
   --mark-selected-filter: hue-rotate(300deg) saturate(0.64);
+  --mark-pending-filter: none;
+  --mark-locked-filter: none;
   --rch-table-1st-color: #c9c9c9;
   --rch-table-1st-background: #595959;
   --rch-table-1st-border: #ececec;
@@ -788,6 +790,8 @@ h6 {
   --offline-background: #303236;
   --mark-attach-filter: hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%);
   --mark-selected-filter: hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%);
+  --mark-pending-filter: brightness(2);
+  --mark-locked-filter: brightness(2);
   --rch-table-1st-color: #c9cbcf;
   --rch-table-1st-background: #565a60;
   --rch-table-1st-border-top: #ecedee;
@@ -1043,6 +1047,8 @@ h6 {
     --offline-background: #303236;
     --mark-attach-filter: hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%);
     --mark-selected-filter: hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%);
+    --mark-pending-filter: brightness(2);
+    --mark-locked-filter: brightness(2);
     --rch-table-1st-color: #c9cbcf;
     --rch-table-1st-background: #565a60;
     --rch-table-1st-border-top: #ecedee;
@@ -5027,6 +5033,14 @@ p img.mark {
 
 .mark-selected {
   filter: var(--mark-selected-filter);
+}
+
+.mark-pending {
+  filter: var(--mark-pending-filter);
+}
+
+.mark-locked {
+  filter: var(--mark-locked-filter);
 }
 
 /* ---------------------------------------------------------------- utilisables partout  */

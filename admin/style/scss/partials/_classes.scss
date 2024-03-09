@@ -339,6 +339,12 @@ p {
 .mark-selected {
   filter: var(--mark-selected-filter);
 }
+.mark-pending {
+  filter: var(--mark-pending-filter);
+}
+.mark-locked {
+  filter: var(--mark-locked-filter);
+}
 
 /* ---------------------------------------------------------------- utilisables partout  */
 
