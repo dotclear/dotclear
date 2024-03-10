@@ -1,8 +1,11 @@
 /*exported dotclear, storeLocalData, dropLocalData, readLocalData, getData, isObject, mergeDeep, trimHtml */
 'use strict';
 
-/* Dotclear common object
--------------------------------------------------------- */
+/**
+ * Dotclear common object
+ *
+ * @type       {Object}
+ */
 const dotclear = {
   msg: {},
 };
@@ -59,7 +62,7 @@ dotclear.getData = (id, clear = true, remove = true) => {
   const element = document.getElementById(`${id}-data`);
   if (element) {
     try {
-      data = JSON.parse(element.textContent);
+      data = JSON.parse(element.textContent || '');
       if (clear && remove) {
         // Remove element
         element.remove();

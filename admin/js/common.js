@@ -26,7 +26,7 @@ dotclear.data.lowdata = false;
 if (window?.matchMedia('(prefers-reduced-data: reduce)').matches) {
   dotclear.data.lowdata = true;
 }
-document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme === 'dark' ? 1 : 0);
+document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme === 'dark' ? '1' : '0');
 
 /* jQuery extensions
 -------------------------------------------------------- */
