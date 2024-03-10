@@ -6,7 +6,6 @@ $license_block = <<<EOF
      * @package Dotclear
      *
      * @copyright Olivier Meunier & Association Dotclear
-     * @copyright AGPL-3.0
      */
     EOF;
 
