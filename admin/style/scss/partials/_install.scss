@@ -34,7 +34,7 @@ p.static-msg {
 
 div.error,
 p.error {
-  background: #e5bfbf url(install/process_warning.png) no-repeat 5px 5px;
+  background: #e5bfbf url(install/msg-error.png) no-repeat 10px 10px;
   color: #600;
 }
 
@@ -42,7 +42,7 @@ div.message,
 p.message,
 div.static-msg,
 p.static-msg {
-  background: #666 url(install/note.png) no-repeat 5px 5px;
+  background: #666 url(install/msg-info.png) no-repeat 10px 10px;
   color: #fff;
 }
 
@@ -190,11 +190,11 @@ body.install .msg {
 }
 
 body.install .warning {
-  background: #ffc url(install/important.png) no-repeat 10px 10px;
+  background: #ffc url(install/msg-warning.png) no-repeat 10px 10px;
 }
 
 body.install .notice {
-  background: #eef url(install/note.png) no-repeat 10px 10px;
+  background: #eef url(install/msg-info.png) no-repeat 10px 10px;
 }
 
 /* password strength indicator */
