@@ -32,6 +32,7 @@ body.rtl .jstEditor iframe {
   line-height: 30px;
   border: 1px solid;
   position: relative;
+  background: var(--entry-sb-background);
 }
 .toolbar_bottom .jstElements {
   border-top-width: 0;
