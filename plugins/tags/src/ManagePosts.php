@@ -14,9 +14,16 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @brief   The module backend manage tag posts process.
@@ -151,57 +158,92 @@ class ManagePosts extends Process
         '<p><a class="back" href="' . App::backend()->getPageURL() . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
 
         if (!App::error()->flag()) {
-            if (!App::backend()->posts->isEmpty()) {
-                echo
-                '<div class="tag-actions vertical-separator">' .
-                '<h3>' . Html::escapeHTML(App::backend()->tag) . '</h3>' .
-                '<form action="' . $this_url . '" method="post" id="tag_rename">' .
-                '<p><label for="new_tag_id" class="classic">' . __('Rename') . '</label> ' .
-                form::field('new_tag_id', 20, 255, Html::escapeHTML(App::backend()->tag)) .
-                '<input type="submit" value="' . __('OK') . '">' .
-                ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-                App::nonce()->getFormNonce() .
-                '</p></form>';
-
-                // Remove tag
-                if (App::auth()->check(App::auth()->makePermissions([
+            if (!App::backend()->posts?->isEmpty()) {
+                // Remove serie
+                $delete = '';
+                if (!App::backend()->posts->isEmpty() && App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]), App::blog()->id())) {
-                    echo
-                    '<form id="tag_delete" action="' . $this_url . '" method="post">' .
-                    '<p><input type="submit" class="delete" name="delete" value="' . __('Delete this tag') . '">' .
-                    App::nonce()->getFormNonce() .
-                    '</p></form>';
+                    $delete = (new Form('tag_delete'))
+                        ->action($this_url)
+                        ->method('post')
+                        ->fields([
+                            (new Para())
+                                ->items([
+                                    (new Submit('delete', __('Delete this tag')))
+                                        ->class('delete'),
+                                    ...My::hiddenFields(),
+                                ]),
+                        ])
+                    ->render();
                 }
 
-                echo
-                '</div>';
+                echo (new Div())
+                    ->class(['tag-actions', 'vertical-separator'])
+                    ->items([
+                        (new Text('h3', Html::escapeHTML(App::backend()->tag))),
+                        (new Form('tag_rename'))
+                            ->action($this_url)
+                            ->method('post')
+                            ->fields([
+                                (new Para())
+                                    ->items([
+                                        (new Input('new_tag_id'))
+                                            ->value(Html::escapeHTML(App::backend()->tag))
+                                            ->size(40)
+                                            ->maxlength(255)
+                                            ->label((new Label(__('Rename:'), Label::INSIDE_LABEL_BEFORE))->class('classic')),
+                                        (new Submit('sub_new_tag_id', __('OK'))),
+                                        ...My::hiddenFields(),
+                                    ]),
+                            ]),
+                        (new Text(null, $delete)),
+                    ])
+                ->render();
             }
 
             // Show posts
-            echo
-            '<h4 class="vertical-separator pretty-title">' . sprintf(__('List of entries with the tag “%s”'), Html::escapeHTML(App::backend()->tag)) . '</h4>';
-            App::backend()->post_list->display(
-                App::backend()->page,
-                App::backend()->nb_per_page,
-                '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="form-entries">' .
-                '%s' .
-                '<div class="two-cols">' .
-                '<p class="col checkboxes-helpers"></p>' .
-                '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
-                form::combo('action', App::backend()->posts_actions_page->getCombo()) .
-                '<input id="do-action" type="submit" value="' . __('OK') . '"></p>' .
-                form::hidden('post_type', '') .
-                form::hidden('p', My::id()) .
-                form::hidden('m', 'tag_posts') .
-                form::hidden('tag', App::backend()->tag) .
-                App::nonce()->getFormNonce() .
-                '</div>' .
-                '</form>'
-            );
-        }
-        Page::helpBlock('tag_posts');
+            echo (new Text('h4', __('List of entries with this tag')))
+                ->class('vertical-separator pretty-title')
+            ->render();
 
+            if (App::backend()->post_list) {
+                $form = (new Form('form-entries'))
+                    ->action(App::backend()->getPageURL())
+                    ->method('post')
+                    ->fields([
+                        (new Text(null, '%s')), // List of posts will be rendered here
+                        (new Div())
+                            ->class('two-cols')
+                            ->items([
+                                (new Para())
+                                    ->class(['col', 'checkboxes-helpers']),
+                                (new Para())
+                                    ->class(['col', 'right'])
+                                    ->items([
+                                        (new Select('action'))
+                                            ->items(App::backend()->posts_actions_page->getCombo())
+                                            ->label((new Label(__('Selected entries action:'), Label::INSIDE_LABEL_BEFORE))->class('classic')),
+                                        (new Submit('do_action', __('ok'))),
+                                        ...My::hiddenFields([
+                                            'post_type' => '',
+                                            'm'         => 'tag_posts',
+                                            'tag'       => App::backend()->serie,
+                                        ]),
+                                    ]),
+                            ]),
+                    ])
+                ->render();
+
+                App::backend()->post_list->display(
+                    App::backend()->page,
+                    App::backend()->nb_per_page,
+                    $form
+                );
+            }
+        }
+
+        Page::helpBlock('tag_posts');
         Page::closeModule();
     }
 }

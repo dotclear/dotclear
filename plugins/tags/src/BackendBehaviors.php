@@ -17,10 +17,21 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\WikiToHtml;
 use Exception;
-use form;
 
 /**
  * @brief   The module backend behaviors.
@@ -71,16 +82,18 @@ class BackendBehaviors
      * @param   ArrayObject<int, array<string, mixed>>      $extraPlugins   The extra plugins
      * @param   string                                      $context        The context
      */
-    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, string $context): void
+    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, string $context): string
     {
         if ($context !== 'post') {
-            return;
+            return '';
         }
         $extraPlugins->append([
             'name'   => 'dctags',
             'button' => 'dcTags',
             'url'    => App::config()->adminUrl() . My::fileURL('js/ckeditor-tags-plugin.js'),
         ]);
+
+        return '';
     }
 
     /**
@@ -88,11 +101,13 @@ class BackendBehaviors
      *
      * @param   ArrayObject<int, string>     $blocks     The blocks
      */
-    public static function adminPageHelpBlock(ArrayObject $blocks): void
+    public static function adminPageHelpBlock(ArrayObject $blocks): string
     {
         if (in_array('core_post', $blocks->getArrayCopy(), true)) {
             $blocks->append('tag_post');
         }
+
+        return '';
     }
 
     /**
@@ -100,7 +115,7 @@ class BackendBehaviors
      *
      * @param   Favorites   $favs   The favs
      */
-    public static function dashboardFavorites(Favorites $favs): void
+    public static function dashboardFavorites(Favorites $favs): string
     {
         $favs->register(My::id(), [
             'title'       => My::name(),
@@ -112,6 +127,8 @@ class BackendBehaviors
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
         ]);
+
+        return '';
     }
 
     /**
@@ -119,9 +136,11 @@ class BackendBehaviors
      *
      * @param   WikiToHtml  $wiki   The wiki 2 HTML
      */
-    public static function coreInitWikiPost(WikiToHtml $wiki): void
+    public static function coreInitWikiPost(WikiToHtml $wiki): string
     {
         $wiki->registerFunction('url:tag', BackendBehaviors::wikiTag(...));
+
+        return '';
     }
 
     /**
@@ -154,7 +173,7 @@ class BackendBehaviors
      * @param   ArrayObject<string, mixed>      $sidebar    The sidebar part of the entry form
      * @param   MetaRecord                      $post       The post
      */
-    public static function tagsField(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
+    public static function tagsField(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): string
     {
         $meta = App::meta();
 
@@ -163,8 +182,25 @@ class BackendBehaviors
         } else {
             $value = ($post) ? $meta->getMetaStr($post->post_meta, 'tag') : '';
         }
-        $sidebar['metas-box']['items']['post_tags'] = '<h5><label class="s-tags" for="post_tags">' . My::name() . '</label></h5>' .
-        '<div class="p s-tags" id="tags-edit">' . form::textarea('post_tags', 20, 3, $value, 'maximal') . '</div>';
+
+        $sidebar['metas-box']['items']['post_tags'] = (new Para(null, 'h5'))
+            ->items([
+                (new Label(My::name(), Label::OUTSIDE_LABEL_BEFORE))
+                    ->for('post_tags')
+                    ->class('s-tags'),
+            ])
+            ->render() .
+            (new Div('tags-edit'))
+                ->class('p s-tags')
+                ->items([
+                    (new Textarea('post_tags', $value))
+                        ->cols(20)
+                        ->rows(3)
+                        ->class('maximal'),
+                ])
+            ->render();
+
+        return '';
     }
 
     /**
@@ -173,7 +209,7 @@ class BackendBehaviors
      * @param   Cursor  $cur        The current
      * @param   mixed   $post_id    The post identifier
      */
-    public static function setTags(Cursor $cur, $post_id): void
+    public static function setTags(Cursor $cur, $post_id): string
     {
         $post_id = (int) $post_id;
 
@@ -186,6 +222,8 @@ class BackendBehaviors
                 $meta->setPostMeta($post_id, 'tag', $tag);
             }
         }
+
+        return '';
     }
 
     /**
@@ -281,17 +319,29 @@ class BackendBehaviors
                 My::jsLoad('posts_actions') .
                 My::cssLoad('style')
             );
-            echo
-            '<form action="' . $ap->getURI() . '" method="post">' .
-            $ap->getCheckboxes() .
-            '<div><label for="new_tags" class="area">' . __('Tags to add:') . '</label> ' .
-            form::textarea('new_tags', 60, 3) .
-            '</div>' .
-            App::nonce()->getFormNonce() . $ap->getHiddenFields() .
-            form::hidden(['action'], 'tags') .
-            '<p><input type="submit" value="' . __('Save') . '" ' .
-                'name="save_tags"></p>' .
-                '</form>';
+
+            echo (new Form('frm_new_tags'))
+                ->action($ap->getURI())
+                ->method('post')
+                ->items([
+                    $ap->checkboxes(),
+                    (new Div())
+                        ->items([
+                            (new Textarea('new_tags'))
+                                ->label(new Label(__('Tags to add:'), Label::INSIDE_LABEL_AFTER))
+                                ->cols(60)
+                                ->rows(3),
+                        ]),
+                    (new Para())
+                        ->items([
+                            ...$ap->hiddenFields(),
+                            App::nonce()->formNonce(),
+                            (new Hidden('action', 'tags')),
+                            (new Submit(['save_tags'], __('Save'))),
+                        ]),
+                ])
+            ->render();
+
             $ap->endPage();
         }
     }
@@ -353,31 +403,41 @@ class BackendBehaviors
             );
             $posts_count = is_countable($_POST['entries']) ? count($_POST['entries']) : 0;
 
-            echo
-            '<form action="' . $ap->getURI() . '" method="post">' .
-            $ap->getCheckboxes() .
-            '<div><p>' . __('Following tags have been found in selected entries:') . '</p>';
-
-            foreach ($tags as $k => $n) {
-                $label = '<label class="classic">%s %s</label>';
-                if ($posts_count == $n) {
-                    $label = sprintf($label, '%s', '<strong>%s</strong>');
-                }
-                $key = (string) $k;
-                echo '<p>' . sprintf(
-                    $label,
-                    form::checkbox(['meta_id[]'], Html::escapeHTML($key)),
-                    Html::escapeHTML($key)
-                ) .
-                    '</p>';
+            $list = [];
+            $i    = 0;
+            foreach ($tags as $name => $number) {
+                $label  = sprintf($posts_count == $number ? '<strong>%s</strong>' : '%s', Html::escapeHTML((string) $name));
+                $list[] = (new Para())
+                    ->items([
+                        (new Checkbox(['meta_id[]','meta_id-' . ++$i]))
+                            ->value(Html::escapeHTML((string) $name))
+                            ->label(new Label($label, Label::INSIDE_TEXT_AFTER)),
+                    ]);
             }
 
-            echo
-            '<p><input type="submit" value="' . __('ok') . '">' .
+            echo (new Form('frm_rem_tags'))
+                ->action($ap->getURI())
+                ->method('post')
+                ->items([
+                    $ap->checkboxes(),
+                    (new Div())
+                        ->items([
+                            (new Para())
+                                ->items([
+                                    (new Text(null, __('Following tags have been found in selected entries:'))),
+                                ]),
+                            ...$list,
+                        ]),
+                    (new Para())
+                        ->items([
+                            ...$ap->hiddenFields(),
+                            App::nonce()->formNonce(),
+                            (new Hidden('action', 'tags_remove')),
+                            (new Submit(['rem_tags'], __('ok'))),
+                        ]),
+                ])
+            ->render();
 
-            App::nonce()->getFormNonce() . $ap->getHiddenFields() .
-            form::hidden(['action'], 'tags_remove') .
-                '</p></div></form>';
             $ap->endPage();
         }
     }
@@ -416,8 +476,10 @@ class BackendBehaviors
 
     /**
      * Admin user preferences tags fieldset.
+     *
+     * @return  string
      */
-    public static function adminUserForm(): void
+    public static function adminUserForm(): string
     {
         $opts = App::auth()->getOptions();
 
@@ -429,10 +491,20 @@ class BackendBehaviors
         $value = array_key_exists('tag_list_format', $opts) ? $opts['tag_list_format'] : 'more';
 
         echo
-        '<div class="fieldset"><h5 id="tags_prefs">' . My::name() . '</h5>' .
-        '<p><label for="user_tag_list_format" class="classic">' . __('Tags list format:') . '</label> ' .
-        form::combo('user_tag_list_format', $combo, $value) .
-        '</p></div>';
+        (new Fieldset('tags_prefs'))
+            ->legend((new Legend(My::name())))
+            ->fields([
+                (new Para())
+                    ->items([
+                        (new Select('user_tag_list_format'))
+                            ->label(new Label(__('Tags list format:'), Label::INSIDE_LABEL_BEFORE))
+                            ->default($value)
+                            ->items($combo),
+                    ]),
+            ])
+        ->render();
+
+        return '';
     }
 
     /**
@@ -440,11 +512,15 @@ class BackendBehaviors
      *
      * @param   Cursor          $cur        The current
      * @param   null|string     $user_id    The user identifier
+     *
+     * @return  string
      */
-    public static function setTagListFormat(Cursor $cur, ?string $user_id = null): void
+    public static function setTagListFormat(Cursor $cur, ?string $user_id = null): string
     {
         if (!is_null($user_id)) {
             $cur->user_options['tag_list_format'] = $_POST['user_tag_list_format'];
         }
+
+        return '';
     }
 }
