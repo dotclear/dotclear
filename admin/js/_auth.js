@@ -6,13 +6,13 @@ dotclear.ready(() => {
 
   // Give focus to user field
   const uid = document.querySelector('input[name=user_id]');
-  uid.focus();
+  if (uid) uid.focus();
 
   const ckh = document.getElementById('cookie_help');
   if (ckh) ckh.style.display = navigator.cookieEnabled ? 'none' : '';
 
   const upw = document.querySelector('input[name=user_pwd]');
-  if (!upw) {
+  if (!upw || !uid) {
     return;
   }
 
