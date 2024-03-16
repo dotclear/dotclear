@@ -249,6 +249,7 @@ class Media extends Process
             $last_folders_item = '';
             $fav_url           = '';
             $fav_img           = '';
+            $fav_img_dark      = '';
             $fav_alt           = '';
             // Favorites directories
             $fav_dirs = App::backend()->page->getFav();
