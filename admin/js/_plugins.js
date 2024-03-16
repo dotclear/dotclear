@@ -63,8 +63,8 @@ dotclear.ready(() => {
 
   // actions tests
   $('.modules-form-actions').each(function () {
-    const rxActionType = /^[^\[]+/;
-    const rxActionValue = /([^\[]+)\]$/;
+    const rxActionType = /^[^[]+/;
+    const rxActionValue = /([^[]+)\]$/;
     const checkboxes = $(this).find('input[type=checkbox]');
 
     // check if submit is a global action or one line action

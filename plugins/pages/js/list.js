@@ -8,7 +8,7 @@ dotclear.viewPostContent = (line, _action = 'toggle', e = null) => {
     return;
   }
 
-  const postId = $(line).attr('id').substr(1);
+  const postId = $(line).attr('id').substring(1);
   const lineId = `pe${postId}`;
   let tr = document.getElementById(lineId);
 
@@ -31,9 +31,9 @@ dotclear.viewPostContent = (line, _action = 'toggle', e = null) => {
           $(td).append(content);
           $(line).addClass('expand');
           line.parentNode.insertBefore(tr, line.nextSibling);
-        } else {
-          $(line).toggleClass('expand');
+          return;
         }
+        $(line).toggleClass('expand');
       },
       {
         type: 'page',

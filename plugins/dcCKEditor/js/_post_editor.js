@@ -12,7 +12,7 @@ if (!window.CKEDITOR_GETURL) {
 
   window.CKEDITOR_GETURL = function (resource) {
     // If this is not a full or absolute path.
-    if (resource.indexOf(':/') == -1 && resource.indexOf('/') !== 0) {
+    if (!resource.includes(':/') && resource.indexOf('/') !== 0) {
       return this.basePath + resource;
     }
     return resource;

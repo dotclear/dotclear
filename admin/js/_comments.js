@@ -6,7 +6,7 @@ dotclear.viewCommentContent = (line, _action = 'toggle', e = null) => {
     return;
   }
 
-  const commentId = $(line).attr('id').substr(1);
+  const commentId = $(line).attr('id').substring(1);
   const lineId = `ce${commentId}`;
   let tr = document.getElementById(lineId);
 

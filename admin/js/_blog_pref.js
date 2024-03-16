@@ -12,9 +12,9 @@ dotclear.ready(() => {
       const url = blog_url[0].value;
       const scan = $('#url_scan')[0].value;
       let msg = '';
-      if (/.*[^\/]$/.exec(url) && scan == 'path_info') {
+      if (/.*[^/]$/.exec(url) && scan == 'path_info') {
         msg = dotclear.msg.warning_path_info;
-      } else if (/.*[^\?]$/.exec(url) && scan == 'query_string') {
+      } else if (/.*[^?]$/.exec(url) && scan == 'query_string') {
         msg = dotclear.msg.warning_query_string;
       }
       $('p#urlwarning').remove();

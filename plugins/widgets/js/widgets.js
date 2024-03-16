@@ -38,12 +38,15 @@ dotclear.viewWidgetContent = (line, action = 'toogle') => {
     img.html(dotclear.img_plus_txt);
     img.attr('value', dotclear.img_plus_txt);
     img.attr('aria-label', dotclear.img_plus_alt);
-  } else if (action == 'open' || (action == 'toogle' && isopen)) {
-    line.find('.widgetSettings').show();
-    img.html(dotclear.img_minus_txt);
-    img.attr('value', dotclear.img_minus_txt);
-    img.attr('aria-label', dotclear.img_minus_alt);
+    return;
   }
+  if (!(action == 'open' || (action == 'toogle' && isopen))) {
+    return;
+  }
+  line.find('.widgetSettings').show();
+  img.html(dotclear.img_minus_txt);
+  img.attr('value', dotclear.img_minus_txt);
+  img.attr('aria-label', dotclear.img_minus_alt);
 };
 
 dotclear.reorder = (ul) => {

@@ -349,9 +349,9 @@ jsToolBar.prototype.elements.img_select.fncall.wysiwyg = function () {
     a.setAttribute('title', ltitle);
     a.appendChild(block);
     this.insertNode(a);
-  } else {
-    this.insertNode(block);
+    return;
   }
+  this.insertNode(block);
 };
 
 // MP3 helpers

@@ -25,29 +25,32 @@
       editor.on('doubleclick', (e) => {
         const element = CKEDITOR.plugins.link.getSelectedLink(editor) || e.data.element;
         if (
-          !element.isReadOnly() &&
-          element.is('a') &&
-          !element.hasClass('media-link') && // link to original media @see js/popup_media.js
-          !element.hasClass('ref-post')
+          !(
+            !element.isReadOnly() &&
+            element.is('a') &&
+            !element.hasClass('media-link') && // link to original media @see js/popup_media.js
+            !element.hasClass('ref-post')
+          )
         ) {
-          // link to an entry @see js/popup_posts.js
-
-          editor.getSelection().selectElement(element);
-
-          let popup_url = 'index.php?process=LinkPopup&plugin_id=dcCKEditor';
-          if (element.getAttribute('href')) {
-            popup_url += `&href=${element.getAttribute('href')}`;
-          }
-          if (element.getAttribute('hreflang')) {
-            popup_url += `&hreflang=${element.getAttribute('hreflang')}`;
-          }
-          if (element.getAttribute('title')) {
-            popup_url += `&title=${element.getAttribute('title')}`;
-          }
-
-          $.toolbarPopup(popup_url);
-          return false;
+          return;
         }
+        // link to an entry @see js/popup_posts.js
+
+        editor.getSelection().selectElement(element);
+
+        let popup_url = 'index.php?process=LinkPopup&plugin_id=dcCKEditor';
+        if (element.getAttribute('href')) {
+          popup_url += `&href=${element.getAttribute('href')}`;
+        }
+        if (element.getAttribute('hreflang')) {
+          popup_url += `&hreflang=${element.getAttribute('hreflang')}`;
+        }
+        if (element.getAttribute('title')) {
+          popup_url += `&title=${element.getAttribute('title')}`;
+        }
+
+        $.toolbarPopup(popup_url);
+        return false;
       });
     },
   });

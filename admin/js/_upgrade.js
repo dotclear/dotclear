@@ -21,7 +21,7 @@ dotclear.dbStoreUpdate = (store, icon) => {
             .children('a')
             .children('img')
             .attr('src')
-            .replace(/([^\/]+)(\..*)$/g, '$1-update$2'),
+            .replace(/([^/]+)(\..*)$/g, '$1-update$2'),
         );
       // add icon text says there is an update
       icon.children('a').children('.db-icon-descr').append('<br>').append(`<strong>${data.ret}</strong`);

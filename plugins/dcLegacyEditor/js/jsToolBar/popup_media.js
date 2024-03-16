@@ -52,7 +52,9 @@ dotclear.ready(() => {
       }
 
       tb.elements.img_select.fncall[tb.mode].call(tb);
-    } else if (type == 'mp3') {
+      return;
+    }
+    if (type == 'mp3') {
       player = $('#public_player').val();
       align = $('input[name="alignment"]:checked', insert_form).val();
 
@@ -67,7 +69,9 @@ dotclear.ready(() => {
 
       tb.elements.mp3_insert.data.player = player.replace(/>/g, '>\n');
       tb.elements.mp3_insert.fncall[tb.mode].call(tb);
-    } else if (type == 'flv') {
+      return;
+    }
+    if (type == 'flv') {
       // may be all video media, not only flv
       const oplayer = $(`<div>${$('#public_player').val()}</div>`);
 
@@ -99,10 +103,10 @@ dotclear.ready(() => {
 
       tb.elements.flv_insert.data.player = player.replace(/>/g, '>\n');
       tb.elements.flv_insert.fncall[tb.mode].call(tb);
-    } else {
-      tb.elements.link.data.href = tb.stripBaseURL(insert_form.elements.url.value);
-      tb.elements.link.data.content = insert_form.elements.title.value;
-      tb.elements.link.fncall[tb.mode].call(tb);
+      return;
     }
+    tb.elements.link.data.href = tb.stripBaseURL(insert_form.elements.url.value);
+    tb.elements.link.data.content = insert_form.elements.title.value;
+    tb.elements.link.fncall[tb.mode].call(tb);
   }
 });

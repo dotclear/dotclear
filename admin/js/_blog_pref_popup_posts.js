@@ -8,15 +8,16 @@ dotclear.ready(() => {
   // DOM ready and content loaded
 
   const cancel = document.getElementById('link-insert-cancel');
-  cancel.addEventListener('click', () => {
-    window.close();
-  });
+  if (cancel)
+    cancel.addEventListener('click', () => {
+      window.close();
+    });
 
   const posts = document.querySelectorAll('#form-entries tr>td.maximal>a');
   posts.forEach((elt) => {
     elt.addEventListener('click', () => {
-      const stripBaseURL = (url) =>
-        dotclear.base_url !== '' && url.startsWith(dotclear.base_url) ? url.substr(dotclear.base_url.length) : url;
+      const stripBaseURL = (/** @type {string} */ url) =>
+        dotclear.base_url !== '' && url.startsWith(dotclear.base_url) ? url.substring(dotclear.base_url.length) : url;
 
       // Get entry URL
       const main = window.opener;

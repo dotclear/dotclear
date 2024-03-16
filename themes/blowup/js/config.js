@@ -40,16 +40,17 @@ dotclear.ready(() => {
     const reg = /^(.+):"([^"]*)"(;?)\s*$/;
     const s = code.match(re);
 
-    if (typeof s == 'object' && s.length > 0) {
-      let member;
-      let target;
-      let value;
-      for (let i = 0, s_length = s.length; i < s_length; i++) {
-        member = reg.exec(s[i]);
-        target = member[1].replace(' ', '');
-        value = member[2].replace(' ', '');
-        updateValueField($(`#${target}`), value);
-      }
+    if (!(typeof s == 'object' && s.length > 0)) {
+      return;
+    }
+    let member;
+    let target;
+    let value;
+    for (let i = 0, s_length = s.length; i < s_length; i++) {
+      member = reg.exec(s[i]);
+      target = member[1].replace(' ', '');
+      value = member[2].replace(' ', '');
+      updateValueField($(`#${target}`), value);
     }
   };
 

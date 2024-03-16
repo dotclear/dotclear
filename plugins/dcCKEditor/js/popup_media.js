@@ -28,7 +28,7 @@ dotclear.ready(() => {
     if (type == 'image') {
       if (editor.mode == 'wysiwyg') {
         const align = $('input[name="alignment"]:checked', insert_form).val();
-        let media_legend = $('input[name="legend"]:checked', insert_form).val();
+        const media_legend = $('input[name="legend"]:checked', insert_form).val();
         const description = $('input[name="description"]', insert_form).val();
         let style = '';
         let template = '';

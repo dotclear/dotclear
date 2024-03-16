@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isReduced) {
       document.querySelector('html').scrollTop = 0;
     } else {
-      function scrollTo(element, to, duration) {
+      const scrollTo = (element, to, duration) => {
         const easeInOutQuad = (time, ease_start, ease_change, ease_duration) => {
           time /= ease_duration / 2;
           if (time < 1) return (ease_change / 2) * time * time + ease_start;
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         };
         animateScroll();
-      }
+      };
       scrollTo(document.querySelector('html'), 0, 800);
     }
     e.preventDefault();

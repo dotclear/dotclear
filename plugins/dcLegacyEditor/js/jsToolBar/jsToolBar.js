@@ -115,18 +115,19 @@ class jsToolBar {
   combo(toolName) {
     const tool = this.elements[toolName];
 
-    if (tool[this.mode] != undefined) {
-      const { length } = tool[this.mode].list;
-
-      if (typeof tool[this.mode].fn != 'function' || length == 0) {
-        return null;
-      }
-      const options = {};
-      for (const opt of tool[this.mode].list) {
-        options[opt] = tool.options[opt];
-      }
-      return new jsCombo(tool.title, options, this, tool[this.mode].fn);
+    if (tool[this.mode] == undefined) {
+      return;
     }
+    const { length } = tool[this.mode].list;
+
+    if (typeof tool[this.mode].fn != 'function' || length == 0) {
+      return null;
+    }
+    const options = {};
+    for (const opt of tool[this.mode].list) {
+      options[opt] = tool.options[opt];
+    }
+    return new jsCombo(tool.title, options, this, tool[this.mode].fn);
   }
 
   draw(mode) {
@@ -222,7 +223,7 @@ class jsToolBar {
     if (this.base_url != '') {
       const pos = url.indexOf(this.base_url);
       if (pos == 0) {
-        return url.substr(this.base_url.length);
+        return url.substring(this.base_url.length);
       }
     }
 
@@ -263,12 +264,13 @@ class jsButton {
     if (this.shortkey) {
       if (this.shortkey_name) button.title += ` (CTRL+${this.shortkey_name})`;
       this.scope.textarea.addEventListener('keydown', (event) => {
-        if (event.code === this.shortkey && event.ctrlKey && !event.altKey && !event.metaKey) {
-          // Fire click
-          button.click();
-          event.preventDefault();
-          return false;
+        if (!(event.code === this.shortkey && event.ctrlKey && !event.altKey && !event.metaKey)) {
+          return;
         }
+        // Fire click
+        button.click();
+        event.preventDefault();
+        return false;
       });
     }
     const span = document.createElement('span');
@@ -647,29 +649,31 @@ jsToolBar.prototype.elements.link = {
 
 jsToolBar.prototype.elements.link.fn.xhtml = function () {
   const link = this.elements.link.prompt.call(this);
-  if (link) {
-    let stag = `<a href="${link.href}"`;
-    if (link.hreflang) {
-      stag = `${stag} hreflang="${link.hreflang}"`;
-    }
-    stag = `${stag}>`;
-    const etag = '</a>';
-
-    this.encloseSelection(stag, etag);
+  if (!link) {
+    return;
   }
+  let stag = `<a href="${link.href}"`;
+  if (link.hreflang) {
+    stag = `${stag} hreflang="${link.hreflang}"`;
+  }
+  stag = `${stag}>`;
+  const etag = '</a>';
+
+  this.encloseSelection(stag, etag);
 };
 jsToolBar.prototype.elements.link.fn.wiki = function () {
   const link = this.elements.link.prompt.call(this);
-  if (link) {
-    const stag = '[';
-    let etag = `|${link.href}`;
-    if (link.hreflang) {
-      etag = `${etag}|${link.hreflang}`;
-    }
-    etag = `${etag}]`;
-
-    this.encloseSelection(stag, etag);
+  if (!link) {
+    return;
   }
+  const stag = '[';
+  let etag = `|${link.href}`;
+  if (link.hreflang) {
+    etag = `${etag}|${link.hreflang}`;
+  }
+  etag = `${etag}]`;
+
+  this.encloseSelection(stag, etag);
 };
 
 // img

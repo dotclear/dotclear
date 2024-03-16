@@ -15,9 +15,9 @@ jsToolBar.prototype.draw = function (mode = 'xhtml') {
     this.mode = 'wysiwyg';
     this.drawToolBar('wysiwyg');
     this.initWindow();
-  } else {
-    this.drawToolBar(mode);
+    return;
   }
+  this.drawToolBar(mode);
 };
 
 jsToolBar.prototype.switchMode = function (mode = 'xhtml') {
@@ -439,17 +439,17 @@ jsToolBar.prototype.simpleCleanRegex = new Array(
   [/<\/?font[\w\W]*?>/gim, ''],
 
   /* Replacements */
-  [/<(\/?)(B|b|STRONG)([\s>\/])/g, '<$1strong$3'],
-  [/<(\/?)(I|i|EM)([\s>\/])/g, '<$1em$3'],
-  [/<IMG ([^>]*?[^\/])>/gi, '<img $1 />'],
-  [/<INPUT ([^>]*?[^\/])>/gi, '<input $1 />'],
-  [/<COL ([^>]*?[^\/])>/gi, '<col $1 />'],
-  [/<AREA ([^>]*?[^\/])>/gi, '<area $1 />'],
-  [/<PARAM ([^>]*?[^\/])>/gi, '<param $1 />'],
-  [/<HR ([^>]*?[^\/])>/gi, '<hr $1/>'],
-  [/<BR ([^>]*?[^\/])>/gi, '<br $1/>'],
-  [/<(\/?)U([\s>\/])/gi, '<$1ins$2'],
-  [/<(\/?)STRIKE([\s>\/])/gi, '<$1del$2'],
+  [/<(\/?)(B|b|STRONG)([\s>/])/g, '<$1strong$3'],
+  [/<(\/?)(I|i|EM)([\s>/])/g, '<$1em$3'],
+  [/<IMG ([^>]*?[^/])>/gi, '<img $1 />'],
+  [/<INPUT ([^>]*?[^/])>/gi, '<input $1 />'],
+  [/<COL ([^>]*?[^/])>/gi, '<col $1 />'],
+  [/<AREA ([^>]*?[^/])>/gi, '<area $1 />'],
+  [/<PARAM ([^>]*?[^/])>/gi, '<param $1 />'],
+  [/<HR ([^>]*?[^/])>/gi, '<hr $1/>'],
+  [/<BR ([^>]*?[^/])>/gi, '<br $1/>'],
+  [/<(\/?)U([\s>/])/gi, '<$1ins$2'],
+  [/<(\/?)STRIKE([\s>/])/gi, '<$1del$2'],
   [/<span style="font-weight: normal;">([\w\W]*?)<\/span>/gm, '$1'],
   [/<span style="font-weight: bold;">([\w\W]*?)<\/span>/gm, '<strong>$1</strong>'],
   [/<span style="font-style: italic;">([\w\W]*?)<\/span>/gm, '<em>$1</em>'],
@@ -540,15 +540,15 @@ jsToolBar.prototype.tagsoup2xhtml = function (html) {
   /* tags vides */
   /* note : on tente de ne pas tenir compte des commentaires html, ceux-ci
      permettent entre autre d'inserer des commentaires conditionnels pour ie */
-  while (/(<[^\/!]>|<[^\/!][^>]*[^\/]>)\s*<\/[^>]*[^-]>/.test(html)) {
-    html = html.replace(/(<[^\/!]>|<[^\/!][^>]*[^\/]>)\s*<\/[^>]*[^-]>/g, '');
+  while (/(<[^/!]>|<[^/!][^>]*[^/]>)\s*<\/[^>]*[^-]>/.test(html)) {
+    html = html.replace(/(<[^/!]>|<[^/!][^>]*[^/]>)\s*<\/[^>]*[^-]>/g, '');
   }
 
   /* tous les tags en minuscule */
   html = html.replace(/<(\/?)([A-Z0-9]+)/g, (_match0, match1, match2) => `<${match1}${match2.toLowerCase()}`);
 
   /* IE laisse souvent des attributs sans guillemets */
-  const myRegexp = /<[^>]+((\s+\w+\s*=\s*)([^"'][\w~@+$,%\/:.#?=&;!*()-]*))[^>]*?>/;
+  const myRegexp = /<[^>]+((\s+\w+\s*=\s*)([^"'][\w~@+$,%/:.#?=&;!*()-]*))[^>]*?>/;
   const myQuoteFn = (str, val1, val2, val3) => {
     const tamponRegex = new RegExp(regexpEscape(val1));
     return str.replace(tamponRegex, `${val2}"${val3}"`);
@@ -850,5 +850,5 @@ function removeEvent(obj, evType, fn, useCapture) {
 }
 
 function regexpEscape(s) {
-  return s.replace(/([\\\^\$*+[\]?{}.=!:(|)])/g, '\\$1');
+  return s.replace(/([\\\^$*+[\]?{}.=!:(|)])/g, '\\$1');
 }

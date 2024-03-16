@@ -87,7 +87,7 @@ Object.assign(dotclear, {
   // Returns the cookie with the given name or false if not found
   getCookie(name) {
     const matches = document.cookie.match(
-      new RegExp(`(?:^|; )${name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1')}=([^;]*)`),
+      new RegExp(`(?:^|; )${name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1')}=([^;]*)`),
     );
     return matches ? decodeURIComponent(matches[1]) : false; // may be undefined rather than false?
   },

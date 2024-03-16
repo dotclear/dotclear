@@ -26,13 +26,14 @@
 
       editor.on('doubleclick', (e) => {
         const element = CKEDITOR.plugins.link.getSelectedLink(editor) || e.data.element;
-        if (!element.isReadOnly() && element.is('a') && !element.hasClass('media-link') && element.hasClass('ref-post')) {
-          // link to original media @see js/popup_media.js
-          editor.getSelection().selectElement(element);
-
-          $.toolbarPopup('popup_posts.php?popup=1&plugin_id=dcCKEditor', popup_params);
-          return false;
+        if (!(!element.isReadOnly() && element.is('a') && !element.hasClass('media-link') && element.hasClass('ref-post'))) {
+          return;
         }
+        // link to original media @see js/popup_media.js
+        editor.getSelection().selectElement(element);
+
+        $.toolbarPopup('popup_posts.php?popup=1&plugin_id=dcCKEditor', popup_params);
+        return false;
       });
     },
   });

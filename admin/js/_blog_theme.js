@@ -1,11 +1,11 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.dbStoreUpdate = (store, url) => {
+dotclear.dbStoreUpdate = (/** @type {any} */ store, /** @type {string} */ url) => {
   if (url.length) {
     dotclear.jsonServicesPost(
       'checkStoreUpdate',
-      (data) => {
+      (/** @type {{ new: boolean; check: boolean; nb: number; ret: string; }} */ data) => {
         if (data.new) {
           if (data.check) {
             if (data.nb) {
@@ -65,8 +65,8 @@ dotclear.ready(() => {
 
   // actions tests
   $('.modules-form-actions').each(function () {
-    const rxActionType = /^[^\[]+/;
-    const rxActionValue = /([^\[]+)\]$/;
+    const rxActionType = /^[^[]+/;
+    const rxActionValue = /([^[]+)\]$/;
     const checkboxes = $(this).find('input[type=checkbox]');
 
     // check if submit is a global action or one line action
@@ -152,7 +152,7 @@ dotclear.ready(() => {
   });
 
   // Prevent history back if currently previewing Theme (with magnificPopup)
-  history.pushState(null, null);
+  history.pushState(null, '', null);
   window.addEventListener('popstate', () => {
     if (document.querySelector('.mfp-ready')) {
       // Prevent history back
