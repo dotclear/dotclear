@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-20 21:08+0100\n"
-"PO-Revision-Date: 2024-02-21 06:09\n"
+"POT-Creation-Date: 2024-03-17 09:37+0100\n"
+"PO-Revision-Date: 2024-03-17 08:52\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -591,7 +591,7 @@ msgid "My favorites"
 msgstr "Meus Favoritos"
 
 #: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:304 src/Process/Backend/Media.php:526
+#: src/Core/Backend/Page.php:304 src/Process/Backend/Media.php:534
 #: src/Process/Backend/UserPreferences.php:39
 msgid "My preferences"
 msgstr "Minhas preferências"
@@ -632,7 +632,7 @@ msgstr "Categorias"
 #: src/Core/Backend/Favorites.php:472 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
-#: src/Process/Backend/Media.php:441 src/Process/Backend/Media.php:480
+#: src/Process/Backend/Media.php:449 src/Process/Backend/Media.php:488
 #: src/Process/Backend/MediaItem.php:425 src/Process/Backend/MediaItem.php:431
 msgid "Media manager"
 msgstr "Gestor de multimédia"
@@ -684,7 +684,7 @@ msgstr "Ajuda global"
 msgid "Status:"
 msgstr "Estado:"
 
-#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1010
+#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1007
 #: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:988
 #: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:900
 #: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:541
@@ -692,14 +692,14 @@ msgstr "Estado:"
 msgid "Email:"
 msgstr "Email:"
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1009
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1006
 #: src/Process/Backend/Comment.php:282 src/Process/Backend/Post.php:904
 msgid "Web site:"
 msgstr "Website:"
 
 #: src/Core/Backend/Filter/FilterComments.php:56
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1051
+#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1048
 #: src/Process/Backend/Comment.php:270
 msgid "Author:"
 msgstr "Autor:"
@@ -718,7 +718,7 @@ msgid "Trackback"
 msgstr "Retrocesso"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1011 src/Process/Backend/Comment.php:259
+#: src/Core/Backend/Page.php:1008 src/Process/Backend/Comment.php:259
 msgid "IP address:"
 msgstr "Endereço IP:"
 
@@ -806,7 +806,7 @@ msgstr "Fechado"
 msgid "Trackbacks:"
 msgstr "Trackbacks:"
 
-#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1229
+#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1226
 msgid "Show filters and display options"
 msgstr "Mostrar filtros e opções de exibição"
 
@@ -912,10 +912,11 @@ msgid "Edit blog settings for %s"
 msgstr "Editar configurações do blog para %s"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:130
+#: src/Core/Backend/Listing/ListingBlogs.php:131
 msgid "Edit blog settings"
 msgstr "Editar configurações do blog"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:135
+#: src/Core/Backend/Listing/ListingBlogs.php:137
 #, php-format
 msgid "Switch to blog %s"
 msgstr "Mudar para o blog %s"
@@ -1023,12 +1024,12 @@ msgid "Edit the %1$s from %2$s"
 msgstr "Editar o %1$s de %2$s"
 
 #: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:228
+#: src/Core/Backend/Listing/ListingComments.php:229
 msgid "comment"
 msgstr "comentário"
 
 #: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:228
+#: src/Core/Backend/Listing/ListingComments.php:229
 msgid "trackback"
 msgstr "trackback"
 
@@ -1037,7 +1038,8 @@ msgid "Type and author"
 msgstr "Tipo e autor"
 
 #: src/Core/Backend/Listing/ListingComments.php:227
-#: src/Process/Backend/Post.php:1070 src/Process/Backend/Post.php:1141
+#: src/Core/Backend/Listing/ListingComments.php:228
+#: src/Process/Backend/Post.php:1070 src/Process/Backend/Post.php:1143
 msgid "Edit"
 msgstr "Alterar"
 
@@ -1068,7 +1070,7 @@ msgstr "Nb de itens: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
 #: src/Core/Backend/ModulesList.php:777 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:447
+#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:448
 msgid "Name"
 msgstr "Nome"
 
@@ -1079,13 +1081,13 @@ msgstr "Tamanho"
 
 #: src/Core/Backend/Listing/ListingMedia.php:167
 #: src/Core/Backend/Listing/ListingMedia.php:168
-#: src/Process/Backend/Media.php:342
+#: src/Process/Backend/Media.php:348
 msgid "Select this file"
 msgstr "Selecione este arquivo"
 
 #: src/Core/Backend/Listing/ListingMedia.php:177
 #: src/Core/Backend/Listing/ListingMedia.php:183
-#: src/Process/Backend/Media.php:358 src/Process/Backend/Media.php:371
+#: src/Process/Backend/Media.php:364 src/Process/Backend/Media.php:377
 msgid "Attach this file to entry"
 msgstr "Anexar este ficheiro à entrada"
 
@@ -1318,17 +1320,17 @@ msgstr "Pontuação"
 msgid "Version"
 msgstr "Versão"
 
-#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:451
+#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:452
 msgid "Current version"
 msgstr "Versão atual"
 
 #: src/Core/Backend/ModulesList.php:797 src/Core/Backend/ModulesList.php:996
-#: src/Core/Backend/Page.php:1052 src/Core/Backend/ThemesList.php:132
+#: src/Core/Backend/Page.php:1049 src/Core/Backend/ThemesList.php:132
 #: src/Core/Backend/ThemesList.php:191
 msgid "Details"
 msgstr "Detalhes"
 
-#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:463
+#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:464
 msgid "Repository"
 msgstr "Repositório"
 
@@ -1338,7 +1340,7 @@ msgid "Action"
 msgstr "Acção"
 
 #: src/Core/Backend/ModulesList.php:888 src/Core/Backend/ModulesList.php:892
-#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:401
+#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:402
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -1353,12 +1355,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Este módulo não pode ser ativado por causa dos seguintes motivos:"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ThemesList.php:178
-#: src/Process/Upgrade/Plugins.php:417
+#: src/Process/Upgrade/Plugins.php:418
 msgid "Official repository"
 msgstr "Repositório oficial"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ModulesList.php:1032
-#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:417
+#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:418
 msgid "Third-party repository"
 msgstr "Repositório de terceiros"
 
@@ -1370,7 +1372,7 @@ msgstr "Plugin da distribuição oficial"
 msgid "Plugin in development"
 msgstr "Plugin em desenvolvimento"
 
-#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1053
+#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1050
 #: src/Core/Backend/ThemesList.php:195
 msgid "Support"
 msgstr "SUPORTE"
@@ -1379,11 +1381,11 @@ msgstr "SUPORTE"
 msgid "update locked"
 msgstr "atualização bloqueada"
 
-#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1055
+#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1052
 msgid "Section:"
 msgstr "Seção:"
 
-#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1056
+#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1053
 msgid "Tags:"
 msgstr "Etiquetas:"
 
@@ -1558,8 +1560,8 @@ msgstr "A sua password:"
 msgid "Password"
 msgstr "Palavra-passe"
 
-#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1181
-#: src/Process/Backend/Media.php:532
+#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1178
+#: src/Process/Backend/Media.php:540
 msgid "Upload"
 msgstr "Enviar"
 
@@ -1596,7 +1598,7 @@ msgstr "Configurar \"%s\""
 #: src/Core/Backend/ModulesList.php:1773 src/Process/Backend/Blog.php:192
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:920
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:569 src/Process/Backend/MediaItem.php:1097
+#: src/Process/Backend/Media.php:577 src/Process/Backend/MediaItem.php:1097
 #: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:130
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:614
 #: src/Process/Backend/UserPreferences.php:793
@@ -1604,8 +1606,8 @@ msgstr "Configurar \"%s\""
 msgid "Back"
 msgstr "Anterior"
 
-#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1012
-#: src/Core/Backend/Page.php:1176 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1009
+#: src/Core/Backend/Page.php:1173 src/Core/Upgrade/Notices.php:34
 #: src/Process/Backend/Home.php:263
 msgid "Error:"
 msgstr "Erro:"
@@ -1680,328 +1682,328 @@ msgstr "Você está em modo seguro. Todos os plugins foram temporariamente desab
 msgid "Thank you for using %s."
 msgstr "Obrigado por utilizar %s."
 
-#: src/Core/Backend/Page.php:376 src/Core/Backend/Page.php:499
+#: src/Core/Backend/Page.php:376 src/Core/Backend/Page.php:496
 #: src/Core/Upgrade/Page.php:189
 msgid "Page top"
 msgstr "Página superior"
 
-#: src/Core/Backend/Page.php:695 src/Core/Backend/Page.php:696
+#: src/Core/Backend/Page.php:692 src/Core/Backend/Page.php:693
 #: src/Core/Upgrade/Page.php:233 src/Core/Upgrade/Page.php:234
 msgid "Go to dashboard"
 msgstr "Ir para o Painel"
 
-#: src/Core/Backend/Page.php:855 src/Core/Upgrade/Page.php:306
+#: src/Core/Backend/Page.php:852 src/Core/Upgrade/Page.php:306
 msgid "Help about this page"
 msgstr "Ajuda sobre esta página"
 
-#: src/Core/Backend/Page.php:860 src/Core/Upgrade/Page.php:311
+#: src/Core/Backend/Page.php:857 src/Core/Upgrade/Page.php:311
 #, php-format
 msgid "See also %s"
 msgstr "Veja também %s"
 
-#: src/Core/Backend/Page.php:860 src/Core/Upgrade/Page.php:311
+#: src/Core/Backend/Page.php:857 src/Core/Upgrade/Page.php:311
 msgid "the global help"
 msgstr "a ajuda global"
 
-#: src/Core/Backend/Page.php:994
+#: src/Core/Backend/Page.php:991
 msgid "uncover"
 msgstr "mostrar"
 
-#: src/Core/Backend/Page.php:998
+#: src/Core/Backend/Page.php:995
 msgid "hide"
 msgstr "esconder"
 
-#: src/Core/Backend/Page.php:1002
+#: src/Core/Backend/Page.php:999
 msgid "Need help?"
 msgstr "Precisa de ajuda?"
 
-#: src/Core/Backend/Page.php:1003
+#: src/Core/Backend/Page.php:1000
 msgid "new window"
 msgstr "Nova janela"
 
-#: src/Core/Backend/Page.php:1004
+#: src/Core/Backend/Page.php:1001
 msgid "Hide"
 msgstr "Esconder"
 
-#: src/Core/Backend/Page.php:1005
+#: src/Core/Backend/Page.php:1002
 msgid "Select:"
 msgstr "Selecionar:"
 
-#: src/Core/Backend/Page.php:1006
+#: src/Core/Backend/Page.php:1003
 msgid "No selection"
 msgstr "Nenhuma seleção"
 
-#: src/Core/Backend/Page.php:1007
+#: src/Core/Backend/Page.php:1004
 msgid "Select all"
 msgstr "Selecionar todos"
 
-#: src/Core/Backend/Page.php:1008
+#: src/Core/Backend/Page.php:1005
 msgid "Invert selection"
 msgstr "inverter selecção"
 
-#: src/Core/Backend/Page.php:1013 src/Process/Backend/Post.php:440
+#: src/Core/Backend/Page.php:1010 src/Process/Backend/Post.php:440
 #: src/Process/Backend/Post.php:556
 msgid "Entry has been successfully created."
 msgstr "A entrada foi criada com sucesso."
 
-#: src/Core/Backend/Page.php:1014
+#: src/Core/Backend/Page.php:1011
 msgid "Edit entry"
 msgstr "Editar referência"
 
-#: src/Core/Backend/Page.php:1015
+#: src/Core/Backend/Page.php:1012
 msgid "view entry"
 msgstr "ver a entrada"
 
-#: src/Core/Backend/Page.php:1016
+#: src/Core/Backend/Page.php:1013
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Tem certeza que deseja excluir as entradas selecionadas (%s)?"
 
-#: src/Core/Backend/Page.php:1017
+#: src/Core/Backend/Page.php:1014
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Tem certeza de que deseja excluir as mídias selecionadas (%d)?"
 
-#: src/Core/Backend/Page.php:1018
+#: src/Core/Backend/Page.php:1015
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Tem certeza que deseja excluir as categorias selecionadas (%s)?"
 
-#: src/Core/Backend/Page.php:1019
+#: src/Core/Backend/Page.php:1016
 msgid "Are you sure you want to delete this entry?"
 msgstr "Tem certeza de que deseja apagar esta entrada?"
 
-#: src/Core/Backend/Page.php:1020
+#: src/Core/Backend/Page.php:1017
 msgid "Click here to unlock the field"
 msgstr "Clique aqui para desbloquear o campo"
 
-#: src/Core/Backend/Page.php:1021
+#: src/Core/Backend/Page.php:1018
 msgid "Are you sure you want to delete all spams?"
 msgstr "Tem certeza que deseja excluir todos os spams?"
 
-#: src/Core/Backend/Page.php:1022
+#: src/Core/Backend/Page.php:1019
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Tem certeza que deseja excluir os comentários selecionados (%s)?"
 
-#: src/Core/Backend/Page.php:1023
+#: src/Core/Backend/Page.php:1020
 msgid "Are you sure you want to delete this comment?"
 msgstr "Tem certeza de que deseja apagar este comentário?"
 
-#: src/Core/Backend/Page.php:1024
+#: src/Core/Backend/Page.php:1021
 msgid "Users with posts cannot be deleted."
 msgstr "Utilizadores com entradas não podem ser apagados"
 
-#: src/Core/Backend/Page.php:1025
+#: src/Core/Backend/Page.php:1022
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Tem certeza que deseja excluir os usuários selecionados (%s)?"
 
-#: src/Core/Backend/Page.php:1026
+#: src/Core/Backend/Page.php:1023
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Tem certeza de que deseja excluir os blogs selecionados (%s)?"
 
-#: src/Core/Backend/Page.php:1027
+#: src/Core/Backend/Page.php:1024
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Tem certeza de que deseja apagar a categoria \"%s\"?"
 
-#: src/Core/Backend/Page.php:1028
+#: src/Core/Backend/Page.php:1025
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Tem certeza de que deseja reordenar as categorias?"
 
-#: src/Core/Backend/Page.php:1029
+#: src/Core/Backend/Page.php:1026
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Tem certeza de que deseja apagar o media \"%s\"?"
 
-#: src/Core/Backend/Page.php:1030
+#: src/Core/Backend/Page.php:1027
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Tem certeza que deseja remover o diretório \"%s?"
 
-#: src/Core/Backend/Page.php:1031
+#: src/Core/Backend/Page.php:1028
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Tem certeza de que deseja extrair o arquivo na pasta actual?"
 
-#: src/Core/Backend/Page.php:1032
+#: src/Core/Backend/Page.php:1029
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Tem certeza de que deseja remover o anexo \"%s\"?"
 
-#: src/Core/Backend/Page.php:1033
+#: src/Core/Backend/Page.php:1030
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Tem certeza de que deseja apagar a língua \"%s\"?"
 
-#: src/Core/Backend/Page.php:1034
+#: src/Core/Backend/Page.php:1031
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Tem certeza de que deseja apagar o plugin \"%s\"?"
 
-#: src/Core/Backend/Page.php:1035
+#: src/Core/Backend/Page.php:1032
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Tem certeza que deseja excluir os plugins selecionados?"
 
-#: src/Core/Backend/Page.php:1036
+#: src/Core/Backend/Page.php:1033
 msgid "Use this theme"
 msgstr "Usar este tema"
 
-#: src/Core/Backend/Page.php:1037
+#: src/Core/Backend/Page.php:1034
 msgid "Remove this theme"
 msgstr "Remover este tema"
 
-#: src/Core/Backend/Page.php:1038
+#: src/Core/Backend/Page.php:1035
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Tem certeza de que deseja apagar o tema \"%s\"?"
 
-#: src/Core/Backend/Page.php:1039
+#: src/Core/Backend/Page.php:1036
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Você tem certeza que deseja excluir os temas selecionados?"
 
-#: src/Core/Backend/Page.php:1040
+#: src/Core/Backend/Page.php:1037
 msgid "Are you sure you want to delete this backup?"
 msgstr "Tem certeza que deseja excluir este backup?"
 
-#: src/Core/Backend/Page.php:1041
+#: src/Core/Backend/Page.php:1038
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Tem certeza que deseja reverter este backup?"
 
-#: src/Core/Backend/Page.php:1042
+#: src/Core/Backend/Page.php:1039
 msgid "Zip file content"
 msgstr "Conteúdo do ficheiro zip"
 
-#: src/Core/Backend/Page.php:1043
+#: src/Core/Backend/Page.php:1040
 msgid "HTML markup validator"
 msgstr "Validar o código HTML"
 
-#: src/Core/Backend/Page.php:1044
+#: src/Core/Backend/Page.php:1041
 msgid "HTML content is valid."
 msgstr "O conteúdo HTML é válido."
 
-#: src/Core/Backend/Page.php:1045
+#: src/Core/Backend/Page.php:1042
 msgid "There are HTML markup errors."
 msgstr "O código HTML contem erros."
 
-#: src/Core/Backend/Page.php:1046
+#: src/Core/Backend/Page.php:1043
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Atenção: uma auditoria de um conteúdo ainda não registrada."
 
-#: src/Core/Backend/Page.php:1047
+#: src/Core/Backend/Page.php:1044
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Você tem alterações não salvas. Alternar o formato do post perderá essas alterações. Continuar mesmo assim?"
 
-#: src/Core/Backend/Page.php:1048
+#: src/Core/Backend/Page.php:1045
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Aviso: A alteração no formato do post não converterá conteúdo existente. Você precisará aplicar o novo formato por conta própria. Continuar mesmo assim?"
 
-#: src/Core/Backend/Page.php:1049
+#: src/Core/Backend/Page.php:1046
 msgid "Loading enhanced uploader, please wait."
 msgstr "Carregando envio aprimorado, aguarde."
 
-#: src/Core/Backend/Page.php:1054
+#: src/Core/Backend/Page.php:1051
 msgid "Help:"
 msgstr "Ajuda:"
 
-#: src/Core/Backend/Page.php:1058
+#: src/Core/Backend/Page.php:1055
 msgid "Hide this notice"
 msgstr "Ocultar esse aviso"
 
-#: src/Core/Backend/Page.php:1060
+#: src/Core/Backend/Page.php:1057
 msgid "Show password"
 msgstr "Mostrar senha"
 
-#: src/Core/Backend/Page.php:1061
+#: src/Core/Backend/Page.php:1058
 msgid "Hide password"
 msgstr "Ocultar senha"
 
-#: src/Core/Backend/Page.php:1063
+#: src/Core/Backend/Page.php:1060
 msgid "Reset to now"
 msgstr "Redefinir agora para"
 
-#: src/Core/Backend/Page.php:1065
+#: src/Core/Backend/Page.php:1062
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Um bloqueador de anúncios foi detectado neste painel Dotclear (Ghostery, Adblock plus, origem do uBlock, …) e pode interferir em alguns recursos. Neste caso você deve desativá-lo. Note que esta detecção pode ser desativada em suas preferências."
 
-#: src/Core/Backend/Page.php:1119
+#: src/Core/Backend/Page.php:1116
 msgid "You have unsaved changes."
 msgstr "Você tem alterações não salvas."
 
-#: src/Core/Backend/Page.php:1120
+#: src/Core/Backend/Page.php:1117
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "a carga da sua bateria parece estar baixa (%d%) e você possui alterações não salvas, você deve salvá-las."
 
-#: src/Core/Backend/Page.php:1167
+#: src/Core/Backend/Page.php:1164
 msgid "Temporarily activate enhanced uploader"
 msgstr "Activar o uploader"
 
-#: src/Core/Backend/Page.php:1168
+#: src/Core/Backend/Page.php:1165
 msgid "Temporarily disable enhanced uploader"
 msgstr "Desactivar o uploader"
 
-#: src/Core/Backend/Page.php:1172
+#: src/Core/Backend/Page.php:1169
 msgid "Limit exceeded."
 msgstr "Limite excedida:"
 
-#: src/Core/Backend/Page.php:1173
+#: src/Core/Backend/Page.php:1170
 msgid "File size exceeds allowed limit."
 msgstr "O tamanho do ficheiro ultrapassa o limite permitido."
 
-#: src/Core/Backend/Page.php:1174
+#: src/Core/Backend/Page.php:1171
 msgid "Canceled."
 msgstr "Cancelado."
 
-#: src/Core/Backend/Page.php:1175
+#: src/Core/Backend/Page.php:1172
 msgid "HTTP Error:"
 msgstr "Erro HTTP:"
 
-#: src/Core/Backend/Page.php:1177 src/Process/Backend/Media.php:513
+#: src/Core/Backend/Page.php:1174 src/Process/Backend/Media.php:521
 msgid "Choose file"
 msgstr "Escolha o ficheiro"
 
-#: src/Core/Backend/Page.php:1178 src/Process/Backend/Media.php:514
+#: src/Core/Backend/Page.php:1175 src/Process/Backend/Media.php:522
 msgid "Choose files"
 msgstr "Escolha os ficheiros"
 
-#: src/Core/Backend/Page.php:1179 src/Process/Backend/LinkPopup.php:73
+#: src/Core/Backend/Page.php:1176 src/Process/Backend/LinkPopup.php:73
 #: src/Process/Backend/Media.php:230 src/Process/Backend/MediaItem.php:527
 #: src/Process/Backend/MediaItem.php:733 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "cancelar"
 
-#: src/Core/Backend/Page.php:1180
+#: src/Core/Backend/Page.php:1177
 msgid "Clean"
 msgstr "Limpar"
 
-#: src/Core/Backend/Page.php:1182 src/Process/Backend/MediaItem.php:1068
+#: src/Core/Backend/Page.php:1179 src/Process/Backend/MediaItem.php:1068
 msgid "Send"
 msgstr "Mandar"
 
-#: src/Core/Backend/Page.php:1183
+#: src/Core/Backend/Page.php:1180
 msgid "File successfully uploaded."
 msgstr "Ficheiro enviado com sucesso."
 
-#: src/Core/Backend/Page.php:1184
+#: src/Core/Backend/Page.php:1181
 msgid "No file in queue."
 msgstr "Nenhum ficheiro na fila."
 
-#: src/Core/Backend/Page.php:1185
+#: src/Core/Backend/Page.php:1182
 msgid "1 file in queue."
 msgstr "1 ficheiro na fila."
 
-#: src/Core/Backend/Page.php:1186
+#: src/Core/Backend/Page.php:1183
 #, php-format
 msgid "%d files in queue."
 msgstr "%d ficheiros na fila."
 
-#: src/Core/Backend/Page.php:1187
+#: src/Core/Backend/Page.php:1184
 msgid "Queue error:"
 msgstr "Erro na fila:"
 
-#: src/Core/Backend/Page.php:1230
+#: src/Core/Backend/Page.php:1227
 msgid "Cancel filters and display options"
 msgstr "Cancelar filtros e opções de exibição"
 
@@ -2622,11 +2624,11 @@ msgstr "O arquivo baixado não parece ser um arquivo válido."
 msgid "Incomplete archive."
 msgstr "Arquivo incompleto."
 
-#: src/Core/Upgrade/Update.php:689 src/Process/Upgrade/Digests.php:300
+#: src/Core/Upgrade/Update.php:689 src/Process/Upgrade/Digests.php:299
 msgid "Unable to read digests file."
 msgstr "Não consigo ler o ficheiro compilado."
 
-#: src/Core/Upgrade/Update.php:715 src/Process/Upgrade/Digests.php:340
+#: src/Core/Upgrade/Update.php:715 src/Process/Upgrade/Digests.php:339
 msgid "Invalid digests file."
 msgstr "Ficheiro compilados inválido."
 
@@ -2638,12 +2640,12 @@ msgstr "Um erro aconteceu durante a actualização automática:"
 msgid "On this page you can update dotclear to the latest release."
 msgstr "Nesta página pode atualizar o dotclear para a versão mais recente."
 
-#: src/Core/Upgrade/Utility.php:273 src/Process/Upgrade/Attic.php:83
-#: src/Process/Upgrade/Attic.php:107 src/Process/Upgrade/Attic.php:345
+#: src/Core/Upgrade/Utility.php:273 src/Process/Upgrade/Attic.php:82
+#: src/Process/Upgrade/Attic.php:106 src/Process/Upgrade/Attic.php:344
 msgid "Attic"
 msgstr "Sótão"
 
-#: src/Core/Upgrade/Utility.php:279 src/Process/Upgrade/Attic.php:355
+#: src/Core/Upgrade/Utility.php:279 src/Process/Upgrade/Attic.php:354
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr "Nesta página pode atualizar o dotclear para uma versão entre a sua e a mais recente."
 
@@ -3269,7 +3271,7 @@ msgstr "URL do blog:"
 msgid "Blog description:"
 msgstr "Descrição do blog:"
 
-#: src/Process/Backend/Blog.php:190 src/Process/Backend/Media.php:457
+#: src/Process/Backend/Blog.php:190 src/Process/Backend/Media.php:465
 msgid "Create"
 msgstr "Crio"
 
@@ -3468,7 +3470,7 @@ msgstr "O blog foi criado com sucesso."
 msgid "Parameters"
 msgstr "Parâmetros"
 
-#: src/Process/Backend/BlogPref.php:474 src/Process/Backend/Media.php:564
+#: src/Process/Backend/BlogPref.php:474 src/Process/Backend/Media.php:572
 msgid "Blog parameters"
 msgstr "Parâmetros do Blog"
 
@@ -4444,132 +4446,134 @@ msgstr "Tem a certeza que quer remover %s?"
 msgid "Yes"
 msgstr "sim"
 
-#: src/Process/Backend/Media.php:269
+#: src/Process/Backend/Media.php:271
 msgid "Remove this folder from your favorites"
 msgstr "Remover esta pasta dos seus favoritos"
 
-#: src/Process/Backend/Media.php:292
+#: src/Process/Backend/Media.php:295
 msgid "Add this folder to your favorites"
 msgstr "Adicionar esta pasta aos seus favoritos"
 
-#: src/Process/Backend/Media.php:298
+#: src/Process/Backend/Media.php:301
 msgid "Goto recent folder:"
 msgstr "Ir para a pasta recente:"
 
-#: src/Process/Backend/Media.php:328
+#: src/Process/Backend/Media.php:334
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Você não tem permissões suficientes para gravar nesta pasta."
 
-#: src/Process/Backend/Media.php:342
+#: src/Process/Backend/Media.php:348
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "Selecione um arquivo clicando em %s"
 
-#: src/Process/Backend/Media.php:345 src/Process/Backend/Media.php:411
+#: src/Process/Backend/Media.php:351 src/Process/Backend/Media.php:419
 msgid "Choose selected medias"
 msgstr "Escolha as mídias selecionadas"
 
-#: src/Process/Backend/Media.php:345
+#: src/Process/Backend/Media.php:351
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Selecione os arquivos e clique no botão <strong>%s</strong>"
 
-#: src/Process/Backend/Media.php:349 src/Process/Backend/Media.php:362
-#: src/Process/Backend/Media.php:375 src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/Media.php:355 src/Process/Backend/Media.php:368
+#: src/Process/Backend/Media.php:381 src/Process/Backend/MediaItem.php:748
 msgid "or"
 msgstr "ou"
 
-#: src/Process/Backend/Media.php:349 src/Process/Backend/Media.php:362
-#: src/Process/Backend/Media.php:375
+#: src/Process/Backend/Media.php:355 src/Process/Backend/Media.php:368
+#: src/Process/Backend/Media.php:381
 msgid "upload a new file"
 msgstr "carregar um novo arquivo"
 
-#: src/Process/Backend/Media.php:356
+#: src/Process/Backend/Media.php:362
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Escolha um arquivo para anexar à entrada %s clicando em %s"
 
-#: src/Process/Backend/Media.php:370
+#: src/Process/Backend/Media.php:376
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Escolha um arquivo para inserir na entrada, clicando em %s"
 
-#: src/Process/Backend/Media.php:388 src/Process/Backend/Media.php:389
+#: src/Process/Backend/Media.php:394 src/Process/Backend/Media.php:395
+#: src/Process/Backend/Media.php:396
 msgid "Grid display mode"
 msgstr "Modo exibição em grade"
 
-#: src/Process/Backend/Media.php:391 src/Process/Backend/Media.php:392
+#: src/Process/Backend/Media.php:398 src/Process/Backend/Media.php:399
+#: src/Process/Backend/Media.php:400
 msgid "List display mode"
 msgstr "Modo de exibição em lista"
 
-#: src/Process/Backend/Media.php:414
+#: src/Process/Backend/Media.php:422
 msgid "Remove selected medias"
 msgstr "Remover mídias selecionadas"
 
-#: src/Process/Backend/Media.php:441
+#: src/Process/Backend/Media.php:449
 #, php-format
 msgid "In %s:"
 msgstr "Em %s:"
 
-#: src/Process/Backend/Media.php:453
+#: src/Process/Backend/Media.php:461
 msgid "Create new directory"
 msgstr "Criar novo diretório"
 
-#: src/Process/Backend/Media.php:455
+#: src/Process/Backend/Media.php:463
 msgid "Directory Name:"
 msgstr "Nome da pasta:"
 
-#: src/Process/Backend/Media.php:468
+#: src/Process/Backend/Media.php:476
 msgid "Build missing thumbnails in directory"
 msgstr "Construir miniaturas em falta no diretório"
 
-#: src/Process/Backend/Media.php:470
+#: src/Process/Backend/Media.php:478
 msgid "Build"
 msgstr "Construir"
 
-#: src/Process/Backend/Media.php:480
+#: src/Process/Backend/Media.php:488
 #, php-format
 msgid "Backup content of %s"
 msgstr "Backup de conteúdo de %s"
 
-#: src/Process/Backend/Media.php:484
+#: src/Process/Backend/Media.php:492
 msgid "Download zip file"
 msgstr "Baixar arquivo zip"
 
-#: src/Process/Backend/Media.php:504
+#: src/Process/Backend/Media.php:512
 msgid "Add files"
 msgstr "Adicionar ficheiros"
 
-#: src/Process/Backend/Media.php:505
+#: src/Process/Backend/Media.php:513
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "Por favor publique apenas conteúdo que não esteja protegido por copyright."
 
-#: src/Process/Backend/Media.php:517
+#: src/Process/Backend/Media.php:525
 msgid "Maximum file size allowed:"
 msgstr "Tamanho máximo do ficheiro:"
 
-#: src/Process/Backend/Media.php:519 src/Process/Backend/MediaItem.php:615
+#: src/Process/Backend/Media.php:527 src/Process/Backend/MediaItem.php:615
 #: src/Process/Backend/MediaItem.php:960 src/Process/Backend/MediaItem.php:1023
 msgid "Alternate text:"
 msgstr "Texto alternativo:"
 
-#: src/Process/Backend/Media.php:520 src/Process/Backend/MediaItem.php:1053
+#: src/Process/Backend/Media.php:528 src/Process/Backend/MediaItem.php:1053
 msgid "Private"
 msgstr "Privado"
 
-#: src/Process/Backend/Media.php:525
+#: src/Process/Backend/Media.php:533
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "Para enviar vários arquivos ao mesmo tempo, você pode ativar o uploader aprimorado em"
 
-#: src/Process/Backend/Media.php:530
+#: src/Process/Backend/Media.php:538
 msgid "Refresh"
 msgstr "atualizar"
 
-#: src/Process/Backend/Media.php:531
+#: src/Process/Backend/Media.php:539
 msgid "Clear all"
 msgstr "Limpar tudo"
 
-#: src/Process/Backend/Media.php:563
+#: src/Process/Backend/Media.php:571
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Configurações atuais para mídias e imagens são definidas em %s"
@@ -4611,7 +4615,7 @@ msgstr "Selecionar item de mídia"
 msgid "Image size:"
 msgstr "Tamanho da imagem:"
 
-#: src/Process/Backend/MediaItem.php:526 src/Process/Upgrade/Attic.php:303
+#: src/Process/Backend/MediaItem.php:526 src/Process/Upgrade/Attic.php:302
 msgid "Select"
 msgstr "Selecionar"
 
@@ -4648,12 +4652,12 @@ msgid "MP3 disposition"
 msgstr "Disposição do MP3"
 
 #: src/Process/Backend/MediaItem.php:656
-msgid "Please note that you cannot insert mp3 files with visual editor."
-msgstr "Não pode inserir um ficheiro MP3 no editor visual."
+msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
+msgstr ""
 
 #: src/Process/Backend/MediaItem.php:684
-msgid "Please note that you cannot insert video files with visual editor."
-msgstr "Não pode inserir um vídeo no editor visual."
+msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
+msgstr ""
 
 #: src/Process/Backend/MediaItem.php:688
 msgid "Video size"
@@ -5235,9 +5239,9 @@ msgstr[1] "%d comentários encontrados"
 #: src/Process/Backend/Update.php:50 src/Process/Backend/Update.php:55
 #: src/Process/Backend/Update.php:95 src/Process/Backend/Update.php:100
 #: src/Process/Backend/Update.php:121 src/Process/Backend/Update.php:126
-#: src/Process/Upgrade/Attic.php:78 src/Process/Upgrade/Attic.php:82
-#: src/Process/Upgrade/Attic.php:102 src/Process/Upgrade/Attic.php:106
-#: src/Process/Upgrade/Attic.php:340 src/Process/Upgrade/Attic.php:344
+#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
+#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
+#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
 #: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
 #: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
 #: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
@@ -5250,7 +5254,7 @@ msgid "Dotclear update"
 msgstr "Actualização de Dotclear"
 
 #: src/Process/Backend/Update.php:42 src/Process/Backend/Update.php:60
-#: src/Process/Upgrade/Attic.php:90 src/Process/Upgrade/Attic.php:114
+#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
 #: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
 #: src/Process/Upgrade/Upgrade.php:86
 msgid "Precheck update error"
@@ -5264,12 +5268,12 @@ msgstr "Diretório de backup não existe"
 msgid "Access denied"
 msgstr "Acesso negado"
 
-#: src/Process/Backend/Update.php:110 src/Process/Upgrade/Attic.php:328
+#: src/Process/Backend/Update.php:110 src/Process/Upgrade/Attic.php:327
 #: src/Process/Upgrade/Upgrade.php:275
 msgid "Congratulations, you're one click away from the end of the update."
 msgstr "Parabéns, você está a um clique do fim da actualização."
 
-#: src/Process/Backend/Update.php:111 src/Process/Upgrade/Attic.php:334
+#: src/Process/Backend/Update.php:111 src/Process/Upgrade/Attic.php:333
 #: src/Process/Upgrade/Upgrade.php:281
 msgid "Finish the update."
 msgstr "Concluir a actualização."
@@ -5278,12 +5282,12 @@ msgstr "Concluir a actualização."
 msgid "Manual checking of update done successfully."
 msgstr "Verificação manual das atualizações feita com sucesso."
 
-#: src/Process/Backend/Update.php:148 src/Process/Upgrade/Attic.php:235
+#: src/Process/Backend/Update.php:148 src/Process/Upgrade/Attic.php:234
 #: src/Process/Upgrade/Upgrade.php:219
 msgid "No newer Dotclear version available."
 msgstr "Não há versões mais recentes de Dotclear disponíveis."
 
-#: src/Process/Backend/Update.php:152 src/Process/Upgrade/Attic.php:247
+#: src/Process/Backend/Update.php:152 src/Process/Upgrade/Attic.php:246
 #: src/Process/Upgrade/Upgrade.php:231
 msgid "Force checking update Dotclear"
 msgstr "Forçar verificação de atualização Dotclear"
@@ -6041,69 +6045,69 @@ msgstr "Prefixo"
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "E-mail Mestre: (usado como remetente para recuperação de senha)"
 
-#: src/Process/Install/Wizard.php:295 src/Process/Upgrade/Digests.php:255
-#: src/Process/Upgrade/Digests.php:276
+#: src/Process/Install/Wizard.php:295 src/Process/Upgrade/Digests.php:254
+#: src/Process/Upgrade/Digests.php:275
 msgid "Continue"
 msgstr "Continuar"
 
-#: src/Process/Upgrade/Attic.php:91 src/Process/Upgrade/Backup.php:69
+#: src/Process/Upgrade/Attic.php:90 src/Process/Upgrade/Backup.php:69
 #: src/Process/Upgrade/Upgrade.php:63
 msgid "It seems that backup directory does not exist, upgrade can not be performed."
 msgstr "Parece que o diretório de cópia de segurança não existe, não é possível efetuar a atualização."
 
-#: src/Process/Upgrade/Attic.php:115 src/Process/Upgrade/Upgrade.php:87
+#: src/Process/Upgrade/Attic.php:114 src/Process/Upgrade/Upgrade.php:87
 msgid "It seems that there are no \"digests\" file on your system, upgrade can not be performed."
 msgstr "Parece que não existe nenhum ficheiro \"digests\" no seu sistema, pelo que a atualização não pode ser efectuada."
 
-#: src/Process/Upgrade/Attic.php:157 src/Process/Upgrade/Upgrade.php:135
+#: src/Process/Upgrade/Attic.php:156 src/Process/Upgrade/Upgrade.php:135
 #, php-format
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr "Os arquivos Dotclear descarregados parecem estar corrompidos. Tente <a %s>descarregar novamente</a>."
 
-#: src/Process/Upgrade/Attic.php:161 src/Process/Upgrade/Upgrade.php:139
+#: src/Process/Upgrade/Attic.php:160 src/Process/Upgrade/Upgrade.php:139
 msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "Se o problema persistir, tente <a href=\"https://dotclear.org/download\">atualizar manualmente.</a>."
 
-#: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:175
+#: src/Process/Upgrade/Attic.php:198 src/Process/Upgrade/Upgrade.php:175
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "Os seguintes ficheiros da sua instalação Dotclear foram modificados, por isso, não vou tentar actualizar a sua instalação. Tente a <a href=\"https://dotclear.org/download\">actualização manual</ a>."
 
-#: src/Process/Upgrade/Attic.php:200
+#: src/Process/Upgrade/Attic.php:199
 msgid "You can bypass this warning by updating installation disgets file."
 msgstr "É possível contornar este aviso actualizando o ficheiro dos disquetes de instalação."
 
-#: src/Process/Upgrade/Attic.php:203 src/Process/Upgrade/Upgrade.php:178
+#: src/Process/Upgrade/Attic.php:202 src/Process/Upgrade/Upgrade.php:178
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr "Os seguintes ficheiros da sua instalação Dotclear não estão legíveis. Corrija ou tente fazer um backup manual com o nome %s."
 
-#: src/Process/Upgrade/Attic.php:207 src/Process/Upgrade/Upgrade.php:182
+#: src/Process/Upgrade/Attic.php:206 src/Process/Upgrade/Upgrade.php:182
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "Os seguintes ficheiros da sua instalação Dotclear não podem ser escrito. Corrija ou tente a <a href=\"https://dotclear.org/download\">actualização manual</ a>."
 
-#: src/Process/Upgrade/Attic.php:274
+#: src/Process/Upgrade/Attic.php:273
 #, php-format
 msgid "Required PHP version %s or higher"
 msgstr "Versão PHP necessária %s ou superior"
 
-#: src/Process/Upgrade/Attic.php:281 src/Process/Upgrade/Attic.php:282
+#: src/Process/Upgrade/Attic.php:280 src/Process/Upgrade/Attic.php:281
 msgid "Release note"
 msgstr "Nota de lançamento"
 
-#: src/Process/Upgrade/Attic.php:292
+#: src/Process/Upgrade/Attic.php:291
 msgid "Select intermediate stable release to update to:"
 msgstr "Seleccione a versão estável intermédia para a qual pretende atualizar:"
 
-#: src/Process/Upgrade/Attic.php:305
+#: src/Process/Upgrade/Attic.php:304
 msgid "There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear's blog."
 msgstr "Não existem informações adicionais sobre os lançamentos aqui listados, pelo que deve ler atentamente a publicação de informações associada ao lançamento selecionado no blogue da Dotclear."
 
-#: src/Process/Upgrade/Attic.php:315
+#: src/Process/Upgrade/Attic.php:314
 #, php-format
 msgid "Are you sure to update to version %s?"
 msgstr "Tem a certeza de que actualizou para a versão %s?"
 
-#: src/Process/Upgrade/Attic.php:321 src/Process/Upgrade/Digests.php:174
+#: src/Process/Upgrade/Attic.php:320 src/Process/Upgrade/Digests.php:174
 #: src/Process/Upgrade/Digests.php:187 src/Process/Upgrade/Upgrade.php:263
 msgid "Update Dotclear"
 msgstr "Actualizar Dotclear"
@@ -6222,23 +6226,23 @@ msgstr "Descarregar cópia de segurança do ficheiro de resumos."
 msgid "Digests file is up to date."
 msgstr "O ficheiro Digests está atualizado."
 
-#: src/Process/Upgrade/Digests.php:202
+#: src/Process/Upgrade/Digests.php:201
 msgid "The following files will have their checksum faked:"
 msgstr "Os seguintes ficheiros terão a sua soma de verificação falsificada:"
 
-#: src/Process/Upgrade/Digests.php:219
+#: src/Process/Upgrade/Digests.php:218
 msgid "The following files digests will have their checksum cleaned:"
 msgstr "Os seguintes ficheiros terão a sua soma de verificação limpa:"
 
-#: src/Process/Upgrade/Digests.php:234
+#: src/Process/Upgrade/Digests.php:233
 msgid "Still ok to continue"
 msgstr "Ainda é possível continuar"
 
-#: src/Process/Upgrade/Digests.php:251
+#: src/Process/Upgrade/Digests.php:250
 msgid "Remove the backup digest file, I want to play again"
 msgstr "Remover o ficheiro digest de cópia de segurança, quero jogar novamente"
 
-#: src/Process/Upgrade/Digests.php:272
+#: src/Process/Upgrade/Digests.php:271
 msgid "I have read and understood the disclaimer and wish to continue anyway."
 msgstr "Li e compreendi a declaração de exoneração de responsabilidade e desejo continuar na mesma."
 
@@ -6331,7 +6335,7 @@ msgstr "Verificar as versões mais recentes das lojas"
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "Pode verificar os repositórios para módulos escritos explicitamente para a versão Dotclear superior a %s."
 
-#: src/Process/Upgrade/Plugins.php:384 src/Process/Upgrade/Plugins.php:426
+#: src/Process/Upgrade/Plugins.php:384 src/Process/Upgrade/Plugins.php:427
 msgid "No version available"
 msgstr "Nenhuma versão disponível"
 
@@ -6343,15 +6347,15 @@ msgstr "Nenhuma atualização disponível"
 msgid "Newer version available"
 msgstr "Versão mais recente disponível"
 
-#: src/Process/Upgrade/Plugins.php:440
+#: src/Process/Upgrade/Plugins.php:441
 msgid "Modules list"
 msgstr "Lista de módulos"
 
-#: src/Process/Upgrade/Plugins.php:455
+#: src/Process/Upgrade/Plugins.php:456
 msgid "Latest version"
 msgstr "Última versão"
 
-#: src/Process/Upgrade/Plugins.php:459
+#: src/Process/Upgrade/Plugins.php:460
 msgid "Written for Dotclear"
 msgstr "Escrito para Dotclear"
 
