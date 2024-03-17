@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-17 09:37+0100\n"
-"PO-Revision-Date: 2024-03-17 08:45\n"
+"PO-Revision-Date: 2024-03-17 09:07\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -1573,7 +1573,7 @@ msgstr "Fjern tekstformatering"
 
 #: plugins/dcLegacyEditor/tpl/index.php:22
 msgid "Enable standard editor plugin"
-msgstr ""
+msgstr "Aktivér standard editor-plugin"
 
 #: plugins/dcLegacyEditor/tpl/index.php:31
 msgid "Adjust height of input area during editing"
@@ -2878,7 +2878,7 @@ msgstr "Slet dette tag"
 
 #: plugins/tags/src/ManagePosts.php:195
 msgid "Rename:"
-msgstr ""
+msgstr "Omdøb:"
 
 #: plugins/tags/src/ManagePosts.php:206
 msgid "List of entries with this tag"
