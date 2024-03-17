@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-08 08:31+0100\n"
-"PO-Revision-Date: 2024-02-09 18:11\n"
+"POT-Creation-Date: 2024-03-17 09:37+0100\n"
+"PO-Revision-Date: 2024-03-17 08:46\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -25,44 +25,44 @@ msgstr "Απεγκατάσταση του"
 msgid "Plugin has been successfully uninstalled."
 msgstr "Το πρόσθετο έχει απεγκατασταθεί επιτυχώς."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:38
+#: plugins/Uninstaller/src/Cleaner/Caches.php:37
 msgid "Folders from cache directory"
 msgstr "Φάκελοι από τον κατάλογο cache"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:43
+#: plugins/Uninstaller/src/Cleaner/Caches.php:42
 msgid "delete selected cache directories"
 msgstr "διαγραφή επιλεγμένων καταλόγων cache"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+#: plugins/Uninstaller/src/Cleaner/Caches.php:43
 #, php-format
 msgid "delete \"%s\" cache directory"
 msgstr "delete \"%s\" cache directory"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted"
 msgstr "\"%s\" cache directory deleted"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
 msgstr "Απέτυχε η διαγραφή του καταλόγου cache \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:52
+#: plugins/Uninstaller/src/Cleaner/Caches.php:51
 msgid "empty selected cache directories"
 msgstr "άδεια επιλεγμένων καταλόγων cache"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
 #, php-format
 msgid "empty \"%s\" cache directory"
 msgstr "άδειο \"%s\" cache directory"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied"
 msgstr "\"%s\" cache directory empty"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
 msgstr "Απέτυχε η εκκένωση του καταλόγου cache \"%s\""
@@ -408,41 +408,41 @@ msgstr "Άγνωστος καθαριστής \"%s\""
 msgid "Unsintaller can't remove itself"
 msgstr "Το Unsintaller δεν μπορεί να αφαιρέσει τον εαυτό του"
 
-#: plugins/Uninstaller/src/Manage.php:62
+#: plugins/Uninstaller/src/Manage.php:61
 msgid "Unknown module id to uninstall"
 msgstr "Άγνωστο αναγνωριστικό ενότητας για απεγκατάσταση"
 
-#: plugins/Uninstaller/src/Manage.php:70
+#: plugins/Uninstaller/src/Manage.php:69
 msgid "There are no uninstall actions for this module"
 msgstr "Δεν υπάρχουν ενέργειες απεγκατάστασης για αυτήν την ενότητα"
 
-#: plugins/Uninstaller/src/Manage.php:95
+#: plugins/Uninstaller/src/Manage.php:94
 msgid "Uninstall action successfuly excecuted"
 msgstr "Η ενέργεια απεγκατάστασης εκτελέστηκε επιτυχώς"
 
-#: plugins/Uninstaller/src/Manage.php:98
+#: plugins/Uninstaller/src/Manage.php:97
 msgid "No uninstall action done"
 msgstr "Δεν έχει γίνει καμία ενέργεια απεγκατάστασης"
 
-#: plugins/Uninstaller/src/Manage.php:143
+#: plugins/Uninstaller/src/Manage.php:142
 msgid "Perform selected actions"
 msgstr "Εκτέλεση επιλεγμένων ενεργειών"
 
-#: plugins/Uninstaller/src/Manage.php:158
+#: plugins/Uninstaller/src/Manage.php:157
 msgid "Are you sure you perform these ations?"
 msgstr "Είστε σίγουροι ότι εκτελείτε αυτές τις ενέργειες;"
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:173
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "Απεγκατάσταση πρόσθετου \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:173
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "Απεγκατάσταση θέματος \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:175
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
 msgstr "Η ενότητα \"%s %s\" προσφέρει προηγμένη διαδικασία unsintall:"
@@ -925,11 +925,11 @@ msgstr "Διαθέσιμα φίλτρα spam"
 msgid "Order"
 msgstr "Σειρά"
 
-#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:247
+#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:249
 msgid "Active"
 msgstr "Ενεργό"
 
-#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:257
 msgid "Auto Del."
 msgstr "Auto Del."
 
@@ -938,22 +938,23 @@ msgid "Filter name"
 msgstr "Όνομα φίλτρου"
 
 #: plugins/antispam/src/Manage.php:228 plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:230
 msgid "Filter configuration"
 msgstr "Ρύθμιση παραμέτρων φίλτρου"
 
-#: plugins/antispam/src/Manage.php:239 plugins/blogroll/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:241 plugins/blogroll/src/Manage.php:270
 msgid "position"
 msgstr "θέση"
 
-#: plugins/antispam/src/Manage.php:285
+#: plugins/antispam/src/Manage.php:287
 msgid "Syndication"
 msgstr "Κοινοποίηση"
 
-#: plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:289
 msgid "Junk comments RSS feed"
 msgstr "Ανεπιθύμητα σχόλια RSS feed"
 
-#: plugins/antispam/src/Manage.php:288
+#: plugins/antispam/src/Manage.php:290
 msgid "Published comments RSS feed"
 msgstr "Δημοσιευμένα σχόλια RSS feed"
 
@@ -1571,8 +1572,8 @@ msgid "Remove text formating"
 msgstr "Αφαίρεση μορφοποίησης κειμένου"
 
 #: plugins/dcLegacyEditor/tpl/index.php:22
-msgid "Enable dcLegacyEditor plugin"
-msgstr "Ενεργοποίηση του dcLegacyEditor plugin"
+msgid "Enable standard editor plugin"
+msgstr ""
 
 #: plugins/dcLegacyEditor/tpl/index.php:31
 msgid "Adjust height of input area during editing"
@@ -2354,7 +2355,7 @@ msgstr "%d σελίδα"
 msgid "%d pages"
 msgstr "%d σελίδες"
 
-#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:126
+#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:131
 #: plugins/pages/src/ManagePage.php:75 plugins/pages/src/ManagePage.php:652
 msgid "New page"
 msgstr "Νέα σελίδα"
@@ -2368,7 +2369,7 @@ msgid "Back to pages list"
 msgstr "Πίσω στη λίστα σελίδων"
 
 #: plugins/pages/src/BackendDefaultActions.php:123
-#: plugins/pages/src/Manage.php:123
+#: plugins/pages/src/Manage.php:128
 msgid "Selected pages have been successfully reordered."
 msgstr "Οι επιλεγμένες σελίδες αναδιατάχθηκαν επιτυχώς."
 
@@ -2400,31 +2401,31 @@ msgstr "Η πρώτη μου σελίδα"
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "Αυτή είναι η πρώτη σας σελίδα. Όταν είστε έτοιμοι να το blog, συνδεθείτε για να το επεξεργαστείτε ή να το διαγράψετε."
 
-#: plugins/pages/src/Manage.php:105
+#: plugins/pages/src/Manage.php:110
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε τις επιλεγμένες σελίδες?"
 
-#: plugins/pages/src/Manage.php:119
+#: plugins/pages/src/Manage.php:124
 msgid "Selected pages have been successfully updated."
 msgstr "Οι επιλεγμένες σελίδες έχουν ενημερωθεί με επιτυχία."
 
-#: plugins/pages/src/Manage.php:121
+#: plugins/pages/src/Manage.php:126
 msgid "Selected pages have been successfully deleted."
 msgstr "Οι επιλεγμένες σελίδες διαγράφηκαν επιτυχώς."
 
-#: plugins/pages/src/Manage.php:140
+#: plugins/pages/src/Manage.php:145
 msgid "Selected pages action:"
 msgstr "Ενέργεια επιλεγμένων σελίδων:"
 
-#: plugins/pages/src/Manage.php:149
+#: plugins/pages/src/Manage.php:154
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "Για να αλλάξετε σειρά σελίδων, αλλάξτε τον αριθμό κατά την έναρξη της γραμμής και, στη συνέχεια, κάντε κλικ στο κουμπί \"Αποθήκευση παραγγελίας σελίδων\"."
 
-#: plugins/pages/src/Manage.php:151
+#: plugins/pages/src/Manage.php:156
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "Για να αλλάξετε τη σειρά των σελίδων, μετακινήστε τα στοιχεία σύρετε και αποθέστε και, στη συνέχεια, κάντε κλικ στο κουμπί “Αποθήκευση παραγγελίας σελίδων”."
 
-#: plugins/pages/src/Manage.php:152
+#: plugins/pages/src/Manage.php:157
 msgid "Save pages order"
 msgstr "Αποθήκευση παραγγελίας σελίδων"
 
@@ -2744,101 +2745,101 @@ msgstr "Εμφανίζεται στο σύνδεσμο και χρησιμοπο
 msgid "Not displayed nor used"
 msgstr "Δεν εμφανίζεται ούτε χρησιμοποιείται"
 
-#: plugins/tags/src/BackendBehaviors.php:52
 #: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:147
+#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
 msgid "Tag"
 msgstr "Ετικέτα"
 
-#: plugins/tags/src/BackendBehaviors.php:199
+#: plugins/tags/src/BackendBehaviors.php:237
 msgid "Add tags"
 msgstr "Προσθήκη ετικετών"
 
-#: plugins/tags/src/BackendBehaviors.php:208
+#: plugins/tags/src/BackendBehaviors.php:246
 msgid "Remove tags"
 msgstr "Αφαίρεση ετικετών"
 
-#: plugins/tags/src/BackendBehaviors.php:243
+#: plugins/tags/src/BackendBehaviors.php:281
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Η ετικέτα προστέθηκε επιτυχώς στις επιλεγμένες καταχωρήσεις"
 msgstr[1] "Οι ετικέτες προστέθηκαν επιτυχώς στις επιλεγμένες καταχωρήσεις"
 
-#: plugins/tags/src/BackendBehaviors.php:256
-#: plugins/tags/src/BackendBehaviors.php:396
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:456
 msgid "Are you sure you want to remove this tag?"
 msgstr "Είστε βέβαιοι ότι θέλετε να καταργήσετε αυτήν την ετικέτα?"
 
-#: plugins/tags/src/BackendBehaviors.php:257
-#: plugins/tags/src/BackendBehaviors.php:397
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:457
 msgid "Add a tag to this entry"
 msgstr "Προσθήκη ετικέτας σε αυτήν την καταχώρηση"
 
-#: plugins/tags/src/BackendBehaviors.php:258
-#: plugins/tags/src/BackendBehaviors.php:398
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:458
 msgid "Choose from list"
 msgstr "Επιλέξτε από τη λίστα"
 
-#: plugins/tags/src/BackendBehaviors.php:259
-#: plugins/tags/src/BackendBehaviors.php:399
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:459
 msgid "all"
 msgstr "όλα"
 
-#: plugins/tags/src/BackendBehaviors.php:260
-#: plugins/tags/src/BackendBehaviors.php:400
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:460
 msgid "Enter tags separated by comma"
 msgstr "Εισάγετε ετικέτες διαχωρισμένες με κόμμα"
 
-#: plugins/tags/src/BackendBehaviors.php:264
-#: plugins/tags/src/BackendBehaviors.php:404
+#: plugins/tags/src/BackendBehaviors.php:302
+#: plugins/tags/src/BackendBehaviors.php:464
 msgid "used in %e - frequency %p%"
 msgstr "χρησιμοποιείται σε %e - συχνότητα %p%"
 
-#: plugins/tags/src/BackendBehaviors.php:265
-#: plugins/tags/src/BackendBehaviors.php:405 plugins/tags/src/Manage.php:93
+#: plugins/tags/src/BackendBehaviors.php:303
+#: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:93
 msgid "entry"
 msgstr "εγγραφή"
 
-#: plugins/tags/src/BackendBehaviors.php:266
-#: plugins/tags/src/BackendBehaviors.php:406 plugins/tags/src/Manage.php:93
+#: plugins/tags/src/BackendBehaviors.php:304
+#: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:93
 msgid "entries"
 msgstr "καταχωρήσεις"
 
-#: plugins/tags/src/BackendBehaviors.php:274
+#: plugins/tags/src/BackendBehaviors.php:312
 msgid "Add tags to this selection"
 msgstr "Προσθήκη ετικετών σε αυτήν την επιλογή"
 
-#: plugins/tags/src/BackendBehaviors.php:287
+#: plugins/tags/src/BackendBehaviors.php:331
 msgid "Tags to add:"
 msgstr "Ετικέτες για προσθήκη:"
 
-#: plugins/tags/src/BackendBehaviors.php:320
+#: plugins/tags/src/BackendBehaviors.php:370
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Η ετικέτα αφαιρέθηκε επιτυχώς από τις επιλεγμένες καταχωρήσεις"
 msgstr[1] "Οι ετικέτες αφαιρέθηκαν επιτυχώς από τις επιλεγμένες καταχωρήσεις"
 
-#: plugins/tags/src/BackendBehaviors.php:343
+#: plugins/tags/src/BackendBehaviors.php:393
 msgid "No tags for selected entries"
 msgstr "Δεν υπάρχουν ετικέτες για τις επιλεγμένες καταχωρήσεις"
 
-#: plugins/tags/src/BackendBehaviors.php:350
+#: plugins/tags/src/BackendBehaviors.php:400
 msgid "Remove selected tags from this selection"
 msgstr "Αφαίρεση επιλεγμένων ετικετών από αυτήν την επιλογή"
 
-#: plugins/tags/src/BackendBehaviors.php:359
+#: plugins/tags/src/BackendBehaviors.php:427
 msgid "Following tags have been found in selected entries:"
 msgstr "Οι παρακάτω ετικέτες έχουν βρεθεί σε επιλεγμένες καταχωρήσεις:"
 
-#: plugins/tags/src/BackendBehaviors.php:425
+#: plugins/tags/src/BackendBehaviors.php:487
 msgid "Short"
 msgstr "Σύντομο"
 
-#: plugins/tags/src/BackendBehaviors.php:426
+#: plugins/tags/src/BackendBehaviors.php:488
 msgid "Extended"
 msgstr "Εκτεταμένη"
 
-#: plugins/tags/src/BackendBehaviors.php:433
+#: plugins/tags/src/BackendBehaviors.php:500
 msgid "Tags list format:"
 msgstr "Μορφή λίστας ετικετών:"
 
@@ -2854,35 +2855,34 @@ msgstr "Αυτή η ετικέτα καταχωρήσεις Atom feed"
 msgid "No tags on this blog."
 msgstr "Δεν υπάρχουν ετικέτες σε αυτό το blog."
 
-#: plugins/tags/src/ManagePosts.php:86
+#: plugins/tags/src/ManagePosts.php:93
 msgid "Tag has been successfully renamed"
 msgstr "Η ετικέτα μετονομάστηκε με επιτυχία"
 
-#: plugins/tags/src/ManagePosts.php:105
+#: plugins/tags/src/ManagePosts.php:112
 msgid "Tag has been successfully removed"
 msgstr "Η ετικέτα αφαιρέθηκε με επιτυχία"
 
-#: plugins/tags/src/ManagePosts.php:136
+#: plugins/tags/src/ManagePosts.php:143
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Είστε βέβαιοι ότι θέλετε να αφαιρέσετε την ετικέτα: “%s”?"
 
-#: plugins/tags/src/ManagePosts.php:151
+#: plugins/tags/src/ManagePosts.php:158
 msgid "Back to tags list"
 msgstr "Επιστροφή στη λίστα ετικετών"
 
-#: plugins/tags/src/ManagePosts.php:159
-msgid "Rename"
-msgstr "Μετονομασία"
-
-#: plugins/tags/src/ManagePosts.php:172
+#: plugins/tags/src/ManagePosts.php:173
 msgid "Delete this tag"
 msgstr "Διαγραφή ετικέτας"
 
-#: plugins/tags/src/ManagePosts.php:183
-#, php-format
-msgid "List of entries with the tag “%s”"
-msgstr "Λίστα καταχωρήσεων με ετικέτα “%s”"
+#: plugins/tags/src/ManagePosts.php:195
+msgid "Rename:"
+msgstr ""
+
+#: plugins/tags/src/ManagePosts.php:206
+msgid "List of entries with this tag"
+msgstr "Λίστα καταχωρήσεων με αυτή την ετικέτα"
 
 #: plugins/tags/src/Widgets.php:33
 msgid "Limit (empty means no limit):"
@@ -3113,7 +3113,7 @@ msgstr "Διαθέσιμα widget"
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Σύρετε widgets από αυτή τη λίστα σε μία από τις πλαϊνές μπάρες, για προσθήκη."
 
-#: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:410
 msgid "order"
 msgstr "παραγγελία"
 
@@ -3181,23 +3181,19 @@ msgstr "Όνομα ρύθμισης:"
 msgid "No widget as far."
 msgstr "Δεν υπάρχει γραφικό στοιχείο μέχρι τώρα."
 
-#: plugins/widgets/src/Manage.php:402 plugins/widgets/src/Manage.php:417
+#: plugins/widgets/src/Manage.php:415
 msgid "Up the widget"
 msgstr "Επάνω το widget"
 
-#: plugins/widgets/src/Manage.php:403 plugins/widgets/src/Manage.php:418
+#: plugins/widgets/src/Manage.php:416
 msgid "Down the widget"
 msgstr "Κάτω από το widget"
 
-#: plugins/widgets/src/Manage.php:419
+#: plugins/widgets/src/Manage.php:417
 msgid "Remove the widget"
 msgstr "Αφαιρέστε το widget"
 
-#: plugins/widgets/src/Manage.php:419
-msgid "Remove widget"
-msgstr "Αφαίρεση γραφικού στοιχείου"
-
-#: plugins/widgets/src/Manage.php:431
+#: plugins/widgets/src/Manage.php:429
 msgid "Drag widgets here to remove."
 msgstr "Σύρετε τα widget εδώ για να αφαιρέσετε."
 
