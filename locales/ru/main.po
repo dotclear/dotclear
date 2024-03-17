@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-17 09:37+0100\n"
-"PO-Revision-Date: 2024-03-17 08:52\n"
+"PO-Revision-Date: 2024-03-17 09:12\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -4723,11 +4723,11 @@ msgstr "Добавление MP3"
 
 #: src/Process/Backend/MediaItem.php:656
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
-msgstr ""
+msgstr "Обратите внимание, что вы не можете вставлять mp3-файлы с помощью стандартного редактора в режиме WYSIWYG HTML."
 
 #: src/Process/Backend/MediaItem.php:684
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
-msgstr ""
+msgstr "Обратите внимание, что вы не можете вставить видеофайлы с помощью стандартного редактора в режиме WYSIWYG HTML."
 
 #: src/Process/Backend/MediaItem.php:688
 msgid "Video size"
