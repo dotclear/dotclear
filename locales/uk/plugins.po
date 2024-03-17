@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-17 09:37+0100\n"
-"PO-Revision-Date: 2024-03-17 08:54\n"
+"PO-Revision-Date: 2024-03-17 09:13\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -1573,7 +1573,7 @@ msgstr "Видалити форматування тексту"
 
 #: plugins/dcLegacyEditor/tpl/index.php:22
 msgid "Enable standard editor plugin"
-msgstr ""
+msgstr "Увімкнути стандартний плагін редактора"
 
 #: plugins/dcLegacyEditor/tpl/index.php:31
 msgid "Adjust height of input area during editing"
@@ -2886,7 +2886,7 @@ msgstr "Видаліть цей тег"
 
 #: plugins/tags/src/ManagePosts.php:195
 msgid "Rename:"
-msgstr ""
+msgstr "Перейменувати:"
 
 #: plugins/tags/src/ManagePosts.php:206
 msgid "List of entries with this tag"
