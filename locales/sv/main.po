@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-17 09:37+0100\n"
-"PO-Revision-Date: 2024-03-17 08:53\n"
+"PO-Revision-Date: 2024-03-17 09:13\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -4653,11 +4653,11 @@ msgstr "MP3 disposition"
 
 #: src/Process/Backend/MediaItem.php:656
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
-msgstr ""
+msgstr "Observera att du inte kan infoga mp3-filer med standardredigeraren i WYSIWYG HTML-läge."
 
 #: src/Process/Backend/MediaItem.php:684
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
-msgstr ""
+msgstr "Observera att du inte kan infoga videofiler med standardredigeraren i WYSIWYG HTML-läge."
 
 #: src/Process/Backend/MediaItem.php:688
 msgid "Video size"
