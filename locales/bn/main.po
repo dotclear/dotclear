@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-20 21:08+0100\n"
-"PO-Revision-Date: 2024-02-21 06:09\n"
+"POT-Creation-Date: 2024-03-17 09:37+0100\n"
+"PO-Revision-Date: 2024-03-17 08:58\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -591,7 +591,7 @@ msgid "My favorites"
 msgstr "আমার পছন্দের"
 
 #: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:304 src/Process/Backend/Media.php:526
+#: src/Core/Backend/Page.php:304 src/Process/Backend/Media.php:534
 #: src/Process/Backend/UserPreferences.php:39
 msgid "My preferences"
 msgstr "আমার পছন্দসমূহ"
@@ -632,7 +632,7 @@ msgstr "ক্যাটাগরিসমূহ"
 #: src/Core/Backend/Favorites.php:472 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
-#: src/Process/Backend/Media.php:441 src/Process/Backend/Media.php:480
+#: src/Process/Backend/Media.php:449 src/Process/Backend/Media.php:488
 #: src/Process/Backend/MediaItem.php:425 src/Process/Backend/MediaItem.php:431
 msgid "Media manager"
 msgstr "মিডিয়া ম্যানেজার"
@@ -684,7 +684,7 @@ msgstr "গ্লোবাল সহায়তা"
 msgid "Status:"
 msgstr "অবস্থা:"
 
-#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1010
+#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1007
 #: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:988
 #: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:900
 #: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:541
@@ -692,14 +692,14 @@ msgstr "অবস্থা:"
 msgid "Email:"
 msgstr "ইমেইল:"
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1009
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1006
 #: src/Process/Backend/Comment.php:282 src/Process/Backend/Post.php:904
 msgid "Web site:"
 msgstr "ওয়েব সাইট:"
 
 #: src/Core/Backend/Filter/FilterComments.php:56
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1051
+#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1048
 #: src/Process/Backend/Comment.php:270
 msgid "Author:"
 msgstr "লেখক:"
@@ -718,7 +718,7 @@ msgid "Trackback"
 msgstr "ট্র্যাকব্যাক"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1011 src/Process/Backend/Comment.php:259
+#: src/Core/Backend/Page.php:1008 src/Process/Backend/Comment.php:259
 msgid "IP address:"
 msgstr "IP এড্রেস:"
 
@@ -806,7 +806,7 @@ msgstr "বন্ধ করা হয়েছে"
 msgid "Trackbacks:"
 msgstr "ট্র্যাকব্যাক:"
 
-#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1229
+#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1226
 msgid "Show filters and display options"
 msgstr "ফিল্টার ও ডিসপ্লে অপশন প্রদর্শন করা হবে"
 
@@ -912,10 +912,11 @@ msgid "Edit blog settings for %s"
 msgstr ""
 
 #: src/Core/Backend/Listing/ListingBlogs.php:130
+#: src/Core/Backend/Listing/ListingBlogs.php:131
 msgid "Edit blog settings"
 msgstr "ব্লগ সেটিংস সম্পাদনা করুন"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:135
+#: src/Core/Backend/Listing/ListingBlogs.php:137
 #, php-format
 msgid "Switch to blog %s"
 msgstr ""
@@ -1023,12 +1024,12 @@ msgid "Edit the %1$s from %2$s"
 msgstr ""
 
 #: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:228
+#: src/Core/Backend/Listing/ListingComments.php:229
 msgid "comment"
 msgstr "মন্তব্য"
 
 #: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:228
+#: src/Core/Backend/Listing/ListingComments.php:229
 msgid "trackback"
 msgstr "ট্র্যাকব্যাক"
 
@@ -1037,7 +1038,8 @@ msgid "Type and author"
 msgstr "ধরন ও লেখক"
 
 #: src/Core/Backend/Listing/ListingComments.php:227
-#: src/Process/Backend/Post.php:1070 src/Process/Backend/Post.php:1141
+#: src/Core/Backend/Listing/ListingComments.php:228
+#: src/Process/Backend/Post.php:1070 src/Process/Backend/Post.php:1143
 msgid "Edit"
 msgstr "সম্পাদনা"
 
@@ -1068,7 +1070,7 @@ msgstr ""
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
 #: src/Core/Backend/ModulesList.php:777 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:447
+#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:448
 msgid "Name"
 msgstr "নাম"
 
@@ -1079,13 +1081,13 @@ msgstr "মাপ"
 
 #: src/Core/Backend/Listing/ListingMedia.php:167
 #: src/Core/Backend/Listing/ListingMedia.php:168
-#: src/Process/Backend/Media.php:342
+#: src/Process/Backend/Media.php:348
 msgid "Select this file"
 msgstr "এই ফাইলটি নির্বাচন করুন"
 
 #: src/Core/Backend/Listing/ListingMedia.php:177
 #: src/Core/Backend/Listing/ListingMedia.php:183
-#: src/Process/Backend/Media.php:358 src/Process/Backend/Media.php:371
+#: src/Process/Backend/Media.php:364 src/Process/Backend/Media.php:377
 msgid "Attach this file to entry"
 msgstr "এন্ট্রির সাথে এই ফাইলটি সংযুক্ত করুন"
 
@@ -1318,17 +1320,17 @@ msgstr "স্কোর"
 msgid "Version"
 msgstr "ভার্সন"
 
-#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:451
+#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:452
 msgid "Current version"
 msgstr "বর্তমান সংস্করণ"
 
 #: src/Core/Backend/ModulesList.php:797 src/Core/Backend/ModulesList.php:996
-#: src/Core/Backend/Page.php:1052 src/Core/Backend/ThemesList.php:132
+#: src/Core/Backend/Page.php:1049 src/Core/Backend/ThemesList.php:132
 #: src/Core/Backend/ThemesList.php:191
 msgid "Details"
 msgstr "বিবরণ"
 
-#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:463
+#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:464
 msgid "Repository"
 msgstr "রিপোজিটরি"
 
@@ -1338,7 +1340,7 @@ msgid "Action"
 msgstr "কাজ"
 
 #: src/Core/Backend/ModulesList.php:888 src/Core/Backend/ModulesList.php:892
-#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:401
+#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:402
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -1353,12 +1355,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "এই মডিউলটি সক্রিয় করা সম্ভব নয়, কারণ নিম্নলিখিত কারণ:"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ThemesList.php:178
-#: src/Process/Upgrade/Plugins.php:417
+#: src/Process/Upgrade/Plugins.php:418
 msgid "Official repository"
 msgstr "অফিসিয়াল রিপোজিটরি"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ModulesList.php:1032
-#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:417
+#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:418
 msgid "Third-party repository"
 msgstr "তৃতীয়-পার্টির রিপোজিটরী"
 
@@ -1370,7 +1372,7 @@ msgstr "অফিসিয়াল বিতরণের প্লাগ-ইন"
 msgid "Plugin in development"
 msgstr "উন্নয়নের প্লাগ-ইন"
 
-#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1053
+#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1050
 #: src/Core/Backend/ThemesList.php:195
 msgid "Support"
 msgstr "সহায়তা"
@@ -1379,11 +1381,11 @@ msgstr "সহায়তা"
 msgid "update locked"
 msgstr "হালনাগাদ করা হচ্ছে"
 
-#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1055
+#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1052
 msgid "Section:"
 msgstr "সেকশন:"
 
-#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1056
+#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1053
 msgid "Tags:"
 msgstr "ট্যাগ:"
 
@@ -1558,8 +1560,8 @@ msgstr "আপনার পাসওয়ার্ড:"
 msgid "Password"
 msgstr "পাসওয়ার্ড"
 
-#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1181
-#: src/Process/Backend/Media.php:532
+#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1178
+#: src/Process/Backend/Media.php:540
 msgid "Upload"
 msgstr "আপলোড"
 
@@ -1596,7 +1598,7 @@ msgstr ""
 #: src/Core/Backend/ModulesList.php:1773 src/Process/Backend/Blog.php:192
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:920
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:569 src/Process/Backend/MediaItem.php:1097
+#: src/Process/Backend/Media.php:577 src/Process/Backend/MediaItem.php:1097
 #: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:130
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:614
 #: src/Process/Backend/UserPreferences.php:793
@@ -1604,8 +1606,8 @@ msgstr ""
 msgid "Back"
 msgstr "ব্যাক"
 
-#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1012
-#: src/Core/Backend/Page.php:1176 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1009
+#: src/Core/Backend/Page.php:1173 src/Core/Upgrade/Notices.php:34
 #: src/Process/Backend/Home.php:263
 msgid "Error:"
 msgstr "ত্রুটি:"
@@ -1680,328 +1682,328 @@ msgstr "তুমি নিরাপদ মোডে. সব প্লাগই�
 msgid "Thank you for using %s."
 msgstr "%s ব্যবহার করার জন্য ধন্যবাদ।"
 
-#: src/Core/Backend/Page.php:376 src/Core/Backend/Page.php:499
+#: src/Core/Backend/Page.php:376 src/Core/Backend/Page.php:496
 #: src/Core/Upgrade/Page.php:189
 msgid "Page top"
 msgstr "পৃষ্ঠা শীর্ষক"
 
-#: src/Core/Backend/Page.php:695 src/Core/Backend/Page.php:696
+#: src/Core/Backend/Page.php:692 src/Core/Backend/Page.php:693
 #: src/Core/Upgrade/Page.php:233 src/Core/Upgrade/Page.php:234
 msgid "Go to dashboard"
 msgstr "ড্যাশবোর্ডে যাও"
 
-#: src/Core/Backend/Page.php:855 src/Core/Upgrade/Page.php:306
+#: src/Core/Backend/Page.php:852 src/Core/Upgrade/Page.php:306
 msgid "Help about this page"
 msgstr "এই পৃষ্ঠায় সাহায্য করুন"
 
-#: src/Core/Backend/Page.php:860 src/Core/Upgrade/Page.php:311
+#: src/Core/Backend/Page.php:857 src/Core/Upgrade/Page.php:311
 #, php-format
 msgid "See also %s"
 msgstr ""
 
-#: src/Core/Backend/Page.php:860 src/Core/Upgrade/Page.php:311
+#: src/Core/Backend/Page.php:857 src/Core/Upgrade/Page.php:311
 msgid "the global help"
 msgstr "বৈশ্বিক সাহায্য"
 
-#: src/Core/Backend/Page.php:994
+#: src/Core/Backend/Page.php:991
 msgid "uncover"
 msgstr "দেখাও"
 
-#: src/Core/Backend/Page.php:998
+#: src/Core/Backend/Page.php:995
 msgid "hide"
 msgstr "লুকাও"
 
-#: src/Core/Backend/Page.php:1002
+#: src/Core/Backend/Page.php:999
 msgid "Need help?"
 msgstr "সাহায্য দরকার?"
 
-#: src/Core/Backend/Page.php:1003
+#: src/Core/Backend/Page.php:1000
 msgid "new window"
 msgstr "নতুন উইন্ডো"
 
-#: src/Core/Backend/Page.php:1004
+#: src/Core/Backend/Page.php:1001
 msgid "Hide"
 msgstr "আড়াল করো"
 
-#: src/Core/Backend/Page.php:1005
+#: src/Core/Backend/Page.php:1002
 msgid "Select:"
 msgstr "নির্বাচন করুন:"
 
-#: src/Core/Backend/Page.php:1006
+#: src/Core/Backend/Page.php:1003
 msgid "No selection"
 msgstr "কোনো নির্বাচন নেই"
 
-#: src/Core/Backend/Page.php:1007
+#: src/Core/Backend/Page.php:1004
 msgid "Select all"
 msgstr "সব নির্বাচন করুন"
 
-#: src/Core/Backend/Page.php:1008
+#: src/Core/Backend/Page.php:1005
 msgid "Invert selection"
 msgstr "Select-action"
 
-#: src/Core/Backend/Page.php:1013 src/Process/Backend/Post.php:440
+#: src/Core/Backend/Page.php:1010 src/Process/Backend/Post.php:440
 #: src/Process/Backend/Post.php:556
 msgid "Entry has been successfully created."
 msgstr "এন্ট্রি সফলভাবে তৈরি করা হয়েছে."
 
-#: src/Core/Backend/Page.php:1014
+#: src/Core/Backend/Page.php:1011
 msgid "Edit entry"
 msgstr "এন্ট্রি সম্পাদন করো"
 
-#: src/Core/Backend/Page.php:1015
+#: src/Core/Backend/Page.php:1012
 msgid "view entry"
 msgstr "এন্ট্রি দেখাও"
 
-#: src/Core/Backend/Page.php:1016
+#: src/Core/Backend/Page.php:1013
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1017
+#: src/Core/Backend/Page.php:1014
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1018
+#: src/Core/Backend/Page.php:1015
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1019
+#: src/Core/Backend/Page.php:1016
 msgid "Are you sure you want to delete this entry?"
 msgstr "আপনি কি এই এন্ট্রি মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1020
+#: src/Core/Backend/Page.php:1017
 msgid "Click here to unlock the field"
 msgstr "মাঠ আনলক করতে এখানে ক্লিক করুন"
 
-#: src/Core/Backend/Page.php:1021
+#: src/Core/Backend/Page.php:1018
 msgid "Are you sure you want to delete all spams?"
 msgstr "আপনি কি নিশ্চিত আপনি সমস্ত স্প্যাম মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1022
+#: src/Core/Backend/Page.php:1019
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1023
+#: src/Core/Backend/Page.php:1020
 msgid "Are you sure you want to delete this comment?"
 msgstr "আপনি কি এই মন্তব্যটি মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1024
+#: src/Core/Backend/Page.php:1021
 msgid "Users with posts cannot be deleted."
 msgstr "পোস্টসহ ব্যবহারকারীদের মুছে ফেলা যাবে না."
 
-#: src/Core/Backend/Page.php:1025
+#: src/Core/Backend/Page.php:1022
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1026
+#: src/Core/Backend/Page.php:1023
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1027
+#: src/Core/Backend/Page.php:1024
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1028
+#: src/Core/Backend/Page.php:1025
 msgid "Are you sure you want to reorder all categories?"
 msgstr "আপনি কি নিশ্চিত আপনি সকল শ্রেনীবিন্যাস পুনরায় অর্ডার করতে চান?"
 
-#: src/Core/Backend/Page.php:1029
+#: src/Core/Backend/Page.php:1026
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1030
+#: src/Core/Backend/Page.php:1027
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1031
+#: src/Core/Backend/Page.php:1028
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "আপনি কি বর্তমান ডিরেক্টরিতে আর্কাইভ বের করতে চান?"
 
-#: src/Core/Backend/Page.php:1032
+#: src/Core/Backend/Page.php:1029
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1033
+#: src/Core/Backend/Page.php:1030
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1034
+#: src/Core/Backend/Page.php:1031
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1035
+#: src/Core/Backend/Page.php:1032
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "আপনি কি নির্বাচিত প্লাগ-ইন মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1036
+#: src/Core/Backend/Page.php:1033
 msgid "Use this theme"
 msgstr "এই থিম ব্যবহার করো"
 
-#: src/Core/Backend/Page.php:1037
+#: src/Core/Backend/Page.php:1034
 msgid "Remove this theme"
 msgstr "এই থিম সরিয়ে ফেলো"
 
-#: src/Core/Backend/Page.php:1038
+#: src/Core/Backend/Page.php:1035
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1039
+#: src/Core/Backend/Page.php:1036
 msgid "Are you sure you want to delete selected themes?"
 msgstr "আপনি কি নির্বাচিত থিম মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1040
+#: src/Core/Backend/Page.php:1037
 msgid "Are you sure you want to delete this backup?"
 msgstr "আপনি কি নিশ্চিত আপনি এই ব্যাকআপ মুছে ফেলতে চান?"
 
-#: src/Core/Backend/Page.php:1041
+#: src/Core/Backend/Page.php:1038
 msgid "Are you sure you want to revert to this backup?"
 msgstr "আপনি কি নিশ্চিত যে আপনি এই ব্যাকআপ প্রত্যাবর্তন করতে চান?"
 
-#: src/Core/Backend/Page.php:1042
+#: src/Core/Backend/Page.php:1039
 msgid "Zip file content"
 msgstr "জিপ ফাইল বিষয়বস্তু"
 
-#: src/Core/Backend/Page.php:1043
+#: src/Core/Backend/Page.php:1040
 msgid "HTML markup validator"
 msgstr "HTML মার্কআপ বৈধতা"
 
-#: src/Core/Backend/Page.php:1044
+#: src/Core/Backend/Page.php:1041
 msgid "HTML content is valid."
 msgstr "HTML বিষয়বস্তু বৈধ."
 
-#: src/Core/Backend/Page.php:1045
+#: src/Core/Backend/Page.php:1042
 msgid "There are HTML markup errors."
 msgstr "এইচ-টি-এম-এল মার্কআপ ত্রুটি আছে."
 
-#: src/Core/Backend/Page.php:1046
+#: src/Core/Backend/Page.php:1043
 msgid "Attention: an audit of a content not yet registered."
 msgstr "দৃষ্টি আকর্ষন: একটি বিষয়বস্তুর একটি হিসাব এখনো নিবন্ধিত হয়নি."
 
-#: src/Core/Backend/Page.php:1047
+#: src/Core/Backend/Page.php:1044
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "আপনার অসংরক্ষিত পরিবর্তন আছে. সুইচ পোস্ট ফরম্যাট এই পরিবর্তনগুলো হারিয়ে যাবে. যাই হোক না কেন?"
 
-#: src/Core/Backend/Page.php:1048
+#: src/Core/Backend/Page.php:1045
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "সতর্কীকরণ: পোস্ট ফরম্যাট পরিবর্তন বিদ্যমান বিষয়বস্তুকে রূপান্তর করবে না. আপনি নিজেই নতুন ফরম্যাট প্রয়োগ করতে হবে. যাই হোক না কেন?"
 
-#: src/Core/Backend/Page.php:1049
+#: src/Core/Backend/Page.php:1046
 msgid "Loading enhanced uploader, please wait."
 msgstr "বর্ধিত আপলোডার লোড করা হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন."
 
-#: src/Core/Backend/Page.php:1054
+#: src/Core/Backend/Page.php:1051
 msgid "Help:"
 msgstr "সহায়তা:"
 
-#: src/Core/Backend/Page.php:1058
+#: src/Core/Backend/Page.php:1055
 msgid "Hide this notice"
 msgstr "এই নোটিশ আড়াল করো"
 
-#: src/Core/Backend/Page.php:1060
+#: src/Core/Backend/Page.php:1057
 msgid "Show password"
 msgstr "পাসওয়ার্ড দেখাও"
 
-#: src/Core/Backend/Page.php:1061
+#: src/Core/Backend/Page.php:1058
 msgid "Hide password"
 msgstr "পাসওয়ার্ড আড়াল করো"
 
-#: src/Core/Backend/Page.php:1063
+#: src/Core/Backend/Page.php:1060
 msgid "Reset to now"
 msgstr "এখন রিসেট করো"
 
-#: src/Core/Backend/Page.php:1065
+#: src/Core/Backend/Page.php:1062
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "এই Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) এ একটি অ্যাড ব্লকার সনাক্ত করা হয়েছে এবং এটি কিছু বৈশিষ্ট্যের সাথে হস্তক্ষেপ করতে পারে. এই ক্ষেত্রে আপনি এটি নিষ্কাশন করতে পারেন. উল্লেখ্য, আপনার পছন্দের ক্ষেত্রে এই সনাক্তকরণ নিষ্ক্রিয় হতে পারে."
 
-#: src/Core/Backend/Page.php:1119
+#: src/Core/Backend/Page.php:1116
 msgid "You have unsaved changes."
 msgstr "আপনার অসংরক্ষিত পরিবর্তন আছে."
 
-#: src/Core/Backend/Page.php:1120
+#: src/Core/Backend/Page.php:1117
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1167
+#: src/Core/Backend/Page.php:1164
 msgid "Temporarily activate enhanced uploader"
 msgstr "সাময়িকভাবে বর্ধিত আপলোডার সক্রিয় করা হবে"
 
-#: src/Core/Backend/Page.php:1168
+#: src/Core/Backend/Page.php:1165
 msgid "Temporarily disable enhanced uploader"
 msgstr "সাময়িকভাবে বর্ধিত আপলোডারName"
 
-#: src/Core/Backend/Page.php:1172
+#: src/Core/Backend/Page.php:1169
 msgid "Limit exceeded."
 msgstr "সীমা অতিক্রম করে."
 
-#: src/Core/Backend/Page.php:1173
+#: src/Core/Backend/Page.php:1170
 msgid "File size exceeds allowed limit."
 msgstr "ফাইলের আকার সীমা অতিক্রম করে."
 
-#: src/Core/Backend/Page.php:1174
+#: src/Core/Backend/Page.php:1171
 msgid "Canceled."
 msgstr "বাতিল করা হয়েছে."
 
-#: src/Core/Backend/Page.php:1175
+#: src/Core/Backend/Page.php:1172
 msgid "HTTP Error:"
 msgstr "HTTP ত্রুটি:"
 
-#: src/Core/Backend/Page.php:1177 src/Process/Backend/Media.php:513
+#: src/Core/Backend/Page.php:1174 src/Process/Backend/Media.php:521
 msgid "Choose file"
 msgstr "ফাইল নির্বাচন করুন"
 
-#: src/Core/Backend/Page.php:1178 src/Process/Backend/Media.php:514
+#: src/Core/Backend/Page.php:1175 src/Process/Backend/Media.php:522
 msgid "Choose files"
 msgstr "ফাইল নির্বাচন করুন"
 
-#: src/Core/Backend/Page.php:1179 src/Process/Backend/LinkPopup.php:73
+#: src/Core/Backend/Page.php:1176 src/Process/Backend/LinkPopup.php:73
 #: src/Process/Backend/Media.php:230 src/Process/Backend/MediaItem.php:527
 #: src/Process/Backend/MediaItem.php:733 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "বাতিল"
 
-#: src/Core/Backend/Page.php:1180
+#: src/Core/Backend/Page.php:1177
 msgid "Clean"
 msgstr "ক্লিন"
 
-#: src/Core/Backend/Page.php:1182 src/Process/Backend/MediaItem.php:1068
+#: src/Core/Backend/Page.php:1179 src/Process/Backend/MediaItem.php:1068
 msgid "Send"
 msgstr "প্রেরণ"
 
-#: src/Core/Backend/Page.php:1183
+#: src/Core/Backend/Page.php:1180
 msgid "File successfully uploaded."
 msgstr "ফাইলটি সফলভাবে আপলোড করা হয়েছে."
 
-#: src/Core/Backend/Page.php:1184
+#: src/Core/Backend/Page.php:1181
 msgid "No file in queue."
 msgstr "লাইনে কোন ফাইল নেই."
 
-#: src/Core/Backend/Page.php:1185
+#: src/Core/Backend/Page.php:1182
 msgid "1 file in queue."
 msgstr "লাইনে ১ ফাইল."
 
-#: src/Core/Backend/Page.php:1186
+#: src/Core/Backend/Page.php:1183
 #, php-format
 msgid "%d files in queue."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1187
+#: src/Core/Backend/Page.php:1184
 msgid "Queue error:"
 msgstr "ত্রুটি:"
 
-#: src/Core/Backend/Page.php:1230
+#: src/Core/Backend/Page.php:1227
 msgid "Cancel filters and display options"
 msgstr "ফিল্টার এবং ডিসপ্লে অপশন বাতিল করুন"
 
@@ -2622,11 +2624,11 @@ msgstr "ডাউনলোড করা ফাইল বৈধ আর্কা�
 msgid "Incomplete archive."
 msgstr "অসম্পূর্ণ আর্কাইভ."
 
-#: src/Core/Upgrade/Update.php:689 src/Process/Upgrade/Digests.php:300
+#: src/Core/Upgrade/Update.php:689 src/Process/Upgrade/Digests.php:299
 msgid "Unable to read digests file."
 msgstr "ডাইজেস্ট ফাইল পড়া যায়নি."
 
-#: src/Core/Upgrade/Update.php:715 src/Process/Upgrade/Digests.php:340
+#: src/Core/Upgrade/Update.php:715 src/Process/Upgrade/Digests.php:339
 msgid "Invalid digests file."
 msgstr "অকার্যকর ডাইজেস্ট ফাইল."
 
@@ -2638,12 +2640,12 @@ msgstr "অটো আপগ্রেড নিয়ে কিছু সমস্�
 msgid "On this page you can update dotclear to the latest release."
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:273 src/Process/Upgrade/Attic.php:83
-#: src/Process/Upgrade/Attic.php:107 src/Process/Upgrade/Attic.php:345
+#: src/Core/Upgrade/Utility.php:273 src/Process/Upgrade/Attic.php:82
+#: src/Process/Upgrade/Attic.php:106 src/Process/Upgrade/Attic.php:344
 msgid "Attic"
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:279 src/Process/Upgrade/Attic.php:355
+#: src/Core/Upgrade/Utility.php:279 src/Process/Upgrade/Attic.php:354
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr ""
 
@@ -3269,7 +3271,7 @@ msgstr "ব্লগ URL:"
 msgid "Blog description:"
 msgstr "ব্লগের বিবরণ:"
 
-#: src/Process/Backend/Blog.php:190 src/Process/Backend/Media.php:457
+#: src/Process/Backend/Blog.php:190 src/Process/Backend/Media.php:465
 msgid "Create"
 msgstr "তৈরি করো"
 
@@ -3468,7 +3470,7 @@ msgstr "ব্লগটি সফলভাবে তৈরী হয়েছে
 msgid "Parameters"
 msgstr "পরামিতি"
 
-#: src/Process/Backend/BlogPref.php:474 src/Process/Backend/Media.php:564
+#: src/Process/Backend/BlogPref.php:474 src/Process/Backend/Media.php:572
 msgid "Blog parameters"
 msgstr "ব্লগ প্যারামিটার"
 
@@ -4442,132 +4444,134 @@ msgstr "আপনি কি আসলেই %s মুছে ফেলতে চ�
 msgid "Yes"
 msgstr "হ্যাঁ"
 
-#: src/Process/Backend/Media.php:269
+#: src/Process/Backend/Media.php:271
 msgid "Remove this folder from your favorites"
 msgstr "এই ফোল্ডারটি আপনার পছন্দসই থেকে সরিয়ে ফেলো"
 
-#: src/Process/Backend/Media.php:292
+#: src/Process/Backend/Media.php:295
 msgid "Add this folder to your favorites"
 msgstr "এই ফোল্ডারটি আপনার পছন্দসই যোগ করুন"
 
-#: src/Process/Backend/Media.php:298
+#: src/Process/Backend/Media.php:301
 msgid "Goto recent folder:"
 msgstr "সাম্প্রতিক ফোল্ডার:"
 
-#: src/Process/Backend/Media.php:328
+#: src/Process/Backend/Media.php:334
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "এই ফোল্ডারে লেখার জন্য আপনার পর্যাপ্ত অনুমতি নেই."
 
-#: src/Process/Backend/Media.php:342
+#: src/Process/Backend/Media.php:348
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr ""
 
-#: src/Process/Backend/Media.php:345 src/Process/Backend/Media.php:411
+#: src/Process/Backend/Media.php:351 src/Process/Backend/Media.php:419
 msgid "Choose selected medias"
 msgstr "নির্বাচিত মিডিয়া বেছে নিন"
 
-#: src/Process/Backend/Media.php:345
+#: src/Process/Backend/Media.php:351
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "ফাইল নির্বাচন করুন এবং <strong>%s</strong> বাটন ক্লিক করুন"
 
-#: src/Process/Backend/Media.php:349 src/Process/Backend/Media.php:362
-#: src/Process/Backend/Media.php:375 src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/Media.php:355 src/Process/Backend/Media.php:368
+#: src/Process/Backend/Media.php:381 src/Process/Backend/MediaItem.php:748
 msgid "or"
 msgstr "অথবা"
 
-#: src/Process/Backend/Media.php:349 src/Process/Backend/Media.php:362
-#: src/Process/Backend/Media.php:375
+#: src/Process/Backend/Media.php:355 src/Process/Backend/Media.php:368
+#: src/Process/Backend/Media.php:381
 msgid "upload a new file"
 msgstr "নতুন ফাইল আপলোড করো"
 
-#: src/Process/Backend/Media.php:356
+#: src/Process/Backend/Media.php:362
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr ""
 
-#: src/Process/Backend/Media.php:370
+#: src/Process/Backend/Media.php:376
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr ""
 
-#: src/Process/Backend/Media.php:388 src/Process/Backend/Media.php:389
+#: src/Process/Backend/Media.php:394 src/Process/Backend/Media.php:395
+#: src/Process/Backend/Media.php:396
 msgid "Grid display mode"
 msgstr "গ্রিড ডিসপ্লে মোড"
 
-#: src/Process/Backend/Media.php:391 src/Process/Backend/Media.php:392
+#: src/Process/Backend/Media.php:398 src/Process/Backend/Media.php:399
+#: src/Process/Backend/Media.php:400
 msgid "List display mode"
 msgstr "তালিকা ডিসপ্লে মোড"
 
-#: src/Process/Backend/Media.php:414
+#: src/Process/Backend/Media.php:422
 msgid "Remove selected medias"
 msgstr "নির্বাচিত মিডিয়া অপসারণ করো"
 
-#: src/Process/Backend/Media.php:441
+#: src/Process/Backend/Media.php:449
 #, php-format
 msgid "In %s:"
 msgstr ""
 
-#: src/Process/Backend/Media.php:453
+#: src/Process/Backend/Media.php:461
 msgid "Create new directory"
 msgstr "নতুন ডিরেক্টরি তৈরি করো"
 
-#: src/Process/Backend/Media.php:455
+#: src/Process/Backend/Media.php:463
 msgid "Directory Name:"
 msgstr "ডিরেক্টরির নাম:"
 
-#: src/Process/Backend/Media.php:468
+#: src/Process/Backend/Media.php:476
 msgid "Build missing thumbnails in directory"
 msgstr "ডিরেক্টরিতে নিখোঁজ থাম্বনেইল তৈরি করা হবে"
 
-#: src/Process/Backend/Media.php:470
+#: src/Process/Backend/Media.php:478
 msgid "Build"
 msgstr "বিল্ড"
 
-#: src/Process/Backend/Media.php:480
+#: src/Process/Backend/Media.php:488
 #, php-format
 msgid "Backup content of %s"
 msgstr ""
 
-#: src/Process/Backend/Media.php:484
+#: src/Process/Backend/Media.php:492
 msgid "Download zip file"
 msgstr "জিপ ফাইল ডাউনলোড করুন"
 
-#: src/Process/Backend/Media.php:504
+#: src/Process/Backend/Media.php:512
 msgid "Add files"
 msgstr "ফাইল যোগ করো"
 
-#: src/Process/Backend/Media.php:505
+#: src/Process/Backend/Media.php:513
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "অনুগ্রহ করে প্রচার মাধ্যমকে প্রকাশ করার জন্য যত্ন নেবেন যে আপনি নিজেই এবং যা কপিরাইট দ্বারা সুরক্ষিত নয়."
 
-#: src/Process/Backend/Media.php:517
+#: src/Process/Backend/Media.php:525
 msgid "Maximum file size allowed:"
 msgstr "সর্বোচ্চ ফাইল মাপ অনুমোদিত:"
 
-#: src/Process/Backend/Media.php:519 src/Process/Backend/MediaItem.php:615
+#: src/Process/Backend/Media.php:527 src/Process/Backend/MediaItem.php:615
 #: src/Process/Backend/MediaItem.php:960 src/Process/Backend/MediaItem.php:1023
 msgid "Alternate text:"
 msgstr ""
 
-#: src/Process/Backend/Media.php:520 src/Process/Backend/MediaItem.php:1053
+#: src/Process/Backend/Media.php:528 src/Process/Backend/MediaItem.php:1053
 msgid "Private"
 msgstr "প্রাইভেট"
 
-#: src/Process/Backend/Media.php:525
+#: src/Process/Backend/Media.php:533
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "একই সময়ে বেশ কিছু ফাইল পাঠানোর জন্য, আপনি বর্ধিত আপলোডার সক্রিয় করতে পারেন"
 
-#: src/Process/Backend/Media.php:530
+#: src/Process/Backend/Media.php:538
 msgid "Refresh"
 msgstr "রিফ্রেশ"
 
-#: src/Process/Backend/Media.php:531
+#: src/Process/Backend/Media.php:539
 msgid "Clear all"
 msgstr "সব ফাঁকা করো"
 
-#: src/Process/Backend/Media.php:563
+#: src/Process/Backend/Media.php:571
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
@@ -4609,7 +4613,7 @@ msgstr "মিডিয়া আইটেম নির্বাচন করুন
 msgid "Image size:"
 msgstr "ইমেজ সাইজ:"
 
-#: src/Process/Backend/MediaItem.php:526 src/Process/Upgrade/Attic.php:303
+#: src/Process/Backend/MediaItem.php:526 src/Process/Upgrade/Attic.php:302
 msgid "Select"
 msgstr "নির্বাচন করুন"
 
@@ -4646,12 +4650,12 @@ msgid "MP3 disposition"
 msgstr "MP3 disposition"
 
 #: src/Process/Backend/MediaItem.php:656
-msgid "Please note that you cannot insert mp3 files with visual editor."
-msgstr "অনুগ্রহ করে নোট করুন যে আপনি ভিজুয়াল সম্পাদক দ্বারা mp3 ফাইল প্রবেশ করতে পারবেন না."
+msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
+msgstr ""
 
 #: src/Process/Backend/MediaItem.php:684
-msgid "Please note that you cannot insert video files with visual editor."
-msgstr "অনুগ্রহ করে নোট করুন যে আপনি ভিজুয়াল সম্পাদকের সাথে ভিডিও ফাইল প্রবেশ করতে পারবেন না."
+msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
+msgstr ""
 
 #: src/Process/Backend/MediaItem.php:688
 msgid "Video size"
@@ -5233,9 +5237,9 @@ msgstr[1] ""
 #: src/Process/Backend/Update.php:50 src/Process/Backend/Update.php:55
 #: src/Process/Backend/Update.php:95 src/Process/Backend/Update.php:100
 #: src/Process/Backend/Update.php:121 src/Process/Backend/Update.php:126
-#: src/Process/Upgrade/Attic.php:78 src/Process/Upgrade/Attic.php:82
-#: src/Process/Upgrade/Attic.php:102 src/Process/Upgrade/Attic.php:106
-#: src/Process/Upgrade/Attic.php:340 src/Process/Upgrade/Attic.php:344
+#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
+#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
+#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
 #: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
 #: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
 #: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
@@ -5248,7 +5252,7 @@ msgid "Dotclear update"
 msgstr "Dotclear আপডেট"
 
 #: src/Process/Backend/Update.php:42 src/Process/Backend/Update.php:60
-#: src/Process/Upgrade/Attic.php:90 src/Process/Upgrade/Attic.php:114
+#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
 #: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
 #: src/Process/Upgrade/Upgrade.php:86
 msgid "Precheck update error"
@@ -5262,12 +5266,12 @@ msgstr "ব্যাকআপ ডিরেক্টরি নেই"
 msgid "Access denied"
 msgstr "অ্যাক্সেস অস্বীকার"
 
-#: src/Process/Backend/Update.php:110 src/Process/Upgrade/Attic.php:328
+#: src/Process/Backend/Update.php:110 src/Process/Upgrade/Attic.php:327
 #: src/Process/Upgrade/Upgrade.php:275
 msgid "Congratulations, you're one click away from the end of the update."
 msgstr "অভিনন্দন, আপডেটের শেষ থেকে আপনি একটি ক্লিক করুন."
 
-#: src/Process/Backend/Update.php:111 src/Process/Upgrade/Attic.php:334
+#: src/Process/Backend/Update.php:111 src/Process/Upgrade/Attic.php:333
 #: src/Process/Upgrade/Upgrade.php:281
 msgid "Finish the update."
 msgstr "আপডেট শেষ করো."
@@ -5276,12 +5280,12 @@ msgstr "আপডেট শেষ করো."
 msgid "Manual checking of update done successfully."
 msgstr "সফলভাবে আপডেট করার জন্য ম্যানুয়াল চেক করা হয়েছে."
 
-#: src/Process/Backend/Update.php:148 src/Process/Upgrade/Attic.php:235
+#: src/Process/Backend/Update.php:148 src/Process/Upgrade/Attic.php:234
 #: src/Process/Upgrade/Upgrade.php:219
 msgid "No newer Dotclear version available."
 msgstr "ডটক্লিয়ারের কোনো নতুন ভার্সন বের হয় নি।"
 
-#: src/Process/Backend/Update.php:152 src/Process/Upgrade/Attic.php:247
+#: src/Process/Backend/Update.php:152 src/Process/Upgrade/Attic.php:246
 #: src/Process/Upgrade/Upgrade.php:231
 msgid "Force checking update Dotclear"
 msgstr "Dotclear হালনাগাদ পরীক্ষা করতে বাধ্য করা হবে"
@@ -6039,69 +6043,69 @@ msgstr "প্রিফিক্স"
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "মাস্টার ইমেইল: (পাসওয়ার্ড পুনরুদ্ধারের জন্য প্রেরক হিসেবে ব্যবহৃত)"
 
-#: src/Process/Install/Wizard.php:295 src/Process/Upgrade/Digests.php:255
-#: src/Process/Upgrade/Digests.php:276
+#: src/Process/Install/Wizard.php:295 src/Process/Upgrade/Digests.php:254
+#: src/Process/Upgrade/Digests.php:275
 msgid "Continue"
 msgstr "@ title: group"
 
-#: src/Process/Upgrade/Attic.php:91 src/Process/Upgrade/Backup.php:69
+#: src/Process/Upgrade/Attic.php:90 src/Process/Upgrade/Backup.php:69
 #: src/Process/Upgrade/Upgrade.php:63
 msgid "It seems that backup directory does not exist, upgrade can not be performed."
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:115 src/Process/Upgrade/Upgrade.php:87
+#: src/Process/Upgrade/Attic.php:114 src/Process/Upgrade/Upgrade.php:87
 msgid "It seems that there are no \"digests\" file on your system, upgrade can not be performed."
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:157 src/Process/Upgrade/Upgrade.php:135
+#: src/Process/Upgrade/Attic.php:156 src/Process/Upgrade/Upgrade.php:135
 #, php-format
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:161 src/Process/Upgrade/Upgrade.php:139
+#: src/Process/Upgrade/Attic.php:160 src/Process/Upgrade/Upgrade.php:139
 msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:175
+#: src/Process/Upgrade/Attic.php:198 src/Process/Upgrade/Upgrade.php:175
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:200
+#: src/Process/Upgrade/Attic.php:199
 msgid "You can bypass this warning by updating installation disgets file."
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:203 src/Process/Upgrade/Upgrade.php:178
+#: src/Process/Upgrade/Attic.php:202 src/Process/Upgrade/Upgrade.php:178
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:207 src/Process/Upgrade/Upgrade.php:182
+#: src/Process/Upgrade/Attic.php:206 src/Process/Upgrade/Upgrade.php:182
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:274
+#: src/Process/Upgrade/Attic.php:273
 #, php-format
 msgid "Required PHP version %s or higher"
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:281 src/Process/Upgrade/Attic.php:282
+#: src/Process/Upgrade/Attic.php:280 src/Process/Upgrade/Attic.php:281
 msgid "Release note"
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:292
+#: src/Process/Upgrade/Attic.php:291
 msgid "Select intermediate stable release to update to:"
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:305
+#: src/Process/Upgrade/Attic.php:304
 msgid "There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear's blog."
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:315
+#: src/Process/Upgrade/Attic.php:314
 #, php-format
 msgid "Are you sure to update to version %s?"
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:321 src/Process/Upgrade/Digests.php:174
+#: src/Process/Upgrade/Attic.php:320 src/Process/Upgrade/Digests.php:174
 #: src/Process/Upgrade/Digests.php:187 src/Process/Upgrade/Upgrade.php:263
 msgid "Update Dotclear"
 msgstr "আপডেট Dotclear"
@@ -6220,23 +6224,23 @@ msgstr ""
 msgid "Digests file is up to date."
 msgstr ""
 
-#: src/Process/Upgrade/Digests.php:202
+#: src/Process/Upgrade/Digests.php:201
 msgid "The following files will have their checksum faked:"
 msgstr ""
 
-#: src/Process/Upgrade/Digests.php:219
+#: src/Process/Upgrade/Digests.php:218
 msgid "The following files digests will have their checksum cleaned:"
 msgstr ""
 
-#: src/Process/Upgrade/Digests.php:234
+#: src/Process/Upgrade/Digests.php:233
 msgid "Still ok to continue"
 msgstr ""
 
-#: src/Process/Upgrade/Digests.php:251
+#: src/Process/Upgrade/Digests.php:250
 msgid "Remove the backup digest file, I want to play again"
 msgstr ""
 
-#: src/Process/Upgrade/Digests.php:272
+#: src/Process/Upgrade/Digests.php:271
 msgid "I have read and understood the disclaimer and wish to continue anyway."
 msgstr ""
 
@@ -6329,7 +6333,7 @@ msgstr ""
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr ""
 
-#: src/Process/Upgrade/Plugins.php:384 src/Process/Upgrade/Plugins.php:426
+#: src/Process/Upgrade/Plugins.php:384 src/Process/Upgrade/Plugins.php:427
 msgid "No version available"
 msgstr ""
 
@@ -6341,15 +6345,15 @@ msgstr ""
 msgid "Newer version available"
 msgstr ""
 
-#: src/Process/Upgrade/Plugins.php:440
+#: src/Process/Upgrade/Plugins.php:441
 msgid "Modules list"
 msgstr ""
 
-#: src/Process/Upgrade/Plugins.php:455
+#: src/Process/Upgrade/Plugins.php:456
 msgid "Latest version"
 msgstr ""
 
-#: src/Process/Upgrade/Plugins.php:459
+#: src/Process/Upgrade/Plugins.php:460
 msgid "Written for Dotclear"
 msgstr ""
 
