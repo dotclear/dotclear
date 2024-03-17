@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-20 21:08+0100\n"
-"PO-Revision-Date: 2024-02-21 06:09\n"
+"POT-Creation-Date: 2024-03-17 09:37+0100\n"
+"PO-Revision-Date: 2024-03-17 08:59\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -591,7 +591,7 @@ msgid "My favorites"
 msgstr "నా అభిప్రాయాలు"
 
 #: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:304 src/Process/Backend/Media.php:526
+#: src/Core/Backend/Page.php:304 src/Process/Backend/Media.php:534
 #: src/Process/Backend/UserPreferences.php:39
 msgid "My preferences"
 msgstr "నా ప్రాధాన్యం"
@@ -632,7 +632,7 @@ msgstr "వర్గాలు"
 #: src/Core/Backend/Favorites.php:472 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
-#: src/Process/Backend/Media.php:441 src/Process/Backend/Media.php:480
+#: src/Process/Backend/Media.php:449 src/Process/Backend/Media.php:488
 #: src/Process/Backend/MediaItem.php:425 src/Process/Backend/MediaItem.php:431
 msgid "Media manager"
 msgstr "మాధ్యమాల నిర్వహణ"
@@ -684,7 +684,7 @@ msgstr "గ్లోబల్ సహాయము"
 msgid "Status:"
 msgstr "స్థితి:"
 
-#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1010
+#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1007
 #: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:988
 #: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:900
 #: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:541
@@ -692,14 +692,14 @@ msgstr "స్థితి:"
 msgid "Email:"
 msgstr "ఈమెయిల్:"
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1009
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1006
 #: src/Process/Backend/Comment.php:282 src/Process/Backend/Post.php:904
 msgid "Web site:"
 msgstr "వెబ్ సైటు:"
 
 #: src/Core/Backend/Filter/FilterComments.php:56
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1051
+#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1048
 #: src/Process/Backend/Comment.php:270
 msgid "Author:"
 msgstr "రచయిత:"
@@ -718,7 +718,7 @@ msgid "Trackback"
 msgstr "ట్రాక్బ్యాక్"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1011 src/Process/Backend/Comment.php:259
+#: src/Core/Backend/Page.php:1008 src/Process/Backend/Comment.php:259
 msgid "IP address:"
 msgstr "IP చిరునామా:"
 
@@ -806,7 +806,7 @@ msgstr "మూస"
 msgid "Trackbacks:"
 msgstr "ట్రాక్బాక్:"
 
-#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1229
+#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1226
 msgid "Show filters and display options"
 msgstr "ఫిల్టర్లు మరియు ప్రదర్శన ఐచ్ఛికములు చూపుము"
 
@@ -912,10 +912,11 @@ msgid "Edit blog settings for %s"
 msgstr "%s కొరకు బ్లాగు అమరికలను సరికూర్చు"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:130
+#: src/Core/Backend/Listing/ListingBlogs.php:131
 msgid "Edit blog settings"
 msgstr "బ్లాగు అమరికలను సరికూర్చు"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:135
+#: src/Core/Backend/Listing/ListingBlogs.php:137
 #, php-format
 msgid "Switch to blog %s"
 msgstr "%s బ్లాగుకి మారండి"
@@ -1023,12 +1024,12 @@ msgid "Edit the %1$s from %2$s"
 msgstr ""
 
 #: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:228
+#: src/Core/Backend/Listing/ListingComments.php:229
 msgid "comment"
 msgstr "వ్యాఖ్య"
 
 #: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:228
+#: src/Core/Backend/Listing/ListingComments.php:229
 msgid "trackback"
 msgstr "ట్రాకుబ్యాకు"
 
@@ -1037,7 +1038,8 @@ msgid "Type and author"
 msgstr "రకం మరియు రచయిత"
 
 #: src/Core/Backend/Listing/ListingComments.php:227
-#: src/Process/Backend/Post.php:1070 src/Process/Backend/Post.php:1141
+#: src/Core/Backend/Listing/ListingComments.php:228
+#: src/Process/Backend/Post.php:1070 src/Process/Backend/Post.php:1143
 msgid "Edit"
 msgstr "సరికూర్చు"
 
@@ -1068,7 +1070,7 @@ msgstr "అంశాలు: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
 #: src/Core/Backend/ModulesList.php:777 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:447
+#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:448
 msgid "Name"
 msgstr "పేరు"
 
@@ -1079,13 +1081,13 @@ msgstr "పరిమాణము"
 
 #: src/Core/Backend/Listing/ListingMedia.php:167
 #: src/Core/Backend/Listing/ListingMedia.php:168
-#: src/Process/Backend/Media.php:342
+#: src/Process/Backend/Media.php:348
 msgid "Select this file"
 msgstr "ఈ దస్త్రమును యెంపికచేయుము"
 
 #: src/Core/Backend/Listing/ListingMedia.php:177
 #: src/Core/Backend/Listing/ListingMedia.php:183
-#: src/Process/Backend/Media.php:358 src/Process/Backend/Media.php:371
+#: src/Process/Backend/Media.php:364 src/Process/Backend/Media.php:377
 msgid "Attach this file to entry"
 msgstr "ఈ దస్త్రమును ప్రవేశపెట్టు"
 
@@ -1318,17 +1320,17 @@ msgstr "స్కోర్"
 msgid "Version"
 msgstr "వెర్షన్"
 
-#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:451
+#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:452
 msgid "Current version"
 msgstr "ప్రస్తుత వెర్షన్"
 
 #: src/Core/Backend/ModulesList.php:797 src/Core/Backend/ModulesList.php:996
-#: src/Core/Backend/Page.php:1052 src/Core/Backend/ThemesList.php:132
+#: src/Core/Backend/Page.php:1049 src/Core/Backend/ThemesList.php:132
 #: src/Core/Backend/ThemesList.php:191
 msgid "Details"
 msgstr "వివరాలు"
 
-#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:463
+#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:464
 msgid "Repository"
 msgstr "రిపోసిటరీ"
 
@@ -1338,7 +1340,7 @@ msgid "Action"
 msgstr "చర్య"
 
 #: src/Core/Backend/ModulesList.php:888 src/Core/Backend/ModulesList.php:892
-#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:401
+#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:402
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -1353,12 +1355,12 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "ఈ మాడ్యూల్ చేతనము చేయలేము, క్రింది కారణాల వలన:"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ThemesList.php:178
-#: src/Process/Upgrade/Plugins.php:417
+#: src/Process/Upgrade/Plugins.php:418
 msgid "Official repository"
 msgstr "అధికారిక రిపోసిటరీ"
 
 #: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ModulesList.php:1032
-#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:417
+#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:418
 msgid "Third-party repository"
 msgstr "మూడవ-పార్టీ రిపోసిటరీ"
 
@@ -1370,7 +1372,7 @@ msgstr "అధికారిక పంపిణీ నుండి ప్లగ
 msgid "Plugin in development"
 msgstr "అభివృద్ధిలో ప్లగిన్"
 
-#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1053
+#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1050
 #: src/Core/Backend/ThemesList.php:195
 msgid "Support"
 msgstr "@ title: window"
@@ -1379,11 +1381,11 @@ msgstr "@ title: window"
 msgid "update locked"
 msgstr "నలుపు నలుపు"
 
-#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1055
+#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1052
 msgid "Section:"
 msgstr "సెక్షన్:"
 
-#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1056
+#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1053
 msgid "Tags:"
 msgstr "టాగ్స్:"
 
@@ -1558,8 +1560,8 @@ msgstr "మీ సంకేతపదం:"
 msgid "Password"
 msgstr "సంకేతపదము"
 
-#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1181
-#: src/Process/Backend/Media.php:532
+#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1178
+#: src/Process/Backend/Media.php:540
 msgid "Upload"
 msgstr "ఎగుమతి చెయ్యండి"
 
@@ -1596,7 +1598,7 @@ msgstr "ఆకృతీకరించు \"%s\""
 #: src/Core/Backend/ModulesList.php:1773 src/Process/Backend/Blog.php:192
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:920
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:569 src/Process/Backend/MediaItem.php:1097
+#: src/Process/Backend/Media.php:577 src/Process/Backend/MediaItem.php:1097
 #: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:130
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:614
 #: src/Process/Backend/UserPreferences.php:793
@@ -1604,8 +1606,8 @@ msgstr "ఆకృతీకరించు \"%s\""
 msgid "Back"
 msgstr "వెనుకకు"
 
-#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1012
-#: src/Core/Backend/Page.php:1176 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1009
+#: src/Core/Backend/Page.php:1173 src/Core/Upgrade/Notices.php:34
 #: src/Process/Backend/Home.php:263
 msgid "Error:"
 msgstr "పొరపాటు:"
@@ -1680,328 +1682,328 @@ msgstr "మీరు సురక్షిత మోడ్ లో ఉన్న�
 msgid "Thank you for using %s."
 msgstr "%s వాడుతున్నందుకు ధన్యవాదాలు."
 
-#: src/Core/Backend/Page.php:376 src/Core/Backend/Page.php:499
+#: src/Core/Backend/Page.php:376 src/Core/Backend/Page.php:496
 #: src/Core/Upgrade/Page.php:189
 msgid "Page top"
 msgstr "పుట టాప్"
 
-#: src/Core/Backend/Page.php:695 src/Core/Backend/Page.php:696
+#: src/Core/Backend/Page.php:692 src/Core/Backend/Page.php:693
 #: src/Core/Upgrade/Page.php:233 src/Core/Upgrade/Page.php:234
 msgid "Go to dashboard"
 msgstr "డాష్బోర్డ్కు వెళ్ళు"
 
-#: src/Core/Backend/Page.php:855 src/Core/Upgrade/Page.php:306
+#: src/Core/Backend/Page.php:852 src/Core/Upgrade/Page.php:306
 msgid "Help about this page"
 msgstr "ఈ పేజీ గురించి సహాయం"
 
-#: src/Core/Backend/Page.php:860 src/Core/Upgrade/Page.php:311
+#: src/Core/Backend/Page.php:857 src/Core/Upgrade/Page.php:311
 #, php-format
 msgid "See also %s"
 msgstr "ఇంకా %s కూడా చూడండి"
 
-#: src/Core/Backend/Page.php:860 src/Core/Upgrade/Page.php:311
+#: src/Core/Backend/Page.php:857 src/Core/Upgrade/Page.php:311
 msgid "the global help"
 msgstr "ప్రపంచ సహాయం"
 
-#: src/Core/Backend/Page.php:994
+#: src/Core/Backend/Page.php:991
 msgid "uncover"
 msgstr "మునిగి"
 
-#: src/Core/Backend/Page.php:998
+#: src/Core/Backend/Page.php:995
 msgid "hide"
 msgstr "దాయి"
 
-#: src/Core/Backend/Page.php:1002
+#: src/Core/Backend/Page.php:999
 msgid "Need help?"
 msgstr "సహాయం నీడ్?"
 
-#: src/Core/Backend/Page.php:1003
+#: src/Core/Backend/Page.php:1000
 msgid "new window"
 msgstr "కొత్త విండో"
 
-#: src/Core/Backend/Page.php:1004
+#: src/Core/Backend/Page.php:1001
 msgid "Hide"
 msgstr "మరుగుచేయి"
 
-#: src/Core/Backend/Page.php:1005
+#: src/Core/Backend/Page.php:1002
 msgid "Select:"
 msgstr "ఎంపికచేయుము:"
 
-#: src/Core/Backend/Page.php:1006
+#: src/Core/Backend/Page.php:1003
 msgid "No selection"
 msgstr "ఎంపిక లేదు"
 
-#: src/Core/Backend/Page.php:1007
+#: src/Core/Backend/Page.php:1004
 msgid "Select all"
 msgstr "అన్ని యెంపికచేయుము"
 
-#: src/Core/Backend/Page.php:1008
+#: src/Core/Backend/Page.php:1005
 msgid "Invert selection"
 msgstr "ఎంపిక చేయుము"
 
-#: src/Core/Backend/Page.php:1013 src/Process/Backend/Post.php:440
+#: src/Core/Backend/Page.php:1010 src/Process/Backend/Post.php:440
 #: src/Process/Backend/Post.php:556
 msgid "Entry has been successfully created."
 msgstr "విజయవంతంగా టపాని సృష్టించాం."
 
-#: src/Core/Backend/Page.php:1014
+#: src/Core/Backend/Page.php:1011
 msgid "Edit entry"
 msgstr "ప్రవేశమును సరికూర్చు"
 
-#: src/Core/Backend/Page.php:1015
+#: src/Core/Backend/Page.php:1012
 msgid "view entry"
 msgstr "టపాని చూడండి"
 
-#: src/Core/Backend/Page.php:1016
+#: src/Core/Backend/Page.php:1013
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "మీరు ఖచ్చితంగా ఎంపికచేసిన ఎంట్రీలను (%s) తొలగించాలని అనుకొనుచున్నారా?"
 
-#: src/Core/Backend/Page.php:1017
+#: src/Core/Backend/Page.php:1014
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "మీరు ఖచ్చితంగా ఎంపికచేసిన మధ్యస్థ (%d) తొలగించాలని అనుకొనుచున్నారా?"
 
-#: src/Core/Backend/Page.php:1018
+#: src/Core/Backend/Page.php:1015
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "మీరు ఖచ్చితంగా ఎంపికచేసిన వర్గాలను తొలగించాలని అనుకొనుచున్నారా (%s)?"
 
-#: src/Core/Backend/Page.php:1019
+#: src/Core/Backend/Page.php:1016
 msgid "Are you sure you want to delete this entry?"
 msgstr "ఈ టపాని నిజంగానే తొలగించాలా?"
 
-#: src/Core/Backend/Page.php:1020
+#: src/Core/Backend/Page.php:1017
 msgid "Click here to unlock the field"
 msgstr "ఫీల్డ్ అన్లాక్ చేయుటకు యిక్కడ నొక్కుము"
 
-#: src/Core/Backend/Page.php:1021
+#: src/Core/Backend/Page.php:1018
 msgid "Are you sure you want to delete all spams?"
 msgstr "మీరు అన్ని స్పాములను తొలగించాలనుకుంటున్నారా?"
 
-#: src/Core/Backend/Page.php:1022
+#: src/Core/Backend/Page.php:1019
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "మీరు ఖచ్చితంగా ఎంపికచేసిన వ్యాఖ్యలు (%s) తొలగించాలనుకుంటున్నారా?"
 
-#: src/Core/Backend/Page.php:1023
+#: src/Core/Backend/Page.php:1020
 msgid "Are you sure you want to delete this comment?"
 msgstr "ఈ వ్యాఖ్యని నిజంగానే తొలగించాలా?"
 
-#: src/Core/Backend/Page.php:1024
+#: src/Core/Backend/Page.php:1021
 msgid "Users with posts cannot be deleted."
 msgstr "పోస్టులతో వినియోగదారులు తొలగించబడలేరు."
 
-#: src/Core/Backend/Page.php:1025
+#: src/Core/Backend/Page.php:1022
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "మీరు ఖచ్చితంగా ఎంపికచేసిన వినియోగదారులను తొలగించాలని అనుకొనుచున్నారా (%s)?"
 
-#: src/Core/Backend/Page.php:1026
+#: src/Core/Backend/Page.php:1023
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "మీరు ఖచ్చితంగా ఎంపికచేసిన బ్లాగులను తొలగించాలని అనుకొనుచున్నారా (%s)?"
 
-#: src/Core/Backend/Page.php:1027
+#: src/Core/Backend/Page.php:1024
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "మీరు వర్గాన్ని తొలగించాలని మీరు ఖచ్చితంగా భావిస్తున్నారా \"%s\"?"
 
-#: src/Core/Backend/Page.php:1028
+#: src/Core/Backend/Page.php:1025
 msgid "Are you sure you want to reorder all categories?"
 msgstr "మీరు అన్ని వర్గాలను పునర్క్రమించుకుంటున్నారా?"
 
-#: src/Core/Backend/Page.php:1029
+#: src/Core/Backend/Page.php:1026
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "మీరు మాధ్యమాన్ని తొలగించాలనుకుంటున్నారా \"%s\"?"
 
-#: src/Core/Backend/Page.php:1030
+#: src/Core/Backend/Page.php:1027
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "మీరు డైరెక్టరీ తొలగించాలని అనుకొనుచున్నారా \"%s\"?"
 
-#: src/Core/Backend/Page.php:1031
+#: src/Core/Backend/Page.php:1028
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "మీరు కచ్చితంగా ప్రస్తుత డైరెక్టరీలో ఆర్కైవ్ చేయాలనుకుంటున్నారా?"
 
-#: src/Core/Backend/Page.php:1032
+#: src/Core/Backend/Page.php:1029
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "మీరు అనుబంధం తొలగించాలనుకుంటున్నారా \"%s\"?"
 
-#: src/Core/Backend/Page.php:1033
+#: src/Core/Backend/Page.php:1030
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "మీరు ఖచ్చితంగా తొలగించాలనుకుంటున్నారా \"%s\" భాష?"
 
-#: src/Core/Backend/Page.php:1034
+#: src/Core/Backend/Page.php:1031
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "మీరు ఖచ్చితంగా తొలగించాలనుకుంటున్నారా \"%s\" ప్లగిన్?"
 
-#: src/Core/Backend/Page.php:1035
+#: src/Core/Backend/Page.php:1032
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "మీరు యెంపికచేసిన ప్లగిన్లను తొలగించాలనుకుంటున్నారా?"
 
-#: src/Core/Backend/Page.php:1036
+#: src/Core/Backend/Page.php:1033
 msgid "Use this theme"
 msgstr "ఈ అలంకారాన్ని వాడు"
 
-#: src/Core/Backend/Page.php:1037
+#: src/Core/Backend/Page.php:1034
 msgid "Remove this theme"
 msgstr "ఈ అలంకారాన్ని తొలగించు"
 
-#: src/Core/Backend/Page.php:1038
+#: src/Core/Backend/Page.php:1035
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "మీరు ఖచ్చితంగా తొలగించాలనుకుంటున్నారా \"%s\" థీమ్?"
 
-#: src/Core/Backend/Page.php:1039
+#: src/Core/Backend/Page.php:1036
 msgid "Are you sure you want to delete selected themes?"
 msgstr "మీరు ఖచ్చితంగా ఎంపికచేసిన థీమ్లను తొలగించాలని అనుకొనుచున్నారా?"
 
-#: src/Core/Backend/Page.php:1040
+#: src/Core/Backend/Page.php:1037
 msgid "Are you sure you want to delete this backup?"
 msgstr "మీరు ఈ బ్యాకప్ ను తొలగించాలని అనుకొనుచున్నారా?"
 
-#: src/Core/Backend/Page.php:1041
+#: src/Core/Backend/Page.php:1038
 msgid "Are you sure you want to revert to this backup?"
 msgstr "మీరు ఈ బ్యాకప్ కు తిరస్కరిస్తారా?"
 
-#: src/Core/Backend/Page.php:1042
+#: src/Core/Backend/Page.php:1039
 msgid "Zip file content"
 msgstr "జిప్ ఫైల్ సారాంశం"
 
-#: src/Core/Backend/Page.php:1043
+#: src/Core/Backend/Page.php:1040
 msgid "HTML markup validator"
 msgstr "హెచ్ టిఎంఎల్ మార్కెప్ వాలెడెటర్"
 
-#: src/Core/Backend/Page.php:1044
+#: src/Core/Backend/Page.php:1041
 msgid "HTML content is valid."
 msgstr "HTML సారూప్యత చెల్లుతుంది."
 
-#: src/Core/Backend/Page.php:1045
+#: src/Core/Backend/Page.php:1042
 msgid "There are HTML markup errors."
 msgstr "HTML మార్కప్ దోషాలు ఉన్నాయి."
 
-#: src/Core/Backend/Page.php:1046
+#: src/Core/Backend/Page.php:1043
 msgid "Attention: an audit of a content not yet registered."
 msgstr "అన్వేషన్: ఒక విషయం యొక్క ఒక విమానం ఇంకా నమోదు చేయబడలేదు."
 
-#: src/Core/Backend/Page.php:1047
+#: src/Core/Backend/Page.php:1044
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "మీరు రక్షిత మార్పులను కలిగి ఉన్నాయి. స్విచ్ పోస్ట్ ఫార్మాట్ ఈ మార్పులను వదులుతుంది. ఏమైనప్పటికీ ప్రోసిడ్?"
 
-#: src/Core/Backend/Page.php:1048
+#: src/Core/Backend/Page.php:1045
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "హెచ్చరిక: పోస్ట్ ఫార్మాట్ మార్పు ప్రస్తుతం ఉన్న విషయాలను మార్చుకోదు. మీరు మీ ద్వారా కొత్త ఫార్మాట్ ను ఆపాదించవలసి ఉంటుంది. ఏమైనప్పటికీ ప్రోసిడ్?"
 
-#: src/Core/Backend/Page.php:1049
+#: src/Core/Backend/Page.php:1046
 msgid "Loading enhanced uploader, please wait."
 msgstr "పెంచబడిన పైలోడర్ ను లోడ్ చేయుము, దయచేసి వేచి."
 
-#: src/Core/Backend/Page.php:1054
+#: src/Core/Backend/Page.php:1051
 msgid "Help:"
 msgstr "సహాయము:"
 
-#: src/Core/Backend/Page.php:1058
+#: src/Core/Backend/Page.php:1055
 msgid "Hide this notice"
 msgstr "ఈ నోటీసు దాచు"
 
-#: src/Core/Backend/Page.php:1060
+#: src/Core/Backend/Page.php:1057
 msgid "Show password"
 msgstr "సంకేతపదము చూపుము"
 
-#: src/Core/Backend/Page.php:1061
+#: src/Core/Backend/Page.php:1058
 msgid "Hide password"
 msgstr "సంకేతపదమును దాచుము"
 
-#: src/Core/Backend/Page.php:1063
+#: src/Core/Backend/Page.php:1060
 msgid "Reset to now"
 msgstr "ఇప్పటికి రెసిట్"
 
-#: src/Core/Backend/Page.php:1065
+#: src/Core/Backend/Page.php:1062
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "ఈ Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) పై ఒక అడ్ బ్లాకర్ను గుర్తించారు. మరియు ఇది కొన్ని లక్షణాలు జోడించి ఉండవచ్చు. ఈ సందర్భంలో మీరు అసలు చేయాలి. ఈ గుర్తింపు మీ ప్రాధాన్యం లో అచేతనం చేయవచ్చు అని గమనించండి."
 
-#: src/Core/Backend/Page.php:1119
+#: src/Core/Backend/Page.php:1116
 msgid "You have unsaved changes."
 msgstr "భద్రపరచని మార్పులున్నాయి."
 
-#: src/Core/Backend/Page.php:1120
+#: src/Core/Backend/Page.php:1117
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "మీ బ్యాటరీ ఛార్జ్ తక్కువ (%d%) కనిపిస్తుంది మరియు మీరు తప్పనిసరి మార్పులు కలిగి ఉంటాయి, మీరు వాటిని రక్షించాలి."
 
-#: src/Core/Backend/Page.php:1167
+#: src/Core/Backend/Page.php:1164
 msgid "Temporarily activate enhanced uploader"
 msgstr "(T) వేగవంతమైన అప్లోడర్ ను క్రియాశీలకంగా క్రియాశీలము చేయుము"
 
-#: src/Core/Backend/Page.php:1168
+#: src/Core/Backend/Page.php:1165
 msgid "Temporarily disable enhanced uploader"
 msgstr "@ info: कुशादा: color"
 
-#: src/Core/Backend/Page.php:1172
+#: src/Core/Backend/Page.php:1169
 msgid "Limit exceeded."
 msgstr "పరిమితి దాటింది."
 
-#: src/Core/Backend/Page.php:1173
+#: src/Core/Backend/Page.php:1170
 msgid "File size exceeds allowed limit."
 msgstr "ఫైలు పరిమాణం అనుమతించిన పరిమితిని దాటింది."
 
-#: src/Core/Backend/Page.php:1174
+#: src/Core/Backend/Page.php:1171
 msgid "Canceled."
 msgstr "రద్దుచేసాం."
 
-#: src/Core/Backend/Page.php:1175
+#: src/Core/Backend/Page.php:1172
 msgid "HTTP Error:"
 msgstr "HTTP పొరపాటు:"
 
-#: src/Core/Backend/Page.php:1177 src/Process/Backend/Media.php:513
+#: src/Core/Backend/Page.php:1174 src/Process/Backend/Media.php:521
 msgid "Choose file"
 msgstr "దస్త్రం యెంచుకొనుము"
 
-#: src/Core/Backend/Page.php:1178 src/Process/Backend/Media.php:514
+#: src/Core/Backend/Page.php:1175 src/Process/Backend/Media.php:522
 msgid "Choose files"
 msgstr "ఫైళ్ళను యెంచుకొనుము"
 
-#: src/Core/Backend/Page.php:1179 src/Process/Backend/LinkPopup.php:73
+#: src/Core/Backend/Page.php:1176 src/Process/Backend/LinkPopup.php:73
 #: src/Process/Backend/Media.php:230 src/Process/Backend/MediaItem.php:527
 #: src/Process/Backend/MediaItem.php:733 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "రద్దుచేయి"
 
-#: src/Core/Backend/Page.php:1180
+#: src/Core/Backend/Page.php:1177
 msgid "Clean"
 msgstr "శుభ్రం"
 
-#: src/Core/Backend/Page.php:1182 src/Process/Backend/MediaItem.php:1068
+#: src/Core/Backend/Page.php:1179 src/Process/Backend/MediaItem.php:1068
 msgid "Send"
 msgstr "పంపు"
 
-#: src/Core/Backend/Page.php:1183
+#: src/Core/Backend/Page.php:1180
 msgid "File successfully uploaded."
 msgstr "ఫైలు విజయవంతంగా ఎగుమతయ్యింది."
 
-#: src/Core/Backend/Page.php:1184
+#: src/Core/Backend/Page.php:1181
 msgid "No file in queue."
 msgstr "వరుసలో ఏ ఫైల్ లేదు."
 
-#: src/Core/Backend/Page.php:1185
+#: src/Core/Backend/Page.php:1182
 msgid "1 file in queue."
 msgstr "వరుసలో 1 ఫైలు"
 
-#: src/Core/Backend/Page.php:1186
+#: src/Core/Backend/Page.php:1183
 #, php-format
 msgid "%d files in queue."
 msgstr "వరుసలో %d దస్త్రములు."
 
-#: src/Core/Backend/Page.php:1187
+#: src/Core/Backend/Page.php:1184
 msgid "Queue error:"
 msgstr "వరుసగా దోషము:"
 
-#: src/Core/Backend/Page.php:1230
+#: src/Core/Backend/Page.php:1227
 msgid "Cancel filters and display options"
 msgstr "ఫిల్టర్లు మరియు ప్రదర్శన ఎంపికలను రద్దుచేయుము"
 
@@ -2622,11 +2624,11 @@ msgstr "డౌన్లోడ్ ఫైలు సరైన ఆర్చిగా
 msgid "Incomplete archive."
 msgstr "సంపూర్ణ ఆర్చివ్."
 
-#: src/Core/Upgrade/Update.php:689 src/Process/Upgrade/Digests.php:300
+#: src/Core/Upgrade/Update.php:689 src/Process/Upgrade/Digests.php:299
 msgid "Unable to read digests file."
 msgstr "డిజిస్టర్ ఫైలు చదవలేకపొయాను."
 
-#: src/Core/Upgrade/Update.php:715 src/Process/Upgrade/Digests.php:340
+#: src/Core/Upgrade/Update.php:715 src/Process/Upgrade/Digests.php:339
 msgid "Invalid digests file."
 msgstr "చెల్లని డిజిస్టర్ ఫైలు"
 
@@ -2638,12 +2640,12 @@ msgstr "ఆటో అప్గ్రేడ్ తో ఏదో తప్పు �
 msgid "On this page you can update dotclear to the latest release."
 msgstr "ఈ పేజీలో మీరు ఇటీవల విడుదలకు దోహదపతనం చేయవచ్చు."
 
-#: src/Core/Upgrade/Utility.php:273 src/Process/Upgrade/Attic.php:83
-#: src/Process/Upgrade/Attic.php:107 src/Process/Upgrade/Attic.php:345
+#: src/Core/Upgrade/Utility.php:273 src/Process/Upgrade/Attic.php:82
+#: src/Process/Upgrade/Attic.php:106 src/Process/Upgrade/Attic.php:344
 msgid "Attic"
 msgstr "అటిటిక్"
 
-#: src/Core/Upgrade/Utility.php:279 src/Process/Upgrade/Attic.php:355
+#: src/Core/Upgrade/Utility.php:279 src/Process/Upgrade/Attic.php:354
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr "ఈ పేజీలో మీరు మీ మరియు ఆధునికత మధ్య ఒక విడుదల చేయడానికి dotస్పష్టంగా నవీకరణ చేయవచ్చు."
 
@@ -3269,7 +3271,7 @@ msgstr "బ్లాగు URL:"
 msgid "Blog description:"
 msgstr "బ్లాగు వివరణ:"
 
-#: src/Process/Backend/Blog.php:190 src/Process/Backend/Media.php:457
+#: src/Process/Backend/Blog.php:190 src/Process/Backend/Media.php:465
 msgid "Create"
 msgstr "సృష్టించు"
 
@@ -3468,7 +3470,7 @@ msgstr "బ్లాగుని విజయవంతంగా సృష్ట�
 msgid "Parameters"
 msgstr "పారామీటర్లు"
 
-#: src/Process/Backend/BlogPref.php:474 src/Process/Backend/Media.php:564
+#: src/Process/Backend/BlogPref.php:474 src/Process/Backend/Media.php:572
 msgid "Blog parameters"
 msgstr "బ్లాగు పదాలు"
 
@@ -4442,132 +4444,134 @@ msgstr "%sని మీరు నిజంగానే తొలగించా�
 msgid "Yes"
 msgstr "అవును"
 
-#: src/Process/Backend/Media.php:269
+#: src/Process/Backend/Media.php:271
 msgid "Remove this folder from your favorites"
 msgstr "మీ అభిప్రాయాల నుండి ఈ ఫోల్డర్ను తీసివేయుము"
 
-#: src/Process/Backend/Media.php:292
+#: src/Process/Backend/Media.php:295
 msgid "Add this folder to your favorites"
 msgstr "ఈ ఫోల్డర్ను మీ అభిప్రాయములకు జతచేయుము"
 
-#: src/Process/Backend/Media.php:298
+#: src/Process/Backend/Media.php:301
 msgid "Goto recent folder:"
 msgstr "ఇటీవలి ఫోల్డర్:"
 
-#: src/Process/Backend/Media.php:328
+#: src/Process/Backend/Media.php:334
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "మీరు ఈ ఫోల్డర్కు వ్రాయుటకు తగిన అనుమతి లేదు."
 
-#: src/Process/Backend/Media.php:342
+#: src/Process/Backend/Media.php:348
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "%s న క్లిక్ ద్వారా ఒక ఫైలు యెంపికచేయుము"
 
-#: src/Process/Backend/Media.php:345 src/Process/Backend/Media.php:411
+#: src/Process/Backend/Media.php:351 src/Process/Backend/Media.php:419
 msgid "Choose selected medias"
 msgstr "ఎంపికచేసిన మధ్యవర్గాన్ని ఎన్నుకోండి"
 
-#: src/Process/Backend/Media.php:345
+#: src/Process/Backend/Media.php:351
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "ఫైళ్ళను యెంపికచేయుము మరియు <strong>%s</strong> బటన్ నొక్కండి"
 
-#: src/Process/Backend/Media.php:349 src/Process/Backend/Media.php:362
-#: src/Process/Backend/Media.php:375 src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/Media.php:355 src/Process/Backend/Media.php:368
+#: src/Process/Backend/Media.php:381 src/Process/Backend/MediaItem.php:748
 msgid "or"
 msgstr "లేదా"
 
-#: src/Process/Backend/Media.php:349 src/Process/Backend/Media.php:362
-#: src/Process/Backend/Media.php:375
+#: src/Process/Backend/Media.php:355 src/Process/Backend/Media.php:368
+#: src/Process/Backend/Media.php:381
 msgid "upload a new file"
 msgstr "కొత్త ఫైలును అప్లోడ్ చేయుము"
 
-#: src/Process/Backend/Media.php:356
+#: src/Process/Backend/Media.php:362
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "%s పై నొక్కిన ప్రవేశమును ప్రవేశపెట్టటానికి ఒక ఫైలు ఎంచుకోండి"
 
-#: src/Process/Backend/Media.php:370
+#: src/Process/Backend/Media.php:376
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "%s పై నొక్కిన ప్రవేశమును ప్రవేశపెట్టటానికి ఒక ఫైలు ఎంచుకోండి"
 
-#: src/Process/Backend/Media.php:388 src/Process/Backend/Media.php:389
+#: src/Process/Backend/Media.php:394 src/Process/Backend/Media.php:395
+#: src/Process/Backend/Media.php:396
 msgid "Grid display mode"
 msgstr "గ్రిడ్ ప్రదర్శన రీతి"
 
-#: src/Process/Backend/Media.php:391 src/Process/Backend/Media.php:392
+#: src/Process/Backend/Media.php:398 src/Process/Backend/Media.php:399
+#: src/Process/Backend/Media.php:400
 msgid "List display mode"
 msgstr "జాబితా ప్రదర్శన రీతి"
 
-#: src/Process/Backend/Media.php:414
+#: src/Process/Backend/Media.php:422
 msgid "Remove selected medias"
 msgstr "ఎంపికచేసిన మాధ్యమాలను తీసివేయుము"
 
-#: src/Process/Backend/Media.php:441
+#: src/Process/Backend/Media.php:449
 #, php-format
 msgid "In %s:"
 msgstr "%s:"
 
-#: src/Process/Backend/Media.php:453
+#: src/Process/Backend/Media.php:461
 msgid "Create new directory"
 msgstr "కొత్త డైరెక్టరీ సృష్టించుము"
 
-#: src/Process/Backend/Media.php:455
+#: src/Process/Backend/Media.php:463
 msgid "Directory Name:"
 msgstr "డైరెక్టరీ పేరు:"
 
-#: src/Process/Backend/Media.php:468
+#: src/Process/Backend/Media.php:476
 msgid "Build missing thumbnails in directory"
 msgstr "డైరెక్టరీలో థంబ్నెయిల్స్ ను బదిచేయి"
 
-#: src/Process/Backend/Media.php:470
+#: src/Process/Backend/Media.php:478
 msgid "Build"
 msgstr "@ title: Build"
 
-#: src/Process/Backend/Media.php:480
+#: src/Process/Backend/Media.php:488
 #, php-format
 msgid "Backup content of %s"
 msgstr "%s యొక్క బ్యాక్ అప్ విషయం"
 
-#: src/Process/Backend/Media.php:484
+#: src/Process/Backend/Media.php:492
 msgid "Download zip file"
 msgstr "జిప్ ఫైలును డౌన్లోడ్ చేయుము"
 
-#: src/Process/Backend/Media.php:504
+#: src/Process/Backend/Media.php:512
 msgid "Add files"
 msgstr "ఫైళ్ళను చేర్చండి"
 
-#: src/Process/Backend/Media.php:505
+#: src/Process/Backend/Media.php:513
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "మీరు సొంత మరియు కాపీరైట్ ద్వారా రక్షించబడని మీడియా ప్రచురించడానికి పట్టించుకోండి."
 
-#: src/Process/Backend/Media.php:517
+#: src/Process/Backend/Media.php:525
 msgid "Maximum file size allowed:"
 msgstr "గరిష్ఠ ఫైలు పరిమాణం:"
 
-#: src/Process/Backend/Media.php:519 src/Process/Backend/MediaItem.php:615
+#: src/Process/Backend/Media.php:527 src/Process/Backend/MediaItem.php:615
 #: src/Process/Backend/MediaItem.php:960 src/Process/Backend/MediaItem.php:1023
 msgid "Alternate text:"
 msgstr "అదనపు వచనము:"
 
-#: src/Process/Backend/Media.php:520 src/Process/Backend/MediaItem.php:1053
+#: src/Process/Backend/Media.php:528 src/Process/Backend/MediaItem.php:1053
 msgid "Private"
 msgstr "అంతరంగికం"
 
-#: src/Process/Backend/Media.php:525
+#: src/Process/Backend/Media.php:533
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "ఒకే సమయంలో అనేక ఫైళ్ళను పంపడానికి, మీరు పెంచబడిన అప్లోడర్ ను క్రియాశీల చేయవచ్చు."
 
-#: src/Process/Backend/Media.php:530
+#: src/Process/Backend/Media.php:538
 msgid "Refresh"
 msgstr "పునర్వొచ్చు"
 
-#: src/Process/Backend/Media.php:531
+#: src/Process/Backend/Media.php:539
 msgid "Clear all"
 msgstr "శుభ్రముచేయి"
 
-#: src/Process/Backend/Media.php:563
+#: src/Process/Backend/Media.php:571
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "మాధ్యమం మరియు చిత్రాలు కోసం ప్రస్తుత అమరికలను %s లో నిర్వహిస్తారు."
@@ -4609,7 +4613,7 @@ msgstr "మీడియా అంశమును యెంపికచేయు�
 msgid "Image size:"
 msgstr "బొమ్మ పరిమాణం:"
 
-#: src/Process/Backend/MediaItem.php:526 src/Process/Upgrade/Attic.php:303
+#: src/Process/Backend/MediaItem.php:526 src/Process/Upgrade/Attic.php:302
 msgid "Select"
 msgstr "ఎంచుకోండి"
 
@@ -4646,12 +4650,12 @@ msgid "MP3 disposition"
 msgstr "MP3 డిస్పోజికల్"
 
 #: src/Process/Backend/MediaItem.php:656
-msgid "Please note that you cannot insert mp3 files with visual editor."
-msgstr "దయచేసి మీరు దృశ్య ఎడిటర్ తో mp3 దస్త్రాలను ప్రవేశపెట్టలేము."
+msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
+msgstr ""
 
 #: src/Process/Backend/MediaItem.php:684
-msgid "Please note that you cannot insert video files with visual editor."
-msgstr "దయచేసి మీరు దృశ్య ఎడిటర్ తో వీడియో ఫైళ్ళను ప్రవేశపెట్టలేము."
+msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
+msgstr ""
 
 #: src/Process/Backend/MediaItem.php:688
 msgid "Video size"
@@ -5233,9 +5237,9 @@ msgstr[1] "%d వ్యాఖ్యలు"
 #: src/Process/Backend/Update.php:50 src/Process/Backend/Update.php:55
 #: src/Process/Backend/Update.php:95 src/Process/Backend/Update.php:100
 #: src/Process/Backend/Update.php:121 src/Process/Backend/Update.php:126
-#: src/Process/Upgrade/Attic.php:78 src/Process/Upgrade/Attic.php:82
-#: src/Process/Upgrade/Attic.php:102 src/Process/Upgrade/Attic.php:106
-#: src/Process/Upgrade/Attic.php:340 src/Process/Upgrade/Attic.php:344
+#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
+#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
+#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
 #: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
 #: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
 #: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
@@ -5248,7 +5252,7 @@ msgid "Dotclear update"
 msgstr "Dotస్పష్టమైన నవీకరణ"
 
 #: src/Process/Backend/Update.php:42 src/Process/Backend/Update.php:60
-#: src/Process/Upgrade/Attic.php:90 src/Process/Upgrade/Attic.php:114
+#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
 #: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
 #: src/Process/Upgrade/Upgrade.php:86
 msgid "Precheck update error"
@@ -5262,12 +5266,12 @@ msgstr "బ్యాక్అప్ డైరెక్టరీ లేదు"
 msgid "Access denied"
 msgstr "యాక్సెస్ నిరాకరించు"
 
-#: src/Process/Backend/Update.php:110 src/Process/Upgrade/Attic.php:328
+#: src/Process/Backend/Update.php:110 src/Process/Upgrade/Attic.php:327
 #: src/Process/Upgrade/Upgrade.php:275
 msgid "Congratulations, you're one click away from the end of the update."
 msgstr "అభినందనలు, మీరు ఒక క్లిక్ దూరంలో నుండి దూరంగా ఉంటాయి."
 
-#: src/Process/Backend/Update.php:111 src/Process/Upgrade/Attic.php:334
+#: src/Process/Backend/Update.php:111 src/Process/Upgrade/Attic.php:333
 #: src/Process/Upgrade/Upgrade.php:281
 msgid "Finish the update."
 msgstr "నవీకరణను ముగించాడు."
@@ -5276,12 +5280,12 @@ msgstr "నవీకరణను ముగించాడు."
 msgid "Manual checking of update done successfully."
 msgstr "నవీకరణను సమర్ధవంతంగా పరిశీలించుట."
 
-#: src/Process/Backend/Update.php:148 src/Process/Upgrade/Attic.php:235
+#: src/Process/Backend/Update.php:148 src/Process/Upgrade/Attic.php:234
 #: src/Process/Upgrade/Upgrade.php:219
 msgid "No newer Dotclear version available."
 msgstr "ఏ నూనె Dotస్పష్టమైన వివరణ అందుబాటలేదు."
 
-#: src/Process/Backend/Update.php:152 src/Process/Upgrade/Attic.php:247
+#: src/Process/Backend/Update.php:152 src/Process/Upgrade/Attic.php:246
 #: src/Process/Upgrade/Upgrade.php:231
 msgid "Force checking update Dotclear"
 msgstr "నవీకరణ పరిశీలన Dotclear పరిశీలించుము"
@@ -6039,69 +6043,69 @@ msgstr "ప్రొఫిసర్"
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "మాస్టర్ ఈమెయిల్: (సంకేతపదం పునరానికి sender as sender)"
 
-#: src/Process/Install/Wizard.php:295 src/Process/Upgrade/Digests.php:255
-#: src/Process/Upgrade/Digests.php:276
+#: src/Process/Install/Wizard.php:295 src/Process/Upgrade/Digests.php:254
+#: src/Process/Upgrade/Digests.php:275
 msgid "Continue"
 msgstr "కొనసాగించు"
 
-#: src/Process/Upgrade/Attic.php:91 src/Process/Upgrade/Backup.php:69
+#: src/Process/Upgrade/Attic.php:90 src/Process/Upgrade/Backup.php:69
 #: src/Process/Upgrade/Upgrade.php:63
 msgid "It seems that backup directory does not exist, upgrade can not be performed."
 msgstr "బ్యాకప్ డైరెక్టరీ లేదు, అప్గ్రేడ్ చేయబడదు."
 
-#: src/Process/Upgrade/Attic.php:115 src/Process/Upgrade/Upgrade.php:87
+#: src/Process/Upgrade/Attic.php:114 src/Process/Upgrade/Upgrade.php:87
 msgid "It seems that there are no \"digests\" file on your system, upgrade can not be performed."
 msgstr "మీ సిస్టమ్ మీద \"డిజిస్టర్\" ఫైలు లేవు అని తెలుస్తోంది, అప్గ్రేడ్ చేయబడదు."
 
-#: src/Process/Upgrade/Attic.php:157 src/Process/Upgrade/Upgrade.php:135
+#: src/Process/Upgrade/Attic.php:156 src/Process/Upgrade/Upgrade.php:135
 #, php-format
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr "డౌన్లోడ్ డిస్క్వీ ఆర్చివ్ చెడిపోవడం కనిపిస్తుంది. <a %s>డౌన్లోడ్ ప్రయత్నించండి</a> మళ్ళీ."
 
-#: src/Process/Upgrade/Attic.php:161 src/Process/Upgrade/Upgrade.php:139
+#: src/Process/Upgrade/Attic.php:160 src/Process/Upgrade/Upgrade.php:139
 msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:199 src/Process/Upgrade/Upgrade.php:175
+#: src/Process/Upgrade/Attic.php:198 src/Process/Upgrade/Upgrade.php:175
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:200
+#: src/Process/Upgrade/Attic.php:199
 msgid "You can bypass this warning by updating installation disgets file."
 msgstr "మీరు ఈ హెచ్చరికలను అప్డేటింగ్ డిస్ప్లేట్ ఫైల్ ను తిరస్కరిస్తుంది."
 
-#: src/Process/Upgrade/Attic.php:203 src/Process/Upgrade/Upgrade.php:178
+#: src/Process/Upgrade/Attic.php:202 src/Process/Upgrade/Upgrade.php:178
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr "మీ Dotclear స్థాపన యొక్క క్రింది ఫైళ్ళను చదువుకోలేదు. దయచేసి దీనిని పరిష్కరిస్తారు లేదా %s మానసిక నామకరణం చేయబడిన బ్యాకప్ ఫైల్ చేయడానికి ప్రయత్నించండి."
 
-#: src/Process/Upgrade/Attic.php:207 src/Process/Upgrade/Upgrade.php:182
+#: src/Process/Upgrade/Attic.php:206 src/Process/Upgrade/Upgrade.php:182
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr ""
 
-#: src/Process/Upgrade/Attic.php:274
+#: src/Process/Upgrade/Attic.php:273
 #, php-format
 msgid "Required PHP version %s or higher"
 msgstr "అభ్యర్ధన PHP వివరణ %s లేదా ఎక్కువ"
 
-#: src/Process/Upgrade/Attic.php:281 src/Process/Upgrade/Attic.php:282
+#: src/Process/Upgrade/Attic.php:280 src/Process/Upgrade/Attic.php:281
 msgid "Release note"
 msgstr "రిలీజ్ నోట్"
 
-#: src/Process/Upgrade/Attic.php:292
+#: src/Process/Upgrade/Attic.php:291
 msgid "Select intermediate stable release to update to:"
 msgstr "నవీకరణకు ఇంటర్మీడియట్ స్థిరమైన విడుదలను యెంపికచేయుము:"
 
-#: src/Process/Upgrade/Attic.php:305
+#: src/Process/Upgrade/Attic.php:304
 msgid "There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear's blog."
 msgstr "ఇక్కడ జాబితా చేయబడిన విడుదల గురించి అదనపు సమాచారం లేదు, మీరు జాగ్రత్తగా డిస్క్వాల్ యొక్క బ్లాగులో ఎంపిక చేసిన విడుదల తో సంభందించిన సమాచార పదవిని చదవాలి."
 
-#: src/Process/Upgrade/Attic.php:315
+#: src/Process/Upgrade/Attic.php:314
 #, php-format
 msgid "Are you sure to update to version %s?"
 msgstr "మీరు వర్షన్ %s వరకు నవీకరిస్తున్నారా?"
 
-#: src/Process/Upgrade/Attic.php:321 src/Process/Upgrade/Digests.php:174
+#: src/Process/Upgrade/Attic.php:320 src/Process/Upgrade/Digests.php:174
 #: src/Process/Upgrade/Digests.php:187 src/Process/Upgrade/Upgrade.php:263
 msgid "Update Dotclear"
 msgstr "Dotclear ను నవీకరణ చేయి"
@@ -6220,23 +6224,23 @@ msgstr "డిజిస్టర్ ఫైల్ యొక్క బ్యాక
 msgid "Digests file is up to date."
 msgstr "డిజిస్టర్ ఫైలు తేదీ వరకు ఉంది."
 
-#: src/Process/Upgrade/Digests.php:202
+#: src/Process/Upgrade/Digests.php:201
 msgid "The following files will have their checksum faked:"
 msgstr "క్రింది ఫైళ్ళను వారి చెక్సమ్ను కలిగి ఉంటుంది:"
 
-#: src/Process/Upgrade/Digests.php:219
+#: src/Process/Upgrade/Digests.php:218
 msgid "The following files digests will have their checksum cleaned:"
 msgstr "క్రింది ఫైళ్ల డిజిస్టర్లను వాటి చెక్సో శుభ్రం చేస్తుంది:"
 
-#: src/Process/Upgrade/Digests.php:234
+#: src/Process/Upgrade/Digests.php:233
 msgid "Still ok to continue"
 msgstr "ఇంకా కొనసాగుతోంది"
 
-#: src/Process/Upgrade/Digests.php:251
+#: src/Process/Upgrade/Digests.php:250
 msgid "Remove the backup digest file, I want to play again"
 msgstr "బ్యాకప్ డైజెస్ట్ ఫైలు తీసివేయుము, నేను మళ్ళీ ఆడుకుంటున్నారా"
 
-#: src/Process/Upgrade/Digests.php:272
+#: src/Process/Upgrade/Digests.php:271
 msgid "I have read and understood the disclaimer and wish to continue anyway."
 msgstr "నేను అధ్యాపకులను చదివిన మరియు ఎప్పటికీ కొనసాగుతుందనే కోరుకుందాం."
 
@@ -6329,7 +6333,7 @@ msgstr "లాస్ట్ స్టోర్స్ వెర్షన్లన�
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "Dotclear విడుదల కు %s కంటే పెద్దగా వ్రాయబడిన మాడ్యూల్స్ కోసం రిపోజిటరీలను పరిశీలించవచ్చు."
 
-#: src/Process/Upgrade/Plugins.php:384 src/Process/Upgrade/Plugins.php:426
+#: src/Process/Upgrade/Plugins.php:384 src/Process/Upgrade/Plugins.php:427
 msgid "No version available"
 msgstr "ఏ వెర్షన్ను అందుబాటలేదు"
 
@@ -6341,15 +6345,15 @@ msgstr "నవీకరణను అందుబాట లేదు"
 msgid "Newer version available"
 msgstr "న్యూయర్ వెర్షన్ అందుబాటుంది"
 
-#: src/Process/Upgrade/Plugins.php:440
+#: src/Process/Upgrade/Plugins.php:441
 msgid "Modules list"
 msgstr "మాడ్యూల్ జాబితా"
 
-#: src/Process/Upgrade/Plugins.php:455
+#: src/Process/Upgrade/Plugins.php:456
 msgid "Latest version"
 msgstr "లాస్ట్ వెర్షన్"
 
-#: src/Process/Upgrade/Plugins.php:459
+#: src/Process/Upgrade/Plugins.php:460
 msgid "Written for Dotclear"
 msgstr "Dotclear కొరకు వ్రాసారు"
 
