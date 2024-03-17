@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-17 09:37+0100\n"
-"PO-Revision-Date: 2024-03-17 08:49\n"
+"PO-Revision-Date: 2024-03-17 09:10\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -1573,7 +1573,7 @@ msgstr "テキスト書式を削除"
 
 #: plugins/dcLegacyEditor/tpl/index.php:22
 msgid "Enable standard editor plugin"
-msgstr ""
+msgstr "標準エディタ・プラグインを有効にする"
 
 #: plugins/dcLegacyEditor/tpl/index.php:31
 msgid "Adjust height of input area during editing"
@@ -2874,7 +2874,7 @@ msgstr "このタグを削除"
 
 #: plugins/tags/src/ManagePosts.php:195
 msgid "Rename:"
-msgstr ""
+msgstr "改名する："
 
 #: plugins/tags/src/ManagePosts.php:206
 msgid "List of entries with this tag"
