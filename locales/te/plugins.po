@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-08 08:31+0100\n"
-"PO-Revision-Date: 2024-02-09 18:11\n"
+"POT-Creation-Date: 2024-03-17 09:37+0100\n"
+"PO-Revision-Date: 2024-03-17 08:59\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -25,44 +25,44 @@ msgstr "స్థాపించు"
 msgid "Plugin has been successfully uninstalled."
 msgstr "ప్లగిన్ సమర్ధవంతంగా అన్స్టాల్ చేయబడింది."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:38
+#: plugins/Uninstaller/src/Cleaner/Caches.php:37
 msgid "Folders from cache directory"
 msgstr "క్యాచీ డైరెక్టరీ నుండి ફોલ્ડర్Name"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:43
+#: plugins/Uninstaller/src/Cleaner/Caches.php:42
 msgid "delete selected cache directories"
 msgstr "ఎంపికచేసిన కాచే డైరెక్టరీలను తొలగించుము"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+#: plugins/Uninstaller/src/Cleaner/Caches.php:43
 #, php-format
 msgid "delete \"%s\" cache directory"
 msgstr "తొలగించు \"%s\" క్యాచీ డైరెక్టరీ"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted"
 msgstr "\"%s\" క్యాచీ డైరెక్టరీ తొలగించబడింది"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
 msgstr "తొలగించుట విఫలమైంది \"%s\" క్యాచీ డైరెక్టరీ"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:52
+#: plugins/Uninstaller/src/Cleaner/Caches.php:51
 msgid "empty selected cache directories"
 msgstr "ఖాళీ యెంపికచేసిన కాచే డైరెక్టరీలు"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
 #, php-format
 msgid "empty \"%s\" cache directory"
 msgstr "ఖాళీ \"%s\" క్యాచీ డైరెక్టరీ"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied"
 msgstr "\"%s\" క్యాచీ డైరెక్టరీ ఖాళీ"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
 msgstr "ఖాళీగా విఫలమైంది \"%s\" క్యాచీ డైరెక్టరీ"
@@ -408,41 +408,41 @@ msgstr "తెలియని శుభ్రం \"%s\""
 msgid "Unsintaller can't remove itself"
 msgstr "Unsintaller తనను తీసివేయలేము"
 
-#: plugins/Uninstaller/src/Manage.php:62
+#: plugins/Uninstaller/src/Manage.php:61
 msgid "Unknown module id to uninstall"
 msgstr "అన్స్థాపించుటకు తెలియని మాడ్యూల్ ID"
 
-#: plugins/Uninstaller/src/Manage.php:70
+#: plugins/Uninstaller/src/Manage.php:69
 msgid "There are no uninstall actions for this module"
 msgstr "ఈ మాడ్యూల్ కొరకు అన్స్టాల్ చర్యలు లేవు"
 
-#: plugins/Uninstaller/src/Manage.php:95
+#: plugins/Uninstaller/src/Manage.php:94
 msgid "Uninstall action successfuly excecuted"
 msgstr "@ action: Uninstall action"
 
-#: plugins/Uninstaller/src/Manage.php:98
+#: plugins/Uninstaller/src/Manage.php:97
 msgid "No uninstall action done"
 msgstr "@ action: uninstall action"
 
-#: plugins/Uninstaller/src/Manage.php:143
+#: plugins/Uninstaller/src/Manage.php:142
 msgid "Perform selected actions"
 msgstr "ఎంపికచేసిన చర్యలను పెంచుము"
 
-#: plugins/Uninstaller/src/Manage.php:158
+#: plugins/Uninstaller/src/Manage.php:157
 msgid "Are you sure you perform these ations?"
 msgstr "మీరు ఖచ్చితంగా ఈ చేర్పులను నిర్వహించావు?"
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:173
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "అన్స్టాల్ ప్లగిన్ \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:173
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "థీమ్ స్థాపించుము \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:175
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
 msgstr "మాడ్యూల్ \"%s %s\" ఆధునికత unsintall ప్రక్రియ అందిస్తుంది:"
@@ -925,11 +925,11 @@ msgstr "అందుబాటులో స్పామ్ ఫిల్టర్�
 msgid "Order"
 msgstr "క్రమం"
 
-#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:247
+#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:249
 msgid "Active"
 msgstr "క్రియాశీలము"
 
-#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:257
 msgid "Auto Del."
 msgstr "ఆటో డెల్."
 
@@ -938,22 +938,23 @@ msgid "Filter name"
 msgstr "వడపోత పేరు"
 
 #: plugins/antispam/src/Manage.php:228 plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:230
 msgid "Filter configuration"
 msgstr "ఫిల్టర్ ఆకృతీకరణName"
 
-#: plugins/antispam/src/Manage.php:239 plugins/blogroll/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:241 plugins/blogroll/src/Manage.php:270
 msgid "position"
 msgstr "స్థానము"
 
-#: plugins/antispam/src/Manage.php:285
+#: plugins/antispam/src/Manage.php:287
 msgid "Syndication"
 msgstr "సిండికేషన్"
 
-#: plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:289
 msgid "Junk comments RSS feed"
 msgstr "జాక్ వ్యాఖ్యలు RSS ఫీడ్"
 
-#: plugins/antispam/src/Manage.php:288
+#: plugins/antispam/src/Manage.php:290
 msgid "Published comments RSS feed"
 msgstr "ప్రచురణ వ్యాఖ్యలు RSS ఫీడ్"
 
@@ -1571,8 +1572,8 @@ msgid "Remove text formating"
 msgstr "టెక్స్ట్ ఫార్మిటింగ్ తొలగించుము"
 
 #: plugins/dcLegacyEditor/tpl/index.php:22
-msgid "Enable dcLegacyEditor plugin"
-msgstr "DcLegacyEditor ప్లగిన్ చేర్చు"
+msgid "Enable standard editor plugin"
+msgstr ""
 
 #: plugins/dcLegacyEditor/tpl/index.php:31
 msgid "Adjust height of input area during editing"
@@ -2354,7 +2355,7 @@ msgstr "%d పేజీ"
 msgid "%d pages"
 msgstr "%d పేజీలు"
 
-#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:126
+#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:131
 #: plugins/pages/src/ManagePage.php:75 plugins/pages/src/ManagePage.php:652
 msgid "New page"
 msgstr "కొత్త పేజీ"
@@ -2368,7 +2369,7 @@ msgid "Back to pages list"
 msgstr "వెనుక పేజీల జాబితా"
 
 #: plugins/pages/src/BackendDefaultActions.php:123
-#: plugins/pages/src/Manage.php:123
+#: plugins/pages/src/Manage.php:128
 msgid "Selected pages have been successfully reordered."
 msgstr "ఎంపికచేసిన పేజీలను సమర్ధవంతంగా పునర్క్రమించింది."
 
@@ -2400,31 +2401,31 @@ msgstr "నా మొదటి పేజీ"
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "ఇది మీ మొదటి పేజీ. మీరు బ్లాగు చేయడానికి సిద్ధంగా ఉన్నప్పుడు లాగ్ లో ఎడిట్ లేదా తొలగించండి."
 
-#: plugins/pages/src/Manage.php:105
+#: plugins/pages/src/Manage.php:110
 msgid "Are you sure you want to delete selected pages?"
 msgstr "మీరు యెంపికచేసిన పేజీలను తొలగించాలనుకుంటున్నారా?"
 
-#: plugins/pages/src/Manage.php:119
+#: plugins/pages/src/Manage.php:124
 msgid "Selected pages have been successfully updated."
 msgstr "ఎంపికచేసిన పేజీలు సమర్ధవంతంగా నవీకరిస్తోంది."
 
-#: plugins/pages/src/Manage.php:121
+#: plugins/pages/src/Manage.php:126
 msgid "Selected pages have been successfully deleted."
 msgstr "ఎంపికచేసిన పేజీలు విజయవంతంగా తొలగించబడ్డాయి."
 
-#: plugins/pages/src/Manage.php:140
+#: plugins/pages/src/Manage.php:145
 msgid "Selected pages action:"
 msgstr "ఎంచుకున్న పేజీలపై చర్య:"
 
-#: plugins/pages/src/Manage.php:149
+#: plugins/pages/src/Manage.php:154
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "పేజీల క్రమంలో పునరాభిమానం చేయడానికి, లైన్ యొక్క మాదిరిగా సంఖ్యను మార్చుము, తరువాత \"పేజీల క్రమం\" బటన్ ను నొక్కండి."
 
-#: plugins/pages/src/Manage.php:151
+#: plugins/pages/src/Manage.php:156
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "పేజీలను పునర్క్రమించుటకు, ట్రాగ్ మరియు డ్రాప్ ద్వారా అంశాలను కదుపుము, తరువాత \"పేజీల క్రమం\" బటన్ నొక్కండి."
 
-#: plugins/pages/src/Manage.php:152
+#: plugins/pages/src/Manage.php:157
 msgid "Save pages order"
 msgstr "పేజీల క్రమమును దాచు"
 
@@ -2744,101 +2745,101 @@ msgstr "లింకులో వుపయోగించి టైటిల్ 
 msgid "Not displayed nor used"
 msgstr "ప్రదర్శించలేదు మరియు ఉపయోగించబడలేదు"
 
-#: plugins/tags/src/BackendBehaviors.php:52
 #: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:147
+#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
 msgid "Tag"
 msgstr "ట్యాగు"
 
-#: plugins/tags/src/BackendBehaviors.php:199
+#: plugins/tags/src/BackendBehaviors.php:237
 msgid "Add tags"
 msgstr "ట్యాగ్లను జతచేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:208
+#: plugins/tags/src/BackendBehaviors.php:246
 msgid "Remove tags"
 msgstr "ట్యాగ్లను తీసివేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:243
+#: plugins/tags/src/BackendBehaviors.php:281
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "ఎంపికచేసిన ఎంటర్లలో టాగ్ సమర్ధవంతంగా చేర్చబడింది"
 msgstr[1] "ఎంపికచేసిన ఎంట్రీలను టాగ్లు సమర్ధవంతంగా చేర్చారు"
 
-#: plugins/tags/src/BackendBehaviors.php:256
-#: plugins/tags/src/BackendBehaviors.php:396
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:456
 msgid "Are you sure you want to remove this tag?"
 msgstr "మీరు ఈ ట్యాగ్ను తీసివేయాలని అనుకొనుచున్నారా?"
 
-#: plugins/tags/src/BackendBehaviors.php:257
-#: plugins/tags/src/BackendBehaviors.php:397
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:457
 msgid "Add a tag to this entry"
 msgstr "ఈ ప్రవేశమునకు ట్యాగ్ను జతచేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:258
-#: plugins/tags/src/BackendBehaviors.php:398
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:458
 msgid "Choose from list"
 msgstr "జాబితా నుండి యెంచుకొనుము"
 
-#: plugins/tags/src/BackendBehaviors.php:259
-#: plugins/tags/src/BackendBehaviors.php:399
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:459
 msgid "all"
 msgstr "అన్నీ"
 
-#: plugins/tags/src/BackendBehaviors.php:260
-#: plugins/tags/src/BackendBehaviors.php:400
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:460
 msgid "Enter tags separated by comma"
 msgstr "కామన్ ద్వారా వేరుచేయబడిన టాగ్లను ప్రవేశపెట్టుము"
 
-#: plugins/tags/src/BackendBehaviors.php:264
-#: plugins/tags/src/BackendBehaviors.php:404
+#: plugins/tags/src/BackendBehaviors.php:302
+#: plugins/tags/src/BackendBehaviors.php:464
 msgid "used in %e - frequency %p%"
 msgstr ""
 
-#: plugins/tags/src/BackendBehaviors.php:265
-#: plugins/tags/src/BackendBehaviors.php:405 plugins/tags/src/Manage.php:93
+#: plugins/tags/src/BackendBehaviors.php:303
+#: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:93
 msgid "entry"
 msgstr "ప్రవేశం"
 
-#: plugins/tags/src/BackendBehaviors.php:266
-#: plugins/tags/src/BackendBehaviors.php:406 plugins/tags/src/Manage.php:93
+#: plugins/tags/src/BackendBehaviors.php:304
+#: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:93
 msgid "entries"
 msgstr "టపాలు"
 
-#: plugins/tags/src/BackendBehaviors.php:274
+#: plugins/tags/src/BackendBehaviors.php:312
 msgid "Add tags to this selection"
 msgstr "ఈ ఎంపికకు టాగ్లను జతచేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:287
+#: plugins/tags/src/BackendBehaviors.php:331
 msgid "Tags to add:"
 msgstr "చేర్చాల్సిన ట్యాగులు:"
 
-#: plugins/tags/src/BackendBehaviors.php:320
+#: plugins/tags/src/BackendBehaviors.php:370
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "ఎంపికచేసిన ఎంటర్ల నుండి టాగ్ సమర్ధవంతంగా తొలగించబడింది"
 msgstr[1] "@ info: status"
 
-#: plugins/tags/src/BackendBehaviors.php:343
+#: plugins/tags/src/BackendBehaviors.php:393
 msgid "No tags for selected entries"
 msgstr "ఎంపికచేసిన ఎంట్రీలకు టాగ్స్ లేదు"
 
-#: plugins/tags/src/BackendBehaviors.php:350
+#: plugins/tags/src/BackendBehaviors.php:400
 msgid "Remove selected tags from this selection"
 msgstr "ఈ ఎంపిక నుండి ఎంపికచేసిన టాగ్లను తీసివేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:359
+#: plugins/tags/src/BackendBehaviors.php:427
 msgid "Following tags have been found in selected entries:"
 msgstr "@ info: status"
 
-#: plugins/tags/src/BackendBehaviors.php:425
+#: plugins/tags/src/BackendBehaviors.php:487
 msgid "Short"
 msgstr "శీఘ్రము"
 
-#: plugins/tags/src/BackendBehaviors.php:426
+#: plugins/tags/src/BackendBehaviors.php:488
 msgid "Extended"
 msgstr "విస్తృత"
 
-#: plugins/tags/src/BackendBehaviors.php:433
+#: plugins/tags/src/BackendBehaviors.php:500
 msgid "Tags list format:"
 msgstr "టాగ్స్ జాబితా ఫార్మాట్:"
 
@@ -2854,35 +2855,34 @@ msgstr "ఈ ట్యాగ్ యొక్క ఎంట్రీలు Atom ఫ
 msgid "No tags on this blog."
 msgstr "ఈ బ్లాగులో ట్యాగులేమీ లేవు."
 
-#: plugins/tags/src/ManagePosts.php:86
+#: plugins/tags/src/ManagePosts.php:93
 msgid "Tag has been successfully renamed"
 msgstr "ట్యాగ్ సమర్ధవంతంగా పేరు మార్చబడింది"
 
-#: plugins/tags/src/ManagePosts.php:105
+#: plugins/tags/src/ManagePosts.php:112
 msgid "Tag has been successfully removed"
 msgstr "ట్యాగ్ సమర్ధవంతంగా తొలగించబడింది"
 
-#: plugins/tags/src/ManagePosts.php:136
+#: plugins/tags/src/ManagePosts.php:143
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "ట్యాగ్ను తీసివేయాలని మీరు ఖచ్చితంగా భావిస్తున్నారా: \"%s\"?"
 
-#: plugins/tags/src/ManagePosts.php:151
+#: plugins/tags/src/ManagePosts.php:158
 msgid "Back to tags list"
 msgstr "బ్యాక్ టాగ్స్ జాబితా"
 
-#: plugins/tags/src/ManagePosts.php:159
-msgid "Rename"
-msgstr "పునఃనామము"
-
-#: plugins/tags/src/ManagePosts.php:172
+#: plugins/tags/src/ManagePosts.php:173
 msgid "Delete this tag"
 msgstr "ఈ ట్యాగ్ను తొలగించు"
 
-#: plugins/tags/src/ManagePosts.php:183
-#, php-format
-msgid "List of entries with the tag “%s”"
-msgstr "ట్యాగ్తో ఎంట్రీల జాబితా \"%s\""
+#: plugins/tags/src/ManagePosts.php:195
+msgid "Rename:"
+msgstr ""
+
+#: plugins/tags/src/ManagePosts.php:206
+msgid "List of entries with this tag"
+msgstr "ఈ ట్యాగ్తో ఎంట్రీల జాబితా"
 
 #: plugins/tags/src/Widgets.php:33
 msgid "Limit (empty means no limit):"
@@ -3113,7 +3113,7 @@ msgstr "అందుబాటులో ఉన్న విడ్జెట్ల�
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "ఈ జాబితా నుండి ఒక సిబార్జర్ల నుండి విడ్జట్లను చేర్చు, కలుపుటకు."
 
-#: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:410
 msgid "order"
 msgstr "క్రమం"
 
@@ -3181,23 +3181,19 @@ msgstr "అమరిక పేరు:"
 msgid "No widget as far."
 msgstr "విడ్జట్ దూరంగా లేదు."
 
-#: plugins/widgets/src/Manage.php:402 plugins/widgets/src/Manage.php:417
+#: plugins/widgets/src/Manage.php:415
 msgid "Up the widget"
 msgstr "విడ్జట్ పైకి"
 
-#: plugins/widgets/src/Manage.php:403 plugins/widgets/src/Manage.php:418
+#: plugins/widgets/src/Manage.php:416
 msgid "Down the widget"
 msgstr "విడ్జట్ డౌన్"
 
-#: plugins/widgets/src/Manage.php:419
+#: plugins/widgets/src/Manage.php:417
 msgid "Remove the widget"
 msgstr "విడ్జట్ను తొలగించుము"
 
-#: plugins/widgets/src/Manage.php:419
-msgid "Remove widget"
-msgstr "విడ్జట్ను తొలగించుము"
-
-#: plugins/widgets/src/Manage.php:431
+#: plugins/widgets/src/Manage.php:429
 msgid "Drag widgets here to remove."
 msgstr "తొలగించుటకు ఇక్కడ విడ్జట్లను డ్రాగ్ చేయుము."
 
