@@ -653,7 +653,7 @@ class MediaItem extends Process
                 echo
                 '<div class="two-boxes">' .
                 '<h3>' . __('MP3 disposition') . '</h3>';
-                Notices::message(__('Please note that you cannot insert mp3 files with visual editor.'), false);
+                Notices::message(__('Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode.'), false);
 
                 $i_align = [
                     'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
@@ -681,7 +681,7 @@ class MediaItem extends Process
             } elseif (App::backend()->file_type[0] == 'video') {
                 $media_type = 'flv';
 
-                Notices::message(__('Please note that you cannot insert video files with visual editor.'), false);
+                Notices::message(__('Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode.'), false);
 
                 echo
                 '<div class="two-boxes">' .
