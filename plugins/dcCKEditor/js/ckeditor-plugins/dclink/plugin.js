@@ -3,7 +3,6 @@
 
 (() => {
   CKEDITOR.plugins.add('dclink', {
-    icons: 'dclink',
     init(editor) {
       editor.addCommand('dcLinkCommand', {
         exec(editor) {
@@ -20,6 +19,7 @@
         label: dotclear.msg.link_title,
         command: 'dcLinkCommand',
         toolbar: 'insert',
+        icon: `${this.path}icons/icon.svg`,
       });
 
       editor.on('doubleclick', (e) => {

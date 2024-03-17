@@ -23,7 +23,7 @@ CKEDITOR.plugins.add('dctags', {
       label: dotclear.msg.tag_title,
       command: 'dcTagsCommand',
       toolbar: 'insert',
-      icon: `${this.path}tag.png`,
+      icon: `${this.path}icon.svg`,
     });
   },
 });

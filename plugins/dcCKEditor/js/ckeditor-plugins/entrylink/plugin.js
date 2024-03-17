@@ -3,7 +3,6 @@
 
 (() => {
   CKEDITOR.plugins.add('entrylink', {
-    icons: 'entrylink',
     init(editor) {
       const popup_params = {
         width: 760,
@@ -22,6 +21,7 @@
         label: dotclear.msg.post_link_title,
         command: 'entryLinkCommand',
         toolbar: 'insert',
+        icon: `${this.path}icons/icon.svg`,
       });
 
       editor.on('doubleclick', (e) => {

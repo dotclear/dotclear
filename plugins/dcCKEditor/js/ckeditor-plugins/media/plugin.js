@@ -3,7 +3,6 @@
 
 (() => {
   CKEDITOR.plugins.add('media', {
-    icons: 'media',
     init(editor) {
       const popup_params = {
         width: 760,
@@ -20,6 +19,7 @@
         label: dotclear.msg.img_select_title,
         command: 'mediaCommand',
         toolbar: 'insert',
+        icon: `${this.path}icons/icon.svg`,
       });
 
       editor.on('doubleclick', (e) => {

@@ -12,7 +12,7 @@
         label: dotclear.msg.img_title,
         command: 'dcImgCommand',
         toolbar: 'insert',
-        icon: `${this.path}icons/img.png`,
+        icon: `${this.path}icons/icon.svg`,
       });
     },
   });
