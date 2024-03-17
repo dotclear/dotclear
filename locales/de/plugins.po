@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-08 08:31+0100\n"
-"PO-Revision-Date: 2024-02-09 18:11\n"
+"POT-Creation-Date: 2024-03-17 09:37+0100\n"
+"PO-Revision-Date: 2024-03-17 09:08\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -25,44 +25,44 @@ msgstr "Deinstallieren"
 msgid "Plugin has been successfully uninstalled."
 msgstr "Das Plugin wurde erfolgreich deinstalliert."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:38
+#: plugins/Uninstaller/src/Cleaner/Caches.php:37
 msgid "Folders from cache directory"
 msgstr "Ordner aus dem Cache-Verzeichnis"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:43
+#: plugins/Uninstaller/src/Cleaner/Caches.php:42
 msgid "delete selected cache directories"
 msgstr "ausgewählte Cache-Verzeichnisse löschen"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+#: plugins/Uninstaller/src/Cleaner/Caches.php:43
 #, php-format
 msgid "delete \"%s\" cache directory"
 msgstr "Cache-Verzeichnis \"%s\" löschen"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted"
 msgstr "\"%s\" Cache-Verzeichnis gelöscht"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
 msgstr "Das Cache-Verzeichnis \"%s\" konnte nicht gelöscht werden."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:52
+#: plugins/Uninstaller/src/Cleaner/Caches.php:51
 msgid "empty selected cache directories"
 msgstr "ausgewählte Cache-Verzeichnisse leeren"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
 #, php-format
 msgid "empty \"%s\" cache directory"
 msgstr "leeres \"%s\" Cache-Verzeichnis"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied"
 msgstr "\"%s\" Cache-Verzeichnis geleert"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
 msgstr "Das Cache-Verzeichnis \"%s\" konnte nicht geleert werden."
@@ -408,41 +408,41 @@ msgstr "Unbekannter Reiniger \"%s\""
 msgid "Unsintaller can't remove itself"
 msgstr "Unsintaller kann sich nicht selbst entfernen"
 
-#: plugins/Uninstaller/src/Manage.php:62
+#: plugins/Uninstaller/src/Manage.php:61
 msgid "Unknown module id to uninstall"
 msgstr "Unbekannte Modul-ID zur Deinstallation"
 
-#: plugins/Uninstaller/src/Manage.php:70
+#: plugins/Uninstaller/src/Manage.php:69
 msgid "There are no uninstall actions for this module"
 msgstr "Es gibt keine Deinstallationsaktionen für dieses Modul"
 
-#: plugins/Uninstaller/src/Manage.php:95
+#: plugins/Uninstaller/src/Manage.php:94
 msgid "Uninstall action successfuly excecuted"
 msgstr "Deinstallationsaktion erfolgreich durchgeführt"
 
-#: plugins/Uninstaller/src/Manage.php:98
+#: plugins/Uninstaller/src/Manage.php:97
 msgid "No uninstall action done"
 msgstr "Keine Deinstallationsaktion durchgeführt"
 
-#: plugins/Uninstaller/src/Manage.php:143
+#: plugins/Uninstaller/src/Manage.php:142
 msgid "Perform selected actions"
 msgstr "Ausgewählte Aktionen durchführen"
 
-#: plugins/Uninstaller/src/Manage.php:158
+#: plugins/Uninstaller/src/Manage.php:157
 msgid "Are you sure you perform these ations?"
 msgstr "Sind Sie sicher, dass Sie diese Aufgaben erfüllen?"
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:173
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "Plugin deinstallieren \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:173
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "Thema deinstallieren \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:175
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
 msgstr "Das Modul \"%s %s\" bietet einen fortschrittlichen Entsalzungsprozess:"
@@ -925,11 +925,11 @@ msgstr "Verfügbare Spamfilter"
 msgid "Order"
 msgstr "Sortieren"
 
-#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:247
+#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:249
 msgid "Active"
 msgstr "Aktiv"
 
-#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:257
 msgid "Auto Del."
 msgstr "Auto-Löschen"
 
@@ -938,22 +938,23 @@ msgid "Filter name"
 msgstr "Filtername"
 
 #: plugins/antispam/src/Manage.php:228 plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:230
 msgid "Filter configuration"
 msgstr "Filter-Einstellungen"
 
-#: plugins/antispam/src/Manage.php:239 plugins/blogroll/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:241 plugins/blogroll/src/Manage.php:270
 msgid "position"
 msgstr "Stelle"
 
-#: plugins/antispam/src/Manage.php:285
+#: plugins/antispam/src/Manage.php:287
 msgid "Syndication"
 msgstr "Zusammenfassung"
 
-#: plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:289
 msgid "Junk comments RSS feed"
 msgstr "Müll-Kommentare per RSS-Feed abonnieren"
 
-#: plugins/antispam/src/Manage.php:288
+#: plugins/antispam/src/Manage.php:290
 msgid "Published comments RSS feed"
 msgstr "Veröffentlichte Kommentare per RSS-Feed abonnieren"
 
@@ -1571,8 +1572,8 @@ msgid "Remove text formating"
 msgstr "Formatierung entfernen"
 
 #: plugins/dcLegacyEditor/tpl/index.php:22
-msgid "Enable dcLegacyEditor plugin"
-msgstr "Aktivieren Sie das dcLegacyEditor-Plugin"
+msgid "Enable standard editor plugin"
+msgstr "Standard-Editor-Plugin einschalten"
 
 #: plugins/dcLegacyEditor/tpl/index.php:31
 msgid "Adjust height of input area during editing"
@@ -2354,7 +2355,7 @@ msgstr "%d Seite"
 msgid "%d pages"
 msgstr "%d Seiten"
 
-#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:126
+#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:131
 #: plugins/pages/src/ManagePage.php:75 plugins/pages/src/ManagePage.php:652
 msgid "New page"
 msgstr "Neue Seite"
@@ -2368,7 +2369,7 @@ msgid "Back to pages list"
 msgstr "Zurück zur Seitenliste"
 
 #: plugins/pages/src/BackendDefaultActions.php:123
-#: plugins/pages/src/Manage.php:123
+#: plugins/pages/src/Manage.php:128
 msgid "Selected pages have been successfully reordered."
 msgstr "Ausgewählte Seiten wurden erfolgreich angeordnet."
 
@@ -2400,31 +2401,31 @@ msgstr "Meine erste Seite"
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "Dies ist die erste Seite. Zum bloggen, bitte einloggen und dann editieren oder löschen."
 
-#: plugins/pages/src/Manage.php:105
+#: plugins/pages/src/Manage.php:110
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Ausgewählte Seite wirklich löschen?"
 
-#: plugins/pages/src/Manage.php:119
+#: plugins/pages/src/Manage.php:124
 msgid "Selected pages have been successfully updated."
 msgstr "Gewählte Seiten wurden erfolgreich aktualisiert."
 
-#: plugins/pages/src/Manage.php:121
+#: plugins/pages/src/Manage.php:126
 msgid "Selected pages have been successfully deleted."
 msgstr "Gewählte Seiten wurden erfolgreich gelöscht."
 
-#: plugins/pages/src/Manage.php:140
+#: plugins/pages/src/Manage.php:145
 msgid "Selected pages action:"
 msgstr "Wähle eine Aktion der Seiten:"
 
-#: plugins/pages/src/Manage.php:149
+#: plugins/pages/src/Manage.php:154
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "Um die Reihenfolge der Seiten zu ändern, ändern Sie die Nummer am Anfang der Zeile und klicken Sie dann auf die Schaltfläche \"Seitenreihenfolge speichern\"."
 
-#: plugins/pages/src/Manage.php:151
+#: plugins/pages/src/Manage.php:156
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "Um die Reihenfolge der Seiten zu ändern, verschieben Sie die Elemente durch Ziehen und Ablegen und klicken dann auf die Schaltfläche \"Seitenreihenfolge speichern\"."
 
-#: plugins/pages/src/Manage.php:152
+#: plugins/pages/src/Manage.php:157
 msgid "Save pages order"
 msgstr "Seitenreihenfolge speichern"
 
@@ -2744,101 +2745,101 @@ msgstr "Wird im Link angezeigt und als Titel verwendet"
 msgid "Not displayed nor used"
 msgstr "Nicht angezeigte noch verwendet"
 
-#: plugins/tags/src/BackendBehaviors.php:52
 #: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:147
+#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
 msgid "Tag"
 msgstr "Tag"
 
-#: plugins/tags/src/BackendBehaviors.php:199
+#: plugins/tags/src/BackendBehaviors.php:237
 msgid "Add tags"
 msgstr "Tags einfügen"
 
-#: plugins/tags/src/BackendBehaviors.php:208
+#: plugins/tags/src/BackendBehaviors.php:246
 msgid "Remove tags"
 msgstr "Tags entfernen"
 
-#: plugins/tags/src/BackendBehaviors.php:243
+#: plugins/tags/src/BackendBehaviors.php:281
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Tag wurde erfolgreich zu ausgewählten Einträgen zugefügt"
 msgstr[1] "Tags wurden erfolgreich zu ausgewählten Einträgen zugefügt"
 
-#: plugins/tags/src/BackendBehaviors.php:256
-#: plugins/tags/src/BackendBehaviors.php:396
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:456
 msgid "Are you sure you want to remove this tag?"
 msgstr "Bist du sicher, diesen Tag zu entfernen?"
 
-#: plugins/tags/src/BackendBehaviors.php:257
-#: plugins/tags/src/BackendBehaviors.php:397
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:457
 msgid "Add a tag to this entry"
 msgstr "Tag zu diesem Eintrag zufügen"
 
-#: plugins/tags/src/BackendBehaviors.php:258
-#: plugins/tags/src/BackendBehaviors.php:398
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:458
 msgid "Choose from list"
 msgstr "Aus der Liste wählen"
 
-#: plugins/tags/src/BackendBehaviors.php:259
-#: plugins/tags/src/BackendBehaviors.php:399
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:459
 msgid "all"
 msgstr "alle"
 
-#: plugins/tags/src/BackendBehaviors.php:260
-#: plugins/tags/src/BackendBehaviors.php:400
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:460
 msgid "Enter tags separated by comma"
 msgstr "Trage Tags mit Komma getrennt ein"
 
-#: plugins/tags/src/BackendBehaviors.php:264
-#: plugins/tags/src/BackendBehaviors.php:404
+#: plugins/tags/src/BackendBehaviors.php:302
+#: plugins/tags/src/BackendBehaviors.php:464
 msgid "used in %e - frequency %p%"
 msgstr "verwendet in %e mit Häufigkeit %p%"
 
-#: plugins/tags/src/BackendBehaviors.php:265
-#: plugins/tags/src/BackendBehaviors.php:405 plugins/tags/src/Manage.php:93
+#: plugins/tags/src/BackendBehaviors.php:303
+#: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:93
 msgid "entry"
 msgstr "Eintrag"
 
-#: plugins/tags/src/BackendBehaviors.php:266
-#: plugins/tags/src/BackendBehaviors.php:406 plugins/tags/src/Manage.php:93
+#: plugins/tags/src/BackendBehaviors.php:304
+#: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:93
 msgid "entries"
 msgstr "Einträge"
 
-#: plugins/tags/src/BackendBehaviors.php:274
+#: plugins/tags/src/BackendBehaviors.php:312
 msgid "Add tags to this selection"
 msgstr "Tags zu dieser Auswahl zufügen"
 
-#: plugins/tags/src/BackendBehaviors.php:287
+#: plugins/tags/src/BackendBehaviors.php:331
 msgid "Tags to add:"
 msgstr "Tags zum Zufügen:"
 
-#: plugins/tags/src/BackendBehaviors.php:320
+#: plugins/tags/src/BackendBehaviors.php:370
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Tag wurde von gewählten Einträgen entfernt"
 msgstr[1] "Tags wurden von gewählten Einträgen entfernt"
 
-#: plugins/tags/src/BackendBehaviors.php:343
+#: plugins/tags/src/BackendBehaviors.php:393
 msgid "No tags for selected entries"
 msgstr "Keine Tags für die ausgewählten Einträge"
 
-#: plugins/tags/src/BackendBehaviors.php:350
+#: plugins/tags/src/BackendBehaviors.php:400
 msgid "Remove selected tags from this selection"
 msgstr "Ausgewählten Tags von dieser Auswahl entfernen"
 
-#: plugins/tags/src/BackendBehaviors.php:359
+#: plugins/tags/src/BackendBehaviors.php:427
 msgid "Following tags have been found in selected entries:"
 msgstr "Folgende Tags wurden in den ausgewählten Einträgen gefunden:"
 
-#: plugins/tags/src/BackendBehaviors.php:425
+#: plugins/tags/src/BackendBehaviors.php:487
 msgid "Short"
 msgstr "Kurz"
 
-#: plugins/tags/src/BackendBehaviors.php:426
+#: plugins/tags/src/BackendBehaviors.php:488
 msgid "Extended"
 msgstr "Erweitert"
 
-#: plugins/tags/src/BackendBehaviors.php:433
+#: plugins/tags/src/BackendBehaviors.php:500
 msgid "Tags list format:"
 msgstr "Tag-Listenformat:"
 
@@ -2854,35 +2855,34 @@ msgstr "Die Einträge dieses Tags als Atom-Feed abonnieren"
 msgid "No tags on this blog."
 msgstr "Keine Tags in diesen Blog"
 
-#: plugins/tags/src/ManagePosts.php:86
+#: plugins/tags/src/ManagePosts.php:93
 msgid "Tag has been successfully renamed"
 msgstr "Tag wurde erfolgreich umbenannt"
 
-#: plugins/tags/src/ManagePosts.php:105
+#: plugins/tags/src/ManagePosts.php:112
 msgid "Tag has been successfully removed"
 msgstr "Tag wurde erfolgreich entfernt"
 
-#: plugins/tags/src/ManagePosts.php:136
+#: plugins/tags/src/ManagePosts.php:143
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Den Tag \"%s\" wirklich entfernen?"
 
-#: plugins/tags/src/ManagePosts.php:151
+#: plugins/tags/src/ManagePosts.php:158
 msgid "Back to tags list"
 msgstr "Zurück zur Tagliste"
 
-#: plugins/tags/src/ManagePosts.php:159
-msgid "Rename"
-msgstr "Umbenennen"
-
-#: plugins/tags/src/ManagePosts.php:172
+#: plugins/tags/src/ManagePosts.php:173
 msgid "Delete this tag"
 msgstr "Diesen Tag löschen"
 
-#: plugins/tags/src/ManagePosts.php:183
-#, php-format
-msgid "List of entries with the tag “%s”"
-msgstr "Liste der Einträge mit dem Tag \"%s\""
+#: plugins/tags/src/ManagePosts.php:195
+msgid "Rename:"
+msgstr "Umbenennen:"
+
+#: plugins/tags/src/ManagePosts.php:206
+msgid "List of entries with this tag"
+msgstr "Liste der Einträge mit diesem Tag"
 
 #: plugins/tags/src/Widgets.php:33
 msgid "Limit (empty means no limit):"
@@ -3113,7 +3113,7 @@ msgstr "Verfügbare Widgets"
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Zufügen: Widget aus der Liste auf die Sidebar ziehen"
 
-#: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:410
 msgid "order"
 msgstr "Sortierung"
 
@@ -3181,23 +3181,19 @@ msgstr "Name der Einstellung:"
 msgid "No widget as far."
 msgstr "Bisher kein Widget."
 
-#: plugins/widgets/src/Manage.php:402 plugins/widgets/src/Manage.php:417
+#: plugins/widgets/src/Manage.php:415
 msgid "Up the widget"
 msgstr "Widget nach oben"
 
-#: plugins/widgets/src/Manage.php:403 plugins/widgets/src/Manage.php:418
+#: plugins/widgets/src/Manage.php:416
 msgid "Down the widget"
 msgstr "Widget nach unten"
 
-#: plugins/widgets/src/Manage.php:419
+#: plugins/widgets/src/Manage.php:417
 msgid "Remove the widget"
 msgstr "Widget entfernen"
 
-#: plugins/widgets/src/Manage.php:419
-msgid "Remove widget"
-msgstr "Widget entfernen"
-
-#: plugins/widgets/src/Manage.php:431
+#: plugins/widgets/src/Manage.php:429
 msgid "Drag widgets here to remove."
 msgstr "Widgets hierhin ziehen zum Löschen."
 

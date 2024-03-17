@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-08 08:31+0100\n"
-"PO-Revision-Date: 2024-02-09 18:11\n"
+"POT-Creation-Date: 2024-03-17 09:37+0100\n"
+"PO-Revision-Date: 2024-03-17 08:55\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -25,44 +25,44 @@ msgstr "卸载"
 msgid "Plugin has been successfully uninstalled."
 msgstr "插件已成功卸载。"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:38
+#: plugins/Uninstaller/src/Cleaner/Caches.php:37
 msgid "Folders from cache directory"
 msgstr "缓存目录中的文件夹"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:43
+#: plugins/Uninstaller/src/Cleaner/Caches.php:42
 msgid "delete selected cache directories"
 msgstr "删除选定的缓存目录"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+#: plugins/Uninstaller/src/Cleaner/Caches.php:43
 #, php-format
 msgid "delete \"%s\" cache directory"
 msgstr "删除 \"%s\" 缓存目录"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted"
 msgstr "\"%s\" 缓存目录已删除"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
 msgstr "删除 \"%s\" 缓存目录失败"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:52
+#: plugins/Uninstaller/src/Cleaner/Caches.php:51
 msgid "empty selected cache directories"
 msgstr "清空选定的缓存目录"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
 #, php-format
 msgid "empty \"%s\" cache directory"
 msgstr "清空 \"%s\" 缓存目录"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied"
 msgstr "\"%s\"缓存目录已清空"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
 msgstr "清空 \"%s\" 缓存目录失败"
@@ -408,41 +408,41 @@ msgstr "未知清洁剂 \"%s\""
 msgid "Unsintaller can't remove itself"
 msgstr "Unsintaller 无法自行删除"
 
-#: plugins/Uninstaller/src/Manage.php:62
+#: plugins/Uninstaller/src/Manage.php:61
 msgid "Unknown module id to uninstall"
 msgstr "未知要卸载的模块 ID"
 
-#: plugins/Uninstaller/src/Manage.php:70
+#: plugins/Uninstaller/src/Manage.php:69
 msgid "There are no uninstall actions for this module"
 msgstr "该模块没有卸载操作"
 
-#: plugins/Uninstaller/src/Manage.php:95
+#: plugins/Uninstaller/src/Manage.php:94
 msgid "Uninstall action successfuly excecuted"
 msgstr "卸载操作已成功执行"
 
-#: plugins/Uninstaller/src/Manage.php:98
+#: plugins/Uninstaller/src/Manage.php:97
 msgid "No uninstall action done"
 msgstr "未进行卸载操作"
 
-#: plugins/Uninstaller/src/Manage.php:143
+#: plugins/Uninstaller/src/Manage.php:142
 msgid "Perform selected actions"
 msgstr "执行选定的操作"
 
-#: plugins/Uninstaller/src/Manage.php:158
+#: plugins/Uninstaller/src/Manage.php:157
 msgid "Are you sure you perform these ations?"
 msgstr "您确定要执行这些操作吗？"
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:173
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "卸载插件 \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:173
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "卸载主题 \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:175
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
 msgstr "%s %s\"模块提供先进的退火流程："
@@ -925,11 +925,11 @@ msgstr "可用的垃圾评论过滤器"
 msgid "Order"
 msgstr "顺序"
 
-#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:247
+#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:249
 msgid "Active"
 msgstr "激活"
 
-#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:257
 msgid "Auto Del."
 msgstr "自动删除。"
 
@@ -938,22 +938,23 @@ msgid "Filter name"
 msgstr "过滤器名称"
 
 #: plugins/antispam/src/Manage.php:228 plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:230
 msgid "Filter configuration"
 msgstr "过滤器配置"
 
-#: plugins/antispam/src/Manage.php:239 plugins/blogroll/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:241 plugins/blogroll/src/Manage.php:270
 msgid "position"
 msgstr "位置"
 
-#: plugins/antispam/src/Manage.php:285
+#: plugins/antispam/src/Manage.php:287
 msgid "Syndication"
 msgstr "同步"
 
-#: plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:289
 msgid "Junk comments RSS feed"
 msgstr "垃圾评论 RSS feed"
 
-#: plugins/antispam/src/Manage.php:288
+#: plugins/antispam/src/Manage.php:290
 msgid "Published comments RSS feed"
 msgstr "发表的评论 RSS feed"
 
@@ -1571,8 +1572,8 @@ msgid "Remove text formating"
 msgstr "移除文本格式化"
 
 #: plugins/dcLegacyEditor/tpl/index.php:22
-msgid "Enable dcLegacyEditor plugin"
-msgstr "启用dcLegacyEditor插件"
+msgid "Enable standard editor plugin"
+msgstr "启用标准编辑器插件"
 
 #: plugins/dcLegacyEditor/tpl/index.php:31
 msgid "Adjust height of input area during editing"
@@ -2352,7 +2353,7 @@ msgstr "%d 页"
 msgid "%d pages"
 msgstr "%d 页面"
 
-#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:126
+#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:131
 #: plugins/pages/src/ManagePage.php:75 plugins/pages/src/ManagePage.php:652
 msgid "New page"
 msgstr "新页面"
@@ -2366,7 +2367,7 @@ msgid "Back to pages list"
 msgstr "回到页面列表"
 
 #: plugins/pages/src/BackendDefaultActions.php:123
-#: plugins/pages/src/Manage.php:123
+#: plugins/pages/src/Manage.php:128
 msgid "Selected pages have been successfully reordered."
 msgstr "选定的页面已成功重新排序。"
 
@@ -2398,31 +2399,31 @@ msgstr "我的第一页"
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "这是你的第一页。当你准备好写博客时，请登录来编辑或删除它。"
 
-#: plugins/pages/src/Manage.php:105
+#: plugins/pages/src/Manage.php:110
 msgid "Are you sure you want to delete selected pages?"
 msgstr "您确定要删除选定的页面吗？"
 
-#: plugins/pages/src/Manage.php:119
+#: plugins/pages/src/Manage.php:124
 msgid "Selected pages have been successfully updated."
 msgstr "选定的页面已经成功更新。"
 
-#: plugins/pages/src/Manage.php:121
+#: plugins/pages/src/Manage.php:126
 msgid "Selected pages have been successfully deleted."
 msgstr "所选页面已成功删除。"
 
-#: plugins/pages/src/Manage.php:140
+#: plugins/pages/src/Manage.php:145
 msgid "Selected pages action:"
 msgstr "选定的页面动作："
 
-#: plugins/pages/src/Manage.php:149
+#: plugins/pages/src/Manage.php:154
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "要重新安排页面顺序，改变行首的数字，然后点击 \"保存页面顺序 \"按钮。"
 
-#: plugins/pages/src/Manage.php:151
+#: plugins/pages/src/Manage.php:156
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "要重新安排页面顺序，通过拖放移动项目，然后点击 \"保存页面顺序 \"按钮。"
 
-#: plugins/pages/src/Manage.php:152
+#: plugins/pages/src/Manage.php:157
 msgid "Save pages order"
 msgstr "保存页面顺序"
 
@@ -2742,99 +2743,99 @@ msgstr "显示在链接中并作为标题使用"
 msgid "Not displayed nor used"
 msgstr "不显示也不使用"
 
-#: plugins/tags/src/BackendBehaviors.php:52
 #: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:147
+#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
 msgid "Tag"
 msgstr "标签"
 
-#: plugins/tags/src/BackendBehaviors.php:199
+#: plugins/tags/src/BackendBehaviors.php:237
 msgid "Add tags"
 msgstr "添加标签"
 
-#: plugins/tags/src/BackendBehaviors.php:208
+#: plugins/tags/src/BackendBehaviors.php:246
 msgid "Remove tags"
 msgstr "移除标签"
 
-#: plugins/tags/src/BackendBehaviors.php:243
+#: plugins/tags/src/BackendBehaviors.php:281
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "标签已被成功添加到选定的条目中"
 
-#: plugins/tags/src/BackendBehaviors.php:256
-#: plugins/tags/src/BackendBehaviors.php:396
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:456
 msgid "Are you sure you want to remove this tag?"
 msgstr "你确定要删除这个标签吗？"
 
-#: plugins/tags/src/BackendBehaviors.php:257
-#: plugins/tags/src/BackendBehaviors.php:397
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:457
 msgid "Add a tag to this entry"
 msgstr "为该条目添加标签"
 
-#: plugins/tags/src/BackendBehaviors.php:258
-#: plugins/tags/src/BackendBehaviors.php:398
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:458
 msgid "Choose from list"
 msgstr "从列表中选择"
 
-#: plugins/tags/src/BackendBehaviors.php:259
-#: plugins/tags/src/BackendBehaviors.php:399
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:459
 msgid "all"
 msgstr "所有"
 
-#: plugins/tags/src/BackendBehaviors.php:260
-#: plugins/tags/src/BackendBehaviors.php:400
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:460
 msgid "Enter tags separated by comma"
 msgstr "输入由逗号分隔的标签"
 
-#: plugins/tags/src/BackendBehaviors.php:264
-#: plugins/tags/src/BackendBehaviors.php:404
+#: plugins/tags/src/BackendBehaviors.php:302
+#: plugins/tags/src/BackendBehaviors.php:464
 msgid "used in %e - frequency %p%"
 msgstr "用在 %e - 频率 %p%"
 
-#: plugins/tags/src/BackendBehaviors.php:265
-#: plugins/tags/src/BackendBehaviors.php:405 plugins/tags/src/Manage.php:93
+#: plugins/tags/src/BackendBehaviors.php:303
+#: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:93
 msgid "entry"
 msgstr "入职"
 
-#: plugins/tags/src/BackendBehaviors.php:266
-#: plugins/tags/src/BackendBehaviors.php:406 plugins/tags/src/Manage.php:93
+#: plugins/tags/src/BackendBehaviors.php:304
+#: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:93
 msgid "entries"
 msgstr "文章"
 
-#: plugins/tags/src/BackendBehaviors.php:274
+#: plugins/tags/src/BackendBehaviors.php:312
 msgid "Add tags to this selection"
 msgstr "为这个选择添加标签"
 
-#: plugins/tags/src/BackendBehaviors.php:287
+#: plugins/tags/src/BackendBehaviors.php:331
 msgid "Tags to add:"
 msgstr "要添加的标签："
 
-#: plugins/tags/src/BackendBehaviors.php:320
+#: plugins/tags/src/BackendBehaviors.php:370
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "标签已成功从选定的条目中删除"
 
-#: plugins/tags/src/BackendBehaviors.php:343
+#: plugins/tags/src/BackendBehaviors.php:393
 msgid "No tags for selected entries"
 msgstr "所选文章没有标签"
 
-#: plugins/tags/src/BackendBehaviors.php:350
+#: plugins/tags/src/BackendBehaviors.php:400
 msgid "Remove selected tags from this selection"
 msgstr "从这个选择中删除选定的标签"
 
-#: plugins/tags/src/BackendBehaviors.php:359
+#: plugins/tags/src/BackendBehaviors.php:427
 msgid "Following tags have been found in selected entries:"
 msgstr "所选文章中发现下列标签："
 
-#: plugins/tags/src/BackendBehaviors.php:425
+#: plugins/tags/src/BackendBehaviors.php:487
 msgid "Short"
 msgstr "短篇"
 
-#: plugins/tags/src/BackendBehaviors.php:426
+#: plugins/tags/src/BackendBehaviors.php:488
 msgid "Extended"
 msgstr "延长"
 
-#: plugins/tags/src/BackendBehaviors.php:433
+#: plugins/tags/src/BackendBehaviors.php:500
 msgid "Tags list format:"
 msgstr "标签列表格式："
 
@@ -2850,35 +2851,34 @@ msgstr "此标签的文章 Atom feed"
 msgid "No tags on this blog."
 msgstr "此博客上没有标签"
 
-#: plugins/tags/src/ManagePosts.php:86
+#: plugins/tags/src/ManagePosts.php:93
 msgid "Tag has been successfully renamed"
 msgstr "成功重命名标签"
 
-#: plugins/tags/src/ManagePosts.php:105
+#: plugins/tags/src/ManagePosts.php:112
 msgid "Tag has been successfully removed"
 msgstr "成功移除标签"
 
-#: plugins/tags/src/ManagePosts.php:136
+#: plugins/tags/src/ManagePosts.php:143
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "你确定你要删除标签：\"%s\"?"
 
-#: plugins/tags/src/ManagePosts.php:151
+#: plugins/tags/src/ManagePosts.php:158
 msgid "Back to tags list"
 msgstr "返回到标签列表"
 
-#: plugins/tags/src/ManagePosts.php:159
-msgid "Rename"
-msgstr "重命名"
-
-#: plugins/tags/src/ManagePosts.php:172
+#: plugins/tags/src/ManagePosts.php:173
 msgid "Delete this tag"
 msgstr "删除此标签"
 
-#: plugins/tags/src/ManagePosts.php:183
-#, php-format
-msgid "List of entries with the tag “%s”"
-msgstr "带有标签 \"%s\" 的条目列表"
+#: plugins/tags/src/ManagePosts.php:195
+msgid "Rename:"
+msgstr "重新命名："
+
+#: plugins/tags/src/ManagePosts.php:206
+msgid "List of entries with this tag"
+msgstr "带有此标签的条目列表"
 
 #: plugins/tags/src/Widgets.php:33
 msgid "Limit (empty means no limit):"
@@ -3109,7 +3109,7 @@ msgstr "可用的小工具"
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "从这个列表中拖动部件到其中一个侧边栏，以便添加。"
 
-#: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:410
 msgid "order"
 msgstr "顺序"
 
@@ -3177,23 +3177,19 @@ msgstr "设置名称："
 msgid "No widget as far."
 msgstr "到目前为止，没有小工具。"
 
-#: plugins/widgets/src/Manage.php:402 plugins/widgets/src/Manage.php:417
+#: plugins/widgets/src/Manage.php:415
 msgid "Up the widget"
 msgstr "上升的小部件"
 
-#: plugins/widgets/src/Manage.php:403 plugins/widgets/src/Manage.php:418
+#: plugins/widgets/src/Manage.php:416
 msgid "Down the widget"
 msgstr "下来的小部件"
 
-#: plugins/widgets/src/Manage.php:419
+#: plugins/widgets/src/Manage.php:417
 msgid "Remove the widget"
 msgstr "移除小部件"
 
-#: plugins/widgets/src/Manage.php:419
-msgid "Remove widget"
-msgstr "移除小工具"
-
-#: plugins/widgets/src/Manage.php:431
+#: plugins/widgets/src/Manage.php:429
 msgid "Drag widgets here to remove."
 msgstr "在这里拖动小部件来移除。"
 

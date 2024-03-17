@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-08 08:31+0100\n"
-"PO-Revision-Date: 2024-02-09 18:11\n"
+"POT-Creation-Date: 2024-03-17 09:37+0100\n"
+"PO-Revision-Date: 2024-03-17 09:11\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -25,44 +25,44 @@ msgstr "제거"
 msgid "Plugin has been successfully uninstalled."
 msgstr "플러그인이 성공적으로 제거되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:38
+#: plugins/Uninstaller/src/Cleaner/Caches.php:37
 msgid "Folders from cache directory"
 msgstr "캐시 디렉터리의 폴더"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:43
+#: plugins/Uninstaller/src/Cleaner/Caches.php:42
 msgid "delete selected cache directories"
 msgstr "선택한 캐시 디렉터리 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+#: plugins/Uninstaller/src/Cleaner/Caches.php:43
 #, php-format
 msgid "delete \"%s\" cache directory"
 msgstr "삭제 \"%s\" 캐시 디렉토리"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted"
 msgstr "\"%s\" 캐시 디렉터리 삭제됨"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:46
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
 msgstr "\"%s\" 캐시 디렉토리를 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:52
+#: plugins/Uninstaller/src/Cleaner/Caches.php:51
 msgid "empty selected cache directories"
 msgstr "선택한 캐시 디렉터리 비우기"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
 #, php-format
 msgid "empty \"%s\" cache directory"
 msgstr "빈 \"%s\" 캐시 디렉토리"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied"
 msgstr "\"%s\" 캐시 디렉터리 비워짐"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:55
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
 msgstr "\"%s\" 캐시 디렉터리를 비우지 못했습니다."
@@ -408,41 +408,41 @@ msgstr "알 수 없는 클리너 \"%s\""
 msgid "Unsintaller can't remove itself"
 msgstr "언인스톨러는 스스로 제거할 수 없습니다."
 
-#: plugins/Uninstaller/src/Manage.php:62
+#: plugins/Uninstaller/src/Manage.php:61
 msgid "Unknown module id to uninstall"
 msgstr "제거할 모듈 ID를 알 수 없음"
 
-#: plugins/Uninstaller/src/Manage.php:70
+#: plugins/Uninstaller/src/Manage.php:69
 msgid "There are no uninstall actions for this module"
 msgstr "이 모듈에 대한 제거 작업은 없습니다."
 
-#: plugins/Uninstaller/src/Manage.php:95
+#: plugins/Uninstaller/src/Manage.php:94
 msgid "Uninstall action successfuly excecuted"
 msgstr "제거 작업이 성공적으로 실행됨"
 
-#: plugins/Uninstaller/src/Manage.php:98
+#: plugins/Uninstaller/src/Manage.php:97
 msgid "No uninstall action done"
 msgstr "제거 작업이 수행되지 않음"
 
-#: plugins/Uninstaller/src/Manage.php:143
+#: plugins/Uninstaller/src/Manage.php:142
 msgid "Perform selected actions"
 msgstr "선택한 작업 수행"
 
-#: plugins/Uninstaller/src/Manage.php:158
+#: plugins/Uninstaller/src/Manage.php:157
 msgid "Are you sure you perform these ations?"
 msgstr "이러한 작업을 수행하시나요?"
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:173
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "플러그인 제거 \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:173
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "테마 제거 \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:175
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
 msgstr "\"%s %s\" 모듈은 고급 언인스톨 프로세스를 제공합니다:"
@@ -925,11 +925,11 @@ msgstr "사용가능한 스팸 필터"
 msgid "Order"
 msgstr "순서"
 
-#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:247
+#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:249
 msgid "Active"
 msgstr "작동중"
 
-#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:255
+#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:257
 msgid "Auto Del."
 msgstr "자동 삭제"
 
@@ -938,22 +938,23 @@ msgid "Filter name"
 msgstr "필터 이름"
 
 #: plugins/antispam/src/Manage.php:228 plugins/antispam/src/Manage.php:229
+#: plugins/antispam/src/Manage.php:230
 msgid "Filter configuration"
 msgstr "필터 설정"
 
-#: plugins/antispam/src/Manage.php:239 plugins/blogroll/src/Manage.php:270
+#: plugins/antispam/src/Manage.php:241 plugins/blogroll/src/Manage.php:270
 msgid "position"
 msgstr "위치"
 
-#: plugins/antispam/src/Manage.php:285
+#: plugins/antispam/src/Manage.php:287
 msgid "Syndication"
 msgstr "타래소식(RSS)"
 
-#: plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:289
 msgid "Junk comments RSS feed"
 msgstr "스팸댓글 타래소식"
 
-#: plugins/antispam/src/Manage.php:288
+#: plugins/antispam/src/Manage.php:290
 msgid "Published comments RSS feed"
 msgstr "공개된 댓글 타래소식"
 
@@ -1571,8 +1572,8 @@ msgid "Remove text formating"
 msgstr "텍스트 서식 제거"
 
 #: plugins/dcLegacyEditor/tpl/index.php:22
-msgid "Enable dcLegacyEditor plugin"
-msgstr "dcLegacyEditor 플러그인 활성화"
+msgid "Enable standard editor plugin"
+msgstr "표준 편집기 플러그인 사용"
 
 #: plugins/dcLegacyEditor/tpl/index.php:31
 msgid "Adjust height of input area during editing"
@@ -2352,7 +2353,7 @@ msgstr "%d 페이지"
 msgid "%d pages"
 msgstr "%d 페이지"
 
-#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:126
+#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:131
 #: plugins/pages/src/ManagePage.php:75 plugins/pages/src/ManagePage.php:652
 msgid "New page"
 msgstr "새 페이지"
@@ -2366,7 +2367,7 @@ msgid "Back to pages list"
 msgstr "페이지 목록으로 돌아가기"
 
 #: plugins/pages/src/BackendDefaultActions.php:123
-#: plugins/pages/src/Manage.php:123
+#: plugins/pages/src/Manage.php:128
 msgid "Selected pages have been successfully reordered."
 msgstr "선택한 페이지가 성공적으로 재정렬되었습니다."
 
@@ -2398,31 +2399,31 @@ msgstr "내 첫 페이지"
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "첫 페이지입니다. 블로그를 작성할 준비가 되면 로그인하여 수정하거나 삭제합니다."
 
-#: plugins/pages/src/Manage.php:105
+#: plugins/pages/src/Manage.php:110
 msgid "Are you sure you want to delete selected pages?"
 msgstr "선택한 페이지들을 삭제하시려는 게 확실합니까 ?"
 
-#: plugins/pages/src/Manage.php:119
+#: plugins/pages/src/Manage.php:124
 msgid "Selected pages have been successfully updated."
 msgstr "선택한 페이지가 성공적으로 업데이트되었습니다."
 
-#: plugins/pages/src/Manage.php:121
+#: plugins/pages/src/Manage.php:126
 msgid "Selected pages have been successfully deleted."
 msgstr "선택한 페이지가 성공적으로 삭제되었습니다."
 
-#: plugins/pages/src/Manage.php:140
+#: plugins/pages/src/Manage.php:145
 msgid "Selected pages action:"
 msgstr "선택된 페이지들에 대한 작업 :"
 
-#: plugins/pages/src/Manage.php:149
+#: plugins/pages/src/Manage.php:154
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "페이지 순서를 재정렬하려면 줄의 시작 부분에서 번호를 변경한 다음 '페이지 순서 저장' 버튼을 클릭합니다."
 
-#: plugins/pages/src/Manage.php:151
+#: plugins/pages/src/Manage.php:156
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "페이지 순서를 재정렬하려면 드래그 앤 드롭으로 항목을 이동한 다음 '페이지 순서 저장' 버튼을 클릭합니다."
 
-#: plugins/pages/src/Manage.php:152
+#: plugins/pages/src/Manage.php:157
 msgid "Save pages order"
 msgstr "페이지 순서 저장"
 
@@ -2742,99 +2743,99 @@ msgstr "링크에 표시되고 제목으로 사용됨"
 msgid "Not displayed nor used"
 msgstr "표시되지 않거나 사용되지 않음"
 
-#: plugins/tags/src/BackendBehaviors.php:52
 #: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:147
+#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
 msgid "Tag"
 msgstr "분류딱지"
 
-#: plugins/tags/src/BackendBehaviors.php:199
+#: plugins/tags/src/BackendBehaviors.php:237
 msgid "Add tags"
 msgstr "태그 추가"
 
-#: plugins/tags/src/BackendBehaviors.php:208
+#: plugins/tags/src/BackendBehaviors.php:246
 msgid "Remove tags"
 msgstr "태그 제거"
 
-#: plugins/tags/src/BackendBehaviors.php:243
+#: plugins/tags/src/BackendBehaviors.php:281
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "선택한 항목에 태그가 성공적으로 추가되었습니다."
 
-#: plugins/tags/src/BackendBehaviors.php:256
-#: plugins/tags/src/BackendBehaviors.php:396
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:456
 msgid "Are you sure you want to remove this tag?"
 msgstr "이 태그를 제거하시겠습니까?"
 
-#: plugins/tags/src/BackendBehaviors.php:257
-#: plugins/tags/src/BackendBehaviors.php:397
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:457
 msgid "Add a tag to this entry"
 msgstr "이 항목에 태그 추가"
 
-#: plugins/tags/src/BackendBehaviors.php:258
-#: plugins/tags/src/BackendBehaviors.php:398
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:458
 msgid "Choose from list"
 msgstr "목록에서 선택"
 
-#: plugins/tags/src/BackendBehaviors.php:259
-#: plugins/tags/src/BackendBehaviors.php:399
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:459
 msgid "all"
 msgstr "모두"
 
-#: plugins/tags/src/BackendBehaviors.php:260
-#: plugins/tags/src/BackendBehaviors.php:400
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:460
 msgid "Enter tags separated by comma"
 msgstr "쉼표로 구분하여 태그 입력"
 
-#: plugins/tags/src/BackendBehaviors.php:264
-#: plugins/tags/src/BackendBehaviors.php:404
+#: plugins/tags/src/BackendBehaviors.php:302
+#: plugins/tags/src/BackendBehaviors.php:464
 msgid "used in %e - frequency %p%"
 msgstr "%e - 빈도 %p%에서 사용"
 
-#: plugins/tags/src/BackendBehaviors.php:265
-#: plugins/tags/src/BackendBehaviors.php:405 plugins/tags/src/Manage.php:93
+#: plugins/tags/src/BackendBehaviors.php:303
+#: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:93
 msgid "entry"
 msgstr "항목"
 
-#: plugins/tags/src/BackendBehaviors.php:266
-#: plugins/tags/src/BackendBehaviors.php:406 plugins/tags/src/Manage.php:93
+#: plugins/tags/src/BackendBehaviors.php:304
+#: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:93
 msgid "entries"
 msgstr "글꼭지"
 
-#: plugins/tags/src/BackendBehaviors.php:274
+#: plugins/tags/src/BackendBehaviors.php:312
 msgid "Add tags to this selection"
 msgstr "이 선택 항목에 태그 추가"
 
-#: plugins/tags/src/BackendBehaviors.php:287
+#: plugins/tags/src/BackendBehaviors.php:331
 msgid "Tags to add:"
 msgstr "추가할 분류딱지들 :"
 
-#: plugins/tags/src/BackendBehaviors.php:320
+#: plugins/tags/src/BackendBehaviors.php:370
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "선택한 항목에서 태그가 성공적으로 제거되었습니다."
 
-#: plugins/tags/src/BackendBehaviors.php:343
+#: plugins/tags/src/BackendBehaviors.php:393
 msgid "No tags for selected entries"
 msgstr "선택된 글꼭지들에는 분류딱지가 없습니다."
 
-#: plugins/tags/src/BackendBehaviors.php:350
+#: plugins/tags/src/BackendBehaviors.php:400
 msgid "Remove selected tags from this selection"
 msgstr "이 선택 항목에서 선택한 태그 제거"
 
-#: plugins/tags/src/BackendBehaviors.php:359
+#: plugins/tags/src/BackendBehaviors.php:427
 msgid "Following tags have been found in selected entries:"
 msgstr "선택된 글꼭지들에서 찾은 분류딱지들 :"
 
-#: plugins/tags/src/BackendBehaviors.php:425
+#: plugins/tags/src/BackendBehaviors.php:487
 msgid "Short"
 msgstr "짧은"
 
-#: plugins/tags/src/BackendBehaviors.php:426
+#: plugins/tags/src/BackendBehaviors.php:488
 msgid "Extended"
 msgstr "확장"
 
-#: plugins/tags/src/BackendBehaviors.php:433
+#: plugins/tags/src/BackendBehaviors.php:500
 msgid "Tags list format:"
 msgstr "태그 목록 형식:"
 
@@ -2850,35 +2851,34 @@ msgstr "이 분류딱지가 설정된 글꼭지들의 타래소식 (Atom)"
 msgid "No tags on this blog."
 msgstr "아직 아무 분류딱지도 없습니다."
 
-#: plugins/tags/src/ManagePosts.php:86
+#: plugins/tags/src/ManagePosts.php:93
 msgid "Tag has been successfully renamed"
 msgstr "분류딱지 이름바꾸기 성공"
 
-#: plugins/tags/src/ManagePosts.php:105
+#: plugins/tags/src/ManagePosts.php:112
 msgid "Tag has been successfully removed"
 msgstr "분류딱지가 성공적으로 삭제되었습니다."
 
-#: plugins/tags/src/ManagePosts.php:136
+#: plugins/tags/src/ManagePosts.php:143
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "태그를 제거하시겠습니까? \"%s\"?"
 
-#: plugins/tags/src/ManagePosts.php:151
+#: plugins/tags/src/ManagePosts.php:158
 msgid "Back to tags list"
 msgstr "분류딱지 목록으로 돌아가기"
 
-#: plugins/tags/src/ManagePosts.php:159
-msgid "Rename"
-msgstr "이름 바꾸기"
-
-#: plugins/tags/src/ManagePosts.php:172
+#: plugins/tags/src/ManagePosts.php:173
 msgid "Delete this tag"
 msgstr "이 태그 삭제"
 
-#: plugins/tags/src/ManagePosts.php:183
-#, php-format
-msgid "List of entries with the tag “%s”"
-msgstr "\"%s\" 태그가 있는 항목 목록"
+#: plugins/tags/src/ManagePosts.php:195
+msgid "Rename:"
+msgstr "이름 바꾸기:"
+
+#: plugins/tags/src/ManagePosts.php:206
+msgid "List of entries with this tag"
+msgstr "이 태그가 있는 항목 목록"
 
 #: plugins/tags/src/Widgets.php:33
 msgid "Limit (empty means no limit):"
@@ -3109,7 +3109,7 @@ msgstr "사용할 수 있는 위젯들"
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "이 목록에서 위젯을 사이드바 중 하나로 드래그하여 추가합니다."
 
-#: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:282 plugins/widgets/src/Manage.php:410
 msgid "order"
 msgstr "순서"
 
@@ -3177,23 +3177,19 @@ msgstr "설정 이름 :"
 msgid "No widget as far."
 msgstr "아직 위젯이 없습니다."
 
-#: plugins/widgets/src/Manage.php:402 plugins/widgets/src/Manage.php:417
+#: plugins/widgets/src/Manage.php:415
 msgid "Up the widget"
 msgstr "위젯 위로"
 
-#: plugins/widgets/src/Manage.php:403 plugins/widgets/src/Manage.php:418
+#: plugins/widgets/src/Manage.php:416
 msgid "Down the widget"
 msgstr "위젯 아래로"
 
-#: plugins/widgets/src/Manage.php:419
+#: plugins/widgets/src/Manage.php:417
 msgid "Remove the widget"
 msgstr "위젯 제거"
 
-#: plugins/widgets/src/Manage.php:419
-msgid "Remove widget"
-msgstr "위젯 삭제"
-
-#: plugins/widgets/src/Manage.php:431
+#: plugins/widgets/src/Manage.php:429
 msgid "Drag widgets here to remove."
 msgstr "제거하려면 위젯을 여기로 끌어다 놓습니다."
 
