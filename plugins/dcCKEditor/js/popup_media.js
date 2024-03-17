@@ -115,10 +115,10 @@ dotclear.ready(() => {
         player_audio = `<figure><figcaption>${title}</figcaption>${player_audio}</figure>`;
       }
 
-      const align_audio = $('input[name="alignment"]:checked', insert_form).val();
+      const align = $('input[name="alignment"]:checked', insert_form).val();
 
-      if (align_audio != undefined && align_audio != 'none') {
-        player_audio = `<div class="${alignments[align_audio]}">${player_audio}</div>`;
+      if (align != undefined && align != 'none') {
+        player_audio = `<div class="${alignments[align]}">${player_audio}</div>`;
       }
       const element = window.opener.CKEDITOR.dom.element.createFromHtml(player_audio);
       if (align != '' && align != 'none') {
@@ -129,7 +129,7 @@ dotclear.ready(() => {
       // Video media
       const oplayer = $(`<div>${$('#public_player').val()}</div>`);
 
-      const align_video = $('input[name="alignment"]:checked', insert_form).val();
+      const align = $('input[name="alignment"]:checked', insert_form).val();
 
       const vw = $('#video_w').val();
       const vh = $('#video_h').val();
@@ -151,8 +151,8 @@ dotclear.ready(() => {
 
       let player_video = oplayer.html();
 
-      if (align_video != undefined && align_video != 'none') {
-        player_video = `<div class="${alignments[align_video]}">${player_video}</div>`;
+      if (align != undefined && align != 'none') {
+        player_video = `<div class="${alignments[align]}">${player_video}</div>`;
       }
       const element = window.opener.CKEDITOR.dom.element.createFromHtml(player_video);
       if (align != '' && align != 'none') {

@@ -19,7 +19,7 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcLegacyE
       <p>
         <label class="classic" for="dclegacyeditor_active">
           <?php echo form::checkbox('dclegacyeditor_active', 1, \Dotclear\App::backend()->editor_std_active); ?>
-          <?php echo __('Enable dcLegacyEditor plugin'); ?>
+          <?php echo __('Enable standard editor plugin'); ?>
         </label>
       </p>
     </fieldset>
