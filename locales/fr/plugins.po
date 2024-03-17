@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-17 09:37+0100\n"
-"PO-Revision-Date: 2024-03-17 08:42\n"
+"PO-Revision-Date: 2024-03-17 09:05\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -1573,7 +1573,7 @@ msgstr "Retirer le formatage du texte"
 
 #: plugins/dcLegacyEditor/tpl/index.php:22
 msgid "Enable standard editor plugin"
-msgstr ""
+msgstr "Activer l'éditeur standard"
 
 #: plugins/dcLegacyEditor/tpl/index.php:31
 msgid "Adjust height of input area during editing"
@@ -2878,7 +2878,7 @@ msgstr "Supprimer ce mot-clé"
 
 #: plugins/tags/src/ManagePosts.php:195
 msgid "Rename:"
-msgstr ""
+msgstr "Renommer :"
 
 #: plugins/tags/src/ManagePosts.php:206
 msgid "List of entries with this tag"
