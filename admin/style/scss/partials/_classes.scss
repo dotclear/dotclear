@@ -181,6 +181,16 @@ a.onblog_link {
     color: var(--reset-color);
     background-color: var(--reset-background-alt);
   }
+
+  &.outgoing {
+    position: relative;
+    padding-right: 2em;
+    img {
+      position: absolute;
+      top: 0.25em;
+      right: 0.5em;
+    }
+  }
 }
 
 img.go_home {
