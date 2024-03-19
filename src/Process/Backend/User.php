@@ -418,7 +418,7 @@ class User extends Process
                 'autocomplete' => 'current-password',
             ]
         ) . '</p>' .
-        '<p class="clear"><input type="submit" name="save" accesskey="s" value="' . __('Save') . '">' .
+        '<p class="form-buttons clear"><input type="submit" name="save" accesskey="s" value="' . __('Save') . '">' .
         (App::backend()->user_id != '' ? '' : ' <input type="submit" name="saveplus" value="' . __('Save and create another') . '">') .
         (App::backend()->user_id != '' ? form::hidden('id', App::backend()->user_id) : '') .
         ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .

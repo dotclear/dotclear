@@ -130,7 +130,7 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcCKEdito
     </p>
   </div>
   <?php endif;?>
-  <p>
+  <p class="form-buttons">
     <input name="p" type="hidden" value="dcCKEditor">
     <?php echo \Dotclear\App::nonce()->getFormNonce(); ?>
     <input name="saveconfig" type="submit" value="<?php echo __('Save configuration'); ?>">

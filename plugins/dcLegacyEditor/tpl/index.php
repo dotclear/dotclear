@@ -33,7 +33,7 @@ echo \Dotclear\Core\Backend\Page::breadcrumb([__('Plugins') => '', __('dcLegacyE
       </p>
     </fieldset>
 
-    <p>
+    <p class="form-buttons">
     <input type="hidden" name="p" value="dcLegacyEditor">
     <?php echo \Dotclear\App::nonce()->getFormNonce(); ?>
     <input type="submit" name="saveconfig" value="<?php echo __('Save configuration'); ?>">

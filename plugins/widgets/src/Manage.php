@@ -314,7 +314,7 @@ class Manage extends Process
         self::sidebarWidgets('dndcustom', __('Custom sidebar'), App::backend()->widgets_custom, Widgets::WIDGETS_CUSTOM, Widgets::$default_widgets[Widgets::WIDGETS_CUSTOM], $j) .
         '</div>' .
 
-        '<p id="sidebarsControl">' .
+        '<p class="form-buttons" id="sidebarsControl">' .
         App::nonce()->getFormNonce() .
         '<input type="submit" name="wup" value="' . __('Update sidebars') . '"> ' .
         '<input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js"> ' .

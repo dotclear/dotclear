@@ -451,7 +451,7 @@ class Home extends Process
                     '<p class="form-note info clear">' . __('This category will be created when you will save your post.') . '</p>' .
                     '</div>'
                     : '') .
-                '<p><input type="submit" value="' . __('Save') . '" name="save"> ' .
+                '<p class="form-buttons"><input type="submit" value="' . __('Save') . '" name="save"> ' .
                 (App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_PUBLISH,
                 ]), App::blog()->id())

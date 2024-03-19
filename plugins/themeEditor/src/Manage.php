@@ -204,7 +204,7 @@ class Manage extends Process
 
                 if (App::backend()->file['w']) {
                     echo
-                    '<p><input type="submit" name="write" value="' . __('Save') . ' (s)" accesskey="s"> ' .
+                    '<p class="form-buttons"><input type="submit" name="write" value="' . __('Save') . ' (s)" accesskey="s"> ' .
                     (App::backend()->editor->deletableFile(App::backend()->file['type'], App::backend()->file['f']) ? '<input type="submit" name="delete" class="delete" value="' . __('Reset') . '">' : '') .
                     App::nonce()->getFormNonce() .
                         (App::backend()->file['type'] ? form::hidden([App::backend()->file['type']], App::backend()->file['f']) : '') .

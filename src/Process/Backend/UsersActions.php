@@ -236,9 +236,10 @@ class UsersActions extends Process
 
                 if ($rs) {
                     while ($rs->fetch()) {
-                        $img_status = $rs->blog_status == App::blog()::BLOG_ONLINE ? 'check-on' : ($rs->blog_status == App::blog()::BLOG_OFFLINE ? 'check-off' : 'check-wrn');
+                        $img_status = $rs->blog_status == App::blog()::BLOG_ONLINE ? 'published.svg' : ($rs->blog_status == App::blog()::BLOG_OFFLINE ? 'unpublished.svg' : 'pending.svg');
                         $txt_status = App::blogs()->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : App::blog()::BLOG_ONLINE);
-                        $img_status = sprintf('<img src="images/%1$s.png" alt="%2$s">', $img_status, $txt_status);
+                        $img_class  = $rs->blog_status == App::blog()::BLOG_ONLINE ? 'published' : ($rs->blog_status == App::blog()::BLOG_OFFLINE ? 'unpublished' : 'pending');
+                        $img_status = sprintf('<img src="images/%1$s" class="mark mark-%3$s" alt="%2$s">', $img_status, $txt_status, $img_class);
 
                         echo
                         '<tr class="line">' .

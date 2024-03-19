@@ -221,7 +221,7 @@ class Manage extends Process
         }
 
         echo
-        '<p><input type="submit" value="' . __('Save') . '">' .
+        '<p class="form-buttons"><input type="submit" value="' . __('Save') . '">' .
         ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
         '<input type="hidden" name="p" value="' . My::id() . '">' .
         App::nonce()->getFormNonce() .

@@ -70,7 +70,7 @@ class LinkPopup extends Process
 
         '</form>' .
 
-        '<p><button type="button" class="reset" id="link-insert-cancel">' . __('Cancel') . '</button> - ' .
+        '<p class="form-buttons"><button type="button" class="reset" id="link-insert-cancel">' . __('Cancel') . '</button> - ' .
         '<button type="button" id="link-insert-ok"><strong>' . __('Insert') . '</strong></button></p>' . "\n";
 
         Page::closePopup();

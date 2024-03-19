@@ -88,6 +88,7 @@ class Cache extends Process
                     ->items([
                         (new Text('h4', __('Cache folders'))),
                         (new Para())
+                            ->class('form-buttons')
                             ->separator(' ')
                             ->items([
                                 (new Submit(['cleartplcache']))

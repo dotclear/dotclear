@@ -265,7 +265,7 @@ class Manage extends Process
             }
             echo
             '</tbody></table></div>' .
-            '<p>' . form::hidden('filters_order', '') .
+            '<p class="form-buttons">' . form::hidden('filters_order', '') .
             App::nonce()->getFormNonce() .
             '<input type="submit" name="filters_upd" value="' . __('Save') . '">' .
             ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .

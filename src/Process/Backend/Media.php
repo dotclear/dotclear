@@ -535,7 +535,7 @@ class Media extends Process
             }
 
             echo
-            '<p class="clear"><button class="button clean">' . __('Refresh') . '</button>' .
+            '<p class="clear form-buttons"><button class="button clean">' . __('Refresh') . '</button>' .
             '<input class="button cancel one-file" type="reset" value="' . __('Clear all') . '">' .
             '<input class="button start" type="submit" value="' . __('Upload') . '"></p>' .
             '</div>';

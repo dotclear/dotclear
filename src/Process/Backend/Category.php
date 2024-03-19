@@ -273,7 +273,7 @@ class Category extends Process
         ) .
         '</p>' .
 
-        '<p><input type="submit" accesskey="s" value="' . __('Save') . '">' .
+        '<p class="form-buttons"><input type="submit" accesskey="s" value="' . __('Save') . '">' .
         ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
         (App::backend()->cat_id ? \form::hidden('id', App::backend()->cat_id) : '') .
         App::nonce()->getFormNonce() .

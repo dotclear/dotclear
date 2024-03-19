@@ -632,7 +632,7 @@ class Manage extends Process
             '<form id="settings" action="' . App::backend()->getPageURL() . '" method="post">' .
             '<p>' . form::checkbox('active', 1, App::backend()->menu_active) .
             '<label class="classic" for="active">' . __('Enable simple menu for this blog') . '</label>' . '</p>' .
-            '<p>' . App::nonce()->getFormNonce() .
+            '<p class="form-buttons">' . App::nonce()->getFormNonce() .
             '<input type="submit" name="saveconfig" value="' . __('Save configuration') . '">' .
             ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
             '</p>' .

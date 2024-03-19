@@ -231,12 +231,12 @@ class Categories extends Process
                     echo '<p class="form-note hidden-if-no-js">' . __('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.') . '</p>';
                 }
                 echo
-                '<p><span class="hidden-if-no-js">' .
+                '<p class="form-buttons"><span class="hidden-if-no-js">' .
                 '<input type="hidden" id="categories_order" name="categories_order" value="">' .
                 '<input type="submit" name="save_order" id="save-set-order" value="' . __('Save categories order') . '">' .
                 '</span> ';
             } else {
-                echo '<p>';
+                echo '<p class="form-buttons">';
             }
 
             echo

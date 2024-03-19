@@ -608,7 +608,7 @@ class UserPreferences extends Process
         }
 
         echo
-        '<p class="clear vertical-separator">' .
+        '<p class="clear vertical-separator form-buttons">' .
         App::nonce()->getFormNonce() .
         '<input type="submit" accesskey="s" value="' . __('Update my profile') . '">' .
         ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
@@ -787,7 +787,7 @@ class UserPreferences extends Process
         App::behavior()->callBehavior('adminPreferencesFormV2');
 
         echo
-        '<p class="clear vertical-separator">' .
+        '<p class="clear vertical-separator form-buttons">' .
         App::nonce()->getFormNonce() .
         '<input type="submit" name="user_options_submit" accesskey="s" value="' . __('Save my options') . '">' .
         ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
@@ -843,7 +843,7 @@ class UserPreferences extends Process
         if ($count > 0) {
             echo
             '<div class="clear">' .
-            '<p>' . form::hidden('favs_order', '') .
+            '<p class="form-buttons">' . form::hidden('favs_order', '') .
             App::nonce()->getFormNonce() .
             '<input type="submit" name="saveorder" value="' . __('Save order') . '"> ' .
 
@@ -966,7 +966,7 @@ class UserPreferences extends Process
         App::behavior()->callBehavior('adminDashboardOptionsFormV2');
 
         echo
-        '<p>' .
+        '<p class="form-buttons">' .
         form::hidden('db-options', '-') .
         App::nonce()->getFormNonce() .
         '<input type="submit" accesskey="s" value="' . __('Save my dashboard options') . '">' .

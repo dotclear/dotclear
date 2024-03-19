@@ -916,7 +916,7 @@ class BlogPref extends Process
 
             echo '</div>' . // End 3rd party, aka plugins
 
-            '<p><input type="submit" accesskey="s" value="' . __('Save') . '">' .
+            '<p class="form-buttons"><input type="submit" accesskey="s" value="' . __('Save') . '">' .
             ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
             (!$da->standalone ? form::hidden('id', $da->blog_id) : '') .
             '</p>' .

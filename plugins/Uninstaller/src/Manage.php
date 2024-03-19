@@ -136,6 +136,7 @@ class Manage extends Process
 
         // submit
         $fields[] = (new Para())
+            ->class('form-buttons')
             ->separator(' ')
             ->items([
                 (new Submit(['do']))

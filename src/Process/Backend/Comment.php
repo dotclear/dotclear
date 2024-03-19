@@ -306,7 +306,7 @@ class Comment extends Process
             ) .
             '</p>' .
 
-            '<p>' . form::hidden('id', App::backend()->comment_id) .
+            '<p class="form-buttons">' . form::hidden('id', App::backend()->comment_id) .
             App::nonce()->getFormNonce() .
             '<input type="submit" accesskey="s" name="update" value="' . __('Save') . '">' .
             ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">';

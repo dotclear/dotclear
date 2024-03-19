@@ -120,7 +120,7 @@ class Manage extends Process
         form::checkbox('pings_auto', 1, My::settings()->pings_auto) .
         __('Auto pings all services on first publication of entry (current blog only)') . '</label></p>' .
 
-        '<p><input type="submit" value="' . __('Save') . '">' .
+        '<p class="form-buttons"><input type="submit" value="' . __('Save') . '">' .
         ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
         App::nonce()->getFormNonce() . '</p>' .
         '</form>' .

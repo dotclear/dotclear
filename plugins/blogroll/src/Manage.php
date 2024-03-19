@@ -302,7 +302,7 @@ class Manage extends Process
             '<p class="col checkboxes-helpers"></p>' .
             '<p class="col right"><input id="remove-action" type="submit" class="delete" name="removeaction" value="' . __('Delete selected links') . ' "onclick="return window.confirm(' . Html::escapeJS(__('Are you sure you want to delete selected links?')) . ');"></p>' .
             '</div>' .
-            '<p class="col">' .
+            '<p class="form-buttons clear">' .
 
             form::hidden('links_order', '') .
             form::hidden(['p'], My::id()) .
@@ -345,7 +345,7 @@ class Manage extends Process
         '<p class="col"><label for="link_lang">' . __('Language:') . '</label> ' .
         form::field('link_lang', 5, 5, App::backend()->link_lang) .
         '</p>' .
-        '<p>' . form::hidden(['p'], 'blogroll') .
+        '<p class="form-buttons">' . form::hidden(['p'], 'blogroll') .
         App::nonce()->getFormNonce() .
         '<input type="submit" name="add_link" value="' . __('Save') . '">' .
         ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
@@ -363,7 +363,7 @@ class Manage extends Process
             'extra_html' => 'required placeholder="' . __('Title') . '"',
         ]) .
         '</p>' .
-        '<p>' . form::hidden(['p'], My::id()) .
+        '<p class="form-buttons">' . form::hidden(['p'], My::id()) .
         App::nonce()->getFormNonce() .
         '<input type="submit" name="add_cat" value="' . __('Save') . '">' .
         ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
@@ -380,7 +380,7 @@ class Manage extends Process
             '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
             '<p><label for="links_file" class=" classic required"><span>*</span> ' . __('OPML or XBEL File:') . '</label> ' .
             '<input type="file" id="links_file" name="links_file" required></p>' .
-            '<p>' . form::hidden(['p'], My::id()) .
+            '<p class="form-buttons">' . form::hidden(['p'], My::id()) .
             App::nonce()->getFormNonce() .
             '<input type="submit" name="import_links" value="' . __('Import') . '">' .
             ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
@@ -425,7 +425,7 @@ class Manage extends Process
                 '<p class="col right">' .
                 form::hidden(['p'], My::id()) .
                 App::nonce()->getFormNonce() .
-                '<input type="submit" name="cancel_import" value="' . __('Cancel') . '">&nbsp;' .
+                '<input type="submit" name="cancel_import" value="' . __('Cancel') . '"> ' .
                 '<input type="submit" name="import_links_do" value="' . __('Import') . '"></p>' .
                 '</div>';
             }

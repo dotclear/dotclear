@@ -183,6 +183,7 @@ class Blog extends Process
                         ]),
                     // Buttons
                     (new Para())
+                        ->class('form-buttons')
                         ->separator(' ')
                         ->items([
                             (new Submit(['create']))
