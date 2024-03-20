@@ -675,6 +675,7 @@ class UserPreferences extends Process
         form::checkbox('user_ui_nocheckadblocker', 1, App::backend()->user_ui_nocheckadblocker, '', '', false, 'aria-describedby="user_ui_nocheckadblocker_help"') . ' ' .
         __('Disable Ad-blocker check') . '</label></p>' .
         '<p class="clear form-note" id="user_ui_nocheckadblocker_help">' . __('Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend.') . '</p>' .
+        '<p class="clear form-note" id="user_ui_nocheckadblocker_more">' . __('Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!') . '</p>' .
 
         '</div>' .
 
