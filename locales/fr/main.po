@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-20 11:51+0100\n"
-"PO-Revision-Date: 2024-03-20 10:54\n"
+"PO-Revision-Date: 2024-03-20 11:40\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -5646,7 +5646,7 @@ msgstr "Certains bloqueurs de publicité (Ghostery, Adblock plus, uBloc origin, 
 
 #: src/Process/Backend/UserPreferences.php:678
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
-msgstr ""
+msgstr "Notez également que la désactivation de cette détection des bloqueurs de publicité ne désactivera pas les bloqueurs de publicité installés. Dotclear ne peut pas interférer avec le fonctionnement des extensions de navigateur !"
 
 #: src/Process/Backend/UserPreferences.php:683
 msgid "Optional columns displayed in lists"
