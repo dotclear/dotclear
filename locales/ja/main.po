@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-20 11:51+0100\n"
-"PO-Revision-Date: 2024-03-20 11:05\n"
+"PO-Revision-Date: 2024-03-20 11:47\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -5608,7 +5608,7 @@ msgstr "一部の広告ブロッカー（Ghostery、Adblock Plus、uBloc origin�
 
 #: src/Process/Backend/UserPreferences.php:678
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
-msgstr ""
+msgstr "また、広告ブロッカーの検出を無効にしても、インストールされている広告ブロッカーは無効化されませんのでご注意ください。ドットクリアは、ブラウザの拡張機能の動作を妨げることはできません！"
 
 #: src/Process/Backend/UserPreferences.php:683
 msgid "Optional columns displayed in lists"
