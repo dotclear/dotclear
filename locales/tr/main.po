@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-20 11:51+0100\n"
-"PO-Revision-Date: 2024-03-20 11:12\n"
+"PO-Revision-Date: 2024-03-20 11:51\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -5646,7 +5646,7 @@ msgstr "Bazı reklam engelleyiciler (Ghostery, Adblock plus, uBloc origin, …) 
 
 #: src/Process/Backend/UserPreferences.php:678
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
-msgstr ""
+msgstr "Ayrıca, bu reklam engelleyici tespitinin devre dışı bırakılmasının yüklü reklam engelleyicileri devre dışı bırakmayacağını unutmayın. Dotclear tarayıcı uzantılarının çalışmasına müdahale edemez!"
 
 #: src/Process/Backend/UserPreferences.php:683
 msgid "Optional columns displayed in lists"
