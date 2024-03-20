@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-20 11:51+0100\n"
-"PO-Revision-Date: 2024-03-20 11:06\n"
+"PO-Revision-Date: 2024-03-20 11:48\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -5607,7 +5607,7 @@ msgstr "일부 광고 차단기(고스터리, 애드블록 플러스, 유블록 
 
 #: src/Process/Backend/UserPreferences.php:678
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
-msgstr ""
+msgstr "이 광고 차단기 감지를 비활성화해도 설치된 광고 차단기는 비활성화되지 않는다는 점에 유의하세요. 닷클리어는 브라우저 확장 프로그램의 작동을 방해할 수 없습니다!"
 
 #: src/Process/Backend/UserPreferences.php:683
 msgid "Optional columns displayed in lists"
