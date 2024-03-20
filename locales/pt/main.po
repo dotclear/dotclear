@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-17 09:37+0100\n"
-"PO-Revision-Date: 2024-03-17 09:12\n"
+"POT-Creation-Date: 2024-03-20 11:51+0100\n"
+"PO-Revision-Date: 2024-03-20 11:50\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -432,9 +432,9 @@ msgstr "Nível ascendente:"
 #: src/Core/Backend/ModulesList.php:1780 src/Process/Backend/BlogPref.php:919
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1056
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1061
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:921
-#: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:357
+#: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:499
 msgid "Save"
 msgstr "Gravar"
@@ -586,7 +586,7 @@ msgid "Number of entries"
 msgstr "Número de entradas"
 
 #: src/Core/Backend/Favorites.php:304
-#: src/Process/Backend/UserPreferences.php:804
+#: src/Process/Backend/UserPreferences.php:805
 msgid "My favorites"
 msgstr "Meus Favoritos"
 
@@ -819,17 +819,17 @@ msgid "Display options"
 msgstr "Opções de exibição"
 
 #: src/Core/Backend/Filter/Filters.php:358
-#: src/Process/Backend/UserPreferences.php:717
+#: src/Process/Backend/UserPreferences.php:718
 msgid "Order by:"
 msgstr "Ordenar por:"
 
 #: src/Core/Backend/Filter/Filters.php:371
-#: src/Process/Backend/UserPreferences.php:722
+#: src/Process/Backend/UserPreferences.php:723
 msgid "Sort:"
 msgstr "Ordenar:"
 
 #: src/Core/Backend/Filter/Filters.php:393
-#: src/Process/Backend/UserPreferences.php:727
+#: src/Process/Backend/UserPreferences.php:728
 msgid "Show"
 msgstr "Apresentar"
 
@@ -987,7 +987,7 @@ msgstr "Postagem"
 #: src/Core/Backend/Listing/ListingPosts.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:170
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:936
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:941
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1088
 msgid "Published"
 msgstr "Publicado"
@@ -997,7 +997,7 @@ msgstr "Publicado"
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:175
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:937
+#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:942
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1093
 msgid "Unpublished"
 msgstr "Despublicado"
@@ -1007,7 +1007,7 @@ msgstr "Despublicado"
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:185
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:939
+#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:944
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1098
 msgid "Pending"
 msgstr "PENDENTE"
@@ -1144,7 +1144,7 @@ msgstr "Trackbacks"
 #: src/Core/Backend/Listing/ListingPosts.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:180
 #: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
-#: src/Process/Backend/MediaItem.php:938 src/Process/Backend/Post.php:477
+#: src/Process/Backend/MediaItem.php:943 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "Agendado"
 
@@ -1533,7 +1533,7 @@ msgstr "Enviar um ficheiro zip"
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
 #: src/Process/Backend/Post.php:889 src/Process/Backend/User.php:255
-#: src/Process/Backend/UsersActions.php:346 src/Process/Install/Install.php:475
+#: src/Process/Backend/UsersActions.php:347 src/Process/Install/Install.php:475
 #: src/Process/Install/Wizard.php:262 src/Process/Upgrade/Langs.php:402
 #, php-format
 msgid "Fields preceded by %s are mandatory."
@@ -1546,7 +1546,7 @@ msgstr "Caminho do arquivo zip:"
 #: src/Core/Backend/ModulesList.php:1604 src/Core/Backend/ModulesList.php:1628
 #: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:313
 #: src/Process/Backend/Langs.php:337 src/Process/Backend/User.php:411
-#: src/Process/Backend/UsersActions.php:347 src/Process/Upgrade/Langs.php:375
+#: src/Process/Backend/UsersActions.php:348 src/Process/Upgrade/Langs.php:375
 #: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:429
 msgid "Your password:"
 msgstr "A sua password:"
@@ -1555,7 +1555,7 @@ msgstr "A sua password:"
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:343
 #: src/Process/Backend/Post.php:693 src/Process/Backend/User.php:284
 #: src/Process/Backend/User.php:297 src/Process/Backend/User.php:417
-#: src/Process/Backend/UsersActions.php:353 src/Process/Install/Install.php:487
+#: src/Process/Backend/UsersActions.php:354 src/Process/Install/Install.php:487
 #: src/Process/Install/Install.php:493 src/Process/Upgrade/Langs.php:425
 msgid "Password"
 msgstr "Palavra-passe"
@@ -1595,14 +1595,14 @@ msgstr "Permissões insuficientes"
 msgid "Configure \"%s\""
 msgstr "Configurar \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1773 src/Process/Backend/Blog.php:192
+#: src/Core/Backend/ModulesList.php:1773 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:920
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:577 src/Process/Backend/MediaItem.php:1097
+#: src/Process/Backend/Media.php:577 src/Process/Backend/MediaItem.php:1102
 #: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:130
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:614
-#: src/Process/Backend/UserPreferences.php:793
-#: src/Process/Backend/UserPreferences.php:973
+#: src/Process/Backend/UserPreferences.php:794
+#: src/Process/Backend/UserPreferences.php:974
 msgid "Back"
 msgstr "Anterior"
 
@@ -1647,8 +1647,8 @@ msgid "Go to help"
 msgstr "Vá ajudar"
 
 #: src/Core/Backend/Page.php:294 src/Core/Upgrade/Page.php:135
-#: src/Process/Backend/UserPreferences.php:799
 #: src/Process/Backend/UserPreferences.php:800
+#: src/Process/Backend/UserPreferences.php:801
 msgid "My dashboard"
 msgstr "Meu painel"
 
@@ -1969,7 +1969,7 @@ msgstr "Escolha os ficheiros"
 
 #: src/Core/Backend/Page.php:1176 src/Process/Backend/LinkPopup.php:73
 #: src/Process/Backend/Media.php:230 src/Process/Backend/MediaItem.php:527
-#: src/Process/Backend/MediaItem.php:733 src/Process/Backend/Post.php:800
+#: src/Process/Backend/MediaItem.php:738 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "cancelar"
@@ -1978,7 +1978,7 @@ msgstr "cancelar"
 msgid "Clean"
 msgstr "Limpar"
 
-#: src/Core/Backend/Page.php:1179 src/Process/Backend/MediaItem.php:1068
+#: src/Core/Backend/Page.php:1179 src/Process/Backend/MediaItem.php:1073
 msgid "Send"
 msgstr "Mandar"
 
@@ -3271,7 +3271,7 @@ msgstr "URL do blog:"
 msgid "Blog description:"
 msgstr "Descrição do blog:"
 
-#: src/Process/Backend/Blog.php:190 src/Process/Backend/Media.php:465
+#: src/Process/Backend/Blog.php:191 src/Process/Backend/Media.php:465
 msgid "Create"
 msgstr "Crio"
 
@@ -3372,28 +3372,28 @@ msgid "Description, City, Country, Date"
 msgstr "Descrição, Cidade, País, Data"
 
 #: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:514
-#: src/Process/Backend/MediaItem.php:588 src/Process/Backend/MediaItem.php:824
+#: src/Process/Backend/MediaItem.php:588 src/Process/Backend/MediaItem.php:829
 msgid "original"
 msgstr "Original"
 
 #: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
 #: src/Process/Backend/MediaItem.php:612 src/Process/Backend/MediaItem.php:624
-#: src/Process/Backend/MediaItem.php:659 src/Process/Backend/MediaItem.php:701
+#: src/Process/Backend/MediaItem.php:662 src/Process/Backend/MediaItem.php:706
 msgid "None"
 msgstr "Nenhum"
 
 #: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:625
-#: src/Process/Backend/MediaItem.php:660 src/Process/Backend/MediaItem.php:702
+#: src/Process/Backend/MediaItem.php:663 src/Process/Backend/MediaItem.php:707
 msgid "Left"
 msgstr "Esquerda"
 
 #: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:626
-#: src/Process/Backend/MediaItem.php:661 src/Process/Backend/MediaItem.php:703
+#: src/Process/Backend/MediaItem.php:664 src/Process/Backend/MediaItem.php:708
 msgid "Right"
 msgstr "Direita"
 
 #: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:627
-#: src/Process/Backend/MediaItem.php:662 src/Process/Backend/MediaItem.php:704
+#: src/Process/Backend/MediaItem.php:665 src/Process/Backend/MediaItem.php:709
 msgid "Center"
 msgstr "Centro"
 
@@ -3810,7 +3810,7 @@ msgid "All rights on all blogs."
 msgstr "Todos os direitos em todos os blogs."
 
 #: src/Process/Backend/BlogPref.php:1016
-#: src/Process/Backend/UsersActions.php:337
+#: src/Process/Backend/UsersActions.php:338
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (permissão não referenciada)"
@@ -4055,7 +4055,7 @@ msgstr "Nome:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Aviso: se alterar a URL manualmente, pode entrar em conflito com outra categoria."
 
-#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1036
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1041
 msgid "Description:"
 msgstr "Descrição:"
 
@@ -4391,7 +4391,7 @@ msgstr "Título do link:"
 msgid "Link language:"
 msgstr "Língua do link"
 
-#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:737
 msgid "Insert"
 msgstr "Inserir"
 
@@ -4477,7 +4477,7 @@ msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Selecione os arquivos e clique no botão <strong>%s</strong>"
 
 #: src/Process/Backend/Media.php:355 src/Process/Backend/Media.php:368
-#: src/Process/Backend/Media.php:381 src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/Media.php:381 src/Process/Backend/MediaItem.php:753
 msgid "or"
 msgstr "ou"
 
@@ -4553,11 +4553,11 @@ msgid "Maximum file size allowed:"
 msgstr "Tamanho máximo do ficheiro:"
 
 #: src/Process/Backend/Media.php:527 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:960 src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:965 src/Process/Backend/MediaItem.php:1028
 msgid "Alternate text:"
 msgstr "Texto alternativo:"
 
-#: src/Process/Backend/Media.php:528 src/Process/Backend/MediaItem.php:1053
+#: src/Process/Backend/Media.php:528 src/Process/Backend/MediaItem.php:1058
 msgid "Private"
 msgstr "Privado"
 
@@ -4651,185 +4651,187 @@ msgstr "Como um link para a imagem original"
 msgid "MP3 disposition"
 msgstr "Disposição do MP3"
 
-#: src/Process/Backend/MediaItem.php:656
+#: src/Process/Backend/MediaItem.php:658
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Tenha em atenção que não é possível inserir ficheiros mp3 com o editor padrão no modo HTML WYSIWYG."
 
-#: src/Process/Backend/MediaItem.php:684
+#: src/Process/Backend/MediaItem.php:688
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Tenha em atenção que não é possível inserir ficheiros de vídeo com o editor padrão no modo HTML WYSIWYG."
 
-#: src/Process/Backend/MediaItem.php:688
+#: src/Process/Backend/MediaItem.php:693
 msgid "Video size"
 msgstr "Tamanho do vídeo"
 
-#: src/Process/Backend/MediaItem.php:689
+#: src/Process/Backend/MediaItem.php:694
 msgid "Width:"
 msgstr "Largura:"
 
-#: src/Process/Backend/MediaItem.php:691
+#: src/Process/Backend/MediaItem.php:696
 msgid "Height:"
 msgstr "Altura:"
 
-#: src/Process/Backend/MediaItem.php:698
+#: src/Process/Backend/MediaItem.php:703
 msgid "Video disposition"
 msgstr "Disposição do vídeo"
 
-#: src/Process/Backend/MediaItem.php:727
+#: src/Process/Backend/MediaItem.php:732
 msgid "Media item will be inserted as a link."
 msgstr "O item multimédia será inserido como um link."
 
-#: src/Process/Backend/MediaItem.php:747
+#: src/Process/Backend/MediaItem.php:752
 msgid "Make current settings as default"
 msgstr "Tornar as configurações atuais como padrão"
 
-#: src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/MediaItem.php:753
 msgid "For the blog"
 msgstr "Para o blog"
 
-#: src/Process/Backend/MediaItem.php:749
+#: src/Process/Backend/MediaItem.php:754
 msgid "For this folder only"
 msgstr "Apenas para esta pasta"
 
-#: src/Process/Backend/MediaItem.php:758
+#: src/Process/Backend/MediaItem.php:763
 msgid "Settings exist for this folder:"
 msgstr "Existem configurações para esta pasta:"
 
-#: src/Process/Backend/MediaItem.php:759
+#: src/Process/Backend/MediaItem.php:764
 msgid "Remove them"
 msgstr "Remova-os"
 
-#: src/Process/Backend/MediaItem.php:778 src/Process/Backend/MediaItem.php:781
-#: src/Process/Backend/MediaItem.php:869
+#: src/Process/Backend/MediaItem.php:783 src/Process/Backend/MediaItem.php:786
+#: src/Process/Backend/MediaItem.php:874
 msgid "Media details"
 msgstr "Detalhes do conteúdo multimédia"
 
-#: src/Process/Backend/MediaItem.php:813
+#: src/Process/Backend/MediaItem.php:818
 msgid "Available sizes:"
 msgstr "Tamanhos disponíveis:"
 
-#: src/Process/Backend/MediaItem.php:841
+#: src/Process/Backend/MediaItem.php:846
 msgid "Thumbnail details"
 msgstr "Thumbnail details"
 
-#: src/Process/Backend/MediaItem.php:846 src/Process/Backend/MediaItem.php:877
+#: src/Process/Backend/MediaItem.php:851 src/Process/Backend/MediaItem.php:882
 msgid "Image width:"
 msgstr "Largura da imagem:"
 
-#: src/Process/Backend/MediaItem.php:847 src/Process/Backend/MediaItem.php:878
+#: src/Process/Backend/MediaItem.php:852 src/Process/Backend/MediaItem.php:883
 msgid "Image height:"
 msgstr "Altura da imagem:"
 
-#: src/Process/Backend/MediaItem.php:851 src/Process/Backend/MediaItem.php:882
+#: src/Process/Backend/MediaItem.php:856 src/Process/Backend/MediaItem.php:887
 msgid "File size:"
 msgstr "Tamanho do ficheiro:"
 
-#: src/Process/Backend/MediaItem.php:854 src/Process/Backend/MediaItem.php:883
+#: src/Process/Backend/MediaItem.php:859 src/Process/Backend/MediaItem.php:888
 msgid "File URL:"
 msgstr "URL do ficheiro:"
 
-#: src/Process/Backend/MediaItem.php:871
+#: src/Process/Backend/MediaItem.php:876
 msgid "File owner:"
 msgstr "Dono do ficheiro:"
 
-#: src/Process/Backend/MediaItem.php:872
+#: src/Process/Backend/MediaItem.php:877
 msgid "File type:"
 msgstr "Tipo do ficheiro:"
 
-#: src/Process/Backend/MediaItem.php:889
+#: src/Process/Backend/MediaItem.php:894
 msgid "Show entries containing this media"
 msgstr "Mostrar as entradas contendo este media"
 
-#: src/Process/Backend/MediaItem.php:892
+#: src/Process/Backend/MediaItem.php:897
 msgid "Entries containing this media"
 msgstr "Entradas contendo este media"
 
-#: src/Process/Backend/MediaItem.php:929
+#: src/Process/Backend/MediaItem.php:934
 msgid "No entry seems contain this media."
 msgstr "Nenhuma entrada parece conter este media."
 
-#: src/Process/Backend/MediaItem.php:956
+#: src/Process/Backend/MediaItem.php:961
 msgid "Image details"
 msgstr "Detalhes da imagem"
 
-#: src/Process/Backend/MediaItem.php:965
+#: src/Process/Backend/MediaItem.php:970
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:974
+#: src/Process/Backend/MediaItem.php:979
 msgid "No detail"
 msgstr "Sem detalhes"
 
-#: src/Process/Backend/MediaItem.php:981
+#: src/Process/Backend/MediaItem.php:986
 msgid "Updates and modifications"
 msgstr "Atualizações e modificações"
 
-#: src/Process/Backend/MediaItem.php:987 src/Process/Backend/MediaItem.php:989
+#: src/Process/Backend/MediaItem.php:992 src/Process/Backend/MediaItem.php:994
 msgid "Update thumbnails"
 msgstr "Actualizar miniaturas"
 
-#: src/Process/Backend/MediaItem.php:988
+#: src/Process/Backend/MediaItem.php:993
 msgid "This will create or update thumbnails for this image."
 msgstr "Isto irá criar ou actualizar a miniatura para esta imagem."
 
-#: src/Process/Backend/MediaItem.php:997 src/Process/Backend/MediaItem.php:1005
+#: src/Process/Backend/MediaItem.php:1002
+#: src/Process/Backend/MediaItem.php:1010
 msgid "Extract in a new directory"
 msgstr "Extrair numa nova pasta"
 
-#: src/Process/Backend/MediaItem.php:998 src/Process/Backend/MediaItem.php:1007
+#: src/Process/Backend/MediaItem.php:1003
+#: src/Process/Backend/MediaItem.php:1012
 msgid "Extract in current directory"
 msgstr "Extrair na pasta actual"
 
-#: src/Process/Backend/MediaItem.php:1003
+#: src/Process/Backend/MediaItem.php:1008
 msgid "Extract archive"
 msgstr "Extrair o arquivo"
 
-#: src/Process/Backend/MediaItem.php:1006
+#: src/Process/Backend/MediaItem.php:1011
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Isso irá extrair o arquivo em uma nova pasta que ainda não deve existir."
 
-#: src/Process/Backend/MediaItem.php:1008
+#: src/Process/Backend/MediaItem.php:1013
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Isto irá extrair o arquivo na pasta actual e irá substituir os ficheiros e pastas existentes."
 
-#: src/Process/Backend/MediaItem.php:1010
+#: src/Process/Backend/MediaItem.php:1015
 msgid "Extract mode:"
 msgstr "Modo de extracção:"
 
-#: src/Process/Backend/MediaItem.php:1012
+#: src/Process/Backend/MediaItem.php:1017
 msgid "Extract"
 msgstr "Extrair"
 
-#: src/Process/Backend/MediaItem.php:1020
+#: src/Process/Backend/MediaItem.php:1025
 msgid "Change media properties"
 msgstr "Modificar as propriedades do média"
 
-#: src/Process/Backend/MediaItem.php:1021
+#: src/Process/Backend/MediaItem.php:1026
 msgid "File name:"
 msgstr "Nome do ficheiro:"
 
-#: src/Process/Backend/MediaItem.php:1046
+#: src/Process/Backend/MediaItem.php:1051
 msgid "File date:"
 msgstr "Data do ficheiro:"
 
-#: src/Process/Backend/MediaItem.php:1054
+#: src/Process/Backend/MediaItem.php:1059
 msgid "New directory:"
 msgstr "Nova pasta:"
 
-#: src/Process/Backend/MediaItem.php:1062
+#: src/Process/Backend/MediaItem.php:1067
 msgid "Change file"
 msgstr "Modificar o ficheiro"
 
-#: src/Process/Backend/MediaItem.php:1064
+#: src/Process/Backend/MediaItem.php:1069
 msgid "Choose a file:"
 msgstr "Escolha o ficheiro:"
 
-#: src/Process/Backend/MediaItem.php:1065
+#: src/Process/Backend/MediaItem.php:1070
 #, php-format
 msgid "Maximum size %s"
 msgstr "Tamanho máximo %s"
 
-#: src/Process/Backend/MediaItem.php:1076
+#: src/Process/Backend/MediaItem.php:1081
 msgid "Delete this media"
 msgstr "Excluir esta mídia"
 
@@ -5417,19 +5419,19 @@ msgstr "Interface"
 msgid "Timezone:"
 msgstr "Timezone:"
 
-#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:739
+#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:740
 msgid "Edition"
 msgstr "Edição"
 
-#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:753
+#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:754
 msgid "Preferred format:"
 msgstr "Formato preferido:"
 
-#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:756
+#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:757
 msgid "Default entry status:"
 msgstr "Estado da entrada por defeito:"
 
-#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:759
+#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:760
 msgid "Entry edit field height:"
 msgstr "Altura do campo de edição da entrada:"
 
@@ -5642,137 +5644,141 @@ msgstr "Desativar verificação de bloqueador de anúncios"
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Alguns bloqueadores de anúncios (Ghostery, Adblock plus, origem uBloc …) podem interferir com algum recurso como link de inserção ou mídia em entradas com CKEditor; neste caso você deve desativá-lo para esta instalação de Dotclear (apenas para o backend). Note que Dotclear não adiciona rastreadores de capas de anúncios no backend."
 
-#: src/Process/Backend/UserPreferences.php:682
+#: src/Process/Backend/UserPreferences.php:678
+msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
+msgstr "Note também que a desativação desta deteção de bloqueadores de anúncios não irá desativar os bloqueadores de anúncios instalados. Dotclear não pode interferir com o funcionamento das extensões do navegador!"
+
+#: src/Process/Backend/UserPreferences.php:683
 msgid "Optional columns displayed in lists"
 msgstr "Colunas opcionais exibidas nas listas"
 
-#: src/Process/Backend/UserPreferences.php:701
+#: src/Process/Backend/UserPreferences.php:702
 msgid "Options for lists"
 msgstr "Opções para listas"
 
-#: src/Process/Backend/UserPreferences.php:704
+#: src/Process/Backend/UserPreferences.php:705
 msgid "Apply filters on the fly"
 msgstr "Aplicar filtros em tempo real"
 
-#: src/Process/Backend/UserPreferences.php:744
+#: src/Process/Backend/UserPreferences.php:745
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Editor preferido para %s:"
 
-#: src/Process/Backend/UserPreferences.php:747
+#: src/Process/Backend/UserPreferences.php:748
 msgid "Choose an editor"
 msgstr "Escolha um editor"
 
-#: src/Process/Backend/UserPreferences.php:764
+#: src/Process/Backend/UserPreferences.php:765
 msgid "Enable WYSIWYG mode"
 msgstr "Activar a interface WYSIWYG"
 
-#: src/Process/Backend/UserPreferences.php:768
+#: src/Process/Backend/UserPreferences.php:769
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Exibe a barra de ferramentas do editor na parte inferior do textarea (se possível)"
 
-#: src/Process/Backend/UserPreferences.php:774
+#: src/Process/Backend/UserPreferences.php:775
 msgid "Use HTML editor for:"
 msgstr "Usar editor HTML para:"
 
-#: src/Process/Backend/UserPreferences.php:784
+#: src/Process/Backend/UserPreferences.php:785
 msgid "Other options"
 msgstr "Outras opções"
 
-#: src/Process/Backend/UserPreferences.php:792
+#: src/Process/Backend/UserPreferences.php:793
 msgid "Save my options"
 msgstr "Salvar as minhas opções"
 
-#: src/Process/Backend/UserPreferences.php:831
+#: src/Process/Backend/UserPreferences.php:832
 #, php-format
 msgid "position of %s"
 msgstr "posição de %s"
 
-#: src/Process/Backend/UserPreferences.php:848
+#: src/Process/Backend/UserPreferences.php:849
 msgid "Save order"
 msgstr "Salvar Ordem"
 
-#: src/Process/Backend/UserPreferences.php:851
+#: src/Process/Backend/UserPreferences.php:852
 msgid "Delete selected favorites"
 msgstr "Excluir favoritos selecionados"
 
-#: src/Process/Backend/UserPreferences.php:853
+#: src/Process/Backend/UserPreferences.php:854
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Tem certeza que deseja remover os favoritos selecionados?"
 
-#: src/Process/Backend/UserPreferences.php:858
+#: src/Process/Backend/UserPreferences.php:859
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Se você é um super administrador, você pode definir este conjunto de favoritos que serão usados por padrão em todos os blogs desta instalação."
 
-#: src/Process/Backend/UserPreferences.php:859
+#: src/Process/Backend/UserPreferences.php:860
 msgid "Define as default favorites"
 msgstr "Definir como favoritos padrão"
 
-#: src/Process/Backend/UserPreferences.php:866
+#: src/Process/Backend/UserPreferences.php:867
 msgid "Currently no personal favorites."
 msgstr "Atualmente não há favoritos pessoais."
 
-#: src/Process/Backend/UserPreferences.php:880
+#: src/Process/Backend/UserPreferences.php:881
 msgid "Other available favorites"
 msgstr "Outros favoritos disponíveis"
 
-#: src/Process/Backend/UserPreferences.php:908
+#: src/Process/Backend/UserPreferences.php:909
 msgid "(default favorite)"
 msgstr "(favorito padrão)"
 
-#: src/Process/Backend/UserPreferences.php:919
+#: src/Process/Backend/UserPreferences.php:920
 msgid "Add to my favorites"
 msgstr "Adicionar aos meus favoritos"
 
-#: src/Process/Backend/UserPreferences.php:928
+#: src/Process/Backend/UserPreferences.php:929
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Process/Backend/UserPreferences.php:931
+#: src/Process/Backend/UserPreferences.php:932
 msgid "Display favorites at the top of the menu"
 msgstr "Mostrar favoritos na parte superior do menu"
 
-#: src/Process/Backend/UserPreferences.php:934
+#: src/Process/Backend/UserPreferences.php:935
 msgid "Dashboard icons"
 msgstr "Ícones do painel"
 
-#: src/Process/Backend/UserPreferences.php:937
+#: src/Process/Backend/UserPreferences.php:938
 msgid "Display dashboard icons"
 msgstr "Exibir ícones do painel"
 
-#: src/Process/Backend/UserPreferences.php:941
+#: src/Process/Backend/UserPreferences.php:942
 msgid "Dashboard modules"
 msgstr "Módulos do painel"
 
-#: src/Process/Backend/UserPreferences.php:945
+#: src/Process/Backend/UserPreferences.php:946
 msgid "Display documentation links"
 msgstr "Exibir links de documentação"
 
-#: src/Process/Backend/UserPreferences.php:949
+#: src/Process/Backend/UserPreferences.php:950
 msgid "Display Dotclear news"
 msgstr "Exibir notícias de Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:953
+#: src/Process/Backend/UserPreferences.php:954
 msgid "Display quick entry form"
 msgstr "Exibir formulário de entrada rápida"
 
-#: src/Process/Backend/UserPreferences.php:959
+#: src/Process/Backend/UserPreferences.php:960
 msgid "Do not display Dotclear updates"
 msgstr "Não exibir atualizações Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:972
+#: src/Process/Backend/UserPreferences.php:973
 msgid "Save my dashboard options"
 msgstr "Salvar opções do meu painel"
 
-#: src/Process/Backend/UserPreferences.php:979
+#: src/Process/Backend/UserPreferences.php:980
 msgid "Dashboard items order"
 msgstr "Ordem dos itens do painel"
 
-#: src/Process/Backend/UserPreferences.php:982
+#: src/Process/Backend/UserPreferences.php:983
 msgid "Reset dashboard items order"
 msgstr "Redefinir ordem dos itens do painel"
 
-#: src/Process/Backend/Users.php:41 src/Process/Backend/UsersActions.php:267
+#: src/Process/Backend/Users.php:41 src/Process/Backend/UsersActions.php:268
 msgid "Set permissions"
 msgstr "definir permissões"
 
@@ -5813,16 +5819,16 @@ msgstr "Escolha um ou mais blogs para o qual se pretende atribuir permissões pa
 msgid "Entries"
 msgstr "Entradas"
 
-#: src/Process/Backend/UsersActions.php:250
+#: src/Process/Backend/UsersActions.php:251
 msgid "select"
 msgstr "selecionar"
 
-#: src/Process/Backend/UsersActions.php:296
+#: src/Process/Backend/UsersActions.php:297
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "Você está prestes a alterar as permissões dos utilizadores %s para estes blogs."
 
-#: src/Process/Backend/UsersActions.php:345
+#: src/Process/Backend/UsersActions.php:346
 msgid "Validate permissions"
 msgstr "Validar permissões"
 
@@ -6186,15 +6192,15 @@ msgstr "Gestão da cache"
 msgid "Cache folders"
 msgstr "Pastas de cache"
 
-#: src/Process/Upgrade/Cache.php:94
+#: src/Process/Upgrade/Cache.php:95
 msgid "Empty templates cache directory"
 msgstr "Cache de template vazia"
 
-#: src/Process/Upgrade/Cache.php:96
+#: src/Process/Upgrade/Cache.php:97
 msgid "Empty repositories cache directory"
 msgstr "Esvaziar o diretório de cache dos repositórios"
 
-#: src/Process/Upgrade/Cache.php:98
+#: src/Process/Upgrade/Cache.php:99
 msgid "Empty Dotclear versions cache directory"
 msgstr "Esvaziar o diretório de cache das versões Dotclear"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-17 09:37+0100\n"
-"PO-Revision-Date: 2024-03-17 08:58\n"
+"POT-Creation-Date: 2024-03-20 11:51+0100\n"
+"PO-Revision-Date: 2024-03-20 11:18\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -424,25 +424,25 @@ msgstr "ইনস্টল করা অ্যাকশন সাফল্যে
 msgid "No uninstall action done"
 msgstr "কোনো ইনস্টল করা হয়নি"
 
-#: plugins/Uninstaller/src/Manage.php:142
+#: plugins/Uninstaller/src/Manage.php:143
 msgid "Perform selected actions"
 msgstr "নির্বাচিত কাজগুলো পারফর্ম করো"
 
-#: plugins/Uninstaller/src/Manage.php:157
+#: plugins/Uninstaller/src/Manage.php:158
 msgid "Are you sure you perform these ations?"
 msgstr "আপনি কি নিশ্চিত আপনি এই ations পরিবেশন করবেন?"
 
-#: plugins/Uninstaller/src/Manage.php:173
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr ""
 
-#: plugins/Uninstaller/src/Manage.php:173
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr ""
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:175
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
 msgstr "মডিউল \"%s %s\" অগ্রসর unsintall প্রক্রিয়া প্রস্তাব করা হয়েছে:"

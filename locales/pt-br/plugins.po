@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-17 09:37+0100\n"
-"PO-Revision-Date: 2024-03-17 09:14\n"
+"POT-Creation-Date: 2024-03-20 11:51+0100\n"
+"PO-Revision-Date: 2024-03-20 11:15\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -424,25 +424,25 @@ msgstr "Ação de desinstalação executada com êxito"
 msgid "No uninstall action done"
 msgstr "Não foi efectuada nenhuma ação de desinstalação"
 
-#: plugins/Uninstaller/src/Manage.php:142
+#: plugins/Uninstaller/src/Manage.php:143
 msgid "Perform selected actions"
 msgstr "Executar acções seleccionadas"
 
-#: plugins/Uninstaller/src/Manage.php:157
+#: plugins/Uninstaller/src/Manage.php:158
 msgid "Are you sure you perform these ations?"
 msgstr "Tem a certeza de que efectua estas acções?"
 
-#: plugins/Uninstaller/src/Manage.php:173
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "Desinstalar o plugin \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:173
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "Desinstalar o tema \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:175
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
 msgstr "O módulo \"%s %s\" oferece um processo avançado de desinstalação:"

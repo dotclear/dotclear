@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-17 09:37+0100\n"
-"PO-Revision-Date: 2024-03-17 09:10\n"
+"POT-Creation-Date: 2024-03-20 11:51+0100\n"
+"PO-Revision-Date: 2024-03-20 11:04\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -424,25 +424,25 @@ msgstr "Az eltávolítási művelet sikeresen végrehajtva"
 msgid "No uninstall action done"
 msgstr "Nincs eltávolítási művelet"
 
-#: plugins/Uninstaller/src/Manage.php:142
+#: plugins/Uninstaller/src/Manage.php:143
 msgid "Perform selected actions"
 msgstr "Kiválasztott műveletek végrehajtása"
 
-#: plugins/Uninstaller/src/Manage.php:157
+#: plugins/Uninstaller/src/Manage.php:158
 msgid "Are you sure you perform these ations?"
 msgstr "Biztos, hogy ezeket a műveleteket végzi?"
 
-#: plugins/Uninstaller/src/Manage.php:173
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "A plugin eltávolítása \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:173
+#: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "Téma eltávolítása \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:175
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
 msgstr "A \"%s %s\" modul fejlett unintall eljárást kínál:"
