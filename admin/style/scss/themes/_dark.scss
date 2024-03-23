@@ -179,7 +179,6 @@
   --input-color: #{$black};
   --input-background: #{$gray-lighter};
   --input-border: #{scale-color($gray-dark, $lightness: 10%)};
-  --input-shadow: #{$gray-lighter};
   --input-focus: #{$link-outline};
 
   --input-file-color: var(--body-color);

@@ -373,7 +373,6 @@ h6 {
   --input-color: #000;
   --input-background: #f9f9f9;
   --input-border: #595959;
-  --input-shadow: #f3f3f3;
   --input-focus: #bee74b;
   --input-file-color: var(--body-color);
   --input-file-background: var(--body-background);
@@ -629,7 +628,6 @@ h6 {
   --input-color: #000;
   --input-background: #ecedee;
   --input-border: #747c87;
-  --input-shadow: #ecedee;
   --input-focus: #bee74b;
   --input-file-color: var(--body-color);
   --input-file-background: var(--body-background);
@@ -886,7 +884,6 @@ h6 {
     --input-color: #000;
     --input-background: #ecedee;
     --input-border: #747c87;
-    --input-shadow: #ecedee;
     --input-focus: #bee74b;
     --input-file-color: var(--body-color);
     --input-file-background: var(--body-background);
@@ -1995,7 +1992,6 @@ input[type=number],
 textarea,
 input:not([type=file]):invalid,
 input:not([type=file]):invalid:placeholder-shown {
-  box-shadow: 1px 1px 2px var(--input-shadow) inset;
   padding: 3px;
   border-width: 1px;
   border-style: inset;
@@ -2004,9 +2000,8 @@ input:not([type=file]):invalid:placeholder-shown {
 
 select {
   max-width: 100%;
-  box-shadow: 1px 1px 2px var(--input-shadow) inset;
-  padding: 3px;
-  vertical-align: top;
+  padding: 4px;
+  vertical-align: middle;
 }
 
 input:invalid:not(:required),
@@ -2014,7 +2009,6 @@ textarea:invalid:not(:required),
 select:invalid:not(:required),
 input:not([type=file]):invalid:not(:focus):not(:required) {
   color: var(--invalid-input-color);
-  box-shadow: 0 0 0 3px var(--invalid-input-shadow);
 }
 
 input:invalid:not(:required),
@@ -2041,17 +2035,6 @@ textarea.maximal {
   resize: vertical;
 }
 
-select {
-  padding: 2px 0;
-  vertical-align: middle;
-}
-
-@supports (-webkit-hyphens: none) {
-  /* Safari 9+ only (https://browserstrangeness.bitbucket.io/css_hacks.html#webkit) */
-  select {
-    font-size: initial;
-  }
-}
 input[type=text],
 input[type=color],
 input[type=email],

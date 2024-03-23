@@ -100,7 +100,6 @@ input[type='number'],
 textarea,
 input:not([type='file']):invalid,
 input:not([type='file']):invalid:placeholder-shown {
-  box-shadow: 1px 1px 2px var(--input-shadow) inset;
   padding: 3px;
   border-width: 1px;
   border-style: inset;
@@ -109,9 +108,8 @@ input:not([type='file']):invalid:placeholder-shown {
 
 select {
   max-width: 100%;
-  box-shadow: 1px 1px 2px var(--input-shadow) inset;
-  padding: 3px;
-  vertical-align: top;
+  padding: 4px;
+  vertical-align: middle;
 }
 
 // Special for invalid but not required fields
@@ -120,7 +118,6 @@ textarea:invalid:not(:required),
 select:invalid:not(:required),
 input:not([type='file']):invalid:not(:focus):not(:required) {
   color: var(--invalid-input-color);
-  box-shadow: 0 0 0 3px var(--invalid-input-shadow);
 }
 
 input:invalid:not(:required),
@@ -149,18 +146,6 @@ textarea {
   }
 }
 
-select {
-  padding: 2px 0;
-  vertical-align: middle;
-}
-
-@supports (-webkit-hyphens: none) {
-  /* Safari 9+ only (https://browserstrangeness.bitbucket.io/css_hacks.html#webkit) */
-  select {
-    font-size: initial;
-  }
-}
-
 input[type='text'],
 input[type='color'],
 input[type='email'],
@@ -180,7 +165,6 @@ input[type='file'] {
   border: none;
   margin: -0.235ex 0.33em 0 0; // margin-top: -.235ex see https://www.matthecat.com/aligner-icone-et-texte.html
   padding: 0;
-  // background: transparent;
 }
 
 input + input[type='checkbox'] {
