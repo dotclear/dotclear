@@ -27,12 +27,16 @@ body.rtl .jstEditor iframe {
 }
 .jstElements {
   box-sizing: border-box;
-  padding: 3px 5px 3px 10px;
-  overflow: hidden;
-  line-height: 30px;
+  padding: 0.25em;
   border: 1px solid;
-  position: relative;
   background: var(--entry-sb-background);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.125em;
 }
 .toolbar_bottom .jstElements {
   border-top-width: 0;
@@ -46,8 +50,6 @@ body.rtl .jstEditor iframe {
   height: 2.8rem;
   border-style: solid;
   border-width: 1px;
-  margin-left: 2px;
-  margin-bottom: 2px;
   border-color: #fff;
   background-color: #fff;
   background-position: 50% 50%;
@@ -67,8 +69,9 @@ body.rtl .jstEditor iframe {
   display: inline-block;
   vertical-align: top;
 }
-span.jstSpacer {
-  width: 0.5rem;
+.jstElements span.jstSpacer {
+  margin-inline-start: 0.25em;
+  width: 0;
 }
 .jstSwitcher {
   display: flex;
@@ -149,9 +152,6 @@ button.jstb_preview {
 }
 button.jstb_removeFormat {
   background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_clean.svg);
-  position: absolute;
-  right: 5px;
-  bottom: 3px;
 }
 
 /* WYSIWYG Iframe */
