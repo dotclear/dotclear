@@ -638,4 +638,14 @@ interface ConfigInterface
      * @return  string  CSP report file
      */
     public function cspReportFile(): string;
+
+    /**
+     * Load legacy JS.
+     *
+     * From release file.
+     * Returns true if not set.
+     *
+     * @return  bool    True for check
+     */
+    public function dotclearMigrate(): bool;
 }

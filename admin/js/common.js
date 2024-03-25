@@ -46,37 +46,6 @@ document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme ==
  */
 
 /**
- * Enables the shift click of a list of elements
- *
- * @function
- * @memberof    external:"jQuery.fn"
- *
- * @deprecated    use dotclear.enableShiftClick(<selector>)
- */
-$.fn.enableShiftClick = function () {
-  const group = this;
-  group.data('esc_lastclicked', '');
-  group.data('esc_lastclickedstatus', false);
-
-  this.on('click', function (event) {
-    if (event.shiftKey) {
-      if (group.data('esc_lastclicked') !== '') {
-        let range;
-        const trparent = $(this).parents('tr');
-        const id = `#${group.data('esc_lastclicked')}`;
-        range = trparent.nextAll(id).length == 0 ? trparent.prevUntil(id) : trparent.nextUntil(id);
-        dotclear.setChecked(range.find('input[type=checkbox]').get(), group.data('esc_lastclickedstatus'));
-        this.checked = group.data('esc_lastclickedstatus');
-      }
-    } else {
-      group.data('esc_lastclicked', $(this).parents('tr')[0].id);
-      group.data('esc_lastclickedstatus', this.checked);
-    }
-    return true;
-  });
-};
-
-/**
  * Add toggle mecanism for a target element
  *
  * @param       {jQuery}  target   The target

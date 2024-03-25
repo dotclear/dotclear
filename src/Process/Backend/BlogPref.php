@@ -383,6 +383,7 @@ class BlogPref extends Process
                 if (isset($_POST['robots_policy'])) {
                     $da->blog_settings->system->put('robots_policy', $_POST['robots_policy']);
                 }
+                $da->blog_settings->system->put('legacy_needed', !empty($_POST['legacy_needed']));
                 $da->blog_settings->system->put('jquery_needed', !empty($_POST['jquery_needed']));
                 $da->blog_settings->system->put('jquery_version', $_POST['jquery_version']);
                 $da->blog_settings->system->put('prevents_clickjacking', !empty($_POST['prevents_clickjacking']));
@@ -593,13 +594,13 @@ class BlogPref extends Process
             form::checkbox('comments_nofollow', '1', $da->blog_settings->system->comments_nofollow) .
             __('Add "nofollow" relation on comments and trackbacks links') . '</label></p>' .
 
-            '</div>' . '<br class="clear">' . //Opera sucks
+            '</div>' .
 
-            '<p><label for="sleepmode_timeout" class="classic">' . __('Disable all comments and trackbacks on the blog after a period of time without new posts:') . '</label>' . ' ' .
+            '<p class="clear"><label for="sleepmode_timeout" class="classic">' . __('Disable all comments and trackbacks on the blog after a period of time without new posts:') . '</label>' . ' ' .
             form::combo('sleepmode_timeout', $da->sleepmode_timeout_combo, $da->blog_settings->system->sleepmode_timeout) .
             '</p>' .
 
-            '</div>' . '<br class="clear">' . //Opera sucks
+            '</div>' .
             '</div>' .
 
             '<div class="fieldset"><h4>' . __('Blog presentation') . '</h4>' .
@@ -690,9 +691,8 @@ class BlogPref extends Process
             __('Include sub-categories in category page and category posts feed') . '</label></p>' .
             '</div>' .
             '</div>' .
-            '<br class="clear">' . //Opera sucks
 
-            '<hr>' .
+            '<hr class="clear">' .
 
             '<p><label for="static_home" class="classic">' .
             form::checkbox('static_home', '1', $da->blog_settings->system->static_home) .
@@ -707,14 +707,14 @@ class BlogPref extends Process
             '</div>' .
 
             '<div class="fieldset"><h4 id="medias-settings">' . __('Media and images') . '</h4>' .
+            '<div class="two-cols">' .
+            '<div class="col">' .
+
+            '<h5>' . __('Generated image sizes (max dimension in pixels)') . '</h5>' .
             '<p class="form-note warning">' .
             __('Please note that if you change current settings bellow, they will now apply to all new images in the media manager.') .
             ' ' . __('Be carefull if you share it with other blogs in your installation.') . '<br>' .
             __('Set -1 to use the default size, set 0 to ignore this thumbnail size (images only).') . '</p>' .
-
-            '<div class="two-cols">' .
-            '<div class="col">' .
-            '<h5>' . __('Generated image sizes (max dimension in pixels)') . '</h5>' .
             '<p class="field"><label for="media_img_t_size">' . __('Thumbnail') . '</label> ' .
             form::number('media_img_t_size', [
                 'min'     => -1,
@@ -786,7 +786,7 @@ class BlogPref extends Process
             form::combo('media_img_default_legend', $da->img_default_legend_combo, Html::escapeHTML($da->blog_settings->system->media_img_default_legend)) .
             '</p>' .
             '</div>' .
-            '</div>' . '<br class="clear">' . //Opera sucks
+            '</div>' . '<br class="clear">' .
 
             '</div>' .
             '</div>' .
@@ -886,6 +886,12 @@ class BlogPref extends Process
 
             echo '</div>' .
 
+            '<div class="fieldset"><h4>' . __('Legacy javascript library') . '</h4>' .
+            '<p><label for="legacy_needed" class="classic">' .
+            form::checkbox('legacy_needed', '1', $da->blog_settings->system->legacy_needed) .
+            __('Load the Legacy JS library') . '</label></p>' .
+            '</div>' .
+
             '<div class="fieldset"><h4>' . __('jQuery javascript library') . '</h4>' .
             '<p><label for="jquery_needed" class="classic">' .
             form::checkbox('jquery_needed', '1', $da->blog_settings->system->jquery_needed) .
@@ -893,18 +899,13 @@ class BlogPref extends Process
 
             '<p><label for="jquery_version" class="classic">' . __('jQuery version to be loaded for this blog:') . '</label>' . ' ' .
             form::combo('jquery_version', $da->jquery_versions_combo, $da->blog_settings->system->jquery_version) .
-            '</p>' . '<br class="clear">' . //Opera sucks
-
+            '</p>' .
             '</div>' .
 
             '<div class="fieldset"><h4>' . __('Blog security') . '</h4>' .
-
             '<p><label for="prevents_clickjacking" class="classic">' .
             form::checkbox('prevents_clickjacking', '1', $da->blog_settings->system->prevents_clickjacking) .
             __('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)') . '</label></p>' .
-
-            '<br class="clear">' . //Opera sucks
-
             '</div>' .
 
             '</div>' . // End advanced

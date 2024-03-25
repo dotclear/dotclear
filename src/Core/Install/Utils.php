@@ -478,6 +478,8 @@ class Utils
                     'Authorize import feed only from this port regexp', ],
                 ['jquery_needed', App::blogWorkspace()::NS_BOOL, true,
                     'Load jQuery library', ],
+                ['legacy_needed', App::blogWorkspace()::NS_BOOL, true,
+                    'Load Legacy JS library', ],
                 ['sleepmode_timeout', App::blogWorkspace()::NS_INT, 31536000,
                     'Sleep mode timeout', ],
                 ['store_plugin_url', App::blogWorkspace()::NS_STRING, 'https://update.dotaddict.org/dc2/plugins.xml',

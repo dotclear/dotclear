@@ -11,6 +11,10 @@
 </tpl:SysIf>
 <link rel="preload" href="{{tpl:BlogQmarkURL}}pf=util.js" as="script">
 <script src="{{tpl:BlogQmarkURL}}pf=util.js"></script>
+<tpl:SysIf legacy_needed="1">
+  <link rel="preload" href="{{tpl:BlogQmarkURL}}pf=legacy.js" as="script">
+  <script src="{{tpl:BlogQmarkURL}}pf=legacy.js"></script>
+</tpl:SysIf>
 
 {{tpl:include src="user_head.html"}}
 {{tpl:SysBehavior behavior="publicHeadContent"}}

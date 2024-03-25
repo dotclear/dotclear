@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
+use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
 
 /**
@@ -18,6 +19,14 @@ class GrowUp_2_30_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
+        // Set default Legacy JS loading for blog
+        $strReq = 'INSERT INTO ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
+            ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
+            ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
+        App::con()->execute(
+            sprintf($strReq, 'legacy_needed', (string) true, 'boolean', 'Load Legacy JS library')
+        );
+
         // A bit of housecleaning for no longer needed folders
         Upgrade::houseCleaning(
             // Files

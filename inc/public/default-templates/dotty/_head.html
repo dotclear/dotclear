@@ -20,6 +20,10 @@
   <tpl:Block name="_head-link-js-util">
     <link rel="preload" href="{{tpl:BlogQmarkURL}}pf=util.js" as="script">
     <script src="{{tpl:BlogQmarkURL}}pf=util.js"></script>
+    <tpl:SysIf legacy_needed="1">
+      <link rel="preload" href="{{tpl:BlogQmarkURL}}pf=legacy.js" as="script">
+      <script src="{{tpl:BlogQmarkURL}}pf=legacy.js"></script>
+    </tpl:SysIf>
   </tpl:Block>
   <tpl:Block name="_head-user-head">
     {{tpl:include src="user_head.html"}}

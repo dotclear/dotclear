@@ -132,6 +132,7 @@ class Config implements ConfigInterface
     private readonly bool $check_ads_blocker;
     private readonly string $csp_report_file;
     private readonly bool $has_config;
+    private readonly bool $dotclear_migrate;
 
     /**
      * Constructor.
@@ -401,6 +402,10 @@ class Config implements ConfigInterface
             define('DC_ADBLOCKER_CHECK', true);
         }
 
+        if (!defined('DC_MIGRATE')) {
+            define('DC_MIGRATE', $this->release('dotclear_migrate'));
+        }
+
         $this->debug_mode           = (bool) DC_DEBUG;
         $this->dev_mode             = (bool) DC_DEV;
         $this->error_file           = (string) DC_ERRORFILE;
@@ -440,6 +445,7 @@ class Config implements ConfigInterface
         $this->http_scheme_443      = (bool) DC_FORCE_SCHEME_443;
         $this->http_revers_proxy    = (bool) DC_REVERSE_PROXY;
         $this->check_ads_blocker    = (bool) DC_ADBLOCKER_CHECK;
+        $this->dotclear_migrate     = (bool) DC_MIGRATE;
 
         // Various
         if (!defined('DC_CSP_LOGFILE')) {
@@ -809,5 +815,10 @@ class Config implements ConfigInterface
     public function cspReportFile(): string
     {
         return $this->csp_report_file;
+    }
+
+    public function dotclearMigrate(): bool
+    {
+        return $this->dotclear_migrate;
     }
 }

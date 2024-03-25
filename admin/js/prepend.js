@@ -1,4 +1,4 @@
-/*exported dotclear, storeLocalData, dropLocalData, readLocalData, getData, isObject, mergeDeep, trimHtml */
+/*exported dotclear */
 'use strict';
 
 /**
@@ -219,30 +219,4 @@ dotclear.trimHtml = (html, options = {}) => {
     html: arr.join('\n').replace(/\n/g, ''),
     more,
   };
-};
-
-/* Obsolete global functions, for compatibility purpose, will be removed in a future release */
-const storeLocalData = (id, value = null) => {
-  console.warn('Dotclear: storeLocalData() is deprecated. Use dotclear.storeLocalData().');
-  dotclear.storeLocalData(id, value);
-};
-const dropLocalData = (id) => {
-  console.warn('Dotclear: dropLocalData() is deprecated. Use dotclear.dropLocalData().');
-  dotclear.dropLocalData(id);
-};
-const readLocalData = (id) => {
-  console.warn('Dotclear: readLocalData() is deprecated. Use dotclear.readLocalData().');
-  return dotclear.readLocalData(id);
-};
-const getData = (id, clear = true, remove = false) => {
-  console.warn('Dotclear: getData() is deprecated. Use dotclear.getData().');
-  return dotclear.getData(id, clear, remove);
-};
-const isObject = (item) => {
-  console.warn('Dotclear: isObject() is deprecated. Use dotclear.isObject().');
-  return dotclear.isObject(item);
-};
-const mergeDeep = (target, ...sources) => {
-  console.warn('Dotclear: mergeDeep() is deprecated. Use dotclear.mergeDeep().');
-  return dotclear.mergeDeep(target, ...sources);
 };

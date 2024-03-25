@@ -4312,6 +4312,7 @@ class Tpl extends Template
      *      - wiki_comments   (0|1)                   Wiki syntax is enabled for comments
      *      - search_count    (=|!|>=|<=|>|<) int     Search count valids condition
      *      - jquery_needed   (0|1)                   jQuery javascript library is requested (if 1) or not (if 0)
+     *      - legacy_needed   (0|1)                   Legacy javascript library is requested (if 1) or not (if 0)
      *      - operator        (and|or)                Combination of conditions, if more than 1 specifiec (default: and)
      *
      * Notes:
@@ -4418,6 +4419,11 @@ class Tpl extends Template
         if (isset($attr['jquery_needed'])) {
             $sign = (bool) $attr['jquery_needed'] ? '' : '!';
             $if->append($sign . 'App::blog()->settings()->system->jquery_needed');
+        }
+
+        if (isset($attr['legacy_needed'])) {
+            $sign = (bool) $attr['legacy_needed'] ? '' : '!';
+            $if->append($sign . 'App::blog()->settings()->system->legacy_needed');
         }
 
         # --BEHAVIOR-- templatePrepareParams -- string, ArrayObject, array<int,string>

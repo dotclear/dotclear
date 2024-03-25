@@ -6,6 +6,10 @@
   <script src="{{tpl:BlogQmarkURL}}pf={{tpl:BlogJsJQuery}}/jquery.js"></script>
 </tpl:SysIf>
 <link rel="preload" href="{{tpl:BlogQmarkURL}}pf=util.js" as="script">
+<tpl:SysIf legacy_needed="1">
+  <link rel="preload" href="{{tpl:BlogQmarkURL}}pf=legacy.js" as="script">
+  <script src="{{tpl:BlogQmarkURL}}pf=legacy.js"></script>
+</tpl:SysIf>
 <script src="{{tpl:BlogQmarkURL}}pf=util.js"></script>
 {{tpl:include src="user_head.html"}}
 {{tpl:SysBehavior behavior="publicHeadContent"}}

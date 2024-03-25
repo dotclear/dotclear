@@ -86,6 +86,9 @@ define('DC_CRYPT_ALGO', 'sha512');
 // Disable REST services (may be useful during debugging session)
 //define('DC_REST_SERVICES', false);
 
+// Load Legacy JS library
+//define('DC_MIGRATE', false);
+
 // If you have PATH_INFO issue, uncomment following lines
 //if (!isset($_SERVER['ORIG_PATH_INFO'])) {
 //    $_SERVER['ORIG_PATH_INFO'] = '';

@@ -667,7 +667,7 @@ class UserPreferences extends Process
             form::checkbox('user_ui_hide_std_favicon', 1, App::backend()->user_ui_hide_std_favicon, '', '', false, 'aria-describedby="user_ui_hide_std_favicon_help"') . ' ' .
             __('Do not use standard favicon') . '</label> ' .
             '<span class="clear form-note warn" id="user_ui_hide_std_favicon_help">' . __('This will be applied for all users') . '.</span>' .
-            '</p>'; //Opera sucks;
+            '</p>';
         }
 
         echo

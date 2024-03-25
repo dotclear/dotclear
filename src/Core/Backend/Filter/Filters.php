@@ -410,7 +410,6 @@ class Filters
 
         $extra . $hiddens .
 
-        '<br class="clear"></p>' . //Opera sucks
         '</form>';
     }
 }
