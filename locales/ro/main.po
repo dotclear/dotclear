@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-25 16:17+0100\n"
-"PO-Revision-Date: 2024-03-25 15:35\n"
+"PO-Revision-Date: 2024-03-25 16:00\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -3787,11 +3787,11 @@ msgstr "Politica de roboți a motoarelor de căutare"
 
 #: src/Process/Backend/BlogPref.php:889
 msgid "Legacy javascript library"
-msgstr ""
+msgstr "Biblioteca javascript veche"
 
 #: src/Process/Backend/BlogPref.php:892
 msgid "Load the Legacy JS library"
-msgstr ""
+msgstr "Încărcați biblioteca Legacy JS"
 
 #: src/Process/Backend/BlogPref.php:895
 msgid "jQuery javascript library"
