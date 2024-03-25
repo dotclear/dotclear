@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-20 11:51+0100\n"
-"PO-Revision-Date: 2024-03-20 11:54\n"
+"POT-Creation-Date: 2024-03-25 16:17+0100\n"
+"PO-Revision-Date: 2024-03-25 15:54\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -104,7 +104,7 @@ msgstr "Judul"
 #: src/Core/Backend/Favorites.php:500 src/Core/Backend/Menus.php:244
 #: src/Core/Backend/UserPref.php:73 src/Core/Backend/UserPref.php:190
 #: src/Process/Backend/Blog.php:98 src/Process/Backend/BlogDel.php:91
-#: src/Process/Backend/BlogPref.php:432
+#: src/Process/Backend/BlogPref.php:433
 msgid "Blogs"
 msgstr "Blog"
 
@@ -124,7 +124,7 @@ msgstr "Id blog"
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
 #: src/Core/Backend/Listing/ListingBlogs.php:55
 #: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:141
-#: src/Process/Backend/BlogPref.php:486
+#: src/Process/Backend/BlogPref.php:487
 #: src/Process/Backend/UsersActions.php:231
 msgid "Blog name"
 msgstr "Nama blog"
@@ -188,7 +188,7 @@ msgid "Password verification failed"
 msgstr "Verifikasi kata sandi gagal"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:114
-#: src/Process/Backend/BlogPref.php:934
+#: src/Process/Backend/BlogPref.php:935
 msgid "The current blog cannot be deleted."
 msgstr "Blog saat ini tidak dapat dihapus."
 
@@ -422,7 +422,7 @@ msgstr "Orang tua:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1780 src/Process/Backend/BlogPref.php:919
+#: src/Core/Backend/ModulesList.php:1780 src/Process/Backend/BlogPref.php:920
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
 #: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1061
@@ -627,8 +627,8 @@ msgid "Media manager"
 msgstr "Manajer media"
 
 #: src/Core/Backend/Favorites.php:482 src/Core/Backend/Menus.php:104
-#: src/Process/Backend/BlogPref.php:425 src/Process/Backend/BlogPref.php:433
-#: src/Process/Backend/BlogPref.php:446
+#: src/Process/Backend/BlogPref.php:426 src/Process/Backend/BlogPref.php:434
+#: src/Process/Backend/BlogPref.php:447
 msgid "Blog settings"
 msgstr "Pengaturan blog"
 
@@ -640,7 +640,7 @@ msgstr "Penampilan blog"
 
 #: src/Core/Backend/Favorites.php:510 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:64 src/Core/Backend/UserPref.php:166
-#: src/Process/Backend/BlogPref.php:949 src/Process/Backend/User.php:235
+#: src/Process/Backend/BlogPref.php:950 src/Process/Backend/User.php:235
 #: src/Process/Backend/Users.php:100 src/Process/Backend/Users.php:105
 #: src/Process/Backend/UsersActions.php:151
 #: src/Process/Backend/UsersActions.php:159
@@ -674,7 +674,7 @@ msgid "Status:"
 msgstr "Status:"
 
 #: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1007
-#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:988
+#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:989
 #: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:900
 #: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:541
 #: src/Process/Install/Install.php:465
@@ -795,7 +795,7 @@ msgstr "Ditutup"
 msgid "Trackbacks:"
 msgstr "Pelacakan kembali:"
 
-#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1226
+#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1227
 msgid "Show filters and display options"
 msgstr "Menampilkan filter dan opsi tampilan"
 
@@ -1500,14 +1500,14 @@ msgid "Upload a zip file"
 msgstr "Unggah file zip"
 
 #: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1622
-#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:478
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:479
 #: src/Process/Backend/BlogPref.php:799 src/Process/Backend/Category.php:233
 #: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
 #: src/Process/Backend/Post.php:889 src/Process/Backend/User.php:255
 #: src/Process/Backend/UsersActions.php:347 src/Process/Install/Install.php:475
-#: src/Process/Install/Wizard.php:262 src/Process/Upgrade/Langs.php:402
+#: src/Process/Install/Wizard.php:265 src/Process/Upgrade/Langs.php:402
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "Bidang yang diawali dengan %s adalah wajib."
@@ -1533,7 +1533,7 @@ msgstr "Kata sandi Anda:"
 msgid "Password"
 msgstr "Kata sandi"
 
-#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1178
+#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1179
 #: src/Process/Backend/Media.php:540
 msgid "Upload"
 msgstr "Unggah"
@@ -1569,7 +1569,7 @@ msgid "Configure \"%s\""
 msgstr "Konfigurasi \"%s\""
 
 #: src/Core/Backend/ModulesList.php:1773 src/Process/Backend/Blog.php:193
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:920
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:921
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
 #: src/Process/Backend/Media.php:577 src/Process/Backend/MediaItem.php:1102
 #: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:130
@@ -1580,14 +1580,14 @@ msgid "Back"
 msgstr "Kembali"
 
 #: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1009
-#: src/Core/Backend/Page.php:1173 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Page.php:1174 src/Core/Upgrade/Notices.php:34
 #: src/Process/Backend/Home.php:263
 msgid "Error:"
 msgstr "Kesalahan:"
 
 #: src/Core/Backend/Notices.php:67 src/Core/Upgrade/Notices.php:34
 #: src/Process/Install/Install.php:438 src/Process/Install/Install.php:547
-#: src/Process/Install/Wizard.php:243
+#: src/Process/Install/Wizard.php:246
 msgid "Errors:"
 msgstr "Kesalahan:"
 
@@ -1900,83 +1900,83 @@ msgstr "Atur ulang ke sekarang"
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Pemblokir iklan telah terdeteksi pada dasbor Dotclear ini (Ghostery, Adblock plus, uBlock origin, …) dan dapat mengganggu beberapa fitur. Dalam hal ini Anda harus menonaktifkannya. Perhatikan bahwa deteksi ini mungkin dinonaktifkan dalam preferensi Anda."
 
-#: src/Core/Backend/Page.php:1116
+#: src/Core/Backend/Page.php:1117
 msgid "You have unsaved changes."
 msgstr "Anda memiliki perubahan yang belum disimpan."
 
-#: src/Core/Backend/Page.php:1117
+#: src/Core/Backend/Page.php:1118
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "daya baterai Anda tampak rendah (%d%) dan Anda memiliki perubahan yang belum disimpan, Anda harus menyimpannya."
 
-#: src/Core/Backend/Page.php:1164
+#: src/Core/Backend/Page.php:1165
 msgid "Temporarily activate enhanced uploader"
 msgstr "Mengaktifkan sementara pengunggah yang disempurnakan"
 
-#: src/Core/Backend/Page.php:1165
+#: src/Core/Backend/Page.php:1166
 msgid "Temporarily disable enhanced uploader"
 msgstr "Menonaktifkan sementara pengunggah yang disempurnakan"
 
-#: src/Core/Backend/Page.php:1169
+#: src/Core/Backend/Page.php:1170
 msgid "Limit exceeded."
 msgstr "Batas terlampaui."
 
-#: src/Core/Backend/Page.php:1170
+#: src/Core/Backend/Page.php:1171
 msgid "File size exceeds allowed limit."
 msgstr "Ukuran file melebihi batas yang diizinkan."
 
-#: src/Core/Backend/Page.php:1171
+#: src/Core/Backend/Page.php:1172
 msgid "Canceled."
 msgstr "Dibatalkan."
 
-#: src/Core/Backend/Page.php:1172
+#: src/Core/Backend/Page.php:1173
 msgid "HTTP Error:"
 msgstr "Kesalahan HTTP:"
 
-#: src/Core/Backend/Page.php:1174 src/Process/Backend/Media.php:521
+#: src/Core/Backend/Page.php:1175 src/Process/Backend/Media.php:521
 msgid "Choose file"
 msgstr "Pilih file"
 
-#: src/Core/Backend/Page.php:1175 src/Process/Backend/Media.php:522
+#: src/Core/Backend/Page.php:1176 src/Process/Backend/Media.php:522
 msgid "Choose files"
 msgstr "Memilih file"
 
-#: src/Core/Backend/Page.php:1176 src/Process/Backend/LinkPopup.php:73
+#: src/Core/Backend/Page.php:1177 src/Process/Backend/LinkPopup.php:73
 #: src/Process/Backend/Media.php:230 src/Process/Backend/MediaItem.php:527
 #: src/Process/Backend/MediaItem.php:738 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "Batal"
 
-#: src/Core/Backend/Page.php:1177
+#: src/Core/Backend/Page.php:1178
 msgid "Clean"
 msgstr "Bersih"
 
-#: src/Core/Backend/Page.php:1179 src/Process/Backend/MediaItem.php:1073
+#: src/Core/Backend/Page.php:1180 src/Process/Backend/MediaItem.php:1073
 msgid "Send"
 msgstr "Kirim"
 
-#: src/Core/Backend/Page.php:1180
+#: src/Core/Backend/Page.php:1181
 msgid "File successfully uploaded."
 msgstr "File berhasil diunggah."
 
-#: src/Core/Backend/Page.php:1181
+#: src/Core/Backend/Page.php:1182
 msgid "No file in queue."
 msgstr "Tidak ada file dalam antrian."
 
-#: src/Core/Backend/Page.php:1182
+#: src/Core/Backend/Page.php:1183
 msgid "1 file in queue."
 msgstr "1 file dalam antrian."
 
-#: src/Core/Backend/Page.php:1183
+#: src/Core/Backend/Page.php:1184
 #, php-format
 msgid "%d files in queue."
 msgstr "%d file dalam antrian."
 
-#: src/Core/Backend/Page.php:1184
+#: src/Core/Backend/Page.php:1185
 msgid "Queue error:"
 msgstr "Kesalahan antrian:"
 
-#: src/Core/Backend/Page.php:1227
+#: src/Core/Backend/Page.php:1228
 msgid "Cancel filters and display options"
 msgstr "Membatalkan filter dan opsi tampilan"
 
@@ -3203,7 +3203,7 @@ msgid "New blog"
 msgstr "Blog baru"
 
 #: src/Process/Backend/Blog.php:97 src/Process/Backend/BlogDel.php:90
-#: src/Process/Backend/BlogPref.php:431 src/Process/Backend/Blogs.php:100
+#: src/Process/Backend/BlogPref.php:432 src/Process/Backend/Blogs.php:100
 #: src/Process/Backend/Langs.php:215 src/Process/Backend/Plugin.php:134
 #: src/Process/Backend/Plugins.php:105 src/Process/Backend/Update.php:36
 #: src/Process/Backend/Update.php:54 src/Process/Backend/Update.php:99
@@ -3222,7 +3222,7 @@ msgstr "ID Blog:"
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Minimal 2 karakter menggunakan huruf, angka, atau simbol."
 
-#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:479
+#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:480
 msgid "Blog name:"
 msgstr "Nama blog:"
 
@@ -3234,7 +3234,7 @@ msgstr "URL Blog"
 msgid "Blog URL:"
 msgstr "URL Blog:"
 
-#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:489
+#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:490
 msgid "Blog description:"
 msgstr "Deskripsi blog:"
 
@@ -3268,7 +3268,7 @@ msgstr "Anda akan menghapus blog %s. Setiap entri, komentar, dan kategori akan d
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Berikan kata sandi Anda untuk mengonfirmasi penghapusan blog."
 
-#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:928
+#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:929
 msgid "Delete this blog"
 msgstr "Menghapus blog ini"
 
@@ -3316,7 +3316,7 @@ msgstr "H3"
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:989
+#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:990
 #: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:615
 #: src/Process/Backend/MediaItem.php:617
 msgid "(none)"
@@ -3417,171 +3417,171 @@ msgstr "ID blog ini sudah digunakan."
 msgid "Invalid language code"
 msgstr "Kode bahasa tidak valid"
 
-#: src/Process/Backend/BlogPref.php:400 src/Process/Backend/BlogPref.php:469
+#: src/Process/Backend/BlogPref.php:401 src/Process/Backend/BlogPref.php:470
 msgid "Blog has been successfully updated."
 msgstr "Blog telah berhasil diperbarui."
 
-#: src/Process/Backend/BlogPref.php:448
+#: src/Process/Backend/BlogPref.php:449
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "Peringatan: kecuali untuk konfigurasi khusus, secara umum disarankan untuk menggunakan tanda \"/\" di belakang URL blog Anda dalam mode PATH_INFO."
 
-#: src/Process/Backend/BlogPref.php:449
+#: src/Process/Backend/BlogPref.php:450
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Peringatan: kecuali untuk konfigurasi khusus, umumnya disarankan untuk menggunakan tanda \"?\" pada URL blog Anda dalam mode QUERY_STRING."
 
-#: src/Process/Backend/BlogPref.php:465
+#: src/Process/Backend/BlogPref.php:466
 msgid "Blog has been successfully created."
 msgstr "Blog telah berhasil dibuat."
 
-#: src/Process/Backend/BlogPref.php:473
+#: src/Process/Backend/BlogPref.php:474
 msgid "Parameters"
 msgstr "Parameter"
 
-#: src/Process/Backend/BlogPref.php:474 src/Process/Backend/Media.php:572
+#: src/Process/Backend/BlogPref.php:475 src/Process/Backend/Media.php:572
 msgid "Blog parameters"
 msgstr "Parameter blog"
 
-#: src/Process/Backend/BlogPref.php:476 src/Process/Backend/BlogPref.php:797
+#: src/Process/Backend/BlogPref.php:477 src/Process/Backend/BlogPref.php:797
 msgid "Blog details"
 msgstr "Detail blog"
 
-#: src/Process/Backend/BlogPref.php:502
+#: src/Process/Backend/BlogPref.php:503
 msgid "Blog status:"
 msgstr "Status blog:"
 
-#: src/Process/Backend/BlogPref.php:518 src/Process/Backend/BlogPref.php:861
+#: src/Process/Backend/BlogPref.php:519 src/Process/Backend/BlogPref.php:861
 msgid "Blog configuration"
 msgstr "Konfigurasi blog"
 
-#: src/Process/Backend/BlogPref.php:519
+#: src/Process/Backend/BlogPref.php:520
 msgid "Blog editor name:"
 msgstr "Nama editor blog:"
 
-#: src/Process/Backend/BlogPref.php:522
+#: src/Process/Backend/BlogPref.php:523
 msgid "Default language:"
 msgstr "Bahasa default:"
 
-#: src/Process/Backend/BlogPref.php:525
+#: src/Process/Backend/BlogPref.php:526
 msgid "Blog timezone:"
 msgstr "Zona waktu blog:"
 
-#: src/Process/Backend/BlogPref.php:528
+#: src/Process/Backend/BlogPref.php:529
 msgid "Copyright notice:"
 msgstr "Pemberitahuan hak cipta:"
 
-#: src/Process/Backend/BlogPref.php:541 src/Process/Backend/Comments.php:118
+#: src/Process/Backend/BlogPref.php:542 src/Process/Backend/Comments.php:118
 #: src/Process/Backend/Comments.php:123
 msgid "Comments and trackbacks"
 msgstr "Komentar dan pelacakan balik"
 
-#: src/Process/Backend/BlogPref.php:547 src/Process/Backend/Post.php:679
+#: src/Process/Backend/BlogPref.php:548 src/Process/Backend/Post.php:679
 msgid "Accept comments"
 msgstr "Menerima komentar"
 
-#: src/Process/Backend/BlogPref.php:550
+#: src/Process/Backend/BlogPref.php:551
 msgid "Moderate comments"
 msgstr "Komentar moderat"
 
-#: src/Process/Backend/BlogPref.php:552
+#: src/Process/Backend/BlogPref.php:553
 #, php-format
 msgid "Leave comments open for %s days"
 msgstr "Biarkan komentar terbuka selama %s hari"
 
-#: src/Process/Backend/BlogPref.php:563 src/Process/Backend/BlogPref.php:591
+#: src/Process/Backend/BlogPref.php:564 src/Process/Backend/BlogPref.php:592
 msgid "No limit: leave blank."
 msgstr "Tidak ada batas: biarkan kosong."
 
-#: src/Process/Backend/BlogPref.php:566
+#: src/Process/Backend/BlogPref.php:567
 msgid "Wiki syntax for comments"
 msgstr "Sintaksis wiki untuk komentar"
 
-#: src/Process/Backend/BlogPref.php:569
+#: src/Process/Backend/BlogPref.php:570
 msgid "Preview of comment before submit is not mandatory"
 msgstr "Pratinjau komentar sebelum mengirim tidak wajib dilakukan"
 
-#: src/Process/Backend/BlogPref.php:575 src/Process/Backend/Post.php:687
+#: src/Process/Backend/BlogPref.php:576 src/Process/Backend/Post.php:687
 msgid "Accept trackbacks"
 msgstr "Menerima pelacakan balik"
 
-#: src/Process/Backend/BlogPref.php:578
+#: src/Process/Backend/BlogPref.php:579
 msgid "Moderate trackbacks"
 msgstr "Pelacakan balik sedang"
 
-#: src/Process/Backend/BlogPref.php:580
+#: src/Process/Backend/BlogPref.php:581
 #, php-format
 msgid "Leave trackbacks open for %s days"
 msgstr "Biarkan trackback terbuka selama %s hari"
 
-#: src/Process/Backend/BlogPref.php:594
+#: src/Process/Backend/BlogPref.php:595
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Menambahkan relasi \"nofollow\" pada komentar dan tautan trackback"
 
-#: src/Process/Backend/BlogPref.php:598
+#: src/Process/Backend/BlogPref.php:599
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr "Nonaktifkan semua komentar dan trackback di blog setelah beberapa waktu tanpa postingan baru:"
 
-#: src/Process/Backend/BlogPref.php:605
+#: src/Process/Backend/BlogPref.php:606
 msgid "Blog presentation"
 msgstr "Presentasi blog"
 
-#: src/Process/Backend/BlogPref.php:608
+#: src/Process/Backend/BlogPref.php:609
 msgid "Date format:"
 msgstr "Format tanggal:"
 
-#: src/Process/Backend/BlogPref.php:610
+#: src/Process/Backend/BlogPref.php:611
 msgid "Pattern of date"
 msgstr "Pola tanggal"
 
-#: src/Process/Backend/BlogPref.php:612 src/Process/Backend/BlogPref.php:618
+#: src/Process/Backend/BlogPref.php:613 src/Process/Backend/BlogPref.php:619
 #: src/Process/Backend/BlogPref.php:866
 msgid "Sample:"
 msgstr "Sampel:"
 
-#: src/Process/Backend/BlogPref.php:614
+#: src/Process/Backend/BlogPref.php:615
 msgid "Time format:"
 msgstr "Format waktu:"
 
-#: src/Process/Backend/BlogPref.php:616
+#: src/Process/Backend/BlogPref.php:617
 msgid "Pattern of time"
 msgstr "Pola waktu"
 
-#: src/Process/Backend/BlogPref.php:622
+#: src/Process/Backend/BlogPref.php:623
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr "Jangan memuat lembar gaya standar (digunakan untuk perataan media)"
 
-#: src/Process/Backend/BlogPref.php:626
+#: src/Process/Backend/BlogPref.php:627
 msgid "Display smilies on entries and comments"
 msgstr "Menampilkan smilies pada entri dan komentar"
 
-#: src/Process/Backend/BlogPref.php:630
+#: src/Process/Backend/BlogPref.php:631
 msgid "Disable internal search system"
 msgstr "Menonaktifkan sistem pencarian internal"
 
-#: src/Process/Backend/BlogPref.php:637
+#: src/Process/Backend/BlogPref.php:638
 #, php-format
 msgid "Display %s entries on first page"
 msgstr "Tampilkan entri %s pada halaman pertama"
 
-#: src/Process/Backend/BlogPref.php:649
+#: src/Process/Backend/BlogPref.php:650
 #, php-format
 msgid "Display %s entries per page"
 msgstr "Menampilkan entri %s per halaman"
 
-#: src/Process/Backend/BlogPref.php:661
+#: src/Process/Backend/BlogPref.php:662
 #, php-format
 msgid "Display %s entries per feed"
 msgstr "Tampilkan entri %s per umpan"
 
-#: src/Process/Backend/BlogPref.php:673
+#: src/Process/Backend/BlogPref.php:674
 #, php-format
 msgid "Display %s comments per feed"
 msgstr "Tampilkan %s komentar per umpan"
 
-#: src/Process/Backend/BlogPref.php:686
+#: src/Process/Backend/BlogPref.php:687
 msgid "Truncate feeds"
 msgstr "Memotong umpan"
 
-#: src/Process/Backend/BlogPref.php:690
+#: src/Process/Backend/BlogPref.php:691
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "Menyertakan sub-kategori di halaman kategori dan feed postingan kategori"
 
@@ -3605,21 +3605,21 @@ msgstr "Biarkan kosong untuk menggunakan presentasi default."
 msgid "Media and images"
 msgstr "Media dan gambar"
 
-#: src/Process/Backend/BlogPref.php:711
+#: src/Process/Backend/BlogPref.php:713
+msgid "Generated image sizes (max dimension in pixels)"
+msgstr "Ukuran gambar yang dihasilkan (dimensi maksimal dalam piksel)"
+
+#: src/Process/Backend/BlogPref.php:715
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr "Harap diperhatikan, bahwa jika Anda mengubah pengaturan saat ini di bawah ini, pengaturan tersebut sekarang akan berlaku untuk semua gambar baru di pengelola media."
 
-#: src/Process/Backend/BlogPref.php:712
+#: src/Process/Backend/BlogPref.php:716
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Berhati-hatilah jika Anda berbagi dengan blog lain dalam instalasi Anda."
 
-#: src/Process/Backend/BlogPref.php:713
+#: src/Process/Backend/BlogPref.php:717
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "Tetapkan -1 untuk menggunakan ukuran default, tetapkan 0 untuk mengabaikan ukuran thumbnail ini (hanya gambar)."
-
-#: src/Process/Backend/BlogPref.php:717
-msgid "Generated image sizes (max dimension in pixels)"
-msgstr "Ukuran gambar yang dihasilkan (dimensi maksimal dalam piksel)"
 
 #: src/Process/Backend/BlogPref.php:718
 msgid "Thumbnail"
@@ -3720,73 +3720,81 @@ msgid "Search engines robots policy"
 msgstr "Kebijakan robot mesin pencari"
 
 #: src/Process/Backend/BlogPref.php:889
+msgid "Legacy javascript library"
+msgstr "Perpustakaan javascript lama"
+
+#: src/Process/Backend/BlogPref.php:892
+msgid "Load the Legacy JS library"
+msgstr "Memuat pustaka JS Lama"
+
+#: src/Process/Backend/BlogPref.php:895
 msgid "jQuery javascript library"
 msgstr "Perpustakaan javascript jQuery"
 
-#: src/Process/Backend/BlogPref.php:892
+#: src/Process/Backend/BlogPref.php:898
 msgid "Load the jQuery library"
 msgstr "Memuat pustaka jQuery"
 
-#: src/Process/Backend/BlogPref.php:894
+#: src/Process/Backend/BlogPref.php:900
 msgid "jQuery version to be loaded for this blog:"
 msgstr "Versi jQuery yang akan dimuat untuk blog ini:"
 
-#: src/Process/Backend/BlogPref.php:900
+#: src/Process/Backend/BlogPref.php:905
 msgid "Blog security"
 msgstr "Keamanan blog"
 
-#: src/Process/Backend/BlogPref.php:904
+#: src/Process/Backend/BlogPref.php:908
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Lindungi blog dari pembajakan klik (lihat <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 
-#: src/Process/Backend/BlogPref.php:912
+#: src/Process/Backend/BlogPref.php:913
 msgid "Plugins parameters"
 msgstr "Parameter plugin"
 
-#: src/Process/Backend/BlogPref.php:936
+#: src/Process/Backend/BlogPref.php:937
 msgid "Only superadmin can delete a blog."
 msgstr "Hanya superadmin yang dapat menghapus blog."
 
-#: src/Process/Backend/BlogPref.php:950
+#: src/Process/Backend/BlogPref.php:951
 msgid "Users on this blog"
 msgstr "Pengguna di blog ini"
 
-#: src/Process/Backend/BlogPref.php:953
+#: src/Process/Backend/BlogPref.php:954
 msgid "No users"
 msgstr "Tidak ada pengguna"
 
-#: src/Process/Backend/BlogPref.php:994
+#: src/Process/Backend/BlogPref.php:995
 msgid "Publications on this blog:"
 msgstr "Publikasi di blog ini:"
 
-#: src/Process/Backend/BlogPref.php:1001
+#: src/Process/Backend/BlogPref.php:1002
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1006
+#: src/Process/Backend/BlogPref.php:1007
 msgid "Permissions:"
 msgstr "Izin:"
 
-#: src/Process/Backend/BlogPref.php:1009 src/Process/Backend/User.php:321
+#: src/Process/Backend/BlogPref.php:1010 src/Process/Backend/User.php:321
 msgid "Super administrator"
 msgstr "Administrator super"
 
-#: src/Process/Backend/BlogPref.php:1010
+#: src/Process/Backend/BlogPref.php:1011
 msgid "All rights on all blogs."
 msgstr "Semua hak atas semua blog."
 
-#: src/Process/Backend/BlogPref.php:1016
+#: src/Process/Backend/BlogPref.php:1017
 #: src/Process/Backend/UsersActions.php:338
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (izin yang tidak direferensikan)"
 
-#: src/Process/Backend/BlogPref.php:1020
+#: src/Process/Backend/BlogPref.php:1021
 msgid "All rights on this blog."
 msgstr "Semua hak atas blog ini."
 
-#: src/Process/Backend/BlogPref.php:1031 src/Process/Backend/User.php:471
+#: src/Process/Backend/BlogPref.php:1032 src/Process/Backend/User.php:471
 msgid "Change permissions"
 msgstr "Mengubah izin"
 
@@ -5797,11 +5805,11 @@ msgstr "Memvalidasi izin"
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Tetapkan kunci master (DC_MASTER_KEY) dalam file konfigurasi."
 
-#: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:152
+#: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:155
 msgid "Dotclear is already installed."
 msgstr "Dotclear sudah terpasang."
 
-#: src/Process/Install/Install.php:155 src/Process/Install/Wizard.php:146
+#: src/Process/Install/Install.php:155 src/Process/Install/Wizard.php:149
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear tidak dapat diinstal."
 
@@ -5918,101 +5926,101 @@ msgstr "Wizard instalasi DotClear tidak dapat membuat file konfigurasi untuk And
 msgid "Cannot write \"%s\" directory."
 msgstr "Tidak dapat menulis direktori \"%s\"."
 
-#: src/Process/Install/Wizard.php:156
+#: src/Process/Install/Wizard.php:159
 msgid "Master email is not valid."
 msgstr "Email master tidak valid."
 
-#: src/Process/Install/Wizard.php:162
+#: src/Process/Install/Wizard.php:165
 #, php-format
 msgid "File %s does not exist."
 msgstr "File %s tidak ada."
 
-#: src/Process/Install/Wizard.php:167 src/Process/Install/Wizard.php:188
+#: src/Process/Install/Wizard.php:170 src/Process/Install/Wizard.php:191
 #, php-format
 msgid "Cannot write %s file."
 msgstr "Tidak dapat menulis file %s ."
 
-#: src/Process/Install/Wizard.php:231 src/Process/Install/Wizard.php:239
+#: src/Process/Install/Wizard.php:234 src/Process/Install/Wizard.php:242
 msgid "Dotclear installation wizard"
 msgstr "Panduan instalasi Dotclear"
 
-#: src/Process/Install/Wizard.php:245
+#: src/Process/Install/Wizard.php:248
 msgid "Welcome"
 msgstr "Selamat datang."
 
-#: src/Process/Install/Wizard.php:246
+#: src/Process/Install/Wizard.php:249
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "Untuk menyelesaikan instalasi Dotclear Anda dan mulai menulis di blog Anda, kami hanya perlu mengetahui cara mengakses basis data Anda dan siapa Anda. Cukup isi wizard dua langkah ini dengan informasi ini dan kita akan selesai."
 
-#: src/Process/Install/Wizard.php:249
+#: src/Process/Install/Wizard.php:252
 msgid "Attention:"
 msgstr "Perhatian:"
 
-#: src/Process/Install/Wizard.php:250
+#: src/Process/Install/Wizard.php:253
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr "wizard ini mungkin tidak berfungsi pada setiap hos. Jika tidak berfungsi untuk Anda, silakan merujuk ke <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentasi</a> untuk mempelajari cara membuat file <strong>config.php</strong> secara manual."
 
-#: src/Process/Install/Wizard.php:257
+#: src/Process/Install/Wizard.php:260
 msgid "System information"
 msgstr "Informasi sistem"
 
-#: src/Process/Install/Wizard.php:259
+#: src/Process/Install/Wizard.php:262
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "Berikan informasi berikut yang diperlukan untuk membuat file konfigurasi Anda."
 
-#: src/Process/Install/Wizard.php:263
+#: src/Process/Install/Wizard.php:266
 msgid "Database type:"
 msgstr "Jenis basis data:"
 
-#: src/Process/Install/Wizard.php:267
+#: src/Process/Install/Wizard.php:270
 msgid "MySQLi"
 msgstr "MySQLi"
 
-#: src/Process/Install/Wizard.php:268
+#: src/Process/Install/Wizard.php:271
 msgid "MySQLi (full UTF-8)"
 msgstr "MySQLi (UTF-8 lengkap)"
 
-#: src/Process/Install/Wizard.php:269
+#: src/Process/Install/Wizard.php:272
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
-#: src/Process/Install/Wizard.php:270
+#: src/Process/Install/Wizard.php:273
 msgid "SQLite"
 msgstr "SQLite"
 
-#: src/Process/Install/Wizard.php:271
+#: src/Process/Install/Wizard.php:274
 msgid "Driver"
 msgstr "Sopir"
 
-#: src/Process/Install/Wizard.php:273
+#: src/Process/Install/Wizard.php:276
 msgid "Database Host Name:"
 msgstr "Nama Host Basis Data:"
 
-#: src/Process/Install/Wizard.php:275
+#: src/Process/Install/Wizard.php:278
 msgid "Database Name:"
 msgstr "Nama Basis Data:"
 
-#: src/Process/Install/Wizard.php:277
+#: src/Process/Install/Wizard.php:280
 msgid "Database User Name:"
 msgstr "Nama Pengguna Basis Data:"
 
-#: src/Process/Install/Wizard.php:279
+#: src/Process/Install/Wizard.php:282
 msgid "Database Password:"
 msgstr "Kata Sandi Basis Data:"
 
-#: src/Process/Install/Wizard.php:281
+#: src/Process/Install/Wizard.php:284
 msgid "Database Tables Prefix:"
 msgstr "Awalan Tabel Basis Data:"
 
-#: src/Process/Install/Wizard.php:284
+#: src/Process/Install/Wizard.php:287
 msgid "Prefix"
 msgstr "Awalan"
 
-#: src/Process/Install/Wizard.php:287
+#: src/Process/Install/Wizard.php:290
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Email Master: (digunakan sebagai pengirim untuk pemulihan kata sandi)"
 
-#: src/Process/Install/Wizard.php:295 src/Process/Upgrade/Digests.php:254
+#: src/Process/Install/Wizard.php:298 src/Process/Upgrade/Digests.php:254
 #: src/Process/Upgrade/Digests.php:275
 msgid "Continue"
 msgstr "Lanjutkan"
