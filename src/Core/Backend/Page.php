@@ -370,10 +370,9 @@ class Page
         $text = Html::escapeHTML($text);
 
         echo
-        '</nav>' . "\n" . // End of #main-menu
-        "</div>\n";       // End of #wrapper
-
-        echo '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n";
+        "</nav>\n" . // End of #main-menu
+        "</div>\n" . // End of #wrapper
+        '<p id="gototop"><a href="#wrapper"><img aria-hidden="true" src="images/up.svg" alt="' . __('Page top') . '"><span class="visually-hidden">' . __('Page top') . '</span></a></p>' . "\n";
 
         $figure = "\n" .
         ' ' . "\n" .
@@ -492,11 +491,9 @@ class Page
         "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
         "</div>\n" .  // End of #wrapper
-
-        '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n" .
-
-            '<footer id="footer" role="contentinfo"><p>&nbsp;</p></footer>' . "\n" .
-            '</body></html>';
+        '<p id="gototop"><a href="#wrapper"><img aria-hidden="true" src="images/up.svg" alt="' . __('Page top') . '"><span class="visually-hidden">' . __('Page top') . '</span></a></p>' . "\n" .
+        '<footer id="footer" role="contentinfo"><p>&nbsp;</p></footer>' . "\n" .
+        '</body></html>';
     }
 
     /**

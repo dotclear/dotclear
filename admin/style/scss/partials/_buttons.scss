@@ -190,9 +190,9 @@ a.metaGetMore {
   display: none;
   z-index: 1000;
   position: fixed;
-  bottom: 0;
-  right: 0.5em;
-  width: 10em;
+  bottom: 0.5em;
+  right: 0.75em;
+  width: 2em;
   padding: 0.25em;
   border-radius: 0.25em;
 
@@ -203,6 +203,10 @@ a.metaGetMore {
     &:active {
       color: var(--gotop-color);
       background: var(--gotop-background);
+      border-bottom: none;
+    }
+    & img {
+      vertical-align: top;
     }
   }
 }
