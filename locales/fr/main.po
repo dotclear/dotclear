@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-25 16:17+0100\n"
-"PO-Revision-Date: 2024-03-25 15:36\n"
+"PO-Revision-Date: 2024-03-25 16:01\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -3754,11 +3754,11 @@ msgstr "Paramètres d'indexation par les moteurs de recherche"
 
 #: src/Process/Backend/BlogPref.php:889
 msgid "Legacy javascript library"
-msgstr ""
+msgstr "Bibliothèque javascript historique"
 
 #: src/Process/Backend/BlogPref.php:892
 msgid "Load the Legacy JS library"
-msgstr ""
+msgstr "Charger la bibliothèque javascript historique"
 
 #: src/Process/Backend/BlogPref.php:895
 msgid "jQuery javascript library"
