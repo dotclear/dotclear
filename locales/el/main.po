@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-25 16:17+0100\n"
-"PO-Revision-Date: 2024-03-25 15:41\n"
+"PO-Revision-Date: 2024-03-25 16:05\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -3754,11 +3754,11 @@ msgstr "Πολιτική μηχανών αναζήτησης ρομπότ"
 
 #: src/Process/Backend/BlogPref.php:889
 msgid "Legacy javascript library"
-msgstr ""
+msgstr "Κληρονομική βιβλιοθήκη javascript"
 
 #: src/Process/Backend/BlogPref.php:892
 msgid "Load the Legacy JS library"
-msgstr ""
+msgstr "Φορτώστε τη βιβλιοθήκη Legacy JS"
 
 #: src/Process/Backend/BlogPref.php:895
 msgid "jQuery javascript library"
