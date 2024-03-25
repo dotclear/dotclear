@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-25 16:17+0100\n"
-"PO-Revision-Date: 2024-03-25 15:42\n"
+"PO-Revision-Date: 2024-03-25 16:06\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -3754,11 +3754,11 @@ msgstr "Hakukoneiden hakurobottien ohjaus"
 
 #: src/Process/Backend/BlogPref.php:889
 msgid "Legacy javascript library"
-msgstr ""
+msgstr "Legacy javascript-kirjasto"
 
 #: src/Process/Backend/BlogPref.php:892
 msgid "Load the Legacy JS library"
-msgstr ""
+msgstr "Lataa Legacy JS -kirjasto"
 
 #: src/Process/Backend/BlogPref.php:895
 msgid "jQuery javascript library"
