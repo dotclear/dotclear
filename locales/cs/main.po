@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-25 16:17+0100\n"
-"PO-Revision-Date: 2024-03-25 15:39\n"
+"PO-Revision-Date: 2024-03-25 16:03\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -3820,11 +3820,11 @@ msgstr "Práva pro vyhledávací roboty"
 
 #: src/Process/Backend/BlogPref.php:889
 msgid "Legacy javascript library"
-msgstr ""
+msgstr "Starší javascriptová knihovna"
 
 #: src/Process/Backend/BlogPref.php:892
 msgid "Load the Legacy JS library"
-msgstr ""
+msgstr "Načtení knihovny Legacy JS"
 
 #: src/Process/Backend/BlogPref.php:895
 msgid "jQuery javascript library"
