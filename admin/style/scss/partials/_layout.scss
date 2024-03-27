@@ -21,10 +21,20 @@ body.safe-mode #header {
 h1,
 #top-info-blog,
 #top-info-user {
-  display: table-cell;
-  padding: 8px 0;
+  padding: 0.5em 0;
   margin: 0;
   font-size: 1em;
+}
+h1,
+#top-info-user {
+  display: table-cell;
+}
+#top-info-blog {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25em;
 }
 
 #wrapper {
@@ -371,9 +381,7 @@ body.dark-mode.upgrade-mode {
   }
 
   #top-info-blog {
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 1em;
+    margin-right: 0.5em;
 
     #switchblog {
       max-width: 16em;
@@ -520,10 +528,6 @@ body.dark-mode.upgrade-mode {
 
   #top-info-blog {
     max-width: 75%;
-
-    select {
-      margin-bottom: 0.5em;
-    }
   }
 
   #header a.logout img {
