@@ -64,6 +64,11 @@ class ZipMedia extends MaintenanceTask
         $this->description = __('It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big.');
     }
 
+    /**
+     * Zip media folder
+     *
+     * @return     never
+     */
     public function execute(): never
     {
         // Instance media
@@ -74,7 +79,8 @@ class ZipMedia extends MaintenanceTask
         @set_time_limit(300);
         $fp  = fopen('php://output', 'wb');
         $zip = new Zip($fp);
-        $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
+
+        $zip->addExclusion('/(^|\/)\.(.*?)_(m|s|sq|t)\.(jpg|jpeg|png|webp|avif)$/');
         $zip->addDirectory(App::media()->getRoot() . '/', '', true);
 
         // Log task execution here as we sent file and stop script
