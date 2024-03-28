@@ -130,7 +130,7 @@ class Wizard extends Process
                     if (!is_writable($sqlite_db_directory)) {
                         throw new Exception(sprintf(__('Cannot write "%s" directory.'), Path::real($sqlite_db_directory, false)));
                     }
-                    self::$DBNAME = Path::real($sqlite_db_directory . self::$DBNAME, false);
+                    self::$DBNAME = (string) Path::real($sqlite_db_directory . self::$DBNAME, false);
                     if (!file_exists(self::$DBNAME)) {
                         touch(self::$DBNAME);
                     }
