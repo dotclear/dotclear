@@ -80,7 +80,9 @@ class ZipMedia extends MaintenanceTask
         $fp  = fopen('php://output', 'wb');
         $zip = new Zip($fp);
 
-        $zip->addExclusion('/(^|\/)\.(.*?)_(m|s|sq|t)\.(jpg|jpeg|png|webp|avif)$/');
+        $thumb_sizes = implode('|', array_keys(App::media()->getThumbSizes()));
+        $zip->addExclusion('/(^|\/)\.(.*?)_(' . $thumb_sizes . ')\.(jpg|jpeg|png|webp|avif)$/');
+
         $zip->addDirectory(App::media()->getRoot() . '/', '', true);
 
         // Log task execution here as we sent file and stop script
