@@ -302,6 +302,7 @@ h6 {
   --body-background: #fff;
   --title-color: #676e78;
   --title-alt-color: #d33800;
+  --scroll: #3a539b;
   --header-color: #fff;
   --header-background: #3a539b;
   --header-background-alt: #3a539b;
@@ -557,6 +558,7 @@ h6 {
   --body-background: #272b30;
   --title-color: #b2b5ba;
   --title-alt-color: #ff6e3a;
+  --scroll: #bee74b;
   --header-color: var(--body-color);
   --header-background: var(--body-background);
   --header-background-alt: #565a60;
@@ -813,6 +815,7 @@ h6 {
     --body-background: #272b30;
     --title-color: #b2b5ba;
     --title-alt-color: #ff6e3a;
+    --scroll: #bee74b;
     --header-color: var(--body-color);
     --header-background: var(--body-background);
     --header-background-alt: #565a60;
@@ -1078,6 +1081,11 @@ body:not(.dark-mode):not(.light-mode) .dark-only {
 /* Typographie */
 html {
   font-size: var(--html-font-size);
+  scrollbar-color: var(--scroll) transparent;
+}
+
+:not(html) {
+  scrollbar-color: initial;
 }
 
 body {

@@ -3,6 +3,10 @@
 // base //
 html {
   font-size: var(--html-font-size); // html font-size for modern browsers
+  scrollbar-color: var(--scroll) transparent;
+}
+:not(html) {
+  scrollbar-color: initial;
 }
 
 body {
