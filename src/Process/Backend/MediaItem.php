@@ -830,15 +830,8 @@ class MediaItem extends Process
             '</p>';
 
             if ($thumb_size !== 'o' && isset(App::backend()->file->media_thumb[$thumb_size])) {
-                $path_info = Path::info(App::backend()->file->file);   // @phpstan-ignore-line
-                $alpha     = ($path_info['extension'] == 'png') || ($path_info['extension'] == 'PNG');
-                $alpha     = strtolower($path_info['extension']) === 'png';
-                $webp      = strtolower($path_info['extension']) === 'webp';
-                $avif      = strtolower($path_info['extension']) === 'avif';
-                $thumb_tp  = ($alpha ? App::media()->getThumbnailFilePattern('alpha') :
-                    ($webp ? App::media()->getThumbnailFilePattern('webp') :
-                    ($avif ? App::media()->getThumbnailFilePattern('avif') :
-                        App::media()->getThumbnailFilePattern())));
+                $path_info  = Path::info(App::backend()->file->file);   // @phpstan-ignore-line
+                $thumb_tp   = App::media()->getThumbnailFilePattern($path_info['extension']);
                 $thumb      = sprintf($thumb_tp, $path_info['dirname'], $path_info['base'], '%s');
                 $thumb_file = sprintf($thumb, $thumb_size);
                 $stats      = stat($thumb_file);

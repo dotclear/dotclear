@@ -38,11 +38,20 @@ interface MediaInterface
     /**
      * Get thumbnail file pattern.
      *
-     * @param   string  $type   The thumbnail type (default, alpha, webp, avif)
+     * @param   string  $type   The media type
      *
      * @return  string  The file pattern
      */
     public function getThumbnailFilePattern(string $type = ''): string;
+
+    /**
+     * Determines if media has an alpha layer.
+     *
+     * @param      string  $type   The media type
+     *
+     * @return     bool    True if media alpha layer, False otherwise.
+     */
+    public function hasMediaAlphaLayer(string $type = ''): bool;
 
     /**
      * Get thumb sizes definition.
