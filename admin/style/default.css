@@ -492,7 +492,6 @@ h6 {
   --media-files-border: #dbdbdb;
   --media-item-active-background: #f3f3f3;
   --upload-color: #556f0f;
-  --upload-filemsg-color: #fff;
   --upload-progress-color: #fff;
   --upload-progress-background: #556f0f;
   --upload-file-border: #dbdbdb;
@@ -748,7 +747,6 @@ h6 {
   --media-files-border: #dadbde;
   --media-item-active-background: #3a3d41;
   --upload-color: #556f0f;
-  --upload-filemsg-color: #fff;
   --upload-progress-color: #fff;
   --upload-progress-background: #556f0f;
   --upload-file-border: #dadbde;
@@ -1005,7 +1003,6 @@ h6 {
     --media-files-border: #dadbde;
     --media-item-active-background: #3a3d41;
     --upload-color: #556f0f;
-    --upload-filemsg-color: #fff;
     --upload-progress-color: #fff;
     --upload-progress-background: #556f0f;
     --upload-file-border: #dadbde;
@@ -4362,7 +4359,6 @@ label span.one-file {
 
 .upload-filemsg {
   font-weight: bold;
-  color: var(--upload-filemsg-color);
 }
 .upload-filemsg.upload-error {
   color: var(--upload-error-color);
