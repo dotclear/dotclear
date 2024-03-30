@@ -206,7 +206,7 @@ class Plugins extends Process
 
             echo
             (new Form('force-checking'))
-                ->action(App::backend()->list->getURL('', false))
+                ->action(App::backend()->list->getURL('', false) . '#update') // Switch to update tab if possible
                 ->method('get')
                 ->fields([
                     (new Para())
