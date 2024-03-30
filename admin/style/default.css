@@ -2933,7 +2933,7 @@ h1 a:link {
 #qx {
   width: 75%;
   background: url(search.svg) no-repeat 0 center;
-  background-color: transparent;
+  background-color: field;
   text-indent: 20px;
 }
 
