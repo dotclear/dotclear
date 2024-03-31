@@ -221,7 +221,7 @@ class Media extends Manager implements MediaInterface
 
         if (((string) $this->blog->settings()->system->media_thumbnail_prefix !== '') && ((string) $this->blog->settings()->system->media_thumbnail_prefix !== $this->thumbnail_prefix)) {
             $this->thumbnail_prefix = (string) $this->blog->settings()->system->media_thumbnail_prefix;
-            $this->setExcludePattern(sprintf('/^%s(.*)/', preg_quote($this->thumbnail_prefix), '/'));
+            $this->setExcludePattern(sprintf('/^%s(.*)/', preg_quote($this->thumbnail_prefix, '/')));
         }
 
         // Ensure correct pattern values for deprecated properties
