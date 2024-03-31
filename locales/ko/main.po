@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-25 16:17+0100\n"
-"PO-Revision-Date: 2024-03-25 15:46\n"
+"POT-Creation-Date: 2024-03-31 11:12+0200\n"
+"PO-Revision-Date: 2024-03-31 09:28\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -104,7 +104,7 @@ msgstr "제목"
 #: src/Core/Backend/Favorites.php:500 src/Core/Backend/Menus.php:244
 #: src/Core/Backend/UserPref.php:73 src/Core/Backend/UserPref.php:190
 #: src/Process/Backend/Blog.php:98 src/Process/Backend/BlogDel.php:91
-#: src/Process/Backend/BlogPref.php:433
+#: src/Process/Backend/BlogPref.php:434
 msgid "Blogs"
 msgstr "블로그"
 
@@ -124,7 +124,7 @@ msgstr "블로그 ID"
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
 #: src/Core/Backend/Listing/ListingBlogs.php:55
 #: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:141
-#: src/Process/Backend/BlogPref.php:487
+#: src/Process/Backend/BlogPref.php:488
 #: src/Process/Backend/UsersActions.php:231
 msgid "Blog name"
 msgstr "블로그 이름"
@@ -188,7 +188,7 @@ msgid "Password verification failed"
 msgstr "비밀번호 확인에 실패했습니다."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:114
-#: src/Process/Backend/BlogPref.php:935
+#: src/Process/Backend/BlogPref.php:942
 msgid "The current blog cannot be deleted."
 msgstr "현재 블로그는 삭제할 수 없습니다."
 
@@ -422,10 +422,10 @@ msgstr "상위분류 :"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1780 src/Process/Backend/BlogPref.php:920
+#: src/Core/Backend/ModulesList.php:1780 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1061
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1054
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:921
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:499
@@ -547,7 +547,7 @@ msgid "Last update"
 msgstr "최근 갱신"
 
 #: src/Core/Backend/Combos.php:336 src/Process/Backend/Blog.php:122
-#: src/Process/Backend/BlogPref.php:801
+#: src/Process/Backend/BlogPref.php:808
 #: src/Process/Backend/UsersActions.php:230
 msgid "Blog ID"
 msgstr "블로그 아이디"
@@ -582,7 +582,7 @@ msgid "My favorites"
 msgstr "내 즐겨 찾기"
 
 #: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:304 src/Process/Backend/Media.php:534
+#: src/Core/Backend/Page.php:304 src/Process/Backend/Media.php:546
 #: src/Process/Backend/UserPreferences.php:39
 msgid "My preferences"
 msgstr "내 기본 설정"
@@ -621,14 +621,14 @@ msgstr "분류"
 #: src/Core/Backend/Favorites.php:472 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
-#: src/Process/Backend/Media.php:449 src/Process/Backend/Media.php:488
+#: src/Process/Backend/Media.php:461 src/Process/Backend/Media.php:500
 #: src/Process/Backend/MediaItem.php:425 src/Process/Backend/MediaItem.php:431
 msgid "Media manager"
 msgstr "미디어"
 
 #: src/Core/Backend/Favorites.php:482 src/Core/Backend/Menus.php:104
-#: src/Process/Backend/BlogPref.php:426 src/Process/Backend/BlogPref.php:434
-#: src/Process/Backend/BlogPref.php:447
+#: src/Process/Backend/BlogPref.php:427 src/Process/Backend/BlogPref.php:435
+#: src/Process/Backend/BlogPref.php:448
 msgid "Blog settings"
 msgstr "블로그 설정"
 
@@ -640,7 +640,7 @@ msgstr "모양과 테마"
 
 #: src/Core/Backend/Favorites.php:510 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:64 src/Core/Backend/UserPref.php:166
-#: src/Process/Backend/BlogPref.php:950 src/Process/Backend/User.php:235
+#: src/Process/Backend/BlogPref.php:957 src/Process/Backend/User.php:235
 #: src/Process/Backend/Users.php:100 src/Process/Backend/Users.php:105
 #: src/Process/Backend/UsersActions.php:151
 #: src/Process/Backend/UsersActions.php:159
@@ -673,22 +673,22 @@ msgstr "글로벌 도움말"
 msgid "Status:"
 msgstr "공개상태 :"
 
-#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1007
-#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:989
+#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1004
+#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:996
 #: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:900
 #: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:541
 #: src/Process/Install/Install.php:465
 msgid "Email:"
 msgstr "이메일:"
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1006
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1003
 #: src/Process/Backend/Comment.php:282 src/Process/Backend/Post.php:904
 msgid "Web site:"
 msgstr "웹사이트 :"
 
 #: src/Core/Backend/Filter/FilterComments.php:56
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1048
+#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1045
 #: src/Process/Backend/Comment.php:270
 msgid "Author:"
 msgstr "글쓴이 :"
@@ -707,7 +707,7 @@ msgid "Trackback"
 msgstr "트랙백"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1008 src/Process/Backend/Comment.php:259
+#: src/Core/Backend/Page.php:1005 src/Process/Backend/Comment.php:259
 msgid "IP address:"
 msgstr "IP 주소 :"
 
@@ -795,7 +795,7 @@ msgstr "Closed"
 msgid "Trackbacks:"
 msgstr "트랙백:"
 
-#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1227
+#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1224
 msgid "Show filters and display options"
 msgstr "필터 및 표시 옵션 표시"
 
@@ -970,7 +970,7 @@ msgstr "항목"
 #: src/Core/Backend/Listing/ListingPosts.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:170
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:941
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:934
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1088
 msgid "Published"
 msgstr "게시됨"
@@ -980,7 +980,7 @@ msgstr "게시됨"
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:175
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:942
+#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:935
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1093
 msgid "Unpublished"
 msgstr "게시되지 않음"
@@ -990,7 +990,7 @@ msgstr "게시되지 않음"
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:185
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:944
+#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:937
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1098
 msgid "Pending"
 msgstr "보류 중"
@@ -1063,13 +1063,13 @@ msgstr "크기"
 
 #: src/Core/Backend/Listing/ListingMedia.php:167
 #: src/Core/Backend/Listing/ListingMedia.php:168
-#: src/Process/Backend/Media.php:348
+#: src/Process/Backend/Media.php:360
 msgid "Select this file"
 msgstr "이 파일 선택"
 
 #: src/Core/Backend/Listing/ListingMedia.php:177
 #: src/Core/Backend/Listing/ListingMedia.php:183
-#: src/Process/Backend/Media.php:364 src/Process/Backend/Media.php:377
+#: src/Process/Backend/Media.php:376 src/Process/Backend/Media.php:389
 msgid "Attach this file to entry"
 msgstr "글꼭지에 이 파일을 첨부"
 
@@ -1125,7 +1125,7 @@ msgstr "글걸이"
 #: src/Core/Backend/Listing/ListingPosts.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:180
 #: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
-#: src/Process/Backend/MediaItem.php:943 src/Process/Backend/Post.php:477
+#: src/Process/Backend/MediaItem.php:936 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "예약됨"
 
@@ -1303,7 +1303,7 @@ msgid "Current version"
 msgstr "현재 버전"
 
 #: src/Core/Backend/ModulesList.php:797 src/Core/Backend/ModulesList.php:996
-#: src/Core/Backend/Page.php:1049 src/Core/Backend/ThemesList.php:132
+#: src/Core/Backend/Page.php:1046 src/Core/Backend/ThemesList.php:132
 #: src/Core/Backend/ThemesList.php:191
 msgid "Details"
 msgstr "상세정보"
@@ -1350,7 +1350,7 @@ msgstr "공식 배포판의 플러그인"
 msgid "Plugin in development"
 msgstr "개발 중인 플러그인"
 
-#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1050
+#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1047
 #: src/Core/Backend/ThemesList.php:195
 msgid "Support"
 msgstr "지원"
@@ -1359,11 +1359,11 @@ msgstr "지원"
 msgid "update locked"
 msgstr "업데이트 잠김"
 
-#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1052
+#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1049
 msgid "Section:"
 msgstr "섹션:"
 
-#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1053
+#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1050
 msgid "Tags:"
 msgstr "태그:"
 
@@ -1500,8 +1500,8 @@ msgid "Upload a zip file"
 msgstr "테마 zip 파일 올리기"
 
 #: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1622
-#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:479
-#: src/Process/Backend/BlogPref.php:799 src/Process/Backend/Category.php:233
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:480
+#: src/Process/Backend/BlogPref.php:806 src/Process/Backend/Category.php:233
 #: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:769
@@ -1533,8 +1533,8 @@ msgstr "당신의 비밀번호:"
 msgid "Password"
 msgstr "비밀번호"
 
-#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1179
-#: src/Process/Backend/Media.php:540
+#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1176
+#: src/Process/Backend/Media.php:552
 msgid "Upload"
 msgstr "올리기"
 
@@ -1569,9 +1569,9 @@ msgid "Configure \"%s\""
 msgstr "구성 \"%s\""
 
 #: src/Core/Backend/ModulesList.php:1773 src/Process/Backend/Blog.php:193
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:921
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:577 src/Process/Backend/MediaItem.php:1102
+#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1095
 #: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:130
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:614
 #: src/Process/Backend/UserPreferences.php:794
@@ -1579,8 +1579,8 @@ msgstr "구성 \"%s\""
 msgid "Back"
 msgstr "뒤로"
 
-#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1009
-#: src/Core/Backend/Page.php:1174 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1006
+#: src/Core/Backend/Page.php:1171 src/Core/Upgrade/Notices.php:34
 #: src/Process/Backend/Home.php:263
 msgid "Error:"
 msgstr "오류 :"
@@ -1655,328 +1655,328 @@ msgstr "안전 모드에 있습니다. 모든 플러그인이 일시적으로 �
 msgid "Thank you for using %s."
 msgstr "%s를 이용해주셔서 고맙습니다."
 
-#: src/Core/Backend/Page.php:376 src/Core/Backend/Page.php:496
-#: src/Core/Upgrade/Page.php:189
+#: src/Core/Backend/Page.php:375 src/Core/Backend/Page.php:494
+#: src/Core/Upgrade/Page.php:188
 msgid "Page top"
 msgstr "페이지 상단"
 
-#: src/Core/Backend/Page.php:692 src/Core/Backend/Page.php:693
-#: src/Core/Upgrade/Page.php:233 src/Core/Upgrade/Page.php:234
+#: src/Core/Backend/Page.php:689 src/Core/Backend/Page.php:690
+#: src/Core/Upgrade/Page.php:232 src/Core/Upgrade/Page.php:233
 msgid "Go to dashboard"
 msgstr "대시보드로 이동"
 
-#: src/Core/Backend/Page.php:852 src/Core/Upgrade/Page.php:306
+#: src/Core/Backend/Page.php:849 src/Core/Upgrade/Page.php:305
 msgid "Help about this page"
 msgstr "이 페이지에 대한 도움말"
 
-#: src/Core/Backend/Page.php:857 src/Core/Upgrade/Page.php:311
+#: src/Core/Backend/Page.php:854 src/Core/Upgrade/Page.php:310
 #, php-format
 msgid "See also %s"
 msgstr "%s참조"
 
-#: src/Core/Backend/Page.php:857 src/Core/Upgrade/Page.php:311
+#: src/Core/Backend/Page.php:854 src/Core/Upgrade/Page.php:310
 msgid "the global help"
 msgstr "글로벌 도움말"
 
-#: src/Core/Backend/Page.php:991
+#: src/Core/Backend/Page.php:988
 msgid "uncover"
 msgstr "드러내기"
 
-#: src/Core/Backend/Page.php:995
+#: src/Core/Backend/Page.php:992
 msgid "hide"
 msgstr "감추기"
 
-#: src/Core/Backend/Page.php:999
+#: src/Core/Backend/Page.php:996
 msgid "Need help?"
 msgstr "도움이 필요하신가요?"
 
-#: src/Core/Backend/Page.php:1000
+#: src/Core/Backend/Page.php:997
 msgid "new window"
 msgstr "새 창"
 
-#: src/Core/Backend/Page.php:1001
+#: src/Core/Backend/Page.php:998
 msgid "Hide"
 msgstr "숨기기"
 
-#: src/Core/Backend/Page.php:1002
+#: src/Core/Backend/Page.php:999
 msgid "Select:"
 msgstr "선택합니다:"
 
-#: src/Core/Backend/Page.php:1003
+#: src/Core/Backend/Page.php:1000
 msgid "No selection"
 msgstr "선택 없음"
 
-#: src/Core/Backend/Page.php:1004
+#: src/Core/Backend/Page.php:1001
 msgid "Select all"
 msgstr "모두 선택"
 
-#: src/Core/Backend/Page.php:1005
+#: src/Core/Backend/Page.php:1002
 msgid "Invert selection"
 msgstr "선택사항 뒤집기"
 
-#: src/Core/Backend/Page.php:1010 src/Process/Backend/Post.php:440
+#: src/Core/Backend/Page.php:1007 src/Process/Backend/Post.php:440
 #: src/Process/Backend/Post.php:556
 msgid "Entry has been successfully created."
 msgstr "글꼭지가 성공적으로 생성되었습니다."
 
-#: src/Core/Backend/Page.php:1011
+#: src/Core/Backend/Page.php:1008
 msgid "Edit entry"
 msgstr "항목 수정"
 
-#: src/Core/Backend/Page.php:1012
+#: src/Core/Backend/Page.php:1009
 msgid "view entry"
 msgstr "글꼭지 보기"
 
-#: src/Core/Backend/Page.php:1013
+#: src/Core/Backend/Page.php:1010
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "선택한 항목을 삭제하시겠습니까 (%s)?"
 
-#: src/Core/Backend/Page.php:1014
+#: src/Core/Backend/Page.php:1011
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "선택한 미디어를 삭제하시겠습니까 (%d)?"
 
-#: src/Core/Backend/Page.php:1015
+#: src/Core/Backend/Page.php:1012
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "선택한 카테고리를 삭제하시겠습니까 (%s)?"
 
-#: src/Core/Backend/Page.php:1016
+#: src/Core/Backend/Page.php:1013
 msgid "Are you sure you want to delete this entry?"
 msgstr "이 글꼭지를 삭제하시려는 게 확실합니까 ?"
 
-#: src/Core/Backend/Page.php:1017
+#: src/Core/Backend/Page.php:1014
 msgid "Click here to unlock the field"
 msgstr "필드를 잠금 해제하려면 여기를 클릭하세요."
 
-#: src/Core/Backend/Page.php:1018
+#: src/Core/Backend/Page.php:1015
 msgid "Are you sure you want to delete all spams?"
 msgstr "모든 스팸을 삭제하시겠습니까?"
 
-#: src/Core/Backend/Page.php:1019
+#: src/Core/Backend/Page.php:1016
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "선택한 댓글을 삭제하시겠습니까 (%s)?"
 
-#: src/Core/Backend/Page.php:1020
+#: src/Core/Backend/Page.php:1017
 msgid "Are you sure you want to delete this comment?"
 msgstr "이 댓글을 삭제하시려는 게 확실합니까 ?"
 
-#: src/Core/Backend/Page.php:1021
+#: src/Core/Backend/Page.php:1018
 msgid "Users with posts cannot be deleted."
 msgstr "게시물이 있는 사용자는 삭제할 수 없습니다."
 
-#: src/Core/Backend/Page.php:1022
+#: src/Core/Backend/Page.php:1019
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "선택한 사용자를 삭제하시겠습니까 (%s)?"
 
-#: src/Core/Backend/Page.php:1023
+#: src/Core/Backend/Page.php:1020
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "선택한 블로그(%s)를 삭제하시겠습니까?"
 
-#: src/Core/Backend/Page.php:1024
+#: src/Core/Backend/Page.php:1021
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "\"%s\" 분류를 삭제하시려는 게 확실합니까 ?"
 
-#: src/Core/Backend/Page.php:1025
+#: src/Core/Backend/Page.php:1022
 msgid "Are you sure you want to reorder all categories?"
 msgstr "모든 카테고리를 재정렬하시겠습니까?"
 
-#: src/Core/Backend/Page.php:1026
+#: src/Core/Backend/Page.php:1023
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "\"%s\" 미디어 파일을 삭제하시려는 게 확실합니까 ?"
 
-#: src/Core/Backend/Page.php:1027
+#: src/Core/Backend/Page.php:1024
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "\"%s\" 디렉토리를 제거하시겠습니까?"
 
-#: src/Core/Backend/Page.php:1028
+#: src/Core/Backend/Page.php:1025
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "압축파일을 현재 폴더에 푸시려는 게 확실합니까 ?"
 
-#: src/Core/Backend/Page.php:1029
+#: src/Core/Backend/Page.php:1026
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "\"%s\" 첨부파일을 삭제하시려는 게 확실합니까 ?"
 
-#: src/Core/Backend/Page.php:1030
+#: src/Core/Backend/Page.php:1027
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "\"%s\" 언어를 삭제하시려는 게 확실합니까 ?"
 
-#: src/Core/Backend/Page.php:1031
+#: src/Core/Backend/Page.php:1028
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "\"%s\" 플러그인을 삭제하시려는 게 확실합니까 ?"
 
-#: src/Core/Backend/Page.php:1032
+#: src/Core/Backend/Page.php:1029
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "선택한 플러그인을 삭제하시겠습니까?"
 
-#: src/Core/Backend/Page.php:1033
+#: src/Core/Backend/Page.php:1030
 msgid "Use this theme"
 msgstr "이 테마를 사용"
 
-#: src/Core/Backend/Page.php:1034
+#: src/Core/Backend/Page.php:1031
 msgid "Remove this theme"
 msgstr "이 테마를 지움"
 
-#: src/Core/Backend/Page.php:1035
+#: src/Core/Backend/Page.php:1032
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "\"%s\" 테마를 삭제하시려는 게 확실합니까 ?"
 
-#: src/Core/Backend/Page.php:1036
+#: src/Core/Backend/Page.php:1033
 msgid "Are you sure you want to delete selected themes?"
 msgstr "선택한 테마를 삭제하시겠습니까?"
 
-#: src/Core/Backend/Page.php:1037
+#: src/Core/Backend/Page.php:1034
 msgid "Are you sure you want to delete this backup?"
 msgstr "이 백업을 삭제하시겠습니까?"
 
-#: src/Core/Backend/Page.php:1038
+#: src/Core/Backend/Page.php:1035
 msgid "Are you sure you want to revert to this backup?"
 msgstr "이 백업으로 되돌리시겠습니까?"
 
-#: src/Core/Backend/Page.php:1039
+#: src/Core/Backend/Page.php:1036
 msgid "Zip file content"
 msgstr "Zip 파일 내용보기"
 
-#: src/Core/Backend/Page.php:1040
+#: src/Core/Backend/Page.php:1037
 msgid "HTML markup validator"
 msgstr "HTML 오류점검"
 
-#: src/Core/Backend/Page.php:1041
+#: src/Core/Backend/Page.php:1038
 msgid "HTML content is valid."
 msgstr "HTML 오류가 발견되지 않았습니다."
 
-#: src/Core/Backend/Page.php:1042
+#: src/Core/Backend/Page.php:1039
 msgid "There are HTML markup errors."
 msgstr "HTML 오류가 있습니다."
 
-#: src/Core/Backend/Page.php:1043
+#: src/Core/Backend/Page.php:1040
 msgid "Attention: an audit of a content not yet registered."
 msgstr "주의: 아직 등록되지 않은 콘텐츠에 대한 감사입니다."
 
-#: src/Core/Backend/Page.php:1044
+#: src/Core/Backend/Page.php:1041
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "저장하지 않은 변경 내용이 있습니다. 글 형식을 전환하면 이러한 변경 내용이 손실됩니다. 그래도 계속 진행하시겠습니까?"
 
-#: src/Core/Backend/Page.php:1045
+#: src/Core/Backend/Page.php:1042
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "경고: 글 형식을 변경해도 기존 콘텐츠는 변환되지 않습니다. 직접 새 형식을 적용해야 합니다. 그래도 계속 진행하시겠습니까?"
 
-#: src/Core/Backend/Page.php:1046
+#: src/Core/Backend/Page.php:1043
 msgid "Loading enhanced uploader, please wait."
 msgstr "향상된 업로더를 로드하는 중입니다. 잠시만 기다려주세요."
 
-#: src/Core/Backend/Page.php:1051
+#: src/Core/Backend/Page.php:1048
 msgid "Help:"
 msgstr "도움말:"
 
-#: src/Core/Backend/Page.php:1055
+#: src/Core/Backend/Page.php:1052
 msgid "Hide this notice"
 msgstr "이 알림 숨기기"
 
-#: src/Core/Backend/Page.php:1057
+#: src/Core/Backend/Page.php:1054
 msgid "Show password"
 msgstr "비밀번호 표시"
 
-#: src/Core/Backend/Page.php:1058
+#: src/Core/Backend/Page.php:1055
 msgid "Hide password"
 msgstr "비밀번호 숨기기"
 
-#: src/Core/Backend/Page.php:1060
+#: src/Core/Backend/Page.php:1057
 msgid "Reset to now"
 msgstr "지금으로 재설정"
 
-#: src/Core/Backend/Page.php:1062
+#: src/Core/Backend/Page.php:1059
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "이 닷클리어 대시보드에서 광고 차단기(고스터리, 애드블록 플러스, 유블록 오리진, …)가 감지되었으며 일부 기능을 방해할 수 있습니다. 이 경우 비활성화해야 합니다. 이 감지는 환경설정에서 비활성화할 수 있습니다."
 
-#: src/Core/Backend/Page.php:1117
+#: src/Core/Backend/Page.php:1114
 msgid "You have unsaved changes."
 msgstr "변경하신 내용을 저장하지 않았습니다."
 
-#: src/Core/Backend/Page.php:1118
+#: src/Core/Backend/Page.php:1115
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "배터리 충전량이 부족하고(%d%) 저장하지 않은 변경 사항이 있는 경우 저장해야 합니다."
 
-#: src/Core/Backend/Page.php:1165
+#: src/Core/Backend/Page.php:1162
 msgid "Temporarily activate enhanced uploader"
 msgstr "복수파일 동시전송 모드로 전환"
 
-#: src/Core/Backend/Page.php:1166
+#: src/Core/Backend/Page.php:1163
 msgid "Temporarily disable enhanced uploader"
 msgstr "기본 모드로 전환"
 
-#: src/Core/Backend/Page.php:1170
+#: src/Core/Backend/Page.php:1167
 msgid "Limit exceeded."
 msgstr "한계 초과됨."
 
-#: src/Core/Backend/Page.php:1171
+#: src/Core/Backend/Page.php:1168
 msgid "File size exceeds allowed limit."
 msgstr "파일 크기가 허용 한계를 넘습니다."
 
-#: src/Core/Backend/Page.php:1172
+#: src/Core/Backend/Page.php:1169
 msgid "Canceled."
 msgstr "취소됨."
 
-#: src/Core/Backend/Page.php:1173
+#: src/Core/Backend/Page.php:1170
 msgid "HTTP Error:"
 msgstr "HTTP 오류 :"
 
-#: src/Core/Backend/Page.php:1175 src/Process/Backend/Media.php:521
+#: src/Core/Backend/Page.php:1172 src/Process/Backend/Media.php:533
 msgid "Choose file"
 msgstr "파일 선택"
 
-#: src/Core/Backend/Page.php:1176 src/Process/Backend/Media.php:522
+#: src/Core/Backend/Page.php:1173 src/Process/Backend/Media.php:534
 msgid "Choose files"
 msgstr "파일 선택"
 
-#: src/Core/Backend/Page.php:1177 src/Process/Backend/LinkPopup.php:73
-#: src/Process/Backend/Media.php:230 src/Process/Backend/MediaItem.php:527
+#: src/Core/Backend/Page.php:1174 src/Process/Backend/LinkPopup.php:73
+#: src/Process/Backend/Media.php:242 src/Process/Backend/MediaItem.php:527
 #: src/Process/Backend/MediaItem.php:738 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "취소"
 
-#: src/Core/Backend/Page.php:1178
+#: src/Core/Backend/Page.php:1175
 msgid "Clean"
 msgstr "목록 비우기"
 
-#: src/Core/Backend/Page.php:1180 src/Process/Backend/MediaItem.php:1073
+#: src/Core/Backend/Page.php:1177 src/Process/Backend/MediaItem.php:1066
 msgid "Send"
 msgstr "보내기"
 
-#: src/Core/Backend/Page.php:1181
+#: src/Core/Backend/Page.php:1178
 msgid "File successfully uploaded."
 msgstr "파일 올리기 성공."
 
-#: src/Core/Backend/Page.php:1182
+#: src/Core/Backend/Page.php:1179
 msgid "No file in queue."
 msgstr "올릴 준비가 된 파일이 없습니다."
 
-#: src/Core/Backend/Page.php:1183
+#: src/Core/Backend/Page.php:1180
 msgid "1 file in queue."
 msgstr "1 파일 올릴 준비됨."
 
-#: src/Core/Backend/Page.php:1184
+#: src/Core/Backend/Page.php:1181
 #, php-format
 msgid "%d files in queue."
 msgstr "%d 파일 올릴 준비됨."
 
-#: src/Core/Backend/Page.php:1185
+#: src/Core/Backend/Page.php:1182
 msgid "Queue error:"
 msgstr "준비중 오류 :"
 
-#: src/Core/Backend/Page.php:1228
+#: src/Core/Backend/Page.php:1225
 msgid "Cancel filters and display options"
 msgstr "필터 및 표시 옵션 취소"
 
@@ -2432,44 +2432,44 @@ msgstr "PostgreSQL 버전은 %s (%s 또는 이전 버전 필요)입니다."
 msgid "No log message"
 msgstr "로그 메시지 없음"
 
-#: src/Core/Media.php:176
+#: src/Core/Media.php:191
 msgid "No blog defined."
 msgstr "정의된 블로그가 없습니다."
 
-#: src/Core/Media.php:191 src/Process/Backend/Home.php:252
+#: src/Core/Media.php:206 src/Process/Backend/Home.php:252
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "about:config \"public_path\"에 설정된 위치에 쓰기 가능한 디렉터리 /public/이 없습니다. 충분한 권한으로 이 디렉터리를 만들거나 이 설정을 변경해야 합니다."
 
-#: src/Core/Media.php:194 src/Process/Backend/Home.php:256
+#: src/Core/Media.php:209 src/Process/Backend/Home.php:256
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "미디어 관리자를 위한 쓰기 가능한 루트 디렉터리가 없습니다. 관리자에게 문의해야 합니다."
 
-#: src/Core/Media.php:902 src/Core/Media.php:929
+#: src/Core/Media.php:937 src/Core/Media.php:964
 msgid "You are not a super administrator."
 msgstr "블로그 최상위관리자가 아닙니다."
 
-#: src/Core/Media.php:1016 src/Core/Media.php:1106 src/Core/Media.php:1185
-#: src/Core/Media.php:1201 src/Core/Media.php:1219
+#: src/Core/Media.php:1051 src/Core/Media.php:1141 src/Core/Media.php:1220
+#: src/Core/Media.php:1236 src/Core/Media.php:1254
 msgid "Permission denied."
 msgstr "권한이 없습니다."
 
-#: src/Core/Media.php:1119
+#: src/Core/Media.php:1154
 msgid "You are not the file owner."
 msgstr "당신은 파일 주인이 아닙니다."
 
-#: src/Core/Media.php:1134
+#: src/Core/Media.php:1169
 msgid "This file is not allowed."
 msgstr "이 파일은 허용되지 않습니다."
 
-#: src/Core/Media.php:1138
+#: src/Core/Media.php:1173
 msgid "New file already exists."
 msgstr "새 파일이 이미 있습니다."
 
-#: src/Core/Media.php:1239
+#: src/Core/Media.php:1274
 msgid "File does not exist in the database."
 msgstr "파일이 데이터베이스에 없습니다."
 
-#: src/Core/Media.php:1285
+#: src/Core/Media.php:1319
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "압축풀기 목표폴더 %s가 이미 존재합니다."
@@ -3203,7 +3203,7 @@ msgid "New blog"
 msgstr "새 블로그"
 
 #: src/Process/Backend/Blog.php:97 src/Process/Backend/BlogDel.php:90
-#: src/Process/Backend/BlogPref.php:432 src/Process/Backend/Blogs.php:100
+#: src/Process/Backend/BlogPref.php:433 src/Process/Backend/Blogs.php:100
 #: src/Process/Backend/Langs.php:215 src/Process/Backend/Plugin.php:134
 #: src/Process/Backend/Plugins.php:105 src/Process/Backend/Update.php:36
 #: src/Process/Backend/Update.php:54 src/Process/Backend/Update.php:99
@@ -3213,32 +3213,32 @@ msgstr "새 블로그"
 msgid "System"
 msgstr "시스템관리"
 
-#: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:800
+#: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:807
 msgid "Blog ID:"
 msgstr "블로그 아이디:"
 
-#: src/Process/Backend/Blog.php:133 src/Process/Backend/BlogPref.php:802
+#: src/Process/Backend/Blog.php:133 src/Process/Backend/BlogPref.php:809
 #: src/Process/Backend/User.php:264
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "최소 2자 이상의 글자, 숫자 또는 기호들의 조합."
 
-#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:480
+#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:481
 msgid "Blog name:"
 msgstr "블로그 이름"
 
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:810
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:817
 msgid "Blog URL"
 msgstr "블로그 URL"
 
-#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:805
+#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:812
 msgid "Blog URL:"
 msgstr "블로그 URL"
 
-#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:490
+#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:491
 msgid "Blog description:"
 msgstr "블로그 간략 소개:"
 
-#: src/Process/Backend/Blog.php:191 src/Process/Backend/Media.php:465
+#: src/Process/Backend/Blog.php:191 src/Process/Backend/Media.php:477
 msgid "Create"
 msgstr "만들기"
 
@@ -3268,7 +3268,7 @@ msgstr "지금 %s 블로그를 삭제하시려 합니다. 블로그를 삭제하
 msgid "Please give your password to confirm the blog deletion."
 msgstr "블로그 삭제를 확정하려면 비밀번호를 입력하세요."
 
-#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:929
+#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:936
 msgid "Delete this blog"
 msgstr "이 블로그를 삭제하기"
 
@@ -3316,7 +3316,7 @@ msgstr "H3"
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:990
+#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:997
 #: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:615
 #: src/Process/Backend/MediaItem.php:617
 msgid "(none)"
@@ -3417,384 +3417,392 @@ msgstr "이 블로그 ID는 이미 사용 중입니다."
 msgid "Invalid language code"
 msgstr "잘못된 언어 코드"
 
-#: src/Process/Backend/BlogPref.php:401 src/Process/Backend/BlogPref.php:470
+#: src/Process/Backend/BlogPref.php:402 src/Process/Backend/BlogPref.php:471
 msgid "Blog has been successfully updated."
 msgstr "블로그가 성공적으로 갱신되었습니다."
 
-#: src/Process/Backend/BlogPref.php:449
+#: src/Process/Backend/BlogPref.php:450
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "경고: 특별한 구성을 제외하고는 일반적으로 PATH_INFO 모드에서 블로그 URL 뒤에 \"/\"를 넣는 것이 좋습니다."
 
-#: src/Process/Backend/BlogPref.php:450
+#: src/Process/Backend/BlogPref.php:451
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "경고: 특별한 구성을 제외하고는 일반적으로 쿼리 문자열 모드에서 블로그 URL에 후행 \"?\"를 넣는 것이 좋습니다."
 
-#: src/Process/Backend/BlogPref.php:466
+#: src/Process/Backend/BlogPref.php:467
 msgid "Blog has been successfully created."
 msgstr "블로그가 성공적으로 만들어졌습니다."
 
-#: src/Process/Backend/BlogPref.php:474
+#: src/Process/Backend/BlogPref.php:475
 msgid "Parameters"
 msgstr "설정사항"
 
-#: src/Process/Backend/BlogPref.php:475 src/Process/Backend/Media.php:572
+#: src/Process/Backend/BlogPref.php:476 src/Process/Backend/Media.php:584
 msgid "Blog parameters"
 msgstr "블로그 매개 변수"
 
-#: src/Process/Backend/BlogPref.php:477 src/Process/Backend/BlogPref.php:797
+#: src/Process/Backend/BlogPref.php:478 src/Process/Backend/BlogPref.php:804
 msgid "Blog details"
 msgstr "블로그 상세설정"
 
-#: src/Process/Backend/BlogPref.php:503
+#: src/Process/Backend/BlogPref.php:504
 msgid "Blog status:"
 msgstr "블로그 공개상태:"
 
-#: src/Process/Backend/BlogPref.php:519 src/Process/Backend/BlogPref.php:861
+#: src/Process/Backend/BlogPref.php:520 src/Process/Backend/BlogPref.php:868
 msgid "Blog configuration"
 msgstr "블로그 설정:"
 
-#: src/Process/Backend/BlogPref.php:520
+#: src/Process/Backend/BlogPref.php:521
 msgid "Blog editor name:"
 msgstr "블로그 편집자 성명:"
 
-#: src/Process/Backend/BlogPref.php:523
+#: src/Process/Backend/BlogPref.php:524
 msgid "Default language:"
 msgstr "기본 설정 언어"
 
-#: src/Process/Backend/BlogPref.php:526
+#: src/Process/Backend/BlogPref.php:527
 msgid "Blog timezone:"
 msgstr "블로그 시간대:"
 
-#: src/Process/Backend/BlogPref.php:529
+#: src/Process/Backend/BlogPref.php:530
 msgid "Copyright notice:"
 msgstr "저작권관련 표시사항:"
 
-#: src/Process/Backend/BlogPref.php:542 src/Process/Backend/Comments.php:118
+#: src/Process/Backend/BlogPref.php:543 src/Process/Backend/Comments.php:118
 #: src/Process/Backend/Comments.php:123
 msgid "Comments and trackbacks"
 msgstr "댓글과 글걸이"
 
-#: src/Process/Backend/BlogPref.php:548 src/Process/Backend/Post.php:679
+#: src/Process/Backend/BlogPref.php:549 src/Process/Backend/Post.php:679
 msgid "Accept comments"
 msgstr "댓글 허용"
 
-#: src/Process/Backend/BlogPref.php:551
+#: src/Process/Backend/BlogPref.php:552
 msgid "Moderate comments"
 msgstr "점검된 댓글만 공개"
 
-#: src/Process/Backend/BlogPref.php:553
+#: src/Process/Backend/BlogPref.php:554
 #, php-format
 msgid "Leave comments open for %s days"
 msgstr "%s 일 동안 댓글을 열어 두십시오."
 
-#: src/Process/Backend/BlogPref.php:564 src/Process/Backend/BlogPref.php:592
+#: src/Process/Backend/BlogPref.php:565 src/Process/Backend/BlogPref.php:593
 msgid "No limit: leave blank."
 msgstr "제한 없음: 비워 두세요."
 
-#: src/Process/Backend/BlogPref.php:567
+#: src/Process/Backend/BlogPref.php:568
 msgid "Wiki syntax for comments"
 msgstr "댓글에 위키 구문법 허용"
 
-#: src/Process/Backend/BlogPref.php:570
+#: src/Process/Backend/BlogPref.php:571
 msgid "Preview of comment before submit is not mandatory"
 msgstr "제출 전 댓글 미리보기는 필수는 아닙니다."
 
-#: src/Process/Backend/BlogPref.php:576 src/Process/Backend/Post.php:687
+#: src/Process/Backend/BlogPref.php:577 src/Process/Backend/Post.php:687
 msgid "Accept trackbacks"
 msgstr "글걸이 허용"
 
-#: src/Process/Backend/BlogPref.php:579
+#: src/Process/Backend/BlogPref.php:580
 msgid "Moderate trackbacks"
 msgstr "점검된 글걸이만 공개"
 
-#: src/Process/Backend/BlogPref.php:581
+#: src/Process/Backend/BlogPref.php:582
 #, php-format
 msgid "Leave trackbacks open for %s days"
 msgstr "%s 일 동안 트랙백을 열어 둡니다."
 
-#: src/Process/Backend/BlogPref.php:595
+#: src/Process/Backend/BlogPref.php:596
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "(검색로봇이 댓글에 링크된 사이트와 이 블로그를 연관짓지 않도록) 댓글과 글걸이의 링크에 \"nofollow\"관계 추가"
 
-#: src/Process/Backend/BlogPref.php:599
+#: src/Process/Backend/BlogPref.php:600
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr "일정 기간 동안 새 글이 없는 경우 블로그의 모든 댓글과 트랙백을 비활성화합니다:"
 
-#: src/Process/Backend/BlogPref.php:606
+#: src/Process/Backend/BlogPref.php:607
 msgid "Blog presentation"
 msgstr "블로그 보임방식"
 
-#: src/Process/Backend/BlogPref.php:609
+#: src/Process/Backend/BlogPref.php:610
 msgid "Date format:"
 msgstr "날짜 형식:"
 
-#: src/Process/Backend/BlogPref.php:611
+#: src/Process/Backend/BlogPref.php:612
 msgid "Pattern of date"
 msgstr "날짜 패턴"
 
-#: src/Process/Backend/BlogPref.php:613 src/Process/Backend/BlogPref.php:619
-#: src/Process/Backend/BlogPref.php:866
+#: src/Process/Backend/BlogPref.php:614 src/Process/Backend/BlogPref.php:620
+#: src/Process/Backend/BlogPref.php:873
 msgid "Sample:"
 msgstr "샘플:"
 
-#: src/Process/Backend/BlogPref.php:615
+#: src/Process/Backend/BlogPref.php:616
 msgid "Time format:"
 msgstr "시간 형식:"
 
-#: src/Process/Backend/BlogPref.php:617
+#: src/Process/Backend/BlogPref.php:618
 msgid "Pattern of time"
 msgstr "시간 패턴"
 
-#: src/Process/Backend/BlogPref.php:623
+#: src/Process/Backend/BlogPref.php:624
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr "표준 스타일시트(미디어 정렬에 사용됨)를 로드하지 않음"
 
-#: src/Process/Backend/BlogPref.php:627
+#: src/Process/Backend/BlogPref.php:628
 msgid "Display smilies on entries and comments"
 msgstr "글꼭지과 댓글에 이모티콘 보이기"
 
-#: src/Process/Backend/BlogPref.php:631
+#: src/Process/Backend/BlogPref.php:632
 msgid "Disable internal search system"
 msgstr "내부 검색 시스템 비활성화"
 
-#: src/Process/Backend/BlogPref.php:638
+#: src/Process/Backend/BlogPref.php:639
 #, php-format
 msgid "Display %s entries on first page"
 msgstr "첫 페이지에 %s 항목 표시"
 
-#: src/Process/Backend/BlogPref.php:650
+#: src/Process/Backend/BlogPref.php:651
 #, php-format
 msgid "Display %s entries per page"
 msgstr "한 페이지에 글꼭지 %s개씩 보이기"
 
-#: src/Process/Backend/BlogPref.php:662
+#: src/Process/Backend/BlogPref.php:663
 #, php-format
 msgid "Display %s entries per feed"
 msgstr "글꼭지 타래소식 하나에 글꼭지 %s개씩 보이기"
 
-#: src/Process/Backend/BlogPref.php:674
+#: src/Process/Backend/BlogPref.php:675
 #, php-format
 msgid "Display %s comments per feed"
 msgstr "댓글 타래소식 하나에 댓글 %s개씩 보이기"
 
-#: src/Process/Backend/BlogPref.php:687
+#: src/Process/Backend/BlogPref.php:688
 msgid "Truncate feeds"
 msgstr "글꼭지 타래소식에 글꼭지 일부만 보냄"
 
-#: src/Process/Backend/BlogPref.php:691
+#: src/Process/Backend/BlogPref.php:692
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "카테고리 페이지 및 카테고리 글 피드에 하위 카테고리 포함하기"
 
-#: src/Process/Backend/BlogPref.php:699
+#: src/Process/Backend/BlogPref.php:700
 msgid "Display an entry as static home page"
 msgstr "항목을 정적 홈 페이지로 표시"
 
-#: src/Process/Backend/BlogPref.php:701
+#: src/Process/Backend/BlogPref.php:702
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "항목 URL(해당 콘텐츠는 정적 홈 페이지에 사용됩니다.)"
 
-#: src/Process/Backend/BlogPref.php:703
+#: src/Process/Backend/BlogPref.php:704
 msgid "Choose an entry"
 msgstr "항목 선택"
 
-#: src/Process/Backend/BlogPref.php:705
+#: src/Process/Backend/BlogPref.php:706
 msgid "Leave empty to use the default presentation."
 msgstr "기본 프레젠테이션을 사용하려면 비워 둡니다."
 
-#: src/Process/Backend/BlogPref.php:709
+#: src/Process/Backend/BlogPref.php:710
 msgid "Media and images"
 msgstr "미디어와 이미지"
 
-#: src/Process/Backend/BlogPref.php:713
+#: src/Process/Backend/BlogPref.php:714
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "생성된 이미지 크기(최대 크기(픽셀))"
 
-#: src/Process/Backend/BlogPref.php:715
+#: src/Process/Backend/BlogPref.php:717
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr "아래에서 현재 설정을 변경하면 이제 미디어 매니저의 모든 새 이미지에 해당 설정이 적용됩니다."
 
-#: src/Process/Backend/BlogPref.php:716
+#: src/Process/Backend/BlogPref.php:718
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "설치 시 다른 블로그와 공유할 경우 주의하세요."
 
-#: src/Process/Backend/BlogPref.php:717
+#: src/Process/Backend/BlogPref.php:719
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "기본 크기를 사용하려면 -1을 설정하고, 이 썸네일 크기를 무시하려면 0을 설정합니다(이미지만 해당)."
 
-#: src/Process/Backend/BlogPref.php:718
+#: src/Process/Backend/BlogPref.php:720
 msgid "Thumbnail"
 msgstr "썸네일"
 
-#: src/Process/Backend/BlogPref.php:726
+#: src/Process/Backend/BlogPref.php:728
 msgid "Small"
 msgstr "Small"
 
-#: src/Process/Backend/BlogPref.php:734
+#: src/Process/Backend/BlogPref.php:736
 msgid "Medium"
 msgstr "Medium"
 
-#: src/Process/Backend/BlogPref.php:742
+#: src/Process/Backend/BlogPref.php:744
+msgid "Thumbnail character prefix:"
+msgstr "썸네일 문자 접두사:"
+
+#: src/Process/Backend/BlogPref.php:747
+msgid "Leave empty to use the default one (.)"
+msgstr "기본값을 사용하려면 비워 둡니다(.)"
+
+#: src/Process/Backend/BlogPref.php:749
 msgid "Default size of the inserted video (in pixels)"
 msgstr "삽입된 동영상의 기본 크기(픽셀 단위)"
 
-#: src/Process/Backend/BlogPref.php:743
+#: src/Process/Backend/BlogPref.php:750
 msgid "Width"
 msgstr "너비"
 
-#: src/Process/Backend/BlogPref.php:751
+#: src/Process/Backend/BlogPref.php:758
 msgid "Height"
 msgstr "높이"
 
-#: src/Process/Backend/BlogPref.php:761
+#: src/Process/Backend/BlogPref.php:768
 msgid "Default image insertion attributes"
 msgstr "기본 이미지 삽입 속성"
 
-#: src/Process/Backend/BlogPref.php:762
+#: src/Process/Backend/BlogPref.php:769
 msgid "Inserted image legend:"
 msgstr "이미지 범례를 삽입했습니다:"
 
-#: src/Process/Backend/BlogPref.php:766
+#: src/Process/Backend/BlogPref.php:773
 msgid "Use original media date if possible"
 msgstr "가능하면 원본 미디어 날짜 사용"
 
-#: src/Process/Backend/BlogPref.php:769
+#: src/Process/Backend/BlogPref.php:776
 msgid "Do not display date if alone in title"
 msgstr "제목에 날짜만 있는 경우 날짜를 표시하지 않습니다."
 
-#: src/Process/Backend/BlogPref.php:770
+#: src/Process/Backend/BlogPref.php:777
 msgid "It is retrieved from the picture's metadata."
 msgstr "사진의 메타데이터에서 검색됩니다."
 
-#: src/Process/Backend/BlogPref.php:772
+#: src/Process/Backend/BlogPref.php:779
 msgid "Size of inserted image:"
 msgstr "삽입된 이미지의 크기입니다:"
 
-#: src/Process/Backend/BlogPref.php:779
+#: src/Process/Backend/BlogPref.php:786
 msgid "Image alignment:"
 msgstr "이미지 정렬:"
 
-#: src/Process/Backend/BlogPref.php:784
+#: src/Process/Backend/BlogPref.php:791
 msgid "Insert a link to the original image"
 msgstr "원본 이미지에 대한 링크 삽입"
 
-#: src/Process/Backend/BlogPref.php:785
+#: src/Process/Backend/BlogPref.php:792
 msgid "Image legend and alternate text:"
 msgstr "이미지 범례 및 대체 텍스트:"
 
-#: src/Process/Backend/BlogPref.php:794
+#: src/Process/Backend/BlogPref.php:801
 msgid "Advanced parameters"
 msgstr "고급 매개 변수"
 
-#: src/Process/Backend/BlogPref.php:803
+#: src/Process/Backend/BlogPref.php:810
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "블로그 아이디를 바꾸시면, 공개 index.php 파일내용을 수정해야할 수도 있습니다."
 
-#: src/Process/Backend/BlogPref.php:814
+#: src/Process/Backend/BlogPref.php:821
 msgid "URL scan method:"
 msgstr "URL 읽기 방식:"
 
-#: src/Process/Backend/BlogPref.php:837
+#: src/Process/Backend/BlogPref.php:844
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr "블로그의 URL 또는 URL 스캔 방법이 제대로 설정되지 않았을 수 있습니다(<code>%s</code> <strong>%s</strong> 상태 반환)."
 
-#: src/Process/Backend/BlogPref.php:848
+#: src/Process/Backend/BlogPref.php:855
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "블로그의 URL 또는 URL 스캔 방법이 제대로 설정되지 않았을 수 있습니다(<code>%s</code> 는 ATOM 피드를 반환하지 않음)."
 
-#: src/Process/Backend/BlogPref.php:863
+#: src/Process/Backend/BlogPref.php:870
 msgid "New post URL format:"
 msgstr "새 글꼭지 URL 형식"
 
-#: src/Process/Backend/BlogPref.php:866
+#: src/Process/Backend/BlogPref.php:873
 msgid "Dotclear"
 msgstr "도트클리어"
 
-#: src/Process/Backend/BlogPref.php:869
+#: src/Process/Backend/BlogPref.php:876
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "블로그의 노트 제목을 위한 HTML 태그입니다:"
 
-#: src/Process/Backend/BlogPref.php:876
+#: src/Process/Backend/BlogPref.php:883
 msgid "Search engines robots policy"
 msgstr "검색엔진에 대한 정책 설정"
 
-#: src/Process/Backend/BlogPref.php:889
+#: src/Process/Backend/BlogPref.php:896
 msgid "Legacy javascript library"
 msgstr "레거시 자바스크립트 라이브러리"
 
-#: src/Process/Backend/BlogPref.php:892
+#: src/Process/Backend/BlogPref.php:899
 msgid "Load the Legacy JS library"
 msgstr "레거시 JS 라이브러리 로드"
 
-#: src/Process/Backend/BlogPref.php:895
+#: src/Process/Backend/BlogPref.php:902
 msgid "jQuery javascript library"
 msgstr "jQuery 자바스크립트 라이브러리"
 
-#: src/Process/Backend/BlogPref.php:898
+#: src/Process/Backend/BlogPref.php:905
 msgid "Load the jQuery library"
 msgstr "jQuery 라이브러리 로드"
 
-#: src/Process/Backend/BlogPref.php:900
+#: src/Process/Backend/BlogPref.php:907
 msgid "jQuery version to be loaded for this blog:"
 msgstr "이 블로그에 로드할 jQuery 버전입니다:"
 
-#: src/Process/Backend/BlogPref.php:905
+#: src/Process/Backend/BlogPref.php:912
 msgid "Blog security"
 msgstr "블로그 보안"
 
-#: src/Process/Backend/BlogPref.php:908
+#: src/Process/Backend/BlogPref.php:915
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "클릭재킹으로부터 블로그 보호( <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">위키백과</a>참조)"
 
-#: src/Process/Backend/BlogPref.php:913
+#: src/Process/Backend/BlogPref.php:920
 msgid "Plugins parameters"
 msgstr "플러그인 매개변수"
 
-#: src/Process/Backend/BlogPref.php:937
+#: src/Process/Backend/BlogPref.php:944
 msgid "Only superadmin can delete a blog."
 msgstr "슈퍼 관리자만 블로그를 삭제할 수 있습니다."
 
-#: src/Process/Backend/BlogPref.php:951
+#: src/Process/Backend/BlogPref.php:958
 msgid "Users on this blog"
 msgstr "이 블로그의 사용자들"
 
-#: src/Process/Backend/BlogPref.php:954
+#: src/Process/Backend/BlogPref.php:961
 msgid "No users"
 msgstr "사용자 없음"
 
-#: src/Process/Backend/BlogPref.php:995
+#: src/Process/Backend/BlogPref.php:1002
 msgid "Publications on this blog:"
 msgstr "이 블로그의 게시글:"
 
-#: src/Process/Backend/BlogPref.php:1002
+#: src/Process/Backend/BlogPref.php:1009
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1007
+#: src/Process/Backend/BlogPref.php:1014
 msgid "Permissions:"
 msgstr "권한:"
 
-#: src/Process/Backend/BlogPref.php:1010 src/Process/Backend/User.php:321
+#: src/Process/Backend/BlogPref.php:1017 src/Process/Backend/User.php:321
 msgid "Super administrator"
 msgstr "최상위 관리자 (Super administrator)"
 
-#: src/Process/Backend/BlogPref.php:1011
+#: src/Process/Backend/BlogPref.php:1018
 msgid "All rights on all blogs."
 msgstr "모든 블로그에 대한 모든 권리."
 
-#: src/Process/Backend/BlogPref.php:1017
+#: src/Process/Backend/BlogPref.php:1024
 #: src/Process/Backend/UsersActions.php:338
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (참조되지 않은 권한)"
 
-#: src/Process/Backend/BlogPref.php:1021
+#: src/Process/Backend/BlogPref.php:1028
 msgid "All rights on this blog."
 msgstr "이 블로그에 대한 모든 권리."
 
-#: src/Process/Backend/BlogPref.php:1032 src/Process/Backend/User.php:471
+#: src/Process/Backend/BlogPref.php:1039 src/Process/Backend/User.php:471
 msgid "Change permissions"
 msgstr "권한 변경"
 
@@ -4029,7 +4037,7 @@ msgstr "이름 :"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "경고 : 분류URL을 직접 작성하면, 다른 분류와 혼선이 생길 수도 있습니다."
 
-#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1041
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1034
 msgid "Description:"
 msgstr "분류 설명 :"
 
@@ -4369,184 +4377,184 @@ msgstr "링크 언어 :"
 msgid "Insert"
 msgstr "삽입"
 
-#: src/Process/Backend/Media.php:67
+#: src/Process/Backend/Media.php:79
 msgid "Not a valid directory"
 msgstr "유효한 디렉터리가 아닙니다."
 
-#: src/Process/Backend/Media.php:88
+#: src/Process/Backend/Media.php:100
 #, php-format
 msgid "Directory or file \"%s\" already exists."
 msgstr "디렉터리 또는 파일 \"%s\"이 이미 존재합니다."
 
-#: src/Process/Backend/Media.php:95
+#: src/Process/Backend/Media.php:107
 #, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "디렉터리 \"%s\"가 성공적으로 생성되었습니다."
 
-#: src/Process/Backend/Media.php:149
+#: src/Process/Backend/Media.php:161
 msgid "Files have been successfully uploaded."
 msgstr "파일들이 성공적으로 올려졌습니다."
 
-#: src/Process/Backend/Media.php:165
+#: src/Process/Backend/Media.php:177
 #, php-format
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
 msgstr[0] "%d 미디어를 성공적으로 삭제했습니다."
 
-#: src/Process/Backend/Media.php:185
+#: src/Process/Backend/Media.php:197
 msgid "Directory has been successfully removed."
 msgstr "폴더가 성공적으로 제거되었습니다."
 
-#: src/Process/Backend/Media.php:189
+#: src/Process/Backend/Media.php:201
 msgid "File has been successfully removed."
 msgstr "파일이 성공적으로 삭제되었습니다."
 
-#: src/Process/Backend/Media.php:210
+#: src/Process/Backend/Media.php:222
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "디렉토리 \"%s\"가 성공적으로 완료되었습니다."
 
-#: src/Process/Backend/Media.php:222 src/Process/Backend/PostMedia.php:96
+#: src/Process/Backend/Media.php:234 src/Process/Backend/PostMedia.php:96
 msgid "confirm removal"
 msgstr "삭제 확인"
 
-#: src/Process/Backend/Media.php:227
+#: src/Process/Backend/Media.php:239
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "%s을 삭제하시려는 게 확실하십니까?"
 
-#: src/Process/Backend/Media.php:231 src/Process/Backend/PostMedia.php:111
+#: src/Process/Backend/Media.php:243 src/Process/Backend/PostMedia.php:111
 msgid "Yes"
 msgstr "예"
 
-#: src/Process/Backend/Media.php:271
+#: src/Process/Backend/Media.php:283
 msgid "Remove this folder from your favorites"
 msgstr "즐겨찾기에서 이 폴더 제거"
 
-#: src/Process/Backend/Media.php:295
+#: src/Process/Backend/Media.php:307
 msgid "Add this folder to your favorites"
 msgstr "이 폴더를 즐겨찾기에 추가"
 
-#: src/Process/Backend/Media.php:301
+#: src/Process/Backend/Media.php:313
 msgid "Goto recent folder:"
 msgstr "최근 폴더로 이동합니다:"
 
-#: src/Process/Backend/Media.php:334
+#: src/Process/Backend/Media.php:346
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "이 폴더에 쓸 수 있는 충분한 권한이 없습니다."
 
-#: src/Process/Backend/Media.php:348
+#: src/Process/Backend/Media.php:360
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "%s을 클릭하여 파일을 선택합니다."
 
-#: src/Process/Backend/Media.php:351 src/Process/Backend/Media.php:419
+#: src/Process/Backend/Media.php:363 src/Process/Backend/Media.php:431
 msgid "Choose selected medias"
 msgstr "선택한 미디어 선택"
 
-#: src/Process/Backend/Media.php:351
+#: src/Process/Backend/Media.php:363
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "파일을 선택하고 <strong>%s</strong> 버튼을 클릭합니다."
 
-#: src/Process/Backend/Media.php:355 src/Process/Backend/Media.php:368
-#: src/Process/Backend/Media.php:381 src/Process/Backend/MediaItem.php:753
+#: src/Process/Backend/Media.php:367 src/Process/Backend/Media.php:380
+#: src/Process/Backend/Media.php:393 src/Process/Backend/MediaItem.php:753
 msgid "or"
 msgstr "또는"
 
-#: src/Process/Backend/Media.php:355 src/Process/Backend/Media.php:368
-#: src/Process/Backend/Media.php:381
+#: src/Process/Backend/Media.php:367 src/Process/Backend/Media.php:380
+#: src/Process/Backend/Media.php:393
 msgid "upload a new file"
 msgstr "새 파일 업로드"
 
-#: src/Process/Backend/Media.php:362
+#: src/Process/Backend/Media.php:374
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "%s을 클릭하여 %s 항목에 첨부할 파일을 선택합니다."
 
-#: src/Process/Backend/Media.php:376
+#: src/Process/Backend/Media.php:388
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "%s을 클릭하여 항목에 삽입할 파일을 선택합니다."
 
-#: src/Process/Backend/Media.php:394 src/Process/Backend/Media.php:395
-#: src/Process/Backend/Media.php:396
+#: src/Process/Backend/Media.php:406 src/Process/Backend/Media.php:407
+#: src/Process/Backend/Media.php:408
 msgid "Grid display mode"
 msgstr "그리드 표시 모드"
 
-#: src/Process/Backend/Media.php:398 src/Process/Backend/Media.php:399
-#: src/Process/Backend/Media.php:400
+#: src/Process/Backend/Media.php:410 src/Process/Backend/Media.php:411
+#: src/Process/Backend/Media.php:412
 msgid "List display mode"
 msgstr "목록 표시 모드"
 
-#: src/Process/Backend/Media.php:422
+#: src/Process/Backend/Media.php:434
 msgid "Remove selected medias"
 msgstr "선택한 미디어 제거"
 
-#: src/Process/Backend/Media.php:449
+#: src/Process/Backend/Media.php:461
 #, php-format
 msgid "In %s:"
 msgstr "%s에서 :"
 
-#: src/Process/Backend/Media.php:461
+#: src/Process/Backend/Media.php:473
 msgid "Create new directory"
 msgstr "새 디렉토리 만들기"
 
-#: src/Process/Backend/Media.php:463
+#: src/Process/Backend/Media.php:475
 msgid "Directory Name:"
 msgstr "디렉토리 이름:"
 
-#: src/Process/Backend/Media.php:476
+#: src/Process/Backend/Media.php:488
 msgid "Build missing thumbnails in directory"
 msgstr "디렉토리에서 누락된 썸네일 만들기"
 
-#: src/Process/Backend/Media.php:478
+#: src/Process/Backend/Media.php:490
 msgid "Build"
 msgstr "빌드"
 
-#: src/Process/Backend/Media.php:488
+#: src/Process/Backend/Media.php:500
 #, php-format
 msgid "Backup content of %s"
 msgstr "%s의 백업 콘텐츠"
 
-#: src/Process/Backend/Media.php:492
+#: src/Process/Backend/Media.php:504
 msgid "Download zip file"
 msgstr "zip 파일 다운로드"
 
-#: src/Process/Backend/Media.php:512
+#: src/Process/Backend/Media.php:524
 msgid "Add files"
 msgstr "파일 추가하기"
 
-#: src/Process/Backend/Media.php:513
+#: src/Process/Backend/Media.php:525
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "미디어를 외부로 공개할 때, 당신이 소유권을 가진 미디어나 복사금지되지 않은 미디어만 해당되도록 주의하세요."
 
-#: src/Process/Backend/Media.php:525
+#: src/Process/Backend/Media.php:537
 msgid "Maximum file size allowed:"
 msgstr "허용된 최대 파일 크기 :"
 
-#: src/Process/Backend/Media.php:527 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:965 src/Process/Backend/MediaItem.php:1028
+#: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:615
+#: src/Process/Backend/MediaItem.php:958 src/Process/Backend/MediaItem.php:1021
 msgid "Alternate text:"
 msgstr "대체 텍스트:"
 
-#: src/Process/Backend/Media.php:528 src/Process/Backend/MediaItem.php:1058
+#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1051
 msgid "Private"
 msgstr "미디어 관리화면에서 감춤 (주의! URL알면 접근 가능)"
 
-#: src/Process/Backend/Media.php:533
+#: src/Process/Backend/Media.php:545
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "여러 파일을 동시에 보내려면 다음에서 향상된 업로더를 활성화하면 됩니다."
 
-#: src/Process/Backend/Media.php:538
+#: src/Process/Backend/Media.php:550
 msgid "Refresh"
 msgstr "새로 고침"
 
-#: src/Process/Backend/Media.php:539
+#: src/Process/Backend/Media.php:551
 msgid "Clear all"
 msgstr "모두 지우기"
 
-#: src/Process/Backend/Media.php:571
+#: src/Process/Backend/Media.php:583
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "미디어 및 이미지에 대한 현재 설정은 %s에 정의되어 있습니다."
@@ -4673,7 +4681,7 @@ msgid "Remove them"
 msgstr "제거"
 
 #: src/Process/Backend/MediaItem.php:783 src/Process/Backend/MediaItem.php:786
-#: src/Process/Backend/MediaItem.php:874
+#: src/Process/Backend/MediaItem.php:867
 msgid "Media details"
 msgstr "미디어 상세정보"
 
@@ -4681,130 +4689,128 @@ msgstr "미디어 상세정보"
 msgid "Available sizes:"
 msgstr "사용가능한 크기 :"
 
-#: src/Process/Backend/MediaItem.php:846
+#: src/Process/Backend/MediaItem.php:839
 msgid "Thumbnail details"
 msgstr "썸네일 세부 정보"
 
-#: src/Process/Backend/MediaItem.php:851 src/Process/Backend/MediaItem.php:882
+#: src/Process/Backend/MediaItem.php:844 src/Process/Backend/MediaItem.php:875
 msgid "Image width:"
 msgstr "이미지 너비:"
 
-#: src/Process/Backend/MediaItem.php:852 src/Process/Backend/MediaItem.php:883
+#: src/Process/Backend/MediaItem.php:845 src/Process/Backend/MediaItem.php:876
 msgid "Image height:"
 msgstr "이미지 높이:"
 
-#: src/Process/Backend/MediaItem.php:856 src/Process/Backend/MediaItem.php:887
+#: src/Process/Backend/MediaItem.php:849 src/Process/Backend/MediaItem.php:880
 msgid "File size:"
 msgstr "파일 크기 :"
 
-#: src/Process/Backend/MediaItem.php:859 src/Process/Backend/MediaItem.php:888
+#: src/Process/Backend/MediaItem.php:852 src/Process/Backend/MediaItem.php:881
 msgid "File URL:"
 msgstr "파일 URL :"
 
-#: src/Process/Backend/MediaItem.php:876
+#: src/Process/Backend/MediaItem.php:869
 msgid "File owner:"
 msgstr "파일 소유자 :"
 
-#: src/Process/Backend/MediaItem.php:877
+#: src/Process/Backend/MediaItem.php:870
 msgid "File type:"
 msgstr "파일 종류 :"
 
-#: src/Process/Backend/MediaItem.php:894
+#: src/Process/Backend/MediaItem.php:887
 msgid "Show entries containing this media"
 msgstr "이 미디어를 포함한 글꼭지들 모두 보기"
 
-#: src/Process/Backend/MediaItem.php:897
+#: src/Process/Backend/MediaItem.php:890
 msgid "Entries containing this media"
 msgstr "이 미디어를 포함한 글꼭지"
 
-#: src/Process/Backend/MediaItem.php:934
+#: src/Process/Backend/MediaItem.php:927
 msgid "No entry seems contain this media."
 msgstr "이 미디어를 포함한 글꼭지를 못 찾았습니다."
 
-#: src/Process/Backend/MediaItem.php:961
+#: src/Process/Backend/MediaItem.php:954
 msgid "Image details"
 msgstr "이미지 상세정보"
 
-#: src/Process/Backend/MediaItem.php:970
+#: src/Process/Backend/MediaItem.php:963
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:979
+#: src/Process/Backend/MediaItem.php:972
 msgid "No detail"
 msgstr "상세정보 없음"
 
-#: src/Process/Backend/MediaItem.php:986
+#: src/Process/Backend/MediaItem.php:979
 msgid "Updates and modifications"
 msgstr "업데이트 및 수정"
 
-#: src/Process/Backend/MediaItem.php:992 src/Process/Backend/MediaItem.php:994
+#: src/Process/Backend/MediaItem.php:985 src/Process/Backend/MediaItem.php:987
 msgid "Update thumbnails"
 msgstr "꼬맹이사진 갱신"
 
-#: src/Process/Backend/MediaItem.php:993
+#: src/Process/Backend/MediaItem.php:986
 msgid "This will create or update thumbnails for this image."
 msgstr "이 과정은 이 이미지의 꼬맹이사진들을 생성 또는 갱신합니다."
 
-#: src/Process/Backend/MediaItem.php:1002
-#: src/Process/Backend/MediaItem.php:1010
+#: src/Process/Backend/MediaItem.php:995 src/Process/Backend/MediaItem.php:1003
 msgid "Extract in a new directory"
 msgstr "새 폴더에 풀기"
 
-#: src/Process/Backend/MediaItem.php:1003
-#: src/Process/Backend/MediaItem.php:1012
+#: src/Process/Backend/MediaItem.php:996 src/Process/Backend/MediaItem.php:1005
 msgid "Extract in current directory"
 msgstr "현재 폴더에 풀기"
 
-#: src/Process/Backend/MediaItem.php:1008
+#: src/Process/Backend/MediaItem.php:1001
 msgid "Extract archive"
 msgstr "압축풀기"
 
-#: src/Process/Backend/MediaItem.php:1011
+#: src/Process/Backend/MediaItem.php:1004
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "이렇게 하면 아직 존재하지 않아야 하는 새 디렉터리에 아카이브가 추출됩니다."
 
-#: src/Process/Backend/MediaItem.php:1013
+#: src/Process/Backend/MediaItem.php:1006
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "이 과정은 압축파일을 현재폴더에 풀어놓습니다. 동일한 이름의 파일이나 폴더가 이미 있다면 덮어씁니다."
 
-#: src/Process/Backend/MediaItem.php:1015
+#: src/Process/Backend/MediaItem.php:1008
 msgid "Extract mode:"
 msgstr "압축풀기 방식 :"
 
-#: src/Process/Backend/MediaItem.php:1017
+#: src/Process/Backend/MediaItem.php:1010
 msgid "Extract"
 msgstr "추출"
 
-#: src/Process/Backend/MediaItem.php:1025
+#: src/Process/Backend/MediaItem.php:1018
 msgid "Change media properties"
 msgstr "미디어 속성 변경"
 
-#: src/Process/Backend/MediaItem.php:1026
+#: src/Process/Backend/MediaItem.php:1019
 msgid "File name:"
 msgstr "파일 이름 :"
 
-#: src/Process/Backend/MediaItem.php:1051
+#: src/Process/Backend/MediaItem.php:1044
 msgid "File date:"
 msgstr "파일의 날짜 :"
 
-#: src/Process/Backend/MediaItem.php:1059
+#: src/Process/Backend/MediaItem.php:1052
 msgid "New directory:"
 msgstr "새 폴더 :"
 
-#: src/Process/Backend/MediaItem.php:1067
+#: src/Process/Backend/MediaItem.php:1060
 msgid "Change file"
 msgstr "파일 변경"
 
-#: src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/MediaItem.php:1062
 msgid "Choose a file:"
 msgstr "파일을 선택하세요 :"
 
-#: src/Process/Backend/MediaItem.php:1070
+#: src/Process/Backend/MediaItem.php:1063
 #, php-format
 msgid "Maximum size %s"
 msgstr "최대크기 %s"
 
-#: src/Process/Backend/MediaItem.php:1081
+#: src/Process/Backend/MediaItem.php:1074
 msgid "Delete this media"
 msgstr "이 미디어 삭제"
 
