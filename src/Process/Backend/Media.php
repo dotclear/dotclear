@@ -54,8 +54,17 @@ class Media extends Process
                     $fp  = fopen('php://output', 'wb');
                     $zip = new Zip($fp);
 
-                    $thumb_sizes = implode('|', array_keys(App::media()->getThumbSizes()));
-                    $zip->addExclusion('/(^|\/)\.(.*?)_(' . $thumb_sizes . ')\.(jpg|jpeg|png|webp|avif)$/');
+                    $thumb_sizes  = implode('|', array_keys(App::media()->getThumbSizes()));
+                    $thumb_prefix = App::media()->getThumbnailPrefix();
+                    if ($thumb_prefix !== '.') {
+                        // Exclude . (hidden files) and prefixed thumbnails
+                        $pattern_prefix = sprintf('(\.|%s)', preg_quote($thumb_prefix));
+                    } else {
+                        // Exclude . (hidden files)
+                        $pattern_prefix = '\.';
+                    }
+                    $zip->addExclusion('/(^|\/)' . $pattern_prefix . '(.*?)_(' . $thumb_sizes . ')\.(jpg|jpeg|png|webp|avif)$/');
+                    $zip->addExclusion('#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
                     $zip->addDirectory(App::media()->getRoot() . '/' . App::backend()->page->d, '', true);
                     header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . App::blog()->id() . '-' . (App::backend()->page->d ?: 'media') . '.zip');

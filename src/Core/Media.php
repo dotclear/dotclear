@@ -219,6 +219,17 @@ class Media extends Manager implements MediaInterface
 
         $this->exclude_pattern = $this->blog->settings()->system->media_exclusion;
 
+        if (((string) $this->blog->settings()->system->media_thumbnail_prefix !== '') && ((string) $this->blog->settings()->system->media_thumbnail_prefix !== $this->thumbnail_prefix)) {
+            $this->thumbnail_prefix = (string) $this->blog->settings()->system->media_thumbnail_prefix;
+            $this->setExcludePattern(sprintf('/^%s(.*)/', preg_quote($this->thumbnail_prefix), '/'));
+        }
+
+        // Ensure correct pattern values for deprecated properties
+        $this->thumb_tp       = $this->getThumbnailFilePattern('');
+        $this->thumb_tp_alpha = $this->getThumbnailFilePattern('alpha');
+        $this->thumb_tp_webp  = $this->getThumbnailFilePattern('webp');
+        $this->thumb_tp_avif  = $this->getThumbnailFilePattern('avif');
+
         # Event handlers
         $this->addFileHandler('image/jpeg', 'create', $this->imageThumbCreate(...));
         $this->addFileHandler('image/png', 'create', $this->imageThumbCreate(...));
@@ -297,6 +308,16 @@ class Media extends Manager implements MediaInterface
             'avif'  => sprintf($this->thumbnail_pattern, '%s', $this->thumbnail_prefix, '%s', '%s', 'avif'),
             default => sprintf($this->thumbnail_pattern, '%s', $this->thumbnail_prefix, '%s', '%s', 'jpg'),
         };
+    }
+
+    /**
+     * Gets the thumbnail prefix.
+     *
+     * @return     string  The thumbnail prefix.
+     */
+    public function getThumbnailPrefix(): string
+    {
+        return $this->thumbnail_prefix;
     }
 
     /**
@@ -1281,8 +1302,7 @@ class Media extends Manager implements MediaInterface
 
     public function inflateZipFile(File $f, bool $create_dir = true): string
     {
-        $zip = new Unzip($f->file);
-        $zip->setExcludePattern($this->exclude_pattern);
+        $zip  = new Unzip($f->file);
         $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
         if ($create_dir) {

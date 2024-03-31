@@ -368,6 +368,7 @@ class BlogPref extends Process
                 $da->blog_settings->system->put('media_img_t_size', $media_img_t_size);
                 $da->blog_settings->system->put('media_img_s_size', $media_img_s_size);
                 $da->blog_settings->system->put('media_img_m_size', $media_img_m_size);
+                $da->blog_settings->system->put('media_thumbnail_prefix', $_POST['media_thumbnail_prefix']);
                 $da->blog_settings->system->put('media_video_width', $media_video_width);
                 $da->blog_settings->system->put('media_video_height', $media_video_height);
                 $da->blog_settings->system->put('media_img_title_pattern', $_POST['media_img_title_pattern']);
@@ -711,6 +712,7 @@ class BlogPref extends Process
             '<div class="col">' .
 
             '<h5>' . __('Generated image sizes (max dimension in pixels)') . '</h5>' .
+
             '<p class="form-note warning">' .
             __('Please note that if you change current settings bellow, they will now apply to all new images in the media manager.') .
             ' ' . __('Be carefull if you share it with other blogs in your installation.') . '<br>' .
@@ -739,6 +741,11 @@ class BlogPref extends Process
             ]) .
             '</p>' .
 
+            '<p class="field"><label for"media_thumbnail_prefix">' . __('Thumbnail character prefix:') . '</label> ' .
+            form::field('media_thumbnail_prefix', 1, 1, (string) $da->blog_settings->system->media_thumbnail_prefix) .
+            '</p>' .
+            '<p class="form-note info" id="media_thumbnail_prefix_help">' . __('Leave empty to use the default one (.)') . '</p>' .
+
             '<h5>' . __('Default size of the inserted video (in pixels)') . '</h5>' .
             '<p class="field"><label for="media_video_width">' . __('Width') . '</label> ' .
             form::number('media_video_width', [
@@ -759,7 +766,7 @@ class BlogPref extends Process
 
             '<div class="col">' .
             '<h5>' . __('Default image insertion attributes') . '</h5>' .
-            '<p class="vertical-separator"><label for="media_img_title_pattern">' . __('Inserted image legend:') . '</label>' .
+            '<p><label for="media_img_title_pattern">' . __('Inserted image legend:') . '</label>' .
             form::combo('media_img_title_pattern', $da->img_title_combo, Html::escapeHTML($da->media_img_title_pattern)) . '</p>' .
             '<p><label for="media_img_use_dto_first" class="classic">' .
             form::checkbox('media_img_use_dto_first', '1', $da->blog_settings->system->media_img_use_dto_first) .

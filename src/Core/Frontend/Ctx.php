@@ -850,25 +850,33 @@ class Ctx
         $res = false;
 
         try {
-            $media = App::media();
-            $sizes = implode('|', array_keys($media->getThumbSizes()));
-            if (preg_match('/^\.(.+)_(' . $sizes . ')$/', $base, $m)) {
+            $media        = App::media();
+            $sizes        = implode('|', array_keys($media->getThumbSizes()));
+            $thumb_prefix = App::media()->getThumbnailPrefix();
+            if ($thumb_prefix !== '.') {
+                // Exclude . (hidden files) and prefixed thumbnails
+                $pattern_prefix = sprintf('(\.|%s)', preg_quote($thumb_prefix));
+            } else {
+                // Exclude . (hidden files)
+                $pattern_prefix = '\.';
+            }
+            if (preg_match('/^' . $pattern_prefix . '(.+)_(' . $sizes . ')$/', $base, $m)) {
                 $base = $m[1];
             }
 
             $res = false;
             if ($size !== 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.jpg')) {
                 // Found a JPG thumbnail
-                $res = '.' . $base . '_' . $size . '.jpg';
+                $res = $thumb_prefix . $base . '_' . $size . '.jpg';
             } elseif ($size !== 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.png')) {
                 // Found a PNG thumbnail
-                $res = '.' . $base . '_' . $size . '.png';
+                $res = $thumb_prefix . $base . '_' . $size . '.png';
             } elseif ($size !== 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.webp')) {
                 // Found a WEBP thumbnail
-                $res = '.' . $base . '_' . $size . '.webp';
+                $res = $thumb_prefix . $base . '_' . $size . '.webp';
             } elseif ($size !== 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.avif')) {
                 // Found an AVIF thumbnail
-                $res = '.' . $base . '_' . $size . '.avif';
+                $res = $thumb_prefix . $base . '_' . $size . '.avif';
             } else {
                 // Look for original size
                 $f = $root . '/' . $info['dirname'] . '/' . $base;

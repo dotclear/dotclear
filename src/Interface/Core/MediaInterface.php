@@ -45,6 +45,13 @@ interface MediaInterface
     public function getThumbnailFilePattern(string $type = ''): string;
 
     /**
+     * Gets the thumbnail prefix.
+     *
+     * @return     string  The thumbnail prefix.
+     */
+    public function getThumbnailPrefix(): string;
+
+    /**
      * Determines if media has an alpha layer.
      *
      * @param      string  $type   The media type
