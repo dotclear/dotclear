@@ -133,11 +133,10 @@ class ThemeEditor
      *
      * @param   string  $type   The type of file
      * @param   string  $item   The item pattern
-     * @param   bool    $split  Split from source?
      *
      * @return  string
      */
-    public function filesList(string $type, string  $item = '%1$s', bool $split = true): string
+    public function filesList(string $type, string  $item = '%1$s'): string
     {
         $files = $this->getFilesFromType($type);
 
@@ -145,46 +144,33 @@ class ThemeEditor
             return '<p>' . __('No file') . '</p>';
         }
 
-        $list = '';
-        if ($split) {
-            $list_theme  = ''; // Files from current theme
-            $list_parent = ''; // Files from parent of current theme
-            $list_tpl    = ''; // Files from template set used by current theme
-            foreach ($files as $k => $v) {
-                if (str_starts_with($v, $this->user_theme)) {
-                    $li = sprintf('<li class="default-file">%s</li>', $item);
-                    $list_theme .= sprintf($li, $k, Html::escapeHTML($k));
-                } elseif ($this->parent_theme && str_starts_with($v, $this->parent_theme)) {
-                    $li = sprintf('<li class="parent-file">%s</li>', $item);
-                    $list_parent .= sprintf($li, $k, Html::escapeHTML($k));
-                } else {
-                    $li = sprintf('<li>%s</li>', $item);
-                    $list_tpl .= sprintf($li, $k, Html::escapeHTML($k));
-                }
-            }
-            $list .= ($list_theme != '' ? sprintf('<li class="group-file">' . __('From theme:') . '<ul>%s</ul></li>', $list_theme) : '');
-            $list .= ($list_parent != '' ? sprintf(
-                '<li class="group-file">' . __('From parent:') . ' %s<ul>%s</ul></li>',
-                $this->parent_name,
-                $list_parent
-            ) : '');
-            $list .= ($list_tpl != '' ? sprintf(
-                '<li class="group-file">' . __('From template set:') . ' %s<ul>%s</ul></li>',
-                $this->tplset_name,
-                $list_tpl
-            ) : '');
-        } else {
-            foreach ($files as $k => $v) {
-                if (str_starts_with($v, $this->user_theme)) {
-                    $li = sprintf('<li class="default-file">%s</li>', $item);
-                } elseif ($this->parent_theme && str_starts_with($v, $this->parent_theme)) {
-                    $li = sprintf('<li class="parent-file">%s</li>', $item);
-                } else {
-                    $li = sprintf('<li>%s</li>', $item);
-                }
-                $list .= sprintf($li, $k, Html::escapeHTML($k));
+        $list        = '';
+        $list_theme  = ''; // Files from current theme
+        $list_parent = ''; // Files from parent of current theme
+        $list_tpl    = ''; // Files from template set used by current theme
+        foreach ($files as $k => $v) {
+            if (str_starts_with($v, $this->user_theme)) {
+                $li = sprintf('<li class="default-file">%s</li>', $item);
+                $list_theme .= sprintf($li, $k, Html::escapeHTML($k));
+            } elseif ($this->parent_theme && str_starts_with($v, $this->parent_theme)) {
+                $li = sprintf('<li class="parent-file">%s</li>', $item);
+                $list_parent .= sprintf($li, $k, Html::escapeHTML($k));
+            } else {
+                $li = sprintf('<li>%s</li>', $item);
+                $list_tpl .= sprintf($li, $k, Html::escapeHTML($k));
             }
         }
+        $list .= ($list_theme != '' ? sprintf('<li class="group-file">' . __('From theme:') . '<ul>%s</ul></li>', $list_theme) : '');
+        $list .= ($list_parent != '' ? sprintf(
+            '<details><summary>' . __('From parent:') . ' %s' . '</summary><li class="group-file"><ul>%s</ul></li></details>',
+            $this->parent_name,
+            $list_parent
+        ) : '');
+        $list .= ($list_tpl != '' ? sprintf(
+            '<details><summary>' . __('From template set:') . ' %s' . '</summary><li class="group-file"><ul>%s</ul></li></details>',
+            $this->tplset_name,
+            $list_tpl
+        ) : '');
 
         return sprintf('<ul>%s</ul>', $list);
     }

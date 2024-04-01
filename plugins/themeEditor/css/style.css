@@ -25,11 +25,11 @@
   list-style: square inside;
 }
 #file-chooser li.default-file {
-  color: #f90;
+  color: var(--link-color);
   font-weight: bold;
 }
 #file-chooser li.parent-file {
-  color: #c00;
+  color: var(--breadcrumb-current);
 }
 #file-chooser li.group-file {
   list-style: none;
@@ -39,11 +39,7 @@
   margin-top: 0.5em;
 }
 textarea {
-  font:
-    1em Monaco,
-    'Courier New',
-    Courier,
-    monospace;
+  font: max(90%, 2ex) var(--monospace);
 }
 .CodeMirror {
   border: 1px solid;
