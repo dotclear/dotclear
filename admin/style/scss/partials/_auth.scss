@@ -5,7 +5,7 @@
   font-size: 1.16em;
   h1 {
     text-indent: -2000px;
-    background: url(dc_logos/w-dotclear240.png) no-repeat top left;
+    background: url(dc_logos/dotclear-light.svg) no-repeat top left;
     background-color: transparent;
     height: 66px;
     width: 20em;
@@ -74,5 +74,10 @@
   }
   .error {
     padding-bottom: 1em;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  #login-screen h1 {
+    background: url(dc_logos/dotclear-dark.svg) no-repeat top left;
   }
 }

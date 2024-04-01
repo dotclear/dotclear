@@ -66,6 +66,7 @@ class GrowUp_2_30_lt
                 'admin/style/settings.png',
                 'admin/style/trash.png',
                 'admin/style/user.png',
+                'admin/style/dc_logos/w-dotclear240.png',
                 'admin/style/install/important.png',
                 'admin/style/install/note.png',
                 'admin/style/install/process_warning.png',
