@@ -10,6 +10,7 @@
   background: var(--header-background);
   border-bottom: 4px solid var(--header-border);
   width: 100%;
+  min-height: 3em;
   display: table;
   position: relative;
 }

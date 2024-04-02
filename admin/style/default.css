@@ -1181,6 +1181,7 @@ h6 {
   background: var(--header-background);
   border-bottom: 4px solid var(--header-border);
   width: 100%;
+  min-height: 3em;
   display: table;
   position: relative;
 }
@@ -5899,6 +5900,10 @@ img.mfp-img {
 }
 #debug:hover div {
   display: block;
+}
+
+body:has(#debug) header {
+  margin-top: calc(0.4em - 1px);
 }
 
 .debug {

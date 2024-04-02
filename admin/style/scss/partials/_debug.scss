@@ -29,6 +29,10 @@
   }
 }
 
+body:has(#debug) header {
+  margin-top: calc(0.4em - 1px);
+}
+
 .debug {
   color: var(--debug-color);
   background: var(--debug-background);
