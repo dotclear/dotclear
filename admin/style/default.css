@@ -1499,7 +1499,7 @@ body.dark-mode.upgrade-mode .expand-mm {
   }
   #header h1,
   #header h1 a {
-    width: 120px;
+    width: 10em;
     margin: 0;
   }
   h1 {
@@ -2769,13 +2769,13 @@ h1 a {
   width: 150px;
   height: 36px;
   color: var(--header-color);
-  background: url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
-  background-color: transparent;
+  background: url(dc_logos/dotclear.svg) no-repeat;
+  background-size: auto 2.5em;
+  background-position: center;
   transition: none;
 }
 h1 a:hover, h1 a:focus {
-  background-position: 0 -94px;
-  background-color: transparent;
+  background-image: url(dc_logos/dotclear-alt.svg);
   transition: none;
 }
 h1 a:link {
@@ -2840,12 +2840,13 @@ h1 a:link {
   }
 }
 @media screen and (max-width: 43em) {
-  h1 a:link {
-    background: url(dc_logos/b-dotclear120.png) no-repeat -270px 6px;
-    background-color: transparent;
+  h1 a {
+    background: url(dc_logos/dotclear-mini.svg) no-repeat;
+    background-size: 2.5em;
+    background-position: center;
   }
   h1 a:hover, h1 a:focus {
-    background: url(dc_logos/b-dotclear120.png) no-repeat -270px -94px;
+    background-image: url(dc_logos/dotclear-mini-alt.svg);
   }
 }
 #main-menu div:last-child {
