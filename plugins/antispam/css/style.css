@@ -6,7 +6,7 @@ ul.spaminfo {
 }
 ul.spaminfo li {
   margin: 0.5em 0;
-  padding-left: 1.6em;
+  padding-left: 1.5em;
   background-color: transparent;
   background-position: center left;
   background-repeat: no-repeat;
@@ -22,5 +22,7 @@ ul.spaminfo .hamcount {
   background-image: url(images/published.svg);
 }
 ul.spaminfo .feed {
-  background-image: url(index.php?pf=antispam/feed.png);
+  background-image: url(index.php?pf=antispam/feed.svg);
+  background-size: 1.25em;
+  background-position: 0 center;
 }
