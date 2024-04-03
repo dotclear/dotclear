@@ -310,6 +310,7 @@ div.static-msg,
 p.static-msg {
   padding: 0.5em 0.5em 0.5em 60px;
   margin-bottom: 1em;
+  margin-top: 1em;
   border-radius: 8px;
 }
 
@@ -322,7 +323,8 @@ p.static-msg {
 
 div.error,
 p.error {
-  background: #e5bfbf url(install/msg-error.png) no-repeat 10px 10px;
+  background: #e5bfbf url(msg-error.svg) no-repeat 10px 10px;
+  background-size: 2.5em;
   color: #600;
 }
 
@@ -330,7 +332,8 @@ div.message,
 p.message,
 div.static-msg,
 p.static-msg {
-  background: #666 url(install/msg-info.png) no-repeat 10px 10px;
+  background: #666 url(msg-info.svg) no-repeat 10px 10px;
+  background-size: 2.5em;
   color: #fff;
 }
 
@@ -412,6 +415,7 @@ input[type=submit] {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   border-radius: 0.2em;
   margin-bottom: 0.1em;
+  margin-top: 1em;
   color: #fff;
   border: 1px solid #3a539b;
   background: #3a539b;
@@ -449,7 +453,8 @@ h2 {
 }
 
 body.install h1 {
-  background: url(install/w-logo.png) no-repeat top center;
+  background: url(dc_logos/dotclear-light.svg) no-repeat top center;
+  background-size: auto 2.5em;
   font-size: 1.8em;
   font-weight: normal;
   text-align: center;
@@ -476,11 +481,13 @@ body.install .msg {
 }
 
 body.install .warning {
-  background: #ffc url(install/msg-warning.png) no-repeat 10px 10px;
+  background: #ffc url(msg-warning.svg) no-repeat 10px 10px;
+  background-size: 2.5em;
 }
 
 body.install .notice {
-  background: #eef url(install/msg-info.png) no-repeat 10px 10px;
+  background: #eef url(msg-info.svg) no-repeat 10px 10px;
+  background-size: 2.5em;
 }
 
 /* password strength indicator */

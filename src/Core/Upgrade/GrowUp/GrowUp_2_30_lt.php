@@ -68,9 +68,6 @@ class GrowUp_2_30_lt
                 'admin/style/user.png',
                 'admin/style/dc_logos/b-dotclear120.png',
                 'admin/style/dc_logos/w-dotclear240.png',
-                'admin/style/install/important.png',
-                'admin/style/install/note.png',
-                'admin/style/install/process_warning.png',
                 'plugins/antispam/feed.png',
                 'plugins/dcCKEditor/js/ckeditor-plugins/dclink/icons/dclink.png',
                 'plugins/dcCKEditor/js/ckeditor-plugins/entrylink/icons/entrylink.png',
@@ -80,6 +77,7 @@ class GrowUp_2_30_lt
             ],
             // Folders
             [
+                'admin/style/install',
             ]
         );
 
