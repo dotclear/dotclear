@@ -62,6 +62,7 @@ class GrowUp_2_30_lt
                 'admin/js/easter.js',
                 'admin/style/cancel.png',
                 'admin/style/drag.png',
+                'admin/style/loader.png',
                 'admin/style/search.png',
                 'admin/style/settings.png',
                 'admin/style/trash.png',

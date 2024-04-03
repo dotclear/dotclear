@@ -4380,7 +4380,7 @@ label span.one-file {
   font-weight: bold;
   line-height: 1.2em;
   text-align: center;
-  background: url(loader.png) repeat-x left top;
+  background: url(progress.svg) repeat-x left top;
   background-color: var(--upload-progress-background);
   color: var(--upload-progress-color);
   border-radius: 3px;
