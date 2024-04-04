@@ -469,7 +469,6 @@ h6 {
   --theme-box-border: #dbdbdb;
   --theme-box-over: #f3f3f3;
   --theme-name-color: #676e78;
-  --theme-img-background: #f3f3f3;
   --theme-img-border: #c9c9c9;
   --theme-img-shadow: rgba(50, 50, 50, 0.1);
   --theme-action-background: #f3f3f3;
@@ -724,7 +723,6 @@ h6 {
   --theme-box-border: #dadbde;
   --theme-box-over: #565a60;
   --theme-name-color: #c9cbcf;
-  --theme-img-background: #f3f4f5;
   --theme-img-border: #fff;
   --theme-img-shadow: rgba(48, 50, 54, 0.1);
   --theme-action-background: #565a60;
@@ -980,7 +978,6 @@ h6 {
     --theme-box-border: #dadbde;
     --theme-box-over: #565a60;
     --theme-name-color: #c9cbcf;
-    --theme-img-background: #f3f4f5;
     --theme-img-border: #fff;
     --theme-img-shadow: rgba(48, 50, 54, 0.1);
     --theme-action-background: #565a60;
@@ -3869,7 +3866,6 @@ li.user_admin {
   text-align: center;
 }
 .module-sshot img {
-  background: var(--theme-img-background);
   box-shadow: 0.9px 0.9px 2.2px rgba(0, 0, 0, 0.07), 2.1px 2.1px 5.3px rgba(0, 0, 0, 0.05), 4px 4px 10px rgba(0, 0, 0, 0.042), 7.1px 7.1px 17.9px rgba(0, 0, 0, 0.035), 13.4px 13.4px 33.4px rgba(0, 0, 0, 0.028), 32px 32px 80px rgba(0, 0, 0, 0.02);
   border: 1px solid var(--theme-img-border);
   max-width: 100%;

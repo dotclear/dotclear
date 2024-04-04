@@ -122,7 +122,7 @@ class ThemesList extends ModulesList
                 }
                 # Default screenshot
                 else {
-                    $sshot = 'images/noscreenshot.png';
+                    $sshot = 'images/noscreenshot.svg';
                 }
 
                 $line .= '<div class="module-sshot"><img src="' . $sshot . '" loading="lazy" alt="' .

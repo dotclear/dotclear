@@ -126,7 +126,7 @@ class BlogTheme extends Process
             );
 
             if (!file_exists((string) $filename)) {
-                $filename = __DIR__ . '/images/noscreenshot.png';
+                $filename = __DIR__ . '/images/noscreenshot.svg';
             }
 
             Http::cache([$filename, ...get_included_files()]);

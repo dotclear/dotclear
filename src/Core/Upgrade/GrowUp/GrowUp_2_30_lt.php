@@ -52,6 +52,7 @@ class GrowUp_2_30_lt
                 'admin/images/list-on.png',
                 'admin/images/list-off.png',
                 'admin/images/locker.png',
+                'admin/images/noscreenshot.png',
                 'admin/images/palette-traviata.png',
                 'admin/images/plus.png',
                 'admin/images/scheduled.png',
