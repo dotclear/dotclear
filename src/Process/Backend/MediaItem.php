@@ -869,11 +869,29 @@ class MediaItem extends Process
         '<li><strong>' . __('File owner:') . '</strong> ' . App::backend()->file->media_user . '</li>' .
         '<li><strong>' . __('File type:') . '</strong> ' . App::backend()->file->type . '</li>';
         if (App::backend()->file->media_image) {
-            $image_size = getimagesize(App::backend()->file->file);
-            if (is_array($image_size)) {
-                echo
-                '<li><strong>' . __('Image width:') . '</strong> ' . $image_size[0] . ' px</li>' .
-                '<li><strong>' . __('Image height:') . '</strong> ' . $image_size[1] . ' px</li>';
+            if (App::backend()->file->type === 'image/svg+xml') {
+                if (($xmlget = simplexml_load_file(App::backend()->file->file)) !== false) {
+                    $xmlattributes = $xmlget->attributes();
+                    $image_size    = [
+                        (string) $xmlattributes->width,
+                        (string) $xmlattributes->height,
+                    ];
+                    if ($image_size[0]) {
+                        echo
+                        '<li><strong>' . __('Image width:') . '</strong> ' . $image_size[0] . '</li>';
+                    }
+                    if ($image_size[1]) {
+                        echo
+                        '<li><strong>' . __('Image height:') . '</strong> ' . $image_size[1] . '</li>';
+                    }
+                }
+            } else {
+                $image_size = getimagesize(App::backend()->file->file);
+                if (is_array($image_size)) {
+                    echo
+                    '<li><strong>' . __('Image width:') . '</strong> ' . $image_size[0] . ' px</li>' .
+                    '<li><strong>' . __('Image height:') . '</strong> ' . $image_size[1] . ' px</li>';
+                }
             }
         }
         echo
