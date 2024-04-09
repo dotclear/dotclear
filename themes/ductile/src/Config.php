@@ -117,9 +117,8 @@ class Config extends Process
 
         $ductile_base = [
             // HTML
-            'subtitle_hidden'       => null,
-            'logo_src'              => null,
-            'preview_not_mandatory' => null,
+            'subtitle_hidden' => null,
+            'logo_src'        => null,
             // CSS
             'body_font'                => null,
             'body_webfont_family'      => null,
@@ -236,9 +235,8 @@ class Config extends Process
                 if (App::backend()->conf_tab === 'html') {
                     $ductile_user = App::backend()->ductile_user;
 
-                    $ductile_user['subtitle_hidden']       = (int) !empty($_POST['subtitle_hidden']);
-                    $ductile_user['logo_src']              = $_POST['logo_src'];
-                    $ductile_user['preview_not_mandatory'] = (int) !empty($_POST['preview_not_mandatory']);
+                    $ductile_user['subtitle_hidden'] = (int) !empty($_POST['subtitle_hidden']);
+                    $ductile_user['logo_src']        = $_POST['logo_src'];
 
                     App::backend()->ductile_user = $ductile_user;
 
@@ -462,10 +460,6 @@ class Config extends Process
         '</table>';
 
         echo
-        '<h4 class="border-top pretty-title">' . __('Miscellaneous options') . '</h4>' .
-        '<p><label for="preview_not_mandatory" class="classic">' . __('Comment preview is not mandatory:') . '</label> ' .
-        form::checkbox('preview_not_mandatory', 1, App::backend()->ductile_user['preview_not_mandatory']) . '</p>' .
-
         '<p><input type="hidden" name="conf_tab" value="html"></p>' .
         '<p class="clear">' . form::hidden('ds_order', '') . '<input type="submit" value="' . __('Save') . '">' .
         App::nonce()->getFormNonce() . '</p>' .

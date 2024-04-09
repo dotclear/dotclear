@@ -51,7 +51,6 @@ class Frontend extends Process
         App::frontend()->template()->addBlock('EntryIfContentIsCut', self::EntryIfContentIsCut(...));
         App::frontend()->template()->addValue('ductileNbEntryPerPage', self::ductileNbEntryPerPage(...));
         App::frontend()->template()->addValue('ductileLogoSrc', self::ductileLogoSrc(...));
-        App::frontend()->template()->addBlock('IfPreviewIsNotMandatory', self::IfPreviewIsNotMandatory(...));
 
         return true;
     }
@@ -249,27 +248,6 @@ class Frontend extends Process
         }
 
         return $img_url;
-    }
-
-    /**
-     * Tpl:IfPreviewIsNotMandatory template block
-     *
-     * @param      ArrayObject<string, string>  $attr   The attribute
-     * @param      string                       $content  The content
-     *
-     * @return     string       rendered block
-     */
-    public static function IfPreviewIsNotMandatory(ArrayObject $attr, string $content): string
-    {
-        $s = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
-        if ($s !== null) {
-            $s = @unserialize($s);
-            if (is_array($s) && isset($s['preview_not_mandatory']) && $s['preview_not_mandatory']) {
-                return $content;
-            }
-        }
-
-        return '';
     }
 
     /**
