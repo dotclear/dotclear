@@ -1767,21 +1767,24 @@ class ModulesList
     {
         if (($this->config_define instanceof ModuleDefine) && (!empty($this->config_class) || !empty($this->config_file))) {
             if (!$this->config_define->get('standalone_config')) {
+                if (($this->config_define->get('information_config'))) {
+                    echo
+                    '<form id="module_config" action="' . $this->getURL('conf=1') . '" method="post" enctype="multipart/form-data">';
+                }
                 echo
-                '<form id="module_config" action="' . $this->getURL('conf=1') . '" method="post" enctype="multipart/form-data">' .
                 '<h3>' . sprintf(__('Configure "%s"'), Html::escapeHTML($this->config_define->get('name'))) . '</h3>' .
                 '<p><a class="back" href="' . $this->getRedir() . '">' . __('Back') . '</a></p>';
             }
 
             echo $this->config_content;
 
-            if (!$this->config_define->get('standalone_config')) {
+            if (!$this->config_define->get('standalone_config') && !$this->config_define->get('information_config')) {
                 echo
                 '<p class="clear"><input type="submit" name="save" value="' . __('Save') . '">' .
                 form::hidden('module', $this->config_define->getId()) .
                 form::hidden('redir', $this->getRedir()) .
                 App::nonce()->getFormNonce() . '</p>' .
-                    '</form>';
+                '</form>';
             }
         }
 

@@ -117,11 +117,12 @@ class ModuleDefine
         'type'    => self::DEFAULT_TYPE,
 
         // optionnal
-        'permissions'       => null,
-        'priority'          => self::DEFAULT_PRIORITY,
-        'standalone_config' => false,
-        'requires'          => [],
-        'settings'          => [],
+        'permissions'        => null,
+        'priority'           => self::DEFAULT_PRIORITY,
+        'standalone_config'  => false,
+        'information_config' => false,
+        'requires'           => [],
+        'settings'           => [],
 
         // optionnal++
         'label'      => '',
