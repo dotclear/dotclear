@@ -6,12 +6,17 @@
 }
 
 #header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 0.5em;
+  justify-content: space-between;
   color: var(--header-color);
   background: var(--header-background);
   border-bottom: 4px solid var(--header-border);
   width: 100%;
   min-height: 3em;
-  display: table;
   position: relative;
 }
 
@@ -29,6 +34,9 @@ h1,
 h1,
 #top-info-user {
   display: table-cell;
+}
+#top-info-user {
+  margin-inline-start: auto;
 }
 #top-info-blog {
   display: inline-flex;
@@ -363,10 +371,6 @@ body.dark-mode.upgrade-mode {
 
 @media screen and (max-width: $laptop-screen) {
   #header {
-    display: block;
-    width: 100%;
-    text-align: right;
-
     h1,
     h1 a {
       width: 10em;

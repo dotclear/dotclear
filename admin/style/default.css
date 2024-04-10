@@ -1174,12 +1174,17 @@ h6 {
 }
 
 #header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 0.5em;
+  justify-content: space-between;
   color: var(--header-color);
   background: var(--header-background);
   border-bottom: 4px solid var(--header-border);
   width: 100%;
   min-height: 3em;
-  display: table;
   position: relative;
 }
 
@@ -1198,6 +1203,10 @@ h1,
 h1,
 #top-info-user {
   display: table-cell;
+}
+
+#top-info-user {
+  margin-inline-start: auto;
 }
 
 #top-info-blog {
@@ -1490,11 +1499,6 @@ body.dark-mode.upgrade-mode .expand-mm {
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 @media screen and (max-width: 82em) {
-  #header {
-    display: block;
-    width: 100%;
-    text-align: right;
-  }
   #header h1,
   #header h1 a {
     width: 10em;
@@ -2758,7 +2762,7 @@ span.info {
 /* h1 */
 h1 {
   text-indent: 100%;
-  width: 16.5em;
+  width: 16em;
 }
 h1 a {
   position: absolute;
