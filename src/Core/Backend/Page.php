@@ -232,11 +232,11 @@ class Page
         '<!DOCTYPE html>' .
         '<html lang="' . App::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
-        '  <meta charset="UTF-8">' . "\n" .
-        '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
-        '  <meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
-        '  <meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n";
+        '<meta charset="UTF-8">' . "\n" .
+        '<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
+        '<meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
+        '<title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n";
 
         echo static::cssLoad('style/default.css');
 
@@ -246,8 +246,8 @@ class Page
 
         if (!App::auth()->prefs()->interface->hide_std_favicon) {
             echo
-                '<link rel="icon" type="image/png" href="images/favicon96-login.png">' . "\n" .
-                '<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">' . "\n";
+            '<link rel="icon" type="image/png" href="images/favicon96-login.png">' . "\n" .
+            '<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">' . "\n";
         }
         if (App::auth()->prefs()->interface->htmlfontsize) {
             $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
@@ -271,9 +271,9 @@ class Page
         echo Html::jsJson('dotclear_init', $js);
 
         echo
-            static::jsCommon() .
-            static::jsToggles() .
-            $head;
+        static::jsCommon() .
+        static::jsToggles() .
+        $head;
 
         # --BEHAVIOR-- adminPageHTMLHead
         App::behavior()->callBehavior('adminPageHTMLHead');
@@ -303,18 +303,18 @@ class Page
         '<li><a class="smallscreen' . (preg_match('/' . preg_quote(App::backend()->url()->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '') .
         '" href="' . App::backend()->url()->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
         '<li><a href="' . App::backend()->url()->get('admin.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), App::auth()->userID()) .
-            '</span><img src="images/logout.svg" alt=""></a></li>' .
-            '</ul>' .
-            '</header>'; // end header
+        '</span><img src="images/logout.svg" alt=""></a></li>' .
+        '</ul>' .
+        '</header>'; // end header
 
         echo
         '<div id="wrapper" class="clearfix">' . "\n" .
         '<div class="hidden-if-no-js collapser-box"><button type="button" id="collapser" class="void-btn">' .
         '<img class="collapse-mm visually-hidden" src="images/hide.svg" alt="' . __('Hide main menu') . '">' .
         '<img class="expand-mm visually-hidden" src="images/expand.svg" alt="' . __('Show main menu') . '">' .
-            '</button></div>' .
-            '<main id="main" role="main">' . "\n" .
-            '<div id="content" class="clearfix">' . "\n";
+        '</button></div>' .
+        '<main id="main" role="main">' . "\n" .
+        '<div id="content" class="clearfix">' . "\n";
 
         // Display breadcrumb (if given) before any error messages
         echo $breadcrumb;
@@ -324,7 +324,7 @@ class Page
             echo
             '<div class="warning" role="alert"><h3>' . __('Safe mode') . '</h3>' .
             '<p>' . __('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities') . '</p>' .
-                '</div>';
+            '</div>';
         }
 
         // Display notices and errors
@@ -354,7 +354,7 @@ class Page
         '<p><label for="qx" class="hidden">' . __('Search:') . ' </label>' . form::field('qx', 30, 255, '') .
         '<input type="hidden" name="process" value="Search">' .
         '<input type="submit" value="' . __('OK') . '"></p>' .
-            '</form>';
+        '</form>';
 
         foreach (array_keys((array) App::backend()->menus()) as $k) {
             echo App::backend()->menus()[$k]?->draw();
@@ -379,21 +379,21 @@ class Page
         'ᓚᘏᗢ' . "\n";
 
         echo
-            '<footer id="footer" role="contentinfo">' .
-            '<a href="https://dotclear.org/" title="' . $text . '">' .
-            '<img src="style/dc_logos/dotclear-light.svg" class="light-only" alt="' . $text . '">' .
-            '<img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt="' . $text . '">' .
-            '</a></footer>' . "\n" .
-            '<!-- ' . "\n" .
-            $figure .
-            ' -->' . "\n";
+        '<footer id="footer" role="contentinfo">' .
+        '<a href="https://dotclear.org/" title="' . $text . '">' .
+        '<img src="style/dc_logos/dotclear-light.svg" class="light-only" alt="' . $text . '">' .
+        '<img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt="' . $text . '">' .
+        '</a></footer>' . "\n" .
+        '<!-- ' . "\n" .
+        $figure .
+        ' -->' . "\n";
 
         if (App::config()->devMode() === true) {
             echo static::debugInfo();
         }
 
         echo
-            '</body></html>';
+        '</body></html>';
     }
 
     /**
@@ -424,11 +424,11 @@ class Page
         '<!DOCTYPE html>' .
         '<html lang="' . App::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
-        '  <meta charset="UTF-8">' . "\n" .
-        '  <meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n" .
-            '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
-            '  <meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n";
+        '<meta charset="UTF-8">' . "\n" .
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
+        '<title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n" .
+        '<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
+        '<meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n";
 
         echo static::cssLoad('style/default.css');
 

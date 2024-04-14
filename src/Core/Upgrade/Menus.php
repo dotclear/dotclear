@@ -86,7 +86,7 @@ class Menus extends ArrayObject
         }
 
         // add menu sections
-        $this->offsetSet(self::MENU_SYSTEM, new Menu('system-menu', ''));
+        $this->offsetSet(self::MENU_SYSTEM, new Menu('system-menu', __('System')));
 
         foreach (App::upgrade()->getIcons() as $icon) {
             $this->addItem(

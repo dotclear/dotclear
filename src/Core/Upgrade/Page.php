@@ -85,11 +85,11 @@ class Page extends BackendPage
         '<!DOCTYPE html>' .
         '<html lang="' . App::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
-        '  <meta charset="UTF-8">' . "\n" .
-        '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
-        '  <meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
-        '  <meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
-        '  <title>' . $title . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n";
+        '<meta charset="UTF-8">' . "\n" .
+        '<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
+        '<meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
+        '<title>' . $title . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n";
 
         echo self::cssLoad('style/default.css');
 
@@ -99,8 +99,8 @@ class Page extends BackendPage
 
         if (!App::auth()->prefs()->interface->hide_std_favicon) {
             echo
-                '<link rel="icon" type="image/png" href="images/favicon96-login.png">' . "\n" .
-                '<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">' . "\n";
+            '<link rel="icon" type="image/png" href="images/favicon96-login.png">' . "\n" .
+            '<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">' . "\n";
         }
         if (App::auth()->prefs()->interface->htmlfontsize) {
             $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
@@ -119,9 +119,9 @@ class Page extends BackendPage
         echo Html::jsJson('dotclear_init', $js);
 
         echo
-            self::jsCommon() .
-            self::jsToggles() .
-            $head;
+        self::jsCommon() .
+        self::jsToggles() .
+        $head;
 
         echo
         "</head>\n" .
@@ -135,24 +135,24 @@ class Page extends BackendPage
         '<h1><a href="' . App::upgrade()->url()->get('upgrade.home') . '" title="' . __('My dashboard') . '"><span class="hidden">' . App::config()->vendorName() . '</span></a></h1>' . "\n";
 
         echo
-        '<form action="' . App::upgrade()->url()->get('upgrade.home') . '" method="post" id="top-info-blog">' .
+        '<div id="top-info-blog">' .
         '<p><strong>' . __("Dotclear's update dashboard") . '</strong></p>' .
-        '</form>' .
+        '</div>' .
         '<ul id="top-info-user">' .
         '<li><a class="smallscreen" href="' . App::upgrade()->url()->get('admin.home') . '">' . __('Go to normal dashboard') . '</a></li>' .
         '<li><a href="' . App::upgrade()->url()->get('upgrade.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), App::auth()->userID()) .
-            '</span><img src="images/logout.svg" alt=""></a></li>' .
-            '</ul>' .
-            '</header>'; // end header
+        '</span><img src="images/logout.svg" alt=""></a></li>' .
+        '</ul>' .
+        '</header>'; // end header
 
         echo
         '<div id="wrapper" class="clearfix">' . "\n" .
         '<div class="hidden-if-no-js collapser-box"><button type="button" id="collapser" class="void-btn">' .
         '<img class="collapse-mm visually-hidden" src="images/hide.svg" alt="' . __('Hide main menu') . '">' .
         '<img class="expand-mm visually-hidden" src="images/expand.svg" alt="' . __('Show main menu') . '">' .
-            '</button></div>' .
-            '<main id="main" role="main">' . "\n" .
-            '<div id="content" class="clearfix">' . "\n";
+        '</button></div>' .
+        '<main id="main" role="main">' . "\n" .
+        '<div id="content" class="clearfix">' . "\n";
 
         // Display breadcrumb (if given) before any error messages
         echo $breadcrumb;
@@ -170,10 +170,7 @@ class Page extends BackendPage
         "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
 
-        '<nav id="main-menu" role="navigation">' . "\n" .
-
-        '<form id="search-menu" action="" method="get" role="search">' .
-        '</form>';
+        '<nav id="main-menu" role="navigation">' . "\n";
 
         foreach (array_keys((array) App::upgrade()->menus()) as $k) {
             echo App::upgrade()->menus()[$k]?->draw();
@@ -188,28 +185,25 @@ class Page extends BackendPage
         '<p id="gototop"><a href="#wrapper"><img aria-hidden="true" src="images/up.svg" alt="' . __('Page top') . '"><span class="visually-hidden">' . __('Page top') . '</span></a></p>' . "\n";
 
         $figure = "\n" .
-
-        '           |            ' . "\n" .
-        '           |.===.       ' . "\n" .
-        '           {}o o{}      ' . "\n" .
-        '     ---ooO--(_)--Ooo---' . "\n";
+        ' ' . "\n" .
+        'ᓚᘏᗢ' . "\n";
 
         echo
-            '<footer id="footer" role="contentinfo">' .
-            '<a href="https://dotclear.org/" title="' . $text . '">' .
-            '<img src="style/dc_logos/dotclear-light.svg" class="light-only" alt="' . $text . '">' .
-            '<img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt="' . $text . '">' .
-            '</a></footer>' . "\n" .
-            '<!-- ' . "\n" .
-            $figure .
-            ' -->' . "\n";
+        '<footer id="footer" role="contentinfo">' .
+        '<a href="https://dotclear.org/" title="' . $text . '">' .
+        '<img src="style/dc_logos/dotclear-light.svg" class="light-only" alt="' . $text . '">' .
+        '<img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt="' . $text . '">' .
+        '</a></footer>' . "\n" .
+        '<!-- ' . "\n" .
+        $figure .
+        ' -->' . "\n";
 
         if (App::config()->devMode() === true) {
             echo self::debugInfo();
         }
 
         echo
-            '</body></html>';
+        '</body></html>';
     }
 
     /**
@@ -308,8 +302,8 @@ class Page extends BackendPage
         '<div id="helplink"><hr>' .
         '<p>' .
         sprintf(__('See also %s'), sprintf('<a href="%s">%s</a>', App::upgrade()->url()->get('upgrade.home'), __('the global help'))) .
-            '.</p>' .
-            '</div></div>';
+        '.</p>' .
+        '</div></div>';
     }
 
     /**
