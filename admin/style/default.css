@@ -1236,7 +1236,7 @@ h1,
 #content {
   background: var(--content-background);
   margin: 0 0 0 14em;
-  padding: 0.5em 1.5em 0.75em 2.5em;
+  padding: 0.75em 1em 0.75em 1.5em;
 }
 
 #main-menu {
