@@ -3240,6 +3240,11 @@ table.settings th:last-child,
 table.prefs th:last-child {
   width: 40%;
 }
+table.settings tbody tr > th,
+table.prefs tbody tr > th {
+  font-weight: normal;
+  background: inherit;
+}
 
 /* js */
 td.expand {

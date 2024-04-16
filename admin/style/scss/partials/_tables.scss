@@ -122,6 +122,11 @@ table.prefs {
   th:last-child {
     width: 40%;
   }
+
+  tbody tr > th {
+    font-weight: normal;
+    background: inherit;
+  }
 }
 
 /* js */
