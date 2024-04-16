@@ -29,7 +29,8 @@ class Decimal extends Input
         $this
             ->min($min)
             ->max($max)
-            ->inputmode('numeric');
+            ->inputmode('decimal')
+            ->step('any');
         if ($value !== null) {
             $this->value($value);
         }

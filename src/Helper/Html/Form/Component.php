@@ -45,6 +45,7 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this required(bool $required)
  * @method      $this size(int $size)
  * @method      $this spellcheck(bool $spellcheck)
+ * @method      $this step(string $step)
  * @method      $this tabindex(int $tabindex)
  * @method      $this title(string $title)
  * @method      $this type(string $type)
@@ -80,6 +81,7 @@ namespace Dotclear\Helper\Html\Form;
  * @property    bool $required
  * @property    int $size
  * @property    bool $spellcheck
+ * @property    string $step
  * @property    int $tabindex
  * @property    string $title
  * @property    string $type
@@ -366,15 +368,16 @@ abstract class Component
      *          inputmode       => string inputmode.
      *          lang            => string lang.
      *          list            => string list id.
-     *          max             => int max value.
+     *          max             => int|float max value.
      *          maxlength       => int max length.
-     *          min             => int min value.
+     *          min             => int|float min value.
      *          readonly        => boolean readonly.
      *          required        => boolean required.
      *          pattern         => string pattern.
      *          placeholder     => string placeholder.
      *          size            => int size.
      *          spellcheck      => boolean spellcheck.
+     *          step            => string step.
      *          tabindex        => int tabindex.
      *          title           => string title.
      *
@@ -461,6 +464,8 @@ abstract class Component
                 ' size="' . strval((int) $this->size) . '"' : '') .
             (isset($this->spellcheck) ?
                 ' spellcheck="' . ($this->spellcheck ? 'true' : 'false') . '"' : '') .
+            (isset($this->step) ?
+                ' step="' . $this->step . '"' : '') .
             (isset($this->tabindex) ?
                 ' tabindex="' . strval((int) $this->tabindex) . '"' : '') .
             (isset($this->title) ?
