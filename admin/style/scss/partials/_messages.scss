@@ -6,13 +6,11 @@
   display: inline-block;
   line-height: 1.5em;
   border-radius: 3px;
-  box-shadow: 1px 1px 2px var(--msg-shadow);
 }
 
 .info {
   color: var(--msg-info-color);
   border: 1px solid var(--msg-info-border);
-  box-shadow: none;
   background: url(msg-info.svg) no-repeat 0.75em 0.75em;
   background-size: 2.5em;
   background-color: var(--msg-info-background);
@@ -22,7 +20,6 @@
 .warning {
   color: var(--msg-warn-color);
   border: 1px solid var(--msg-warn-border);
-  box-shadow: none;
   background: url(msg-warning.svg) no-repeat 0.75em 0.75em;
   background-size: 2.5em;
   background-color: var(--msg-warn-background);
@@ -36,7 +33,6 @@
   padding: 1.25em 0.5em 0.5em 4em;
   margin-bottom: 1em;
   border-radius: 3px;
-  box-shadow: 1px 1px 2px var(--msg-shadow);
 }
 
 .error {
@@ -117,7 +113,6 @@
   background: url(msg-info.svg) no-repeat 0.75em 0.75em;
   background-size: 2.5em;
   background-color: var(--dc-update-background);
-  box-shadow: 1px 1px 2px var(--msg-shadow);
 
   h3 {
     margin-top: 0;

@@ -124,9 +124,7 @@ On adapte largeur et hauteur en fonction
   padding: 20px 18px 6px;
   background-color: var(--theme-current-background);
   border: 1px solid var(--theme-current-border);
-  border-radius: 0.5em;
   min-height: 326px;
-  box-shadow: 1px 1px 2px var(--theme-current-shadow);
   position: relative;
   .module-sshot:hover {
     cursor: auto;
@@ -135,7 +133,6 @@ On adapte largeur et hauteur en fonction
     float: left;
     margin-right: 2em;
     border: 9px solid var(--theme-current-img-border);
-    // padding: 5px;
     max-width: 308px;
     max-height: 273px;
   }

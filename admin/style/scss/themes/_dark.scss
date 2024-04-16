@@ -178,7 +178,6 @@
   --invalid-input-color: #{$black};
   --invalid-input-border: #{$error-alt};
   --invalid-input-background: #{$error};
-  --invalid-input-shadow: #{rgba($error-alt, 0.3)};
 
   --input-color: #{$black};
   --input-background: #{$gray-lighter};
@@ -241,7 +240,6 @@
   --msg-color: #{$white};
   --msg-background: #{$gray-dark};
   --msg-background-alt: #{scale-color($gray-dark, $lightness: 66%)};
-  --msg-shadow: #{rgba($gray-very-dark, 0.1)};
 
   --msg-info-color: #{$white};
   --msg-info-background: #{scale-color($gray-darker, $lightness: -15%)};
@@ -343,7 +341,6 @@
 
   --theme-current-background: #{$gray-darker};
   --theme-current-border: #{$gray-lighter};
-  --theme-current-shadow: #{rgba($gray-very-dark, 0.1)};
 
   --theme-current-img-border: #{$white};
   --theme-current-name-color: #{$orange};

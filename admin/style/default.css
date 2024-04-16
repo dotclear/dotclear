@@ -370,7 +370,6 @@ h6 {
   --invalid-input-color: #000;
   --invalid-input-border: #ae323b;
   --invalid-input-background: #ffbaba;
-  --invalid-input-shadow: rgba(174, 50, 59, 0.3);
   --input-color: #000;
   --input-background: #f9f9f9;
   --input-border: #595959;
@@ -414,7 +413,6 @@ h6 {
   --msg-color: #fff;
   --msg-background: #676e78;
   --msg-background-alt: #caced2;
-  --msg-shadow: rgba(50, 50, 50, 0.1);
   --msg-info-color: #323232;
   --msg-info-background: #d9edf7;
   --msg-info-border: #868686;
@@ -475,7 +473,6 @@ h6 {
   --theme-action-border: #ececec;
   --theme-current-background: #f3f3f3;
   --theme-current-border: #ececec;
-  --theme-current-shadow: rgba(50, 50, 50, 0.1);
   --theme-current-img-border: #fff;
   --theme-current-name-color: #d33800;
   --cat-placeholder-outline: #2373a8;
@@ -624,7 +621,6 @@ h6 {
   --invalid-input-color: #000;
   --invalid-input-border: #ae323b;
   --invalid-input-background: #ffbaba;
-  --invalid-input-shadow: rgba(174, 50, 59, 0.3);
   --input-color: #000;
   --input-background: #ecedee;
   --input-border: #747c87;
@@ -668,7 +664,6 @@ h6 {
   --msg-color: #fff;
   --msg-background: #676e78;
   --msg-background-alt: #caced2;
-  --msg-shadow: rgba(48, 50, 54, 0.1);
   --msg-info-color: #fff;
   --msg-info-background: #494c52;
   --msg-info-border: #494c52;
@@ -729,7 +724,6 @@ h6 {
   --theme-action-border: transparent;
   --theme-current-background: #565a60;
   --theme-current-border: #ecedee;
-  --theme-current-shadow: rgba(48, 50, 54, 0.1);
   --theme-current-img-border: #fff;
   --theme-current-name-color: #ff6e3a;
   --cat-placeholder-outline: #76c2f1;
@@ -879,7 +873,6 @@ h6 {
     --invalid-input-color: #000;
     --invalid-input-border: #ae323b;
     --invalid-input-background: #ffbaba;
-    --invalid-input-shadow: rgba(174, 50, 59, 0.3);
     --input-color: #000;
     --input-background: #ecedee;
     --input-border: #747c87;
@@ -923,7 +916,6 @@ h6 {
     --msg-color: #fff;
     --msg-background: #676e78;
     --msg-background-alt: #caced2;
-    --msg-shadow: rgba(48, 50, 54, 0.1);
     --msg-info-color: #fff;
     --msg-info-background: #494c52;
     --msg-info-border: #494c52;
@@ -984,7 +976,6 @@ h6 {
     --theme-action-border: transparent;
     --theme-current-background: #565a60;
     --theme-current-border: #ecedee;
-    --theme-current-shadow: rgba(48, 50, 54, 0.1);
     --theme-current-img-border: #fff;
     --theme-current-name-color: #ff6e3a;
     --cat-placeholder-outline: #76c2f1;
@@ -2489,13 +2480,11 @@ a.metaGetMore:hover {
   display: inline-block;
   line-height: 1.5em;
   border-radius: 3px;
-  box-shadow: 1px 1px 2px var(--msg-shadow);
 }
 
 .info {
   color: var(--msg-info-color);
   border: 1px solid var(--msg-info-border);
-  box-shadow: none;
   background: url(msg-info.svg) no-repeat 0.75em 0.75em;
   background-size: 2.5em;
   background-color: var(--msg-info-background);
@@ -2505,7 +2494,6 @@ a.metaGetMore:hover {
 .warning {
   color: var(--msg-warn-color);
   border: 1px solid var(--msg-warn-border);
-  box-shadow: none;
   background: url(msg-warning.svg) no-repeat 0.75em 0.75em;
   background-size: 2.5em;
   background-color: var(--msg-warn-background);
@@ -2519,7 +2507,6 @@ a.metaGetMore:hover {
   padding: 1.25em 0.5em 0.5em 4em;
   margin-bottom: 1em;
   border-radius: 3px;
-  box-shadow: 1px 1px 2px var(--msg-shadow);
 }
 
 .error {
@@ -2599,7 +2586,6 @@ a.metaGetMore:hover {
   background: url(msg-info.svg) no-repeat 0.75em 0.75em;
   background-size: 2.5em;
   background-color: var(--dc-update-background);
-  box-shadow: 1px 1px 2px var(--msg-shadow);
 }
 .dc-update h3 {
   margin-top: 0;
@@ -3951,9 +3937,7 @@ On adapte largeur et hauteur en fonction
   padding: 20px 18px 6px;
   background-color: var(--theme-current-background);
   border: 1px solid var(--theme-current-border);
-  border-radius: 0.5em;
   min-height: 326px;
-  box-shadow: 1px 1px 2px var(--theme-current-shadow);
   position: relative;
 }
 .box.current-theme .module-sshot:hover {
