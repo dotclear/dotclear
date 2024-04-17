@@ -3985,12 +3985,10 @@ On adapte largeur et hauteur en fonction
 }
 #categories ul {
   list-style: none;
-  margin-top: 2em;
   padding: 0;
 }
 #categories ul ul {
-  margin-right: 2em;
-  margin-left: 2em;
+  margin: 0 1em 0 2em;
 }
 #categories .placeholder {
   outline: 1px dashed var(--cat-placeholder-outline);
@@ -3998,59 +3996,37 @@ On adapte largeur et hauteur en fonction
 }
 
 .cat-line {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1em;
   position: relative;
   margin: 0.66em 0;
   padding: 0.66em 1em;
   border: 1px solid var(--cat-line-border);
   border-radius: 3px;
 }
-.cat-line label {
-  margin-right: 0.25em;
-}
-.cat-line label a {
-  font-weight: bold;
+.cat-line ul {
+  flex-grow: 1;
 }
 .cat-line p,
 .cat-line label {
   margin: 0;
-  display: inline-block;
+}
+.cat-line label {
+  display: inline-flex;
+  gap: 0.5em;
+  align-items: center;
 }
 .cat-line .cat-line {
   border: 1px solid var(--subcat-line-border);
 }
-
-p.cat-title {
-  margin-right: 1em;
+.cat-line .cat-buttons {
+  margin-inline-start: auto;
 }
-
-.cat-nb-posts a {
-  color: var(--cat-post-counter);
-}
-
-.cat-url {
-  padding-left: 1em;
-}
-
-.cat-buttons {
-  float: right;
-  margin-top: -0.2em;
-  font-size: 0.91em;
-}
-.cat-buttons select {
-  padding: 1px 2px 3px 2px;
-  margin-right: 0.25em;
-}
-.cat-buttons .reset {
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-.cat-actions {
-  line-height: 2;
-}
-
-#del_cat {
-  width: 100%;
+.cat-line label a {
+  font-weight: bold;
 }
 
 span.media-file-mode {

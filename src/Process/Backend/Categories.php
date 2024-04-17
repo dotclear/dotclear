@@ -192,7 +192,7 @@ class Categories extends Process
                 '<p class="cat-url">' . __('URL:') . ' <code>' . Html::escapeHTML($rs->cat_url) . '</code></p>';
 
                 echo
-                '<p class="cat-buttons">';
+                '<p class="cat-buttons form-buttons">';
                 if ($rs->nb_total > 0) {
                     // remove current category
                     echo
