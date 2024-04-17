@@ -4849,9 +4849,14 @@ body.auth .pw-hide {
 .anchor-nav {
   background: var(--nav-background);
   margin: 0;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
 }
 .anchor-nav label {
-  vertical-align: bottom;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
 }
 
 /* nav links */

@@ -57,10 +57,35 @@ class Label extends Component
 
     // Aliases
 
+    /**
+     * Put field inside label with label text before field (ex: Number: [ ])
+     * Useful for input field, select, …
+     *
+     * @var        int
+     */
     public const INSIDE_LABEL_BEFORE = 0;
-    public const INSIDE_LABEL_AFTER  = 1;
+
+    /**
+     * Put field inside label with label text after field (ex: [] Active)
+     * Useful for radio, checkbox, …
+     *
+     * @var        int
+     */
+    public const INSIDE_LABEL_AFTER = 1;
+
+    /**
+     * Put field after label (for=field_id will be set automatically)
+     *
+     * @var        int
+     */
     public const OUTSIDE_TEXT_BEFORE = 2;
-    public const OUTSIDE_TEXT_AFTER  = 3;
+
+    /**
+     * Put field before label (for=field_id will be set automatically)
+     *
+     * @var        int
+     */
+    public const OUTSIDE_TEXT_AFTER = 3;
 
     /**
      * Position of linked component:
