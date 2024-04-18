@@ -464,7 +464,8 @@ class Ip extends SpamFilter
 
         $sql
             ->from($this->table)
-            ->where('rule_id = ' . $sql->in($ids))
-            ->delete();
+            ->where('rule_id' . $sql->in($ids));
+
+        $sql->delete();
     }
 }
