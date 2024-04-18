@@ -74,7 +74,7 @@ class Link extends Component
             $buffer .= $this->text;
         }
 
-        $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
+        $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>';
 
         return $buffer;
     }
