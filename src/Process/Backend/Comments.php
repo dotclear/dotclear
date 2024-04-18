@@ -157,7 +157,7 @@ class Comments extends Process
                 '<input name="delete_all_spam" class="delete" type="submit" value="' . __('Delete all spams') . '"></p>';
 
                 # --BEHAVIOR-- adminCommentsSpamForm --
-                App::behavior()->callBehavior('adminCommentsSpamForm');
+                App::behavior()->callBehavior('adminCommentsSpamFormV2');
 
                 echo
                 '</form>';
