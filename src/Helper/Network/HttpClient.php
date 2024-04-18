@@ -336,7 +336,7 @@ class HttpClient extends Socket
         $this->setHost($host, $port);
 
         if (defined('HTTP_PROXY_HOST') && defined('HTTP_PROXY_PORT')) {
-            $this->setProxy(HTTP_PROXY_HOST, HTTP_PROXY_PORT);
+            $this->setProxy(constant('HTTP_PROXY_HOST'), constant('HTTP_PROXY_PORT'));
         }
 
         if ($timeout) {
