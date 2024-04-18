@@ -9,10 +9,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\aboutConfig;
 
-use Exception;
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Caption;
@@ -34,15 +33,19 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Interface\Core\BlogWorkspaceInterface;
+use Exception;
 
 /**
- * @brief   The module manage process.
+ * @brief   The module backend manage process.
  * @ingroup aboutConfig
  */
 class Manage extends Process
 {
     /**
      * Initializes the page.
+     *
+     * @return     bool
      */
     public static function init(): bool
     {
@@ -55,6 +58,8 @@ class Manage extends Process
 
     /**
      * Processes the request(s).
+     *
+     * @return     bool
      */
     public static function process(): bool
     {
@@ -127,7 +132,7 @@ class Manage extends Process
         Page::openModule(
             My::name(),
             Page::jsPageTabs(App::backend()->part) .
-            My::jsLoad('index.js')
+            My::jsLoad('index')
         );
 
         echo
@@ -174,7 +179,7 @@ class Manage extends Process
      */
     protected static function settingsTable(bool $global = false): array
     {
-        /** @var array<string, \Dotclear\Interface\Core\BlogWorkspaceInterface> */
+        /** @var array<string, BlogWorkspaceInterface> */
         $namespaces = App::blog()->settings()->dumpWorkspaces();
         $settings   = [];
         if ($global) {
@@ -240,6 +245,7 @@ class Manage extends Process
                 $rows[] = self::settingLine($k, $v, $ns, $field_name, $strong);
             }
             $tables[] = (new Div())
+                ->class('table-outer')
                 ->items([
                     (new Table($prefix . $ns))
                         ->class('settings')
@@ -271,7 +277,7 @@ class Manage extends Process
                     ->class('form-buttons')
                     ->items([
                         (new Submit([$submit_id . '_post'], __('Save'))),
-                        (new Button([$submit_id . '_back'], __('Back')))->class(['gp-back','reset','hidden-if-no-js']),
+                        (new Button([$submit_id . '_back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
                         ...My::hiddenFields(),
                     ]),
             ]);
