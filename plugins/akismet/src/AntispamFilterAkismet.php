@@ -12,11 +12,20 @@ namespace Dotclear\Plugin\akismet;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
-use form;
 
 /**
  * @brief   The module antispam filter.
@@ -225,24 +234,53 @@ class AntispamFilterAkismet extends SpamFilter
 
         $res = Notices::getNotices();
 
-        $res .= '<form action="' . Html::escapeURL($url) . '" method="post" class="fieldset">' .
-        '<p><label for="ak_key" class="classic">' . __('Akismet API key:') . '</label> ' .
-        form::field('ak_key', 12, 128, $ak_key);
-
+        $verified = [];
         if ($ak_verified !== null) {
             if ($ak_verified) {
-                $res .= ' <img class="mark mark-check-on" src="images/check-on.svg" alt=""> ' . __('API key verified');
+                $verified[] = (new Img('images/check-on.svg'))->class(['mark','mark-check-on']);
+                $verified[] = (new Text(null, __('API key verified')));
             } else {
-                $res .= ' <img class="mark mark-check-on" src="images/check-off.svg" alt=""> ' . __('API key not verified');
+                $verified[] = (new Img('images/check-off.svg'))->class(['mark','mark-check-off']);
+                $verified[] = (new Text(null, __('API key not verified')));
             }
         }
 
-        $res .= '</p>';
-
-        $res .= '<p><a href="https://akismet.com/">' . __('Get your own API key') . '</a></p>' .
-        '<p><input type="submit" value="' . __('Save') . '">' .
-        App::nonce()->getFormNonce() . '</p>' .
-            '</form>';
+        $res .= (new Form('akismet_form'))
+            ->action(Html::escapeURL($url))
+            ->method('post')
+            ->fields([
+                (new Fieldset())->items([
+                    (new Note())
+                        ->class('form-note')
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                    (new Para())->items([
+                        (new Input('ak_key'))
+                            ->size(20)
+                            ->maxlength(128)
+                            ->value(Html::escapeHTML($ak_key))
+                            ->required(true)
+                            ->placeholder(__('Akismet API key'))
+                            ->label(
+                                (new Label(
+                                    (new Text('span', '*'))->render() . __('Akismet API key:'),
+                                    Label::INSIDE_TEXT_BEFORE
+                                ))
+                            )
+                            ->title(__('Required field')),
+                    ]),
+                    (new Para())->items($verified),
+                    (new Para())->items([
+                        (new Link())
+                            ->href('https://akismet.com/"')
+                            ->text(__('Get your own API key')),
+                    ]),
+                    (new Para())->items([
+                        (new Submit('akismet_save', __('Save'))),
+                        App::nonce()->formNonce(),
+                    ]),
+                ]),
+            ])
+        ->render();
 
         return $res;
     }
