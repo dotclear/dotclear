@@ -13,10 +13,28 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Caption;
+use Dotclear\Helper\Html\Form\Decimal;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Exception;
-use form;
 
 /**
  * @brief   The module backend manage process.
@@ -24,16 +42,25 @@ use form;
  */
 class Manage extends Process
 {
+    /**
+     * Initializes the page.
+     *
+     * @return     bool
+     */
     public static function init(): bool
     {
-        if (My::checkContext(My::MANAGE)) {
-            App::backend()->part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
-            self::status(true);
+        if (self::status(My::checkContext(My::MANAGE))) {
+            App::backend()->part = !empty($_GET['part']) && $_GET['part'] === 'global' ? 'global' : 'local';
         }
 
         return self::status();
     }
 
+    /**
+     * Processes the request(s).
+     *
+     * @return     bool
+     */
     public static function process(): bool
     {
         if (!self::status()) {
@@ -82,7 +109,9 @@ class Manage extends Process
                 }
 
                 Notices::addSuccessNotice(__('Preferences successfully updated'));
-                My::redirect(['part' => 'global']);
+                My::redirect([
+                    'part' => 'global',
+                ]);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -91,8 +120,15 @@ class Manage extends Process
         return true;
     }
 
+    /**
+     * Renders the page.
+     */
     public static function render(): void
     {
+        if (!self::status()) {
+            return;
+        }
+
         Page::openModule(
             My::name(),
             Page::jsPageTabs(App::backend()->part) .
@@ -107,22 +143,27 @@ class Manage extends Process
                 My::name()                              => '',
             ]
         ) .
-        Notices::getNotices() .
-        '<div id="local" class="multi-part" title="' . __('User preferences') . '">' .
-        '<h3 class="out-of-screen-if-js">' . __('User preferences') . '</h3>';
-
-        self::prefsTable(false);
+        Notices::getNotices();
 
         echo
-        '</div>' .
-
-        '<div id="global" class="multi-part" title="' . __('Global preferences') . '">' .
-        '<h3 class="out-of-screen-if-js">' . __('Global preferences') . '</h3>';
-
-        self::prefsTable(true);
+        (new Div('local'))
+            ->class('multi-part')
+            ->title(__('User preferences'))
+            ->items([
+                (new Text('h3', __('User preferences')))->class('out-of-screen-if-js'),
+                ... self::prefsTable(false),
+            ])
+        ->render();
 
         echo
-        '</div>';
+        (new Div('global'))
+            ->class('multi-part')
+            ->title(__('Global preferences'))
+            ->items([
+                (new Text('h3', __('Global preferences')))->class('out-of-screen-if-js'),
+                ... self::prefsTable(true),
+            ])
+        ->render();
 
         Page::helpBlock(My::id());
 
@@ -130,24 +171,14 @@ class Manage extends Process
     }
 
     /**
-     * Display local or global settings.
+     * Return local or global settings forms (menu + settings)
      *
      * @param   bool    $global     The global
+     *
+     * @return     array<int, Form>
      */
-    protected static function prefsTable(bool $global = false): void
+    protected static function prefsTable(bool $global = false): array
     {
-        $table_header = '<div class="table-outer"><table class="prefs" id="%s"><caption class="as_h3">%s</caption>' .
-            '<thead>' .
-            '<tr>' . "\n" .
-            '  <th class="nowrap">' . __('Setting ID') . '</th>' . "\n" .
-            '  <th>' . __('Value') . '</th>' . "\n" .
-            '  <th>' . __('Type') . '</th>' . "\n" .
-            '  <th>' . __('Description') . '</th>' . "\n" .
-            '</tr>' . "\n" .
-            '</thead>' . "\n" .
-            '<tbody>';
-        $table_footer = '</tbody></table></div>';
-
         /** @var array<string, UserWorkspaceInterface> */
         $workspaces = App::auth()->prefs()->dumpWorkspaces();
         $prefs      = [];
@@ -177,45 +208,85 @@ class Manage extends Process
             }
         }
 
+        $elements = [];
+
         ksort($prefs, SORT_FLAG_CASE | SORT_STRING);
         if (count($prefs)) {
             $ws_combo = [];
             foreach ($prefs as $ws => $s) {
                 $ws_combo[$ws] = $prefix_id . $ws;
             }
-            echo
-            '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
-            '<p class="anchor-nav">' .
-            '<label for="' . $nav_id . '" class="classic">' . __('Goto:') . '</label> ' .
-            form::combo($nav_id, $ws_combo, ['class' => 'navigation']) .
-            ' <input type="submit" value="' . __('Ok') . '" id="' . $submit_id . '">' .
-            '<input type="hidden" name="p" value="' . My::id() . '">' .
-            App::nonce()->getFormNonce() .
-            '</p></form>';
+
+            $elements[] = (new Form('frm_' . $nav_id))
+                ->action(App::backend()->url()->get('admin.plugin'))
+                ->method('post')
+                ->class('anchor-nav-sticky')
+                ->fields([
+                    (new Para())
+                        ->class('anchor-nav')
+                        ->items([
+                            (new Select($nav_id))
+                                ->label(new Label(__('Goto:'), Label::INSIDE_LABEL_BEFORE))
+                                ->class('navigation')
+                                ->items($ws_combo),
+                            (new Submit($submit_id, __('Ok'))),
+                            ...My::hiddenFields(),
+                        ]),
+                ]);
         }
 
-        echo
-        '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post">';
+        $tables = [];
         foreach ($prefs as $ws => $s) {
             ksort($s);
-            echo sprintf($table_header, $prefix . $ws, $ws);
+
+            $rows = [];
             foreach ($s as $k => $v) {
                 $strong = $global ? false : !$v['global'];
-                echo self::prefLine($k, $v, $ws, $field_name, $strong);
+                $rows[] = self::prefLine($k, $v, $ws, $field_name, $strong);
             }
-            echo $table_footer;
+            $tables[] = (new Div())
+                ->class('table-outer')
+                ->items([
+                    (new Table($prefix . $ws))
+                        ->class('prefs')
+                        ->caption((new Caption($ws))->class('as_h3'))
+                        ->thead(
+                            (new Thead())
+                                ->rows([
+                                    (new Tr())->cols([
+                                        (new Th())->class('nowrap')->scope('col')->text(__('Setting ID')),
+                                        (new Th())->scope('col')->text(__('Value')),
+                                        (new Th())->scope('col')->text(__('Type')),
+                                        (new Th())->scope('col')->text(__('Description')),
+                                    ]),
+                                ])
+                        )
+                        ->tbody(
+                            (new Tbody())
+                                ->rows($rows)
+                        ),
+                ]);
         }
 
-        echo
-        '<p class="form-buttons"><input type="submit" value="' . __('Save') . '">' .
-        '<input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-        '<input type="hidden" name="p" value="' . My::id() . '">' .
-        App::nonce()->getFormNonce() .
-        '</p></form>';
+        $elements[] = (new Form([$submit_id . '_form']))
+            ->action(App::backend()->url()->get('admin.plugin'))
+            ->method('post')
+            ->fields([
+                ... $tables,
+                (new Para())
+                    ->class('form-buttons')
+                    ->items([
+                        (new Submit([$submit_id . '_post'], __('Save'))),
+                        (new Button([$submit_id . '_back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
+                        ...My::hiddenFields(),
+                    ]),
+            ]);
+
+        return $elements;
     }
 
     /**
-     * Return table line (td) to display a setting.
+     * Return table line (tr) for a setting
      *
      * @param   string                  $id             The identifier
      * @param   array<string, mixed>    $s              The setting
@@ -223,54 +294,59 @@ class Manage extends Process
      * @param   string                  $field_name     The field name
      * @param   bool                    $strong_label   The strong label
      *
-     * @return  string
+     * @return     Tr
      */
-    protected static function prefLine(string $id, array $s, string $ws, string $field_name, bool $strong_label): string
+    protected static function prefLine(string $id, array $s, string $ws, string $field_name, bool $strong_label): Tr
     {
+        $nid = [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id];
+
         $field = match ((string) $s['type']) {
-            App::userWorkspace()::WS_BOOL => form::combo(
-                [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-                [__('yes') => 1, __('no') => 0],
-                $s['value'] ? 1 : 0
-            ),
+            // Boolean
+            App::userWorkspace()::WS_BOOL => (new Select($nid))
+                ->default($s['value'] ? '1' : '0')
+                ->items([__('yes') => '1', __('no') => '0']),
 
-            App::userWorkspace()::WS_ARRAY => form::field(
-                [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-                40,
-                null,
-                Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR))
-            ),
+            // Array (JSON encoded)
+            App::userWorkspace()::WS_ARRAY => (new Input($nid))
+                ->value(Html::escapeHTML(json_encode($s['value'], JSON_THROW_ON_ERROR)))
+                ->size(40),
 
-            App::userWorkspace()::WS_INT,
-            App::userWorkspace()::WS_FLOAT => form::number(
-                [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-                null,
-                null,
-                Html::escapeHTML((string) $s['value'])
-            ),
+            // Int
+            App::userWorkspace()::WS_INT => (new Number($nid, null, null, (int) $s['value'])),
 
-            //App::userWorkspace()::WS_STRING, App::userWorkspace()::WS_TEXT,
-            default => form::field(
-                [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-                40,
-                null,
-                Html::escapeHTML($s['value'])
-            ),
+            // Float
+            App::userWorkspace()::WS_FLOAT => (new Decimal($nid, null, null, (float) $s['value'])),
+
+            // String, Text
+            App::userWorkspace()::WS_STRING,
+            App::userWorkspace()::WS_TEXT => (new Input($nid))
+                ->value(Html::escapeHTML((string) $s['value']))
+                ->size(40),
+
+            // Default = String
+            default => (new Input($nid))
+                ->value(Html::escapeHTML((string) $s['value']))
+                ->size(40),
         };
 
-        $type = form::hidden(
+        $type = (new Hidden(
             [$field_name . '_type' . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id . '_type'],
             Html::escapeHTML($s['type'])
-        );
+        ));
 
-        $slabel = $strong_label ? '<strong>%s</strong>' : '%s';
+        $label = (new Label(
+            sprintf($strong_label ? '<strong>%s</strong>' : '%s', Html::escapeHTML($id)),
+            Label::OUTSIDE_LABEL_BEFORE,
+            $field_name . '_' . $ws . '_' . $id
+        ));
 
-        return
-            '<tr class="line">' .
-            '<td scope="row"><label for="' . $field_name . '_' . $ws . '_' . $id . '">' . sprintf($slabel, Html::escapeHTML($id)) . '</label></td>' .
-            '<td>' . $field . '</td>' .
-            '<td>' . $s['type'] . $type . '</td>' .
-            '<td>' . Html::escapeHTML($s['label']) . '</td>' .
-            '</tr>';
+        return (new Tr())
+            ->class('line')
+            ->items([
+                (new Th())->scope('row')->items([$label]),
+                (new Td())->items([$field]),
+                (new Td())->text($s['type'])->items([$type]),
+                (new Td())->text(Html::escapeHTML($s['label'])),
+            ]);
     }
 }
