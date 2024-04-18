@@ -15,9 +15,13 @@ namespace Dotclear\Helper\Html\Form;
  *
  * @method      $this for(string $id)
  * @method      $this text(string $text)
+ * @method      $this prefix(string $prefix)
+ * @method      $this suffix(string $suffix)
  *
  * @property    string $for
  * @property    string $text
+ * @property    string $prefix
+ * @property    string $suffix
  */
 class Label extends Component
 {
@@ -112,6 +116,16 @@ class Label extends Component
     ];
 
     /**
+     * Text prefix to put before buffer (associated field)
+     */
+    private string $_prefix = '';
+
+    /**
+     * Text suffix to put after buffer (associated field)
+     */
+    private string $_suffix = '';
+
+    /**
      * Constructs a new instance.
      *
      * @param      string       $text      The text
@@ -166,7 +180,10 @@ class Label extends Component
 
         $end = ($this->getElement() ?? self::DEFAULT_ELEMENT);
 
-        return sprintf($formats[$this->_position], $start, $this->text, $buffer ?: '', $end);
+        // Cope with optional prefix/suffix
+        $buffer = trim(implode(' ', [$this->_prefix, $buffer ?: '', $this->suffix]));
+
+        return sprintf($formats[$this->_position], $start, $this->text, $buffer, $end);
     }
 
     /**
@@ -193,6 +210,46 @@ class Label extends Component
     public function getPosition(): int
     {
         return $this->_position;
+    }
+
+    /**
+     * Sets the prefix.
+     *
+     * @param      string  $prefix  The prefix
+     */
+    public function setPrefix(string $prefix = '')
+    {
+        $this->_prefix = $prefix;
+    }
+
+    /**
+     * Gets the prefix.
+     *
+     * @return     string  The prefix.
+     */
+    public function getPrefix(): string
+    {
+        return $this->_prefix;
+    }
+
+    /**
+     * Sets the suffix.
+     *
+     * @param      string  $suffix  The suffix
+     */
+    public function setSuffix(string $suffix = '')
+    {
+        $this->_suffix = $suffix;
+    }
+
+    /**
+     * Gets the suffix.
+     *
+     * @return     string  The suffix.
+     */
+    public function getSuffix(): string
+    {
+        return $this->_suffix;
     }
 
     /**
