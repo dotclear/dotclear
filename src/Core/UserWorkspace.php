@@ -265,15 +265,17 @@ class UserWorkspace implements UserWorkspaceInterface
         $cur->pref_type  = $type;
         $cur->pref_label = $label;
 
-        #If we are local, compare to global value
+        // If it's a local setting and if a global setting exists, compare local value to global value
         if (!$global && $this->prefExists($name, true)) {
-            $g         = $this->global_prefs[$name];
-            $same_pref = ($g['ws'] === $this->workspace && $g['value'] === $value && $g['type'] === $type && $g['label'] === $label);
+            $g    = $this->global_prefs[$name];
+            $same = ($g['ws'] === $this->workspace && $g['value'] === $value && $g['type'] === $type && $g['label'] === $label);
 
-            # Drop pref if same value as global
-            if ($same_pref && $this->prefExists($name, false)) {
-                $this->drop($name);
-            } elseif ($same_pref) {
+            // The local value is the same as global value, remove local setting if exists
+            if ($same) {
+                if ($this->prefExists($name, false)) {
+                    $this->drop($name);
+                }
+
                 return;
             }
         }

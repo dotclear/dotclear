@@ -266,15 +266,17 @@ class BlogWorkspace implements BlogWorkspaceInterface
         $cur->setting_type  = $type;
         $cur->setting_label = $label;
 
-        #If we are local, compare to global value
+        // If it's a local setting and if a global setting exists, compare local value to global value
         if (!$global && $this->settingExists($name, true)) {
-            $g            = $this->global_settings[$name];
-            $same_setting = ($g['ns'] === $this->workspace && $g['value'] === $value && $g['type'] === $type && $g['label'] === $label);
+            $g    = $this->global_settings[$name];
+            $same = ($g['ns'] === $this->workspace && $g['value'] === $value && $g['type'] === $type && $g['label'] === $label);
 
-            # Drop setting if same value as global
-            if ($same_setting && $this->settingExists($name, false)) {
-                $this->drop($name);
-            } elseif ($same_setting) {
+            // The local value is the same as global value, remove local setting if exists
+            if ($same) {
+                if ($this->settingExists($name, false)) {
+                    $this->drop($name);
+                }
+
                 return;
             }
         }
