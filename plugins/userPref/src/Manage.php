@@ -70,11 +70,9 @@ class Manage extends Process
         // Local navigation
         if (!empty($_POST['gp_nav'])) {
             My::redirect([], $_POST['gp_nav']);
-            exit;
         }
         if (!empty($_POST['lp_nav'])) {
             My::redirect([], $_POST['lp_nav']);
-            exit;
         }
 
         // Local prefs update
