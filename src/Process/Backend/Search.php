@@ -83,6 +83,8 @@ class Search extends Process
         App::backend()->q     = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
         App::backend()->qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
 
+        App::backend()->q = Html::escapeHTML(App::backend()->q);
+
         if (!empty(App::backend()->q) && !in_array(App::backend()->qtype, App::backend()->qtype_combo)) {
             App::backend()->qtype = 'p';
         }
