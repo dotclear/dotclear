@@ -1767,7 +1767,8 @@ class ModulesList
     {
         if (($this->config_define instanceof ModuleDefine) && (!empty($this->config_class) || !empty($this->config_file))) {
             if (!$this->config_define->get('standalone_config')) {
-                if (($this->config_define->get('information_config'))) {
+                if (!($this->config_define->get('information_config'))) {
+                    // Module config is not only informative so it must be encapsulated in a form
                     echo
                     '<form id="module_config" action="' . $this->getURL('conf=1') . '" method="post" enctype="multipart/form-data">';
                 }
@@ -1779,6 +1780,7 @@ class ModulesList
             echo $this->config_content;
 
             if (!$this->config_define->get('standalone_config') && !$this->config_define->get('information_config')) {
+                // Module config is not only informative so it must be encapsulated in a form
                 echo
                 '<p class="clear"><input type="submit" name="save" value="' . __('Save') . '">' .
                 form::hidden('module', $this->config_define->getId()) .
