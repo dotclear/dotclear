@@ -33,6 +33,10 @@ fieldset {
   border-color: var(--fieldset-border);
   background: var(--fieldset-background);
 
+  & > fieldset {
+    border-style: dashed;
+  }
+
   hr {
     background-color: var(--fieldset-border);
     border-width: 0;
