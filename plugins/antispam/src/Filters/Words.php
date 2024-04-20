@@ -366,7 +366,7 @@ class Words extends SpamFilter
 
         $sql
             ->from($this->table)
-            ->where('rule_id = ' . $sql->in($ids))
+            ->where('rule_id' . $sql->in($ids))
             ->delete();
     }
 
