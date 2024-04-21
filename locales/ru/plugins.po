@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-20 11:51+0100\n"
-"PO-Revision-Date: 2024-03-20 11:09\n"
+"POT-Creation-Date: 2024-04-21 15:00+0200\n"
+"PO-Revision-Date: 2024-04-21 13:25\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -598,67 +598,75 @@ msgstr "Облако тегов"
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:68 plugins/aboutConfig/src/Manage.php:88
+#: plugins/aboutConfig/src/Manage.php:91 plugins/aboutConfig/src/Manage.php:111
 msgid "Configuration successfully updated"
 msgstr "Конфигурация успешно обновлена"
 
-#: plugins/aboutConfig/src/Manage.php:124
-#: plugins/aboutConfig/src/Manage.php:125
+#: plugins/aboutConfig/src/Manage.php:151
+#: plugins/aboutConfig/src/Manage.php:153
 #, php-format
 msgid "Settings for %s"
 msgstr "Настройки для %s"
 
-#: plugins/aboutConfig/src/Manage.php:132
-#: plugins/aboutConfig/src/Manage.php:133
+#: plugins/aboutConfig/src/Manage.php:161
+#: plugins/aboutConfig/src/Manage.php:163
 msgid "Global settings"
 msgstr "Глобальные настройки"
 
-#: plugins/aboutConfig/src/Manage.php:156 plugins/userPref/src/Manage.php:142
-msgid "Setting ID"
-msgstr "Параметр ID"
-
-#: plugins/aboutConfig/src/Manage.php:157 plugins/userPref/src/Manage.php:143
-msgid "Value"
-msgstr "Значение"
-
-#: plugins/aboutConfig/src/Manage.php:203 plugins/userPref/src/Manage.php:189
+#: plugins/aboutConfig/src/Manage.php:229 plugins/userPref/src/Manage.php:227
 msgid "Goto:"
 msgstr "Перейти:"
 
-#: plugins/aboutConfig/src/Manage.php:248 plugins/userPref/src/Manage.php:233
+#: plugins/aboutConfig/src/Manage.php:257 plugins/userPref/src/Manage.php:255
+msgid "Setting ID"
+msgstr "Параметр ID"
+
+#: plugins/aboutConfig/src/Manage.php:258 plugins/userPref/src/Manage.php:256
+msgid "Value"
+msgstr "Значение"
+
+#: plugins/aboutConfig/src/Manage.php:307 plugins/userPref/src/Manage.php:305
 msgid "no"
 msgstr "нет"
 
-#: plugins/aboutConfig/src/Manage.php:248 plugins/userPref/src/Manage.php:233
+#: plugins/aboutConfig/src/Manage.php:307 plugins/userPref/src/Manage.php:305
 msgid "yes"
 msgstr "да"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:79
+#: plugins/akismet/src/AntispamFilterAkismet.php:88
 msgid "Akismet spam filter"
 msgstr "Спам фильтр Akismet"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:92
+#: plugins/akismet/src/AntispamFilterAkismet.php:101
 #, php-format
 msgid "Filtered by %s."
 msgstr "Отфильтровано %s"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:210
+#: plugins/akismet/src/AntispamFilterAkismet.php:219
 msgid "Filter configuration have been successfully saved."
 msgstr "Конфигурация фильтра успешно сохранена."
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:229
-msgid "Akismet API key:"
-msgstr "API ключ Akismet:"
-
-#: plugins/akismet/src/AntispamFilterAkismet.php:234
+#: plugins/akismet/src/AntispamFilterAkismet.php:241
 msgid "API key verified"
 msgstr "API ключ подтвержден"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:236
+#: plugins/akismet/src/AntispamFilterAkismet.php:244
 msgid "API key not verified"
 msgstr "API ключ не подтвержден"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:242
+#: plugins/akismet/src/AntispamFilterAkismet.php:262
+msgid "Akismet API key"
+msgstr "Ключ API Akismet"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:265
+msgid "Akismet API key:"
+msgstr "API ключ Akismet:"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:269
+msgid "Required field"
+msgstr "Обязательное поле"
+
+#: plugins/akismet/src/AntispamFilterAkismet.php:275
 msgid "Get your own API key"
 msgstr "Получите свой API ключ Akismet"
 
@@ -666,16 +674,16 @@ msgstr "Получите свой API ключ Akismet"
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:140
+#: plugins/antispam/src/Antispam.php:145
 msgid "This comment is a spam:"
 msgstr "Этот комментарий является спамом:"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:162 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(включая %d спам комментариев)"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:162 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(включая %d спам комментариев)"
@@ -684,124 +692,123 @@ msgstr "(включая %d спам комментариев)"
 msgid "Antispam"
 msgstr "Антиспам"
 
-#: plugins/antispam/src/BackendBehaviors.php:42
-#: plugins/antispam/src/Manage.php:196
+#: plugins/antispam/src/BackendBehaviors.php:56
+#: plugins/antispam/src/Manage.php:222
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Все спам комментарии старше чем %s дней будут удалены автоматически."
 
-#: plugins/antispam/src/BackendBehaviors.php:43
-#: plugins/antispam/src/Manage.php:197
+#: plugins/antispam/src/BackendBehaviors.php:59
 #, php-format
-msgid "You can modify this duration in the %s"
-msgstr "Вы можете изменить эту длительность в %s"
+msgid "You can modify this duration in the %s."
+msgstr "Вы можете изменить эту продолжительность в разделе %s."
 
-#: plugins/antispam/src/BackendBehaviors.php:58
+#: plugins/antispam/src/BackendBehaviors.php:86
 msgid "Delete junk comments older than"
 msgstr "Удалить спам комментарии старше чем"
 
-#: plugins/antispam/src/BackendBehaviors.php:64
+#: plugins/antispam/src/BackendBehaviors.php:86
 msgid "days"
 msgstr "дней"
 
-#: plugins/antispam/src/BackendBehaviors.php:66
-msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
-msgstr "Установите -1 для отключения этой функции; Оставьте пустым для использования по умолчанию на 7 дней."
+#: plugins/antispam/src/BackendBehaviors.php:90
+msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
+msgstr "Установите -1, чтобы отключить эту функцию; рекомендуемая задержка составляет 7 дней."
 
-#: plugins/antispam/src/BackendBehaviors.php:67
+#: plugins/antispam/src/BackendBehaviors.php:94
 msgid "Set spam filters."
 msgstr "Установить фильтры спама."
 
-#: plugins/antispam/src/Filters/Ip.php:80
+#: plugins/antispam/src/Filters/Ip.php:90
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "Черный/белый список IP"
 
-#: plugins/antispam/src/Filters/Ip.php:93
-#: plugins/antispam/src/Filters/IpV6.php:93
+#: plugins/antispam/src/Filters/Ip.php:103
+#: plugins/antispam/src/Filters/IpV6.php:103
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
 msgstr "Фильтровать по %1$s с правилом %2$s."
 
-#: plugins/antispam/src/Filters/Ip.php:154
-#: plugins/antispam/src/Filters/IpV6.php:154
+#: plugins/antispam/src/Filters/Ip.php:164
+#: plugins/antispam/src/Filters/IpV6.php:164
 msgid "IP address has been successfully added."
 msgstr "IP адрес успешно добавлен."
 
-#: plugins/antispam/src/Filters/Ip.php:165
-#: plugins/antispam/src/Filters/IpV6.php:165
+#: plugins/antispam/src/Filters/Ip.php:175
+#: plugins/antispam/src/Filters/IpV6.php:175
 msgid "IP addresses have been successfully removed."
 msgstr "IP адрес успешно удален."
 
-#: plugins/antispam/src/Filters/Ip.php:175
-#: plugins/antispam/src/Filters/IpV6.php:174
+#: plugins/antispam/src/Filters/Ip.php:184
+#: plugins/antispam/src/Filters/IpV6.php:184
 msgid "Blocklist"
 msgstr "Черный список"
 
-#: plugins/antispam/src/Filters/Ip.php:176
-#: plugins/antispam/src/Filters/IpV6.php:175
+#: plugins/antispam/src/Filters/Ip.php:185
+#: plugins/antispam/src/Filters/IpV6.php:185
 msgid "Allowlist"
 msgstr "Белый список"
 
-#: plugins/antispam/src/Filters/Ip.php:196
-#: plugins/antispam/src/Filters/IpV6.php:195
-msgid "Add an IP address: "
-msgstr "Добавить IP-адрес: "
+#: plugins/antispam/src/Filters/Ip.php:202
+#: plugins/antispam/src/Filters/IpV6.php:202
+msgid "No IP address in list."
+msgstr "Нет IP адресов в списке."
 
-#: plugins/antispam/src/Filters/Ip.php:200
-#: plugins/antispam/src/Filters/IpV6.php:199
+#: plugins/antispam/src/Filters/Ip.php:231
+#: plugins/antispam/src/Filters/IpV6.php:230
+msgid "Local IPs (used only for this blog)"
+msgstr "Локальные IP (используется только для этого блога)"
+
+#: plugins/antispam/src/Filters/Ip.php:239
+#: plugins/antispam/src/Filters/IpV6.php:238
+msgid "Global IPs (used for all blogs)"
+msgstr "Глобальные IP адреса (используются для всех блогов)"
+
+#: plugins/antispam/src/Filters/Ip.php:250
+#: plugins/antispam/src/Filters/IpV6.php:249
+msgid "IP list"
+msgstr "Список IP"
+
+#: plugins/antispam/src/Filters/Ip.php:266
+#: plugins/antispam/src/Filters/IpV6.php:265
 msgid "Global IP (used for all blogs)"
 msgstr "Глобальный IP (используется для всех блогов)"
 
-#: plugins/antispam/src/Filters/Ip.php:205
-#: plugins/antispam/src/Filters/IpV6.php:204
-#: plugins/antispam/src/Filters/Words.php:193
+#: plugins/antispam/src/Filters/Ip.php:283
+#: plugins/antispam/src/Filters/IpV6.php:282
+msgid "Add an IP address:"
+msgstr "Добавьте IP-адрес:"
+
+#: plugins/antispam/src/Filters/Ip.php:287
+#: plugins/antispam/src/Filters/IpV6.php:286
+#: plugins/antispam/src/Filters/Words.php:305
 #: plugins/widgets/src/Manage.php:288
 msgid "Add"
 msgstr "Добавить"
 
-#: plugins/antispam/src/Filters/Ip.php:211
-#: plugins/antispam/src/Filters/IpV6.php:210
-msgid "No IP address in list."
-msgstr "Нет IP адресов в списке."
-
-#: plugins/antispam/src/Filters/Ip.php:214
-#: plugins/antispam/src/Filters/IpV6.php:213
-msgid "IP list"
-msgstr "Список IP"
-
-#: plugins/antispam/src/Filters/Ip.php:244
-#: plugins/antispam/src/Filters/IpV6.php:242
-msgid "Local IPs (used only for this blog)"
-msgstr "Локальные IP (используется только для этого блога)"
-
-#: plugins/antispam/src/Filters/Ip.php:250
-#: plugins/antispam/src/Filters/IpV6.php:248
-msgid "Global IPs (used for all blogs)"
-msgstr "Глобальные IP адреса (используются для всех блогов)"
-
-#: plugins/antispam/src/Filters/IpLookup.php:78
+#: plugins/antispam/src/Filters/IpLookup.php:84
 msgid "Checks sender IP address against DNSBL servers"
 msgstr "Проверить IP адрес на сервере DNSBL"
 
-#: plugins/antispam/src/Filters/IpLookup.php:91
+#: plugins/antispam/src/Filters/IpLookup.php:97
 #: plugins/antispam/src/Filters/LinksLookup.php:73
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
 msgstr "Фильтровать по %1$s на сервере %2$s."
 
-#: plugins/antispam/src/Filters/IpLookup.php:149
+#: plugins/antispam/src/Filters/IpLookup.php:155
 msgid "The list of DNSBL servers has been succesfully updated."
 msgstr "Список DNSBL серверов был успешно обновлен."
 
-#: plugins/antispam/src/Filters/IpLookup.php:160
+#: plugins/antispam/src/Filters/IpLookup.php:168
 msgid "IP Lookup servers"
 msgstr "Серверы просмотра IP"
 
-#: plugins/antispam/src/Filters/IpLookup.php:161
+#: plugins/antispam/src/Filters/IpLookup.php:173
 msgid "Add here a coma separated list of servers."
 msgstr "Добавьте сюда список серверов через запятую."
 
-#: plugins/antispam/src/Filters/IpV6.php:80
+#: plugins/antispam/src/Filters/IpV6.php:90
 msgid "IP v6 Blocklist / Allowlist Filter"
 msgstr "IP v6 список блоков / разрешенный фильтр списка"
 
@@ -809,60 +816,60 @@ msgstr "IP v6 список блоков / разрешенный фильтр с
 msgid "Checks links in comments against surbl.org"
 msgstr "Проверить ссылки в комментариях на surbl.org"
 
-#: plugins/antispam/src/Filters/Words.php:80
+#: plugins/antispam/src/Filters/Words.php:90
 msgid "Words Blocklist"
 msgstr "Черный список слов"
 
-#: plugins/antispam/src/Filters/Words.php:93
+#: plugins/antispam/src/Filters/Words.php:103
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
 msgstr "Отфильтровано по %1$s со словом %2$s."
 
-#: plugins/antispam/src/Filters/Words.php:150
+#: plugins/antispam/src/Filters/Words.php:160
 msgid "Words have been successfully added."
 msgstr "Слова были успешно добавлены."
 
-#: plugins/antispam/src/Filters/Words.php:163
+#: plugins/antispam/src/Filters/Words.php:173
 msgid "Word has been successfully added."
 msgstr "Слово было успешно добавлено."
 
-#: plugins/antispam/src/Filters/Words.php:174
+#: plugins/antispam/src/Filters/Words.php:184
 msgid "Words have been successfully removed."
 msgstr "Слова были успешно удалены."
 
-#: plugins/antispam/src/Filters/Words.php:184
-msgid "Add a word "
-msgstr "Добавить слово "
-
-#: plugins/antispam/src/Filters/Words.php:188
-msgid "Global word (used for all blogs)"
-msgstr "Глобальное слово (используется для всех блогов)"
-
-#: plugins/antispam/src/Filters/Words.php:198
+#: plugins/antispam/src/Filters/Words.php:209
 msgid "No word in list."
 msgstr "Нет слов в списке."
 
-#: plugins/antispam/src/Filters/Words.php:201
-msgid "List of bad words"
-msgstr "Список плохих слов"
-
-#: plugins/antispam/src/Filters/Words.php:230
+#: plugins/antispam/src/Filters/Words.php:237
 msgid "Local words (used only for this blog)"
 msgstr "Локальные слова (используется только для этого блога)"
 
-#: plugins/antispam/src/Filters/Words.php:236
+#: plugins/antispam/src/Filters/Words.php:245
 msgid "Global words (used for all blogs)"
 msgstr "Глобальные слова (используются для всех блогов)"
 
-#: plugins/antispam/src/Filters/Words.php:247
+#: plugins/antispam/src/Filters/Words.php:256
+msgid "List of bad words"
+msgstr "Список плохих слов"
+
+#: plugins/antispam/src/Filters/Words.php:261
 msgid "Delete selected words"
 msgstr "Удалить выделенные слова"
 
-#: plugins/antispam/src/Filters/Words.php:253
+#: plugins/antispam/src/Filters/Words.php:271
+msgid "Global word (used for all blogs)"
+msgstr "Глобальное слово (используется для всех блогов)"
+
+#: plugins/antispam/src/Filters/Words.php:281
 msgid "Create default wordlist"
 msgstr "Создать список слов по умолчанию"
 
-#: plugins/antispam/src/Filters/Words.php:315
+#: plugins/antispam/src/Filters/Words.php:302
+msgid "Add a word:"
+msgstr "Добавьте слово:"
+
+#: plugins/antispam/src/Filters/Words.php:367
 msgid "This word exists"
 msgstr "Это слово существует"
 
@@ -878,91 +885,96 @@ msgstr "Спам"
 msgid "Ham"
 msgstr "Не спам"
 
-#: plugins/antispam/src/Manage.php:50
+#: plugins/antispam/src/Manage.php:70
 msgid "Filter does not exist."
 msgstr "Фильтр не существует."
 
-#: plugins/antispam/src/Manage.php:54
+#: plugins/antispam/src/Manage.php:74
 msgid "Filter has no user interface."
 msgstr "Фильтр не имеет пользовательского интерфейса."
 
-#: plugins/antispam/src/Manage.php:115 plugins/antispam/src/Manage.php:208
+#: plugins/antispam/src/Manage.php:135 plugins/antispam/src/Manage.php:268
 msgid "Filters configuration has been successfully saved."
 msgstr "Конфигурация фильтров успешно сохранена."
 
-#: plugins/antispam/src/Manage.php:132
+#: plugins/antispam/src/Manage.php:152
 #, php-format
 msgid "%s configuration"
 msgstr "%s конфигурация"
 
-#: plugins/antispam/src/Manage.php:152
+#: plugins/antispam/src/Manage.php:173
 #, php-format
 msgid "%s filter configuration"
 msgstr "Конфигурация фильтра %s"
 
-#: plugins/antispam/src/Manage.php:156
+#: plugins/antispam/src/Manage.php:180
 msgid "Back to filters list"
 msgstr "Вернуться к списку фильтров"
 
-#: plugins/antispam/src/Manage.php:180
+#: plugins/antispam/src/Manage.php:227
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr "Вы можете изменить эту длительность в %s"
+
+#: plugins/antispam/src/Manage.php:236
 msgid "Information"
 msgstr "Информация"
 
-#: plugins/antispam/src/Manage.php:182
+#: plugins/antispam/src/Manage.php:247
 msgid "Junk comments:"
 msgstr "Спам комментарии:"
 
-#: plugins/antispam/src/Manage.php:184
+#: plugins/antispam/src/Manage.php:253
 msgid "Published comments:"
 msgstr "Опубликованные комментарии:"
 
-#: plugins/antispam/src/Manage.php:214
+#: plugins/antispam/src/Manage.php:277 plugins/antispam/src/Manage.php:280
+#: plugins/antispam/src/Manage.php:284
+msgid "Filter configuration"
+msgstr "Конфигурация фильтра"
+
+#: plugins/antispam/src/Manage.php:300 plugins/blogroll/src/Manage.php:270
+msgid "position"
+msgstr "позиция"
+
+#: plugins/antispam/src/Manage.php:307 plugins/antispam/src/Manage.php:341
+msgid "Active"
+msgstr "Активный"
+
+#: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:342
+msgid "Auto Del."
+msgstr "Авто удаление"
+
+#: plugins/antispam/src/Manage.php:335
 msgid "Available spam filters"
 msgstr "Доступные спам фильтры"
 
-#: plugins/antispam/src/Manage.php:216
+#: plugins/antispam/src/Manage.php:340
 #: plugins/pages/src/BackendDefaultActions.php:78
 msgid "Order"
 msgstr "Порядок"
 
-#: plugins/antispam/src/Manage.php:217 plugins/antispam/src/Manage.php:249
-msgid "Active"
-msgstr "Активный"
-
-#: plugins/antispam/src/Manage.php:218 plugins/antispam/src/Manage.php:257
-msgid "Auto Del."
-msgstr "Авто удаление"
-
-#: plugins/antispam/src/Manage.php:219
+#: plugins/antispam/src/Manage.php:343
 msgid "Filter name"
 msgstr "Имя фильтра"
 
-#: plugins/antispam/src/Manage.php:228 plugins/antispam/src/Manage.php:229
-#: plugins/antispam/src/Manage.php:230
-msgid "Filter configuration"
-msgstr "Конфигурация фильтра"
-
-#: plugins/antispam/src/Manage.php:241 plugins/blogroll/src/Manage.php:270
-msgid "position"
-msgstr "позиция"
-
-#: plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:370
 msgid "Syndication"
 msgstr "Ленты новостей"
 
-#: plugins/antispam/src/Manage.php:289
+#: plugins/antispam/src/Manage.php:373
 msgid "Junk comments RSS feed"
 msgstr "RSS спам комментариев"
 
-#: plugins/antispam/src/Manage.php:290
+#: plugins/antispam/src/Manage.php:376
 msgid "Published comments RSS feed"
 msgstr "RSS опубликованных комментариев"
 
-#: plugins/antispam/src/SpamFilter.php:107
+#: plugins/antispam/src/SpamFilter.php:108
 msgid "No description"
 msgstr "Нет описания"
 
-#: plugins/antispam/src/SpamFilter.php:166
+#: plugins/antispam/src/SpamFilter.php:167
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Отфильтровано по %1$s (%2$s)"
@@ -3024,39 +3036,39 @@ msgstr "PHP-файлы"
 msgid "You can't edit a distributed theme."
 msgstr "Вы не можете редактировать распределенную тему."
 
-#: plugins/themeEditor/src/ThemeEditor.php:145
+#: plugins/themeEditor/src/ThemeEditor.php:144
 msgid "No file"
 msgstr "Нет файла"
 
-#: plugins/themeEditor/src/ThemeEditor.php:165
+#: plugins/themeEditor/src/ThemeEditor.php:163
 msgid "From theme:"
 msgstr "Из темы:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:167
+#: plugins/themeEditor/src/ThemeEditor.php:165
 msgid "From parent:"
 msgstr "От родителя:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:172
+#: plugins/themeEditor/src/ThemeEditor.php:170
 msgid "From template set:"
 msgstr "Из набора шаблонов:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:207
-#: plugins/themeEditor/src/ThemeEditor.php:237
-#: plugins/themeEditor/src/ThemeEditor.php:326
+#: plugins/themeEditor/src/ThemeEditor.php:193
+#: plugins/themeEditor/src/ThemeEditor.php:223
+#: plugins/themeEditor/src/ThemeEditor.php:312
 msgid "File does not exist."
 msgstr "Файл не существует."
 
-#: plugins/themeEditor/src/ThemeEditor.php:212
+#: plugins/themeEditor/src/ThemeEditor.php:198
 #, php-format
 msgid "File %s is not readable"
 msgstr "Файл %s не читабельный"
 
-#: plugins/themeEditor/src/ThemeEditor.php:274
+#: plugins/themeEditor/src/ThemeEditor.php:260
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Невозможно выполнить запись в файл %s. Пожалуйста, проверьте файлы темы и права доступа к папкам."
 
-#: plugins/themeEditor/src/ThemeEditor.php:339
+#: plugins/themeEditor/src/ThemeEditor.php:325
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Невозможно удалить файл %s. Проверьте, пожалуйста, права доступа к файлам и папкам темы."
@@ -3065,15 +3077,15 @@ msgstr "Невозможно удалить файл %s. Проверьте, п�
 msgid "user:preferences"
 msgstr "пользователь:предпочтения"
 
-#: plugins/userPref/src/Manage.php:65 plugins/userPref/src/Manage.php:84
+#: plugins/userPref/src/Manage.php:90 plugins/userPref/src/Manage.php:109
 msgid "Preferences successfully updated"
 msgstr "Настройки успешно обновлены"
 
-#: plugins/userPref/src/Manage.php:111 plugins/userPref/src/Manage.php:112
+#: plugins/userPref/src/Manage.php:149 plugins/userPref/src/Manage.php:151
 msgid "User preferences"
 msgstr "Настройки пользователя"
 
-#: plugins/userPref/src/Manage.php:119 plugins/userPref/src/Manage.php:120
+#: plugins/userPref/src/Manage.php:159 plugins/userPref/src/Manage.php:161
 msgid "Global preferences"
 msgstr "Глобальные настройки"
 

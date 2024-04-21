@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-31 11:12+0200\n"
-"PO-Revision-Date: 2024-03-31 09:30\n"
+"POT-Creation-Date: 2024-04-21 15:00+0200\n"
+"PO-Revision-Date: 2024-04-21 13:03\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -443,10 +443,10 @@ msgstr "Родитель:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1780 src/Process/Backend/BlogPref.php:927
+#: src/Core/Backend/ModulesList.php:1785 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1054
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1072
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:921
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:499
@@ -640,8 +640,8 @@ msgstr[3] "%d комментариев"
 
 #: src/Core/Backend/Favorites.php:453 src/Core/Backend/Menus.php:141
 #: src/Core/Backend/UserPref.php:209 src/Process/Backend/PostsPopup.php:100
-#: src/Process/Backend/Search.php:112 src/Process/Backend/Search.php:117
-#: src/Process/Backend/Search.php:129
+#: src/Process/Backend/Search.php:114 src/Process/Backend/Search.php:119
+#: src/Process/Backend/Search.php:131
 msgid "Search"
 msgstr "Поиск"
 
@@ -1021,7 +1021,7 @@ msgstr "Вход"
 #: src/Core/Backend/Listing/ListingPosts.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:170
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:934
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:952
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1088
 msgid "Published"
 msgstr "Опубликовано"
@@ -1031,7 +1031,7 @@ msgstr "Опубликовано"
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:175
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:935
+#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:953
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1093
 msgid "Unpublished"
 msgstr "Не опубликовано"
@@ -1041,7 +1041,7 @@ msgstr "Не опубликовано"
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:185
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:937
+#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:955
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1098
 msgid "Pending"
 msgstr "В ожидании"
@@ -1182,7 +1182,7 @@ msgstr "Пинги"
 #: src/Core/Backend/Listing/ListingPosts.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:180
 #: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
-#: src/Process/Backend/MediaItem.php:936 src/Process/Backend/Post.php:477
+#: src/Process/Backend/MediaItem.php:954 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "Запланированный"
 
@@ -1268,8 +1268,8 @@ msgstr "Страница прямого доступа %s"
 #: src/Core/Backend/Listing/Pager.php:151 src/Core/Backend/Page.php:142
 #: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:187
 #: src/Process/Backend/Post.php:879 src/Process/Backend/Post.php:972
-#: src/Process/Backend/Posts.php:119 src/Process/Backend/Search.php:244
-#: src/Process/Backend/Search.php:323 src/Process/Backend/Users.php:149
+#: src/Process/Backend/Posts.php:119 src/Process/Backend/Search.php:246
+#: src/Process/Backend/Search.php:325 src/Process/Backend/Users.php:149
 msgid "ok"
 msgstr "ок"
 
@@ -1644,16 +1644,16 @@ msgstr "У этого плагина нет файла конфигурации.
 msgid "Insufficient permissions"
 msgstr "Недостаточно прав"
 
-#: src/Core/Backend/ModulesList.php:1772
+#: src/Core/Backend/ModulesList.php:1776
 #, php-format
 msgid "Configure \"%s\""
 msgstr "Настройка \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1773 src/Process/Backend/Blog.php:193
+#: src/Core/Backend/ModulesList.php:1777 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1095
-#: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:130
+#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1113
+#: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:132
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:614
 #: src/Process/Backend/UserPreferences.php:794
 #: src/Process/Backend/UserPreferences.php:974
@@ -1731,31 +1731,31 @@ msgstr "Безопасный режим"
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Вы находитесь в безопасном режиме. Все плагины были временно отключены. Напомните, чтобы выйти, а затем войти снова, чтобы вернуть все функции"
 
-#: src/Core/Backend/Page.php:363 src/Core/Upgrade/Page.php:182
+#: src/Core/Backend/Page.php:363 src/Core/Upgrade/Page.php:179
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Благодарим за использование %s."
 
 #: src/Core/Backend/Page.php:375 src/Core/Backend/Page.php:494
-#: src/Core/Upgrade/Page.php:188
+#: src/Core/Upgrade/Page.php:185
 msgid "Page top"
 msgstr "Верхняя страница"
 
 #: src/Core/Backend/Page.php:689 src/Core/Backend/Page.php:690
-#: src/Core/Upgrade/Page.php:232 src/Core/Upgrade/Page.php:233
+#: src/Core/Upgrade/Page.php:226 src/Core/Upgrade/Page.php:227
 msgid "Go to dashboard"
 msgstr "Перейти к панели инструментов"
 
-#: src/Core/Backend/Page.php:849 src/Core/Upgrade/Page.php:305
+#: src/Core/Backend/Page.php:849 src/Core/Upgrade/Page.php:299
 msgid "Help about this page"
 msgstr "Справка об этой странице"
 
-#: src/Core/Backend/Page.php:854 src/Core/Upgrade/Page.php:310
+#: src/Core/Backend/Page.php:854 src/Core/Upgrade/Page.php:304
 #, php-format
 msgid "See also %s"
 msgstr "Посмотреть также %s"
 
-#: src/Core/Backend/Page.php:854 src/Core/Upgrade/Page.php:310
+#: src/Core/Backend/Page.php:854 src/Core/Upgrade/Page.php:304
 msgid "the global help"
 msgstr "глобальная помощь"
 
@@ -2032,7 +2032,7 @@ msgstr "отмена"
 msgid "Clean"
 msgstr "Очистить"
 
-#: src/Core/Backend/Page.php:1177 src/Process/Backend/MediaItem.php:1066
+#: src/Core/Backend/Page.php:1177 src/Process/Backend/MediaItem.php:1084
 msgid "Send"
 msgstr "Отправить"
 
@@ -2419,13 +2419,13 @@ msgstr "eНе верное значение dcNamespace: %s"
 msgid "Unable to retrieve settings:"
 msgstr "Невозможно извлечь параметры:"
 
-#: src/Core/BlogWorkspace.php:217 src/Core/BlogWorkspace.php:315
+#: src/Core/BlogWorkspace.php:217 src/Core/BlogWorkspace.php:317
 #, php-format
 msgid "%s is not a valid setting id"
 msgstr "%s не является действительным ID настройки"
 
-#: src/Core/BlogWorkspace.php:307 src/Core/BlogWorkspace.php:347
-#: src/Core/BlogWorkspace.php:370 src/Core/BlogWorkspace.php:390
+#: src/Core/BlogWorkspace.php:309 src/Core/BlogWorkspace.php:349
+#: src/Core/BlogWorkspace.php:372 src/Core/BlogWorkspace.php:392
 msgid "No namespace specified"
 msgstr "Не указано пространство имен"
 
@@ -2650,6 +2650,18 @@ msgstr "Не указан целевой URL? Попробуйте снова!"
 msgid "LOL!"
 msgstr "ГОЛОВ!"
 
+#: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:97
+#: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:433
+#: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
+#: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:105
+#: src/Process/Backend/Update.php:36 src/Process/Backend/Update.php:54
+#: src/Process/Backend/Update.php:99 src/Process/Backend/Update.php:125
+#: src/Process/Backend/User.php:234 src/Process/Backend/Users.php:104
+#: src/Process/Backend/UsersActions.php:150
+#: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
+msgid "System"
+msgstr "Система"
+
 #: src/Core/Upgrade/Page.php:139
 msgid "Dotclear's update dashboard"
 msgstr "Панель обновления Dotclear"
@@ -2775,13 +2787,13 @@ msgstr "Недопустимое dcWorkspace: %s"
 msgid "Unable to retrieve prefs:"
 msgstr "Не удалось получить настройки:"
 
-#: src/Core/UserWorkspace.php:216 src/Core/UserWorkspace.php:314
+#: src/Core/UserWorkspace.php:216 src/Core/UserWorkspace.php:316
 #, php-format
 msgid "%s is not a valid pref id"
 msgstr "%s не является допустимым pref id"
 
-#: src/Core/UserWorkspace.php:306 src/Core/UserWorkspace.php:341
-#: src/Core/UserWorkspace.php:374 src/Core/UserWorkspace.php:404
+#: src/Core/UserWorkspace.php:308 src/Core/UserWorkspace.php:343
+#: src/Core/UserWorkspace.php:376 src/Core/UserWorkspace.php:406
 msgid "No workspace specified"
 msgstr "Рабочая область не указана"
 
@@ -3300,17 +3312,6 @@ msgstr "Блог \"%s\" успешно создан"
 #: src/Process/Backend/Blog.php:93 src/Process/Backend/Blog.php:99
 msgid "New blog"
 msgstr "Новый блог"
-
-#: src/Process/Backend/Blog.php:97 src/Process/Backend/BlogDel.php:90
-#: src/Process/Backend/BlogPref.php:433 src/Process/Backend/Blogs.php:100
-#: src/Process/Backend/Langs.php:215 src/Process/Backend/Plugin.php:134
-#: src/Process/Backend/Plugins.php:105 src/Process/Backend/Update.php:36
-#: src/Process/Backend/Update.php:54 src/Process/Backend/Update.php:99
-#: src/Process/Backend/Update.php:125 src/Process/Backend/User.php:234
-#: src/Process/Backend/Users.php:104 src/Process/Backend/UsersActions.php:150
-#: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
-msgid "System"
-msgstr "Система"
 
 #: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:807
 msgid "Blog ID:"
@@ -4139,7 +4140,7 @@ msgstr "Имя:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Внимание: если вы ввели l'URL вручную, то он может конфликтовать с другой категорией."
 
-#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1034
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1052
 msgid "Description:"
 msgstr "Описание:"
 
@@ -4255,7 +4256,7 @@ msgid "Delete all spams"
 msgstr "Удалить все спамы"
 
 #: src/Process/Backend/Comments.php:180 src/Process/Backend/Post.php:874
-#: src/Process/Backend/Search.php:321
+#: src/Process/Backend/Search.php:323
 msgid "Selected comments action:"
 msgstr "Действие с выбранными комментариями:"
 
@@ -4639,11 +4640,11 @@ msgid "Maximum file size allowed:"
 msgstr "Максимально допустимый размер файла:"
 
 #: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:958 src/Process/Backend/MediaItem.php:1021
+#: src/Process/Backend/MediaItem.php:976 src/Process/Backend/MediaItem.php:1039
 msgid "Alternate text:"
 msgstr "Альтернативный текст:"
 
-#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1051
+#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1069
 msgid "Private"
 msgstr "Личный"
 
@@ -4798,19 +4799,21 @@ msgstr "Доступные размеры:"
 msgid "Thumbnail details"
 msgstr "Thumbnail details"
 
-#: src/Process/Backend/MediaItem.php:844 src/Process/Backend/MediaItem.php:875
+#: src/Process/Backend/MediaItem.php:844 src/Process/Backend/MediaItem.php:881
+#: src/Process/Backend/MediaItem.php:892
 msgid "Image width:"
 msgstr "Ширина изображения:"
 
-#: src/Process/Backend/MediaItem.php:845 src/Process/Backend/MediaItem.php:876
+#: src/Process/Backend/MediaItem.php:845 src/Process/Backend/MediaItem.php:885
+#: src/Process/Backend/MediaItem.php:893
 msgid "Image height:"
 msgstr "Высота изображения:"
 
-#: src/Process/Backend/MediaItem.php:849 src/Process/Backend/MediaItem.php:880
+#: src/Process/Backend/MediaItem.php:849 src/Process/Backend/MediaItem.php:898
 msgid "File size:"
 msgstr "Размер файла:"
 
-#: src/Process/Backend/MediaItem.php:852 src/Process/Backend/MediaItem.php:881
+#: src/Process/Backend/MediaItem.php:852 src/Process/Backend/MediaItem.php:899
 msgid "File URL:"
 msgstr "URL файла:"
 
@@ -4822,100 +4825,103 @@ msgstr "Владелец файла:"
 msgid "File type:"
 msgstr "Тип файла:"
 
-#: src/Process/Backend/MediaItem.php:887
+#: src/Process/Backend/MediaItem.php:905
 msgid "Show entries containing this media"
 msgstr "Показать публикации, содержащие эти медиа"
 
-#: src/Process/Backend/MediaItem.php:890
+#: src/Process/Backend/MediaItem.php:908
 msgid "Entries containing this media"
 msgstr "Публикации, содержащие эти медиа"
 
-#: src/Process/Backend/MediaItem.php:927
+#: src/Process/Backend/MediaItem.php:945
 msgid "No entry seems contain this media."
 msgstr "Нет записей, содержащих эти медиа."
 
-#: src/Process/Backend/MediaItem.php:954
+#: src/Process/Backend/MediaItem.php:972
 msgid "Image details"
 msgstr "Информация о изображении"
 
-#: src/Process/Backend/MediaItem.php:963
+#: src/Process/Backend/MediaItem.php:981
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:972
+#: src/Process/Backend/MediaItem.php:990
 msgid "No detail"
 msgstr "Нет информации"
 
-#: src/Process/Backend/MediaItem.php:979
+#: src/Process/Backend/MediaItem.php:997
 msgid "Updates and modifications"
 msgstr "Обновления и изменения"
 
-#: src/Process/Backend/MediaItem.php:985 src/Process/Backend/MediaItem.php:987
+#: src/Process/Backend/MediaItem.php:1003
+#: src/Process/Backend/MediaItem.php:1005
 msgid "Update thumbnails"
 msgstr "Обновление миниатюр"
 
-#: src/Process/Backend/MediaItem.php:986
+#: src/Process/Backend/MediaItem.php:1004
 msgid "This will create or update thumbnails for this image."
 msgstr "Миниатюры для изображений будут созданы или обновлены."
 
-#: src/Process/Backend/MediaItem.php:995 src/Process/Backend/MediaItem.php:1003
+#: src/Process/Backend/MediaItem.php:1013
+#: src/Process/Backend/MediaItem.php:1021
 msgid "Extract in a new directory"
 msgstr "Извлечь в новую директорию"
 
-#: src/Process/Backend/MediaItem.php:996 src/Process/Backend/MediaItem.php:1005
+#: src/Process/Backend/MediaItem.php:1014
+#: src/Process/Backend/MediaItem.php:1023
 msgid "Extract in current directory"
 msgstr "Извлечь в текущую директорию"
 
-#: src/Process/Backend/MediaItem.php:1001
+#: src/Process/Backend/MediaItem.php:1019
 msgid "Extract archive"
 msgstr "Извлечь архив"
 
-#: src/Process/Backend/MediaItem.php:1004
+#: src/Process/Backend/MediaItem.php:1022
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Это извлечет архив в новую директорию, которая еще не существует."
 
-#: src/Process/Backend/MediaItem.php:1006
+#: src/Process/Backend/MediaItem.php:1024
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Это извлечет архив в текущую директорию и перезапишет существующие файлы или директорию."
 
-#: src/Process/Backend/MediaItem.php:1008
+#: src/Process/Backend/MediaItem.php:1026
 msgid "Extract mode:"
 msgstr "Метод извлечения:"
 
-#: src/Process/Backend/MediaItem.php:1010
+#: src/Process/Backend/MediaItem.php:1028
 msgid "Extract"
 msgstr "Извлечь"
 
-#: src/Process/Backend/MediaItem.php:1018
+#: src/Process/Backend/MediaItem.php:1036
 msgid "Change media properties"
 msgstr "Изменить свойства медиа файла"
 
-#: src/Process/Backend/MediaItem.php:1019
+#: src/Process/Backend/MediaItem.php:1037
 msgid "File name:"
 msgstr "Имя файла:"
 
-#: src/Process/Backend/MediaItem.php:1044
+#: src/Process/Backend/MediaItem.php:1062
 msgid "File date:"
 msgstr "Дата файла:"
 
-#: src/Process/Backend/MediaItem.php:1052
+#: src/Process/Backend/MediaItem.php:1070
 msgid "New directory:"
 msgstr "Новая директория:"
 
-#: src/Process/Backend/MediaItem.php:1060
+#: src/Process/Backend/MediaItem.php:1078
 msgid "Change file"
 msgstr "Изменить файл"
 
-#: src/Process/Backend/MediaItem.php:1062
+#: src/Process/Backend/MediaItem.php:1080
 msgid "Choose a file:"
 msgstr "Выбрать файл:"
 
-#: src/Process/Backend/MediaItem.php:1063
+#: src/Process/Backend/MediaItem.php:1081
 #, php-format
 msgid "Maximum size %s"
 msgstr "Максимальный размер %s"
 
-#: src/Process/Backend/MediaItem.php:1074
+#: src/Process/Backend/MediaItem.php:1092
 msgid "Delete this media"
 msgstr "Удалить этот файл"
 
@@ -5201,7 +5207,7 @@ msgstr "Выбранные записи были успешно обновлен
 msgid "Selected entries have been successfully deleted."
 msgstr "Выбранные записи были успешно удалены."
 
-#: src/Process/Backend/Posts.php:117 src/Process/Backend/Search.php:242
+#: src/Process/Backend/Posts.php:117 src/Process/Backend/Search.php:244
 msgid "Selected entries action:"
 msgstr "Действия над выбранными записями:"
 
@@ -5287,31 +5293,31 @@ msgstr[3] "Доступно %s обновлений."
 msgid "List options saved"
 msgstr "Список опций сохранён"
 
-#: src/Process/Backend/Search.php:124
+#: src/Process/Backend/Search.php:126
 msgid "Search options"
 msgstr "Параметры поиска"
 
-#: src/Process/Backend/Search.php:125
+#: src/Process/Backend/Search.php:127
 msgid "Query:"
 msgstr "Запрос:"
 
-#: src/Process/Backend/Search.php:127
+#: src/Process/Backend/Search.php:129
 msgid "In:"
 msgstr "В:"
 
-#: src/Process/Backend/Search.php:144
+#: src/Process/Backend/Search.php:146
 msgid "No results found"
 msgstr "Ничего не найдено"
 
-#: src/Process/Backend/Search.php:162
+#: src/Process/Backend/Search.php:164
 msgid "Search in entries"
 msgstr "Поиск в записях"
 
-#: src/Process/Backend/Search.php:163
+#: src/Process/Backend/Search.php:165
 msgid "Search in comments"
 msgstr "Искать в комментариях"
 
-#: src/Process/Backend/Search.php:228
+#: src/Process/Backend/Search.php:230
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
@@ -5320,7 +5326,7 @@ msgstr[1] "Найдено %d записей"
 msgstr[2] "Найдено %d записей"
 msgstr[3] "Найдено %d записей"
 
-#: src/Process/Backend/Search.php:299
+#: src/Process/Backend/Search.php:301
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"
