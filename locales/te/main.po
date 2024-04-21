@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-31 11:12+0200\n"
-"PO-Revision-Date: 2024-03-31 09:37\n"
+"POT-Creation-Date: 2024-04-21 15:00+0200\n"
+"PO-Revision-Date: 2024-04-21 13:04\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -429,10 +429,10 @@ msgstr "పాయింట్:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1780 src/Process/Backend/BlogPref.php:927
+#: src/Core/Backend/ModulesList.php:1785 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1054
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1072
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:921
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:499
@@ -618,8 +618,8 @@ msgstr[1] "%d వ్యాఖ్యలు"
 
 #: src/Core/Backend/Favorites.php:453 src/Core/Backend/Menus.php:141
 #: src/Core/Backend/UserPref.php:209 src/Process/Backend/PostsPopup.php:100
-#: src/Process/Backend/Search.php:112 src/Process/Backend/Search.php:117
-#: src/Process/Backend/Search.php:129
+#: src/Process/Backend/Search.php:114 src/Process/Backend/Search.php:119
+#: src/Process/Backend/Search.php:131
 msgid "Search"
 msgstr "వెతుకు"
 
@@ -987,7 +987,7 @@ msgstr "ప్రవేశం"
 #: src/Core/Backend/Listing/ListingPosts.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:170
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:934
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:952
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1088
 msgid "Published"
 msgstr "ప్రచురణ"
@@ -997,7 +997,7 @@ msgstr "ప్రచురణ"
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:175
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:935
+#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:953
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1093
 msgid "Unpublished"
 msgstr "ప్రచురించు"
@@ -1007,7 +1007,7 @@ msgstr "ప్రచురించు"
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:185
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:937
+#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:955
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1098
 msgid "Pending"
 msgstr "పెండింగ్"
@@ -1144,7 +1144,7 @@ msgstr "ట్రాకుబ్యాకులు"
 #: src/Core/Backend/Listing/ListingPosts.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:180
 #: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
-#: src/Process/Backend/MediaItem.php:936 src/Process/Backend/Post.php:477
+#: src/Process/Backend/MediaItem.php:954 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "షెడ్యూల్డ్"
 
@@ -1230,8 +1230,8 @@ msgstr "డైరెక్టు యాక్సెస్ పేజీ %s"
 #: src/Core/Backend/Listing/Pager.php:151 src/Core/Backend/Page.php:142
 #: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:187
 #: src/Process/Backend/Post.php:879 src/Process/Backend/Post.php:972
-#: src/Process/Backend/Posts.php:119 src/Process/Backend/Search.php:244
-#: src/Process/Backend/Search.php:323 src/Process/Backend/Users.php:149
+#: src/Process/Backend/Posts.php:119 src/Process/Backend/Search.php:246
+#: src/Process/Backend/Search.php:325 src/Process/Backend/Users.php:149
 msgid "ok"
 msgstr "సరే"
 
@@ -1590,16 +1590,16 @@ msgstr "ఈ ప్లగిన్కు ఆకృతీకరణను లేద
 msgid "Insufficient permissions"
 msgstr "అన్వేషణ అనుమతి"
 
-#: src/Core/Backend/ModulesList.php:1772
+#: src/Core/Backend/ModulesList.php:1776
 #, php-format
 msgid "Configure \"%s\""
 msgstr "ఆకృతీకరించు \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1773 src/Process/Backend/Blog.php:193
+#: src/Core/Backend/ModulesList.php:1777 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1095
-#: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:130
+#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1113
+#: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:132
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:614
 #: src/Process/Backend/UserPreferences.php:794
 #: src/Process/Backend/UserPreferences.php:974
@@ -1677,31 +1677,31 @@ msgstr "రక్షణ మోడ్"
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "మీరు సురక్షిత మోడ్ లో ఉన్నాయి. అన్ని ప్లగిన్లను తాత్కాలికంగా అచేతనము చేయబడింది. లగ్నం చేయడానికి తిరస్కరిస్తూ, తిరిగి అన్ని కార్యకలాపాలను తిరిగి పొందడానికి మళ్ళీ లాగ్ అవుతుంది."
 
-#: src/Core/Backend/Page.php:363 src/Core/Upgrade/Page.php:182
+#: src/Core/Backend/Page.php:363 src/Core/Upgrade/Page.php:179
 #, php-format
 msgid "Thank you for using %s."
 msgstr "%s వాడుతున్నందుకు ధన్యవాదాలు."
 
 #: src/Core/Backend/Page.php:375 src/Core/Backend/Page.php:494
-#: src/Core/Upgrade/Page.php:188
+#: src/Core/Upgrade/Page.php:185
 msgid "Page top"
 msgstr "పుట టాప్"
 
 #: src/Core/Backend/Page.php:689 src/Core/Backend/Page.php:690
-#: src/Core/Upgrade/Page.php:232 src/Core/Upgrade/Page.php:233
+#: src/Core/Upgrade/Page.php:226 src/Core/Upgrade/Page.php:227
 msgid "Go to dashboard"
 msgstr "డాష్బోర్డ్కు వెళ్ళు"
 
-#: src/Core/Backend/Page.php:849 src/Core/Upgrade/Page.php:305
+#: src/Core/Backend/Page.php:849 src/Core/Upgrade/Page.php:299
 msgid "Help about this page"
 msgstr "ఈ పేజీ గురించి సహాయం"
 
-#: src/Core/Backend/Page.php:854 src/Core/Upgrade/Page.php:310
+#: src/Core/Backend/Page.php:854 src/Core/Upgrade/Page.php:304
 #, php-format
 msgid "See also %s"
 msgstr "ఇంకా %s కూడా చూడండి"
 
-#: src/Core/Backend/Page.php:854 src/Core/Upgrade/Page.php:310
+#: src/Core/Backend/Page.php:854 src/Core/Upgrade/Page.php:304
 msgid "the global help"
 msgstr "ప్రపంచ సహాయం"
 
@@ -1978,7 +1978,7 @@ msgstr "రద్దుచేయి"
 msgid "Clean"
 msgstr "శుభ్రం"
 
-#: src/Core/Backend/Page.php:1177 src/Process/Backend/MediaItem.php:1066
+#: src/Core/Backend/Page.php:1177 src/Process/Backend/MediaItem.php:1084
 msgid "Send"
 msgstr "పంపు"
 
@@ -2353,13 +2353,13 @@ msgstr "చెల్లని అమర్పు dcNamespace: %s"
 msgid "Unable to retrieve settings:"
 msgstr "అమరికలను పొందలేకపొయాను:"
 
-#: src/Core/BlogWorkspace.php:217 src/Core/BlogWorkspace.php:315
+#: src/Core/BlogWorkspace.php:217 src/Core/BlogWorkspace.php:317
 #, php-format
 msgid "%s is not a valid setting id"
 msgstr "%s సరైన అమరిక id కాదు"
 
-#: src/Core/BlogWorkspace.php:307 src/Core/BlogWorkspace.php:347
-#: src/Core/BlogWorkspace.php:370 src/Core/BlogWorkspace.php:390
+#: src/Core/BlogWorkspace.php:309 src/Core/BlogWorkspace.php:349
+#: src/Core/BlogWorkspace.php:372 src/Core/BlogWorkspace.php:392
 msgid "No namespace specified"
 msgstr "నమస్పేస్ నిర్వచించబడలేదు"
 
@@ -2584,6 +2584,18 @@ msgstr "ఏ યોગ્ય లక్ష్యపు URL అందించల�
 msgid "LOL!"
 msgstr "లోల్!"
 
+#: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:97
+#: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:433
+#: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
+#: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:105
+#: src/Process/Backend/Update.php:36 src/Process/Backend/Update.php:54
+#: src/Process/Backend/Update.php:99 src/Process/Backend/Update.php:125
+#: src/Process/Backend/User.php:234 src/Process/Backend/Users.php:104
+#: src/Process/Backend/UsersActions.php:150
+#: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
+msgid "System"
+msgstr "వ్యవస్థ"
+
 #: src/Core/Upgrade/Page.php:139
 msgid "Dotclear's update dashboard"
 msgstr "Dotclear యొక్క నవీకరణ డాష్ బోర్డు"
@@ -2709,13 +2721,13 @@ msgstr "చెల్లని dcWorkspace: %s"
 msgid "Unable to retrieve prefs:"
 msgstr "Prefs (prefs) ను పొందలేకపోయింది:"
 
-#: src/Core/UserWorkspace.php:216 src/Core/UserWorkspace.php:314
+#: src/Core/UserWorkspace.php:216 src/Core/UserWorkspace.php:316
 #, php-format
 msgid "%s is not a valid pref id"
 msgstr "%s సరైన pref id కాదు"
 
-#: src/Core/UserWorkspace.php:306 src/Core/UserWorkspace.php:341
-#: src/Core/UserWorkspace.php:374 src/Core/UserWorkspace.php:404
+#: src/Core/UserWorkspace.php:308 src/Core/UserWorkspace.php:343
+#: src/Core/UserWorkspace.php:376 src/Core/UserWorkspace.php:406
 msgid "No workspace specified"
 msgstr "ఏ పనిప్రదేశం తెలుపబడిలేదు"
 
@@ -3234,17 +3246,6 @@ msgstr "బ్లాగు \"%s\" సమర్ధవంతంగా సృష్
 #: src/Process/Backend/Blog.php:93 src/Process/Backend/Blog.php:99
 msgid "New blog"
 msgstr "కొత్త బ్లాగు"
-
-#: src/Process/Backend/Blog.php:97 src/Process/Backend/BlogDel.php:90
-#: src/Process/Backend/BlogPref.php:433 src/Process/Backend/Blogs.php:100
-#: src/Process/Backend/Langs.php:215 src/Process/Backend/Plugin.php:134
-#: src/Process/Backend/Plugins.php:105 src/Process/Backend/Update.php:36
-#: src/Process/Backend/Update.php:54 src/Process/Backend/Update.php:99
-#: src/Process/Backend/Update.php:125 src/Process/Backend/User.php:234
-#: src/Process/Backend/Users.php:104 src/Process/Backend/UsersActions.php:150
-#: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
-msgid "System"
-msgstr "వ్యవస్థ"
 
 #: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:807
 msgid "Blog ID:"
@@ -4071,7 +4072,7 @@ msgstr "పేరు:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "హెచ్చరిక: మీరు URL స్నేహం చేయబడితే, అది మరొక వర్గంతో కలపవచ్చు."
 
-#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1034
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1052
 msgid "Description:"
 msgstr "వివరణ:"
 
@@ -4185,7 +4186,7 @@ msgid "Delete all spams"
 msgstr "అన్ని స్పాములను తొలగించుము"
 
 #: src/Process/Backend/Comments.php:180 src/Process/Backend/Post.php:874
-#: src/Process/Backend/Search.php:321
+#: src/Process/Backend/Search.php:323
 msgid "Selected comments action:"
 msgstr "ఎంచుకున్న వ్యాఖ్యలపై చర్య:"
 
@@ -4567,11 +4568,11 @@ msgid "Maximum file size allowed:"
 msgstr "గరిష్ఠ ఫైలు పరిమాణం:"
 
 #: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:958 src/Process/Backend/MediaItem.php:1021
+#: src/Process/Backend/MediaItem.php:976 src/Process/Backend/MediaItem.php:1039
 msgid "Alternate text:"
 msgstr "అదనపు వచనము:"
 
-#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1051
+#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1069
 msgid "Private"
 msgstr "అంతరంగికం"
 
@@ -4726,19 +4727,21 @@ msgstr "అందుబాటులో ఉన్న పరిమాణాలు:
 msgid "Thumbnail details"
 msgstr "Thumbnail వివరాలు"
 
-#: src/Process/Backend/MediaItem.php:844 src/Process/Backend/MediaItem.php:875
+#: src/Process/Backend/MediaItem.php:844 src/Process/Backend/MediaItem.php:881
+#: src/Process/Backend/MediaItem.php:892
 msgid "Image width:"
 msgstr "చిత్రాల వెడల్పు:"
 
-#: src/Process/Backend/MediaItem.php:845 src/Process/Backend/MediaItem.php:876
+#: src/Process/Backend/MediaItem.php:845 src/Process/Backend/MediaItem.php:885
+#: src/Process/Backend/MediaItem.php:893
 msgid "Image height:"
 msgstr "చిత్రాల ఎత్తు:"
 
-#: src/Process/Backend/MediaItem.php:849 src/Process/Backend/MediaItem.php:880
+#: src/Process/Backend/MediaItem.php:849 src/Process/Backend/MediaItem.php:898
 msgid "File size:"
 msgstr "ఫైలు పరిమాణం:"
 
-#: src/Process/Backend/MediaItem.php:852 src/Process/Backend/MediaItem.php:881
+#: src/Process/Backend/MediaItem.php:852 src/Process/Backend/MediaItem.php:899
 msgid "File URL:"
 msgstr "ఫైలు URL:"
 
@@ -4750,100 +4753,103 @@ msgstr "ఫైలు యజమాని:"
 msgid "File type:"
 msgstr "ఫైలు రకం:"
 
-#: src/Process/Backend/MediaItem.php:887
+#: src/Process/Backend/MediaItem.php:905
 msgid "Show entries containing this media"
 msgstr "ఈ మీడియా కలిగివున్న ఎంట్రీలను చూపుము"
 
-#: src/Process/Backend/MediaItem.php:890
+#: src/Process/Backend/MediaItem.php:908
 msgid "Entries containing this media"
 msgstr "ఈ మీడియా కలిగివున్న ప్రవేశములు"
 
-#: src/Process/Backend/MediaItem.php:927
+#: src/Process/Backend/MediaItem.php:945
 msgid "No entry seems contain this media."
 msgstr "ఏ ప్రవేశం ఈ మీడియా కలిగిలేదు."
 
-#: src/Process/Backend/MediaItem.php:954
+#: src/Process/Backend/MediaItem.php:972
 msgid "Image details"
 msgstr "బొమ్మ వివరాలు"
 
-#: src/Process/Backend/MediaItem.php:963
+#: src/Process/Backend/MediaItem.php:981
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:972
+#: src/Process/Backend/MediaItem.php:990
 msgid "No detail"
 msgstr "వివరాలు లేవు"
 
-#: src/Process/Backend/MediaItem.php:979
+#: src/Process/Backend/MediaItem.php:997
 msgid "Updates and modifications"
 msgstr "తేదీలు మరియు సవరణలు"
 
-#: src/Process/Backend/MediaItem.php:985 src/Process/Backend/MediaItem.php:987
+#: src/Process/Backend/MediaItem.php:1003
+#: src/Process/Backend/MediaItem.php:1005
 msgid "Update thumbnails"
 msgstr "థంబ్నెయిల్లను నవీకరణ చేయుము"
 
-#: src/Process/Backend/MediaItem.php:986
+#: src/Process/Backend/MediaItem.php:1004
 msgid "This will create or update thumbnails for this image."
 msgstr "ఇది ఈ ప్రతిబింబము కొరకు థంబ్నెయిల్స్ ను సృష్టించటం లేదా నవీకరణ చేస్తుంది."
 
-#: src/Process/Backend/MediaItem.php:995 src/Process/Backend/MediaItem.php:1003
+#: src/Process/Backend/MediaItem.php:1013
+#: src/Process/Backend/MediaItem.php:1021
 msgid "Extract in a new directory"
 msgstr "కొత్త డైరెక్టరీలో ఎక్స్చేంచేయుము"
 
-#: src/Process/Backend/MediaItem.php:996 src/Process/Backend/MediaItem.php:1005
+#: src/Process/Backend/MediaItem.php:1014
+#: src/Process/Backend/MediaItem.php:1023
 msgid "Extract in current directory"
 msgstr "ప్రస్తుత డైరెక్టరీలో ఎక్స్చేంచేయుము"
 
-#: src/Process/Backend/MediaItem.php:1001
+#: src/Process/Backend/MediaItem.php:1019
 msgid "Extract archive"
 msgstr "ఆర్చిరి ఎక్స్చేంజి"
 
-#: src/Process/Backend/MediaItem.php:1004
+#: src/Process/Backend/MediaItem.php:1022
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "ఇది ఇంకా ఉండకూడదు అని ఒక కొత్త డైరెక్టరీలో ఆర్చివ్ చేస్తుంది."
 
-#: src/Process/Backend/MediaItem.php:1006
+#: src/Process/Backend/MediaItem.php:1024
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "ఇది ప్రస్తుత డైరెక్టరీలో ఆర్కైవ్ చేస్తుంది మరియు मौजूदा దస్త్రాలను లేదా డైరెక్టరీను అధిగమించదు."
 
-#: src/Process/Backend/MediaItem.php:1008
+#: src/Process/Backend/MediaItem.php:1026
 msgid "Extract mode:"
 msgstr "ఎక్స్కల్ మోడ్:"
 
-#: src/Process/Backend/MediaItem.php:1010
+#: src/Process/Backend/MediaItem.php:1028
 msgid "Extract"
 msgstr "నివేదిక"
 
-#: src/Process/Backend/MediaItem.php:1018
+#: src/Process/Backend/MediaItem.php:1036
 msgid "Change media properties"
 msgstr "మాధ్యమ లక్షణాలు మార్చుము"
 
-#: src/Process/Backend/MediaItem.php:1019
+#: src/Process/Backend/MediaItem.php:1037
 msgid "File name:"
 msgstr "ఫైలు పేరు:"
 
-#: src/Process/Backend/MediaItem.php:1044
+#: src/Process/Backend/MediaItem.php:1062
 msgid "File date:"
 msgstr "ఫైలు తేదీ:"
 
-#: src/Process/Backend/MediaItem.php:1052
+#: src/Process/Backend/MediaItem.php:1070
 msgid "New directory:"
 msgstr "కొత్త డైరెక్టరీ:"
 
-#: src/Process/Backend/MediaItem.php:1060
+#: src/Process/Backend/MediaItem.php:1078
 msgid "Change file"
 msgstr "దస్త్రం మార్చు"
 
-#: src/Process/Backend/MediaItem.php:1062
+#: src/Process/Backend/MediaItem.php:1080
 msgid "Choose a file:"
 msgstr "ఓ ఫైలుని ఎంచుకోండి:"
 
-#: src/Process/Backend/MediaItem.php:1063
+#: src/Process/Backend/MediaItem.php:1081
 #, php-format
 msgid "Maximum size %s"
 msgstr "గరిష్ఠ పరిమాణం %s"
 
-#: src/Process/Backend/MediaItem.php:1074
+#: src/Process/Backend/MediaItem.php:1092
 msgid "Delete this media"
 msgstr "ఈ మాధ్యమాన్ని తొలగించుము"
 
@@ -5127,7 +5133,7 @@ msgstr "ఎంపికచేసిన ఎంట్రీలను సమర్�
 msgid "Selected entries have been successfully deleted."
 msgstr "ఎంపికచేసిన ఎంట్రీలను విజయవంతంగా తొలగించబడినది."
 
-#: src/Process/Backend/Posts.php:117 src/Process/Backend/Search.php:242
+#: src/Process/Backend/Posts.php:117 src/Process/Backend/Search.php:244
 msgid "Selected entries action:"
 msgstr "ఎంచుకున్న వాటిపై చర్య:"
 
@@ -5211,38 +5217,38 @@ msgstr[1] "%s అదనపు అందుబాట్లు లభ్యమవ�
 msgid "List options saved"
 msgstr "జాబితా ఐచ్ఛికములు రక్షించు"
 
-#: src/Process/Backend/Search.php:124
+#: src/Process/Backend/Search.php:126
 msgid "Search options"
 msgstr "అన్వేషణ ఎంపికలు"
 
-#: src/Process/Backend/Search.php:125
+#: src/Process/Backend/Search.php:127
 msgid "Query:"
 msgstr "అన్వేషణ:"
 
-#: src/Process/Backend/Search.php:127
+#: src/Process/Backend/Search.php:129
 msgid "In:"
 msgstr "లో:"
 
-#: src/Process/Backend/Search.php:144
+#: src/Process/Backend/Search.php:146
 msgid "No results found"
 msgstr "ఫలితాలు కనబడలేదు"
 
-#: src/Process/Backend/Search.php:162
+#: src/Process/Backend/Search.php:164
 msgid "Search in entries"
 msgstr "ఎంట్రీలను శోధించుము"
 
-#: src/Process/Backend/Search.php:163
+#: src/Process/Backend/Search.php:165
 msgid "Search in comments"
 msgstr "వ్యాఖ్యలను శోధించుము"
 
-#: src/Process/Backend/Search.php:228
+#: src/Process/Backend/Search.php:230
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
 msgstr[0] "ఒక ప్రవేశము దొరికింది"
 msgstr[1] "%d ఎంట్రీలు కనుగొన్నారు"
 
-#: src/Process/Backend/Search.php:299
+#: src/Process/Backend/Search.php:301
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"
