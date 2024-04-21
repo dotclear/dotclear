@@ -11,6 +11,7 @@ namespace Dotclear\Plugin\antispam;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Html;
 
 /**
@@ -223,12 +224,9 @@ class SpamFilter
     public function guiLink(): string
     {
         if (($url = $this->guiURL()) !== false) {
-            $url  = Html::escapeHTML($url);
-            $link = '<a href="%2$s">%1$s</a>';
-        } else {
-            $link = '%1$s';
+            return (new Link())->href(Html::escapeHTML($url))->text($this->name)->render();
         }
 
-        return sprintf($link, $this->name, $url);
+        return $this->name;
     }
 }

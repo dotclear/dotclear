@@ -15,12 +15,22 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\Antispam;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
-use form;
 
 /**
  * @brief   The module words spam filter.
@@ -178,86 +188,128 @@ class Words extends SpamFilter
             }
         }
 
-        /* DISPLAY
-        ---------------------------------------------- */
-        $res = '<form action="' . Html::escapeURL($url) . '" method="post" class="fieldset">' .
-        '<p><label class="classic" for="swa">' . __('Add a word ') . '</label> ' . form::field('swa', 20, 128);
+        // Display
+        return
+        $this->displayForms($url);
+    }
 
-        if (App::auth()->isSuperAdmin()) {
-            $res .= '<label class="classic" for="globalsw">' . form::checkbox('globalsw', 1) .
-            __('Global word (used for all blogs)') . '</label> ';
-        }
-
-        $res .= App::nonce()->getFormNonce() .
-        '</p>' .
-        '<p><input type="submit" value="' . __('Add') . '"></p>' .
-            '</form>';
-
+    /**
+     * Return word list form.
+     *
+     * @param   string  $url    The url
+     * @param   string  $title  The title
+     *
+     * @return  string
+     */
+    private function displayForms(string $url): string
+    {
         $rs = $this->getRules();
         if ($rs->isEmpty()) {
-            $res .= '<p><strong>' . __('No word in list.') . '</strong></p>';
+            $rules_form = (new Para())->items([
+                (new Text('strong', __('No word in list.'))),
+            ]);
         } else {
-            $res .= '<form action="' . Html::escapeURL($url) . '" method="post" class="fieldset">' .
-            '<h3>' . __('List of bad words') . '</h3>' .
-                '<div class="antispam">';
-
-            $res_global = '';
-            $res_local  = '';
+            $rules_local  = [];
+            $rules_global = [];
             while ($rs->fetch()) {
-                $disabled_word = false;
+                $pattern = $rs->rule_content;
 
-                $p_style = '';
-
+                $disabled_ip = false;
                 if (!$rs->blog_id) {
-                    $disabled_word = !App::auth()->isSuperAdmin();
-                    $p_style .= ' global';
+                    $disabled_ip = !App::auth()->isSuperAdmin();
                 }
 
-                $item = '<p class="' . $p_style . '"><label class="classic" for="word-' . $rs->rule_id . '">' .
-                form::checkbox(
-                    ['swd[]', 'word-' . $rs->rule_id],
-                    $rs->rule_id,
-                    [
-                        'disabled' => $disabled_word,
-                    ]
-                ) . ' ' .
-                Html::escapeHTML($rs->rule_content) .
-                    '</label></p>';
-
+                $rule = (new Checkbox(['swd[]', 'word-' . $rs->rule_id]))
+                    ->value($rs->rule_id)
+                    ->label((new Label(Html::escapeHTML($pattern), Label::INSIDE_LABEL_AFTER)))
+                    ->disabled($disabled_ip);
                 if ($rs->blog_id) {
-                    // local list
-                    if ($res_local == '') {
-                        $res_local = '<h4>' . __('Local words (used only for this blog)') . '</h4>';
-                    }
-                    $res_local .= $item;
+                    $rules_local[] = $rule;
                 } else {
-                    // global list
-                    if ($res_global == '') {
-                        $res_global = '<h4>' . __('Global words (used for all blogs)') . '</h4>';
-                    }
-                    $res_global .= $item;
+                    $rules_global[] = $rule;
                 }
             }
-            $res .= '<div class="local">' . $res_local . '</div>';
-            $res .= '<div class="global">' . $res_global . '</div>';
 
-            $res .= '</div>' .
-            '<p>' . form::hidden(['spamwords'], 1) .
-            App::nonce()->getFormNonce() .
-            '<input class="submit delete" type="submit" value="' . __('Delete selected words') . '"></p>' .
-                '</form>';
+            $local = $global = [];
+            if (count($rules_local)) {
+                $local = [
+                    (new Fieldset())
+                        ->legend((new Legend(__('Local words (used only for this blog)'))))
+                        ->class('two-boxes')
+                        ->items($rules_local),
+                ];
+            }
+            if (count($rules_global)) {
+                $global = [
+                    (new Fieldset())
+                        ->legend((new Legend(__('Global words (used for all blogs)'))))
+                        ->class('two-boxes')
+                        ->items($rules_global),
+                ];
+            }
+
+            $rules_form = (new Form('form_rules'))
+                ->action(Html::escapeURL($url))
+                ->method('post')
+                ->fields([
+                    (new Fieldset())
+                        ->legend((new Legend(__('List of bad words'))))
+                        ->fields([
+                            ...$local,
+                            ...$global,
+                            (new Para())->items([
+                                (new Submit('rules_delete', __('Delete selected words')))->class('delete'),
+                                App::nonce()->formNonce(),
+                            ]),
+                        ]),
+                ]);
+        }
+
+        $super = '';
+        if (App::auth()->isSuperAdmin()) {
+            $super = (new Checkbox('globalsw'))
+                ->label((new Label(__('Global word (used for all blogs)'), Label::INSIDE_LABEL_AFTER))->class('classic'))
+            ->render();
         }
 
         if (App::auth()->isSuperAdmin()) {
-            $res .= '<form action="' . Html::escapeURL($url) . '" method="post">' .
-            '<p><input type="submit" value="' . __('Create default wordlist') . '">' .
-            form::hidden(['spamwords'], 1) .
-            form::hidden(['createlist'], 1) .
-            App::nonce()->getFormNonce() . '</p>' .
-                '</form>';
+            $create_form = (new Form('form_create'))
+                ->action(Html::escapeURL($url))
+                ->method('post')
+                ->fields([
+                    (new Para())->items([
+                        (new Submit('create', __('Create default wordlist'))),
+                        (new Hidden(['createlist'], '1')),
+                        App::nonce()->formNonce(),
+                    ]),
+                ]);
+        } else {
+            $create_form = new Text();
         }
 
-        return $res;
+        return
+        (new Div('tab'))
+            ->items([
+                (new Form('form'))
+                    ->action(Html::escapeURL($url))
+                    ->method('post')
+                    ->class('fieldset')
+                    ->fields([
+                        (new Para())->items([
+                            (new Input('swa'))
+                                ->size(32)
+                                ->maxlength(255)
+                                ->label((new Label(__('Add a word:'), Label::INSIDE_TEXT_BEFORE))->suffix($super)),
+                        ]),
+                        (new Para())->items([
+                            (new Submit('save', __('Add'))),
+                            App::nonce()->formNonce(),
+                        ]),
+                    ]),
+                $rules_form,
+                $create_form,
+            ])
+        ->render();
     }
 
     /**

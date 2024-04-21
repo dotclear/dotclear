@@ -11,8 +11,15 @@ namespace Dotclear\Plugin\antispam;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Interface\Core\BlogSettingsInterface;
-use form;
 
 /**
  * @brief   The module backend behaviors.
@@ -34,16 +41,33 @@ class BackendBehaviors
 
     /**
      * Display information about spam deletion.
+     *
+     * @return  string
      */
-    public static function adminCommentsSpamForm(): void
+    public static function adminCommentsSpamForm(): string
     {
-        $ttl = My::settings()->antispam_moderation_ttl;
-        if ($ttl != null && $ttl >= 0) {
-            echo '<p>' . sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $ttl) . ' ' .
-            sprintf(__('You can modify this duration in the %s'), '<a href="' . App::backend()->url()->get('admin.blog.pref') .
-                '#antispam_moderation_ttl"> ' . __('Blog settings') . '</a>') .
-                '.</p>';
+        $ttl = (int) My::settings()->antispam_moderation_ttl;
+        if ($ttl >= 0) {
+            echo (new Para())
+                ->items([
+                    (new Text(
+                        null,
+                        sprintf(
+                            __('All spam comments older than %s day(s) will be automatically deleted.'),
+                            $ttl
+                        ) . ' ' . sprintf(
+                            __('You can modify this duration in the %s.'),
+                            (new Link())
+                                ->href(App::backend()->url()->get('admin.blog.pref') . '#antispam_moderation_ttl')
+                                ->text(__('Blog settings'))
+                            ->render()
+                        )
+                    )),
+                ])
+            ->render();
         }
+
+        return '';
     }
 
     /**
@@ -53,19 +77,24 @@ class BackendBehaviors
      */
     public static function adminBlogPreferencesForm(BlogSettingsInterface $settings): void
     {
-        echo
-        '<div class="fieldset"><h4 id="antispam_params">Antispam</h4>' .
-        '<p><label for="antispam_moderation_ttl" class="classic">' . __('Delete junk comments older than') . ' ' .
-        form::number('antispam_moderation_ttl', [
-            'min'     => -1,
-            'max'     => 999,
-            'default' => $settings->antispam->antispam_moderation_ttl,
-        ]) .
-        ' ' . __('days') .
-        '</label></p>' .
-        '<p class="form-note">' . __('Set -1 to disabled this feature ; Leave empty to use default 7 days delay.') . '</p>' .
-        '<p><a href="' . My::manageUrl() . '">' . __('Set spam filters.') . '</a></p>' .
-        '</div>';
+        echo (new Fieldset('antispam_params'))
+            ->legend((new Legend('Antispam')))
+            ->items([
+                (new Para())->items([
+                    (new Number('antispam_moderation_ttl', -1, 999, (int) $settings->antispam->antispam_moderation_ttl))
+                        ->default(-1)
+                        ->label((new Label(__('Delete junk comments older than'), Label::INSIDE_TEXT_BEFORE))->suffix(__('days'))),
+                ]),
+                (new Note())
+                    ->class('form-note')
+                    ->text(__('Set -1 to disabled this feature ; recommended delay is 7 days.')),
+                (new Para())->items([
+                    (new Link())
+                        ->href(My::manageUrl())
+                        ->text(__('Set spam filters.')),
+                ]),
+            ])
+        ->render();
     }
 
     /**

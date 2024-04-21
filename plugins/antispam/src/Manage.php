@@ -14,9 +14,29 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @brief   The module manage process.
@@ -144,6 +164,7 @@ class Manage extends Process
         Page::openModule($title, $head);
 
         if (App::backend()->filter_gui !== false) {
+            // Display filter GUI
             echo
             Page::breadcrumb(
                 [
@@ -152,15 +173,22 @@ class Manage extends Process
                     sprintf(__('%s filter configuration'), App::backend()->filter->name) => '',
                 ]
             ) .
-            Notices::getNotices() .
-            '<p><a href="' . App::backend()->getPageURL() . '" class="back">' . __('Back to filters list') . '</a></p>' .
+            Notices::getNotices();
 
+            echo (new Para())
+                ->items([
+                    (new Link('back'))->href(App::backend()->getPageURL())->class('back')->text(__('Back to filters list')),
+                ])
+            ->render();
+
+            echo
             App::backend()->filter_gui;
 
             if (App::backend()->filter->help) {
                 Page::helpBlock(App::backend()->filter->help);
             }
         } else {
+            // Display list of filters
             echo
             Page::breadcrumb(
                 [
@@ -170,107 +198,162 @@ class Manage extends Process
             ) .
             Notices::getNotices();
 
-            # Information
+            // Information
             $spam_count      = Antispam::countSpam();
             $published_count = Antispam::countPublishedComments();
-            $moderationTTL   = My::settings()->antispam_moderation_ttl;
+            $moderationTTL   = (int) My::settings()->antispam_moderation_ttl;
 
-            echo
-            '<form action="' . App::backend()->getPageURL() . '" method="post" class="fieldset">' .
-            '<h3>' . __('Information') . '</h3>' .
-            '<ul class="spaminfo">' .
-            '<li class="spamcount"><a href="' . App::backend()->url()->get('admin.comments', ['status' => '-2']) . '">' . __('Junk comments:') . '</a> ' .
-            '<strong>' . $spam_count . '</strong></li>' .
-            '<li class="hamcount"><a href="' . App::backend()->url()->get('admin.comments', ['status' => '1']) . '">' . __('Published comments:') . '</a> ' .
-                $published_count . '</li>' .
-            '</ul>';
-
+            $action = [];
             if ($spam_count > 0) {
-                echo
-                '<p>' . App::nonce()->getFormNonce() .
-                form::hidden('ts', time()) .
-                '<input name="delete_all" class="delete" type="submit" value="' . __('Delete all spams') . '"></p>';
+                $action = [
+                    (new Para())->items([
+                        (new Submit(['delete_all'], __('Delete all spams')))->class('delete'),
+                        (new Hidden('ts', (string) time())),
+                        App::nonce()->formNonce(),
+                    ]),
+                ];
             }
-            if ($moderationTTL != null && $moderationTTL >= 0) {
-                echo
-                '<p>' . sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL) . ' ' .
-                sprintf(__('You can modify this duration in the %s'), '<a href="' . App::backend()->url()->get('admin.blog.pref') .
-                '#antispam_moderation_ttl"> ' . __('Blog settings') . '</a>') .
-                '.</p>';
+            $note = [];
+            if ($moderationTTL >= 0) {
+                $note = [
+                    (new Para())->class('form-note')->items([
+                        new Text(
+                            null,
+                            sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL)
+                        ),
+                        new Text(
+                            null,
+                            sprintf(
+                                __('You can modify this duration in the %s'),
+                                (new Link())->href(App::backend()->url()->get('admin.blog.pref') . '#antispam_moderation_ttl')->text(__('Blog settings'))->render()
+                            )
+                        ),
+                    ]),
+                ];
             }
-            echo
-            '</form>' .
+            $infos = [
+                (new Fieldset())
+                ->legend(new Legend(__('Information')))
+                ->items([
+                    (new Ul())
+                        ->class([
+                            'spaminfo',
+                            'clear',     // Needed because of float left on above legend
+                        ])
+                        ->items([
+                            (new Li())->class('spamcount')->items([
+                                (new Link())
+                                    ->href(App::backend()->url()->get('admin.comments', ['status' => '-2']))
+                                    ->text(__('Junk comments:')),
+                                (new Text('strong', ' ' . (string) $spam_count)),
+                            ]),
+                            (new Li())->class('hamcount')->items([
+                                (new Link())
+                                    ->href(App::backend()->url()->get('admin.comments', ['status' => '1']))
+                                    ->text(__('Published comments:')),
+                                (new Text(null, ' ' . (string) $published_count)),
+                            ]),
+                        ]),
+                    ...$action,
+                    ...$note,
+                ]),
+            ];
+            $group = $spam_count > 0 ? (new Form('info'))->action(App::backend()->getPageURL())->method('post') : (new Div('info'));
+            echo $group
+                ->items($infos)
+            ->render();
 
             // Filters
-            '<form action="' . App::backend()->getPageURL() . '" method="post" id="filters-list-form">';
-
             if (!empty($_GET['upd'])) {
                 Notices::success(__('Filters configuration has been successfully saved.'));
             }
 
-            echo
-            '<div class="table-outer">' .
-            '<table class="dragable">' .
-            '<caption class="as_h3">' . __('Available spam filters') . '</caption>' .
-            '<thead><tr>' .
-            '<th>' . __('Order') . '</th>' .
-            '<th>' . __('Active') . '</th>' .
-            '<th>' . __('Auto Del.') . '</th>' .
-            '<th class="nowrap">' . __('Filter name') . '</th>' .
-            '<th colspan="2">' . __('Description') . '</th>' .
-            '</tr></thead>' .
-            '<tbody id="filters-list" >';
-
-            $i = 1;
+            $rows = [];
+            $i    = 1;
             foreach (App::backend()->filters as $fid => $f) {
-                $gui_link = '&nbsp;';
                 if ($f->hasGUI()) {
-                    $gui_link = '<a href="' . Html::escapeHTML($f->guiURL()) . '" title="' . __('Filter configuration') . '">' .
-                        '<img class="mark mark-edit light-only" src="images/edit.svg" alt="' . __('Filter configuration') . '">' .
-                        '<img class="mark mark-edit dark-only" src="images/edit-dark.svg" alt="' . __('Filter configuration') . '">' .
-                        '</a>';
+                    $gui_link = (new Link())
+                        ->href(Html::escapeHTML($f->guiURL()))
+                        ->title(__('Filter configuration'))
+                        ->text(
+                            (new Img('images/edit.svg'))
+                                ->alt(__('Filter configuration'))
+                                ->class(['mark', 'mark-edit', 'light-only'])
+                            ->render() .
+                            (new Img('images/edit-dark.svg'))
+                                ->alt(__('Filter configuration'))
+                                ->class(['mark', 'mark-edit', 'dark-only'])
+                            ->render()
+                        );
+                } else {
+                    $gui_link = (new Text(null, '&nbsp;'));
                 }
 
-                echo
-                '<tr class="line' . ($f->active ? '' : ' offline') . '" id="f_' . $fid . '">' .
-                '<td class="' . (App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle') . '">' . form::number(['f_order[' . $fid . ']'], [
-                    'min'        => 1,
-                    'max'        => is_countable(App::backend()->filters) ? count(App::backend()->filters) : 0,
-                    'default'    => $i,
-                    'class'      => 'position',
-                    'extra_html' => 'title="' . __('position') . '"',
-                ]) .
-                '</td>' .
-                '<td class="nowrap">' . form::checkbox(
-                    ['filters_active[]'],
-                    $fid,
-                    [
-                        'checked'    => $f->active,
-                        'extra_html' => 'title="' . __('Active') . '"',
-                    ]
-                ) . '</td>' .
-                '<td class="nowrap">' . form::checkbox(
-                    ['filters_auto_del[]'],
-                    $fid,
-                    [
-                        'checked'    => $f->auto_delete,
-                        'extra_html' => 'title="' . __('Auto Del.') . '"',
-                    ]
-                ) . '</td>' .
-                '<td class="nowrap" scope="row">' . $f->name . '</td>' .
-                '<td class="maximal">' . $f->description . '</td>' .
-                    '<td class="status">' . $gui_link . '</td>' .
-                '</tr>';
+                $rows[] = (new Tr('f_' . $fid))
+                    ->class(['line', $f->active ? '' : ' offline'])
+                    ->items([
+                        (new Td())
+                            ->class(App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle')
+                            ->items([
+                                (new Number(['f_order[' . $fid . ']'], 1, count(App::backend()->filters), $i))
+                                    ->class('position')
+                                    ->title(__('position')),
+                            ]),
+                        (new Td())
+                            ->class('nowrap')
+                            ->items([
+                                (new Checkbox(['filters_active[]'], $f->active))
+                                    ->value($fid)
+                                    ->title(__('Active')),
+                            ]),
+                        (new Td())
+                            ->class('nowrap')
+                            ->items([
+                                (new Checkbox(['filters_auto_del[]'], $f->auto_delete))
+                                    ->value($fid)
+                                    ->title(__('Auto Del.')),
+                            ]),
+                        (new Th())
+                            ->class('nowrap')
+                            ->scope('row')
+                            ->text($f->name),
+                        (new Td())
+                            ->class('maximal')
+                            ->text($f->description),
+                        (new Td())
+                            ->class('status')
+                            ->items([$gui_link]),
+                    ])
+                ;
                 $i++;
             }
-            echo
-            '</tbody></table></div>' .
-            '<p class="form-buttons">' . form::hidden('filters_order', '') .
-            App::nonce()->getFormNonce() .
-            '<input type="submit" name="filters_upd" value="' . __('Save') . '">' .
-            ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-            '</p>' .
-            '</form>';
+
+            echo (new Form('filters-list-form'))
+                ->action(App::backend()->getPageURL())
+                ->method('post')
+                ->fields([
+                    (new Fieldset())->legend(new Legend(__('Available spam filters')))->items([
+                        (new Div())->class('table-outer')->items([
+                            (new Table())
+                                ->class(['filters', 'dragable'])
+                                ->thead((new Thead())->rows([
+                                    (new Th())->text(__('Order')),
+                                    (new Th())->text(__('Active')),
+                                    (new Th())->text(__('Auto Del.')),
+                                    (new Th())->class('nowrap')->text(__('Filter name')),
+                                    (new Th())->colspan(2)->text(__('Description')),
+                                ]))
+                                ->tbody((new Tbody('filters-list'))->rows($rows)),
+                        ]),
+                        (new Para())->class('form-buttons')->items([
+                            (new Hidden('filters_order', '')),
+                            (new Submit(['filters_upd'], __('Save'))),
+                            (new Button('back', __('Back')))->class(['go-back', 'reset', 'hidden-if-no-js']),
+                            App::nonce()->formNonce(),
+                        ]),
+                    ]),
+                ])
+            ->render();
 
             // Syndication
             if (App::config()->adminUrl()) {
@@ -283,12 +366,18 @@ class Manage extends Process
                     Antispam::getUserCode()
                 );
 
-                echo
-                '<h3>' . __('Syndication') . '</h3>' .
-                '<ul class="spaminfo">' .
-                '<li class="feed"><a href="' . $spam_feed . '">' . __('Junk comments RSS feed') . '</a></li>' .
-                '<li class="feed"><a href="' . $ham_feed . '">' . __('Published comments RSS feed') . '</a></li>' .
-                '</ul>';
+                echo (new Div())->class('fieldset')->items([
+                    (new Text('h3', __('Syndication'))),
+                    (new Ul())->class('spaminfo')->items([
+                        (new Li())->class('feed')->items([
+                            (new Link())->href($spam_feed)->text(__('Junk comments RSS feed')),
+                        ]),
+                        (new Li())->class('feed')->items([
+                            (new Link())->href($ham_feed)->text(__('Published comments RSS feed')),
+                        ]),
+                    ]),
+                ])
+                ->render();
             }
 
             Page::helpBlock('antispam', 'antispam-filters');

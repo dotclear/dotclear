@@ -17,6 +17,8 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Interface\Core\BlogInterface;
 
 /**
@@ -137,8 +139,13 @@ class Antispam
             self::initFilters();
 
             return
-            '<p><strong>' . __('This comment is a spam:') . '</strong> ' .
-            self::$filters->statusMessage($rs, $filter_name) . '</p>';
+            (new Para())->items([
+                (new Text(
+                    null,
+                    (new Text('strong', __('This comment is a spam:')))->render() . self::$filters->statusMessage($rs, $filter_name)
+                )),
+            ])
+            ->render();
         }
 
         return '';

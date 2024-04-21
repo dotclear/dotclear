@@ -15,12 +15,22 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\Antispam;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
-use form;
 
 /**
  * @brief   The module IPv6 spam filter.
@@ -169,9 +179,9 @@ class IpV6 extends SpamFilter
             }
         }
 
-        /* DISPLAY
-        ---------------------------------------------- */
-        return $this->displayForms($url, 'blackv6', __('Blocklist')) .
+        // Display
+        return
+        $this->displayForms($url, 'blackv6', __('Blocklist')) .
         $this->displayForms($url, 'whitev6', __('Allowlist'));
     }
 
@@ -186,83 +196,100 @@ class IpV6 extends SpamFilter
      */
     private function displayForms(string $url, string $type, string $title): string
     {
-        $res = '<div class="multi-part" id="tab_' . $type . '" title="' . $title . '">' .
-
-        '<form action="' . Html::escapeURL($url) . '" method="post" class="fieldset">' .
-
-        '<p>' .
-        form::hidden(['ip_type'], $type) .
-        '<label class="classic" for="addip_' . $type . '">' . __('Add an IP address: ') . '</label> ' .
-        form::field(['addip', 'addip_' . $type], 18, 255);
-        if (App::auth()->isSuperAdmin()) {
-            $res .= '<label class="classic" for="globalip_' . $type . '">' . form::checkbox(['globalip', 'globalip_' . $type], 1) . ' ' .
-            __('Global IP (used for all blogs)') . '</label> ';
-        }
-
-        $res .= App::nonce()->getFormNonce() .
-        '</p>' .
-        '<p><input type="submit" value="' . __('Add') . '"></p>' .
-            '</form>';
-
         $rs = $this->getRules($type);
-
         if ($rs->isEmpty()) {
-            $res .= '<p><strong>' . __('No IP address in list.') . '</strong></p>';
+            $rules_form = (new Para())->items([
+                (new Text('strong', __('No IP address in list.'))),
+            ]);
         } else {
-            $res .= '<form action="' . Html::escapeURL($url) . '" method="post">' .
-            '<h3>' . __('IP list') . '</h3>' .
-                '<div class="antispam">';
-
-            $res_global = '';
-            $res_local  = '';
+            $rules_local  = [];
+            $rules_global = [];
             while ($rs->fetch()) {
                 $pattern = $rs->rule_content;
 
                 $disabled_ip = false;
-                $p_style     = '';
                 if (!$rs->blog_id) {
                     $disabled_ip = !App::auth()->isSuperAdmin();
-                    $p_style .= ' global';
                 }
 
-                $item = '<p class="' . $p_style . '"><label class="classic" for="' . $type . '-ip-' . $rs->rule_id . '">' .
-                form::checkbox(
-                    ['delip[]', $type . '-ip-' . $rs->rule_id],
-                    $rs->rule_id,
-                    [
-                        'disabled' => $disabled_ip,
-                    ]
-                ) . ' ' .
-                Html::escapeHTML($pattern) .
-                    '</label></p>';
-
+                $rule = (new Checkbox(['delip[]', $type . '-ip-' . $rs->rule_id]))
+                    ->value($rs->rule_id)
+                    ->label((new Label(Html::escapeHTML($pattern), Label::INSIDE_LABEL_AFTER)))
+                    ->disabled($disabled_ip);
                 if ($rs->blog_id) {
-                    // local list
-                    if ($res_local == '') {
-                        $res_local = '<h4>' . __('Local IPs (used only for this blog)') . '</h4>';
-                    }
-                    $res_local .= $item;
+                    $rules_local[] = $rule;
                 } else {
-                    // global list
-                    if ($res_global == '') {
-                        $res_global = '<h4>' . __('Global IPs (used for all blogs)') . '</h4>';
-                    }
-                    $res_global .= $item;
+                    $rules_global[] = $rule;
                 }
             }
-            $res .= $res_local . $res_global;
 
-            $res .= '</div>' .
-            '<p><input class="submit delete" type="submit" value="' . __('Delete') . '">' .
-            App::nonce()->getFormNonce() .
-            form::hidden(['ip_type'], $type) .
-                '</p>' .
-                '</form>';
+            $local = $global = [];
+            if (count($rules_local)) {
+                $local = [
+                    (new Fieldset())
+                        ->legend((new Legend(__('Local IPs (used only for this blog)'))))
+                        ->class('two-boxes')
+                        ->items($rules_local),
+                ];
+            }
+            if (count($rules_global)) {
+                $global = [
+                    (new Fieldset())
+                        ->legend((new Legend(__('Global IPs (used for all blogs)'))))
+                        ->class('two-boxes')
+                        ->items($rules_global),
+                ];
+            }
+
+            $rules_form = (new Form('form_rules_' . $type))
+                ->action(Html::escapeURL($url))
+                ->method('post')
+                ->fields([
+                    (new Fieldset())
+                        ->legend((new Legend(__('IP list'))))
+                        ->fields([
+                            ...$local,
+                            ...$global,
+                            (new Para())->items([
+                                (new Hidden(['ip_type'], $type)),
+                                (new Submit('rules_delete_' . $type, __('Delete')))->class('delete'),
+                                App::nonce()->formNonce(),
+                            ]),
+                        ]),
+                ]);
         }
 
-        $res .= '</div>';
+        $super = '';
+        if (App::auth()->isSuperAdmin()) {
+            $super = (new Checkbox(['globalip', 'globalip_' . $type]))
+                ->label((new Label(__('Global IP (used for all blogs)'), Label::INSIDE_LABEL_AFTER))->class('classic'))
+            ->render();
+        }
 
-        return $res;
+        return (new Div('tab_' . $type))
+            ->class('multi-part')
+            ->title($title)
+            ->items([
+                (new Form('form_' . $type))
+                    ->action(Html::escapeURL($url))
+                    ->method('post')
+                    ->class('fieldset')
+                    ->fields([
+                        (new Para())->items([
+                            (new Input(['addip', 'addip_' . $type]))
+                                ->size(32)
+                                ->maxlength(255)
+                                ->label((new Label(__('Add an IP address:'), Label::INSIDE_TEXT_BEFORE))->suffix($super)),
+                        ]),
+                        (new Para())->items([
+                            (new Hidden(['ip_type'], $type)),
+                            (new Submit('save_' . $type, __('Add'))),
+                            App::nonce()->formNonce(),
+                        ]),
+                    ]),
+                $rules_form,
+            ])
+        ->render();
     }
 
     /**

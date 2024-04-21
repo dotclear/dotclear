@@ -10,6 +10,7 @@ ul.spaminfo li {
   background-color: transparent;
   background-position: center left;
   background-repeat: no-repeat;
+  background-size: 1.4em;
 }
 ul.spaminfo .spamcount {
   background-image: url(images/junk.svg);
@@ -23,6 +24,9 @@ ul.spaminfo .hamcount {
 }
 ul.spaminfo .feed {
   background-image: url(index.php?pf=antispam/feed.svg);
-  background-size: 1.25em;
   background-position: 0 center;
+}
+.filters tbody tr > th {
+  font-weight: normal;
+  background: inherit;
 }

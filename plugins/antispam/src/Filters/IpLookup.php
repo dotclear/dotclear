@@ -11,11 +11,17 @@ namespace Dotclear\Plugin\antispam\Filters;
 
 use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\SpamFilter;
 use Exception;
-use form;
 
 /**
  * @brief   The module IP lookup spam filter.
@@ -153,16 +159,31 @@ class IpLookup extends SpamFilter
             }
         }
 
-        /* DISPLAY
-        ---------------------------------------------- */
-        return
-        '<form action="' . Html::escapeURL($url) . '" method="post" class="fieldset">' .
-            '<h3>' . __('IP Lookup servers') . '</h3>' .
-            '<p><label for="bls">' . __('Add here a coma separated list of servers.') . '</label>' .
-                form::textarea('bls', 40, 3, Html::escapeHTML($bls), 'maximal') .
-            '</p>' .
-            '<p><input type="submit" value="' . __('Save') . '">' . App::nonce()->getFormNonce() . '</p>' .
-        '</form>';
+        // Return form
+        return (new Form('iplookup_form'))
+            ->action(Html::escapeURL($url))
+            ->method('post')
+            ->fields([
+                (new Fieldset())
+                    ->legend((new Legend(__('IP Lookup servers'))))
+                    ->items([
+                        (new Para())
+                        ->items([
+                            (new Textarea('bls'))
+                                ->label(new Label(__('Add here a coma separated list of servers.'), Label::INSIDE_LABEL_AFTER))
+                                ->cols(60)
+                                ->rows(3)
+                                ->value(Html::escapeHTML($bls))
+                                ->class('maximal'),
+                        ]),
+                        (new Para())
+                        ->items([
+                            (new Submit('iplookup_save', __('Save'))),
+                            App::nonce()->formNonce(),
+                        ]),
+                    ]),
+            ])
+        ->render();
     }
 
     /**

@@ -107,7 +107,7 @@ class FrontendUrl extends Url
             '  <pubDate>' . $rs->getRFC822Date() . '</pubDate>' . "\n" .
             '  <dc:creator>' . Html::escapeHTML($author) . '</dc:creator>' . "\n" .
             '  <description>' . Html::escapeHTML($content) . '</description>' . "\n" .
-                '</item>';
+            '</item>';
         }
 
         echo "</channel>\n</rss>";
