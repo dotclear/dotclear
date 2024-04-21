@@ -197,7 +197,6 @@ class Words extends SpamFilter
      * Return word list form.
      *
      * @param   string  $url    The url
-     * @param   string  $title  The title
      *
      * @return  string
      */
