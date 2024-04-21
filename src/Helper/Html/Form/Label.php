@@ -29,111 +29,60 @@ class Label extends Component
 
     // Position of linked component and position of text/label
 
+    // OL_ = Outside label
+    // IL_ = Inside label
+    // T = Text from Label
+    // F = field
+
     /**
+     * Inside Label: Label < Text + Field >
+     *
      * Put field inside label with label text before field (ex: Number: [ ])
      * Useful for input field, select, …
      *
      * @var        int
      */
-    public const INSIDE_TEXT_BEFORE = 0;
+    public const IL_TF = 0;
 
     /**
+     * Inside Label: Label < Field + Text >
+     *
      * Put field inside label with label text after field (ex: [] Active)
      * Useful for radio, checkbox, …
      *
      * @var        int
      */
-    public const INSIDE_TEXT_AFTER = 1;
+    public const IL_FT = 1;
 
     /**
+     * Outside Label: Label + Field
+     *
      * Put field after label (for=field_id will be set automatically)
      *
      * @var        int
      */
-    public const OUTSIDE_LABEL_BEFORE = 2;
+    public const OL_TF = 2;
 
     /**
+     * Outside Label: Field + Label
+     *
      * Put field before label (for=field_id will be set automatically)
      *
      * @var        int
      */
-    public const OUTSIDE_LABEL_AFTER = 3;
-
-    // Aliases
-
-    /**
-     * Put field inside label with label text before field (ex: Number: [ ])
-     * Useful for input field, select, …
-     *
-     * @var        int
-     */
-    public const INSIDE_LABEL_BEFORE = 0;
-
-    /**
-     * Put field inside label with label text after field (ex: [] Active)
-     * Useful for radio, checkbox, …
-     *
-     * @var        int
-     */
-    public const INSIDE_LABEL_AFTER = 1;
-
-    /**
-     * Put field after label (for=field_id will be set automatically)
-     *
-     * @var        int
-     */
-    public const OUTSIDE_TEXT_BEFORE = 2;
-
-    /**
-     * Put field before label (for=field_id will be set automatically)
-     *
-     * @var        int
-     */
-    public const OUTSIDE_TEXT_AFTER = 3;
-
-    // Verbose aliases
-
-    /**
-     * Put field inside label with label text before field (ex: Number: [ ])
-     * Useful for input field, select, …
-     *
-     * @var        int
-     */
-    public const FIELD_AFTER_TEXT_INSIDE_LABEL = 0;
-
-    /**
-     * Put field inside label with label text after field (ex: [] Active)
-     * Useful for radio, checkbox, …
-     *
-     * @var        int
-     */
-    public const FIELD_BEFORE_TEXT_INSIDE_LABEL = 1;
-
-    /**
-     * Put field after label (for=field_id will be set automatically)
-     *
-     * @var        int
-     */
-    public const FIELD_AFTER_LABEL = 2;
-
-    /**
-     * Put field before label (for=field_id will be set automatically)
-     *
-     * @var        int
-     */
-    public const FIELD_BEFORE_LABEL = 3;
+    public const OL_FT = 3;
 
     /**
      * Position of linked component:
      *
-     *   INSIDE_TEXT_BEFORE   = inside label, label text before component
-     *   INSIDE_TEXT_AFTER    = inside label, label text after component
-     *   OUTSIDE_LABEL_BEFORE = after label (for=field_id will be set automatically)
-     *   OUTSIDE_LABEL_AFTER  = before label (for=field_id will be set automatically)
+     *   IL_TF = inside label, label text before component
+     *   IL_FT = inside label, label text after component
+     *   OL_TF = after label (for=field_id will be set automatically)
+     *   OL_FT = before label (for=field_id will be set automatically)
      *
      *   @var int
      */
-    private int $_position = self::INSIDE_TEXT_BEFORE;
+    private int $_position = self::IL_TF;
 
     /**
      * List of available positions
@@ -141,11 +90,91 @@ class Label extends Component
      * @var array<int>
      */
     private array $_positions = [
-        self::INSIDE_TEXT_BEFORE,
-        self::INSIDE_TEXT_AFTER,
-        self::OUTSIDE_LABEL_BEFORE,
-        self::OUTSIDE_LABEL_AFTER,
+        self::IL_TF,
+        self::IL_FT,
+        self::OL_TF,
+        self::OL_FT,
     ];
+
+    // Aliases (using TEXT)
+
+    /**
+     * Inside Label: Label < Text + Field >
+     *
+     * Put field inside label with label text before field (ex: Number: [ ])
+     * Useful for input field, select, …
+     *
+     * @var        int
+     */
+    public const INSIDE_TEXT_BEFORE = self::IL_TF;
+
+    /**
+     * Inside Label: Label < Field + Text >
+     *
+     * Put field inside label with label text after field (ex: [] Active)
+     * Useful for radio, checkbox, …
+     *
+     * @var        int
+     */
+    public const INSIDE_TEXT_AFTER = self::IL_FT;
+
+    /**
+     * Outside Label: Label + Field
+     *
+     * Put field after label (for=field_id will be set automatically)
+     *
+     * @var        int
+     */
+    public const OUTSIDE_TEXT_BEFORE = self::OL_TF;
+
+    /**
+     * Outside Label: Field + Label
+     *
+     * Put field before label (for=field_id will be set automatically)
+     *
+     * @var        int
+     */
+    public const OUTSIDE_TEXT_AFTER = self::OL_FT;
+
+    // Aliases (using LABEL)
+
+    /**
+     * Inside Label: Label < Text + Field >
+     *
+     * Put field inside label with label text before field (ex: Number: [ ])
+     * Useful for input field, select, …
+     *
+     * @var        int
+     */
+    public const INSIDE_LABEL_BEFORE = self::IL_TF;
+
+    /**
+     * Inside Label: Label < Field + Text >
+     *
+     * Put field inside label with label text after field (ex: [] Active)
+     * Useful for radio, checkbox, …
+     *
+     * @var        int
+     */
+    public const INSIDE_LABEL_AFTER = self::IL_FT;
+
+    /**
+     * Outside Label: Label + Field
+     *
+     * Put field after label (for=field_id will be set automatically)
+     *
+     * @var        int
+     */
+    public const OUTSIDE_LABEL_BEFORE = self::OL_TF;
+
+    /**
+     * Outside Label: Field + Label
+     *
+     * Put field before label (for=field_id will be set automatically)
+     *
+     * @var        int
+     */
+    public const OUTSIDE_LABEL_AFTER = self::OL_FT;
 
     /**
      * Constructs a new instance.
@@ -154,7 +183,7 @@ class Label extends Component
      * @param      int          $position  The position
      * @param      null|string  $id        The identifier
      */
-    public function __construct(string $text = '', int $position = self::INSIDE_TEXT_BEFORE, ?string $id = null)
+    public function __construct(string $text = '', int $position = self::IL_TF, ?string $id = null)
     {
         parent::__construct(self::class, self::DEFAULT_ELEMENT);
 
@@ -195,7 +224,7 @@ class Label extends Component
         ];
 
         $start = ($this->getElement() ?? self::DEFAULT_ELEMENT);
-        if ($this->_position !== self::INSIDE_TEXT_BEFORE && $this->_position !== self::INSIDE_TEXT_AFTER && isset($this->for)) {
+        if ($this->_position !== self::IL_TF && $this->_position !== self::IL_FT && isset($this->for)) {
             $start .= ' for="' . $this->for . '"';
         }
         $start .= $this->renderCommonAttributes();
@@ -215,7 +244,7 @@ class Label extends Component
      *
      * @return  self
      */
-    public function setPosition(int $position = self::INSIDE_TEXT_BEFORE)
+    public function setPosition(int $position = self::IL_TF)
     {
         if (in_array($position, $this->_positions)) {
             $this->_position = $position;
