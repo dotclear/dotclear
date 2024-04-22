@@ -108,12 +108,16 @@ class Page extends BackendPage
         if (App::auth()->prefs()->interface->systemfont) {
             $js['systemFont'] = true;
         }
-        $js['hideMoreInfo'] = (bool) App::auth()->prefs()->interface->hidemoreinfo;
-        $js['servicesUri']  = App::upgrade()->url()->get('admin.rest');
-        $js['servicesOff']  = !App::rest()->serveRestRequests();
-        $js['noDragDrop']   = (bool) App::auth()->prefs()->accessibility->nodragdrop;
-        $js['debug']        = App::config()->debugMode();
-        $js['showIp']       = false;
+        $js['hideMoreInfo']    = (bool) App::auth()->prefs()->interface->hidemoreinfo;
+        $js['quickMenuPrefix'] = (string) App::auth()->prefs()->interface->quickmenuprefix;
+
+        $js['servicesUri'] = App::upgrade()->url()->get('admin.rest');
+        $js['servicesOff'] = !App::rest()->serveRestRequests();
+
+        $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
+
+        $js['debug']  = App::config()->debugMode();
+        $js['showIp'] = false;
 
         // Set some JSON data
         echo Html::jsJson('dotclear_init', $js);

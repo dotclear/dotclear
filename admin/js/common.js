@@ -1322,21 +1322,22 @@ dotclear.ready(() => {
   if (searchinput) {
     const nonTypingInputTypes = new Set(['checkbox', 'radio', 'button', 'reset', 'submit', 'file']);
     const acceptsKeyboardInput = (element) =>
-      element.tagName === 'INPUT' || // && !nonTypingInputTypes.has(element.type)) ||
+      (element.tagName === 'INPUT' && !nonTypingInputTypes.has(element.type)) ||
       element.tagName === 'TEXTAREA' ||
       element.tagName === 'SELECT' ||
       element.tagName === 'BUTTON' ||
       element.isContentEditable;
+    const quickMenuPrefix = dotclear.data.quickMenuPrefix || ':';
 
     window.addEventListener('keyup', (e) => {
       var focussedTag = document.activeElement;
       if (!document.activeElement.nodeName || acceptsKeyboardInput(focussedTag)) {
         return;
       }
-      if (e.key === ':') {
+      if (e.key === quickMenuPrefix) {
         e.preventDefault();
         e.stopPropagation();
-        searchinput.setAttribute('value', ':');
+        searchinput.setAttribute('value', quickMenuPrefix);
         searchinput.setSelectionRange(1, 1);
         searchinput.focus();
       }

@@ -80,6 +80,7 @@ class UserPreferences extends Process
         App::backend()->user_ui_nofavmenu          = App::auth()->prefs()->interface->nofavmenu;
         App::backend()->user_ui_media_nb_last_dirs = App::auth()->prefs()->interface->media_nb_last_dirs;
         App::backend()->user_ui_nocheckadblocker   = App::auth()->prefs()->interface->nocheckadblocker;
+        App::backend()->user_ui_quickmenuprefix    = App::auth()->prefs()->interface->quickmenuprefix;
 
         App::backend()->default_tab = !empty($_GET['tab']) ? Html::escapeHTML($_GET['tab']) : 'user-profile';
 
@@ -287,6 +288,7 @@ class UserPreferences extends Process
                 App::auth()->prefs()->interface->put('media_last_dirs', [], 'array', null, false);
                 App::auth()->prefs()->interface->put('media_fav_dirs', [], 'array', null, false);
                 App::auth()->prefs()->interface->put('nocheckadblocker', !empty($_POST['user_ui_nocheckadblocker']), 'boolean');
+                App::auth()->prefs()->interface->put('quickmenuprefix', $_POST['user_ui_quickmenuprefix'], 'string');
 
                 // Update user columns (lists)
                 $cu = [];
@@ -675,8 +677,18 @@ class UserPreferences extends Process
         form::checkbox('user_ui_nocheckadblocker', 1, App::backend()->user_ui_nocheckadblocker, '', '', false, 'aria-describedby="user_ui_nocheckadblocker_help"') . ' ' .
         __('Disable Ad-blocker check') . '</label></p>' .
         '<p class="clear form-note" id="user_ui_nocheckadblocker_help">' . __('Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend.') . '</p>' .
-        '<p class="clear form-note" id="user_ui_nocheckadblocker_more">' . __('Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!') . '</p>' .
+        '<p class="clear form-note" id="user_ui_nocheckadblocker_more">' . __('Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!') . '</p>';
 
+        echo
+        '<p><label class="classic">' . __('Quick menu key:') . ' ' .
+        form::field('user_ui_quickmenuprefix', 1, 1, [
+            'default' => Html::escapeHTML(App::backend()->user_ui_quickmenuprefix),
+        ]) . '</label>' .
+        '</p>' .
+        '<p class="clear form-note" id="user_ui_quickmenuprefix_help">' . __('Leave empty to use the default key <kbd>:</kbd>') . '</p>'
+        ;
+
+        echo
         '</div>' .
 
         '<fieldset id="user_options_columns">' .

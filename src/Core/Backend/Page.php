@@ -255,9 +255,11 @@ class Page
         if (App::auth()->prefs()->interface->systemfont) {
             $js['systemFont'] = true;
         }
-        $js['hideMoreInfo'] = (bool) App::auth()->prefs()->interface->hidemoreinfo;
-        $js['servicesUri']  = App::backend()->url()->get('admin.rest');
-        $js['servicesOff']  = !App::rest()->serveRestRequests();
+        $js['hideMoreInfo']    = (bool) App::auth()->prefs()->interface->hidemoreinfo;
+        $js['quickMenuPrefix'] = (string) App::auth()->prefs()->interface->quickmenuprefix;
+
+        $js['servicesUri'] = App::backend()->url()->get('admin.rest');
+        $js['servicesOff'] = !App::rest()->serveRestRequests();
 
         $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
 
@@ -442,9 +444,11 @@ class Page
         if (App::auth()->prefs()->interface->systemfont) {
             $js['systemFont'] = true;
         }
-        $js['hideMoreInfo'] = (bool) App::auth()->prefs()->interface->hidemoreinfo;
-        $js['servicesUri']  = App::backend()->url()->get('admin.rest');
-        $js['servicesOff']  = !App::rest()->serveRestRequests();
+        $js['hideMoreInfo']    = (bool) App::auth()->prefs()->interface->hidemoreinfo;
+        $js['quickMenuPrefix'] = (string) App::auth()->prefs()->interface->quickmenuprefix;
+
+        $js['servicesUri'] = App::backend()->url()->get('admin.rest');
+        $js['servicesOff'] = !App::rest()->serveRestRequests();
 
         $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
 
