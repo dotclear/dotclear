@@ -19,6 +19,7 @@ use Dotclear\Core\Backend\UserPref;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Http;
 use Exception;
 use form;
 
@@ -80,10 +81,23 @@ class Search extends Process
 
     public static function process(): bool
     {
-        App::backend()->q     = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
-        App::backend()->qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
+        App::backend()->q = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
 
-        App::backend()->q = Html::escapeHTML(App::backend()->q);
+        // Cope with search beginning with : (menu item command)
+        if (str_starts_with(App::backend()->q, ':')) {
+            $start = Html::escapeHTML(substr(App::backend()->q, 1));
+            $link  = App::backend()->searchMenuitem($start);
+            if ($link !== false) {
+                $link = str_replace('&amp;', '&', $link);
+                Http::redirect($link);
+            }
+        } elseif (str_starts_with(App::backend()->q, '\:')) {
+            // Search term begins with :
+            App::backend()->q = substr(App::backend()->q, 1);
+        }
+
+        App::backend()->qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
+        App::backend()->q     = Html::escapeHTML(App::backend()->q);
 
         if (!empty(App::backend()->q) && !in_array(App::backend()->qtype, App::backend()->qtype_combo)) {
             App::backend()->qtype = 'p';

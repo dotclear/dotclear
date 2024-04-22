@@ -1316,4 +1316,30 @@ dotclear.ready(() => {
       history.back();
     });
   });
+
+  // Menu command
+  const searchinput = document.getElementById('qx');
+  if (searchinput) {
+    const nonTypingInputTypes = new Set(['checkbox', 'radio', 'button', 'reset', 'submit', 'file']);
+    const acceptsKeyboardInput = (element) =>
+      element.tagName === 'INPUT' || // && !nonTypingInputTypes.has(element.type)) ||
+      element.tagName === 'TEXTAREA' ||
+      element.tagName === 'SELECT' ||
+      element.tagName === 'BUTTON' ||
+      element.isContentEditable;
+
+    window.addEventListener('keyup', (e) => {
+      var focussedTag = document.activeElement;
+      if (!document.activeElement.nodeName || acceptsKeyboardInput(focussedTag)) {
+        return;
+      }
+      if (e.key === ':') {
+        e.preventDefault();
+        e.stopPropagation();
+        searchinput.setAttribute('value', ':');
+        searchinput.setSelectionRange(1, 1);
+        searchinput.focus();
+      }
+    });
+  }
 });

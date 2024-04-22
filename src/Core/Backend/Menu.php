@@ -29,6 +29,13 @@ class Menu
     protected $items = [];
 
     /**
+     * List of indexed links
+     *
+     * @var array<string,string>
+     */
+    protected $links = [];
+
+    /**
      * Constructs a new instance.
      *
      * @param      string  $id         The menu identifier
@@ -63,6 +70,7 @@ class Menu
             } else {
                 $this->items[$title] = $item;
             }
+            $this->links[$title] = $url;
         }
     }
 
@@ -87,6 +95,7 @@ class Menu
             } else {
                 $this->items[$title] = $item;
             }
+            $this->links[$title] = $url;
         }
     }
 
@@ -138,5 +147,27 @@ class Menu
         '<li' . (($active || $class) ? ' class="' . (($active) ? 'active ' : '') . ($class ?? '') . '"' : '') . (($id) ? ' id="menu-item-' . $id . '"' : '') . '>' .
         '<a href="' . $url . '"' . ($active ? ' aria-current="page"' : '') . ($id ? 'id="menu-process-' . $id . '"' : '') . '>' . Helper::adminIcon($img) . $title . '</a>' .
         '</li>' . "\n";
+    }
+
+    /**
+     * Find a menuitem corresponding with a term (or beginning with)
+     *
+     * @param      string             $start  The term
+     * @param      bool               $exact  Should find the exact term? (case insensitive)
+     *
+     * @return     false|string
+     */
+    public function searchMenuitem(string $start, bool $exact): false|string
+    {
+        foreach ($this->links as $title => $link) {
+            if ($exact && (strtolower($title) === strtolower($start))) {
+                return $link;
+            }
+            if (str_starts_with(strtolower($title), strtolower($start))) {
+                return $link;
+            }
+        }
+
+        return false;
     }
 }

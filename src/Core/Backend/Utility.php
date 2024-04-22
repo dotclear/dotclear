@@ -357,6 +357,31 @@ class Utility extends Process
     }
 
     /**
+     * Find a menuitem corresponding with a term (or beginning with)
+     *
+     * @param      string             $start  The term
+     *
+     * @return     false|string
+     */
+    public function searchMenuitem(string $start): bool|string
+    {
+        // Try to find exact term
+        foreach ($this->menus as $menu) {
+            if (($link = $menu->searchMenuitem($start, true)) !== false) {
+                return $link;
+            }
+        }
+        // Try to find beginning term
+        foreach ($this->menus as $menu) {
+            if (($link = $menu->searchMenuitem($start, false)) !== false) {
+                return $link;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Get backend resources instance.
      *
      * @return  Resources   The menu
