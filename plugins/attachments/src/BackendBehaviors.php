@@ -13,11 +13,16 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\File\Files;
-use form;
-
-if (!App::task()->checkContext('BACKEND')) {
-    return false;
-}
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 
 /**
  * @brief   The module backend behaviors.
@@ -47,46 +52,85 @@ class BackendBehaviors
     public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
     {
         if ($post !== null) {
+            // Entry saved at least once
             $post_media = App::media()->getPostMedia((int) $post->post_id, null, 'attachment');
             $nb_media   = count($post_media);
-            $title      = !$nb_media ? __('Attachments') : sprintf(__('Attachments (%d)'), $nb_media);
-            $item       = '<h5 class="clear s-attachments">' . $title . '</h5>';
+
+            $rows = [];
             foreach ($post_media as $file) {
                 $ftitle = $file->media_title;
                 if (strlen($ftitle) > 18) {
                     $ftitle = substr($ftitle, 0, 16) . '...';
                 }
-                $item .= '<div class="media-item s-attachments">' .
-                '<a class="media-icon" href="' . App::backend()->url()->get('admin.media.item', ['id' => $file->media_id]) . '" title="' . $file->basename . '">' .
-                '<img src="' . $file->media_icon . '" alt=""></a>' .
-                '<ul>' .
-                '<li><a class="media-link" href="' . App::backend()->url()->get('admin.media.item', ['id' => $file->media_id]) . '" ' .
-                'title="' . $file->basename . '">' . $ftitle . '</a></li>' .
-                '<li>' . $file->media_dtstr . '</li>' .
-                '<li>' . Files::size($file->size) . ' - ' .
-                '<a href="' . $file->file_url . '">' . __('open') . '</a>' . '</li>' .
-
-                '<li class="media-action"><a class="attachment-remove" id="attachment-' . $file->media_id . '" ' .
-                'href="' . App::backend()->url()->get('admin.post.media', [
-                    'post_id'   => $post->post_id,
-                    'media_id'  => $file->media_id,
-                    'link_type' => 'attachment',
-                    'remove'    => '1',
-                ]) . '">' .
-                '<img src="images/trash.svg" alt="' . __('remove') . '"></a>' .
-                    '</li>' .
-
-                    '</ul>' .
-                    '</div>';
+                $rows[] = (new Div())->class(['media-item', 's-attachments'])->items([
+                    (new Link())
+                        ->href(App::backend()->url()->get('admin.media.item', ['id' => $file->media_id]))
+                        ->title($file->basename)
+                        ->items([
+                            (new Img($file->media_icon)),
+                        ]),
+                    (new Ul())->items([
+                        (new Li())->items([
+                            (new Link())
+                                ->class('media-link')
+                                ->href(App::backend()->url()->get('admin.media.item', ['id' => $file->media_id]))
+                                ->title($file->basename)
+                                ->text($ftitle),
+                        ]),
+                        (new Li())->text($file->media_dtstr),
+                        (new Li())->items([
+                            (new Text(null, Files::size($file->size) . ' - ')),
+                            (new Link())->href($file->file_url)->text(__('open')),
+                        ]),
+                        (new Li())->class('media-action')->items([
+                            (new Link('attachment-' . $file->media_id))
+                                ->class('attachment-remove')
+                                ->href(App::backend()->url()->get('admin.post.media', [
+                                    'post_id'   => $post->post_id,
+                                    'media_id'  => $file->media_id,
+                                    'link_type' => 'attachment',
+                                    'remove'    => '1',
+                                ]))
+                                ->items([
+                                    (new Img('images/trash.svg'))->alt(__('remove')),
+                                ]),
+                        ]),
+                    ]),
+                ]);
             }
 
-            if (empty($post_media)) {
-                $item .= '<p class="form-note s-attachments">' . __('No attachment.') . '</p>';
+            if (empty($rows)) {
+                $rows = [
+                    (new Para())->class(['form-note', 's-attachments'])->items([
+                        (new Text(null, __('No attachment.'))),
+                    ]),
+                ];
             }
-            $item .= '<p class="s-attachments"><a class="button" href="' . App::backend()->url()->get('admin.media', ['post_id' => $post->post_id, 'link_type' => 'attachment']) . '">' .
-            __('Add files to this entry') . '</a></p>';
-            $sidebar['metas-box']['items']['attachments'] = $item;
+
+            $title = !$nb_media ? __('Attachments') : sprintf(__('Attachments (%d)'), $nb_media);
+
+            $item = (new Set())->items([
+                (new Text('h5', $title))->class(['clear', 's-attachments']),
+                ...$rows,
+                (new Para())->class('s-attachments')->items([
+                    (new Link())
+                        ->class('button')
+                        ->href(App::backend()->url()->get('admin.media', ['post_id' => $post->post_id, 'link_type' => 'attachment']))
+                        ->text(__('Add files to this entry')),
+                ]),
+            ]);
+        } else {
+            // Entry still not saved
+            $item = (new Set())->items([
+                (new Text('h5', __('Attachments')))->class(['clear', 's-attachments']),
+
+                (new Para())->class(['form-note', 's-attachments'])->items([
+                    (new Text(null, __('You must save the entry before adding an attachment.'))),
+                ]),
+            ]);
         }
+
+        $sidebar['metas-box']['items']['attachments'] = $item->render();
     }
 
     /**
@@ -97,17 +141,19 @@ class BackendBehaviors
     public static function adminPostAfterForm(?MetaRecord $post): void
     {
         if ($post !== null) {
-            echo
-            '<form action="' . App::backend()->url()->get('admin.post.media') . '" ' .
-            'id="attachment-remove-hide" method="post">' .
-            '<div>' .
-            form::hidden(['post_id'], $post->post_id) .
-            form::hidden(['media_id'], '') .
-            form::hidden(['link_type'], 'attachment') .
-            form::hidden(['remove'], 1) .
-            App::nonce()->getFormNonce() .
-            '</div>' .
-            '</form>';
+            echo (new Form('attachment-remove-hide'))
+                ->action(App::backend()->url()->get('admin.post.media'))
+                ->method('post')
+                ->fields([
+                    (new Div())->items([
+                        (new Hidden(['post_id'], $post->post_id)),
+                        (new Hidden(['media_id'], '')),
+                        (new Hidden(['link_type'], 'attachment')),
+                        (new Hidden(['remove'], '1')),
+                        App::nonce()->formNonce(),
+                    ]),
+                ])
+            ->render();
         }
     }
 }
