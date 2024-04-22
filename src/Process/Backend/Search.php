@@ -86,14 +86,23 @@ class Search extends Process
         if (strlen((string) App::backend()->q)) {
             // Cope with search beginning with : (quick menu access)
             $prefix = App::auth()->prefs()->interface->quickmenuprefix ?: ':';
-            if (str_starts_with(App::backend()->q, $prefix) && strlen(App::backend()->q) > 1) {
-                $term = Html::escapeHTML(substr(App::backend()->q, 1));
-                $link = App::backend()->searchMenuitem($term);
-                if ($link !== false) {
-                    $link = str_replace('&amp;', '&', $link);
-                    Http::redirect($link);
+            if (str_starts_with(App::backend()->q, $prefix)) {
+                if (strlen(App::backend()->q) > 1) {
+                    // Look for a quick menu access
+                    $term = Html::escapeHTML(substr(App::backend()->q, 1));
+                    $link = App::backend()->searchMenuitem($term);
+                    if ($link !== false) {
+                        $link = str_replace('&amp;', '&', $link);
+                        Http::redirect($link);
+                    }
+                } else {
+                    // Back to dashboard
+                    App::backend()->url()->redirect('admin.home');
                 }
-            } elseif (str_starts_with(App::backend()->q, '\\' . $prefix)) {
+            }
+
+            // Nothing found, back to normal
+            if (str_starts_with(App::backend()->q, '\\' . $prefix)) {
                 // Search term begins with quick menu prefix
                 App::backend()->q = substr(App::backend()->q, 1);
             }
