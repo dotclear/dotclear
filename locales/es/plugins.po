@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-22 11:06+0200\n"
-"PO-Revision-Date: 2024-04-22 09:11\n"
+"PO-Revision-Date: 2024-04-22 09:53\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -1006,7 +1006,7 @@ msgstr "Añadir archivos a esta entrada"
 
 #: plugins/attachments/src/BackendBehaviors.php:128
 msgid "You must save the entry before adding an attachment."
-msgstr ""
+msgstr "Debe guardar la entrada antes de añadir un archivo adjunto."
 
 #: plugins/blogroll/src/Backend.php:25
 msgid "Blogroll"
