@@ -150,24 +150,34 @@ class Menu
     }
 
     /**
-     * Find a menuitem corresponding with a term (or beginning with)
+     * Find a menuitem corresponding with a term (or including the term)
      *
-     * @param      string             $start  The term
+     * @param      string             $term   The term
      * @param      bool               $exact  Should find the exact term? (case insensitive)
      *
      * @return     false|string
      */
-    public function searchMenuitem(string $start, bool $exact): false|string
+    public function searchMenuitem(string $term, bool $exact): false|string
     {
         foreach ($this->links as $title => $link) {
-            if ($exact && (strtolower($title) === strtolower($start))) {
+            if ($exact && (strtolower($title) === strtolower($term))) {
                 return $link;
             }
-            if (str_starts_with(strtolower($title), strtolower($start))) {
+            if (strpos(strtolower($title), strtolower($term)) !== false) {
                 return $link;
             }
         }
 
         return false;
+    }
+
+    /**
+     * Get list of menuitems in menu
+     *
+     * @return     array<int, string>
+     */
+    public function listMenus(): array
+    {
+        return array_keys($this->links);
     }
 }

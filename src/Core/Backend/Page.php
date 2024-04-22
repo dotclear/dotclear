@@ -346,6 +346,16 @@ class Page
             }
         }
 
+        // Prepare datalist for quick menu access
+        $listMenus = App::backend()->listMenus();
+        App::lexical()->lexicalSort($listMenus, App::lexical()::ADMIN_LOCALE);
+        $prefix   = App::auth()->prefs()->interface->quickmenuprefix ?: ':';
+        $datalist = '<datalist id="menulist">';
+        foreach (array_unique($listMenus) as $menuitem) {
+            $datalist .= '<option value="' . $prefix . $menuitem . '"></option>';
+        }
+        $datalist .= '</datalist>';
+
         echo
         "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
@@ -353,9 +363,11 @@ class Page
         '<nav id="main-menu" role="navigation">' . "\n" .
 
         '<form id="search-menu" action="' . App::backend()->url()->get('admin.search') . '" method="get" role="search">' .
-        '<p><label for="qx" class="hidden">' . __('Search:') . ' </label>' . form::field('qx', 30, 255, '') .
+        '<p><label for="qx" class="hidden">' . __('Search:') . ' </label>' .
+        form::field('qx', 30, 255, '', '', '', false, 'list=menulist') .
         '<input type="hidden" name="process" value="Search">' .
         '<input type="submit" value="' . __('OK') . '"></p>' .
+        $datalist .
         '</form>';
 
         foreach (array_keys((array) App::backend()->menus()) as $k) {

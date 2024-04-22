@@ -357,28 +357,46 @@ class Utility extends Process
     }
 
     /**
-     * Find a menuitem corresponding with a term (or beginning with)
+     * Find a menuitem corresponding with a term (or including the term)
      *
-     * @param      string             $start  The term
+     * @param      string             $term  The term
      *
      * @return     false|string
      */
-    public function searchMenuitem(string $start): bool|string
+    public function searchMenuitem(string $term): bool|string
     {
         // Try to find exact term
         foreach ($this->menus as $menu) {
-            if (($link = $menu->searchMenuitem($start, true)) !== false) {
+            if (($link = $menu->searchMenuitem($term, true)) !== false) {
                 return $link;
             }
         }
-        // Try to find beginning term
+        // Try to find a menuitem including the term
         foreach ($this->menus as $menu) {
-            if (($link = $menu->searchMenuitem($start, false)) !== false) {
+            if (($link = $menu->searchMenuitem($term, false)) !== false) {
                 return $link;
             }
         }
 
         return false;
+    }
+
+    /**
+     * Get list of available menuitems
+     *
+     * @return     array<int, string>
+     */
+    public function listMenus(): array
+    {
+        $datalist = [];
+        foreach ($this->menus as $menu) {
+            $datalist = [
+                ...$datalist,
+                ...$menu->listMenus(),
+            ];
+        }
+
+        return $datalist;
     }
 
     /**
