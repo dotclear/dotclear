@@ -83,18 +83,20 @@ class Search extends Process
     {
         App::backend()->q = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
 
-        // Cope with search beginning with : (menu item command)
-        $prefix = App::auth()->prefs()->interface->quickmenuprefix ?? ':';
-        if (str_starts_with(App::backend()->q, $prefix)) {
-            $start = Html::escapeHTML(substr(App::backend()->q, 1));
-            $link  = App::backend()->searchMenuitem($start);
-            if ($link !== false) {
-                $link = str_replace('&amp;', '&', $link);
-                Http::redirect($link);
+        if (strlen((string) App::backend()->q)) {
+            // Cope with search beginning with : (menu item command)
+            $prefix = App::auth()->prefs()->interface->quickmenuprefix ?? ':';
+            if (str_starts_with(App::backend()->q, $prefix) && strlen(App::backend()->q) > 1) {
+                $start = Html::escapeHTML(substr(App::backend()->q, 1));
+                $link  = App::backend()->searchMenuitem($start);
+                if ($link !== false) {
+                    $link = str_replace('&amp;', '&', $link);
+                    Http::redirect($link);
+                }
+            } elseif (str_starts_with(App::backend()->q, '\\' . $prefix)) {
+                // Search term begins with quick menu prefix
+                App::backend()->q = substr(App::backend()->q, 1);
             }
-        } elseif (str_starts_with(App::backend()->q, '\\' . $prefix)) {
-            // Search term begins with quick menu prefix
-            App::backend()->q = substr(App::backend()->q, 1);
         }
 
         App::backend()->qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
