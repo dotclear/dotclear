@@ -1838,6 +1838,24 @@ label {
   font-size: 1em;
 }
 
+kbd {
+  font-size: 0.75em;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.6;
+  white-space: nowrap;
+  color: var(--button-color);
+  background-color: var(--body-background);
+  border: 1px solid var(--button-border);
+  border-radius: 5px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
+  display: inline-block;
+  margin: 0 0.1em;
+  padding: 0.1em 0.6em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 /* ------------------------------------------------------------------ liens */
 a,
 a:link,

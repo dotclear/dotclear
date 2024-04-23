@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-22 11:06+0200\n"
+"POT-Creation-Date: 2024-04-23 08:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -987,20 +987,20 @@ msgstr ""
 msgid "attachments"
 msgstr ""
 
-#: plugins/attachments/src/BackendBehaviors.php:94
+#: plugins/attachments/src/BackendBehaviors.php:95
 msgid "remove"
 msgstr ""
 
-#: plugins/attachments/src/BackendBehaviors.php:104
+#: plugins/attachments/src/BackendBehaviors.php:105
 msgid "No attachment."
 msgstr ""
 
-#: plugins/attachments/src/BackendBehaviors.php:109
+#: plugins/attachments/src/BackendBehaviors.php:110
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
 
-#: plugins/attachments/src/BackendBehaviors.php:118
+#: plugins/attachments/src/BackendBehaviors.php:119
 msgid "Add files to this entry"
 msgstr ""
 

@@ -680,12 +680,12 @@ class UserPreferences extends Process
         '<p class="clear form-note" id="user_ui_nocheckadblocker_more">' . __('Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!') . '</p>';
 
         echo
-        '<p><label class="classic">' . __('Quick menu key:') . ' ' .
+        '<p><label class="classic">' . __('Quick menu character:') . ' ' .
         form::field('user_ui_quickmenuprefix', 1, 1, [
             'default' => Html::escapeHTML(App::backend()->user_ui_quickmenuprefix),
         ]) . '</label>' .
         '</p>' .
-        '<p class="clear form-note" id="user_ui_quickmenuprefix_help">' . __('Leave empty to use the default key <kbd>:</kbd>') . '</p>'
+        '<p class="clear form-note" id="user_ui_quickmenuprefix_help">' . __('Leave empty to use the default character <kbd>:</kbd>') . '</p>'
         ;
 
         echo
