@@ -13,7 +13,7 @@ namespace Dotclear\Process\Backend;
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\Core\Backend\Update as CoreUpdate;
+use Dotclear\Core\Upgrade\Update as Upgrade;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 
@@ -63,7 +63,7 @@ class Update extends Process
             exit;
         }
 
-        App::backend()->updater = new CoreUpdate(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . CoreUpdate::CACHE_FOLDER);
+        App::backend()->updater = new Upgrade(App::config()->coreUpdateUrl(), 'dotclear', App::config()->coreUpdateCanal(), App::config()->cacheRoot() . DIRECTORY_SEPARATOR . Upgrade::CACHE_FOLDER);
         App::backend()->new_v   = App::backend()->updater->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
 
         # Hide "update me" message

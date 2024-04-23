@@ -15,10 +15,6 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 use form;
 
-if (!App::task()->checkContext('BACKEND')) {
-    return false;
-}
-
 /**
  * @brief   The module backend behaviors.
  * @ingroup pings
