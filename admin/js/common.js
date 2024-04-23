@@ -1336,7 +1336,6 @@ dotclear.ready(() => {
       }
       if (e.key === quickMenuPrefix) {
         e.preventDefault();
-        e.stopPropagation();
         searchinput.setAttribute('value', quickMenuPrefix);
         searchinput.setSelectionRange(1, 1);
         searchinput.focus();
