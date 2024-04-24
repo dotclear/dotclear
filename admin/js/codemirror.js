@@ -22,6 +22,21 @@ for (const i of dotclear.getData('codemirror')) {
         F11(cm) {
           cm.setOption('fullScreen', !cm.getOption('fullScreen'));
         },
+        Esc(cm) {
+          if (cm.getOption('fullScreen')) {
+            // Exit from fullscreen mode
+            cm.setOption('fullScreen', false);
+          } else {
+            // the user pressed the escape key, now tab will tab to the next element for accessibility
+            if (!cm.state.keyMaps.some((x) => x.name == 'tabAccessibility')) {
+              cm.addKeyMap({
+                name: 'tabAccessibility',
+                Tab: false,
+                'Shift-Tab': false,
+              });
+            }
+          }
+        },
       },
       theme: i.theme,
     });
@@ -29,6 +44,13 @@ for (const i of dotclear.getData('codemirror')) {
     const cm = codemirror_instance[i.name].getWrapperElement();
     if (cm) {
       cm.style.height = `${max}px`;
+    }
+    const editor = codemirror_instance[i.name];
+    if (editor) {
+      editor.on('focus', (cm) => {
+        // On focus, make tab add tab in editor
+        cm.removeKeyMap('tabAccessibility');
+      });
     }
   }
 }
