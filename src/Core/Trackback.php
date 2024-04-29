@@ -299,7 +299,7 @@ class Trackback implements TrackbackInterface
             $blog_name = Text::cutString($blog_name, 60);
 
             try {
-                $this->addBacklink($post_id, $url, $blog_name, $title, $excerpt, $comment);
+                $this->addBacklink((int) $post_id, $url, $blog_name, $title, $excerpt, $comment);
             } catch (Throwable $e) {
                 $err = 1;
                 $msg = 'Something went wrong : ' . $e->getMessage();
@@ -374,7 +374,7 @@ class Trackback implements TrackbackInterface
             }
 
             $comment = '';
-            $this->addBacklink($posts->post_id, $from_url, $blog_name, $title, $excerpt, $comment);
+            $this->addBacklink((int) $posts->post_id, $from_url, $blog_name, $title, $excerpt, $comment);
         } catch (Throwable) {
             throw new BadRequestException(__('Sorry, an internal problem has occured.'));
         }
@@ -445,7 +445,7 @@ class Trackback implements TrackbackInterface
             }
 
             $comment = '';
-            $this->addBacklink($post_id, $from_url, $blog_name, $title, $excerpt, $comment);
+            $this->addBacklink((int) $post_id, $from_url, $blog_name, $title, $excerpt, $comment);
 
             # All done, thanks
             $code = $this->blog->settings()->system->trackbacks_pub ? 200 : 202;
