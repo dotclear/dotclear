@@ -263,7 +263,7 @@ class Trackback implements TrackbackInterface
             }
 
             $url = trim(Html::clean($url));
-            if ($this->pingAlreadyDone($post->post_id, $url)) {
+            if ($this->pingAlreadyDone((int) $post->post_id, $url)) {
                 $err = true;
                 $msg = 'The trackback has already been registered';
             }
@@ -333,7 +333,7 @@ class Trackback implements TrackbackInterface
         try {
             $posts = $this->getTargetPost($to_url);
 
-            if ($this->pingAlreadyDone($posts->post_id, $from_url)) {
+            if ($this->pingAlreadyDone((int) $posts->post_id, $from_url)) {
                 throw new BadRequestException(__('Don\'t repeat yourself, please.'));
             }
 
@@ -403,7 +403,7 @@ class Trackback implements TrackbackInterface
             $post_id = $posts->post_id;
 
             # Check if it's an updated mention
-            if ($this->pingAlreadyDone($post_id, $from_url)) {
+            if ($this->pingAlreadyDone((int) $post_id, $from_url)) {
                 $this->delBacklink($post_id, $from_url);
             }
 
