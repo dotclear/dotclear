@@ -1,3 +1,67 @@
+Dotclear 2.30 - 2024-05-13
+===========================================================
+* 🐘 PHP 8.1+ is required, PHP 8.2 and 8.3 compliance
+* Core: Switch from GNU GPL-2.0-only to AGPL-3.0
+* Core: Normalize SQLite database path and create the database file if necessary
+* Core: Add a configuration setting to load or not legacy JS (backend/frontend)
+* - For frontend a new sysIf attribute is provided: legacy_needed (see _head.html template)
+* - For backend current release config may be overrule by setting DC_MIGRATE in inc/config.php
+* Core: Add a setting to change the thumbnail character prefix (default to .)
+* Core: Add width and height of an SVG image (media item page) if specified in its source
+* Core: Add an option (informative_config) to display informative config for module (ie without any form)
+* Core: Add prefix/suffix capability for Helper/Html/Form/Label (will be inserted before/after the associated field)
+* UX/UI: Add a menuitem quick access (configurable quick menu key, default to :)
+* UX/UI: Add quick access to dashboard (quick menu access key+enter without anything else)
+* UX/UI: Review layout for group of buttons
+* UX/UI: Use textarea for media description
+* UX/UI: Switch from PNG to SVG for images used in backend
+* UX/UI: Review CSS for tables
+* UX/UI: Review information style (legend, message, …) in dark mode
+* UX/UI: Review media upload progress bar
+* UX/UI: Review install icons (messages)
+* UX/UI: Set a background on legacyEditor toolbar
+* UX/UI: Review form's buttons layout (specially on small device)
+* UX/UI: Add supplemental warning about disabling ad-blocker detection
+* UX/UI: Review legacy editor toolbar layout
+* UX/UI: Review header layout (alignment, …)
+* UX/UI: Theme editor: the lists of inherited files are now folded by default
+* UX/UI: Review today button look
+* UX/UI: Page header review (standard and upgrade modes)
+* UX/UI: Review categories CSS
+* a11y: Review markup for required items in forms
+* a11y: Enforce contrast of pending and locked status icons in dark mode
+* a11y: No need to enforce contrast on icon hover (whatever is the mode, dark or light)
+* a11y: Fix issue with Codemirror (trapped inside editor if using only the keyboard)
+* Fix: Do not put filename as alternate text for media
+* Fix: Media item deletion
+* Fix: Cleaning procedure after update is now more tolerant
+* Fix: Plural management for some locales (Japanese, …)
+* Fix: Don't care about antispam filter GUI URL during installation
+* Fix: Video/audio media insertion with CKEditor, review notice
+* Fix: Display notice (about audio/video insertion limit) only with standard editor
+* Fix: Fix exclusion list for media zip process
+* Fix: Take care of user defined thumb sizes in media zip exclusion pattern
+* Fix: Background color of search input field
+* Fix: Go back to update tab (on plugins page) after forced check of plugins' update
+* Fix: Success upload media message color
+* Fix: Optimize Berlin SVG images
+* Fix: SVG preview with magnificPopup jQuery plugin
+* Fix: Antispam filter name displayed on comments list page
+* Fix: Use standard tpl:IfCommentPreviewOptional rather than tpl:IfPreviewIsNotMandatory for Ductile
+* Fix: H2 (navigation) horizontal overflow
+* Fix: Input for decimal values
+* Fix: Management of local setting/pref value is the same as the global one (if global exists)
+* Fix: Antispam IP and IPv6 rules deletion
+* Fix: Antispam Word filter rule deletion
+* Fix: Theme config form if not only informative
+* Fix: Antispam params link (on blog pref)
+* Fix: Hint typing for post ID (trackback/pingback/webmention)
+* Lib: Update Codemirror to 5.65.16
+* i18n: Remove Luxembourgish language (not translated and mostly not used)
+* 🛡 Security: Fix Cross Site Scripting vulnerability (https://packetstormsecurity.com/files/177239/Dotclear-2.29-Cross-Site-Scripting.html)
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.29 - 2024-02-13
 ===========================================================
 * 🐘 PHP 8.1+ is required, PHP 8.2 and 8.3 compliance
