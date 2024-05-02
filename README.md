@@ -44,8 +44,8 @@ tool allowing anyone to publish on the web, regardless of their technical skills
 
 In order to run Dotclear you need:
 
-- A web server (Apache, Cherokee, Nginx, lighttpd, etc.)
-- PHP 8.1 to 8.2 with the following modules:
+- A web server (Apache, Nginx, lighttpd, Caddy, etc)
+- PHP 8.1 to 8.3 with the following modules:
   - mbstring
   - iconv
   - simplexml
@@ -63,7 +63,7 @@ Download the [one minute install file][1], upload it to your web space. Then ope
 ### Standard installation
 
 You need to download [Dotclear archive][3], extract it then upload your files to your web space using an FTP client.
-Then open your favorite browser and go to <http://your.host.name/dotclear/admin/install/>. A message alerts you that you haven't got a configuration file and offers to run the wizard. Click this link.
+Then open your favorite browser and go to <https://your.host.name/dotclear/admin/install/>. A message alerts you that you haven't got a configuration file and offers to run the wizard. Click this link.
 
 ## DOCUMENTATION
 
