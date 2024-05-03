@@ -145,7 +145,7 @@ class Menu
     {
         return
         '<li' . (($active || $class) ? ' class="' . (($active) ? 'active ' : '') . ($class ?? '') . '"' : '') . (($id) ? ' id="menu-item-' . $id . '"' : '') . '>' .
-        '<a href="' . $url . '"' . ($active ? ' aria-current="page"' : '') . ($id ? 'id="menu-process-' . $id . '"' : '') . '>' . Helper::adminIcon($img) . $title . '</a>' .
+        '<a href="' . $url . '"' . ($active ? ' aria-current="page"' : '') . ($id ? ' id="menu-process-' . $id . '"' : '') . '>' . Helper::adminIcon($img) . $title . '</a>' .
         '</li>' . "\n";
     }
 
