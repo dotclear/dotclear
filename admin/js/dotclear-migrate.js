@@ -35,10 +35,9 @@ $.fn.enableShiftClick = function () {
   this.on('click', function (event) {
     if (event.shiftKey) {
       if (group.data('esc_lastclicked') !== '') {
-        let range;
         const trparent = $(this).parents('tr');
         const id = `#${group.data('esc_lastclicked')}`;
-        range = trparent.nextAll(id).length == 0 ? trparent.prevUntil(id) : trparent.nextUntil(id);
+        const range = trparent.nextAll(id).length === 0 ? trparent.prevUntil(id) : trparent.nextUntil(id);
         dotclear.setChecked(range.find('input[type=checkbox]').get(), group.data('esc_lastclickedstatus'));
         this.checked = group.data('esc_lastclickedstatus');
       }

@@ -1107,8 +1107,8 @@ dotclear.ready(() => {
 
   // Accssibility flags
   dotclear.animationisReduced =
-    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+    window.matchMedia('(prefers-reduced-motion: reduce)') === true ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches === true;
   const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
   mediaQuery.onchange = (event) => {
     dotclear.animationisReduced = event.matches;
@@ -1330,8 +1330,7 @@ dotclear.ready(() => {
     const quickMenuPrefix = dotclear.data.quickMenuPrefix || ':';
 
     window.addEventListener('keyup', (e) => {
-      var focussedTag = document.activeElement;
-      if (!document.activeElement.nodeName || acceptsKeyboardInput(focussedTag)) {
+      if (!document.activeElement.nodeName || acceptsKeyboardInput(document.activeElement)) {
         return;
       }
       if (e.key === quickMenuPrefix) {
