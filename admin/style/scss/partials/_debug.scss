@@ -33,6 +33,10 @@ body:has(#debug) header {
   margin-top: calc(0.4em - 1px);
 }
 
+body:has(#debug) #prelude:not(.hidden) + header {
+  margin-top: 0;
+}
+
 .debug {
   color: var(--debug-color);
   background: var(--debug-background);

@@ -8,13 +8,13 @@ dotclear.ready(() => {
   if (!prelude) {
     return;
   }
+  prelude.classList.add('hidden');
   const links = prelude.querySelectorAll('a');
-  links.forEach((link) => {
-    link.classList.add('hidden');
+  for (const link of links) {
     link.addEventListener('focus', () => {
-      links.forEach((link) => link.classList.remove('hidden'));
+      prelude.classList.remove('hidden');
     });
-  });
+  }
 
   document.querySelector('body').addEventListener('click', (event) => {
     if (event.target.matches('#prelude a[href="#help"]')) {

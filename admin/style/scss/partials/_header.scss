@@ -3,7 +3,7 @@
 #prelude {
   line-height: 1.5;
   margin: 0;
-  padding: 0;
+  padding: 0.5em;
   overflow: hidden;
   background: var(--prelude-background);
   width: 100%;
@@ -19,6 +19,7 @@
       color: var(--prelude-color);
       background: var(--prelude-background);
       text-decoration: underline;
+      border-bottom: none;
 
       &:hover,
       &:focus {

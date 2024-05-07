@@ -2731,7 +2731,7 @@ span.info {
 #prelude {
   line-height: 1.5;
   margin: 0;
-  padding: 0;
+  padding: 0.5em;
   overflow: hidden;
   background: var(--prelude-background);
   width: 100%;
@@ -2747,6 +2747,7 @@ span.info {
   color: var(--prelude-color);
   background: var(--prelude-background);
   text-decoration: underline;
+  border-bottom: none;
 }
 #prelude li a:hover, #prelude li a:focus {
   background: var(--prelude-background-alt);
@@ -5893,6 +5894,10 @@ img.mfp-img {
 
 body:has(#debug) header {
   margin-top: calc(0.4em - 1px);
+}
+
+body:has(#debug) #prelude:not(.hidden) + header {
+  margin-top: 0;
 }
 
 .debug {
