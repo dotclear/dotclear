@@ -437,7 +437,7 @@ h6 {
   --prelude-background-alt: #fff;
   --help-background: #f3f3f3;
   --help-border: #ffd478;
-  --help-button-border: #c9c9c9;
+  --help-button-border: #3a539b;
   --help-button-background: #f3f3f3;
   --help-title-color: #676e78;
   --tooltip-color: #3a539b;
@@ -3067,8 +3067,8 @@ h1 a:link {
   border-top: 1px solid var(--help-button-border);
   border-left: 1px solid var(--help-button-border);
   border-bottom: 1px solid var(--help-button-border);
-  border-bottom-left-radius: 1em;
-  border-top-left-radius: 1em;
+  border-bottom-left-radius: 0.25em;
+  border-top-left-radius: 0.25em;
   background-color: var(--help-button-background);
   position: fixed;
   top: 10px;
