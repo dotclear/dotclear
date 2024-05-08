@@ -28,6 +28,8 @@ Dotclear 2.30 - 2024-05-13
 * UX/UI: Review today button look
 * UX/UI: Page header review (standard and upgrade modes)
 * UX/UI: Review categories CSS
+* UX/UI: Prelude layout review
+* UX/UI: Help button layout review
 * a11y: Review markup for required items in forms
 * a11y: Enforce contrast of pending and locked status icons in dark mode
 * a11y: No need to enforce contrast on icon hover (whatever is the mode, dark or light)
@@ -56,6 +58,7 @@ Dotclear 2.30 - 2024-05-13
 * Fix: Theme config form if not only informative
 * Fix: Antispam params link (on blog pref)
 * Fix: Hint typing for post ID (trackback/pingback/webmention)
+* Fix: Post/Page selector for static home
 * Lib: Update Codemirror to 5.65.16
 * i18n: Remove Luxembourgish language (not translated and mostly not used)
 * 🛡 Security: Fix Cross Site Scripting vulnerability (https://packetstormsecurity.com/files/177239/Dotclear-2.29-Cross-Site-Scripting.html)
