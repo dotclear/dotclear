@@ -13,16 +13,16 @@ dotclear.ready(() => {
       window.close();
     });
 
-  const posts = document.querySelectorAll('#form-entries tr>td.maximal>a');
-  posts.forEach((elt) => {
-    elt.addEventListener('click', () => {
+  const entries = document.querySelectorAll('#form-entries tr>td.maximal>a');
+  for (const entry of entries) {
+    entry.addEventListener('click', () => {
       const stripBaseURL = (/** @type {string} */ url) =>
         dotclear.base_url !== '' && url.startsWith(dotclear.base_url) ? url.substring(dotclear.base_url.length) : url;
 
       // Get entry URL
       const main = window.opener;
       if (main) {
-        const title = stripBaseURL(this.getAttribute('title'));
+        const title = stripBaseURL(entry.getAttribute('title'));
 
         // Remove base scheme from beginning
         const next = title.indexOf('/');
@@ -34,5 +34,5 @@ dotclear.ready(() => {
 
       window.close();
     });
-  });
+  }
 });
