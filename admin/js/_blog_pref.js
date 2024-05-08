@@ -12,13 +12,13 @@ dotclear.ready(() => {
       const url = blog_url[0].value;
       const scan = $('#url_scan')[0].value;
       let msg = '';
-      if (/.*[^/]$/.exec(url) && scan == 'path_info') {
+      if (/.*[^/]$/.exec(url) && scan === 'path_info') {
         msg = dotclear.msg.warning_path_info;
-      } else if (/.*[^?]$/.exec(url) && scan == 'query_string') {
+      } else if (/.*[^?]$/.exec(url) && scan === 'query_string') {
         msg = dotclear.msg.warning_query_string;
       }
       $('p#urlwarning').remove();
-      if (msg != '') {
+      if (msg !== '') {
         blog_url.parents('p').after(`<p id="urlwarning" class="warning">${msg}</p>`);
       }
     };
@@ -28,7 +28,7 @@ dotclear.ready(() => {
   }
 
   $('#date_format_select,#time_format_select').on('change', function () {
-    if ($(this).prop('value') == '') {
+    if ($(this).prop('value') === '') {
       return;
     }
     $(`#${$(this).attr('id').replace('_select', '')}`).prop('value', $(this).prop('value'));
