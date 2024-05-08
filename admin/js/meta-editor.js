@@ -31,9 +31,9 @@ class metaEditor {
       `<input type="text" class="ib meta-helper" title="${this.text_add_meta.replace(/%s/, this.meta_type)}" id="${input_id}">`,
     );
     // Meta dialog input
-    this.meta_dialog.on('keypress', function (evt) {
+    this.meta_dialog.on('keyup', function (event) {
       // We don't want to submit form!
-      if (evt.keyCode == 13) {
+      if (event.key === 'Enter') {
         This.addMeta(this.value);
         return false;
       }
@@ -58,7 +58,7 @@ class metaEditor {
 
   displayMetaList() {
     let li;
-    if (this.meta_list == undefined) {
+    if (this.meta_list === undefined) {
       this.meta_list = $('<ul class="metaList"></ul>');
       this.target.prepend(this.meta_list);
     }
@@ -119,7 +119,7 @@ class metaEditor {
       this.target.append($('<p></p>').append(this.meta_dialog).append(' ').append(this.submit_button));
     }
 
-    if (this.text_separation != '') {
+    if (this.text_separation !== '') {
       this.target.append($('<p></p>').addClass('form-note').append(this.text_separation.replace(/%s/, this.meta_type)));
     }
 
@@ -128,7 +128,7 @@ class metaEditor {
 
   showMetaList(list_type, target) {
     const params = { metaType: this.meta_type, sortby: 'metaId,asc' };
-    if (list_type == 'more') {
+    if (list_type === 'more') {
       params.limit = 30;
     }
     dotclear.jsonServicesGet(
@@ -158,7 +158,7 @@ class metaEditor {
             i++;
           }
 
-          if (list_type == 'more') {
+          if (list_type === 'more') {
             const a_more = $('<button type="button" class="button metaGetMore meta-helper"></button>');
             a_more.append(this.text_all + String.fromCharCode(160) + String.fromCharCode(187));
             a_more.on('click', () => {
@@ -168,7 +168,7 @@ class metaEditor {
             pl.append(', ').append(a_more);
           }
 
-          if (list_type != 'more-all') {
+          if (list_type !== 'more-all') {
             pl.addClass('hide');
 
             const pa = $('<p></p>');
@@ -194,10 +194,10 @@ class metaEditor {
   }
 
   addMeta(str) {
-    str = this.splitMetaValues(str).join(',');
+    let list = this.splitMetaValues(str).join(',');
     if (!this.post_id) {
-      str = this.splitMetaValues(`${this.meta_field.val()},${str}`);
-      this.meta_field.val(str);
+      list = this.splitMetaValues(`${this.meta_field.val()},${list}`);
+      this.meta_field.val(list);
 
       this.meta_dialog.val('');
       this.displayMetaList();
@@ -213,7 +213,7 @@ class metaEditor {
       {
         postId: this.post_id,
         metaType: this.meta_type,
-        meta: str,
+        meta: list,
       },
     );
   }
