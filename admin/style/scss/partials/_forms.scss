@@ -304,6 +304,17 @@ span.form-stats {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
+  align-items: center;
+  &.right,
+  &.txt-right {
+    justify-content: flex-end;
+  }
+  &.txt-left {
+    justify-content: flex-start;
+  }
+  &.txt-center {
+    justify-content: center;
+  }
 }
 
 .focus {

@@ -2204,6 +2204,16 @@ span.form-stats {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
+  align-items: center;
+}
+.form-buttons.right, .form-buttons.txt-right {
+  justify-content: flex-end;
+}
+.form-buttons.txt-left {
+  justify-content: flex-start;
+}
+.form-buttons.txt-center {
+  justify-content: center;
 }
 
 .focus {

@@ -131,8 +131,8 @@ class Blogs extends Process
                             (new Div())
                                 ->class(['two-cols', 'clearfix'])
                                 ->items([
-                                    (new Para())->class(['col checkboxes-helpers']),
-                                    (new Para())->class(['col right'])->items([
+                                    (new Para())->class(['col', 'checkboxes-helpers']),
+                                    (new Para())->class(['col', 'right', 'form-buttons'])->items([
                                         (new Select('action'))
                                             ->class('online')
                                             ->title(__('Actions'))

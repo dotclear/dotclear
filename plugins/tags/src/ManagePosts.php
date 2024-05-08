@@ -219,7 +219,7 @@ class ManagePosts extends Process
                                 (new Para())
                                     ->class(['col', 'checkboxes-helpers']),
                                 (new Para())
-                                    ->class(['col', 'right'])
+                                    ->class(['col', 'right', 'form-buttons'])
                                     ->items([
                                         (new Select('action'))
                                             ->items(App::backend()->posts_actions_page->getCombo())
