@@ -192,7 +192,7 @@ $.expandContent = (opts) => {
       button.setAttribute('value', dotclear.img_minus_txt);
       button.setAttribute('aria-label', dotclear.img_minus_alt);
       button.setAttribute('aria-expanded', true);
-    } else if (action == 'close' && button.getAttribute('aria-expanded') === 'true') {
+    } else if (action === 'close' && button.getAttribute('aria-expanded') === 'true') {
       button.firstChild.data = dotclear.img_plus_txt;
       button.setAttribute('value', dotclear.img_plus_txt);
       button.setAttribute('aria-label', dotclear.img_plus_alt);
@@ -407,26 +407,26 @@ dotclear.enableShiftClick = (selector) => {
     let inBetween = false;
     if (event.shiftKey) {
       // Extend selection (on/off)
-      checkboxes.forEach((checkbox) => {
+      for (const checkbox of checkboxes) {
         if (checkbox === event.currentTarget || checkbox === lastChecked) {
           inBetween = !inBetween;
         }
         if (inBetween) {
           checkbox.checked = event.currentTarget.checked;
         }
-      });
+      }
     } else if (event.altKey) {
       // Reverse selection
-      checkboxes.forEach((checkbox) => {
+      for (const checkbox of checkboxes) {
         checkbox.checked = !checkbox.checked;
-      });
+      }
       event.currentTarget.checked = !event.currentTarget.checked;
     }
 
     lastChecked = event.currentTarget;
   };
 
-  checkboxes.forEach((checkbox) => checkbox.addEventListener('click', handleCheck));
+  for (const checkbox of checkboxes) checkbox.addEventListener('click', handleCheck);
 };
 
 /**
@@ -469,7 +469,7 @@ dotclear.condSubmit = (chkboxes, target) => {
     submitButt.classList.remove('disabled');
   }
 
-  checkboxes.forEach((checkbox) => {
+  for (const checkbox of checkboxes) {
     checkbox.addEventListener('change', () => {
       // Update target state
       submitButt.disabled = !checkboxes.some((checkbox) => checkbox.checked);
@@ -479,7 +479,7 @@ dotclear.condSubmit = (chkboxes, target) => {
         submitButt.classList.remove('disabled');
       }
     });
-  });
+  }
 };
 
 /**
@@ -489,11 +489,11 @@ dotclear.condSubmit = (chkboxes, target) => {
  */
 dotclear.hideLockable = () => {
   const lockableDivs = document.querySelectorAll('div.lockable');
-  lockableDivs.forEach((lockableDiv) => {
+  for (const lockableDiv of lockableDivs) {
     const formNotes = lockableDiv.querySelectorAll('p.form-note');
-    formNotes.forEach((formNote) => (formNote.style.display = 'none'));
+    for (const formNote of formNotes) formNote.style.display = 'none';
     const inputs = lockableDiv.querySelectorAll('input');
-    inputs.forEach((input) => {
+    for (const input of inputs) {
       input.disabled = true;
       input.style.width = `${input.offsetWidth - 14}px`;
       const image = document.createElement('img');
@@ -509,12 +509,12 @@ dotclear.hideLockable = () => {
         image.style.display = 'none';
         input.disabled = false;
         input.style.width = `${input.offsetWidth + 14}px`;
-        formNotes.forEach((formNote) => (formNote.style.display = 'block'));
+        for (const formNote of formNotes) formNote.style.display = 'block';
       });
       input.parentElement.style.position = 'relative';
       input.after(image);
-    });
-  });
+    }
+  }
 };
 
 /**
@@ -535,11 +535,11 @@ dotclear.toggleCheck = (target) => {
   }
   if (!list) return;
 
-  list.forEach((item) => {
-    if (item?.checked != undefined) {
+  for (const item of list) {
+    if (item?.checked !== undefined) {
       item.checked = !item.checked;
     }
-  });
+  }
 };
 
 /**
@@ -561,11 +561,11 @@ dotclear.setChecked = (target, status) => {
   }
   if (!list) return;
 
-  list.forEach((item) => {
-    if (item?.checked != undefined) {
+  for (const item of list) {
+    if (item?.checked !== undefined) {
       item.checked = status;
     }
-  });
+  }
 };
 
 /**
@@ -673,11 +673,11 @@ dotclear.commentsActionsHelper = () => {
  */
 dotclear.outgoingLinks = (target) => {
   const elements = document.querySelectorAll(target);
-  elements.forEach((element) => {
+  for (const element of elements) {
     if (
       !(
         (element.hostname &&
-          element.hostname != location.hostname &&
+          element.hostname !== location.hostname &&
           !element.classList.contains('modal') &&
           !element.classList.contains('modal-image')) ||
         element.classList.contains('outgoing')
@@ -693,7 +693,7 @@ dotclear.outgoingLinks = (target) => {
       e.preventDefault();
       window.open(element.href);
     });
-  });
+  }
 };
 
 /**
@@ -903,12 +903,12 @@ dotclear.services = (
   if (get) {
     // Add parameters to query part of URL
     const data = new URLSearchParams(service.search);
-    Object.keys(params).forEach((key) => data.append(key, params[key]));
+    for (const key of Object.keys(params)) data.append(key, params[key]);
     service.search = data.toString();
   } else {
     // Add parameters to body part of request
     const data = new FormData();
-    Object.keys(params).forEach((key) => data.append(key, params[key]));
+    for (const key of Object.keys(params)) data.append(key, params[key]);
     init.body = data;
   }
   fetch(service, init)
