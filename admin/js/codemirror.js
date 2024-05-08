@@ -28,7 +28,7 @@ for (const i of dotclear.getData('codemirror')) {
             cm.setOption('fullScreen', false);
           } else {
             // the user pressed the escape key, now tab will tab to the next element for accessibility
-            if (!cm.state.keyMaps.some((x) => x.name == 'tabAccessibility')) {
+            if (!cm.state.keyMaps.some((x) => x.name === 'tabAccessibility')) {
               cm.addKeyMap({
                 name: 'tabAccessibility',
                 Tab: false,

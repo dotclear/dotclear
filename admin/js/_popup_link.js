@@ -12,12 +12,12 @@ dotclear.ready(() => {
     liok.setAttribute('disabled', true);
     liok.classList.add('disabled');
     href?.addEventListener('input', function () {
-      if (this.value == '') {
+      if (this.value === '') {
         liok.setAttribute('disabled', true);
       } else {
         liok.removeAttribute('disabled');
       }
-      liok.classList.toggle('disabled', this.value == '');
+      liok.classList.toggle('disabled', this.value === '');
     });
 
     // Set focus on #href input

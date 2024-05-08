@@ -17,7 +17,7 @@
 
       function displayMessageInQueue(n) {
         let message = '';
-        if (n == 1) {
+        if (n === 1) {
           message = dotclear.jsUpload.msg.file_in_queue;
         } else if (n > 1) {
           message = dotclear.jsUpload.msg.files_in_queue;
@@ -43,7 +43,7 @@
       });
 
       $(me).on('click', '.cancel', () => {
-        if ($('.fileupload-ctrl .files .template-upload', me).length == 0) {
+        if ($('.fileupload-ctrl .files .template-upload', me).length === 0) {
           $('.button.cancel', '#fileupload .fileupload-buttonbar').hide();
           disableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
         }
@@ -86,7 +86,7 @@
         })
         .on('fileuploadalways', () => {
           displayMessageInQueue($('.files .template-upload', me).length);
-          if ($('.fileupload-ctrl .files .template-upload', me).length == 0) {
+          if ($('.fileupload-ctrl .files .template-upload', me).length === 0) {
             $('.button.cancel', '#fileupload .fileupload-buttonbar').hide();
             disableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
           }
@@ -166,7 +166,7 @@ dotclear.ready(() => {
 
   $('#form-medias #delete_medias').on('click', (e) => {
     const count_checked = $('input[name="medias[]"]:checked', $('#form-medias')).length;
-    if (count_checked == 0) {
+    if (count_checked === 0) {
       e.preventDefault();
       return false;
     }
@@ -207,7 +207,7 @@ dotclear.ready(() => {
       const m_name = $(this).parents('.media-item-bloc').find('a.media-link').text();
       let m_text = '';
       m_text =
-        $(this).parents('div.media-folder').length == 0
+        $(this).parents('div.media-folder').length === 0
           ? dotclear.msg.confirm_delete_media.replace('%s', m_name)
           : dotclear.msg.confirm_delete_directory.replace('%s', m_name);
       if (window.confirm(m_text)) {

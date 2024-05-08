@@ -2,7 +2,7 @@
 'use strict';
 
 dotclear.viewPostContent = (line, _action = 'toggle', e = null) => {
-  if ($(line).attr('id') == undefined) {
+  if ($(line).attr('id') === undefined) {
     return;
   }
 
@@ -53,9 +53,9 @@ dotclear.ready(() => {
     lines: $('#form-entries tr.line'),
     callback: dotclear.viewPostContent,
   });
-  document.querySelectorAll('.checkboxes-helpers').forEach((elt) => {
+  for (const elt of document.querySelectorAll('.checkboxes-helpers')) {
     dotclear.checkboxesHelpers(elt, undefined, '#form-entries td input[type=checkbox]', '#form-entries #do-action');
-  });
+  }
   dotclear.enableShiftClick('#form-entries td input[type=checkbox]');
   dotclear.condSubmit('#form-entries td input[type=checkbox]', '#form-entries #do-action');
   dotclear.postsActionsHelper();

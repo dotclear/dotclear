@@ -184,15 +184,15 @@ $.fn.toggleWithDetails = function (options) {
  */
 $.expandContent = (opts) => {
   const toggleArrow = (button, action = '') => {
-    if (action == '') {
-      action = button.getAttribute('aria-label') == dotclear.img_plus_alt ? 'open' : 'close';
+    if (action === '') {
+      action = button.getAttribute('aria-label') === dotclear.img_plus_alt ? 'open' : 'close';
     }
-    if (action == 'open' && button.getAttribute('aria-expanded') == 'false') {
+    if (action === 'open' && button.getAttribute('aria-expanded') === 'false') {
       button.firstChild.data = dotclear.img_minus_txt;
       button.setAttribute('value', dotclear.img_minus_txt);
       button.setAttribute('aria-label', dotclear.img_minus_alt);
       button.setAttribute('aria-expanded', true);
-    } else if (action == 'close' && button.getAttribute('aria-expanded') == 'true') {
+    } else if (action == 'close' && button.getAttribute('aria-expanded') === 'true') {
       button.firstChild.data = dotclear.img_plus_txt;
       button.setAttribute('value', dotclear.img_plus_txt);
       button.setAttribute('aria-label', dotclear.img_plus_alt);
@@ -229,10 +229,10 @@ $.expandContent = (opts) => {
       })
       .prependTo($(line).children().get(0)); // first td
   };
-  if (opts == undefined || opts.callback == undefined || typeof opts.callback !== 'function') {
+  if (opts === undefined || opts.callback === undefined || typeof opts.callback !== 'function') {
     return;
   }
-  if (opts.line != undefined) {
+  if (opts.line !== undefined) {
     multipleExpander(opts.line, opts.lines, opts.callback);
   }
   opts.lines.each(function () {

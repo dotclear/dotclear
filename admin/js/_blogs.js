@@ -4,9 +4,9 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  document.querySelectorAll('.checkboxes-helpers').forEach((elt) => {
+  for (const elt of document.querySelectorAll('.checkboxes-helpers')) {
     dotclear.checkboxesHelpers(elt, undefined, '#form-blogs td input[type=checkbox]', '#form-blogs #do-action');
-  });
+  }
   dotclear.enableShiftClick('#form-blogs td input[type=checkbox]');
   dotclear.condSubmit('#form-blogs td input[type=checkbox]', '#form-blogs #do-action');
   dotclear.responsiveCellHeaders(document.querySelector('#form-blogs table'), '#form-blogs table', 1);

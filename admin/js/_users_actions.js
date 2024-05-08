@@ -60,19 +60,19 @@ $.fn.updatePermissionsForm = function () {
 
     // Building a nice object of form elements
     for (const form_element of this.elements) {
-      if (form_element.name == undefined) {
+      if (form_element.name === undefined) {
         continue;
       }
       const matches = form_element.name.match(perm_reg_expr);
       if (!matches) {
         continue;
       }
-      if (permissions[matches[1]] == undefined) {
+      if (permissions[matches[1]] === undefined) {
         permissions[matches[1]] = {};
       }
       permissions[matches[1]][matches[2]] = form_element;
       // Add some hierarchical level for known permissions
-      if (matches[2] != 'admin') {
+      if (matches[2] !== 'admin') {
         form_element.classList.add('perm-second-level');
         if (['usage', 'publish', 'delete', 'media'].includes(matches[2])) {
           form_element.classList.add('perm-third-level');
@@ -87,19 +87,19 @@ $.fn.updatePermissionsForm = function () {
         // Loop on permission
         const dom_element = permissions[blog][element];
         const matches = dom_element.name.match(perm_reg_expr);
-        if (matches[2] == 'admin') {
+        if (matches[2] === 'admin') {
           // select related permissions for admin
           if (dom_element.checked) {
             admin(dom_element);
           }
           $(dom_element).on('click', { dom_element }, doEventAdmin);
-        } else if (matches[2] == 'contentadmin') {
+        } else if (matches[2] === 'contentadmin') {
           // select related permissions for content admin
           if (dom_element.checked) {
             contentadmin(dom_element);
           }
           $(dom_element).on('click', { dom_element }, doEventContentAdmin);
-        } else if (matches[2] == 'media_admin') {
+        } else if (matches[2] === 'media_admin') {
           // select related permissions for media admin
           if (dom_element.checked) {
             mediaadmin(dom_element);

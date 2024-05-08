@@ -76,7 +76,7 @@ dotclear.ready(() => {
         return true;
       }
       const maction = keyword.match(rxActionType);
-      const action = maction[0];
+      const action = maction ? maction[0] : '';
       const mvalues = keyword.match(rxActionValue);
 
       // action on multiple modules
@@ -84,7 +84,7 @@ dotclear.ready(() => {
         const module = mvalues[1];
 
         // confirm delete
-        if (action == 'delete') {
+        if (action === 'delete') {
           return window.confirm(dotclear.msg.confirm_delete_theme.replace('%s', module));
         }
       } else {
@@ -107,7 +107,7 @@ dotclear.ready(() => {
         }
 
         // confirm delete
-        if (action == 'delete') {
+        if (action === 'delete') {
           return window.confirm(dotclear.msg.confirm_delete_themes);
         }
 
@@ -125,7 +125,7 @@ dotclear.ready(() => {
       const has_modal = $(this).hasClass('modal');
 
       // Check if admin and blog have same protocol (ie not mixed-content)
-      if (has_modal && window.location.protocol == preview_url.substring(0, window.location.protocol.length)) {
+      if (has_modal && window.location.protocol === preview_url.substring(0, window.location.protocol.length)) {
         // Open preview in a modal iframe
         $(this).magnificPopup({
           type: 'iframe',

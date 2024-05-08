@@ -80,7 +80,7 @@ dotclear.ready(() => {
       // action on multiple modules
       if (mvalues) {
         // confirm delete
-        if (action == 'delete') {
+        if (action === 'delete') {
           return window.confirm(dotclear.msg.confirm_delete_plugin.replace('%s', mvalues[1]));
         }
       } else {
@@ -103,7 +103,7 @@ dotclear.ready(() => {
         }
 
         // confirm delete
-        if (action == 'delete') {
+        if (action === 'delete') {
           if (!window.confirm(dotclear.msg.confirm_delete_plugins)) {
             event.preventDefault();
             return false;

@@ -2,7 +2,7 @@
 'use strict';
 
 dotclear.viewCommentContent = (line, _action = 'toggle', e = null) => {
-  if ($(line).attr('id') == undefined) {
+  if ($(line).attr('id') === undefined) {
     return;
   }
 
@@ -76,7 +76,7 @@ dotclear.ready(() => {
     const has_modal = $('#post-preview').hasClass('modal');
 
     // Check if admin and blog have same protocol (ie not mixed-content)
-    if (has_modal && window.location.protocol == preview_url.substring(0, window.location.protocol.length)) {
+    if (has_modal && window.location.protocol === preview_url.substring(0, window.location.protocol.length)) {
       // Open preview in a modal iframe
       $('#post-preview').magnificPopup({
         type: 'iframe',
@@ -122,7 +122,7 @@ dotclear.ready(() => {
     $('#notes-area label').toggleWithLegend($('#notes-area').children().not('label'), {
       user_pref: 'dcx_post_notes',
       legend_click: true,
-      hide: $('#post_notes').val() == '',
+      hide: $('#post_notes').val() === '',
     });
     $('#post_lang').parent().children('label').toggleWithLegend($('#post_lang'), {
       user_pref: 'dcx_post_lang',
@@ -134,7 +134,7 @@ dotclear.ready(() => {
       .toggleWithLegend($('#post_password').parent().children().not('label'), {
         user_pref: 'dcx_post_password',
         legend_click: true,
-        hide: $('#post_password').val() == '',
+        hide: $('#post_password').val() === '',
       });
     $('#post_status').parent().children('label').toggleWithLegend($('#post_status'), {
       user_pref: 'dcx_post_status',
@@ -168,7 +168,7 @@ dotclear.ready(() => {
     $('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'), {
       user_pref: 'dcx_post_excerpt',
       legend_click: true,
-      hide: $('#post_excerpt').val() == '',
+      hide: $('#post_excerpt').val() === '',
     });
 
     // Replace attachment remove links by a POST form submit

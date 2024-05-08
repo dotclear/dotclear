@@ -9,7 +9,7 @@ dotclear.ready(() => {
   });
   dotclear.condSubmit('#form-users input[type="checkbox"]', '#form-users #do-action');
   dotclear.responsiveCellHeaders(document.querySelector('#form-users table'), '#form-users table', 1);
-  $('#form-users').submit(function (event) {
+  $('#form-users').on('submit', function (event) {
     const action = $(this).find('select[name="action"]').val();
     const user_ids = [];
     const nb_posts = [];
@@ -27,7 +27,7 @@ dotclear.ready(() => {
         nb_posts.push(this.value);
       });
 
-    if (action == 'deleteuser') {
+    if (action === 'deleteuser') {
       for (i = 0; i < user_ids.length; i++) {
         if (nb_posts[i] > 0 && user_ids[i].checked) {
           msg_cannot_delete = true;
@@ -44,11 +44,11 @@ dotclear.ready(() => {
       selectfields += user_ids[i].checked;
     }
 
-    if (selectfields == 0) {
+    if (selectfields === 0) {
       return false;
     }
 
-    if (action == 'deleteuser') {
+    if (action === 'deleteuser') {
       if (!window.confirm(dotclear.msg.confirm_delete_user.replace('%s', $('input[name="users[]"]:checked').length))) {
         event.preventDefault();
         return false;

@@ -3,7 +3,7 @@
 
 dotclear.dbCommentsCount = (icon) => {
   dotclear.jsonServicesGet('getCommentsCount', (data) => {
-    if (data.ret == dotclear.dbCommentsCount_Counter) {
+    if (data.ret === dotclear.dbCommentsCount_Counter) {
       return;
     }
     // First pass or counter changed
@@ -17,7 +17,7 @@ dotclear.dbCommentsCount = (icon) => {
 };
 dotclear.dbPostsCount = (icon) => {
   dotclear.jsonServicesGet('getPostsCount', (data) => {
-    if (data.ret == dotclear.dbPostsCount_Counter) {
+    if (data.ret === dotclear.dbPostsCount_Counter) {
       return;
     }
     // First pass or counter changed
@@ -69,7 +69,7 @@ dotclear.ready(() => {
   // DOM ready and content loaded
 
   function quickPost(f, status) {
-    if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() == 'wysiwyg') {
+    if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() === 'wysiwyg') {
       dotclear.contentTb.syncContents('iframe');
     }
 
@@ -80,14 +80,14 @@ dotclear.ready(() => {
       'quickPost',
       (data) => {
         let msg = `<p class="info">${dotclear.msg.entry_created} - <a href="post.php?id=${data.id}">${dotclear.msg.edit_entry}</a>`;
-        if (data.status == dotclear.post_published) {
+        if (data.status === dotclear.post_published) {
           msg += ` - <a href="${data.url}">${dotclear.msg.view_entry}</a>`;
         }
         msg += '</p>';
         $('#post_title', f).val('');
         $('#post_content', f).val('');
         $('#post_content', f).change();
-        if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() == 'wysiwyg') {
+        if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() === 'wysiwyg') {
           dotclear.contentTb.syncContents('textarea');
         }
         $('#cat_id', f).val('0');
@@ -174,11 +174,11 @@ dotclear.ready(() => {
       return;
     }
     // Something has to be displayed
-    if ($('#dashboard-boxes').length == 0) {
+    if ($('#dashboard-boxes').length === 0) {
       // Create the #dashboard-boxes container
       $('#dashboard-main').append('<div id="dashboard-boxes"></div>');
     }
-    if ($('#dashboard-boxes div.db-items').length == 0) {
+    if ($('#dashboard-boxes div.db-items').length === 0) {
       // Create the #dashboard-boxes div.db-items container
       $('#dashboard-boxes').prepend('<div class="db-items"></div>');
     }
@@ -249,13 +249,13 @@ dotclear.ready(() => {
     Object.assign(dotclear, dotclear.getData('dotclear_dragndrop'));
     if ($(this).is(':checked')) {
       // Activate sorting feature
-      areas.forEach((element) => init_positions(element[0], element[1]));
+      for (const element of areas) init_positions(element[0], element[1]);
       $(this).prop('title', dotclear.dragndrop_on);
       $('#dragndrop-label').text(dotclear.dragndrop_on);
       return;
     }
     // Deactivate sorting feature
-    areas.forEach((element) => reset_positions(element[0]));
+    for (const element of areas) reset_positions(element[0]);
     $(this).prop('title', dotclear.dragndrop_off);
     $('#dragndrop-label').text(dotclear.dragndrop_off);
   });
