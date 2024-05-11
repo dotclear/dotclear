@@ -78,6 +78,7 @@ class Tpl extends Template
         $this->addValue('BlogID', $this->BlogID(...));
         $this->addValue('BlogURL', $this->BlogURL(...));
         $this->addValue('BlogXMLRPCURL', $this->BlogXMLRPCURL(...));
+        $this->addValue('BlogWebmentionURL', $this->BlogWebmentionURL(...));
         $this->addValue('BlogPublicURL', $this->BlogPublicURL(...));
         $this->addValue('BlogQmarkURL', $this->BlogQmarkURL(...));
         $this->addValue('BlogMetaRobots', $this->BlogMetaRobots(...));
@@ -1175,6 +1176,23 @@ class Tpl extends Template
     {
         return '<?php echo ' .
             sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor(\'xmlrpc\',App::blog()->id())') . '; ?>';
+    }
+
+    /**
+     * tpl:BlogWebmentionURL [attributes] : Display blog Webmention endpoint URL (tpl value)
+     *
+     * attributes:
+     *
+     *      - any filters     See self::getFilters()
+     *
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     *
+     * @return     string
+     */
+    public function BlogWebmentionURL(ArrayObject $attr): string
+    {
+        return '<?php echo ' .
+            sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor(\'webmention\')') . '; ?>';
     }
 
     /**

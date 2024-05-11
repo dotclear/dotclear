@@ -188,7 +188,9 @@ class FrontendUrl extends Url
 
                 # The entry
                 if (App::frontend()->context()->posts->trackbacksActive()) {
+                    // Send additional headers if pingbacks/webmentions are allowed
                     header('X-Pingback: ' . App::blog()->url() . App::url()->getURLFor('xmlrpc', App::blog()->id()));
+                    header('Link: <' . App::blog()->url() . App::url()->getURLFor('webmention') . '>; rel="webmention"');
                 }
 
                 $tplset           = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
