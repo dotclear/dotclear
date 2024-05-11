@@ -10,6 +10,7 @@ Dotclear 2.30 - 2024-05-13
 * Core: Add width and height of an SVG image (media item page) if specified in its source
 * Core: Add an option (informative_config) to display informative config for module (ie without any form)
 * Core: Add prefix/suffix capability for Helper/Html/Form/Label (will be inserted before/after the associated field)
+* Core: Add webmention endpoint URL in <head> for post/page (already present in http headers but may be not sufficient)
 * UX/UI: Add a menuitem quick access (configurable quick menu key, default to :)
 * UX/UI: Add quick access to dashboard (quick menu access key+enter without anything else)
 * UX/UI: Review layout for group of buttons
