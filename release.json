@@ -2,7 +2,7 @@
   "about": "Dotclear default release configuration",
   "note": "This file is required by Dotclear application. Do not edit nor delete it.",
 
-  "release_version": "2.30",
+  "release_version": "2.30.0",
   "release_name": "The aspect may change, but not the essence",
   "release_update_url": "https://download.dotclear.org/versions.xml",
   "release_update_canal": "stable",
