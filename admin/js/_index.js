@@ -148,6 +148,9 @@ dotclear.ready(() => {
     });
   }
 
+  // outgoing links for documentation
+  dotclear.outgoingLinks('#doc-and-support a');
+
   // check if core update available
   dotclear.jsonServicesGet('checkCoreUpdate', (data) => {
     if (data.check) {

@@ -131,7 +131,7 @@ class Home extends Process
             $doc_links = '<div class="box small dc-box" id="doc-and-support"><h3>' . __('Documentation and support') . '</h3><ul>';
 
             foreach (App::backend()->resources()->entries('doc') as $k => $v) {
-                $doc_links .= '<li><a class="outgoing" href="' . $v . '" title="' . $k . '">' . $k . ' <img src="images/outgoing-link.svg" alt=""></a></li>';
+                $doc_links .= '<li><a href="' . $v . '" title="' . $k . '">' . $k . '</a></li>';
             }
 
             $doc_links .= '</ul></div>';
