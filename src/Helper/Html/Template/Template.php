@@ -480,7 +480,7 @@ class Template
     {
         foreach ($this->tpl_path as $p) {
             if (file_exists($p . '/' . $file)) {
-                return Path::real($p . '/' . $file);
+                return $p . '/' . $file;
             }
         }
 
