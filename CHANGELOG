@@ -1,6 +1,7 @@
 Dotclear 2.30.1 - 2024-05-17
 ===========================================================
 * Fix: Template engine might not found some theme's template in some contexts
+* Fix: Outgoing documentation links
 
 Dotclear 2.30 - 2024-05-13
 ===========================================================
