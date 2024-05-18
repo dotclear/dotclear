@@ -673,7 +673,7 @@ dotclear.commentsActionsHelper = () => {
  */
 dotclear.outgoingLinks = (target) => {
   const elements = document.querySelectorAll(target);
-  elements.forEach((element) => {
+  for (const element of elements) {
     if (
       !(
         (element.hostname &&
@@ -683,7 +683,7 @@ dotclear.outgoingLinks = (target) => {
         element.classList.contains('outgoing')
       )
     ) {
-      return;
+      continue;
     }
     element.title = `${element.title} (${dotclear.msg.new_window})`;
     if (!element.classList.contains('outgoing')) {
@@ -693,7 +693,7 @@ dotclear.outgoingLinks = (target) => {
       e.preventDefault();
       window.open(element.href);
     });
-  });
+  }
 };
 
 /**
