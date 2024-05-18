@@ -673,7 +673,7 @@ dotclear.commentsActionsHelper = () => {
  */
 dotclear.outgoingLinks = (target) => {
   const elements = document.querySelectorAll(target);
-  for (const element of elements) {
+  elements.forEach((element) => {
     if (
       !(
         (element.hostname &&
@@ -693,7 +693,7 @@ dotclear.outgoingLinks = (target) => {
       e.preventDefault();
       window.open(element.href);
     });
-  }
+  });
 };
 
 /**
