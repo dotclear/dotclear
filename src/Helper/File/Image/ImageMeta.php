@@ -70,6 +70,7 @@ class ImageMeta
         'State'             => null,
         'City'              => null,
         'Keywords'          => null,
+        'AltText'           => null,
     ];
 
     /**
@@ -355,6 +356,9 @@ class ImageMeta
         'City' => [
             '%<photoshop:City>(.+?)</photoshop:City>%msu',
             '%photoshop:City="(.+?)"%msu',
+        ],
+        'AltText' => [
+            '%<Iptc4xmpCore:AltTextAccessibility>\s*<rdf:Alt>\s*<rdf:li.*?>(.+?)</rdf:li>%msu',
         ],
     ];
 

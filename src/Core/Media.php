@@ -872,6 +872,7 @@ class Media extends Manager implements MediaInterface
                 $sql->like('media_title', '%' . $sql->escape($query) . '%'),
                 $sql->like('media_file', '%' . $sql->escape($query) . '%'),
                 $sql->like('media_meta', '%<Description>%' . $sql->escape($query) . '%</Description>%'),
+                $sql->like('media_meta', '%<AltText>%' . $sql->escape($query) . '%</AltText>%'),
             ]));
 
         if (!$this->auth->check($this->auth->makePermissions([

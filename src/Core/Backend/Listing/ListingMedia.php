@@ -125,6 +125,27 @@ class ListingMedia extends Listing
             $file = (object) $file;
         }
 
+        // Function to get image alternate text
+        $getImageAlt = function ($file): string {
+            if (!$file) {
+                return '';
+            }
+
+            if ($file->media_title !== '') {
+                return $file->media_title;
+            }
+
+            if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
+                foreach ($file->media_meta as $k => $v) {
+                    if ((string) $v && ($k == 'AltText')) {
+                        return (string) $v;
+                    }
+                }
+            }
+
+            return '';
+        };
+
         $display_name = $file->basename;
         $filename     = $query ? $file->relname : $file->basename;
 
@@ -214,7 +235,7 @@ class ListingMedia extends Listing
 
             $lst = '';
             if (!$file->d) {
-                $lst .= '<li>' . ($file->media_priv ? '<img class="media-private mark mark-locked" src="images/locker.svg" alt="' . __('private media') . '">' : '') . $file->media_title . '</li>' .
+                $lst .= '<li>' . ($file->media_priv ? '<img class="media-private mark mark-locked" src="images/locker.svg" alt="' . __('private media') . '">' : '') . $getImageAlt($file) . '</li>' .
                 '<li>' .
                 '<time datetime="' . Date::iso8601((int) strtotime($file->media_dtstr), App::auth()->getInfo('user_tz')) . '">' .
                 $file->media_dtstr .
@@ -238,7 +259,7 @@ class ListingMedia extends Listing
             $res .= '<td class="media-action">' . $act . '</td>';
             $res .= '<td class="maximal" scope="row"><a class="media-flag media-link" href="' . rawurldecode($link) . '">' .
             '<img class="media-icon-square' . (!$file->d && $file->media_preview ? ' media-icon-preview' : '') . '" src="' . $file->media_icon . '" alt="">' . ($query ? $file : $display_name) . '</a>' .
-                '<br>' . ($file->d ? '' : ($file->media_priv ? '<img class="media-private mark mark-locked" src="images/locker.svg" alt="' . __('private media') . '">' : '') . $file->media_title) . '</td>';
+                '<br>' . ($file->d ? '' : ($file->media_priv ? '<img class="media-private mark mark-locked" src="images/locker.svg" alt="' . __('private media') . '">' : '') . $getImageAlt($file)) . '</td>';
             $res .= '<td class="nowrap count">' . (
                 $file->d ? '' :
                 '<time datetime="' . Date::iso8601((int) strtotime($file->media_dtstr), App::auth()->getInfo('user_tz')) . '">' .

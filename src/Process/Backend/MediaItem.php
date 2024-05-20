@@ -173,8 +173,8 @@ class MediaItem extends Process
             $newFile->media_dtstr = $_POST['media_dt'];
             $newFile->media_priv  = !empty($_POST['media_private']);
 
+            // Update description in metadata
             $desc = isset($_POST['media_desc']) ? Html::escapeHTML($_POST['media_desc']) : '';
-
             if (App::backend()->file->media_meta instanceof SimpleXMLElement) {
                 if (count(App::backend()->file->media_meta) > 0) {
                     foreach (App::backend()->file->media_meta as $k => $v) {
@@ -197,6 +197,34 @@ class MediaItem extends Process
                     App::backend()->file->media_meta = simplexml_load_string('<meta></meta>');
                     if (App::backend()->file->media_meta) {
                         App::backend()->file->media_meta->addChild('Description', $desc);
+                    }
+                }
+            }
+
+            // Update alternative text in metadata
+            $alt = isset($_POST['media_title']) ? Html::escapeHTML($_POST['media_title']) : '';
+            if (App::backend()->file->media_meta instanceof SimpleXMLElement) {
+                if (count(App::backend()->file->media_meta) > 0) {
+                    foreach (App::backend()->file->media_meta as $k => $v) {
+                        if ($k == 'AltText') {
+                            // Update value
+                            $v[0] = $alt;  // @phpstan-ignore-line
+
+                            break;
+                        }
+                    }
+                } else {
+                    if ($alt) {
+                        // Add value
+                        App::backend()->file->media_meta->addChild('AltText', $alt);
+                    }
+                }
+            } else {
+                if ($alt) {
+                    // Create meta and add value
+                    App::backend()->file->media_meta = simplexml_load_string('<meta></meta>');
+                    if (App::backend()->file->media_meta) {
+                        App::backend()->file->media_meta->addChild('AltText', $alt);
                     }
                 }
             }
@@ -318,7 +346,25 @@ class MediaItem extends Process
         // Display helpers
 
         // Function to get image alternate text
-        $getImageAlt = fn (?File $file): string => ($file && $file->media_title !== '' ? $file->media_title : '');
+        $getImageAlt = function (?File $file): string {
+            if (!$file) {
+                return '';
+            }
+
+            if ($file->media_title !== '') {
+                return $file->media_title;
+            }
+
+            if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
+                foreach ($file->media_meta as $k => $v) {
+                    if ((string) $v && ($k == 'AltText')) {
+                        return (string) $v;
+                    }
+                }
+            }
+
+            return '';
+        };
 
         // Function to get image legend
         $getImageLegend = function (?File $file, $pattern, bool $dto_first = false, bool $no_date_alone = false): string {
@@ -465,7 +511,7 @@ class MediaItem extends Process
             // Selection mode
 
             // Get alternate text
-            $media_alt = App::backend()->file->media_title;
+            $media_alt = $getImageAlt(App::backend()->file);
             if ($media_alt == App::backend()->file->basename || Files::tidyFileName($media_alt) == App::backend()->file->basename) {
                 $media_alt = '';
             }
@@ -539,7 +585,7 @@ class MediaItem extends Process
             // Insertion popup
 
             // Get alternate text
-            $media_alt = App::backend()->file->media_title;
+            $media_alt = $getImageAlt(App::backend()->file);
             if ($media_alt == App::backend()->file->basename || Files::tidyFileName($media_alt) == App::backend()->file->basename) {
                 $media_alt = '';
             }
@@ -1042,7 +1088,7 @@ class MediaItem extends Process
                 80,
                 255,
                 [
-                    'default'    => Html::escapeHTML(App::backend()->file->media_title),
+                    'default'    => Html::escapeHTML($getImageAlt(App::backend()->file)),
                     'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
                 ]
             ) . '</p>';
