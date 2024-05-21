@@ -1018,7 +1018,10 @@ class MediaItem extends Process
             '<h3>' . __('Image details') . '</h3>';
 
             $details = '';
-            $details .= '<li><strong>' . __('Alternate text:') . '</strong> ' . Html::escapeHTML($getImageAlt(App::backend()->file)) . '</li>';
+            $alttext = $getImageAlt(App::backend()->file);
+            if ($alttext !== '') {
+                $details .= '<li><strong>' . __('Alternate text:') . '</strong> ' . Html::escapeHTML($alttext) . '</li>';
+            }
             if ((is_countable(App::backend()->file->media_meta) ? count(App::backend()->file->media_meta) : 0) > 0) {
                 foreach (App::backend()->file->media_meta as $k => $v) {
                     if ($k !== 'AltText' && (string) $v) {
