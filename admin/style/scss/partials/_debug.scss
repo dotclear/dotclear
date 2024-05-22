@@ -21,7 +21,7 @@
   &:hover {
     height: auto;
     padding: 0.25em;
-    z-index: 100;
+    z-index: calc(infinity);
 
     div {
       display: block;

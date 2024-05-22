@@ -2455,7 +2455,7 @@ a.metaGetMore:hover {
 
 #gototop {
   display: none;
-  z-index: 1000;
+  z-index: calc(infinity);
   position: fixed;
   bottom: 0.5em;
   right: 0.75em;
@@ -3143,7 +3143,7 @@ span.tooltip {
   left: 0.5em;
   bottom: 0.5em;
   background: var(--tooltip-background);
-  z-index: 99;
+  z-index: calc(infinity);
   font-family: var(--monospace);
   text-align: left;
   border: 2px solid var(--tooltip-color);
@@ -4746,7 +4746,7 @@ input.perm-third-level {
   background-color: var(--ac-results-background);
   border: 1px dotted var(--ac-results-border);
   overflow: hidden;
-  z-index: 99999;
+  z-index: calc(infinity);
 }
 .ac_results ul {
   width: 100%;
@@ -5896,7 +5896,7 @@ img.mfp-img {
 #debug:hover {
   height: auto;
   padding: 0.25em;
-  z-index: 100;
+  z-index: calc(infinity);
 }
 #debug:hover div {
   display: block;

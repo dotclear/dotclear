@@ -188,7 +188,7 @@ a.metaGetMore {
 
 #gototop {
   display: none;
-  z-index: 1000;
+  z-index: calc(infinity);
   position: fixed;
   bottom: 0.5em;
   right: 0.75em;

@@ -5,7 +5,7 @@
   background-color: var(--ac-results-background);
   border: 1px dotted var(--ac-results-border);
   overflow: hidden;
-  z-index: 99999;
+  z-index: calc(infinity);
 
   ul {
     width: 100%;
