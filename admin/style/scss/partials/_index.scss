@@ -241,13 +241,13 @@
     display: block;
   }
 
-  @media screen and (max-width: $tablet-screen) {
+  @media screen and (width <= $tablet-screen) {
     #dashboard-main {
       grid-template-columns: 1fr 1fr;
     }
   }
 
-  @media screen and (max-width: $mobile-screen) {
+  @media screen and (width <= $mobile-screen) {
     #dashboard-main {
       grid-template-columns: 1fr;
     }
@@ -291,7 +291,7 @@
     }
   }
 
-  @media screen and (max-width: $tablet-screen) {
+  @media screen and (width <= $tablet-screen) {
     #icons {
       margin-top: 1em;
 
@@ -304,7 +304,7 @@
     }
   }
 
-  @media screen and (max-width: $mobile-screen) {
+  @media screen and (width <= $mobile-screen) {
     #icons {
       flex-wrap: nowrap;
       flex-direction: column;

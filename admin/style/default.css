@@ -1486,7 +1486,7 @@ body.dark-mode.upgrade-mode .expand-mm {
 /* ------------------------------------------------------------------------------------
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
-@media screen and (max-width: 82em) {
+@media screen and (width <= 82em) {
   #header h1,
   #header h1 a {
     width: 10em;
@@ -1532,7 +1532,7 @@ body.dark-mode.upgrade-mode .expand-mm {
     margin-right: 0;
   }
 }
-@media screen and (max-width: 62em) {
+@media screen and (width <= 62em) {
   #dashboard-boxes .box.medium,
   .box.medium,
   #dashboard-boxes .box.small,
@@ -1543,7 +1543,7 @@ body.dark-mode.upgrade-mode .expand-mm {
     margin: 10px auto;
   }
 }
-@media screen and (max-width: 62em) {
+@media screen and (width <= 62em) {
   #help-button {
     height: 26px;
     width: 26px;
@@ -1562,7 +1562,7 @@ body.dark-mode.upgrade-mode .expand-mm {
     margin-right: 0;
   }
 }
-@media screen and (max-width: 43em) {
+@media screen and (width <= 43em) {
   #header h1,
   #header h1 a {
     width: 42px !important;
@@ -1613,7 +1613,7 @@ body.dark-mode.upgrade-mode .expand-mm {
     width: 50%;
   }
 }
-@media screen and (max-width: 43em) {
+@media screen and (width <= 43em) {
   #top-info-blog label,
   .nomobile {
     display: none;
@@ -2850,13 +2850,13 @@ h1 a:link {
 /* ------------------------------------------------------------------------------------
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
-@media screen and (max-width: 43em) {
+@media screen and (width <= 43em) {
   h1,
   h1 a {
     padding: 0;
   }
 }
-@media screen and (max-width: 43em) {
+@media screen and (width <= 43em) {
   h1 a {
     background: url(dc_logos/dotclear-mini.svg) no-repeat;
     background-size: 2.5em;
@@ -3305,7 +3305,7 @@ body.dark-mode .handler {
   display: none;
 }
 
-@media screen and (max-width: 43em), print and (max-width: 5in) {
+@media screen and (width <= 43em), print and (width <= 5in) {
   table.rch {
     display: block;
   }
@@ -3716,12 +3716,12 @@ span.ibw {
 .upgrade-mode .db-items {
   display: block;
 }
-@media screen and (max-width: 62em) {
+@media screen and (width <= 62em) {
   .upgrade-mode #dashboard-main {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media screen and (max-width: 43em) {
+@media screen and (width <= 43em) {
   .upgrade-mode #dashboard-main {
     grid-template-columns: 1fr;
   }
@@ -3754,7 +3754,7 @@ span.ibw {
 .upgrade-mode #icons span.db-icon-title {
   flex: none;
 }
-@media screen and (max-width: 62em) {
+@media screen and (width <= 62em) {
   .upgrade-mode #icons {
     margin-top: 1em;
   }
@@ -3765,7 +3765,7 @@ span.ibw {
     display: flex;
   }
 }
-@media screen and (max-width: 43em) {
+@media screen and (width <= 43em) {
   .upgrade-mode #icons {
     flex-wrap: nowrap;
     flex-direction: column;
@@ -4518,7 +4518,7 @@ body.dark-mode .modules a.module-config {
   flex-grow: 1;
   width: calc(100% - 19em);
 }
-@media screen and (max-width: 82em) {
+@media screen and (width <= 82em) {
   #entry-wrapper {
     width: 100%;
   }
@@ -4527,17 +4527,17 @@ body.dark-mode .modules a.module-config {
 #entry-content {
   margin-left: 0;
 }
-@media screen and (min-width: 82.01em) {
+@media screen and (width > 82em) {
   #entry-content {
     padding-right: 3em;
   }
 }
-@media screen and (max-width: 43em) {
+@media screen and (width <= 43em) {
   #entry-content {
     padding-right: 1em;
   }
 }
-@media screen and (max-width: 43em) {
+@media screen and (width <= 43em) {
   #entry-content {
     padding-right: 0;
   }
@@ -4550,7 +4550,7 @@ body.dark-mode .modules a.module-config {
   flex-direction: column;
   margin-bottom: 1em;
 }
-@media screen and (max-width: 82em) {
+@media screen and (width <= 82em) {
   #entry-sidebar {
     flex-direction: row;
   }
@@ -5271,7 +5271,7 @@ tr.ui-sortable-handle:hover {
   right: -10px;
 }
 
-@media screen and (max-width: 43em) {
+@media screen and (width <= 43em) {
   .badge-block {
     right: -5px;
   }
@@ -5286,7 +5286,7 @@ tr.ui-sortable-handle:hover {
   right: 1.75em;
 }
 
-@media screen and (max-width: 43em) {
+@media screen and (width <= 43em) {
   .badge-icon {
     top: 5px;
   }
@@ -5330,7 +5330,7 @@ tr.ui-sortable-handle:hover {
 /* ------------------------------------------------------------------------------------
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
-@media screen and (max-width: 82em) {
+@media screen and (width <= 82em) {
   #header,
   h1 {
     background: var(--header-background-alt);
@@ -5351,7 +5351,7 @@ tr.ui-sortable-handle:hover {
     display: none;
   }
 }
-@media screen and (max-width: 62em) {
+@media screen and (width <= 62em) {
   #help-button {
     background-color: var(--header-border);
     padding: 0;
@@ -5359,7 +5359,7 @@ tr.ui-sortable-handle:hover {
     line-height: 68px;
   }
 }
-@media screen and (max-width: 43em) {
+@media screen and (width <= 43em) {
   h1 a:link {
     border-right: 1px solid var(--tabs-border);
   }
@@ -5389,7 +5389,7 @@ tr.ui-sortable-handle:hover {
     border-top: none;
   }
 }
-@media screen and (max-width: 43em) {
+@media screen and (width <= 43em) {
   h1,
   h1 a {
     border-right: var(--header-border-alt) !important;

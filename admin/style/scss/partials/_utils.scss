@@ -79,7 +79,7 @@ tr.ui-sortable-handle {
   right: -10px;
 }
 
-@media screen and (max-width: $mobile-screen) {
+@media screen and (width <= $mobile-screen) {
   .badge-block {
     right: -5px;
   }
@@ -95,7 +95,7 @@ tr.ui-sortable-handle {
   right: 1.75em;
 }
 
-@media screen and (max-width: $mobile-screen) {
+@media screen and (width <= $mobile-screen) {
   .badge-icon {
     top: 5px;
   }

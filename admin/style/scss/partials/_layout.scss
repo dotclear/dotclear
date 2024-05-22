@@ -369,7 +369,7 @@ body.dark-mode.upgrade-mode {
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 
-@media screen and (max-width: $laptop-screen) {
+@media screen and (width <= $laptop-screen) {
   #header {
     h1,
     h1 a {
@@ -428,7 +428,7 @@ body.dark-mode.upgrade-mode {
   }
 }
 
-@media screen and (max-width: $tablet-screen) {
+@media screen and (width <= $tablet-screen) {
   #dashboard-boxes .box.medium,
   .box.medium,
   #dashboard-boxes .box.small,
@@ -440,7 +440,7 @@ body.dark-mode.upgrade-mode {
   }
 }
 
-@media screen and (max-width: $tablet-screen) {
+@media screen and (width <= $tablet-screen) {
   #help-button {
     height: 26px;
     width: 26px;
@@ -462,7 +462,7 @@ body.dark-mode.upgrade-mode {
   }
 }
 
-@media screen and (max-width: $mobile-screen) {
+@media screen and (width <= $mobile-screen) {
   #header h1,
   #header h1 a {
     width: 42px !important;
@@ -525,7 +525,7 @@ body.dark-mode.upgrade-mode {
   }
 }
 
-@media screen and (max-width: $mobile-screen) {
+@media screen and (width <= $mobile-screen) {
   #top-info-blog label,
   .nomobile {
     display: none;
