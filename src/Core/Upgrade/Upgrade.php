@@ -57,9 +57,7 @@ class Upgrade
 
                 /* Some other upgrades
                 ------------------------------------ */
-                if (!str_contains(App::config()->dotclearVersion(), 'dev')) {
-                    $cleanup_sessions = self::growUp($version);
-                }
+                $cleanup_sessions = self::growUp($version);
 
                 # Drop content from session table if changes or if needed (only if use Dotclear default session handler)
                 if ($changes != 0 || $cleanup_sessions) {
