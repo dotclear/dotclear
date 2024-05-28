@@ -1,4 +1,5 @@
-.tag0 {}
+.tag0 {
+}
 
 .tag10 {
   font-size: 140%;
@@ -42,6 +43,7 @@
 
 table.tags {
   margin-left: 3em;
+  width: calc(100% - 8ex);
 }
 
 tr.tagLetter span {
@@ -50,7 +52,7 @@ tr.tagLetter span {
   display: block;
   width: 1ex;
   position: relative;
-  top: 0.80em;
+  top: 0.8em;
   left: -2ex;
 }
 
@@ -66,7 +68,7 @@ ul.metaList li {
   list-style-position: inside;
 }
 
-#tags-edit input[type=text] {
+#tags-edit input[type='text'] {
   width: 11.5em;
 }
 

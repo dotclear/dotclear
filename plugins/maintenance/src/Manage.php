@@ -382,9 +382,10 @@ class Manage extends Process
                 '<form action="' . App::backend()->getPageURL() . '" method="post">';
 
                 echo
-                '<div class="fieldset two-cols clearfix">' .
+                '<div class="fieldset">' .
                 '<h4 class="pretty-title">' . __('Content-Security-Policy') . '</h4>' .
 
+                '<div class="two-cols">' .
                 '<div class="col">' .
                 '<p><label for="system_csp" class="classic">' .
                 form::checkbox('system_csp', '1', App::blog()->settings()->system->csp_admin_on) .
@@ -404,6 +405,7 @@ class Manage extends Process
                 '<p><label for="system_csp_reset" class="classic">' .
                 form::checkbox('system_csp_reset', '1', 0) .
                 __('Also apply these settings to all blogs') . '</label></p>' .
+                '</div>' .
                 '</div>' .
                 '</div>';
 

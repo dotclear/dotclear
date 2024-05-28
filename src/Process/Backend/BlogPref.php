@@ -597,7 +597,7 @@ class BlogPref extends Process
 
             '</div>' .
 
-            '<p class="clear"><label for="sleepmode_timeout" class="classic">' . __('Disable all comments and trackbacks on the blog after a period of time without new posts:') . '</label>' . ' ' .
+            '<p class="col100"><label for="sleepmode_timeout" class="classic">' . __('Disable all comments and trackbacks on the blog after a period of time without new posts:') . '</label>' . ' ' .
             form::combo('sleepmode_timeout', $da->sleepmode_timeout_combo, $da->blog_settings->system->sleepmode_timeout) .
             '</p>' .
 

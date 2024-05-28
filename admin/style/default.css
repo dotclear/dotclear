@@ -1306,56 +1306,53 @@ body.dark-mode.upgrade-mode .expand-mm {
 
 /* -------------------------------------------------------------- layout: two-cols */
 .two-cols {
-  position: static;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  row-gap: 1em;
+  column-gap: 2em;
+  clear: both;
+}
+.two-cols.clearfix {
+  display: grid;
 }
 .two-cols .col {
-  width: 48%;
-  margin-left: 2%;
-  float: left;
-}
-.two-cols .col:first-of-type {
-  margin-left: 0;
-  margin-right: 2%;
-}
-.two-cols .col:last-child {
-  margin-left: 2%;
-  margin-right: 0;
+  grid-column: span 3;
 }
 .two-cols .col70 {
-  width: 68%;
-  margin-left: 0;
-  float: left;
-}
-.two-cols .col70.last-col {
-  margin-left: 2%;
-  margin-right: 0;
+  grid-column: span 4;
 }
 .two-cols .col30 {
-  width: 28%;
-  margin-left: 2%;
-  float: left;
+  grid-column: span 2;
 }
-.two-cols .col30.first-col {
-  margin-left: 0;
-  margin-right: 2%;
-}
-.two-cols table {
-  width: 90%;
+.two-cols .col100 {
+  grid-column: span 6;
 }
 
+@media screen and (width <= 82em) {
+  .two-cols {
+    grid-template-columns: 1fr;
+  }
+}
 /* -------------------------------------------------------------- layout: three-cols */
 .three-cols {
-  position: static;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 1em;
+  column-gap: 2em;
+  clear: both;
 }
-.three-cols .col {
-  width: 32.3%;
-  float: left;
-  margin-left: 1%;
+.three-cols .col100 {
+  grid-column: span 3;
 }
-.three-cols .col:first-child {
-  margin-left: 0;
+.three-cols.clearfix {
+  display: grid;
 }
 
+@media screen and (width <= 82em) {
+  .three-cols {
+    grid-template-columns: 1fr;
+  }
+}
 /* ------------------------------------------------- layout: optionnal one/two/three-boxes */
 .one-box {
   text-align: justify;
@@ -1524,12 +1521,14 @@ body.dark-mode.upgrade-mode .expand-mm {
     width: 17em;
   }
   .three-boxes,
-  .three-boxes .box,
-  .two-cols .col70,
-  .two-cols .col30 {
+  .three-boxes .box {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+  }
+  .two-cols,
+  .three-cols {
+    grid-template-columns: 1fr;
   }
 }
 @media screen and (width <= 62em) {
@@ -1555,8 +1554,7 @@ body.dark-mode.upgrade-mode .expand-mm {
   }
   .one-box,
   body:not(.popup) .two-boxes,
-  .box,
-  .two-cols .col {
+  .box {
     width: 96%;
     margin-left: 0;
     margin-right: 0;

@@ -73,10 +73,11 @@ class BackendBehaviors
         }
 
         echo
-        '<fieldset id="themeEditor_prefs" class="two-cols">' .
+        '<fieldset id="themeEditor_prefs">' .
         '<legend>' . __('Syntax highlighting') . '</legend>';
         echo
-        '<div class="col">' .
+        '<div class="two-cols">' .
+        '<div class="col30">' .
         '<p><label for="colorsyntax" class="classic">' .
         form::checkbox('colorsyntax', 1, App::auth()->prefs()->interface->colorsyntax) . '</label>' .
         __('Syntax highlighting in theme editor') .
@@ -96,7 +97,7 @@ class BackendBehaviors
             echo form::hidden('colorsyntax_theme', '');
         }
         echo '</div>';
-        echo '<div class="col">';
+        echo '<div class="col70">';
         echo Page::jsLoadCodeMirror('', false, ['javascript']);
         if ($current_theme !== 'default') {
             echo Page::cssLoad('js/codemirror/theme/' . $current_theme . '.css');
@@ -117,6 +118,7 @@ console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenhe
         echo
         Page::jsJson('theme_editor_current', ['theme' => $current_theme]) .
         My::jsLoad('theme');
+        echo '</div>';
         echo '</div>';
         echo '</fieldset>';
     }
