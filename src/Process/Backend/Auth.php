@@ -472,20 +472,21 @@ class Auth extends Process
                 ) . '</p>' .
                 '<p>' . form::checkbox('user_remember', 1) . '<label for="user_remember" class="classic">' .
                 __('Remember my ID on this device') . '</label></p>' .
-                '<p><input type="submit" value="' . __('log in') . '" class="login"></p>';
-
+                '<p><input type="submit" value="' . __('log in') . '" class="login">';
                 if (!empty($_REQUEST['blog'])) {
                     echo
                     form::hidden('blog', Html::escapeHTML($_REQUEST['blog']));
                 }
                 if (App::backend()->safe_mode) {
                     echo
-                    form::hidden('safe_mode', 1) .
-                    '</fieldset>';
-                } else {
-                    echo
-                    '</fieldset>';
+                    form::hidden('safe_mode', 1);
                 }
+                echo
+                '</p>';
+
+                echo
+                '</fieldset>';
+
                 echo
                 '<p id="cookie_help" class="error">' . __('You must accept cookies in order to use the private area.') . '</p>';
 

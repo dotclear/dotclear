@@ -1940,7 +1940,7 @@ form {
 
 fieldset {
   margin: 1em 0;
-  padding: 1em 0.5em;
+  padding: 1em;
   border-width: 1px;
   border-style: solid;
   border-color: var(--fieldset-border);
@@ -3449,7 +3449,7 @@ span.ibw {
 }
 #login-screen fieldset {
   border: 1px solid var(--login-fieldset-border);
-  padding: 1em 1em 1em 1em;
+  padding: 1em;
   background: var(--login-fieldset-background);
   margin-top: 1em;
 }
@@ -5062,7 +5062,7 @@ p img.mark {
 
 .fieldset {
   margin: 1em 0;
-  padding: 1em 0.5em;
+  padding: 1em;
   border-width: 1px;
   border-style: solid;
   border-color: var(--fieldset-border);
