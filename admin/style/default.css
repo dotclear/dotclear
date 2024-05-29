@@ -1330,7 +1330,7 @@ body.dark-mode.upgrade-mode .expand-mm {
 
 @media screen and (width <= 82em) {
   .two-cols {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
 /* -------------------------------------------------------------- layout: three-cols */
@@ -1350,7 +1350,7 @@ body.dark-mode.upgrade-mode .expand-mm {
 
 @media screen and (width <= 82em) {
   .three-cols {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
 /* ------------------------------------------------- layout: optionnal one/two/three-boxes */

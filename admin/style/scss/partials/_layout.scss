@@ -191,7 +191,7 @@ body.dark-mode.upgrade-mode {
 
 @media screen and (width <= $laptop-screen) {
   .two-cols {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
 
@@ -216,7 +216,7 @@ body.dark-mode.upgrade-mode {
 
 @media screen and (width <= $laptop-screen) {
   .three-cols {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
 
