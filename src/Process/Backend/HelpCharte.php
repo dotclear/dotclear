@@ -225,48 +225,70 @@ class HelpCharte extends Process
           </div>
         </div>
         <div id="two-cols-50-50" class="multi-part" title="Two-cols (50/50)">
-          <h4>Deux colonnes flottantes de largeurs égales</h4>
-          <div class="two-cols clearfix">
+          <h4>Grille de deux colonnes de largeurs égales</h4>
+          <div class="two-cols">
             <div class="col">
               <p>La div englobante porte la class <code>"two-cols"</code>, chacune de ses div porte la class <code>"col"</code>.
                 Sans autre précision les deux colonnes sont d'égale largeur.</p>
             </div>
             <div class="col">
-              <p>Attention : ces colonnes sont construites avec des flottants, il faut donc penser à mettre une class <code>clear</code> à l'élément suivant ou ajouter la class <code>"clearfix"</code> à la <code>div class="two-cols"</code>.</p>
+              <p>Voici une deuxième colonne.</p>
+            </div>
+            <div class="col100">
+              <p>Voilà la troisième colonne avec une class <code>"col100"</code> qui permet de l'étendre sur toute la largeur.</p>
+            </div>
+            <div class="col">
+              <p>Voici une quatrième colonne.</p>
             </div>
           </div>
         </div>
         <div id="two-cols-70-30" class="multi-part" title="Two-cols (70/30)">
-          <h4>Deux colonnes flottantes de largeurs inégales</h4>
-          <div class="two-cols clearfix">
+          <h4>Grille de deux colonnes de largeurs inégales</h4>
+          <div class="two-cols">
             <div class="col70">
               <p><span class="step">col70</span> La div englobante porte la class <code>"two-cols"</code>.
                 Pour obtenir des colonnes inégales, on dispose des classes <code>"col70"</code> et <code>col30</code> à attribuer à l'une ou à l'autre de ses colonnes.</p>
             </div>
             <div class="col30">
-              <p><span class="step">col30</span> Penser à mettre une class <code>"clear"</code> à l'élément suivant ou ajouter la class <code>"clearfix"</code> <code>div class="two-cols"</code>.</p>
+              <p><span class="step">col30</span>Voici une deuxième petite colonne.</p>
+            </div>
+            <div class="col100">
+              <p>Voilà une troisième colonne avec une class <code>"col100"</code> qui permet de l'étendre sur toute la largeur.</p>
+            </div>
+            <div class="col30">
+              <p><span class="step">col30</span>Voici une quatrième petite colonne.</p>
+            </div>
+            <div class="col70">
+              <p><span class="step">col70</span>Voici une cinquième grande colonne.</p>
             </div>
           </div>
         </div>
-        <div id="three-cols" class="multi-part" title="Three-cols (deprecated)">
-          <h4>Trois colonnes flottantes de largeurs égales</h4>
-          <p class="warning"><strong>Deprecated.</strong> Ces règles sont conservées dans la 2.6 par souci de rétro-compatibilité mais il est recommandé d'utiliser désormais le colonnage <a href="#three-boxes">three-boxes</a>.</p>
-          <div class="three-cols clearfix">
+        <div id="three-cols" class="multi-part" title="Three-cols">
+          <h4>Grille de trois colonnes de largeurs égales</h4>
+          <div class="three-cols">
             <div class="col">
               <h5>Colonne 1</h5>
               <p>La div englobante porte la class <code>"three-cols"</code>, chacune de ses div porte la class <code>"col"</code>. Les trois colonnes sont d'égale largeur.</p>
             </div>
             <div class="col">
               <h5>Colonne 2</h5>
-              <p>Voici une deuxième colonne. N'oubliez pas d'ajouter la class <code>"clearfix"</code> à la class <code>"three-cols"</code> ou un élément de class <code>"clear"</code> après cet élément.</p>
+              <p>Voici une deuxième colonne.</p>
             </div>
             <div class="col">
               <h5>Colonne 3</h5>
               <p>Voilà la troisième colonne.</p>
             </div>
+            <div class="col100">
+              <h5>Colonne 4</h5>
+              <p>Voilà la quatrième colonne avec une class <code>"col100"</code> qui permet de l'étendre sur toute la largeur.</p>
+            </div>
+            <div class="col">
+              <h5>Colonne 5</h5>
+              <p>Voici une cinquième petite colonne.</p>
+            </div>
           </div>
         </div>
-        <hr>
+        <hr class="clear">
         <p><strong>Note :</strong> dans les exemples les valeurs et les numérotations sont placées dans un <code>span class="step"</code> (et ressortent donc dans un petit bloc à fond gris).</p>
         <h2>Interactions</h2>
         <h3 id="elements">Éléments de formulaire</h3>

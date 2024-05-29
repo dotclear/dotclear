@@ -189,8 +189,9 @@ body.dark-mode.upgrade-mode {
   }
 }
 
-@media screen and (width <= $laptop-screen) {
-  .two-cols {
+@media screen and (width <= $tablet-screen) {
+  .two-cols,
+  .two-cols.clearfix {
     display: block;
   }
 }
@@ -204,6 +205,10 @@ body.dark-mode.upgrade-mode {
   column-gap: 2em;
   clear: both;
 
+  .col {
+    grid-column: span 1;
+  }
+
   .col100 {
     grid-column: span 3;
   }
@@ -214,8 +219,9 @@ body.dark-mode.upgrade-mode {
   }
 }
 
-@media screen and (width <= $laptop-screen) {
-  .three-cols {
+@media screen and (width <= $tablet-screen) {
+  .three-cols,
+  .three-cols.clearfix {
     display: block;
   }
 }
@@ -421,11 +427,6 @@ body.dark-mode.upgrade-mode {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-  }
-
-  .two-cols,
-  .three-cols {
-    grid-template-columns: 1fr;
   }
 }
 

@@ -1328,8 +1328,9 @@ body.dark-mode.upgrade-mode .expand-mm {
   grid-column: span 6;
 }
 
-@media screen and (width <= 82em) {
-  .two-cols {
+@media screen and (width <= 62em) {
+  .two-cols,
+  .two-cols.clearfix {
     display: block;
   }
 }
@@ -1341,6 +1342,9 @@ body.dark-mode.upgrade-mode .expand-mm {
   column-gap: 2em;
   clear: both;
 }
+.three-cols .col {
+  grid-column: span 1;
+}
 .three-cols .col100 {
   grid-column: span 3;
 }
@@ -1348,8 +1352,9 @@ body.dark-mode.upgrade-mode .expand-mm {
   display: grid;
 }
 
-@media screen and (width <= 82em) {
-  .three-cols {
+@media screen and (width <= 62em) {
+  .three-cols,
+  .three-cols.clearfix {
     display: block;
   }
 }
@@ -1525,10 +1530,6 @@ body.dark-mode.upgrade-mode .expand-mm {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-  }
-  .two-cols,
-  .three-cols {
-    grid-template-columns: 1fr;
   }
 }
 @media screen and (width <= 62em) {
