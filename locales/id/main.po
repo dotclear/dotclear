@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-29 08:42+0200\n"
-"PO-Revision-Date: 2024-05-29 06:46\n"
+"PO-Revision-Date: 2024-05-29 07:20\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -5650,7 +5650,7 @@ msgstr "Menerapkan filter dengan cepat"
 
 #: src/Process/Backend/UserPreferences.php:723
 msgid "List"
-msgstr ""
+msgstr "Daftar"
 
 #: src/Process/Backend/UserPreferences.php:724
 msgid "Order by"
