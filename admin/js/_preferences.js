@@ -31,4 +31,12 @@ dotclear.ready(() => {
 
   // Password strength
   dotclear.passwordStrength(dotclear.getData('pwstrength'));
+
+  // Responsive tables
+  dotclear.responsiveCellHeaders(
+    document.querySelector('#user_options_lists_container table'),
+    '#user_options_lists_container table',
+    0,
+    true,
+  );
 });

@@ -710,41 +710,34 @@ class UserPreferences extends Process
         echo
         '</fieldset>' .
 
-        '<div class="fieldset">' .
+        '<div class="fieldset" id="user_options_lists_container">' .
         '<h4 id="user_options_lists">' . __('Options for lists') . '</h4>' .
         '<p><label for="user_ui_auto_filter" class="classic">' .
         form::checkbox('user_ui_auto_filter', 1, App::backend()->auto_filter) . ' ' .
         __('Apply filters on the fly') . '</label></p>';
 
-        $odd = true;
+        echo
+        '<table>' .
+        '<thead>' .
+        '<tr>' .
+        '<th>' . __('List') . '</th>' .
+        '<th>' . __('Order by') . '</th>' .
+        '<th>' . __('Sort') . '</th>' .
+        '<th>' . __('Show') . '</th>' .
+        '</tr>' .
+        '</thead>' .
+        '<tbody>';
         foreach (App::backend()->sorts as $sort_type => $sort_data) {
-            if ($odd) {
-                echo
-                '<hr>';
-            }
-            echo
-            '<div class="two-boxes ' . ($odd ? 'odd' : 'even') . '">' .
-            '<h5>' . $sort_data[0] . '</h5>';
-            if (null !== $sort_data[1]) {
-                echo
-                '<p class="field"><label for="sorts_' . $sort_type . '_sortby">' . __('Order by:') . '</label> ' .
-                form::combo('sorts_' . $sort_type . '_sortby', $sort_data[1], $sort_data[2]) . '</p>';
-            }
-            if (null !== $sort_data[3]) {
-                echo
-                '<p class="field"><label for="sorts_' . $sort_type . '_order">' . __('Sort:') . '</label> ' .
-                form::combo('sorts_' . $sort_type . '_order', App::backend()->order_combo, $sort_data[3]) . '</p>';
-            }
-            if (is_array($sort_data[4])) {
-                echo
-                '<p><span class="label ib">' . __('Show') . '</span> <label for="sorts_' . $sort_type . '_nb" class="classic">' .
-                form::number('sorts_' . $sort_type . '_nb', 0, 999, (string) $sort_data[4][1]) . ' ' .
-                $sort_data[4][0] . '</label></p>';
-            }
-            echo
-            '</div>';
-            $odd = !$odd;
+            echo '<tr>';
+            echo '<td>' . $sort_data[0] . '</td>';  // List name
+            echo '<td>' . ($sort_data[1] ? form::combo('sorts_' . $sort_type . '_sortby', $sort_data[1], $sort_data[2]) : '') . '</td>'; // Order by
+            echo '<td>' . ($sort_data[3] ? form::combo('sorts_' . $sort_type . '_order', App::backend()->order_combo, $sort_data[3]) : '') . '</td>'; // Sort by
+            echo '<td>' . (is_array($sort_data[4]) ? form::number('sorts_' . $sort_type . '_nb', 0, 999, (string) $sort_data[4][1]) . ' ' .
+                $sort_data[4][0] : '') . '</td>';
+            echo '</tr>';
         }
+        echo
+        '</table>';
         echo
         '</div>' .
 
