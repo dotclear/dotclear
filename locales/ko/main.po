@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-23 08:40+0200\n"
-"PO-Revision-Date: 2024-04-23 18:58\n"
+"POT-Creation-Date: 2024-05-29 08:42+0200\n"
+"PO-Revision-Date: 2024-05-29 07:20\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -161,7 +161,7 @@ msgstr "제거됨으로 설정"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:51
 #: src/Core/Backend/Action/ActionsPostsDefault.php:103
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
-#: src/Core/Backend/Listing/ListingMedia.php:203
+#: src/Core/Backend/Listing/ListingMedia.php:224
 #: src/Core/Backend/ModulesList.php:1215 src/Core/Upgrade/PluginsList.php:120
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Langs.php:278
 #: src/Process/Backend/Post.php:803 src/Process/Backend/Users.php:42
@@ -425,7 +425,7 @@ msgstr "상위분류 :"
 #: src/Core/Backend/ModulesList.php:1785 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1072
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1119
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:921
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:499
@@ -577,7 +577,7 @@ msgid "Number of entries"
 msgstr "글꼭지수"
 
 #: src/Core/Backend/Favorites.php:304
-#: src/Process/Backend/UserPreferences.php:817
+#: src/Process/Backend/UserPreferences.php:810
 msgid "My favorites"
 msgstr "내 즐겨 찾기"
 
@@ -622,7 +622,7 @@ msgstr "분류"
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
 #: src/Process/Backend/Media.php:461 src/Process/Backend/Media.php:500
-#: src/Process/Backend/MediaItem.php:425 src/Process/Backend/MediaItem.php:431
+#: src/Process/Backend/MediaItem.php:471 src/Process/Backend/MediaItem.php:477
 msgid "Media manager"
 msgstr "미디어"
 
@@ -808,17 +808,15 @@ msgid "Display options"
 msgstr "디스플레이 옵션"
 
 #: src/Core/Backend/Filter/Filters.php:358
-#: src/Process/Backend/UserPreferences.php:730
 msgid "Order by:"
 msgstr "정렬항 :"
 
 #: src/Core/Backend/Filter/Filters.php:371
-#: src/Process/Backend/UserPreferences.php:735
 msgid "Sort:"
 msgstr "정렬방식 :"
 
 #: src/Core/Backend/Filter/Filters.php:393
-#: src/Process/Backend/UserPreferences.php:740
+#: src/Process/Backend/UserPreferences.php:726
 msgid "Show"
 msgstr "표시"
 
@@ -970,7 +968,7 @@ msgstr "항목"
 #: src/Core/Backend/Listing/ListingPosts.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:170
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:952
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:998
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1088
 msgid "Published"
 msgstr "게시됨"
@@ -980,7 +978,7 @@ msgstr "게시됨"
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:175
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:953
+#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:999
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1093
 msgid "Unpublished"
 msgstr "게시되지 않음"
@@ -990,7 +988,7 @@ msgstr "게시되지 않음"
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:185
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:955
+#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:1001
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1098
 msgid "Pending"
 msgstr "보류 중"
@@ -1061,34 +1059,34 @@ msgstr "성"
 msgid "Size"
 msgstr "크기"
 
-#: src/Core/Backend/Listing/ListingMedia.php:167
-#: src/Core/Backend/Listing/ListingMedia.php:168
+#: src/Core/Backend/Listing/ListingMedia.php:188
+#: src/Core/Backend/Listing/ListingMedia.php:189
 #: src/Process/Backend/Media.php:360
 msgid "Select this file"
 msgstr "이 파일 선택"
 
-#: src/Core/Backend/Listing/ListingMedia.php:177
-#: src/Core/Backend/Listing/ListingMedia.php:183
+#: src/Core/Backend/Listing/ListingMedia.php:198
+#: src/Core/Backend/Listing/ListingMedia.php:204
 #: src/Process/Backend/Media.php:376 src/Process/Backend/Media.php:389
 msgid "Attach this file to entry"
 msgstr "글꼭지에 이 파일을 첨부"
 
-#: src/Core/Backend/Listing/ListingMedia.php:188
-#: src/Core/Backend/Listing/ListingMedia.php:189
+#: src/Core/Backend/Listing/ListingMedia.php:209
+#: src/Core/Backend/Listing/ListingMedia.php:210
 msgid "Insert this file into entry"
 msgstr "이 파일을 글꼭지에 삽입하기"
 
-#: src/Core/Backend/Listing/ListingMedia.php:201
+#: src/Core/Backend/Listing/ListingMedia.php:222
 msgid "delete"
 msgstr "삭제"
 
-#: src/Core/Backend/Listing/ListingMedia.php:217
-#: src/Core/Backend/Listing/ListingMedia.php:241
+#: src/Core/Backend/Listing/ListingMedia.php:238
+#: src/Core/Backend/Listing/ListingMedia.php:262
 msgid "private media"
 msgstr "비공개 미디어"
 
-#: src/Core/Backend/Listing/ListingMedia.php:224
-#: src/Core/Backend/Listing/ListingMedia.php:249
+#: src/Core/Backend/Listing/ListingMedia.php:245
+#: src/Core/Backend/Listing/ListingMedia.php:270
 msgid "open"
 msgstr "열기"
 
@@ -1125,7 +1123,7 @@ msgstr "글걸이"
 #: src/Core/Backend/Listing/ListingPosts.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:180
 #: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
-#: src/Process/Backend/MediaItem.php:954 src/Process/Backend/Post.php:477
+#: src/Process/Backend/MediaItem.php:1000 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "예약됨"
 
@@ -1571,11 +1569,11 @@ msgstr "구성 \"%s\""
 #: src/Core/Backend/ModulesList.php:1777 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1113
+#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1160
 #: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:158
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:616
-#: src/Process/Backend/UserPreferences.php:806
-#: src/Process/Backend/UserPreferences.php:986
+#: src/Process/Backend/UserPreferences.php:799
+#: src/Process/Backend/UserPreferences.php:979
 msgid "Back"
 msgstr "뒤로"
 
@@ -1620,8 +1618,8 @@ msgid "Go to help"
 msgstr "도움말로 이동"
 
 #: src/Core/Backend/Page.php:296 src/Core/Upgrade/Page.php:139
-#: src/Process/Backend/UserPreferences.php:812
-#: src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/UserPreferences.php:805
+#: src/Process/Backend/UserPreferences.php:806
 msgid "My dashboard"
 msgstr "내 대시보드"
 
@@ -1941,8 +1939,8 @@ msgid "Choose files"
 msgstr "파일 선택"
 
 #: src/Core/Backend/Page.php:1190 src/Process/Backend/LinkPopup.php:73
-#: src/Process/Backend/Media.php:242 src/Process/Backend/MediaItem.php:527
-#: src/Process/Backend/MediaItem.php:738 src/Process/Backend/Post.php:800
+#: src/Process/Backend/Media.php:242 src/Process/Backend/MediaItem.php:573
+#: src/Process/Backend/MediaItem.php:784 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "취소"
@@ -1951,7 +1949,7 @@ msgstr "취소"
 msgid "Clean"
 msgstr "목록 비우기"
 
-#: src/Core/Backend/Page.php:1193 src/Process/Backend/MediaItem.php:1084
+#: src/Core/Backend/Page.php:1193 src/Process/Backend/MediaItem.php:1131
 msgid "Send"
 msgstr "보내기"
 
@@ -2444,32 +2442,32 @@ msgstr "about:config \"public_path\"에 설정된 위치에 쓰기 가능한 디
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "미디어 관리자를 위한 쓰기 가능한 루트 디렉터리가 없습니다. 관리자에게 문의해야 합니다."
 
-#: src/Core/Media.php:937 src/Core/Media.php:964
+#: src/Core/Media.php:938 src/Core/Media.php:965
 msgid "You are not a super administrator."
 msgstr "블로그 최상위관리자가 아닙니다."
 
-#: src/Core/Media.php:1051 src/Core/Media.php:1141 src/Core/Media.php:1220
-#: src/Core/Media.php:1236 src/Core/Media.php:1254
+#: src/Core/Media.php:1052 src/Core/Media.php:1142 src/Core/Media.php:1221
+#: src/Core/Media.php:1237 src/Core/Media.php:1255
 msgid "Permission denied."
 msgstr "권한이 없습니다."
 
-#: src/Core/Media.php:1154
+#: src/Core/Media.php:1155
 msgid "You are not the file owner."
 msgstr "당신은 파일 주인이 아닙니다."
 
-#: src/Core/Media.php:1169
+#: src/Core/Media.php:1170
 msgid "This file is not allowed."
 msgstr "이 파일은 허용되지 않습니다."
 
-#: src/Core/Media.php:1173
+#: src/Core/Media.php:1174
 msgid "New file already exists."
 msgstr "새 파일이 이미 있습니다."
 
-#: src/Core/Media.php:1274
+#: src/Core/Media.php:1275
 msgid "File does not exist in the database."
 msgstr "파일이 데이터베이스에 없습니다."
 
-#: src/Core/Media.php:1319
+#: src/Core/Media.php:1320
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "압축풀기 목표폴더 %s가 이미 존재합니다."
@@ -3142,7 +3140,7 @@ msgstr "새 비밀번호 요청"
 msgid "recover"
 msgstr "되살리기"
 
-#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:496
+#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:497
 msgid "Other option"
 msgstr "기타 옵션"
 
@@ -3185,23 +3183,23 @@ msgstr "이 컴퓨터가 내 아이디를 기억하도록하기"
 msgid "log in"
 msgstr "로그인"
 
-#: src/Process/Backend/Auth.php:490 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:491 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "사생활보호 영역을 접속하시려면, 브라우저가 쿠키를 받을 수 있게 설정하셔야합니다."
 
-#: src/Process/Backend/Auth.php:497
+#: src/Process/Backend/Auth.php:498
 msgid "Get back to normal authentication"
 msgstr "일반 인증으로 돌아가기"
 
-#: src/Process/Backend/Auth.php:500
+#: src/Process/Backend/Auth.php:501
 msgid "Connection issue?"
 msgstr "연결 문제가 있나요?"
 
-#: src/Process/Backend/Auth.php:503
+#: src/Process/Backend/Auth.php:504
 msgid "I forgot my password"
 msgstr "비밀번호를 잊었어요."
 
-#: src/Process/Backend/Auth.php:506
+#: src/Process/Backend/Auth.php:507
 msgid "I want to log in in safe mode"
 msgstr "안전 모드로 로그인하고 싶습니다."
 
@@ -3318,8 +3316,8 @@ msgid "P"
 msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:997
-#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:663
 msgid "(none)"
 msgstr "(없음)"
 
@@ -3339,37 +3337,37 @@ msgstr "설명, 국가, 날짜"
 msgid "Description, City, Country, Date"
 msgstr "설명, 도시, 국가, 날짜"
 
-#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:514
-#: src/Process/Backend/MediaItem.php:588 src/Process/Backend/MediaItem.php:829
+#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:560
+#: src/Process/Backend/MediaItem.php:634 src/Process/Backend/MediaItem.php:875
 msgid "original"
 msgstr "원본"
 
 #: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
-#: src/Process/Backend/MediaItem.php:612 src/Process/Backend/MediaItem.php:624
-#: src/Process/Backend/MediaItem.php:662 src/Process/Backend/MediaItem.php:706
+#: src/Process/Backend/MediaItem.php:658 src/Process/Backend/MediaItem.php:670
+#: src/Process/Backend/MediaItem.php:708 src/Process/Backend/MediaItem.php:752
 msgid "None"
 msgstr "무규정"
 
-#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:625
-#: src/Process/Backend/MediaItem.php:663 src/Process/Backend/MediaItem.php:707
+#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:671
+#: src/Process/Backend/MediaItem.php:709 src/Process/Backend/MediaItem.php:753
 msgid "Left"
 msgstr "왼쪽"
 
-#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:626
-#: src/Process/Backend/MediaItem.php:664 src/Process/Backend/MediaItem.php:708
+#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:672
+#: src/Process/Backend/MediaItem.php:710 src/Process/Backend/MediaItem.php:754
 msgid "Right"
 msgstr "오른쪽"
 
-#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:627
-#: src/Process/Backend/MediaItem.php:665 src/Process/Backend/MediaItem.php:709
+#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:673
+#: src/Process/Backend/MediaItem.php:711 src/Process/Backend/MediaItem.php:755
 msgid "Center"
 msgstr "가운데"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:600
+#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:646
 msgid "Legend and alternate text"
 msgstr "범례 및 대체 텍스트"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:606
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:652
 msgid "Alternate text"
 msgstr "대체 텍스트"
 
@@ -4038,7 +4036,7 @@ msgstr "이름 :"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "경고 : 분류URL을 직접 작성하면, 다른 분류와 혼선이 생길 수도 있습니다."
 
-#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1052
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1099
 msgid "Description:"
 msgstr "분류 설명 :"
 
@@ -4374,7 +4372,7 @@ msgstr "링크 제목:"
 msgid "Link language:"
 msgstr "링크 언어 :"
 
-#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:737
+#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:783
 msgid "Insert"
 msgstr "삽입"
 
@@ -4459,7 +4457,7 @@ msgid "Select files and click on <strong>%s</strong> button"
 msgstr "파일을 선택하고 <strong>%s</strong> 버튼을 클릭합니다."
 
 #: src/Process/Backend/Media.php:367 src/Process/Backend/Media.php:380
-#: src/Process/Backend/Media.php:393 src/Process/Backend/MediaItem.php:753
+#: src/Process/Backend/Media.php:393 src/Process/Backend/MediaItem.php:799
 msgid "or"
 msgstr "또는"
 
@@ -4534,12 +4532,13 @@ msgstr "미디어를 외부로 공개할 때, 당신이 소유권을 가진 미�
 msgid "Maximum file size allowed:"
 msgstr "허용된 최대 파일 크기 :"
 
-#: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:976 src/Process/Backend/MediaItem.php:1039
+#: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1086
 msgid "Alternate text:"
 msgstr "대체 텍스트:"
 
-#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1116
 msgid "Private"
 msgstr "미디어 관리화면에서 감춤 (주의! URL알면 접근 가능)"
 
@@ -4564,259 +4563,259 @@ msgstr "미디어 및 이미지에 대한 현재 설정은 %s에 정의되어 �
 msgid "Not a valid file"
 msgstr "바르지않은 파일"
 
-#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:207
-#: src/Process/Backend/MediaItem.php:452
+#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:235
+#: src/Process/Backend/MediaItem.php:498
 msgid "File has been successfully updated."
 msgstr "파일이 성공적으로 갱신되었습니다."
 
-#: src/Process/Backend/MediaItem.php:224 src/Process/Backend/MediaItem.php:455
+#: src/Process/Backend/MediaItem.php:252 src/Process/Backend/MediaItem.php:501
 msgid "Thumbnails have been successfully updated."
 msgstr "꼬맹이사진들이 성공적으로 갱신되었습니다."
 
-#: src/Process/Backend/MediaItem.php:241
+#: src/Process/Backend/MediaItem.php:269
 msgid "Zip file has been successfully extracted."
 msgstr "Zip 파일이 성공적으로 풀렸습니다."
 
-#: src/Process/Backend/MediaItem.php:271 src/Process/Backend/MediaItem.php:458
+#: src/Process/Backend/MediaItem.php:299 src/Process/Backend/MediaItem.php:504
 msgid "Default media insertion settings have been successfully updated."
 msgstr "기본 미디어 삽입 설정이 성공적으로 업데이트되었습니다."
 
-#: src/Process/Backend/MediaItem.php:297
+#: src/Process/Backend/MediaItem.php:325
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "이 폴더에 대한 미디어 삽입 설정이 성공적으로 등록되었습니다."
 
-#: src/Process/Backend/MediaItem.php:308
+#: src/Process/Backend/MediaItem.php:336
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "이 폴더에 대한 미디어 삽입 설정이 성공적으로 제거되었습니다."
 
-#: src/Process/Backend/MediaItem.php:487 src/Process/Backend/MediaItem.php:488
+#: src/Process/Backend/MediaItem.php:533 src/Process/Backend/MediaItem.php:534
 msgid "Select media item"
 msgstr "미디어 항목 선택"
 
-#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:574
+#: src/Process/Backend/MediaItem.php:545 src/Process/Backend/MediaItem.php:620
 msgid "Image size:"
 msgstr "이미지 크기 :"
 
-#: src/Process/Backend/MediaItem.php:526 src/Process/Upgrade/Attic.php:302
+#: src/Process/Backend/MediaItem.php:572 src/Process/Upgrade/Attic.php:302
 msgid "Select"
 msgstr "선택"
 
-#: src/Process/Backend/MediaItem.php:561 src/Process/Backend/MediaItem.php:562
+#: src/Process/Backend/MediaItem.php:607 src/Process/Backend/MediaItem.php:608
 msgid "Insert media item"
 msgstr "미디어 삽입"
 
-#: src/Process/Backend/MediaItem.php:593
+#: src/Process/Backend/MediaItem.php:639
 msgid "Image legend and alternate text"
 msgstr "이미지 범례 및 대체 텍스트"
 
-#: src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/MediaItem.php:663
 msgid "Legend:"
 msgstr "범례:"
 
-#: src/Process/Backend/MediaItem.php:622
+#: src/Process/Backend/MediaItem.php:668
 msgid "Image alignment"
 msgstr "이미지 배치방식"
 
-#: src/Process/Backend/MediaItem.php:642
+#: src/Process/Backend/MediaItem.php:688
 msgid "Image insertion"
 msgstr "이미지 삽입"
 
-#: src/Process/Backend/MediaItem.php:645
+#: src/Process/Backend/MediaItem.php:691
 msgid "As a single image"
 msgstr "단일 이미지로서"
 
-#: src/Process/Backend/MediaItem.php:647
+#: src/Process/Backend/MediaItem.php:693
 msgid "As a link to the original image"
 msgstr "원본 이미지에 대한 링크"
 
-#: src/Process/Backend/MediaItem.php:655
+#: src/Process/Backend/MediaItem.php:701
 msgid "MP3 disposition"
 msgstr "MP3 배치방식"
 
-#: src/Process/Backend/MediaItem.php:658
+#: src/Process/Backend/MediaItem.php:704
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "표준 편집기로는 WYSIWYG HTML 모드에서 mp3 파일을 삽입할 수 없다는 점에 유의하세요."
 
-#: src/Process/Backend/MediaItem.php:688
+#: src/Process/Backend/MediaItem.php:734
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "표준 편집기로 동영상 파일을 삽입할 수 없는 WYSIWYG HTML 모드에 유의하세요."
 
-#: src/Process/Backend/MediaItem.php:693
+#: src/Process/Backend/MediaItem.php:739
 msgid "Video size"
 msgstr "비디오 크기"
 
-#: src/Process/Backend/MediaItem.php:694
+#: src/Process/Backend/MediaItem.php:740
 msgid "Width:"
 msgstr "폭 :"
 
-#: src/Process/Backend/MediaItem.php:696
+#: src/Process/Backend/MediaItem.php:742
 msgid "Height:"
 msgstr "높이 :"
 
-#: src/Process/Backend/MediaItem.php:703
+#: src/Process/Backend/MediaItem.php:749
 msgid "Video disposition"
 msgstr "비디오 배치방식"
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:778
 msgid "Media item will be inserted as a link."
 msgstr "미디어 아이템은 링크로서 삽입됩니다."
 
-#: src/Process/Backend/MediaItem.php:752
+#: src/Process/Backend/MediaItem.php:798
 msgid "Make current settings as default"
 msgstr "현재 설정을 기본값으로 설정"
 
-#: src/Process/Backend/MediaItem.php:753
+#: src/Process/Backend/MediaItem.php:799
 msgid "For the blog"
 msgstr "블로그의 경우"
 
-#: src/Process/Backend/MediaItem.php:754
+#: src/Process/Backend/MediaItem.php:800
 msgid "For this folder only"
 msgstr "이 폴더에만 해당"
 
-#: src/Process/Backend/MediaItem.php:763
+#: src/Process/Backend/MediaItem.php:809
 msgid "Settings exist for this folder:"
 msgstr "이 폴더에 대한 설정이 있습니다:"
 
-#: src/Process/Backend/MediaItem.php:764
+#: src/Process/Backend/MediaItem.php:810
 msgid "Remove them"
 msgstr "제거"
 
-#: src/Process/Backend/MediaItem.php:783 src/Process/Backend/MediaItem.php:786
-#: src/Process/Backend/MediaItem.php:867
+#: src/Process/Backend/MediaItem.php:829 src/Process/Backend/MediaItem.php:832
+#: src/Process/Backend/MediaItem.php:913
 msgid "Media details"
 msgstr "미디어 상세정보"
 
-#: src/Process/Backend/MediaItem.php:818
+#: src/Process/Backend/MediaItem.php:864
 msgid "Available sizes:"
 msgstr "사용가능한 크기 :"
 
-#: src/Process/Backend/MediaItem.php:839
+#: src/Process/Backend/MediaItem.php:885
 msgid "Thumbnail details"
 msgstr "썸네일 세부 정보"
 
-#: src/Process/Backend/MediaItem.php:844 src/Process/Backend/MediaItem.php:881
-#: src/Process/Backend/MediaItem.php:892
+#: src/Process/Backend/MediaItem.php:890 src/Process/Backend/MediaItem.php:927
+#: src/Process/Backend/MediaItem.php:938
 msgid "Image width:"
 msgstr "이미지 너비:"
 
-#: src/Process/Backend/MediaItem.php:845 src/Process/Backend/MediaItem.php:885
-#: src/Process/Backend/MediaItem.php:893
+#: src/Process/Backend/MediaItem.php:891 src/Process/Backend/MediaItem.php:931
+#: src/Process/Backend/MediaItem.php:939
 msgid "Image height:"
 msgstr "이미지 높이:"
 
-#: src/Process/Backend/MediaItem.php:849 src/Process/Backend/MediaItem.php:898
+#: src/Process/Backend/MediaItem.php:895 src/Process/Backend/MediaItem.php:944
 msgid "File size:"
 msgstr "파일 크기 :"
 
-#: src/Process/Backend/MediaItem.php:852 src/Process/Backend/MediaItem.php:899
+#: src/Process/Backend/MediaItem.php:898 src/Process/Backend/MediaItem.php:945
 msgid "File URL:"
 msgstr "파일 URL :"
 
-#: src/Process/Backend/MediaItem.php:869
+#: src/Process/Backend/MediaItem.php:915
 msgid "File owner:"
 msgstr "파일 소유자 :"
 
-#: src/Process/Backend/MediaItem.php:870
+#: src/Process/Backend/MediaItem.php:916
 msgid "File type:"
 msgstr "파일 종류 :"
 
-#: src/Process/Backend/MediaItem.php:905
+#: src/Process/Backend/MediaItem.php:951
 msgid "Show entries containing this media"
 msgstr "이 미디어를 포함한 글꼭지들 모두 보기"
 
-#: src/Process/Backend/MediaItem.php:908
+#: src/Process/Backend/MediaItem.php:954
 msgid "Entries containing this media"
 msgstr "이 미디어를 포함한 글꼭지"
 
-#: src/Process/Backend/MediaItem.php:945
+#: src/Process/Backend/MediaItem.php:991
 msgid "No entry seems contain this media."
 msgstr "이 미디어를 포함한 글꼭지를 못 찾았습니다."
 
-#: src/Process/Backend/MediaItem.php:972
+#: src/Process/Backend/MediaItem.php:1018
 msgid "Image details"
 msgstr "이미지 상세정보"
 
-#: src/Process/Backend/MediaItem.php:981
+#: src/Process/Backend/MediaItem.php:1028
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:990
+#: src/Process/Backend/MediaItem.php:1037
 msgid "No detail"
 msgstr "상세정보 없음"
 
-#: src/Process/Backend/MediaItem.php:997
+#: src/Process/Backend/MediaItem.php:1044
 msgid "Updates and modifications"
 msgstr "업데이트 및 수정"
 
-#: src/Process/Backend/MediaItem.php:1003
-#: src/Process/Backend/MediaItem.php:1005
+#: src/Process/Backend/MediaItem.php:1050
+#: src/Process/Backend/MediaItem.php:1052
 msgid "Update thumbnails"
 msgstr "꼬맹이사진 갱신"
 
-#: src/Process/Backend/MediaItem.php:1004
+#: src/Process/Backend/MediaItem.php:1051
 msgid "This will create or update thumbnails for this image."
 msgstr "이 과정은 이 이미지의 꼬맹이사진들을 생성 또는 갱신합니다."
 
-#: src/Process/Backend/MediaItem.php:1013
-#: src/Process/Backend/MediaItem.php:1021
+#: src/Process/Backend/MediaItem.php:1060
+#: src/Process/Backend/MediaItem.php:1068
 msgid "Extract in a new directory"
 msgstr "새 폴더에 풀기"
 
-#: src/Process/Backend/MediaItem.php:1014
-#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1061
+#: src/Process/Backend/MediaItem.php:1070
 msgid "Extract in current directory"
 msgstr "현재 폴더에 풀기"
 
-#: src/Process/Backend/MediaItem.php:1019
+#: src/Process/Backend/MediaItem.php:1066
 msgid "Extract archive"
 msgstr "압축풀기"
 
-#: src/Process/Backend/MediaItem.php:1022
+#: src/Process/Backend/MediaItem.php:1069
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "이렇게 하면 아직 존재하지 않아야 하는 새 디렉터리에 아카이브가 추출됩니다."
 
-#: src/Process/Backend/MediaItem.php:1024
+#: src/Process/Backend/MediaItem.php:1071
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "이 과정은 압축파일을 현재폴더에 풀어놓습니다. 동일한 이름의 파일이나 폴더가 이미 있다면 덮어씁니다."
 
-#: src/Process/Backend/MediaItem.php:1026
+#: src/Process/Backend/MediaItem.php:1073
 msgid "Extract mode:"
 msgstr "압축풀기 방식 :"
 
-#: src/Process/Backend/MediaItem.php:1028
+#: src/Process/Backend/MediaItem.php:1075
 msgid "Extract"
 msgstr "추출"
 
-#: src/Process/Backend/MediaItem.php:1036
+#: src/Process/Backend/MediaItem.php:1083
 msgid "Change media properties"
 msgstr "미디어 속성 변경"
 
-#: src/Process/Backend/MediaItem.php:1037
+#: src/Process/Backend/MediaItem.php:1084
 msgid "File name:"
 msgstr "파일 이름 :"
 
-#: src/Process/Backend/MediaItem.php:1062
+#: src/Process/Backend/MediaItem.php:1109
 msgid "File date:"
 msgstr "파일의 날짜 :"
 
-#: src/Process/Backend/MediaItem.php:1070
+#: src/Process/Backend/MediaItem.php:1117
 msgid "New directory:"
 msgstr "새 폴더 :"
 
-#: src/Process/Backend/MediaItem.php:1078
+#: src/Process/Backend/MediaItem.php:1125
 msgid "Change file"
 msgstr "파일 변경"
 
-#: src/Process/Backend/MediaItem.php:1080
+#: src/Process/Backend/MediaItem.php:1127
 msgid "Choose a file:"
 msgstr "파일을 선택하세요 :"
 
-#: src/Process/Backend/MediaItem.php:1081
+#: src/Process/Backend/MediaItem.php:1128
 #, php-format
 msgid "Maximum size %s"
 msgstr "최대크기 %s"
 
-#: src/Process/Backend/MediaItem.php:1092
+#: src/Process/Backend/MediaItem.php:1139
 msgid "Delete this media"
 msgstr "이 미디어 삭제"
 
@@ -5400,19 +5399,19 @@ msgstr "인터페이스"
 msgid "Timezone:"
 msgstr "표준 시간대:"
 
-#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:752
+#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:745
 msgid "Edition"
 msgstr "에디션"
 
-#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:766
+#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:759
 msgid "Preferred format:"
 msgstr "선호하는 편집방식 :"
 
-#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:769
+#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:762
 msgid "Default entry status:"
 msgstr "글꼭지 공개상태 기본값 :"
 
-#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:772
+#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:765
 msgid "Entry edit field height:"
 msgstr "글꼭지 편집칸 높이 :"
 
@@ -5649,121 +5648,133 @@ msgstr "목록 옵션"
 msgid "Apply filters on the fly"
 msgstr "즉석에서 필터 적용"
 
-#: src/Process/Backend/UserPreferences.php:757
+#: src/Process/Backend/UserPreferences.php:723
+msgid "List"
+msgstr "목록"
+
+#: src/Process/Backend/UserPreferences.php:724
+msgid "Order by"
+msgstr "주문 기준"
+
+#: src/Process/Backend/UserPreferences.php:725
+msgid "Sort"
+msgstr "정렬"
+
+#: src/Process/Backend/UserPreferences.php:750
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "기본 설정 편집기 %s:"
 
-#: src/Process/Backend/UserPreferences.php:760
+#: src/Process/Backend/UserPreferences.php:753
 msgid "Choose an editor"
 msgstr "편집기 선택"
 
-#: src/Process/Backend/UserPreferences.php:777
+#: src/Process/Backend/UserPreferences.php:770
 msgid "Enable WYSIWYG mode"
 msgstr "위지윅모드 사용가능"
 
-#: src/Process/Backend/UserPreferences.php:781
+#: src/Process/Backend/UserPreferences.php:774
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "텍스트 영역 하단에 편집기 도구 모음 표시(가능한 경우)"
 
-#: src/Process/Backend/UserPreferences.php:787
+#: src/Process/Backend/UserPreferences.php:780
 msgid "Use HTML editor for:"
 msgstr "HTML 편집기를 사용합니다:"
 
-#: src/Process/Backend/UserPreferences.php:797
+#: src/Process/Backend/UserPreferences.php:790
 msgid "Other options"
 msgstr "기타 옵션"
 
-#: src/Process/Backend/UserPreferences.php:805
+#: src/Process/Backend/UserPreferences.php:798
 msgid "Save my options"
 msgstr "내 옵션 저장"
 
-#: src/Process/Backend/UserPreferences.php:844
+#: src/Process/Backend/UserPreferences.php:837
 #, php-format
 msgid "position of %s"
 msgstr "위치 %s"
 
-#: src/Process/Backend/UserPreferences.php:861
+#: src/Process/Backend/UserPreferences.php:854
 msgid "Save order"
 msgstr "주문 저장"
 
-#: src/Process/Backend/UserPreferences.php:864
+#: src/Process/Backend/UserPreferences.php:857
 msgid "Delete selected favorites"
 msgstr "선택한 즐겨찾기 삭제"
 
-#: src/Process/Backend/UserPreferences.php:866
+#: src/Process/Backend/UserPreferences.php:859
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "선택한 즐겨찾기를 삭제하시겠습니까?"
 
-#: src/Process/Backend/UserPreferences.php:871
+#: src/Process/Backend/UserPreferences.php:864
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "최고 관리자인 경우 이 즐겨찾기 집합이 이 설치의 모든 블로그에서 기본적으로 사용되도록 정의할 수 있습니다."
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:865
 msgid "Define as default favorites"
 msgstr "기본 즐겨찾기로 정의"
 
-#: src/Process/Backend/UserPreferences.php:879
+#: src/Process/Backend/UserPreferences.php:872
 msgid "Currently no personal favorites."
 msgstr "현재 개인적으로 즐겨찾는 항목이 없습니다."
 
-#: src/Process/Backend/UserPreferences.php:893
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Other available favorites"
 msgstr "기타 사용 가능한 즐겨찾기"
 
-#: src/Process/Backend/UserPreferences.php:921
+#: src/Process/Backend/UserPreferences.php:914
 msgid "(default favorite)"
 msgstr "(기본 즐겨찾기)"
 
-#: src/Process/Backend/UserPreferences.php:932
+#: src/Process/Backend/UserPreferences.php:925
 msgid "Add to my favorites"
 msgstr "즐겨찾기에 추가"
 
-#: src/Process/Backend/UserPreferences.php:941
+#: src/Process/Backend/UserPreferences.php:934
 msgid "Menu"
 msgstr "메뉴"
 
-#: src/Process/Backend/UserPreferences.php:944
+#: src/Process/Backend/UserPreferences.php:937
 msgid "Display favorites at the top of the menu"
 msgstr "메뉴 상단에 즐겨찾기를 표시합니다."
 
-#: src/Process/Backend/UserPreferences.php:947
+#: src/Process/Backend/UserPreferences.php:940
 msgid "Dashboard icons"
 msgstr "대시보드 아이콘"
 
-#: src/Process/Backend/UserPreferences.php:950
+#: src/Process/Backend/UserPreferences.php:943
 msgid "Display dashboard icons"
 msgstr "대시보드 아이콘 표시"
 
-#: src/Process/Backend/UserPreferences.php:954
+#: src/Process/Backend/UserPreferences.php:947
 msgid "Dashboard modules"
 msgstr "대시보드 모듈"
 
-#: src/Process/Backend/UserPreferences.php:958
+#: src/Process/Backend/UserPreferences.php:951
 msgid "Display documentation links"
 msgstr "문서 링크 표시"
 
-#: src/Process/Backend/UserPreferences.php:962
+#: src/Process/Backend/UserPreferences.php:955
 msgid "Display Dotclear news"
 msgstr "닷클리어 뉴스 표시"
 
-#: src/Process/Backend/UserPreferences.php:966
+#: src/Process/Backend/UserPreferences.php:959
 msgid "Display quick entry form"
 msgstr "빠른 입력 양식 표시"
 
-#: src/Process/Backend/UserPreferences.php:972
+#: src/Process/Backend/UserPreferences.php:965
 msgid "Do not display Dotclear updates"
 msgstr "도트클리어 업데이트 표시 안 함"
 
-#: src/Process/Backend/UserPreferences.php:985
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Save my dashboard options"
 msgstr "내 대시보드 옵션 저장"
 
-#: src/Process/Backend/UserPreferences.php:992
+#: src/Process/Backend/UserPreferences.php:985
 msgid "Dashboard items order"
 msgstr "대시보드 항목 주문"
 
-#: src/Process/Backend/UserPreferences.php:995
+#: src/Process/Backend/UserPreferences.php:988
 msgid "Reset dashboard items order"
 msgstr "대시보드 항목 순서 재설정"
 

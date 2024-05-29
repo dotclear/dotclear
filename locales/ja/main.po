@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-23 08:40+0200\n"
-"PO-Revision-Date: 2024-04-23 18:58\n"
+"POT-Creation-Date: 2024-05-29 08:42+0200\n"
+"PO-Revision-Date: 2024-05-29 07:20\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -161,7 +161,7 @@ msgstr "削除済みに設定"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:51
 #: src/Core/Backend/Action/ActionsPostsDefault.php:103
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
-#: src/Core/Backend/Listing/ListingMedia.php:203
+#: src/Core/Backend/Listing/ListingMedia.php:224
 #: src/Core/Backend/ModulesList.php:1215 src/Core/Upgrade/PluginsList.php:120
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Langs.php:278
 #: src/Process/Backend/Post.php:803 src/Process/Backend/Users.php:42
@@ -425,7 +425,7 @@ msgstr "親："
 #: src/Core/Backend/ModulesList.php:1785 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1072
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1119
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:921
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:499
@@ -577,7 +577,7 @@ msgid "Number of entries"
 msgstr "エントリ数"
 
 #: src/Core/Backend/Favorites.php:304
-#: src/Process/Backend/UserPreferences.php:817
+#: src/Process/Backend/UserPreferences.php:810
 msgid "My favorites"
 msgstr "お気に入り"
 
@@ -622,7 +622,7 @@ msgstr "カテゴリ"
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
 #: src/Process/Backend/Media.php:461 src/Process/Backend/Media.php:500
-#: src/Process/Backend/MediaItem.php:425 src/Process/Backend/MediaItem.php:431
+#: src/Process/Backend/MediaItem.php:471 src/Process/Backend/MediaItem.php:477
 msgid "Media manager"
 msgstr "メディアマネージャ"
 
@@ -808,17 +808,15 @@ msgid "Display options"
 msgstr "表示オプション"
 
 #: src/Core/Backend/Filter/Filters.php:358
-#: src/Process/Backend/UserPreferences.php:730
 msgid "Order by:"
 msgstr "並び順："
 
 #: src/Core/Backend/Filter/Filters.php:371
-#: src/Process/Backend/UserPreferences.php:735
 msgid "Sort:"
 msgstr "並び替え："
 
 #: src/Core/Backend/Filter/Filters.php:393
-#: src/Process/Backend/UserPreferences.php:740
+#: src/Process/Backend/UserPreferences.php:726
 msgid "Show"
 msgstr "表示"
 
@@ -970,7 +968,7 @@ msgstr "項目"
 #: src/Core/Backend/Listing/ListingPosts.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:170
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:952
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:998
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1088
 msgid "Published"
 msgstr "公開済み"
@@ -980,7 +978,7 @@ msgstr "公開済み"
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:175
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:953
+#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:999
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1093
 msgid "Unpublished"
 msgstr "未公開"
@@ -990,7 +988,7 @@ msgstr "未公開"
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:185
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:955
+#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:1001
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1098
 msgid "Pending"
 msgstr "保留中"
@@ -1061,34 +1059,34 @@ msgstr "名前"
 msgid "Size"
 msgstr "サイズ"
 
-#: src/Core/Backend/Listing/ListingMedia.php:167
-#: src/Core/Backend/Listing/ListingMedia.php:168
+#: src/Core/Backend/Listing/ListingMedia.php:188
+#: src/Core/Backend/Listing/ListingMedia.php:189
 #: src/Process/Backend/Media.php:360
 msgid "Select this file"
 msgstr "このファイルを選択"
 
-#: src/Core/Backend/Listing/ListingMedia.php:177
-#: src/Core/Backend/Listing/ListingMedia.php:183
+#: src/Core/Backend/Listing/ListingMedia.php:198
+#: src/Core/Backend/Listing/ListingMedia.php:204
 #: src/Process/Backend/Media.php:376 src/Process/Backend/Media.php:389
 msgid "Attach this file to entry"
 msgstr "このファイルをエントリに添付"
 
-#: src/Core/Backend/Listing/ListingMedia.php:188
-#: src/Core/Backend/Listing/ListingMedia.php:189
+#: src/Core/Backend/Listing/ListingMedia.php:209
+#: src/Core/Backend/Listing/ListingMedia.php:210
 msgid "Insert this file into entry"
 msgstr "このファイルをエントリへ挿入"
 
-#: src/Core/Backend/Listing/ListingMedia.php:201
+#: src/Core/Backend/Listing/ListingMedia.php:222
 msgid "delete"
 msgstr "削除"
 
-#: src/Core/Backend/Listing/ListingMedia.php:217
-#: src/Core/Backend/Listing/ListingMedia.php:241
+#: src/Core/Backend/Listing/ListingMedia.php:238
+#: src/Core/Backend/Listing/ListingMedia.php:262
 msgid "private media"
 msgstr "プライベートメディア"
 
-#: src/Core/Backend/Listing/ListingMedia.php:224
-#: src/Core/Backend/Listing/ListingMedia.php:249
+#: src/Core/Backend/Listing/ListingMedia.php:245
+#: src/Core/Backend/Listing/ListingMedia.php:270
 msgid "open"
 msgstr "開く"
 
@@ -1125,7 +1123,7 @@ msgstr "トラックバック"
 #: src/Core/Backend/Listing/ListingPosts.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:180
 #: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
-#: src/Process/Backend/MediaItem.php:954 src/Process/Backend/Post.php:477
+#: src/Process/Backend/MediaItem.php:1000 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "スケジュール済み"
 
@@ -1571,11 +1569,11 @@ msgstr "設定 \"%s\""
 #: src/Core/Backend/ModulesList.php:1777 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1113
+#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1160
 #: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:158
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:616
-#: src/Process/Backend/UserPreferences.php:806
-#: src/Process/Backend/UserPreferences.php:986
+#: src/Process/Backend/UserPreferences.php:799
+#: src/Process/Backend/UserPreferences.php:979
 msgid "Back"
 msgstr "戻る"
 
@@ -1620,8 +1618,8 @@ msgid "Go to help"
 msgstr "ヘルプに移動"
 
 #: src/Core/Backend/Page.php:296 src/Core/Upgrade/Page.php:139
-#: src/Process/Backend/UserPreferences.php:812
-#: src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/UserPreferences.php:805
+#: src/Process/Backend/UserPreferences.php:806
 msgid "My dashboard"
 msgstr "自分のダッシュボード"
 
@@ -1941,8 +1939,8 @@ msgid "Choose files"
 msgstr "ファイルの選択"
 
 #: src/Core/Backend/Page.php:1190 src/Process/Backend/LinkPopup.php:73
-#: src/Process/Backend/Media.php:242 src/Process/Backend/MediaItem.php:527
-#: src/Process/Backend/MediaItem.php:738 src/Process/Backend/Post.php:800
+#: src/Process/Backend/Media.php:242 src/Process/Backend/MediaItem.php:573
+#: src/Process/Backend/MediaItem.php:784 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "キャンセル"
@@ -1951,7 +1949,7 @@ msgstr "キャンセル"
 msgid "Clean"
 msgstr "クリア"
 
-#: src/Core/Backend/Page.php:1193 src/Process/Backend/MediaItem.php:1084
+#: src/Core/Backend/Page.php:1193 src/Process/Backend/MediaItem.php:1131
 msgid "Send"
 msgstr "送信"
 
@@ -2444,32 +2442,32 @@ msgstr "about:config \"public_path\" に設定された場所に書き込み可�
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "メディアマネージャーに書き込み可能なルートディレクトリがありません。管理者に問い合わせてください。"
 
-#: src/Core/Media.php:937 src/Core/Media.php:964
+#: src/Core/Media.php:938 src/Core/Media.php:965
 msgid "You are not a super administrator."
 msgstr "あなたは最高管理者ではありません。"
 
-#: src/Core/Media.php:1051 src/Core/Media.php:1141 src/Core/Media.php:1220
-#: src/Core/Media.php:1236 src/Core/Media.php:1254
+#: src/Core/Media.php:1052 src/Core/Media.php:1142 src/Core/Media.php:1221
+#: src/Core/Media.php:1237 src/Core/Media.php:1255
 msgid "Permission denied."
 msgstr "許可されていません。"
 
-#: src/Core/Media.php:1154
+#: src/Core/Media.php:1155
 msgid "You are not the file owner."
 msgstr "あなたはファイルの所有者ではありません。"
 
-#: src/Core/Media.php:1169
+#: src/Core/Media.php:1170
 msgid "This file is not allowed."
 msgstr "このファイルは許可されていません。"
 
-#: src/Core/Media.php:1173
+#: src/Core/Media.php:1174
 msgid "New file already exists."
 msgstr "新しいファイルはすでに存在します。"
 
-#: src/Core/Media.php:1274
+#: src/Core/Media.php:1275
 msgid "File does not exist in the database."
 msgstr "ファイルはデータベースに存在しません。"
 
-#: src/Core/Media.php:1319
+#: src/Core/Media.php:1320
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "展開先のディレクトリ %s はすでに存在します。"
@@ -3143,7 +3141,7 @@ msgstr "新しいパスワードをリクエスト"
 msgid "recover"
 msgstr "回復"
 
-#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:496
+#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:497
 msgid "Other option"
 msgstr "その他のオプション"
 
@@ -3186,23 +3184,23 @@ msgstr "次回から入力を省略"
 msgid "log in"
 msgstr "ログイン"
 
-#: src/Process/Backend/Auth.php:490 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:491 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "プライベートエリアを使用するために、クッキーを受け入れる必要があります。"
 
-#: src/Process/Backend/Auth.php:497
+#: src/Process/Backend/Auth.php:498
 msgid "Get back to normal authentication"
 msgstr "通常の認証に戻る"
 
-#: src/Process/Backend/Auth.php:500
+#: src/Process/Backend/Auth.php:501
 msgid "Connection issue?"
 msgstr "接続の問題？"
 
-#: src/Process/Backend/Auth.php:503
+#: src/Process/Backend/Auth.php:504
 msgid "I forgot my password"
 msgstr "パスワードの再発行"
 
-#: src/Process/Backend/Auth.php:506
+#: src/Process/Backend/Auth.php:507
 msgid "I want to log in in safe mode"
 msgstr "セーフモードでログインしたい"
 
@@ -3319,8 +3317,8 @@ msgid "P"
 msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:997
-#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:663
 msgid "(none)"
 msgstr "(なし)"
 
@@ -3340,37 +3338,37 @@ msgstr "説明、国、日付"
 msgid "Description, City, Country, Date"
 msgstr "説明、都市、国、日付"
 
-#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:514
-#: src/Process/Backend/MediaItem.php:588 src/Process/Backend/MediaItem.php:829
+#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:560
+#: src/Process/Backend/MediaItem.php:634 src/Process/Backend/MediaItem.php:875
 msgid "original"
 msgstr "オリジナル"
 
 #: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
-#: src/Process/Backend/MediaItem.php:612 src/Process/Backend/MediaItem.php:624
-#: src/Process/Backend/MediaItem.php:662 src/Process/Backend/MediaItem.php:706
+#: src/Process/Backend/MediaItem.php:658 src/Process/Backend/MediaItem.php:670
+#: src/Process/Backend/MediaItem.php:708 src/Process/Backend/MediaItem.php:752
 msgid "None"
 msgstr "なし"
 
-#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:625
-#: src/Process/Backend/MediaItem.php:663 src/Process/Backend/MediaItem.php:707
+#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:671
+#: src/Process/Backend/MediaItem.php:709 src/Process/Backend/MediaItem.php:753
 msgid "Left"
 msgstr "左"
 
-#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:626
-#: src/Process/Backend/MediaItem.php:664 src/Process/Backend/MediaItem.php:708
+#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:672
+#: src/Process/Backend/MediaItem.php:710 src/Process/Backend/MediaItem.php:754
 msgid "Right"
 msgstr "右"
 
-#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:627
-#: src/Process/Backend/MediaItem.php:665 src/Process/Backend/MediaItem.php:709
+#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:673
+#: src/Process/Backend/MediaItem.php:711 src/Process/Backend/MediaItem.php:755
 msgid "Center"
 msgstr "中央"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:600
+#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:646
 msgid "Legend and alternate text"
 msgstr "凡例と代替テキスト"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:606
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:652
 msgid "Alternate text"
 msgstr "代替テキスト"
 
@@ -4039,7 +4037,7 @@ msgstr "名前："
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "警告： URLを手作業で設定した場合、別のカテゴリと衝突する可能性があります。"
 
-#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1052
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1099
 msgid "Description:"
 msgstr "説明："
 
@@ -4375,7 +4373,7 @@ msgstr "リンクのタイトル:"
 msgid "Link language:"
 msgstr "リンクの言語："
 
-#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:737
+#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:783
 msgid "Insert"
 msgstr "挿入"
 
@@ -4460,7 +4458,7 @@ msgid "Select files and click on <strong>%s</strong> button"
 msgstr "ファイルを選択し、 <strong>%s</strong> ボタンをクリックしてください"
 
 #: src/Process/Backend/Media.php:367 src/Process/Backend/Media.php:380
-#: src/Process/Backend/Media.php:393 src/Process/Backend/MediaItem.php:753
+#: src/Process/Backend/Media.php:393 src/Process/Backend/MediaItem.php:799
 msgid "or"
 msgstr "または"
 
@@ -4535,12 +4533,13 @@ msgstr "あなたが所有し、著作権によって保護されていないメ
 msgid "Maximum file size allowed:"
 msgstr "許可される最大サイズ："
 
-#: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:976 src/Process/Backend/MediaItem.php:1039
+#: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1086
 msgid "Alternate text:"
 msgstr "代替テキスト"
 
-#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1116
 msgid "Private"
 msgstr "プライベート"
 
@@ -4565,259 +4564,259 @@ msgstr "現在のメディアと画像の設定は %s で定義されていま�
 msgid "Not a valid file"
 msgstr "有効なファイルではありません"
 
-#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:207
-#: src/Process/Backend/MediaItem.php:452
+#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:235
+#: src/Process/Backend/MediaItem.php:498
 msgid "File has been successfully updated."
 msgstr "ファイルは正常に更新されました。"
 
-#: src/Process/Backend/MediaItem.php:224 src/Process/Backend/MediaItem.php:455
+#: src/Process/Backend/MediaItem.php:252 src/Process/Backend/MediaItem.php:501
 msgid "Thumbnails have been successfully updated."
 msgstr "サムネイルは正常に更新されました。"
 
-#: src/Process/Backend/MediaItem.php:241
+#: src/Process/Backend/MediaItem.php:269
 msgid "Zip file has been successfully extracted."
 msgstr "zipファイルは正常に展開されました。"
 
-#: src/Process/Backend/MediaItem.php:271 src/Process/Backend/MediaItem.php:458
+#: src/Process/Backend/MediaItem.php:299 src/Process/Backend/MediaItem.php:504
 msgid "Default media insertion settings have been successfully updated."
 msgstr "既定のメディア挿入設定が更新されました。"
 
-#: src/Process/Backend/MediaItem.php:297
+#: src/Process/Backend/MediaItem.php:325
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "メディア挿入設定が正常にこのフォルダに登録されました。"
 
-#: src/Process/Backend/MediaItem.php:308
+#: src/Process/Backend/MediaItem.php:336
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "メディア挿入設定が正常に削除されました。"
 
-#: src/Process/Backend/MediaItem.php:487 src/Process/Backend/MediaItem.php:488
+#: src/Process/Backend/MediaItem.php:533 src/Process/Backend/MediaItem.php:534
 msgid "Select media item"
 msgstr "メディア項目を選択"
 
-#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:574
+#: src/Process/Backend/MediaItem.php:545 src/Process/Backend/MediaItem.php:620
 msgid "Image size:"
 msgstr "画像サイズ："
 
-#: src/Process/Backend/MediaItem.php:526 src/Process/Upgrade/Attic.php:302
+#: src/Process/Backend/MediaItem.php:572 src/Process/Upgrade/Attic.php:302
 msgid "Select"
 msgstr "選択"
 
-#: src/Process/Backend/MediaItem.php:561 src/Process/Backend/MediaItem.php:562
+#: src/Process/Backend/MediaItem.php:607 src/Process/Backend/MediaItem.php:608
 msgid "Insert media item"
 msgstr "メディアアイテムの挿入"
 
-#: src/Process/Backend/MediaItem.php:593
+#: src/Process/Backend/MediaItem.php:639
 msgid "Image legend and alternate text"
 msgstr "画像の凡例と代替テキスト"
 
-#: src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/MediaItem.php:663
 msgid "Legend:"
 msgstr "凡例:"
 
-#: src/Process/Backend/MediaItem.php:622
+#: src/Process/Backend/MediaItem.php:668
 msgid "Image alignment"
 msgstr "画像の配置"
 
-#: src/Process/Backend/MediaItem.php:642
+#: src/Process/Backend/MediaItem.php:688
 msgid "Image insertion"
 msgstr "画像の挿入"
 
-#: src/Process/Backend/MediaItem.php:645
+#: src/Process/Backend/MediaItem.php:691
 msgid "As a single image"
 msgstr "単独の画像として"
 
-#: src/Process/Backend/MediaItem.php:647
+#: src/Process/Backend/MediaItem.php:693
 msgid "As a link to the original image"
 msgstr "オリジナル画像へのリンク"
 
-#: src/Process/Backend/MediaItem.php:655
+#: src/Process/Backend/MediaItem.php:701
 msgid "MP3 disposition"
 msgstr "MP3 の配置"
 
-#: src/Process/Backend/MediaItem.php:658
+#: src/Process/Backend/MediaItem.php:704
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "WYSIWYG HTMLモードの標準エディタでは、mp3ファイルを挿入できませんのでご注意ください。"
 
-#: src/Process/Backend/MediaItem.php:688
+#: src/Process/Backend/MediaItem.php:734
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "WYSIWYG HTMLモードの標準エディタでは、動画ファイルを挿入できませんのでご注意ください。"
 
-#: src/Process/Backend/MediaItem.php:693
+#: src/Process/Backend/MediaItem.php:739
 msgid "Video size"
 msgstr "ビデオサイズ"
 
-#: src/Process/Backend/MediaItem.php:694
+#: src/Process/Backend/MediaItem.php:740
 msgid "Width:"
 msgstr "幅："
 
-#: src/Process/Backend/MediaItem.php:696
+#: src/Process/Backend/MediaItem.php:742
 msgid "Height:"
 msgstr "高さ："
 
-#: src/Process/Backend/MediaItem.php:703
+#: src/Process/Backend/MediaItem.php:749
 msgid "Video disposition"
 msgstr "ビデオの配置"
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:778
 msgid "Media item will be inserted as a link."
 msgstr "メディアアイテムはリンクとして挿入されます。"
 
-#: src/Process/Backend/MediaItem.php:752
+#: src/Process/Backend/MediaItem.php:798
 msgid "Make current settings as default"
 msgstr "現在の設定をデフォルトにする"
 
-#: src/Process/Backend/MediaItem.php:753
+#: src/Process/Backend/MediaItem.php:799
 msgid "For the blog"
 msgstr "ブログ用"
 
-#: src/Process/Backend/MediaItem.php:754
+#: src/Process/Backend/MediaItem.php:800
 msgid "For this folder only"
 msgstr "このフォルダのみ"
 
-#: src/Process/Backend/MediaItem.php:763
+#: src/Process/Backend/MediaItem.php:809
 msgid "Settings exist for this folder:"
 msgstr "設定はこのフォルダに存在します:"
 
-#: src/Process/Backend/MediaItem.php:764
+#: src/Process/Backend/MediaItem.php:810
 msgid "Remove them"
 msgstr "削除する"
 
-#: src/Process/Backend/MediaItem.php:783 src/Process/Backend/MediaItem.php:786
-#: src/Process/Backend/MediaItem.php:867
+#: src/Process/Backend/MediaItem.php:829 src/Process/Backend/MediaItem.php:832
+#: src/Process/Backend/MediaItem.php:913
 msgid "Media details"
 msgstr "メディアの詳細"
 
-#: src/Process/Backend/MediaItem.php:818
+#: src/Process/Backend/MediaItem.php:864
 msgid "Available sizes:"
 msgstr "利用可能なサイズ："
 
-#: src/Process/Backend/MediaItem.php:839
+#: src/Process/Backend/MediaItem.php:885
 msgid "Thumbnail details"
 msgstr "Thumbnail details"
 
-#: src/Process/Backend/MediaItem.php:844 src/Process/Backend/MediaItem.php:881
-#: src/Process/Backend/MediaItem.php:892
+#: src/Process/Backend/MediaItem.php:890 src/Process/Backend/MediaItem.php:927
+#: src/Process/Backend/MediaItem.php:938
 msgid "Image width:"
 msgstr "画像の幅:"
 
-#: src/Process/Backend/MediaItem.php:845 src/Process/Backend/MediaItem.php:885
-#: src/Process/Backend/MediaItem.php:893
+#: src/Process/Backend/MediaItem.php:891 src/Process/Backend/MediaItem.php:931
+#: src/Process/Backend/MediaItem.php:939
 msgid "Image height:"
 msgstr "画像の高さ:"
 
-#: src/Process/Backend/MediaItem.php:849 src/Process/Backend/MediaItem.php:898
+#: src/Process/Backend/MediaItem.php:895 src/Process/Backend/MediaItem.php:944
 msgid "File size:"
 msgstr "ファイルサイズ："
 
-#: src/Process/Backend/MediaItem.php:852 src/Process/Backend/MediaItem.php:899
+#: src/Process/Backend/MediaItem.php:898 src/Process/Backend/MediaItem.php:945
 msgid "File URL:"
 msgstr "ファイルのURL："
 
-#: src/Process/Backend/MediaItem.php:869
+#: src/Process/Backend/MediaItem.php:915
 msgid "File owner:"
 msgstr "ファイルの所有者："
 
-#: src/Process/Backend/MediaItem.php:870
+#: src/Process/Backend/MediaItem.php:916
 msgid "File type:"
 msgstr "ファイルタイプ："
 
-#: src/Process/Backend/MediaItem.php:905
+#: src/Process/Backend/MediaItem.php:951
 msgid "Show entries containing this media"
 msgstr "このメディアを含んでいるエントリを表示"
 
-#: src/Process/Backend/MediaItem.php:908
+#: src/Process/Backend/MediaItem.php:954
 msgid "Entries containing this media"
 msgstr "このメディアを含むエントリ"
 
-#: src/Process/Backend/MediaItem.php:945
+#: src/Process/Backend/MediaItem.php:991
 msgid "No entry seems contain this media."
 msgstr "このメディアを含むエントリはありません。"
 
-#: src/Process/Backend/MediaItem.php:972
+#: src/Process/Backend/MediaItem.php:1018
 msgid "Image details"
 msgstr "画像の詳細"
 
-#: src/Process/Backend/MediaItem.php:981
+#: src/Process/Backend/MediaItem.php:1028
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:990
+#: src/Process/Backend/MediaItem.php:1037
 msgid "No detail"
 msgstr "詳細はありません"
 
-#: src/Process/Backend/MediaItem.php:997
+#: src/Process/Backend/MediaItem.php:1044
 msgid "Updates and modifications"
 msgstr "更新と変更"
 
-#: src/Process/Backend/MediaItem.php:1003
-#: src/Process/Backend/MediaItem.php:1005
+#: src/Process/Backend/MediaItem.php:1050
+#: src/Process/Backend/MediaItem.php:1052
 msgid "Update thumbnails"
 msgstr "サムネイルの更新"
 
-#: src/Process/Backend/MediaItem.php:1004
+#: src/Process/Backend/MediaItem.php:1051
 msgid "This will create or update thumbnails for this image."
 msgstr "この画像のサムネイルを作成または更新します"
 
-#: src/Process/Backend/MediaItem.php:1013
-#: src/Process/Backend/MediaItem.php:1021
+#: src/Process/Backend/MediaItem.php:1060
+#: src/Process/Backend/MediaItem.php:1068
 msgid "Extract in a new directory"
 msgstr "新規ディレクトリに展開"
 
-#: src/Process/Backend/MediaItem.php:1014
-#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1061
+#: src/Process/Backend/MediaItem.php:1070
 msgid "Extract in current directory"
 msgstr "現在のディレクトリに展開"
 
-#: src/Process/Backend/MediaItem.php:1019
+#: src/Process/Backend/MediaItem.php:1066
 msgid "Extract archive"
 msgstr "アーカイブの展開"
 
-#: src/Process/Backend/MediaItem.php:1022
+#: src/Process/Backend/MediaItem.php:1069
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "これは、まだ存在しないはずの新しいディレクトリにアーカイブを抽出します。"
 
-#: src/Process/Backend/MediaItem.php:1024
+#: src/Process/Backend/MediaItem.php:1071
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "現在のディレクトリにアーカイブを展開し、既存のファイルやディレクトリを上書きします。"
 
-#: src/Process/Backend/MediaItem.php:1026
+#: src/Process/Backend/MediaItem.php:1073
 msgid "Extract mode:"
 msgstr "展開モード："
 
-#: src/Process/Backend/MediaItem.php:1028
+#: src/Process/Backend/MediaItem.php:1075
 msgid "Extract"
 msgstr "抽出"
 
-#: src/Process/Backend/MediaItem.php:1036
+#: src/Process/Backend/MediaItem.php:1083
 msgid "Change media properties"
 msgstr "メディアプロパティの変更"
 
-#: src/Process/Backend/MediaItem.php:1037
+#: src/Process/Backend/MediaItem.php:1084
 msgid "File name:"
 msgstr "ファイル名："
 
-#: src/Process/Backend/MediaItem.php:1062
+#: src/Process/Backend/MediaItem.php:1109
 msgid "File date:"
 msgstr "ファイルの日付："
 
-#: src/Process/Backend/MediaItem.php:1070
+#: src/Process/Backend/MediaItem.php:1117
 msgid "New directory:"
 msgstr "新しいディレクトリ："
 
-#: src/Process/Backend/MediaItem.php:1078
+#: src/Process/Backend/MediaItem.php:1125
 msgid "Change file"
 msgstr "ファイルの変更"
 
-#: src/Process/Backend/MediaItem.php:1080
+#: src/Process/Backend/MediaItem.php:1127
 msgid "Choose a file:"
 msgstr "ファイルを選択："
 
-#: src/Process/Backend/MediaItem.php:1081
+#: src/Process/Backend/MediaItem.php:1128
 #, php-format
 msgid "Maximum size %s"
 msgstr "最大サイズ %s"
 
-#: src/Process/Backend/MediaItem.php:1092
+#: src/Process/Backend/MediaItem.php:1139
 msgid "Delete this media"
 msgstr "このメディアを削除"
 
@@ -5401,19 +5400,19 @@ msgstr "インターフェイス"
 msgid "Timezone:"
 msgstr "Timezone:"
 
-#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:752
+#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:745
 msgid "Edition"
 msgstr "版"
 
-#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:766
+#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:759
 msgid "Preferred format:"
 msgstr "優先書式"
 
-#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:769
+#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:762
 msgid "Default entry status:"
 msgstr "デフォルトのエントリ状態："
 
-#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:772
+#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:765
 msgid "Entry edit field height:"
 msgstr "エントリ編集フィールドの高さ"
 
@@ -5650,121 +5649,133 @@ msgstr "リストのオプション"
 msgid "Apply filters on the fly"
 msgstr "その場でフィルターを適用する"
 
-#: src/Process/Backend/UserPreferences.php:757
+#: src/Process/Backend/UserPreferences.php:723
+msgid "List"
+msgstr "リスト"
+
+#: src/Process/Backend/UserPreferences.php:724
+msgid "Order by"
+msgstr "並び順"
+
+#: src/Process/Backend/UserPreferences.php:725
+msgid "Sort"
+msgstr "並べ替え"
+
+#: src/Process/Backend/UserPreferences.php:750
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "%s の優先エディタ"
 
-#: src/Process/Backend/UserPreferences.php:760
+#: src/Process/Backend/UserPreferences.php:753
 msgid "Choose an editor"
 msgstr "エディタを選択"
 
-#: src/Process/Backend/UserPreferences.php:777
+#: src/Process/Backend/UserPreferences.php:770
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG モードの有効化"
 
-#: src/Process/Backend/UserPreferences.php:781
+#: src/Process/Backend/UserPreferences.php:774
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "テキストエリアの下部にエディタのツールバーを表示します (可能な場合)"
 
-#: src/Process/Backend/UserPreferences.php:787
+#: src/Process/Backend/UserPreferences.php:780
 msgid "Use HTML editor for:"
 msgstr "次のHTMLエディタを使用:"
 
-#: src/Process/Backend/UserPreferences.php:797
+#: src/Process/Backend/UserPreferences.php:790
 msgid "Other options"
 msgstr "その他のオプション"
 
-#: src/Process/Backend/UserPreferences.php:805
+#: src/Process/Backend/UserPreferences.php:798
 msgid "Save my options"
 msgstr "オプションを保存"
 
-#: src/Process/Backend/UserPreferences.php:844
+#: src/Process/Backend/UserPreferences.php:837
 #, php-format
 msgid "position of %s"
 msgstr "%s の位置"
 
-#: src/Process/Backend/UserPreferences.php:861
+#: src/Process/Backend/UserPreferences.php:854
 msgid "Save order"
 msgstr "順序を保存"
 
-#: src/Process/Backend/UserPreferences.php:864
+#: src/Process/Backend/UserPreferences.php:857
 msgid "Delete selected favorites"
 msgstr "選択したお気に入りを削除"
 
-#: src/Process/Backend/UserPreferences.php:866
+#: src/Process/Backend/UserPreferences.php:859
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "お気に入りを削除してもよろしいですか？"
 
-#: src/Process/Backend/UserPreferences.php:871
+#: src/Process/Backend/UserPreferences.php:864
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "スーパー管理者であれば、このインストールのすべてのブログでデフォルトで使用されるお気に入りのセットを定義することができます。"
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:865
 msgid "Define as default favorites"
 msgstr "既定のお気に入りとして定義"
 
-#: src/Process/Backend/UserPreferences.php:879
+#: src/Process/Backend/UserPreferences.php:872
 msgid "Currently no personal favorites."
 msgstr "現在個人のお気に入りはありません。"
 
-#: src/Process/Backend/UserPreferences.php:893
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Other available favorites"
 msgstr "他の利用可能なお気に入り"
 
-#: src/Process/Backend/UserPreferences.php:921
+#: src/Process/Backend/UserPreferences.php:914
 msgid "(default favorite)"
 msgstr "(既定のお気に入り)"
 
-#: src/Process/Backend/UserPreferences.php:932
+#: src/Process/Backend/UserPreferences.php:925
 msgid "Add to my favorites"
 msgstr "お気に入りに追加"
 
-#: src/Process/Backend/UserPreferences.php:941
+#: src/Process/Backend/UserPreferences.php:934
 msgid "Menu"
 msgstr "メニュー"
 
-#: src/Process/Backend/UserPreferences.php:944
+#: src/Process/Backend/UserPreferences.php:937
 msgid "Display favorites at the top of the menu"
 msgstr "メニューの上部にお気に入りを表示する"
 
-#: src/Process/Backend/UserPreferences.php:947
+#: src/Process/Backend/UserPreferences.php:940
 msgid "Dashboard icons"
 msgstr "ダッシュボードのアイコン"
 
-#: src/Process/Backend/UserPreferences.php:950
+#: src/Process/Backend/UserPreferences.php:943
 msgid "Display dashboard icons"
 msgstr "ダッシュボードアイコンを表示"
 
-#: src/Process/Backend/UserPreferences.php:954
+#: src/Process/Backend/UserPreferences.php:947
 msgid "Dashboard modules"
 msgstr "ダッシュボードモジュール"
 
-#: src/Process/Backend/UserPreferences.php:958
+#: src/Process/Backend/UserPreferences.php:951
 msgid "Display documentation links"
 msgstr "ドキュメントのリンクを表示"
 
-#: src/Process/Backend/UserPreferences.php:962
+#: src/Process/Backend/UserPreferences.php:955
 msgid "Display Dotclear news"
 msgstr "Dotclear ニュースを表示"
 
-#: src/Process/Backend/UserPreferences.php:966
+#: src/Process/Backend/UserPreferences.php:959
 msgid "Display quick entry form"
 msgstr "クイック入力フォームを表示"
 
-#: src/Process/Backend/UserPreferences.php:972
+#: src/Process/Backend/UserPreferences.php:965
 msgid "Do not display Dotclear updates"
 msgstr "Dotclear の更新を表示しない"
 
-#: src/Process/Backend/UserPreferences.php:985
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Save my dashboard options"
 msgstr "ダッシュボードのオプションを保存"
 
-#: src/Process/Backend/UserPreferences.php:992
+#: src/Process/Backend/UserPreferences.php:985
 msgid "Dashboard items order"
 msgstr "ダッシュボードのアイテムの順序"
 
-#: src/Process/Backend/UserPreferences.php:995
+#: src/Process/Backend/UserPreferences.php:988
 msgid "Reset dashboard items order"
 msgstr "ダッシュボードアイテムの順序をリセット"
 

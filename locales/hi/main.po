@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-23 08:40+0200\n"
-"PO-Revision-Date: 2024-04-23 18:33\n"
+"POT-Creation-Date: 2024-05-29 08:42+0200\n"
+"PO-Revision-Date: 2024-05-29 06:47\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -161,7 +161,7 @@ msgstr "के रूप में सेट करें"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:51
 #: src/Core/Backend/Action/ActionsPostsDefault.php:103
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
-#: src/Core/Backend/Listing/ListingMedia.php:203
+#: src/Core/Backend/Listing/ListingMedia.php:224
 #: src/Core/Backend/ModulesList.php:1215 src/Core/Upgrade/PluginsList.php:120
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Langs.php:278
 #: src/Process/Backend/Post.php:803 src/Process/Backend/Users.php:42
@@ -432,7 +432,7 @@ msgstr "जनक:"
 #: src/Core/Backend/ModulesList.php:1785 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1072
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1119
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:921
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:499
@@ -586,7 +586,7 @@ msgid "Number of entries"
 msgstr "प्रविष्टियों की संख्या"
 
 #: src/Core/Backend/Favorites.php:304
-#: src/Process/Backend/UserPreferences.php:817
+#: src/Process/Backend/UserPreferences.php:810
 msgid "My favorites"
 msgstr "मेरा पसंदीदा"
 
@@ -633,7 +633,7 @@ msgstr "श्रेणीः"
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
 #: src/Process/Backend/Media.php:461 src/Process/Backend/Media.php:500
-#: src/Process/Backend/MediaItem.php:425 src/Process/Backend/MediaItem.php:431
+#: src/Process/Backend/MediaItem.php:471 src/Process/Backend/MediaItem.php:477
 msgid "Media manager"
 msgstr "मीडिया प्रबंधक"
 
@@ -819,17 +819,15 @@ msgid "Display options"
 msgstr "प्रदर्शक विकल्प"
 
 #: src/Core/Backend/Filter/Filters.php:358
-#: src/Process/Backend/UserPreferences.php:730
 msgid "Order by:"
 msgstr "द्वारा आदेश:"
 
 #: src/Core/Backend/Filter/Filters.php:371
-#: src/Process/Backend/UserPreferences.php:735
 msgid "Sort:"
 msgstr "छांटें:"
 
 #: src/Core/Backend/Filter/Filters.php:393
-#: src/Process/Backend/UserPreferences.php:740
+#: src/Process/Backend/UserPreferences.php:726
 msgid "Show"
 msgstr "दिखाएँ"
 
@@ -987,7 +985,7 @@ msgstr "प्रविष्टि"
 #: src/Core/Backend/Listing/ListingPosts.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:170
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:952
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:998
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1088
 msgid "Published"
 msgstr "प्रकाशित"
@@ -997,7 +995,7 @@ msgstr "प्रकाशित"
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:175
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:953
+#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:999
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1093
 msgid "Unpublished"
 msgstr "अप्रकाशित"
@@ -1007,7 +1005,7 @@ msgstr "अप्रकाशित"
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:185
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:955
+#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:1001
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1098
 msgid "Pending"
 msgstr "लंबित"
@@ -1079,34 +1077,34 @@ msgstr "नाम"
 msgid "Size"
 msgstr "आकार"
 
-#: src/Core/Backend/Listing/ListingMedia.php:167
-#: src/Core/Backend/Listing/ListingMedia.php:168
+#: src/Core/Backend/Listing/ListingMedia.php:188
+#: src/Core/Backend/Listing/ListingMedia.php:189
 #: src/Process/Backend/Media.php:360
 msgid "Select this file"
 msgstr "इस फ़ाइल को चुनें"
 
-#: src/Core/Backend/Listing/ListingMedia.php:177
-#: src/Core/Backend/Listing/ListingMedia.php:183
+#: src/Core/Backend/Listing/ListingMedia.php:198
+#: src/Core/Backend/Listing/ListingMedia.php:204
 #: src/Process/Backend/Media.php:376 src/Process/Backend/Media.php:389
 msgid "Attach this file to entry"
 msgstr "इस फ़ाइल को प्रविष्टि में संलग्न करें"
 
-#: src/Core/Backend/Listing/ListingMedia.php:188
-#: src/Core/Backend/Listing/ListingMedia.php:189
+#: src/Core/Backend/Listing/ListingMedia.php:209
+#: src/Core/Backend/Listing/ListingMedia.php:210
 msgid "Insert this file into entry"
 msgstr "इस फ़ाइल को प्रविष्टि में डालें"
 
-#: src/Core/Backend/Listing/ListingMedia.php:201
+#: src/Core/Backend/Listing/ListingMedia.php:222
 msgid "delete"
 msgstr "मिटाना"
 
-#: src/Core/Backend/Listing/ListingMedia.php:217
-#: src/Core/Backend/Listing/ListingMedia.php:241
+#: src/Core/Backend/Listing/ListingMedia.php:238
+#: src/Core/Backend/Listing/ListingMedia.php:262
 msgid "private media"
 msgstr "निजी मीडिया"
 
-#: src/Core/Backend/Listing/ListingMedia.php:224
-#: src/Core/Backend/Listing/ListingMedia.php:249
+#: src/Core/Backend/Listing/ListingMedia.php:245
+#: src/Core/Backend/Listing/ListingMedia.php:270
 msgid "open"
 msgstr "खुला"
 
@@ -1144,7 +1142,7 @@ msgstr "ट्रेकबैक"
 #: src/Core/Backend/Listing/ListingPosts.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:180
 #: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
-#: src/Process/Backend/MediaItem.php:954 src/Process/Backend/Post.php:477
+#: src/Process/Backend/MediaItem.php:1000 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "अनुसूचित"
 
@@ -1598,11 +1596,11 @@ msgstr ""
 #: src/Core/Backend/ModulesList.php:1777 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1113
+#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1160
 #: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:158
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:616
-#: src/Process/Backend/UserPreferences.php:806
-#: src/Process/Backend/UserPreferences.php:986
+#: src/Process/Backend/UserPreferences.php:799
+#: src/Process/Backend/UserPreferences.php:979
 msgid "Back"
 msgstr "पीछे"
 
@@ -1647,8 +1645,8 @@ msgid "Go to help"
 msgstr "मदद करने के लिए जाओ"
 
 #: src/Core/Backend/Page.php:296 src/Core/Upgrade/Page.php:139
-#: src/Process/Backend/UserPreferences.php:812
-#: src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/UserPreferences.php:805
+#: src/Process/Backend/UserPreferences.php:806
 msgid "My dashboard"
 msgstr "मेरा डैशबोर्ड"
 
@@ -1968,8 +1966,8 @@ msgid "Choose files"
 msgstr "फ़ाइल चुनें"
 
 #: src/Core/Backend/Page.php:1190 src/Process/Backend/LinkPopup.php:73
-#: src/Process/Backend/Media.php:242 src/Process/Backend/MediaItem.php:527
-#: src/Process/Backend/MediaItem.php:738 src/Process/Backend/Post.php:800
+#: src/Process/Backend/Media.php:242 src/Process/Backend/MediaItem.php:573
+#: src/Process/Backend/MediaItem.php:784 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "रद्द करें"
@@ -1978,7 +1976,7 @@ msgstr "रद्द करें"
 msgid "Clean"
 msgstr "स्वच्छ"
 
-#: src/Core/Backend/Page.php:1193 src/Process/Backend/MediaItem.php:1084
+#: src/Core/Backend/Page.php:1193 src/Process/Backend/MediaItem.php:1131
 msgid "Send"
 msgstr "भेजें"
 
@@ -2477,32 +2475,32 @@ msgstr "वहाँ कोई लिखने योग्य निर्द�
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "मीडिया प्रबंधक के लिए कोई लिखने योग्य रूट निर्देशिका नहीं है. आप अपने व्यवस्थापक से संपर्क करना चाहिए."
 
-#: src/Core/Media.php:937 src/Core/Media.php:964
+#: src/Core/Media.php:938 src/Core/Media.php:965
 msgid "You are not a super administrator."
 msgstr "आप एक सुपर व्यवस्थापक नहीं हैं."
 
-#: src/Core/Media.php:1051 src/Core/Media.php:1141 src/Core/Media.php:1220
-#: src/Core/Media.php:1236 src/Core/Media.php:1254
+#: src/Core/Media.php:1052 src/Core/Media.php:1142 src/Core/Media.php:1221
+#: src/Core/Media.php:1237 src/Core/Media.php:1255
 msgid "Permission denied."
 msgstr "अनुमति अस्वीकृत."
 
-#: src/Core/Media.php:1154
+#: src/Core/Media.php:1155
 msgid "You are not the file owner."
 msgstr "आप फ़ाइल मालिक नहीं कर रहे हैं."
 
-#: src/Core/Media.php:1169
+#: src/Core/Media.php:1170
 msgid "This file is not allowed."
 msgstr "इस फ़ाइल की अनुमति नहीं है."
 
-#: src/Core/Media.php:1173
+#: src/Core/Media.php:1174
 msgid "New file already exists."
 msgstr "नया फ़ाइल पहले से मौजूद है."
 
-#: src/Core/Media.php:1274
+#: src/Core/Media.php:1275
 msgid "File does not exist in the database."
 msgstr "फ़ाइल डेटाबेस में मौजूद नहीं है."
 
-#: src/Core/Media.php:1319
+#: src/Core/Media.php:1320
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr ""
@@ -3175,7 +3173,7 @@ msgstr "नया पासवर्ड निवेदित करें"
 msgid "recover"
 msgstr "ठीक होना"
 
-#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:496
+#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:497
 msgid "Other option"
 msgstr "अन्य विकल्प"
 
@@ -3218,23 +3216,23 @@ msgstr "इस उपकरण पर मेरे आईडी याद रख
 msgid "log in"
 msgstr "लॉग इन"
 
-#: src/Process/Backend/Auth.php:490 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:491 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "निजी क्षेत्र का उपयोग करने के लिए आपको कुकीज़ को स्वीकार करना होगा."
 
-#: src/Process/Backend/Auth.php:497
+#: src/Process/Backend/Auth.php:498
 msgid "Get back to normal authentication"
 msgstr "सामान्य सत्यापन के लिए वापस जाओ"
 
-#: src/Process/Backend/Auth.php:500
+#: src/Process/Backend/Auth.php:501
 msgid "Connection issue?"
 msgstr "कनेक्शन मुद्दा?"
 
-#: src/Process/Backend/Auth.php:503
+#: src/Process/Backend/Auth.php:504
 msgid "I forgot my password"
 msgstr "मैं अपना पासवर्ड भूल गया"
 
-#: src/Process/Backend/Auth.php:506
+#: src/Process/Backend/Auth.php:507
 msgid "I want to log in in safe mode"
 msgstr "मैं सुरक्षित मोड में लॉग करना चाहते हैं"
 
@@ -3351,8 +3349,8 @@ msgid "P"
 msgstr "पी"
 
 #: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:997
-#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:663
 msgid "(none)"
 msgstr "(कोई नहीं)"
 
@@ -3372,37 +3370,37 @@ msgstr "विवरण, देश, दिनांक"
 msgid "Description, City, Country, Date"
 msgstr "विवरण, शहर, देश, दिनांक"
 
-#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:514
-#: src/Process/Backend/MediaItem.php:588 src/Process/Backend/MediaItem.php:829
+#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:560
+#: src/Process/Backend/MediaItem.php:634 src/Process/Backend/MediaItem.php:875
 msgid "original"
 msgstr "मूल"
 
 #: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
-#: src/Process/Backend/MediaItem.php:612 src/Process/Backend/MediaItem.php:624
-#: src/Process/Backend/MediaItem.php:662 src/Process/Backend/MediaItem.php:706
+#: src/Process/Backend/MediaItem.php:658 src/Process/Backend/MediaItem.php:670
+#: src/Process/Backend/MediaItem.php:708 src/Process/Backend/MediaItem.php:752
 msgid "None"
 msgstr "कुछ नहीं"
 
-#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:625
-#: src/Process/Backend/MediaItem.php:663 src/Process/Backend/MediaItem.php:707
+#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:671
+#: src/Process/Backend/MediaItem.php:709 src/Process/Backend/MediaItem.php:753
 msgid "Left"
 msgstr "बायाँ"
 
-#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:626
-#: src/Process/Backend/MediaItem.php:664 src/Process/Backend/MediaItem.php:708
+#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:672
+#: src/Process/Backend/MediaItem.php:710 src/Process/Backend/MediaItem.php:754
 msgid "Right"
 msgstr "दाहिना"
 
-#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:627
-#: src/Process/Backend/MediaItem.php:665 src/Process/Backend/MediaItem.php:709
+#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:673
+#: src/Process/Backend/MediaItem.php:711 src/Process/Backend/MediaItem.php:755
 msgid "Center"
 msgstr "केंद्र"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:600
+#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:646
 msgid "Legend and alternate text"
 msgstr "किंवदंती और वैकल्पिक पाठ"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:606
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:652
 msgid "Alternate text"
 msgstr "वैकल्पिक पाठ"
 
@@ -4072,7 +4070,7 @@ msgstr "नाम:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "चेतावनी: यदि आप URL को दस्ती रूप से स्थापित करते हैं, यह किसी अन्य श्रेणी के साथ संघर्ष कर सकता है."
 
-#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1052
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1099
 msgid "Description:"
 msgstr "वर्णन:"
 
@@ -4406,7 +4404,7 @@ msgstr "लिंक शीर्षक:"
 msgid "Link language:"
 msgstr "लिंक भाषा:"
 
-#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:737
+#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:783
 msgid "Insert"
 msgstr "प्रविष्ट करें"
 
@@ -4492,7 +4490,7 @@ msgid "Select files and click on <strong>%s</strong> button"
 msgstr ""
 
 #: src/Process/Backend/Media.php:367 src/Process/Backend/Media.php:380
-#: src/Process/Backend/Media.php:393 src/Process/Backend/MediaItem.php:753
+#: src/Process/Backend/Media.php:393 src/Process/Backend/MediaItem.php:799
 msgid "or"
 msgstr "या"
 
@@ -4567,12 +4565,13 @@ msgstr "कृपया मीडिया को प्रकाशित क�
 msgid "Maximum file size allowed:"
 msgstr "अधिकतम फ़ाइल आकार अनुमतिः"
 
-#: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:976 src/Process/Backend/MediaItem.php:1039
+#: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1086
 msgid "Alternate text:"
 msgstr "वैकल्पिक पाठः"
 
-#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1116
 msgid "Private"
 msgstr "निजी"
 
@@ -4597,259 +4596,259 @@ msgstr ""
 msgid "Not a valid file"
 msgstr "कोई वैध फ़ाइल नहीं"
 
-#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:207
-#: src/Process/Backend/MediaItem.php:452
+#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:235
+#: src/Process/Backend/MediaItem.php:498
 msgid "File has been successfully updated."
 msgstr "फ़ाइल को सफलतापूर्वक अद्यतन किया गया है."
 
-#: src/Process/Backend/MediaItem.php:224 src/Process/Backend/MediaItem.php:455
+#: src/Process/Backend/MediaItem.php:252 src/Process/Backend/MediaItem.php:501
 msgid "Thumbnails have been successfully updated."
 msgstr "थंबनेल को सफलतापूर्वक अद्यतन किया गया है."
 
-#: src/Process/Backend/MediaItem.php:241
+#: src/Process/Backend/MediaItem.php:269
 msgid "Zip file has been successfully extracted."
 msgstr "ज़िप फ़ाइल को सफलतापूर्वक निकाला गया है."
 
-#: src/Process/Backend/MediaItem.php:271 src/Process/Backend/MediaItem.php:458
+#: src/Process/Backend/MediaItem.php:299 src/Process/Backend/MediaItem.php:504
 msgid "Default media insertion settings have been successfully updated."
 msgstr "डिफ़ॉल्ट मीडिया प्रविष्टि सेटिंग्स सफलतापूर्वक अद्यतन किया गया है."
 
-#: src/Process/Backend/MediaItem.php:297
+#: src/Process/Backend/MediaItem.php:325
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "इस फ़ोल्डर के लिए मीडिया प्रविष्टि विन्यास सफलतापूर्वक पंजीकृत किया गया है."
 
-#: src/Process/Backend/MediaItem.php:308
+#: src/Process/Backend/MediaItem.php:336
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "इस फ़ोल्डर के लिए मीडिया प्रविष्टि विन्यास सफलतापूर्वक हटा दिया गया है."
 
-#: src/Process/Backend/MediaItem.php:487 src/Process/Backend/MediaItem.php:488
+#: src/Process/Backend/MediaItem.php:533 src/Process/Backend/MediaItem.php:534
 msgid "Select media item"
 msgstr "मीडिया मद चुनें"
 
-#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:574
+#: src/Process/Backend/MediaItem.php:545 src/Process/Backend/MediaItem.php:620
 msgid "Image size:"
 msgstr "छवि आकार:"
 
-#: src/Process/Backend/MediaItem.php:526 src/Process/Upgrade/Attic.php:302
+#: src/Process/Backend/MediaItem.php:572 src/Process/Upgrade/Attic.php:302
 msgid "Select"
 msgstr "चुनें"
 
-#: src/Process/Backend/MediaItem.php:561 src/Process/Backend/MediaItem.php:562
+#: src/Process/Backend/MediaItem.php:607 src/Process/Backend/MediaItem.php:608
 msgid "Insert media item"
 msgstr "मीडिया मद प्रविष्ट करें"
 
-#: src/Process/Backend/MediaItem.php:593
+#: src/Process/Backend/MediaItem.php:639
 msgid "Image legend and alternate text"
 msgstr "छवि किंवदंती और वैकल्पिक पाठ"
 
-#: src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/MediaItem.php:663
 msgid "Legend:"
 msgstr "किंवदंती:"
 
-#: src/Process/Backend/MediaItem.php:622
+#: src/Process/Backend/MediaItem.php:668
 msgid "Image alignment"
 msgstr "छवि संरेखण"
 
-#: src/Process/Backend/MediaItem.php:642
+#: src/Process/Backend/MediaItem.php:688
 msgid "Image insertion"
 msgstr "छवि प्रविष्टि"
 
-#: src/Process/Backend/MediaItem.php:645
+#: src/Process/Backend/MediaItem.php:691
 msgid "As a single image"
 msgstr "एकल छवि के रूप में"
 
-#: src/Process/Backend/MediaItem.php:647
+#: src/Process/Backend/MediaItem.php:693
 msgid "As a link to the original image"
 msgstr "मूल छवि के लिए एक कड़ी के रूप में"
 
-#: src/Process/Backend/MediaItem.php:655
+#: src/Process/Backend/MediaItem.php:701
 msgid "MP3 disposition"
 msgstr "MP3 प्रवृत्ति"
 
-#: src/Process/Backend/MediaItem.php:658
+#: src/Process/Backend/MediaItem.php:704
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr ""
 
-#: src/Process/Backend/MediaItem.php:688
+#: src/Process/Backend/MediaItem.php:734
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr ""
 
-#: src/Process/Backend/MediaItem.php:693
+#: src/Process/Backend/MediaItem.php:739
 msgid "Video size"
 msgstr "वीडियो आकार"
 
-#: src/Process/Backend/MediaItem.php:694
+#: src/Process/Backend/MediaItem.php:740
 msgid "Width:"
 msgstr "चौड़ाईः"
 
-#: src/Process/Backend/MediaItem.php:696
+#: src/Process/Backend/MediaItem.php:742
 msgid "Height:"
 msgstr "ऊँचाईः"
 
-#: src/Process/Backend/MediaItem.php:703
+#: src/Process/Backend/MediaItem.php:749
 msgid "Video disposition"
 msgstr "वीडियो विन्यास"
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:778
 msgid "Media item will be inserted as a link."
 msgstr "मीडिया आइटम को एक कड़ी के रूप में डाला जाएगा."
 
-#: src/Process/Backend/MediaItem.php:752
+#: src/Process/Backend/MediaItem.php:798
 msgid "Make current settings as default"
 msgstr "वर्तमान सेटिंग को डिफ़ॉल्ट रूप में बनाएँ"
 
-#: src/Process/Backend/MediaItem.php:753
+#: src/Process/Backend/MediaItem.php:799
 msgid "For the blog"
 msgstr "ब्लॉग के लिए"
 
-#: src/Process/Backend/MediaItem.php:754
+#: src/Process/Backend/MediaItem.php:800
 msgid "For this folder only"
 msgstr "सिर्फ इस फ़ोल्डर के लिए"
 
-#: src/Process/Backend/MediaItem.php:763
+#: src/Process/Backend/MediaItem.php:809
 msgid "Settings exist for this folder:"
 msgstr "इस फ़ोल्डर के लिए सेटिंग मौजूद हैं:"
 
-#: src/Process/Backend/MediaItem.php:764
+#: src/Process/Backend/MediaItem.php:810
 msgid "Remove them"
 msgstr "उन्हें हटा दें"
 
-#: src/Process/Backend/MediaItem.php:783 src/Process/Backend/MediaItem.php:786
-#: src/Process/Backend/MediaItem.php:867
+#: src/Process/Backend/MediaItem.php:829 src/Process/Backend/MediaItem.php:832
+#: src/Process/Backend/MediaItem.php:913
 msgid "Media details"
 msgstr "मीडिया विवरण"
 
-#: src/Process/Backend/MediaItem.php:818
+#: src/Process/Backend/MediaItem.php:864
 msgid "Available sizes:"
 msgstr "उपलब्ध आकार:"
 
-#: src/Process/Backend/MediaItem.php:839
+#: src/Process/Backend/MediaItem.php:885
 msgid "Thumbnail details"
 msgstr "थंबनेल विवरण"
 
-#: src/Process/Backend/MediaItem.php:844 src/Process/Backend/MediaItem.php:881
-#: src/Process/Backend/MediaItem.php:892
+#: src/Process/Backend/MediaItem.php:890 src/Process/Backend/MediaItem.php:927
+#: src/Process/Backend/MediaItem.php:938
 msgid "Image width:"
 msgstr "छवि चौड़ाईः"
 
-#: src/Process/Backend/MediaItem.php:845 src/Process/Backend/MediaItem.php:885
-#: src/Process/Backend/MediaItem.php:893
+#: src/Process/Backend/MediaItem.php:891 src/Process/Backend/MediaItem.php:931
+#: src/Process/Backend/MediaItem.php:939
 msgid "Image height:"
 msgstr "छवि की ऊँचाई:"
 
-#: src/Process/Backend/MediaItem.php:849 src/Process/Backend/MediaItem.php:898
+#: src/Process/Backend/MediaItem.php:895 src/Process/Backend/MediaItem.php:944
 msgid "File size:"
 msgstr "फ़ाइल आकार:"
 
-#: src/Process/Backend/MediaItem.php:852 src/Process/Backend/MediaItem.php:899
+#: src/Process/Backend/MediaItem.php:898 src/Process/Backend/MediaItem.php:945
 msgid "File URL:"
 msgstr "फ़ाइल यूआरएलः"
 
-#: src/Process/Backend/MediaItem.php:869
+#: src/Process/Backend/MediaItem.php:915
 msgid "File owner:"
 msgstr "फ़ाइल मालिक:"
 
-#: src/Process/Backend/MediaItem.php:870
+#: src/Process/Backend/MediaItem.php:916
 msgid "File type:"
 msgstr "फ़ाइल प्रकार:"
 
-#: src/Process/Backend/MediaItem.php:905
+#: src/Process/Backend/MediaItem.php:951
 msgid "Show entries containing this media"
 msgstr "इस मीडिया में प्रविष्टि दिखाएँ"
 
-#: src/Process/Backend/MediaItem.php:908
+#: src/Process/Backend/MediaItem.php:954
 msgid "Entries containing this media"
 msgstr "इस मीडिया में प्रविष्टियाँ"
 
-#: src/Process/Backend/MediaItem.php:945
+#: src/Process/Backend/MediaItem.php:991
 msgid "No entry seems contain this media."
 msgstr "इस मीडिया में कोई प्रविष्टि नहीं दिखाई देती है।"
 
-#: src/Process/Backend/MediaItem.php:972
+#: src/Process/Backend/MediaItem.php:1018
 msgid "Image details"
 msgstr "छवि विवरण"
 
-#: src/Process/Backend/MediaItem.php:981
+#: src/Process/Backend/MediaItem.php:1028
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:990
+#: src/Process/Backend/MediaItem.php:1037
 msgid "No detail"
 msgstr "कोई विवरण नहीं"
 
-#: src/Process/Backend/MediaItem.php:997
+#: src/Process/Backend/MediaItem.php:1044
 msgid "Updates and modifications"
 msgstr "अद्यतन और संशोधन"
 
-#: src/Process/Backend/MediaItem.php:1003
-#: src/Process/Backend/MediaItem.php:1005
+#: src/Process/Backend/MediaItem.php:1050
+#: src/Process/Backend/MediaItem.php:1052
 msgid "Update thumbnails"
 msgstr "लघुछवियाँ अद्यतन करें"
 
-#: src/Process/Backend/MediaItem.php:1004
+#: src/Process/Backend/MediaItem.php:1051
 msgid "This will create or update thumbnails for this image."
 msgstr "यह इस छवि के लिए थंबनेल बनाने या अद्यतन करेगा."
 
-#: src/Process/Backend/MediaItem.php:1013
-#: src/Process/Backend/MediaItem.php:1021
+#: src/Process/Backend/MediaItem.php:1060
+#: src/Process/Backend/MediaItem.php:1068
 msgid "Extract in a new directory"
 msgstr "एक नई निर्देशिका में निकालें (E)"
 
-#: src/Process/Backend/MediaItem.php:1014
-#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1061
+#: src/Process/Backend/MediaItem.php:1070
 msgid "Extract in current directory"
 msgstr "वर्तमान निर्देशिका में निकालें"
 
-#: src/Process/Backend/MediaItem.php:1019
+#: src/Process/Backend/MediaItem.php:1066
 msgid "Extract archive"
 msgstr "अभिलेख निकालें"
 
-#: src/Process/Backend/MediaItem.php:1022
+#: src/Process/Backend/MediaItem.php:1069
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "यह एक नई निर्देशिका में अभिलेख निकाल देगा जो अभी तक मौजूद नहीं होना चाहिए था."
 
-#: src/Process/Backend/MediaItem.php:1024
+#: src/Process/Backend/MediaItem.php:1071
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "यह वर्तमान निर्देशिका में अभिलेख निकाल देगा और मौजूदा फ़ाइलों या निर्देशिका के ऊपर लिख देगा."
 
-#: src/Process/Backend/MediaItem.php:1026
+#: src/Process/Backend/MediaItem.php:1073
 msgid "Extract mode:"
 msgstr "उद्धरण मोड:"
 
-#: src/Process/Backend/MediaItem.php:1028
+#: src/Process/Backend/MediaItem.php:1075
 msgid "Extract"
 msgstr "निकालें"
 
-#: src/Process/Backend/MediaItem.php:1036
+#: src/Process/Backend/MediaItem.php:1083
 msgid "Change media properties"
 msgstr "मीडिया गुण बदलें"
 
-#: src/Process/Backend/MediaItem.php:1037
+#: src/Process/Backend/MediaItem.php:1084
 msgid "File name:"
 msgstr "फ़ाइल नाम:"
 
-#: src/Process/Backend/MediaItem.php:1062
+#: src/Process/Backend/MediaItem.php:1109
 msgid "File date:"
 msgstr "फ़ाइल तारीख़ः"
 
-#: src/Process/Backend/MediaItem.php:1070
+#: src/Process/Backend/MediaItem.php:1117
 msgid "New directory:"
 msgstr "नई निर्देशिका:"
 
-#: src/Process/Backend/MediaItem.php:1078
+#: src/Process/Backend/MediaItem.php:1125
 msgid "Change file"
 msgstr "फ़ाइल बदलें"
 
-#: src/Process/Backend/MediaItem.php:1080
+#: src/Process/Backend/MediaItem.php:1127
 msgid "Choose a file:"
 msgstr "फ़ाइल चुनें:"
 
-#: src/Process/Backend/MediaItem.php:1081
+#: src/Process/Backend/MediaItem.php:1128
 #, php-format
 msgid "Maximum size %s"
 msgstr ""
 
-#: src/Process/Backend/MediaItem.php:1092
+#: src/Process/Backend/MediaItem.php:1139
 msgid "Delete this media"
 msgstr "इस मीडिया को मिटाएँ"
 
@@ -5437,19 +5436,19 @@ msgstr "इंटरफेस"
 msgid "Timezone:"
 msgstr "समयक्षेत्र:"
 
-#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:752
+#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:745
 msgid "Edition"
 msgstr "संस्करण"
 
-#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:766
+#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:759
 msgid "Preferred format:"
 msgstr "पसंदीदा प्रारूप:"
 
-#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:769
+#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:762
 msgid "Default entry status:"
 msgstr "डिफ़ॉल्ट प्रविष्टि स्थिति:"
 
-#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:772
+#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:765
 msgid "Entry edit field height:"
 msgstr "प्रवेश संपादन क्षेत्र की ऊँचाई:"
 
@@ -5686,121 +5685,133 @@ msgstr "सूची के लिए विकल्प"
 msgid "Apply filters on the fly"
 msgstr "फ़िल्टर पर फ़िल्टर लागू करें (F)"
 
-#: src/Process/Backend/UserPreferences.php:757
+#: src/Process/Backend/UserPreferences.php:723
+msgid "List"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:724
+msgid "Order by"
+msgstr "आदेश द्वारा"
+
+#: src/Process/Backend/UserPreferences.php:725
+msgid "Sort"
+msgstr "छांटें"
+
+#: src/Process/Backend/UserPreferences.php:750
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr ""
 
-#: src/Process/Backend/UserPreferences.php:760
+#: src/Process/Backend/UserPreferences.php:753
 msgid "Choose an editor"
 msgstr "एक संपादक चुनें"
 
-#: src/Process/Backend/UserPreferences.php:777
+#: src/Process/Backend/UserPreferences.php:770
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG मोड सक्षम करें"
 
-#: src/Process/Backend/UserPreferences.php:781
+#: src/Process/Backend/UserPreferences.php:774
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "पाठ-क्षेत्र (यदि संभव हो तो) के तल पर संपादक औज़ार पट्टी दिखाएँ"
 
-#: src/Process/Backend/UserPreferences.php:787
+#: src/Process/Backend/UserPreferences.php:780
 msgid "Use HTML editor for:"
 msgstr "के लिए HTML संपादक का उपयोग करें:"
 
-#: src/Process/Backend/UserPreferences.php:797
+#: src/Process/Backend/UserPreferences.php:790
 msgid "Other options"
 msgstr "अन्य विकल्प"
 
-#: src/Process/Backend/UserPreferences.php:805
+#: src/Process/Backend/UserPreferences.php:798
 msgid "Save my options"
 msgstr "मेरे विकल्पों को सहेजें"
 
-#: src/Process/Backend/UserPreferences.php:844
+#: src/Process/Backend/UserPreferences.php:837
 #, php-format
 msgid "position of %s"
 msgstr ""
 
-#: src/Process/Backend/UserPreferences.php:861
+#: src/Process/Backend/UserPreferences.php:854
 msgid "Save order"
 msgstr "आदेश सहेजें"
 
-#: src/Process/Backend/UserPreferences.php:864
+#: src/Process/Backend/UserPreferences.php:857
 msgid "Delete selected favorites"
 msgstr "चयनित पसंदीदा को मिटाएँ"
 
-#: src/Process/Backend/UserPreferences.php:866
+#: src/Process/Backend/UserPreferences.php:859
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "क्या आप निश्चित हैं कि आप चयनित पसंदीदा को मिटाना चाहते हैं?"
 
-#: src/Process/Backend/UserPreferences.php:871
+#: src/Process/Backend/UserPreferences.php:864
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "यदि आप सुपर प्रशासक हैं, तो आप पसंदीदा के इस सेट को परिभाषित कर सकते हैं कि इस स्थापना के सभी ब्लॉग पर डिफ़ॉल्ट रूप से उपयोग किया जा सकता है."
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:865
 msgid "Define as default favorites"
 msgstr "डिफ़ॉल्ट पसंदीदा के रूप में परिभाषित करें"
 
-#: src/Process/Backend/UserPreferences.php:879
+#: src/Process/Backend/UserPreferences.php:872
 msgid "Currently no personal favorites."
 msgstr "वर्तमान में कोई व्यक्तिगत पसंदीदा नहीं है."
 
-#: src/Process/Backend/UserPreferences.php:893
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Other available favorites"
 msgstr "अन्य उपलब्ध पसंदीदा"
 
-#: src/Process/Backend/UserPreferences.php:921
+#: src/Process/Backend/UserPreferences.php:914
 msgid "(default favorite)"
 msgstr "(पसंदीदा पसंदीदा)"
 
-#: src/Process/Backend/UserPreferences.php:932
+#: src/Process/Backend/UserPreferences.php:925
 msgid "Add to my favorites"
 msgstr "मेरे पसंदीदा में जोड़ें"
 
-#: src/Process/Backend/UserPreferences.php:941
+#: src/Process/Backend/UserPreferences.php:934
 msgid "Menu"
 msgstr "मेन्यू"
 
-#: src/Process/Backend/UserPreferences.php:944
+#: src/Process/Backend/UserPreferences.php:937
 msgid "Display favorites at the top of the menu"
 msgstr "मेन्यू के शीर्ष पर पसंदीदा प्रदर्शित करें"
 
-#: src/Process/Backend/UserPreferences.php:947
+#: src/Process/Backend/UserPreferences.php:940
 msgid "Dashboard icons"
 msgstr "डैशबोर्ड प्रतीक"
 
-#: src/Process/Backend/UserPreferences.php:950
+#: src/Process/Backend/UserPreferences.php:943
 msgid "Display dashboard icons"
 msgstr "डैशबोर्ड प्रतीक दिखाएँ"
 
-#: src/Process/Backend/UserPreferences.php:954
+#: src/Process/Backend/UserPreferences.php:947
 msgid "Dashboard modules"
 msgstr "डैशबोर्ड मॉड्यूलComment"
 
-#: src/Process/Backend/UserPreferences.php:958
+#: src/Process/Backend/UserPreferences.php:951
 msgid "Display documentation links"
 msgstr "प्रलेखन लिंक प्रदर्शित करें"
 
-#: src/Process/Backend/UserPreferences.php:962
+#: src/Process/Backend/UserPreferences.php:955
 msgid "Display Dotclear news"
 msgstr "दिखाने के लिए समाचार दिखाएँ"
 
-#: src/Process/Backend/UserPreferences.php:966
+#: src/Process/Backend/UserPreferences.php:959
 msgid "Display quick entry form"
 msgstr "त्वरित प्रवेश फार्म प्रदर्शित करें"
 
-#: src/Process/Backend/UserPreferences.php:972
+#: src/Process/Backend/UserPreferences.php:965
 msgid "Do not display Dotclear updates"
 msgstr "डीओटी अद्यतन प्रदर्शित नहीं करें"
 
-#: src/Process/Backend/UserPreferences.php:985
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Save my dashboard options"
 msgstr "मेरे डैशबोर्ड विकल्प सहेजें"
 
-#: src/Process/Backend/UserPreferences.php:992
+#: src/Process/Backend/UserPreferences.php:985
 msgid "Dashboard items order"
 msgstr "डैशबोर्ड मद क्रम"
 
-#: src/Process/Backend/UserPreferences.php:995
+#: src/Process/Backend/UserPreferences.php:988
 msgid "Reset dashboard items order"
 msgstr "डैशबोर्ड आइटम अनुक्रम रीसेट करें"
 

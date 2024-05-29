@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-23 08:40+0200\n"
-"PO-Revision-Date: 2024-04-23 18:33\n"
+"POT-Creation-Date: 2024-05-29 08:42+0200\n"
+"PO-Revision-Date: 2024-05-29 06:47\n"
 "Last-Translator: \n"
 "Language-Team: Serbian\n"
 "Language: srp\n"
@@ -161,7 +161,7 @@ msgstr "Подешен као уклоњен"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:51
 #: src/Core/Backend/Action/ActionsPostsDefault.php:103
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
-#: src/Core/Backend/Listing/ListingMedia.php:203
+#: src/Core/Backend/Listing/ListingMedia.php:224
 #: src/Core/Backend/ModulesList.php:1215 src/Core/Upgrade/PluginsList.php:120
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Langs.php:278
 #: src/Process/Backend/Post.php:803 src/Process/Backend/Users.php:42
@@ -439,7 +439,7 @@ msgstr "Родитељ:"
 #: src/Core/Backend/ModulesList.php:1785 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1072
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1119
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:921
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:499
@@ -595,7 +595,7 @@ msgid "Number of entries"
 msgstr "Nombre de publications"
 
 #: src/Core/Backend/Favorites.php:304
-#: src/Process/Backend/UserPreferences.php:817
+#: src/Process/Backend/UserPreferences.php:810
 msgid "My favorites"
 msgstr "Mes favoris"
 
@@ -644,7 +644,7 @@ msgstr "Catégories"
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
 #: src/Process/Backend/Media.php:461 src/Process/Backend/Media.php:500
-#: src/Process/Backend/MediaItem.php:425 src/Process/Backend/MediaItem.php:431
+#: src/Process/Backend/MediaItem.php:471 src/Process/Backend/MediaItem.php:477
 msgid "Media manager"
 msgstr "Médiathèque"
 
@@ -830,17 +830,15 @@ msgid "Display options"
 msgstr "Опције приказа"
 
 #: src/Core/Backend/Filter/Filters.php:358
-#: src/Process/Backend/UserPreferences.php:730
 msgid "Order by:"
 msgstr "Trier par :"
 
 #: src/Core/Backend/Filter/Filters.php:371
-#: src/Process/Backend/UserPreferences.php:735
 msgid "Sort:"
 msgstr "Trier :"
 
 #: src/Core/Backend/Filter/Filters.php:393
-#: src/Process/Backend/UserPreferences.php:740
+#: src/Process/Backend/UserPreferences.php:726
 msgid "Show"
 msgstr "Прикажи"
 
@@ -1004,7 +1002,7 @@ msgstr "Унос"
 #: src/Core/Backend/Listing/ListingPosts.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:170
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:952
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:998
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1088
 msgid "Published"
 msgstr "Објављено"
@@ -1014,7 +1012,7 @@ msgstr "Објављено"
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:175
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:953
+#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:999
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1093
 msgid "Unpublished"
 msgstr "Необјављено"
@@ -1024,7 +1022,7 @@ msgstr "Необјављено"
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:185
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:955
+#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:1001
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1098
 msgid "Pending"
 msgstr "Чекању"
@@ -1097,34 +1095,34 @@ msgstr "Nom"
 msgid "Size"
 msgstr "Величина"
 
-#: src/Core/Backend/Listing/ListingMedia.php:167
-#: src/Core/Backend/Listing/ListingMedia.php:168
+#: src/Core/Backend/Listing/ListingMedia.php:188
+#: src/Core/Backend/Listing/ListingMedia.php:189
 #: src/Process/Backend/Media.php:360
 msgid "Select this file"
 msgstr "Изаберите ову датотеку"
 
-#: src/Core/Backend/Listing/ListingMedia.php:177
-#: src/Core/Backend/Listing/ListingMedia.php:183
+#: src/Core/Backend/Listing/ListingMedia.php:198
+#: src/Core/Backend/Listing/ListingMedia.php:204
 #: src/Process/Backend/Media.php:376 src/Process/Backend/Media.php:389
 msgid "Attach this file to entry"
 msgstr "Attacher ce fichier au billet"
 
-#: src/Core/Backend/Listing/ListingMedia.php:188
-#: src/Core/Backend/Listing/ListingMedia.php:189
+#: src/Core/Backend/Listing/ListingMedia.php:209
+#: src/Core/Backend/Listing/ListingMedia.php:210
 msgid "Insert this file into entry"
 msgstr "Insérer ce fichier dans le billet"
 
-#: src/Core/Backend/Listing/ListingMedia.php:201
+#: src/Core/Backend/Listing/ListingMedia.php:222
 msgid "delete"
 msgstr "supprimer"
 
-#: src/Core/Backend/Listing/ListingMedia.php:217
-#: src/Core/Backend/Listing/ListingMedia.php:241
+#: src/Core/Backend/Listing/ListingMedia.php:238
+#: src/Core/Backend/Listing/ListingMedia.php:262
 msgid "private media"
 msgstr "приватни медији"
 
-#: src/Core/Backend/Listing/ListingMedia.php:224
-#: src/Core/Backend/Listing/ListingMedia.php:249
+#: src/Core/Backend/Listing/ListingMedia.php:245
+#: src/Core/Backend/Listing/ListingMedia.php:270
 msgid "open"
 msgstr "ouvrir"
 
@@ -1163,7 +1161,7 @@ msgstr "Rétroliens"
 #: src/Core/Backend/Listing/ListingPosts.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:180
 #: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
-#: src/Process/Backend/MediaItem.php:954 src/Process/Backend/Post.php:477
+#: src/Process/Backend/MediaItem.php:1000 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "Планирано"
 
@@ -1625,11 +1623,11 @@ msgstr "Конфигуриши \"%s\""
 #: src/Core/Backend/ModulesList.php:1777 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1113
+#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1160
 #: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:158
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:616
-#: src/Process/Backend/UserPreferences.php:806
-#: src/Process/Backend/UserPreferences.php:986
+#: src/Process/Backend/UserPreferences.php:799
+#: src/Process/Backend/UserPreferences.php:979
 msgid "Back"
 msgstr "Назад"
 
@@ -1674,8 +1672,8 @@ msgid "Go to help"
 msgstr "Иди да помогнеш"
 
 #: src/Core/Backend/Page.php:296 src/Core/Upgrade/Page.php:139
-#: src/Process/Backend/UserPreferences.php:812
-#: src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/UserPreferences.php:805
+#: src/Process/Backend/UserPreferences.php:806
 msgid "My dashboard"
 msgstr "Tableau de bord"
 
@@ -1995,8 +1993,8 @@ msgid "Choose files"
 msgstr "Choisir des fichiers"
 
 #: src/Core/Backend/Page.php:1190 src/Process/Backend/LinkPopup.php:73
-#: src/Process/Backend/Media.php:242 src/Process/Backend/MediaItem.php:527
-#: src/Process/Backend/MediaItem.php:738 src/Process/Backend/Post.php:800
+#: src/Process/Backend/Media.php:242 src/Process/Backend/MediaItem.php:573
+#: src/Process/Backend/MediaItem.php:784 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "Annuler"
@@ -2005,7 +2003,7 @@ msgstr "Annuler"
 msgid "Clean"
 msgstr "Nettoyer"
 
-#: src/Core/Backend/Page.php:1193 src/Process/Backend/MediaItem.php:1084
+#: src/Core/Backend/Page.php:1193 src/Process/Backend/MediaItem.php:1131
 msgid "Send"
 msgstr "Envoyer"
 
@@ -2510,32 +2508,32 @@ msgstr "Не постоји упитни директоријум/јавно/н�
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Нема уписивог корена директоријума за менаџера медија. Требало би да контактирате администратора."
 
-#: src/Core/Media.php:937 src/Core/Media.php:964
+#: src/Core/Media.php:938 src/Core/Media.php:965
 msgid "You are not a super administrator."
 msgstr "Vous n'êtes pas super administrateur."
 
-#: src/Core/Media.php:1051 src/Core/Media.php:1141 src/Core/Media.php:1220
-#: src/Core/Media.php:1236 src/Core/Media.php:1254
+#: src/Core/Media.php:1052 src/Core/Media.php:1142 src/Core/Media.php:1221
+#: src/Core/Media.php:1237 src/Core/Media.php:1255
 msgid "Permission denied."
 msgstr "Permission refusée."
 
-#: src/Core/Media.php:1154
+#: src/Core/Media.php:1155
 msgid "You are not the file owner."
 msgstr "Vous n'êtes pas le propriétaire de ce fichier."
 
-#: src/Core/Media.php:1169
+#: src/Core/Media.php:1170
 msgid "This file is not allowed."
 msgstr "Ce fichier n'est pas autorisé."
 
-#: src/Core/Media.php:1173
+#: src/Core/Media.php:1174
 msgid "New file already exists."
 msgstr "Le nouveau fichier existe déjà."
 
-#: src/Core/Media.php:1274
+#: src/Core/Media.php:1275
 msgid "File does not exist in the database."
 msgstr "Ce fichier n'existe pas dans la base de données."
 
-#: src/Core/Media.php:1319
+#: src/Core/Media.php:1320
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Le répertoire de destination d'extraction %s existe déjà."
@@ -3208,7 +3206,7 @@ msgstr "Tražiti da se lozinka promeni"
 msgid "recover"
 msgstr "oporaviti"
 
-#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:496
+#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:497
 msgid "Other option"
 msgstr "Друга опција"
 
@@ -3251,23 +3249,23 @@ msgstr "sadržiti moj ID na ovom kompjuteru"
 msgid "log in"
 msgstr "пријавите се"
 
-#: src/Process/Backend/Auth.php:490 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:491 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "Morate da prihvatite COOKIES na vasem Internet navigatoru da bih ste ustupili na privatnim stranicama ovog sajta"
 
-#: src/Process/Backend/Auth.php:497
+#: src/Process/Backend/Auth.php:498
 msgid "Get back to normal authentication"
 msgstr "Врати се на нормалну аутентификацију"
 
-#: src/Process/Backend/Auth.php:500
+#: src/Process/Backend/Auth.php:501
 msgid "Connection issue?"
 msgstr "Проблем везе?"
 
-#: src/Process/Backend/Auth.php:503
+#: src/Process/Backend/Auth.php:504
 msgid "I forgot my password"
 msgstr "Izgubio sam lozinku"
 
-#: src/Process/Backend/Auth.php:506
+#: src/Process/Backend/Auth.php:507
 msgid "I want to log in in safe mode"
 msgstr "Желим да се пријавим у безбедном режиму"
 
@@ -3384,8 +3382,8 @@ msgid "P"
 msgstr "П"
 
 #: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:997
-#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:663
 msgid "(none)"
 msgstr "(aucun)"
 
@@ -3405,37 +3403,37 @@ msgstr ""
 msgid "Description, City, Country, Date"
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:514
-#: src/Process/Backend/MediaItem.php:588 src/Process/Backend/MediaItem.php:829
+#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:560
+#: src/Process/Backend/MediaItem.php:634 src/Process/Backend/MediaItem.php:875
 msgid "original"
 msgstr "originale"
 
 #: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
-#: src/Process/Backend/MediaItem.php:612 src/Process/Backend/MediaItem.php:624
-#: src/Process/Backend/MediaItem.php:662 src/Process/Backend/MediaItem.php:706
+#: src/Process/Backend/MediaItem.php:658 src/Process/Backend/MediaItem.php:670
+#: src/Process/Backend/MediaItem.php:708 src/Process/Backend/MediaItem.php:752
 msgid "None"
 msgstr "Aucun"
 
-#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:625
-#: src/Process/Backend/MediaItem.php:663 src/Process/Backend/MediaItem.php:707
+#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:671
+#: src/Process/Backend/MediaItem.php:709 src/Process/Backend/MediaItem.php:753
 msgid "Left"
 msgstr "Gauche"
 
-#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:626
-#: src/Process/Backend/MediaItem.php:664 src/Process/Backend/MediaItem.php:708
+#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:672
+#: src/Process/Backend/MediaItem.php:710 src/Process/Backend/MediaItem.php:754
 msgid "Right"
 msgstr "Droite"
 
-#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:627
-#: src/Process/Backend/MediaItem.php:665 src/Process/Backend/MediaItem.php:709
+#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:673
+#: src/Process/Backend/MediaItem.php:711 src/Process/Backend/MediaItem.php:755
 msgid "Center"
 msgstr "Centré"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:600
+#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:646
 msgid "Legend and alternate text"
 msgstr "Легенда и алтернативни текст"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:606
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:652
 msgid "Alternate text"
 msgstr "Алтернативни текст"
 
@@ -4106,7 +4104,7 @@ msgstr "Nom :"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Attention : si vous indiquez l'URL manuellement, celle-ci peut entrer en conflit avec une autre catégorie."
 
-#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1052
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1099
 msgid "Description:"
 msgstr "Description :"
 
@@ -4440,7 +4438,7 @@ msgstr "Intitulé du lien :"
 msgid "Link language:"
 msgstr "Langue du lien :"
 
-#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:737
+#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:783
 msgid "Insert"
 msgstr "Insérer"
 
@@ -4527,7 +4525,7 @@ msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Изаберите датотеке и кликните на <strong>%s</strong> дугме"
 
 #: src/Process/Backend/Media.php:367 src/Process/Backend/Media.php:380
-#: src/Process/Backend/Media.php:393 src/Process/Backend/MediaItem.php:753
+#: src/Process/Backend/Media.php:393 src/Process/Backend/MediaItem.php:799
 msgid "or"
 msgstr "или"
 
@@ -4602,12 +4600,13 @@ msgstr "Veuillez prendre garde à ne publier que des médias que vous possédez 
 msgid "Maximum file size allowed:"
 msgstr "Taille maximale de fichier autorisée :"
 
-#: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:976 src/Process/Backend/MediaItem.php:1039
+#: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1086
 msgid "Alternate text:"
 msgstr "Алтернативни текст:"
 
-#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1116
 msgid "Private"
 msgstr "Privé"
 
@@ -4632,259 +4631,259 @@ msgstr "Тренутне поставке за медиас и слике су �
 msgid "Not a valid file"
 msgstr "Fichier invalide"
 
-#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:207
-#: src/Process/Backend/MediaItem.php:452
+#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:235
+#: src/Process/Backend/MediaItem.php:498
 msgid "File has been successfully updated."
 msgstr "Fichier mis à jour avec succès."
 
-#: src/Process/Backend/MediaItem.php:224 src/Process/Backend/MediaItem.php:455
+#: src/Process/Backend/MediaItem.php:252 src/Process/Backend/MediaItem.php:501
 msgid "Thumbnails have been successfully updated."
 msgstr "Les miniatures ont été mises à jour avec succès."
 
-#: src/Process/Backend/MediaItem.php:241
+#: src/Process/Backend/MediaItem.php:269
 msgid "Zip file has been successfully extracted."
 msgstr "Le fichier zip a été extrait avec succès."
 
-#: src/Process/Backend/MediaItem.php:271 src/Process/Backend/MediaItem.php:458
+#: src/Process/Backend/MediaItem.php:299 src/Process/Backend/MediaItem.php:504
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Подразумеване поставке уметања медија су успешно ажуриране."
 
-#: src/Process/Backend/MediaItem.php:297
+#: src/Process/Backend/MediaItem.php:325
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "Поставке уметања медија су успешно регистроване за ову фасциклу."
 
-#: src/Process/Backend/MediaItem.php:308
+#: src/Process/Backend/MediaItem.php:336
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Поставке уметања медија су успешно уклоњене за ову фасциклу."
 
-#: src/Process/Backend/MediaItem.php:487 src/Process/Backend/MediaItem.php:488
+#: src/Process/Backend/MediaItem.php:533 src/Process/Backend/MediaItem.php:534
 msgid "Select media item"
 msgstr "Изаберите ставку медија"
 
-#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:574
+#: src/Process/Backend/MediaItem.php:545 src/Process/Backend/MediaItem.php:620
 msgid "Image size:"
 msgstr "Taille de l'image :"
 
-#: src/Process/Backend/MediaItem.php:526 src/Process/Upgrade/Attic.php:302
+#: src/Process/Backend/MediaItem.php:572 src/Process/Upgrade/Attic.php:302
 msgid "Select"
 msgstr "Изабери"
 
-#: src/Process/Backend/MediaItem.php:561 src/Process/Backend/MediaItem.php:562
+#: src/Process/Backend/MediaItem.php:607 src/Process/Backend/MediaItem.php:608
 msgid "Insert media item"
 msgstr "Insérer un média"
 
-#: src/Process/Backend/MediaItem.php:593
+#: src/Process/Backend/MediaItem.php:639
 msgid "Image legend and alternate text"
 msgstr "Легенда о слици и алтернативни текст"
 
-#: src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/MediaItem.php:663
 msgid "Legend:"
 msgstr "Легенда:"
 
-#: src/Process/Backend/MediaItem.php:622
+#: src/Process/Backend/MediaItem.php:668
 msgid "Image alignment"
 msgstr "Alignement de l'image"
 
-#: src/Process/Backend/MediaItem.php:642
+#: src/Process/Backend/MediaItem.php:688
 msgid "Image insertion"
 msgstr "Insertion de l'image"
 
-#: src/Process/Backend/MediaItem.php:645
+#: src/Process/Backend/MediaItem.php:691
 msgid "As a single image"
 msgstr "En tant qu'image uniquement"
 
-#: src/Process/Backend/MediaItem.php:647
+#: src/Process/Backend/MediaItem.php:693
 msgid "As a link to the original image"
 msgstr "Као линк ка оригиналној слици"
 
-#: src/Process/Backend/MediaItem.php:655
+#: src/Process/Backend/MediaItem.php:701
 msgid "MP3 disposition"
 msgstr "Disposition du MP3"
 
-#: src/Process/Backend/MediaItem.php:658
+#: src/Process/Backend/MediaItem.php:704
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr ""
 
-#: src/Process/Backend/MediaItem.php:688
+#: src/Process/Backend/MediaItem.php:734
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr ""
 
-#: src/Process/Backend/MediaItem.php:693
+#: src/Process/Backend/MediaItem.php:739
 msgid "Video size"
 msgstr "Taille de la vidéo"
 
-#: src/Process/Backend/MediaItem.php:694
+#: src/Process/Backend/MediaItem.php:740
 msgid "Width:"
 msgstr "Largeur :"
 
-#: src/Process/Backend/MediaItem.php:696
+#: src/Process/Backend/MediaItem.php:742
 msgid "Height:"
 msgstr "Hauteur :"
 
-#: src/Process/Backend/MediaItem.php:703
+#: src/Process/Backend/MediaItem.php:749
 msgid "Video disposition"
 msgstr "Disposition de la vidéo"
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:778
 msgid "Media item will be inserted as a link."
 msgstr "Le média sera inséré en tant que lien."
 
-#: src/Process/Backend/MediaItem.php:752
+#: src/Process/Backend/MediaItem.php:798
 msgid "Make current settings as default"
 msgstr "Поставке тренутне поставке као подразумеване"
 
-#: src/Process/Backend/MediaItem.php:753
+#: src/Process/Backend/MediaItem.php:799
 msgid "For the blog"
 msgstr "За блог"
 
-#: src/Process/Backend/MediaItem.php:754
+#: src/Process/Backend/MediaItem.php:800
 msgid "For this folder only"
 msgstr "Само за ову фасциклу"
 
-#: src/Process/Backend/MediaItem.php:763
+#: src/Process/Backend/MediaItem.php:809
 msgid "Settings exist for this folder:"
 msgstr "Поставке постоје за ову фасциклу:"
 
-#: src/Process/Backend/MediaItem.php:764
+#: src/Process/Backend/MediaItem.php:810
 msgid "Remove them"
 msgstr "Уклони их"
 
-#: src/Process/Backend/MediaItem.php:783 src/Process/Backend/MediaItem.php:786
-#: src/Process/Backend/MediaItem.php:867
+#: src/Process/Backend/MediaItem.php:829 src/Process/Backend/MediaItem.php:832
+#: src/Process/Backend/MediaItem.php:913
 msgid "Media details"
 msgstr "Détails du média"
 
-#: src/Process/Backend/MediaItem.php:818
+#: src/Process/Backend/MediaItem.php:864
 msgid "Available sizes:"
 msgstr "Tailles disponibles :"
 
-#: src/Process/Backend/MediaItem.php:839
+#: src/Process/Backend/MediaItem.php:885
 msgid "Thumbnail details"
 msgstr "Детаљи сличица"
 
-#: src/Process/Backend/MediaItem.php:844 src/Process/Backend/MediaItem.php:881
-#: src/Process/Backend/MediaItem.php:892
+#: src/Process/Backend/MediaItem.php:890 src/Process/Backend/MediaItem.php:927
+#: src/Process/Backend/MediaItem.php:938
 msgid "Image width:"
 msgstr "Ширина слике:"
 
-#: src/Process/Backend/MediaItem.php:845 src/Process/Backend/MediaItem.php:885
-#: src/Process/Backend/MediaItem.php:893
+#: src/Process/Backend/MediaItem.php:891 src/Process/Backend/MediaItem.php:931
+#: src/Process/Backend/MediaItem.php:939
 msgid "Image height:"
 msgstr "Висина слике:"
 
-#: src/Process/Backend/MediaItem.php:849 src/Process/Backend/MediaItem.php:898
+#: src/Process/Backend/MediaItem.php:895 src/Process/Backend/MediaItem.php:944
 msgid "File size:"
 msgstr "Taille du fichier :"
 
-#: src/Process/Backend/MediaItem.php:852 src/Process/Backend/MediaItem.php:899
+#: src/Process/Backend/MediaItem.php:898 src/Process/Backend/MediaItem.php:945
 msgid "File URL:"
 msgstr "URL du fichier :"
 
-#: src/Process/Backend/MediaItem.php:869
+#: src/Process/Backend/MediaItem.php:915
 msgid "File owner:"
 msgstr "Propriétaire du fichier :"
 
-#: src/Process/Backend/MediaItem.php:870
+#: src/Process/Backend/MediaItem.php:916
 msgid "File type:"
 msgstr "Type de fichier :"
 
-#: src/Process/Backend/MediaItem.php:905
+#: src/Process/Backend/MediaItem.php:951
 msgid "Show entries containing this media"
 msgstr "Afficher les billets contenant ce média"
 
-#: src/Process/Backend/MediaItem.php:908
+#: src/Process/Backend/MediaItem.php:954
 msgid "Entries containing this media"
 msgstr "Billets contenant ce média"
 
-#: src/Process/Backend/MediaItem.php:945
+#: src/Process/Backend/MediaItem.php:991
 msgid "No entry seems contain this media."
 msgstr "Aucun billet ne semble contenir ce média."
 
-#: src/Process/Backend/MediaItem.php:972
+#: src/Process/Backend/MediaItem.php:1018
 msgid "Image details"
 msgstr "Détails de l'image"
 
-#: src/Process/Backend/MediaItem.php:981
+#: src/Process/Backend/MediaItem.php:1028
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:990
+#: src/Process/Backend/MediaItem.php:1037
 msgid "No detail"
 msgstr "Aucun détail"
 
-#: src/Process/Backend/MediaItem.php:997
+#: src/Process/Backend/MediaItem.php:1044
 msgid "Updates and modifications"
 msgstr "Ажурирања и модификације"
 
-#: src/Process/Backend/MediaItem.php:1003
-#: src/Process/Backend/MediaItem.php:1005
+#: src/Process/Backend/MediaItem.php:1050
+#: src/Process/Backend/MediaItem.php:1052
 msgid "Update thumbnails"
 msgstr "Mettre à jour les miniatures"
 
-#: src/Process/Backend/MediaItem.php:1004
+#: src/Process/Backend/MediaItem.php:1051
 msgid "This will create or update thumbnails for this image."
 msgstr "Ceci va créer ou mettre à jour les miniatures pour cette image."
 
-#: src/Process/Backend/MediaItem.php:1013
-#: src/Process/Backend/MediaItem.php:1021
+#: src/Process/Backend/MediaItem.php:1060
+#: src/Process/Backend/MediaItem.php:1068
 msgid "Extract in a new directory"
 msgstr "Extraire dans un nouveau répertoire"
 
-#: src/Process/Backend/MediaItem.php:1014
-#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1061
+#: src/Process/Backend/MediaItem.php:1070
 msgid "Extract in current directory"
 msgstr "Extraire dans le répertoire actuel"
 
-#: src/Process/Backend/MediaItem.php:1019
+#: src/Process/Backend/MediaItem.php:1066
 msgid "Extract archive"
 msgstr "Extraire l'archive"
 
-#: src/Process/Backend/MediaItem.php:1022
+#: src/Process/Backend/MediaItem.php:1069
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Ceci va extraire l'archive dans un nouveau répertoire qui ne doit pas encore exister."
 
-#: src/Process/Backend/MediaItem.php:1024
+#: src/Process/Backend/MediaItem.php:1071
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Ceci va extraire l'archive dans le répertoire actuel et va écraser les fichiers ou répertoires existants."
 
-#: src/Process/Backend/MediaItem.php:1026
+#: src/Process/Backend/MediaItem.php:1073
 msgid "Extract mode:"
 msgstr "Mode d'extraction :"
 
-#: src/Process/Backend/MediaItem.php:1028
+#: src/Process/Backend/MediaItem.php:1075
 msgid "Extract"
 msgstr "Extraire"
 
-#: src/Process/Backend/MediaItem.php:1036
+#: src/Process/Backend/MediaItem.php:1083
 msgid "Change media properties"
 msgstr "Changer les propriétés du média"
 
-#: src/Process/Backend/MediaItem.php:1037
+#: src/Process/Backend/MediaItem.php:1084
 msgid "File name:"
 msgstr "Nom du fichier :"
 
-#: src/Process/Backend/MediaItem.php:1062
+#: src/Process/Backend/MediaItem.php:1109
 msgid "File date:"
 msgstr "Date du fichier :"
 
-#: src/Process/Backend/MediaItem.php:1070
+#: src/Process/Backend/MediaItem.php:1117
 msgid "New directory:"
 msgstr "Nouveau répertoire :"
 
-#: src/Process/Backend/MediaItem.php:1078
+#: src/Process/Backend/MediaItem.php:1125
 msgid "Change file"
 msgstr "Changer le fichier"
 
-#: src/Process/Backend/MediaItem.php:1080
+#: src/Process/Backend/MediaItem.php:1127
 msgid "Choose a file:"
 msgstr "Choisir un fichier :"
 
-#: src/Process/Backend/MediaItem.php:1081
+#: src/Process/Backend/MediaItem.php:1128
 #, php-format
 msgid "Maximum size %s"
 msgstr "Taille maximale %s"
 
-#: src/Process/Backend/MediaItem.php:1092
+#: src/Process/Backend/MediaItem.php:1139
 msgid "Delete this media"
 msgstr "Избриши ове медије"
 
@@ -5476,19 +5475,19 @@ msgstr "Интерфејс"
 msgid "Timezone:"
 msgstr "Временска зона:"
 
-#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:752
+#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:745
 msgid "Edition"
 msgstr "Издање"
 
-#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:766
+#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:759
 msgid "Preferred format:"
 msgstr "Syntaxe de saisie préférée :"
 
-#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:769
+#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:762
 msgid "Default entry status:"
 msgstr "État des billets par défaut :"
 
-#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:772
+#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:765
 msgid "Entry edit field height:"
 msgstr "Taille de la zone d'édition :"
 
@@ -5725,121 +5724,133 @@ msgstr "Опције за листе"
 msgid "Apply filters on the fly"
 msgstr "Примените филтере на лету"
 
-#: src/Process/Backend/UserPreferences.php:757
+#: src/Process/Backend/UserPreferences.php:723
+msgid "List"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:724
+msgid "Order by"
+msgstr "Редослед по"
+
+#: src/Process/Backend/UserPreferences.php:725
+msgid "Sort"
+msgstr "Сортирај"
+
+#: src/Process/Backend/UserPreferences.php:750
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Приоритетни уредник за %s:"
 
-#: src/Process/Backend/UserPreferences.php:760
+#: src/Process/Backend/UserPreferences.php:753
 msgid "Choose an editor"
 msgstr "Одаберите уредника"
 
-#: src/Process/Backend/UserPreferences.php:777
+#: src/Process/Backend/UserPreferences.php:770
 msgid "Enable WYSIWYG mode"
 msgstr "Activer l'éditeur visuel"
 
-#: src/Process/Backend/UserPreferences.php:781
+#: src/Process/Backend/UserPreferences.php:774
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Прикажи траку са алаткама уредника на дну текста (ако је могуће)"
 
-#: src/Process/Backend/UserPreferences.php:787
+#: src/Process/Backend/UserPreferences.php:780
 msgid "Use HTML editor for:"
 msgstr "Користи HTML уређивач за:"
 
-#: src/Process/Backend/UserPreferences.php:797
+#: src/Process/Backend/UserPreferences.php:790
 msgid "Other options"
 msgstr "Друге опције"
 
-#: src/Process/Backend/UserPreferences.php:805
+#: src/Process/Backend/UserPreferences.php:798
 msgid "Save my options"
 msgstr "Сачувај моје опције"
 
-#: src/Process/Backend/UserPreferences.php:844
+#: src/Process/Backend/UserPreferences.php:837
 #, php-format
 msgid "position of %s"
 msgstr "position de %s"
 
-#: src/Process/Backend/UserPreferences.php:861
+#: src/Process/Backend/UserPreferences.php:854
 msgid "Save order"
 msgstr "Enregistrer l'ordre"
 
-#: src/Process/Backend/UserPreferences.php:864
+#: src/Process/Backend/UserPreferences.php:857
 msgid "Delete selected favorites"
 msgstr "Supprimer les favoris sélectionnés"
 
-#: src/Process/Backend/UserPreferences.php:866
+#: src/Process/Backend/UserPreferences.php:859
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Êtes-vous certain de vouloir retirer les favoris sélectionnés ?"
 
-#: src/Process/Backend/UserPreferences.php:871
+#: src/Process/Backend/UserPreferences.php:864
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Ако сте супер администратор, можете дефинисати овај скуп омиљених ставки које се подразумевано користе на свим блоговима ове инсталације."
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:865
 msgid "Define as default favorites"
 msgstr "Définir comme favoris par défaut"
 
-#: src/Process/Backend/UserPreferences.php:879
+#: src/Process/Backend/UserPreferences.php:872
 msgid "Currently no personal favorites."
 msgstr "Aucun favori personnel."
 
-#: src/Process/Backend/UserPreferences.php:893
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Other available favorites"
 msgstr "Остале доступне омиљене"
 
-#: src/Process/Backend/UserPreferences.php:921
+#: src/Process/Backend/UserPreferences.php:914
 msgid "(default favorite)"
 msgstr "(подразумевано омиљено)"
 
-#: src/Process/Backend/UserPreferences.php:932
+#: src/Process/Backend/UserPreferences.php:925
 msgid "Add to my favorites"
 msgstr "Ajouter à mes favoris"
 
-#: src/Process/Backend/UserPreferences.php:941
+#: src/Process/Backend/UserPreferences.php:934
 msgid "Menu"
 msgstr "Мени"
 
-#: src/Process/Backend/UserPreferences.php:944
+#: src/Process/Backend/UserPreferences.php:937
 msgid "Display favorites at the top of the menu"
 msgstr "Прикажи омиљене на врху менија"
 
-#: src/Process/Backend/UserPreferences.php:947
+#: src/Process/Backend/UserPreferences.php:940
 msgid "Dashboard icons"
 msgstr "Иконе табле"
 
-#: src/Process/Backend/UserPreferences.php:950
+#: src/Process/Backend/UserPreferences.php:943
 msgid "Display dashboard icons"
 msgstr "Прикажи иконе контролне табле"
 
-#: src/Process/Backend/UserPreferences.php:954
+#: src/Process/Backend/UserPreferences.php:947
 msgid "Dashboard modules"
 msgstr "Modules du tableau de bord"
 
-#: src/Process/Backend/UserPreferences.php:958
+#: src/Process/Backend/UserPreferences.php:951
 msgid "Display documentation links"
 msgstr "Afficher les liens de la documentation"
 
-#: src/Process/Backend/UserPreferences.php:962
+#: src/Process/Backend/UserPreferences.php:955
 msgid "Display Dotclear news"
 msgstr "Afficher les actualités de Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:966
+#: src/Process/Backend/UserPreferences.php:959
 msgid "Display quick entry form"
 msgstr "Afficher le formulaire de billet rapide"
 
-#: src/Process/Backend/UserPreferences.php:972
+#: src/Process/Backend/UserPreferences.php:965
 msgid "Do not display Dotclear updates"
 msgstr "Не приказуј обавештења о дотарашима"
 
-#: src/Process/Backend/UserPreferences.php:985
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Save my dashboard options"
 msgstr "Сачувај опције контролне табле"
 
-#: src/Process/Backend/UserPreferences.php:992
+#: src/Process/Backend/UserPreferences.php:985
 msgid "Dashboard items order"
 msgstr "Редослед ставки командне табле"
 
-#: src/Process/Backend/UserPreferences.php:995
+#: src/Process/Backend/UserPreferences.php:988
 msgid "Reset dashboard items order"
 msgstr "Поново постави ред контролне табле"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-23 08:40+0200\n"
-"PO-Revision-Date: 2024-04-23 18:33\n"
+"POT-Creation-Date: 2024-05-29 08:42+0200\n"
+"PO-Revision-Date: 2024-05-29 07:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -161,7 +161,7 @@ msgstr "设为已删除"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:51
 #: src/Core/Backend/Action/ActionsPostsDefault.php:103
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
-#: src/Core/Backend/Listing/ListingMedia.php:203
+#: src/Core/Backend/Listing/ListingMedia.php:224
 #: src/Core/Backend/ModulesList.php:1215 src/Core/Upgrade/PluginsList.php:120
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Langs.php:278
 #: src/Process/Backend/Post.php:803 src/Process/Backend/Users.php:42
@@ -425,7 +425,7 @@ msgstr "上层目录："
 #: src/Core/Backend/ModulesList.php:1785 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1072
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1119
 #: src/Process/Backend/Post.php:781 src/Process/Backend/Post.php:921
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:499
@@ -577,7 +577,7 @@ msgid "Number of entries"
 msgstr "文章数目"
 
 #: src/Core/Backend/Favorites.php:304
-#: src/Process/Backend/UserPreferences.php:817
+#: src/Process/Backend/UserPreferences.php:810
 msgid "My favorites"
 msgstr "我的最爱"
 
@@ -622,7 +622,7 @@ msgstr "分类目录"
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
 #: src/Process/Backend/Media.php:461 src/Process/Backend/Media.php:500
-#: src/Process/Backend/MediaItem.php:425 src/Process/Backend/MediaItem.php:431
+#: src/Process/Backend/MediaItem.php:471 src/Process/Backend/MediaItem.php:477
 msgid "Media manager"
 msgstr "媒体管理中心"
 
@@ -808,17 +808,15 @@ msgid "Display options"
 msgstr "显示选项"
 
 #: src/Core/Backend/Filter/Filters.php:358
-#: src/Process/Backend/UserPreferences.php:730
 msgid "Order by:"
 msgstr "排序依据："
 
 #: src/Core/Backend/Filter/Filters.php:371
-#: src/Process/Backend/UserPreferences.php:735
 msgid "Sort:"
 msgstr "排序："
 
 #: src/Core/Backend/Filter/Filters.php:393
-#: src/Process/Backend/UserPreferences.php:740
+#: src/Process/Backend/UserPreferences.php:726
 msgid "Show"
 msgstr "显示"
 
@@ -970,7 +968,7 @@ msgstr "入职"
 #: src/Core/Backend/Listing/ListingPosts.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:170
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:952
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:998
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1088
 msgid "Published"
 msgstr "已出版"
@@ -980,7 +978,7 @@ msgstr "已出版"
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:175
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:953
+#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:999
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1093
 msgid "Unpublished"
 msgstr "未发表"
@@ -990,7 +988,7 @@ msgstr "未发表"
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:185
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:955
+#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:1001
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1098
 msgid "Pending"
 msgstr "待定"
@@ -1061,34 +1059,34 @@ msgstr "命名"
 msgid "Size"
 msgstr "尺寸"
 
-#: src/Core/Backend/Listing/ListingMedia.php:167
-#: src/Core/Backend/Listing/ListingMedia.php:168
+#: src/Core/Backend/Listing/ListingMedia.php:188
+#: src/Core/Backend/Listing/ListingMedia.php:189
 #: src/Process/Backend/Media.php:360
 msgid "Select this file"
 msgstr "选择该文件"
 
-#: src/Core/Backend/Listing/ListingMedia.php:177
-#: src/Core/Backend/Listing/ListingMedia.php:183
+#: src/Core/Backend/Listing/ListingMedia.php:198
+#: src/Core/Backend/Listing/ListingMedia.php:204
 #: src/Process/Backend/Media.php:376 src/Process/Backend/Media.php:389
 msgid "Attach this file to entry"
 msgstr "附加这个文件到文章"
 
-#: src/Core/Backend/Listing/ListingMedia.php:188
-#: src/Core/Backend/Listing/ListingMedia.php:189
+#: src/Core/Backend/Listing/ListingMedia.php:209
+#: src/Core/Backend/Listing/ListingMedia.php:210
 msgid "Insert this file into entry"
 msgstr "插入这个文件到文章中"
 
-#: src/Core/Backend/Listing/ListingMedia.php:201
+#: src/Core/Backend/Listing/ListingMedia.php:222
 msgid "delete"
 msgstr "删除"
 
-#: src/Core/Backend/Listing/ListingMedia.php:217
-#: src/Core/Backend/Listing/ListingMedia.php:241
+#: src/Core/Backend/Listing/ListingMedia.php:238
+#: src/Core/Backend/Listing/ListingMedia.php:262
 msgid "private media"
 msgstr "私人媒体"
 
-#: src/Core/Backend/Listing/ListingMedia.php:224
-#: src/Core/Backend/Listing/ListingMedia.php:249
+#: src/Core/Backend/Listing/ListingMedia.php:245
+#: src/Core/Backend/Listing/ListingMedia.php:270
 msgid "open"
 msgstr "打开"
 
@@ -1125,7 +1123,7 @@ msgstr "个 trackback"
 #: src/Core/Backend/Listing/ListingPosts.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:180
 #: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
-#: src/Process/Backend/MediaItem.php:954 src/Process/Backend/Post.php:477
+#: src/Process/Backend/MediaItem.php:1000 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "预定的"
 
@@ -1571,11 +1569,11 @@ msgstr "配置 \"%s\""
 #: src/Core/Backend/ModulesList.php:1777 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1113
+#: src/Process/Backend/Media.php:589 src/Process/Backend/MediaItem.php:1160
 #: src/Process/Backend/Post.php:797 src/Process/Backend/Search.php:158
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:616
-#: src/Process/Backend/UserPreferences.php:806
-#: src/Process/Backend/UserPreferences.php:986
+#: src/Process/Backend/UserPreferences.php:799
+#: src/Process/Backend/UserPreferences.php:979
 msgid "Back"
 msgstr "溯源"
 
@@ -1620,8 +1618,8 @@ msgid "Go to help"
 msgstr "前往帮助"
 
 #: src/Core/Backend/Page.php:296 src/Core/Upgrade/Page.php:139
-#: src/Process/Backend/UserPreferences.php:812
-#: src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/UserPreferences.php:805
+#: src/Process/Backend/UserPreferences.php:806
 msgid "My dashboard"
 msgstr "我的仪表板"
 
@@ -1941,8 +1939,8 @@ msgid "Choose files"
 msgstr "选择文件"
 
 #: src/Core/Backend/Page.php:1190 src/Process/Backend/LinkPopup.php:73
-#: src/Process/Backend/Media.php:242 src/Process/Backend/MediaItem.php:527
-#: src/Process/Backend/MediaItem.php:738 src/Process/Backend/Post.php:800
+#: src/Process/Backend/Media.php:242 src/Process/Backend/MediaItem.php:573
+#: src/Process/Backend/MediaItem.php:784 src/Process/Backend/Post.php:800
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "取消"
@@ -1951,7 +1949,7 @@ msgstr "取消"
 msgid "Clean"
 msgstr "清除"
 
-#: src/Core/Backend/Page.php:1193 src/Process/Backend/MediaItem.php:1084
+#: src/Core/Backend/Page.php:1193 src/Process/Backend/MediaItem.php:1131
 msgid "Send"
 msgstr "发送"
 
@@ -2444,32 +2442,32 @@ msgstr "在about:config \"public_path \"中设置的位置没有可写目录/pub
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "媒体管理器没有可写的根目录。你应该联系你的管理员。"
 
-#: src/Core/Media.php:937 src/Core/Media.php:964
+#: src/Core/Media.php:938 src/Core/Media.php:965
 msgid "You are not a super administrator."
 msgstr "您不是超级管理员。"
 
-#: src/Core/Media.php:1051 src/Core/Media.php:1141 src/Core/Media.php:1220
-#: src/Core/Media.php:1236 src/Core/Media.php:1254
+#: src/Core/Media.php:1052 src/Core/Media.php:1142 src/Core/Media.php:1221
+#: src/Core/Media.php:1237 src/Core/Media.php:1255
 msgid "Permission denied."
 msgstr "权限被拒绝。"
 
-#: src/Core/Media.php:1154
+#: src/Core/Media.php:1155
 msgid "You are not the file owner."
 msgstr "您不是文件的所有者。"
 
-#: src/Core/Media.php:1169
+#: src/Core/Media.php:1170
 msgid "This file is not allowed."
 msgstr "这个文件是不允许的。"
 
-#: src/Core/Media.php:1173
+#: src/Core/Media.php:1174
 msgid "New file already exists."
 msgstr "新文件已经存在。"
 
-#: src/Core/Media.php:1274
+#: src/Core/Media.php:1275
 msgid "File does not exist in the database."
 msgstr "文件在数据库中不存在。"
 
-#: src/Core/Media.php:1319
+#: src/Core/Media.php:1320
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "解压缩目标目录 %s 已经存在。"
@@ -3142,7 +3140,7 @@ msgstr "请求一个新密码"
 msgid "recover"
 msgstr "恢复"
 
-#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:496
+#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:497
 msgid "Other option"
 msgstr "其他选项"
 
@@ -3185,23 +3183,23 @@ msgstr "在这台计算机上记住我的 ID"
 msgid "log in"
 msgstr "登录"
 
-#: src/Process/Backend/Auth.php:490 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:491 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "您必须接受 cookies 以使用私有区域。"
 
-#: src/Process/Backend/Auth.php:497
+#: src/Process/Backend/Auth.php:498
 msgid "Get back to normal authentication"
 msgstr "恢复正常认证"
 
-#: src/Process/Backend/Auth.php:500
+#: src/Process/Backend/Auth.php:501
 msgid "Connection issue?"
 msgstr "连接问题？"
 
-#: src/Process/Backend/Auth.php:503
+#: src/Process/Backend/Auth.php:504
 msgid "I forgot my password"
 msgstr "我忘记了我的密码"
 
-#: src/Process/Backend/Auth.php:506
+#: src/Process/Backend/Auth.php:507
 msgid "I want to log in in safe mode"
 msgstr "我想在安全模式下登录"
 
@@ -3318,8 +3316,8 @@ msgid "P"
 msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:997
-#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:663
 msgid "(none)"
 msgstr "(无)"
 
@@ -3339,37 +3337,37 @@ msgstr "描述、国家、日期"
 msgid "Description, City, Country, Date"
 msgstr "描述、城市、国家、日期"
 
-#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:514
-#: src/Process/Backend/MediaItem.php:588 src/Process/Backend/MediaItem.php:829
+#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:560
+#: src/Process/Backend/MediaItem.php:634 src/Process/Backend/MediaItem.php:875
 msgid "original"
 msgstr "原始"
 
 #: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
-#: src/Process/Backend/MediaItem.php:612 src/Process/Backend/MediaItem.php:624
-#: src/Process/Backend/MediaItem.php:662 src/Process/Backend/MediaItem.php:706
+#: src/Process/Backend/MediaItem.php:658 src/Process/Backend/MediaItem.php:670
+#: src/Process/Backend/MediaItem.php:708 src/Process/Backend/MediaItem.php:752
 msgid "None"
 msgstr "无"
 
-#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:625
-#: src/Process/Backend/MediaItem.php:663 src/Process/Backend/MediaItem.php:707
+#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:671
+#: src/Process/Backend/MediaItem.php:709 src/Process/Backend/MediaItem.php:753
 msgid "Left"
 msgstr "左"
 
-#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:626
-#: src/Process/Backend/MediaItem.php:664 src/Process/Backend/MediaItem.php:708
+#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:672
+#: src/Process/Backend/MediaItem.php:710 src/Process/Backend/MediaItem.php:754
 msgid "Right"
 msgstr "右"
 
-#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:627
-#: src/Process/Backend/MediaItem.php:665 src/Process/Backend/MediaItem.php:709
+#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:673
+#: src/Process/Backend/MediaItem.php:711 src/Process/Backend/MediaItem.php:755
 msgid "Center"
 msgstr "中心"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:600
+#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:646
 msgid "Legend and alternate text"
 msgstr "图例和备用文本"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:606
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:652
 msgid "Alternate text"
 msgstr "备用文本"
 
@@ -4038,7 +4036,7 @@ msgstr "名字："
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "警告：如果您手动设置 URL，它可能与其他分类目录冲突。"
 
-#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1052
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1099
 msgid "Description:"
 msgstr "描述："
 
@@ -4374,7 +4372,7 @@ msgstr "链接标题："
 msgid "Link language:"
 msgstr "链接语言："
 
-#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:737
+#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:783
 msgid "Insert"
 msgstr "插入"
 
@@ -4459,7 +4457,7 @@ msgid "Select files and click on <strong>%s</strong> button"
 msgstr "选择文件并点击 <strong>%s</strong> 按钮"
 
 #: src/Process/Backend/Media.php:367 src/Process/Backend/Media.php:380
-#: src/Process/Backend/Media.php:393 src/Process/Backend/MediaItem.php:753
+#: src/Process/Backend/Media.php:393 src/Process/Backend/MediaItem.php:799
 msgid "or"
 msgstr "或"
 
@@ -4534,12 +4532,13 @@ msgstr "请小心发布您拥有的媒体文件，这不受到版权的保护。
 msgid "Maximum file size allowed:"
 msgstr "允许的文件最大大小："
 
-#: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:615
-#: src/Process/Backend/MediaItem.php:976 src/Process/Backend/MediaItem.php:1039
+#: src/Process/Backend/Media.php:539 src/Process/Backend/MediaItem.php:661
+#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1086
 msgid "Alternate text:"
 msgstr "备用文本："
 
-#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/Media.php:540 src/Process/Backend/MediaItem.php:1116
 msgid "Private"
 msgstr "私有的"
 
@@ -4564,259 +4563,259 @@ msgstr "目前对媒体和图像的设置定义在 %s。"
 msgid "Not a valid file"
 msgstr "不是一个有效的文件"
 
-#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:207
-#: src/Process/Backend/MediaItem.php:452
+#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:235
+#: src/Process/Backend/MediaItem.php:498
 msgid "File has been successfully updated."
 msgstr "成功更新文件。"
 
-#: src/Process/Backend/MediaItem.php:224 src/Process/Backend/MediaItem.php:455
+#: src/Process/Backend/MediaItem.php:252 src/Process/Backend/MediaItem.php:501
 msgid "Thumbnails have been successfully updated."
 msgstr "成功更新缩略图。"
 
-#: src/Process/Backend/MediaItem.php:241
+#: src/Process/Backend/MediaItem.php:269
 msgid "Zip file has been successfully extracted."
 msgstr "成功解压缩 zip 文件。"
 
-#: src/Process/Backend/MediaItem.php:271 src/Process/Backend/MediaItem.php:458
+#: src/Process/Backend/MediaItem.php:299 src/Process/Backend/MediaItem.php:504
 msgid "Default media insertion settings have been successfully updated."
 msgstr "默认的媒体插入设置已被成功更新。"
 
-#: src/Process/Backend/MediaItem.php:297
+#: src/Process/Backend/MediaItem.php:325
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "该文件夹的媒体插入设置已成功注册。"
 
-#: src/Process/Backend/MediaItem.php:308
+#: src/Process/Backend/MediaItem.php:336
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "该文件夹的媒体插入设置已被成功删除。"
 
-#: src/Process/Backend/MediaItem.php:487 src/Process/Backend/MediaItem.php:488
+#: src/Process/Backend/MediaItem.php:533 src/Process/Backend/MediaItem.php:534
 msgid "Select media item"
 msgstr "选择媒体项目"
 
-#: src/Process/Backend/MediaItem.php:499 src/Process/Backend/MediaItem.php:574
+#: src/Process/Backend/MediaItem.php:545 src/Process/Backend/MediaItem.php:620
 msgid "Image size:"
 msgstr "图片大小："
 
-#: src/Process/Backend/MediaItem.php:526 src/Process/Upgrade/Attic.php:302
+#: src/Process/Backend/MediaItem.php:572 src/Process/Upgrade/Attic.php:302
 msgid "Select"
 msgstr "选择"
 
-#: src/Process/Backend/MediaItem.php:561 src/Process/Backend/MediaItem.php:562
+#: src/Process/Backend/MediaItem.php:607 src/Process/Backend/MediaItem.php:608
 msgid "Insert media item"
 msgstr "插入媒体条目"
 
-#: src/Process/Backend/MediaItem.php:593
+#: src/Process/Backend/MediaItem.php:639
 msgid "Image legend and alternate text"
 msgstr "图像图例和备用文本"
 
-#: src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/MediaItem.php:663
 msgid "Legend:"
 msgstr "说明:"
 
-#: src/Process/Backend/MediaItem.php:622
+#: src/Process/Backend/MediaItem.php:668
 msgid "Image alignment"
 msgstr "图片对齐"
 
-#: src/Process/Backend/MediaItem.php:642
+#: src/Process/Backend/MediaItem.php:688
 msgid "Image insertion"
 msgstr "图片插入"
 
-#: src/Process/Backend/MediaItem.php:645
+#: src/Process/Backend/MediaItem.php:691
 msgid "As a single image"
 msgstr "作为一个单独的图片"
 
-#: src/Process/Backend/MediaItem.php:647
+#: src/Process/Backend/MediaItem.php:693
 msgid "As a link to the original image"
 msgstr "作为原始图片的链接"
 
-#: src/Process/Backend/MediaItem.php:655
+#: src/Process/Backend/MediaItem.php:701
 msgid "MP3 disposition"
 msgstr "MP3 处理"
 
-#: src/Process/Backend/MediaItem.php:658
+#: src/Process/Backend/MediaItem.php:704
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "请注意，在所见即所得 HTML 模式下，使用标准编辑器无法插入 mp3 文件。"
 
-#: src/Process/Backend/MediaItem.php:688
+#: src/Process/Backend/MediaItem.php:734
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "请注意，在所见即所得 HTML 模式下，标准编辑器无法插入视频文件。"
 
-#: src/Process/Backend/MediaItem.php:693
+#: src/Process/Backend/MediaItem.php:739
 msgid "Video size"
 msgstr "视频大小"
 
-#: src/Process/Backend/MediaItem.php:694
+#: src/Process/Backend/MediaItem.php:740
 msgid "Width:"
 msgstr "宽度："
 
-#: src/Process/Backend/MediaItem.php:696
+#: src/Process/Backend/MediaItem.php:742
 msgid "Height:"
 msgstr "高度："
 
-#: src/Process/Backend/MediaItem.php:703
+#: src/Process/Backend/MediaItem.php:749
 msgid "Video disposition"
 msgstr "视频处理"
 
-#: src/Process/Backend/MediaItem.php:732
+#: src/Process/Backend/MediaItem.php:778
 msgid "Media item will be inserted as a link."
 msgstr "媒体项目将会作为链接插入。"
 
-#: src/Process/Backend/MediaItem.php:752
+#: src/Process/Backend/MediaItem.php:798
 msgid "Make current settings as default"
 msgstr "将当前设置作为默认值"
 
-#: src/Process/Backend/MediaItem.php:753
+#: src/Process/Backend/MediaItem.php:799
 msgid "For the blog"
 msgstr "对于博客"
 
-#: src/Process/Backend/MediaItem.php:754
+#: src/Process/Backend/MediaItem.php:800
 msgid "For this folder only"
 msgstr "仅适用于此文件夹"
 
-#: src/Process/Backend/MediaItem.php:763
+#: src/Process/Backend/MediaItem.php:809
 msgid "Settings exist for this folder:"
 msgstr "这个文件夹存在设置："
 
-#: src/Process/Backend/MediaItem.php:764
+#: src/Process/Backend/MediaItem.php:810
 msgid "Remove them"
 msgstr "移除它们"
 
-#: src/Process/Backend/MediaItem.php:783 src/Process/Backend/MediaItem.php:786
-#: src/Process/Backend/MediaItem.php:867
+#: src/Process/Backend/MediaItem.php:829 src/Process/Backend/MediaItem.php:832
+#: src/Process/Backend/MediaItem.php:913
 msgid "Media details"
 msgstr "媒体详情"
 
-#: src/Process/Backend/MediaItem.php:818
+#: src/Process/Backend/MediaItem.php:864
 msgid "Available sizes:"
 msgstr "可用的大小："
 
-#: src/Process/Backend/MediaItem.php:839
+#: src/Process/Backend/MediaItem.php:885
 msgid "Thumbnail details"
 msgstr "缩略图详情"
 
-#: src/Process/Backend/MediaItem.php:844 src/Process/Backend/MediaItem.php:881
-#: src/Process/Backend/MediaItem.php:892
+#: src/Process/Backend/MediaItem.php:890 src/Process/Backend/MediaItem.php:927
+#: src/Process/Backend/MediaItem.php:938
 msgid "Image width:"
 msgstr "图像宽度："
 
-#: src/Process/Backend/MediaItem.php:845 src/Process/Backend/MediaItem.php:885
-#: src/Process/Backend/MediaItem.php:893
+#: src/Process/Backend/MediaItem.php:891 src/Process/Backend/MediaItem.php:931
+#: src/Process/Backend/MediaItem.php:939
 msgid "Image height:"
 msgstr "图像高度："
 
-#: src/Process/Backend/MediaItem.php:849 src/Process/Backend/MediaItem.php:898
+#: src/Process/Backend/MediaItem.php:895 src/Process/Backend/MediaItem.php:944
 msgid "File size:"
 msgstr "文件大小："
 
-#: src/Process/Backend/MediaItem.php:852 src/Process/Backend/MediaItem.php:899
+#: src/Process/Backend/MediaItem.php:898 src/Process/Backend/MediaItem.php:945
 msgid "File URL:"
 msgstr "文件 URL："
 
-#: src/Process/Backend/MediaItem.php:869
+#: src/Process/Backend/MediaItem.php:915
 msgid "File owner:"
 msgstr "文件拥有者："
 
-#: src/Process/Backend/MediaItem.php:870
+#: src/Process/Backend/MediaItem.php:916
 msgid "File type:"
 msgstr "文件类型："
 
-#: src/Process/Backend/MediaItem.php:905
+#: src/Process/Backend/MediaItem.php:951
 msgid "Show entries containing this media"
 msgstr "显示包含这个媒体的文章"
 
-#: src/Process/Backend/MediaItem.php:908
+#: src/Process/Backend/MediaItem.php:954
 msgid "Entries containing this media"
 msgstr "包含这个媒体的文章"
 
-#: src/Process/Backend/MediaItem.php:945
+#: src/Process/Backend/MediaItem.php:991
 msgid "No entry seems contain this media."
 msgstr "似乎没有文章包含这个媒体。"
 
-#: src/Process/Backend/MediaItem.php:972
+#: src/Process/Backend/MediaItem.php:1018
 msgid "Image details"
 msgstr "图片详情"
 
-#: src/Process/Backend/MediaItem.php:981
+#: src/Process/Backend/MediaItem.php:1028
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:990
+#: src/Process/Backend/MediaItem.php:1037
 msgid "No detail"
 msgstr "没有详情"
 
-#: src/Process/Backend/MediaItem.php:997
+#: src/Process/Backend/MediaItem.php:1044
 msgid "Updates and modifications"
 msgstr "更新和修改"
 
-#: src/Process/Backend/MediaItem.php:1003
-#: src/Process/Backend/MediaItem.php:1005
+#: src/Process/Backend/MediaItem.php:1050
+#: src/Process/Backend/MediaItem.php:1052
 msgid "Update thumbnails"
 msgstr "更新缩略图"
 
-#: src/Process/Backend/MediaItem.php:1004
+#: src/Process/Backend/MediaItem.php:1051
 msgid "This will create or update thumbnails for this image."
 msgstr "这将会创建或者更新此图片的缩略图。"
 
-#: src/Process/Backend/MediaItem.php:1013
-#: src/Process/Backend/MediaItem.php:1021
+#: src/Process/Backend/MediaItem.php:1060
+#: src/Process/Backend/MediaItem.php:1068
 msgid "Extract in a new directory"
 msgstr "解压缩到一个新目录"
 
-#: src/Process/Backend/MediaItem.php:1014
-#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1061
+#: src/Process/Backend/MediaItem.php:1070
 msgid "Extract in current directory"
 msgstr "解压缩到当前目录"
 
-#: src/Process/Backend/MediaItem.php:1019
+#: src/Process/Backend/MediaItem.php:1066
 msgid "Extract archive"
 msgstr "解压缩"
 
-#: src/Process/Backend/MediaItem.php:1022
+#: src/Process/Backend/MediaItem.php:1069
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "这将在一个新的目录中提取档案，这个目录应该还不存在。"
 
-#: src/Process/Backend/MediaItem.php:1024
+#: src/Process/Backend/MediaItem.php:1071
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "这将会把压缩包解压缩到当前目录并会覆盖已存在的文件或者目录。"
 
-#: src/Process/Backend/MediaItem.php:1026
+#: src/Process/Backend/MediaItem.php:1073
 msgid "Extract mode:"
 msgstr "解压缩模式："
 
-#: src/Process/Backend/MediaItem.php:1028
+#: src/Process/Backend/MediaItem.php:1075
 msgid "Extract"
 msgstr "萃取物"
 
-#: src/Process/Backend/MediaItem.php:1036
+#: src/Process/Backend/MediaItem.php:1083
 msgid "Change media properties"
 msgstr "更改媒体属性"
 
-#: src/Process/Backend/MediaItem.php:1037
+#: src/Process/Backend/MediaItem.php:1084
 msgid "File name:"
 msgstr "文件名："
 
-#: src/Process/Backend/MediaItem.php:1062
+#: src/Process/Backend/MediaItem.php:1109
 msgid "File date:"
 msgstr "文件日期："
 
-#: src/Process/Backend/MediaItem.php:1070
+#: src/Process/Backend/MediaItem.php:1117
 msgid "New directory:"
 msgstr "新目录："
 
-#: src/Process/Backend/MediaItem.php:1078
+#: src/Process/Backend/MediaItem.php:1125
 msgid "Change file"
 msgstr "改变文件"
 
-#: src/Process/Backend/MediaItem.php:1080
+#: src/Process/Backend/MediaItem.php:1127
 msgid "Choose a file:"
 msgstr "选择一个文件："
 
-#: src/Process/Backend/MediaItem.php:1081
+#: src/Process/Backend/MediaItem.php:1128
 #, php-format
 msgid "Maximum size %s"
 msgstr "最大大小 %s"
 
-#: src/Process/Backend/MediaItem.php:1092
+#: src/Process/Backend/MediaItem.php:1139
 msgid "Delete this media"
 msgstr "删除该媒体"
 
@@ -5400,19 +5399,19 @@ msgstr "介面"
 msgid "Timezone:"
 msgstr "时区："
 
-#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:752
+#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:745
 msgid "Edition"
 msgstr "版本"
 
-#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:766
+#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:759
 msgid "Preferred format:"
 msgstr "喜好的格式："
 
-#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:769
+#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:762
 msgid "Default entry status:"
 msgstr "默认的文章状态："
 
-#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:772
+#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:765
 msgid "Entry edit field height:"
 msgstr "文章编辑区域高度："
 
@@ -5649,121 +5648,133 @@ msgstr "列表的选项"
 msgid "Apply filters on the fly"
 msgstr "即时应用过滤器"
 
-#: src/Process/Backend/UserPreferences.php:757
+#: src/Process/Backend/UserPreferences.php:723
+msgid "List"
+msgstr "列表"
+
+#: src/Process/Backend/UserPreferences.php:724
+msgid "Order by"
+msgstr "订购方式"
+
+#: src/Process/Backend/UserPreferences.php:725
+msgid "Sort"
+msgstr "分类"
+
+#: src/Process/Backend/UserPreferences.php:750
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "首选的编辑器为 %s："
 
-#: src/Process/Backend/UserPreferences.php:760
+#: src/Process/Backend/UserPreferences.php:753
 msgid "Choose an editor"
 msgstr "选择一个编辑"
 
-#: src/Process/Backend/UserPreferences.php:777
+#: src/Process/Backend/UserPreferences.php:770
 msgid "Enable WYSIWYG mode"
 msgstr "激活所见即所得模式"
 
-#: src/Process/Backend/UserPreferences.php:781
+#: src/Process/Backend/UserPreferences.php:774
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "在文本区的底部显示编辑器的工具栏（如果可能）。"
 
-#: src/Process/Backend/UserPreferences.php:787
+#: src/Process/Backend/UserPreferences.php:780
 msgid "Use HTML editor for:"
 msgstr "使用HTML编辑器进行："
 
-#: src/Process/Backend/UserPreferences.php:797
+#: src/Process/Backend/UserPreferences.php:790
 msgid "Other options"
 msgstr "其他选择"
 
-#: src/Process/Backend/UserPreferences.php:805
+#: src/Process/Backend/UserPreferences.php:798
 msgid "Save my options"
 msgstr "保存我的选择"
 
-#: src/Process/Backend/UserPreferences.php:844
+#: src/Process/Backend/UserPreferences.php:837
 #, php-format
 msgid "position of %s"
 msgstr "%s的位置"
 
-#: src/Process/Backend/UserPreferences.php:861
+#: src/Process/Backend/UserPreferences.php:854
 msgid "Save order"
 msgstr "保存订单"
 
-#: src/Process/Backend/UserPreferences.php:864
+#: src/Process/Backend/UserPreferences.php:857
 msgid "Delete selected favorites"
 msgstr "删除选定的收藏夹"
 
-#: src/Process/Backend/UserPreferences.php:866
+#: src/Process/Backend/UserPreferences.php:859
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "你确定要删除选定的收藏夹吗？"
 
-#: src/Process/Backend/UserPreferences.php:871
+#: src/Process/Backend/UserPreferences.php:864
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "如果你是一个超级管理员，你可以定义这组收藏夹，在这个安装的所有博客上默认使用。"
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:865
 msgid "Define as default favorites"
 msgstr "定义为默认收藏夹"
 
-#: src/Process/Backend/UserPreferences.php:879
+#: src/Process/Backend/UserPreferences.php:872
 msgid "Currently no personal favorites."
 msgstr "目前没有个人的最爱。"
 
-#: src/Process/Backend/UserPreferences.php:893
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Other available favorites"
 msgstr "其他可用的最爱"
 
-#: src/Process/Backend/UserPreferences.php:921
+#: src/Process/Backend/UserPreferences.php:914
 msgid "(default favorite)"
 msgstr "(默认最爱)"
 
-#: src/Process/Backend/UserPreferences.php:932
+#: src/Process/Backend/UserPreferences.php:925
 msgid "Add to my favorites"
 msgstr "添加到我的最爱"
 
-#: src/Process/Backend/UserPreferences.php:941
+#: src/Process/Backend/UserPreferences.php:934
 msgid "Menu"
 msgstr "菜单"
 
-#: src/Process/Backend/UserPreferences.php:944
+#: src/Process/Backend/UserPreferences.php:937
 msgid "Display favorites at the top of the menu"
 msgstr "在菜单的顶部显示收藏夹"
 
-#: src/Process/Backend/UserPreferences.php:947
+#: src/Process/Backend/UserPreferences.php:940
 msgid "Dashboard icons"
 msgstr "仪表板图标"
 
-#: src/Process/Backend/UserPreferences.php:950
+#: src/Process/Backend/UserPreferences.php:943
 msgid "Display dashboard icons"
 msgstr "显示仪表盘图标"
 
-#: src/Process/Backend/UserPreferences.php:954
+#: src/Process/Backend/UserPreferences.php:947
 msgid "Dashboard modules"
 msgstr "仪表板模块"
 
-#: src/Process/Backend/UserPreferences.php:958
+#: src/Process/Backend/UserPreferences.php:951
 msgid "Display documentation links"
 msgstr "显示文件链接"
 
-#: src/Process/Backend/UserPreferences.php:962
+#: src/Process/Backend/UserPreferences.php:955
 msgid "Display Dotclear news"
 msgstr "显示Dotclear的新闻"
 
-#: src/Process/Backend/UserPreferences.php:966
+#: src/Process/Backend/UserPreferences.php:959
 msgid "Display quick entry form"
 msgstr "显示快速录入表"
 
-#: src/Process/Backend/UserPreferences.php:972
+#: src/Process/Backend/UserPreferences.php:965
 msgid "Do not display Dotclear updates"
 msgstr "不显示Dotclear的更新"
 
-#: src/Process/Backend/UserPreferences.php:985
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Save my dashboard options"
 msgstr "保存我的仪表板选项"
 
-#: src/Process/Backend/UserPreferences.php:992
+#: src/Process/Backend/UserPreferences.php:985
 msgid "Dashboard items order"
 msgstr "仪表板项目顺序"
 
-#: src/Process/Backend/UserPreferences.php:995
+#: src/Process/Backend/UserPreferences.php:988
 msgid "Reset dashboard items order"
 msgstr "重置仪表盘上的项目顺序"
 
