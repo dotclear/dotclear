@@ -717,7 +717,7 @@ class UserPreferences extends Process
         __('Apply filters on the fly') . '</label></p>';
 
         echo
-        '<table>' .
+        '<table class="table-outer">' .
         '<thead>' .
         '<tr>' .
         '<th>' . __('List') . '</th>' .
