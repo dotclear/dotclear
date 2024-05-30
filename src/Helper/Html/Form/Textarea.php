@@ -60,9 +60,19 @@ class Textarea extends Component
             ($this->value ?? '') .
             '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
-        if (isset($this->label) && isset($this->id)) {
-            $this->label->for = $this->id;
-            $buffer           = $this->label->render($buffer);
+        if (isset($this->label)) {
+            $render = true;
+            if (isset($this->id)) {
+                $this->label->for = $this->id;
+            } else {
+                if ($this->label->getPosition() === Label::OL_FT || $this->label->getPosition() === Label::OL_TF) {
+                    // Do not render label if textarea is outside label and there is no id for textarea
+                    $render = false;
+                }
+            }
+            if ($render) {
+                $buffer = $this->label->render($buffer);
+            }
         }
 
         return $buffer;
