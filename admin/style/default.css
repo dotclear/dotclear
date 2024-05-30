@@ -2918,6 +2918,12 @@ h1 a:link {
 #main-menu .active a {
   border-bottom: none;
   color: var(--main-menu-active-color);
+  position: relative;
+}
+#main-menu .active a::after {
+  content: "•";
+  position: absolute;
+  right: 0;
 }
 
 #favorites-menu,

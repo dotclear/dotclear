@@ -61,6 +61,13 @@
     a {
       border-bottom: none;
       color: var(--main-menu-active-color);
+
+      position: relative;
+      &::after {
+        content: '•';
+        position: absolute;
+        right: 0;
+      }
     }
   }
 }
