@@ -23,7 +23,7 @@ class Checkbox extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="checkbox".*?\/>/')
+            ->match('/<input type="checkbox".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('checked')
@@ -36,7 +36,7 @@ class Checkbox extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="checkbox".*?\/>/')
+            ->match('/<input type="checkbox".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('checked')
@@ -59,7 +59,7 @@ class Checkbox extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="checkbox".*?\/>/')
+            ->match('/<input type="checkbox".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('checked')

@@ -127,7 +127,7 @@ class Select extends atoum
 
         $this
             ->string($component->render())
-            ->contains('<label>mylabel <select name="my" id="my">' . "\n" . '</select>' . "\n" . '</label>')
+            ->contains('<label>mylabel <select name="my" id="my">' . "\n" . '</select></label>')
         ;
     }
 
@@ -140,7 +140,7 @@ class Select extends atoum
 
         $this
             ->string($component->render())
-            ->contains('<label for="my">mylabel</label> <select name="my" id="my">' . "\n" . '</select>' . "\n")
+            ->contains('<label for="my">mylabel</label> <select name="my" id="my">' . "\n" . '</select>')
         ;
     }
 

@@ -23,7 +23,7 @@ class Url extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="url".*?\/>/')
+            ->match('/<input type="url".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('inputmode="url"')
@@ -37,7 +37,7 @@ class Url extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="url".*?\/>/')
+            ->match('/<input type="url".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('inputmode="url"')

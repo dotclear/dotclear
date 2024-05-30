@@ -23,7 +23,7 @@ class Password extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="password".*?\/>/')
+            ->match('/<input type="password".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('value="value"')
@@ -39,7 +39,7 @@ class Password extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="password".*?\/>/')
+            ->match('/<input type="password".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('value="value"')

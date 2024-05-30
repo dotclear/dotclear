@@ -23,7 +23,7 @@ class Number extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="number".*?\/>/')
+            ->match('/<input type="number".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('value="50"')
@@ -39,7 +39,7 @@ class Number extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="number".*?\/>/')
+            ->match('/<input type="number".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('value=')
@@ -55,7 +55,7 @@ class Number extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="number".*?\/>/')
+            ->match('/<input type="number".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('value=')
@@ -71,7 +71,7 @@ class Number extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="number".*?\/>/')
+            ->match('/<input type="number".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('value=')
@@ -87,7 +87,7 @@ class Number extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="number".*?\/>/')
+            ->match('/<input type="number".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('value="50"')

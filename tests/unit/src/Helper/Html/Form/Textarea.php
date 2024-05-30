@@ -58,7 +58,7 @@ class Textarea extends atoum
 
         $this
             ->string($component->render())
-            ->contains('<label>mylabel <textarea name="my" id="my"></textarea>' . "\n" . '</label>')
+            ->contains('<label>mylabel <textarea name="my" id="my"></textarea></label>')
         ;
     }
 
@@ -71,7 +71,7 @@ class Textarea extends atoum
 
         $this
             ->string($component->render())
-            ->contains('<label for="my">mylabel</label> <textarea name="my" id="my"></textarea>' . "\n")
+            ->contains('<label for="my">mylabel</label> <textarea name="my" id="my"></textarea>')
         ;
     }
 

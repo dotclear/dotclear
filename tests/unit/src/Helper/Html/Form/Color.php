@@ -23,7 +23,7 @@ class Color extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="color".*?\/>/')
+            ->match('/<input type="color".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('value="value"')
@@ -38,7 +38,7 @@ class Color extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="color".*?\/>/')
+            ->match('/<input type="color".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('value="value"')
@@ -74,7 +74,7 @@ class Color extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="color".*?\/>/')
+            ->match('/<input type="color".*?>/')
             ->contains('name="myname"')
             ->contains('id="myid"')
             ->contains('value="value"')
@@ -90,7 +90,7 @@ class Color extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="color".*?\/>/')
+            ->match('/<input type="color".*?>/')
             ->contains('name="myname"')
             ->contains('id="myid"')
             ->contains('value="value"')

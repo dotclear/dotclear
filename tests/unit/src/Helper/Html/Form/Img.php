@@ -23,7 +23,7 @@ class Img extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<img .*?\/>/')
+            ->match('/<img .*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
         ;
@@ -45,7 +45,7 @@ class Img extends atoum
 
         $this
             ->string($component->render())
-            ->isEqualTo('<img src="img.jpg"/>')
+            ->isEqualTo('<img src="img.jpg">')
         ;
     }
 
@@ -56,7 +56,7 @@ class Img extends atoum
 
         $this
             ->string($component->render())
-            ->isEqualTo('<img src="img.jpg" alt="textual alternative"/>')
+            ->isEqualTo('<img src="img.jpg" alt="textual alternative">')
         ;
     }
 }

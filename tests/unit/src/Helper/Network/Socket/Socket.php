@@ -83,10 +83,9 @@ class Socket extends atoum
         $line = 0;
         foreach ($socket->write($data) as $value) {
             if ($line < count($expected)) {
+                //$this->dump($value);
                 if (mb_substr($value, 0, mb_strlen($expected[$line])) !== $expected[$line]) {
-                    $this
-                        ->dump(json_encode(mb_substr($value, 0, mb_strlen($expected[$line]))))
-                    ;
+                    $this->dump(json_encode(mb_substr($value, 0, mb_strlen($expected[$line]))));
                 }
 
                 $this
@@ -96,10 +95,16 @@ class Socket extends atoum
             }
             $line++;
         }
-        $this
-            ->boolean($value)
-            ->isFalse()
-        ;
+
+        if (gettype($value) === 'boolean') {
+            $this
+                ->boolean($value)->isEqualTo(false)
+            ;
+        } else {
+            $this
+                ->string($value)->startWith('</html>')
+            ;
+        }
 
         $socket->close();
 

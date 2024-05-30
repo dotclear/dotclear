@@ -23,7 +23,7 @@ class Input extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="hidden".*?\/>/')
+            ->match('/<input type="hidden".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
         ;
@@ -35,7 +35,7 @@ class Input extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="text".*?\/>/')
+            ->match('/<input type="text".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('type="text"')
@@ -61,7 +61,7 @@ class Input extends atoum
 
         $this
             ->string($component->render())
-            ->contains('<label>mylabel <input type="text" name="my" id="my"/></label>')
+            ->contains('<label>mylabel <input type="text" name="my" id="my"></label>')
         ;
     }
 
@@ -74,7 +74,7 @@ class Input extends atoum
 
         $this
             ->string($component->render())
-            ->contains('<label for="my">mylabel</label> <input type="text" name="my" id="my"/>')
+            ->contains('<label for="my">mylabel</label> <input type="text" name="my" id="my">')
         ;
     }
 

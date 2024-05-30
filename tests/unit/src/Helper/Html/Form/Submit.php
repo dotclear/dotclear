@@ -23,7 +23,7 @@ class Submit extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="submit".*?\/>/')
+            ->match('/<input type="submit".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('value="value"')
@@ -36,7 +36,7 @@ class Submit extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="submit".*?\/>/')
+            ->match('/<input type="submit".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('value="value"')

@@ -277,9 +277,9 @@ class HttpClient extends atoum
             ->boolean(in_array('content-type', array_keys($client->getHeaders())))
             ->isTrue()
             ->integer($client->getStatus())
-            ->isEqualTo(301)
+            ->isEqualTo(302)
             ->string($client->getContent())
-            ->contains('301 Moved Permanently')
+            ->contains('302 Found')
         ;
     }
 

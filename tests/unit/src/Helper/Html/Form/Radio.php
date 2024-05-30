@@ -23,7 +23,7 @@ class Radio extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="radio".*?\/>/')
+            ->match('/<input type="radio".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('checked')
@@ -36,7 +36,7 @@ class Radio extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="radio".*?\/>/')
+            ->match('/<input type="radio".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('checked')
@@ -59,7 +59,7 @@ class Radio extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="radio".*?\/>/')
+            ->match('/<input type="radio".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('checked')

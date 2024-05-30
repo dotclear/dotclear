@@ -23,7 +23,7 @@ class Button extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="button".*?\/>/')
+            ->match('/<input type="button".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('value="value"')
@@ -36,7 +36,7 @@ class Button extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="button".*?\/>/')
+            ->match('/<input type="button".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('value="value"')

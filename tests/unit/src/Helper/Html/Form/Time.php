@@ -23,7 +23,7 @@ class Time extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="time".*?\/>/')
+            ->match('/<input type="time".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('value="value"')
@@ -40,7 +40,7 @@ class Time extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="time".*?\/>/')
+            ->match('/<input type="time".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('value="value"')
@@ -78,7 +78,7 @@ class Time extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="time".*?\/>/')
+            ->match('/<input type="time".*?>/')
             ->contains('name="myname"')
             ->contains('id="myid"')
             ->contains('value="value"')
@@ -96,7 +96,7 @@ class Time extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="time".*?\/>/')
+            ->match('/<input type="time".*?>/')
             ->contains('name="myname"')
             ->contains('id="myid"')
             ->contains('value="value"')
@@ -114,7 +114,7 @@ class Time extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="time".*?\/>/')
+            ->match('/<input type="time".*?>/')
             ->contains('name="myname"')
             ->contains('id="myid"')
             ->contains('value="value"')
@@ -132,7 +132,7 @@ class Time extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="time".*?\/>/')
+            ->match('/<input type="time".*?>/')
             ->contains('name="myname"')
             ->contains('id="myid"')
             ->contains('value="value"')

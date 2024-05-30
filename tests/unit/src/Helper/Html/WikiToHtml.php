@@ -81,7 +81,7 @@ class WikiToHtml extends atoum
         $wiki->setOpt('active_hr', 1);
         $this
             ->string($wiki->transform('----'))
-            ->isIdenticalTo('<hr />');
+            ->isIdenticalTo('<hr>');
 
         $wiki->setOpts([
             'active_urls'        => 0,
@@ -229,7 +229,7 @@ class WikiToHtml extends atoum
             'active_br' => 1, ]);
         $this
             ->string($wiki->transform('----' . "\n" . 'Line%%%'))
-            ->isIdenticalTo('<hr />' . "\n\n" . '<p>Line<br /></p>');
+            ->isIdenticalTo('<hr>' . "\n\n" . '<p>Line<br></p>');
     }
 
     public function testTagTransform($tag, $delimiters)
@@ -308,52 +308,52 @@ class WikiToHtml extends atoum
 
         $this
             ->string($wiki->transform(sprintf('((%s|%s))', $url, $alt)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" /></p>', $url, $alt))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s"></p>', $url, $alt))
 
             ->string($wiki->transform(sprintf('((%s|%s||%s))', $url, $alt, $title)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" title="%s" /></p>', $url, $alt, $title))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" title="%s"></p>', $url, $alt, $title))
 
             ->string($wiki->transform(sprintf('((%s|))', $url)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="" /></p>', $url))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt=""></p>', $url))
 
             ->string($wiki->transform(sprintf('((%s|%s|L))', $url, $alt)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" /></p>', $url, $alt))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;"></p>', $url, $alt))
 
             ->string($wiki->transform(sprintf('((%s|%s|L|%s))', $url, $alt, $title)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" title="%s" /></p>', $url, $alt, $title))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" title="%s"></p>', $url, $alt, $title))
 
             ->string($wiki->transform(sprintf('((%s|%s|G))', $url, $alt)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" /></p>', $url, $alt))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;"></p>', $url, $alt))
 
             ->string($wiki->transform(sprintf('((%s|%s|G|%s))', $url, $alt, $title)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" title="%s" /></p>', $url, $alt, $title))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" title="%s"></p>', $url, $alt, $title))
 
             ->string($wiki->transform(sprintf('((%s|%s|D))', $url, $alt)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" /></p>', $url, $alt))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;"></p>', $url, $alt))
 
             ->string($wiki->transform(sprintf('((%s|%s|D|%s))', $url, $alt, $title)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" title="%s" /></p>', $url, $alt, $title))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" title="%s"></p>', $url, $alt, $title))
 
             ->string($wiki->transform(sprintf('((%s|%s|R))', $url, $alt)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" /></p>', $url, $alt))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;"></p>', $url, $alt))
 
             ->string($wiki->transform(sprintf('((%s|%s|R|%s))', $url, $alt, $title)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" title="%s" /></p>', $url, $alt, $title))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" title="%s"></p>', $url, $alt, $title))
 
             ->string($wiki->transform(sprintf('((%s|%s|C))', $url, $alt)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="display:block; margin:0 auto;" /></p>', $url, $alt))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="display:block; margin:0 auto;"></p>', $url, $alt))
 
             ->string($wiki->transform(sprintf('((%s|%s|C|%s))', $url, $alt, $title)))
-            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="display:block; margin:0 auto;" title="%s" /></p>', $url, $alt, $title))
+            ->isIdenticalTo(sprintf('<p><img src="%s" alt="%s" style="display:block; margin:0 auto;" title="%s"></p>', $url, $alt, $title))
 
             ->string($wiki->transform(sprintf('((%s|%s|R|%s|%s))', $url, $alt, $title, $legend)))
-            ->isIdenticalTo(sprintf('<figure style="float:right; margin: 0 0 1em 1em;"><img src="%s" alt="%s" title="%s" /><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend))
+            ->isIdenticalTo(sprintf('<figure style="float:right; margin: 0 0 1em 1em;"><img src="%s" alt="%s" title="%s"><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend))
 
             ->string($wiki->transform(sprintf('((%s|%s|G|%s|%s))', $url, $alt, $title, $legend)))
-            ->isIdenticalTo(sprintf('<figure style="float:left; margin: 0 1em 1em 0;"><img src="%s" alt="%s" title="%s" /><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend))
+            ->isIdenticalTo(sprintf('<figure style="float:left; margin: 0 1em 1em 0;"><img src="%s" alt="%s" title="%s"><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend))
 
             ->string($wiki->transform(sprintf('((%s|%s|C|%s|%s))', $url, $alt, $title, $legend)))
-            ->isIdenticalTo(sprintf('<figure style="display:block; margin:0 auto;"><img src="%s" alt="%s" title="%s" /><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend))
+            ->isIdenticalTo(sprintf('<figure style="display:block; margin:0 auto;"><img src="%s" alt="%s" title="%s"><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend))
         ;
     }
 
@@ -400,7 +400,7 @@ class WikiToHtml extends atoum
             ->if($wiki->setOpt('active_auto_br', 1))
             ->then()
             ->string($wiki->transform(implode("\n", $text)))
-            ->isIdenticalTo('<p>' . nl2br(implode("\n", $text)) . '</p>')
+            ->isIdenticalTo('<p>' . nl2br(implode("\n", $text), false) . '</p>')
         ;
     }
 
@@ -579,7 +579,7 @@ class WikiToHtml extends atoum
             ['??%1$s|%2$s??', '<p><abbr title="%2$s">%1$s</abbr></p>', 2],
             [">%s\n>%s", '<blockquote><p>%s%s</p></blockquote>', 2],
 
-            ['----', '<hr />', 0],
+            ['----', '<hr>', 0],
             [' %s', '<pre>%s</pre>', 1],
             [') %s', '<aside><p>%s</p></aside>', 1],
             [") %s\n)\n) %s", '<aside><p>%s</p><p>%s</p></aside>', 2],
@@ -640,7 +640,7 @@ class WikiToHtml extends atoum
                 '<ol><li class="title-1">item 1<ul><li>item 1.1</li><li class="title-1-2">item 1.2</li></ul></li>' .
                 '<li>item 2</li><li>item 3<ol><li>item 3.1</li></ol></li><li>item 4</li></ol>', 1, ],
 
-            ['----§§class="title"§§', '<hr class="title" />', 0],
+            ['----§§class="title"§§', '<hr class="title">', 0],
             [' %s§§class="title"§§', '<pre class="title">%s</pre>', 1],
             [') %s§§class="title"§§', '<aside class="title"><p>%s</p></aside>', 1],
             [") %s§§class=\"title\"§§\n)\n) %s", '<aside class="title"><p>%s</p><p>%s</p></aside>', 2],
@@ -698,17 +698,17 @@ class WikiToHtml extends atoum
             ['[%1$s|%2$s|fr§class="link"§]', '<p><a class="link" href="%2$s" hreflang="fr">%1$s</a></p>', 2],
             ['[%1$s|%2$s|fr|%3$s§class="link"§]', '<p><a class="link" href="%2$s" hreflang="fr" title="%3$s">%1$s</a></p>', 2],
 
-            ['((%s|%s§class="img"§))', '<p><img class="img" src="%s" alt="%s" /></p>', 2],
-            ['((%s|§class="img"§))', '<p><img class="img" src="%s" alt="" /></p>', 1],
-            ['((%s|%s|C§class="img"§))', '<p><img class="img" src="%s" alt="%s" style="display:block; margin:0 auto;" /></p>', 2],
-            ['((%s|%s|C|%s§class="img"§))', '<p><img class="img" src="%s" alt="%s" style="display:block; margin:0 auto;" title="%s" /></p>', 3],
-            ['((%s|%s|C|%s|legend§class="img"§))', '<figure class="img" style="display:block; margin:0 auto;"><img class="img" src="%s" alt="%s" title="%s" /><figcaption>legend</figcaption></figure>', 3],
+            ['((%s|%s§class="img"§))', '<p><img class="img" src="%s" alt="%s"></p>', 2],
+            ['((%s|§class="img"§))', '<p><img class="img" src="%s" alt=""></p>', 1],
+            ['((%s|%s|C§class="img"§))', '<p><img class="img" src="%s" alt="%s" style="display:block; margin:0 auto;"></p>', 2],
+            ['((%s|%s|C|%s§class="img"§))', '<p><img class="img" src="%s" alt="%s" style="display:block; margin:0 auto;" title="%s"></p>', 3],
+            ['((%s|%s|C|%s|legend§class="img"§))', '<figure class="img" style="display:block; margin:0 auto;"><img class="img" src="%s" alt="%s" title="%s"><figcaption>legend</figcaption></figure>', 3],
 
-            ['[((%s|%s))|https://dotclear.net/]', '<p><a href="https://dotclear.net/"><img src="%s" alt="%s" /></a></p>', 2],
-            ['[((%s|%s))|https://dotclear.net/§class="link"§]', '<p><a class="link" href="https://dotclear.net/"><img src="%s" alt="%s" /></a></p>', 2],
+            ['[((%s|%s))|https://dotclear.net/]', '<p><a href="https://dotclear.net/"><img src="%s" alt="%s"></a></p>', 2],
+            ['[((%s|%s))|https://dotclear.net/§class="link"§]', '<p><a class="link" href="https://dotclear.net/"><img src="%s" alt="%s"></a></p>', 2],
 
             ['[text __bold§class="bold"§__|https://dotclear.net/§class="link"§]', '<p><a class="bold" class="link" href="https://dotclear.net/">text <strong>bold</strong></a></p>', 2],
-            ['[((%s|%s§class="img"§))|https://dotclear.net/§class="link"§]', '<p><a class="img" class="link" href="https://dotclear.net/"><img src="%s" alt="%s" /></a></p>', 2],
+            ['[((%s|%s§class="img"§))|https://dotclear.net/§class="link"§]', '<p><a class="img" class="link" href="https://dotclear.net/"><img src="%s" alt="%s"></a></p>', 2],
         ];
     }
 

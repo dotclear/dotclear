@@ -60,6 +60,7 @@ class ImageMeta extends atoum
                 'State'             => null,
                 'City'              => null,
                 'Keywords'          => null,
+                'AltText'           => null,
             ])
         ;
     }
@@ -92,6 +93,7 @@ class ImageMeta extends atoum
                 'State'             => null,
                 'City'              => null,
                 'Keywords'          => 'Yet another keyword',
+                'AltText'           => null,
             ])
         ;
     }
@@ -124,6 +126,7 @@ class ImageMeta extends atoum
                 'State'             => 'Florida',
                 'City'              => 'Anytown',
                 'Keywords'          => 'keywords go here,keywords* test image metadata,Users,carl,Documents,Websites,aa,carlsite,content,blog,sample,templates,metadata,all,fields,w,ps,hist.jpg',
+                'AltText'           => null,
             ])
         ;
     }
@@ -172,6 +175,7 @@ class ImageMeta extends atoum
                 'State'             => null,
                 'City'              => null,
                 'Keywords'          => null,
+                'AltText'           => null,
             ])
         ;
     }
@@ -204,6 +208,7 @@ class ImageMeta extends atoum
                 'State'             => null,
                 'City'              => null,
                 'Keywords'          => null,
+                'AltText'           => null,
             ])
         ;
     }
@@ -242,6 +247,7 @@ class ImageMeta extends atoum
                 'State'             => null,
                 'City'              => null,
                 'Keywords'          => 'Yet another keyword',
+                'AltText'           => null,
             ])
         ;
     }
@@ -274,6 +280,7 @@ class ImageMeta extends atoum
                 'State'             => null,
                 'City'              => null,
                 'Keywords'          => 'Yet another keyword',
+                'AltText'           => null,
             ])
         ;
     }

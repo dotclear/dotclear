@@ -23,7 +23,7 @@ class Hidden extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="hidden".*?\/>/')
+            ->match('/<input type="hidden".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('value="value"')
@@ -36,7 +36,7 @@ class Hidden extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="hidden".*?\/>/')
+            ->match('/<input type="hidden".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('value="value"')

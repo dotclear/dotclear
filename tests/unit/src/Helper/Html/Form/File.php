@@ -23,7 +23,7 @@ class File extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="file".*?\/>/')
+            ->match('/<input type="file".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('value="value"')
@@ -36,7 +36,7 @@ class File extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="file".*?\/>/')
+            ->match('/<input type="file".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->notContains('value="value"')

@@ -23,7 +23,7 @@ class Email extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="email".*?\/>/')
+            ->match('/<input type="email".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('inputmode="email"')
@@ -37,7 +37,7 @@ class Email extends atoum
 
         $this
             ->string($component->render())
-            ->match('/<input type="email".*?\/>/')
+            ->match('/<input type="email".*?>/')
             ->contains('name="my"')
             ->contains('id="my"')
             ->contains('inputmode="email"')

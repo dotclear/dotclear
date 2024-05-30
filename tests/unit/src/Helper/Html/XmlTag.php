@@ -107,7 +107,7 @@ class XmlTag extends atoum
                 new \Dotclear\Helper\Html\XmlTag(null, ['mystring' => 13, 'myvalue' => 42, -1]);
             })
             ->message
-                ->contains('Dotclear\Helper\Html\XmlTag::__construct(): Argument #1 ($name) must be of type ?string, int given, called in')
+                ->contains('Dotclear\Helper\Html\XmlTag::__construct(): Argument #1 ($_name) must be of type ?string, int given, called in')
         ;
     }
 
