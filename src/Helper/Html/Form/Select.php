@@ -72,9 +72,19 @@ class Select extends Component
 
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
-        if ($this->renderLabel && isset($this->label) && isset($this->id)) {
-            $this->label->for = $this->id;
-            $buffer           = $this->label->render($buffer);
+        if ($this->renderLabel && isset($this->label)) {
+            $render = true;
+            if (isset($this->id)) {
+                $this->label->for = $this->id;
+            } else {
+                if ($this->label->getPosition() === Label::OL_FT || $this->label->getPosition() === Label::OL_TF) {
+                    // Do not render label if select is outside label and there is no id for select
+                    $render = false;
+                }
+            }
+            if ($render) {
+                $buffer = $this->label->render($buffer);
+            }
         }
 
         return $buffer;
