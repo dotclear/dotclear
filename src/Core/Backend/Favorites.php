@@ -189,8 +189,8 @@ class Favorites
                 if (!preg_match('/' . preg_quote($url[0], '/') . '/', (string) $_SERVER['REQUEST_URI'])) {
                     $favorite['active'] = false; // no URI match
                 }
-                if (count($url) == 2) {
-                    parse_str($url[1], $result);
+                if (count($url) === 2) {
+                    parse_str(html_entity_decode($url[1]), $result);
                     // test against each request parameter.
                     foreach ($result as $key => $value) {
                         if (!isset($_REQUEST[$key]) || $_REQUEST[$key] !== $value) {
