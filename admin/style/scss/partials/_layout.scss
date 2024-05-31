@@ -228,34 +228,55 @@ body.dark-mode.upgrade-mode {
 
 /* ------------------------------------------------- layout: optionnal one/two/three-boxes */
 
+.one-box,
+*:has(> .two-boxes),
+*:has(> .three-boxes) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 2em;
+  row-gap: 1em;
+  &.txt-left {
+    justify-content: left;
+  }
+  &.txt-center {
+    justify-content: center;
+  }
+  &.txt-right {
+    justify-content: right;
+  }
+  & > * {
+    margin: 0;
+  }
+  & > legend,
+  & > h3,
+  & > h4,
+  & > h5,
+  & > hr {
+    width: 100%;
+  }
+  & .wide {
+    width: 100%;
+  }
+}
+
 .one-box {
   text-align: justify;
 }
 
 .two-boxes {
-  width: 45%;
+  width: calc((100% - 2em) / 2);
 }
 
 .three-boxes {
-  width: 30%;
+  width: calc((100% - 4em) / 3);
 }
 
 .two-boxes,
 .three-boxes {
-  display: inline-block;
   vertical-align: top;
-  margin: 0 1.5% 1em;
   text-align: left;
-}
-
-.two-boxes:nth-of-type(odd),
-.three-boxes:nth-of-type(3n + 1) {
-  margin-left: 0;
-}
-
-.two-boxes:nth-of-type(even),
-.three-boxes:nth-of-type(3n) {
-  margin-right: 0;
 }
 
 /* ---------------------------------------------------------------- layout: popups */
@@ -342,17 +363,14 @@ body.dark-mode.upgrade-mode {
 .box {
   display: inline-block;
   vertical-align: top;
-  margin: 0 10px 10px;
   text-align: left;
   flex: 1 1 auto;
 
   &.small {
-    //    width: 312px;
     flex-basis: 312px;
   }
 
   &.medium {
-    //    width: 644px;
     flex-basis: 644px;
   }
 

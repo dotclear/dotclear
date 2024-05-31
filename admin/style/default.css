@@ -1359,34 +1359,71 @@ body.dark-mode.upgrade-mode .expand-mm {
   }
 }
 /* ------------------------------------------------- layout: optionnal one/two/three-boxes */
+.one-box,
+*:has(> .two-boxes),
+*:has(> .three-boxes) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 2em;
+  row-gap: 1em;
+}
+.one-box.txt-left,
+*:has(> .two-boxes).txt-left,
+*:has(> .three-boxes).txt-left {
+  justify-content: left;
+}
+.one-box.txt-center,
+*:has(> .two-boxes).txt-center,
+*:has(> .three-boxes).txt-center {
+  justify-content: center;
+}
+.one-box.txt-right,
+*:has(> .two-boxes).txt-right,
+*:has(> .three-boxes).txt-right {
+  justify-content: right;
+}
+.one-box > *,
+*:has(> .two-boxes) > *,
+*:has(> .three-boxes) > * {
+  margin: 0;
+}
+.one-box > legend, .one-box > h3, .one-box > h4, .one-box > h5, .one-box > hr,
+*:has(> .two-boxes) > legend,
+*:has(> .two-boxes) > h3,
+*:has(> .two-boxes) > h4,
+*:has(> .two-boxes) > h5,
+*:has(> .two-boxes) > hr,
+*:has(> .three-boxes) > legend,
+*:has(> .three-boxes) > h3,
+*:has(> .three-boxes) > h4,
+*:has(> .three-boxes) > h5,
+*:has(> .three-boxes) > hr {
+  width: 100%;
+}
+.one-box .wide,
+*:has(> .two-boxes) .wide,
+*:has(> .three-boxes) .wide {
+  width: 100%;
+}
+
 .one-box {
   text-align: justify;
 }
 
 .two-boxes {
-  width: 45%;
+  width: calc((100% - 2em) / 2);
 }
 
 .three-boxes {
-  width: 30%;
+  width: calc((100% - 4em) / 3);
 }
 
 .two-boxes,
 .three-boxes {
-  display: inline-block;
   vertical-align: top;
-  margin: 0 1.5% 1em;
   text-align: left;
-}
-
-.two-boxes:nth-of-type(odd),
-.three-boxes:nth-of-type(3n + 1) {
-  margin-left: 0;
-}
-
-.two-boxes:nth-of-type(even),
-.three-boxes:nth-of-type(3n) {
-  margin-right: 0;
 }
 
 /* ---------------------------------------------------------------- layout: popups */
@@ -1463,7 +1500,6 @@ body.dark-mode.upgrade-mode .expand-mm {
 .box {
   display: inline-block;
   vertical-align: top;
-  margin: 0 10px 10px;
   text-align: left;
   flex: 1 1 auto;
 }
@@ -3860,17 +3896,15 @@ li.user_admin {
   background-image: url(../images/admin.svg);
 }
 
-/* pour les alignements verticaux */
 #theme-new,
 #theme-activate,
 #theme-deactivate,
 #theme-update {
-  margin-left: -10px;
-  margin-right: -10px;
+  justify-content: flex-start;
+  column-gap: 1em;
 }
 
 .box.theme {
-  margin: 5px;
   padding: 10px 10px 5px 10px;
   border: 1px solid var(--theme-box-border);
   position: relative;
@@ -3943,6 +3977,7 @@ On adapte largeur et hauteur en fonction
   /* Ajouter un thème */
   width: 278px;
   min-height: 275px;
+  max-width: 278px;
 }
 
 #theme-new .module-sshot img {
@@ -3955,13 +3990,14 @@ On adapte largeur et hauteur en fonction
 #theme-deactivate .box.theme {
   /* Thèmes désactivés */
   width: 278px;
+  max-width: 278px;
 }
 
 #theme-activate .box.theme {
   /* Thèmes installés */
   width: 318px;
   min-height: 304px;
-  max-width: 100%;
+  max-width: 318px;
 }
 
 .with-js .module-sshot:hover {
@@ -3971,8 +4007,8 @@ On adapte largeur et hauteur en fonction
 /* mise en forme pour la boîte du thème courant */
 .box.current-theme {
   /* Thème courant */
-  width: 646px;
-  margin: 5px;
+  width: calc(636px + 1em);
+  max-width: calc(636px + 1em);
   padding: 20px 18px 6px;
   background-color: var(--theme-current-background);
   border: 1px solid var(--theme-current-border);

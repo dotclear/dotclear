@@ -1,15 +1,12 @@
-/* pour les alignements verticaux */
-
 #theme-new,
 #theme-activate,
 #theme-deactivate,
 #theme-update {
-  margin-left: -10px;
-  margin-right: -10px;
+  justify-content: flex-start;
+  column-gap: 1em;
 }
 
 .box.theme {
-  margin: 5px;
   padding: 10px 10px 5px 10px;
   border: 1px solid var(--theme-box-border);
   position: relative;
@@ -90,6 +87,7 @@ On adapte largeur et hauteur en fonction
   /* Ajouter un thème */
   width: 278px;
   min-height: 275px;
+  max-width: 278px;
 }
 
 #theme-new .module-sshot img {
@@ -102,13 +100,14 @@ On adapte largeur et hauteur en fonction
 #theme-deactivate .box.theme {
   /* Thèmes désactivés */
   width: 278px;
+  max-width: 278px;
 }
 
 #theme-activate .box.theme {
   /* Thèmes installés */
   width: 318px;
   min-height: 304px;
-  max-width: 100%;
+  max-width: 318px;
 }
 
 .with-js .module-sshot:hover {
@@ -119,8 +118,8 @@ On adapte largeur et hauteur en fonction
 
 .box.current-theme {
   /* Thème courant */
-  width: 646px;
-  margin: 5px;
+  width: calc(636px + 1em);
+  max-width: calc(636px + 1em);
   padding: 20px 18px 6px;
   background-color: var(--theme-current-background);
   border: 1px solid var(--theme-current-border);
