@@ -1282,6 +1282,10 @@ class WikiToHtml
         $n_str    = $this->__inlineWalk($str, ['abbr', 'img', 'em', 'strong', 'i', 'code', 'del', 'ins', 'mark', 'sup', 'sub', 'span']);
         $data     = $this->__splitTagsAttr($n_str);
         $no_image = false;
+        $url      = '';
+        $content  = '';
+        $lang     = '';
+        $title    = '';
 
         // Only URL in data
         if (count($data) == 1) {

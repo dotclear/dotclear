@@ -272,7 +272,7 @@ class Http
                 $matches
             );
 
-            if (is_countable($matches[1]) ? count($matches[1]) : 0) {
+            if (isset($matches[1])) {
                 // create a list like "en" => 0.8
                 $accepted_languages = array_combine($matches[1], $matches[4]);
 
