@@ -249,11 +249,7 @@ body.dark-mode.upgrade-mode {
   & > * {
     margin: 0;
   }
-  & > legend,
-  & > h3,
-  & > h4,
-  & > h5,
-  & > hr {
+  & > :is(legend, h3, h4, h5, hr) {
     width: 100%;
   }
   & .wide {

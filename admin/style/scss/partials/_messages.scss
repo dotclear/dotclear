@@ -61,10 +61,8 @@
   animation-duration: 0.5s;
 }
 
-.message a,
-.static-msg a,
-.message h3,
-.static-msg h3 {
+.message :is(a, h3),
+.static-msg :is(a, h3) {
   color: var(--msg-color);
 }
 

@@ -1389,17 +1389,9 @@ body.dark-mode.upgrade-mode .expand-mm {
 *:has(> .three-boxes) > * {
   margin: 0;
 }
-.one-box > legend, .one-box > h3, .one-box > h4, .one-box > h5, .one-box > hr,
-*:has(> .two-boxes) > legend,
-*:has(> .two-boxes) > h3,
-*:has(> .two-boxes) > h4,
-*:has(> .two-boxes) > h5,
-*:has(> .two-boxes) > hr,
-*:has(> .three-boxes) > legend,
-*:has(> .three-boxes) > h3,
-*:has(> .three-boxes) > h4,
-*:has(> .three-boxes) > h5,
-*:has(> .three-boxes) > hr {
+.one-box > :is(legend, h3, h4, h5, hr),
+*:has(> .two-boxes) > :is(legend, h3, h4, h5, hr),
+*:has(> .three-boxes) > :is(legend, h3, h4, h5, hr) {
   width: 100%;
 }
 .one-box .wide,
@@ -2597,10 +2589,8 @@ a.metaGetMore:hover {
   animation-duration: 0.5s;
 }
 
-.message a,
-.static-msg a,
-.message h3,
-.static-msg h3 {
+.message :is(a, h3),
+.static-msg :is(a, h3) {
   color: var(--msg-color);
 }
 
