@@ -2419,14 +2419,17 @@ p.top-add {
 }
 
 /* disabled */
-input.disabled,
-input[type=submit].disabled,
+input.disabled, input[disabled], input[aria-disabled=true],
+html input.disabled,
+html input[disabled],
+html input[aria-disabled=true],
 button.disabled,
-button[type=submit].disabled {
+button[disabled],
+button[aria-disabled=true] {
   color: var(--button-disabled-color);
   background: var(--button-disabled-background);
   border: 1px solid var(--button-disabled-border);
-  cursor: default;
+  cursor: not-allowed;
 }
 
 /* Boutons javascript (dépliage/repliage, …) */

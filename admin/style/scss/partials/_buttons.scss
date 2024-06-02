@@ -126,14 +126,17 @@ p.top-add {
 
 /* disabled */
 
-input.disabled,
-input[type='submit'].disabled,
-button.disabled,
-button[type='submit'].disabled {
-  color: var(--button-disabled-color);
-  background: var(--button-disabled-background);
-  border: 1px solid var(--button-disabled-border);
-  cursor: default;
+input,
+html input,
+button {
+  &.disabled,
+  &[disabled],
+  &[aria-disabled='true'] {
+    color: var(--button-disabled-color);
+    background: var(--button-disabled-background);
+    border: 1px solid var(--button-disabled-border);
+    cursor: not-allowed;
+  }
 }
 
 /* Boutons javascript (dépliage/repliage, …) */
