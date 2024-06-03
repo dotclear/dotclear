@@ -24,6 +24,7 @@ body.rtl .jstEditor iframe {
 }
 .toolbar_bottom .jstEditor {
   border-top-width: 1px;
+  border-bottom-width: 0;
 }
 .jstElements {
   box-sizing: border-box;
@@ -37,9 +38,6 @@ body.rtl .jstEditor iframe {
   justify-content: flex-start;
   align-items: center;
   gap: 0.125em;
-}
-.toolbar_bottom .jstElements {
-  border-top-width: 0;
 }
 .jstElements select,
 .jstElements button {
