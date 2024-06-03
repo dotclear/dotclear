@@ -408,7 +408,7 @@ class Utils
                     'Enable HTML filter', ],
                 ['lang', App::blogWorkspace()::NS_STRING, 'en',
                     'Default blog language', ],
-                ['media_exclusion', App::blogWorkspace()::NS_STRING, '/\.(phps?|pht(ml)?|phl|phar|.?html?|xml|js|htaccess)[0-9]*$/i',
+                ['media_exclusion', App::blogWorkspace()::NS_STRING, '/\.(phps?|pht(ml)?|phl|phar|.?html?|inc|xml|js|htaccess)[0-9]*$/i',
                     'File name exclusion pattern in media manager. (PCRE value)', ],
                 ['media_img_m_size', App::blogWorkspace()::NS_INT, 448,
                     'Image medium size in media manager', ],
