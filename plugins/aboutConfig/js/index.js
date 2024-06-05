@@ -21,7 +21,7 @@ dotclear.ready(() => {
 
   // Prepare mobile display for tables
   dotclear.responsiveCellHeaders(document.querySelector('table.settings'), 'table.settings', 0, true);
-  document.querySelectorAll('table.settings').forEach((element) => {
+  for (const element of document.querySelectorAll('table.settings')) {
     element.classList.add('rch', 'rch-thead');
-  });
+  }
 });

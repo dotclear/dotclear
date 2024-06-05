@@ -4,7 +4,7 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  document.querySelectorAll('a.uninstall_module_button').forEach((element) => {
+  for (const element of document.querySelectorAll('a.uninstall_module_button')) {
     element.parentNode.querySelector('input.delete')?.replaceWith(element);
-  });
+  }
 });

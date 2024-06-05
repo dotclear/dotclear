@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Set toggle class to each #sidebar h2
   const h2 = document.querySelectorAll('#sidebar div div h2');
-  h2.forEach((element) => {
+  for (const element of h2) {
     element.classList.add('toggle');
     element.parentNode.classList.add('hide');
     const name = create_name(element.textContent);
@@ -30,14 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       element.parentNode.classList.toggle('hide');
     });
-  });
+  }
 
   // Remove the focus from the link tag when accessed with a mouse.
   const h2_link = document.querySelectorAll('h2.toggle a');
-  h2_link.forEach((element) => {
+  for (const element of h2_link) {
     element.addEventListener('mouseup', () => {
       const event = new Event('blur', { bubbles: true, cancelable: false });
       element.dispatchEvent(event);
     });
-  });
+  }
 });
