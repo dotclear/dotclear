@@ -23,6 +23,27 @@ span.ibw {
   display: inline-block;
 }
 
+#filter-control {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  width: fit-content;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--link-border);
+  &:hover,
+  &:active {
+    border-bottom-style: solid;
+  }
+  &:focus {
+    outline: 2px solid var(--link-outline);
+    border-bottom: none;
+    text-decoration: none;
+  }
+  &.open {
+    margin-bottom: 1em;
+  }
+}
+
 #filters-form {
   border: 1px solid var(--filter-border);
   border-radius: 0.3em;
