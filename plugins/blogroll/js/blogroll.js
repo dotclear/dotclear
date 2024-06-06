@@ -1,22 +1,20 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('#links-list').sortable();
-  $('#links-form').on('submit', () => {
-    const order = [];
-    $('#links-list tr td input.position').each(function () {
-      order.push(this.name.replace(/^order\[([^\]]+)\]$/, '$1'));
-    });
-    $('input[name=links_order]')[0].value = order.join(',');
+  for (const elt of document.querySelectorAll('.checkboxes-helpers')) {
+    dotclear.checkboxesHelpers(elt, undefined, '#links-form td input[type=checkbox]', '#links-form #remove-action');
+  }
+  dotclear.condSubmit('#links-form td input[type="checkbox"]', '#links-form #remove-action');
+
+  const msg = dotclear.getData('blogroll');
+  document.querySelector('#links-form #remove-action')?.addEventListener('click', (event) => {
+    if (!window.confirm(msg.confirm_links_delete)) {
+      event.preventDefault();
+      return false;
+    }
     return true;
   });
-  $('#links-list tr td input.position').hide();
-  $('#links-list tr td.handle').addClass('handler');
-  document.querySelectorAll('.checkboxes-helpers').forEach((elt) => {
-    dotclear.checkboxesHelpers(elt, undefined, '#links-form td input[type=checkbox]', '#links-form #remove-action');
-  });
-  dotclear.condSubmit('#links-form td input[type="checkbox"]', '#links-form #remove-action');
 });

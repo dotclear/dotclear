@@ -13,10 +13,32 @@ use Exception;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\File;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
+use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
-use form;
 
 /**
  * @brief   The module manage blogrolls process.
@@ -212,6 +234,10 @@ class Manage extends Process
             return;
         }
 
+        // Languages combo
+        $links      = App::backend()->blogroll->getLangs(['order' => 'asc']);
+        $lang_combo = Combos::getLangsCombo($links, true);
+
         // Get links
         $rs = null;
 
@@ -225,9 +251,11 @@ class Manage extends Process
         if (!App::auth()->prefs()->accessibility->nodragdrop) {
             $head .= Page::jsLoad('js/jquery/jquery-ui.custom.js') .
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-                My::jsLoad('blogroll');
+                My::jsLoad('dragndrop');
         }
         $head .= Page::jsPageTabs(App::backend()->default_tab);
+        $head .= Page::jsJson('blogroll', ['confirm_links_delete' => __('Are you sure you want to delete selected links?')]) .
+            My::jsLoad('blogroll');
 
         Page::openModule(My::name(), $head);
 
@@ -238,201 +266,356 @@ class Manage extends Process
                 My::name()                            => '',
             ]
         ) .
-        Notices::getNotices() .
+        Notices::getNotices();
 
-        '<div class="multi-part" id="main-list" title="' . My::name() . '">';
-
+        // Tab: Links list
         if (!$rs->isEmpty()) {
-            echo
-            '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="links-form">' .
-            '<div class="table-outer">' .
-            '<table class="dragable">' .
-            '<thead>' .
-            '<tr>' .
-            '<th colspan="3">' . __('Title') . '</th>' .
-            '<th>' . __('Description') . '</th>' .
-            '<th>' . __('URL') . '</th>' .
-            '<th>' . __('Lang') . '</th>' .
-            '</tr>' .
-            '</thead>' .
-            '<tbody id="links-list">';
-
+            $rows = [];
             while ($rs->fetch()) {
-                $position = (string) ($rs->index() + 1);
+                $position = $rs->index() + 1;
+                $cols     = [];
 
-                echo
-                '<tr class="line" id="l_' . $rs->link_id . '">' .
-                '<td class="' . (App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle ') . 'minimal">' . form::number(['order[' . $rs->link_id . ']'], [
-                    'min'        => 1,
-                    'max'        => $rs->count(),
-                    'default'    => $position,
-                    'class'      => 'position',
-                    'extra_html' => 'title="' . __('position') . '"',
-                ]) .
-                '</td>' .
-                '<td class="minimal">' . form::checkbox(
-                    ['remove[]'],
-                    $rs->link_id,
-                    [
-                        'extra_html' => 'title="' . __('select this link') . '"',
-                    ]
-                ) . '</td>';
+                $cols[] = (new Td())
+                    ->class(['minimal', App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle'])
+                    ->items([
+                        (new Number(['order[' . $rs->link_id . ']'], 1, $rs->count(), $position))
+                            ->class('position')
+                            ->title(__('position')),
+                    ]);
+                $cols[] = (new Td())
+                    ->class('minimal')
+                    ->items([
+                        (new Checkbox(['remove[]']))
+                            ->value($rs->link_id)
+                            ->title(__('select this link')),
+                    ]);
 
                 if ($rs->is_cat) {
-                    echo
-                    '<td colspan="5"><strong><a href="' . App::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
-                    Html::escapeHTML($rs->link_desc) . '</a></strong></td>';
+                    $cols[] = (new Td())
+                        ->colspan(5)
+                        ->items([
+                            (new Para(null, 'strong'))->items([
+                                (new Link())
+                                    ->href(App::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id)
+                                    ->text(Html::escapeHTML($rs->link_desc)),
+                            ]),
+                        ]);
                 } else {
-                    echo
-                    '<td><a href="' . App::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
-                    Html::escapeHTML($rs->link_title) . '</a></td>' .
-                    '<td>' . Html::escapeHTML($rs->link_desc) . '</td>' .
-                    '<td>' . Html::escapeHTML($rs->link_href) . '</td>' .
-                    '<td>' . Html::escapeHTML($rs->link_lang) . '</td>';
+                    $cols[] = (new Td())
+                        ->items([
+                            (new Link())
+                                ->href(App::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id)
+                                ->text(Html::escapeHTML($rs->link_title)),
+                        ]);
+                    $cols[] = (new Td())
+                        ->items([
+                            (new Text(null, Html::escapeHTML($rs->link_desc))),
+                        ]);
+                    $cols[] = (new Td())
+                        ->items([
+                            (new Text(null, Html::escapeHTML($rs->link_href))),
+                        ]);
+                    $cols[] = (new Td())
+                        ->items([
+                            (new Text(null, Html::escapeHTML($rs->link_lang))),
+                        ]);
                 }
-                echo
-                '</tr>';
+
+                $rows[] = (new Tr('l_' . $rs->link_id))
+                    ->class('line')
+                    ->cols($cols);
             }
 
-            echo
-            '</tbody>' .
-            '</table></div>' .
+            $table = (new Table())
+                ->class('dragable')
+                ->items([
+                    (new Thead())->rows([
+                        (new Tr())->cols([
+                            (new Th())->colspan(3)->text(__('Title')),
+                            (new Th())->text(__('Description')),
+                            (new Th())->text(__('URL')),
+                            (new Th())->text(__('Lang')),
+                        ]),
+                    ]),
+                    (new Tbody('links-list'))->rows(
+                        $rows,
+                    ),
+                ]);
 
-            '<div class="two-cols">' .
-            '<p class="col checkboxes-helpers"></p>' .
-            '<p class="col right"><input id="remove-action" type="submit" class="delete" name="removeaction" value="' . __('Delete selected links') . ' "onclick="return window.confirm(' . Html::escapeJS(__('Are you sure you want to delete selected links?')) . ');"></p>' .
-            '</div>' .
-            '<p class="form-buttons clear">' .
-
-            form::hidden('links_order', '') .
-            form::hidden(['p'], My::id()) .
-            App::nonce()->getFormNonce() .
-
-            '<input type="submit" name="saveorder" value="' . __('Save order') . '">' .
-            ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-            '</p>' .
-            '</form>';
+            $item = (new Form('links-form'))
+                ->method('post')
+                ->action(App::backend()->getPageURL())
+                ->fields([
+                    (new Div())
+                        ->class('table-outer')
+                        ->items([
+                            $table,
+                        ]),
+                    (new Div())
+                        ->class('two-cols')
+                        ->items([
+                            (new Para())
+                                ->class(['col', 'checkboxes-helpers']),
+                            (new Para())
+                                ->class(['col', 'right'])
+                                ->items([
+                                    (new Submit(['removeaction','remove-action'], __('Delete selected links')))
+                                        ->class('delete'),
+                                ]),
+                        ]),
+                    (new Para())
+                        ->class(['form-buttons', 'clear'])
+                        ->items([
+                            ...My::hiddenFields(),
+                            (new Hidden('links_order', '')),
+                            (new Submit(['saveorder'], __('Save order'))),
+                            (new Button(['back'], __('Back')))
+                                ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                        ]),
+                ]);
         } else {
-            echo
-            '<div><p>' . __('The link list is empty.') . '</p></div>';
+            // No links nor categories
+            $item = (new Div())->items([
+                (new Para())->items([
+                    (new Text(null, __('The link list is empty'))),
+                ]),
+            ]);
         }
 
-        echo
-        '</div>' .
+        echo (new Div('main-list'))
+            ->class('multi-part')
+            ->title(My::name())
+            ->items([
+                $item,
+            ])
+        ->render();
 
-        '<div class="multi-part clear" id="add-link" title="' . __('Add a link') . '">' .
-        '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="add-link-form">' .
-        '<h3>' . __('Add a new link') . '</h3>' .
-        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-        '<p class="col"><label for="link_title" class="required"><span>*</span> ' . __('Title:') . '</label> ' .
-        form::field('link_title', 30, 255, [
-            'default'    => App::backend()->link_title,
-            'extra_html' => 'required placeholder="' . __('Title') . '"',
-        ]) .
-        '</p>' .
+        // Tab: Add a link
 
-        '<p class="col"><label for="link_href" class="required"><span>*</span> ' . __('URL:') . '</label> ' .
-        form::field('link_href', 30, 255, [
-            'default'    => App::backend()->link_href,
-            'extra_html' => 'required placeholder="' . __('URL') . '"',
-        ]) .
-        '</p>' .
+        echo (new Div('add-link'))
+            ->class('multi-part')
+            ->title(__('Add a link'))
+            ->items([
+                (new Form('add-link-form'))
+                    ->method('post')
+                    ->action(App::backend()->getPageURL())
+                    ->fields([
+                        (new Text('h3', __('Add a new link'))),
+                        (new Note())
+                            ->class('form-note')
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        (new Para())->items([
+                            (new Label((new Text('span', '*'))->render() . __('Title:')))
+                                ->class('required')
+                                ->for('link_title'),
+                            (new Input('link_title'))
+                                ->size(30)
+                                ->maxlength(255)
+                                ->value(Html::escapeHTML(App::backend()->link_title))
+                                ->required(true)
+                                ->placeholder(__('Title'))
+                                ->lang(App::auth()->getInfo('user_lang'))
+                                ->spellcheck(true)
+                                ->title(__('Required field')),
+                        ]),
+                        (new Para())->items([
+                            (new Label((new Text('span', '*'))->render() . __('URL:')))
+                                ->class('required')
+                                ->for('link_href'),
+                            (new Url('link_href'))
+                                ->size(30)
+                                ->maxlength(255)
+                                ->value(Html::escapeHTML(App::backend()->link_href))
+                                ->required(true)
+                                ->placeholder(__('URL'))
+                                ->title(__('Required field')),
+                        ]),
+                        (new Para())->items([
+                            (new Label(__('Description:')))
+                                ->for('link_desc'),
+                            (new Input('link_desc'))
+                                ->size(30)
+                                ->maxlength(255)
+                                ->value(Html::escapeHTML(App::backend()->link_desc))
+                                ->lang(App::auth()->getInfo('user_lang'))
+                                ->spellcheck(true),
+                        ]),
+                        (new Para())->items([
+                            (new Label(__('Language:')))
+                                ->for('link_lang'),
+                            (new Select('link_lang'))
+                                ->items($lang_combo)
+                                ->default(App::backend()->link_lang),
+                        ]),
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                ...My::hiddenFields(),
+                                (new Submit(['add_link'], __('Save'))),
+                                (new Button('back'))
+                                    ->class(['go-back', 'reset', 'hidden-if-no-js'])
+                                    ->value(__('Back')),
+                            ]),
+                    ]),
+            ])
+        ->render();
 
-        '<p class="col"><label for="link_desc">' . __('Description:') . '</label> ' .
-        form::field('link_desc', 30, 255, App::backend()->link_desc) .
-        '</p>' .
+        // Tab: Add a category
 
-        '<p class="col"><label for="link_lang">' . __('Language:') . '</label> ' .
-        form::field('link_lang', 5, 5, App::backend()->link_lang) .
-        '</p>' .
-        '<p class="form-buttons">' . form::hidden(['p'], 'blogroll') .
-        App::nonce()->getFormNonce() .
-        '<input type="submit" name="add_link" value="' . __('Save') . '">' .
-        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-        '</p>' .
-        '</form>' .
-        '</div>' .
+        echo (new Div('add-cat'))
+            ->class('multi-part')
+            ->title(__('Add a category'))
+            ->items([
+                (new Form('add-link-form'))
+                    ->method('post')
+                    ->action(App::backend()->getPageURL())
+                    ->fields([
+                        (new Text('h3', __('Add a new category'))),
+                        (new Note())
+                            ->class('form-note')
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        (new Para())->items([
+                            (new Input('cat_title'))
+                                ->size(30)
+                                ->maxlength(255)
+                                ->value(Html::escapeHTML(App::backend()->cat_title))
+                                ->required(true)
+                                ->placeholder(__('Title'))
+                                ->lang(App::auth()->getInfo('user_lang'))
+                                ->spellcheck(true)
+                                ->label(
+                                    (new Label(
+                                        (new Text('span', '*'))->render() . __('Title:'),
+                                        Label::INSIDE_TEXT_BEFORE
+                                    ))
+                                )
+                                ->title(__('Required field')),
+                        ]),
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                ...My::hiddenFields(),
+                                (new Submit(['add_cat'], __('Save'))),
+                                (new Button('back'))
+                                    ->class(['go-back', 'reset', 'hidden-if-no-js'])
+                                    ->value(__('Back')),
+                            ]),
+                    ]),
+            ])
+        ->render();
 
-        '<div class="multi-part" id="add-cat" title="' . __('Add a category') . '">' .
-        '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="add-category-form">' .
-        '<h3>' . __('Add a new category') . '</h3>' .
-        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-        '<p><label for="cat_title" class=" classic required"><span>*</span> ' . __('Title:') . '</label> ' .
-        form::field('cat_title', 30, 255, [
-            'default'    => App::backend()->cat_title,
-            'extra_html' => 'required placeholder="' . __('Title') . '"',
-        ]) .
-        '</p>' .
-        '<p class="form-buttons">' . form::hidden(['p'], My::id()) .
-        App::nonce()->getFormNonce() .
-        '<input type="submit" name="add_cat" value="' . __('Save') . '">' .
-        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-        '</p>' .
-        '</form>' .
-        '</div>' .
-
-        '<div class="multi-part" id="import-links" title="' . __('Import links') . '">';
+        // Tab: Import links
 
         if (!isset(App::backend()->imported)) {
-            echo
-            '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="import-links-form" enctype="multipart/form-data">' .
-            '<h3>' . __('Import links') . '</h3>' .
-            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-            '<p><label for="links_file" class=" classic required"><span>*</span> ' . __('OPML or XBEL File:') . '</label> ' .
-            '<input type="file" id="links_file" name="links_file" required></p>' .
-            '<p class="form-buttons">' . form::hidden(['p'], My::id()) .
-            App::nonce()->getFormNonce() .
-            '<input type="submit" name="import_links" value="' . __('Import') . '">' .
-            ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-            '</p>' .
-            '</form>';
+            $form = (new Form('import-links-form'))
+                ->method('post')
+                ->action(App::backend()->getPageURL())
+                ->enctype('multipart/form-data')
+                ->fields([
+                    (new Text('h3', __('Import links'))),
+                    (new Note())
+                        ->class('form-note')
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                    (new Para())->items([
+                        (new File('links_file'))
+                            ->required(true)
+                            ->label(
+                                (new Label(
+                                    (new Text('span', '*'))->render() . __('OPML or XBEL File:'),
+                                    Label::INSIDE_TEXT_BEFORE
+                                ))
+                            )
+                            ->title(__('Required field')),
+                    ]),
+                    (new Para())
+                        ->class('form-buttons')
+                        ->items([
+                            ...My::hiddenFields(),
+                            (new Submit(['import_links'], __('Import'))),
+                            (new Button('back'))
+                                ->class(['go-back', 'reset', 'hidden-if-no-js'])
+                                ->value(__('Back')),
+                        ]),
+                ]);
         } else {
-            echo
-            '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="import-links-form">' .
-            '<h3>' . __('Import links') . '</h3>';
+            $fields = [];
             if (empty(App::backend()->imported)) {
-                echo
-                '<p>' . __('Nothing to import') . '</p>';
+                $fields[] = (new Para())->items([
+                    (new Text(null, __('Nothing to import'))),
+                    ...My::hiddenFields(),
+                ]);
             } else {
-                echo
-                '<table class="clear maximal"><tr>' .
-                '<th colspan="2">' . __('Title') . '</th>' .
-                '<th>' . __('Description') . '</th>' .
-                '</tr>';
-
-                $i = 0;
+                $rows = [];
+                $i    = 0;
                 foreach (App::backend()->imported as $entry) {
-                    $url   = Html::escapeHTML($entry->link);
-                    $title = Html::escapeHTML($entry->title);
-                    $desc  = Html::escapeHTML($entry->desc);
+                    $url   = Html::escapeHTML((string) $entry->link);
+                    $title = Html::escapeHTML((string) $entry->title);
+                    $desc  = Html::escapeHTML((string) $entry->desc);
 
-                    echo
-                    '<tr><td>' . form::checkbox(['entries[]'], $i) . '</td>' .
-                    '<td nowrap><a href="' . $url . '">' . $title . '</a>' .
-                    '<input type="hidden" name="url[' . $i . ']" value="' . $url . '">' .
-                    '<input type="hidden" name="title[' . $i . ']" value="' . $title . '">' .
-                    '</td>' .
-                    '<td>' . $desc .
-                    '<input type="hidden" name="desc[' . $i . ']" value="' . $desc . '">' .
-                    '</td></tr>' . "\n";
+                    $rows[] = (new Tr())
+                        ->items([
+                            (new Td())->class('minimal')->items([
+                                (new Checkbox(['entries[]']))->value($i),
+                            ]),
+                            (new Td())->nowrap(true)->items([
+                                (new Link())->href($url)->text($title),
+                                (new Hidden(['url[' . (string) $i . ']'], $url)),
+                                (new Hidden(['title[' . (string) $i . ']'], $title)),
+                            ]),
+                            (new Td())->items([
+                                (new Text(null, $desc)),
+                                (new Hidden(['desc[' . (string) $i . ']'], $desc)),
+                            ]),
+                        ]);
                     $i++;
                 }
-                echo
-                '</table>' .
-                '<div class="two-cols">' .
-                '<p class="col checkboxes-helpers"></p>' .
 
-                '<p class="col right">' .
-                form::hidden(['p'], My::id()) .
-                App::nonce()->getFormNonce() .
-                '<input type="submit" name="cancel_import" value="' . __('Cancel') . '"> ' .
-                '<input type="submit" name="import_links_do" value="' . __('Import') . '"></p>' .
-                '</div>';
+                $fields[] = (new Table())
+                    ->class(['clear', 'maximal'])
+                    ->items([
+                        (new Thead())
+                            ->rows([
+                                (new Tr())
+                                    ->cols([
+                                        (new Th())->colspan(2)->text(__('Title')),
+                                        (new Th())->text(__('Description')),
+                                    ]),
+                            ]),
+                        (new Tbody())
+                            ->rows($rows),
+                    ]);
+
+                $fields[] = (new Div())
+                    ->class('two-cols')
+                    ->items([
+                        (new Para())
+                            ->class(['col', 'checkboxes-helpers']),
+                        (new Para())
+                            ->class(['col', 'right', 'form-buttons'])
+                            ->items([
+                                ...My::hiddenFields(),
+                                (new Submit(['cancel_import'], __('Cancel')))
+                                    ->class('reset'),
+                                (new Submit(['import_links_do'], __('Import'))),
+                            ]),
+                    ]);
             }
-            echo
-            '</form>';
+            $form = (new Form('import-links-form'))
+                ->method('post')
+                ->action(App::backend()->getPageURL())
+                ->fields([
+                    (new Text('h3', __('Import links'))),
+                    ...$fields,
+                ]);
         }
-        echo '</div>';
+
+        echo (new Div('import-links'))
+            ->class('multi-part')
+            ->title(__('Import links'))
+            ->items([
+                $form,
+            ])
+        ->render();
 
         Page::helpBlock(My::id());
 

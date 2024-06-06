@@ -10,13 +10,30 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use Exception;
+use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Radio;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Tr;
+use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
-use form;
 
 /**
  * @brief   The module manage blogroll process.
@@ -94,10 +111,17 @@ class ManageEdit extends Process
             }
 
             try {
-                App::backend()->blogroll->updateLink(App::backend()->id, App::backend()->link_title, App::backend()->link_href, App::backend()->link_desc, App::backend()->link_lang, trim((string) App::backend()->link_xfn));
+                App::backend()->blogroll->updateLink(
+                    App::backend()->id,
+                    App::backend()->link_title,
+                    App::backend()->link_href,
+                    App::backend()->link_desc,
+                    App::backend()->link_lang,
+                    trim((string) App::backend()->link_xfn)
+                );
                 Notices::addSuccessNotice(__('Link has been successfully updated'));
                 My::redirect([
-                    'edit' => 1,
+                    'edit' => 1,    // Used by Manage
                     'id'   => App::backend()->id,
                 ]);
             } catch (Exception $e) {
@@ -114,7 +138,7 @@ class ManageEdit extends Process
                 App::backend()->blogroll->updateCategory(App::backend()->id, App::backend()->link_desc);
                 Notices::addSuccessNotice(__('Category has been successfully updated'));
                 My::redirect([
-                    'edit' => 1,
+                    'edit' => 1,    // Used by Manage
                     'id'   => App::backend()->id,
                 ]);
             } catch (Exception $e) {
@@ -127,227 +151,255 @@ class ManageEdit extends Process
 
     public static function render(): void
     {
-        # Languages combo
+        // Languages combo
         $links      = App::backend()->blogroll->getLangs(['order' => 'asc']);
         $lang_combo = Combos::getLangsCombo($links, true);
 
-        Page::openModule(My::name());
+        $head = Page::jsConfirmClose('blogroll_cat', 'blogroll_link');
+
+        Page::openModule(My::name(), $head);
 
         echo
         Page::breadcrumb(
             [
-                Html::escapeHTML(App::blog()->name()) => '',
-                My::name()                            => App::backend()->getPageURL(),
+                Html::escapeHTML(App::blog()->name())                      => '',
+                My::name()                                                 => App::backend()->getPageURL(),
+                (App::backend()->rs->is_cat ? __('Category') : __('Link')) => '',
             ]
         ) .
-        Notices::getNotices() .
-        '<p><a class="back" href="' . App::backend()->getPageURL() . '">' . __('Return to blogroll') . '</a></p>';
+        Notices::getNotices();
+
+        echo
+            (new Para())->items([
+                (new Link())->class('back')->href(App::backend()->getPageURL())->text(__('Return to blogroll')),
+            ])
+        ->render();
 
         if (isset(App::backend()->rs)) {
             if (App::backend()->rs->is_cat) {
-                echo
-                '<form action="' . App::backend()->getPageURL() . '" method="post">' .
-                '<h3>' . __('Edit category') . '</h3>' .
-                '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-
-                '<p><label for="link_desc" class="required classic"><span>*</span> ' . __('Title:') . '</label> ' .
-                form::field('link_desc', 30, 255, [
-                    'default'    => Html::escapeHTML(App::backend()->link_desc),
-                    'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                ]) .
-
-                form::hidden('edit', 1) .
-                form::hidden('id', App::backend()->id) .
-                App::nonce()->getFormNonce() .
-                '<input type="submit" name="edit_cat" value="' . __('Save') . '"></p>' .
-                '</form>';
+                echo (new Form('blogroll_cat'))
+                    ->class('fieldset')
+                    ->method('post')
+                    ->action(App::backend()->getPageURL())
+                    ->fields([
+                        (new Text('h3', __('Edit category'))),
+                        (new Note())
+                            ->class('form-note')
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        (new Para())->items([
+                            (new Input('link_desc'))
+                                ->size(30)
+                                ->maxlength(255)
+                                ->value(Html::escapeHTML(App::backend()->link_desc))
+                                ->required(true)
+                                ->placeholder(__('Title'))
+                                ->lang(App::auth()->getInfo('user_lang'))
+                                ->spellcheck(true)
+                                ->label(
+                                    (new Label(
+                                        (new Text('span', '*'))->render() . __('Title:'),
+                                        Label::INSIDE_TEXT_BEFORE
+                                    ))
+                                )
+                                ->title(__('Required field')),
+                        ]),
+                        (new Para())->items([
+                            ...My::hiddenFields(),
+                            (new Hidden('edit', '1')),    // Used by Manage
+                            (new Hidden('id', App::backend()->id)),
+                            (new Submit(['edit_cat'], __('Save'))),
+                        ]),
+                    ])
+                ->render();
             } else {
-                echo
-                '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" class="two-cols fieldset">' .
+                // Extract xfn items
+                $xfn = explode(' ', App::backend()->link_xfn);
 
-                '<div class="col30 first-col">' .
-                '<h3>' . __('Edit link') . '</h3>' .
-                '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
+                echo (new Form('blogroll_link'))
+                    ->class('fieldset')
+                    ->method('post')
+                    ->action(App::backend()->getPageURL())
+                    ->fields([
+                        (new Text('h3', __('Edit link'))),
+                        (new Note())
+                            ->class('form-note')
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        (new Div())->class('two-cols')->items([
+                            (new Div())->class('col30')->items([
+                                (new Para())->items([
+                                    (new Label((new Text('span', '*'))->render() . __('Title:')))
+                                        ->class('required')
+                                        ->for('link_title'),
+                                    (new Input('link_title'))
+                                        ->size(30)
+                                        ->maxlength(255)
+                                        ->value(Html::escapeHTML(App::backend()->link_title))
+                                        ->required(true)
+                                        ->placeholder(__('Title'))
+                                        ->lang(App::auth()->getInfo('user_lang'))
+                                        ->spellcheck(true)
+                                        ->title(__('Required field')),
+                                ]),
+                                (new Para())->items([
+                                    (new Label((new Text('span', '*'))->render() . __('URL:')))
+                                        ->class('required')
+                                        ->for('link_href'),
+                                    (new Url('link_href'))
+                                        ->size(30)
+                                        ->maxlength(255)
+                                        ->value(Html::escapeHTML(App::backend()->link_href))
+                                        ->required(true)
+                                        ->placeholder(__('URL'))
+                                        ->title(__('Required field')),
+                                ]),
+                                (new Para())->items([
+                                    (new Label(__('Description:')))
+                                        ->for('link_desc'),
+                                    (new Input('link_desc'))
+                                        ->size(30)
+                                        ->maxlength(255)
+                                        ->value(Html::escapeHTML(App::backend()->link_desc))
+                                        ->lang(App::auth()->getInfo('user_lang'))
+                                        ->spellcheck(true),
+                                ]),
+                                (new Para())->items([
+                                    (new Label(__('Language:')))
+                                        ->for('link_lang'),
+                                    (new Select('link_lang'))
+                                        ->items($lang_combo)
+                                        ->default(App::backend()->link_lang),
+                                ]),
+                            ]),
 
-                '<p><label for="link_title" class="required"><span>*</span> ' . __('Title:') . '</label> ' .
-                form::field('link_title', 30, 255, [
-                    'default'    => Html::escapeHTML(App::backend()->link_title),
-                    'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                ]) .
-                '</p>' .
-
-                '<p><label for="link_href" class="required"><span>*</span> ' . __('URL:') . '</label> ' .
-                form::url('link_href', [
-                    'size'       => 30,
-                    'default'    => Html::escapeHTML(App::backend()->link_href),
-                    'extra_html' => 'required placeholder="' . __('URL') . '"',
-                ]) .
-                '</p>' .
-
-                '<p><label for="link_desc">' . __('Description:') . '</label> ' .
-                form::field(
-                    'link_desc',
-                    30,
-                    255,
-                    [
-                        'default'    => Html::escapeHTML(App::backend()->link_desc),
-                        'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                    ]
-                ) . '</p>' .
-
-                '<p><label for="link_lang">' . __('Language:') . '</label> ' .
-                form::combo('link_lang', $lang_combo, App::backend()->link_lang) .
-                '</p>' .
-
-                '</div>' .
-
-                // XFN nightmare
-                '<div class="col70 last-col">' .
-                '<h3>' . __('XFN information') . '</h3>' .
-                '<p class="clear form-note">' . __('More information on <a href="https://en.wikipedia.org/wiki/XHTML_Friends_Network">Wikipedia</a> website') . '</p>' .
-
-                '<div class="table-outer">' .
-                '<table class="noborder">' .
-
-                '<tr class="line">' .
-                '<th>' . __('_xfn_Me') . '</th>' .
-                '<td><p>' . '<label class="classic">' .
-                form::checkbox(['identity'], 'me', (App::backend()->link_xfn == 'me')) . ' ' .
-                __('_xfn_Another link for myself') . '</label></p></td>' .
-                '</tr>' .
-
-                '<tr class="line">' .
-                '<th>' . __('_xfn_Friendship') . '</th>' .
-                '<td><p>' .
-                '<label class="classic">' . form::radio(
-                    ['friendship'],
-                    'contact',
-                    str_contains(App::backend()->link_xfn, 'contact')
-                ) . __('_xfn_Contact') . '</label> ' .
-                '<label class="classic">' . form::radio(
-                    ['friendship'],
-                    'acquaintance',
-                    str_contains(App::backend()->link_xfn, 'acquaintance')
-                ) . __('_xfn_Acquaintance') . '</label> ' .
-                '<label class="classic">' . form::radio(
-                    ['friendship'],
-                    'friend',
-                    str_contains(App::backend()->link_xfn, 'friend')
-                ) . __('_xfn_Friend') . '</label> ' .
-                '<label class="classic">' . form::radio(['friendship'], '') . __('None') . '</label>' .
-                '</p></td>' .
-                '</tr>' .
-
-                '<tr class="line">' .
-                '<th>' . __('_xfn_Physical') . '</th>' .
-                '<td><p>' .
-                '<label class="classic">' . form::checkbox(
-                    ['physical'],
-                    'met',
-                    str_contains(App::backend()->link_xfn, 'met')
-                ) . __('_xfn_Met') . '</label>' .
-                '</p></td>' .
-                '</tr>' .
-
-                '<tr class="line">' .
-                '<th>' . __('_xfn_Professional') . '</th>' .
-                '<td><p>' .
-                '<label class="classic">' . form::checkbox(
-                    ['professional[]'],
-                    'co-worker',
-                    str_contains(App::backend()->link_xfn, 'co-worker')
-                ) . __('_xfn_Co-worker') . '</label> ' .
-                '<label class="classic">' . form::checkbox(
-                    ['professional[]'],
-                    'colleague',
-                    str_contains(App::backend()->link_xfn, 'colleague')
-                ) . __('_xfn_Colleague') . '</label>' .
-                '</p></td>' .
-                '</tr>' .
-
-                '<tr class="line">' .
-                '<th>' . __('_xfn_Geographical') . '</th>' .
-                '<td><p>' .
-                '<label class="classic">' . form::radio(
-                    ['geographical'],
-                    'co-resident',
-                    str_contains(App::backend()->link_xfn, 'co-resident')
-                ) . __('_xfn_Co-resident') . '</label> ' .
-                '<label class="classic">' . form::radio(
-                    ['geographical'],
-                    'neighbor',
-                    str_contains(App::backend()->link_xfn, 'neighbor')
-                ) . __('_xfn_Neighbor') . '</label> ' .
-                '<label class="classic">' . form::radio(['geographical'], '') . __('None') . '</label>' .
-                '</p></td>' .
-                '</tr>' .
-
-                '<tr class="line">' .
-                '<th>' . __('_xfn_Family') . '</th>' .
-                '<td><p>' .
-                '<label class="classic">' . form::radio(
-                    ['family'],
-                    'child',
-                    str_contains(App::backend()->link_xfn, 'child')
-                ) . __('_xfn_Child') . '</label> ' .
-                '<label class="classic">' . form::radio(
-                    ['family'],
-                    'parent',
-                    str_contains(App::backend()->link_xfn, 'parent')
-                ) . __('_xfn_Parent') . '</label> ' .
-                '<label class="classic">' . form::radio(
-                    ['family'],
-                    'sibling',
-                    str_contains(App::backend()->link_xfn, 'sibling')
-                ) . __('_xfn_Sibling') . '</label> ' .
-                '<label class="classic">' . form::radio(
-                    ['family'],
-                    'spouse',
-                    str_contains(App::backend()->link_xfn, 'spouse')
-                ) . __('_xfn_Spouse') . '</label> ' .
-                '<label class="classic">' . form::radio(
-                    ['family'],
-                    'kin',
-                    str_contains(App::backend()->link_xfn, 'kin')
-                ) . __('_xfn_Kin') . '</label> ' .
-                '<label class="classic">' . form::radio(['family'], '') . __('None') . '</label>' .
-                '</p></td>' .
-                '</tr>' .
-
-                '<tr class="line">' .
-                '<th>' . __('_xfn_Romantic') . '</th>' .
-                '<td><p>' .
-                '<label class="classic">' . form::checkbox(
-                    ['romantic[]'],
-                    'muse',
-                    str_contains(App::backend()->link_xfn, 'muse')
-                ) . __('_xfn_Muse') . '</label> ' .
-                '<label class="classic">' . form::checkbox(
-                    ['romantic[]'],
-                    'crush',
-                    str_contains(App::backend()->link_xfn, 'crush')
-                ) . __('_xfn_Crush') . '</label> ' .
-                '<label class="classic">' . form::checkbox(
-                    ['romantic[]'],
-                    'date',
-                    str_contains(App::backend()->link_xfn, 'date')
-                ) . __('_xfn_Date') . '</label> ' .
-                '<label class="classic">' . form::checkbox(
-                    ['romantic[]'],
-                    'sweetheart',
-                    str_contains(App::backend()->link_xfn, 'sweetheart')
-                ) . __('_xfn_Sweetheart') . '</label> ' .
-                '</p></td>' .
-                '</tr>' .
-                '</table></div>' .
-
-                '</div>' .
-                '<p class="clear">' . form::hidden('p', My::id()) .
-                form::hidden('edit', 1) .
-                form::hidden('id', App::backend()->id) .
-                App::nonce()->getFormNonce() .
-                '<input type="submit" name="edit_link" value="' . __('Save') . '"></p>' .
-                '</form>';
+                            // XFN nightmare
+                            (new Div())->class('col70')->items([
+                                (new Text('h4', __('XFN information'))),
+                                (new Note())
+                                    ->class('form-note')
+                                    ->text(__('More information on <a href="https://en.wikipedia.org/wiki/XHTML_Friends_Network">Wikipedia</a> website')),
+                                (new Div())->class('table-outer')->items([
+                                    (new Table())->class('noborder')->items([
+                                        (new Tr())->class('line')->items([
+                                            (new Th())->text(__('_xfn_Me'))->scope('row'),
+                                            (new Td())->items([
+                                                (new Checkbox(['identity'], (App::backend()->link_xfn === 'me')))
+                                                    ->value('me')
+                                                    ->label((new Label(__('_xfn_Another link for myself'), Label::INSIDE_TEXT_AFTER))),
+                                            ]),
+                                        ]),
+                                        (new tr())->class('line')->items([
+                                            (new Th())->text(__('_xfn_Friendship'))->scope('row'),
+                                            (new Td())->items([
+                                                (new Radio(['friendship'], in_array('contact', $xfn)))
+                                                    ->value('contact')
+                                                    ->label((new Label(__('_xfn_Contact'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Radio(['friendship'], in_array('acquaintance', $xfn)))
+                                                    ->value('acquaintance')
+                                                    ->label((new Label(__('_xfn_Acquaintance'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Radio(['friendship'], in_array('friend', $xfn)))
+                                                    ->value('friend')
+                                                    ->label((new Label(__('_xfn_Friend'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Radio(
+                                                    ['friendship'],
+                                                    !in_array('contact', $xfn) && !in_array('acquaintance', $xfn) && !in_array('friend', $xfn)
+                                                ))
+                                                    ->value('')
+                                                    ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
+                                            ]),
+                                        ]),
+                                        (new Tr())->class('line')->items([
+                                            (new Th())->text(__('_xfn_Physical'))->scope('row'),
+                                            (new Td())->items([
+                                                (new Checkbox(['physical'], in_array('met', $xfn)))
+                                                    ->value('met')
+                                                    ->label((new Label(__('_xfn_Met'), Label::INSIDE_TEXT_AFTER))),
+                                            ]),
+                                        ]),
+                                        (new Tr())->class('line')->items([
+                                            (new Th())->text(__('_xfn_Professional'))->scope('row'),
+                                            (new Td())->items([
+                                                (new Checkbox(['professional[]'], in_array('co-worker', $xfn)))
+                                                    ->value('co-worker')
+                                                    ->label((new Label(__('_xfn_Co-worker'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Checkbox(['professional[]'], in_array('colleague', $xfn)))
+                                                    ->value('colleague')
+                                                    ->label((new Label(__('_xfn_Colleague'), Label::INSIDE_TEXT_AFTER))),
+                                            ]),
+                                        ]),
+                                        (new tr())->class('line')->items([
+                                            (new Th())->text(__('_xfn_Geographical'))->scope('row'),
+                                            (new Td())->items([
+                                                (new Radio(['geographical'], in_array('co-resident', $xfn)))
+                                                    ->value('co-resident')
+                                                    ->label((new Label(__('_xfn_Co-resident'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Radio(['geographical'], in_array('neighbor', $xfn)))
+                                                    ->value('neighbor')
+                                                    ->label((new Label(__('_xfn_Neighbor'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Radio(
+                                                    ['geographical'],
+                                                    !in_array('co-resident', $xfn) && !in_array('neighbor', $xfn)
+                                                ))
+                                                    ->value('')
+                                                    ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
+                                            ]),
+                                        ]),
+                                        (new tr())->class('line')->items([
+                                            (new Th())->text(__('_xfn_Family'))->scope('row'),
+                                            (new Td())->items([
+                                                (new Radio(['family'], in_array('child', $xfn)))
+                                                    ->value('child')
+                                                    ->label((new Label(__('_xfn_Child'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Radio(['family'], in_array('parent', $xfn)))
+                                                    ->value('parent')
+                                                    ->label((new Label(__('_xfn_Parent'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Radio(['family'], in_array('sibling', $xfn)))
+                                                    ->value('sibling')
+                                                    ->label((new Label(__('_xfn_Sibling'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Radio(['family'], in_array('spouse', $xfn)))
+                                                    ->value('spouse')
+                                                    ->label((new Label(__('_xfn_Spouse'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Radio(['family'], in_array('kin', $xfn)))
+                                                    ->value('kin')
+                                                    ->label((new Label(__('_xfn_Kin'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Radio(
+                                                    ['family'],
+                                                    !in_array('child', $xfn) && !in_array('parent', $xfn) && !in_array('sibling', $xfn) && !in_array('spouse', $xfn) && !in_array('kin', $xfn)
+                                                ))
+                                                    ->value('')
+                                                    ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
+                                            ]),
+                                        ]),
+                                        (new tr())->class('line')->items([
+                                            (new Th())->text(__('_xfn_Romantic'))->scope('row'),
+                                            (new Td())->items([
+                                                (new Checkbox(['romantic[]'], in_array('muse', $xfn)))
+                                                    ->value('muse')
+                                                    ->label((new Label(__('_xfn_Muse'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Checkbox(['romantic[]'], in_array('crush', $xfn)))
+                                                    ->value('crush')
+                                                    ->label((new Label(__('_xfn_Crush'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Checkbox(['romantic[]'], in_array('date', $xfn)))
+                                                    ->value('date')
+                                                    ->label((new Label(__('_xfn_Date'), Label::INSIDE_TEXT_AFTER))),
+                                                (new Checkbox(['romantic[]'], in_array('sweetheart', $xfn)))
+                                                    ->value('sweetheart')
+                                                    ->label((new Label(__('_xfn_Sweetheart'), Label::INSIDE_TEXT_AFTER))),
+                                            ]),
+                                        ]),
+                                    ]),
+                                ]),
+                            ]),
+                        ]),
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                ...My::hiddenFields(),
+                                (new Hidden('edit', '1')),    // Used by Manage
+                                (new Hidden('id', App::backend()->id)),
+                                (new Submit(['edit_link'], __('Save'))),
+                            ]),
+                    ])
+                ->render();
             }
         }
 
