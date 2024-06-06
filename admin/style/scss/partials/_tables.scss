@@ -103,8 +103,8 @@ table.prefs {
   margin-bottom: 3em;
 
   &:target caption::before {
-    content: '▶';
-    margin-right: 5px;
+    content: '•';
+    margin-inline-end: 0.5em;
   }
 
   th:first-child {

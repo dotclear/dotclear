@@ -3284,8 +3284,8 @@ table.prefs {
 }
 table.settings:target caption::before,
 table.prefs:target caption::before {
-  content: "▶";
-  margin-right: 5px;
+  content: "•";
+  margin-inline-end: 0.5em;
 }
 table.settings th:first-child,
 table.prefs th:first-child {
