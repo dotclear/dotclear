@@ -3416,6 +3416,10 @@ span.ibw {
   display: inline-block;
 }
 
+#filter-details {
+  margin-bottom: 1em;
+}
+
 #filter-control {
   margin-top: 0.5em;
   margin-bottom: 0;
