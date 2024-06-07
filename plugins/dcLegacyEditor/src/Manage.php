@@ -13,6 +13,14 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
 use Exception;
 
 /**
@@ -58,7 +66,60 @@ class Manage extends Process
     {
         Page::openModule(My::name());
 
-        require My::path() . '/tpl/index.php';
+        echo
+        Page::breadcrumb([
+            __('Plugins')        => '',
+            __('dcLegacyEditor') => '',
+        ]) .
+        Notices::getNotices();
+
+        if (App::backend()->editor_is_admin) {
+            $fields = [];
+
+            // Activation
+            $fields[] = (new Fieldset())
+                ->legend(new Legend(__('Plugin activation')))
+                ->fields([
+                    (new Para())
+                        ->items([
+                            (new Checkbox('dclegacyeditor_active', App::backend()->editor_std_active))
+                                ->value(1)
+                                ->label((new Label(__('Enable standard editor plugin'), Label::INSIDE_TEXT_AFTER))),
+                        ]),
+                ]);
+
+            // Settings
+            if (App::backend()->editor_std_active) {
+                $fields[] = (new Fieldset())
+                    ->legend(new Legend(__('Plugin settings')))
+                    ->fields([
+                        (new Para())
+                            ->items([
+                                (new Checkbox('dclegacyeditor_dynamic', App::backend()->editor_std_dynamic))
+                                    ->value(1)
+                                    ->label((new Label(__('Adjust height of input area during editing'), Label::INSIDE_TEXT_AFTER))),
+                            ]),
+                    ]);
+            }
+
+            // Buttons
+            $fields[] = (new Para())
+                ->class('form-buttons')
+                ->items([
+                    ...My::hiddenFields(),
+                    (new Submit(['saveconfig'], __('Save configuration'))),
+                    (new Button(['back'], __('Back')))
+                        ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                ]);
+
+            echo (new Form('dclegacyeditor_form'))
+                ->method('post')
+                ->action(App::backend()->getPageURL())
+                ->fields($fields)
+            ->render();
+        }
+
+        Page::helpBlock(My::id());
 
         Page::closeModule();
     }

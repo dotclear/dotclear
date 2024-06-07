@@ -55,6 +55,7 @@ class GrowUp_2_31_lt
             // Folders
             [
                 'plugins/dcCKEditor/tpl',
+                'plugins/dcLegacyEditor/tpl',
             ]
         );
 
