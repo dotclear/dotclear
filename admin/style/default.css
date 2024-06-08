@@ -4649,6 +4649,11 @@ body.dark-mode .modules a.module-config {
   padding-top: 0.25em;
 }
 
+.format_control {
+  display: block;
+  margin-top: 0.5em;
+}
+
 .fav-list {
   list-style-type: none;
   margin-left: 0;

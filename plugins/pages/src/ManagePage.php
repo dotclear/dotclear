@@ -543,13 +543,12 @@ class ManagePage extends Process
                         'post_lang' => '<p><label for="post_lang">' . __('Page language') . '</label>' .
                         form::combo('post_lang', App::backend()->lang_combo, App::backend()->post_lang) .
                         '</p>',
-                        'post_format' => '<div>' .
-                        '<h5 id="label_format"><label for="post_format" class="classic">' . __('Text formatting') . '</label></h5>' .
-                        '<p>' . form::combo('post_format', App::backend()->available_formats, App::backend()->post_format, 'maximal') . '</p>' .
-                        '<p class="format_control control_wiki">' .
+                        'post_format' => '<p><label for="post_format" class="classic" id="label_format">' . __('Text formatting') . '</label>' .
+                        form::combo('post_format', App::backend()->available_formats, App::backend()->post_format, 'maximal') .
+                        '<span class="format_control control_no_xhtml">' .
                         '<a id="convert-xhtml" class="button' . (App::backend()->post_id && App::backend()->post_format != 'wiki' ? ' hide' : '') .
                         '" href="' . My::manageUrl(['act' => 'page', 'id' => App::backend()->post_id, 'xconv' => '1']) . '">' .
-                        __('Convert to HTML') . '</a></p></div>', ], ],
+                        __('Convert to HTML') . '</a></span></p>', ], ],
                 'metas-box' => [
                     'title' => __('Filing'),
                     'items' => [
