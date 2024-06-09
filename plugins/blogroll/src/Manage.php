@@ -278,7 +278,7 @@ class Manage extends Process
                 $cols[] = (new Td())
                     ->class(['minimal', App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle'])
                     ->items([
-                        (new Number(['order[' . $rs->link_id . ']'], 1, $rs->count(), $position))
+                        (new Number(['order[' . $rs->link_id . ']'], 1, $rs->count(), (int) $position))
                             ->class('position')
                             ->title(__('position')),
                     ]);
@@ -557,7 +557,7 @@ class Manage extends Process
                             (new Td())->class('minimal')->items([
                                 (new Checkbox(['entries[]']))->value($i),
                             ]),
-                            (new Td())->nowrap(true)->items([
+                            (new Td())->items([
                                 (new Link())->href($url)->text($title),
                                 (new Hidden(['url[' . (string) $i . ']'], $url)),
                                 (new Hidden(['title[' . (string) $i . ']'], $title)),
