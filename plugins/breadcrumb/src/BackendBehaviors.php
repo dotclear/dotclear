@@ -9,8 +9,13 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\breadcrumb;
 
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Interface\Core\BlogSettingsInterface;
-use form;
 
 /**
  * @brief   The module backend behaviors.
@@ -25,15 +30,26 @@ class BackendBehaviors
      */
     public static function adminBlogPreferencesForm(BlogSettingsInterface $settings): void
     {
-        echo
-        '<div class="fieldset"><h4 id="breadcrumb_params">' . My::name() . '</h4>' .
-        '<p><label class="classic">' .
-        form::checkbox('breadcrumb_enabled', '1', $settings->breadcrumb->breadcrumb_enabled) .
-        __('Enable breadcrumb for this blog') . '</label></p>' .
-        '<p class="form-note">' . __('The {{tpl:Breadcrumb [separator=" &amp;rsaquo; "]}} tag should be present (or inserted if not) in the template.') . '</p>' .
-        form::checkbox('breadcrumb_alone', '1', $settings->breadcrumb->breadcrumb_alone) .
-        __('Do not encapsulate breadcrumb in a &lt;p id="breadcrumb"&gt;...&lt;/p&gt; tag.') . '</label></p>' .
-            '</div>';
+        echo (new Fieldset('breadcrumb_params'))
+            ->legend(new Legend(My::name()))
+            ->fields([
+                (new Para())
+                    ->items([
+                        (new Checkbox('breadcrumb_enabled', $settings->breadcrumb->breadcrumb_enabled))
+                            ->value(1)
+                            ->label((new Label(__('Enable breadcrumb for this blog'), Label::INSIDE_TEXT_AFTER))),
+                    ]),
+                (new Note())
+                    ->class('form-note')
+                    ->text(__('The {{tpl:Breadcrumb [separator=" &amp;rsaquo; "]}} tag should be present (or inserted if not) in the template.')),
+                (new Para())
+                    ->items([
+                        (new Checkbox('breadcrumb_alone', $settings->breadcrumb->breadcrumb_alone))
+                            ->value(1)
+                            ->label((new Label(__('Do not encapsulate breadcrumb in a &lt;p id="breadcrumb"&gt;...&lt;/p&gt; tag.'), Label::INSIDE_TEXT_AFTER))),
+                    ]),
+            ])
+        ->render();
     }
 
     /**
