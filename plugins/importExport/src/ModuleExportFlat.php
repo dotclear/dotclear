@@ -12,10 +12,8 @@ namespace Dotclear\Plugin\importExport;
 use Exception;
 use Dotclear\App;
 use Dotclear\Helper\File\Zip\Zip;
-use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\blogroll\Blogroll;
-use form;
 
 /**
  * @brief   The default export flat module handler.
@@ -200,49 +198,6 @@ class ModuleExportFlat extends Module
 
     public function gui(): void
     {
-        echo
-        '<form action="' . $this->getURL(true) . '" method="post" class="fieldset">' .
-        '<h3>' . __('Single blog') . '</h3>' .
-        '<p>' . sprintf(__('This will create an export of your current blog: %s'), '<strong>' . Html::escapeHTML(App::blog()->name())) . '</strong>.</p>' .
-
-        '<p><label for="file_name">' . __('File name:') . '</label>' .
-        form::field('file_name', 50, 255, date('Y-m-d-H-i-') . Html::escapeHTML(App::blog()->id() . '-backup.txt')) .
-        '</p>' .
-
-        '<p><label for="file_zip" class="classic">' .
-        form::checkbox(['file_zip', 'file_zip'], 1) . ' ' .
-        __('Compress file') . '</label>' .
-        '</p>' .
-
-        '<p class="zip-dl"><a href="' . App::backend()->url()->decode('admin.media', ['d' => '', 'zipdl' => '1']) . '">' .
-        __('You may also want to download your media directory as a zip file') . '</a></p>' .
-
-        '<p><input type="submit" value="' . __('Export') . '">' .
-        form::hidden(['do'], 'export_blog') .
-        App::nonce()->getFormNonce() .
-        '</p>' .
-        '</form>';
-
-        if (App::auth()->isSuperAdmin()) {
-            echo
-            '<form action="' . $this->getURL(true) . '" method="post" class="fieldset">' .
-            '<h3>' . __('Multiple blogs') . '</h3>' .
-            '<p>' . __('This will create an export of all the content of your database.') . '</p>' .
-
-            '<p><label for="file_name2">' . __('File name:') . '</label>' .
-            form::field(['file_name', 'file_name2'], 50, 255, date('Y-m-d-H-i-') . 'dotclear-backup.txt') .
-            '</p>' .
-
-            '<p><label for="file_zip2" class="classic">' .
-            form::checkbox(['file_zip', 'file_zip2'], 1) . ' ' .
-            __('Compress file') . '</label>' .
-            '</p>' .
-
-            '<p><input type="submit" value="' . __('Export') . '">' .
-            form::hidden(['do'], 'export_all') .
-            App::nonce()->getFormNonce() .
-            '</p>' .
-            '</form>';
-        }
+        // No GUI here, see Export(Blog|Full)MaintenanceTask
     }
 }

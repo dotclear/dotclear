@@ -15,10 +15,22 @@ use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Unzip;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\File;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
-use form;
 
 /**
  * @brief   The import flat module handler.
@@ -188,70 +200,114 @@ class ModuleImportFlat extends Module
             ['confirm_full_import' => __('Are you sure you want to import a full backup file?')]
         ) .
         My::jsLoad('import_flat');
-        echo
-        '<form action="' . $this->getURL(true) . '" method="post" enctype="multipart/form-data" class="fieldset">' .
-        '<h3>' . __('Single blog') . '</h3>' .
-        '<p>' . sprintf(__('This will import a single blog backup as new content in the current blog: <strong>%s</strong>.'), Html::escapeHTML(App::blog()->name())) . '</p>' .
 
-        '<p><label for="up_single_file">' . __('Upload a backup file') .
-        ' (' . sprintf(__('maximum size %s'), Files::size(App::config()->maxUploadSize())) . ')' . ' </label>' .
-            ' <input type="file" id="up_single_file" name="up_single_file" size="20">' .
-            '</p>';
-
-        if ($has_files) {
-            echo
-            '<p><label for="public_single_file" class="">' . __('or pick up a local file in your public directory') . ' </label> ' .
-            form::combo('public_single_file', $public_files) .
-                '</p>';
-        }
-
-        echo
-        '<p>' .
-        App::nonce()->getFormNonce() .
-        form::hidden(['do'], 1) .
-        form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) .
-        '<input type="submit" value="' . __('Import') . '"></p>' .
-
-            '</form>';
+        echo (new Form('ie-form'))
+            ->method('post')
+            ->action($this->getURL(true))
+            ->enctype('multipart/form-data')
+            ->fields([
+                (new Fieldset())
+                    ->legend(new Legend(__('Single blog')))
+                    ->fields([
+                        (new Note())
+                            ->class('form-note')
+                            ->text(sprintf(
+                                __('This will import a single blog backup as new content in the current blog: <strong>%s</strong>.'),
+                                Html::escapeHTML(App::blog()->name())
+                            )),
+                        (new Para())->items([
+                            (new File('up_single_file'))
+                                ->label(
+                                    (new Label(
+                                        __('Upload a backup file') . ' (' . sprintf(
+                                            __('maximum size %s'),
+                                            Files::size(App::config()->maxUploadSize())
+                                        ) . ')',
+                                        Label::OUTSIDE_TEXT_BEFORE
+                                    ))
+                                ),
+                        ]),
+                        ($has_files ?
+                            (new Para())
+                                ->items([
+                                    (new Select('public_single_file'))
+                                        ->items($public_files)
+                                        ->label((new Label(__('or pick up a local file in your public directory'), Label::OUTSIDE_TEXT_BEFORE))),
+                                ])
+                            : (new None())),
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                ...My::hiddenFields(),
+                                (new Hidden(['do'], '1')),
+                                (new Hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize())),
+                                (new Submit(['ie-form-submit'], __('Import'))),
+                            ]),
+                    ]),
+            ])
+        ->render();
 
         if (App::auth()->isSuperAdmin()) {
-            echo
-            '<form action="' . $this->getURL(true) . '" method="post" enctype="multipart/form-data" id="formfull" class="fieldset">' .
-            '<h3>' . __('Multiple blogs') . '</h3>' .
-            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-            '<p class="warning">' . __('This will reset all the content of your database, except users.') . '</p>' .
-
-            '<p><label for="up_full_file">' . __('Upload a backup file') . ' ' .
-            ' (' . sprintf(__('maximum size %s'), Files::size(App::config()->maxUploadSize())) . ')' . ' </label>' .
-                '<input type="file" id="up_full_file" name="up_full_file" size="20">' .
-                '</p>';
-
-            if ($has_files) {
-                echo
-                '<p><label for="public_full_file">' . __('or pick up a local file in your public directory') . ' </label>' .
-                form::combo('public_full_file', $public_files) .
-                    '</p>';
-            }
-
-            echo
-            '<p><label for="your_pwd" class="required"><span>*</span> ' . __('Your password:') . '</label>' .
-            form::password(
-                'your_pwd',
-                20,
-                255,
-                [
-                    'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                    'autocomplete' => 'current-password',
-                ]
-            ) . '</p>' .
-
-            '<p>' .
-            App::nonce()->getFormNonce() .
-            form::hidden(['do'], 1) .
-            form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) .
-            '<input type="submit" value="' . __('Import') . '"></p>' .
-
-                '</form>';
+            echo (new Form('formfull'))
+                ->method('post')
+                ->action($this->getURL(true))
+                ->enctype('multipart/form-data')
+                ->fields([
+                    (new Fieldset())
+                        ->legend(new Legend(__('Multiple blogs')))
+                        ->fields([
+                            (new Note())
+                                ->class('form-note')
+                                ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                            (new Note())
+                                ->class('warning')
+                                ->text(__('This will reset all the content of your database, except users.')),
+                            (new Para())->items([
+                                (new File('up_full_file'))
+                                    ->label(
+                                        (new Label(
+                                            __('Upload a backup file') . ' (' . sprintf(
+                                                __('maximum size %s'),
+                                                Files::size(App::config()->maxUploadSize())
+                                            ) . ')',
+                                            Label::OUTSIDE_TEXT_BEFORE
+                                        ))
+                                    ),
+                            ]),
+                            ($has_files ?
+                                (new Para())
+                                    ->items([
+                                        (new Select('public_full_file'))
+                                            ->items($public_files)
+                                            ->label((new Label(__('or pick up a local file in your public directory'), Label::OUTSIDE_TEXT_BEFORE))),
+                                    ])
+                                : (new None())),
+                            (new Para())->items([
+                                (new Password('your_pwd'))
+                                    ->size(20)
+                                    ->maxlength(255)
+                                    ->required(true)
+                                    ->placeholder(__('Password'))
+                                    ->autocomplete('current-password')
+                                    ->label(
+                                        (new Label(
+                                            (new Text('span', '*'))->render() . __('Your password:'),
+                                            Label::OUTSIDE_TEXT_BEFORE
+                                        ))->class('required')
+                                    )
+                                    ->title(__('Required field')),
+                            ]),
+                            (new Para())
+                                ->class('form-buttons')
+                                ->items([
+                                    ...My::hiddenFields(),
+                                    (new Hidden(['do'], '1')),
+                                    (new Hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize())),
+                                    (new Submit(['formfull-submit'], __('Import'))),
+                                ]),
+                        ]),
+                ])
+            ->render();
         }
     }
 

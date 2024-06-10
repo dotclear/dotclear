@@ -13,11 +13,17 @@ use Exception;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Network\Http;
-use Dotclear\Helper\Text;
-use form;
+use Dotclear\Helper\Text as Txt;
 
 /**
  * @brief   The feed import module handler.
@@ -186,7 +192,7 @@ class ModuleImportFeed extends Module
             $cur->clean();
             $cur->user_id      = App::auth()->userID();
             $cur->post_content = $item->content ?: $item->description;
-            $cur->post_title   = $item->title ?: Text::cutString(Html::clean($cur->post_content), 60);
+            $cur->post_title   = $item->title ?: Txt::cutString(Html::clean($cur->post_content), 60);
             $cur->post_format  = 'xhtml';
             $cur->post_status  = App::blog()::POST_PENDING;
             $cur->post_dt      = Date::strftime('%Y-%m-%d %H:%M:%S', $item->TS);
@@ -214,18 +220,30 @@ class ModuleImportFeed extends Module
             Notices::success(__('Content successfully imported.'));
         }
 
-        echo
-        '<form action="' . $this->getURL(true) . '" method="post">' .
-        '<p>' . sprintf(__('Add a feed content to the current blog: <strong>%s</strong>.'), Html::escapeHTML(App::blog()->name())) . '</p>' .
-
-        '<p><label for="feed_url">' . __('Feed URL:') . '</label>' .
-        form::url('feed_url', 50, 300, Html::escapeHTML($this->feed_url)) . '</p>' .
-
-        '<p>' .
-        App::nonce()->getFormNonce() .
-        form::hidden(['do'], 1) .
-        '<input type="submit" value="' . __('Import') . '"></p>' .
-
-        '</form>';
+        echo (new Form('ie-form'))
+            ->method('post')
+            ->action($this->getURL(true))
+            ->fields([
+                (new Para())
+                    ->items([
+                        (new Text(null, sprintf(__('Add a feed content to the current blog: <strong>%s</strong>.'), Html::escapeHTML(App::blog()->name())))),
+                    ]),
+                (new Para())
+                    ->items([
+                        (new Url('feed_url'))
+                            ->size(50)
+                            ->maxlength(300)
+                            ->value(Html::escapeHTML($this->feed_url))
+                            ->label((new Label(__('Feed URL:'), Label::OUTSIDE_TEXT_BEFORE))),
+                    ]),
+                (new Para())
+                    ->class('form-buttons')
+                    ->items([
+                        ...My::hiddenFields(),
+                        (new Hidden(['do'], '1')),
+                        (new Submit('ie-form-submit', __('Import'))),
+                    ]),
+            ])
+        ->render();
     }
 }

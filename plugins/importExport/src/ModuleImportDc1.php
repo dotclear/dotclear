@@ -11,15 +11,30 @@ namespace Dotclear\Plugin\importExport;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
-use Dotclear\Helper\Text;
+use Dotclear\Helper\Text as Txt;
 use Dotclear\Interface\Core\ConnectionInterface;
-use Exception;
 use Dotclear\Plugin\blogroll\Blogroll;
-use form;
+use Exception;
 
 /**
  * @brief   The DC1 import module handler.
@@ -182,32 +197,86 @@ class ModuleImportDc1 extends Module
 
         switch ($this->step) {
             case 1:
-                echo
-                '<p>' . sprintf(
-                    __('Import the content of a Dotclear 1.2\'s blog in the current blog: %s.'),
-                    '<strong>' . Html::escapeHTML(App::blog()->name()) . '</strong>'
-                ) . '</p>' .
-                '<p class="warning">' . __('Please note that this process ' .
-                    'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
+                echo (new Para())
+                    ->items([
+                        (new Text(null, sprintf(
+                            __('Import the content of a Dotclear 1.2\'s blog in the current blog: %s.'),
+                            '<strong>' . Html::escapeHTML(App::blog()->name()) . '</strong>'
+                        ))),
+                    ])
+                ->render();
+
+                echo (new Note())
+                    ->class('warning')
+                    ->text(__('Please note that this process will empty your categories, blogroll, entries and comments on the current blog.'))
+                ->render();
+
+                $text = (new Set())
+                    ->items([
+                        (new Para())
+                            ->items([
+                                (new Text(null, __('We first need some information about your old Dotclear 1.2 installation.'))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Select('db_driver'))
+                                    ->items($db_drivers)
+                                    ->default(Html::escapeHTML($this->vars['db_driver']))
+                                    ->label((new Label(__('Database driver:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('db_host'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($this->vars['db_host']))
+                                    ->label((new Label(__('Database Host Name:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('db_name'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($this->vars['db_name']))
+                                    ->label((new Label(__('Database Name:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('db_user'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($this->vars['db_user']))
+                                    ->label((new Label(__('Database User Name:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Password('db_pwd'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($this->vars['db_pwd']))
+                                    ->label((new Label(__('Database Password:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('db_prefix'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($this->vars['db_prefix']))
+                                    ->label((new Label(__('Database Tables Prefix:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                        (new Text('h3', __('Entries import options')))->class('vertical-separator'),
+                        (new Para())
+                            ->items([
+                                (new Number('post_limit', 0, 999))
+                                    ->value(Html::escapeHTML((string) $this->vars['post_limit']))
+                                    ->label((new Label(__('Number of entries to import at once:'), Label::INSIDE_TEXT_BEFORE))),
+                            ]),
+                    ])
+                ->render();
 
                 printf(
                     $this->imForm(1, __('General information'), __('Import my blog now')),
-                    '<p>' . __('We first need some information about your old Dotclear 1.2 installation.') . '</p>' .
-                    '<p><label for="db_driver">' . __('Database driver:') . '</label> ' .
-                    form::combo('db_driver', $db_drivers, Html::escapeHTML($this->vars['db_driver'])) . '</p>' .
-                    '<p><label for="db_host">' . __('Database Host Name:') . '</label> ' .
-                    form::field('db_host', 30, 255, Html::escapeHTML($this->vars['db_host'])) . '</p>' .
-                    '<p><label for="db_name">' . __('Database Name:', Html::escapeHTML($this->vars['db_name'])) . '</label> ' .
-                    form::field('db_name', 30, 255, Html::escapeHTML($this->vars['db_name'])) . '</p>' .
-                    '<p><label for="db_user">' . __('Database User Name:') . '</label> ' .
-                    form::field('db_user', 30, 255, Html::escapeHTML($this->vars['db_user'])) . '</p>' .
-                    '<p><label for="db_pwd">' . __('Database Password:') . '</label> ' .
-                    form::password('db_pwd', 30, 255) . '</p>' .
-                    '<p><label for="db_prefix">' . __('Database Tables Prefix:') . '</label> ' .
-                    form::field('db_prefix', 30, 255, Html::escapeHTML($this->vars['db_prefix'])) . '</p>' .
-                    '<h3 class="vertical-separator">' . __('Entries import options') . '</h3>' .
-                    '<p><label for="post_limit">' . __('Number of entries to import at once:') . '</label> ' .
-                    form::number('post_limit', 0, 999, Html::escapeHTML((string) $this->vars['post_limit'])) . '</p>'
+                    $text
                 );
 
                 break;
@@ -233,33 +302,32 @@ class ModuleImportDc1 extends Module
 
                 break;
             case 5:
-                $t = sprintf(
+                $text = sprintf(
                     __('Importing entries from %d to %d / %d'),
                     $this->post_offset,
                     min([$this->post_offset + $this->post_limit, $this->post_count]),
                     $this->post_count
                 );
                 printf(
-                    $this->imForm(5, $t),
-                    form::hidden(['offset'], $this->post_offset) .
+                    $this->imForm(5, $text),
+                    (new Hidden(['offset'], (string) $this->post_offset))->render() .
                     $this->autoSubmit()
                 );
 
                 break;
             case 6:
-                echo
-                '<h3 class="vertical-separator">' . __('Please read carefully') . '</h3>' .
-                '<ul>' .
-                '<li>' . __('Every newly imported user has received a random password ' .
-                    'and will need to ask for a new one by following the "I forgot my password" link on the login page ' .
-                    '(Their registered email address has to be valid.)') . '</li>' .
-
-                '<li>' . sprintf(
-                    __('Please note that Dotclear 2 has a new URL layout. You can avoid broken ' .
-                    'links by installing <a href="%s">DC1 redirect</a> plugin and activate it in your blog configuration.'),
-                    'https://plugins.dotaddict.org/dc2/details/dc1redirect'
-                ) . '</li>' .
-                '</ul>' .
+                echo (new Set())
+                    ->items([
+                        (new Text('h3', __('Please read carefully')))->class('vertical-separator'),
+                        (new Ul())->items([
+                            (new Li())->text(__('Every newly imported user has received a random password and will need to ask for a new one by following the "I forgot my password" link on the login page (Their registered email address has to be valid.)')),
+                            (new Li())->text(sprintf(
+                                __('Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href="%s">DC1 redirect</a> plugin and activate it in your blog configuration.'),
+                                'https://plugins.dotaddict.org/dc2/details/dc1redirect'
+                            )),
+                        ]),
+                    ])
+                ->render();
 
                 $this->congratMessage();
 
@@ -282,15 +350,24 @@ class ModuleImportDc1 extends Module
             $submit_value = __('next step') . ' >';
         }
 
-        return
-        '<form action="' . $this->getURL(true) . '" method="post">' .
-        '<h3 class="vertical-separator">' . $legend . '</h3>' .
-        '<div>' . App::nonce()->getFormNonce() .
-        form::hidden(['do'], 'step' . $step) .
-        '%s' . '</div>' .
-        '<p class="vertical-separator"><input type="submit" value="' . $submit_value . '"></p>' .
-        '<p class="form-note info">' . __('Depending on the size of your blog, it could take a few minutes.') . '</p>' .
-        '</form>';
+        return (new Form('im-form'))
+            ->method('post')
+            ->action($this->getURL(true))
+            ->fields([
+                (new Text('h3', $legend))->class('vertical-separator'),
+                ...My::hiddenFields(),
+                (new Div())->items([
+                    (new Hidden(['do'], 'step' . (string) $step)),
+                    (new Text(null, '%s')),
+                ]),
+                (new Para())->class('vertical-separator')->items([
+                    (new Submit('im-form-submit', $submit_value)),
+                ]),
+                (new Note())
+                    ->class(['form-note', 'info'])
+                    ->text(__('Depending on the size of your blog, it could take a few minutes.')),
+            ])
+        ->render();
     }
 
     /**
@@ -300,8 +377,7 @@ class ModuleImportDc1 extends Module
      */
     protected function error(Exception $e): void
     {
-        echo
-        '<div class="error"><strong>' . __('Errors:') . '</strong>' . '<p>' . $e->getMessage() . '</p></div>';
+        Notices::error('<strong>' . __('Errors:') . '</strong>' . '<p>' . $e->getMessage() . '</p>', false, false);
     }
 
     /**
@@ -432,9 +508,9 @@ class ModuleImportDc1 extends Module
             while ($rs->fetch()) {
                 $cur            = App::blog()->categories()->openCategoryCursor();
                 $cur->blog_id   = $this->blog_id;
-                $cur->cat_title = Text::cleanStr(htmlspecialchars_decode($rs->cat_libelle));
-                $cur->cat_desc  = Text::cleanStr($rs->cat_desc);
-                $cur->cat_url   = Text::cleanStr($rs->cat_libelle_url);
+                $cur->cat_title = Txt::cleanStr(htmlspecialchars_decode($rs->cat_libelle));
+                $cur->cat_desc  = Txt::cleanStr($rs->cat_desc);
+                $cur->cat_url   = Txt::cleanStr($rs->cat_libelle_url);
                 $cur->cat_lft   = $ord++;
                 $cur->cat_rgt   = $ord++;
 
@@ -471,11 +547,11 @@ class ModuleImportDc1 extends Module
             while ($rs->fetch()) {
                 $cur                = $this->con->openCursor($this->prefix . Blogroll::LINK_TABLE_NAME);
                 $cur->blog_id       = $this->blog_id;
-                $cur->link_href     = Text::cleanStr($rs->href);
-                $cur->link_title    = Text::cleanStr($rs->label);
-                $cur->link_desc     = Text::cleanStr($rs->title);
-                $cur->link_lang     = Text::cleanStr($rs->lang);
-                $cur->link_xfn      = Text::cleanStr($rs->rel);
+                $cur->link_href     = Txt::cleanStr($rs->href);
+                $cur->link_title    = Txt::cleanStr($rs->label);
+                $cur->link_desc     = Txt::cleanStr($rs->title);
+                $cur->link_lang     = Txt::cleanStr($rs->lang);
+                $cur->link_xfn      = Txt::cleanStr($rs->rel);
                 $cur->link_position = (int) $rs->position;
 
                 $cur->link_id = (new MetaRecord($this->con->select(
@@ -555,31 +631,31 @@ class ModuleImportDc1 extends Module
         $cur->post_dt     = $rs->post_dt;
         $cur->post_creadt = $rs->post_creadt;
         $cur->post_upddt  = $rs->post_upddt;
-        $cur->post_title  = Html::decodeEntities(Text::cleanStr($rs->post_titre));
+        $cur->post_title  = Html::decodeEntities(Txt::cleanStr($rs->post_titre));
 
         $cur->post_url = date('Y/m/d/', (int) strtotime($cur->post_dt)) . $rs->post_id . '-' . $rs->post_titre_url;
         $cur->post_url = substr($cur->post_url, 0, 255);
 
         $cur->post_format        = $rs->post_content_wiki == '' ? 'xhtml' : 'wiki';
-        $cur->post_content_xhtml = Text::cleanStr($rs->post_content);
-        $cur->post_excerpt_xhtml = Text::cleanStr($rs->post_chapo);
+        $cur->post_content_xhtml = Txt::cleanStr($rs->post_content);
+        $cur->post_excerpt_xhtml = Txt::cleanStr($rs->post_chapo);
 
         if ($cur->post_format == 'wiki') {
-            $cur->post_content = Text::cleanStr($rs->post_content_wiki);
-            $cur->post_excerpt = Text::cleanStr($rs->post_chapo_wiki);
+            $cur->post_content = Txt::cleanStr($rs->post_content_wiki);
+            $cur->post_excerpt = Txt::cleanStr($rs->post_chapo_wiki);
         } else {
-            $cur->post_content = Text::cleanStr($rs->post_content);
-            $cur->post_excerpt = Text::cleanStr($rs->post_chapo);
+            $cur->post_content = Txt::cleanStr($rs->post_content);
+            $cur->post_excerpt = Txt::cleanStr($rs->post_chapo);
         }
 
-        $cur->post_notes        = Text::cleanStr($rs->post_notes);
+        $cur->post_notes        = Txt::cleanStr($rs->post_notes);
         $cur->post_status       = (int) $rs->post_pub;
         $cur->post_selected     = (int) $rs->post_selected;
         $cur->post_open_comment = (int) $rs->post_open_comment;
         $cur->post_open_tb      = (int) $rs->post_open_tb;
         $cur->post_lang         = $rs->post_lang;
 
-        $cur->post_words = implode(' ', Text::splitWords(
+        $cur->post_words = implode(' ', Txt::splitWords(
             $cur->post_title . ' ' .
             $cur->post_excerpt_xhtml . ' ' .
             $cur->post_content_xhtml
@@ -618,16 +694,16 @@ class ModuleImportDc1 extends Module
         while ($rs->fetch()) {
             $cur                    = App::blog()->openCommentCursor();
             $cur->post_id           = $new_post_id;
-            $cur->comment_author    = Text::cleanStr($rs->comment_auteur);
+            $cur->comment_author    = Txt::cleanStr($rs->comment_auteur);
             $cur->comment_status    = (int) $rs->comment_pub;
             $cur->comment_dt        = $rs->comment_dt;
             $cur->comment_upddt     = $rs->comment_upddt;
-            $cur->comment_email     = Text::cleanStr($rs->comment_email);
-            $cur->comment_content   = Text::cleanStr($rs->comment_content);
+            $cur->comment_email     = Txt::cleanStr($rs->comment_email);
+            $cur->comment_content   = Txt::cleanStr($rs->comment_content);
             $cur->comment_ip        = $rs->comment_ip;
             $cur->comment_trackback = (int) $rs->comment_trackback;
 
-            $cur->comment_site = Text::cleanStr($rs->comment_site);
+            $cur->comment_site = Txt::cleanStr($rs->comment_site);
             if ($cur->comment_site != '' && !preg_match('!^http(s)?://.*$!', $cur->comment_site)) {
                 $cur->comment_site = substr('http://' . $cur->comment_site, 0, 255);
             }
@@ -636,7 +712,7 @@ class ModuleImportDc1 extends Module
                 $cur->comment_status = App::blog()::COMMENT_JUNK;
             }
 
-            $cur->comment_words = implode(' ', Text::splitWords($cur->comment_content));
+            $cur->comment_words = implode(' ', Txt::splitWords($cur->comment_content));
 
             $cur->comment_id = (new MetaRecord($this->con->select(
                 'SELECT MAX(comment_id) FROM ' . $this->prefix . App::blog()::COMMENT_TABLE_NAME
@@ -680,7 +756,7 @@ class ModuleImportDc1 extends Module
         );
 
         while ($rs->fetch()) {
-            $url = Text::cleanStr($rs->ping_url);
+            $url = Txt::cleanStr($rs->ping_url);
             if (isset($urls[$url])) {
                 continue;
             }
@@ -714,7 +790,7 @@ class ModuleImportDc1 extends Module
         }
 
         while ($rs->fetch()) {
-            App::meta()->setPostMeta($new_post_id, Text::cleanStr($rs->meta_key), Text::cleanStr($rs->meta_value));
+            App::meta()->setPostMeta($new_post_id, Txt::cleanStr($rs->meta_key), Txt::cleanStr($rs->meta_value));
         }
     }
 }

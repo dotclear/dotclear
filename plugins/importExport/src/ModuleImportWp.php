@@ -12,15 +12,29 @@ namespace Dotclear\Plugin\importExport;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Crypt;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
-use Dotclear\Helper\Text;
+use Dotclear\Helper\Text as Txt;
 use Dotclear\Interface\Core\ConnectionInterface;
-use Exception;
 use Dotclear\Plugin\blogroll\Blogroll;
-use form;
+use Exception;
 
 /**
  * @brief   The WP import module handler.
@@ -212,65 +226,138 @@ class ModuleImportWp extends Module
 
         switch ($this->step) {
             case 1:
-                echo
-                '<p>' . sprintf(
-                    __('This will import your WordPress content as new content in the current blog: %s.'),
-                    '<strong>' . Html::escapeHTML(App::blog()->name()) . '</strong>'
-                ) . '</p>' .
-                '<p class="warning">' . __('Please note that this process ' .
-                    'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
+                echo (new Para())
+                    ->items([
+                        (new Text(null, sprintf(
+                            __('This will import your WordPress content as new content in the current blog: %s.'),
+                            '<strong>' . Html::escapeHTML(App::blog()->name()) . '</strong>'
+                        ))),
+                    ])
+                ->render();
+
+                echo (new Note())
+                    ->class('warning')
+                    ->text(__('Please note that this process will empty your categories, blogroll, entries and comments on the current blog.'))
+                ->render();
+
+                $text = (new Set())
+                    ->items([
+                        (new Para())
+                            ->items([
+                                (new Text(null, __('We first need some information about your old WordPress installation.'))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('db_host'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($this->vars['db_host']))
+                                    ->label((new Label(__('Database Host Name:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('db_name'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($this->vars['db_name']))
+                                    ->label((new Label(__('Database Name:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('db_user'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($this->vars['db_user']))
+                                    ->label((new Label(__('Database User Name:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Password('db_pwd'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($this->vars['db_pwd']))
+                                    ->label((new Label(__('Database Password:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('db_prefix'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($this->vars['db_prefix']))
+                                    ->label((new Label(__('Database Tables Prefix:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                        (new Text('h3', __('Entries import options')))->class('vertical-separator'),
+                        (new Div())
+                            ->class('two-cols')
+                            ->items([
+                                (new Div())
+                                    ->class('col')
+                                    ->items([
+                                        (new Note())
+                                            ->text(__('WordPress and Dotclear\'s handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like "One category, several tags." Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix.')),
+                                        (new Note())
+                                            ->text(__('On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>"Uncategorized"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized.')),
+                                    ]),
+                                (new Div())
+                                    ->class('col')
+                                    ->items([
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('ignore_first_cat', (bool) $this->vars['ignore_first_cat']))
+                                                    ->value(1)
+                                                    ->label((new Label(__('Ignore the first category:'), Label::INSIDE_TEXT_BEFORE))),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('cat_import', (bool) $this->vars['cat_import']))
+                                                    ->value(1)
+                                                    ->label((new Label(__('Import lowest numbered category on posts:'), Label::INSIDE_TEXT_BEFORE))),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('cat_as_tags', (bool) $this->vars['cat_as_tags']))
+                                                    ->value(1)
+                                                    ->label((new Label(__('Import all categories as tags:'), Label::INSIDE_TEXT_BEFORE))),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Input('cat_tags_prefix'))
+                                                    ->size(10)
+                                                    ->maxlength(20)
+                                                    ->value(Html::escapeHTML($this->vars['cat_tags_prefix']))
+                                                    ->label((new Label(__('Prefix such tags with:'), Label::OUTSIDE_TEXT_BEFORE))),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Number('post_limit', 0, 999))
+                                                    ->value(Html::escapeHTML((string) $this->vars['post_limit']))
+                                                    ->label((new Label(__('Number of entries to import at once:'), Label::OUTSIDE_TEXT_BEFORE))),
+                                            ]),
+                                    ]),
+                            ]),
+                        (new Text('h3', __('Content filters')))->class('vertical-separator'),
+                        (new Note())
+                            ->text(__('You may want to process your post and/or comment content with the following filters.')),
+                        (new Para())
+                            ->items([
+                                (new Select('post_formater'))
+                                    ->items($this->formaters)
+                                    ->default(Html::escapeHTML($this->vars['post_formater']))
+                                    ->label((new Label(__('Post content formatter:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Select('comment_formater'))
+                                    ->items($this->formaters)
+                                    ->default(Html::escapeHTML($this->vars['comment_formater']))
+                                    ->label((new Label(__('Comment content formatter:'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                    ])
+                ->render();
 
                 printf(
                     $this->imForm(1, __('General information'), __('Import my blog now')),
-                    '<p>' . __('We first need some information about your old WordPress installation.') . '</p>' .
-                    '<p><label for="db_host">' . __('Database Host Name:') . '</label> ' .
-                    form::field('db_host', 30, 255, Html::escapeHTML($this->vars['db_host'])) . '</p>' .
-                    '<p><label for="db_name">' . __('Database Name:', Html::escapeHTML($this->vars['db_name'])) . '</label> ' .
-                    form::field('db_name', 30, 255, Html::escapeHTML($this->vars['db_name'])) . '</p>' .
-                    '<p><label for="db_user">' . __('Database User Name:') . '</label> ' .
-                    form::field('db_user', 30, 255, Html::escapeHTML($this->vars['db_user'])) . '</p>' .
-                    '<p><label for="db_pwd">' . __('Database Password:') . '</label> ' .
-                    form::password('db_pwd', 30, 255) . '</p>' .
-                    '<p><label for="db_prefix">' . __('Database Tables Prefix:') . '</label> ' .
-                    form::field('db_prefix', 30, 255, Html::escapeHTML($this->vars['db_prefix'])) . '</p>' .
-
-                    '<h3 class="vertical-separator">' . __('Entries import options') . '</h3>' .
-                    '<div class="two-cols">' .
-
-                    '<div class="col">' .
-                    '<p>' . __('WordPress and Dotclear\'s handling of categories are quite different. ' .
-                        'You can assign several categories to a single post in WordPress. In the Dotclear world, ' .
-                        'we see it more like "One category, several tags." Therefore Dotclear can only import one ' .
-                        'category per post and will chose the lowest numbered one. If you want to keep a trace of ' .
-                        'every category, you can import them as tags, with an optional prefix.') . '</p>' .
-                    '<p>' . __('On the other hand, in WordPress, a post can not be uncategorized, and a ' .
-                        'default installation has a first category labelised <i>"Uncategorized"</i>.' .
-                        'If you did not change that category, you can just ignore it while ' .
-                        'importing your blog, as Dotclear allows you to actually keep your posts ' .
-                        'uncategorized.') . '</p>' .
-                    '</div>' .
-
-                    '<div class="col">' .
-                    '<p><label for="ignore_first_cat" class="classic">' . form::checkbox('ignore_first_cat', 1, $this->vars['ignore_first_cat']) . ' ' .
-                    __('Ignore the first category:') . '</label></p>' .
-                    '<p><label for="cat_import" class="classic">' . form::checkbox('cat_import', 1, $this->vars['cat_import']) . ' ' .
-                    __('Import lowest numbered category on posts:') . '</label></p>' .
-                    '<p><label for="cat_as_tags" class="classic">' . form::checkbox('cat_as_tags', 1, $this->vars['cat_as_tags']) . ' ' .
-                    __('Import all categories as tags:') . '</label></p>' .
-                    '<p><label for="cat_tags_prefix">' . __('Prefix such tags with:') . '</label> ' .
-                    form::field('cat_tags_prefix', 10, 20, Html::escapeHTML($this->vars['cat_tags_prefix'])) . '</p>' .
-                    '<p><label for="post_limit">' . __('Number of entries to import at once:') . '</label> ' .
-                    form::number('post_limit', 0, 999, Html::escapeHTML((string) $this->vars['post_limit'])) . '</p>' .
-                    '</div>' .
-
-                    '</div>' .
-
-                    '<h3 class="clear vertical-separator">' . __('Content filters') . '</h3>' .
-                    '<p>' . __('You may want to process your post and/or comment content with the following filters.') . '</p>' .
-                    '<p><label for="post_formater">' . __('Post content formatter:') . '</label> ' .
-                    form::combo('post_formater', $this->formaters, $this->vars['post_formater']) . '</p>' .
-                    '<p><label for="comment_formater">' . __('Comment content formatter:') . '</label> '
-                    . form::combo('comment_formater', $this->formaters, $this->vars['comment_formater']) . '</p>'
+                    $text
                 );
 
                 break;
@@ -296,24 +383,31 @@ class ModuleImportWp extends Module
 
                 break;
             case 5:
-                $t = sprintf(
+                $text = sprintf(
                     __('Importing entries from %d to %d / %d'),
                     $this->post_offset,
                     min([$this->post_offset + $this->post_limit, $this->post_count]),
                     $this->post_count
                 );
                 printf(
-                    $this->imForm(5, $t),
-                    form::hidden(['offset'], $this->post_offset) .
+                    $this->imForm(5, $text),
+                    (new Hidden(['offset'], (string) $this->post_offset))->render() .
                     $this->autoSubmit()
                 );
 
                 break;
             case 6:
-                echo
-                '<p class="message">' . __('Every newly imported user has received a random password ' .
-                    'and will need to ask for a new one by following the "I forgot my password" link on the login page ' .
-                    '(Their registered email address has to be valid.)') . '</p>' .
+                echo (new Set())
+                    ->items([
+                        (new Text('h3', __('Please read carefully')))->class('vertical-separator'),
+                        (new Note())
+                            ->class('message')
+                            ->text(__('Every newly imported user has received a random password ' .
+                            'and will need to ask for a new one by following the "I forgot my password" link on the login page ' .
+                            '(Their registered email address has to be valid.)')),
+                    ])
+                ->render();
+
                 $this->congratMessage();
 
                 break;
@@ -335,15 +429,24 @@ class ModuleImportWp extends Module
             $submit_value = __('next step') . ' >';
         }
 
-        return
-        '<form action="' . $this->getURL(true) . '" method="post">' .
-        '<h3 class="vertical-separator">' . $legend . '</h3>' .
-        '<div>' . App::nonce()->getFormNonce() .
-        form::hidden(['do'], 'step' . $step) .
-        '%s' . '</div>' .
-        '<p><input type="submit" value="' . $submit_value . '"></p>' .
-        '<p class="form-note info">' . __('Depending on the size of your blog, it could take a few minutes.') . '</p>' .
-        '</form>';
+        return (new Form('im-form'))
+            ->method('post')
+            ->action($this->getURL(true))
+            ->fields([
+                (new Text('h3', $legend))->class('vertical-separator'),
+                ...My::hiddenFields(),
+                (new Div())->items([
+                    (new Hidden(['do'], 'step' . (string) $step)),
+                    (new Text(null, '%s')),
+                ]),
+                (new Para())->class('vertical-separator')->items([
+                    (new Submit('im-form-submit', $submit_value)),
+                ]),
+                (new Note())
+                    ->class(['form-note', 'info'])
+                    ->text(__('Depending on the size of your blog, it could take a few minutes.')),
+            ])
+        ->render();
     }
 
     /**
@@ -353,9 +456,7 @@ class ModuleImportWp extends Module
      */
     protected function error(Exception $e): void
     {
-        echo
-        '<div class="error"><strong>' . __('Errors:') . '</strong>' .
-        '<p>' . $e->getMessage() . '</p></div>';
+        Notices::error('<strong>' . __('Errors:') . '</strong>' . '<p>' . $e->getMessage() . '</p>', false, false);
     }
 
     /**
@@ -430,15 +531,15 @@ class ModuleImportWp extends Module
                         while ($rs_meta->fetch()) {
                             switch ($rs_meta->meta_key) {
                                 case 'first_name':
-                                    $cur->user_firstname = Text::cleanStr($rs_meta->meta_value);
+                                    $cur->user_firstname = Txt::cleanStr($rs_meta->meta_value);
 
                                     break;
                                 case 'last_name':
-                                    $cur->user_name = Text::cleanStr($rs_meta->meta_value);
+                                    $cur->user_name = Txt::cleanStr($rs_meta->meta_value);
 
                                     break;
                                 case 'description':
-                                    $cur->user_desc = Text::cleanStr($rs_meta->meta_value);
+                                    $cur->user_desc = Txt::cleanStr($rs_meta->meta_value);
 
                                     break;
                                 case 'rich_editing':
@@ -531,9 +632,9 @@ class ModuleImportWp extends Module
             while ($rs->fetch()) {
                 $cur            = App::blog()->categories()->openCategoryCursor();
                 $cur->blog_id   = $this->blog_id;
-                $cur->cat_title = Text::cleanStr($rs->name);
-                $cur->cat_desc  = Text::cleanStr($rs->description);
-                $cur->cat_url   = Text::cleanStr($rs->slug);
+                $cur->cat_title = Txt::cleanStr($rs->name);
+                $cur->cat_desc  = Txt::cleanStr($rs->description);
+                $cur->cat_url   = Txt::cleanStr($rs->slug);
                 $cur->cat_lft   = $ord++;
                 $cur->cat_rgt   = $ord++;
 
@@ -570,10 +671,10 @@ class ModuleImportWp extends Module
             while ($rs->fetch()) {
                 $cur             = $this->con->openCursor($this->prefix . Blogroll::LINK_TABLE_NAME);
                 $cur->blog_id    = $this->blog_id;
-                $cur->link_href  = Text::cleanStr($rs->link_url);
-                $cur->link_title = Text::cleanStr($rs->link_name);
-                $cur->link_desc  = Text::cleanStr($rs->link_description);
-                $cur->link_xfn   = Text::cleanStr($rs->link_rel);
+                $cur->link_href  = Txt::cleanStr($rs->link_url);
+                $cur->link_title = Txt::cleanStr($rs->link_name);
+                $cur->link_desc  = Txt::cleanStr($rs->link_description);
+                $cur->link_xfn   = Txt::cleanStr($rs->link_rel);
 
                 $cur->link_id = (new MetaRecord($this->con->select(
                     'SELECT MAX(link_id) FROM ' . $this->prefix . Blogroll::LINK_TABLE_NAME
@@ -668,7 +769,7 @@ class ModuleImportWp extends Module
         $cur->post_dt     = $post_date;
         $cur->post_creadt = $post_date;
         $cur->post_upddt  = $rs->post_modified;
-        $cur->post_title  = Text::cleanStr($rs->post_title);
+        $cur->post_title  = Txt::cleanStr($rs->post_title);
 
         if (!$cur->post_title) {
             $cur->post_title = 'No title';
@@ -719,10 +820,10 @@ class ModuleImportWp extends Module
         if (count($_post_content) == 1) {
             $cur->post_excerpt       = null;
             $cur->post_excerpt_xhtml = null;
-            $cur->post_content       = Text::cleanStr((string) array_shift($_post_content));
+            $cur->post_content       = Txt::cleanStr((string) array_shift($_post_content));
         } else {
-            $cur->post_excerpt = Text::cleanStr((string) array_shift($_post_content));
-            $cur->post_content = Text::cleanStr((string) array_shift($_post_content));
+            $cur->post_excerpt = Txt::cleanStr((string) array_shift($_post_content));
+            $cur->post_content = Txt::cleanStr((string) array_shift($_post_content));
         }
 
         $cur->post_content_xhtml = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_content);
@@ -741,7 +842,7 @@ class ModuleImportWp extends Module
         $cur->post_open_comment = $rs->comment_status == 'open' ? 1 : 0;
         $cur->post_open_tb      = $rs->ping_status    == 'open' ? 1 : 0;
 
-        $cur->post_words = implode(' ', Text::splitWords(
+        $cur->post_words = implode(' ', Txt::splitWords(
             $cur->post_title . ' ' .
             $cur->post_excerpt_xhtml . ' ' .
             $cur->post_content_xhtml
@@ -763,7 +864,7 @@ class ModuleImportWp extends Module
         if (isset($old_cat_ids) && !$old_cat_ids->isEmpty() && $this->vars['cat_as_tags']) {
             $old_cat_ids->moveStart();
             while ($old_cat_ids->fetch()) {
-                App::meta()->setPostMeta($cur->post_id, 'tag', Text::cleanStr($this->vars['cat_tags_prefix'] . $old_cat_ids->name));
+                App::meta()->setPostMeta($cur->post_id, 'tag', Txt::cleanStr($this->vars['cat_tags_prefix'] . $old_cat_ids->name));
             }
         }
     }
@@ -787,14 +888,14 @@ class ModuleImportWp extends Module
         while ($rs->fetch()) {
             $cur                    = App::blog()->openCommentCursor();
             $cur->post_id           = (int) $new_post_id;
-            $cur->comment_author    = Text::cleanStr($rs->comment_author);
+            $cur->comment_author    = Txt::cleanStr($rs->comment_author);
             $cur->comment_status    = (int) $rs->comment_approved;
             $cur->comment_dt        = $rs->comment_date;
-            $cur->comment_email     = Text::cleanStr($rs->comment_author_email);
-            $cur->comment_content   = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['comment_formater'], Text::cleanStr($rs->comment_content));
+            $cur->comment_email     = Txt::cleanStr($rs->comment_author_email);
+            $cur->comment_content   = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['comment_formater'], Txt::cleanStr($rs->comment_content));
             $cur->comment_ip        = $rs->comment_author_IP;
             $cur->comment_trackback = $rs->comment_type == 'trackback' ? 1 : 0;
-            $cur->comment_site      = substr(Text::cleanStr($rs->comment_author_url), 0, 255);
+            $cur->comment_site      = substr(Txt::cleanStr($rs->comment_author_url), 0, 255);
             if ($cur->comment_site == '') {
                 $cur->comment_site = null;
             }
@@ -803,7 +904,7 @@ class ModuleImportWp extends Module
                 $cur->comment_status = App::blog()::COMMENT_JUNK;
             }
 
-            $cur->comment_words = implode(' ', Text::splitWords($cur->comment_content));
+            $cur->comment_words = implode(' ', Txt::splitWords($cur->comment_content));
 
             $cur->comment_id = (new MetaRecord($this->con->select(
                 'SELECT MAX(comment_id) FROM ' . $this->prefix . App::blog()::COMMENT_TABLE_NAME
@@ -850,7 +951,7 @@ class ModuleImportWp extends Module
         unset($pings[0]);
 
         foreach ($pings as $ping_url) {
-            $url = Text::cleanStr($ping_url);
+            $url = Txt::cleanStr($ping_url);
             if (isset($urls[$url])) {
                 continue;
             }
@@ -889,7 +990,7 @@ class ModuleImportWp extends Module
         }
 
         while ($rs->fetch()) {
-            App::meta()->setPostMeta($new_post_id, 'tag', Text::cleanStr($rs->name));
+            App::meta()->setPostMeta($new_post_id, 'tag', Txt::cleanStr($rs->name));
         }
     }
 }

@@ -10,8 +10,15 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
-use form;
 
 /**
  * @brief   The export full maintenance task.
@@ -48,9 +55,9 @@ class ExportFullMaintenanceTask extends MaintenanceTask
             }
 
             // This process make an http redirect
-            $ie = new ExportFlatMaintenanceTask();
-            $ie->setURL((string) $this->id);
-            $ie->process($this->export_type);
+            $task = new ExportFlatMaintenanceTask();
+            $task->setURL((string) $this->id);
+            $task->process($this->export_type);
         }
         // Go to step and show form
         else {
@@ -68,30 +75,45 @@ class ExportFullMaintenanceTask extends MaintenanceTask
             $this->log();
 
             // This process send file by http and stop script
-            $ie = new ExportFlatMaintenanceTask();
-            $ie->setURL((string) $this->id);
-            $ie->process('ok');
+            $task = new ExportFlatMaintenanceTask();
+            $task->setURL((string) $this->id);
+            $task->process('ok');
         } else {
-            return
-            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-            '<p><label for="file_name">' . __('File name:') . '</label>' .
-            form::field('file_name', 50, 255, date('Y-m-d-H-i-') . $this->export_name) .
-            '</p>' .
-            '<p><label for="file_zip" class="classic">' .
-            form::checkbox('file_zip', 1) . ' ' .
-            __('Compress file') . '</label>' .
-            '</p>' .
-            '<p><label for="your_pwd" class="required">' .
-            '<span>*</span> ' . __('Your password:') . '</label>' .
-            form::password(
-                'your_pwd',
-                20,
-                255,
-                [
-                    'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                    'autocomplete' => 'current-password',
-                ]
-            ) . '</p>';
+            return (new Set())->items([
+                (new Note())
+                    ->class('form-note')
+                    ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                (new Para())->items([
+                    (new Input('file_name'))
+                        ->size(50)
+                        ->maxlength(255)
+                        ->value(Html::escapeHTML(date('Y-m-d-H-i-') . $this->export_name))
+                        ->required(true)
+                        ->label(
+                            (new Label(
+                                (new Text('span', '*'))->render() . __('File name:'),
+                                Label::INSIDE_TEXT_BEFORE
+                            ))
+                        )
+                        ->title(__('Required field')),
+                ]),
+                (new Para())->items([
+                    (new Password('your_pwd'))
+                        ->size(20)
+                        ->maxlength(255)
+                        ->required(true)
+                        ->placeholder(__('Password'))
+                        ->autocomplete('current-password')
+                        ->label(
+                            (new Label(
+                                (new Text('span', '*'))->render() . __('Your password:'),
+                                Label::INSIDE_TEXT_BEFORE
+                            ))
+                        )
+                        ->title(__('Required field')),
+                ]),
+            ])
+            ->render();
         }
     }
 }

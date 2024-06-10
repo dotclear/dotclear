@@ -11,8 +11,15 @@ namespace Dotclear\Plugin\importExport;
 
 use Exception;
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
-use form;
 
 /**
  * @brief   The abstract import export module handler.
@@ -137,7 +144,16 @@ abstract class Module
     {
         $percent = trim((string) max(ceil($percent), 100));
 
-        return '<div class="ie-progress"><progress id="file" max="100" value="' . $percent . '">' . $percent . '%</progress></div>';
+        return (new Div())
+            ->class('ie-progress')
+            ->items([
+                (new Text('progress', $percent))
+                    ->class('ie-progress')
+                    ->id('file')
+                    ->max(100)
+                    ->value($percent),
+            ])
+        ->render();
     }
 
     /**
@@ -147,7 +163,7 @@ abstract class Module
      */
     protected function autoSubmit(): string
     {
-        return form::hidden(['autosubmit'], 1);
+        return (new Hidden(['autosubmit'], '1'))->render();
     }
 
     /**
@@ -157,19 +173,31 @@ abstract class Module
      */
     protected function congratMessage()
     {
-        return
-        '<h3>' . __('Congratulation!') . '</h3>' .
-        '<p class="success">' . __('Your blog has been successfully imported. Welcome on Dotclear 2!') . '</p>' .
-        '<ul>' .
-        '<li>' .
-        '<strong>' .
-        '<a href="' . App::backend()->url()->decode('admin.post') . '">' . __('Why don\'t you blog this now?') . '</a>' .
-        '</strong>' .
-        '</li>' .
-        '<li>' .
-        __('or') .
-        ' <a href="' . App::backend()->url()->decode('admin.home') . '">' . __('visit your dashboard') . '</a>' .
-        '</li>' .
-        '</ul>';
+        return (new Set())->items([
+            (new Text('h3', __('Congratulation!'))),
+            (new Para())
+                ->class('success')
+                ->items([
+                    (new Text(null, __('Your blog has been successfully imported. Welcome on Dotclear 2!'))),
+                ]),
+            (new Ul())->items([
+                (new Li())->items([
+                    (new Text('strong', (new Link())
+                        ->href(App::backend()
+                        ->url()->get('admin.post'))
+                        ->text(__('Why don\'t you blog this now?'))
+                    ->render())),
+                ]),
+                (new Li())->items([
+                    (new Text(null, __('or') . ' ')),
+                    (new Text(null, (new Link())
+                        ->href(App::backend()
+                        ->url()->get('admin.home'))
+                        ->text(__('visit your dashboard'))
+                    ->render())),
+                ]),
+            ]),
+        ])
+        ->render();
     }
 }
