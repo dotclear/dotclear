@@ -14,7 +14,22 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Helper\Date;
-use form;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Dd;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Dl;
+use Dotclear\Helper\Html\Form\Dt;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 
 /**
  * @brief   The module backend behaviors.
@@ -151,16 +166,16 @@ class BackendBehaviors
                 continue;
             }
 
-            $lines[] = '<li title="' . (
-                $ts === null ?
+            $lines[] = (new Li())
+                ->title($ts === null ?
                 __('This task has never been executed.')
                 :
                 sprintf(
                     __('Last execution of this task was on %s.'),
                     Date::dt2str(App::blog()->settings()->system->date_format, (string) $ts) . ' ' .
                     Date::dt2str(App::blog()->settings()->system->time_format, (string) $ts)
-                )
-            ) . '">' . $t->task() . '</li>';
+                ))
+                ->text($t->task());
         }
 
         if (empty($lines)) {
@@ -168,13 +183,23 @@ class BackendBehaviors
         }
 
         $items->append(new ArrayObject([
-            '<div id="maintenance-expired" class="box small"><h3>' .
-            Helper::adminIcon(My::icons(), true, '', '', 'icon-small') . ' ' .
-            __('Maintenance') . '</h3>' .
-            '<p class="warning no-margin">' . sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines)) . '</p>' .
-            '<ul>' . implode('', $lines) . '</ul>' .
-            '<p><a href="' . My::manageUrl() . '">' . __('Manage tasks') . '</a></p>' .
-            '</div>',
+            (new Div('maintenance-expired'))
+                ->class(['box', 'small'])
+                ->items([
+                    (new Text('h3', Helper::adminIcon(My::icons(), true, '', '', 'icon-small') . ' ' . __('Maintenance'))),
+                    (new Note())
+                        ->class(['warning', 'no-margin'])
+                        ->text(sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines))),
+                    (new Ul())
+                        ->items($lines),
+                    (new Para())
+                        ->items([
+                            (new Link())
+                                ->href(My::manageUrl())
+                                ->text(__('Manage tasks')),
+                        ]),
+                ])
+            ->render(),
         ]));
     }
 
@@ -186,19 +211,23 @@ class BackendBehaviors
      */
     public static function adminDashboardOptionsForm(): void
     {
-        echo
-        '<div class="fieldset">' .
-        '<h4>' . My::name() . '</h4>' .
-
-        '<p><label for="maintenance_dashboard_icon" class="classic">' .
-        form::checkbox('maintenance_dashboard_icon', 1, My::prefs()?->dashboard_icon) .
-        __('Display overdue tasks counter on maintenance dashboard icon') . '</label></p>' .
-
-        '<p><label for="maintenance_dashboard_item" class="classic">' .
-        form::checkbox('maintenance_dashboard_item', 1, My::prefs()?->dashboard_item) .
-        __('Display overdue tasks list on dashboard items') . '</label></p>' .
-
-            '</div>';
+        echo (new Fieldset())
+            ->legend(new Legend(My::name()))
+            ->fields([
+                (new Para())
+                    ->items([
+                        (new Checkbox('maintenance_dashboard_icon', (bool) My::prefs()?->dashboard_icon))
+                            ->value(1)
+                            ->label((new Label(__('Display overdue tasks counter on maintenance dashboard icon'), Label::INSIDE_TEXT_AFTER))),
+                    ]),
+                (new Para())
+                    ->items([
+                        (new Checkbox('maintenance_dashboard_item', (bool) My::prefs()?->dashboard_item))
+                            ->value(1)
+                            ->label((new Label(__('Display overdue tasks list on dashboard items'), Label::INSIDE_TEXT_AFTER))),
+                    ]),
+            ])
+        ->render();
     }
 
     /**
@@ -232,40 +261,50 @@ class BackendBehaviors
         if (in_array('maintenancetasks', $blocks->getArrayCopy(), true)) {
             $maintenance = new Maintenance();
 
-            $res_tab = '';
+            $contents = [];
             foreach ($maintenance->getTabs() as $tab_obj) {
-                $res_group = '';
+                $groups = [];
                 foreach ($maintenance->getGroups() as $group_obj) {
-                    $res_task = '';
+                    $tasks = [];
                     foreach ($maintenance->getTasks() as $t) {
                         if ($t->group()  != $group_obj->id()
                             || $t->tab() != $tab_obj->id()) {
                             continue;
                         }
-                        if (($desc = $t->description()) != '') {
-                            $res_task .= '<dt>' . $t->task() . '</dt>' .
-                                '<dd>' . $desc . '</dd>';
+                        $desc = $t->description() ?: '';
+                        if ($desc !== '') {
+                            $tasks[] = (new Set())
+                                ->items([
+                                    (new Dt())->text($t->task()),
+                                    (new Dd())->text($desc),
+                                ]);
                         }
                     }
-                    if (!empty($res_task)) {
+                    if (!empty($tasks)) {
                         $desc = $group_obj->description ?: $group_obj->summary; // @phpstan-ignore-line
 
-                        $res_group .= '<h5>' . $group_obj->name() . '</h5>' .
-                            ($desc ? '<p>' . $desc . '</p>' : '') .
-                            '<dl>' . $res_task . '</dl>';
+                        $groups[] = (new Set())
+                            ->items([
+                                (new Text('h5', $group_obj->name())),
+                                ($desc ? (new Note())->text($desc) : (new None())),
+                                (new Dl())->items($tasks),
+                            ]);
                     }
                 }
-                if (!empty($res_group)) {
+                if (!empty($groups)) {
                     $desc = $tab_obj->description ?: $tab_obj->summary; // @phpstan-ignore-line
 
-                    $res_tab .= '<h4>' . $tab_obj->name() . '</h4>' .
-                        ($desc ? '<p>' . $desc . '</p>' : '') .
-                        $res_group;
+                    $contents[] = (new Set())
+                        ->items([
+                            (new Text('h4', $tab_obj->name())),
+                            ($desc ? (new Note())->text($desc) : (new None())),
+                            ...$groups,
+                        ]);
                 }
             }
-            if (!empty($res_tab)) {
+            if (!empty($contents)) {
                 $res          = new AdminPageHelpBlockContent();
-                $res->content = $res_tab;
+                $res->content = (new Set())->items($contents)->render();
                 $blocks->append($res);
             }
         }

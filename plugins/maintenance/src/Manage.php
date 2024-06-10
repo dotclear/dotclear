@@ -14,9 +14,24 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Radio;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @brief   The module manage process.
@@ -165,7 +180,8 @@ class Manage extends Process
         // Display page
 
         $head = Page::jsPageTabs(App::backend()->tab) .
-            My::jsLoad('settings');
+            My::jsLoad('settings') .
+            My::cssLoad('style');
         if (App::backend()->task && App::backend()->task->ajax()) {
             $head .= Page::jsJson('maintenance', ['wait' => __('Please wait...')]) .
                 My::jsLoad('dc.maintenance');
@@ -182,8 +198,9 @@ class Manage extends Process
                     __('Plugins') => '',
                     My::name()    => '',
                 ]
-            ) .
-            '<p class="warn">' . __('You have not sufficient permissions to view this page.') . '</p>';
+            );
+
+            Notices::warning(__('You have not sufficient permissions to view this page.'), false);
 
             Page::closeModule();
 
@@ -192,7 +209,6 @@ class Manage extends Process
 
         if (App::backend()->task && ($res = App::backend()->task->step()) !== null) {
             // Page title
-
             echo
             Page::breadcrumb(
                 [
@@ -203,28 +219,46 @@ class Manage extends Process
             ) .
             Notices::getNotices();
 
-            // content
-            if (!str_starts_with($res, '<')) {
-                $res = sprintf('<p class="step-msg">%s</p>', $res);
+            // Content
+            if (str_starts_with($res, '<')) {
+                $content = new Text(null, $res);
+            } else {
+                // Encapsulate content in paragraph
+                $content = (new para())
+                    ->class('step-msg')
+                    ->items([
+                        (new Text(null, $res)),
+                    ]);
             }
 
             // Intermediate task (task required several steps)
-            echo
-            '<div class="step-box" id="' . App::backend()->task->id() . '">' .
-            '<p class="step-back">' .
-            '<a class="back" href="' . App::backend()->getPageURL() . '&amp;tab=' . App::backend()->task->tab() . '#' . App::backend()->task->tab() . '">' . __('Back') . '</a>' .
-            '</p>' .
-            '<h3>' . Html::escapeHTML(App::backend()->task->name()) . '</h3>' .
-            '<form action="' . App::backend()->getPageURL() . '" method="post">' .
-            $res .
-            '<p class="step-submit">' .
-            '<input type="submit" value="' . App::backend()->task->task() . '"> ' .
-            form::hidden(['task'], App::backend()->task->id()) .
-            form::hidden(['code'], (int) App::backend()->code) .
-            App::nonce()->getFormNonce() .
-            '</p>' .
-            '</form>' .
-            '</div>';
+            echo (new Para())
+                ->class('step-back')
+                ->items([
+                    (new Link('back'))
+                        ->href(App::backend()->getPageURL() . '&amp;tab=' . App::backend()->task->tab() . '#' . App::backend()->task->tab())
+                        ->class('back')
+                        ->text(__('Back')),
+                ])
+            ->render();
+
+            echo (new Form('step-form'))
+                ->method('post')
+                ->action(App::backend()->getPageURL())
+                ->fields([
+                    (new Fieldset(App::backend()->task->id()))
+                        ->class('step-box')
+                        ->fields([
+                            $content,
+                            (new Para())->class(['step-submit', 'form-buttons'])->items([
+                                ...My::hiddenFields(),
+                                (new Hidden(['task'], App::backend()->task->id())),
+                                (new Hidden(['code'], (string) App::backend()->code)),
+                                (new Submit(['step-submit-button'], App::backend()->task->task())),
+                            ]),
+                        ]),
+                ])
+            ->render();
         } else {
             // Page title
 
@@ -238,11 +272,10 @@ class Manage extends Process
             Notices::getNotices();
 
             // Simple task (with only a button to start it)
-
             foreach (App::backend()->maintenance->getTabs() as $tab_obj) {
-                $res_group = '';
+                $groups = [];
                 foreach (App::backend()->maintenance->getGroups() as $group_obj) {
-                    $res_task = '';
+                    $tasks = [];
                     foreach (App::backend()->tasks as $t) {
                         if (!$t->id()
                         || $t->group() != $group_obj->id()
@@ -250,173 +283,252 @@ class Manage extends Process
                             continue;
                         }
 
-                        $res_task .= '<p>' . form::radio(['task', $t->id()], $t->id()) . ' ' .
-                            '<label class="classic" for="' . $t->id() . '">' .
-                            Html::escapeHTML($t->task()) . '</label>';
-
                         // Expired task alert message
-                        $ts = $t->expired();
+                        $ts   = $t->expired();
+                        $note = '';
                         if (My::settings()->plugin_message && $ts !== false) {
                             if ($ts === null) {
-                                $res_task .= '<br> <span class="warn">' .
-                                    __('This task has never been executed.') . ' ' .
-                                    __('You should execute it now.') . '</span>';
+                                $note = '<span class="warn">' . __('This task has never been executed.') . ' ' . __('You should execute it now.') . '</span>';
                             } else {
-                                $res_task .= '<br> <span class="warn">' .
-                                    sprintf(
-                                        __('Last execution of this task was on %s.'),
-                                        Date::str(App::blog()->settings()->system->date_format, $ts) . ' ' .
-                                        Date::str(App::blog()->settings()->system->time_format, $ts)
-                                    ) . ' ' .
-                                    __('You should execute it now.') . '</span>';
+                                $note = '<span class="warn">' . sprintf(
+                                    __('Last execution of this task was on %s.'),
+                                    Date::str(App::blog()->settings()->system->date_format, $ts) . ' ' .
+                                    Date::str(App::blog()->settings()->system->time_format, $ts)
+                                ) . ' ' . __('You should execute it now.') . '</span>';
                             }
                         }
 
-                        $res_task .= '</p>';
+                        $tasks[] = (new Para())
+                            ->items([
+                                (new Radio(['task', $t->id()]))
+                                    ->value($t->id())
+                                    ->label((new Label(Html::escapeHTML($t->task()), Label::INSIDE_TEXT_AFTER))),
+                                ($note !== '' ? (new Text(null, $note)) : (new None())),
+                            ]);
                     }
 
-                    if (!empty($res_task)) {
-                        $res_group .= '<div class="fieldset">' .
-                            '<h4 id="' . $group_obj->id() . '">' . $group_obj->name() . '</h4>' .
-                            $res_task .
-                            '</div>';
+                    if (!empty($tasks)) {
+                        $groups[] = (new Fieldset())
+                            ->legend(new Legend($group_obj->name(), $group_obj->id()))
+                            ->fields($tasks);
                     }
                 }
 
-                if (!empty($res_group)) {
-                    echo
-                    '<div id="' . $tab_obj->id() . '" class="multi-part" title="' . $tab_obj->name() . '">' .
-                    '<h3>' . $tab_obj->name() . '</h3>' .
-                    // ($tab_obj->option('summary') ? '<p>'.$tab_obj->option('summary').'</p>' : '').
-                    '<form action="' . App::backend()->getPageURL() . '" method="post">' .
-                    $res_group .
-                    '<p class="form-buttons"><input type="submit" value="' . __('Execute task') . '"> ' .
-                    ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-                    form::hidden(['tab'], $tab_obj->id()) .
-                    App::nonce()->getFormNonce() . '</p>' .
-                    '<p class="form-note info">' . __('This may take a very long time.') . '</p>' .
-                    '</form>' .
-                    '</div>';
+                if (!empty($groups)) {
+                    echo (new Div($tab_obj->id()))
+                        ->class('multi-part')
+                        ->title($tab_obj->name())
+                        ->items([
+                            (new Text('h3', $tab_obj->name())),
+                            (new Form($tab_obj->id() . '-form'))
+                                ->method('post')
+                                ->action(App::backend()->getPageURL())
+                                ->fields([
+                                    ...$groups,
+                                    (new Para())
+                                        ->class('form-buttons')
+                                        ->items([
+                                            ...My::hiddenFields(),
+                                            (new Hidden(['tab'], $tab_obj->id())),
+                                            (new Submit([$tab_obj->id() . '-submit'], __('Execute task'))),
+                                            (new Button([$tab_obj->id() . '-back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
+                                        ]),
+                                    (new Note())
+                                        ->class(['form-note', 'info'])
+                                        ->text(__('This may take a very long time.')),
+                                ]),
+                        ])
+                    ->render();
                 }
             }
 
             // Advanced tasks (that required a tab)
-
             foreach (App::backend()->tasks as $t) {
                 if (!$t->id() || $t->group() !== null) {
                     continue;
                 }
 
-                echo
-                '<div id="' . $t->id() . '" class="multi-part" title="' . $t->name() . '">' .
-                '<h3>' . $t->name() . '</h3>' .
-                '<form action="' . App::backend()->getPageURL() . '" method="post">' .
-                $t->content() .
-                '<p class="form-buttons"><input type="submit" value="' . __('Execute task') . '"> ' .
-                ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-                form::hidden(['task'], $t->id()) .
-                form::hidden(['tab'], $t->id()) .
-                App::nonce()->getFormNonce() . '</p>' .
-                '</form>' .
-                '</div>';
+                echo (new Div($t->id()))
+                    ->class('multi-part')
+                    ->title($t->name())
+                    ->items([
+                        (new Text('h3', $t->name())),
+                        (new Form($t->id() . '-form'))
+                            ->method('post')
+                            ->action(App::backend()->getPageURL())
+                            ->fields([
+                                (new Text(null, $t->content())),
+                                (new Para())
+                                    ->class('form-buttons')
+                                    ->items([
+                                        ...My::hiddenFields(),
+                                        (new Hidden(['task'], $t->id())),
+                                        (new Hidden(['tab'], $t->id())),
+                                        (new Submit([$t->id() . '-submit'], __('Execute task'))),
+                                        (new Button([$t->id() . '-back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
+                                    ]),
+                            ]),
+                    ])
+                ->render();
             }
 
             // Settings
-
-            echo
-            '<div id="settings" class="multi-part" title="' . __('Alert settings') . '">' .
-            '<h3>' . __('Alert settings') . '</h3>' .
-            '<form action="' . App::backend()->getPageURL() . '" method="post">' .
-
-            '<div class="fieldset">' .
-            '<h4>' . __('Activation') . '</h4>' .
-            '<p><label for="settings_plugin_message" class="classic">' .
-            form::checkbox('settings_plugin_message', 1, My::settings()->plugin_message) .
-            __('Display alert messages on late tasks') . '</label></p>' .
-
-            '<p class="info">' . sprintf(
-                __('You can place list of late tasks on your %s.'),
-                '<a href="' . App::backend()->url()->get('admin.user.preferences') . '#user-favorites">' . __('Dashboard') . '</a>'
-            ) . '</p>' .
-            '</div>' .
-
-            '<div class="fieldset">' .
-            '<h4>' . __('Frequency') . '</h4>' .
-            '<p>' . form::radio(['settings_recall_type', 'settings_recall_all'], 'all') . ' ' .
-            '<label class="classic" for="settings_recall_all">' .
-            '<strong>' . __('Use one recall time for all tasks') . '</strong></label></p>' .
-
-            '<p class="field wide"><label for="settings_recall_time">' . __('Recall time for all tasks:') . '</label>' .
-            form::combo('settings_recall_time', $combo_ts, 'seperate', 'recall-for-all') .
-            '</p>' .
-
-            '<p class="vertical-separator">' . form::radio(['settings_recall_type', 'settings_recall_separate'], 'separate', 1) . ' ' .
-            '<label class="classic" for="settings_recall_separate">' .
-            '<strong>' . __('Use one recall time per task') . '</strong></label></p>';
+            $tasks = [];
             foreach (App::backend()->tasks as $t) {
                 if (!$t->id()) {
                     continue;
                 }
-                echo
-                '<div class="two-boxes">' .
-                '<p class="field wide"><label for="settings_ts_' . $t->id() . '">' . $t->task() . '</label>' .
-                form::combo('settings_ts_' . $t->id(), $combo_ts, $t->ts(), 'recall-per-task') .
-                '</p>' .
-                '</div>';
+                $tasks[] = (new Div())
+                    ->class('two-boxes')
+                    ->items([
+                        (new Para())
+                            ->class(['field', 'wide'])
+                            ->items([
+                                (new Select('settings_ts_' . $t->id()))
+                                    ->class('recall-per-task')
+                                    ->items($combo_ts)
+                                    ->default((string) $t->ts())
+                                    ->label((new Label($t->task(), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                    ]);
             }
-            echo
-            '</div>' .
-            '<p class="form-buttons field wide"><input type="submit" value="' . __('Save') . '"> ' .
-            ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-            form::hidden(['tab'], 'settings') .
-            form::hidden(['save_settings'], 1) .
-            App::nonce()->getFormNonce() . '</p>' .
-            '</form>' .
-            '</div>';
+
+            echo (new Div('settings'))
+                ->class('multi-part')
+                ->title(__('Alert settings'))
+                ->items([
+                    (new Text('h3', __('Alert settings'))),
+                    (new Fieldset())
+                        ->legend(new Legend(__('Activation')))
+                        ->fields([
+                            (new Para())
+                                ->items([
+                                    (new Checkbox('settings_plugin_message', My::settings()->plugin_message))
+                                        ->value(1)
+                                        ->label((new Label(__('Display alert messages on late tasks'), Label::INSIDE_LABEL_AFTER))),
+                                ]),
+                            (new Note())
+                                ->class('info')
+                                ->text(sprintf(
+                                    __('You can place list of late tasks on your %s.'),
+                                    '<a href="' . App::backend()->url()->get('admin.user.preferences') . '#user-favorites">' . __('Dashboard') . '</a>'
+                                )),
+                        ]),
+                    (new Fieldset())
+                        ->legend(new Legend(__('Frequency')))
+                        ->fields([
+                            // All
+                            (new Para())
+                                ->items([
+                                    (new Radio(['settings_recall_type', 'settings_recall_all']))
+                                        ->value('all')
+                                        ->label((new Label(
+                                            (new Text('strong', __('Use one recall time for all tasks')))->render(),
+                                            Label::INSIDE_TEXT_AFTER
+                                        ))),
+                                ]),
+                            (new Para())
+                                ->class(['field', 'wide'])
+                                ->items([
+                                    (new Select('settings_recall_time'))
+                                        ->class('recall-for-all')
+                                        ->items($combo_ts)
+                                        ->label((new Label(__('Recall time for all tasks:'), Label::OUTSIDE_TEXT_BEFORE))),
+                                ]),
+                            // Separate
+                            (new Para())
+                                ->class('vertical-separator')
+                                ->items([
+                                    (new Radio(['settings_recall_type', 'settings_recall_separate']))
+                                        ->value('separate')
+                                        ->label((new Label(
+                                            (new Text('strong', __('Use one recall time per task')))->render(),
+                                            Label::INSIDE_TEXT_AFTER
+                                        ))),
+                                ]),
+                            ...$tasks,
+                        ]),
+                    (new Para())
+                        ->class('form-buttons')
+                        ->items([
+                            ...My::hiddenFields(),
+                            (new Hidden(['tab'], 'settings')),
+                            (new Hidden(['save_settings'], '1')),
+                            (new Submit(['settings-submit'], __('Save'))),
+                            (new Button(['settings-back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
+                        ]),
+                ])
+            ->render();
 
             // System tab
             if (App::auth()->isSuperAdmin()) {
-                echo
-                '<div id="system" class="multi-part" title="' . __('System') . '">' .
-                '<h3>' . __('System settings') . '</h3>' .
-                '<form action="' . App::backend()->getPageURL() . '" method="post">';
-
-                echo
-                '<div class="fieldset">' .
-                '<h4 class="pretty-title">' . __('Content-Security-Policy') . '</h4>' .
-
-                '<div class="two-cols">' .
-                '<div class="col">' .
-                '<p><label for="system_csp" class="classic">' .
-                form::checkbox('system_csp', '1', App::blog()->settings()->system->csp_admin_on) .
-                __('Enable Content-Security-Policy system') . '</label></p>' .
-                '<p><label for="system_csp_report_only" class="classic">' .
-                form::checkbox('system_csp_report_only', '1', App::blog()->settings()->system->csp_admin_report_only) .
-                __('Enable Content-Security-Policy report only') . '</label></p>' .
-                '</div>' .
-
-                '<div class="col">' .
-                '<p><label for="system_csp_global" class="classic">' .
-                form::checkbox('system_csp_global', '1', App::blog()->settings()->system->getGlobal('csp_admin_on')) .
-                __('Enable Content-Security-Policy system by default') . '</label></p>' .
-                '<p><label for="system_csp_global_report_only" class="classic">' .
-                form::checkbox('system_csp_global_report_only', '1', App::blog()->settings()->system->getGlobal('csp_admin_report_only')) .
-                __('Enable Content-Security-Policy report only by default') . '</label></p>' .
-                '<p><label for="system_csp_reset" class="classic">' .
-                form::checkbox('system_csp_reset', '1', 0) .
-                __('Also apply these settings to all blogs') . '</label></p>' .
-                '</div>' .
-                '</div>' .
-                '</div>';
-
-                echo
-                '<p class="form-buttons field wide"><input type="submit" value="' . __('Save') . '"> ' .
-                ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-                form::hidden(['tab'], 'system') .
-                form::hidden(['save_system'], 1) .
-                App::nonce()->getFormNonce() . '</p>' .
-                '</form>' .
-                '</div>';
+                echo (new Div())
+                    ->class('multi-part')
+                    ->title(__('System'))
+                    ->items([
+                        (new Text('h3', __('System settings'))),
+                        (new Form('system-form'))
+                            ->method('post')
+                            ->action(App::backend()->getPageURL())
+                            ->fields([
+                                (new Fieldset())
+                                    ->legend(new Legend(__('Content-Security-Policy')))
+                                    ->fields([
+                                        (new Div())
+                                            ->class('two-cols')
+                                            ->items([
+                                                (new Div())
+                                                    ->class('col')
+                                                    ->items([
+                                                        (new Para())
+                                                            ->items([
+                                                                (new Checkbox('system_csp', (bool) App::blog()->settings()->system->csp_admin_on))
+                                                                    ->value(1)
+                                                                    ->label((new Label(__('Enable Content-Security-Policy system'), Label::INSIDE_LABEL_AFTER))),
+                                                            ]),
+                                                        (new Para())
+                                                            ->items([
+                                                                (new Checkbox('system_csp_report_only', (bool) App::blog()->settings()->system->csp_admin_report_only))
+                                                                    ->value(1)
+                                                                    ->label((new Label(__('Enable Content-Security-Policy report only'), Label::INSIDE_LABEL_AFTER))),
+                                                            ]),
+                                                    ]),
+                                                (new Div())
+                                                    ->class('col')
+                                                    ->items([
+                                                        (new Para())
+                                                            ->items([
+                                                                (new Checkbox('system_csp_global', (bool) App::blog()->settings()->system->getGlobal('csp_admin_on')))
+                                                                    ->value(1)
+                                                                    ->label((new Label(__('Enable Content-Security-Policy system by default'), Label::INSIDE_LABEL_AFTER))),
+                                                            ]),
+                                                        (new Para())
+                                                            ->items([
+                                                                (new Checkbox('system_csp_global_report_only', (bool) App::blog()->settings()->system->getGlobal('csp_admin_report_only')))
+                                                                    ->value(1)
+                                                                    ->label((new Label(__('Enable Content-Security-Policy report only by default'), Label::INSIDE_LABEL_AFTER))),
+                                                            ]),
+                                                        (new Para())
+                                                            ->items([
+                                                                (new Checkbox('system_csp_reset', false))
+                                                                    ->value(1)
+                                                                    ->label((new Label(__('Also apply these settings to all blogs'), Label::INSIDE_LABEL_AFTER))),
+                                                            ]),
+                                                    ]),
+                                            ]),
+                                    ]),
+                                (new Para())
+                                     ->class('form-buttons')
+                                     ->items([
+                                         ...My::hiddenFields(),
+                                         (new Hidden(['tab'], 'system')),
+                                         (new Hidden(['save_system'], '1')),
+                                         (new Submit(['system-submit'], __('Save'))),
+                                         (new Button(['system-back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
+                                     ]),
+                            ]),
+                    ])
+                ->render();
             }
         }
 
