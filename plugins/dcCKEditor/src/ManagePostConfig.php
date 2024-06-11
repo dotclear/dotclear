@@ -86,7 +86,7 @@ $(() => {
 
   CKEDITOR.config.skin = `dotclear,${dotclear.dcckeditor_plugin_url}/js/ckeditor-skins/dotclear/`;
   CKEDITOR.config.baseHref = dotclear.base_url;
-  CKEDITOR.config.height = '<?php echo App::auth()->getOption('edit_size') * 14; ?>px';
+  CKEDITOR.config.height = '<?= App::auth()->getOption('edit_size') * 14 ?>px';
 
 <?php if (!empty(App::backend()->editor_cke_cancollapse_button)): ?>
   CKEDITOR.config.toolbarCanCollapse = true;
@@ -101,9 +101,9 @@ $(() => {
   // button add "More Colors..." can be added if colordialog plugin is enabled
   CKEDITOR.config.colorButton_enableMore = true;
 <?php if (!empty(App::backend()->editor_cke_custom_color_list)) : ?>
-  CKEDITOR.config.colorButton_colors = '<?php echo App::backend()->editor_cke_custom_color_list; ?>';
+  CKEDITOR.config.colorButton_colors = '<?= App::backend()->editor_cke_custom_color_list ?>';
 <?php endif;?>
-  CKEDITOR.config.colorButton_colorsPerRow = <?php echo App::backend()->editor_cke_colors_per_row ?: 6; ?>;
+  CKEDITOR.config.colorButton_colorsPerRow = <?= App::backend()->editor_cke_colors_per_row ?: 6 ?>;
 <?php endif;?>
 
   CKEDITOR.config.defaultLanguage = dotclear.user_language;
@@ -129,7 +129,7 @@ if (!empty($extraPlugins)) {    // @phpstan-ignore-line
     }
 }
 ?>
-    extraPlugins: '<?php echo $defautExtraPlugins; ?>',
+    extraPlugins: '<?= $defautExtraPlugins ?>',
 
     keystrokes: [
       [ CKEDITOR.CTRL + (CKEDITOR.env.mac ? CKEDITOR.ALT : CKEDITOR.SHIFT) +
@@ -141,7 +141,7 @@ if (!empty($extraPlugins)) {    // @phpstan-ignore-line
 <?php if (!empty(App::backend()->editor_cke_format_select)): ?>
     // format tags
 <?php if (!empty(App::backend()->editor_cke_format_tags)): ?>
-    format_tags: '<?php echo App::backend()->editor_cke_format_tags; ?>',
+    format_tags: '<?= App::backend()->editor_cke_format_tags ?>',
 <?php else: ?>
     format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address',
 <?php endif;?>
@@ -233,8 +233,8 @@ $tag = match (App::blog()->settings()->system->note_title_tag) {
 $notes_tag   = sprintf("['<%s>', '</%s>']", $tag, $tag);
 $notes_title = sprintf('"%s"', __('Note(s)'));
 ?>
-    footnotesHeaderEls: <?php echo $notes_tag; ?>,
-    footnotesTitle: <?php echo $notes_title; ?>
+    footnotesHeaderEls: <?= $notes_tag ?>,
+    footnotesTitle: <?= $notes_title ?>
   });
 
   CKEDITOR.on('instanceLoaded', (e) => {

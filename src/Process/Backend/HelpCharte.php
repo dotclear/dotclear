@@ -65,7 +65,7 @@ class HelpCharte extends Process
     {
         ?>
 <!DOCTYPE html>
-<html lang="fr" data-theme="<?php echo self::getTheme(); ?>">
+<html lang="fr" data-theme="<?= self::getTheme() ?>">
 <!-- included by ../_charte.php -->
 <head>
   <meta charset="UTF-8">

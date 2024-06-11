@@ -146,7 +146,7 @@ class Fault
   <meta charset="UTF-8">
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">
   <meta name="GOOGLEBOT" content="NOSNIPPET">
-  <title><?php echo $vendor; ?> - Error</title>
+  <title><?= $vendor ?> - Error</title>
   <style media="screen" type="text/css">
   <!--
   body {
@@ -183,10 +183,10 @@ class Fault
 
 <body>
 <div id="content">
-<h1><?php echo $vendor; ?></h1>
-<h2><?php echo $code; ?> : <?php echo $label; ?></h2>
-<?php echo $message; ?>
-<pre><?php echo $trace; ?></pre>
+<h1><?= $vendor ?></h1>
+<h2><?= $code ?> : <?= $label ?></h2>
+<?= $message ?>
+<pre><?= $trace ?></pre>
 </div>
 </body>
 </html>

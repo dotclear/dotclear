@@ -52,11 +52,11 @@ class FrontendTemplate
             $description = '';
         }
 
-        return '<?php echo ' . self::class . '::displayMenu(' .
+        return '<?= ' . self::class . '::displayMenu(' .
         "'" . addslashes($class) . "'," .
         "'" . addslashes($id) . "'," .
         "'" . addslashes($description) . "'" .
-            '); ?>';
+            ') ?>';
     }
 
     /**

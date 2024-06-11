@@ -158,7 +158,7 @@ class FrontendTemplate
      */
     public static function AttachmentMimeType(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->type') . '; ?>';
+        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->type') . ' ?>';
     }
 
     /**
@@ -174,7 +174,7 @@ class FrontendTemplate
      */
     public static function AttachmentType(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->media_type') . '; ?>';
+        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->media_type') . ' ?>';
     }
 
     /**
@@ -190,7 +190,7 @@ class FrontendTemplate
      */
     public static function AttachmentFileName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->basename') . '; ?>';
+        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->basename') . ' ?>';
     }
 
     /**
@@ -209,10 +209,10 @@ class FrontendTemplate
     {
         $f = App::frontend()->template()->getFilters($attr);
         if (!empty($attr['full'])) {
-            return '<?php echo ' . sprintf($f, '$attach_f->size') . '; ?>';
+            return '<?= ' . sprintf($f, '$attach_f->size') . ' ?>';
         }
 
-        return '<?php echo ' . sprintf($f, Files::class . '::size($attach_f->size)') . '; ?>';
+        return '<?= ' . sprintf($f, Files::class . '::size($attach_f->size)') . ' ?>';
     }
 
     /**
@@ -228,7 +228,7 @@ class FrontendTemplate
      */
     public static function AttachmentTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->media_title') . '; ?>';
+        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->media_title') . ' ?>';
     }
 
     /**

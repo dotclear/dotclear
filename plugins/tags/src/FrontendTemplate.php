@@ -186,7 +186,7 @@ class FrontendTemplate
     {
         $f = App::frontend()->template()->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'App::frontend()->context()->meta->meta_id') . '; ?>';
+        return '<?= ' . sprintf($f, 'App::frontend()->context()->meta->meta_id') . ' ?>';
     }
 
     /**
@@ -196,7 +196,7 @@ class FrontendTemplate
      */
     public static function TagCount(): string
     {
-        return '<?php echo App::frontend()->context()->meta->count; ?>';
+        return '<?= App::frontend()->context()->meta->count ?>';
     }
 
     /**
@@ -206,7 +206,7 @@ class FrontendTemplate
      */
     public static function TagPercent(): string
     {
-        return '<?php echo App::frontend()->context()->meta->percent; ?>';
+        return '<?= App::frontend()->context()->meta->percent ?>';
     }
 
     /**
@@ -216,7 +216,7 @@ class FrontendTemplate
      */
     public static function TagRoundPercent(): string
     {
-        return '<?php echo App::frontend()->context()->meta->roundpercent; ?>';
+        return '<?= App::frontend()->context()->meta->roundpercent ?>';
     }
 
     /**
@@ -234,8 +234,8 @@ class FrontendTemplate
     {
         $f = App::frontend()->template()->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'App::blog()->url().App::url()->getURLFor("tag",' .
-            'rawurlencode(App::frontend()->context()->meta->meta_id))') . '; ?>';
+        return '<?= ' . sprintf($f, 'App::blog()->url().App::url()->getURLFor("tag",' .
+            'rawurlencode(App::frontend()->context()->meta->meta_id))') . ' ?>';
     }
 
     /**
@@ -253,7 +253,7 @@ class FrontendTemplate
     {
         $f = App::frontend()->template()->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'App::blog()->url().App::url()->getURLFor("tags")') . '; ?>';
+        return '<?= ' . sprintf($f, 'App::blog()->url().App::url()->getURLFor("tags")') . ' ?>';
     }
 
     /**
@@ -278,8 +278,8 @@ class FrontendTemplate
 
         $f = App::frontend()->template()->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'App::blog()->url().App::url()->getURLFor("tag_feed",' .
-            'rawurlencode(App::frontend()->context()->meta->meta_id)."/' . $type . '")') . '; ?>';
+        return '<?= ' . sprintf($f, 'App::blog()->url().App::url()->getURLFor("tag_feed",' .
+            'rawurlencode(App::frontend()->context()->meta->meta_id)."/' . $type . '")') . ' ?>';
     }
 
     /**

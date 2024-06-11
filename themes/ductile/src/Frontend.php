@@ -214,7 +214,7 @@ class Frontend extends Process
      */
     public static function ductileLogoSrc(): string
     {
-        return '<?php echo ' . self::class . '::ductileLogoSrcHelper(); ?>';
+        return '<?= ' . self::class . '::ductileLogoSrcHelper() ?>';
     }
 
     /**

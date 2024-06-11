@@ -231,7 +231,7 @@ class Wizard extends Process
   <meta http-equiv="Content-Language" content="en">
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">
   <meta name="GOOGLEBOT" content="NOSNIPPET">
-  <title><?php echo __('Dotclear installation wizard'); ?></title>
+  <title><?= __('Dotclear installation wizard') ?></title>
     <link rel="stylesheet" href="../style/install.css" type="text/css" media="screen">
 </head>
 

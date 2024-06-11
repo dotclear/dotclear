@@ -35,7 +35,7 @@ class FrontendTemplate
     {
         $separator = $attr['separator'] ?? '';
 
-        return '<?php echo ' . self::class . '::displayBreadcrumb(' . "'" . addslashes($separator) . "'" . '); ?>';
+        return '<?= ' . self::class . '::displayBreadcrumb(' . "'" . addslashes($separator) . "'" . ') ?>';
     }
 
     /**

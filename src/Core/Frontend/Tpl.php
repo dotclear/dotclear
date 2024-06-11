@@ -495,7 +495,7 @@ class Tpl extends Template
     public function displayCounter(string $variable, array $values, ArrayObject $attr, bool $count_only_by_default = false): string
     {
         if (isset($attr['count_only']) ? (bool) $attr['count_only'] : $count_only_by_default) {
-            return '<?php echo ' . $variable . '; ?>';
+            return '<?= ' . $variable . ' ?>';
         }
 
         $patterns = $values;
@@ -535,7 +535,7 @@ class Tpl extends Template
         # Normalize content
         $str_attr = (string) preg_replace('/\s+/x', ' ', $str_attr);
 
-        return "<?php echo __('" . str_replace("'", "\\'", $str_attr) . "'); ?>";
+        return "<?= __('" . str_replace("'", "\\'", $str_attr) . "') ?>";
     }
 
     /**
@@ -588,7 +588,7 @@ class Tpl extends Template
      */
     public function LoopIndex(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), '(!App::frontend()->context()->cur_loop ? 0 : App::frontend()->context()->cur_loop->index() + 1)') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), '(!App::frontend()->context()->cur_loop ? 0 : App::frontend()->context()->cur_loop->index() + 1)') . ' ?>';
     }
 
     // Archives
@@ -738,7 +738,7 @@ class Tpl extends Template
             $format = addslashes($attr['format']);
         }
 
-        return '<?php echo ' . sprintf($this->getFilters($attr), Date::class . "::dt2str('" . $format . "',App::frontend()->context()->archives->dt)") . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), Date::class . "::dt2str('" . $format . "',App::frontend()->context()->archives->dt)") . ' ?>';
     }
 
     /**
@@ -877,7 +877,7 @@ class Tpl extends Template
      */
     public function ArchiveURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->archives->url()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->archives->url()') . ' ?>';
     }
 
     // Blog
@@ -896,7 +896,7 @@ class Tpl extends Template
      */
     public function BlogArchiveURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("archive")') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("archive")') . ' ?>';
     }
 
     /**
@@ -912,7 +912,7 @@ class Tpl extends Template
      */
     public function BlogCopyrightNotice(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->copyright_notice') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->copyright_notice') . ' ?>';
     }
 
     /**
@@ -928,7 +928,7 @@ class Tpl extends Template
      */
     public function BlogDescription(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->desc()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->desc()') . ' ?>';
     }
 
     /**
@@ -944,7 +944,7 @@ class Tpl extends Template
      */
     public function BlogEditor(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->editor') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->editor') . ' ?>';
     }
 
     /**
@@ -960,7 +960,7 @@ class Tpl extends Template
      */
     public function BlogFeedID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), '"urn:md5:".App::blog()->uid()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), '"urn:md5:".App::blog()->uid()') . ' ?>';
     }
 
     /**
@@ -982,7 +982,7 @@ class Tpl extends Template
             $type = 'atom';
         }
 
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("feed","' . $type . '")') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("feed","' . $type . '")') . ' ?>';
     }
 
     /**
@@ -998,7 +998,7 @@ class Tpl extends Template
      */
     public function BlogName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->name()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->name()') . ' ?>';
     }
 
     /**
@@ -1014,7 +1014,7 @@ class Tpl extends Template
      */
     public function BlogLanguage(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->lang') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->lang') . ' ?>';
     }
 
     /**
@@ -1051,7 +1051,7 @@ class Tpl extends Template
      */
     public function BlogThemeURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->themes_url."/".App::blog()->settings()->system->theme') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->themes_url."/".App::blog()->settings()->system->theme') . ' ?>';
     }
 
     /**
@@ -1069,7 +1069,7 @@ class Tpl extends Template
     {
         $parent = 'App::themes()->moduleInfo(App::blog()->settings()->system->theme,\'parent\')';
 
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->themes_url."/".(' . "$parent" . ' ? ' . "$parent" . ' : App::blog()->settings()->system->theme)') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->themes_url."/".(' . "$parent" . ' ? ' . "$parent" . ' : App::blog()->settings()->system->theme)') . ' ?>';
     }
 
     /**
@@ -1085,7 +1085,7 @@ class Tpl extends Template
      */
     public function BlogPublicURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->public_url') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->public_url') . ' ?>';
     }
 
     /**
@@ -1117,12 +1117,12 @@ class Tpl extends Template
         $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($filters, Date::class . '::rfc822(App::blog()->upddt(),App::blog()->settings()->system->blog_timezone)') . '; ?>';
+            return '<?= ' . sprintf($filters, Date::class . '::rfc822(App::blog()->upddt(),App::blog()->settings()->system->blog_timezone)') . ' ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($filters, Date::class . '::iso8601(App::blog()->upddt(),App::blog()->settings()->system->blog_timezone)') . '; ?>';
+            return '<?= ' . sprintf($filters, Date::class . '::iso8601(App::blog()->upddt(),App::blog()->settings()->system->blog_timezone)') . ' ?>';
         }
 
-        return '<?php echo ' . sprintf($filters, Date::class . "::str('" . $format . "',App::blog()->upddt())") . '; ?>';
+        return '<?= ' . sprintf($filters, Date::class . "::str('" . $format . "',App::blog()->upddt())") . ' ?>';
     }
 
     /**
@@ -1138,7 +1138,7 @@ class Tpl extends Template
      */
     public function BlogID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->id()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->id()') . ' ?>';
     }
 
     /**
@@ -1174,8 +1174,8 @@ class Tpl extends Template
      */
     public function BlogXMLRPCURL(ArrayObject $attr): string
     {
-        return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor(\'xmlrpc\',App::blog()->id())') . '; ?>';
+        return '<?= ' .
+            sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor(\'xmlrpc\',App::blog()->id())') . ' ?>';
     }
 
     /**
@@ -1191,8 +1191,8 @@ class Tpl extends Template
      */
     public function BlogWebmentionURL(ArrayObject $attr): string
     {
-        return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor(\'webmention\')') . '; ?>';
+        return '<?= ' .
+            sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor(\'webmention\')') . ' ?>';
     }
 
     /**
@@ -1208,7 +1208,7 @@ class Tpl extends Template
      */
     public function BlogURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->url()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->url()') . ' ?>';
     }
 
     /**
@@ -1224,7 +1224,7 @@ class Tpl extends Template
      */
     public function BlogQmarkURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->getQmarkURL()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->getQmarkURL()') . ' ?>';
     }
 
     /**
@@ -1242,7 +1242,7 @@ class Tpl extends Template
     {
         $robots = isset($attr['robots']) ? addslashes($attr['robots']) : '';
 
-        return '<?php echo ' . Ctx::class . "::robotsPolicy(App::blog()->settings()->system->robots_policy,'" . $robots . "'); ?>";
+        return '<?= ' . Ctx::class . "::robotsPolicy(App::blog()->settings()->system->robots_policy,'" . $robots . "') ?>";
     }
 
     /**
@@ -1258,7 +1258,7 @@ class Tpl extends Template
      */
     public function BlogJsJQuery(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::blog()->getJsJQuery()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->getJsJQuery()') . ' ?>';
     }
 
     /**
@@ -1279,7 +1279,7 @@ class Tpl extends Template
      */
     public function BlogPostsURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), ('App::blog()->settings()->system->static_home ? App::blog()->url().App::url()->getURLFor("posts") : App::blog()->url()')) . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), ('App::blog()->settings()->system->static_home ? App::blog()->url().App::url()->getURLFor("posts") : App::blog()->url()')) . ' ?>';
     }
 
     /**
@@ -1332,8 +1332,8 @@ class Tpl extends Template
      */
     public function BlogNbEntriesFirstPage(ArrayObject $attr): string
     {
-        return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'App::blog()->settings()->system->nb_post_for_home') . '; ?>';
+        return '<?= ' .
+            sprintf($this->getFilters($attr), 'App::blog()->settings()->system->nb_post_for_home') . ' ?>';
     }
 
     /**
@@ -1349,8 +1349,8 @@ class Tpl extends Template
      */
     public function BlogNbEntriesPerPage(ArrayObject $attr): string
     {
-        return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'App::blog()->settings()->system->nb_post_per_page') . '; ?>';
+        return '<?= ' .
+            sprintf($this->getFilters($attr), 'App::blog()->settings()->system->nb_post_per_page') . ' ?>';
     }
 
     // Categories
@@ -1587,9 +1587,9 @@ class Tpl extends Template
             $type = 'atom';
         }
 
-        return '<?php echo ' .
+        return '<?= ' .
             sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("feed","category/".' .
-            'App::frontend()->context()->categories->cat_url."/' . $type . '")') . '; ?>';
+            'App::frontend()->context()->categories->cat_url."/' . $type . '")') . ' ?>';
     }
 
     /**
@@ -1605,7 +1605,7 @@ class Tpl extends Template
      */
     public function CategoryID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->cat_id') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->cat_id') . ' ?>';
     }
 
     /**
@@ -1621,9 +1621,9 @@ class Tpl extends Template
      */
     public function CategoryURL(ArrayObject $attr): string
     {
-        return '<?php echo ' .
+        return '<?= ' .
             sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("category",' .
-            'App::frontend()->context()->categories->cat_url)') . '; ?>';
+            'App::frontend()->context()->categories->cat_url)') . ' ?>';
     }
 
     /**
@@ -1639,7 +1639,7 @@ class Tpl extends Template
      */
     public function CategoryShortURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->cat_url') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->cat_url') . ' ?>';
     }
 
     /**
@@ -1655,7 +1655,7 @@ class Tpl extends Template
      */
     public function CategoryDescription(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->cat_desc') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->cat_desc') . ' ?>';
     }
 
     /**
@@ -1671,7 +1671,7 @@ class Tpl extends Template
      */
     public function CategoryTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->cat_title') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->cat_title') . ' ?>';
     }
 
     /**
@@ -2137,9 +2137,9 @@ class Tpl extends Template
         $even = $attr['even'] ?? '';
         $even = Html::escapeHTML($even);
 
-        return '<?php echo ((App::frontend()->context()->posts->index()+1)%2 ? ' .
+        return '<?= ((App::frontend()->context()->posts->index()+1)%2 ? ' .
         '"' . addslashes($odd) . '" : ' .
-        '"' . addslashes($even) . '"); ?>';
+        '"' . addslashes($even) . '") ?>';
     }
 
     /**
@@ -2162,9 +2162,9 @@ class Tpl extends Template
         $odd = $attr['odd'] ?? '';
         $odd = Html::escapeHTML($odd);
 
-        return '<?php echo ((App::frontend()->context()->posts->index()+1)%2+1 ? ' .
+        return '<?= ((App::frontend()->context()->posts->index()+1)%2+1 ? ' .
         '"' . addslashes($even) . '" : ' .
-        '"' . addslashes($odd) . '"); ?>';
+        '"' . addslashes($odd) . '") ?>';
     }
 
     /**
@@ -2211,18 +2211,18 @@ class Tpl extends Template
         $filters = $this->getFilters($attr);
 
         if (!empty($attr['full'])) {
-            return '<?php echo ' . sprintf(
+            return '<?= ' . sprintf(
                 $filters,
                 'App::frontend()->context()->posts->getExcerpt(' . $urls . ').' .
                 '(strlen(App::frontend()->context()->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
                 'App::frontend()->context()->posts->getContent(' . $urls . ')'
-            ) . '; ?>';
+            ) . ' ?>';
         }
 
-        return '<?php echo ' . sprintf(
+        return '<?= ' . sprintf(
             $filters,
             'App::frontend()->context()->posts->getContent(' . $urls . ')'
-        ) . '; ?>';
+        ) . ' ?>';
     }
 
     /**
@@ -2304,8 +2304,8 @@ class Tpl extends Template
             $urls = '1';
         }
 
-        return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getExcerpt(' . $urls . ')') . '; ?>';
+        return '<?= ' .
+            sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getExcerpt(' . $urls . ')') . ' ?>';
     }
 
     /**
@@ -2321,7 +2321,7 @@ class Tpl extends Template
      */
     public function EntryAuthorCommonName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getAuthorCN()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getAuthorCN()') . ' ?>';
     }
 
     /**
@@ -2337,7 +2337,7 @@ class Tpl extends Template
      */
     public function EntryAuthorDisplayName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->user_displayname') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->user_displayname') . ' ?>';
     }
 
     /**
@@ -2353,7 +2353,7 @@ class Tpl extends Template
      */
     public function EntryAuthorID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->user_id') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->user_id') . ' ?>';
     }
 
     /**
@@ -2375,8 +2375,8 @@ class Tpl extends Template
             $protect = 'false';
         }
 
-        return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getAuthorEmail(' . $protect . ')') . '; ?>';
+        return '<?= ' .
+            sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getAuthorEmail(' . $protect . ')') . ' ?>';
     }
 
     /**
@@ -2392,8 +2392,8 @@ class Tpl extends Template
      */
     public function EntryAuthorEmailMD5(ArrayObject $attr): string
     {
-        return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'md5(App::frontend()->context()->posts->getAuthorEmail(false))') . '; ?>';
+        return '<?= ' .
+            sprintf($this->getFilters($attr), 'md5(App::frontend()->context()->posts->getAuthorEmail(false))') . ' ?>';
     }
 
     /**
@@ -2409,7 +2409,7 @@ class Tpl extends Template
      */
     public function EntryAuthorLink(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getAuthorLink()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getAuthorLink()') . ' ?>';
     }
 
     /**
@@ -2425,7 +2425,7 @@ class Tpl extends Template
      */
     public function EntryAuthorURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->user_url') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->user_url') . ' ?>';
     }
 
     /**
@@ -2441,7 +2441,7 @@ class Tpl extends Template
      */
     public function EntryBasename(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->post_url') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->post_url') . ' ?>';
     }
 
     /**
@@ -2457,7 +2457,7 @@ class Tpl extends Template
      */
     public function EntryCategory(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->cat_title') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->cat_title') . ' ?>';
     }
 
     /**
@@ -2473,7 +2473,7 @@ class Tpl extends Template
      */
     public function EntryCategoryDescription(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->cat_desc') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->cat_desc') . ' ?>';
     }
 
     /**
@@ -2505,7 +2505,7 @@ class Tpl extends Template
      */
     public function EntryCategoryID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->cat_id') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->cat_id') . ' ?>';
     }
 
     /**
@@ -2521,7 +2521,7 @@ class Tpl extends Template
      */
     public function EntryCategoryURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getCategoryURL()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getCategoryURL()') . ' ?>';
     }
 
     /**
@@ -2537,7 +2537,7 @@ class Tpl extends Template
      */
     public function EntryCategoryShortURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->cat_url') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->cat_url') . ' ?>';
     }
 
     /**
@@ -2553,7 +2553,7 @@ class Tpl extends Template
      */
     public function EntryFeedID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getFeedID()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getFeedID()') . ' ?>';
     }
 
     /**
@@ -2581,8 +2581,7 @@ class Tpl extends Template
         $content_only  = !empty($attr['content_only']) ? 'true' : 'false';
         $cat_only      = !empty($attr['cat_only']) ? 'true' : 'false';
 
-        return '<?php echo ' . Ctx::class . "::EntryFirstImageHelper('" . addslashes($size) . "'," . $with_category . ",'" . addslashes($class) . "'," .
-            $no_tag . ',' . $content_only . ',' . $cat_only . '); ?>';
+        return '<?= ' . Ctx::class . "::EntryFirstImageHelper('" . addslashes($size) . "'," . $with_category . ",'" . addslashes($class) . "'," . $no_tag . ',' . $content_only . ',' . $cat_only . ') ?>';
     }
 
     /**
@@ -2598,7 +2597,7 @@ class Tpl extends Template
      */
     public function EntryID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->post_id') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->post_id') . ' ?>';
     }
 
     /**
@@ -2695,7 +2694,7 @@ class Tpl extends Template
      */
     public function EntryTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->post_title') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->post_title') . ' ?>';
     }
 
     /**
@@ -2711,7 +2710,7 @@ class Tpl extends Template
      */
     public function EntryURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getURL()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getURL()') . ' ?>';
     }
 
     /**
@@ -2745,15 +2744,15 @@ class Tpl extends Template
         $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' .
-                sprintf($filters, "App::frontend()->context()->posts->getRFC822Date('" . $type . "')") . '; ?>';
+            return '<?= ' .
+                sprintf($filters, "App::frontend()->context()->posts->getRFC822Date('" . $type . "')") . ' ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' .
-                sprintf($filters, "App::frontend()->context()->posts->getISO8601Date('" . $type . "')") . '; ?>';
+            return '<?= ' .
+                sprintf($filters, "App::frontend()->context()->posts->getISO8601Date('" . $type . "')") . ' ?>';
         }
 
-        return '<?php echo ' .
-            sprintf($filters, "App::frontend()->context()->posts->getDate('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?= ' .
+            sprintf($filters, "App::frontend()->context()->posts->getDate('" . $format . "','" . $type . "')") . ' ?>';
     }
 
     /**
@@ -2780,8 +2779,8 @@ class Tpl extends Template
         $type = (!empty($attr['creadt']) ? 'creadt' : '');
         $type = (!empty($attr['upddt']) ? 'upddt' : $type);
 
-        return '<?php echo ' .
-            sprintf($this->getFilters($attr), "App::frontend()->context()->posts->getTime('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?= ' .
+            sprintf($this->getFilters($attr), "App::frontend()->context()->posts->getTime('" . $format . "','" . $type . "')") . ' ?>';
     }
 
     /**
@@ -3008,7 +3007,7 @@ class Tpl extends Template
      */
     public function LanguageCode(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->langs->post_lang') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->langs->post_lang') . ' ?>';
     }
 
     /**
@@ -3040,9 +3039,9 @@ class Tpl extends Template
      */
     public function LanguageURL(ArrayObject $attr): string
     {
-        return '<?php echo ' .
+        return '<?= ' .
             sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("lang",' .
-            'App::frontend()->context()->langs->post_lang)') . '; ?>';
+            'App::frontend()->context()->langs->post_lang)') . ' ?>';
     }
 
     /**
@@ -3125,7 +3124,7 @@ class Tpl extends Template
      */
     public function PaginationCounter(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), Ctx::class . '::PaginationNbPages()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), Ctx::class . '::PaginationNbPages()') . ' ?>';
     }
 
     /**
@@ -3144,7 +3143,7 @@ class Tpl extends Template
     {
         $offset = isset($attr['offset']) ? (int) $attr['offset'] : 0;
 
-        return '<?php echo ' . sprintf($this->getFilters($attr), Ctx::class . '::PaginationPosition(' . $offset . ')') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), Ctx::class . '::PaginationPosition(' . $offset . ')') . ' ?>';
     }
 
     /**
@@ -3206,7 +3205,7 @@ class Tpl extends Template
             $offset = (int) $attr['offset'];
         }
 
-        return '<?php echo ' . sprintf($this->getFilters($attr), Ctx::class . '::PaginationURL(' . $offset . ')') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), Ctx::class . '::PaginationURL(' . $offset . ')') . ' ?>';
     }
 
     // Comments
@@ -3318,7 +3317,7 @@ class Tpl extends Template
      */
     public function CommentAuthor(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->comment_author') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->comment_author') . ' ?>';
     }
 
     /**
@@ -3330,7 +3329,7 @@ class Tpl extends Template
      */
     public function CommentAuthorDomain(ArrayObject $attr): string
     {
-        return '<?php echo preg_replace("#^http(?:s?)://(.+?)/.*$#msu",\'$1\',(string) App::frontend()->context()->comments->comment_site); ?>';
+        return '<?= preg_replace("#^http(?:s?)://(.+?)/.*$#msu",\'$1\',(string) App::frontend()->context()->comments->comment_site) ?>';
     }
 
     /**
@@ -3346,7 +3345,7 @@ class Tpl extends Template
      */
     public function CommentAuthorLink(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getAuthorLink()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getAuthorLink()') . ' ?>';
     }
 
     /**
@@ -3358,7 +3357,7 @@ class Tpl extends Template
      */
     public function CommentAuthorMailMD5(ArrayObject $attr): string
     {
-        return '<?php echo md5(App::frontend()->context()->comments->comment_email) ; ?>';
+        return '<?= md5(App::frontend()->context()->comments->comment_email)  ?>';
     }
 
     /**
@@ -3374,7 +3373,7 @@ class Tpl extends Template
      */
     public function CommentAuthorURL($attr)
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getAuthorURL()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getAuthorURL()') . ' ?>';
     }
 
     /**
@@ -3396,8 +3395,8 @@ class Tpl extends Template
             $urls = '1';
         }
 
-        return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getContent(' . $urls . ')') . '; ?>';
+        return '<?= ' .
+            sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getContent(' . $urls . ')') . ' ?>';
     }
 
     /**
@@ -3429,12 +3428,12 @@ class Tpl extends Template
         $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($filters, "App::frontend()->context()->comments->getRFC822Date('" . $type . "')") . '; ?>';
+            return '<?= ' . sprintf($filters, "App::frontend()->context()->comments->getRFC822Date('" . $type . "')") . ' ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($filters, "App::frontend()->context()->comments->getISO8601Date('" . $type . "')") . '; ?>';
+            return '<?= ' . sprintf($filters, "App::frontend()->context()->comments->getISO8601Date('" . $type . "')") . ' ?>';
         }
 
-        return '<?php echo ' . sprintf($filters, "App::frontend()->context()->comments->getDate('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?= ' . sprintf($filters, "App::frontend()->context()->comments->getDate('" . $format . "','" . $type . "')") . ' ?>';
     }
 
     /**
@@ -3458,9 +3457,9 @@ class Tpl extends Template
         }
         $type = (!empty($attr['upddt']) ? 'upddt' : '');
 
-        return '<?php echo ' .
+        return '<?= ' .
             sprintf($this->getFilters($attr), "App::frontend()->context()->comments->getTime('" . $format . "','" . $type . "')") .
-            '; ?>';
+            ' ?>';
     }
 
     /**
@@ -3482,8 +3481,8 @@ class Tpl extends Template
             $protect = 'false';
         }
 
-        return '<?php echo ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getEmail(' . $protect . ')') . '; ?>';
+        return '<?= ' .
+            sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getEmail(' . $protect . ')') . ' ?>';
     }
 
     /**
@@ -3499,7 +3498,7 @@ class Tpl extends Template
      */
     public function CommentEntryTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->post_title') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->post_title') . ' ?>';
     }
 
     /**
@@ -3515,7 +3514,7 @@ class Tpl extends Template
      */
     public function CommentFeedID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getFeedID()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getFeedID()') . ' ?>';
     }
 
     /**
@@ -3527,7 +3526,7 @@ class Tpl extends Template
      */
     public function CommentID(ArrayObject $attr): string
     {
-        return '<?php echo App::frontend()->context()->comments->comment_id; ?>';
+        return '<?= App::frontend()->context()->comments->comment_id ?>';
     }
 
     /**
@@ -3626,9 +3625,9 @@ class Tpl extends Template
         $even = $attr['even'] ?? '';
         $even = Html::escapeHTML($even);
 
-        return '<?php echo ((App::frontend()->context()->comments->index()+1)%2 ? ' .
+        return '<?= ((App::frontend()->context()->comments->index()+1)%2 ? ' .
         '"' . addslashes($odd) . '" : ' .
-        '"' . addslashes($even) . '"); ?>';
+        '"' . addslashes($even) . '") ?>';
     }
 
     /**
@@ -3651,9 +3650,9 @@ class Tpl extends Template
         $odd = $attr['odd'] ?? '';
         $odd = Html::escapeHTML($odd);
 
-        return '<?php echo ((App::frontend()->context()->comments->index()+1)%2+1 ? ' .
+        return '<?= ((App::frontend()->context()->comments->index()+1)%2+1 ? ' .
         '"' . addslashes($even) . '" : ' .
-        '"' . addslashes($odd) . '"); ?>';
+        '"' . addslashes($odd) . '") ?>';
     }
 
     /**
@@ -3665,7 +3664,7 @@ class Tpl extends Template
      */
     public function CommentIP(ArrayObject $attr): string
     {
-        return '<?php echo App::frontend()->context()->comments->comment_ip; ?>';
+        return '<?= App::frontend()->context()->comments->comment_ip ?>';
     }
 
     /**
@@ -3677,7 +3676,7 @@ class Tpl extends Template
      */
     public function CommentOrderNumber(ArrayObject $attr): string
     {
-        return '<?php echo App::frontend()->context()->comments->index()+1; ?>';
+        return '<?= App::frontend()->context()->comments->index()+1 ?>';
     }
 
     /**
@@ -3725,7 +3724,7 @@ class Tpl extends Template
      */
     public function CommentPostURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getPostURL()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getPostURL()') . ' ?>';
     }
 
     /**
@@ -3807,7 +3806,7 @@ class Tpl extends Template
      */
     public function CommentPreviewName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comment_preview["name"]') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comment_preview["name"]') . ' ?>';
     }
 
     /**
@@ -3823,7 +3822,7 @@ class Tpl extends Template
      */
     public function CommentPreviewEmail(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comment_preview["mail"]') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comment_preview["mail"]') . ' ?>';
     }
 
     /**
@@ -3839,7 +3838,7 @@ class Tpl extends Template
      */
     public function CommentPreviewSite(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comment_preview["site"]') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comment_preview["site"]') . ' ?>';
     }
 
     /**
@@ -3862,7 +3861,7 @@ class Tpl extends Template
             $content = 'App::frontend()->context()->comment_preview["content"]';
         }
 
-        return '<?php echo ' . sprintf($this->getFilters($attr), $content) . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), $content) . ' ?>';
     }
 
     /**
@@ -3894,7 +3893,7 @@ class Tpl extends Template
      */
     public function PingBlogName(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->comment_author') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->comment_author') . ' ?>';
     }
 
     /**
@@ -3910,7 +3909,7 @@ class Tpl extends Template
      */
     public function PingContent(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getTrackbackContent()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getTrackbackContent()') . ' ?>';
     }
 
     /**
@@ -3942,12 +3941,12 @@ class Tpl extends Template
         $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($filters, "App::frontend()->context()->pings->getRFC822Date('" . $type . "')") . '; ?>';
+            return '<?= ' . sprintf($filters, "App::frontend()->context()->pings->getRFC822Date('" . $type . "')") . ' ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($filters, "App::frontend()->context()->pings->getISO8601Date('" . $type . "')") . '; ?>';
+            return '<?= ' . sprintf($filters, "App::frontend()->context()->pings->getISO8601Date('" . $type . "')") . ' ?>';
         }
 
-        return '<?php echo ' . sprintf($filters, "App::frontend()->context()->pings->getDate('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?= ' . sprintf($filters, "App::frontend()->context()->pings->getDate('" . $format . "','" . $type . "')") . ' ?>';
     }
 
     /**
@@ -3971,8 +3970,8 @@ class Tpl extends Template
         }
         $type = (!empty($attr['upddt']) ? 'upddt' : '');
 
-        return '<?php echo ' .
-            sprintf($this->getFilters($attr), "App::frontend()->context()->pings->getTime('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?= ' .
+            sprintf($this->getFilters($attr), "App::frontend()->context()->pings->getTime('" . $format . "','" . $type . "')") . ' ?>';
     }
 
     /**
@@ -3988,7 +3987,7 @@ class Tpl extends Template
      */
     public function PingEntryTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->post_title') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->post_title') . ' ?>';
     }
 
     /**
@@ -4004,7 +4003,7 @@ class Tpl extends Template
      */
     public function PingFeedID(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getFeedID()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getFeedID()') . ' ?>';
     }
 
     /**
@@ -4016,7 +4015,7 @@ class Tpl extends Template
      */
     public function PingID(ArrayObject $attr): string
     {
-        return '<?php echo App::frontend()->context()->pings->comment_id; ?>';
+        return '<?= App::frontend()->context()->pings->comment_id ?>';
     }
 
     /**
@@ -4060,9 +4059,9 @@ class Tpl extends Template
         $even = $attr['even'] ?? '';
         $even = Html::escapeHTML($even);
 
-        return '<?php echo ((App::frontend()->context()->pings->index()+1)%2 ? ' .
+        return '<?= ((App::frontend()->context()->pings->index()+1)%2 ? ' .
         '"' . addslashes($odd) . '" : ' .
-        '"' . addslashes($even) . '"); ?>';
+        '"' . addslashes($even) . '") ?>';
     }
 
     /**
@@ -4085,9 +4084,9 @@ class Tpl extends Template
         $odd = $attr['odd'] ?? '';
         $odd = Html::escapeHTML($odd);
 
-        return '<?php echo ((App::frontend()->context()->pings->index()+1)%2+1 ? ' .
+        return '<?= ((App::frontend()->context()->pings->index()+1)%2+1 ? ' .
         '"' . addslashes($even) . '" : ' .
-        '"' . addslashes($odd) . '"); ?>';
+        '"' . addslashes($odd) . '") ?>';
     }
 
     /**
@@ -4099,7 +4098,7 @@ class Tpl extends Template
      */
     public function PingIP(ArrayObject $attr): string
     {
-        return '<?php echo App::frontend()->context()->pings->comment_ip; ?>';
+        return '<?= App::frontend()->context()->pings->comment_ip ?>';
     }
 
     /**
@@ -4126,7 +4125,7 @@ class Tpl extends Template
      */
     public function PingOrderNumber(ArrayObject $attr): string
     {
-        return '<?php echo App::frontend()->context()->pings->index()+1; ?>';
+        return '<?= App::frontend()->context()->pings->index()+1 ?>';
     }
 
     /**
@@ -4142,7 +4141,7 @@ class Tpl extends Template
      */
     public function PingPostURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getPostURL()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getPostURL()') . ' ?>';
     }
 
     /**
@@ -4264,7 +4263,7 @@ class Tpl extends Template
      */
     public function PingTitle(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getTrackbackTitle()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getTrackbackTitle()') . ' ?>';
     }
 
     /**
@@ -4280,7 +4279,7 @@ class Tpl extends Template
      */
     public function PingAuthorURL(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getAuthorURL()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->pings->getAuthorURL()') . ' ?>';
     }
 
     // System
@@ -4577,7 +4576,7 @@ class Tpl extends Template
      */
     public function SysSelfURI(ArrayObject $attr): string
     {
-        return '<?php echo ' . sprintf($this->getFilters($attr), Http::class . '::getSelfURI()') . '; ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), Http::class . '::getSelfURI()') . ' ?>';
     }
 
     /**
