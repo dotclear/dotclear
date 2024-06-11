@@ -350,7 +350,6 @@ h6 {
   --head-border: #dbdbdb;
   --head-background: #f3f3f3;
   --line-input-background: #fff;
-  --line-background-over: #f3f3f3;
   --line-focus-background: #ededed;
   --cell-border: #ececec;
   --cell-noborder-color: #dbdbdb;
@@ -600,7 +599,6 @@ h6 {
   --head-border: #dadbde;
   --head-background: #565a60;
   --line-input-background: #c9cbcf;
-  --line-background-over: #494c52;
   --line-focus-background: #494c52;
   --cell-border: #ecedee;
   --cell-noborder-color: #dadbde;
@@ -851,7 +849,6 @@ h6 {
     --head-border: #dadbde;
     --head-background: #565a60;
     --line-input-background: #c9cbcf;
-    --line-background-over: #494c52;
     --line-focus-background: #494c52;
     --cell-border: #ecedee;
     --cell-noborder-color: #dadbde;
@@ -3244,14 +3241,11 @@ tr.line select {
 tr.line select {
   width: 6em;
 }
-tr.line:hover {
-  background: var(--line-background-over);
-}
-tr.line:focus-within {
+tr.line:hover, tr.line:focus-within {
   background-color: var(--line-focus-background);
 }
 @media (prefers-contrast: more) {
-  tr.line:focus-within {
+  tr.line:hover, tr.line:focus-within {
     outline: 1px solid var(--fieldset-border);
   }
 }

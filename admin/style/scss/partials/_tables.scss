@@ -60,10 +60,7 @@ tr.line {
     width: 6em;
   }
 
-  &:hover {
-    background: var(--line-background-over);
-  }
-
+  &:hover,
   &:focus-within {
     background-color: var(--line-focus-background);
     @media (prefers-contrast: more) {
