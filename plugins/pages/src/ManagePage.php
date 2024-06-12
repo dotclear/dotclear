@@ -507,7 +507,7 @@ class ManagePage extends Process
             }
 
             # --BEHAVIOR-- adminPageNavLinks -- MetaRecord|null
-            App::behavior()->callBehavior('adminPageNavLinks', App::backend()->post ?? null);
+            echo App::behavior()->callBehavior('adminPageNavLinks', App::backend()->post ?? null);
 
             echo
             '</p>';
