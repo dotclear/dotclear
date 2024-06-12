@@ -86,9 +86,9 @@ class ManagePage extends Process
         ]), App::blog()->id());
         App::backend()->can_delete = false;
 
-        $post_headlink = '<link rel="%s" title="%s" href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '">';
+        $post_headlink = '<link rel="%s" title="%s" href="' . My::manageUrl(['act' => 'page', 'id' => '%s'], parametric: true) . '">';
 
-        App::backend()->post_link = '<a href="' . My::manageUrl(['act' => 'page', 'id' => '%s']) . '" title="%s">%s</a>';
+        App::backend()->post_link = '<a href="' . My::manageUrl(['act' => 'page', 'id' => '%s'], parametric: true) . '" title="%s">%s</a>';
 
         App::backend()->next_link = App::backend()->prev_link = App::backend()->next_headlink = App::backend()->prev_headlink = null;
 

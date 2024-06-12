@@ -93,12 +93,13 @@ abstract class MyPlugin extends MyModule
      *
      * @param   array<string,string|int>    $params     The URL parameters
      * @param   string                      $separator  The query string separator
+     * @param   bool                        $parametric Set to true if url will be used as (s)printf() format
      *
      * @return  string
      */
-    public static function manageUrl(array $params = [], string $separator = '&amp;'): string
+    public static function manageUrl(array $params = [], string $separator = '&amp;', bool $parametric = false): string
     {
-        return App::task()->checkContext('BACKEND') ? App::backend()->url()->get('admin.plugin.' . static::id(), $params, $separator) : '';
+        return App::task()->checkContext('BACKEND') ? App::backend()->url()->get('admin.plugin.' . static::id(), $params, $separator, $parametric) : '';
     }
 
     /**
