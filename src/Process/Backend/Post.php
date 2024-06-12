@@ -587,10 +587,6 @@ class Post extends Process
                 echo
                 App::backend()->prev_link;
             }
-            if (App::backend()->next_link && App::backend()->prev_link) {
-                echo
-                ' | ';
-            }
             if (App::backend()->next_link) {
                 echo
                 App::backend()->next_link;

@@ -4930,8 +4930,11 @@ body.auth .pw-hide {
 
 /* nav links */
 .nav_prevnext {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  line-height: 1.25;
   margin-bottom: 2em;
-  color: var(--nav-background);
 }
 
 .nav_prevnext a,
