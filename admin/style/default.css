@@ -2019,6 +2019,10 @@ textarea {
   font-size: 100%;
 }
 
+::placeholder {
+  font-style: italic;
+}
+
 label .maximal,
 textarea.maximal,
 input.maximal,
