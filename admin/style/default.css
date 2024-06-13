@@ -4971,6 +4971,7 @@ a.onblog_link:hover, a.onblog_link:focus {
 a.onblog_link.outgoing {
   position: relative;
   padding-right: 2em;
+  margin-inline-start: 1em;
 }
 a.onblog_link.outgoing img {
   position: absolute;
