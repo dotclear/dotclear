@@ -593,7 +593,7 @@ class Post extends Process
             }
 
             # --BEHAVIOR-- adminPostNavLinks -- MetaRecord|null, string
-            echo App::behavior()->callBehavior('adminPostNavLinks', App::backend()->post ?? null, 'post');
+            App::behavior()->callBehavior('adminPostNavLinks', App::backend()->post ?? null, 'post');
 
             echo
             '</p>';
