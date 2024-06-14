@@ -14,8 +14,20 @@ use Dotclear\Core\Backend\Listing\Pager;
 use Dotclear\Core\Backend\Listing\Listing;
 use Dotclear\App;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
-use form;
 
 /**
  * @brief   The module backend pages listing.
@@ -33,7 +45,11 @@ class BackendList extends Listing
     public function display(int $page, int $nb_per_page, string $enclose_block = ''): void
     {
         if ($this->rs->isEmpty()) {
-            echo '<p><strong>' . __('No page') . '</strong></p>';
+            echo (new Para())
+                ->items([
+                    (new Text('strong', __('No page'))),
+                ])
+            ->render();
         } else {
             $pager   = new Pager($page, (int) $this->rs_count, $nb_per_page, 10);
             $entries = [];
@@ -42,16 +58,52 @@ class BackendList extends Listing
                     $entries[(int) $v] = true;
                 }
             }
-            $html_block = '<div class="table-outer">' .
-                '<table class="maximal dragable"><thead><tr>';
 
             $cols = [
-                'title'      => '<th colspan="3" scope="col" class="first">' . __('Title') . '</th>',
-                'date'       => '<th scope="col">' . __('Date') . '</th>',
-                'author'     => '<th scope="col">' . __('Author') . '</th>',
-                'comments'   => '<th scope="col"><img src="images/comments.svg" class="light-only" alt="' . __('Comments') . '"><img src="images/comments-dark.svg" class="dark-only" alt="' . __('Comments') . '"><span class="hidden">' . __('Comments') . '</span></th>',
-                'trackbacks' => '<th scope="col"><img src="images/trackbacks.svg" class="light-only" alt="' . __('Trackbacks') . '"><img src="images/trackbacks-dark.svg" class="dark-only" alt="' . __('Trackbacks') . '"><span class="hidden">' . __('Trackbacks') . '</span></th>',
-                'status'     => '<th scope="col">' . __('Status') . '</th>',
+                'title' => (new Th())
+                    ->scope('col')
+                    ->colspan(3)
+                    ->class('first')
+                    ->text(__('Title'))
+                ->render(),
+                'date' => (new Th())
+                    ->scope('col')
+                    ->text(__('Date'))
+                ->render(),
+                'author' => (new Th())
+                    ->scope('col')
+                    ->text(__('Author'))
+                ->render(),
+                'comments' => (new Th())
+                    ->scope('col')
+                    ->items([
+                        (new Img('images/comments.svg'))
+                            ->class('light-only')
+                            ->alt(__('Comments')),
+                        (new Img('images/comments-dark.svg'))
+                            ->class('dark-only')
+                            ->alt(__('Comments')),
+                        (new Text('span', __('Comments')))
+                            ->class('hidden'),
+                    ])
+                ->render(),
+                'trackbacks' => (new Th())
+                    ->scope('col')
+                    ->items([
+                        (new Img('images/trackbacks.svg'))
+                            ->class('light-only')
+                            ->alt(__('Trackbacks')),
+                        (new Img('images/trackbacks-dark.svg'))
+                            ->class('dark-only')
+                            ->alt(__('Trackbacks')),
+                        (new Text('span', __('Trackbacks')))
+                            ->class('hidden'),
+                    ])
+                ->render(),
+                'status' => (new Th())
+                    ->scope('col')
+                    ->text(__('Status'))
+                ->render(),
             ];
 
             $cols = new ArrayObject($cols);
@@ -61,8 +113,31 @@ class BackendList extends Listing
             // Cope with optional columns
             $this->userColumns('pages', $cols);
 
-            $html_block .= '<tr>' . implode(iterator_to_array($cols)) .
-                '</tr></thead><tbody id="pageslist">%s</tbody></table>%s</div>';
+            $html_block = (new Div())
+                ->class('table-outer')
+                ->items([
+                    (new Table())
+                        ->class(['maximal', 'dragable'])
+                        ->items([
+                            (new Thead())
+                                ->rows([
+                                    (new Tr())
+                                        ->items([
+                                            (new Text(null, implode(iterator_to_array($cols)))),
+                                        ]),
+                                ]),
+                            (new Tbody())
+                                ->id('pageslist')
+                                ->rows([
+                                    (new Tr())
+                                        ->items([
+                                            (new Text(null, '%s')),
+                                        ]),
+                                ]),
+                        ]),
+                    (new Text(null, '%s')),
+                ])
+            ->render();
 
             if ($enclose_block) {
                 $html_block = sprintf($enclose_block, $html_block);
@@ -82,16 +157,31 @@ class BackendList extends Listing
 
             echo $blocks[1];
 
-            $fmt = fn ($title, $image, $class) => sprintf('<img alt="%1$s" src="images/%2$s" class="mark mark-%3$s"> %1$s', $title, $image, $class);
-            echo '<p class="info">' . __('Legend: ') .
-                $fmt(__('Published'), 'published.svg', 'published') . ' - ' .
-                $fmt(__('Unpublished'), 'unpublished.svg', 'unpublished') . ' - ' .
-                $fmt(__('Scheduled'), 'scheduled.svg', 'scheduled') . ' - ' .
-                $fmt(__('Pending'), 'pending.svg', 'pending') . ' - ' .
-                $fmt(__('Protected'), 'locker.svg', 'locked') . ' - ' .
-                $fmt(__('Hidden'), 'hidden.svg', 'hidden') . ' - ' .
-                $fmt(__('Attachments'), 'attach.svg', 'attach') .
-                '</p>';
+            $fmt = fn ($title, $image, $class) => sprintf(
+                (new Img('images/%2$s'))
+                        ->alt('%1$s')
+                        ->class(['mark', 'mark-%3$s'])
+                        ->render() . ' %1$s',
+                $title,
+                $image,
+                $class
+            );
+
+            echo (new Para())->class('info')
+                ->items([
+                    (new Text(
+                        null,
+                        __('Legend: ') .
+                        $fmt(__('Published'), 'published.svg', 'published') . ' - ' .
+                        $fmt(__('Unpublished'), 'unpublished.svg', 'unpublished') . ' - ' .
+                        $fmt(__('Scheduled'), 'scheduled.svg', 'scheduled') . ' - ' .
+                        $fmt(__('Pending'), 'pending.svg', 'pending') . ' - ' .
+                        $fmt(__('Protected'), 'locker.svg', 'locked') . ' - ' .
+                        $fmt(__('Hidden'), 'hidden.svg', 'hidden') . ' - ' .
+                        $fmt(__('Attachments'), 'attach.svg', 'attach')
+                    )),
+                ])
+            ->render();
 
             echo $blocks[2];
 
@@ -109,28 +199,34 @@ class BackendList extends Listing
      */
     private function postLine(int $count, bool $checked): string
     {
-        $img        = '<img alt="%1$s" src="images/%2$s" class="mark mark-%3$s">';
-        $sts_class  = '';
+        $img = (new Img('images/%2$s'))
+            ->alt('%1$s')
+            ->class(['mark', 'mark-%3$s'])
+            ->render();
+        $post_classes = ['line'];
+        if ((int) $this->rs->post_status !== App::blog()::POST_PUBLISHED) {
+            $post_classes[] = 'offline';
+        }
         $img_status = '';
         switch ($this->rs->post_status) {
             case App::blog()::POST_PUBLISHED:
-                $img_status = sprintf($img, __('Published'), 'published.svg', 'published');
-                $sts_class  = 'sts-online';
+                $img_status     = sprintf($img, __('Published'), 'published.svg', 'published');
+                $post_classes[] = 'sts-online';
 
                 break;
             case App::blog()::POST_UNPUBLISHED:
-                $img_status = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
-                $sts_class  = 'sts-offline';
+                $img_status     = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
+                $post_classes[] = 'sts-offline';
 
                 break;
             case App::blog()::POST_SCHEDULED:
-                $img_status = sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled');
-                $sts_class  = 'sts-scheduled';
+                $img_status     = sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled');
+                $post_classes[] = 'sts-scheduled';
 
                 break;
             case App::blog()::POST_PENDING:
-                $img_status = sprintf($img, __('Pending'), 'pending.svg', 'pending');
-                $sts_class  = 'sts-pending';
+                $img_status     = sprintf($img, __('Pending'), 'pending.svg', 'pending');
+                $post_classes[] = 'sts-pending';
 
                 break;
         }
@@ -152,40 +248,63 @@ class BackendList extends Listing
             $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.svg', 'attach');
         }
 
-        $res = '<tr class="line ' . ($this->rs->post_status != App::blog()::POST_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
-        ' id="p' . $this->rs->post_id . '">';
+        $pos_classes = ['nowrap', 'minimal'];
+        if (!App::auth()->prefs()->accessibility->nodragdrop) {
+            $pos_classes[] = 'handle';
+        }
 
         $cols = [
-            'position' => '<td class="nowrap' . (App::auth()->prefs()->accessibility->nodragdrop ? ' ' : ' handle ') . 'minimal">' .
-            form::number(['order[' . $this->rs->post_id . ']'], [
-                'min'        => 1,
-                'default'    => $count + 1,
-                'class'      => 'position',
-                'extra_html' => 'title="' . sprintf(__('position of %s'), Html::escapeHTML($this->rs->post_title)) . '"',
-            ]) .
-            '</td>',
-            'check' => '<td class="nowrap">' .
-            form::checkbox(
-                ['entries[]'],
-                $this->rs->post_id,
-                [
-                    'checked'    => $checked,
-                    'disabled'   => !$this->rs->isEditable(),
-                    'extra_html' => 'title="' . __('Select this page') . '"',
-                ]
-            ) . '</td>',
-            'title' => '<td class="maximal" scope="row"><a href="' .
-            App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '">' .
-            Html::escapeHTML($this->rs->post_title) . '</a></td>',
-            'date' => '<td class="nowrap">' .
-                '<time datetime="' . Date::iso8601((int) strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz')) . '">' .
-                Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
-                '</time>' .
-                '</td>',
-            'author'     => '<td class="nowrap">' . $this->rs->user_id . '</td>',
-            'comments'   => '<td class="nowrap count">' . $this->rs->nb_comment . '</td>',
-            'trackbacks' => '<td class="nowrap count">' . $this->rs->nb_trackback . '</td>',
-            'status'     => '<td class="nowrap status">' . $img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach . '</td>',
+            'position' => (new Td())
+                ->class($pos_classes)->items([
+                    (new Number(['order[' . $this->rs->post_id . ']'], 1))
+                        ->value($count + 1)
+                        ->class('position')
+                        ->title(sprintf(__('position of %s'), Html::escapeHTML($this->rs->post_title))),
+                ])
+            ->render(),
+            'check' => (new Td())
+                ->class('nowrap')
+                ->items([
+                    (new Checkbox(['entries[]'], $checked))
+                        ->value($this->rs->post_id)
+                        ->disabled(!$this->rs->isEditable())
+                        ->title(__('Select this page')),
+                ])
+            ->render(),
+            'title' => (new Td())
+                ->class('maximal')
+                ->items([
+                    (new Link())
+                        ->href(App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id))
+                        ->text(Html::escapeHTML($this->rs->post_title)),
+                ])
+            ->render(),
+            'date' => (new Td())
+                ->class('nowrap')
+                ->text(
+                    '<time datetime="' .
+                    Date::iso8601((int) strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz')) .
+                    '">' .
+                    Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
+                    '</time>'
+                )
+            ->render(),
+            'author' => (new Td())
+                ->class('nowrap')
+                ->text($this->rs->user_id)
+            ->render(),
+            'comments' => (new Td())
+                ->class(['nowrap', 'count'])
+                ->text($this->rs->nb_comment)
+            ->render(),
+            'trackbacks' => (new Td())
+                ->class(['nowrap', 'count'])
+                ->text($this->rs->nb_trackback)
+            ->render(),
+            'status' => (new Td())
+                ->class(['nowrap', 'count'])
+                ->text($img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach)
+            ->render(),
         ];
 
         $cols = new ArrayObject($cols);
@@ -195,9 +314,12 @@ class BackendList extends Listing
         // Cope with optional columns
         $this->userColumns('pages', $cols);
 
-        $res .= implode(iterator_to_array($cols));
-        $res .= '</tr>';
-
-        return $res;
+        return (new Tr())
+            ->id('p' . (string) $this->rs->post_id)
+            ->class($post_classes)
+            ->items([
+                (new Text(null, implode(iterator_to_array($cols)))),
+            ])
+        ->render();
     }
 }

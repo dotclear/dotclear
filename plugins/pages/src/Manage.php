@@ -9,14 +9,23 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\pages;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
-use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @brief   The module backend manage pages process.
@@ -135,27 +144,41 @@ class Manage extends Process
             App::backend()->post_list->display(
                 App::backend()->page,
                 App::backend()->nb_per_page,
-                '<form action="' . App::backend()->url()->get('admin.plugin') . '" method="post" id="form-entries">' .
-
-                '%s' .
-
-                '<div class="two-cols">' .
-                '<p class="col checkboxes-helpers"></p>' .
-
-                '<p class="col right"><label for="action" class="classic">' . __('Selected pages action:') . '</label> ' .
-                form::combo('action', App::backend()->pages_actions_page->getCombo()) .
-                '<input id="do-action" type="submit" value="' . __('ok') . '">' .
-                form::hidden(['post_type'], 'page') .
-                form::hidden(['p'], My::id()) .
-                form::hidden(['act'], 'list') .
-                App::nonce()->getFormNonce() .
-                '</p></div>' .
-                '<p class="clear form-note hidden-if-js">' .
-                __('To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button.') . '</p>' .
-                '<p class="clear form-note hidden-if-no-js">' .
-                __('To rearrange pages order, move items by drag and drop, then click on “Save pages order” button.') . '</p>' .
-                '<p><input type="submit" value="' . __('Save pages order') . '" name="reorder" class="clear"></p>' .
-                '</form>'
+                (new Form('form-entries'))
+                    ->method('post')
+                    ->action(App::backend()->getPageURL())
+                    ->fields([
+                        (new Text(null, '%s')), // List of pages
+                        (new Div())
+                            ->class('two-cols')
+                            ->items([
+                                (new Para())->class(['col', 'checkboxes-helpers']),
+                                (new Para())
+                                    ->class(['col', 'right', 'form-buttons'])
+                                    ->items([
+                                        (new Select('action'))
+                                            ->items(App::backend()->pages_actions_page->getCombo())
+                                            ->label((new Label(__('Selected pages action:'), Label::OUTSIDE_TEXT_BEFORE))->class('classic')),
+                                        (new Submit('do-action', __('ok'))),
+                                    ]),
+                            ]),
+                        (new Note())
+                            ->class(['form-note', 'hidden-if-js', 'clear'])
+                            ->text(__('To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button.')),
+                        (new Note())
+                            ->class(['form-note', 'hidden-if-no-js', 'clear'])
+                            ->text(__('To rearrange pages order, move items by drag and drop, then click on “Save pages order” button.')),
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                ...My::hiddenFields(),
+                                (new Hidden(['post_type'], 'page')),
+                                (new Hidden(['act'], 'list')),
+                                (new Submit(['reorder'], __('Save pages order'))),
+                                (new Button(['back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
+                            ]),
+                    ])
+                ->render()
             );
         }
         Page::helpBlock(My::id());

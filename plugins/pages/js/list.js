@@ -4,7 +4,7 @@
 Object.assign(dotclear.msg, dotclear.getData('pages_list'));
 
 dotclear.viewPostContent = (line, _action = 'toggle', e = null) => {
-  if ($(line).attr('id') == undefined) {
+  if ($(line).attr('id') === undefined) {
     return;
   }
 
@@ -53,11 +53,10 @@ dotclear.ready(() => {
     lines: $('#form-entries tr.line'),
     callback: dotclear.viewPostContent,
   });
-  $('.checkboxes-helpers').each(function () {
-    const p = $('<p></p>');
-    $(this).prepend(p);
-    dotclear.checkboxesHelpers(p, undefined, '#pageslist td input[type=checkbox]', '#form-entries #do-action');
-  });
+
+  for (const elt of document.querySelectorAll('.checkboxes-helpers')) {
+    dotclear.checkboxesHelpers(elt, undefined, '#pageslist td input[type=checkbox]', '#form-entries #do-action');
+  }
   dotclear.enableShiftClick('#pageslist td input[type=checkbox]');
   dotclear.condSubmit('#pageslist td input[type=checkbox]', '#form-entries #do-action');
   dotclear.responsiveCellHeaders(document.querySelector('#form-entries table'), '#form-entries table', 3, true);
@@ -103,7 +102,7 @@ dotclear.ready(() => {
       return false;
     }
 
-    if (action == 'delete') {
+    if (action === 'delete') {
       return window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', $('input[name="entries[]"]:checked').length));
     }
 
