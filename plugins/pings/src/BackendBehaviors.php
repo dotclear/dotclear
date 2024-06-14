@@ -11,9 +11,13 @@ namespace Dotclear\Plugin\pings;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @brief   The module backend behaviors.
@@ -44,15 +48,28 @@ class BackendBehaviors
             $pings_do = [];
         }
 
-        $item = '<h5 class="ping-services">' . __('Pings') . '</h5>';
-        $i    = 0;
+        $index    = 0;
+        $services = [];
         foreach ($pings_uris as $name => $uri) {
-            $item .= '<p class="ping-services"><label for="pings_do-' . $i . '" class="classic">' .
-            form::checkbox(['pings_do[]', 'pings_do-' . $i], Html::escapeHTML($uri), in_array($uri, $pings_do), 'check-ping-services') . ' ' .
-            Html::escapeHTML((string) $name) . '</label></p>';
-            $i++;
+            $services[] = (new Para())
+                ->class('ping-services')
+                ->items([
+                    (new Checkbox(['pings_do[]', 'pings_do-' . $index], in_array($uri, $pings_do)))
+                        ->value(Html::escapeHTML($uri))
+                        ->class('check-ping-services')
+                        ->label(new Label(Html::escapeHTML((string) $name), Label::IL_FT)),
+                ]);
+            $index++;
         }
-        $sidebar['options-box']['items']['pings'] = $item;
+
+        $div = (new Div())
+            ->items([
+                (new Text('h5', __('Pings')))->class('ping-services'),
+                ...$services,
+            ])
+        ->render();
+
+        $sidebar['options-box']['items']['pings'] = $div;
     }
 
     /**

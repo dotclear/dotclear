@@ -13,9 +13,27 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
+use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @brief   The module backend manage process.
@@ -79,53 +97,112 @@ class Manage extends Process
                 __('Plugins')             => '',
                 __('Pings configuration') => '',
             ]
-        ) .
-        '<form action="' . App::backend()->getPageURL() . '" method="post">' .
-        '<p><label for="pings_active" class="classic">' .
-        form::checkbox('pings_active', 1, My::settings()->pings_active) .
-        __('Activate pings extension') . '</label></p>';
+        );
 
-        $i = 0;
+        $rows  = [];
+        $index = 0;
         foreach (App::backend()->pings_uris as $name => $uri) {
-            echo
-            '<p><label for="pings_srv_name-' . $i . '" class="classic">' . __('Service name:') . '</label> ' .
-            form::field(['pings_srv_name[]', 'pings_srv_name-' . $i], 20, 128, Html::escapeHTML((string) $name)) . ' ' .
-            '<label for="pings_srv_uri-' . $i . '" class="classic">' . __('Service URI:') . '</label> ' .
-            form::url(['pings_srv_uri[]', 'pings_srv_uri-' . $i], [
-                'size'    => 40,
-                'default' => Html::escapeHTML($uri),
-            ]);
-
             if (!empty($_GET['test'])) {
                 try {
                     PingsAPI::doPings($uri, 'Example site', 'http://example.com');
-                    echo ' <img class="mark mark-check-on" src="images/check-on.svg" alt="OK">';
+                    $status = (new Img('images/check-on.svg'))->class(['mark', 'mark-check-on'])->alt('OK');
                 } catch (Exception $e) {
-                    echo ' <img class="mark mark-check-off" src="images/check-off.svg" alt="' . __('Error') . '"> ' . $e->getMessage();
+                    $status = (new Set())
+                        ->items([
+                            (new Img('images/check-off.svg'))->class(['mark', 'mark-check-off'])->alt(__('Error')),
+                            (new Text(null, ' ' . $e->getMessage())),
+                        ]);
                 }
+            } else {
+                $status = new None();
             }
 
-            echo '</p>';
-            $i++;
+            $rows[] = (new Tr())
+                ->class('line')
+                ->cols([
+                    (new Td())
+                        ->items([
+                            (new Input(['pings_srv_name[]', 'pings_srv_name-' . $index]))
+                                ->size(20)
+                                ->maxlength(128)
+                                ->value(Html::escapeHTML((string) $name)),
+                        ]),
+                    (new Td())
+                        ->items([
+                            (new Url(['pings_srv_uri[]', 'pings_srv_uri-' . $index]))
+                                ->size(40)
+                                ->value(Html::escapeHTML($uri)),
+                        ]),
+                    (new Td())
+                        ->items([$status]),
+                ]);
+
+            $index++;
         }
 
-        echo
-        '<p><label for="pings_srv_name2" class="classic">' . __('Service name:') . '</label> ' .
-        form::field(['pings_srv_name[]', 'pings_srv_name2'], 20, 128) . ' ' .
-        '<label for="pings_srv_uri2" class="classic">' . __('Service URI:') . '</label> ' .
-        form::url(['pings_srv_uri[]', 'pings_srv_uri2'], 40) .
-        '</p>' .
+        $rows[] = (new Tr())
+            ->class('line')
+            ->cols([
+                (new Td())
+                    ->items([
+                        (new Input(['pings_srv_name[]', 'pings_srv_name2']))
+                            ->size(20)
+                            ->maxlength(128),
+                    ]),
+                (new Td())
+                    ->items([
+                        (new Url(['pings_srv_uri[]', 'pings_srv_uri2']))
+                            ->size(40),
+                    ]),
+                (new Td()),
+            ]);
 
-        '<p><label for="pings_auto" class="classic">' .
-        form::checkbox('pings_auto', 1, My::settings()->pings_auto) .
-        __('Auto pings all services on first publication of entry (current blog only)') . '</label></p>' .
+        $table = (new Table())
+            ->thead((new Thead())
+                ->rows([
+                    (new Tr())->cols([
+                        (new Th())->text(__('Service name:'))->class('minimal'),
+                        (new Th())->text(__('Service URI:'))->class('minimal'),
+                        (new Th())->text(empty($_GET['test']) ? '' : __('Status:')),
+                    ]),
+                ]))
+            ->tbody((new Tbody())
+                ->rows($rows));
 
-        '<p class="form-buttons"><input type="submit" value="' . __('Save') . '">' .
-        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-        App::nonce()->getFormNonce() . '</p>' .
-        '</form>' .
-
-        '<p><a class="button" href="' . App::backend()->getPageURL() . '&amp;test=1">' . __('Test ping services') . '</a></p>';
+        echo (new Form('pings-form'))
+            ->method('post')
+            ->action(App::backend()->getPageURL())
+            ->fields([
+                (new Para())
+                    ->items([
+                        (new Checkbox('pings_active', (bool) My::settings()->pings_active))
+                            ->value(1)
+                            ->label(new Label(__('Activate pings extension'), Label::IL_FT)),
+                    ]),
+                (new Para())
+                    ->items([
+                        (new Checkbox('pings_auto', (bool) My::settings()->pings_auto))
+                            ->value(1)
+                            ->label(new Label(__('Auto pings all services on first publication of entry (current blog only)'), Label::IL_FT)),
+                    ]),
+                (new Para())
+                    ->items([
+                        (new Link('test'))
+                            ->class('button')
+                            ->href(App::backend()->getPageURL() . '&amp;test=1')
+                            ->text(__('Test ping services')),
+                    ]),
+                $table,
+                (new Para())
+                    ->class('form-buttons')
+                    ->items([
+                        ...My::hiddenFields(),
+                        (new Submit(['save'], __('Save'))),
+                        (new Button(['back'], __('Back')))
+                            ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                    ]),
+            ])
+        ->render();
 
         Page::helpBlock(My::id());
 
