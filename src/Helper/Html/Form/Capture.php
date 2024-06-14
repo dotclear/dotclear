@@ -26,6 +26,9 @@ class Capture extends Component
 
     /**
      * Constructs a new instance.
+     *
+     * @param      callable         $method     The method
+     * @param      array<mixed>     $arguments  The arguments
      */
     public function __construct(callable $method, array $arguments = [])
     {
@@ -39,7 +42,7 @@ class Capture extends Component
             $method(...$arguments);
 
             // Get output generated above
-            $this->capture = ob_get_contents();
+            $this->capture = (string) ob_get_contents();
 
             // Stop capturing output
             ob_end_clean();
