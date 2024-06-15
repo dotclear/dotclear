@@ -390,6 +390,7 @@ h6 {
   --delete-hover-background: #b33630;
   --add-color: #000;
   --add-background: #bee74b;
+  --add-color-alt: #fff;
   --add-background-alt: #9bca1c;
   --clone-color: #7e2999;
   --clone-background: #eaeaea;
@@ -639,6 +640,7 @@ h6 {
   --delete-hover-background: #b33630;
   --add-color: #000;
   --add-background: #bee74b;
+  --add-color-alt: #fff;
   --add-background-alt: #9bca1c;
   --clone-color: #7e2999;
   --clone-background: #eaeaea;
@@ -889,6 +891,7 @@ h6 {
     --delete-hover-background: #b33630;
     --add-color: #000;
     --add-background: #bee74b;
+    --add-color-alt: #fff;
     --add-background-alt: #9bca1c;
     --clone-color: #7e2999;
     --clone-background: #eaeaea;
@@ -2381,6 +2384,7 @@ button.add {
 button.add:hover,
 button.add:active,
 button.add:focus {
+  color: var(--add-color-alt);
   background-color: var(--add-background-alt);
 }
 

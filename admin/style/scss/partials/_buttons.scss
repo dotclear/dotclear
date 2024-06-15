@@ -93,6 +93,7 @@ button.add {
   &:hover,
   &:active,
   &:focus {
+    color: var(--add-color-alt);
     background-color: var(--add-background-alt);
   }
 }
