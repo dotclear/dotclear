@@ -246,6 +246,8 @@ label.required abbr,
 label.required span,
 label:has(input:required) abbr,
 label:has(input:required) span,
+label:has(+ input:required) abbr,
+label:has(+ input:required) span,
 span.required {
   color: var(--required);
   font-size: 1.3em;
