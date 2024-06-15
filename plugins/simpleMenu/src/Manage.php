@@ -17,7 +17,6 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Caption;
-use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -612,7 +611,7 @@ class Manage extends Process
                             ]),
                             default => # --BEHAVIOR-- adminSimpleMenuSelect -- string, string
                                 # Optional step once App::backend()->item_type known : should provide a field using 'item_select' as id, included in a <p class="field"></p> and don't forget the <label> ;-)
-                                (new Capture(App::behavior()->callBehavior(...), ['adminSimpleMenuSelect', App::backend()->item_type, 'item_select'])),
+                                (new Text(null, App::behavior()->callBehavior('adminSimpleMenuSelect', App::backend()->item_type, 'item_select'))),
                         };
 
                         echo (new Form('additem'))
