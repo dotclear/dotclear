@@ -31,4 +31,13 @@ dotclear.ready(() => {
   }
   dotclear.condSubmit('#menuitems tr td input[name^=items_selected]', '#menuitems #remove-action');
   dotclear.responsiveCellHeaders(document.querySelector('#menuitems table'), '#menuitems table', 2);
+
+  const msg = dotclear.getData('simplemenu');
+  document.querySelector('#menuitems #remove-action')?.addEventListener('click', (event) => {
+    if (!window.confirm(msg.confirm_items_delete)) {
+      event.preventDefault();
+      return false;
+    }
+    return true;
+  });
 });

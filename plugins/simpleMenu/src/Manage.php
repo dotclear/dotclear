@@ -10,14 +10,37 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\simpleMenu;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Caption;
+use Dotclear\Helper\Html\Form\Capture;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @brief   The module manage process.
@@ -470,6 +493,7 @@ class Manage extends Process
                 Page::jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }
         $head .= My::jsLoad('simplemenu') .
+            Page::jsJson('simplemenu', ['confirm_items_delete' => __('Are you sure you want to remove selected menu items?')]) .
             Page::jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
 
         Page::openModule(App::backend()->page_title, $head);
@@ -527,15 +551,31 @@ class Manage extends Process
 
                     // Selection du type d'item
 
-                    echo
-                    '<form id="additem" action="' . App::backend()->getPageURL() . '&amp;add=' . trim((string) self::STEP_SUBTYPE) . '" method="post">' .
-                    '<fieldset><legend>' . __('Select type') . '</legend>' .
-                    '<p class="field"><label for="item_type" class="classic">' . __('Type of item menu:') . '</label>' .
-                    form::combo('item_type', App::backend()->items_combo) . '</p>' .
-                    '<p>' . App::nonce()->getFormNonce() .
-                    '<input type="submit" name="appendaction" value="' . __('Continue...') . '">' . '</p>' .
-                    '</fieldset>' .
-                    '</form>';
+                    echo (new Form('additem'))
+                        ->method('post')
+                        ->action(App::backend()->getPageURL() . '&add=' . trim((string) self::STEP_SUBTYPE))
+                        ->fields([
+                            (new Fieldset())
+                                ->legend(new Legend(__('Select type')))
+                                ->fields([
+                                    (new Para())
+                                        ->class('field')
+                                        ->items([
+                                            (new Select('item_type'))
+                                                ->items(App::backend()->items_combo)
+                                                ->label(new Label(__('Type of item menu:'), Label::OL_TF)),
+                                        ]),
+                                    (new Para())
+                                        ->class('form-buttons')
+                                        ->items([
+                                            ...My::hiddenFields(),
+                                            (new Submit('appendaction', __('Continue...'))),
+                                            (new Button(['back'], __('Back')))
+                                                ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                                        ]),
+                                ]),
+                        ])
+                    ->render();
 
                     break;
 
@@ -543,38 +583,58 @@ class Manage extends Process
 
                     if (App::backend()->items[App::backend()->item_type][1]) {
                         // Choix à faire
-                        echo
-                        '<form id="additem" action="' . App::backend()->getPageURL() .
-                        '&amp;add=' . trim((string) self::STEP_ATTRIBUTES) . '" method="post">' .
-                        '<fieldset><legend>' . App::backend()->item_type_label . '</legend>';
 
-                        echo match (App::backend()->item_type) {
-                            'lang' => '<p class="field"><label for="item_select" class="classic">' . __('Select language:') . '</label>' .
-                                form::combo('item_select', App::backend()->langs_combo) .
-                                '</p>',
-                            'category' => '<p class="field"><label for="item_select" class="classic">' . __('Select category:') . '</label>' .
-                                form::combo('item_select', App::backend()->categories_combo) .
-                                '</p>',
-                            'archive' => '<p class="field"><label for="item_select" class="classic">' . __('Select month (if necessary):') . '</label>' .
-                                form::combo('item_select', App::backend()->months_combo) .
-                                '</p>',
-                            'pages' => '<p class="field"><label for="item_select" class="classic">' . __('Select page:') . '</label>' .
-                                form::combo('item_select', App::backend()->pages_combo) .
-                                '</p>',
-                            'tags' => '<p class="field"><label for="item_select" class="classic">' . __('Select tag (if necessary):') . '</label>' .
-                                form::combo('item_select', App::backend()->tags_combo) .
-                                '</p>',
+                        $choice = match (App::backend()->item_type) {
+                            'lang' => (new Para())->class('field')->items([
+                                (new Select('item_select'))
+                                    ->items(App::backend()->langs_combo)
+                                    ->label(new Label(__('Select language:'), Label::OL_TF)),
+                            ]),
+                            'category' => (new Para())->class('field')->items([
+                                (new Select('item_select'))
+                                    ->items(App::backend()->categories_combo)
+                                    ->label(new Label(__('Select category:'), Label::OL_TF)),
+                            ]),
+                            'archive' => (new Para())->class('field')->items([
+                                (new Select('item_select'))
+                                    ->items(App::backend()->months_combo)
+                                    ->label(new Label(__('Select month (if necessary):'), Label::OL_TF)),
+                            ]),
+                            'pages' => (new Para())->class('field')->items([
+                                (new Select('item_select'))
+                                    ->items(App::backend()->pages_combo)
+                                    ->label(new Label(__('Select page:'), Label::OL_TF)),
+                            ]),
+                            'tags' => (new Para())->class('field')->items([
+                                (new Select('item_select'))
+                                    ->items(App::backend()->tags_combo)
+                                    ->label(new Label(__('Select tag (if necessary):'), Label::OL_TF)),
+                            ]),
                             default => # --BEHAVIOR-- adminSimpleMenuSelect -- string, string
                                 # Optional step once App::backend()->item_type known : should provide a field using 'item_select' as id, included in a <p class="field"></p> and don't forget the <label> ;-)
-                                App::behavior()->callBehavior('adminSimpleMenuSelect', App::backend()->item_type, 'item_select'),
+                                (new Capture(App::behavior()->callBehavior(...), ['adminSimpleMenuSelect', App::backend()->item_type, 'item_select'])),
                         };
 
-                        echo
-                        form::hidden('item_type', App::backend()->item_type) .
-                        '<p>' . App::nonce()->getFormNonce() .
-                        '<input type="submit" name="appendaction" value="' . __('Continue...') . '"></p>' .
-                        '</fieldset>' .
-                        '</form>';
+                        echo (new Form('additem'))
+                            ->method('post')
+                            ->action(App::backend()->getPageURL() . '&add=' . trim((string) self::STEP_ATTRIBUTES))
+                            ->fields([
+                                (new Fieldset())
+                                    ->legend(new Legend(App::backend()->item_type_label))
+                                    ->fields([
+                                        $choice,
+                                        (new Para())
+                                            ->class('form-buttons')
+                                            ->items([
+                                                ...My::hiddenFields(),
+                                                (new Hidden('item_type', App::backend()->item_type)),
+                                                (new Submit('appendaction', __('Continue...'))),
+                                                (new Button(['back'], __('Back')))
+                                                    ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                                            ]),
+                                    ]),
+                            ])
+                        ->render();
 
                         break;
                     }
@@ -583,43 +643,83 @@ class Manage extends Process
 
                     // Libellé et description
 
-                    echo
-                    '<form id="additem" action="' . App::backend()->getPageURL() . '&amp;add=' . trim((string) self::STEP_ADD) . '" method="post">' .
-                    '<fieldset><legend>' . App::backend()->item_type_label . (App::backend()->item_select_label != '' ? ' (' . App::backend()->item_select_label . ')' : '') . '</legend>' .
-                    '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-                    '<p class="field"><label for="item_label" class="classic required"><span>*</span> ' .
-                    __('Label of item menu:') . '</label>' .
-                    form::field('item_label', 20, 255, [
-                        'default'    => App::backend()->item_label,
-                        'extra_html' => 'required placeholder="' . __('Label') . '" lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                    ]) .
-                    '</p>' .
-                    '<p class="field"><label for="item_descr" class="classic">' .
-                    __('Description of item menu:') . '</label>' . form::field(
-                        'item_descr',
-                        30,
-                        255,
-                        [
-                            'default'    => App::backend()->item_descr,
-                            'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                        ]
-                    ) .
-                    '</p>' .
-                    '<p class="field"><label for="item_url" class="classic required"><span>*</span> ' .
-                    __('URL of item menu:') . '</label>' .
-                    form::field('item_url', 40, 255, [
-                        'default'    => App::backend()->item_url,
-                        'extra_html' => 'required placeholder="' . __('URL') . '"',
-                    ]) .
-                    '</p>' .
-                    form::hidden('item_type', App::backend()->item_type) .
-                    form::hidden('item_select', App::backend()->item_select) .
-                    '<p class="field"><label for="item_descr" class="classic">' .
-                    __('Open URL on a new tab') . ':</label>' . form::checkbox('item_targetBlank', 'blank') . '</p>' .
-                    '<p>' . App::nonce()->getFormNonce() .
-                    '<input type="submit" name="appendaction" value="' . __('Add this item') . '"></p>' .
-                    '</fieldset>' .
-                    '</form>';
+                    echo (new Form('additem'))
+                        ->method('post')
+                        ->action(App::backend()->getPageURL() . '&add=' . trim((string) self::STEP_ADD))
+                        ->fields([
+                            (new Fieldset())
+                                ->legend(new Legend(App::backend()->item_type_label . (App::backend()->item_select_label != '' ? ' (' . App::backend()->item_select_label . ')' : '')))
+                                ->fields([
+                                    (new Note())
+                                        ->class('form-note')
+                                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                                    (new Para())
+                                        ->class('field')
+                                        ->items([
+                                            (new Input('item_label'))
+                                                ->size(20)
+                                                ->maxlength(255)
+                                                ->value(App::backend()->item_label)
+                                                ->required(true)
+                                                ->placeholder(__('Label'))
+                                                ->lang(App::auth()->getInfo('user_lang'))
+                                                ->spellcheck(true)
+                                                ->label(
+                                                    (new Label(
+                                                        (new Text('span', '*'))->render() . __('Label of item menu:'),
+                                                        Label::OL_TF
+                                                    ))->class('required')
+                                                ),
+                                        ]),
+                                    (new Para())
+                                        ->class('field')
+                                        ->items([
+                                            (new Input('item_descr'))
+                                                ->size(40)
+                                                ->maxlength(255)
+                                                ->value(App::backend()->item_descr)
+                                                ->lang(App::auth()->getInfo('user_lang'))
+                                                ->spellcheck(true)
+                                                ->label(new Label(__('Description of item menu:'), Label::OL_TF)),
+                                        ]),
+                                    (new Para())
+                                        ->class('field')
+                                        ->items([
+                                            (new Input('item_url'))
+                                                ->size(40)
+                                                ->maxlength(255)
+                                                ->value(App::backend()->item_url)
+                                                ->required(true)
+                                                ->placeholder(__('URL'))
+                                                ->lang(App::auth()->getInfo('user_lang'))
+                                                ->spellcheck(true)
+                                                ->label(
+                                                    (new Label(
+                                                        (new Text('span', '*'))->render() . __('URL of item menu:'),
+                                                        Label::OL_TF
+                                                    ))->class('required')
+                                                ),
+                                        ]),
+                                    (new Para())
+                                        ->class('field')
+                                        ->items([
+                                            (new Checkbox('item_targetBlank'))
+                                                ->value('blank')
+                                                ->label(new Label(__('Open URL on a new tab'), Label::OL_FT)),
+                                        ]),
+                                    (new Para())
+                                        ->class('form-buttons')
+                                        ->items([
+                                            ...My::hiddenFields(),
+                                            (new Hidden('item_type', App::backend()->item_type)),
+                                            (new Hidden('item_select', App::backend()->item_select)),
+                                            (new Submit('appendaction', __('Add this item'))),
+                                            (new Button(['back'], __('Back')))
+                                                ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                                        ]),
+                                ]),
+                        ])
+                    ->render();
 
                     break;
             }
@@ -628,60 +728,68 @@ class Manage extends Process
         if (App::backend()->step === self::STEP_LIST) {
             // Formulaire d'activation
 
-            echo
-            '<form id="settings" action="' . App::backend()->getPageURL() . '" method="post">' .
-            '<p>' . form::checkbox('active', 1, App::backend()->menu_active) .
-            '<label class="classic" for="active">' . __('Enable simple menu for this blog') . '</label>' . '</p>' .
-            '<p class="form-buttons">' . App::nonce()->getFormNonce() .
-            '<input type="submit" name="saveconfig" value="' . __('Save configuration') . '">' .
-            ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-            '</p>' .
-            '</form>';
+            echo (new Form('settings'))
+                ->method('post')
+                ->action(App::backend()->getPageURL())
+                ->fields([
+                    (new Para())
+                        ->items([
+                            (new Checkbox('active', App::backend()->menu_active))
+                                ->value(1)
+                                ->label(new Label(__('Enable simple menu for this blog'), Label::IL_FT)),
+                        ]),
+                    (new Para())
+                        ->class('form-buttons')
+                        ->items([
+                            ...My::hiddenFields(),
+                            (new Submit('saveconfig', __('Save configuration'))),
+                            (new Button(['back'], __('Back')))
+                                ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                        ]),
+                ])
+            ->render();
 
-            // Liste des items
+            // Ajout d'un item
 
-            echo
-            '<form id="menuitemsappend" action="' . App::backend()->getPageURL() .
-            '&amp;add=' . trim((string) self::STEP_TYPE) . '" method="post">' .
-            '<p class="top-add">' . App::nonce()->getFormNonce() .
-            '<input class="button add" type="submit" name="appendaction" value="' . __('Add an item') . '"></p>' .
-            '</form>';
+            echo (new Form('menuitemsappend'))
+                ->method('post')
+                ->action(App::backend()->getPageURL() . '&add=' . trim((string) self::STEP_TYPE))
+                ->fields([
+                    (new Para())
+                        ->class('top-add')
+                        ->items([
+                            ...My::hiddenFields(),
+                            (new Submit(['appendaction'], __('Add an item')))
+                                ->class(['button', 'add']),
+                        ]),
+                ])
+            ->render();
         }
 
         if (count(App::backend()->current_menu)) {
-            if (App::backend()->step === self::STEP_LIST) {
-                echo
-                '<form id="menuitems" action="' . App::backend()->getPageURL() . '" method="post">';
-            }
+            // Prepare list
 
             // Entête table
-            echo
-            '<div class="table-outer">' .
-            '<table class="dragable">' .
-            '<caption>' . __('Menu items list') . '</caption>' .
-            '<thead>' .
-            '<tr>';
-
+            $headers = [];
             if (App::backend()->step === self::STEP_LIST) {
-                echo
-                '<th scope="col"></th>' .
-                '<th scope="col"></th>';
+                $headers = array_merge($headers, [
+                    (new Th())->scope('col'),
+                    (new Th())->scope('col'),
+                ]);
             }
+            $headers = array_merge($headers, [
+                (new Th())->scope('col')->text(__('Label')),
+                (new Th())->scope('col')->text(__('Description')),
+                (new Th())->scope('col')->text(__('URL')),
+                (new Th())->scope('col')->text(__('Open URL on a new tab')),
+            ]);
 
-            echo
-            '<th scope="col">' . __('Label') . '</th>' .
-            '<th scope="col">' . __('Description') . '</th>' .
-            '<th scope="col">' . __('URL') . '</th>' .
-            '<th scope="col">' . __('Open URL on a new tab') . '</th>' .
-            '</tr>' .
-            '</thead>' .
-            '<tbody' . (App::backend()->step === self::STEP_LIST ? ' id="menuitemslist"' : '') . '>';
+            $rows  = [];
             $count = 0;
             foreach (App::backend()->current_menu as $i => $m) {
-                echo
-                '<tr class="line" id="l_' . $i . '">';
+                $cols = [];
 
-                //because targetBlank can not exists. This value has been added after this plugin creation.
+                // targetBlank may not exists as this value has been added after this plugin creation.
                 if ((isset($m['targetBlank'])) && ($m['targetBlank'])) {
                     $targetBlank    = true;
                     $targetBlankStr = 'X';
@@ -692,67 +800,116 @@ class Manage extends Process
 
                 if (App::backend()->step === self::STEP_LIST) {
                     $count++;
-                    echo
-                    '<td class="' . (App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle ') . 'minimal">' .
-                    form::number(['order[' . $i . ']'], [
-                        'min'        => 1,
-                        'max'        => count(App::backend()->current_menu),
-                        'default'    => $count,
-                        'class'      => 'position',
-                        'extra_html' => 'title="' . sprintf(__('position of %s'), Html::escapeHTML($m['label'])) . '"',
-                    ]) .
-                    form::hidden(['dynorder[]', 'dynorder-' . $i], $i) . '</td>' .
-                    '<td class="minimal">' . form::checkbox(['items_selected[]', 'ims-' . $i], $i) . '</td>' .
-                    '<td class="nowrap" scope="row">' . form::field(
-                        ['items_label[]', 'iml-' . $i],
-                        null,
-                        255,
-                        [
-                            'default'    => Html::escapeHTML($m['label']),
-                            'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                        ]
-                    ) . '</td>' .
-                    '<td class="nowrap">' . form::field(
-                        ['items_descr[]', 'imd-' . $i],
-                        30,
-                        255,
-                        [
-                            'default'    => Html::escapeHTML($m['descr']),
-                            'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                        ]
-                    ) . '</td>' .
-                    '<td class="nowrap">' . form::field(['items_url[]', 'imu-' . $i], 30, 255, Html::escapeHTML($m['url'])) . '</td>' .
-                    '<td class="nowrap">' . form::checkbox('items_targetBlank' . $i, 'blank', $targetBlank) . '</td>';
+                    $cols = [
+                        (new Td())
+                            ->class(['minimal', App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle'])
+                            ->items([
+                                (new Number(['order[' . $i . ']'], 1, count(App::backend()->current_menu), $count))
+                                    ->class('position')
+                                    ->title(sprintf(__('position of %s'), Html::escapeHTML($m['label']))),
+                                (new Hidden(['dynorder[]', 'dynorder-' . $i], (string) $i)),
+                            ]),
+                        (new Td())
+                            ->class('minimal')
+                            ->items([
+                                (new Checkbox(['items_selected[]', 'ims-' . $i]))
+                                    ->value($i),
+                            ]),
+                        (new Td())
+                            ->class('nowrap')
+                            ->items([
+                                (new Input(['items_label[]', 'iml-' . $i]))
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($m['label']))
+                                    ->lang(App::auth()->getInfo('user_lang'))
+                                    ->spellcheck(true),
+                            ]),
+                        (new Td())
+                            ->class('nowrap')
+                            ->items([
+                                (new Input(['items_descr[]', 'imd-' . $i]))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($m['descr']))
+                                    ->lang(App::auth()->getInfo('user_lang'))
+                                    ->spellcheck(true),
+                            ]),
+                        (new Td())
+                            ->class('nowrap')
+                            ->items([
+                                (new Input(['items_url[]', 'imu-' . $i]))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($m['url'])),
+                            ]),
+                        (new Td())
+                            ->class('nowrap')
+                            ->items([
+                                (new Checkbox('items_targetBlank' . (string) $i, $targetBlank))
+                                    ->value('blank'),
+                            ]),
+                    ];
                 } else {
-                    echo
-                    '<td class="nowrap" scope="row">' . Html::escapeHTML($m['label']) . '</td>' .
-                    '<td class="nowrap">' . Html::escapeHTML($m['descr']) . '</td>' .
-                    '<td class="nowrap">' . Html::escapeHTML($m['url']) . '</td>' .
-                    '<td class="nowrap">' . $targetBlankStr . '</td>';
+                    $cols = [
+                        (new Td())->class('nowrap')->text(Html::escapeHTML($m['label'])),
+                        (new Td())->class('nowrap')->text(Html::escapeHTML($m['descr'])),
+                        (new Td())->class('nowrap')->text(Html::escapeHTML($m['url'])),
+                        (new Td())->class('nowrap')->text($targetBlankStr),
+                    ];
                 }
-                echo
-                '</tr>';
-            }
-            echo
-            '</tbody>' .
-            '</table></div>';
 
-            if (App::backend()->step === self::STEP_LIST) {
-                echo
-                '<div class="two-cols">' .
-                '<p class="col checkboxes-helpers"></p>' .
-                '<p class="col right">' . '<input id="remove-action" type="submit" class="delete" name="removeaction" ' .
-                'value="' . __('Delete selected menu items') . '" ' .
-                'onclick="return window.confirm(\'' . Html::escapeJS(__('Are you sure you want to remove selected menu items?')) . '\');">' .
-                '</p>' .
-                '</div>' .
-                '<p class="col">' . form::hidden('im_order', '') . App::nonce()->getFormNonce() .
-                '<input type="submit" name="updateaction" value="' . __('Update menu') . '">' . '</p>' .
-                '</form>';
+                $rows[] = (new Tr())
+                    ->id('l_' . (string) $i)
+                    ->class('line')
+                    ->cols($cols);
             }
+
+            $list = (new Div())
+                ->class('table-outer')
+                ->items([
+                    (new Table())
+                        ->class('dragable')
+                        ->caption(new Caption(__('Menu items list')))
+                        ->thead((new Thead())->rows([
+                            (new Tr())->cols($headers),
+                        ]))
+                        ->tbody((new Tbody())->id(App::backend()->step === self::STEP_LIST ? 'menuitemslist' : '')->rows($rows)),
+                ]);
+
+            // Display form/list
+
+            echo (App::backend()->step === self::STEP_LIST ?
+                (new Form('menuitems'))
+                    ->method('post')
+                    ->action(App::backend()->getPageURL())
+                    ->fields([
+                        $list,
+                        (new Div())
+                            ->class('two-cols')
+                            ->items([
+                                (new Para())->class(['col', 'checkboxes-helpers']),
+                                (new para())->class(['col', 'right'])->items([
+                                    (new Submit(['removeaction', 'remove-action'], __('Delete selected menu items')))
+                                        ->class('delete'),
+                                ]),
+                            ]),
+                        (new Para())
+                            ->class('col')
+                            ->items([
+                                ...My::hiddenFields(),
+                                (new Hidden('im_order', '')),
+                                (new Submit(['updateaction'], __('Update menu'))),
+                            ]),
+                    ]) :
+                (new Set())
+                    ->items([
+                        $list,
+                    ])
+            )->render();
         } else {
-            echo
-            '<p>' . __('No menu items so far.') . '</p>';
+            echo (new Note())
+                ->text(__('No menu items so far.'))
+            ->render();
         }
 
         Page::helpBlock('simpleMenu');
