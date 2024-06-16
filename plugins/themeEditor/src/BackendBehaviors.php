@@ -12,7 +12,16 @@ namespace Dotclear\Plugin\themeEditor;
 use Exception;
 use Dotclear\App;
 use Dotclear\Core\Backend\Page;
-use form;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Text;
 
 /**
  * @brief   The module backend behaviors.
@@ -34,7 +43,11 @@ class BackendBehaviors
             if (App::blog()->settings()->system->themes_path !== App::blog()->settings()->system->getGlobal('themes_path')
                 || !App::themes()->getDefine($id)->get('distributed')
             ) {
-                return '<p><a href="' . My::manageUrl() . '" class="button">' . __('Edit theme files') . '</a></p>';
+                return (new Para())
+                    ->items([
+                        (new Link())->href(My::manageUrl())->class('button')->text(__('Edit theme files')),
+                    ])
+                ->render();
             }
         }
 
@@ -59,7 +72,7 @@ class BackendBehaviors
     }
 
     /**
-     * Display suer preferences, color syntax activation and theme selection.
+     * Display user preferences, color syntax activation and theme selection.
      */
     public static function adminPreferencesForm(): void
     {
@@ -72,38 +85,7 @@ class BackendBehaviors
             $themes_combo[$theme] = $theme;
         }
 
-        echo
-        '<fieldset id="themeEditor_prefs">' .
-        '<legend>' . __('Syntax highlighting') . '</legend>';
-        echo
-        '<div class="two-cols">' .
-        '<div class="col30">' .
-        '<p><label for="colorsyntax" class="classic">' .
-        form::checkbox('colorsyntax', 1, App::auth()->prefs()->interface->colorsyntax) . '</label>' .
-        __('Syntax highlighting in theme editor') .
-            '</p>';
-        if (count($themes_combo) > 1) {
-            echo
-            '<p><label for="colorsyntax_theme" class="classic">' . __('Theme:') . '</label> ' .
-            form::combo(
-                'colorsyntax_theme',
-                $themes_combo,
-                [
-                    'default' => $current_theme,
-                ]
-            ) .
-                '</p>';
-        } else {
-            echo form::hidden('colorsyntax_theme', '');
-        }
-        echo '</div>';
-        echo '<div class="col70">';
-        echo Page::jsLoadCodeMirror('', false, ['javascript']);
-        if ($current_theme !== 'default') {
-            echo Page::cssLoad('js/codemirror/theme/' . $current_theme . '.css');
-        }
-        // Display sample Javascript code
-        echo '
+        $sample = '
 <textarea id="codemirror" name="codemirror" readonly="true">
 // program to convert celsius to fahrenheit
 // ask the celsius value to the user
@@ -115,11 +97,48 @@ const fahrenheit = (celsius * 1.8) + 32
 // display the result
 console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenheit.`);
 </textarea>';
-        echo
-        Page::jsJson('theme_editor_current', ['theme' => $current_theme]) .
-        My::jsLoad('theme');
-        echo '</div>';
-        echo '</div>';
-        echo '</fieldset>';
+
+        $codemirror = Page::jsLoadCodeMirror('', false, ['javascript']);
+        if ($current_theme !== 'default') {
+            $codemirror .= Page::cssLoad('js/codemirror/theme/' . $current_theme . '.css');
+        }
+        $codemirror .= Page::jsJson('theme_editor_current', ['theme' => $current_theme]) . My::jsLoad('theme');
+
+        echo (new Fieldset())
+            ->id('themeEditor_prefs')
+            ->legend(new Legend(__('Syntax highlighting')))
+            ->fields([
+                (new Div())
+                    ->class('two-cols')
+                    ->items([
+                        (new Div())
+                            ->class('col30')
+                            ->items([
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('colorsyntax', App::auth()->prefs()->interface->colorsyntax))
+                                            ->value(1)
+                                            ->label(new Label(__('Syntax highlighting in theme editor'), Label::IL_FT)),
+                                    ]),
+                                (
+                                    count($themes_combo) > 1 ?
+                                    (new Para())->items([
+                                        (new Select('colorsyntax_theme'))
+                                            ->default($current_theme)
+                                            ->items($themes_combo)
+                                            ->label(new Label(__('Theme:'), Label::IL_TF)),
+                                    ]) :
+                                    (new Hidden('colorsyntax_theme', ''))
+                                ),
+                            ]),
+                        (new Div())
+                            ->class('col70')
+                            ->items([
+                                (new Text(null, $codemirror)),
+                                (new Text(null, $sample)),
+                            ]),
+                    ]),
+            ])
+        ->render();
     }
 }

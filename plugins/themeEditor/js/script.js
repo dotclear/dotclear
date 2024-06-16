@@ -20,18 +20,21 @@ dotclear.ready(() => {
     };
 
     if (!msg) {
-      msg = $('<p style="font-weight:bold; color:red;"></p>');
+      msg = $('<p class="info"></p>');
       $('#file_content').parent().after(msg);
     }
 
+    msg.addClass('info').removeClass('error success');
     msg.text(dotclear.msg.saving_document);
 
     $.post(document.location.href, data, (res) => {
       const err = $(res).find('div.error li:first');
       if (err.length > 0) {
+        msg.removeClass('info').addClass('error');
         msg.text(`${dotclear.msg.error_occurred} ${err.text()}`);
         return;
       }
+      msg.removeClass('info').addClass('success');
       msg.text(dotclear.msg.document_saved);
       $('#file-chooser').empty();
       $(res).find('#file-chooser').children().appendTo('#file-chooser');

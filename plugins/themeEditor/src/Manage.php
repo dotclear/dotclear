@@ -15,9 +15,21 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\ThemesList;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @brief   The module backend manage process.
@@ -132,21 +144,29 @@ class Manage extends Process
         }
 
         $lock_form = (App::auth()->isSuperAdmin()) ?
-            '<fieldset id="lock-form"><legend>' . __('Update') . '</legend>' .
-            '<form id="lock-update" method="post" action="' . App::backend()->getPageURL() . '">' .
-                '<p>' .
-                (App::backend()->theme->updLocked() ?
-                '<input type="submit" name="unlock" value="' . html::escapeHTML(__('Unlock update')) . '">' :
-                '<input type="submit" name="lock" value="' . html::escapeHTML(__('Lock update')) . '">') .
-                App::nonce()->getFormNonce() .
-                '</p>' .
-                '<p class="info">' .
-                __('Lock update of the theme does not prevent to modify its files, only to update it globally.') .
-                '</p>' .
-            '</form>' .
-            '</fieldset>' :
-            ''
-        ;
+            (new Form())
+                ->method('post')
+                ->action(App::backend()->getPageURL())
+                ->id('lock-update')
+                ->fields([
+                    (new Fieldset())
+                        ->id('lock-form')
+                        ->legend(new Legend(__('Update')))
+                        ->items([
+                            (new Para())
+                                ->items([
+                                    ...My::hiddenFields(),
+                                    (new Submit(
+                                        [App::backend()->theme->updLocked() ? 'unlock' : 'lock'],
+                                        App::backend()->theme->updLocked() ? html::escapeHTML(__('Unlock update')) : html::escapeHTML(__('Lock update'))
+                                    )),
+                                ]),
+                            (new Note())
+                                ->class('info')
+                                ->text(__('Lock update of the theme does not prevent to modify its files, only to update it globally.')),
+                        ]),
+                ]) :
+            (new None());
 
         $head = '';
         if (App::backend()->user_ui_colorsyntax) {
@@ -177,93 +197,127 @@ class Manage extends Process
         ) .
         Notices::getNotices();
 
-        echo
-        '<p><strong>' . sprintf(__('Your current theme on this blog is "%s".'), Html::escapeHTML(App::backend()->theme->get('name'))) . '</strong></p>';
+        echo (new Para())
+            ->items([
+                (new Text(null, sprintf(
+                    __('Your current theme on this blog is "%s".'),
+                    (new Text('strong', Html::escapeHTML(App::backend()->theme->get('name'))))->render()
+                ))),
+            ])
+        ->render();
 
         if (App::blog()->settings()->system->themes_path !== App::blog()->settings()->system->getGlobal('themes_path')
             || !App::themes()->getDefine(App::blog()->settings()->system->theme)->get('distributed')
         ) {
-            echo
-            '<div id="file-box">' .
-            '<div id="file-editor">';
-
-            if (App::backend()->file['c'] === null) {
-                echo
-                '<p>' . __('Please select a file to edit.') . '</p>';
-                echo $lock_form;
-            } else {
-                echo
-                '<form id="file-form" action="' . App::backend()->getPageURL() . '" method="post">' .
-                '<h3>' . __('File editor') . '</h3>' .
-                '<p><label for="file_content">' . sprintf(__('Editing file %s'), '<strong>' . App::backend()->file['f']) . '</strong></label></p>' .
-                '<p>' . form::textarea('file_content', 72, 25, [
-                    'default'  => Html::escapeHTML(App::backend()->file['c']),
-                    'class'    => 'maximal',
-                    'disabled' => !App::backend()->file['w'],
-                ]) . '</p>';
-
-                if (App::backend()->file['w']) {
-                    echo
-                    '<p class="form-buttons"><input type="submit" name="write" value="' . __('Save') . ' (s)" accesskey="s"> ' .
-                    (App::backend()->editor->deletableFile(App::backend()->file['type'], App::backend()->file['f']) ? '<input type="submit" name="delete" class="delete" value="' . __('Reset') . '">' : '') .
-                    App::nonce()->getFormNonce() .
-                        (App::backend()->file['type'] ? form::hidden([App::backend()->file['type']], App::backend()->file['f']) : '') .
-                        '</p>';
-                } else {
-                    echo
-                    '<p>' . __('This file is not writable. Please check your theme files permissions.') . '</p>';
-                }
-                echo
-                '</form>';
-                echo $lock_form;
-
-                if (App::backend()->user_ui_colorsyntax) {
-                    $editorMode = (!empty($_REQUEST['css']) ?
-                        'css' :
-                        (!empty($_REQUEST['js']) ?
-                            'javascript' :
-                            (!empty($_REQUEST['po']) ?
-                                'text/plain' :
-                                (!empty($_REQUEST['php']) ?
-                                    'php' :
-                                    'text/html'))));
-                    echo
-                    Page::jsJson('theme_editor_mode', ['mode' => $editorMode]) .
-                    My::jsLoad('mode') .
-                    Page::jsRunCodeMirror('editor', 'file_content', 'dotclear', App::backend()->user_ui_colorsyntax_theme);
-                }
+            $editorMode = '';
+            if (App::backend()->user_ui_colorsyntax) {
+                $editorMode = (!empty($_REQUEST['css']) ?
+                    'css' :
+                    (!empty($_REQUEST['js']) ?
+                        'javascript' :
+                        (!empty($_REQUEST['po']) ?
+                            'text/plain' :
+                            (!empty($_REQUEST['php']) ?
+                                'php' :
+                                'text/html'))));
             }
 
-            echo
-            '</div>' .
+            if (App::backend()->file['c'] === null) {
+                $items = [
+                    (new Note())->text(__('Please select a file to edit.')),
+                    $lock_form,
+                ];
+            } else {
+                $items = [
+                    (new Form())
+                        ->method('post')
+                        ->action(App::backend()->getPageURL())
+                        ->id('file-form')
+                        ->fields([
+                            (new Text('h3', __('File editor'))),
+                            (new Para())
+                                ->items([
+                                    (new Textarea('file_content', Html::escapeHTML(App::backend()->file['c'])))
+                                        ->cols(72)
+                                        ->rows(25)
+                                        ->class('maximal')
+                                        ->disabled(!App::backend()->file['w'])
+                                        ->label((new Label(sprintf(
+                                            __('Editing file %s'),
+                                            (new Text('strong', App::backend()->file['f']))->render()
+                                        ), Label::OL_TF))),
+                                ]),
+                            (new Para())
+                                ->class(App::backend()->file['w'] ? 'form-buttons' : '')
+                                ->items(App::backend()->file['w'] ? [
+                                    ...My::hiddenFields(),
+                                    (new Submit(['write'], __('Save') . ' (s)'))->accesskey('s'),
+                                    App::backend()->editor->deletableFile(App::backend()->file['type'], App::backend()->file['f']) ?
+                                        (new Submit(['delete'], __('Reset')))->class('delete') :
+                                        (new None()),
+                                    App::backend()->file['type'] ?
+                                        (new Hidden([App::backend()->file['type']], App::backend()->file['f'])) :
+                                        (new None()),
+                                ] : [
+                                    (new Note())
+                                        ->text(__('This file is not writable. Please check your theme files permissions.')),
+                                ]),
+                        ]),
+                    $lock_form,
+                    App::backend()->user_ui_colorsyntax ?
+                        (new Text(null, Page::jsJson('theme_editor_mode', ['mode' => $editorMode]) . My::jsLoad('mode') . Page::jsRunCodeMirror('editor', 'file_content', 'dotclear', App::backend()->user_ui_colorsyntax_theme))) :
+                        (new None()),
+                ];
+            }
 
-            '<div id="file-chooser">' .
-            '<h3>' . __('Templates files') . '</h3>' .
-            App::backend()->editor->filesList('tpl', '<a href="' . App::backend()->getPageURL() . '&amp;tpl=%2$s" class="tpl-link">%1$s</a>') .
-
-            '<h3>' . __('CSS files') . '</h3>' .
-            App::backend()->editor->filesList('css', '<a href="' . App::backend()->getPageURL() . '&amp;css=%2$s" class="css-link">%1$s</a>') .
-
-            '<h3>' . __('JavaScript files') . '</h3>' .
-            App::backend()->editor->filesList('js', '<a href="' . App::backend()->getPageURL() . '&amp;js=%2$s" class="js-link">%1$s</a>') .
-
-            '<h3>' . __('Locales files') . '</h3>' .
-            App::backend()->editor->filesList('po', '<a href="' . App::backend()->getPageURL() . '&amp;po=%2$s" class="po-link">%1$s</a>') .
-
-            '<h3>' . __('PHP files') . '</h3>' .
-            App::backend()->editor->filesList('php', '<a href="' . App::backend()->getPageURL() . '&amp;php=%2$s" class="php-link">%1$s</a>') .
-
-            '</div>' .
-            '</div>';
+            echo (new Div())
+                ->id('file-box')
+                ->items([
+                    (new Div())
+                        ->id('file-editor')
+                        ->items($items),
+                    (new Div())
+                        ->id('file-chooser')
+                        ->items([
+                            (new Text('h3', __('Templates files'))),
+                            (new Text(null, App::backend()->editor->filesList(
+                                'tpl',
+                                (new Link())->href(App::backend()->getPageURL() . '&tpl=%2$s')->text('%1$s')->class('tpl-link')->render()
+                            ))),
+                            (new Text('h3', __('CSS files'))),
+                            (new Text(null, App::backend()->editor->filesList(
+                                'css',
+                                (new Link())->href(App::backend()->getPageURL() . '&css=%2$s')->text('%1$s')->class('css-link')->render()
+                            ))),
+                            (new Text('h3', __('JavaScript files'))),
+                            (new Text(null, App::backend()->editor->filesList(
+                                'js',
+                                (new Link())->href(App::backend()->getPageURL() . '&js=%2$s')->text('%1$s')->class('js-link')->render()
+                            ))),
+                            (new Text('h3', __('Locales files'))),
+                            (new Text(null, App::backend()->editor->filesList(
+                                'po',
+                                (new Link())->href(App::backend()->getPageURL() . '&po=%2$s')->text('%1$s')->class('po-link')->render()
+                            ))),
+                            (new Text('h3', __('PHP files'))),
+                            (new Text(null, App::backend()->editor->filesList(
+                                'php',
+                                (new Link())->href(App::backend()->getPageURL() . '&php=%2$s')->text('%1$s')->class('php-link')->render()
+                            ))),
+                        ]),
+                ])
+            ->render();
 
             Page::helpBlock(My::id());
         } else {
-            echo
-            '<div class="error"><p>' . __("You can't edit a distributed theme.") . '</p></div>';
+            echo (new Div())
+                ->class('error')
+                ->items([
+                    (new Note())->text(__("You can't edit a distributed theme.")),
+                ])
+            ->render();
         }
 
-        echo
-        '</body>' .
-        '</html>';
+        Page::closeModule();
     }
 }
