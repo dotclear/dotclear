@@ -50,8 +50,7 @@ tr.line {
     margin: 0;
   }
 
-  input,
-  select {
+  :is(input, select) {
     vertical-align: middle;
     box-shadow: none;
   }
@@ -60,8 +59,7 @@ tr.line {
     width: 6em;
   }
 
-  &:hover,
-  &:focus-within {
+  &:is(:hover, :focus-within) {
     background-color: var(--line-focus-background);
     @media (prefers-contrast: more) {
       outline: 1px solid var(--fieldset-border);
@@ -77,10 +75,8 @@ td.status {
   }
 }
 
-.noborder td,
-td.noborder,
-.noborder th,
-th.noborder {
+.noborder :is(td, th),
+:is(td, th).noborder {
   border-width: 0 0 1px 0;
   border-color: var(--cell-noborder-color);
   line-height: 2em;
@@ -95,8 +91,7 @@ table.posts-list {
   min-width: 50%;
 }
 
-table.settings,
-table.prefs {
+table:is(.settings, .prefs) {
   margin-bottom: 3em;
 
   &:target caption::before {
@@ -164,10 +159,7 @@ td.expand {
   table.rch {
     display: block;
 
-    caption,
-    tbody,
-    tr,
-    td {
+    :is(caption, tbody, tr, td) {
       display: block;
     }
 
@@ -214,8 +206,7 @@ td.expand {
       border-top: 1px dashed var(--rch-table-expand-border);
     }
 
-    input,
-    select {
+    :is(input, select) {
       align-self: center;
     }
   }

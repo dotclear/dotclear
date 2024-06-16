@@ -19,11 +19,7 @@
   border: 1px solid var(--blog-user-border);
   border-radius: 0.5em;
   padding: 0 1em 0.5em;
-  h4,
-  h5,
-  p,
-  ul,
-  li {
+  :is(h4, h5, p, ul, li) {
     margin: 0.5em 0 0.33em;
     padding: 0;
   }
@@ -47,8 +43,7 @@
   }
 }
 
-li.user_super,
-li.user_admin {
+li:is(.user_super, .user_admin) {
   margin-left: 0;
   padding-left: 1.6em;
   list-style: none;

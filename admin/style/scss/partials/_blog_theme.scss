@@ -1,7 +1,4 @@
-#theme-new,
-#theme-activate,
-#theme-deactivate,
-#theme-update {
+:is(#theme-new, #theme-activate, #theme-deactivate, #theme-update) {
   justify-content: flex-start;
   column-gap: 1em;
 }
@@ -58,8 +55,7 @@
   gap: 0.5em;
 }
 
-span.module-version::before,
-span.module-locked::before {
+span:is(.module-version, .module-locked)::before {
   content: '- ';
 }
 
@@ -82,8 +78,7 @@ On adapte largeur et hauteur en fonction
   }
 }
 
-#theme-new .box.theme,
-#theme-update .box.theme {
+:is(#theme-new, #theme-update) .box.theme {
   /* Ajouter un thème */
   width: 278px;
   min-height: 275px;

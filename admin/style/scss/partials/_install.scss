@@ -1,58 +1,41 @@
 /* Install */
 
 a,
-a:link,
-a:visited {
+a:is(:link, :visited) {
   color: #2373a8;
   text-decoration: none;
   border-bottom: 1px dotted #f90;
 }
 
-a:hover,
-a:active,
-a:focus {
+a:is(:hover, :active, :focus) {
   text-decoration: underline;
 }
 
-div.error,
-p.error,
-div.message,
-p.message,
-div.static-msg,
-p.static-msg {
+:is(div, p):is(.error, .message, .static-msg) {
   padding: 0.5em 0.5em 0.5em 60px;
   margin-bottom: 1em;
   margin-top: 1em;
   border-radius: 8px;
 }
 
-p.error,
-p.message,
-p.static-msg {
+p:is(.error, .message, .static-msg) {
   padding-top: 1em;
   padding-bottom: 1em;
 }
 
-div.error,
-p.error {
+:is(div, p).error {
   background: #e5bfbf url(msg-error.svg) no-repeat 10px 10px;
   background-size: 2.5em;
   color: #600;
 }
 
-div.message,
-p.message,
-div.static-msg,
-p.static-msg {
+:is(div, p):is(.message, .static-msg) {
   background: #666 url(msg-info.svg) no-repeat 10px 10px;
   background-size: 2.5em;
   color: #fff;
 }
 
-div.message a,
-p.message a,
-div.static-msg a,
-p.static-msg a {
+:is(div, p):is(.message, .static-msg) a {
   color: #fff;
 }
 
@@ -60,20 +43,16 @@ label {
   display: block;
 }
 
-label input,
-label select,
-label span {
+label :is(input, select, span) {
   display: block;
 }
 
 // Required fields
-label.required,
-span.required {
+:is(label, span).required {
   font-weight: bold;
 }
 
-label.required abbr,
-label.required span,
+label.required :is(abbr, span),
 span.required {
   color: #900;
   font-size: 1.3em;
@@ -136,8 +115,7 @@ input[type='submit'] {
   width: 100%;
 }
 
-input[type='submit']:hover,
-input[type='submit']:focus {
+input[type='submit']:is(:hover, :focus) {
   color: #3a539b;
   background: #fff;
 }

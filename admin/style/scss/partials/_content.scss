@@ -28,8 +28,7 @@
       background-color: var(--tabs-background);
       display: inline-block;
 
-      &:hover,
-      &:focus {
+      &:is(:hover, :focus) {
         color: var(--tabs-color);
         background: var(--tabs-active-background);
         border-bottom-color: var(--tabs-active-background);
@@ -78,8 +77,7 @@
     padding: 0 24px;
     border-bottom: none;
 
-    &:hover,
-    &:focus {
+    &:is(:hover, :focus) {
       background-color: var(--tabs-background);
       color: var(--tabs-color);
     }

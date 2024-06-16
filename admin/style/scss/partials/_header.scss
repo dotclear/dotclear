@@ -62,8 +62,7 @@ h1 {
     background-position: center;
     transition: none;
 
-    &:hover,
-    &:focus {
+    &:is(:hover, :focus) {
       background-image: url(dc_logos/dotclear-alt.svg);
       transition: none;
     }
@@ -150,8 +149,7 @@ h1 {
     background-size: 2.5em;
     background-position: center;
 
-    &:hover,
-    &:focus {
+    &:is(:hover, :focus) {
       background-image: url(dc_logos/dotclear-mini-alt.svg);
     }
   }

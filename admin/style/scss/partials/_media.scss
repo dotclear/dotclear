@@ -24,8 +24,7 @@ span.media-file-mode {
   min-height: 140px;
   word-wrap: break-word;
 
-  &:hover,
-  &:active {
+  &:is(:hover, :active) {
     background: var(--media-item-active-background);
   }
 
@@ -60,7 +59,7 @@ span.media-file-mode {
   }
 }
 
-tr.media-private img.media-private {
+:is(tr, img) .media-private {
   padding-right: 0.5em;
   width: 1.8em;
   vertical-align: text-bottom;
@@ -187,8 +186,7 @@ tr.media-folder {
   padding-bottom: 6px;
 }
 
-.medias-delete,
-.medias-select {
+:is(.medias-delete, .medias-select) {
   text-align: right;
 }
 
@@ -208,8 +206,7 @@ tr.media-folder {
   height: 1.25em;
   padding-top: 0.25em;
 }
-.attach-media,
-.insert-media {
+:is(.attach-media, .insert-media) {
   img {
     height: 1.25em;
     padding-top: 0.25em;
@@ -224,10 +221,7 @@ tr.media-folder {
 /* upload multiple */
 
 .enhanced_uploader {
-  .choose_files,
-  .cancel,
-  .clean,
-  .start {
+  :is(.choose_files, .cancel, .clean, .start) {
     margin-right: 0.4em;
   }
 
@@ -258,9 +252,7 @@ tr.media-folder {
   }
 }
 
-.button.clean,
-.button.cancel,
-.button.choose_files {
+.button:is(.clean, .cancel, .choose_files) {
   display: none;
 }
 

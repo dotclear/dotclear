@@ -63,8 +63,7 @@
 }
 
 #available-favs {
-  input,
-  label,
+  :is(input, label),
   label span {
     white-space: normal;
     display: inline;

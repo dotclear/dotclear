@@ -61,7 +61,6 @@
     a {
       border-bottom: none;
       color: var(--main-menu-active-color);
-
       position: relative;
       &::after {
         content: '•';
@@ -72,10 +71,7 @@
   }
 }
 
-#favorites-menu,
-#blog-menu,
-#system-menu,
-#plugins-menu {
+:is(#favorites-menu, #blog-menu, #system-menu, #plugins-menu) {
   border-bottom: 1px dashed var(--main-menu-border);
 }
 

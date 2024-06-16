@@ -2,9 +2,7 @@
 
 button,
 a.button,
-input[type='button'],
-input[type='reset'],
-input[type='submit'] {
+input:is([type='button'], [type='reset'], [type='submit']) {
   border: 1px solid var(--button-border);
   font-family: var(--sans-serif-input);
   padding: 3px 10px;
@@ -33,8 +31,7 @@ input.button.start {
   color: var(--submit-color);
   background-color: var(--submit-background);
 
-  &:hover,
-  &:focus {
+  &:is(:hover, :focus) {
     color: var(--submit-background);
     background-color: var(--submit-color);
   }
@@ -43,36 +40,28 @@ input.button.start {
 /* suppression, reset, "neutres" fond gris */
 
 button,
-input[type='button'],
 input.button,
-input[type='reset'],
-input[type='submit'].reset,
-input.reset,
-input[type='submit'].delete,
-input.delete,
+input:is([type='button'], [type='reset']),
+input[type='submit']:is(.reset, .delete),
+input:is(.reset, .delete),
 a.button,
-a.button.delete,
-a.button.reset {
+a.button:is(.delete, .reset) {
   color: var(--reset-color);
   background-color: var(--reset-background);
 
-  &:hover,
-  &:focus {
+  &:is(:hover, :focus) {
     background-color: var(--reset-background-alt);
   }
 }
 
 /* suppression */
 
-input[type='submit'].delete,
-input.delete,
-button[type='submit'].delete,
-button.delete,
+:is(input, button)[type='submit'].delete,
+:is(input, button).delete,
 a.button.delete {
   color: var(--delete-color);
 
-  &:hover,
-  &:focus {
+  &:is(:hover, :focus) {
     color: var(--delete-hover-color);
     background-color: var(--delete-hover-background);
   }
@@ -90,9 +79,7 @@ button.add {
   background-color: var(--add-background);
   padding: 0.4em 1.25em 0.4em;
 
-  &:hover,
-  &:active,
-  &:focus {
+  &:is(:hover, :active, :focus) {
     color: var(--add-color-alt);
     background-color: var(--add-background-alt);
   }
@@ -102,17 +89,13 @@ button.add {
   outline: dotted 1px;
 }
 
-input[type='submit'].clone,
-input.clone,
-button.clone,
-button[type='submit'].clone,
+:is(input, button)[type='submit'].clone,
+:is(input, button).clone,
 a.button.clone {
   color: var(--clone-color);
   background-color: var(--clone-background);
 
-  &:hover,
-  &:active,
-  &:focus {
+  &:is(:hover, :active, :focus) {
     color: var(--clone-hover-color);
     background-color: var(--clone-hover-background);
   }
@@ -158,8 +141,7 @@ button.details-cmd {
   background: transparent;
   box-shadow: none;
 
-  &:hover,
-  &:focus {
+  &:is(:hover, :focus) {
     background: transparent;
     color: var(--input-focus);
   }
@@ -168,14 +150,10 @@ button.details-cmd {
 /* specific buttons */
 
 // Ajax or js buttons (action do not reload current page)
-.checkbox-helper,
 #gototop,
-.metaGetList,
-.metaGetMore,
-a.checkbox-helper,
 a#gototop,
-a.metaGetList,
-a.metaGetMore {
+:is(.checkbox-helper, .metaGetList, .metaGetMore),
+a:is(.checkbox-helper, .metaGetList, .metaGetMore) {
   font-size: 0.825em;
   color: var(--ajax-color);
   background: var(--ajax-background);
@@ -202,9 +180,7 @@ a.metaGetMore {
 
   a {
     &,
-    &:link,
-    &:hover,
-    &:active {
+    &:is(:link, :hover, :active) {
       color: var(--gotop-color);
       background: var(--gotop-background);
       border-bottom: none;
@@ -216,8 +192,7 @@ a.metaGetMore {
 }
 
 .metaRemove,
-.addMeta button:not(.metaGetMore),
-.addMeta a:not(.metaGetMore) {
+.addMeta :is(button, a):not(.metaGetMore) {
   border: none;
   border-radius: 0;
   padding: 0;
@@ -231,13 +206,11 @@ a.metaGetMore {
   padding-right: 0.25em;
 }
 
-.addMeta button:not(.metaGetMore),
-.addMeta a:not(.metaGetMore) {
+.addMeta :is(button, a):not(.metaGetMore) {
   box-shadow: initial;
   margin-bottom: 2px;
 
-  &:hover,
-  &:focus {
+  &:is(:hover, :focus) {
     color: var(--addmeta-focus-color);
     background: var(--addmeta-focus-background);
   }

@@ -31,17 +31,19 @@
   .info {
     margin-top: 1em;
   }
-  input[type='text'],
-  input[type='color'],
-  input[type='email'],
-  input[type='url'],
-  input[type='datetime-local'],
-  input[type='date'],
-  input[type='time'],
-  input[type='file'],
-  input[type='number'],
-  input[type='password'],
-  input[type='submit'] {
+  input:is(
+      [type='text'],
+      [type='color'],
+      [type='email'],
+      [type='url'],
+      [type='datetime-local'],
+      [type='date'],
+      [type='time'],
+      [type='file'],
+      [type='number'],
+      [type='password'],
+      [type='submit']
+    ) {
     &,
     &:focus {
       width: 100%;

@@ -19,13 +19,8 @@ body {
 
 // titres //
 
-h2,
-h3,
-.as_h3,
-h4,
-.as_h4,
-h5,
-h6 {
+:is(h2, h3, h4, h5, h6),
+:is(.as_h3, .as_h4) {
   margin-top: 0;
   margin-bottom: 1em;
 }

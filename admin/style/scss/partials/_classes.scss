@@ -49,16 +49,12 @@
   margin-left: 0.25em;
 
   &,
-  &:hover,
-  &:focus,
-  &:active {
+  &:is(:hover, :focus, :active) {
     background-position: 50% 50%;
     background-repeat: no-repeat;
   }
 
-  &:hover,
-  &:focus,
-  &:active {
+  &:is(:hover, :focus, :active) {
     background-color: #fff;
   }
 }
@@ -75,18 +71,14 @@ body.auth {
 
 .pw-show {
   &,
-  &:hover,
-  &:active,
-  &:focus {
+  &:is(:hover, :focus, :active) {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -256 1850 1850" width="100%" height="100%"><path d="M1694.373 683.898q-152-236-381-353 61 104 61 225 0 185-131.5 316.5-131.5 131.5-316.5 131.5-185 0-316.5-131.5-131.5-131.5-131.5-316.5 0-121 61-225-229 117-381 353 133 205 333.5 326.5 200.5 121.5 434.5 121.5 234 0 434.5-121.5 200.5-121.5 333.5-326.5zm-720-384q0-20-14-34-14-14-34-14-125 0-214.5 89.5-89.5 89.5-89.5 214.5 0 20 14 34 14 14 34 14 20 0 34-14 14-14 14-34 0-86 61-147 61-61 147-61 20 0 34-14 14-14 14-34zm848 384q0 34-20 69-140 230-376.5 368.5-236.5 138.5-499.5 138.5-263 0-499.5-139-236.5-139-376.5-368-20-35-20-69 0-34 20-69 140-229 376.5-368 236.5-139 499.5-139 263 0 499.5 139 236.5 139 376.5 368 20 35 20 69z"/></svg>');
   }
 }
 
 .pw-hide {
   &,
-  &:hover,
-  &:active,
-  &:focus {
+  &:is(:hover, :focus, :active) {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -256 1850 1850" width="100%" height="100%"><path d="M585.373 1013.34l78-141q-87-63-136-159-49-96-49-203 0-121 61-225-229 117-381 353 167 258 427 375zm389-759q0-20-14-34-14-14-34-14-125 0-214.5 89.5-89.5 89.5-89.5 214.5 0 20 14 34 14 14 34 14 20 0 34-14 14-14 14-34 0-86 61-147 61-61 147-61 20 0 34-14 14-14 14-34zm363-191q0 7-1 9-105 188-315 566-210 378-316 567l-49 89q-10 16-28 16-12 0-134-70-16-10-16-28 0-12 44-87-143-65-263.5-173-120.5-108-208.5-245-20-31-20-69 0-38 20-69 153-235 380-371 227-136 496-136 89 0 180 17l54-97q10-16 28-16 5 0 18 6 13 6 31 15.5 18 9.5 33 18.5 15 9 31.5 18.5 16.5 9.5 19.5 11.5 16 10 16 27zm37 447q0 139-79 253.5-79 114.5-209 164.5l280-502q8 45 8 84zm448 128q0 35-20 69-39 64-109 145-150 172-347.5 267-197.5 95-419.5 95l74-132q212-18 392.5-137 180.5-119 301.5-307-115-179-282-294l63-112q95 64 182.5 153 87.5 89 144.5 184 20 34 20 69z"/></svg>');
   }
 }
@@ -101,18 +93,14 @@ body.auth {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="%23ffffff"/><path d="M19 3h-1V2c0-.55-.45-1-1-1s-1 .45-1 1v1H8V2c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V8h14v10c0 .55-.45 1-1 1zM8 10h3c.55 0 1 .45 1 1v3c0 .55-.45 1-1 1H8c-.55 0-1-.45-1-1v-3c0-.55.45-1 1-1z" fill="%233a539b"/></svg>');
   }
 
-  &:hover,
-  &:active,
-  &:focus {
+  &:is(:hover, :focus, :active) {
     background-image: url('data:image/svg+xml,<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill-rule="nonzero"><path d="m0 0h24v24h-24z" fill="%23fff"/><path d="m19 3h-1v-1c0-.55-.45-1-1-1s-1 .45-1 1v1h-8v-1c0-.55-.45-1-1-1s-1 .45-1 1v1h-1c-1.11 0-1.99.9-1.99 2l-.01 14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-14c0-1.1-.9-2-2-2zm-1 16h-12c-.55 0-1-.45-1-1v-10h14v10c0 .55-.45 1-1 1z" fill="%233a539b"/><path d="m8 10h3c.55 0 1 .45 1 1v3c0 .55-.45 1-1 1h-3c-.55 0-1-.45-1-1v-3c0-.55.45-1 1-1z" fill="%23ab4e58"/></g></svg>');
   }
 }
 
 // Specific contexts
 #login-screen {
-  #user_pwd.pwd_helper,
-  #new_pwd.pwd_helper,
-  #new_pwd_c.pwd_helper {
+  :is(#user_pwd, #new_pwd, #new_pwd_c).pwd_helper {
     width: calc(100% - 2.51em);
   }
 }
@@ -166,8 +154,7 @@ a.back {
   border-radius: 0.5em;
   background-color: var(--nav-prevnext-background);
 
-  &:hover,
-  &:focus {
+  &:is(:hover, :focus) {
     color: var(--reset-color);
     background-color: var(--reset-background-alt);
   }
@@ -185,8 +172,7 @@ a.onblog_link {
   border-radius: 0.5em;
   background-color: var(--onblog-link-background);
 
-  &:hover,
-  &:focus {
+  &:is(:hover, :focus) {
     color: var(--reset-color);
     background-color: var(--reset-background-alt);
   }
@@ -238,8 +224,7 @@ img.go_home {
     padding: 0.125em 0.25em;
     min-width: 2em;
 
-    &:hover,
-    &:focus {
+    &:is(:hover, :focus) {
       color: var(--reset-color);
       background-color: var(--reset-background-alt);
     }
@@ -335,23 +320,25 @@ p {
     vertical-align: text-bottom;
   }
 }
-.mark-generic,
-.mark-locked,
-.mark-scheduled,
-.mark-published,
-.mark-check-on,
-.mark-unpublished,
-.mark-check-off,
-.mark-pending,
-.mark-check-wrn,
-.mark-attach,
-.mark-selected,
-.mark-spam,
-.mark-junk,
-.mark-hidden,
-.mark-edit,
-.mark-admin,
-.mark-fav {
+:is(
+    .mark-generic,
+    .mark-locked,
+    .mark-scheduled,
+    .mark-published,
+    .mark-check-on,
+    .mark-unpublished,
+    .mark-check-off,
+    .mark-pending,
+    .mark-check-wrn,
+    .mark-attach,
+    .mark-selected,
+    .mark-spam,
+    .mark-junk,
+    .mark-hidden,
+    .mark-edit,
+    .mark-admin,
+    .mark-fav
+  ) {
   width: 1.4em;
 }
 .mark-attach {
@@ -398,8 +385,7 @@ p {
     margin-bottom: 0;
   }
 
-  h3,
-  h4 {
+  :is(h3, h4) {
     width: 100%;
     padding: 0;
     margin-bottom: 0.75em;
@@ -409,8 +395,7 @@ p {
   }
 }
 
-.right,
-.txt-right {
+:is(.right, .txt-right) {
   text-align: right;
 }
 
@@ -514,8 +499,7 @@ ul.from-left {
 
 /* Tailles des icônes SVG */
 
-.icon-small,
-.icon-mini {
+:is(.icon-small, .icon-mini) {
   width: 1em;
   height: 1em;
   vertical-align: text-top;

@@ -1,6 +1,4 @@
-.warn,
-.warning,
-.info {
+:is(.warn, .warning, .info) {
   font-style: normal;
   padding: 0.4em 0.66em 0.4em;
   display: inline-block;
@@ -16,8 +14,7 @@
   background-color: var(--msg-info-background);
 }
 
-.warn,
-.warning {
+:is(.warn, .warning) {
   color: var(--msg-warn-color);
   border: 1px solid var(--msg-warn-border);
   background: url(msg-warning.svg) no-repeat 0.75em 0.75em;
@@ -25,11 +22,7 @@
   background-color: var(--msg-warn-background);
 }
 
-.error,
-.message,
-.static-msg,
-.success,
-.warning-msg {
+:is(.error, .message, .static-msg, .success, .warning-msg) {
   padding: 1.25em 0.5em 0.5em 4em;
   margin-bottom: 1em;
   border-radius: 3px;
@@ -48,8 +41,7 @@
   }
 }
 
-.message,
-.static-msg {
+:is(.message, .static-msg) {
   color: var(--msg-color);
   background: url(msg-std.svg) no-repeat 0.625em 1.125em;
   background-size: 2.5em;
@@ -61,8 +53,7 @@
   animation-duration: 0.5s;
 }
 
-.message :is(a, h3),
-.static-msg :is(a, h3) {
+:is(.message, .static-msg) :is(a, h3) {
   color: var(--msg-color);
 }
 
@@ -78,9 +69,7 @@
   animation-duration: 0.5s;
 }
 
-.success a,
-.warning-msg a,
-.info a {
+:is(.success, .warning-msg, .info) a {
   color: var(--msg-info-color);
 }
 
@@ -142,17 +131,13 @@ p.updt-info img.outgoing-js {
   filter: brightness(0);
 }
 
-div.warn,
-div.warning,
-div.info {
+div:is(.warn, .warning, .info) {
   display: block;
   padding: 1em 1em 1em 4em;
   margin-bottom: 1em;
 }
 
-p.warn,
-p.warning,
-p.info {
+p:is(.warn, .warning, .info) {
   background-position: 0.4em 0.4em;
   background-size: 1.5em;
   text-indent: 0;
@@ -163,19 +148,13 @@ p.info {
   }
 }
 
-p.error,
-p.message,
-p.static-msg,
-p.success,
-p.warning-msg {
+p:is(.error, .message, .static-msg, .success, .warning-msg) {
   padding-top: 1em;
   padding-bottom: 1.5em;
   margin-top: 0.5em;
 }
 
-span.warn,
-span.warning,
-span.info {
+span:is(.warn, .warning, .info) {
   padding-top: 0.25em;
   padding-bottom: 0.25em;
   background-position: 0.4em 0.2em;
@@ -241,15 +220,7 @@ span.info {
 }
 
 #content {
-  & > div.warn,
-  & > div.warning,
-  & > div.info,
-  & > div.error,
-  & > div.message,
-  & > div.static-msg,
-  & > div.success,
-  & > div.warning-msg,
-  & > div.dc-update {
+  & > div:is(.warn, .warning, .info, .error, .message, .static-msg, .success, .warning-msg, .dc-update) {
     margin-top: 1em;
   }
 }

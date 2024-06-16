@@ -25,8 +25,7 @@ body.safe-mode #header {
 }
 
 h1,
-#top-info-blog,
-#top-info-user {
+:is(#top-info-blog, #top-info-user) {
   padding: 0.5em 0;
   margin: 0;
   font-size: 1em;
@@ -103,8 +102,7 @@ h1,
   z-index: 1;
   transition: none;
 
-  &:hover,
-  &:focus {
+  &:is(:hover, :focus) {
     background: var(--collapser-focus);
     width: var(--collapser-width-focus);
   }
@@ -148,8 +146,7 @@ h1,
 
 body.light-mode,
 body.dark-mode.upgrade-mode {
-  .collapse-mm,
-  .expand-mm {
+  :is(.collapse-mm, .expand-mm) {
     filter: invert(1); // black → white on dark background
   }
 }
@@ -269,8 +266,7 @@ body.dark-mode.upgrade-mode {
   width: calc((100% - 4em) / 3);
 }
 
-.two-boxes,
-.three-boxes {
+:is(.two-boxes, .three-boxes) {
   vertical-align: top;
   text-align: left;
 }
@@ -445,12 +441,8 @@ body.dark-mode.upgrade-mode {
 }
 
 @media screen and (width <= $tablet-screen) {
-  #dashboard-boxes .box.medium,
-  .box.medium,
-  #dashboard-boxes .box.small,
-  .box.small,
-  #dashboard-boxes .box.large,
-  .box.large {
+  #dashboard-boxes :is(.box.medium, .box.small, .box.large),
+  :is(.box.medium, .box.small, .box.large) {
     width: 95%;
     margin: 10px auto;
   }
@@ -468,9 +460,8 @@ body.dark-mode.upgrade-mode {
     top: 10em; // 77px;
   }
 
-  .one-box,
-  body:not(.popup) .two-boxes,
-  .box {
+  :is(.one-box, .box),
+  body:not(.popup) .two-boxes {
     width: 96%;
     margin-left: 0;
     margin-right: 0;
@@ -484,9 +475,7 @@ body.dark-mode.upgrade-mode {
     height: 42px;
   }
 
-  #wrapper,
-  #main,
-  #main-menu {
+  :is(#wrapper, #main, #main-menu) {
     display: block;
     float: none;
     width: 100%;
@@ -517,12 +506,8 @@ body.dark-mode.upgrade-mode {
     margin: 0 -0.25em 1em;
   }
 
-  #dashboard-boxes .box.medium,
-  .box.medium,
-  #dashboard-boxes .box.small,
-  .box.small,
-  #dashboard-boxes .box.large,
-  .box.large {
+  #dashboard-boxes :is(.box.medium, .box.small, .box.large),
+  :is(.box.medium, .box.small, .box.large) {
     width: 95%;
     margin: 10px auto;
   }
@@ -587,9 +572,7 @@ body.dark-mode.upgrade-mode {
     width: 90%;
   }
 
-  #theme-new,
-  #theme-activate,
-  #theme-deactivate {
+  :is(#theme-new, #theme-activate, #theme-deactivate) {
     margin-left: 0;
     margin-right: 0;
   }

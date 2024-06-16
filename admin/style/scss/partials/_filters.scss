@@ -34,8 +34,7 @@ span.ibw {
   cursor: pointer;
   text-decoration: none;
   border-bottom: 1px dotted var(--link-border);
-  &:hover,
-  &:active {
+  &:is(:hover, :active) {
     border-bottom-style: solid;
   }
   &:focus {

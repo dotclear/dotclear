@@ -25,8 +25,7 @@
   font-weight: bold;
 }
 
-.fieldset h3,
-.fieldset h4,
+.fieldset :is(h3, h4),
 .pretty-title {
   color: var(--fieldset-pretty-title-color);
   font-size: 1em;
@@ -37,8 +36,7 @@
   font-size: 1.17em;
 }
 
-.fieldset h3.smart-title,
-.fieldset h4.smart-title,
+.fieldset :is(h3, h4).smart-title,
 .smart-title {
   font-size: 1em;
   text-transform: uppercase;
@@ -51,17 +49,11 @@
   color: var(--entry-sidebar-title-color);
 }
 
-h4 label,
-h5 label {
+:is(h4, h5) label {
   color: var(--title-label-color);
 }
 
-h2,
-h3,
-h4,
-h5,
-ul,
-p {
+:is(h2, h3, h4, h5, ul, p) {
   &:first-child {
     margin-top: 0;
   }
@@ -135,8 +127,7 @@ hr {
   }
 }
 
-pre,
-code,
+:is(pre, code),
 #debug {
   font: 100% var(--monospace);
 }
@@ -158,13 +149,7 @@ abbr {
   cursor: help;
 }
 
-input,
-textarea,
-select,
-option,
-optgroup,
-legend,
-label {
+:is(input, textarea, select, option, optgroup, legend, label) {
   font-size: 1em;
 }
 
@@ -191,8 +176,7 @@ kbd {
 /* ------------------------------------------------------------------ liens */
 
 a,
-a:link,
-a:visited {
+a:is(:link, :visited) {
   color: var(--link-color);
   text-decoration: none;
   border-bottom: 1px dotted var(--link-border);
@@ -206,13 +190,11 @@ a:visited {
   }
 }
 
-a:hover,
-a:active {
+a:is(:hover, :active) {
   border-bottom-style: solid;
 }
 
-h1 a:link,
-h1 a:visited {
+h1 a:is(:link, :visited) {
   border: none;
 }
 

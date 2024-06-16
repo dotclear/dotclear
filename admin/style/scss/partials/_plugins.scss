@@ -15,8 +15,7 @@
   }
 }
 
-.modules tr.expand,
-.modules td.expand {
+.modules :is(tr, td).expand {
   background: var(--modules-background);
   border-color: var(--modules-border);
 }

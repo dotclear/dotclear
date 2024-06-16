@@ -1,16 +1,18 @@
-input[type='text'],
-input[type='color'],
-input[type='email'],
-input[type='url'],
-input[type='datetime-local'],
-input[type='date'],
-input[type='time'],
-input[type='file'],
-input[type='number'],
-input[type='password'],
-input[type='submit'],
-input[type='button'],
-input[type='reset'],
+input:is(
+    [type='text'],
+    [type='color'],
+    [type='email'],
+    [type='url'],
+    [type='datetime-local'],
+    [type='date'],
+    [type='time'],
+    [type='file'],
+    [type='number'],
+    [type='password'],
+    [type='submit'],
+    [type='button'],
+    [type='reset']
+  ),
 a.button,
 button,
 textarea,
@@ -70,15 +72,17 @@ fieldset {
   }
 }
 
-input[type='text'],
-input[type='color'],
-input[type='email'],
-input[type='url'],
-input[type='datetime-local'],
-input[type='date'],
-input[type='time'],
-input[type='file'],
-input[type='number'],
+input:is(
+    [type='text'],
+    [type='color'],
+    [type='email'],
+    [type='url'],
+    [type='datetime-local'],
+    [type='date'],
+    [type='time'],
+    [type='file'],
+    [type='number']
+  ),
 textarea {
   font-family: var(--sans-serif-input);
   font-size: 100%;
@@ -89,22 +93,22 @@ textarea {
 }
 
 label .maximal,
-textarea.maximal,
-input.maximal,
-select.maximal {
+:is(textarea, input, select).maximal {
   width: 100%;
 }
 
-input[type='text'],
-input[type='password'],
-input[type='color'],
-input[type='email'],
-input[type='url'],
-input[type='datetime-local'],
-input[type='date'],
-input[type='time'],
-input[type='file'],
-input[type='number'],
+input:is(
+    [type='text'],
+    [type='password'],
+    [type='color'],
+    [type='email'],
+    [type='url'],
+    [type='datetime-local'],
+    [type='date'],
+    [type='time'],
+    [type='file'],
+    [type='number']
+  ),
 textarea,
 input:not([type='file']):invalid,
 input:not([type='file']):invalid:placeholder-shown {
@@ -121,22 +125,18 @@ select {
 }
 
 // Special for invalid but not required fields
-input:invalid:not(:required),
-textarea:invalid:not(:required),
-select:invalid:not(:required),
+input:is(:invalid:not(:required), :invalid:not(:required), :invalid:not(:required)),
 input:not([type='file']):invalid:not(:focus):not(:required) {
   color: var(--invalid-input-color);
 }
 
-input:invalid:not(:required),
-textarea:invalid:not(:required),
+input:is(:invalid:not(:required), :invalid:not(:required)),
 input:not([type='file']):invalid:not(:focus):not(:required) {
   border: 1px inset var(--invalid-input-border);
   background: var(--invalid-input-background);
 }
 
-input:focus,
-textarea:focus {
+:is(input, textarea):focus {
   border-color: var(--input-focus);
 }
 
@@ -154,22 +154,22 @@ textarea {
   }
 }
 
-input[type='text'],
-input[type='color'],
-input[type='email'],
-input[type='url'],
-input[type='datetime-local'],
-input[type='date'],
-input[type='time'],
-input[type='number'],
-input[type='password'],
+input:is(
+    [type='text'],
+    [type='color'],
+    [type='email'],
+    [type='url'],
+    [type='datetime-local'],
+    [type='date'],
+    [type='time'],
+    [type='number'],
+    [type='password']
+  ),
 textarea {
   margin-right: 0.3em;
 }
 
-input[type='checkbox'],
-input[type='radio'],
-input[type='file'] {
+input:is([type='checkbox'], [type='radio'], [type='file']) {
   border: none;
   margin: -0.235ex 0.33em 0 0; // margin-top: -.235ex see https://www.matthecat.com/aligner-icone-et-texte.html
   padding: 0;
@@ -211,8 +211,7 @@ label span {
   display: inline-block;
 }
 
-label.ib,
-input.ib {
+:is(label, input).ib {
   display: inline-block;
 }
 
@@ -220,16 +219,13 @@ label.classic {
   display: inline;
 }
 
-label.classic input,
-label span input,
-label.classic select,
-label span select {
+label.classic :is(input, select),
+label span :is(input, select) {
   display: inline;
 }
 
 // Required field
-label.required,
-span.required,
+:is(label, span).required,
 label span.required,
 label:has(input:required) {
   font-weight: bold;
@@ -242,10 +238,8 @@ label:has(input:required) {
   }
 }
 
-label.required abbr,
-label.required span,
-label:has(input:required) abbr,
-label:has(input:required) span,
+label.required :is(abbr, span),
+label:has(input:required) :is(abbr, span),
 span.required {
   color: var(--required);
   font-size: 1.3em;
@@ -259,9 +253,7 @@ label.bold {
   margin-top: 2em;
 }
 
-label.area,
-p.area,
-div.area {
+:is(label, p, div).area {
   width: inherit !important;
 }
 
@@ -281,26 +273,22 @@ p.field {
     width: 21em;
   }
 
-  input,
-  select {
+  :is(input, select) {
     display: inline-block;
   }
 }
 
-.form-note,
-.form-stats {
+:is(.form-note, .form-stats) {
   font-style: italic;
   font-weight: normal;
   color: var(--form-note-color);
 }
 
-p.form-note,
-p.form-stats {
+p:is(.form-note, .form-stats) {
   margin-top: -0.5em;
 }
 
-span.form-note,
-span.form-stats {
+span:is(.form-note, .form-stats) {
   text-transform: none;
 }
 
@@ -309,8 +297,7 @@ span.form-stats {
   flex-wrap: wrap;
   gap: 0.5em;
   align-items: center;
-  &.right,
-  &.txt-right {
+  &:is(.right, .txt-right) {
     justify-content: flex-end;
   }
   &.txt-left {
