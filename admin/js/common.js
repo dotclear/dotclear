@@ -1272,7 +1272,9 @@ dotclear.ready(() => {
   // Scroll to top management
   document.addEventListener('scroll', () => {
     const gototopButton = document.getElementById('gototop');
-    gototopButton.style.display = document.querySelector('html').scrollTop === 0 ? 'none' : 'block';
+    if (gototopButton) {
+      gototopButton.style.display = document.querySelector('html').scrollTop === 0 ? 'none' : 'block';
+    }
   });
   document.getElementById('gototop')?.addEventListener('click', (event) => {
     if (dotclear.animationisReduced) {
