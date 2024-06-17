@@ -69,15 +69,17 @@ dotclear.ready(() => {
     $('#pageslist tr:not(.line)').remove();
   });
 
-  $('#pageslist').sortable({
-    stop() {
-      $('#pageslist tr td input.position').each(function (i) {
-        $(this).val(i + 1);
-      });
-    },
-  });
-  $('#pageslist tr td input.position').hide();
-  $('#pageslist tr td.handle').addClass('handler');
+  if ($('#pageslist').css('display') !== 'block') {
+    $('#pageslist').sortable({
+      stop() {
+        $('#pageslist tr td input.position').each(function (i) {
+          $(this).val(i + 1);
+        });
+      },
+    });
+    $('#pageslist tr td input.position').hide();
+    $('#pageslist tr td.handle').addClass('handler');
+  }
 
   $('form input[type=submit]').on('click', function () {
     $('input[type=submit]', $(this).parents('form')).removeAttr('clicked');
