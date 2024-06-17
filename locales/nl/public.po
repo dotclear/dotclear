@@ -1,132 +1,149 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-25 07:41+0100\n"
-"PO-Revision-Date: 2016-07-18 15:50+0200\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: Joran <LL@li.org>\n"
-"Language: nl\n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-06-17 07:16\n"
+"Last-Translator: \n"
+"Language-Team: Dutch\n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: nl\n"
+"X-Crowdin-File: /master/locales/_pot/public.pot\n"
+"X-Crowdin-File-ID: 266\n"
 
 msgid "%d attachments"
-msgstr "%d bijlages"
+msgstr "%d bijlagen"
 
 msgid "%d comments"
-msgstr "%d comments"
+msgstr "%d opmerkingen"
 
 msgid "%d trackbacks"
 msgstr "%d trackbacks"
 
 msgid "%s reactions"
-msgstr ""
+msgstr "%s reacties"
 
-# Not found strings
-#, fuzzy
+#: __html_tpl_dummy.php:2
 msgid "Access to content"
-msgstr "Naar inhoud"
+msgstr "Toegang tot inhoud"
 
 msgid "Add a comment"
-msgstr "Schrijf een comment"
+msgstr "Een commentaar toevoegen"
 
+#: __html_tpl_dummy.php:5
 msgid "Add ping"
-msgstr ""
+msgstr "Ping toevoegen"
 
 msgid "Additionnal style directives"
-msgstr ""
+msgstr "Extra stijlrichtlijnen"
 
 msgid "All keywords"
-msgstr "Alle tags"
+msgstr "Alle trefwoorden"
 
 msgid "Archives"
 msgstr "Archief"
 
 msgid "Attachments"
-msgstr "Bijlages"
+msgstr "Bijlagen"
 
 msgid "Best of me"
-msgstr "Beste blogs"
+msgstr "Het beste van mij"
 
+#: __html_tpl_dummy.php:8
 msgid "Blog info"
-msgstr ""
+msgstr "Blog info"
 
-#, fuzzy
+#: __html_tpl_dummy.php:9
 msgid "Blog menu"
-msgstr "Naar menu"
+msgstr "Blog menu"
 
+#: __html_tpl_dummy.php:13
 msgid "By"
 msgstr "Door"
 
+#: __html_tpl_dummy.php:10
 msgid "By category"
-msgstr ""
+msgstr "Per categorie"
 
+#: __html_tpl_dummy.php:11
 msgid "By date"
-msgstr ""
+msgstr "Op datum"
 
+#: __html_tpl_dummy.php:12
 msgid "By tag"
-msgstr ""
+msgstr "Met tag"
 
 msgid "Categories"
-msgstr "Categorïen"
+msgstr "Categorieën"
 
 msgid "Comment"
-msgstr "Comment"
+msgstr "Opmerking"
 
 msgid "Comments"
-msgstr "Comments"
+msgstr "Reacties"
 
 msgid "Comments can be formatted using a simple wiki syntax."
-msgstr ""
+msgstr "Opmerkingen kunnen worden geformatteerd met een eenvoudige wiki-syntaxis."
 
 msgid "Comments feed"
-msgstr "Feed van reacties"
+msgstr "Opmerkingen"
 
+#: __html_tpl_dummy.php:17
 msgid "Continue reading"
-msgstr "Lees verder"
+msgstr "Verder lezen"
 
+#: __html_tpl_dummy.php:18
 msgid "Document not found"
 msgstr "Document niet gevonden"
 
+#: __html_tpl_dummy.php:19
 msgid "Email address"
-msgstr "Emailadres"
+msgstr "E-mailadres"
 
 msgid "Email address is not valid"
-msgstr "Je moet een geldig emailadres invoeren"
+msgstr "E-mailadres is ongeldig"
 
 msgid "Entries feed"
-msgstr "Feed van post"
+msgstr "Invoer"
 
+#: __html_tpl_dummy.php:22
 msgid "Explore archives"
-msgstr ""
+msgstr "Verken archieven"
 
-#, fuzzy
+#: __html_tpl_dummy.php:23
 msgid "Extra menu"
-msgstr "Naar menu"
+msgstr "Extra menu"
 
+#: __html_tpl_dummy.php:24
+msgid "Fields followed by * are mandatory"
+msgstr "Velden gevolgd door * zijn verplicht"
+
+#: __html_tpl_dummy.php:25
 msgid "From"
-msgstr ""
+msgstr "Van"
 
+#: __html_tpl_dummy.php:26
 msgid "FromDay"
-msgstr ""
+msgstr "VanDag"
 
+#: __html_tpl_dummy.php:27
 msgid "Go to homepage"
-msgstr ""
+msgstr "Ga naar de startpagina"
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
-msgstr "Géén HTML code, urls worden automatisch klikbaar."
+msgstr "HTML-code wordt weergegeven als tekst en webadressen worden automatisch geconverteerd."
 
 msgid "Home"
 msgstr "Home"
 
 msgid "In"
-msgstr ""
+msgstr "In"
 
 msgid "Languages"
 msgstr "Talen"
@@ -134,223 +151,249 @@ msgstr "Talen"
 msgid "Links"
 msgstr "Links"
 
+#: __html_tpl_dummy.php:29
 msgid "Name or nickname"
-msgstr "Naam of nickname"
+msgstr "Naam of bijnaam"
 
-#, fuzzy
+#: __html_tpl_dummy.php:30
 msgid "Next entry:"
-msgstr "volgende posts"
+msgstr "Volgende inzending:"
 
+#: __html_tpl_dummy.php:31
 msgid "On"
 msgstr "Op"
 
 msgid "Page top"
-msgstr ""
+msgstr "Begin pagina"
 
+#: __html_tpl_dummy.php:34
 msgid "Pagination"
-msgstr ""
+msgstr "Paginering"
 
+#: __html_tpl_dummy.php:35
 msgid "Password needed"
 msgstr "Wachtwoord nodig"
 
 msgid "Password:"
 msgstr "Wachtwoord:"
 
+#: __html_tpl_dummy.php:37
 msgid "Permalink"
 msgstr "Permalink"
 
 msgid "Powered by %s"
-msgstr "Powered by %s"
+msgstr "Aangedreven door %s"
 
-#, fuzzy
 msgid "Preview"
-msgstr "preview"
+msgstr "Voorbeeld"
 
-#, fuzzy
+#: __html_tpl_dummy.php:39
 msgid "Previous entry:"
-msgstr "vorige posts"
+msgstr "Vorig bericht:"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr "RSS ofwel really simple syndication is een eenvoudige manier om automatisch op de hoogte te blijven van favoriete websites. Bezoekers hoeven niet meer te surfen naar internetpagina's om te kijken of de pagina's zijn gewijzigd. RSS feeds kun je lezen met een <a href=\"http://nl.wikipedia.org/wiki/Feedreader\"\">RSS lezer\"</a>."
+msgstr "RSS-feed is een gratis samenvatting van een blog. Het biedt inhoud (berichten of commentaren) of samenvattingen van inhoud, samen met links naar de volledige versies en andere metadata. De laatst gepubliceerde items kunnen dan worden gelezen door je favoriete RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 
 msgid "Read"
 msgstr "Lees"
 
+#: __html_tpl_dummy.php:41
 msgid "Remember me on this blog"
-msgstr "Onthoud mij"
+msgstr "Herinner me op deze blog"
 
 msgid "Required field"
-msgstr ""
+msgstr "Verplicht veld"
 
 msgid "Search"
-msgstr "Zoeken"
+msgstr "Zoek op"
 
 msgid "Send"
-msgstr ""
+msgstr "Stuur"
 
 msgid "Simply copy the following URL into your aggregator:"
-msgstr "Je hoeft alleen de volgende URL naar je RSS lezer te kopieeren: "
+msgstr "Kopieer gewoon de volgende URL in je aggregator:"
 
+#: __html_tpl_dummy.php:45
 msgid "Subcategories"
-msgstr "Subcategorïen"
+msgstr "Subcategorieën"
 
 msgid "Subscribe"
 msgstr "Aanmelden"
 
 msgid "Subscribe to"
-msgstr "Inschrijven op"
+msgstr "Abonneren op"
 
+#: __html_tpl_dummy.php:46
 msgid "Suggestions:"
-msgstr ""
+msgstr "Suggesties:"
 
+#: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
-msgstr "Het document waar je naar zoekt bestaat niet."
+msgstr "Het document dat u zoekt bestaat niet."
 
+#: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
-msgstr ""
+msgstr "De lijst met recente berichten is beschikbaar"
 
+#: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
-msgstr "Zij posten over hetzelfde onderwerp"
+msgstr "Ze postten over hetzelfde onderwerp"
 
 msgid "This blog's comments Atom feed"
-msgstr "Atom feed van dit blog"
+msgstr "Atom feed voor reacties op deze blog"
 
+#: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
-msgstr "Atom feed van comments op deze categorie"
+msgstr "Opmerkingen van deze categorie Atom feed"
 
+#: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
-msgstr "Atom feed van deze categorie"
+msgstr "Inzendingen van deze categorie Atom feed"
 
+#: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
-msgstr "De Atom feed van de comments op deze post"
+msgstr "Opmerkingen bij dit bericht Atom feed"
 
+#: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
-msgstr "De feed van de comments op deze post"
+msgstr "Reacties op dit bericht"
 
-# Not found strings
+#: __html_tpl_dummy.php:54
 msgid "To content"
 msgstr "Naar inhoud"
 
+#: __html_tpl_dummy.php:55
 msgid "To menu"
 msgstr "Naar menu"
 
+#: __html_tpl_dummy.php:56
 msgid "To search"
-msgstr "Naar het zoeken"
+msgstr "Zoeken"
 
+#: __html_tpl_dummy.php:57
 msgid "Trackback URL"
 msgstr "Trackback URL"
 
+#: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "De URL die je hebt geprobeerd, bevat typefouten of de pagina is verwijderd of verplaatst."
 
+#: __html_tpl_dummy.php:59
 msgid "Use search form"
-msgstr ""
+msgstr "Zoekformulier gebruiken"
 
+#: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "Website"
 
 msgid "What is an RSS feed?"
-msgstr "Wat is een RSS feed ?"
+msgstr "Wat is een RSS-feed?"
 
+#: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
-msgstr "Je moet een wachtwoord invoeren om deze pagina's te bekijken"
+msgstr "Je moet een wachtwoord opgeven om toegang te krijgen tot dit gedeelte."
 
 msgid "You must provide a comment"
-msgstr "Je moet een bericht invoeren"
+msgstr "Je moet een opmerking geven"
 
 msgid "You must provide a valid email address."
-msgstr "Vul een geldig emailadres in."
+msgstr "Je moet een geldig e-mailadres opgeven."
 
 msgid "You must provide an author name"
-msgstr "Je moet een naam invoeren"
+msgstr "Je moet een auteursnaam opgeven"
 
+#: __html_tpl_dummy.php:65
 msgid "Your comment"
-msgstr "Jou comment"
+msgstr "Uw commentaar"
 
+#: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
-msgstr "Jou comment is gepubliceerd"
+msgstr "Je commentaar is gepubliceerd."
 
+#: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
-msgstr "Je comment is opgeslagen, en zal worden bekeken voordat hij gepubliceerd word."
+msgstr "Je commentaar is ingediend en zal worden beoordeeld voor publicatie."
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr "Je zoekopdracht naar <em>%1$s</em> heeft <strong>%2$s</strong> resultaten opgeleverd."
+msgstr "Uw zoekopdracht voor <em>%1$s</em> heeft <strong>%2$s</strong> resultaat."
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr "Je zoekopdracht naar <em>%1$s</em> heeft <strong>%2$s</strong> resultaten opgeleverd."
+msgstr "Uw zoekopdracht voor <em>%1$s</em> heeft <strong>%2$s</strong> resultaten."
 
 msgid "Your search for <em>%1$s</em> returned no result."
-msgstr "Je zoekopdracht naar <em>%1$</em> heeft geen resultaten."
+msgstr "Uw zoekopdracht voor <em>%1$s</em> heeft geen resultaat opgeleverd."
 
+#: __html_tpl_dummy.php:66
 msgid "by"
 msgstr "door"
 
+#: __html_tpl_dummy.php:67
 msgid "here"
-msgstr ""
+msgstr "hier"
 
 msgid "in"
-msgstr ""
+msgstr "in"
 
+#: __html_tpl_dummy.php:68
 msgid "next entries"
-msgstr "volgende posts"
+msgstr "volgende vermeldingen"
 
 msgid "no attachments"
-msgstr "geen bijlages"
+msgstr "geen bijlagen"
 
-#, fuzzy
 msgid "no comments"
-msgstr "geen comments"
+msgstr "geen opmerkingen"
 
 msgid "no reactions"
-msgstr ""
+msgstr "geen reacties"
 
 msgid "no trackbacks"
-msgstr "geen trackback"
+msgstr "geen trackbacks"
 
+#: __html_tpl_dummy.php:69
 msgid "of"
 msgstr "van"
 
+#: __html_tpl_dummy.php:70
 msgid "on"
 msgstr "op"
 
 msgid "one attachment"
-msgstr "een bijlage"
+msgstr "één bijlage"
 
 msgid "one comment"
-msgstr "een comment"
+msgstr "één opmerking"
 
-#, fuzzy
 msgid "one reaction"
-msgstr "Lees verder"
+msgstr "één reactie"
 
 msgid "one trackback"
-msgstr "een trackback"
+msgstr "één trackback"
 
+#: __html_tpl_dummy.php:71
 msgid "optional"
-msgstr "niet verplicht"
+msgstr "optioneel"
 
+#: __html_tpl_dummy.php:72
 msgid "page"
 msgstr "pagina"
 
+#: __html_tpl_dummy.php:73
 msgid "preview"
-msgstr "preview"
+msgstr "voorbeeld"
 
+#: __html_tpl_dummy.php:74
 msgid "previous entries"
-msgstr "vorige posts"
+msgstr "vorige inzendingen"
 
 msgid "reactions"
-msgstr ""
+msgstr "reacties"
 
+#: __html_tpl_dummy.php:75
 msgid "send"
-msgstr "zend"
+msgstr "verzenden"
 
+#: __html_tpl_dummy.php:76
 msgid "toDay"
-msgstr ""
+msgstr "toDay"
 
-#, fuzzy
-#~ msgid "Hide password"
-#~ msgstr "Wachtwoord:"
-
-#, fuzzy
-#~ msgid "Show password"
-#~ msgstr "Wachtwoord:"
