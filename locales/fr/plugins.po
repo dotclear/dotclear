@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-23 08:40+0200\n"
-"PO-Revision-Date: 2024-04-23 18:33\n"
+"PO-Revision-Date: 2024-06-17 05:59\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -2956,11 +2956,11 @@ msgstr "Le fichier a été réinitialisé."
 
 #: plugins/themeEditor/src/Manage.php:139
 msgid "Unlock update"
-msgstr "Mise à jour du déverrouillage"
+msgstr "Déverrouiller la mise à jour"
 
 #: plugins/themeEditor/src/Manage.php:140
 msgid "Lock update"
-msgstr "Mise à jour du verrouillage"
+msgstr "Verrouiller la mise à jour"
 
 #: plugins/themeEditor/src/Manage.php:144
 msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
