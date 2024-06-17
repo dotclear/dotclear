@@ -24,37 +24,37 @@ msgid "_Jan"
 msgstr "Jan"
 
 msgid "_Feb"
-msgstr "_Feb"
+msgstr "Feb"
 
 msgid "_Mar"
-msgstr "Mar"
+msgstr "Maa"
 
 msgid "_Apr"
-msgstr "_Apr"
+msgstr "Apr"
 
 msgid "_May"
 msgstr "Mei"
 
 msgid "_Jun"
-msgstr "Juni"
+msgstr "Jun"
 
 msgid "_Jul"
-msgstr "_Jul"
+msgstr "Jul"
 
 msgid "_Aug"
-msgstr "_Aug"
+msgstr "Aug"
 
 msgid "_Sep"
-msgstr "_Sep"
+msgstr "Sep"
 
 msgid "_Oct"
-msgstr "_okt"
+msgstr "Okt"
 
 msgid "_Nov"
-msgstr "_Nov"
+msgstr "Nov"
 
 msgid "_Dec"
-msgstr "_Dec"
+msgstr "Dec"
 
 msgid "January"
 msgstr "Januari"
@@ -93,25 +93,25 @@ msgid "December"
 msgstr "December"
 
 msgid "_Mon"
-msgstr "_Mon"
+msgstr "Ma"
 
 msgid "_Tue"
-msgstr "Dinsdag"
+msgstr "Di"
 
 msgid "_Wed"
-msgstr "_Wed"
+msgstr "Wo"
 
 msgid "_Thu"
-msgstr "Hu"
+msgstr "Do"
 
 msgid "_Fri"
-msgstr "Vri"
+msgstr "Vr"
 
 msgid "_Sat"
-msgstr "Sat"
+msgstr "Za"
 
 msgid "_Sun"
-msgstr "zon."
+msgstr "Zo"
 
 msgid "Monday"
 msgstr "Maandag"
