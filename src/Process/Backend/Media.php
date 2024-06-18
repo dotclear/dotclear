@@ -168,9 +168,20 @@ class Media extends Process
         # Removing items
         if (App::backend()->page->getDirs() && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
             try {
+                $search_filter = isset($_POST['q']) && $_POST['q'] !== '';
+                if ($search_filter) {
+                    // In search mode, medias contain full paths (relative to media main folder), so go back to main folder
+                    $currentDir = App::backend()->page->d;
+                    App::media()->chdir(null);
+                }
                 foreach ($_POST['medias'] as $media) {
                     App::media()->removeItem(rawurldecode($media));
                 }
+                if ($search_filter) {
+                    // Back to current directory
+                    App::media()->chdir($currentDir);
+                }
+
                 Notices::addSuccessNotice(
                     sprintf(
                         __(
