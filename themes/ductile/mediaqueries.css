@@ -11,7 +11,7 @@
 /* --------------------------------------------------------------------
   Moins de 480px (téléphones)
 -------------------------------------------------------------------- */
-@media only screen and (max-width: 480px) {
+@media only screen and (width <= 480px) {
   .nosmall {
     display: none !important;
   }
@@ -113,7 +113,7 @@
 /* --------------------------------------------------------------------
   Autres (plus de 480px)
 -------------------------------------------------------------------- */
-@media only screen and (min-width: 481px) {
+@media only screen and (width > 480px) {
   .nobig {
     display: none;
   }
@@ -241,14 +241,14 @@
 }
 
 /* ------------------------------------------------------ special redimensionnement paysage */
-@media screen and (max-width: 640px) and (orientation: landscape) {
+@media screen and (width <= 640px) and (orientation: landscape) {
   body {
     -webkit-text-size-adjust: 70%;
   }
 }
 
-/* ------------------------------------------------------ règles communes < 640px */
-@media only screen and (max-width: 639px) {
+/* ------------------------------------------------------ règles communes <= 640px */
+@media only screen and (width <= 640px) {
   body {
     -webkit-text-size-adjust: none;
   }
@@ -262,7 +262,7 @@
 }
 
 /* ------------------------------------------------------ spécifique 640px à 1024px */
-@media only screen and (min-width: 640px) and (max-width: 1023px) {
+@media only screen and (width > 640px) and (width <= 1024px) {
   #wrapper {
     padding: 0 10%;
   }
@@ -280,7 +280,7 @@
 }
 
 /* ------------------------------------------------------ spécifique 840px à 1024px */
-@media only screen and (min-width: 840px) and (max-width: 1023px) {
+@media only screen and (width > 840px) and (width <= 1024px) {
   #wrapper {
     padding: 0 13%;
   }
@@ -292,7 +292,7 @@
 /* ------------------------------------------------------
   au-delà de 1024px on passe à deux colonnes
 ------------------------------------------------------ */
-@media only screen and (min-width: 1024px) {
+@media only screen and (width > 1024px) {
   #wrapper {
     padding: 0 7%;
   }
@@ -347,7 +347,7 @@
 /* ------------------------------------------------------
   au-delà de 1280px on décale le post-info à gauche
 ------------------------------------------------------- */
-@media only screen and (min-width: 1280px) {
+@media only screen and (width > 1280px) {
   #content {
     margin: 0 20em 0 220px;
   }
@@ -378,7 +378,7 @@
 }
 
 /* ------------------------------------------------------ au-delà de 1600px */
-@media only screen and (min-width: 1600px) {
+@media only screen and (width > 1600px) {
   #wrapper {
     padding: 0 10%;
   }
