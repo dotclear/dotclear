@@ -1510,7 +1510,7 @@ class Media extends Manager implements MediaInterface
         $c             = $this->openMediaCursor();
         $c->media_meta = $xml->toXML();
 
-        if ($cur->media_title !== '' && $cur->media_title === basename($cur->media_file)) {
+        if ($cur->media_title !== '' && $cur->media_title === basename((string) $cur->media_file)) {
             if ($meta['Title']) {
                 $c->media_title = $meta['Title'];
             }
