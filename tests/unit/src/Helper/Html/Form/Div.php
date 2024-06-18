@@ -173,7 +173,7 @@ class Div extends atoum
 
         $this
             ->string($component->label()->render())
-            ->isEqualTo('<label>mylabel </label>')
+            ->isEqualTo('<label>mylabel</label>')
         ;
     }
 
@@ -187,7 +187,7 @@ class Div extends atoum
 
         $this
             ->string($component->render())
-            ->notContains('<label>mylabel </label>')
+            ->notContains('<label>mylabel</label>')
         ;
     }
 

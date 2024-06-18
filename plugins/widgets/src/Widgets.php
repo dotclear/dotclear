@@ -12,6 +12,7 @@ namespace Dotclear\Plugin\widgets;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Feed\Reader;
@@ -231,7 +232,10 @@ class Widgets
             (bool) $widget->content_only,
             $widget->class,
             'id="search"',
-            ($widget->title ? $widget->renderTitle('<label for="q">' . Html::escapeHTML($widget->title) . '</label>') : '') .
+            ($widget->title ? $widget->renderTitle(
+                (new Label(Html::escapeHTML($widget->title)))->for('q')->render()
+                //'<label for="q">' . Html::escapeHTML($widget->title) . '</label>'
+            ) : '') .
             '<form action="' . App::blog()->url() . '" method="get" role="search">' .
             '<p><input type="text" size="10" maxlength="255" id="q" name="q" value="' . $value . '" ' .
             ($widget->get('placeholder') ? 'placeholder="' . Html::escapeHTML($widget->get('placeholder')) . '"' : '') .

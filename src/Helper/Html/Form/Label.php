@@ -234,7 +234,14 @@ class Label extends Component
         // Cope with optional prefix/suffix
         $buffer = trim(implode(' ', [$this->prefix, $buffer ?: '', $this->suffix]));
 
-        return sprintf($formats[$this->_position], $start, $this->text, $buffer, $end);
+        $format = $formats[$this->_position];
+        // Cope with only label
+        if ($buffer === '') {
+            // Remove space separator before/after buffer
+            $format = str_replace([' %3$s', '%3$s '], '%3$s', $format);
+        }
+
+        return sprintf($format, $start, $this->text, $buffer, $end);
     }
 
     /**
