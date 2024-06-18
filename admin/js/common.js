@@ -688,6 +688,7 @@ dotclear.outgoingLinks = (target) => {
     element.title = `${element.title} (${dotclear.msg.new_window})`;
     if (!element.classList.contains('outgoing')) {
       element.innerHTML += '&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt="">';
+      element.classList.add('outgoing');
     }
     element.addEventListener('click', (e) => {
       e.preventDefault();
