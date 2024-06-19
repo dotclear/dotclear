@@ -23,7 +23,7 @@ namespace Dotclear\Helper\Html\Form;
  *
  * @property    string $src
  * @property    string $alt
- * @property    itn $height
+ * @property    int $height
  * @property    string $loading
  * @property    string $sizes
  * @property    string $srcset
