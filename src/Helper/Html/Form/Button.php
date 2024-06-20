@@ -11,7 +11,7 @@ namespace Dotclear\Helper\Html\Form;
 
 /**
  * @class Button
- * @brief HTML Forms password field creation helpers
+ * @brief HTML Forms input type=button field creation helpers
  */
 class Button extends Input
 {
