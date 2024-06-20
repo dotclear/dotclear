@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-20 16:03+0200\n"
-"PO-Revision-Date: 2024-06-20 14:07\n"
+"PO-Revision-Date: 2024-06-20 15:27\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -1080,7 +1080,7 @@ msgstr "Borrar los enlaces seleccionados"
 
 #: plugins/blogroll/src/Manage.php:380
 msgid "The link list is empty"
-msgstr ""
+msgstr "La lista de enlaces está vacía"
 
 #: plugins/blogroll/src/Manage.php:403
 msgid "Add a new link"
@@ -1936,7 +1936,7 @@ msgstr "WordPress y Dotclear manejan las categorías de forma muy diferente. En 
 
 #: plugins/importExport/src/ModuleImportWp.php:299
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr ""
+msgstr "Por otra parte, en WordPress, un post no puede ser sin categorizar, y una instalación por defecto tiene una primera categoría etiquetada <i>\"Sin categoría\"</i>. Si no has cambiado esa categoría, puedes ignorarla al importar tu blog, ya que Dotclear te permite mantener tus entradas sin categorizar."
 
 #: plugins/importExport/src/ModuleImportWp.php:308
 msgid "Ignore the first category:"
@@ -3113,11 +3113,11 @@ msgstr "¿Seguro que desea reinicializar las barras laterales?"
 
 #: plugins/widgets/src/Manage.php:258 plugins/widgets/src/Manage.php:365
 msgid "Temporarily display the action buttons for each widget"
-msgstr ""
+msgstr "Mostrar temporalmente los botones de acción de cada widget"
 
 #: plugins/widgets/src/Manage.php:259
 msgid "Hide the action buttons for each widget"
-msgstr ""
+msgstr "Ocultar los botones de acción de cada widget"
 
 #: plugins/widgets/src/Manage.php:300 plugins/widgets/src/Manage.php:459
 msgid "order"
