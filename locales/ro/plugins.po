@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-20 16:03+0200\n"
-"PO-Revision-Date: 2024-06-20 14:06\n"
+"PO-Revision-Date: 2024-06-20 15:27\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -1080,7 +1080,7 @@ msgstr "Șterge legăturile selectate"
 
 #: plugins/blogroll/src/Manage.php:380
 msgid "The link list is empty"
-msgstr ""
+msgstr "Lista de legături este goală"
 
 #: plugins/blogroll/src/Manage.php:403
 msgid "Add a new link"
@@ -1936,7 +1936,7 @@ msgstr "Managementul categoriilor WordPress şi Dotclear. Puteţi atribui mai mu
 
 #: plugins/importExport/src/ModuleImportWp.php:299
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr ""
+msgstr "Pe de altă parte, în WordPress, o postare nu poate fi necategorizată, iar o instalare implicită are o primă categorie etichetată <i>\"Uncategorized\"</i>. Dacă nu ați schimbat această categorie, puteți să o ignorați în timpul importării blogului dumneavoastră, deoarece Dotclear vă permite să păstrați posturile necategorizate."
 
 #: plugins/importExport/src/ModuleImportWp.php:308
 msgid "Ignore the first category:"
@@ -3117,11 +3117,11 @@ msgstr "Ești sigur că vrei să resetezi sidebar-urile?"
 
 #: plugins/widgets/src/Manage.php:258 plugins/widgets/src/Manage.php:365
 msgid "Temporarily display the action buttons for each widget"
-msgstr ""
+msgstr "Afișați temporar butoanele de acțiune pentru fiecare widget"
 
 #: plugins/widgets/src/Manage.php:259
 msgid "Hide the action buttons for each widget"
-msgstr ""
+msgstr "Ascundeți butoanele de acțiune pentru fiecare widget"
 
 #: plugins/widgets/src/Manage.php:300 plugins/widgets/src/Manage.php:459
 msgid "order"
