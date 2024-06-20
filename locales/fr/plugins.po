@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-20 16:03+0200\n"
-"PO-Revision-Date: 2024-06-20 14:07\n"
+"PO-Revision-Date: 2024-06-20 15:27\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -1080,7 +1080,7 @@ msgstr "Supprimer les liens sélectionnés"
 
 #: plugins/blogroll/src/Manage.php:380
 msgid "The link list is empty"
-msgstr ""
+msgstr "La liste des liens est vide"
 
 #: plugins/blogroll/src/Manage.php:403
 msgid "Add a new link"
@@ -1936,7 +1936,7 @@ msgstr "La gestion des catégories chez WordPress et Dotclear est tout à fait d
 
 #: plugins/importExport/src/ModuleImportWp.php:299
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr ""
+msgstr "D'autre part, dans WordPress, un billet ne peut pas être sans catégorie, et une installation par défaut possède systématiquement une première catégorie nommée <i>« sans catégorie »</i>. Si vous n'avez pas changé cette catégorie, vous pouvez simplement l'ignorer lors de l'importation sur votre blog, puisque Dotclear vous permet réellement de conserver votre message sans catégorie."
 
 #: plugins/importExport/src/ModuleImportWp.php:308
 msgid "Ignore the first category:"
@@ -3113,11 +3113,11 @@ msgstr "Êtes-vous sûr·e de vouloir réinitialiser les volets ?"
 
 #: plugins/widgets/src/Manage.php:258 plugins/widgets/src/Manage.php:365
 msgid "Temporarily display the action buttons for each widget"
-msgstr ""
+msgstr "Afficher temporairement les boutons d'action pour chaque widget"
 
 #: plugins/widgets/src/Manage.php:259
 msgid "Hide the action buttons for each widget"
-msgstr ""
+msgstr "Masquer les boutons d'action pour chaque widget"
 
 #: plugins/widgets/src/Manage.php:300 plugins/widgets/src/Manage.php:459
 msgid "order"
