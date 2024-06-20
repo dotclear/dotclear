@@ -5,7 +5,6 @@ dotclear.ready(() => {
   // DOM ready and content loaded
 
   // clean
-  $('.remove-if-drag').remove();
   $('.hidden-if-drag').hide();
   $('.widgets, .sortable-delete').addClass('if-drag');
 
@@ -35,7 +34,7 @@ dotclear.ready(() => {
       ui.item.css('height', 'auto');
 
       // signale les zones vides
-      if (ul.find('li:not(.empty-widgets)').length == 0) {
+      if (ul.find('li:not(.empty-widgets)').length === 0) {
         ul.find('li.empty-widgets').show();
         field.find('ul.sortable-delete').hide();
       } else {
@@ -54,7 +53,7 @@ dotclear.ready(() => {
       dotclear.reorder(ul);
 
       // expand
-      if (widget.find('.details-cmd').length == 0) {
+      if (widget.find('.details-cmd').length === 0) {
         dotclear.widgetExpander(widget);
         dotclear.viewWidgetContent(widget, 'close');
       }
@@ -87,5 +86,19 @@ dotclear.ready(() => {
 
   $('li.ui-draggable, ul.ui-sortable li').not('ul.sortable-delete li, li.empty-widgets').css({
     cursor: 'move',
+  });
+
+  $('#switch-dragndrop').on('click', () => {
+    const button = $('#switch-dragndrop');
+    if (button.data('status') === 'hide' || button.data('status') === undefined) {
+      button.data('status', 'show');
+      button.html(dotclear.msg.dragdrop_hide);
+      $('.manual-move.hidden-if-drag, .toolsWidget.hidden-if-drag').show();
+    } else {
+      button.data('status', 'hide');
+      button.html(dotclear.msg.dragdrop_show);
+      $('.manual-move.hidden-if-drag, .toolsWidget.hidden-if-drag').hide();
+    }
+    return false;
   });
 });

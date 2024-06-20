@@ -31,16 +31,16 @@ dotclear.widgetExpander = (line) => {
 
 dotclear.viewWidgetContent = (line, action = 'toogle') => {
   const img = line.find('.details-cmd');
-  const isopen = img.attr('aria-label') == dotclear.img_plus_alt;
+  const isopen = img.attr('aria-label') === dotclear.img_plus_alt;
 
-  if (action == 'close' || (action == 'toogle' && !isopen)) {
+  if (action === 'close' || (action === 'toogle' && !isopen)) {
     line.find('.widgetSettings').hide();
     img.html(dotclear.img_plus_txt);
     img.attr('value', dotclear.img_plus_txt);
     img.attr('aria-label', dotclear.img_plus_alt);
     return;
   }
-  if (!(action == 'open' || (action == 'toogle' && isopen))) {
+  if (!(action === 'open' || (action === 'toogle' && isopen))) {
     return;
   }
   line.find('.widgetSettings').show();
@@ -71,14 +71,14 @@ dotclear.reorder = (ul) => {
       $this.find('input[name*=order]').val(i);
 
       // active ou désactive les fléches
-      if (i == 0) {
+      if (i === 0) {
         $this.find('input.upWidget').prop('disabled', true);
         $this.find('input.upWidget').prop('src', 'images/disabled_up.svg');
       } else {
         $this.find('input.upWidget').prop('disabled', false);
         $this.find('input.upWidget').prop('src', 'images/up.svg');
       }
-      if (i == $list.length - 1) {
+      if (i === $list.length - 1) {
         $this.find('input.downWidget').prop('disabled', true);
         $this.find('input.downWidget').prop('src', 'images/disabled_down.svg');
       } else {

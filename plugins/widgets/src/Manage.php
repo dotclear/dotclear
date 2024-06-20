@@ -9,13 +9,31 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\widgets;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Dd;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Dl;
+use Dotclear\Helper\Html\Form\Dt;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Image;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 use stdClass;
 use UnhandledMatchError;
 
@@ -235,7 +253,11 @@ class Manage extends Process
             Page::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
             Page::jsJson('widgets', [
                 'widget_noeditor' => ($rte_flag ? 0 : 1),
-                'msg'             => ['confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')],
+                'msg'             => [
+                    'confirm_widgets_reset' => __('Are you sure you want to reset sidebars?'),
+                    'dragdrop_show'         => __('Temporarily display the action buttons for each widget'),
+                    'dragdrop_hide'         => __('Hide the action buttons for each widget'),
+                ],
             ]) .
             My::jsLoad('widgets');
 
@@ -263,78 +285,96 @@ class Manage extends Process
                 Html::escapeHTML(App::blog()->name()) => '',
                 My::name()                            => '',
             ]
-        ) .
-        Notices::getNotices() .
+        );
 
-        # All widgets
-        '<form id="listWidgets" action="' . App::backend()->getPageURL() . '" method="post"  class="widgets">' .
-        '<h3>' . __('Available widgets') . '</h3>' .
-        '<p>' . __('Drag widgets from this list to one of the sidebars, for add.') . '</p>' .
-        '<ul id="widgets-ref">';
+        echo
+        Notices::getNotices();
 
-        $j = 0;
+        // All widgets (chooser)
+        $j     = 0;
+        $lines = [];
         foreach (Widgets::$widgets->elements(true) as $w) {
-            echo
-            '<li>' . form::hidden(['w[void][0][id]'], Html::escapeHTML($w->id())) .
-            '<p class="widget-name">' . form::number(['w[void][0][order]'], [
-                'default'    => 0,
-                'class'      => 'hide',
-                'extra_html' => 'title="' . __('order') . '"',
-            ]) .
-            ' ' . $w->name() .
-            ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</p>' .
-            '<p class="manual-move remove-if-drag"><label class="classic">' . __('Append to:') . '</label> ' .
-            form::combo(['addw[' . $w->id() . ']'], App::backend()->append_combo) .
-            '<input type="submit" name="append[' . $w->id() . ']" value="' . __('Add') . '"></p>' .
-            '<div class="widgetSettings hidden-if-drag">' . $w->formSettings('w[void][0]', $j) . '</div>' .
-            '</li>';
+            $lines[] = (new Li())->items([
+                (new Hidden(['w[void][0][id]'], Html::escapeHTML($w->id()))),
+                (new Para())->class('widget-name')->items([
+                    (new Number(['w[void][0][order]']))->value(0)->class('hide')->title(__('order')),
+                    (new Text(null, $w->name())),
+                    ($w->desc() !== '' ?
+                        (new Text('span', __($w->desc())))
+                            ->class('form-note') :
+                        (new None())),
+                ]),
+                (new Para())->class(['form-buttons', 'manual-move', 'hidden-if-drag'])->items([
+                    (new Select(['addw[' . $w->id() . ']']))
+                        ->items(App::backend()->append_combo)
+                        ->label(new Label(__('Append to:'), Label::IL_TF)),
+                    (new Submit(['append[' . $w->id() . ']'], __('Add'))),
+                ]),
+                (new Div())->class(['widgetSettings', 'hidden-if-drag'])->items([
+                    (new Text(null, $w->formSettings('w[void][0]', $j))),
+                ]),
+            ]);
+
             $j++;
         }
 
-        echo
-        '</ul>' .
-        '<p>' . App::nonce()->getFormNonce() . '</p>' .
-        '<p class="remove-if-drag"><input type="submit" name="append" value="' . __('Add widgets to sidebars') . '"></p>' .
-        '</form>' .
+        echo (new Form())
+            ->method('post')
+            ->action(App::backend()->getPageURL())
+            ->id('listWidgets')
+            ->class('widgets')
+            ->fields([
+                (new Text('h3', __('Available widgets'))),
+                (new Note())->text(__('Drag widgets from this list to one of the sidebars, for add.')),
+                (new Ul())->id('widgets-ref')->items($lines),
+                (new Para())
+                    ->class(['form-buttons', 'hidden-if-drag'])
+                    ->items([
+                        ...My::hiddenFields(),
+                        (new Submit(['append'], __('Add widgets to sidebars'))),
+                    ]),
+            ])
+        ->render();
 
-        '<form id="sidebarsWidgets" action="' . App::backend()->getPageURL() . '" method="post">' .
+        echo (new Form())
+            ->method('post')
+            ->action(App::backend()->getPageURL())
+            ->id('sidebarsWidgets')
+            ->fields([
+                // Nav sidebar
+                (new Div())->id('sidebarNav')->class(['widgets', 'fieldset'])->items([
+                    self::sidebarWidgets('dndnav', __('Navigation sidebar'), App::backend()->widgets_nav, Widgets::WIDGETS_NAV, Widgets::$default_widgets[Widgets::WIDGETS_NAV], $j),
+                ]),
+                // Extra sidebar
+                (new Div())->id('sidebarExtra')->class(['widgets', 'fieldset'])->items([
+                    self::sidebarWidgets('dndextra', __('Extra sidebar'), App::backend()->widgets_extra, Widgets::WIDGETS_EXTRA, Widgets::$default_widgets[Widgets::WIDGETS_EXTRA], $j),
+                ]),
+                // Custom sidebar
+                (new Div())->id('sidebarCustom')->class(['widgets', 'fieldset'])->items([
+                    self::sidebarWidgets('dndcustom', __('Custom sidebar'), App::backend()->widgets_custom, Widgets::WIDGETS_CUSTOM, Widgets::$default_widgets[Widgets::WIDGETS_CUSTOM], $j),
+                ]),
+                (new Para())
+                    ->class('form-buttons')
+                    ->id('sidebarsControl')
+                    ->items([
+                        ...My::hiddenFields(),
+                        (new Submit(['wup'], __('Update sidebars'))),
+                        (new Button(['_back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
+                        (new Submit(['wreset'], __('Reset sidebars')))->class('reset'),
+                        !$user_dm_nodragdrop ?
+                            (new Button(null, __('Temporarily display the action buttons for each widget')))->id('switch-dragndrop') :
+                            (new None()),
+                    ]),
+            ])
+        ->render();
 
-        // Nav sidebar
-        '<div id="sidebarNav" class="widgets fieldset">' .
-        self::sidebarWidgets('dndnav', __('Navigation sidebar'), App::backend()->widgets_nav, Widgets::WIDGETS_NAV, Widgets::$default_widgets[Widgets::WIDGETS_NAV], $j) .
-        '</div>' .
-
-        // Extra sidebar
-        '<div id="sidebarExtra" class="widgets fieldset">' .
-        self::sidebarWidgets('dndextra', __('Extra sidebar'), App::backend()->widgets_extra, Widgets::WIDGETS_EXTRA, Widgets::$default_widgets[Widgets::WIDGETS_EXTRA], $j) .
-        '</div>' .
-
-        // Custom sidebar
-        '<div id="sidebarCustom" class="widgets fieldset">' .
-        self::sidebarWidgets('dndcustom', __('Custom sidebar'), App::backend()->widgets_custom, Widgets::WIDGETS_CUSTOM, Widgets::$default_widgets[Widgets::WIDGETS_CUSTOM], $j) .
-        '</div>' .
-
-        '<p class="form-buttons" id="sidebarsControl">' .
-        App::nonce()->getFormNonce() .
-        '<input type="submit" name="wup" value="' . __('Update sidebars') . '"> ' .
-        '<input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js"> ' .
-        '<input type="submit" class="reset" name="wreset" value="' . __('Reset sidebars') . '">' .
-        '</p>' .
-        '</form>';
-
-        $widget_elements          = new stdClass();
-        $widget_elements->content = '<dl>';
+        $elements = [];
         foreach (Widgets::$widgets->elements() as $w) {
-            $widget_elements->content .= '<dt><strong>' . Html::escapeHTML($w->name()) . '</strong> (' .
-            __('Widget ID:') . ' <strong>' . Html::escapeHTML($w->id()) . '</strong>)' .
-                ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</dt>' .
-                '<dd>';
-
             $w_settings = $w->settings();
             if (!count($w_settings)) {
-                $widget_elements->content .= '<p>' . __('No setting for this widget') . '</p>';
+                $definition = (new Note())->text(__('No setting for this widget'));
             } else {
-                $widget_elements->content .= '<ul>';
+                $attributes = [];
                 foreach ($w_settings as $n => $s) {
                     switch ($s['type']) {
                         case 'check':
@@ -354,16 +394,27 @@ class Manage extends Process
                             break;
                     }
 
-                    $widget_elements->content .= '<li>' .
-                    __('Setting name:') . ' <strong>' . Html::escapeHTML($n) . '</strong>' .
-                        ' (' . $s_type . ')' .
-                        '</li>';
+                    $attributes[] = (new Li())->separator(' ')->items([
+                        (new Text('strong', Html::escapeHTML($n))),
+                        (new Text(null, '(' . $s_type . ')')),
+                    ]);
                 }
-                $widget_elements->content .= '</ul>';
+                $definition = (new Ul())->items($attributes);
             }
-            $widget_elements->content .= '</dd>';
+
+            $elements[] = (new Set())->items([
+                (new Dt())->separator(' ')->items([
+                    (new Text('strong', Html::escapeHTML($w->name()))),
+                    (new Text(null, '(' . __('Widget ID:') . ' <code>' . Html::escapeHTML($w->id()) . '</code>)')),
+                ]),
+                (new Dd())->items([
+                    $definition,
+                ]),
+            ]);
         }
-        $widget_elements->content .= '</dl></div>';
+
+        $widget_elements          = new stdClass();
+        $widget_elements->content = (new Dl())->items($elements)->render();
 
         Page::helpBlock(My::id(), $widget_elements);
 
@@ -380,22 +431,16 @@ class Manage extends Process
      * @param      WidgetsStack     $default_widgets  The default widgets
      * @param      int              $j                Current widget counter
      *
-     * @return     string
+     * @return     Set
      */
-    protected static function sidebarWidgets(string $id, string $title, ?WidgetsStack $widgets, string $pr, WidgetsStack $default_widgets, &$j)
+    protected static function sidebarWidgets(string $id, string $title, ?WidgetsStack $widgets, string $pr, WidgetsStack $default_widgets, &$j): Set
     {
-        $res = '<h3>' . $title . '</h3>';
-
         if (!($widgets instanceof WidgetsStack)) {
             $widgets = $default_widgets;
         }
 
-        $res .= '<ul id="' . $id . '" class="connected">' .
-        '<li class="empty-widgets" ' . (!$widgets->isEmpty() ? 'style="display: none;"' : '') . '>' .
-        __('No widget as far.') .
-        '</li>';
-
-        $i = 0;
+        $i     = 0;
+        $lines = [];
         foreach ($widgets->elements() as $w) {
             $upDisabled   = $i === 0;
             $downDisabled = $i == count($widgets->elements()) - 1;
@@ -403,32 +448,71 @@ class Manage extends Process
             $iname   = 'w[' . $pr . '][' . $i . ']';
             $offline = $w->isOffline() ? ' offline' : '';
 
-            $res .= '<li>' . form::hidden([$iname . '[id]'], Html::escapeHTML($w->id())) .
-            '<p class="widget-name' . $offline . '">' . form::number([$iname . '[order]'], [
-                'default'    => $i,
-                'class'      => 'hidden',
-                'extra_html' => 'title="' . __('order') . '"',
-            ]) .
-            ' ' . $w->name() .
-            ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') .
-            '<span class="toolsWidget remove-if-drag">' .
-            '<input type="image" class="upWidget" ' . ($upDisabled ? 'disabled' : '') . ' src="images/' . ($upDisabled ? 'disabled_' : '') . 'up.svg" name="' . $iname . '[_up]" alt="' . __('Up the widget') . '" title="' . __('Up the widget') . '"> ' .
-            '<input type="image" class="downWidget" ' . ($downDisabled ? 'disabled' : '') . ' src="images/' . ($downDisabled ? 'disabled_' : '') . 'down.svg" name="' . $iname . '[_down]" alt="' . __('Down the widget') . '" title="' . __('Down the widget') . '"> ' . ' ' .
-            '<input type="image" class="removeWidget" src="images/trash.svg" name="' . $iname . '[_rem]" alt="' . __('Remove the widget') . '" title="' . __('Remove the widget') . '">' .
-            '</span>' .
-            '<br class="clear"></p>' .
-            '<div class="widgetSettings hidden-if-drag">' . $w->formSettings($iname, $j) . '</div>' .
-            '</li>';
+            $lines[] = (new Li())
+                ->items([
+                    (new Hidden([$iname . '[id]'], Html::escapeHTML($w->id()))),
+                    (new Para())->class(['widget-name', 'clear', $offline])
+                        ->items([
+                            (new Number([$iname . '[order]']))
+                                ->value($i)
+                                ->class('hidden')
+                                ->title(__('order')),
+                            (new Text(null, $w->name())),
+                            ($w->desc() !== '' ?
+                                (new Text('span', __($w->desc())))
+                                    ->class('form-note') :
+                                (new None())),
+                            (new Para(null, 'span'))
+                                ->class(['toolsWidget', 'hidden-if-drag'])
+                                ->items([
+                                    (new Image('images/' . ($upDisabled ? 'disabled_' : '') . 'up.svg', [$iname . '[_up]']))
+                                        ->class('upWidget')
+                                        ->disabled($upDisabled)
+                                        ->alt(__('Up the widget'))
+                                        ->title(__('Up the widget')),
+                                    (new Image('images/' . ($downDisabled ? 'disabled_' : '') . 'down.svg', [$iname . '[_down]']))
+                                        ->class('downWidget')
+                                        ->disabled($downDisabled)
+                                        ->alt(__('Down the widget'))
+                                        ->title(__('Down the widget')),
+                                    (new Image('images/trash.svg', [$iname . '[_rem]']))
+                                        ->class('removeWidget')
+                                        ->alt(__('Remove the widget'))
+                                        ->title(__('Remove the widget')),
+                                ]),
+                        ]),
+                    (new Div())
+                        ->class(['widgetSettings', 'hidden-if-drag'])
+                        ->items([
+                            (new Text(null, $w->formSettings($iname, $j))),
+                        ]),
+                ]);
 
             $i++;
             $j++;
         }
 
-        $res .= '</ul>' .
-        '<ul class="sortable-delete"' . ($i > 0 ? '' : ' style="display: none;"') . '>' .
-        '<li class="sortable-delete-placeholder">' . __('Drag widgets here to remove.') . '</li>' .
-        '</ul>';
-
-        return $res;
+        return (new Set())
+            ->items([
+                (new Text('h3', $title)),
+                (new Ul())
+                    ->id($id)
+                    ->class('connected')
+                    ->items([
+                        (new Li())
+                            ->class('empty-widgets')
+                            ->extra(!$widgets->isEmpty() ? 'style="display: none;"' : '')
+                            ->text(__('No widget as far.')),
+                        ...$lines,
+                    ]),
+                (new Ul())
+                    ->class('sortable-delete')
+                    ->extra($i > 0 ? '' : 'style="display: none;"')
+                    ->items([
+                        (new Li())
+                            ->class('sortable-delete-placeholder')
+                            ->text(__('Drag widgets here to remove.')),
+                    ]),
+            ]);
     }
 }

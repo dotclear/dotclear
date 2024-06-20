@@ -5,13 +5,6 @@
   margin: 0 0 0 1%;
   padding: 0 1%;
 }
-.widgets.fieldset {
-  margin-bottom: 2em;
-}
-.widgets.fieldset.if-drag {
-  padding-bottom: 0;
-  border-radius: 0.5em;
-}
 #dndnav,
 #dndextra,
 #dndcustom {
@@ -151,7 +144,14 @@ body.dark-mode .downWidget:not(:disabled) {
 /* help */
 #widgets-tpl dt {
   margin: 1em 0 0 0;
+  font-weight: normal;
+  & code {
+    font-size: smaller;
+  }
 }
 #widgets-tpl dd {
   margin: 0.2em 0 1em 0;
+  & code {
+    font-size: smaller;
+  }
 }
