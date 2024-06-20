@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-20 16:03+0200\n"
-"PO-Revision-Date: 2024-06-20 14:07\n"
+"PO-Revision-Date: 2024-06-20 15:27\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -1080,7 +1080,7 @@ msgstr "Ta bort markerade länkar"
 
 #: plugins/blogroll/src/Manage.php:380
 msgid "The link list is empty"
-msgstr ""
+msgstr "Länklistan är tom"
 
 #: plugins/blogroll/src/Manage.php:403
 msgid "Add a new link"
@@ -1936,7 +1936,7 @@ msgstr "WordPress och Dotclear hantering av kategorier är helt annorlunda. Du k
 
 #: plugins/importExport/src/ModuleImportWp.php:299
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr ""
+msgstr "Å andra sidan, i WordPress kan ett inlägg inte vara okategoriserat, och en standardinstallation har en första kategori som heter <i>\"Okategoriserad\"</i>. Om du inte har ändrat den kategorin kan du bara ignorera den när du importerar din blogg, eftersom Dotclear faktiskt låter dig behålla dina inlägg okategoriserade."
 
 #: plugins/importExport/src/ModuleImportWp.php:308
 msgid "Ignore the first category:"
@@ -3113,11 +3113,11 @@ msgstr "Är du säker på att du vill återställa sidofält?"
 
 #: plugins/widgets/src/Manage.php:258 plugins/widgets/src/Manage.php:365
 msgid "Temporarily display the action buttons for each widget"
-msgstr ""
+msgstr "Tillfällig visning av åtgärdsknapparna för varje widget"
 
 #: plugins/widgets/src/Manage.php:259
 msgid "Hide the action buttons for each widget"
-msgstr ""
+msgstr "Dölj åtgärdsknapparna för varje widget"
 
 #: plugins/widgets/src/Manage.php:300 plugins/widgets/src/Manage.php:459
 msgid "order"
