@@ -88,17 +88,18 @@ dotclear.ready(() => {
     cursor: 'move',
   });
 
-  $('#switch-dragndrop').on('click', () => {
+  $('#switch-dragndrop').on('click', (event) => {
     const button = $('#switch-dragndrop');
     if (button.data('status') === 'hide' || button.data('status') === undefined) {
-      button.data('status', 'show');
-      button.html(dotclear.msg.dragdrop_hide);
+      button.attr('value', dotclear.msg.dragdrop_hide);
       $('.manual-move.hidden-if-drag, .toolsWidget.hidden-if-drag').show();
+      button.data('status', 'show');
     } else {
-      button.data('status', 'hide');
-      button.html(dotclear.msg.dragdrop_show);
+      button.attr('value', dotclear.msg.dragdrop_show);
       $('.manual-move.hidden-if-drag, .toolsWidget.hidden-if-drag').hide();
+      button.data('status', 'hide');
     }
+    event.preventDefault();
     return false;
   });
 });
