@@ -14,9 +14,14 @@ span.tooltip {
     font-size: 1em;
   }
 
+  a {
+    border-bottom: none;
+  }
+
   a img:not(.outgoing-js) {
     height: 2em;
     width: auto;
+    filter: none;
   }
 
   a:hover span.tooltip {

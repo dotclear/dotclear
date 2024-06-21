@@ -3031,9 +3031,13 @@ span.tooltip {
   padding: 0 1em;
   font-size: 1em;
 }
+#footer a {
+  border-bottom: none;
+}
 #footer a img:not(.outgoing-js) {
   height: 2em;
   width: auto;
+  filter: none;
 }
 #footer a:hover span.tooltip {
   padding: 1em;
