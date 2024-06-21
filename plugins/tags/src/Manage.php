@@ -9,10 +9,18 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\tags;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 
 /**
@@ -73,43 +81,70 @@ class Manage extends Process
         ) .
         Notices::getNotices();
 
-        $last_letter = null;
-        $cols        = ['', ''];
-        $col         = 0;
+        $current_letter = null;
+        $colonnes       = [[], []];
+        $colonne        = 0;
         while (App::backend()->tags->fetch()) {
             $letter = mb_strtoupper(mb_substr(App::backend()->tags->meta_id_lower, 0, 1));
-
-            if ($last_letter != $letter) {
+            if ($current_letter !== $letter) {
                 if (App::backend()->tags->index() >= round(App::backend()->tags->count() / 2)) {
-                    $col = 1;
+                    $colonne = 1;
                 }
-                $cols[$col] .= '<tr class="tagLetter"><td colspan="2"><span>' . $letter . '</span></td></tr>';
+                $colonnes[$colonne][] = (new Tr())
+                    ->class('tagLetter')
+                    ->items([
+                        (new Td())
+                            ->colspan(2)
+                            ->items([
+                                (new Text('span', $letter)),
+                            ]),
+                    ]);
             }
 
-            $cols[$col] .= '<tr class="line">' .
-            '<td class="maximal"><a href="' . App::backend()->getPageURL() .
-            '&amp;m=tag_posts&amp;tag=' . rawurlencode(App::backend()->tags->meta_id) . '">' . App::backend()->tags->meta_id . '</a></td>' .
-            '<td class="nowrap count"><strong>' . App::backend()->tags->count . '</strong> ' .
-                ((App::backend()->tags->count == 1) ? __('entry') : __('entries')) . '</td>' .
-                '</tr>';
+            $colonnes[$colonne][] = (new Tr())->class('line')->items([
+                (new Td())
+                    ->class('maximal')
+                    ->items([
+                        (new Link())->href(App::backend()->getPageURL() . '&m=tag_posts&tag=' . rawurlencode(App::backend()->tags->meta_id))->text(App::backend()->tags->meta_id),
+                    ]),
+                (new Td())
+                    ->class(['nowrap', 'count'])
+                    ->separator(' ')
+                    ->items([
+                        (new Text('strong', App::backend()->tags->count)),
+                        (new Text(null, App::backend()->tags->count === 1 ? __('entry') : __('entries'))),
+                    ]),
+            ]);
 
-            $last_letter = $letter;
+            $current_letter = $letter;
         }
 
-        $table = '<div class="col"><table class="tags">%s</table></div>';
-
-        if ($cols[0]) {
-            echo
-            '<div class="two-cols">';
-            printf($table, $cols[0]);
-            if ($cols[1]) {
-                printf($table, $cols[1]);
-            }
-            echo
-            '</div>';
+        if ($colonnes[0]) {
+            echo (new Div())
+                ->class('two-cols')
+                ->items([
+                    (new Div())
+                        ->class('col')
+                        ->items([
+                            (new Table())
+                                ->class('tags')
+                                ->items($colonnes[0]),
+                        ]),
+                    $colonnes[1] ?
+                        (new Div())
+                            ->class('col')
+                            ->items([
+                                (new Table())
+                                    ->class('tags')
+                                    ->items($colonnes[1]),
+                            ]) :
+                        (new None()),
+                ])
+            ->render();
         } else {
-            echo
-            '<p>' . __('No tags on this blog.') . '</p>';
+            echo (new Note())
+                ->text(__('No tags on this blog.'))
+            ->render();
         }
 
         Page::helpBlock(My::id());
