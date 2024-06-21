@@ -11,8 +11,21 @@ namespace Dotclear\Plugin\widgets;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Color;
+use Dotclear\Helper\Html\Form\Email;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Radio;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
-use form;
 
 /**
  * @brief   The widgets element handler.
@@ -169,7 +182,7 @@ class WidgetsElement
             return call_user_func($this->public_callback, $this, $i);
         }
 
-        return '<p>Callback not found for widget ' . $this->id . '</p>';
+        return (new Note())->text('Callback not found for widget ' . $this->id);
     }
 
     /**
@@ -401,7 +414,7 @@ class WidgetsElement
     {
         $res = '';
         foreach ($this->settings as $id => $s) {
-            $res .= $this->formSetting($id, $s, $pr, $i);
+            $res .= $this->formSetting($id, $s, $pr, $i)->render();
             $i++;
         }
 
@@ -416,89 +429,117 @@ class WidgetsElement
      * @param   string                  $pr     The prefix
      * @param   int                     $i      The index
      *
-     * @return  string
+     * @return  Set
      */
-    public function formSetting(string $id, array $s, string $pr = '', int &$i = 0): string
+    public function formSetting(string $id, array $s, string $pr = '', int &$i = 0): Set
     {
-        $res   = '';
         $wfid  = 'wf-' . $i;
         $iname = $pr ? $pr . '[' . $id . ']' : $id;
         $class = (isset($s['opts']) && isset($s['opts']['class']) ? ' ' . $s['opts']['class'] : '');
         switch ($s['type']) {
             case 'text':
-                $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::field([$iname, $wfid], 20, 255, [
-                    'default'    => Html::escapeHTML((string) $s['value']),
-                    'class'      => 'maximal' . $class,
-                    'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                ]) .
-                '</p>';
+                $setting = (new Para())
+                    ->items([
+                        (new Input([$iname, $wfid]))
+                            ->size(20)
+                            ->maxlength(255)
+                            ->value(Html::escapeHTML((string) $s['value']))
+                            ->class(['maximal', $class])
+                            ->lang(App::auth()->getInfo('user_lang'))
+                            ->spellcheck(true)
+                            ->label(new Label($s['title'], Label::IL_TF)),
+                    ]);
 
                 break;
             case 'textarea':
-                $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::textarea([$iname, $wfid], 30, 8, [
-                    'default'    => Html::escapeHTML($s['value']),
-                    'class'      => 'maximal' . $class,
-                    'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                ]) .
-                '</p>';
+                $setting = (new Para())
+                    ->items([
+                        (new Textarea([$iname, $wfid]))
+                            ->rows(30)
+                            ->cols(8)
+                            ->value(Html::escapeHTML($s['value']))
+                            ->class(['maximal', $class])
+                            ->lang(App::auth()->getInfo('user_lang'))
+                            ->spellcheck(true)
+                            ->label(new Label($s['title'], Label::IL_TF)),
+                    ]);
 
                 break;
             case 'check':
-                $res .= '<p>' . form::hidden([$iname], '0') .
-                '<label class="classic" for="' . $wfid . '">' .
-                form::checkbox([$iname, $wfid], '1', $s['value'], $class) . ' ' . $s['title'] .
-                '</label></p>';
+                $setting = (new Para())
+                    ->items([
+                        (new Hidden([$iname], '0')),
+                        (new Checkbox([$iname, $wfid], (bool) $s['value']))
+                            ->value('1')
+                            ->class($class)
+                            ->label(new Label($s['title'], Label::IL_FT)),
+                    ]);
 
                 break;
             case 'radio':
-                $res .= '<p>' . ($s['title'] ? '<label class="classic">' . $s['title'] . '</label><br>' : '');
+                $radios = [];
                 if (!empty($s['options'])) {
                     foreach ($s['options'] as $k => $v) {
-                        $res .= $k > 0 ? '<br>' : '';
-                        $res .= '<label class="classic" for="' . $wfid . '-' . $k . '">' .
-                        form::radio([$iname, $wfid . '-' . $k], $v[1], $s['value'] == $v[1], $class) . ' ' . $v[0] .
-                            '</label>';
+                        $radios[] = (new Radio([$iname, $wfid . '-' . $k], $s['value'] == $v[1]))
+                            ->value($v[1])
+                            ->class($class)
+                            ->label(new Label($k, Label::IL_FT));
                     }
                 }
-                $res .= '</p>';
+                $setting = (new Para())
+                    ->items($radios);
 
                 break;
             case 'combo':
-                $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::combo([$iname, $wfid], $s['options'], $s['value'], $class) .
-                '</p>';
+                $setting = (new Para())
+                    ->items([
+                        (new Select([$iname, $wfid]))
+                            ->items($s['options'])
+                            ->default((string) $s['value'])
+                            ->class($class)
+                            ->label(new Label($s['title'], Label::IL_TF)),
+                    ]);
 
                 break;
             case 'color':
-                $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::color([$iname, $wfid], [
-                    'default' => $s['value'],
-                ]) .
-                '</p>';
+                $setting = (new Para())
+                    ->items([
+                        (new Color([$iname, $wfid]))
+                            ->value(Html::escapeHTML($s['value']))
+                            ->class($class)
+                            ->label(new Label($s['title'], Label::IL_TF)),
+                    ]);
 
                 break;
             case 'email':
-                $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::email([$iname, $wfid], [
-                    'default'      => Html::escapeHTML($s['value']),
-                    'autocomplete' => 'email',
-                ]) .
-                '</p>';
+                $setting = (new Para())
+                    ->items([
+                        (new Email([$iname, $wfid]))
+                            ->value(Html::escapeHTML($s['value']))
+                            ->autocomplete('email')
+                            ->class($class)
+                            ->label(new Label($s['title'], Label::IL_TF)),
+                    ]);
 
                 break;
             case 'number':
-                $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::number([$iname, $wfid], [
-                    'default' => $s['value'],
-                ]) .
-                '</p>';
+                $setting = (new Para())
+                    ->items([
+                        (new Number([$iname, $wfid]))
+                            ->value($s['value'])
+                            ->class($class)
+                            ->label(new Label($s['title'], Label::IL_TF)),
+                    ]);
+
+                break;
+            default:
+                $setting = (new None());
 
                 break;
         }
 
-        return $res;
+        return (new Set())
+            ->items([$setting]);
     }
 
     // Widget helpers
