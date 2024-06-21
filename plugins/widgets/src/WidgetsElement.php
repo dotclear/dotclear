@@ -182,7 +182,7 @@ class WidgetsElement
             return call_user_func($this->public_callback, $this, $i);
         }
 
-        return (new Note())->text('Callback not found for widget ' . $this->id);
+        return (new Note())->text('Callback not found for widget ' . $this->id)->render();
     }
 
     /**
