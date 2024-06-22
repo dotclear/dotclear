@@ -41,6 +41,7 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this name(string $name)
  * @method      $this pattern(string $pattern)
  * @method      $this placeholder(string $placeholder)
+ * @method      $this popover(bool $popover)
  * @method      $this readonly(bool $readonly)
  * @method      $this required(bool $required)
  * @method      $this size(int $size)
@@ -77,6 +78,7 @@ namespace Dotclear\Helper\Html\Form;
  * @property    string $name
  * @property    string $pattern
  * @property    string $placeholder
+ * @property    bool $popover
  * @property    bool $readonly
  * @property    bool $required
  * @property    int $size
@@ -375,6 +377,7 @@ abstract class Component
      *          required        => boolean required.
      *          pattern         => string pattern.
      *          placeholder     => string placeholder.
+     *          popover         => bool popover.
      *          size            => int size.
      *          spellcheck      => boolean spellcheck.
      *          step            => string step.
@@ -456,6 +459,8 @@ abstract class Component
                 ' pattern="' . $this->pattern . '"' : '') .
             (isset($this->placeholder) ?
                 ' placeholder="' . $this->placeholder . '"' : '') .
+            (isset($this->popover) && $this->popover ?
+                ' popover' : '') .
             (isset($this->readonly) && $this->readonly ?
                 ' readonly' : '') .
             (isset($this->required) && $this->required ?

@@ -40,6 +40,30 @@ class Btn extends atoum
         ;
     }
 
+    public function testWithPopovertarget()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Btn();
+        $component->popovertarget('My-Popover');
+
+        $this
+            ->string($component->render())
+            ->match('/<button.*?>(?:.*?\n*)?<\/button>/')
+            ->contains('popovertarget="My-Popover"')
+        ;
+    }
+
+    public function testWithPopovertargetaction()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Btn();
+        $component->popovertargetaction('show');
+
+        $this
+            ->string($component->render())
+            ->match('/<button.*?>(?:.*?\n*)?<\/button>/')
+            ->contains('popovertargetaction="show"')
+        ;
+    }
+
     public function testWithoutText()
     {
         $component = new \Dotclear\Helper\Html\Form\Btn();

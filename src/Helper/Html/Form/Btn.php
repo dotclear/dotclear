@@ -13,8 +13,12 @@ namespace Dotclear\Helper\Html\Form;
  * @class Btn
  * @brief HTML Forms button field creation helpers
  *
+ * @method      $this popovertarget(string $popovertarget)
+ * @method      $this popovertargetaction(string $popovertargetaction)
  * @method      $this text(string $text)
  *
+ * @property    string $popovertarget
+ * @property    string $popovertargetaction (hide, show, toggle = default)
  * @property    string $text
  */
 class Btn extends Component
@@ -46,12 +50,17 @@ class Btn extends Component
      */
     public function render(): string
     {
-        $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes(false) . '>';
+        $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
+            (isset($this->popovertarget) ? ' popovertarget="' . $this->popovertarget . '"' : '') .
+            (isset($this->popovertargetaction) ? ' popovertargetaction="' . $this->popovertargetaction . '"' : '') .
+            $this->renderCommonAttributes(false) . '>';
+
         if (isset($this->value)) {
             $buffer .= $this->value;
         } elseif (isset($this->text)) {
             $buffer .= $this->text;
         }
+
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
         return $buffer;

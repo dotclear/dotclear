@@ -926,6 +926,34 @@ class Div extends atoum
         ;
     }
 
+    public function testCommonAttributePopover()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->popover(true);
+
+        $this
+            ->string($component->render())
+            ->match('/<div.*?>\n<\/div>/')
+            ->contains('name="my"')
+            ->contains('id="my"')
+            ->contains('popover')
+        ;
+    }
+
+    public function testCommonAttributeNoPopover()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->popover(false);
+
+        $this
+            ->string($component->render())
+            ->match('/<div.*?>\n<\/div>/')
+            ->contains('name="my"')
+            ->contains('id="my"')
+            ->notContains('popover')
+        ;
+    }
+
     public function testCommonAttributeReadonly()
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');

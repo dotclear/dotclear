@@ -105,6 +105,28 @@ class Input extends atoum
         ;
     }
 
+    public function testWithPopovertarget()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Input('my');
+        $component->popovertarget('My-Popover');
+
+        $this
+            ->string($component->render())
+            ->contains('popovertarget="My-Popover"')
+        ;
+    }
+
+    public function testWithPopovertargetaction()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Input('my');
+        $component->popovertargetaction('show');
+
+        $this
+            ->string($component->render())
+            ->contains('popovertargetaction="show"')
+        ;
+    }
+
     public function testWithoutNameOrId()
     {
         $component = new \Dotclear\Helper\Html\Form\Input();

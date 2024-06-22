@@ -12,6 +12,12 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Input
  * @brief HTML Forms input field creation helpers
+ *
+ * @method      $this popovertarget(string $popovertarget)
+ * @method      $this popovertargetaction(string $popovertargetaction)
+ *
+ * @property    string $popovertarget
+ * @property    string $popovertargetaction (hide, show, toggle = default)
  */
 class Input extends Component
 {
@@ -47,7 +53,10 @@ class Input extends Component
             return '';
         }
 
-        $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes() . '>';
+        $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
+            (isset($this->popovertarget) ? ' popovertarget="' . $this->popovertarget . '"' : '') .
+            (isset($this->popovertargetaction) ? ' popovertargetaction="' . $this->popovertargetaction . '"' : '') .
+            $this->renderCommonAttributes() . '>';
 
         if ($this->renderLabel && isset($this->label)) {
             $render = true;
