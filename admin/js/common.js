@@ -494,7 +494,7 @@ dotclear.hideLockable = () => {
     for (const formNote of formNotes) formNote.style.display = 'none';
     const inputs = lockableDiv.querySelectorAll('input');
     for (const input of inputs) {
-      input.disabled = true;
+      input.readOnly = true;
       input.style.width = `${input.offsetWidth - 14}px`;
       const image = document.createElement('img');
       image.src = 'images/locker.svg';
@@ -507,7 +507,7 @@ dotclear.hideLockable = () => {
       image.style.cursor = 'pointer';
       image.addEventListener('click', () => {
         image.style.display = 'none';
-        input.disabled = false;
+        input.readOnly = false;
         input.style.width = `${input.offsetWidth + 14}px`;
         for (const formNote of formNotes) formNote.style.display = 'block';
       });
