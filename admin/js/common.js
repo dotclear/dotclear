@@ -492,14 +492,14 @@ dotclear.hideLockable = () => {
   for (const lockableDiv of lockableDivs) {
     const formNotes = lockableDiv.querySelectorAll('p.form-note');
     for (const formNote of formNotes) formNote.style.display = 'none';
-    const inputs = lockableDiv.querySelectorAll('input');
+    const inputs = lockableDiv.querySelectorAll('input, textarea');
     for (const input of inputs) {
       input.readOnly = true;
       input.style.width = `${input.offsetWidth - 14}px`;
       const image = document.createElement('img');
       image.src = 'images/locker.svg';
       image.style.position = 'absolute';
-      image.style.top = '1.6em';
+      image.style.top = input.tagName === 'TEXTAREA' ? '0' : '1.6em';
       image.style.left = `${input.offsetWidth + 4}px`;
       image.style.width = '1.4em';
       image.alt = dotclear.msg.click_to_unlock;
