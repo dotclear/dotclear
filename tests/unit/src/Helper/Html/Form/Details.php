@@ -26,6 +26,7 @@ class Details extends atoum
             ->match('/<details.*?>(?:.*?\n*)?<\/details>/')
             ->contains('name="my"')
             ->contains('id="my"')
+            ->notContains('open')
         ;
     }
 
@@ -196,6 +197,30 @@ class Details extends atoum
         $this
             ->string($component->render())
             ->match('/<div.*?>(?:.*?\n*)?<\/div>/')
+        ;
+    }
+
+    public function testAttributeFalseOpen()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Details();
+        $component->open(false);
+
+        $this
+            ->string($component->render())
+            ->match('/<details.*?>\n<\/details>/')
+            ->notContains('open')
+        ;
+    }
+
+    public function testAttributeTrueOpen()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Details();
+        $component->open(true);
+
+        $this
+            ->string($component->render())
+            ->match('/<details.*?>\n<\/details>/')
+            ->contains('open')
         ;
     }
 }

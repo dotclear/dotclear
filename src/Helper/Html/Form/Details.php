@@ -17,11 +17,13 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this items(array $items)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
+ * @method      $this open(bool $open)
  *
  * @property    Legend $summary
  * @property    array $items
  * @property    string $format
  * @property    string $separator
+ * @property    bool $open
  */
 class Details extends Component
 {
@@ -74,7 +76,9 @@ class Details extends Component
      */
     public function render(?string $format = null): string
     {
-        $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes() . '>' . "\n";
+        $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
+        (isset($this->open) && $this->open ? ' open' : '') .
+        $this->renderCommonAttributes() . '>' . "\n";
 
         if (isset($this->summary)) {
             $buffer .= $this->summary->render();
