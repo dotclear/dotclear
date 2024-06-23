@@ -123,18 +123,6 @@ button {
   }
 }
 
-/* readonly */
-
-input {
-  &.readonly,
-  &[readonly],
-  &[aria-readonly='true'] {
-    color: var(--button-disabled-color);
-    background: var(--button-disabled-background);
-    border: 1px solid var(--button-disabled-border);
-  }
-}
-
 /* Boutons javascript (dépliage/repliage, …) */
 
 .void-btn {

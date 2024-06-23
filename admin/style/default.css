@@ -2082,6 +2082,17 @@ input[type=color] {
   height: 3em;
 }
 
+/* readonly */
+input.readonly, input[readonly], input[aria-readonly=true],
+textarea.readonly,
+textarea[readonly],
+textarea[aria-readonly=true] {
+  color: var(--button-disabled-color);
+  background: var(--button-disabled-background);
+  border: 1px solid var(--button-disabled-border);
+}
+
+/* Select */
 optgroup {
   font-weight: bold;
   font-style: normal;
@@ -2091,6 +2102,7 @@ option {
   font-weight: normal;
 }
 
+/* Label */
 label {
   display: block;
 }
@@ -2331,13 +2343,6 @@ button[aria-disabled=true] {
   background: var(--button-disabled-background);
   border: 1px solid var(--button-disabled-border);
   cursor: not-allowed;
-}
-
-/* readonly */
-input.readonly, input[readonly], input[aria-readonly=true] {
-  color: var(--button-disabled-color);
-  background: var(--button-disabled-background);
-  border: 1px solid var(--button-disabled-border);
 }
 
 /* Boutons javascript (dépliage/repliage, …) */

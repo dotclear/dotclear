@@ -195,6 +195,21 @@ input[type='color'] {
   height: 3em;
 }
 
+/* readonly */
+
+input,
+textarea {
+  &.readonly,
+  &[readonly],
+  &[aria-readonly='true'] {
+    color: var(--button-disabled-color);
+    background: var(--button-disabled-background);
+    border: 1px solid var(--button-disabled-border);
+  }
+}
+
+/* Select */
+
 optgroup {
   font-weight: bold;
   font-style: normal;
@@ -203,6 +218,8 @@ optgroup {
 option {
   font-weight: normal;
 }
+
+/* Label */
 
 label {
   display: block;
