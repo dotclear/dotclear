@@ -499,8 +499,13 @@ dotclear.hideLockable = () => {
       const image = document.createElement('img');
       image.src = 'images/locker.svg';
       image.style.position = 'absolute';
-      image.style.top = input.tagName === 'TEXTAREA' ? '0' : '1.6em';
-      image.style.left = `${input.offsetWidth + 4}px`;
+      if (input.tagName === 'TEXTAREA') {
+        image.style.top = '4px';
+        image.style.right = '4px';
+      } else {
+        image.style.top = '1.6em';
+        image.style.left = `${input.offsetWidth + 4}px`;
+      }
       image.style.width = '1.4em';
       image.alt = dotclear.msg.click_to_unlock;
       image.classList.add('mark', 'mark-locked');
