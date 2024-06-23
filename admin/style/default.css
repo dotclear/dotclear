@@ -4457,6 +4457,10 @@ body.dark-mode .modules a.module-config {
   width: 4em;
 }
 
+#post_notes {
+  padding: 0.5em 1.5em 0.5em 0.5em;
+}
+
 .sb-box {
   width: 18em;
   padding: 0.5em 1em;
