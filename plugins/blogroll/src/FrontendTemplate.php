@@ -59,9 +59,7 @@ class FrontendTemplate
         }
 
         return
-            '<?php ' .
-            'echo ' . self::class . "::getList('" . $category . "','" . $block . "','" . $item . "'," . $only_cat . '); ' .
-            '?>';
+            '<?= ' . self::class . "::getList('" . $category . "','" . $block . "','" . $item . "'," . $only_cat . ');' . ' ?>';
     }
 
     /**
