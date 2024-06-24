@@ -19,6 +19,7 @@ use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
@@ -136,8 +137,16 @@ class Manage extends Process
         } elseif (!empty($_GET['reo'])) {
             Notices::success(__('Selected pages have been successfully reordered.'));
         }
-        echo
-        '<p class="top-add"><a class="button add" href="' . App::backend()->getPageURL() . '&amp;act=page">' . __('New page') . '</a></p>';
+
+        echo (new Para())
+            ->class('top-add')
+            ->items([
+                (new Link())
+                    ->class(['button', 'add'])
+                    ->href(App::backend()->getPageURL() . '&act=page')
+                    ->text(__('New page')),
+            ])
+        ->render();
 
         if (!App::error()->flag() && App::backend()->post_list) {
             // Show pages

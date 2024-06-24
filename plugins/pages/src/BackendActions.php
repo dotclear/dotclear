@@ -12,6 +12,8 @@ namespace Dotclear\Plugin\pages;
 use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Page;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
@@ -65,8 +67,16 @@ class BackendActions extends ActionsPosts
             $head
         );
         echo
-        $breadcrumb .
-        '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to pages list') . '</a></p>';
+        $breadcrumb;
+
+        echo (new Para())
+            ->items([
+                (new Link())
+                    ->class('back')
+                    ->href($this->getRedirection(true))
+                    ->text(__('Back to pages list')),
+            ])
+        ->render();
     }
 
     public function endPage(): void
