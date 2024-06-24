@@ -51,6 +51,7 @@ class GrowUp_2_31_lt
         Upgrade::houseCleaning(
             // Files
             [
+                'inc/public/default-templates/dotty/README.md',
             ],
             // Folders
             [

@@ -13,13 +13,13 @@ namespace Dotclear\Helper\Html\Form;
  * @class Details
  * @brief HTML Forms details creation helpers
  *
- * @method      $this summary(Legend $legend)
+ * @method      $this summary(Summary $summary)
  * @method      $this items(array $items)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
  * @method      $this open(bool $open)
  *
- * @property    Legend $summary
+ * @property    Summary $summary
  * @property    array $items
  * @property    string $format
  * @property    string $separator
