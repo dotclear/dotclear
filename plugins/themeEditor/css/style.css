@@ -22,7 +22,7 @@
   padding-left: 0;
 }
 #file-chooser li {
-  list-style: square inside;
+  list-style: none;
 }
 #file-chooser li.default-file {
   color: var(--link-color);
@@ -32,7 +32,6 @@
   color: var(--breadcrumb-current);
 }
 #file-chooser li.group-file {
-  list-style: none;
   margin-bottom: 1em;
 }
 #file-chooser li.group-file ul {

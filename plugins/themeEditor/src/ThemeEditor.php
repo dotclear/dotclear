@@ -13,6 +13,12 @@ use Dotclear\App;
 use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Form\Details;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Summary;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Module\ModuleDefine;
@@ -141,38 +147,48 @@ class ThemeEditor
         $files = $this->getFilesFromType($type);
 
         if (empty($files)) {
-            return '<p>' . __('No file') . '</p>';
+            return (new Note())
+                ->text(__('No file'))
+            ->render();
         }
 
-        $list        = '';
-        $list_theme  = ''; // Files from current theme
-        $list_parent = ''; // Files from parent of current theme
-        $list_tpl    = ''; // Files from template set used by current theme
+        $tpl_theme    = []; // Files from current theme
+        $tpl_parent   = []; // Files from parent of current theme
+        $tpl_template = []; // Files from template set used by current theme
         foreach ($files as $k => $v) {
             if (str_starts_with($v, $this->user_theme)) {
-                $li = sprintf('<li class="default-file">%s</li>', $item);
-                $list_theme .= sprintf($li, $k, Html::escapeHTML($k));
+                $tpl_theme[] = (new Li())->class('default-file')->text(sprintf($item, $k, Html::escapeHTML($k)));
             } elseif ($this->parent_theme && str_starts_with($v, $this->parent_theme)) {
-                $li = sprintf('<li class="parent-file">%s</li>', $item);
-                $list_parent .= sprintf($li, $k, Html::escapeHTML($k));
+                $tpl_parent[] = (new Li())->class('parent-file')->text(sprintf($item, $k, Html::escapeHTML($k)));
             } else {
-                $li = sprintf('<li>%s</li>', $item);
-                $list_tpl .= sprintf($li, $k, Html::escapeHTML($k));
+                $tpl_template[] = (new Li())->text(sprintf($item, $k, Html::escapeHTML($k)));
             }
         }
-        $list .= ($list_theme != '' ? sprintf('<li class="group-file">' . __('From theme:') . '<ul>%s</ul></li>', $list_theme) : '');
-        $list .= ($list_parent != '' ? sprintf(
-            '<details><summary>' . __('From parent:') . ' %s' . '</summary><li class="group-file"><ul>%s</ul></li></details>',
-            $this->parent_name,
-            $list_parent
-        ) : '');
-        $list .= ($list_tpl != '' ? sprintf(
-            '<details><summary>' . __('From template set:') . ' %s' . '</summary><li class="group-file"><ul>%s</ul></li></details>',
-            $this->tplset_name,
-            $list_tpl
-        ) : '');
 
-        return sprintf('<ul>%s</ul>', $list);
+        $groups = [];
+        if (count($tpl_theme)) {
+            $groups[] = (new Li())->class('group-file')->text(__('From theme:'))->items([
+                (new Ul())->items($tpl_theme),
+            ]);
+        }
+        if (count($tpl_parent)) {
+            $name     = (new Text('strong', $this->parent_name))->render();
+            $groups[] = (new Details())->summary(new Summary(__('From parent:') . ' ' . $name))->items([
+                (new Li())->class('group-file')->items([
+                    (new Ul())->items($tpl_parent),
+                ]),
+            ]);
+        }
+        if (count($tpl_template)) {
+            $name     = (new Text('strong', $this->tplset_name))->render();
+            $groups[] = (new Details())->summary(new Summary(__('From template set:') . ' ' . $name))->items([
+                (new Li())->class('group-file')->items([
+                    (new Ul())->items($tpl_template),
+                ]),
+            ]);
+        }
+
+        return (new Ul())->items($groups)->render();
     }
 
     /**
