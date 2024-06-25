@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+use Dotclear\App;
+
 /**
  * @class Input
  * @brief HTML Forms input field creation helpers
@@ -50,6 +52,10 @@ class Input extends Component
     public function render(): string
     {
         if (!$this->checkMandatoryAttributes()) {
+            if (App::config()->devMode() === true && App::config()->debugMode() === true) {
+                return '<!-- ' . static::class . ': ' . 'Input (type = ' . $this->type . ') without id and name (provide at least one of them)' . ' -->';
+            }
+
             return '';
         }
 

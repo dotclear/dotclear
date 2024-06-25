@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\Html\Form;
 
+use Dotclear\App;
+
 /**
  * @class Select
  * @brief HTML Forms select creation helpers
@@ -50,6 +52,10 @@ class Select extends Component
     public function render(?string $default = null): string
     {
         if (!$this->checkMandatoryAttributes()) {
+            if (App::config()->devMode() === true && App::config()->debugMode() === true) {
+                return '<!-- ' . static::class . ': ' . 'Select without id and name (provide at least one of them)' . ' -->' . "\n";
+            }
+
             return '';
         }
 
