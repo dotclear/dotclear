@@ -584,31 +584,36 @@ class Manage extends Process
                         // Choix à faire
 
                         $choice = match (App::backend()->item_type) {
-                            'lang' => (new Para())->class('field')->items([
-                                (new Select('item_select'))
-                                    ->items(App::backend()->langs_combo)
-                                    ->label(new Label(__('Select language:'), Label::OL_TF)),
-                            ]),
-                            'category' => (new Para())->class('field')->items([
-                                (new Select('item_select'))
-                                    ->items(App::backend()->categories_combo)
-                                    ->label(new Label(__('Select category:'), Label::OL_TF)),
-                            ]),
-                            'archive' => (new Para())->class('field')->items([
-                                (new Select('item_select'))
-                                    ->items(App::backend()->months_combo)
-                                    ->label(new Label(__('Select month (if necessary):'), Label::OL_TF)),
-                            ]),
-                            'pages' => (new Para())->class('field')->items([
-                                (new Select('item_select'))
-                                    ->items(App::backend()->pages_combo)
-                                    ->label(new Label(__('Select page:'), Label::OL_TF)),
-                            ]),
-                            'tags' => (new Para())->class('field')->items([
-                                (new Select('item_select'))
-                                    ->items(App::backend()->tags_combo)
-                                    ->label(new Label(__('Select tag (if necessary):'), Label::OL_TF)),
-                            ]),
+                            'lang' => (new Para())->class('field')
+                                ->items([
+                                    (new Select('item_select'))
+                                        ->items(App::backend()->langs_combo)
+                                        ->label(new Label(__('Select language:'), Label::OL_TF)),
+                                ]),
+                            'category' => (new Para())->class('field')
+                                ->items([
+                                    (new Select('item_select'))
+                                        ->items(App::backend()->categories_combo)
+                                        ->label(new Label(__('Select category:'), Label::OL_TF)),
+                                ]),
+                            'archive' => (new Para())->class('field')
+                                ->items([
+                                    (new Select('item_select'))
+                                        ->items(App::backend()->months_combo)
+                                        ->label(new Label(__('Select month (if necessary):'), Label::OL_TF)),
+                                ]),
+                            'pages' => (new Para())->class('field')
+                                ->items([
+                                    (new Select('item_select'))
+                                        ->items(App::backend()->pages_combo)
+                                        ->label(new Label(__('Select page:'), Label::OL_TF)),
+                                ]),
+                            'tags' => (new Para())->class('field')
+                                ->items([
+                                    (new Select('item_select'))
+                                        ->items(App::backend()->tags_combo)
+                                        ->label(new Label(__('Select tag (if necessary):'), Label::OL_TF)),
+                                ]),
                             default => # --BEHAVIOR-- adminSimpleMenuSelect -- string, string
                                 # Optional step once App::backend()->item_type known : should provide a field using 'item_select' as id, included in a <p class="field"></p> and don't forget the <label> ;-)
                                 (new Text(null, App::behavior()->callBehavior('adminSimpleMenuSelect', App::backend()->item_type, 'item_select'))),
@@ -850,10 +855,18 @@ class Manage extends Process
                     ];
                 } else {
                     $cols = [
-                        (new Td())->class('nowrap')->text(Html::escapeHTML($m['label'])),
-                        (new Td())->class('nowrap')->text(Html::escapeHTML($m['descr'])),
-                        (new Td())->class('nowrap')->text(Html::escapeHTML($m['url'])),
-                        (new Td())->class('nowrap')->text($targetBlankStr),
+                        (new Td())
+                            ->class('nowrap')
+                            ->text(Html::escapeHTML($m['label'])),
+                        (new Td())
+                            ->class('nowrap')
+                            ->text(Html::escapeHTML($m['descr'])),
+                        (new Td())
+                            ->class('nowrap')
+                            ->text(Html::escapeHTML($m['url'])),
+                        (new Td())
+                            ->class('nowrap')
+                            ->text($targetBlankStr),
                     ];
                 }
 
@@ -869,10 +882,14 @@ class Manage extends Process
                     (new Table())
                         ->class('dragable')
                         ->caption(new Caption(__('Menu items list')))
-                        ->thead((new Thead())->rows([
-                            (new Tr())->cols($headers),
-                        ]))
-                        ->tbody((new Tbody())->id(App::backend()->step === self::STEP_LIST ? 'menuitemslist' : '')->rows($rows)),
+                        ->thead((new Thead())
+                            ->rows([
+                                (new Tr())
+                                    ->cols($headers),
+                            ]))
+                        ->tbody((new Tbody())
+                            ->id(App::backend()->step === self::STEP_LIST ? 'menuitemslist' : '')
+                            ->rows($rows)),
                 ]);
 
             // Display form/list
@@ -886,11 +903,14 @@ class Manage extends Process
                         (new Div())
                             ->class('two-cols')
                             ->items([
-                                (new Para())->class(['col', 'checkboxes-helpers']),
-                                (new para())->class(['col', 'right'])->items([
-                                    (new Submit(['removeaction', 'remove-action'], __('Delete selected menu items')))
-                                        ->class('delete'),
-                                ]),
+                                (new Para())
+                                    ->class(['col', 'checkboxes-helpers']),
+                                (new para())
+                                    ->class(['col', 'right'])
+                                    ->items([
+                                        (new Submit(['removeaction', 'remove-action'], __('Delete selected menu items')))
+                                            ->class('delete'),
+                                    ]),
                             ]),
                         (new Para())
                             ->class('col')

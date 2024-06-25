@@ -45,7 +45,10 @@ class BackendBehaviors
             ) {
                 return (new Para())
                     ->items([
-                        (new Link())->href(My::manageUrl())->class('button')->text(__('Edit theme files')),
+                        (new Link())
+                            ->href(My::manageUrl())
+                            ->class('button')
+                            ->text(__('Edit theme files')),
                     ])
                 ->render();
             }

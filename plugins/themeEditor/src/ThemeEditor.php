@@ -157,38 +157,51 @@ class ThemeEditor
         $tpl_template = []; // Files from template set used by current theme
         foreach ($files as $k => $v) {
             if (str_starts_with($v, $this->user_theme)) {
-                $tpl_theme[] = (new Li())->class('default-file')->text(sprintf($item, $k, Html::escapeHTML($k)));
+                $tpl_theme[] = (new Li())
+                    ->class('default-file')
+                    ->text(sprintf($item, $k, Html::escapeHTML($k)));
             } elseif ($this->parent_theme && str_starts_with($v, $this->parent_theme)) {
-                $tpl_parent[] = (new Li())->class('parent-file')->text(sprintf($item, $k, Html::escapeHTML($k)));
+                $tpl_parent[] = (new Li())
+                    ->class('parent-file')
+                    ->text(sprintf($item, $k, Html::escapeHTML($k)));
             } else {
-                $tpl_template[] = (new Li())->text(sprintf($item, $k, Html::escapeHTML($k)));
+                $tpl_template[] = (new Li())
+                    ->text(sprintf($item, $k, Html::escapeHTML($k)));
             }
         }
 
         $groups = [];
         if (count($tpl_theme)) {
-            $groups[] = (new Li())->class('group-file')->text(__('From theme:'))->items([
-                (new Ul())->items($tpl_theme),
-            ]);
+            $groups[] = (new Li())->class('group-file')
+                ->text(__('From theme:'))
+                ->items([
+                    (new Ul())->items($tpl_theme),
+                ]);
         }
         if (count($tpl_parent)) {
             $name     = (new Text('strong', $this->parent_name))->render();
-            $groups[] = (new Details())->summary(new Summary(__('From parent:') . ' ' . $name))->items([
-                (new Li())->class('group-file')->items([
-                    (new Ul())->items($tpl_parent),
-                ]),
-            ]);
+            $groups[] = (new Details())
+                ->summary(new Summary(__('From parent:') . ' ' . $name))
+                ->items([
+                    (new Li())->class('group-file')->items([
+                        (new Ul())->items($tpl_parent),
+                    ]),
+                ]);
         }
         if (count($tpl_template)) {
             $name     = (new Text('strong', $this->tplset_name))->render();
-            $groups[] = (new Details())->summary(new Summary(__('From template set:') . ' ' . $name))->items([
-                (new Li())->class('group-file')->items([
-                    (new Ul())->items($tpl_template),
-                ]),
-            ]);
+            $groups[] = (new Details())
+                ->summary(new Summary(__('From template set:') . ' ' . $name))
+                ->items([
+                    (new Li())->class('group-file')->items([
+                        (new Ul())->items($tpl_template),
+                    ]),
+                ]);
         }
 
-        return (new Ul())->items($groups)->render();
+        return (new Ul())
+            ->items($groups)
+        ->render();
     }
 
     /**

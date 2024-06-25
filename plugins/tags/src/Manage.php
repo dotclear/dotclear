@@ -105,7 +105,8 @@ class Manage extends Process
                 (new Td())
                     ->class('maximal')
                     ->items([
-                        (new Link())->href(App::backend()->getPageURL() . '&m=tag_posts&tag=' . rawurlencode(App::backend()->tags->meta_id))->text(App::backend()->tags->meta_id),
+                        (new Link())
+                            ->href(App::backend()->getPageURL() . '&m=tag_posts&tag=' . rawurlencode(App::backend()->tags->meta_id))->text(App::backend()->tags->meta_id),
                     ]),
                 (new Td())
                     ->class(['nowrap', 'count'])

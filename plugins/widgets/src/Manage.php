@@ -294,26 +294,36 @@ class Manage extends Process
         $j     = 0;
         $lines = [];
         foreach (Widgets::$widgets->elements(true) as $w) {
-            $lines[] = (new Li())->items([
-                (new Hidden(['w[void][0][id]'], Html::escapeHTML($w->id()))),
-                (new Para())->class('widget-name')->items([
-                    (new Number(['w[void][0][order]']))->value(0)->class('hide')->title(__('order')),
-                    (new Text(null, $w->name())),
-                    ($w->desc() !== '' ?
-                        (new Text('span', __($w->desc())))
-                            ->class('form-note') :
-                        (new None())),
-                ]),
-                (new Para())->class(['form-buttons', 'manual-move', 'hidden-if-drag'])->items([
-                    (new Select(['addw[' . $w->id() . ']']))
-                        ->items(App::backend()->append_combo)
-                        ->label(new Label(__('Append to:'), Label::IL_TF)),
-                    (new Submit(['append[' . $w->id() . ']'], __('Add'))),
-                ]),
-                (new Div())->class(['widgetSettings', 'hidden-if-drag'])->items([
-                    (new Text(null, $w->formSettings('w[void][0]', $j))),
-                ]),
-            ]);
+            $lines[] = (new Li())
+                ->items([
+                    (new Hidden(['w[void][0][id]'], Html::escapeHTML($w->id()))),
+                    (new Para())
+                        ->class('widget-name')
+                        ->items([
+                            (new Number(['w[void][0][order]']))
+                                ->value(0)
+                                ->class('hide')
+                                ->title(__('order')),
+                            (new Text(null, $w->name())),
+                            ($w->desc() !== '' ?
+                                (new Text('span', __($w->desc())))
+                                    ->class('form-note') :
+                                (new None())),
+                        ]),
+                    (new Para())
+                        ->class(['form-buttons', 'manual-move', 'hidden-if-drag'])
+                        ->items([
+                            (new Select(['addw[' . $w->id() . ']']))
+                                ->items(App::backend()->append_combo)
+                                ->label(new Label(__('Append to:'), Label::IL_TF)),
+                            (new Submit(['append[' . $w->id() . ']'], __('Add'))),
+                        ]),
+                    (new Div())
+                        ->class(['widgetSettings', 'hidden-if-drag'])
+                        ->items([
+                            (new Text(null, $w->formSettings('w[void][0]', $j))),
+                        ]),
+                ]);
 
             $j++;
         }
@@ -325,8 +335,11 @@ class Manage extends Process
             ->class('widgets')
             ->fields([
                 (new Text('h3', __('Available widgets'))),
-                (new Note())->text(__('Drag widgets from this list to one of the sidebars, for add.')),
-                (new Ul())->id('widgets-ref')->items($lines),
+                (new Note())
+                    ->text(__('Drag widgets from this list to one of the sidebars, for add.')),
+                (new Ul())
+                    ->id('widgets-ref')
+                    ->items($lines),
                 (new Para())
                     ->class(['form-buttons', 'hidden-if-drag'])
                     ->items([
@@ -342,17 +355,26 @@ class Manage extends Process
             ->id('sidebarsWidgets')
             ->fields([
                 // Nav sidebar
-                (new Div())->id('sidebarNav')->class(['widgets', 'fieldset'])->items([
-                    self::sidebarWidgets('dndnav', __('Navigation sidebar'), App::backend()->widgets_nav, Widgets::WIDGETS_NAV, Widgets::$default_widgets[Widgets::WIDGETS_NAV], $j),
-                ]),
+                (new Div())
+                    ->id('sidebarNav')
+                    ->class(['widgets', 'fieldset'])
+                    ->items([
+                        self::sidebarWidgets('dndnav', __('Navigation sidebar'), App::backend()->widgets_nav, Widgets::WIDGETS_NAV, Widgets::$default_widgets[Widgets::WIDGETS_NAV], $j),
+                    ]),
                 // Extra sidebar
-                (new Div())->id('sidebarExtra')->class(['widgets', 'fieldset'])->items([
-                    self::sidebarWidgets('dndextra', __('Extra sidebar'), App::backend()->widgets_extra, Widgets::WIDGETS_EXTRA, Widgets::$default_widgets[Widgets::WIDGETS_EXTRA], $j),
-                ]),
+                (new Div())
+                    ->id('sidebarExtra')
+                    ->class(['widgets', 'fieldset'])
+                    ->items([
+                        self::sidebarWidgets('dndextra', __('Extra sidebar'), App::backend()->widgets_extra, Widgets::WIDGETS_EXTRA, Widgets::$default_widgets[Widgets::WIDGETS_EXTRA], $j),
+                    ]),
                 // Custom sidebar
-                (new Div())->id('sidebarCustom')->class(['widgets', 'fieldset'])->items([
-                    self::sidebarWidgets('dndcustom', __('Custom sidebar'), App::backend()->widgets_custom, Widgets::WIDGETS_CUSTOM, Widgets::$default_widgets[Widgets::WIDGETS_CUSTOM], $j),
-                ]),
+                (new Div())
+                    ->id('sidebarCustom')
+                    ->class(['widgets', 'fieldset'])
+                    ->items([
+                        self::sidebarWidgets('dndcustom', __('Custom sidebar'), App::backend()->widgets_custom, Widgets::WIDGETS_CUSTOM, Widgets::$default_widgets[Widgets::WIDGETS_CUSTOM], $j),
+                    ]),
                 (new Para())
                     ->class('form-buttons')
                     ->id('sidebarsControl')
@@ -372,7 +394,8 @@ class Manage extends Process
         foreach (Widgets::$widgets->elements() as $w) {
             $w_settings = $w->settings();
             if (!count($w_settings)) {
-                $definition = (new Note())->text(__('No setting for this widget'));
+                $definition = (new Note())
+                    ->text(__('No setting for this widget'));
             } else {
                 $attributes = [];
                 foreach ($w_settings as $n => $s) {
@@ -394,27 +417,34 @@ class Manage extends Process
                             break;
                     }
 
-                    $attributes[] = (new Li())->separator(' ')->items([
-                        (new Text('strong', Html::escapeHTML($n))),
-                        (new Text(null, '(' . $s_type . ')')),
-                    ]);
+                    $attributes[] = (new Li())
+                        ->separator(' ')
+                        ->items([
+                            (new Text('strong', Html::escapeHTML($n))),
+                            (new Text(null, '(' . $s_type . ')')),
+                        ]);
                 }
                 $definition = (new Ul())->items($attributes);
             }
 
             $elements[] = (new Set())->items([
-                (new Dt())->separator(' ')->items([
-                    (new Text('strong', Html::escapeHTML($w->name()))),
-                    (new Text(null, '(' . __('Widget ID:') . ' <code>' . Html::escapeHTML($w->id()) . '</code>)')),
-                ]),
-                (new Dd())->items([
-                    $definition,
-                ]),
+                (new Dt())
+                    ->separator(' ')
+                    ->items([
+                        (new Text('strong', Html::escapeHTML($w->name()))),
+                        (new Text(null, '(' . __('Widget ID:') . ' <code>' . Html::escapeHTML($w->id()) . '</code>)')),
+                    ]),
+                (new Dd())
+                    ->items([
+                        $definition,
+                    ]),
             ]);
         }
 
         $widget_elements          = new stdClass();
-        $widget_elements->content = (new Dl())->items($elements)->render();
+        $widget_elements->content = (new Dl())
+            ->items($elements)
+        ->render();
 
         Page::helpBlock(My::id(), $widget_elements);
 
