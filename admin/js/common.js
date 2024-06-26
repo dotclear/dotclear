@@ -183,24 +183,28 @@ $.fn.toggleWithDetails = function (options) {
  * @memberof    external:"jQuery"
  */
 $.expandContent = (opts) => {
-  const toggleArrow = (button, action = '') => {
-    if (action === '') {
-      action = button.getAttribute('aria-label') === dotclear.img_plus_alt ? 'open' : 'close';
-    }
-    if (action === 'open' && button.getAttribute('aria-expanded') === 'false') {
+  const toggleArrow = (button, actionRequested = '') => {
+    const actionDone =
+      actionRequested === ''
+        ? button.getAttribute('aria-label') === dotclear.img_plus_alt
+          ? 'open'
+          : 'close'
+        : actionRequested;
+    if (actionDone === 'open' && button.getAttribute('aria-expanded') === 'false') {
       button.firstChild.data = dotclear.img_minus_txt;
       button.setAttribute('value', dotclear.img_minus_txt);
       button.setAttribute('aria-label', dotclear.img_minus_alt);
       button.setAttribute('aria-expanded', true);
-    } else if (action === 'close' && button.getAttribute('aria-expanded') === 'true') {
+    } else if (actionDone === 'close' && button.getAttribute('aria-expanded') === 'true') {
       button.firstChild.data = dotclear.img_plus_txt;
       button.setAttribute('value', dotclear.img_plus_txt);
       button.setAttribute('aria-label', dotclear.img_plus_alt);
       button.setAttribute('aria-expanded', false);
     } else {
+      // Nothing done
       return '';
     }
-    return action;
+    return actionDone;
   };
   const singleExpander = (line, callback) => {
     $(
@@ -279,16 +283,8 @@ dotclear.helpViewer = (selector) => {
       document.querySelector('p#help-button span a').innerText = content.classList.contains('with-help')
         ? dotclear.msg.help_hide
         : dotclear.msg.help;
-
       // Position button
-      if (!helpButtonElement.classList.contains('floatable')) {
-        const bodyRect = document.body.getBoundingClientRect();
-        const elemRect = helpBox.getBoundingClientRect();
-        const offset = elemRect.top - bodyRect.top;
-        helpButtonElement.style.top = `${offset}px`;
-      } else {
-        helpButtonElement.style.top = '0';
-      }
+      positionButton();
     }
     sizeBox();
     return false;
@@ -386,6 +382,17 @@ dotclear.helpViewer = (selector) => {
     helpButtonElement.classList.remove('floatable');
   }
 
+  const positionButton = () => {
+    if (!helpButtonElement.classList.contains('floatable')) {
+      const bodyRect = document.body.getBoundingClientRect();
+      const elemRect = helpBox.getBoundingClientRect();
+      const offset = elemRect.top - bodyRect.top;
+      helpButtonElement.style.top = `${offset}px`;
+    } else {
+      helpButtonElement.style.top = '0';
+    }
+  };
+
   // Add scroll event listener
   window.addEventListener('scroll', () => {
     // Check if the scroll position is greater than or equal to the target position
@@ -395,14 +402,7 @@ dotclear.helpViewer = (selector) => {
       helpButtonElement.classList.remove('floatable');
     }
     // Position button
-    if (!helpButtonElement.classList.contains('floatable')) {
-      const bodyRect = document.body.getBoundingClientRect();
-      const elemRect = helpBox.getBoundingClientRect();
-      const offset = elemRect.top - bodyRect.top;
-      helpButtonElement.style.top = `${offset}px`;
-    } else {
-      helpButtonElement.style.top = '0';
-    }
+    positionButton();
   });
 };
 
@@ -799,12 +799,10 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
  */
 dotclear.badge = (elt, options = null) => {
   // Cope with selector given as string or DOM element rather than a jQuery object
-  if (typeof elt === 'string' || elt instanceof Element) {
-    elt = $(elt);
-  }
+  const target = typeof elt === 'string' || elt instanceof Element ? $(elt) : elt;
 
-  // Return if elt does not exist
-  if (!elt.length) return;
+  // Return if target does not exist
+  if (!target.length) return;
 
   // Cope with options
   const opt = Object.assign(
@@ -827,12 +825,12 @@ dotclear.badge = (elt, options = null) => {
   // Set some constants
   const classid = `span.badge.badge-${opt.id}`; // Pseudo unique class
 
-  // Set badgeable class to elt parent's (if sibling) or elt itself, if it is necessary
-  const parent = opt.sibling ? elt.parent() : elt;
+  // Set badgeable class to target parent's (if sibling) or target itself, if it is necessary
+  const parent = opt.sibling ? target.parent() : target;
   if (!opt.inline && !opt.remove && !parent.hasClass('badgeable')) parent.addClass('badgeable');
 
   // Remove existing badge if exists
-  const badge = opt.sibling ? parent.children(classid) : elt.children(classid);
+  const badge = opt.sibling ? parent.children(classid) : target.children(classid);
   if (badge.length) badge.remove();
 
   // Return if no new badge to add
@@ -851,8 +849,8 @@ dotclear.badge = (elt, options = null) => {
 
   // Compose badge
   const xml = `<span class="${classes.join(' ')}" aria-hidden="true">${opt.value}</span>`;
-  if (opt.sibling) elt.after(xml);
-  else elt.append(xml);
+  if (opt.sibling) target.after(xml);
+  else target.append(xml);
 };
 
 /**
