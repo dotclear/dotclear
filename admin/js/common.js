@@ -279,6 +279,16 @@ dotclear.helpViewer = (selector) => {
       document.querySelector('p#help-button span a').innerText = content.classList.contains('with-help')
         ? dotclear.msg.help_hide
         : dotclear.msg.help;
+
+      // Position button
+      if (!helpButtonElement.classList.contains('floatable')) {
+        const bodyRect = document.body.getBoundingClientRect();
+        const elemRect = helpBox.getBoundingClientRect();
+        const offset = elemRect.top - bodyRect.top;
+        helpButtonElement.style.top = `${offset}px`;
+      } else {
+        helpButtonElement.style.top = '0';
+      }
     }
     sizeBox();
     return false;
@@ -383,6 +393,15 @@ dotclear.helpViewer = (selector) => {
       helpButtonElement.classList.add('floatable');
     } else {
       helpButtonElement.classList.remove('floatable');
+    }
+    // Position button
+    if (!helpButtonElement.classList.contains('floatable')) {
+      const bodyRect = document.body.getBoundingClientRect();
+      const elemRect = helpBox.getBoundingClientRect();
+      const offset = elemRect.top - bodyRect.top;
+      helpButtonElement.style.top = `${offset}px`;
+    } else {
+      helpButtonElement.style.top = '0';
     }
   });
 };
