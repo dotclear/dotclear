@@ -297,7 +297,7 @@ class Session implements SessionInterface
         $sql = new DeleteStatement($this->con, $this->con->syntax());
         $sql
             ->from($this->table)
-            ->where('ses_time = ' . $ses_life)
+            ->where('ses_time < ' . $ses_life)
         ;
         $sql->delete();
 
