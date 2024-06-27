@@ -286,11 +286,6 @@ class ThemesList extends ModulesList
         $submits = [];
         $id      = $define->getId();
 
-        // mark module state
-        if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
-            $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1">';
-        }
-
         if ($id != App::blog()->settings()->system->theme) {
             # Select theme to use on curent blog
             if (in_array('select', $actions)) {
