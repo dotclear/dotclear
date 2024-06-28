@@ -311,9 +311,6 @@ class Modules implements ModulesInterface
         // Add dependencies to modules that use given module
         if (!empty($module->getImplies()) && $module->get('state') == ModuleDefine::STATE_ENABLED) {
             foreach ($module->getImplies() as $im) {
-                if (isset($optionnals[$im][$module->getId()])) {
-                    continue;
-                }
                 foreach ($this->getDefines(['id' => $im]) as $found) {
                     if ($found->get('state') == ModuleDefine::STATE_ENABLED) {
                         $module->addUsing($im);
