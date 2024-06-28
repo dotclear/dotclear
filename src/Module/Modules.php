@@ -289,13 +289,26 @@ class Modules implements ModulesInterface
                         $this->errors[] = $msg;
                     }
                 }
-                $found->addImplies($module->getId());
+                if ($found->isDefined() && $found->getId() !== 'core' && $found->getId() !== 'php') {
+                    $found->addImplies($module->getId());
+                }
             }
         }
 
-        // Check modules that cannot be disabled
+        // Move in soft disabled state module with missing requirements
+        if (!$this->safe_mode && !empty($module->getMissing()) && $module->get('state') == ModuleDefine::STATE_ENABLED) {
+            $module->set('state', ModuleDefine::STATE_SOFT_DISABLED);
+        }
+    }
 
-        // Add dependencies to modules that use current module
+    /**
+     * Check modules that cannot be disabled
+     *
+     * @param      ModuleDefine  $module    The module
+     */
+    public function lockDepModules(ModuleDefine $module): void
+    {
+        // Add dependencies to modules that use given module
         if (!empty($module->getImplies()) && $module->get('state') == ModuleDefine::STATE_ENABLED) {
             foreach ($module->getImplies() as $im) {
                 if (isset($optionnals[$im][$module->getId()])) {
@@ -307,10 +320,6 @@ class Modules implements ModulesInterface
                     }
                 }
             }
-        }
-        // Move in soft disabled state module with missing requirements
-        if (!$this->safe_mode && !empty($module->getMissing()) && $module->get('state') == ModuleDefine::STATE_ENABLED) {
-            $module->set('state', ModuleDefine::STATE_SOFT_DISABLED);
         }
     }
 
@@ -454,6 +463,11 @@ class Modules implements ModulesInterface
         // Check modules dependencies
         foreach ($this->defines as $module) {
             $this->checkDependencies($module);
+        }
+
+        // Lock modules required
+        foreach ($this->defines as $module) {
+            $this->lockDepModules($module);
         }
 
         // Sort modules by priority
