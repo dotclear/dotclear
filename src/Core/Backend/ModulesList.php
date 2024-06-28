@@ -15,14 +15,41 @@ use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Form\Caption;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Details;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\File;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Summary;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Tr;
+use Dotclear\Helper\Html\Form\Ul;
+use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
-use Dotclear\Helper\Text;
+use Dotclear\Helper\Text as Txt;
 use Dotclear\Interface\Module\ModulesInterface;
 use Dotclear\Module\ModuleDefine;
 use Dotclear\Module\Store;
 use Exception;
-use form;
 
 /**
  * Helper for admin list of plugins.
@@ -392,36 +419,40 @@ class ModulesList
             return $this;
         }
 
-        echo
-        '<div class="modules-search">' .
-        '<form action="' . $this->getURL() . '" method="get">' .
-        '<p><label for="m_search" class="classic">' . __('Search in repository:') . '&nbsp;</label><br>' .
-        form::hidden(['process'], is_a($this, ThemesList::class) ? 'BlogTheme' : 'Plugins') .
-        form::field('m_search', 30, 255, Html::escapeHTML($query)) .
-        '<input type="submit" value="' . __('OK') . '"> ';
-
-        if ($query) {
-            echo
-            ' <a href="' . $this->getURL() . '" class="button">' . __('Reset search') . '</a>';
-        }
-
-        echo
-        '</p>' .
-        '<p class="form-note">' .
-        __('Search is allowed on multiple terms longer than 2 chars, terms must be separated by space.') .
-            '</p>' .
-            '</form>';
-
-        if ($query) {
-            echo
-            '<p class="message">' . sprintf(
-                __('Found %d result for search "%s":', 'Found %d results for search "%s":', count($this->defines)),
-                count($this->defines),
-                Html::escapeHTML($query)
-            ) .
-                '</p>';
-        }
-        echo '</div>';
+        echo (new Div())
+            ->class('modules-search')
+            ->items([
+                (new Form(['modules-search-form']))
+                    ->method('get')
+                    ->action($this->getURL())
+                    ->fields([
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                (new Input('m_search'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($query))
+                                    ->label(new Label(__('Search in repository:'), Label::IL_TF)),
+                                (new Submit(['modules-search-submit'], __('OK'))),
+                                (new Hidden(['process'], is_a($this, ThemesList::class) ? 'BlogTheme' : 'Plugins')),
+                                $query ? (new Link())->class('button')->text(__('Reset search')) : (new None()),
+                            ]),
+                        (new Note())
+                            ->class('form-note')
+                            ->text(__('Search is allowed on multiple terms longer than 2 chars, terms must be separated by space.')),
+                    ]),
+                $query ?
+                    (new Note())
+                        ->class('message')
+                        ->text(sprintf(
+                            __('Found %d result for search "%s":', 'Found %d results for search "%s":', count($this->defines)),
+                            count($this->defines),
+                            Html::escapeHTML($query)
+                        )) :
+                    (new None()),
+            ])
+        ->render();
 
         return $this;
     }
@@ -487,20 +518,46 @@ class ModulesList
         foreach ($this->nav_list as $char) {
             # Selected letter
             if ($this->getIndex() == $char) {
-                $buttons[] = '<li class="active" title="' . __('current selection') . '"><strong> ' . $char . ' </strong></li>';
+                $buttons[] = (new Li())
+                    ->class('active')
+                    ->title(__('current selection'))
+                    ->items([
+                        (new Text('strong', $char)),
+                    ]);
             }
             # Letter having modules
             elseif (!empty($indexes[$char])) {
                 $title     = sprintf(__('%d result', '%d results', $indexes[$char]), $indexes[$char]);
-                $buttons[] = '<li class="btn" title="' . $title . '"><a href="' . $this->getURL('m_nav=' . $char) . '" title="' . $title . '"> ' . $char . ' </a></li>';
+                $buttons[] = (new Li())
+                    ->class('btn')
+                    ->title($title)
+                    ->items([
+                        (new Link())
+                            ->href($this->getURL('m_nav=' . $char))
+                            ->title($title)
+                            ->text($char),
+                    ]);
             }
             # Letter without modules
             else {
-                $buttons[] = '<li class="btn no-link" title="' . __('no results') . '"> ' . $char . ' </li>';
+                $buttons[] = (new Li())
+                    ->class(['btn', 'no-link'])
+                    ->title(__('no results'))
+                    ->text($char);
             }
         }
         # Parse navigation menu
-        echo '<div class="pager">' . __('Browse index:') . ' <ul class="index">' . implode('', $buttons) . '</ul></div>';
+        echo (new Div())
+            ->class('pager')
+            ->items([
+                (new Para())
+                    ->items([
+                        (new Text(null, __('Browse index:'))),
+                    ]),
+                (new Ul())
+                    ->items($buttons),
+            ])
+        ->render();
 
         return $this;
     }
@@ -648,7 +705,7 @@ class ModulesList
             ->set('sid', self::sanitizeString($define->getId()))
             ->set('label', $define->get('label') ?: ($define->get('name') ?: $define->getId()))
             ->set('name', __($define->get('name') ?: $define->get('label')))
-            ->set('sname', self::sanitizeString(strtolower(Text::removeDiacritics($define->get('name')))));
+            ->set('sname', self::sanitizeString(strtolower(Txt::removeDiacritics($define->get('name')))));
     }
 
     /**
@@ -759,11 +816,8 @@ class ModulesList
      */
     public function displayModules(array $cols = ['name', 'version', 'desc'], array $actions = [], bool $nav_limit = false): ModulesList
     {
-        echo
-        '<form action="' . $this->getURL() . '" method="post" class="modules-form-actions">' .
-        '<div class="table-outer">' .
-        '<table id="' . Html::escapeHTML($this->list_id) . '" class="modules' . (in_array('expander', $cols) ? ' expandable' : '') . '">' .
-        '<caption class="hidden">' . Html::escapeHTML(__('Plugins list')) . '</caption><tr>';
+        $rows    = [];
+        $headers = [];
 
         if (in_array('name', $cols)) {
             $colspan = 1;
@@ -773,47 +827,62 @@ class ModulesList
             if (in_array('icon', $cols)) {
                 $colspan++;
             }
-            echo
-            '<th class="first nowrap"' . ($colspan > 1 ? ' colspan="' . $colspan . '"' : '') . '>' . __('Name') . '</th>';
+            $headers[] = (new Th())
+                ->class(['first', 'nowrap'])
+                ->text(__('Name'));
+            if ($colspan > 1) {
+                current($headers)->colspan($colspan);
+            }
         }
 
         if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
-            echo
-            '<th class="nowrap">' . __('Score') . '</th>';
+            $headers[] = (new Th())
+                ->class('nowrap')
+                ->text(__('Score'));
         }
 
         if (in_array('version', $cols)) {
-            echo
-            '<th class="nowrap count" scope="col">' . __('Version') . '</th>';
+            $headers[] = (new Th())
+                ->class(['nowrap', 'count'])
+                ->scope('col')
+                ->text(__('Version'));
         }
 
         if (in_array('current_version', $cols)) {
-            echo
-            '<th class="nowrap count" scope="col">' . __('Current version') . '</th>';
+            $headers[] = (new Th())
+                ->class(['nowrap', 'count'])
+                ->scope('col')
+                ->text(__('Current version'));
         }
 
         if (in_array('desc', $cols)) {
-            echo
-            '<th class="nowrap module-desc" scope="col">' . __('Details') . '</th>';
+            $headers[] = (new Th())
+                ->class(['nowrap', 'module-desc'])
+                ->scope('col')
+                ->text(__('Details'));
         }
 
         if (in_array('repository', $cols) && App::config()->allowRepositories()) {
-            echo
-            '<th class="nowrap count" scope="col">' . __('Repository') . '</th>';
+            $headers[] = (new Th())
+                ->class(['nowrap', 'count'])
+                ->scope('col')
+                ->text(__('Repository'));
         }
 
         if (in_array('distrib', $cols)) {
-            echo
-                '<th' . (in_array('desc', $cols) ? '' : ' class="maximal"') . '></th>';
+            $headers[] = (new Th());
+            if (!in_array('desc', $cols)) {
+                current($headers)->class('maximal');
+            }
         }
 
         if (!empty($actions) && App::auth()->isSuperAdmin()) {
-            echo
-            '<th class="minimal nowrap">' . __('Action') . '</th>';
+            $headers[] = (new Th())
+                ->class(['nowrap', 'minimal'])
+                ->text(__('Action'));
         }
 
-        echo
-            '</tr>';
+        $rows[] = (new Tr())->cols($headers);
 
         $sort_field = $this->getSort();
 
@@ -824,7 +893,8 @@ class ModulesList
 
         $count = 0;
         foreach ($this->defines as $define) {
-            $id = $define->getId();
+            $data = [];
+            $id   = $define->getId();
 
             # Show only requested modules
             if ($nav_limit && $this->getSearch() === null) {
@@ -837,20 +907,16 @@ class ModulesList
                 }
             }
             $git = (App::config()->devMode() || App::config()->debugMode()) && file_exists($define->get('root') . '/.git');
-
-            echo
-            '<tr class="line' . ($git ? ' module-git' : '') . '" id="' . Html::escapeHTML($this->list_id) . '_m_' . Html::escapeHTML($id) . '"' .
-                (in_array('desc', $cols) ? ' title="' . Html::escapeHTML(__($define->get('desc'))) . '" ' : '') .
-                '>';
-
             $tds = 0;
 
             if (in_array('checkbox', $cols)) {
                 $tds++;
-                echo
-                '<td class="module-icon nowrap">' .
-                form::checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)], Html::escapeHTML($id)) .
-                    '</td>';
+                $data[] = (new Td())
+                    ->class(['module-icon', 'nowrap'])
+                    ->items([
+                        (new Checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)]))
+                            ->value(Html::escapeHTML($id)),
+                    ]);
             }
 
             if (in_array('icon', $cols)) {
@@ -873,144 +939,164 @@ class ModulesList
                     $icon = [$icon, 'images/module-dark.svg'];
                 }
 
-                echo
-                '<td class="module-icon nowrap">' .
-                Helper::adminIcon($icon, false, Html::escapeHTML($id), Html::escapeHTML($id)) .
-                '</td>';
+                $data[] = (new Td())
+                    ->class(['module-icon', 'nowrap'])
+                    ->text(Helper::adminIcon($icon, false, Html::escapeHTML($id), Html::escapeHTML($id)));
             }
 
             $tds++;
-            echo
-            '<th class="module-name nowrap" scope="row">';
+            $data_items = [];
+            $name       = Html::escapeHTML($define->get('name')) . ($id != $define->get('name') ? sprintf(__(' (%s)'), $id) : '');
             if (in_array('checkbox', $cols)) {
                 if (in_array('expander', $cols)) {
-                    echo
-                    Html::escapeHTML($define->get('name')) . ($id != $define->get('name') ? sprintf(__(' (%s)'), $id) : '');
+                    $data_items[] = (new Text(null, $name));
                 } else {
-                    echo
-                    '<label for="' . Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id) . '">' .
-                    Html::escapeHTML($define->get('name')) . ($id != $define->get('name') ? sprintf(__(' (%s)'), $id) : '') .
-                    '</label>';
+                    $data_items[] = (new Label($name))
+                        ->for(Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id));
                 }
             } else {
-                echo
-                Html::escapeHTML($define->get('name')) . ($id != $define->get('name') ? sprintf(__(' (%s)'), $id) : '') .
-                form::hidden(['modules[' . $count . ']'], Html::escapeHTML($id));
+                $data_items[] = (new Text(null, $name));
+                $data_items[] = (new Hidden(['modules[' . $count . ']'], Html::escapeHTML($id)));
             }
-            echo
-            App::nonce()->getFormNonce() .
-            '</td>';
+            $data[] = (new Th())
+                ->class(['module-name', 'nowrap'])
+                ->items($data_items);
 
             # Display score only for debug purpose
             if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
                 $tds++;
-                echo
-                '<td class="module-version nowrap count"><span class="debug">' . $define->get('score') . '</span></td>';
+                $data[] = (new Td())
+                    ->class(['module-version', 'nowrap', 'count'])
+                    ->items([
+                        (new Text('span', $define->get('score')))->class('debug'),
+                    ]);
             }
 
             if (in_array('version', $cols)) {
                 $tds++;
-                echo
-                '<td class="module-version nowrap count">' . Html::escapeHTML($define->get('version')) . '</td>';
+                $data[] = (new Td())
+                    ->class(['module-version', 'nowrap', 'count'])
+                    ->text(Html::escapeHTML($define->get('version')));
             }
 
             if (in_array('current_version', $cols)) {
                 $tds++;
-                echo
-                '<td class="module-current-version nowrap count">' . Html::escapeHTML($define->get('current_version')) . '</td>';
+                $data[] = (new Td())
+                    ->class(['module-current-version', 'nowrap', 'count'])
+                    ->text(Html::escapeHTML($define->get('current-version')));
             }
 
             if (in_array('desc', $cols)) {
                 $tds++;
-                $note = '';
+                $infos = [];
                 if (!empty($define->getUsing()) && $define->get('state') == ModuleDefine::STATE_ENABLED) {
-                    $note .= '<p><span class="info">' .
-                    sprintf(
-                        __('This module cannot be disabled nor deleted, since the following modules are also enabled : %s'),
-                        join(',', $define->getUsing())
-                    ) . '</span></p>';
+                    $infos[] = (new Para())
+                        ->items([
+                            (new Text('span', sprintf(
+                                __('This module cannot be disabled nor deleted, since the following modules are also enabled : %s'),
+                                join(', ', $define->getUsing())
+                            )))->class('info'),
+                        ]);
                 }
                 if (!empty($define->getMissing())) {
-                    $note .= '<p><span class="info">' .
-                    __('This module cannot be enabled, because of the following reasons :') . '<ul>';
+                    $reasons = [];
                     foreach ($define->getMissing() as $reason) {
-                        $note .= '<li>' . $reason . '</li>';
+                        $reasons[] = (new Li())->text($reason);
                     }
-                    $note .= '</ul></span></p>';
+                    $infos[] = (new Para())
+                        ->items([
+                            (new Text('span', __('This module cannot be enabled, because of the following reasons :')))->class('info'),
+                            (new Ul())->items($reasons),
+                        ]);
                 }
-                echo
-                '<td class="module-desc maximal">' .
-                ($note !== '' ? '<details><summary>' : '') .
-                Html::escapeHTML(__($define->get('desc'))) .
-                ($note !== '' ? '</summary>' . $note . '</details>' : '') .
-                '</td>';
+
+                $data[] = (new Td())
+                    ->class(['module-desc', 'maximal'])
+                    ->items([
+                        count($infos) ?
+                        (new Details())
+                            ->summary((new Summary(Html::escapeHTML(__($define->get('desc'))))))
+                            ->items($infos) :
+                        (new Text(null, Html::escapeHTML(__($define->get('desc'))))),
+                    ]);
             }
 
             if (in_array('repository', $cols) && App::config()->allowRepositories()) {
                 $tds++;
-                echo
-                '<td class="module-repository nowrap count">' . (!empty($define->get('repository')) ? __('Third-party repository') : __('Official repository')) . '</td>';
+                $data[] = (new Td())
+                    ->class(['module-repository', 'nowrap', 'count'])
+                    ->text(!empty($define->get('repository')) ? __('Third-party repository') : __('Official repository'));
             }
 
             if (in_array('distrib', $cols)) {
                 $tds++;
-                echo
-                    '<td class="module-distrib">' . ($define->get('distributed') ?
-                    '<img src="images/dotclear-leaf.svg" alt="' . __('Plugin from official distribution') . '">'
-                    : ($git ?
-                        '<img src="images/git-branch.svg" alt="' . __('Plugin in development') . '">'
-                        : '')) . '</td>';
+                $data[] = (new Td())
+                    ->class('module-distrib')
+                    ->items([
+                        $define->get('distributed') ?
+                        (new Img('images/dotclear-leaf.svg'))->alt(__('Plugin from official distribution')) :
+                        ($git ? (new Img('images/git-branch.svg'))->alt(__('Plugin in development')) : (new None())),
+                    ]);
             }
 
             if (!empty($actions) && App::auth()->isSuperAdmin()) {
                 $buttons = $this->getActions($define, $actions);
 
                 $tds++;
-                echo
-                '<td class="module-actions nowrap">' .
-
-                '<div>' . implode(' ', $buttons) . '</div>' .
-
-                    '</td>';
+                $data[] = (new Td())
+                    ->class(['module-actions', 'nowrap'])
+                    ->text(implode(' ', $buttons));
             }
 
-            echo
-                '</tr>';
+            $rows[] = (new Tr(Html::escapeHTML($this->list_id) . '_m_' . Html::escapeHTML($id)))
+                ->class(array_filter(['line', $git ? ' module-git' : '']))
+                ->cols($data);
+            if (in_array('desc', $cols)) {
+                current($rows)->title(Html::escapeHTML(__($define->get('desc'))));
+            }
 
             # Other informations
             if (in_array('expander', $cols)) {
-                echo
-                    '<tr class="module-more"><td colspan="' . $tds . '" class="expand">';
+                $items = [];
 
                 if (!empty($define->get('author')) || !empty($define->get('details')) || !empty($define->get('support'))) {
-                    echo
-                        '<div><ul class="mod-more">';
+                    $lines = [];
 
                     if (!empty($define->get('author'))) {
-                        echo
-                        '<li class="module-author">' . __('Author:') . ' ' . Html::escapeHTML($define->get('author')) . '</li>';
+                        $lines[] = (new Li())
+                            ->class('module-author')
+                            ->text(__('Author:') . ' ' . Html::escapeHTML($define->get('author')));
                     }
 
-                    $more = [];
+                    $links = [];
                     if (!empty($define->get('details'))) {
-                        $more[] = '<a class="module-details" href="' . $define->get('details') . '">' . __('Details') . '</a>';
+                        $links[] = (new Link())
+                            ->class('module-details')
+                            ->href($define->get('details'))
+                            ->text(__('Details'));
                     }
 
                     if (!empty($define->get('support'))) {
-                        $more[] = '<a class="module-support" href="' . $define->get('support') . '">' . __('Support') . '</a>';
+                        $links[] = (new Link())
+                            ->class('module-support')
+                            ->href($define->get('support'))
+                            ->text(__('Support'));
                     }
 
                     if ($define->updLocked()) {
-                        $more[] = '<span class="module-locked">' . __('update locked') . '</span>';
+                        $links[] = (new Text('span', __('update locked')))
+                            ->class('module-locked');
                     }
 
-                    if (!empty($more)) {
-                        echo
-                        '<li>' . implode(' - ', $more) . '</li>';
+                    if (!empty($links)) {
+                        $lines[] = (new Li())
+                            ->separator(' - ')
+                            ->items($links);
                     }
 
-                    echo
-                        '</ul></div>';
+                    $items[] = (new Div())->items([
+                        (new Ul())->class('mod-more')->items($lines),
+                    ]);
                 }
 
                 if (static::hasFileOrClass($id, $this->modules::MODULE_CLASS_CONFIG, $this->modules::MODULE_FILE_CONFIG)
@@ -1020,58 +1106,85 @@ class ModulesList
                  || !empty($define->get('settings'))   && $define->get('state') == ModuleDefine::STATE_ENABLED
                  || !empty($define->get('repository')) && App::config()->debugMode() && App::config()->allowRepositories()
                 ) {
-                    echo
-                        '<div><ul class="mod-more">';
+                    $lines = [];
 
                     $settings = static::getSettingsUrls($id);
                     if (!empty($settings) && $define->get('state') == ModuleDefine::STATE_ENABLED) {
-                        echo '<li>' . implode(' - ', $settings) . '</li>';
+                        $lines[] = (new Li())
+                            ->text(implode(' - ', $settings));
                     }
 
                     if (!empty($define->get('repository')) && App::config()->debugMode() && App::config()->allowRepositories()) {
-                        echo '<li class="modules-repository"><a href="' . $define->get('repository') . '">' . __('Third-party repository') . '</a></li>';
+                        $lines[] = (new Li())
+                            ->class('modules-repository')
+                            ->items([
+                                (new Link())->href($define->get('repository'))->text(__('Third-party repository')),
+                            ]);
                     }
 
                     if (!empty($define->get('section'))) {
-                        echo
-                        '<li class="module-section">' . __('Section:') . ' ' . Html::escapeHTML($define->get('section')) . '</li>';
+                        $lines[] = (new Li())
+                            ->class('module-section')
+                            ->text(__('Section:') . ' ' . Html::escapeHTML($define->get('section')));
                     }
 
                     if (!empty($define->get('tags'))) {
-                        echo
-                        '<li class="module-tags">' . __('Tags:') . ' ' . Html::escapeHTML($define->get('tags')) . '</li>';
+                        $lines[] = (new Li())
+                            ->class('module-tags')
+                            ->text(__('Tags:') . ' ' . Html::escapeHTML($define->get('tags')));
                     }
 
-                    echo
-                        '</ul></div>';
+                    $items[] = (new Div())->items([
+                        (new Ul())->class('mod-more')->items($lines),
+                    ]);
                 }
 
-                echo
-                    '</td></tr>';
+                $rows[] = (new Tr())
+                    ->class('module-more')
+                    ->cols([
+                        (new Td())
+                            ->class('expand')
+                            ->colspan($tds)
+                            ->items($items),
+                    ]);
             }
 
             $count++;
         }
-        echo
-            '</table></div>';
 
+        $bottom = [];
         if (!$count && $this->getSearch() === null) {
-            echo
-            '<p class="message">' . __('No plugins matched your search.') . '</p>';
+            $bottom[] = (new Note())
+                ->class('message')
+                ->text(__('No plugins matched your search.'));
         } elseif ((in_array('checkbox', $cols) || $count > 1) && !empty($actions) && App::auth()->isSuperAdmin()) {
             $buttons = $this->getGlobalActions($actions, in_array('checkbox', $cols));
 
             if (!empty($buttons)) {
                 if (in_array('checkbox', $cols)) {
-                    echo
-                        '<p class="checkboxes-helpers"></p>';
+                    $bottom[] = (new Para())->class('checkboxes-helpers');
                 }
-                echo
-                '<div>' . implode(' ', $buttons) . '</div>';
+                $bottom[] = (new Div())->items([
+                    (new Text(null, implode(' ', $buttons))),
+                ]);
             }
         }
-        echo
-            '</form>';
+
+        $form = (new Form(['modules-form-actions']))
+            ->fields([
+                (new Div())
+                    ->class('table-outer')
+                    ->items([
+                        (new Table(Html::escapeHTML($this->list_id)))
+                            ->class(array_filter(['modules', in_array('expander', $cols) ? ' expandable' : '']))
+                            ->caption((new Caption(Html::escapeHTML(__('Plugins list'))))->class('hidden'))
+                            ->items($rows),
+                    ]),
+                ...$bottom,
+            ])
+        ->render();
+
+        echo $form;
 
         return $this;
     }
@@ -1105,9 +1218,11 @@ class ModulesList
                     if (!App::plugins()->moduleInfo($id, 'standalone_config') && !$self) {
                         $params['redir'] = App::backend()->url()->get('admin.plugin.' . $id);
                     }
-                    $settings_urls[] = '<a class="module-config" href="' .
-                    App::backend()->url()->get('admin.plugins', $params) .
-                    '">' . __('Configure plugin') . '</a>';
+                    $settings_urls[] = (new Link())
+                        ->href(App::backend()->url()->get('admin.plugins', $params))
+                        ->class('module-config')
+                        ->text(__('Configure plugin'))
+                    ->render();
                 }
             }
             if (is_array($settings)) {
@@ -1117,9 +1232,11 @@ class ModulesList
                             if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::auth()->makePermissions([
                                 App::auth()::PERMISSION_ADMIN,
                             ]), App::blog()->id())) {
-                                $settings_urls[] = '<a class="module-config" href="' .
-                                App::backend()->url()->get('admin.blog.pref') . $sv .
-                                '">' . __('Plugin settings (in blog parameters)') . '</a>';
+                                $settings_urls[] = (new Link())
+                                    ->href(App::backend()->url()->get('admin.blog.pref') . $sv)
+                                    ->class('module-config')
+                                    ->text(__('Plugin settings (in blog parameters)'))
+                                ->render();
                             }
 
                             break;
@@ -1128,18 +1245,22 @@ class ModulesList
                                 App::auth()::PERMISSION_USAGE,
                                 App::auth()::PERMISSION_CONTENT_ADMIN,
                             ]), App::blog()->id())) {
-                                $settings_urls[] = '<a class="module-config" href="' .
-                                App::backend()->url()->get('admin.user.preferences') . $sv .
-                                '">' . __('Plugin settings (in user preferences)') . '</a>';
+                                $settings_urls[] = (new Link())
+                                    ->href(App::backend()->url()->get('admin.user.preferences') . $sv)
+                                    ->class('module-config')
+                                    ->text(__('Plugin settings (in user preferences)'))
+                                ->render();
                             }
 
                             break;
                         case 'self':
                             if ($self) {
                                 if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
-                                    $settings_urls[] = '<a class="module-config" href="' .
-                                    App::backend()->url()->get('admin.plugin.' . $id) . $sv .
-                                    '">' . __('Plugin settings') . '</a>';
+                                    $settings_urls[] = (new Link())
+                                        ->href(App::backend()->url()->get('admin.plugin.' . $id) . $sv)
+                                        ->class('module-config')
+                                        ->text(__('Plugin settings'))
+                                    ->render();
                                 }
                                 // No need to use default index.php
                                 $index = false;
@@ -1148,9 +1269,11 @@ class ModulesList
                             break;
                         case 'other':
                             if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
-                                $settings_urls[] = '<a class="module-config" href="' .
-                                $sv .
-                                '">' . __('Plugin settings') . '</a>';
+                                $settings_urls[] = (new Link())
+                                    ->href($sv)
+                                    ->class('module-config')
+                                    ->text(__('Plugin settings'))
+                                ->render();
                             }
 
                             break;
@@ -1159,9 +1282,11 @@ class ModulesList
             }
             if ($index && $self) {
                 if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
-                    $settings_urls[] = '<a class="module-config" href="' .
-                    App::backend()->url()->get('admin.plugin.' . $id) .
-                    '">' . __('Plugin main page') . '</a>';
+                    $settings_urls[] = (new Link())
+                        ->href(App::backend()->url()->get('admin.plugin.' . $id))
+                        ->class('module-config')
+                        ->text(__('Plugin main page'))
+                    ->render();
                 }
             }
         }
@@ -1184,7 +1309,8 @@ class ModulesList
 
         // mark module state
         if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
-            $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1">';
+            $submits[] = (new Hidden(['disabled[' . Html::escapeHTML($id) . ']'], '1'))
+            ->render();
         }
 
         # Use loop to keep requested order
@@ -1192,10 +1318,11 @@ class ModulesList
             switch ($action) {
                 # Deactivate
                 case 'activate':
-                    // do not allow activation of duplciate modules already activated
+                    // do not allow activation of duplicate modules already activated
                     $multi = !self::$allow_multi_install && count($this->modules->getDefines(['id' => $id, 'state' => ModuleDefine::STATE_ENABLED])) > 0;
                     if (App::auth()->isSuperAdmin() && $define->get('root_writable') && empty($define->getMissing()) && !$multi) {
-                        $submits[] = '<input type="submit" name="activate[' . Html::escapeHTML($id) . ']" value="' . __('Activate') . '">';
+                        $submits[] = (new Submit(['activate[' . Html::escapeHTML($id) . ']'], __('Activate')))
+                        ->render();
                     }
 
                     break;
@@ -1203,7 +1330,9 @@ class ModulesList
                     # Activate
                 case 'deactivate':
                     if (App::auth()->isSuperAdmin() && $define->get('root_writable') && empty($define->getUsing())) {
-                        $submits[] = '<input type="submit" name="deactivate[' . Html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset">';
+                        $submits[] = (new Submit(['deactivate[' . Html::escapeHTML($id) . ']'], __('Deactivate')))
+                            ->class('reset')
+                        ->render();
                     }
 
                     break;
@@ -1212,7 +1341,9 @@ class ModulesList
                 case 'delete':
                     if (App::auth()->isSuperAdmin() && !$define->distributed && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', $define->get('root')) && App::config()->devMode() ? ' debug' : '';
-                        $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . Html::escapeHTML($id) . ']" value="' . __('Delete') . '">';
+                        $submits[] = (new Submit(['delete[' . Html::escapeHTML($id) . ']'], __('Delete')))
+                            ->class(['delete', $dev])
+                        ->render();
                     }
 
                     break;
@@ -1220,7 +1351,9 @@ class ModulesList
                     # Clone
                 case 'clone':
                     if (App::auth()->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" class="button clone" name="clone[' . Html::escapeHTML($id) . ']" value="' . __('Clone') . '">';
+                        $submits[] = (new Submit(['clone[' . Html::escapeHTML($id) . ']'], __('Clone')))
+                            ->class('clone')
+                        ->render();
                     }
 
                     break;
@@ -1228,7 +1361,8 @@ class ModulesList
                     # Install (from store)
                 case 'install':
                     if (App::auth()->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" name="install[' . Html::escapeHTML($id) . ']" value="' . __('Install') . '">';
+                        $submits[] = (new Submit(['install[' . Html::escapeHTML($id) . ']'], __('Install')))
+                        ->render();
                     }
 
                     break;
@@ -1236,7 +1370,8 @@ class ModulesList
                     # Update (from store)
                 case 'update':
                     if (App::auth()->isSuperAdmin() && $this->path_writable && !$define->updLocked()) {
-                        $submits[] = '<input type="submit" name="update[' . Html::escapeHTML($id) . ']" value="' . __('Update') . '">';
+                        $submits[] = (new Submit(['update[' . Html::escapeHTML($id) . ']'], __('Update')))
+                        ->render();
                     }
 
                     break;
@@ -1276,11 +1411,10 @@ class ModulesList
                 # Deactivate
                 case 'activate':
                     if (App::auth()->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" name="activate" value="' . (
-                            $with_selection ?
+                        $submits[] = (new Submit(['activate'], $with_selection ?
                             __('Activate selected plugins') :
-                            __('Activate all plugins from this list')
-                        ) . '">';
+                            __('Activate all plugins from this list')))
+                        ->render();
                     }
 
                     break;
@@ -1288,11 +1422,10 @@ class ModulesList
                     # Activate
                 case 'deactivate':
                     if (App::auth()->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" name="deactivate" value="' . (
-                            $with_selection ?
+                        $submits[] = (new Submit(['deactivate'], $with_selection ?
                             __('Deactivate selected plugins') :
-                            __('Deactivate all plugins from this list')
-                        ) . '">';
+                            __('Deactivate all plugins from this list')))
+                        ->render();
                     }
 
                     break;
@@ -1300,11 +1433,10 @@ class ModulesList
                     # Update (from store)
                 case 'update':
                     if (App::auth()->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" name="update" value="' . (
-                            $with_selection ?
+                        $submits[] = (new Submit(['update'], $with_selection ?
                             __('Update selected plugins') :
-                            __('Update all plugins from this list')
-                        ) . '">';
+                            __('Update all plugins from this list')))
+                        ->render();
                     }
 
                     break;
@@ -1594,50 +1726,102 @@ class ModulesList
             return;
         }
 
-        # 'Upload module' form
-        echo
-        '<form method="post" action="' . $this->getURL() . '" id="uploadpkg" enctype="multipart/form-data" class="fieldset">' .
-        '<h4>' . __('Upload a zip file') . '</h4>' .
-        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-        '<p class="field"><label for="pkg_file" class="classic required"><span>*</span> ' . __('Zip file path:') . '</label> ' .
-        '<input type="file" name="pkg_file" id="pkg_file" required></p>' .
-        '<p class="field"><label for="your_pwd1" class="classic required"><span>*</span> ' . __('Your password:') . '</label> ' .
-        form::password(
-            ['your_pwd', 'your_pwd1'],
-            20,
-            255,
-            [
-                'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                'autocomplete' => 'current-password',
-            ]
-        ) . '</p>' .
-        '<p><input type="submit" name="upload_pkg" value="' . __('Upload') . '">' .
-        App::nonce()->getFormNonce() . '</p>' .
-            '</form>';
+        // 'Upload module' form
+        echo (new Form())
+            ->method('post')
+            ->action($this->getURL())
+            ->enctype('multipart/form-data')
+            ->id('uploadpkg')
+            ->items([
+                (new Fieldset())
+                    ->legend(new Legend(__('Upload a zip file')))
+                    ->items([
+                        (new Note())
+                            ->class('form-note')
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        (new Para())
+                            ->class('field')
+                            ->items([
+                                (new File('pkg_file'))
+                                    ->required(true)
+                                    ->label(
+                                        (new Label((new Text('span', '*'))->render() . __('Zip file path:'), Label::OL_TF))
+                                            ->class('required')
+                                    ),
+                            ]),
+                        (new Para())
+                            ->class('field')
+                            ->items([
+                                (new Password(['your_pwd', 'your_pwd1']))
+                                    ->size(20)
+                                    ->maxlength(255)
+                                    ->required(true)
+                                    ->placeholder(__('Password'))
+                                    ->autocomplete('current-password')
+                                    ->label(
+                                        (new Label((new Text('span', '*'))->render() . __('Your password:'), Label::OL_TF))
+                                            ->class('required')
+                                    ),
+                            ]),
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                App::nonce()->formNonce(),
+                                (new Submit(['upload_pkg'], __('Upload'))),
+                            ]),
+                    ]),
+            ])
+        ->render();
 
-        # 'Fetch module' form
-        echo
-        '<form method="post" action="' . $this->getURL() . '" id="fetchpkg" class="fieldset">' .
-        '<h4>' . __('Download a zip file') . '</h4>' .
-        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-        '<p class="field"><label for="pkg_url" class="classic required"><span>*</span> ' . __('Zip file URL:') . '</label> ' .
-        form::field('pkg_url', 40, 255, [
-            'extra_html' => 'required placeholder="' . __('URL') . '"',
-        ]) .
-        '</p>' .
-        '<p class="field"><label for="your_pwd2" class="classic required"><span>*</span> ' . __('Your password:') . '</label> ' .
-        form::password(
-            ['your_pwd', 'your_pwd2'],
-            20,
-            255,
-            [
-                'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                'autocomplete' => 'current-password',
-            ]
-        ) . '</p>' .
-        '<p><input type="submit" name="fetch_pkg" value="' . __('Download') . '">' .
-        App::nonce()->getFormNonce() . '</p>' .
-            '</form>';
+        // 'Fetch module' form
+        echo (new Form())
+            ->method('post')
+            ->action($this->getURL())
+            ->enctype('multipart/form-data')
+            ->id('fetchpkg')
+            ->items([
+                (new Fieldset())
+                    ->legend(new Legend(__('Download a zip file')))
+                    ->items([
+                        (new Note())
+                            ->class('form-note')
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        (new Para())
+                            ->class('field')
+                            ->items([
+                                (new Url('pkg_url'))
+                                    ->size(40)
+                                    ->maxlength(255)
+                                    ->required(true)
+                                    ->placeholder(__('URL'))
+                                    ->label(
+                                        (new Label((new Text('span', '*'))->render() . __('Zip file URL:'), Label::OL_TF))
+                                            ->class('required')
+                                    ),
+                            ]),
+                        (new Para())
+                            ->class('field')
+                            ->items([
+                                (new Password(['your_pwd', 'your_pwd2']))
+                                    ->size(20)
+                                    ->maxlength(255)
+                                    ->required(true)
+                                    ->placeholder(__('Password'))
+                                    ->autocomplete('current-password')
+                                    ->label(
+                                        (new Label((new Text('span', '*'))->render() . __('Your password:'), Label::OL_TF))
+                                            ->class('required')
+                                    ),
+                            ]),
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                App::nonce()->formNonce(),
+                                (new Submit(['fetch_pkg'], __('Download'))),
+                            ]),
+                    ]),
+            ])
+        ->render();
 
         return $this;
     }
@@ -1766,27 +1950,49 @@ class ModulesList
     public function displayConfiguration(): ModulesList
     {
         if (($this->config_define instanceof ModuleDefine) && (!empty($this->config_class) || !empty($this->config_file))) {
+            $items = [];
+
             if (!$this->config_define->get('standalone_config')) {
-                if (!($this->config_define->get('information_config'))) {
-                    // Module config is not only informative so it must be encapsulated in a form
-                    echo
-                    '<form id="module_config" action="' . $this->getURL('conf=1') . '" method="post" enctype="multipart/form-data">';
-                }
-                echo
-                '<h3>' . sprintf(__('Configure "%s"'), Html::escapeHTML($this->config_define->get('name'))) . '</h3>' .
-                '<p><a class="back" href="' . $this->getRedir() . '">' . __('Back') . '</a></p>';
+                $items = array_merge($items, [
+                    (new Text('h3', sprintf(__('Configure "%s"'), Html::escapeHTML($this->config_define->get('name'))))),
+                    (new Para())
+                    ->items([
+                        (new Link())
+                            ->class('back')
+                            ->href($this->getRedir())
+                            ->text(__('Back')),
+                    ]),
+                ]);
             }
 
-            echo $this->config_content;
+            $items[] = (new Text(null, $this->config_content));
 
             if (!$this->config_define->get('standalone_config') && !$this->config_define->get('information_config')) {
                 // Module config is not only informative so it must be encapsulated in a form
-                echo
-                '<p class="clear"><input type="submit" name="save" value="' . __('Save') . '">' .
-                form::hidden('module', $this->config_define->getId()) .
-                form::hidden('redir', $this->getRedir()) .
-                App::nonce()->getFormNonce() . '</p>' .
-                '</form>';
+                $items = array_merge($items, [
+                    (new Para())
+                        ->class('clear')
+                        ->items([
+                            (new Submit(['save'], __('Save'))),
+                            (new Hidden('module', $this->config_define->getId())),
+                            (new Hidden('redir', $this->getRedir())),
+                            App::nonce()->formNonce(),
+                        ]),
+                ]);
+            }
+
+            if (!$this->config_define->get('standalone_config') && !$this->config_define->get('information_config')) {
+                echo (new Form())
+                    ->method('post')
+                    ->action($this->getURL('conf=1'))
+                    ->enctype('multipart/form-data')
+                    ->id('module_config')
+                    ->items($items)
+                ->render();
+            } else {
+                echo (new Set())
+                    ->items($items)
+                ->render();
             }
         }
 
