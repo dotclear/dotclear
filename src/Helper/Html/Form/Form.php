@@ -98,6 +98,12 @@ class Form extends Component
 
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
+        if (!isset($this->action) || !isset($this->method)) {
+            if (App::config()->devMode() === true && App::config()->debugMode() === true) {
+                $buffer .= '<!-- ' . static::class . ': ' . 'Form without action or method, is this deliberate?' . ' -->' . "\n";
+            }
+        }
+
         return $buffer;
     }
 
