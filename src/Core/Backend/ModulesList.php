@@ -1171,6 +1171,8 @@ class ModulesList
         }
 
         $form = (new Form(['modules-form-actions']))
+            ->method('post')
+            ->action($this->getURL())
             ->fields([
                 (new Div())
                     ->class('table-outer')
@@ -1181,6 +1183,7 @@ class ModulesList
                             ->items($rows),
                     ]),
                 ...$bottom,
+                App::nonce()->formNonce(),
             ])
         ->render();
 
