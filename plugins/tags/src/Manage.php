@@ -50,7 +50,7 @@ class Manage extends Process
 
         App::backend()->tags = App::meta()->getMetadata(['meta_type' => 'tag']);
         App::backend()->tags = App::meta()->computeMetaStats(App::backend()->tags);
-        App::backend()->tags->sort('meta_id_lower', 'asc');
+        App::backend()->tags->lexicalSort('meta_id_lower', 'asc');
 
         return true;
     }

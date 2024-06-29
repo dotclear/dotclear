@@ -47,7 +47,7 @@ class FrontendTemplate
 
         $sortby = 'meta_id_lower';
         if (isset($attr['sortby']) && in_array($attr['sortby'], $combo)) {
-            $sortby = strtolower($attr['sortby']);
+            $sortby = mb_strtolower($attr['sortby']);
         }
 
         $order = 'asc';
@@ -57,7 +57,11 @@ class FrontendTemplate
 
         return "<?php\n" .
         "App::frontend()->context()->meta = App::meta()->computeMetaStats(App::meta()->getMetadata(['meta_type'=>'" . $type . "','limit'=>" . $limit . ($sortby !== 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order === 'asc' ? 'ASC' : 'DESC') . "'" : '') . '])); ' . "\n" .
-        "App::frontend()->context()->meta->sort('" . $sortby . "','" . $order . "'); " . "\n" .
+        "if ('" . $sortby . "' === 'meta_id_lower') { " .
+        "App::frontend()->context()->meta->lexicalSort('" . $sortby . "','" . $order . "'); " .
+        '} else { ' .
+        "App::frontend()->context()->meta->sort('" . $sortby . "','" . $order . "'); " .
+        '}' . "\n" .
         'while (App::frontend()->context()->meta->fetch()) : ?>' . "\n" .
         $content .
         '<?php endwhile; ' . "\n" .
@@ -118,7 +122,7 @@ class FrontendTemplate
 
         $sortby = 'meta_id_lower';
         if (isset($attr['sortby']) && in_array($attr['sortby'], $combo)) {
-            $sortby = strtolower($attr['sortby']);
+            $sortby = mb_strtolower($attr['sortby']);
         }
 
         $order = 'asc';
@@ -127,12 +131,16 @@ class FrontendTemplate
         }
 
         $res = "<?php\n" .
-            "App::frontend()->context()->meta = App::meta()->getMetaRecordset(App::frontend()->context()->posts->post_meta,'" . $type . "'); " .
-            "App::frontend()->context()->meta->sort('" . $sortby . "','" . $order . "'); " .
-            '?>';
+        "App::frontend()->context()->meta = App::meta()->getMetaRecordset(App::frontend()->context()->posts->post_meta,'" . $type . "'); " .
+        "if ('" . $sortby . "' === 'meta_id_lower') { " .
+        "App::frontend()->context()->meta->lexicalSort('" . $sortby . "','" . $order . "'); " .
+        '} else { ' .
+        "App::frontend()->context()->meta->sort('" . $sortby . "','" . $order . "'); " .
+        '}' .
+        '?>';
 
         $res .= '<?php while (App::frontend()->context()->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
-            'App::frontend()->context()->meta = null; ?>';
+        'App::frontend()->context()->meta = null; ?>';
 
         return $res;
     }
@@ -301,7 +309,7 @@ class FrontendTemplate
 
         $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
-        $sort = $widget->get('sortby');
+        $sort = (string) $widget->get('sortby');
         if (!in_array($sort, $combo)) {
             $sort = 'meta_id_lower';
         }
@@ -313,7 +321,7 @@ class FrontendTemplate
 
         $params = ['meta_type' => 'tag'];
 
-        if ($sort != 'meta_id_lower') {
+        if ($sort !== 'meta_id_lower') {
             // As optional limit may restrict result, we should set order (if not computed after)
             $params['order'] = $sort . ' ' . ($order == 'asc' ? 'ASC' : 'DESC');
         }
@@ -330,9 +338,9 @@ class FrontendTemplate
             return '';
         }
 
-        if ($sort == 'meta_id_lower') {
+        if ($sort === 'meta_id_lower') {
             // Sort resulting recordset on cleaned id
-            $rs->sort($sort, $order);
+            $rs->lexicalSort($sort, $order);
         }
 
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
