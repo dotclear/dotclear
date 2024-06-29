@@ -57,7 +57,7 @@ class Form extends Component
     public function render(?string $format = null): string
     {
         if (!$this->checkMandatoryAttributes()) {
-            if (App::config()->devMode() === true && App::config()->debugMode() === true) {
+            if (!App::config()->cliMode() && App::config()->devMode() === true && App::config()->debugMode() === true) {
                 return '<!-- ' . static::class . ': ' . 'Form without id and name (provide at least one of them)' . ' -->' . "\n";
             }
 
@@ -99,7 +99,7 @@ class Form extends Component
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
         if (!isset($this->action) || !isset($this->method)) {
-            if (App::config()->devMode() === true && App::config()->debugMode() === true) {
+            if (!App::config()->cliMode() && App::config()->devMode() === true && App::config()->debugMode() === true) {
                 $buffer .= '<!-- ' . static::class . ': ' . 'Form without action or method, is this deliberate?' . ' -->' . "\n";
             }
         }

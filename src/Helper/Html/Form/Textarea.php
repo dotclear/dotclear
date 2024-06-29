@@ -52,7 +52,7 @@ class Textarea extends Component
     public function render(?string $extra = null): string
     {
         if (!$this->checkMandatoryAttributes()) {
-            if (App::config()->devMode() === true && App::config()->debugMode() === true) {
+            if (!App::config()->cliMode() && App::config()->devMode() === true && App::config()->debugMode() === true) {
                 return '<!-- ' . static::class . ': ' . 'Textarea without id and name (provide at least one of them)' . ' -->' . "\n";
             }
 
