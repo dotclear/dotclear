@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-20 16:03+0200\n"
-"PO-Revision-Date: 2024-06-20 14:06\n"
+"PO-Revision-Date: 2024-06-29 08:53\n"
 "Last-Translator: \n"
 "Language-Team: Serbian\n"
 "Language: srp\n"
@@ -967,8 +967,8 @@ msgstr[2] ", <a href=\"%s\">је објавио</a> (%s)"
 msgid ", <a href=\"%s\">spam</a> (1)"
 msgid_plural ", <a href=\"%s\">spam</a> (%s)"
 msgstr[0] ", <a href=\"%s\">spam</a> (1)"
-msgstr[1] ""
-msgstr[2] ""
+msgstr[1] ", <a href=\"%s\">Спам</a> (%s)"
+msgstr[2] ", <a href=\"%s\">Спам</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:97
 #: src/Core/Backend/Listing/ListingPosts.php:69
@@ -1202,7 +1202,7 @@ msgstr "Pas d'utilisateur"
 #: src/Core/Backend/Listing/ListingUsers.php:47
 #, php-format
 msgid "List of %s users match the filter."
-msgstr ""
+msgstr "Листа %s корисника одговара филтеру."
 
 #: src/Core/Backend/Listing/ListingUsers.php:49
 msgid "Users list"
@@ -1562,7 +1562,7 @@ msgstr "Déposer un fichier zip"
 #: src/Process/Install/Wizard.php:265 src/Process/Upgrade/Langs.php:402
 #, php-format
 msgid "Fields preceded by %s are mandatory."
-msgstr ""
+msgstr "Поља којој претходи %s су обавезна."
 
 #: src/Core/Backend/ModulesList.php:1602
 msgid "Zip file path:"
@@ -3393,15 +3393,15 @@ msgstr "Опис"
 
 #: src/Process/Backend/BlogPref.php:150
 msgid "Description, Date"
-msgstr ""
+msgstr "Опис, датум"
 
 #: src/Process/Backend/BlogPref.php:151
 msgid "Description, Country, Date"
-msgstr ""
+msgstr "Опис, земља, датум"
 
 #: src/Process/Backend/BlogPref.php:152
 msgid "Description, City, Country, Date"
-msgstr ""
+msgstr "Опис, град, држава, датум"
 
 #: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:560
 #: src/Process/Backend/MediaItem.php:634 src/Process/Backend/MediaItem.php:875
@@ -3700,11 +3700,11 @@ msgstr "Медиј"
 
 #: src/Process/Backend/BlogPref.php:744
 msgid "Thumbnail character prefix:"
-msgstr ""
+msgstr "Префикс знака сличице:"
 
 #: src/Process/Backend/BlogPref.php:747
 msgid "Leave empty to use the default one (.)"
-msgstr ""
+msgstr "Оставите празно да бисте користили подразумевани (.)"
 
 #: src/Process/Backend/BlogPref.php:749
 msgid "Default size of the inserted video (in pixels)"
@@ -3794,11 +3794,11 @@ msgstr "Podatke za indeksiranje Internet pretrazivača"
 
 #: src/Process/Backend/BlogPref.php:896
 msgid "Legacy javascript library"
-msgstr ""
+msgstr "Застарела јавасцрипт библиотека"
 
 #: src/Process/Backend/BlogPref.php:899
 msgid "Load the Legacy JS library"
-msgstr ""
+msgstr "Учитајте застарелу Јавасцрипт библиотеку"
 
 #: src/Process/Backend/BlogPref.php:902
 msgid "jQuery javascript library"
@@ -3926,15 +3926,15 @@ msgstr "Провера информација о ажурирању тема"
 
 #: src/Process/Backend/BlogTheme.php:261
 msgid "No updates available for themes."
-msgstr ""
+msgstr "Нема доступних ажурирања за теме."
 
 #: src/Process/Backend/BlogTheme.php:266
 #, php-format
 msgid "There is one theme update available:"
 msgid_plural "There are %s theme updates available:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Доступно је једно ажурирање теме:"
+msgstr[1] "Доступна су %s ажурирања теме:"
+msgstr[2] "Доступна су %s ажурирања теме:"
 
 #: src/Process/Backend/BlogTheme.php:286 src/Process/Backend/BlogTheme.php:322
 #: src/Process/Backend/Plugins.php:258 src/Process/Backend/Plugins.php:293
@@ -4170,7 +4170,9 @@ msgstr "Ваш коментар на мој блог %s"
 msgid "Hi!\n\n"
 "You wrote a comment on:\n"
 "%s\n\n\n"
-msgstr ""
+msgstr "Здраво!\n\n"
+"Написали сте коментар на:\n"
+"%s\n\n\n"
 
 #: src/Process/Backend/Comment.php:249
 msgid "Send an e-mail"
@@ -4702,11 +4704,11 @@ msgstr "Disposition du MP3"
 
 #: src/Process/Backend/MediaItem.php:704
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
-msgstr ""
+msgstr "Имајте на уму да не можете уметнути мп3 датотеке са стандардним уређивачем у ВИСИВИГ ХТМЛ режиму."
 
 #: src/Process/Backend/MediaItem.php:734
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
-msgstr ""
+msgstr "Имајте на уму да не можете уметнути видео датотеке са стандардним уређивачем у ВИСИВИГ ХТМЛ режиму."
 
 #: src/Process/Backend/MediaItem.php:739
 msgid "Video size"
@@ -4935,15 +4937,15 @@ msgstr "Форсирај проверу прикључака за прикључ
 
 #: src/Process/Backend/Plugins.php:233 src/Process/Upgrade/Plugins.php:230
 msgid "No updates available for plugins."
-msgstr ""
+msgstr "Нема доступних ажурирања за додатке."
 
 #: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:235
 #, php-format
 msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Доступно је једно ажурирање додатка:"
+msgstr[1] "Доступна су ажурирања додатака %s:"
+msgstr[2] "Доступна су ажурирања додатака %s:"
 
 #: src/Process/Backend/Plugins.php:273 src/Process/Upgrade/Plugins.php:274
 msgid "Add plugins"
@@ -5356,7 +5358,7 @@ msgstr "Контролна табла за надоградњу"
 
 #: src/Process/Backend/Update.php:155
 msgid "Go to dedicated upgrade dashboard."
-msgstr ""
+msgstr "Идите на наменску контролну таблу за надоградњу."
 
 #: src/Process/Backend/Update.php:158 src/Process/Upgrade/Upgrade.php:240
 #, php-format
@@ -5702,15 +5704,15 @@ msgstr "Неки ад-блокери (Гоустрија, Адблок плус,
 
 #: src/Process/Backend/UserPreferences.php:680
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
-msgstr ""
+msgstr "Имајте на уму и да деактивирање ове детекције блокатора огласа неће деактивирати инсталиране блокаторе огласа. Дотцлеар не може да омета рад екстензија претраживача!"
 
 #: src/Process/Backend/UserPreferences.php:683
 msgid "Quick menu character:"
-msgstr ""
+msgstr "Карактер брзог менија:"
 
 #: src/Process/Backend/UserPreferences.php:688
 msgid "Leave empty to use the default character <kbd>:</kbd>"
-msgstr ""
+msgstr "Оставите празно да бисте користили подразумевани знак <kbd>:</kbd>"
 
 #: src/Process/Backend/UserPreferences.php:695
 msgid "Optional columns displayed in lists"
@@ -5726,7 +5728,7 @@ msgstr "Примените филтере на лету"
 
 #: src/Process/Backend/UserPreferences.php:723
 msgid "List"
-msgstr ""
+msgstr "Листа"
 
 #: src/Process/Backend/UserPreferences.php:724
 msgid "Order by"
@@ -5930,7 +5932,7 @@ msgstr "Mon premier blog"
 
 #: src/Process/Install/Install.php:260
 msgid "%A, %B %e %Y"
-msgstr ""
+msgstr "%A, %B %e %Y"
 
 #: src/Process/Install/Install.php:336
 msgid "Welcome to Dotclear!"
@@ -6443,7 +6445,7 @@ msgstr "Написано за Dotcoe"
 #: src/Process/Upgrade/Replay.php:63
 #, php-format
 msgid "Grow up from version %s successfully replayed."
-msgstr ""
+msgstr "Одрасти из верзије %s је успешно репродуцирано."
 
 #: src/Process/Upgrade/Replay.php:81
 msgid "Replay update actions"
