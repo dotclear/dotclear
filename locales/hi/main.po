@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-20 16:03+0200\n"
-"PO-Revision-Date: 2024-06-20 14:06\n"
+"PO-Revision-Date: 2024-06-29 08:53\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -196,8 +196,8 @@ msgstr "वर्तमान ब्लॉग को मिटाया नह�
 #, php-format
 msgid "%d blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ब्लॉग सफलतापूर्वक हटा दिया गया है"
+msgstr[1] "%d ब्लॉग सफलतापूर्वक हटा दिए गए हैं"
 
 #: src/Core/Backend/Action/ActionsComments.php:45
 #: src/Core/Backend/Action/ActionsComments.php:71
