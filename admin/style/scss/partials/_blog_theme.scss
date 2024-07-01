@@ -1,6 +1,7 @@
 :is(#theme-new, #theme-activate, #theme-deactivate, #theme-update) {
   justify-content: flex-start;
   column-gap: 1em;
+  margin-block-end: 1em;
 }
 
 .box.theme {
