@@ -641,19 +641,25 @@ class MediaItem extends Process
                 '<label for="legend1" class="classic">' . form::radio(
                     ['legend', 'legend1'],
                     'legend',
-                    ($defaults['legend'] == 'legend')
+                    ($defaults['legend'] === 'legend' && $media_alt !== '' && $media_legend !== ''),
+                    '',
+                    '',
+                    $media_alt !== '' && $media_legend !== '' ? false : true
                 ) .
                 __('Legend and alternate text') . '</label><br>' .
                 '<label for="legend2" class="classic">' . form::radio(
                     ['legend', 'legend2'],
                     'title',
-                    ($defaults['legend'] == 'title')
+                    ($defaults['legend'] === 'title' && $media_alt !== ''),
+                    '',
+                    '',
+                    $media_alt !== '' ? false : true
                 ) .
                 __('Alternate text') . '</label><br>' .
                 '<label for="legend3" class="classic">' . form::radio(
                     ['legend', 'legend3'],
                     'none',
-                    ($defaults['legend'] == 'none')
+                    ($defaults['legend'] === 'none' || $media_alt === '')
                 ) .
                 __('None') . '</label>' .
                 '</p>' .
@@ -687,9 +693,9 @@ class MediaItem extends Process
                 '<div class="two-boxes">' .
                 '<h3>' . __('Image insertion') . '</h3>' .
                 '<p>' .
-                '<label for="insert1" class="classic">' . form::radio(['insertion', 'insert1'], 'simple', !$defaults['link']) .
+                '<label for="insert1" class="classic">' . form::radio(['insertion', 'insert1'], 'simple', !$defaults['link'] || $media_alt === '') .
                 __('As a single image') . '</label><br>' .
-                '<label for="insert2" class="classic">' . form::radio(['insertion', 'insert2'], 'link', $defaults['link']) .
+                '<label for="insert2" class="classic">' . form::radio(['insertion', 'insert2'], 'link', $defaults['link'] && $media_alt !== '', '', '', $media_alt !== '' ? false : true) .
                 __('As a link to the original image') . '</label>' .
                 '</p>' .
                 '</div>';
