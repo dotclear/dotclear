@@ -14,12 +14,26 @@ use Autoloader;
 use Dotclear\App;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Details;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Summary;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Interface\Module\ModulesInterface;
 use Dotclear\Module\ModuleDefine;
 use Exception;
-use form;
 
 /**
  * Helper for admin list of themes.
@@ -55,18 +69,15 @@ class ThemesList extends ModulesList
      */
     public function displayModules(array $cols = ['name', 'config', 'version', 'desc'], array $actions = [], bool $nav_limit = false): ThemesList
     {
-        echo
-        '<form action="' . $this->getURL() . '" method="post" class="modules-form-actions">' .
-        '<div id="' . Html::escapeHTML($this->list_id) . '" class="modules' . (in_array('expander', $cols) ? ' expandable' : '') . ' one-box">';
-
+        // Sort modules by id
         $sort_field = $this->getSort();
-
-        # Sort modules by id
         if ($this->getSearch() === null) {
             uasort($this->defines, fn ($a, $b) => $a->get($sort_field) <=> $b->get($sort_field));
         }
 
-        $res   = '';
+        $themes = [];
+        $first  = (new None());
+
         $count = 0;
         foreach ($this->defines as $define) {
             $id = $define->getId();
@@ -82,137 +93,159 @@ class ThemesList extends ModulesList
                 }
             }
 
-            $current = App::blog()->settings()->system->theme == $id && $this->modules->moduleExists($id);
-            $distrib = $define->get('distributed') ? ' dc-box' : '';
+            $current     = App::blog()->settings()->system->theme == $id && $this->modules->moduleExists($id);
+            $distributed = $define->get('distributed') ? 'dc-box' : '';
 
             $git = (App::config()->devMode() || App::config()->debugMode()) && file_exists($define->get('root') . DIRECTORY_SEPARATOR . '.git');
 
-            $line = '<div class="box ' . ($current ? 'medium current-theme' : 'theme') . $distrib . ($git ? ' module-git' : '') . '">';
+            $parts = [];
 
             if (in_array('name', $cols) && !$current) {
-                $line .= '<h4 class="module-name">';
-
-                if (in_array('checkbox', $cols)) {
-                    $line .= '<label for="' . Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id) . '">' .
-                    form::checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)], Html::escapeHTML($id)) .
-                    Html::escapeHTML($define->get('name')) .
-                        '</label>';
-                } else {
-                    $line .= form::hidden(['modules[' . $count . ']'], Html::escapeHTML($id)) .
-                    Html::escapeHTML($define->get('name'));
-                }
-
-                $line .= App::nonce()->getFormNonce() .
-                '</h4>';
+                $parts[] = (new Div(null, 'h4'))
+                    ->class('module-name')
+                    ->items([
+                        in_array('checkbox', $cols) ?
+                        (new Checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)]))
+                            ->value(Html::escapeHTML($id))
+                            ->label(new Label(Html::escapeHTML($define->get('name')), Label::IL_FT)) :
+                            (new Set())
+                                ->items([
+                                    (new Hidden(['modules[' . $count . ']'], Html::escapeHTML($id))),
+                                    (new Text(null, Html::escapeHTML($define->get('name')))),
+                                ]),
+                        App::nonce()->formNonce(),
+                    ]);
             }
 
-            # Display score only for debug purpose
+            // Display score only for debug purpose
             if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
-                $line .= '<p class="module-score debug">' . sprintf(__('Score: %s'), $define->get('score')) . '</p>';
+                $parts[] = (new Note())
+                    ->class(['module-score', 'debug'])
+                    ->text(sprintf(__('Score: %s'), $define->get('score')));
             }
 
             if (in_array('sshot', $cols)) {
-                # Screenshot from url
+                // Screenshot from url
                 if (preg_match('#^http(s)?://#', $define->get('sshot'))) {
                     $sshot = $define->get('sshot');
                 }
-                # Screenshot from installed module
+                // Screenshot from installed module
                 elseif (file_exists(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . 'screenshot.jpg')) {
                     $sshot = $this->getURL('shot=' . rawurlencode($id));
                 }
-                # Default screenshot
+                // Default screenshot
                 else {
                     $sshot = 'images/noscreenshot.svg';
                 }
 
-                $line .= '<div class="module-sshot"><img src="' . $sshot . '" loading="lazy" alt="' .
-                sprintf(__('%s screenshot.'), Html::escapeHTML($define->get('name'))) . '"></div>';
+                $parts[] = (new Div())
+                    ->class('module-sshot')
+                    ->items([
+                        (new Img($sshot))
+                            ->loading('lazy')
+                            ->alt(sprintf(__('%s screenshot.'), Html::escapeHTML($define->get('name')))),
+                    ]);
             }
 
-            $line .= $current ? '' : '<details><summary>' . __('Details') . '</summary>';
-            $line .= '<div class="module-infos">';
+            // Themes infos
+            $module_infos = [];
 
             if (in_array('name', $cols) && $current) {
-                $line .= '<h4 class="module-name">';
-
-                if (in_array('checkbox', $cols)) {
-                    $line .= '<label for="' . Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id) . '">' .
-                    form::checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)], Html::escapeHTML($id)) .
-                    Html::escapeHTML($define->get('name')) .
-                        '</label>';
-                } else {
-                    $line .= form::hidden(['modules[' . $count . ']'], Html::escapeHTML($id)) .
-                    Html::escapeHTML($define->get('name'));
-                }
-
-                $line .= '</h4>';
+                $module_infos[] = (new Div(null, 'h4'))
+                    ->class('module-name')
+                    ->items([
+                        in_array('checkbox', $cols) ?
+                        (new Checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)]))
+                            ->value(Html::escapeHTML($id))
+                            ->label(new Label(Html::escapeHTML($define->get('name')), Label::IL_FT)) :
+                            (new Set())
+                                ->items([
+                                    (new Hidden(['modules[' . $count . ']'], Html::escapeHTML($id))),
+                                    (new Text(null, Html::escapeHTML($define->get('name')))),
+                                ]),
+                    ]);
             }
 
-            $line .= '<p>';
-
+            $infos = [];
             if (in_array('desc', $cols)) {
-                $line .= '<span class="module-desc">' . Html::escapeHTML(__($define->get('desc'))) . '</span> ';
+                $infos[] = (new Text('span', Html::escapeHTML(__($define->get('desc')))))
+                    ->class('module-desc');
             }
-
             if (in_array('author', $cols)) {
-                $line .= '<span class="module-author">' . sprintf(__('by %s'), Html::escapeHTML($define->get('author'))) . '</span> ';
+                $infos[] = (new Text('span', sprintf(__('by %s'), Html::escapeHTML($define->get('author')))))
+                    ->class('module-author');
             }
-
             if (in_array('version', $cols)) {
-                $line .= '<span class="module-version">' . sprintf(__('version %s'), Html::escapeHTML($define->get('version'))) . '</span> ';
+                $infos[] = (new Text('span', sprintf(__('version %s'), Html::escapeHTML($define->get('version')))))
+                    ->class('module-version');
             }
-
             if (in_array('current_version', $cols)) {
-                $line .= '<span class="module-current-version">' . sprintf(__('(current version %s)'), Html::escapeHTML($define->get('current_version'))) . '</span> ';
+                $infos[] = (new Text('span', sprintf(__('(current version %s)'), Html::escapeHTML($define->get('current_version')))))
+                    ->class('module-current-version');
             }
-
             if (in_array('parent', $cols) && !empty($define->get('parent'))) {
                 if ($this->modules->moduleExists($define->get('parent'))) {
-                    $line .= '<span class="module-parent-ok">' . sprintf(__('(built on "%s")'), Html::escapeHTML($define->get('parent'))) . '</span> ';
+                    $infos[] = (new Text('span', sprintf(__('(built on "%s")'), Html::escapeHTML($define->get('parent')))))
+                        ->class('module-parent-ok');
                 } else {
-                    $line .= '<span class="module-parent-missing">' . sprintf(__('(requires "%s")'), Html::escapeHTML($define->get('parent'))) . '</span> ';
+                    $infos[] = (new Text('span', sprintf(__('(requires "%s")'), Html::escapeHTML($define->get('parent')))))
+                        ->class('module-parent-missing');
                 }
             }
-
             if (in_array('repository', $cols) && App::config()->allowRepositories()) {
-                $line .= '<span class="module-repository">' . (!empty($define->get('repository')) ? __('Third-party repository') : __('Official repository')) . '</span> ';
+                $infos[] = (new Text('span', !empty($define->get('repository')) ? __('Third-party repository') : __('Official repository')))
+                    ->class('module-repository');
             }
-
             if ($define->updLocked()) {
-                $line .= '<span class="module-locked">' . __('update locked') . '</span> ';
+                $infos[] = (new Text('span', __('update locked')))
+                    ->class('module-locked');
             }
-
             $has_details = in_array('details', $cols) && !empty($define->get('details'));
             $has_support = in_array('support', $cols) && !empty($define->get('support'));
             if ($has_details || $has_support) {
-                $line .= '<span class="mod-more">';
-
+                $links = [];
                 if ($has_details) {
-                    $line .= '<a class="module-details" href="' . $define->get('details') . '">' . __('Details') . '</a>';
+                    $links[] = (new Link())
+                        ->class('module-details')
+                        ->href($define->get('details'))
+                        ->text(__('Details'));
                 }
 
                 if ($has_support) {
-                    $line .= ' - <a class="module-support" href="' . $define->get('support') . '">' . __('Support') . '</a>';
+                    $links[] = (new Link())
+                        ->class('module-support')
+                        ->href($define->get('support'))
+                        ->text(__('Support'));
                 }
 
-                $line .= '</span>';
+                if (count($links)) {
+                    $infos[] = (new Div(null, 'span'))
+                        ->class('mod-more')
+                        ->separator(' - ')
+                        ->items($links);
+                }
             }
 
-            $line .= '</p>' .
-                '</div>';
-            $line .= '<div class="module-actions">';
+            $module_infos[] = (new Para())
+                ->separator(' ')
+                ->items($infos);
 
-            # Plugins actions
+            // Themes actions
+            $module_actions = [];
             if ($current) {
-                # _GET actions
+                // _GET actions
                 if (file_exists(Path::real(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . 'style.css')) {
                     $theme_url = preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->themes_url) ?
                     Http::concatURL(App::blog()->settings()->system->themes_url, '/' . $id) :
                     Http::concatURL(App::blog()->url(), App::blog()->settings()->system->themes_url . '/' . $id);
-                    $line .= '<p><a href="' . $theme_url . '/style.css">' . __('View stylesheet') . '</a></p>';
-                }
 
-                $line .= '<div class="current-actions">';
+                    $module_actions[] = (new Para())
+                        ->items([
+                            (new Link())
+                                ->href($theme_url . '/style.css')
+                                ->text(__('View stylesheet')),
+                        ]);
+                }
 
                 // by class name
                 $class = $define->get('namespace') . Autoloader::NS_SEP . $this->modules::MODULE_CLASS_CONFIG;
@@ -223,52 +256,102 @@ class ThemesList extends ModulesList
                     $config = file_exists(Path::real(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_CONFIG);
                 }
 
-                if ($config) {
-                    $line .= '<p><a href="' . $this->getURL('module=' . $id . '&amp;conf=1', false) . '" class="button submit">' . __('Configure theme') . '</a></p>';
-                }
-
                 # --BEHAVIOR-- adminCurrentThemeDetails -- string, ModuleDefine
-                $line .= App::behavior()->callBehavior('adminCurrentThemeDetailsV2', $define->getId(), $define);
+                $behavior = App::behavior()->callBehavior('adminCurrentThemeDetailsV2', $define->getId(), $define);
 
-                $line .= '</div>';
+                $module_actions[] = (new Div())
+                    ->class('current-actions')
+                    ->items([
+                        $config ?
+                            (new Para())
+                                ->items([
+                                    (new Link())
+                                        ->href($this->getURL('module=' . $id . '&conf=1', false))
+                                        ->class(['button', 'submit'])
+                                        ->text(__('Configure theme')),
+                                ]) :
+                            (new None()),
+                        (new Text(null, $behavior)),
+                    ]);
             }
-
-            # _POST actions
+            // _POST actions
             if (!empty($actions)) {
-                $line .= '<p class="module-post-actions">' . implode(' ', $this->getActions($define, $actions)) . '</p>';
+                $module_actions[] = (new Para())
+                    ->class('module-post-actions')
+                    ->items([
+                        (new Text(null, implode(' ', $this->getActions($define, $actions)))),
+                    ]);
             }
 
-            $line .= '</div>';
-            $line .= $current ? '' : '</details>';
+            $parts[] = $current ?
+                (new Set())
+                    ->items([
+                        (new Div())
+                            ->class('module-infos')
+                            ->items($module_infos),
+                        (new Div())
+                            ->class('module-actions')
+                            ->items($module_actions),
+                    ]) :
+                (new Details())
+                    ->summary(new Summary(__('Details')))
+                    ->items([
+                        (new Div())
+                            ->class('module-infos')
+                            ->items($module_infos),
+                        (new Div())
+                            ->class('module-actions')
+                            ->items($module_actions),
+                    ]);
 
-            $line .= '</div>';
+            $theme = (new Div())
+                ->class(array_filter(['box', $distributed, $current ? 'medium' : '', $current ? 'current-theme' : 'theme', $git ? 'module-git' : '']))
+                ->items($parts);
+
+            // Put currently selected theme in first position
+            if ($current) {
+                $first = $theme;
+            } else {
+                $themes[] = $theme;
+            }
 
             $count++;
-
-            $res = $current ? $line . $res : $res . $line;
         }
 
-        echo
-            $res .
-            '</div>';
-
+        $bottom = (new None());
         if (!$count && $this->getSearch() === null) {
-            echo
-            '<p class="message">' . __('No themes matched your search.') . '</p>';
+            $bottom = (new Note())
+                ->class('message')
+                ->text(__('No themes matched your search.'));
         } elseif ((in_array('checkbox', $cols) || $count > 1) && !empty($actions) && App::auth()->isSuperAdmin()) {
             $buttons = $this->getGlobalActions($actions, in_array('checkbox', $cols));
-
             if (!empty($buttons)) {
-                if (in_array('checkbox', $cols)) {
-                    echo
-                        '<p class="checkboxes-helpers"></p>';
-                }
-                echo '<div>' . implode(' ', $buttons) . '</div>';
+                $bottom = (new Set())
+                    ->items([
+                        in_array('checkbox', $cols) ? ((new Para())->class('checkboxes-helpers')) : (new None()),
+                        (new Div())
+                            ->items([
+                                (new Text(null, implode(' ', $buttons))),
+                            ]),
+                    ]);
             }
         }
 
-        echo
-            '</form>';
+        echo (new Form(['themes-list-form']))
+            ->method('post')
+            ->action($this->getURL())
+            ->class('modules-form-actions')
+            ->fields([
+                (new Div())
+                    ->id(Html::escapeHTML($this->list_id))
+                    ->class(array_filter(['modules', 'one-box', in_array('expander', $cols) ? ' expandable' : '']))
+                    ->items([
+                        $first,
+                        ...$themes,
+                    ]),
+                $bottom,
+            ])
+        ->render();
 
         return $this;
     }
@@ -289,7 +372,7 @@ class ThemesList extends ModulesList
         if ($id != App::blog()->settings()->system->theme) {
             # Select theme to use on curent blog
             if (in_array('select', $actions)) {
-                $submits[] = '<input type="submit" name="select[' . Html::escapeHTML($id) . ']" value="' . __('Use this one') . '">';
+                $submits[] = (new Submit(['select[' . Html::escapeHTML($id) . ']'], __('Use this one')))->render();
             }
             if (in_array('try', $actions)) {
                 $preview_url = App::blog()->url() . App::url()->getURLFor('try', App::auth()->userID() . '/' . Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy((string) App::auth()->userID())) . '/' . $id);
@@ -299,10 +382,16 @@ class ThemesList extends ModulesList
 
                 $blank_preview = App::auth()->prefs()->interface->blank_preview;
 
-                $preview_class  = $blank_preview ? '' : ' modal';
-                $preview_target = $blank_preview ? '' : ' target="_blank"';
+                $preview_class  = $blank_preview ? '' : 'modal';
+                $preview_target = $blank_preview ? '' : 'target="_blank"';
 
-                $submits[] = '<a href="' . $preview_url . '" class="button theme-preview' . $preview_class . '" accesskey="p"' . $preview_target . '>' . __('Preview') . '</a>';
+                $submits[] = (new Link())
+                    ->href($preview_url)
+                    ->class(array_filter(['button', 'theme-preview', $preview_class]))
+                    ->accesskey('p')
+                    ->text(__('Preview'))
+                    ->extra($preview_target)
+                    ->render();
             }
         } else {
             // Currently selected theme
@@ -345,11 +434,11 @@ class ThemesList extends ModulesList
                 case 'update':
 
                     if (App::auth()->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" name="update" value="' . (
-                            $with_selection ?
-                            __('Update selected themes') :
-                            __('Update all themes from this list')
-                        ) . '">' . App::nonce()->getFormNonce();
+                        $submits[] = (new Submit(['update'], $with_selection ?
+                                __('Update selected themes') :
+                                __('Update all themes from this list')))
+                            ->render();
+                        $submits[] = App::nonce()->formNonce()->render();
                     }
 
                     break;
