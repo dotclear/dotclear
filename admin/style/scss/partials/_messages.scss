@@ -69,7 +69,11 @@
   animation-duration: 0.5s;
 }
 
-:is(.success, .warning-msg, .info) a {
+:is(.success, .warning-msg) a {
+  color: var(--msg-success-color);
+}
+
+:is(.info) a {
   color: var(--msg-info-color);
 }
 
