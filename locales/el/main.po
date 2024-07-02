@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 16:03+0200\n"
-"PO-Revision-Date: 2024-06-20 14:06\n"
+"POT-Creation-Date: 2024-07-02 12:26+0200\n"
+"PO-Revision-Date: 2024-07-02 10:28\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -162,7 +162,7 @@ msgstr "Ορισμός ως αφαιρεθεί"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:103
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
 #: src/Core/Backend/Listing/ListingMedia.php:224
-#: src/Core/Backend/ModulesList.php:1215 src/Core/Upgrade/PluginsList.php:120
+#: src/Core/Backend/ModulesList.php:1347 src/Core/Upgrade/PluginsList.php:120
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Langs.php:278
 #: src/Process/Backend/Post.php:798 src/Process/Backend/Users.php:42
 #: src/Process/Upgrade/Langs.php:296
@@ -179,7 +179,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Τα επιλεγμένα blogs έχουν ενημερωθεί με επιτυχία."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:108
-#: src/Core/Backend/ModulesList.php:1550 src/Core/Backend/ThemesList.php:643
+#: src/Core/Backend/ModulesList.php:1685 src/Core/Backend/ThemesList.php:728
 #: src/Core/Upgrade/PluginsList.php:392 src/Process/Backend/BlogDel.php:67
 #: src/Process/Backend/Langs.php:131 src/Process/Backend/Langs.php:176
 #: src/Process/Backend/User.php:100 src/Process/Backend/UsersActions.php:109
@@ -429,10 +429,10 @@ msgstr "Γονικός:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1785 src/Process/Backend/BlogPref.php:927
+#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1119
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1125
 #: src/Process/Backend/Post.php:776 src/Process/Backend/Post.php:916
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:499
@@ -591,7 +591,7 @@ msgid "My favorites"
 msgstr "Τα αγαπημένα μου"
 
 #: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:306 src/Process/Backend/Media.php:557
+#: src/Core/Backend/Page.php:381 src/Process/Backend/Media.php:557
 #: src/Process/Backend/UserPreferences.php:39
 msgid "My preferences"
 msgstr "Οι προτιμήσεις μου"
@@ -671,9 +671,9 @@ msgstr "Διαχείριση προσθέτων"
 msgid "Languages"
 msgstr "Γλώσσες"
 
-#: src/Core/Backend/Favorites.php:528 src/Core/Backend/Page.php:345
-#: src/Process/Backend/Help.php:107 src/Process/Backend/Help.php:114
-#: src/Process/Backend/Help.php:120
+#: src/Core/Backend/Favorites.php:528 src/Core/Backend/Page.php:458
+#: src/Core/Backend/Page.php:459 src/Process/Backend/Help.php:107
+#: src/Process/Backend/Help.php:114 src/Process/Backend/Help.php:120
 msgid "Global help"
 msgstr "Παγκόσμια βοήθεια"
 
@@ -684,7 +684,7 @@ msgstr "Παγκόσμια βοήθεια"
 msgid "Status:"
 msgstr "Κατάσταση:"
 
-#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1020
+#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1282
 #: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:996
 #: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:895
 #: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:543
@@ -692,14 +692,14 @@ msgstr "Κατάσταση:"
 msgid "Email:"
 msgstr "Email:"
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1019
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1281
 #: src/Process/Backend/Comment.php:282 src/Process/Backend/Post.php:899
 msgid "Web site:"
 msgstr "Web site:"
 
 #: src/Core/Backend/Filter/FilterComments.php:56
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:991 src/Core/Backend/Page.php:1061
+#: src/Core/Backend/ModulesList.php:1068 src/Core/Backend/Page.php:1323
 #: src/Process/Backend/Comment.php:270
 msgid "Author:"
 msgstr "Συγγραφέας:"
@@ -718,7 +718,7 @@ msgid "Trackback"
 msgstr "Παρακολούθηση"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1021 src/Process/Backend/Comment.php:259
+#: src/Core/Backend/Page.php:1283 src/Process/Backend/Comment.php:259
 msgid "IP address:"
 msgstr "Διεύθυνση IP:"
 
@@ -806,7 +806,7 @@ msgstr "Κλειστό"
 msgid "Trackbacks:"
 msgstr "Ανίχνευση:"
 
-#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1240
+#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1502
 msgid "Show filters and display options"
 msgstr "Εμφάνιση επιλογών φίλτρων και προβολής"
 
@@ -840,7 +840,7 @@ msgid "Apply filters and display options"
 msgstr "Εφαρμογή επιλογών φίλτρων και προβολής"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:84
-#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:366
+#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:487
 msgid "Search:"
 msgstr "Αναζήτηση:"
 
@@ -862,7 +862,7 @@ msgid "No blog"
 msgstr "Χωρίς ιστολόγιο"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:56
-#: src/Core/Backend/ModulesList.php:1625 src/Core/Backend/UserPref.php:76
+#: src/Core/Backend/ModulesList.php:1799 src/Core/Backend/UserPref.php:76
 #: src/Process/Backend/LinkPopup.php:62
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
@@ -985,7 +985,7 @@ msgstr "Καταχώρηση"
 #: src/Core/Backend/Listing/ListingPosts.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:170
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:998
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:1004
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1083
 msgid "Published"
 msgstr "Δημοσιεύθηκε"
@@ -995,7 +995,7 @@ msgstr "Δημοσιεύθηκε"
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:175
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:999
+#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:1005
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1088
 msgid "Unpublished"
 msgstr "Αδημοσίευτο"
@@ -1005,7 +1005,7 @@ msgstr "Αδημοσίευτο"
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:185
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:1001
+#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:1007
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1093
 msgid "Pending"
 msgstr "Εκκρεμεί"
@@ -1067,7 +1067,7 @@ msgid "Nb of items: %d"
 msgstr "Nb των αντικειμένων: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
-#: src/Core/Backend/ModulesList.php:777 src/Core/Backend/UserPref.php:200
+#: src/Core/Backend/ModulesList.php:832 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:448
 msgid "Name"
 msgstr "Όνομα"
@@ -1142,7 +1142,7 @@ msgstr "Κομμάτια"
 #: src/Core/Backend/Listing/ListingPosts.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:180
 #: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
-#: src/Process/Backend/MediaItem.php:1000 src/Process/Backend/Post.php:477
+#: src/Process/Backend/MediaItem.php:1006 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "Προγραμματισμένο"
 
@@ -1199,33 +1199,32 @@ msgstr "διαχειριστής"
 msgid "superadmin"
 msgstr "υπερδιαχειριστής"
 
-#: src/Core/Backend/Listing/Pager.php:115
+#: src/Core/Backend/Listing/Pager.php:144
 msgid "First page"
 msgstr "Πρώτη σελίδα"
 
-#: src/Core/Backend/Listing/Pager.php:123
+#: src/Core/Backend/Listing/Pager.php:152
 msgid "Previous page"
 msgstr "Προηγούμενη σελίδα"
 
-#: src/Core/Backend/Listing/Pager.php:131
+#: src/Core/Backend/Listing/Pager.php:160
 msgid "Next page"
 msgstr "Επόμενη σελίδα"
 
-#: src/Core/Backend/Listing/Pager.php:139
+#: src/Core/Backend/Listing/Pager.php:168
 msgid "Last page"
 msgstr "Τελευταία σελίδα"
 
-#: src/Core/Backend/Listing/Pager.php:143
+#: src/Core/Backend/Listing/Pager.php:175
 #, php-format
 msgid "Page %s / %s"
 msgstr "Σελίδα %s / %s"
 
-#: src/Core/Backend/Listing/Pager.php:148
-#, php-format
-msgid "Direct access page %s"
-msgstr "Σελίδα άμεσης πρόσβασης %s"
+#: src/Core/Backend/Listing/Pager.php:183
+msgid "Direct access page:"
+msgstr ""
 
-#: src/Core/Backend/Listing/Pager.php:151 src/Core/Backend/Page.php:142
+#: src/Core/Backend/Listing/Pager.php:184 src/Core/Backend/Page.php:169
 #: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:187
 #: src/Process/Backend/Post.php:874 src/Process/Backend/Post.php:967
 #: src/Process/Backend/Posts.php:119 src/Process/Backend/Search.php:272
@@ -1252,279 +1251,278 @@ msgstr "Ρυθμίσεις συστήματος"
 msgid "Plugins"
 msgstr "Πρόσθετα"
 
-#: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1239
+#: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1376
 #: src/Core/Upgrade/PluginsList.php:136 src/Core/Upgrade/Utility.php:264
 #: src/Process/Upgrade/Upgrade.php:55 src/Process/Upgrade/Upgrade.php:79
 #: src/Process/Upgrade/Upgrade.php:294
 msgid "Update"
 msgstr "Ενημέρωση"
 
-#: src/Core/Backend/ModulesList.php:194 src/Core/Upgrade/PluginsList.php:58
+#: src/Core/Backend/ModulesList.php:221 src/Core/Upgrade/PluginsList.php:58
 msgid "other"
 msgstr "Έτερα"
 
-#: src/Core/Backend/ModulesList.php:398
+#: src/Core/Backend/ModulesList.php:436
 msgid "Search in repository:"
 msgstr "Αναζήτηση στο αποθετήριο:"
 
-#: src/Core/Backend/ModulesList.php:401 src/Core/Backend/Page.php:369
+#: src/Core/Backend/ModulesList.php:437 src/Core/Backend/Page.php:489
 #: src/Process/Backend/Categories.php:204
 msgid "OK"
 msgstr "Εντάξει"
 
-#: src/Core/Backend/ModulesList.php:405
+#: src/Core/Backend/ModulesList.php:439
 msgid "Reset search"
 msgstr "Επαναφορά αναζήτησης"
 
-#: src/Core/Backend/ModulesList.php:411
+#: src/Core/Backend/ModulesList.php:443
 msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
 msgstr "Η αναζήτηση επιτρέπεται με πολλαπλούς όρους περισσότερους από 2 χαρακτήρες, οι όροι πρέπει να διαχωρίζονται με κενό."
 
-#: src/Core/Backend/ModulesList.php:418
+#: src/Core/Backend/ModulesList.php:449
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
 msgstr[0] "Βρέθηκαν %d αποτελέσματα για αναζήτηση \"%s\":"
 msgstr[1] "Βρέθηκαν %d αποτελέσματα αναζήτησης \"%s\":"
 
-#: src/Core/Backend/ModulesList.php:490
+#: src/Core/Backend/ModulesList.php:523
 msgid "current selection"
 msgstr "τρέχουσα επιλογή"
 
-#: src/Core/Backend/ModulesList.php:494
+#: src/Core/Backend/ModulesList.php:530
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
 msgstr[0] "%d αποτέλεσμα"
 msgstr[1] "%d αποτελέσματα"
 
-#: src/Core/Backend/ModulesList.php:499
+#: src/Core/Backend/ModulesList.php:545
 msgid "no results"
 msgstr "κανένα αποτέλεσμα"
 
-#: src/Core/Backend/ModulesList.php:503
+#: src/Core/Backend/ModulesList.php:555
 msgid "Browse index:"
 msgstr "Αναζήτηση ευρετηρίου:"
 
-#: src/Core/Backend/ModulesList.php:766
-msgid "Plugins list"
-msgstr "Λίστα πρόσθετων"
-
-#: src/Core/Backend/ModulesList.php:782
+#: src/Core/Backend/ModulesList.php:841
 msgid "Score"
 msgstr "Βαθμολογία"
 
-#: src/Core/Backend/ModulesList.php:787
+#: src/Core/Backend/ModulesList.php:848
 msgid "Version"
 msgstr "Έκδοση"
 
-#: src/Core/Backend/ModulesList.php:792 src/Process/Upgrade/Plugins.php:452
+#: src/Core/Backend/ModulesList.php:855 src/Process/Upgrade/Plugins.php:452
 msgid "Current version"
 msgstr "Τρέχουσα έκδοση"
 
-#: src/Core/Backend/ModulesList.php:797 src/Core/Backend/ModulesList.php:996
-#: src/Core/Backend/Page.php:1062 src/Core/Backend/ThemesList.php:132
-#: src/Core/Backend/ThemesList.php:191
+#: src/Core/Backend/ModulesList.php:862 src/Core/Backend/ModulesList.php:1076
+#: src/Core/Backend/Page.php:1324 src/Core/Backend/ThemesList.php:212
+#: src/Core/Backend/ThemesList.php:298
 msgid "Details"
 msgstr "Λεπτομέρειες"
 
-#: src/Core/Backend/ModulesList.php:802 src/Process/Upgrade/Plugins.php:464
+#: src/Core/Backend/ModulesList.php:869 src/Process/Upgrade/Plugins.php:464
 msgid "Repository"
 msgstr "Αποθετήριο"
 
-#: src/Core/Backend/ModulesList.php:812 src/Process/Backend/Langs.php:260
+#: src/Core/Backend/ModulesList.php:882 src/Process/Backend/Langs.php:260
 #: src/Process/Upgrade/Langs.php:335
 msgid "Action"
 msgstr "Ενέργεια"
 
-#: src/Core/Backend/ModulesList.php:888 src/Core/Backend/ModulesList.php:892
-#: src/Core/Backend/ModulesList.php:897 src/Process/Upgrade/Plugins.php:402
+#: src/Core/Backend/ModulesList.php:949 src/Process/Upgrade/Plugins.php:402
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
 
-#: src/Core/Backend/ModulesList.php:929
+#: src/Core/Backend/ModulesList.php:996
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
 msgstr "Αυτό το πρόσθετο δεν μπορεί να απενεργοποιηθεί ούτε να διαγραφεί, δεδομένου ότι τα ακόλουθα πρόσθετα είναι επίσης ενεργοποιημένα: %s"
 
-#: src/Core/Backend/ModulesList.php:935
+#: src/Core/Backend/ModulesList.php:1008
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Αυτό το module δεν μπορεί να ενεργοποιηθεί, λόγω των ακόλουθων λόγων:"
 
-#: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ThemesList.php:178
+#: src/Core/Backend/ModulesList.php:1028 src/Core/Backend/ThemesList.php:196
 #: src/Process/Upgrade/Plugins.php:418
 msgid "Official repository"
 msgstr "Επίσημο αποθετήριο"
 
-#: src/Core/Backend/ModulesList.php:952 src/Core/Backend/ModulesList.php:1032
-#: src/Core/Backend/ThemesList.php:178 src/Process/Upgrade/Plugins.php:418
+#: src/Core/Backend/ModulesList.php:1028 src/Core/Backend/ModulesList.php:1121
+#: src/Core/Backend/ThemesList.php:196 src/Process/Upgrade/Plugins.php:418
 msgid "Third-party repository"
 msgstr "Αποθετήριο τρίτων"
 
-#: src/Core/Backend/ModulesList.php:959
+#: src/Core/Backend/ModulesList.php:1037
 msgid "Plugin from official distribution"
 msgstr "Πρόσθετο από επίσημη διανομή"
 
-#: src/Core/Backend/ModulesList.php:961
+#: src/Core/Backend/ModulesList.php:1038
 msgid "Plugin in development"
 msgstr "Πρόσθετο σε ανάπτυξη"
 
-#: src/Core/Backend/ModulesList.php:1000 src/Core/Backend/Page.php:1063
-#: src/Core/Backend/ThemesList.php:195
+#: src/Core/Backend/ModulesList.php:1083 src/Core/Backend/Page.php:1325
+#: src/Core/Backend/ThemesList.php:219
 msgid "Support"
 msgstr "Υποστήριξη"
 
-#: src/Core/Backend/ModulesList.php:1004 src/Core/Backend/ThemesList.php:182
+#: src/Core/Backend/ModulesList.php:1087 src/Core/Backend/ThemesList.php:200
 msgid "update locked"
 msgstr "η ενημέρωση κλειδώθηκε"
 
-#: src/Core/Backend/ModulesList.php:1037 src/Core/Backend/Page.php:1065
+#: src/Core/Backend/ModulesList.php:1128 src/Core/Backend/Page.php:1327
 msgid "Section:"
 msgstr "Ενότητα:"
 
-#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1066
+#: src/Core/Backend/ModulesList.php:1134 src/Core/Backend/Page.php:1328
 msgid "Tags:"
 msgstr "Ετικέτες:"
 
-#: src/Core/Backend/ModulesList.php:1060
+#: src/Core/Backend/ModulesList.php:1159
 msgid "No plugins matched your search."
 msgstr "Δεν υπάρχουν πρόσθετα που να ταιριάζουν στην αναζήτησή σας."
 
-#: src/Core/Backend/ModulesList.php:1110
+#: src/Core/Backend/ModulesList.php:1182
+msgid "Plugins list"
+msgstr "Λίστα πρόσθετων"
+
+#: src/Core/Backend/ModulesList.php:1227
 msgid "Configure plugin"
 msgstr "Ρύθμιση αρθρώματος"
 
-#: src/Core/Backend/ModulesList.php:1122
+#: src/Core/Backend/ModulesList.php:1241
 msgid "Plugin settings (in blog parameters)"
 msgstr "Ρυθμίσεις προσθέτων (σε παραμέτρους ιστολογίου)"
 
-#: src/Core/Backend/ModulesList.php:1133
+#: src/Core/Backend/ModulesList.php:1254
 msgid "Plugin settings (in user preferences)"
 msgstr "Ρυθμίσεις αρθρώματος (στις προτιμήσεις χρήστη)"
 
-#: src/Core/Backend/ModulesList.php:1142 src/Core/Backend/ModulesList.php:1153
+#: src/Core/Backend/ModulesList.php:1265 src/Core/Backend/ModulesList.php:1278
 msgid "Plugin settings"
 msgstr "Ρυθμίσεις προσθέτων"
 
-#: src/Core/Backend/ModulesList.php:1164
+#: src/Core/Backend/ModulesList.php:1291
 msgid "Plugin main page"
 msgstr "Αρχική σελίδα πρόσθετου"
 
-#: src/Core/Backend/ModulesList.php:1198 src/Core/Upgrade/PluginsList.php:103
+#: src/Core/Backend/ModulesList.php:1327 src/Core/Upgrade/PluginsList.php:103
 msgid "Activate"
 msgstr "Ενεργοποίηση"
 
-#: src/Core/Backend/ModulesList.php:1206 src/Core/Upgrade/PluginsList.php:111
+#: src/Core/Backend/ModulesList.php:1336 src/Core/Upgrade/PluginsList.php:111
 msgid "Deactivate"
 msgstr "Απενεργοποίηση"
 
-#: src/Core/Backend/ModulesList.php:1223
+#: src/Core/Backend/ModulesList.php:1357
 msgid "Clone"
 msgstr "Κλωνοποίηση"
 
-#: src/Core/Backend/ModulesList.php:1231 src/Core/Upgrade/PluginsList.php:128
+#: src/Core/Backend/ModulesList.php:1367 src/Core/Upgrade/PluginsList.php:128
 msgid "Install"
 msgstr "Εγκατάσταση"
 
-#: src/Core/Backend/ModulesList.php:1281 src/Core/Upgrade/PluginsList.php:166
+#: src/Core/Backend/ModulesList.php:1418 src/Core/Upgrade/PluginsList.php:166
 msgid "Activate selected plugins"
 msgstr "Ενεργοποίηση των επιλεγμένων πρόσθετων"
 
-#: src/Core/Backend/ModulesList.php:1282 src/Core/Upgrade/PluginsList.php:167
+#: src/Core/Backend/ModulesList.php:1419 src/Core/Upgrade/PluginsList.php:167
 msgid "Activate all plugins from this list"
 msgstr "Ενεργοποίηση όλων των πρόσθετων από αυτήν τη λίστα"
 
-#: src/Core/Backend/ModulesList.php:1293 src/Core/Upgrade/PluginsList.php:178
+#: src/Core/Backend/ModulesList.php:1429 src/Core/Upgrade/PluginsList.php:178
 msgid "Deactivate selected plugins"
 msgstr "Απενεργοποίηση επιλεγμένων πρόσθετων"
 
-#: src/Core/Backend/ModulesList.php:1294 src/Core/Upgrade/PluginsList.php:179
+#: src/Core/Backend/ModulesList.php:1430 src/Core/Upgrade/PluginsList.php:179
 msgid "Deactivate all plugins from this list"
 msgstr "Απενεργοποίηση όλων των πρόσθετων από αυτήν τη λίστα"
 
-#: src/Core/Backend/ModulesList.php:1305 src/Core/Upgrade/PluginsList.php:190
+#: src/Core/Backend/ModulesList.php:1440 src/Core/Upgrade/PluginsList.php:190
 msgid "Update selected plugins"
 msgstr "Ενημέρωση επιλεγμένων πρόσθετων"
 
-#: src/Core/Backend/ModulesList.php:1306 src/Core/Upgrade/PluginsList.php:191
+#: src/Core/Backend/ModulesList.php:1441 src/Core/Upgrade/PluginsList.php:191
 msgid "Update all plugins from this list"
 msgstr "Ενημέρωση όλων των προσθέτων από αυτήν τη λίστα"
 
-#: src/Core/Backend/ModulesList.php:1357 src/Core/Backend/ModulesList.php:1411
-#: src/Core/Backend/ModulesList.php:1442 src/Core/Backend/ModulesList.php:1480
-#: src/Core/Backend/ModulesList.php:1541 src/Core/Upgrade/PluginsList.php:230
+#: src/Core/Backend/ModulesList.php:1492 src/Core/Backend/ModulesList.php:1546
+#: src/Core/Backend/ModulesList.php:1577 src/Core/Backend/ModulesList.php:1615
+#: src/Core/Backend/ModulesList.php:1676 src/Core/Upgrade/PluginsList.php:230
 #: src/Core/Upgrade/PluginsList.php:272 src/Core/Upgrade/PluginsList.php:297
 #: src/Core/Upgrade/PluginsList.php:329 src/Core/Upgrade/PluginsList.php:383
 msgid "No such plugin."
 msgstr "Δεν υπάρχει τέτοιο πρόσθετο."
 
-#: src/Core/Backend/ModulesList.php:1377 src/Core/Upgrade/PluginsList.php:244
+#: src/Core/Backend/ModulesList.php:1512 src/Core/Upgrade/PluginsList.php:244
 msgid "You don't have permissions to delete this plugin."
 msgstr "Δεν έχετε δικαιώματα για να διαγράψετε αυτό το plugin."
 
-#: src/Core/Backend/ModulesList.php:1379 src/Core/Upgrade/PluginsList.php:246
+#: src/Core/Backend/ModulesList.php:1514 src/Core/Upgrade/PluginsList.php:246
 msgid "Some plugins have not been delete."
 msgstr "Κάποια πρόσθετα δεν έχουν διαγραφεί."
 
-#: src/Core/Backend/ModulesList.php:1382 src/Core/Upgrade/PluginsList.php:249
+#: src/Core/Backend/ModulesList.php:1517 src/Core/Upgrade/PluginsList.php:249
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Το πρόσθετο έχει διαγραφεί επιτυχώς."
 msgstr[1] "Τα πρόσθετα διαγράφηκαν επιτυχώς."
 
-#: src/Core/Backend/ModulesList.php:1415 src/Core/Upgrade/PluginsList.php:276
+#: src/Core/Backend/ModulesList.php:1550 src/Core/Upgrade/PluginsList.php:276
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Το πρόσθετο εγκαταστάθηκε με επιτυχία."
 msgstr[1] "Τα πρόσθετα εγκαταστάθηκαν με επιτυχία."
 
-#: src/Core/Backend/ModulesList.php:1446 src/Core/Upgrade/PluginsList.php:301
+#: src/Core/Backend/ModulesList.php:1581 src/Core/Upgrade/PluginsList.php:301
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "Το πρόσθετο έχει ενεργοποιηθεί επιτυχώς."
 msgstr[1] "Τα πρόσθετα έχουν ενεργοποιηθεί επιτυχώς."
 
-#: src/Core/Backend/ModulesList.php:1484 src/Core/Upgrade/PluginsList.php:333
+#: src/Core/Backend/ModulesList.php:1619 src/Core/Upgrade/PluginsList.php:333
 msgid "Some plugins have not been deactivated."
 msgstr "Μερικά πρόσθετα δεν έχουν απενεργοποιηθεί."
 
-#: src/Core/Backend/ModulesList.php:1487 src/Core/Upgrade/PluginsList.php:336
+#: src/Core/Backend/ModulesList.php:1622 src/Core/Upgrade/PluginsList.php:336
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Το πρόσθετο απενεργοποιήθηκε επιτυχώς."
 msgstr[1] "Τα πρόσθετα έχουν ενεργοποιηθεί επιτυχώς."
 
-#: src/Core/Backend/ModulesList.php:1534 src/Core/Upgrade/PluginsList.php:376
+#: src/Core/Backend/ModulesList.php:1669 src/Core/Upgrade/PluginsList.php:376
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Το πρόσθετο έχει ενημερωθεί με επιτυχία."
 msgstr[1] "Τα πρόσθετα έχουν ενημερωθεί με επιτυχία."
 
-#: src/Core/Backend/ModulesList.php:1538 src/Core/Upgrade/PluginsList.php:380
+#: src/Core/Backend/ModulesList.php:1673 src/Core/Upgrade/PluginsList.php:380
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "Οι παρακάτω ενημερώσεις προσθέτων είναι κλειδωμένες: %s"
 
-#: src/Core/Backend/ModulesList.php:1558 src/Core/Backend/ThemesList.php:651
+#: src/Core/Backend/ModulesList.php:1693 src/Core/Backend/ThemesList.php:736
 #: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/Langs.php:182
 #: src/Process/Upgrade/Langs.php:212
 msgid "Unable to move uploaded file."
 msgstr "Αδύνατη η μετακίνηση του μεταφορτωμένου αρχείου."
 
-#: src/Core/Backend/ModulesList.php:1576 src/Core/Upgrade/PluginsList.php:412
+#: src/Core/Backend/ModulesList.php:1711 src/Core/Upgrade/PluginsList.php:412
 msgid "The plugin has been successfully updated."
 msgstr "Το πρόσθετο έχει ενημερωθεί με επιτυχία."
 
-#: src/Core/Backend/ModulesList.php:1577 src/Core/Upgrade/PluginsList.php:413
+#: src/Core/Backend/ModulesList.php:1712 src/Core/Upgrade/PluginsList.php:413
 msgid "The plugin has been successfully installed."
 msgstr "Το πρόσθετο έχει εγκατασταθεί με επιτυχία."
 
-#: src/Core/Backend/ModulesList.php:1600 src/Process/Backend/Langs.php:332
+#: src/Core/Backend/ModulesList.php:1740 src/Process/Backend/Langs.php:332
 msgid "Upload a zip file"
 msgstr "Ανεβάστε ένα αρχείο zip"
 
-#: src/Core/Backend/ModulesList.php:1601 src/Core/Backend/ModulesList.php:1622
+#: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
 #: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:480
 #: src/Process/Backend/BlogPref.php:806 src/Process/Backend/Category.php:233
 #: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
@@ -1537,19 +1535,11 @@ msgstr "Ανεβάστε ένα αρχείο zip"
 msgid "Fields preceded by %s are mandatory."
 msgstr "Τα πεδία που προηγούνται του %s είναι υποχρεωτικά."
 
-#: src/Core/Backend/ModulesList.php:1602
+#: src/Core/Backend/ModulesList.php:1751
 msgid "Zip file path:"
 msgstr "Διαδρομή αρχείου zip:"
 
-#: src/Core/Backend/ModulesList.php:1604 src/Core/Backend/ModulesList.php:1628
-#: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:313
-#: src/Process/Backend/Langs.php:337 src/Process/Backend/User.php:411
-#: src/Process/Backend/UsersActions.php:348 src/Process/Upgrade/Langs.php:375
-#: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:429
-msgid "Your password:"
-msgstr "Ο κωδικός πρόσβασης:"
-
-#: src/Core/Backend/ModulesList.php:1610 src/Core/Backend/ModulesList.php:1634
+#: src/Core/Backend/ModulesList.php:1762 src/Core/Backend/ModulesList.php:1812
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:343
 #: src/Process/Backend/Post.php:688 src/Process/Backend/User.php:284
 #: src/Process/Backend/User.php:297 src/Process/Backend/User.php:417
@@ -1558,45 +1548,53 @@ msgstr "Ο κωδικός πρόσβασης:"
 msgid "Password"
 msgstr "Κωδικός"
 
-#: src/Core/Backend/ModulesList.php:1614 src/Core/Backend/Page.php:1192
+#: src/Core/Backend/ModulesList.php:1765 src/Core/Backend/ModulesList.php:1815
+#: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:313
+#: src/Process/Backend/Langs.php:337 src/Process/Backend/User.php:411
+#: src/Process/Backend/UsersActions.php:348 src/Process/Upgrade/Langs.php:375
+#: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:429
+msgid "Your password:"
+msgstr "Ο κωδικός πρόσβασης:"
+
+#: src/Core/Backend/ModulesList.php:1773 src/Core/Backend/Page.php:1454
 #: src/Process/Backend/Media.php:563
 msgid "Upload"
 msgstr "Ανέβασμα"
 
-#: src/Core/Backend/ModulesList.php:1621
+#: src/Core/Backend/ModulesList.php:1787
 msgid "Download a zip file"
 msgstr "Κατεβάστε ένα αρχείο zip"
 
-#: src/Core/Backend/ModulesList.php:1623
+#: src/Core/Backend/ModulesList.php:1801
 msgid "Zip file URL:"
 msgstr "Url αρχείου zip:"
 
-#: src/Core/Backend/ModulesList.php:1638
+#: src/Core/Backend/ModulesList.php:1823
 msgid "Download"
 msgstr "Λήψη"
 
-#: src/Core/Backend/ModulesList.php:1679
+#: src/Core/Backend/ModulesList.php:1866
 msgid "Unknown plugin ID"
 msgstr "Άγνωστο ID πρόσθετου"
 
-#: src/Core/Backend/ModulesList.php:1690
+#: src/Core/Backend/ModulesList.php:1877
 msgid "This plugin has no configuration file."
 msgstr "Αυτό το πρόσθετο δεν έχει αρχείο ρυθμίσεων."
 
-#: src/Core/Backend/ModulesList.php:1698 src/Process/Backend/Auth.php:279
+#: src/Core/Backend/ModulesList.php:1885 src/Process/Backend/Auth.php:279
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "Ανεπαρκή δικαιώματα"
 
-#: src/Core/Backend/ModulesList.php:1776
+#: src/Core/Backend/ModulesList.php:1960
 #, php-format
 msgid "Configure \"%s\""
 msgstr "Ρύθμιση παραμέτρων \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1777 src/Process/Backend/Blog.php:193
+#: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:600 src/Process/Backend/MediaItem.php:1160
+#: src/Process/Backend/Media.php:600 src/Process/Backend/MediaItem.php:1166
 #: src/Process/Backend/Post.php:792 src/Process/Backend/Search.php:158
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:616
 #: src/Process/Backend/UserPreferences.php:799
@@ -1604,8 +1602,8 @@ msgstr "Ρύθμιση παραμέτρων \"%s\""
 msgid "Back"
 msgstr "Πίσω"
 
-#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1022
-#: src/Core/Backend/Page.php:1187 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1449 src/Core/Upgrade/Notices.php:34
 #: src/Process/Backend/Home.php:263
 msgid "Error:"
 msgstr "Σφάλμα:"
@@ -1620,388 +1618,393 @@ msgstr "Σφάλματα:"
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
-#: src/Core/Backend/Page.php:126 src/Process/Backend/User.php:457
+#: src/Core/Backend/Page.php:147 src/Process/Backend/User.php:457
 msgid "Blog:"
 msgstr "Ιστολόγιο:"
 
-#: src/Core/Backend/Page.php:130
+#: src/Core/Backend/Page.php:152
 msgid "Change blog"
 msgstr "Αλλαγή ιστολογίου"
 
-#: src/Core/Backend/Page.php:139
+#: src/Core/Backend/Page.php:167
 msgid "Blogs:"
 msgstr "Blogs:"
 
-#: src/Core/Backend/Page.php:291 src/Core/Upgrade/Page.php:134
+#: src/Core/Backend/Page.php:321 src/Core/Upgrade/Page.php:134
 msgid "Go to the content"
 msgstr "Μεταβείτε στο περιεχόμενο"
 
-#: src/Core/Backend/Page.php:292 src/Core/Upgrade/Page.php:135
+#: src/Core/Backend/Page.php:325 src/Core/Upgrade/Page.php:135
 msgid "Go to the menu"
 msgstr "Μετάβαση στο μενού"
 
-#: src/Core/Backend/Page.php:293 src/Core/Upgrade/Page.php:136
+#: src/Core/Backend/Page.php:329 src/Core/Upgrade/Page.php:136
 msgid "Go to help"
 msgstr "Πηγαίνετε στη βοήθεια"
 
-#: src/Core/Backend/Page.php:296 src/Core/Upgrade/Page.php:139
+#: src/Core/Backend/Page.php:348 src/Core/Upgrade/Page.php:139
 #: src/Process/Backend/UserPreferences.php:805
 #: src/Process/Backend/UserPreferences.php:806
 msgid "My dashboard"
 msgstr "Το ταμπλό μου"
 
-#: src/Core/Backend/Page.php:301 src/Core/Backend/Page.php:302
+#: src/Core/Backend/Page.php:364 src/Core/Backend/Page.php:366
 msgid "Go to site"
 msgstr "Μετάβαση στην ιστοσελίδα"
 
-#: src/Core/Backend/Page.php:307 src/Core/Upgrade/Page.php:147
+#: src/Core/Backend/Page.php:389 src/Core/Upgrade/Page.php:147
 #, php-format
 msgid "Logout %s"
 msgstr "Αποσύνδεση %s"
 
-#: src/Core/Backend/Page.php:315 src/Core/Upgrade/Page.php:155
+#: src/Core/Backend/Page.php:410 src/Core/Upgrade/Page.php:155
 msgid "Hide main menu"
 msgstr "Απόκρυψη κύριου μενού"
 
-#: src/Core/Backend/Page.php:316 src/Core/Upgrade/Page.php:156
+#: src/Core/Backend/Page.php:413 src/Core/Upgrade/Page.php:156
 msgid "Show main menu"
 msgstr "Εμφάνιση κύριου μενού"
 
-#: src/Core/Backend/Page.php:327
+#: src/Core/Backend/Page.php:434
 msgid "Safe mode"
 msgstr "Ασφαλής λειτουργία"
 
-#: src/Core/Backend/Page.php:328
+#: src/Core/Backend/Page.php:436
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Είστε σε ασφαλή λειτουργία. Όλα τα πρόσθετα έχουν προσωρινά απενεργοποιηθεί. Υπενθυμίστε να αποσυνδεθείτε και συνδεθείτε ξανά για να επιστρέψετε όλες τις λειτουργίες"
 
-#: src/Core/Backend/Page.php:377 src/Core/Upgrade/Page.php:183
+#: src/Core/Backend/Page.php:506 src/Core/Upgrade/Page.php:183
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Ευχαριστούμε για τη χρήση του %s."
 
-#: src/Core/Backend/Page.php:389 src/Core/Backend/Page.php:510
+#: src/Core/Backend/Page.php:522 src/Core/Backend/Page.php:524
+#: src/Core/Backend/Page.php:666 src/Core/Backend/Page.php:668
 #: src/Core/Upgrade/Page.php:189
 msgid "Page top"
 msgstr "Κορυφή σελίδας"
 
-#: src/Core/Backend/Page.php:705 src/Core/Backend/Page.php:706
+#: src/Core/Backend/Page.php:544 src/Core/Backend/Page.php:547
+msgid "Dotclear logo"
+msgstr ""
+
+#: src/Core/Backend/Page.php:877 src/Core/Backend/Page.php:880
 #: src/Core/Upgrade/Page.php:230 src/Core/Upgrade/Page.php:231
 msgid "Go to dashboard"
 msgstr "Μετάβαση στον πίνακα ελέγχου"
 
-#: src/Core/Backend/Page.php:865 src/Core/Upgrade/Page.php:303
+#: src/Core/Backend/Page.php:1117 src/Core/Upgrade/Page.php:303
 msgid "Help about this page"
 msgstr "Βοήθεια για αυτή τη σελίδα"
 
-#: src/Core/Backend/Page.php:870 src/Core/Upgrade/Page.php:308
+#: src/Core/Backend/Page.php:1126 src/Core/Upgrade/Page.php:308
 #, php-format
 msgid "See also %s"
 msgstr "Δείτε επίσης %s"
 
-#: src/Core/Backend/Page.php:870 src/Core/Upgrade/Page.php:308
+#: src/Core/Backend/Page.php:1129 src/Core/Upgrade/Page.php:308
 msgid "the global help"
 msgstr "η παγκόσμια βοήθεια"
 
-#: src/Core/Backend/Page.php:1004
+#: src/Core/Backend/Page.php:1266
 msgid "uncover"
 msgstr "αποκαλύψτε"
 
-#: src/Core/Backend/Page.php:1008
+#: src/Core/Backend/Page.php:1270
 msgid "hide"
 msgstr "απόκρυψη"
 
-#: src/Core/Backend/Page.php:1012
+#: src/Core/Backend/Page.php:1274
 msgid "Need help?"
 msgstr "Χρειάζεστε βοήθεια?"
 
-#: src/Core/Backend/Page.php:1013
+#: src/Core/Backend/Page.php:1275
 msgid "new window"
 msgstr "νέο παράθυρο"
 
-#: src/Core/Backend/Page.php:1014
+#: src/Core/Backend/Page.php:1276
 msgid "Hide"
 msgstr "Απόκρυψη"
 
-#: src/Core/Backend/Page.php:1015
+#: src/Core/Backend/Page.php:1277
 msgid "Select:"
 msgstr "Επιλογή:"
 
-#: src/Core/Backend/Page.php:1016
+#: src/Core/Backend/Page.php:1278
 msgid "No selection"
 msgstr "Καμία επιλογή"
 
-#: src/Core/Backend/Page.php:1017
+#: src/Core/Backend/Page.php:1279
 msgid "Select all"
 msgstr "Επιλογή όλων"
 
-#: src/Core/Backend/Page.php:1018
+#: src/Core/Backend/Page.php:1280
 msgid "Invert selection"
 msgstr "Αντιστροφή επιλογής"
 
-#: src/Core/Backend/Page.php:1023 src/Process/Backend/Post.php:440
+#: src/Core/Backend/Page.php:1285 src/Process/Backend/Post.php:440
 #: src/Process/Backend/Post.php:556
 msgid "Entry has been successfully created."
 msgstr "Η καταχώρηση έχει δημιουργηθεί με επιτυχία."
 
-#: src/Core/Backend/Page.php:1024
+#: src/Core/Backend/Page.php:1286
 msgid "Edit entry"
 msgstr "Επεξεργασία καταχώρησης"
 
-#: src/Core/Backend/Page.php:1025
+#: src/Core/Backend/Page.php:1287
 msgid "view entry"
 msgstr "προβολή καταχώρησης"
 
-#: src/Core/Backend/Page.php:1026
+#: src/Core/Backend/Page.php:1288
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε τις επιλεγμένες καταχωρήσεις (%s)?"
 
-#: src/Core/Backend/Page.php:1027
+#: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Are you sure you want to delete selected medias (%d)?"
 
-#: src/Core/Backend/Page.php:1028
+#: src/Core/Backend/Page.php:1290
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Are you sure you want to delete selected categories (%s)?"
 
-#: src/Core/Backend/Page.php:1029
+#: src/Core/Backend/Page.php:1291
 msgid "Are you sure you want to delete this entry?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν την καταχώρηση?"
 
-#: src/Core/Backend/Page.php:1030
+#: src/Core/Backend/Page.php:1292
 msgid "Click here to unlock the field"
 msgstr "Κάντε κλικ εδώ για να ξεκλειδώσετε το πεδίο"
 
-#: src/Core/Backend/Page.php:1031
+#: src/Core/Backend/Page.php:1293
 msgid "Are you sure you want to delete all spams?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε όλα τα spams?"
 
-#: src/Core/Backend/Page.php:1032
+#: src/Core/Backend/Page.php:1294
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα σχόλια (%s)?"
 
-#: src/Core/Backend/Page.php:1033
+#: src/Core/Backend/Page.php:1295
 msgid "Are you sure you want to delete this comment?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το σχόλιο?"
 
-#: src/Core/Backend/Page.php:1034
+#: src/Core/Backend/Page.php:1296
 msgid "Users with posts cannot be deleted."
 msgstr "Δεν μπορούν να διαγραφούν χρήστες με δημοσιεύσεις."
 
-#: src/Core/Backend/Page.php:1035
+#: src/Core/Backend/Page.php:1297
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε επιλεγμένους χρήστες (%s)?"
 
-#: src/Core/Backend/Page.php:1036
+#: src/Core/Backend/Page.php:1298
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα blogs (%s)?"
 
-#: src/Core/Backend/Page.php:1037
+#: src/Core/Backend/Page.php:1299
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε την κατηγορία \"%s\"?"
 
-#: src/Core/Backend/Page.php:1038
+#: src/Core/Backend/Page.php:1300
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Είστε βέβαιοι ότι θέλετε να αναδιατάξετε όλες τις κατηγορίες?"
 
-#: src/Core/Backend/Page.php:1039
+#: src/Core/Backend/Page.php:1301
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Είστε βέβαιοι ότι θέλετε να καταργήσετε τα πολυμέσα \"%s\"?"
 
-#: src/Core/Backend/Page.php:1040
+#: src/Core/Backend/Page.php:1302
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Είστε βέβαιοι ότι θέλετε να καταργήσετε τον κατάλογο \"%s\"?"
 
-#: src/Core/Backend/Page.php:1041
+#: src/Core/Backend/Page.php:1303
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Είστε βέβαιοι ότι θέλετε να εξαγάγετε την αρχειοθήκη στον τρέχοντα κατάλογο?"
 
-#: src/Core/Backend/Page.php:1042
+#: src/Core/Backend/Page.php:1304
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Είστε βέβαιοι ότι θέλετε να καταργήσετε το συνημμένο \"%s\"?"
 
-#: src/Core/Backend/Page.php:1043
+#: src/Core/Backend/Page.php:1305
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε \"%s\" γλώσσα?"
 
-#: src/Core/Backend/Page.php:1044
+#: src/Core/Backend/Page.php:1306
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Are you sure you want to delete \"%s\" plugin?"
 
-#: src/Core/Backend/Page.php:1045
+#: src/Core/Backend/Page.php:1307
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Are you sure you want to delete selected plugins?"
 
-#: src/Core/Backend/Page.php:1046
+#: src/Core/Backend/Page.php:1308
 msgid "Use this theme"
 msgstr "Χρησιμοποιήστε αυτό το θέμα"
 
-#: src/Core/Backend/Page.php:1047
+#: src/Core/Backend/Page.php:1309
 msgid "Remove this theme"
 msgstr "Αφαίρεση αυτού του θέματος"
 
-#: src/Core/Backend/Page.php:1048
+#: src/Core/Backend/Page.php:1310
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε το θέμα \"%s\"?"
 
-#: src/Core/Backend/Page.php:1049
+#: src/Core/Backend/Page.php:1311
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα θέματα?"
 
-#: src/Core/Backend/Page.php:1050
+#: src/Core/Backend/Page.php:1312
 msgid "Are you sure you want to delete this backup?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το αντίγραφο ασφαλείας?"
 
-#: src/Core/Backend/Page.php:1051
+#: src/Core/Backend/Page.php:1313
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Είστε βέβαιοι ότι θέλετε να επανέλθετε σε αυτό το αντίγραφο ασφαλείας?"
 
-#: src/Core/Backend/Page.php:1052
+#: src/Core/Backend/Page.php:1314
 msgid "Zip file content"
 msgstr "Περιεχόμενο αρχείου Zip"
 
-#: src/Core/Backend/Page.php:1053
+#: src/Core/Backend/Page.php:1315
 msgid "HTML markup validator"
 msgstr "HTML markup validator"
 
-#: src/Core/Backend/Page.php:1054
+#: src/Core/Backend/Page.php:1316
 msgid "HTML content is valid."
 msgstr "Το περιεχόμενο HTML είναι έγκυρο."
 
-#: src/Core/Backend/Page.php:1055
+#: src/Core/Backend/Page.php:1317
 msgid "There are HTML markup errors."
 msgstr "Υπάρχουν σφάλματα σήμανσης HTML."
 
-#: src/Core/Backend/Page.php:1056
+#: src/Core/Backend/Page.php:1318
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Προσοχή: έλεγχος περιεχομένου που δεν έχει ακόμη καταχωρηθεί."
 
-#: src/Core/Backend/Page.php:1057
+#: src/Core/Backend/Page.php:1319
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Έχετε μη αποθηκευμένες αλλαγές. Η μορφή του Switch post θα χαλαρώσει αυτές τις αλλαγές. Συνεχίστε ούτως ή άλλως?"
 
-#: src/Core/Backend/Page.php:1058
+#: src/Core/Backend/Page.php:1320
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Προειδοποίηση: η αλλαγή μορφής δεν θα μετατρέψει το υπάρχον περιεχόμενο. Θα πρέπει να εφαρμόσετε νέα μορφή από τον εαυτό σας. Συνεχίστε ούτως ή άλλως?"
 
-#: src/Core/Backend/Page.php:1059
+#: src/Core/Backend/Page.php:1321
 msgid "Loading enhanced uploader, please wait."
 msgstr "Φόρτωση ενισχυμένου uploader, παρακαλώ περιμένετε."
 
-#: src/Core/Backend/Page.php:1064
+#: src/Core/Backend/Page.php:1326
 msgid "Help:"
 msgstr "Βοήθεια:"
 
-#: src/Core/Backend/Page.php:1068
+#: src/Core/Backend/Page.php:1330
 msgid "Hide this notice"
 msgstr "Απόκρυψη αυτής της ειδοποίησης"
 
-#: src/Core/Backend/Page.php:1070
+#: src/Core/Backend/Page.php:1332
 msgid "Show password"
 msgstr "Εμφάνιση κωδικού πρόσβασης"
 
-#: src/Core/Backend/Page.php:1071
+#: src/Core/Backend/Page.php:1333
 msgid "Hide password"
 msgstr "Απόκρυψη κωδικού πρόσβασης"
 
-#: src/Core/Backend/Page.php:1073
+#: src/Core/Backend/Page.php:1335
 msgid "Reset to now"
 msgstr "Επαναφορά στο τώρα"
 
-#: src/Core/Backend/Page.php:1075
+#: src/Core/Backend/Page.php:1337
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Ένας αποκλεισμός διαφημίσεων έχει εντοπιστεί σε αυτό το ταμπλό Dotclear (Γωνία, Adblock plus, uBlock προέλευσης, …) και μπορεί να επηρεάσει ορισμένες δυνατότητες. Σε αυτή την περίπτωση θα πρέπει να το απενεργοποιήσετε. Σημειώστε ότι αυτή η ανίχνευση μπορεί να είναι απενεργοποιημένη στις προτιμήσεις σας."
 
-#: src/Core/Backend/Page.php:1130
+#: src/Core/Backend/Page.php:1392
 msgid "You have unsaved changes."
 msgstr "Έχετε μη αποθηκευμένες αλλαγές."
 
-#: src/Core/Backend/Page.php:1131
+#: src/Core/Backend/Page.php:1393
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "η φόρτιση της μπαταρίας σας φαίνεται χαμηλή (%d%) και έχετε μη αποθηκευμένες αλλαγές, θα πρέπει να τις αποθηκεύσετε."
 
-#: src/Core/Backend/Page.php:1178
+#: src/Core/Backend/Page.php:1440
 msgid "Temporarily activate enhanced uploader"
 msgstr "Προσωρινή ενεργοποίηση ενισχυμένου uploader"
 
-#: src/Core/Backend/Page.php:1179
+#: src/Core/Backend/Page.php:1441
 msgid "Temporarily disable enhanced uploader"
 msgstr "Προσωρινή απενεργοποίηση βελτιωμένου uploader"
 
-#: src/Core/Backend/Page.php:1183
+#: src/Core/Backend/Page.php:1445
 msgid "Limit exceeded."
 msgstr "Υπέρβαση ορίου."
 
-#: src/Core/Backend/Page.php:1184
+#: src/Core/Backend/Page.php:1446
 msgid "File size exceeds allowed limit."
 msgstr "Το μέγεθος αρχείου υπερβαίνει το επιτρεπόμενο όριο."
 
-#: src/Core/Backend/Page.php:1185
+#: src/Core/Backend/Page.php:1447
 msgid "Canceled."
 msgstr "Ακυρώθηκε."
 
-#: src/Core/Backend/Page.php:1186
+#: src/Core/Backend/Page.php:1448
 msgid "HTTP Error:"
 msgstr "Σφάλμα HTTP:"
 
-#: src/Core/Backend/Page.php:1188 src/Process/Backend/Media.php:544
+#: src/Core/Backend/Page.php:1450 src/Process/Backend/Media.php:544
 msgid "Choose file"
 msgstr "Επιλογή αρχείου"
 
-#: src/Core/Backend/Page.php:1189 src/Process/Backend/Media.php:545
+#: src/Core/Backend/Page.php:1451 src/Process/Backend/Media.php:545
 msgid "Choose files"
 msgstr "Επιλογή αρχείων"
 
-#: src/Core/Backend/Page.php:1190 src/Process/Backend/LinkPopup.php:73
+#: src/Core/Backend/Page.php:1452 src/Process/Backend/LinkPopup.php:73
 #: src/Process/Backend/Media.php:253 src/Process/Backend/MediaItem.php:573
-#: src/Process/Backend/MediaItem.php:784 src/Process/Backend/Post.php:795
+#: src/Process/Backend/MediaItem.php:790 src/Process/Backend/Post.php:795
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: src/Core/Backend/Page.php:1191
+#: src/Core/Backend/Page.php:1453
 msgid "Clean"
 msgstr "Καθαρισμός"
 
-#: src/Core/Backend/Page.php:1193 src/Process/Backend/MediaItem.php:1131
+#: src/Core/Backend/Page.php:1455 src/Process/Backend/MediaItem.php:1137
 msgid "Send"
 msgstr "Αποστολή"
 
-#: src/Core/Backend/Page.php:1194
+#: src/Core/Backend/Page.php:1456
 msgid "File successfully uploaded."
 msgstr "Το αρχείο μεταφορτώθηκε επιτυχώς."
 
-#: src/Core/Backend/Page.php:1195
+#: src/Core/Backend/Page.php:1457
 msgid "No file in queue."
 msgstr "Δεν υπάρχει αρχείο στην ουρά."
 
-#: src/Core/Backend/Page.php:1196
+#: src/Core/Backend/Page.php:1458
 msgid "1 file in queue."
 msgstr "1 αρχείο στην ουρά."
 
-#: src/Core/Backend/Page.php:1197
+#: src/Core/Backend/Page.php:1459
 #, php-format
 msgid "%d files in queue."
 msgstr "%d αρχεία στην ουρά."
 
-#: src/Core/Backend/Page.php:1198
+#: src/Core/Backend/Page.php:1460
 msgid "Queue error:"
 msgstr "Σφάλμα ουράς:"
 
-#: src/Core/Backend/Page.php:1241
+#: src/Core/Backend/Page.php:1503
 msgid "Cancel filters and display options"
 msgstr "Ακύρωση φίλτρων και επιλογών εμφάνισης"
 
@@ -2052,139 +2055,139 @@ msgstr "Παρουσιάστηκε σφάλμα κατά την εγγραφή �
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Η φορτώθηκε εικόνα δεν είναι %s pixels πλάτος."
 
-#: src/Core/Backend/ThemesList.php:111
+#: src/Core/Backend/ThemesList.php:124
 #, php-format
 msgid "Score: %s"
 msgstr "Βαθμολογία: %s"
 
-#: src/Core/Backend/ThemesList.php:129
+#: src/Core/Backend/ThemesList.php:146
 #, php-format
 msgid "%s screenshot."
 msgstr "%s στιγμιότυπο οθόνης."
 
-#: src/Core/Backend/ThemesList.php:158
+#: src/Core/Backend/ThemesList.php:175
 #, php-format
 msgid "by %s"
 msgstr "από %s"
 
-#: src/Core/Backend/ThemesList.php:162
+#: src/Core/Backend/ThemesList.php:179
 #, php-format
 msgid "version %s"
 msgstr "έκδοση %s"
 
-#: src/Core/Backend/ThemesList.php:166
+#: src/Core/Backend/ThemesList.php:183
 #, php-format
 msgid "(current version %s)"
 msgstr "(τρέχουσα έκδοση %s)"
 
-#: src/Core/Backend/ThemesList.php:171
+#: src/Core/Backend/ThemesList.php:188
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(χτισμένο στο \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:173
+#: src/Core/Backend/ThemesList.php:191
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(απαιτεί \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:212
+#: src/Core/Backend/ThemesList.php:247
 msgid "View stylesheet"
 msgstr "Προβολή stylesheet"
 
-#: src/Core/Backend/ThemesList.php:227
+#: src/Core/Backend/ThemesList.php:272
 msgid "Configure theme"
 msgstr "Ρύθμιση θέματος"
 
-#: src/Core/Backend/ThemesList.php:257
+#: src/Core/Backend/ThemesList.php:326
 msgid "No themes matched your search."
 msgstr "Δεν βρέθηκαν θέματα που ταιριάζουν στην αναζήτησή σας."
 
-#: src/Core/Backend/ThemesList.php:297
+#: src/Core/Backend/ThemesList.php:376
 msgid "Use this one"
 msgstr "Χρησιμοποιήστε αυτό το ένα"
 
-#: src/Core/Backend/ThemesList.php:310 src/Process/Backend/Post.php:791
+#: src/Core/Backend/ThemesList.php:393 src/Process/Backend/Post.php:791
 msgid "Preview"
 msgstr "Προεπισκόπηση"
 
-#: src/Core/Backend/ThemesList.php:355
+#: src/Core/Backend/ThemesList.php:439
 msgid "Update selected themes"
 msgstr "Ενημέρωση επιλεγμένων θεμάτων"
 
-#: src/Core/Backend/ThemesList.php:356
+#: src/Core/Backend/ThemesList.php:440
 msgid "Update all themes from this list"
 msgstr "Ενημέρωση όλων των θεμάτων από αυτήν τη λίστα"
 
-#: src/Core/Backend/ThemesList.php:399 src/Core/Backend/ThemesList.php:437
-#: src/Core/Backend/ThemesList.php:475 src/Core/Backend/ThemesList.php:510
-#: src/Core/Backend/ThemesList.php:550 src/Core/Backend/ThemesList.php:584
-#: src/Core/Backend/ThemesList.php:634
+#: src/Core/Backend/ThemesList.php:484 src/Core/Backend/ThemesList.php:522
+#: src/Core/Backend/ThemesList.php:560 src/Core/Backend/ThemesList.php:595
+#: src/Core/Backend/ThemesList.php:635 src/Core/Backend/ThemesList.php:669
+#: src/Core/Backend/ThemesList.php:719
 msgid "No such theme."
 msgstr "Δεν υπάρχει τέτοιο θέμα."
 
-#: src/Core/Backend/ThemesList.php:405
+#: src/Core/Backend/ThemesList.php:490
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Το θέμα %s επιλέχθηκε με επιτυχία."
 
-#: src/Core/Backend/ThemesList.php:441
+#: src/Core/Backend/ThemesList.php:526
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Το θέμα ενεργοποιήθηκε με επιτυχία."
 msgstr[1] "Τα θέματα έχουν ενεργοποιηθεί επιτυχώς."
 
-#: src/Core/Backend/ThemesList.php:479
+#: src/Core/Backend/ThemesList.php:564
 msgid "Some themes have not been deactivated."
 msgstr "Ορισμένα θέματα δεν έχουν απενεργοποιηθεί."
 
-#: src/Core/Backend/ThemesList.php:482
+#: src/Core/Backend/ThemesList.php:567
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Το θέμα απενεργοποιήθηκε επιτυχώς."
 msgstr[1] "Τα θέματα έχουν ενεργοποιηθεί επιτυχώς."
 
-#: src/Core/Backend/ThemesList.php:514
+#: src/Core/Backend/ThemesList.php:599
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Το θέμα κλωνοποιήθηκε επιτυχώς."
 msgstr[1] "Τα θέματα έχουν κλωνοποιηθεί επιτυχώς."
 
-#: src/Core/Backend/ThemesList.php:548
+#: src/Core/Backend/ThemesList.php:633
 msgid "You don't have permissions to delete this theme."
 msgstr "Δεν έχετε δικαιώματα για να διαγράψετε αυτό το θέμα."
 
-#: src/Core/Backend/ThemesList.php:552
+#: src/Core/Backend/ThemesList.php:637
 msgid "Some themes have not been delete."
 msgstr "Ορισμένα θέματα δεν έχουν διαγραφεί."
 
-#: src/Core/Backend/ThemesList.php:555
+#: src/Core/Backend/ThemesList.php:640
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Το θέμα έχει διαγραφεί επιτυχώς."
 msgstr[1] "Τα θέματα έχουν διαγραφεί επιτυχώς."
 
-#: src/Core/Backend/ThemesList.php:588
+#: src/Core/Backend/ThemesList.php:673
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Το θέμα εγκαταστάθηκε με επιτυχία."
 msgstr[1] "Τα θέματα εγκαταστάθηκαν με επιτυχία."
 
-#: src/Core/Backend/ThemesList.php:627
+#: src/Core/Backend/ThemesList.php:712
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "Το θέμα έχει ενημερωθεί με επιτυχία."
 msgstr[1] "Τα θέματα έχουν ενημερωθεί με επιτυχία."
 
-#: src/Core/Backend/ThemesList.php:631
+#: src/Core/Backend/ThemesList.php:716
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "Οι παρακάτω ενημερώσεις θεμάτων είναι κλειδωμένες: %s"
 
-#: src/Core/Backend/ThemesList.php:669
+#: src/Core/Backend/ThemesList.php:754
 msgid "The theme has been successfully updated."
 msgstr "Το θέμα έχει ενημερωθεί με επιτυχία."
 
-#: src/Core/Backend/ThemesList.php:670
+#: src/Core/Backend/ThemesList.php:755
 msgid "The theme has been successfully installed."
 msgstr "Το θέμα εγκαταστάθηκε με επιτυχία."
 
@@ -3002,63 +3005,63 @@ msgstr "Απαιτεί %s έκδοση %s, αλλά η έκδοση %s είνα�
 msgid "Requires %s module which is disabled"
 msgstr "Απαιτεί %s module που είναι απενεργοποιημένο"
 
-#: src/Module/Modules.php:637
+#: src/Module/Modules.php:648
 #, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr "Module \"%s\" έχει πληκτρολογήσει\"%s\" που απαιτείται ασυμφωνία τύπου ενότητας \"%s\"."
 
-#: src/Module/Modules.php:665
+#: src/Module/Modules.php:676
 #, php-format
 msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
 msgstr "Module \"%s\" έχει εγκατασταθεί δύο φορές στο \"%s\" και \"%s\"."
 
-#: src/Module/Modules.php:742
+#: src/Module/Modules.php:753
 msgid "Empty module zip file."
 msgstr "Άδειο αρχείο zip module."
 
-#: src/Module/Modules.php:749
+#: src/Module/Modules.php:760
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "Το αρχείο zip δεν φαίνεται να είναι ένα έγκυρο πρόσθετο Dotclear."
 
-#: src/Module/Modules.php:783 src/Module/Modules.php:819
+#: src/Module/Modules.php:794 src/Module/Modules.php:830
 #, php-format
 msgid "Module is not installed: %s"
 msgstr "Η ενότητα δεν είναι εγκατεστημένη: %s"
 
-#: src/Module/Modules.php:834
+#: src/Module/Modules.php:845
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "Αδυναμία αναβάθμισης του \"%s\". (ενημέρωση κλειδωμένη)"
 
-#: src/Module/Modules.php:838
+#: src/Module/Modules.php:849
 msgid "An error occurred during module deletion."
 msgstr "Παρουσιάστηκε σφάλμα κατά τη διαγραφή του module."
 
-#: src/Module/Modules.php:846
+#: src/Module/Modules.php:857
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Δεν είναι δυνατή η αναβάθμιση του \"%s\". (παλαιότερη ή ίδια έκδοση)"
 
-#: src/Module/Modules.php:852
+#: src/Module/Modules.php:863
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "Αδυναμία ανάγνωσης νέου %s αρχείου"
 
-#: src/Module/Modules.php:862 src/Module/Modules.php:982
-#: src/Module/Modules.php:986
+#: src/Module/Modules.php:873 src/Module/Modules.php:993
+#: src/Module/Modules.php:997
 msgid "Cannot deactivate plugin."
 msgstr "Αδυναμία απενεργοποίησης του plugin."
 
-#: src/Module/Modules.php:958 src/Module/Modules.php:978
-#: src/Module/Modules.php:1002
+#: src/Module/Modules.php:969 src/Module/Modules.php:989
+#: src/Module/Modules.php:1013
 msgid "No such module."
 msgstr "Δεν υπάρχει τέτοια ενότητα."
 
-#: src/Module/Modules.php:962
+#: src/Module/Modules.php:973
 msgid "Cannot remove module files"
 msgstr "Αδυναμία αφαίρεσης αρχείων module"
 
-#: src/Module/Modules.php:1006 src/Module/Modules.php:1010
+#: src/Module/Modules.php:1017 src/Module/Modules.php:1021
 msgid "Cannot activate plugin."
 msgstr "Αδύνατη η ενεργοποίηση του πρόσθετου."
 
@@ -3349,8 +3352,8 @@ msgid "P"
 msgstr "Ρ"
 
 #: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:997
-#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:661
-#: src/Process/Backend/MediaItem.php:663
+#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:667
+#: src/Process/Backend/MediaItem.php:669
 msgid "(none)"
 msgstr "(κανένα)"
 
@@ -3371,36 +3374,36 @@ msgid "Description, City, Country, Date"
 msgstr "Περιγραφή, Πόλη, Χώρα, Ημερομηνία"
 
 #: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:560
-#: src/Process/Backend/MediaItem.php:634 src/Process/Backend/MediaItem.php:875
+#: src/Process/Backend/MediaItem.php:634 src/Process/Backend/MediaItem.php:881
 msgid "original"
 msgstr "πρωτότυπο"
 
 #: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
-#: src/Process/Backend/MediaItem.php:658 src/Process/Backend/MediaItem.php:670
-#: src/Process/Backend/MediaItem.php:708 src/Process/Backend/MediaItem.php:752
+#: src/Process/Backend/MediaItem.php:664 src/Process/Backend/MediaItem.php:676
+#: src/Process/Backend/MediaItem.php:714 src/Process/Backend/MediaItem.php:758
 msgid "None"
 msgstr "Κανένα"
 
-#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:671
-#: src/Process/Backend/MediaItem.php:709 src/Process/Backend/MediaItem.php:753
+#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/MediaItem.php:715 src/Process/Backend/MediaItem.php:759
 msgid "Left"
 msgstr "Αριστερά"
 
-#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:672
-#: src/Process/Backend/MediaItem.php:710 src/Process/Backend/MediaItem.php:754
+#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:678
+#: src/Process/Backend/MediaItem.php:716 src/Process/Backend/MediaItem.php:760
 msgid "Right"
 msgstr "Δεξιά"
 
-#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:673
-#: src/Process/Backend/MediaItem.php:711 src/Process/Backend/MediaItem.php:755
+#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:679
+#: src/Process/Backend/MediaItem.php:717 src/Process/Backend/MediaItem.php:761
 msgid "Center"
 msgstr "Κέντρο"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:646
+#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:649
 msgid "Legend and alternate text"
 msgstr "Υπόμνημα και εναλλακτικό κείμενο"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:652
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:658
 msgid "Alternate text"
 msgstr "Εναλλακτικό κείμενο"
 
@@ -4070,7 +4073,7 @@ msgstr "Όνομα:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Προειδοποίηση: Αν ορίσετε το URL χειροκίνητα, ενδέχεται να έρχεται σε σύγκρουση με μια άλλη κατηγορία."
 
-#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1099
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1105
 msgid "Description:"
 msgstr "Περιγραφή:"
 
@@ -4406,7 +4409,7 @@ msgstr "Τίτλος συνδέσμου:"
 msgid "Link language:"
 msgstr "Γλώσσα σύνδεσης:"
 
-#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:783
+#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:789
 msgid "Insert"
 msgstr "Insert"
 
@@ -4492,7 +4495,7 @@ msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Επιλέξτε αρχεία και κάντε κλικ στο κουμπί <strong>%s</strong>"
 
 #: src/Process/Backend/Media.php:378 src/Process/Backend/Media.php:391
-#: src/Process/Backend/Media.php:404 src/Process/Backend/MediaItem.php:799
+#: src/Process/Backend/Media.php:404 src/Process/Backend/MediaItem.php:805
 msgid "or"
 msgstr "ή"
 
@@ -4567,13 +4570,13 @@ msgstr "Παρακαλώ φροντίστε να δημοσιεύσετε τα �
 msgid "Maximum file size allowed:"
 msgstr "Μέγιστο επιτρεπόμενο μέγεθος αρχείου:"
 
-#: src/Process/Backend/Media.php:550 src/Process/Backend/MediaItem.php:661
-#: src/Process/Backend/MediaItem.php:1023
-#: src/Process/Backend/MediaItem.php:1086
+#: src/Process/Backend/Media.php:550 src/Process/Backend/MediaItem.php:667
+#: src/Process/Backend/MediaItem.php:1029
+#: src/Process/Backend/MediaItem.php:1092
 msgid "Alternate text:"
 msgstr "Εναλλακτικό κείμενο:"
 
-#: src/Process/Backend/Media.php:551 src/Process/Backend/MediaItem.php:1116
+#: src/Process/Backend/Media.php:551 src/Process/Backend/MediaItem.php:1122
 msgid "Private"
 msgstr "Ιδιωτικό"
 
@@ -4643,214 +4646,214 @@ msgstr "Εισαγωγή στοιχείου πολυμέσων"
 msgid "Image legend and alternate text"
 msgstr "Υπόμνημα εικόνας και εναλλακτικό κείμενο"
 
-#: src/Process/Backend/MediaItem.php:663
+#: src/Process/Backend/MediaItem.php:669
 msgid "Legend:"
 msgstr "Υπόμνημα:"
 
-#: src/Process/Backend/MediaItem.php:668
+#: src/Process/Backend/MediaItem.php:674
 msgid "Image alignment"
 msgstr "Στοίχιση εικόνας"
 
-#: src/Process/Backend/MediaItem.php:688
+#: src/Process/Backend/MediaItem.php:694
 msgid "Image insertion"
 msgstr "Εισαγωγή εικόνας"
 
-#: src/Process/Backend/MediaItem.php:691
+#: src/Process/Backend/MediaItem.php:697
 msgid "As a single image"
 msgstr "Ως ενιαία εικόνα"
 
-#: src/Process/Backend/MediaItem.php:693
+#: src/Process/Backend/MediaItem.php:699
 msgid "As a link to the original image"
 msgstr "Ως σύνδεσμος στην αρχική εικόνα"
 
-#: src/Process/Backend/MediaItem.php:701
+#: src/Process/Backend/MediaItem.php:707
 msgid "MP3 disposition"
 msgstr "Διάθεση MP3"
 
-#: src/Process/Backend/MediaItem.php:704
+#: src/Process/Backend/MediaItem.php:710
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Λάβετε υπόψη ότι δεν μπορείτε να εισάγετε αρχεία mp3 με τον τυπικό επεξεργαστή σε λειτουργία WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:734
+#: src/Process/Backend/MediaItem.php:740
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Λάβετε υπόψη ότι δεν μπορείτε να εισάγετε αρχεία βίντεο με τον τυπικό επεξεργαστή σε λειτουργία WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:739
+#: src/Process/Backend/MediaItem.php:745
 msgid "Video size"
 msgstr "Μέγεθος βίντεο"
 
-#: src/Process/Backend/MediaItem.php:740
+#: src/Process/Backend/MediaItem.php:746
 msgid "Width:"
 msgstr "Πλάτος:"
 
-#: src/Process/Backend/MediaItem.php:742
+#: src/Process/Backend/MediaItem.php:748
 msgid "Height:"
 msgstr "Ύψος:"
 
-#: src/Process/Backend/MediaItem.php:749
+#: src/Process/Backend/MediaItem.php:755
 msgid "Video disposition"
 msgstr "Διάθεση βίντεο"
 
-#: src/Process/Backend/MediaItem.php:778
+#: src/Process/Backend/MediaItem.php:784
 msgid "Media item will be inserted as a link."
 msgstr "Το στοιχείο πολυμέσων θα εισαχθεί ως σύνδεσμος."
 
-#: src/Process/Backend/MediaItem.php:798
+#: src/Process/Backend/MediaItem.php:804
 msgid "Make current settings as default"
 msgstr "Κάντε τις τρέχουσες ρυθμίσεις ως προκαθορισμένες"
 
-#: src/Process/Backend/MediaItem.php:799
+#: src/Process/Backend/MediaItem.php:805
 msgid "For the blog"
 msgstr "Για το blog"
 
-#: src/Process/Backend/MediaItem.php:800
+#: src/Process/Backend/MediaItem.php:806
 msgid "For this folder only"
 msgstr "Μόνο για αυτόν το φάκελο"
 
-#: src/Process/Backend/MediaItem.php:809
+#: src/Process/Backend/MediaItem.php:815
 msgid "Settings exist for this folder:"
 msgstr "Οι ρυθμίσεις υπάρχουν για αυτόν το φάκελο:"
 
-#: src/Process/Backend/MediaItem.php:810
+#: src/Process/Backend/MediaItem.php:816
 msgid "Remove them"
 msgstr "Αφαιρέστε τα"
 
-#: src/Process/Backend/MediaItem.php:829 src/Process/Backend/MediaItem.php:832
-#: src/Process/Backend/MediaItem.php:913
+#: src/Process/Backend/MediaItem.php:835 src/Process/Backend/MediaItem.php:838
+#: src/Process/Backend/MediaItem.php:919
 msgid "Media details"
 msgstr "Λεπτομέρειες πολυμέσων"
 
-#: src/Process/Backend/MediaItem.php:864
+#: src/Process/Backend/MediaItem.php:870
 msgid "Available sizes:"
 msgstr "Διαθέσιμα μεγέθη:"
 
-#: src/Process/Backend/MediaItem.php:885
+#: src/Process/Backend/MediaItem.php:891
 msgid "Thumbnail details"
 msgstr "Thumbnail details"
 
-#: src/Process/Backend/MediaItem.php:890 src/Process/Backend/MediaItem.php:927
-#: src/Process/Backend/MediaItem.php:938
+#: src/Process/Backend/MediaItem.php:896 src/Process/Backend/MediaItem.php:933
+#: src/Process/Backend/MediaItem.php:944
 msgid "Image width:"
 msgstr "Πλάτος εικόνας:"
 
-#: src/Process/Backend/MediaItem.php:891 src/Process/Backend/MediaItem.php:931
-#: src/Process/Backend/MediaItem.php:939
+#: src/Process/Backend/MediaItem.php:897 src/Process/Backend/MediaItem.php:937
+#: src/Process/Backend/MediaItem.php:945
 msgid "Image height:"
 msgstr "Ύψος εικόνας:"
 
-#: src/Process/Backend/MediaItem.php:895 src/Process/Backend/MediaItem.php:944
+#: src/Process/Backend/MediaItem.php:901 src/Process/Backend/MediaItem.php:950
 msgid "File size:"
 msgstr "Μέγεθος αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:898 src/Process/Backend/MediaItem.php:945
+#: src/Process/Backend/MediaItem.php:904 src/Process/Backend/MediaItem.php:951
 msgid "File URL:"
 msgstr "Url Αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:915
+#: src/Process/Backend/MediaItem.php:921
 msgid "File owner:"
 msgstr "Κάτοχος αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:916
+#: src/Process/Backend/MediaItem.php:922
 msgid "File type:"
 msgstr "Τύπος αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:951
+#: src/Process/Backend/MediaItem.php:957
 msgid "Show entries containing this media"
 msgstr "Εμφάνιση καταχωρήσεων που περιέχουν αυτό το μέσο"
 
-#: src/Process/Backend/MediaItem.php:954
+#: src/Process/Backend/MediaItem.php:960
 msgid "Entries containing this media"
 msgstr "Καταχωρήσεις που περιέχουν αυτό το μέσο"
 
-#: src/Process/Backend/MediaItem.php:991
+#: src/Process/Backend/MediaItem.php:997
 msgid "No entry seems contain this media."
 msgstr "Καμία καταχώρηση δεν φαίνεται να περιέχει αυτό το μέσο."
 
-#: src/Process/Backend/MediaItem.php:1018
+#: src/Process/Backend/MediaItem.php:1024
 msgid "Image details"
 msgstr "Λεπτομέρειες εικόνας"
 
-#: src/Process/Backend/MediaItem.php:1028
+#: src/Process/Backend/MediaItem.php:1034
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1037
+#: src/Process/Backend/MediaItem.php:1043
 msgid "No detail"
 msgstr "Καμία λεπτομέρεια"
 
-#: src/Process/Backend/MediaItem.php:1044
+#: src/Process/Backend/MediaItem.php:1050
 msgid "Updates and modifications"
 msgstr "Ενημερώσεις και τροποποιήσεις"
 
-#: src/Process/Backend/MediaItem.php:1050
-#: src/Process/Backend/MediaItem.php:1052
+#: src/Process/Backend/MediaItem.php:1056
+#: src/Process/Backend/MediaItem.php:1058
 msgid "Update thumbnails"
 msgstr "Ενημέρωση μικρογραφιών"
 
-#: src/Process/Backend/MediaItem.php:1051
+#: src/Process/Backend/MediaItem.php:1057
 msgid "This will create or update thumbnails for this image."
 msgstr "Αυτό θα δημιουργήσει ή θα ενημερώσει τις μικρογραφίες για αυτήν την εικόνα."
 
-#: src/Process/Backend/MediaItem.php:1060
-#: src/Process/Backend/MediaItem.php:1068
+#: src/Process/Backend/MediaItem.php:1066
+#: src/Process/Backend/MediaItem.php:1074
 msgid "Extract in a new directory"
 msgstr "Εξαγωγή σε νέο κατάλογο"
 
-#: src/Process/Backend/MediaItem.php:1061
-#: src/Process/Backend/MediaItem.php:1070
+#: src/Process/Backend/MediaItem.php:1067
+#: src/Process/Backend/MediaItem.php:1076
 msgid "Extract in current directory"
 msgstr "Εξαγωγή στον τρέχοντα κατάλογο"
 
-#: src/Process/Backend/MediaItem.php:1066
+#: src/Process/Backend/MediaItem.php:1072
 msgid "Extract archive"
 msgstr "Εξαγωγή αρχειοθήκης"
 
-#: src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/MediaItem.php:1075
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Αυτό θα εξαγάγει την αρχειοθήκη σε ένα νέο φάκελο που δεν θα πρέπει να υπάρχει ακόμα."
 
-#: src/Process/Backend/MediaItem.php:1071
+#: src/Process/Backend/MediaItem.php:1077
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Αυτό θα εξαγάγει την αρχειοθήκη στον τρέχοντα κατάλογο και θα αντικαταστήσει τα υπάρχοντα αρχεία ή κατάλογο."
 
-#: src/Process/Backend/MediaItem.php:1073
+#: src/Process/Backend/MediaItem.php:1079
 msgid "Extract mode:"
 msgstr "Λειτουργία εξαγωγής:"
 
-#: src/Process/Backend/MediaItem.php:1075
+#: src/Process/Backend/MediaItem.php:1081
 msgid "Extract"
 msgstr "Εξαγωγή"
 
-#: src/Process/Backend/MediaItem.php:1083
+#: src/Process/Backend/MediaItem.php:1089
 msgid "Change media properties"
 msgstr "Αλλαγή ιδιοτήτων πολυμέσων"
 
-#: src/Process/Backend/MediaItem.php:1084
+#: src/Process/Backend/MediaItem.php:1090
 msgid "File name:"
 msgstr "Όνομα αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:1109
+#: src/Process/Backend/MediaItem.php:1115
 msgid "File date:"
 msgstr "Ημερομηνία αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:1117
+#: src/Process/Backend/MediaItem.php:1123
 msgid "New directory:"
 msgstr "Νέος κατάλογος:"
 
-#: src/Process/Backend/MediaItem.php:1125
+#: src/Process/Backend/MediaItem.php:1131
 msgid "Change file"
 msgstr "Αλλαγή αρχείου"
 
-#: src/Process/Backend/MediaItem.php:1127
+#: src/Process/Backend/MediaItem.php:1133
 msgid "Choose a file:"
 msgstr "Επιλέξτε ένα αρχείο:"
 
-#: src/Process/Backend/MediaItem.php:1128
+#: src/Process/Backend/MediaItem.php:1134
 #, php-format
 msgid "Maximum size %s"
 msgstr "Μέγιστο μέγεθος %s"
 
-#: src/Process/Backend/MediaItem.php:1139
+#: src/Process/Backend/MediaItem.php:1145
 msgid "Delete this media"
 msgstr "Διαγραφή αυτού του μέσου"
 
