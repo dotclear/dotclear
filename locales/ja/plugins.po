@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-20 16:03+0200\n"
-"PO-Revision-Date: 2024-06-20 15:27\n"
+"POT-Creation-Date: 2024-07-02 12:26+0200\n"
+"PO-Revision-Date: 2024-07-02 10:29\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -792,7 +792,7 @@ msgstr "IPアドレスを追加する："
 #: plugins/antispam/src/Filters/Ip.php:287
 #: plugins/antispam/src/Filters/IpV6.php:286
 #: plugins/antispam/src/Filters/Words.php:304
-#: plugins/widgets/src/Manage.php:311
+#: plugins/widgets/src/Manage.php:319
 msgid "Add"
 msgstr "追加"
 
@@ -1474,7 +1474,7 @@ msgstr "ブラウザーが提供するスペルチェッカーを無効にしま
 
 #: plugins/dcCKEditor/src/Manage.php:320
 #: plugins/dcLegacyEditor/src/Manage.php:110
-#: plugins/simpleMenu/src/Manage.php:744
+#: plugins/simpleMenu/src/Manage.php:749
 msgid "Save configuration"
 msgstr "設定を保存"
 
@@ -2359,21 +2359,21 @@ msgstr "%d ページ"
 msgid "%d pages"
 msgstr "%d ページ"
 
-#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:140
+#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:147
 #: plugins/pages/src/ManagePage.php:105 plugins/pages/src/ManagePage.php:833
 msgid "New page"
 msgstr "新しいページ"
 
-#: plugins/pages/src/BackendActions.php:53
+#: plugins/pages/src/BackendActions.php:55
 msgid "Pages actions"
 msgstr "ページアクション"
 
-#: plugins/pages/src/BackendActions.php:69
+#: plugins/pages/src/BackendActions.php:77
 msgid "Back to pages list"
 msgstr "ページ一覧に戻る"
 
 #: plugins/pages/src/BackendDefaultActions.php:123
-#: plugins/pages/src/Manage.php:137
+#: plugins/pages/src/Manage.php:138
 msgid "Selected pages have been successfully reordered."
 msgstr "選択したページの順序が正常に変更されました。"
 
@@ -2405,31 +2405,31 @@ msgstr "私の最初のページ"
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "これはあなたの最初のページです。ブログの準備ができたら、ログインして編集または削除してください。"
 
-#: plugins/pages/src/Manage.php:119
+#: plugins/pages/src/Manage.php:120
 msgid "Are you sure you want to delete selected pages?"
 msgstr "本当に、選択されたページを削除してもよろしいですか？"
 
-#: plugins/pages/src/Manage.php:133
+#: plugins/pages/src/Manage.php:134
 msgid "Selected pages have been successfully updated."
 msgstr "選択したページが正常に更新されました。"
 
-#: plugins/pages/src/Manage.php:135
+#: plugins/pages/src/Manage.php:136
 msgid "Selected pages have been successfully deleted."
 msgstr "選択したページが正常に削除されました。"
 
-#: plugins/pages/src/Manage.php:161
+#: plugins/pages/src/Manage.php:170
 msgid "Selected pages action:"
 msgstr "選択されたページに実行："
 
-#: plugins/pages/src/Manage.php:167
+#: plugins/pages/src/Manage.php:176
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "ページ順序を変更するには、行頭に番号を変更し、「ページ順序を保存」ボタンをクリックします。"
 
-#: plugins/pages/src/Manage.php:170
+#: plugins/pages/src/Manage.php:179
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "ページ順序を変更するには、ドラッグアンドドロップでアイテムを移動し、「ページ順序を保存」ボタンをクリックします。"
 
-#: plugins/pages/src/Manage.php:177
+#: plugins/pages/src/Manage.php:186
 msgid "Save pages order"
 msgstr "ページの順序を保存"
 
@@ -2572,8 +2572,8 @@ msgstr "ユーザー定義"
 msgid "Configuration successfully updated."
 msgstr "設定を更新しました。"
 
-#: plugins/simpleMenu/src/Manage.php:248 plugins/simpleMenu/src/Manage.php:663
-#: plugins/simpleMenu/src/Manage.php:780
+#: plugins/simpleMenu/src/Manage.php:248 plugins/simpleMenu/src/Manage.php:668
+#: plugins/simpleMenu/src/Manage.php:785
 msgid "Label"
 msgstr "ラベル"
 
@@ -2661,71 +2661,71 @@ msgstr "種類を選択"
 msgid "Type of item menu:"
 msgstr "アイテムメニューの種類:"
 
-#: plugins/simpleMenu/src/Manage.php:571 plugins/simpleMenu/src/Manage.php:630
+#: plugins/simpleMenu/src/Manage.php:571 plugins/simpleMenu/src/Manage.php:635
 msgid "Continue..."
 msgstr "続ける..."
 
-#: plugins/simpleMenu/src/Manage.php:590
+#: plugins/simpleMenu/src/Manage.php:591
 msgid "Select language:"
 msgstr "言語を選択:"
 
-#: plugins/simpleMenu/src/Manage.php:595
+#: plugins/simpleMenu/src/Manage.php:597
 msgid "Select category:"
 msgstr "カテゴリを選択:"
 
-#: plugins/simpleMenu/src/Manage.php:600
+#: plugins/simpleMenu/src/Manage.php:603
 msgid "Select month (if necessary):"
 msgstr "月を選択してください (必要な場合):"
 
-#: plugins/simpleMenu/src/Manage.php:605
+#: plugins/simpleMenu/src/Manage.php:609
 msgid "Select page:"
 msgstr "ページを選択:"
 
-#: plugins/simpleMenu/src/Manage.php:610
+#: plugins/simpleMenu/src/Manage.php:615
 msgid "Select tag (if necessary):"
 msgstr "タグを選択(必要な場合):"
 
-#: plugins/simpleMenu/src/Manage.php:668
+#: plugins/simpleMenu/src/Manage.php:673
 msgid "Label of item menu:"
 msgstr "アイテムメニューのラベル:"
 
-#: plugins/simpleMenu/src/Manage.php:682
+#: plugins/simpleMenu/src/Manage.php:687
 msgid "Description of item menu:"
 msgstr "アイテムメニューの説明:"
 
-#: plugins/simpleMenu/src/Manage.php:697
+#: plugins/simpleMenu/src/Manage.php:702
 msgid "URL of item menu:"
 msgstr "アイテムメニューの URL :"
 
-#: plugins/simpleMenu/src/Manage.php:707 plugins/simpleMenu/src/Manage.php:783
+#: plugins/simpleMenu/src/Manage.php:712 plugins/simpleMenu/src/Manage.php:788
 msgid "Open URL on a new tab"
 msgstr "新しいタブでURLを開く"
 
-#: plugins/simpleMenu/src/Manage.php:715
+#: plugins/simpleMenu/src/Manage.php:720
 msgid "Add this item"
 msgstr "このアイテムを追加"
 
-#: plugins/simpleMenu/src/Manage.php:738
+#: plugins/simpleMenu/src/Manage.php:743
 msgid "Enable simple menu for this blog"
 msgstr "このブログのシンプルメニューを有効にする"
 
-#: plugins/simpleMenu/src/Manage.php:761
+#: plugins/simpleMenu/src/Manage.php:766
 msgid "Add an item"
 msgstr "アイテムを追加"
 
-#: plugins/simpleMenu/src/Manage.php:871
+#: plugins/simpleMenu/src/Manage.php:884
 msgid "Menu items list"
 msgstr "メニューアイテムリスト"
 
-#: plugins/simpleMenu/src/Manage.php:891
+#: plugins/simpleMenu/src/Manage.php:911
 msgid "Delete selected menu items"
 msgstr "選択したメニュー項目を削除"
 
-#: plugins/simpleMenu/src/Manage.php:900
+#: plugins/simpleMenu/src/Manage.php:920
 msgid "Update menu"
 msgstr "メニューを更新"
 
-#: plugins/simpleMenu/src/Manage.php:910
+#: plugins/simpleMenu/src/Manage.php:930
 msgid "No menu items so far."
 msgstr "メニューアイテムがありません。"
 
@@ -2799,12 +2799,12 @@ msgid "used in %e - frequency %p%"
 msgstr "%e で使用 - 周波数 %p%"
 
 #: plugins/tags/src/BackendBehaviors.php:303
-#: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:93
+#: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:116
 msgid "entry"
 msgstr "項目"
 
 #: plugins/tags/src/BackendBehaviors.php:304
-#: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:93
+#: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:116
 msgid "entries"
 msgstr "エントリ"
 
@@ -2853,7 +2853,7 @@ msgstr "このタグのコメントのAtomフィード"
 msgid "This tag's entries Atom feed"
 msgstr "このタグのエントリのAtomフィード"
 
-#: plugins/tags/src/Manage.php:112
+#: plugins/tags/src/Manage.php:147
 msgid "No tags on this blog."
 msgstr "このブログでのタグはありません。"
 
@@ -2914,17 +2914,17 @@ msgstr "すべてのタグへのリンク:"
 msgid "themeEditor"
 msgstr "themeEditor"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:48
+#: plugins/themeEditor/src/BackendBehaviors.php:51
 #: plugins/themeEditor/src/Manage.php:188
 #: plugins/themeEditor/src/Manage.php:195
 msgid "Edit theme files"
 msgstr "テーマファイルを編集"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:109
+#: plugins/themeEditor/src/BackendBehaviors.php:112
 msgid "Syntax highlighting"
 msgstr "構文の強調表示"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:121
+#: plugins/themeEditor/src/BackendBehaviors.php:124
 msgid "Syntax highlighting in theme editor"
 msgstr "テーマエディタでシンタックスハイライト表示"
 
@@ -3018,39 +3018,39 @@ msgstr "PHPファイル"
 msgid "You can't edit a distributed theme."
 msgstr "配布されたテーマは編集できません。"
 
-#: plugins/themeEditor/src/ThemeEditor.php:144
+#: plugins/themeEditor/src/ThemeEditor.php:151
 msgid "No file"
 msgstr "ファイルはありません"
 
-#: plugins/themeEditor/src/ThemeEditor.php:163
+#: plugins/themeEditor/src/ThemeEditor.php:176
 msgid "From theme:"
 msgstr "テーマから:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:165
+#: plugins/themeEditor/src/ThemeEditor.php:184
 msgid "From parent:"
 msgstr "親から:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:170
+#: plugins/themeEditor/src/ThemeEditor.php:194
 msgid "From template set:"
 msgstr "テンプレートセットから:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:193
-#: plugins/themeEditor/src/ThemeEditor.php:223
-#: plugins/themeEditor/src/ThemeEditor.php:312
+#: plugins/themeEditor/src/ThemeEditor.php:222
+#: plugins/themeEditor/src/ThemeEditor.php:252
+#: plugins/themeEditor/src/ThemeEditor.php:341
 msgid "File does not exist."
 msgstr "ファイルが存在しません。"
 
-#: plugins/themeEditor/src/ThemeEditor.php:198
+#: plugins/themeEditor/src/ThemeEditor.php:227
 #, php-format
 msgid "File %s is not readable"
 msgstr "ファイル %s は読み込み可能ではありません"
 
-#: plugins/themeEditor/src/ThemeEditor.php:260
+#: plugins/themeEditor/src/ThemeEditor.php:289
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "ファイル %s に書き込むことができません。 テーマのファイルとフォルダのパーミッションを確認してください。"
 
-#: plugins/themeEditor/src/ThemeEditor.php:325
+#: plugins/themeEditor/src/ThemeEditor.php:354
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "ファイルを削除できません %s.テーマのファイルとフォルダのパーミッションを確認してください。"
@@ -3107,7 +3107,7 @@ msgstr "サイドバーがリセットされています。"
 msgid "Are you sure you want to reset sidebars?"
 msgstr "本当に、サイドバーをリセットしてもよろしいですか？"
 
-#: plugins/widgets/src/Manage.php:258 plugins/widgets/src/Manage.php:365
+#: plugins/widgets/src/Manage.php:258 plugins/widgets/src/Manage.php:387
 msgid "Temporarily display the action buttons for each widget"
 msgstr "各ウィジェットのアクションボタンを一時的に表示する"
 
@@ -3115,91 +3115,91 @@ msgstr "各ウィジェットのアクションボタンを一時的に表示す
 msgid "Hide the action buttons for each widget"
 msgstr "各ウィジェットのアクションボタンを隠す"
 
-#: plugins/widgets/src/Manage.php:300 plugins/widgets/src/Manage.php:459
+#: plugins/widgets/src/Manage.php:306 plugins/widgets/src/Manage.php:489
 msgid "order"
 msgstr "並び順"
 
-#: plugins/widgets/src/Manage.php:310
+#: plugins/widgets/src/Manage.php:318
 msgid "Append to:"
 msgstr "付加先："
 
-#: plugins/widgets/src/Manage.php:327
+#: plugins/widgets/src/Manage.php:337
 msgid "Available widgets"
 msgstr "利用可能なウィジェット"
 
-#: plugins/widgets/src/Manage.php:328
+#: plugins/widgets/src/Manage.php:339
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "ウィジェットをこのリストからいずれかのサイドバーにドラッグして追加します。"
 
-#: plugins/widgets/src/Manage.php:334
+#: plugins/widgets/src/Manage.php:347
 msgid "Add widgets to sidebars"
 msgstr "サイドバーにウィジェットを追加"
 
-#: plugins/widgets/src/Manage.php:346
+#: plugins/widgets/src/Manage.php:362
 msgid "Navigation sidebar"
 msgstr "ナビゲーションサイドバー"
 
-#: plugins/widgets/src/Manage.php:350
+#: plugins/widgets/src/Manage.php:369
 msgid "Extra sidebar"
 msgstr "拡張サイドバー"
 
-#: plugins/widgets/src/Manage.php:354
+#: plugins/widgets/src/Manage.php:376
 msgid "Custom sidebar"
 msgstr "カスタムサイドバー"
 
-#: plugins/widgets/src/Manage.php:361
+#: plugins/widgets/src/Manage.php:383
 msgid "Update sidebars"
 msgstr "サイドバーを更新"
 
-#: plugins/widgets/src/Manage.php:363
+#: plugins/widgets/src/Manage.php:385
 msgid "Reset sidebars"
 msgstr "サイドバーをリセット"
 
-#: plugins/widgets/src/Manage.php:375
+#: plugins/widgets/src/Manage.php:398
 msgid "No setting for this widget"
 msgstr "このウィジェットに設定はありません"
 
-#: plugins/widgets/src/Manage.php:381
+#: plugins/widgets/src/Manage.php:404
 msgid "boolean"
 msgstr "boolean"
 
-#: plugins/widgets/src/Manage.php:381 plugins/widgets/src/Manage.php:386
+#: plugins/widgets/src/Manage.php:404 plugins/widgets/src/Manage.php:409
 msgid "possible values:"
 msgstr "可能な値:"
 
-#: plugins/widgets/src/Manage.php:385
+#: plugins/widgets/src/Manage.php:408
 msgid "empty string"
 msgstr "空の文字列"
 
-#: plugins/widgets/src/Manage.php:386
+#: plugins/widgets/src/Manage.php:409
 msgid "listitem"
 msgstr "listitem"
 
-#: plugins/widgets/src/Manage.php:392
+#: plugins/widgets/src/Manage.php:415
 msgid "string"
 msgstr "文字列"
 
-#: plugins/widgets/src/Manage.php:408
+#: plugins/widgets/src/Manage.php:435
 msgid "Widget ID:"
 msgstr "ウィジェット ID："
 
-#: plugins/widgets/src/Manage.php:471 plugins/widgets/src/Manage.php:472
+#: plugins/widgets/src/Manage.php:501 plugins/widgets/src/Manage.php:502
 msgid "Up the widget"
 msgstr "ウィジェットを上へ"
 
-#: plugins/widgets/src/Manage.php:476 plugins/widgets/src/Manage.php:477
+#: plugins/widgets/src/Manage.php:506 plugins/widgets/src/Manage.php:507
 msgid "Down the widget"
 msgstr "ウィジェットを下へ"
 
-#: plugins/widgets/src/Manage.php:480 plugins/widgets/src/Manage.php:481
+#: plugins/widgets/src/Manage.php:510 plugins/widgets/src/Manage.php:511
 msgid "Remove the widget"
 msgstr "ウィジェットを削除"
 
-#: plugins/widgets/src/Manage.php:505
+#: plugins/widgets/src/Manage.php:535
 msgid "No widget as far."
 msgstr "ウィジェットがありません。"
 
-#: plugins/widgets/src/Manage.php:514
+#: plugins/widgets/src/Manage.php:544
 msgid "Drag widgets here to remove."
 msgstr "削除するにはここにウィジェットをドラッグしてください。"
 
@@ -3309,35 +3309,35 @@ msgstr "エントリのフィード"
 msgid "Comments feed"
 msgstr "コメントのフィード"
 
-#: plugins/widgets/src/WidgetsElement.php:515
+#: plugins/widgets/src/WidgetsElement.php:556
 msgid "Title (optional)"
 msgstr "タイトル (オプション)"
 
-#: plugins/widgets/src/WidgetsElement.php:528
+#: plugins/widgets/src/WidgetsElement.php:569
 msgid "All pages"
 msgstr "すべてのページ"
 
-#: plugins/widgets/src/WidgetsElement.php:529
+#: plugins/widgets/src/WidgetsElement.php:570
 msgid "Home page only"
 msgstr "ホームページのみ"
 
-#: plugins/widgets/src/WidgetsElement.php:530
+#: plugins/widgets/src/WidgetsElement.php:571
 msgid "Except on home page"
 msgstr "ホームページ以外の場合"
 
-#: plugins/widgets/src/WidgetsElement.php:538
+#: plugins/widgets/src/WidgetsElement.php:579
 msgid "Display on:"
 msgstr "表示先："
 
-#: plugins/widgets/src/WidgetsElement.php:574
+#: plugins/widgets/src/WidgetsElement.php:615
 msgid "Content only"
 msgstr "コンテンツのみ"
 
-#: plugins/widgets/src/WidgetsElement.php:586
+#: plugins/widgets/src/WidgetsElement.php:627
 msgid "CSS class:"
 msgstr "CSS クラス:"
 
-#: plugins/widgets/src/WidgetsElement.php:598
+#: plugins/widgets/src/WidgetsElement.php:639
 msgid "Offline"
 msgstr "オフライン"
 
