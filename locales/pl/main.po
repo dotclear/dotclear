@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-02 12:26+0200\n"
-"PO-Revision-Date: 2024-07-02 10:28\n"
+"PO-Revision-Date: 2024-07-02 11:05\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -1260,7 +1260,7 @@ msgstr "Strona %s / %s"
 
 #: src/Core/Backend/Listing/Pager.php:183
 msgid "Direct access page:"
-msgstr ""
+msgstr "Strona bezpośredniego dostępu:"
 
 #: src/Core/Backend/Listing/Pager.php:184 src/Core/Backend/Page.php:169
 #: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:187
@@ -1740,7 +1740,7 @@ msgstr "Strona górna"
 
 #: src/Core/Backend/Page.php:544 src/Core/Backend/Page.php:547
 msgid "Dotclear logo"
-msgstr ""
+msgstr "Logo Dotclear"
 
 #: src/Core/Backend/Page.php:877 src/Core/Backend/Page.php:880
 #: src/Core/Upgrade/Page.php:230 src/Core/Upgrade/Page.php:231
