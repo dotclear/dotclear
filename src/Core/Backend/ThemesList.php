@@ -203,6 +203,7 @@ class ThemesList extends ModulesList
             $has_details = in_array('details', $cols) && !empty($define->get('details'));
             $has_support = in_array('support', $cols) && !empty($define->get('support'));
             if ($has_details || $has_support) {
+                /** @var array<int, Link|Div> */
                 $links = [];
                 if ($has_details) {
                     $links[] = (new Link())

@@ -541,10 +541,10 @@ class Page
             ->items([
                 (new Img('style/dc_logos/dotclear-light.svg'))
                     ->class('light-only')
-                    ->text($text),
+                    ->alt(__('Dotclear logo')),
                 (new Img('style/dc_logos/dotclear-dark.svg'))
                     ->class('dark-only')
-                    ->text($text),
+                    ->alt(__('Dotclear logo')),
             ]);
 
         echo
@@ -896,11 +896,11 @@ class Page
         }
         foreach ((array) $elements as $element => $url) {
             if ($hl && $index === $hl_pos) {
-                $label = (new Text('span', $element))
+                $label = (new Text('span', (string) $element))
                     ->class('page-title')
                     ->extra('aria-current="location"');
             } else {
-                $label = (new Text(null, $element));
+                $label = (new Text(null, (string) $element));
             }
             $links[] = $url ?
             (new Link())
