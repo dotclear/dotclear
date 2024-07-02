@@ -9,9 +9,20 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend\Listing;
 
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\Pager as HelperPager;
-use form;
 
 /**
  * @brief   List pager form helper.
@@ -30,9 +41,9 @@ class Pager extends HelperPager
     /**
      * Form hidden fields.
      *
-     * @var     null|string     $form_hidden
+     * @var     array<Hidden>     $form_hidden
      */
-    protected $form_hidden;
+    protected $form_hidden = [];
 
     /**
      * Gets the link.
@@ -44,18 +55,31 @@ class Pager extends HelperPager
      * @param   string  $img_alt            The image alternate
      * @param   bool    $enable_link        The enable link
      *
-     * @return  string  The link.
+     * @return  Li  The link.
      */
-    protected function getLink(string $li_class, string $href, string $img_src, string $img_src_nolink, string $img_alt, bool $enable_link): string
+    protected function getLink(string $li_class, string $href, string $img_src, string $img_src_nolink, string $img_alt, bool $enable_link): Li
     {
         if ($enable_link) {
-            $formatter = '<li class="%s btn"><a href="%s"><img src="%s" alt="%s"></a><span class="hidden">%s</span></li>';
-
-            return sprintf($formatter, $li_class, $href, $img_src, $img_alt, $img_alt);
+            return (new Li())
+                ->class(array_filter(['btn', $li_class]))
+                ->items([
+                    (new Link())
+                        ->href($href)
+                        ->items([
+                            (new Img($img_src))
+                                ->alt($img_alt),
+                        ]),
+                    (new Text('span', $img_alt))
+                        ->class('hidden'),
+                ]);
         }
-        $formatter = '<li class="%s no-link btn"><img src="%s" alt="%s"></li>';
 
-        return sprintf($formatter, $li_class, $img_src_nolink, $img_alt);
+        return (new Li())
+            ->class(array_filter(['btn', 'no-link', $li_class]))
+            ->items([
+                (new Img($img_src_nolink))
+                    ->alt($img_alt),
+            ]);
     }
 
     /**
@@ -83,16 +107,16 @@ class Pager extends HelperPager
             unset($args['ok']);
         }
 
-        $this->form_hidden = '';
+        //$this->form_hidden = '';
         foreach ($args as $k => $v) {
             // Check parameter key (will prevent some forms of XSS)
             if ($k === preg_replace('`[^A-Za-z0-9_-]`', '', (string) $k)) {
                 if (is_array($v)) {
                     foreach ($v as $v2) {
-                        $this->form_hidden .= form::hidden([$k . '[]'], Html::escapeHTML($v2));
+                        $this->form_hidden[] = (new Hidden([$k . '[]'], Html::escapeHTML($v2)));
                     }
                 } else {
-                    $this->form_hidden .= form::hidden([$k], Html::escapeHTML($v));
+                    $this->form_hidden[] = (new Hidden([$k], Html::escapeHTML($v)));
                 }
             }
         }
@@ -107,6 +131,11 @@ class Pager extends HelperPager
     public function getLinks(): string
     {
         $this->setURL();
+
+        if ($this->nb_elements === 0) {
+            return '';
+        }
+
         $htmlFirst = $this->getLink(
             'first',
             sprintf((string) $this->page_url, 1),
@@ -139,31 +168,43 @@ class Pager extends HelperPager
             __('Last page'),
             ($this->env < $this->nb_pages)
         );
-        $htmlCurrent = '<li class="active"><strong>' .
-        sprintf(__('Page %s / %s'), $this->env, $this->nb_pages) .
-            '</strong></li>';
 
-        $htmlDirect = ($this->nb_pages > 1 ?
-            sprintf(
-                '<li class="direct-access">' . __('Direct access page %s'),
-                form::number([$this->var_page], 1, $this->nb_pages, (string) $this->env)
-            ) .
-            '<input type="submit" value="' . __('ok') . '" class="reset" ' .
-            'name="ok">' . $this->form_hidden . '</li>' : '');
+        $htmlCurrent = (new Li())
+            ->class('active')
+            ->items([
+                (new Text('strong', sprintf(__('Page %s / %s'), $this->env, $this->nb_pages))),
+            ]);
 
-        $res = '<form action="' . $this->form_action . '" method="get">' .
-            '<div class="pager"><ul>' .
-            $htmlFirst .
-            $htmlPrev .
-            $htmlCurrent .
-            $htmlNext .
-            $htmlLast .
-            $htmlDirect .
-            '</ul>' .
-            '</div>' .
-            '</form>'
-        ;
+        $htmlDirect = $this->nb_pages > 1 ?
+        (new Li())
+            ->class('direct-access')
+            ->items([
+                (new Number([$this->var_page], 1, $this->nb_pages, $this->env))
+                    ->label((new Label(__('Direct access page:')))->class('classic')),
+                (new Submit(['ok'], __('ok')))
+                    ->class('reset'),
+            ]) :
+        (new None());
 
-        return $this->nb_elements > 0 ? $res : '';
+        return (new Form(['pager']))
+            ->method('get')
+            ->action($this->form_action)
+            ->fields([
+                (new Div())
+                    ->class('pager')
+                    ->items([
+                        (new Ul())
+                            ->items([
+                                $htmlFirst,
+                                $htmlPrev,
+                                $htmlCurrent,
+                                $htmlNext,
+                                $htmlLast,
+                                $htmlDirect,
+                            ]),
+                    ]),
+                ...$this->form_hidden,
+            ])
+        ->render();
     }
 }
