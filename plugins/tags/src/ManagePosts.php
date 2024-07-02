@@ -159,7 +159,7 @@ class ManagePosts extends Process
 
         if (!App::error()->flag()) {
             if (!App::backend()->posts?->isEmpty()) {
-                // Remove serie
+                // Remove tag
                 $delete = '';
                 if (!App::backend()->posts->isEmpty() && App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -228,7 +228,7 @@ class ManagePosts extends Process
                                         ...My::hiddenFields([
                                             'post_type' => '',
                                             'm'         => 'tag_posts',
-                                            'tag'       => App::backend()->serie,
+                                            'tag'       => App::backend()->tag,
                                         ]),
                                     ]),
                             ]),
