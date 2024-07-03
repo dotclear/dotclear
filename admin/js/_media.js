@@ -83,6 +83,7 @@
           }
           $('.button.clean').css('display', 'inline-block');
           $(me).show();
+          dotclear.condSubmit('#form-medias input[type="checkbox"]', '#form-medias #delete_medias', true);
         })
         .on('fileuploadalways', () => {
           displayMessageInQueue($('.files .template-upload', me).length);

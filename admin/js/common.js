@@ -472,8 +472,9 @@ dotclear.enterKeyInForm = (frm_id, ok_id, cancel_id) => {
  *
  * @param      {string}          chkboxes    The CSS string selector for checkboxes to control submit
  * @param      {string}          target      The CSS string selector of the submit button
+ * @param      {boolean}         reset       Remove previous EventListener before adding new one
  */
-dotclear.condSubmit = (chkboxes, target) => {
+dotclear.condSubmit = (chkboxes, target, reset = false) => {
   const checkboxes = Array.from(document.querySelectorAll(chkboxes));
   const submitButt = document.querySelector(target);
   if (checkboxes.length === 0 || submitButt === null) {
@@ -489,6 +490,17 @@ dotclear.condSubmit = (chkboxes, target) => {
   }
 
   for (const checkbox of checkboxes) {
+    if (reset) {
+      checkbox.removeEventListener('change', () => {
+        // Update target state
+        submitButt.disabled = !checkboxes.some((checkbox) => checkbox.checked);
+        if (submitButt.disabled) {
+          submitButt.classList.add('disabled');
+        } else {
+          submitButt.classList.remove('disabled');
+        }
+      });
+    }
     checkbox.addEventListener('change', () => {
       // Update target state
       submitButt.disabled = !checkboxes.some((checkbox) => checkbox.checked);
