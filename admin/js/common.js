@@ -481,35 +481,24 @@ dotclear.condSubmit = (chkboxes, target, reset = false) => {
     return;
   }
 
+  const setButtonState = () => {
+    // Update target state
+    submitButt.disabled = !checkboxes.some((checkbox) => checkbox.checked);
+    if (submitButt.disabled) {
+      submitButt.classList.add('disabled');
+    } else {
+      submitButt.classList.remove('disabled');
+    }
+  };
+
   // Set initial state
-  submitButt.disabled = !checkboxes.some((checkbox) => checkbox.checked);
-  if (submitButt.disabled) {
-    submitButt.classList.add('disabled');
-  } else {
-    submitButt.classList.remove('disabled');
-  }
+  setButtonState();
 
   for (const checkbox of checkboxes) {
     if (reset) {
-      checkbox.removeEventListener('change', () => {
-        // Update target state
-        submitButt.disabled = !checkboxes.some((checkbox) => checkbox.checked);
-        if (submitButt.disabled) {
-          submitButt.classList.add('disabled');
-        } else {
-          submitButt.classList.remove('disabled');
-        }
-      });
+      checkbox.removeEventListener('change', setButtonState);
     }
-    checkbox.addEventListener('change', () => {
-      // Update target state
-      submitButt.disabled = !checkboxes.some((checkbox) => checkbox.checked);
-      if (submitButt.disabled) {
-        submitButt.classList.add('disabled');
-      } else {
-        submitButt.classList.remove('disabled');
-      }
-    });
+    checkbox.addEventListener('change', setButtonState);
   }
 };
 
