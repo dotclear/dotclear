@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-12-11 16:25\n"
+"PO-Revision-Date: 2024-07-04 14:15\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr "आंतरिक सर्वर त्रुटि"
 # in Dotclear\App
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr ""
+msgstr "<p>इसका मतलब या तो यह है कि आपकी <strong>config.php</strong> फ़ाइल में उपयोगकर्ता नाम और पासवर्ड जानकारी गलत है या हम \"<em>%s</em>\" पर डेटाबेस सर्वर से संपर्क नहीं कर सकते। इसका मतलब यह हो सकता है कि आपके होस्ट का डेटाबेस सर्वर डाउन है।</p> <ul><li>क्या आप सुनिश्चित हैं कि आपके पास सही उपयोगकर्ता नाम और पासवर्ड है?</li><li>क्या आप सुनिश्चित हैं कि आपने सही होस्टनाम टाइप किया है?</li><li>क्या आप सुनिश्चित हैं कि डेटाबेस सर्वर चल रहा है?</li></ul><p>यदि आप अनिश्चित हैं कि इन शब्दों का क्या अर्थ है, तो आपको संभवतः अपने होस्ट से संपर्क करना चाहिए। यदि आपको अभी भी सहायता की आवश्यकता है, तो आप हमेशा <a href=\"https://forum.dotclear.net/\">Dotclear सहायता फ़ोरम</a> पर जा सकते हैं।</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"
@@ -89,17 +89,17 @@ msgstr "डॉटकॉम साफ नहीं लगा है या कॉ
 # in Dotclear\Config
 #, php-format
 msgid "%s cryptographic algorithm configured is not strong enough, please change it."
-msgstr ""
+msgstr "कॉन्फ़िगर किया गया %s क्रिप्टोग्राफ़िक एल्गोरिथ्म पर्याप्त सशक्त नहीं है, कृपया इसे परिवर्तित करें."
 
 # in Dotclear\Config
 #, php-format
 msgid "%s directory does not exist. Please create it."
-msgstr ""
+msgstr "%s निर्देशिका मौजूद नहीं है. कृपया इसे बनाएं।"
 
 # in Dotclear\Config
 #, php-format
 msgid "Dotclear release key %s was not found"
-msgstr ""
+msgstr "Dotclear release कुंजी %s नहीं मिली"
 
 # in Dotclear\Core\Task (and Dotclear\Core\Core and maybe others)
 msgid "Application can not be started twice."
@@ -111,15 +111,15 @@ msgstr "पदावनत कोर लोड करने में असम�
 
 # in Dotclear\Core\Task
 msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
-msgstr ""
+msgstr "<p>हम इस अस्थायी अनुपलब्धता के लिए क्षमा चाहते हैं। <br>समझने के लिए धन्यवाद।</p>"
 
 # in Dotclear\Core\Task
 #, php-format
 msgid "Unable to find class %s"
-msgstr ""
+msgstr "%s वर्ग ढूँढने में असमर्थ"
 
 # in Dotclear\Core\Task
 #, php-format
 msgid "Unable to initialize class %s"
-msgstr ""
+msgstr "वर्ग %s प्रारंभ करने में असमर्थ"
 

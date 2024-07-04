@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-02 12:26+0200\n"
-"PO-Revision-Date: 2024-07-02 10:28\n"
+"PO-Revision-Date: 2024-07-04 13:50\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -356,36 +356,36 @@ msgstr "प्रकाशित प्रविष्टियों को अ
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d प्रविष्टि को सफलतापूर्वक स्थिति : \"%s\" पर अद्यतन कर दिया गया है"
+msgstr[1] "%d प्रविष्टियाँ सफलतापूर्वक स्थिति : \"%s\" पर अद्यतन कर दी गई हैं"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:194
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\""
 msgid_plural "%d entries have been successfully updated as: \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d प्रविष्टि को सफलतापूर्वक इस रूप में अद्यतन कर दिया गया है: \"%s\""
+msgstr[1] "%d प्रविष्टियाँ सफलतापूर्वक इस रूप में अद्यतन कर दी गई हैं: \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:226
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d प्रविष्टि को सफलतापूर्वक चयनित के रूप में चिह्नित किया गया है"
+msgstr[1] "%d प्रविष्टियों को सफलतापूर्वक चयनित के रूप में चिह्नित किया गया है"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:237
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d प्रविष्टि को सफलतापूर्वक अचयनित के रूप में चिह्नित किया गया है"
+msgstr[1] "%d प्रविष्टियों को सफलतापूर्वक अचयनित के रूप में चिह्नित किया गया है"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:274
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d प्रविष्टि सफलतापूर्वक हटा दी गई है"
+msgstr[1] "%d प्रविष्टियाँ सफलतापूर्वक हटा दी गई हैं"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:320
 #: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:120
@@ -397,8 +397,8 @@ msgstr "(कोई बिल्ली नहीं)"
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d प्रविष्टि को सफलतापूर्वक \"%s\" श्रेणी में स्थानांतरित कर दिया गया है"
+msgstr[1] "%d प्रविष्टियाँ सफलतापूर्वक श्रेणी \"%s\" में स्थानांतरित कर दी गई हैं"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:343
 msgid "Change category for this selection"
@@ -447,8 +447,8 @@ msgstr "यह उपयोगकर्ता मौजूद नहीं ह�
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d प्रविष्टि को उपयोगकर्ता \"%s\" पर सफलतापूर्वक सेट कर दिया गया है"
+msgstr[1] "%d प्रविष्टियाँ सफलतापूर्वक उपयोगकर्ता \"%s\" पर सेट कर दी गई हैं"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:477
 msgid "Change author for this selection"
@@ -462,8 +462,8 @@ msgstr "नया लेखक (लेखक आईडी):"
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d प्रविष्टि को सफलतापूर्वक भाषा \"%s\" पर सेट कर दिया गया है"
+msgstr[1] "%d प्रविष्टियाँ सफलतापूर्वक भाषा \"%s\" पर सेट कर दी गई हैं"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 msgid "Change language for this selection"
@@ -606,15 +606,15 @@ msgstr "नया पोस्ट"
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d पोस्ट"
+msgstr[1] "%d पोस्ट"
 
 #: src/Core/Backend/Favorites.php:448 src/Process/Backend/Rest.php:91
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d टिप्पणी"
+msgstr[1] "%d टिप्पणियाँ"
 
 #: src/Core/Backend/Favorites.php:453 src/Core/Backend/Menus.php:141
 #: src/Core/Backend/UserPref.php:209 src/Process/Backend/PostsPopup.php:100
@@ -846,11 +846,11 @@ msgstr "ढूंढें:"
 
 #: src/Core/Backend/Listing/Listing.php:59
 msgid "&#171; prev."
-msgstr ""
+msgstr "&#171; पिछला."
 
 #: src/Core/Backend/Listing/Listing.php:60
 msgid "next &#187;"
-msgstr ""
+msgstr "अगला &#187;"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:37
 msgid "No blog matches the filter"
@@ -878,8 +878,8 @@ msgstr "प्रविष्टियाँ (सभी प्रकार)"
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d ब्लॉग फ़िल्टर से मेल खाता है."
+msgstr[1] "%d ब्लॉग फ़िल्टर से मेल खाते हैं."
 
 #: src/Core/Backend/Listing/ListingBlogs.php:77
 msgid "Blogs list"
@@ -907,7 +907,7 @@ msgstr "हटा देना"
 #: src/Core/Backend/Listing/ListingBlogs.php:129
 #, php-format
 msgid "Edit blog settings for %s"
-msgstr ""
+msgstr "%s के लिए ब्लॉग सेटिंग संपादित करें"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:130
 #: src/Core/Backend/Listing/ListingBlogs.php:131
@@ -917,7 +917,7 @@ msgstr "ब्लॉग सेटिंग संपादित करें"
 #: src/Core/Backend/Listing/ListingBlogs.php:137
 #, php-format
 msgid "Switch to blog %s"
-msgstr ""
+msgstr "ब्लॉग %s पर स्विच करें"
 
 #: src/Core/Backend/Listing/ListingComments.php:40
 msgid "No comments or trackbacks matches the filter"
@@ -933,43 +933,43 @@ msgstr "कोई टिप्पणी नहीं"
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] "टिप्पणी या ट्रैकबैक से फ़िल्टर मिलान करें."
-msgstr[1] ""
+msgstr[1] "फ़िल्टर से मेल खाने वाली %s टिप्पणियों या ट्रैकबैक की सूची."
 
 #: src/Core/Backend/Listing/ListingComments.php:82
 #, php-format
 msgid "List of comments and trackbacks (%s)"
-msgstr ""
+msgstr "टिप्पणियों और ट्रैकबैक की सूची (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:85
 #: src/Core/Backend/Listing/ListingPosts.php:63
 #, php-format
 msgid ", <a href=\"%s\">published</a> (1)"
 msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", <a href=\"%s\">प्रकाशित</a> (1)"
+msgstr[1] ", <a href=\"%s\">प्रकाशित</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:91
 #, php-format
 msgid ", <a href=\"%s\">spam</a> (1)"
 msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", <a href=\"%s\">स्पैम</a> (1)"
+msgstr[1] ", <a href=\"%s\">स्पैम</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:97
 #: src/Core/Backend/Listing/ListingPosts.php:69
 #, php-format
 msgid ", <a href=\"%s\">pending</a> (1)"
 msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", <a href=\"%s\">लंबित</a> (1)"
+msgstr[1] ", <a href=\"%s\">लंबित</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:103
 #: src/Core/Backend/Listing/ListingPosts.php:81
 #, php-format
 msgid ", <a href=\"%s\">unpublished</a> (1)"
 msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", <a href=\"%s\">अप्रकाशित</a> (1)"
+msgstr[1] ", <a href=\"%s\">अप्रकाशित</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:111
 msgid "Type"
@@ -1019,7 +1019,7 @@ msgstr "कचरा डाक"
 #: src/Core/Backend/Listing/ListingComments.php:213
 #, php-format
 msgid "Edit the %1$s from %2$s"
-msgstr ""
+msgstr "%1$s को %2$s से संपादित करें"
 
 #: src/Core/Backend/Listing/ListingComments.php:214
 #: src/Core/Backend/Listing/ListingComments.php:229
@@ -1053,18 +1053,18 @@ msgstr "कोई फ़ाइल नहीं."
 #, php-format
 msgid "%d file matches the filter."
 msgid_plural "%d files match the filter."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d फ़ाइल फ़िल्टर से मेल खाती है."
+msgstr[1] "%d फ़ाइलें फ़िल्टर से मेल खाती हैं."
 
 #: src/Core/Backend/Listing/ListingMedia.php:66
 #, php-format
 msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr ""
+msgstr "आइटमों की संख्या: %d → %d फ़ोल्डर(s) + %d फ़ाइल(s)"
 
 #: src/Core/Backend/Listing/ListingMedia.php:67
 #, php-format
 msgid "Nb of items: %d"
-msgstr ""
+msgstr "आइटमों की संख्या: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
 #: src/Core/Backend/ModulesList.php:832 src/Core/Backend/UserPref.php:200
@@ -1120,19 +1120,19 @@ msgstr "कोई प्रविष्टि नहीं"
 #: src/Core/Backend/Listing/ListingPosts.php:53
 #, php-format
 msgid "List of %s entries matching the filter."
-msgstr ""
+msgstr "फ़िल्टर से मेल खाने वाली %s प्रविष्टियों की सूची."
 
 #: src/Core/Backend/Listing/ListingPosts.php:60
 #, php-format
 msgid "List of entries (%s)"
-msgstr ""
+msgstr "प्रविष्टियों की सूची (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:75
 #, php-format
 msgid ", <a href=\"%s\">programmed</a> (1)"
 msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", <a href=\"%s\">प्रोग्राम्ड</a> (1)"
+msgstr[1] ", <a href=\"%s\">प्रोग्राम किया गया</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:94
 #: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:939
@@ -1160,13 +1160,13 @@ msgstr "संलग्नक"
 #: src/Core/Backend/Listing/ListingPostsMini.php:122
 #, php-format
 msgid "%d attachment"
-msgstr ""
+msgstr "%d अनुलग्नक"
 
 #: src/Core/Backend/Listing/ListingPosts.php:204
 #: src/Core/Backend/Listing/ListingPostsMini.php:122
 #, php-format
 msgid "%d attachments"
-msgstr ""
+msgstr "%d अनुलग्नक"
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:39
 msgid "Entries list"
@@ -1183,7 +1183,7 @@ msgstr "कोई उपयोक्ता नहीं"
 #: src/Core/Backend/Listing/ListingUsers.php:47
 #, php-format
 msgid "List of %s users match the filter."
-msgstr ""
+msgstr "%s उपयोगकर्ताओं की सूची फ़िल्टर से मेल खाती है."
 
 #: src/Core/Backend/Listing/ListingUsers.php:49
 msgid "Users list"
@@ -1218,11 +1218,11 @@ msgstr "अंतिम पृष्ठ"
 #: src/Core/Backend/Listing/Pager.php:175
 #, php-format
 msgid "Page %s / %s"
-msgstr ""
+msgstr "पेज %s / %s"
 
 #: src/Core/Backend/Listing/Pager.php:183
 msgid "Direct access page:"
-msgstr ""
+msgstr "प्रत्यक्ष पहुँच पृष्ठ:"
 
 #: src/Core/Backend/Listing/Pager.php:184 src/Core/Backend/Page.php:169
 #: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:187
@@ -1236,8 +1236,8 @@ msgstr "ठीक"
 #, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s फ़ाइल मिली"
+msgstr[1] "%s फ़ाइलें मिलीं"
 
 #: src/Core/Backend/Menus.php:85
 msgid "Blog"
@@ -1283,8 +1283,8 @@ msgstr "खोज को 2 से अधिक पदों पर एकाध�
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "खोज \"%s\" के लिए %d परिणाम मिला:"
+msgstr[1] "खोज \"%s\" के लिए %d परिणाम मिले:"
 
 #: src/Core/Backend/ModulesList.php:523
 msgid "current selection"
@@ -1294,8 +1294,8 @@ msgstr "वर्तमान चयन"
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d परिणाम"
+msgstr[1] "%d परिणाम"
 
 #: src/Core/Backend/ModulesList.php:545
 msgid "no results"
@@ -1335,12 +1335,12 @@ msgstr "क्रिया"
 #: src/Core/Backend/ModulesList.php:949 src/Process/Upgrade/Plugins.php:402
 #, php-format
 msgid " (%s)"
-msgstr ""
+msgstr " (%s)"
 
 #: src/Core/Backend/ModulesList.php:996
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr ""
+msgstr "इस मॉड्यूल को न तो अक्षम किया जा सकता है और न ही हटाया जा सकता है, क्योंकि निम्नलिखित मॉड्यूल भी सक्षम हैं: %s"
 
 #: src/Core/Backend/ModulesList.php:1008
 msgid "This module cannot be enabled, because of the following reasons :"
@@ -1502,7 +1502,7 @@ msgstr[1] "प्लगइन को सफलतापूर्वक अद्
 #: src/Core/Backend/ModulesList.php:1673 src/Core/Upgrade/PluginsList.php:380
 #, php-format
 msgid "Following plugins updates are locked: %s"
-msgstr ""
+msgstr "निम्नलिखित प्लगइन अपडेट लॉक हैं: %s"
 
 #: src/Core/Backend/ModulesList.php:1693 src/Core/Backend/ThemesList.php:736
 #: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/Langs.php:182
@@ -1533,7 +1533,7 @@ msgstr "एक ज़िप फ़ाइल अपलोड करें"
 #: src/Process/Install/Wizard.php:265 src/Process/Upgrade/Langs.php:402
 #, php-format
 msgid "Fields preceded by %s are mandatory."
-msgstr ""
+msgstr "%s से पहले वाले फ़ील्ड अनिवार्य हैं."
 
 #: src/Core/Backend/ModulesList.php:1751
 msgid "Zip file path:"
@@ -1589,7 +1589,7 @@ msgstr "अपर्याप्त अनुमतियां"
 #: src/Core/Backend/ModulesList.php:1960
 #, php-format
 msgid "Configure \"%s\""
-msgstr ""
+msgstr "\"%s\" कॉन्फ़िगर करें"
 
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
@@ -1616,7 +1616,7 @@ msgstr "त्रुटियाँ:"
 
 #: src/Core/Backend/Notices.php:219 src/Core/Backend/Notices.php:252
 msgid "%H:%M:%S"
-msgstr ""
+msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Page.php:147 src/Process/Backend/User.php:457
 msgid "Blog:"
@@ -1655,7 +1655,7 @@ msgstr "साइट पर जाएँ"
 #: src/Core/Backend/Page.php:389 src/Core/Upgrade/Page.php:147
 #, php-format
 msgid "Logout %s"
-msgstr ""
+msgstr "लॉगआउट %s"
 
 #: src/Core/Backend/Page.php:410 src/Core/Upgrade/Page.php:155
 msgid "Hide main menu"
@@ -1676,7 +1676,7 @@ msgstr "आप सुरक्षित मोड में हैं. सभी
 #: src/Core/Backend/Page.php:506 src/Core/Upgrade/Page.php:183
 #, php-format
 msgid "Thank you for using %s."
-msgstr ""
+msgstr "%s का उपयोग करने के लिए धन्यवाद."
 
 #: src/Core/Backend/Page.php:522 src/Core/Backend/Page.php:524
 #: src/Core/Backend/Page.php:666 src/Core/Backend/Page.php:668
@@ -1686,7 +1686,7 @@ msgstr "पृष्ठ शीर्ष"
 
 #: src/Core/Backend/Page.php:544 src/Core/Backend/Page.php:547
 msgid "Dotclear logo"
-msgstr ""
+msgstr "डॉटक्लियर लोगो"
 
 #: src/Core/Backend/Page.php:877 src/Core/Backend/Page.php:880
 #: src/Core/Upgrade/Page.php:230 src/Core/Upgrade/Page.php:231
@@ -1700,7 +1700,7 @@ msgstr "इस पृष्ठ के बारे में सहायता"
 #: src/Core/Backend/Page.php:1126 src/Core/Upgrade/Page.php:308
 #, php-format
 msgid "See also %s"
-msgstr ""
+msgstr "%s भी देखें"
 
 #: src/Core/Backend/Page.php:1129 src/Core/Upgrade/Page.php:308
 msgid "the global help"
@@ -1758,17 +1758,17 @@ msgstr "दृश्य प्रविष्टि"
 #: src/Core/Backend/Page.php:1288
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr ""
+msgstr "क्या आप वाकई चयनित प्रविष्टियाँ (%s) हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr ""
+msgstr "क्या आप वाकई चयनित मीडिया (%d) को हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1290
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr ""
+msgstr "क्या आप वाकई चयनित श्रेणियों (%s) को हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1291
 msgid "Are you sure you want to delete this entry?"
@@ -1785,7 +1785,7 @@ msgstr "क्या आप निश्चित हैं कि आप सभ
 #: src/Core/Backend/Page.php:1294
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr ""
+msgstr "क्या आप वाकई चयनित टिप्पणियाँ (%s) हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1295
 msgid "Are you sure you want to delete this comment?"
@@ -1798,17 +1798,17 @@ msgstr "पदों के साथ उपयोगकर्ताओं क�
 #: src/Core/Backend/Page.php:1297
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
-msgstr ""
+msgstr "क्या आप वाकई चयनित उपयोगकर्ताओं (%s) को हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1298
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr ""
+msgstr "क्या आप वाकई चयनित ब्लॉग (%s) हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1299
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
-msgstr ""
+msgstr "क्या आप वाकई श्रेणी \"%s\" को हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1300
 msgid "Are you sure you want to reorder all categories?"
@@ -1817,12 +1817,12 @@ msgstr "क्या आप निश्चित हैं कि आप सभ
 #: src/Core/Backend/Page.php:1301
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
-msgstr ""
+msgstr "क्या आप वाकई मीडिया \"%s\" को हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1302
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr ""
+msgstr "क्या आप वाकई निर्देशिका \"%s\" को हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1303
 msgid "Are you sure you want to extract archive in current directory?"
@@ -1831,17 +1831,17 @@ msgstr "क्या आप निश्चित हैं कि आप वर
 #: src/Core/Backend/Page.php:1304
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr ""
+msgstr "क्या आप वाकई अनुलग्नक \"%s\" को हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1305
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
-msgstr ""
+msgstr "क्या आप वाकई \"%s\" भाषा हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1306
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr ""
+msgstr "क्या आप वाकई \"%s\" प्लगइन हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1307
 msgid "Are you sure you want to delete selected plugins?"
@@ -1858,7 +1858,7 @@ msgstr "इस प्रसंग को मिटाएँ"
 #: src/Core/Backend/Page.php:1310
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr ""
+msgstr "क्या आप वाकई \"%s\" थीम हटाना चाहते हैं?"
 
 #: src/Core/Backend/Page.php:1311
 msgid "Are you sure you want to delete selected themes?"
@@ -1926,7 +1926,7 @@ msgstr "अब पर रीसेट करें"
 
 #: src/Core/Backend/Page.php:1337
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
-msgstr ""
+msgstr "इस डॉटक्लियर डैशबोर्ड (घोस्टरी, एडब्लॉक प्लस, यूब्लॉक ओरिजिन, ...) पर एक विज्ञापन अवरोधक का पता चला है और यह कुछ सुविधाओं में हस्तक्षेप कर सकता है। इस मामले में आपको इसे अक्षम करना चाहिए। ध्यान दें कि यह पहचान आपकी प्राथमिकताओं में अक्षम हो सकती है।"
 
 #: src/Core/Backend/Page.php:1392
 msgid "You have unsaved changes."
@@ -1934,7 +1934,7 @@ msgstr "आपने कोई बदलाव नहीं किया है.
 
 #: src/Core/Backend/Page.php:1393
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
-msgstr ""
+msgstr "आपकी बैटरी चार्ज कम (%d%) लगती है और आपके पास बिना सहेजे गए परिवर्तन हैं, तो आपको उन्हें सहेज लेना चाहिए।"
 
 #: src/Core/Backend/Page.php:1440
 msgid "Temporarily activate enhanced uploader"
@@ -1998,7 +1998,7 @@ msgstr "1 फ़ाइल कतार में."
 #: src/Core/Backend/Page.php:1459
 #, php-format
 msgid "%d files in queue."
-msgstr ""
+msgstr "%d फ़ाइलें कतार में हैं."
 
 #: src/Core/Backend/Page.php:1460
 msgid "Queue error:"
@@ -2011,12 +2011,12 @@ msgstr "फ़िल्टर रद्द करें और दिखाए�
 #: src/Core/Backend/ThemeConfig.php:120
 #, php-format
 msgid "(%s)"
-msgstr ""
+msgstr "(%s)"
 
 #: src/Core/Backend/ThemeConfig.php:120
 #, php-format
 msgid "ratio %.1f"
-msgstr ""
+msgstr "अनुपात %.1f"
 
 #: src/Core/Backend/ThemeConfig.php:249 src/Core/Backend/ThemeConfig.php:403
 msgid "The 'public' directory does not exist."
@@ -2026,12 +2026,12 @@ msgstr "'पब्लिक' निर्देशिका मौजूद न�
 #: src/Core/Backend/ThemeConfig.php:410 src/Core/Backend/ThemeConfig.php:422
 #, php-format
 msgid "The '%s' directory cannot be modified."
-msgstr ""
+msgstr "'%s' निर्देशिका को संशोधित नहीं किया जा सकता."
 
 #: src/Core/Backend/ThemeConfig.php:390
 #, php-format
 msgid "The '%s' directory cannot be created."
-msgstr ""
+msgstr "'%s' निर्देशिका नहीं बनाई जा सकती."
 
 #: src/Core/Backend/ThemeConfig.php:396
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
@@ -2053,42 +2053,42 @@ msgstr "फ़ाइल लिखने के दौरान एक त्र�
 #: src/Core/Backend/ThemeConfig.php:461
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
-msgstr ""
+msgstr "अपलोड की गई छवि %s पिक्सेल चौड़ी नहीं है."
 
 #: src/Core/Backend/ThemesList.php:124
 #, php-format
 msgid "Score: %s"
-msgstr ""
+msgstr "स्कोर: %s"
 
 #: src/Core/Backend/ThemesList.php:146
 #, php-format
 msgid "%s screenshot."
-msgstr ""
+msgstr "%s स्क्रीनशॉट."
 
 #: src/Core/Backend/ThemesList.php:175
 #, php-format
 msgid "by %s"
-msgstr ""
+msgstr "%s द्वारा"
 
 #: src/Core/Backend/ThemesList.php:179
 #, php-format
 msgid "version %s"
-msgstr ""
+msgstr "संस्करण %s"
 
 #: src/Core/Backend/ThemesList.php:183
 #, php-format
 msgid "(current version %s)"
-msgstr ""
+msgstr "(वर्तमान संस्करण %s)"
 
 #: src/Core/Backend/ThemesList.php:188
 #, php-format
 msgid "(built on \"%s\")"
-msgstr ""
+msgstr "(\"%s\" पर निर्मित)"
 
 #: src/Core/Backend/ThemesList.php:191
 #, php-format
 msgid "(requires \"%s\")"
-msgstr ""
+msgstr "(आवश्यक \"%s\")"
 
 #: src/Core/Backend/ThemesList.php:247
 msgid "View stylesheet"
@@ -2128,7 +2128,7 @@ msgstr "ऐसा कोई प्रसंग नहीं है."
 #: src/Core/Backend/ThemesList.php:490
 #, php-format
 msgid "Theme %s has been successfully selected."
-msgstr ""
+msgstr "थीम %s का सफलतापूर्वक चयन कर लिया गया है."
 
 #: src/Core/Backend/ThemesList.php:526
 msgid "Theme has been successfully activated."
@@ -2181,7 +2181,7 @@ msgstr[1] "थीम सफलतापूर्वक अद्यतन कि
 #: src/Core/Backend/ThemesList.php:716
 #, php-format
 msgid "Following themes updates are locked: %s"
-msgstr ""
+msgstr "निम्नलिखित थीम अपडेट लॉक हैं: %s"
 
 #: src/Core/Backend/ThemesList.php:754
 msgid "The theme has been successfully updated."
@@ -2343,12 +2343,12 @@ msgstr "नेमस्पेसेस पुनर्प्राप्त क�
 #: src/Core/BlogSettings.php:137
 #, php-format
 msgid "Invalid setting namespace: %s"
-msgstr ""
+msgstr "अमान्य सेटिंग नामस्थान: %s"
 
 #: src/Core/BlogWorkspace.php:83
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
-msgstr ""
+msgstr "अमान्य सेटिंग dcNamespace: %s"
 
 #: src/Core/BlogWorkspace.php:129
 msgid "Unable to retrieve settings:"
@@ -2357,7 +2357,7 @@ msgstr "विन्यास पुनर्प्राप्त करने 
 #: src/Core/BlogWorkspace.php:217 src/Core/BlogWorkspace.php:317
 #, php-format
 msgid "%s is not a valid setting id"
-msgstr ""
+msgstr "%s वैध सेटिंग आईडी नहीं है"
 
 #: src/Core/BlogWorkspace.php:309 src/Core/BlogWorkspace.php:349
 #: src/Core/BlogWorkspace.php:372 src/Core/BlogWorkspace.php:392
@@ -2418,7 +2418,7 @@ msgstr "टेम्पलेट फ़ाइल बना नहीं कर �
 #: src/Process/Upgrade/Upgrade.php:250
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
-msgstr ""
+msgstr "PHP संस्करण %s है (%s या पहले का संस्करण आवश्यक है)."
 
 #: src/Core/Install/Utils.php:37
 msgid "Multibyte string module (mbstring) is not available."
@@ -2451,7 +2451,7 @@ msgstr "एसपीएल मॉड्यूल उपलब्ध नहीं
 #: src/Core/Install/Utils.php:67
 #, php-format
 msgid "MySQL version is %s (%s or earlier needed)."
-msgstr ""
+msgstr "MySQL संस्करण %s है (%s या पहले का संस्करण आवश्यक है)."
 
 #: src/Core/Install/Utils.php:80
 msgid "MySQL InnoDB engine is not available."
@@ -2460,7 +2460,7 @@ msgstr "MySQL BIBDB इंजन उपलब्ध नहीं है."
 #: src/Core/Install/Utils.php:85
 #, php-format
 msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr ""
+msgstr "PostgreSQL संस्करण %s है (%s या पहले का संस्करण आवश्यक है)."
 
 #: src/Core/Log.php:189
 msgid "No log message"
@@ -2506,7 +2506,7 @@ msgstr "फ़ाइल डेटाबेस में मौजूद नह�
 #: src/Core/Media.php:1320
 #, php-format
 msgid "Extract destination directory %s already exists."
-msgstr ""
+msgstr "गंतव्य निर्देशिका %s पहले से मौजूद है."
 
 #: src/Core/Notice.php:171
 msgid "No notice message"
@@ -2515,7 +2515,7 @@ msgstr "कोई सूचना संदेश नहीं"
 #: src/Core/Trackback.php:117
 #, php-format
 msgid "%s has still been pinged"
-msgstr ""
+msgstr "%s को अभी भी पिंग किया गया है"
 
 #: src/Core/Trackback.php:134 src/Core/Trackback.php:143
 #: src/Core/Trackback.php:168 src/Core/Trackback.php:173
@@ -2530,12 +2530,12 @@ msgstr "खराब सर्वर अनुक्रिया कोड"
 #: src/Core/Trackback.php:181
 #, php-format
 msgid "%s is not a ping URL"
-msgstr ""
+msgstr "%s एक पिंग यूआरएल नहीं है"
 
 #: src/Core/Trackback.php:202
 #, php-format
 msgid "%s, ping error:"
-msgstr ""
+msgstr "%s, पिंग त्रुटि:"
 
 #: src/Core/Trackback.php:337
 msgid "Don't repeat yourself, please."
@@ -2711,12 +2711,12 @@ msgstr "कार्यस्थान प्राप्त करने मे
 #: src/Core/UserPreferences.php:147
 #, php-format
 msgid "Invalid UserWorkspace: %s"
-msgstr ""
+msgstr "अमान्य उपयोगकर्ताकार्यस्थान: %s"
 
 #: src/Core/UserWorkspace.php:78
 #, php-format
 msgid "Invalid dcWorkspace: %s"
-msgstr ""
+msgstr "अमान्य dcWorkspace: %s"
 
 #: src/Core/UserWorkspace.php:84
 msgid "Unable to retrieve prefs:"
@@ -2725,7 +2725,7 @@ msgstr "प्रीएफएस को पुनःप्राप्त कर
 #: src/Core/UserWorkspace.php:216 src/Core/UserWorkspace.php:316
 #, php-format
 msgid "%s is not a valid pref id"
-msgstr ""
+msgstr "%s वैध प्रीफ़ आईडी नहीं है"
 
 #: src/Core/UserWorkspace.php:308 src/Core/UserWorkspace.php:343
 #: src/Core/UserWorkspace.php:376 src/Core/UserWorkspace.php:406
@@ -2857,7 +2857,7 @@ msgstr "एक पीएचपी एक्सटेंशन ने फ़ा�
 #: src/Helper/File/Files.php:533
 #, php-format
 msgid "%s is not a directory."
-msgstr ""
+msgstr "%s एक निर्देशिका नहीं है."
 
 #: src/Helper/File/Files.php:586
 msgid "Can't get file path"
@@ -2936,12 +2936,12 @@ msgstr "निर्देशिका नहीं हटाया जा स�
 #: src/Helper/File/Zip/Unzip.php:154
 #, php-format
 msgid "File %s is not compressed in the zip."
-msgstr ""
+msgstr "फ़ाइल %s ज़िप में संपीड़ित नहीं है."
 
 #: src/Helper/File/Zip/Unzip.php:162
 #, php-format
 msgid "Trying to unzip a folder name %s"
-msgstr ""
+msgstr "%s नाम के फ़ोल्डर को अनज़िप करने का प्रयास किया जा रहा है"
 
 #: src/Helper/File/Zip/Unzip.php:352
 msgid "Unable to write destination file."
@@ -2979,12 +2979,12 @@ msgstr "जिप अभिलेख लिखने में असमर्�
 #: src/Helper/Html/Template/Template.php:694
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
+msgstr "ब्लॉक <tpl:%s> के लिए समापन टैग नहीं मिला। सामग्री को अनदेखा कर दिया गया है।"
 
 #: src/Helper/Html/Template/Template.php:651
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
+msgstr "अप्रत्याशित समापन टैग </tpl:%s> मिला."
 
 #: src/Helper/Html/Template/Template.php:702
 msgid "WARNING: the following errors have been found while parsing template file :"
@@ -2993,27 +2993,27 @@ msgstr "चेतावनी: निम्नलिखित त्रुटि
 #: src/Module/Modules.php:264
 #, php-format
 msgid "Requires %s module which is not installed"
-msgstr ""
+msgstr "%s मॉड्यूल की आवश्यकता है जो स्थापित नहीं है"
 
 #: src/Module/Modules.php:277
 #, php-format
 msgid "Requires %s version %s, but version %s is installed"
-msgstr ""
+msgstr "%s संस्करण %s की आवश्यकता है, लेकिन संस्करण %s स्थापित है"
 
 #: src/Module/Modules.php:284
 #, php-format
 msgid "Requires %s module which is disabled"
-msgstr ""
+msgstr "%s मॉड्यूल की आवश्यकता है जो अक्षम है"
 
 #: src/Module/Modules.php:648
 #, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr ""
+msgstr "मॉड्यूल \"%s\" का प्रकार \"%s\" है जो अपेक्षित मॉड्यूल प्रकार \"%s\" से मेल नहीं खाता।"
 
 #: src/Module/Modules.php:676
 #, php-format
 msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr ""
+msgstr "मॉड्यूल \"%s\" को \"%s\" और \"%s\" में दो बार स्थापित किया गया है।"
 
 #: src/Module/Modules.php:753
 msgid "Empty module zip file."
@@ -3026,12 +3026,12 @@ msgstr "ज़िप फ़ाइल एक वैध Dotसाफ़ मॉड�
 #: src/Module/Modules.php:794 src/Module/Modules.php:830
 #, php-format
 msgid "Module is not installed: %s"
-msgstr ""
+msgstr "मॉड्यूल स्थापित नहीं है: %s"
 
 #: src/Module/Modules.php:845
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr ""
+msgstr "\"%s\" नवीनीकृत करने में असमर्थ. (अपडेट लॉक किया गया)"
 
 #: src/Module/Modules.php:849
 msgid "An error occurred during module deletion."
@@ -3040,12 +3040,12 @@ msgstr "मॉड्यूल विलोपन के दौरान एक �
 #: src/Module/Modules.php:857
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr ""
+msgstr "\"%s\" को अपग्रेड करने में असमर्थ. (पुराना या समान संस्करण)"
 
 #: src/Module/Modules.php:863
 #, php-format
 msgid "Unable to read new %s file"
-msgstr ""
+msgstr "नई %s फ़ाइल पढ़ने में असमर्थ"
 
 #: src/Module/Modules.php:873 src/Module/Modules.php:993
 #: src/Module/Modules.php:997
@@ -3084,7 +3084,7 @@ msgstr "प्रसंग फ़ोल्डर पढ़ने योग्य
 #: src/Module/Themes.php:116
 #, php-format
 msgid " (copy #%s)"
-msgstr ""
+msgstr " (प्रतिलिपि #%s)"
 
 #: src/Module/Themes.php:116
 msgid " (copy)"
@@ -3124,7 +3124,7 @@ msgstr "उपयोगकर्ता नाम:"
 #: src/Process/Backend/Auth.php:125
 #, php-format
 msgid "The e-mail was sent successfully to %s."
-msgstr ""
+msgstr "ई-मेल %s को सफलतापूर्वक भेज दिया गया."
 
 #: src/Process/Backend/Auth.php:135
 msgid "Your new password"
@@ -3242,7 +3242,7 @@ msgstr "मैं सुरक्षित मोड में लॉग कर�
 #: src/Process/Backend/Blog.php:76
 #, php-format
 msgid "Blog \"%s\" successfully created"
-msgstr ""
+msgstr "ब्लॉग \"%s\" सफलतापूर्वक बनाया गया"
 
 #: src/Process/Backend/Blog.php:93 src/Process/Backend/Blog.php:99
 msgid "New blog"
@@ -3284,7 +3284,7 @@ msgstr "ऐसा कोई ब्लॉग आईडी नहीं"
 #: src/Process/Backend/BlogDel.php:71
 #, php-format
 msgid "Blog \"%s\" successfully deleted"
-msgstr ""
+msgstr "ब्लॉग \"%s\" सफलतापूर्वक हटा दिया गया"
 
 #: src/Process/Backend/BlogDel.php:86 src/Process/Backend/BlogDel.php:92
 msgid "Delete a blog"
@@ -3297,7 +3297,7 @@ msgstr "चेतावनी"
 #: src/Process/Backend/BlogDel.php:99
 #, php-format
 msgid "You are about to delete the blog %s. Every entry, comment and category will be deleted."
-msgstr ""
+msgstr "आप ब्लॉग %s को हटाने वाले हैं। हर प्रविष्टि, टिप्पणी और श्रेणी हटा दी जाएगी।"
 
 #: src/Process/Backend/BlogDel.php:108
 msgid "Please give your password to confirm the blog deletion."
@@ -3520,7 +3520,7 @@ msgstr "सामान्य टिप्पणी"
 #: src/Process/Backend/BlogPref.php:554
 #, php-format
 msgid "Leave comments open for %s days"
-msgstr ""
+msgstr "टिप्पणियाँ %s दिनों के लिए खुली रखें"
 
 #: src/Process/Backend/BlogPref.php:565 src/Process/Backend/BlogPref.php:593
 msgid "No limit: leave blank."
@@ -3545,7 +3545,7 @@ msgstr "मध्यम की हल्की-सीमा"
 #: src/Process/Backend/BlogPref.php:582
 #, php-format
 msgid "Leave trackbacks open for %s days"
-msgstr ""
+msgstr "ट्रैकबैक को %s दिनों तक खुला छोड़ दें"
 
 #: src/Process/Backend/BlogPref.php:596
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
@@ -3595,22 +3595,22 @@ msgstr "आंतरिक खोज प्रणाली अक्षम क�
 #: src/Process/Backend/BlogPref.php:639
 #, php-format
 msgid "Display %s entries on first page"
-msgstr ""
+msgstr "प्रथम पृष्ठ पर %s प्रविष्टियाँ प्रदर्शित करें"
 
 #: src/Process/Backend/BlogPref.php:651
 #, php-format
 msgid "Display %s entries per page"
-msgstr ""
+msgstr "प्रति पृष्ठ %s प्रविष्टियाँ प्रदर्शित करें"
 
 #: src/Process/Backend/BlogPref.php:663
 #, php-format
 msgid "Display %s entries per feed"
-msgstr ""
+msgstr "प्रति फ़ीड %s प्रविष्टियाँ प्रदर्शित करें"
 
 #: src/Process/Backend/BlogPref.php:675
 #, php-format
 msgid "Display %s comments per feed"
-msgstr ""
+msgstr "प्रति फ़ीड %s टिप्पणियाँ प्रदर्शित करें"
 
 #: src/Process/Backend/BlogPref.php:688
 msgid "Truncate feeds"
@@ -3670,11 +3670,11 @@ msgstr "मध्यम"
 
 #: src/Process/Backend/BlogPref.php:744
 msgid "Thumbnail character prefix:"
-msgstr ""
+msgstr "थम्बनेल वर्ण उपसर्ग:"
 
 #: src/Process/Backend/BlogPref.php:747
 msgid "Leave empty to use the default one (.)"
-msgstr ""
+msgstr "डिफ़ॉल्ट का उपयोग करने के लिए खाली छोड़ दें (.)"
 
 #: src/Process/Backend/BlogPref.php:749
 msgid "Default size of the inserted video (in pixels)"
@@ -3739,12 +3739,12 @@ msgstr "यूआरएल स्कैन विधि:"
 #: src/Process/Backend/BlogPref.php:844
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr ""
+msgstr "ब्लॉग का URL या URL स्कैन विधि ठीक से सेट नहीं की गई हो सकती है (<code>%s</code> एक <strong>%s</strong> स्थिति लौटाता है)।"
 
 #: src/Process/Backend/BlogPref.php:855
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
-msgstr ""
+msgstr "ब्लॉग का URL या URL स्कैन विधि ठीक से सेट नहीं की गई हो सकती है (<code>%s</code> ATOM फ़ीड नहीं लौटाता है)।"
 
 #: src/Process/Backend/BlogPref.php:870
 msgid "New post URL format:"
@@ -3764,11 +3764,11 @@ msgstr "खोज इंजन रोबोट्स पॉलिसी"
 
 #: src/Process/Backend/BlogPref.php:896
 msgid "Legacy javascript library"
-msgstr ""
+msgstr "विरासत जावास्क्रिप्ट लाइब्रेरी"
 
 #: src/Process/Backend/BlogPref.php:899
 msgid "Load the Legacy JS library"
-msgstr ""
+msgstr "लीगेसी JS लाइब्रेरी लोड करें"
 
 #: src/Process/Backend/BlogPref.php:902
 msgid "jQuery javascript library"
@@ -3788,7 +3788,7 @@ msgstr "ब्लॉग सुरक्षा"
 
 #: src/Process/Backend/BlogPref.php:915
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
-msgstr ""
+msgstr "ब्लॉग को क्लिकजैकिंग से सुरक्षित रखें (देखें <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">विकिपीडिया</a>)"
 
 #: src/Process/Backend/BlogPref.php:920
 msgid "Plugins parameters"
@@ -3813,7 +3813,7 @@ msgstr "इस ब्लॉग पर प्रकाशन:"
 #: src/Process/Backend/BlogPref.php:1009
 #, php-format
 msgid "%1$s: %2$s"
-msgstr ""
+msgstr "%1$s: %2$s"
 
 #: src/Process/Backend/BlogPref.php:1014
 msgid "Permissions:"
@@ -3831,7 +3831,7 @@ msgstr "सभी ब्लॉग पर सभी अधिकार."
 #: src/Process/Backend/UsersActions.php:338
 #, php-format
 msgid "[%s] (unreferenced permission)"
-msgstr ""
+msgstr "[%s] (असंबद्ध अनुमति)"
 
 #: src/Process/Backend/BlogPref.php:1028
 msgid "All rights on this blog."
@@ -3896,21 +3896,21 @@ msgstr "थीम्स के अद्यतन जाँच को बाध�
 
 #: src/Process/Backend/BlogTheme.php:261
 msgid "No updates available for themes."
-msgstr ""
+msgstr "थीम के लिए कोई अद्यतन उपलब्ध नहीं है."
 
 #: src/Process/Backend/BlogTheme.php:266
 #, php-format
 msgid "There is one theme update available:"
 msgid_plural "There are %s theme updates available:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "एक थीम अद्यतन उपलब्ध है:"
+msgstr[1] "%s थीम अपडेट उपलब्ध हैं:"
 
 #: src/Process/Backend/BlogTheme.php:286 src/Process/Backend/BlogTheme.php:322
 #: src/Process/Backend/Plugins.php:258 src/Process/Backend/Plugins.php:293
 #: src/Process/Upgrade/Plugins.php:255 src/Process/Upgrade/Plugins.php:294
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
-msgstr ""
+msgstr "डॉटक्लियर के संसाधन केंद्र, %s रिपोजिटरी पर जाएँ।"
 
 #: src/Process/Backend/BlogTheme.php:302
 msgid "Add themes"
@@ -3965,7 +3965,7 @@ msgstr "यह श्रेणी मौजूद नहीं है."
 #: src/Process/Backend/Categories.php:57
 #, php-format
 msgid "The category \"%s\" has been successfully deleted."
-msgstr ""
+msgstr "श्रेणी \"%s\" को सफलतापूर्वक हटा दिया गया है."
 
 #: src/Process/Backend/Categories.php:78
 msgid "Category where to move entries does not exist"
@@ -3974,7 +3974,7 @@ msgstr "श्रेणी जहाँ प्रविष्टियां स
 #: src/Process/Backend/Categories.php:87
 #, php-format
 msgid "The entries have been successfully moved to category \"%s\""
-msgstr ""
+msgstr "प्रविष्टियाँ सफलतापूर्वक \"%s\" श्रेणी में स्थानांतरित कर दी गई हैं"
 
 #: src/Process/Backend/Categories.php:104
 #: src/Process/Backend/Categories.php:155
@@ -4004,12 +4004,12 @@ msgstr "अभी तक कोई श्रेणी नहीं है."
 #: src/Process/Backend/Categories.php:191
 #, php-format
 msgid "%d entries"
-msgstr ""
+msgstr "%d प्रविष्टियाँ"
 
 #: src/Process/Backend/Categories.php:191
 #, php-format
 msgid "%d entry"
-msgstr ""
+msgstr "%d प्रविष्टि"
 
 #: src/Process/Backend/Categories.php:191
 msgid "total:"
@@ -4055,7 +4055,7 @@ msgstr "इस श्रेणी को सफलतापूर्वक अ�
 #: src/Process/Backend/Category.php:182
 #, php-format
 msgid "The category \"%s\" has been successfully created."
-msgstr ""
+msgstr "श्रेणी \"%s\" सफलतापूर्वक बना ली गई है."
 
 #: src/Process/Backend/Category.php:227
 msgid "Category has been successfully updated."
@@ -4132,14 +4132,16 @@ msgstr "टिप्पणी संपादित करें"
 #: src/Process/Backend/Comment.php:248
 #, php-format
 msgid "Your comment on my blog %s"
-msgstr ""
+msgstr "मेरे ब्लॉग पर आपकी टिप्पणी %s"
 
 #: src/Process/Backend/Comment.php:249
 #, php-format
 msgid "Hi!\n\n"
 "You wrote a comment on:\n"
 "%s\n\n\n"
-msgstr ""
+msgstr "नमस्ते!\n\n"
+"आपने टिप्पणी लिखी है:\n"
+"%s\n\n\n"
 
 #: src/Process/Backend/Comment.php:249
 msgid "Send an e-mail"
@@ -4176,7 +4178,7 @@ msgstr "इसे दिखाओ."
 #: src/Process/Backend/Comments.php:149
 #, php-format
 msgid "You have %s spam comments."
-msgstr ""
+msgstr "आपके पास %s स्पैम टिप्पणियाँ हैं."
 
 #: src/Process/Backend/Comments.php:150
 msgid "Show them."
@@ -4228,12 +4230,12 @@ msgstr "इस ब्लॉग को हटा दिया है"
 #: src/Process/Upgrade/Home.php:57 src/Process/Upgrade/Home.php:62
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
-msgstr ""
+msgstr "%s परिभाषित नहीं है, आपको अपनी कॉन्फ़िगरेशन फ़ाइल संपादित करनी चाहिए."
 
 #: src/Process/Backend/Home.php:223 src/Process/Backend/Home.php:231
 #: src/Process/Upgrade/Home.php:58 src/Process/Upgrade/Home.php:63
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
-msgstr ""
+msgstr "अधिक जानकारी के लिए <a href=\"https://dotclear.org/documentation/2.0/admin/config\">दस्तावेज़ीकरण</a> देखें."
 
 #: src/Process/Backend/Home.php:241 src/Process/Upgrade/Home.php:67
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -4338,7 +4340,7 @@ msgstr "भाषा प्रबंधन"
 #: src/Process/Backend/Langs.php:232
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
-msgstr ""
+msgstr "आप अपनी <a href=\"%1$s\">प्राथमिकताएँ</a> में अपनी उपयोगकर्ता भाषा बदल सकते हैं या अपनी <a href=\"%2$s\">ब्लॉग सेटिंग</a> में अपने ब्लॉग की मुख्य भाषा बदल सकते हैं."
 
 #: src/Process/Backend/Langs.php:238 src/Process/Upgrade/Langs.php:322
 msgid "Installed languages"
@@ -4359,7 +4361,7 @@ msgstr "भाषाओं को संस्थापित या अद्�
 #: src/Process/Backend/Langs.php:293 src/Process/Upgrade/Langs.php:245
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
-msgstr ""
+msgstr "आप अपने %s फ़ोल्डर में संबंधित निर्देशिका को जोड़कर या हटाकर कोई भाषा स्थापित या हटा सकते हैं।"
 
 #: src/Process/Backend/Langs.php:307
 msgid "Available languages"
@@ -4368,7 +4370,7 @@ msgstr "उपलब्ध भाषाएँ"
 #: src/Process/Backend/Langs.php:309 src/Process/Upgrade/Langs.php:359
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
-msgstr ""
+msgstr "आप Dotclear.net से सीधे एक अतिरिक्त भाषा डाउनलोड और इंस्टॉल कर सकते हैं। प्रस्तावित भाषाएँ आपके संस्करण पर आधारित हैं: %s."
 
 #: src/Process/Backend/Langs.php:311 src/Process/Backend/User.php:381
 #: src/Process/Upgrade/Langs.php:365
@@ -4418,12 +4420,12 @@ msgstr "कोई वैध निर्देशिका नहीं है"
 #: src/Process/Backend/Media.php:100
 #, php-format
 msgid "Directory or file \"%s\" already exists."
-msgstr ""
+msgstr "निर्देशिका या फ़ाइल \"%s\" पहले से मौजूद है."
 
 #: src/Process/Backend/Media.php:107
 #, php-format
 msgid "Directory \"%s\" has been successfully created."
-msgstr ""
+msgstr "निर्देशिका \"%s\" सफलतापूर्वक बना ली गई है."
 
 #: src/Process/Backend/Media.php:161
 msgid "Files have been successfully uploaded."
@@ -4434,7 +4436,7 @@ msgstr "फ़ाइलों को सफलतापूर्वक अपल
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
 msgstr[0] "एक मीडिया को सफलतापूर्वक मिटा दें."
-msgstr[1] ""
+msgstr[1] "%d मीडियाज़ को सफलतापूर्वक हटाएँ."
 
 #: src/Process/Backend/Media.php:208
 msgid "Directory has been successfully removed."
@@ -4447,7 +4449,7 @@ msgstr "फ़ाइल सफलतापूर्वक हटा दिया
 #: src/Process/Backend/Media.php:233
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
-msgstr ""
+msgstr "निर्देशिका \"%s\" सफलतापूर्वक पूर्ण हो गई है."
 
 #: src/Process/Backend/Media.php:245 src/Process/Backend/PostMedia.php:96
 msgid "confirm removal"
@@ -4456,7 +4458,7 @@ msgstr "मिटाना पुष्टि"
 #: src/Process/Backend/Media.php:250
 #, php-format
 msgid "Are you sure you want to remove %s?"
-msgstr ""
+msgstr "क्या आप वाकई %s को हटाना चाहते हैं?"
 
 #: src/Process/Backend/Media.php:254 src/Process/Backend/PostMedia.php:111
 msgid "Yes"
@@ -4481,7 +4483,7 @@ msgstr "इस फ़ोल्डर में लिखने के लिए 
 #: src/Process/Backend/Media.php:371
 #, php-format
 msgid "Select a file by clicking on %s"
-msgstr ""
+msgstr "%s पर क्लिक करके फ़ाइल चुनें"
 
 #: src/Process/Backend/Media.php:374 src/Process/Backend/Media.php:442
 msgid "Choose selected medias"
@@ -4490,7 +4492,7 @@ msgstr "चयनित मध्यमान चुनें"
 #: src/Process/Backend/Media.php:374
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
-msgstr ""
+msgstr "फ़ाइलें चुनें और <strong>%s</strong> बटन पर क्लिक करें"
 
 #: src/Process/Backend/Media.php:378 src/Process/Backend/Media.php:391
 #: src/Process/Backend/Media.php:404 src/Process/Backend/MediaItem.php:805
@@ -4505,12 +4507,12 @@ msgstr "नया फ़ाइल अपलोड करें"
 #: src/Process/Backend/Media.php:385
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
-msgstr ""
+msgstr "%s पर क्लिक करके प्रविष्टि %s से संलग्न करने के लिए एक फ़ाइल चुनें"
 
 #: src/Process/Backend/Media.php:399
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
-msgstr ""
+msgstr "%s पर क्लिक करके प्रविष्टि में सम्मिलित करने के लिए फ़ाइल चुनें"
 
 #: src/Process/Backend/Media.php:417 src/Process/Backend/Media.php:418
 #: src/Process/Backend/Media.php:419
@@ -4529,7 +4531,7 @@ msgstr "चयनित मध्यमान को मिटाएँ"
 #: src/Process/Backend/Media.php:472
 #, php-format
 msgid "In %s:"
-msgstr ""
+msgstr "%s में:"
 
 #: src/Process/Backend/Media.php:484
 msgid "Create new directory"
@@ -4550,7 +4552,7 @@ msgstr "बिल्ड"
 #: src/Process/Backend/Media.php:511
 #, php-format
 msgid "Backup content of %s"
-msgstr ""
+msgstr "%s की बैकअप सामग्री"
 
 #: src/Process/Backend/Media.php:515
 msgid "Download zip file"
@@ -4593,7 +4595,7 @@ msgstr "सभी साफ करें"
 #: src/Process/Backend/Media.php:594
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
-msgstr ""
+msgstr "मीडिया और छवियों के लिए वर्तमान सेटिंग %s में परिभाषित हैं"
 
 #: src/Process/Backend/MediaItem.php:112
 msgid "Not a valid file"
@@ -4670,11 +4672,11 @@ msgstr "MP3 प्रवृत्ति"
 
 #: src/Process/Backend/MediaItem.php:710
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
-msgstr ""
+msgstr "कृपया ध्यान दें कि आप WYSIWYG HTML मोड में मानक संपादक के साथ mp3 फ़ाइलें सम्मिलित नहीं कर सकते।"
 
 #: src/Process/Backend/MediaItem.php:740
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
-msgstr ""
+msgstr "कृपया ध्यान दें कि आप मानक संपादक के साथ वीडियो फ़ाइलों को WYSIWYG HTML मोड में सम्मिलित नहीं कर सकते।"
 
 #: src/Process/Backend/MediaItem.php:745
 msgid "Video size"
@@ -4849,7 +4851,7 @@ msgstr "फ़ाइल चुनें:"
 #: src/Process/Backend/MediaItem.php:1134
 #, php-format
 msgid "Maximum size %s"
-msgstr ""
+msgstr "अधिकतम आकार %s"
 
 #: src/Process/Backend/MediaItem.php:1145
 msgid "Delete this media"
@@ -4903,14 +4905,14 @@ msgstr "प्लगिन के अद्यतन की जाँच कर 
 
 #: src/Process/Backend/Plugins.php:233 src/Process/Upgrade/Plugins.php:230
 msgid "No updates available for plugins."
-msgstr ""
+msgstr "प्लगइन्स के लिए कोई अपडेट उपलब्ध नहीं है।"
 
 #: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:235
 #, php-format
 msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "एक प्लगइन अपडेट उपलब्ध है:"
+msgstr[1] "%s प्लगइन अद्यतन उपलब्ध हैं:"
 
 #: src/Process/Backend/Plugins.php:273 src/Process/Upgrade/Plugins.php:274
 msgid "Add plugins"
@@ -4960,12 +4962,12 @@ msgstr "अवैध प्रकाशन तिथि"
 #: src/Process/Backend/Post.php:420
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
-msgstr ""
+msgstr "पोस्ट \"%s\" सफलतापूर्वक अद्यतन किया गया है"
 
 #: src/Process/Backend/Post.php:482
 #, php-format
 msgid "&ldquo;%s&rdquo;"
-msgstr ""
+msgstr "&ldquo;%s&rdquo;"
 
 #: src/Process/Backend/Post.php:554
 msgid "Entry has been successfully updated."
@@ -5169,7 +5171,7 @@ msgstr "साफ खबर"
 
 #: src/Process/Backend/Rest.php:128
 msgid "%d %B %Y:"
-msgstr ""
+msgstr "%d %B %Y:"
 
 #: src/Process/Backend/Rest.php:160
 msgid "Dotclear update not available"
@@ -5178,7 +5180,7 @@ msgstr "डॉटकॉम साफ अद्यतन उपलब्ध न�
 #: src/Process/Backend/Rest.php:171
 #, php-format
 msgid "Dotclear %s is available!"
-msgstr ""
+msgstr "डॉटक्लियर%s उपलब्ध है!"
 
 #: src/Process/Backend/Rest.php:172
 msgid "Upgrade now"
@@ -5196,13 +5198,13 @@ msgstr "इस संस्करण के बारे में जानक�
 #: src/Process/Backend/Rest.php:180
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
+msgstr "डॉटक्लियर का नया संस्करण उपलब्ध है, लेकिन इसके लिए PHP संस्करण ≥ %s की आवश्यकता है, आपका संस्करण वर्तमान में %s है"
 
 #: src/Process/Backend/Rest.php:195 src/Process/Backend/Update.php:140
 #: src/Process/Upgrade/Upgrade.php:210
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
+msgstr "डॉटक्लियर का अगला संस्करण PHP संस्करण < %s का समर्थन नहीं करेगा, आपका संस्करण वर्तमान में %s है"
 
 #: src/Process/Backend/Rest.php:227
 msgid "No updates are available"
@@ -5213,7 +5215,7 @@ msgstr "कोई अद्यतन उपलब्ध नहीं हैं"
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] "एक अद्यतन उपलब्ध है"
-msgstr[1] ""
+msgstr[1] "%s अद्यतन उपलब्ध हैं."
 
 #: src/Process/Backend/Rest.php:833
 msgid "List options saved"
@@ -5248,14 +5250,14 @@ msgstr "टिप्पणी में खोजें"
 msgid "one entry found"
 msgid_plural "%d entries found"
 msgstr[0] "एक प्रविष्टि पाया"
-msgstr[1] ""
+msgstr[1] "%d प्रविष्टियाँ मिलीं"
 
 #: src/Process/Backend/Search.php:327
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"
 msgstr[0] "एक टिप्पणी मिली"
-msgstr[1] ""
+msgstr[1] "%d टिप्पणियाँ मिलीं"
 
 #: src/Process/Backend/Update.php:32 src/Process/Backend/Update.php:37
 #: src/Process/Backend/Update.php:50 src/Process/Backend/Update.php:55
@@ -5320,12 +5322,12 @@ msgstr "साफ-साफ अद्यतन डैशबोर्ड"
 
 #: src/Process/Backend/Update.php:155
 msgid "Go to dedicated upgrade dashboard."
-msgstr ""
+msgstr "समर्पित अपग्रेड डैशबोर्ड पर जाएं।"
 
 #: src/Process/Backend/Update.php:158 src/Process/Upgrade/Upgrade.php:240
 #, php-format
 msgid "Dotclear %s is available."
-msgstr ""
+msgstr "डॉटक्लियर %s उपलब्ध है."
 
 #: src/Process/Backend/Update.php:164
 msgid "To upgrade your Dotclear installation go to dedicated dashboard and follow instructions."
@@ -5343,7 +5345,7 @@ msgstr "उपयोगकर्ता को सफलतापूर्वक 
 #: src/Process/Backend/User.php:178
 #, php-format
 msgid "User \"%s\" already exists."
-msgstr ""
+msgstr "उपयोगकर्ता \"%s\" पहले से मौजूद है."
 
 #: src/Process/Backend/User.php:202 src/Process/Backend/User.php:246
 msgid "User has been successfully created."
@@ -5361,7 +5363,7 @@ msgstr "उपयोगकर्ता की अनुमति नहीं �
 #: src/Process/Install/Install.php:418
 #, php-format
 msgid "Password strength: %s"
-msgstr ""
+msgstr "पासवर्ड सामर्थ्य: %s"
 
 #: src/Process/Backend/User.php:224 src/Process/Backend/UserPreferences.php:496
 #: src/Process/Install/Install.php:416
@@ -5474,7 +5476,7 @@ msgstr "अब तक कोई अनुमतियाँ नहीं है�
 #: src/Process/Backend/User.php:484
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
-msgstr ""
+msgstr "%s सुपर व्यवस्थापक है (सभी ब्लॉग्स पर सभी अधिकार)."
 
 #: src/Process/Backend/User.php:492
 msgid "Direct links"
@@ -5662,19 +5664,19 @@ msgstr "एड-ब्लॉकर की जाँच निष्क्रि�
 
 #: src/Process/Backend/UserPreferences.php:679
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
-msgstr ""
+msgstr "कुछ ऐड-ब्लॉकर्स (घोस्टरी, एडब्लॉक प्लस, यूब्लॉक ओरिजिन, ...) CKEditor के साथ प्रविष्टियों में लिंक या मीडिया डालने जैसी कुछ सुविधाओं में बाधा डाल सकते हैं; इस मामले में आपको इसे इस डॉटक्लियर इंस्टॉलेशन (केवल बैकएंड) के लिए अक्षम करना चाहिए। ध्यान दें कि डॉटक्लियर बैकएंड में विज्ञापन या ट्रैकर नहीं जोड़ता है।"
 
 #: src/Process/Backend/UserPreferences.php:680
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
-msgstr ""
+msgstr "यह भी ध्यान दें कि विज्ञापन अवरोधकों का पता लगाने के इस पहचान को निष्क्रिय करने से स्थापित विज्ञापन अवरोधक निष्क्रिय नहीं होंगे। डॉटक्लियर ब्राउज़र एक्सटेंशन के संचालन में हस्तक्षेप नहीं कर सकता है!"
 
 #: src/Process/Backend/UserPreferences.php:683
 msgid "Quick menu character:"
-msgstr ""
+msgstr "त्वरित मेनू वर्ण:"
 
 #: src/Process/Backend/UserPreferences.php:688
 msgid "Leave empty to use the default character <kbd>:</kbd>"
-msgstr ""
+msgstr "डिफ़ॉल्ट वर्ण का उपयोग करने के लिए खाली छोड़ दें<kbd>:</kbd>"
 
 #: src/Process/Backend/UserPreferences.php:695
 msgid "Optional columns displayed in lists"
@@ -5690,7 +5692,7 @@ msgstr "फ़िल्टर पर फ़िल्टर लागू कर�
 
 #: src/Process/Backend/UserPreferences.php:723
 msgid "List"
-msgstr ""
+msgstr "तालिका"
 
 #: src/Process/Backend/UserPreferences.php:724
 msgid "Order by"
@@ -5703,7 +5705,7 @@ msgstr "छांटें"
 #: src/Process/Backend/UserPreferences.php:750
 #, php-format
 msgid "Preferred editor for %s:"
-msgstr ""
+msgstr "%s के लिए पसंदीदा संपादक:"
 
 #: src/Process/Backend/UserPreferences.php:753
 msgid "Choose an editor"
@@ -5732,7 +5734,7 @@ msgstr "मेरे विकल्पों को सहेजें"
 #: src/Process/Backend/UserPreferences.php:837
 #, php-format
 msgid "position of %s"
-msgstr ""
+msgstr "%s की स्थिति"
 
 #: src/Process/Backend/UserPreferences.php:854
 msgid "Save order"
@@ -5853,7 +5855,7 @@ msgstr "वापस उपयोगकर्ता प्रोफ़ाइल 
 #: src/Process/Backend/UsersActions.php:219
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
-msgstr ""
+msgstr "एक या अधिक ब्लॉग चुनें जिनके लिए आप उपयोगकर्ताओं %s को अनुमति देना चाहते हैं।"
 
 #: src/Process/Backend/UsersActions.php:233
 msgid "Entries"
@@ -5866,7 +5868,7 @@ msgstr "चुनना"
 #: src/Process/Backend/UsersActions.php:297
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
-msgstr ""
+msgstr "आप उपयोगकर्ताओं %s के लिए निम्न ब्लॉग्स पर अनुमतियाँ परिवर्तित करने वाले हैं."
 
 #: src/Process/Backend/UsersActions.php:346
 msgid "Validate permissions"
@@ -5894,7 +5896,7 @@ msgstr "मेरा पहला ब्लॉग"
 
 #: src/Process/Install/Install.php:260
 msgid "%A, %B %e %Y"
-msgstr ""
+msgstr "%A, %B %e %Y"
 
 #: src/Process/Install/Install.php:336
 msgid "Welcome to Dotclear!"
@@ -5911,7 +5913,8 @@ msgstr "पूर्व-स्पष्ट टीम"
 #: src/Process/Install/Install.php:352
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
+msgstr "<p>यह एक टिप्पणी है।</p>\n"
+"<p>इसे हटाने के लिए, लॉग इन करें और अपने ब्लॉग की टिप्पणियां देखें। फिर आप उसे निकाल या संपादित कर सकते हैं.</p>"
 
 #: src/Process/Install/Install.php:408
 msgid "Dotclear Install"
@@ -5928,7 +5931,7 @@ msgstr "डॉटकॉम साफ संस्थापन"
 #: src/Process/Install/Install.php:434
 #, php-format
 msgid "Cache directory %s is not writable."
-msgstr ""
+msgstr "कैश निर्देशिका %s लिखने योग्य नहीं है."
 
 #: src/Process/Install/Install.php:442
 msgid "Configuration file has been successfully created."
@@ -5980,21 +5983,21 @@ msgstr "संस्थापन पूरा नहीं हो सकता �
 
 #: src/Process/Install/Install.php:548
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
+msgstr "उक्त कारणों से, डॉटक्लेयर स्थापित नहीं किया जा सकता है। समस्या को ठीक करने का तरीका जानने के लिए कृपया <a href=\"https://dotclear.org/documentation/2.0/admin/install\">दस्तावेज़ देखें</a>।"
 
 #: src/Process/Install/Wizard.php:98
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
-msgstr ""
+msgstr "पथ <strong>%s</strong> लिखने योग्य नहीं है."
 
 #: src/Process/Install/Wizard.php:99
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "डॉटक्लियर इंस्टॉलेशन विज़ार्ड आपके लिए कॉन्फ़िगरेशन फ़ाइल नहीं बना सका। आपको फ़ोल्डर राइट बदलना होगा या <strong>config.php</strong> फ़ाइल मैन्युअल रूप से बनानी होगी, कृपया यह जानने के लिए <a href=\"https://dotclear.org/documentation/2.0/admin/install\">दस्तावेज़ीकरण</a> देखें कि यह कैसे करना है।"
 
 #: src/Process/Install/Wizard.php:131
 #, php-format
 msgid "Cannot write \"%s\" directory."
-msgstr ""
+msgstr "\"%s\" निर्देशिका नहीं लिख सकता."
 
 #: src/Process/Install/Wizard.php:159
 msgid "Master email is not valid."
@@ -6003,12 +6006,12 @@ msgstr "मास्टर ईमेल वैध नहीं है."
 #: src/Process/Install/Wizard.php:165
 #, php-format
 msgid "File %s does not exist."
-msgstr ""
+msgstr "फ़ाइल %s मौजूद नहीं है."
 
 #: src/Process/Install/Wizard.php:170 src/Process/Install/Wizard.php:191
 #, php-format
 msgid "Cannot write %s file."
-msgstr ""
+msgstr "%s फ़ाइल नहीं लिख सकता."
 
 #: src/Process/Install/Wizard.php:234 src/Process/Install/Wizard.php:242
 msgid "Dotclear installation wizard"
@@ -6028,7 +6031,7 @@ msgstr "ध्यान दें:"
 
 #: src/Process/Install/Wizard.php:253
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
+msgstr "यह विज़ार्ड हर होस्ट पर काम नहीं कर सकता है। अगर यह आपके लिए काम नहीं करता है, तो कृपया <a href=\"https://dotclear.org/documentation/2.0/admin/install\">दस्तावेज़ीकरण</a> देखें और जानें कि <strong>config.php</strong> फ़ाइल को मैन्युअल रूप से कैसे बनाया जाता है।"
 
 #: src/Process/Install/Wizard.php:260
 msgid "System information"
@@ -6107,15 +6110,15 @@ msgstr "ऐसा लगता है कि आपके सिस्टम प
 #: src/Process/Upgrade/Attic.php:156 src/Process/Upgrade/Upgrade.php:135
 #, php-format
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
-msgstr ""
+msgstr "डाउनलोड किया गया डॉटक्लियर संग्रह दूषित प्रतीत होता है। <a %s>इसे पुन: डाउनलोड करने का प्रयास करें</a>."
 
 #: src/Process/Upgrade/Attic.php:160 src/Process/Upgrade/Upgrade.php:139
 msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr ""
+msgstr "यदि यह समस्या बनी रहती है, तो मैन्युअल रूप से <a href=\"https://dotclear.org/download\">update करने का प्रयास करें</a>."
 
 #: src/Process/Upgrade/Attic.php:198 src/Process/Upgrade/Upgrade.php:175
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr ""
+msgstr "आपके डॉटक्लेयर इंस्टॉलेशन की निम्न फ़ाइलों को संशोधित किया गया है, इसलिए हम आपके इंस्टॉलेशन को अपडेट करने का प्रयास नहीं करेंगे। कृपया मैन्युअल रूप से <a href=\"https://dotclear.org/download\">update करने का प्रयास करें</a>."
 
 #: src/Process/Upgrade/Attic.php:199
 msgid "You can bypass this warning by updating installation disgets file."
@@ -6124,16 +6127,16 @@ msgstr "आप इस चेतावनी को अद्यतन करन�
 #: src/Process/Upgrade/Attic.php:202 src/Process/Upgrade/Upgrade.php:178
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
-msgstr ""
+msgstr "आपके डॉटक्लेयर इंस्टॉलेशन की निम्न फाइलें पढ़ने योग्य नहीं हैं। कृपया इसे ठीक करें या %s नाम की बैकअप फ़ाइल मैन्युअल रूप से बनाने का प्रयास करें."
 
 #: src/Process/Upgrade/Attic.php:206 src/Process/Upgrade/Upgrade.php:182
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr ""
+msgstr "आपके Dotclear इंस्टॉलेशन की निम्न फ़ाइलें नहीं लिखी जा सकतीं। कृपया इसे ठीक करें या मैन्युअल रूप से <a href=\"https://dotclear.org/download\">update करने का प्रयास करें</a>।"
 
 #: src/Process/Upgrade/Attic.php:273
 #, php-format
 msgid "Required PHP version %s or higher"
-msgstr ""
+msgstr "आवश्यक PHP संस्करण%s या उच्चतर"
 
 #: src/Process/Upgrade/Attic.php:280 src/Process/Upgrade/Attic.php:281
 msgid "Release note"
@@ -6150,7 +6153,7 @@ msgstr "यहाँ सूचीबद्ध रिलीज के बार�
 #: src/Process/Upgrade/Attic.php:314
 #, php-format
 msgid "Are you sure to update to version %s?"
-msgstr ""
+msgstr "क्या आप संस्करण %s में अद्यतन करने के लिए सुनिश्चित हैं?"
 
 #: src/Process/Upgrade/Attic.php:320 src/Process/Upgrade/Digests.php:174
 #: src/Process/Upgrade/Digests.php:187 src/Process/Upgrade/Upgrade.php:263
@@ -6172,7 +6175,7 @@ msgstr "बैकअप और फिर बहाल करें"
 #: src/Process/Upgrade/Backup.php:104 src/Process/Upgrade/Backup.php:120
 #, php-format
 msgid "Unable to delete file %s"
-msgstr ""
+msgstr "फ़ाइल %s को हटाने में असमर्थ"
 
 #: src/Process/Upgrade/Backup.php:108 src/Process/Upgrade/Backup.php:122
 msgid "Backup deleted."
@@ -6205,7 +6208,7 @@ msgstr "कृपया ध्यान दें कि अपने डैट�
 #: src/Process/Upgrade/Backup.php:196
 #, php-format
 msgid "You should not revert to version prior to last one (%s)."
-msgstr ""
+msgstr "आपको पिछले संस्करण (%s) से पहले के संस्करण पर वापस नहीं जाना चाहिए."
 
 #: src/Process/Upgrade/Backup.php:200
 msgid "Delete all files but last"
@@ -6294,17 +6297,17 @@ msgstr "मैंने डिस्क्लेमर को पढ़ा औ�
 #: src/Process/Upgrade/Home.php:53
 #, php-format
 msgid "Installed Dotclear version is %s"
-msgstr ""
+msgstr "स्थापित डॉटक्लियर संस्करण %s है"
 
 #: src/Process/Upgrade/Home.php:54
 #, php-format
 msgid "Installed PHP version is %s, next Dotclear release required %s or earlier."
-msgstr ""
+msgstr "स्थापित PHP संस्करण%s है, अगला डॉटक्लियर रिलीज़ आवश्यक %s या इससे पहले का संस्करण है।"
 
 #: src/Process/Upgrade/Home.php:71
 #, php-format
 msgid "Backup directory \"%s\" does not exist or is not writable."
-msgstr ""
+msgstr "बैकअप निर्देशिका \"%s\" मौजूद नहीं है या लिखने योग्य नहीं है।"
 
 #: src/Process/Upgrade/Home.php:75
 msgid "Your are using Sqlite database driver, Database structure upgrade will NOT be performed."
@@ -6317,7 +6320,7 @@ msgstr "आप विकास रिलीज का उपयोग कर र
 #: src/Process/Upgrade/Home.php:82
 #, php-format
 msgid "Dotclear digests file \"%s\" is not readable."
-msgstr ""
+msgstr "डॉटक्लियर डाइजेस्ट फ़ाइल \"%s\" पढ़ने योग्य नहीं है।"
 
 #: src/Process/Upgrade/Home.php:86 src/Process/Upgrade/Plugins.php:129
 msgid "Official plugins repository could not be updated as there is no URL set in configuration."
@@ -6378,7 +6381,7 @@ msgstr "Lastest स्टोर के संस्करणों की जा
 #: src/Process/Upgrade/Plugins.php:360
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
-msgstr ""
+msgstr "डॉटक्लियर डाइजेस्ट फ़ाइल \"%s\" पढ़ने योग्य नहीं है।"
 
 #: src/Process/Upgrade/Plugins.php:384 src/Process/Upgrade/Plugins.php:427
 msgid "No version available"
@@ -6407,7 +6410,7 @@ msgstr "डीओटेड के लिए लिखा गया"
 #: src/Process/Upgrade/Replay.php:63
 #, php-format
 msgid "Grow up from version %s successfully replayed."
-msgstr ""
+msgstr "डॉटक्लियर डाइजेस्ट फ़ाइल \"%s\" पढ़ने योग्य नहीं है।"
 
 #: src/Process/Upgrade/Replay.php:81
 msgid "Replay update actions"
