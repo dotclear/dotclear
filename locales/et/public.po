@@ -1,0 +1,399 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-16 10:38+0100\n"
+"PO-Revision-Date: 2024-07-05 10:41\n"
+"Last-Translator: \n"
+"Language-Team: Estonian\n"
+"Language: et_EE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: et\n"
+"X-Crowdin-File: /master/locales/_pot/public.pot\n"
+"X-Crowdin-File-ID: 266\n"
+
+msgid "%d attachments"
+msgstr "%d manused"
+
+msgid "%d comments"
+msgstr "%d kommentaarid"
+
+msgid "%d trackbacks"
+msgstr "%d trackbacks"
+
+msgid "%s reactions"
+msgstr "%s reaktsioonid"
+
+#: __html_tpl_dummy.php:2
+msgid "Access to content"
+msgstr "Juurdepääs sisule"
+
+msgid "Add a comment"
+msgstr "Lisa kommentaar"
+
+#: __html_tpl_dummy.php:5
+msgid "Add ping"
+msgstr "Lisa ping"
+
+msgid "Additionnal style directives"
+msgstr "Täiendavad stiilidirektiivid"
+
+msgid "All keywords"
+msgstr "Kõik märksõnad"
+
+msgid "Archives"
+msgstr "Arhiiv"
+
+msgid "Attachments"
+msgstr "Lisad"
+
+msgid "Best of me"
+msgstr "Parim minust"
+
+#: __html_tpl_dummy.php:8
+msgid "Blog info"
+msgstr "Blogi info"
+
+#: __html_tpl_dummy.php:9
+msgid "Blog menu"
+msgstr "Blogi menüü"
+
+#: __html_tpl_dummy.php:13
+msgid "By"
+msgstr "Autor"
+
+#: __html_tpl_dummy.php:10
+msgid "By category"
+msgstr "Kategooriate kaupa"
+
+#: __html_tpl_dummy.php:11
+msgid "By date"
+msgstr "Kuupäevaks"
+
+#: __html_tpl_dummy.php:12
+msgid "By tag"
+msgstr "Tagi järgi"
+
+msgid "Categories"
+msgstr "Kategooriad"
+
+msgid "Comment"
+msgstr "Kommentaar"
+
+msgid "Comments"
+msgstr "Kommentaarid"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr "Kommentaarid saab vormistada lihtsa wiki-süntaksi abil."
+
+msgid "Comments feed"
+msgstr "Kommentaarid feed"
+
+#: __html_tpl_dummy.php:17
+msgid "Continue reading"
+msgstr "Jätka lugemist"
+
+#: __html_tpl_dummy.php:18
+msgid "Document not found"
+msgstr "Dokumenti ei leitud"
+
+#: __html_tpl_dummy.php:19
+msgid "Email address"
+msgstr "E-posti aadress"
+
+msgid "Email address is not valid"
+msgstr "E-posti aadress ei ole kehtiv"
+
+msgid "Entries feed"
+msgstr "Sissetulekute söötmine"
+
+#: __html_tpl_dummy.php:22
+msgid "Explore archives"
+msgstr "Uurige arhiivi"
+
+#: __html_tpl_dummy.php:23
+msgid "Extra menu"
+msgstr "Lisamenüü"
+
+#: __html_tpl_dummy.php:24
+msgid "Fields followed by * are mandatory"
+msgstr "Väljad, millele järgneb *, on kohustuslikud"
+
+#: __html_tpl_dummy.php:25
+msgid "From"
+msgstr "Alates"
+
+#: __html_tpl_dummy.php:26
+msgid "FromDay"
+msgstr "FromDay"
+
+#: __html_tpl_dummy.php:27
+msgid "Go to homepage"
+msgstr "Mine kodulehele"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "HTML-kood kuvatakse tekstina ja veebiaadressid teisendatakse automaatselt."
+
+msgid "Home"
+msgstr "Kodu"
+
+msgid "In"
+msgstr "Veebilehel"
+
+msgid "Languages"
+msgstr "Keeled"
+
+msgid "Links"
+msgstr "Lingid"
+
+#: __html_tpl_dummy.php:29
+msgid "Name or nickname"
+msgstr "Nimi või hüüdnimi"
+
+#: __html_tpl_dummy.php:30
+msgid "Next entry:"
+msgstr "Järgmine sissekanne:"
+
+#: __html_tpl_dummy.php:31
+msgid "On"
+msgstr "Veebilehel"
+
+msgid "Page top"
+msgstr "Lehekülje algus"
+
+#: __html_tpl_dummy.php:34
+msgid "Pagination"
+msgstr "Paginatsioon"
+
+#: __html_tpl_dummy.php:35
+msgid "Password needed"
+msgstr "Vajalik salasõna"
+
+msgid "Password:"
+msgstr "Parool:"
+
+#: __html_tpl_dummy.php:37
+msgid "Permalink"
+msgstr "Permalink"
+
+msgid "Powered by %s"
+msgstr "Powered by %s"
+
+msgid "Preview"
+msgstr "Eelvaade"
+
+#: __html_tpl_dummy.php:39
+msgid "Previous entry:"
+msgstr "Eelmine sissekanne:"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "RSS feed on tasuta blogi kokkuvõte. See pakub sisu (kas postitusi või kommentaare) või sisu kokkuvõtteid koos linkidega täisversioonidele ja muude metaandmetega. Viimati avaldatud artikleid saab seejärel lugeda oma lemmik <a href=\"http://en.wikipedia.org/wiki/Aggregator\">RSS-agregaatoriga</a>."
+
+msgid "Read"
+msgstr "Loe"
+
+#: __html_tpl_dummy.php:41
+msgid "Remember me on this blog"
+msgstr "Pea mind selles blogis meeles"
+
+msgid "Required field"
+msgstr "Kohustuslik väli"
+
+msgid "Search"
+msgstr "Otsi"
+
+msgid "Send"
+msgstr "Saada"
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Lihtsalt kopeerige järgmine URL-aadress oma agregaatorisse:"
+
+#: __html_tpl_dummy.php:45
+msgid "Subcategories"
+msgstr "Alamkategooriad"
+
+msgid "Subscribe"
+msgstr "Telli"
+
+msgid "Subscribe to"
+msgstr "Tellige"
+
+#: __html_tpl_dummy.php:46
+msgid "Suggestions:"
+msgstr "Ettepanekud:"
+
+#: __html_tpl_dummy.php:47
+msgid "The document you are looking for does not exist."
+msgstr "Otsitud dokumenti ei ole olemas."
+
+#: __html_tpl_dummy.php:48
+msgid "The list of recents posts is available"
+msgstr "Hiljutiste postituste nimekiri on saadaval"
+
+#: __html_tpl_dummy.php:49
+msgid "They posted on the same topic"
+msgstr "Nad postitasid samal teemal"
+
+msgid "This blog's comments Atom feed"
+msgstr "Selle blogi kommentaarid Atom feed"
+
+#: __html_tpl_dummy.php:50
+msgid "This category's comments Atom feed"
+msgstr "Selle kategooria kommentaarid Aatomi feed"
+
+#: __html_tpl_dummy.php:51
+msgid "This category's entries Atom feed"
+msgstr "Selle kategooria kirjed Aatomi feed"
+
+#: __html_tpl_dummy.php:52
+msgid "This post's comments Atom feed"
+msgstr "Selle postituse kommentaarid Atom feed"
+
+#: __html_tpl_dummy.php:53
+msgid "This post's comments feed"
+msgstr "Selle postituse kommentaarid feed"
+
+#: __html_tpl_dummy.php:54
+msgid "To content"
+msgstr "Sisule"
+
+#: __html_tpl_dummy.php:55
+msgid "To menu"
+msgstr "Menüüsse"
+
+#: __html_tpl_dummy.php:56
+msgid "To search"
+msgstr "Et otsida"
+
+#: __html_tpl_dummy.php:57
+msgid "Trackback URL"
+msgstr "Trackback URL"
+
+#: __html_tpl_dummy.php:58
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr "URL, mida olete proovinud, sisaldab trükivigu või leht on kustutatud või ümber paigutatud."
+
+#: __html_tpl_dummy.php:59
+msgid "Use search form"
+msgstr "Kasutage otsinguvormi"
+
+#: __html_tpl_dummy.php:60
+msgid "Website"
+msgstr "Veebileht"
+
+msgid "What is an RSS feed?"
+msgstr "Mis on RSS-voog?"
+
+#: __html_tpl_dummy.php:62
+msgid "You must give a password to access this area."
+msgstr "Sellele alale pääsemiseks peate andma parooli."
+
+msgid "You must provide a comment"
+msgstr "Te peate esitama kommentaari"
+
+msgid "You must provide a valid email address."
+msgstr "Te peate esitama kehtiva e-posti aadressi."
+
+msgid "You must provide an author name"
+msgstr "Te peate esitama autori nime"
+
+#: __html_tpl_dummy.php:65
+msgid "Your comment"
+msgstr "Teie kommentaar"
+
+#: __html_tpl_dummy.php:63
+msgid "Your comment has been published."
+msgstr "Teie kommentaar on avaldatud."
+
+#: __html_tpl_dummy.php:64
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Teie kommentaar on esitatud ja vaadatakse avaldamiseks läbi."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Teie otsing <em>%1$s</em> tagastas <strong>%2$s</strong> tulemuse."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Teie otsing <em>%1$s</em> tagastas <strong>%2$s</strong> tulemusi."
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Teie otsing <em>%1$s</em> ei andnud tulemust."
+
+#: __html_tpl_dummy.php:66
+msgid "by"
+msgstr "poolt"
+
+#: __html_tpl_dummy.php:67
+msgid "here"
+msgstr "siin"
+
+msgid "in"
+msgstr "aadressil"
+
+#: __html_tpl_dummy.php:68
+msgid "next entries"
+msgstr "järgmised kanded"
+
+msgid "no attachments"
+msgstr "ei ole manuseid"
+
+msgid "no comments"
+msgstr "no comments"
+
+msgid "no reactions"
+msgstr "ei ole reaktsioone"
+
+msgid "no trackbacks"
+msgstr "no trackbacks"
+
+#: __html_tpl_dummy.php:69
+msgid "of"
+msgstr "aadressilt"
+
+#: __html_tpl_dummy.php:70
+msgid "on"
+msgstr "aadressil"
+
+msgid "one attachment"
+msgstr "üks kinnitus"
+
+msgid "one comment"
+msgstr "üks kommentaar"
+
+msgid "one reaction"
+msgstr "üks reaktsioon"
+
+msgid "one trackback"
+msgstr "üks tagasiside"
+
+#: __html_tpl_dummy.php:71
+msgid "optional"
+msgstr "vabatahtlik"
+
+#: __html_tpl_dummy.php:72
+msgid "page"
+msgstr "lehekülg"
+
+#: __html_tpl_dummy.php:73
+msgid "preview"
+msgstr "eelvaade"
+
+#: __html_tpl_dummy.php:74
+msgid "previous entries"
+msgstr "eelmised kanded"
+
+msgid "reactions"
+msgstr "reaktsioonid"
+
+#: __html_tpl_dummy.php:75
+msgid "send"
+msgstr "saatke"
+
+#: __html_tpl_dummy.php:76
+msgid "toDay"
+msgstr "toDay"
+

@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-21 08:26+0100\n"
+"PO-Revision-Date: 2024-07-05 10:44\n"
+"Last-Translator: \n"
+"Language-Team: Bulgarian\n"
+"Language: bg_BG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: bg\n"
+"X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 559\n"
+
+#: themes/blowup/src/Config.php:123
+msgid "Light linear gradient"
+msgstr "Светъл линеен градиент"
+
+#: themes/blowup/src/Config.php:124
+msgid "Medium linear gradient"
+msgstr "Среден линеен градиент"
+
+#: themes/blowup/src/Config.php:125
+msgid "Dark linear gradient"
+msgstr "Тъмнолинеен градиент"
+
+#: themes/blowup/src/Config.php:126
+msgid "Solid color"
+msgstr "Плътен цвят"
+
+#: themes/blowup/src/Config.php:129
+msgid "Custom..."
+msgstr "Потребителски..."
+
+#: themes/blowup/src/Config.php:231
+msgid "Theme configuration has been successfully updated."
+msgstr "Конфигурацията на темата е успешно актуализирана."
+
+#: themes/blowup/src/Config.php:253
+msgid "Back to Blog appearance"
+msgstr "Обратно към появата на блога"
+
+#: themes/blowup/src/Config.php:257
+msgid "Customization"
+msgstr "Персонализиране"
+
+#: themes/blowup/src/Config.php:258
+msgid "General"
+msgstr "Обща информация"
+
+#: themes/blowup/src/Config.php:262
+msgid "Background color:"
+msgstr "Цвят на фона:"
+
+#: themes/blowup/src/Config.php:265
+msgid "Background color fill:"
+msgstr "Запълване на фоновия цвят:"
+
+#: themes/blowup/src/Config.php:270
+msgid "Main text font:"
+msgstr "Шрифт на основния текст:"
+
+#: themes/blowup/src/Config.php:273
+msgid "Main text font size:"
+msgstr "Размер на шрифта на основния текст:"
+
+#: themes/blowup/src/Config.php:276
+msgid "Main text color:"
+msgstr "Цвят на основния текст:"
+
+#: themes/blowup/src/Config.php:279
+msgid "Text line height:"
+msgstr "Височина на текстовия ред:"
+
+#: themes/blowup/src/Config.php:283
+msgid "Links color:"
+msgstr "Цвят на връзките:"
+
+#: themes/blowup/src/Config.php:286
+msgid "Visited links color:"
+msgstr "Цвят на посетените връзки:"
+
+#: themes/blowup/src/Config.php:289
+msgid "Focus links color:"
+msgstr "Цвят на фокусните връзки:"
+
+#: themes/blowup/src/Config.php:296
+msgid "Prelude color:"
+msgstr "Цвят на Prelude:"
+
+#: themes/blowup/src/Config.php:301
+msgid "Hide main title"
+msgstr "Скриване на главното заглавие"
+
+#: themes/blowup/src/Config.php:304
+msgid "Main title font:"
+msgstr "Шрифт на главното заглавие:"
+
+#: themes/blowup/src/Config.php:307
+msgid "Main title font size:"
+msgstr "Размер на шрифта на главното заглавие:"
+
+#: themes/blowup/src/Config.php:310
+msgid "Main title color:"
+msgstr "Цвят на главното заглавие:"
+
+#: themes/blowup/src/Config.php:313
+msgid "Main title alignment:"
+msgstr "Подравняване на основното заглавие:"
+
+#: themes/blowup/src/Config.php:314
+msgid "center"
+msgstr "център"
+
+#: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
+msgid "left"
+msgstr "ляв"
+
+#: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
+msgid "right"
+msgstr "вдясно"
+
+#: themes/blowup/src/Config.php:316
+msgid "Main title position (x:y)"
+msgstr "Позиция на главното заглавие (x:y)"
+
+#: themes/blowup/src/Config.php:327 themes/blowup/src/Config.php:328
+msgid "Top image"
+msgstr "Горно изображение"
+
+#: themes/blowup/src/Config.php:330
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "Изберете \"Custom...\", за да качите собствено изображение."
+
+#: themes/blowup/src/Config.php:332
+msgid "Add your image:"
+msgstr "Добавете изображението си:"
+
+#: themes/blowup/src/Config.php:333
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "JPEG или PNG файл, 800 пиксела широк, максимален размер %s"
+
+#: themes/blowup/src/Config.php:344
+msgid "Sidebar"
+msgstr "Странична лента"
+
+#: themes/blowup/src/Config.php:345
+msgid "Sidebar position:"
+msgstr "Позиция на страничната лента:"
+
+#: themes/blowup/src/Config.php:348
+msgid "Sidebar text font:"
+msgstr "Шрифт на текста в страничната лента:"
+
+#: themes/blowup/src/Config.php:351
+msgid "Sidebar text font size:"
+msgstr "Размер на шрифта на текста в страничната лента:"
+
+#: themes/blowup/src/Config.php:354
+msgid "Sidebar text color:"
+msgstr "Цвят на текста в страничната лента:"
+
+#: themes/blowup/src/Config.php:357
+msgid "Sidebar titles font:"
+msgstr "Шрифт на заглавията в страничната лента:"
+
+#: themes/blowup/src/Config.php:360
+msgid "Sidebar titles font size:"
+msgstr "Размер на шрифта на заглавията в страничната лента:"
+
+#: themes/blowup/src/Config.php:363
+msgid "Sidebar titles color:"
+msgstr "Цвят на заглавията на страничната лента:"
+
+#: themes/blowup/src/Config.php:366
+msgid "Sidebar 2nd level titles font:"
+msgstr "Шрифт на заглавията от 2-ро ниво на страничната лента:"
+
+#: themes/blowup/src/Config.php:369
+msgid "Sidebar 2nd level titles font size:"
+msgstr "Размер на шрифта на заглавията от второ ниво на страничната лента:"
+
+#: themes/blowup/src/Config.php:372
+msgid "Sidebar 2nd level titles color:"
+msgstr "Цвят на заглавията от второ ниво на страничната лента:"
+
+#: themes/blowup/src/Config.php:375
+msgid "Sidebar lines color:"
+msgstr "Цвят на линиите на страничната лента:"
+
+#: themes/blowup/src/Config.php:378
+msgid "Sidebar links color:"
+msgstr "Цвят на връзките в страничната лента:"
+
+#: themes/blowup/src/Config.php:381
+msgid "Sidebar visited links color:"
+msgstr "Цвят на посетените връзки в страничната лента:"
+
+#: themes/blowup/src/Config.php:384
+msgid "Sidebar focus links color:"
+msgstr "Цвят на връзките за фокус в страничната лента:"
+
+#: themes/blowup/src/Config.php:388
+msgid "Date title font:"
+msgstr "Шрифт на заглавието на датата:"
+
+#: themes/blowup/src/Config.php:391
+msgid "Date title font size:"
+msgstr "Размер на шрифта на заглавието на датата:"
+
+#: themes/blowup/src/Config.php:394
+msgid "Date title color:"
+msgstr "Дата заглавие цвят:"
+
+#: themes/blowup/src/Config.php:397
+msgid "Entry title font:"
+msgstr "Шрифт на заглавието на вписването:"
+
+#: themes/blowup/src/Config.php:400
+msgid "Entry title font size:"
+msgstr "Размер на шрифта на заглавието на вписването:"
+
+#: themes/blowup/src/Config.php:403
+msgid "Entry title color:"
+msgstr "Цвят на заглавието на вписването:"
+
+#: themes/blowup/src/Config.php:408
+msgid "Comment background color:"
+msgstr "Цвят на фона на коментара:"
+
+#: themes/blowup/src/Config.php:413
+msgid "Comment text color:"
+msgstr "Цвят на текста на коментара:"
+
+#: themes/blowup/src/Config.php:418
+msgid "My comment background color:"
+msgstr "Цвят на фона на коментара ми:"
+
+#: themes/blowup/src/Config.php:423
+msgid "My comment text color:"
+msgstr "Цветът на текста на моя коментар:"
+
+#: themes/blowup/src/Config.php:426
+msgid "Footer"
+msgstr "Футер"
+
+#: themes/blowup/src/Config.php:427
+msgid "Footer font:"
+msgstr "Шрифт на колонтитула:"
+
+#: themes/blowup/src/Config.php:430
+msgid "Footer font size:"
+msgstr "Размер на шрифта на колонтитула:"
+
+#: themes/blowup/src/Config.php:433
+msgid "Footer color:"
+msgstr "Цвят на колонтитула:"
+
+#: themes/blowup/src/Config.php:436
+msgid "Footer links color:"
+msgstr "Цвят на връзките в долния колонтитул:"
+
+#: themes/blowup/src/Config.php:439
+msgid "Footer background color:"
+msgstr "Цвят на фона на колонтитула:"
+
+#: themes/blowup/src/Config.php:442 themes/blowup/src/Config.php:447
+msgid "Additional CSS"
+msgstr "Допълнителни CSS"
+
+#: themes/blowup/src/Config.php:443
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "Всички допълнителни CSS стилове (трябва да бъдат написани с помощта на CSS синтаксиса):"
+
+#: themes/blowup/src/Config.php:465
+msgid "Configuration import / export"
+msgstr "Импорт/експорт на конфигурация"
+
+#: themes/blowup/src/Config.php:467
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "Можете да споделите конфигурацията си, като използвате следния код. За да приложите конфигурацията, поставете кода, щракнете върху \"Apply code\" (Приложи код) и запазете."
+
+#: themes/blowup/src/Config.php:471
+msgid "Copy this code:"
+msgstr "Копирайте този код:"
+

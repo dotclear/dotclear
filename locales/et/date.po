@@ -1,0 +1,136 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2024-07-05 10:40\n"
+"Last-Translator: \n"
+"Language-Team: Estonian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: et\n"
+"X-Crowdin-File: /master/locales/_pot/date.pot\n"
+"X-Crowdin-File-ID: 260\n"
+"Language: et_EE\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%Y-%m-%d %H:%M"
+
+msgid "_Jan"
+msgstr "_Jan"
+
+msgid "_Feb"
+msgstr "_Febr."
+
+msgid "_Mar"
+msgstr "_Mar"
+
+msgid "_Apr"
+msgstr "_Apr"
+
+msgid "_May"
+msgstr "Maikuus"
+
+msgid "_Jun"
+msgstr "_Jun"
+
+msgid "_Jul"
+msgstr "_Jul"
+
+msgid "_Aug"
+msgstr "_Aug"
+
+msgid "_Sep"
+msgstr "_Sep"
+
+msgid "_Oct"
+msgstr "_Oct"
+
+msgid "_Nov"
+msgstr "_Nov"
+
+msgid "_Dec"
+msgstr "_Dec"
+
+msgid "January"
+msgstr "Jaanuar"
+
+msgid "February"
+msgstr "Veebruar"
+
+msgid "March"
+msgstr "Märts"
+
+msgid "April"
+msgstr "Aprill"
+
+msgid "May"
+msgstr "Mai"
+
+msgid "June"
+msgstr "juuni"
+
+msgid "July"
+msgstr "juuli"
+
+msgid "August"
+msgstr "August"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktoober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "Detsember"
+
+msgid "_Mon"
+msgstr "_Mon"
+
+msgid "_Tue"
+msgstr "_Tue"
+
+msgid "_Wed"
+msgstr "_Wed"
+
+msgid "_Thu"
+msgstr "_Thu"
+
+msgid "_Fri"
+msgstr "_Fri"
+
+msgid "_Sat"
+msgstr "_Sat"
+
+msgid "_Sun"
+msgstr "_Sun"
+
+msgid "Monday"
+msgstr "Esmaspäev"
+
+msgid "Tuesday"
+msgstr "Teisipäev"
+
+msgid "Wednesday"
+msgstr "Kolmapäev"
+
+msgid "Thursday"
+msgstr "Neljapäev"
+
+msgid "Friday"
+msgstr "Reede"
+
+msgid "Saturday"
+msgstr "Laupäeval"
+
+msgid "Sunday"
+msgstr "Pühapäev"
+

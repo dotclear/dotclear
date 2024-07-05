@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-21 08:26+0100\n"
+"PO-Revision-Date: 2024-07-05 10:44\n"
+"Last-Translator: \n"
+"Language-Team: Estonian\n"
+"Language: et_EE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Project-ID: 2\n"
+"X-Crowdin-Language: et\n"
+"X-Crowdin-File: /master/themes/blowup/locales/_pot/admin.pot\n"
+"X-Crowdin-File-ID: 559\n"
+
+#: themes/blowup/src/Config.php:123
+msgid "Light linear gradient"
+msgstr "Kerge lineaarne gradient"
+
+#: themes/blowup/src/Config.php:124
+msgid "Medium linear gradient"
+msgstr "Keskmine lineaarne gradient"
+
+#: themes/blowup/src/Config.php:125
+msgid "Dark linear gradient"
+msgstr "Tume lineaarne gradient"
+
+#: themes/blowup/src/Config.php:126
+msgid "Solid color"
+msgstr "Ühevärviline"
+
+#: themes/blowup/src/Config.php:129
+msgid "Custom..."
+msgstr "Custom..."
+
+#: themes/blowup/src/Config.php:231
+msgid "Theme configuration has been successfully updated."
+msgstr "Teema konfiguratsioon on edukalt uuendatud."
+
+#: themes/blowup/src/Config.php:253
+msgid "Back to Blog appearance"
+msgstr "Tagasi blogi ilmumise juurde"
+
+#: themes/blowup/src/Config.php:257
+msgid "Customization"
+msgstr "Kohandamine"
+
+#: themes/blowup/src/Config.php:258
+msgid "General"
+msgstr "Üldine"
+
+#: themes/blowup/src/Config.php:262
+msgid "Background color:"
+msgstr "Taustavärv:"
+
+#: themes/blowup/src/Config.php:265
+msgid "Background color fill:"
+msgstr "Taustavärvi täitmine:"
+
+#: themes/blowup/src/Config.php:270
+msgid "Main text font:"
+msgstr "Põhiteksti font:"
+
+#: themes/blowup/src/Config.php:273
+msgid "Main text font size:"
+msgstr "Põhiteksti kirjasuurus:"
+
+#: themes/blowup/src/Config.php:276
+msgid "Main text color:"
+msgstr "Põhiteksti värv:"
+
+#: themes/blowup/src/Config.php:279
+msgid "Text line height:"
+msgstr "Tekstirea kõrgus:"
+
+#: themes/blowup/src/Config.php:283
+msgid "Links color:"
+msgstr "Linkide värv:"
+
+#: themes/blowup/src/Config.php:286
+msgid "Visited links color:"
+msgstr "Külastatud linkide värv:"
+
+#: themes/blowup/src/Config.php:289
+msgid "Focus links color:"
+msgstr "Fookus lingid värvi:"
+
+#: themes/blowup/src/Config.php:296
+msgid "Prelude color:"
+msgstr "Prelüüdi värv:"
+
+#: themes/blowup/src/Config.php:301
+msgid "Hide main title"
+msgstr "Peida peamine pealkiri"
+
+#: themes/blowup/src/Config.php:304
+msgid "Main title font:"
+msgstr "Pealkirja font:"
+
+#: themes/blowup/src/Config.php:307
+msgid "Main title font size:"
+msgstr "Pealkirja kirjasuurus:"
+
+#: themes/blowup/src/Config.php:310
+msgid "Main title color:"
+msgstr "Pealkirja värv:"
+
+#: themes/blowup/src/Config.php:313
+msgid "Main title alignment:"
+msgstr "Peamine pealkirja joondamine:"
+
+#: themes/blowup/src/Config.php:314
+msgid "center"
+msgstr "keskus"
+
+#: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
+msgid "left"
+msgstr "vasakule"
+
+#: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
+msgid "right"
+msgstr "õigus"
+
+#: themes/blowup/src/Config.php:316
+msgid "Main title position (x:y)"
+msgstr "Pealkirja asukoht (x:y)"
+
+#: themes/blowup/src/Config.php:327 themes/blowup/src/Config.php:328
+msgid "Top image"
+msgstr "Ülemine pilt"
+
+#: themes/blowup/src/Config.php:330
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "Oma pildi üleslaadimiseks valige \"Custom...\"."
+
+#: themes/blowup/src/Config.php:332
+msgid "Add your image:"
+msgstr "Lisage oma pilt:"
+
+#: themes/blowup/src/Config.php:333
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "JPEG- või PNG-fail, 800 pikslit lai, maksimaalne suurus %s"
+
+#: themes/blowup/src/Config.php:344
+msgid "Sidebar"
+msgstr "Külgriba"
+
+#: themes/blowup/src/Config.php:345
+msgid "Sidebar position:"
+msgstr "Külgriba positsioon:"
+
+#: themes/blowup/src/Config.php:348
+msgid "Sidebar text font:"
+msgstr "Külgriba tekstifont:"
+
+#: themes/blowup/src/Config.php:351
+msgid "Sidebar text font size:"
+msgstr "Külgriba teksti kirjasuurus:"
+
+#: themes/blowup/src/Config.php:354
+msgid "Sidebar text color:"
+msgstr "Külgriba teksti värv:"
+
+#: themes/blowup/src/Config.php:357
+msgid "Sidebar titles font:"
+msgstr "Külgribade pealkirjade font:"
+
+#: themes/blowup/src/Config.php:360
+msgid "Sidebar titles font size:"
+msgstr "Külgribade pealkirjade kirjasuurus:"
+
+#: themes/blowup/src/Config.php:363
+msgid "Sidebar titles color:"
+msgstr "Külgribade pealkirjade värv:"
+
+#: themes/blowup/src/Config.php:366
+msgid "Sidebar 2nd level titles font:"
+msgstr "Külgriba 2. taseme pealkirjade font:"
+
+#: themes/blowup/src/Config.php:369
+msgid "Sidebar 2nd level titles font size:"
+msgstr "Külgriba 2. taseme pealkirjade kirjasuurus:"
+
+#: themes/blowup/src/Config.php:372
+msgid "Sidebar 2nd level titles color:"
+msgstr "Külgriba 2. taseme pealkirjade värv:"
+
+#: themes/blowup/src/Config.php:375
+msgid "Sidebar lines color:"
+msgstr "Külgmiste ridade värv:"
+
+#: themes/blowup/src/Config.php:378
+msgid "Sidebar links color:"
+msgstr "Külgriba linkide värv:"
+
+#: themes/blowup/src/Config.php:381
+msgid "Sidebar visited links color:"
+msgstr "Külgriba külastatud linkide värv:"
+
+#: themes/blowup/src/Config.php:384
+msgid "Sidebar focus links color:"
+msgstr "Külgriba fookuslinkide värv:"
+
+#: themes/blowup/src/Config.php:388
+msgid "Date title font:"
+msgstr "Kuupäeva pealkirja font:"
+
+#: themes/blowup/src/Config.php:391
+msgid "Date title font size:"
+msgstr "Kuupäeva pealkirja kirjasuurus:"
+
+#: themes/blowup/src/Config.php:394
+msgid "Date title color:"
+msgstr "Kuupäeva pealkirja värv:"
+
+#: themes/blowup/src/Config.php:397
+msgid "Entry title font:"
+msgstr "Kirje pealkirja font:"
+
+#: themes/blowup/src/Config.php:400
+msgid "Entry title font size:"
+msgstr "Kirje pealkirja kirjasuurus:"
+
+#: themes/blowup/src/Config.php:403
+msgid "Entry title color:"
+msgstr "Sissekande pealkiri värv:"
+
+#: themes/blowup/src/Config.php:408
+msgid "Comment background color:"
+msgstr "Kommentaaride taustavärv:"
+
+#: themes/blowup/src/Config.php:413
+msgid "Comment text color:"
+msgstr "Kommentaaride teksti värv:"
+
+#: themes/blowup/src/Config.php:418
+msgid "My comment background color:"
+msgstr "Minu kommentaari taustavärv:"
+
+#: themes/blowup/src/Config.php:423
+msgid "My comment text color:"
+msgstr "Minu kommentaari teksti värv:"
+
+#: themes/blowup/src/Config.php:426
+msgid "Footer"
+msgstr "Footer"
+
+#: themes/blowup/src/Config.php:427
+msgid "Footer font:"
+msgstr "Footer font:"
+
+#: themes/blowup/src/Config.php:430
+msgid "Footer font size:"
+msgstr "Alumise osa kirjasuurus:"
+
+#: themes/blowup/src/Config.php:433
+msgid "Footer color:"
+msgstr "Alumise osa värv:"
+
+#: themes/blowup/src/Config.php:436
+msgid "Footer links color:"
+msgstr "Alumise osa linkide värv:"
+
+#: themes/blowup/src/Config.php:439
+msgid "Footer background color:"
+msgstr "Alumise osa taustavärv:"
+
+#: themes/blowup/src/Config.php:442 themes/blowup/src/Config.php:447
+msgid "Additional CSS"
+msgstr "Täiendav CSS"
+
+#: themes/blowup/src/Config.php:443
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "Kõik täiendavad CSS-stiilid (peavad olema kirjutatud CSS-süntaksiga):"
+
+#: themes/blowup/src/Config.php:465
+msgid "Configuration import / export"
+msgstr "Konfiguratsiooni import/eksport"
+
+#: themes/blowup/src/Config.php:467
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "Saate oma konfiguratsiooni jagada, kasutades järgmist koodi. Konfiguratsiooni kohaldamiseks kleepige kood, klõpsake \"Apply code\" ja salvestage."
+
+#: themes/blowup/src/Config.php:471
+msgid "Copy this code:"
+msgstr "Kopeeri see kood:"
+
