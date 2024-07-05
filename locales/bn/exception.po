@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-12-02 04:42\n"
+"PO-Revision-Date: 2024-07-05 09:37\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr "অভ্যন্তরীণ সার্ভার ত্রুটি"
 # in Dotclear\App
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr ""
+msgstr "<p>এর মানে হয় আপনার <strong>config.php</strong> ফাইলের ব্যবহারকারীর নাম এবং পাসওয়ার্ড তথ্য ভুল অথবা আমরা \"<em>%s</em>\" এ ডাটাবেস সার্ভারের সাথে যোগাযোগ করতে পারছি না। এর অর্থ হতে পারে আপনার হোস্টের ডাটাবেস সার্ভার ডাউন।</p> <ul><li>আপনি কি নিশ্চিত যে আপনার সঠিক ব্যবহারকারীর নাম এবং পাসওয়ার্ড আছে?</li><li>আপনি কি নিশ্চিত যে আপনি সঠিক হোস্টনাম টাইপ করেছেন?</li><li>আপনি কি নিশ্চিত যে ডাটাবেস সার্ভার চলছে?</li></ul><p>আপনি যদি নিশ্চিত না হন যে এই শর্তাবলীর অর্থ কী তা আপনাকে সম্ভবত আপনার হোস্টের সাথে যোগাযোগ করা উচিত। আপনার যদি এখনও সাহায্যের প্রয়োজন হয় তাহলে আপনি সবসময় <a href=\"https://forum.dotclear.net/\">ডটক্লিয়ার সাপোর্ট ফোরামে</a> যেতে পারেন।</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"
@@ -89,12 +89,12 @@ msgstr "কনফিগ ফাইল লোড করার জন্য Dotclea
 # in Dotclear\Config
 #, php-format
 msgid "%s cryptographic algorithm configured is not strong enough, please change it."
-msgstr ""
+msgstr "কনফিগার করা %s ক্রিপ্টোগ্রাফিক অ্যালগরিদম যথেষ্ট শক্তিশালী নয়, অনুগ্রহ করে এটি পরিবর্তন করুন।"
 
 # in Dotclear\Config
 #, php-format
 msgid "%s directory does not exist. Please create it."
-msgstr ""
+msgstr "%s ডিরেক্টরি বিদ্যমান নয়। দয়া করে তৈরি করুন।"
 
 # in Dotclear\Config
 #, php-format
@@ -111,12 +111,12 @@ msgstr "অবচিত কোর লোড করতে অক্ষম"
 
 # in Dotclear\Core\Task
 msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
-msgstr ""
+msgstr "<p>এই সাময়িক অপ্রাপ্যতার জন্য আমরা দুঃখিত। <br>আপনার বোঝার জন্য আপনাকে ধন্যবাদ।</p>"
 
 # in Dotclear\Core\Task
 #, php-format
 msgid "Unable to find class %s"
-msgstr ""
+msgstr "%s ক্লাস খুঁজতে অক্ষম"
 
 # in Dotclear\Core\Task
 #, php-format
