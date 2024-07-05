@@ -1,129 +1,87 @@
 <html>
+
 <head>
   <title>Benutzereinstellungen</title>
 </head>
 
 <body>
-
-<h4>Mein Profil</h4>
-<dl>
-  <dt>Name, Vorname</dt>
-  <dd>Wenn der Nickname leer ist, dann wird der Autorenname stattdessen angezeigt, 
-  wobei erst der Vorname und dann der Nachname angezeigt werden.</dd>
-  
-  <dt>Nickname</dt>
-  <dd>Du kannst selbst entscheiden, was der Nickname Deiner Eintr&auml;ge sein soll.</dd>
-  
-  <dt>E-mail</dt>
-  <dd>E-Mail-Adresse, die verwendet wird, wenn Sie ein neues Passwort anfordern.<br>
-    An diese Adresse werden auch Benachrichtigungen über neue Kommentare gesendet.<em>(Wenn Sie
-  dieses Feld aktualisieren, müssen Sie Ihr aktuelles Passwort in das entsprechende Feld am 
-  Ende des Formulars eingeben)</em></dd>
-  
-  <dt>URL</dt>
-  <dd>Die Webadresse des Benutzers, sofern der Autor eine Verlinkung zu seiner Webadresse w&uuml;nscht.</dd>
-  
-  <dt>Bevorzugtes Format</dt>
-  <dd>Ausw&auml;hlen der bevorzugten Syntax. Wiki ist eine vereinfachte Syntax und wird zu HTML konvertiert.
-  Wir raten die Wiki Syntax zu verwenden, wenn Du keine HTML Kenntnisse hast.</dd>
-  
-  <dt>Standardstatus des Eintrages</dt>
-  <dd>Diese Auswahl bestimmt die Zeit, die bei der Veröffentlichung angezeigt wird.</dd>
-  
-  <dt>Die H&ouml;he des Eintragsfeldes</dt>
-  <dd>Die H&ouml;he des Eintragsfeldes ist standardm&auml;ssig auf 24 gesetzt.</dd>
-</dl>
-
-
-<h4>Meine Optionen</h4>
-<h5>Schnittstelle</h5>
-<dl>  
-  <dt>Aktivieren Sie den erweiterten Uploader im Medienmanager</dt>
-  <dd>Ermöglicht die Aktivierung der erweiterten Schnittstelle im Medienmanager, die es ermöglicht, 
-  mehrere Dateien gleichzeitig hochzuladen (Hinweis: Ihr Webbrowser muss Javascript unterstützen 
-  , um diese Funktion nutzen zu können).</dd>
-
-  <dt>Deaktivieren Sie Javascript-gestütztes Ziehen und Ablegen für die Bestellung von Artikeln</dt>
-  <dd>Ermöglicht die Deaktivierung von "Drag and Drop" für die Artikelbestellung. Drag and Drop wird 
-  durch numerische Felder ersetzt, in die Sie stattdessen die Position der Felder eingeben können.</dd>
-
-  <dt>Anzahl der Elemente, die pro Seite im Medienmanager angezeigt werden</dt>
-  <dd>Definiert die Anzahl der Medien, die im Medienmanager angezeigt werden (Ordner
-  werden bei der Zählung nicht berücksichtigt).</dd>
-  
-  <dt>Kein Standard-Favicon verwenden</dt>
-  <dd>Ermöglicht die Deaktivierung des Standard-Favicons in der Adressleiste des Webbrowsers.</dd>
-</dl>
-
-<h5>Ausgabe</h5>
-<dl>    
-  <dt>Bevorzugtes Format</dt>
-  <dd>Wählen Sie die Syntax des Eintrags. Wiki ist eine vereinfachte Syntax
-  und wird in gültiges HTML umgewandelt. Wenn Sie nicht über perfekte
-  HTML-Kenntnisse verfügen, raten wir Ihnen, die Wiki-Syntax zu wählen.
-  Weitere Informationen finden Sie in der Wiki-Syntax-Referenz.</dd>
-  
-  <dt>Standard-Eintragsstatus</dt>
-  <dd>Der Standardstatus für neue Einträge kann auf gesetzt werden:
-    <ul>
-      <li><strong>Anhängig:</strong> Über den Veröffentlichungsstatus wurde noch nicht entschieden.</li>
-      <li><strong>Geplant:</strong> Der Eintrag wird zu dem Datum und der Uhrzeit online gestellt, die im Feld <strong>angegeben sind. Veröffentlicht auf</strong> .</li>
-      <li><strong>Unveröffentlicht:</strong> Offline-Eintrag.</li>
-      <li><strong>Veröffentlicht:</strong> Online-Eintrag.</li>
-    </ul>
-  </dd>
-  
-  <dt>Höhe des Eingabefeldes</dt>
-  <dd>Legt die Höhe des Ausgabefelds eines Eintrags fest. Standardmäßig ist dieser Parameter auf 24 eingestellt.</dd>
-  
-  <dt>WYSIWYG-Modus einschalten</dt>
-  <dd>Ermöglicht die Verwendung des visuellen Editors (WYSIWYG: What You See Is What You Get) für die Beschreibungsfelder der Einträge, Seiten und Kategorien.</dd>
-</dl>
-
-<h5>Andere Optionen</h5>
-<dl>
-  <dt>Tags Listenformat</dt>
-  <dd>Sie können auswählen, ob Sie bei der Bearbeitung eines Eintrags alle verwendeten Tags (<strong>Extended</strong>) oder nur die am häufigsten verwendeten Tags (<strong>Short</strong>) sehen möchten.</dd>
-
-  <dt>Syntaxhervorhebung im Themeneditor</dt>
-  <dd>Aktiviert die Syntaxhervorhebung bei der Verwendung des Themeneditors (HTML- und CSS-Dateien)</dd>     
-</dl>
-
-
-<h4>Mein Armaturenbrett</h4>
-<dl>
-  <dt>Meine Favoriten</dt>
-  <dd>In diesem Bereich werden die ausgewählten Favoriten auf dem Dashboard des Blogs angezeigt. 
-  Sie können mit der Maus neu sortiert werden, wenn Javascript in Ihrem Browser aktiviert ist. 
-  Andernfalls können Sie ihnen über ein Feld eine Bestellnummer geben. Wenn Sie fertig sind, vergessen Sie nicht, Ihre Änderungen zu speichern, indem Sie auf <strong>Bestellung speichern</strong>drücken.<br>
-  Sie können auch Favoriten löschen, indem Sie sie markieren und auf <strong>Ausgewählte Favoriten löschen</strong>drücken.</dd>
-  
-  <dt>Als Standardfavoriten definieren (Superadministrator)</dt> 
-  <dd>Aktivieren Sie diese Option, um die aktuell definierte Favoritenliste als Standard-Favoritenliste für alle Benutzer festzulegen. Diese Liste wird den Benutzern vorgeschlagen, wenn sie noch keine eigenen Favoriten definiert haben.</dd>
-
-  <dt>Andere verfügbare Favoriten</dt>
-  <dd>Hier werden alle Plugins angezeigt, die als Favoriten abgelegt werden können. Markieren Sie die entsprechenden Kästchen und fügen Sie sie dem Dashboard hinzu, indem Sie auf <strong>Add tp my favorites</strong>drücken.</dd>
-
-  <dt>Favoriten im oberen Bereich des Menüs anzeigen</dt>
-  <dd>Falls aktiviert, werden die Favoriten oben im Menü angezeigt.</dd>
-
-  <dt>Dashboard-Module</dt>
-  <dd>Die in diesem Bereich getroffenen Entscheidungen werden auf dem Dashboard Ihres Blogs angezeigt.</dd>
-  
-  <dt>Links zur Dokumentation anzeigen</dt>
-  <dd>Aktivieren Sie die Anzeige von Dokumentationslinks auf der Dashboard-Landingpage.</dd>
-  
-  <dt>Dotclear Nachrichten anzeigen</dt>
-  <dd>Aktivieren Sie die Anzeige von Dotclear-Nachrichten auf der Dashboard-Landingpage.</dd>
-
-  <dt>Schnellerfassungsformular anzeigen</dt>
-  <dd>Aktivieren Sie die Anzeige des "Schnelleingabe"-Formulars auf der Dashboard-Landingpage.</dd>
-
-  <dt>Anzeige des Zählers für überfällige Aufgaben auf dem Dashboard-Symbol für die Wartung</dt>
-  <dd>Ermöglicht die Anzeige der Anzahl der überfälligen Aufgaben (d.h. die bearbeitet werden sollten) unter dem Symbol <strong>Wartung</strong> . <strong>Das Symbol Wartung</strong> muss in Ihren Favoriten eingestellt sein, um diese Funktion nutzen zu können.</dd>
-
-  <dt>Liste überfälliger Aufgaben auf Dashboard-Elementen anzeigen</dt>
-  <dd>Aktivieren Sie diese Option, um die Liste der überfälligen Aufgaben (d.h. der Aufgaben, die bearbeitet werden sollten) in einem speziellen Bereich auf der Dashboard-Landingpage anzuzeigen.</dd>
-</dl>
+  <h4>Mein Profil</h4>
+  <dl>
+    <dt>Name, Vorname</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Nickname</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>E-mail</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Bevorzugtes Format</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Standardstatus des Eintrages</dt>
+    <dd>Diese Auswahl bestimmt die Zeit, die bei der Veröffentlichung angezeigt wird.</dd>
+    <dt>Die H&ouml;he des Eintragsfeldes</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Meine Optionen</h4>
+  <h5>Schnittstelle</h5>
+  <dl>
+    <dt>Aktivieren Sie den erweiterten Uploader im Medienmanager</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Deaktivieren Sie Javascript-gestütztes Ziehen und Ablegen für die Bestellung von Artikeln</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Anzahl der Elemente, die pro Seite im Medienmanager angezeigt werden</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Kein Standard-Favicon verwenden</dt>
+    <dd>Ermöglicht die Deaktivierung des Standard-Favicons in der Adressleiste des Webbrowsers.</dd>
+  </dl>
+  <h5>Ausgabe</h5>
+  <dl>
+    <dt>Bevorzugtes Format</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Standard-Eintragsstatus</dt>
+    <dd>Der Standardstatus für neue Einträge kann auf gesetzt werden:
+      <ul>
+        <li><strong>Anhängig:</strong> Über den Veröffentlichungsstatus wurde noch nicht entschieden.</li>
+        <li><strong>Geplant:</strong> Der Eintrag wird zu dem Datum und der Uhrzeit online gestellt, die im Feld <strong>angegeben sind. Veröffentlicht auf</strong> .</li>
+        <li><strong>Unveröffentlicht:</strong> Offline-Eintrag.</li>
+        <li><strong>Veröffentlicht:</strong> Online-Eintrag.</li>
+      </ul>
+    </dd>
+    <dt>Höhe des Eingabefeldes</dt>
+    <dd>Legt die Höhe des Ausgabefelds eines Eintrags fest. Standardmäßig ist dieser Parameter auf 24 eingestellt.</dd>
+    <dt>WYSIWYG-Modus einschalten</dt>
+    <dd>Ermöglicht die Verwendung des visuellen Editors (WYSIWYG: What You See Is What You Get) für die Beschreibungsfelder der Einträge, Seiten und Kategorien.</dd>
+  </dl>
+  <h5>Andere Optionen</h5>
+  <dl>
+    <dt>Tags Listenformat</dt>
+    <dd>Sie können auswählen, ob Sie bei der Bearbeitung eines Eintrags alle verwendeten Tags (<strong>Extended</strong>) oder nur die am häufigsten verwendeten Tags (<strong>Short</strong>) sehen möchten.</dd>
+    <dt>Syntaxhervorhebung im Themeneditor</dt>
+    <dd>Aktiviert die Syntaxhervorhebung bei der Verwendung des Themeneditors (HTML- und CSS-Dateien)</dd>
+  </dl>
+  <h4>Mein Armaturenbrett</h4>
+  <dl>
+    <dt>Meine Favoriten</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Als Standardfavoriten definieren (Superadministrator)</dt>
+    <dd>Aktivieren Sie diese Option, um die aktuell definierte Favoritenliste als Standard-Favoritenliste für alle Benutzer festzulegen. Diese Liste wird den Benutzern vorgeschlagen, wenn sie noch keine eigenen Favoriten definiert haben.</dd>
+    <dt>Andere verfügbare Favoriten</dt>
+    <dd>Hier werden alle Plugins angezeigt, die als Favoriten abgelegt werden können. Markieren Sie die entsprechenden Kästchen und fügen Sie sie dem Dashboard hinzu, indem Sie auf <strong>Add tp my favorites</strong>drücken.</dd>
+    <dt>Favoriten im oberen Bereich des Menüs anzeigen</dt>
+    <dd>Falls aktiviert, werden die Favoriten oben im Menü angezeigt.</dd>
+    <dt>Dashboard-Module</dt>
+    <dd>Die in diesem Bereich getroffenen Entscheidungen werden auf dem Dashboard Ihres Blogs angezeigt.</dd>
+    <dt>Links zur Dokumentation anzeigen</dt>
+    <dd>Aktivieren Sie die Anzeige von Dokumentationslinks auf der Dashboard-Landingpage.</dd>
+    <dt>Dotclear Nachrichten anzeigen</dt>
+    <dd>Aktivieren Sie die Anzeige von Dotclear-Nachrichten auf der Dashboard-Landingpage.</dd>
+    <dt>Schnellerfassungsformular anzeigen</dt>
+    <dd>Aktivieren Sie die Anzeige des "Schnelleingabe"-Formulars auf der Dashboard-Landingpage.</dd>
+    <dt>Anzeige des Zählers für überfällige Aufgaben auf dem Dashboard-Symbol für die Wartung</dt>
+    <dd>Ermöglicht die Anzeige der Anzahl der überfälligen Aufgaben (d.h. die bearbeitet werden sollten) unter dem Symbol <strong>Wartung</strong> . <strong>Das Symbol Wartung</strong> muss in Ihren Favoriten eingestellt sein, um diese Funktion nutzen zu können.</dd>
+    <dt>Liste überfälliger Aufgaben auf Dashboard-Elementen anzeigen</dt>
+    <dd>Aktivieren Sie diese Option, um die Liste der überfälligen Aufgaben (d.h. der Aufgaben, die bearbeitet werden sollten) in einem speziellen Bereich auf der Dashboard-Landingpage anzuzeigen.</dd>
+  </dl>
 </body>
+
 </html>
