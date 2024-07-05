@@ -1,396 +1,382 @@
 <html>
+
 <head>
   <title></title> <!-- Leave the title empty -->
 </head>
 
 <body>
-
-<div class="multi-part legible" id="first-step" title="Premiers pas">
-	<h3>Découverte de l’interface</h3>
-	<div class="fieldset">
-		<h4>Aides contextuelles</h4>
-		<p>Outre les pages d'aide globale, plusieurs pages d'administration disposent d'une aide en ligne. Si Javascript est activé
-		sur votre navigateur, vous pouvez voir l'aide en ligne en haut à droite de la page, en cliquant sur le lien <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help ?</strong> . Si Javascript est désactivé, l'aide est affichée en bas de la page.</p>
-	</div>
-
-	<p>Sur chaque page de l’administration, vous retrouverez les mêmes volet en haut, menu principal et pied de page. <em>(Les emplacements de chacun de ces éléments sont indiqués ici pour une consultation sur ordinateur&nbsp;; sur un mobile ou une tablette, leur emplacement varie selon la place disponible.)</em></p>
-
-	<h4 class="pretty-title">Bandeau haut</h4>
-	<p>Le volet en haut de chaque page est composé de trois éléments :</p>
-	<h5 class="as_h4">Logo</h5>
-	<p>Par défaut, ce logo est celui de Dotclear et son lien conduit vers l’accueil de l’administration. Toutefois, un·e gestionnaire de plate-forme peut choisir un autre logo et diriger le lien vers autre chose que l’accueil (en général la page d’accueil du service).</p>
-
-	<h5 class="as_h4">Blog(s)</h5>
-	<p>Le premier élément situé après le logo indique le bloc dit <em>actif</em>, c’est-à-dire celui sur lequel vous êtes en train d’agir. Si vous avez plusieurs blogs sur la même installation, cette information figure dans un menu déroulant qui permet de permuter sur un autre blog.</p>
-	<p>Le lien suivant le nom du blog permet d’aller voir le blog dans une autre fenêtre ou un autre onglet.</p>
-
-	<h5 class="as_h4">Utilisateur</h5>
-	<p>À l’extrême droite du volet haut, le lien <em>Mon tableau de bord</em> permet de revenir à l’accueil du blog.</p>
-	<p>Le lien suivant, <em>Mes préférences</em> dirige vers la page où vous pourrez modifier vos informations personnelles, configurer votre tableau de bord et choisir vos options d’interface et d’édition.</p>
-	<p>Étonnamment, le lien <em>Déconnecter [votre login]</em> permet de… se déconnecter, si si. (Chez Dotclear, on est trop forts en ergo.)</p>
-
-	<h4 class="pretty-title">Menu principal</h4>
-	<p>Le menu principal est situé à gauche de l’écran. Il peut être rétracté en cliquant sur sa bordure droite (puis déployé en cliquant sur cette même bordure).</p>
-	<p>Il conduit vers les différentes pages d’administration correspondant à vos permissions sur le blog actif. Quatre blocs le composent&nbsp;</p>
-	<ul>
-		<li><strong>Mes Favoris</strong> liste les pages que vous avez désignées comme telles dans l’onglet <em>Mon tableau de bord</em> de <em>Mes préférences</em>. Si vous n’avez encore choisi aucun favori, cette liste correspond au set par défaut de Dotclear ou celui du ou de la gestionnaire de la plate-forme. Si vous ne souhaitez pas afficher ce bloc, décochez la case correspondante dans vos options de tableau de bord.</li>
-		<li><strong>Blog</strong> répertorie toutes les pages qui permettent d'alimenter et de configurer le blog en cours, qu'il s'agisse de modifier une entrée, de gérer les médias, de choisir l'apparence du blog ou d'autres paramètres.<br>
-		<em>Si vous n'avez pas les droits d'administrateur sur le blog en cours, il n'y aura pas d'autre bloc en dessous de celui-ci dans le menu principal.</em></li>
-		<li><strong>Réglages système</strong> offre l’accès aux pages permettant d’administrer l’installation Dotclear : gestion des blogs, utilisateur·rice·s et langues disponibles, installation d’extensions, réglages système. Si vous possédez des droits sur plusieurs blogs mais ne disposez pas du statut de super administrateur·rice, il est constitué du seul item <em>Blogs</em>.</li>
-		<li><strong>Plugins</strong> permet d’effectuer les paramétrages des plugins installés. Si les réglages d’un plugin n’impactent qu’un blog à la fois, sa page d’administration est disponible depuis le bloc <em>Blog</em>, mais si les réglages ont des répercussions sur toutes les pages de l’installation ils figurent ici et ne sont accessibles qu’aux utilisateur·rice·s disposant des droits de super admin.</li>
-	</ul>
-
-	<h4 class="pretty-title">Pied de page</h4>
-	<p>Une version gratuite de Dotclear est offerte à tout utilisateur·rice découvrant le secret du pied de page.</p>
-
-	<h3>Aide aux grands débutants</h3>
-	<p>Si vous n'êtes pas familier avec les blogs, nous vous recommandons de consulter notre documentation (la table des matières complète est disponible dans l'onglet <strong>Documentation</strong> de cette page) ainsi que des tutoriels tels que :
-	<ul>
-		<li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Ma première entrée, étape par étape.</a></li>
-	</ul>
-
-	<p>Le <a href="https://forum.dotclear.net/">forum</a> est un lieu d’entraide convivial où aucune question n’est considérée comme stupide. N’hésitez pas à y participer pour demander de l’aide et – pourquoi pas – aider d’autres utilisateurs à votre tour.</p>
-
-	<p class="info">Nous nous efforçons d’utiliser un vocabulaire compréhensible sans connaissances préalables. Toutefois si nous nous sommes laissés aller à employer un terme de jargon, vous en trouverez sans doute l’explication dans le <a href="https://fr.dotclear.org/documentation/glossary">glossaire</a> de notre documentation en ligne.</p>
-</div>
-
-<div class="multi-part" id="users-doc" title="Documentation utilisateur·rice·s">
-	<h3>Documentation pour les utilisateur·rice·s</h3>
-	<div class="three-boxes">
-		<h4 class="pretty-title">Alimentation du blog</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/entries">Billets</a>
-					<ul>
-						<li>Création et édition</li>
-						<li>Informations du billet</li>
-						<li>Actions sur le billet</li>
-						<li>Commentaires et rétroliens</li>
-						<li>Traitement par lots des billets</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Commentaires et rétroliens</a>
-					<ul>
-						<li>Suivi</li>
-						<li>Gestion</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/categories">Catégories</a>
-					<ul>
-						<li>Créer une catégorie</li>
-						<li>Éditer une catégorie</li>
-						<li>Supprimer une catégorie</li>
-						<li>Ordonner la liste des catégories</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/tags">Mots-clés (Tags)</a>
-					<ul>
-						<li>Ajouter des mots-clés</li>
-						<li>Gestion des mots-clés</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/media">Médias et pièces jointes</a>
-					<ul>
-						<li>Créer un sous-répertoire</li>
-						<li>Ajouter des fichiers</li>
-						<li>Télécharger une archive zip du dossier courant</li>
-						<li>Modifier ou compléter les informations d&#039;un fichier</li>
-						<li>Ajout direct de fichiers</li>
-						<li>Types de fichier particuliers</li>
-						<li>Pièces jointes</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Contenu du menu du blog (widgets)</a>
-					<ul>
-						<li>Bandeau de navigation, volet d&#039;extra</li>
-						<li>Les widgets par défaut</li>
-						<li>Ajouter/Supprimer un widget</li>
-						<li>Paramétrage des widgets</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Liste des liens</a>
-					<ul>
-						<li>Liste des liens</li>
-						<li>Ajouter un lien</li>
-						<li>Ajouter une catégorie de liens</li>
-						<li>XFN</li>
-						<li>Importer depuis un fichier OPML ou XBEL</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes">
-		<h4 class="pretty-title">Paramétrage et personnalisations</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Paramètres du blog</a>
-					<ul>
-						<li>Informations du blog</li>
-						<li>Configuration du blog</li>
-						<li>Commentaires et rétroliens</li>
-						<li>Présentation du blog</li>
-						<li>Médias et images</li>
-						<li>Paramètres d&#039;indexation</li>
-						<li>Antispam</li>
-						<li>LightBox</li>
-						<li>Enregistrer</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Mes préférences</a>
-					<ul>
-						<li>Mon profil</li>
-						<li>Mes options</li>
-						<li>Mon tableau de bord</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">Apparence du blog</a>
-					<ul>
-						<li>Choisir un thème</li>
-						<li>Installer un thème</li>
-						<li>Personnaliser un thème</li>
-						<li>Éditeur de thème</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes fieldset">
-			<h4 class="smart-title">Lectures complémentaires</h4>
-				<h5>Glossaire</h5>
-				<ul><li><a href="https://dotclear.org/documentation/glossary">Tous ces mots mystérieux utilisés dans le web et pour Dotclear</a></li></ul>
-				<h5>Syntaxes de saisie</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Syntaxe wiki et équivalent HTML</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Aller plus loin</a></li>
-					</ul>
-				<h5>Syndication RSS, Atom</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Kesako ?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Comment les mettre à disposition ?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Comment s&#039;abonner ?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">En savoir plus</a></li>
-					</ul>
-			<h4 class="smart-title">Tutoriels</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">Le forum de Dotclear</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq">Questions fréquemment posées</a></li>
-				</ul>
-	</div>
-</div>
-
-	<div class="multi-part" id="admin-doc" title="Documentation administrateur·rice·s">
-	<h3>Documentation pour les administrateur·rice·s</h3>
-		<div class="three-boxes">
-		<h4 class="pretty-title">Installation et mise à jour</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install">Installation</a>
-					<ul>
-						<li>Prérequis</li>
-						<li>Installation automatique</li>
-						<li>Installation « classique »</li>
-						<li>Assistant d’installation</li>
-						<li>Mise en place manuelle du fichier config.php</li>
-						<li>Fin de l’installation</li>
-						<li>Étapes suivantes</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Mise à jour</a>
-					<ul>
-						<li>Préparatifs</li>
-						<li>Mise à jour automatique</li>
-						<li>Mise à jour manuelle du programme</li>
-						<li>Mise à jour de la base de données</li>
-						<li>Annexe : mise à jour d'une copie avec mercurial</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/config">Paramètres du fichier de configuration (config.php)</a>
-					<ul>
-						<li>Introduction</li>
-						<li>Paramètres</li>
-						<li>Ajouts au fichier</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Mise à jour de Dotclear 1.2 vers 2</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Migration d&#039;un autre système de blog à Dotclear</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Installer en local</a>
-					<ul>
-						<li>Windows</li>
-						<li>Mac OS X</li>
-						<li>Linux</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Installation de Dotclear avec IIS7</a></li>
-			</ul>
-
-			<h5>Annexe hébergeur·euse·s</h5>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/hosting">Hébergeur·euse·s</a>
-				</li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">Administration</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/users">Gestion des utilisateur·rice·s</a>
-					<ul>
-						<li>Liste des utilisateur·rice·s existant·e·s</li>
-						<li>Créer un·e utilisateur·rice</li>
-						<li>Modifier un·e utilisateur·rice</li>
-						<li>Permissions de l&#039;utilisateur·rice</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Installation optimisée</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Installation multiblogs</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Gestion des extensions</a>
-					<ul>
-						<li>Installer une extension</li>
-						<li>Configuration des extensions</li>
-						<li>Suppression d&#039;une extension</li>
-						<li>Mettre à jour une extension</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">Blowup, le thème par défaut</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">Autre apparence</a>
-					<ul>
-						<li>Choisir un thème</li>
-						<li>Installer un thème</li>
-						<li>Personnaliser un thème</li>
-						<li>Éditeur de thème</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Configuration avancée</a></li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">Gestion et maintenance</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/backup">Sauvegarde et restauration</a>
-					<ul>
-						<li>Import/Export</li>
-						<li>Médias</li>
-						<li>Base de données</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Filtre de commentaires indésirables</a>
-					<ul>
-						<li>Organisation des filtres</li>
-						<li>Configuration des filtres</li>
-					</ul>
-				</li>
-			</ul>
-			<div class="fieldset vertical-separator">
-				<h4 class="smart-title">Entraide</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">Le forum de Dotclear</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq#administration">Questions fréquentes des administrateur·rice·s</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="multi-part" id="guide-dev" title="Documentation développeur·euse·s">
-	<h3>Documentation et ressources pour les développeur·euse·s</h3>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">Design &amp; Thèmes</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes">Thèmes</a>
-					<ul>
-						<li>Guide d&#039;utilisation des thèmes</li>
-						<li>Les balises template</li>
-						<li>Annexes</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">L&#039;héritage des thèmes</a>
-					<ul>
-						<li>L&#039;héritage des thèmes</li>
-						<li>Principe</li>
-						<li>Limitations</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Les balises de template</a>
-					<ul>
-						<li>Généralités / utilitaires</li>
-						<li>Blog</li>
-						<li>Billets</li>
-						<li>Pagination des billets</li>
-						<li>Commentaires</li>
-						<li>Prévisualisation d&#039;un commentaire</li>
-						<li>Rétroliens</li>
-						<li>Pièces jointes</li>
-						<li>Catégories</li>
-						<li>Mots-clés</li>
-						<li>Archives</li>
-						<li>Langues</li>
-						<li>Système</li>
-						<li>Widgets</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">Code &amp; Plugins</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Création d’une balise tpl pour un plugin ou un thème</a>
-					<ul>
-						<li>Introduction</li>
-						<li>Les valeurs</li>
-						<li>Les blocs d&#039;instruction</li>
-						<li>Démonstration de l&#039;influence du cache des templates</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Plugins</a>
-					<ul>
-						<li>Réalisation de plugin</li>
-						<li>Documents annexes</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Construire l&#039;aide contextuelle d&#039;un plugin</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Authentification externe</a>
-					<ul>
-						<li>Préambule</li>
-						<li>Une nouvelle classe d&#039;authentification</li>
-						<li>Scénario</li>
-						<li>Application</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">Interface XML/RPC</a></li>
-				<li><a href="https://dev.dotclear.org/code/2/">Documentation de l&#039;API</a></li>
-			</ul>
-		</div>
-
-		<div class="three-boxes">
-			<h4 class="pretty-title">Contribution &amp; Support</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Contribuer</a>
-					<ul>
-						<li>Améliorer la documentation</li>
-						<li>Où envoyer vos œuvres?</li>
-						<li>Rapporter les bugs ou proposer une amélioration</li>
-						<li>Suggestions</li>
-				</ul>
-			</li>
-				<li><a href="https://git.dotclear.org/dev/dotclear">Le dépôt du code source de Dotclear</a></li>
-				<li><a href="https://dotclear.org/forum">Le forum de Dotclear</a></li>
-			</ul>
-
-			<div class="fieldset">
-				<h4 class="smart-title">Lectures complémentaires</h4>
-				<ul>
-					<li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Normes de programmation</a></li>
-					<li><a href="index.php?process=HelpCharte">Charte des pages d'administration</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="multi-part legible" id="a11y-ergo" title="Accessibilité et ergonomie">
-	<h3>Accessibilité et ergonomie</h3>
-	<p>L&#039;interface de Dotclear répond à la quasi totalité des critères <a href="http://www.w3.org/Translations/WCAG20-fr/">WCAG 2.0</a> ; un reporting précis sera prochainement publié sur le <a href="https://fr.dotclear.org/blog/">blog du projet</a>. À terme nous aimerions également répondre pleinement aux critères <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a>.</p>
-	<p>L&#039;accessibilité et l&#039;ergonomie sont au cœur des préoccupations de l&#039;équipe Dotclear. Nous menons régulièrement des analyses avec l&#039;aide d’expert·e·s et procédons continuellement à des correctifs et améliorations.</p>
-	<p>Vous pouvez nous aider en ouvrant des tickets <a href="https://git.dotclear.org/dev/dotclear/issues"></a> ou en participant au forum <a href="https://dotclear.org/forum/"></a>. Vous pouvez également participer à des tests utilisateurs ou rejoindre notre équipe !</p>
-	</div>
-
+  <div class="multi-part legible" id="first-step" title="Premiers pas">
+    <h3>Découverte de l’interface</h3>
+    <div class="fieldset">
+      <h4>Aides contextuelles</h4>
+      <p>In addition to the global help pages, several administration pages have an online help. If javascript is enabled
+        on your browser, you can see online help at the upper-right position of the page, by clicking on the <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong> link. If Javascript is disabled, the help is displayed at the bottom of the page.</p>
+    </div>
+    <p>Sur chaque page de l’administration, vous retrouverez les mêmes volet en haut, menu principal et pied de page. <em>(Les emplacements de chacun de ces éléments sont indiqués ici pour une consultation sur ordinateur&nbsp;; sur un mobile ou une tablette, leur emplacement varie selon la place disponible.)</em></p>
+    <h4 class="pretty-title">Bandeau haut</h4>
+    <p>Le volet en haut de chaque page est composé de trois éléments :</p>
+    <h5 class="as_h4">Logo</h5>
+    <p>By default, this logo is the Dotclear logo and links to the administration landing page. However, a platform
+      manager can choose another logo and redirect towards something else (generally, the service landing page).</p>
+    <h5 class="as_h4">Blog(s)</h5>
+    <p>The first element located after the logo shows the <em>active</em> blog, i.e. the blog on which you are acting. If your
+      installation is composed of several blogs, these informations are available in a combo menu, which lets you switch to another blog.</p>
+    <p>Le lien suivant le nom du blog permet d’aller voir le blog dans une autre fenêtre ou un autre onglet.</p>
+    <h5 class="as_h4">Utilisateur</h5>
+    <p>À l’extrême droite du volet haut, le lien <em>Mon tableau de bord</em> permet de revenir à l’accueil du blog.</p>
+    <p>Le lien suivant, <em>Mes préférences</em> dirige vers la page où vous pourrez modifier vos informations personnelles, configurer votre tableau de bord et choisir vos options d’interface et d’édition.</p>
+    <p>Étonnamment, le lien <em>Déconnecter [votre login]</em> permet de… se déconnecter, si si. (Chez Dotclear, on est trop forts en ergo.)</p>
+    <h4 class="pretty-title">Menu principal</h4>
+    <p>Le menu principal est situé à gauche de l’écran. Il peut être rétracté en cliquant sur sa bordure droite (puis déployé en cliquant sur cette même bordure).</p>
+    <p>Il conduit vers les différentes pages d’administration correspondant à vos permissions sur le blog actif. Quatre blocs le composent&nbsp;</p>
+    <ul>
+      <li><strong>Mes Favoris</strong> liste les pages que vous avez désignées comme telles dans l’onglet <em>Mon tableau de bord</em> de <em>Mes préférences</em>. Si vous n’avez encore choisi aucun favori, cette liste correspond au set par défaut de Dotclear ou celui du ou de la gestionnaire de la plate-forme. Si vous ne souhaitez pas afficher ce bloc, décochez la case correspondante dans vos options de tableau de bord.</li>
+      <li><strong>Blog</strong> lists all the pages that enable to feed and setup the current blog, from editing an entry, managing media, choosing the blog appearance or other parameters.<br>
+        <em>If you do not have administrator rights on the current blog, there will be no other block below that one in the main menu.</em></li>
+      <li><strong>Réglages système</strong> offre l’accès aux pages permettant d’administrer l’installation Dotclear : gestion des blogs, utilisateur·rice·s et langues disponibles, installation d’extensions, réglages système. Si vous possédez des droits sur plusieurs blogs mais ne disposez pas du statut de super administrateur·rice, il est constitué du seul item <em>Blogs</em>.</li>
+      <li><strong>Plugins</strong> permet d’effectuer les paramétrages des plugins installés. Si les réglages d’un plugin n’impactent qu’un blog à la fois, sa page d’administration est disponible depuis le bloc <em>Blog</em>, mais si les réglages ont des répercussions sur toutes les pages de l’installation ils figurent ici et ne sont accessibles qu’aux utilisateur·rice·s disposant des droits de super admin.</li>
+    </ul>
+    <h4 class="pretty-title">Pied de page</h4>
+    <p>Une version gratuite de Dotclear est offerte à tout utilisateur·rice découvrant le secret du pied de page.</p>
+    <h3>Aide aux grands débutants</h3>
+    <p>Si vous n'êtes pas familier avec les blogs, nous vous recommandons de consulter notre documentation (la table des matières complète est disponible dans l'onglet <strong>Documentation</strong> de cette page) ainsi que des tutoriels tels que :
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Ma première entrée, étape par étape.</a></li>
+      </ul>
+      <p>Le <a href="https://forum.dotclear.net/">forum</a> est un lieu d’entraide convivial où aucune question n’est considérée comme stupide. N’hésitez pas à y participer pour demander de l’aide et – pourquoi pas – aider d’autres utilisateurs à votre tour.</p>
+      <p class="info">Nous nous efforçons d’utiliser un vocabulaire compréhensible sans connaissances préalables. Toutefois si nous nous sommes laissés aller à employer un terme de jargon, vous en trouverez sans doute l’explication dans le <a href="https://fr.dotclear.org/documentation/glossary">glossaire</a> de notre documentation en ligne.</p>
+  </div>
+  <div class="multi-part" id="users-doc" title="Documentation utilisateur·rice·s">
+    <h3>Documentation pour les utilisateur·rice·s</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Alimentation du blog</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Billets</a>
+          <ul>
+            <li>Création et édition</li>
+            <li>Informations du billet</li>
+            <li>Actions sur le billet</li>
+            <li>Commentaires et rétroliens</li>
+            <li>Traitement par lots des billets</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Commentaires et rétroliens</a>
+          <ul>
+            <li>Suivi</li>
+            <li>Gestion</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">Catégories</a>
+          <ul>
+            <li>Créer une catégorie</li>
+            <li>Éditer une catégorie</li>
+            <li>Supprimer une catégorie</li>
+            <li>Ordonner la liste des catégories</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Mots-clés (Tags)</a>
+          <ul>
+            <li>Ajouter des mots-clés</li>
+            <li>Gestion des mots-clés</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Médias et pièces jointes</a>
+          <ul>
+            <li>Créer un sous-répertoire</li>
+            <li>Ajouter des fichiers</li>
+            <li>Télécharger une archive zip du dossier courant</li>
+            <li>Modifier ou compléter les informations d&#039;un fichier</li>
+            <li>Ajout direct de fichiers</li>
+            <li>Types de fichier particuliers</li>
+            <li>Pièces jointes</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Contenu du menu du blog (widgets)</a>
+          <ul>
+            <li>Bandeau de navigation, volet d&#039;extra</li>
+            <li>Les widgets par défaut</li>
+            <li>Ajouter/Supprimer un widget</li>
+            <li>Paramétrage des widgets</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Liste des liens</a>
+          <ul>
+            <li>Liste des liens</li>
+            <li>Ajouter un lien</li>
+            <li>Ajouter une catégorie de liens</li>
+            <li>XFN</li>
+            <li>Importer depuis un fichier OPML ou XBEL</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Paramétrage et personnalisations</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Paramètres du blog</a>
+          <ul>
+            <li>Informations du blog</li>
+            <li>Configuration du blog</li>
+            <li>Commentaires et rétroliens</li>
+            <li>Présentation du blog</li>
+            <li>Médias et images</li>
+            <li>Paramètres d&#039;indexation</li>
+            <li>Antispam</li>
+            <li>LightBox</li>
+            <li>Enregistrer</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Mes préférences</a>
+          <ul>
+            <li>Mon profil</li>
+            <li>Mes options</li>
+            <li>Mon tableau de bord</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Apparence du blog</a>
+          <ul>
+            <li>Choisir un thème</li>
+            <li>Installer un thème</li>
+            <li>Personnaliser un thème</li>
+            <li>Éditeur de thème</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes fieldset">
+      <h4 class="smart-title">Lectures complémentaires</h4>
+      <h5>Glossaire</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/glossary">Tous ces mots mystérieux utilisés dans le web et pour Dotclear</a></li>
+      </ul>
+      <h5>Syntaxes de saisie</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Syntaxe wiki et équivalent HTML</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Aller plus loin</a></li>
+      </ul>
+      <h5>Syndication RSS, Atom</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Kesako ?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Comment les mettre à disposition ?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Comment s&#039;abonner ?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">En savoir plus</a></li>
+      </ul>
+      <h4 class="smart-title">Tutoriels</h4>
+      <ul>
+        <li><a href="https://dotclear.org/forum">Le forum de Dotclear</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/faq">Questions fréquemment posées</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="multi-part" id="admin-doc" title="Documentation administrateur·rice·s">
+    <h3>Documentation pour les administrateur·rice·s</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Installation et mise à jour</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Installation</a>
+          <ul>
+            <li>Prérequis</li>
+            <li>Installation automatique</li>
+            <li>Installation « classique »</li>
+            <li>Assistant d’installation</li>
+            <li>Mise en place manuelle du fichier config.php</li>
+            <li>Fin de l’installation</li>
+            <li>Étapes suivantes</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Mise à jour</a>
+          <ul>
+            <li>Préparatifs</li>
+            <li>Mise à jour automatique</li>
+            <li>Mise à jour manuelle du programme</li>
+            <li>Mise à jour de la base de données</li>
+            <li>Annexe : mise à jour d'une copie avec mercurial</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Paramètres du fichier de configuration (config.php)</a>
+          <ul>
+            <li>Introduction</li>
+            <li>Paramètres</li>
+            <li>Ajouts au fichier</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Mise à jour de Dotclear 1.2 vers 2</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Migration d&#039;un autre système de blog à Dotclear</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Installer en local</a>
+          <ul>
+            <li>Windows</li>
+            <li>Mac OS X</li>
+            <li>Linux</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Installation de Dotclear avec IIS7</a></li>
+      </ul>
+      <h5>Annexe hébergeur·euse·s</h5>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/hosting">Hébergeur·euse·s</a>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Administration</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Gestion des utilisateur·rice·s</a>
+          <ul>
+            <li>Liste des utilisateur·rice·s existant·e·s</li>
+            <li>Créer un·e utilisateur·rice</li>
+            <li>Modifier un·e utilisateur·rice</li>
+            <li>Permissions de l&#039;utilisateur·rice</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Installation optimisée</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Installation multiblogs</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Gestion des extensions</a>
+          <ul>
+            <li>Installer une extension</li>
+            <li>Configuration des extensions</li>
+            <li>Suppression d&#039;une extension</li>
+            <li>Mettre à jour une extension</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">Blowup, le thème par défaut</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Autre apparence</a>
+          <ul>
+            <li>Choisir un thème</li>
+            <li>Installer un thème</li>
+            <li>Personnaliser un thème</li>
+            <li>Éditeur de thème</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Configuration avancée</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Gestion et maintenance</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Sauvegarde et restauration</a>
+          <ul>
+            <li>Import/Export</li>
+            <li>Médias</li>
+            <li>Base de données</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Filtre de commentaires indésirables</a>
+          <ul>
+            <li>Organisation des filtres</li>
+            <li>Configuration des filtres</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="fieldset vertical-separator">
+        <h4 class="smart-title">Entraide</h4>
+        <ul>
+          <li><a href="https://dotclear.org/forum">Le forum de Dotclear</a></li>
+          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Questions fréquentes des administrateur·rice·s</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part" id="guide-dev" title="Documentation développeur·euse·s">
+    <h3>Documentation et ressources pour les développeur·euse·s</h3>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">Design &amp; Thèmes</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Thèmes</a>
+          <ul>
+            <li>Guide d&#039;utilisation des thèmes</li>
+            <li>Les balises template</li>
+            <li>Annexes</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">L&#039;héritage des thèmes</a>
+          <ul>
+            <li>L&#039;héritage des thèmes</li>
+            <li>Principe</li>
+            <li>Limitations</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Les balises de template</a>
+          <ul>
+            <li>Généralités / utilitaires</li>
+            <li>Blog</li>
+            <li>Billets</li>
+            <li>Pagination des billets</li>
+            <li>Commentaires</li>
+            <li>Prévisualisation d&#039;un commentaire</li>
+            <li>Rétroliens</li>
+            <li>Pièces jointes</li>
+            <li>Catégories</li>
+            <li>Mots-clés</li>
+            <li>Archives</li>
+            <li>Langues</li>
+            <li>Système</li>
+            <li>Widgets</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">Code &amp; Plugins</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Création d’une balise tpl pour un plugin ou un thème</a>
+          <ul>
+            <li>Introduction</li>
+            <li>Les valeurs</li>
+            <li>Les blocs d&#039;instruction</li>
+            <li>Démonstration de l&#039;influence du cache des templates</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Plugins</a>
+          <ul>
+            <li>Réalisation de plugin</li>
+            <li>Documents annexes</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Construire l&#039;aide contextuelle d&#039;un plugin</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Authentification externe</a>
+          <ul>
+            <li>Préambule</li>
+            <li>Une nouvelle classe d&#039;authentification</li>
+            <li>Scénario</li>
+            <li>Application</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">Interface XML/RPC</a></li>
+        <li><a href="https://dev.dotclear.org/code/2/">Documentation de l&#039;API</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Contribution &amp; Support</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Contribuer</a>
+          <ul>
+            <li>Améliorer la documentation</li>
+            <li>Où envoyer vos œuvres?</li>
+            <li>Rapporter les bugs ou proposer une amélioration</li>
+            <li>Suggestions</li>
+          </ul>
+        </li>
+        <li><a href="https://git.dotclear.org/dev/dotclear">Le dépôt du code source de Dotclear</a></li>
+        <li><a href="https://dotclear.org/forum">Le forum de Dotclear</a></li>
+      </ul>
+      <div class="fieldset">
+        <h4 class="smart-title">Lectures complémentaires</h4>
+        <ul>
+          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Normes de programmation</a></li>
+          <li><a href="index.php?process=HelpCharte">Charte des pages d'administration</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part legible" id="a11y-ergo" title="Accessibilité et ergonomie">
+    <h3>Accessibilité et ergonomie</h3>
+    <p>L&#039;interface de Dotclear répond à la quasi totalité des critères <a href="http://www.w3.org/Translations/WCAG20-fr/">WCAG 2.0</a> ; un reporting précis sera prochainement publié sur le <a href="https://fr.dotclear.org/blog/">blog du projet</a>. À terme nous aimerions également répondre pleinement aux critères <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a>.</p>
+    <p>L&#039;accessibilité et l&#039;ergonomie sont au cœur des préoccupations de l&#039;équipe Dotclear. Nous menons régulièrement des analyses avec l&#039;aide d’expert·e·s et procédons continuellement à des correctifs et améliorations.</p>
+    <p>Vous pouvez nous aider en ouvrant des tickets <a href="https://git.dotclear.org/dev/dotclear/issues"></a> ou en participant au forum <a href="https://dotclear.org/forum/"></a>. Vous pouvez également participer à des tests utilisateurs ou rejoindre notre équipe !</p>
+  </div>
 </body>
+
 </html>
