@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Kullanıcılar</title>
-  </head>
-  <body>
-    <p>Bu sayfa sistemdeki tüm kullanıcıları listeler.</p>
-    <p>Kullanıcıların izinlerini eklemek (veya değiştirmek) için <strong>Parolanız</strong> alanında parolanız gerekecektir.</p>
 
-    <h4>Kullanıcı listesi filtresi</h4>
-    <dl>
-      <dt>Arama</dt>
-      <dd>Arama kullanıcı kimliğine göre yapılır. <strong>*</strong> joker karakteri, kullanıcı kimliğinin yalnızca bir bölümünü aramak için kullanılabilir.</dd>
+<head>
+  <title>Kullanıcılar</title>
+</head>
 
-      <dt>Tarafından sipariş</dt>
-      <dd>Kullanıcı listesi <em>ID'lerine</em>, <em>Soyadlarına</em>, <em>Adlarına</em>, <em>Görünen Adlarına</em> (takma ad) veya oluşturdukları <em>Giriş Sayısına</em> göre sıralanabilir.</dd>
+<body>
+  <p>Bu sayfa sistemdeki tüm kullanıcıları listeler.</p>
+  <p>Kullanıcıların izinlerini eklemek (veya değiştirmek) için <strong>Parolanız</strong> alanında parolanız gerekecektir.</p>
+  <h4>Kullanıcı listesi filtresi</h4>
+  <dl>
+    <dt>Arama</dt>
+    <dd>Arama kullanıcı kimliğine göre yapılır. <strong>*</strong> joker karakteri, kullanıcı kimliğinin yalnızca bir bölümünü aramak için kullanılabilir.</dd>
+    <dt>Tarafından sipariş</dt>
+    <dd>Kullanıcı listesi <em>ID'lerine</em>, <em>Soyadlarına</em>, <em>Adlarına</em>, <em>Görünen Adlarına</em> (takma ad) veya oluşturdukları <em>Giriş Sayısına</em> göre sıralanabilir.</dd>
+    <dt>Sırala</dt>
+    <dd>Sonuç listesine uygulanacak sıralama yöntemini belirtir (<em>Artan</em> veya <em>Azalan</em>).</dd>
+    <dt>Sayfa başına kullanıcı</dt>
+    <dd>Sonuç listesinin her sayfasında görüntülenen kullanıcı sayısını ayarlar.</dd>
+  </dl>
+  <h4>Kullanıcılar toplu eylemler</h4>
+  <p>Tek seferde birkaç kullanıcı üzerinde toplu işlem yapmak mümkündür.</p>
+  <ul>
+    <li><strong>İzinleri ayarlayın:</strong> Bir veya daha fazla blog(lar) için izinleri ayarlayın.</li>
+    <li><strong>Silme:</strong> Seçilen kullanıcı(lar)ı sistemden kaldırın. Girişleri oluşturan bir kullanıcı silinemez.</li>
+  </ul>
+  <p>Kullanıcıların izinlerini ayarlamaya karar verirseniz, sisteminizde bulunan blogları listeleyen yeni bir sayfaya yönlendirileceksiniz. İzinlerini ayarlamak istediğiniz blogları işaretleyin ve <strong>İzinleri ayarla</strong>düğmesine basın.</p>
+  <h4>Kullanıcı izinleri</h4>
+  <p>Her blog için aşağıdaki izinleri ayarlayabilirsiniz:</p>
+  <ul>
+    <li><strong>Yönetici:</strong> Blogu tamamen yönetebilir.</li>
+    <li><strong>Kendi girişlerini ve yorumlarını yönetebilir:</strong> Kullanıcı girişler oluşturabilir ve oluşturduğu girişler hakkındaki yorumları yönetebilir.</li>
+    <li><strong>Girdileri ve yorumları yayınlayın:</strong> Kullanıcı kendi girdilerinin ve girdilerinin yorumlarının yayınlanma durumunu değiştirebilir.</li>
+    <li><strong>Girişleri ve yorumları silme:</strong> Kullanıcı kendi girişlerinin yanı sıra girişlerinin yorumlarını da silebilir.</li>
+    <li><strong>Tüm girdileri ve yorumları yönetin:</strong> Kullanıcı, yazar olup olmadığına bakılmaksızın bu blogun tüm girişlerini yönetebilir.</li>
+    <li><strong>Kategorileri yönetin:</strong> Kullanıcı kategori oluşturabilir, değiştirebilir ve silebilir.</li>
+    <li><strong>Kendi medya öğelerini yönetin:</strong> Kullanıcı medya öğeleri ekleyebilir ve kendi medyasını değiştirebilir veya silebilir.</li>
+    <li><strong>Tüm medya öğelerini yönetin:</strong> Kullanıcı, medya öğelerini herhangi bir kullanıcıdan yönetebilir.</li>
+    <li><strong>Sayfaları yönetin:</strong> Kullanıcı sayfa ekleyebilir ve değiştirebilir.</li>
+    <li><strong>Blogroll'u yönet:</strong> Kullanıcı mevcut blogun blogroll'unu yönetebilir.</li>
+  </ul>
+  <p><strong>Super administrator</strong> durumu kullanıcı profilinde ayarlanır.</p>
+</body>
 
-      <dt>Sırala</dt>
-      <dd>Sonuç listesine uygulanacak sıralama yöntemini belirtir (<em>Artan</em> veya <em>Azalan</em>).</dd>
-
-      <dt>Sayfa başına kullanıcı</dt>
-      <dd>Sonuç listesinin her sayfasında görüntülenen kullanıcı sayısını ayarlar.</dd>
-    </dl>
-
-    <h4>Kullanıcılar toplu eylemler</h4>
-    <p>Tek seferde birkaç kullanıcı üzerinde toplu işlem yapmak mümkündür.</p>
-    <ul>
-      <li><strong>İzinleri ayarlayın:</strong> Bir veya daha fazla blog(lar) için izinleri ayarlayın.</li>
-      <li><strong>Silme:</strong> Seçilen kullanıcı(lar)ı sistemden kaldırın. Girişleri oluşturan bir kullanıcı silinemez.</li>
-    </ul>
-    <p>Kullanıcıların izinlerini ayarlamaya karar verirseniz, sisteminizde bulunan blogları listeleyen yeni bir sayfaya yönlendirileceksiniz. İzinlerini ayarlamak istediğiniz blogları işaretleyin ve <strong>İzinleri ayarla</strong>düğmesine basın.</p>
-
-    <h4>Kullanıcı izinleri</h4>
-    <p>Her blog için aşağıdaki izinleri ayarlayabilirsiniz:</p>
-    <ul>
-      <li><strong>Yönetici:</strong> Blogu tamamen yönetebilir.</li>
-      <li><strong>Kendi girişlerini ve yorumlarını yönetebilir:</strong> Kullanıcı girişler oluşturabilir ve oluşturduğu girişler hakkındaki yorumları yönetebilir.</li>
-      <li><strong>Girdileri ve yorumları yayınlayın:</strong> Kullanıcı kendi girdilerinin ve girdilerinin yorumlarının yayınlanma durumunu değiştirebilir.</li>
-      <li><strong>Girişleri ve yorumları silme:</strong> Kullanıcı kendi girişlerinin yanı sıra girişlerinin yorumlarını da silebilir.</li>
-      <li><strong>Tüm girdileri ve yorumları yönetin:</strong> Kullanıcı, yazar olup olmadığına bakılmaksızın bu blogun tüm girişlerini yönetebilir.</li>
-      <li><strong>Kategorileri yönetin:</strong> Kullanıcı kategori oluşturabilir, değiştirebilir ve silebilir.</li>
-      <li><strong>Kendi medya öğelerini yönetin:</strong> Kullanıcı medya öğeleri ekleyebilir ve kendi medyasını değiştirebilir veya silebilir.</li>
-      <li><strong>Tüm medya öğelerini yönetin:</strong> Kullanıcı, medya öğelerini herhangi bir kullanıcıdan yönetebilir.</li>
-      <li><strong>Sayfaları yönetin:</strong> Kullanıcı sayfa ekleyebilir ve değiştirebilir.</li>
-      <li><strong>Blogroll'u yönet:</strong> Kullanıcı mevcut blogun blogroll'unu yönetebilir.</li>
-    </ul>
-    <p><strong>Super administrator</strong> durumu kullanıcı profilinde ayarlanır.</p>
-  </body>
 </html>
