@@ -1,94 +1,75 @@
 <html>
+
 <head>
   <title>مرجع بناء الجملة ويكي</title>
 </head>
 
 <body>
-
-<h4>مرجع بناء الجملة ويكي</h4>
-
-<p>صيغة الويكي هي طريقة لتحسين النص الخاص بك مع مجموعة صغيرة
-من العلامات التي تمت دراستها لتغطية الاحتياجات الأساسية (العنوان)، فقرات واقتباسات
-قائمة. ).</p>
-
-<dl>
-<dt>حظر العناصر</dt>
-<dd>
-<ul>
-  <li>اترك خطاً فارغاً بين قطعتين مماثلتين.</li>
-  <li><strong>فقرة:</strong> نص حر، ينتهي بسطر فارغ إذا
-  فقرة أخرى ستتبع.</li>
-  <li><strong>العنوان:</strong> <code>!!! العنوان</code>، <code>!! العنوان</code>
-  أو <code>! العنوان</code>، مما يسمح لك باستخدام ثلاثة مستويات مختلفة من
-  العنوان.</li>
-  <li><strong>الخط الأفقي:</strong> <code>----</code></li>
-  <li><strong>القوائم:</strong> بدء كل سطر مع
-  <code>*</code> أو <code>#</code> للقوائم غير المرقمة أو المرقمة على التوالي.
-  يتم تحديد القائمة عن طريق مزج علامات القائمة بهذه الطريقة:
-  <pre>
+  <h4>مرجع بناء الجملة ويكي</h4>
+  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <dl>
+    <dt>حظر العناصر</dt>
+    <dd>
+      <ul>
+        <li>اترك خطاً فارغاً بين قطعتين مماثلتين.</li>
+        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
+        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>الخط الأفقي:</strong> <code>----</code></li>
+        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+          <pre>
     <code>*</code> item 1
     <code>**</code> item 1.1
     <code>*</code> item 2
     <code>*#</code> item 2.1
   ...
   </pre>
-  </li>
-  <li><strong>قوائم التعريف:</strong> ابدأ كل سطر بـ <code>=</code> للمصطلح لتعريفه و <code>:</code> لتعريف المصطلح.
-  <pre>
+        </li>
+        <li><strong>قوائم التعريف:</strong> ابدأ كل سطر بـ <code>=</code> للمصطلح لتعريفه و <code>:</code> لتعريف المصطلح.
+          <pre>
   <code>=</code> المصطلح
   <code>:</code> وصف المصطلح
   </pre>
-  </li>
-  <li><strong>نص مثبت مسبقاً:</strong> يجب أن يبدأ كل سطر بمسافة.</li>
-  <li><strong>اقتباس الكتلة:</strong> يجب أن يبدأ كل سطر بـ <code>&gt;</code>.</li>
-  <li><strong>الكتلة الجانبية:</strong> يجب أن يبدأ كل سطر بـ <code>)</code>.</li>
-</ul>
-</dd>
-
-<dt>تنسيق العلامات</dt>
-<dd>
-<ul>
-  <li><strong>التأكيد:</strong> اقتباسين <code>'text''</code></li>
-  <li><strong>التأكيد القوي:</strong> سطرين <code>__text__</code></li>
-  <li><strong>أبرزت:</strong> اقتباسين مزدوجين <code>""text""</code></li>
-  <li><strong>سطر جديد:</strong> <code>%%%</code></li>
-  <li><strong>الإدراج:</strong> اثنين زائدين <code>+text++</code></li>
-  <li><strong>حذف:</strong> نقصان <code>--text--</code></li>
-  <li><strong>الرابط:</strong> <code>[url]</code>، <code>[name<unk> url]</code>،
-    <code>[name<unk> url<unk> language]</code> أو <code>[name<unk> url<unk> language<unk> title]</code></li>
-  <li><strong>صورة:</strong>
-    <code>(url<unk> alternative text))</code>,
-    <code>(url<unk> alternative text<unk> position))</code> أو
-    <code>(url<unk> alternative text<unk> position<unk> long description))</code>.
-    <br>يمكن أن يكون الموضع إما L (اليسار) أو R (اليمين) أو C (مركز).</li>
-  <li><strong>المرساة:</strong> <code>~مرساة ~</code></li>
-  <li><strong>Acronym:</strong> <code>??acronym|title??</code></li>
-  <li><strong>داخل HTML:</strong> اقتباس اثنين <code>``HTML code``</code></li>
-  <li><strong>اقتباس مضمن:</strong> <code>{{quote}}</code>
-    <code>{{quote|language}}</code> أو <code>{{quote|language|url}}</code></li>
-  <li><strong>الكود:</strong> <code>@@code@@</code></li>
-  <li><strong>ملاحظات:</strong> <code>$$footnote$$</code></li>
-  <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
-  <li><strong>الاشتراك</strong>&nbsp;: <code>,الاشتراك،</code></li>
-</ul>
-</dd>
-
-<dt>نص غير منسق</dt>
-<dd>إذا كنت لا ترغب في تفسير حرف تنسيق واحد على هذا النحو، أضف
-<code>\</code> قبل ذلك مباشرة. على سبيل المثال:
-<code>\[النص بين قوسين دون أن يكون رابطًا]</code>
-</dd>
-
-<dt>رمز HTML</dt>
-<dd>حتى إذا اخترت بناء الجملة على الويكي، قد تحتاج في بعض الأحيان إلى تنسيق أكثر
-قوة، أي بناء بنية الـ HTML. قم بذلك بالطريقة التالية:
-<pre>
+        </li>
+        <li><strong>نص مثبت مسبقاً:</strong> يجب أن يبدأ كل سطر بمسافة.</li>
+        <li><strong>اقتباس الكتلة:</strong> يجب أن يبدأ كل سطر بـ <code>&gt;</code>.</li>
+        <li><strong>الكتلة الجانبية:</strong> يجب أن يبدأ كل سطر بـ <code>)</code>.</li>
+      </ul>
+    </dd>
+    <dt>تنسيق العلامات</dt>
+    <dd>
+      <ul>
+        <li><strong>التأكيد:</strong> اقتباسين <code>'text''</code></li>
+        <li><strong>التأكيد القوي:</strong> سطرين <code>__text__</code></li>
+        <li><strong>أبرزت:</strong> اقتباسين مزدوجين <code>""text""</code></li>
+        <li><strong>سطر جديد:</strong> <code>%%%</code></li>
+        <li><strong>الإدراج:</strong> اثنين زائدين <code>+text++</code></li>
+        <li><strong>حذف:</strong> نقصان <code>--text--</code></li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
+        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>المرساة:</strong> <code>~مرساة ~</code></li>
+        <li><strong>Acronym:</strong> <code>??acronym|title??</code></li>
+        <li><strong>داخل HTML:</strong> اقتباس اثنين <code>``HTML code``</code></li>
+        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>الكود:</strong> <code>@@code@@</code></li>
+        <li><strong>ملاحظات:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
+        <li><strong>الاشتراك</strong>&nbsp;: <code>,الاشتراك،</code></li>
+      </ul>
+    </dd>
+    <dt>نص غير منسق</dt>
+    <dd>If you don't want one formatting character to be interpreted as such, add a
+      <code>\</code> just before it. For instance:
+      <code>\[Text in brackets without being a link\]</code>
+    </dd>
+    <dt>رمز HTML</dt>
+    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+      <pre>
 ///html
 &lt;p style="color:red"&gt;النص الأحمر الخاص بي&lt;/p&gt;
 ///
 </pre>
-</dd>
-</dl>
-
+    </dd>
+  </dl>
 </body>
+
 </html>
