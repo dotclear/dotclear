@@ -1,209 +1,155 @@
 <html>
+
 <head>
   <title>Поставке блога</title>
 </head>
 
 <body>
-<h4>Informacije bloga</h4>
-<dl>
-  <dt>Identifiant du blog</dt>
-  <dd>Јединствени ИД блога. Обавезно, може да буде модификован само од стране супер администратора.</dd>
-
-  <dt>Nom du blog</dt>
-  <dd>Name of the blog, mandatory.</dd>
-
-  <dt>URL блога</dt>
-  <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
-
-  <dt>Blog status</dt>
-  <dd>Дефинише начин на који се URL чита. Path_info се препоручује, QUERY_СТРИНГ мора да се користи ако PATH_INFO не ради. Коришћење PATH_INFO режим, URL адреса блога мора да се заврши са "/" и коришћењем QUERY_СТРИНГ, мора да се заврши са "?".</dd>
-
-  <dt>Blog description</dt>
-  <dd>
-    <ul>
-      <li><strong>Онлајн:</strong> Блог отворен за посетиоце.</li>
-      <li><strong>Офлајн:</strong> Блог је затворен за посетиоце, али је отворен за писце.</li>
-      <li><strong>уклоњен:</strong> Блог је затворен за посетиоце и писце, отворен само за супер администраторе.</li>
-    </ul>
-  </dd>
-
-  <dt>Опис блога</dt>
-  <dd>Овде можете да ставите било који опис који желите за ваш блог. Ово је једноставан текст, без форматирања.</dd>
-</dl>
-
-<h4>Конфигурација блога</h4>
-<dl>
-  <dt>Име уредника блога</dt>
-  <dd>Name of the person responsible for the blog. It may be the owner or the
+  <h4>Informacije bloga</h4>
+  <dl>
+    <dt>Identifiant du blog</dt>
+    <dd>Јединствени ИД блога. Обавезно, може да буде модификован само од стране супер администратора.</dd>
+    <dt>Nom du blog</dt>
+    <dd>Name of the blog, mandatory.</dd>
+    <dt>URL блога</dt>
+    <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
+    <dt>Blog status</dt>
+    <dd>Дефинише начин на који се URL чита. Path_info се препоручује, QUERY_СТРИНГ мора да се користи ако PATH_INFO не ради. Коришћење PATH_INFO режим, URL адреса блога мора да се заврши са "/" и коришћењем QUERY_СТРИНГ, мора да се заврши са "?".</dd>
+    <dt>Blog description</dt>
+    <dd>
+      <ul>
+        <li><strong>Онлајн:</strong> Блог отворен за посетиоце.</li>
+        <li><strong>Офлајн:</strong> Блог је затворен за посетиоце, али је отворен за писце.</li>
+        <li><strong>уклоњен:</strong> Блог је затворен за посетиоце и писце, отворен само за супер администраторе.</li>
+      </ul>
+    </dd>
+    <dt>Опис блога</dt>
+    <dd>Овде можете да ставите било који опис који желите за ваш блог. Ово је једноставан текст, без форматирања.</dd>
+  </dl>
+  <h4>Конфигурација блога</h4>
+  <dl>
+    <dt>Име уредника блога</dt>
+    <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
-
-  <dt>Copyright notice</dt>
-  <dd>Note about the reproduction rights for the blog.</dd>
-
-  <dt>Default language</dt>
-  <dd>Language of the blog interface. Either this language is among the avalaible ones,
+    <dt>Copyright notice</dt>
+    <dd>Note about the reproduction rights for the blog.</dd>
+    <dt>Default language</dt>
+    <dd>Language of the blog interface. Either this language is among the avalaible ones,
   and the interface will be translated, or it is not, and the interface will then
   default to English.</dd>
-
-  <dt>Blog timezone</dt>
-  <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
-
-  <dt>Date formats</dt>
-  <dd>The date format of the blog posts. See the date and time
+    <dt>Blog timezone</dt>
+    <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
+    <dt>Date formats</dt>
+    <dd>The date format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-
-  <dt>Time format</dt>
-  <dd>The time format of the blog posts. See the date and time
+    <dt>Time format</dt>
+    <dd>The time format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-
-  <dt>Display .. entries per page</dt>
-  <dd>The number will be used as the limit for the number of entries
+    <dt>Display .. entries per page</dt>
+    <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
-</dl>
-
-<h4>Коментари и праћење</h4>
-<dl>
-  <dt>Прихвати коментаре</dt>
-  <dd>Глобално прихвата коментаре на блогу. Има предност над подешавањем по поставци.</dd>
-
-  <dt>Умерени коментар</dt>
-  <dd>Са овом опцијом, коментари ће бити објављени само након уговора уредника.</dd>
-
-  <dt>Остави коментаре отвореним за X дана</dt>
-  <dd>Број дана током виђења ће бити отворен након објављивања. Када је празан, коментари ће бити отворени неодредиво.</dd>
-
-  <dt>Синтакса вики за коментаре</dt>
-  <dd>Омогућава подскуп синтаксе викија да се користи у коментарима.</dd>
-
-  <dt>Прихвати линкове за праћење</dt>
-  <dd>Глобално прихвата линкове за праћење блога. Има предност над подешавањем по поставци.</dd>
-
-  <dt>Meriti retro linkove pri podesavanja na blog sistemu</dt>
-  <dd>Са овом опцијом, линкови за праћење ће бити објављени само након уговора уредника.</dd>
-
-  <dt>Остави линк за праћење отвореним за X дана</dt>
-  <dd>Број дана за време повратних линкова ће бити отворен након објављивања. Када се испразни, линк за праћење ће бити отворен недефинисано.</dd>
-
-  <dt>Dodati relaciju "nofollow" nad linkove od komentare i retrolinkove</dt>
-  <dd>Додаје атрибут на линкове у коментарима и линковима за праћење, упућује на роботе да их не прате. Ове антиспам функције још увек не доказују његову вредност.</dd>
-</dl>
-
-<h4>Prezentacija Blog-A</h4>
-<dl>
-  <dt>Формат датума</dt>
-  <dd>Дефинише формат датума за постове на блогу. Погледајте одељак "Формат референце" испод за више информација. Можете да користите листу падајућег да бисте брзо изабрали постојећи образац.</dd>
-
-  <dt>Формат времена</dt>
-  <dd>Дефинише временски формат за постове на блогу. Погледајте одељак "Формат референце" испод за више информација. Можете да користите листу падајућег да бисте брзо изабрали постојећи образац.</dd>
-
-  <dt>Prikazati smajlove u komentare i člankove</dt>
-  <dd>Претвара неке ниске као што је:-) или;-) у слике.</dd>
-
-  <dt>Прикажи X уносе по страници</dt>
-  <dd>Приказаће се X уноса на главној страници блога, као и у различитим категоријама.</dd>
-
-  <dt>Прикажи X уносе по фиду</dt>
-  <dd>Приказаће се X уноси у фидовима блога.</dd>
-
-  <dt>Прикажи X коментаре по фиду</dt>
-  <dd>Ће приказати X коментаре у коментарима на блогу.</dd>
-
-  <dt>Скраћује фидове</dt>
-  <dd>Ова опција ће дати само апстрактан из постова на блогу у фидовима.</dd>
-
-  <dt>Обухвати подкатегорије у страници категорија и нахрани постове категорија</dt>
-  <dd>Када се ова опција активира, посткатегорија у подкатегоријама ће бити приказана на страницама надређених категорија, као и у њиховим фидовима.</dd>
-</dl>
-
-<h4>Медији и слике</h4>
-<dl>
-  <dt>Генерисане величине слике (у пикселима)</dt>
-  <dd>Када додате слику у менаџер медија, друге величине се аутоматски генеришу. Овде можете дефинисати димензије најдуже величине (ширина или хеигт) сваког типа генерисаних слика. Ако оставите једно поље празно, менаџер медија неће креирати одговарајућу минијатуру.</dd>
-
-  <dt>Подразумевана својства уметања слика</dt>
-  <dd>Изабране поставке ће се применити на све нове слике које су додате менаџеру медија.</dd>
-
-  <dt>Уметнути наслов слике</dt>
-  <dd>Изаберите формат ознака "наслова" примењене на ваше слике, на основу података преузетих из слика метаподатака.</dd>
-
-  <dt>Користите оригинални датум медија ако је могуће</dt>
-  <dd>Када се ова опција активира, ако метаподаци слике садрже датум, то ће бити употребљено. Ако није, користи се датум отпремања.</dd>
-
-  <dt>Величина уметнуте слике</dt>
-  <dd>Дефинише подразумевану величину која се користи при уметању слике у пост на блогу.</dd>
-
-  <dt>Alignement de l'image</dt>
-  <dd>Дефинише подразумевано поравнање које се користи при уметању слике у пост на блогу.</dd>
-
-  <dt>Уметни линк ка оригиналној слици</dt>
-  <dd>Када се ова опција активира, слике уметнуте у пост на блогу ће бити кликабле и тачка на оригиналној слици.</dd>
-
-</dl>
-
-<h4>Политика робота за претраживање</h4>
-<p>Some fields can be configured to format the date and time to your needs.
+  </dl>
+  <h4>Коментари и праћење</h4>
+  <dl>
+    <dt>Прихвати коментаре</dt>
+    <dd>Глобално прихвата коментаре на блогу. Има предност над подешавањем по поставци.</dd>
+    <dt>Умерени коментар</dt>
+    <dd>Са овом опцијом, коментари ће бити објављени само након уговора уредника.</dd>
+    <dt>Остави коментаре отвореним за X дана</dt>
+    <dd>Број дана током виђења ће бити отворен након објављивања. Када је празан, коментари ће бити отворени неодредиво.</dd>
+    <dt>Синтакса вики за коментаре</dt>
+    <dd>Омогућава подскуп синтаксе викија да се користи у коментарима.</dd>
+    <dt>Прихвати линкове за праћење</dt>
+    <dd>Глобално прихвата линкове за праћење блога. Има предност над подешавањем по поставци.</dd>
+    <dt>Meriti retro linkove pri podesavanja na blog sistemu</dt>
+    <dd>Са овом опцијом, линкови за праћење ће бити објављени само након уговора уредника.</dd>
+    <dt>Остави линк за праћење отвореним за X дана</dt>
+    <dd>Број дана за време повратних линкова ће бити отворен након објављивања. Када се испразни, линк за праћење ће бити отворен недефинисано.</dd>
+    <dt>Dodati relaciju "nofollow" nad linkove od komentare i retrolinkove</dt>
+    <dd>Додаје атрибут на линкове у коментарима и линковима за праћење, упућује на роботе да их не прате. Ове антиспам функције још увек не доказују његову вредност.</dd>
+  </dl>
+  <h4>Prezentacija Blog-A</h4>
+  <dl>
+    <dt>Формат датума</dt>
+    <dd>Дефинише формат датума за постове на блогу. Погледајте одељак "Формат референце" испод за више информација. Можете да користите листу падајућег да бисте брзо изабрали постојећи образац.</dd>
+    <dt>Формат времена</dt>
+    <dd>Дефинише временски формат за постове на блогу. Погледајте одељак "Формат референце" испод за више информација. Можете да користите листу падајућег да бисте брзо изабрали постојећи образац.</dd>
+    <dt>Prikazati smajlove u komentare i člankove</dt>
+    <dd>Претвара неке ниске као што је:-) или;-) у слике.</dd>
+    <dt>Прикажи X уносе по страници</dt>
+    <dd>Приказаће се X уноса на главној страници блога, као и у различитим категоријама.</dd>
+    <dt>Прикажи X уносе по фиду</dt>
+    <dd>Приказаће се X уноси у фидовима блога.</dd>
+    <dt>Прикажи X коментаре по фиду</dt>
+    <dd>Ће приказати X коментаре у коментарима на блогу.</dd>
+    <dt>Скраћује фидове</dt>
+    <dd>Ова опција ће дати само апстрактан из постова на блогу у фидовима.</dd>
+    <dt>Обухвати подкатегорије у страници категорија и нахрани постове категорија</dt>
+    <dd>Када се ова опција активира, посткатегорија у подкатегоријама ће бити приказана на страницама надређених категорија, као и у њиховим фидовима.</dd>
+  </dl>
+  <h4>Медији и слике</h4>
+  <dl>
+    <dt>Генерисане величине слике (у пикселима)</dt>
+    <dd>Када додате слику у менаџер медија, друге величине се аутоматски генеришу. Овде можете дефинисати димензије најдуже величине (ширина или хеигт) сваког типа генерисаних слика. Ако оставите једно поље празно, менаџер медија неће креирати одговарајућу минијатуру.</dd>
+    <dt>Подразумевана својства уметања слика</dt>
+    <dd>Изабране поставке ће се применити на све нове слике које су додате менаџеру медија.</dd>
+    <dt>Уметнути наслов слике</dt>
+    <dd>Изаберите формат ознака "наслова" примењене на ваше слике, на основу података преузетих из слика метаподатака.</dd>
+    <dt>Користите оригинални датум медија ако је могуће</dt>
+    <dd>Када се ова опција активира, ако метаподаци слике садрже датум, то ће бити употребљено. Ако није, користи се датум отпремања.</dd>
+    <dt>Величина уметнуте слике</dt>
+    <dd>Дефинише подразумевану величину која се користи при уметању слике у пост на блогу.</dd>
+    <dt>Alignement de l'image</dt>
+    <dd>Дефинише подразумевано поравнање које се користи при уметању слике у пост на блогу.</dd>
+    <dt>Уметни линк ка оригиналној слици</dt>
+    <dd>Када се ова опција активира, слике уметнуте у пост на блогу ће бити кликабле и тачка на оригиналној слици.</dd>
+  </dl>
+  <h4>Политика робота за претраживање</h4>
+  <p>Some fields can be configured to format the date and time to your needs.
 Here is a reference:</p>
-
-<h4>Антиспам</h4>
-<p>Можете да подесите број дана након чега желите да се аутоматски коментарише нежељени коментари. Оставите празно поље (или ставите 0) да бисте деактивирали ову функцију.</p>
-
-<h4>Корисници</h4>
-<p>Набраја кориснике овог блога као и њихове дозволе.</p>
-
-<h3>Blog details</h3>
-<p>Нека поља могу бити конфигурисана да бисте форматирали датум и време за ваше потребе.
-Овде је референца:</p>
-
-<ul>
-  <li><strong>%a</strong>: abreviated week day (local).</li>
-  <li><strong>%A</strong>: complete week day (local).</li>
-  <li><strong>%b</strong>: abbreviated month name (local).</li>
-  <li><strong>%B</strong>: complete month name (local).</li>
-  <li><strong>%c</strong>: default local date and time display.</li>
-  <li><strong>%C</strong>: century (the year, divided by 100 and
-  round up beetween 00 and 99)</li>
-  <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
-  <li><strong>%D</strong>: identical to %m/%d/%y</li>
-  <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
-  <li><strong>%g</strong>: identical to %G, 2 digits.</li>
-  <li><strong>%G</strong>: The year on 4 digits, according to the week number
-  (cf. %V). Format and value identical to %Y, except that if the number of the
-  week belongs to the preceding or following year, the current year
-  will be used instead.</li>
-  <li><strong>%h</strong>: identical to %b</li>
-  <li><strong>%H</strong>: digital hour of the day, 24H mode
-  (from 00 to 23)</li>
-  <li><strong>%I</strong>: digital hour of the day, 12H mode
-  (from 01 to 12)</li>
-  <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
-  <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
-  <li><strong>%M</strong>: minute, digital</li>
-  <li><strong>%n</strong>: newline character</li>
-  <li><strong>%p</strong>: either `am' or `pm', according to the absolute time,
-  or depending of the local settings.</li>
-  <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
-  <li><strong>%R</strong>: the hour, 24h format</li>
-  <li><strong>%S</strong>: seconds, digital</li>
-  <li><strong>%t</strong>: tab character</li>
-  <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
-  <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
-  <li><strong>%U</strong>: week number, the first sundqy of the year being the
-  first day of the first week.</li>
-  <li><strong>%V</strong>: the week numpber as defined in ISO
-  8601:1988, digital, from 01 to 53. The week 1 is the first week
-  with more than 4 days in the current year, whose monday is the first day.
-  (Use %G or %g for the year elements corresponding to the number of the
-  week for the considered timestamp.)</li>
-  <li><strong>%W</strong>: number of the week in the year, the first monday of
-  the year being the start of the first week</li>
-  <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
-  <li><strong>%x</strong>: prefered format for the date without the time</li>
-  <li><strong>%X</strong>: prefered format for the time without the date</li>
-  <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
-  <li><strong>%Y</strong>: the year, four digits</li>
-  <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
-  <li>: a litteral `%' character</li>
-</ul>
-
+  <h4>Антиспам</h4>
+  <p>Можете да подесите број дана након чега желите да се аутоматски коментарише нежељени коментари. Оставите празно поље (или ставите 0) да бисте деактивирали ову функцију.</p>
+  <h4>Корисници</h4>
+  <p>Набраја кориснике овог блога као и њихове дозволе.</p>
+  <h3>Blog details</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a</strong>: abreviated week day (local).</li>
+    <li><strong>%A</strong>: complete week day (local).</li>
+    <li><strong>%b</strong>: abbreviated month name (local).</li>
+    <li><strong>%B</strong>: complete month name (local).</li>
+    <li><strong>%c</strong>: default local date and time display.</li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
+    <li><strong>%D</strong>: identical to %m/%d/%y</li>
+    <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
+    <li><strong>%g</strong>: identical to %G, 2 digits.</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h</strong>: identical to %b</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
+    <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
+    <li><strong>%M</strong>: minute, digital</li>
+    <li><strong>%n</strong>: newline character</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
+    <li><strong>%R</strong>: the hour, 24h format</li>
+    <li><strong>%S</strong>: seconds, digital</li>
+    <li><strong>%t</strong>: tab character</li>
+    <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
+    <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
+    <li><strong>%x</strong>: prefered format for the date without the time</li>
+    <li><strong>%X</strong>: prefered format for the time without the date</li>
+    <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
+    <li><strong>%Y</strong>: the year, four digits</li>
+    <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
+    <li>: a litteral `%' character</li>
+  </ul>
 </body>
+
 </html>
