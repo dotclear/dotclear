@@ -1,131 +1,87 @@
 <html>
+
 <head>
   <title>User preferences</title>
 </head>
 
 <body>
-
-<h4>Min profil</h4>
-<dl>
-  <dt>Name, First name</dt>
-  <dd>If the display name is empty, the author's name will be displayed
-  as his Firstname and Name as set here.</dd>
-  
-  <dt>Vis navn</dt>
-  <dd>You can choose here how your name will be displayed under your posts.</dd>
-  
-  <dt>E-mail</dt>
-  <dd>E-mailadresse, der bruges, når du anmoder om en ny adgangskode.<br>
-    Meddelelser om nye kommentarer vil også blive sendt til denne adresse.<em>(Hvis du opdaterer
-  dette felt, skal du indtaste din nuværende adgangskode i det relevante felt på 
-  nederst i formularen)</em></dd>
-  
-  <dt>URL</dt>
-  <dd>The user's web site. If set, the author name will be displayed as
-  a link to the said site.</dd>
-  
-  <dt>Preferred format</dt>
-  <dd>To choose the prefered post syntax. Wiki is a simplified syntax
-  and will be converted to valid HTML&nbsp;; Unless you have a perfect
-  understanding of HTML, we advise you to choose the wiki syntax.</dd>
-  
-  <dt>Default entry status</dt>
-  <dd>Dette valg vil definere den tid, der vises på post offentliggørelse.</dd>
-  
-  <dt>Entry edit field height</dt>
-  <dd>The height of the Entry edit field. Defaults to 15.</dd>
-</dl>
-
-
-<h4>Mine muligheder</h4>
-<h5>Grænseflade</h5>
-<dl>  
-  <dt>Aktiver forbedret uploader i mediehåndtering</dt>
-  <dd>Tillader at aktivere den avancerede grænseflade i mediehåndtering, der gør det muligt at 
-  uploade flere filer ad gangen (Bemærk: Din webbrowser skal understøtte Javascript 
-  for at kunne bruge denne funktion).</dd>
-
-  <dt>Deaktivér træk og slip drevet af Javascript til bestilling af varer</dt>
-  <dd>Tillader at deaktivere "træk og slip" for varebestilling. Træk og slip vil blive 
-  erstattet af numeriske felter, der vil lade dig indtaste feltposition i stedet.</dd>
-
-  <dt>Antal elementer, der vises pr. side i mediehåndtering</dt>
-  <dd>Definerer antallet af medier, der vil blive vist i mediehåndtering (mapper
-  tages ikke i betragtning ved optælling af punkter).</dd>
-  
-  <dt>Brug ikke standard favicon</dt>
-  <dd>Tillader at deaktivere standard favicon i webbrowserens adresselinje.</dd>
-</dl>
-
-<h5>Udgave</h5>
-<dl>    
-  <dt>Foretrukket format</dt>
-  <dd>Vælg posteringens syntaks. Wiki er en forenklet syntaks
-  og vil blive konverteret til gyldig HTML. Medmindre du har en perfekt
-  forståelse af HTML, anbefaler vi dig at vælge Wiki-syntaksen.
-  Se Wiki-syntaksreferencen for mere information.</dd>
-  
-  <dt>Standard indtastningsstatus</dt>
-  <dd>Standardstatus for nye poster kan indstilles til:
-    <ul>
-      <li><strong>Afventer:</strong> Offentliggørelsesstatus er endnu ikke afgjort.</li>
-      <li><strong>Planlægges:</strong> Indgangen vil blive sat online på det tidspunkt og den dato der er angivet i <strong>Publiceret på</strong> feltet.</li>
-      <li><strong>Ikke offentliggjort:</strong> Offline post.</li>
-      <li><strong>Publiceret:</strong> Online post.</li>
-    </ul>
-  </dd>
-  
-  <dt>Indtastnings redigeringsfeltets højde</dt>
-  <dd>Sætter højden af redigeringsfeltet for en indgang. Denne parameter er som standard sat til 24.</dd>
-  
-  <dt>Aktiver WYSIWYG tilstand</dt>
-  <dd>Tillader brug af den visuelle editor (WYSIWYG: Hvad du ser er hvad du får) for indgange, sider og kategorier beskrivelsesfelter.</dd>
-</dl>
-
-<h5>Andre muligheder</h5>
-<dl>
-  <dt>Tags liste-format</dt>
-  <dd>Du kan vælge, om du vil se, mens du redigerer en post, alle de anvendte tags (<strong>Udvidet</strong>) eller kun de mest anvendte (<strong>Kort</strong>).</dd>
-
-  <dt>Syntaksfremhævning i temaeditoren</dt>
-  <dd>Aktiverer syntaksfremhævning når temaeditoren bruges (HTML- og CSS-filer)</dd>     
-</dl>
-
-
-<h4>Mit betjeningspanel</h4>
-<dl>
-  <dt>Mine favoritter</dt>
-  <dd>Denne zone viser de valgte favoritter på bloggens dashboard. 
-  Du kan ændre rækkefølgen med musen, hvis Javascript er aktiveret i din browser. 
-  Ellers giver et felt mulighed for at give dem et ordrenummer. Når du er færdig, så glem ikke at gemme dine ændringer ved at trykke på <strong>Gem ordre</strong>.<br>
-  Du kan også slette favoritter ved at vælge dem og trykke på <strong>Slet valgte favoritter</strong>.</dd>
-  
-  <dt>Definér som standard favoritter (super administrator)</dt> 
-  <dd>Aktiver for at indstille favoritter listen som standard favoritter liste for alle brugere. Denne liste vil blive foreslået til brugere, hvis de ikke har defineret deres egne favoritter endnu.</dd>
-
-  <dt>Andre tilgængelige favoritter</dt>
-  <dd>Alle plugins, der giver mulighed for at blive sat som favoritter, bliver spillet her. Tjek de tilsvarende felter og tilføj dem til instrumentbrættet ved at trykke på <strong>Tilføj tp mine favoritter</strong>.</dd>
-
-  <dt>Vis favoritter øverst i menuen</dt>
-  <dd>Hvis aktiveret, vises favoritter øverst i menuen.</dd>
-
-  <dt>Dashboard moduler</dt>
-  <dd>Valg lavet i denne zone vil blive reflekteret på din blogs dashboard.</dd>
-  
-  <dt>Vis dokumentationslinks</dt>
-  <dd>Aktiver for at vise dokumentationslinks på dashboard destinationsside.</dd>
-  
-  <dt>Vis Dotclear nyheder</dt>
-  <dd>Aktiver for at vise Dotclear nyheder på dashboard destinationsside.</dd>
-
-  <dt>Vis hurtig-indtastningsformular</dt>
-  <dd>Aktiver for at vise "Hurtig indtastning" formular på dashboard destinationsside.</dd>
-
-  <dt>Vis forsinkede opgaver tæller på vedligeholdelse dashboard ikon</dt>
-  <dd>Aktiverer visning af antallet af forfaldne opgaver (dvs. det skal behandles) under <strong>Vedligeholdelse</strong> ikonet. <strong>Vedligeholdelse</strong> -ikonet skal indstilles i dine favoritter for at bruge denne funktion.</dd>
-
-  <dt>Vis liste over forfaldne opgaver på dashboard elementer</dt>
-  <dd>Aktiver for at vise listen over forfaldne opgaver (dvs. som skal behandles) i en dedikeret sektion på destinationssiden Dashboard.</dd>
-</dl>
+  <h4>Min profil</h4>
+  <dl>
+    <dt>Name, First name</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Vis navn</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>E-mail</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Preferred format</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Default entry status</dt>
+    <dd>Dette valg vil definere den tid, der vises på post offentliggørelse.</dd>
+    <dt>Entry edit field height</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Mine muligheder</h4>
+  <h5>Grænseflade</h5>
+  <dl>
+    <dt>Aktiver forbedret uploader i mediehåndtering</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Deaktivér træk og slip drevet af Javascript til bestilling af varer</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Antal elementer, der vises pr. side i mediehåndtering</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Brug ikke standard favicon</dt>
+    <dd>Tillader at deaktivere standard favicon i webbrowserens adresselinje.</dd>
+  </dl>
+  <h5>Udgave</h5>
+  <dl>
+    <dt>Foretrukket format</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Standard indtastningsstatus</dt>
+    <dd>Standardstatus for nye poster kan indstilles til:
+      <ul>
+        <li><strong>Afventer:</strong> Offentliggørelsesstatus er endnu ikke afgjort.</li>
+        <li><strong>Planlægges:</strong> Indgangen vil blive sat online på det tidspunkt og den dato der er angivet i <strong>Publiceret på</strong> feltet.</li>
+        <li><strong>Ikke offentliggjort:</strong> Offline post.</li>
+        <li><strong>Publiceret:</strong> Online post.</li>
+      </ul>
+    </dd>
+    <dt>Indtastnings redigeringsfeltets højde</dt>
+    <dd>Sætter højden af redigeringsfeltet for en indgang. Denne parameter er som standard sat til 24.</dd>
+    <dt>Aktiver WYSIWYG tilstand</dt>
+    <dd>Tillader brug af den visuelle editor (WYSIWYG: Hvad du ser er hvad du får) for indgange, sider og kategorier beskrivelsesfelter.</dd>
+  </dl>
+  <h5>Andre muligheder</h5>
+  <dl>
+    <dt>Tags liste-format</dt>
+    <dd>Du kan vælge, om du vil se, mens du redigerer en post, alle de anvendte tags (<strong>Udvidet</strong>) eller kun de mest anvendte (<strong>Kort</strong>).</dd>
+    <dt>Syntaksfremhævning i temaeditoren</dt>
+    <dd>Aktiverer syntaksfremhævning når temaeditoren bruges (HTML- og CSS-filer)</dd>
+  </dl>
+  <h4>Mit betjeningspanel</h4>
+  <dl>
+    <dt>Mine favoritter</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Definér som standard favoritter (super administrator)</dt>
+    <dd>Aktiver for at indstille favoritter listen som standard favoritter liste for alle brugere. Denne liste vil blive foreslået til brugere, hvis de ikke har defineret deres egne favoritter endnu.</dd>
+    <dt>Andre tilgængelige favoritter</dt>
+    <dd>Alle plugins, der giver mulighed for at blive sat som favoritter, bliver spillet her. Tjek de tilsvarende felter og tilføj dem til instrumentbrættet ved at trykke på <strong>Tilføj tp mine favoritter</strong>.</dd>
+    <dt>Vis favoritter øverst i menuen</dt>
+    <dd>Hvis aktiveret, vises favoritter øverst i menuen.</dd>
+    <dt>Dashboard moduler</dt>
+    <dd>Valg lavet i denne zone vil blive reflekteret på din blogs dashboard.</dd>
+    <dt>Vis dokumentationslinks</dt>
+    <dd>Aktiver for at vise dokumentationslinks på dashboard destinationsside.</dd>
+    <dt>Vis Dotclear nyheder</dt>
+    <dd>Aktiver for at vise Dotclear nyheder på dashboard destinationsside.</dd>
+    <dt>Vis hurtig-indtastningsformular</dt>
+    <dd>Aktiver for at vise "Hurtig indtastning" formular på dashboard destinationsside.</dd>
+    <dt>Vis forsinkede opgaver tæller på vedligeholdelse dashboard ikon</dt>
+    <dd>Aktiverer visning af antallet af forfaldne opgaver (dvs. det skal behandles) under <strong>Vedligeholdelse</strong> ikonet. <strong>Vedligeholdelse</strong> -ikonet skal indstilles i dine favoritter for at bruge denne funktion.</dd>
+    <dt>Vis liste over forfaldne opgaver på dashboard elementer</dt>
+    <dd>Aktiver for at vise listen over forfaldne opgaver (dvs. som skal behandles) i en dedikeret sektion på destinationssiden Dashboard.</dd>
+  </dl>
 </body>
+
 </html>
