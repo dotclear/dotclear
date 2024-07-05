@@ -1,127 +1,87 @@
 <html>
+
 <head>
   <title>用户偏好</title>
 </head>
 
 <body>
-
-<h4>我的简介</h4>
-<dl>
-  <dt>名字，姓氏</dt>
-  <dd>如果显示的名字为空，则作者名字将会以在这里设置的姓氏显示。</dd>
-  
-  <dt>显示的名字</dt>
-  <dd>您可以在这里选择您的文章中应该如何显示您的名字。</dd>
-  
-  <dt>邮箱</dt>
-  <dd>请求新密码时使用的电子邮件地址。<br>
-    新的注释通知也将发送至此地址。<em>(如果更新
-  此字段，那么必须在表单 
-  底部的相应字段中输入当前密码)</em></dd>
-  
-  <dt>URL</dt>
-  <dd>作者的网站网址。如果设置，作者姓名将会链接到这个网址。</dd>
-  
-  <dt>喜好的格式</dt>
-  <dd>选择喜好的文章语法。Wiki 是一个简单的语法并会转换到有效的HTML&nbsp;; 除非您对于 HTML 有很好的理解，我们建议您选择 wiki 语法。</dd>
-  
-  <dt>默认的文章状态</dt>
-  <dd>这一选择将定义在帖子发表时显示的时间。</dd>
-  
-  <dt>文章编辑区域高度</dt>
-  <dd>文章编辑区域的高度。默认是 24。</dd>
-</dl>
-
-
-<h4>我的选择</h4>
-<h5>介面</h5>
-<dl>  
-  <dt>在媒体管理器中激活增强型上传器</dt>
-  <dd>允许激活媒体管理器中的高级界面，使 
-  ，一次上传多个文件（注意：您的网络浏览器必须支持Javascript 
-  ，才能使用这一功能）。</dd>
-
-  <dt>禁用由Javascript驱动的拖放订购项目的功能</dt>
-  <dd>允许禁用项目排序的 "拖放 "功能。拖放将被 
-  ，由数字字段代替，让你输入字段位置。</dd>
-
-  <dt>媒体管理器中每页显示的元素数量</dt>
-  <dd>定义将在媒体管理器中显示的媒体数量（在计算项目时，文件夹
-  ，不计入）。</dd>
-  
-  <dt>不要使用标准的favicon</dt>
-  <dd>允许禁用网络浏览器地址栏中的默认favicon。</dd>
-</dl>
-
-<h5>版本</h5>
-<dl>    
-  <dt>首选的格式</dt>
-  <dd>选择条目的语法。Wiki是一种简化的语法
-  ，并将被转换为有效的HTML。除非你对HTML有一个完美的
-  ，否则我们建议你选择Wiki语法。
-  更多信息请参见Wiki语法参考。</dd>
-  
-  <dt>默认进入状态</dt>
-  <dd>新条目的默认状态可以设置为：
-    <ul>
-      <li><strong>待定：</strong> 出版状态尚未决定。</li>
-      <li><strong>预定的：</strong> 该条目将在 <strong>Published on</strong> 字段中提供的时间和日期在线设置。</li>
-      <li><strong>未发表：</strong> 脱机条目。</li>
-      <li><strong>已公布：</strong> 在线输入。</li>
-    </ul>
-  </dd>
-  
-  <dt>条目编辑字段高度</dt>
-  <dd>设置一个条目的编辑字段的高度。默认情况下，这个参数被设置为24。</dd>
-  
-  <dt>激活所见即所得模式</dt>
-  <dd>允许使用可视化编辑器（WYSIWYG: What You See Is What You Get）来编辑条目、页面和类别描述栏。</dd>
-</dl>
-
-<h5>其他选择</h5>
-<dl>
-  <dt>标签列表格式</dt>
-  <dd>你可以选择在编辑一个条目时，是要看所有使用过的标签(<strong>Extended</strong>) 还是只看最常用的标签(<strong>Short</strong>)。</dd>
-
-  <dt>主题编辑器中的语法高亮</dt>
-  <dd>在使用主题编辑器（HTML和CSS文件）时，启用语法高亮。</dd>     
-</dl>
-
-
-<h4>我的仪表板</h4>
-<dl>
-  <dt>我的最爱</dt>
-  <dd>该区域在博客仪表板上显示所选收藏夹。 
-  如果浏览器中激活了 Javascript，则可以用鼠标对它们重新排序。 
-  否则，您可以在一个字段中给这些收藏夹编号。完成后，不要忘记按 <strong>保存订单</strong>保存更改。<br>
-  您也可以删除收藏夹，方法是选择收藏夹并按 <strong>删除所选收藏夹</strong>。</dd>
-  
-  <dt>定义为默认收藏夹（超级管理员）</dt> 
-  <dd>启用设置当前定义的收藏夹列表作为所有用户的默认收藏夹列表。如果用户还没有定义自己的收藏夹，这个列表将被推荐给用户。</dd>
-
-  <dt>其他可用的最爱</dt>
-  <dd>所有允许作为收藏夹的插件都显示在这里。勾选相应的方框，并按 <strong>添加到我的最爱</strong>，将它们添加到仪表板。</dd>
-
-  <dt>在菜单的顶部显示收藏夹</dt>
-  <dd>如果启用，在菜单的顶部显示收藏夹。</dd>
-
-  <dt>仪表板模块</dt>
-  <dd>在这个区域做出的选择将反映在你的博客仪表板上。</dd>
-  
-  <dt>显示文件链接</dt>
-  <dd>启用在仪表板登陆页上显示文档链接。</dd>
-  
-  <dt>显示Dotclear的新闻</dt>
-  <dd>启用显示Dotclear新闻的仪表板登陆页面。</dd>
-
-  <dt>显示快速录入表</dt>
-  <dd>启用在仪表板登陆页上显示 "快速输入 "表格。</dd>
-
-  <dt>在维护仪表板图标上显示过期任务计数器</dt>
-  <dd>能够在 <strong>维护</strong> 图标下显示过期的任务（即应该处理的任务）数量。 <strong>维护</strong> 图标必须设置在你的收藏夹中才能使用这个功能。</dd>
-
-  <dt>在仪表板项目上显示过期任务列表</dt>
-  <dd>启用在仪表板登陆页面的专门部分显示逾期任务（即应该处理的任务）的列表。</dd>
-</dl>
+  <h4>我的简介</h4>
+  <dl>
+    <dt>名字，姓氏</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>显示的名字</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>邮箱</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>喜好的格式</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>默认的文章状态</dt>
+    <dd>这一选择将定义在帖子发表时显示的时间。</dd>
+    <dt>文章编辑区域高度</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>我的选择</h4>
+  <h5>介面</h5>
+  <dl>
+    <dt>在媒体管理器中激活增强型上传器</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>禁用由Javascript驱动的拖放订购项目的功能</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>媒体管理器中每页显示的元素数量</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>不要使用标准的favicon</dt>
+    <dd>允许禁用网络浏览器地址栏中的默认favicon。</dd>
+  </dl>
+  <h5>版本</h5>
+  <dl>
+    <dt>首选的格式</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>默认进入状态</dt>
+    <dd>新条目的默认状态可以设置为：
+      <ul>
+        <li><strong>待定：</strong> 出版状态尚未决定。</li>
+        <li><strong>预定的：</strong> 该条目将在 <strong>Published on</strong> 字段中提供的时间和日期在线设置。</li>
+        <li><strong>未发表：</strong> 脱机条目。</li>
+        <li><strong>已公布：</strong> 在线输入。</li>
+      </ul>
+    </dd>
+    <dt>条目编辑字段高度</dt>
+    <dd>设置一个条目的编辑字段的高度。默认情况下，这个参数被设置为24。</dd>
+    <dt>激活所见即所得模式</dt>
+    <dd>允许使用可视化编辑器（WYSIWYG: What You See Is What You Get）来编辑条目、页面和类别描述栏。</dd>
+  </dl>
+  <h5>其他选择</h5>
+  <dl>
+    <dt>标签列表格式</dt>
+    <dd>你可以选择在编辑一个条目时，是要看所有使用过的标签(<strong>Extended</strong>) 还是只看最常用的标签(<strong>Short</strong>)。</dd>
+    <dt>主题编辑器中的语法高亮</dt>
+    <dd>在使用主题编辑器（HTML和CSS文件）时，启用语法高亮。</dd>
+  </dl>
+  <h4>我的仪表板</h4>
+  <dl>
+    <dt>我的最爱</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>定义为默认收藏夹（超级管理员）</dt>
+    <dd>启用设置当前定义的收藏夹列表作为所有用户的默认收藏夹列表。如果用户还没有定义自己的收藏夹，这个列表将被推荐给用户。</dd>
+    <dt>其他可用的最爱</dt>
+    <dd>所有允许作为收藏夹的插件都显示在这里。勾选相应的方框，并按 <strong>添加到我的最爱</strong>，将它们添加到仪表板。</dd>
+    <dt>在菜单的顶部显示收藏夹</dt>
+    <dd>如果启用，在菜单的顶部显示收藏夹。</dd>
+    <dt>仪表板模块</dt>
+    <dd>在这个区域做出的选择将反映在你的博客仪表板上。</dd>
+    <dt>显示文件链接</dt>
+    <dd>启用在仪表板登陆页上显示文档链接。</dd>
+    <dt>显示Dotclear的新闻</dt>
+    <dd>启用显示Dotclear新闻的仪表板登陆页面。</dd>
+    <dt>显示快速录入表</dt>
+    <dd>启用在仪表板登陆页上显示 "快速输入 "表格。</dd>
+    <dt>在维护仪表板图标上显示过期任务计数器</dt>
+    <dd>能够在 <strong>维护</strong> 图标下显示过期的任务（即应该处理的任务）数量。 <strong>维护</strong> 图标必须设置在你的收藏夹中才能使用这个功能。</dd>
+    <dt>在仪表板项目上显示过期任务列表</dt>
+    <dd>启用在仪表板登陆页面的专门部分显示逾期任务（即应该处理的任务）的列表。</dd>
+  </dl>
 </body>
+
 </html>
