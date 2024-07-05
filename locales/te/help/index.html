@@ -1,398 +1,382 @@
 <html>
+
 <head>
   <title></title> <!-- Leave the title empty -->
 </head>
 
 <body>
-
-<div class="multi-part legible" id="first-step" title="మొదటి అడుగులు">
-	<h3>ఇంటర్ఫేస్ కనుగొనడం</h3>
-	<div class="fieldset">
-		<h4>మొదటి అడుగులు</h4>
-		<p>అదనంగా ప్రపంచ సహాయక పేజీలు, అనేక పరిపాలనా పేజీలు ఆన్ లైన్ సహాయం కలిగి ఉన్నాయి. Javascript ఉంటే
-		మీ బ్రౌజర్ మీద, మీరు ఆన్ లైన్ సహాయాన్ని చూడవచ్చు, పేజీ యొక్క పై-కుడి స్థానంలో, <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>నెడ్ హెల్డ్ మీద క్లిక్ ద్వారా?</strong> లింక్. జావాస్క్రిప్ట్ అచేతనము చేయబడితే, సహాయము పేజీ లోపల ప్రదర్శించబడుతుంది.</p>
-	</div>
-
-	<p>ప్రతి పరిపాలనా పేజీ అదే టాప్ శీర్షం, ప్రధాన మెనూ మరియు ఫూటర్ ను ప్రదర్శించబడుతుంది. <em>(ఇక్కడ ఇచ్చిన క్రమం ఏమిటో ఒక కంప్యూటర్ తెరపై చూపబడుతుంది. మొబైల్ పరికరాల లేదా పలకల కోసం, ఇది ఖాళీగా లభ్యమవుతుంది.)</em></p>
-
-	<h4 class="pretty-title">పైన శీర్చు</h4>
-	<p>శిథిలావళి మూడు అంశాలు:</p>
-	<h5 class="as_h4">లోగోName</h5>
-	<p>అప్రమేయంగా, ఈ లోగో డిటెక్ట్ లోగో మరియు పరిపాలన ల్యాండ్ పేజీకి లింకులు. అయితే, ఒక ప్లాట్ఫారం
-	నిర్వాహకుడు మరొక లోగో ఎంచుకోవచ్చు మరియు ఏదో ఒక వైపు తిరిగి ప్రత్యక్ష (సాధారణంగా, సేవ ల్యాండ్ పేజీ).</p>
-
-	<h5 class="as_h4">బ్లాగు (లు)</h5>
-	<p>లోగో తరువాత ఉన్న మొదటి మూలకం <em>క్రియాశీలక</em> బ్లాగు, అనగా మీరు నటించిన బ్లాగు. మీ
-	స్థాపన అనేక బ్లాగుల కూర్పులో ఉన్నట్లయితే, ఈ సమాచారం ఒక కలుపు మెనూలో అందుబాటలో ఉన్నాయి, ఇది మీరు వేరొక బ్లాగుకు మారిపోతుంది.</p>
-	<p>బ్లాగుపేరు క్రింది లింకు మీ ప్రస్తుత బ్లాగు మరొక విండో లేదా మరొక టాబ్ లో తెరుస్తుంది.</p>
-
-	<h5 class="as_h4">యూజర్</h5>
-	<p>లింకు <em>My dashboard</em> మీరు తిరిగి బ్లాగ్ పరిపాలన ల్యాన్డర్ పేజీలో పొందుతుంది.</p>
-	<p>లింకు <em>నా ప్రాధాన్యం</em> పేజీకి మీరు మీ వ్యక్తిగత సమాచారాన్ని మార్చుకోవచ్చు, డాష్బోర్డ్ అమలు చేయవచ్చు మరియు మీ ఇంటర్ఫేస్ మరియు ఎడిటేషన్ ఎంపికలను ఎంచుకోవచ్చు.</p>
-	<p>Surprisingly, లింకు <em>డిస్కన్సర్ [మీ లాగిన్]</em> మీ బ్లాగు యొక్క పరిపాలన (Dotclear's, we are ergonomy ఛాంపియన్స్ ఉన్నాయి!)</p>
-
-	<h4 class="pretty-title">ప్రధాన మెనూ</h4>
-	<p>ప్రధాన మెనూ స్క్రీన్ ఎడమ వైపున ఉంది. ఇది దాని కుడి సరిహద్దును నొక్కడం ద్వారా పతనం చేయవచ్చు (మరియు అప్పుడు దానిపై మళ్ళీ క్లిక్ చేయటం ద్వారా అణగడం).</p>
-	<p>ఇది ప్రస్తుత బ్లాగులో మీ అనుమతుల ప్రకారం వివిధ పరిపాలనా పేజీలకు దారితీస్తుంది. ఇది నాలుగు బ్లాకులను కింది:</p>
-	<ul>
-		<li><strong>నా అభిప్రాయాలు</strong> జాబితాలో మీరు అనుకూలంగా ఎంపిక చేసిన పేజీలను <em>నా ప్రాధాన్యం</em>/<em>నా డాష్బోర్డ్</em> ట్యాబ్. ఇప్పటివరకు మీరు ఎటువంటి అభిప్రాయాన్ని ఎంపిక చేయలేకపోతే, ఈ జాబితా అప్రమేయ Dotclear సెట్ను కలిగివుంటుంది, లేదా ప్లాట్ఫాం నిర్వాహికచే నిర్వచించబడిన అమర్పును కలిగి ఉంటుంది. మీరు ఈ బ్లాక్ను ప్రదర్శించాలనుకుంటున్నట్లయితే, మీరు మీ dashboard ఐచ్ఛికములలో సరిపోలిన చెక్ బాక్స్ను పరిశీలించుకోవచ్చు.</li>
-		<li><strong>బ్లాగ్</strong> జాబితా అన్ని పేజీలను, ప్రస్తుత బ్లాగు ఫీడ్ చేయడానికి మరియు అమలు చేయడానికి సహకరిస్తుంది, ఒక ప్రవేశం మార్చడం, మాధ్యమాలను నిర్వహించడం, బ్లాగు రూపం లేదా ఇతర ప్రామాణికాలను ఏర్పరచుకోవడం.<br>
-		<em>ప్రస్తుత బ్లాగులో పరిపాలనా హక్కులు లేకపోతే, ప్రధాన మెనూలో ఒక దానిలో మరొక బ్లాక్ ఉండదు.</em></li>
-		<li><strong>సిస్టమ్ అమరికలను</strong> లింకులు మీకు Dotclear స్థాపన చేయడానికి అనుమతిస్తుంది: బ్లాగులు నిర్వహణ, వినియోగదారులు మరియు అందుబాటే భాషలు, ప్లగిన్స్ స్థాపన, సిస్టమ్ అమరిక. మీరు అనేక బ్లాగుల మీద హక్కులు కలిగి ఉంటే, కానీ ఏ సూపర్ పరిపాలక హక్కులు, మీరు మాత్రమే చూడండి <em>బ్లాగులు</em> ప్రవేశం.</li>
-		<li><strong>ప్లగ్యిన్స్</strong> మీరు స్థాపించబడిన ప్లగిన్లను అమలు చేస్తాయి. ప్లగిన్ అమరికలను ఒక సమయంలో ఒక బ్లాగు మాత్రమే ప్రభావితం చేస్తే, దాని పరిపాలన పేజీ <em>బ్లాగు</em> బ్లాక్ నుండి అందుబాటలో ఉంది, కానీ వారు మొత్తం స్థాపన ప్రభావితం చేస్తే, అవి ఇక్కడ ఉన్నాయి, మరియు సూపర్-అడ్మిన్ వినియోగదారులకు మాత్రమే లభ్యమవుతుంది.</li>
-	</ul>
-
-	<h4 class="pretty-title">ఫూటర్</h4>
-	<p>ఫూటర్ లో రహస్యంగా దాచబడిన రహస్యం కనుగొనబడిన ఏ వినియోగదారునికి Dotclear యొక్క ఒక ఉచిత వివరణ ఉంటుంది.</p>
-
-	<h3>గొప్ప beginners కోసం సహాయం</h3>
-	<p>మీకు బ్లాగులు తెలియకుంటే, మీరు మా డాక్యుమెంటేషన్ (విషయాల మొత్తం పట్టిక ఈ పేజీ యొక్క <strong>డాక్యుమెంటేషన్</strong> ట్యాబ్‌లో అందుబాటులో ఉంది) అలాగే ట్యుటోరియల్‌లను చూడాలని మేము సిఫార్సు చేస్తున్నాము:
-	<ul>
-		<li><a href="https://dotclear.org/documentation/2.0/usage/beginners">నా మొదటి ప్రవేశం, అడుగు ద్వారా అడుగు.</a></li>
-	</ul>
-
-	<p><a href="https://dotclear.org/forum/">డొటపల్ ఫోరం</a> ఒక వెల్లడి స్థలం ఉంది, అక్కడ ఇటువంటి విషయం <em>ఒక తెలివైన ప్రశ్న</em>. మీరు సహాయం అవసరం ఉంటే పాల్పడవద్దు మరియు, ఎందుకు కాదు, తిరిగి ప్రజలకు సహాయం చేయడానికి.</p>
-
-	<p class="info">నిర్దిష్ట జ్ఞానం లేకుండా సులభంగా అర్థం చేసుకోగలిగే పదజాలాన్ని ఉపయోగించడానికి మేము మా వంతు ప్రయత్నం చేస్తాము. అయినప్పటికీ, మేము సాంకేతిక పదాన్ని ఉపయోగించడం ముగించినట్లయితే, మీరు బహుశా మా ఆన్‌లైన్ డాక్యుమెంటేషన్ యొక్క <a href="https://dotclear.org/documentation/glossary">పదకోశం</a>లో దాని నిర్వచనాన్ని కనుగొనవచ్చు.</p>
-</div>
-
-<div class="multi-part" id="users-doc" title="యూజర్ మాన్యువల్">
-	<h3>యూజర్ మాన్యువల్</h3>
-	<div class="three-boxes">
-		<h4 class="pretty-title">సారాంశం మేనేజింగ్</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/entries">ప్రవేశములు</a>
-					<ul>
-						<li>క్రియేటింగ్ మరియు ఎడిటింగ్</li>
-						<li>ఎంటర్ వివరాలు</li>
-						<li>సంప్రదించబడిన చర్యలు</li>
-						<li>వ్యాఖ్యలు మరియు ట్రాక్బాక్లు</li>
-						<li>ఎంట్రీల బ్యాచ్ నిర్వహణ</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">వ్యాఖ్యలు మరియు ట్రాక్బాక్లు</a>
-					<ul>
-						<li>వెనుకకు</li>
-						<li>నిర్వహణ</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/categories">వర్గములు</a>
-					<ul>
-						<li>ఒక వర్గం సృష్టించుచున్నది</li>
-						<li>వర్గం ఎడిటింగ్</li>
-						<li>ఒక వర్గమును తిరస్కరిస్తుంది</li>
-						<li>వర్గము జాబితాను స్తోత్రము చేయుము</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/tags">టాగ్స్ (కీవర్స్)</a>
-					<ul>
-						<li>ట్యాగ్లను అడ్డుచేయుము</li>
-						<li>టాగ్ నిర్వహణ</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/media">మీడియా మరియు యాంటెక్మెంట్Name</a>
-					<ul>
-						<li>సబ్-డైరెక్టరీ సృష్టించుచున్నది</li>
-						<li>ఫైళ్ళను అడ్డుచేయుచున్నది</li>
-						<li>ప్రస్తుత డైరెక్టరీ యొక్క జిప్ ఆర్చివ్ ను డౌన్లోడ్ చేయుచున్నది</li>
-						<li>ఫైలు వివరాలు నింపుట మార్పు</li>
-						<li>ఫైళ్ళను నేరుగా అడ్డుచేయుము</li>
-						<li>ప్రత్యేక ఫైల్ రకాలు</li>
-						<li>ఆటంకములు</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/widgets">బ్లాగు మెనూ సారాంశము (widgets)</a>
-					<ul>
-						<li>@ title: Extra sidebar @ label</li>
-						<li>అప్రమేయ విడ్జెట్స్</li>
-						<li>విడ్జట్ను అడ్డుచేయుము/తీసివేయుము</li>
-						<li>విడ్జెట్ ఐచ్ఛికములు</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
-					<ul>
-						<li>Blogroll</li>
-						<li>ఒక లింకు అడ్డుచేయుము</li>
-						<li>ఒక వర్గమును అడ్డుచేయుము</li>
-						<li>XFN</li>
-						<li>ఒక OPML లేదా XBEL ఫైల్ నుండి లింకులు దిగుమతిచేయి</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes">
-		<h4 class="pretty-title">@ info: प्रथा and customization</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">బ్లాగు అమరికName</a>
-					<ul>
-						<li>బ్లాగుల వివరాలు</li>
-						<li>బ్లాగు ఆకృతీకరణము</li>
-						<li>వ్యాఖ్యలు మరియు ట్రాక్బాక్లు</li>
-						<li>బ్లాగు</li>
-						<li>మీడియా మరియు బొమ్మలు</li>
-						<li>శోధన ఇంజన్ రోబోట్ విధానం</li>
-						<li>ఆంటిస్పామ్</li>
-						<li>లేత బాక్స్</li>
-						<li>@ action: button</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">యూజర్ ప్రాధాన్యం</a>
-					<ul>
-						<li>నా ప్రొఫైల్</li>
-						<li>నా ఐచ్ఛికములు</li>
-						<li>నా డాష్బోర్డ్</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">బ్లాగు సామెత</a>
-					<ul>
-						<li>థీమ్ను యెంచుకొనుము</li>
-						<li>థీమ్ను స్థాపించు</li>
-						<li>ఒక థీమ్ను వ్యక్తం చేయుము</li>
-						<li>థీమ్ ఎడిటర్</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes fieldset">
-			<h4 class="smart-title">@ info: status</h4>
-				<h5>గ్లోసరి</h5>
-				<ul><li><a href="https://dotclear.org/documentation/glossary">ఈ అసలు పదాలు వెబ్ లో మరియు డూట్స్ప్రెస్ లో ఉపయోగించారు.</a></li></ul>
-				<h5>Input synকর</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">వికీ సంకేతము మరియు HTML సమానము</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">మరింత వెళ్ళడానికి</a></li>
-					</ul>
-				<h5>సబ్స్క్రిప్షన్ (RSS, Atom ...)</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds">ఆ ఏమిటి?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">నా బ్లాగులో నేను ఎలా అందుబాటాను?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">నేను ఒక ఫీడ్ కు చందాం ఎలా?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">మరింత వెళ్ళడానికి</a></li>
-					</ul>
-			<h4 class="smart-title">సహాయము</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">Dotclear ఫోరం</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq">వేగంగా అడిగిన ప్రశ్నలు</a></li>
-				</ul>
-	</div>
-</div>
-
-	<div class="multi-part" id="admin-doc" title="నిర్వాహకులకు డాక్యుమెంటేషన్">
-	<h3>నిర్వాహకులకు డాక్యుమెంటేషన్</h3>
-		<div class="three-boxes">
-		<h4 class="pretty-title">సంస్థాపన మరియు నవీకరణ</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install">స్థాపించు</a>
-					<ul>
-						<li>Prerequisites</li>
-						<li>స్వయంచాలక స్థాపన</li>
-						<li>ప్రామాణిక స్థాపన</li>
-						<li>విచారణను ఉపయోగించి సంస్థాపించుట</li>
-						<li>Config.php దస్త్రం నుండి ప్రతిస్థాపించు</li>
-						<li>స్థాపన ప్రక్రియను పూర్తిచేస్తోంది</li>
-						<li>తదుపరి అడుగులు</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">అప్డేటింగ్</a>
-					<ul>
-						<li>నవీకరణకు సిద్ధాంతం</li>
-						<li>స్వయంచాలక అప్గ్రేడ్</li>
-						<li>ప్రోగ్రామ్ను నవీకరిస్తోంది</li>
-						<li>డేటాబేస్ ను నవీకరిస్తోంది</li>
-						<li>Appendix: a mercurial copy updating</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/config">ఆకృతీకరణ దస్త్రం (config.php) పరమాణు</a>
-					<ul>
-						<li>పరిచయం</li>
-						<li>పారామీటర్లు</li>
-						<li>ఫైలుకు సమాచారమును అడ్డుచేయుము</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Dotclear 1.2 నుండి Dotclear 2 వరకు ఉపాసనం</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/migrate">మరొక బ్లాగింగు సాఫ్ట్వేర్ నుండి Dotclear కు మిగ్రటింగ్</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/local-install">స్థానిక స్థాపన</a>
-					<ul>
-						<li>విండోస్</li>
-						<li>Mac OS X</li>
-						<li>లినక్స్</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">IIS7 తో Dotclear ను స్థాపించు</a></li>
-			</ul>
-
-			<h5>హోస్టింగ్ Annex</h5>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/hosting">హోస్టింగ్</a>
-				</li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">పరిపాలన</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/users">వాడుకదారులు</a>
-					<ul>
-						<li>వాడుకదారుని జాబితా</li>
-						<li>ఒక వినియోగదారు సృష్టించుచున్నది</li>
-						<li>ఒక వినియోగదారుని సవరించు</li>
-						<li>యూజర్ అనుమతి</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">స్థాపన శుభ్రం</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">బహుళ-బ్లాగు సంస్థాపన</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/plugins">ప్లగిన్లను మానేజింగ్ చేయుము</a>
-					<ul>
-						<li>ప్లగిన్ ను ప్రతిస్థాపించు</li>
-						<li>ప్లగిన్లను ఆకృతి చేస్తోంది</li>
-						<li>ఒక ప్లగిన్ను తొలగించుచున్నది</li>
-						<li>ఒక ప్లగిన్ ను సప్తించుచున్నది</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">అప్రమేయ థీమ్ Blowup</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">బ్లాగు థీమ్స్</a>
-					<ul>
-						<li>థీమ్ను తోసిపుచ్చు</li>
-						<li>థీమ్ను ప్రతిస్థాపించు</li>
-						<li>ఒక థీమ్ ప్రయోజనం చేయి</li>
-						<li>థీమ్ ఎడిటర్</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">ఉన్నత ఆకృతీకరణName</a></li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">నిర్వహణ</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/backup">బ్యాక్ అప్ మరియు పునర్</a>
-					<ul>
-						<li>దిగుమతి/ ఎగుమతి</li>
-						<li>దస్త్రములు</li>
-						<li>డాటాబేస్</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/antispam">స్పామ్ వ్యాఖ్య ఫిల్టర్లు</a>
-					<ul>
-						<li>ఫిల్టర్ సంస్థ</li>
-						<li>ఫిల్టర్ ఆకృతీకరణName</li>
-					</ul>
-				</li>
-			</ul>
-			<div class="fieldset vertical-separator">
-				<h4 class="smart-title">సహాయము</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">Dotclear ఫోరం</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq#administration">వేగంగా అడిగిన ప్రశ్నలు (పరిపాలకులు)</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="multi-part" id="guide-dev" title="డెవలపర్స్ డాక్యుమెంటు">
-	<h3>డెవలపర్ మరియు డిస్గేనెర్ వనరులు</h3>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">రూపొందించబడిన &amp; థీమ్స్</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes">థీమ్స్</a>
-					<ul>
-						<li>థీమ్స్ కొరకు యూజర్ మార్గదర్శి</li>
-						<li>టెంప్లేట్ టాగ్స్</li>
-						<li>Appendix</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">థీమ్స్ వారసత్వ</a>
-					<ul>
-						<li>ప్రిన్సిపల్</li>
-						<li>పరిమితులు</li>
-						<li>అప్ అమర్చు</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">@ title: window</a>
-					<ul>
-						<li>సామెతలు/వినిపిడి</li>
-						<li>బ్లాగు</li>
-						<li>ప్రవేశములు</li>
-						<li>పేజినీన్లను ప్రయత్నిస్తోంది</li>
-						<li>వ్యాఖ్యలు</li>
-						<li>వ్యాఖ్య ముందస్తు</li>
-						<li>పిండం</li>
-						<li>ఆటంకములు</li>
-						<li>వర్గములు</li>
-						<li>టాగ్స్</li>
-						<li>ఆర్కైవ్</li>
-						<li>భాషలు</li>
-						<li>వ్యవస్థ</li>
-						<li>విడ్జెట్స్</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">కోడ్ &amp; ప్లగ్యిన్లు</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/tpl">ప్లగిన్ లేదా థీమ్ కొరకు tpl ట్యాగ్ యొక్క సృజన</a>
-					<ul>
-						<li>పరిచయం</li>
-						<li>కాలువలు</li>
-						<li>నిర్మాణపు బ్లాక్లు</li>
-						<li>టెంప్లెట్ క్యాచీ ప్రభావాన్ని డెమోన్స్ట్రేషన్</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins">ప్లగిన్లు</a>
-					<ul>
-						<li>ప్లగిన్ వ్రాయుచున్నది</li>
-						<li>Appendix</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">ప్లగిన్ కంటెక్చ్యువల్ సహాయాన్ని బిల్డింగ్ చేయుము</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/authentication">బాహ్య ప్రత్యాన్యం</a>
-					<ul>
-						<li>ప్రీమేల్</li>
-						<li>కొత్త ఆధికారిత తరగతి</li>
-						<li>స్కేనరియాName</li>
-						<li>అనువర్తనము</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC ఇంటర్ఫేస్</a></li>
-				<li><a href="https://dev.dotclear.org/code/2/">API పత్రికాణము</a></li>
-			</ul>
-		</div>
-
-		<div class="three-boxes">
-			<h4 class="pretty-title">సహకారం &amp; మద్దతు</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/contribute">కాన్పర్</a>
-					<ul>
-						<li>ఈ పత్రికాన్ని సరికూర్చు</li>
-						<li>మీ క్రియేషన్లను షేర్Name</li>
-						<li>నివేదిక బగ్గు లేదా కొత్త లక్షణాలు సూచిస్తుంది</li>
-						<li>స్థానికత</li>
-				</ul>
-			</li>
-				<li><a href="https://git.dotclear.org/dev/dotclear">Dotclear మూలాల కోడ్ రిపోసిటరీ</a></li>
-				<li><a href="https://dotclear.org/forum">Dotclear फोरम</a></li>
-			</ul>
-
-			<div class="fieldset">
-				<h4 class="smart-title">కాన్వెన్షన్</h4>
-				<ul>
-					<li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">కోడింగ్ ప్రమాణాలు</a></li>
-					<li><a href="index.php?process=HelpCharte">నిర్వహణ పేజీలు చార్టు</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="multi-part legible" id="a11y-ergo" title="అందుబాటులు మరియు ergonomy">
-	<h3>అందుబాటులు మరియు ergonomy</h3>
-	<p>Dotclear ఇంటర్ఫేస్ దాదాపు అన్ని <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> ప్రమాణాన్ని నెరవేస్తుంది. మేము <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> మార్గదర్శకాలతో Dotclear అనుకూలంగా తయారు చేయడానికి పనిచేస్తున్నారు.</p>
-	<p>సులువుగా మరియు ఎర్గోమినిటీ మన ప్రధానమైన ఆందోదనలో ఒకటి. నిపుణుల సహకారంతో మరియు నిరంతరంగా నిపుణులు మరియు సంప్రదాయం అందిస్తుందనే విశ్లేషణను అమలు చేస్తాయి.</p>
-	<p>మీరు <a href="https://git.dotclear.org/dev/dotclear/issues">టికెట్లు</a> తెరవడం ద్వారా లేదా <a href="https://dotclear.orgలో పాల్గొనడం ద్వారా మాకు సహాయం చేయవచ్చు /forum/">ఫోరమ్</a>. మీరు వినియోగదారు పరీక్షలో కూడా పాల్గొనవచ్చు లేదా మా బృందంలో చేరవచ్చు!</p>
-	</div>
-
+  <div class="multi-part legible" id="first-step" title="మొదటి అడుగులు">
+    <h3>ఇంటర్ఫేస్ కనుగొనడం</h3>
+    <div class="fieldset">
+      <h4>మొదటి అడుగులు</h4>
+      <p>In addition to the global help pages, several administration pages have an online help. If javascript is enabled
+        on your browser, you can see online help at the upper-right position of the page, by clicking on the <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong> link. If Javascript is disabled, the help is displayed at the bottom of the page.</p>
+    </div>
+    <p>ప్రతి పరిపాలనా పేజీ అదే టాప్ శీర్షం, ప్రధాన మెనూ మరియు ఫూటర్ ను ప్రదర్శించబడుతుంది. <em>(ఇక్కడ ఇచ్చిన క్రమం ఏమిటో ఒక కంప్యూటర్ తెరపై చూపబడుతుంది. మొబైల్ పరికరాల లేదా పలకల కోసం, ఇది ఖాళీగా లభ్యమవుతుంది.)</em></p>
+    <h4 class="pretty-title">పైన శీర్చు</h4>
+    <p>శిథిలావళి మూడు అంశాలు:</p>
+    <h5 class="as_h4">లోగోName</h5>
+    <p>By default, this logo is the Dotclear logo and links to the administration landing page. However, a platform
+      manager can choose another logo and redirect towards something else (generally, the service landing page).</p>
+    <h5 class="as_h4">బ్లాగు (లు)</h5>
+    <p>The first element located after the logo shows the <em>active</em> blog, i.e. the blog on which you are acting. If your
+      installation is composed of several blogs, these informations are available in a combo menu, which lets you switch to another blog.</p>
+    <p>బ్లాగుపేరు క్రింది లింకు మీ ప్రస్తుత బ్లాగు మరొక విండో లేదా మరొక టాబ్ లో తెరుస్తుంది.</p>
+    <h5 class="as_h4">యూజర్</h5>
+    <p>లింకు <em>My dashboard</em> మీరు తిరిగి బ్లాగ్ పరిపాలన ల్యాన్డర్ పేజీలో పొందుతుంది.</p>
+    <p>లింకు <em>నా ప్రాధాన్యం</em> పేజీకి మీరు మీ వ్యక్తిగత సమాచారాన్ని మార్చుకోవచ్చు, డాష్బోర్డ్ అమలు చేయవచ్చు మరియు మీ ఇంటర్ఫేస్ మరియు ఎడిటేషన్ ఎంపికలను ఎంచుకోవచ్చు.</p>
+    <p>Surprisingly, లింకు <em>డిస్కన్సర్ [మీ లాగిన్]</em> మీ బ్లాగు యొక్క పరిపాలన (Dotclear's, we are ergonomy ఛాంపియన్స్ ఉన్నాయి!)</p>
+    <h4 class="pretty-title">ప్రధాన మెనూ</h4>
+    <p>ప్రధాన మెనూ స్క్రీన్ ఎడమ వైపున ఉంది. ఇది దాని కుడి సరిహద్దును నొక్కడం ద్వారా పతనం చేయవచ్చు (మరియు అప్పుడు దానిపై మళ్ళీ క్లిక్ చేయటం ద్వారా అణగడం).</p>
+    <p>ఇది ప్రస్తుత బ్లాగులో మీ అనుమతుల ప్రకారం వివిధ పరిపాలనా పేజీలకు దారితీస్తుంది. ఇది నాలుగు బ్లాకులను కింది:</p>
+    <ul>
+      <li><strong>నా అభిప్రాయాలు</strong> జాబితాలో మీరు అనుకూలంగా ఎంపిక చేసిన పేజీలను <em>నా ప్రాధాన్యం</em>/<em>నా డాష్బోర్డ్</em> ట్యాబ్. ఇప్పటివరకు మీరు ఎటువంటి అభిప్రాయాన్ని ఎంపిక చేయలేకపోతే, ఈ జాబితా అప్రమేయ Dotclear సెట్ను కలిగివుంటుంది, లేదా ప్లాట్ఫాం నిర్వాహికచే నిర్వచించబడిన అమర్పును కలిగి ఉంటుంది. మీరు ఈ బ్లాక్ను ప్రదర్శించాలనుకుంటున్నట్లయితే, మీరు మీ dashboard ఐచ్ఛికములలో సరిపోలిన చెక్ బాక్స్ను పరిశీలించుకోవచ్చు.</li>
+      <li><strong>Blog</strong> lists all the pages that enable to feed and setup the current blog, from editing an entry, managing media, choosing the blog appearance or other parameters.<br>
+        <em>If you do not have administrator rights on the current blog, there will be no other block below that one in the main menu.</em></li>
+      <li><strong>సిస్టమ్ అమరికలను</strong> లింకులు మీకు Dotclear స్థాపన చేయడానికి అనుమతిస్తుంది: బ్లాగులు నిర్వహణ, వినియోగదారులు మరియు అందుబాటే భాషలు, ప్లగిన్స్ స్థాపన, సిస్టమ్ అమరిక. మీరు అనేక బ్లాగుల మీద హక్కులు కలిగి ఉంటే, కానీ ఏ సూపర్ పరిపాలక హక్కులు, మీరు మాత్రమే చూడండి <em>బ్లాగులు</em> ప్రవేశం.</li>
+      <li><strong>ప్లగ్యిన్స్</strong> మీరు స్థాపించబడిన ప్లగిన్లను అమలు చేస్తాయి. ప్లగిన్ అమరికలను ఒక సమయంలో ఒక బ్లాగు మాత్రమే ప్రభావితం చేస్తే, దాని పరిపాలన పేజీ <em>బ్లాగు</em> బ్లాక్ నుండి అందుబాటలో ఉంది, కానీ వారు మొత్తం స్థాపన ప్రభావితం చేస్తే, అవి ఇక్కడ ఉన్నాయి, మరియు సూపర్-అడ్మిన్ వినియోగదారులకు మాత్రమే లభ్యమవుతుంది.</li>
+    </ul>
+    <h4 class="pretty-title">ఫూటర్</h4>
+    <p>ఫూటర్ లో రహస్యంగా దాచబడిన రహస్యం కనుగొనబడిన ఏ వినియోగదారునికి Dotclear యొక్క ఒక ఉచిత వివరణ ఉంటుంది.</p>
+    <h3>గొప్ప beginners కోసం సహాయం</h3>
+    <p>మీకు బ్లాగులు తెలియకుంటే, మీరు మా డాక్యుమెంటేషన్ (విషయాల మొత్తం పట్టిక ఈ పేజీ యొక్క <strong>డాక్యుమెంటేషన్</strong> ట్యాబ్‌లో అందుబాటులో ఉంది) అలాగే ట్యుటోరియల్‌లను చూడాలని మేము సిఫార్సు చేస్తున్నాము:
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">నా మొదటి ప్రవేశం, అడుగు ద్వారా అడుగు.</a></li>
+      </ul>
+      <p><a href="https://dotclear.org/forum/">డొటపల్ ఫోరం</a> ఒక వెల్లడి స్థలం ఉంది, అక్కడ ఇటువంటి విషయం <em>ఒక తెలివైన ప్రశ్న</em>. మీరు సహాయం అవసరం ఉంటే పాల్పడవద్దు మరియు, ఎందుకు కాదు, తిరిగి ప్రజలకు సహాయం చేయడానికి.</p>
+      <p class="info">నిర్దిష్ట జ్ఞానం లేకుండా సులభంగా అర్థం చేసుకోగలిగే పదజాలాన్ని ఉపయోగించడానికి మేము మా వంతు ప్రయత్నం చేస్తాము. అయినప్పటికీ, మేము సాంకేతిక పదాన్ని ఉపయోగించడం ముగించినట్లయితే, మీరు బహుశా మా ఆన్‌లైన్ డాక్యుమెంటేషన్ యొక్క <a href="https://dotclear.org/documentation/glossary">పదకోశం</a>లో దాని నిర్వచనాన్ని కనుగొనవచ్చు.</p>
+  </div>
+  <div class="multi-part" id="users-doc" title="యూజర్ మాన్యువల్">
+    <h3>యూజర్ మాన్యువల్</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">సారాంశం మేనేజింగ్</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">ప్రవేశములు</a>
+          <ul>
+            <li>క్రియేటింగ్ మరియు ఎడిటింగ్</li>
+            <li>ఎంటర్ వివరాలు</li>
+            <li>సంప్రదించబడిన చర్యలు</li>
+            <li>వ్యాఖ్యలు మరియు ట్రాక్బాక్లు</li>
+            <li>ఎంట్రీల బ్యాచ్ నిర్వహణ</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">వ్యాఖ్యలు మరియు ట్రాక్బాక్లు</a>
+          <ul>
+            <li>వెనుకకు</li>
+            <li>నిర్వహణ</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">వర్గములు</a>
+          <ul>
+            <li>ఒక వర్గం సృష్టించుచున్నది</li>
+            <li>వర్గం ఎడిటింగ్</li>
+            <li>ఒక వర్గమును తిరస్కరిస్తుంది</li>
+            <li>వర్గము జాబితాను స్తోత్రము చేయుము</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">టాగ్స్ (కీవర్స్)</a>
+          <ul>
+            <li>ట్యాగ్లను అడ్డుచేయుము</li>
+            <li>టాగ్ నిర్వహణ</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/media">మీడియా మరియు యాంటెక్మెంట్Name</a>
+          <ul>
+            <li>సబ్-డైరెక్టరీ సృష్టించుచున్నది</li>
+            <li>ఫైళ్ళను అడ్డుచేయుచున్నది</li>
+            <li>ప్రస్తుత డైరెక్టరీ యొక్క జిప్ ఆర్చివ్ ను డౌన్లోడ్ చేయుచున్నది</li>
+            <li>ఫైలు వివరాలు నింపుట మార్పు</li>
+            <li>ఫైళ్ళను నేరుగా అడ్డుచేయుము</li>
+            <li>ప్రత్యేక ఫైల్ రకాలు</li>
+            <li>ఆటంకములు</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">బ్లాగు మెనూ సారాంశము (widgets)</a>
+          <ul>
+            <li>@ title: Extra sidebar @ label</li>
+            <li>అప్రమేయ విడ్జెట్స్</li>
+            <li>విడ్జట్ను అడ్డుచేయుము/తీసివేయుము</li>
+            <li>విడ్జెట్ ఐచ్ఛికములు</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
+          <ul>
+            <li>Blogroll</li>
+            <li>ఒక లింకు అడ్డుచేయుము</li>
+            <li>ఒక వర్గమును అడ్డుచేయుము</li>
+            <li>XFN</li>
+            <li>ఒక OPML లేదా XBEL ఫైల్ నుండి లింకులు దిగుమతిచేయి</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">@ info: प्रथा and customization</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">బ్లాగు అమరికName</a>
+          <ul>
+            <li>బ్లాగుల వివరాలు</li>
+            <li>బ్లాగు ఆకృతీకరణము</li>
+            <li>వ్యాఖ్యలు మరియు ట్రాక్బాక్లు</li>
+            <li>బ్లాగు</li>
+            <li>మీడియా మరియు బొమ్మలు</li>
+            <li>శోధన ఇంజన్ రోబోట్ విధానం</li>
+            <li>ఆంటిస్పామ్</li>
+            <li>లేత బాక్స్</li>
+            <li>@ action: button</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">యూజర్ ప్రాధాన్యం</a>
+          <ul>
+            <li>నా ప్రొఫైల్</li>
+            <li>నా ఐచ్ఛికములు</li>
+            <li>నా డాష్బోర్డ్</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">బ్లాగు సామెత</a>
+          <ul>
+            <li>థీమ్ను యెంచుకొనుము</li>
+            <li>థీమ్ను స్థాపించు</li>
+            <li>ఒక థీమ్ను వ్యక్తం చేయుము</li>
+            <li>థీమ్ ఎడిటర్</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes fieldset">
+      <h4 class="smart-title">@ info: status</h4>
+      <h5>గ్లోసరి</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/glossary">ఈ అసలు పదాలు వెబ్ లో మరియు డూట్స్ప్రెస్ లో ఉపయోగించారు.</a></li>
+      </ul>
+      <h5>Input synকর</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">వికీ సంకేతము మరియు HTML సమానము</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">మరింత వెళ్ళడానికి</a></li>
+      </ul>
+      <h5>సబ్స్క్రిప్షన్ (RSS, Atom ...)</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">ఆ ఏమిటి?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">నా బ్లాగులో నేను ఎలా అందుబాటాను?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">నేను ఒక ఫీడ్ కు చందాం ఎలా?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">మరింత వెళ్ళడానికి</a></li>
+      </ul>
+      <h4 class="smart-title">సహాయము</h4>
+      <ul>
+        <li><a href="https://dotclear.org/forum">Dotclear ఫోరం</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/faq">వేగంగా అడిగిన ప్రశ్నలు</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="multi-part" id="admin-doc" title="నిర్వాహకులకు డాక్యుమెంటేషన్">
+    <h3>నిర్వాహకులకు డాక్యుమెంటేషన్</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">సంస్థాపన మరియు నవీకరణ</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install">స్థాపించు</a>
+          <ul>
+            <li>Prerequisites</li>
+            <li>స్వయంచాలక స్థాపన</li>
+            <li>ప్రామాణిక స్థాపన</li>
+            <li>విచారణను ఉపయోగించి సంస్థాపించుట</li>
+            <li>Config.php దస్త్రం నుండి ప్రతిస్థాపించు</li>
+            <li>స్థాపన ప్రక్రియను పూర్తిచేస్తోంది</li>
+            <li>తదుపరి అడుగులు</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">అప్డేటింగ్</a>
+          <ul>
+            <li>నవీకరణకు సిద్ధాంతం</li>
+            <li>స్వయంచాలక అప్గ్రేడ్</li>
+            <li>ప్రోగ్రామ్ను నవీకరిస్తోంది</li>
+            <li>డేటాబేస్ ను నవీకరిస్తోంది</li>
+            <li>Appendix: a mercurial copy updating</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/config">ఆకృతీకరణ దస్త్రం (config.php) పరమాణు</a>
+          <ul>
+            <li>పరిచయం</li>
+            <li>పారామీటర్లు</li>
+            <li>ఫైలుకు సమాచారమును అడ్డుచేయుము</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Dotclear 1.2 నుండి Dotclear 2 వరకు ఉపాసనం</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">మరొక బ్లాగింగు సాఫ్ట్వేర్ నుండి Dotclear కు మిగ్రటింగ్</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">స్థానిక స్థాపన</a>
+          <ul>
+            <li>విండోస్</li>
+            <li>Mac OS X</li>
+            <li>లినక్స్</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">IIS7 తో Dotclear ను స్థాపించు</a></li>
+      </ul>
+      <h5>హోస్టింగ్ Annex</h5>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/hosting">హోస్టింగ్</a>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">పరిపాలన</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/users">వాడుకదారులు</a>
+          <ul>
+            <li>వాడుకదారుని జాబితా</li>
+            <li>ఒక వినియోగదారు సృష్టించుచున్నది</li>
+            <li>ఒక వినియోగదారుని సవరించు</li>
+            <li>యూజర్ అనుమతి</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">స్థాపన శుభ్రం</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">బహుళ-బ్లాగు సంస్థాపన</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">ప్లగిన్లను మానేజింగ్ చేయుము</a>
+          <ul>
+            <li>ప్లగిన్ ను ప్రతిస్థాపించు</li>
+            <li>ప్లగిన్లను ఆకృతి చేస్తోంది</li>
+            <li>ఒక ప్లగిన్ను తొలగించుచున్నది</li>
+            <li>ఒక ప్లగిన్ ను సప్తించుచున్నది</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">అప్రమేయ థీమ్ Blowup</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">బ్లాగు థీమ్స్</a>
+          <ul>
+            <li>థీమ్ను తోసిపుచ్చు</li>
+            <li>థీమ్ను ప్రతిస్థాపించు</li>
+            <li>ఒక థీమ్ ప్రయోజనం చేయి</li>
+            <li>థీమ్ ఎడిటర్</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">ఉన్నత ఆకృతీకరణName</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">నిర్వహణ</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">బ్యాక్ అప్ మరియు పునర్</a>
+          <ul>
+            <li>దిగుమతి/ ఎగుమతి</li>
+            <li>దస్త్రములు</li>
+            <li>డాటాబేస్</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">స్పామ్ వ్యాఖ్య ఫిల్టర్లు</a>
+          <ul>
+            <li>ఫిల్టర్ సంస్థ</li>
+            <li>ఫిల్టర్ ఆకృతీకరణName</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="fieldset vertical-separator">
+        <h4 class="smart-title">సహాయము</h4>
+        <ul>
+          <li><a href="https://dotclear.org/forum">Dotclear ఫోరం</a></li>
+          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">వేగంగా అడిగిన ప్రశ్నలు (పరిపాలకులు)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part" id="guide-dev" title="డెవలపర్స్ డాక్యుమెంటు">
+    <h3>డెవలపర్ మరియు డిస్గేనెర్ వనరులు</h3>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">రూపొందించబడిన &amp; థీమ్స్</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">థీమ్స్</a>
+          <ul>
+            <li>థీమ్స్ కొరకు యూజర్ మార్గదర్శి</li>
+            <li>టెంప్లేట్ టాగ్స్</li>
+            <li>Appendix</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">థీమ్స్ వారసత్వ</a>
+          <ul>
+            <li>ప్రిన్సిపల్</li>
+            <li>పరిమితులు</li>
+            <li>అప్ అమర్చు</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">@ title: window</a>
+          <ul>
+            <li>సామెతలు/వినిపిడి</li>
+            <li>బ్లాగు</li>
+            <li>ప్రవేశములు</li>
+            <li>పేజినీన్లను ప్రయత్నిస్తోంది</li>
+            <li>వ్యాఖ్యలు</li>
+            <li>వ్యాఖ్య ముందస్తు</li>
+            <li>పిండం</li>
+            <li>ఆటంకములు</li>
+            <li>వర్గములు</li>
+            <li>టాగ్స్</li>
+            <li>ఆర్కైవ్</li>
+            <li>భాషలు</li>
+            <li>వ్యవస్థ</li>
+            <li>విడ్జెట్స్</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">కోడ్ &amp; ప్లగ్యిన్లు</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">ప్లగిన్ లేదా థీమ్ కొరకు tpl ట్యాగ్ యొక్క సృజన</a>
+          <ul>
+            <li>పరిచయం</li>
+            <li>కాలువలు</li>
+            <li>నిర్మాణపు బ్లాక్లు</li>
+            <li>టెంప్లెట్ క్యాచీ ప్రభావాన్ని డెమోన్స్ట్రేషన్</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">ప్లగిన్లు</a>
+          <ul>
+            <li>ప్లగిన్ వ్రాయుచున్నది</li>
+            <li>Appendix</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">ప్లగిన్ కంటెక్చ్యువల్ సహాయాన్ని బిల్డింగ్ చేయుము</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">బాహ్య ప్రత్యాన్యం</a>
+          <ul>
+            <li>ప్రీమేల్</li>
+            <li>కొత్త ఆధికారిత తరగతి</li>
+            <li>స్కేనరియాName</li>
+            <li>అనువర్తనము</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC ఇంటర్ఫేస్</a></li>
+        <li><a href="https://dev.dotclear.org/code/2/">API పత్రికాణము</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">సహకారం &amp; మద్దతు</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">కాన్పర్</a>
+          <ul>
+            <li>ఈ పత్రికాన్ని సరికూర్చు</li>
+            <li>మీ క్రియేషన్లను షేర్Name</li>
+            <li>నివేదిక బగ్గు లేదా కొత్త లక్షణాలు సూచిస్తుంది</li>
+            <li>స్థానికత</li>
+          </ul>
+        </li>
+        <li><a href="https://git.dotclear.org/dev/dotclear">Dotclear మూలాల కోడ్ రిపోసిటరీ</a></li>
+        <li><a href="https://dotclear.org/forum">Dotclear फोरम</a></li>
+      </ul>
+      <div class="fieldset">
+        <h4 class="smart-title">కాన్వెన్షన్</h4>
+        <ul>
+          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">కోడింగ్ ప్రమాణాలు</a></li>
+          <li><a href="index.php?process=HelpCharte">నిర్వహణ పేజీలు చార్టు</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part legible" id="a11y-ergo" title="అందుబాటులు మరియు ergonomy">
+    <h3>అందుబాటులు మరియు ergonomy</h3>
+    <p>Dotclear ఇంటర్ఫేస్ దాదాపు అన్ని <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> ప్రమాణాన్ని నెరవేస్తుంది. మేము <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> మార్గదర్శకాలతో Dotclear అనుకూలంగా తయారు చేయడానికి పనిచేస్తున్నారు.</p>
+    <p>సులువుగా మరియు ఎర్గోమినిటీ మన ప్రధానమైన ఆందోదనలో ఒకటి. నిపుణుల సహకారంతో మరియు నిరంతరంగా నిపుణులు మరియు సంప్రదాయం అందిస్తుందనే విశ్లేషణను అమలు చేస్తాయి.</p>
+    <p>మీరు <a href="https://git.dotclear.org/dev/dotclear/issues">టికెట్లు</a> తెరవడం ద్వారా లేదా <a href="https://dotclear.orgలో పాల్గొనడం ద్వారా మాకు సహాయం చేయవచ్చు /forum/">ఫోరమ్</a>. మీరు వినియోగదారు పరీక్షలో కూడా పాల్గొనవచ్చు లేదా మా బృందంలో చేరవచ్చు!</p>
+  </div>
 </body>
+
 </html>
