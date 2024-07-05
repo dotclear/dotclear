@@ -1,92 +1,64 @@
 <html>
-  <head>
-    <title>Mediapäällikkö</title>
-  </head>
-  <body>
-    <h4>Media-aineistoluettelo</h4>
-    <p>Medianhallinnan pääsivulla näkyy luettelo valitun blogin käytettävissä olevista tiedostoista (medioista).</p>
 
-    <p>Voit näyttää kansiossa tai missä tahansa alikansiossa olevat mediat napsauttamalla niiden kuvakkeita tai nimiä.</p>
+<head>
+  <title>Mediapäällikkö</title>
+</head>
 
-    <p>MP3-äänitiedoston valitseminen näyttää soittimen, joka toistaa tiedoston välittömästi. Flash-lisäosan on oltava asennettuna selaimeesi, jotta tämä soitin toimii.</p>
+<body>
+  <h4>Media-aineistoluettelo</h4>
+  <p>Medianhallinnan pääsivulla näkyy luettelo valitun blogin käytettävissä olevista tiedostoista (medioista).</p>
+  <p>Voit näyttää kansiossa tai missä tahansa alikansiossa olevat mediat napsauttamalla niiden kuvakkeita tai nimiä.</p>
+  <p>MP3-äänitiedoston valitseminen näyttää soittimen, joka toistaa tiedoston välittömästi. Flash-lisäosan on oltava asennettuna selaimeesi, jotta tämä soitin toimii.</p>
+  <p>Kuvat näytetään mahdollisuuksien mukaan pienoiskuvina.</p>
+  <h4>Lisää tiedostoja</h4>
+  <dl>
+    <dt>Valitse tiedosto</dt>
+    <dd>Here you can select one of your local files to send it on your blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
+    <dt>Otsikko</dt>
+    <dd>Vapaaehtoinen otsikko tiedostolle, jonka haluat lähettää.</dd>
+    <dt>Yksityinen</dt>
+    <dd>Check this if you want the file to be private, i.e. accessible only by its owner and not accessible from the blog (until published).</dd>
+  </dl>
+  <dl>
+    <dt>Parannettu latausohjelma</dt>
+    <dd>Allows to select one or several of your local files to send them on your blog. Should any file be bigger than the maximum size, it will not be sent.<br>When you select several local files, they are added to the queue. You can add more files by clicking again on <strong>Choose files</strong>. You can also remove files from the queue by clicking on the corresponding red cross-shaped icon.<br>When you are ready, click on <strong>Upload</strong>.</dd>
+  </dl>
+  <h4>Tiedostojen poistaminen</h4>
+  <p>Voit poistaa tiedoston valitsemalla sen valintaruudun ja napsauttamalla <strong>Poista valittu media</strong>. Voit poistaa useita tiedostoja kerralla.</p>
+  <h4>Uusi kansio</h4>
+  <p>This form allows you to create a new subfolder in the currently displayed folder. Just choose a name for it as you would do on your own computer.</p>
+  <h4>Tiedotusvälineiden tiedot</h4>
+  <p>Tällä sivulla näytetään tietoja valitusta tiedostosta ja voit suorittaa sille useita toimintoja.</p>
+  <dl>
+    <dt>Tiedoston nimi</dt>
+    <dd>Vaihda nykyisen tiedoston nimi.</dd>
+    <dt>Tiedoston nimi</dt>
+    <dd>Anna tiedostolle otsikko tai muuta nykyistä otsikkoa.</dd>
+    <dt>Tiedoston päivämäärä</dt>
+    <dd>Muuta tiedoston päivämäärää.</dd>
+    <dt>Yksityinen</dt>
+    <dd>Määritä, että tiedosto piilotetaan mediamanagerissa muilta kuin sen omistajalta.</dd>
+    <dt>Uusi hakemisto</dt>
+    <dd>Voit siirtää tiedoston toiseen kansioon.</dd>
+    <dt>Vaihda tiedosto</dt>
+    <dd>With this form, you can replace the file while keeping all the attributes (name, title...). As always, you have to respect the maximum file size.</dd>
+  </dl>
+  <h4>Erityistapaus: kuvat</h4>
+  <p>Kun lisäät kuvaa, sen koosta riippuen käytettävissä on enintään neljä versiota (alkuperäisen kuvan koosta riippuen):</p>
+  <ul>
+    <li><strong>Neliö:</strong> 48x48 pikselin neliönmuotoinen pikkukuva.</li>
+    <li><strong>Pienoiskuva:</strong> Kuva pienennettynä 100 pikseliin sen pisimmältä sivulta.</li>
+    <li><strong>Pieni:</strong> Pisin sivu on pienennetty 240 pikseliin.</li>
+    <li><strong>Medium:</strong> Pisin sivu on lyhennetty 500 pikseliin.</li>
+    <li><strong>Alkuperäinen:</strong> Alkuperäinen, muuttumaton kuva.</li>
+  </ul>
+  <p>Pikkukuvan, pienen ja keskikokoisen version oletuskokoja voi muuttaa blogisi asetuksissa.</p>
+  <h4>Liitä tiedosto merkintään</h4>
+  <p>Voit helposti liittää tiedoston johonkin viestiisi. Luo ensin uusi viesti ja tallenna se. Avaa sitten medianhallinta napsauttamalla "Lisää tiedostoja tähän merkintään".</p>
+  <p>Just click on the [+] icon (Attach this file to entry). The file will then be attached to the post.</p>
+  <p>Liitetiedostot näytetään postaussivulla luettelona postaussisällön jälkeen. MP3-tiedostot asetetaan saataville Flash-soittimen kautta, jotta kävijät voivat helposti soittaa niitä.</p>
+  <h4>Podcast ja musiikkitiedostojen lähetys</h4>
+  <p>All attached files will be included in your blog feeds, allowing an easy podcasting of any type of file.</p>
+</body>
 
-    <p>Kuvat näytetään mahdollisuuksien mukaan pienoiskuvina.</p>
-
-    <h4>Lisää tiedostoja</h4>
-    <dl>
-      <dt>Valitse tiedosto</dt>
-      <dd>Tässä voit valita yhden paikallisista tiedostoistasi lähettääksesi sen 
-      -blogiisi. Jos tiedosto on maksimikokoa suurempi, sitä ei lähetetä.</dd>
-      
-      <dt>Otsikko</dt>
-      <dd>Vapaaehtoinen otsikko tiedostolle, jonka haluat lähettää.</dd>
-      
-      <dt>Yksityinen</dt>
-      <dd>Merkitse tämä, jos haluat tiedoston olevan yksityinen, eli siihen pääsee käsiksi vain sen omistaja
-      eikä sitä voi käyttää blogissa (kunnes se julkaistaan).</dd>
-    </dl>
-
-    <dl>
-      <dt>Parannettu latausohjelma</dt>
-      <dd>Voit valita yhden tai useamman paikallisen tiedoston ja lähettää ne 
-  -blogiin. Jos jokin tiedosto on maksimikokoa suurempi, sitä ei lähetetä.<br>
-	Kun valitset useita paikallisia tiedostoja, ne lisätään jonoon. Voit lisätä lisää tiedostoja klikkaamalla uudelleen <strong>Valitse tiedostoja</strong>. Voit myös poistaa tiedostoja jonosta klikkaamalla vastaavaa punaista ristinmuotoista kuvaketta.<br>
-  Kun olet valmis, napsauta <strong>Upload</strong>.</dd>
-    </dl>
-
-    <h4>Tiedostojen poistaminen</h4>
-    <p>Voit poistaa tiedoston valitsemalla sen valintaruudun ja napsauttamalla <strong>Poista valittu media</strong>. Voit poistaa useita tiedostoja kerralla.</p>
-
-    <h4>Uusi kansio</h4>
-    <p>Tällä lomakkeella voit luoda uuden alikansion parhaillaan näkyvissä olevaan
--kansioon. Valitse sille nimi, kuten tekisit omalla tietokoneellasi.</p>
-
-    <h4>Tiedotusvälineiden tiedot</h4>
-    <p>Tällä sivulla näytetään tietoja valitusta tiedostosta ja voit suorittaa sille useita toimintoja.</p>
-
-    <dl>
-      <dt>Tiedoston nimi</dt>
-      <dd>Vaihda nykyisen tiedoston nimi.</dd>
-      
-      <dt>Tiedoston nimi</dt>
-      <dd>Anna tiedostolle otsikko tai muuta nykyistä otsikkoa.</dd>
-      
-      <dt>Tiedoston päivämäärä</dt>
-      <dd>Muuta tiedoston päivämäärää.</dd>
-      
-      <dt>Yksityinen</dt>
-      <dd>Määritä, että tiedosto piilotetaan mediamanagerissa muilta kuin sen omistajalta.</dd>
-      
-      <dt>Uusi hakemisto</dt>
-      <dd>Voit siirtää tiedoston toiseen kansioon.</dd>
-      
-      <dt>Vaihda tiedosto</dt>
-      <dd>Tällä lomakkeella voit korvata tiedoston säilyttäen kaikki attribuutit
-      (nimi, otsikko...). Kuten aina, sinun on noudatettava tiedoston enimmäiskokoa.</dd>
-    </dl>
-
-    <h4>Erityistapaus: kuvat</h4>
-    <p>Kun lisäät kuvaa, sen koosta riippuen käytettävissä on enintään neljä versiota (alkuperäisen kuvan koosta riippuen):</p>
-    <ul>
-      <li><strong>Neliö:</strong> 48x48 pikselin neliönmuotoinen pikkukuva.</li>
-      <li><strong>Pienoiskuva:</strong> Kuva pienennettynä 100 pikseliin sen pisimmältä sivulta.</li>
-      <li><strong>Pieni:</strong> Pisin sivu on pienennetty 240 pikseliin.</li>
-      <li><strong>Medium:</strong> Pisin sivu on lyhennetty 500 pikseliin.</li>
-      <li><strong>Alkuperäinen:</strong> Alkuperäinen, muuttumaton kuva.</li>
-    </ul>
-    <p>Pikkukuvan, pienen ja keskikokoisen version oletuskokoja voi muuttaa blogisi asetuksissa.</p>
-
-    <h4>Liitä tiedosto merkintään</h4>
-    <p>Voit helposti liittää tiedoston johonkin viestiisi. Luo ensin uusi viesti ja tallenna se. Avaa sitten medianhallinta napsauttamalla "Lisää tiedostoja tähän merkintään".</p>
-
-    <p>Napsauta [+]-kuvaketta (Liitä tämä tiedosto merkintään). Tämän jälkeen tiedosto
-liitetään viestiin.</p>
-
-    <p>Liitetiedostot näytetään postaussivulla luettelona postaussisällön jälkeen. MP3-tiedostot asetetaan saataville Flash-soittimen kautta, jotta kävijät voivat helposti soittaa niitä.</p>
-
-    <h4>Podcast ja musiikkitiedostojen lähetys</h4>
-    <p>Kaikki liitetiedostot sisällytetään blogisi syötteisiin, mikä mahdollistaa kaikenlaisten tiedostojen helpon
-podcastingin.</p>
-
-  </body>
 </html>
