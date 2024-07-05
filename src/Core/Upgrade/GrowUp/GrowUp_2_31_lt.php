@@ -57,6 +57,7 @@ class GrowUp_2_31_lt
             [
                 'plugins/dcCKEditor/tpl',
                 'plugins/dcLegacyEditor/tpl',
+                'plugins/Uninstaller/locales',
             ]
         );
 
