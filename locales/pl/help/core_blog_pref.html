@@ -1,207 +1,155 @@
 <html>
+
 <head>
   <title>Ustawienia bloga</title>
 </head>
 
 <body>
-<h4>Szczegóły bloga</h4>
-<dl>
-  <dt>ID bloga</dt>
-  <dd>Unikalny identyfikator bloga. Wymagane, może być zmienione tylko przez administratora.</dd>
-
-  <dt>Nazwa bloga</dt>
-  <dd>Nazwa bloga, wymagane.</dd>
-
-  <dt>URL bloga</dt>
-  <dd>Kompletny adres URL bloga. Wymagane, może być zmienione tylko przez administratora.</dd>
-
-  <dt>Stan bloga</dt>
-  <dd>Określa sposób odczytu URL. PATH_INFO jest zalecany, należy użyć QUERY_STRING jeśli PATH_INFO nie działa. Używając trybu PATH_INFO, adres URL bloga musi kończyć się znakiem "/" i używać QUERY_STRING, musi kończyć się znakiem "?".</dd>
-
-  <dt>Opis bloga</dt>
-  <dd>
-    <ul>
-      <li><strong>Online:</strong> Blog otwarty dla odwiedzających.</li>
-      <li><strong>Offline:</strong> Blog zamknięty dla odwiedzających, ale otwarty dla pisarzy.</li>
-      <li><strong>Removed:</strong> Blog zamknięty zarówno dla odwiedzających, jak i pisarzy, otwarty tylko dla super administratorów.</li>
-    </ul>
-  </dd>
-
-  <dt>Opis bloga</dt>
-  <dd>Tutaj możesz umieścić dowolny opis dla swojego bloga. To prosty tekst, bez formatowania.</dd>
-</dl>
-
-<h4>Konfiguracja bloga</h4>
-<dl>
-  <dt>Nazwa edytora bloga</dt>
-  <dd>Name of the person responsible for the blog. It may be the owner or the
+  <h4>Szczegóły bloga</h4>
+  <dl>
+    <dt>ID bloga</dt>
+    <dd>Unikalny identyfikator bloga. Wymagane, może być zmienione tylko przez administratora.</dd>
+    <dt>Nazwa bloga</dt>
+    <dd>Nazwa bloga, wymagane.</dd>
+    <dt>URL bloga</dt>
+    <dd>Kompletny adres URL bloga. Wymagane, może być zmienione tylko przez administratora.</dd>
+    <dt>Stan bloga</dt>
+    <dd>Określa sposób odczytu URL. PATH_INFO jest zalecany, należy użyć QUERY_STRING jeśli PATH_INFO nie działa. Używając trybu PATH_INFO, adres URL bloga musi kończyć się znakiem "/" i używać QUERY_STRING, musi kończyć się znakiem "?".</dd>
+    <dt>Opis bloga</dt>
+    <dd>
+      <ul>
+        <li><strong>Online:</strong> Blog otwarty dla odwiedzających.</li>
+        <li><strong>Offline:</strong> Blog zamknięty dla odwiedzających, ale otwarty dla pisarzy.</li>
+        <li><strong>Removed:</strong> Blog zamknięty zarówno dla odwiedzających, jak i pisarzy, otwarty tylko dla super administratorów.</li>
+      </ul>
+    </dd>
+    <dt>Opis bloga</dt>
+    <dd>Tutaj możesz umieścić dowolny opis dla swojego bloga. To prosty tekst, bez formatowania.</dd>
+  </dl>
+  <h4>Konfiguracja bloga</h4>
+  <dl>
+    <dt>Nazwa edytora bloga</dt>
+    <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
-
-  <dt>Informacja o prawach autorskich</dt>
-  <dd>Informacja o prawach autorskich dla tego bloga.</dd>
-
-  <dt>Domyślny język</dt>
-  <dd>Język interfejsu bloga. Wybrany język może być już dostępny i wtedy
+    <dt>Informacja o prawach autorskich</dt>
+    <dd>Informacja o prawach autorskich dla tego bloga.</dd>
+    <dt>Domyślny język</dt>
+    <dd>Język interfejsu bloga. Wybrany język może być już dostępny i wtedy
   interfejs będzie przetłumaczony lub też tłumaczenie nie istnieje i wtedy używany
   będzie język angielski.</dd>
-
-  <dt>Strefa czasowa</dt>
-  <dd>Definiuje strefę czasową, która będzie używana dla komentarzy i trackbacków.</dd>
-
-  <dt>Format daty</dt>
-  <dd>Format daty dla wpisów na blogu.
+    <dt>Strefa czasowa</dt>
+    <dd>Definiuje strefę czasową, która będzie używana dla komentarzy i trackbacków.</dd>
+    <dt>Format daty</dt>
+    <dd>Format daty dla wpisów na blogu.
   <a href="#date_format">Opis formatowania</a>.</dd>
-
-  <dt>Format czasu</dt>
-  <dd>Format czasu dla wpisów na blogu.
+    <dt>Format czasu</dt>
+    <dd>Format czasu dla wpisów na blogu.
   <a href="#date_format">Opis formatowania</a>.</dd>
-
-  <dt>Wyświetlaj ... wpisów na stronę</dt>
-  <dd>The number will be used as the limit for the number of entries
+    <dt>Wyświetlaj ... wpisów na stronę</dt>
+    <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
-</dl>
-
-<h4>Komentarze i ślady</h4>
-<dl>
-  <dt>Akceptuj komentarze</dt>
-  <dd>Globalnie akceptuje komentarze na blogu. Trwa pierwszeństwo przed ustawieniem jednego wpisu.</dd>
-
-  <dt>Moderacja komentarzy</dt>
-  <dd>Z tą opcją komentarze będą publikowane dopiero po uzyskaniu zgody wydawcy.</dd>
-
-  <dt>Pozostaw komentarze otwarte przez X dni</dt>
-  <dd>Liczba dni podczas komentarzy będzie otwarta po publikacji wpisu. Gdy puste, komentarze zostaną otwarte bezterminowo.</dd>
-
-  <dt>Składnia Wiki dla komentarzy</dt>
-  <dd>Pozwala na użycie podzbioru składni wiki w komentarzach.</dd>
-
-  <dt>Akceptuj ścieżki</dt>
-  <dd>Globalnie akceptuje trackbacks na blogu. Trwa pierwszeństwo przed ustawieniem jednego wpisu.</dd>
-
-  <dt>Umiarkowane trackbacky</dt>
-  <dd>Z tą opcją trackbacks zostanie opublikowany dopiero po wyrażeniu zgody przez edytora.</dd>
-
-  <dt>Pozostaw śledzenie otwarte przez X dni</dt>
-  <dd>Liczba dni podczas wich trackbacks będzie otwarta po publikacji postu. Jeśli puste, trackbacks będzie nieograniczony.</dd>
-
-  <dt>Dodaj relację "nofollow" do komentarzy i linków trackbacks</dt>
-  <dd>Dodaje atrybut na linkach w komentarzach i trackbackach, instruując boty wyszukiwania, aby ich nie obserwować. Te funkcje antyspamowe nie dowiodły jeszcze swojej wartości.</dd>
-</dl>
-
-<h4>Prezentacja bloga</h4>
-<dl>
-  <dt>Format daty</dt>
-  <dd>Określa format daty wpisów na blogu. Więcej informacji znajduje się w sekcji "Formatuj odniesienie". Możesz użyć listy rozwijanej, aby szybko wybrać wcześniej istniejący wzór.</dd>
-
-  <dt>Format czasu</dt>
-  <dd>Określa format czasu dla wpisów na blogu. Więcej informacji znajduje się w sekcji "Formatuj odniesienie". Możesz użyć listy rozwijanej, aby szybko wybrać wcześniej istniejący wzór.</dd>
-
-  <dt>Wyświetlaj emotikony przy wpisach i komentarzach</dt>
-  <dd>Zamienia kilka ciągów takich jak :-) lub ;-) w obrazy.</dd>
-
-  <dt>Wyświetl X wpisów na stronie</dt>
-  <dd>Wyświetli X wpisów na stronie głównej bloga oraz w różnych kategoriach.</dd>
-
-  <dt>Wyświetl X wpisów na kanał</dt>
-  <dd>Wyświetli X wpisów na blogu.</dd>
-
-  <dt>Wyświetl X komentarzy na kanał</dt>
-  <dd>Wyświetli X komentarzy w komentarzach bloga.</dd>
-
-  <dt>Przycinaj kanały</dt>
-  <dd>Ta opcja zapewni jedynie abstrakcję z wpisów na blogu w kanałach.</dd>
-
-  <dt>Dołącz podkategorie na stronie kategorii i wpis kategorii</dt>
-  <dd>Gdy ta opcja jest aktywna, posty w podkategoriach będą wyświetlane zarówno na stronach kategorii nadrzędnych, jak i w ich kanałach.</dd>
-</dl>
-
-<h4>Media i obrazy</h4>
-<dl>
-  <dt>Wygenerowane rozmiary obrazów (w pikselach)</dt>
-  <dd>Po dodaniu obrazu w menedżerze multimediów automatycznie generuje się inne rozmiary. Tutaj możesz zdefiniować wymiar najdłuższego rozmiaru (szerokość lub wysokość) każdego typu generowanych obrazów. Jeśli pozostawisz jedno pole puste, menedżer mediów nie utworzy odpowiednich miniatur.</dd>
-
-  <dt>Domyślne atrybuty wstawiania obrazu</dt>
-  <dd>Wybrane ustawienia zostaną zastosowane do wszystkich nowych obrazów dodanych do menedżera mediów.</dd>
-
-  <dt>Wstawiony tytuł obrazu</dt>
-  <dd>Wybierz format tagów "tytuł" stosowanych do zdjęć, w oparciu o informacje pobrane z metadanych obrazów.</dd>
-
-  <dt>Użyj oryginalnej daty mediów, jeśli to możliwe</dt>
-  <dd>Gdy ta opcja jest aktywowana, jeśli metadane obrazu zawierają datę, zostanie użyta. Jeśli nie, data przesłania zostanie użyta.</dd>
-
-  <dt>Rozmiar wstawionego obrazu</dt>
-  <dd>Określa domyślny rozmiar używany podczas dodawania obrazu do wpisu na blogu.</dd>
-
-  <dt>Wyrównanie obrazu</dt>
-  <dd>Określa domyślne wyrównanie używane podczas dodawania obrazu do wpisu na blogu.</dd>
-
-  <dt>Wstaw link do oryginalnego obrazu</dt>
-  <dd>Gdy ta opcja jest aktywna, zdjęcia wstawione na blogu będą klikalne i wskazują na oryginalny obraz.</dd>
-
-</dl>
-
-<h4>Polityka robotów wyszukiwarek</h4>
-<p>Niektóre pola mogą być skonfigurowane tak, aby dostosować format daty i czasu
+  </dl>
+  <h4>Komentarze i ślady</h4>
+  <dl>
+    <dt>Akceptuj komentarze</dt>
+    <dd>Globalnie akceptuje komentarze na blogu. Trwa pierwszeństwo przed ustawieniem jednego wpisu.</dd>
+    <dt>Moderacja komentarzy</dt>
+    <dd>Z tą opcją komentarze będą publikowane dopiero po uzyskaniu zgody wydawcy.</dd>
+    <dt>Pozostaw komentarze otwarte przez X dni</dt>
+    <dd>Liczba dni podczas komentarzy będzie otwarta po publikacji wpisu. Gdy puste, komentarze zostaną otwarte bezterminowo.</dd>
+    <dt>Składnia Wiki dla komentarzy</dt>
+    <dd>Pozwala na użycie podzbioru składni wiki w komentarzach.</dd>
+    <dt>Akceptuj ścieżki</dt>
+    <dd>Globalnie akceptuje trackbacks na blogu. Trwa pierwszeństwo przed ustawieniem jednego wpisu.</dd>
+    <dt>Umiarkowane trackbacky</dt>
+    <dd>Z tą opcją trackbacks zostanie opublikowany dopiero po wyrażeniu zgody przez edytora.</dd>
+    <dt>Pozostaw śledzenie otwarte przez X dni</dt>
+    <dd>Liczba dni podczas wich trackbacks będzie otwarta po publikacji postu. Jeśli puste, trackbacks będzie nieograniczony.</dd>
+    <dt>Dodaj relację "nofollow" do komentarzy i linków trackbacks</dt>
+    <dd>Dodaje atrybut na linkach w komentarzach i trackbackach, instruując boty wyszukiwania, aby ich nie obserwować. Te funkcje antyspamowe nie dowiodły jeszcze swojej wartości.</dd>
+  </dl>
+  <h4>Prezentacja bloga</h4>
+  <dl>
+    <dt>Format daty</dt>
+    <dd>Określa format daty wpisów na blogu. Więcej informacji znajduje się w sekcji "Formatuj odniesienie". Możesz użyć listy rozwijanej, aby szybko wybrać wcześniej istniejący wzór.</dd>
+    <dt>Format czasu</dt>
+    <dd>Określa format czasu dla wpisów na blogu. Więcej informacji znajduje się w sekcji "Formatuj odniesienie". Możesz użyć listy rozwijanej, aby szybko wybrać wcześniej istniejący wzór.</dd>
+    <dt>Wyświetlaj emotikony przy wpisach i komentarzach</dt>
+    <dd>Zamienia kilka ciągów takich jak :-) lub ;-) w obrazy.</dd>
+    <dt>Wyświetl X wpisów na stronie</dt>
+    <dd>Wyświetli X wpisów na stronie głównej bloga oraz w różnych kategoriach.</dd>
+    <dt>Wyświetl X wpisów na kanał</dt>
+    <dd>Wyświetli X wpisów na blogu.</dd>
+    <dt>Wyświetl X komentarzy na kanał</dt>
+    <dd>Wyświetli X komentarzy w komentarzach bloga.</dd>
+    <dt>Przycinaj kanały</dt>
+    <dd>Ta opcja zapewni jedynie abstrakcję z wpisów na blogu w kanałach.</dd>
+    <dt>Dołącz podkategorie na stronie kategorii i wpis kategorii</dt>
+    <dd>Gdy ta opcja jest aktywna, posty w podkategoriach będą wyświetlane zarówno na stronach kategorii nadrzędnych, jak i w ich kanałach.</dd>
+  </dl>
+  <h4>Media i obrazy</h4>
+  <dl>
+    <dt>Wygenerowane rozmiary obrazów (w pikselach)</dt>
+    <dd>Po dodaniu obrazu w menedżerze multimediów automatycznie generuje się inne rozmiary. Tutaj możesz zdefiniować wymiar najdłuższego rozmiaru (szerokość lub wysokość) każdego typu generowanych obrazów. Jeśli pozostawisz jedno pole puste, menedżer mediów nie utworzy odpowiednich miniatur.</dd>
+    <dt>Domyślne atrybuty wstawiania obrazu</dt>
+    <dd>Wybrane ustawienia zostaną zastosowane do wszystkich nowych obrazów dodanych do menedżera mediów.</dd>
+    <dt>Wstawiony tytuł obrazu</dt>
+    <dd>Wybierz format tagów "tytuł" stosowanych do zdjęć, w oparciu o informacje pobrane z metadanych obrazów.</dd>
+    <dt>Użyj oryginalnej daty mediów, jeśli to możliwe</dt>
+    <dd>Gdy ta opcja jest aktywowana, jeśli metadane obrazu zawierają datę, zostanie użyta. Jeśli nie, data przesłania zostanie użyta.</dd>
+    <dt>Rozmiar wstawionego obrazu</dt>
+    <dd>Określa domyślny rozmiar używany podczas dodawania obrazu do wpisu na blogu.</dd>
+    <dt>Wyrównanie obrazu</dt>
+    <dd>Określa domyślne wyrównanie używane podczas dodawania obrazu do wpisu na blogu.</dd>
+    <dt>Wstaw link do oryginalnego obrazu</dt>
+    <dd>Gdy ta opcja jest aktywna, zdjęcia wstawione na blogu będą klikalne i wskazują na oryginalny obraz.</dd>
+  </dl>
+  <h4>Polityka robotów wyszukiwarek</h4>
+  <p>Niektóre pola mogą być skonfigurowane tak, aby dostosować format daty i czasu
 do twoich potrzeb. Tutaj znajduje się opis formatowania:</p>
-
-<h4>Antyspam</h4>
-<p>Możesz ustawić liczbę dni, po których chcesz automatycznie usunąć komentarze śmieci. Pozostaw to pole puste (lub wpisz 0), aby wyłączyć tę funkcję.</p>
-
-<h4>Użytkownicy</h4>
-<p>Wyświetla listę użytkowników tego bloga oraz ich uprawnień.</p>
-
-<h3>Szczegóły bloga</h3>
-<p>Niektóre pola można skonfigurować do formatowania daty i czasu do Twoich potrzeb.
-Oto odniesienie:</p>
-
-<ul>
-  <li><strong>%a</strong>: skrócony dzień tygodnia (lokalny).</li>
-  <li><strong>%A</strong>: kompletny dzień tygodnia (lokalny).</li>
-  <li><strong>%b</strong>: skrócona nazwa miesiąca (lokalna).</li>
-  <li><strong>%B</strong>: kompletna nazwa miesiąca (lokalna).</li>
-  <li><strong>%c</strong>: domyślna data i czas lokalny.</li>
-  <li><strong>%C</strong>: wiek</li>
-  <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
-  <li><strong>%D</strong>: identyczne jak %m/%d/%y</li>
-  <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
-  <li><strong>%g</strong>: identyczne jak %G, 2 cyfry.</li>
-  <li><strong>%G</strong>: The year on 4 digits, according to the week number
-  (cf. %V). Format and value identical to %Y, except that if the number of the
-  week belongs to the preceding or following year, the current year
-  will be used instead.</li>
-  <li><strong>%h</strong>: identyczne jak %b</li>
-  <li><strong>%H</strong>: digital hour of the day, 24H mode
-  (from 00 to 23)</li>
-  <li><strong>%I</strong>: digital hour of the day, 12H mode
-  (from 01 to 12)</li>
-  <li><strong>%j</strong>: dzień roku, cyfrowo (od 001 do 366)</li>
-  <li><strong>%m</strong>: miesiąc, cyfrowo (od 1 do 12)</li>
-  <li><strong>%M</strong>: minuta, cyfrowo</li>
-  <li><strong>%n</strong>: znak nowej linii</li>
-  <li><strong>%p</strong>: "am" lub "pm", w zależności od czasu absolutnego, lub lokalnych ustawień.</li>
-  <li><strong>%r</strong>: godzina, format 12-godzinny</li>
-  <li><strong>%R</strong>: godzina, format 24-godzinny</li>
-  <li><strong>%S</strong>: sekundy, cyfrowo</li>
-  <li><strong>%t</strong>: znak tabulacji</li>
-  <li><strong>%T</strong>: aktualny czas (identyczne jak %H:%M:%S)</li>
-  <li><strong>%u</strong>: dzień tygodnia, cyfra, od 1 do 7. (1 to poniedziałek)</li>
-  <li><strong>%U</strong>: numer tygodnia, pierwsza niedziela roku jest pierwszym
-  dniem pierwszego tygodnia.</li>
-  <li><strong>%V</strong>: numer tygodnia wg ISO 8601:1988, cyfrowo, od 01 do 53.
-  1. tydzień to pierwszy tydzień z liczbą dni w bieżącym roku większą od 4, którego
-  poniedziałek jest pierwszym dniem.
-  (Use %G or %g for the year elements corresponding to the number of the
-  week for the considered timestamp.)</li>
-  <li><strong>%W</strong>: numer tygodnia w roku, pierwszy poniedziałek w roku traktowany
-  jest jako początek pierwszego tygodnia</li>
-  <li><strong>%w</strong>: dzień tygodnia, cyfry, 0 to niedziela</li>
-  <li><strong>%x</strong>: preferowany format dla daty, bez czsu</li>
-  <li><strong>%X</strong>: preferowany format dla czasu, bez daty</li>
-  <li><strong>%y</strong>: rok, dwie cyfry (od 00 do 99)</li>
-  <li><strong>%Y</strong>: rok, cztery cyfry</li>
-  <li><strong>%Z ou %z</strong>: strefa czasowa, nazwa lub skrót</li>
-  <li>: znak "%"</li>
-</ul>
-
+  <h4>Antyspam</h4>
+  <p>Możesz ustawić liczbę dni, po których chcesz automatycznie usunąć komentarze śmieci. Pozostaw to pole puste (lub wpisz 0), aby wyłączyć tę funkcję.</p>
+  <h4>Użytkownicy</h4>
+  <p>Wyświetla listę użytkowników tego bloga oraz ich uprawnień.</p>
+  <h3>Szczegóły bloga</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a</strong>: skrócony dzień tygodnia (lokalny).</li>
+    <li><strong>%A</strong>: kompletny dzień tygodnia (lokalny).</li>
+    <li><strong>%b</strong>: skrócona nazwa miesiąca (lokalna).</li>
+    <li><strong>%B</strong>: kompletna nazwa miesiąca (lokalna).</li>
+    <li><strong>%c</strong>: domyślna data i czas lokalny.</li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
+    <li><strong>%D</strong>: identyczne jak %m/%d/%y</li>
+    <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
+    <li><strong>%g</strong>: identyczne jak %G, 2 cyfry.</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h</strong>: identyczne jak %b</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j</strong>: dzień roku, cyfrowo (od 001 do 366)</li>
+    <li><strong>%m</strong>: miesiąc, cyfrowo (od 1 do 12)</li>
+    <li><strong>%M</strong>: minuta, cyfrowo</li>
+    <li><strong>%n</strong>: znak nowej linii</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r</strong>: godzina, format 12-godzinny</li>
+    <li><strong>%R</strong>: godzina, format 24-godzinny</li>
+    <li><strong>%S</strong>: sekundy, cyfrowo</li>
+    <li><strong>%t</strong>: znak tabulacji</li>
+    <li><strong>%T</strong>: aktualny czas (identyczne jak %H:%M:%S)</li>
+    <li><strong>%u</strong>: dzień tygodnia, cyfra, od 1 do 7. (1 to poniedziałek)</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w</strong>: dzień tygodnia, cyfry, 0 to niedziela</li>
+    <li><strong>%x</strong>: preferowany format dla daty, bez czsu</li>
+    <li><strong>%X</strong>: preferowany format dla czasu, bez daty</li>
+    <li><strong>%y</strong>: rok, dwie cyfry (od 00 do 99)</li>
+    <li><strong>%Y</strong>: rok, cztery cyfry</li>
+    <li><strong>%Z ou %z</strong>: strefa czasowa, nazwa lub skrót</li>
+    <li>: znak "%"</li>
+  </ul>
 </body>
+
 </html>
