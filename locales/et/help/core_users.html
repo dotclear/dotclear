@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Kasutajad</title>
-  </head>
-  <body>
-    <p>Sellel lehel on loetletud kõik süsteemi kasutajad.</p>
-    <p>Kasutajate õiguste lisamiseks (või muutmiseks) on vaja sisestada teie parool väljale <strong>Teie parool</strong>.</p>
 
-    <h4>Kasutajate nimekirja filter</h4>
-    <dl>
-      <dt>Otsi</dt>
-      <dd>Otsing põhineb kasutajatunnusel. <strong>*</strong> jokkerkaardiga saab otsida ainult osa kasutaja ID-st.</dd>
+<head>
+  <title>Kasutajad</title>
+</head>
 
-      <dt>Tellimine</dt>
-      <dd>Kasutajate nimekirja saab järjestada nende <em>ID</em>, <em>perekonnanime</em>, <em>eesnime</em>, <em>kuvamisnime</em> (hüüdnimi) või loodud <em>kannete arvu</em> järgi.</dd>
+<body>
+  <p>Sellel lehel on loetletud kõik süsteemi kasutajad.</p>
+  <p>Kasutajate õiguste lisamiseks (või muutmiseks) on vaja sisestada teie parool väljale <strong>Teie parool</strong>.</p>
+  <h4>Kasutajate nimekirja filter</h4>
+  <dl>
+    <dt>Otsi</dt>
+    <dd>Otsing põhineb kasutajatunnusel. <strong>*</strong> jokkerkaardiga saab otsida ainult osa kasutaja ID-st.</dd>
+    <dt>Tellimine</dt>
+    <dd>Kasutajate nimekirja saab järjestada nende <em>ID</em>, <em>perekonnanime</em>, <em>eesnime</em>, <em>kuvamisnime</em> (hüüdnimi) või loodud <em>kannete arvu</em> järgi.</dd>
+    <dt>Sorteeri</dt>
+    <dd>Määrab sorteerimismeetodi, mida kohaldatakse tulemuste loendi suhtes<em>(kasvav</em> või <em>kahanev</em>).</dd>
+    <dt>Kasutajad lehekülje kohta</dt>
+    <dd>Määrab kasutajate arvu, mis kuvatakse tulemuste loendi igal leheküljel.</dd>
+  </dl>
+  <h4>Kasutajate pakettide toimingud</h4>
+  <p>Mitme kasutaja puhul on võimalik teha korraga mitu toimingut.</p>
+  <ul>
+    <li><strong>Määrake õigused:</strong> Määrake ühe või mitme blogi(de) õigused.</li>
+    <li><strong>Kustuta:</strong> Eemaldab valitud kasutaja(d) süsteemist. Kandeid loonud kasutajat ei saa kustutada.</li>
+  </ul>
+  <p>Kui otsustate määrata kasutajate õigused, suunatakse teid uuele leheküljele, kus on loetletud teie süsteemis olemasolevad blogid. Märkige blogid, millele soovite õigused määrata, ja vajutage nuppu <strong>Set permissions</strong>.</p>
+  <h4>Kasutajate õigused</h4>
+  <p>Iga blogi jaoks saate määrata järgmised õigused:</p>
+  <ul>
+    <li><strong>Administraator:</strong> Administraator: Saab blogi täielikult hallata.</li>
+    <li><strong>hallata oma sissekandeid ja kommentaare:</strong> Kasutaja saab luua sissekandeid ja hallata enda loodud sissekannete kommentaare.</li>
+    <li><strong>Avaldage sissekanded ja kommentaarid:</strong> Kasutaja saab muuta oma kirjete ja kirjete kommentaaride avaldamise staatust.</li>
+    <li><strong>Kustuta kirjed ja kommentaarid:</strong> Kasutaja saab kustutada nii oma kirjeid kui ka kirjete kommentaare.</li>
+    <li><strong>Halda kõiki kirjeid ja kommentaare:</strong> Kasutaja saab hallata kõiki selle blogi sissekandeid, olenemata sellest, kas ta on selle autor või mitte.</li>
+    <li><strong>Halda kategooriaid:</strong> Kasutaja saab luua, muuta ja kustutada kategooriaid.</li>
+    <li><strong>hallata oma meediaelemente:</strong> Kasutaja saab lisada meediaelemente ja muuta või kustutada oma meediat.</li>
+    <li><strong>Halda kõiki meediaelemente:</strong> Kasutaja saab hallata meediaelemente mis tahes kasutajalt.</li>
+    <li><strong>Halda lehekülgi:</strong> Kasutaja saab lisada ja muuta lehekülgi.</li>
+    <li><strong>Halda blogirulli:</strong> Kasutaja saab hallata praeguse blogi blogirulli.</li>
+  </ul>
+  <p><strong>Superadministraatori</strong> staatus on määratud kasutaja profiilis.</p>
+</body>
 
-      <dt>Sorteeri</dt>
-      <dd>Määrab sorteerimismeetodi, mida kohaldatakse tulemuste loendi suhtes<em>(kasvav</em> või <em>kahanev</em>).</dd>
-
-      <dt>Kasutajad lehekülje kohta</dt>
-      <dd>Määrab kasutajate arvu, mis kuvatakse tulemuste loendi igal leheküljel.</dd>
-    </dl>
-
-    <h4>Kasutajate pakettide toimingud</h4>
-    <p>Mitme kasutaja puhul on võimalik teha korraga mitu toimingut.</p>
-    <ul>
-      <li><strong>Määrake õigused:</strong> Määrake ühe või mitme blogi(de) õigused.</li>
-      <li><strong>Kustuta:</strong> Eemaldab valitud kasutaja(d) süsteemist. Kandeid loonud kasutajat ei saa kustutada.</li>
-    </ul>
-    <p>Kui otsustate määrata kasutajate õigused, suunatakse teid uuele leheküljele, kus on loetletud teie süsteemis olemasolevad blogid. Märkige blogid, millele soovite õigused määrata, ja vajutage nuppu <strong>Set permissions</strong>.</p>
-
-    <h4>Kasutajate õigused</h4>
-    <p>Iga blogi jaoks saate määrata järgmised õigused:</p>
-    <ul>
-      <li><strong>Administraator:</strong> Administraator: Saab blogi täielikult hallata.</li>
-      <li><strong>hallata oma sissekandeid ja kommentaare:</strong> Kasutaja saab luua sissekandeid ja hallata enda loodud sissekannete kommentaare.</li>
-      <li><strong>Avaldage sissekanded ja kommentaarid:</strong> Kasutaja saab muuta oma kirjete ja kirjete kommentaaride avaldamise staatust.</li>
-      <li><strong>Kustuta kirjed ja kommentaarid:</strong> Kasutaja saab kustutada nii oma kirjeid kui ka kirjete kommentaare.</li>
-      <li><strong>Halda kõiki kirjeid ja kommentaare:</strong> Kasutaja saab hallata kõiki selle blogi sissekandeid, olenemata sellest, kas ta on selle autor või mitte.</li>
-      <li><strong>Halda kategooriaid:</strong> Kasutaja saab luua, muuta ja kustutada kategooriaid.</li>
-      <li><strong>hallata oma meediaelemente:</strong> Kasutaja saab lisada meediaelemente ja muuta või kustutada oma meediat.</li>
-      <li><strong>Halda kõiki meediaelemente:</strong> Kasutaja saab hallata meediaelemente mis tahes kasutajalt.</li>
-      <li><strong>Halda lehekülgi:</strong> Kasutaja saab lisada ja muuta lehekülgi.</li>
-      <li><strong>Halda blogirulli:</strong> Kasutaja saab hallata praeguse blogi blogirulli.</li>
-    </ul>
-    <p><strong>Superadministraatori</strong> staatus on määratud kasutaja profiilis.</p>
-  </body>
 </html>
