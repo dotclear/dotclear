@@ -1,125 +1,82 @@
 <html>
+
 <head>
   <title>Rédaction d'un billet</title>
 </head>
 
 <body>
-<h4>Rédaction du billet</h4>
-
-<dl>
-  <dt>Titre du billet</dt>
-  <dd>Inscrivez le titre du billet. Ce champ est obligatoire.</dd>
-  
-  <dt>Extrait</dt>
-  <dd>Le contenu de ce champ s'affichera dans les pages présentant les listes de
-  billets telles que la page d'accueil ou le tri sur une catégorie, suivi d'un
-  lien « Lire la suite ». Il figurera également au début du billet dans le
-  contexte de l'affichage du billet seul. Si vous ne remplissez pas ce champ, le
-  champ <em>Contenu</em> sera intégralement affiché dès la page d'accueil.</dd>
-  
-  <dt>Contenu</dt>
-  <dd>Le contenu du billet. Ce champ est obligatoire.</dd>
-  
-  <dt>Notes personnelles</dt>
-  <dd>Cette zone de texte sert à la prise de notes ou pense-bête divers. Elle ne
-  sera jamais affichée sur le blog.</dd>
-  
-  <dt>État du billet</dt>
-  <dd>Permet de choisir l'état du billet après enregistrement&nbsp;:
-    <ul>
-      <li><strong>En attente</strong>&nbsp;: en attente de publication.</li>
-      <li><strong>Programmé</strong>&nbsp;: le billet sera mis en ligne aux date et heure
+  <h4>Rédaction du billet</h4>
+  <dl>
+    <dt>Titre du billet</dt>
+    <dd>Inscrivez le titre du billet. Ce champ est obligatoire.</dd>
+    <dt>Extrait</dt>
+    <dd>The content of this field will be shown in pages showing entries as a list, such as the homepage or categories pages, followed by a "continue reading" link. It will also be visible at the beginning of the page showing the whole post. Should you leave it blank, the <em>content</em> field will be shown entirely on the homepage and other entry list pages.</dd>
+    <dt>Contenu</dt>
+    <dd>Le contenu du billet. Ce champ est obligatoire.</dd>
+    <dt>Notes personnelles</dt>
+    <dd>This text area is for personal use, for notes or memos. What you enter here will never be displayed on the blog.</dd>
+    <dt>État du billet</dt>
+    <dd>Permet de choisir l'état du billet après enregistrement&nbsp;:
+      <ul>
+        <li><strong>En attente</strong>&nbsp;: en attente de publication.</li>
+        <li><strong>Programmé</strong>&nbsp;: le billet sera mis en ligne aux date et heure
     indiquées dans le champ <em>Publié le</em>.</li>
-      <li><strong>Non publié</strong>&nbsp;: billet hors ligne.</li>
-      <li><strong>Publié</strong>&nbsp;: billet en ligne.</li>
-    </ul>
-  </dd>
-  
-  <dt>Date et heure de publication</dt>
-  <dd>Permet de modifier la date et l'heure de publication du billet. Si vous avez
-  choisi le statut <em>Programmé</em>, il sera mis en ligne aux date et heure
-  définies dans ce champ.</dd>
-
-  <dt>Langue du billet</dt>
-  <dd>Code langue de votre billet. Par défaut, il s'agit du code de votre
-  langue. Vous pouvez le changer, par le code d'une autre langue, par
-  exemple "en", "fr-qc". Ce code est libre, il sera utilisé lors de l'affichage
-  des billets.</dd>
-
-  <dt>Formatage du texte</dt>
-  <dd>Permet de choisir la syntaxe de saisie du billet. Le wiki est une syntaxe simplifiée et sera converti en HTML valide ; à moins que vous maîtrisiez parfaitement le HTML nous vous conseillons de la choisir de préférence. Consultez la <em>Référence de la syntaxe wiki</em> pour plus d'informations.</dd>
-
-  <dt>Billet sélectionné</dt>
-  <dd>Les billets marqués comme sélectionnés apparaîtront dans le menu de votre
+        <li><strong>Non publié</strong>&nbsp;: billet hors ligne.</li>
+        <li><strong>Publié</strong>&nbsp;: billet en ligne.</li>
+      </ul>
+    </dd>
+    <dt>Date et heure de publication</dt>
+    <dd>Here you can change the entry's publication date and time. If the entry's status is <strong>Scheduled</strong>, it will be online at the given date and time.</dd>
+    <dt>Langue du billet</dt>
+    <dd>Select the language code of your entry. It defaults to your (as a user) language but you can change it to whatever language code you want, e.g. "en" or "es-ar". This code is used for the entry's display.</dd>
+    <dt>Formatage du texte</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Billet sélectionné</dt>
+    <dd>Les billets marqués comme sélectionnés apparaîtront dans le menu de votre
   blog, sous l'intitulé <em>À retenir</em>.</dd>
-
-  <dt>Catégorie</dt>
-  <dd>La catégorie de votre billet. Pour créer une nouvelle catégorie, rendez vous
-  dans la section <em>Créer une nouvelle catégorie</em>. Laissez le champ vide si vous ne souhaitez pas attribuer une catégorie à votre billet.</dd>
-
-  <dt>Mots-clés</dt>
-  <dd>Vous pouvez créer une nouvelle catégorie en entrant son titre et en sélectionnant sa catégorie parente (ou sélectionnez <em>(aucune)</em> pour créer une catégorie de niveau supérieur).</dd>
-  
-  <dt>Annexes</dt>
-  <dd>Les annexes sont tous les médias attachés au billet. Le lien
+    <dt>Catégorie</dt>
+    <dd>Your entry's category. To create a new category, please see the <strong>Categories</strong> section. You can choose to leave you entry without a category by selecting the <em>(none)</em> item.</dd>
+    <dt>Mots-clés</dt>
+    <dd>Vous pouvez créer une nouvelle catégorie en entrant son titre et en sélectionnant sa catégorie parente (ou sélectionnez <em>(aucune)</em> pour créer une catégorie de niveau supérieur).</dd>
+    <dt>Annexes</dt>
+    <dd>Les annexes sont tous les médias attachés au billet. Le lien
   d'ajout d'une annexe permet de choisir un fichier à ajouter au billet.
   Pensez à sauvegarder votre billet avant de choisir une annexe. Consultez
   l'aide du gestionnaire de médias pour plus de détails.</dd>
-
-  <dt>Liste des commentaires et des rétroliens</dt>
-  <dd>Les pièces jointes sont des fichiers multimédias ajoutés à l'entrée. Vous pouvez utiliser le bouton <strong>Add files to this entry</strong> pour sélectionner les fichiers multimédias à ajouter à l'entrée.<br>
-    Cette option apparaîtra après l'enregistrement de l'entrée.<br>
-    Pour plus d'informations, consultez l'aide du gestionnaire de médias.</dd>
-
-  <dt>Accepter les commentaires</dt>
-  <dd>Un rétrolien permet de signaler un billet dans les commentaires d'un autre
+    <dt>Liste des commentaires et des rétroliens</dt>
+    <dd>Attachments are media files added to the entry. You can use the <strong>Add files to this entry</strong> button to select media files to add to the entry.<br>This option will appear after you save your entry.<br>Please check the Media manager help for more information.</dd>
+    <dt>Accepter les commentaires</dt>
+    <dd>Un rétrolien permet de signaler un billet dans les commentaires d'un autre
   blog. Cochez ou décochez la case selon que vous souhaitez permettre ou interdire
   les rétroliens sur le billet. L'option pour permettre ou autoriser de façon
   générale les rétroliens se situe dans le menu <em>Paramètres
   du blog</em>.</dd>
-
-  <dt>Accepter les rétroliens</dt>
-  <dd>Permet de déterminer un mot de passe d'accès à un billet dans le blog. Un
-  billet protégé par mot de passe ne sera visible nulle part sur votre blog, vous
-  pourrez en donner l'adresse à vos lecteurs en vous rendant sur le lien
-  <em>voir le billet</em>.</dd>
-  
-  <dt>Mot de passe du billet</dt>
-  <dd>Ce champ permet de choisir une URL pour un billet autre que celle par défaut
-  après avoir cliqué sur le petit verrou placé à sa droite. Si vous essayez
-  d'utiliser une URL déjà existante, celle-ci se verra incrémentée d'un chiffre.</dd>
-
-  <dt>URL spécifique</dt>
-  <dd>Vous pouvez déprotéger ce champ en cliquant sur le petit cadenas situé à sa droite et choisir une autre URL pour votre entrée. Si l'URL que vous essayez d'utiliser est déjà utilisée par une autre entrée, un numéro lui sera ajouté.</dd>  
-  
-</dl>
-
-<h4>Commentaires</h4>
-<dl>
-  <dt>Liste les commentaires et rétroliens</dt>
-  <dd>Depuis l'onglet <em>Commentaires</em> vous pouvez lire et changer l'état
-  des commentaires (et rétroliens) de votre billet. Suivant vos permissions, vous pouvez modifier,
-  mettre en ligne ou hors ligne, supprimer ou classer comme commentaire (ou rétrolien)
-  indésirable.</dd>
-  
-  <dt>Ajouter un commentaire</dt>
-  <dd>Depuis l'onglet <strong>Ajouter un commentaire</strong> vous pouvez répondre directement à un commentaire sans passer par votre blog. Cette interface vous permet également de saisir votre commentaire en HTML, sans limitation. Vous devrez remplir les champs de la même manière qu'en modifiant un commentaire.</dd>
-</dl>
-  
-<h4>Ajouter un commentaire</h4>
-<dl>
-  <dt>Nom</dt>
-  <dd>Nom de l'auteur. Ce champ est obligatoire.</dd>
-
-  <dt>Email </dt>
-  <dd>Adresse mail de l'auteur du commmentaire.</dd>
-
-  <dt>Site web</dt>
-  <dd>URL du site ou du blog de l'auteur du commentaire.</dd>
-
-  <dt>Commentaire</dt>
-  <dd>Contenu du commentaire. Ce champ utilise la syntaxe HTML.</dd>
-</dl>
-
+    <dt>Accepter les rétroliens</dt>
+    <dd>A trackback is a way to let a portion of your entry as a comment on another blog. Check this box to allow others to trackback your entry. The corresponding global setting is to be found in the blog settings.</dd>
+    <dt>Mot de passe du billet</dt>
+    <dd>You can enter a password for your entry. A password protected entry will not be displayed on your blog, it will only be accessible to those you will give the entry URL to (see the <strong>view entry</strong> link) and password.</dd>
+    <dt>URL spécifique</dt>
+    <dd>Vous pouvez déprotéger ce champ en cliquant sur le petit cadenas situé à sa droite et choisir une autre URL pour votre entrée. Si l'URL que vous essayez d'utiliser est déjà utilisée par une autre entrée, un numéro lui sera ajouté.</dd>
+  </dl>
+  <h4>Commentaires</h4>
+  <dl>
+    <dt>Liste les commentaires et rétroliens</dt>
+    <dd>On the <strong>Comments</strong> tab, you can read and change the status of
+      your entry's comments (and trackbacks). If you're allowed to by the blog administrator, you will be able to set your comments (and trackbacks) online or offline, to delete them or to mark them as junk.</dd>
+    <dt>Ajouter un commentaire</dt>
+    <dd>Depuis l'onglet <strong>Ajouter un commentaire</strong> vous pouvez répondre directement à un commentaire sans passer par votre blog. Cette interface vous permet également de saisir votre commentaire en HTML, sans limitation. Vous devrez remplir les champs de la même manière qu'en modifiant un commentaire.</dd>
+  </dl>
+  <h4>Ajouter un commentaire</h4>
+  <dl>
+    <dt>Nom</dt>
+    <dd>Nom de l'auteur. Ce champ est obligatoire.</dd>
+    <dt>Email </dt>
+    <dd>Adresse mail de l'auteur du commmentaire.</dd>
+    <dt>Site web</dt>
+    <dd>URL du site ou du blog de l'auteur du commentaire.</dd>
+    <dt>Commentaire</dt>
+    <dd>Contenu du commentaire. Ce champ utilise la syntaxe HTML.</dd>
+  </dl>
 </body>
+
 </html>
