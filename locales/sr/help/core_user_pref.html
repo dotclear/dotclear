@@ -1,131 +1,87 @@
 <html>
+
 <head>
   <title>User preferences</title>
 </head>
 
 <body>
-
-<h4>Mon profil</h4>
-<dl>
-  <dt>Name, First name</dt>
-  <dd>If the display name is empty, the author's name will be displayed
-  as his Firstname and Name as set here.</dd>
-  
-  <dt>Pseudonyme </dt>
-  <dd>You can choose here how your name will be displayed under your posts.</dd>
-  
-  <dt>Mejl adresa </dt>
-  <dd>Адреса е-поште која се користи када тражите нову лозинку.<br>
- Обавештења о новим коментарима ће такође бити послата на ову адресу.<em>(Ако ажурирате
- у ово поље, морате унети своју тренутну лозинку у одговарајуће поље на
- дну обрасца)</em></dd>
-  
-  <dt>URL </dt>
-  <dd>The user's web site. If set, the author name will be displayed as
-  a link to the said site.</dd>
-  
-  <dt>Preferred format</dt>
-  <dd>To choose the prefered post syntax. Wiki is a simplified syntax
-  and will be converted to valid HTML&nbsp;; Unless you have a perfect
-  understanding of HTML, we advise you to choose the wiki syntax.</dd>
-  
-  <dt>Default entry status</dt>
-  <dd>Тај избор ће дефинисати време приказано на пост публикацији.</dd>
-  
-  <dt>Entry edit field height</dt>
-  <dd>The height of the Entry edit field. Defaults to 24.</dd>
-</dl>
-
-
-<h4>Mes options</h4>
-<h5>Интерфејс</h5>
-<dl>  
-  <dt>Activer l'interface avancée de la médiathèque</dt>
-  <dd>Омогућава активирање напредног интерфејса у менаџеру медија који омогућава 
-  отпремања више датотека у време (Напомена: Ваш веб прегледач мора да подржава Javascript 
-  да би могао да користи ову функцију).</dd>
-
-  <dt>Онемогући увлачење Javascript на снагу и пад за уређивања</dt>
-  <dd>Омогућава онемогућивање "превлачење и кап" за уређење ставке. Превлачење и пад ће бити 
-  замењено нумеричком пољу које ће вас пустити да уђете у позицију поља.</dd>
-
-  <dt>Број елемената приказаних по страници у менаџеру медија</dt>
-  <dd>Дефинише број медија који ће бити приказани у менаџеру медија (фасцикле
-  се не узимају у обзир приликом бројања ставки).</dd>
-  
-  <dt>Ne pas utiliser le favicon standard</dt>
-  <dd>Омогућава онемогућивање подразумеване fivicна у адресном бару веб прегледача.</dd>
-</dl>
-
-<h5>Издање</h5>
-<dl>    
-  <dt>Syntaxe de saisie préférée </dt>
-  <dd>Изаберите синтаксу уноса. Вики је поједностављена синтакса
-  и претвоће се у валидни HTML. Уколико немате савршен
-  разумевање HTML-а, саветујемо вам да изаберете вики синтаксу.
-  Погледајте референцу на вики синтаксу за више информација.</dd>
-  
-  <dt>État des billets par défaut </dt>
-  <dd>Подразумевани статус нових уноса може се поставити на:
-    <ul>
-      <li><strong>на чекању:</strong> статус публикације још увек није одлучено.</li>
-      <li><strong>Планирано:</strong> Унос ће бити постављен на мрежи у време и датум наведени у пољу <strong>Објављено</strong>.</li>
-      <li><strong>Необјављен:</strong> Офлајн унос.</li>
-      <li><strong>објављен је:</strong> Онлајн унос.</li>
-    </ul>
-  </dd>
-  
-  <dt>Taille de la zone d'édition </dt>
-  <dd>Поставља висину поља за едицију уноса. Подразумевано, овај параметар је постављен на 24.</dd>
-  
-  <dt>Омогући WYSIWYG режим</dt>
-  <dd>Омогућава коришћење визуелног уредника (WYSIWYG: Оно што видите је оно што добијете) за уносе, странице и поља описа категорија.</dd>
-</dl>
-
-<h5>Друге опције</h5>
-<dl>
-  <dt>Формат листе ознака</dt>
-  <dd>Можете да изаберете да ли желите да видите, док уређујете унос, све коришћене ознаке (<strong>Проширено</strong>) или само оне најчешће коришћене (<strong>Схорт</strong>).</dd>
-
-  <dt>Истицање синтаксе у уреднику теме</dt>
-  <dd>Омогућава истицање синтаксе при коришћењу уређивача тема (HTML и CSS датотеке)</dd>     
-</dl>
-
-
-<h4>Моја табла</h4>
-<dl>
-  <dt>Mes favoris</dt>
-  <dd>Ова зона приказује изабране омиљене на контролној табли блога. 
-  Они могу бити преправљени са вашим мишем ако Јаваскрипт буде активиран у вашем прегледачу. 
-  Иначе, поље омогућава да им да број који се наручује. Када завршите, не заборавите да сачувате промене притиском на <strong>Сачувај ред</strong>.<br>
-  Можете да избришете омиљене тако што ћете их изабрати и притиснути <strong>Обриши изабраних омиљених</strong>.</dd>
-  
-  <dt>Дефинишите као подразумевани омиљени (супер администратор)</dt> 
-  <dd>Омогући да подесите тренутно дефинисану листу омиљених ставки као подразумевану листу омиљених за све кориснике. Ова листа ће бити предложена корисницима ако они нису дефинисали своје омиљене још.</dd>
-
-  <dt>Остале доступне омиљене</dt>
-  <dd>Сви прикључци који омогућавају да буду означени као омиљени су овде одиграни. Проверите одговарајуће кутије и додајте их на контролну таблу притиском на <strong>Додај tp моји омиљени</strong>.</dd>
-
-  <dt>Прикажи омиљене на врху менија</dt>
-  <dd>Ако је укључено, приказује омиљене ставке на врху менија.</dd>
-
-  <dt>Контролне табле</dt>
-  <dd>Избори које се доносе у овој зони ће се одразити на контролној табли вашег блога.</dd>
-  
-  <dt>Прикажи линкове документације</dt>
-  <dd>Омогућавање линкова документације на почетној страници контролне табле.</dd>
-  
-  <dt>Прикажи јасне вести</dt>
-  <dd>Омогући да прикаже јасне вести на почетној страници за слетање на контролној табли.</dd>
-
-  <dt>Прикажи брзи образац уноса</dt>
-  <dd>Омогући да се прикаже "брзи унос" на страници за спуштање на контролној табли.</dd>
-
-  <dt>Прикажи закаснеле задатке на контролној табли одржавања</dt>
-  <dd>Омогућава да се прикаже број закаснелих задатака (тј. који би требало да буде обрађен) испод <strong>Одржавања</strong> икона. <strong>Одржавање</strong> икона мора бити постављено у ваше омиљене ставке да бисте користили ову функцију.</dd>
-
-  <dt>Прикажи листу задужених за задатке на контролној табли</dt>
-  <dd>Омогућује да се прикаже списак закашњелих задатака (тј. који би требало да се обрађују) у посвећеном одељку на страници за слетање на табли.</dd>
-</dl>
+  <h4>Mon profil</h4>
+  <dl>
+    <dt>Name, First name</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Pseudonyme </dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>Mejl adresa </dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL </dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Preferred format</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Default entry status</dt>
+    <dd>Тај избор ће дефинисати време приказано на пост публикацији.</dd>
+    <dt>Entry edit field height</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Mes options</h4>
+  <h5>Интерфејс</h5>
+  <dl>
+    <dt>Activer l'interface avancée de la médiathèque</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Онемогући увлачење Javascript на снагу и пад за уређивања</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Број елемената приказаних по страници у менаџеру медија</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Ne pas utiliser le favicon standard</dt>
+    <dd>Омогућава онемогућивање подразумеване fivicна у адресном бару веб прегледача.</dd>
+  </dl>
+  <h5>Издање</h5>
+  <dl>
+    <dt>Syntaxe de saisie préférée </dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>État des billets par défaut </dt>
+    <dd>Подразумевани статус нових уноса може се поставити на:
+      <ul>
+        <li><strong>на чекању:</strong> статус публикације још увек није одлучено.</li>
+        <li><strong>Планирано:</strong> Унос ће бити постављен на мрежи у време и датум наведени у пољу <strong>Објављено</strong>.</li>
+        <li><strong>Необјављен:</strong> Офлајн унос.</li>
+        <li><strong>објављен је:</strong> Онлајн унос.</li>
+      </ul>
+    </dd>
+    <dt>Taille de la zone d'édition </dt>
+    <dd>Поставља висину поља за едицију уноса. Подразумевано, овај параметар је постављен на 24.</dd>
+    <dt>Омогући WYSIWYG режим</dt>
+    <dd>Омогућава коришћење визуелног уредника (WYSIWYG: Оно што видите је оно што добијете) за уносе, странице и поља описа категорија.</dd>
+  </dl>
+  <h5>Друге опције</h5>
+  <dl>
+    <dt>Формат листе ознака</dt>
+    <dd>Можете да изаберете да ли желите да видите, док уређујете унос, све коришћене ознаке (<strong>Проширено</strong>) или само оне најчешће коришћене (<strong>Схорт</strong>).</dd>
+    <dt>Истицање синтаксе у уреднику теме</dt>
+    <dd>Омогућава истицање синтаксе при коришћењу уређивача тема (HTML и CSS датотеке)</dd>
+  </dl>
+  <h4>Моја табла</h4>
+  <dl>
+    <dt>Mes favoris</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Дефинишите као подразумевани омиљени (супер администратор)</dt>
+    <dd>Омогући да подесите тренутно дефинисану листу омиљених ставки као подразумевану листу омиљених за све кориснике. Ова листа ће бити предложена корисницима ако они нису дефинисали своје омиљене још.</dd>
+    <dt>Остале доступне омиљене</dt>
+    <dd>Сви прикључци који омогућавају да буду означени као омиљени су овде одиграни. Проверите одговарајуће кутије и додајте их на контролну таблу притиском на <strong>Додај tp моји омиљени</strong>.</dd>
+    <dt>Прикажи омиљене на врху менија</dt>
+    <dd>Ако је укључено, приказује омиљене ставке на врху менија.</dd>
+    <dt>Контролне табле</dt>
+    <dd>Избори које се доносе у овој зони ће се одразити на контролној табли вашег блога.</dd>
+    <dt>Прикажи линкове документације</dt>
+    <dd>Омогућавање линкова документације на почетној страници контролне табле.</dd>
+    <dt>Прикажи јасне вести</dt>
+    <dd>Омогући да прикаже јасне вести на почетној страници за слетање на контролној табли.</dd>
+    <dt>Прикажи брзи образац уноса</dt>
+    <dd>Омогући да се прикаже "брзи унос" на страници за спуштање на контролној табли.</dd>
+    <dt>Прикажи закаснеле задатке на контролној табли одржавања</dt>
+    <dd>Омогућава да се прикаже број закаснелих задатака (тј. који би требало да буде обрађен) испод <strong>Одржавања</strong> икона. <strong>Одржавање</strong> икона мора бити постављено у ваше омиљене ставке да бисте користили ову функцију.</dd>
+    <dt>Прикажи листу задужених за задатке на контролној табли</dt>
+    <dd>Омогућује да се прикаже списак закашњелих задатака (тј. који би требало да се обрађују) у посвећеном одељку на страници за слетање на табли.</dd>
+  </dl>
 </body>
+
 </html>
