@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-21 08:26+0100\n"
-"PO-Revision-Date: 2023-11-21 10:29\n"
+"PO-Revision-Date: 2024-07-05 09:34\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -144,7 +144,7 @@ msgstr "আপনার ছবি যোগ করুন:"
 #: themes/blowup/src/Config.php:333
 #, php-format
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-msgstr ""
+msgstr "JPEG বা PNG ফাইল, 800 পিক্সেল প্রশস্ত, সর্বাধিক আকার %s"
 
 #: themes/blowup/src/Config.php:344
 msgid "Sidebar"
