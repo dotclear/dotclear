@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Användare</title>
-  </head>
-  <body>
-    <p>Denna sida visar alla användare på systemet.</p>
-    <p>För att lägga till (eller ändra) användares behörigheter krävs ditt lösenord i fältet <strong>Ditt lösenord</strong>.</p>
 
-    <h4>Lista över användare</h4>
-    <dl>
-      <dt>Sök</dt>
-      <dd>Sökningen är baserad på användar-ID. <strong>*</strong> jokertecken kan endast användas för att söka efter en del av användar-ID.</dd>
+<head>
+  <title>Användare</title>
+</head>
 
-      <dt>Sortera efter</dt>
-      <dd>Lista över användare kan beställas av deras <em>ID</em>, deras <em>efternamn</em>, deras <em>förnamn</em>, deras <em>visningsnamn</em> (smeknamn) eller <em>antal poster</em> de skapade.</dd>
+<body>
+  <p>Denna sida visar alla användare på systemet.</p>
+  <p>För att lägga till (eller ändra) användares behörigheter krävs ditt lösenord i fältet <strong>Ditt lösenord</strong>.</p>
+  <h4>Lista över användare</h4>
+  <dl>
+    <dt>Sök</dt>
+    <dd>Sökningen är baserad på användar-ID. <strong>*</strong> jokertecken kan endast användas för att söka efter en del av användar-ID.</dd>
+    <dt>Sortera efter</dt>
+    <dd>Lista över användare kan beställas av deras <em>ID</em>, deras <em>efternamn</em>, deras <em>förnamn</em>, deras <em>visningsnamn</em> (smeknamn) eller <em>antal poster</em> de skapade.</dd>
+    <dt>Sortera</dt>
+    <dd>Anger sorteringsmetod som kommer att tillämpas på resultatlistan (<em>Stigande</em> eller <em>Fallande</em>).</dd>
+    <dt>Användare per sida</dt>
+    <dd>Anger antalet användare som visas på varje sida i resultatlistan.</dd>
+  </dl>
+  <h4>Åtgärder för användarens batch</h4>
+  <p>Det är möjligt att göra en bunt av åtgärder på flera användare på en gång.</p>
+  <ul>
+    <li><strong>Ställ in behörigheter:</strong> Ställ in behörigheter för en eller flera blogg(er).</li>
+    <li><strong>Ta bort:</strong> Ta bort valda användare från systemet. En användare som skapade poster kan inte raderas.</li>
+  </ul>
+  <p>Om du bestämmer dig för att ställa in användarnas behörigheter, kommer du att omdirigeras till en ny sida som listar de bloggar som finns tillgängliga på ditt system. Markera de bloggar som du vill sätta behörigheterna på, och tryck på <strong>Ställ in behörigheter</strong>.</p>
+  <h4>Behörigheter för användare</h4>
+  <p>För varje blogg kan du ställa in följande behörigheter:</p>
+  <ul>
+    <li><strong>Administratör:</strong> Kan administrera bloggen helt.</li>
+    <li><strong>Hantera sina egna inlägg och kommentarer:</strong> Användaren kan skapa poster och hantera kommentarer på poster som han skapat.</li>
+    <li><strong>Publicera poster och kommentarer:</strong> Användaren kan ändra publiceringsstatus för sina egna poster och sina inläggs kommentarer.</li>
+    <li><strong>Ta bort poster och kommentarer:</strong> Användaren kan ta bort sina egna poster samt sina inläggs kommentarer.</li>
+    <li><strong>Hantera alla inlägg och kommentarer:</strong> Användaren kan hantera alla inlägg i denna blogg, oavsett om han är författaren eller inte.</li>
+    <li><strong>Hantera kategorier:</strong> Användaren kan skapa, ändra och ta bort kategorier.</li>
+    <li><strong>Hantera sina egna medieobjekt:</strong> Användaren kan lägga till medieobjekt och ändra eller ta bort sina egna medier.</li>
+    <li><strong>Hantera alla medieobjekt:</strong> Användaren kan hantera medieobjekten från alla användare.</li>
+    <li><strong>Hantera sidor:</strong> Användaren kan lägga till och ändra sidor.</li>
+    <li><strong>Hantera bloggrulle:</strong> Användaren kan hantera bloggrulle för den aktuella bloggen.</li>
+  </ul>
+  <p><strong>Super administratör</strong> status är satt i användarprofilen.</p>
+</body>
 
-      <dt>Sortera</dt>
-      <dd>Anger sorteringsmetod som kommer att tillämpas på resultatlistan (<em>Stigande</em> eller <em>Fallande</em>).</dd>
-
-      <dt>Användare per sida</dt>
-      <dd>Anger antalet användare som visas på varje sida i resultatlistan.</dd>
-    </dl>
-
-    <h4>Åtgärder för användarens batch</h4>
-    <p>Det är möjligt att göra en bunt av åtgärder på flera användare på en gång.</p>
-    <ul>
-      <li><strong>Ställ in behörigheter:</strong> Ställ in behörigheter för en eller flera blogg(er).</li>
-      <li><strong>Ta bort:</strong> Ta bort valda användare från systemet. En användare som skapade poster kan inte raderas.</li>
-    </ul>
-    <p>Om du bestämmer dig för att ställa in användarnas behörigheter, kommer du att omdirigeras till en ny sida som listar de bloggar som finns tillgängliga på ditt system. Markera de bloggar som du vill sätta behörigheterna på, och tryck på <strong>Ställ in behörigheter</strong>.</p>
-
-    <h4>Behörigheter för användare</h4>
-    <p>För varje blogg kan du ställa in följande behörigheter:</p>
-    <ul>
-      <li><strong>Administratör:</strong> Kan administrera bloggen helt.</li>
-      <li><strong>Hantera sina egna inlägg och kommentarer:</strong> Användaren kan skapa poster och hantera kommentarer på poster som han skapat.</li>
-      <li><strong>Publicera poster och kommentarer:</strong> Användaren kan ändra publiceringsstatus för sina egna poster och sina inläggs kommentarer.</li>
-      <li><strong>Ta bort poster och kommentarer:</strong> Användaren kan ta bort sina egna poster samt sina inläggs kommentarer.</li>
-      <li><strong>Hantera alla inlägg och kommentarer:</strong> Användaren kan hantera alla inlägg i denna blogg, oavsett om han är författaren eller inte.</li>
-      <li><strong>Hantera kategorier:</strong> Användaren kan skapa, ändra och ta bort kategorier.</li>
-      <li><strong>Hantera sina egna medieobjekt:</strong> Användaren kan lägga till medieobjekt och ändra eller ta bort sina egna medier.</li>
-      <li><strong>Hantera alla medieobjekt:</strong> Användaren kan hantera medieobjekten från alla användare.</li>
-      <li><strong>Hantera sidor:</strong> Användaren kan lägga till och ändra sidor.</li>
-      <li><strong>Hantera bloggrulle:</strong> Användaren kan hantera bloggrulle för den aktuella bloggen.</li>
-    </ul>
-    <p><strong>Super administratör</strong> status är satt i användarprofilen.</p>
-  </body>
 </html>
