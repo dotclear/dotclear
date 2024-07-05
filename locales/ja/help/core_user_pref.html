@@ -1,127 +1,87 @@
 <html>
+
 <head>
   <title>ユーザの環境設定</title>
 </head>
 
 <body>
-
-<h4>マイプロフィール</h4>
-<dl>
-  <dt>名前とファーストネーム</dt>
-  <dd>「表示名」が空欄の場合、「ファーストネーム」と「名前」が投稿者名として使用されます。 なお、ここでの「名前」は「ラストネーム（姓）」と読み替えてください。</dd>
-  
-  <dt>表示名</dt>
-  <dd>投稿で表示される名前を選ぶことができます。</dd>
-  
-  <dt>メール</dt>
-  <dd>新しいパスワードを申請する際に使用するメールアドレス。<br>
-    新しいコメントの通知もこのアドレスに送信されます。<em>(
-  このフィールドを更新する場合は、フォームの一番下にある 
-  該当フィールドに現在のパスワードを入力する必要があります)</em></dd>
-  
-  <dt>URL</dt>
-  <dd>ユーザのウェブサイトのURLを入力します。 設定された場合、投稿者名は当該サイトへのリンクとして表示されます。</dd>
-  
-  <dt>優先書式</dt>
-  <dd>優先される投稿の書式を選択します。 Wiki は簡素化された構文で、妥当な HTML に変換されます。（HTML を完全に理解していない場合、Wiki 構文を使用することをお勧めします）</dd>
-  
-  <dt>デフォルトのエントリ状態</dt>
-  <dd>この選択は、投稿の公開に表示される時間を定義します。</dd>
-  
-  <dt>エントリ編集フィールドの高さ</dt>
-  <dd>エントリの編集フィールドの高さを入力します。 デフォルトは 24 です。</dd>
-</dl>
-
-
-<h4>自分のオプション</h4>
-<h5>インターフェイス</h5>
-<dl>  
-  <dt>メディアマネージャーで強化されたアップローダーを有効にする</dt>
-  <dd>一度に複数のファイルを 
-  アップロードできる高度なインターフェースをメディア・マネージャで有効にします（注意：この機能を使用するには、WebブラウザがJavascript 
-  をサポートしている必要があります）。</dd>
-
-  <dt>Javascript搭載のドラッグ＆ドロップを無効にすると、商品を注文できます。</dt>
-  <dd>アイテム順序の「ドラッグ&ドロップ」を無効にします。 ドラッグ&ドロップは 
-  で数値フィールドに置き換えられ、代わりにフィールドの位置を入力できます。</dd>
-
-  <dt>メディア・マネージャー内のページごとに表示される要素数</dt>
-  <dd>メディア マネージャーに表示されるメディアの数を定義します。（フォルダ
-  はアイテムを数える際には考慮されません）</dd>
-  
-  <dt>標準のファビコンを使用しない</dt>
-  <dd>Web ブラウザのアドレスバーでデフォルトの favicon を無効にします。</dd>
-</dl>
-
-<h5>版</h5>
-<dl>    
-  <dt>優先する形式</dt>
-  <dd>エントリーの構文を選択します。Wikiは
-  、有効なHTMLに変換されます。HTMLを完璧に
-  理解している場合を除き、Wiki構文を選択することをお勧めします。
-  詳しくはWiki構文リファレンスをご覧ください。</dd>
-  
-  <dt>デフォルトのエントリステータス</dt>
-  <dd>新しいエントリの既定の状態を次に設定できます:
-    <ul>
-      <li><strong>保留中:</strong> 出版状況はまだ決定されていない。</li>
-      <li><strong>スケジュール日:</strong> エントリは、 <strong>公開日時</strong> フィールドで指定された日時にオンラインで設定されます。</li>
-      <li><strong>未発表:</strong> オフラインエントリ。</li>
-      <li><strong>公開日:</strong> オンラインエントリ。</li>
-    </ul>
-  </dd>
-  
-  <dt>Entry edit field height</dt>
-  <dd>項目のエディションフィールドの高さを設定します。デフォルトでは、このパラメータは 24 に設定されています。</dd>
-  
-  <dt>WYSIWYGモードを有効にする</dt>
-  <dd>エントリ、ページ、カテゴリの説明項目にビジュアルエディタ(WYSIWYG:表示されるものはあなたが取得したものです)を使用できます。</dd>
-</dl>
-
-<h5>その他のオプション</h5>
-<dl>
-  <dt>タグリストの形式</dt>
-  <dd>項目を編集中に表示するかどうかを選択できます。 すべてのタグ（<strong>Extended</strong>）または最も使用されているもののみ（<strong>Short</strong>）。</dd>
-
-  <dt>テーマエディタでシンタックスハイライト表示</dt>
-  <dd>テーマエディタ（HTMLおよびCSSファイル）を使用して構文の強調表示を有効にする</dd>     
-</dl>
-
-
-<h4>自分のダッシュボード</h4>
-<dl>
-  <dt>お気に入り</dt>
-  <dd>このゾーンは選択されたお気に入りをブログのダッシュボードに表示します。 
-  ブラウザのJavascriptが有効な場合、マウスで並び替えができます。 
-  そうでない場合は、フィールドに注文番号を入力することができます。終わったら、 <strong>注文を保存</strong>を押して変更を保存することを忘れないでください。<br>
-  お気に入りを選択して <strong>お気に入りを削除</strong>を押して、お気に入りを削除することもできます。</dd>
-  
-  <dt>デフォルトのお気に入りとして定義します (スーパー管理者)</dt> 
-  <dd>すべてのユーザの既定のお気に入りリストとして現在定義されているお気に入りリストを設定することを有効にします。 まだ自分のお気に入りを定義していない場合、このリストはユーザーに提案されます。</dd>
-
-  <dt>他の利用可能なお気に入り</dt>
-  <dd>お気に入りとして置くことができるすべてのプラグインはここで再生されます。 対応するボックスをチェックし、 <strong>お気に入りを追加</strong> を押してダッシュボードに追加します。</dd>
-
-  <dt>メニューの上部にお気に入りを表示する</dt>
-  <dd>有効にすると、メニューの上部にお気に入りが表示されます。</dd>
-
-  <dt>ダッシュボードモジュール</dt>
-  <dd>このゾーンで行われた選択は、ブログのダッシュボードに反映されます。</dd>
-  
-  <dt>ドキュメントのリンクを表示</dt>
-  <dd>ダッシュボードのランディングページにドキュメントリンクを表示することができます。</dd>
-  
-  <dt>Dotclear ニュースを表示</dt>
-  <dd>ダッシュボードのランディングページにDotclear のニュースを表示することを有効にします。</dd>
-
-  <dt>クイック入力フォームを表示</dt>
-  <dd>ダッシュボードのランディングページに「クイック入力」フォームを表示できるようにします。</dd>
-
-  <dt>メンテナンスダッシュボードアイコンに期限切れタスクカウンターを表示する</dt>
-  <dd><strong>「メンテナンス」</strong> アイコンの下に期限切れタスク（処理すべきタスク）の数を表示できるようにします。 <strong>メンテナンス</strong> この機能を使用するには、お気に入りにアイコンを設定する必要があります。</dd>
-
-  <dt>期限切れタスク一覧をダッシュボード項目に表示する</dt>
-  <dd>期限切れタスクの一覧をダッシュボードのランディングページの専用セクションに表示します。</dd>
-</dl>
+  <h4>マイプロフィール</h4>
+  <dl>
+    <dt>名前とファーストネーム</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>表示名</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>メール</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>優先書式</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>デフォルトのエントリ状態</dt>
+    <dd>この選択は、投稿の公開に表示される時間を定義します。</dd>
+    <dt>エントリ編集フィールドの高さ</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>自分のオプション</h4>
+  <h5>インターフェイス</h5>
+  <dl>
+    <dt>メディアマネージャーで強化されたアップローダーを有効にする</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Javascript搭載のドラッグ＆ドロップを無効にすると、商品を注文できます。</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>メディア・マネージャー内のページごとに表示される要素数</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>標準のファビコンを使用しない</dt>
+    <dd>Web ブラウザのアドレスバーでデフォルトの favicon を無効にします。</dd>
+  </dl>
+  <h5>版</h5>
+  <dl>
+    <dt>優先する形式</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>デフォルトのエントリステータス</dt>
+    <dd>新しいエントリの既定の状態を次に設定できます:
+      <ul>
+        <li><strong>保留中:</strong> 出版状況はまだ決定されていない。</li>
+        <li><strong>スケジュール日:</strong> エントリは、 <strong>公開日時</strong> フィールドで指定された日時にオンラインで設定されます。</li>
+        <li><strong>未発表:</strong> オフラインエントリ。</li>
+        <li><strong>公開日:</strong> オンラインエントリ。</li>
+      </ul>
+    </dd>
+    <dt>Entry edit field height</dt>
+    <dd>項目のエディションフィールドの高さを設定します。デフォルトでは、このパラメータは 24 に設定されています。</dd>
+    <dt>WYSIWYGモードを有効にする</dt>
+    <dd>エントリ、ページ、カテゴリの説明項目にビジュアルエディタ(WYSIWYG:表示されるものはあなたが取得したものです)を使用できます。</dd>
+  </dl>
+  <h5>その他のオプション</h5>
+  <dl>
+    <dt>タグリストの形式</dt>
+    <dd>項目を編集中に表示するかどうかを選択できます。 すべてのタグ（<strong>Extended</strong>）または最も使用されているもののみ（<strong>Short</strong>）。</dd>
+    <dt>テーマエディタでシンタックスハイライト表示</dt>
+    <dd>テーマエディタ（HTMLおよびCSSファイル）を使用して構文の強調表示を有効にする</dd>
+  </dl>
+  <h4>自分のダッシュボード</h4>
+  <dl>
+    <dt>お気に入り</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>デフォルトのお気に入りとして定義します (スーパー管理者)</dt>
+    <dd>すべてのユーザの既定のお気に入りリストとして現在定義されているお気に入りリストを設定することを有効にします。 まだ自分のお気に入りを定義していない場合、このリストはユーザーに提案されます。</dd>
+    <dt>他の利用可能なお気に入り</dt>
+    <dd>お気に入りとして置くことができるすべてのプラグインはここで再生されます。 対応するボックスをチェックし、 <strong>お気に入りを追加</strong> を押してダッシュボードに追加します。</dd>
+    <dt>メニューの上部にお気に入りを表示する</dt>
+    <dd>有効にすると、メニューの上部にお気に入りが表示されます。</dd>
+    <dt>ダッシュボードモジュール</dt>
+    <dd>このゾーンで行われた選択は、ブログのダッシュボードに反映されます。</dd>
+    <dt>ドキュメントのリンクを表示</dt>
+    <dd>ダッシュボードのランディングページにドキュメントリンクを表示することができます。</dd>
+    <dt>Dotclear ニュースを表示</dt>
+    <dd>ダッシュボードのランディングページにDotclear のニュースを表示することを有効にします。</dd>
+    <dt>クイック入力フォームを表示</dt>
+    <dd>ダッシュボードのランディングページに「クイック入力」フォームを表示できるようにします。</dd>
+    <dt>メンテナンスダッシュボードアイコンに期限切れタスクカウンターを表示する</dt>
+    <dd><strong>「メンテナンス」</strong> アイコンの下に期限切れタスク（処理すべきタスク）の数を表示できるようにします。 <strong>メンテナンス</strong> この機能を使用するには、お気に入りにアイコンを設定する必要があります。</dd>
+    <dt>期限切れタスク一覧をダッシュボード項目に表示する</dt>
+    <dd>期限切れタスクの一覧をダッシュボードのランディングページの専用セクションに表示します。</dd>
+  </dl>
 </body>
+
 </html>
