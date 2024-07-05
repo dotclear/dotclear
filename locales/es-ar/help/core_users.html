@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Usuarios</title>
-  </head>
-  <body>
-    <p>Esta página enumera todos los usuarios del sistema.</p>
-    <p>Para añadir (o modificar) los permisos de los usuarios, se requerirá su contraseña en el campo <strong>Su contraseña</strong>.</p>
 
-    <h4>Filtro de la lista de usuarios</h4>
-    <dl>
-      <dt>Búsqueda</dt>
-      <dd>La búsqueda se basa en el ID de usuario. Se puede utilizar el comodín <strong>*</strong> para buscar sólo una parte del ID de usuario.</dd>
+<head>
+  <title>Usuarios</title>
+</head>
 
-      <dt>Ordenar por</dt>
-      <dd>La lista de usuarios puede ordenarse por su <em>ID</em>, su <em>Apellido</em>, su <em>Nombre</em>, su <em>Nombre para mostrar</em> (apodo) o el <em>Número de entradas</em> que han creado.</dd>
+<body>
+  <p>Esta página enumera todos los usuarios del sistema.</p>
+  <p>Para añadir (o modificar) los permisos de los usuarios, se requerirá su contraseña en el campo <strong>Su contraseña</strong>.</p>
+  <h4>Filtro de la lista de usuarios</h4>
+  <dl>
+    <dt>Búsqueda</dt>
+    <dd>La búsqueda se basa en el ID de usuario. Se puede utilizar el comodín <strong>*</strong> para buscar sólo una parte del ID de usuario.</dd>
+    <dt>Ordenar por</dt>
+    <dd>La lista de usuarios puede ordenarse por su <em>ID</em>, su <em>Apellido</em>, su <em>Nombre</em>, su <em>Nombre para mostrar</em> (apodo) o el <em>Número de entradas</em> que han creado.</dd>
+    <dt>Clasificar</dt>
+    <dd>Indica el método de ordenación que se aplicará a la lista de resultados (<em>Ascendente</em> o <em>Descendente</em>).</dd>
+    <dt>Usuarios por página</dt>
+    <dd>Establece el número de usuarios mostrados en cada página de la lista de resultados.</dd>
+  </dl>
+  <h4>Acciones por lotes de usuarios</h4>
+  <p>Es posible realizar un lote de acciones sobre varios usuarios a la vez.</p>
+  <ul>
+    <li><strong>Establecer permisos:</strong> Establecer permisos para uno o más blog(s).</li>
+    <li><strong>Borrar:</strong> Elimina del sistema al usuario o usuarios seleccionados. Un usuario que ha creado entradas no se puede eliminar.</li>
+  </ul>
+  <p>Si decides establecer los permisos de los usuarios, serás redirigido a una nueva página con una lista de los blogs disponibles en tu sistema. Marque los blogs en los que desea establecer los permisos y pulse <strong>Establecer permisos</strong>.</p>
+  <h4>Permisos de los usuarios</h4>
+  <p>Para cada blog, puede establecer los siguientes permisos:</p>
+  <ul>
+    <li><strong>Administrador:</strong> Puede administrar el blog por completo.</li>
+    <li><strong>Gestionar sus propias entradas y comentarios:</strong> El usuario puede crear entradas y gestionar los comentarios de las entradas que haya creado.</li>
+    <li><strong>Publicar entradas y comentarios:</strong> El usuario puede modificar el estado de publicación de sus propias entradas y de los comentarios de sus entradas.</li>
+    <li><strong>Borrar entradas y comentarios:</strong> El usuario puede borrar sus propias entradas así como los comentarios de sus entradas.</li>
+    <li><strong>Gestionar todas las entradas y comentarios:</strong> El usuario puede gestionar todas las entradas de este blog, sin importar si es el autor o no.</li>
+    <li><strong>Gestionar categorías:</strong> El usuario puede crear, modificar y eliminar categorías.</li>
+    <li><strong>Gestionar sus propios elementos multimedia:</strong> El usuario puede añadir elementos multimedia y modificar o eliminar sus propios medios.</li>
+    <li><strong>Gestionar todos los elementos multimedia:</strong> El usuario puede gestionar los elementos multimedia desde cualquier usuario.</li>
+    <li><strong>Gestionar páginas:</strong> El usuario puede añadir y modificar páginas.</li>
+    <li><strong>Gestionar el blogroll:</strong> El usuario puede gestionar el blogroll del blog actual.</li>
+  </ul>
+  <p>El estado <strong>Superadministrador</strong> se establece en el perfil de usuario.</p>
+</body>
 
-      <dt>Clasificar</dt>
-      <dd>Indica el método de ordenación que se aplicará a la lista de resultados (<em>Ascendente</em> o <em>Descendente</em>).</dd>
-
-      <dt>Usuarios por página</dt>
-      <dd>Establece el número de usuarios mostrados en cada página de la lista de resultados.</dd>
-    </dl>
-
-    <h4>Acciones por lotes de usuarios</h4>
-    <p>Es posible realizar un lote de acciones sobre varios usuarios a la vez.</p>
-    <ul>
-      <li><strong>Establecer permisos:</strong> Establecer permisos para uno o más blog(s).</li>
-      <li><strong>Borrar:</strong> Elimina del sistema al usuario o usuarios seleccionados. Un usuario que ha creado entradas no se puede eliminar.</li>
-    </ul>
-    <p>Si decides establecer los permisos de los usuarios, serás redirigido a una nueva página con una lista de los blogs disponibles en tu sistema. Marque los blogs en los que desea establecer los permisos y pulse <strong>Establecer permisos</strong>.</p>
-
-    <h4>Permisos de los usuarios</h4>
-    <p>Para cada blog, puede establecer los siguientes permisos:</p>
-    <ul>
-      <li><strong>Administrador:</strong> Puede administrar el blog por completo.</li>
-      <li><strong>Gestionar sus propias entradas y comentarios:</strong> El usuario puede crear entradas y gestionar los comentarios de las entradas que haya creado.</li>
-      <li><strong>Publicar entradas y comentarios:</strong> El usuario puede modificar el estado de publicación de sus propias entradas y de los comentarios de sus entradas.</li>
-      <li><strong>Borrar entradas y comentarios:</strong> El usuario puede borrar sus propias entradas así como los comentarios de sus entradas.</li>
-      <li><strong>Gestionar todas las entradas y comentarios:</strong> El usuario puede gestionar todas las entradas de este blog, sin importar si es el autor o no.</li>
-      <li><strong>Gestionar categorías:</strong> El usuario puede crear, modificar y eliminar categorías.</li>
-      <li><strong>Gestionar sus propios elementos multimedia:</strong> El usuario puede añadir elementos multimedia y modificar o eliminar sus propios medios.</li>
-      <li><strong>Gestionar todos los elementos multimedia:</strong> El usuario puede gestionar los elementos multimedia desde cualquier usuario.</li>
-      <li><strong>Gestionar páginas:</strong> El usuario puede añadir y modificar páginas.</li>
-      <li><strong>Gestionar el blogroll:</strong> El usuario puede gestionar el blogroll del blog actual.</li>
-    </ul>
-    <p>El estado <strong>Superadministrador</strong> se establece en el perfil de usuario.</p>
-  </body>
 </html>
