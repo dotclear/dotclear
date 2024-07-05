@@ -1,130 +1,87 @@
 <html>
+
 <head>
   <title>User preferences</title>
 </head>
 
 <body>
-
-<h4>Profilul meu</h4>
-<dl>
-  <dt>Name, First name</dt>
-  <dd>If the display name is empty, the author's name will be displayed
-  as his Firstname and Name as set here.</dd>
-  
-  <dt>Nume afișat</dt>
-  <dd>You can choose here how your name will be displayed under your posts.</dd>
-  
-  <dt>E-mail</dt>
-  <dd>Adresa de e-mail utilizată atunci când solicitați o nouă parolă.<br>
-    Notificările privind comentariile noi vor fi trimise, de asemenea, la această adresă.<em>(Dacă actualizați
-  acest câmp, trebuie să introduceți parola actuală în câmpul corespunzător din partea de jos a formularului)</em></dd>
-  
-  <dt>URL</dt>
-  <dd>The user's web site. If set, the author name will be displayed as
-  a link to the said site.</dd>
-  
-  <dt>Preferred format</dt>
-  <dd>To choose the prefered post syntax. Wiki is a simplified syntax
-  and will be converted to valid HTML&nbsp;; Unless you have a perfect
-  understanding of HTML, we advise you to choose the wiki syntax.</dd>
-  
-  <dt>Default entry status</dt>
-  <dd>Această opțiune va defini timpul afișat în publicare.</dd>
-  
-  <dt>Entry edit field height</dt>
-  <dd>The height of the Entry edit field. Defaults to 24.</dd>
-</dl>
-
-
-<h4>Opțiunile mele</h4>
-<h5>Interfață</h5>
-<dl>  
-  <dt>Activați încărcarea îmbunătățită în managerul media</dt>
-  <dd>Permite activarea interfeței avansate în managerul media care permite 
-  încărcarea mai multor fișiere simultan (Notă: Browserul dvs. web trebuie să suporte Javascript 
-  pentru a putea folosi această caracteristică).</dd>
-
-  <dt>Dezactivează tragere și fixare prin Javascript pentru ordonarea articolelor</dt>
-  <dd>Permite dezactivarea "drag and drop" pentru ordinea produselor. Trageți și fixați va fi 
-  înlocuit cu câmpuri numerice care vă vor permite să introduceți poziția câmpurilor în schimb.</dd>
-
-  <dt>Numărul de elemente afișate per pagină în managerul media</dt>
-  <dd>Definește numărul de fișiere media care vor fi afișate în managerul media (dosarele
-  nu sunt luate în considerare la numărarea elementelor).</dd>
-  
-  <dt>Nu utilizaţi favicon standard</dt>
-  <dd>Permite dezactivarea pictogramei favorite implicite în bara de adrese a browserului web.</dd>
-</dl>
-
-<h5>Ediție</h5>
-<dl>    
-  <dt>Format preferat</dt>
-  <dd>Alegeți sintaxa intrării. Wiki este o sintaxă simplificată
-  și va fi convertită în HTML valid. Dacă nu ai o înțelegere perfectă
-  a HTML, te sfătuim să alegi sintaxa Wiki.
-  A se vedea sintaxa Wiki pentru mai multe informații.</dd>
-  
-  <dt>Starea implicită a intrării</dt>
-  <dd>Starea implicită pentru intrările noi poate fi setată la:
-    <ul>
-      <li><strong>În așteptare:</strong> Starea publicării nu a fost încă stabilită.</li>
-      <li><strong>Programat:</strong> Intrarea va fi setată online la ora și data furnizate în câmpul <strong>Publicat pe</strong>.</li>
-      <li><strong>Dezpublicat:</strong> intrare offline.</li>
-      <li><strong>Publicat:</strong> Intrare online.</li>
-    </ul>
-  </dd>
-  
-  <dt>Înălțime editare intrare câmp</dt>
-  <dd>Setează înălţimea câmpului de editare a unei intrări. În mod implicit, acest parametru este setat la 24.</dd>
-  
-  <dt>Activează modul WYSIWYG</dt>
-  <dd>Permite utilizarea editorului vizual (WYSIWYG: Ce vedeți este ceea ce faceți) pentru câmpurile de descriere, pagini și categorii descriere.</dd>
-</dl>
-
-<h5>Alte opțiuni</h5>
-<dl>
-  <dt>Format listă etichete</dt>
-  <dd>Puteţi selecta dacă doriţi să vedeţi, în timp ce editaţi o intrare, toate etichetele utilizate (<strong>Extended</strong>) sau doar cele mai utilizate (<strong>Scurt</strong>).</dd>
-
-  <dt>Evidențierea sintaxei în editorul temei</dt>
-  <dd>Activează evidenţierea sintaxei atunci când se utilizează editorul tematic (HTML şi fişiere CSS)</dd>     
-</dl>
-
-
-<h4>Panoul meu</h4>
-<dl>
-  <dt>Favoritele mele</dt>
-  <dd>Această zonă afișează favoritele alese pe tabloul de bord al blogului. 
-  Acestea pot fi reordonate cu ajutorul mouse-ului, dacă Javascript este activat în browserul dumneavoastră. 
-  În caz contrar, un câmp permite să le dați un număr de ordine. Când ați terminat, nu uitați să salvați modificările apăsând <strong>Save order</strong>.<br>
-  De asemenea, puteți șterge favoritele selectându-le și apăsând <strong>Ștergeți favoritele selectate</strong>.</dd>
-  
-  <dt>Definiți ca favorite implicite (super administrator)</dt> 
-  <dd>Permite setarea listei de favorite definite în prezent ca listă de favorite implicite pentru toţi utilizatorii. Această listă va fi propusă utilizatorilor dacă aceștia nu și-au definit încă propriile favorite.</dd>
-
-  <dt>Alte favorite disponibile</dt>
-  <dd>Toate plugin-urile care permit să fie puse pe măsură ce favoritele sunt divizate aici. Bifați casetele corespunzătoare și adăugați-le în tabloul de bord apăsând <strong>Adăugați tp favoritele mele</strong>.</dd>
-
-  <dt>Afișează favoritele în partea de sus a meniului</dt>
-  <dd>Daca este activat, afiseaza favoritele in partea de sus a meniului.</dd>
-
-  <dt>Modulele tabloului de bord</dt>
-  <dd>Alegerile făcute în această zonă vor fi reflectate pe tabloul de bord al blogului.</dd>
-  
-  <dt>Afișează link-urile documentației</dt>
-  <dd>Activează afișarea link-urilor de documentație pe pagina de aterizare a tabloului de bord.</dd>
-  
-  <dt>Afişare ştiri Dotclear</dt>
-  <dd>Activează afișarea știrilor Dotclear pe pagina de aterizare a tabloului de bord.</dd>
-
-  <dt>Afişaţi formularul de intrare rapidă</dt>
-  <dd>Activați afișarea formularului "intrare rapidă" pe pagina de aterizare a tabloului de bord.</dd>
-
-  <dt>Afişare contor sarcini restante pe pictograma tabloului de bord de întreţinere</dt>
-  <dd>Permite afișarea numărului de sarcini întârziate (adică care ar trebui să fie procesate) sub pictograma <strong>Maintenance</strong> . <strong>Pictograma de mentenanță</strong> trebuie setată în favorite pentru a utiliza această caracteristică.</dd>
-
-  <dt>Afișează lista de sarcini restante pe elementele tabloului de bord</dt>
-  <dd>Activați pentru a afișa lista sarcinilor întârziate (adică care ar trebui să fie procesate) într-o secțiune dedicată pe pagina de aterizare a tabloului de bord.</dd>
-</dl>
+  <h4>Profilul meu</h4>
+  <dl>
+    <dt>Name, First name</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Nume afișat</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>E-mail</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Preferred format</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Default entry status</dt>
+    <dd>Această opțiune va defini timpul afișat în publicare.</dd>
+    <dt>Entry edit field height</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Opțiunile mele</h4>
+  <h5>Interfață</h5>
+  <dl>
+    <dt>Activați încărcarea îmbunătățită în managerul media</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Dezactivează tragere și fixare prin Javascript pentru ordonarea articolelor</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Numărul de elemente afișate per pagină în managerul media</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Nu utilizaţi favicon standard</dt>
+    <dd>Permite dezactivarea pictogramei favorite implicite în bara de adrese a browserului web.</dd>
+  </dl>
+  <h5>Ediție</h5>
+  <dl>
+    <dt>Format preferat</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Starea implicită a intrării</dt>
+    <dd>Starea implicită pentru intrările noi poate fi setată la:
+      <ul>
+        <li><strong>În așteptare:</strong> Starea publicării nu a fost încă stabilită.</li>
+        <li><strong>Programat:</strong> Intrarea va fi setată online la ora și data furnizate în câmpul <strong>Publicat pe</strong>.</li>
+        <li><strong>Dezpublicat:</strong> intrare offline.</li>
+        <li><strong>Publicat:</strong> Intrare online.</li>
+      </ul>
+    </dd>
+    <dt>Înălțime editare intrare câmp</dt>
+    <dd>Setează înălţimea câmpului de editare a unei intrări. În mod implicit, acest parametru este setat la 24.</dd>
+    <dt>Activează modul WYSIWYG</dt>
+    <dd>Permite utilizarea editorului vizual (WYSIWYG: Ce vedeți este ceea ce faceți) pentru câmpurile de descriere, pagini și categorii descriere.</dd>
+  </dl>
+  <h5>Alte opțiuni</h5>
+  <dl>
+    <dt>Format listă etichete</dt>
+    <dd>Puteţi selecta dacă doriţi să vedeţi, în timp ce editaţi o intrare, toate etichetele utilizate (<strong>Extended</strong>) sau doar cele mai utilizate (<strong>Scurt</strong>).</dd>
+    <dt>Evidențierea sintaxei în editorul temei</dt>
+    <dd>Activează evidenţierea sintaxei atunci când se utilizează editorul tematic (HTML şi fişiere CSS)</dd>
+  </dl>
+  <h4>Panoul meu</h4>
+  <dl>
+    <dt>Favoritele mele</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Definiți ca favorite implicite (super administrator)</dt>
+    <dd>Permite setarea listei de favorite definite în prezent ca listă de favorite implicite pentru toţi utilizatorii. Această listă va fi propusă utilizatorilor dacă aceștia nu și-au definit încă propriile favorite.</dd>
+    <dt>Alte favorite disponibile</dt>
+    <dd>Toate plugin-urile care permit să fie puse pe măsură ce favoritele sunt divizate aici. Bifați casetele corespunzătoare și adăugați-le în tabloul de bord apăsând <strong>Adăugați tp favoritele mele</strong>.</dd>
+    <dt>Afișează favoritele în partea de sus a meniului</dt>
+    <dd>Daca este activat, afiseaza favoritele in partea de sus a meniului.</dd>
+    <dt>Modulele tabloului de bord</dt>
+    <dd>Alegerile făcute în această zonă vor fi reflectate pe tabloul de bord al blogului.</dd>
+    <dt>Afișează link-urile documentației</dt>
+    <dd>Activează afișarea link-urilor de documentație pe pagina de aterizare a tabloului de bord.</dd>
+    <dt>Afişare ştiri Dotclear</dt>
+    <dd>Activează afișarea știrilor Dotclear pe pagina de aterizare a tabloului de bord.</dd>
+    <dt>Afişaţi formularul de intrare rapidă</dt>
+    <dd>Activați afișarea formularului "intrare rapidă" pe pagina de aterizare a tabloului de bord.</dd>
+    <dt>Afişare contor sarcini restante pe pictograma tabloului de bord de întreţinere</dt>
+    <dd>Permite afișarea numărului de sarcini întârziate (adică care ar trebui să fie procesate) sub pictograma <strong>Maintenance</strong> . <strong>Pictograma de mentenanță</strong> trebuie setată în favorite pentru a utiliza această caracteristică.</dd>
+    <dt>Afișează lista de sarcini restante pe elementele tabloului de bord</dt>
+    <dd>Activați pentru a afișa lista sarcinilor întârziate (adică care ar trebui să fie procesate) într-o secțiune dedicată pe pagina de aterizare a tabloului de bord.</dd>
+  </dl>
 </body>
+
 </html>
