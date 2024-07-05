@@ -1,133 +1,90 @@
 <html>
+
 <head>
   <title>Préférences utilisateur·rice</title>
 </head>
 
 <body>
-
-<h4>Mon profil</h4>
-<dl>
-  <dt>Nom, Prénom</dt>
-  <dd>Si le pseudonyme n'est pas renseigné, le nom de l'auteur·rice qui sera affiché
-  sera composé des nom et prénom renseignés dans ces champs.</dd>
-  
-  <dt>Pseudonyme</dt>
-  <dd>Vous pouvez choisir ici le pseudonyme avec lequel vos billets seront signés.
-  S'il est renseigné, le pseudonyme se substitue au nom et au prénom.</dd>
-  
-  <dt>Email </dt>
-  <dd>Adresse électronique utilisée lorsque vous demandez un nouveau mot de passe.<br>
-    Les notifications de nouveaux commentaires seront également envoyées à cette adresse.<em> 
-  (Si vous mettez à jour
-  ce champ, vous devez saisir votre mot de passe actuel dans le champ approprié au bas du formulaire)</em></dd>
-  
-  <dt>URL</dt>
-  <dd>Indique le site web de l'utilisateur·rice. S'il est indiqué, le nom du rédacteur ou de la rédactrice
-  d'un billet sera présenté comme un lien vers le site donné. <em>(Cette information sera également utilisée pour la reconnaissance du commentaire de l'auteur·rice d'un billet si le thème le prévoit.)</em></dd>
-  
-  <dt>Langue de l'utilisateur·rice</dt>
-  <dd>Indique la langue dans laquelle on souhaite publier ses publications (billets ou pages). Si la
-  traduction existe, l'interface sera également traduite dans cette langue.</dd>
-  
-  <dt>Fuseau horaire de l'utilisateur·rice</dt>
-  <dd>Ce choix déterminera l'affichage de l'heure de publication des publications.</dd>
-  
-  <dt>Changer le mot de passe</dt>
-  <dd>Pour changer votre mot de passe, indiquez deux fois le nouveau mot de passe
-  dans les champs <em>Nouveau mot de passe</em> et <em>Confirmer le mot de
-  passe</em>. Le mot de passe doit être long d'au moins 6 caractères.
-  Si aucun mot de passe n'est spécifié, il ne sera pas changé. <em>(Si vous modifiez ce champ,
-  vous devez indiquer votre mot de passe actuel dans le champ idoine en bas du formulaire.)</em></dd>
-</dl>
-
-
-<h4>Mes options</h4>
-<h5>Interface</h5>
-<dl>  
-  <dt>Activer l'interface avancée de la médiathèque</dt>
-  <dd>Permet d'activer ou non l'interface avancée d'envoi de fichiers multiples dans la médiathèque
-  (NB : votre navigateur doit supporter et accepter le JavaScript pour bénéficier de cette fonctionnalité).</dd>
-
-  <dt>Désactiver le glisser-déposer pour ordonnancer les éléments</dt>
-  <dd>Permet de désactiver les fonctionnalités "glisser/déposer" pour le réordonnancement des éléments. Des
-  champs numériques permettront alors d'indiquer la position des éléments.</dd>
-
-  <dt>Nombre d'éléments affichés par page dans la médiathèque</dt>
-  <dd>Définit le nombre de médias affichés par page dans la médiathèque (les dossiers sont exclus du décompte).</dd>
-  
-  <dt>Ne pas utiliser le favicon standard de Dotclear</dt>
-  <dd>Permet de désactiver l'affichage du favicon standard de Dotclear dans la barre d'adresse du navigateur.</dd>
-</dl>
-
-<h5>Édition</h5>
-<dl>    
-  <dt>Mes favoris</dt>
-  <dd>Permet de choisir la syntaxe de saisie du billet. Le wiki est une syntaxe simplifiée et sera converti en HTML valide ; à moins que vous maîtrisiez parfaitement le HTML nous vous conseillons de la choisir de préférence. Consultez la <em>Référence de la syntaxe wiki</em> pour plus d'informations.</dd>
-  
-  <dt>Définir comme favoris par défaut (super administrateur)</dt>
-  <dd>Le statut par défaut pour les nouvelles entrées peut être défini à :
-    <ul>
-      <li><strong>En attente</strong>&nbsp;: en attente de publication.</li>
-      <li><strong>Programmé</strong>&nbsp;: le billet sera mis en ligne aux date et heure
+  <h4>Mon profil</h4>
+  <dl>
+    <dt>Nom, Prénom</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Pseudonyme</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>Email </dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Langue de l'utilisateur·rice</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Fuseau horaire de l'utilisateur·rice</dt>
+    <dd>Ce choix déterminera l'affichage de l'heure de publication des publications.</dd>
+    <dt>Changer le mot de passe</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Mes options</h4>
+  <h5>Interface</h5>
+  <dl>
+    <dt>Activer l'interface avancée de la médiathèque</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Désactiver le glisser-déposer pour ordonnancer les éléments</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Nombre d'éléments affichés par page dans la médiathèque</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Ne pas utiliser le favicon standard de Dotclear</dt>
+    <dd>Permet de désactiver l'affichage du favicon standard de Dotclear dans la barre d'adresse du navigateur.</dd>
+  </dl>
+  <h5>Édition</h5>
+  <dl>
+    <dt>Mes favoris</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Définir comme favoris par défaut (super administrateur)</dt>
+    <dd>Le statut par défaut pour les nouvelles entrées peut être défini à :
+      <ul>
+        <li><strong>En attente</strong>&nbsp;: en attente de publication.</li>
+        <li><strong>Programmé</strong>&nbsp;: le billet sera mis en ligne aux date et heure
  indiquées dans le champ <em>Publié le</em>.</li>
-      <li><strong>Non publié</strong>&nbsp;: billet hors ligne.</li>
-      <li><strong>Publié</strong>&nbsp;: billet en ligne.</li>
-    </ul>
-  </dd>
-  
-  <dt>Favoris disponibles</dt>
-  <dd>Toutes les pages d'administration pouvant être mises en favoris sont listées ici.
+        <li><strong>Non publié</strong>&nbsp;: billet hors ligne.</li>
+        <li><strong>Publié</strong>&nbsp;: billet en ligne.</li>
+      </ul>
+    </dd>
+    <dt>Favoris disponibles</dt>
+    <dd>Toutes les pages d'administration pouvant être mises en favoris sont listées ici.
   Cochez les cases correspondantes aux favoris que vous souhaitez utiliser, puis
   ajoutez-les.</dd>
-  
-  <dt>Afficher les favoris en haut du menu</dt>
-  <dd>Permet d'afficher la liste des favoris dans le menu latéral de gauche.</dd>
-</dl>
-
-<h5>Autres options</h5>
-<dl>
-  <dt>Format de la liste des mots-clés </dt>
-  <dd>Vous pouvez choisir de voir, lors de l'édition d'une entrée, tous les tags utilisés (<strong>Étendue</strong>) ou seulement les plus utilisés (<strong>Courte</strong>).</dd>
-
-  <dt>Coloration syntaxique de l'éditeur de thème</dt>
-  <dd>Active la mise en évidence de la syntaxe lors de l'utilisation de l'éditeur de thème (fichiers HTML et CSS)</dd>     
-</dl>
-
-
-<h4>Mes favoris</h4>
-<dl>
-  <dt>Mes favoris</dt>
-  <dd>Cette zone affiche les favoris choisis sur le tableau de bord du blog. 
-  Ils peuvent être réordonnés à l'aide de la souris si Javascript est activé dans votre navigateur. 
-  Sinon, un champ permet de leur donner un numéro de commande. Lorsque vous avez terminé, n'oubliez pas de sauvegarder vos modifications en appuyant sur <strong>Save order</strong>.<br>
-  Vous pouvez également supprimer des favoris en les sélectionnant et en appuyant sur <strong>Supprimer les favoris sélectionnés</strong>.</dd>
-  
-  <dt>Définir comme favoris par défaut (super administrateur)</dt> 
-  <dd>Permet de définir la liste de favoris actuellement définie comme liste de favoris par défaut pour tous les utilisateurs. Cette liste sera proposée aux utilisateurs s'ils n'ont pas encore défini leurs propres favoris.</dd>
-
-  <dt>Autres favoris disponibles</dt>
-  <dd>Tous les plugins permettant d'être mis en favoris sont affichés ici. Cochez les cases correspondantes et ajoutez-les au tableau de bord en cliquant sur <strong>Ajouter à mes favoris</strong>.</dd>
-
-  <dt>Afficher les favoris en haut du menu</dt>
-  <dd>Si cette option est activée, les favoris sont affichés en haut du menu.</dd>
-
-  <dt>Modules du tableau de bord</dt>
-  <dd>Les choix effectués dans cette zone seront reflétés dans le tableau de bord de votre blog.</dd>
-  
-  <dt>Afficher les liens vers la documentation</dt>
-  <dd>Permet d'afficher des liens de documentation sur la page d'accueil du tableau de bord.</dd>
-  
-  <dt>Afficher les actualités de Dotclear</dt>
-  <dd>Activer pour afficher les actualités Dotclear sur la page d'accueil du tableau de bord.</dd>
-
-  <dt>Afficher le formulaire de billet rapide</dt>
-  <dd>Activer pour afficher le formulaire "entrée rapide" sur la page d'accueil du tableau de bord.</dd>
-
-  <dt>Afficher le nombre de tâches en retard sur l'icône Maintenance du tableau de bord</dt>
-  <dd>Permet d'afficher le nombre de tâches en retard (c'est-à-dire qui devraient être traitées) sous l'icône <strong>Maintenance</strong> . <strong>L'icône Maintenance</strong> doit être définie dans vos favoris pour utiliser cette fonctionnalité.</dd>
-
-  <dt>Afficher la liste des tâches en retard dans un module du tableau de bord</dt>
-  <dd>Permet d'afficher la liste des tâches en retard (c'est-à-dire qui devraient être traitées) dans une section dédiée sur la page d'accueil du tableau de bord.</dd>
-</dl>
+    <dt>Afficher les favoris en haut du menu</dt>
+    <dd>Permet d'afficher la liste des favoris dans le menu latéral de gauche.</dd>
+  </dl>
+  <h5>Autres options</h5>
+  <dl>
+    <dt>Format de la liste des mots-clés </dt>
+    <dd>Vous pouvez choisir de voir, lors de l'édition d'une entrée, tous les tags utilisés (<strong>Étendue</strong>) ou seulement les plus utilisés (<strong>Courte</strong>).</dd>
+    <dt>Coloration syntaxique de l'éditeur de thème</dt>
+    <dd>Active la mise en évidence de la syntaxe lors de l'utilisation de l'éditeur de thème (fichiers HTML et CSS)</dd>
+  </dl>
+  <h4>Mes favoris</h4>
+  <dl>
+    <dt>Mes favoris</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Définir comme favoris par défaut (super administrateur)</dt>
+    <dd>Permet de définir la liste de favoris actuellement définie comme liste de favoris par défaut pour tous les utilisateurs. Cette liste sera proposée aux utilisateurs s'ils n'ont pas encore défini leurs propres favoris.</dd>
+    <dt>Autres favoris disponibles</dt>
+    <dd>Tous les plugins permettant d'être mis en favoris sont affichés ici. Cochez les cases correspondantes et ajoutez-les au tableau de bord en cliquant sur <strong>Ajouter à mes favoris</strong>.</dd>
+    <dt>Afficher les favoris en haut du menu</dt>
+    <dd>Si cette option est activée, les favoris sont affichés en haut du menu.</dd>
+    <dt>Modules du tableau de bord</dt>
+    <dd>Les choix effectués dans cette zone seront reflétés dans le tableau de bord de votre blog.</dd>
+    <dt>Afficher les liens vers la documentation</dt>
+    <dd>Permet d'afficher des liens de documentation sur la page d'accueil du tableau de bord.</dd>
+    <dt>Afficher les actualités de Dotclear</dt>
+    <dd>Activer pour afficher les actualités Dotclear sur la page d'accueil du tableau de bord.</dd>
+    <dt>Afficher le formulaire de billet rapide</dt>
+    <dd>Activer pour afficher le formulaire "entrée rapide" sur la page d'accueil du tableau de bord.</dd>
+    <dt>Afficher le nombre de tâches en retard sur l'icône Maintenance du tableau de bord</dt>
+    <dd>Permet d'afficher le nombre de tâches en retard (c'est-à-dire qui devraient être traitées) sous l'icône <strong>Maintenance</strong> . <strong>L'icône Maintenance</strong> doit être définie dans vos favoris pour utiliser cette fonctionnalité.</dd>
+    <dt>Afficher la liste des tâches en retard dans un module du tableau de bord</dt>
+    <dd>Permet d'afficher la liste des tâches en retard (c'est-à-dire qui devraient être traitées) dans une section dédiée sur la page d'accueil du tableau de bord.</dd>
+  </dl>
 </body>
+
 </html>
