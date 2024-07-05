@@ -1,98 +1,77 @@
 <html>
+
 <head>
   <title>Wiki szintaxis hivatkozás</title>
 </head>
 
 <body>
-
-<h4>Wiki szintaxis hivatkozás</h4>
-
-<p>The wiki syntax is a way to enhance your text with a minimal set
-of tags, studied to cover the basic needs (titles, paragraphs, quotes,
-lists...)</p>
-
-<dl>
-<dt>Blokkelemek</dt>
-<dd>
-<ul>
-  <li>Két hasonló blokk között hagyjon üres sort.</li>
-  <li><strong>Paragraph</strong>: free text, ended by an empty line if
-  another paragraph is to follow.</li>
-  <li><strong>Title</strong>: <code>!!! title</code>, <code>!! title</code>
-  or <code>! title</code>, allowing you to use three  different levels of
-  heading.</li>
-  <li><strong>Horizontal line</strong>: <code>----</code></li>
-  <li><strong>Lists</strong>: Start each line with
-  <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively.
-  List imbrication is done by mixing list markers this way:
-  <pre>
+  <h4>Wiki szintaxis hivatkozás</h4>
+  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <dl>
+    <dt>Blokkelemek</dt>
+    <dd>
+      <ul>
+        <li>Két hasonló blokk között hagyjon üres sort.</li>
+        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
+        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Horizontal line</strong>: <code>----</code></li>
+        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+          <pre>
     <code>*</code> * item 1
 ** item 1.1
 * item 2
 *# item 2.1
 ...
   </pre>
-  </li>
-  <li><strong>Meghatározási listák:</strong> Minden sort kezdjen a <code>=</code> kezdetűvel a meghatározandó kifejezéshez, és a <code>:</code> kezdetűvel a kifejezés meghatározásához.
-  <pre>
+        </li>
+        <li><strong>Meghatározási listák:</strong> Minden sort kezdjen a <code>=</code> kezdetűvel a meghatározandó kifejezéshez, és a <code>:</code> kezdetűvel a kifejezés meghatározásához.
+          <pre>
   <code>=</code> kifejezés
   <code>:</code> a kifejezés leírása
   </pre>
-  </li>
-  <li><strong>Block quote</strong>: each line must start with a semicolon (<code>&gt;</code>).</li>
-  <li><strong>Blokk idézet:</strong> Minden sornak a <code>&gt;</code>címmel kell kezdődnie.</li>
-  <li><strong>Oldalsó blokk:</strong> Minden sornak egy <code>)</code>-val kell kezdődnie.</li>
-</ul>
-</dd>
-
-<dt>Formázási címkék</dt>
-<dd>
-<ul>
-  <li><strong>Emphasis</strong>: two quotes <code>''text''</code></li>
-  <li><strong>Strong emphasis</strong>: two underscore <code>__text__</code></li>
-  <li><strong>New line</strong>:</li>
-  <li><strong>Insertion</strong>: two plusses <code>++text++</code> <code>%%%</code></li>
-  <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
-  <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
+        </li>
+        <li><strong>Block quote</strong>: each line must start with a semicolon (<code>&gt;</code>).</li>
+        <li><strong>Blokk idézet:</strong> Minden sornak a <code>&gt;</code>címmel kell kezdődnie.</li>
+        <li><strong>Oldalsó blokk:</strong> Minden sornak egy <code>)</code>-val kell kezdődnie.</li>
+      </ul>
+    </dd>
+    <dt>Formázási címkék</dt>
+    <dd>
+      <ul>
+        <li><strong>Emphasis</strong>: two quotes <code>''text''</code></li>
+        <li><strong>Strong emphasis</strong>: two underscore <code>__text__</code></li>
+        <li><strong>New line</strong>:</li>
+        <li><strong>Insertion</strong>: two plusses <code>++text++</code> <code>%%%</code></li>
+        <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
+        <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
-  <li><strong>Image</strong>:
-    <code>((url|alternative text))</code>,
-    <code>((url|alternative text|position))</code> or
-    <code>((url|alternative text|position|long description))</code>.
-    <br />The position can be either L or G (left), R or D (right) or C (centered).</li>
-  <li><strong>Kép:</strong>
-    <code>((url|alternatív szöveg))</code>,
-    <code>((url|alternatív szöveg|helyzet))</code> vagy
-    <code>((url|alternatív szöveg|helyzet|hosszú leírás))</code>.
-    <br>A pozíció lehet L (balra), R (jobbra) vagy C (középre).</li>
-  <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
-  <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
-  <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
+        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
+        <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
+        <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-  <li><strong>Code</strong>: <code>@@code@@</code></li>
-  <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
-  <li><strong>Lábjegyzetek:</strong> <code>$$footnote$$</code></li>
-  <li><strong>Felirat</strong>&nbsp;: <code>^superscript^</code></li>
-  <li><strong>Index</strong>&nbsp;: <code>,,subscript,,</code></li>
-</ul>
-</dd>
-
-<dt>Formázatlan szöveg</dt>
-<dd>If you don't want one formatting character to be interpreted as such, add a
-<code>\</code> just before it. This way:
-<code>\[text in brackets without being a link\]</code>
-</dd>
-
-<dt>HTML Code</dt>
-<dd>Even if you chose the wiki syntax, you may sometimes need a more
-powerful formatting, i.e. HTML syntax. Do it the following way:
-<pre>
+        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
+        <li><strong>Lábjegyzetek:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Felirat</strong>&nbsp;: <code>^superscript^</code></li>
+        <li><strong>Index</strong>&nbsp;: <code>,,subscript,,</code></li>
+      </ul>
+    </dd>
+    <dt>Formázatlan szöveg</dt>
+    <dd>If you don't want one formatting character to be interpreted as such, add a
+      <code>\</code> just before it. For instance:
+      <code>\[Text in brackets without being a link\]</code>
+    </dd>
+    <dt>HTML Code</dt>
+    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+      <pre>
 ///html
 &lt;p style="color:red"&gt;az én szövegem piros színben&lt;/p&gt;
 ///
 </pre>
-</dd>
-</dl>
-
+    </dd>
+  </dl>
 </body>
+
 </html>
