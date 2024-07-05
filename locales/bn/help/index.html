@@ -1,398 +1,382 @@
 <html>
+
 <head>
   <title></title> <!-- Leave the title empty -->
 </head>
 
 <body>
-
-<div class="multi-part legible" id="first-step" title="প্রথম ধাপ">
-	<h3>ইন্টারফেস আবিষ্কার</h3>
-	<div class="fieldset">
-		<h4>প্রথম ধাপ</h4>
-		<p>বিশ্বব্যাপী সহায়তা পৃষ্ঠাগুলি ছাড়াও, বেশ কয়েকটি প্রশাসনিক পৃষ্ঠাগুলির একটি অনলাইন সহায়তা রয়েছে৷ যদি জাভাস্ক্রিপ্ট সক্রিয় করা হয়
- আপনার ব্রাউজারে, আপনি <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>সহায়তা প্রয়োজন?</strong> লিঙ্ক। জাভাস্ক্রিপ্ট অক্ষম করা হলে, সাহায্য পৃষ্ঠার নীচে প্রদর্শিত হয়।</p>
-	</div>
-
-	<p>প্রতিটি প্রশাসন পৃষ্ঠা একই শীর্ষ শিরোনাম, প্রধান মেনু এবং পাদচরণ প্রদর্শন করবে। <em>(এখানে দেওয়া অর্ডারটি কম্পিউটার স্ক্রিনে প্রদর্শিত হয়। মোবাইল ডিভাইস বা ট্যাবলেটগুলির জন্য, এটি উপলব্ধ স্থান অনুসারে পরিবর্তিত হতে পারে)</em></p>
-
-	<h4 class="pretty-title">শীর্ষ শিরোনাম</h4>
-	<p>শীর্ষ শিরোনাম তিনটি মৌজা নিয়ে গঠিত:</p>
-	<h5 class="as_h4">লোগো</h5>
-	<p>ডিফল্টরূপে, এই লোগোটি ডটক্লিয়ার লোগো এবং প্রশাসনিক ল্যান্ডিং পৃষ্ঠার লিঙ্ক। যাইহোক, একটি প্ল্যাটফর্ম
-  ম্যানেজার অন্য লোগো বেছে নিতে পারেন এবং অন্য কিছুর দিকে পুনঃনির্দেশ করতে পারেন (সাধারণত, পরিষেবা ল্যান্ডিং পৃষ্ঠা)।</p>
-
-	<h5 class="as_h4">ব্লগ (স)</h5>
-	<p>লোগোর পরে অবস্থিত প্রথম উপাদানটি <em>সক্রিয়</em> ব্লগ দেখায়, অর্থাৎ আপনি যে ব্লগে অভিনয় করছেন। যদি তোমার
-  ইনস্টলেশনটি বেশ কয়েকটি ব্লগের সমন্বয়ে গঠিত, এই তথ্যগুলি একটি কম্বো মেনুতে পাওয়া যায়, যা আপনাকে অন্য ব্লগে যেতে দেয়।</p>
-	<p>এই ব্লগের নামের সংযোগটি আপনার বর্তমান ব্লগ অন্য একটি জানালা বা অন্য একটি ট্যাবে খোলে.</p>
-
-	<h5 class="as_h4">ব্যবহারকারী</h5>
-	<p>The link <em>My dashboard</em> gets you back to the blog प्रशासन অবতরণ পৃষ্ঠা.</p>
-	<p><em>আমার পছন্দগুলি</em> লিঙ্কটি পৃষ্ঠায় নিয়ে যায় যেখানে আপনি আপনার ব্যক্তিগত তথ্য সংশোধন করতে পারেন, ড্যাশবোর্ড সেটআপ করতে পারেন এবং আপনার ইন্টারফেস এবং সম্পাদনা বিকল্পগুলি চয়ন করতে পারেন।</p>
-	<p>আশ্চর্যজনকভাবে, সংযোগ <em>বিচ্ছিন্ন [আপনার লগইন]</em> লিঙ্কটি আপনাকে আপনার ব্লগের প্রশাসন থেকে সংযোগ বিচ্ছিন্ন করে (ডটক্লিয়ারের এ, আমরা এরগোনমি চ্যাম্পিয়ন!)।</p>
-
-	<h4 class="pretty-title">মেইন মেনু</h4>
-	<p>মূল মেনু পর্দার বাম দিকে অবস্থিত. এটি তার ডান সীমান্তে ক্লিক করে ভেঙ্গে পড়তে পারে (এবং তারপর এর উপর আবার ক্লিক করে অধঃপতন হয়).</p>
-	<p>বর্তমান ব্লগে আপনার অনুমতি অনুসারে এটি বিভিন্ন প্রশাসন পাতার দিকে পরিচালিত হয়. এটি চারটি ব্লক নিয়ে গঠিত:</p>
-	<ul>
-		<li><strong>আমার পছন্দগুলি</strong> আপনি <em>আমার পছন্দগুলি</em>/<em>আমার ড্যাশবোর্ড</em> ট্যাবে পছন্দসই হিসাবে নির্বাচিত পৃষ্ঠাগুলিকে তালিকাভুক্ত করে৷ আপনি যদি এখনও কোনো পছন্দসই নির্বাচন না করে থাকেন, তাহলে এই তালিকায় থাকবে ডিফল্ট ডটক্লিয়ার সেট, অথবা সেট যা প্ল্যাটফর্ম ম্যানেজার দ্বারা সংজ্ঞায়িত করা হয়েছে। আপনি যদি এই ব্লকটি প্রদর্শন করতে না চান, তাহলে আপনি আপনার ড্যাশবোর্ড বিকল্পগুলিতে মিলিত চেকবক্সটি আনচেক করতে পারেন৷</li>
-		<li><strong>ব্লগ</strong> সেই সমস্ত পৃষ্ঠাগুলির তালিকা করে যা বর্তমান ব্লগকে ফিড করতে এবং সেটআপ করতে সক্ষম করে, একটি এন্ট্রি সম্পাদনা, মিডিয়া পরিচালনা, ব্লগের উপস্থিতি বা অন্যান্য পরামিতি বেছে নেওয়া থেকে।<br>
-  <em>যদি আপনার বর্তমান ব্লগে প্রশাসকের অধিকার না থাকে, তাহলে মূল মেনুতে তার নিচে অন্য কোন ব্লক থাকবে না।</em></li>
-		<li><strong>সিস্টেম সেটিংস</strong> পৃষ্ঠাগুলির লিঙ্ক যা আপনাকে ডটক্লিয়ার ইনস্টলেশন পরিচালনা করতে দেয়: ব্লগ পরিচালনা, ব্যবহারকারী এবং উপলব্ধ ভাষা, প্লাগইন ইনস্টলেশন, সিস্টেম সেটিংস। যদি আপনার একাধিক ব্লগে অধিকার থাকে, কিন্তু কোনো সুপার অ্যাডমিনিস্ট্রেটর অধিকার না থাকে, আপনি শুধুমাত্র <em>ব্লগ</em> এন্ট্রি দেখতে পাবেন।</li>
-		<li><strong>প্লাগইন</strong> আপনাকে ইনস্টল করা প্লাগইন সেটআপ করতে সক্ষম করে। যদি প্লাগইন সেটিংস একবারে শুধুমাত্র একটি ব্লগকে প্রভাবিত করে, তবে এর প্রশাসনিক পৃষ্ঠা <em>ব্লগ</em> ব্লক থেকে পাওয়া যায়, কিন্তু যদি তারা পুরো ইনস্টলেশনকে প্রভাবিত করে তবে সেগুলি এখানে অবস্থিত এবং শুধুমাত্র সুপার-প্রশাসক ব্যবহারকারীদের জন্য উপলব্ধ.</li>
-	</ul>
-
-	<h4 class="pretty-title">ফুটার</h4>
-	<p>ডোটক্লিকের একটি বিনামূল্যে সংস্করণটি যে কোন ব্যবহারকারীকে প্রদান করা হবে, যারা ফুটার মধ্যে গোপন লুকানো আবিষ্কার করবে.</p>
-
-	<h3>মহান ভিক্ষুদের জন্য সাহায্য</h3>
-	<p>আপনি যদি ব্লগের সাথে পরিচিত না হন তবে আমরা সুপারিশ করি যে আপনি আমাদের ডকুমেন্টেশনগুলি দেখুন (সামগ্রীর পুরো টেবিলটি এই পৃষ্ঠার <strong>ডকুমেন্টেশন</strong> ট্যাবে উপলব্ধ) পাশাপাশি টিউটোরিয়ালগুলি যেমন:
-	<ul>
-		<li><a href="https://dotclear.org/documentation/2.0/usage/beginners">আমার প্রথম এন্ট্রি, ধাপ.</a></li>
-	</ul>
-
-	<p><a href="https://dotclear.org/forum/">ডটক্লিয়ার ফোরাম</a> হল একটি স্বাগত জানানোর জায়গা যেখানে <em>একটি বোকা প্রশ্ন</em> বলে কিছু নেই৷ আপনার সাহায্যের প্রয়োজন হলে অংশগ্রহণ করতে দ্বিধা করবেন না এবং, কেন নয়, বিনিময়ে লোকেদের সাহায্য করতে।</p>
-
-	<p class="info">আমরা এমন একটি শব্দভাণ্ডার ব্যবহার করার জন্য যথাসাধ্য চেষ্টা করি যা নির্দিষ্ট জ্ঞান ছাড়াই বোঝা সহজ। যাইহোক, যদি আমরা একটি প্রযুক্তিগত শব্দ ব্যবহার করে শেষ করি, তাহলে আপনি সম্ভবত আমাদের অনলাইন ডকুমেন্টেশনের <a href="https://dotclear.org/documentation/glossary">গ্লোসারিতে</a> এর সংজ্ঞা খুঁজে পাবেন।</p>
-</div>
-
-<div class="multi-part" id="users-doc" title="ব্যবহারকারী ম্যানুয়াল">
-	<h3>ব্যবহারকারী ম্যানুয়াল</h3>
-	<div class="three-boxes">
-		<h4 class="pretty-title">বিষয়বস্তুর ব্যবস্থাপনা</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/entries">এন্ট্রি</a>
-					<ul>
-						<li>তৈরি ও সম্পাদনা</li>
-						<li>বিস্তারিত বিবরণ</li>
-						<li>এন্ট্রি সংক্রান্ত কাজ</li>
-						<li>Comments and trackbacks</li>
-						<li>এন্ট্রির ব্যাচ ব্যবস্থাপনা</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Comments and trackbacks</a>
-					<ul>
-						<li>ফলো আপ</li>
-						<li>ব্যবস্থাপনা</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/categories">শ্রেণীবিভাগ</a>
-					<ul>
-						<li>একটি শ্রেণী তৈরি করা হচ্ছে</li>
-						<li>একটি শ্রেণীতে সম্পাদনা করা হচ্ছে</li>
-						<li>একটি শ্রেণী মুছে ফেলা হচ্ছে</li>
-						<li>শ্রেণীবিভাগের তালিকা Sotring</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/tags">ট্যাগ (কিওয়ার্ড)</a>
-					<ul>
-						<li>ট্যাগ যোগ করা হচ্ছে</li>
-						<li>ট্যাগ ব্যবস্থাপনা</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/media">মিডিয়া এবং অ্যাটাচমেন্ট</a>
-					<ul>
-						<li>একটি উপ-ডিরেক্টরি তৈরি করা হচ্ছে</li>
-						<li>ফাইল যোগ করা হচ্ছে</li>
-						<li>বর্তমান ডিরেক্টরির একটি জিপ আর্কাইভ ডাউনলোড করা হচ্ছে</li>
-						<li>ফাইল বিবরণে পূরণের পরিবর্তন</li>
-						<li>ফাইল সরাসরি যোগ করা হচ্ছে</li>
-						<li>বিশেষ ফাইল টাইপ</li>
-						<li>অ্যাটাচমেন্ট</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/widgets">ব্লগ মেনু বিষয়বস্তু (উইজেট)</a>
-					<ul>
-						<li>নেভিগেশন সাইডবার, অতিরিক্ত সাইডবার</li>
-						<li>ডিফল্ট উইজেট</li>
-						<li>একটি উইজেট যোগ/অপসারণ করা হচ্ছে</li>
-						<li>উইজেট অপশন</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
-					<ul>
-						<li>Blogroll</li>
-						<li>একটি লিংক যোগ করা হচ্ছে</li>
-						<li>একটি শ্রেণীতে যোগ করা হচ্ছে</li>
-						<li>XFN</li>
-						<li>একটি ওপিএমএল অথবা XBEL ফাইল থেকে লিঙ্ক ইম্পোর্ট করা হচ্ছে</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes">
-		<h4 class="pretty-title">সেটিংস এবং স্বনির্বাচিত</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">ব্লগ সেটিংস</a>
-					<ul>
-						<li>ব্লগ বিবরণ</li>
-						<li>ব্লগ কনফিগারেশন</li>
-						<li>Comments and trackbacks</li>
-						<li>ব্লগ উপস্থাপনা</li>
-						<li>মিডিয়া এবং ছবি</li>
-						<li>সার্চ ইঞ্জিন রোবট পলিসি</li>
-						<li>এন্টিস্প্যাম</li>
-						<li>LightBox</li>
-						<li>সংরক্ষণ করো</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">ব্যবহারকারীর পছন্দ</a>
-					<ul>
-						<li>আমার প্রোফাইল</li>
-						<li>আমার অপশন</li>
-						<li>আমার ড্যাশবোর্ড</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">ব্লগ চেহারা</a>
-					<ul>
-						<li>একটি থিম নির্বাচন করুন</li>
-						<li>একটি থিম ইনস্টল করো</li>
-						<li>একটি থিম ব্যক্তিগতভাবে</li>
-						<li>থিম সম্পাদক</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes fieldset">
-			<h4 class="smart-title">@ info: status</h4>
-				<h5>Glossary</h5>
-				<ul><li><a href="https://dotclear.org/documentation/glossary">এই সব রহস্যময় শব্দগুলো ওয়েব এবং ডটস্পটে ব্যবহার করা হয়েছে</a></li></ul>
-				<h5>ইনপুট সিনট্যাক্স</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">উইকি সিনট্যাক্স এবং এইচটিএমএল সমতুল্য</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">আরো যেতে হবে</a></li>
-					</ul>
-				<h5>সাবস্ক্রীপশন (আরএসএস, এটম ...)</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds">এটা কি?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">আমি কিভাবে এটা আমার ব্লগে উপলব্ধ করতে পারব?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">আমি কিভাবে একটি ফিডে সাবস্ক্রাইব করি?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">আরো যেতে হবে</a></li>
-					</ul>
-			<h4 class="smart-title">সহায়তা</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">The Dotclear forum</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq">Frequently Asked Questions</a></li>
-				</ul>
-	</div>
-</div>
-
-	<div class="multi-part" id="admin-doc" title="প্রশাসকের জন্য ডকুমেন্টেশন">
-	<h3>প্রশাসকের জন্য ডকুমেন্টেশন</h3>
-		<div class="three-boxes">
-		<h4 class="pretty-title">ইনস্টলেশন এবং আপডেট</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install">ইনস্টলেশন</a>
-					<ul>
-						<li>Prerequisites</li>
-						<li>স্বয়ংক্রিয় ইনস্টলেশন</li>
-						<li>স্ট্যান্ডার্ড ইনস্টলেশন</li>
-						<li>উইজার্ড ব্যবহার করে ইনস্টল করা হচ্ছে</li>
-						<li>Config.php ফাইল থেকে ইনস্টল করা হচ্ছে</li>
-						<li>ইনস্টলেশন প্রক্রিয়া সম্পন্ন করা হচ্ছে</li>
-						<li>পরবর্তী পদক্ষেপ</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">আপডেট করা হচ্ছে</a>
-					<ul>
-						<li>আপডেটের জন্য প্রস্তুত করা হচ্ছে</li>
-						<li>স্বয়ংক্রিয় আপগ্রেড</li>
-						<li>প্রোগ্রামটি হালনাগাদ করা হচ্ছে</li>
-						<li>ডাটাবেস আপডেট করা হচ্ছে</li>
-						<li>Appendix: একটি ভাড়াটে অনুলিপি আপডেট করা</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/config">কনফিগারেশন ফাইল (config.php) প্যারামিটার</a>
-					<ul>
-						<li>ভূমিকা</li>
-						<li>পরামিতি</li>
-						<li>ফাইলের তথ্য যোগ করা হচ্ছে</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Dotclear 1.2 থেকে Dotclear 2 পর্যন্ত আপগ্রেড করা হচ্ছে</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/migrate">অন্য ব্লগিং সফটওয়্যার থেকে ডটক্লিকে মাইগ্রেট করা</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/local-install">স্থানীয় ইনস্টলেশন</a>
-					<ul>
-						<li>উইন্ডোজ</li>
-						<li>ম্যাক OS X</li>
-						<li>লিনাক্স</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">IIS7 এর সাথে Dotclear ইনস্টল করা হচ্ছে</a></li>
-			</ul>
-
-			<h5>অ্যানেক্স হোস্টিং</h5>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/hosting">হোস্টিং</a>
-				</li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">প্রশাসন</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/users">ব্যবস্থাপনা ব্যবহারকারী</a>
-					<ul>
-						<li>ব্যবহারকারী তালিকা সম্প্রসারণ করা হচ্ছে</li>
-						<li>একটি ব্যবহারকারী তৈরি করা হচ্ছে</li>
-						<li>ব্যবহারকারীকে পরিবর্তন করা হচ্ছে</li>
-						<li>ব্যবহারকারীর অনুমতি</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">ইনস্টলেশন পরিস্কার করো</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">মাল্টিব্লগ ইনস্টলেশন</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/plugins">প্লাগ-ইন ব্যবস্থাপনা</a>
-					<ul>
-						<li>প্লাগ-ইন ইনস্টল করা হচ্ছে</li>
-						<li>প্লাগ-ইন কনফিগার করা হচ্ছে</li>
-						<li>প্লাগ-ইন অপসারণ করা হচ্ছে</li>
-						<li>প্লাগিন আপডেট করা হচ্ছে</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">ডিফল্ট থিম Blowup</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">ব্লগ থিম</a>
-					<ul>
-						<li>একটি থিম নির্বাচন করা হচ্ছে</li>
-						<li>একটি থিম ইনস্টল করা হচ্ছে</li>
-						<li>একটি থিম গ্রাহক করা হচ্ছে</li>
-						<li>থিম সম্পাদক</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">অগ্রসর কনফিগারেশন</a></li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">রক্ষণাবেক্ষণ</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/backup">ব্যাকআপ এবং পুনরুদ্ধার</a>
-					<ul>
-						<li>আমদ/এক্সপোর্ট করুন</li>
-						<li>ফাইল</li>
-						<li>ডাটাবেজ</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/antispam">স্প্যাম মন্তব্য ফিল্টার</a>
-					<ul>
-						<li>ফিল্টার সংস্থা</li>
-						<li>ফিল্টার কনফিগারেশন</li>
-					</ul>
-				</li>
-			</ul>
-			<div class="fieldset vertical-separator">
-				<h4 class="smart-title">সহায়তা</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">The Dotclear forum</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq#administration">Frequently Asked Questions (প্রশাসক)</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="multi-part" id="guide-dev" title="ডেভেলপার ডকুমেন্টেশন">
-	<h3>ডেভেলপার এবং ডিজাইনার সম্পদ</h3>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">ডিজাইন ও থিম</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes">থিম</a>
-					<ul>
-						<li>থিম-এর জন্য ব্যবহারকারীর গাইড</li>
-						<li>টেম্পলের ট্যাগ</li>
-						<li>অ্যাপেন্ডিক্সName</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">থিম উত্তরাধিকার</a>
-					<ul>
-						<li>প্রিন্সিপাল</li>
-						<li>সীমা</li>
-						<li>সেট করো</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">টেক্সট ট্যাগ</a>
-					<ul>
-						<li>সাধারণ বাস্তবতা</li>
-						<li>ব্লগ</li>
-						<li>এন্ট্রি</li>
-						<li>এন্ট্রি প্যাজেশন</li>
-						<li>মন্তব্য</li>
-						<li>মন্তব্য প্রাকদর্শন</li>
-						<li>Pings</li>
-						<li>অ্যাটাচমেন্ট</li>
-						<li>শ্রেণীবিভাগ</li>
-						<li>ট্যাগ</li>
-						<li>আর্কাইভ</li>
-						<li>ভাষা</li>
-						<li>সিস্টেম</li>
-						<li>উইজেটComment</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">কোড &amp; প্লাগইন</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/tpl">একটি প্লাগ-ইন অথবা থিমের জন্য একটি tpl ট্যাগ তৈরি করা হবে</a>
-					<ul>
-						<li>ভূমিকা</li>
-						<li>ভ্যালু</li>
-						<li>ইনস্ট্রাকশন ব্লক</li>
-						<li>টেমপ্লেট ক্যাশ প্রভাবের ডিমনস্ট্রেশন</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins">প্লাগ-ইন</a>
-					<ul>
-						<li>একটি প্লাগ-ইন লেখা</li>
-						<li>অ্যাপেন্ডিক্সName</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">প্লাগ-ইন বিতর্ক সহায়তা বিল্ডিং</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/authentication">বহিঃসংযোগ</a>
-					<ul>
-						<li>Preamble</li>
-						<li>নতুন প্রমাণীকরণ ক্লাস</li>
-						<li>Scenario</li>
-						<li>অ্যাপলিকেশন</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC ইন্টারফেস</a></li>
-				<li><a href="https://dev.dotclear.org/code/2/">API ডকুমেন্টেশন</a></li>
-			</ul>
-		</div>
-
-		<div class="three-boxes">
-			<h4 class="pretty-title">Contribution &amp; সমর্থন</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/contribute">কনসর্ট</a>
-					<ul>
-						<li>এই ডকুমেন্টটি সম্পাদনা করুন</li>
-						<li>আপনার সৃষ্টিকর্তা শেয়ার</li>
-						<li>@ action: status</li>
-						<li>স্থানীয়করণ</li>
-				</ul>
-			</li>
-				<li><a href="https://git.dotclear.org/dev/dotclear">Dotclear উৎস কোড রিপোজিটরী</a></li>
-				<li><a href="https://dotclear.org/forum">ডটক্লিষ্ট ফোরাম</a></li>
-			</ul>
-
-			<div class="fieldset">
-				<h4 class="smart-title">কনভেনশন</h4>
-				<ul>
-					<li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">কোডিং স্ট্যান্ডার্ড</a></li>
-					<li><a href="index.php?process=HelpCharte">প্রশাসন পৃষ্ঠা চার্ট</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="multi-part legible" id="a11y-ergo" title="গ্রহণযোগ্যতা এবং ergonomy">
-	<h3>গ্রহণযোগ্যতা এবং ergonomy</h3>
-	<p>ডটক্লিয়ার ইন্টারফেস প্রায় সমস্ত <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> মানদণ্ড পূরণ করে৷ আমরা ডটক্লিয়ারকে <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> নির্দেশিকাগুলির সাথে সামঞ্জস্যপূর্ণ করার দিকে কাজ করছি৷</p>
-	<p>গ্রহণযোগ্যতা এবং ergonomy আমাদের অন্যতম প্রধান উদ্বেগ. আমরা বিশেষজ্ঞদের সহায়তায় নিয়মিতভাবে বিশ্লেষণ চালান এবং ক্রমান্বয়ে সংশোধনী ও বর্ধিত ব্যবস্থা প্রদান করে.</p>
-	<p>আপনি <a href="https://git.dotclear.org/dev/dotclear/issues">টিকিট</a> খুলে অথবা <a href="https://dotclear.org-এ অংশগ্রহণ করে আমাদের সাহায্য করতে পারেন /forum/">ফোরাম</a>। আপনি ব্যবহারকারী পরীক্ষায় অংশগ্রহণ করতে পারেন বা আমাদের দলে যোগ দিতে পারেন!</p>
-	</div>
-
+  <div class="multi-part legible" id="first-step" title="প্রথম ধাপ">
+    <h3>ইন্টারফেস আবিষ্কার</h3>
+    <div class="fieldset">
+      <h4>প্রথম ধাপ</h4>
+      <p>In addition to the global help pages, several administration pages have an online help. If javascript is enabled
+        on your browser, you can see online help at the upper-right position of the page, by clicking on the <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong> link. If Javascript is disabled, the help is displayed at the bottom of the page.</p>
+    </div>
+    <p>প্রতিটি প্রশাসন পৃষ্ঠা একই শীর্ষ শিরোনাম, প্রধান মেনু এবং পাদচরণ প্রদর্শন করবে। <em>(এখানে দেওয়া অর্ডারটি কম্পিউটার স্ক্রিনে প্রদর্শিত হয়। মোবাইল ডিভাইস বা ট্যাবলেটগুলির জন্য, এটি উপলব্ধ স্থান অনুসারে পরিবর্তিত হতে পারে)</em></p>
+    <h4 class="pretty-title">শীর্ষ শিরোনাম</h4>
+    <p>শীর্ষ শিরোনাম তিনটি মৌজা নিয়ে গঠিত:</p>
+    <h5 class="as_h4">লোগো</h5>
+    <p>By default, this logo is the Dotclear logo and links to the administration landing page. However, a platform
+      manager can choose another logo and redirect towards something else (generally, the service landing page).</p>
+    <h5 class="as_h4">ব্লগ (স)</h5>
+    <p>The first element located after the logo shows the <em>active</em> blog, i.e. the blog on which you are acting. If your
+      installation is composed of several blogs, these informations are available in a combo menu, which lets you switch to another blog.</p>
+    <p>এই ব্লগের নামের সংযোগটি আপনার বর্তমান ব্লগ অন্য একটি জানালা বা অন্য একটি ট্যাবে খোলে.</p>
+    <h5 class="as_h4">ব্যবহারকারী</h5>
+    <p>The link <em>My dashboard</em> gets you back to the blog प्रशासन অবতরণ পৃষ্ঠা.</p>
+    <p><em>আমার পছন্দগুলি</em> লিঙ্কটি পৃষ্ঠায় নিয়ে যায় যেখানে আপনি আপনার ব্যক্তিগত তথ্য সংশোধন করতে পারেন, ড্যাশবোর্ড সেটআপ করতে পারেন এবং আপনার ইন্টারফেস এবং সম্পাদনা বিকল্পগুলি চয়ন করতে পারেন।</p>
+    <p>আশ্চর্যজনকভাবে, সংযোগ <em>বিচ্ছিন্ন [আপনার লগইন]</em> লিঙ্কটি আপনাকে আপনার ব্লগের প্রশাসন থেকে সংযোগ বিচ্ছিন্ন করে (ডটক্লিয়ারের এ, আমরা এরগোনমি চ্যাম্পিয়ন!)।</p>
+    <h4 class="pretty-title">মেইন মেনু</h4>
+    <p>মূল মেনু পর্দার বাম দিকে অবস্থিত. এটি তার ডান সীমান্তে ক্লিক করে ভেঙ্গে পড়তে পারে (এবং তারপর এর উপর আবার ক্লিক করে অধঃপতন হয়).</p>
+    <p>বর্তমান ব্লগে আপনার অনুমতি অনুসারে এটি বিভিন্ন প্রশাসন পাতার দিকে পরিচালিত হয়. এটি চারটি ব্লক নিয়ে গঠিত:</p>
+    <ul>
+      <li><strong>আমার পছন্দগুলি</strong> আপনি <em>আমার পছন্দগুলি</em>/<em>আমার ড্যাশবোর্ড</em> ট্যাবে পছন্দসই হিসাবে নির্বাচিত পৃষ্ঠাগুলিকে তালিকাভুক্ত করে৷ আপনি যদি এখনও কোনো পছন্দসই নির্বাচন না করে থাকেন, তাহলে এই তালিকায় থাকবে ডিফল্ট ডটক্লিয়ার সেট, অথবা সেট যা প্ল্যাটফর্ম ম্যানেজার দ্বারা সংজ্ঞায়িত করা হয়েছে। আপনি যদি এই ব্লকটি প্রদর্শন করতে না চান, তাহলে আপনি আপনার ড্যাশবোর্ড বিকল্পগুলিতে মিলিত চেকবক্সটি আনচেক করতে পারেন৷</li>
+      <li><strong>Blog</strong> lists all the pages that enable to feed and setup the current blog, from editing an entry, managing media, choosing the blog appearance or other parameters.<br>
+        <em>If you do not have administrator rights on the current blog, there will be no other block below that one in the main menu.</em></li>
+      <li><strong>সিস্টেম সেটিংস</strong> পৃষ্ঠাগুলির লিঙ্ক যা আপনাকে ডটক্লিয়ার ইনস্টলেশন পরিচালনা করতে দেয়: ব্লগ পরিচালনা, ব্যবহারকারী এবং উপলব্ধ ভাষা, প্লাগইন ইনস্টলেশন, সিস্টেম সেটিংস। যদি আপনার একাধিক ব্লগে অধিকার থাকে, কিন্তু কোনো সুপার অ্যাডমিনিস্ট্রেটর অধিকার না থাকে, আপনি শুধুমাত্র <em>ব্লগ</em> এন্ট্রি দেখতে পাবেন।</li>
+      <li><strong>প্লাগইন</strong> আপনাকে ইনস্টল করা প্লাগইন সেটআপ করতে সক্ষম করে। যদি প্লাগইন সেটিংস একবারে শুধুমাত্র একটি ব্লগকে প্রভাবিত করে, তবে এর প্রশাসনিক পৃষ্ঠা <em>ব্লগ</em> ব্লক থেকে পাওয়া যায়, কিন্তু যদি তারা পুরো ইনস্টলেশনকে প্রভাবিত করে তবে সেগুলি এখানে অবস্থিত এবং শুধুমাত্র সুপার-প্রশাসক ব্যবহারকারীদের জন্য উপলব্ধ.</li>
+    </ul>
+    <h4 class="pretty-title">ফুটার</h4>
+    <p>ডোটক্লিকের একটি বিনামূল্যে সংস্করণটি যে কোন ব্যবহারকারীকে প্রদান করা হবে, যারা ফুটার মধ্যে গোপন লুকানো আবিষ্কার করবে.</p>
+    <h3>মহান ভিক্ষুদের জন্য সাহায্য</h3>
+    <p>আপনি যদি ব্লগের সাথে পরিচিত না হন তবে আমরা সুপারিশ করি যে আপনি আমাদের ডকুমেন্টেশনগুলি দেখুন (সামগ্রীর পুরো টেবিলটি এই পৃষ্ঠার <strong>ডকুমেন্টেশন</strong> ট্যাবে উপলব্ধ) পাশাপাশি টিউটোরিয়ালগুলি যেমন:
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">আমার প্রথম এন্ট্রি, ধাপ.</a></li>
+      </ul>
+      <p><a href="https://dotclear.org/forum/">ডটক্লিয়ার ফোরাম</a> হল একটি স্বাগত জানানোর জায়গা যেখানে <em>একটি বোকা প্রশ্ন</em> বলে কিছু নেই৷ আপনার সাহায্যের প্রয়োজন হলে অংশগ্রহণ করতে দ্বিধা করবেন না এবং, কেন নয়, বিনিময়ে লোকেদের সাহায্য করতে।</p>
+      <p class="info">আমরা এমন একটি শব্দভাণ্ডার ব্যবহার করার জন্য যথাসাধ্য চেষ্টা করি যা নির্দিষ্ট জ্ঞান ছাড়াই বোঝা সহজ। যাইহোক, যদি আমরা একটি প্রযুক্তিগত শব্দ ব্যবহার করে শেষ করি, তাহলে আপনি সম্ভবত আমাদের অনলাইন ডকুমেন্টেশনের <a href="https://dotclear.org/documentation/glossary">গ্লোসারিতে</a> এর সংজ্ঞা খুঁজে পাবেন।</p>
+  </div>
+  <div class="multi-part" id="users-doc" title="ব্যবহারকারী ম্যানুয়াল">
+    <h3>ব্যবহারকারী ম্যানুয়াল</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">বিষয়বস্তুর ব্যবস্থাপনা</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">এন্ট্রি</a>
+          <ul>
+            <li>তৈরি ও সম্পাদনা</li>
+            <li>বিস্তারিত বিবরণ</li>
+            <li>এন্ট্রি সংক্রান্ত কাজ</li>
+            <li>Comments and trackbacks</li>
+            <li>এন্ট্রির ব্যাচ ব্যবস্থাপনা</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Comments and trackbacks</a>
+          <ul>
+            <li>ফলো আপ</li>
+            <li>ব্যবস্থাপনা</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">শ্রেণীবিভাগ</a>
+          <ul>
+            <li>একটি শ্রেণী তৈরি করা হচ্ছে</li>
+            <li>একটি শ্রেণীতে সম্পাদনা করা হচ্ছে</li>
+            <li>একটি শ্রেণী মুছে ফেলা হচ্ছে</li>
+            <li>শ্রেণীবিভাগের তালিকা Sotring</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">ট্যাগ (কিওয়ার্ড)</a>
+          <ul>
+            <li>ট্যাগ যোগ করা হচ্ছে</li>
+            <li>ট্যাগ ব্যবস্থাপনা</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/media">মিডিয়া এবং অ্যাটাচমেন্ট</a>
+          <ul>
+            <li>একটি উপ-ডিরেক্টরি তৈরি করা হচ্ছে</li>
+            <li>ফাইল যোগ করা হচ্ছে</li>
+            <li>বর্তমান ডিরেক্টরির একটি জিপ আর্কাইভ ডাউনলোড করা হচ্ছে</li>
+            <li>ফাইল বিবরণে পূরণের পরিবর্তন</li>
+            <li>ফাইল সরাসরি যোগ করা হচ্ছে</li>
+            <li>বিশেষ ফাইল টাইপ</li>
+            <li>অ্যাটাচমেন্ট</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">ব্লগ মেনু বিষয়বস্তু (উইজেট)</a>
+          <ul>
+            <li>নেভিগেশন সাইডবার, অতিরিক্ত সাইডবার</li>
+            <li>ডিফল্ট উইজেট</li>
+            <li>একটি উইজেট যোগ/অপসারণ করা হচ্ছে</li>
+            <li>উইজেট অপশন</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
+          <ul>
+            <li>Blogroll</li>
+            <li>একটি লিংক যোগ করা হচ্ছে</li>
+            <li>একটি শ্রেণীতে যোগ করা হচ্ছে</li>
+            <li>XFN</li>
+            <li>একটি ওপিএমএল অথবা XBEL ফাইল থেকে লিঙ্ক ইম্পোর্ট করা হচ্ছে</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">সেটিংস এবং স্বনির্বাচিত</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">ব্লগ সেটিংস</a>
+          <ul>
+            <li>ব্লগ বিবরণ</li>
+            <li>ব্লগ কনফিগারেশন</li>
+            <li>Comments and trackbacks</li>
+            <li>ব্লগ উপস্থাপনা</li>
+            <li>মিডিয়া এবং ছবি</li>
+            <li>সার্চ ইঞ্জিন রোবট পলিসি</li>
+            <li>এন্টিস্প্যাম</li>
+            <li>LightBox</li>
+            <li>সংরক্ষণ করো</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">ব্যবহারকারীর পছন্দ</a>
+          <ul>
+            <li>আমার প্রোফাইল</li>
+            <li>আমার অপশন</li>
+            <li>আমার ড্যাশবোর্ড</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">ব্লগ চেহারা</a>
+          <ul>
+            <li>একটি থিম নির্বাচন করুন</li>
+            <li>একটি থিম ইনস্টল করো</li>
+            <li>একটি থিম ব্যক্তিগতভাবে</li>
+            <li>থিম সম্পাদক</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes fieldset">
+      <h4 class="smart-title">@ info: status</h4>
+      <h5>Glossary</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/glossary">এই সব রহস্যময় শব্দগুলো ওয়েব এবং ডটস্পটে ব্যবহার করা হয়েছে</a></li>
+      </ul>
+      <h5>ইনপুট সিনট্যাক্স</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">উইকি সিনট্যাক্স এবং এইচটিএমএল সমতুল্য</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">আরো যেতে হবে</a></li>
+      </ul>
+      <h5>সাবস্ক্রীপশন (আরএসএস, এটম ...)</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">এটা কি?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">আমি কিভাবে এটা আমার ব্লগে উপলব্ধ করতে পারব?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">আমি কিভাবে একটি ফিডে সাবস্ক্রাইব করি?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">আরো যেতে হবে</a></li>
+      </ul>
+      <h4 class="smart-title">সহায়তা</h4>
+      <ul>
+        <li><a href="https://dotclear.org/forum">The Dotclear forum</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/faq">Frequently Asked Questions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="multi-part" id="admin-doc" title="প্রশাসকের জন্য ডকুমেন্টেশন">
+    <h3>প্রশাসকের জন্য ডকুমেন্টেশন</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">ইনস্টলেশন এবং আপডেট</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install">ইনস্টলেশন</a>
+          <ul>
+            <li>Prerequisites</li>
+            <li>স্বয়ংক্রিয় ইনস্টলেশন</li>
+            <li>স্ট্যান্ডার্ড ইনস্টলেশন</li>
+            <li>উইজার্ড ব্যবহার করে ইনস্টল করা হচ্ছে</li>
+            <li>Config.php ফাইল থেকে ইনস্টল করা হচ্ছে</li>
+            <li>ইনস্টলেশন প্রক্রিয়া সম্পন্ন করা হচ্ছে</li>
+            <li>পরবর্তী পদক্ষেপ</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">আপডেট করা হচ্ছে</a>
+          <ul>
+            <li>আপডেটের জন্য প্রস্তুত করা হচ্ছে</li>
+            <li>স্বয়ংক্রিয় আপগ্রেড</li>
+            <li>প্রোগ্রামটি হালনাগাদ করা হচ্ছে</li>
+            <li>ডাটাবেস আপডেট করা হচ্ছে</li>
+            <li>Appendix: একটি ভাড়াটে অনুলিপি আপডেট করা</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/config">কনফিগারেশন ফাইল (config.php) প্যারামিটার</a>
+          <ul>
+            <li>ভূমিকা</li>
+            <li>পরামিতি</li>
+            <li>ফাইলের তথ্য যোগ করা হচ্ছে</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Dotclear 1.2 থেকে Dotclear 2 পর্যন্ত আপগ্রেড করা হচ্ছে</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">অন্য ব্লগিং সফটওয়্যার থেকে ডটক্লিকে মাইগ্রেট করা</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">স্থানীয় ইনস্টলেশন</a>
+          <ul>
+            <li>উইন্ডোজ</li>
+            <li>ম্যাক OS X</li>
+            <li>লিনাক্স</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">IIS7 এর সাথে Dotclear ইনস্টল করা হচ্ছে</a></li>
+      </ul>
+      <h5>অ্যানেক্স হোস্টিং</h5>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/hosting">হোস্টিং</a>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">প্রশাসন</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/users">ব্যবস্থাপনা ব্যবহারকারী</a>
+          <ul>
+            <li>ব্যবহারকারী তালিকা সম্প্রসারণ করা হচ্ছে</li>
+            <li>একটি ব্যবহারকারী তৈরি করা হচ্ছে</li>
+            <li>ব্যবহারকারীকে পরিবর্তন করা হচ্ছে</li>
+            <li>ব্যবহারকারীর অনুমতি</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">ইনস্টলেশন পরিস্কার করো</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">মাল্টিব্লগ ইনস্টলেশন</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">প্লাগ-ইন ব্যবস্থাপনা</a>
+          <ul>
+            <li>প্লাগ-ইন ইনস্টল করা হচ্ছে</li>
+            <li>প্লাগ-ইন কনফিগার করা হচ্ছে</li>
+            <li>প্লাগ-ইন অপসারণ করা হচ্ছে</li>
+            <li>প্লাগিন আপডেট করা হচ্ছে</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">ডিফল্ট থিম Blowup</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">ব্লগ থিম</a>
+          <ul>
+            <li>একটি থিম নির্বাচন করা হচ্ছে</li>
+            <li>একটি থিম ইনস্টল করা হচ্ছে</li>
+            <li>একটি থিম গ্রাহক করা হচ্ছে</li>
+            <li>থিম সম্পাদক</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">অগ্রসর কনফিগারেশন</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">রক্ষণাবেক্ষণ</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">ব্যাকআপ এবং পুনরুদ্ধার</a>
+          <ul>
+            <li>আমদ/এক্সপোর্ট করুন</li>
+            <li>ফাইল</li>
+            <li>ডাটাবেজ</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">স্প্যাম মন্তব্য ফিল্টার</a>
+          <ul>
+            <li>ফিল্টার সংস্থা</li>
+            <li>ফিল্টার কনফিগারেশন</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="fieldset vertical-separator">
+        <h4 class="smart-title">সহায়তা</h4>
+        <ul>
+          <li><a href="https://dotclear.org/forum">The Dotclear forum</a></li>
+          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Frequently Asked Questions (প্রশাসক)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part" id="guide-dev" title="ডেভেলপার ডকুমেন্টেশন">
+    <h3>ডেভেলপার এবং ডিজাইনার সম্পদ</h3>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">ডিজাইন ও থিম</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">থিম</a>
+          <ul>
+            <li>থিম-এর জন্য ব্যবহারকারীর গাইড</li>
+            <li>টেম্পলের ট্যাগ</li>
+            <li>অ্যাপেন্ডিক্সName</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">থিম উত্তরাধিকার</a>
+          <ul>
+            <li>প্রিন্সিপাল</li>
+            <li>সীমা</li>
+            <li>সেট করো</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">টেক্সট ট্যাগ</a>
+          <ul>
+            <li>সাধারণ বাস্তবতা</li>
+            <li>ব্লগ</li>
+            <li>এন্ট্রি</li>
+            <li>এন্ট্রি প্যাজেশন</li>
+            <li>মন্তব্য</li>
+            <li>মন্তব্য প্রাকদর্শন</li>
+            <li>Pings</li>
+            <li>অ্যাটাচমেন্ট</li>
+            <li>শ্রেণীবিভাগ</li>
+            <li>ট্যাগ</li>
+            <li>আর্কাইভ</li>
+            <li>ভাষা</li>
+            <li>সিস্টেম</li>
+            <li>উইজেটComment</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">কোড &amp; প্লাগইন</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">একটি প্লাগ-ইন অথবা থিমের জন্য একটি tpl ট্যাগ তৈরি করা হবে</a>
+          <ul>
+            <li>ভূমিকা</li>
+            <li>ভ্যালু</li>
+            <li>ইনস্ট্রাকশন ব্লক</li>
+            <li>টেমপ্লেট ক্যাশ প্রভাবের ডিমনস্ট্রেশন</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">প্লাগ-ইন</a>
+          <ul>
+            <li>একটি প্লাগ-ইন লেখা</li>
+            <li>অ্যাপেন্ডিক্সName</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">প্লাগ-ইন বিতর্ক সহায়তা বিল্ডিং</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">বহিঃসংযোগ</a>
+          <ul>
+            <li>Preamble</li>
+            <li>নতুন প্রমাণীকরণ ক্লাস</li>
+            <li>Scenario</li>
+            <li>অ্যাপলিকেশন</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC ইন্টারফেস</a></li>
+        <li><a href="https://dev.dotclear.org/code/2/">API ডকুমেন্টেশন</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Contribution &amp; সমর্থন</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">কনসর্ট</a>
+          <ul>
+            <li>এই ডকুমেন্টটি সম্পাদনা করুন</li>
+            <li>আপনার সৃষ্টিকর্তা শেয়ার</li>
+            <li>@ action: status</li>
+            <li>স্থানীয়করণ</li>
+          </ul>
+        </li>
+        <li><a href="https://git.dotclear.org/dev/dotclear">Dotclear উৎস কোড রিপোজিটরী</a></li>
+        <li><a href="https://dotclear.org/forum">ডটক্লিষ্ট ফোরাম</a></li>
+      </ul>
+      <div class="fieldset">
+        <h4 class="smart-title">কনভেনশন</h4>
+        <ul>
+          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">কোডিং স্ট্যান্ডার্ড</a></li>
+          <li><a href="index.php?process=HelpCharte">প্রশাসন পৃষ্ঠা চার্ট</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part legible" id="a11y-ergo" title="গ্রহণযোগ্যতা এবং ergonomy">
+    <h3>গ্রহণযোগ্যতা এবং ergonomy</h3>
+    <p>ডটক্লিয়ার ইন্টারফেস প্রায় সমস্ত <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> মানদণ্ড পূরণ করে৷ আমরা ডটক্লিয়ারকে <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> নির্দেশিকাগুলির সাথে সামঞ্জস্যপূর্ণ করার দিকে কাজ করছি৷</p>
+    <p>গ্রহণযোগ্যতা এবং ergonomy আমাদের অন্যতম প্রধান উদ্বেগ. আমরা বিশেষজ্ঞদের সহায়তায় নিয়মিতভাবে বিশ্লেষণ চালান এবং ক্রমান্বয়ে সংশোধনী ও বর্ধিত ব্যবস্থা প্রদান করে.</p>
+    <p>আপনি <a href="https://git.dotclear.org/dev/dotclear/issues">টিকিট</a> খুলে অথবা <a href="https://dotclear.org-এ অংশগ্রহণ করে আমাদের সাহায্য করতে পারেন /forum/">ফোরাম</a>। আপনি ব্যবহারকারী পরীক্ষায় অংশগ্রহণ করতে পারেন বা আমাদের দলে যোগ দিতে পারেন!</p>
+  </div>
 </body>
+
 </html>
