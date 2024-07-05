@@ -1,92 +1,64 @@
 <html>
-  <head>
-    <title>Manajer media</title>
-  </head>
-  <body>
-    <h4>Daftar media</h4>
-    <p>Halaman utama pengelola media menampilkan daftar file (media) yang tersedia untuk blog yang sedang dipilih.</p>
 
-    <p>Anda dapat mengeklik ikon atau nama media dalam folder atau subfolder mana pun untuk menampilkannya.</p>
+<head>
+  <title>Manajer media</title>
+</head>
 
-    <p>Memilih file suara MP3 akan menampilkan pemutar untuk segera memutar file tersebut. Plugin Flash harus diinstal pada browser Anda agar pemutar ini dapat beroperasi.</p>
+<body>
+  <h4>Daftar media</h4>
+  <p>Halaman utama pengelola media menampilkan daftar file (media) yang tersedia untuk blog yang sedang dipilih.</p>
+  <p>Anda dapat mengeklik ikon atau nama media dalam folder atau subfolder mana pun untuk menampilkannya.</p>
+  <p>Memilih file suara MP3 akan menampilkan pemutar untuk segera memutar file tersebut. Plugin Flash harus diinstal pada browser Anda agar pemutar ini dapat beroperasi.</p>
+  <p>Gambar ditampilkan dengan gambar mini apabila memungkinkan.</p>
+  <h4>Menambahkan file</h4>
+  <dl>
+    <dt>Pilih file</dt>
+    <dd>Here you can select one of your local files to send it on your blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
+    <dt>Judul</dt>
+    <dd>Judul opsional untuk file yang ingin Anda kirim.</dd>
+    <dt>Pribadi</dt>
+    <dd>Check this if you want the file to be private, i.e. accessible only by its owner and not accessible from the blog (until published).</dd>
+  </dl>
+  <dl>
+    <dt>Pengunggah yang disempurnakan</dt>
+    <dd>Allows to select one or several of your local files to send them on your blog. Should any file be bigger than the maximum size, it will not be sent.<br>When you select several local files, they are added to the queue. You can add more files by clicking again on <strong>Choose files</strong>. You can also remove files from the queue by clicking on the corresponding red cross-shaped icon.<br>When you are ready, click on <strong>Upload</strong>.</dd>
+  </dl>
+  <h4>Menghapus file</h4>
+  <p>Untuk menghapus file, centang kotak centang dan klik <strong>Hapus media yang dipilih</strong>. Anda dapat menghapus beberapa file sekaligus.</p>
+  <h4>Folder baru</h4>
+  <p>This form allows you to create a new subfolder in the currently displayed folder. Just choose a name for it as you would do on your own computer.</p>
+  <h4>Detail media</h4>
+  <p>Halaman ini menampilkan serangkaian informasi tentang file yang sedang dipilih dan memungkinkan Anda melakukan beberapa operasi pada file tersebut.</p>
+  <dl>
+    <dt>Nama file</dt>
+    <dd>Mengubah nama file dari file yang sedang dibuka.</dd>
+    <dt>Judul file</dt>
+    <dd>Berikan judul pada file atau ubah judul yang ada.</dd>
+    <dt>Tanggal pengajuan</dt>
+    <dd>Mengubah tanggal file.</dd>
+    <dt>Pribadi</dt>
+    <dd>Tentukan bahwa file akan disembunyikan bagi siapa pun kecuali pemiliknya di pengelola media.</dd>
+    <dt>Direktori baru</dt>
+    <dd>Memungkinkan Anda memindahkan file ke folder lain.</dd>
+    <dt>Ubah file</dt>
+    <dd>With this form, you can replace the file while keeping all the attributes (name, title...). As always, you have to respect the maximum file size.</dd>
+  </dl>
+  <h4>Kasus khusus: gambar</h4>
+  <p>Apabila Anda menambahkan gambar, tergantung dari ukurannya, hingga empat versi akan tersedia (tergantung ukuran gambar aslinya):</p>
+  <ul>
+    <li><strong>Persegi:</strong> Gambar mini persegi 48x48 piksel.</li>
+    <li><strong>Gambar kecil:</strong> Gambar diperkecil hingga 100 piksel pada sisi terpanjangnya.</li>
+    <li><strong>Kecil:</strong> Sisi terpanjang diperkecil hingga 240 piksel.</li>
+    <li><strong>Sedang:</strong> Sisi terpanjang dikurangi hingga 500 piksel.</li>
+    <li><strong>Asli:</strong> Gambar asli yang tidak diubah.</li>
+  </ul>
+  <p>Ukuran default untuk gambar mini, versi kecil dan menengah dapat dimodifikasi dalam pengaturan blog Anda.</p>
+  <h4>Melampirkan file ke entri</h4>
+  <p>Anda dapat dengan mudah melampirkan file ke salah satu postingan Anda. Pertama, buat postingan baru dan simpan. Kemudian klik "Tambahkan file ke entri ini" untuk membuka pengelola media.</p>
+  <p>Just click on the [+] icon (Attach this file to entry). The file will then be attached to the post.</p>
+  <p>File yang dilampirkan akan ditampilkan di halaman posting, sebagai daftar setelah konten posting. File MP3 akan tersedia melalui pemutar Flash, sehingga dapat dengan mudah diputar oleh pengunjung Anda.</p>
+  <h4>Podcast dan penyiaran file musik</h4>
+  <p>All attached files will be included in your blog feeds, allowing an easy podcasting of any type of file.</p>
+</body>
 
-    <p>Gambar ditampilkan dengan gambar mini apabila memungkinkan.</p>
-
-    <h4>Menambahkan file</h4>
-    <dl>
-      <dt>Pilih file</dt>
-      <dd>Di sini Anda dapat memilih salah satu file lokal Anda untuk dikirimkan ke blog 
-      . Jika ukuran file lebih besar dari ukuran maksimum, maka file tidak akan dikirim.</dd>
-      
-      <dt>Judul</dt>
-      <dd>Judul opsional untuk file yang ingin Anda kirim.</dd>
-      
-      <dt>Pribadi</dt>
-      <dd>Centang ini jika Anda ingin file tersebut bersifat pribadi, yaitu hanya dapat diakses oleh
-      pemiliknya dan tidak dapat diakses dari blog (hingga dipublikasikan).</dd>
-    </dl>
-
-    <dl>
-      <dt>Pengunggah yang disempurnakan</dt>
-      <dd>Memungkinkan untuk memilih satu atau beberapa file lokal Anda untuk dikirim ke blog 
-  Anda. Jika ada file yang lebih besar dari ukuran maksimum, file tersebut tidak akan dikirim.<br>
-	Ketika Anda memilih beberapa file lokal, file-file tersebut akan ditambahkan ke dalam antrean. Anda dapat menambahkan lebih banyak file dengan mengklik lagi <strong>Pilih file</strong>. Anda juga dapat menghapus file dari antrean dengan mengklik ikon berbentuk palang merah yang sesuai.<br>
-  Jika sudah siap, klik <strong>Unggah</strong>.</dd>
-    </dl>
-
-    <h4>Menghapus file</h4>
-    <p>Untuk menghapus file, centang kotak centang dan klik <strong>Hapus media yang dipilih</strong>. Anda dapat menghapus beberapa file sekaligus.</p>
-
-    <h4>Folder baru</h4>
-    <p>Formulir ini memungkinkan Anda untuk membuat subfolder baru di folder
-yang sedang ditampilkan. Cukup pilih nama untuk folder tersebut seperti yang Anda lakukan pada komputer Anda sendiri.</p>
-
-    <h4>Detail media</h4>
-    <p>Halaman ini menampilkan serangkaian informasi tentang file yang sedang dipilih dan memungkinkan Anda melakukan beberapa operasi pada file tersebut.</p>
-
-    <dl>
-      <dt>Nama file</dt>
-      <dd>Mengubah nama file dari file yang sedang dibuka.</dd>
-      
-      <dt>Judul file</dt>
-      <dd>Berikan judul pada file atau ubah judul yang ada.</dd>
-      
-      <dt>Tanggal pengajuan</dt>
-      <dd>Mengubah tanggal file.</dd>
-      
-      <dt>Pribadi</dt>
-      <dd>Tentukan bahwa file akan disembunyikan bagi siapa pun kecuali pemiliknya di pengelola media.</dd>
-      
-      <dt>Direktori baru</dt>
-      <dd>Memungkinkan Anda memindahkan file ke folder lain.</dd>
-      
-      <dt>Ubah file</dt>
-      <dd>Dengan formulir ini, Anda dapat mengganti file dengan tetap mempertahankan semua atribut
-      (nama, judul...). Seperti biasa, Anda harus menghormati ukuran file maksimum.</dd>
-    </dl>
-
-    <h4>Kasus khusus: gambar</h4>
-    <p>Apabila Anda menambahkan gambar, tergantung dari ukurannya, hingga empat versi akan tersedia (tergantung ukuran gambar aslinya):</p>
-    <ul>
-      <li><strong>Persegi:</strong> Gambar mini persegi 48x48 piksel.</li>
-      <li><strong>Gambar kecil:</strong> Gambar diperkecil hingga 100 piksel pada sisi terpanjangnya.</li>
-      <li><strong>Kecil:</strong> Sisi terpanjang diperkecil hingga 240 piksel.</li>
-      <li><strong>Sedang:</strong> Sisi terpanjang dikurangi hingga 500 piksel.</li>
-      <li><strong>Asli:</strong> Gambar asli yang tidak diubah.</li>
-    </ul>
-    <p>Ukuran default untuk gambar mini, versi kecil dan menengah dapat dimodifikasi dalam pengaturan blog Anda.</p>
-
-    <h4>Melampirkan file ke entri</h4>
-    <p>Anda dapat dengan mudah melampirkan file ke salah satu postingan Anda. Pertama, buat postingan baru dan simpan. Kemudian klik "Tambahkan file ke entri ini" untuk membuka pengelola media.</p>
-
-    <p>Cukup klik ikon [+] (Lampirkan file ini ke entri). File tersebut akan
-dilampirkan ke postingan.</p>
-
-    <p>File yang dilampirkan akan ditampilkan di halaman posting, sebagai daftar setelah konten posting. File MP3 akan tersedia melalui pemutar Flash, sehingga dapat dengan mudah diputar oleh pengunjung Anda.</p>
-
-    <h4>Podcast dan penyiaran file musik</h4>
-    <p>Semua file yang dilampirkan akan disertakan dalam feed blog Anda, sehingga memungkinkan
-podcasting semua jenis file dengan mudah.</p>
-
-  </body>
 </html>
