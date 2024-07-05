@@ -1,83 +1,52 @@
 <html>
-<head>
 
-<title>Kietakūnio konfigūracija</title>
+<head>
+  <title>Kietakūnio konfigūracija</title>
 </head>
 
 <body>
-<p>Pakeitę "Ductile" temos konfigūraciją, galite labai lengvai pritaikyti temą</p>
-
-<h3>Turinio pritaikymas asmeniniams poreikiams</h3>
-<p>Šiame skirtuke galite suasmeninti tinklaraščio turinį.</p>
-<dl>
-  <dt>Antraštė</dt>
+  <p>Pakeitę "Ductile" temos konfigūraciją, galite labai lengvai pritaikyti temą</p>
+  <h3>Turinio pritaikymas asmeniniams poreikiams</h3>
+  <p>Šiame skirtuke galite suasmeninti tinklaraščio turinį.</p>
+  <dl>
+    <dt>Antraštė</dt>
     <dd>Pažymėkite langelį "Paslėpti tinklaraščio aprašymą", kad nerodytumėte tinklaraščio aprašymo, kuris paprastai rodomas po pavadinimu.</dd>
-
-<p>Jei įskiepis "Paprastas meniu" yra įdiegtas ir aktyvus, galite spustelėti nurodytą nuorodą ir konfigūruoti antraštės meniu. (Pagrindinis meniu?)</p>
-
-<p>Nurodykite logotipo, kuris bus naudojamas vietoj numatytojo, URL adresą. Jei URL neprasideda <code>/</code>, tai bus santykinis URL iš temos aplanko <code>img</code> (pavyzdžiui, įdėti <code>logo.png</code>yra panašu į numatytąjį logotipą). Išvalykite šį lauką, kad grįžtumėte prie numatytosios konfigūracijos.</p>
-
-  <dt>Lipdukai</dt>
-    <dd>Dideliuose ekranuose lipdukai bus rodomi ekrano viršuje kaip maži paveikslėliai, o labai mažuose ekranuose - puslapio apačioje. Pateikiami visi paveikslėliai, kurių failo pavadinimas atitinka lipdukas-*.png schemą ir kurie yra temos img pakatalogyje. Kiekvienam jų galite nurodyti etiketę ir atitinkamą url adresą. (Jei norite, kad paveikslėlis nebūtų rodomas, palikite vieną iš abiejų laukų tuščią.)<br />
-Taip pat galite keisti rodymo tvarką vilkdami ir nuleisdami, jei įjungtas javascript ir jei nustatymuose jo neišjungėte. Jei javascript išjungtas, lauke galite nurodyti rodymo tvarką (nuo 1 iki n).</dd>
-
-  <dt>Pranešimų sąrašų tipai ir apribojimai</dt>
-
-    <dd>Kai kurie iš jūsų tinklaraščio rodymo kontekstų pateikiami kaip pranešimų sąrašas. Taip yra, pavyzdžiui, pagrindiniame puslapyje arba mėnesio archyvuose. Kiekvienam lentelėje išvardytam kontekstui galite nurodyti, ar kiekvieno rodomo įrašo turinys turi būti tik kaip pavadinimas, trumpoji forma (pirmųjų 300 simbolių išrašo lauko turinys), ar pilna jų forma. PASTABA: JEI NORITE, KAD BŪTŲ ĮRAŠYTAS TIK VIENAS STRAIPSNIS, PASIRINKITE, AR NORITE, KAD BŪTŲ ĮRAŠYTAS TIK VIENAS STRAIPSNIS. Pagrindiniame puslapyje pirmasis įrašas visada rodomas visa forma.<br />
-Be to, kai kuriuose iš šių kontekstų taip pat galite nurodyti, kiek pranešimų bus rodoma viename puslapyje. Jei paliksite šį lauką tuščią, bus naudojama tinklaraščio bendruosiuose nustatymuose nurodyta reikšmė, kuri bus naudojama.</dd>
-
-</dl>
-
-<h3>Pristatymo personalizavimas</h3>
-<p>Šiame skirtuke galite suasmeninti kai kuriuos tinklaraščio pateikimo elementus.</p>
-
-<h4>Bendrieji parametrai</h4>
-
-<p>Šie parametrai bus naudojami visuose tinklaraščio ekrano pločiuose.</p>
-<dl>
-  <dt>Šriftai</dt>
+    <p>Jei įskiepis "Paprastas meniu" yra įdiegtas ir aktyvus, galite spustelėti nurodytą nuorodą ir konfigūruoti antraštės meniu. (Pagrindinis meniu?)</p>
+    <p>Nurodykite logotipo, kuris bus naudojamas vietoj numatytojo, URL adresą. Jei URL neprasideda <code>/</code>, tai bus santykinis URL iš temos aplanko <code>img</code> (pavyzdžiui, įdėti <code>logo.png</code>yra panašu į numatytąjį logotipą). Išvalykite šį lauką, kad grįžtumėte prie numatytosios konfigūracijos.</p>
+    <dt>Lipdukai</dt>
+    <dd>The stickers will be displayed at the top of the screen as small images on large screens and at the bottom of the page on very small screens. All images which file name correspond to the sticker-*.png scheme and placed in the sub-folder img of the theme are listed. You can indicate for each a label and the corresponding url. (Leave on of both fields empty to not display it.)<br>You can also modify the display order with a drag and drop if javascript is activated and if you have not disabled it in your preferences. If javascript is deactivated, a field allows you to indicate the order of display (1 to n).</dd>
+    <dt>Pranešimų sąrašų tipai ir apribojimai</dt>
+    <dd>Some of the display contexts of your blog present under the form of a list of posts. It's the case for example for the home page or for the monthly archives. For each of the context listed in the table, you can specify if the content of each displayed post should be as a title only, a short form (content of the extract field of first 300 characters) or their full form. NB. On the home page, the first post always displays in full.<br>Moreover, for some of those contexts, you can also specify the number of posts displayed per page. If you leave this field empty, the value specified in the general settings of the blog that will be used.</dd>
+  </dl>
+  <h3>Pristatymo personalizavimas</h3>
+  <p>Šiame skirtuke galite suasmeninti kai kuriuos tinklaraščio pateikimo elementus.</p>
+  <h4>Bendrieji parametrai</h4>
+  <p>Šie parametrai bus naudojami visuose tinklaraščio ekrano pločiuose.</p>
+  <dl>
+    <dt>Šriftai</dt>
     <dd>Čia galite pasirinkti pagrindinę šriftų šeimą, kuri bus naudojama daugumai tekstų. Taip pat galite nurodyti antrą šrifto šeimą (antrinę), kuri bus naudojama kai kuriems antrojo lygio pavadinimams ir komentarams. Parinktis "Numatytoji" leidžia palikti pirminį pasirinkimą.</dd>
-
-  <dt>Tinklaraščio pavadinimas</dt>
-
-    <dd>Čia galite nurodyti, ar tinklaraščio pavadinimas turi būti rodomas paryškintai, jo dydį (pagal nutylėjimą - em, atpažįstami vienetai yra %, pt, px, em ir ex), taip pat spalvą, naudodami formatą #rrggbb su rr, gg ir bb, pasirinktais tarp 0 ir ff.<br />
-Jei norite atšaukti savo pasirinkimą ir grįžti prie numatytojo, ištuštinkite vieną arba visus laukus.</dd>
-
-
-  <dt>Pašto pavadinimai</dt>
-    <dd>Čia galite nurodyti, ar pranešimų pavadinimai turėtų būti rodomi paryškintai, jų dydį (pagal nutylėjimą - em, atpažįstami vienetai yra %, pt, px, em ir ex), taip pat jų spalvą, naudodamiesi spalvų rinkikliu, kurį galima rasti spustelėjus rinkiklio piktogramą arba nurodžius spalvą formatu #rrggbb, kai rr, gg ir bb pasirenkami tarp 0 ir ff.<br />
-Jei norite atšaukti savo pasirinkimą ir grįžti prie pradinio, ištuštinkite vieną arba visus laukus.</dd>
-
-  <dt>Pavadinimai be nuorodos</dt>
-    <dd>Čia galite nurodyti pavadinimų be nuorodos spalvą (iš esmės : pranešimo pavadinimą, kai jis rodomas atskirai, subtitrus pranešimuose, aktyvų horizontaliojo meniu elementą) naudodami spalvų rinkiklį, kurį galima rasti spustelėjus rinkiklio piktogramą, arba nurodydami spalvą formatu #rrggggbb, kai rr, gg ir bb pasirenkami tarp 0 ir ff.<br />
-Norėdami atšaukti savo pasirinkimą ir grįžti prie numatytojo, ištuštinkite vieną arba visus laukus.</dd>
-
-  <dt>Nuorodos pranešimuose</dt>
-    <dd>Čia galite nurodyti, ar jūsų pranešimuose esančios nuorodos turėtų būti rodomos paryškintai, ar ne, ir apibrėžti jų spalvą esant įprastai būsenai, taip pat būsenai "aplankyta", jų spalvą, kai jos yra aktyvios, kai ant jų užvedamas pelės žymeklis arba kai jos yra fokusuojamos, naudodamiesi spalvų rinkikliu, kurį galima rasti spustelėjus rinkiklio piktogramą arba nurodžius spalvą formatu #rrggggbb, kai rr, gg ir bb pasirenkamos 0 ir ff ribose.<br />
-Norėdami atšaukti savo pasirinkimą ir grįžti prie numatytojo, ištuštinkite vieną arba visus laukus.</dd>
-
-<h4>Konkretūs mobiliųjų telefonų parametrai</h4>
-
-<p>Šie parametrai naudojami tik tada, kai ekrano plotis yra mažesnis nei 480 pikselių (pvz., mobiliuosiuose telefonuose). Jei jie nurodyti, jie pakeis pirmiau nurodytus bendruosius parametrus.</p>
-
-  <dt>Tinklaraščio pavadinimas</dt>
-
-    <dd>Čia galite nurodyti, ar tinklaraščio pavadinimas turi būti rodomas paryškintai, jo dydį (pagal nutylėjimą - em, atpažįstami vienetai yra %, pt, px, em ir ex), taip pat spalvą, naudodami formatą #rrggbb su rr, gg ir bb, pasirinktais tarp 0 ir ff.<br />
-Jei norite atšaukti savo pasirinkimą ir grįžti prie numatytojo, ištuštinkite vieną arba visus laukus.</dd>
-
-
-  <dt>Pašto pavadinimai</dt>
-    <dd>Čia galite nurodyti, ar pranešimų pavadinimai turėtų būti rodomi paryškintai, jų dydį (pagal nutylėjimą - em, atpažįstami vienetai yra %, pt, px, em ir ex), taip pat jų spalvą, naudodamiesi spalvų rinkikliu, kurį galima rasti spustelėjus rinkiklio piktogramą arba nurodžius spalvą formatu #rrggbb, kai rr, gg ir bb pasirenkami tarp 0 ir ff.<br />
-Jei norite atšaukti savo pasirinkimą ir grįžti prie numatytojo, ištuštinkite vieną arba visus laukus.</dd>
-
-<h3>Prieinamumas ir spalvų kontrastas</h3>
-
-<p>Pasirinkus spalvą, šalia lauko bus rodomas kontrasto santykis ir nurodoma, kad šis kontrastas atitinka WCAG 2.0 rekomendacijas. Kad kontrastas tarp fono spalvos ir šrifto spalvos galiotų, jis turėtų būti toks:</p>
-<ul>
-<li>Ne mažiau kaip 4,5:1, jei tekstas yra įprasto dydžio AA lygiui;</li>
-<li>Ne mažiau kaip 7:1 įprasto dydžio AAA lygio tekstams;</li>
-<li>Ne mažiau kaip 3:1 padidinto dydžio tekstams (150 % arba 120 % paryškintu šriftu) AA lygiu ;</li>
-<li>Ne mažiau kaip 4,5:1 padidinto dydžio tekstams (150 % arba 120 % paryškintai) AAA lygiu.</li>
-</ul>
+    <dt>Tinklaraščio pavadinimas</dt>
+    <dd>You can specify here if the blog title must be displayed in bold, its size, (default is em, recognized units are %, pt, px, em and ex) as well as the color, using the format #rrggbb with rr, gg and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>Pašto pavadinimai</dt>
+    <dd>You can indicate here if the post titles should be displayed in bold, their size (default is em, recognized units are %, pt, px, em and ex) as well as their color using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to your original one.</dd>
+    <dt>Pavadinimai be nuorodos</dt>
+    <dd>You can specify here the color of titles without a link (essentially : the title of a post when it is displayed by itself, sub-titles within posts, the active item in the horizontal menu) by using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>Nuorodos pranešimuose</dt>
+    <dd>You can indicate here if the links contained in your posts should be displayed in bold or not and define their color at a normal state as well as a "visited" state, their color when active, or when they're hovered upon or take focus, by using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <h4>Konkretūs mobiliųjų telefonų parametrai</h4>
+    <p>Šie parametrai naudojami tik tada, kai ekrano plotis yra mažesnis nei 480 pikselių (pvz., mobiliuosiuose telefonuose). Jei jie nurodyti, jie pakeis pirmiau nurodytus bendruosius parametrus.</p>
+    <dt>Tinklaraščio pavadinimas</dt>
+    <dd>You can specify here if the blog title must be displayed in bold, its size, (default is em, recognized units are %, pt, px, em and ex) as well as the color, using the format #rrggbb with rr, gg and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>Pašto pavadinimai</dt>
+    <dd>You can indicate here if the post titles should be displayed in bold, their size (default is em, recognized units are %, pt, px, em and ex) as well as their color using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <h3>Prieinamumas ir spalvų kontrastas</h3>
+    <p>Pasirinkus spalvą, šalia lauko bus rodomas kontrasto santykis ir nurodoma, kad šis kontrastas atitinka WCAG 2.0 rekomendacijas. Kad kontrastas tarp fono spalvos ir šrifto spalvos galiotų, jis turėtų būti toks:</p>
+    <ul>
+      <li>Ne mažiau kaip 4,5:1, jei tekstas yra įprasto dydžio AA lygiui;</li>
+      <li>Ne mažiau kaip 7:1 įprasto dydžio AAA lygio tekstams;</li>
+      <li>Ne mažiau kaip 3:1 padidinto dydžio tekstams (150 % arba 120 % paryškintu šriftu) AA lygiu ;</li>
+      <li>Ne mažiau kaip 4,5:1 padidinto dydžio tekstams (150 % arba 120 % paryškintai) AAA lygiu.</li>
+    </ul>
 </body>
+
 </html>
