@@ -1,202 +1,148 @@
 <html>
+
 <head>
   <title>Blogi seaded</title>
 </head>
 
 <body>
-<h4>Blogi üksikasjad</h4>
-<dl>
-  <dt>Blogi ID</dt>
-  <dd>Blogi unikaalne ID. Kohustuslik, saab muuta ainult superadministraator.</dd>
-
-  <dt>Blogi nimi</dt>
-  <dd>Blogi nimi, kohustuslik. Seda saab igal ajal muuta, ilma et see mõjutaks blogi toimimist.</dd>
-
-  <dt>Blogi URL</dt>
-  <dd>Täielik blogi URL. Kohustuslik, saab muuta ainult superadministraator.</dd>
-
-  <dt>URL-skaneerimise meetod</dt>
-  <dd>Määratleb URL-i lugemise viisi. PATH_INFO on soovitatav, kui PATH_INFO ei tööta, tuleb kasutada QUERY_STRINGi. Kasutades PATH_INFO režiimi, peab blogi URL lõppema "/" ja kasutades QUERY_STRING, peab see lõppema "?".</dd>
-
-  <dt>Blogi staatus</dt>
-  <dd>
-    <ul>
-      <li><strong>Online:</strong> Blogi avatud külastajatele.</li>
-      <li><strong>Offline:</strong> Blogi külastajatele suletud, kuid kirjutajatele avatud.</li>
-      <li><strong>Eemaldatud:</strong> Blogi suletud nii külastajatele kui ka kirjutajatele, avatud ainult superadministraatoritele.</li>
-    </ul>
-  </dd>
-
-  <dt>Blogi kirjeldus</dt>
-  <dd>Siia saate oma blogi jaoks panna mis tahes kirjelduse. See on lihtne tekst, ilma igasuguse vormindamiseta.</dd>
-</dl>
-
-<h4>Blogi konfiguratsioon</h4>
-<dl>
-  <dt>Blogi toimetaja nimi</dt>
-  <dd>Blogi eest vastutava isiku nimi. See võib olla omanik või kirjastaja, kui see on olemas. See teave kuvatakse blogi feedis.</dd>
-
-  <dt>Vaikimisi keel</dt>
-  <dd>Blogi kasutajaliidese keel. Kas see keel on saadaval ja kasutajaliides tõlgitakse, või ei ole ja kasutajaliides on vaikimisi ingliskeelne.</dd>
-
-  <dt>Blogi ajavöönd</dt>
-  <dd>Määratleb ajavööndi, mida kasutatakse kommentaaride ja tagasiside puhul.</dd>
-
-  <dt>Autoriõiguse teatis</dt>
-  <dd>Märkus blogi reprodutseerimisõiguste kohta.</dd>
-
-  <dt>Uus postituse URL-vorming</dt>
-  <dd>URL-vormingu valimiseks valige rippmenüü.</dd>
-
-  <dt>HTML-tähe pealkirja jaoks märkuste blogi</dt>
-  <dd>Dropdown-loend HTML-tähe valimiseks.</dd>
-
-  <dt>XML/RPC liides</dt>
-  <dd>Võimaldab välistel klientidel suhelda teie blogiga XML/RPC-protokolli kaudu. Pärast aktiveerimist kuvatakse vajalikud parameetrid, mis tuleb määrata teie välistele klientidele.</dd>
-</dl>
-
-<h4>Kommentaarid ja tagasiside</h4>
-<dl>
-  <dt>Nõustuge kommentaaridega</dt>
-  <dd>Ülemaailmselt aktsepteerib kommentaare blogis. On ülimuslik postitusepõhise seadistuse suhtes.</dd>
-
-  <dt>Mõõdukad kommentaarid</dt>
-  <dd>Selle valikuga avaldatakse kommentaarid alles pärast toimetuse nõusolekut.</dd>
-
-  <dt>Jäta kommentaarid avatuks X päevaks</dt>
-  <dd>Päevade arv, mille jooksul on kommentaarid pärast postituse avaldamist avatud. Kui see on tühi, jäävad kommentaarid tähtajatult avatuks.</dd>
-
-  <dt>Wiki süntaks kommentaaride jaoks</dt>
-  <dd>Võimaldab kommentaarides kasutada wiki süntaksi alamhulka.</dd>
-
-  <dt>Võtke vastu tagasisideid</dt>
-  <dd>Ülemaailmselt aktsepteerib tagasisideid blogis. On ülimuslik postituse kohta tehtud seadistuse suhtes.</dd>
-
-  <dt>Mõõdukas tagasiside</dt>
-  <dd>Selle valikuga avaldatakse tagasiside ainult pärast toimetuse nõusolekut.</dd>
-
-  <dt>Jäta tagasiside avatud X päevaks</dt>
-  <dd>Päevade arv, mille jooksul tagasiside on pärast postituse avaldamist avatud. Kui see on tühi, siis jäävad tagasisidejäljed lõputult avatuks.</dd>
-
-  <dt>Lisage kommentaaridele ja tagasiside linkidele "nofollow" seos</dt>
-  <dd>Lisab kommentaaride ja tagasiside linkidele atribuudi, mis annab otsinguprogrammidele korralduse neid mitte järgida. See spämmivastane funktsioon ei ole veel oma väärtust tõestanud.</dd>
-</dl>
-
-<h4>Blogi esitlus</h4>
-<dl>
-  <dt>Kuupäeva formaat</dt>
-  <dd>Määratleb blogipostituste kuupäevaformaadi. Lisateavet leiate jaotisest "Formaatviide" allpool. Võite kasutada ripploendistikku, et kiiresti valida eelnevalt olemasolev muster.</dd>
-
-  <dt>Aja formaat</dt>
-  <dd>Määratleb blogipostituste ajaformaadi. Lisateavet leiate jaotisest "Formaatviide" allpool. Võite kasutada ripploendistikku, et kiiresti valida eelnevalt olemasolev muster.</dd>
-
-  <dt>Kuvada smilies sissekannete ja kommentaaride juures</dt>
-  <dd>Muudab mõned stringid nagu :-) või ;-) piltideks.</dd>
-
-  <dt>Näita X kirjet lehekülje kohta</dt>
-  <dd>Kuvab X kirjet nii blogi pealehel kui ka erinevates kategooriates.</dd>
-
-  <dt>Näita X kirjet sööda kohta</dt>
-  <dd>Kuvab blogis X sissekannet.</dd>
-
-  <dt>Näita X kommentaari ühe sööda kohta</dt>
-  <dd>Kuvab X kommentaari blogi kommentaaride voogudes.</dd>
-
-  <dt>Söötade kärpimine</dt>
-  <dd>See valik annab ainult kokkuvõtte blogipostitustest feedides.</dd>
-
-  <dt>Kaasa alamkategooriad kategooria lehel ja kategooria postituste voogus</dt>
-  <dd>Kui see valik on aktiveeritud, kuvatakse alamkategooriate postitused nii vanemkategooriate lehekülgedel kui ka nende voogudes.</dd>
-</dl>
-
-<h4>Meedia ja pildid</h4>
-<dl>
-  <dt>Genereeritud pildi suurused (pikslites)</dt>
-  <dd>Kui lisate meediahalduris pildi, genereeritakse automaatselt ka muud suurused. Siin saate määrata iga tüüpi genereeritud piltide pikima suuruse (laius või kõrgus) mõõtmed. Kui jätate ühe välja tühjaks, ei loo meediahaldur vastavat miniatuuri.</dd>
-
-  <dt>Vaikimisi pildi sisestamise atribuudid</dt>
-  <dd>Valitud seaded kehtivad kõigile uutele meediahaldurisse lisatud piltidele.</dd>
-
-  <dt>Sisestatud pildi pealkiri</dt>
-  <dd>Valige oma piltidele kohaldatavate "pealkirjasiltide" formaat, mis põhineb piltide metaandmetest saadud teabel.</dd>
-
-  <dt>Võimaluse korral kasutage originaalkandidaati</dt>
-  <dd>Kui see valik on aktiveeritud, kasutatakse seda, kui pildi metaandmed sisaldavad kuupäeva. Kui ei ole, kasutatakse üleslaadimise kuupäeva.</dd>
-
-  <dt>Sisestatud pildi suurus</dt>
-  <dd>Määrab vaikimisi suuruse, mida kasutatakse pildi lisamisel blogipostitusse.</dd>
-
-  <dt>Pildi joondamine</dt>
-  <dd>Määrab vaikimisi joonduse, mida kasutatakse pildi sisestamisel blogipostitusse.</dd>
-
-  <dt>Lisage link originaalpildile</dt>
-  <dd>Kui see valik on aktiveeritud, on blogipostitusse sisestatud pildid klõpsatavad ja viitavad originaalsuuruses pildile.</dd>
-
-</dl>
-
-<h4>Otsingumootorite robotite poliitika</h4>
-<p>Siin saate märkida, kas soovite, et veebi otsingumootorid indekseeriksid ja/või arhiveeriksid teie lehekülgi või mitte. Valige viimane valik, kui te ei soovi, et inimesed saaksid teie blogi veebiotsingumootori abil üles leida.</p>
-
-<h4>Antispam</h4>
-<p>Saate määrata päevade arvu, mille möödumisel soovite, et rämpskommentaarid automaatselt kustutatakse. Selle funktsiooni deaktiveerimiseks jätke see väli tühjaks (või sisestage 0).</p>
-
-<h4>Kasutajad</h4>
-<p>Loetleb selle blogi kasutajaid ja nende õigusi.</p>
-
-<h3>Formaatviide</h3>
-<p>Mõnda välja saab konfigureerida, et vormindada kuupäev ja kellaaeg vastavalt teie vajadustele.
-Siin on viide:</p>
-
-<ul>
-  <li><strong>%a:</strong> Lühendatud nädalapäev (kohalik).</li>
-  <li><strong>%A:</strong> Täielik nädalapäev (kohalik).</li>
-  <li><strong>%b:</strong> Kuu lühendatud nimi (kohalik).</li>
-  <li><strong>%B:</strong> Täielik kuu nimi (kohalik).</li>
-  <li><strong>%c:</strong> Kohaliku kuupäeva ja kellaaja vaikimisi kuvamine.</li>
-  <li><strong>%C:</strong> Sajand (aasta, jagatud 100-ga ja
-  ümardatud 00 ja 99 vahel)</li>
-  <li><strong>%d:</strong> Numbriline kuu päev (01 kuni 31)</li>
-  <li><strong>%D:</strong> Identne %m/%d/%y.</li>
-  <li><strong>%e:</strong> Numbriline kuu päev (1 kuni 31)</li>
-  <li><strong>%g:</strong> Identne %G, 2 numbrit.</li>
-  <li><strong>%G:</strong> 4-kohaline aasta, vastavalt nädala numbrile
-  (vt %V). Vorming ja väärtus on identne %Y, välja arvatud juhul, kui
-  nädala number kuulub eelnevasse või järgnevasse aastasse, kasutatakse selle asemel jooksvat aastat
-  .</li>
-  <li><strong>%h:</strong> Identne %b</li>
-  <li><strong>%H:</strong> Digitaalne kellaaeg, 24H režiim
-  (00 kuni 23)</li>
-  <li><strong>%I:</strong> Digitaalne kellaaeg, 12H režiim
-  (01 kuni 12)</li>
-  <li><strong>%j:</strong> Aasta päev, digitaalne (001 kuni 366)</li>
-  <li><strong>%m:</strong> Kuu, digitaalne (alates 1 kuni 12)</li>
-  <li><strong>%M:</strong> Minute, digitaalne</li>
-  <li><strong>%n:</strong> Uus rida märk</li>
-  <li><strong>%p:</strong> kas `am' või `pm', vastavalt absoluutsele ajale,
-  või sõltuvalt kohalikest seadetest.</li>
-  <li><strong>%r:</strong> Tund, hommikune ja õhtune formaat</li>
-  <li><strong>%R:</strong> Tund, 24h formaat</li>
-  <li><strong>%S:</strong> sekundid, digitaalne</li>
-  <li><strong>%t:</strong> Registreerimismärk</li>
-  <li><strong>%T:</strong> Praegune kellaaeg (sama mis %H:%M:%S)</li>
-  <li><strong>%u:</strong> nädalapäev, number, 1 kuni 7. (1 tähistab esmaspäeva)</li>
-  <li><strong>%U:</strong> nädala number, aasta esimene pühapäev on
-  esimese nädala esimene päev.</li>
-  <li><strong>%V:</strong> Nädalanumber, nagu on määratletud ISO
-  8601:1988, digitaalne, 01 kuni 53. Nädal 1 on esimene nädal
-  , millel on jooksval aastal rohkem kui 4 päeva ja mille esimene päev on esmaspäev.
-  (Kasutage %G või %g aastaelementide jaoks, mis vastavad
-  nädala numbrile vaadeldava ajatempli puhul).</li>
-  <li><strong>%W:</strong> aasta nädala number, kusjuures aasta esimene esmaspäev
-  on aasta esimese nädala algus.</li>
-  <li><strong>%w:</strong> nädalapäev, digitaalne, 0 tähistab pühapäeva.</li>
-  <li><strong>%x:</strong> Kuupäeva eelistatud vorming ilma kellaaegadeta</li>
-  <li><strong>%X:</strong> Eelistatud vorming kellaaja jaoks ilma kuupäevata</li>
-  <li><strong>%y:</strong> kahekohaline aastaarv (00 kuni 99)</li>
-  <li><strong>%Y:</strong> Aasta, neli numbrit</li>
-  <li><strong>%Z </strong> <strong> või %z:</strong> ajavöönd, nimi või lühend</li>
-  <li><strong>%%:</strong> Kirjalik `%' märk</li>
-</ul>
-
+  <h4>Blogi üksikasjad</h4>
+  <dl>
+    <dt>Blogi ID</dt>
+    <dd>Blogi unikaalne ID. Kohustuslik, saab muuta ainult superadministraator.</dd>
+    <dt>Blogi nimi</dt>
+    <dd>Blogi nimi, kohustuslik. Seda saab igal ajal muuta, ilma et see mõjutaks blogi toimimist.</dd>
+    <dt>Blogi URL</dt>
+    <dd>Täielik blogi URL. Kohustuslik, saab muuta ainult superadministraator.</dd>
+    <dt>URL-skaneerimise meetod</dt>
+    <dd>Määratleb URL-i lugemise viisi. PATH_INFO on soovitatav, kui PATH_INFO ei tööta, tuleb kasutada QUERY_STRINGi. Kasutades PATH_INFO režiimi, peab blogi URL lõppema "/" ja kasutades QUERY_STRING, peab see lõppema "?".</dd>
+    <dt>Blogi staatus</dt>
+    <dd>
+      <ul>
+        <li><strong>Online:</strong> Blogi avatud külastajatele.</li>
+        <li><strong>Offline:</strong> Blogi külastajatele suletud, kuid kirjutajatele avatud.</li>
+        <li><strong>Eemaldatud:</strong> Blogi suletud nii külastajatele kui ka kirjutajatele, avatud ainult superadministraatoritele.</li>
+      </ul>
+    </dd>
+    <dt>Blogi kirjeldus</dt>
+    <dd>Siia saate oma blogi jaoks panna mis tahes kirjelduse. See on lihtne tekst, ilma igasuguse vormindamiseta.</dd>
+  </dl>
+  <h4>Blogi konfiguratsioon</h4>
+  <dl>
+    <dt>Blogi toimetaja nimi</dt>
+    <dd>Blogi eest vastutava isiku nimi. See võib olla omanik või kirjastaja, kui see on olemas. See teave kuvatakse blogi feedis.</dd>
+    <dt>Vaikimisi keel</dt>
+    <dd>Blogi kasutajaliidese keel. Kas see keel on saadaval ja kasutajaliides tõlgitakse, või ei ole ja kasutajaliides on vaikimisi ingliskeelne.</dd>
+    <dt>Blogi ajavöönd</dt>
+    <dd>Määratleb ajavööndi, mida kasutatakse kommentaaride ja tagasiside puhul.</dd>
+    <dt>Autoriõiguse teatis</dt>
+    <dd>Märkus blogi reprodutseerimisõiguste kohta.</dd>
+    <dt>Uus postituse URL-vorming</dt>
+    <dd>URL-vormingu valimiseks valige rippmenüü.</dd>
+    <dt>HTML-tähe pealkirja jaoks märkuste blogi</dt>
+    <dd>Dropdown-loend HTML-tähe valimiseks.</dd>
+    <dt>XML/RPC liides</dt>
+    <dd>Võimaldab välistel klientidel suhelda teie blogiga XML/RPC-protokolli kaudu. Pärast aktiveerimist kuvatakse vajalikud parameetrid, mis tuleb määrata teie välistele klientidele.</dd>
+  </dl>
+  <h4>Kommentaarid ja tagasiside</h4>
+  <dl>
+    <dt>Nõustuge kommentaaridega</dt>
+    <dd>Ülemaailmselt aktsepteerib kommentaare blogis. On ülimuslik postitusepõhise seadistuse suhtes.</dd>
+    <dt>Mõõdukad kommentaarid</dt>
+    <dd>Selle valikuga avaldatakse kommentaarid alles pärast toimetuse nõusolekut.</dd>
+    <dt>Jäta kommentaarid avatuks X päevaks</dt>
+    <dd>Päevade arv, mille jooksul on kommentaarid pärast postituse avaldamist avatud. Kui see on tühi, jäävad kommentaarid tähtajatult avatuks.</dd>
+    <dt>Wiki süntaks kommentaaride jaoks</dt>
+    <dd>Võimaldab kommentaarides kasutada wiki süntaksi alamhulka.</dd>
+    <dt>Võtke vastu tagasisideid</dt>
+    <dd>Ülemaailmselt aktsepteerib tagasisideid blogis. On ülimuslik postituse kohta tehtud seadistuse suhtes.</dd>
+    <dt>Mõõdukas tagasiside</dt>
+    <dd>Selle valikuga avaldatakse tagasiside ainult pärast toimetuse nõusolekut.</dd>
+    <dt>Jäta tagasiside avatud X päevaks</dt>
+    <dd>Päevade arv, mille jooksul tagasiside on pärast postituse avaldamist avatud. Kui see on tühi, siis jäävad tagasisidejäljed lõputult avatuks.</dd>
+    <dt>Lisage kommentaaridele ja tagasiside linkidele "nofollow" seos</dt>
+    <dd>Lisab kommentaaride ja tagasiside linkidele atribuudi, mis annab otsinguprogrammidele korralduse neid mitte järgida. See spämmivastane funktsioon ei ole veel oma väärtust tõestanud.</dd>
+  </dl>
+  <h4>Blogi esitlus</h4>
+  <dl>
+    <dt>Kuupäeva formaat</dt>
+    <dd>Määratleb blogipostituste kuupäevaformaadi. Lisateavet leiate jaotisest "Formaatviide" allpool. Võite kasutada ripploendistikku, et kiiresti valida eelnevalt olemasolev muster.</dd>
+    <dt>Aja formaat</dt>
+    <dd>Määratleb blogipostituste ajaformaadi. Lisateavet leiate jaotisest "Formaatviide" allpool. Võite kasutada ripploendistikku, et kiiresti valida eelnevalt olemasolev muster.</dd>
+    <dt>Kuvada smilies sissekannete ja kommentaaride juures</dt>
+    <dd>Muudab mõned stringid nagu :-) või ;-) piltideks.</dd>
+    <dt>Näita X kirjet lehekülje kohta</dt>
+    <dd>Kuvab X kirjet nii blogi pealehel kui ka erinevates kategooriates.</dd>
+    <dt>Näita X kirjet sööda kohta</dt>
+    <dd>Kuvab blogis X sissekannet.</dd>
+    <dt>Näita X kommentaari ühe sööda kohta</dt>
+    <dd>Kuvab X kommentaari blogi kommentaaride voogudes.</dd>
+    <dt>Söötade kärpimine</dt>
+    <dd>See valik annab ainult kokkuvõtte blogipostitustest feedides.</dd>
+    <dt>Kaasa alamkategooriad kategooria lehel ja kategooria postituste voogus</dt>
+    <dd>Kui see valik on aktiveeritud, kuvatakse alamkategooriate postitused nii vanemkategooriate lehekülgedel kui ka nende voogudes.</dd>
+  </dl>
+  <h4>Meedia ja pildid</h4>
+  <dl>
+    <dt>Genereeritud pildi suurused (pikslites)</dt>
+    <dd>Kui lisate meediahalduris pildi, genereeritakse automaatselt ka muud suurused. Siin saate määrata iga tüüpi genereeritud piltide pikima suuruse (laius või kõrgus) mõõtmed. Kui jätate ühe välja tühjaks, ei loo meediahaldur vastavat miniatuuri.</dd>
+    <dt>Vaikimisi pildi sisestamise atribuudid</dt>
+    <dd>Valitud seaded kehtivad kõigile uutele meediahaldurisse lisatud piltidele.</dd>
+    <dt>Sisestatud pildi pealkiri</dt>
+    <dd>Valige oma piltidele kohaldatavate "pealkirjasiltide" formaat, mis põhineb piltide metaandmetest saadud teabel.</dd>
+    <dt>Võimaluse korral kasutage originaalkandidaati</dt>
+    <dd>Kui see valik on aktiveeritud, kasutatakse seda, kui pildi metaandmed sisaldavad kuupäeva. Kui ei ole, kasutatakse üleslaadimise kuupäeva.</dd>
+    <dt>Sisestatud pildi suurus</dt>
+    <dd>Määrab vaikimisi suuruse, mida kasutatakse pildi lisamisel blogipostitusse.</dd>
+    <dt>Pildi joondamine</dt>
+    <dd>Määrab vaikimisi joonduse, mida kasutatakse pildi sisestamisel blogipostitusse.</dd>
+    <dt>Lisage link originaalpildile</dt>
+    <dd>Kui see valik on aktiveeritud, on blogipostitusse sisestatud pildid klõpsatavad ja viitavad originaalsuuruses pildile.</dd>
+  </dl>
+  <h4>Otsingumootorite robotite poliitika</h4>
+  <p>Siin saate märkida, kas soovite, et veebi otsingumootorid indekseeriksid ja/või arhiveeriksid teie lehekülgi või mitte. Valige viimane valik, kui te ei soovi, et inimesed saaksid teie blogi veebiotsingumootori abil üles leida.</p>
+  <h4>Antispam</h4>
+  <p>Saate määrata päevade arvu, mille möödumisel soovite, et rämpskommentaarid automaatselt kustutatakse. Selle funktsiooni deaktiveerimiseks jätke see väli tühjaks (või sisestage 0).</p>
+  <h4>Kasutajad</h4>
+  <p>Loetleb selle blogi kasutajaid ja nende õigusi.</p>
+  <h3>Formaatviide</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a:</strong> Lühendatud nädalapäev (kohalik).</li>
+    <li><strong>%A:</strong> Täielik nädalapäev (kohalik).</li>
+    <li><strong>%b:</strong> Kuu lühendatud nimi (kohalik).</li>
+    <li><strong>%B:</strong> Täielik kuu nimi (kohalik).</li>
+    <li><strong>%c:</strong> Kohaliku kuupäeva ja kellaaja vaikimisi kuvamine.</li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d:</strong> Numbriline kuu päev (01 kuni 31)</li>
+    <li><strong>%D:</strong> Identne %m/%d/%y.</li>
+    <li><strong>%e:</strong> Numbriline kuu päev (1 kuni 31)</li>
+    <li><strong>%g:</strong> Identne %G, 2 numbrit.</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h:</strong> Identne %b</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j:</strong> Aasta päev, digitaalne (001 kuni 366)</li>
+    <li><strong>%m:</strong> Kuu, digitaalne (alates 1 kuni 12)</li>
+    <li><strong>%M:</strong> Minute, digitaalne</li>
+    <li><strong>%n:</strong> Uus rida märk</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r:</strong> Tund, hommikune ja õhtune formaat</li>
+    <li><strong>%R:</strong> Tund, 24h formaat</li>
+    <li><strong>%S:</strong> sekundid, digitaalne</li>
+    <li><strong>%t:</strong> Registreerimismärk</li>
+    <li><strong>%T:</strong> Praegune kellaaeg (sama mis %H:%M:%S)</li>
+    <li><strong>%u:</strong> nädalapäev, number, 1 kuni 7. (1 tähistab esmaspäeva)</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w:</strong> nädalapäev, digitaalne, 0 tähistab pühapäeva.</li>
+    <li><strong>%x:</strong> Kuupäeva eelistatud vorming ilma kellaaegadeta</li>
+    <li><strong>%X:</strong> Eelistatud vorming kellaaja jaoks ilma kuupäevata</li>
+    <li><strong>%y:</strong> kahekohaline aastaarv (00 kuni 99)</li>
+    <li><strong>%Y:</strong> Aasta, neli numbrit</li>
+    <li><strong>%Z </strong> <strong> või %z:</strong> ajavöönd, nimi või lühend</li>
+    <li><strong>%%:</strong> Kirjalik `%' märk</li>
+  </ul>
 </body>
+
 </html>
