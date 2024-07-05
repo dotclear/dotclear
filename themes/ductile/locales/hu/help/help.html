@@ -1,83 +1,52 @@
 <html>
-<head>
 
-<title>Duktilis konfiguráció</title>
+<head>
+  <title>Duktilis konfiguráció</title>
 </head>
 
 <body>
-<p>A Ductile téma konfigurációjának módosításával nagyon könnyen személyre szabhatja a témát</p>
-
-<h3>A tartalom személyre szabása</h3>
-<p>Ezen a lapon személyre szabhatja blogja tartalmát.</p>
-<dl>
-  <dt>Fejléc</dt>
+  <p>A Ductile téma konfigurációjának módosításával nagyon könnyen személyre szabhatja a témát</p>
+  <h3>A tartalom személyre szabása</h3>
+  <p>Ezen a lapon személyre szabhatja blogja tartalmát.</p>
+  <dl>
+    <dt>Fejléc</dt>
     <dd>Jelölje be a "Blog leírásának elrejtése" jelölőnégyzetet, hogy ne jelenjen meg a blog leírása, amely általában a cím alatt jelenik meg.</dd>
-
-<p>Ha a "Simple menu" plugin telepítve és aktív, akkor a kijelölt linkre kattintva beállíthatja a fejléc menüjét. (főmenü?)</p>
-
-<p>Adja meg az alapértelmezett logó helyett használandó logó URL-címét. Ha az URL nem kezdődik <code>/</code> címmel, akkor a téma <code>img</code> mappájából származó relatív URL lesz (a <code>logo.png</code>például hasonló az alapértelmezett logó használatához). Törölje ezt a mezőt, hogy visszatérjen az alapértelmezett konfigurációhoz.</p>
-
-  <dt>Matricák</dt>
-    <dd>A matricák a nagy képernyőkön a képernyő tetején kis képként, a nagyon kis képernyőkön pedig az oldal alján jelennek meg. Minden olyan kép, amelynek fájlneve megfelel a matrica-*.png sémának, és a téma img almappájában van elhelyezve, fel van sorolva. Mindegyikhez megadhat egy címkét és a megfelelő url-t. (Ha mindkét mezőt üresen hagyja, akkor nem jelenik meg.)<br />
-A megjelenítési sorrendet drag and drop segítségével is módosíthatja, ha a javascript aktiválva van, és ha nem tiltotta le a beállítások között. Ha a javascript ki van kapcsolva, egy mezőben megadhatja a megjelenítési sorrendet (1-től n-ig).</dd>
-
-  <dt>A hozzászólások listáinak típusai és korlátai</dt>
-
-    <dd>A blogod néhány megjelenítési kontextusa a hozzászólások listája formájában jelenik meg. Ilyen például a kezdőlap vagy a havi archívum. A táblázatban felsorolt kontextusok mindegyikénél megadhatja, hogy az egyes megjelenített bejegyzések tartalma csak címként, rövid formában (az első 300 karakteres kivonatmező tartalma) vagy teljes formában jelenjen meg. NB. A kezdőlapon az első bejegyzés mindig teljes formában jelenik meg.<br />
-Ezen túlmenően néhány kontextus esetében megadhatja az oldalonként megjelenített bejegyzések számát is. Ha ezt a mezőt üresen hagyja, akkor a blog általános beállításaiban megadott értéket fogja használni.</dd>
-
-</dl>
-
-<h3>A prezentáció személyre szabása</h3>
-<p>Ezen a lapon személyre szabhatja blogja néhány megjelenítési elemét.</p>
-
-<h4>Általános paraméterek</h4>
-
-<p>Ezek a paraméterek a blog minden megjelenítési szélességénél használatosak lesznek.</p>
-<dl>
-  <dt>Betűtípusok</dt>
+    <p>Ha a "Simple menu" plugin telepítve és aktív, akkor a kijelölt linkre kattintva beállíthatja a fejléc menüjét. (főmenü?)</p>
+    <p>Adja meg az alapértelmezett logó helyett használandó logó URL-címét. Ha az URL nem kezdődik <code>/</code> címmel, akkor a téma <code>img</code> mappájából származó relatív URL lesz (a <code>logo.png</code>például hasonló az alapértelmezett logó használatához). Törölje ezt a mezőt, hogy visszatérjen az alapértelmezett konfigurációhoz.</p>
+    <dt>Matricák</dt>
+    <dd>The stickers will be displayed at the top of the screen as small images on large screens and at the bottom of the page on very small screens. All images which file name correspond to the sticker-*.png scheme and placed in the sub-folder img of the theme are listed. You can indicate for each a label and the corresponding url. (Leave on of both fields empty to not display it.)<br>You can also modify the display order with a drag and drop if javascript is activated and if you have not disabled it in your preferences. If javascript is deactivated, a field allows you to indicate the order of display (1 to n).</dd>
+    <dt>A hozzászólások listáinak típusai és korlátai</dt>
+    <dd>Some of the display contexts of your blog present under the form of a list of posts. It's the case for example for the home page or for the monthly archives. For each of the context listed in the table, you can specify if the content of each displayed post should be as a title only, a short form (content of the extract field of first 300 characters) or their full form. NB. On the home page, the first post always displays in full.<br>Moreover, for some of those contexts, you can also specify the number of posts displayed per page. If you leave this field empty, the value specified in the general settings of the blog that will be used.</dd>
+  </dl>
+  <h3>A prezentáció személyre szabása</h3>
+  <p>Ezen a lapon személyre szabhatja blogja néhány megjelenítési elemét.</p>
+  <h4>Általános paraméterek</h4>
+  <p>Ezek a paraméterek a blog minden megjelenítési szélességénél használatosak lesznek.</p>
+  <dl>
+    <dt>Betűtípusok</dt>
     <dd>Itt választhatja ki a fő betűtípuscsaládot, amelyet a szövegek többségénél használni fog. Megadhat egy második (másodlagos) betűtípuscsaládot is, amelyet a második szint egyes címeihez és a megjegyzésekhez fog használni. Az "alapértelmezett" opció lehetővé teszi az eredeti választás meghagyását.</dd>
-
-  <dt>Blog címe</dt>
-
-    <dd>Itt adhatja meg, hogy a blog címe félkövérrel jelenjen-e meg, a méretét (alapértelmezett az em, a felismert egységek %, pt, px, em és ex), valamint a színét, a #rrggbb formátumot használva, ahol az rr, gg és bb a 0 és ff értékeken belül választható.<br />
-Ürítse ki az egyik vagy az összes mezőt a választás visszavonásához és az alapértelmezetthez való visszatéréshez.</dd>
-
-
-  <dt>Poszt címek</dt>
-    <dd>Itt megadhatja, hogy a bejegyzések címei félkövéren jelenjenek-e meg, a méretüket (alapértelmezett az em, a felismert egységek %, pt, px, em és ex), valamint a színüket a színválasztó ikonra kattintva elérhető Színválasztó segítségével, vagy a szín megadásával a #rrggbb formátumban, ahol az rr, gg és bb a 0 és ff értékeken belül van kiválasztva.<br />
-Ürítse ki az egyik vagy az összes mezőt a választás visszavonásához és az eredetihez való visszatéréshez.</dd>
-
-  <dt>Címek link nélkül</dt>
-    <dd>Itt adhatja meg a link nélküli címek színét (lényegében : a bejegyzés címe, amikor önmagában jelenik meg, a bejegyzéseken belüli alcímek, a vízszintes menü aktív eleme) a színválasztó ikonra kattintva elérhető Színválasztó segítségével, vagy a szín megadásával a #rrggbb formátumban, ahol az rr, gg és bb a 0 és ff értékeken belül van kiválasztva.<br />
-Ürítse ki az egyik vagy az összes mezőt a választás visszavonásához és az alapértelmezetthez való visszatéréshez.</dd>
-
-  <dt>Linkek a hozzászólásokon belül</dt>
-    <dd>Itt megadhatja, hogy a hozzászólásaiban található linkek félkövéren jelenjenek-e meg vagy sem, és meghatározhatja a színüket normál állapotban, valamint "látogatott" állapotban, a színüket, amikor aktívak, vagy amikor rájuk mozognak, vagy amikor fókuszt kapnak, a színválasztó ikonra kattintva elérhető Színválasztó használatával, vagy a szín megadásával a #rrggbb formátumban, ahol az rr, gg és bb a 0 és ff értékeken belül van kiválasztva.<br />
-Ürítse ki az egyik vagy az összes mezőt a választás visszavonásához és az alapértelmezetthez való visszatéréshez.</dd>
-
-<h4>A mobiltelefonokra vonatkozó különleges paraméterek</h4>
-
-<p>Ezek a paraméterek csak akkor használatosak, ha a kijelző szélessége 480 pixelnél kisebb (például mobiltelefonokon). Ha ezek meg vannak adva, akkor a fenti általános paramétereknél megadott egyenértékű paraméterek helyébe lépnek.</p>
-
-  <dt>Blog címe</dt>
-
-    <dd>Itt adhatja meg, hogy a blog címe félkövérrel jelenjen-e meg, a méretét (alapértelmezett az em, a felismert egységek %, pt, px, em és ex), valamint a színét, a #rrggbb formátumot használva, ahol az rr, gg és bb a 0 és ff értékeken belül választható.<br />
-Ürítse ki az egyik vagy az összes mezőt a választás visszavonásához és az alapértelmezetthez való visszatéréshez.</dd>
-
-
-  <dt>Poszt címek</dt>
-    <dd>Itt megadhatja, hogy a bejegyzések címei félkövéren jelenjenek-e meg, a méretüket (alapértelmezett az em, a felismert egységek %, pt, px, em és ex), valamint a színüket a színválasztó ikonra kattintva elérhető Színválasztó segítségével, vagy a szín megadásával a #rrggbb formátumban, ahol az rr, gg és bb a 0 és ff értékeken belül van kiválasztva.<br />
-Ürítse ki az egyik vagy az összes mezőt a választás visszavonásához és az alapértelmezetthez való visszatéréshez.</dd>
-
-<h3>Hozzáférhetőség és a színek közötti kontraszt</h3>
-
-<p>A szín kiválasztása után a kontrasztarány megjelenik a mező mellett, és ha ez a helyzet, akkor a kontraszt megfelel a WCAG 2.0 ajánlásainak. Ahhoz, hogy érvényes legyen, a háttérszín és a betűszín közötti kontrasztnak a következő értékeket kell elérnie:</p>
-<ul>
-<li>Legalább 4,5:1 a normál méretű szöveghez az AA szinthez ;</li>
-<li>Legalább 7:1 a normál méretű szövegeknél az AAA szinthez ;</li>
-<li>Legalább 3:1 a nagyított méretű szövegeknél (150 % vagy 120 % félkövér) az AA szint esetében;</li>
-<li>Legalább 4,5:1 a nagyított méretű (150 % vagy 120 % félkövér) szövegek esetében az AAA szint esetében.</li>
-</ul>
+    <dt>Blog címe</dt>
+    <dd>You can specify here if the blog title must be displayed in bold, its size, (default is em, recognized units are %, pt, px, em and ex) as well as the color, using the format #rrggbb with rr, gg and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>Poszt címek</dt>
+    <dd>You can indicate here if the post titles should be displayed in bold, their size (default is em, recognized units are %, pt, px, em and ex) as well as their color using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to your original one.</dd>
+    <dt>Címek link nélkül</dt>
+    <dd>You can specify here the color of titles without a link (essentially : the title of a post when it is displayed by itself, sub-titles within posts, the active item in the horizontal menu) by using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>Linkek a hozzászólásokon belül</dt>
+    <dd>You can indicate here if the links contained in your posts should be displayed in bold or not and define their color at a normal state as well as a "visited" state, their color when active, or when they're hovered upon or take focus, by using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <h4>A mobiltelefonokra vonatkozó különleges paraméterek</h4>
+    <p>Ezek a paraméterek csak akkor használatosak, ha a kijelző szélessége 480 pixelnél kisebb (például mobiltelefonokon). Ha ezek meg vannak adva, akkor a fenti általános paramétereknél megadott egyenértékű paraméterek helyébe lépnek.</p>
+    <dt>Blog címe</dt>
+    <dd>You can specify here if the blog title must be displayed in bold, its size, (default is em, recognized units are %, pt, px, em and ex) as well as the color, using the format #rrggbb with rr, gg and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>Poszt címek</dt>
+    <dd>You can indicate here if the post titles should be displayed in bold, their size (default is em, recognized units are %, pt, px, em and ex) as well as their color using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <h3>Hozzáférhetőség és a színek közötti kontraszt</h3>
+    <p>A szín kiválasztása után a kontrasztarány megjelenik a mező mellett, és ha ez a helyzet, akkor a kontraszt megfelel a WCAG 2.0 ajánlásainak. Ahhoz, hogy érvényes legyen, a háttérszín és a betűszín közötti kontrasztnak a következő értékeket kell elérnie:</p>
+    <ul>
+      <li>Legalább 4,5:1 a normál méretű szöveghez az AA szinthez ;</li>
+      <li>Legalább 7:1 a normál méretű szövegeknél az AAA szinthez ;</li>
+      <li>Legalább 3:1 a nagyított méretű szövegeknél (150 % vagy 120 % félkövér) az AA szint esetében;</li>
+      <li>Legalább 4,5:1 a nagyított méretű (150 % vagy 120 % félkövér) szövegek esetében az AAA szint esetében.</li>
+    </ul>
 </body>
+
 </html>
