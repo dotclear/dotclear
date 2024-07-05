@@ -1,99 +1,72 @@
 <html>
-  <head>
-    <title>Gestor de elementos multimedia</title>
-  </head>
-  <body>
-    <h4>Lista de medios de comunicación</h4>
-    <p>The media manager's main page displays a list of available files (medias)
+
+<head>
+  <title>Gestor de elementos multimedia</title>
+</head>
+
+<body>
+  <h4>Lista de medios de comunicación</h4>
+  <p>The media manager's main page displays a list of available files (medias)
 for the currently selected blog.</p>
-
-    <p>You can click the icons or names of the medias in the folder or any
+  <p>You can click the icons or names of the medias in the folder or any
 subfolder to display them.</p>
-
-    <p>Selecting a MP3 sound file displays a player to immediately play
+  <p>Selecting a MP3 sound file displays a player to immediately play
 the file. The Flash plugin must be installed on your browser for
 this player to operate.</p>
-
-    <p>Las imágenes se muestran con una miniatura siempre que es posible.</p>
-
-    <h4>Añadir archivos</h4>
-    <dl>
-      <dt>Elegir archivo</dt>
-      <dd>Here you can select one of your local files to send it on your 
-  blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
-      
-      <dt>Título</dt>
-      <dd>Título opcional del fichero que desea enviar.</dd>
-      
-      <dt>Privado</dt>
-      <dd>Check this if you want the file to be private, i.e. accessible only by
-  its owner and not accessible from the blog.</dd>
-    </dl>
-
-    <dl>
-      <dt>File name</dt>
-      <dd>Permite seleccionar uno o varios de sus archivos locales para enviarlos en su blog. Si algún archivo supera el tamaño máximo, no se enviará.<br>
-	Cuando seleccionas varios archivos locales, se añaden a la cola. Puede añadir más archivos haciendo clic de nuevo en <strong>Elegir archivos</strong>. También puede eliminar archivos de la cola haciendo clic en el icono en forma de cruz roja correspondiente.<br>
-  Cuando esté listo, haga clic en <strong>Cargar</strong>.</dd>
-    </dl>
-
-    <h4>Eliminar archivos</h4>
-    <p>This form allows you to create an new subfolder in the currently displayed
+  <p>Las imágenes se muestran con una miniatura siempre que es posible.</p>
+  <h4>Añadir archivos</h4>
+  <dl>
+    <dt>Elegir archivo</dt>
+    <dd>Here you can select one of your local files to send it on your blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
+    <dt>Título</dt>
+    <dd>Título opcional del fichero que desea enviar.</dd>
+    <dt>Privado</dt>
+    <dd>Check this if you want the file to be private, i.e. accessible only by its owner and not accessible from the blog (until published).</dd>
+  </dl>
+  <dl>
+    <dt>File name</dt>
+    <dd>Allows to select one or several of your local files to send them on your blog. Should any file be bigger than the maximum size, it will not be sent.<br>When you select several local files, they are added to the queue. You can add more files by clicking again on <strong>Choose files</strong>. You can also remove files from the queue by clicking on the corresponding red cross-shaped icon.<br>When you are ready, click on <strong>Upload</strong>.</dd>
+  </dl>
+  <h4>Eliminar archivos</h4>
+  <p>This form allows you to create an new subfolder in the currently displayed
 folder. Just choose a name for it as you would do on your own computer.</p>
-
-    <h4>Nueva carpeta</h4>
-    <p>This page displays a set of informations about the currently selected
-file and allows you to perform a few operations.</p>
-
-    <h4>Detalles del medio</h4>
-    <p>When you add an image, depending of its size, up to four versions will be made available:</p>
-
-    <dl>
-      <dt>Nombre del archivo</dt>
-      <dd>Cambia el nombre del archivo actual.</dd>
-      
-      <dt>Título del archivo</dt>
-      <dd>Dar un título al fichero o cambiar el actual.</dd>
-      
-      <dt>Fecha del archivo</dt>
-      <dd>Cambia la fecha del archivo.</dd>
-      
-      <dt>Privado</dt>
-      <dd>Especifica que el archivo estará oculto para cualquiera excepto su propietario en el gestor de medios.</dd>
-      
-      <dt>Nuevo directorio</dt>
-      <dd>Permite mover el archivo a otra carpeta.</dd>
-      
-      <dt>Cambiar el archivo</dt>
-      <dd>Con este formulario, puede sustituir el archivo conservando todos los atributos
-      (nombre, título...). Como siempre, tienes que respetar el tamaño máximo del archivo.</dd>
-    </dl>
-
-    <h4>Caso concreto: imágenes</h4>
-    <p>You can easily attach a file to one of your posts. First, create a new post
+  <h4>Nueva carpeta</h4>
+  <p>This form allows you to create a new subfolder in the currently displayed folder. Just choose a name for it as you would do on your own computer.</p>
+  <h4>Detalles del medio</h4>
+  <p>When you add an image, depending of its size, up to four versions will be made available:</p>
+  <dl>
+    <dt>Nombre del archivo</dt>
+    <dd>Cambia el nombre del archivo actual.</dd>
+    <dt>Título del archivo</dt>
+    <dd>Dar un título al fichero o cambiar el actual.</dd>
+    <dt>Fecha del archivo</dt>
+    <dd>Cambia la fecha del archivo.</dd>
+    <dt>Privado</dt>
+    <dd>Especifica que el archivo estará oculto para cualquiera excepto su propietario en el gestor de medios.</dd>
+    <dt>Nuevo directorio</dt>
+    <dd>Permite mover el archivo a otra carpeta.</dd>
+    <dt>Cambiar el archivo</dt>
+    <dd>With this form, you can replace the file while keeping all the attributes (name, title...). As always, you have to respect the maximum file size.</dd>
+  </dl>
+  <h4>Caso concreto: imágenes</h4>
+  <p>You can easily attach a file to one of your posts. First, create a new post
 and save it. Then click on "Add files to this entry" to open the media manager.</p>
-    <ul>
-      <li><strong>square</strong>: a 48x48 pixels square thumbnail,</li>
-      <li><strong>thumbnail</strong>: the image reduced to 100 pixels on its longest side.</li>
-      <li><strong>small</strong>: the longuest side is reduced to 240 pixels.</li>
-      <li><strong>medium</strong>: the longuest side is reduced to 500 pixels.</li>
-      <li><strong>original</strong>: the original, unchanged image.</li>
-    </ul>
-    <p>Just click on the [+] icon (Attach this file to entry). The file will then
+  <ul>
+    <li><strong>square</strong>: a 48x48 pixels square thumbnail,</li>
+    <li><strong>thumbnail</strong>: the image reduced to 100 pixels on its longest side.</li>
+    <li><strong>small</strong>: the longuest side is reduced to 240 pixels.</li>
+    <li><strong>medium</strong>: the longuest side is reduced to 500 pixels.</li>
+    <li><strong>original</strong>: the original, unchanged image.</li>
+  </ul>
+  <p>Just click on the [+] icon (Attach this file to entry). The file will then
 be attached to the post.</p>
-
-    <h4>Adjuntar un archivo a una entrada</h4>
-    <p>The attached files will be shown on the post page, as a list beside the post content.
+  <h4>Adjuntar un archivo a una entrada</h4>
+  <p>The attached files will be shown on the post page, as a list beside the post content.
 The MP3 files will be made available through the Flash player, so that they can easily by read by visitors.</p>
+  <p>Just click on the [+] icon (Attach this file to entry). The file will then be attached to the post.</p>
+  <p>Los archivos adjuntos se mostrarán en la página de la entrada, como una lista después del contenido de la entrada. Los archivos MP3 estarán disponibles a través de un reproductor Flash, para que puedan ser reproducidos fácilmente por sus visitantes.</p>
+  <h4>Podcast y difusión de archivos musicales</h4>
+  <p>All attached files will be included in your blog feeds, allowing an easy podcasting of any type of file.</p>
+</body>
 
-    <p>All attached files will be included in your RSS feeds, allowing for easy
-podcasting of any type of file.</p>
-
-    <p>Los archivos adjuntos se mostrarán en la página de la entrada, como una lista después del contenido de la entrada. Los archivos MP3 estarán disponibles a través de un reproductor Flash, para que puedan ser reproducidos fácilmente por sus visitantes.</p>
-
-    <h4>Podcast y difusión de archivos musicales</h4>
-    <p>Todos los archivos adjuntos se incluirán en los feeds de su blog, lo que permite un podcasting sencillo en
-de cualquier tipo de archivo.</p>
-
-  </body>
 </html>
