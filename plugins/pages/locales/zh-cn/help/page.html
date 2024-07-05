@@ -1,99 +1,57 @@
 <html>
+
 <head>
   <title>编辑一个页面</title>
 </head>
 
 <body>
-
-
-<h4>编辑一个页面</h4>
-
-<dl>
-  <dt>页面标题</dt>
-  <dd>键入页面标题。这个字段是强制性的。</dd>
-
-  <dt>摘录</dt>
-  <dd>这个字段是可选的。</dd>
-
-  <dt>内容</dt>
-  <dd>你的页面的内容。这个字段是强制性的。</dd>
-
-  <dt>笔记</dt>
-  <dd>这个文本区是供个人使用的，用于记录或备忘。你在这里输入的内容
-  ，绝不会在博客上显示。</dd>
-
-  <dt>页面状态：</dt>
-  <dd>允许你选择你的页面状态：
-    <ul>
-      <li><strong>待定：</strong> 出版状态尚未决定（尚未出版）。</li>
-      <li><strong>预定的：</strong> 该页面将在 <em>Published on</em> 字段中设置的时间和日期
-      ，上线。</li>
-      <li><strong>未发表：</strong> 该页面处于离线状态。</li>
-      <li><strong>已发布：</strong> 该页面已上线。</li>
-    </ul>
-  </dd>
-
-  <dt>出版日期和时间</dt>
-  <dd>在这里你可以改变页面的发布日期和时间。如果该页
-  状态是 <em>预定</em>，它将在给定的日期和时间上线。</dd>
-
-  <dt>页面语言</dt>
-  <dd>选择你的条目的语言代码。它默认为你（作为
-  用户）的语言，但你可以把它改为你想要的任何语言代码，例如：
-  "en "或 "es-ar"。这个代码用于条目的显示。</dd>
-
-  <dt>文本格式化</dt>
-  <dd>选择页面的语法。Wiki是一种简化的语法
-  ，并将被转换为有效的HTML。除非你对HTML有一个完美的
-  ，否则我们建议你选择Wiki的语法。
-  更多信息请参见Wiki语法参考。</dd>
-
-  <dt>页面位置</dt>
-  <dd>根据这个数字对页面进行排序。
-  这个字段被 <strong>页面</strong> widget使用(<em>按页面位置排序</em>)。</dd>
-
-  <dt>附件</dt>
-  <dd>附件是添加到页面的媒体文件。你可以使用 <strong>添加文件到此条目</strong> 按钮来选择媒体文件添加到条目中。<br />
-    这个选项将在你保存你的条目后出现。<br />
-    请查看媒体管理器的帮助以了解更多信息。</dd>
-
-  <dt>接受评论</dt>
-  <dd>勾选此框，允许你的访问者在此页面上发表评论。相应的全局设置可以在博客设置中找到。</dd>
-
-  <dt>接受 trackbacks</dt>
-  <dd>回溯是一种方式，让你的页面的一部分作为评论在
-  另一个博客上。勾选此框，允许他人对你的页面进行跟踪。
-  相应的全局设置可以在博客设置中找到。</dd>
-
-  <dt>隐藏在小部件页面中</dt>
-  <dd>如果该选项被选中，该页面将被激活，但不会被列在页面小部件中。</dd>
-
-  <dt>密码</dt>
-  <dd>你可以为你的页面输入一个密码。
-  受密码保护的页面不会在你的博客上显示，它只能被那些你将
-  给予条目URL（见 <strong>转到该页面的网站</strong> 链接）和密码的人访问。
-
-  <dt>基地名称</dt>
-  <dd>通过点击它的锁，你可以解除对这个字段的保护，为你的页面选择另一个
-  URL。如果你想使用的URL已经被另一个
-  页面所使用，则会在其上添加一个数字。</dd>
-
-</dl>
-
-<h4>评论</h4>
-<dl>
-  <dt>意见清单</dt>
-  <dd>从标签 <em> Comments</em> ，你可以阅读和改变你页面上的状态
-  评论。根据你的权限，你可以编辑，
-  ，把在线或离线，删除或分类为评论
-  ，不可取。</dd>
-
-  <dt>添加一个评论</dt>
-  <dd>从标签 <em>添加评论</em> ，你可以直接添加或回答
-  ，而不必通过你的博客。这个界面将
-  ，也允许你用HTML输入你的评论，没有限制。你
-  ，必须按照编辑评论时的相同方式填写字段。</dd>
-</dl>
-
+  <h4>编辑一个页面</h4>
+  <dl>
+    <dt>页面标题</dt>
+    <dd>键入页面标题。这个字段是强制性的。</dd>
+    <dt>摘录</dt>
+    <dd>这个字段是可选的。</dd>
+    <dt>内容</dt>
+    <dd>你的页面的内容。这个字段是强制性的。</dd>
+    <dt>笔记</dt>
+    <dd>This text area is for personal use, for notes or memos. What you enter here will never be displayed on the blog.</dd>
+    <dt>页面状态：</dt>
+    <dd>允许你选择你的页面状态：
+      <ul>
+        <li><strong>待定：</strong> 出版状态尚未决定（尚未出版）。</li>
+        <li><strong>Scheduled:</strong> The page will be set online at the time and date set in the <em>Published on</em> field.</li>
+        <li><strong>未发表：</strong> 该页面处于离线状态。</li>
+        <li><strong>已发布：</strong> 该页面已上线。</li>
+      </ul>
+    </dd>
+    <dt>出版日期和时间</dt>
+    <dd>Here you can change the page publication date and time. If the page status is <em>Scheduled</em>, it will be online at the given date and time.</dd>
+    <dt>页面语言</dt>
+    <dd>Select the language code of your entry. It defaults to your (as a user) language but you can change it to whatever language code you want, e.g. "en" or "es-ar". This code is used for the entry's display.</dd>
+    <dt>文本格式化</dt>
+    <dd>Choose the page syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>页面位置</dt>
+    <dd>Orders pages according to this number. This field is used by the <strong>Pages</strong> widget (<em>Order by page position</em>).</dd>
+    <dt>附件</dt>
+    <dd>Attachments are media files added to the page. You can use the <strong>Add files to this entry</strong> button to select media files to add to the entry.<br>This option will appear after you save your entry.<br>Please check the Media manager help for more information.</dd>
+    <dt>接受评论</dt>
+    <dd>勾选此框，允许你的访问者在此页面上发表评论。相应的全局设置可以在博客设置中找到。</dd>
+    <dt>接受 trackbacks</dt>
+    <dd>A trackback is a way to let a portion of your page as a comment on another blog. Check this box to allow others to trackback your page. The corresponding global setting is to be found in the blog settings.</dd>
+    <dt>隐藏在小部件页面中</dt>
+    <dd>如果该选项被选中，该页面将被激活，但不会被列在页面小部件中。</dd>
+    <dt>密码</dt>
+    <dd>You can enter a password for your page. A password protected page will not be displayed on your blog, it will only be accessible to those you will give the entry URL to (see the <strong>Go to this page on the site</strong> link) and password.</dd>
+    <dt>基地名称</dt>
+    <dd>By clicking on its lock, you can unprotect this field and choose another URL for your page. If the URL you're trying to use is already used by another page, a number will be added to it.</dd>
+  </dl>
+  <h4>评论</h4>
+  <dl>
+    <dt>意见清单</dt>
+    <dd>From the tab <em> Comments</em> you can read and change the status comments on your page. Depending on your permissions, you can edit, put online or offline, delete or classify as a comment undesirable.</dd>
+    <dt>添加一个评论</dt>
+    <dd>From the tab <em>Add a comment</em> you can add or answer directly to a comment without going through your blog. This interface will also allows you to enter your comment in HTML, without limitation. You will have to fill in the fields in the same way as when editing a comment.</dd>
+  </dl>
 </body>
+
 </html>
