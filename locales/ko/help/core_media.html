@@ -1,92 +1,66 @@
 <html>
-  <head>
-    <title>미디어 관리</title>
-  </head>
-  <body>
-    <h4>미디어 목록</h4>
-    <p>미디어 관리화면의 기본화면에서는, 현재 선택된 블로그에 사용가능한 미디어파일 목록을 볼 수 있습니다.</p>
 
-    <p>폴더나 하위폴더에 있는 미디어파일을 보시려면 그 파일의 아이콘이나 이름을 클릭하시면 됩니다.</p>
+<head>
+  <title>미디어 관리</title>
+</head>
 
-    <p>MP3 음악 파일을 클릭하시면, 곧바로 플레이어가 나타나고 음악이 연주됩니다. 이 플레이어가 정상 작동하려면, 브라우저에 플래시 플러그인이 설치되어 있어야 합니다.</p>
-
-    <p>Selecting a MP3 sound file displays a player to immediately play
+<body>
+  <h4>미디어 목록</h4>
+  <p>미디어 관리화면의 기본화면에서는, 현재 선택된 블로그에 사용가능한 미디어파일 목록을 볼 수 있습니다.</p>
+  <p>폴더나 하위폴더에 있는 미디어파일을 보시려면 그 파일의 아이콘이나 이름을 클릭하시면 됩니다.</p>
+  <p>MP3 음악 파일을 클릭하시면, 곧바로 플레이어가 나타나고 음악이 연주됩니다. 이 플레이어가 정상 작동하려면, 브라우저에 플래시 플러그인이 설치되어 있어야 합니다.</p>
+  <p>Selecting a MP3 sound file displays a player to immediately play
 the file. The Flash plugin must be installed on your browser for
 this player to operate.</p>
+  <h4>파일 추가</h4>
+  <dl>
+    <dt>파일 선택</dt>
+    <dd>Here you can select one of your local files to send it on your blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
+    <dt>제목</dt>
+    <dd>보내고자하는 파일에 붙일 제목으로 선택사항입니다.</dd>
+    <dt>미디어 관리화면에서 감춤</dt>
+    <dd>Check this if you want the file to be private, i.e. accessible only by its owner and not accessible from the blog (until published).</dd>
+  </dl>
+  <dl>
+    <dt>파일 이름</dt>
+    <dd>Allows to select one or several of your local files to send them on your blog. Should any file be bigger than the maximum size, it will not be sent.<br>When you select several local files, they are added to the queue. You can add more files by clicking again on <strong>Choose files</strong>. You can also remove files from the queue by clicking on the corresponding red cross-shaped icon.<br>When you are ready, click on <strong>Upload</strong>.</dd>
+  </dl>
+  <h4>파일 삭제</h4>
+  <p>꼬맹이사진(Thumbnail)이 준비되어 있을 경우, 이미지들은 그것을 이용해 화면에 보입니다.</p>
+  <h4>새 폴더</h4>
+  <p>This form allows you to create a new subfolder in the currently displayed folder. Just choose a name for it as you would do on your own computer.</p>
+  <h4>미디어 세부 정보</h4>
+  <p>이 페이지는 현재 선택한 파일의 전체 정보를 보여주고, 그 파일에 대한 몇 가지 작업을 하실 수 있게 해줍니다.</p>
+  <dl>
+    <dt>파일 이름</dt>
+    <dd>현재 파일의 파일 이름을 변경합니다.</dd>
+    <dt>파일 제목</dt>
+    <dd>파일에 제목을 지정하거나 현재 제목을 변경합니다.</dd>
+    <dt>파일 날짜</dt>
+    <dd>파일 날짜를 변경합니다.</dd>
+    <dt>비공개</dt>
+    <dd>미디어 관리자에서 소유자 외의 다른 사람에게 파일을 숨기도록 지정합니다.</dd>
+    <dt>새 디렉토리</dt>
+    <dd>파일을 다른 폴더로 옮길 수 있습니다.</dd>
+    <dt>파일 변경</dt>
+    <dd>With this form, you can replace the file while keeping all the attributes (name, title...). As always, you have to respect the maximum file size.</dd>
+  </dl>
+  <h4>특정 사례: 이미지</h4>
+  <p>이미지 파일을 추가하실 때, 파일 크기에 따라 아래와 같이 최대 네 종류의 버전을 더 만들게 됩니다.</p>
+  <ul>
+    <li><strong>아이콘</strong>: 48x48픽셀 크기의 아이콘</li>
+    <li><strong>꼬맹이사진</strong>: 세로나 가로 중, 큰 쪽이 100 픽셀인 축소이미지 (Thumbnail)</li>
+    <li><strong>작은 크기</strong>: 큰 쪽이 240 픽셀인 축소이미지.</li>
+    <li><strong>중간 크기</strong>: 큰 쪽이 500 픽셀인 축소이미지.</li>
+    <li><strong>원래 크기</strong>: 원본, 변경 안된 이미지.</li>
+  </ul>
+  <p>당신의 글꼭지에 쉽게 파일을 첨부하실 수 있습니다. 먼저, 글꼭지를 생성하고 저장하세요. 그런 다음, "이 글꼭지에 파일 추가" 링크를 눌러 미디어 관리화면으로 갑니다.</p>
+  <h4>항목에 파일 첨부하기</h4>
+  <p>거기서 [+] 아이콘을 클릭하세요 (이 파일을 글꼭지에 첨부). 그러면 파일이 글꼭지에 첨부됩니다.</p>
+  <p>Just click on the [+] icon (Attach this file to entry). The file will then be attached to the post.</p>
+  <p>글꼭지에 첨부된 모든 파일들은 당신의 타래소식(RSS피드)에도 실리게 되므로, 어떤 형식의 파일도 쉽게 포드캐스팅할 수 있게 됩니다.</p>
+  <h4>팟캐스트 및 음악 파일 방송</h4>
+  <p>All attached files will be included in your blog feeds, allowing an easy podcasting of any type of file.</p>
+</body>
 
-    <h4>파일 추가</h4>
-    <dl>
-      <dt>파일 선택</dt>
-      <dd>블로그로 올려놓을 로컬 파일을 선택할 수 있습니다. 최대크기보다 큰 파일은 전송되지 않습니다.</dd>
-      
-      <dt>제목</dt>
-      <dd>보내고자하는 파일에 붙일 제목으로 선택사항입니다.</dd>
-      
-      <dt>미디어 관리화면에서 감춤</dt>
-      <dd>이 항목은, 파일이 블로그에 공개되지 않은 한 소유자만 볼 수 있다는 것을 표시합니다. (블로그에 여러 사용자가 등록되어 있을 경우) 파일 주인이 아닌 다른 사용자는, 전체 미디어 파일관리권한을 갖고 있지 않은 한, 이 파일을 미디어관리자에서 볼 수 없습니다. <br />
-  하지만 그 파일이 공개폴더에 들어있다면, 파일 주소를 알 경우 브라우저에 주소를 직접 입력함으로써 아무나 파일에 접근할 수 있다는 것에 주의하세요.</dd>
-    </dl>
-
-    <dl>
-      <dt>파일 이름</dt>
-      <dd>하나 또는 여러 개의 로컬 파일을 선택하여 
-  블로그에 전송할 수 있습니다. 파일이 최대 크기보다 크면 전송되지 않습니다.<br>
-	여러 개의 로컬 파일을 선택하면 해당 파일이 대기열에 추가됩니다. <strong>파일 선택</strong>을 다시 클릭하여 파일을 더 추가할 수 있습니다. 해당 빨간색 십자 모양 아이콘을 클릭하여 대기열에서 파일을 제거할 수도 있습니다.<br>
-  준비가 되면 <strong>업로드</strong>을 클릭합니다.</dd>
-    </dl>
-
-    <h4>파일 삭제</h4>
-    <p>꼬맹이사진(Thumbnail)이 준비되어 있을 경우, 이미지들은 그것을 이용해 화면에 보입니다.</p>
-
-    <h4>새 폴더</h4>
-    <p>여기서, 현재 폴더에 하위 폴더를 만들 수 있습니다. 이를 위해서는 단지, 새 폴더의 이름을 적고 저장하기 링크를 누르면 됩니다.</p>
-
-    <h4>미디어 세부 정보</h4>
-    <p>이 페이지는 현재 선택한 파일의 전체 정보를 보여주고, 그 파일에 대한 몇 가지 작업을 하실 수 있게 해줍니다.</p>
-
-    <dl>
-      <dt>파일 이름</dt>
-      <dd>현재 파일의 파일 이름을 변경합니다.</dd>
-      
-      <dt>파일 제목</dt>
-      <dd>파일에 제목을 지정하거나 현재 제목을 변경합니다.</dd>
-      
-      <dt>파일 날짜</dt>
-      <dd>파일 날짜를 변경합니다.</dd>
-      
-      <dt>비공개</dt>
-      <dd>미디어 관리자에서 소유자 외의 다른 사람에게 파일을 숨기도록 지정합니다.</dd>
-      
-      <dt>새 디렉토리</dt>
-      <dd>파일을 다른 폴더로 옮길 수 있습니다.</dd>
-      
-      <dt>파일 변경</dt>
-      <dd>이 양식을 사용하면
-      (이름, 제목...)의 모든 속성을 유지하면서 파일을 바꿀 수 있습니다. 항상 그렇듯이 최대 파일 크기를 준수해야 합니다.</dd>
-    </dl>
-
-    <h4>특정 사례: 이미지</h4>
-    <p>이미지 파일을 추가하실 때, 파일 크기에 따라 아래와 같이 최대 네 종류의 버전을 더 만들게 됩니다.</p>
-    <ul>
-      <li><strong>아이콘</strong>: 48x48픽셀 크기의 아이콘</li>
-      <li><strong>꼬맹이사진</strong>: 세로나 가로 중, 큰 쪽이 100 픽셀인 축소이미지 (Thumbnail)</li>
-      <li><strong>작은 크기</strong>: 큰 쪽이 240 픽셀인 축소이미지.</li>
-      <li><strong>중간 크기</strong>: 큰 쪽이 500 픽셀인 축소이미지.</li>
-      <li><strong>원래 크기</strong>: 원본, 변경 안된 이미지.</li>
-    </ul>
-    <p>당신의 글꼭지에 쉽게 파일을 첨부하실 수 있습니다. 먼저, 글꼭지를 생성하고 저장하세요. 그런 다음, "이 글꼭지에 파일 추가" 링크를 눌러 미디어 관리화면으로 갑니다.</p>
-
-    <h4>항목에 파일 첨부하기</h4>
-    <p>거기서 [+] 아이콘을 클릭하세요 (이 파일을 글꼭지에 첨부). 그러면 파일이 글꼭지에 첨부됩니다.</p>
-
-    <p>첨부된 파일은 글꼭지페이지가 보일 때, 글꼭지내용에 딸린 목록으로 나타나게 됩니다.
-MP3 파일들은 플래시 플레이어를 통해 사용할 수 있게 되므로, 방문자가 쉽게 음악을 들을 수 있습니다.</p>
-
-    <p>글꼭지에 첨부된 모든 파일들은 당신의 타래소식(RSS피드)에도 실리게 되므로, 어떤 형식의 파일도 쉽게 포드캐스팅할 수 있게 됩니다.</p>
-
-    <h4>팟캐스트 및 음악 파일 방송</h4>
-    <p>첨부된 모든 파일은 블로그 피드에 포함되므로 모든 유형의 파일을
-팟캐스트로 쉽게 전송할 수 있습니다.</p>
-
-  </body>
 </html>
