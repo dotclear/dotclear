@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Brugere</title>
-  </head>
-  <body>
-    <p>Denne side viser alle brugere på systemet.</p>
-    <p>For at tilføje (eller ændre) brugeres tilladelser kræves din adgangskode i feltet <strong>Din adgangskode</strong>.</p>
 
-    <h4>Brugere liste filter</h4>
-    <dl>
-      <dt>Søg</dt>
-      <dd>Søgningen er baseret på bruger-ID'et. <strong>*</strong> jokertegn kan kun bruges til at lede efter en del af bruger-ID'et.</dd>
+<head>
+  <title>Brugere</title>
+</head>
 
-      <dt>Sorter efter</dt>
-      <dd>The users list can be ordered by their <em>ID</em>, deres <em>Efternavn</em>, deres <em>Fornavn</em>, deres <em>Display Name</em> (Nickname) or the <em>Number of Entries</em> they created. (Automatic Copy)</dd>
+<body>
+  <p>Denne side viser alle brugere på systemet.</p>
+  <p>For at tilføje (eller ændre) brugeres tilladelser kræves din adgangskode i feltet <strong>Din adgangskode</strong>.</p>
+  <h4>Brugere liste filter</h4>
+  <dl>
+    <dt>Søg</dt>
+    <dd>Søgningen er baseret på bruger-ID'et. <strong>*</strong> jokertegn kan kun bruges til at lede efter en del af bruger-ID'et.</dd>
+    <dt>Sorter efter</dt>
+    <dd>The users list can be ordered by their <em>ID</em>, deres <em>Efternavn</em>, deres <em>Fornavn</em>, deres <em>Display Name</em> (Nickname) or the <em>Number of Entries</em> they created. (Automatic Copy)</dd>
+    <dt>Sortér</dt>
+    <dd>Angiver sorteringsmetoden, der vil blive anvendt på resultatlisten (<em>Stigende</em> eller <em>Faldende</em>).</dd>
+    <dt>Brugere pr. side</dt>
+    <dd>Sætter antallet af brugere der vises på hver side af resultatlisten.</dd>
+  </dl>
+  <h4>Brugere batch handlinger</h4>
+  <p>Det er muligt at foretage en batch af handlinger på flere brugere på én gang.</p>
+  <ul>
+    <li><strong>Angiv tilladelser:</strong> Angiv tilladelser for en eller flere blog(er).</li>
+    <li><strong>Slet:</strong> Fjern de valgte bruger(e) fra systemet. En bruger som oprettede poster kan ikke slettes.</li>
+  </ul>
+  <p>Hvis du beslutter dig for at indstille brugernes tilladelser, vil du blive omdirigeret til en ny side med de blogs der er tilgængelige på dit system. Tjek de blogs du vil indstille tilladelserne på, og tryk på <strong>Angiv tilladelser</strong>.</p>
+  <h4>Brugere tilladelser</h4>
+  <p>For hver blog, kan du indstille følgende tilladelser:</p>
+  <ul>
+    <li><strong>Administrator:</strong> Kan administrere bloggen helt.</li>
+    <li><strong>Administrer deres egne poster og kommentarer:</strong> Brugeren kan oprette poster og administrere kommentarer på poster, han har oprettet.</li>
+    <li><strong>Udgiv poster og kommentarer:</strong> Brugeren kan ændre offentliggørelsesstatus for sine egne poster og for sine indganges kommentarer.</li>
+    <li><strong>Slet poster og kommentarer:</strong> Brugeren kan slette sine egne poster samt sine indganges kommentarer.</li>
+    <li><strong>Administrer alle poster og kommentarer:</strong> Brugeren kan administrere alle poster i denne blog, uanset om han er forfatteren eller ej.</li>
+    <li><strong>Administrer kategorier:</strong> Brugeren kan oprette, ændre og slette kategorier.</li>
+    <li><strong>Administrer deres egne medieelementer:</strong> Brugeren kan tilføje medieelementer og ændre eller slette sine egne medier.</li>
+    <li><strong>Administrer alle medieelementer:</strong> Brugeren kan administrere medieelementerne fra enhver bruger.</li>
+    <li><strong>Administrer sider:</strong> Brugeren kan tilføje og ændre sider.</li>
+    <li><strong>Administrer blogroll:</strong> Brugeren kan håndtere bloggen af den aktuelle blog.</li>
+  </ul>
+  <p>Status for <strong>Super administrator</strong> er angivet i brugerprofilen.</p>
+</body>
 
-      <dt>Sortér</dt>
-      <dd>Angiver sorteringsmetoden, der vil blive anvendt på resultatlisten (<em>Stigende</em> eller <em>Faldende</em>).</dd>
-
-      <dt>Brugere pr. side</dt>
-      <dd>Sætter antallet af brugere der vises på hver side af resultatlisten.</dd>
-    </dl>
-
-    <h4>Brugere batch handlinger</h4>
-    <p>Det er muligt at foretage en batch af handlinger på flere brugere på én gang.</p>
-    <ul>
-      <li><strong>Angiv tilladelser:</strong> Angiv tilladelser for en eller flere blog(er).</li>
-      <li><strong>Slet:</strong> Fjern de valgte bruger(e) fra systemet. En bruger som oprettede poster kan ikke slettes.</li>
-    </ul>
-    <p>Hvis du beslutter dig for at indstille brugernes tilladelser, vil du blive omdirigeret til en ny side med de blogs der er tilgængelige på dit system. Tjek de blogs du vil indstille tilladelserne på, og tryk på <strong>Angiv tilladelser</strong>.</p>
-
-    <h4>Brugere tilladelser</h4>
-    <p>For hver blog, kan du indstille følgende tilladelser:</p>
-    <ul>
-      <li><strong>Administrator:</strong> Kan administrere bloggen helt.</li>
-      <li><strong>Administrer deres egne poster og kommentarer:</strong> Brugeren kan oprette poster og administrere kommentarer på poster, han har oprettet.</li>
-      <li><strong>Udgiv poster og kommentarer:</strong> Brugeren kan ændre offentliggørelsesstatus for sine egne poster og for sine indganges kommentarer.</li>
-      <li><strong>Slet poster og kommentarer:</strong> Brugeren kan slette sine egne poster samt sine indganges kommentarer.</li>
-      <li><strong>Administrer alle poster og kommentarer:</strong> Brugeren kan administrere alle poster i denne blog, uanset om han er forfatteren eller ej.</li>
-      <li><strong>Administrer kategorier:</strong> Brugeren kan oprette, ændre og slette kategorier.</li>
-      <li><strong>Administrer deres egne medieelementer:</strong> Brugeren kan tilføje medieelementer og ændre eller slette sine egne medier.</li>
-      <li><strong>Administrer alle medieelementer:</strong> Brugeren kan administrere medieelementerne fra enhver bruger.</li>
-      <li><strong>Administrer sider:</strong> Brugeren kan tilføje og ændre sider.</li>
-      <li><strong>Administrer blogroll:</strong> Brugeren kan håndtere bloggen af den aktuelle blog.</li>
-    </ul>
-    <p>Status for <strong>Super administrator</strong> er angivet i brugerprofilen.</p>
-  </body>
 </html>
