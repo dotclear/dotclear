@@ -1,202 +1,148 @@
 <html>
+
 <head>
   <title>Blog instellingen</title>
 </head>
 
 <body>
-<h4>Blog details</h4>
-<dl>
-  <dt>Blog ID</dt>
-  <dd>Uniek ID van het blog. Verplicht, kan alleen worden gewijzigd door een superbeheerder.</dd>
-
-  <dt>Blog naam</dt>
-  <dd>Naam van het blog, verplicht. Deze kan op elk moment worden gewijzigd zonder enige invloed op de werking van het blog.</dd>
-
-  <dt>Blog URL</dt>
-  <dd>Volledige blog URL. Verplicht, kan alleen worden gewijzigd door een superbeheerder.</dd>
-
-  <dt>URL-scanmethode</dt>
-  <dd>Bepaalt de manier waarop de URL wordt gelezen. PATH_INFO wordt aanbevolen, QUERY_STRING moet worden gebruikt als PATH_INFO niet werkt. In de PATH_INFO modus moet de URL van het blog eindigen op een "/" en in de QUERY_STRING modus moet hij eindigen op een "?".</dd>
-
-  <dt>Blog status</dt>
-  <dd>
-    <ul>
-      <li><strong>Online:</strong> Blog open voor bezoekers.</li>
-      <li><strong>Offline:</strong> Blog gesloten voor bezoekers maar open voor schrijvers.</li>
-      <li><strong>Verwijderd:</strong> Blog gesloten voor bezoekers en schrijvers, alleen open voor superbeheerders.</li>
-    </ul>
-  </dd>
-
-  <dt>Blog beschrijving</dt>
-  <dd>Hier kun je elke beschrijving plaatsen die je maar wilt voor je blog. Dit is een eenvoudige tekst, zonder opmaak.</dd>
-</dl>
-
-<h4>Blog configuratie</h4>
-<dl>
-  <dt>Naam blogredacteur</dt>
-  <dd>Naam van de persoon die verantwoordelijk is voor het blog. Dit kan de eigenaar of de uitgever zijn. Deze informatie wordt weergegeven in de blogfeed.</dd>
-
-  <dt>Standaard taal</dt>
-  <dd>Taal van de bloginterface. Ofwel is deze taal een van de beschikbare talen en wordt de interface vertaald, ofwel niet en wordt de interface standaard in het Engels weergegeven.</dd>
-
-  <dt>Blog tijdzone</dt>
-  <dd>Bepaalt de tijdzone die wordt gebruikt voor opmerkingen en trackbacks.</dd>
-
-  <dt>Copyright</dt>
-  <dd>Opmerking over de reproductierechten voor de blog.</dd>
-
-  <dt>Nieuwe URL-indeling voor berichten</dt>
-  <dd>Dropdown-lijst om het URL-formaat te selecteren.</dd>
-
-  <dt>HTML-tag voor de titel van de notities op het blog</dt>
-  <dd>Keuzelijst om een HTML-tag te selecteren.</dd>
-
-  <dt>XML/RPC interface</dt>
-  <dd>Hiermee kunnen externe clients communiceren met je blog via het XML/RPC protocol. Na activering worden de vereiste parameters weergegeven die moeten worden ingesteld in je externe clients.</dd>
-</dl>
-
-<h4>Commentaar en trackbacks</h4>
-<dl>
-  <dt>Opmerkingen accepteren</dt>
-  <dd>Accepteert globaal reacties op het blog. Heeft voorrang op de instelling per bericht.</dd>
-
-  <dt>Matige opmerkingen</dt>
-  <dd>Met deze optie worden reacties alleen gepubliceerd na toestemming van de redacteur.</dd>
-
-  <dt>Laat opmerkingen open voor X dagen</dt>
-  <dd>Het aantal dagen dat reacties open blijven na publicatie van het bericht. Als deze optie leeg is, blijven de reacties voor onbepaalde tijd staan.</dd>
-
-  <dt>Wiki-syntax voor opmerkingen</dt>
-  <dd>Hiermee kan een deel van de wiki-syntaxis worden gebruikt in opmerkingen.</dd>
-
-  <dt>Trackbacks accepteren</dt>
-  <dd>Accepteert globaal trackbacks op het blog. Heeft voorrang op de instelling per bericht.</dd>
-
-  <dt>Matige trackbacks</dt>
-  <dd>Met deze optie worden trackbacks alleen gepubliceerd na toestemming van de redacteur.</dd>
-
-  <dt>Laat trackbacks X dagen open</dt>
-  <dd>Het aantal dagen dat trackbacks open blijven staan na publicatie van het bericht. Als deze optie leeg is, blijven de trackbacks voor onbepaalde tijd openstaan.</dd>
-
-  <dt>Voeg "nofollow" toe aan commentaren en trackbacks</dt>
-  <dd>Voegt een attribuut toe aan links in commentaren en trackbacks om de zoekrobots te instrueren deze niet te volgen. Deze antispamfunctie moet zijn waarde nog bewijzen.</dd>
-</dl>
-
-<h4>Blog presentatie</h4>
-<dl>
-  <dt>Datum formaat</dt>
-  <dd>Definieert de datumnotatie voor de blogberichten. Zie het gedeelte "Referentie formaat" hieronder voor meer informatie. Je kunt de vervolgkeuzelijst gebruiken om snel een bestaand patroon te selecteren.</dd>
-
-  <dt>Tijdsindeling</dt>
-  <dd>Definieert de tijdsindeling voor de blogberichten. Zie het gedeelte "Referentie formaat" hieronder voor meer informatie. Je kunt de vervolgkeuzelijst gebruiken om snel een bestaand patroon te selecteren.</dd>
-
-  <dt>Smilies weergeven bij inzendingen en opmerkingen</dt>
-  <dd>Verandert sommige tekenreeksen zoals :-) of ;-) in afbeeldingen.</dd>
-
-  <dt>Geef X items per pagina weer</dt>
-  <dd>Toont X items op de hoofdpagina van het blog en in de verschillende categorieën.</dd>
-
-  <dt>Geef X vermeldingen per feed weer</dt>
-  <dd>Toont X vermeldingen in de blogfeeds.</dd>
-
-  <dt>Geef X reacties per feed weer</dt>
-  <dd>Toont X commentaren in de commentarenfeeds van blogs.</dd>
-
-  <dt>Feeds inkorten</dt>
-  <dd>Deze optie geeft alleen een samenvatting van de blogberichten in de feeds.</dd>
-
-  <dt>Subcategorieën opnemen in categoriepagina en feed voor categorieberichten</dt>
-  <dd>Als deze optie geactiveerd is, worden berichten in subcategorieën weergegeven op de pagina's van de hoofdcategorieën en in hun feeds.</dd>
-</dl>
-
-<h4>Media en afbeeldingen</h4>
-<dl>
-  <dt>Gegenereerde afbeeldingsafmetingen (in pixels)</dt>
-  <dd>Wanneer je een afbeelding toevoegt in de mediabeheerder, worden automatisch andere formaten gegenereerd. Hier kun je de afmeting van het langste formaat (breedte of hoogte) van elk type gegenereerde afbeeldingen definiëren. Als je een veld leeg laat, zal de mediabeheerder de overeenkomstige miniatuur niet aanmaken.</dd>
-
-  <dt>Standaard attributen voor het invoegen van afbeeldingen</dt>
-  <dd>De geselecteerde instellingen zijn van toepassing op alle nieuwe afbeeldingen die zijn toegevoegd aan de mediabeheerder.</dd>
-
-  <dt>Titel van ingevoegde afbeelding</dt>
-  <dd>Selecteer het formaat van de "titel"-tags die worden toegepast op uw afbeeldingen, gebaseerd op informatie die is opgehaald uit de metagegevens van de afbeeldingen.</dd>
-
-  <dt>Gebruik indien mogelijk de originele mediadatum</dt>
-  <dd>Als deze optie geactiveerd is, wordt de datum gebruikt als de metadata van de afbeelding een datum bevat. Zo niet, dan wordt de uploaddatum gebruikt.</dd>
-
-  <dt>Grootte van ingevoegde afbeelding</dt>
-  <dd>Bepaalt de standaardgrootte die wordt gebruikt bij het invoegen van een afbeelding in een blogbericht.</dd>
-
-  <dt>Afbeelding uitlijnen</dt>
-  <dd>Definieert de standaard uitlijning die wordt gebruikt bij het invoegen van een afbeelding in een blogbericht.</dd>
-
-  <dt>Een link naar de originele afbeelding invoegen</dt>
-  <dd>Als deze optie geactiveerd is, zijn de afbeeldingen die in een blogbericht worden ingevoegd aanklikbaar en verwijzen ze naar de afbeelding met de originele grootte.</dd>
-
-</dl>
-
-<h4>Robotbeleid zoekmachines</h4>
-<p>Hier kun je aangeven of je wilt dat zoekmachines je pagina's indexeren en/of archiveren of niet. Selecteer de laatste optie als je niet wilt dat mensen je blog kunnen vinden via een zoekmachine.</p>
-
-<h4>Antispam</h4>
-<p>Je kunt het aantal dagen instellen waarna je wilt dat ongewenste opmerkingen automatisch worden verwijderd. Laat dat veld leeg (of zet er 0 in) om deze functie uit te schakelen.</p>
-
-<h4>Gebruikers</h4>
-<p>Toont de gebruikers van dit blog en hun rechten.</p>
-
-<h3>Formaat referentie</h3>
-<p>Sommige velden kunnen worden geconfigureerd om de datum en tijd naar wens op te maken.
-Hier is een referentie:</p>
-
-<ul>
-  <li><strong>%aAfgekorte weekdag (lokaal).</strong></li>
-  <li><strong>%AVolledige weekdag (lokaal).</strong></li>
-  <li><strong>%bAfgekorte maandnaam (lokaal).</strong></li>
-  <li><strong>%BVolledige maandnaam (lokaal).</strong></li>
-  <li><strong>%cStandaard weergave van lokale datum en tijd.</strong></li>
-  <li><strong>%C:</strong> Century (het jaar, gedeeld door 100 en
-  naar boven afgerond tussen 00 en 99)</li>
-  <li><strong>%dNumerieke maanddag (van 01 tot 31)</strong></li>
-  <li><strong>%D:</strong> Identiek aan %m/%d/%y</li>
-  <li><strong>%eNumerieke maanddag (van 1 tot 31)</strong></li>
-  <li><strong>%g:</strong> Identiek aan %G, 2 cijfers.</li>
-  <li><strong>%G:</strong> Het jaar op 4 cijfers, volgens het weeknummer
-  (cf. %V). Formaat en waarde identiek aan %Y, behalve dat als het nummer van de week
-  tot het vorige of volgende jaar behoort, het huidige jaar
-  wordt gebruikt.</li>
-  <li><strong>%h:</strong> Identiek aan %b</li>
-  <li><strong>%H:</strong> Digitaal uur van de dag, 24H mode
-  (van 00 tot 23)</li>
-  <li><strong>%IDigitaal</strong> uur van de dag, 12H-modus
-  (van 01 tot 12)</li>
-  <li><strong>%j:</strong> Dag van het jaar, digitaal (van 001 tot 366)</li>
-  <li><strong>%m:</strong> Maand, digitaal (van 1 à 12)</li>
-  <li><strong>%MMinuut, digitaal</strong></li>
-  <li><strong>%n:</strong> Newline-teken</li>
-  <li><strong>%pOfwel `am' of `pm', volgens de absolute tijd,</strong>
-  of afhankelijk van de lokale instellingen.</li>
-  <li><strong>%rHet uur, a.m. en p.m. formaat</strong></li>
-  <li><strong>%RHet uur, 24h formaat</strong></li>
-  <li><strong>%S:</strong> Seconden, digitaal</li>
-  <li><strong>%tTab-teken</strong></li>
-  <li><strong>%T:</strong> De huidige tijd (identiek aan %H:%M:%S)</li>
-  <li><strong>%u:</strong> Dag week, cijfer, van 1 tot 7. (1 staat voor maandag)</li>
-  <li><strong>%U:</strong> Weeknummer, waarbij de eerste zondag van het jaar de
-  eerste dag van de eerste week is.</li>
-  <li><strong>%VHet weeknummer zoals gedefinieerd in ISO</strong>
-  8601:1988, digitaal, van 01 tot 53. Week 1 is de eerste week
-  met meer dan 4 dagen in het huidige jaar, waarvan maandag de eerste dag is.
-  (Gebruik %G of %g voor de jaarelementen die overeenkomen met het nummer van de
-  week voor de beschouwde tijdstempel).</li>
-  <li><strong>%WNummer van de week in het jaar, waarbij de eerste maandag van</strong>
-  het begin van de eerste week is.</li>
-  <li><strong>%w:</strong> Dag van de week, digitaal, 0 staat voor zondag</li>
-  <li><strong>%xVoorkeurformaat voor de datum zonder de tijd</strong></li>
-  <li><strong>%XVoorkeursformaat voor de tijd zonder datum</strong></li>
-  <li><strong>%yHet jaar, twee cijfers (van 00 tot 99)</strong></li>
-  <li><strong>%Y:</strong> Het jaar, vier cijfers</li>
-  <li><strong>%Z </strong> <strong> of %z:</strong> Tijdzone, naam of afkorting</li>
-  <li><strong>%%:</strong> Een letterlijk `%' teken</li>
-</ul>
-
+  <h4>Blog details</h4>
+  <dl>
+    <dt>Blog ID</dt>
+    <dd>Uniek ID van het blog. Verplicht, kan alleen worden gewijzigd door een superbeheerder.</dd>
+    <dt>Blog naam</dt>
+    <dd>Naam van het blog, verplicht. Deze kan op elk moment worden gewijzigd zonder enige invloed op de werking van het blog.</dd>
+    <dt>Blog URL</dt>
+    <dd>Volledige blog URL. Verplicht, kan alleen worden gewijzigd door een superbeheerder.</dd>
+    <dt>URL-scanmethode</dt>
+    <dd>Bepaalt de manier waarop de URL wordt gelezen. PATH_INFO wordt aanbevolen, QUERY_STRING moet worden gebruikt als PATH_INFO niet werkt. In de PATH_INFO modus moet de URL van het blog eindigen op een "/" en in de QUERY_STRING modus moet hij eindigen op een "?".</dd>
+    <dt>Blog status</dt>
+    <dd>
+      <ul>
+        <li><strong>Online:</strong> Blog open voor bezoekers.</li>
+        <li><strong>Offline:</strong> Blog gesloten voor bezoekers maar open voor schrijvers.</li>
+        <li><strong>Verwijderd:</strong> Blog gesloten voor bezoekers en schrijvers, alleen open voor superbeheerders.</li>
+      </ul>
+    </dd>
+    <dt>Blog beschrijving</dt>
+    <dd>Hier kun je elke beschrijving plaatsen die je maar wilt voor je blog. Dit is een eenvoudige tekst, zonder opmaak.</dd>
+  </dl>
+  <h4>Blog configuratie</h4>
+  <dl>
+    <dt>Naam blogredacteur</dt>
+    <dd>Naam van de persoon die verantwoordelijk is voor het blog. Dit kan de eigenaar of de uitgever zijn. Deze informatie wordt weergegeven in de blogfeed.</dd>
+    <dt>Standaard taal</dt>
+    <dd>Taal van de bloginterface. Ofwel is deze taal een van de beschikbare talen en wordt de interface vertaald, ofwel niet en wordt de interface standaard in het Engels weergegeven.</dd>
+    <dt>Blog tijdzone</dt>
+    <dd>Bepaalt de tijdzone die wordt gebruikt voor opmerkingen en trackbacks.</dd>
+    <dt>Copyright</dt>
+    <dd>Opmerking over de reproductierechten voor de blog.</dd>
+    <dt>Nieuwe URL-indeling voor berichten</dt>
+    <dd>Dropdown-lijst om het URL-formaat te selecteren.</dd>
+    <dt>HTML-tag voor de titel van de notities op het blog</dt>
+    <dd>Keuzelijst om een HTML-tag te selecteren.</dd>
+    <dt>XML/RPC interface</dt>
+    <dd>Hiermee kunnen externe clients communiceren met je blog via het XML/RPC protocol. Na activering worden de vereiste parameters weergegeven die moeten worden ingesteld in je externe clients.</dd>
+  </dl>
+  <h4>Commentaar en trackbacks</h4>
+  <dl>
+    <dt>Opmerkingen accepteren</dt>
+    <dd>Accepteert globaal reacties op het blog. Heeft voorrang op de instelling per bericht.</dd>
+    <dt>Matige opmerkingen</dt>
+    <dd>Met deze optie worden reacties alleen gepubliceerd na toestemming van de redacteur.</dd>
+    <dt>Laat opmerkingen open voor X dagen</dt>
+    <dd>Het aantal dagen dat reacties open blijven na publicatie van het bericht. Als deze optie leeg is, blijven de reacties voor onbepaalde tijd staan.</dd>
+    <dt>Wiki-syntax voor opmerkingen</dt>
+    <dd>Hiermee kan een deel van de wiki-syntaxis worden gebruikt in opmerkingen.</dd>
+    <dt>Trackbacks accepteren</dt>
+    <dd>Accepteert globaal trackbacks op het blog. Heeft voorrang op de instelling per bericht.</dd>
+    <dt>Matige trackbacks</dt>
+    <dd>Met deze optie worden trackbacks alleen gepubliceerd na toestemming van de redacteur.</dd>
+    <dt>Laat trackbacks X dagen open</dt>
+    <dd>Het aantal dagen dat trackbacks open blijven staan na publicatie van het bericht. Als deze optie leeg is, blijven de trackbacks voor onbepaalde tijd openstaan.</dd>
+    <dt>Voeg "nofollow" toe aan commentaren en trackbacks</dt>
+    <dd>Voegt een attribuut toe aan links in commentaren en trackbacks om de zoekrobots te instrueren deze niet te volgen. Deze antispamfunctie moet zijn waarde nog bewijzen.</dd>
+  </dl>
+  <h4>Blog presentatie</h4>
+  <dl>
+    <dt>Datum formaat</dt>
+    <dd>Definieert de datumnotatie voor de blogberichten. Zie het gedeelte "Referentie formaat" hieronder voor meer informatie. Je kunt de vervolgkeuzelijst gebruiken om snel een bestaand patroon te selecteren.</dd>
+    <dt>Tijdsindeling</dt>
+    <dd>Definieert de tijdsindeling voor de blogberichten. Zie het gedeelte "Referentie formaat" hieronder voor meer informatie. Je kunt de vervolgkeuzelijst gebruiken om snel een bestaand patroon te selecteren.</dd>
+    <dt>Smilies weergeven bij inzendingen en opmerkingen</dt>
+    <dd>Verandert sommige tekenreeksen zoals :-) of ;-) in afbeeldingen.</dd>
+    <dt>Geef X items per pagina weer</dt>
+    <dd>Toont X items op de hoofdpagina van het blog en in de verschillende categorieën.</dd>
+    <dt>Geef X vermeldingen per feed weer</dt>
+    <dd>Toont X vermeldingen in de blogfeeds.</dd>
+    <dt>Geef X reacties per feed weer</dt>
+    <dd>Toont X commentaren in de commentarenfeeds van blogs.</dd>
+    <dt>Feeds inkorten</dt>
+    <dd>Deze optie geeft alleen een samenvatting van de blogberichten in de feeds.</dd>
+    <dt>Subcategorieën opnemen in categoriepagina en feed voor categorieberichten</dt>
+    <dd>Als deze optie geactiveerd is, worden berichten in subcategorieën weergegeven op de pagina's van de hoofdcategorieën en in hun feeds.</dd>
+  </dl>
+  <h4>Media en afbeeldingen</h4>
+  <dl>
+    <dt>Gegenereerde afbeeldingsafmetingen (in pixels)</dt>
+    <dd>Wanneer je een afbeelding toevoegt in de mediabeheerder, worden automatisch andere formaten gegenereerd. Hier kun je de afmeting van het langste formaat (breedte of hoogte) van elk type gegenereerde afbeeldingen definiëren. Als je een veld leeg laat, zal de mediabeheerder de overeenkomstige miniatuur niet aanmaken.</dd>
+    <dt>Standaard attributen voor het invoegen van afbeeldingen</dt>
+    <dd>De geselecteerde instellingen zijn van toepassing op alle nieuwe afbeeldingen die zijn toegevoegd aan de mediabeheerder.</dd>
+    <dt>Titel van ingevoegde afbeelding</dt>
+    <dd>Selecteer het formaat van de "titel"-tags die worden toegepast op uw afbeeldingen, gebaseerd op informatie die is opgehaald uit de metagegevens van de afbeeldingen.</dd>
+    <dt>Gebruik indien mogelijk de originele mediadatum</dt>
+    <dd>Als deze optie geactiveerd is, wordt de datum gebruikt als de metadata van de afbeelding een datum bevat. Zo niet, dan wordt de uploaddatum gebruikt.</dd>
+    <dt>Grootte van ingevoegde afbeelding</dt>
+    <dd>Bepaalt de standaardgrootte die wordt gebruikt bij het invoegen van een afbeelding in een blogbericht.</dd>
+    <dt>Afbeelding uitlijnen</dt>
+    <dd>Definieert de standaard uitlijning die wordt gebruikt bij het invoegen van een afbeelding in een blogbericht.</dd>
+    <dt>Een link naar de originele afbeelding invoegen</dt>
+    <dd>Als deze optie geactiveerd is, zijn de afbeeldingen die in een blogbericht worden ingevoegd aanklikbaar en verwijzen ze naar de afbeelding met de originele grootte.</dd>
+  </dl>
+  <h4>Robotbeleid zoekmachines</h4>
+  <p>Hier kun je aangeven of je wilt dat zoekmachines je pagina's indexeren en/of archiveren of niet. Selecteer de laatste optie als je niet wilt dat mensen je blog kunnen vinden via een zoekmachine.</p>
+  <h4>Antispam</h4>
+  <p>Je kunt het aantal dagen instellen waarna je wilt dat ongewenste opmerkingen automatisch worden verwijderd. Laat dat veld leeg (of zet er 0 in) om deze functie uit te schakelen.</p>
+  <h4>Gebruikers</h4>
+  <p>Toont de gebruikers van dit blog en hun rechten.</p>
+  <h3>Formaat referentie</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%aAfgekorte weekdag (lokaal).</strong></li>
+    <li><strong>%AVolledige weekdag (lokaal).</strong></li>
+    <li><strong>%bAfgekorte maandnaam (lokaal).</strong></li>
+    <li><strong>%BVolledige maandnaam (lokaal).</strong></li>
+    <li><strong>%cStandaard weergave van lokale datum en tijd.</strong></li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%dNumerieke maanddag (van 01 tot 31)</strong></li>
+    <li><strong>%D:</strong> Identiek aan %m/%d/%y</li>
+    <li><strong>%eNumerieke maanddag (van 1 tot 31)</strong></li>
+    <li><strong>%g:</strong> Identiek aan %G, 2 cijfers.</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h:</strong> Identiek aan %b</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j:</strong> Dag van het jaar, digitaal (van 001 tot 366)</li>
+    <li><strong>%m:</strong> Maand, digitaal (van 1 à 12)</li>
+    <li><strong>%MMinuut, digitaal</strong></li>
+    <li><strong>%n:</strong> Newline-teken</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%rHet uur, a.m. en p.m. formaat</strong></li>
+    <li><strong>%RHet uur, 24h formaat</strong></li>
+    <li><strong>%S:</strong> Seconden, digitaal</li>
+    <li><strong>%tTab-teken</strong></li>
+    <li><strong>%T:</strong> De huidige tijd (identiek aan %H:%M:%S)</li>
+    <li><strong>%u:</strong> Dag week, cijfer, van 1 tot 7. (1 staat voor maandag)</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w:</strong> Dag van de week, digitaal, 0 staat voor zondag</li>
+    <li><strong>%xVoorkeurformaat voor de datum zonder de tijd</strong></li>
+    <li><strong>%XVoorkeursformaat voor de tijd zonder datum</strong></li>
+    <li><strong>%yHet jaar, twee cijfers (van 00 tot 99)</strong></li>
+    <li><strong>%Y:</strong> Het jaar, vier cijfers</li>
+    <li><strong>%Z </strong> <strong> of %z:</strong> Tijdzone, naam of afkorting</li>
+    <li><strong>%%:</strong> Een letterlijk `%' teken</li>
+  </ul>
 </body>
+
 </html>
