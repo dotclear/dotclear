@@ -1,130 +1,87 @@
 <html>
+
 <head>
   <title>User preferences</title>
 </head>
 
 <body>
-
-<h4>Meu perfil</h4>
-<dl>
-  <dt>Name, First name</dt>
-  <dd>If the display name is empty, the author's name will be displayed
-  as his Firstname and Name as set here.</dd>
-  
-  <dt>Apelido</dt>
-  <dd>You can choose here how your name will be displayed under your posts.</dd>
-  
-  <dt>e-mail</dt>
-  <dd>Endereço de e-mail usado quando você solicita uma nova senha.<br>
-    As notificações de novos comentários também serão enviadas para esse endereço.<em>(Se você atualizar
-  esse campo, deverá digitar sua senha atual no campo apropriado na parte inferior do formulário)</em></dd>
-  
-  <dt>URL:</dt>
-  <dd>The user's web site. If set, the author name will be displayed as
-  a link to the said site.</dd>
-  
-  <dt>Preferred format</dt>
-  <dd>To choose the prefered post syntax. Wiki is a simplified syntax
-  and will be converted to valid HTML&nbsp;; Unless you have a perfect
-  understanding of HTML, we advise you to choose the wiki syntax.</dd>
-  
-  <dt>Default entry status</dt>
-  <dd>Esta opção irá definir a hora da publicação do post.</dd>
-  
-  <dt>Entry edit field height</dt>
-  <dd>The height of the Entry edit field. Defaults to 24.</dd>
-</dl>
-
-
-<h4>Minhas opções</h4>
-<h5>Interface</h5>
-<dl>  
-  <dt>Ativar o carregador aprimorado no gerenciador de mídias</dt>
-  <dd>Permite ativar a interface avançada no gerenciador de mídia que habilita o carregamento de 
-  vários arquivos de cada vez (Nota: Seu navegador Web deve suportar Javascript 
-  para poder usar este recurso).</dd>
-
-  <dt>Desativar arrastar e soltar Javascript para ordenar itens</dt>
-  <dd>Permite desativar "arrastar e soltar" para ordenação de itens. Arrastar e soltar será 
-  substituído por campos numéricos que permitirão inserir a posição dos campos em vez disso.</dd>
-
-  <dt>Número de elementos exibidos por página no gerenciador de mídia</dt>
-  <dd>Define o número de mídias que serão exibidas no gerenciador de mídia (pastas
-  não são levadas em conta ao contar itens).</dd>
-  
-  <dt>Não usar o favicon padrão</dt>
-  <dd>Permite desativar o favicon padrão na barra de endereços do navegador da Web.</dd>
-</dl>
-
-<h5>Edição</h5>
-<dl>    
-  <dt>Formato de edição preferido</dt>
-  <dd>Escolha a sintaxe da entrada. Wiki é uma sintaxe simplificada
-  e será convertida em HTML válido. A menos que você tenha um
-  entendimento perfeito de HTML, nós recomendamos que você escolha a sintaxe Wiki.
-  Veja a referência de sintaxe da Wiki para mais informações.</dd>
-  
-  <dt>Status padrão dos posts</dt>
-  <dd>O status padrão para novas entradas pode ser definido para:
-    <ul>
-      <li><strong>Pendente:</strong> O estado da publicação ainda não foi decidido.</li>
-      <li><strong>Programado:</strong> A entrada será definida online no momento e data fornecida no campo <strong>publicado no campo</strong>.</li>
-      <li><strong>Não publicado:</strong> Entrada off-line.</li>
-      <li><strong>Publicado:</strong> Entrada online.</li>
-    </ul>
-  </dd>
-  
-  <dt>Tamanho da zona de edição</dt>
-  <dd>Define a altura do campo de edição de uma entrada. Por padrão, esse parâmetro é definido como 24.</dd>
-  
-  <dt>Ativar o editor visual</dt>
-  <dd>Permite o uso do editor visual (WYSIWYG: o que você vê é o que você recebe) para os campos de entradas, páginas e descrição de categorias.</dd>
-</dl>
-
-<h5>Outras opções</h5>
-<dl>
-  <dt>Formato da lista de tags</dt>
-  <dd>Você pode selecionar se você quer ver, ao editar uma entrada, todas as tags usadas (<strong>Estendidas</strong>) ou apenas as mais usadas (<strong>Curtas</strong>).</dd>
-
-  <dt>Destaque de sintaxe no editor de tema</dt>
-  <dd>Habilita realce de sintaxe ao usar o editor de tema (arquivos HTML e CSS)</dd>     
-</dl>
-
-
-<h4>Meu painel</h4>
-<dl>
-  <dt>Meus Favoritos</dt>
-  <dd>Essa zona exibe os favoritos escolhidos no painel do blog. 
-  Eles podem ser reordenados com o mouse se o Javascript estiver ativado no navegador. 
-  Caso contrário, um campo permite fornecer um número de pedido. Quando terminar, não se esqueça de salvar as alterações pressionando <strong>Save order</strong>.<br>
-  Você também pode excluir os favoritos selecionando-os e pressionando <strong>Delete selected favorites</strong>.</dd>
-  
-  <dt>Definir como favoritos padrão (super administrador)</dt> 
-  <dd>Permite definir a lista de favoritos atualmente definida como lista de favoritos padrão para todos os usuários. Esta lista será proposta aos usuários se eles não tiverem definido seus próprios favoritos ainda.</dd>
-
-  <dt>Outros favoritos disponíveis</dt>
-  <dd>Todos os plugins que permitem ser colocados como favoritos são exibidos aqui. Selecione as caixas correspondentes e adicione-as ao painel pressionando <strong>Adicionar tp meus favoritos</strong>.</dd>
-
-  <dt>Mostrar favoritos na parte superior do menu</dt>
-  <dd>Se ativado, exibe favoritos na parte superior do menu.</dd>
-
-  <dt>Módulos do painel</dt>
-  <dd>As opções feitas nesta zona serão refletidas no painel do seu blog.</dd>
-  
-  <dt>Exibir links de documentação</dt>
-  <dd>Habilite para exibir links de documentação na página inicial do painel.</dd>
-  
-  <dt>Exibir notícias de Dotclear</dt>
-  <dd>Ative para exibir notícias de Dotclear na página de destino do painel.</dd>
-
-  <dt>Exibir formulário de entrada rápida</dt>
-  <dd>Ative para exibir o formulário de "entrada rápida" na página inicial do painel.</dd>
-
-  <dt>Mostrar contador de tarefas atrasadas no ícone do painel de manutenção</dt>
-  <dd>Permite exibir o número de tarefas atrasadas (por exemplo, que devem ser processadas) sob o ícone de <strong>manutenção</strong> . O ícone de <strong>manutenção</strong> precisa ser definido nos seus favoritos para usar este recurso.</dd>
-
-  <dt>Exibir a lista de tarefas atrasadas nos itens do painel de controle</dt>
-  <dd>Habilite para exibir a lista de tarefas atrasadas (ou seja, que devem ser processadas) em uma seção dedicada na página inicial do painel.</dd>
-</dl>
+  <h4>Meu perfil</h4>
+  <dl>
+    <dt>Name, First name</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Apelido</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>e-mail</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL:</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Preferred format</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Default entry status</dt>
+    <dd>Esta opção irá definir a hora da publicação do post.</dd>
+    <dt>Entry edit field height</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Minhas opções</h4>
+  <h5>Interface</h5>
+  <dl>
+    <dt>Ativar o carregador aprimorado no gerenciador de mídias</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Desativar arrastar e soltar Javascript para ordenar itens</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Número de elementos exibidos por página no gerenciador de mídia</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Não usar o favicon padrão</dt>
+    <dd>Permite desativar o favicon padrão na barra de endereços do navegador da Web.</dd>
+  </dl>
+  <h5>Edição</h5>
+  <dl>
+    <dt>Formato de edição preferido</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Status padrão dos posts</dt>
+    <dd>O status padrão para novas entradas pode ser definido para:
+      <ul>
+        <li><strong>Pendente:</strong> O estado da publicação ainda não foi decidido.</li>
+        <li><strong>Programado:</strong> A entrada será definida online no momento e data fornecida no campo <strong>publicado no campo</strong>.</li>
+        <li><strong>Não publicado:</strong> Entrada off-line.</li>
+        <li><strong>Publicado:</strong> Entrada online.</li>
+      </ul>
+    </dd>
+    <dt>Tamanho da zona de edição</dt>
+    <dd>Define a altura do campo de edição de uma entrada. Por padrão, esse parâmetro é definido como 24.</dd>
+    <dt>Ativar o editor visual</dt>
+    <dd>Permite o uso do editor visual (WYSIWYG: o que você vê é o que você recebe) para os campos de entradas, páginas e descrição de categorias.</dd>
+  </dl>
+  <h5>Outras opções</h5>
+  <dl>
+    <dt>Formato da lista de tags</dt>
+    <dd>Você pode selecionar se você quer ver, ao editar uma entrada, todas as tags usadas (<strong>Estendidas</strong>) ou apenas as mais usadas (<strong>Curtas</strong>).</dd>
+    <dt>Destaque de sintaxe no editor de tema</dt>
+    <dd>Habilita realce de sintaxe ao usar o editor de tema (arquivos HTML e CSS)</dd>
+  </dl>
+  <h4>Meu painel</h4>
+  <dl>
+    <dt>Meus Favoritos</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Definir como favoritos padrão (super administrador)</dt>
+    <dd>Permite definir a lista de favoritos atualmente definida como lista de favoritos padrão para todos os usuários. Esta lista será proposta aos usuários se eles não tiverem definido seus próprios favoritos ainda.</dd>
+    <dt>Outros favoritos disponíveis</dt>
+    <dd>Todos os plugins que permitem ser colocados como favoritos são exibidos aqui. Selecione as caixas correspondentes e adicione-as ao painel pressionando <strong>Adicionar tp meus favoritos</strong>.</dd>
+    <dt>Mostrar favoritos na parte superior do menu</dt>
+    <dd>Se ativado, exibe favoritos na parte superior do menu.</dd>
+    <dt>Módulos do painel</dt>
+    <dd>As opções feitas nesta zona serão refletidas no painel do seu blog.</dd>
+    <dt>Exibir links de documentação</dt>
+    <dd>Habilite para exibir links de documentação na página inicial do painel.</dd>
+    <dt>Exibir notícias de Dotclear</dt>
+    <dd>Ative para exibir notícias de Dotclear na página de destino do painel.</dd>
+    <dt>Exibir formulário de entrada rápida</dt>
+    <dd>Ative para exibir o formulário de "entrada rápida" na página inicial do painel.</dd>
+    <dt>Mostrar contador de tarefas atrasadas no ícone do painel de manutenção</dt>
+    <dd>Permite exibir o número de tarefas atrasadas (por exemplo, que devem ser processadas) sob o ícone de <strong>manutenção</strong> . O ícone de <strong>manutenção</strong> precisa ser definido nos seus favoritos para usar este recurso.</dd>
+    <dt>Exibir a lista de tarefas atrasadas nos itens do painel de controle</dt>
+    <dd>Habilite para exibir a lista de tarefas atrasadas (ou seja, que devem ser processadas) em uma seção dedicada na página inicial do painel.</dd>
+  </dl>
 </body>
+
 </html>
