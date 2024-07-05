@@ -1,70 +1,55 @@
 <html>
+
 <head>
   <title>用户</title>
 </head>
 
 <body>
-
-<h4>用户资料</h4>
-<dl>
-  <dt>用户ID</dt>
-  <dd>至少2个字符，使用字母、数字或符号（没有空格）。本栏为必填项。</dd>
-
-  <dt>新密码</dt>
-  <dd>如果你想改变你的密码，请在 <strong>新密码</strong> 和 <strong>确认密码</strong> 字段中输入两次新密码。密码必须至少包含6个字符。这两个字段都是强制性的。</dd>
-
-  <dt>需要修改密码才能连接</dt>
-  <dd>勾选此框，这样新用户在连接时就必须选择自己的密码。</dd>
-
-  <dt>超级管理员</dt>
-  <dd>这将使当前用户拥有系统上所有博客的所有权限。</dd>
-  
-  <dt>姓，名</dt>
-  <dd>如果没有提供显示名称，显示的作者姓名将包含在这两个字段中输入的姓氏和名字。</dd>
-
-  <dt>显示的名字</dt>
-  <dd>你可以选择你想用来签署你的文章的绰号。如果不是空的，这个字段将被用来代替姓和名的字段。</dd>
-
-  <dt>电子邮件</dt>
-  <dd>如果你需要从Dotclear的认证屏幕上恢复你的密码，这个电子邮件地址将被使用。</dd>
-
-  <dt>URL</dt>
-  <dd>表示用户的网站。如果这个字段不是空的，作者的名字将成为这个网站的可点击链接。</dd>
-</dl>
-
-<h4>选择</h4>
-<h5>介面</h5>
-<dl>
-  <dt>语言</dt>
-  <dd>设置新条目的默认语言。如果这种语言有翻译，博客界面也会被翻译成这种语言。</dd>
-
-  <dt>时区</dt>
-  <dd>这个选项影响到条目发布时间的显示方式。</dd>
-</dl>
-
-<h5>版本</h5>
-<dl>  
-  <dt>首选的格式</dt>
-  <dd>选择条目的语法。Wiki是一种简化的语法
-  ，并将被转换为有效的HTML。除非你对HTML有完美的
-  了解，否则我们建议你选择Wiki语法。
-  更多信息请参见Wiki语法参考。</dd>
-  
-  <dt>默认进入状态</dt>
-  <dd>新条目的默认状态可以设置为：
-    <ul>
-      <li><strong>待定：</strong> 出版状态尚未决定。</li>
-      <li><strong>预定的：</strong> 该条目将在 <strong>Published on</strong> 字段中提供的时间和日期在线设置。</li>
-      <li><strong>未发表：</strong> 脱机条目。</li>
-      <li><strong>已公布：</strong> 在线输入。</li>
-    </ul>
-  </dd>
-
-  <dt>条目编辑字段高度</dt>
-  <dd>设置一个条目的编辑字段的高度。默认情况下，这个参数被设置为24。</dd>
-
-  <dt>标签列表格式</dt>
-  <dd>你可以选择在编辑一个条目时，是要看所有使用过的标签(<strong>Extended</strong>) 还是只看最常用的标签(<strong>Short</strong>)。</dd>
-</dl>
+  <h4>用户资料</h4>
+  <dl>
+    <dt>用户ID</dt>
+    <dd>至少2个字符，使用字母、数字或符号（没有空格）。本栏为必填项。</dd>
+    <dt>新密码</dt>
+    <dd>如果你想改变你的密码，请在 <strong>新密码</strong> 和 <strong>确认密码</strong> 字段中输入两次新密码。密码必须至少包含6个字符。这两个字段都是强制性的。</dd>
+    <dt>需要修改密码才能连接</dt>
+    <dd>勾选此框，这样新用户在连接时就必须选择自己的密码。</dd>
+    <dt>超级管理员</dt>
+    <dd>这将使当前用户拥有系统上所有博客的所有权限。</dd>
+    <dt>姓，名</dt>
+    <dd>如果没有提供显示名称，显示的作者姓名将包含在这两个字段中输入的姓氏和名字。</dd>
+    <dt>显示的名字</dt>
+    <dd>你可以选择你想用来签署你的文章的绰号。如果不是空的，这个字段将被用来代替姓和名的字段。</dd>
+    <dt>电子邮件</dt>
+    <dd>如果你需要从Dotclear的认证屏幕上恢复你的密码，这个电子邮件地址将被使用。</dd>
+    <dt>URL</dt>
+    <dd>表示用户的网站。如果这个字段不是空的，作者的名字将成为这个网站的可点击链接。</dd>
+  </dl>
+  <h4>选择</h4>
+  <h5>介面</h5>
+  <dl>
+    <dt>语言</dt>
+    <dd>设置新条目的默认语言。如果这种语言有翻译，博客界面也会被翻译成这种语言。</dd>
+    <dt>时区</dt>
+    <dd>这个选项影响到条目发布时间的显示方式。</dd>
+  </dl>
+  <h5>版本</h5>
+  <dl>
+    <dt>首选的格式</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>默认进入状态</dt>
+    <dd>新条目的默认状态可以设置为：
+      <ul>
+        <li><strong>待定：</strong> 出版状态尚未决定。</li>
+        <li><strong>预定的：</strong> 该条目将在 <strong>Published on</strong> 字段中提供的时间和日期在线设置。</li>
+        <li><strong>未发表：</strong> 脱机条目。</li>
+        <li><strong>已公布：</strong> 在线输入。</li>
+      </ul>
+    </dd>
+    <dt>条目编辑字段高度</dt>
+    <dd>设置一个条目的编辑字段的高度。默认情况下，这个参数被设置为24。</dd>
+    <dt>标签列表格式</dt>
+    <dd>你可以选择在编辑一个条目时，是要看所有使用过的标签(<strong>Extended</strong>) 还是只看最常用的标签(<strong>Short</strong>)。</dd>
+  </dl>
 </body>
+
 </html>
