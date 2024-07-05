@@ -1,119 +1,80 @@
 <html>
+
 <head>
   <title>Editar uma entrada</title>
 </head>
 
 <body>
-<h4>Editando uma entrada</h4>
-
-<dl>
-  <dt>Título da entrada</dt>
-  <dd>Digite aqui o título da entrada. Este campo é obrigatório.</dd>
-  
-  <dt>Extracto</dt>
-  <dd>O conteúdo deste campo será exibido nas páginas mostrando uma lista de entradas, como a página inicial ou a páginas de categorias, seguido por o link "Continuar leitura".<br />
-O conteúdo deste campo, também, será visível no início da página que mostra a entrada inteira.<br />
-Se você deixá-la em branco, o campo <em>Conteúdo</em> será exibido integralmente a partir da página inicial.</dd>
-  
-  <dt>Conteúdo</dt>
-  <dd>O conteúdo da entrada. Este campo é obrigatório.</dd>
-  
-  <dt>Anotações pessoais</dt>
-  <dd>Este campo de texto é para as notas de uso pessoal. O que você entra aqui nunca será visível no blog.</dd>
-  
-  <dt>Situação da postagem</dt>
-  <dd>Permite que você escolha o status da sua entrada:
-    <ul>
-      <li><strong>Pendente:</strong> O estado da publicação ainda não foi decidido.</li>
-      <li><strong>Agendado:</strong> A postagem será definida online no momento e data definida no campo <strong>publicado no campo</strong>.</li>
-      <li><strong>Não publicado:</strong> A postagem está offline.</li>
-      <li><strong>Publicado:</strong> A postagem está online.</li>
-    </ul>
-  </dd>
-  
-  <dt>Data e hora de publicação</dt>
-  <dd>Aqui você pode alterar a data e hora de publicação do item. Se o status da entrada
-  for <strong>Agendado</strong>, ele estará online na determinada data e hora.</dd>
-
-  <dt>Idioma da postagem</dt>
-  <dd>Aqui você pode mudar a data e hora de publicação.<br />
-  Se o estado da entrada é <em>programado</em> a publicação será efectivá na referida data e hora.</dd>
-
-  <dt>Formatação de texto</dt>
-  <dd>Escolha da sintaxe para a edição.<br />
-  Wiki é uma sintaxe simplificada que é convertida automaticamente em código HTML válido<br />
-  Nos recomendamos a escolha da sintaxe wiki, a menos que você tenha uma perfeita compreensão do HTML.<br /><br />
-  
-  Consulte a "Wiki syntax reference / Referência da sintaxe wiki" para mais informações.</dd>
-
-  <dt>Entrada seleccionada</dt>
-  <dd>Seleccione esta caixa para permitir aos seus visitantes comentar a entrada.<br />
+  <h4>Editando uma entrada</h4>
+  <dl>
+    <dt>Título da entrada</dt>
+    <dd>Digite aqui o título da entrada. Este campo é obrigatório.</dd>
+    <dt>Extracto</dt>
+    <dd>The content of this field will be shown in pages showing entries as a list, such as the homepage or categories pages, followed by a "continue reading" link. It will also be visible at the beginning of the page showing the whole post. Should you leave it blank, the <em>content</em> field will be shown entirely on the homepage and other entry list pages.</dd>
+    <dt>Conteúdo</dt>
+    <dd>O conteúdo da entrada. Este campo é obrigatório.</dd>
+    <dt>Anotações pessoais</dt>
+    <dd>This text area is for personal use, for notes or memos. What you enter here will never be displayed on the blog.</dd>
+    <dt>Situação da postagem</dt>
+    <dd>Permite que você escolha o status da sua entrada:
+      <ul>
+        <li><strong>Pendente:</strong> O estado da publicação ainda não foi decidido.</li>
+        <li><strong>Agendado:</strong> A postagem será definida online no momento e data definida no campo <strong>publicado no campo</strong>.</li>
+        <li><strong>Não publicado:</strong> A postagem está offline.</li>
+        <li><strong>Publicado:</strong> A postagem está online.</li>
+      </ul>
+    </dd>
+    <dt>Data e hora de publicação</dt>
+    <dd>Here you can change the entry's publication date and time. If the entry's status is <strong>Scheduled</strong>, it will be online at the given date and time.</dd>
+    <dt>Idioma da postagem</dt>
+    <dd>Select the language code of your entry. It defaults to your (as a user) language but you can change it to whatever language code you want, e.g. "en" or "es-ar". This code is used for the entry's display.</dd>
+    <dt>Formatação de texto</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Entrada seleccionada</dt>
+    <dd>Seleccione esta caixa para permitir aos seus visitantes comentar a entrada.<br />
   A correspondente definição global pode ser encontrada na "Configurações do blog".</dd>
-
-  <dt>Categoria</dt>
-  <dd>Um trackback é uma forma de permitir que uma parte da sua entrada seja usada como comentário num outro blog. 
-  Seleccione esta caixa para permitir que outros façam um trackback da sua entrada.<br />
-  A correspondente definição global pode ser encontrada na "Configurações do blog".</dd>
-
-  <dt>Criar uma nova categoria</dt>
-  <dd>As Entradas seleccionadas serão listadas no menu do blog, sob o título "O melhor de mim".</dd>
-  
-  <dt>Etiquetas</dt>
-  <dd>Você pode usar uma password para a sua entrada. Uma entrada protegida com password não irá ser exibida em seu blog,
+    <dt>Categoria</dt>
+    <dd>Your entry's category. To create a new category, please see the <strong>Categories</strong> section. You can choose to leave you entry without a category by selecting the <em>(none)</em> item.</dd>
+    <dt>Criar uma nova categoria</dt>
+    <dd>As Entradas seleccionadas serão listadas no menu do blog, sob o título "O melhor de mim".</dd>
+    <dt>Etiquetas</dt>
+    <dd>Você pode usar uma password para a sua entrada. Uma entrada protegida com password não irá ser exibida em seu blog,
   ela só será alcançável para quem conhece a URL e a password da entrada (clique no link <em>ver a entrada</em> para obter a URL).</dd>
-
-  <dt>Anexos</dt>
-  <dd>Os anexos são ficheiros multimédia adicionados à entrada. Pode utilizar o botão <strong>Adicionar ficheiros a esta entrada</strong> para selecionar ficheiros multimédia a adicionar à entrada.<br>
-    Esta opção aparece depois de guardar a entrada.<br>
-    Para mais informações, consulte a ajuda do Gestor de multimédia.</dd>
-
-  <dt>Permitir comentários</dt>
-  <dd>O código linguístico da entrada, é predefinidos pelo parâmetro da língua do utilizador,
+    <dt>Anexos</dt>
+    <dd>Attachments are media files added to the entry. You can use the <strong>Add files to this entry</strong> button to select media files to add to the entry.<br>This option will appear after you save your entry.<br>Please check the Media manager help for more information.</dd>
+    <dt>Permitir comentários</dt>
+    <dd>O código linguístico da entrada, é predefinidos pelo parâmetro da língua do utilizador,
   mas você pode alterá-lo para qualquer outro código linguístico válido, por exemplo "en", "pt-br" ou "fr-ca".
   Este código é utilizado na exibição da entrada.</dd>
-
-  <dt>Permitir trackbacks</dt>
-  <dd>Os anexos são todos os médias associados à uma entrada através do link <em>"Adicionar ficheiros nesta entrada"</em>.<br />
-  Não se esqueça de gravar suas alterações antes de clicar neste link.<br /><br />
-  Consulte a página "Media manager / Gestor de multimédia" para mais informações.</dd>
-  
-  <dt>Palavra-passe</dt>
-  <dd>Você pode digitar uma senha para sua entrada Uma entrada protegida por senha
-  não será exibida no seu blog, só será acessível para aqueles que você irá
-  fornecer a URL da entrada (consulte o <strong>link da entrada</strong> ) e senha.</dd>
-
-  <dt>Basename</dt>
-  <dd>Você pode desproteger este campo clicando no pequeno bloqueio à sua direita e escolhendo outra URL para sua entrada. Se o URL que você está tentando usar já é usado por outra entrada, um número será adicionado.</dd>  
-  
-</dl>
-
-<h4>Comentários</h4>
-<dl>
-  <dt>Lista de comentários</dt>
-  <dd>Aqui pode ler e alterar o estado dos comentários da entrada.<br />
-  Se o vosso nível de permissão é suficiente, poderá definir os comentários como online (publicado) ou offline (não publicado), marcar-los como spam ou apagar-los.</dd>
-  
-  <dt>Adicionar um comentário</dt>
-  <dd>Aqui, pode responder a um comentário directamente sem passar pelo seu blog. 
+    <dt>Permitir trackbacks</dt>
+    <dd>A trackback is a way to let a portion of your entry as a comment on another blog. Check this box to allow others to trackback your entry. The corresponding global setting is to be found in the blog settings.</dd>
+    <dt>Palavra-passe</dt>
+    <dd>You can enter a password for your entry. A password protected entry will not be displayed on your blog, it will only be accessible to those you will give the entry URL to (see the <strong>view entry</strong> link) and password.</dd>
+    <dt>Basename</dt>
+    <dd>Você pode desproteger este campo clicando no pequeno bloqueio à sua direita e escolhendo outra URL para sua entrada. Se o URL que você está tentando usar já é usado por outra entrada, um número será adicionado.</dd>
+  </dl>
+  <h4>Comentários</h4>
+  <dl>
+    <dt>Lista de comentários</dt>
+    <dd>On the <strong>Comments</strong> tab, you can read and change the status of
+      your entry's comments (and trackbacks). If you're allowed to by the blog administrator, you will be able to set your comments (and trackbacks) online or offline, to delete them or to mark them as junk.</dd>
+    <dt>Adicionar um comentário</dt>
+    <dd>Aqui, pode responder a um comentário directamente sem passar pelo seu blog. 
   Pode aqui usar a sintaxe "texto simples" ou xHTML, sem limitação. 
   Utilize este campo como se estivesse a modificar um comentário.</dd>
-</dl>
-  
-<h4>Adicionar um comentário</h4>
-<dl>
-  <dt>Nome</dt>
-  <dd>Preencher aqui com as URLs encontradas nas entradas que você quer pingar.</dd>
-
-  <dt>e-mail</dt>
-  <dd>Este campo contém as primeiras linhas da sua entrada, é este extracto que será enviado para o blog pingado, com um link para a entrada completa.<br />
+  </dl>
+  <h4>Adicionar um comentário</h4>
+  <dl>
+    <dt>Nome</dt>
+    <dd>Preencher aqui com as URLs encontradas nas entradas que você quer pingar.</dd>
+    <dt>e-mail</dt>
+    <dd>Este campo contém as primeiras linhas da sua entrada, é este extracto que será enviado para o blog pingado, com um link para a entrada completa.<br />
   Você pode modificar o extracto enviado ao editar este campo.</dd>
-
-  <dt>site</dt>
-  <dd>Se a sua entrada inclui links para umas entradas específicas e se o blog destinatário lhe permitem, esta ferramenta irá encontrar as URLs a pingar para você.</dd>
-
-  <dt>Comentário</dt>
-  <dd>Comente conteúdo. Este campo usa a sintaxe HTML.</dd>
-</dl>
-
+    <dt>site</dt>
+    <dd>Se a sua entrada inclui links para umas entradas específicas e se o blog destinatário lhe permitem, esta ferramenta irá encontrar as URLs a pingar para você.</dd>
+    <dt>Comentário</dt>
+    <dd>Comente conteúdo. Este campo usa a sintaxe HTML.</dd>
+  </dl>
 </body>
+
 </html>
