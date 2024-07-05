@@ -1,70 +1,55 @@
 <html>
+
 <head>
   <title>Användare</title>
 </head>
 
 <body>
-
-<h4>Användarprofil</h4>
-<dl>
-  <dt>Användar-ID</dt>
-  <dd>Minst 2 tecken med bokstäver, siffror eller symboler (inget mellanslag). Detta fält är obligatoriskt.</dd>
-
-  <dt>Nytt lösenord</dt>
-  <dd>Om du vill ändra ditt lösenord, Ange det nya lösenordet två gånger i <strong>Nytt lösenord</strong> och <strong>Bekräfta lösenord</strong> fält. Lösenord måste innehålla minst 6 tecken. Båda fälten är obligatoriska.</dd>
-
-  <dt>Lösenordsändring krävs för att ansluta</dt>
-  <dd>Kryssa i den här rutan så att en ny användare måste välja sitt eget lösenord när han ansluter.</dd>
-
-  <dt>Super administratör</dt>
-  <dd>Detta kommer att ge den nuvarande användaren alla behörigheter på alla bloggar som finns på systemet.</dd>
-  
-  <dt>Efternamn, Förnamn</dt>
-  <dd>Om inget visningsnamn anges, kommer den visade författarens namn att innehålla efternamn och förnamn som angetts i dessa två fält.</dd>
-
-  <dt>Visa namn</dt>
-  <dd>Du kan välja vilket smeknamn du vill använda för att signera dina artiklar. Om det inte är tomt kommer detta fält att användas istället för efternamn och förnamnsfält.</dd>
-
-  <dt>E-post</dt>
-  <dd>Den här e-postadressen kommer att användas om du behöver återställa ditt lösenord från Dotclear's autentiseringsskärm.</dd>
-
-  <dt>URL</dt>
-  <dd>Ange användarens webbplats. Om detta fält inte är tomt kommer författarens namn att bli en klickbar länk till denna webbplats.</dd>
-</dl>
-
-<h4>Alternativ</h4>
-<h5>Gränsgränssnitt</h5>
-<dl>
-  <dt>Språk</dt>
-  <dd>Ange standardspråk för nya poster. Om en översättning är tillgänglig för detta språk, blogggränssnittet kommer att översättas till detta språk också.</dd>
-
-  <dt>Timezone</dt>
-  <dd>Det här alternativet påverkar hur posternas publiceringstid visas.</dd>
-</dl>
-
-<h5>Upplaga</h5>
-<dl>  
-  <dt>Föredraget format</dt>
-  <dd>Välj postens syntax. Wiki är en förenklad syntax
-  och kommer att konverteras till giltig HTML. Om du inte har en perfekt
-  förståelse för HTML, rekommenderar vi dig att välja Wiki syntax.
-  Se syntaxreferensen för Wiki för mer information.</dd>
-  
-  <dt>Standard poststatus</dt>
-  <dd>Standardstatus för nya poster kan ställas in till:
-    <ul>
-      <li><strong>Väntande:</strong> Publiceringsstatus har ännu inte beslutats.</li>
-      <li><strong>Schemalagd:</strong> Posten kommer att ställas in online vid den tidpunkt och datum som anges i <strong>Publicerad på</strong> fältet.</li>
-      <li><strong>Avpublicerat:</strong> Offline post.</li>
-      <li><strong>Publicerad:</strong> Online-post.</li>
-    </ul>
-  </dd>
-
-  <dt>Ändra fältets höjd</dt>
-  <dd>Sätter höjden på versionsfältet för en post. Som standard är denna parameter satt till 24.</dd>
-
-  <dt>Etiketter listformat</dt>
-  <dd>Du kan välja om du vill se, medan du redigerar en post, alla taggar som används (<strong>Utökad</strong>) eller bara de mest använda (<strong>Kort</strong>).</dd>
-</dl>
+  <h4>Användarprofil</h4>
+  <dl>
+    <dt>Användar-ID</dt>
+    <dd>Minst 2 tecken med bokstäver, siffror eller symboler (inget mellanslag). Detta fält är obligatoriskt.</dd>
+    <dt>Nytt lösenord</dt>
+    <dd>Om du vill ändra ditt lösenord, Ange det nya lösenordet två gånger i <strong>Nytt lösenord</strong> och <strong>Bekräfta lösenord</strong> fält. Lösenord måste innehålla minst 6 tecken. Båda fälten är obligatoriska.</dd>
+    <dt>Lösenordsändring krävs för att ansluta</dt>
+    <dd>Kryssa i den här rutan så att en ny användare måste välja sitt eget lösenord när han ansluter.</dd>
+    <dt>Super administratör</dt>
+    <dd>Detta kommer att ge den nuvarande användaren alla behörigheter på alla bloggar som finns på systemet.</dd>
+    <dt>Efternamn, Förnamn</dt>
+    <dd>Om inget visningsnamn anges, kommer den visade författarens namn att innehålla efternamn och förnamn som angetts i dessa två fält.</dd>
+    <dt>Visa namn</dt>
+    <dd>Du kan välja vilket smeknamn du vill använda för att signera dina artiklar. Om det inte är tomt kommer detta fält att användas istället för efternamn och förnamnsfält.</dd>
+    <dt>E-post</dt>
+    <dd>Den här e-postadressen kommer att användas om du behöver återställa ditt lösenord från Dotclear's autentiseringsskärm.</dd>
+    <dt>URL</dt>
+    <dd>Ange användarens webbplats. Om detta fält inte är tomt kommer författarens namn att bli en klickbar länk till denna webbplats.</dd>
+  </dl>
+  <h4>Alternativ</h4>
+  <h5>Gränsgränssnitt</h5>
+  <dl>
+    <dt>Språk</dt>
+    <dd>Ange standardspråk för nya poster. Om en översättning är tillgänglig för detta språk, blogggränssnittet kommer att översättas till detta språk också.</dd>
+    <dt>Timezone</dt>
+    <dd>Det här alternativet påverkar hur posternas publiceringstid visas.</dd>
+  </dl>
+  <h5>Upplaga</h5>
+  <dl>
+    <dt>Föredraget format</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Standard poststatus</dt>
+    <dd>Standardstatus för nya poster kan ställas in till:
+      <ul>
+        <li><strong>Väntande:</strong> Publiceringsstatus har ännu inte beslutats.</li>
+        <li><strong>Schemalagd:</strong> Posten kommer att ställas in online vid den tidpunkt och datum som anges i <strong>Publicerad på</strong> fältet.</li>
+        <li><strong>Avpublicerat:</strong> Offline post.</li>
+        <li><strong>Publicerad:</strong> Online-post.</li>
+      </ul>
+    </dd>
+    <dt>Ändra fältets höjd</dt>
+    <dd>Sätter höjden på versionsfältet för en post. Som standard är denna parameter satt till 24.</dd>
+    <dt>Etiketter listformat</dt>
+    <dd>Du kan välja om du vill se, medan du redigerar en post, alla taggar som används (<strong>Utökad</strong>) eller bara de mest använda (<strong>Kort</strong>).</dd>
+  </dl>
 </body>
+
 </html>
