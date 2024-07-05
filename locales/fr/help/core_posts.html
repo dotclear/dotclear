@@ -1,70 +1,61 @@
 <html>
+
 <head>
   <title>Gestion des billets</title>
 </head>
 
 <body>
-
-<h4>Filtres de la liste des billets</h4>
-
-<dl>
-  <dt>Auteur·rice</dt>
-  <dd>Permet de filtrer les billets par auteur·rice.</dd>
-  
-  <dt>Catégorie</dt>
-  <dd>Filtrer les billets par catégorie.</dd>
-  
-  <dt>État</dt>
-  <dd>Filtre les entrées par statut :<ul>
-      <li><strong>En attente</strong>&nbsp;: en attente de publication.</li>
-      <li><strong>Programmé</strong>&nbsp;: le billet sera mis en ligne aux date et heure
+  <h4>Filtres de la liste des billets</h4>
+  <dl>
+    <dt>Auteur·rice</dt>
+    <dd>Permet de filtrer les billets par auteur·rice.</dd>
+    <dt>Catégorie</dt>
+    <dd>Filtrer les billets par catégorie.</dd>
+    <dt>État</dt>
+    <dd>Filtre les entrées par statut :<ul>
+        <li><strong>En attente</strong>&nbsp;: en attente de publication.</li>
+        <li><strong>Programmé</strong>&nbsp;: le billet sera mis en ligne aux date et heure
     indiquées dans le champ <em>Publié le</em>.</li>
-      <li><strong>Non publié</strong>&nbsp;: billet hors ligne.</li>
-      <li><strong>Publié</strong>&nbsp;: billet en ligne.</li>
-    </ul></dd>
-  
-  <dt>Sélectionné</dt>
-  <dd>Aucun, billet marqué comme sélectionné ou non sélectionné.</dd>
-
-  <dt>Mois</dt>
-  <dd>Filtre les billets d'un mois d'une année donné.</dd>
-  
-  <dt>Langue</dt>
-  <dd>Filtre les billets selon la langue indiquée dans le champ langue du
+        <li><strong>Non publié</strong>&nbsp;: billet hors ligne.</li>
+        <li><strong>Publié</strong>&nbsp;: billet en ligne.</li>
+      </ul>
+    </dd>
+    <dt>Sélectionné</dt>
+    <dd>Aucun, billet marqué comme sélectionné ou non sélectionné.</dd>
+    <dt>Mois</dt>
+    <dd>Filtre les billets d'un mois d'une année donné.</dd>
+    <dt>Langue</dt>
+    <dd>Filtre les billets selon la langue indiquée dans le champ langue du
   billet.</dd>
-  
-  <dt>Trier par</dt>
-  <dd>Permet de trier les résultats de filtrage selon la date, le titre,
+    <dt>Trier par</dt>
+    <dd>Permet de trier les résultats de filtrage selon la date, le titre,
   la catégorie, l'auteur·rice, l'état de publication ou l'état de sélection.</dd>
-  
-  <dt>Trier</dt>
-  <dd>Indique l'ordre dans lequel on souhaite effectuer le tri.</dd>
-  
-  <dt>Billets par page</dt>
-  <dd>Nombre de billets à afficher par page de résultat.</dd>
-  
-  <dt>Entrées par page</dt>
-  <dd>Nombre d'entrées à afficher par page.</dd>
-</dl>
-
-<h4>Actions par lot sur les billets</h4>
-<p>Il est possible d'effectuer un ensemble d'actions sur plusieurs billets, d'un
+    <dt>Trier</dt>
+    <dd>Indique l'ordre dans lequel on souhaite effectuer le tri.</dd>
+    <dt>Billets par page</dt>
+    <dd>Nombre de billets à afficher par page de résultat.</dd>
+    <dt>Entrées par page</dt>
+    <dd>Nombre d'entrées à afficher par page.</dd>
+  </dl>
+  <h4>Actions par lot sur les billets</h4>
+  <p>Il est possible d'effectuer un ensemble d'actions sur plusieurs billets, d'un
 seul coup. Les actions possibles dépendent des permissions de l'utilisateur.</p>
-<ul>
-  <li><strong>Publier</strong>&nbsp;: mettre le billet en ligne.</li>
-  <li><strong>Hors ligne</strong>&nbsp;: mettre le billet hors ligne.</li>
-  <li><strong>Programmer</strong>&nbsp;: programmer le billet pour mise en ligne à la date de
+  <ul>
+    <li><strong>Publier</strong>&nbsp;: mettre le billet en ligne.</li>
+    <li><strong>Hors ligne</strong>&nbsp;: mettre le billet hors ligne.</li>
+    <li><strong>Programmer</strong>&nbsp;: programmer le billet pour mise en ligne à la date de
   publication.</li>
-  <li><strong>En attente</strong>&nbsp;: en attente de publication.</li>
-  <li><strong>Changer de catégorie</strong>&nbsp;: envoie sur la liste des catégories pour
+    <li><strong>En attente</strong>&nbsp;: en attente de publication.</li>
+    <li><strong>Changer de catégorie</strong>&nbsp;: envoie sur la liste des catégories pour
   changer celle des billets sélectionnés.
-  <li><strong>Changer l'auteur·rice</strong>&nbsp;: permet de changer l'auteur·rice du billet en indiquant
+    <li><strong>Changer l'auteur·rice</strong>&nbsp;: permet de changer l'auteur·rice du billet en indiquant
   l'identifiant de l'utilisateur·rice qui deviendra le ou la nouvel auteur·rice.</li>
-  <li><strong>Supprimer</strong>&nbsp;: supprime le billet (cette opération est irréversible).</li>
-  <li><strong>Changer l'auteur·rice</strong>&nbsp;: permet de changer l'auteur·rice de la page en indiquant l'identifiant de l'utilisateur·rice qui deviendra le ou la nouvel·le auteur·rice.</li>
-  <li><strong>Supprimer</strong>&nbsp;: supprime la page (cette opération est irréversible).</li>
-  <li><strong>Ajouter/supprimer des balises :</strong> Ajouter ou supprimer des balises sur les entrées sélectionnées.</li>
-</ul>
-<p><em>Il se peut que la liste ci-dessus soit plus longue si d'autres actions possibles ont été ajoutées par des plugins activés sur votre installation.</em></p>
+    <li><strong>Supprimer</strong>&nbsp;: supprime le billet (cette opération est irréversible).</li>
+    <li><strong>Changer l'auteur·rice</strong>&nbsp;: permet de changer l'auteur·rice de la page en indiquant l'identifiant de l'utilisateur·rice qui deviendra le ou la nouvel·le auteur·rice.</li>
+    <li><strong>Supprimer</strong>&nbsp;: supprime la page (cette opération est irréversible).</li>
+    <li><strong>Ajouter/supprimer des balises :</strong> Ajouter ou supprimer des balises sur les entrées sélectionnées.</li>
+  </ul>
+  <p><em>Il se peut que la liste ci-dessus soit plus longue si d'autres actions possibles ont été ajoutées par des plugins activés sur votre installation.</em></p>
 </body>
+
 </html>
