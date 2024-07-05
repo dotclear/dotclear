@@ -1,131 +1,87 @@
 <html>
+
 <head>
   <title>User preferences</title>
 </head>
 
 <body>
-
-<h4>Il mio profilo</h4>
-<dl>
-  <dt>Name, First name</dt>
-  <dd>If the display name is empty, the author's name will be displayed
-  as his Firstname and Name as set here.</dd>
-  
-  <dt>Nome visualizzato</dt>
-  <dd>You can choose here how your name will be displayed under your posts.</dd>
-  
-  <dt>Email</dt>
-  <dd>Indirizzo e-mail utilizzato per richiedere una nuova password.<br>
-    Le notifiche di nuovi commenti saranno inviate anche a questo indirizzo.<em>(Se si aggiorna
-  questo campo, è necessario inserire la password attuale nell'apposito campo in 
-  fondo al modulo)</em></dd>
-  
-  <dt>URL</dt>
-  <dd>The user's web site. If set, the author name will be displayed as
-  a link to the said site.</dd>
-  
-  <dt>Preferred format</dt>
-  <dd>To choose the prefered post syntax. Wiki is a simplified syntax
-  and will be converted to valid HTML&nbsp;; Unless you have a perfect
-  understanding of HTML, we advise you to choose the wiki syntax.</dd>
-  
-  <dt>Default entry status</dt>
-  <dd>Tale scelta definirà il tempo visualizzato sulla pubblicazione postale.</dd>
-  
-  <dt>Entry edit field height</dt>
-  <dd>The height of the Entry edit field. Defaults to 24.</dd>
-</dl>
-
-
-<h4>Le mie opzioni</h4>
-<h5>Interfaccia</h5>
-<dl>  
-  <dt>Attiva uploader migliorato nel gestore multimediale</dt>
-  <dd>Consente di attivare l'interfaccia avanzata nel gestore multimediale che consente di 
-  caricare più file alla volta (Nota: il tuo browser Web deve supportare Javascript 
-  per essere in grado di utilizzare questa funzione).</dd>
-
-  <dt>Disabilita il trascinamento e il rilascio di Javascript per ordinare oggetti</dt>
-  <dd>Permette di disabilitare "drag and drop" per l'ordine degli elementi. Trascina e rilascia saranno 
-  sostituiti da campi numerici che ti permetteranno di inserire invece la posizione dei campi.</dd>
-
-  <dt>Numero di elementi visualizzati per pagina nel gestore multimediale</dt>
-  <dd>Definisce il numero di media che verranno visualizzati nel media manager (le cartelle
-  non vengono prese in considerazione quando si contano gli elementi).</dd>
-  
-  <dt>Non utilizzare favicon standard</dt>
-  <dd>Consente di disabilitare la favicon predefinita nella barra degli indirizzi del browser Web.</dd>
-</dl>
-
-<h5>Edizione</h5>
-<dl>    
-  <dt>Formato preferito</dt>
-  <dd>Scegli la sintassi della voce. Wiki è una sintassi semplificata
-  e verrà convertita in HTML valido. A meno che tu non abbia una perfetta
-  comprensione di HTML, ti consigliamo di scegliere la sintassi Wiki.
-  Vedi il riferimento alla sintassi Wiki per maggiori informazioni.</dd>
-  
-  <dt>Stato della voce predefinita</dt>
-  <dd>Lo stato predefinito per le nuove voci può essere impostato su:
-    <ul>
-      <li><strong>In attesa:</strong> Lo stato di pubblicazione non è stato ancora deciso.</li>
-      <li><strong>Scheduled:</strong> The entry will be set online at the time and date provided in the <strong>Published on</strong> field.</li>
-      <li><strong>Non pubblicato:</strong> Voce offline.</li>
-      <li><strong>Pubblicato:</strong> Voce online.</li>
-    </ul>
-  </dd>
-  
-  <dt>Altezza campo modifica immissione</dt>
-  <dd>Imposta l'altezza del campo di edizione di una voce. Per impostazione predefinita, questo parametro è impostato a 24.</dd>
-  
-  <dt>Abilita la modalità WYSIWYG</dt>
-  <dd>Consente l'uso dell'editor visivo (WYSIWYG: Quello che vedi è quello che ottieni) per le voci, le pagine e le categorie dei campi di descrizione.</dd>
-</dl>
-
-<h5>Altre opzioni</h5>
-<dl>
-  <dt>Formato elenco etichette</dt>
-  <dd>Puoi selezionare se vuoi vedere, mentre modifichi una voce, tutti i tag utilizzati (<strong>Extended</strong>) o solo quelli più utilizzati (<strong>Short</strong>).</dd>
-
-  <dt>Evidenziazione della sintassi nell'editor del tema</dt>
-  <dd>Abilita l'evidenziazione della sintassi quando si utilizza l'editor di temi (file HTML e CSS)</dd>     
-</dl>
-
-
-<h4>La mia dashboard</h4>
-<dl>
-  <dt>I miei preferiti</dt>
-  <dd>Questa zona visualizza i preferiti scelti nella dashboard del blog. 
-  Possono essere riordinati con il mouse se il browser ha attivato Javascript. 
-  Altrimenti, un campo permette di assegnare loro un numero d'ordine. Al termine, non dimenticate di salvare le modifiche premendo <strong>Salva ordine</strong>.<br>
-  È anche possibile eliminare i preferiti selezionandoli e premendo <strong>Elimina i preferiti selezionati</strong>.</dd>
-  
-  <dt>Definisci come preferiti predefiniti (super amministratore)</dt> 
-  <dd>Abilita per impostare l'elenco dei preferiti attualmente definito come lista dei preferiti predefiniti per tutti gli utenti. Questo elenco sarà proposto agli utenti se non hanno ancora definito i propri preferiti.</dd>
-
-  <dt>Altri preferiti disponibili</dt>
-  <dd>Tutti i plugin che permettono di essere messi come preferiti sono giocati qui. Controllare le caselle corrispondenti e aggiungerle alla dashboard premendo <strong>Aggiungi tp i miei preferiti</strong>.</dd>
-
-  <dt>Mostra i preferiti in cima al menu</dt>
-  <dd>Se abilitata, visualizza i preferiti nella parte superiore del menu.</dd>
-
-  <dt>Moduli pannello impostazioni</dt>
-  <dd>Le scelte fatte in questa zona saranno riflesse sulla dashboard del tuo blog.</dd>
-  
-  <dt>Visualizza link alla documentazione</dt>
-  <dd>Abilita per visualizzare i link di documentazione nella pagina di atterraggio della dashboard.</dd>
-  
-  <dt>Mostra notizie Dotclear</dt>
-  <dd>Abilita per visualizzare le notizie Dotclear sulla pagina di atterraggio della dashboard.</dd>
-
-  <dt>Visualizza il modulo di inserimento rapido</dt>
-  <dd>Abilita per visualizzare il modulo "voce rapida" nella pagina di atterraggio della dashboard.</dd>
-
-  <dt>Visualizza il contatore delle attività scadute sull'icona del cruscotto di manutenzione</dt>
-  <dd>Consente di visualizzare il numero di attività scadute (cioè che dovrebbero essere elaborate) nell'icona <strong>Manutenzione</strong> . L'icona <strong>Manutenzione</strong> deve essere impostata nei tuoi preferiti per utilizzare questa funzione.</dd>
-
-  <dt>Visualizza l'elenco delle attività scadute sugli elementi della dashboard</dt>
-  <dd>Abilita per visualizzare la lista delle attività scadute (cioè che dovrebbero essere elaborate) in una sezione dedicata nella pagina di destinazione della Dashboard.</dd>
-</dl>
+  <h4>Il mio profilo</h4>
+  <dl>
+    <dt>Name, First name</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Nome visualizzato</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>Email</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Preferred format</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Default entry status</dt>
+    <dd>Tale scelta definirà il tempo visualizzato sulla pubblicazione postale.</dd>
+    <dt>Entry edit field height</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Le mie opzioni</h4>
+  <h5>Interfaccia</h5>
+  <dl>
+    <dt>Attiva uploader migliorato nel gestore multimediale</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Disabilita il trascinamento e il rilascio di Javascript per ordinare oggetti</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Numero di elementi visualizzati per pagina nel gestore multimediale</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Non utilizzare favicon standard</dt>
+    <dd>Consente di disabilitare la favicon predefinita nella barra degli indirizzi del browser Web.</dd>
+  </dl>
+  <h5>Edizione</h5>
+  <dl>
+    <dt>Formato preferito</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Stato della voce predefinita</dt>
+    <dd>Lo stato predefinito per le nuove voci può essere impostato su:
+      <ul>
+        <li><strong>In attesa:</strong> Lo stato di pubblicazione non è stato ancora deciso.</li>
+        <li><strong>Scheduled:</strong> The entry will be set online at the time and date provided in the <strong>Published on</strong> field.</li>
+        <li><strong>Non pubblicato:</strong> Voce offline.</li>
+        <li><strong>Pubblicato:</strong> Voce online.</li>
+      </ul>
+    </dd>
+    <dt>Altezza campo modifica immissione</dt>
+    <dd>Imposta l'altezza del campo di edizione di una voce. Per impostazione predefinita, questo parametro è impostato a 24.</dd>
+    <dt>Abilita la modalità WYSIWYG</dt>
+    <dd>Consente l'uso dell'editor visivo (WYSIWYG: Quello che vedi è quello che ottieni) per le voci, le pagine e le categorie dei campi di descrizione.</dd>
+  </dl>
+  <h5>Altre opzioni</h5>
+  <dl>
+    <dt>Formato elenco etichette</dt>
+    <dd>Puoi selezionare se vuoi vedere, mentre modifichi una voce, tutti i tag utilizzati (<strong>Extended</strong>) o solo quelli più utilizzati (<strong>Short</strong>).</dd>
+    <dt>Evidenziazione della sintassi nell'editor del tema</dt>
+    <dd>Abilita l'evidenziazione della sintassi quando si utilizza l'editor di temi (file HTML e CSS)</dd>
+  </dl>
+  <h4>La mia dashboard</h4>
+  <dl>
+    <dt>I miei preferiti</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Definisci come preferiti predefiniti (super amministratore)</dt>
+    <dd>Abilita per impostare l'elenco dei preferiti attualmente definito come lista dei preferiti predefiniti per tutti gli utenti. Questo elenco sarà proposto agli utenti se non hanno ancora definito i propri preferiti.</dd>
+    <dt>Altri preferiti disponibili</dt>
+    <dd>Tutti i plugin che permettono di essere messi come preferiti sono giocati qui. Controllare le caselle corrispondenti e aggiungerle alla dashboard premendo <strong>Aggiungi tp i miei preferiti</strong>.</dd>
+    <dt>Mostra i preferiti in cima al menu</dt>
+    <dd>Se abilitata, visualizza i preferiti nella parte superiore del menu.</dd>
+    <dt>Moduli pannello impostazioni</dt>
+    <dd>Le scelte fatte in questa zona saranno riflesse sulla dashboard del tuo blog.</dd>
+    <dt>Visualizza link alla documentazione</dt>
+    <dd>Abilita per visualizzare i link di documentazione nella pagina di atterraggio della dashboard.</dd>
+    <dt>Mostra notizie Dotclear</dt>
+    <dd>Abilita per visualizzare le notizie Dotclear sulla pagina di atterraggio della dashboard.</dd>
+    <dt>Visualizza il modulo di inserimento rapido</dt>
+    <dd>Abilita per visualizzare il modulo "voce rapida" nella pagina di atterraggio della dashboard.</dd>
+    <dt>Visualizza il contatore delle attività scadute sull'icona del cruscotto di manutenzione</dt>
+    <dd>Consente di visualizzare il numero di attività scadute (cioè che dovrebbero essere elaborate) nell'icona <strong>Manutenzione</strong> . L'icona <strong>Manutenzione</strong> deve essere impostata nei tuoi preferiti per utilizzare questa funzione.</dd>
+    <dt>Visualizza l'elenco delle attività scadute sugli elementi della dashboard</dt>
+    <dd>Abilita per visualizzare la lista delle attività scadute (cioè che dovrebbero essere elaborate) in una sezione dedicata nella pagina di destinazione della Dashboard.</dd>
+  </dl>
 </body>
+
 </html>
