@@ -1,397 +1,382 @@
 <html>
+
 <head>
   <title></title> <!-- Leave the title empty -->
 </head>
 
 <body>
-
-<div class="multi-part legible" id="first-step" title="Pirmieji žingsniai">
-	<h3>Sąsajos atradimas</h3>
-	<div class="fieldset">
-		<h4>Pirmieji žingsniai</h4>
-		<p>Be visuotinės pagalbos puslapių, keli administravimo puslapiai turi internetinę pagalbą. Jei jūsų naršyklėje įjungtas javascript, internetinę pagalbą galite pamatyti puslapio viršutinėje dešinėje pusėje spustelėję nuorodą <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong>. Jei Javascript išjungtas, pagalba rodoma puslapio apačioje.</p>
-	</div>
-
-	<p>Kiekviename administravimo puslapyje bus rodoma ta pati viršutinė antraštė, pagrindinis meniu ir poraštė. <em>(Čia nurodyta tvarka yra tokia, kokia rodoma kompiuterio ekrane. Mobiliuosiuose įrenginiuose arba planšetiniuose kompiuteriuose ji gali skirtis priklausomai nuo turimos vietos.)</em></p>
-
-	<h4 class="pretty-title">Viršutinė antraštė</h4>
-	<p>Viršutinę antraštę sudaro trys elementai:</p>
-	<h5 class="as_h4">Logotipas</h5>
-	<p>Pagal numatytuosius nustatymus šis logotipas yra "Dotclear" logotipas ir pateikia nuorodą į administravimo nukreipimo puslapį. Tačiau platformos
-	valdytojas gali pasirinkti kitą logotipą ir nukreipti į ką nors kitą (paprastai į paslaugų nukreipimo puslapį).</p>
-
-	<h5 class="as_h4">Tinklaraštis (-iai)</h5>
-	<p>Pirmajame elemente, esančiame po logotipo, rodomas <em>aktyvus</em> tinklaraštis, t. y. tinklaraštis, kuriame veikiate. Jei jūsų
-	instaliaciją sudaro keli tinklaraščiai, ši informacija pateikiama kombinuotajame meniu, kuris leidžia pereiti į kitą tinklaraštį.</p>
-	<p>Po tinklaraščio pavadinimu esanti nuoroda atveria dabartinį tinklaraštį kitame lange arba kitame skirtuke.</p>
-
-	<h5 class="as_h4">Vartotojas</h5>
-	<p>Nuoroda <em>Mano prietaisų skydelis</em> grąžina jus į tinklaraščio administravimo pradžios puslapį.</p>
-	<p>Nuoroda <em>Mano nuostatos</em> veda į puslapį, kuriame galite keisti savo asmeninę informaciją, nustatyti prietaisų skydelį ir pasirinkti sąsają bei redagavimo parinktis.</p>
-	<p>Keista, bet nuoroda <em>Atjungti [jūsų prisijungimo vardas]</em> atjungia jus nuo tinklaraščio administravimo (Dotclear's, mes esame ergonomikos čempionai!).</p>
-
-	<h4 class="pretty-title">Pagrindinis meniu</h4>
-	<p>Pagrindinis meniu yra kairėje ekrano pusėje. Jį galima suvynioti spustelėjus dešinįjį jo kraštą (ir vėl spustelėjus jį išvynioti).</p>
-	<p>Jis veda į skirtingus administravimo puslapius, atsižvelgiant į jūsų teises dabartiniame tinklaraštyje. Jį sudaro keturi blokai:</p>
-	<ul>
-		<li><strong>Mano mėgstamiausi</strong> pateikiamas puslapių, kuriuos pasirinkote kaip mėgstamiausius <em>Mano nuostatos</em>/<em>Mano prietaisų skydelis</em> skirtuke, sąrašas. Jei dar nepasirinkote nė vieno mėgstamiausio, šiame sąraše bus pateiktas numatytasis Dotclear rinkinys arba rinkinys, kurį nustatė platformos valdytojas. Jei nenorite, kad šis rinkinys būtų rodomas, prietaisų skydelio parinktyse galite panaikinti atitinkamo žymimojo langelio žymėjimą.</li>
-		<li><strong>Tinklaraštis</strong> pateikiami visi puslapiai, kuriuose galima tvarkyti ir konfigūruoti esamą tinklaraštį - redaguoti įrašą, tvarkyti laikmenas, pasirinkti tinklaraščio išvaizdą ar kitus parametrus.<br>
-		<em>Jei neturite dabartinio tinklaraščio administratoriaus teisių, pagrindiniame meniu po šiuo bloku nebus jokio kito.</em></li>
-		<li><strong>Sistemos nustatymai</strong> nuorodos į puslapius, kuriuose galima valdyti Dotclear diegimą: tinklaraščių valdymas, vartotojai ir galimos kalbos, įskiepių diegimas, sistemos nustatymai. Jei turite kelių tinklaraščių teises, bet neturite superadministratoriaus teisių, matysite tik <em>Blogs</em> įrašą.</li>
-		<li><strong>Įskiepiai</strong> galite nustatyti įdiegtus įskiepius. Jei įskiepių nustatymai vienu metu turi įtakos tik vienam tinklaraščiui, jo administravimo puslapį galima pasiekti iš <em>Blog</em> bloko, tačiau jei jie turi įtakos visam įrenginiui, jie pateikiami čia ir prieinami tik superadministratoriaus naudotojams.</li>
-	</ul>
-
-	<h4 class="pretty-title">Kojinė</h4>
-	<p>Nemokama "Dotclear" versija bus pasiūlyta kiekvienam naudotojui, kuris atras poraštėje paslėptą paslaptį.</p>
-
-	<h3>Pagalba pradedantiesiems</h3>
-	<p>Jei nesate susipažinę su tinklaraščiais, rekomenduojame peržiūrėti mūsų dokumentaciją (visą turinį rasite šio puslapio skirtuke <strong>dokumentacija</strong> ) ir mokomąsias medžiagas, pvz:
-	<ul>
-		<li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Mano pirmasis įrašas, žingsnis po žingsnio.</a></li>
-	</ul>
-
-	<p><a href="https://dotclear.org/forum/">"Dotclear" forumas</a> yra svetinga vieta, kurioje nėra <em>kvailo klausimo</em>. Nedvejodami dalyvaukite, jei jums reikia pagalbos ir, kodėl gi ne, mainais padėkite žmonėms.</p>
-
-	<p class="info">Stengiamės naudoti tokį žodyną, kurį lengva suprasti neturint specialių žinių. Tačiau jei vis dėlto pavartojame techninį terminą, jo apibrėžimą tikriausiai rasite mūsų internetinės dokumentacijos <a href="https://dotclear.org/documentation/glossary">žodynėlyje</a> .</p>
-</div>
-
-<div class="multi-part" id="users-doc" title="Naudotojo vadovas">
-	<h3>Naudotojo vadovas</h3>
-	<div class="three-boxes">
-		<h4 class="pretty-title">Turinio valdymas</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/entries">Įrašai</a>
-					<ul>
-						<li>Kūrimas ir redagavimas</li>
-						<li>Įrašo informacija</li>
-						<li>Su įvežimu susiję veiksmai</li>
-						<li>Komentarai ir Trackbacks</li>
-						<li>Įrašų paketinis valdymas</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Komentarai ir Trackbacks</a>
-					<ul>
-						<li>Tolesni veiksmai</li>
-						<li>Valdymas</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/categories">Kategorijos</a>
-					<ul>
-						<li>Kategorijos kūrimas</li>
-						<li>Kategorijos redagavimas</li>
-						<li>Kategorijos pašalinimas</li>
-						<li>Kategorijų sąrašo sudarymas</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/tags">Žymos (raktažodžiai)</a>
-					<ul>
-						<li>Žymių pridėjimas</li>
-						<li>Žymių valdymas</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/media">Žiniasklaida ir priedai</a>
-					<ul>
-						<li>Pakatalogio kūrimas</li>
-						<li>Failų pridėjimas</li>
-						<li>Dabartinio katalogo zip archyvo atsisiuntimas</li>
-						<li>Pakeisti pildymo failo duomenis</li>
-						<li>Tiesioginis failų pridėjimas</li>
-						<li>Specialūs failų tipai</li>
-						<li>Priedai</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Tinklaraščio meniu turinys (valdikliai)</a>
-					<ul>
-						<li>Navigacijos šoninė juosta, Papildoma šoninė juosta</li>
-						<li>Numatytuosius valdiklius</li>
-						<li>Valdiklio pridėjimas / pašalinimas</li>
-						<li>Valdiklių parinktys</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Tinklaraštis</a>
-					<ul>
-						<li>Tinklaraštis</li>
-						<li>Nuorodos pridėjimas</li>
-						<li>Kategorijos pridėjimas</li>
-						<li>XFN</li>
-						<li>Nuorodų importavimas iš OPML arba XBEL failo</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes">
-		<h4 class="pretty-title">Nustatymai ir pritaikymas</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Tinklaraščio nustatymai</a>
-					<ul>
-						<li>Tinklaraščio informacija</li>
-						<li>Tinklaraščio konfigūracija</li>
-						<li>Komentarai ir Trackbacks</li>
-						<li>Tinklaraščio pristatymas</li>
-						<li>Žiniasklaida ir vaizdai</li>
-						<li>Paieškos sistemos robotų politika</li>
-						<li>Antispam</li>
-						<li>LightBox</li>
-						<li>Išsaugoti</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Naudotojo parinktys</a>
-					<ul>
-						<li>Mano profilis</li>
-						<li>Mano galimybės</li>
-						<li>Mano prietaisų skydelis</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">Tinklaraščio išvaizda</a>
-					<ul>
-						<li>Pasirinkite temą</li>
-						<li>Įdiekite temą</li>
-						<li>Suasmeninti temą</li>
-						<li>Temos redaktorius</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes fieldset">
-			<h4 class="smart-title">Papildoma literatūra</h4>
-				<h5>Žodynėlis</h5>
-				<ul><li><a href="https://dotclear.org/documentation/glossary">Visi šie paslaptingi žodžiai, naudojami internete ir "Dotclear</a></li></ul>
-				<h5>Įvesties sintaksės</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Wiki sintaksė ir HTML atitikmuo</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Jei norite eiti toliau</a></li>
-					</ul>
-				<h5>Prenumerata (RSS, Atom...)</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Kas tai?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Kaip padaryti, kad jis būtų prieinamas mano tinklaraštyje?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Kaip užsiprenumeruoti kanalą?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Jei norite eiti toliau</a></li>
-					</ul>
-			<h4 class="smart-title">Pagalba</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">"Dotclear" forumas</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq">Dažnai užduodami klausimai</a></li>
-				</ul>
-	</div>
-</div>
-
-	<div class="multi-part" id="admin-doc" title="Dokumentai administratoriams">
-	<h3>Dokumentai administratoriams</h3>
-		<div class="three-boxes">
-		<h4 class="pretty-title">Diegimas ir atnaujinimas</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install">Įrengimas</a>
-					<ul>
-						<li>Būtinosios sąlygos</li>
-						<li>Automatinis diegimas</li>
-						<li>Standartinis montavimas</li>
-						<li>Diegimas naudojant vedlį</li>
-						<li>Diegimas iš config.php failo</li>
-						<li>Diegimo proceso užbaigimas</li>
-						<li>Tolesni veiksmai</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">atnaujinimas</a>
-					<ul>
-						<li>Pasirengimas atnaujinimui</li>
-						<li>Automatinis atnaujinimas</li>
-						<li>Programos atnaujinimas</li>
-						<li>Duomenų bazės atnaujinimas</li>
-						<li>Priedas: mercurial kopijos atnaujinimas</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/config">Konfigūracijos failas (config.php) Parametrai</a>
-					<ul>
-						<li>Įvadas</li>
-						<li>Parametrai</li>
-						<li>Informacijos įtraukimas į failą</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Atnaujinimas iš Dotclear 1.2 į Dotclear 2</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Migravimas iš kitos tinklaraščių kūrimo programinės įrangos į Dotclear</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Vietinis įrengimas</a>
-					<ul>
-						<li>Windows</li>
-						<li>"Mac OS X</li>
-						<li>Linux</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">"Dotclear" diegimas su IIS7</a></li>
-			</ul>
-
-			<h5>Prieglobos priedas</h5>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/hosting">Priegloba</a>
-				</li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">Administracija</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/users">Naudotojų valdymas</a>
-					<ul>
-						<li>Esamų naudotojų sąrašas</li>
-						<li>Naudotojo kūrimas</li>
-						<li>Naudotojo keitimas</li>
-						<li>Naudotojo leidimai</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Švarus montavimas</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Kelių tinklaraščių diegimas</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Įskiepių valdymas</a>
-					<ul>
-						<li>Įskiepio diegimas</li>
-						<li>Įskiepių konfigūravimas</li>
-						<li>Įskiepio pašalinimas</li>
-						<li>Įskiepio atnaujinimas</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">Numatytoji tema "Blowup</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">Tinklaraščio temos</a>
-					<ul>
-						<li>Temos pasirinkimas</li>
-						<li>Temos diegimas</li>
-						<li>Temos pritaikymas</li>
-						<li>Temos redaktorius</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Išplėstinė konfigūracija</a></li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">Techninė priežiūra</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/backup">Atsarginės kopijos kūrimas ir atkūrimas</a>
-					<ul>
-						<li>Importas / eksportas</li>
-						<li>Failai</li>
-						<li>Duomenų bazė</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Šlamšto komentarų filtrai</a>
-					<ul>
-						<li>Filtro organizavimas</li>
-						<li>Filtro konfigūracija</li>
-					</ul>
-				</li>
-			</ul>
-			<div class="fieldset vertical-separator">
-				<h4 class="smart-title">Pagalba</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">"Dotclear" forumas</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq#administration">Dažniausiai užduodami klausimai (administratoriams)</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="multi-part" id="guide-dev" title="Kūrėjų dokumentacija">
-	<h3>Kūrėjų ir dizainerių ištekliai</h3>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">Dizainas &amp; temos</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes">Temos</a>
-					<ul>
-						<li>Temų naudotojo vadovas</li>
-						<li>Šablono žymės</li>
-						<li>Priedėlis</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Temos paveldėjimas</a>
-					<ul>
-						<li>Principas</li>
-						<li>Apribojimai</li>
-						<li>Nustatyti</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Šablono žymės</a>
-					<ul>
-						<li>Bendrieji dalykai / komunalinės paslaugos</li>
-						<li>Tinklaraštis</li>
-						<li>Įrašai</li>
-						<li>Įrašų puslapiavimas</li>
-						<li>Komentarai</li>
-						<li>Komentarų peržiūra</li>
-						<li>Pingai</li>
-						<li>Priedai</li>
-						<li>Kategorijos</li>
-						<li>Žymos</li>
-						<li>Archyvai</li>
-						<li>Kalbos</li>
-						<li>Sistema</li>
-						<li>Valdikliai</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">Kodas &amp; Įskiepiai</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Įskiepio arba temos tpl žymos sukūrimas</a>
-					<ul>
-						<li>Įvadas</li>
-						<li>Vertybės</li>
-						<li>Instrukcijų blokai</li>
-						<li>Šablono talpyklos įtakos demonstravimas</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Įskiepiai</a>
-					<ul>
-						<li>Įskiepio rašymas</li>
-						<li>Priedėlis</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Įskiepio kontekstinės pagalbos kūrimas</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Išorinis autentiškumo patvirtinimas</a>
-					<ul>
-						<li>Preambulė</li>
-						<li>Nauja autentifikavimo klasė</li>
-						<li>Scenarijus</li>
-						<li>Paraiška</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC sąsaja</a></li>
-				<li><a href="https://dev.dotclear.org/code/2/">API dokumentacija</a></li>
-			</ul>
-		</div>
-
-		<div class="three-boxes">
-			<h4 class="pretty-title">Įnašas &amp; Parama</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Prisidėti</a>
-					<ul>
-						<li>Redaguoti šią dokumentaciją</li>
-						<li>Dalinkitės savo kūriniais</li>
-						<li>Praneškite apie klaidas arba pasiūlykite naujų funkcijų</li>
-						<li>Lokalizavimas</li>
-				</ul>
-			</li>
-				<li><a href="https://git.dotclear.org/dev/dotclear">Dotclear šaltinio kodo saugykla</a></li>
-				<li><a href="https://dotclear.org/forum">Dotclear forumas</a></li>
-			</ul>
-
-			<div class="fieldset">
-				<h4 class="smart-title">Konvencijos</h4>
-				<ul>
-					<li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Kodavimo standartai</a></li>
-					<li><a href="index.php?process=HelpCharte">Administracijos puslapių diagrama</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="multi-part legible" id="a11y-ergo" title="Prieinamumas ir ergonomika">
-	<h3>Prieinamumas ir ergonomika</h3>
-	<p>"Dotclear" sąsaja atitinka beveik visus <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> kriterijus. Siekiame, kad "Dotclear" atitiktų <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> gaires.</p>
-	<p>Prieinamumas ir ergonomika yra vienas iš pagrindinių mūsų rūpesčių. Pasitelkę ekspertus reguliariai atliekame analizę ir nuolat teikiame pataisas bei patobulinimus.</p>
-	<p>Galite mums padėti atidarydami <a href="https://git.dotclear.org/dev/dotclear/issues">bilietus</a> arba dalyvaudami <a href="https://dotclear.org/forum/">forume</a>. Taip pat galite dalyvauti naudotojų testavime arba prisijungti prie mūsų komandos!</p>
-	</div>
-
+  <div class="multi-part legible" id="first-step" title="Pirmieji žingsniai">
+    <h3>Sąsajos atradimas</h3>
+    <div class="fieldset">
+      <h4>Pirmieji žingsniai</h4>
+      <p>In addition to the global help pages, several administration pages have an online help. If javascript is enabled
+        on your browser, you can see online help at the upper-right position of the page, by clicking on the <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong> link. If Javascript is disabled, the help is displayed at the bottom of the page.</p>
+    </div>
+    <p>Kiekviename administravimo puslapyje bus rodoma ta pati viršutinė antraštė, pagrindinis meniu ir poraštė. <em>(Čia nurodyta tvarka yra tokia, kokia rodoma kompiuterio ekrane. Mobiliuosiuose įrenginiuose arba planšetiniuose kompiuteriuose ji gali skirtis priklausomai nuo turimos vietos.)</em></p>
+    <h4 class="pretty-title">Viršutinė antraštė</h4>
+    <p>Viršutinę antraštę sudaro trys elementai:</p>
+    <h5 class="as_h4">Logotipas</h5>
+    <p>By default, this logo is the Dotclear logo and links to the administration landing page. However, a platform
+      manager can choose another logo and redirect towards something else (generally, the service landing page).</p>
+    <h5 class="as_h4">Tinklaraštis (-iai)</h5>
+    <p>The first element located after the logo shows the <em>active</em> blog, i.e. the blog on which you are acting. If your
+      installation is composed of several blogs, these informations are available in a combo menu, which lets you switch to another blog.</p>
+    <p>Po tinklaraščio pavadinimu esanti nuoroda atveria dabartinį tinklaraštį kitame lange arba kitame skirtuke.</p>
+    <h5 class="as_h4">Vartotojas</h5>
+    <p>Nuoroda <em>Mano prietaisų skydelis</em> grąžina jus į tinklaraščio administravimo pradžios puslapį.</p>
+    <p>Nuoroda <em>Mano nuostatos</em> veda į puslapį, kuriame galite keisti savo asmeninę informaciją, nustatyti prietaisų skydelį ir pasirinkti sąsają bei redagavimo parinktis.</p>
+    <p>Keista, bet nuoroda <em>Atjungti [jūsų prisijungimo vardas]</em> atjungia jus nuo tinklaraščio administravimo (Dotclear's, mes esame ergonomikos čempionai!).</p>
+    <h4 class="pretty-title">Pagrindinis meniu</h4>
+    <p>Pagrindinis meniu yra kairėje ekrano pusėje. Jį galima suvynioti spustelėjus dešinįjį jo kraštą (ir vėl spustelėjus jį išvynioti).</p>
+    <p>Jis veda į skirtingus administravimo puslapius, atsižvelgiant į jūsų teises dabartiniame tinklaraštyje. Jį sudaro keturi blokai:</p>
+    <ul>
+      <li><strong>Mano mėgstamiausi</strong> pateikiamas puslapių, kuriuos pasirinkote kaip mėgstamiausius <em>Mano nuostatos</em>/<em>Mano prietaisų skydelis</em> skirtuke, sąrašas. Jei dar nepasirinkote nė vieno mėgstamiausio, šiame sąraše bus pateiktas numatytasis Dotclear rinkinys arba rinkinys, kurį nustatė platformos valdytojas. Jei nenorite, kad šis rinkinys būtų rodomas, prietaisų skydelio parinktyse galite panaikinti atitinkamo žymimojo langelio žymėjimą.</li>
+      <li><strong>Blog</strong> lists all the pages that enable to feed and setup the current blog, from editing an entry, managing media, choosing the blog appearance or other parameters.<br>
+        <em>If you do not have administrator rights on the current blog, there will be no other block below that one in the main menu.</em></li>
+      <li><strong>Sistemos nustatymai</strong> nuorodos į puslapius, kuriuose galima valdyti Dotclear diegimą: tinklaraščių valdymas, vartotojai ir galimos kalbos, įskiepių diegimas, sistemos nustatymai. Jei turite kelių tinklaraščių teises, bet neturite superadministratoriaus teisių, matysite tik <em>Blogs</em> įrašą.</li>
+      <li><strong>Įskiepiai</strong> galite nustatyti įdiegtus įskiepius. Jei įskiepių nustatymai vienu metu turi įtakos tik vienam tinklaraščiui, jo administravimo puslapį galima pasiekti iš <em>Blog</em> bloko, tačiau jei jie turi įtakos visam įrenginiui, jie pateikiami čia ir prieinami tik superadministratoriaus naudotojams.</li>
+    </ul>
+    <h4 class="pretty-title">Kojinė</h4>
+    <p>Nemokama "Dotclear" versija bus pasiūlyta kiekvienam naudotojui, kuris atras poraštėje paslėptą paslaptį.</p>
+    <h3>Pagalba pradedantiesiems</h3>
+    <p>Jei nesate susipažinę su tinklaraščiais, rekomenduojame peržiūrėti mūsų dokumentaciją (visą turinį rasite šio puslapio skirtuke <strong>dokumentacija</strong> ) ir mokomąsias medžiagas, pvz:
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Mano pirmasis įrašas, žingsnis po žingsnio.</a></li>
+      </ul>
+      <p><a href="https://dotclear.org/forum/">"Dotclear" forumas</a> yra svetinga vieta, kurioje nėra <em>kvailo klausimo</em>. Nedvejodami dalyvaukite, jei jums reikia pagalbos ir, kodėl gi ne, mainais padėkite žmonėms.</p>
+      <p class="info">Stengiamės naudoti tokį žodyną, kurį lengva suprasti neturint specialių žinių. Tačiau jei vis dėlto pavartojame techninį terminą, jo apibrėžimą tikriausiai rasite mūsų internetinės dokumentacijos <a href="https://dotclear.org/documentation/glossary">žodynėlyje</a> .</p>
+  </div>
+  <div class="multi-part" id="users-doc" title="Naudotojo vadovas">
+    <h3>Naudotojo vadovas</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Turinio valdymas</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Įrašai</a>
+          <ul>
+            <li>Kūrimas ir redagavimas</li>
+            <li>Įrašo informacija</li>
+            <li>Su įvežimu susiję veiksmai</li>
+            <li>Komentarai ir Trackbacks</li>
+            <li>Įrašų paketinis valdymas</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Komentarai ir Trackbacks</a>
+          <ul>
+            <li>Tolesni veiksmai</li>
+            <li>Valdymas</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">Kategorijos</a>
+          <ul>
+            <li>Kategorijos kūrimas</li>
+            <li>Kategorijos redagavimas</li>
+            <li>Kategorijos pašalinimas</li>
+            <li>Kategorijų sąrašo sudarymas</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Žymos (raktažodžiai)</a>
+          <ul>
+            <li>Žymių pridėjimas</li>
+            <li>Žymių valdymas</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Žiniasklaida ir priedai</a>
+          <ul>
+            <li>Pakatalogio kūrimas</li>
+            <li>Failų pridėjimas</li>
+            <li>Dabartinio katalogo zip archyvo atsisiuntimas</li>
+            <li>Pakeisti pildymo failo duomenis</li>
+            <li>Tiesioginis failų pridėjimas</li>
+            <li>Specialūs failų tipai</li>
+            <li>Priedai</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Tinklaraščio meniu turinys (valdikliai)</a>
+          <ul>
+            <li>Navigacijos šoninė juosta, Papildoma šoninė juosta</li>
+            <li>Numatytuosius valdiklius</li>
+            <li>Valdiklio pridėjimas / pašalinimas</li>
+            <li>Valdiklių parinktys</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Tinklaraštis</a>
+          <ul>
+            <li>Tinklaraštis</li>
+            <li>Nuorodos pridėjimas</li>
+            <li>Kategorijos pridėjimas</li>
+            <li>XFN</li>
+            <li>Nuorodų importavimas iš OPML arba XBEL failo</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Nustatymai ir pritaikymas</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Tinklaraščio nustatymai</a>
+          <ul>
+            <li>Tinklaraščio informacija</li>
+            <li>Tinklaraščio konfigūracija</li>
+            <li>Komentarai ir Trackbacks</li>
+            <li>Tinklaraščio pristatymas</li>
+            <li>Žiniasklaida ir vaizdai</li>
+            <li>Paieškos sistemos robotų politika</li>
+            <li>Antispam</li>
+            <li>LightBox</li>
+            <li>Išsaugoti</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Naudotojo parinktys</a>
+          <ul>
+            <li>Mano profilis</li>
+            <li>Mano galimybės</li>
+            <li>Mano prietaisų skydelis</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Tinklaraščio išvaizda</a>
+          <ul>
+            <li>Pasirinkite temą</li>
+            <li>Įdiekite temą</li>
+            <li>Suasmeninti temą</li>
+            <li>Temos redaktorius</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes fieldset">
+      <h4 class="smart-title">Papildoma literatūra</h4>
+      <h5>Žodynėlis</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/glossary">Visi šie paslaptingi žodžiai, naudojami internete ir "Dotclear</a></li>
+      </ul>
+      <h5>Įvesties sintaksės</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Wiki sintaksė ir HTML atitikmuo</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Jei norite eiti toliau</a></li>
+      </ul>
+      <h5>Prenumerata (RSS, Atom...)</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Kas tai?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Kaip padaryti, kad jis būtų prieinamas mano tinklaraštyje?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Kaip užsiprenumeruoti kanalą?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Jei norite eiti toliau</a></li>
+      </ul>
+      <h4 class="smart-title">Pagalba</h4>
+      <ul>
+        <li><a href="https://dotclear.org/forum">"Dotclear" forumas</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/faq">Dažnai užduodami klausimai</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="multi-part" id="admin-doc" title="Dokumentai administratoriams">
+    <h3>Dokumentai administratoriams</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Diegimas ir atnaujinimas</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Įrengimas</a>
+          <ul>
+            <li>Būtinosios sąlygos</li>
+            <li>Automatinis diegimas</li>
+            <li>Standartinis montavimas</li>
+            <li>Diegimas naudojant vedlį</li>
+            <li>Diegimas iš config.php failo</li>
+            <li>Diegimo proceso užbaigimas</li>
+            <li>Tolesni veiksmai</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">atnaujinimas</a>
+          <ul>
+            <li>Pasirengimas atnaujinimui</li>
+            <li>Automatinis atnaujinimas</li>
+            <li>Programos atnaujinimas</li>
+            <li>Duomenų bazės atnaujinimas</li>
+            <li>Priedas: mercurial kopijos atnaujinimas</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Konfigūracijos failas (config.php) Parametrai</a>
+          <ul>
+            <li>Įvadas</li>
+            <li>Parametrai</li>
+            <li>Informacijos įtraukimas į failą</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Atnaujinimas iš Dotclear 1.2 į Dotclear 2</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Migravimas iš kitos tinklaraščių kūrimo programinės įrangos į Dotclear</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Vietinis įrengimas</a>
+          <ul>
+            <li>Windows</li>
+            <li>"Mac OS X</li>
+            <li>Linux</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">"Dotclear" diegimas su IIS7</a></li>
+      </ul>
+      <h5>Prieglobos priedas</h5>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/hosting">Priegloba</a>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Administracija</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Naudotojų valdymas</a>
+          <ul>
+            <li>Esamų naudotojų sąrašas</li>
+            <li>Naudotojo kūrimas</li>
+            <li>Naudotojo keitimas</li>
+            <li>Naudotojo leidimai</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Švarus montavimas</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Kelių tinklaraščių diegimas</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Įskiepių valdymas</a>
+          <ul>
+            <li>Įskiepio diegimas</li>
+            <li>Įskiepių konfigūravimas</li>
+            <li>Įskiepio pašalinimas</li>
+            <li>Įskiepio atnaujinimas</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">Numatytoji tema "Blowup</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Tinklaraščio temos</a>
+          <ul>
+            <li>Temos pasirinkimas</li>
+            <li>Temos diegimas</li>
+            <li>Temos pritaikymas</li>
+            <li>Temos redaktorius</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Išplėstinė konfigūracija</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Techninė priežiūra</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Atsarginės kopijos kūrimas ir atkūrimas</a>
+          <ul>
+            <li>Importas / eksportas</li>
+            <li>Failai</li>
+            <li>Duomenų bazė</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Šlamšto komentarų filtrai</a>
+          <ul>
+            <li>Filtro organizavimas</li>
+            <li>Filtro konfigūracija</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="fieldset vertical-separator">
+        <h4 class="smart-title">Pagalba</h4>
+        <ul>
+          <li><a href="https://dotclear.org/forum">"Dotclear" forumas</a></li>
+          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Dažniausiai užduodami klausimai (administratoriams)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part" id="guide-dev" title="Kūrėjų dokumentacija">
+    <h3>Kūrėjų ir dizainerių ištekliai</h3>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">Dizainas &amp; temos</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Temos</a>
+          <ul>
+            <li>Temų naudotojo vadovas</li>
+            <li>Šablono žymės</li>
+            <li>Priedėlis</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Temos paveldėjimas</a>
+          <ul>
+            <li>Principas</li>
+            <li>Apribojimai</li>
+            <li>Nustatyti</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Šablono žymės</a>
+          <ul>
+            <li>Bendrieji dalykai / komunalinės paslaugos</li>
+            <li>Tinklaraštis</li>
+            <li>Įrašai</li>
+            <li>Įrašų puslapiavimas</li>
+            <li>Komentarai</li>
+            <li>Komentarų peržiūra</li>
+            <li>Pingai</li>
+            <li>Priedai</li>
+            <li>Kategorijos</li>
+            <li>Žymos</li>
+            <li>Archyvai</li>
+            <li>Kalbos</li>
+            <li>Sistema</li>
+            <li>Valdikliai</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">Kodas &amp; Įskiepiai</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Įskiepio arba temos tpl žymos sukūrimas</a>
+          <ul>
+            <li>Įvadas</li>
+            <li>Vertybės</li>
+            <li>Instrukcijų blokai</li>
+            <li>Šablono talpyklos įtakos demonstravimas</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Įskiepiai</a>
+          <ul>
+            <li>Įskiepio rašymas</li>
+            <li>Priedėlis</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Įskiepio kontekstinės pagalbos kūrimas</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Išorinis autentiškumo patvirtinimas</a>
+          <ul>
+            <li>Preambulė</li>
+            <li>Nauja autentifikavimo klasė</li>
+            <li>Scenarijus</li>
+            <li>Paraiška</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC sąsaja</a></li>
+        <li><a href="https://dev.dotclear.org/code/2/">API dokumentacija</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Įnašas &amp; Parama</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Prisidėti</a>
+          <ul>
+            <li>Redaguoti šią dokumentaciją</li>
+            <li>Dalinkitės savo kūriniais</li>
+            <li>Praneškite apie klaidas arba pasiūlykite naujų funkcijų</li>
+            <li>Lokalizavimas</li>
+          </ul>
+        </li>
+        <li><a href="https://git.dotclear.org/dev/dotclear">Dotclear šaltinio kodo saugykla</a></li>
+        <li><a href="https://dotclear.org/forum">Dotclear forumas</a></li>
+      </ul>
+      <div class="fieldset">
+        <h4 class="smart-title">Konvencijos</h4>
+        <ul>
+          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Kodavimo standartai</a></li>
+          <li><a href="index.php?process=HelpCharte">Administracijos puslapių diagrama</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part legible" id="a11y-ergo" title="Prieinamumas ir ergonomika">
+    <h3>Prieinamumas ir ergonomika</h3>
+    <p>"Dotclear" sąsaja atitinka beveik visus <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> kriterijus. Siekiame, kad "Dotclear" atitiktų <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> gaires.</p>
+    <p>Prieinamumas ir ergonomika yra vienas iš pagrindinių mūsų rūpesčių. Pasitelkę ekspertus reguliariai atliekame analizę ir nuolat teikiame pataisas bei patobulinimus.</p>
+    <p>Galite mums padėti atidarydami <a href="https://git.dotclear.org/dev/dotclear/issues">bilietus</a> arba dalyvaudami <a href="https://dotclear.org/forum/">forume</a>. Taip pat galite dalyvauti naudotojų testavime arba prisijungti prie mūsų komandos!</p>
+  </div>
 </body>
+
 </html>
