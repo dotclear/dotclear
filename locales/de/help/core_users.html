@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Benutzer</title>
-  </head>
-  <body>
-    <p>Auf dieser Seite werden alle Benutzer des Systems aufgelistet.</p>
-    <p>Zum Hinzufügen (oder Ändern) von Benutzerberechtigungen ist Ihr Passwort im Feld <strong>Ihr Passwort</strong> erforderlich.</p>
 
-    <h4>Filter für die Benutzerliste</h4>
-    <dl>
-      <dt>Suche</dt>
-      <dd>Die Suche basiert auf der Benutzer-ID. Der Platzhalter <strong>*</strong> kann verwendet werden, um nur nach einem Teil der Benutzerkennung zu suchen.</dd>
+<head>
+  <title>Benutzer</title>
+</head>
 
-      <dt>Bestellen bei</dt>
-      <dd>Die Benutzerliste kann nach ihrer <em>ID</em>, ihrem <em>Nachnamen</em>, ihrem <em>Vornamen</em>, ihrem <em>Anzeigenamen</em> (Spitzname) oder der <em>Anzahl der von ihnen erstellten Einträge</em> geordnet werden.</dd>
+<body>
+  <p>Auf dieser Seite werden alle Benutzer des Systems aufgelistet.</p>
+  <p>Zum Hinzufügen (oder Ändern) von Benutzerberechtigungen ist Ihr Passwort im Feld <strong>Ihr Passwort</strong> erforderlich.</p>
+  <h4>Filter für die Benutzerliste</h4>
+  <dl>
+    <dt>Suche</dt>
+    <dd>Die Suche basiert auf der Benutzer-ID. Der Platzhalter <strong>*</strong> kann verwendet werden, um nur nach einem Teil der Benutzerkennung zu suchen.</dd>
+    <dt>Bestellen bei</dt>
+    <dd>Die Benutzerliste kann nach ihrer <em>ID</em>, ihrem <em>Nachnamen</em>, ihrem <em>Vornamen</em>, ihrem <em>Anzeigenamen</em> (Spitzname) oder der <em>Anzahl der von ihnen erstellten Einträge</em> geordnet werden.</dd>
+    <dt>Sortieren</dt>
+    <dd>Gibt die Sortiermethode an, die auf die Ergebnisliste angewendet wird (<em>Aufsteigend</em> oder <em>Absteigend</em>).</dd>
+    <dt>Benutzer pro Seite</dt>
+    <dd>Legt die Anzahl der Benutzer fest, die auf jeder Seite der Ergebnisliste angezeigt werden.</dd>
+  </dl>
+  <h4>Benutzer Batch-Aktionen</h4>
+  <p>Es ist möglich, einen Stapel von Aktionen für mehrere Benutzer auf einmal durchzuführen.</p>
+  <ul>
+    <li><strong>Berechtigungen festlegen:</strong> Legen Sie die Berechtigungen für ein oder mehrere Blog(s) fest.</li>
+    <li><strong>Löschen:</strong> Entfernen Sie den/die ausgewählten Benutzer aus dem System. Ein Benutzer, der Einträge erstellt hat, kann nicht gelöscht werden.</li>
+  </ul>
+  <p>Wenn Sie sich entscheiden, die Benutzerrechte festzulegen, werden Sie zu einer neuen Seite weitergeleitet, auf der die in Ihrem System verfügbaren Blogs aufgelistet sind. Markieren Sie die Blogs, für die Sie die Berechtigungen festlegen möchten, und klicken Sie auf <strong>Berechtigungen festlegen</strong>.</p>
+  <h4>Benutzerberechtigungen</h4>
+  <p>Für jedes Blog können Sie die folgenden Berechtigungen festlegen:</p>
+  <ul>
+    <li><strong>Verwalter:</strong> Kann den Blog vollständig verwalten.</li>
+    <li><strong>Verwalten Sie Ihre eigenen Einträge und Kommentare:</strong> Der Benutzer kann Einträge erstellen und die Kommentare zu den von ihm erstellten Einträgen verwalten.</li>
+    <li><strong>Einträge und Kommentare veröffentlichen:</strong> Der Benutzer kann den Veröffentlichungsstatus seiner eigenen Einträge und der Kommentare zu seinen Einträgen ändern.</li>
+    <li><strong>Einträge und Kommentare löschen:</strong> Der Benutzer kann sowohl seine eigenen Einträge als auch die Kommentare zu seinen Einträgen löschen.</li>
+    <li><strong>Verwalten Sie alle Einträge und Kommentare:</strong> Der Benutzer kann alle Einträge in diesem Blog verwalten, unabhängig davon, ob er der Autor ist oder nicht.</li>
+    <li><strong>Verwalten von Kategorien:</strong> Der Benutzer kann Kategorien erstellen, ändern und löschen.</li>
+    <li><strong>Verwalten Sie Ihre eigenen Medienelemente:</strong> Der Benutzer kann Medienelemente hinzufügen und seine eigenen Medien ändern oder löschen.</li>
+    <li><strong>Verwalten Sie alle Medienelemente:</strong> Der Benutzer kann die Medienelemente eines beliebigen Benutzers verwalten.</li>
+    <li><strong>Verwalten von Seiten:</strong> Der Benutzer kann Seiten hinzufügen und ändern.</li>
+    <li><strong>Blogroll verwalten:</strong> Der Benutzer kann die Blogroll des aktuellen Blogs verwalten.</li>
+  </ul>
+  <p>Der Status <strong>Superadministrator</strong> wird im Benutzerprofil festgelegt.</p>
+</body>
 
-      <dt>Sortieren</dt>
-      <dd>Gibt die Sortiermethode an, die auf die Ergebnisliste angewendet wird (<em>Aufsteigend</em> oder <em>Absteigend</em>).</dd>
-
-      <dt>Benutzer pro Seite</dt>
-      <dd>Legt die Anzahl der Benutzer fest, die auf jeder Seite der Ergebnisliste angezeigt werden.</dd>
-    </dl>
-
-    <h4>Benutzer Batch-Aktionen</h4>
-    <p>Es ist möglich, einen Stapel von Aktionen für mehrere Benutzer auf einmal durchzuführen.</p>
-    <ul>
-      <li><strong>Berechtigungen festlegen:</strong> Legen Sie die Berechtigungen für ein oder mehrere Blog(s) fest.</li>
-      <li><strong>Löschen:</strong> Entfernen Sie den/die ausgewählten Benutzer aus dem System. Ein Benutzer, der Einträge erstellt hat, kann nicht gelöscht werden.</li>
-    </ul>
-    <p>Wenn Sie sich entscheiden, die Benutzerrechte festzulegen, werden Sie zu einer neuen Seite weitergeleitet, auf der die in Ihrem System verfügbaren Blogs aufgelistet sind. Markieren Sie die Blogs, für die Sie die Berechtigungen festlegen möchten, und klicken Sie auf <strong>Berechtigungen festlegen</strong>.</p>
-
-    <h4>Benutzerberechtigungen</h4>
-    <p>Für jedes Blog können Sie die folgenden Berechtigungen festlegen:</p>
-    <ul>
-      <li><strong>Verwalter:</strong> Kann den Blog vollständig verwalten.</li>
-      <li><strong>Verwalten Sie Ihre eigenen Einträge und Kommentare:</strong> Der Benutzer kann Einträge erstellen und die Kommentare zu den von ihm erstellten Einträgen verwalten.</li>
-      <li><strong>Einträge und Kommentare veröffentlichen:</strong> Der Benutzer kann den Veröffentlichungsstatus seiner eigenen Einträge und der Kommentare zu seinen Einträgen ändern.</li>
-      <li><strong>Einträge und Kommentare löschen:</strong> Der Benutzer kann sowohl seine eigenen Einträge als auch die Kommentare zu seinen Einträgen löschen.</li>
-      <li><strong>Verwalten Sie alle Einträge und Kommentare:</strong> Der Benutzer kann alle Einträge in diesem Blog verwalten, unabhängig davon, ob er der Autor ist oder nicht.</li>
-      <li><strong>Verwalten von Kategorien:</strong> Der Benutzer kann Kategorien erstellen, ändern und löschen.</li>
-      <li><strong>Verwalten Sie Ihre eigenen Medienelemente:</strong> Der Benutzer kann Medienelemente hinzufügen und seine eigenen Medien ändern oder löschen.</li>
-      <li><strong>Verwalten Sie alle Medienelemente:</strong> Der Benutzer kann die Medienelemente eines beliebigen Benutzers verwalten.</li>
-      <li><strong>Verwalten von Seiten:</strong> Der Benutzer kann Seiten hinzufügen und ändern.</li>
-      <li><strong>Blogroll verwalten:</strong> Der Benutzer kann die Blogroll des aktuellen Blogs verwalten.</li>
-    </ul>
-    <p>Der Status <strong>Superadministrator</strong> wird im Benutzerprofil festgelegt.</p>
-  </body>
 </html>
