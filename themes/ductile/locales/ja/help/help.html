@@ -1,83 +1,52 @@
 <html>
-<head>
 
-<title>ダクタイル構成</title>
+<head>
+  <title>ダクタイル構成</title>
 </head>
 
 <body>
-<p>Ductileテーマの設定を変更することで、簡単にテーマをカスタマイズすることができます。</p>
-
-<h3>コンテンツのパーソナライゼーション</h3>
-<p>このタブでは、ブログの内容をパーソナライズすることができます。</p>
-<dl>
-  <dt>ヘッダー</dt>
+  <p>Ductileテーマの設定を変更することで、簡単にテーマをカスタマイズすることができます。</p>
+  <h3>コンテンツのパーソナライゼーション</h3>
+  <p>このタブでは、ブログの内容をパーソナライズすることができます。</p>
+  <dl>
+    <dt>ヘッダー</dt>
     <dd>通常はタイトルの下に表示されるブログの説明を表示しないようにするには、「ブログの説明を隠す」にチェックを入れます。</dd>
-
-<p>プラグイン "Simple menu "がインストールされ、有効になっている場合、ヘッダーのメニューを設定するために指定されたリンクをクリックすることができます。(メインメニュー？)</p>
-
-<p>デフォルトのロゴの代わりに使用するロゴのURLを指定します。URL が <code>/</code> で始まらない場合は、テーマの <code>img</code> フォルダからの相対 URL になります（例えば <code>logo.png</code>を置くと、デフォルトのロゴを使うのと同じです）。このフィールドをクリアすると、デフォルトの設定に戻ります。</p>
-
-  <dt>ステッカー</dt>
-    <dd>ステッカーは、大きな画面では画面上部に小さな画像として表示され、非常に小さな画面ではページ下部に表示されます。ファイル名がsticker-*.pngスキームに対応し、テーマのサブフォルダimgに配置されたすべての画像が一覧表示されます。それぞれにラベルと対応するURLを指定できます。(表示させない場合は、両方のフィールドを空のままにします。)<br />
-javascriptが有効で、環境設定で無効にしていない場合は、ドラッグ＆ドロップで表示順を変更することもできます。javascriptが無効になっている場合、フィールドで表示順（1～n）を指定できます。</dd>
-
-  <dt>投稿リストの種類と制限</dt>
-
-    <dd>ブログの表示コンテクストの中には、記事のリストという形で表示されるものがあります。例えばトップページや月別アーカイブがそうです。表にリストされた各コンテキストについて、表示される各記事の内容をタイトルのみにするか、ショートフォーム（最初の300文字の抽出フィールドの内容）にするか、フルフォームにするかを指定できます。注意トップページでは、最初の投稿は常に完全な形で表示されます。<br />
-さらに、いくつかのコンテキストでは、ページごとに表示される投稿の数を指定することもできます。このフィールドを空にすると、ブログの一般設定で指定された値が使われます。</dd>
-
-</dl>
-
-<h3>プレゼンテーションのパーソナライズ</h3>
-<p>このタブでは、ブログのいくつかのプレゼンテーション要素をパーソナライズすることができます。</p>
-
-<h4>一般パラメーター</h4>
-
-<p>これらのパラメータは、ブログのすべての表示幅で使用されます。</p>
-<dl>
-  <dt>フォント</dt>
+    <p>プラグイン "Simple menu "がインストールされ、有効になっている場合、ヘッダーのメニューを設定するために指定されたリンクをクリックすることができます。(メインメニュー？)</p>
+    <p>デフォルトのロゴの代わりに使用するロゴのURLを指定します。URL が <code>/</code> で始まらない場合は、テーマの <code>img</code> フォルダからの相対 URL になります（例えば <code>logo.png</code>を置くと、デフォルトのロゴを使うのと同じです）。このフィールドをクリアすると、デフォルトの設定に戻ります。</p>
+    <dt>ステッカー</dt>
+    <dd>The stickers will be displayed at the top of the screen as small images on large screens and at the bottom of the page on very small screens. All images which file name correspond to the sticker-*.png scheme and placed in the sub-folder img of the theme are listed. You can indicate for each a label and the corresponding url. (Leave on of both fields empty to not display it.)<br>You can also modify the display order with a drag and drop if javascript is activated and if you have not disabled it in your preferences. If javascript is deactivated, a field allows you to indicate the order of display (1 to n).</dd>
+    <dt>投稿リストの種類と制限</dt>
+    <dd>Some of the display contexts of your blog present under the form of a list of posts. It's the case for example for the home page or for the monthly archives. For each of the context listed in the table, you can specify if the content of each displayed post should be as a title only, a short form (content of the extract field of first 300 characters) or their full form. NB. On the home page, the first post always displays in full.<br>Moreover, for some of those contexts, you can also specify the number of posts displayed per page. If you leave this field empty, the value specified in the general settings of the blog that will be used.</dd>
+  </dl>
+  <h3>プレゼンテーションのパーソナライズ</h3>
+  <p>このタブでは、ブログのいくつかのプレゼンテーション要素をパーソナライズすることができます。</p>
+  <h4>一般パラメーター</h4>
+  <p>これらのパラメータは、ブログのすべての表示幅で使用されます。</p>
+  <dl>
+    <dt>フォント</dt>
     <dd>ここでは、ほとんどのテキストに使用される主要なフォントファミリーを選択することができます。また、第二レベルのタイトルやコメントに使用される第二のフォントファミリー（セカンダリ）を指定することもできます。default "オプションは、元の選択のままにすることができます。</dd>
-
-  <dt>ブログタイトル</dt>
-
-    <dd>ここでは、ブログのタイトルを太字で表示するかどうか、そのサイズ（デフォルトはem、認識される単位は%, pt, px, em, ex）、および色を指定できます。<br />
-選択をキャンセルしてデフォルトに戻すには、1つまたはすべてのフィールドを空にします。</dd>
-
-
-  <dt>投稿タイトル</dt>
-    <dd>ここでは、投稿タイトルを太字で表示するかどうか、そのサイズ（デフォルトはem、認識される単位は％、pt、px、em、ex）、およびその色を指定できます。ピッカー アイコンをクリックして利用できるカラーピッカーを使用するか、またはrr、gg、bbを0からfffの範囲で選択した#rrggbb形式で色を指定します。<br />
-選択した色をキャンセルして元の色に戻すには、1つまたはすべてのフィールドを空にします。</dd>
-
-  <dt>リンクのないタイトル</dt>
-    <dd>ピッカーのアイコンをクリックするか、#rrggbbの書式でrr、gg、bbを0からffの範囲で指定することで、リンクのないタイトルの色を指定することができます。<br />
-選択をキャンセルしてデフォルトに戻すには、1つまたはすべてのフィールドを空にします。</dd>
-
-  <dt>記事内リンク</dt>
-    <dd>ピッカーのアイコンをクリックするか、#rrggbbのフォーマットでrr、gg、bbを0からfffの範囲で指定することで、投稿に含まれるリンクを太字で表示するかどうか、通常の状態、「訪問済み」の状態、アクティブな状態、ホバーされた状態、フォーカスが当たった状態での色を定義することができます。<br />
-選択をキャンセルしてデフォルトに戻すには、1つまたはすべてのフィールドを空にします。</dd>
-
-<h4>携帯電話固有のパラメータ</h4>
-
-<p>これらのパラメータは、ディスプレイの幅が480ピクセル未満の場合（携帯電話など）にのみ使用される。これらのパラメータが指定された場合、上記の一般的なパラメータで指定された同等のパラメータが置き換えられます。</p>
-
-  <dt>ブログタイトル</dt>
-
-    <dd>ブログタイトルを太字で表示するかどうか、サイズ（デフォルトはem、単位は％、pt、px、em、ex）、色を指定できます。<br />
-選択をキャンセルしてデフォルトに戻すには、1つまたはすべてのフィールドを空にします。</dd>
-
-
-  <dt>投稿タイトル</dt>
-    <dd>ここでは、投稿タイトルを太字で表示するかどうか、そのサイズ（デフォルトはem、認識される単位は％、pt、px、em、ex）、およびその色を指定することができます。ピッカー アイコンをクリックして利用可能なカラーピッカーを使用するか、またはrr、gg、bbを0～ffの範囲で選択した#rrggbb形式で色を指定します。<br />
-選択をキャンセルしてデフォルトに戻すには、1つまたはすべてのフィールドを空にします。</dd>
-
-<h3>アクセシビリティと色彩のコントラスト</h3>
-
-<p>色が選択された後、コントラスト比がフィールドの近くに表示され、その場合、このコントラストがWCAG 2.0の勧告に適合していることが指定されます。有効であるためには、背景色と文字色のコントラストは以下の値でなければなりません：</p>
-<ul>
-<li>レベルAAの通常サイズのテキストでは、少なくとも4,5:1；</li>
-<li>レベルAAAに相当する普通サイズのテキストでは、少なくとも7:1である；</li>
-<li>レベルAAの拡大サイズ（150％または120％の太字）のテキストでは、少なくとも3：1；</li>
-<li>レベルAAAでは、テキストを拡大（150％または120％の太字）した場合、少なくとも4.5：1。</li>
-</ul>
+    <dt>ブログタイトル</dt>
+    <dd>You can specify here if the blog title must be displayed in bold, its size, (default is em, recognized units are %, pt, px, em and ex) as well as the color, using the format #rrggbb with rr, gg and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>投稿タイトル</dt>
+    <dd>You can indicate here if the post titles should be displayed in bold, their size (default is em, recognized units are %, pt, px, em and ex) as well as their color using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to your original one.</dd>
+    <dt>リンクのないタイトル</dt>
+    <dd>You can specify here the color of titles without a link (essentially : the title of a post when it is displayed by itself, sub-titles within posts, the active item in the horizontal menu) by using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>記事内リンク</dt>
+    <dd>You can indicate here if the links contained in your posts should be displayed in bold or not and define their color at a normal state as well as a "visited" state, their color when active, or when they're hovered upon or take focus, by using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <h4>携帯電話固有のパラメータ</h4>
+    <p>これらのパラメータは、ディスプレイの幅が480ピクセル未満の場合（携帯電話など）にのみ使用される。これらのパラメータが指定された場合、上記の一般的なパラメータで指定された同等のパラメータが置き換えられます。</p>
+    <dt>ブログタイトル</dt>
+    <dd>You can specify here if the blog title must be displayed in bold, its size, (default is em, recognized units are %, pt, px, em and ex) as well as the color, using the format #rrggbb with rr, gg and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>投稿タイトル</dt>
+    <dd>You can indicate here if the post titles should be displayed in bold, their size (default is em, recognized units are %, pt, px, em and ex) as well as their color using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <h3>アクセシビリティと色彩のコントラスト</h3>
+    <p>色が選択された後、コントラスト比がフィールドの近くに表示され、その場合、このコントラストがWCAG 2.0の勧告に適合していることが指定されます。有効であるためには、背景色と文字色のコントラストは以下の値でなければなりません：</p>
+    <ul>
+      <li>レベルAAの通常サイズのテキストでは、少なくとも4,5:1；</li>
+      <li>レベルAAAに相当する普通サイズのテキストでは、少なくとも7:1である；</li>
+      <li>レベルAAの拡大サイズ（150％または120％の太字）のテキストでは、少なくとも3：1；</li>
+      <li>レベルAAAでは、テキストを拡大（150％または120％の太字）した場合、少なくとも4.5：1。</li>
+    </ul>
 </body>
+
 </html>
