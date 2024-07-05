@@ -1,94 +1,75 @@
 <html>
+
 <head>
   <title>Wiki süntaksi viide</title>
 </head>
 
 <body>
-
-<h4>Wiki süntaksi viide</h4>
-
-<p>Wiki süntaks on viis, kuidas täiendada oma teksti minimaalse hulga
-siltidega, mida on uuritud põhiliste vajaduste (pealkirjad, lõigud, tsitaadid,
-nimekirjad...) katmiseks.</p>
-
-<dl>
-<dt>Plokkide elemendid</dt>
-<dd>
-<ul>
-  <li>Jätke kahe sarnase ploki vahele tühi rida.</li>
-  <li><strong>Lõige:</strong> Vaba tekst, mis lõpeb tühja reaga, kui
-  järgneb veel üks lõige.</li>
-  <li><strong>Pealkiri:</strong> <code>!!! pealkiri</code>, <code>!!! pealkiri</code>
-  või <code>! pealkiri</code>, mis võimaldab kasutada kolme erinevat taset
-  pealkirja.</li>
-  <li><strong>Horisontaalne joon:</strong> <code>----</code></li>
-  <li><strong>Nimekirjad:</strong> Alustage iga rida vastavalt nummerdamata või nummerdatud nimekirjade puhul
-  <code>*</code> või <code>#</code>.
-  Nimekirjade imbrikeerimine toimub niimoodi nimekirjamärkide segamisega:
-  <pre>
+  <h4>Wiki süntaksi viide</h4>
+  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <dl>
+    <dt>Plokkide elemendid</dt>
+    <dd>
+      <ul>
+        <li>Jätke kahe sarnase ploki vahele tühi rida.</li>
+        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
+        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Horisontaalne joon:</strong> <code>----</code></li>
+        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+          <pre>
     <code>*</code> kirje 1
     <code>**</code> kirje 1.1
     <code>*</code> kirje 2
     <code>*#</code> kirje 2.1
   ...
   </pre>
-  </li>
-  <li><strong>Määratlusnimekirjad:</strong> Alustage iga rida defineeritava termini puhul sõnaga <code>=</code> ja termini määratluse puhul sõnaga <code>:</code>.
-  <pre>
+        </li>
+        <li><strong>Määratlusnimekirjad:</strong> Alustage iga rida defineeritava termini puhul sõnaga <code>=</code> ja termini määratluse puhul sõnaga <code>:</code>.
+          <pre>
   <code>=</code> termin
   <code>:</code> termini kirjeldus
   </pre>
-  </li>
-  <li><strong>Eelvormitud tekst:</strong> Iga rida peab algama tühikuga.</li>
-  <li><strong>Block tsitaat:</strong> Iga rida peab algama <code>&gt;</code>.</li>
-  <li><strong>Külgplokk:</strong> Iga rida peab algama <code>)</code>.</li>
-</ul>
-</dd>
-
-<dt>Siltide vormindamine</dt>
-<dd>
-<ul>
-  <li><strong>Rõhuasetus:</strong> Kaks tsitaati <code>''tekst'</code>'</li>
-  <li><strong>Tugev rõhuasetus:</strong> Kaks rõhuasetust <code>__text__</code></li>
-  <li><strong>Esile tõstetud:</strong> Kaks kahekordset jutumärki <code>""tekst""</code></li>
-  <li><strong>Uus rida:</strong> <code>%%%</code></li>
-  <li><strong>Sisestamine:</strong> Kaks plusspoolt <code>++tekst++</code></li>
-  <li><strong>Kustutamine:</strong> <code> Teksti--</code></li>
-  <li><strong>Link:</strong> <code>[url]</code>, <code>[nimi|url]</code>,
-    <code>[nimi|url|keel]</code> või <code>[nimi|url|keel|pealkiri]</code>.</li>
-  <li><strong>Pilt:</strong>
-    ( <code>(url|alternatiivne tekst))</code>,
-    ( <code>(url|alternatiivne tekst|positsioon))</code> või
-    ( <code>(url|alternatiivne tekst|positsioon|pikk kirjeldus)</code>).
-    <br>Positsioon võib olla kas L (vasakule), R (paremale) või C (keskele).</li>
-  <li><strong>Ankur:</strong> <code>~anchor~</code></li>
-  <li><strong>Akronüüm:</strong> <code>Akronüüm|pealkiri?</code></li>
-  <li><strong>Inline HTML:</strong> Kaks tagasilauset <code>``HTML kood``</code>.</li>
-  <li><strong>Inline tsitaat</strong>: <code>{{quote}}</code>,
-    <code>{{quote|language}}</code> või <code>{{quote|language|url}}</code></li>
-  <li><strong>Kood:</strong> <code>@@kood@@</code></li>
-  <li><strong>Märkused:</strong> <code>$$footnote$$</code></li>
-  <li><strong>Ülaltoodud</strong>&nbsp;: <code>^superscript^</code></li>
-  <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,</code>,</li>
-</ul>
-</dd>
-
-<dt>Vormindamata tekst</dt>
-<dd>Kui te ei soovi, et ühte vormindusmärki sellisena tõlgendataks, lisage vahetult enne seda
-<code>\</code>. Näiteks:
-<code>\[Tekst sulgudes ilma lingita\]</code>
-</dd>
-
-<dt>HTML-kood</dt>
-<dd>Isegi kui te valisite Wiki süntaksi, võite mõnikord vajada võimsamat
-vormingut, st HTML-süntaksit. Tehke seda järgmiselt:
-<pre>
+        </li>
+        <li><strong>Eelvormitud tekst:</strong> Iga rida peab algama tühikuga.</li>
+        <li><strong>Block tsitaat:</strong> Iga rida peab algama <code>&gt;</code>.</li>
+        <li><strong>Külgplokk:</strong> Iga rida peab algama <code>)</code>.</li>
+      </ul>
+    </dd>
+    <dt>Siltide vormindamine</dt>
+    <dd>
+      <ul>
+        <li><strong>Rõhuasetus:</strong> Kaks tsitaati <code>''tekst'</code>'</li>
+        <li><strong>Tugev rõhuasetus:</strong> Kaks rõhuasetust <code>__text__</code></li>
+        <li><strong>Esile tõstetud:</strong> Kaks kahekordset jutumärki <code>""tekst""</code></li>
+        <li><strong>Uus rida:</strong> <code>%%%</code></li>
+        <li><strong>Sisestamine:</strong> Kaks plusspoolt <code>++tekst++</code></li>
+        <li><strong>Kustutamine:</strong> <code> Teksti--</code></li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
+        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Ankur:</strong> <code>~anchor~</code></li>
+        <li><strong>Akronüüm:</strong> <code>Akronüüm|pealkiri?</code></li>
+        <li><strong>Inline HTML:</strong> Kaks tagasilauset <code>``HTML kood``</code>.</li>
+        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Kood:</strong> <code>@@kood@@</code></li>
+        <li><strong>Märkused:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Ülaltoodud</strong>&nbsp;: <code>^superscript^</code></li>
+        <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,</code>,</li>
+      </ul>
+    </dd>
+    <dt>Vormindamata tekst</dt>
+    <dd>If you don't want one formatting character to be interpreted as such, add a
+      <code>\</code> just before it. For instance:
+      <code>\[Text in brackets without being a link\]</code>
+    </dd>
+    <dt>HTML-kood</dt>
+    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+      <pre>
 ///html
 &lt;p style="color:red"&gt;minu tekst punasena&lt;/p&gt;
 ///
 </pre>
-</dd>
-</dl>
-
+    </dd>
+  </dl>
 </body>
+
 </html>
