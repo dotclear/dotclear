@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-02 12:26+0200\n"
-"PO-Revision-Date: 2024-07-02 10:28\n"
+"PO-Revision-Date: 2024-07-05 01:47\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -196,8 +196,8 @@ msgstr "বর্তমান ব্লগ মুছে ফেলা যাব�
 #, php-format
 msgid "%d blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি ব্লগ সফলভাবে মোছা হয়েছে"
+msgstr[1] "%dটি ব্লগ সফলভাবে মোছা হয়েছে"
 
 #: src/Core/Backend/Action/ActionsComments.php:45
 #: src/Core/Backend/Action/ActionsComments.php:71
@@ -356,36 +356,36 @@ msgstr "প্রকাশিত এন্ট্রি নির্ধারি�
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি এন্ট্রি সফলভাবে স্থিতিতে আপডেট করা হয়েছে : \"%s\""
+msgstr[1] "%dটি এন্ট্রি সফলভাবে স্থিতিতে আপডেট হয়েছে: \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:194
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\""
 msgid_plural "%d entries have been successfully updated as: \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি এন্ট্রি \"%s\" হিসাবে সফলভাবে আপডেট হয়েছে"
+msgstr[1] "%dটি এন্ট্রি সফলভাবে আপডেট হয়েছে: \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:226
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি এন্ট্রি সফলভাবে নির্বাচিত হিসাবে চিহ্নিত হয়েছে"
+msgstr[1] "%dটি এন্ট্রি সফলভাবে নির্বাচিত হিসাবে চিহ্নিত হয়েছে"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:237
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি এন্ট্রি সফলভাবে অনির্বাচিত হিসাবে চিহ্নিত হয়েছে"
+msgstr[1] "%dটি এন্ট্রি সফলভাবে অনির্বাচিত হিসাবে চিহ্নিত হয়েছে"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:274
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি এন্ট্রি সফলভাবে মোছা হয়েছে"
+msgstr[1] "%dটি এন্ট্রি সফলভাবে মোছা হয়েছে"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:320
 #: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:120
@@ -397,8 +397,8 @@ msgstr "(বিড়াল না)"
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি এন্ট্রি সফলভাবে \"%s\" বিভাগে সরানো হয়েছে"
+msgstr[1] "%dটি এন্ট্রি সফলভাবে \"%s\" বিভাগে সরানো হয়েছে"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:343
 msgid "Change category for this selection"
@@ -447,8 +447,8 @@ msgstr "এধরণের কোনো ইউজার নেই"
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি এন্ট্রি সফলভাবে ব্যবহারকারী \"%s\"-এ সেট করা হয়েছে"
+msgstr[1] "%dটি এন্ট্রি সফলভাবে ব্যবহারকারী \"%s\"-এ সেট করা হয়েছে"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:477
 msgid "Change author for this selection"
@@ -462,8 +462,8 @@ msgstr "নতুন লেখক (লেখক আইডি):"
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি এন্ট্রি সফলভাবে \"%s\" ভাষায় সেট করা হয়েছে"
+msgstr[1] "%dটি এন্ট্রি সফলভাবে \"%s\" ভাষায় সেট করা হয়েছে"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 msgid "Change language for this selection"
@@ -613,8 +613,8 @@ msgstr[1] ""
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি মন্তব্য"
+msgstr[1] "%dটি মন্তব্য"
 
 #: src/Core/Backend/Favorites.php:453 src/Core/Backend/Menus.php:141
 #: src/Core/Backend/UserPref.php:209 src/Process/Backend/PostsPopup.php:100
@@ -846,11 +846,11 @@ msgstr "অনুসন্ধান:"
 
 #: src/Core/Backend/Listing/Listing.php:59
 msgid "&#171; prev."
-msgstr ""
+msgstr "&#171; পূর্ববর্তী।"
 
 #: src/Core/Backend/Listing/Listing.php:60
 msgid "next &#187;"
-msgstr ""
+msgstr "পরবর্তী &#187;"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:37
 msgid "No blog matches the filter"
@@ -878,8 +878,8 @@ msgstr "এন্ট্রি (সব ধরনের)"
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি ব্লগ ফিল্টারের সাথে মিলছে।"
+msgstr[1] "%dটি ব্লগ ফিল্টারের সাথে মিলছে।"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:77
 msgid "Blogs list"
@@ -907,7 +907,7 @@ msgstr "অপসারণ"
 #: src/Core/Backend/Listing/ListingBlogs.php:129
 #, php-format
 msgid "Edit blog settings for %s"
-msgstr ""
+msgstr "%s-এর জন্য ব্লগ সেটিংস সম্পাদনা করুন"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:130
 #: src/Core/Backend/Listing/ListingBlogs.php:131
@@ -917,7 +917,7 @@ msgstr "ব্লগ সেটিংস সম্পাদনা করুন"
 #: src/Core/Backend/Listing/ListingBlogs.php:137
 #, php-format
 msgid "Switch to blog %s"
-msgstr ""
+msgstr "%s ব্লগে স্যুইচ করুন"
 
 #: src/Core/Backend/Listing/ListingComments.php:40
 msgid "No comments or trackbacks matches the filter"
@@ -938,15 +938,15 @@ msgstr[1] ""
 #: src/Core/Backend/Listing/ListingComments.php:82
 #, php-format
 msgid "List of comments and trackbacks (%s)"
-msgstr ""
+msgstr "মন্তব্য এবং ট্র্যাকব্যাকগুলির তালিকা (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:85
 #: src/Core/Backend/Listing/ListingPosts.php:63
 #, php-format
 msgid ", <a href=\"%s\">published</a> (1)"
 msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", <a href=\"%s\">প্রকাশিত</a> (1)"
+msgstr[1] ", <a href=\"%s\">প্রকাশিত</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:91
 #, php-format
@@ -1019,7 +1019,7 @@ msgstr "Junk"
 #: src/Core/Backend/Listing/ListingComments.php:213
 #, php-format
 msgid "Edit the %1$s from %2$s"
-msgstr ""
+msgstr "%2$s থেকে %1$s সম্পাদনা করুন"
 
 #: src/Core/Backend/Listing/ListingComments.php:214
 #: src/Core/Backend/Listing/ListingComments.php:229
@@ -1053,8 +1053,8 @@ msgstr "কোনো ফাইল নেই।"
 #, php-format
 msgid "%d file matches the filter."
 msgid_plural "%d files match the filter."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি ফাইল ফিল্টারের সাথে মিলছে।"
+msgstr[1] "ফিল্টারের সাথে %dটি ফাইল মিলছে।"
 
 #: src/Core/Backend/Listing/ListingMedia.php:66
 #, php-format
@@ -1064,7 +1064,7 @@ msgstr "আইটেমের Nb: %d → %d folder (s) + %d file (s)"
 #: src/Core/Backend/Listing/ListingMedia.php:67
 #, php-format
 msgid "Nb of items: %d"
-msgstr ""
+msgstr "আইটেমগুলির Nb: %dটি"
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
 #: src/Core/Backend/ModulesList.php:832 src/Core/Backend/UserPref.php:200
@@ -1120,7 +1120,7 @@ msgstr "এন্ট্রি নেই"
 #: src/Core/Backend/Listing/ListingPosts.php:53
 #, php-format
 msgid "List of %s entries matching the filter."
-msgstr ""
+msgstr "ফিল্টারের সাথে মিলছে এমন %s এন্ট্রির তালিকা।"
 
 #: src/Core/Backend/Listing/ListingPosts.php:60
 #, php-format
@@ -1132,7 +1132,7 @@ msgstr "এন্ট্রির তালিকা (%s)"
 msgid ", <a href=\"%s\">programmed</a> (1)"
 msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
 msgstr[0] ""
-msgstr[1] ""
+msgstr[1] ", <a href=\"%s\">প্রোগ্রাম করা</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:94
 #: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:939
@@ -1166,7 +1166,7 @@ msgstr "%d সংযুক্তি"
 #: src/Core/Backend/Listing/ListingPostsMini.php:122
 #, php-format
 msgid "%d attachments"
-msgstr ""
+msgstr "%dটি সংযুক্তি"
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:39
 msgid "Entries list"
@@ -1183,7 +1183,7 @@ msgstr "কোনো ব্যবহারকারী নেই"
 #: src/Core/Backend/Listing/ListingUsers.php:47
 #, php-format
 msgid "List of %s users match the filter."
-msgstr ""
+msgstr "%s জন ব্যবহারকারীর তালিকা ফিল্টারের সাথে মিলছে।"
 
 #: src/Core/Backend/Listing/ListingUsers.php:49
 msgid "Users list"
@@ -1222,7 +1222,7 @@ msgstr "পৃষ্ঠা %s / %s"
 
 #: src/Core/Backend/Listing/Pager.php:183
 msgid "Direct access page:"
-msgstr ""
+msgstr "সরাসরি অ্যাক্সেস পৃষ্ঠা:"
 
 #: src/Core/Backend/Listing/Pager.php:184 src/Core/Backend/Page.php:169
 #: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:187
@@ -1236,8 +1236,8 @@ msgstr "ঠিক আছে"
 #, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s ফাইল খুঁজে পাওয়া গেছে"
+msgstr[1] "%sটি ফাইল খুঁজে পাওয়া গেছে"
 
 #: src/Core/Backend/Menus.php:85
 msgid "Blog"
@@ -1335,12 +1335,12 @@ msgstr "কাজ"
 #: src/Core/Backend/ModulesList.php:949 src/Process/Upgrade/Plugins.php:402
 #, php-format
 msgid " (%s)"
-msgstr ""
+msgstr " (%s)"
 
 #: src/Core/Backend/ModulesList.php:996
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr ""
+msgstr "এই মডিউলটি অক্ষম বা মোছা যাবে না, কারণ নিম্নলিখিত মডিউলগুলিও সক্ষম করা আছে: %s"
 
 #: src/Core/Backend/ModulesList.php:1008
 msgid "This module cannot be enabled, because of the following reasons :"
@@ -1502,7 +1502,7 @@ msgstr[1] "প্লাগ-ইন সফলভাবে হালনাগাদ
 #: src/Core/Backend/ModulesList.php:1673 src/Core/Upgrade/PluginsList.php:380
 #, php-format
 msgid "Following plugins updates are locked: %s"
-msgstr ""
+msgstr "নিম্নলিখিত প্লাগইন আপডেটগুলি লক করা আছে: %s"
 
 #: src/Core/Backend/ModulesList.php:1693 src/Core/Backend/ThemesList.php:736
 #: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/Langs.php:182
@@ -1533,7 +1533,7 @@ msgstr "Zip ফাইল আপলোড করুন"
 #: src/Process/Install/Wizard.php:265 src/Process/Upgrade/Langs.php:402
 #, php-format
 msgid "Fields preceded by %s are mandatory."
-msgstr ""
+msgstr "%s-এর আগের ক্ষেত্রগুলি বাধ্যতামূলক।"
 
 #: src/Core/Backend/ModulesList.php:1751
 msgid "Zip file path:"
@@ -1589,7 +1589,7 @@ msgstr "অপর্যাপ্ত অনুমতি"
 #: src/Core/Backend/ModulesList.php:1960
 #, php-format
 msgid "Configure \"%s\""
-msgstr ""
+msgstr "\"%s\" কনফিগার করুন"
 
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
@@ -1616,7 +1616,7 @@ msgstr "ত্রুটি:"
 
 #: src/Core/Backend/Notices.php:219 src/Core/Backend/Notices.php:252
 msgid "%H:%M:%S"
-msgstr ""
+msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Page.php:147 src/Process/Backend/User.php:457
 msgid "Blog:"
@@ -1686,7 +1686,7 @@ msgstr "পৃষ্ঠা শীর্ষক"
 
 #: src/Core/Backend/Page.php:544 src/Core/Backend/Page.php:547
 msgid "Dotclear logo"
-msgstr ""
+msgstr "Dotclear লোগো"
 
 #: src/Core/Backend/Page.php:877 src/Core/Backend/Page.php:880
 #: src/Core/Upgrade/Page.php:230 src/Core/Upgrade/Page.php:231
@@ -1700,7 +1700,7 @@ msgstr "এই পৃষ্ঠায় সাহায্য করুন"
 #: src/Core/Backend/Page.php:1126 src/Core/Upgrade/Page.php:308
 #, php-format
 msgid "See also %s"
-msgstr ""
+msgstr "%s আরও দেখুন"
 
 #: src/Core/Backend/Page.php:1129 src/Core/Upgrade/Page.php:308
 msgid "the global help"
@@ -1758,17 +1758,17 @@ msgstr "এন্ট্রি দেখাও"
 #: src/Core/Backend/Page.php:1288
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি নির্বাচিত এন্ট্রিগুলি (%s) মুছে ফেলতে চান?"
 
 #: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি নির্বাচিত মিডিয়াগুলো (%d) মুছে ফেলতে চান?"
 
 #: src/Core/Backend/Page.php:1290
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি নির্বাচিত বিভাগগুলি (%s) মুছে ফেলতে চান?"
 
 #: src/Core/Backend/Page.php:1291
 msgid "Are you sure you want to delete this entry?"
@@ -1785,7 +1785,7 @@ msgstr "আপনি কি নিশ্চিত আপনি সমস্ত �
 #: src/Core/Backend/Page.php:1294
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি নির্বাচিত মন্তব্যগুলো (%s) মুছে ফেলতে চান?"
 
 #: src/Core/Backend/Page.php:1295
 msgid "Are you sure you want to delete this comment?"
@@ -1798,17 +1798,17 @@ msgstr "পোস্টসহ ব্যবহারকারীদের মু�
 #: src/Core/Backend/Page.php:1297
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি নির্বাচিত ব্যবহারকারীদের (%s) মুছে ফেলতে চান?"
 
 #: src/Core/Backend/Page.php:1298
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি নির্বাচিত ব্লগগুলি (%s) মুছে ফেলতে চান?"
 
 #: src/Core/Backend/Page.php:1299
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি \"%s\" শ্রেণীবিভাগটি মুছে ফেলতে চান?"
 
 #: src/Core/Backend/Page.php:1300
 msgid "Are you sure you want to reorder all categories?"
@@ -1817,12 +1817,12 @@ msgstr "আপনি কি নিশ্চিত আপনি সকল শ্�
 #: src/Core/Backend/Page.php:1301
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি মিডিয়া \"%s\" অপসারণ করতে চান?"
 
 #: src/Core/Backend/Page.php:1302
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি \"%s\" নির্দেশিকা অপসারণ করতে চান?"
 
 #: src/Core/Backend/Page.php:1303
 msgid "Are you sure you want to extract archive in current directory?"
@@ -1831,17 +1831,17 @@ msgstr "আপনি কি বর্তমান ডিরেক্টরিত
 #: src/Core/Backend/Page.php:1304
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি সংযুক্তি \"%s\" অপসারণ করতে চান?"
 
 #: src/Core/Backend/Page.php:1305
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি \"%s\" ভাষা মুছে ফেলতে চান?"
 
 #: src/Core/Backend/Page.php:1306
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি \"%s\" প্লাগ-ইন মুছে ফেলতে চান?"
 
 #: src/Core/Backend/Page.php:1307
 msgid "Are you sure you want to delete selected plugins?"
@@ -1858,7 +1858,7 @@ msgstr "এই থিম সরিয়ে ফেলো"
 #: src/Core/Backend/Page.php:1310
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr ""
+msgstr "আপনি কি নিশ্চিত যে আপনি \"%s\" থিমটি মুছে ফেলতে চান?"
 
 #: src/Core/Backend/Page.php:1311
 msgid "Are you sure you want to delete selected themes?"
@@ -1934,7 +1934,7 @@ msgstr "আপনার অসংরক্ষিত পরিবর্তন আ
 
 #: src/Core/Backend/Page.php:1393
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
-msgstr ""
+msgstr "আপনার ব্যাটারির চার্জ স্বল্প (%d%) বলে মনে হচ্ছে এবং আপনার অসংরক্ষিত পরিবর্তনগুলি রয়েছে, আপনার সেগুলি সংরক্ষণ করা উচিত।"
 
 #: src/Core/Backend/Page.php:1440
 msgid "Temporarily activate enhanced uploader"
@@ -1998,7 +1998,7 @@ msgstr "লাইনে ১ ফাইল."
 #: src/Core/Backend/Page.php:1459
 #, php-format
 msgid "%d files in queue."
-msgstr ""
+msgstr "সারিতে %dটি ফাইল।"
 
 #: src/Core/Backend/Page.php:1460
 msgid "Queue error:"
@@ -2011,7 +2011,7 @@ msgstr "ফিল্টার এবং ডিসপ্লে অপশন ব�
 #: src/Core/Backend/ThemeConfig.php:120
 #, php-format
 msgid "(%s)"
-msgstr ""
+msgstr "(%s)"
 
 #: src/Core/Backend/ThemeConfig.php:120
 #, php-format
@@ -3401,11 +3401,11 @@ msgstr "মাঝে"
 
 #: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:649
 msgid "Legend and alternate text"
-msgstr ""
+msgstr "কিংবদন্তি এবং বিকল্প পাঠ্য"
 
 #: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:658
 msgid "Alternate text"
-msgstr ""
+msgstr "বিকল্প লেখা"
 
 #: src/Process/Backend/BlogPref.php:208
 msgid "I would like search engines and archivers to index and archive my blog's content."
@@ -3520,7 +3520,7 @@ msgstr "মডার্ট মন্তব্য"
 #: src/Process/Backend/BlogPref.php:554
 #, php-format
 msgid "Leave comments open for %s days"
-msgstr ""
+msgstr "মন্তব্যগুলি %s দিনের জন্য খোলা রাখুন"
 
 #: src/Process/Backend/BlogPref.php:565 src/Process/Backend/BlogPref.php:593
 msgid "No limit: leave blank."
@@ -3545,7 +3545,7 @@ msgstr "মডার্ট ট্রাকব্যাক"
 #: src/Process/Backend/BlogPref.php:582
 #, php-format
 msgid "Leave trackbacks open for %s days"
-msgstr ""
+msgstr "%s দিনের জন্য ট্র্যাকব্যাকগুলি খোলা রাখুন"
 
 #: src/Process/Backend/BlogPref.php:596
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
@@ -3595,7 +3595,7 @@ msgstr "অভ্যন্তরীণ অনুসন্ধান ব্যব�
 #: src/Process/Backend/BlogPref.php:639
 #, php-format
 msgid "Display %s entries on first page"
-msgstr ""
+msgstr "প্রথম পৃষ্ঠায় %s এন্ট্রি প্রদর্শন করুন"
 
 #: src/Process/Backend/BlogPref.php:651
 #, php-format
@@ -3670,11 +3670,11 @@ msgstr "মিডিয়াম"
 
 #: src/Process/Backend/BlogPref.php:744
 msgid "Thumbnail character prefix:"
-msgstr ""
+msgstr "থাম্বনেইল অক্ষর উপসর্গ:"
 
 #: src/Process/Backend/BlogPref.php:747
 msgid "Leave empty to use the default one (.)"
-msgstr ""
+msgstr "ডিফল্ট এক ব্যবহার করতে খালি ছেড়ে দিন (.)"
 
 #: src/Process/Backend/BlogPref.php:749
 msgid "Default size of the inserted video (in pixels)"
@@ -3694,7 +3694,7 @@ msgstr "ডিফল্ট ছবি insertion attributes"
 
 #: src/Process/Backend/BlogPref.php:769
 msgid "Inserted image legend:"
-msgstr ""
+msgstr "ঢোকানো চিত্র কিংবদন্তি:"
 
 #: src/Process/Backend/BlogPref.php:773
 msgid "Use original media date if possible"
@@ -3722,7 +3722,7 @@ msgstr "মূল ছবির একটি লিংক ঢোকাও"
 
 #: src/Process/Backend/BlogPref.php:792
 msgid "Image legend and alternate text:"
-msgstr ""
+msgstr "চিত্র কিংবদন্তি এবং বিকল্প পাঠ্য:"
 
 #: src/Process/Backend/BlogPref.php:801
 msgid "Advanced parameters"
@@ -3739,12 +3739,12 @@ msgstr "ইউ-আর-এল স্ক্যান পদ্ধতি:"
 #: src/Process/Backend/BlogPref.php:844
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr ""
+msgstr "ব্লগের URL বা URL স্ক্যান পদ্ধতিটি ভালভাবে সেট নাও হতে পারে (<code>%s</code> একটি <strong>%s</strong> স্থিতি প্রদান করে)।"
 
 #: src/Process/Backend/BlogPref.php:855
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
-msgstr ""
+msgstr "ব্লগের URL বা URL স্ক্যান পদ্ধতিটি ভালভাবে সেট নাও হতে পারে (<code>%s</code> কোনও ATOM ফিড প্রদান করে না)।"
 
 #: src/Process/Backend/BlogPref.php:870
 msgid "New post URL format:"
@@ -3764,11 +3764,11 @@ msgstr "সার্চ ইঞ্জিনের রোবটের জন্য
 
 #: src/Process/Backend/BlogPref.php:896
 msgid "Legacy javascript library"
-msgstr ""
+msgstr "উত্তরাধিকার জাভাস্ক্রিপ্ট লাইব্রেরি"
 
 #: src/Process/Backend/BlogPref.php:899
 msgid "Load the Legacy JS library"
-msgstr ""
+msgstr "উত্তরাধিকার জেএস লাইব্রেরি লোড করুন"
 
 #: src/Process/Backend/BlogPref.php:902
 msgid "jQuery javascript library"
@@ -3831,7 +3831,7 @@ msgstr "সব ব্লগের সব অধিকার."
 #: src/Process/Backend/UsersActions.php:338
 #, php-format
 msgid "[%s] (unreferenced permission)"
-msgstr ""
+msgstr "[%s] (তথ্যসূত্রহীন অনুমতি)"
 
 #: src/Process/Backend/BlogPref.php:1028
 msgid "All rights on this blog."
@@ -3896,21 +3896,21 @@ msgstr "থিম-এর আপডেট পরীক্ষা করতে ব�
 
 #: src/Process/Backend/BlogTheme.php:261
 msgid "No updates available for themes."
-msgstr ""
+msgstr "থিমগুলির জন্য কোনও আপডেট সুলভ নেই।"
 
 #: src/Process/Backend/BlogTheme.php:266
 #, php-format
 msgid "There is one theme update available:"
 msgid_plural "There are %s theme updates available:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "একটি থিম আপডেট উপলব্ধ:"
+msgstr[1] "%sটি থিম আপডেট সুলভ আছে:"
 
 #: src/Process/Backend/BlogTheme.php:286 src/Process/Backend/BlogTheme.php:322
 #: src/Process/Backend/Plugins.php:258 src/Process/Backend/Plugins.php:293
 #: src/Process/Upgrade/Plugins.php:255 src/Process/Upgrade/Plugins.php:294
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
-msgstr ""
+msgstr "ডটক্লিয়ারের সংস্থান কেন্দ্র %s সংগ্রহস্থলে যান।"
 
 #: src/Process/Backend/BlogTheme.php:302
 msgid "Add themes"
@@ -3965,7 +3965,7 @@ msgstr "এই ক্যাটাগরির কোনো অস্তিত্
 #: src/Process/Backend/Categories.php:57
 #, php-format
 msgid "The category \"%s\" has been successfully deleted."
-msgstr ""
+msgstr "\"%s\" বিভাগটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 #: src/Process/Backend/Categories.php:78
 msgid "Category where to move entries does not exist"
@@ -3974,7 +3974,7 @@ msgstr "শ্রেণীবিভাগ যেখানে এন্ট্র�
 #: src/Process/Backend/Categories.php:87
 #, php-format
 msgid "The entries have been successfully moved to category \"%s\""
-msgstr ""
+msgstr "এন্ট্রিগুলি সফলভাবে \"%s\" বিষয়শ্রেণীতে সরানো হয়েছে"
 
 #: src/Process/Backend/Categories.php:104
 #: src/Process/Backend/Categories.php:155
@@ -4009,7 +4009,7 @@ msgstr "%d টি এন্ট্রি"
 #: src/Process/Backend/Categories.php:191
 #, php-format
 msgid "%d entry"
-msgstr ""
+msgstr "%dটি এন্ট্রি"
 
 #: src/Process/Backend/Categories.php:191
 msgid "total:"
@@ -4055,7 +4055,7 @@ msgstr "শ্রেণীবিভাগ সফলভাবে হালনা�
 #: src/Process/Backend/Category.php:182
 #, php-format
 msgid "The category \"%s\" has been successfully created."
-msgstr ""
+msgstr "\"%s\" বিভাগটি সফলভাবে তৈরি করা হয়েছে."
 
 #: src/Process/Backend/Category.php:227
 msgid "Category has been successfully updated."
@@ -4132,14 +4132,16 @@ msgstr "মন্তব্য এডিট করুন"
 #: src/Process/Backend/Comment.php:248
 #, php-format
 msgid "Your comment on my blog %s"
-msgstr ""
+msgstr "আমার ব্লগে আপনার মন্তব্য %s"
 
 #: src/Process/Backend/Comment.php:249
 #, php-format
 msgid "Hi!\n\n"
 "You wrote a comment on:\n"
 "%s\n\n\n"
-msgstr ""
+msgstr "ওহে!\n\n"
+"আপনি একটি মন্তব্য লিখেছেন:\n"
+"%s\n\n\n"
 
 #: src/Process/Backend/Comment.php:249
 msgid "Send an e-mail"
@@ -4228,12 +4230,12 @@ msgstr "এই ব্লগটি মুছে ফেলা হয়েছে"
 #: src/Process/Upgrade/Home.php:57 src/Process/Upgrade/Home.php:62
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
-msgstr ""
+msgstr "%s সংজ্ঞায়িত করা হয়নি, আপনার কনফিগারেশন ফাইলটি সম্পাদনা করা উচিত।"
 
 #: src/Process/Backend/Home.php:223 src/Process/Backend/Home.php:231
 #: src/Process/Upgrade/Home.php:58 src/Process/Upgrade/Home.php:63
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
-msgstr ""
+msgstr "আরও তথ্যের জন্য <a href=\"https://dotclear.org/documentation/2.0/admin/config\">নথি দেখুন</a>।"
 
 #: src/Process/Backend/Home.php:241 src/Process/Upgrade/Home.php:67
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -4316,7 +4318,7 @@ msgstr "অবৈধ ল্যাঙ্গুয়েজ ফাইল URL।"
 
 #: src/Process/Backend/Langs.php:149 src/Process/Upgrade/Langs.php:179
 msgid "Unable to make a HTTP request."
-msgstr ""
+msgstr "একটি HTTP অনুরোধ করতে অক্ষম।"
 
 #: src/Process/Backend/Langs.php:162 src/Process/Backend/Langs.php:195
 #: src/Process/Backend/Langs.php:226 src/Process/Upgrade/Langs.php:192
@@ -4338,7 +4340,7 @@ msgstr "ভাষা ম্যানেজমেন্ট"
 #: src/Process/Backend/Langs.php:232
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
-msgstr ""
+msgstr "আপনি আপনার <a href=\"%1$s\">পছন্দসমূহে আপনার ব্যবহারকারীর ভাষা পরিবর্তন করতে পারেন</a> বা আপনার <a href=\"%2$s\">blog সেটিংসে আপনার ব্লগের প্রধান ভাষা পরিবর্তন করতে পারেন</a>।"
 
 #: src/Process/Backend/Langs.php:238 src/Process/Upgrade/Langs.php:322
 msgid "Installed languages"
@@ -4359,7 +4361,7 @@ msgstr "ভাষাসমূহ ইন্সটল বা আপগ্রেড
 #: src/Process/Backend/Langs.php:293 src/Process/Upgrade/Langs.php:245
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
-msgstr ""
+msgstr "আপনি আপনার %s ফোল্ডারে প্রাসঙ্গিক ডিরেক্টরি যোগ বা অপসারণ করে কোনও ভাষা ইনস্টল বা অপসারণ করতে পারেন।"
 
 #: src/Process/Backend/Langs.php:307
 msgid "Available languages"
@@ -4418,12 +4420,12 @@ msgstr "বৈধ ডিরেক্টরি নয়"
 #: src/Process/Backend/Media.php:100
 #, php-format
 msgid "Directory or file \"%s\" already exists."
-msgstr ""
+msgstr "\"%s\" নির্দেশিকা অথবা ফাইল ইতিমধ্যে বিদ্যমান।"
 
 #: src/Process/Backend/Media.php:107
 #, php-format
 msgid "Directory \"%s\" has been successfully created."
-msgstr ""
+msgstr "\"%s\" ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
 
 #: src/Process/Backend/Media.php:161
 msgid "Files have been successfully uploaded."
@@ -4447,7 +4449,7 @@ msgstr "ফাইলগুলো সফলভাবে মুছে ফেলা
 #: src/Process/Backend/Media.php:233
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
-msgstr ""
+msgstr "\"%s\" নির্দেশিকা সফলভাবে সম্পন্ন হয়েছে।"
 
 #: src/Process/Backend/Media.php:245 src/Process/Backend/PostMedia.php:96
 msgid "confirm removal"
@@ -4481,7 +4483,7 @@ msgstr "এই ফোল্ডারে লেখার জন্য আপন�
 #: src/Process/Backend/Media.php:371
 #, php-format
 msgid "Select a file by clicking on %s"
-msgstr ""
+msgstr "%s-এ ক্লিক করে একটি ফাইল নির্বাচন করুন"
 
 #: src/Process/Backend/Media.php:374 src/Process/Backend/Media.php:442
 msgid "Choose selected medias"
@@ -4505,12 +4507,12 @@ msgstr "নতুন ফাইল আপলোড করো"
 #: src/Process/Backend/Media.php:385
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
-msgstr ""
+msgstr "%s-এ ক্লিক করে %s এন্ট্রিতে সংযুক্ত করতে একটি ফাইল চয়ন করুন"
 
 #: src/Process/Backend/Media.php:399
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
-msgstr ""
+msgstr "%s-এ ক্লিক করে এন্ট্রিতে সন্নিবেশ করতে একটি ফাইল চয়ন করুন"
 
 #: src/Process/Backend/Media.php:417 src/Process/Backend/Media.php:418
 #: src/Process/Backend/Media.php:419
@@ -4529,7 +4531,7 @@ msgstr "নির্বাচিত মিডিয়া অপসারণ কর
 #: src/Process/Backend/Media.php:472
 #, php-format
 msgid "In %s:"
-msgstr ""
+msgstr "%s-এ:"
 
 #: src/Process/Backend/Media.php:484
 msgid "Create new directory"
@@ -4550,7 +4552,7 @@ msgstr "বিল্ড"
 #: src/Process/Backend/Media.php:511
 #, php-format
 msgid "Backup content of %s"
-msgstr ""
+msgstr "%s-এর ব্যাকআপ সামগ্রী"
 
 #: src/Process/Backend/Media.php:515
 msgid "Download zip file"
@@ -4572,7 +4574,7 @@ msgstr "সর্বোচ্চ ফাইল মাপ অনুমোদিত
 #: src/Process/Backend/MediaItem.php:1029
 #: src/Process/Backend/MediaItem.php:1092
 msgid "Alternate text:"
-msgstr ""
+msgstr "বিকল্প পাঠ্য:"
 
 #: src/Process/Backend/Media.php:551 src/Process/Backend/MediaItem.php:1122
 msgid "Private"
@@ -4593,7 +4595,7 @@ msgstr "সব ফাঁকা করো"
 #: src/Process/Backend/Media.php:594
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
-msgstr ""
+msgstr "মিডিয়া এবং চিত্রগুলির জন্য বর্তমান সেটিংস %s-এ সংজ্ঞায়িত করা হয়েছে"
 
 #: src/Process/Backend/MediaItem.php:112
 msgid "Not a valid file"
@@ -4642,11 +4644,11 @@ msgstr "মিডিয়া আইটেম লাগান"
 
 #: src/Process/Backend/MediaItem.php:639
 msgid "Image legend and alternate text"
-msgstr ""
+msgstr "চিত্রের কিংবদন্তি এবং বিকল্প পাঠ্য"
 
 #: src/Process/Backend/MediaItem.php:669
 msgid "Legend:"
-msgstr ""
+msgstr "কিংবদন্তি:"
 
 #: src/Process/Backend/MediaItem.php:674
 msgid "Image alignment"
@@ -4670,11 +4672,11 @@ msgstr "MP3 disposition"
 
 #: src/Process/Backend/MediaItem.php:710
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
-msgstr ""
+msgstr "দয়া করে মনে রাখবেন যে আপনি WYSIWYG HTML মোডে স্ট্যান্ডার্ড এডিটরের সাথে mp3 ফাইল সন্নিবেশ করতে পারবেন না।"
 
 #: src/Process/Backend/MediaItem.php:740
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
-msgstr ""
+msgstr "দয়া করে মনে রাখবেন যে আপনি WYSIWYG HTML মোডে স্ট্যান্ডার্ড সম্পাদক সহ ভিডিও ফাইলগুলি সন্নিবেশ করতে পারবেন না।"
 
 #: src/Process/Backend/MediaItem.php:745
 msgid "Video size"
@@ -4773,7 +4775,7 @@ msgstr "ইমেজের বিবরণ"
 
 #: src/Process/Backend/MediaItem.php:1034
 msgid ":"
-msgstr ""
+msgstr ":"
 
 #: src/Process/Backend/MediaItem.php:1043
 msgid "No detail"
@@ -4903,14 +4905,14 @@ msgstr "প্লাগ-ইনের আপডেট পরীক্ষা ক�
 
 #: src/Process/Backend/Plugins.php:233 src/Process/Upgrade/Plugins.php:230
 msgid "No updates available for plugins."
-msgstr ""
+msgstr "প্লাগইনগুলির জন্য কোনও আপডেট উপলব্ধ নেই।"
 
 #: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:235
 #, php-format
 msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "একটি প্লাগইন আপডেট উপলব্ধ:"
+msgstr[1] "%sটি প্লাগইন আপডেট সুলভ আছে:"
 
 #: src/Process/Backend/Plugins.php:273 src/Process/Upgrade/Plugins.php:274
 msgid "Add plugins"
@@ -4960,7 +4962,7 @@ msgstr "অবৈধ প্রকাশনা তারিখ"
 #: src/Process/Backend/Post.php:420
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
-msgstr ""
+msgstr "\"%s\" পোস্টটি সফলভাবে আপডেট করা হয়েছে"
 
 #: src/Process/Backend/Post.php:482
 #, php-format
@@ -5202,7 +5204,7 @@ msgstr "Dotclear এর একটি নতুন সংস্করণ পা�
 #: src/Process/Upgrade/Upgrade.php:210
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
+msgstr "ডটক্লিয়ারের পরবর্তী সংস্করণগুলি %s < PHP সংস্করণ সমর্থন করবে না, আপনার বর্তমানে %s"
 
 #: src/Process/Backend/Rest.php:227
 msgid "No updates are available"
@@ -5316,11 +5318,11 @@ msgstr "Dotclear হালনাগাদ পরীক্ষা করতে ব
 
 #: src/Process/Backend/Update.php:155 src/Process/Backend/Update.php:164
 msgid "Dotclear upgrade dashboard"
-msgstr ""
+msgstr "ডটক্লিয়ার আপগ্রেড ড্যাশবোর্ড"
 
 #: src/Process/Backend/Update.php:155
 msgid "Go to dedicated upgrade dashboard."
-msgstr ""
+msgstr "ডেডিকেটেড আপগ্রেড ড্যাশবোর্ডে যান।"
 
 #: src/Process/Backend/Update.php:158 src/Process/Upgrade/Upgrade.php:240
 #, php-format
@@ -5329,7 +5331,7 @@ msgstr "Dotclear %s বের হয়েছে।"
 
 #: src/Process/Backend/Update.php:164
 msgid "To upgrade your Dotclear installation go to dedicated dashboard and follow instructions."
-msgstr ""
+msgstr "আপনার ডটক্লিয়ার ইনস্টলেশন আপগ্রেড করতে ডেডিকেটেড ড্যাশবোর্ডে যান এবং নির্দেশাবলী অনুসরণ করুন।"
 
 #: src/Process/Backend/User.php:33 src/Process/Backend/Users.php:118
 msgid "New user"
@@ -6266,161 +6268,161 @@ msgstr ""
 
 #: src/Process/Upgrade/Digests.php:163
 msgid "Download backup of digests file."
-msgstr ""
+msgstr "ডাইজেস্ট ফাইলের ব্যাকআপ ডাউনলোড করুন।"
 
 #: src/Process/Upgrade/Digests.php:183
 msgid "Digests file is up to date."
-msgstr ""
+msgstr "ডাইজেস্ট ফাইল আপ টু ডেট আছে।"
 
 #: src/Process/Upgrade/Digests.php:201
 msgid "The following files will have their checksum faked:"
-msgstr ""
+msgstr "নিম্নলিখিত ফাইলগুলির চেকসাম জাল থাকবে:"
 
 #: src/Process/Upgrade/Digests.php:218
 msgid "The following files digests will have their checksum cleaned:"
-msgstr ""
+msgstr "নিম্নলিখিত ফাইলগুলি ডাইজেস্টগুলিতে তাদের চেকসাম পরিষ্কার করা হবে:"
 
 #: src/Process/Upgrade/Digests.php:233
 msgid "Still ok to continue"
-msgstr ""
+msgstr "চালিয়ে যাওয়ার জন্য এখনও ঠিক আছে"
 
 #: src/Process/Upgrade/Digests.php:250
 msgid "Remove the backup digest file, I want to play again"
-msgstr ""
+msgstr "ব্যাকআপ ডাইজেস্ট ফাইলটি সরান, আমি আবার খেলতে চাই"
 
 #: src/Process/Upgrade/Digests.php:271
 msgid "I have read and understood the disclaimer and wish to continue anyway."
-msgstr ""
+msgstr "আমি ডিসক্লেইমারটি পড়েছি এবং বুঝেছি এবং যাইহোক চালিয়ে যেতে চাই।"
 
 #: src/Process/Upgrade/Home.php:53
 #, php-format
 msgid "Installed Dotclear version is %s"
-msgstr ""
+msgstr "ইনস্টল করা হয়েছে ডটক্লিয়ার সংস্করণ হল %s"
 
 #: src/Process/Upgrade/Home.php:54
 #, php-format
 msgid "Installed PHP version is %s, next Dotclear release required %s or earlier."
-msgstr ""
+msgstr "ইনস্টল করা পিএইচপি সংস্করণটি %s, পরবর্তী ডটক্লিয়ার রিলিজের প্রয়োজন %s বা তার আগের।"
 
 #: src/Process/Upgrade/Home.php:71
 #, php-format
 msgid "Backup directory \"%s\" does not exist or is not writable."
-msgstr ""
+msgstr "অনুরক্ষণ নির্দেশিকা \"%s\" বিদ্যমান নয় বা লিখনযোগ্য নয়."
 
 #: src/Process/Upgrade/Home.php:75
 msgid "Your are using Sqlite database driver, Database structure upgrade will NOT be performed."
-msgstr ""
+msgstr "তুমি Sqlite ডাটাবেস ড্রাইভার ব্যবহার করছেন, ডাটাবেস কাঠামো আপগ্রেড সম্পাদন করা হবে না।"
 
 #: src/Process/Upgrade/Home.php:79
 msgid "Your are using developement release, some features are not available."
-msgstr ""
+msgstr "তুমি বিকাশ রিলিজ ব্যবহার করছেন, কিছু বৈশিষ্ট্য উপলভ্য নয়।"
 
 #: src/Process/Upgrade/Home.php:82
 #, php-format
 msgid "Dotclear digests file \"%s\" is not readable."
-msgstr ""
+msgstr "ডটক্লিয়ার ডাইজেস্ট ফাইল \"%s\" পঠনযোগ্য নয়."
 
 #: src/Process/Upgrade/Home.php:86 src/Process/Upgrade/Plugins.php:129
 msgid "Official plugins repository could not be updated as there is no URL set in configuration."
-msgstr ""
+msgstr "কনফিগারেশনে কোন ইউআরএল সেট না থাকায় অফিসিয়াল প্লাগইন সংগ্রহস্থল হালনাগাদ করা যায়নি।"
 
 #: src/Process/Upgrade/Home.php:91
 msgid "Do you read the official post about this release on Dotclear's blog?"
-msgstr ""
+msgstr "আপনি কি ডটক্লিয়ারের ব্লগে এই রিলিজ সম্পর্কে অফিসিয়াল পোস্টটি পড়েছেন?"
 
 #: src/Process/Upgrade/Home.php:92
 msgid "Does your system support this release requirements like PHP version?"
-msgstr ""
+msgstr "আপনার সিস্টেম পিএইচপি সংস্করণ মত এই রিলিজ প্রয়োজনীয়তা সমর্থন করে?"
 
 #: src/Process/Upgrade/Home.php:93
 msgid "Does your plugins and themes are up to date?"
-msgstr ""
+msgstr "আপনার প্লাগইন এবং থিমগুলি কি আপ টু ডেট?"
 
 #: src/Process/Upgrade/Home.php:94
 msgid "Note if some plugins crash your installation, go back here to disable or to remove or to update them."
-msgstr ""
+msgstr "নোট করুন যদি কিছু প্লাগইন আপনার ইনস্টলেশন ক্র্যাশ করে তবে অক্ষম করতে বা সরাতে বা আপডেট করতে এখানে ফিরে যান।"
 
 #: src/Process/Upgrade/Home.php:95
 msgid "Once update done, do not forget to check and update blogs themes."
-msgstr ""
+msgstr "একবার আপডেট হয়ে গেলে, ব্লগের থিমগুলি চেক এবং আপডেট করতে ভুলবেন না।"
 
 #: src/Process/Upgrade/Home.php:155
 msgid "Before performing update you should take into account some informations listed bellow:"
-msgstr ""
+msgstr "আপডেট সম্পাদন করার আগে আপনাকে নীচে তালিকাভুক্ত কিছু তথ্য বিবেচনা করা উচিত:"
 
 #: src/Process/Upgrade/Langs.php:357
 msgid "Install or upgrade languages from available languages"
-msgstr ""
+msgstr "উপলভ্য ভাষাগুলি থেকে ভাষাগুলি ইনস্টল বা আপগ্রেড করুন"
 
 #: src/Process/Upgrade/Langs.php:399
 msgid "Install or upgrade languages from an upload a zip file"
-msgstr ""
+msgstr "একটি জিপ ফাইল আপলোড করুন থেকে ভাষা ইনস্টল বা আপগ্রেড করুন"
 
 #: src/Process/Upgrade/Plugins.php:68
 msgid "Some plugins could not be loaded."
-msgstr ""
+msgstr "কিছু প্লাগইন লোড করা যায়নি."
 
 #: src/Process/Upgrade/Plugins.php:339
 msgid "There is no module to check"
-msgstr ""
+msgstr "চেক করার জন্য কোনও মডিউল নেই"
 
 #: src/Process/Upgrade/Plugins.php:347
 msgid "Store version"
-msgstr ""
+msgstr "স্টোর সংস্করণ"
 
 #: src/Process/Upgrade/Plugins.php:349
 msgid "Check stores versions"
-msgstr ""
+msgstr "স্টোর সংস্করণগুলি পরীক্ষা করুন"
 
 #: src/Process/Upgrade/Plugins.php:357
 msgid "Check lastest stores versions"
-msgstr ""
+msgstr "সর্বশেষতম স্টোর সংস্করণগুলি পরীক্ষা করুন"
 
 #: src/Process/Upgrade/Plugins.php:360
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
-msgstr ""
+msgstr "আপনি %s-এর চেয়ে বড় ডটক্লিয়ার রিলিজের জন্য স্পষ্টভাবে লেখা মডিউলগুলির সংগ্রহস্থলগুলি পরীক্ষা করতে পারেন।"
 
 #: src/Process/Upgrade/Plugins.php:384 src/Process/Upgrade/Plugins.php:427
 msgid "No version available"
-msgstr ""
+msgstr "কোনও সংস্করণ উপলব্ধ নেই"
 
 #: src/Process/Upgrade/Plugins.php:386
 msgid "No update available"
-msgstr ""
+msgstr "কোনও আপডেট উপলব্ধ নেই"
 
 #: src/Process/Upgrade/Plugins.php:388
 msgid "Newer version available"
-msgstr ""
+msgstr "নতুন সংস্করণ সুলভ"
 
 #: src/Process/Upgrade/Plugins.php:441
 msgid "Modules list"
-msgstr ""
+msgstr "মডিউল তালিকা"
 
 #: src/Process/Upgrade/Plugins.php:456
 msgid "Latest version"
-msgstr ""
+msgstr "সর্বশেষ সংস্করণ"
 
 #: src/Process/Upgrade/Plugins.php:460
 msgid "Written for Dotclear"
-msgstr ""
+msgstr "ডটক্লিয়ারের জন্য লেখা"
 
 #: src/Process/Upgrade/Replay.php:63
 #, php-format
 msgid "Grow up from version %s successfully replayed."
-msgstr ""
+msgstr "%s সংস্করণ থেকে বড় হয়ে সফলভাবে পুনরায় প্লে হয়েছে।"
 
 #: src/Process/Upgrade/Replay.php:81
 msgid "Replay update actions"
-msgstr ""
+msgstr "আপডেট ক্রিয়াকলাপগুলি পুনরায় প্লে করুন"
 
 #: src/Process/Upgrade/Replay.php:99
 msgid "Replay grow up action from version:"
-msgstr ""
+msgstr "সংস্করণ থেকে রিপ্লে গ্রো আপ অ্যাকশন:"
 
 #: src/Process/Upgrade/Replay.php:106
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
-msgstr ""
+msgstr "শেষের চেয়ে কম রিপ্লে সংস্করণটি আপনার ইনস্টলেশনটি ভেঙে ফেলতে পারে, এটি আপনার নিজের ঝুঁকিতে করুন।"
 
 #: src/Process/Upgrade/Upgrade.php:258
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
