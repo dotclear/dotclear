@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-02 12:26+0200\n"
-"PO-Revision-Date: 2024-07-02 10:29\n"
+"PO-Revision-Date: 2024-07-05 01:47\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -36,17 +36,17 @@ msgstr "নির্বাচিত ক্যাশ ডিরেক্টরি 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:43
 #, php-format
 msgid "delete \"%s\" cache directory"
-msgstr ""
+msgstr "\"%s\" ক্যাশে ডিরেক্টরি মুছে ফেলুন"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted"
-msgstr ""
+msgstr "\"%s\" ক্যাশে ডিরেক্টরি মোছা হয়েছে"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
-msgstr ""
+msgstr "\"%s\" ক্যাশে ডিরেক্টরি মুছে ফেলতে ব্যর্থ হয়েছে"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:51
 msgid "empty selected cache directories"
@@ -55,17 +55,17 @@ msgstr "নির্বাচিত ক্যাশ ডিরেক্টরি 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:52
 #, php-format
 msgid "empty \"%s\" cache directory"
-msgstr ""
+msgstr "\"%s\" ক্যাশে ডিরেক্টরি খালি করুন"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied"
-msgstr ""
+msgstr "\"%s\" ক্যাশে ডিরেক্টরি খালি করা হয়েছে"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
-msgstr ""
+msgstr "\"%s\" ক্যাশে ডিরেক্টরি খালি করতে ব্যর্থ হয়েছে"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:37
 msgid "Logs"
@@ -82,17 +82,17 @@ msgstr "নির্বাচিত লগ টেবিল মুছে ফে�
 #: plugins/Uninstaller/src/Cleaner/Logs.php:44
 #, php-format
 msgid "delete \"%s\" logs table"
-msgstr ""
+msgstr "\"%s\" লগ সারণী মুছুন"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "\"%s\" logs table deleted"
-msgstr ""
+msgstr "\"%s\" লগ সারণী মোছা হয়েছে"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
 msgid "Failed to delete \"%s\" logs table"
-msgstr ""
+msgstr "\"%s\" লগ সারণী মুছতে ব্যর্থ হয়েছে"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:36
 msgid "Folders from plugins directories"
@@ -105,17 +105,17 @@ msgstr "নির্বাচিত প্লাগ-ইন ফাইল এব�
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:42
 #, php-format
 msgid "delete \"%s\" plugin files and directories"
-msgstr ""
+msgstr "\"%s\" প্লাগইন ফাইল এবং ডিরেক্টরি মুছে ফেলুন"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "\"%s\" plugin files and directories deleted"
-msgstr ""
+msgstr "\"%s\" প্লাগইন ফাইল এবং ডিরেক্টরি মুছে ফেলা হয়েছে"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
 msgid "Failed to delete \"%s\" plugin files and directories"
-msgstr ""
+msgstr "\"%s\" প্লাগইন ফাইল এবং ডিরেক্টরি মুছে ফেলতে ব্যর্থ হয়েছে"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:37
 msgid "Preferences"
