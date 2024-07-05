@@ -1,23 +1,19 @@
 <html>
+
 <head>
   <title>IP-filter</title>
 </head>
 
 <body>
-
-<h4>IP-filter</h4>
-
-<p>Dette filter giver dig mulighed for manuelt at blackliste eller whiteliste IP-adresser. En kommentar, der kommer fra en IP-adresse på den sorte liste, vil straks blive betragtet som junk. En kommentar, der kommer fra en IP-adresse på den hvide liste, vil blive betragtet som pålidelig, og de andre antispamfiltre vil ikke behandle den.</p>
-
-<p>For at tilføje en IP skal du først vælge den ønskede fane (<strong>Blacklist</strong> eller <strong>Whitelist</strong>) og indtaste IP-adressen. Afkrydsningsfeltet <strong>Global IP</strong> er tilgængeligt, hvis du er superadministrator, og giver dig mulighed for at tilføje IP-adressen til alle blogs i din Dotclear-installation.</p>
-
-<p>Du kan tilføje IP-adresser med en netværksmaske for at blokere eller tillade en række IP-adresser. For eksempel:</p>
-<ul>
+  <h4>IP-filter</h4>
+  <p>Dette filter giver dig mulighed for manuelt at blackliste eller whiteliste IP-adresser. En kommentar, der kommer fra en IP-adresse på den sorte liste, vil straks blive betragtet som junk. En kommentar, der kommer fra en IP-adresse på den hvide liste, vil blive betragtet som pålidelig, og de andre antispamfiltre vil ikke behandle den.</p>
+  <p>For at tilføje en IP skal du først vælge den ønskede fane (<strong>Blacklist</strong> eller <strong>Whitelist</strong>) og indtaste IP-adressen. Afkrydsningsfeltet <strong>Global IP</strong> er tilgængeligt, hvis du er superadministrator, og giver dig mulighed for at tilføje IP-adressen til alle blogs i din Dotclear-installation.</p>
+  <p>Du kan tilføje IP-adresser med en netværksmaske for at blokere eller tillade en række IP-adresser. For eksempel:</p>
+  <ul>
     <li><code>127.0.0.0/255.0.0.0</code> eller den forkortede form <code>127/8</code> vil genkende alle IP-adresser som <code>127.xxx.xxx.xxx</code></li>
     <li><code>127.0.0.0/255.255.0.0</code> eller den forkortede form <code>127.0/16</code> vil genkende alle IP-adresser som <code>127.0.xxx.xxx</code></li>
     <li><code>127.0.0.0/255.255.255.0</code> eller den forkortede form <code>127.0.0/24</code> vil genkende alle IP-adresser som <code>127.0.0.xxx</code></li>
-</ul>
-
-
+  </ul>
 </body>
+
 </html>
