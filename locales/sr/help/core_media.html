@@ -1,100 +1,72 @@
 <html>
-  <head>
-    <title>Médiathèque</title>
-  </head>
-  <body>
-    <h4>Листа медија</h4>
-    <p>The media manager's main page displays a list of available files (medias)
+
+<head>
+  <title>Médiathèque</title>
+</head>
+
+<body>
+  <h4>Листа медија</h4>
+  <p>The media manager's main page displays a list of available files (medias)
 for the currently selected blog.</p>
-
-    <p>You can click the icons or names of the medias in the folder or any
+  <p>You can click the icons or names of the medias in the folder or any
 subfolder to display them.</p>
-
-    <p>Selecting a MP3 sound file displays a player to immediately play
+  <p>Selecting a MP3 sound file displays a player to immediately play
 the file. The Flash plugin must be installed on your browser for
 this player to operate.</p>
-
-    <p>Слике се приказују са сличицом када је то могуће.</p>
-
-    <h4>Ajouter des fichiers</h4>
-    <dl>
-      <dt>Одаберите датотеку</dt>
-      <dd>Here you can select one of your local files to send it on your 
-  blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
-      
-      <dt>Naslov</dt>
-      <dd>Опциони назив за датотеку коју желите да пошаљете.</dd>
-      
-      <dt>Privé</dt>
-      <dd>Check this if you want the file to be private, i.e. accessible only by
-  its owner and not accessible from the blog.</dd>
-    </dl>
-
-    <dl>
-      <dt>File name</dt>
-      <dd>Омогућава да изаберете једну или неколико ваших локалних датотека да бисте их послали на свој
- блог. Ако било која датотека буде већа од максималне величине, неће бити послата.<br>
-  Када изаберете неколико локалних датотека, они се додају у ред. Можете да додате још датотека тако што ћете поново кликнути на <strong>Одабери датотеке</strong>. Такође можете да уклоните датотеке из реда тако што ћете кликнути на одговарајућу икону у облику црвеног крста.<br>
- Када будете спремни, кликните на <strong>Отпреми</strong>.</dd>
-    </dl>
-
-    <h4>Избриши датотеке</h4>
-    <p>This form allows you to create an new subfolder in the currently displayed
+  <p>Слике се приказују са сличицом када је то могуће.</p>
+  <h4>Ajouter des fichiers</h4>
+  <dl>
+    <dt>Одаберите датотеку</dt>
+    <dd>Here you can select one of your local files to send it on your blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
+    <dt>Naslov</dt>
+    <dd>Опциони назив за датотеку коју желите да пошаљете.</dd>
+    <dt>Privé</dt>
+    <dd>Check this if you want the file to be private, i.e. accessible only by its owner and not accessible from the blog (until published).</dd>
+  </dl>
+  <dl>
+    <dt>File name</dt>
+    <dd>Allows to select one or several of your local files to send them on your blog. Should any file be bigger than the maximum size, it will not be sent.<br>When you select several local files, they are added to the queue. You can add more files by clicking again on <strong>Choose files</strong>. You can also remove files from the queue by clicking on the corresponding red cross-shaped icon.<br>When you are ready, click on <strong>Upload</strong>.</dd>
+  </dl>
+  <h4>Избриши датотеке</h4>
+  <p>This form allows you to create an new subfolder in the currently displayed
 folder. Just choose a name for it as you would do on your own computer.</p>
-
-    <h4>Нова фасцикла</h4>
-    <p>This page displays a set of informations about the currently selected
-file and allows you to perform a few operations.</p>
-
-    <h4>Détails du média</h4>
-    <p>When you add an image, depending of its size, up to four versions will be made available:</p>
-
-    <dl>
-      <dt>Име датотеке</dt>
-      <dd>Промените име датотеке актуелне датотеке.</dd>
-      
-      <dt>Наслов датотеке</dt>
-      <dd>Дајте наслов датотеке или промените актуелни.</dd>
-      
-      <dt>Date du fichier </dt>
-      <dd>Промените датум датотеке.</dd>
-      
-      <dt>Privé</dt>
-      <dd>Наведите да ће датотека бити сакривена било коме осим власнику у менаџеру медија.</dd>
-      
-      <dt>Нови директоријум</dt>
-      <dd>Омогућава вам да преместите датотеку у другу фасциклу.</dd>
-      
-      <dt>Changer le fichier</dt>
-      <dd>Са овом формом, можете заменити датотеку док држите све атрибуте
-      (име, наслов ...). Као и увек, морате да поштујете максималну величину датотеке.</dd>
-    </dl>
-
-    <h4>Специфичан случај: слике</h4>
-    <p>You can easily attach a file to one of your posts. First, create a new post
+  <h4>Нова фасцикла</h4>
+  <p>This form allows you to create a new subfolder in the currently displayed folder. Just choose a name for it as you would do on your own computer.</p>
+  <h4>Détails du média</h4>
+  <p>When you add an image, depending of its size, up to four versions will be made available:</p>
+  <dl>
+    <dt>Име датотеке</dt>
+    <dd>Промените име датотеке актуелне датотеке.</dd>
+    <dt>Наслов датотеке</dt>
+    <dd>Дајте наслов датотеке или промените актуелни.</dd>
+    <dt>Date du fichier </dt>
+    <dd>Промените датум датотеке.</dd>
+    <dt>Privé</dt>
+    <dd>Наведите да ће датотека бити сакривена било коме осим власнику у менаџеру медија.</dd>
+    <dt>Нови директоријум</dt>
+    <dd>Омогућава вам да преместите датотеку у другу фасциклу.</dd>
+    <dt>Changer le fichier</dt>
+    <dd>With this form, you can replace the file while keeping all the attributes (name, title...). As always, you have to respect the maximum file size.</dd>
+  </dl>
+  <h4>Специфичан случај: слике</h4>
+  <p>You can easily attach a file to one of your posts. First, create a new post
 and save it. Then click on "Add files to this entry" to open the media manager.</p>
-    <ul>
-      <li><strong>square</strong>: a 48x48 pixels square thumbnail,</li>
-      <li><strong>thumbnail</strong>: the image reduced to 100 pixels on its longest side.</li>
-      <li><strong>small</strong>: the longuest side is reduced to 240 pixels.</li>
-      <li><strong>medium</strong>: the longuest side is reduced to 500 pixels.</li>
-      <li><strong>original</strong>: the original, unchanged image.</li>
-    </ul>
-    <p>Just click on the [+] icon (Attach this file to entry). The file will then
+  <ul>
+    <li><strong>square</strong>: a 48x48 pixels square thumbnail,</li>
+    <li><strong>thumbnail</strong>: the image reduced to 100 pixels on its longest side.</li>
+    <li><strong>small</strong>: the longuest side is reduced to 240 pixels.</li>
+    <li><strong>medium</strong>: the longuest side is reduced to 500 pixels.</li>
+    <li><strong>original</strong>: the original, unchanged image.</li>
+  </ul>
+  <p>Just click on the [+] icon (Attach this file to entry). The file will then
 be attached to the post.</p>
-
-    <h4>Приложи датотеку у унос</h4>
-    <p>The attached files will be shown on the post page, as a list beside the post content.
+  <h4>Приложи датотеку у унос</h4>
+  <p>The attached files will be shown on the post page, as a list beside the post content.
 The MP3 files will be made available through the Flash player, so that they can easily by read by visitors.</p>
+  <p>Just click on the [+] icon (Attach this file to entry). The file will then be attached to the post.</p>
+  <p>Приложене датотеке ће бити приказане на пост страници, као листа након садржаја. МП3 фајлови ће бити доступни преко Flash играча, тако да се лако могу играти од стране ваших посетилаца.</p>
+  <h4>Подкаст и емитовање музичких датотека</h4>
+  <p>All attached files will be included in your blog feeds, allowing an easy podcasting of any type of file.</p>
+</body>
 
-    <p>All attached files will be included in your RSS feeds, allowing for easy
-podcasting of any type of file.</p>
-
-    <p>Приложене датотеке ће бити приказане на пост страници, као листа након садржаја. МП3 фајлови ће бити доступни преко Flash играча, тако да се лако могу играти од стране ваших посетилаца.</p>
-
-    <h4>Подкаст и емитовање музичких датотека</h4>
-    <p>Сви приложени фајлови ће бити укључени у ваш блог фидови, што омогућава лаку
-подкастинг било ког типа датотеке.</p>
-
-  </body>
 </html>
