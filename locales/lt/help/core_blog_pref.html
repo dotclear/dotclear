@@ -1,203 +1,152 @@
 <html>
+
 <head>
   <title>Blogeinstellungen</title>
 </head>
 
 <body>
-<h4>Tinklaraščio informacija</h4>
-<dl>
-  <dt>Tinklaraščio ID</dt>
-  <dd>Einmalvergebene ID Deines Blogs. Diese kann nur in der Funktion des Super 
+  <h4>Tinklaraščio informacija</h4>
+  <dl>
+    <dt>Tinklaraščio ID</dt>
+    <dd>Einmalvergebene ID Deines Blogs. Diese kann nur in der Funktion des Super 
     Adminstrators vergeben werden..</dd>
-
-  <dt>Blogname</dt>
-  <dd>Name des Blogs, erforderlich.</dd>
-
-  <dt>Tinklaraščio URL</dt>
-  <dd>Vollst&auml;ndige Blog URL. Erforderlich und kann nur in der Funktion des 
+    <dt>Blogname</dt>
+    <dd>Name des Blogs, erforderlich.</dd>
+    <dt>Tinklaraščio URL</dt>
+    <dd>Vollst&auml;ndige Blog URL. Erforderlich und kann nur in der Funktion des 
     Super Adminstrators vergeben werden..</dd>
-
-  <dt>Blogstatus</dt>
-  <dd>Apibrėžia URL skaitymo būdą. Rekomenduojama naudoti PATH_INFO, jei PATH_INFO neveikia, reikia naudoti QUERY_STRING. Naudojant PATH_INFO režimą, tinklaraščio URL turi baigtis "/", o naudojant QUERY_STRING - "?".</dd>
-
-  <dt>Blogbeschreibung</dt>
-  <dd>
-    <ul>
-      <li><strong>Internete:</strong> Tinklaraštis atviras lankytojams.</li>
-      <li><strong>Neprisijungus prie interneto:</strong> Tinklaraštis uždarytas lankytojams, bet atviras rašytojams.</li>
-      <li><strong>Pašalinta:</strong> Dienoraštis uždarytas lankytojams ir rašytojams, atviras tik superadministratoriams.</li>
-    </ul>
-  </dd>
-
-  <dt>Tinklaraščio aprašymas</dt>
-  <dd>Čia galite įrašyti bet kokį norimą tinklaraščio aprašymą. Tai paprastas tekstas be jokio formatavimo.</dd>
-</dl>
-
-<h4>Tinklaraščio konfigūracija</h4>
-<dl>
-  <dt>Name des Eigent&uuml;mer des Blogs</dt>
-  <dd>Name der Person, die f&uuml;r das Blog verantwortlich ist. Es k&ouml;nnte auch der Eigent&uuml;mer oder Herausgeber sein, sofern dieser existiert.</dd>
-
-  <dt>Copyright Hinweis</dt>
-  <dd>Hinweis &uuml;ber die Urheberrechte des Blogs.</dd>
-
-  <dt>Standardsprache</dt>
-  <dd>Sprache des Bloginterfaces. Entweder der vorhandenen Landessprache oder, wenn diese nicht verf&uuml;gbar ist, wird Englisch als Standard eingesetzt.</dd>
-
-  <dt>Blogzeitzone</dt>
-  <dd>Definiert die Zeitzone des Blogs und wird f&uuml;r Kommentare und Trackbacks verwendet.</dd>
-
-  <dt>Datumsformate</dt>
-  <dd>Das Datumsformat eines Blogeintrages. Weitere Informationen &uuml;ber Datum und Zeitformate siehe unten.</dd>
-
-  <dt>Zeitformat</dt>
-  <dd>Das Zeitormat eines Blogeintrages. Weitere Informationen &uuml;ber Datum und Zeitformate siehe unten.</dd>
-
-  <dt>Anzeige .. Eintr&auml;ge pro Seite</dt>
-  <dd>Diese Nummer wird die Begrenzung der Eintr&auml;ge auf der Homepage, der Startseite, der ersten Seite
+    <dt>Blogstatus</dt>
+    <dd>Apibrėžia URL skaitymo būdą. Rekomenduojama naudoti PATH_INFO, jei PATH_INFO neveikia, reikia naudoti QUERY_STRING. Naudojant PATH_INFO režimą, tinklaraščio URL turi baigtis "/", o naudojant QUERY_STRING - "?".</dd>
+    <dt>Blogbeschreibung</dt>
+    <dd>
+      <ul>
+        <li><strong>Internete:</strong> Tinklaraštis atviras lankytojams.</li>
+        <li><strong>Neprisijungus prie interneto:</strong> Tinklaraštis uždarytas lankytojams, bet atviras rašytojams.</li>
+        <li><strong>Pašalinta:</strong> Dienoraštis uždarytas lankytojams ir rašytojams, atviras tik superadministratoriams.</li>
+      </ul>
+    </dd>
+    <dt>Tinklaraščio aprašymas</dt>
+    <dd>Čia galite įrašyti bet kokį norimą tinklaraščio aprašymą. Tai paprastas tekstas be jokio formatavimo.</dd>
+  </dl>
+  <h4>Tinklaraščio konfigūracija</h4>
+  <dl>
+    <dt>Name des Eigent&uuml;mer des Blogs</dt>
+    <dd>Name der Person, die f&uuml;r das Blog verantwortlich ist. Es k&ouml;nnte auch der Eigent&uuml;mer oder Herausgeber sein, sofern dieser existiert.</dd>
+    <dt>Copyright Hinweis</dt>
+    <dd>Hinweis &uuml;ber die Urheberrechte des Blogs.</dd>
+    <dt>Standardsprache</dt>
+    <dd>Sprache des Bloginterfaces. Entweder der vorhandenen Landessprache oder, wenn diese nicht verf&uuml;gbar ist, wird Englisch als Standard eingesetzt.</dd>
+    <dt>Blogzeitzone</dt>
+    <dd>Definiert die Zeitzone des Blogs und wird f&uuml;r Kommentare und Trackbacks verwendet.</dd>
+    <dt>Datumsformate</dt>
+    <dd>Das Datumsformat eines Blogeintrages. Weitere Informationen &uuml;ber Datum und Zeitformate siehe unten.</dd>
+    <dt>Zeitformat</dt>
+    <dd>Das Zeitormat eines Blogeintrages. Weitere Informationen &uuml;ber Datum und Zeitformate siehe unten.</dd>
+    <dt>Anzeige .. Eintr&auml;ge pro Seite</dt>
+    <dd>Diese Nummer wird die Begrenzung der Eintr&auml;ge auf der Homepage, der Startseite, der ersten Seite
   jeder Kategorie und des RSS Feeds sein.</dd>
-</dl>
-
-<h4>Komentarai ir Trackbacks</h4>
-<dl>
-  <dt>Priimti pastabas</dt>
-  <dd>Visuotinai priima komentarus tinklaraštyje. Turi pirmenybę prieš nustatymą vienam įrašui.</dd>
-
-  <dt>Nuosaikios pastabos</dt>
-  <dd>Pasirinkus šią parinktį, komentarai bus skelbiami tik redaktoriui sutikus.</dd>
-
-  <dt>Palikite komentarus atvirus X dienų</dt>
-  <dd>Dienų, per kurias bus galima teikti komentarus po pranešimo paskelbimo, skaičius. Jei ši reikšmė yra tuščia, komentarai bus atviri neribotą laiką.</dd>
-
-  <dt>"Wiki" komentarų sintaksė</dt>
-  <dd>Leidžia komentaruose naudoti wiki sintaksės poaibį.</dd>
-
-  <dt>Priimti atgalines nuorodas</dt>
-  <dd>Visuotinai priima atgalines nuorodas tinklaraštyje. Turi pirmenybę prieš nustatymą vienam įrašui.</dd>
-
-  <dt>Nuosaikūs Trackbacks</dt>
-  <dd>Pasirinkus šią parinktį, atgalinės nuorodos bus skelbiamos tik redaktoriui sutikus.</dd>
-
-  <dt>Palikite atgalines nuorodas atviras X dienų</dt>
-  <dd>Dienų, per kurias bus galima naudotis atgalinėmis nuorodomis po pranešimo paskelbimo, skaičius. Jei ši reikšmė yra tuščia, atgalinės nuorodos bus atidarytos neribotam laikui.</dd>
-
-  <dt>Pridėti "nofollow" ryšį komentaruose ir "Trackbacks" nuorodose</dt>
-  <dd>Prideda komentaruose ir atgalinėse nuorodose esančių nuorodų atributą, nurodantį paieškos robotams jų nesekti. Ši kovos su šlamštu funkcija dar turi įrodyti savo vertę.</dd>
-</dl>
-
-<h4>Tinklaraščio pristatymas</h4>
-<dl>
-  <dt>Datos formatas</dt>
-  <dd>Nustato tinklaraščio įrašų datos formatą. Daugiau informacijos žr. toliau esančiame skyriuje "Formato nuoroda". Išskleidžiamąjį sąrašą galite naudoti norėdami greitai pasirinkti jau egzistuojantį šabloną.</dd>
-
-  <dt>Laiko formatas</dt>
-  <dd>Nustato tinklaraščio įrašų laiko formatą. Daugiau informacijos žr. toliau esančiame skyriuje "Formato nuoroda". Išskleidžiamąjį sąrašą galite naudoti norėdami greitai pasirinkti jau egzistuojantį šabloną.</dd>
-
-  <dt>Rodyti šypsenėles įrašuose ir komentaruose</dt>
-  <dd>Kai kurias eilutes, pavyzdžiui, :-) arba ;-), paverčia paveikslėliais.</dd>
-
-  <dt>Rodyti X įrašų viename puslapyje</dt>
-  <dd>Bus rodomi X įrašai pagrindiniame tinklaraščio puslapyje ir įvairiose kategorijose.</dd>
-
-  <dt>Rodyti X įrašų viename kanale</dt>
-  <dd>Bus rodomi X įrašai tinklaraščio kanaluose.</dd>
-
-  <dt>Rodyti X komentarų viename kanale</dt>
-  <dd>Bus rodomi X komentarai tinklaraščio komentarų kanaluose.</dd>
-
-  <dt>Sutrumpinti kanalus</dt>
-  <dd>Ši parinktis pateiks tik tinklaraščio įrašų santrauką iš kanalų.</dd>
-
-  <dt>Įtraukti subkategorijas į kategorijos puslapį ir kategorijos pranešimų kanalą</dt>
-  <dd>Įjungus šią parinktį, subkategorijų įrašai bus rodomi pagrindinių kategorijų puslapiuose ir jų kanaluose.</dd>
-</dl>
-
-<h4>Žiniasklaida ir vaizdai</h4>
-<dl>
-  <dt>Generuojamų vaizdų dydžiai (pikseliais)</dt>
-  <dd>Medijos tvarkyklėje pridėjus paveikslėlį, automatiškai sukuriami kiti dydžiai. Čia galite nustatyti kiekvieno tipo sugeneruotų vaizdų ilgiausio dydžio (pločio arba aukščio) matmenį. Jei vieną lauką paliksite tuščią, medijos tvarkyklė nesukurs atitinkamo miniatiūrinio dydžio.</dd>
-
-  <dt>Numatytieji vaizdo įterpimo atributai</dt>
-  <dd>Pasirinkti nustatymai bus taikomi visiems naujiems vaizdams, pridėtiems prie medijos tvarkyklės.</dd>
-
-  <dt>Įterpto vaizdo pavadinimas</dt>
-  <dd>Pasirinkite vaizdams taikomų žymų "title" formatą, remdamiesi iš vaizdų metaduomenų gauta informacija.</dd>
-
-  <dt>Jei įmanoma, naudokite originalios laikmenos datą</dt>
-  <dd>Kai ši parinktis įjungta, jei vaizdo metaduomenyse yra data, ji bus naudojama. Jei ne, bus naudojama įkėlimo data.</dd>
-
-  <dt>Įterpto vaizdo dydis</dt>
-  <dd>Nustato numatytąjį dydį, naudojamą įterpiant paveikslėlį į tinklaraščio įrašą.</dd>
-
-  <dt>Vaizdų lyginimas</dt>
-  <dd>Nustato numatytąjį išlyginimą, naudojamą įterpiant paveikslėlį į tinklaraščio įrašą.</dd>
-
-  <dt>Įterpkite nuorodą į originalų paveikslėlį</dt>
-  <dd>Įjungus šią parinktį, į tinklaraščio įrašą įterptas nuotraukas bus galima spustelėti ir jos nukreips į originalaus dydžio nuotrauką.</dd>
-
-</dl>
-
-<h4>Paieškos sistemų robotų politika</h4>
-<p>Einige Felder k&ouml;nnen in Verh&auml;ltnis zu Datum und Zeit gesetzt werden.
+  </dl>
+  <h4>Komentarai ir Trackbacks</h4>
+  <dl>
+    <dt>Priimti pastabas</dt>
+    <dd>Visuotinai priima komentarus tinklaraštyje. Turi pirmenybę prieš nustatymą vienam įrašui.</dd>
+    <dt>Nuosaikios pastabos</dt>
+    <dd>Pasirinkus šią parinktį, komentarai bus skelbiami tik redaktoriui sutikus.</dd>
+    <dt>Palikite komentarus atvirus X dienų</dt>
+    <dd>Dienų, per kurias bus galima teikti komentarus po pranešimo paskelbimo, skaičius. Jei ši reikšmė yra tuščia, komentarai bus atviri neribotą laiką.</dd>
+    <dt>"Wiki" komentarų sintaksė</dt>
+    <dd>Leidžia komentaruose naudoti wiki sintaksės poaibį.</dd>
+    <dt>Priimti atgalines nuorodas</dt>
+    <dd>Visuotinai priima atgalines nuorodas tinklaraštyje. Turi pirmenybę prieš nustatymą vienam įrašui.</dd>
+    <dt>Nuosaikūs Trackbacks</dt>
+    <dd>Pasirinkus šią parinktį, atgalinės nuorodos bus skelbiamos tik redaktoriui sutikus.</dd>
+    <dt>Palikite atgalines nuorodas atviras X dienų</dt>
+    <dd>Dienų, per kurias bus galima naudotis atgalinėmis nuorodomis po pranešimo paskelbimo, skaičius. Jei ši reikšmė yra tuščia, atgalinės nuorodos bus atidarytos neribotam laikui.</dd>
+    <dt>Pridėti "nofollow" ryšį komentaruose ir "Trackbacks" nuorodose</dt>
+    <dd>Prideda komentaruose ir atgalinėse nuorodose esančių nuorodų atributą, nurodantį paieškos robotams jų nesekti. Ši kovos su šlamštu funkcija dar turi įrodyti savo vertę.</dd>
+  </dl>
+  <h4>Tinklaraščio pristatymas</h4>
+  <dl>
+    <dt>Datos formatas</dt>
+    <dd>Nustato tinklaraščio įrašų datos formatą. Daugiau informacijos žr. toliau esančiame skyriuje "Formato nuoroda". Išskleidžiamąjį sąrašą galite naudoti norėdami greitai pasirinkti jau egzistuojantį šabloną.</dd>
+    <dt>Laiko formatas</dt>
+    <dd>Nustato tinklaraščio įrašų laiko formatą. Daugiau informacijos žr. toliau esančiame skyriuje "Formato nuoroda". Išskleidžiamąjį sąrašą galite naudoti norėdami greitai pasirinkti jau egzistuojantį šabloną.</dd>
+    <dt>Rodyti šypsenėles įrašuose ir komentaruose</dt>
+    <dd>Kai kurias eilutes, pavyzdžiui, :-) arba ;-), paverčia paveikslėliais.</dd>
+    <dt>Rodyti X įrašų viename puslapyje</dt>
+    <dd>Bus rodomi X įrašai pagrindiniame tinklaraščio puslapyje ir įvairiose kategorijose.</dd>
+    <dt>Rodyti X įrašų viename kanale</dt>
+    <dd>Bus rodomi X įrašai tinklaraščio kanaluose.</dd>
+    <dt>Rodyti X komentarų viename kanale</dt>
+    <dd>Bus rodomi X komentarai tinklaraščio komentarų kanaluose.</dd>
+    <dt>Sutrumpinti kanalus</dt>
+    <dd>Ši parinktis pateiks tik tinklaraščio įrašų santrauką iš kanalų.</dd>
+    <dt>Įtraukti subkategorijas į kategorijos puslapį ir kategorijos pranešimų kanalą</dt>
+    <dd>Įjungus šią parinktį, subkategorijų įrašai bus rodomi pagrindinių kategorijų puslapiuose ir jų kanaluose.</dd>
+  </dl>
+  <h4>Žiniasklaida ir vaizdai</h4>
+  <dl>
+    <dt>Generuojamų vaizdų dydžiai (pikseliais)</dt>
+    <dd>Medijos tvarkyklėje pridėjus paveikslėlį, automatiškai sukuriami kiti dydžiai. Čia galite nustatyti kiekvieno tipo sugeneruotų vaizdų ilgiausio dydžio (pločio arba aukščio) matmenį. Jei vieną lauką paliksite tuščią, medijos tvarkyklė nesukurs atitinkamo miniatiūrinio dydžio.</dd>
+    <dt>Numatytieji vaizdo įterpimo atributai</dt>
+    <dd>Pasirinkti nustatymai bus taikomi visiems naujiems vaizdams, pridėtiems prie medijos tvarkyklės.</dd>
+    <dt>Įterpto vaizdo pavadinimas</dt>
+    <dd>Pasirinkite vaizdams taikomų žymų "title" formatą, remdamiesi iš vaizdų metaduomenų gauta informacija.</dd>
+    <dt>Jei įmanoma, naudokite originalios laikmenos datą</dt>
+    <dd>Kai ši parinktis įjungta, jei vaizdo metaduomenyse yra data, ji bus naudojama. Jei ne, bus naudojama įkėlimo data.</dd>
+    <dt>Įterpto vaizdo dydis</dt>
+    <dd>Nustato numatytąjį dydį, naudojamą įterpiant paveikslėlį į tinklaraščio įrašą.</dd>
+    <dt>Vaizdų lyginimas</dt>
+    <dd>Nustato numatytąjį išlyginimą, naudojamą įterpiant paveikslėlį į tinklaraščio įrašą.</dd>
+    <dt>Įterpkite nuorodą į originalų paveikslėlį</dt>
+    <dd>Įjungus šią parinktį, į tinklaraščio įrašą įterptas nuotraukas bus galima spustelėti ir jos nukreips į originalaus dydžio nuotrauką.</dd>
+  </dl>
+  <h4>Paieškos sistemų robotų politika</h4>
+  <p>Einige Felder k&ouml;nnen in Verh&auml;ltnis zu Datum und Zeit gesetzt werden.
 Hier ist die Referenz:</p>
-
-<h4>Antispam</h4>
-<p>Galite nustatyti dienų skaičių, po kurio norite, kad nepageidaujami komentarai būtų automatiškai ištrinami. Norėdami išjungti šią funkciją, palikite šį lauką tuščią (arba įrašykite 0).</p>
-
-<h4>Vartotojai</h4>
-<p>Pateikiamas šio tinklaraščio naudotojų sąrašas ir jų leidimai.</p>
-
-<h3>Blogdetails</h3>
-<p>Kai kuriuos laukus galima sukonfigūruoti taip, kad data ir laikas būtų formatuojami pagal jūsų poreikius.
-Čia pateikiama nuoroda:</p>
-
-<ul>
-  <li><strong>%a</strong>: gek&uuml;rzter Wochentag (lokal)</li>
-  <li><strong>%A</strong>: Kompletter Wochentag (lokal)</li>
-  <li><strong>%b</strong>: gek&uuml;rzter Monatsname (lokal)</li>
-  <li><strong>%B</strong>: Kompletter Monatsname (lokal)</li>
-  <li><strong>%c</strong>: Lokale Datum und Zeitangabe</li>
-  <li><strong>%C</strong>: Jahrhundert (Jahr, dividiert durch 100 und
-  abgerundet zwischen 00 und 99)</li>
-  <li><strong>%d</strong>: numerischer Monatstag (von 01 bis 31)</li>
-  <li><strong>%D</strong>: identisch mit %m/%d/%y</li>
-  <li><strong>%e</strong>: numerischer Monatstag (von 01 bis 31)</li>
-  <li><strong>%g</strong>: identisch mit %G, 2stellig.</li>
-  <li><strong>%G</strong>: Jahr  4stellig, entsprechend der Anzahl der Wochen
-  (cf. %V). Format und Wert identisch mit %Y, mit der Ausnahme, dass, wenn die Woche zum vorhergehenden oder nachfolgenden
-  Jahr geh&ouml;rt, das gegenw&auml;rtige Jahr verwendet wird.</li>
-  <li><strong>%h</strong>: identisch mit %b</li>
-  <li><strong>%H</strong>: digitale Uhrzeit, 24H Modus
-  (von 00 bis 23)</li>
-  <li><strong>%I</strong>: digitale Uhrzeit, 12H Modus
-  (von 01 bis 12)</li>
-  <li><strong>%j</strong>: Tag eines Jahres, digital (von 001 bis 366)</li>
-  <li><strong>%m</strong>: Monat, digital (von 1 bis  12)</li>
-  <li><strong>%M</strong>: Minute, digital</li>
-  <li><strong>%n</strong>: Zeilentrennung Character</li>
-  <li><strong>%p</strong>: entweder `am' oder `pm', bezogen zur absoluten Zeit
-  oder abh&auml;ngig von den lokalen Einstellungen.</li>
-  <li><strong>%r</strong>: Stunde, a.m. und p.m. Format</li>
-  <li><strong>%R</strong>: Stunde, 24h Format</li>
-  <li><strong>%S</strong>: Sekunde, digital</li>
-  <li><strong>%t</strong>: tab character</li>
-  <li><strong>%T</strong>: Gegenw&auml;rtige Zeit (identisch mit %H:%M:%S)</li>
-  <li><strong>%u</strong>: Wochentag, digit, von 1 bis 7. (1 steht f&uuml;r Montag)</li>
-  <li><strong>%U</strong>: Wochennummer, der erste Sonntag des Jahres ist der Tag, an dem die erste Woche beginnt.</li>
-  <li><strong>%V</strong>: Wochennummer definiert nach ISO 8601:1988, digital, 
-    von 01 bis 53. Die Woche 1 ist die erste Woche, mit mehr als 4 Tagen im gegenw&auml;rtigen 
-    Jahr, dessen Montag ist der erste Tag. (Verwende %G oder %g f&uuml;r die Jahrelemente 
-    korrespondierend zu der Anzahl der Wochen der in Erw&auml;gung gezogenenen 
-    Zeit.)</li>
-  <li><strong>%W</strong>: Anzahl der Wochen im Jahr, der erste Montag im Jahr ist der Beginn der ersten Woche.</li>
-  <li><strong>%w</strong>: Wochentag, digital, 0 steht f&uuml;r Sonntag</li>
-  <li><strong>%x</strong>: Bevorzugtes Format f&uuml;r den Tag ohne Zeit.</li>
-  <li><strong>%X</strong>: Bevorzugtes Format f&uuml;r die Zeit ohne Datum</li>
-  <li><strong>%y</strong>: Jahr, 2stellig (von 00 bis 99)</li>
-  <li><strong>%Y</strong>: tJahr, 4stellig</li>
-  <li><strong>%Z ou %z</strong>: Zeitzone, Name oder Kurzzeichen</li>
-  <li>: ein Charakter in Worten `%'</li>
-</ul>
-
+  <h4>Antispam</h4>
+  <p>Galite nustatyti dienų skaičių, po kurio norite, kad nepageidaujami komentarai būtų automatiškai ištrinami. Norėdami išjungti šią funkciją, palikite šį lauką tuščią (arba įrašykite 0).</p>
+  <h4>Vartotojai</h4>
+  <p>Pateikiamas šio tinklaraščio naudotojų sąrašas ir jų leidimai.</p>
+  <h3>Blogdetails</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a</strong>: gek&uuml;rzter Wochentag (lokal)</li>
+    <li><strong>%A</strong>: Kompletter Wochentag (lokal)</li>
+    <li><strong>%b</strong>: gek&uuml;rzter Monatsname (lokal)</li>
+    <li><strong>%B</strong>: Kompletter Monatsname (lokal)</li>
+    <li><strong>%c</strong>: Lokale Datum und Zeitangabe</li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d</strong>: numerischer Monatstag (von 01 bis 31)</li>
+    <li><strong>%D</strong>: identisch mit %m/%d/%y</li>
+    <li><strong>%e</strong>: numerischer Monatstag (von 01 bis 31)</li>
+    <li><strong>%g</strong>: identisch mit %G, 2stellig.</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h</strong>: identisch mit %b</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j</strong>: Tag eines Jahres, digital (von 001 bis 366)</li>
+    <li><strong>%m</strong>: Monat, digital (von 1 bis  12)</li>
+    <li><strong>%M</strong>: Minute, digital</li>
+    <li><strong>%n</strong>: Zeilentrennung Character</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r</strong>: Stunde, a.m. und p.m. Format</li>
+    <li><strong>%R</strong>: Stunde, 24h Format</li>
+    <li><strong>%S</strong>: Sekunde, digital</li>
+    <li><strong>%t</strong>: tab character</li>
+    <li><strong>%T</strong>: Gegenw&auml;rtige Zeit (identisch mit %H:%M:%S)</li>
+    <li><strong>%u</strong>: Wochentag, digit, von 1 bis 7. (1 steht f&uuml;r Montag)</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w</strong>: Wochentag, digital, 0 steht f&uuml;r Sonntag</li>
+    <li><strong>%x</strong>: Bevorzugtes Format f&uuml;r den Tag ohne Zeit.</li>
+    <li><strong>%X</strong>: Bevorzugtes Format f&uuml;r die Zeit ohne Datum</li>
+    <li><strong>%y</strong>: Jahr, 2stellig (von 00 bis 99)</li>
+    <li><strong>%Y</strong>: tJahr, 4stellig</li>
+    <li><strong>%Z ou %z</strong>: Zeitzone, Name oder Kurzzeichen</li>
+    <li>: ein Charakter in Worten `%'</li>
+  </ul>
 </body>
+
 </html>
