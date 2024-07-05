@@ -1,70 +1,55 @@
 <html>
+
 <head>
   <title>Bruger</title>
 </head>
 
 <body>
-
-<h4>Bruger profil</h4>
-<dl>
-  <dt>Bruger ID</dt>
-  <dd>Mindst 2 tegn med bogstaver, tal eller symboler (intet mellemrum). Dette felt er obligatorisk.</dd>
-
-  <dt>Ny adgangskode</dt>
-  <dd>Hvis du ønsker at ændre din adgangskode, indtaste den nye adgangskode to gange i <strong>Ny adgangskode</strong> og <strong>Bekræft adgangskode</strong> felter. Adgangskoder skal indeholde mindst 6 tegn. Begge felter er obligatoriske.</dd>
-
-  <dt>Adgangskodeskift kræves for at forbinde</dt>
-  <dd>Afkryds dette felt, så en ny bruger bliver nødt til at vælge sin egen adgangskode, når han vil forbinde.</dd>
-
-  <dt>Super administrator</dt>
-  <dd>Dette vil give den aktuelle bruger alle tilladelser på alle de blogs hostet på systemet.</dd>
-  
-  <dt>Efternavn, Fornavn</dt>
-  <dd>Hvis intet visningsnavn er angivet, vil den viste forfatters navn indeholde efternavnet og fornavn indtastet i disse to felter.</dd>
-
-  <dt>Vis navn</dt>
-  <dd>Du kan vælge det kaldenavn du vil bruge til at underskrive dine artikler. Hvis ikke tom, vil dette felt blive brugt i stedet for felterne for efternavn og fornavn.</dd>
-
-  <dt>E-mail</dt>
-  <dd>Denne e-mail-adresse vil blive brugt, hvis du har brug for at gendanne din adgangskode fra Dotclear's godkendelsesskærm.</dd>
-
-  <dt>URL</dt>
-  <dd>Indikerer brugerens hjemmeside. Hvis dette felt ikke er tomt, bliver forfatterens navn et klikbart link til dette websted.</dd>
-</dl>
-
-<h4>Indstillinger</h4>
-<h5>Grænseflade</h5>
-<dl>
-  <dt>Sprog</dt>
-  <dd>Sæt standardsproget for nye indgange. Hvis en oversættelse er tilgængelig for dette sprog, vil bloggen interface også blive oversat til dette sprog.</dd>
-
-  <dt>Timezone</dt>
-  <dd>Denne indstilling påvirker måden hvorpå indgangenes publiceringstid vises.</dd>
-</dl>
-
-<h5>Udgave</h5>
-<dl>  
-  <dt>Foretrukket format</dt>
-  <dd>Vælg posteringens syntaks. Wiki er en forenklet syntaks
-  og vil blive konverteret til gyldig HTML. Medmindre du har en perfekt
-  forståelse af HTML, anbefaler vi dig at vælge Wiki-syntaksen.
-  Se Wiki-syntaksreferencen for mere information.</dd>
-  
-  <dt>Standard indtastningsstatus</dt>
-  <dd>Standardstatus for nye poster kan indstilles til:
-    <ul>
-      <li><strong>Afventer:</strong> Offentliggørelsesstatus er endnu ikke afgjort.</li>
-      <li><strong>Planlægges:</strong> Indgangen vil blive sat online på det tidspunkt og den dato der er angivet i <strong>Publiceret på</strong> feltet.</li>
-      <li><strong>Ikke offentliggjort:</strong> Offline post.</li>
-      <li><strong>Publiceret:</strong> Online post.</li>
-    </ul>
-  </dd>
-
-  <dt>Indtastnings redigeringsfeltets højde</dt>
-  <dd>Sætter højden af redigeringsfeltet for en indgang. Denne parameter er som standard sat til 24.</dd>
-
-  <dt>Tags liste-format</dt>
-  <dd>Du kan vælge, om du vil se, mens du redigerer en post, alle de anvendte tags (<strong>Udvidet</strong>) eller kun de mest anvendte (<strong>Kort</strong>).</dd>
-</dl>
+  <h4>Bruger profil</h4>
+  <dl>
+    <dt>Bruger ID</dt>
+    <dd>Mindst 2 tegn med bogstaver, tal eller symboler (intet mellemrum). Dette felt er obligatorisk.</dd>
+    <dt>Ny adgangskode</dt>
+    <dd>Hvis du ønsker at ændre din adgangskode, indtaste den nye adgangskode to gange i <strong>Ny adgangskode</strong> og <strong>Bekræft adgangskode</strong> felter. Adgangskoder skal indeholde mindst 6 tegn. Begge felter er obligatoriske.</dd>
+    <dt>Adgangskodeskift kræves for at forbinde</dt>
+    <dd>Afkryds dette felt, så en ny bruger bliver nødt til at vælge sin egen adgangskode, når han vil forbinde.</dd>
+    <dt>Super administrator</dt>
+    <dd>Dette vil give den aktuelle bruger alle tilladelser på alle de blogs hostet på systemet.</dd>
+    <dt>Efternavn, Fornavn</dt>
+    <dd>Hvis intet visningsnavn er angivet, vil den viste forfatters navn indeholde efternavnet og fornavn indtastet i disse to felter.</dd>
+    <dt>Vis navn</dt>
+    <dd>Du kan vælge det kaldenavn du vil bruge til at underskrive dine artikler. Hvis ikke tom, vil dette felt blive brugt i stedet for felterne for efternavn og fornavn.</dd>
+    <dt>E-mail</dt>
+    <dd>Denne e-mail-adresse vil blive brugt, hvis du har brug for at gendanne din adgangskode fra Dotclear's godkendelsesskærm.</dd>
+    <dt>URL</dt>
+    <dd>Indikerer brugerens hjemmeside. Hvis dette felt ikke er tomt, bliver forfatterens navn et klikbart link til dette websted.</dd>
+  </dl>
+  <h4>Indstillinger</h4>
+  <h5>Grænseflade</h5>
+  <dl>
+    <dt>Sprog</dt>
+    <dd>Sæt standardsproget for nye indgange. Hvis en oversættelse er tilgængelig for dette sprog, vil bloggen interface også blive oversat til dette sprog.</dd>
+    <dt>Timezone</dt>
+    <dd>Denne indstilling påvirker måden hvorpå indgangenes publiceringstid vises.</dd>
+  </dl>
+  <h5>Udgave</h5>
+  <dl>
+    <dt>Foretrukket format</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Standard indtastningsstatus</dt>
+    <dd>Standardstatus for nye poster kan indstilles til:
+      <ul>
+        <li><strong>Afventer:</strong> Offentliggørelsesstatus er endnu ikke afgjort.</li>
+        <li><strong>Planlægges:</strong> Indgangen vil blive sat online på det tidspunkt og den dato der er angivet i <strong>Publiceret på</strong> feltet.</li>
+        <li><strong>Ikke offentliggjort:</strong> Offline post.</li>
+        <li><strong>Publiceret:</strong> Online post.</li>
+      </ul>
+    </dd>
+    <dt>Indtastnings redigeringsfeltets højde</dt>
+    <dd>Sætter højden af redigeringsfeltet for en indgang. Denne parameter er som standard sat til 24.</dd>
+    <dt>Tags liste-format</dt>
+    <dd>Du kan vælge, om du vil se, mens du redigerer en post, alle de anvendte tags (<strong>Udvidet</strong>) eller kun de mest anvendte (<strong>Kort</strong>).</dd>
+  </dl>
 </body>
+
 </html>
