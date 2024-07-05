@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Käyttäjät</title>
-  </head>
-  <body>
-    <p>Tällä sivulla luetellaan kaikki järjestelmän käyttäjät.</p>
-    <p>Käyttäjien oikeuksien lisääminen (tai muuttaminen) edellyttää salasanasi syöttämistä kenttään <strong>Your password</strong> .</p>
 
-    <h4>Käyttäjien luettelon suodatin</h4>
-    <dl>
-      <dt>Etsi</dt>
-      <dd>Haku perustuu käyttäjätunnukseen. Jokerimerkillä <strong>*</strong> voidaan etsiä vain osaa käyttäjätunnuksesta.</dd>
+<head>
+  <title>Käyttäjät</title>
+</head>
 
-      <dt>Tilaa mennessä</dt>
-      <dd>Käyttäjäluettelo voidaan järjestää käyttäjien <em>ID</em>, <em>Sukunimi</em>, <em>Etunimi</em>, <em>Näyttönimi</em> (lempinimi) tai luotujen merkintöjen <em>määrä</em> mukaan.</dd>
+<body>
+  <p>Tällä sivulla luetellaan kaikki järjestelmän käyttäjät.</p>
+  <p>Käyttäjien oikeuksien lisääminen (tai muuttaminen) edellyttää salasanasi syöttämistä kenttään <strong>Your password</strong> .</p>
+  <h4>Käyttäjien luettelon suodatin</h4>
+  <dl>
+    <dt>Etsi</dt>
+    <dd>Haku perustuu käyttäjätunnukseen. Jokerimerkillä <strong>*</strong> voidaan etsiä vain osaa käyttäjätunnuksesta.</dd>
+    <dt>Tilaa mennessä</dt>
+    <dd>Käyttäjäluettelo voidaan järjestää käyttäjien <em>ID</em>, <em>Sukunimi</em>, <em>Etunimi</em>, <em>Näyttönimi</em> (lempinimi) tai luotujen merkintöjen <em>määrä</em> mukaan.</dd>
+    <dt>Lajittele</dt>
+    <dd>Ilmaisee tulosluetteloon sovellettavan lajittelumenetelmän (<em>Nouseva</em> tai <em>Laskeva</em>).</dd>
+    <dt>Käyttäjät per sivu</dt>
+    <dd>Määrittää tulosluettelon kullakin sivulla näkyvien käyttäjien määrän.</dd>
+  </dl>
+  <h4>Käyttäjien erätoiminnot</h4>
+  <p>On mahdollista tehdä useita käyttäjiä koskevia toimia kerralla.</p>
+  <ul>
+    <li><strong>Aseta käyttöoikeudet:</strong> Aseta käyttöoikeudet yhdelle tai useammalle blogille.</li>
+    <li><strong>Poista:</strong> Poistaa valitun käyttäjän (käyttäjät) järjestelmästä. Käyttäjää, joka on luonut merkintöjä, ei voi poistaa.</li>
+  </ul>
+  <p>Jos päätät määrittää käyttäjien oikeudet, sinut ohjataan uudelle sivulle, jossa luetellaan järjestelmässäsi käytettävissä olevat blogit. Merkitse ne blogit, joille haluat asettaa käyttöoikeudet, ja paina <strong>Set permissions</strong>.</p>
+  <h4>Käyttäjien oikeudet</h4>
+  <p>Voit määrittää kullekin blogille seuraavat oikeudet:</p>
+  <ul>
+    <li><strong>Ylläpitäjä:</strong> Hallinnoijaa: Voi hallinnoida blogia kokonaan.</li>
+    <li><strong>hallita omia merkintöjään ja kommenttejaan:</strong> Käyttäjä voi luoda merkintöjä ja hallita luomiensa merkintöjen kommentteja.</li>
+    <li><strong>Julkaise merkinnät ja kommentit:</strong> Käyttäjä voi muuttaa omien merkintöjen ja merkintöjen kommenttien julkaisutilaa.</li>
+    <li><strong>Poista merkinnät ja kommentit:</strong> Käyttäjä voi poistaa omia merkintöjään sekä merkintöjen kommentteja.</li>
+    <li><strong>Hallitse kaikkia merkintöjä ja kommentteja:</strong> Käyttäjä voi hallita kaikkia blogin merkintöjä riippumatta siitä, onko hän kirjoittaja vai ei.</li>
+    <li><strong>Hallitse luokkia:</strong> Käyttäjä voi luoda, muokata ja poistaa luokkia.</li>
+    <li><strong>Hallinnoida omia mediakohteitaan:</strong> Käyttäjä voi lisätä mediakohteita ja muokata tai poistaa omaa mediaansa.</li>
+    <li><strong>Hallinnoi kaikkia mediaesineitä:</strong> Käyttäjä voi hallita mediakohteita mistä tahansa käyttäjästä.</li>
+    <li><strong>Hallitse sivuja:</strong> Käyttäjä voi lisätä ja muokata sivuja.</li>
+    <li><strong>Hallitse blogirullaa:</strong> Käyttäjä voi hallita nykyisen blogin blogirullaa.</li>
+  </ul>
+  <p><strong>Super administrator</strong> -tila on määritetty käyttäjäprofiilissa.</p>
+</body>
 
-      <dt>Lajittele</dt>
-      <dd>Ilmaisee tulosluetteloon sovellettavan lajittelumenetelmän (<em>Nouseva</em> tai <em>Laskeva</em>).</dd>
-
-      <dt>Käyttäjät per sivu</dt>
-      <dd>Määrittää tulosluettelon kullakin sivulla näkyvien käyttäjien määrän.</dd>
-    </dl>
-
-    <h4>Käyttäjien erätoiminnot</h4>
-    <p>On mahdollista tehdä useita käyttäjiä koskevia toimia kerralla.</p>
-    <ul>
-      <li><strong>Aseta käyttöoikeudet:</strong> Aseta käyttöoikeudet yhdelle tai useammalle blogille.</li>
-      <li><strong>Poista:</strong> Poistaa valitun käyttäjän (käyttäjät) järjestelmästä. Käyttäjää, joka on luonut merkintöjä, ei voi poistaa.</li>
-    </ul>
-    <p>Jos päätät määrittää käyttäjien oikeudet, sinut ohjataan uudelle sivulle, jossa luetellaan järjestelmässäsi käytettävissä olevat blogit. Merkitse ne blogit, joille haluat asettaa käyttöoikeudet, ja paina <strong>Set permissions</strong>.</p>
-
-    <h4>Käyttäjien oikeudet</h4>
-    <p>Voit määrittää kullekin blogille seuraavat oikeudet:</p>
-    <ul>
-      <li><strong>Ylläpitäjä:</strong> Hallinnoijaa: Voi hallinnoida blogia kokonaan.</li>
-      <li><strong>hallita omia merkintöjään ja kommenttejaan:</strong> Käyttäjä voi luoda merkintöjä ja hallita luomiensa merkintöjen kommentteja.</li>
-      <li><strong>Julkaise merkinnät ja kommentit:</strong> Käyttäjä voi muuttaa omien merkintöjen ja merkintöjen kommenttien julkaisutilaa.</li>
-      <li><strong>Poista merkinnät ja kommentit:</strong> Käyttäjä voi poistaa omia merkintöjään sekä merkintöjen kommentteja.</li>
-      <li><strong>Hallitse kaikkia merkintöjä ja kommentteja:</strong> Käyttäjä voi hallita kaikkia blogin merkintöjä riippumatta siitä, onko hän kirjoittaja vai ei.</li>
-      <li><strong>Hallitse luokkia:</strong> Käyttäjä voi luoda, muokata ja poistaa luokkia.</li>
-      <li><strong>Hallinnoida omia mediakohteitaan:</strong> Käyttäjä voi lisätä mediakohteita ja muokata tai poistaa omaa mediaansa.</li>
-      <li><strong>Hallinnoi kaikkia mediaesineitä:</strong> Käyttäjä voi hallita mediakohteita mistä tahansa käyttäjästä.</li>
-      <li><strong>Hallitse sivuja:</strong> Käyttäjä voi lisätä ja muokata sivuja.</li>
-      <li><strong>Hallitse blogirullaa:</strong> Käyttäjä voi hallita nykyisen blogin blogirullaa.</li>
-    </ul>
-    <p><strong>Super administrator</strong> -tila on määritetty käyttäjäprofiilissa.</p>
-  </body>
 </html>
