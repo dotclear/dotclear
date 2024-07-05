@@ -1,94 +1,75 @@
 <html>
+
 <head>
   <title>תחביר תחביר של ויקי</title>
 </head>
 
 <body>
-
-<h4>תחביר תחביר של ויקי</h4>
-
-<p>תחביר הוויקי הוא דרך לשפר את התמליל עם קבוצה מינימלית
-של תגים שנלמדו כדי לכסות את הצרכים הבסיסיים (כותרות, פיסקאות, מרכאות,
-רשימות ...).</p>
-
-<dl>
-<dt>חסימת מרכיבים</dt>
-<dd>
-<ul>
-  <li>השאירו קו ריק בין שני גושי בניינים דומים.</li>
-  <li><strong>Paragraph:</strong> תמליל חופשי, הסתיים בשורה ריקה אם
-  פיסקה נוספת היא למעקב.</li>
-  <li>כותרת: <קוד>!!! כותרת</code>, <code>!! כותרת</code>
- או <קוד>! title</code>, המאפשר לך להשתמש בשלוש רמות שונות של
- כּוֹתֶרֶת.</li>
-  <li><strong>קו אופקי:</strong> <code>----</code></li>
-  <li><strong>רשימות:</strong> להתחיל כל שורה עם
-  <code>*</code> או <code>#</code> עבור רשימות ממוספרות או ממוספרות בהתאמה.
-  אימת רשימה מתבצעת על ידי ערבוב סמני רשימה בדרך זו:
-  <pre>
+  <h4>תחביר תחביר של ויקי</h4>
+  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <dl>
+    <dt>חסימת מרכיבים</dt>
+    <dd>
+      <ul>
+        <li>השאירו קו ריק בין שני גושי בניינים דומים.</li>
+        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
+        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>קו אופקי:</strong> <code>----</code></li>
+        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+          <pre>
     <code>*</code> פריט 1
  <code>**</code> פריט 1.1
  <code>*</code> פריט 2
  <code>*#</code> פריט 2.1
  ...
   </pre>
-  </li>
-  <li><strong>הגדרת תצורה:</strong> התחלה כל שורה עם <code>=</code> עבור המונח להגדרת ועם <code>:</code> עבור ההגדרה של המונח.
-  <pre>
+        </li>
+        <li><strong>הגדרת תצורה:</strong> התחלה כל שורה עם <code>=</code> עבור המונח להגדרת ועם <code>:</code> עבור ההגדרה של המונח.
+          <pre>
   <code>=</code> בטווח
   <code>:</code> תיאור המונח
   </pre>
-  </li>
-  <li><strong>תמליל מעוצב:</strong> כל שורה חייבת להתחיל עם רווח.</li>
-  <li><strong>בלוק ציטוט:</strong> כל שורה חייבת להתחיל עם <code>&gt;</code>.</li>
-  <li><strong>בלוק צד:</strong> כל שורה חייבת להתחיל עם <code>)</code>.</li>
-</ul>
-</dd>
-
-<dt>עיצוב תגים</dt>
-<dd>
-<ul>
-  <li><strong>דגש:</strong> שני ציטוטים <code>''</code></li>
-  <li><strong>דגש חזק:</strong> שני קו תחתי <code>__text__</code></li>
-  <li><strong>דגש:</strong> שני ציטוטים כפולים <code>"תמליל" "</code></li>
-  <li><strong>שורה חדשה:</strong> <code>%%%</code></li>
-  <li><strong>הוספת:</strong> שני plusses <code>+ + תמליל + +</code></li>
-  <li><strong>מחיקות:</strong> שני minuses <code>-- תמליל --</code></li>
-  <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>,
-    <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-  <li><strong>Image:</strong>
-    <code>((url|alternative text))</code>,
-    <code>((url|alternative text|position))</code> or
-    <code>((url|alternative text|position|long description))</code>.
-    <br>The position can be either L (left), R (right) or C (centered).</li>
-  <li><strong>Anchor:</strong> <code>~ עוגן</code></li>
-  <li><strong>ראשי תיבות:</strong> <code>? ?acronym|title?</code></li>
-  <li><strong>Inline HTML:</strong> שני ציטוטים <code>קוד HTML</code></li>
-  <li><strong>Inline quote:</strong> <code>{{quote}}</code>,
-    <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-  <li><strong>קוד:</strong> <code>@code@</code></li>
-  <li><strong>תווים:</strong> <code>$$footnote$$</code></li>
-  <li><strong>כתב עילי</strong>&nbsp;: <code>^ ^</code></li>
-  <li><strong>תת-קובץ</strong>&nbsp;: <code>,, subscript,</code></li>
-</ul>
-</dd>
-
-<dt>תמליל לא מעוצב</dt>
-<dd>אם אינכם רוצים שאופי עיצוב אחד יפורש ככזה, הוסיפו
-<code>\</code> לפני זה. לדוגמה:
-<code>\[תמליל בסוגריים בלי להיות קישור]</code>
-</dd>
-
-<dt>קוד HTML</dt>
-<dd>גם אם בחרתם בתחביר הוויקי, יתכן שתצטרכו לפעמים עיצוב רב יותר של
-, כלומר, תחביר HTML. בצעו את הפעולות האלה:
-<pre>
+        </li>
+        <li><strong>תמליל מעוצב:</strong> כל שורה חייבת להתחיל עם רווח.</li>
+        <li><strong>בלוק ציטוט:</strong> כל שורה חייבת להתחיל עם <code>&gt;</code>.</li>
+        <li><strong>בלוק צד:</strong> כל שורה חייבת להתחיל עם <code>)</code>.</li>
+      </ul>
+    </dd>
+    <dt>עיצוב תגים</dt>
+    <dd>
+      <ul>
+        <li><strong>דגש:</strong> שני ציטוטים <code>''</code></li>
+        <li><strong>דגש חזק:</strong> שני קו תחתי <code>__text__</code></li>
+        <li><strong>דגש:</strong> שני ציטוטים כפולים <code>"תמליל" "</code></li>
+        <li><strong>שורה חדשה:</strong> <code>%%%</code></li>
+        <li><strong>הוספת:</strong> שני plusses <code>+ + תמליל + +</code></li>
+        <li><strong>מחיקות:</strong> שני minuses <code>-- תמליל --</code></li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
+        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Anchor:</strong> <code>~ עוגן</code></li>
+        <li><strong>ראשי תיבות:</strong> <code>? ?acronym|title?</code></li>
+        <li><strong>Inline HTML:</strong> שני ציטוטים <code>קוד HTML</code></li>
+        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>קוד:</strong> <code>@code@</code></li>
+        <li><strong>תווים:</strong> <code>$$footnote$$</code></li>
+        <li><strong>כתב עילי</strong>&nbsp;: <code>^ ^</code></li>
+        <li><strong>תת-קובץ</strong>&nbsp;: <code>,, subscript,</code></li>
+      </ul>
+    </dd>
+    <dt>תמליל לא מעוצב</dt>
+    <dd>If you don't want one formatting character to be interpreted as such, add a
+      <code>\</code> just before it. For instance:
+      <code>\[Text in brackets without being a link\]</code>
+    </dd>
+    <dt>קוד HTML</dt>
+    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+      <pre>
 /// html
 &lt;p style="color:red"&gt;התמליל שלי באדום&lt;/p&gt;
  // /
 </pre>
-</dd>
-</dl>
-
+    </dd>
+  </dl>
 </body>
+
 </html>
