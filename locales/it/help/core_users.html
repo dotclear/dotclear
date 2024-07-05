@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Utenti</title>
-  </head>
-  <body>
-    <p>Questa pagina elenca tutti gli utenti del sistema.</p>
-    <p>Per aggiungere (o modificare) i permessi degli utenti, la password sarà richiesta nel campo <strong>La tua password</strong>.</p>
 
-    <h4>Filtro elenco utenti</h4>
-    <dl>
-      <dt>Cerca</dt>
-      <dd>La ricerca è basata sull'ID utente. Il jolly <strong>*</strong> può essere utilizzato per cercare solo una parte dell'ID utente.</dd>
+<head>
+  <title>Utenti</title>
+</head>
 
-      <dt>Ordina per</dt>
-      <dd>La lista degli utenti può essere ordinata dal loro <em>ID</em>, il loro <em>Cognome</em>, il loro <em>Nome</em>, loro <em>Display Name</em> (nickname) o il <em>Numero di Voci</em> che hanno creato.</dd>
+<body>
+  <p>Questa pagina elenca tutti gli utenti del sistema.</p>
+  <p>Per aggiungere (o modificare) i permessi degli utenti, la password sarà richiesta nel campo <strong>La tua password</strong>.</p>
+  <h4>Filtro elenco utenti</h4>
+  <dl>
+    <dt>Cerca</dt>
+    <dd>La ricerca è basata sull'ID utente. Il jolly <strong>*</strong> può essere utilizzato per cercare solo una parte dell'ID utente.</dd>
+    <dt>Ordina per</dt>
+    <dd>La lista degli utenti può essere ordinata dal loro <em>ID</em>, il loro <em>Cognome</em>, il loro <em>Nome</em>, loro <em>Display Name</em> (nickname) o il <em>Numero di Voci</em> che hanno creato.</dd>
+    <dt>Ordina</dt>
+    <dd>Indica il metodo di ordinamento che verrà applicato alla lista dei risultati (<em>Ascendente</em> o <em>discendente</em>).</dd>
+    <dt>Utenti per pagina</dt>
+    <dd>Imposta il numero di utenti visualizzati in ogni pagina della lista dei risultati.</dd>
+  </dl>
+  <h4>Azioni batch degli utenti</h4>
+  <p>È possibile fare un lotto di azioni su parecchi utenti in una sola volta.</p>
+  <ul>
+    <li><strong>Imposta permessi:</strong> Imposta i permessi per uno o più blog(i).</li>
+    <li><strong>Elimina:</strong> Rimuovere gli utenti selezionati dal sistema. Un utente che ha creato le voci non può essere eliminato.</li>
+  </ul>
+  <p>Se decidi di impostare i permessi degli utenti, sarai reindirizzato a una nuova pagina che elenca i blog disponibili sul tuo sistema. Controlla i blog su cui vuoi impostare i permessi e premi <strong>Imposta i permessi</strong>.</p>
+  <h4>Permessi utenti</h4>
+  <p>Per ogni blog, è possibile impostare i seguenti permessi:</p>
+  <ul>
+    <li><strong>Amministratore:</strong> Può amministrare completamente il blog.</li>
+    <li><strong>Gestisci le loro voci e commenti:</strong> L'utente può creare voci e gestire i commenti sulle voci che ha creato.</li>
+    <li><strong>Pubblicare voci e commenti:</strong> L'utente può modificare lo stato di pubblicazione delle proprie voci e dei commenti delle sue voci.</li>
+    <li><strong>Elimina voci e commenti:</strong> L'utente può eliminare le proprie voci e i commenti delle sue voci.</li>
+    <li><strong>Gestisci tutte le voci e i commenti:</strong> L'utente può gestire tutte le voci di questo blog, non importa se è l'autore o no.</li>
+    <li><strong>Gestisci le categorie:</strong> L'utente può creare, modificare ed eliminare le categorie.</li>
+    <li><strong>Gestisci i propri elementi multimediali:</strong> L'utente può aggiungere elementi multimediali e modificare o eliminare i propri supporti.</li>
+    <li><strong>Gestisci tutti gli elementi multimediali:</strong> L'utente può gestire gli elementi multimediali da qualsiasi utente.</li>
+    <li><strong>Gestisci pagine:</strong> L'utente può aggiungere e modificare pagine.</li>
+    <li><strong>Gestisci blogroll:</strong> L'utente può gestire il blog del blog attuale.</li>
+  </ul>
+  <p>Lo stato <strong>Super administrator</strong> è impostato nel profilo utente.</p>
+</body>
 
-      <dt>Ordina</dt>
-      <dd>Indica il metodo di ordinamento che verrà applicato alla lista dei risultati (<em>Ascendente</em> o <em>discendente</em>).</dd>
-
-      <dt>Utenti per pagina</dt>
-      <dd>Imposta il numero di utenti visualizzati in ogni pagina della lista dei risultati.</dd>
-    </dl>
-
-    <h4>Azioni batch degli utenti</h4>
-    <p>È possibile fare un lotto di azioni su parecchi utenti in una sola volta.</p>
-    <ul>
-      <li><strong>Imposta permessi:</strong> Imposta i permessi per uno o più blog(i).</li>
-      <li><strong>Elimina:</strong> Rimuovere gli utenti selezionati dal sistema. Un utente che ha creato le voci non può essere eliminato.</li>
-    </ul>
-    <p>Se decidi di impostare i permessi degli utenti, sarai reindirizzato a una nuova pagina che elenca i blog disponibili sul tuo sistema. Controlla i blog su cui vuoi impostare i permessi e premi <strong>Imposta i permessi</strong>.</p>
-
-    <h4>Permessi utenti</h4>
-    <p>Per ogni blog, è possibile impostare i seguenti permessi:</p>
-    <ul>
-      <li><strong>Amministratore:</strong> Può amministrare completamente il blog.</li>
-      <li><strong>Gestisci le loro voci e commenti:</strong> L'utente può creare voci e gestire i commenti sulle voci che ha creato.</li>
-      <li><strong>Pubblicare voci e commenti:</strong> L'utente può modificare lo stato di pubblicazione delle proprie voci e dei commenti delle sue voci.</li>
-      <li><strong>Elimina voci e commenti:</strong> L'utente può eliminare le proprie voci e i commenti delle sue voci.</li>
-      <li><strong>Gestisci tutte le voci e i commenti:</strong> L'utente può gestire tutte le voci di questo blog, non importa se è l'autore o no.</li>
-      <li><strong>Gestisci le categorie:</strong> L'utente può creare, modificare ed eliminare le categorie.</li>
-      <li><strong>Gestisci i propri elementi multimediali:</strong> L'utente può aggiungere elementi multimediali e modificare o eliminare i propri supporti.</li>
-      <li><strong>Gestisci tutti gli elementi multimediali:</strong> L'utente può gestire gli elementi multimediali da qualsiasi utente.</li>
-      <li><strong>Gestisci pagine:</strong> L'utente può aggiungere e modificare pagine.</li>
-      <li><strong>Gestisci blogroll:</strong> L'utente può gestire il blog del blog attuale.</li>
-    </ul>
-    <p>Lo stato <strong>Super administrator</strong> è impostato nel profilo utente.</p>
-  </body>
 </html>
