@@ -1,202 +1,148 @@
 <html>
+
 <head>
   <title>Pengaturan blog</title>
 </head>
 
 <body>
-<h4>Detail blog</h4>
-<dl>
-  <dt>ID Blog</dt>
-  <dd>ID unik blog. Wajib, hanya dapat dimodifikasi oleh administrator super.</dd>
-
-  <dt>Nama blog</dt>
-  <dd>Nama blog, wajib diisi. Dapat dimodifikasi kapan saja tanpa berdampak pada operasi blog.</dd>
-
-  <dt>URL Blog</dt>
-  <dd>URL blog lengkap. Wajib, hanya dapat dimodifikasi oleh administrator super.</dd>
-
-  <dt>Metode pemindaian URL</dt>
-  <dd>Mendefinisikan cara pembacaan URL. PATH_INFO direkomendasikan, QUERY_STRING harus digunakan jika PATH_INFO tidak berfungsi. Dengan menggunakan mode PATH_INFO, URL blog harus diakhiri dengan "/" dan dengan menggunakan QUERY_STRING, URL harus diakhiri dengan "?".</dd>
-
-  <dt>Status blog</dt>
-  <dd>
-    <ul>
-      <li><strong>Online:</strong> Blog terbuka untuk pengunjung.</li>
-      <li><strong>Offline:</strong> Blog tertutup untuk pengunjung tetapi terbuka untuk penulis.</li>
-      <li><strong>Dihapus:</strong> Blog tertutup untuk pengunjung dan penulis, hanya terbuka untuk administrator super.</li>
-    </ul>
-  </dd>
-
-  <dt>Deskripsi blog</dt>
-  <dd>Di sini Anda bisa memasukkan deskripsi apa pun yang Anda inginkan untuk blog Anda. Ini adalah teks sederhana, tanpa pemformatan apa pun.</dd>
-</dl>
-
-<h4>Konfigurasi blog</h4>
-<dl>
-  <dt>Nama editor blog</dt>
-  <dd>Nama orang yang bertanggung jawab atas blog tersebut. Bisa pemilik atau penerbit jika ada. Informasi ini akan ditampilkan di feed blog.</dd>
-
-  <dt>Bahasa default</dt>
-  <dd>Bahasa antarmuka blog. Entah bahasa ini termasuk salah satu bahasa yang tersedia, dan antarmuka akan diterjemahkan, atau tidak, dan antarmuka akan dalam bahasa Inggris secara default.</dd>
-
-  <dt>Zona waktu blog</dt>
-  <dd>Menentukan zona waktu yang akan digunakan untuk komentar dan lacak balik.</dd>
-
-  <dt>Pemberitahuan hak cipta</dt>
-  <dd>Catatan tentang hak reproduksi untuk blog.</dd>
-
-  <dt>Format URL postingan baru</dt>
-  <dd>Daftar tarik-turun untuk memilih format URL.</dd>
-
-  <dt>Tag HTML untuk judul catatan di blog</dt>
-  <dd>Daftar tarik-turun untuk memilih tag HTML.</dd>
-
-  <dt>Antarmuka XML / RPC</dt>
-  <dd>Memungkinkan klien eksternal berinteraksi dengan blog Anda melalui protokol XML/RPC. Setelah aktivasi, parameter yang diperlukan untuk diatur pada klien eksternal Anda akan ditampilkan.</dd>
-</dl>
-
-<h4>Komentar dan pelacakan balik</h4>
-<dl>
-  <dt>Menerima komentar</dt>
-  <dd>Menerima komentar di blog secara global. Lebih diutamakan daripada pengaturan per posting.</dd>
-
-  <dt>Komentar moderat</dt>
-  <dd>Dengan opsi ini, komentar hanya akan dipublikasikan setelah mendapat persetujuan editor.</dd>
-
-  <dt>Biarkan komentar terbuka selama X hari</dt>
-  <dd>Jumlah hari di mana komentar akan terbuka setelah postingan dipublikasikan. Jika kosong, komentar akan tetap terbuka tanpa batas waktu.</dd>
-
-  <dt>Sintaksis wiki untuk komentar</dt>
-  <dd>Mengizinkan sebagian dari sintaks wiki untuk digunakan dalam komentar.</dd>
-
-  <dt>Menerima pelacakan balik</dt>
-  <dd>Secara global menerima trackback di blog. Lebih diutamakan daripada pengaturan per posting.</dd>
-
-  <dt>Pelacakan balik sedang</dt>
-  <dd>Dengan opsi ini, trackback hanya akan dipublikasikan setelah mendapat persetujuan editor.</dd>
-
-  <dt>Biarkan trackback terbuka selama X hari</dt>
-  <dd>Jumlah hari di mana trackback akan terbuka setelah postingan dipublikasikan. Jika kosong, trackback akan tetap terbuka tanpa batas waktu.</dd>
-
-  <dt>Menambahkan relasi "nofollow" pada komentar dan tautan trackback</dt>
-  <dd>Menambahkan atribut pada tautan di komentar dan trackback, menginstruksikan bot pencarian untuk tidak mengikutinya. Fitur antispam ini belum membuktikan nilainya.</dd>
-</dl>
-
-<h4>Presentasi blog</h4>
-<dl>
-  <dt>Format tanggal</dt>
-  <dd>Menentukan format tanggal untuk postingan blog. Lihat bagian "Referensi format" di bawah ini untuk informasi lebih lanjut. Anda dapat menggunakan daftar tarik-turun untuk memilih pola yang sudah ada dengan cepat.</dd>
-
-  <dt>Format waktu</dt>
-  <dd>Menentukan format waktu untuk postingan blog. Lihat bagian "Referensi format" di bawah ini untuk informasi lebih lanjut. Anda dapat menggunakan daftar tarik-turun untuk memilih pola yang sudah ada dengan cepat.</dd>
-
-  <dt>Menampilkan smilies pada entri dan komentar</dt>
-  <dd>Mengubah beberapa string seperti :-) atau ;-) menjadi gambar.</dd>
-
-  <dt>Menampilkan entri X per halaman</dt>
-  <dd>Akan menampilkan entri X di halaman utama blog serta di berbagai kategori.</dd>
-
-  <dt>Menampilkan entri X per umpan</dt>
-  <dd>Akan menampilkan entri X di feed blog.</dd>
-
-  <dt>Menampilkan X komentar per umpan</dt>
-  <dd>Akan menampilkan komentar X di feed komentar blog.</dd>
-
-  <dt>Memotong umpan</dt>
-  <dd>Opsi ini hanya akan memberikan abstrak dari postingan blog dalam feed.</dd>
-
-  <dt>Menyertakan sub-kategori di halaman kategori dan feed postingan kategori</dt>
-  <dd>Ketika opsi ini diaktifkan, postingan dalam sub-kategori akan ditampilkan di halaman kategori induk dan juga di feed mereka.</dd>
-</dl>
-
-<h4>Media dan gambar</h4>
-<dl>
-  <dt>Ukuran gambar yang dihasilkan (dalam piksel)</dt>
-  <dd>Apabila Anda menambahkan gambar di pengelola media, ukuran lain akan dihasilkan secara otomatis. Di sini Anda dapat menentukan dimensi ukuran terpanjang (lebar atau tinggi) dari setiap jenis gambar yang dihasilkan. Jika Anda mengosongkan satu bidang, pengelola media tidak akan membuat miniatur yang sesuai.</dd>
-
-  <dt>Atribut penyisipan gambar default</dt>
-  <dd>Pengaturan yang dipilih akan berlaku pada semua gambar baru yang ditambahkan ke manajer media.</dd>
-
-  <dt>Judul gambar yang disisipkan</dt>
-  <dd>Pilih format tag "judul" yang diterapkan ke gambar Anda, berdasarkan informasi yang diambil dari metadata gambar.</dd>
-
-  <dt>Gunakan tanggal media asli jika memungkinkan</dt>
-  <dd>Apabila opsi ini diaktifkan, jika metadata gambar berisi tanggal, maka tanggal tersebut akan digunakan. Jika tidak, tanggal unggahan yang akan digunakan.</dd>
-
-  <dt>Ukuran gambar yang disisipkan</dt>
-  <dd>Menentukan ukuran default yang digunakan saat menyisipkan gambar dalam postingan blog.</dd>
-
-  <dt>Penjajaran gambar</dt>
-  <dd>Menentukan perataan default yang digunakan saat menyisipkan gambar dalam postingan blog.</dd>
-
-  <dt>Menyisipkan tautan ke gambar asli</dt>
-  <dd>Apabila opsi ini diaktifkan, gambar yang disisipkan dalam postingan blog akan dapat diklik dan mengarah ke gambar ukuran aslinya.</dd>
-
-</dl>
-
-<h4>Kebijakan robot mesin pencari</h4>
-<p>Di sini Anda dapat menunjukkan apakah Anda ingin mesin pencari Web mengindeks dan/atau mengarsipkan halaman Anda atau tidak. Pilih opsi terakhir jika Anda tidak ingin orang dapat menemukan blog Anda menggunakan mesin pencari Web.</p>
-
-<h4>Antispam</h4>
-<p>Anda dapat mengatur jumlah hari setelahnya Anda ingin komentar sampah dihapus secara otomatis. Biarkan kolom tersebut kosong (atau masukkan angka 0) untuk menonaktifkan fitur ini.</p>
-
-<h4>Pengguna</h4>
-<p>Mencantumkan daftar pengguna blog ini serta izin mereka.</p>
-
-<h3>Referensi format</h3>
-<p>Beberapa bidang dapat dikonfigurasikan untuk memformat tanggal dan waktu sesuai kebutuhan Anda.
-Berikut ini adalah referensinya:</p>
-
-<ul>
-  <li><strong>%a:</strong> Singkatan hari kerja (lokal).</li>
-  <li><strong>%A:</strong> Hari kerja penuh (lokal).</li>
-  <li><strong>%b:</strong> Singkatan nama bulan (lokal).</li>
-  <li><strong>%B:</strong> Nama bulan lengkap (lokal).</li>
-  <li><strong>%c:</strong> Tampilan tanggal dan waktu lokal default.</li>
-  <li><strong>%C:</strong> Abad (tahun, dibagi 100 dan
-  dibulatkan ke atas antara 00 dan 99)</li>
-  <li><strong>%d:</strong> Hari bulan numerik (dari 01 hingga 31)</li>
-  <li><strong>%D:</strong> Identik dengan %m/%d/%y</li>
-  <li><strong>%e:</strong> Hari bulan numerik (dari 1 hingga 31)</li>
-  <li><strong>%g:</strong> Sama dengan %G, 2 digit.</li>
-  <li><strong>%G:</strong> Tahun dalam 4 digit, sesuai dengan nomor minggu
-  (lih. %V). Format dan nilai identik dengan %Y, kecuali jika nomor minggu
-  termasuk dalam tahun sebelum atau sesudahnya, maka tahun saat ini
-  akan digunakan sebagai gantinya.</li>
-  <li><strong>%h:</strong> Identik dengan %b</li>
-  <li><strong>%H:</strong> Jam digital dalam sehari, mode 24 jam
-  (dari pukul 00 hingga 23)</li>
-  <li><strong>%I:</strong> Jam digital dalam sehari, mode 12 jam
-  (dari 01 hingga 12)</li>
-  <li><strong>%j:</strong> Hari dalam setahun, digital (dari 001 hingga 366)</li>
-  <li><strong>%m:</strong> Bulan, digital (dari 1 à 12)</li>
-  <li><strong>%M:</strong> Menit, digital</li>
-  <li><strong>%n:</strong> Karakter baris baru</li>
-  <li><strong>%p:</strong> Entah `am' atau `pm', menurut waktu absolut,
-  atau tergantung pada pengaturan lokal.</li>
-  <li><strong>%r:</strong> Format jam, pagi dan sore hari</li>
-  <li><strong>%R:</strong> Format jam, 24 jam</li>
-  <li><strong>%S:</strong> Detik, digital</li>
-  <li><strong>%t:</strong> Karakter tab</li>
-  <li><strong>%T:</strong> Waktu saat ini (identik dengan %H:%M:%S)</li>
-  <li><strong>%u:</strong> Hari minggu, angka, dari 1 hingga 7. (1 berarti Senin)</li>
-  <li><strong>%U:</strong> Nomor minggu, hari Minggu pertama dalam setahun adalah
-  hari pertama di minggu pertama.</li>
-  <li><strong>%V:</strong> Angka minggu seperti yang didefinisikan dalam ISO
-  8601:1988, digital, dari 01 hingga 53. Minggu 1 adalah minggu pertama
-  dengan lebih dari 4 hari pada tahun berjalan, yang hari Senin-nya adalah hari pertama.
-  (Gunakan %G atau %g untuk elemen tahun yang sesuai dengan nomor minggu
-  untuk cap waktu yang dipertimbangkan).</li>
-  <li><strong>%W:</strong> Jumlah minggu dalam satu tahun, hari Senin pertama dari
-  tahun sebagai awal minggu pertama</li>
-  <li><strong>%w:</strong> Hari dalam seminggu, digital, 0 adalah singkatan dari hari Minggu</li>
-  <li><strong>%x:</strong> Format yang lebih disukai untuk tanggal tanpa waktu</li>
-  <li><strong>%X:</strong> Format yang lebih disukai untuk waktu tanpa tanggal</li>
-  <li><strong>%y:</strong> Tahun, dua digit (dari 00 hingga 99)</li>
-  <li><strong>%Y:</strong> Tahun, empat digit</li>
-  <li><strong>%Z atau %z:</strong> Zona waktu, nama atau singkatan</li>
-  <li><strong>%%:</strong> Karakter `%' yang bersifat litteral</li>
-</ul>
-
+  <h4>Detail blog</h4>
+  <dl>
+    <dt>ID Blog</dt>
+    <dd>ID unik blog. Wajib, hanya dapat dimodifikasi oleh administrator super.</dd>
+    <dt>Nama blog</dt>
+    <dd>Nama blog, wajib diisi. Dapat dimodifikasi kapan saja tanpa berdampak pada operasi blog.</dd>
+    <dt>URL Blog</dt>
+    <dd>URL blog lengkap. Wajib, hanya dapat dimodifikasi oleh administrator super.</dd>
+    <dt>Metode pemindaian URL</dt>
+    <dd>Mendefinisikan cara pembacaan URL. PATH_INFO direkomendasikan, QUERY_STRING harus digunakan jika PATH_INFO tidak berfungsi. Dengan menggunakan mode PATH_INFO, URL blog harus diakhiri dengan "/" dan dengan menggunakan QUERY_STRING, URL harus diakhiri dengan "?".</dd>
+    <dt>Status blog</dt>
+    <dd>
+      <ul>
+        <li><strong>Online:</strong> Blog terbuka untuk pengunjung.</li>
+        <li><strong>Offline:</strong> Blog tertutup untuk pengunjung tetapi terbuka untuk penulis.</li>
+        <li><strong>Dihapus:</strong> Blog tertutup untuk pengunjung dan penulis, hanya terbuka untuk administrator super.</li>
+      </ul>
+    </dd>
+    <dt>Deskripsi blog</dt>
+    <dd>Di sini Anda bisa memasukkan deskripsi apa pun yang Anda inginkan untuk blog Anda. Ini adalah teks sederhana, tanpa pemformatan apa pun.</dd>
+  </dl>
+  <h4>Konfigurasi blog</h4>
+  <dl>
+    <dt>Nama editor blog</dt>
+    <dd>Nama orang yang bertanggung jawab atas blog tersebut. Bisa pemilik atau penerbit jika ada. Informasi ini akan ditampilkan di feed blog.</dd>
+    <dt>Bahasa default</dt>
+    <dd>Bahasa antarmuka blog. Entah bahasa ini termasuk salah satu bahasa yang tersedia, dan antarmuka akan diterjemahkan, atau tidak, dan antarmuka akan dalam bahasa Inggris secara default.</dd>
+    <dt>Zona waktu blog</dt>
+    <dd>Menentukan zona waktu yang akan digunakan untuk komentar dan lacak balik.</dd>
+    <dt>Pemberitahuan hak cipta</dt>
+    <dd>Catatan tentang hak reproduksi untuk blog.</dd>
+    <dt>Format URL postingan baru</dt>
+    <dd>Daftar tarik-turun untuk memilih format URL.</dd>
+    <dt>Tag HTML untuk judul catatan di blog</dt>
+    <dd>Daftar tarik-turun untuk memilih tag HTML.</dd>
+    <dt>Antarmuka XML / RPC</dt>
+    <dd>Memungkinkan klien eksternal berinteraksi dengan blog Anda melalui protokol XML/RPC. Setelah aktivasi, parameter yang diperlukan untuk diatur pada klien eksternal Anda akan ditampilkan.</dd>
+  </dl>
+  <h4>Komentar dan pelacakan balik</h4>
+  <dl>
+    <dt>Menerima komentar</dt>
+    <dd>Menerima komentar di blog secara global. Lebih diutamakan daripada pengaturan per posting.</dd>
+    <dt>Komentar moderat</dt>
+    <dd>Dengan opsi ini, komentar hanya akan dipublikasikan setelah mendapat persetujuan editor.</dd>
+    <dt>Biarkan komentar terbuka selama X hari</dt>
+    <dd>Jumlah hari di mana komentar akan terbuka setelah postingan dipublikasikan. Jika kosong, komentar akan tetap terbuka tanpa batas waktu.</dd>
+    <dt>Sintaksis wiki untuk komentar</dt>
+    <dd>Mengizinkan sebagian dari sintaks wiki untuk digunakan dalam komentar.</dd>
+    <dt>Menerima pelacakan balik</dt>
+    <dd>Secara global menerima trackback di blog. Lebih diutamakan daripada pengaturan per posting.</dd>
+    <dt>Pelacakan balik sedang</dt>
+    <dd>Dengan opsi ini, trackback hanya akan dipublikasikan setelah mendapat persetujuan editor.</dd>
+    <dt>Biarkan trackback terbuka selama X hari</dt>
+    <dd>Jumlah hari di mana trackback akan terbuka setelah postingan dipublikasikan. Jika kosong, trackback akan tetap terbuka tanpa batas waktu.</dd>
+    <dt>Menambahkan relasi "nofollow" pada komentar dan tautan trackback</dt>
+    <dd>Menambahkan atribut pada tautan di komentar dan trackback, menginstruksikan bot pencarian untuk tidak mengikutinya. Fitur antispam ini belum membuktikan nilainya.</dd>
+  </dl>
+  <h4>Presentasi blog</h4>
+  <dl>
+    <dt>Format tanggal</dt>
+    <dd>Menentukan format tanggal untuk postingan blog. Lihat bagian "Referensi format" di bawah ini untuk informasi lebih lanjut. Anda dapat menggunakan daftar tarik-turun untuk memilih pola yang sudah ada dengan cepat.</dd>
+    <dt>Format waktu</dt>
+    <dd>Menentukan format waktu untuk postingan blog. Lihat bagian "Referensi format" di bawah ini untuk informasi lebih lanjut. Anda dapat menggunakan daftar tarik-turun untuk memilih pola yang sudah ada dengan cepat.</dd>
+    <dt>Menampilkan smilies pada entri dan komentar</dt>
+    <dd>Mengubah beberapa string seperti :-) atau ;-) menjadi gambar.</dd>
+    <dt>Menampilkan entri X per halaman</dt>
+    <dd>Akan menampilkan entri X di halaman utama blog serta di berbagai kategori.</dd>
+    <dt>Menampilkan entri X per umpan</dt>
+    <dd>Akan menampilkan entri X di feed blog.</dd>
+    <dt>Menampilkan X komentar per umpan</dt>
+    <dd>Akan menampilkan komentar X di feed komentar blog.</dd>
+    <dt>Memotong umpan</dt>
+    <dd>Opsi ini hanya akan memberikan abstrak dari postingan blog dalam feed.</dd>
+    <dt>Menyertakan sub-kategori di halaman kategori dan feed postingan kategori</dt>
+    <dd>Ketika opsi ini diaktifkan, postingan dalam sub-kategori akan ditampilkan di halaman kategori induk dan juga di feed mereka.</dd>
+  </dl>
+  <h4>Media dan gambar</h4>
+  <dl>
+    <dt>Ukuran gambar yang dihasilkan (dalam piksel)</dt>
+    <dd>Apabila Anda menambahkan gambar di pengelola media, ukuran lain akan dihasilkan secara otomatis. Di sini Anda dapat menentukan dimensi ukuran terpanjang (lebar atau tinggi) dari setiap jenis gambar yang dihasilkan. Jika Anda mengosongkan satu bidang, pengelola media tidak akan membuat miniatur yang sesuai.</dd>
+    <dt>Atribut penyisipan gambar default</dt>
+    <dd>Pengaturan yang dipilih akan berlaku pada semua gambar baru yang ditambahkan ke manajer media.</dd>
+    <dt>Judul gambar yang disisipkan</dt>
+    <dd>Pilih format tag "judul" yang diterapkan ke gambar Anda, berdasarkan informasi yang diambil dari metadata gambar.</dd>
+    <dt>Gunakan tanggal media asli jika memungkinkan</dt>
+    <dd>Apabila opsi ini diaktifkan, jika metadata gambar berisi tanggal, maka tanggal tersebut akan digunakan. Jika tidak, tanggal unggahan yang akan digunakan.</dd>
+    <dt>Ukuran gambar yang disisipkan</dt>
+    <dd>Menentukan ukuran default yang digunakan saat menyisipkan gambar dalam postingan blog.</dd>
+    <dt>Penjajaran gambar</dt>
+    <dd>Menentukan perataan default yang digunakan saat menyisipkan gambar dalam postingan blog.</dd>
+    <dt>Menyisipkan tautan ke gambar asli</dt>
+    <dd>Apabila opsi ini diaktifkan, gambar yang disisipkan dalam postingan blog akan dapat diklik dan mengarah ke gambar ukuran aslinya.</dd>
+  </dl>
+  <h4>Kebijakan robot mesin pencari</h4>
+  <p>Di sini Anda dapat menunjukkan apakah Anda ingin mesin pencari Web mengindeks dan/atau mengarsipkan halaman Anda atau tidak. Pilih opsi terakhir jika Anda tidak ingin orang dapat menemukan blog Anda menggunakan mesin pencari Web.</p>
+  <h4>Antispam</h4>
+  <p>Anda dapat mengatur jumlah hari setelahnya Anda ingin komentar sampah dihapus secara otomatis. Biarkan kolom tersebut kosong (atau masukkan angka 0) untuk menonaktifkan fitur ini.</p>
+  <h4>Pengguna</h4>
+  <p>Mencantumkan daftar pengguna blog ini serta izin mereka.</p>
+  <h3>Referensi format</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a:</strong> Singkatan hari kerja (lokal).</li>
+    <li><strong>%A:</strong> Hari kerja penuh (lokal).</li>
+    <li><strong>%b:</strong> Singkatan nama bulan (lokal).</li>
+    <li><strong>%B:</strong> Nama bulan lengkap (lokal).</li>
+    <li><strong>%c:</strong> Tampilan tanggal dan waktu lokal default.</li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d:</strong> Hari bulan numerik (dari 01 hingga 31)</li>
+    <li><strong>%D:</strong> Identik dengan %m/%d/%y</li>
+    <li><strong>%e:</strong> Hari bulan numerik (dari 1 hingga 31)</li>
+    <li><strong>%g:</strong> Sama dengan %G, 2 digit.</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h:</strong> Identik dengan %b</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j:</strong> Hari dalam setahun, digital (dari 001 hingga 366)</li>
+    <li><strong>%m:</strong> Bulan, digital (dari 1 à 12)</li>
+    <li><strong>%M:</strong> Menit, digital</li>
+    <li><strong>%n:</strong> Karakter baris baru</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r:</strong> Format jam, pagi dan sore hari</li>
+    <li><strong>%R:</strong> Format jam, 24 jam</li>
+    <li><strong>%S:</strong> Detik, digital</li>
+    <li><strong>%t:</strong> Karakter tab</li>
+    <li><strong>%T:</strong> Waktu saat ini (identik dengan %H:%M:%S)</li>
+    <li><strong>%u:</strong> Hari minggu, angka, dari 1 hingga 7. (1 berarti Senin)</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w:</strong> Hari dalam seminggu, digital, 0 adalah singkatan dari hari Minggu</li>
+    <li><strong>%x:</strong> Format yang lebih disukai untuk tanggal tanpa waktu</li>
+    <li><strong>%X:</strong> Format yang lebih disukai untuk waktu tanpa tanggal</li>
+    <li><strong>%y:</strong> Tahun, dua digit (dari 00 hingga 99)</li>
+    <li><strong>%Y:</strong> Tahun, empat digit</li>
+    <li><strong>%Z atau %z:</strong> Zona waktu, nama atau singkatan</li>
+    <li><strong>%%:</strong> Karakter `%' yang bersifat litteral</li>
+  </ul>
 </body>
+
 </html>
