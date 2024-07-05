@@ -1,92 +1,64 @@
 <html>
-  <head>
-    <title>Media manager</title>
-  </head>
-  <body>
-    <h4>Medialijst</h4>
-    <p>De hoofdpagina van de mediabeheerder toont een lijst met beschikbare bestanden (media) voor het huidige geselecteerde blog.</p>
 
-    <p>Je kunt op de pictogrammen of namen van de media in de map of een submap klikken om ze weer te geven.</p>
+<head>
+  <title>Media manager</title>
+</head>
 
-    <p>Als je een MP3-geluidsbestand selecteert, wordt er een speler weergegeven die het bestand onmiddellijk afspeelt. De Flash-plugin moet geïnstalleerd zijn op je browser om deze speler te laten werken.</p>
+<body>
+  <h4>Medialijst</h4>
+  <p>De hoofdpagina van de mediabeheerder toont een lijst met beschikbare bestanden (media) voor het huidige geselecteerde blog.</p>
+  <p>Je kunt op de pictogrammen of namen van de media in de map of een submap klikken om ze weer te geven.</p>
+  <p>Als je een MP3-geluidsbestand selecteert, wordt er een speler weergegeven die het bestand onmiddellijk afspeelt. De Flash-plugin moet geïnstalleerd zijn op je browser om deze speler te laten werken.</p>
+  <p>De afbeeldingen worden indien mogelijk weergegeven met een miniatuur.</p>
+  <h4>Bestanden toevoegen</h4>
+  <dl>
+    <dt>Kies een bestand</dt>
+    <dd>Here you can select one of your local files to send it on your blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
+    <dt>Titel</dt>
+    <dd>Optionele titel voor het bestand dat je wilt verzenden.</dd>
+    <dt>Privé</dt>
+    <dd>Check this if you want the file to be private, i.e. accessible only by its owner and not accessible from the blog (until published).</dd>
+  </dl>
+  <dl>
+    <dt>Verbeterde uploader</dt>
+    <dd>Allows to select one or several of your local files to send them on your blog. Should any file be bigger than the maximum size, it will not be sent.<br>When you select several local files, they are added to the queue. You can add more files by clicking again on <strong>Choose files</strong>. You can also remove files from the queue by clicking on the corresponding red cross-shaped icon.<br>When you are ready, click on <strong>Upload</strong>.</dd>
+  </dl>
+  <h4>Bestanden verwijderen</h4>
+  <p>Om een bestand te verwijderen, schakel je het selectievakje in en klik je op <strong>Verwijder geselecteerde media</strong>. Je kunt meerdere bestanden tegelijk verwijderen.</p>
+  <h4>Nieuwe map</h4>
+  <p>This form allows you to create a new subfolder in the currently displayed folder. Just choose a name for it as you would do on your own computer.</p>
+  <h4>Media details</h4>
+  <p>Deze pagina geeft een reeks informatie weer over het momenteel geselecteerde bestand en stelt je in staat om er verschillende bewerkingen op uit te voeren.</p>
+  <dl>
+    <dt>Bestandsnaam</dt>
+    <dd>De bestandsnaam van het huidige bestand wijzigen.</dd>
+    <dt>Titel bestand</dt>
+    <dd>Geef een titel aan het bestand of wijzig de huidige titel.</dd>
+    <dt>Datum bestand</dt>
+    <dd>Wijzig de datum van het bestand.</dd>
+    <dt>Privé</dt>
+    <dd>Geef aan dat het bestand verborgen moet worden voor iedereen behalve de eigenaar in de mediabeheerder.</dd>
+    <dt>Nieuwe map</dt>
+    <dd>Hiermee kunt u het bestand verplaatsen naar een andere map.</dd>
+    <dt>Bestand wijzigen</dt>
+    <dd>With this form, you can replace the file while keeping all the attributes (name, title...). As always, you have to respect the maximum file size.</dd>
+  </dl>
+  <h4>Specifiek geval: afbeeldingen</h4>
+  <p>Wanneer je een afbeelding toevoegt, zijn er afhankelijk van de grootte tot vier versies beschikbaar (afhankelijk van de originele afbeeldingsgrootte):</p>
+  <ul>
+    <li><strong>Vierkant:</strong> Een vierkante miniatuur van 48 x 48 pixels.</li>
+    <li><strong>Miniatuurafbeelding:</strong> De afbeelding verkleind tot 100 pixels aan de langste zijde.</li>
+    <li><strong>Klein:</strong> De langste zijde is verkleind tot 240 pixels.</li>
+    <li><strong>Medium:</strong> De langste zijde is verkleind tot 500 pixels.</li>
+    <li><strong>Origineel:</strong> De originele, ongewijzigde afbeelding.</li>
+  </ul>
+  <p>Standaardformaten voor de thumbnail, kleine en middelgrote versies kunnen worden aangepast in je bloginstellingen.</p>
+  <h4>Een bestand aan een invoer toevoegen</h4>
+  <p>Je kunt eenvoudig een bestand toevoegen aan een van je berichten. Maak eerst een nieuw bericht aan en sla het op. Klik vervolgens op "Bestanden aan dit bericht toevoegen" om de mediabeheerder te openen.</p>
+  <p>Just click on the [+] icon (Attach this file to entry). The file will then be attached to the post.</p>
+  <p>De bijgevoegde bestanden worden getoond op de postpagina, als een lijst na de inhoud van de post. De MP3-bestanden worden beschikbaar gemaakt via een Flash-speler, zodat je bezoekers ze gemakkelijk kunnen afspelen.</p>
+  <h4>Podcast en uitzending van muziekbestanden</h4>
+  <p>All attached files will be included in your blog feeds, allowing an easy podcasting of any type of file.</p>
+</body>
 
-    <p>De afbeeldingen worden indien mogelijk weergegeven met een miniatuur.</p>
-
-    <h4>Bestanden toevoegen</h4>
-    <dl>
-      <dt>Kies een bestand</dt>
-      <dd>Hier kunt u een van uw lokale bestanden selecteren om te verzenden naar uw 
-      blog. Als het bestand groter is dan de maximale grootte, wordt het niet verzonden.</dd>
-      
-      <dt>Titel</dt>
-      <dd>Optionele titel voor het bestand dat je wilt verzenden.</dd>
-      
-      <dt>Privé</dt>
-      <dd>Vink dit aan als je wilt dat het bestand privé is, d.w.z. alleen toegankelijk door
-      de eigenaar en niet toegankelijk vanaf het blog (totdat het gepubliceerd wordt).</dd>
-    </dl>
-
-    <dl>
-      <dt>Verbeterde uploader</dt>
-      <dd>Hiermee kunt u een of meerdere van uw lokale bestanden selecteren om ze te verzenden op uw 
-  blog. Als een bestand groter is dan de maximale grootte, wordt het niet verzonden.<br>
-	Wanneer u meerdere lokale bestanden selecteert, worden deze toegevoegd aan de wachtrij. U kunt meer bestanden toevoegen door nogmaals op <strong>Bestanden selecteren</strong> te klikken. U kunt ook bestanden uit de wachtrij verwijderen door op het bijbehorende rode kruisvormige pictogram te klikken.<br>
-  Als u klaar bent, klikt u op <strong>Uploaden</strong>.</dd>
-    </dl>
-
-    <h4>Bestanden verwijderen</h4>
-    <p>Om een bestand te verwijderen, schakel je het selectievakje in en klik je op <strong>Verwijder geselecteerde media</strong>. Je kunt meerdere bestanden tegelijk verwijderen.</p>
-
-    <h4>Nieuwe map</h4>
-    <p>Met dit formulier kun je een nieuwe submap maken in de momenteel weergegeven map
-. Kies er gewoon een naam voor zoals je op je eigen computer zou doen.</p>
-
-    <h4>Media details</h4>
-    <p>Deze pagina geeft een reeks informatie weer over het momenteel geselecteerde bestand en stelt je in staat om er verschillende bewerkingen op uit te voeren.</p>
-
-    <dl>
-      <dt>Bestandsnaam</dt>
-      <dd>De bestandsnaam van het huidige bestand wijzigen.</dd>
-      
-      <dt>Titel bestand</dt>
-      <dd>Geef een titel aan het bestand of wijzig de huidige titel.</dd>
-      
-      <dt>Datum bestand</dt>
-      <dd>Wijzig de datum van het bestand.</dd>
-      
-      <dt>Privé</dt>
-      <dd>Geef aan dat het bestand verborgen moet worden voor iedereen behalve de eigenaar in de mediabeheerder.</dd>
-      
-      <dt>Nieuwe map</dt>
-      <dd>Hiermee kunt u het bestand verplaatsen naar een andere map.</dd>
-      
-      <dt>Bestand wijzigen</dt>
-      <dd>Met dit formulier kun je het bestand vervangen met behoud van alle attributen
-      (naam, titel...). Zoals altijd moet je de maximale bestandsgrootte respecteren.</dd>
-    </dl>
-
-    <h4>Specifiek geval: afbeeldingen</h4>
-    <p>Wanneer je een afbeelding toevoegt, zijn er afhankelijk van de grootte tot vier versies beschikbaar (afhankelijk van de originele afbeeldingsgrootte):</p>
-    <ul>
-      <li><strong>Vierkant:</strong> Een vierkante miniatuur van 48 x 48 pixels.</li>
-      <li><strong>Miniatuurafbeelding:</strong> De afbeelding verkleind tot 100 pixels aan de langste zijde.</li>
-      <li><strong>Klein:</strong> De langste zijde is verkleind tot 240 pixels.</li>
-      <li><strong>Medium:</strong> De langste zijde is verkleind tot 500 pixels.</li>
-      <li><strong>Origineel:</strong> De originele, ongewijzigde afbeelding.</li>
-    </ul>
-    <p>Standaardformaten voor de thumbnail, kleine en middelgrote versies kunnen worden aangepast in je bloginstellingen.</p>
-
-    <h4>Een bestand aan een invoer toevoegen</h4>
-    <p>Je kunt eenvoudig een bestand toevoegen aan een van je berichten. Maak eerst een nieuw bericht aan en sla het op. Klik vervolgens op "Bestanden aan dit bericht toevoegen" om de mediabeheerder te openen.</p>
-
-    <p>Klik gewoon op het pictogram [+] (Dit bestand bijvoegen bij bericht). Het bestand wordt dan
-bij het bericht gevoegd.</p>
-
-    <p>De bijgevoegde bestanden worden getoond op de postpagina, als een lijst na de inhoud van de post. De MP3-bestanden worden beschikbaar gemaakt via een Flash-speler, zodat je bezoekers ze gemakkelijk kunnen afspelen.</p>
-
-    <h4>Podcast en uitzending van muziekbestanden</h4>
-    <p>Alle bijgevoegde bestanden worden opgenomen in je blog feeds, zodat je gemakkelijk
-podcasts kunt maken van elk type bestand.</p>
-
-  </body>
 </html>
