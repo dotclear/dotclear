@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Pengguna</title>
-  </head>
-  <body>
-    <p>Halaman ini berisi daftar semua pengguna pada sistem.</p>
-    <p>Untuk menambahkan (atau mengubah) izin pengguna, kata sandi Anda akan diperlukan di bidang <strong>Kata sandi Anda</strong> .</p>
 
-    <h4>Filter daftar pengguna</h4>
-    <dl>
-      <dt>Pencarian</dt>
-      <dd>Pencarian didasarkan pada ID pengguna. Karakter pengganti <strong>*</strong> dapat digunakan untuk mencari sebagian dari ID pengguna.</dd>
+<head>
+  <title>Pengguna</title>
+</head>
 
-      <dt>Pesan oleh</dt>
-      <dd></em> <em>Daftar pengguna dapat diurutkan berdasarkan ID <em>mereka</em>, Nama Belakang <em>, Nama Depan</em>, Nama Depan <em>, Nama Depan</em>, Nama Tampilan <em>(nama panggilan) atau Jumlah Entri</em> yang mereka buat.</dd>
+<body>
+  <p>Halaman ini berisi daftar semua pengguna pada sistem.</p>
+  <p>Untuk menambahkan (atau mengubah) izin pengguna, kata sandi Anda akan diperlukan di bidang <strong>Kata sandi Anda</strong> .</p>
+  <h4>Filter daftar pengguna</h4>
+  <dl>
+    <dt>Pencarian</dt>
+    <dd>Pencarian didasarkan pada ID pengguna. Karakter pengganti <strong>*</strong> dapat digunakan untuk mencari sebagian dari ID pengguna.</dd>
+    <dt>Pesan oleh</dt>
+    <dd></em> <em>Daftar pengguna dapat diurutkan berdasarkan ID <em>mereka</em>, Nama Belakang <em>, Nama Depan</em>, Nama Depan <em>, Nama Depan</em>, Nama Tampilan <em>(nama panggilan) atau Jumlah Entri</em> yang mereka buat.</dd>
+    <dt>Urutkan</dt>
+    <dd>Menunjukkan metode pengurutan yang akan diterapkan pada daftar hasil (<em>Ascending</em> atau <em>Descending</em>).</dd>
+    <dt>Pengguna per halaman</dt>
+    <dd>Mengatur jumlah pengguna yang ditampilkan di setiap halaman daftar hasil.</dd>
+  </dl>
+  <h4>Tindakan batch pengguna</h4>
+  <p>Dimungkinkan untuk membuat sekumpulan tindakan pada beberapa pengguna sekaligus.</p>
+  <ul>
+    <li><strong>Mengatur izin:</strong> Mengatur izin untuk satu atau beberapa blog.</li>
+    <li><strong>Hapus:</strong> Menghapus pengguna yang dipilih dari sistem. Pengguna yang membuat entri tidak dapat dihapus.</li>
+  </ul>
+  <p>Jika Anda memutuskan untuk mengatur izin pengguna, Anda akan diarahkan ke halaman baru yang mencantumkan daftar blog yang tersedia di sistem Anda. Centang blog yang ingin Anda atur izinnya, lalu tekan <strong>Atur izin</strong>.</p>
+  <h4>Izin pengguna</h4>
+  <p>Untuk setiap blog, Anda dapat mengatur izin berikut ini:</p>
+  <ul>
+    <li><strong>Administrator:</strong> Dapat mengadministrasikan blog sepenuhnya.</li>
+    <li><strong>Mengelola entri dan komentar mereka sendiri:</strong> Pengguna dapat membuat entri dan mengelola komentar pada entri yang dibuatnya.</li>
+    <li><strong>Mempublikasikan entri dan komentar:</strong> Pengguna dapat memodifikasi status publikasi entri miliknya dan komentar entri miliknya.</li>
+    <li><strong>Menghapus entri dan komentar:</strong> Pengguna dapat menghapus entri miliknya serta komentar entri miliknya.</li>
+    <li><strong>Mengelola semua entri dan komentar:</strong> Pengguna dapat mengelola semua entri blog ini, tidak peduli apakah dia penulisnya atau bukan.</li>
+    <li><strong>Mengelola kategori:</strong> Pengguna dapat membuat, mengubah, dan menghapus kategori.</li>
+    <li><strong>Mengelola item media mereka sendiri:</strong> Pengguna dapat menambahkan item media dan mengubah atau menghapus medianya sendiri.</li>
+    <li><strong>Mengelola semua item media:</strong> Pengguna dapat mengelola item media dari pengguna mana pun.</li>
+    <li><strong>Mengelola halaman:</strong> Pengguna dapat menambah dan memodifikasi halaman.</li>
+    <li><strong>Mengelola daftar blog:</strong> Pengguna dapat mengelola daftar blog dari blog yang sedang dibaca.</li>
+  </ul>
+  <p>Status <strong>Super administrator</strong> ditetapkan di profil pengguna.</p>
+</body>
 
-      <dt>Urutkan</dt>
-      <dd>Menunjukkan metode pengurutan yang akan diterapkan pada daftar hasil (<em>Ascending</em> atau <em>Descending</em>).</dd>
-
-      <dt>Pengguna per halaman</dt>
-      <dd>Mengatur jumlah pengguna yang ditampilkan di setiap halaman daftar hasil.</dd>
-    </dl>
-
-    <h4>Tindakan batch pengguna</h4>
-    <p>Dimungkinkan untuk membuat sekumpulan tindakan pada beberapa pengguna sekaligus.</p>
-    <ul>
-      <li><strong>Mengatur izin:</strong> Mengatur izin untuk satu atau beberapa blog.</li>
-      <li><strong>Hapus:</strong> Menghapus pengguna yang dipilih dari sistem. Pengguna yang membuat entri tidak dapat dihapus.</li>
-    </ul>
-    <p>Jika Anda memutuskan untuk mengatur izin pengguna, Anda akan diarahkan ke halaman baru yang mencantumkan daftar blog yang tersedia di sistem Anda. Centang blog yang ingin Anda atur izinnya, lalu tekan <strong>Atur izin</strong>.</p>
-
-    <h4>Izin pengguna</h4>
-    <p>Untuk setiap blog, Anda dapat mengatur izin berikut ini:</p>
-    <ul>
-      <li><strong>Administrator:</strong> Dapat mengadministrasikan blog sepenuhnya.</li>
-      <li><strong>Mengelola entri dan komentar mereka sendiri:</strong> Pengguna dapat membuat entri dan mengelola komentar pada entri yang dibuatnya.</li>
-      <li><strong>Mempublikasikan entri dan komentar:</strong> Pengguna dapat memodifikasi status publikasi entri miliknya dan komentar entri miliknya.</li>
-      <li><strong>Menghapus entri dan komentar:</strong> Pengguna dapat menghapus entri miliknya serta komentar entri miliknya.</li>
-      <li><strong>Mengelola semua entri dan komentar:</strong> Pengguna dapat mengelola semua entri blog ini, tidak peduli apakah dia penulisnya atau bukan.</li>
-      <li><strong>Mengelola kategori:</strong> Pengguna dapat membuat, mengubah, dan menghapus kategori.</li>
-      <li><strong>Mengelola item media mereka sendiri:</strong> Pengguna dapat menambahkan item media dan mengubah atau menghapus medianya sendiri.</li>
-      <li><strong>Mengelola semua item media:</strong> Pengguna dapat mengelola item media dari pengguna mana pun.</li>
-      <li><strong>Mengelola halaman:</strong> Pengguna dapat menambah dan memodifikasi halaman.</li>
-      <li><strong>Mengelola daftar blog:</strong> Pengguna dapat mengelola daftar blog dari blog yang sedang dibaca.</li>
-    </ul>
-    <p>Status <strong>Super administrator</strong> ditetapkan di profil pengguna.</p>
-  </body>
 </html>
