@@ -1,226 +1,179 @@
 <html>
+
 <head>
   <title>Paramètres du blog</title>
 </head>
 
 <body>
-<h4>Informations du blog</h4>
-<dl>
-  <dt>Identifiant du blog</dt>
-  <dd>Identifiant unique du blog. Obligatoire, ne peut être modifié que par un·e
+  <h4>Informations du blog</h4>
+  <dl>
+    <dt>Identifiant du blog</dt>
+    <dd>Identifiant unique du blog. Obligatoire, ne peut être modifié que par un·e
   super administrateur·rice.</dd>
-
-  <dt>Nom du blog</dt>
-  <dd>Nom du blog, obligatoire. Il peut être modifié à tout moment sans incidence sur le fonctionnement du blog.</dd>
-
-  <dt>URL du blog</dt>
-  <dd>URL complète du blog. Obligatoire, ne peut être modifiée que par un·e super administrateur·rice.</dd>
-
-  <dt>Méthode de lecture de l'URL</dt>
-  <dd>Définit le mode de lecture de l'URL. PATH_INFO est conseillé, QUERY_STRING doit être utilisé si le premier ne fonctionne pas. En mode PATH_INFO, l'URL du blog doit se terminer par un "/" et en mode QUERY_STRING, par un "?".</dd>
-
-  <dt>État du blog</dt>
-  <dd>
-    <ul>
-      <li><strong>En ligne</strong>&nbsp;: blog accessible aux visiteurs.</li>
-      <li><strong>Hors ligne</strong>&nbsp;: blog inaccessible aux visiteurs
+    <dt>Nom du blog</dt>
+    <dd>Nom du blog, obligatoire. Il peut être modifié à tout moment sans incidence sur le fonctionnement du blog.</dd>
+    <dt>URL du blog</dt>
+    <dd>URL complète du blog. Obligatoire, ne peut être modifiée que par un·e super administrateur·rice.</dd>
+    <dt>Méthode de lecture de l'URL</dt>
+    <dd>Définit le mode de lecture de l'URL. PATH_INFO est conseillé, QUERY_STRING doit être utilisé si le premier ne fonctionne pas. En mode PATH_INFO, l'URL du blog doit se terminer par un "/" et en mode QUERY_STRING, par un "?".</dd>
+    <dt>État du blog</dt>
+    <dd>
+      <ul>
+        <li><strong>En ligne</strong>&nbsp;: blog accessible aux visiteurs.</li>
+        <li><strong>Hors ligne</strong>&nbsp;: blog inaccessible aux visiteurs
       mais les rédacteur·rice·s peuvent se connecter.</li>
-      <li><strong>Retiré</strong>&nbsp;: blog inaccessible aux visiteurs
+        <li><strong>Retiré</strong>&nbsp;: blog inaccessible aux visiteurs
       comme aux rédacteur·rice·s, seuls les super administrateur·rice·s peuvent y accéder.</li>
-    </ul>
-  </dd>
-
-  <dt>Description du blog</dt>
-  <dd>Texte libre de description du blog. Il s'agit d'un texte simple, sans
+      </ul>
+    </dd>
+    <dt>Description du blog</dt>
+    <dd>Texte libre de description du blog. Il s'agit d'un texte simple, sans
   formatage quelconque. Si le thème le prévoit, le contenu de ce champ peut s'afficher sur le blog.</dd>
-</dl>
-
-<h4>Configuration du blog</h4>
-<dl>
-  <dt>Nom de l'auteur·rice du blog</dt>
-  <dd>Nom de la personne responsable du contenu du blog. Peut être le ou la propriétaire
+  </dl>
+  <h4>Configuration du blog</h4>
+  <dl>
+    <dt>Nom de l'auteur·rice du blog</dt>
+    <dd>Nom de la personne responsable du contenu du blog. Peut être le ou la propriétaire
   ou directeur·rice de publication s'il ou elle existe. Cette information sera affichée dans les
   informations du flux de syndication.</dd>
-
-  <dt>Langue par défaut</dt>
-  <dd>Langue de l'interface du blog. Si cette langue existe parmi les
+    <dt>Langue par défaut</dt>
+    <dd>Langue de l'interface du blog. Si cette langue existe parmi les
   traductions, l'interface sera traduite dans celle-ci, sinon elle apparaîtra
   en anglais.</dd>
-
-  <dt>Fuseau horaire du blog</dt>
-  <dd>Définit le fuseau horaire qui sera utilisé pour dater les publications, commentaires et
+    <dt>Fuseau horaire du blog</dt>
+    <dd>Définit le fuseau horaire qui sera utilisé pour dater les publications, commentaires et
   rétroliens entrants sur le blog.</dd>
-
-  <dt>Note de copyright</dt>
-  <dd>Note indiquant les droits de reproduction autorisés pour le blog.</dd>
-
-  <dt>Format d'URL des nouveaux billets</dt>
-  <dd>Liste déroulante permettant de choisir la forme d'URL souhaitée.</dd>
-
-  <dt>Balise HTML pour le titre des notes</dt>
-  <dd>Liste déroulante permettant de choisir le niveau de titre ou une balise différente que la valeur par défaut (h4) pour l'intitulé des notes de bas de page d'un billet.</dd>
-
-  <dt>Interface XML/RPC</dt>
-  <dd>Permet à un client externe d'interagir avec votre blog via le protocole XML/RPC. À l'activation,
+    <dt>Note de copyright</dt>
+    <dd>Note indiquant les droits de reproduction autorisés pour le blog.</dd>
+    <dt>Format d'URL des nouveaux billets</dt>
+    <dd>Liste déroulante permettant de choisir la forme d'URL souhaitée.</dd>
+    <dt>Balise HTML pour le titre des notes</dt>
+    <dd>Liste déroulante permettant de choisir le niveau de titre ou une balise différente que la valeur par défaut (h4) pour l'intitulé des notes de bas de page d'un billet.</dd>
+    <dt>Interface XML/RPC</dt>
+    <dd>Permet à un client externe d'interagir avec votre blog via le protocole XML/RPC. À l'activation,
   les paramètres nécessaires au réglage du client externe sont affichés.</dd>
-</dl>
-
-<h4>Commentaires et rétroliens</h4>
-<dl>
-  <dt>Accepter les commentaires</dt>
-  <dd>Accepter globalement les commentaires sur le blog. Si cette option est décochée les commentaires ne seront autorisés sur aucun billet même si le réglage individuel d'un billet indique que les commentaires sont permis.</dd>
-
-  <dt>Modérer les commentaires</dt>
-  <dd>Si cette option est activée, les commentaires ne seront publiés qu'après
+  </dl>
+  <h4>Commentaires et rétroliens</h4>
+  <dl>
+    <dt>Accepter les commentaires</dt>
+    <dd>Accepter globalement les commentaires sur le blog. Si cette option est décochée les commentaires ne seront autorisés sur aucun billet même si le réglage individuel d'un billet indique que les commentaires sont permis.</dd>
+    <dt>Modérer les commentaires</dt>
+    <dd>Si cette option est activée, les commentaires ne seront publiés qu'après
   l'approbation d'un·e rédacteur·rice.</dd>
-
-  <dt>Laisser les commentaires ouverts durant <em>x</em> jours</dt>
-  <dd>Permet d'indiquer le nombre de jours durant lesquels les commentaires
+    <dt>Laisser les commentaires ouverts durant <em>x</em> jours</dt>
+    <dd>Permet d'indiquer le nombre de jours durant lesquels les commentaires
   sont possibles sur un billet après sa publication. Laisser ce champ vide pour ne fixer aucune limite.</dd>
-
-  <dt>Autoriser la syntaxe wiki pour les commentaires</dt>
-  <dd>Autoriser quelques éléments de la syntaxe wiki dans les commentaires.</dd>
-
-  <dt>Rendre optionnelle la prévisualisation des commentaires</dt>
-  <dd>Permet de rendre optionnelle la prévisualisation des commentaires avant leur envoi définitif. Le bouton "Envoyer" sera dans ce cas affiché en permanence.</dd>
-
-  <dt>Accepter les rétroliens</dt>
-  <dd>Accepter globalement les rétroliens sur le blog. Si cette option est décochée les rétroliens ne seront acceptés sur aucun billet même si le réglage individuel d'un billet indique qu'ils sont permis.</dd>
-
-  <dt>Modérer les rétroliens</dt>
-  <dd>Si cette option est activée, les rétroliens ne seront publiés qu'après
+    <dt>Autoriser la syntaxe wiki pour les commentaires</dt>
+    <dd>Autoriser quelques éléments de la syntaxe wiki dans les commentaires.</dd>
+    <dt>Rendre optionnelle la prévisualisation des commentaires</dt>
+    <dd>Permet de rendre optionnelle la prévisualisation des commentaires avant leur envoi définitif. Le bouton "Envoyer" sera dans ce cas affiché en permanence.</dd>
+    <dt>Accepter les rétroliens</dt>
+    <dd>Accepter globalement les rétroliens sur le blog. Si cette option est décochée les rétroliens ne seront acceptés sur aucun billet même si le réglage individuel d'un billet indique qu'ils sont permis.</dd>
+    <dt>Modérer les rétroliens</dt>
+    <dd>Si cette option est activée, les rétroliens ne seront publiés qu'après
   l'approbation d'un·e rédacteur·rice.</dd>
-
-  <dt>Laisser les rétroliens ouverts durant <em>x</em> jours</dt>
-  <dd>Permet d'indiquer le nombre de jours durant lesquels les rétroliens
+    <dt>Laisser les rétroliens ouverts durant <em>x</em> jours</dt>
+    <dd>Permet d'indiquer le nombre de jours durant lesquels les rétroliens
   sont possibles sur un billet après sa publication. Laisser ce champ vide pour ne fixer aucune limite.</dd>
-</dl>
-
-<h4>Présentation du blog</h4>
-<dl>
-  <dt>Format des dates</dt>
-  <dd>Indique le format de la date d'un billet sur le blog. Voir la section
+  </dl>
+  <h4>Présentation du blog</h4>
+  <dl>
+    <dt>Format des dates</dt>
+    <dd>Indique le format de la date d'un billet sur le blog. Voir la section
   "Formatage des dates et des heures" pour plus détails.</dd>
-
-  <dt>Format des heures</dt>
-  <dd>Indique le format de l'heure d'un billet sur le blog. Voir la section
+    <dt>Format des heures</dt>
+    <dd>Indique le format de l'heure d'un billet sur le blog. Voir la section
   "Formatage des dates et des heures" pour plus détails.</dd>
-
-  <dt>Afficher des émoticônes dans les billets et commentaires</dt>
-  <dd>Remplacer certaines suites de caractères comme :-) ou ;-) par des images.</dd>
-
-  <dt>Afficher <em>x</em> billets par page</dt>
-  <dd>Le nombre donné sera utilisé comme limite d'affichage des billets sur la
+    <dt>Afficher des émoticônes dans les billets et commentaires</dt>
+    <dd>Remplacer certaines suites de caractères comme :-) ou ;-) par des images.</dd>
+    <dt>Afficher <em>x</em> billets par page</dt>
+    <dd>Le nombre donné sera utilisé comme limite d'affichage des billets sur la
   page d'accueil et la première page de chaque catégorie.</dd>
-
-  <dt>Afficher <em>x</em> billets par flux de syndication</dt>
-  <dd>Le nombre donné sera utilisé comme limite d'affichage des billets dans
+    <dt>Afficher <em>x</em> billets par flux de syndication</dt>
+    <dd>Le nombre donné sera utilisé comme limite d'affichage des billets dans
   les flux de syndication.</dd>
-
-  <dt>Afficher <em>x</em> commentaires par flux de syndication</dt>
-  <dd>Le nombre donné sera utilisé comme limite d'affichage des commentaires dans
+    <dt>Afficher <em>x</em> commentaires par flux de syndication</dt>
+    <dd>Le nombre donné sera utilisé comme limite d'affichage des commentaires dans
   les flux de syndication.</dd>
-
-  <dt>Tronquer le flux de syndication</dt>
-  <dd>Cette option permet de ne fournir qu'un extrait des billets dans les flux
+    <dt>Tronquer le flux de syndication</dt>
+    <dd>Cette option permet de ne fournir qu'un extrait des billets dans les flux
   de syndication.</dd>
-
-  <dt>Inclure les sous-catégories dans la page des catégories et dans les flux de billets pour une catégorie</dt>
-  <dd>Cette option permet d'inclure les sous-catégories de la catégorie courante dans l'affichage coté public
+    <dt>Inclure les sous-catégories dans la page des catégories et dans les flux de billets pour une catégorie</dt>
+    <dd>Cette option permet d'inclure les sous-catégories de la catégorie courante dans l'affichage coté public
   d'une catégorie, ou d'un flux de billets pour une catégorie.</dd>
-</dl>
-
-<h4>Médias et images</h4>
-<dl>
-  <dt>Tailles des miniatures générées (en pixels)</dt>
-  <dd>Lorsque vous ajoutez une image dans la médiathèque, d'autres tailles
+  </dl>
+  <h4>Médias et images</h4>
+  <dl>
+    <dt>Tailles des miniatures générées (en pixels)</dt>
+    <dd>Lorsque vous ajoutez une image dans la médiathèque, d'autres tailles
   sont automatiquement générées. Vous pouvez ajuster ici la dimension du plus
   grand côté de chaque type d'image générée. Laisser le champ de saisie vide pour que la médiathèque ne crée pas le format de miniature  correspondante.</dd>
-
-  <dt>Titres des images insérées</dt>
-  <dd>Ce champ vous permet de définir le modèle des titres ajoutés automatiquement à partir d'éléments des métadonnées des images.</dd>
-
-  <dt>Attributs par défaut pour l'insertion d'image</dt>
-  <dd>Les réglages choisis s'appliqueront à toutes les nouvelles images insérées.</dd>
-
-  <dt>Taille de l'image insérée</dt>
-  <dd>Cette option définit la taille sélectionnée par défaut lors de l'insertion d'une image.</dd>
-
-  <dt>Alignement de l'image</dt>
-  <dd>Cette option permet de définir l'alignement par défaut de l'image lors de son insertion (gauche, droite, centré ou aucun).</dd>
-
-  <dt>Insérer le lien vers l'image originale</dt>
-  <dd>Cette option permet de rendre l'image affichée cliquable, un clic sur l'image en question pointant vers l'image originale.</dd>
-
-  <dt>Insérer un lien vers l'image originale</dt>
-  <dd>Lorsque cette option est activée, les images insérées dans un article de blog seront cliquables et pointeront sur l'image de taille originale.</dd>
-
-</dl>
-
-<h4>Paramètres d'indexation par les moteurs de recherche</h4>
-<p>Indiquez ici si vous souhaitez ou non que les moteurs de recherche indexent
+    <dt>Titres des images insérées</dt>
+    <dd>Ce champ vous permet de définir le modèle des titres ajoutés automatiquement à partir d'éléments des métadonnées des images.</dd>
+    <dt>Attributs par défaut pour l'insertion d'image</dt>
+    <dd>Les réglages choisis s'appliqueront à toutes les nouvelles images insérées.</dd>
+    <dt>Taille de l'image insérée</dt>
+    <dd>Cette option définit la taille sélectionnée par défaut lors de l'insertion d'une image.</dd>
+    <dt>Alignement de l'image</dt>
+    <dd>Cette option permet de définir l'alignement par défaut de l'image lors de son insertion (gauche, droite, centré ou aucun).</dd>
+    <dt>Insérer le lien vers l'image originale</dt>
+    <dd>Cette option permet de rendre l'image affichée cliquable, un clic sur l'image en question pointant vers l'image originale.</dd>
+    <dt>Insérer un lien vers l'image originale</dt>
+    <dd>Lorsque cette option est activée, les images insérées dans un article de blog seront cliquables et pointeront sur l'image de taille originale.</dd>
+  </dl>
+  <h4>Paramètres d'indexation par les moteurs de recherche</h4>
+  <p>Indiquez ici si vous souhaitez ou non que les moteurs de recherche indexent
 et/ou archivent vos pages. Choisissez la dernière option si vous ne voulez pas
 que l'on trouve votre blog par le biais d'un moteur de recherche.</p>
-
-<h4>Antispam</h4>
-<p>Indiquez ici le nombre de jours après lequel vous souhaitez que les commentaires
+  <h4>Antispam</h4>
+  <p>Indiquez ici le nombre de jours après lequel vous souhaitez que les commentaires
 indésirables soient automatiquement supprimés. Laisser ce champ de saisie vide ou mettre la valeur à 0 pour ne fixer aucune limite dans le temps.</p>
-
-<h4>Formatage des dates et des heures</h4>
-<p>Certains champs permettent de formater les dates ou les heures avec des caractères particuliers dont voici la définition&nbsp;:</p>
-
-<h3>Référence de format</h3>
-<p>Liste les utilisateur·rice·s de ce blog, ainsi que leurs permissions. Si l'utilisateur·rice n'est ni super administrateur·rice ni administrateur·rice, le bouton <strong>Changer les permissions</strong> permet de lui en ajouter ou supprimer.</p>
-
-<ul>
-  <li><strong>%a</strong>&nbsp;: nom abrégé du jour de la semaine (local),</li>
-  <li><strong>%A</strong>&nbsp;: nom complet du jour de la semaine (local),</li>
-  <li><strong>%b</strong>&nbsp;: nom abrégé du mois (local),</li>
-  <li><strong>%B</strong>&nbsp;: nom complet du mois (local),</li>
-  <li><strong>%c</strong>&nbsp;: représentation préférée pour les dates et
+  <h4>Formatage des dates et des heures</h4>
+  <p>Certains champs permettent de formater les dates ou les heures avec des caractères particuliers dont voici la définition&nbsp;:</p>
+  <h3>Référence de format</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a</strong>&nbsp;: nom abrégé du jour de la semaine (local),</li>
+    <li><strong>%A</strong>&nbsp;: nom complet du jour de la semaine (local),</li>
+    <li><strong>%b</strong>&nbsp;: nom abrégé du mois (local),</li>
+    <li><strong>%B</strong>&nbsp;: nom complet du mois (local),</li>
+    <li><strong>%c</strong>&nbsp;: représentation préférée pour les dates et
   heures, en local,</li>
-  <li><strong>%C</strong>&nbsp;: numéro de siècle (l'année, divisée par 100 et
-  arrondie entre 00 et 99),</li>
-  <li><strong>%d</strong>&nbsp;: jour du mois en numérique (intervalle 01 à
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d</strong>&nbsp;: jour du mois en numérique (intervalle 01 à
   31),</li>
-  <li><strong>%D</strong>&nbsp;: identique à %m/%d/%y,</li>
-  <li><strong>%e</strong>&nbsp;: numéro du jour du mois. Les chiffres sont
+    <li><strong>%D</strong>&nbsp;: identique à %m/%d/%y,</li>
+    <li><strong>%e</strong>&nbsp;: numéro du jour du mois. Les chiffres sont
   précédés d'un espace (de ' 1' à '31'),</li>
-  <li><strong>%g</strong>&nbsp;: identique à %G, sur 2 chiffres,</li>
-  <li><strong>%G</strong>&nbsp;: L'année sur 4 chiffres correspondant au numéro
-  de semaine (voir %V). Même format et valeur que %Y, excepté que si le numéro
-  de la semaine appartient à l'année précédente ou suivante, l'année courante
-  sera utilisé à la place,</li>
-  <li><strong>%h</strong>&nbsp;: identique à %b,</li>
-  <li><strong>%H</strong>&nbsp;: heure de la journée en numérique, et sur
-  24-heures (intervalle de 00 à 23),</li>
-  <li><strong>%I</strong>&nbsp;: heure de la journée en numérique, et sur 12-
-  heures (intervalle 01 à 12),</li>
-  <li><strong>%j</strong>&nbsp;: jour de l'année, en numérique (intervalle 001 à
+    <li><strong>%g</strong>&nbsp;: identique à %G, sur 2 chiffres,</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h</strong>&nbsp;: identique à %b,</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j</strong>&nbsp;: jour de l'année, en numérique (intervalle 001 à
   366),</li>
-  <li><strong>%m</strong>&nbsp;: mois en numérique (intervalle 1 à 12),</li>
-  <li><strong>%M</strong>&nbsp;: minute en numérique,</li>
-  <li><strong>%n</strong>&nbsp;: newline character,</li>
-  <li><strong>%p</strong>&nbsp;: soit `am' ou `pm' en fonction de l'heure
-  absolue, ou en fonction des valeurs enregistrées en local,</li>
-  <li><strong>%r</strong>&nbsp;: l'heure au format a.m. et p.m.,</li>
-  <li><strong>%R</strong>&nbsp;: l'heure au format 24h,</li>
-  <li><strong>%S</strong>&nbsp;: secondes en numérique,</li>
-  <li><strong>%t</strong>&nbsp;: tabulation,</li>
-  <li><strong>%T</strong>&nbsp;: l'heure actuelle (égal à %H:%M:%S),</li>
-  <li><strong>%u</strong>&nbsp;: le numéro de jour dans la semaine, de 1 à 7. (1
+    <li><strong>%m</strong>&nbsp;: mois en numérique (intervalle 1 à 12),</li>
+    <li><strong>%M</strong>&nbsp;: minute en numérique,</li>
+    <li><strong>%n</strong>&nbsp;: newline character,</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r</strong>&nbsp;: l'heure au format a.m. et p.m.,</li>
+    <li><strong>%R</strong>&nbsp;: l'heure au format 24h,</li>
+    <li><strong>%S</strong>&nbsp;: secondes en numérique,</li>
+    <li><strong>%t</strong>&nbsp;: tabulation,</li>
+    <li><strong>%T</strong>&nbsp;: l'heure actuelle (égal à %H:%M:%S),</li>
+    <li><strong>%u</strong>&nbsp;: le numéro de jour dans la semaine, de 1 à 7. (1
   représente Lundi),</li>
-  <li><strong>%U</strong>&nbsp;: numéro de semaine dans l'année, en considérant le premier dimanche de l'année comme le premier jour de la première semaine.</li>
-  <li><strong>%V</strong>&nbsp;: le numéro de semaine comme défini dans l'ISO 8601:1988, sous forme décimale, de 01 à 53. La semaine 1 est la première semaine qui a plus de 4 jours dans l'année courante, et dont Lundi est le premier jour (utilisez %G ou %g pour les éléments de l'année qui correspondent au numéro de la semaine pour le timestamp donné),</li>
-  <li><strong>%W</strong>&nbsp;: numéro de semaine dans l'année, en considérant le premier lundi de l'année comme le premier jour de la première semaine,</li>
-  <li><strong>%w</strong>&nbsp;: jour de la semaine, numérique, avec dimanche = 0</li>
-  <li><strong>%x</strong>&nbsp;: format préféré de représentation de la date sans l'heure,</li>
-  <li><strong>%X</strong>&nbsp;: format préféré de représentation de l'heure sans la date</li>
-  <li><strong>%y</strong>&nbsp;: l'année, numérique, sur deux chiffres (de 00 à 99)</li>
-  <li><strong>%Y</strong>&nbsp;: l'année, numérique, sur quatre chiffres,</li>
-  <li><strong>%Z ou %z</strong>&nbsp;: fuseau horaire, ou nom ou abréviation,</li>
-  <li>: un caractère `%' littéral.</li>
-</ul>
-
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w</strong>&nbsp;: jour de la semaine, numérique, avec dimanche = 0</li>
+    <li><strong>%x</strong>&nbsp;: format préféré de représentation de la date sans l'heure,</li>
+    <li><strong>%X</strong>&nbsp;: format préféré de représentation de l'heure sans la date</li>
+    <li><strong>%y</strong>&nbsp;: l'année, numérique, sur deux chiffres (de 00 à 99)</li>
+    <li><strong>%Y</strong>&nbsp;: l'année, numérique, sur quatre chiffres,</li>
+    <li><strong>%Z ou %z</strong>&nbsp;: fuseau horaire, ou nom ou abréviation,</li>
+    <li>: un caractère `%' littéral.</li>
+  </ul>
 </body>
+
 </html>
