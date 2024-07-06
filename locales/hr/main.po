@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-02 12:26+0200\n"
-"PO-Revision-Date: 2024-07-06 10:42\n"
+"PO-Revision-Date: 2024-07-06 22:21\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -21,19 +21,19 @@ msgstr ""
 #: src/Process/Backend/UserPreferences.php:497
 #: src/Process/Install/Install.php:417
 msgid "medium"
-msgstr ""
+msgstr "srednje jako"
 
 #: inc/core/_fake_l10n.php:7
 msgid "small"
-msgstr ""
+msgstr "malen"
 
 #: inc/core/_fake_l10n.php:8
 msgid "thumbnail"
-msgstr ""
+msgstr "minijatura"
 
 #: inc/core/_fake_l10n.php:9
 msgid "square"
-msgstr ""
+msgstr "kvadrat"
 
 #: inc/core/_fake_l10n.php:13 src/Core/Backend/Action/Actions.php:159
 #: src/Core/Backend/Action/ActionsPosts.php:64
@@ -43,51 +43,51 @@ msgstr ""
 #: src/Process/Backend/Post.php:528 src/Process/Backend/Post.php:542
 #: src/Process/Backend/Posts.php:85 src/Process/Backend/Posts.php:90
 msgid "Posts"
-msgstr ""
+msgstr "Postove"
 
 #: inc/core/_fake_l10n.php:14
 msgid "Pages"
-msgstr ""
+msgstr "Stranice"
 
 #: src/Core/Auth.php:147
 msgid "administrator"
-msgstr ""
+msgstr "administrator"
 
 #: src/Core/Auth.php:148
 msgid "manage all entries and comments"
-msgstr ""
+msgstr "upravljanje svim unosima i komentarima"
 
 #: src/Core/Auth.php:149
 msgid "manage their own entries and comments"
-msgstr ""
+msgstr "upravljanje vlastitim unosima i komentarima"
 
 #: src/Core/Auth.php:150
 msgid "publish entries and comments"
-msgstr ""
+msgstr "objavljivanje unosa i komentara"
 
 #: src/Core/Auth.php:151
 msgid "delete entries and comments"
-msgstr ""
+msgstr "brisanje unosa i komentara"
 
 #: src/Core/Auth.php:152
 msgid "manage categories"
-msgstr ""
+msgstr "upravljanje kategorijama"
 
 #: src/Core/Auth.php:153
 msgid "manage all media items"
-msgstr ""
+msgstr "upravljanje svim medijskim stavkama"
 
 #: src/Core/Auth.php:154
 msgid "manage their own media items"
-msgstr ""
+msgstr "upravljanje vlastitim medijskim stavkama"
 
 #: src/Core/Auth.php:606
 msgid "That user does not exist in the database."
-msgstr ""
+msgstr "Taj korisnik ne postoji u bazi podataka."
 
 #: src/Core/Auth.php:633
 msgid "That key does not exist in the database."
-msgstr ""
+msgstr "Taj ključ ne postoji u bazi podataka."
 
 #: src/Core/Backend/Action/Actions.php:158
 #: src/Core/Backend/Action/ActionsComments.php:159
@@ -95,7 +95,7 @@ msgstr ""
 #: src/Core/Backend/Listing/ListingPostsMini.php:42
 #: src/Process/Backend/Home.php:432 src/Process/Backend/Post.php:709
 msgid "Title"
-msgstr ""
+msgstr "Naslov"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:45
 #: src/Core/Backend/Action/ActionsBlogs.php:71
@@ -106,20 +106,20 @@ msgstr ""
 #: src/Process/Backend/Blog.php:98 src/Process/Backend/BlogDel.php:91
 #: src/Process/Backend/BlogPref.php:434
 msgid "Blogs"
-msgstr ""
+msgstr "Blogovi"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:89
 msgid "Back to blogs list"
-msgstr ""
+msgstr "Povratak na popis blogova"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:119
 msgid "Blogs actions"
-msgstr ""
+msgstr "Akcije blogova"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:157
 #: src/Core/Backend/Listing/ListingBlogs.php:54
 msgid "Blog id"
-msgstr ""
+msgstr "ID bloga"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
 #: src/Core/Backend/Listing/ListingBlogs.php:55
@@ -127,7 +127,7 @@ msgstr ""
 #: src/Process/Backend/BlogPref.php:488
 #: src/Process/Backend/UsersActions.php:231
 msgid "Blog name"
-msgstr ""
+msgstr "Naziv bloga"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:34
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:35
@@ -141,19 +141,19 @@ msgstr ""
 #: src/Process/Backend/Post.php:614 src/Process/Backend/Post.php:1064
 #: src/Process/Backend/UsersActions.php:234
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:35
 msgid "Set online"
-msgstr ""
+msgstr "Postavi na mreži"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:36
 msgid "Set offline"
-msgstr ""
+msgstr "Postavi izvanmrežno"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:37
 msgid "Set as removed"
-msgstr ""
+msgstr "Postavi kao uklonjeno"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:42
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:43
@@ -167,16 +167,16 @@ msgstr ""
 #: src/Process/Backend/Post.php:798 src/Process/Backend/Users.php:42
 #: src/Process/Upgrade/Langs.php:296
 msgid "Delete"
-msgstr ""
+msgstr "Izbrisati"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:63
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
 msgid "No blog selected"
-msgstr ""
+msgstr "Nije odabran nijedan blog"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:85
 msgid "Selected blogs have been successfully updated."
-msgstr ""
+msgstr "Odabrani blogovi uspješno su ažurirani."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:108
 #: src/Core/Backend/ModulesList.php:1685 src/Core/Backend/ThemesList.php:728
@@ -185,20 +185,20 @@ msgstr ""
 #: src/Process/Backend/User.php:100 src/Process/Backend/UsersActions.php:109
 #: src/Process/Upgrade/Langs.php:161 src/Process/Upgrade/Langs.php:206
 msgid "Password verification failed"
-msgstr ""
+msgstr "Provjera lozinke nije uspjela"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:114
 #: src/Process/Backend/BlogPref.php:942
 msgid "The current blog cannot be deleted."
-msgstr ""
+msgstr "Trenutni blog nije moguće izbrisati."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:131
 #, php-format
 msgid "%d blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Blog %d uspješno je izbrisan"
+msgstr[1] "%d blogova uspješno je izbrisano"
+msgstr[2] "%d blogova uspješno je izbrisano"
 
 #: src/Core/Backend/Action/ActionsComments.php:45
 #: src/Core/Backend/Action/ActionsComments.php:71
@@ -210,15 +210,15 @@ msgstr[2] ""
 #: src/Core/Backend/UserPref.php:183 src/Process/Backend/Post.php:847
 #: src/Process/Backend/Post.php:856
 msgid "Comments"
-msgstr ""
+msgstr "Komentari"
 
 #: src/Core/Backend/Action/ActionsComments.php:89
 msgid "Back to comments list"
-msgstr ""
+msgstr "Povratak na popis komentara"
 
 #: src/Core/Backend/Action/ActionsComments.php:119
 msgid "Comments actions"
-msgstr ""
+msgstr "Akcije komentara"
 
 #: src/Core/Backend/Action/ActionsComments.php:157
 #: src/Core/Backend/Combos.php:281 src/Core/Backend/Combos.php:304
@@ -229,115 +229,115 @@ msgstr ""
 #: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:891
 #: src/Process/Backend/Post.php:1061
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:36
 #: src/Core/Backend/Action/ActionsPostsDefault.php:50
 msgid "Publish"
-msgstr ""
+msgstr "Objaviti"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:37
 #: src/Core/Backend/Action/ActionsPostsDefault.php:51
 msgid "Unpublish"
-msgstr ""
+msgstr "Poništavanje objave"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:38
 #: src/Core/Backend/Action/ActionsPostsDefault.php:53
 msgid "Mark as pending"
-msgstr ""
+msgstr "Označi kao neriješeno"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:39
 msgid "Mark as junk"
-msgstr ""
+msgstr "Označi kao bezvrijednu poštu"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:66
 msgid "Blocklist IP"
-msgstr ""
+msgstr "IP popisa blokova"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:68
 msgid "Blocklist IP (global)"
-msgstr ""
+msgstr "IP adresa blokiranog popisa (globalno)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:72
 #: src/Process/Backend/Post.php:1063
 msgid "IP address"
-msgstr ""
+msgstr "IP adresa"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:89
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:116
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:144
 msgid "No comment selected"
-msgstr ""
+msgstr "Nije odabran komentar"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:101
 #: src/Process/Backend/Comments.php:128
 msgid "Selected comments have been successfully updated."
-msgstr ""
+msgstr "Odabrani komentari uspješno su ažurirani."
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:129
 #: src/Process/Backend/Comments.php:130
 msgid "Selected comments have been successfully deleted."
-msgstr ""
+msgstr "Odabrani komentari uspješno su izbrisani."
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:178
 msgid "IP addresses for selected comments have been blocklisted."
-msgstr ""
+msgstr "IP adrese za odabrane komentare su blokirane."
 
 #: src/Core/Backend/Action/ActionsPosts.php:82
 msgid "Back to entries list"
-msgstr ""
+msgstr "Povratak na popis stavki"
 
 #: src/Core/Backend/Action/ActionsPosts.php:112
 msgid "Posts actions"
-msgstr ""
+msgstr "Objavljuje akcije"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:52
 msgid "Schedule"
-msgstr ""
+msgstr "Raspored"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:63
 msgid "First publication"
-msgstr ""
+msgstr "Prva publikacija"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:64
 #: src/Core/Backend/Action/ActionsPostsDefault.php:199
 msgid "Never published"
-msgstr ""
+msgstr "Nikad objavljeno"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:65
 #: src/Core/Backend/Action/ActionsPostsDefault.php:199
 msgid "Already published"
-msgstr ""
+msgstr "Već objavljeno"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:71
 msgid "Mark"
-msgstr ""
+msgstr "Označiti"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:72
 msgid "Mark as selected"
-msgstr ""
+msgstr "Označi kao odabrano"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:73
 msgid "Mark as unselected"
-msgstr ""
+msgstr "Označi kao neodabrano"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:78
 #: src/Core/Backend/Action/ActionsPostsDefault.php:84
 #: src/Core/Backend/Action/ActionsPostsDefault.php:93
 msgid "Change"
-msgstr ""
+msgstr "Mijenjati"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:79
 msgid "Change category"
-msgstr ""
+msgstr "Promijeni kategoriju"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:85
 msgid "Change language"
-msgstr ""
+msgstr "Promjena jezika"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:94
 msgid "Change author"
-msgstr ""
+msgstr "Promijeni autora"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:128
 #: src/Core/Backend/Action/ActionsPostsDefault.php:185
@@ -347,91 +347,91 @@ msgstr ""
 #: src/Core/Backend/Action/ActionsPostsDefault.php:427
 #: src/Core/Backend/Action/ActionsPostsDefault.php:525
 msgid "No entry selected"
-msgstr ""
+msgstr "Nije odabran unos"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:147
 msgid "Published entries cannot be set to scheduled"
-msgstr ""
+msgstr "Objavljene stavke ne mogu se postaviti na zakazano"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:156
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d unos uspješno je ažuriran u stanje : \"%s\""
+msgstr[1] "%d unosa uspješno je ažurirano u stanje : \"%s\""
+msgstr[2] "%d unosa uspješno je ažurirano u stanje : \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:194
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\""
 msgid_plural "%d entries have been successfully updated as: \"%s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d unos uspješno je ažuriran kao: \"%s\""
+msgstr[1] "%d unosa uspješno je ažurirano kao: \"%s\""
+msgstr[2] "%d unosa uspješno je ažurirano kao: \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:226
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d unos uspješno je označen kao odabran"
+msgstr[1] "%d unosa uspješno je označeno kao odabrano"
+msgstr[2] "%d unosa uspješno je označeno kao odabrano"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:237
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d unos uspješno je označen kao neoznačen"
+msgstr[1] "%d unosa uspješno je označeno kao neodabrano"
+msgstr[2] "%d unosa uspješno je označeno kao neodabrano"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:274
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d unos je uspješno izbrisan"
+msgstr[1] "%d stavki uspješno je izbrisano"
+msgstr[2] "%d stavki uspješno je izbrisano"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:320
 #: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:120
 #: src/Core/Backend/Listing/ListingPosts.php:162
 msgid "(No cat)"
-msgstr ""
+msgstr "(Bez mačke)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:327
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d unos uspješno je premješten u kategoriju \"%s\""
+msgstr[1] "%d unosa uspješno je premješteno u kategoriju \"%s\""
+msgstr[2] "%d unosa uspješno je premješteno u kategoriju \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:343
 msgid "Change category for this selection"
-msgstr ""
+msgstr "Promijeni kategoriju za ovaj odabir"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
 #: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:439
 #: src/Process/Backend/Post.php:649
 msgid "Category:"
-msgstr ""
+msgstr "Kategorija:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
 msgid "Create a new category for the post(s)"
-msgstr ""
+msgstr "Stvaranje nove kategorije za objave"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
 #: src/Process/Backend/Home.php:429 src/Process/Backend/Home.php:446
 #: src/Process/Backend/Post.php:657 src/Process/Backend/Post.php:705
 msgid "Title:"
-msgstr ""
+msgstr "Naslov:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:383
 #: src/Process/Backend/Category.php:244 src/Process/Backend/Category.php:298
 #: src/Process/Backend/Home.php:448 src/Process/Backend/Post.php:659
 msgid "Parent:"
-msgstr ""
+msgstr "Roditelj:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
@@ -444,11 +444,11 @@ msgstr ""
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:499
 msgid "Save"
-msgstr ""
+msgstr "Spasiti"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:430
 msgid "This user does not exist"
-msgstr ""
+msgstr "Ovaj korisnik ne postoji"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:444
 #, php-format
