@@ -1,94 +1,75 @@
 <html>
+
 <head>
   <title>Вікі-довідник з синтаксису</title>
 </head>
 
 <body>
-
-<h4>Вікі-довідник з синтаксису</h4>
-
-<p>Вікі-синтаксис - це спосіб покращити ваш текст за допомогою мінімального набору
-тегів, вивчених для задоволення основних потреб (заголовки, абзаци, цитати,
-списки...).</p>
-
-<dl>
-<dt>Елементи блоку</dt>
-<dd>
-<ul>
-  <li>Між двома однаковими блоками залишайте порожній рядок.</li>
-  <li><strong>Абзац:</strong> Вільний текст, що закінчується порожнім рядком, якщо
-  наступний абзац має бути наступним.</li>
-  <li><strong>Заголовок:</strong> <code>!!! заголовок</code>, <code>!!! заголовок</code>
-  або <code>!!! заголовок</code>, що дозволяє використовувати три різні рівні заголовка
-  .</li>
-  <li><strong>Горизонтальна лінія:</strong> <code>----</code></li>
-  <li><strong>Списки:</strong> Починайте кожен рядок з
-  <code>*</code> або <code>#</code> для ненумерованих або нумерованих списків відповідно.
-  Вбудовування списків відбувається шляхом змішування маркерів списків у такий спосіб:
-  <pre>
+  <h4>Вікі-довідник з синтаксису</h4>
+  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <dl>
+    <dt>Елементи блоку</dt>
+    <dd>
+      <ul>
+        <li>Між двома однаковими блоками залишайте порожній рядок.</li>
+        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
+        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Горизонтальна лінія:</strong> <code>----</code></li>
+        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+          <pre>
     <code>*</code> пункт 1
     <code>**</code> пункт 1.1
     <code>*</code> пункт 2
     <code>*#</code> пункт 2.1
   ...
   </pre>
-  </li>
-  <li><strong>Списки визначень:</strong> Починайте кожен рядок з <code>=</code> для терміну, який потрібно визначити, і з <code>:</code> для визначення терміну.
-  <pre>
+        </li>
+        <li><strong>Списки визначень:</strong> Починайте кожен рядок з <code>=</code> для терміну, який потрібно визначити, і з <code>:</code> для визначення терміну.
+          <pre>
   <code>=</code> термін
   <code>:</code> опис терміну
   </pre>
-  </li>
-  <li><strong>Попередньо відформатований текст:</strong> Кожен рядок повинен починатися з пробілу.</li>
-  <li><strong>Блоковані цитати:</strong> Кожен рядок повинен починатися з <code>&gt;</code>.</li>
-  <li><strong>Бічний блок:</strong> Кожен рядок повинен починатися з <code>)</code>.</li>
-</ul>
-</dd>
-
-<dt>Форматування тегів</dt>
-<dd>
-<ul>
-  <li><strong>Наголос:</strong> Дві лапки <code>''текст''</code></li>
-  <li><strong>Сильний наголос:</strong> Два підкреслення <code>__text__</code></li>
-  <li><strong>Виділено:</strong> Дві подвійні лапки <code>""текст""</code></li>
-  <li><strong>Нова лінія:</strong> <code>%%%</code></li>
-  <li><strong>Вставка:</strong> Два плюси <code>++текст++</code></li>
-  <li><strong>Видалення:</strong> Два мінуси <code>--text--</code></li>
-  <li><strong>Посилання:</strong> <code>[url]</code>, <code>[назва|URL]</code>,
-    <code>[назва|URL|мова]</code> або <code>[назва|URL|мова|назва]</code></li>
-  <li><strong>Зображення:</strong>
-    <code>((url|альтернативний текст))</code>,
-    <code>((url|альтернативний текст|позиція))</code> або
-    <code>((url|альтернативний текст|позиція|довгий опис))</code>.
-    <br>Позиція може бути L (ліворуч), R (праворуч) або C (по центру).</li>
-  <li><strong>Якір:</strong> <code>~anchor~</code></li>
-  <li><strong>Абревіатура:</strong> <code>?? абревіатура|назва??</code></li>
-  <li><strong>Вбудований HTML:</strong> Дві зворотні лапки <code>``HTML-код``</code></li>
-  <li><strong>Вбудована цитата:</strong> <code>{{quote}}</code>,
-    <code>{{quote|language}}</code> або <code>{{quote|language|url}}</code></li>
-  <li><strong>Код:</strong> <code>@@code@@</code></li>
-  <li><strong>Сноски:</strong> <code>$$footnote$$</code></li>
-  <li><strong>Надрядковий знак</strong>&nbsp;: <code>^superscript^</code></li>
-  <li><strong>Підписка</strong>&nbsp;: <code>,,підписка,,</code></li>
-</ul>
-</dd>
-
-<dt>Неформатований текст</dt>
-<dd>Якщо ви не хочете, щоб один символ форматування інтерпретувався як такий, додайте
-<code>\</code> безпосередньо перед ним. Наприклад:
-<code>\[Текст у дужках, який не є посиланням\]</code>
-</dd>
-
-<dt>HTML-код</dt>
-<dd>Навіть якщо ви вибрали синтаксис Вікі, іноді вам може знадобитися більш
-потужне форматування, тобто синтаксис HTML. Зробіть це наступним чином:
-<pre>
+        </li>
+        <li><strong>Попередньо відформатований текст:</strong> Кожен рядок повинен починатися з пробілу.</li>
+        <li><strong>Блоковані цитати:</strong> Кожен рядок повинен починатися з <code>&gt;</code>.</li>
+        <li><strong>Бічний блок:</strong> Кожен рядок повинен починатися з <code>)</code>.</li>
+      </ul>
+    </dd>
+    <dt>Форматування тегів</dt>
+    <dd>
+      <ul>
+        <li><strong>Наголос:</strong> Дві лапки <code>''текст''</code></li>
+        <li><strong>Сильний наголос:</strong> Два підкреслення <code>__text__</code></li>
+        <li><strong>Виділено:</strong> Дві подвійні лапки <code>""текст""</code></li>
+        <li><strong>Нова лінія:</strong> <code>%%%</code></li>
+        <li><strong>Вставка:</strong> Два плюси <code>++текст++</code></li>
+        <li><strong>Видалення:</strong> Два мінуси <code>--text--</code></li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
+        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Якір:</strong> <code>~anchor~</code></li>
+        <li><strong>Абревіатура:</strong> <code>?? абревіатура|назва??</code></li>
+        <li><strong>Вбудований HTML:</strong> Дві зворотні лапки <code>``HTML-код``</code></li>
+        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Код:</strong> <code>@@code@@</code></li>
+        <li><strong>Сноски:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Надрядковий знак</strong>&nbsp;: <code>^superscript^</code></li>
+        <li><strong>Підписка</strong>&nbsp;: <code>,,підписка,,</code></li>
+      </ul>
+    </dd>
+    <dt>Неформатований текст</dt>
+    <dd>If you don't want one formatting character to be interpreted as such, add a
+      <code>\</code> just before it. For instance:
+      <code>\[Text in brackets without being a link\]</code>
+    </dd>
+    <dt>HTML-код</dt>
+    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+      <pre>
 ///html
 &lt;p style="color:red"&gt;мій текст червоним&lt;/p&gt;
 ///
 </pre>
-</dd>
-</dl>
-
+    </dd>
+  </dl>
 </body>
+
 </html>

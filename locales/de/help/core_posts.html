@@ -1,67 +1,58 @@
 <html>
+
 <head>
   <title>Eintr&auml;ge organisieren</title>
 </head>
 
 <body>
-
-<h4>Filter der Eintragsliste</h4>
-
-<dl>
-  <dt>Autor</dt>
-  <dd>Sortierung nach Autor</dd>
-  
-  <dt>Kategorie</dt>
-  <dd>Sortierung nach Kategorie.</dd>
-  
-  <dt>Status</dt>
-  <dd>Filtert Einträge nach Status:<ul>
-      <li><strong>unerledigt:</strong> Status ist noch nicht entschieden.</li>
-      <li><strong>geplant:</strong> Eintrag wird automatisch online gesetzt.</li>
-      <li><strong>unver&ouml;ffentlicht:</strong> Eintr&auml;ge sind offline</li>
-      <li><strong>ver&ouml;ffentlicht:</strong> Eintr&auml;ge sind online.</li>
-    </ul></dd>
-  
-  <dt>Ausgew&auml;hlt</dt>
-  <dd>Nur ausgew&auml;hlte oder unausgew&auml;hlte Eintr&auml;ge sind erw&auml;hnt.</dd>
-
-  <dt>Monat</dt>
-  <dd>Sortiert nach einem bestimmten Monat oder Jahr.</dd>
-  
-  <dt>Sprache</dt>
-  <dd>Filter sortiert nach Sprachen, die in dem Blog verwendet wurden.</dd>
-  
-  <dt>Reihenfolge nach</dt>
-  <dd>Definiert die Reihenfolge nach Datum, Titel, Autor, Status oder 
+  <h4>Filter der Eintragsliste</h4>
+  <dl>
+    <dt>Autor</dt>
+    <dd>Sortierung nach Autor</dd>
+    <dt>Kategorie</dt>
+    <dd>Sortierung nach Kategorie.</dd>
+    <dt>Status</dt>
+    <dd>Filtert Einträge nach Status:<ul>
+        <li><strong>unerledigt:</strong> Status ist noch nicht entschieden.</li>
+        <li><strong>geplant:</strong> Eintrag wird automatisch online gesetzt.</li>
+        <li><strong>unver&ouml;ffentlicht:</strong> Eintr&auml;ge sind offline</li>
+        <li><strong>ver&ouml;ffentlicht:</strong> Eintr&auml;ge sind online.</li>
+      </ul>
+    </dd>
+    <dt>Ausgew&auml;hlt</dt>
+    <dd>Nur ausgew&auml;hlte oder unausgew&auml;hlte Eintr&auml;ge sind erw&auml;hnt.</dd>
+    <dt>Monat</dt>
+    <dd>Sortiert nach einem bestimmten Monat oder Jahr.</dd>
+    <dt>Sprache</dt>
+    <dd>Filter sortiert nach Sprachen, die in dem Blog verwendet wurden.</dd>
+    <dt>Reihenfolge nach</dt>
+    <dd>Definiert die Reihenfolge nach Datum, Titel, Autor, Status oder 
   dem ausgew&auml;hlten Status.</dd>
-  
-  <dt>Sortierung</dt>
-  <dd>Aufsteigende oder absteigende Reihenfolge.</dd>
-  
-  <dt>Eintr&auml;ge per Seite</dt>
-  <dd>Anzahl der Eintr&auml;ge, die auf jeder Seite gezeigt werden sollen.</dd>
-  
-  <dt>Eingaben pro Seite</dt>
-  <dd>Anzahl der Einträge, die pro Seite angezeigt werden sollen.</dd>
-</dl>
-
-<h4>Batch-Aktionen</h4>
-<p>Sofern Deine Berechtigungen es erlauben, kannst Du &uuml;bergreifende
+    <dt>Sortierung</dt>
+    <dd>Aufsteigende oder absteigende Reihenfolge.</dd>
+    <dt>Eintr&auml;ge per Seite</dt>
+    <dd>Anzahl der Eintr&auml;ge, die auf jeder Seite gezeigt werden sollen.</dd>
+    <dt>Eingaben pro Seite</dt>
+    <dd>Anzahl der Einträge, die pro Seite angezeigt werden sollen.</dd>
+  </dl>
+  <h4>Batch-Aktionen</h4>
+  <p>Sofern Deine Berechtigungen es erlauben, kannst Du &uuml;bergreifende
 Verfahren der Eintr&auml;ge setzen.</p>
-<ul>
-  <li><strong>Ver&ouml;ffentlichen</strong>: Stellt Eintr&auml;ge nach dem Speichern sofort online.</li>
-  <li><strong>Unver&ouml;ffentlicht</strong>: Eintr&auml;ge bleiben zun&auml;chst offline.</li>
-  <li><strong>Geplant</strong>: Eintr&auml;ge werden nach Zeitplan online gesetzt.</li>
-  <li><strong>Ungeplant</strong>: Ist weder ver&ouml;ffentlicht noch unver&ouml;ffentlicht.</li>
-  <li><strong>Kategorie wechseln</strong>: Du kannst die bevorzugte Kategorie w&auml;hlen.
-  <li><strong>Autoren wechseln</strong>: Erlaubt den Autoren ID zu wechseln, wenn Du in Vertretung
+  <ul>
+    <li><strong>Ver&ouml;ffentlichen</strong>: Stellt Eintr&auml;ge nach dem Speichern sofort online.</li>
+    <li><strong>Unver&ouml;ffentlicht</strong>: Eintr&auml;ge bleiben zun&auml;chst offline.</li>
+    <li><strong>Geplant</strong>: Eintr&auml;ge werden nach Zeitplan online gesetzt.</li>
+    <li><strong>Ungeplant</strong>: Ist weder ver&ouml;ffentlicht noch unver&ouml;ffentlicht.</li>
+    <li><strong>Kategorie wechseln</strong>: Du kannst die bevorzugte Kategorie w&auml;hlen.
+    <li><strong>Autoren wechseln</strong>: Erlaubt den Autoren ID zu wechseln, wenn Du in Vertretung
   f&uuml;r jemanden den Artikel schreibst.</li>
-  <li><strong>L&ouml;schen</strong>: Zur&uuml;ckhalten der Eintr&auml;ge
+    <li><strong>L&ouml;schen</strong>: Zur&uuml;ckhalten der Eintr&auml;ge
   (dieses Verfahren kann nicht r&uuml;ckg&auml;ngig gemacht werden).</li>
-  <li><strong>Autor ändern:</strong> Ändern Sie den Autor der ausgewählten Einträge, indem Sie die ID des neuen Autors eingeben.</li>
-  <li><strong>Löschen:</strong> Löschen Sie die ausgewählten Einträge (dieser Vorgang kann nicht abgebrochen werden).</li>
-  <li><strong>Tags hinzufügen/entfernen:</strong> Hinzufügen oder Entfernen von Tags zu den ausgewählten Einträgen.</li>
-</ul>
-<p><em>Die obige Liste kann weitere Elemente enthalten, wenn zusätzliche Aktionen durch auf Ihrem System aktive Plugins hinzugefügt wurden.</em></p>
+    <li><strong>Autor ändern:</strong> Ändern Sie den Autor der ausgewählten Einträge, indem Sie die ID des neuen Autors eingeben.</li>
+    <li><strong>Löschen:</strong> Löschen Sie die ausgewählten Einträge (dieser Vorgang kann nicht abgebrochen werden).</li>
+    <li><strong>Tags hinzufügen/entfernen:</strong> Hinzufügen oder Entfernen von Tags zu den ausgewählten Einträgen.</li>
+  </ul>
+  <p><em>Die obige Liste kann weitere Elemente enthalten, wenn zusätzliche Aktionen durch auf Ihrem System aktive Plugins hinzugefügt wurden.</em></p>
 </body>
+
 </html>

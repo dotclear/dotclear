@@ -1,100 +1,75 @@
 <html>
-  <head>
-    <title>Gestor de multimédia</title>
-  </head>
-  <body>
-    <h4>Lista de media</h4>
-    <p>A página principal do gestor de multimédia exibe a lista de ficheiros disponíveis (os medias)
+
+<head>
+  <title>Gestor de multimédia</title>
+</head>
+
+<body>
+  <h4>Lista de media</h4>
+  <p>A página principal do gestor de multimédia exibe a lista de ficheiros disponíveis (os medias)
 para o blog actualmente seleccionado.</p>
-
-    <p>Basta clicar nos ícones ou nomes do media na pasta actual ou qualquer
+  <p>Basta clicar nos ícones ou nomes do media na pasta actual ou qualquer
 sub-pasta para exibi-los.</p>
-
-    <p>Seleccionar um ficheiro MP3 abra imediatamente o leitor de multimédia.
+  <p>Seleccionar um ficheiro MP3 abra imediatamente o leitor de multimédia.
 O plugin Flash deve estar instalado em seu navegador para que o leitor funcione.</p>
-
-    <p>As imagens são exibidas com uma miniatura quando possível.</p>
-
-    <h4>Adicionar ficheiros</h4>
-    <dl>
-      <dt>Escolha o ficheiro</dt>
-      <dd>Aqui você pode escolher um ficheiro local, para enviá-lo em seu blog.<br />
-  Um ficheiro maior que o tamanho máximo não será enviado.</dd>
-      
-      <dt>Título</dt>
-      <dd>Título opcional do ficheiro que deseja enviar.</dd>
-      
-      <dt>Privado</dt>
-      <dd>Seleccione esta opção para definir o seu ficheiro como privado, ou seja, acessível apenas pelo seu dono e não acessível a partir do blog.</dd>
-    </dl>
-
-    <dl>
-      <dt>Envio aprimorado</dt>
-      <dd>Permite selecionar um ou vários dos seus ficheiros locais para os enviar para o seu blogue. Se algum ficheiro for maior do que o tamanho máximo, não será enviado.<br>
-	Quando se seleccionam vários ficheiros locais, estes são adicionados à fila de espera. É possível adicionar mais ficheiros clicando novamente em <strong>Choose files</strong>. Também pode remover ficheiros da fila clicando no ícone em forma de cruz vermelha correspondente.<br>
-  Quando estiver pronto, clique em <strong>Carregar</strong>.</dd>
-    </dl>
-
-    <h4>Nova pasta</h4>
-    <p>Este formulário permite criar uma nova pasta dentro da pasta actual.	
+  <p>As imagens são exibidas com uma miniatura quando possível.</p>
+  <h4>Adicionar ficheiros</h4>
+  <dl>
+    <dt>Escolha o ficheiro</dt>
+    <dd>Here you can select one of your local files to send it on your blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
+    <dt>Título</dt>
+    <dd>Título opcional do ficheiro que deseja enviar.</dd>
+    <dt>Privado</dt>
+    <dd>Check this if you want the file to be private, i.e. accessible only by its owner and not accessible from the blog (until published).</dd>
+  </dl>
+  <dl>
+    <dt>Envio aprimorado</dt>
+    <dd>Allows to select one or several of your local files to send them on your blog. Should any file be bigger than the maximum size, it will not be sent.<br>When you select several local files, they are added to the queue. You can add more files by clicking again on <strong>Choose files</strong>. You can also remove files from the queue by clicking on the corresponding red cross-shaped icon.<br>When you are ready, click on <strong>Upload</strong>.</dd>
+  </dl>
+  <h4>Nova pasta</h4>
+  <p>Este formulário permite criar uma nova pasta dentro da pasta actual.	
 Basta escolher um nome para ele, como você poderia fazer em seu próprio computador.</p>
-
-    <h4>Detalhes do conteúdo multimédia</h4>
-    <p>Esta página apresenta um conjunto de informações sobre o media seleccionado e permite executar algumas operações nele.</p>
-
-    <h4>Tratamento específico para imagens</h4>
-    <p>Quando você adiciona uma imagem, dependendo do seu tamanho, até quatro versões diferentes serão disponibilizadas:</p>
-
-    <dl>
-      <dt>Nome do ficheiro</dt>
-      <dd>Alterar o nome do arquivo do arquivo atual.</dd>
-      
-      <dt>Título do ficheiro</dt>
-      <dd>Dê um título ao arquivo ou altere o atual.</dd>
-      
-      <dt>Data do ficheiro</dt>
-      <dd>Alterar a data do arquivo.</dd>
-      
-      <dt>Privado</dt>
-      <dd>Especifique que o arquivo será ocultado para qualquer pessoa, exceto para seu dono no gerenciador de mídia.</dd>
-      
-      <dt>Nova pasta</dt>
-      <dd>Permite que você mova o arquivo para outra pasta</dd>
-      
-      <dt>Modificar o ficheiro</dt>
-      <dd>Com este formulário, você pode substituir o arquivo, mantendo todos os atributos
-      (nome, título. .). Como sempre, você tem de respeitar o tamanho máximo do arquivo.</dd>
-    </dl>
-
-    <h4>Adicionar ficheiros numa entrada</h4>
-    <p>Pode facilmente anexar um ficheiro em suas entradas.<br />
+  <h4>Detalhes do conteúdo multimédia</h4>
+  <p>This form allows you to create a new subfolder in the currently displayed folder. Just choose a name for it as you would do on your own computer.</p>
+  <h4>Tratamento específico para imagens</h4>
+  <p>Quando você adiciona uma imagem, dependendo do seu tamanho, até quatro versões diferentes serão disponibilizadas:</p>
+  <dl>
+    <dt>Nome do ficheiro</dt>
+    <dd>Alterar o nome do arquivo do arquivo atual.</dd>
+    <dt>Título do ficheiro</dt>
+    <dd>Dê um título ao arquivo ou altere o atual.</dd>
+    <dt>Data do ficheiro</dt>
+    <dd>Alterar a data do arquivo.</dd>
+    <dt>Privado</dt>
+    <dd>Especifique que o arquivo será ocultado para qualquer pessoa, exceto para seu dono no gerenciador de mídia.</dd>
+    <dt>Nova pasta</dt>
+    <dd>Permite que você mova o arquivo para outra pasta</dd>
+    <dt>Modificar o ficheiro</dt>
+    <dd>With this form, you can replace the file while keeping all the attributes (name, title...). As always, you have to respect the maximum file size.</dd>
+  </dl>
+  <h4>Adicionar ficheiros numa entrada</h4>
+  <p>Pode facilmente anexar um ficheiro em suas entradas.<br />
 Primeiro, crie uma nova entrada e guardá-a.<br />
 Em seguida, clique em "Adicionar ficheiros nesta entrada" para abrir o gestor de multimédia.<br />
 Clicar no ícone [+](Anexar este ficheiro à entrada).<br />
 O ficheiro será, então, anexado a entrada.</p>
-    <ul>
-      <li><strong>quadrado</strong>: um quadrado de 48x48 pixeis</li>
-      <li><strong>miniatura</strong>: o lado maior é reduzido para 100 pixeis.</li>
-      <li><strong>pequeno</strong>: o lado maior é reduzido para 240 pixeis.</li>
-      <li><strong>médio</strong>: o lado maior é reduzido para 500 pixeis.</li>
-      <li><strong>original</strong>: a imagem mantém-se inalterado</li>
-    </ul>
-    <p>Os anexos serão mostrados na página das entradas, como lista ao lado do conteúdo.
+  <ul>
+    <li><strong>quadrado</strong>: um quadrado de 48x48 pixeis</li>
+    <li><strong>miniatura</strong>: o lado maior é reduzido para 100 pixeis.</li>
+    <li><strong>pequeno</strong>: o lado maior é reduzido para 240 pixeis.</li>
+    <li><strong>médio</strong>: o lado maior é reduzido para 500 pixeis.</li>
+    <li><strong>original</strong>: a imagem mantém-se inalterado</li>
+  </ul>
+  <p>Os anexos serão mostrados na página das entradas, como lista ao lado do conteúdo.
 Os ficheiros MP3 serão disponibilizados através do Flash player,
 para que eles possam ser facilmente lidos pelos visitantes.</p>
-
-    <h4>Podcast e broadcast de ficheiros musicais</h4>
-    <p>Todos os ficheiros anexados serão incluídos em seus feeds RSS,
+  <h4>Podcast e broadcast de ficheiros musicais</h4>
+  <p>Todos os ficheiros anexados serão incluídos em seus feeds RSS,
 permitindo o fácil podcasting de qualquer tipo de ficheiros.</p>
+  <p>Just click on the [+] icon (Attach this file to entry). The file will then be attached to the post.</p>
+  <p>Os arquivos anexados serão exibidos na página do post como uma lista após o conteúdo do post. Os arquivos MP3 serão disponibilizados através de um Flash Player para que possam ser facilmente tocados pelos seus visitantes.</p>
+  <h4>Podcast e transmissão de arquivos de música</h4>
+  <p>All attached files will be included in your blog feeds, allowing an easy podcasting of any type of file.</p>
+</body>
 
-    <p>Basta clicar no ícone [+] (Ataque este arquivo para entrar). O arquivo será
-então anexado ao post.</p>
-
-    <p>Os arquivos anexados serão exibidos na página do post como uma lista após o conteúdo do post. Os arquivos MP3 serão disponibilizados através de um Flash Player para que possam ser facilmente tocados pelos seus visitantes.</p>
-
-    <h4>Podcast e transmissão de arquivos de música</h4>
-    <p>Todos os arquivos anexados serão incluídos nos feeds do seu blog, permitindo um simples
-podcasting de qualquer tipo de arquivo.</p>
-
-  </body>
 </html>

@@ -1,135 +1,90 @@
 <html>
+
 <head>
   <title>Redacción de una entrada</title>
 </head>
 
 <body>
-<h4>Editar una entrada</h4>
-
-<dl>
-  <dt>Título de la entrada</dt>
-  <dd>Introduzca el título de la entrada. Este campo es obligatorio.</dd>
-  
-  <dt>Extracto</dt>
-  <dd>El contenido de este campo se mostrará en las páginas que presentan las
-  listas de entradas, tales como la página principal o las páginas de
-  categorías, seguido de un enlace «Seguir leyendo». También aparecerá al
-  principio de la entrada al mostrar la entrada sola. Si no rellena este campo,
-  en la página principal se mostrará el campo <em>Contenido</em> íntegramente.</dd>
-  
-  <dt>Contenido</dt>
-  <dd>El contenido de la entrada. Este campo es obligatorio.</dd>
-  
-  <dt>Notas</dt>
-  <dd>Esta zona de texto sirve para tomar notas o dejar recordatorios.
-  Nunca se muestra en el blog.</dd>
-  
-  <dt>Categoría</dt>
-  <dd>Le permite elegir el estado de su entrada:
-    <ul>
-      <li><strong>Pendiente:</strong> El estado de publicación aún no se ha decidido.</li>
-      <li><strong>Programado:</strong> El puesto se pondrá en línea en la fecha y hora establecidas en el campo <strong>Publicado en</strong> .</li>
-      <li><strong>No publicado:</strong> El puesto está desconectado.</li>
-      <li><strong>Publicado:</strong> El puesto está en línea.</li>
-    </ul>
-  </dd>
-  
-  <dt>Estado de la entrada</dt>
-  <dd>Aquí puede cambiar la fecha y hora de publicación de la entrada. Si el estado de la entrada en
-  es <strong>Scheduled</strong>, estará en línea en la fecha y hora indicadas.</dd>
-
-  <dt>Publicado el</dt>
-  <dd>Permite modificar la fecha y hora de publicación de la entrada.
-  Si ha elegido el estado <em>planificado</em> se publicará en la fecha y hora
-  definidos en este campo.</dd>
-
-  <dt>Formato del texto</dt>
-  <dd>Permite elegir la sintaxis de la entrada. La de wiki es una sintaxis
-  simplificada y se convertirá en HTML válido; salvo que domine perfectamente
-  el HTML se aconseja esta elección. Consulte la referencia de la sintaxis wiki
-  para más información.</dd>
-
-  <dt>Aceptar comentarios</dt>
-  <dd>Marque o desmarque la casilla según desee permitir o prohibir los
+  <h4>Editar una entrada</h4>
+  <dl>
+    <dt>Título de la entrada</dt>
+    <dd>Introduzca el título de la entrada. Este campo es obligatorio.</dd>
+    <dt>Extracto</dt>
+    <dd>The content of this field will be shown in pages showing entries as a list, such as the homepage or categories pages, followed by a "continue reading" link. It will also be visible at the beginning of the page showing the whole post. Should you leave it blank, the <em>content</em> field will be shown entirely on the homepage and other entry list pages.</dd>
+    <dt>Contenido</dt>
+    <dd>El contenido de la entrada. Este campo es obligatorio.</dd>
+    <dt>Notas</dt>
+    <dd>This text area is for personal use, for notes or memos. What you enter here will never be displayed on the blog.</dd>
+    <dt>Categoría</dt>
+    <dd>Le permite elegir el estado de su entrada:
+      <ul>
+        <li><strong>Pendiente:</strong> El estado de publicación aún no se ha decidido.</li>
+        <li><strong>Programado:</strong> El puesto se pondrá en línea en la fecha y hora establecidas en el campo <strong>Publicado en</strong> .</li>
+        <li><strong>No publicado:</strong> El puesto está desconectado.</li>
+        <li><strong>Publicado:</strong> El puesto está en línea.</li>
+      </ul>
+    </dd>
+    <dt>Estado de la entrada</dt>
+    <dd>Here you can change the entry's publication date and time. If the entry's status is <strong>Scheduled</strong>, it will be online at the given date and time.</dd>
+    <dt>Publicado el</dt>
+    <dd>Select the language code of your entry. It defaults to your (as a user) language but you can change it to whatever language code you want, e.g. "en" or "es-ar". This code is used for the entry's display.</dd>
+    <dt>Formato del texto</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Aceptar comentarios</dt>
+    <dd>Marque o desmarque la casilla según desee permitir o prohibir los
   comentarios sobre esta entrada en concreto. La opción para autorizar
   o no de forma general los comentarios se encuentra en el menú
   Preferencias del blog.</dd>
-
-  <dt>Aceptar retroenlaces</dt>
-  <dd>Un retroenlace permite apuntar a una entrada en los comentarios de otro blog.
-  Marque o desmarque esta casilla según desee permitir o prohibir los retroenlaces
-  a esta entrada. La opción para autorizar o no de forma general los retroenlaces
-  se encuentra en el menú Preferencias del blog.</dd>
-
-  <dt>Entrada seleccionada</dt>
-  <dd>Las entradas marcadas como seleccionadas aparecerán en el menú de su blog,
+    <dt>Aceptar retroenlaces</dt>
+    <dd>Your entry's category. To create a new category, please see the <strong>Categories</strong> section. You can choose to leave you entry without a category by selecting the <em>(none)</em> item.</dd>
+    <dt>Entrada seleccionada</dt>
+    <dd>Las entradas marcadas como seleccionadas aparecerán en el menú de su blog,
   bajo el título «Destacados».</dd>
-  
-  <dt>Contraseña de la entrada</dt>
-  <dd>Permite introducir una contraseña a una entrada del blog.
+    <dt>Contraseña de la entrada</dt>
+    <dd>Permite introducir una contraseña a una entrada del blog.
   Una entrada protegida por contraseña no será visible en ninguna parte del blog,
   sólo podrán llegar hasta ella aquéllos a los que les dé el URL de entrada
   (vea el enlace <em>ver la entrada</em>) y la contraseña.</dd>
-
-  <dt>Nombre base</dt>
-  <dd>Los archivos adjuntos son archivos multimedia que se añaden a la entrada. Puede utilizar el botón <strong>Añadir archivos a esta entrada</strong> para seleccionar los archivos multimedia que desea añadir a la entrada.<br>
-    Esta opción aparecerá después de guardar la entrada.<br>
-    Consulta la ayuda del Gestor multimedia para obtener más información.</dd>
-
-  <dt>Idioma de la entrada</dt>
-  <dd>Código de idioma de su entrada. Por omisión, se trata del código de su idioma.
+    <dt>Nombre base</dt>
+    <dd>Attachments are media files added to the entry. You can use the <strong>Add files to this entry</strong> button to select media files to add to the entry.<br>This option will appear after you save your entry.<br>Please check the Media manager help for more information.</dd>
+    <dt>Idioma de la entrada</dt>
+    <dd>Código de idioma de su entrada. Por omisión, se trata del código de su idioma.
   Puede cambirlo por el código de otro idioma, por ejemplo «en», «ca». Este código
   es libre, se usará al mostrar las entradas.</dd>
-
-  <dt>Adjuntos</dt>
-  <dd>Los adjuntos son los elementos multimedia anexos a la entrada.
-  El enlace de agregar un adjunto permite elegir un fichero a añadir
-  a la entrada. Recuerde guardar su entrada antes de pulsar este enlace.
-  Consulte la ayuda del gestor de elementos multimedia para más detalles.</dd>
-  
-  <dt>Contraseña</dt>
-  <dd>Puedes introducir una contraseña para tu entrada. Una entrada protegida por contraseña
-  no se mostrará en tu blog, sólo será accesible para aquellos a los que
-  des la URL de la entrada (ver el enlace <strong>ver entrada</strong> ) y la contraseña.</dd>
-
-  <dt>Nombre base</dt>
-  <dd>Puede desproteger este campo haciendo clic en el pequeño candado a su derecha y elegir otra URL para su entrada. Si la URL que intenta utilizar ya está siendo utilizada por otra entrada, se le añadirá un número.</dd>  
-  
-</dl>
-
-<h4>Comentarios</h4>
-<dl>
-  <dt>Lista de comentarios</dt>
-  <dd>En la solapa <em>Comentarios</em> puede leer y cambiar el estado
-  de los comentarios de su entrada. Según sus permisos, puede modificarlos,
-  publicarlos o no publicarlos, borrarlos o clasificarlos como spam.</dd>
-  
-  <dt>Añadir un comentario</dt>
-  <dd>Desde la solapa <em>Añadir un comentario</em> puede responder 
+    <dt>Adjuntos</dt>
+    <dd>A trackback is a way to let a portion of your entry as a comment on another blog. Check this box to allow others to trackback your entry. The corresponding global setting is to be found in the blog settings.</dd>
+    <dt>Contraseña</dt>
+    <dd>You can enter a password for your entry. A password protected entry will not be displayed on your blog, it will only be accessible to those you will give the entry URL to (see the <strong>view entry</strong> link) and password.</dd>
+    <dt>Nombre base</dt>
+    <dd>Puede desproteger este campo haciendo clic en el pequeño candado a su derecha y elegir otra URL para su entrada. Si la URL que intenta utilizar ya está siendo utilizada por otra entrada, se le añadirá un número.</dd>
+  </dl>
+  <h4>Comentarios</h4>
+  <dl>
+    <dt>Lista de comentarios</dt>
+    <dd>On the <strong>Comments</strong> tab, you can read and change the status of
+      your entry's comments (and trackbacks). If you're allowed to by the blog administrator, you will be able to set your comments (and trackbacks) online or offline, to delete them or to mark them as junk.</dd>
+    <dt>Añadir un comentario</dt>
+    <dd>Desde la solapa <em>Añadir un comentario</em> puede responder 
   directamente a un comentario sin pasar por su blog. Esta interfaz le permite
   también escribir su comentario en HTML, sin limitaciones. Debe rellenar
   los campos de la misma manera que al modificar un comentario.</dd>
-</dl>
-  
-<h4>Añadir un comentario</h4>
-<dl>
-  <dt>URL a las que hacer ping</dt>
-  <dd>Indique aquíe el o los URL de los retroenlaces que haya encontrado en las
+  </dl>
+  <h4>Añadir un comentario</h4>
+  <dl>
+    <dt>URL a las que hacer ping</dt>
+    <dd>Indique aquíe el o los URL de los retroenlaces que haya encontrado en las
   entradas a las que desee hacer ping.</dd>
-
-  <dt>Enviar el extracto</dt>
-  <dd>Por omisión, este campo son las primeras frases de su estrada. Esto es lo que
+    <dt>Enviar el extracto</dt>
+    <dd>Por omisión, este campo son las primeras frases de su estrada. Esto es lo que
   se enviará al blog al que haga el retroenlace con un enlace a su entrada completa.
   Puede modificar el contenido del extracto editando este campo.</dd>
-
-  <dt>Descubrimiento automático de URL a las que hacer ping</dt>
-  <dd>Si su entrada incluye enlaces a entradas concretas y si la plataforma del
+    <dt>Descubrimiento automático de URL a las que hacer ping</dt>
+    <dd>Si su entrada incluye enlaces a entradas concretas y si la plataforma del
   blog destinatario está configurada para permitirlo, esta función descubrirá
   automáticamente los URL específicos de envío de retroenlaces.</dd>
-
-  <dt>Comentario</dt>
-  <dd>Contenido del comentario. Este campo utiliza sintaxis HTML.</dd>
-</dl>
-
+    <dt>Comentario</dt>
+    <dd>Contenido del comentario. Este campo utiliza sintaxis HTML.</dd>
+  </dl>
 </body>
+
 </html>

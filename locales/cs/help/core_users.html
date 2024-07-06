@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Uživatelé</title>
-  </head>
-  <body>
-    <p>Tato stránka obsahuje seznam všech uživatelů systému.</p>
-    <p>Chcete-li přidat (nebo upravit) oprávnění uživatelů, bude vaše heslo vyžadováno v poli <strong>Vaše heslo</strong>.</p>
 
-    <h4>Filtr seznamu uživatelů</h4>
-    <dl>
-      <dt>Hledat</dt>
-      <dd>Hledání je založeno na uživatelském ID. Zástupný znak <strong>*</strong> může být použit pouze pro vyhledání části uživatelského ID.</dd>
+<head>
+  <title>Uživatelé</title>
+</head>
 
-      <dt>Řadit podle</dt>
-      <dd>Seznam uživatelů lze seřadit podle jejich <em>ID</em>, jejich <em>Příjmení</em>, jejich <em>Křestního jména</em>, jejich <em>Zobrazovaného jména</em> (přezdívky) nebo <em>počtu záznamů</em> , které vytvořili.</dd>
+<body>
+  <p>Tato stránka obsahuje seznam všech uživatelů systému.</p>
+  <p>Chcete-li přidat (nebo upravit) oprávnění uživatelů, bude vaše heslo vyžadováno v poli <strong>Vaše heslo</strong>.</p>
+  <h4>Filtr seznamu uživatelů</h4>
+  <dl>
+    <dt>Hledat</dt>
+    <dd>Hledání je založeno na uživatelském ID. Zástupný znak <strong>*</strong> může být použit pouze pro vyhledání části uživatelského ID.</dd>
+    <dt>Řadit podle</dt>
+    <dd>Seznam uživatelů lze seřadit podle jejich <em>ID</em>, jejich <em>Příjmení</em>, jejich <em>Křestního jména</em>, jejich <em>Zobrazovaného jména</em> (přezdívky) nebo <em>počtu záznamů</em> , které vytvořili.</dd>
+    <dt>Seřadit</dt>
+    <dd>Označuje způsob třídění, který bude použit v seznamu výsledků (<em>vzestupně</em> nebo <em>sestupně</em>.</dd>
+    <dt>Uživatelé na stránku</dt>
+    <dd>Nastaví počet uživatelů zobrazených na každé stránce seznamu výsledků.</dd>
+  </dl>
+  <h4>Dávkové akce uživatelů</h4>
+  <p>Je možné provést hromadné akce na více uživatelů najednou.</p>
+  <ul>
+    <li><strong>Nastavte oprávnění:</strong> Nastavte oprávnění pro jeden nebo více blogů.</li>
+    <li><strong>Smazat:</strong> Odstraňte vybrané uživatele ze systému. Uživatel, který vytvořil záznamy, nelze odstranit.</li>
+  </ul>
+  <p>Pokud se rozhodnete nastavit oprávnění uživatelů, budete přesměrováni na novou stránku se seznamem blogů dostupných ve vašem systému. Zkontrolujte blogy, na kterých chcete nastavit oprávnění, a stiskněte <strong>Nastavit oprávnění</strong>.</p>
+  <h4>Oprávnění uživatelů</h4>
+  <p>Pro každý blog, můžete nastavit následující oprávnění:</p>
+  <ul>
+    <li><strong>Administrátor:</strong> Může spravovat blog úplně.</li>
+    <li><strong>Spravovat vlastní položky a komentáře:</strong> Uživatel může vytvářet položky a spravovat komentáře k položkám, které vytvořil.</li>
+    <li><strong>Publikujte záznamy a komentáře:</strong> Uživatel může změnit stav zveřejnění vlastních položek a komentářů svých záznamů.</li>
+    <li><strong>Odstranit položky a komentáře:</strong> Uživatel může smazat své vlastní položky a také komentáře svých položek.</li>
+    <li><strong>Správa všech položek a komentářů:</strong> Uživatel může spravovat všechny položky tohoto blogu, bez ohledu na to, zda je autor nebo ne.</li>
+    <li><strong>Správa kategorií:</strong> Uživatel může vytvářet, upravovat a mazat kategorie.</li>
+    <li><strong>Spravovat vlastní mediální položky:</strong> Uživatel může přidávat mediální položky a upravovat nebo mazat vlastní média.</li>
+    <li><strong>Správa všech mediálních položek:</strong> Uživatel může spravovat mediální položky od každého uživatele.</li>
+    <li><strong>Spravovat stránky:</strong> Uživatel může přidávat a upravovat stránky.</li>
+    <li><strong>Spravovat blogrol:</strong> Uživatel může spravovat blogroll aktuálního blogu.</li>
+  </ul>
+  <p>Stav <strong>Super administrátor</strong> je nastaven v uživatelském profilu.</p>
+</body>
 
-      <dt>Seřadit</dt>
-      <dd>Označuje způsob třídění, který bude použit v seznamu výsledků (<em>vzestupně</em> nebo <em>sestupně</em>.</dd>
-
-      <dt>Uživatelé na stránku</dt>
-      <dd>Nastaví počet uživatelů zobrazených na každé stránce seznamu výsledků.</dd>
-    </dl>
-
-    <h4>Dávkové akce uživatelů</h4>
-    <p>Je možné provést hromadné akce na více uživatelů najednou.</p>
-    <ul>
-      <li><strong>Nastavte oprávnění:</strong> Nastavte oprávnění pro jeden nebo více blogů.</li>
-      <li><strong>Smazat:</strong> Odstraňte vybrané uživatele ze systému. Uživatel, který vytvořil záznamy, nelze odstranit.</li>
-    </ul>
-    <p>Pokud se rozhodnete nastavit oprávnění uživatelů, budete přesměrováni na novou stránku se seznamem blogů dostupných ve vašem systému. Zkontrolujte blogy, na kterých chcete nastavit oprávnění, a stiskněte <strong>Nastavit oprávnění</strong>.</p>
-
-    <h4>Oprávnění uživatelů</h4>
-    <p>Pro každý blog, můžete nastavit následující oprávnění:</p>
-    <ul>
-      <li><strong>Administrátor:</strong> Může spravovat blog úplně.</li>
-      <li><strong>Spravovat vlastní položky a komentáře:</strong> Uživatel může vytvářet položky a spravovat komentáře k položkám, které vytvořil.</li>
-      <li><strong>Publikujte záznamy a komentáře:</strong> Uživatel může změnit stav zveřejnění vlastních položek a komentářů svých záznamů.</li>
-      <li><strong>Odstranit položky a komentáře:</strong> Uživatel může smazat své vlastní položky a také komentáře svých položek.</li>
-      <li><strong>Správa všech položek a komentářů:</strong> Uživatel může spravovat všechny položky tohoto blogu, bez ohledu na to, zda je autor nebo ne.</li>
-      <li><strong>Správa kategorií:</strong> Uživatel může vytvářet, upravovat a mazat kategorie.</li>
-      <li><strong>Spravovat vlastní mediální položky:</strong> Uživatel může přidávat mediální položky a upravovat nebo mazat vlastní média.</li>
-      <li><strong>Správa všech mediálních položek:</strong> Uživatel může spravovat mediální položky od každého uživatele.</li>
-      <li><strong>Spravovat stránky:</strong> Uživatel může přidávat a upravovat stránky.</li>
-      <li><strong>Spravovat blogrol:</strong> Uživatel může spravovat blogroll aktuálního blogu.</li>
-    </ul>
-    <p>Stav <strong>Super administrátor</strong> je nastaven v uživatelském profilu.</p>
-  </body>
 </html>

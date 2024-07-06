@@ -1,135 +1,87 @@
 <html>
+
 <head>
   <title>Minu eelistused</title>
 </head>
 
 <body>
-
-<h4>Minu profiil</h4>
-<dl>
-  <dt>Perekonnanimi, Eesnimi</dt>
-  <dd>Kui kuvatav nimi on tühi, kuvatakse autori nimi
-  tema ees- ja perekonnanimena, nagu siin on määratud.</dd>
-  
-  <dt>Kuva nimi</dt>
-  <dd>Siin saate valida hüüdnime, mis kuvatakse teie postitustes teie perekonna- ja eesnime asemel 
-  .</dd>
-  
-  <dt>E-post</dt>
-  <dd>E-posti aadress, mida kasutatakse uue salasõna taotlemisel.<br>
-    Sellele aadressile saadetakse ka uute kommentaaride teated<em>(kui te uuendate seda välja
-  , peate sisestama oma praeguse parooli vastavasse lahtrisse 
-  vormi allosas)</em>.</dd>
-  
-  <dt>URL</dt>
-  <dd>Kasutaja veebisait. Kui see on määratud, kuvatakse autori nimi
-  lingina nimetatud veebisaidile.</dd>
-  
-  <dt>Minu kasutajaliidese keel</dt>
-  <dd>Kirjete avaldamisel kasutatav keel. Kui tõlge on saadaval, siis kuvatakse
-  kasutajaliides ka selles keeles.</dd>
-  
-  <dt>Minu ajavöönd</dt>
-  <dd>See valik määrab postituse avaldamisel kuvatava aja.</dd>
-  
-  <dt>Muuda oma salasõna</dt>
-  <dd>Parooli muutmiseks kirjutage kaks korda oma parool väljadele 
-  <em>Uus parool</em> ja <em>Parooli kinnitamine</em>. Minimaalne salasõna 
-  pikkus on 6 märki. Kui uut salasõna ei ole sisestatud, jääb praegune salasõna alles.
-  <em>(Kui te uuendate seda välja, peate sisestama oma praeguse salasõna
-  vormi allosas asuvasse vastavasse väljasse)</em>.</dd>
-</dl>
-
-
-<h4>Minu võimalused</h4>
-<h5>Kasutajaliides</h5>
-<dl>  
-  <dt>Aktiveerige täiustatud üleslaadimisfunktsioon meediahalduris</dt>
-  <dd>Võimaldab aktiveerida meediahalduri täiustatud kasutajaliidese, mis võimaldab 
-  laadida üles mitu faili korraga (Märkus: teie veebilehitseja peab toetama Javascript'i 
-  , et seda funktsiooni kasutada).</dd>
-
-  <dt>Lülita Javascriptiga toimuva lohistamise ja loovutamise võimalus esemete tellimiseks välja</dt>
-  <dd>Võimaldab keelata "lohistamise ja langetamise" objektide tellimiseks. Drag and drop asendatakse 
-  numbriliste väljadega, mis võimaldavad teil sisestada väljade positsiooni asemel.</dd>
-
-  <dt>Meediahalduris lehe kohta kuvatavate elementide arv</dt>
-  <dd>Määrab meediakanalis kuvatavate meediakanalite arvu (kaustu
-  ei võeta elementide lugemisel arvesse).</dd>
-  
-  <dt>Ärge kasutage standardset favicon'i</dt>
-  <dd>Võimaldab keelata veebibrauseri aadressiriba vaikimisi favikooni.</dd>
-</dl>
-
-<h5>Väljaanne</h5>
-<dl>    
-  <dt>Eelistatud vorming</dt>
-  <dd>Valige kirje süntaks. Wiki on lihtsustatud süntaks
-  ja see teisendatakse kehtivaks HTML-ks. Kui te ei mõista HTML-i perfektselt
-  , soovitame valida Wiki süntaks.
-  Lisateavet leiate Wiki süntaksi viitedest.</dd>
-  
-  <dt>Vaikimisi sissekande staatus</dt>
-  <dd>Uute kirjete vaikimisi olekuks saab määrata:
-    <ul>
-      <li><strong>Ootel:</strong> Avaldamise staatus ei ole veel otsustatud.</li>
-      <li><strong>Planeeritud:</strong> Väljal <strong>Avaldatud on</strong> esitatud kuupäeval ja kellaajal.</li>
-      <li><strong>Avaldamata:</strong> Offline kanne.</li>
-      <li><strong>Avaldatud:</strong> Online kanne.</li>
-    </ul>
-  </dd>
-  
-  <dt>Sissekande redigeerimisvälja kõrgus</dt>
-  <dd>Määrab kirjete välja kõrgust. Vaikimisi on selle parameetri väärtuseks 24.</dd>
-  
-  <dt>WYSIWYG-režiimi sisselülitamine</dt>
-  <dd>Võimaldab visuaalse redaktori (WYSIWYG: What You See Is What You Get) kasutamist kirjete, lehekülgede ja kategooriate kirjeldusväljade jaoks.</dd>
-</dl>
-
-<h5>Muud võimalused</h5>
-<dl>
-  <dt>Märksõnade loetelu formaat</dt>
-  <dd>Saate valida, kas soovite kande redigeerimisel näha kõiki kasutatud sildid<strong>(laiendatud</strong>) või ainult kõige rohkem kasutatud sildid<strong>(lühike</strong>).</dd>
-
-  <dt>Süntaksi esiletõstmine teema redaktoris</dt>
-  <dd>Võimaldab süntaksi esiletõstmise teema redaktori kasutamisel (HTML- ja CSS-failid).</dd>     
-</dl>
-
-
-<h4>Minu armatuurlaud</h4>
-<dl>
-  <dt>Minu lemmikud</dt>
-  <dd>See tsoon kuvab valitud lemmikud blogi armatuurlaual. 
-  Neid saab hiirega ümber järjestada, kui Javascript on teie brauseris aktiveeritud. 
-  Vastasel juhul võimaldab väli anda neile järjekorranumbri. Kui olete lõpetanud, ärge unustage oma muudatused salvestada, vajutades <strong>Save order</strong>.<br>
-  Te võite ka kustutada lemmikuid, valides need ja vajutades <strong>Delete selected favorites (Kustuta valitud lemmikud</strong>).</dd>
-  
-  <dt>Määrata vaikimisi lemmikuteks (superadministraator)</dt> 
-  <dd>Võimaldab määrata hetkel määratud lemmikute nimekirja vaikimisi lemmikute nimekirjaks kõigile kasutajatele. Seda nimekirja pakutakse kasutajatele, kui nad ei ole veel oma lemmikuid määratlenud.</dd>
-
-  <dt>Muud saadaval olevad lemmikud</dt>
-  <dd>Siin kuvatakse kõik pluginad, mida saab panna lemmikuteks. Märkige vastavad kastid ja lisage need armatuurlauale, vajutades <strong>Add tp my favorites</strong>.</dd>
-
-  <dt>Näita lemmikuid menüü ülaosas</dt>
-  <dd>Kui see on lubatud, kuvab lemmikud menüü ülaosas.</dd>
-
-  <dt>Armatuurlaua moodulid</dt>
-  <dd>Selles tsoonis tehtud valikud kajastuvad teie blogi armatuurlaual.</dd>
-  
-  <dt>Dokumentatsiooni linkide kuvamine</dt>
-  <dd>Lubage kuvada dokumentatsiooni lingid armatuurlaual.</dd>
-  
-  <dt>Näita Dotcleari uudiseid</dt>
-  <dd>Lubage Dotcleari uudiste kuvamine armatuurlaual maandumislehel.</dd>
-
-  <dt>Kuva kiire sisestamise vorm</dt>
-  <dd>Võimaldage kuvada "kiire sisestamise" vorm armatuurlaua maandumislehel.</dd>
-
-  <dt>Näita viivisülesannete loendurit hoolduse armatuurlaual ikoonil</dt>
-  <dd>Võimaldab kuvada <strong>hoolduse</strong> ikooni all viivitatud (st töödeldavate) ülesannete arvu. Selle funktsiooni kasutamiseks peab <strong>hoolduse</strong> ikoon olema seatud teie lemmikute hulka.</dd>
-
-  <dt>Näita armatuurlaual üle tähtaja ületanud ülesannete nimekirja elementide kohta</dt>
-  <dd>Võimaldage kuvada viivisülesannete (st töödeldavate ülesannete) loetelu spetsiaalses jaotises armatuurlaual.</dd>
-</dl>
+  <h4>Minu profiil</h4>
+  <dl>
+    <dt>Perekonnanimi, Eesnimi</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Kuva nimi</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>E-post</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Minu kasutajaliidese keel</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Minu ajavöönd</dt>
+    <dd>See valik määrab postituse avaldamisel kuvatava aja.</dd>
+    <dt>Muuda oma salasõna</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Minu võimalused</h4>
+  <h5>Kasutajaliides</h5>
+  <dl>
+    <dt>Aktiveerige täiustatud üleslaadimisfunktsioon meediahalduris</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Lülita Javascriptiga toimuva lohistamise ja loovutamise võimalus esemete tellimiseks välja</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Meediahalduris lehe kohta kuvatavate elementide arv</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Ärge kasutage standardset favicon'i</dt>
+    <dd>Võimaldab keelata veebibrauseri aadressiriba vaikimisi favikooni.</dd>
+  </dl>
+  <h5>Väljaanne</h5>
+  <dl>
+    <dt>Eelistatud vorming</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Vaikimisi sissekande staatus</dt>
+    <dd>Uute kirjete vaikimisi olekuks saab määrata:
+      <ul>
+        <li><strong>Ootel:</strong> Avaldamise staatus ei ole veel otsustatud.</li>
+        <li><strong>Planeeritud:</strong> Väljal <strong>Avaldatud on</strong> esitatud kuupäeval ja kellaajal.</li>
+        <li><strong>Avaldamata:</strong> Offline kanne.</li>
+        <li><strong>Avaldatud:</strong> Online kanne.</li>
+      </ul>
+    </dd>
+    <dt>Sissekande redigeerimisvälja kõrgus</dt>
+    <dd>Määrab kirjete välja kõrgust. Vaikimisi on selle parameetri väärtuseks 24.</dd>
+    <dt>WYSIWYG-režiimi sisselülitamine</dt>
+    <dd>Võimaldab visuaalse redaktori (WYSIWYG: What You See Is What You Get) kasutamist kirjete, lehekülgede ja kategooriate kirjeldusväljade jaoks.</dd>
+  </dl>
+  <h5>Muud võimalused</h5>
+  <dl>
+    <dt>Märksõnade loetelu formaat</dt>
+    <dd>Saate valida, kas soovite kande redigeerimisel näha kõiki kasutatud sildid<strong>(laiendatud</strong>) või ainult kõige rohkem kasutatud sildid<strong>(lühike</strong>).</dd>
+    <dt>Süntaksi esiletõstmine teema redaktoris</dt>
+    <dd>Võimaldab süntaksi esiletõstmise teema redaktori kasutamisel (HTML- ja CSS-failid).</dd>
+  </dl>
+  <h4>Minu armatuurlaud</h4>
+  <dl>
+    <dt>Minu lemmikud</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Määrata vaikimisi lemmikuteks (superadministraator)</dt>
+    <dd>Võimaldab määrata hetkel määratud lemmikute nimekirja vaikimisi lemmikute nimekirjaks kõigile kasutajatele. Seda nimekirja pakutakse kasutajatele, kui nad ei ole veel oma lemmikuid määratlenud.</dd>
+    <dt>Muud saadaval olevad lemmikud</dt>
+    <dd>Siin kuvatakse kõik pluginad, mida saab panna lemmikuteks. Märkige vastavad kastid ja lisage need armatuurlauale, vajutades <strong>Add tp my favorites</strong>.</dd>
+    <dt>Näita lemmikuid menüü ülaosas</dt>
+    <dd>Kui see on lubatud, kuvab lemmikud menüü ülaosas.</dd>
+    <dt>Armatuurlaua moodulid</dt>
+    <dd>Selles tsoonis tehtud valikud kajastuvad teie blogi armatuurlaual.</dd>
+    <dt>Dokumentatsiooni linkide kuvamine</dt>
+    <dd>Lubage kuvada dokumentatsiooni lingid armatuurlaual.</dd>
+    <dt>Näita Dotcleari uudiseid</dt>
+    <dd>Lubage Dotcleari uudiste kuvamine armatuurlaual maandumislehel.</dd>
+    <dt>Kuva kiire sisestamise vorm</dt>
+    <dd>Võimaldage kuvada "kiire sisestamise" vorm armatuurlaua maandumislehel.</dd>
+    <dt>Näita viivisülesannete loendurit hoolduse armatuurlaual ikoonil</dt>
+    <dd>Võimaldab kuvada <strong>hoolduse</strong> ikooni all viivitatud (st töödeldavate) ülesannete arvu. Selle funktsiooni kasutamiseks peab <strong>hoolduse</strong> ikoon olema seatud teie lemmikute hulka.</dd>
+    <dt>Näita armatuurlaual üle tähtaja ületanud ülesannete nimekirja elementide kohta</dt>
+    <dd>Võimaldage kuvada viivisülesannete (st töödeldavate ülesannete) loetelu spetsiaalses jaotises armatuurlaual.</dd>
+  </dl>
 </body>
+
 </html>

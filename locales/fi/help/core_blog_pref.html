@@ -1,202 +1,148 @@
 <html>
+
 <head>
   <title>Blogin asetukset</title>
 </head>
 
 <body>
-<h4>Blogin tiedot</h4>
-<dl>
-  <dt>Blogin tunnus</dt>
-  <dd>Blogin yksilöllinen tunnus. Pakollinen, vain pääylläpitäjä voi muuttaa sitä.</dd>
-
-  <dt>Blogin nimi</dt>
-  <dd>Blogin nimi, pakollinen. Sitä voidaan muuttaa milloin tahansa ilman vaikutusta blogin toimintaan.</dd>
-
-  <dt>Blogin verkko-osoite:</dt>
-  <dd>Koko blogin URL-osoite. Pakollinen, vain pääylläpitäjä voi muuttaa sitä.</dd>
-
-  <dt>URL-skannausmenetelmä</dt>
-  <dd>Määrittää tavan, jolla URL-osoite luetaan. PATH_INFO on suositeltava, QUERY_STRING on käytettävä, jos PATH_INFO ei toimi. Käyttämällä PATH_INFO-tilaa blogin URL-osoitteen on päätyttävä "/" ja käyttämällä QUERY_STRING, sen on päätyttävä "?".</dd>
-
-  <dt>Blogin tila</dt>
-  <dd>
-    <ul>
-      <li><strong>Verkossa:</strong> Blogi avoinna vierailijoille.</li>
-      <li><strong>Offline:</strong> Blogi suljettu vierailijoilta, mutta avoinna kirjoittajille.</li>
-      <li><strong>Poistettu:</strong> Blogi suljettu sekä vierailijoilta että kirjoittajilta, avoinna vain superylläpitäjille.</li>
-    </ul>
-  </dd>
-
-  <dt>Blogin kuvaus</dt>
-  <dd>Tähän voit laittaa haluamasi kuvauksen blogistasi. Tämä on yksinkertaista tekstiä ilman mitään muotoiluja.</dd>
-</dl>
-
-<h4>Blogin kokoonpano</h4>
-<dl>
-  <dt>Blogin toimittajan nimi</dt>
-  <dd>Blogista vastaavan henkilön nimi. Se voi olla omistaja tai julkaisija, jos sellainen on. Tämä tieto näkyy blogin syötteessä.</dd>
-
-  <dt>Oletuskieli</dt>
-  <dd>Blogin käyttöliittymän kieli. Joko tämä kieli on käytettävissä olevien kielten joukossa, jolloin käyttöliittymä käännetään, tai se ei ole, jolloin käyttöliittymä on oletusarvoisesti englanninkielinen.</dd>
-
-  <dt>Blogin aikavyöhyke</dt>
-  <dd>Määrittää aikavyöhykkeen, jota käytetään kommenteissa ja trackbackeissa.</dd>
-
-  <dt>Tekijänoikeusilmoitus</dt>
-  <dd>Huomautus blogin kopiointioikeuksista.</dd>
-
-  <dt>Uusi viestin URL-muoto</dt>
-  <dd>Pudotusvalikko URL-muodon valitsemiseksi.</dd>
-
-  <dt>HTML-tunniste blogin muistiinpanojen otsikkoa varten</dt>
-  <dd>Pudotusvalikko HTML-tunnisteen valitsemiseksi.</dd>
-
-  <dt>XML/RPC-rajapinta</dt>
-  <dd>Mahdollistaa ulkoisten asiakkaiden vuorovaikutuksen blogisi kanssa XML/RPC-protokollan kautta. Aktivoinnin jälkeen näytetään tarvittavat parametrit, jotka on asetettava ulkoisissa asiakkaissasi.</dd>
-</dl>
-
-<h4>Kommentit ja trackbackit</h4>
-<dl>
-  <dt>Hyväksy kommentit</dt>
-  <dd>Hyväksyy maailmanlaajuisesti kommentteja blogissa. On etusijalla postauskohtaiseen asetukseen nähden.</dd>
-
-  <dt>Kohtalaiset kommentit</dt>
-  <dd>Tällä vaihtoehdolla kommentit julkaistaan vasta, kun toimittaja on antanut siihen suostumuksensa.</dd>
-
-  <dt>Jätä kommentit auki X päiväksi</dt>
-  <dd>Niiden päivien lukumäärä, joiden ajan kommentit ovat avoinna postin julkaisemisen jälkeen. Kun arvo on tyhjä, kommentit pysyvät auki loputtomiin.</dd>
-
-  <dt>Wikisyntaksi kommentteja varten</dt>
-  <dd>Sallii wikisyntaksin osajoukon käytön kommenteissa.</dd>
-
-  <dt>Hyväksy trackbackit</dt>
-  <dd>Globaalisti hyväksyy trackbackit blogissa. On etusijalla postauskohtaiseen asetukseen nähden.</dd>
-
-  <dt>Kohtalainen trackbacks</dt>
-  <dd>Tällä vaihtoehdolla trackbackit julkaistaan vasta toimittajan suostumuksella.</dd>
-
-  <dt>Jätä trackbackit auki X päivää</dt>
-  <dd>Päivien lukumäärä, jonka ajan trackbackit ovat auki postauksen julkaisun jälkeen. Kun arvo on tyhjä, trackbackit pidetään auki loputtomiin.</dd>
-
-  <dt>Lisää "nofollow"-suhde kommentteihin ja trackback-linkkeihin.</dt>
-  <dd>Lisää kommenttien ja trackbackien linkkeihin attribuutin, joka neuvoo hakurobotteja olemaan seuraamatta niitä. Tämä roskapostin torjuntaominaisuus ei ole vielä osoittanut arvoaan.</dd>
-</dl>
-
-<h4>Blogin esittely</h4>
-<dl>
-  <dt>Päivämäärän muoto</dt>
-  <dd>Määrittää blogikirjoitusten päivämäärämuodon. Katso lisätietoja alla olevasta "Muotoiluviite"-osiosta. Voit käyttää pudotusluetteloa valitaksesi nopeasti valmiiksi olemassa olevan mallin.</dd>
-
-  <dt>Aikaformaatti</dt>
-  <dd>Määrittää blogikirjoitusten aikamuodon. Katso lisätietoja alla olevasta "Muotoiluviite"-osiosta. Voit käyttää pudotusluetteloa valitaksesi nopeasti valmiiksi olemassa olevan mallin.</dd>
-
-  <dt>Näytä hymiöt merkinnöissä ja kommenteissa</dt>
-  <dd>Muuttaa joitakin merkkijonoja, kuten :-) tai ;-), kuviksi.</dd>
-
-  <dt>Näytä X merkintää per sivu</dt>
-  <dd>Näyttää X merkintää blogin pääsivulla sekä eri kategorioissa.</dd>
-
-  <dt>Näytä X merkintää per rehu</dt>
-  <dd>Näyttää X merkintää blogin syötteissä.</dd>
-
-  <dt>Näytä X kommenttia per rehu</dt>
-  <dd>Näyttää X kommenttia blogin kommenttisyötteissä.</dd>
-
-  <dt>Katkaise syötteet</dt>
-  <dd>Tämä vaihtoehto tarjoaa vain tiivistelmän syötteissä olevista blogikirjoituksista.</dd>
-
-  <dt>Käytä aliluokkia luokkasivulla ja luokkamerkintöjen syötteessä</dt>
-  <dd>Kun tämä vaihtoehto on aktivoitu, alaluokkien viestit näkyvät sekä vanhempien luokkien sivuilla että niiden syötteissä.</dd>
-</dl>
-
-<h4>Media ja kuvat</h4>
-<dl>
-  <dt>Generoidun kuvan koko (pikseleinä)</dt>
-  <dd>Kun lisäät kuvan medianhallinnassa, muut koot luodaan automaattisesti. Tässä voit määrittää kunkin luodun kuvatyypin pisimmän koon (leveys tai korkeus). Jos jätät jonkin kentän tyhjäksi, medianhallinta ei luo vastaavaa pienoiskuvaa.</dd>
-
-  <dt>Kuvan oletusarvoinen lisäämisen attribuutit</dt>
-  <dd>Valittuja asetuksia sovelletaan kaikkiin uusiin kuviin, jotka on lisätty medianhallintaan.</dd>
-
-  <dt>Kuvan otsikko</dt>
-  <dd>Valitse kuviin käytettävien otsikkotunnisteiden muoto kuvien metatiedoista haettujen tietojen perusteella.</dd>
-
-  <dt>Käytä alkuperäistä mediapäivämäärää, jos mahdollista</dt>
-  <dd>Kun tämä vaihtoehto on aktivoitu, jos kuvan metatiedot sisältävät päivämäärän, sitä käytetään. Jos ei, käytetään latauspäivämäärää.</dd>
-
-  <dt>Lisätyn kuvan koko</dt>
-  <dd>Määrittää oletuskoon, jota käytetään, kun kuva lisätään blogikirjoitukseen.</dd>
-
-  <dt>Kuvan kohdistaminen</dt>
-  <dd>Määrittää oletuskohdistuksen, jota käytetään, kun kuva lisätään blogikirjoitukseen.</dd>
-
-  <dt>Lisää linkki alkuperäiseen kuvaan</dt>
-  <dd>Kun tämä vaihtoehto on aktivoitu, blogikirjoitukseen lisätyt kuvat ovat napsautettavissa ja viittaavat alkuperäisen kokoiseen kuvaan.</dd>
-
-</dl>
-
-<h4>Hakukoneiden robottipolitiikka</h4>
-<p>Tässä voit ilmoittaa, haluatko hakukoneiden indeksoivan ja/tai arkistoivan sivusi vai et. Valitse viimeinen vaihtoehto, jos et halua, että ihmiset löytävät blogisi web-hakukoneen avulla.</p>
-
-<h4>Antispam</h4>
-<p>Voit määrittää päivien määrän, jonka jälkeen haluat, että roskakommentit poistetaan automaattisesti. Jätä kenttä tyhjäksi (tai laita 0), jos haluat poistaa tämän ominaisuuden käytöstä.</p>
-
-<h4>Käyttäjät</h4>
-<p>Luettelee tämän blogin käyttäjät ja heidän oikeutensa.</p>
-
-<h3>Muotoiluviite</h3>
-<p>Jotkin kentät voidaan määrittää muotoilemaan päivämäärä ja kellonaika tarpeidesi mukaan.
-Tässä on viite:</p>
-
-<ul>
-  <li><strong>%a:</strong> Lyhennetty viikonpäivä (paikallinen).</li>
-  <li><strong>%A:</strong> Täydellinen viikonpäivä (paikallinen).</li>
-  <li><strong>%b:</strong> Lyhennetty kuukauden nimi (paikallinen).</li>
-  <li><strong>%B:</strong> Täydellinen kuukauden nimi (paikallinen).</li>
-  <li><strong>%c:</strong> Paikallisen päivämäärän ja kellonajan oletusnäyttö.</li>
-  <li><strong>%C:</strong> Century (vuosiluku jaettuna 100:lla ja
-  pyöristettynä 00:n ja 99:n välille).</li>
-  <li><strong>%d:</strong> Numeerinen kuukauden päivä (01-31).</li>
-  <li><strong>%D:</strong> Sama kuin %m/%d/%y.</li>
-  <li><strong>%e:</strong> Numeerinen kuukauden päivä (1-31).</li>
-  <li><strong>%g:</strong> Sama kuin %G, 2 numeroa.</li>
-  <li><strong>%G:</strong> Nelinumeroinen vuosiluku viikon numeron mukaan
-  (vrt. %V). Muotoilu ja arvo ovat samat kuin %Y, paitsi että jos
-  viikon numero kuuluu edelliseen tai seuraavaan vuoteen, käytetään sen sijaan kuluvaa vuotta
-  .</li>
-  <li><strong>%h:</strong> Sama kuin %b</li>
-  <li><strong>%H:</strong> Digitaalinen vuorokauden tunti, 24H-tila
-  (00-23).</li>
-  <li><strong>%I:</strong> Digitaalinen vuorokauden tunti, 12H-tila
-  (01-12).</li>
-  <li><strong>%j:</strong> Vuoden päivä, digitaalinen (001-366).</li>
-  <li><strong>%m:</strong> Kuukausi, digitaalinen (1 à 12)</li>
-  <li><strong>%M:</strong> Minuutti, digitaalinen</li>
-  <li><strong>%n:</strong> Rivinvaihtomerkki</li>
-  <li><strong>%p:</strong> Joko `am' tai `pm' absoluuttisen ajan mukaan,
-  tai paikallisten asetusten mukaan.</li>
-  <li><strong>%r:</strong> Tunti, aamu- ja iltapäivämuoto.</li>
-  <li><strong>%R:</strong> Tunti, 24h-muodossa</li>
-  <li><strong>%S:</strong> Sekunnit, digitaalinen</li>
-  <li><strong>%t:</strong> Tab-merkki</li>
-  <li><strong>%T:</strong> Nykyinen kellonaika (sama kuin %H:%M:%S).</li>
-  <li><strong>%u:</strong> Päiväviikko, numero, 1-7. (1 tarkoittaa maanantaita).</li>
-  <li><strong>%U:</strong> Viikon numero, vuoden ensimmäinen sunnuntai on
-  ensimmäisen viikon ensimmäinen päivä.</li>
-  <li><strong>%V:</strong> Viikkonumero sellaisena kuin se on määritelty ISO
-  8601:1988, digitaalinen, 01-53. Viikko 1 on kuluvan vuoden ensimmäinen viikko
-  , jolla on yli 4 päivää ja jonka ensimmäinen päivä on maanantai.
-  (Käytä %G tai %g vuosilukua, joka vastaa
-  viikon numeroa kyseisessä aikaleimassa).</li>
-  <li><strong>%W:</strong> Viikon numero vuonna, vuoden ensimmäinen maanantai
-  vuoden ensimmäinen maanantai on ensimmäisen viikon alku.</li>
-  <li><strong>%w:</strong> Viikonpäivä, digitaalinen, 0 tarkoittaa sunnuntaita.</li>
-  <li><strong>%x:</strong> Päivämäärän haluttu muoto ilman kellonaikaa.</li>
-  <li><strong>%X:</strong> Suositeltava aikamuoto ilman päivämäärää.</li>
-  <li><strong>%y:</strong> Vuosi, kaksinumeroinen (00-99).</li>
-  <li><strong>%Y:</strong> Nelinumeroinen vuosi</li>
-  <li><strong>%Z tai %z:</strong> Aikavyöhyke, nimi tai lyhenne.</li>
-  <li><strong>%%:</strong> Kirjaimellinen `%'-merkki</li>
-</ul>
-
+  <h4>Blogin tiedot</h4>
+  <dl>
+    <dt>Blogin tunnus</dt>
+    <dd>Blogin yksilöllinen tunnus. Pakollinen, vain pääylläpitäjä voi muuttaa sitä.</dd>
+    <dt>Blogin nimi</dt>
+    <dd>Blogin nimi, pakollinen. Sitä voidaan muuttaa milloin tahansa ilman vaikutusta blogin toimintaan.</dd>
+    <dt>Blogin verkko-osoite:</dt>
+    <dd>Koko blogin URL-osoite. Pakollinen, vain pääylläpitäjä voi muuttaa sitä.</dd>
+    <dt>URL-skannausmenetelmä</dt>
+    <dd>Määrittää tavan, jolla URL-osoite luetaan. PATH_INFO on suositeltava, QUERY_STRING on käytettävä, jos PATH_INFO ei toimi. Käyttämällä PATH_INFO-tilaa blogin URL-osoitteen on päätyttävä "/" ja käyttämällä QUERY_STRING, sen on päätyttävä "?".</dd>
+    <dt>Blogin tila</dt>
+    <dd>
+      <ul>
+        <li><strong>Verkossa:</strong> Blogi avoinna vierailijoille.</li>
+        <li><strong>Offline:</strong> Blogi suljettu vierailijoilta, mutta avoinna kirjoittajille.</li>
+        <li><strong>Poistettu:</strong> Blogi suljettu sekä vierailijoilta että kirjoittajilta, avoinna vain superylläpitäjille.</li>
+      </ul>
+    </dd>
+    <dt>Blogin kuvaus</dt>
+    <dd>Tähän voit laittaa haluamasi kuvauksen blogistasi. Tämä on yksinkertaista tekstiä ilman mitään muotoiluja.</dd>
+  </dl>
+  <h4>Blogin kokoonpano</h4>
+  <dl>
+    <dt>Blogin toimittajan nimi</dt>
+    <dd>Blogista vastaavan henkilön nimi. Se voi olla omistaja tai julkaisija, jos sellainen on. Tämä tieto näkyy blogin syötteessä.</dd>
+    <dt>Oletuskieli</dt>
+    <dd>Blogin käyttöliittymän kieli. Joko tämä kieli on käytettävissä olevien kielten joukossa, jolloin käyttöliittymä käännetään, tai se ei ole, jolloin käyttöliittymä on oletusarvoisesti englanninkielinen.</dd>
+    <dt>Blogin aikavyöhyke</dt>
+    <dd>Määrittää aikavyöhykkeen, jota käytetään kommenteissa ja trackbackeissa.</dd>
+    <dt>Tekijänoikeusilmoitus</dt>
+    <dd>Huomautus blogin kopiointioikeuksista.</dd>
+    <dt>Uusi viestin URL-muoto</dt>
+    <dd>Pudotusvalikko URL-muodon valitsemiseksi.</dd>
+    <dt>HTML-tunniste blogin muistiinpanojen otsikkoa varten</dt>
+    <dd>Pudotusvalikko HTML-tunnisteen valitsemiseksi.</dd>
+    <dt>XML/RPC-rajapinta</dt>
+    <dd>Mahdollistaa ulkoisten asiakkaiden vuorovaikutuksen blogisi kanssa XML/RPC-protokollan kautta. Aktivoinnin jälkeen näytetään tarvittavat parametrit, jotka on asetettava ulkoisissa asiakkaissasi.</dd>
+  </dl>
+  <h4>Kommentit ja trackbackit</h4>
+  <dl>
+    <dt>Hyväksy kommentit</dt>
+    <dd>Hyväksyy maailmanlaajuisesti kommentteja blogissa. On etusijalla postauskohtaiseen asetukseen nähden.</dd>
+    <dt>Kohtalaiset kommentit</dt>
+    <dd>Tällä vaihtoehdolla kommentit julkaistaan vasta, kun toimittaja on antanut siihen suostumuksensa.</dd>
+    <dt>Jätä kommentit auki X päiväksi</dt>
+    <dd>Niiden päivien lukumäärä, joiden ajan kommentit ovat avoinna postin julkaisemisen jälkeen. Kun arvo on tyhjä, kommentit pysyvät auki loputtomiin.</dd>
+    <dt>Wikisyntaksi kommentteja varten</dt>
+    <dd>Sallii wikisyntaksin osajoukon käytön kommenteissa.</dd>
+    <dt>Hyväksy trackbackit</dt>
+    <dd>Globaalisti hyväksyy trackbackit blogissa. On etusijalla postauskohtaiseen asetukseen nähden.</dd>
+    <dt>Kohtalainen trackbacks</dt>
+    <dd>Tällä vaihtoehdolla trackbackit julkaistaan vasta toimittajan suostumuksella.</dd>
+    <dt>Jätä trackbackit auki X päivää</dt>
+    <dd>Päivien lukumäärä, jonka ajan trackbackit ovat auki postauksen julkaisun jälkeen. Kun arvo on tyhjä, trackbackit pidetään auki loputtomiin.</dd>
+    <dt>Lisää "nofollow"-suhde kommentteihin ja trackback-linkkeihin.</dt>
+    <dd>Lisää kommenttien ja trackbackien linkkeihin attribuutin, joka neuvoo hakurobotteja olemaan seuraamatta niitä. Tämä roskapostin torjuntaominaisuus ei ole vielä osoittanut arvoaan.</dd>
+  </dl>
+  <h4>Blogin esittely</h4>
+  <dl>
+    <dt>Päivämäärän muoto</dt>
+    <dd>Määrittää blogikirjoitusten päivämäärämuodon. Katso lisätietoja alla olevasta "Muotoiluviite"-osiosta. Voit käyttää pudotusluetteloa valitaksesi nopeasti valmiiksi olemassa olevan mallin.</dd>
+    <dt>Aikaformaatti</dt>
+    <dd>Määrittää blogikirjoitusten aikamuodon. Katso lisätietoja alla olevasta "Muotoiluviite"-osiosta. Voit käyttää pudotusluetteloa valitaksesi nopeasti valmiiksi olemassa olevan mallin.</dd>
+    <dt>Näytä hymiöt merkinnöissä ja kommenteissa</dt>
+    <dd>Muuttaa joitakin merkkijonoja, kuten :-) tai ;-), kuviksi.</dd>
+    <dt>Näytä X merkintää per sivu</dt>
+    <dd>Näyttää X merkintää blogin pääsivulla sekä eri kategorioissa.</dd>
+    <dt>Näytä X merkintää per rehu</dt>
+    <dd>Näyttää X merkintää blogin syötteissä.</dd>
+    <dt>Näytä X kommenttia per rehu</dt>
+    <dd>Näyttää X kommenttia blogin kommenttisyötteissä.</dd>
+    <dt>Katkaise syötteet</dt>
+    <dd>Tämä vaihtoehto tarjoaa vain tiivistelmän syötteissä olevista blogikirjoituksista.</dd>
+    <dt>Käytä aliluokkia luokkasivulla ja luokkamerkintöjen syötteessä</dt>
+    <dd>Kun tämä vaihtoehto on aktivoitu, alaluokkien viestit näkyvät sekä vanhempien luokkien sivuilla että niiden syötteissä.</dd>
+  </dl>
+  <h4>Media ja kuvat</h4>
+  <dl>
+    <dt>Generoidun kuvan koko (pikseleinä)</dt>
+    <dd>Kun lisäät kuvan medianhallinnassa, muut koot luodaan automaattisesti. Tässä voit määrittää kunkin luodun kuvatyypin pisimmän koon (leveys tai korkeus). Jos jätät jonkin kentän tyhjäksi, medianhallinta ei luo vastaavaa pienoiskuvaa.</dd>
+    <dt>Kuvan oletusarvoinen lisäämisen attribuutit</dt>
+    <dd>Valittuja asetuksia sovelletaan kaikkiin uusiin kuviin, jotka on lisätty medianhallintaan.</dd>
+    <dt>Kuvan otsikko</dt>
+    <dd>Valitse kuviin käytettävien otsikkotunnisteiden muoto kuvien metatiedoista haettujen tietojen perusteella.</dd>
+    <dt>Käytä alkuperäistä mediapäivämäärää, jos mahdollista</dt>
+    <dd>Kun tämä vaihtoehto on aktivoitu, jos kuvan metatiedot sisältävät päivämäärän, sitä käytetään. Jos ei, käytetään latauspäivämäärää.</dd>
+    <dt>Lisätyn kuvan koko</dt>
+    <dd>Määrittää oletuskoon, jota käytetään, kun kuva lisätään blogikirjoitukseen.</dd>
+    <dt>Kuvan kohdistaminen</dt>
+    <dd>Määrittää oletuskohdistuksen, jota käytetään, kun kuva lisätään blogikirjoitukseen.</dd>
+    <dt>Lisää linkki alkuperäiseen kuvaan</dt>
+    <dd>Kun tämä vaihtoehto on aktivoitu, blogikirjoitukseen lisätyt kuvat ovat napsautettavissa ja viittaavat alkuperäisen kokoiseen kuvaan.</dd>
+  </dl>
+  <h4>Hakukoneiden robottipolitiikka</h4>
+  <p>Tässä voit ilmoittaa, haluatko hakukoneiden indeksoivan ja/tai arkistoivan sivusi vai et. Valitse viimeinen vaihtoehto, jos et halua, että ihmiset löytävät blogisi web-hakukoneen avulla.</p>
+  <h4>Antispam</h4>
+  <p>Voit määrittää päivien määrän, jonka jälkeen haluat, että roskakommentit poistetaan automaattisesti. Jätä kenttä tyhjäksi (tai laita 0), jos haluat poistaa tämän ominaisuuden käytöstä.</p>
+  <h4>Käyttäjät</h4>
+  <p>Luettelee tämän blogin käyttäjät ja heidän oikeutensa.</p>
+  <h3>Muotoiluviite</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a:</strong> Lyhennetty viikonpäivä (paikallinen).</li>
+    <li><strong>%A:</strong> Täydellinen viikonpäivä (paikallinen).</li>
+    <li><strong>%b:</strong> Lyhennetty kuukauden nimi (paikallinen).</li>
+    <li><strong>%B:</strong> Täydellinen kuukauden nimi (paikallinen).</li>
+    <li><strong>%c:</strong> Paikallisen päivämäärän ja kellonajan oletusnäyttö.</li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d:</strong> Numeerinen kuukauden päivä (01-31).</li>
+    <li><strong>%D:</strong> Sama kuin %m/%d/%y.</li>
+    <li><strong>%e:</strong> Numeerinen kuukauden päivä (1-31).</li>
+    <li><strong>%g:</strong> Sama kuin %G, 2 numeroa.</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h:</strong> Sama kuin %b</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j:</strong> Vuoden päivä, digitaalinen (001-366).</li>
+    <li><strong>%m:</strong> Kuukausi, digitaalinen (1 à 12)</li>
+    <li><strong>%M:</strong> Minuutti, digitaalinen</li>
+    <li><strong>%n:</strong> Rivinvaihtomerkki</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r:</strong> Tunti, aamu- ja iltapäivämuoto.</li>
+    <li><strong>%R:</strong> Tunti, 24h-muodossa</li>
+    <li><strong>%S:</strong> Sekunnit, digitaalinen</li>
+    <li><strong>%t:</strong> Tab-merkki</li>
+    <li><strong>%T:</strong> Nykyinen kellonaika (sama kuin %H:%M:%S).</li>
+    <li><strong>%u:</strong> Päiväviikko, numero, 1-7. (1 tarkoittaa maanantaita).</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w:</strong> Viikonpäivä, digitaalinen, 0 tarkoittaa sunnuntaita.</li>
+    <li><strong>%x:</strong> Päivämäärän haluttu muoto ilman kellonaikaa.</li>
+    <li><strong>%X:</strong> Suositeltava aikamuoto ilman päivämäärää.</li>
+    <li><strong>%y:</strong> Vuosi, kaksinumeroinen (00-99).</li>
+    <li><strong>%Y:</strong> Nelinumeroinen vuosi</li>
+    <li><strong>%Z tai %z:</strong> Aikavyöhyke, nimi tai lyhenne.</li>
+    <li><strong>%%:</strong> Kirjaimellinen `%'-merkki</li>
+  </ul>
 </body>
+
 </html>

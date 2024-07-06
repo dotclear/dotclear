@@ -1,88 +1,64 @@
 <html>
-  <head>
-    <title>媒体管理中心</title>
-  </head>
-  <body>
-    <h4>媒体名单</h4>
-    <p>媒体管理中心的主页显示所选博客的一个可获取文件(媒体)的列表。</p>
 
-    <p>您可以点击文件夹中媒体的图标或者名称，或是任何子文件夹来显示它们。</p>
+<head>
+  <title>媒体管理中心</title>
+</head>
 
-    <p>选择一个 MP3 音乐文件将显示一个播放器立即播放这个文件。您的浏览器必须安装 Flash 插件以使播放器工作。</p>
+<body>
+  <h4>媒体名单</h4>
+  <p>媒体管理中心的主页显示所选博客的一个可获取文件(媒体)的列表。</p>
+  <p>您可以点击文件夹中媒体的图标或者名称，或是任何子文件夹来显示它们。</p>
+  <p>选择一个 MP3 音乐文件将显示一个播放器立即播放这个文件。您的浏览器必须安装 Flash 插件以使播放器工作。</p>
+  <p>图片将会和一个缩略图一起显示，如果可能。</p>
+  <h4>添加文件</h4>
+  <dl>
+    <dt>选择一个文件</dt>
+    <dd>Here you can select one of your local files to send it on your blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
+    <dt>标题</dt>
+    <dd>您要发送的文件的可选标题。</dd>
+    <dt>私有的</dt>
+    <dd>Check this if you want the file to be private, i.e. accessible only by its owner and not accessible from the blog (until published).</dd>
+  </dl>
+  <dl>
+    <dt>文件名</dt>
+    <dd>Allows to select one or several of your local files to send them on your blog. Should any file be bigger than the maximum size, it will not be sent.<br>When you select several local files, they are added to the queue. You can add more files by clicking again on <strong>Choose files</strong>. You can also remove files from the queue by clicking on the corresponding red cross-shaped icon.<br>When you are ready, click on <strong>Upload</strong>.</dd>
+  </dl>
+  <h4>删除文件</h4>
+  <p>这个表格允许您在当前显示的目录中创建一个新的子目录。仅需为它选择一个名称，就像在您自己计算机上那样做。</p>
+  <h4>新文件夹</h4>
+  <p>This form allows you to create a new subfolder in the currently displayed folder. Just choose a name for it as you would do on your own computer.</p>
+  <h4>媒体详情</h4>
+  <p>当您添加一个图片，根据它的大小，最多 4 个版本将可以使用：</p>
+  <dl>
+    <dt>文件名称</dt>
+    <dd>改变当前文件的文件名。</dd>
+    <dt>文件标题</dt>
+    <dd>给文件起一个标题或改变当前标题。</dd>
+    <dt>文件日期</dt>
+    <dd>改变文件日期。</dd>
+    <dt>私有的</dt>
+    <dd>指定该文件将被隐藏，除了媒体管理器中的所有者之外，任何人都无法看到。</dd>
+    <dt>新目录</dt>
+    <dd>允许你在另一个文件夹中移动文件。</dd>
+    <dt>改变文件</dt>
+    <dd>With this form, you can replace the file while keeping all the attributes (name, title...). As always, you have to respect the maximum file size.</dd>
+  </dl>
+  <h4>具体案例：图像</h4>
+  <p>您可以简单地向您的文章中附加一个文件。首先，创建一篇新文章并保存。然后点击“向这篇文章添加文件”来打开媒体管理中心。</p>
+  <ul>
+    <li><strong>方块</strong>：一个 48x48 像素方形所略图。</li>
+    <li><strong>所略图</strong>：图片最大边缩小到 100 像素。</li>
+    <li><strong>小</strong>：最大边缩小到 240 像素。</li>
+    <li><strong>中</strong>：最大边缩小到 500 像素。</li>
+    <li><strong>原始</strong>：原始，没有改变的图片。</li>
+  </ul>
+  <p>仅需点击 [+] 图表(附加这个文件到文章)。接着文件就会被附加到文章中。</p>
+  <h4>在条目中附加一个文件</h4>
+  <p>附加的文件将会在文章页面显示，作为一个列表显示在文章内容旁边。MP3 文件将会通过 Flash 播放器使用，因此可以轻松被浏览者听到。</p>
+  <p>Just click on the [+] icon (Attach this file to entry). The file will then be attached to the post.</p>
+  <p>所附文件将显示在帖子页面上，作为帖子内容之后的一个列表。MP3文件将通过一个Flash播放器提供，以便您的访问者可以轻松播放。</p>
+  <h4>播客和广播音乐文件</h4>
+  <p>All attached files will be included in your blog feeds, allowing an easy podcasting of any type of file.</p>
+</body>
 
-    <p>图片将会和一个缩略图一起显示，如果可能。</p>
-
-    <h4>添加文件</h4>
-    <dl>
-      <dt>选择一个文件</dt>
-      <dd>这里您可以选择一个您的本地文件并发送到您的博客。如果文件大于限制的最大大小，它将不会被发送。</dd>
-      
-      <dt>标题</dt>
-      <dd>您要发送的文件的可选标题。</dd>
-      
-      <dt>私有的</dt>
-      <dd>如果您想要这个文件私有，选择它。也就是仅能被拥有者取得而不能从博客中取得。</dd>
-    </dl>
-
-    <dl>
-      <dt>文件名</dt>
-      <dd>允许选择一个或多个本地文件以在 
-  博客上发送这些文件。 如果任何文件大于最大大小，那么它将不会发送。<br>
-	当您选择多个本地文件时，它们将添加到队列中。 您可以在 <strong>选择文件</strong>中再次单击以添加更多文件。 您还可以通过单击相应的红色十字图标来从队列中除去文件。<br>
-  准备就绪时，单击 <strong>Upload</strong>。</dd>
-    </dl>
-
-    <h4>删除文件</h4>
-    <p>这个表格允许您在当前显示的目录中创建一个新的子目录。仅需为它选择一个名称，就像在您自己计算机上那样做。</p>
-
-    <h4>新文件夹</h4>
-    <p>这个页面显示关于当前选择的文件的一系列信息，并允许您进行一些操作。</p>
-
-    <h4>媒体详情</h4>
-    <p>当您添加一个图片，根据它的大小，最多 4 个版本将可以使用：</p>
-
-    <dl>
-      <dt>文件名称</dt>
-      <dd>改变当前文件的文件名。</dd>
-      
-      <dt>文件标题</dt>
-      <dd>给文件起一个标题或改变当前标题。</dd>
-      
-      <dt>文件日期</dt>
-      <dd>改变文件日期。</dd>
-      
-      <dt>私有的</dt>
-      <dd>指定该文件将被隐藏，除了媒体管理器中的所有者之外，任何人都无法看到。</dd>
-      
-      <dt>新目录</dt>
-      <dd>允许你在另一个文件夹中移动文件。</dd>
-      
-      <dt>改变文件</dt>
-      <dd>通过这种形式，你可以替换文件，同时保持所有的属性
-      （名称、标题...）。一如既往，你必须尊重最大的文件尺寸。</dd>
-    </dl>
-
-    <h4>具体案例：图像</h4>
-    <p>您可以简单地向您的文章中附加一个文件。首先，创建一篇新文章并保存。然后点击“向这篇文章添加文件”来打开媒体管理中心。</p>
-    <ul>
-      <li><strong>方块</strong>：一个 48x48 像素方形所略图。</li>
-      <li><strong>所略图</strong>：图片最大边缩小到 100 像素。</li>
-      <li><strong>小</strong>：最大边缩小到 240 像素。</li>
-      <li><strong>中</strong>：最大边缩小到 500 像素。</li>
-      <li><strong>原始</strong>：原始，没有改变的图片。</li>
-    </ul>
-    <p>仅需点击 [+] 图表(附加这个文件到文章)。接着文件就会被附加到文章中。</p>
-
-    <h4>在条目中附加一个文件</h4>
-    <p>附加的文件将会在文章页面显示，作为一个列表显示在文章内容旁边。MP3 文件将会通过 Flash 播放器使用，因此可以轻松被浏览者听到。</p>
-
-    <p>所有附加的文件都将会包含在您的 RSS feeds 里，可以轻松播放任何类型的文件。</p>
-
-    <p>所附文件将显示在帖子页面上，作为帖子内容之后的一个列表。MP3文件将通过一个Flash播放器提供，以便您的访问者可以轻松播放。</p>
-
-    <h4>播客和广播音乐文件</h4>
-    <p>所有附加的文件将包括在你的博客饲料中，允许任何类型的文件轻松
-播客。</p>
-
-  </body>
 </html>

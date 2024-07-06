@@ -1,190 +1,149 @@
 <html>
+
 <head>
   <title>ブログの設定</title>
 </head>
 
 <body>
-<h4>ブログの詳細</h4>
-<dl>
-  <dt>ブログID</dt>
-  <dd>ブログに固有のIDです。 このフィールドは必須であり、最高管理者のみが変更できます。</dd>
-
-  <dt>ブログ名</dt>
-  <dd>ブログの名前です。 このフィールドは必須です。</dd>
-
-  <dt>ブログURL</dt>
-  <dd>ブログの完全なURLです。 このフィールドは必須であり、最高管理者のみが変更できます。</dd>
-
-  <dt>ブログの状態</dt>
-  <dd>URL の読み方を定義します。PATH_INFO が動作しない場合は QUERY_STRING を使用する必要があります。 PATH_INFO モードを使うと、ブログの URL は "/" で終わり、QUERY_STRING で終わらなければなりません。"?" で終わらなければなりません。</dd>
-
-  <dt>ブログの説明</dt>
-  <dd>
-    <ul>
-      <li><strong>オンライン:</strong> 訪問者にオープンブログ.</li>
-      <li><strong>Offline:</strong> Blog closed to visitors but open to writers.</li>
-      <li><strong>削除:</strong> ブログは訪問者とライターの両方に閉じられており、スーパー管理者にのみ公開されています。</li>
-    </ul>
-  </dd>
-
-  <dt>ブログの説明</dt>
-  <dd>ここでは、あなたのブログに必要な任意の説明を置くことができます. これは、任意の書式設定なしで、簡単なテキストです.</dd>
-</dl>
-
-<h4>ブログの設定</h4>
-<dl>
-  <dt>ブログの編集者名</dt>
-  <dd>ブログの担当者の名前です。 存在する場合、所有者や発行者かもしれません。</dd>
-
-  <dt>著作権情報</dt>
-  <dd>ブログの複製権に関する注記です。</dd>
-
-  <dt>デフォルトの言語</dt>
-  <dd>ブログインターフェイスの言語で、利用可能なものから1つを選びます。 翻訳が用意されている場合はインターフェイスが翻訳され、そうでない場合は翻訳されません。 デフォルトでは英語になります。</dd>
-
-  <dt>ブログのタイムゾーン</dt>
-  <dd>コメントとトラックバックに使用されるタイムゾーンを定義します。</dd>
-
-  <dt>日付の書式</dt>
-  <dd>ブログ投稿の日付の書式です。 詳細は以下の「日付と時刻の書式リファレンス」セクションを参照してください。</dd>
-
-  <dt>時刻の書式</dt>
-  <dd>ブログ投稿の時刻の書式です。 詳細は以下の「日付と時刻の書式リファレンス」セクションを参照してください。</dd>
-
-  <dt>ページ単位のエントリ表示数</dt>
-  <dd>ホームページ、各カテゴリの最初のページ、RSSフィードで、それぞれのエントリ数の制限に使用される数です。</dd>
-</dl>
-
-<h4>コメントとトラック</h4>
-<dl>
-  <dt>コメントを承認する</dt>
-  <dd>グローバルにブログのコメントを受け付けます。投稿ごとの設定より優先されます。</dd>
-
-  <dt>コメントをモデレートする</dt>
-  <dd>このオプションを使用すると、編集者の合意後にのみコメントが公開されます。</dd>
-
-  <dt>コメントをX日間開いたままにする</dt>
-  <dd>The number of days during wich comments will be open after the post publication. When empty, the comments will be keep open abilitly.</dd>
-
-  <dt>コメント用Wikiの構文</dt>
-  <dd>コメントで使用する Wiki 構文のサブセットを許可します。</dd>
-
-  <dt>トラックバックを承認する</dt>
-  <dd>グローバルでブログのトラックバックを受け付けます。投稿ごとの設定より優先されます。</dd>
-
-  <dt>トラックバックをモデレート</dt>
-  <dd>このオプションでは、trackbacks は編集者の合意後にのみ公開されます。</dd>
-
-  <dt>トラックバックをX日間開いたままにする</dt>
-  <dd>ウィッチトラックバックの間の日数は、公開後にオープンになります。空の場合、トラックバックは無期限に開いたままになります。</dd>
-
-  <dt>コメントとトラックバックのリンクに「noofollow」リレーションを追加</dt>
-  <dd>コメントやトラックバックのリンクに属性を追加し、検索ボットにフォローしないように指示します。 このアンチスパム機能はまだその価値を証明していません。</dd>
-</dl>
-
-<h4>ブログプレゼンテーション</h4>
-<dl>
-  <dt>日付の形式</dt>
-  <dd>ブログ記事の日付フォーマットを定義します。詳細については、以下の「フォーマットリファレンス」セクションを参照してください。 ドロップダウンリストを使用して、既存のパターンをすばやく選択できます。</dd>
-
-  <dt>時刻の形式</dt>
-  <dd>ブログ記事の時刻フォーマットを定義します。詳細については、以下の「フォーマット参照」セクションを参照してください。 ドロップダウンリストを使用して、既存のパターンをすばやく選択できます。</dd>
-
-  <dt>Display smilies on entries and comments</dt>
-  <dd>:-) や ;-) などの文字列を画像に変換します。</dd>
-
-  <dt>ページごとにXエントリを表示</dt>
-  <dd>ブログのメインページにXエントリを表示するだけでなく、異なるカテゴリに表示されます。</dd>
-
-  <dt>フィードごとにXエントリを表示</dt>
-  <dd>ブログフィードに X 項目が表示されます。</dd>
-
-  <dt>フィードごとにXコメントを表示</dt>
-  <dd>ブログコメントフィードに X コメントが表示されます。</dd>
-
-  <dt>Truncate feeds</dt>
-  <dd>このオプションは、フィード内のブログ投稿からの抽象的なもののみを提供します。</dd>
-
-  <dt>カテゴリページとカテゴリ投稿フィードにサブカテゴリを含める</dt>
-  <dd>このオプションをオンにすると、サブカテゴリの投稿が親カテゴリページとそのフィードに表示されます。</dd>
-</dl>
-
-<h4>メディアと画像</h4>
-<dl>
-  <dt>生成された画像サイズ（ピクセル単位）</dt>
-  <dd>メディア マネージャで画像を追加すると、他のサイズが自動的に生成されます。 ここでは、生成された画像のそれぞれのタイプの最長サイズ (幅または高さ) の寸法を定義できます。 1つのフィールドを空のままにすると、メディア・マネージャーは対応するミニチュアを作成しません。</dd>
-
-  <dt>デフォルトの画像挿入属性</dt>
-  <dd>選択した設定は、メディアマネージャに追加されたすべての新しい画像に適用されます。</dd>
-
-  <dt>挿入された画像タイトル</dt>
-  <dd>画像メタデータから取得した情報に基づいて、画像に適用される "title" タグの形式を選択します。</dd>
-
-  <dt>可能であれば元のメディアの日付を使用する</dt>
-  <dd>このオプションをオンにすると、画像のメタデータに日付が含まれている場合は、それが使用されます。そうでない場合は、アップロード日が使用されます。</dd>
-
-  <dt>挿入された画像のサイズ</dt>
-  <dd>ブログ投稿に画像を挿入するときに使用されるデフォルトのサイズを定義します。</dd>
-
-  <dt>画像の配置</dt>
-  <dd>ブログ投稿に画像を挿入する際に使用されるデフォルトの配置を定義します。</dd>
-
-  <dt>元の画像へのリンクを挿入</dt>
-  <dd>このオプションをオンにすると、ブログ記事に挿入された画像がクリック可能になり、元のサイズの画像をポイントします。</dd>
-
-</dl>
-
-<h4>検索エンジンロボットポリシー</h4>
-<p>いくつかのフィールドでは、必要に応じて日付と時刻の書式を設定することができます。<br />
+  <h4>ブログの詳細</h4>
+  <dl>
+    <dt>ブログID</dt>
+    <dd>ブログに固有のIDです。 このフィールドは必須であり、最高管理者のみが変更できます。</dd>
+    <dt>ブログ名</dt>
+    <dd>ブログの名前です。 このフィールドは必須です。</dd>
+    <dt>ブログURL</dt>
+    <dd>ブログの完全なURLです。 このフィールドは必須であり、最高管理者のみが変更できます。</dd>
+    <dt>ブログの状態</dt>
+    <dd>URL の読み方を定義します。PATH_INFO が動作しない場合は QUERY_STRING を使用する必要があります。 PATH_INFO モードを使うと、ブログの URL は "/" で終わり、QUERY_STRING で終わらなければなりません。"?" で終わらなければなりません。</dd>
+    <dt>ブログの説明</dt>
+    <dd>
+      <ul>
+        <li><strong>オンライン:</strong> 訪問者にオープンブログ.</li>
+        <li><strong>Offline:</strong> Blog closed to visitors but open to writers.</li>
+        <li><strong>削除:</strong> ブログは訪問者とライターの両方に閉じられており、スーパー管理者にのみ公開されています。</li>
+      </ul>
+    </dd>
+    <dt>ブログの説明</dt>
+    <dd>ここでは、あなたのブログに必要な任意の説明を置くことができます. これは、任意の書式設定なしで、簡単なテキストです.</dd>
+  </dl>
+  <h4>ブログの設定</h4>
+  <dl>
+    <dt>ブログの編集者名</dt>
+    <dd>ブログの担当者の名前です。 存在する場合、所有者や発行者かもしれません。</dd>
+    <dt>著作権情報</dt>
+    <dd>ブログの複製権に関する注記です。</dd>
+    <dt>デフォルトの言語</dt>
+    <dd>ブログインターフェイスの言語で、利用可能なものから1つを選びます。 翻訳が用意されている場合はインターフェイスが翻訳され、そうでない場合は翻訳されません。 デフォルトでは英語になります。</dd>
+    <dt>ブログのタイムゾーン</dt>
+    <dd>コメントとトラックバックに使用されるタイムゾーンを定義します。</dd>
+    <dt>日付の書式</dt>
+    <dd>ブログ投稿の日付の書式です。 詳細は以下の「日付と時刻の書式リファレンス」セクションを参照してください。</dd>
+    <dt>時刻の書式</dt>
+    <dd>ブログ投稿の時刻の書式です。 詳細は以下の「日付と時刻の書式リファレンス」セクションを参照してください。</dd>
+    <dt>ページ単位のエントリ表示数</dt>
+    <dd>ホームページ、各カテゴリの最初のページ、RSSフィードで、それぞれのエントリ数の制限に使用される数です。</dd>
+  </dl>
+  <h4>コメントとトラック</h4>
+  <dl>
+    <dt>コメントを承認する</dt>
+    <dd>グローバルにブログのコメントを受け付けます。投稿ごとの設定より優先されます。</dd>
+    <dt>コメントをモデレートする</dt>
+    <dd>このオプションを使用すると、編集者の合意後にのみコメントが公開されます。</dd>
+    <dt>コメントをX日間開いたままにする</dt>
+    <dd>The number of days during wich comments will be open after the post publication. When empty, the comments will be keep open abilitly.</dd>
+    <dt>コメント用Wikiの構文</dt>
+    <dd>コメントで使用する Wiki 構文のサブセットを許可します。</dd>
+    <dt>トラックバックを承認する</dt>
+    <dd>グローバルでブログのトラックバックを受け付けます。投稿ごとの設定より優先されます。</dd>
+    <dt>トラックバックをモデレート</dt>
+    <dd>このオプションでは、trackbacks は編集者の合意後にのみ公開されます。</dd>
+    <dt>トラックバックをX日間開いたままにする</dt>
+    <dd>ウィッチトラックバックの間の日数は、公開後にオープンになります。空の場合、トラックバックは無期限に開いたままになります。</dd>
+    <dt>コメントとトラックバックのリンクに「noofollow」リレーションを追加</dt>
+    <dd>コメントやトラックバックのリンクに属性を追加し、検索ボットにフォローしないように指示します。 このアンチスパム機能はまだその価値を証明していません。</dd>
+  </dl>
+  <h4>ブログプレゼンテーション</h4>
+  <dl>
+    <dt>日付の形式</dt>
+    <dd>ブログ記事の日付フォーマットを定義します。詳細については、以下の「フォーマットリファレンス」セクションを参照してください。 ドロップダウンリストを使用して、既存のパターンをすばやく選択できます。</dd>
+    <dt>時刻の形式</dt>
+    <dd>ブログ記事の時刻フォーマットを定義します。詳細については、以下の「フォーマット参照」セクションを参照してください。 ドロップダウンリストを使用して、既存のパターンをすばやく選択できます。</dd>
+    <dt>Display smilies on entries and comments</dt>
+    <dd>:-) や ;-) などの文字列を画像に変換します。</dd>
+    <dt>ページごとにXエントリを表示</dt>
+    <dd>ブログのメインページにXエントリを表示するだけでなく、異なるカテゴリに表示されます。</dd>
+    <dt>フィードごとにXエントリを表示</dt>
+    <dd>ブログフィードに X 項目が表示されます。</dd>
+    <dt>フィードごとにXコメントを表示</dt>
+    <dd>ブログコメントフィードに X コメントが表示されます。</dd>
+    <dt>Truncate feeds</dt>
+    <dd>このオプションは、フィード内のブログ投稿からの抽象的なもののみを提供します。</dd>
+    <dt>カテゴリページとカテゴリ投稿フィードにサブカテゴリを含める</dt>
+    <dd>このオプションをオンにすると、サブカテゴリの投稿が親カテゴリページとそのフィードに表示されます。</dd>
+  </dl>
+  <h4>メディアと画像</h4>
+  <dl>
+    <dt>生成された画像サイズ（ピクセル単位）</dt>
+    <dd>メディア マネージャで画像を追加すると、他のサイズが自動的に生成されます。 ここでは、生成された画像のそれぞれのタイプの最長サイズ (幅または高さ) の寸法を定義できます。 1つのフィールドを空のままにすると、メディア・マネージャーは対応するミニチュアを作成しません。</dd>
+    <dt>デフォルトの画像挿入属性</dt>
+    <dd>選択した設定は、メディアマネージャに追加されたすべての新しい画像に適用されます。</dd>
+    <dt>挿入された画像タイトル</dt>
+    <dd>画像メタデータから取得した情報に基づいて、画像に適用される "title" タグの形式を選択します。</dd>
+    <dt>可能であれば元のメディアの日付を使用する</dt>
+    <dd>このオプションをオンにすると、画像のメタデータに日付が含まれている場合は、それが使用されます。そうでない場合は、アップロード日が使用されます。</dd>
+    <dt>挿入された画像のサイズ</dt>
+    <dd>ブログ投稿に画像を挿入するときに使用されるデフォルトのサイズを定義します。</dd>
+    <dt>画像の配置</dt>
+    <dd>ブログ投稿に画像を挿入する際に使用されるデフォルトの配置を定義します。</dd>
+    <dt>元の画像へのリンクを挿入</dt>
+    <dd>このオプションをオンにすると、ブログ記事に挿入された画像がクリック可能になり、元のサイズの画像をポイントします。</dd>
+  </dl>
+  <h4>検索エンジンロボットポリシー</h4>
+  <p>いくつかのフィールドでは、必要に応じて日付と時刻の書式を設定することができます。<br />
 以下のリファレンスを参考にしてください：</p>
-
-<h4>アンチスパム</h4>
-<p>ジャンクコメントを自動的に削除する日数を設定できます。 この機能を無効にするには、その項目を空白のまま（または0）にしてください。</p>
-
-<h4>ユーザー</h4>
-<p>このブログのユーザーと権限を一覧表示します。</p>
-
-<h3>ブログの詳細</h3>
-<p>いくつかのフィールドは、必要に応じて日付と時刻をフォーマットするように設定できます。
-ここに参照があります:</p>
-
-<ul>
-  <li><strong>%a</strong>: 短縮された曜日（ローカル）</li>
-  <li><strong>%A</strong>: 完全な曜日（ローカル）</li>
-  <li><strong>%b</strong>: 短縮された月（ローカル）</li>
-  <li><strong>%B</strong>: 完全な月（ローカル）</li>
-  <li><strong>%c</strong>: デフォルトのローカル日時の表示</li>
-  <li><strong>%C</strong>: 世紀（年を 100 で割り、00～99の端数を切り上げたもの）</li>
-  <li><strong>%d</strong>: 数値での月内の日（01～31）</li>
-  <li><strong>%D</strong>: %m/%d/%y と同一</li>
-  <li><strong>%e</strong>: 数値での月内の日（01～31）</li>
-  <li><strong>%g</strong>: %G と同一、2桁</li>
-  <li><strong>%G</strong>: 週番号に準じた4桁の年（%V 参照）。 週番号が前後の年に属した場合に現在の年が使用される以外は、%Y と同一の値と形式です。</li>
-  <li><strong>%h</strong>: %b と同一</li>
-  <li><strong>%H</strong>: 数字の時刻、24時間制（00～23）</li>
-  <li><strong>%I</strong>: 数字の時刻、12時間制（01～12）</li>
-  <li><strong>%j</strong>: 数値での年内の日（001～366）</li>
-  <li><strong>%m</strong>: 数値での月（1～12）</li>
-  <li><strong>%M</strong>: 数値での分</li>
-  <li><strong>%n</strong>: 改行文字</li>
-  <li><strong>%p</strong>: ローカル設定か絶対時間に基づく「AM」か「PM」</li>
-  <li><strong>%r</strong>: a.m./p.m. 形式の時刻</li>
-  <li><strong>%R</strong>: 24時間形式の時刻</li>
-  <li><strong>%S</strong>: 数値での秒</li>
-  <li><strong>%t</strong>: タブ文字</li>
-  <li><strong>%T</strong>: 現在時刻（%H:%M:%S と同一）</li>
-  <li><strong>%u</strong>: 数値での週内の日（1～7）（1 が月曜日）</li>
-  <li><strong>%U</strong>: 週番号（その年の最初の日曜日がある週から開始）</li>
-  <li><strong>%V</strong>: ISO-8601:1988 で定義された数値の週番号（01 ～ 53）。第1週は事実上、1月4日を含む週になります。 （タイムスタンプには、週番号に対応する年の要素に %G か %g を使用します）</li>
-  <li><strong>%W</strong>: 週番号（その年の最初の月曜日がある週から開始）</li>
-  <li><strong>%w</strong>: 数値での週内の日（0 が日曜日）</li>
-  <li><strong>%x</strong>: 時刻のない日付の優先形式</li>
-  <li><strong>%X</strong>: 日付のない時刻の優先形式</li>
-  <li><strong>%y</strong>: 年、2桁（00～99）</li>
-  <li><strong>%Y</strong>: 年、4桁</li>
-  <li><strong>%Z ou %z</strong>: タイムゾーン、名前か省略形</li>
-  <li>: '%'文字</li>
-</ul>
-
+  <h4>アンチスパム</h4>
+  <p>ジャンクコメントを自動的に削除する日数を設定できます。 この機能を無効にするには、その項目を空白のまま（または0）にしてください。</p>
+  <h4>ユーザー</h4>
+  <p>このブログのユーザーと権限を一覧表示します。</p>
+  <h3>ブログの詳細</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a</strong>: 短縮された曜日（ローカル）</li>
+    <li><strong>%A</strong>: 完全な曜日（ローカル）</li>
+    <li><strong>%b</strong>: 短縮された月（ローカル）</li>
+    <li><strong>%B</strong>: 完全な月（ローカル）</li>
+    <li><strong>%c</strong>: デフォルトのローカル日時の表示</li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d</strong>: 数値での月内の日（01～31）</li>
+    <li><strong>%D</strong>: %m/%d/%y と同一</li>
+    <li><strong>%e</strong>: 数値での月内の日（01～31）</li>
+    <li><strong>%g</strong>: %G と同一、2桁</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h</strong>: %b と同一</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j</strong>: 数値での年内の日（001～366）</li>
+    <li><strong>%m</strong>: 数値での月（1～12）</li>
+    <li><strong>%M</strong>: 数値での分</li>
+    <li><strong>%n</strong>: 改行文字</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r</strong>: a.m./p.m. 形式の時刻</li>
+    <li><strong>%R</strong>: 24時間形式の時刻</li>
+    <li><strong>%S</strong>: 数値での秒</li>
+    <li><strong>%t</strong>: タブ文字</li>
+    <li><strong>%T</strong>: 現在時刻（%H:%M:%S と同一）</li>
+    <li><strong>%u</strong>: 数値での週内の日（1～7）（1 が月曜日）</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w</strong>: 数値での週内の日（0 が日曜日）</li>
+    <li><strong>%x</strong>: 時刻のない日付の優先形式</li>
+    <li><strong>%X</strong>: 日付のない時刻の優先形式</li>
+    <li><strong>%y</strong>: 年、2桁（00～99）</li>
+    <li><strong>%Y</strong>: 年、4桁</li>
+    <li><strong>%Z ou %z</strong>: タイムゾーン、名前か省略形</li>
+    <li>: '%'文字</li>
+  </ul>
 </body>
+
 </html>

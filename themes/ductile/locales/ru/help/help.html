@@ -1,83 +1,52 @@
 <html>
-<head>
 
-<title>Конфигурация вязкой стали</title>
+<head>
+  <title>Конфигурация вязкой стали</title>
 </head>
 
 <body>
-<p>Изменив конфигурацию темы Ductile, вы можете очень легко персонализировать свою тему</p>
-
-<h3>Персонализация контента</h3>
-<p>На этой вкладке вы можете персонализировать содержание своего блога.</p>
-<dl>
-  <dt>Заголовок</dt>
+  <p>Изменив конфигурацию темы Ductile, вы можете очень легко персонализировать свою тему</p>
+  <h3>Персонализация контента</h3>
+  <p>На этой вкладке вы можете персонализировать содержание своего блога.</p>
+  <dl>
+    <dt>Заголовок</dt>
     <dd>Установите флажок "Скрывать описание блога", чтобы не отображать описание блога, которое обычно выводится под заголовком.</dd>
-
-<p>Если плагин "Простое меню" установлен и активен, то по указанной ссылке можно настроить меню заголовка. (Главное меню?)</p>
-
-<p>Укажите URL-адрес логотипа, который будет использоваться вместо стандартного. Если URL не начинается с <code>/</code> , то это будет относительный URL из папки <code>img</code> темы (поместить <code>logo.png</code>, например, аналогично использованию логотипа по умолчанию). Очистите это поле, чтобы вернуться к конфигурации по умолчанию.</p>
-
-  <dt>Наклейки</dt>
-    <dd>Наклейки будут отображаться в верхней части экрана в виде небольших изображений на больших экранах и в нижней части страницы на очень маленьких экранах. Перечислены все изображения, имя файла которых соответствует схеме sticker-*.png и размещенные в подпапке img темы. Для каждого из них можно указать метку и соответствующий url. (Чтобы не отображать изображение, оставьте оба поля пустыми).<br />
-Если javascript активирован и не отключен в настройках, порядок отображения можно изменять перетаскиванием. Если javascript отключен, поле позволяет указать порядок отображения (от 1 до n).</dd>
-
-  <dt>Типы и ограничения для списков сообщений</dt>
-
-    <dd>Некоторые контексты отображения вашего блога представлены в виде списка записей. Это относится, например, к главной странице или к архивам за месяц. Для каждого из перечисленных в таблице контекстов можно указать, должно ли содержимое каждого отображаемого поста быть только в виде заголовка, в краткой форме (содержимое поля извлечения первых 300 символов) или в полной форме. NB. На главной странице первое сообщение всегда отображается в полном виде.<br />
-Кроме того, для некоторых контекстов можно также указать количество постов, отображаемых на странице. Если оставить это поле пустым, то будет использоваться значение, указанное в общих настройках блога.</dd>
-
-</dl>
-
-<h3>Персонализация презентации</h3>
-<p>На этой вкладке вы можете персонализировать некоторые элементы представления вашего блога.</p>
-
-<h4>Общие параметры</h4>
-
-<p>Эти параметры будут использоваться при любой ширине отображения блога.</p>
-<dl>
-  <dt>Шрифты</dt>
+    <p>Если плагин "Простое меню" установлен и активен, то по указанной ссылке можно настроить меню заголовка. (Главное меню?)</p>
+    <p>Укажите URL-адрес логотипа, который будет использоваться вместо стандартного. Если URL не начинается с <code>/</code> , то это будет относительный URL из папки <code>img</code> темы (поместить <code>logo.png</code>, например, аналогично использованию логотипа по умолчанию). Очистите это поле, чтобы вернуться к конфигурации по умолчанию.</p>
+    <dt>Наклейки</dt>
+    <dd>The stickers will be displayed at the top of the screen as small images on large screens and at the bottom of the page on very small screens. All images which file name correspond to the sticker-*.png scheme and placed in the sub-folder img of the theme are listed. You can indicate for each a label and the corresponding url. (Leave on of both fields empty to not display it.)<br>You can also modify the display order with a drag and drop if javascript is activated and if you have not disabled it in your preferences. If javascript is deactivated, a field allows you to indicate the order of display (1 to n).</dd>
+    <dt>Типы и ограничения для списков сообщений</dt>
+    <dd>Some of the display contexts of your blog present under the form of a list of posts. It's the case for example for the home page or for the monthly archives. For each of the context listed in the table, you can specify if the content of each displayed post should be as a title only, a short form (content of the extract field of first 300 characters) or their full form. NB. On the home page, the first post always displays in full.<br>Moreover, for some of those contexts, you can also specify the number of posts displayed per page. If you leave this field empty, the value specified in the general settings of the blog that will be used.</dd>
+  </dl>
+  <h3>Персонализация презентации</h3>
+  <p>На этой вкладке вы можете персонализировать некоторые элементы представления вашего блога.</p>
+  <h4>Общие параметры</h4>
+  <p>Эти параметры будут использоваться при любой ширине отображения блога.</p>
+  <dl>
+    <dt>Шрифты</dt>
     <dd>Здесь можно выбрать основное семейство шрифтов, которое будет использоваться для большинства текстов. Также можно указать второе семейство шрифтов (secondary), которое будет использоваться для некоторых заголовков второго уровня и комментариев. Опция "по умолчанию" позволяет оставить первоначальный выбор.</dd>
-
-  <dt>Название блога</dt>
-
-    <dd>Здесь можно указать, должен ли заголовок блога отображаться жирным шрифтом, его размер (по умолчанию - em, единицы измерения - %, pt, px, em и ex), а также цвет, используя формат #rrggbb, причем rr, gg и bb выбираются в пределах 0 и ff.<br />
-Для отмены выбора и возврата к значениям по умолчанию можно опустошить одно или все поля.</dd>
-
-
-  <dt>Названия должностей</dt>
-    <dd>Здесь можно указать, следует ли выделять заголовки сообщений жирным шрифтом, их размер (по умолчанию - em, в качестве единиц измерения используются %, pt, px, em и ex), а также цвет, используя Color Picker, доступный при щелчке на пиктограмме picker, или задав цвет в формате #rrggbb, причем rr, gg и bb выбираются в пределах 0 и ff.<br />
-Для отмены выбора и возврата к первоначальному варианту следует опустошить одно или все поля.</dd>
-
-  <dt>Заголовки без ссылки</dt>
-    <dd>Здесь можно задать цвет заголовков без ссылки (по сути: заголовок сообщения, когда оно отображается само по себе, подзаголовки внутри сообщений, активный пункт горизонтального меню), используя Color Picker, доступный при щелчке на пиктограмме picker, или задав цвет в формате #rrggbb, причем rr, gg и bb выбираются в пределах 0 и ff.<br />
-Для отмены выбора и возврата к значению по умолчанию следует опустошить одно или все поля.</dd>
-
-  <dt>Ссылки в сообщениях</dt>
-    <dd>Здесь Вы можете указать, должны ли ссылки, содержащиеся в Ваших сообщениях, отображаться жирным шрифтом или нет, а также определить их цвет в обычном состоянии и в состоянии "посещен", их цвет в активном состоянии, при наведении на них курсора или фокусе, используя для этого Color Picker, доступный при нажатии на пиктограмму picker, или задав цвет в формате #rrggbb, причем rr, gg и bb выбираются в пределах от 0 до ff.<br />
-Чтобы отменить свой выбор и вернуться к значению по умолчанию, следует опустошить одно или все поля.</dd>
-
-<h4>Специфические параметры для мобильных телефонов</h4>
-
-<p>Эти параметры используются только в тех случаях, когда ширина экрана меньше 480 пикселей (например, на мобильных телефонах). Если они указаны, то заменяют эквивалентные параметры, указанные в общих параметрах выше.</p>
-
-  <dt>Название блога</dt>
-
-    <dd>Здесь можно указать, должен ли заголовок блога отображаться жирным шрифтом, его размер (по умолчанию - em, единицы измерения - %, pt, px, em и ex), а также цвет, используя формат #rrggbb, причем rr, gg и bb выбираются в пределах 0 и ff.<br />
-Для отмены выбора и возврата к значениям по умолчанию можно опустошить одно или все поля.</dd>
-
-
-  <dt>Названия должностей</dt>
-    <dd>Здесь можно указать, должны ли заголовки постов отображаться жирным шрифтом, их размер (по умолчанию - em, в качестве единиц измерения используются %, pt, px, em и ex), а также цвет, используя Color Picker, доступный при нажатии на пиктограмму picker, или задав цвет в формате #rrggbb, причем rr, gg и bb выбираются в пределах 0 и ff.<br />
-Для отмены выбора и возврата к значениям по умолчанию следует опустошить одно или все поля.</dd>
-
-<h3>Доступность и контрастность цветов</h3>
-
-<p>После выбора цвета рядом с полем будет отображен коэффициент контрастности и указано, что этот контраст соответствует рекомендациям WCAG 2.0. Для того чтобы быть корректным, контраст между цветом фона и цветом шрифта должен иметь следующие значения:</p>
-<ul>
-<li>Не менее 4,5:1 для текста нормального размера для уровня AA ;</li>
-<li>Не менее 7:1 для текстов нормального размера для уровня ААА ;</li>
-<li>Не менее 3:1 для текстов увеличенного размера (150 % или 120 % полужирного) для уровня AA ;</li>
-<li>Не менее 4,5:1 для текстов увеличенного размера (150% или 120% полужирного) для уровня ААА.</li>
-</ul>
+    <dt>Название блога</dt>
+    <dd>You can specify here if the blog title must be displayed in bold, its size, (default is em, recognized units are %, pt, px, em and ex) as well as the color, using the format #rrggbb with rr, gg and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>Названия должностей</dt>
+    <dd>You can indicate here if the post titles should be displayed in bold, their size (default is em, recognized units are %, pt, px, em and ex) as well as their color using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to your original one.</dd>
+    <dt>Заголовки без ссылки</dt>
+    <dd>You can specify here the color of titles without a link (essentially : the title of a post when it is displayed by itself, sub-titles within posts, the active item in the horizontal menu) by using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>Ссылки в сообщениях</dt>
+    <dd>You can indicate here if the links contained in your posts should be displayed in bold or not and define their color at a normal state as well as a "visited" state, their color when active, or when they're hovered upon or take focus, by using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <h4>Специфические параметры для мобильных телефонов</h4>
+    <p>Эти параметры используются только в тех случаях, когда ширина экрана меньше 480 пикселей (например, на мобильных телефонах). Если они указаны, то заменяют эквивалентные параметры, указанные в общих параметрах выше.</p>
+    <dt>Название блога</dt>
+    <dd>You can specify here if the blog title must be displayed in bold, its size, (default is em, recognized units are %, pt, px, em and ex) as well as the color, using the format #rrggbb with rr, gg and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>Названия должностей</dt>
+    <dd>You can indicate here if the post titles should be displayed in bold, their size (default is em, recognized units are %, pt, px, em and ex) as well as their color using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <h3>Доступность и контрастность цветов</h3>
+    <p>После выбора цвета рядом с полем будет отображен коэффициент контрастности и указано, что этот контраст соответствует рекомендациям WCAG 2.0. Для того чтобы быть корректным, контраст между цветом фона и цветом шрифта должен иметь следующие значения:</p>
+    <ul>
+      <li>Не менее 4,5:1 для текста нормального размера для уровня AA ;</li>
+      <li>Не менее 7:1 для текстов нормального размера для уровня ААА ;</li>
+      <li>Не менее 3:1 для текстов увеличенного размера (150 % или 120 % полужирного) для уровня AA ;</li>
+      <li>Не менее 4,5:1 для текстов увеличенного размера (150% или 120% полужирного) для уровня ААА.</li>
+    </ul>
 </body>
+
 </html>

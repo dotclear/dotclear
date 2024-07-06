@@ -1,114 +1,73 @@
 <html>
+
 <head>
   <title>Kande redigeerimine</title>
 </head>
 
 <body>
-<h4>Kande redigeerimine</h4>
-
-<dl>
-  <dt>Sisendi pealkiri</dt>
-  <dd>Sisestage kirje pealkiri. See väli on kohustuslik.</dd>
-  
-  <dt>Väljavõte</dt>
-  <dd>Selle välja sisu kuvatakse lehekülgedel, mis näitavad kirjeid kui
-  nimekirja, näiteks avalehel või kategooriate lehekülgedel, millele järgneb link "Jätka lugemist"
-  . Samuti on see nähtav kogu
-  postitust näitava lehekülje alguses. Kui jätate selle tühjaks, kuvatakse <em>sisuvälja</em> täielikult avalehel ja muudel kirjete loetelulehekülgedel.</dd>
-  
-  <dt>Sisu</dt>
-  <dd>Teie kirje sisu. See väli on kohustuslik.</dd>
-  
-  <dt>Isiklikud märkmed</dt>
-  <dd>See tekstiala on isiklikuks kasutamiseks, märkmete või märkmete jaoks. Seda, mida te siia sisestate
-  , ei kuvata kunagi blogis.</dd>
-  
-  <dt>Sisenemise staatus</dt>
-  <dd>Võimaldab valida oma kirje staatuse:
-    <ul>
-      <li><strong>Ootel:</strong> Avaldamise staatus ei ole veel otsustatud.</li>
-      <li><strong>Planeeritud:</strong> Avaldatud: Postitus pannakse veebis paika väljal <strong>Avaldatud on</strong> määratud ajal ja kuupäeval.</li>
-      <li><strong>Avaldamata:</strong> Postitus on välja lülitatud.</li>
-      <li><strong>Avaldatud:</strong> Postitus on võrgus.</li>
-    </ul>
-  </dd>
-  
-  <dt>Avaldamise kuupäev ja kellaaeg</dt>
-  <dd>Siin saate muuta kande avaldamise kuupäeva ja kellaaega. Kui kande
-  staatus on <strong>Plaanitud</strong>, siis on see antud kuupäeval ja kellaajal võrgus.</dd>
-
-  <dt>Sisestamiskeel</dt>
-  <dd>Valige oma kirje keelekood. Vaikimisi on vaikimisi määratud teie (
-  kasutaja) keel, kuid te saate selle muuta mis tahes keelekoodiks, nt
-  "en" või "es-ar". Seda koodi kasutatakse kande kuvamiseks.</dd>
-
-  <dt>Teksti vormindamine</dt>
-  <dd>Valige kirje süntaks. Wiki on lihtsustatud süntaks
-  ja see teisendatakse kehtivaks HTML-ks. Kui te ei mõista HTML-i perfektselt
-  , soovitame valida Wiki süntaks.
-  Lisateavet leiate Wiki süntaksi viitedest.</dd>
-
-  <dt>Valitud kanne</dt>
-  <dd>Valitud kirjed kuvatakse teie blogi menüüs pealkirja "Parimad minust" all.</dd>
-
-  <dt>Kategooria</dt>
-  <dd>Teie sisestatud kategooria. Uue kategooria loomiseks vaadake palun jaotist
-  <strong>Kategooriad</strong>. Te võite jätta
-  oma sissekande ilma kategooriata, valides punkti <em>(none)</em>.</dd>
-
-  <dt>Lisa uus kategooria</dt>
-  <dd>Saate luua uue kategooria, sisestades selle pealkirja ja valides selle vanemkategooria (või valides <em>(ei ole)</em>, et luua ülemise taseme kategooria).</dd>
-  
-  <dt>Sildid</dt>
-  <dd>Lisage komadega eraldatud sildid ja vajutage <strong>ok</strong>, kui olete valmis. Võite valida ka olemasolevaid silte, klõpsates nuppu <strong>Choose from list (Vali nimekirjast</strong>).</dd>
-
-  <dt>Lisad</dt>
-  <dd>Manused on kirjele lisatud meediafailid. Saate kasutada nuppu <strong>Lisa failid sellesse kirjesse</strong>, et valida kirjele lisatavad meediafailid.<br>
-    See valik ilmub pärast kande salvestamist.<br>
-    Lisateabe saamiseks vaadake palun meediahalduri abi.</dd>
-
-  <dt>Nõustuge kommentaaridega</dt>
-  <dd>Märkige see kast, et võimaldada külastajatel seda sissekannet kommenteerida. Vastava globaalse seadistuse leiate blogi seadetest.</dd>
-
-  <dt>Võtke vastu tagasisideid</dt>
-  <dd>Trackback on viis, kuidas lasta osa oma sissekande kommentaarina
-  teise blogi. Märkige see kast, et lubada teistel teie sissekannet jälgida.
-  vastav globaalne seadistus on leitav blogi seadetest.</dd>
-  
-  <dt>Parool</dt>
-  <dd>Saate sisestada oma sisestuse jaoks parooli. Parooliga kaitstud sissekannet
-  ei kuvata teie blogis, see on kättesaadav ainult neile, kellele annate sissekande URL-i (vt <strong>sissekande vaatamise</strong> linki) ja parooli
-  .</dd>
-
-  <dt>Baasnimi</dt>
-  <dd>Te saate selle välja kaitse tühistada, klõpsates selle paremal pool asuval väikesel lukul ja valides oma sisestuse jaoks mõne muu URL-i. Kui URL, mida soovite kasutada, on juba kasutusel mõne teise sissekande puhul, lisatakse sellele number.</dd>  
-  
-</dl>
-
-<h4>Kommentaarid</h4>
-<dl>
-  <dt>Kommentaaride nimekiri</dt>
-  <dd>Vahekaardil <strong>Kommentaarid</strong> saate lugeda ja muuta
-  oma sissekande kommentaare (ja tagasisideid). Kui blogi administraator seda lubab, saate oma kommentaare (ja tagasisideid) veebis või väljaspool, kustutada neid või märkida neid rämpsuks.</dd>
-  
-  <dt>Lisa kommentaar</dt>
-  <dd>Lehel <strong>Lisa kommentaar</strong> saate vastata ühele oma sissekande kommentaarile ilma oma blogi backendist lahkumata. Siin kasutatav süntaks on tavaline, piiramatu HTML. Kasutage välju nii, nagu muudaksite kommentaari.</dd>
-</dl>
-  
-<h4>Lisa kommentaar</h4>
-<dl>
-  <dt>Nimi</dt>
-  <dd>Kommentaaride autori nimi. See väli on kohustuslik.</dd>
-
-  <dt>E-post</dt>
-  <dd>Kommentaaride autori e-posti aadress.</dd>
-
-  <dt>Veebileht</dt>
-  <dd>Kommentaari autori veebisaidi URL.</dd>
-
-  <dt>Kommentaar</dt>
-  <dd>Kommentaaride sisu. See väli kasutab HTML-süntaksi.</dd>
-</dl>
-
+  <h4>Kande redigeerimine</h4>
+  <dl>
+    <dt>Sisendi pealkiri</dt>
+    <dd>Sisestage kirje pealkiri. See väli on kohustuslik.</dd>
+    <dt>Väljavõte</dt>
+    <dd>The content of this field will be shown in pages showing entries as a list, such as the homepage or categories pages, followed by a "continue reading" link. It will also be visible at the beginning of the page showing the whole post. Should you leave it blank, the <em>content</em> field will be shown entirely on the homepage and other entry list pages.</dd>
+    <dt>Sisu</dt>
+    <dd>Teie kirje sisu. See väli on kohustuslik.</dd>
+    <dt>Isiklikud märkmed</dt>
+    <dd>This text area is for personal use, for notes or memos. What you enter here will never be displayed on the blog.</dd>
+    <dt>Sisenemise staatus</dt>
+    <dd>Võimaldab valida oma kirje staatuse:
+      <ul>
+        <li><strong>Ootel:</strong> Avaldamise staatus ei ole veel otsustatud.</li>
+        <li><strong>Planeeritud:</strong> Avaldatud: Postitus pannakse veebis paika väljal <strong>Avaldatud on</strong> määratud ajal ja kuupäeval.</li>
+        <li><strong>Avaldamata:</strong> Postitus on välja lülitatud.</li>
+        <li><strong>Avaldatud:</strong> Postitus on võrgus.</li>
+      </ul>
+    </dd>
+    <dt>Avaldamise kuupäev ja kellaaeg</dt>
+    <dd>Here you can change the entry's publication date and time. If the entry's status is <strong>Scheduled</strong>, it will be online at the given date and time.</dd>
+    <dt>Sisestamiskeel</dt>
+    <dd>Select the language code of your entry. It defaults to your (as a user) language but you can change it to whatever language code you want, e.g. "en" or "es-ar". This code is used for the entry's display.</dd>
+    <dt>Teksti vormindamine</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Valitud kanne</dt>
+    <dd>Valitud kirjed kuvatakse teie blogi menüüs pealkirja "Parimad minust" all.</dd>
+    <dt>Kategooria</dt>
+    <dd>Your entry's category. To create a new category, please see the <strong>Categories</strong> section. You can choose to leave you entry without a category by selecting the <em>(none)</em> item.</dd>
+    <dt>Lisa uus kategooria</dt>
+    <dd>Saate luua uue kategooria, sisestades selle pealkirja ja valides selle vanemkategooria (või valides <em>(ei ole)</em>, et luua ülemise taseme kategooria).</dd>
+    <dt>Sildid</dt>
+    <dd>Lisage komadega eraldatud sildid ja vajutage <strong>ok</strong>, kui olete valmis. Võite valida ka olemasolevaid silte, klõpsates nuppu <strong>Choose from list (Vali nimekirjast</strong>).</dd>
+    <dt>Lisad</dt>
+    <dd>Attachments are media files added to the entry. You can use the <strong>Add files to this entry</strong> button to select media files to add to the entry.<br>This option will appear after you save your entry.<br>Please check the Media manager help for more information.</dd>
+    <dt>Nõustuge kommentaaridega</dt>
+    <dd>Märkige see kast, et võimaldada külastajatel seda sissekannet kommenteerida. Vastava globaalse seadistuse leiate blogi seadetest.</dd>
+    <dt>Võtke vastu tagasisideid</dt>
+    <dd>A trackback is a way to let a portion of your entry as a comment on another blog. Check this box to allow others to trackback your entry. The corresponding global setting is to be found in the blog settings.</dd>
+    <dt>Parool</dt>
+    <dd>You can enter a password for your entry. A password protected entry will not be displayed on your blog, it will only be accessible to those you will give the entry URL to (see the <strong>view entry</strong> link) and password.</dd>
+    <dt>Baasnimi</dt>
+    <dd>Te saate selle välja kaitse tühistada, klõpsates selle paremal pool asuval väikesel lukul ja valides oma sisestuse jaoks mõne muu URL-i. Kui URL, mida soovite kasutada, on juba kasutusel mõne teise sissekande puhul, lisatakse sellele number.</dd>
+  </dl>
+  <h4>Kommentaarid</h4>
+  <dl>
+    <dt>Kommentaaride nimekiri</dt>
+    <dd>On the <strong>Comments</strong> tab, you can read and change the status of
+      your entry's comments (and trackbacks). If you're allowed to by the blog administrator, you will be able to set your comments (and trackbacks) online or offline, to delete them or to mark them as junk.</dd>
+    <dt>Lisa kommentaar</dt>
+    <dd>Lehel <strong>Lisa kommentaar</strong> saate vastata ühele oma sissekande kommentaarile ilma oma blogi backendist lahkumata. Siin kasutatav süntaks on tavaline, piiramatu HTML. Kasutage välju nii, nagu muudaksite kommentaari.</dd>
+  </dl>
+  <h4>Lisa kommentaar</h4>
+  <dl>
+    <dt>Nimi</dt>
+    <dd>Kommentaaride autori nimi. See väli on kohustuslik.</dd>
+    <dt>E-post</dt>
+    <dd>Kommentaaride autori e-posti aadress.</dd>
+    <dt>Veebileht</dt>
+    <dd>Kommentaari autori veebisaidi URL.</dd>
+    <dt>Kommentaar</dt>
+    <dd>Kommentaaride sisu. See väli kasutab HTML-süntaksi.</dd>
+  </dl>
 </body>
+
 </html>

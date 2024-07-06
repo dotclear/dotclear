@@ -1,131 +1,87 @@
 <html>
+
 <head>
   <title>User preferences</title>
 </head>
 
 <body>
-
-<h4>Můj profil</h4>
-<dl>
-  <dt>Name, First name</dt>
-  <dd>If the display name is empty, the author's name will be displayed
-  as his Firstname and Name as set here.</dd>
-  
-  <dt>Zobrazovaný název</dt>
-  <dd>You can choose here how your name will be displayed under your posts.</dd>
-  
-  <dt>E-mailová adresa</dt>
-  <dd>E-mailová adresa použitá při žádosti o nové heslo.<br>
-    Na tuto adresu budou také zasílána oznámení o nových komentářích.<em>(Pokud aktualizujete
-  toto pole, musíte zadat své aktuální heslo do příslušného pole na 
-  dole ve formuláři)</em></dd>
-  
-  <dt>URL</dt>
-  <dd>The user's web site. If set, the author name will be displayed as
-  a link to the said site.</dd>
-  
-  <dt>Preferred format</dt>
-  <dd>To choose the prefered post syntax. Wiki is a simplified syntax
-  and will be converted to valid HTML&nbsp;; Unless you have a perfect
-  understanding of HTML, we advise you to choose the wiki syntax.</dd>
-  
-  <dt>Default entry status</dt>
-  <dd>Tato volba definuje čas zobrazený na publikaci příspěvků.</dd>
-  
-  <dt>Entry edit field height</dt>
-  <dd>The height of the Entry edit field. Defaults to 24.</dd>
-</dl>
-
-
-<h4>Moje možnosti</h4>
-<h5>Rozhraní</h5>
-<dl>  
-  <dt>Aktivovat rozšířené nahrávání ve správci médií</dt>
-  <dd>Umožňuje aktivovat rozšířené rozhraní ve správci médií, které umožňuje 
-  nahrávat více souborů najednou (Poznámka: Váš webový prohlížeč musí podporovat Javascript 
-  , aby mohl tuto funkci používat).</dd>
-
-  <dt>Zakázat přetažení Javascriptu pro řazení položek</dt>
-  <dd>Umožňuje zakázat "přetažení" pro řazení položek. Přetáhněte a přetažení bude 
-  nahrazeno číselnými poli, která vám umožní místo toho zadat pozici polí.</dd>
-
-  <dt>Počet zobrazených prvků na stránce ve správci médií</dt>
-  <dd>Určuje počet médií, která budou zobrazena ve správci médií (složky
-  nejsou brány v úvahu při počítání položek).</dd>
-  
-  <dt>Nepoužívejte standardní favikonu</dt>
-  <dd>Umožňuje zakázat výchozí oblíbenou ikonu v adresním řádku prohlížeče.</dd>
-</dl>
-
-<h5>Vydání</h5>
-<dl>    
-  <dt>Preferovaný formát</dt>
-  <dd>Vyberte syntaxi záznamu. Wiki je zjednodušená syntaxe
-  a bude převedena na platný HTML. Pokud nemáte dokonalé
-  porozumění HTML, doporučujeme vám vybrat Wiki syntaxi.
-  Další informace naleznete v odkazu na syntaxi Wiki.</dd>
-  
-  <dt>Výchozí stav položky</dt>
-  <dd>Výchozí stav pro nové položky lze nastavit na:
-    <ul>
-      <li><strong>Čekající:</strong> Stav publikace ještě nebyl rozhodnut.</li>
-      <li><strong>Naplánováno:</strong> Položka bude nastavena online v čase a datu uvedeném v poli <strong>Publikováno na</strong>.</li>
-      <li><strong>Nezveřejněno:</strong> Offline vstup.</li>
-      <li><strong>Publikováno:</strong> Online vstup.</li>
-    </ul>
-  </dd>
-  
-  <dt>Výška editačního pole záznamu</dt>
-  <dd>Nastaví výšku editačního pole položky. Ve výchozím nastavení je tento parametr nastaven na 24.</dd>
-  
-  <dt>Povolit režim WYSIWYG</dt>
-  <dd>Umožňuje použití vizuálního editoru (WYSIWYG: Co vidíte co jde) pro pole popis položek, stránek a kategorií.</dd>
-</dl>
-
-<h5>Další možnosti</h5>
-<dl>
-  <dt>Formát seznamu štítků</dt>
-  <dd>Můžete si vybrat, zda chcete zobrazit při úpravách záznamu, všechny použité štítky (<strong>Rozšířené</strong>) nebo pouze ty nejpoužívanější (<strong>Krátká</strong>).</dd>
-
-  <dt>Zvýraznění syntaxe v editoru témat</dt>
-  <dd>Povolí zvýraznění syntaxe při používání editoru motivů (HTML a CSS soubory)</dd>     
-</dl>
-
-
-<h4>Moje nástěnka</h4>
-<dl>
-  <dt>Moje oblíbené</dt>
-  <dd>Tato zóna zobrazuje vybrané oblíbené položky na panelu blogu. 
-  Jejich pořadí lze měnit pomocí myši, pokud je v prohlížeči aktivován Javascript. 
-  V opačném případě umožňuje pole zadat jejich pořadové číslo. Až budete hotovi, nezapomeňte změny uložit stisknutím tlačítka <strong>Uložit objednávku</strong>.<br>
-  Oblíbené položky můžete také odstranit tak, že je vyberete a stisknete <strong>Smazat vybrané oblíbené položky</strong>.</dd>
-  
-  <dt>Definovat jako výchozí oblíbené (super administrátor)</dt> 
-  <dd>Povolit nastavení aktuálně definovaného seznamu oblíbených jako výchozí seznam oblíbených pro všechny uživatele. Tento seznam bude navrhován uživatelům, pokud ještě nedefinovali své vlastní oblíbené položky.</dd>
-
-  <dt>Další dostupné oblíbené</dt>
-  <dd>Všechny zásuvné moduly, které umožňují vkládání jako oblíbené jsou umírány zde. Zaškrtněte odpovídající políčka a přidejte je do nástěnky stisknutím tlačítka <strong>Přidat oblíbené</strong>.</dd>
-
-  <dt>Zobrazit oblíbené v horní části nabídky</dt>
-  <dd>Pokud je povoleno, zobrazí oblíbené v horní části menu.</dd>
-
-  <dt>Moduly hlavního panelu</dt>
-  <dd>Volby provedené v této zóně se odrazí na nástěnce vašeho blogu.</dd>
-  
-  <dt>Zobrazit odkazy na dokumentaci</dt>
-  <dd>Povolit zobrazení odkazů na dokumentaci na vstupní stránce řídicího panelu.</dd>
-  
-  <dt>Zobrazit Dotclear novinky</dt>
-  <dd>Povolit zobrazení Dotclear zpráv na vstupní stránce řídicího panelu.</dd>
-
-  <dt>Zobrazit formulář rychlého vstupu</dt>
-  <dd>Povolit zobrazení "rychlého vstupu" formuláře na úvodní stránce řídicího panelu.</dd>
-
-  <dt>Zobrazit počítadlo úkolů po termínu na ikonu údržby</dt>
-  <dd>Umožňuje zobrazit počet úkolů po termínu (tj. které by měly být zpracovány) pod ikonou <strong>Údržba</strong> . <strong>Ikona údržby</strong> musí být nastavena v oblíbených pro použití této funkce.</dd>
-
-  <dt>Zobrazit seznam úkolů po termínu na položkách hlavního panelu</dt>
-  <dd>Povolit zobrazení seznamu úkolů po termínu (tj. které by měly být zpracovány) ve vyhrazené sekci na vstupní stránce hlavního panelu.</dd>
-</dl>
+  <h4>Můj profil</h4>
+  <dl>
+    <dt>Name, First name</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Zobrazovaný název</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>E-mailová adresa</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Preferred format</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Default entry status</dt>
+    <dd>Tato volba definuje čas zobrazený na publikaci příspěvků.</dd>
+    <dt>Entry edit field height</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Moje možnosti</h4>
+  <h5>Rozhraní</h5>
+  <dl>
+    <dt>Aktivovat rozšířené nahrávání ve správci médií</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Zakázat přetažení Javascriptu pro řazení položek</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Počet zobrazených prvků na stránce ve správci médií</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Nepoužívejte standardní favikonu</dt>
+    <dd>Umožňuje zakázat výchozí oblíbenou ikonu v adresním řádku prohlížeče.</dd>
+  </dl>
+  <h5>Vydání</h5>
+  <dl>
+    <dt>Preferovaný formát</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Výchozí stav položky</dt>
+    <dd>Výchozí stav pro nové položky lze nastavit na:
+      <ul>
+        <li><strong>Čekající:</strong> Stav publikace ještě nebyl rozhodnut.</li>
+        <li><strong>Naplánováno:</strong> Položka bude nastavena online v čase a datu uvedeném v poli <strong>Publikováno na</strong>.</li>
+        <li><strong>Nezveřejněno:</strong> Offline vstup.</li>
+        <li><strong>Publikováno:</strong> Online vstup.</li>
+      </ul>
+    </dd>
+    <dt>Výška editačního pole záznamu</dt>
+    <dd>Nastaví výšku editačního pole položky. Ve výchozím nastavení je tento parametr nastaven na 24.</dd>
+    <dt>Povolit režim WYSIWYG</dt>
+    <dd>Umožňuje použití vizuálního editoru (WYSIWYG: Co vidíte co jde) pro pole popis položek, stránek a kategorií.</dd>
+  </dl>
+  <h5>Další možnosti</h5>
+  <dl>
+    <dt>Formát seznamu štítků</dt>
+    <dd>Můžete si vybrat, zda chcete zobrazit při úpravách záznamu, všechny použité štítky (<strong>Rozšířené</strong>) nebo pouze ty nejpoužívanější (<strong>Krátká</strong>).</dd>
+    <dt>Zvýraznění syntaxe v editoru témat</dt>
+    <dd>Povolí zvýraznění syntaxe při používání editoru motivů (HTML a CSS soubory)</dd>
+  </dl>
+  <h4>Moje nástěnka</h4>
+  <dl>
+    <dt>Moje oblíbené</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Definovat jako výchozí oblíbené (super administrátor)</dt>
+    <dd>Povolit nastavení aktuálně definovaného seznamu oblíbených jako výchozí seznam oblíbených pro všechny uživatele. Tento seznam bude navrhován uživatelům, pokud ještě nedefinovali své vlastní oblíbené položky.</dd>
+    <dt>Další dostupné oblíbené</dt>
+    <dd>Všechny zásuvné moduly, které umožňují vkládání jako oblíbené jsou umírány zde. Zaškrtněte odpovídající políčka a přidejte je do nástěnky stisknutím tlačítka <strong>Přidat oblíbené</strong>.</dd>
+    <dt>Zobrazit oblíbené v horní části nabídky</dt>
+    <dd>Pokud je povoleno, zobrazí oblíbené v horní části menu.</dd>
+    <dt>Moduly hlavního panelu</dt>
+    <dd>Volby provedené v této zóně se odrazí na nástěnce vašeho blogu.</dd>
+    <dt>Zobrazit odkazy na dokumentaci</dt>
+    <dd>Povolit zobrazení odkazů na dokumentaci na vstupní stránce řídicího panelu.</dd>
+    <dt>Zobrazit Dotclear novinky</dt>
+    <dd>Povolit zobrazení Dotclear zpráv na vstupní stránce řídicího panelu.</dd>
+    <dt>Zobrazit formulář rychlého vstupu</dt>
+    <dd>Povolit zobrazení "rychlého vstupu" formuláře na úvodní stránce řídicího panelu.</dd>
+    <dt>Zobrazit počítadlo úkolů po termínu na ikonu údržby</dt>
+    <dd>Umožňuje zobrazit počet úkolů po termínu (tj. které by měly být zpracovány) pod ikonou <strong>Údržba</strong> . <strong>Ikona údržby</strong> musí být nastavena v oblíbených pro použití této funkce.</dd>
+    <dt>Zobrazit seznam úkolů po termínu na položkách hlavního panelu</dt>
+    <dd>Povolit zobrazení seznamu úkolů po termínu (tj. které by měly být zpracovány) ve vyhrazené sekci na vstupní stránce hlavního panelu.</dd>
+  </dl>
 </body>
+
 </html>

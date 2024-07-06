@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Utilizatori</title>
-  </head>
-  <body>
-    <p>Această pagină afișează toți utilizatorii din sistem.</p>
-    <p>Pentru a adăuga (sau modifica) permisiunile utilizatorilor, parola va fi necesară în câmpul <strong>Parola dvs</strong>.</p>
 
-    <h4>Filtru listă de utilizatori</h4>
-    <dl>
-      <dt>Caută</dt>
-      <dd>Căutarea se bazează pe ID-ul utilizatorului. Cardul <strong>*</strong> poate fi folosit pentru a căuta doar o parte din ID-ul utilizatorului.</dd>
+<head>
+  <title>Utilizatori</title>
+</head>
 
-      <dt>Ordonare după</dt>
-      <dd>Lista utilizatorilor poate fi comandată prin <em>ID</em>, <em>Nume de familie</em>, al lor <em>Prenume</em>, numele lor de afișare <em></em> (nickname) sau numărul de intrări <em></em> pe care le-au creat.</dd>
+<body>
+  <p>Această pagină afișează toți utilizatorii din sistem.</p>
+  <p>Pentru a adăuga (sau modifica) permisiunile utilizatorilor, parola va fi necesară în câmpul <strong>Parola dvs</strong>.</p>
+  <h4>Filtru listă de utilizatori</h4>
+  <dl>
+    <dt>Caută</dt>
+    <dd>Căutarea se bazează pe ID-ul utilizatorului. Cardul <strong>*</strong> poate fi folosit pentru a căuta doar o parte din ID-ul utilizatorului.</dd>
+    <dt>Ordonare după</dt>
+    <dd>Lista utilizatorilor poate fi comandată prin <em>ID</em>, <em>Nume de familie</em>, al lor <em>Prenume</em>, numele lor de afișare <em></em> (nickname) sau numărul de intrări <em></em> pe care le-au creat.</dd>
+    <dt>Sortează</dt>
+    <dd>Indică metoda de sortare care va fi aplicată listei de rezultate (<em>ascendent</em> sau <em>descendent</em>).</dd>
+    <dt>Utilizatori pe pagină</dt>
+    <dd>Setează numărul de utilizatori afişat în fiecare pagină a listei de rezultate.</dd>
+  </dl>
+  <h4>Acțiuni multiple ale utilizatorilor</h4>
+  <p>Este posibil să faci o serie de acțiuni la mai mulți utilizatori odată.</p>
+  <ul>
+    <li><strong>Setează permisiunile:</strong> Setează permisiunile pentru unul sau mai multe blog(uri).</li>
+    <li><strong>Ștergere:</strong> Ștergeți utilizatorul(ele) selectat(e) din sistem. Un utilizator care a creat intrări nu poate fi șters.</li>
+  </ul>
+  <p>Dacă decideți să setați permisiunile utilizatorilor, veți fi redirecționat către o nouă pagină care afișează blogurile disponibile în sistemul dvs. Bifați blogurile pe care doriți să setați permisiunile și apăsați <strong>Setați permisiunile</strong>.</p>
+  <h4>Permisiuni utilizatori</h4>
+  <p>Pentru fiecare blog, puteţi seta următoarele permisiuni:</p>
+  <ul>
+    <li><strong>Administrator:</strong> Poate administra blogul în întregime.</li>
+    <li><strong>Gestionați propriile lor intrări și comentarii:</strong> Utilizatorul poate crea intrări și gestiona comentariile la intrările pe care le-a creat.</li>
+    <li><strong>Publicați intrări și comentarii:</strong> Utilizatorul poate modifica starea publicării propriilor sale intrări și a comentariilor intrărilor.</li>
+    <li><strong>Ștergeți intrările și comentariile:</strong> Utilizatorul poate șterge propriile sale intrări, precum și comentariile intrărilor.</li>
+    <li><strong>Gestionați toate intrările și comentariile:</strong> Utilizatorul poate gestiona toate intrările acestui blog, indiferent dacă el este autorul sau nu.</li>
+    <li><strong>Gestionați categoriile:</strong> Utilizatorul poate crea, modifica și șterge categorii.</li>
+    <li><strong>Gestionați propriile articole media:</strong> Utilizatorul poate adăuga elemente media și modifica sau șterge propriile media.</li>
+    <li><strong>Gestionați toate elementele media:</strong> Utilizatorul poate gestiona elementele media de la orice utilizator.</li>
+    <li><strong>Gestionare pagini:</strong> Utilizatorul poate adăuga și modifica pagini.</li>
+    <li><strong>Gestionare blogrol:</strong> Utilizatorul poate gestiona blogroll de blog curent.</li>
+  </ul>
+  <p>Starea <strong>Super Administrator</strong> este setată în profilul utilizatorului.</p>
+</body>
 
-      <dt>Sortează</dt>
-      <dd>Indică metoda de sortare care va fi aplicată listei de rezultate (<em>ascendent</em> sau <em>descendent</em>).</dd>
-
-      <dt>Utilizatori pe pagină</dt>
-      <dd>Setează numărul de utilizatori afişat în fiecare pagină a listei de rezultate.</dd>
-    </dl>
-
-    <h4>Acțiuni multiple ale utilizatorilor</h4>
-    <p>Este posibil să faci o serie de acțiuni la mai mulți utilizatori odată.</p>
-    <ul>
-      <li><strong>Setează permisiunile:</strong> Setează permisiunile pentru unul sau mai multe blog(uri).</li>
-      <li><strong>Ștergere:</strong> Ștergeți utilizatorul(ele) selectat(e) din sistem. Un utilizator care a creat intrări nu poate fi șters.</li>
-    </ul>
-    <p>Dacă decideți să setați permisiunile utilizatorilor, veți fi redirecționat către o nouă pagină care afișează blogurile disponibile în sistemul dvs. Bifați blogurile pe care doriți să setați permisiunile și apăsați <strong>Setați permisiunile</strong>.</p>
-
-    <h4>Permisiuni utilizatori</h4>
-    <p>Pentru fiecare blog, puteţi seta următoarele permisiuni:</p>
-    <ul>
-      <li><strong>Administrator:</strong> Poate administra blogul în întregime.</li>
-      <li><strong>Gestionați propriile lor intrări și comentarii:</strong> Utilizatorul poate crea intrări și gestiona comentariile la intrările pe care le-a creat.</li>
-      <li><strong>Publicați intrări și comentarii:</strong> Utilizatorul poate modifica starea publicării propriilor sale intrări și a comentariilor intrărilor.</li>
-      <li><strong>Ștergeți intrările și comentariile:</strong> Utilizatorul poate șterge propriile sale intrări, precum și comentariile intrărilor.</li>
-      <li><strong>Gestionați toate intrările și comentariile:</strong> Utilizatorul poate gestiona toate intrările acestui blog, indiferent dacă el este autorul sau nu.</li>
-      <li><strong>Gestionați categoriile:</strong> Utilizatorul poate crea, modifica și șterge categorii.</li>
-      <li><strong>Gestionați propriile articole media:</strong> Utilizatorul poate adăuga elemente media și modifica sau șterge propriile media.</li>
-      <li><strong>Gestionați toate elementele media:</strong> Utilizatorul poate gestiona elementele media de la orice utilizator.</li>
-      <li><strong>Gestionare pagini:</strong> Utilizatorul poate adăuga și modifica pagini.</li>
-      <li><strong>Gestionare blogrol:</strong> Utilizatorul poate gestiona blogroll de blog curent.</li>
-    </ul>
-    <p>Starea <strong>Super Administrator</strong> este setată în profilul utilizatorului.</p>
-  </body>
 </html>

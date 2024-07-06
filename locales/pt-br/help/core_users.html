@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Usuários</title>
-  </head>
-  <body>
-    <p>Esta página lista todos os usuários no sistema.</p>
-    <p>Para adicionar (ou modificar) permissões de usuários, sua senha será exigida no campo <strong>Sua senha</strong>.</p>
 
-    <h4>Filtro de lista de usuários</h4>
-    <dl>
-      <dt>Pesquisar</dt>
-      <dd>A pesquisa é baseada na ID do usuário. O curinga <strong>*</strong> pode ser usado para procurar apenas uma parte do ID do usuário.</dd>
+<head>
+  <title>Usuários</title>
+</head>
 
-      <dt>Ordenar por</dt>
-      <dd>A lista de usuários pode ser ordenada por sua identificação <em></em>, seu <em>Sobrenome</em>, seu <em>Nome</em>, seus <em>Nome de exibição</em> (apelido) ou o <em>Número de Entradas</em> que eles criaram.</dd>
+<body>
+  <p>Esta página lista todos os usuários no sistema.</p>
+  <p>Para adicionar (ou modificar) permissões de usuários, sua senha será exigida no campo <strong>Sua senha</strong>.</p>
+  <h4>Filtro de lista de usuários</h4>
+  <dl>
+    <dt>Pesquisar</dt>
+    <dd>A pesquisa é baseada na ID do usuário. O curinga <strong>*</strong> pode ser usado para procurar apenas uma parte do ID do usuário.</dd>
+    <dt>Ordenar por</dt>
+    <dd>A lista de usuários pode ser ordenada por sua identificação <em></em>, seu <em>Sobrenome</em>, seu <em>Nome</em>, seus <em>Nome de exibição</em> (apelido) ou o <em>Número de Entradas</em> que eles criaram.</dd>
+    <dt>Ordenar</dt>
+    <dd>Indica o método de classificação que será aplicado à lista de resultados (<em>Ascendente</em> ou <em>Descendente</em>).</dd>
+    <dt>Usuários por página</dt>
+    <dd>Define o número de usuários exibidos em cada página da lista de resultados.</dd>
+  </dl>
+  <h4>Ações em lote dos usuários</h4>
+  <p>É possível fazer um lote de ações em vários usuários de uma só vez.</p>
+  <ul>
+    <li><strong>Definir permissões:</strong> Definir permissões para um ou mais blog(s).</li>
+    <li><strong>Apagar:</strong> Remova o(s) usuário(s) selecionado(s) do sistema. Um usuário que criou postagens não pode ser excluído.</li>
+  </ul>
+  <p>Se você decidir definir as permissões dos usuários, você será redirecionado para uma nova página listando os blogs disponíveis no seu sistema. Verifique os blogs nos quais você deseja definir as permissões e pressione <strong>Definir permissões</strong>.</p>
+  <h4>Permissões de usuários</h4>
+  <p>Para cada blog, você pode definir as seguintes permissões:</p>
+  <ul>
+    <li><strong>Administrador:</strong> Pode administrar o blog completamente.</li>
+    <li><strong>Gerenciar suas próprias entradas e comentários:</strong> O usuário pode criar postagens e gerenciar os comentários das postagens que criou.</li>
+    <li><strong>Publicar postagens e comentários:</strong> O usuário pode modificar o status da publicação de suas próprias postagens e dos comentários de suas postagens.</li>
+    <li><strong>Excluir postagens e comentários:</strong> O usuário pode excluir suas próprias entradas, bem como os comentários de suas postagens.</li>
+    <li><strong>Gerenciar todas as entradas e comentários:</strong> O usuário pode gerenciar todas as postagens deste blog, não importa se ele é o autor ou não.</li>
+    <li><strong>Gerenciar categorias:</strong> O usuário pode criar, modificar e excluir categorias.</li>
+    <li><strong>Gerenciar seus próprios itens de mídia:</strong> O usuário pode adicionar itens de mídia e modificar ou excluir sua própria mídia.</li>
+    <li><strong>Gerenciar todos os itens de mídia:</strong> O usuário pode gerenciar os itens de mídia de qualquer usuário.</li>
+    <li><strong>Gerenciar páginas:</strong> O usuário pode adicionar e modificar páginas.</li>
+    <li><strong>Gerenciar blogroll:</strong> O usuário pode gerenciar o blogroll do blog atual.</li>
+  </ul>
+  <p>O status de <strong>Super administrador</strong> é definido no perfil do usuário.</p>
+</body>
 
-      <dt>Ordenar</dt>
-      <dd>Indica o método de classificação que será aplicado à lista de resultados (<em>Ascendente</em> ou <em>Descendente</em>).</dd>
-
-      <dt>Usuários por página</dt>
-      <dd>Define o número de usuários exibidos em cada página da lista de resultados.</dd>
-    </dl>
-
-    <h4>Ações em lote dos usuários</h4>
-    <p>É possível fazer um lote de ações em vários usuários de uma só vez.</p>
-    <ul>
-      <li><strong>Definir permissões:</strong> Definir permissões para um ou mais blog(s).</li>
-      <li><strong>Apagar:</strong> Remova o(s) usuário(s) selecionado(s) do sistema. Um usuário que criou postagens não pode ser excluído.</li>
-    </ul>
-    <p>Se você decidir definir as permissões dos usuários, você será redirecionado para uma nova página listando os blogs disponíveis no seu sistema. Verifique os blogs nos quais você deseja definir as permissões e pressione <strong>Definir permissões</strong>.</p>
-
-    <h4>Permissões de usuários</h4>
-    <p>Para cada blog, você pode definir as seguintes permissões:</p>
-    <ul>
-      <li><strong>Administrador:</strong> Pode administrar o blog completamente.</li>
-      <li><strong>Gerenciar suas próprias entradas e comentários:</strong> O usuário pode criar postagens e gerenciar os comentários das postagens que criou.</li>
-      <li><strong>Publicar postagens e comentários:</strong> O usuário pode modificar o status da publicação de suas próprias postagens e dos comentários de suas postagens.</li>
-      <li><strong>Excluir postagens e comentários:</strong> O usuário pode excluir suas próprias entradas, bem como os comentários de suas postagens.</li>
-      <li><strong>Gerenciar todas as entradas e comentários:</strong> O usuário pode gerenciar todas as postagens deste blog, não importa se ele é o autor ou não.</li>
-      <li><strong>Gerenciar categorias:</strong> O usuário pode criar, modificar e excluir categorias.</li>
-      <li><strong>Gerenciar seus próprios itens de mídia:</strong> O usuário pode adicionar itens de mídia e modificar ou excluir sua própria mídia.</li>
-      <li><strong>Gerenciar todos os itens de mídia:</strong> O usuário pode gerenciar os itens de mídia de qualquer usuário.</li>
-      <li><strong>Gerenciar páginas:</strong> O usuário pode adicionar e modificar páginas.</li>
-      <li><strong>Gerenciar blogroll:</strong> O usuário pode gerenciar o blogroll do blog atual.</li>
-    </ul>
-    <p>O status de <strong>Super administrador</strong> é definido no perfil do usuário.</p>
-  </body>
 </html>

@@ -1,83 +1,52 @@
 <html>
-<head>
 
-<title>韧性配置</title>
+<head>
+  <title>韧性配置</title>
 </head>
 
 <body>
-<p>通过修改 Ductile 主题的配置，您可以非常轻松地个性化您的主题</p>
-
-<h3>内容个性化</h3>
-<p>在此选项卡上，您可以个性化设置博客内容。</p>
-<dl>
-  <dt>页眉</dt>
+  <p>通过修改 Ductile 主题的配置，您可以非常轻松地个性化您的主题</p>
+  <h3>内容个性化</h3>
+  <p>在此选项卡上，您可以个性化设置博客内容。</p>
+  <dl>
+    <dt>页眉</dt>
     <dd>选中 "隐藏博客描述 "复选框，以便不显示通常显示在标题下的博客描述。</dd>
-
-<p>如果 "简单菜单 "插件已安装并激活，您可以点击指定链接来配置页眉的菜单。(主菜单？）</p>
-
-<p>指定徽标的 URL，以取代默认徽标。如果 URL 不是以 <code>/</code> 开头，那么它将是主题 <code>img</code> 文件夹中的相对 URL（例如，将 <code>logo.png</code>与使用默认徽标类似）。清除此字段即可返回默认配置。</p>
-
-  <dt>贴纸</dt>
-    <dd>在大屏幕上，贴纸将以小图片的形式显示在屏幕顶部；在极小屏幕上，贴纸将以小图片的形式显示在页面底部。所有文件名与贴纸-*.png 方案一致，并放置在主题的 img 子文件夹中的图片都会被列出。您可以为每张图片指定一个标签和相应的网址。(如果两个字段都为空，则不显示。）<br />
-如果激活了 javascript，且没有在偏好设置中禁用，还可以通过拖放修改显示顺序。如果停用了 javascript，则可以在一个字段中指定显示顺序（1 到 n）。</dd>
-
-  <dt>职位列表的类型和限制</dt>
-
-    <dd>博客的某些显示内容是以帖子列表的形式呈现的。例如首页或每月存档。对于表中列出的每种上下文，您都可以指定显示的每篇文章的内容应是标题、简短形式（提取字段前 300 个字符的内容）还是完整形式。注意。在主页上，第一篇文章总是显示全文。<br />
-此外，在某些情况下，您还可以指定每页显示的文章数量。如果该字段为空，则将使用博客常规设置中指定的值。</dd>
-
-</dl>
-
-<h3>个性化演示</h3>
-<p>在此选项卡上，您可以个性化设置博客的一些展示元素。</p>
-
-<h4>一般参数</h4>
-
-<p>这些参数将用于博客的所有显示宽度。</p>
-<dl>
-  <dt>字体</dt>
+    <p>如果 "简单菜单 "插件已安装并激活，您可以点击指定链接来配置页眉的菜单。(主菜单？）</p>
+    <p>指定徽标的 URL，以取代默认徽标。如果 URL 不是以 <code>/</code> 开头，那么它将是主题 <code>img</code> 文件夹中的相对 URL（例如，将 <code>logo.png</code>与使用默认徽标类似）。清除此字段即可返回默认配置。</p>
+    <dt>贴纸</dt>
+    <dd>The stickers will be displayed at the top of the screen as small images on large screens and at the bottom of the page on very small screens. All images which file name correspond to the sticker-*.png scheme and placed in the sub-folder img of the theme are listed. You can indicate for each a label and the corresponding url. (Leave on of both fields empty to not display it.)<br>You can also modify the display order with a drag and drop if javascript is activated and if you have not disabled it in your preferences. If javascript is deactivated, a field allows you to indicate the order of display (1 to n).</dd>
+    <dt>职位列表的类型和限制</dt>
+    <dd>Some of the display contexts of your blog present under the form of a list of posts. It's the case for example for the home page or for the monthly archives. For each of the context listed in the table, you can specify if the content of each displayed post should be as a title only, a short form (content of the extract field of first 300 characters) or their full form. NB. On the home page, the first post always displays in full.<br>Moreover, for some of those contexts, you can also specify the number of posts displayed per page. If you leave this field empty, the value specified in the general settings of the blog that will be used.</dd>
+  </dl>
+  <h3>个性化演示</h3>
+  <p>在此选项卡上，您可以个性化设置博客的一些展示元素。</p>
+  <h4>一般参数</h4>
+  <p>这些参数将用于博客的所有显示宽度。</p>
+  <dl>
+    <dt>字体</dt>
     <dd>您可以在此选择主要字体系列，大部分文本都将使用该系列。您还可以指定第二种字体（次要字体），用于第二层的某些标题和注释。默认 "选项允许保留原来的选择。</dd>
-
-  <dt>博客标题</dt>
-
-    <dd>您可以在此指定博客标题是否必须以粗体显示、大小（默认为 em，可识别的单位有 %、pt、ptx、em 和 ex）以及颜色，格式为 #rrggbb，rr、gg 和 bb 在 0 和 ff 之间选择。<br />
-清空一个或所有字段可取消选择并返回默认值。</dd>
-
-
-  <dt>职位名称</dt>
-    <dd>您可以在此说明是否要以粗体显示文章标题、标题大小（默认为 em，可识别的单位有 %、pt、px、em 和 ex）以及标题的颜色，可通过点击拾色器图标使用颜色拾取器，或以 #rrggbb 格式指定颜色，在 0 和 ff 之间选择 rr、gg 和 bb。<br />
-清空一个或所有字段可取消选择并返回到原来的字段。</dd>
-
-  <dt>无链接的标题</dt>
-    <dd>您可以通过点击拾色器图标，使用拾色器或以 #rrggbb 格式指定颜色（rr、gg 和 bb 在 0 和 ff 之间选择），来指定无链接标题（主要是：文章单独显示时的标题、文章中的副标题、水平菜单中的活动项目）的颜色。<br />
-清空一个或所有字段可取消选择并返回默认值。</dd>
-
-  <dt>帖子内的链接</dt>
-    <dd>您可以通过点击拾色器图标，使用拾色器或以 #rrggbb 格式指定颜色（rr、gg 和 bb 在 0 和 ff 之间选择），在此说明帖子中包含的链接是否应以粗体显示，并定义其在正常状态和 "访问 "状态下的颜色、激活时的颜色、悬停或聚焦时的颜色。<br />
-清空一个或所有字段可取消选择并返回默认值。</dd>
-
-<h4>移动电话的具体参数</h4>
-
-<p>这些参数仅在显示宽度小于 480 像素时使用（例如在手机上）。如果指定了这些参数，它们将取代上述一般参数中指定的相应参数。</p>
-
-  <dt>博客标题</dt>
-
-    <dd>您可以在此指定博客标题是否必须以粗体显示、大小（默认为 em，可识别的单位有 %、pt、ptx、em 和 ex）以及颜色，格式为 #rrggbb，rr、gg 和 bb 在 0 和 ff 之间选择。<br />
-清空一个或所有字段可取消选择并返回默认值。</dd>
-
-
-  <dt>职位名称</dt>
-    <dd>您可以在此说明是否要以粗体显示文章标题、标题大小（默认为 em，可识别的单位有 %、pt、px、em 和 ex）以及标题的颜色，可通过单击拾色器图标使用颜色拾取器，或以 #rrggbb 格式指定颜色，其中 rr、gg 和 bb 在 0 和 ff 之间选择。<br />
-清空一个或所有字段可取消选择并返回默认值。</dd>
-
-<h3>无障碍环境和色彩对比</h3>
-
-<p>选定颜色后，对比度将显示在字段附近，并说明该对比度符合 WCAG 2.0 的建议。背景颜色和字体颜色的对比度应符合以下要求：</p>
-<ul>
-<li>AA 级正常大小的文字至少为 4.5:1；</li>
-<li>AAA 级正常大小的文本至少为 7:1；</li>
-<li>AA 级放大（150 % 或 120 % 粗体）文本的比例至少为 3:1；</li>
-<li>对于 AAA 级的放大文本（粗体为 150 % 或 120 %），比例至少为 4.5:1。</li>
-</ul>
+    <dt>博客标题</dt>
+    <dd>You can specify here if the blog title must be displayed in bold, its size, (default is em, recognized units are %, pt, px, em and ex) as well as the color, using the format #rrggbb with rr, gg and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>职位名称</dt>
+    <dd>You can indicate here if the post titles should be displayed in bold, their size (default is em, recognized units are %, pt, px, em and ex) as well as their color using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to your original one.</dd>
+    <dt>无链接的标题</dt>
+    <dd>You can specify here the color of titles without a link (essentially : the title of a post when it is displayed by itself, sub-titles within posts, the active item in the horizontal menu) by using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>帖子内的链接</dt>
+    <dd>You can indicate here if the links contained in your posts should be displayed in bold or not and define their color at a normal state as well as a "visited" state, their color when active, or when they're hovered upon or take focus, by using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <h4>移动电话的具体参数</h4>
+    <p>这些参数仅在显示宽度小于 480 像素时使用（例如在手机上）。如果指定了这些参数，它们将取代上述一般参数中指定的相应参数。</p>
+    <dt>博客标题</dt>
+    <dd>You can specify here if the blog title must be displayed in bold, its size, (default is em, recognized units are %, pt, px, em and ex) as well as the color, using the format #rrggbb with rr, gg and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>职位名称</dt>
+    <dd>You can indicate here if the post titles should be displayed in bold, their size (default is em, recognized units are %, pt, px, em and ex) as well as their color using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <h3>无障碍环境和色彩对比</h3>
+    <p>选定颜色后，对比度将显示在字段附近，并说明该对比度符合 WCAG 2.0 的建议。背景颜色和字体颜色的对比度应符合以下要求：</p>
+    <ul>
+      <li>AA 级正常大小的文字至少为 4.5:1；</li>
+      <li>AAA 级正常大小的文本至少为 7:1；</li>
+      <li>AA 级放大（150 % 或 120 % 粗体）文本的比例至少为 3:1；</li>
+      <li>对于 AAA 级的放大文本（粗体为 150 % 或 120 %），比例至少为 4.5:1。</li>
+    </ul>
 </body>
+
 </html>

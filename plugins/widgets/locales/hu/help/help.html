@@ -1,38 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html>
+
 <head>
   <title>Widgetek</title>
 </head>
 
 <body>
-<h4>Widgetek használata</h4>
-
-<p>A widgetek különböző tartalmi blokkok hozzáadására használhatók a nyilvános oldalakon való megjelenítéshez. Egy widget hozzáadásához húzza azt a <strong>Elérhető widgetek</strong> bal oldali listából az oldal jobb oldalán található oldalsávok egyikébe. A widgeteket az oldalsávban felfelé vagy lefelé húzással rendezheti. A módosítások alkalmazásához nyomja meg a <strong>Oldalsávok frissítése</strong>gombot.</p>
-
-<p>Az oldalsávba való felvétel után a widgetek konfigurációs lehetőségekkel rendelkeznek, amelyeket a nevük melletti nyílra kattintva érhet el.</p>
-
-<p>Egy widget eltávolításához egyszerűen húzza azt az egyik dedikált zónába</p>
-
-<p>Ne felejtse el elmenteni a módosításokat a <strong>Oldalsávok frissítése</strong>gomb megnyomásával</p>
-
-<p>A <strong>Oldalsávok visszaállítása</strong> gombbal visszaállíthatja az oldalsávokat a rendszerben eredetileg beállítottak szerint (egy felugró ablak kéri a választás megerősítését).</p>
-
-<h4>Widget címkék</h4>
-
-<div id="widgets-tpl">
-
-<p>Ha engedélyezi a téma sablonjainak szerkesztését, akkor közvetlenül hozzáadhat widgeteket sabloncímkékként, saját konfigurációval.</p>
-
-<p>Ahhoz, hogy widgetet adjon hozzá a sablonjához, a következő kódot kell írnia:</p>
-
-<pre>
+  <h4>Widgetek használata</h4>
+  <p>A widgetek különböző tartalmi blokkok hozzáadására használhatók a nyilvános oldalakon való megjelenítéshez. Egy widget hozzáadásához húzza azt a <strong>Elérhető widgetek</strong> bal oldali listából az oldal jobb oldalán található oldalsávok egyikébe. A widgeteket az oldalsávban felfelé vagy lefelé húzással rendezheti. A módosítások alkalmazásához nyomja meg a <strong>Oldalsávok frissítése</strong>gombot.</p>
+  <p>Az oldalsávba való felvétel után a widgetek konfigurációs lehetőségekkel rendelkeznek, amelyeket a nevük melletti nyílra kattintva érhet el.</p>
+  <p>Egy widget eltávolításához egyszerűen húzza azt az egyik dedikált zónába</p>
+  <p>Ne felejtse el elmenteni a módosításokat a <strong>Oldalsávok frissítése</strong>gomb megnyomásával</p>
+  <p>A <strong>Oldalsávok visszaállítása</strong> gombbal visszaállíthatja az oldalsávokat a rendszerben eredetileg beállítottak szerint (egy felugró ablak kéri a választás megerősítését).</p>
+  <h4>Widget címkék</h4>
+  <div id="widgets-tpl">
+    <p>Ha engedélyezi a téma sablonjainak szerkesztését, akkor közvetlenül hozzáadhat widgeteket sabloncímkékként, saját konfigurációval.</p>
+    <p>Ahhoz, hogy widgetet adjon hozzá a sablonjához, a következő kódot kell írnia:</p>
+    <pre>
 &lt;tpl:Widget id="<strong>Widget ID</strong>"&gt;
   &lt;setting name="<strong>Setting name</strong>"&gt;<strong>Beállítási érték</strong>&lt;/setting&gt;
   ...
 &lt;/tpl:Widget&gt;
 </pre>
-
-<p>Itt vannak a blogodhoz elérhető widgetek:</p><!-- the widgets and their descriptions are automatically inserted here -->
-
+    <p>Itt vannak a blogodhoz elérhető widgetek:</p><!-- the widgets and their descriptions are automatically inserted here -->
 </body>
+
 </html>

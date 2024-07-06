@@ -1,398 +1,382 @@
 <html>
+
 <head>
   <title></title> <!-- Leave the title empty -->
 </head>
 
 <body>
-
-<div class="multi-part legible" id="first-step" title="第一个步骤">
-	<h3>接口发现</h3>
-	<div class="fieldset">
-		<h4>第一个步骤</h4>
-		<p>除全局帮助页面外，若干管理页面也有在线帮助。如果浏览器启用了 javascript，
-		，点击 <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>需要帮助？</strong> 链接，即可在页面右上方看到在线帮助。如果禁用了 Javascript，帮助将显示在页面底部。</p>
-	</div>
-
-	<p>每个管理页面将显示相同的顶部标题、主菜单和页脚。 <em>(这里给出的顺序是在电脑屏幕上显示的内容。对于移动设备或平板电脑，它可能会根据可用空间而有所不同）。</em></p>
-
-	<h4 class="pretty-title">顶部标题</h4>
-	<p>顶部的标题由三个元素组成：</p>
-	<h5 class="as_h4">徽标</h5>
-	<p>默认情况下，这个标志是Dotclear的标志，并链接到管理登陆页面。然而，一个平台
-	经理可以选择另一个标志，并重定向到其他地方（一般来说，服务登陆页面）。</p>
-
-	<h5 class="as_h4">博客 (s)</h5>
-	<p>位于标志之后的第一个元素显示了 <em>活动的</em> 博客，也就是你正在操作的博客。如果你的
-	安装是由几个博客组成的，这些信息可以在一个组合菜单中得到，它可以让你切换到另一个博客。</p>
-	<p>博客名称后面的链接在另一个窗口或另一个标签中打开你当前的博客。</p>
-
-	<h5 class="as_h4">用户</h5>
-	<p>链接 <em>我的仪表板</em> 让你回到博客管理登陆页面。</p>
-	<p>链接 <em>我的偏好</em> ，在这里你可以修改你的个人信息，设置仪表板并选择你的界面和编辑选项。</p>
-	<p>令人惊讶的是，链接 <em>Disconnect [your login]</em> ，使你与你的博客的管理断开连接（在Dotclear's，我们是人体工程学的倡导者！）。</p>
-
-	<h4 class="pretty-title">主菜单</h4>
-	<p>主菜单位于屏幕的左侧。它可以通过点击它的右边界来折叠（然后通过再次点击它来解除折叠）。</p>
-	<p>根据你在当前博客上的权限，它通向不同的管理页面。它由四个区块组成：</p>
-	<ul>
-		<li><strong>我的最爱</strong> 列出你在 <em>我的喜好</em>/<em>我的仪表板</em> 标签中选择为最爱的页面。如果你还没有选择任何收藏夹，这个列表将包含默认的Dotclear集合，或者由平台管理员定义的集合。如果你不想显示这个块，你可以在你的仪表板选项中取消勾选匹配的复选框。</li>
-		<li><strong>博客</strong> 列出了所有可为当前博客提供信息和进行设置的页面，包括编辑条目、管理媒体、选择博客外观或其他参数。<br>
-		<em>如果您没有当前博客的管理员权限，则主菜单中的该块下方将没有其他块。</em></li>
-		<li><strong>系统设置</strong> 链接到允许你管理Dotclear安装的页面：博客管理，用户和可用语言，插件安装，系统设置。如果你有几个博客的权限，但没有超级管理员的权限，你将只看到 <em>Blogs</em> 条目。</li>
-		<li><strong>插件</strong> 使你能够设置已安装的插件。如果插件设置一次只影响一个博客，它的管理页面可以从 <em>博客</em> 块中获得，但如果它们影响整个安装，它们就位于这里，而且只有超级管理员用户可以使用。</li>
-	</ul>
-
-	<h4 class="pretty-title">足部</h4>
-	<p>Dotclear的免费版本将提供给任何发现隐藏在页脚的秘密的用户。</p>
-
-	<h3>对伟大的初学者的帮助</h3>
-	<p>如果你不熟悉博客，我们建议你看看我们的文档（整个目录可在本页面的 <strong>Documentation</strong> 标签中找到）以及教程，如：
-	<ul>
-		<li><a href="https://dotclear.org/documentation/2.0/usage/beginners">我的第一个作品，一步步来。</a></li>
-	</ul>
-
-	<p><a href="https://dotclear.org/forum/">Dotclear论坛</a> 是一个欢迎的地方，在这里没有所谓的 <em>一个愚蠢的问题</em>。如果你需要帮助，请不要犹豫，参与进来，为什么不呢，帮助别人作为回报。</p>
-
-	<p class="info">我们尽力使用无需特定知识就能轻松理解的词汇。然而，如果我们最终使用了一个技术术语，你可能会在我们在线文档的 <a href="https://dotclear.org/documentation/glossary">词汇表</a> 中找到其定义。</p>
-</div>
-
-<div class="multi-part" id="users-doc" title="用户手册">
-	<h3>用户手册</h3>
-	<div class="three-boxes">
-		<h4 class="pretty-title">管理内容</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/entries">文章</a>
-					<ul>
-						<li>创建和编辑</li>
-						<li>入场细节</li>
-						<li>与入境有关的行动</li>
-						<li>评论和 trackbacks</li>
-						<li>对条目进行批量管理</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">评论和 trackbacks</a>
-					<ul>
-						<li>后续行动</li>
-						<li>管理层</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/categories">分类目录</a>
-					<ul>
-						<li>创建一个类别</li>
-						<li>编辑一个类别</li>
-						<li>删除一个类别</li>
-						<li>编制类别列表</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/tags">标签（关键词）</a>
-					<ul>
-						<li>添加标签</li>
-						<li>标签管理</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/media">媒体和附件</a>
-					<ul>
-						<li>创建一个子目录</li>
-						<li>添加文件</li>
-						<li>下载当前目录的压缩文件</li>
-						<li>改变填写文件的细节</li>
-						<li>直接添加文件</li>
-						<li>特殊文件类型</li>
-						<li>附件</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/widgets">博客菜单内容（小部件）</a>
-					<ul>
-						<li>导航侧边栏，额外侧边栏</li>
-						<li>默认的小工具</li>
-						<li>添加/删除一个小部件</li>
-						<li>小工具选项</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">博客链接</a>
-					<ul>
-						<li>博客链接</li>
-						<li>添加一个链接</li>
-						<li>添加一个类别</li>
-						<li>XFN</li>
-						<li>从OPML或XBEL文件中导入链接</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes">
-		<h4 class="pretty-title">设置和定制</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">博客设置</a>
-					<ul>
-						<li>博客详情</li>
-						<li>博客配置</li>
-						<li>评论和 trackbacks</li>
-						<li>博客展示</li>
-						<li>媒体和图片</li>
-						<li>搜索引擎机器人政策</li>
-						<li>反垃圾评论</li>
-						<li>光盒</li>
-						<li>保存</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">用户偏好</a>
-					<ul>
-						<li>我的简介</li>
-						<li>我的选择</li>
-						<li>我的仪表板</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">博客外观</a>
-					<ul>
-						<li>选择一个主题</li>
-						<li>安装一个主题</li>
-						<li>个性化的主题</li>
-						<li>主题编辑</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes fieldset">
-			<h4 class="smart-title">补充读物</h4>
-				<h5>词汇表</h5>
-				<ul><li><a href="https://dotclear.org/documentation/glossary">所有这些在网络和Dotclear中使用的神秘词汇</a></li></ul>
-				<h5>输入句法</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">维基语法和HTML等效</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">为了更进一步</a></li>
-					</ul>
-				<h5>订阅（RSS、Atom...）。</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds">那是什么？</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">我如何在我的博客上提供它？</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">我如何订阅一个饲料？</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">为了更进一步</a></li>
-					</ul>
-			<h4 class="smart-title">帮助</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">Dotclear论坛</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq">常见问题</a></li>
-				</ul>
-	</div>
-</div>
-
-	<div class="multi-part" id="admin-doc" title="管理员的文件">
-	<h3>管理员的文件</h3>
-		<div class="three-boxes">
-		<h4 class="pretty-title">安装和更新</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install">安装</a>
-					<ul>
-						<li>先决条件</li>
-						<li>自动安装</li>
-						<li>标准安装</li>
-						<li>使用向导进行安装</li>
-						<li>从config.php文件进行安装</li>
-						<li>完成安装过程</li>
-						<li>接下来的步骤</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">更新</a>
-					<ul>
-						<li>为更新做准备</li>
-						<li>自动升级</li>
-						<li>更新程序</li>
-						<li>更新数据库</li>
-						<li>附录：更新一个mercurial副本</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/config">配置文件（config.php）参数</a>
-					<ul>
-						<li>简介</li>
-						<li>参数</li>
-						<li>向文件添加信息</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">从Dotclear 1.2升级到Dotclear 2</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/migrate">从其他博客软件迁移到Dotclear</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/local-install">本地安装</a>
-					<ul>
-						<li>窗户</li>
-						<li>Mac OS X</li>
-						<li>基础设施</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">用IIS7安装Dotclear</a></li>
-			</ul>
-
-			<h5>托管附件</h5>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/hosting">托管服务</a>
-				</li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">行政部门</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/users">管理用户</a>
-					<ul>
-						<li>现有的用户名单</li>
-						<li>创建一个用户</li>
-						<li>修改一个用户</li>
-						<li>用户权限</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">清洁安装</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">多博客安装</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/plugins">管理插件</a>
-					<ul>
-						<li>安装一个插件</li>
-						<li>配置插件</li>
-						<li>删除一个插件</li>
-						<li>更新一个插件</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">默认主题Blowup</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">博客主题</a>
-					<ul>
-						<li>选择一个主题</li>
-						<li>安装一个主题</li>
-						<li>定制一个主题</li>
-						<li>主题编辑</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">高级配置</a></li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">维护</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/backup">备份和恢复</a>
-					<ul>
-						<li>导入／导出</li>
-						<li>文件</li>
-						<li>数据库</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/antispam">垃圾邮件评论过滤器</a>
-					<ul>
-						<li>过滤器组织</li>
-						<li>过滤器配置</li>
-					</ul>
-				</li>
-			</ul>
-			<div class="fieldset vertical-separator">
-				<h4 class="smart-title">帮助</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">Dotclear论坛</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq#administration">常问问题（行政人员）</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="multi-part" id="guide-dev" title="开发人员文件">
-	<h3>开发者和设计师资源</h3>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">设计 &amp; 主题</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes">主题</a>
-					<ul>
-						<li>主题的用户指南</li>
-						<li>模板标签</li>
-						<li>附录</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">主题继承</a>
-					<ul>
-						<li>原则</li>
-						<li>限制条件</li>
-						<li>设置</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">模板标签</a>
-					<ul>
-						<li>一般性问题/公用事业</li>
-						<li>博客</li>
-						<li>文章</li>
-						<li>作品分页</li>
-						<li>评论</li>
-						<li>评论预览</li>
-						<li>铃声</li>
-						<li>附件</li>
-						<li>分类目录</li>
-						<li>标签</li>
-						<li>归档</li>
-						<li>语言</li>
-						<li>系统</li>
-						<li>小工具</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">代码 &amp; 插件</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/tpl">为一个插件或一个主题创建一个tpl标签</a>
-					<ul>
-						<li>简介</li>
-						<li>价值观</li>
-						<li>指示块</li>
-						<li>演示模板缓存的影响</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins">插件</a>
-					<ul>
-						<li>编写一个插件</li>
-						<li>附录</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">构建插件的上下文帮助</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/authentication">外部认证</a>
-					<ul>
-						<li>序言</li>
-						<li>一个新的认证类</li>
-						<li>场景</li>
-						<li>应用</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC接口</a></li>
-				<li><a href="https://dev.dotclear.org/code/2/">API文件</a></li>
-			</ul>
-		</div>
-
-		<div class="three-boxes">
-			<h4 class="pretty-title">捐款 &amp; 支持</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/contribute">贡献</a>
-					<ul>
-						<li>编辑此文档</li>
-						<li>分享您的创作</li>
-						<li>报告错误或建议新功能</li>
-						<li>本地化</li>
-				</ul>
-			</li>
-				<li><a href="https://git.dotclear.org/dev/dotclear">Dotclear源代码库</a></li>
-				<li><a href="https://dotclear.org/forum">Dotclear论坛</a></li>
-			</ul>
-
-			<div class="fieldset">
-				<h4 class="smart-title">公约</h4>
-				<ul>
-					<li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">编码标准</a></li>
-					<li><a href="index.php?process=HelpCharte">行政管理页面图</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="multi-part legible" id="a11y-ergo" title="无障碍和人体工程学">
-	<h3>无障碍和人体工程学</h3>
-	<p>Dotclear的界面几乎满足了所有 <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> 标准。我们正在努力使Dotclear与 <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> 准则兼容。</p>
-	<p>可访问性和人体工程学是我们主要关注的问题之一。我们在专家的帮助下定期进行分析，并不断提供修复和改进。</p>
-	<p>你可以通过开设 <a href="https://git.dotclear.org/dev/dotclear/issues">票务</a> ，或参与 <a href="https://dotclear.org/forum/">论坛</a>，来帮助我们。你也可以参与用户测试或加入我们的团队!</p>
-	</div>
-
+  <div class="multi-part legible" id="first-step" title="第一个步骤">
+    <h3>接口发现</h3>
+    <div class="fieldset">
+      <h4>第一个步骤</h4>
+      <p>In addition to the global help pages, several administration pages have an online help. If javascript is enabled
+        on your browser, you can see online help at the upper-right position of the page, by clicking on the <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong> link. If Javascript is disabled, the help is displayed at the bottom of the page.</p>
+    </div>
+    <p>每个管理页面将显示相同的顶部标题、主菜单和页脚。 <em>(这里给出的顺序是在电脑屏幕上显示的内容。对于移动设备或平板电脑，它可能会根据可用空间而有所不同）。</em></p>
+    <h4 class="pretty-title">顶部标题</h4>
+    <p>顶部的标题由三个元素组成：</p>
+    <h5 class="as_h4">徽标</h5>
+    <p>By default, this logo is the Dotclear logo and links to the administration landing page. However, a platform
+      manager can choose another logo and redirect towards something else (generally, the service landing page).</p>
+    <h5 class="as_h4">博客 (s)</h5>
+    <p>The first element located after the logo shows the <em>active</em> blog, i.e. the blog on which you are acting. If your
+      installation is composed of several blogs, these informations are available in a combo menu, which lets you switch to another blog.</p>
+    <p>博客名称后面的链接在另一个窗口或另一个标签中打开你当前的博客。</p>
+    <h5 class="as_h4">用户</h5>
+    <p>链接 <em>我的仪表板</em> 让你回到博客管理登陆页面。</p>
+    <p>链接 <em>我的偏好</em> ，在这里你可以修改你的个人信息，设置仪表板并选择你的界面和编辑选项。</p>
+    <p>令人惊讶的是，链接 <em>Disconnect [your login]</em> ，使你与你的博客的管理断开连接（在Dotclear's，我们是人体工程学的倡导者！）。</p>
+    <h4 class="pretty-title">主菜单</h4>
+    <p>主菜单位于屏幕的左侧。它可以通过点击它的右边界来折叠（然后通过再次点击它来解除折叠）。</p>
+    <p>根据你在当前博客上的权限，它通向不同的管理页面。它由四个区块组成：</p>
+    <ul>
+      <li><strong>我的最爱</strong> 列出你在 <em>我的喜好</em>/<em>我的仪表板</em> 标签中选择为最爱的页面。如果你还没有选择任何收藏夹，这个列表将包含默认的Dotclear集合，或者由平台管理员定义的集合。如果你不想显示这个块，你可以在你的仪表板选项中取消勾选匹配的复选框。</li>
+      <li><strong>Blog</strong> lists all the pages that enable to feed and setup the current blog, from editing an entry, managing media, choosing the blog appearance or other parameters.<br>
+        <em>If you do not have administrator rights on the current blog, there will be no other block below that one in the main menu.</em></li>
+      <li><strong>系统设置</strong> 链接到允许你管理Dotclear安装的页面：博客管理，用户和可用语言，插件安装，系统设置。如果你有几个博客的权限，但没有超级管理员的权限，你将只看到 <em>Blogs</em> 条目。</li>
+      <li><strong>插件</strong> 使你能够设置已安装的插件。如果插件设置一次只影响一个博客，它的管理页面可以从 <em>博客</em> 块中获得，但如果它们影响整个安装，它们就位于这里，而且只有超级管理员用户可以使用。</li>
+    </ul>
+    <h4 class="pretty-title">足部</h4>
+    <p>Dotclear的免费版本将提供给任何发现隐藏在页脚的秘密的用户。</p>
+    <h3>对伟大的初学者的帮助</h3>
+    <p>如果你不熟悉博客，我们建议你看看我们的文档（整个目录可在本页面的 <strong>Documentation</strong> 标签中找到）以及教程，如：
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">我的第一个作品，一步步来。</a></li>
+      </ul>
+      <p><a href="https://dotclear.org/forum/">Dotclear论坛</a> 是一个欢迎的地方，在这里没有所谓的 <em>一个愚蠢的问题</em>。如果你需要帮助，请不要犹豫，参与进来，为什么不呢，帮助别人作为回报。</p>
+      <p class="info">我们尽力使用无需特定知识就能轻松理解的词汇。然而，如果我们最终使用了一个技术术语，你可能会在我们在线文档的 <a href="https://dotclear.org/documentation/glossary">词汇表</a> 中找到其定义。</p>
+  </div>
+  <div class="multi-part" id="users-doc" title="用户手册">
+    <h3>用户手册</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">管理内容</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">文章</a>
+          <ul>
+            <li>创建和编辑</li>
+            <li>入场细节</li>
+            <li>与入境有关的行动</li>
+            <li>评论和 trackbacks</li>
+            <li>对条目进行批量管理</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">评论和 trackbacks</a>
+          <ul>
+            <li>后续行动</li>
+            <li>管理层</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">分类目录</a>
+          <ul>
+            <li>创建一个类别</li>
+            <li>编辑一个类别</li>
+            <li>删除一个类别</li>
+            <li>编制类别列表</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">标签（关键词）</a>
+          <ul>
+            <li>添加标签</li>
+            <li>标签管理</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/media">媒体和附件</a>
+          <ul>
+            <li>创建一个子目录</li>
+            <li>添加文件</li>
+            <li>下载当前目录的压缩文件</li>
+            <li>改变填写文件的细节</li>
+            <li>直接添加文件</li>
+            <li>特殊文件类型</li>
+            <li>附件</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">博客菜单内容（小部件）</a>
+          <ul>
+            <li>导航侧边栏，额外侧边栏</li>
+            <li>默认的小工具</li>
+            <li>添加/删除一个小部件</li>
+            <li>小工具选项</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">博客链接</a>
+          <ul>
+            <li>博客链接</li>
+            <li>添加一个链接</li>
+            <li>添加一个类别</li>
+            <li>XFN</li>
+            <li>从OPML或XBEL文件中导入链接</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">设置和定制</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">博客设置</a>
+          <ul>
+            <li>博客详情</li>
+            <li>博客配置</li>
+            <li>评论和 trackbacks</li>
+            <li>博客展示</li>
+            <li>媒体和图片</li>
+            <li>搜索引擎机器人政策</li>
+            <li>反垃圾评论</li>
+            <li>光盒</li>
+            <li>保存</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">用户偏好</a>
+          <ul>
+            <li>我的简介</li>
+            <li>我的选择</li>
+            <li>我的仪表板</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">博客外观</a>
+          <ul>
+            <li>选择一个主题</li>
+            <li>安装一个主题</li>
+            <li>个性化的主题</li>
+            <li>主题编辑</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes fieldset">
+      <h4 class="smart-title">补充读物</h4>
+      <h5>词汇表</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/glossary">所有这些在网络和Dotclear中使用的神秘词汇</a></li>
+      </ul>
+      <h5>输入句法</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">维基语法和HTML等效</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">为了更进一步</a></li>
+      </ul>
+      <h5>订阅（RSS、Atom...）。</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">那是什么？</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">我如何在我的博客上提供它？</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">我如何订阅一个饲料？</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">为了更进一步</a></li>
+      </ul>
+      <h4 class="smart-title">帮助</h4>
+      <ul>
+        <li><a href="https://dotclear.org/forum">Dotclear论坛</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/faq">常见问题</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="multi-part" id="admin-doc" title="管理员的文件">
+    <h3>管理员的文件</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">安装和更新</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install">安装</a>
+          <ul>
+            <li>先决条件</li>
+            <li>自动安装</li>
+            <li>标准安装</li>
+            <li>使用向导进行安装</li>
+            <li>从config.php文件进行安装</li>
+            <li>完成安装过程</li>
+            <li>接下来的步骤</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">更新</a>
+          <ul>
+            <li>为更新做准备</li>
+            <li>自动升级</li>
+            <li>更新程序</li>
+            <li>更新数据库</li>
+            <li>附录：更新一个mercurial副本</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/config">配置文件（config.php）参数</a>
+          <ul>
+            <li>简介</li>
+            <li>参数</li>
+            <li>向文件添加信息</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">从Dotclear 1.2升级到Dotclear 2</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">从其他博客软件迁移到Dotclear</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">本地安装</a>
+          <ul>
+            <li>窗户</li>
+            <li>Mac OS X</li>
+            <li>基础设施</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">用IIS7安装Dotclear</a></li>
+      </ul>
+      <h5>托管附件</h5>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/hosting">托管服务</a>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">行政部门</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/users">管理用户</a>
+          <ul>
+            <li>现有的用户名单</li>
+            <li>创建一个用户</li>
+            <li>修改一个用户</li>
+            <li>用户权限</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">清洁安装</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">多博客安装</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">管理插件</a>
+          <ul>
+            <li>安装一个插件</li>
+            <li>配置插件</li>
+            <li>删除一个插件</li>
+            <li>更新一个插件</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">默认主题Blowup</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">博客主题</a>
+          <ul>
+            <li>选择一个主题</li>
+            <li>安装一个主题</li>
+            <li>定制一个主题</li>
+            <li>主题编辑</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">高级配置</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">维护</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">备份和恢复</a>
+          <ul>
+            <li>导入／导出</li>
+            <li>文件</li>
+            <li>数据库</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">垃圾邮件评论过滤器</a>
+          <ul>
+            <li>过滤器组织</li>
+            <li>过滤器配置</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="fieldset vertical-separator">
+        <h4 class="smart-title">帮助</h4>
+        <ul>
+          <li><a href="https://dotclear.org/forum">Dotclear论坛</a></li>
+          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">常问问题（行政人员）</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part" id="guide-dev" title="开发人员文件">
+    <h3>开发者和设计师资源</h3>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">设计 &amp; 主题</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">主题</a>
+          <ul>
+            <li>主题的用户指南</li>
+            <li>模板标签</li>
+            <li>附录</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">主题继承</a>
+          <ul>
+            <li>原则</li>
+            <li>限制条件</li>
+            <li>设置</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">模板标签</a>
+          <ul>
+            <li>一般性问题/公用事业</li>
+            <li>博客</li>
+            <li>文章</li>
+            <li>作品分页</li>
+            <li>评论</li>
+            <li>评论预览</li>
+            <li>铃声</li>
+            <li>附件</li>
+            <li>分类目录</li>
+            <li>标签</li>
+            <li>归档</li>
+            <li>语言</li>
+            <li>系统</li>
+            <li>小工具</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">代码 &amp; 插件</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">为一个插件或一个主题创建一个tpl标签</a>
+          <ul>
+            <li>简介</li>
+            <li>价值观</li>
+            <li>指示块</li>
+            <li>演示模板缓存的影响</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">插件</a>
+          <ul>
+            <li>编写一个插件</li>
+            <li>附录</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">构建插件的上下文帮助</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">外部认证</a>
+          <ul>
+            <li>序言</li>
+            <li>一个新的认证类</li>
+            <li>场景</li>
+            <li>应用</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC接口</a></li>
+        <li><a href="https://dev.dotclear.org/code/2/">API文件</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">捐款 &amp; 支持</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">贡献</a>
+          <ul>
+            <li>编辑此文档</li>
+            <li>分享您的创作</li>
+            <li>报告错误或建议新功能</li>
+            <li>本地化</li>
+          </ul>
+        </li>
+        <li><a href="https://git.dotclear.org/dev/dotclear">Dotclear源代码库</a></li>
+        <li><a href="https://dotclear.org/forum">Dotclear论坛</a></li>
+      </ul>
+      <div class="fieldset">
+        <h4 class="smart-title">公约</h4>
+        <ul>
+          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">编码标准</a></li>
+          <li><a href="index.php?process=HelpCharte">行政管理页面图</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part legible" id="a11y-ergo" title="无障碍和人体工程学">
+    <h3>无障碍和人体工程学</h3>
+    <p>Dotclear的界面几乎满足了所有 <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> 标准。我们正在努力使Dotclear与 <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> 准则兼容。</p>
+    <p>可访问性和人体工程学是我们主要关注的问题之一。我们在专家的帮助下定期进行分析，并不断提供修复和改进。</p>
+    <p>你可以通过开设 <a href="https://git.dotclear.org/dev/dotclear/issues">票务</a> ，或参与 <a href="https://dotclear.org/forum/">论坛</a>，来帮助我们。你也可以参与用户测试或加入我们的团队!</p>
+  </div>
 </body>
+
 </html>

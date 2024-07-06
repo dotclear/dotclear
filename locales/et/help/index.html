@@ -1,398 +1,382 @@
 <html>
+
 <head>
   <title></title> <!-- Leave the title empty -->
 </head>
 
 <body>
-
-<div class="multi-part legible" id="first-step" title="Esimesed sammud">
-	<h3>Liidese avastamine</h3>
-	<div class="fieldset">
-		<h4>Esimesed sammud</h4>
-		<p>Lisaks üldistele abilehtedele on mitmetel halduslehtedel ka veebipõhine abi. Kui teie brauseris on javascript lubatud
-		, saate veebiabi näha lehekülje paremas ülemises osas, klõpsates lingil <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Vajad abi?</strong> Kui Javascript on keelatud, kuvatakse abi lehekülje allosas.</p>
-	</div>
-
-	<p>Igal haldusalal kuvatakse sama ülemine pealkiri, peamenüü ja jalusleht. <em>(Siin esitatud järjekord on see, mis kuvatakse arvutiekraanil. Mobiilseadmete või tahvelarvutite puhul võib see erineda vastavalt olemasolevale ruumile).</em></p>
-
-	<h4 class="pretty-title">Ülemine rubriik</h4>
-	<p>Ülemine pealkiri koosneb kolmest elemendist:</p>
-	<h5 class="as_h4">Logo</h5>
-	<p>Vaikimisi on see logo Dotcleari logo ja viitab administreerimise maandumislehele. Platvormi
-	haldaja võib siiski valida mõne muu logo ja suunata millegi muu juurde (tavaliselt teenuse maandumislehele).</p>
-
-	<h5 class="as_h4">Blogi(d)</h5>
-	<p>Esimene element, mis asub pärast logo, näitab <em>aktiivset</em> blogi, st blogi, milles te tegutsete. Kui teie
-	installatsioon koosneb mitmest blogist, on need andmed saadaval kombineeritud menüüs, mis võimaldab teil vahetada teise blogi vahel.</p>
-	<p>Blogi nime järel olev link avab teie praeguse blogi teises aknas või teises vahekaardis.</p>
-
-	<h5 class="as_h4">Kasutaja</h5>
-	<p>Link <em>Minu armatuurlaud</em> viib teid tagasi blogi halduse maandumislehele.</p>
-	<p>Link <em>Minu eelistused</em> viib lehele, kus saate muuta oma isiklikke andmeid, seadistada armatuurlauda ning valida oma kasutajaliidese ja redigeerimisvalikud.</p>
-	<p>Üllataval kombel <em>katkestab</em> link <em>Disconnect [teie sisselogimine]</em> teie blogi haldamise (Dotcleari juures oleme ergonoomia meistrid!).</p>
-
-	<h4 class="pretty-title">Peamenüü</h4>
-	<p>Peamenüü asub ekraani vasakul küljel. Seda saab kokku klõpsates selle paremal serval kokku klappida (ja seejärel lahti klõpsates sellel uuesti).</p>
-	<p>See viib erinevatele administreerimislehtedele vastavalt teie praeguse blogi õigustele. See koosneb neljast plokist:</p>
-	<ul>
-		<li><strong>Minu lemmikud</strong> loetleb lehekülgi, mille olete valinud lemmikuteks vahekaardil <em>Minu eelistused/Minu</em><em>armatuurlaud</em>. Kui te ei ole veel ühtegi lemmikut valinud, sisaldab see nimekiri vaikimisi Dotcleari komplekti või komplekti, mille on määratlenud platvormihaldur. Kui te ei soovi seda plokki kuvada, saate oma armatuurlaua valikutes vastavat märkeruutu eemaldada.</li>
-		<li><strong>Blogi</strong> loetleb kõik leheküljed, mis võimaldavad praeguse blogi toitmist ja seadistamist, alates sissekande redigeerimisest, meedia haldamisest, blogi välimuse valimisest või muudest parameetritest.<br>
-		<em>Kui teil ei ole praeguse blogi administraatoriõigusi, ei ole peamenüüs selle all ühtegi muud plokki.</em></li>
-		<li><strong>Süsteemi seaded</strong> viitavad lehekülgedele, mis võimaldavad teil hallata Dotcleari paigaldust: blogide haldamine, kasutajad ja olemasolevad keeled, pluginate paigaldamine, süsteemi seaded. Kui teil on mitme blogi õigused, kuid mitte superadministraatori õigused, näete ainult <em>blogide</em> kirjet.</li>
-		<li><strong>Plugins</strong> võimaldab teil paigaldatud pluginaid seadistada. Kui pluginate seaded mõjutavad korraga ainult ühte blogi, on selle haldusleht kättesaadav <em>blogiblokist</em>, kuid kui need mõjutavad kogu paigaldust, asuvad need siin ja on kättesaadavad ainult superadministraatorite kasutajatele.</li>
-	</ul>
-
-	<h4 class="pretty-title">Footer</h4>
-	<p>Dotcleari tasuta versiooni pakutakse igale kasutajale, kes avastab jalusesse peidetud saladuse.</p>
-
-	<h3>Abi suurtele algajatele</h3>
-	<p>Kui te ei ole blogidega tuttav, soovitame teil tutvuda meie dokumentatsiooniga (kogu sisukord on saadaval selle lehekülje vahekaardil <strong>Dokumentatsioon</strong> ), samuti tutorialidega nagu:
-	<ul>
-		<li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Minu esimene sissekanne, samm-sammult.</a></li>
-	</ul>
-
-	<p><a href="https://dotclear.org/forum/">Dotcleari foorum</a> on külalislahke koht, kus ei ole <em>rumalaid</em> küsimusi. Ärge kartke osaleda, kui vajate abi ja, miks mitte, aidata inimesi vastutasuks.</p>
-
-	<p class="info">Püüame anda endast parima, et kasutada sõnavara, mis on ilma eriteadmisteta kergesti mõistetav. Kui me siiski kasutame mingit tehnilist terminit, leiate selle definitsiooni tõenäoliselt meie veebidokumentatsiooni <a href="https://dotclear.org/documentation/glossary">sõnastikust</a>.</p>
-</div>
-
-<div class="multi-part" id="users-doc" title="Kasutusjuhend">
-	<h3>Kasutusjuhend</h3>
-	<div class="three-boxes">
-		<h4 class="pretty-title">Sisu haldamine</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/entries">Kirjed</a>
-					<ul>
-						<li>Loomine ja redigeerimine</li>
-						<li>Sisestamise üksikasjad</li>
-						<li>Sisenemisega seotud meetmed</li>
-						<li>Kommentaarid ja tagasiside</li>
-						<li>Kirjete partiihaldus</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Kommentaarid ja tagasiside</a>
-					<ul>
-						<li>Järelmeetmed</li>
-						<li>Juhtimine</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/categories">Kategooriad</a>
-					<ul>
-						<li>Kategooria loomine</li>
-						<li>Kategooria muutmine</li>
-						<li>Kategooria kustutamine</li>
-						<li>Kategooriate loetelu muutmine</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/tags">Sildid (märksõnad)</a>
-					<ul>
-						<li>Siltide lisamine</li>
-						<li>Siltide haldamine</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/media">Meedia ja manused</a>
-					<ul>
-						<li>Alamkataloogi loomine</li>
-						<li>Failide lisamine</li>
-						<li>Praeguse kataloogi zip-arhiivi allalaadimine</li>
-						<li>Faili andmete muutmine</li>
-						<li>Failide otsene lisamine</li>
-						<li>Spetsiaalsed failitüübid</li>
-						<li>Lisad</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Blogi menüü sisu (vidinad)</a>
-					<ul>
-						<li>Navigatsiooni külgriba, Lisapartii külgriba</li>
-						<li>Vaikimisi vidinad</li>
-						<li>Vidina lisamine/eemaldamine</li>
-						<li>Vidinate valikud</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
-					<ul>
-						<li>Blogroll</li>
-						<li>Lingi lisamine</li>
-						<li>Kategooria lisamine</li>
-						<li>XFN</li>
-						<li>Linkide importimine OPML- või XBEL-failist</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes">
-		<h4 class="pretty-title">Seaded ja kohandamine</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Blogi seaded</a>
-					<ul>
-						<li>Blogi üksikasjad</li>
-						<li>Blogi konfiguratsioon</li>
-						<li>Kommentaarid ja tagasiside</li>
-						<li>Blogi esitlus</li>
-						<li>Meedia ja pildid</li>
-						<li>Otsingumootori roboti poliitika</li>
-						<li>Antispam</li>
-						<li>LightBox</li>
-						<li>Salvesta</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Kasutaja eelistused</a>
-					<ul>
-						<li>Minu profiil</li>
-						<li>Minu võimalused</li>
-						<li>Minu armatuurlaud</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blogi ilmumine</a>
-					<ul>
-						<li>Valige teema</li>
-						<li>Paigalda teema</li>
-						<li>Isikupärastage teema</li>
-						<li>Teema toimetaja</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes fieldset">
-			<h4 class="smart-title">Täiendavad lugemised</h4>
-				<h5>Sõnastik</h5>
-				<ul><li><a href="https://dotclear.org/documentation/glossary">Kõik need salapärased sõnad, mida kasutatakse veebis ja Dotclearis</a></li></ul>
-				<h5>Sisendsüntaksid</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Wiki süntaks ja HTML-ekvivalent</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Edasi minna</a></li>
-					</ul>
-				<h5>Tellimus (RSS, Atom...)</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Mis see on?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Kuidas teha see oma blogis kättesaadavaks?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Kuidas tellida voogedastust?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Edasi minna</a></li>
-					</ul>
-			<h4 class="smart-title">Abi</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">Dotcleari foorum</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq">Korduma kippuvad küsimused</a></li>
-				</ul>
-	</div>
-</div>
-
-	<div class="multi-part" id="admin-doc" title="Dokumentatsioon administraatoritele">
-	<h3>Dokumentatsioon administraatoritele</h3>
-		<div class="three-boxes">
-		<h4 class="pretty-title">Paigaldamine ja ajakohastamine</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install">Paigaldamine</a>
-					<ul>
-						<li>Eeltingimused</li>
-						<li>Automaatne paigaldus</li>
-						<li>Standardne paigaldus</li>
-						<li>Paigaldamine kasutades viisardit</li>
-						<li>Paigaldamine config.php failist</li>
-						<li>Paigaldusprotsessi lõpuleviimine</li>
-						<li>Järgmised sammud</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Ajakohastamine</a>
-					<ul>
-						<li>Ettevalmistused uuendamiseks</li>
-						<li>Automaatne uuendamine</li>
-						<li>Programmi uuendamine</li>
-						<li>Andmebaasi uuendamine</li>
-						<li>Lisa: mercuriali koopia uuendamine</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/config">Konfiguratsioonifail (config.php) Parameetrid</a>
-					<ul>
-						<li>Sissejuhatus</li>
-						<li>Parameetrid</li>
-						<li>Teabe lisamine faili</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Uuendamine Dotclear 1.2-st Dotclear 2-le</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Üleminek mõnelt teiselt blogitarkvaralt Dotclearile</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Kohalik paigaldus</a>
-					<ul>
-						<li>Windows</li>
-						<li>Mac OS X</li>
-						<li>Linux</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Dotcleari paigaldamine koos IIS7-ga</a></li>
-			</ul>
-
-			<h5>Hosting Lisa</h5>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/hosting">Hosting</a>
-				</li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">Administratsioon</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/users">Kasutajate haldamine</a>
-					<ul>
-						<li>Olemasolevate kasutajate nimekiri</li>
-						<li>Kasutaja loomine</li>
-						<li>Kasutaja muutmine</li>
-						<li>Kasutaja õigused</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Puhas paigaldus</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Multiblogi paigaldamine</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Pistikprogrammide haldamine</a>
-					<ul>
-						<li>Plugina paigaldamine</li>
-						<li>Pluginate seadistamine</li>
-						<li>Plugina eemaldamine</li>
-						<li>Plugina uuendamine</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">Vaikimisi teema Blowup</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blogi teemad</a>
-					<ul>
-						<li>Teema valimine</li>
-						<li>Teema paigaldamine</li>
-						<li>Teema kohandamine</li>
-						<li>Teema toimetaja</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Täiustatud konfiguratsioon</a></li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">Hooldus</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/backup">Varundamine ja taastamine</a>
-					<ul>
-						<li>Import/eksport</li>
-						<li>Failid</li>
-						<li>Andmebaas</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Spam-kommentaaride filtrid</a>
-					<ul>
-						<li>Filtri korraldus</li>
-						<li>Filtri konfiguratsioon</li>
-					</ul>
-				</li>
-			</ul>
-			<div class="fieldset vertical-separator">
-				<h4 class="smart-title">Abi</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">Dotcleari foorum</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq#administration">Korduma kippuvad küsimused (administraatorid)</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="multi-part" id="guide-dev" title="Arendajate dokumentatsioon">
-	<h3>Arendaja ja disaineri ressursid</h3>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">Disain &amp; Teemad</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes">Teemad</a>
-					<ul>
-						<li>Teemade kasutusjuhend</li>
-						<li>Mudeli sildid</li>
-						<li>Lisa</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Teemade pärimine</a>
-					<ul>
-						<li>Põhimõte</li>
-						<li>Piirangud</li>
-						<li>Seadistamine</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Malli sildid</a>
-					<ul>
-						<li>Üldine / kommunaalteenused</li>
-						<li>Blogi</li>
-						<li>Kirjed</li>
-						<li>Kirjete lehekülgede arvu suurendamine</li>
-						<li>Kommentaarid</li>
-						<li>Kommentaaride eelvaade</li>
-						<li>Pings</li>
-						<li>Lisad</li>
-						<li>Kategooriad</li>
-						<li>Sildid</li>
-						<li>Arhiiv</li>
-						<li>Keeled</li>
-						<li>Süsteem</li>
-						<li>Vidinad</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">Kood &amp; Plugins</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Tpl-tähe loomine pluginale või teemale</a>
-					<ul>
-						<li>Sissejuhatus</li>
-						<li>Väärtused</li>
-						<li>Juhised plokid</li>
-						<li>Malli vahemälu mõju demonstreerimine</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Plugins</a>
-					<ul>
-						<li>Plugina kirjutamine</li>
-						<li>Lisa</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Plugina kontekstuaalse abi loomine</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Väline autentimine</a>
-					<ul>
-						<li>Preambul</li>
-						<li>Uus autentimise klass</li>
-						<li>Stsenaarium</li>
-						<li>Taotlus</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC liides</a></li>
-				<li><a href="https://dev.dotclear.org/code/2/">API dokumentatsioon</a></li>
-			</ul>
-		</div>
-
-		<div class="three-boxes">
-			<h4 class="pretty-title">Panus &amp; Toetus</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Panustage</a>
-					<ul>
-						<li>Muuda seda dokumentatsiooni</li>
-						<li>Jagage oma loomingut</li>
-						<li>Teatada vigadest või teha ettepanekuid uute funktsioonide kohta</li>
-						<li>Lokaliseerimine</li>
-				</ul>
-			</li>
-				<li><a href="https://git.dotclear.org/dev/dotclear">Dotcleari lähtekoodi repositoorium</a></li>
-				<li><a href="https://dotclear.org/forum">Dotclear foorum</a></li>
-			</ul>
-
-			<div class="fieldset">
-				<h4 class="smart-title">Konventsioonid</h4>
-				<ul>
-					<li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Kodeerimisstandardid</a></li>
-					<li><a href="index.php?process=HelpCharte">Administratsiooni lehekülgede skeem</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="multi-part legible" id="a11y-ergo" title="Kättesaadavus ja ergonoomia">
-	<h3>Kättesaadavus ja ergonoomia</h3>
-	<p>Dotcleari kasutajaliides vastab peaaegu kõigile <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> kriteeriumidele. Töötame selle nimel, et Dotclear oleks kooskõlas <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> suunistega.</p>
-	<p>Juurdepääsetavus ja ergonoomia on üks meie peamisi muresid. Teeme regulaarselt analüüse ekspertide abiga ning pakume pidevalt parandusi ja täiustusi.</p>
-	<p>Saate meid aidata, avades <a href="https://git.dotclear.org/dev/dotclear/issues">pileteid</a> või osaledes <a href="https://dotclear.org/forum/">foorumis</a>. Samuti võite osaleda kasutajate testimises või liituda meie meeskonnaga!</p>
-	</div>
-
+  <div class="multi-part legible" id="first-step" title="Esimesed sammud">
+    <h3>Liidese avastamine</h3>
+    <div class="fieldset">
+      <h4>Esimesed sammud</h4>
+      <p>In addition to the global help pages, several administration pages have an online help. If javascript is enabled
+        on your browser, you can see online help at the upper-right position of the page, by clicking on the <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong> link. If Javascript is disabled, the help is displayed at the bottom of the page.</p>
+    </div>
+    <p>Igal haldusalal kuvatakse sama ülemine pealkiri, peamenüü ja jalusleht. <em>(Siin esitatud järjekord on see, mis kuvatakse arvutiekraanil. Mobiilseadmete või tahvelarvutite puhul võib see erineda vastavalt olemasolevale ruumile).</em></p>
+    <h4 class="pretty-title">Ülemine rubriik</h4>
+    <p>Ülemine pealkiri koosneb kolmest elemendist:</p>
+    <h5 class="as_h4">Logo</h5>
+    <p>By default, this logo is the Dotclear logo and links to the administration landing page. However, a platform
+      manager can choose another logo and redirect towards something else (generally, the service landing page).</p>
+    <h5 class="as_h4">Blogi(d)</h5>
+    <p>The first element located after the logo shows the <em>active</em> blog, i.e. the blog on which you are acting. If your
+      installation is composed of several blogs, these informations are available in a combo menu, which lets you switch to another blog.</p>
+    <p>Blogi nime järel olev link avab teie praeguse blogi teises aknas või teises vahekaardis.</p>
+    <h5 class="as_h4">Kasutaja</h5>
+    <p>Link <em>Minu armatuurlaud</em> viib teid tagasi blogi halduse maandumislehele.</p>
+    <p>Link <em>Minu eelistused</em> viib lehele, kus saate muuta oma isiklikke andmeid, seadistada armatuurlauda ning valida oma kasutajaliidese ja redigeerimisvalikud.</p>
+    <p>Üllataval kombel <em>katkestab</em> link <em>Disconnect [teie sisselogimine]</em> teie blogi haldamise (Dotcleari juures oleme ergonoomia meistrid!).</p>
+    <h4 class="pretty-title">Peamenüü</h4>
+    <p>Peamenüü asub ekraani vasakul küljel. Seda saab kokku klõpsates selle paremal serval kokku klappida (ja seejärel lahti klõpsates sellel uuesti).</p>
+    <p>See viib erinevatele administreerimislehtedele vastavalt teie praeguse blogi õigustele. See koosneb neljast plokist:</p>
+    <ul>
+      <li><strong>Minu lemmikud</strong> loetleb lehekülgi, mille olete valinud lemmikuteks vahekaardil <em>Minu eelistused/Minu</em><em>armatuurlaud</em>. Kui te ei ole veel ühtegi lemmikut valinud, sisaldab see nimekiri vaikimisi Dotcleari komplekti või komplekti, mille on määratlenud platvormihaldur. Kui te ei soovi seda plokki kuvada, saate oma armatuurlaua valikutes vastavat märkeruutu eemaldada.</li>
+      <li><strong>Blog</strong> lists all the pages that enable to feed and setup the current blog, from editing an entry, managing media, choosing the blog appearance or other parameters.<br>
+        <em>If you do not have administrator rights on the current blog, there will be no other block below that one in the main menu.</em></li>
+      <li><strong>Süsteemi seaded</strong> viitavad lehekülgedele, mis võimaldavad teil hallata Dotcleari paigaldust: blogide haldamine, kasutajad ja olemasolevad keeled, pluginate paigaldamine, süsteemi seaded. Kui teil on mitme blogi õigused, kuid mitte superadministraatori õigused, näete ainult <em>blogide</em> kirjet.</li>
+      <li><strong>Plugins</strong> võimaldab teil paigaldatud pluginaid seadistada. Kui pluginate seaded mõjutavad korraga ainult ühte blogi, on selle haldusleht kättesaadav <em>blogiblokist</em>, kuid kui need mõjutavad kogu paigaldust, asuvad need siin ja on kättesaadavad ainult superadministraatorite kasutajatele.</li>
+    </ul>
+    <h4 class="pretty-title">Footer</h4>
+    <p>Dotcleari tasuta versiooni pakutakse igale kasutajale, kes avastab jalusesse peidetud saladuse.</p>
+    <h3>Abi suurtele algajatele</h3>
+    <p>Kui te ei ole blogidega tuttav, soovitame teil tutvuda meie dokumentatsiooniga (kogu sisukord on saadaval selle lehekülje vahekaardil <strong>Dokumentatsioon</strong> ), samuti tutorialidega nagu:
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Minu esimene sissekanne, samm-sammult.</a></li>
+      </ul>
+      <p><a href="https://dotclear.org/forum/">Dotcleari foorum</a> on külalislahke koht, kus ei ole <em>rumalaid</em> küsimusi. Ärge kartke osaleda, kui vajate abi ja, miks mitte, aidata inimesi vastutasuks.</p>
+      <p class="info">Püüame anda endast parima, et kasutada sõnavara, mis on ilma eriteadmisteta kergesti mõistetav. Kui me siiski kasutame mingit tehnilist terminit, leiate selle definitsiooni tõenäoliselt meie veebidokumentatsiooni <a href="https://dotclear.org/documentation/glossary">sõnastikust</a>.</p>
+  </div>
+  <div class="multi-part" id="users-doc" title="Kasutusjuhend">
+    <h3>Kasutusjuhend</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Sisu haldamine</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Kirjed</a>
+          <ul>
+            <li>Loomine ja redigeerimine</li>
+            <li>Sisestamise üksikasjad</li>
+            <li>Sisenemisega seotud meetmed</li>
+            <li>Kommentaarid ja tagasiside</li>
+            <li>Kirjete partiihaldus</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Kommentaarid ja tagasiside</a>
+          <ul>
+            <li>Järelmeetmed</li>
+            <li>Juhtimine</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">Kategooriad</a>
+          <ul>
+            <li>Kategooria loomine</li>
+            <li>Kategooria muutmine</li>
+            <li>Kategooria kustutamine</li>
+            <li>Kategooriate loetelu muutmine</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Sildid (märksõnad)</a>
+          <ul>
+            <li>Siltide lisamine</li>
+            <li>Siltide haldamine</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Meedia ja manused</a>
+          <ul>
+            <li>Alamkataloogi loomine</li>
+            <li>Failide lisamine</li>
+            <li>Praeguse kataloogi zip-arhiivi allalaadimine</li>
+            <li>Faili andmete muutmine</li>
+            <li>Failide otsene lisamine</li>
+            <li>Spetsiaalsed failitüübid</li>
+            <li>Lisad</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Blogi menüü sisu (vidinad)</a>
+          <ul>
+            <li>Navigatsiooni külgriba, Lisapartii külgriba</li>
+            <li>Vaikimisi vidinad</li>
+            <li>Vidina lisamine/eemaldamine</li>
+            <li>Vidinate valikud</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
+          <ul>
+            <li>Blogroll</li>
+            <li>Lingi lisamine</li>
+            <li>Kategooria lisamine</li>
+            <li>XFN</li>
+            <li>Linkide importimine OPML- või XBEL-failist</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Seaded ja kohandamine</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Blogi seaded</a>
+          <ul>
+            <li>Blogi üksikasjad</li>
+            <li>Blogi konfiguratsioon</li>
+            <li>Kommentaarid ja tagasiside</li>
+            <li>Blogi esitlus</li>
+            <li>Meedia ja pildid</li>
+            <li>Otsingumootori roboti poliitika</li>
+            <li>Antispam</li>
+            <li>LightBox</li>
+            <li>Salvesta</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Kasutaja eelistused</a>
+          <ul>
+            <li>Minu profiil</li>
+            <li>Minu võimalused</li>
+            <li>Minu armatuurlaud</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blogi ilmumine</a>
+          <ul>
+            <li>Valige teema</li>
+            <li>Paigalda teema</li>
+            <li>Isikupärastage teema</li>
+            <li>Teema toimetaja</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes fieldset">
+      <h4 class="smart-title">Täiendavad lugemised</h4>
+      <h5>Sõnastik</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/glossary">Kõik need salapärased sõnad, mida kasutatakse veebis ja Dotclearis</a></li>
+      </ul>
+      <h5>Sisendsüntaksid</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Wiki süntaks ja HTML-ekvivalent</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Edasi minna</a></li>
+      </ul>
+      <h5>Tellimus (RSS, Atom...)</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Mis see on?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Kuidas teha see oma blogis kättesaadavaks?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Kuidas tellida voogedastust?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Edasi minna</a></li>
+      </ul>
+      <h4 class="smart-title">Abi</h4>
+      <ul>
+        <li><a href="https://dotclear.org/forum">Dotcleari foorum</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/faq">Korduma kippuvad küsimused</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="multi-part" id="admin-doc" title="Dokumentatsioon administraatoritele">
+    <h3>Dokumentatsioon administraatoritele</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Paigaldamine ja ajakohastamine</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Paigaldamine</a>
+          <ul>
+            <li>Eeltingimused</li>
+            <li>Automaatne paigaldus</li>
+            <li>Standardne paigaldus</li>
+            <li>Paigaldamine kasutades viisardit</li>
+            <li>Paigaldamine config.php failist</li>
+            <li>Paigaldusprotsessi lõpuleviimine</li>
+            <li>Järgmised sammud</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Ajakohastamine</a>
+          <ul>
+            <li>Ettevalmistused uuendamiseks</li>
+            <li>Automaatne uuendamine</li>
+            <li>Programmi uuendamine</li>
+            <li>Andmebaasi uuendamine</li>
+            <li>Lisa: mercuriali koopia uuendamine</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Konfiguratsioonifail (config.php) Parameetrid</a>
+          <ul>
+            <li>Sissejuhatus</li>
+            <li>Parameetrid</li>
+            <li>Teabe lisamine faili</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Uuendamine Dotclear 1.2-st Dotclear 2-le</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Üleminek mõnelt teiselt blogitarkvaralt Dotclearile</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Kohalik paigaldus</a>
+          <ul>
+            <li>Windows</li>
+            <li>Mac OS X</li>
+            <li>Linux</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Dotcleari paigaldamine koos IIS7-ga</a></li>
+      </ul>
+      <h5>Hosting Lisa</h5>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/hosting">Hosting</a>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Administratsioon</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Kasutajate haldamine</a>
+          <ul>
+            <li>Olemasolevate kasutajate nimekiri</li>
+            <li>Kasutaja loomine</li>
+            <li>Kasutaja muutmine</li>
+            <li>Kasutaja õigused</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Puhas paigaldus</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Multiblogi paigaldamine</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Pistikprogrammide haldamine</a>
+          <ul>
+            <li>Plugina paigaldamine</li>
+            <li>Pluginate seadistamine</li>
+            <li>Plugina eemaldamine</li>
+            <li>Plugina uuendamine</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">Vaikimisi teema Blowup</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blogi teemad</a>
+          <ul>
+            <li>Teema valimine</li>
+            <li>Teema paigaldamine</li>
+            <li>Teema kohandamine</li>
+            <li>Teema toimetaja</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Täiustatud konfiguratsioon</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Hooldus</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Varundamine ja taastamine</a>
+          <ul>
+            <li>Import/eksport</li>
+            <li>Failid</li>
+            <li>Andmebaas</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Spam-kommentaaride filtrid</a>
+          <ul>
+            <li>Filtri korraldus</li>
+            <li>Filtri konfiguratsioon</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="fieldset vertical-separator">
+        <h4 class="smart-title">Abi</h4>
+        <ul>
+          <li><a href="https://dotclear.org/forum">Dotcleari foorum</a></li>
+          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Korduma kippuvad küsimused (administraatorid)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part" id="guide-dev" title="Arendajate dokumentatsioon">
+    <h3>Arendaja ja disaineri ressursid</h3>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">Disain &amp; Teemad</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Teemad</a>
+          <ul>
+            <li>Teemade kasutusjuhend</li>
+            <li>Mudeli sildid</li>
+            <li>Lisa</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Teemade pärimine</a>
+          <ul>
+            <li>Põhimõte</li>
+            <li>Piirangud</li>
+            <li>Seadistamine</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Malli sildid</a>
+          <ul>
+            <li>Üldine / kommunaalteenused</li>
+            <li>Blogi</li>
+            <li>Kirjed</li>
+            <li>Kirjete lehekülgede arvu suurendamine</li>
+            <li>Kommentaarid</li>
+            <li>Kommentaaride eelvaade</li>
+            <li>Pings</li>
+            <li>Lisad</li>
+            <li>Kategooriad</li>
+            <li>Sildid</li>
+            <li>Arhiiv</li>
+            <li>Keeled</li>
+            <li>Süsteem</li>
+            <li>Vidinad</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">Kood &amp; Plugins</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Tpl-tähe loomine pluginale või teemale</a>
+          <ul>
+            <li>Sissejuhatus</li>
+            <li>Väärtused</li>
+            <li>Juhised plokid</li>
+            <li>Malli vahemälu mõju demonstreerimine</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Plugins</a>
+          <ul>
+            <li>Plugina kirjutamine</li>
+            <li>Lisa</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Plugina kontekstuaalse abi loomine</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Väline autentimine</a>
+          <ul>
+            <li>Preambul</li>
+            <li>Uus autentimise klass</li>
+            <li>Stsenaarium</li>
+            <li>Taotlus</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC liides</a></li>
+        <li><a href="https://dev.dotclear.org/code/2/">API dokumentatsioon</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Panus &amp; Toetus</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Panustage</a>
+          <ul>
+            <li>Muuda seda dokumentatsiooni</li>
+            <li>Jagage oma loomingut</li>
+            <li>Teatada vigadest või teha ettepanekuid uute funktsioonide kohta</li>
+            <li>Lokaliseerimine</li>
+          </ul>
+        </li>
+        <li><a href="https://git.dotclear.org/dev/dotclear">Dotcleari lähtekoodi repositoorium</a></li>
+        <li><a href="https://dotclear.org/forum">Dotclear foorum</a></li>
+      </ul>
+      <div class="fieldset">
+        <h4 class="smart-title">Konventsioonid</h4>
+        <ul>
+          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Kodeerimisstandardid</a></li>
+          <li><a href="index.php?process=HelpCharte">Administratsiooni lehekülgede skeem</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part legible" id="a11y-ergo" title="Kättesaadavus ja ergonoomia">
+    <h3>Kättesaadavus ja ergonoomia</h3>
+    <p>Dotcleari kasutajaliides vastab peaaegu kõigile <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> kriteeriumidele. Töötame selle nimel, et Dotclear oleks kooskõlas <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> suunistega.</p>
+    <p>Juurdepääsetavus ja ergonoomia on üks meie peamisi muresid. Teeme regulaarselt analüüse ekspertide abiga ning pakume pidevalt parandusi ja täiustusi.</p>
+    <p>Saate meid aidata, avades <a href="https://git.dotclear.org/dev/dotclear/issues">pileteid</a> või osaledes <a href="https://dotclear.org/forum/">foorumis</a>. Samuti võite osaleda kasutajate testimises või liituda meie meeskonnaga!</p>
+  </div>
 </body>
+
 </html>

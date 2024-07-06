@@ -1,189 +1,148 @@
 <html>
+
 <head>
   <title>博客设置</title>
 </head>
 
 <body>
-<h4>博客详情</h4>
-<dl>
-  <dt>博客 ID</dt>
-  <dd>博客的独有 ID。必须有，仅有超级管理员可以修改。</dd>
-
-  <dt>博客名称</dt>
-  <dd>博客的名称，必须有。</dd>
-
-  <dt>博客 URL</dt>
-  <dd>博客的完整 URL。必须有，仅有超级管理员可以修改。</dd>
-
-  <dt>博客状态</dt>
-  <dd>定义了读取URL的方式。推荐使用PATH_INFO，如果PATH_INFO不起作用，则必须使用QUERY_STRING。使用PATH_INFO模式，博客的URL必须以"/"结尾，而使用QUERY_STRING，则必须以"？"结尾。</dd>
-
-  <dt>博客描述</dt>
-  <dd>
-    <ul>
-      <li><strong>在线：</strong> 博客对访客开放。</li>
-      <li><strong>离线：</strong> 博客不对访客开放，但对写作者开放。</li>
-      <li><strong>已删除：</strong> 博客对访客和作者都关闭，只对超级管理员开放。</li>
-    </ul>
-  </dd>
-
-  <dt>博客描述</dt>
-  <dd>在这里你可以为你的博客放上任何你想要的描述。这是一个简单的文本，没有任何格式化。</dd>
-</dl>
-
-<h4>博客配置</h4>
-<dl>
-  <dt>博客编辑者姓名</dt>
-  <dd>此博客负责人的姓名。它可以是拥有者或者发布者，如果存在的话。</dd>
-
-  <dt>版权声明</dt>
-  <dd>对于博客版权的声明。</dd>
-
-  <dt>默认语言</dt>
-  <dd>博客界面的语言。如果该语言包可获得，界面将被翻译。如果不存在，界面将保持默认的英语。</dd>
-
-  <dt>博客时区</dt>
-  <dd>定义评论和 trackback 所用的时区。</dd>
-
-  <dt>日期格式</dt>
-  <dd>博客文章的日期格式。看下面日期和时间格式参考部分以了解细节。</dd>
-
-  <dt>时间格式</dt>
-  <dd>博客文章的时间格式。看下面日期和时间格式参考部分以了解细节。</dd>
-
-  <dt>每页显示..篇文章</dt>
-  <dd>这个数字将被用来限制文章在主页、每个分类目录和 RSS feed 第一页的数目。</dd>
-</dl>
-
-<h4>评论和 trackbacks</h4>
-<dl>
-  <dt>接受评论</dt>
-  <dd>全球范围内接受博客上的评论。优先于每篇文章的设置。</dd>
-
-  <dt>审核评论</dt>
-  <dd>有了这个选项，评论将只在编辑同意后发表。</dd>
-
-  <dt>将评论开放X天</dt>
-  <dd>帖子发表后评论开放的天数。如果为空，评论将无限期开放。</dd>
-
-  <dt>对评论使用Wiki语法</dt>
-  <dd>允许在评论中使用wiki语法的一个子集。</dd>
-
-  <dt>接受 trackbacks</dt>
-  <dd>全局性地接受博客上的回帖。优先于每篇文章的设置。</dd>
-
-  <dt>审核 trackbacks</dt>
-  <dd>有了这个选项，只有在编辑同意后才会发布回帖。</dd>
-
-  <dt>让回帖开放X天</dt>
-  <dd>帖子发表后，跟踪记录开放的天数。如果为空，跟踪将无限期开放。</dd>
-
-  <dt>在评论和 trackbacks 链接上添加“nofollow”关系</dt>
-  <dd>在评论和回帖的链接上添加一个属性，指示搜索机器人不要跟踪它们。这个反垃圾邮件的功能还没有证明它的价值。</dd>
-</dl>
-
-<h4>博客展示</h4>
-<dl>
-  <dt>日期格式</dt>
-  <dd>定义了博客文章的日期格式。更多信息见下面的 "格式参考 "部分。你可以使用下拉列表来快速选择一个预先存在的模式。</dd>
-
-  <dt>时间格式</dt>
-  <dd>定义了博客文章的时间格式。更多信息见下面的 "格式参考 "部分。你可以使用下拉列表来快速选择一个预先存在的模式。</dd>
-
-  <dt>在文章和评论上显示表情</dt>
-  <dd>将一些字符串如:-)或;-)变成图片。</dd>
-
-  <dt>每页显示X个条目</dt>
-  <dd>将在博客主页以及不同的类别中显示X条目。</dd>
-
-  <dt>在每个饲料中显示X个条目</dt>
-  <dd>将在博客提要中显示X条。</dd>
-
-  <dt>在每个饲料中显示X条评论</dt>
-  <dd>将在博客评论源中显示X条评论。</dd>
-
-  <dt>截断 feeds</dt>
-  <dd>这个选项将只提供提要中的博文摘要。</dd>
-
-  <dt>在分类页面和分类帖子中包括子类别的反馈</dt>
-  <dd>当这个选项被激活时，子类别中的帖子将被显示在父类别页面以及它们的feeds中。</dd>
-</dl>
-
-<h4>媒体和图片</h4>
-<dl>
-  <dt>生成的图像尺寸（单位：像素）</dt>
-  <dd>当你在媒体管理器中添加图片时，其他尺寸会自动生成。在这里，你可以定义每种类型的生成图像的最长尺寸（宽或高）的尺寸。如果你把一个字段留空，媒体管理器将不会创建相应的缩影。</dd>
-
-  <dt>默认的图像插入属性</dt>
-  <dd>所选的设置将适用于所有添加到媒体管理器的新图像。</dd>
-
-  <dt>插入的图片标题</dt>
-  <dd>根据从图像元数据中获取的信息，选择应用于你的图像的 "标题 "标签的格式。</dd>
-
-  <dt>如果可能的话，使用原始媒体日期</dt>
-  <dd>当这个选项被激活时，如果图像元数据包含一个日期，它将被使用。如果没有，将使用上传日期。</dd>
-
-  <dt>插入图像的尺寸</dt>
-  <dd>定义了在博客文章中插入图片时使用的默认尺寸。</dd>
-
-  <dt>图片对齐</dt>
-  <dd>定义了在博客文章中插入图片时使用的默认对齐方式。</dd>
-
-  <dt>插入一个原始图片的链接</dt>
-  <dd>当这个选项被激活时，插入博客文章的图片将可以点击并指向原始尺寸的图片。</dd>
-
-</dl>
-
-<h4>搜索引擎机器人规则</h4>
-<p>一些字段可以配置来格式化日期和时间以满足您的需要。这是一些参考：</p>
-
-<h4>反垃圾评论</h4>
-<p>您可以设置您希望自动删除垃圾评论的天数。将该字段留空（或填0）以停用该功能。</p>
-
-<h4>用户</h4>
-<p>列出了这个博客的用户以及他们的权限。</p>
-
-<h3>博客详情</h3>
-<p>有些字段可以根据你的需要来配置日期和时间的格式。
-这里有一个参考：</p>
-
-<ul>
-  <li><strong>%a</strong>：缩写的星期(本地)。</li>
-  <li><strong>%A</strong>：完整的星期(本地)。</li>
-  <li><strong>%b</strong>：缩写的月份(本地)。</li>
-  <li><strong>%B</strong>：完整的月份(本地)。</li>
-  <li><strong>%c</strong>：默认的本地日期和时间显示。</li>
-  <li><strong>%C</strong>：世纪(年份除以 100，在 00 到 99 范围内)</li>
-  <li><strong>%d</strong>：数字表示的月份(从 01 到 31)</li>
-  <li><strong>%D</strong>：等于 %m/%d/%y</li>
-  <li><strong>%e</strong>：数字表示的月份(从 1 到 31)</li>
-  <li><strong>%g</strong>：等于 %G，2 个数字。</li>
-  <li><strong>%G</strong>：4 位数字的年份，依据星期数(参见 %V)。格式和值等于 %Y，除了如果星期数如果属于前年或者下一年则当前年份将被使用。</li>
-  <li><strong>%h</strong>：等于 %b</li>
-  <li><strong>%H</strong>：一天中数字表示的小时，24 小时模式(从 00 到 23)</li>
-  <li><strong>%I</strong>：一天中数字表示的小时，12 小时模式(从 01 到 12)</li>
-  <li><strong>%j</strong>：一年中的一天，数字表示(从 001 到 366)</li>
-  <li><strong>%m</strong>：月份，数字表示(从 1 到 12)</li>
-  <li><strong>%M</strong>：分钟，数字表示</li>
-  <li><strong>%n</strong>：换行符</li>
-  <li><strong>%p</strong>：依据绝对时间或者本地设置，“am”或者“pm”。</li>
-  <li><strong>%r</strong>：小时，a.m. 和 p.m. 格式</li>
-  <li><strong>%R</strong>：小时，24 小时格式</li>
-  <li><strong>%S</strong>：秒，数字表示</li>
-  <li><strong>%t</strong>：制表符</li>
-  <li><strong>%T</strong>：当前时间(等于 %H:%M:%S)</li>
-  <li><strong>%u</strong>：一星期中哪一天，从 1 到 7。(1 表示星期一)</li>
-  <li><strong>%U</strong>：星期数，一年中第一个星期天成为第一个星期的第一天。</li>
-  <li><strong>%V</strong>：ISO 8601:1988 定义的星期数，数字表示，从 01 到 53。第一个星期是当前年份第一个大于 4 天的星期，其星期一是第一天。(使用 %G 或者 %g 取得和与所考虑的时间戳相一致的年份。)</li>
-  <li><strong>%W</strong>：一年中星期的数目，一年里第一个星期一作为第一个星期的开始</li>
-  <li><strong>%w</strong>：星期中的一天，数字表示，0 表示星期日</li>
-  <li><strong>%x</strong>：日期首选格式，没有时间</li>
-  <li><strong>%X</strong>：时间首选格式，没有日期</li>
-  <li><strong>%y</strong>：年份，两个数字(从 00 到 99)</li>
-  <li><strong>%Y</strong>：年份，4 位数字</li>
-  <li><strong>%Z ou %z</strong>：时区，名字或者缩写</li>
-  <li>：一个“%”字符</li>
-</ul>
-
+  <h4>博客详情</h4>
+  <dl>
+    <dt>博客 ID</dt>
+    <dd>博客的独有 ID。必须有，仅有超级管理员可以修改。</dd>
+    <dt>博客名称</dt>
+    <dd>博客的名称，必须有。</dd>
+    <dt>博客 URL</dt>
+    <dd>博客的完整 URL。必须有，仅有超级管理员可以修改。</dd>
+    <dt>博客状态</dt>
+    <dd>定义了读取URL的方式。推荐使用PATH_INFO，如果PATH_INFO不起作用，则必须使用QUERY_STRING。使用PATH_INFO模式，博客的URL必须以"/"结尾，而使用QUERY_STRING，则必须以"？"结尾。</dd>
+    <dt>博客描述</dt>
+    <dd>
+      <ul>
+        <li><strong>在线：</strong> 博客对访客开放。</li>
+        <li><strong>离线：</strong> 博客不对访客开放，但对写作者开放。</li>
+        <li><strong>已删除：</strong> 博客对访客和作者都关闭，只对超级管理员开放。</li>
+      </ul>
+    </dd>
+    <dt>博客描述</dt>
+    <dd>在这里你可以为你的博客放上任何你想要的描述。这是一个简单的文本，没有任何格式化。</dd>
+  </dl>
+  <h4>博客配置</h4>
+  <dl>
+    <dt>博客编辑者姓名</dt>
+    <dd>此博客负责人的姓名。它可以是拥有者或者发布者，如果存在的话。</dd>
+    <dt>版权声明</dt>
+    <dd>对于博客版权的声明。</dd>
+    <dt>默认语言</dt>
+    <dd>博客界面的语言。如果该语言包可获得，界面将被翻译。如果不存在，界面将保持默认的英语。</dd>
+    <dt>博客时区</dt>
+    <dd>定义评论和 trackback 所用的时区。</dd>
+    <dt>日期格式</dt>
+    <dd>博客文章的日期格式。看下面日期和时间格式参考部分以了解细节。</dd>
+    <dt>时间格式</dt>
+    <dd>博客文章的时间格式。看下面日期和时间格式参考部分以了解细节。</dd>
+    <dt>每页显示..篇文章</dt>
+    <dd>这个数字将被用来限制文章在主页、每个分类目录和 RSS feed 第一页的数目。</dd>
+  </dl>
+  <h4>评论和 trackbacks</h4>
+  <dl>
+    <dt>接受评论</dt>
+    <dd>全球范围内接受博客上的评论。优先于每篇文章的设置。</dd>
+    <dt>审核评论</dt>
+    <dd>有了这个选项，评论将只在编辑同意后发表。</dd>
+    <dt>将评论开放X天</dt>
+    <dd>帖子发表后评论开放的天数。如果为空，评论将无限期开放。</dd>
+    <dt>对评论使用Wiki语法</dt>
+    <dd>允许在评论中使用wiki语法的一个子集。</dd>
+    <dt>接受 trackbacks</dt>
+    <dd>全局性地接受博客上的回帖。优先于每篇文章的设置。</dd>
+    <dt>审核 trackbacks</dt>
+    <dd>有了这个选项，只有在编辑同意后才会发布回帖。</dd>
+    <dt>让回帖开放X天</dt>
+    <dd>帖子发表后，跟踪记录开放的天数。如果为空，跟踪将无限期开放。</dd>
+    <dt>在评论和 trackbacks 链接上添加“nofollow”关系</dt>
+    <dd>在评论和回帖的链接上添加一个属性，指示搜索机器人不要跟踪它们。这个反垃圾邮件的功能还没有证明它的价值。</dd>
+  </dl>
+  <h4>博客展示</h4>
+  <dl>
+    <dt>日期格式</dt>
+    <dd>定义了博客文章的日期格式。更多信息见下面的 "格式参考 "部分。你可以使用下拉列表来快速选择一个预先存在的模式。</dd>
+    <dt>时间格式</dt>
+    <dd>定义了博客文章的时间格式。更多信息见下面的 "格式参考 "部分。你可以使用下拉列表来快速选择一个预先存在的模式。</dd>
+    <dt>在文章和评论上显示表情</dt>
+    <dd>将一些字符串如:-)或;-)变成图片。</dd>
+    <dt>每页显示X个条目</dt>
+    <dd>将在博客主页以及不同的类别中显示X条目。</dd>
+    <dt>在每个饲料中显示X个条目</dt>
+    <dd>将在博客提要中显示X条。</dd>
+    <dt>在每个饲料中显示X条评论</dt>
+    <dd>将在博客评论源中显示X条评论。</dd>
+    <dt>截断 feeds</dt>
+    <dd>这个选项将只提供提要中的博文摘要。</dd>
+    <dt>在分类页面和分类帖子中包括子类别的反馈</dt>
+    <dd>当这个选项被激活时，子类别中的帖子将被显示在父类别页面以及它们的feeds中。</dd>
+  </dl>
+  <h4>媒体和图片</h4>
+  <dl>
+    <dt>生成的图像尺寸（单位：像素）</dt>
+    <dd>当你在媒体管理器中添加图片时，其他尺寸会自动生成。在这里，你可以定义每种类型的生成图像的最长尺寸（宽或高）的尺寸。如果你把一个字段留空，媒体管理器将不会创建相应的缩影。</dd>
+    <dt>默认的图像插入属性</dt>
+    <dd>所选的设置将适用于所有添加到媒体管理器的新图像。</dd>
+    <dt>插入的图片标题</dt>
+    <dd>根据从图像元数据中获取的信息，选择应用于你的图像的 "标题 "标签的格式。</dd>
+    <dt>如果可能的话，使用原始媒体日期</dt>
+    <dd>当这个选项被激活时，如果图像元数据包含一个日期，它将被使用。如果没有，将使用上传日期。</dd>
+    <dt>插入图像的尺寸</dt>
+    <dd>定义了在博客文章中插入图片时使用的默认尺寸。</dd>
+    <dt>图片对齐</dt>
+    <dd>定义了在博客文章中插入图片时使用的默认对齐方式。</dd>
+    <dt>插入一个原始图片的链接</dt>
+    <dd>当这个选项被激活时，插入博客文章的图片将可以点击并指向原始尺寸的图片。</dd>
+  </dl>
+  <h4>搜索引擎机器人规则</h4>
+  <p>一些字段可以配置来格式化日期和时间以满足您的需要。这是一些参考：</p>
+  <h4>反垃圾评论</h4>
+  <p>您可以设置您希望自动删除垃圾评论的天数。将该字段留空（或填0）以停用该功能。</p>
+  <h4>用户</h4>
+  <p>列出了这个博客的用户以及他们的权限。</p>
+  <h3>博客详情</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a</strong>：缩写的星期(本地)。</li>
+    <li><strong>%A</strong>：完整的星期(本地)。</li>
+    <li><strong>%b</strong>：缩写的月份(本地)。</li>
+    <li><strong>%B</strong>：完整的月份(本地)。</li>
+    <li><strong>%c</strong>：默认的本地日期和时间显示。</li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d</strong>：数字表示的月份(从 01 到 31)</li>
+    <li><strong>%D</strong>：等于 %m/%d/%y</li>
+    <li><strong>%e</strong>：数字表示的月份(从 1 到 31)</li>
+    <li><strong>%g</strong>：等于 %G，2 个数字。</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h</strong>：等于 %b</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j</strong>：一年中的一天，数字表示(从 001 到 366)</li>
+    <li><strong>%m</strong>：月份，数字表示(从 1 到 12)</li>
+    <li><strong>%M</strong>：分钟，数字表示</li>
+    <li><strong>%n</strong>：换行符</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r</strong>：小时，a.m. 和 p.m. 格式</li>
+    <li><strong>%R</strong>：小时，24 小时格式</li>
+    <li><strong>%S</strong>：秒，数字表示</li>
+    <li><strong>%t</strong>：制表符</li>
+    <li><strong>%T</strong>：当前时间(等于 %H:%M:%S)</li>
+    <li><strong>%u</strong>：一星期中哪一天，从 1 到 7。(1 表示星期一)</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w</strong>：星期中的一天，数字表示，0 表示星期日</li>
+    <li><strong>%x</strong>：日期首选格式，没有时间</li>
+    <li><strong>%X</strong>：时间首选格式，没有日期</li>
+    <li><strong>%y</strong>：年份，两个数字(从 00 到 99)</li>
+    <li><strong>%Y</strong>：年份，4 位数字</li>
+    <li><strong>%Z ou %z</strong>：时区，名字或者缩写</li>
+    <li>：一个“%”字符</li>
+  </ul>
 </body>
+
 </html>

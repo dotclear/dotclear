@@ -1,96 +1,57 @@
 <html>
+
 <head>
   <title>Sivun muokkaaminen</title>
 </head>
 
 <body>
-
-
-<h4>Sivun muokkaaminen</h4>
-
-<dl>
-  <dt>Sivun otsikko</dt>
-  <dd>Kirjoita sivun otsikko. Tämä kenttä on pakollinen.</dd>
-
-  <dt>Ote</dt>
-  <dd>Tämä kenttä on valinnainen.</dd>
-
-  <dt>Sisältö:</dt>
-  <dd>Sivusi sisältö. Tämä kenttä on pakollinen.</dd>
-
-  <dt>Huomautukset</dt>
-  <dd>Tämä tekstialue on tarkoitettu henkilökohtaiseen käyttöön, muistiinpanoja tai muistioita varten. Mitä kirjoitat tänne, ei koskaan näytetä blogissa.</dd>
-
-  <dt>Sivun tila</dt>
-  <dd>Voit valita sivun tilan:
-    <ul>
-      <li><strong>Vireillä:</strong> Julkaisutilaa ei ole vielä päätetty (ei vielä julkaistu).</li>
-      <li><strong>Aikataulutettu:</strong> <em>Published on</em> -kenttään määritettyyn aikaan ja päivämäärään.</li>
-      <li><strong>Julkaisematon:</strong> Sivu on offline.</li>
-      <li><strong>Julkaistu:</strong> Sivu on verkossa.</li>
-    </ul>
-  </dd>
-
-  <dt>Julkaisupäivä ja kellonaika</dt>
-  <dd>Tässä voit muuttaa sivun julkaisupäivän ja -ajan. Jos sivun
-  tila on <em>Scheduled</em>, se on verkossa annettuna päivämääränä ja kellonaikana.</dd>
-
-  <dt>Sivun kieli</dt>
-  <dd>Valitse merkinnän kielikoodi. Oletuksena on oma kielesi (
-  käyttäjänä), mutta voit vaihtaa sen haluamaasi kielikoodiin, esimerkiksi
-  "en" tai "es-ar". Tätä koodia käytetään merkinnän näyttöön.</dd>
-
-  <dt>Tekstin muotoilu</dt>
-  <dd>Valitse sivun syntaksi. Wiki on yksinkertaistettu syntaksi
-  ja se muunnetaan kelvolliseksi HTML: ksi. Ellei sinulla ole täydellistä
-  HTML-ymmärrystä, suosittelemme valitsemaan Wiki-syntaksin.
-  Katso lisätietoja Wiki-vertailusta.</dd>
-
-  <dt>Sivun sijainti</dt>
-  <dd>Tilaa sivut tämän numeron mukaan.
-  Tätä kenttää käytetään <strong>Sivut</strong> -widgetissä (<em>Järjestys sivun sijainnin mukaan</em>).</dd>
-
-  <dt>Liitteet:</dt>
-  <dd>Liitteet ovat sivulle lisättyjä mediatiedostoja. Voit käyttää <strong>Lisää tiedostoja tähän merkintään</strong> -painiketta valitaksesi mediatiedostoja, jotka haluat lisätä merkintään.<br />
-    Tämä vaihtoehto tulee näkyviin, kun olet tallentanut merkinnän.<br />
-    Katso lisätietoja Media managerin ohjeesta.</dd>
-
-  <dt>Hyväksy kommentit</dt>
-  <dd>Rastita tämä ruutu, jos haluat sallia kävijöiden kommentoida tätä sivua. Vastaava yleinen asetus löytyy blogin asetuksista.</dd>
-
-  <dt>Hyväksy trackbackit</dt>
-  <dd>Takaisinkytkentä on tapa antaa osa sivustasi kommenttina osoitteessa
-  toiseen blogiin. Rastita tämä ruutu, jotta muut voivat seurata sivujasi.
-  vastaava globaali asetus löytyy blogin asetuksista.</dd>
-
-  <dt>Piilota widget-sivuilla</dt>
-  <dd>Jos tämä vaihtoehto on valittuna, sivu on aktiivinen, mutta sitä ei näytetä Sivut-vidgetissä.</dd>
-
-  <dt>Salasana</dt>
-  <dd>Voit syöttää sivullesi salasanan. Salasanalla suojattua sivua
-  ei näytetä blogissasi, vaan siihen pääsevät käsiksi vain ne, joille annat
-  merkinnän URL-osoitteen (katso <strong>Siirry tälle sivulle sivustolla</strong> linkki) ja salasanan.
-
-  <dt>Perusnimi</dt>
-  <dd>Napsauttamalla sen lukitusta voit poistaa kentän suojauksen ja valita sivullesi toisen
-  URL-osoitteen. Jos käyttämäsi URL-osoite on jo toisen
-  -sivun käytössä, siihen lisätään numero.</dd>
-
-</dl>
-
-<h4>Kommentit</h4>
-<dl>
-  <dt>Kommenttien luettelo</dt>
-  <dd>Välilehdeltä <em> Kommentit</em> voit lukea ja muuttaa sivusi kommenttien tilaa. Oikeuksistasi riippuen voit muokata,
-  laittaa verkkoon tai offline-tilaan, poistaa tai luokitella kommentin
-  ei-toivotuksi.</dd>
-
-  <dt>Lisää kommentti</dt>
-  <dd>Välilehdellä <em>Lisää kommentti</em> voit lisätä tai vastata
-  suoraan kommenttiin käymättä läpi blogiasi. Tämän käyttöliittymän
-  avulla voit myös kirjoittaa kommenttisi HTML-kielellä ilman rajoituksia. Sinun
-  on täytettävä kentät samalla tavalla kuin muokatessasi kommenttia.</dd>
-</dl>
-
+  <h4>Sivun muokkaaminen</h4>
+  <dl>
+    <dt>Sivun otsikko</dt>
+    <dd>Kirjoita sivun otsikko. Tämä kenttä on pakollinen.</dd>
+    <dt>Ote</dt>
+    <dd>Tämä kenttä on valinnainen.</dd>
+    <dt>Sisältö:</dt>
+    <dd>Sivusi sisältö. Tämä kenttä on pakollinen.</dd>
+    <dt>Huomautukset</dt>
+    <dd>This text area is for personal use, for notes or memos. What you enter here will never be displayed on the blog.</dd>
+    <dt>Sivun tila</dt>
+    <dd>Voit valita sivun tilan:
+      <ul>
+        <li><strong>Vireillä:</strong> Julkaisutilaa ei ole vielä päätetty (ei vielä julkaistu).</li>
+        <li><strong>Scheduled:</strong> The page will be set online at the time and date set in the <em>Published on</em> field.</li>
+        <li><strong>Julkaisematon:</strong> Sivu on offline.</li>
+        <li><strong>Julkaistu:</strong> Sivu on verkossa.</li>
+      </ul>
+    </dd>
+    <dt>Julkaisupäivä ja kellonaika</dt>
+    <dd>Here you can change the page publication date and time. If the page status is <em>Scheduled</em>, it will be online at the given date and time.</dd>
+    <dt>Sivun kieli</dt>
+    <dd>Select the language code of your entry. It defaults to your (as a user) language but you can change it to whatever language code you want, e.g. "en" or "es-ar". This code is used for the entry's display.</dd>
+    <dt>Tekstin muotoilu</dt>
+    <dd>Choose the page syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Sivun sijainti</dt>
+    <dd>Orders pages according to this number. This field is used by the <strong>Pages</strong> widget (<em>Order by page position</em>).</dd>
+    <dt>Liitteet:</dt>
+    <dd>Attachments are media files added to the page. You can use the <strong>Add files to this entry</strong> button to select media files to add to the entry.<br>This option will appear after you save your entry.<br>Please check the Media manager help for more information.</dd>
+    <dt>Hyväksy kommentit</dt>
+    <dd>Rastita tämä ruutu, jos haluat sallia kävijöiden kommentoida tätä sivua. Vastaava yleinen asetus löytyy blogin asetuksista.</dd>
+    <dt>Hyväksy trackbackit</dt>
+    <dd>A trackback is a way to let a portion of your page as a comment on another blog. Check this box to allow others to trackback your page. The corresponding global setting is to be found in the blog settings.</dd>
+    <dt>Piilota widget-sivuilla</dt>
+    <dd>Jos tämä vaihtoehto on valittuna, sivu on aktiivinen, mutta sitä ei näytetä Sivut-vidgetissä.</dd>
+    <dt>Salasana</dt>
+    <dd>You can enter a password for your page. A password protected page will not be displayed on your blog, it will only be accessible to those you will give the entry URL to (see the <strong>Go to this page on the site</strong> link) and password.</dd>
+    <dt>Perusnimi</dt>
+    <dd>By clicking on its lock, you can unprotect this field and choose another URL for your page. If the URL you're trying to use is already used by another page, a number will be added to it.</dd>
+  </dl>
+  <h4>Kommentit</h4>
+  <dl>
+    <dt>Kommenttien luettelo</dt>
+    <dd>From the tab <em> Comments</em> you can read and change the status comments on your page. Depending on your permissions, you can edit, put online or offline, delete or classify as a comment undesirable.</dd>
+    <dt>Lisää kommentti</dt>
+    <dd>From the tab <em>Add a comment</em> you can add or answer directly to a comment without going through your blog. This interface will also allows you to enter your comment in HTML, without limitation. You will have to fill in the fields in the same way as when editing a comment.</dd>
+  </dl>
 </body>
+
 </html>

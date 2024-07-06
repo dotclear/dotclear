@@ -1,397 +1,382 @@
 <html>
+
 <head>
   <title></title> <!-- Leave the title empty -->
 </head>
 
 <body>
-
-<div class="multi-part legible" id="first-step" title="첫 번째 단계">
-	<h3>인터페이스 검색</h3>
-	<div class="fieldset">
-		<h4>첫 번째 단계</h4>
-		<p>글로벌 도움말 페이지 외에도 여러 관리 페이지에 온라인 도움말이 있습니다. 브라우저에서 자바스크립트가 활성화된 경우() 페이지 오른쪽 상단에서 <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>도움이 필요하십니까?</strong> 링크를 클릭하면 온라인 도움말을 볼 수 있습니다. 자바스크립트가 비활성화되어 있으면 도움말이 페이지 하단에 표시됩니다.</p>
-	</div>
-
-	<p>각 관리 페이지에는 동일한 상단 제목, 주 메뉴 및 바닥글이 표시됩니다. <em>(여기에 표시된 순서는 컴퓨터 화면에 표시되는 순서입니다. 모바일 장치 또는 태블릿의 경우 사용 가능한 공간에 따라 달라질 수 있습니다.)</em></p>
-
-	<h4 class="pretty-title">상단 제목</h4>
-	<p>상단 제목은 세 가지 요소로 구성됩니다:</p>
-	<h5 class="as_h4">로고</h5>
-	<p>기본적으로 이 로고는 닷클리어 로고이며 관리 랜딩 페이지로 연결됩니다. 그러나 플랫폼
-	관리자는 다른 로고를 선택하여 다른 곳(일반적으로 서비스 랜딩 페이지)으로 리디렉션할 수 있습니다.</p>
-
-	<h5 class="as_h4">블로그</h5>
-	<p>로고 뒤에 있는 첫 번째 요소는 <em>활성</em> 블로그, 즉 내가 활동 중인 블로그를 표시합니다.
-	설치가 여러 블로그로 구성되어 있는 경우 이러한 정보는 콤보 메뉴에서 다른 블로그로 전환할 수 있습니다.</p>
-	<p>블로그 이름 뒤에 있는 링크를 클릭하면 현재 블로그가 다른 창이나 다른 탭에서 열립니다.</p>
-
-	<h5 class="as_h4">사용자</h5>
-	<p><em>내 대시보드</em> 링크를 클릭하면 블로그 관리 랜딩 페이지로 돌아갑니다.</p>
-	<p><em>내 기본 설정</em> 링크를 클릭하면 개인 정보를 수정하고, 대시보드를 설정하고, 인터페이스 및 편집 옵션을 선택할 수 있는 페이지로 연결됩니다.</p>
-	<p>놀랍게도 <em>[로그인 연결 해제]</em> 링크를 클릭하면 블로그 관리와 연결이 끊어집니다(닷클리어에서는 인체공학의 챔피언입니다!).</p>
-
-	<h4 class="pretty-title">메인 메뉴</h4>
-	<p>메인 메뉴는 화면 왼쪽에 있습니다. 오른쪽 테두리를 클릭하면 접을 수 있습니다(다시 클릭하면 접기를 해제할 수 있음).</p>
-	<p>현재 블로그에 대한 권한에 따라 다른 관리 페이지로 연결됩니다. 네 개의 블록으로 구성되어 있습니다:</p>
-	<ul>
-		<li><strong>내 즐겨찾기</strong> 에는 <em>내 환경설정</em>/<em>내 대시보드</em> 탭에서 즐겨찾기로 선택한 페이지가 나열됩니다. 아직 즐겨찾기를 선택하지 않은 경우 이 목록에는 기본 도트클리어 세트 또는 플랫폼 관리자가 정의한 세트가 포함됩니다. 이 블록을 표시하지 않으려면 대시보드 옵션에서 일치하는 확인란을 선택 취소하면 됩니다.</li>
-		<li><strong>블로그</strong> 에는 항목 수정, 미디어 관리, 블로그 모양 또는 기타 매개변수 선택 등 현재 블로그를 피드하고 설정할 수 있는 모든 페이지가 나열되어 있습니다.<br>
-		<em>현재 블로그에 대한 관리자 권한이 없는 경우 기본 메뉴에서 해당 블록 아래에 다른 블록이 표시되지 않습니다.</em></li>
-		<li><strong>시스템 설정</strong> 은 블로그 관리, 사용자 및 사용 가능한 언어, 플러그인 설치, 시스템 설정 등 닷클리어 설치를 관리할 수 있는 페이지로 연결되는 링크입니다. 여러 블로그에 대한 권한은 있지만 상위 관리자 권한이 없는 경우 <em>블로그</em> 항목만 표시됩니다.</li>
-		<li><strong>플러그인</strong> 에서 설치된 플러그인을 설정할 수 있습니다. 플러그인 설정이 한 번에 하나의 블로그에만 영향을 미치는 경우에는 <em>블로그</em> 블록에서 관리 페이지를 사용할 수 있지만, 전체 설치에 영향을 미치는 경우에는 여기에 위치하며 슈퍼 관리자 사용자만 사용할 수 있습니다.</li>
-	</ul>
-
-	<h4 class="pretty-title">바닥글</h4>
-	<p>바닥글에 숨겨진 비밀을 발견하는 모든 사용자에게 닷클리어 무료 버전이 제공됩니다.</p>
-
-	<h3>초보자를 위한 도움말</h3>
-	<p>블로그에 익숙하지 않다면 트위터 문서(전체 목차는 이 페이지의 <strong>문서</strong> 탭에서 확인할 수 있음)와 다음과 같은 튜토리얼을 살펴보는 것이 좋습니다:
-	<ul>
-		<li><a href="https://dotclear.org/documentation/2.0/usage/beginners">첫 번째 항목, 단계별로 살펴봅니다.</a></li>
-	</ul>
-
-	<p><a href="https://dotclear.org/forum/">닷클리어 포럼</a> 은 <em>멍청한 질문</em>과 같은 것이 없는 환영받는 곳입니다. 도움이 필요하다면 주저하지 말고 참여해 주시고, 그 대가로 사람들을 도울 수도 있습니다.</p>
-
-	<p class="info">당사는 특별한 지식이 없어도 이해하기 쉬운 어휘를 사용하기 위해 최선을 다하고 있습니다. 그러나 전문 용어를 사용해야 하는 경우 온라인 문서의 <a href="https://dotclear.org/documentation/glossary">용어집</a> 에서 해당 용어의 정의를 확인할 수 있습니다.</p>
-</div>
-
-<div class="multi-part" id="users-doc" title="사용자 설명서">
-	<h3>사용자 설명서</h3>
-	<div class="three-boxes">
-		<h4 class="pretty-title">콘텐츠 관리</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/entries">항목</a>
-					<ul>
-						<li>생성 및 편집</li>
-						<li>참가 세부 정보</li>
-						<li>항목 관련 작업</li>
-						<li>댓글 및 트랙백</li>
-						<li>항목의 일괄 관리</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">댓글 및 트랙백</a>
-					<ul>
-						<li>후속 조치</li>
-						<li>관리</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/categories">카테고리</a>
-					<ul>
-						<li>카테고리 만들기</li>
-						<li>카테고리 편집하기</li>
-						<li>카테고리 삭제하기</li>
-						<li>카테고리 목록 소트링</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/tags">태그(키워드)</a>
-					<ul>
-						<li>태그 추가하기</li>
-						<li>태그 관리</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/media">미디어 및 첨부 파일</a>
-					<ul>
-						<li>하위 디렉터리 만들기</li>
-						<li>파일 추가</li>
-						<li>현재 디렉토리의 zip 아카이브 다운로드하기</li>
-						<li>파일 세부 정보 채우기 변경</li>
-						<li>직접 파일 추가하기</li>
-						<li>특수 파일 형식</li>
-						<li>첨부 파일</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/widgets">블로그 메뉴 콘텐츠(위젯)</a>
-					<ul>
-						<li>탐색 사이드바, 추가 사이드바</li>
-						<li>기본 위젯</li>
-						<li>위젯 추가/제거하기</li>
-						<li>위젯 옵션</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">블로그 롤</a>
-					<ul>
-						<li>블로그 롤</li>
-						<li>링크 추가하기</li>
-						<li>카테고리 추가하기</li>
-						<li>XFN</li>
-						<li>OPML 또는 XBEL 파일에서 링크 가져오기</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes">
-		<h4 class="pretty-title">설정 및 사용자 지정</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">블로그 설정</a>
-					<ul>
-						<li>블로그 세부 정보</li>
-						<li>블로그 구성</li>
-						<li>댓글 및 트랙백</li>
-						<li>블로그 프레젠테이션</li>
-						<li>미디어 및 이미지</li>
-						<li>검색 엔진 로봇 정책</li>
-						<li>스팸 방지</li>
-						<li>라이트박스</li>
-						<li>저장</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">사용자 기본 설정</a>
-					<ul>
-						<li>내 프로필</li>
-						<li>내 옵션</li>
-						<li>내 대시보드</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">블로그 표시</a>
-					<ul>
-						<li>테마 선택</li>
-						<li>테마 설치</li>
-						<li>테마 개인화</li>
-						<li>테마 편집기</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes fieldset">
-			<h4 class="smart-title">추가 판독값</h4>
-				<h5>용어집</h5>
-				<ul><li><a href="https://dotclear.org/documentation/glossary">웹과 닷클리어에서 사용되는 이 모든 신비한 단어들</a></li></ul>
-				<h5>입력 구문</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">위키 구문 및 이에 상응하는 HTML</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">더 나아가려면</a></li>
-					</ul>
-				<h5>구독(RSS, 아톰...)</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds">저게 뭐죠?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">내 블로그에서 사용하려면 어떻게 해야 하나요?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">피드를 구독하려면 어떻게 하나요?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">더 나아가려면</a></li>
-					</ul>
-			<h4 class="smart-title">도움말</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">닷클리어 포럼</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq">자주 묻는 질문</a></li>
-				</ul>
-	</div>
-</div>
-
-	<div class="multi-part" id="admin-doc" title="관리자용 문서">
-	<h3>관리자용 문서</h3>
-		<div class="three-boxes">
-		<h4 class="pretty-title">설치 및 업데이트</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install">설치</a>
-					<ul>
-						<li>전제 조건</li>
-						<li>자동 설치</li>
-						<li>표준 설치</li>
-						<li>마법사를 사용하여 설치하기</li>
-						<li>config.php 파일에서 설치</li>
-						<li>설치 프로세스 완료</li>
-						<li>다음 단계</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">업데이트</a>
-					<ul>
-						<li>업데이트 준비</li>
-						<li>자동 업그레이드</li>
-						<li>프로그램 업데이트</li>
-						<li>데이터베이스 업데이트</li>
-						<li>부록: 수은 사본 업데이트하기</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/config">구성 파일(config.php) 매개변수</a>
-					<ul>
-						<li>소개</li>
-						<li>매개변수</li>
-						<li>파일에 정보 추가하기</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Dotclear 1.2에서 Dotclear 2로 업그레이드하기</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/migrate">다른 블로그 소프트웨어에서 닷클리어로 마이그레이션하기</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/local-install">로컬 설치</a>
-					<ul>
-						<li>Windows</li>
-						<li>Mac OS X</li>
-						<li>Linux</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">IIS7에 닷클리어 설치하기</a></li>
-			</ul>
-
-			<h5>호스팅 별관</h5>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/hosting">호스팅</a>
-				</li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">관리</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/users">사용자 관리</a>
-					<ul>
-						<li>기존 사용자 목록</li>
-						<li>사용자 만들기</li>
-						<li>사용자 수정하기</li>
-						<li>사용자 권한</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">새로 설치</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">멀티블로그 설치</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/plugins">플러그인 관리</a>
-					<ul>
-						<li>플러그인 설치</li>
-						<li>플러그인 구성</li>
-						<li>플러그인 제거하기</li>
-						<li>플러그인 업데이트</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">기본 테마 블로우업</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">블로그 테마</a>
-					<ul>
-						<li>테마 선택</li>
-						<li>테마 설치하기</li>
-						<li>테마 사용자 지정</li>
-						<li>테마 편집기</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">고급 구성</a></li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">유지 관리</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/backup">백업 및 복원</a>
-					<ul>
-						<li>가져오기/내보내기</li>
-						<li>파일</li>
-						<li>데이터베이스</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/antispam">스팸 댓글 필터</a>
-					<ul>
-						<li>필터 구성</li>
-						<li>필터 구성</li>
-					</ul>
-				</li>
-			</ul>
-			<div class="fieldset vertical-separator">
-				<h4 class="smart-title">도움말</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">닷클리어 포럼</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq#administration">자주 묻는 질문(관리자)</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="multi-part" id="guide-dev" title="개발자 문서">
-	<h3>개발자 및 디자이너 리소스</h3>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">디자인 &amp; 테마</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes">테마</a>
-					<ul>
-						<li>테마 사용 가이드</li>
-						<li>템플릿 태그</li>
-						<li>부록</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">테마 상속</a>
-					<ul>
-						<li>원칙</li>
-						<li>제한 사항</li>
-						<li>설정</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">템플릿 태그</a>
-					<ul>
-						<li>일반 / 유틸리티</li>
-						<li>블로그</li>
-						<li>항목</li>
-						<li>항목 페이지 매김</li>
-						<li>댓글</li>
-						<li>댓글 미리보기</li>
-						<li>핑</li>
-						<li>첨부 파일</li>
-						<li>카테고리</li>
-						<li>태그</li>
-						<li>아카이브</li>
-						<li>언어</li>
-						<li>시스템</li>
-						<li>위젯</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">코드 &amp; 플러그인</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/tpl">플러그인 또는 테마에 대한 tpl 태그 만들기</a>
-					<ul>
-						<li>소개</li>
-						<li>값</li>
-						<li>지침 블록</li>
-						<li>템플릿 캐시 영향력 데모</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins">플러그인</a>
-					<ul>
-						<li>플러그인 작성</li>
-						<li>부록</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">플러그인 상황에 맞는 도움말 구축하기</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/authentication">외부 인증</a>
-					<ul>
-						<li>서문</li>
-						<li>새로운 인증 클래스</li>
-						<li>시나리오</li>
-						<li>애플리케이션</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC 인터페이스</a></li>
-				<li><a href="https://dev.dotclear.org/code/2/">API 문서</a></li>
-			</ul>
-		</div>
-
-		<div class="three-boxes">
-			<h4 class="pretty-title">기여 &amp; 지원</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/contribute">기여하기</a>
-					<ul>
-						<li>이 문서 편집</li>
-						<li>창작물 공유</li>
-						<li>버그 신고 또는 새로운 기능 제안</li>
-						<li>현지화</li>
-				</ul>
-			</li>
-				<li><a href="https://git.dotclear.org/dev/dotclear">닷클리어 소스 코드 리포지토리</a></li>
-				<li><a href="https://dotclear.org/forum">닷클리어 포럼</a></li>
-			</ul>
-
-			<div class="fieldset">
-				<h4 class="smart-title">규칙</h4>
-				<ul>
-					<li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">코딩 표준</a></li>
-					<li><a href="index.php?process=HelpCharte">관리 페이지 차트</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="multi-part legible" id="a11y-ergo" title="접근성 및 인체공학적 설계">
-	<h3>접근성 및 인체공학적 설계</h3>
-	<p>닷클리어 인터페이스는 거의 모든 <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> 기준을 충족합니다. 저희는 닷클리어가 <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> 가이드라인과 호환될 수 있도록 노력하고 있습니다.</p>
-	<p>접근성과 인체공학은 저희의 주요 관심사 중 하나입니다. 전문가의 도움을 받아 정기적으로 분석을 실행하고 지속적으로 수정 및 개선 사항을 제공합니다.</p>
-	<p><a href="https://git.dotclear.org/dev/dotclear/issues">티켓</a> 을 개설하거나 <a href="https://dotclear.org/forum/">포럼</a>에 참여하여 도움을 주실 수 있습니다. 사용자 테스트에 참여하거나 저희 팀에 합류할 수도 있습니다!</p>
-	</div>
-
+  <div class="multi-part legible" id="first-step" title="첫 번째 단계">
+    <h3>인터페이스 검색</h3>
+    <div class="fieldset">
+      <h4>첫 번째 단계</h4>
+      <p>In addition to the global help pages, several administration pages have an online help. If javascript is enabled
+        on your browser, you can see online help at the upper-right position of the page, by clicking on the <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong> link. If Javascript is disabled, the help is displayed at the bottom of the page.</p>
+    </div>
+    <p>각 관리 페이지에는 동일한 상단 제목, 주 메뉴 및 바닥글이 표시됩니다. <em>(여기에 표시된 순서는 컴퓨터 화면에 표시되는 순서입니다. 모바일 장치 또는 태블릿의 경우 사용 가능한 공간에 따라 달라질 수 있습니다.)</em></p>
+    <h4 class="pretty-title">상단 제목</h4>
+    <p>상단 제목은 세 가지 요소로 구성됩니다:</p>
+    <h5 class="as_h4">로고</h5>
+    <p>By default, this logo is the Dotclear logo and links to the administration landing page. However, a platform
+      manager can choose another logo and redirect towards something else (generally, the service landing page).</p>
+    <h5 class="as_h4">블로그</h5>
+    <p>The first element located after the logo shows the <em>active</em> blog, i.e. the blog on which you are acting. If your
+      installation is composed of several blogs, these informations are available in a combo menu, which lets you switch to another blog.</p>
+    <p>블로그 이름 뒤에 있는 링크를 클릭하면 현재 블로그가 다른 창이나 다른 탭에서 열립니다.</p>
+    <h5 class="as_h4">사용자</h5>
+    <p><em>내 대시보드</em> 링크를 클릭하면 블로그 관리 랜딩 페이지로 돌아갑니다.</p>
+    <p><em>내 기본 설정</em> 링크를 클릭하면 개인 정보를 수정하고, 대시보드를 설정하고, 인터페이스 및 편집 옵션을 선택할 수 있는 페이지로 연결됩니다.</p>
+    <p>놀랍게도 <em>[로그인 연결 해제]</em> 링크를 클릭하면 블로그 관리와 연결이 끊어집니다(닷클리어에서는 인체공학의 챔피언입니다!).</p>
+    <h4 class="pretty-title">메인 메뉴</h4>
+    <p>메인 메뉴는 화면 왼쪽에 있습니다. 오른쪽 테두리를 클릭하면 접을 수 있습니다(다시 클릭하면 접기를 해제할 수 있음).</p>
+    <p>현재 블로그에 대한 권한에 따라 다른 관리 페이지로 연결됩니다. 네 개의 블록으로 구성되어 있습니다:</p>
+    <ul>
+      <li><strong>내 즐겨찾기</strong> 에는 <em>내 환경설정</em>/<em>내 대시보드</em> 탭에서 즐겨찾기로 선택한 페이지가 나열됩니다. 아직 즐겨찾기를 선택하지 않은 경우 이 목록에는 기본 도트클리어 세트 또는 플랫폼 관리자가 정의한 세트가 포함됩니다. 이 블록을 표시하지 않으려면 대시보드 옵션에서 일치하는 확인란을 선택 취소하면 됩니다.</li>
+      <li><strong>Blog</strong> lists all the pages that enable to feed and setup the current blog, from editing an entry, managing media, choosing the blog appearance or other parameters.<br>
+        <em>If you do not have administrator rights on the current blog, there will be no other block below that one in the main menu.</em></li>
+      <li><strong>시스템 설정</strong> 은 블로그 관리, 사용자 및 사용 가능한 언어, 플러그인 설치, 시스템 설정 등 닷클리어 설치를 관리할 수 있는 페이지로 연결되는 링크입니다. 여러 블로그에 대한 권한은 있지만 상위 관리자 권한이 없는 경우 <em>블로그</em> 항목만 표시됩니다.</li>
+      <li><strong>플러그인</strong> 에서 설치된 플러그인을 설정할 수 있습니다. 플러그인 설정이 한 번에 하나의 블로그에만 영향을 미치는 경우에는 <em>블로그</em> 블록에서 관리 페이지를 사용할 수 있지만, 전체 설치에 영향을 미치는 경우에는 여기에 위치하며 슈퍼 관리자 사용자만 사용할 수 있습니다.</li>
+    </ul>
+    <h4 class="pretty-title">바닥글</h4>
+    <p>바닥글에 숨겨진 비밀을 발견하는 모든 사용자에게 닷클리어 무료 버전이 제공됩니다.</p>
+    <h3>초보자를 위한 도움말</h3>
+    <p>블로그에 익숙하지 않다면 트위터 문서(전체 목차는 이 페이지의 <strong>문서</strong> 탭에서 확인할 수 있음)와 다음과 같은 튜토리얼을 살펴보는 것이 좋습니다:
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">첫 번째 항목, 단계별로 살펴봅니다.</a></li>
+      </ul>
+      <p><a href="https://dotclear.org/forum/">닷클리어 포럼</a> 은 <em>멍청한 질문</em>과 같은 것이 없는 환영받는 곳입니다. 도움이 필요하다면 주저하지 말고 참여해 주시고, 그 대가로 사람들을 도울 수도 있습니다.</p>
+      <p class="info">당사는 특별한 지식이 없어도 이해하기 쉬운 어휘를 사용하기 위해 최선을 다하고 있습니다. 그러나 전문 용어를 사용해야 하는 경우 온라인 문서의 <a href="https://dotclear.org/documentation/glossary">용어집</a> 에서 해당 용어의 정의를 확인할 수 있습니다.</p>
+  </div>
+  <div class="multi-part" id="users-doc" title="사용자 설명서">
+    <h3>사용자 설명서</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">콘텐츠 관리</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">항목</a>
+          <ul>
+            <li>생성 및 편집</li>
+            <li>참가 세부 정보</li>
+            <li>항목 관련 작업</li>
+            <li>댓글 및 트랙백</li>
+            <li>항목의 일괄 관리</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">댓글 및 트랙백</a>
+          <ul>
+            <li>후속 조치</li>
+            <li>관리</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">카테고리</a>
+          <ul>
+            <li>카테고리 만들기</li>
+            <li>카테고리 편집하기</li>
+            <li>카테고리 삭제하기</li>
+            <li>카테고리 목록 소트링</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">태그(키워드)</a>
+          <ul>
+            <li>태그 추가하기</li>
+            <li>태그 관리</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/media">미디어 및 첨부 파일</a>
+          <ul>
+            <li>하위 디렉터리 만들기</li>
+            <li>파일 추가</li>
+            <li>현재 디렉토리의 zip 아카이브 다운로드하기</li>
+            <li>파일 세부 정보 채우기 변경</li>
+            <li>직접 파일 추가하기</li>
+            <li>특수 파일 형식</li>
+            <li>첨부 파일</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">블로그 메뉴 콘텐츠(위젯)</a>
+          <ul>
+            <li>탐색 사이드바, 추가 사이드바</li>
+            <li>기본 위젯</li>
+            <li>위젯 추가/제거하기</li>
+            <li>위젯 옵션</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">블로그 롤</a>
+          <ul>
+            <li>블로그 롤</li>
+            <li>링크 추가하기</li>
+            <li>카테고리 추가하기</li>
+            <li>XFN</li>
+            <li>OPML 또는 XBEL 파일에서 링크 가져오기</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">설정 및 사용자 지정</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">블로그 설정</a>
+          <ul>
+            <li>블로그 세부 정보</li>
+            <li>블로그 구성</li>
+            <li>댓글 및 트랙백</li>
+            <li>블로그 프레젠테이션</li>
+            <li>미디어 및 이미지</li>
+            <li>검색 엔진 로봇 정책</li>
+            <li>스팸 방지</li>
+            <li>라이트박스</li>
+            <li>저장</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">사용자 기본 설정</a>
+          <ul>
+            <li>내 프로필</li>
+            <li>내 옵션</li>
+            <li>내 대시보드</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">블로그 표시</a>
+          <ul>
+            <li>테마 선택</li>
+            <li>테마 설치</li>
+            <li>테마 개인화</li>
+            <li>테마 편집기</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes fieldset">
+      <h4 class="smart-title">추가 판독값</h4>
+      <h5>용어집</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/glossary">웹과 닷클리어에서 사용되는 이 모든 신비한 단어들</a></li>
+      </ul>
+      <h5>입력 구문</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">위키 구문 및 이에 상응하는 HTML</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">더 나아가려면</a></li>
+      </ul>
+      <h5>구독(RSS, 아톰...)</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">저게 뭐죠?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">내 블로그에서 사용하려면 어떻게 해야 하나요?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">피드를 구독하려면 어떻게 하나요?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">더 나아가려면</a></li>
+      </ul>
+      <h4 class="smart-title">도움말</h4>
+      <ul>
+        <li><a href="https://dotclear.org/forum">닷클리어 포럼</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/faq">자주 묻는 질문</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="multi-part" id="admin-doc" title="관리자용 문서">
+    <h3>관리자용 문서</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">설치 및 업데이트</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install">설치</a>
+          <ul>
+            <li>전제 조건</li>
+            <li>자동 설치</li>
+            <li>표준 설치</li>
+            <li>마법사를 사용하여 설치하기</li>
+            <li>config.php 파일에서 설치</li>
+            <li>설치 프로세스 완료</li>
+            <li>다음 단계</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">업데이트</a>
+          <ul>
+            <li>업데이트 준비</li>
+            <li>자동 업그레이드</li>
+            <li>프로그램 업데이트</li>
+            <li>데이터베이스 업데이트</li>
+            <li>부록: 수은 사본 업데이트하기</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/config">구성 파일(config.php) 매개변수</a>
+          <ul>
+            <li>소개</li>
+            <li>매개변수</li>
+            <li>파일에 정보 추가하기</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Dotclear 1.2에서 Dotclear 2로 업그레이드하기</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">다른 블로그 소프트웨어에서 닷클리어로 마이그레이션하기</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">로컬 설치</a>
+          <ul>
+            <li>Windows</li>
+            <li>Mac OS X</li>
+            <li>Linux</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">IIS7에 닷클리어 설치하기</a></li>
+      </ul>
+      <h5>호스팅 별관</h5>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/hosting">호스팅</a>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">관리</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/users">사용자 관리</a>
+          <ul>
+            <li>기존 사용자 목록</li>
+            <li>사용자 만들기</li>
+            <li>사용자 수정하기</li>
+            <li>사용자 권한</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">새로 설치</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">멀티블로그 설치</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">플러그인 관리</a>
+          <ul>
+            <li>플러그인 설치</li>
+            <li>플러그인 구성</li>
+            <li>플러그인 제거하기</li>
+            <li>플러그인 업데이트</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">기본 테마 블로우업</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">블로그 테마</a>
+          <ul>
+            <li>테마 선택</li>
+            <li>테마 설치하기</li>
+            <li>테마 사용자 지정</li>
+            <li>테마 편집기</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">고급 구성</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">유지 관리</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">백업 및 복원</a>
+          <ul>
+            <li>가져오기/내보내기</li>
+            <li>파일</li>
+            <li>데이터베이스</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">스팸 댓글 필터</a>
+          <ul>
+            <li>필터 구성</li>
+            <li>필터 구성</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="fieldset vertical-separator">
+        <h4 class="smart-title">도움말</h4>
+        <ul>
+          <li><a href="https://dotclear.org/forum">닷클리어 포럼</a></li>
+          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">자주 묻는 질문(관리자)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part" id="guide-dev" title="개발자 문서">
+    <h3>개발자 및 디자이너 리소스</h3>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">디자인 &amp; 테마</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">테마</a>
+          <ul>
+            <li>테마 사용 가이드</li>
+            <li>템플릿 태그</li>
+            <li>부록</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">테마 상속</a>
+          <ul>
+            <li>원칙</li>
+            <li>제한 사항</li>
+            <li>설정</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">템플릿 태그</a>
+          <ul>
+            <li>일반 / 유틸리티</li>
+            <li>블로그</li>
+            <li>항목</li>
+            <li>항목 페이지 매김</li>
+            <li>댓글</li>
+            <li>댓글 미리보기</li>
+            <li>핑</li>
+            <li>첨부 파일</li>
+            <li>카테고리</li>
+            <li>태그</li>
+            <li>아카이브</li>
+            <li>언어</li>
+            <li>시스템</li>
+            <li>위젯</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">코드 &amp; 플러그인</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">플러그인 또는 테마에 대한 tpl 태그 만들기</a>
+          <ul>
+            <li>소개</li>
+            <li>값</li>
+            <li>지침 블록</li>
+            <li>템플릿 캐시 영향력 데모</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">플러그인</a>
+          <ul>
+            <li>플러그인 작성</li>
+            <li>부록</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">플러그인 상황에 맞는 도움말 구축하기</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">외부 인증</a>
+          <ul>
+            <li>서문</li>
+            <li>새로운 인증 클래스</li>
+            <li>시나리오</li>
+            <li>애플리케이션</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC 인터페이스</a></li>
+        <li><a href="https://dev.dotclear.org/code/2/">API 문서</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">기여 &amp; 지원</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">기여하기</a>
+          <ul>
+            <li>이 문서 편집</li>
+            <li>창작물 공유</li>
+            <li>버그 신고 또는 새로운 기능 제안</li>
+            <li>현지화</li>
+          </ul>
+        </li>
+        <li><a href="https://git.dotclear.org/dev/dotclear">닷클리어 소스 코드 리포지토리</a></li>
+        <li><a href="https://dotclear.org/forum">닷클리어 포럼</a></li>
+      </ul>
+      <div class="fieldset">
+        <h4 class="smart-title">규칙</h4>
+        <ul>
+          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">코딩 표준</a></li>
+          <li><a href="index.php?process=HelpCharte">관리 페이지 차트</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part legible" id="a11y-ergo" title="접근성 및 인체공학적 설계">
+    <h3>접근성 및 인체공학적 설계</h3>
+    <p>닷클리어 인터페이스는 거의 모든 <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> 기준을 충족합니다. 저희는 닷클리어가 <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> 가이드라인과 호환될 수 있도록 노력하고 있습니다.</p>
+    <p>접근성과 인체공학은 저희의 주요 관심사 중 하나입니다. 전문가의 도움을 받아 정기적으로 분석을 실행하고 지속적으로 수정 및 개선 사항을 제공합니다.</p>
+    <p><a href="https://git.dotclear.org/dev/dotclear/issues">티켓</a> 을 개설하거나 <a href="https://dotclear.org/forum/">포럼</a>에 참여하여 도움을 주실 수 있습니다. 사용자 테스트에 참여하거나 저희 팀에 합류할 수도 있습니다!</p>
+  </div>
 </body>
+
 </html>

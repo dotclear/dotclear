@@ -1,94 +1,76 @@
 <html>
+
 <head>
   <title>Référence de la syntaxe wiki</title>
 </head>
 
 <body>
-
-<h4>Référence de la syntaxe wiki</h4>
-
-<p>La syntaxe wiki est une manière d'écrire du texte avec un jeu de balises
-réduit au minimum, permettant de couvrir les besoins les plus courants
-(titres, paragraphes, citations, listes...).</p>
-
-<dl>
-<dt>Éléments de bloc</dt>
-<dd>
-<ul>
-  <li>Laissez une ligne vide entre chaque bloc de même nature.</li>
-  <li><strong>Paragraphe</strong>&nbsp;: texte libre, terminé par une ligne
-  vide si suivi d'un second paragraphe.</li>
-  <li><strong>Titre</strong>&nbsp;: <code>!!! titre</code>, <code>!! titre</code>
-  ou <code>! titre</code> pour des titres plus ou moins importants.</li>
-  <li><strong>Trait horizontal</strong>&nbsp;: <code>----</code></li>
-  <li><strong>Listes</strong>&nbsp;: lignes débutant par <code>*</code> pour des
-  listes à puce ou <code>#</code> pour des listes numérotées. Vous pouvez faire
-  des listes imbriquées en mélangeant les codes de liste. Par exemple&nbsp;:
-  <pre>
+  <h4>Référence de la syntaxe wiki</h4>
+  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <dl>
+    <dt>Éléments de bloc</dt>
+    <dd>
+      <ul>
+        <li>Laissez une ligne vide entre chaque bloc de même nature.</li>
+        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
+        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Trait horizontal</strong>&nbsp;: <code>----</code></li>
+        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+          <pre>
     <code>*</code> item 1
 <code>**</code> item 1.1
 <code>*</code> item 2
 <code>*#</code> item 2.1
 ...
   </pre>
-  </li>
-  <li><strong>Listes de définition</strong>&nbsp;: ligne débutant par <code>=</code> pour le terme à définir et par <code>:</code> pour la définition du terme.
-  <pre>
+        </li>
+        <li><strong>Listes de définition</strong>&nbsp;: ligne débutant par <code>=</code> pour le terme à définir et par <code>:</code> pour la définition du terme.
+          <pre>
   <code>=</code> terme
   <code>:</code> définition du terme
   </pre>
-  </li>
-  <li><strong>Texte préformaté</strong>&nbsp;: espace avant chaque ligne de texte.</li>
-  <li><strong>Bloc de citation</strong>&nbsp;: <code>&gt;</code> devant chaque
+        </li>
+        <li><strong>Texte préformaté</strong>&nbsp;: espace avant chaque ligne de texte.</li>
+        <li><strong>Bloc de citation</strong>&nbsp;: <code>&gt;</code> devant chaque
   ligne de texte.</li>
-  <li><strong>Bloc de côté</strong>&nbsp;: <code>)</code> devant chaque ligne de texte</li>
-</ul>
-</dd>
-
-<dt>Éléments de formatage</dt>
-<dd>
-<ul>
-  <li><strong>Emphase</strong>&nbsp;: deux apostrophes <code>''texte''</code></li>
-  <li><strong>Forte emphase</strong>&nbsp;: deux soulignés <code>__texte__</code></li>
-  <li><strong>Surligné :</strong> Deux guillemets <code>""texte""</code></li>
-  <li><strong>Nouvelle ligne :</strong> <code>%%%</code></li>
-  <li><strong>Insertion :</strong> Deux plus <code>++texte++</code></li>
-  <li><strong>Suppression :</strong> Deux moins <code>--text--</code></li>
-  <li><strong>Lien :</strong> <code>[url]</code> <code>[nom|url]</code>,
-    <code>[nom|url|langue]</code> ou <code>[nom|url|langue|titre]</code></li>
-  <li><strong>Image :</strong>
-    <code>((url|texte alternatif))</code>,
-    <code>((url|texte alternatif|position))</code> ou
-    <code>((url|texte alternatif|position|longue description))</code>.
-    <br>La position peut être L (gauche), R (droite) ou C (centré).</li>
-  <li><strong>Ancrage :</strong> <code>~anchor~</code></li>
-  <li><strong>Acronyme :</strong> <code>??acronyme|titre ??</code></li>
-  <li><strong>HTML en ligne :</strong> Deux guillemets <code>``Code HTML``</code></li>
-  <li><strong>Citation en ligne :</strong> <code>{{quote}}</code>,
-    <code>{{quote|language}}</code> ou <code>{{quote|language|url}}</code></li>
-  <li><strong>Code :</strong> <code>@@code@@</code></li>
-  <li><strong>Notes de bas de page :</strong> <code>$$footnote$$</code></li>
-  <li><strong>Exposant</strong>&nbsp;: <code>^ exposant ^</code></li>
-  <li><strong>Indice</strong>&nbsp;: <code>,,indice,,</code></li>
-</ul>
-</dd>
-
-<dt>Empêcher le formatage du texte</dt>
-<dd>Pour insérer un caractère sans que celui-ci soit reconnu comme un caractère
-de formatage, ajoutez le caractère <code>\</code> avant celui-ci. Par exemple&nbsp;:
-<code>\[texte entre crochet qui n'est pas un lien\]</code>
-</dd>
-
-<dt>Insérer du code HTML</dt>
-<dd>Vous pouvez ponctuellement avoir besoin d'insérer du code HTML dans votre
-texte au format wiki.
-<pre>
+        <li><strong>Bloc de côté</strong>&nbsp;: <code>)</code> devant chaque ligne de texte</li>
+      </ul>
+    </dd>
+    <dt>Éléments de formatage</dt>
+    <dd>
+      <ul>
+        <li><strong>Emphase</strong>&nbsp;: deux apostrophes <code>''texte''</code></li>
+        <li><strong>Forte emphase</strong>&nbsp;: deux soulignés <code>__texte__</code></li>
+        <li><strong>Surligné :</strong> Deux guillemets <code>""texte""</code></li>
+        <li><strong>Nouvelle ligne :</strong> <code>%%%</code></li>
+        <li><strong>Insertion :</strong> Deux plus <code>++texte++</code></li>
+        <li><strong>Suppression :</strong> Deux moins <code>--text--</code></li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
+        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Ancrage :</strong> <code>~anchor~</code></li>
+        <li><strong>Acronyme :</strong> <code>??acronyme|titre ??</code></li>
+        <li><strong>HTML en ligne :</strong> Deux guillemets <code>``Code HTML``</code></li>
+        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Code :</strong> <code>@@code@@</code></li>
+        <li><strong>Notes de bas de page :</strong> <code>$$footnote$$</code></li>
+        <li><strong>Exposant</strong>&nbsp;: <code>^ exposant ^</code></li>
+        <li><strong>Indice</strong>&nbsp;: <code>,,indice,,</code></li>
+      </ul>
+    </dd>
+    <dt>Empêcher le formatage du texte</dt>
+    <dd>If you don't want one formatting character to be interpreted as such, add a
+      <code>\</code> just before it. For instance:
+      <code>\[Text in brackets without being a link\]</code>
+    </dd>
+    <dt>Insérer du code HTML</dt>
+    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+      <pre>
 ///html
 &lt;p style="color:red"&gt;mon texte en rouge&lt;/p&gt;
 ///
 </pre>
-</dd>
-</dl>
-
+    </dd>
+  </dl>
 </body>
+
 </html>

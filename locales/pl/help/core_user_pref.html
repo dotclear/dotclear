@@ -1,130 +1,87 @@
 <html>
+
 <head>
   <title>User preferences</title>
 </head>
 
 <body>
-
-<h4>Mój profil</h4>
-<dl>
-  <dt>Name, First name</dt>
-  <dd>If the display name is empty, the author's name will be displayed
-  as his Firstname and Name as set here.</dd>
-  
-  <dt>Wyświetlana nazwa</dt>
-  <dd>You can choose here how your name will be displayed under your posts.</dd>
-  
-  <dt>E-mail</dt>
-  <dd>Adres e-mail używany podczas żądania nowego hasła.<br>
-    Na ten adres będą również wysyłane powiadomienia o nowych komentarzach.<em>(W przypadku aktualizacji
-  tego pola należy wprowadzić aktualne hasło w odpowiednim polu na dole formularza)</em></dd>
-  
-  <dt>Adres URL</dt>
-  <dd>The user's web site. If set, the author name will be displayed as
-  a link to the said site.</dd>
-  
-  <dt>Preferred format</dt>
-  <dd>To choose the prefered post syntax. Wiki is a simplified syntax
-  and will be converted to valid HTML&nbsp;; Unless you have a perfect
-  understanding of HTML, we advise you to choose the wiki syntax.</dd>
-  
-  <dt>Default entry status</dt>
-  <dd>Ten wybór określi czas wyświetlany w publikacji postów.</dd>
-  
-  <dt>Entry edit field height</dt>
-  <dd>The height of the Entry edit field. Defaults to 24.</dd>
-</dl>
-
-
-<h4>Moje opcje</h4>
-<h5>Interfejs</h5>
-<dl>  
-  <dt>Aktywuj ulepszony uploader w menedżerze mediów</dt>
-  <dd>Pozwala na aktywację zaawansowanego interfejsu w menedżerze mediów, który umożliwia 
-  przesyłanie wielu plików na raz (Uwaga: Twoja przeglądarka internetowa musi obsługiwać Javascript 
-  , aby móc korzystać z tej funkcji).</dd>
-
-  <dt>Wyłącz przeciąganie i upuszczanie zasilane Javascript dla zamawiania przedmiotów</dt>
-  <dd>Pozwala na wyłączenie "przeciągnij i upuść" dla zamawiania przedmiotów. Przeciągnij i upuść zostanie 
-  zastąpione przez pola numeryczne, które pozwolą wprowadzić pozycję pól.</dd>
-
-  <dt>Liczba elementów wyświetlanych na stronie w menedżerze mediów</dt>
-  <dd>Określa liczbę multimediów, które będą wyświetlane w menedżerze mediów (foldery
-  nie są brane pod uwagę przy liczeniu elementów).</dd>
-  
-  <dt>Nie używaj standardowej favicon</dt>
-  <dd>Pozwala na wyłączenie domyślnego favicona w pasku adresu przeglądarki internetowej.</dd>
-</dl>
-
-<h5>Edycja</h5>
-<dl>    
-  <dt>Preferowany format</dt>
-  <dd>Wybierz składnię wpisu. Wiki jest uproszczoną składnią
-  i zostanie przekonwertowana na poprawny HTML. Jeśli nie masz idealnego
-  zrozumienia HTML, zalecamy wybranie składni Wiki.
-  Zobacz odniesienie składni Wiki, aby uzyskać więcej informacji.</dd>
-  
-  <dt>Domyślny status wpisu</dt>
-  <dd>Domyślny status dla nowych wpisów można ustawić na:
-    <ul>
-      <li><strong>W toku:</strong> Status publikacji nie został jeszcze ustalony.</li>
-      <li><strong>Zaplanowane:</strong> Wpis zostanie ustawiony online w czasie i dacie w polu <strong>opublikowanym na</strong>.</li>
-      <li><strong>Nieopublikowano:</strong> Wpis offline.</li>
-      <li><strong>Opublikowano:</strong> Wpis online.</li>
-    </ul>
-  </dd>
-  
-  <dt>Wysokość pola edycji</dt>
-  <dd>Ustawia wysokość pola edycji wpisu. Domyślnie ten parametr jest ustawiony na 24.</dd>
-  
-  <dt>Włącz tryb WYSIWYG</dt>
-  <dd>Pozwala na używanie edytora wizualnego (WYSIWYG: Co widzisz) dla pól opisowych wpisów, stron i kategorii.</dd>
-</dl>
-
-<h5>Inne opcje</h5>
-<dl>
-  <dt>Format listy tagów</dt>
-  <dd>Możesz wybrać jeśli chcesz zobaczyć, podczas edycji wpisu, wszystkie użyte tagi (<strong>Extended</strong>) lub tylko te najczęściej używane (<strong>Short</strong>).</dd>
-
-  <dt>Podświetlanie składni w edytorze motywów</dt>
-  <dd>Włącza podświetlanie składni podczas używania edytora motywów (pliki HTML i CSS)</dd>     
-</dl>
-
-
-<h4>Mój panel</h4>
-<dl>
-  <dt>Moje ulubione</dt>
-  <dd>Ta strefa wyświetla wybrane ulubione na pulpicie nawigacyjnym bloga. 
-  Można zmieniać ich kolejność za pomocą myszy, jeśli w przeglądarce włączona jest obsługa Javascript. 
-  W przeciwnym razie pole umożliwia nadanie im numeru zamówienia. Po zakończeniu nie zapomnij zapisać zmian, naciskając <strong>Zapisz zamówienie</strong>.<br>
-  Możesz również usunąć ulubione, zaznaczając je i naciskając <strong>Usuń wybrane ulubione</strong>.</dd>
-  
-  <dt>Zdefiniuj jako domyślne ulubione (super administrator)</dt> 
-  <dd>Włącz aby ustawić aktualnie zdefiniowaną listę ulubionych jako domyślną listę ulubionych dla wszystkich użytkowników. Ta lista zostanie zaproponowana użytkownikom, jeśli nie zdefiniowali jeszcze swoich ulubionych.</dd>
-
-  <dt>Inne dostępne ulubione</dt>
-  <dd>Wszystkie wtyczki pozwalające na umieszczenie jako ulubione są tutaj odtwarzane. Zaznacz odpowiednie pola i dodaj je do kokpitu menedżerskiego, naciskając <strong>Dodaj moje ulubione</strong>.</dd>
-
-  <dt>Wyświetl ulubione w górnej części menu</dt>
-  <dd>Jeśli włączone, wyświetla ulubione w górze menu.</dd>
-
-  <dt>Moduły panelu ustawień</dt>
-  <dd>Wybór dokonany w tej strefie będzie odzwierciedlony na pulpicie twojego bloga.</dd>
-  
-  <dt>Wyświetl linki do dokumentacji</dt>
-  <dd>Włącz wyświetlanie linków dokumentacji na stronie lądowania pulpitu.</dd>
-  
-  <dt>Wyświetl aktualności Dotclear</dt>
-  <dd>Włącz, aby wyświetlić wiadomości Dotclear na stronie startowej pulpitu.</dd>
-
-  <dt>Wyświetl formularz szybkiego wpisu</dt>
-  <dd>Włącz, aby wyświetlić formularz "szybki wpis" na stronie startowej pulpitu.</dd>
-
-  <dt>Wyświetlaj zaległy licznik zadań na ikonie panelu obsługi technicznej</dt>
-  <dd>Umożliwia wyświetlanie liczby zaległych zadań (tj. które powinny być przetworzone) pod ikoną <strong>Obsługa</strong> . <strong>Konserwacja</strong> musi być ustawiona w ulubionych aby korzystać z tej funkcji.</dd>
-
-  <dt>Wyświetl listę zaległych zadań na pulpicie</dt>
-  <dd>Włącz, aby wyświetlić listę zaległych zadań (tj. które powinny być przetworzone) w dedykowanej sekcji na stronie lądowania pulpitu.</dd>
-</dl>
+  <h4>Mój profil</h4>
+  <dl>
+    <dt>Name, First name</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Wyświetlana nazwa</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>E-mail</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>Adres URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Preferred format</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Default entry status</dt>
+    <dd>Ten wybór określi czas wyświetlany w publikacji postów.</dd>
+    <dt>Entry edit field height</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Moje opcje</h4>
+  <h5>Interfejs</h5>
+  <dl>
+    <dt>Aktywuj ulepszony uploader w menedżerze mediów</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Wyłącz przeciąganie i upuszczanie zasilane Javascript dla zamawiania przedmiotów</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Liczba elementów wyświetlanych na stronie w menedżerze mediów</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Nie używaj standardowej favicon</dt>
+    <dd>Pozwala na wyłączenie domyślnego favicona w pasku adresu przeglądarki internetowej.</dd>
+  </dl>
+  <h5>Edycja</h5>
+  <dl>
+    <dt>Preferowany format</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Domyślny status wpisu</dt>
+    <dd>Domyślny status dla nowych wpisów można ustawić na:
+      <ul>
+        <li><strong>W toku:</strong> Status publikacji nie został jeszcze ustalony.</li>
+        <li><strong>Zaplanowane:</strong> Wpis zostanie ustawiony online w czasie i dacie w polu <strong>opublikowanym na</strong>.</li>
+        <li><strong>Nieopublikowano:</strong> Wpis offline.</li>
+        <li><strong>Opublikowano:</strong> Wpis online.</li>
+      </ul>
+    </dd>
+    <dt>Wysokość pola edycji</dt>
+    <dd>Ustawia wysokość pola edycji wpisu. Domyślnie ten parametr jest ustawiony na 24.</dd>
+    <dt>Włącz tryb WYSIWYG</dt>
+    <dd>Pozwala na używanie edytora wizualnego (WYSIWYG: Co widzisz) dla pól opisowych wpisów, stron i kategorii.</dd>
+  </dl>
+  <h5>Inne opcje</h5>
+  <dl>
+    <dt>Format listy tagów</dt>
+    <dd>Możesz wybrać jeśli chcesz zobaczyć, podczas edycji wpisu, wszystkie użyte tagi (<strong>Extended</strong>) lub tylko te najczęściej używane (<strong>Short</strong>).</dd>
+    <dt>Podświetlanie składni w edytorze motywów</dt>
+    <dd>Włącza podświetlanie składni podczas używania edytora motywów (pliki HTML i CSS)</dd>
+  </dl>
+  <h4>Mój panel</h4>
+  <dl>
+    <dt>Moje ulubione</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Zdefiniuj jako domyślne ulubione (super administrator)</dt>
+    <dd>Włącz aby ustawić aktualnie zdefiniowaną listę ulubionych jako domyślną listę ulubionych dla wszystkich użytkowników. Ta lista zostanie zaproponowana użytkownikom, jeśli nie zdefiniowali jeszcze swoich ulubionych.</dd>
+    <dt>Inne dostępne ulubione</dt>
+    <dd>Wszystkie wtyczki pozwalające na umieszczenie jako ulubione są tutaj odtwarzane. Zaznacz odpowiednie pola i dodaj je do kokpitu menedżerskiego, naciskając <strong>Dodaj moje ulubione</strong>.</dd>
+    <dt>Wyświetl ulubione w górnej części menu</dt>
+    <dd>Jeśli włączone, wyświetla ulubione w górze menu.</dd>
+    <dt>Moduły panelu ustawień</dt>
+    <dd>Wybór dokonany w tej strefie będzie odzwierciedlony na pulpicie twojego bloga.</dd>
+    <dt>Wyświetl linki do dokumentacji</dt>
+    <dd>Włącz wyświetlanie linków dokumentacji na stronie lądowania pulpitu.</dd>
+    <dt>Wyświetl aktualności Dotclear</dt>
+    <dd>Włącz, aby wyświetlić wiadomości Dotclear na stronie startowej pulpitu.</dd>
+    <dt>Wyświetl formularz szybkiego wpisu</dt>
+    <dd>Włącz, aby wyświetlić formularz "szybki wpis" na stronie startowej pulpitu.</dd>
+    <dt>Wyświetlaj zaległy licznik zadań na ikonie panelu obsługi technicznej</dt>
+    <dd>Umożliwia wyświetlanie liczby zaległych zadań (tj. które powinny być przetworzone) pod ikoną <strong>Obsługa</strong> . <strong>Konserwacja</strong> musi być ustawiona w ulubionych aby korzystać z tej funkcji.</dd>
+    <dt>Wyświetl listę zaległych zadań na pulpicie</dt>
+    <dd>Włącz, aby wyświetlić listę zaległych zadań (tj. które powinny być przetworzone) w dedykowanej sekcji na stronie lądowania pulpitu.</dd>
+  </dl>
 </body>
+
 </html>

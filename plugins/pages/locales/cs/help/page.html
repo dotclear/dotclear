@@ -1,97 +1,57 @@
 <html>
+
 <head>
   <title>Úprava stránky</title>
 </head>
 
 <body>
-
-
-<h4>Úprava stránky</h4>
-
-<dl>
-  <dt>Jméno stránky</dt>
-  <dd>Zadejte název stránky. Toto pole je povinné.</dd>
-
-  <dt>Výňatek</dt>
-  <dd>Toto pole je nepovinné.</dd>
-
-  <dt>Obsah</dt>
-  <dd>Obsah stránky. Toto pole je povinné.</dd>
-
-  <dt>Poznámky</dt>
-  <dd>This text area is for personal use, for notes or memos. What you enter here
-  will never be displayed on the blog.</dd>
-
-  <dt>Stav stránky</dt>
-  <dd>Umožňuje zvolit stav stránky:
-    <ul>
-      <li><strong>Probíhá:</strong> O statusu publikace ještě nebylo rozhodnuto (dosud nezveřejněno).</li>
-      <li><strong>Plánované:</strong> Stránka bude nastavena online v čase a datu
-      nastaveném v poli <em>Zveřejněno na</em>.</li>
-      <li><strong>Nepublikováno:</strong> Stránka je v režimu offline.</li>
-      <li><strong>Vydáno:</strong> Stránka je online.</li>
-    </ul>
-  </dd>
-
-  <dt>Datum a hodina zveřejnění</dt>
-  <dd>Zde můžete změnit datum a čas zveřejnění stránky. Pokud je stav stránky
- <em>Naplánováno</em>, bude online v zadaný den a čas.</dd>
-
-  <dt>Jazyk stránky</dt>
-  <dd>Zvolte kód jazyka, do kterého chcete zadat údaje. Ve výchozím nastavení je to váš jazyk (jako uživatele), ale můžete jej změnit na libovolný kód jazyka, např.
-  "en" nebo "es-ar". Tento kód se použije pro zobrazení záznamu.</dd>
-
-  <dt>Formátování textu</dt>
-  <dd>Zvolte syntaxi stránky. Wiki je zjednodušená syntaxe
-  a bude převedena do validního HTML. Pokud nemáte dokonalé
-  porozumění jazyku HTML, doporučujeme zvolit syntaxi Wiki.
-  Další informace naleznete v referenci k syntaxi Wiki.</dd>
-
-  <dt>Pozice stránky</dt>
-  <dd>Objednávky stránek podle tohoto čísla.
-  Toto pole využívá widget <strong>Stránky</strong> (<em>Objednávka podle pozice stránky</em>).</dd>
-
-  <dt>Přílohy</dt>
-  <dd>Přílohy jsou mediální soubory přidané na stránku. Pomocí tlačítka <strong>Přidat soubory k tomuto záznamu</strong> můžete vybrat mediální soubory, které chcete k záznamu přidat.<br />
-    Tato možnost se zobrazí po uložení záznamu.<br />
-    Další informace naleznete v nápovědě Správce médií.</dd>
-
-  <dt>Přijímat připomínky</dt>
-  <dd>Zaškrtnutím tohoto políčka umožníte návštěvníkům komentovat tuto stránku. Odpovídající globální nastavení najdete v nastavení blogu.</dd>
-
-  <dt>Přijímat zpětné odkazy</dt>
-  <dd>Trackback je způsob, jak nechat část své stránky jako komentář na
-  jiný blog. Zaškrtnutím tohoto políčka umožníte ostatním sledovat vaši stránku. Odpovídající globální nastavení
-  najdete v nastavení blogu.</dd>
-
-  <dt>Skrýt ve widgetu Stránky</dt>
-  <dd>Pokud je tato možnost zaškrtnuta, stránka bude aktivní, ale nebude uvedena ve widgetu Stránky.</dd>
-
-  <dt>Heslo</dt>
-  <dd>Můžete zadat heslo pro svou stránku. Heslem chráněná stránka
-  se na vašem blogu nezobrazí, bude přístupná pouze těm, kterým
-  předáte adresu URL vstupu (viz odkaz <strong>Přejít na tuto stránku na webu</strong>) a heslo.
-
-  <dt>Základní název</dt>
-  <dd>Kliknutím na jeho zámek můžete zrušit ochranu tohoto pole a vybrat jinou adresu URL
-  pro svou stránku. Pokud adresu URL, kterou se snažíte použít, již používá jiná stránka, bude k ní přidáno číslo.</dd>
-
-</dl>
-
-<h4>Komentáře</h4>
-<dl>
-  <dt>Seznam komentářů</dt>
-  <dd>Na kartě <em> Komentáře</em> můžete číst a měnit stav
-  komentářů na stránce. V závislosti na svých oprávněních můžete komentáře upravovat,
-  umístit online nebo offline, mazat nebo klasifikovat jako
-  nežádoucí.</dd>
-
-  <dt>Přidat komentář</dt>
-  <dd>Na kartě <em>Přidat komentář</em> můžete přidat komentář nebo odpovědět na
-  přímo do komentáře, aniž byste museli procházet svůj blog. Toto rozhraní
-  vám také umožní zadat komentář v HTML, a to bez omezení. Pole
-  budete muset vyplnit stejným způsobem jako při editaci komentáře.</dd>
-</dl>
-
+  <h4>Úprava stránky</h4>
+  <dl>
+    <dt>Jméno stránky</dt>
+    <dd>Zadejte název stránky. Toto pole je povinné.</dd>
+    <dt>Výňatek</dt>
+    <dd>Toto pole je nepovinné.</dd>
+    <dt>Obsah</dt>
+    <dd>Obsah stránky. Toto pole je povinné.</dd>
+    <dt>Poznámky</dt>
+    <dd>This text area is for personal use, for notes or memos. What you enter here will never be displayed on the blog.</dd>
+    <dt>Stav stránky</dt>
+    <dd>Umožňuje zvolit stav stránky:
+      <ul>
+        <li><strong>Probíhá:</strong> O statusu publikace ještě nebylo rozhodnuto (dosud nezveřejněno).</li>
+        <li><strong>Scheduled:</strong> The page will be set online at the time and date set in the <em>Published on</em> field.</li>
+        <li><strong>Nepublikováno:</strong> Stránka je v režimu offline.</li>
+        <li><strong>Vydáno:</strong> Stránka je online.</li>
+      </ul>
+    </dd>
+    <dt>Datum a hodina zveřejnění</dt>
+    <dd>Here you can change the page publication date and time. If the page status is <em>Scheduled</em>, it will be online at the given date and time.</dd>
+    <dt>Jazyk stránky</dt>
+    <dd>Select the language code of your entry. It defaults to your (as a user) language but you can change it to whatever language code you want, e.g. "en" or "es-ar". This code is used for the entry's display.</dd>
+    <dt>Formátování textu</dt>
+    <dd>Choose the page syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Pozice stránky</dt>
+    <dd>Orders pages according to this number. This field is used by the <strong>Pages</strong> widget (<em>Order by page position</em>).</dd>
+    <dt>Přílohy</dt>
+    <dd>Attachments are media files added to the page. You can use the <strong>Add files to this entry</strong> button to select media files to add to the entry.<br>This option will appear after you save your entry.<br>Please check the Media manager help for more information.</dd>
+    <dt>Přijímat připomínky</dt>
+    <dd>Zaškrtnutím tohoto políčka umožníte návštěvníkům komentovat tuto stránku. Odpovídající globální nastavení najdete v nastavení blogu.</dd>
+    <dt>Přijímat zpětné odkazy</dt>
+    <dd>A trackback is a way to let a portion of your page as a comment on another blog. Check this box to allow others to trackback your page. The corresponding global setting is to be found in the blog settings.</dd>
+    <dt>Skrýt ve widgetu Stránky</dt>
+    <dd>Pokud je tato možnost zaškrtnuta, stránka bude aktivní, ale nebude uvedena ve widgetu Stránky.</dd>
+    <dt>Heslo</dt>
+    <dd>You can enter a password for your page. A password protected page will not be displayed on your blog, it will only be accessible to those you will give the entry URL to (see the <strong>Go to this page on the site</strong> link) and password.</dd>
+    <dt>Základní název</dt>
+    <dd>By clicking on its lock, you can unprotect this field and choose another URL for your page. If the URL you're trying to use is already used by another page, a number will be added to it.</dd>
+  </dl>
+  <h4>Komentáře</h4>
+  <dl>
+    <dt>Seznam komentářů</dt>
+    <dd>From the tab <em> Comments</em> you can read and change the status comments on your page. Depending on your permissions, you can edit, put online or offline, delete or classify as a comment undesirable.</dd>
+    <dt>Přidat komentář</dt>
+    <dd>From the tab <em>Add a comment</em> you can add or answer directly to a comment without going through your blog. This interface will also allows you to enter your comment in HTML, without limitation. You will have to fill in the fields in the same way as when editing a comment.</dd>
+  </dl>
 </body>
+
 </html>

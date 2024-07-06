@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Felhasználók</title>
-  </head>
-  <body>
-    <p>Ez az oldal a rendszer összes felhasználóját felsorolja.</p>
-    <p>A felhasználók jogosultságainak hozzáadásához (vagy módosításához) a <strong>Your password</strong> mezőben a jelszavát kell megadnia.</p>
 
-    <h4>Felhasználók listájának szűrője</h4>
-    <dl>
-      <dt>Keresés</dt>
-      <dd>A keresés a felhasználói azonosító alapján történik. A <strong>*</strong> vadkereszt segítségével csak a felhasználói azonosító egy részét lehet keresni.</dd>
+<head>
+  <title>Felhasználók</title>
+</head>
 
-      <dt>Rendelés</dt>
-      <dd>A felhasználók listáját a <em>azonosítójuk</em>, a <em>vezetéknevük</em>, a <em>keresztnevük</em>, a <em>megjelenített nevük</em> (becenév) vagy az általuk létrehozott <em>bejegyzések száma</em> alapján lehet rendezni.</dd>
+<body>
+  <p>Ez az oldal a rendszer összes felhasználóját felsorolja.</p>
+  <p>A felhasználók jogosultságainak hozzáadásához (vagy módosításához) a <strong>Your password</strong> mezőben a jelszavát kell megadnia.</p>
+  <h4>Felhasználók listájának szűrője</h4>
+  <dl>
+    <dt>Keresés</dt>
+    <dd>A keresés a felhasználói azonosító alapján történik. A <strong>*</strong> vadkereszt segítségével csak a felhasználói azonosító egy részét lehet keresni.</dd>
+    <dt>Rendelés</dt>
+    <dd>A felhasználók listáját a <em>azonosítójuk</em>, a <em>vezetéknevük</em>, a <em>keresztnevük</em>, a <em>megjelenített nevük</em> (becenév) vagy az általuk létrehozott <em>bejegyzések száma</em> alapján lehet rendezni.</dd>
+    <dt>Rendezés</dt>
+    <dd>Megadja az eredménylistára alkalmazandó rendezési módszert (<em>Felmenő</em> vagy <em>Leereszkedő</em>).</dd>
+    <dt>Felhasználók oldalanként</dt>
+    <dd>Beállítja az eredménylista egyes oldalain megjelenő felhasználók számát.</dd>
+  </dl>
+  <h4>Felhasználói kötegelt műveletek</h4>
+  <p>Lehetőség van egyszerre több felhasználóra vonatkozó műveleteket végrehajtani.</p>
+  <ul>
+    <li><strong>Engedélyek beállítása:</strong> Engedélyek beállítása egy vagy több blog(ok) számára.</li>
+    <li><strong>Törölje:</strong> A kiválasztott felhasználó(k) eltávolítása a rendszerből. A bejegyzéseket létrehozó felhasználó nem törölhető.</li>
+  </ul>
+  <p>Ha úgy dönt, hogy beállítja a felhasználók jogosultságait, akkor egy új oldalra kerül átirányításra, amely felsorolja a rendszerében elérhető blogokat. Jelölje be azokat a blogokat, amelyekhez engedélyeket szeretne beállítani, majd nyomja meg a <strong>Set permissions</strong>gombot.</p>
+  <h4>Felhasználói engedélyek</h4>
+  <p>Minden egyes bloghoz a következő engedélyeket állíthatja be:</p>
+  <ul>
+    <li><strong>Adminisztrátor:</strong> Adminisztrátor: Teljes mértékben adminisztrálhatja a blogot.</li>
+    <li><strong>Saját bejegyzéseik és megjegyzéseik kezelése:</strong> A felhasználó létrehozhat bejegyzéseket és kezelheti az általa létrehozott bejegyzésekhez fűzött megjegyzéseket.</li>
+    <li><strong>Bejegyzések és megjegyzések közzététele:</strong> A felhasználó módosíthatja a saját bejegyzései és a bejegyzéseihez fűzött megjegyzések közzétételi státuszát.</li>
+    <li><strong>Bejegyzések és megjegyzések törlése:</strong> A felhasználó törölheti saját bejegyzéseit, valamint a bejegyzések megjegyzéseit.</li>
+    <li><strong>Kezelje az összes bejegyzést és megjegyzést:</strong> A felhasználó kezelheti a blog összes bejegyzését, függetlenül attól, hogy ő a szerző vagy sem.</li>
+    <li><strong>Kategóriák kezelése:</strong> A felhasználó létrehozhat, módosíthat és törölhet kategóriákat.</li>
+    <li><strong>Saját médiaelemek kezelése:</strong> A felhasználó hozzáadhat médiaelemeket, módosíthatja vagy törölheti saját médiáját.</li>
+    <li><strong>Kezelje az összes médiaelemet:</strong> A felhasználó bármelyik felhasználóról kezelheti a médiaelemeket.</li>
+    <li><strong>Oldalak kezelése:</strong> A felhasználó oldalakat adhat hozzá és módosíthat.</li>
+    <li><strong>Blogroll kezelése:</strong> A felhasználó kezelheti az aktuális blog blogtábláját.</li>
+  </ul>
+  <p>A <strong>Super administrator</strong> státusz a felhasználói profilban van beállítva.</p>
+</body>
 
-      <dt>Rendezés</dt>
-      <dd>Megadja az eredménylistára alkalmazandó rendezési módszert (<em>Felmenő</em> vagy <em>Leereszkedő</em>).</dd>
-
-      <dt>Felhasználók oldalanként</dt>
-      <dd>Beállítja az eredménylista egyes oldalain megjelenő felhasználók számát.</dd>
-    </dl>
-
-    <h4>Felhasználói kötegelt műveletek</h4>
-    <p>Lehetőség van egyszerre több felhasználóra vonatkozó műveleteket végrehajtani.</p>
-    <ul>
-      <li><strong>Engedélyek beállítása:</strong> Engedélyek beállítása egy vagy több blog(ok) számára.</li>
-      <li><strong>Törölje:</strong> A kiválasztott felhasználó(k) eltávolítása a rendszerből. A bejegyzéseket létrehozó felhasználó nem törölhető.</li>
-    </ul>
-    <p>Ha úgy dönt, hogy beállítja a felhasználók jogosultságait, akkor egy új oldalra kerül átirányításra, amely felsorolja a rendszerében elérhető blogokat. Jelölje be azokat a blogokat, amelyekhez engedélyeket szeretne beállítani, majd nyomja meg a <strong>Set permissions</strong>gombot.</p>
-
-    <h4>Felhasználói engedélyek</h4>
-    <p>Minden egyes bloghoz a következő engedélyeket állíthatja be:</p>
-    <ul>
-      <li><strong>Adminisztrátor:</strong> Adminisztrátor: Teljes mértékben adminisztrálhatja a blogot.</li>
-      <li><strong>Saját bejegyzéseik és megjegyzéseik kezelése:</strong> A felhasználó létrehozhat bejegyzéseket és kezelheti az általa létrehozott bejegyzésekhez fűzött megjegyzéseket.</li>
-      <li><strong>Bejegyzések és megjegyzések közzététele:</strong> A felhasználó módosíthatja a saját bejegyzései és a bejegyzéseihez fűzött megjegyzések közzétételi státuszát.</li>
-      <li><strong>Bejegyzések és megjegyzések törlése:</strong> A felhasználó törölheti saját bejegyzéseit, valamint a bejegyzések megjegyzéseit.</li>
-      <li><strong>Kezelje az összes bejegyzést és megjegyzést:</strong> A felhasználó kezelheti a blog összes bejegyzését, függetlenül attól, hogy ő a szerző vagy sem.</li>
-      <li><strong>Kategóriák kezelése:</strong> A felhasználó létrehozhat, módosíthat és törölhet kategóriákat.</li>
-      <li><strong>Saját médiaelemek kezelése:</strong> A felhasználó hozzáadhat médiaelemeket, módosíthatja vagy törölheti saját médiáját.</li>
-      <li><strong>Kezelje az összes médiaelemet:</strong> A felhasználó bármelyik felhasználóról kezelheti a médiaelemeket.</li>
-      <li><strong>Oldalak kezelése:</strong> A felhasználó oldalakat adhat hozzá és módosíthat.</li>
-      <li><strong>Blogroll kezelése:</strong> A felhasználó kezelheti az aktuális blog blogtábláját.</li>
-    </ul>
-    <p>A <strong>Super administrator</strong> státusz a felhasználói profilban van beállítva.</p>
-  </body>
 </html>

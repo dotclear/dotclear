@@ -1,129 +1,87 @@
 <html>
+
 <head>
   <title>Benutzereinstellungen</title>
 </head>
 
 <body>
-
-<h4>Mano profilis</h4>
-<dl>
-  <dt>Name, Vorname</dt>
-  <dd>Wenn der Nickname leer ist, dann wird der Autorenname stattdessen angezeigt, 
-  wobei erst der Vorname und dann der Nachname angezeigt werden.</dd>
-  
-  <dt>Nickname</dt>
-  <dd>Du kannst selbst entscheiden, was der Nickname Deiner Eintr&auml;ge sein soll.</dd>
-  
-  <dt>E-mail</dt>
-  <dd>El. pašto adresas, naudojamas prašant naujo slaptažodžio.<br>
-    Šiuo adresu taip pat bus siunčiami pranešimai apie naujus komentarus.<em>(Jei atnaujinate
-  šį lauką, turite įvesti dabartinį slaptažodį į atitinkamą lauką 
-  formos apačioje)</em></dd>
-  
-  <dt>URL</dt>
-  <dd>Die Webadresse des Benutzers, sofern der Autor eine Verlinkung zu seiner Webadresse w&uuml;nscht.</dd>
-  
-  <dt>Bevorzugtes Format</dt>
-  <dd>Ausw&auml;hlen der bevorzugten Syntax. Wiki ist eine vereinfachte Syntax und wird zu HTML konvertiert.
-  Wir raten die Wiki Syntax zu verwenden, wenn Du keine HTML Kenntnisse hast.</dd>
-  
-  <dt>Standardstatus des Eintrages</dt>
-  <dd>Šis pasirinkimas apibrėžia laiką, rodomą po paskelbimo.</dd>
-  
-  <dt>Die H&ouml;he des Eintragsfeldes</dt>
-  <dd>Die H&ouml;he des Eintragsfeldes ist standardm&auml;ssig auf 24 gesetzt.</dd>
-</dl>
-
-
-<h4>Mano galimybės</h4>
-<h5>Sąsaja</h5>
-<dl>  
-  <dt>Suaktyvinkite patobulintą įkėlimo įrankį medijos tvarkytuve</dt>
-  <dd>Leidžia įjungti išplėstinę medijos tvarkyklės sąsają, kuri leidžia 
-  vienu metu įkelti kelis failus (Pastaba: jūsų žiniatinklio naršyklė turi palaikyti "Javascript" 
-  , kad galėtumėte naudotis šia funkcija).</dd>
-
-  <dt>Išjungti "Javascript" valdomą elementų užsakymo vilkimą ir nuleidimą</dt>
-  <dd>Leidžia išjungti "vilkimo ir nuleidimo" funkciją elementų užsakymui. Vilkimas ir nuleidimas bus 
-  pakeistas skaitmeniniais laukais, kuriuose vietoj to galėsite įvesti laukų padėtį.</dd>
-
-  <dt>Medijos tvarkyklėje viename puslapyje rodomų elementų skaičius</dt>
-  <dd>Nustatomas medijos, kuri bus rodoma medijos tvarkyklėje, skaičius (skaičiuojant elementus neatsižvelgiama į aplankus
-).</dd>
-  
-  <dt>Nenaudokite standartinės favikonos</dt>
-  <dd>Leidžia išjungti numatytąją favikoną žiniatinklio naršyklės adreso juostoje.</dd>
-</dl>
-
-<h5>Leidinys</h5>
-<dl>    
-  <dt>Pageidaujamas formatas</dt>
-  <dd>Pasirinkite įrašo sintaksę. Wiki yra supaprastinta sintaksė
-  ir bus konvertuojama į galiojantį HTML. Jei neturite puikaus
-  HTML supratimo, patariame rinktis "Wiki" sintaksę.
-  Daugiau informacijos rasite "Wiki" sintaksės nuorodoje.</dd>
-  
-  <dt>Numatytoji įvesties būsena</dt>
-  <dd>Numatytąją naujų įrašų būseną galima nustatyti taip:
-    <ul>
-      <li><strong>Laukiama:</strong> Paskelbimo statusas dar nenustatytas.</li>
-      <li><strong>Planuojama:</strong> Įrašas bus įvestas į internetą laukelyje <strong>Publikuota</strong> nurodytu laiku ir data.</li>
-      <li><strong>Nepublikuota:</strong> Neprisijungęs įrašas.</li>
-      <li><strong>Paskelbta:</strong> Įrašas internetu.</li>
-    </ul>
-  </dd>
-  
-  <dt>Įrašo redagavimo lauko aukštis</dt>
-  <dd>Nustato įrašo redagavimo lauko aukštį. Pagal numatytuosius nustatymus šis parametras yra 24.</dd>
-  
-  <dt>WYSIWYG režimo įjungimas</dt>
-  <dd>Įrašų, puslapių ir kategorijų aprašymo laukams galima naudoti vaizdinį redaktorių (WYSIWYG: What You See Is What You Get).</dd>
-</dl>
-
-<h5>Kitos galimybės</h5>
-<dl>
-  <dt>Žymos sąrašo formatas</dt>
-  <dd>Galite pasirinkti, ar norite, kad redaguojant įrašą būtų rodomos visos naudotos žymos (<strong>Išplėstinis</strong>), ar tik dažniausiai naudojamos (<strong>Trumpasis</strong>).</dd>
-
-  <dt>Sintaksės paryškinimas temos redaktoriuje</dt>
-  <dd>Įjungiamas sintaksės paryškinimas naudojant temos redaktorių (HTML ir CSS failus)</dd>     
-</dl>
-
-
-<h4>Mano prietaisų skydelis</h4>
-<dl>
-  <dt>Mano mėgstamiausi</dt>
-  <dd>Šioje zonoje tinklaraščio prietaisų skydelyje rodomos pasirinktos mėgstamiausios vietos. 
-  Juos galima pertvarkyti pele, jei naršyklėje įjungtas Javascript. 
-  Priešingu atveju laukas leidžia suteikti jiems užsakymo numerį. Baigę nepamirškite išsaugoti pakeitimų paspausdami <strong>Išsaugoti užsakymą</strong>.<br>
-  Taip pat galite ištrinti pasirinktus užsakymus, pasirinkdami juos ir paspausdami <strong>Ištrinti pasirinktus užsakymus</strong>.</dd>
-  
-  <dt>Apibrėžti kaip numatytąsias mėgstamiausias parankines (superadministratorius)</dt> 
-  <dd>Įgalinti nustatyti šiuo metu apibrėžtą mėgstamiausių sąrašą kaip numatytojo mėgstamiausių sąrašą visiems naudotojams. Šis sąrašas bus pasiūlytas naudotojams, jei jie dar nėra nustatę savo mėgstamiausiųjų sąrašo.</dd>
-
-  <dt>Kiti galimi mėgstamiausi produktai</dt>
-  <dd>Čia rodomi visi įskiepiai, kuriuos galima įtraukti į mėgstamiausiųjų sąrašą. Pažymėkite atitinkamus langelius ir įtraukite juos į prietaisų skydelį paspausdami <strong>Add tp my favorites</strong>.</dd>
-
-  <dt>Meniu viršuje rodyti mėgstamiausius</dt>
-  <dd>Jei įjungta, meniu viršuje rodomi mėgstamiausi.</dd>
-
-  <dt>Prietaisų skydelio moduliai</dt>
-  <dd>Šioje zonoje atlikti pasirinkimai atsispindės jūsų tinklaraščio prietaisų skydelyje.</dd>
-  
-  <dt>Rodyti dokumentų nuorodas</dt>
-  <dd>Įgalinkite prietaisų skydelio nukreipimo puslapyje rodyti dokumentų nuorodas.</dd>
-  
-  <dt>Rodyti Dotclear naujienas</dt>
-  <dd>Įgalinkite rodyti Dotclear naujienas prietaisų skydelio nukreipimo puslapyje.</dd>
-
-  <dt>Rodyti greitojo įvesties formą</dt>
-  <dd>Įgalinkite prietaisų skydelio nukreipimo puslapyje rodyti "greitojo įrašo" formą.</dd>
-
-  <dt>Rodyti vėluojančių užduočių skaitiklį techninės priežiūros prietaisų skydelio piktogramoje</dt>
-  <dd>Leidžia rodyti vėluojančių užduočių (t. y. tokių, kurios turėtų būti apdorotos) skaičių po piktograma <strong>Maintenance</strong> . <strong>Kad galėtumėte naudotis šia funkcija, piktogramą Maintenance</strong> reikia nustatyti mėgstamiausiųjų sąraše.</dd>
-
-  <dt>Pavėluotų užduočių sąrašo rodymas prietaisų skydelio elementuose</dt>
-  <dd>Įgalinti vėluojančių užduočių (t. y. tokių, kurios turėtų būti apdorotos) sąrašo rodymą specialiame skyrelyje prietaisų skydelio nukreipiamajame puslapyje.</dd>
-</dl>
+  <h4>Mano profilis</h4>
+  <dl>
+    <dt>Name, Vorname</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Nickname</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>E-mail</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Bevorzugtes Format</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Standardstatus des Eintrages</dt>
+    <dd>Šis pasirinkimas apibrėžia laiką, rodomą po paskelbimo.</dd>
+    <dt>Die H&ouml;he des Eintragsfeldes</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Mano galimybės</h4>
+  <h5>Sąsaja</h5>
+  <dl>
+    <dt>Suaktyvinkite patobulintą įkėlimo įrankį medijos tvarkytuve</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Išjungti "Javascript" valdomą elementų užsakymo vilkimą ir nuleidimą</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Medijos tvarkyklėje viename puslapyje rodomų elementų skaičius</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Nenaudokite standartinės favikonos</dt>
+    <dd>Leidžia išjungti numatytąją favikoną žiniatinklio naršyklės adreso juostoje.</dd>
+  </dl>
+  <h5>Leidinys</h5>
+  <dl>
+    <dt>Pageidaujamas formatas</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Numatytoji įvesties būsena</dt>
+    <dd>Numatytąją naujų įrašų būseną galima nustatyti taip:
+      <ul>
+        <li><strong>Laukiama:</strong> Paskelbimo statusas dar nenustatytas.</li>
+        <li><strong>Planuojama:</strong> Įrašas bus įvestas į internetą laukelyje <strong>Publikuota</strong> nurodytu laiku ir data.</li>
+        <li><strong>Nepublikuota:</strong> Neprisijungęs įrašas.</li>
+        <li><strong>Paskelbta:</strong> Įrašas internetu.</li>
+      </ul>
+    </dd>
+    <dt>Įrašo redagavimo lauko aukštis</dt>
+    <dd>Nustato įrašo redagavimo lauko aukštį. Pagal numatytuosius nustatymus šis parametras yra 24.</dd>
+    <dt>WYSIWYG režimo įjungimas</dt>
+    <dd>Įrašų, puslapių ir kategorijų aprašymo laukams galima naudoti vaizdinį redaktorių (WYSIWYG: What You See Is What You Get).</dd>
+  </dl>
+  <h5>Kitos galimybės</h5>
+  <dl>
+    <dt>Žymos sąrašo formatas</dt>
+    <dd>Galite pasirinkti, ar norite, kad redaguojant įrašą būtų rodomos visos naudotos žymos (<strong>Išplėstinis</strong>), ar tik dažniausiai naudojamos (<strong>Trumpasis</strong>).</dd>
+    <dt>Sintaksės paryškinimas temos redaktoriuje</dt>
+    <dd>Įjungiamas sintaksės paryškinimas naudojant temos redaktorių (HTML ir CSS failus)</dd>
+  </dl>
+  <h4>Mano prietaisų skydelis</h4>
+  <dl>
+    <dt>Mano mėgstamiausi</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Apibrėžti kaip numatytąsias mėgstamiausias parankines (superadministratorius)</dt>
+    <dd>Įgalinti nustatyti šiuo metu apibrėžtą mėgstamiausių sąrašą kaip numatytojo mėgstamiausių sąrašą visiems naudotojams. Šis sąrašas bus pasiūlytas naudotojams, jei jie dar nėra nustatę savo mėgstamiausiųjų sąrašo.</dd>
+    <dt>Kiti galimi mėgstamiausi produktai</dt>
+    <dd>Čia rodomi visi įskiepiai, kuriuos galima įtraukti į mėgstamiausiųjų sąrašą. Pažymėkite atitinkamus langelius ir įtraukite juos į prietaisų skydelį paspausdami <strong>Add tp my favorites</strong>.</dd>
+    <dt>Meniu viršuje rodyti mėgstamiausius</dt>
+    <dd>Jei įjungta, meniu viršuje rodomi mėgstamiausi.</dd>
+    <dt>Prietaisų skydelio moduliai</dt>
+    <dd>Šioje zonoje atlikti pasirinkimai atsispindės jūsų tinklaraščio prietaisų skydelyje.</dd>
+    <dt>Rodyti dokumentų nuorodas</dt>
+    <dd>Įgalinkite prietaisų skydelio nukreipimo puslapyje rodyti dokumentų nuorodas.</dd>
+    <dt>Rodyti Dotclear naujienas</dt>
+    <dd>Įgalinkite rodyti Dotclear naujienas prietaisų skydelio nukreipimo puslapyje.</dd>
+    <dt>Rodyti greitojo įvesties formą</dt>
+    <dd>Įgalinkite prietaisų skydelio nukreipimo puslapyje rodyti "greitojo įrašo" formą.</dd>
+    <dt>Rodyti vėluojančių užduočių skaitiklį techninės priežiūros prietaisų skydelio piktogramoje</dt>
+    <dd>Leidžia rodyti vėluojančių užduočių (t. y. tokių, kurios turėtų būti apdorotos) skaičių po piktograma <strong>Maintenance</strong> . <strong>Kad galėtumėte naudotis šia funkcija, piktogramą Maintenance</strong> reikia nustatyti mėgstamiausiųjų sąraše.</dd>
+    <dt>Pavėluotų užduočių sąrašo rodymas prietaisų skydelio elementuose</dt>
+    <dd>Įgalinti vėluojančių užduočių (t. y. tokių, kurios turėtų būti apdorotos) sąrašo rodymą specialiame skyrelyje prietaisų skydelio nukreipiamajame puslapyje.</dd>
+  </dl>
 </body>
+
 </html>

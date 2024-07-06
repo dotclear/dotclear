@@ -1,100 +1,73 @@
 <html>
+
 <head>
   <title>编辑一篇文章</title>
 </head>
 
 <body>
-<h4>编辑一个条目</h4>
-
-<dl>
-  <dt>文章标题</dt>
-  <dd>输入文章标题。这个字段是必须的。</dd>
-  
-  <dt>摘录</dt>
-  <dd>这个字段的内容将会显示在文章列表展示页面，例如首页或者分类目录页面，并跟随一个“继续阅读”链接。同时它也在每个文章页面的开头可见。如果您留空，<em>内容</em>字段将在首页和其他文章列表页面显示。</dd>
-  
-  <dt>内容</dt>
-  <dd>您文章的内容。这个字段是必须的。</dd>
-  
-  <dt>注释</dt>
-  <dd>这个文本区域是个人使用，用于注释或者备忘。您在这里输入的内容将永不会显示在博客上。</dd>
-  
-  <dt>分类目录</dt>
-  <dd>允许你选择你的作品的状态：
-    <ul>
-      <li><strong>待定：</strong> 出版状态尚未决定。</li>
-      <li><strong>预定的：</strong> 该职位将在 <strong>Published on</strong> 字段中设置的时间和日期上线。</li>
-      <li><strong>未发表：</strong> 该帖子已下线。</li>
-      <li><strong>已发布：</strong> 该帖子已上线。</li>
-    </ul>
-  </dd>
-  
-  <dt>文章状态</dt>
-  <dd>在这里，你可以改变该条目的发布日期和时间。如果该条目的
-  状态是 <strong>预定</strong>，它将在给定的日期和时间上线。</dd>
-
-  <dt>发布于</dt>
-  <dd>这里您可以改变文章的发布日期和时间。如果文章状态是<em>计划的</em>，它将在此日期和时间上线。</dd>
-
-  <dt>文本格式</dt>
-  <dd>选择文章语法。Wiki 是一个简化的语法并将会转化到有效的  HTML&nbsp;；除非您对于 HTML 有极好的理解，我们建议选择 wiki 语法。看 wiki 语法参考以获取更多信息。</dd>
-
-  <dt>接受评论</dt>
-  <dd>选择这个选框以使您的访客能够评论文章。相应的全局设置可以在博客设置中找到。</dd>
-
-  <dt>接受 trackbacks</dt>
-  <dd>trackback 是一种可以让您的文章的一部分成为另一个博客的评论。选择这个选框以允许其他人对您的文章进行 trackback。相应的全局设置可以在博客设置中找到。</dd>
-
-  <dt>精选文章</dt>
-  <dd>精选文章将会在您的博客菜单中列出，在标题“我最好的文章”下面。</dd>
-  
-  <dt>文章密码</dt>
-  <dd>您可以为您的文章输入一个密码。一个密码保护的文章将不会显示在您的博客上，它仅会使您给予文章链接(看<em>查看文章</em>)和密码的人可见。</dd>
-
-  <dt>具体的 URL</dt>
-  <dd>附件是添加到条目的介质文件。 您可以使用 " <strong>添加文件 " 至此条目</strong> 按钮来选择要添加至条目的媒体文件。<br>
-    此选项将在您保存条目后出现。<br>
-    请检查 Media Manager 帮助以获取更多信息。</dd>
-
-  <dt>文章语言</dt>
-  <dd>您文章的 2 个字符的语言代码。它默认是您的(作为一个用户)语言，但您也可以改变为任何您希望的语言代码，例如“en”或者”fr“。代码用于文章的显示。</dd>
-
-  <dt>附件</dt>
-  <dd>附件是所有您添加到文章中的媒体。链接<em>向这篇文章添加文件</em>允许您向文章中附加其他文件。记得在点击这个链接前保存您的修改。更多信息参考媒体管理中心帮助。</dd>
-  
-  <dt>密码</dt>
-  <dd>你可以为你的作品输入一个密码。
-  受密码保护的作品不会显示在你的博客上，只有那些你将
-  给予作品的URL（见 <strong>查看作品</strong> 链接）和密码才能访问。</dd>
-
-  <dt>基地名称</dt>
-  <dd>你可以通过点击其右边的小锁来解除对这个领域的保护，并为你的条目选择另一个URL。如果你想使用的URL已经被另一个条目使用了，就会有一个数字加在它上面。</dd>  
-  
-</dl>
-
-<h4>评论</h4>
-<dl>
-  <dt>评论列表</dt>
-  <dd>在<em>评论</em>标签，您可以读取并改变您文章评论的状态。如果您被博客管理员允许，您可以设置您的评论在线或者不在线，删除它们或者标记为垃圾评论。</dd>
-  
-  <dt>添加一个评论</dt>
-  <dd>在<em>添加一个评论</em>标签，您可以回复您文章中的一个评论而不离开您的博客后台。这里使用的语法是无限制的纯 HTML。使用这个区域就好像您在编辑一个评论。</dd>
-</dl>
-  
-<h4>添加一个评论</h4>
-<dl>
-  <dt>ping 的 URL</dt>
-  <dd>在这里粘贴您想要 ping 的 trackback URL。</dd>
-
-  <dt>发送摘录</dt>
-  <dd>这个字段默认是您的文章开始的少数段落。这是将要发送到您要 ping 的博客的内容，同时有一个到您博客的链接。您可以通过编辑这个字段修改摘录。</dd>
-
-  <dt>自动发现 ping URL</dt>
-  <dd>如果您的文章链接特别的文章，并且拥有这些文章的博客允许，这个工具将会为您发现 ping 的 URL。</dd>
-
-  <dt>评论</dt>
-  <dd>评论内容。这个字段使用HTML语法。</dd>
-</dl>
-
+  <h4>编辑一个条目</h4>
+  <dl>
+    <dt>文章标题</dt>
+    <dd>输入文章标题。这个字段是必须的。</dd>
+    <dt>摘录</dt>
+    <dd>The content of this field will be shown in pages showing entries as a list, such as the homepage or categories pages, followed by a "continue reading" link. It will also be visible at the beginning of the page showing the whole post. Should you leave it blank, the <em>content</em> field will be shown entirely on the homepage and other entry list pages.</dd>
+    <dt>内容</dt>
+    <dd>您文章的内容。这个字段是必须的。</dd>
+    <dt>注释</dt>
+    <dd>This text area is for personal use, for notes or memos. What you enter here will never be displayed on the blog.</dd>
+    <dt>分类目录</dt>
+    <dd>允许你选择你的作品的状态：
+      <ul>
+        <li><strong>待定：</strong> 出版状态尚未决定。</li>
+        <li><strong>预定的：</strong> 该职位将在 <strong>Published on</strong> 字段中设置的时间和日期上线。</li>
+        <li><strong>未发表：</strong> 该帖子已下线。</li>
+        <li><strong>已发布：</strong> 该帖子已上线。</li>
+      </ul>
+    </dd>
+    <dt>文章状态</dt>
+    <dd>Here you can change the entry's publication date and time. If the entry's status is <strong>Scheduled</strong>, it will be online at the given date and time.</dd>
+    <dt>发布于</dt>
+    <dd>Select the language code of your entry. It defaults to your (as a user) language but you can change it to whatever language code you want, e.g. "en" or "es-ar". This code is used for the entry's display.</dd>
+    <dt>文本格式</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>接受评论</dt>
+    <dd>选择这个选框以使您的访客能够评论文章。相应的全局设置可以在博客设置中找到。</dd>
+    <dt>接受 trackbacks</dt>
+    <dd>Your entry's category. To create a new category, please see the <strong>Categories</strong> section. You can choose to leave you entry without a category by selecting the <em>(none)</em> item.</dd>
+    <dt>精选文章</dt>
+    <dd>精选文章将会在您的博客菜单中列出，在标题“我最好的文章”下面。</dd>
+    <dt>文章密码</dt>
+    <dd>您可以为您的文章输入一个密码。一个密码保护的文章将不会显示在您的博客上，它仅会使您给予文章链接(看<em>查看文章</em>)和密码的人可见。</dd>
+    <dt>具体的 URL</dt>
+    <dd>Attachments are media files added to the entry. You can use the <strong>Add files to this entry</strong> button to select media files to add to the entry.<br>This option will appear after you save your entry.<br>Please check the Media manager help for more information.</dd>
+    <dt>文章语言</dt>
+    <dd>您文章的 2 个字符的语言代码。它默认是您的(作为一个用户)语言，但您也可以改变为任何您希望的语言代码，例如“en”或者”fr“。代码用于文章的显示。</dd>
+    <dt>附件</dt>
+    <dd>A trackback is a way to let a portion of your entry as a comment on another blog. Check this box to allow others to trackback your entry. The corresponding global setting is to be found in the blog settings.</dd>
+    <dt>密码</dt>
+    <dd>You can enter a password for your entry. A password protected entry will not be displayed on your blog, it will only be accessible to those you will give the entry URL to (see the <strong>view entry</strong> link) and password.</dd>
+    <dt>基地名称</dt>
+    <dd>你可以通过点击其右边的小锁来解除对这个领域的保护，并为你的条目选择另一个URL。如果你想使用的URL已经被另一个条目使用了，就会有一个数字加在它上面。</dd>
+  </dl>
+  <h4>评论</h4>
+  <dl>
+    <dt>评论列表</dt>
+    <dd>On the <strong>Comments</strong> tab, you can read and change the status of
+      your entry's comments (and trackbacks). If you're allowed to by the blog administrator, you will be able to set your comments (and trackbacks) online or offline, to delete them or to mark them as junk.</dd>
+    <dt>添加一个评论</dt>
+    <dd>在<em>添加一个评论</em>标签，您可以回复您文章中的一个评论而不离开您的博客后台。这里使用的语法是无限制的纯 HTML。使用这个区域就好像您在编辑一个评论。</dd>
+  </dl>
+  <h4>添加一个评论</h4>
+  <dl>
+    <dt>ping 的 URL</dt>
+    <dd>在这里粘贴您想要 ping 的 trackback URL。</dd>
+    <dt>发送摘录</dt>
+    <dd>这个字段默认是您的文章开始的少数段落。这是将要发送到您要 ping 的博客的内容，同时有一个到您博客的链接。您可以通过编辑这个字段修改摘录。</dd>
+    <dt>自动发现 ping URL</dt>
+    <dd>如果您的文章链接特别的文章，并且拥有这些文章的博客允许，这个工具将会为您发现 ping 的 URL。</dd>
+    <dt>评论</dt>
+    <dd>评论内容。这个字段使用HTML语法。</dd>
+  </dl>
 </body>
+
 </html>

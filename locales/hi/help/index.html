@@ -1,395 +1,382 @@
 <html>
+
 <head>
   <title></title> <!-- Leave the title empty -->
 </head>
 
 <body>
-
-<div class="multi-part legible" id="first-step" title="प्रथम चरण">
-	<h3>इंटरफेस खोज</h3>
-	<div class="fieldset">
-		<h4>प्रथम चरण</h4>
-		<p>वैश्विक सहायता पृष्ठों के अलावा, कई प्रशासन पृष्ठों में ऑनलाइन सहायता होती है। यदि आपके ब्राउज़र पर जावास्क्रिप्ट सक्षम है, तो आप <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>सहायता चाहिए?</strong> लिंक पर क्लिक करके पृष्ठ के ऊपरी-दाएँ स्थान पर ऑनलाइन सहायता देख सकते हैं। यदि जावास्क्रिप्ट अक्षम है, तो सहायता पृष्ठ के निचले भाग में प्रदर्शित होती है।</p>
-	</div>
-
-	<p>प्रत्येक प्रशासन पृष्ठ पर एक ही शीर्ष शीर्षक, मुख्य मेनू और पाद लेख प्रदर्शित होगा। <em>(यहाँ दिया गया क्रम वही है जो कंप्यूटर स्क्रीन पर दिखाया जाता है। मोबाइल डिवाइस या टैबलेट के लिए, यह उपलब्ध स्थान के अनुसार भिन्न हो सकता है।)</em></p>
-
-	<h4 class="pretty-title">शीर्ष शीर्षक</h4>
-	<p>शीर्ष शीर्षक तीन तत्वों से बना है:</p>
-	<h5 class="as_h4">लोगो</h5>
-	<p>डिफ़ॉल्ट रूप से, यह लोगो डॉटक्लियर लोगो है और प्रशासन लैंडिंग पेज से लिंक करता है। हालाँकि, एक प्लेटफ़ॉर्म प्रबंधक कोई दूसरा लोगो चुन सकता है और किसी और चीज़ (आमतौर पर, सेवा लैंडिंग पेज) की ओर रीडायरेक्ट कर सकता है।</p>
-
-	<h5 class="as_h4">ब्लॉग (ओं)</h5>
-	<p>लोगो के बाद स्थित पहला तत्व <em>सक्रिय</em> ब्लॉग दिखाता है, यानी वह ब्लॉग जिस पर आप काम कर रहे हैं। अगर आपका इंस्टॉलेशन कई ब्लॉग से बना है, तो ये जानकारी कॉम्बो मेनू में उपलब्ध है, जो आपको दूसरे ब्लॉग पर स्विच करने की सुविधा देता है।</p>
-	<p>ब्लॉग नाम के बाद लिंक अपने वर्तमान ब्लॉग को एक अन्य विंडो या एक अन्य टैब खोलता है.</p>
-
-	<h5 class="as_h4">उपयोक्ता</h5>
-	<p>लिंक <em>मेरा डैशबोर्ड</em> आपको ब्लॉग प्रशासन लैंडिंग पृष्ठ पर वापस ले जाता है।</p>
-	<p>लिंक <em>मेरी प्राथमिकताएं</em> उस पृष्ठ पर ले जाती हैं जहां आप अपनी व्यक्तिगत जानकारी को संशोधित कर सकते हैं, डैशबोर्ड सेटअप कर सकते हैं और अपना इंटरफ़ेस और संपादन विकल्प चुन सकते हैं।</p>
-	<p>हैरानी की बात है, लिंक <em>डिस्कनेक्ट [आपका लॉगिन]</em> आपको अपने ब्लॉग के प्रशासन से डिस्कनेक्ट करता है (डॉटक्लेयर पर, हम एर्गोनॉमी चैंपियन हैं!)।</p>
-
-	<h4 class="pretty-title">मुख्य मेनू</h4>
-	<p>मुख्य मेनू स्क्रीन के बाईं ओर स्थित है. यह अपनी दाहिनी सीमा पर क्लिक करके धराशायी हो सकता है (और फिर उस पर फिर से क्लिक करके अनगिर हो).</p>
-	<p>यह विभिन्न प्रशासन पृष्ठों के लिए नेतृत्व करता है, वर्तमान ब्लॉग पर आपकी अनुमति के अनुसार. यह चार ब्लॉकों से बना है:</p>
-	<ul>
-		<li><strong>मेरे पसंदीदा</strong> उन पृष्ठों को सूचीबद्ध करता है जिन्हें आपने <em>मेरी प्राथमिकताएँ</em>/<em>मेरा डैशबोर्ड</em> टैब में पसंदीदा के रूप में चुना है। यदि आपने अभी तक कोई पसंदीदा नहीं चुना है, तो इस सूची में डिफ़ॉल्ट डॉटक्लियर सेट या प्लेटफ़ॉर्म प्रबंधक द्वारा परिभाषित सेट शामिल होगा। यदि आप इस ब्लॉक को प्रदर्शित नहीं करना चाहते हैं, तो आप अपने डैशबोर्ड विकल्पों में मिलान करने वाले चेकबॉक्स को अनचेक कर सकते हैं।</li>
-		<li><strong>ब्लॉग</strong> उन सभी पृष्ठों को सूचीबद्ध करता है जो वर्तमान ब्लॉग को फीड और सेटअप करने में सक्षम हैं, प्रविष्टि संपादित करने, मीडिया का प्रबंधन करने, ब्लॉग की उपस्थिति या अन्य मापदंडों को चुनने से।<br>
-<em>यदि आपके पास वर्तमान ब्लॉग पर व्यवस्थापक अधिकार नहीं हैं, तो मुख्य मेनू में उसके नीचे कोई अन्य ब्लॉक नहीं होगा।</em></li>
-		<li><strong>सिस्टम सेटिंग्स</strong> उन पृष्ठों से जुड़ती हैं जो आपको डॉटक्लियर इंस्टॉलेशन को प्रबंधित करने की अनुमति देते हैं: ब्लॉग प्रबंधन, उपयोगकर्ता और उपलब्ध भाषाएँ, प्लगइन्स इंस्टॉलेशन, सिस्टम सेटिंग्स। यदि आपके पास कई ब्लॉग पर अधिकार हैं, लेकिन कोई सुपरएडमिनिस्ट्रेटर अधिकार नहीं है, तो आपको केवल <em>ब्लॉग</em> प्रविष्टि दिखाई देगी।</li>
-		<li><strong>प्लगइन्स</strong> आपको इंस्टॉल किए गए प्लगइन्स को सेटअप करने में सक्षम बनाता है। यदि प्लगइन सेटिंग एक समय में केवल एक ब्लॉग को प्रभावित करती है, तो इसका प्रशासन पृष्ठ <em>ब्लॉग</em> ब्लॉक से उपलब्ध है, लेकिन यदि वे पूरे इंस्टॉलेशन को प्रभावित करते हैं, तो वे यहां स्थित हैं, और केवल सुपर-एडमिन उपयोगकर्ताओं के लिए उपलब्ध हैं।</li>
-	</ul>
-
-	<h4 class="pretty-title">पादिका</h4>
-	<p>किसी भी उपयोगकर्ता को डीओटेड का एक मुक्त संस्करण की पेशकश की जाएगी जो फूटर में छिपे गुप्त को खोज लेगा.</p>
-
-	<h3>महान प्रारंभकर्ताओं के लिए सहायता</h3>
-	<p>यदि आप ब्लॉग से परिचित नहीं हैं, तो हम अनुशंसा करते हैं कि आप हमारे दस्तावेज़ देखें (पूरी विषय-सूची इस पृष्ठ के <strong>दस्तावेज़ीकरण</strong> टैब में उपलब्ध है) साथ ही निम्नलिखित ट्यूटोरियल भी देखें:
-	<ul>
-		<li><a href="https://dotclear.org/documentation/2.0/usage/beginners">मेरी पहली प्रविष्टि, कदम से कदम.</a></li>
-	</ul>
-
-	<p><a href="https://dotclear.org/forum/">डॉटक्लियर फ़ोरम</a> एक स्वागत योग्य जगह है जहाँ <em>बेवकूफ़ी भरा सवाल</em> जैसी कोई चीज़ नहीं होती। अगर आपको मदद की ज़रूरत है तो इसमें भाग लेने में संकोच न करें और, क्यों न करें, बदले में लोगों की मदद करें।</p>
-
-	<p class="info">हम ऐसी शब्दावली का उपयोग करने की पूरी कोशिश करते हैं जिसे बिना किसी विशेष ज्ञान के समझना आसान हो। हालाँकि, अगर हम कोई तकनीकी शब्द इस्तेमाल करते हैं, तो आपको शायद इसकी परिभाषा हमारे ऑनलाइन दस्तावेज़ों की <a href="https://dotclear.org/documentation/glossary">शब्दावली</a> में मिल जाएगी।</p>
-</div>
-
-<div class="multi-part" id="users-doc" title="उपयोगकर्ता मैनुअल">
-	<h3>उपयोगकर्ता मैनुअल</h3>
-	<div class="three-boxes">
-		<h4 class="pretty-title">सामग्री का प्रबंधन</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/entries">प्रविष्टियां</a>
-					<ul>
-						<li>निर्माण और संपादन</li>
-						<li>प्रविष्टि विवरण</li>
-						<li>प्रवेश-संबंधी कार्य</li>
-						<li>टिप्पणी और ट्रेकबैक</li>
-						<li>प्रविष्टियों का समूह प्रबंधन</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">टिप्पणी और ट्रेकबैक</a>
-					<ul>
-						<li>फोलो अप</li>
-						<li>प्रबंधन</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/categories">श्रेणीः</a>
-					<ul>
-						<li>श्रेणी बना रहा है</li>
-						<li>श्रेणी का संपादन</li>
-						<li>श्रेणी हटाना</li>
-						<li>श्रेणी सूची को फिर से देखें</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/tags">टैग (खोजशब्द)</a>
-					<ul>
-						<li>जोड़ने टैग</li>
-						<li>टैग प्रबंधन</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/media">मीडिया और संलग्नक</a>
-					<ul>
-						<li>एक उप निर्देशिका बना रहा है</li>
-						<li>फ़ाइलें जोड़ रहे</li>
-						<li>वर्तमान निर्देशिका का एक जिप अभिलेख डाउनलोड किया जा रहा है</li>
-						<li>फ़ाइल विवरण में परिवर्तन का परिवर्तन</li>
-						<li>फ़ाइलें सीधे जोड़ रहे हैं</li>
-						<li>विशेष फ़ाइल प्रकार</li>
-						<li>संलग्नक</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/widgets">ब्लॉग मेनू सामग्री (विजेट)</a>
-					<ul>
-						<li>नेविगेशन साइडबार, अतिरिक्त साइडबार</li>
-						<li>डिफ़ॉल्ट विज़ेट्स</li>
-						<li>विज़ेट को जोड़ना/हटाना</li>
-						<li>विजेट्स विकल्प</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">ब्लॉगऊल</a>
-					<ul>
-						<li>ब्लॉगऊल</li>
-						<li>एक लिंक जोड़ रहा है</li>
-						<li>वर्ग जोड़ रहा है</li>
-						<li>एक्सएफएन</li>
-						<li>एक OPML या XBEL फ़ाइल से लिंक आयात कर रहा है</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes">
-		<h4 class="pretty-title">सेटिंग्स और अनुकूलन</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">ब्लॉग सेटिंग</a>
-					<ul>
-						<li>ब्लॉग विवरण</li>
-						<li>ब्लॉग कॉन्फ़िगरेशन</li>
-						<li>टिप्पणी और ट्रेकबैक</li>
-						<li>ब्लॉग प्रस्तुति</li>
-						<li>मीडिया और छवियाँ</li>
-						<li>खोज इंजन रोबोट नीति</li>
-						<li>एंटीस्पैम</li>
-						<li>हल्का-बक्सा</li>
-						<li>सहेजें</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">उपयोक्ता पसंद</a>
-					<ul>
-						<li>मेरा प्रोफ़ाइल</li>
-						<li>मेरे विकल्प</li>
-						<li>मेरा डैशबोर्ड</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">ब्लॉग प्रकटन</a>
-					<ul>
-						<li>प्रसंग चुनें</li>
-						<li>प्रसंग संस्थापित करें</li>
-						<li>एक प्रसंग का प्रयोग कर रहा है</li>
-						<li>प्रसंग संपादक</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes fieldset">
-			<h4 class="smart-title">अतिरिक्त पठन</h4>
-				<h5>शब्दावली</h5>
-				<ul><li><a href="https://dotclear.org/documentation/glossary">ये सभी रहस्यमय शब्द वेब पर और डीओटेड में इस्तेमाल किए गए</a></li></ul>
-				<h5>इनपुट सिंटैक्स</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">विकि वाक्यविन्यास और एचटीएमएल समकक्ष</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">आगे जाने के लिए</a></li>
-					</ul>
-				<h5>सदस्यता (आरएसएस, एटम ...)</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds">यह क्या है?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">मैं इसे अपने ब्लॉग पर उपलब्ध कैसे कर सकता हूँ?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">मैं किसी फीड की सदस्यता कैसे लेता हूँ?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">आगे जाने के लिए</a></li>
-					</ul>
-			<h4 class="smart-title">मदद</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">द डॉटलॉड फोरम</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq">अक्सर पूछे जाने वाले प्रश्न</a></li>
-				</ul>
-	</div>
-</div>
-
-	<div class="multi-part" id="admin-doc" title="प्रशासकों के लिए दस्तावेज़ीकरण">
-	<h3>प्रशासकों के लिए दस्तावेज़ीकरण</h3>
-		<div class="three-boxes">
-		<h4 class="pretty-title">स्थापना और अद्यतन</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install">संस्थापन</a>
-					<ul>
-						<li>अनुलब्धियां</li>
-						<li>स्वचालित संस्थापन</li>
-						<li>मानक संस्थापन</li>
-						<li>विज़ार्ड का उपयोग करने</li>
-						<li>Config.fp फ़ाइल से संस्थापित किया जा रहा है</li>
-						<li>स्थापना प्रक्रिया को पूरा करें</li>
-						<li>अगला कदम</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">अद्यतन करना</a>
-					<ul>
-						<li>अद्यतन के लिए तैयार</li>
-						<li>स्वचालित उन्नयन</li>
-						<li>प्रोग्राम अद्यतन कर रहा है</li>
-						<li>डाटाबेस अद्यतन करें</li>
-						<li>परिशिष्ट: एक मर्क्युयल प्रतिलिपि को अद्यतन किया जा रहा है</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/config">कॉन्फ़िगरेशन फ़ाइल (config.fp) पैरामीटर्स</a>
-					<ul>
-						<li>परिचय</li>
-						<li>पैरामीटर्स</li>
-						<li>फ़ाइल में सूचना जोड़ रहा है</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">डीओक्लिड 1.2 से डीओटेड 2 में उन्नयन</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/migrate">अन्य ब्लॉगिंग सॉफ्टवेयर से डीओटेड में उत्प्रवासित कर रहा है</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/local-install">स्थानीय संस्थापन</a>
-					<ul>
-						<li>विंडोज़</li>
-						<li>Mac OS X</li>
-						<li>लिनक्स</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">आईआईएस7 के साथ संपर्क स्थापित किया जा रहा है</a></li>
-			</ul>
-
-			<h5>एन्नेक्स की मेजबानी</h5>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/hosting">मेजबानी</a>
-				</li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">प्रशासन</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/users">प्रयोक्ता प्रबंधन</a>
-					<ul>
-						<li>मौजूदा उपयोगकर्ता सूची</li>
-						<li>उपयोगकर्ता बना रहा है</li>
-						<li>उपयोगकर्ता को संशोधित करता है</li>
-						<li>उपयोक्ता अनुमतियाँ</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">संस्थापन साफ करें</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">मल्टीब्लॉग संस्थापन</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/plugins">प्लगिन प्रबंधित करें</a>
-					<ul>
-						<li>प्लगिन चला रहा है</li>
-						<li>प्लगिन विन्यस्त कर रहा है</li>
-						<li>प्लगिन हटा रहा है</li>
-						<li>Name</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">डिफ़ॉल्ट थीम Blowअप</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">ब्लॉग थीम</a>
-					<ul>
-						<li>प्रसंग चुना जा रहा है</li>
-						<li>प्रसंग संस्थापित करें</li>
-						<li>एक प्रसंग अनुकूलित करना</li>
-						<li>प्रसंग संपादक</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">उन्नत विन्यास</a></li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">अनुरक्षण</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/backup">बैकअप और फिर बहाल करें</a>
-					<ul>
-						<li>आयात/निर्यात</li>
-						<li>फ़ाइलें</li>
-						<li>डेटाबेस</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/antispam">स्पैम टिप्पणी फिल्टर</a>
-					<ul>
-						<li>फ़िल्टर संगठन</li>
-						<li>फ़िल्टर विन्यास</li>
-					</ul>
-				</li>
-			</ul>
-			<div class="fieldset vertical-separator">
-				<h4 class="smart-title">मदद</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">द डॉटलॉड फोरम</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq#administration">अक्सर पूछे जाने वाले प्रश्न (एडमिनिस्ट्रेट्रेसर)</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="multi-part" id="guide-dev" title="विकासकर्ता प्रलेखन">
-	<h3>डेवलपर और डिजाइनर संसाधन</h3>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">डिज़ाइन और थीम</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes">प्रसंग</a>
-					<ul>
-						<li>थीम के लिए उपयोगकर्ता गाइड</li>
-						<li>टेम्पलेट टैग</li>
-						<li>परिशिष्ट</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">प्रसंग वंशानुक्रम</a>
-					<ul>
-						<li>सिद्धांत</li>
-						<li>सीमायें</li>
-						<li>स्थापित करें</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">टेम्पलेट टैग</a>
-					<ul>
-						<li>सामान्यताएं/उपयोगिताएँ</li>
-						<li>ब्लॉग</li>
-						<li>प्रविष्टियां</li>
-						<li>प्रविष्टियां पृष्ठीकरण</li>
-						<li>टिप्पणी</li>
-						<li>टिप्पणी पूर्वावलोकन</li>
-						<li>पेटिंग्स</li>
-						<li>संलग्नक</li>
-						<li>श्रेणीः</li>
-						<li>टैग</li>
-						<li>अभिलेखागार</li>
-						<li>भाषा</li>
-						<li>तंत्र</li>
-						<li>विजेट्स</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">कोड &amp; प्लगइन्स</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/tpl">एक प्लगइन या एक प्रसंग के लिए tpl टैग बनाने</a>
-					<ul>
-						<li>परिचय</li>
-						<li>मान</li>
-						<li>निर्देश खंड</li>
-						<li>टेम्पलेट कैश प्रभाव का प्रदर्शन</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins">प्लगइन्स</a>
-					<ul>
-						<li>प्लगिन लिखा जा रहा है</li>
-						<li>परिशिष्ट</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">प्लगइन प्रासंगिक मदद का निर्माण</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/authentication">बाह्य प्रमाणीकरण</a>
-					<ul>
-						<li>प्रस्तावना</li>
-						<li>एक नया सत्यापन वर्ग</li>
-						<li>परिदृश्य</li>
-						<li>अनुप्रयोग</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">एक्सएमएल/आरपीसी इंटरफेस</a></li>
-				<li><a href="https://dev.dotclear.org/code/2/">एपीआई दस्तावेज़ीकरण</a></li>
-			</ul>
-		</div>
-
-		<div class="three-boxes">
-			<h4 class="pretty-title">योगदान और समर्थन</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/contribute">योगदान</a>
-					<ul>
-						<li>इस दस्तावेज़ को संपादित करें</li>
-						<li>अपनी रचना साझा करें</li>
-						<li>बग रिपोर्ट करें या नई सुविधाओं का सुझाव दें</li>
-						<li>स्थानीयकरण</li>
-				</ul>
-			</li>
-				<li><a href="https://git.dotclear.org/dev/dotclear">डॉटकॉम-स्पष्ट स्रोत कोड भंडार</a></li>
-				<li><a href="https://dotclear.org/forum">डॉटकॉम स्पष्ट मंच</a></li>
-			</ul>
-
-			<div class="fieldset">
-				<h4 class="smart-title">परिपाटियां</h4>
-				<ul>
-					<li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">कोडिंग मानक</a></li>
-					<li><a href="index.php?process=HelpCharte">प्रशासन पृष्ठ चार्ट</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="multi-part legible" id="a11y-ergo" title="एक्सेसिबिलिटी और एराइनोमी">
-	<h3>एक्सेसिबिलिटी और एराइनोमी</h3>
-	<p>डॉटक्लियर इंटरफ़ेस लगभग सभी <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> मानदंडों को पूरा करता है। हम डॉटक्लियर को <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> दिशा-निर्देशों के साथ संगत बनाने की दिशा में काम कर रहे हैं।</p>
-	<p>सुगमता और अभिगम्यता हमारी मुख्य चिंता का एक हिस्सा है । हम विशेषज्ञों की मदद से नियमित रूप से विश्लेषण करते हैं और लगातार सुधार और संवर्द्धन प्रदान करते हैं.</p>
-	<p>आप <a href="https://git.dotclear.org/dev/dotclear/issues">टिकट</a> खोलकर या <a href="https://dotclear.org/forum/">फोरम</a> में भाग लेकर हमारी मदद कर सकते हैं। आप उपयोगकर्ता परीक्षण में भी भाग ले सकते हैं या हमारी टीम में शामिल हो सकते हैं!</p>
-	</div>
-
+  <div class="multi-part legible" id="first-step" title="प्रथम चरण">
+    <h3>इंटरफेस खोज</h3>
+    <div class="fieldset">
+      <h4>प्रथम चरण</h4>
+      <p>In addition to the global help pages, several administration pages have an online help. If javascript is enabled
+        on your browser, you can see online help at the upper-right position of the page, by clicking on the <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong> link. If Javascript is disabled, the help is displayed at the bottom of the page.</p>
+    </div>
+    <p>प्रत्येक प्रशासन पृष्ठ पर एक ही शीर्ष शीर्षक, मुख्य मेनू और पाद लेख प्रदर्शित होगा। <em>(यहाँ दिया गया क्रम वही है जो कंप्यूटर स्क्रीन पर दिखाया जाता है। मोबाइल डिवाइस या टैबलेट के लिए, यह उपलब्ध स्थान के अनुसार भिन्न हो सकता है।)</em></p>
+    <h4 class="pretty-title">शीर्ष शीर्षक</h4>
+    <p>शीर्ष शीर्षक तीन तत्वों से बना है:</p>
+    <h5 class="as_h4">लोगो</h5>
+    <p>By default, this logo is the Dotclear logo and links to the administration landing page. However, a platform
+      manager can choose another logo and redirect towards something else (generally, the service landing page).</p>
+    <h5 class="as_h4">ब्लॉग (ओं)</h5>
+    <p>The first element located after the logo shows the <em>active</em> blog, i.e. the blog on which you are acting. If your
+      installation is composed of several blogs, these informations are available in a combo menu, which lets you switch to another blog.</p>
+    <p>ब्लॉग नाम के बाद लिंक अपने वर्तमान ब्लॉग को एक अन्य विंडो या एक अन्य टैब खोलता है.</p>
+    <h5 class="as_h4">उपयोक्ता</h5>
+    <p>लिंक <em>मेरा डैशबोर्ड</em> आपको ब्लॉग प्रशासन लैंडिंग पृष्ठ पर वापस ले जाता है।</p>
+    <p>लिंक <em>मेरी प्राथमिकताएं</em> उस पृष्ठ पर ले जाती हैं जहां आप अपनी व्यक्तिगत जानकारी को संशोधित कर सकते हैं, डैशबोर्ड सेटअप कर सकते हैं और अपना इंटरफ़ेस और संपादन विकल्प चुन सकते हैं।</p>
+    <p>हैरानी की बात है, लिंक <em>डिस्कनेक्ट [आपका लॉगिन]</em> आपको अपने ब्लॉग के प्रशासन से डिस्कनेक्ट करता है (डॉटक्लेयर पर, हम एर्गोनॉमी चैंपियन हैं!)।</p>
+    <h4 class="pretty-title">मुख्य मेनू</h4>
+    <p>मुख्य मेनू स्क्रीन के बाईं ओर स्थित है. यह अपनी दाहिनी सीमा पर क्लिक करके धराशायी हो सकता है (और फिर उस पर फिर से क्लिक करके अनगिर हो).</p>
+    <p>यह विभिन्न प्रशासन पृष्ठों के लिए नेतृत्व करता है, वर्तमान ब्लॉग पर आपकी अनुमति के अनुसार. यह चार ब्लॉकों से बना है:</p>
+    <ul>
+      <li><strong>मेरे पसंदीदा</strong> उन पृष्ठों को सूचीबद्ध करता है जिन्हें आपने <em>मेरी प्राथमिकताएँ</em>/<em>मेरा डैशबोर्ड</em> टैब में पसंदीदा के रूप में चुना है। यदि आपने अभी तक कोई पसंदीदा नहीं चुना है, तो इस सूची में डिफ़ॉल्ट डॉटक्लियर सेट या प्लेटफ़ॉर्म प्रबंधक द्वारा परिभाषित सेट शामिल होगा। यदि आप इस ब्लॉक को प्रदर्शित नहीं करना चाहते हैं, तो आप अपने डैशबोर्ड विकल्पों में मिलान करने वाले चेकबॉक्स को अनचेक कर सकते हैं।</li>
+      <li><strong>Blog</strong> lists all the pages that enable to feed and setup the current blog, from editing an entry, managing media, choosing the blog appearance or other parameters.<br>
+        <em>If you do not have administrator rights on the current blog, there will be no other block below that one in the main menu.</em></li>
+      <li><strong>सिस्टम सेटिंग्स</strong> उन पृष्ठों से जुड़ती हैं जो आपको डॉटक्लियर इंस्टॉलेशन को प्रबंधित करने की अनुमति देते हैं: ब्लॉग प्रबंधन, उपयोगकर्ता और उपलब्ध भाषाएँ, प्लगइन्स इंस्टॉलेशन, सिस्टम सेटिंग्स। यदि आपके पास कई ब्लॉग पर अधिकार हैं, लेकिन कोई सुपरएडमिनिस्ट्रेटर अधिकार नहीं है, तो आपको केवल <em>ब्लॉग</em> प्रविष्टि दिखाई देगी।</li>
+      <li><strong>प्लगइन्स</strong> आपको इंस्टॉल किए गए प्लगइन्स को सेटअप करने में सक्षम बनाता है। यदि प्लगइन सेटिंग एक समय में केवल एक ब्लॉग को प्रभावित करती है, तो इसका प्रशासन पृष्ठ <em>ब्लॉग</em> ब्लॉक से उपलब्ध है, लेकिन यदि वे पूरे इंस्टॉलेशन को प्रभावित करते हैं, तो वे यहां स्थित हैं, और केवल सुपर-एडमिन उपयोगकर्ताओं के लिए उपलब्ध हैं।</li>
+    </ul>
+    <h4 class="pretty-title">पादिका</h4>
+    <p>किसी भी उपयोगकर्ता को डीओटेड का एक मुक्त संस्करण की पेशकश की जाएगी जो फूटर में छिपे गुप्त को खोज लेगा.</p>
+    <h3>महान प्रारंभकर्ताओं के लिए सहायता</h3>
+    <p>यदि आप ब्लॉग से परिचित नहीं हैं, तो हम अनुशंसा करते हैं कि आप हमारे दस्तावेज़ देखें (पूरी विषय-सूची इस पृष्ठ के <strong>दस्तावेज़ीकरण</strong> टैब में उपलब्ध है) साथ ही निम्नलिखित ट्यूटोरियल भी देखें:
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">मेरी पहली प्रविष्टि, कदम से कदम.</a></li>
+      </ul>
+      <p><a href="https://dotclear.org/forum/">डॉटक्लियर फ़ोरम</a> एक स्वागत योग्य जगह है जहाँ <em>बेवकूफ़ी भरा सवाल</em> जैसी कोई चीज़ नहीं होती। अगर आपको मदद की ज़रूरत है तो इसमें भाग लेने में संकोच न करें और, क्यों न करें, बदले में लोगों की मदद करें।</p>
+      <p class="info">हम ऐसी शब्दावली का उपयोग करने की पूरी कोशिश करते हैं जिसे बिना किसी विशेष ज्ञान के समझना आसान हो। हालाँकि, अगर हम कोई तकनीकी शब्द इस्तेमाल करते हैं, तो आपको शायद इसकी परिभाषा हमारे ऑनलाइन दस्तावेज़ों की <a href="https://dotclear.org/documentation/glossary">शब्दावली</a> में मिल जाएगी।</p>
+  </div>
+  <div class="multi-part" id="users-doc" title="उपयोगकर्ता मैनुअल">
+    <h3>उपयोगकर्ता मैनुअल</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">सामग्री का प्रबंधन</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">प्रविष्टियां</a>
+          <ul>
+            <li>निर्माण और संपादन</li>
+            <li>प्रविष्टि विवरण</li>
+            <li>प्रवेश-संबंधी कार्य</li>
+            <li>टिप्पणी और ट्रेकबैक</li>
+            <li>प्रविष्टियों का समूह प्रबंधन</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">टिप्पणी और ट्रेकबैक</a>
+          <ul>
+            <li>फोलो अप</li>
+            <li>प्रबंधन</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">श्रेणीः</a>
+          <ul>
+            <li>श्रेणी बना रहा है</li>
+            <li>श्रेणी का संपादन</li>
+            <li>श्रेणी हटाना</li>
+            <li>श्रेणी सूची को फिर से देखें</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">टैग (खोजशब्द)</a>
+          <ul>
+            <li>जोड़ने टैग</li>
+            <li>टैग प्रबंधन</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/media">मीडिया और संलग्नक</a>
+          <ul>
+            <li>एक उप निर्देशिका बना रहा है</li>
+            <li>फ़ाइलें जोड़ रहे</li>
+            <li>वर्तमान निर्देशिका का एक जिप अभिलेख डाउनलोड किया जा रहा है</li>
+            <li>फ़ाइल विवरण में परिवर्तन का परिवर्तन</li>
+            <li>फ़ाइलें सीधे जोड़ रहे हैं</li>
+            <li>विशेष फ़ाइल प्रकार</li>
+            <li>संलग्नक</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">ब्लॉग मेनू सामग्री (विजेट)</a>
+          <ul>
+            <li>नेविगेशन साइडबार, अतिरिक्त साइडबार</li>
+            <li>डिफ़ॉल्ट विज़ेट्स</li>
+            <li>विज़ेट को जोड़ना/हटाना</li>
+            <li>विजेट्स विकल्प</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">ब्लॉगऊल</a>
+          <ul>
+            <li>ब्लॉगऊल</li>
+            <li>एक लिंक जोड़ रहा है</li>
+            <li>वर्ग जोड़ रहा है</li>
+            <li>एक्सएफएन</li>
+            <li>एक OPML या XBEL फ़ाइल से लिंक आयात कर रहा है</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">सेटिंग्स और अनुकूलन</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">ब्लॉग सेटिंग</a>
+          <ul>
+            <li>ब्लॉग विवरण</li>
+            <li>ब्लॉग कॉन्फ़िगरेशन</li>
+            <li>टिप्पणी और ट्रेकबैक</li>
+            <li>ब्लॉग प्रस्तुति</li>
+            <li>मीडिया और छवियाँ</li>
+            <li>खोज इंजन रोबोट नीति</li>
+            <li>एंटीस्पैम</li>
+            <li>हल्का-बक्सा</li>
+            <li>सहेजें</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">उपयोक्ता पसंद</a>
+          <ul>
+            <li>मेरा प्रोफ़ाइल</li>
+            <li>मेरे विकल्प</li>
+            <li>मेरा डैशबोर्ड</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">ब्लॉग प्रकटन</a>
+          <ul>
+            <li>प्रसंग चुनें</li>
+            <li>प्रसंग संस्थापित करें</li>
+            <li>एक प्रसंग का प्रयोग कर रहा है</li>
+            <li>प्रसंग संपादक</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes fieldset">
+      <h4 class="smart-title">अतिरिक्त पठन</h4>
+      <h5>शब्दावली</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/glossary">ये सभी रहस्यमय शब्द वेब पर और डीओटेड में इस्तेमाल किए गए</a></li>
+      </ul>
+      <h5>इनपुट सिंटैक्स</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">विकि वाक्यविन्यास और एचटीएमएल समकक्ष</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">आगे जाने के लिए</a></li>
+      </ul>
+      <h5>सदस्यता (आरएसएस, एटम ...)</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">यह क्या है?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">मैं इसे अपने ब्लॉग पर उपलब्ध कैसे कर सकता हूँ?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">मैं किसी फीड की सदस्यता कैसे लेता हूँ?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">आगे जाने के लिए</a></li>
+      </ul>
+      <h4 class="smart-title">मदद</h4>
+      <ul>
+        <li><a href="https://dotclear.org/forum">द डॉटलॉड फोरम</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/faq">अक्सर पूछे जाने वाले प्रश्न</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="multi-part" id="admin-doc" title="प्रशासकों के लिए दस्तावेज़ीकरण">
+    <h3>प्रशासकों के लिए दस्तावेज़ीकरण</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">स्थापना और अद्यतन</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install">संस्थापन</a>
+          <ul>
+            <li>अनुलब्धियां</li>
+            <li>स्वचालित संस्थापन</li>
+            <li>मानक संस्थापन</li>
+            <li>विज़ार्ड का उपयोग करने</li>
+            <li>Config.fp फ़ाइल से संस्थापित किया जा रहा है</li>
+            <li>स्थापना प्रक्रिया को पूरा करें</li>
+            <li>अगला कदम</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">अद्यतन करना</a>
+          <ul>
+            <li>अद्यतन के लिए तैयार</li>
+            <li>स्वचालित उन्नयन</li>
+            <li>प्रोग्राम अद्यतन कर रहा है</li>
+            <li>डाटाबेस अद्यतन करें</li>
+            <li>परिशिष्ट: एक मर्क्युयल प्रतिलिपि को अद्यतन किया जा रहा है</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/config">कॉन्फ़िगरेशन फ़ाइल (config.fp) पैरामीटर्स</a>
+          <ul>
+            <li>परिचय</li>
+            <li>पैरामीटर्स</li>
+            <li>फ़ाइल में सूचना जोड़ रहा है</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">डीओक्लिड 1.2 से डीओटेड 2 में उन्नयन</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">अन्य ब्लॉगिंग सॉफ्टवेयर से डीओटेड में उत्प्रवासित कर रहा है</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">स्थानीय संस्थापन</a>
+          <ul>
+            <li>विंडोज़</li>
+            <li>Mac OS X</li>
+            <li>लिनक्स</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">आईआईएस7 के साथ संपर्क स्थापित किया जा रहा है</a></li>
+      </ul>
+      <h5>एन्नेक्स की मेजबानी</h5>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/hosting">मेजबानी</a>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">प्रशासन</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/users">प्रयोक्ता प्रबंधन</a>
+          <ul>
+            <li>मौजूदा उपयोगकर्ता सूची</li>
+            <li>उपयोगकर्ता बना रहा है</li>
+            <li>उपयोगकर्ता को संशोधित करता है</li>
+            <li>उपयोक्ता अनुमतियाँ</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">संस्थापन साफ करें</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">मल्टीब्लॉग संस्थापन</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">प्लगिन प्रबंधित करें</a>
+          <ul>
+            <li>प्लगिन चला रहा है</li>
+            <li>प्लगिन विन्यस्त कर रहा है</li>
+            <li>प्लगिन हटा रहा है</li>
+            <li>Name</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">डिफ़ॉल्ट थीम Blowअप</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">ब्लॉग थीम</a>
+          <ul>
+            <li>प्रसंग चुना जा रहा है</li>
+            <li>प्रसंग संस्थापित करें</li>
+            <li>एक प्रसंग अनुकूलित करना</li>
+            <li>प्रसंग संपादक</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">उन्नत विन्यास</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">अनुरक्षण</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">बैकअप और फिर बहाल करें</a>
+          <ul>
+            <li>आयात/निर्यात</li>
+            <li>फ़ाइलें</li>
+            <li>डेटाबेस</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">स्पैम टिप्पणी फिल्टर</a>
+          <ul>
+            <li>फ़िल्टर संगठन</li>
+            <li>फ़िल्टर विन्यास</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="fieldset vertical-separator">
+        <h4 class="smart-title">मदद</h4>
+        <ul>
+          <li><a href="https://dotclear.org/forum">द डॉटलॉड फोरम</a></li>
+          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">अक्सर पूछे जाने वाले प्रश्न (एडमिनिस्ट्रेट्रेसर)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part" id="guide-dev" title="विकासकर्ता प्रलेखन">
+    <h3>डेवलपर और डिजाइनर संसाधन</h3>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">डिज़ाइन और थीम</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">प्रसंग</a>
+          <ul>
+            <li>थीम के लिए उपयोगकर्ता गाइड</li>
+            <li>टेम्पलेट टैग</li>
+            <li>परिशिष्ट</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">प्रसंग वंशानुक्रम</a>
+          <ul>
+            <li>सिद्धांत</li>
+            <li>सीमायें</li>
+            <li>स्थापित करें</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">टेम्पलेट टैग</a>
+          <ul>
+            <li>सामान्यताएं/उपयोगिताएँ</li>
+            <li>ब्लॉग</li>
+            <li>प्रविष्टियां</li>
+            <li>प्रविष्टियां पृष्ठीकरण</li>
+            <li>टिप्पणी</li>
+            <li>टिप्पणी पूर्वावलोकन</li>
+            <li>पेटिंग्स</li>
+            <li>संलग्नक</li>
+            <li>श्रेणीः</li>
+            <li>टैग</li>
+            <li>अभिलेखागार</li>
+            <li>भाषा</li>
+            <li>तंत्र</li>
+            <li>विजेट्स</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">कोड &amp; प्लगइन्स</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">एक प्लगइन या एक प्रसंग के लिए tpl टैग बनाने</a>
+          <ul>
+            <li>परिचय</li>
+            <li>मान</li>
+            <li>निर्देश खंड</li>
+            <li>टेम्पलेट कैश प्रभाव का प्रदर्शन</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">प्लगइन्स</a>
+          <ul>
+            <li>प्लगिन लिखा जा रहा है</li>
+            <li>परिशिष्ट</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">प्लगइन प्रासंगिक मदद का निर्माण</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">बाह्य प्रमाणीकरण</a>
+          <ul>
+            <li>प्रस्तावना</li>
+            <li>एक नया सत्यापन वर्ग</li>
+            <li>परिदृश्य</li>
+            <li>अनुप्रयोग</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">एक्सएमएल/आरपीसी इंटरफेस</a></li>
+        <li><a href="https://dev.dotclear.org/code/2/">एपीआई दस्तावेज़ीकरण</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">योगदान और समर्थन</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">योगदान</a>
+          <ul>
+            <li>इस दस्तावेज़ को संपादित करें</li>
+            <li>अपनी रचना साझा करें</li>
+            <li>बग रिपोर्ट करें या नई सुविधाओं का सुझाव दें</li>
+            <li>स्थानीयकरण</li>
+          </ul>
+        </li>
+        <li><a href="https://git.dotclear.org/dev/dotclear">डॉटकॉम-स्पष्ट स्रोत कोड भंडार</a></li>
+        <li><a href="https://dotclear.org/forum">डॉटकॉम स्पष्ट मंच</a></li>
+      </ul>
+      <div class="fieldset">
+        <h4 class="smart-title">परिपाटियां</h4>
+        <ul>
+          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">कोडिंग मानक</a></li>
+          <li><a href="index.php?process=HelpCharte">प्रशासन पृष्ठ चार्ट</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part legible" id="a11y-ergo" title="एक्सेसिबिलिटी और एराइनोमी">
+    <h3>एक्सेसिबिलिटी और एराइनोमी</h3>
+    <p>डॉटक्लियर इंटरफ़ेस लगभग सभी <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> मानदंडों को पूरा करता है। हम डॉटक्लियर को <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> दिशा-निर्देशों के साथ संगत बनाने की दिशा में काम कर रहे हैं।</p>
+    <p>सुगमता और अभिगम्यता हमारी मुख्य चिंता का एक हिस्सा है । हम विशेषज्ञों की मदद से नियमित रूप से विश्लेषण करते हैं और लगातार सुधार और संवर्द्धन प्रदान करते हैं.</p>
+    <p>आप <a href="https://git.dotclear.org/dev/dotclear/issues">टिकट</a> खोलकर या <a href="https://dotclear.org/forum/">फोरम</a> में भाग लेकर हमारी मदद कर सकते हैं। आप उपयोगकर्ता परीक्षण में भी भाग ले सकते हैं या हमारी टीम में शामिल हो सकते हैं!</p>
+  </div>
 </body>
+
 </html>

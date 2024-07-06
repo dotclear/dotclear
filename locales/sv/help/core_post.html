@@ -1,129 +1,85 @@
 <html>
+
 <head>
   <title>Redigerar en post</title>
 </head>
 
 <body>
-<h4>Redigerar en post</h4>
-
-<dl>
-  <dt>Postens titel</dt>
-  <dd>Skriv in postens titel. Detta fält är obligatoriskt.</dd>
-  
-  <dt>Utdrag</dt>
-  <dd>The content of this field will be shown in pages showing entries as
-  a list, such as the homepage or categories pages, followed by a "continue reading"
-  link. It will also be visible at the begining of the page showing the
-  whole post. Should you leave it blank, the <em>content</em> field will be shown
-  on the homepage and other entry list pages.</dd>
-  
-  <dt>Innehåll</dt>
-  <dd>Innehållet i din post. Detta fält är obligatoriskt.</dd>
-  
-  <dt>Notes</dt>
-  <dd>This text area is for personal use, for notes or memos. What you enter here
-  will never be displayed on the blog..</dd>
-  
-  <dt>Category</dt>
-  <dd>Låter dig välja status för din post:
-    <ul>
-      <li><strong>Väntande:</strong> Publiceringsstatus har ännu inte beslutats.</li>
-      <li><strong>Schemalagd:</strong> Inlägget kommer att ställas in online vid den tidpunkt och datum som anges i <strong>Publicerad på</strong> fältet.</li>
-      <li><strong>Avpublicerat:</strong> Inlägget är offline.</li>
-      <li><strong>Publicerad:</strong> Inlägget är online.</li>
-    </ul>
-  </dd>
-  
-  <dt>Entry status</dt>
-  <dd>Här kan du ändra postens publiceringsdatum och tid. Om postens
-  status är <strong>Schemalagd</strong>kommer den att vara online vid givet datum och tid.</dd>
-
-  <dt>Published on</dt>
-  <dd>Here you can change the post's publication date and time. If the post's
-  status is <em>scheduled</em>,  it will come online at the said date and time.</dd>
-
-  <dt>Text formating</dt>
-  <dd>To choose the post syntax. Wiki is a simplified syntax
-  and will be converted to valid HTML&nbsp;; Unless you have a perfect
-  understanding of HTML, we advise you to choose the wiki syntax.
-  See the Wiki syntax reference for more information.</dd>
-
-  <dt>Accept comments</dt>
-  <dd>Select this box to allow your visitors to comment the entry. The corresponding
+  <h4>Redigerar en post</h4>
+  <dl>
+    <dt>Postens titel</dt>
+    <dd>Skriv in postens titel. Detta fält är obligatoriskt.</dd>
+    <dt>Utdrag</dt>
+    <dd>The content of this field will be shown in pages showing entries as a list, such as the homepage or categories pages, followed by a "continue reading" link. It will also be visible at the beginning of the page showing the whole post. Should you leave it blank, the <em>content</em> field will be shown entirely on the homepage and other entry list pages.</dd>
+    <dt>Innehåll</dt>
+    <dd>Innehållet i din post. Detta fält är obligatoriskt.</dd>
+    <dt>Notes</dt>
+    <dd>This text area is for personal use, for notes or memos. What you enter here will never be displayed on the blog.</dd>
+    <dt>Category</dt>
+    <dd>Låter dig välja status för din post:
+      <ul>
+        <li><strong>Väntande:</strong> Publiceringsstatus har ännu inte beslutats.</li>
+        <li><strong>Schemalagd:</strong> Inlägget kommer att ställas in online vid den tidpunkt och datum som anges i <strong>Publicerad på</strong> fältet.</li>
+        <li><strong>Avpublicerat:</strong> Inlägget är offline.</li>
+        <li><strong>Publicerad:</strong> Inlägget är online.</li>
+      </ul>
+    </dd>
+    <dt>Entry status</dt>
+    <dd>Here you can change the entry's publication date and time. If the entry's status is <strong>Scheduled</strong>, it will be online at the given date and time.</dd>
+    <dt>Published on</dt>
+    <dd>Select the language code of your entry. It defaults to your (as a user) language but you can change it to whatever language code you want, e.g. "en" or "es-ar". This code is used for the entry's display.</dd>
+    <dt>Text formating</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Accept comments</dt>
+    <dd>Select this box to allow your visitors to comment the entry. The corresponding
   global setting is to be found in the blog settings.</dd>
-
-  <dt>Accept trackbacks</dt>
-  <dd>A trackback is a way to let a portion of your entry as a comment on
-  another blog. Select this box to allow others to trackback your entry. The
-  corresponding global setting is to be found in the blog settings.</dd>
-
-  <dt>Selected entry</dt>
-  <dd>The selected entries will be listed on your blog menu, under the title "Best
+    <dt>Accept trackbacks</dt>
+    <dd>Your entry's category. To create a new category, please see the <strong>Categories</strong> section. You can choose to leave you entry without a category by selecting the <em>(none)</em> item.</dd>
+    <dt>Selected entry</dt>
+    <dd>The selected entries will be listed on your blog menu, under the title "Best
   of me".</dd>
-  
-  <dt>Entry password</dt>
-  <dd>You can enter a password for your entry. A password protected entry will
+    <dt>Entry password</dt>
+    <dd>You can enter a password for your entry. A password protected entry will
   not be displayed on your blog, it will only be reachable to those you will
   give the entry url (see the <em>view entry</em> link) and password.</dd>
-
-  <dt>Basename</dt>
-  <dd>Bilagor är mediefiler som läggs till i posten. Du kan använda knappen <strong>Lägg till filer i denna post</strong> för att välja mediefiler som ska läggas till i posten.<br>
-    Det här alternativet visas när du har sparat din post.<br>
-    Mer information finns i hjälpen för Media Manager.</dd>
-
-  <dt>Entry lang.</dt>
-  <dd>The two character language code of your entry. It defaults to your (as a
+    <dt>Basename</dt>
+    <dd>Attachments are media files added to the entry. You can use the <strong>Add files to this entry</strong> button to select media files to add to the entry.<br>This option will appear after you save your entry.<br>Please check the Media manager help for more information.</dd>
+    <dt>Entry lang.</dt>
+    <dd>The two character language code of your entry. It defaults to your (as a
   user) language but you can change it to whatever language code you want, ie.
   "en" or "fr-qc". This code is used for the entry's display, no chack is made
   on it.</dd>
-
-  <dt>Attachments</dt>
-  <dd>The attachments are all the medias you joined to the entry. The link <em>add
-  file to this entry</em> allows you to attach other files to the entry. Remember
-  to save your changes before clicking on this link. For further information,
-  see the media manager help.</dd>
-  
-  <dt>Lösenord</dt>
-  <dd>Du kan ange ett lösenord för din post. En lösenordsskyddad post kommer
-  inte att visas på din blogg, den kommer endast att vara tillgänglig för de som du kommer
-  ge posten URL till (se länken <strong>visa post</strong> ) och lösenord.</dd>
-
-  <dt>Basnamn</dt>
-  <dd>Du kan avskydda detta fält genom att klicka på det lilla låset till höger och välja en annan URL för din post. Om URL:en du försöker använda redan används av en annan post kommer ett nummer att läggas till i den.</dd>  
-  
-</dl>
-
-<h4>Kommentarer</h4>
-<dl>
-  <dt>Kommentar lista</dt>
-  <dd>On the <em>Comments</em> tab, you can read and change the status of
-  your entry's comments. If you're allowed to by the blog administrator,
-  you will be able to set your comments online or offline, to delete them or
-  to mark them as junk.</dd>
-  
-  <dt>Lägg till en kommentar</dt>
-  <dd>On the <em>Add a comment</em> tab, you can reply to one of your entry's
+    <dt>Attachments</dt>
+    <dd>A trackback is a way to let a portion of your entry as a comment on another blog. Check this box to allow others to trackback your entry. The corresponding global setting is to be found in the blog settings.</dd>
+    <dt>Lösenord</dt>
+    <dd>You can enter a password for your entry. A password protected entry will not be displayed on your blog, it will only be accessible to those you will give the entry URL to (see the <strong>view entry</strong> link) and password.</dd>
+    <dt>Basnamn</dt>
+    <dd>Du kan avskydda detta fält genom att klicka på det lilla låset till höger och välja en annan URL för din post. Om URL:en du försöker använda redan används av en annan post kommer ett nummer att läggas till i den.</dd>
+  </dl>
+  <h4>Kommentarer</h4>
+  <dl>
+    <dt>Kommentar lista</dt>
+    <dd>On the <strong>Comments</strong> tab, you can read and change the status of
+      your entry's comments (and trackbacks). If you're allowed to by the blog administrator, you will be able to set your comments (and trackbacks) online or offline, to delete them or to mark them as junk.</dd>
+    <dt>Lägg till en kommentar</dt>
+    <dd>On the <em>Add a comment</em> tab, you can reply to one of your entry's
   comments without leaving your blog's backend. The syntax to be used here is
   plain, unlimited, HTML. Use the fields as if you were modifying a comment.</dd>
-</dl>
-  
-<h4>Lägg till en kommentar</h4>
-<dl>
-  <dt>URLs to ping</dt>
-  <dd>Paste here the trackback URLs you found in the posts you want to ping.</dd>
-
-  <dt>Send excerpt</dt>
-  <dd>This field defaults to your entry's first few sentences. That's wht will be
+  </dl>
+  <h4>Lägg till en kommentar</h4>
+  <dl>
+    <dt>URLs to ping</dt>
+    <dd>Paste here the trackback URLs you found in the posts you want to ping.</dd>
+    <dt>Send excerpt</dt>
+    <dd>This field defaults to your entry's first few sentences. That's wht will be
   sent to the blog you're pinging, along with a link to your post. You can modify
   the excerpt by editing this field.</dd>
-
-  <dt>Auto discover ping URLs</dt>
-  <dd>If your entries links specific posts and if the blog carrying those posts
+    <dt>Auto discover ping URLs</dt>
+    <dd>If your entries links specific posts and if the blog carrying those posts
   is set to allow it, this tool will find the URLs to ping for you.</dd>
-
-  <dt>Kommentar</dt>
-  <dd>Innehåll i kommentarer. Detta fält använder HTML-syntax.</dd>
-</dl>
-
+    <dt>Kommentar</dt>
+    <dd>Innehåll i kommentarer. Detta fält använder HTML-syntax.</dd>
+  </dl>
 </body>
+
 </html>

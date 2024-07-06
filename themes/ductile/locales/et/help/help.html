@@ -1,83 +1,52 @@
 <html>
-<head>
 
-<title>Plastiline konfiguratsioon</title>
+<head>
+  <title>Plastiline konfiguratsioon</title>
 </head>
 
 <body>
-<p>Ductile teema konfiguratsiooni muutes saate oma teemat väga lihtsalt isikupärastada.</p>
-
-<h3>Sisu isikupärastamine</h3>
-<p>Sellel vahekaardil saate oma blogi sisu isikupärastada.</p>
-<dl>
-  <dt>Pealkiri</dt>
+  <p>Ductile teema konfiguratsiooni muutes saate oma teemat väga lihtsalt isikupärastada.</p>
+  <h3>Sisu isikupärastamine</h3>
+  <p>Sellel vahekaardil saate oma blogi sisu isikupärastada.</p>
+  <dl>
+    <dt>Pealkiri</dt>
     <dd>Märkige ruut "Peida blogi kirjeldus", et mitte kuvada blogi kirjeldust, mis tavaliselt kuvatakse pealkirja all.</dd>
-
-<p>Kui plugin "Simple menu" on paigaldatud ja aktiivne, saate pealkirja menüü seadistamiseks klõpsata selleks ettenähtud lingil. (peamenüü?)</p>
-
-<p>Määrake logo URL, mida soovitakse kasutada vaikimisi logo asemel. Kui URL ei alga tähega <code>/</code>, siis on see suhteline URL teema kaustast <code>img</code> (pane näiteks <code>logo.png</code>, mis on sarnane vaikimisi logo kasutamisele). Tühjendage see väli, et tulla tagasi vaikimisi konfiguratsiooni juurde.</p>
-
-  <dt>Kleebised</dt>
-    <dd>Kleebised kuvatakse suurtel ekraanidel ekraani ülaosas väikeste piltidena ja väga väikestel ekraanidel lehekülje allosas. Kõik pildid, mille failinimi vastab kleebise-*.png skeemile ja mis on paigutatud teema alamkataloogi img, on loetletud. Iga pildi kohta saab märkida sildi ja vastava url-i. (Jätke mõlemad väljad tühjaks, et neid mitte kuvada.)<br />
-Saate kuvamise järjekorda muuta ka lohistamise abil, kui javascript on aktiveeritud ja kui te ei ole seda oma eelistustes keelanud. Kui javascript on deaktiveeritud, võimaldab väli näidata kuvamise järjekorda (1 kuni n).</dd>
-
-  <dt>Ametikohtade loetelude tüübid ja piirangud</dt>
-
-    <dd>Mõned teie blogi kuvakontekstid on esitatud postituste loetelu kujul. See on nii näiteks avalehel või igakuises arhiivis. Iga tabelis loetletud konteksti puhul saate määrata, kas iga kuvatava postituse sisu peaks olema ainult pealkirja, lühivormi (väljavõte väljale esimese 300 tähemärgi sisu) või nende täismahus. NB. Avalehel kuvatakse esimene postitus alati täismahus.<br />
-Lisaks saate mõnede kontekstide puhul määrata ka lehekülje kohta kuvatavate postituste arvu. Kui jätate selle välja tühjaks, kasutatakse blogi üldistes seadetes määratud väärtust, mida kasutatakse.</dd>
-
-</dl>
-
-<h3>Esitluse isikupärastamine</h3>
-<p>Sellel vahekaardil saate oma blogi mõningaid esitluselemente isikupärastada.</p>
-
-<h4>Üldised parameetrid</h4>
-
-<p>Neid parameetreid kasutatakse kõigi blogi kuvamislaiuste puhul.</p>
-<dl>
-  <dt>Kirjatüübid</dt>
+    <p>Kui plugin "Simple menu" on paigaldatud ja aktiivne, saate pealkirja menüü seadistamiseks klõpsata selleks ettenähtud lingil. (peamenüü?)</p>
+    <p>Määrake logo URL, mida soovitakse kasutada vaikimisi logo asemel. Kui URL ei alga tähega <code>/</code>, siis on see suhteline URL teema kaustast <code>img</code> (pane näiteks <code>logo.png</code>, mis on sarnane vaikimisi logo kasutamisele). Tühjendage see väli, et tulla tagasi vaikimisi konfiguratsiooni juurde.</p>
+    <dt>Kleebised</dt>
+    <dd>The stickers will be displayed at the top of the screen as small images on large screens and at the bottom of the page on very small screens. All images which file name correspond to the sticker-*.png scheme and placed in the sub-folder img of the theme are listed. You can indicate for each a label and the corresponding url. (Leave on of both fields empty to not display it.)<br>You can also modify the display order with a drag and drop if javascript is activated and if you have not disabled it in your preferences. If javascript is deactivated, a field allows you to indicate the order of display (1 to n).</dd>
+    <dt>Ametikohtade loetelude tüübid ja piirangud</dt>
+    <dd>Some of the display contexts of your blog present under the form of a list of posts. It's the case for example for the home page or for the monthly archives. For each of the context listed in the table, you can specify if the content of each displayed post should be as a title only, a short form (content of the extract field of first 300 characters) or their full form. NB. On the home page, the first post always displays in full.<br>Moreover, for some of those contexts, you can also specify the number of posts displayed per page. If you leave this field empty, the value specified in the general settings of the blog that will be used.</dd>
+  </dl>
+  <h3>Esitluse isikupärastamine</h3>
+  <p>Sellel vahekaardil saate oma blogi mõningaid esitluselemente isikupärastada.</p>
+  <h4>Üldised parameetrid</h4>
+  <p>Neid parameetreid kasutatakse kõigi blogi kuvamislaiuste puhul.</p>
+  <dl>
+    <dt>Kirjatüübid</dt>
     <dd>Siin saate valida peamise kirjatüübi, mida kasutatakse enamiku tekstide puhul. Saate määrata ka teise kirjatüübi (sekundaarse), mida kasutatakse mõne teise taseme pealkirjade ja kommentaaride puhul. Valik "vaikimisi" võimaldab jätta algse valiku.</dd>
-
-  <dt>Blogi pealkiri</dt>
-
-    <dd>Siin saate määrata, kas blogi pealkiri peab olema rasvases kirjas, selle suuruse (vaikimisi on em, tunnustatud ühikud on %, pt, px, em ja ex) ning värvi, kasutades formaati #rrggbb, kus rr, gg ja bb on valitud 0 ja ff piires.<br />
-Tühjendage üks või kõik väljad, et tühistada oma valik ja minna tagasi vaikimisi.</dd>
-
-
-  <dt>Postituse pealkirjad</dt>
-    <dd>Siin saate märkida, kas postituse pealkirjad tuleks kuvada rasvases kirjas, nende suuruse (vaikimisi em, tunnustatud ühikud on %, pt, px, em ja ex) ning värvi, kasutades värvivalikut, mis on saadaval valiku ikoonile klõpsates või määrates värvi formaadis #rrggbb, kus rr, gg ja bb on valitud 0 ja ff piires.<br />
-Tühjendage üks või kõik väljad, et tühistada oma valik ja minna tagasi algsele valikule.</dd>
-
-  <dt>Ilma lingita pealkirjad</dt>
-    <dd>Siin saate määrata pealkirjade värvi ilma lingita (sisuliselt : postituse pealkiri, kui see kuvatakse iseenesest, postituste allpealkirjad, aktiivne punkt horisontaalmenüüs), kasutades Color Picker'i, mis on saadaval valiku ikoonile klõpsates või määrates värvi formaadis #rrggbb, kus rr, gg ja bb on valitud 0 ja ff piires.<br />
-Tühjendage üks või kõik väljad, et tühistada oma valik ja minna tagasi vaikimisi.</dd>
-
-  <dt>Postitustes olevad lingid</dt>
-    <dd>Siin saate märkida, kas teie postitustes sisalduvad lingid peaksid olema rasvases kirjas või mitte, ning määrata nende värvi nii tavalises kui ka "külastatud" olekus, nende värvi, kui nad on aktiivsed või kui nad on hõljatud või võtavad fookuse, kasutades värvivalikut, mis on saadaval valiku ikoonile klõpsates või määrates värvi formaadis #rrggbb, kus rr, gg ja bb on valitud 0 ja ff piires.<br />
-Tühjendage üks või kõik väljad, et tühistada oma valik ja minna tagasi vaikimisi.</dd>
-
-<h4>Mobiiltelefonide spetsiifilised parameetrid</h4>
-
-<p>Neid parameetreid kasutatakse ainult siis, kui ekraani laius on väiksem kui 480 pikslit (näiteks mobiiltelefonides). Kui need on määratud, asendavad need eespool üldistes parameetrites määratud samaväärseid parameetreid.</p>
-
-  <dt>Blogi pealkiri</dt>
-
-    <dd>Siin saate määrata, kas blogi pealkiri peab olema rasvases kirjas, selle suuruse (vaikimisi on em, tunnustatud ühikud on %, pt, px, em ja ex) ning värvi, kasutades formaati #rrggbb, kus rr, gg ja bb on valitud 0 ja ff piires.<br />
-Tühjendage üks või kõik väljad, et tühistada oma valik ja minna tagasi vaikimisi.</dd>
-
-
-  <dt>Postituse pealkirjad</dt>
-    <dd>Siin saate märkida, kas postituse pealkirjad tuleks kuvada rasvases kirjas, nende suuruse (vaikimisi em, tunnustatud ühikud on %, pt, px, em ja ex) ning värvi, kasutades värvivalikut, mis on saadaval valiku ikoonile klõpsates või määrates värvi formaadis #rrggbb, kus rr, gg ja bb on valitud 0 ja ff piires.<br />
-Tühjendage üks või kõik väljad, et tühistada oma valik ja minna tagasi vaikimisi.</dd>
-
-<h3>Kättesaadavus ja värvide kontrast</h3>
-
-<p>Pärast värvi valimist kuvatakse kontrastsussuhe välja lähedal ja täpsustatakse, et see kontrastsus vastab WCAG 2.0 soovitustele. Selleks, et see oleks kehtiv, peaks kontrast taustavärvi ja kirjavärvi vahel olema järgmised väärtused:</p>
-<ul>
-<li>Vähemalt 4,5:1 normaalse suurusega teksti puhul AA-tasemel ;</li>
-<li>Vähemalt 7:1 normaalse suurusega tekstide puhul AAA-taseme puhul ;</li>
-<li>Vähemalt 3:1 suurendatud tekstide puhul (150 % või 120 % paksus) AA-taseme puhul;</li>
-<li>Vähemalt 4,5:1 suurendatud tekstide puhul (150 % või 120 % paksus) AAA-taseme puhul.</li>
-</ul>
+    <dt>Blogi pealkiri</dt>
+    <dd>You can specify here if the blog title must be displayed in bold, its size, (default is em, recognized units are %, pt, px, em and ex) as well as the color, using the format #rrggbb with rr, gg and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>Postituse pealkirjad</dt>
+    <dd>You can indicate here if the post titles should be displayed in bold, their size (default is em, recognized units are %, pt, px, em and ex) as well as their color using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to your original one.</dd>
+    <dt>Ilma lingita pealkirjad</dt>
+    <dd>You can specify here the color of titles without a link (essentially : the title of a post when it is displayed by itself, sub-titles within posts, the active item in the horizontal menu) by using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>Postitustes olevad lingid</dt>
+    <dd>You can indicate here if the links contained in your posts should be displayed in bold or not and define their color at a normal state as well as a "visited" state, their color when active, or when they're hovered upon or take focus, by using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <h4>Mobiiltelefonide spetsiifilised parameetrid</h4>
+    <p>Neid parameetreid kasutatakse ainult siis, kui ekraani laius on väiksem kui 480 pikslit (näiteks mobiiltelefonides). Kui need on määratud, asendavad need eespool üldistes parameetrites määratud samaväärseid parameetreid.</p>
+    <dt>Blogi pealkiri</dt>
+    <dd>You can specify here if the blog title must be displayed in bold, its size, (default is em, recognized units are %, pt, px, em and ex) as well as the color, using the format #rrggbb with rr, gg and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <dt>Postituse pealkirjad</dt>
+    <dd>You can indicate here if the post titles should be displayed in bold, their size (default is em, recognized units are %, pt, px, em and ex) as well as their color using the Color Picker available by clicking on the picker icon or by specifying the color in the format #rrggbb with rr, gg, and bb chosen within 0 and ff.<br>Empty one or all fields to cancel your choice and go back to the default.</dd>
+    <h3>Kättesaadavus ja värvide kontrast</h3>
+    <p>Pärast värvi valimist kuvatakse kontrastsussuhe välja lähedal ja täpsustatakse, et see kontrastsus vastab WCAG 2.0 soovitustele. Selleks, et see oleks kehtiv, peaks kontrast taustavärvi ja kirjavärvi vahel olema järgmised väärtused:</p>
+    <ul>
+      <li>Vähemalt 4,5:1 normaalse suurusega teksti puhul AA-tasemel ;</li>
+      <li>Vähemalt 7:1 normaalse suurusega tekstide puhul AAA-taseme puhul ;</li>
+      <li>Vähemalt 3:1 suurendatud tekstide puhul (150 % või 120 % paksus) AA-taseme puhul;</li>
+      <li>Vähemalt 4,5:1 suurendatud tekstide puhul (150 % või 120 % paksus) AAA-taseme puhul.</li>
+    </ul>
 </body>
+
 </html>

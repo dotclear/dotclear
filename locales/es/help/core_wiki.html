@@ -1,97 +1,77 @@
 <html>
+
 <head>
   <title>Referencia de la sintaxis wiki</title>
 </head>
 
 <body>
-
-<h4>Referencia sintáctica wiki</h4>
-
-<p>La sintaxis wiki es una manera de escribir texto con un conjunto de etiquetas
-reducido al mínimo, que permite cubrir las necesidades más habituales
-(títulos, párrafos, citas, listas...).</p>
-
-<dl>
-<dt>Elementos de bloque</dt>
-<dd>
-<ul>
-  <li>Deje una línea en blanco entre cada bloque de la misma naturaleza.</li>
-  <li><strong>Párrafo</strong>: texto libre, terminado por una línea en blanco
-  si va seguido de otro párrafo.</li>
-  <li><strong>Título</strong>: <code>!!! título</code>, <code>!! título</code>
-  o <code>! título</code> según los títulos sean más o menos importantes.</li>
-  <li><strong>Línea horizontal</strong>: <code>----</code></li>
-  <li><strong>Listas</strong>: Inicie cada línea con <code>*</code> para las
-  listas no numeradas, o con <code>#</code> para las listas numeradas. Puede
-  anidar listas mezclando los códigos de lista. Por ejemplo:
-  <pre>
+  <h4>Referencia sintáctica wiki</h4>
+  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <dl>
+    <dt>Elementos de bloque</dt>
+    <dd>
+      <ul>
+        <li>Deje una línea en blanco entre cada bloque de la misma naturaleza.</li>
+        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
+        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Línea horizontal</strong>: <code>----</code></li>
+        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+          <pre>
     <code>*</code> * elemento 1
 ** elemento 1.1
 * elemento 2
 *# elemento 2.1
 ...
   </pre>
-  </li>
-  <li><strong>Listas de definiciones:</strong> Comience cada línea con <code>=</code> para el término a definir y con <code>:</code> para la definición del término.
-  <pre>
+        </li>
+        <li><strong>Listas de definiciones:</strong> Comience cada línea con <code>=</code> para el término a definir y con <code>:</code> para la definición del término.
+          <pre>
   <code>=</code> término
   <code>:</code> descripción del término
   </pre>
-  </li>
-  <li><strong>Bloque de cita</strong>: cada línea debe empezar con <code>&gt;</code>.</li>
-  <li><strong>Cita en bloque:</strong> Cada línea debe empezar por <code>&gt;</code>.</li>
-  <li><strong>Bloque lateral:</strong> Cada línea debe empezar por <code>)</code>.</li>
-</ul>
-</dd>
-
-<dt>Elementos de formato</dt>
-<dd>
-<ul>
-  <li><strong>Énfasis</strong>: dos apóstrofes <code>''texto''</code></li>
-  <li><strong>Énfasis enérgico</strong>: dos guiones bajos <code>__texto__</code></li>
-  <li><strong>Salto de línea</strong>:</li>
-  <li><strong>Inserción</strong>: dos signos de más <code>++texto++</code> <code>%%%</code></li>
-  <li><strong>Supresión</strong>: dos signos de menos <code>--texto--</code></li>
-  <li><strong>Enlace</strong>: <code>[url]</code>, <code>[nombre|url]</code>,
+        </li>
+        <li><strong>Bloque de cita</strong>: cada línea debe empezar con <code>&gt;</code>.</li>
+        <li><strong>Cita en bloque:</strong> Cada línea debe empezar por <code>&gt;</code>.</li>
+        <li><strong>Bloque lateral:</strong> Cada línea debe empezar por <code>)</code>.</li>
+      </ul>
+    </dd>
+    <dt>Elementos de formato</dt>
+    <dd>
+      <ul>
+        <li><strong>Énfasis</strong>: dos apóstrofes <code>''texto''</code></li>
+        <li><strong>Énfasis enérgico</strong>: dos guiones bajos <code>__texto__</code></li>
+        <li><strong>Salto de línea</strong>:</li>
+        <li><strong>Inserción</strong>: dos signos de más <code>++texto++</code> <code>%%%</code></li>
+        <li><strong>Supresión</strong>: dos signos de menos <code>--texto--</code></li>
+        <li><strong>Enlace</strong>: <code>[url]</code>, <code>[nombre|url]</code>,
     <code>[nombre|url|idioma]</code> o <code>[nombre|url|idioma|título]</code></li>
-  <li><strong>Imagen</strong>:
-    <code>((url|texto alternativo))</code>,
-    <code>((url|texto alternativo|posición))</code> ou
-    <code>((url|texto alternativo|posición|descripción larga))</code>.
-    <br />La posición puede tomar los valores L o G (izquierda), R o D (derecha) o C (centrado).</li>
-  <li><strong>Imagen:</strong>
-    <code>((url|texto alternativo))</code>,
-    <code>((url|texto alternativo|posición))</code> o
-    <code>((url|texto alternativo|posición|descripción larga))</code>.
-    <br>La posición puede ser L (izquierda), R (derecha) o C (centrado).</li>
-  <li><strong>Acrónimo</strong>: <code>??acrónimo|título??</code></li>
-  <li><strong>Código HTML en línea</strong>: dos acentos graves <code>``código HTML``</code></li>
-  <li><strong>Cita en línea</strong>: <code>{{cita}}</code>,
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
+        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Acrónimo</strong>: <code>??acrónimo|título??</code></li>
+        <li><strong>Código HTML en línea</strong>: dos acentos graves <code>``código HTML``</code></li>
+        <li><strong>Cita en línea</strong>: <code>{{cita}}</code>,
     <code>{{cita|idioma}}</code> o <code>{{cita|idioma|url}}</code></li>
-  <li><strong>Código</strong>: <code>@@código@@</code></li>
-  <li><strong>Nota a pie de página</strong>: <code>$$Cuerpo de la nota$$</code></li>
-  <li><strong>Notas a pie de página:</strong> <code>$$footnote$$</code></li>
-  <li><strong>Superíndice</strong>&nbsp;: <code>^superíndice^</code></li>
-  <li><strong>Subíndice</strong>&nbsp;: <code>,,subíndice,,</code></li>
-</ul>
-</dd>
-
-<dt>Texto no formateado</dt>
-<dd>Para insertar un carácter sin que sea reconocido como un carácter de formato,
-añada el carácter <code>\</code> antes de él. Por ejemplo:
-<code>\[texto entre corchetes que no es un enlace\]</code>
-</dd>
-
-<dt>Inserción de código HTML</dt>
-<dd>Puede que ocasionalmente necesite insertar código HTML en su texto en formato wiki.
-Para ello, utilice el siguiente código:
-<pre>
+        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Nota a pie de página</strong>: <code>$$Cuerpo de la nota$$</code></li>
+        <li><strong>Notas a pie de página:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Superíndice</strong>&nbsp;: <code>^superíndice^</code></li>
+        <li><strong>Subíndice</strong>&nbsp;: <code>,,subíndice,,</code></li>
+      </ul>
+    </dd>
+    <dt>Texto no formateado</dt>
+    <dd>If you don't want one formatting character to be interpreted as such, add a
+      <code>\</code> just before it. For instance:
+      <code>\[Text in brackets without being a link\]</code>
+    </dd>
+    <dt>Inserción de código HTML</dt>
+    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+      <pre>
 ///html
 &lt;p style="color:red"&gt;mi texto en rojo&lt;/p&gt;
 ///
 </pre>
-</dd>
-</dl>
-
+    </dd>
+  </dl>
 </body>
+
 </html>

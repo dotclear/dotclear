@@ -1,131 +1,87 @@
 <html>
+
 <head>
   <title>Preferencias de usuario</title>
 </head>
 
 <body>
-
-<h4>Mi perfil</h4>
-<dl>
-  <dt>Apellidos, nombre</dt>
-  <dd>Si no se rellena el pseudónimo, el nombre del autor que se mostrará
-  estará compuesto del nombre y apellidos indicados en estos campos.</dd>
-  
-  <dt>Pseudónimo</dt>
-  <dd>Aquí puede elegir el nombre bajo el cual se firmarán sus entradas.</dd>
-  
-  <dt>Correo electrónico</dt>
-  <dd>Dirección de correo electrónico utilizada para solicitar una nueva contraseña.<br>
-    Las notificaciones de nuevos comentarios también se enviarán a esta dirección.<em>(Si actualiza
-  este campo, deberá introducir su contraseña actual en el campo correspondiente de la parte inferior del formulario)</em></dd>
-  
-  <dt>URL</dt>
-  <dd>Indica el sitio web del usuario. Si se indica, el nombre del redactor de
-  una entrada se presentará como un enlace hacia el sitio indicado.</dd>
-  
-  <dt>Formato de edición preferido</dt>
-  <dd>Elección de la sintaxis predeterminada para la redacción de entradas.
-  La de wiki es una sintaxis simplificada y se convertirá en HTML váido; salvo que
-  domine perfectamente el HTML, es aconsejable elegir wiki.</dd>
-  
-  <dt>Estado predeterminado de las entradas</dt>
-  <dd>Esa elección definirá la hora mostrada en la publicación del post.</dd>
-  
-  <dt>Tamaño de la zona de edición</dt>
-  <dd>Establece la altura de la zona de edición de la entrada.
-  Por omisión es 24.</dd>
-</dl>
-
-
-<h4>Mis opciones</h4>
-<h5>Interfaz</h5>
-<dl>  
-  <dt>Activar el cargador mejorado en el gestor multimedia</dt>
-  <dd>Permite activar la interfaz avanzada en el gestor multimedia que permite a 
-  cargar varios archivos a la vez (Nota: Su navegador web debe soportar Javascript 
-  para poder utilizar esta función).</dd>
-
-  <dt>Desactivar la función de arrastrar y soltar con Javascript para pedir artículos</dt>
-  <dd>Permite deshabilitar "arrastrar y soltar" para ordenar artículos. Arrastrar y soltar será 
-  sustituido por campos numéricos que le permitirán introducir la posición de los campos en su lugar.</dd>
-
-  <dt>Número de elementos mostrados por página en el gestor multimedia</dt>
-  <dd>Define el número de medios que se mostrarán en el gestor de medios (las carpetas
-  no se tienen en cuenta a la hora de contar los elementos).</dd>
-  
-  <dt>No utilice el favicon estándar</dt>
-  <dd>Permite desactivar el favicon por defecto en la barra de direcciones del navegador Web.</dd>
-</dl>
-
-<h5>Edición</h5>
-<dl>    
-  <dt>Formato preferido</dt>
-  <dd>Elige la sintaxis de la entrada. Wiki es una sintaxis simplificada
-  y se convertirá en HTML válido. A menos que tengas un perfecto conocimiento de HTML en
-  , te aconsejamos que elijas la sintaxis Wiki.
-  Consulta la referencia de sintaxis Wiki para más información.</dd>
-  
-  <dt>Estado predeterminado de las entradas</dt>
-  <dd>El estado por defecto para las nuevas entradas se puede establecer en:
-    <ul>
-      <li><strong>Pendiente:</strong> El estado de publicación aún no se ha decidido.</li>
-      <li><strong>Programada:</strong> La entrada se pondrá en línea a la hora y fecha indicadas en el campo <strong>Publicado en</strong> .</li>
-      <li><strong>No publicado:</strong> Entrada sin conexión.</li>
-      <li><strong>Publicado:</strong> Entrada en línea.</li>
-    </ul>
-  </dd>
-  
-  <dt>Tamaño de la zona de edición</dt>
-  <dd>Establece la altura del campo de edición de una entrada. Por defecto, este parámetro se establece en 24.</dd>
-  
-  <dt>Habilitar el modo WYSIWYG</dt>
-  <dd>Permite el uso del editor visual (WYSIWYG: What You See Is What You Get) para los campos de descripción de entradas, páginas y categorías.</dd>
-</dl>
-
-<h5>Otras opciones</h5>
-<dl>
-  <dt>Formato de la lista de etiquetas</dt>
-  <dd>Puede seleccionar si desea ver, mientras edita una entrada, todas las etiquetas utilizadas (<strong>Extendido</strong>) o sólo las más utilizadas (<strong>Corto</strong>).</dd>
-
-  <dt>Resaltado de sintaxis en el editor de temas</dt>
-  <dd>Habilita el resaltado de sintaxis al utilizar el editor de temas (archivos HTML y CSS).</dd>     
-</dl>
-
-
-<h4>Mi cuadro de mandos</h4>
-<dl>
-  <dt>Mis favoritos</dt>
-  <dd>Esta zona muestra los favoritos elegidos en el tablero del blog. 
-  Se pueden reordenar con el ratón si Javascript está activado en su navegador. 
-  En caso contrario, un campo permite darles un número de pedido. Cuando haya terminado, no olvide guardar los cambios pulsando <strong>Guardar pedido</strong>.<br>
-  También puede eliminar favoritos seleccionándolos y pulsando <strong>Eliminar favoritos seleccionados</strong>.</dd>
-  
-  <dt>Definir como favoritos por defecto (superadministrador)</dt> 
-  <dd>Permite establecer la lista de favoritos definida actualmente como lista de favoritos por defecto para todos los usuarios. Esta lista se propondrá a los usuarios si aún no han definido sus propios favoritos.</dd>
-
-  <dt>Otros favoritos disponibles</dt>
-  <dd>Aquí se muestran todos los plugins que se pueden poner como favoritos. Marque las casillas correspondientes y añádalos al panel de control pulsando <strong>Añadir a mis favoritos</strong>.</dd>
-
-  <dt>Mostrar favoritos en la parte superior del menú</dt>
-  <dd>Si está activada, muestra los favoritos en la parte superior del menú.</dd>
-
-  <dt>Módulos del cuadro de mandos</dt>
-  <dd>Las elecciones realizadas en esta zona se reflejarán en el panel de control de su blog.</dd>
-  
-  <dt>Mostrar enlaces de documentación</dt>
-  <dd>Habilitar para mostrar enlaces de documentación en la página de destino del salpicadero.</dd>
-  
-  <dt>Mostrar noticias de Dotclear</dt>
-  <dd>Habilitar para mostrar las noticias de Dotclear en la página de inicio del salpicadero.</dd>
-
-  <dt>Mostrar formulario de entrada rápida</dt>
-  <dd>Habilitar para mostrar el formulario de "entrada rápida" en la página de destino del salpicadero.</dd>
-
-  <dt>Visualización del contador de tareas atrasadas en el icono del cuadro de mandos de mantenimiento</dt>
-  <dd>Permite mostrar el número de tareas atrasadas (es decir, que deben procesarse) bajo el icono <strong>Mantenimiento</strong> . <strong>El icono Mantenimiento</strong> debe estar configurado en sus favoritos para poder utilizar esta función.</dd>
-
-  <dt>Mostrar la lista de tareas pendientes en los elementos del cuadro de mandos</dt>
-  <dd>Habilitar para mostrar la lista de tareas atrasadas (es decir, que deben ser procesadas) en una sección dedicada en la página de inicio del Tablero.</dd>
-</dl>
+  <h4>Mi perfil</h4>
+  <dl>
+    <dt>Apellidos, nombre</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Pseudónimo</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>Correo electrónico</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Formato de edición preferido</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Estado predeterminado de las entradas</dt>
+    <dd>Esa elección definirá la hora mostrada en la publicación del post.</dd>
+    <dt>Tamaño de la zona de edición</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Mis opciones</h4>
+  <h5>Interfaz</h5>
+  <dl>
+    <dt>Activar el cargador mejorado en el gestor multimedia</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Desactivar la función de arrastrar y soltar con Javascript para pedir artículos</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Número de elementos mostrados por página en el gestor multimedia</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>No utilice el favicon estándar</dt>
+    <dd>Permite desactivar el favicon por defecto en la barra de direcciones del navegador Web.</dd>
+  </dl>
+  <h5>Edición</h5>
+  <dl>
+    <dt>Formato preferido</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Estado predeterminado de las entradas</dt>
+    <dd>El estado por defecto para las nuevas entradas se puede establecer en:
+      <ul>
+        <li><strong>Pendiente:</strong> El estado de publicación aún no se ha decidido.</li>
+        <li><strong>Programada:</strong> La entrada se pondrá en línea a la hora y fecha indicadas en el campo <strong>Publicado en</strong> .</li>
+        <li><strong>No publicado:</strong> Entrada sin conexión.</li>
+        <li><strong>Publicado:</strong> Entrada en línea.</li>
+      </ul>
+    </dd>
+    <dt>Tamaño de la zona de edición</dt>
+    <dd>Establece la altura del campo de edición de una entrada. Por defecto, este parámetro se establece en 24.</dd>
+    <dt>Habilitar el modo WYSIWYG</dt>
+    <dd>Permite el uso del editor visual (WYSIWYG: What You See Is What You Get) para los campos de descripción de entradas, páginas y categorías.</dd>
+  </dl>
+  <h5>Otras opciones</h5>
+  <dl>
+    <dt>Formato de la lista de etiquetas</dt>
+    <dd>Puede seleccionar si desea ver, mientras edita una entrada, todas las etiquetas utilizadas (<strong>Extendido</strong>) o sólo las más utilizadas (<strong>Corto</strong>).</dd>
+    <dt>Resaltado de sintaxis en el editor de temas</dt>
+    <dd>Habilita el resaltado de sintaxis al utilizar el editor de temas (archivos HTML y CSS).</dd>
+  </dl>
+  <h4>Mi cuadro de mandos</h4>
+  <dl>
+    <dt>Mis favoritos</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Definir como favoritos por defecto (superadministrador)</dt>
+    <dd>Permite establecer la lista de favoritos definida actualmente como lista de favoritos por defecto para todos los usuarios. Esta lista se propondrá a los usuarios si aún no han definido sus propios favoritos.</dd>
+    <dt>Otros favoritos disponibles</dt>
+    <dd>Aquí se muestran todos los plugins que se pueden poner como favoritos. Marque las casillas correspondientes y añádalos al panel de control pulsando <strong>Añadir a mis favoritos</strong>.</dd>
+    <dt>Mostrar favoritos en la parte superior del menú</dt>
+    <dd>Si está activada, muestra los favoritos en la parte superior del menú.</dd>
+    <dt>Módulos del cuadro de mandos</dt>
+    <dd>Las elecciones realizadas en esta zona se reflejarán en el panel de control de su blog.</dd>
+    <dt>Mostrar enlaces de documentación</dt>
+    <dd>Habilitar para mostrar enlaces de documentación en la página de destino del salpicadero.</dd>
+    <dt>Mostrar noticias de Dotclear</dt>
+    <dd>Habilitar para mostrar las noticias de Dotclear en la página de inicio del salpicadero.</dd>
+    <dt>Mostrar formulario de entrada rápida</dt>
+    <dd>Habilitar para mostrar el formulario de "entrada rápida" en la página de destino del salpicadero.</dd>
+    <dt>Visualización del contador de tareas atrasadas en el icono del cuadro de mandos de mantenimiento</dt>
+    <dd>Permite mostrar el número de tareas atrasadas (es decir, que deben procesarse) bajo el icono <strong>Mantenimiento</strong> . <strong>El icono Mantenimiento</strong> debe estar configurado en sus favoritos para poder utilizar esta función.</dd>
+    <dt>Mostrar la lista de tareas pendientes en los elementos del cuadro de mandos</dt>
+    <dd>Habilitar para mostrar la lista de tareas atrasadas (es decir, que deben ser procesadas) en una sección dedicada en la página de inicio del Tablero.</dd>
+  </dl>
 </body>
+
 </html>

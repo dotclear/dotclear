@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>用户</title>
-  </head>
-  <body>
-    <p>这个页面列出了系统中的所有用户。</p>
-    <p>要添加（或修改）用户的权限，在 <strong>你的密码</strong> ，你的密码将被要求。</p>
 
-    <h4>用户列表过滤器</h4>
-    <dl>
-      <dt>搜索</dt>
-      <dd>搜索是基于用户ID的。 <strong>*</strong> 通配符可以用来只查找用户ID的一部分。</dd>
+<head>
+  <title>用户</title>
+</head>
 
-      <dt>订购方式</dt>
-      <dd>用户列表可以按照他们的 <em>ID</em>、他们的 <em>Last Name</em>、他们的 <em>First Name</em>、他们的 <em>Display Name</em> （昵称）或他们创建的 <em>Number of Entries</em> 来排序。</dd>
+<body>
+  <p>这个页面列出了系统中的所有用户。</p>
+  <p>要添加（或修改）用户的权限，在 <strong>你的密码</strong> ，你的密码将被要求。</p>
+  <h4>用户列表过滤器</h4>
+  <dl>
+    <dt>搜索</dt>
+    <dd>搜索是基于用户ID的。 <strong>*</strong> 通配符可以用来只查找用户ID的一部分。</dd>
+    <dt>订购方式</dt>
+    <dd>用户列表可以按照他们的 <em>ID</em>、他们的 <em>Last Name</em>、他们的 <em>First Name</em>、他们的 <em>Display Name</em> （昵称）或他们创建的 <em>Number of Entries</em> 来排序。</dd>
+    <dt>分类</dt>
+    <dd>表示将应用于结果列表的排序方法（<em>Ascending</em> 或 <em>Descending</em>）。</dd>
+    <dt>每页用户数</dt>
+    <dd>设置结果列表中每页显示的用户数。</dd>
+  </dl>
+  <h4>用户批量行动</h4>
+  <p>可以在同一时间对几个用户进行批量操作。</p>
+  <ul>
+    <li><strong>设置权限：</strong> 为一个或多个博客设置权限。</li>
+    <li><strong>删除：</strong> 从系统中删除所选用户。创建条目的用户不能被删除。</li>
+  </ul>
+  <p>如果你决定设置用户的权限，你会被转到一个新的页面，列出你系统中的可用博客。勾选你想设置权限的博客，然后按 <strong>设置权限</strong>。</p>
+  <h4>用户权限</h4>
+  <p>对于每个博客，你可以设置以下权限：</p>
+  <ul>
+    <li><strong>管理员：</strong> 可以完全管理该博客。</li>
+    <li><strong>管理他们自己的条目和评论：</strong> 用户可以创建条目并管理他所创建的条目的评论。</li>
+    <li><strong>发布条目和评论：</strong> 用户可以修改他自己的条目和他的条目评论的发布状态。</li>
+    <li><strong>删除条目和评论：</strong> 用户可以删除自己的条目以及他的条目评论。</li>
+    <li><strong>管理所有条目和评论：</strong> 用户可以管理这个博客的所有条目，无论他是否是作者。</li>
+    <li><strong>管理类别：</strong> 用户可以创建、修改和删除类别。</li>
+    <li><strong>管理他们自己的媒体项目：</strong> 用户可以添加媒体项目并修改或删除自己的媒体。</li>
+    <li><strong>管理所有媒体项目：</strong> 用户可以管理来自任何用户的媒体项目。</li>
+    <li><strong>管理页面：</strong> 用户可以添加和修改页面。</li>
+    <li><strong>管理博客列表：</strong> 用户可以管理当前博客的博客列表。</li>
+  </ul>
+  <p><strong>超级管理员</strong> 状态是在用户配置文件中设置的。</p>
+</body>
 
-      <dt>分类</dt>
-      <dd>表示将应用于结果列表的排序方法（<em>Ascending</em> 或 <em>Descending</em>）。</dd>
-
-      <dt>每页用户数</dt>
-      <dd>设置结果列表中每页显示的用户数。</dd>
-    </dl>
-
-    <h4>用户批量行动</h4>
-    <p>可以在同一时间对几个用户进行批量操作。</p>
-    <ul>
-      <li><strong>设置权限：</strong> 为一个或多个博客设置权限。</li>
-      <li><strong>删除：</strong> 从系统中删除所选用户。创建条目的用户不能被删除。</li>
-    </ul>
-    <p>如果你决定设置用户的权限，你会被转到一个新的页面，列出你系统中的可用博客。勾选你想设置权限的博客，然后按 <strong>设置权限</strong>。</p>
-
-    <h4>用户权限</h4>
-    <p>对于每个博客，你可以设置以下权限：</p>
-    <ul>
-      <li><strong>管理员：</strong> 可以完全管理该博客。</li>
-      <li><strong>管理他们自己的条目和评论：</strong> 用户可以创建条目并管理他所创建的条目的评论。</li>
-      <li><strong>发布条目和评论：</strong> 用户可以修改他自己的条目和他的条目评论的发布状态。</li>
-      <li><strong>删除条目和评论：</strong> 用户可以删除自己的条目以及他的条目评论。</li>
-      <li><strong>管理所有条目和评论：</strong> 用户可以管理这个博客的所有条目，无论他是否是作者。</li>
-      <li><strong>管理类别：</strong> 用户可以创建、修改和删除类别。</li>
-      <li><strong>管理他们自己的媒体项目：</strong> 用户可以添加媒体项目并修改或删除自己的媒体。</li>
-      <li><strong>管理所有媒体项目：</strong> 用户可以管理来自任何用户的媒体项目。</li>
-      <li><strong>管理页面：</strong> 用户可以添加和修改页面。</li>
-      <li><strong>管理博客列表：</strong> 用户可以管理当前博客的博客列表。</li>
-    </ul>
-    <p><strong>超级管理员</strong> 状态是在用户配置文件中设置的。</p>
-  </body>
 </html>

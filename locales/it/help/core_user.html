@@ -1,70 +1,55 @@
 <html>
+
 <head>
   <title>Utente</title>
 </head>
 
 <body>
-
-<h4>Profilo utente</h4>
-<dl>
-  <dt>Id Utente</dt>
-  <dd>Almeno 2 caratteri usando lettere, numeri o simboli (senza spazio). Questo campo è obbligatorio.</dd>
-
-  <dt>Nuova password</dt>
-  <dd>Se vuoi cambiare la tua password, inserisci la nuova password due volte nei campi <strong>Nuova password</strong> e <strong>Conferma password</strong> . Le password devono contenere almeno 6 caratteri. Entrambi i campi sono obbligatori.</dd>
-
-  <dt>Necessaria modifica della password per connettersi</dt>
-  <dd>Marca questa casella in modo che un nuovo utente debba scegliere la propria password quando si connetterà.</dd>
-
-  <dt>Super amministratore</dt>
-  <dd>Questo darà all'utente corrente tutte le autorizzazioni su tutti i blog ospitati sul sistema.</dd>
-  
-  <dt>Cognome, nome</dt>
-  <dd>Se non viene fornito alcun nome visualizzato, il nome dell'autore visualizzato conterrà il cognome e il nome inserito in questi due campi.</dd>
-
-  <dt>Nome visualizzato</dt>
-  <dd>Puoi selezionare il nickname che vuoi usare per firmare i tuoi articoli. Se non vuoto, questo campo sarà usato al posto del cognome e del nome campi.</dd>
-
-  <dt>Email</dt>
-  <dd>Questo indirizzo e-mail verrà utilizzato se è necessario recuperare la password dalla schermata di autenticazione di Dotcleare.</dd>
-
-  <dt>URL</dt>
-  <dd>Indica il sito web dell'utente. Se questo campo non è vuoto, il nome dell'autore diventerà un link cliccabile a questo sito web.</dd>
-</dl>
-
-<h4>Opzioni</h4>
-<h5>Interfaccia</h5>
-<dl>
-  <dt>Lingua</dt>
-  <dd>Imposta la lingua predefinita per le nuove voci. Se è disponibile una traduzione per questa lingua, anche l'interfaccia del blog verrà tradotta in questa lingua.</dd>
-
-  <dt>Timezone</dt>
-  <dd>Questa opzione influisce sul modo in cui viene visualizzato il tempo di pubblicazione delle voci.</dd>
-</dl>
-
-<h5>Edizione</h5>
-<dl>  
-  <dt>Formato preferito</dt>
-  <dd>Scegli la sintassi della voce. Wiki è una sintassi semplificata
-  e verrà convertita in HTML valido. A meno che tu non abbia una perfetta
-  comprensione di HTML, ti consigliamo di scegliere la sintassi Wiki.
-  Vedi il riferimento alla sintassi Wiki per maggiori informazioni.</dd>
-  
-  <dt>Stato della voce predefinita</dt>
-  <dd>Lo stato predefinito per le nuove voci può essere impostato su:
-    <ul>
-      <li><strong>In attesa:</strong> Lo stato di pubblicazione non è stato ancora deciso.</li>
-      <li><strong>Scheduled:</strong> The entry will be set online at the time and date provided in the <strong>Published on</strong> field.</li>
-      <li><strong>Non pubblicato:</strong> Voce offline.</li>
-      <li><strong>Pubblicato:</strong> Voce online.</li>
-    </ul>
-  </dd>
-
-  <dt>Altezza campo modifica immissione</dt>
-  <dd>Imposta l'altezza del campo di edizione di una voce. Per impostazione predefinita, questo parametro è impostato a 24.</dd>
-
-  <dt>Formato elenco etichette</dt>
-  <dd>Puoi selezionare se vuoi vedere, mentre modifichi una voce, tutti i tag utilizzati (<strong>Extended</strong>) o solo quelli più utilizzati (<strong>Short</strong>).</dd>
-</dl>
+  <h4>Profilo utente</h4>
+  <dl>
+    <dt>Id Utente</dt>
+    <dd>Almeno 2 caratteri usando lettere, numeri o simboli (senza spazio). Questo campo è obbligatorio.</dd>
+    <dt>Nuova password</dt>
+    <dd>Se vuoi cambiare la tua password, inserisci la nuova password due volte nei campi <strong>Nuova password</strong> e <strong>Conferma password</strong> . Le password devono contenere almeno 6 caratteri. Entrambi i campi sono obbligatori.</dd>
+    <dt>Necessaria modifica della password per connettersi</dt>
+    <dd>Marca questa casella in modo che un nuovo utente debba scegliere la propria password quando si connetterà.</dd>
+    <dt>Super amministratore</dt>
+    <dd>Questo darà all'utente corrente tutte le autorizzazioni su tutti i blog ospitati sul sistema.</dd>
+    <dt>Cognome, nome</dt>
+    <dd>Se non viene fornito alcun nome visualizzato, il nome dell'autore visualizzato conterrà il cognome e il nome inserito in questi due campi.</dd>
+    <dt>Nome visualizzato</dt>
+    <dd>Puoi selezionare il nickname che vuoi usare per firmare i tuoi articoli. Se non vuoto, questo campo sarà usato al posto del cognome e del nome campi.</dd>
+    <dt>Email</dt>
+    <dd>Questo indirizzo e-mail verrà utilizzato se è necessario recuperare la password dalla schermata di autenticazione di Dotcleare.</dd>
+    <dt>URL</dt>
+    <dd>Indica il sito web dell'utente. Se questo campo non è vuoto, il nome dell'autore diventerà un link cliccabile a questo sito web.</dd>
+  </dl>
+  <h4>Opzioni</h4>
+  <h5>Interfaccia</h5>
+  <dl>
+    <dt>Lingua</dt>
+    <dd>Imposta la lingua predefinita per le nuove voci. Se è disponibile una traduzione per questa lingua, anche l'interfaccia del blog verrà tradotta in questa lingua.</dd>
+    <dt>Timezone</dt>
+    <dd>Questa opzione influisce sul modo in cui viene visualizzato il tempo di pubblicazione delle voci.</dd>
+  </dl>
+  <h5>Edizione</h5>
+  <dl>
+    <dt>Formato preferito</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Stato della voce predefinita</dt>
+    <dd>Lo stato predefinito per le nuove voci può essere impostato su:
+      <ul>
+        <li><strong>In attesa:</strong> Lo stato di pubblicazione non è stato ancora deciso.</li>
+        <li><strong>Scheduled:</strong> The entry will be set online at the time and date provided in the <strong>Published on</strong> field.</li>
+        <li><strong>Non pubblicato:</strong> Voce offline.</li>
+        <li><strong>Pubblicato:</strong> Voce online.</li>
+      </ul>
+    </dd>
+    <dt>Altezza campo modifica immissione</dt>
+    <dd>Imposta l'altezza del campo di edizione di una voce. Per impostazione predefinita, questo parametro è impostato a 24.</dd>
+    <dt>Formato elenco etichette</dt>
+    <dd>Puoi selezionare se vuoi vedere, mentre modifichi una voce, tutti i tag utilizzati (<strong>Extended</strong>) o solo quelli più utilizzati (<strong>Short</strong>).</dd>
+  </dl>
 </body>
+
 </html>

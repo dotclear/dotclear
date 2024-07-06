@@ -1,209 +1,155 @@
 <html>
+
 <head>
   <title>Blog indstillinger</title>
 </head>
 
 <body>
-<h4>Blog detaljer</h4>
-<dl>
-  <dt>Blog ID</dt>
-  <dd>Unikt ID på bloggen. Obligatorisk, kan kun ændres af en superadministrator.</dd>
-
-  <dt>Blog navn</dt>
-  <dd>Name of the blog, mandatory.</dd>
-
-  <dt>Blog URL</dt>
-  <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
-
-  <dt>Blog status</dt>
-  <dd>Definerer måden URL'en læses på. PATH_INFO anbefales, QUERY_STRING skal bruges hvis PATH_INFO ikke virker. Ved hjælp af PATH_INFO tilstand, blog URL skal slutte med en "/" og ved hjælp af QUERY_STRING, det skal ende med en "?".</dd>
-
-  <dt>Blog description</dt>
-  <dd>
-    <ul>
-      <li><strong>Online:</strong> Blog åben for besøgende.</li>
-      <li><strong>Offline:</strong> Blog lukket for besøgende, men åben for forfattere.</li>
-      <li><strong>Fjernet:</strong> Blog lukket for både besøgende og forfattere, kun åben for superadministratorer.</li>
-    </ul>
-  </dd>
-
-  <dt>Blog beskrivelse</dt>
-  <dd>Her kan du skrive en beskrivelse som du ønsker for din blog. Dette er en simpel tekst uden formatering.</dd>
-</dl>
-
-<h4>Blog konfiguration</h4>
-<dl>
-  <dt>Blog editorens navn</dt>
-  <dd>Name of the person responsible for the blog. It may be the owner or the
+  <h4>Blog detaljer</h4>
+  <dl>
+    <dt>Blog ID</dt>
+    <dd>Unikt ID på bloggen. Obligatorisk, kan kun ændres af en superadministrator.</dd>
+    <dt>Blog navn</dt>
+    <dd>Name of the blog, mandatory.</dd>
+    <dt>Blog URL</dt>
+    <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
+    <dt>Blog status</dt>
+    <dd>Definerer måden URL'en læses på. PATH_INFO anbefales, QUERY_STRING skal bruges hvis PATH_INFO ikke virker. Ved hjælp af PATH_INFO tilstand, blog URL skal slutte med en "/" og ved hjælp af QUERY_STRING, det skal ende med en "?".</dd>
+    <dt>Blog description</dt>
+    <dd>
+      <ul>
+        <li><strong>Online:</strong> Blog åben for besøgende.</li>
+        <li><strong>Offline:</strong> Blog lukket for besøgende, men åben for forfattere.</li>
+        <li><strong>Fjernet:</strong> Blog lukket for både besøgende og forfattere, kun åben for superadministratorer.</li>
+      </ul>
+    </dd>
+    <dt>Blog beskrivelse</dt>
+    <dd>Her kan du skrive en beskrivelse som du ønsker for din blog. Dette er en simpel tekst uden formatering.</dd>
+  </dl>
+  <h4>Blog konfiguration</h4>
+  <dl>
+    <dt>Blog editorens navn</dt>
+    <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
-
-  <dt>Copyright notice</dt>
-  <dd>Note about the reproduction rights for the blog.</dd>
-
-  <dt>Default language</dt>
-  <dd>Language of the blog interface. Either this language is among the avalaible ones,
+    <dt>Copyright notice</dt>
+    <dd>Note about the reproduction rights for the blog.</dd>
+    <dt>Default language</dt>
+    <dd>Language of the blog interface. Either this language is among the avalaible ones,
   and the interface will be translated, or it is not, and the interface will then
   default to English.</dd>
-
-  <dt>Blog timezone</dt>
-  <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
-
-  <dt>Date formats</dt>
-  <dd>The date format of the blog posts. See the date and time
+    <dt>Blog timezone</dt>
+    <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
+    <dt>Date formats</dt>
+    <dd>The date format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-
-  <dt>Time format</dt>
-  <dd>The time format of the blog posts. See the date and time
+    <dt>Time format</dt>
+    <dd>The time format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-
-  <dt>Display .. entries per page</dt>
-  <dd>The number will be used as the limit for the number of entries
+    <dt>Display .. entries per page</dt>
+    <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
-</dl>
-
-<h4>Kommentarer og trackbacks</h4>
-<dl>
-  <dt>Accepter kommentarer</dt>
-  <dd>Globalt accepterer kommentarer på bloggen. Tager forrang for per post indstillingen.</dd>
-
-  <dt>Moderate kommentarer</dt>
-  <dd>Med denne mulighed vil kommentarer først blive offentliggjort efter redaktørens samtykke.</dd>
-
-  <dt>Efterlad kommentarer åbne i X dage</dt>
-  <dd>Antallet af dage under wich kommentarer vil være åbne efter post offentliggørelsen. Når tom, vil kommentarerne blive holdt åbne på ubestemt tid.</dd>
-
-  <dt>Wiki syntaks for kommentarer</dt>
-  <dd>Tillader en delmængde af wiki-syntaksen, der skal bruges i kommentarer.</dd>
-
-  <dt>Accepter trackbacks</dt>
-  <dd>Globalt accepterer trackbacks på bloggen. Tager forrang for per post indstillingen.</dd>
-
-  <dt>Moderate trackbacks</dt>
-  <dd>Med denne indstilling vil trackbacks først blive offentliggjort efter redaktørens samtykke.</dd>
-
-  <dt>Lad trackbacks åbne i X dage</dt>
-  <dd>Antallet af dage under wich trackbacks vil være åbent efter postudgivelsen. Når tom, vil trackbacks blive holdt åbne på ubestemt tid.</dd>
-
-  <dt>Tilføj "nofollow" relation til kommentarer og trackbacks links</dt>
-  <dd>Tilføjer en attribut på links i kommentarer og trackbacks, der instruerer søgemaskinen om ikke at følge dem. Denne antispam funktioner har endnu ikke bevist sin værdi.</dd>
-</dl>
-
-<h4>Blog præsentation</h4>
-<dl>
-  <dt>Dato format</dt>
-  <dd>Definerer datoformatet for blogindlæggene. Se afsnittet "Format reference" nedenfor for mere information. Du kan bruge rullemenuen til hurtigt at vælge et allerede eksisterende mønster.</dd>
-
-  <dt>Tid format</dt>
-  <dd>Definerer tidsformatet for blogindlæggene. Se afsnittet "Formatér reference" nedenfor for mere information. Du kan bruge rullemenuen til hurtigt at vælge et allerede eksisterende mønster.</dd>
-
-  <dt>Vis smilies på poster og kommentarer</dt>
-  <dd>Drejer nogle strenge som :-) eller ;-) til billeder.</dd>
-
-  <dt>Vis X poster pr. side</dt>
-  <dd>Vil vise X poster på bloggen hovedsiden samt i de forskellige kategorier.</dd>
-
-  <dt>Vis X poster pr. feed</dt>
-  <dd>Vil vise X poster i blog-feeds.</dd>
-
-  <dt>Vis X kommentarer pr. feed</dt>
-  <dd>Vil vise X kommentarer i blog kommentarer feeds.</dd>
-
-  <dt>Afkort feeds</dt>
-  <dd>Denne indstilling vil kun give en abstrakt fra blogindlæg i feeds.</dd>
-
-  <dt>Inkluder underkategorier i kategori side og kategori indlæg feed</dt>
-  <dd>Når denne indstilling er aktiveret, vil indlæg i underkategorier blive vist både i de overordnede kategorisider og i deres feeds.</dd>
-</dl>
-
-<h4>Medier og billeder</h4>
-<dl>
-  <dt>Genererede billedstørrelser (i pixels)</dt>
-  <dd>Når du tilføjer et billede i medieadministratoren, genereres andre størrelser automatisk. Her kan du definere dimensionen af den længste størrelse (bredde eller heigth) af hver type genererede billeder. Hvis du efterlader et felt tomt, vil mediehåndteringen ikke oprette den tilsvarende miniatur.</dd>
-
-  <dt>Standard billedindsættelse attributter</dt>
-  <dd>De valgte indstillinger vil gælde for alle de nye billeder, der føjes til mediehåndteringen.</dd>
-
-  <dt>Indsat billedtitel</dt>
-  <dd>Vælg formatet for "titel"-tags, der anvendes på dine billeder, baseret på oplysninger hentet fra billederne metadata.</dd>
-
-  <dt>Brug om muligt original mediedato</dt>
-  <dd>Når denne indstilling er aktiveret, hvis billedets metadata indeholder en dato, vil den blive brugt. Hvis ikke, vil uploaddatoen blive brugt.</dd>
-
-  <dt>Størrelse på indsat billede</dt>
-  <dd>Definerer standardstørrelsen der bruges ved indsættelse af et billede i et blogindlæg.</dd>
-
-  <dt>Billedjustering</dt>
-  <dd>Definerer standardindstillingen ved indsætning af et billede i et blogindlæg.</dd>
-
-  <dt>Indsæt et link til det oprindelige billede</dt>
-  <dd>Når denne indstilling er aktiveret, vil billederne indsat i et blogindlæg være klikbare og pege på det originale billede.</dd>
-
-</dl>
-
-<h4>politik for søgemaskiner</h4>
-<p>Some fields can be configured to format the date and time to your needs.
+  </dl>
+  <h4>Kommentarer og trackbacks</h4>
+  <dl>
+    <dt>Accepter kommentarer</dt>
+    <dd>Globalt accepterer kommentarer på bloggen. Tager forrang for per post indstillingen.</dd>
+    <dt>Moderate kommentarer</dt>
+    <dd>Med denne mulighed vil kommentarer først blive offentliggjort efter redaktørens samtykke.</dd>
+    <dt>Efterlad kommentarer åbne i X dage</dt>
+    <dd>Antallet af dage under wich kommentarer vil være åbne efter post offentliggørelsen. Når tom, vil kommentarerne blive holdt åbne på ubestemt tid.</dd>
+    <dt>Wiki syntaks for kommentarer</dt>
+    <dd>Tillader en delmængde af wiki-syntaksen, der skal bruges i kommentarer.</dd>
+    <dt>Accepter trackbacks</dt>
+    <dd>Globalt accepterer trackbacks på bloggen. Tager forrang for per post indstillingen.</dd>
+    <dt>Moderate trackbacks</dt>
+    <dd>Med denne indstilling vil trackbacks først blive offentliggjort efter redaktørens samtykke.</dd>
+    <dt>Lad trackbacks åbne i X dage</dt>
+    <dd>Antallet af dage under wich trackbacks vil være åbent efter postudgivelsen. Når tom, vil trackbacks blive holdt åbne på ubestemt tid.</dd>
+    <dt>Tilføj "nofollow" relation til kommentarer og trackbacks links</dt>
+    <dd>Tilføjer en attribut på links i kommentarer og trackbacks, der instruerer søgemaskinen om ikke at følge dem. Denne antispam funktioner har endnu ikke bevist sin værdi.</dd>
+  </dl>
+  <h4>Blog præsentation</h4>
+  <dl>
+    <dt>Dato format</dt>
+    <dd>Definerer datoformatet for blogindlæggene. Se afsnittet "Format reference" nedenfor for mere information. Du kan bruge rullemenuen til hurtigt at vælge et allerede eksisterende mønster.</dd>
+    <dt>Tid format</dt>
+    <dd>Definerer tidsformatet for blogindlæggene. Se afsnittet "Formatér reference" nedenfor for mere information. Du kan bruge rullemenuen til hurtigt at vælge et allerede eksisterende mønster.</dd>
+    <dt>Vis smilies på poster og kommentarer</dt>
+    <dd>Drejer nogle strenge som :-) eller ;-) til billeder.</dd>
+    <dt>Vis X poster pr. side</dt>
+    <dd>Vil vise X poster på bloggen hovedsiden samt i de forskellige kategorier.</dd>
+    <dt>Vis X poster pr. feed</dt>
+    <dd>Vil vise X poster i blog-feeds.</dd>
+    <dt>Vis X kommentarer pr. feed</dt>
+    <dd>Vil vise X kommentarer i blog kommentarer feeds.</dd>
+    <dt>Afkort feeds</dt>
+    <dd>Denne indstilling vil kun give en abstrakt fra blogindlæg i feeds.</dd>
+    <dt>Inkluder underkategorier i kategori side og kategori indlæg feed</dt>
+    <dd>Når denne indstilling er aktiveret, vil indlæg i underkategorier blive vist både i de overordnede kategorisider og i deres feeds.</dd>
+  </dl>
+  <h4>Medier og billeder</h4>
+  <dl>
+    <dt>Genererede billedstørrelser (i pixels)</dt>
+    <dd>Når du tilføjer et billede i medieadministratoren, genereres andre størrelser automatisk. Her kan du definere dimensionen af den længste størrelse (bredde eller heigth) af hver type genererede billeder. Hvis du efterlader et felt tomt, vil mediehåndteringen ikke oprette den tilsvarende miniatur.</dd>
+    <dt>Standard billedindsættelse attributter</dt>
+    <dd>De valgte indstillinger vil gælde for alle de nye billeder, der føjes til mediehåndteringen.</dd>
+    <dt>Indsat billedtitel</dt>
+    <dd>Vælg formatet for "titel"-tags, der anvendes på dine billeder, baseret på oplysninger hentet fra billederne metadata.</dd>
+    <dt>Brug om muligt original mediedato</dt>
+    <dd>Når denne indstilling er aktiveret, hvis billedets metadata indeholder en dato, vil den blive brugt. Hvis ikke, vil uploaddatoen blive brugt.</dd>
+    <dt>Størrelse på indsat billede</dt>
+    <dd>Definerer standardstørrelsen der bruges ved indsættelse af et billede i et blogindlæg.</dd>
+    <dt>Billedjustering</dt>
+    <dd>Definerer standardindstillingen ved indsætning af et billede i et blogindlæg.</dd>
+    <dt>Indsæt et link til det oprindelige billede</dt>
+    <dd>Når denne indstilling er aktiveret, vil billederne indsat i et blogindlæg være klikbare og pege på det originale billede.</dd>
+  </dl>
+  <h4>politik for søgemaskiner</h4>
+  <p>Some fields can be configured to format the date and time to your needs.
 Here is a reference:</p>
-
-<h4>Antispam</h4>
-<p>Du kan indstille antallet af dage, hvorefter du ønsker, at junk kommentarer automatisk slettes. Lad feltet stå tomt (eller sæt 0) for at deaktivere denne funktion.</p>
-
-<h4>Brugere</h4>
-<p>Lister denne blogs brugere samt deres tilladelser.</p>
-
-<h3>Blog details</h3>
-<p>Nogle felter kan konfigureres til at formatere dato og tid til dine behov.
-Her er en reference:</p>
-
-<ul>
-  <li><strong>%a</strong>: abreviated week day (local).</li>
-  <li><strong>%A</strong>: complete week day (local).</li>
-  <li><strong>%b</strong>: abbreviated month name (local).</li>
-  <li><strong>%B</strong>: complete month name (local).</li>
-  <li><strong>%c</strong>: default local date and time display.</li>
-  <li><strong>%C</strong>: century (the year, divided by 100 and
-  round up beetween 00 and 99)</li>
-  <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
-  <li><strong>%D</strong>: identical to %m/%d/%y</li>
-  <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
-  <li><strong>%g</strong>: identical to %G, 2 digits.</li>
-  <li><strong>%G</strong>: The year on 4 digits, according to the week number
-  (cf. %V). Format and value identical to %Y, except that if the number of the
-  week belongs to the preceding or following year, the current year
-  will be used instead.</li>
-  <li><strong>%h</strong>: identical to %b</li>
-  <li><strong>%H</strong>: digital hour of the day, 24H mode
-  (from 00 to 23)</li>
-  <li><strong>%I</strong>: digital hour of the day, 12H mode
-  (from 01 to 12)</li>
-  <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
-  <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
-  <li><strong>%M</strong>: minute, digital</li>
-  <li><strong>%n</strong>: newline character</li>
-  <li><strong>%p</strong>: either `am' or `pm', according to the absolute time,
-  or depending of the local settings.</li>
-  <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
-  <li><strong>%R</strong>: the hour, 24h format</li>
-  <li><strong>%S</strong>: seconds, digital</li>
-  <li><strong>%t</strong>: tab character</li>
-  <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
-  <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
-  <li><strong>%U</strong>: week number, the first sundqy of the year being the
-  first day of the first week.</li>
-  <li><strong>%V</strong>: the week numpber as defined in ISO
-  8601:1988, digital, from 01 to 53. The week 1 is the first week
-  with more than 4 days in the current year, whose monday is the first day.
-  (Use %G or %g for the year elements corresponding to the number of the
-  week for the considered timestamp.)</li>
-  <li><strong>%W</strong>: number of the week in the year, the first monday of
-  the year being the start of the first week</li>
-  <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
-  <li><strong>%x</strong>: prefered format for the date without the time</li>
-  <li><strong>%X</strong>: prefered format for the time without the date</li>
-  <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
-  <li><strong>%Y</strong>: the year, four digits</li>
-  <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
-  <li>: a litteral `%' character</li>
-</ul>
-
+  <h4>Antispam</h4>
+  <p>Du kan indstille antallet af dage, hvorefter du ønsker, at junk kommentarer automatisk slettes. Lad feltet stå tomt (eller sæt 0) for at deaktivere denne funktion.</p>
+  <h4>Brugere</h4>
+  <p>Lister denne blogs brugere samt deres tilladelser.</p>
+  <h3>Blog details</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a</strong>: abreviated week day (local).</li>
+    <li><strong>%A</strong>: complete week day (local).</li>
+    <li><strong>%b</strong>: abbreviated month name (local).</li>
+    <li><strong>%B</strong>: complete month name (local).</li>
+    <li><strong>%c</strong>: default local date and time display.</li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
+    <li><strong>%D</strong>: identical to %m/%d/%y</li>
+    <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
+    <li><strong>%g</strong>: identical to %G, 2 digits.</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h</strong>: identical to %b</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
+    <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
+    <li><strong>%M</strong>: minute, digital</li>
+    <li><strong>%n</strong>: newline character</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
+    <li><strong>%R</strong>: the hour, 24h format</li>
+    <li><strong>%S</strong>: seconds, digital</li>
+    <li><strong>%t</strong>: tab character</li>
+    <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
+    <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
+    <li><strong>%x</strong>: prefered format for the date without the time</li>
+    <li><strong>%X</strong>: prefered format for the time without the date</li>
+    <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
+    <li><strong>%Y</strong>: the year, four digits</li>
+    <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
+    <li>: a litteral `%' character</li>
+  </ul>
 </body>
+
 </html>

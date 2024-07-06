@@ -1,131 +1,87 @@
 <html>
+
 <head>
   <title>User preferences</title>
 </head>
 
 <body>
-
-<h4>Benim profilim</h4>
-<dl>
-  <dt>Name, First name</dt>
-  <dd>If the display name is empty, the author's name will be displayed
-  as his Firstname and Name as set here.</dd>
-  
-  <dt>Görünen ad</dt>
-  <dd>You can choose here how your name will be displayed under your posts.</dd>
-  
-  <dt>E-posta</dt>
-  <dd>Yeni bir şifre talep ettiğinizde kullanılan e-posta adresi.<br>
-    Yeni yorum bildirimleri de bu adrese gönderilecektir.<em>(
-  bu alanı güncellerseniz, mevcut şifrenizi formun altındaki 
-  uygun alana girmelisiniz)</em></dd>
-  
-  <dt>URL</dt>
-  <dd>The user's web site. If set, the author name will be displayed as
-  a link to the said site.</dd>
-  
-  <dt>Preferred format</dt>
-  <dd>To choose the prefered post syntax. Wiki is a simplified syntax
-  and will be converted to valid HTML&nbsp;; Unless you have a perfect
-  understanding of HTML, we advise you to choose the wiki syntax.</dd>
-  
-  <dt>Default entry status</dt>
-  <dd>Bu seçim, yayın sonrası görüntülenen zamanı tanımlayacaktır.</dd>
-  
-  <dt>Entry edit field height</dt>
-  <dd>The height of the Entry edit field. Defaults to 15.</dd>
-</dl>
-
-
-<h4>Benim seçeneklerim</h4>
-<h5>Arayüz</h5>
-<dl>  
-  <dt>Medya yöneticisinde gelişmiş yükleyiciyi etkinleştirme</dt>
-  <dd>Medya yöneticisinde 
-  adresine aynı anda birden fazla dosya yüklemeyi sağlayan gelişmiş arayüzün etkinleştirilmesini sağlar (Not: Bu özelliği kullanabilmek için Web tarayıcınızın Javascript'i 
-  desteklemesi gerekir).</dd>
-
-  <dt>Sipariş öğeleri için Javascript destekli sürükle ve bırak özelliğini devre dışı bırakma</dt>
-  <dd>Öğe sıralaması için "sürükle ve bırak" özelliğini devre dışı bırakmaya izin verir. Sürükle ve bırak 
-  yerine alanların konumunu girmenize izin veren sayısal alanlarla değiştirilecektir.</dd>
-
-  <dt>Medya yöneticisinde sayfa başına görüntülenen öğe sayısı</dt>
-  <dd>Medya yöneticisinde görüntülenecek medya sayısını tanımlar (öğeler sayılırken
-  klasörleri dikkate alınmaz).</dd>
-  
-  <dt>Standart favicon kullanmayın</dt>
-  <dd>Web tarayıcısı adres çubuğundaki varsayılan favicon'u devre dışı bırakmayı sağlar.</dd>
-</dl>
-
-<h5>Baskı</h5>
-<dl>    
-  <dt>Tercih edilen format</dt>
-  <dd>Girişin sözdizimini seçin. Wiki basitleştirilmiş bir sözdizimidir
-  ve geçerli HTML'ye dönüştürülecektir. HTML konusunda mükemmel bir
-  anlayışa sahip değilseniz, Wiki sözdizimini seçmenizi tavsiye ederiz.
-  Daha fazla bilgi için Wiki sözdizimi referansına bakın.</dd>
-  
-  <dt>Varsayılan giriş durumu</dt>
-  <dd>Yeni girişler için varsayılan durum şu şekilde ayarlanabilir:
-    <ul>
-      <li><strong>Beklemede:</strong> Yayın durumuna henüz karar verilmemiştir.</li>
-      <li><strong>Planlanmış:</strong> Giriş, <strong>Published on</strong> alanında sağlanan saat ve tarihte çevrimiçi olarak ayarlanacaktır.</li>
-      <li><strong>Yayınlanmamış:</strong> Çevrimdışı giriş.</li>
-      <li><strong>Yayınlandı:</strong> Çevrimiçi giriş.</li>
-    </ul>
-  </dd>
-  
-  <dt>Giriş düzenleme alanı yüksekliği</dt>
-  <dd>Bir girdinin baskı alanının yüksekliğini ayarlar. Varsayılan olarak bu parametre 24 olarak ayarlanmıştır.</dd>
-  
-  <dt>WYSIWYG modunu etkinleştirin</dt>
-  <dd>Girişler, sayfalar ve kategori açıklama alanları için görsel düzenleyicinin (WYSIWYG: What You See Is What You Get) kullanılmasına izin verir.</dd>
-</dl>
-
-<h5>Diğer seçenekler</h5>
-<dl>
-  <dt>Etiketler liste biçimi</dt>
-  <dd>Bir girişi düzenlerken kullanılan tüm etiketleri mi (<strong>Genişletilmiş</strong>) yoksa yalnızca en çok kullanılanları mı (<strong>Kısa</strong>) görmek istediğinizi seçebilirsiniz.</dd>
-
-  <dt>Tema düzenleyicide sözdizimi vurgulama</dt>
-  <dd>Tema düzenleyicisini kullanırken sözdizimi vurgulamayı etkinleştirir (HTML ve CSS dosyaları)</dd>     
-</dl>
-
-
-<h4>Benim gösterge tablom</h4>
-<dl>
-  <dt>Favorilerim</dt>
-  <dd>Bu bölge, seçilen favorileri blogun kontrol panelinde görüntüler. 
-  Tarayıcınızda Javascript etkinleştirilmişse bunlar farenizle yeniden sıralanabilir. 
-  Aksi takdirde, bir alan onlara bir sipariş numarası vermenizi sağlar. İşiniz bittiğinde, <strong>Siparişi kaydet</strong>düğmesine basarak değişikliklerinizi kaydetmeyi unutmayın.<br>
-  Ayrıca favorileri seçip <strong>Seçili favorileri sil</strong>tuşuna basarak silebilirsiniz.</dd>
-  
-  <dt>Varsayılan sık kullanılanlar olarak tanımlama (süper yönetici)</dt> 
-  <dd>Şu anda tanımlanmış sık kullanılanlar listesini tüm kullanıcılar için varsayılan sık kullanılanlar listesi olarak ayarlamayı etkinleştirin. Bu liste, henüz kendi favorilerini tanımlamamışlarsa kullanıcılara önerilecektir.</dd>
-
-  <dt>Diğer mevcut favoriler</dt>
-  <dd>Favori olarak eklenmesine izin verilen tüm eklentiler burada gösterilir. İlgili kutuları işaretleyin ve <strong>Add tp my favorites</strong>düğmesine basarak bunları gösterge tablosuna ekleyin.</dd>
-
-  <dt>Sık kullanılanları menünün en üstünde gösterme</dt>
-  <dd>Etkinleştirilirse, sık kullanılanları menünün en üstünde görüntüler.</dd>
-
-  <dt>Gösterge tablosu modülleri</dt>
-  <dd>Bu alanda yapılan seçimler blogunuzun kontrol paneline yansıtılacaktır.</dd>
-  
-  <dt>Belge bağlantılarını görüntüleme</dt>
-  <dd>Gösterge tablosu açılış sayfasında belge bağlantılarını görüntülemeyi etkinleştirin.</dd>
-  
-  <dt>Dotclear haberlerini görüntüle</dt>
-  <dd>Dotclear haberlerini gösterge tablosu açılış sayfasında görüntülemeyi etkinleştirin.</dd>
-
-  <dt>Hızlı giriş formunu görüntüle</dt>
-  <dd>Pano açılış sayfasında "hızlı giriş" formunu görüntülemeyi etkinleştirin.</dd>
-
-  <dt>Bakım kontrol paneli simgesinde gecikmiş görev sayacını görüntüleme</dt>
-  <dd>Gecikmiş görevlerin (yani işlenmesi gereken) sayısının <strong>Bakım</strong> simgesi altında görüntülenmesini sağlar. <strong>Bu özelliği kullanmak için sık kullanılanlarınızda Bakım</strong> simgesinin ayarlanmış olması gerekir.</dd>
-
-  <dt>Gecikmiş görevler listesini gösterge tablosu öğelerinde görüntüleme</dt>
-  <dd>Gecikmiş görevlerin (yani işlenmesi gereken) listesini Dashboard açılış sayfasında özel bir bölümde görüntülemeyi etkinleştirin.</dd>
-</dl>
+  <h4>Benim profilim</h4>
+  <dl>
+    <dt>Name, First name</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Görünen ad</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>E-posta</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Preferred format</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Default entry status</dt>
+    <dd>Bu seçim, yayın sonrası görüntülenen zamanı tanımlayacaktır.</dd>
+    <dt>Entry edit field height</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Benim seçeneklerim</h4>
+  <h5>Arayüz</h5>
+  <dl>
+    <dt>Medya yöneticisinde gelişmiş yükleyiciyi etkinleştirme</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Sipariş öğeleri için Javascript destekli sürükle ve bırak özelliğini devre dışı bırakma</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Medya yöneticisinde sayfa başına görüntülenen öğe sayısı</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Standart favicon kullanmayın</dt>
+    <dd>Web tarayıcısı adres çubuğundaki varsayılan favicon'u devre dışı bırakmayı sağlar.</dd>
+  </dl>
+  <h5>Baskı</h5>
+  <dl>
+    <dt>Tercih edilen format</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Varsayılan giriş durumu</dt>
+    <dd>Yeni girişler için varsayılan durum şu şekilde ayarlanabilir:
+      <ul>
+        <li><strong>Beklemede:</strong> Yayın durumuna henüz karar verilmemiştir.</li>
+        <li><strong>Planlanmış:</strong> Giriş, <strong>Published on</strong> alanında sağlanan saat ve tarihte çevrimiçi olarak ayarlanacaktır.</li>
+        <li><strong>Yayınlanmamış:</strong> Çevrimdışı giriş.</li>
+        <li><strong>Yayınlandı:</strong> Çevrimiçi giriş.</li>
+      </ul>
+    </dd>
+    <dt>Giriş düzenleme alanı yüksekliği</dt>
+    <dd>Bir girdinin baskı alanının yüksekliğini ayarlar. Varsayılan olarak bu parametre 24 olarak ayarlanmıştır.</dd>
+    <dt>WYSIWYG modunu etkinleştirin</dt>
+    <dd>Girişler, sayfalar ve kategori açıklama alanları için görsel düzenleyicinin (WYSIWYG: What You See Is What You Get) kullanılmasına izin verir.</dd>
+  </dl>
+  <h5>Diğer seçenekler</h5>
+  <dl>
+    <dt>Etiketler liste biçimi</dt>
+    <dd>Bir girişi düzenlerken kullanılan tüm etiketleri mi (<strong>Genişletilmiş</strong>) yoksa yalnızca en çok kullanılanları mı (<strong>Kısa</strong>) görmek istediğinizi seçebilirsiniz.</dd>
+    <dt>Tema düzenleyicide sözdizimi vurgulama</dt>
+    <dd>Tema düzenleyicisini kullanırken sözdizimi vurgulamayı etkinleştirir (HTML ve CSS dosyaları)</dd>
+  </dl>
+  <h4>Benim gösterge tablom</h4>
+  <dl>
+    <dt>Favorilerim</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Varsayılan sık kullanılanlar olarak tanımlama (süper yönetici)</dt>
+    <dd>Şu anda tanımlanmış sık kullanılanlar listesini tüm kullanıcılar için varsayılan sık kullanılanlar listesi olarak ayarlamayı etkinleştirin. Bu liste, henüz kendi favorilerini tanımlamamışlarsa kullanıcılara önerilecektir.</dd>
+    <dt>Diğer mevcut favoriler</dt>
+    <dd>Favori olarak eklenmesine izin verilen tüm eklentiler burada gösterilir. İlgili kutuları işaretleyin ve <strong>Add tp my favorites</strong>düğmesine basarak bunları gösterge tablosuna ekleyin.</dd>
+    <dt>Sık kullanılanları menünün en üstünde gösterme</dt>
+    <dd>Etkinleştirilirse, sık kullanılanları menünün en üstünde görüntüler.</dd>
+    <dt>Gösterge tablosu modülleri</dt>
+    <dd>Bu alanda yapılan seçimler blogunuzun kontrol paneline yansıtılacaktır.</dd>
+    <dt>Belge bağlantılarını görüntüleme</dt>
+    <dd>Gösterge tablosu açılış sayfasında belge bağlantılarını görüntülemeyi etkinleştirin.</dd>
+    <dt>Dotclear haberlerini görüntüle</dt>
+    <dd>Dotclear haberlerini gösterge tablosu açılış sayfasında görüntülemeyi etkinleştirin.</dd>
+    <dt>Hızlı giriş formunu görüntüle</dt>
+    <dd>Pano açılış sayfasında "hızlı giriş" formunu görüntülemeyi etkinleştirin.</dd>
+    <dt>Bakım kontrol paneli simgesinde gecikmiş görev sayacını görüntüleme</dt>
+    <dd>Gecikmiş görevlerin (yani işlenmesi gereken) sayısının <strong>Bakım</strong> simgesi altında görüntülenmesini sağlar. <strong>Bu özelliği kullanmak için sık kullanılanlarınızda Bakım</strong> simgesinin ayarlanmış olması gerekir.</dd>
+    <dt>Gecikmiş görevler listesini gösterge tablosu öğelerinde görüntüleme</dt>
+    <dd>Gecikmiş görevlerin (yani işlenmesi gereken) listesini Dashboard açılış sayfasında özel bir bölümde görüntülemeyi etkinleştirin.</dd>
+  </dl>
 </body>
+
 </html>

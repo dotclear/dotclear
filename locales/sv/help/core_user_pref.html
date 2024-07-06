@@ -1,131 +1,87 @@
 <html>
+
 <head>
   <title>User preferences</title>
 </head>
 
 <body>
-
-<h4>Min profil</h4>
-<dl>
-  <dt>Name, First name</dt>
-  <dd>If the display name is empty, the author's name will be displayed
-  as his Firstname and Name as set here.</dd>
-  
-  <dt>Visa namn</dt>
-  <dd>You can choose here how your name will be displayed under your posts.</dd>
-  
-  <dt>E-post</dt>
-  <dd>E-postadress som används när du begär ett nytt lösenord.<br>
-    Meddelanden om nya kommentarer kommer också att skickas till denna adress.<em>(Om du uppdaterar
-  detta fält måste du ange ditt nuvarande lösenord i lämpligt fält längst ned 
-  i formuläret)</em></dd>
-  
-  <dt>URL</dt>
-  <dd>The user's web site. If set, the author name will be displayed as
-  a link to the said site.</dd>
-  
-  <dt>Preferred format</dt>
-  <dd>To choose the prefered post syntax. Wiki is a simplified syntax
-  and will be converted to valid HTML&nbsp;; Unless you have a perfect
-  understanding of HTML, we advise you to choose the wiki syntax.</dd>
-  
-  <dt>Default entry status</dt>
-  <dd>Det valet kommer att definiera den tid som visas på post publicering.</dd>
-  
-  <dt>Entry edit field height</dt>
-  <dd>The height of the Entry edit field. Defaults to 15.</dd>
-</dl>
-
-
-<h4>Mina alternativ</h4>
-<h5>Gränsgränssnitt</h5>
-<dl>  
-  <dt>Aktivera förbättrad uppladdning i mediehanteraren</dt>
-  <dd>Gör det möjligt att aktivera det avancerade gränssnittet i mediehanteraren som gör det möjligt att 
-  ladda upp flera filer åt gången (Obs: Din webbläsare måste stödja Javascript 
-  för att kunna använda den här funktionen).</dd>
-
-  <dt>Inaktivera Javascript powered drag and drop för att beställa objekt</dt>
-  <dd>Tillåter att inaktivera "dra och släpp" för artikelsortering. Dra och släpp kommer att 
-  ersättas av numeriska fält som låter dig ange fältposition istället.</dd>
-
-  <dt>Antal element som visas per sida i mediehanteraren</dt>
-  <dd>Definierar antalet medier som kommer att visas i mediehanteraren (mappar
-  beaktas inte när objekt räknas).</dd>
-  
-  <dt>Använd inte standard favicon</dt>
-  <dd>Tillåter att inaktivera standard favicon i webbläsarens adressfält.</dd>
-</dl>
-
-<h5>Upplaga</h5>
-<dl>    
-  <dt>Föredraget format</dt>
-  <dd>Välj postens syntax. Wiki är en förenklad syntax
-  och kommer att konverteras till giltig HTML. Om du inte har en perfekt
-  förståelse för HTML, rekommenderar vi dig att välja Wiki syntax.
-  Se syntaxreferensen för Wiki för mer information.</dd>
-  
-  <dt>Standard poststatus</dt>
-  <dd>Standardstatus för nya poster kan ställas in till:
-    <ul>
-      <li><strong>Väntande:</strong> Publiceringsstatus har ännu inte beslutats.</li>
-      <li><strong>Schemalagd:</strong> Posten kommer att ställas in online vid den tidpunkt och datum som anges i <strong>Publicerad på</strong> fältet.</li>
-      <li><strong>Avpublicerat:</strong> Offline post.</li>
-      <li><strong>Publicerad:</strong> Online-post.</li>
-    </ul>
-  </dd>
-  
-  <dt>Ändra fältets höjd</dt>
-  <dd>Sätter höjden på versionsfältet för en post. Som standard är denna parameter satt till 24.</dd>
-  
-  <dt>Aktivera WYSIWYG-läge</dt>
-  <dd>Tillåter användning av den visuella redigeraren (WYSIWYG: Vad du ser är vad du får) för poster, sidor och kategorier beskrivning fält.</dd>
-</dl>
-
-<h5>Andra alternativ</h5>
-<dl>
-  <dt>Etiketter listformat</dt>
-  <dd>Du kan välja om du vill se, medan du redigerar en post, alla taggar som används (<strong>Utökad</strong>) eller bara de mest använda (<strong>Kort</strong>).</dd>
-
-  <dt>Syntaxmarkering i tema-editorn</dt>
-  <dd>Aktiverar syntaxmarkering vid användning av tema-redigeraren (HTML och CSS-filer)</dd>     
-</dl>
-
-
-<h4>Min instrumentpanel</h4>
-<dl>
-  <dt>Mina favoriter</dt>
-  <dd>Denna zon visar de valda favoriterna på bloggens instrumentpanel. 
-  De kan ombeställas med musen om Javascript är aktiverat i din webbläsare. 
-  Annars finns det ett fält där du kan ge dem ett beställningsnummer. När du är klar, glöm inte att spara dina ändringar genom att trycka på <strong>Spara beställning</strong>.<br>
-  Du kan också radera favoriter genom att markera dem och trycka på <strong>Radera markerade favoriter</strong>.</dd>
-  
-  <dt>Definiera som standardfavoriter (superadministratör)</dt> 
-  <dd>Aktivera för att ställa in just nu definierade favoriter som standardlista för alla användare. Denna lista kommer att föreslås till användare om de inte har definierat sina egna favoriter ännu.</dd>
-
-  <dt>Andra tillgängliga favoriter</dt>
-  <dd>Alla plugins som gör det möjligt att sätta som favoriter delas här. Markera motsvarande rutor och lägg till dem i instrumentpanelen genom att trycka på <strong>Lägg till mina favoriter</strong>.</dd>
-
-  <dt>Visa favoriter högst upp på menyn</dt>
-  <dd>Om aktiverad, visar favoriter högst upp på menyn.</dd>
-
-  <dt>Dashboard moduler</dt>
-  <dd>Val som görs i denna zon kommer att återspeglas på din bloggs instrumentpanel.</dd>
-  
-  <dt>Visa dokumentationslänkar</dt>
-  <dd>Aktivera för att visa dokumentationslänkar på instrumentpanelens landningssida.</dd>
-  
-  <dt>Visa Dotclear nyheter</dt>
-  <dd>Aktivera för att visa Dotclear nyheter på instrumentpanelens landningssida.</dd>
-
-  <dt>Visa snabbformulär</dt>
-  <dd>Aktivera för att visa formuläret "quick entry" på instrumentbrädans landningssida.</dd>
-
-  <dt>Visa förfallna uppgifter räknare på underhåll instrumentpanelen ikonen</dt>
-  <dd>Möjliggör för att visa antalet försenade uppgifter (dvs att de ska behandlas) under <strong>Underhåll</strong> -ikonen. <strong>Underhållsikonen</strong> måste ställas in i dina favoriter för att använda denna funktion.</dd>
-
-  <dt>Visa listan över förfallna uppgifter på instrumentpanelens objekt</dt>
-  <dd>Aktivera för att visa listan över förfallna uppgifter (dvs som ska behandlas) i en dedikerad avdelning på Dashboard landningssidan.</dd>
-</dl>
+  <h4>Min profil</h4>
+  <dl>
+    <dt>Name, First name</dt>
+    <dd>If the display name is empty, the author's name will be displayed as his first name and last name as set here.</dd>
+    <dt>Visa namn</dt>
+    <dd>Here you can choose a nickname that will be displayed in your posts instead of your last name and first name.</dd>
+    <dt>E-post</dt>
+    <dd>E-mail address used when you request a new password.<br>New comment notifications will be sent to this address as well.<em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+    <dt>URL</dt>
+    <dd>The user's website. If set, the author name will be displayed as a link to the said website.</dd>
+    <dt>Preferred format</dt>
+    <dd>The language used when publishing entries. If the translation is available, the interface will also be displayed in that language.</dd>
+    <dt>Default entry status</dt>
+    <dd>Det valet kommer att definiera den tid som visas på post publicering.</dd>
+    <dt>Entry edit field height</dt>
+    <dd>To change your password, write down twice your password in the fields <em>New password</em> and <em>Confirm password</em>. The minimal password length is 6 characters. If no new password is provided, the current one is kept. <em>(If you update this field, you must enter your current password in the appropriate field at the bottom of the form)</em></dd>
+  </dl>
+  <h4>Mina alternativ</h4>
+  <h5>Gränsgränssnitt</h5>
+  <dl>
+    <dt>Aktivera förbättrad uppladdning i mediehanteraren</dt>
+    <dd>Allows to activate the advanced interface in media manager that enables to upload multiple files at a time (Note: Your Web browser must support Javascript to be able to use this feature).</dd>
+    <dt>Inaktivera Javascript powered drag and drop för att beställa objekt</dt>
+    <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be replaced by numeric fields that will let you enter fields position instead.</dd>
+    <dt>Antal element som visas per sida i mediehanteraren</dt>
+    <dd>Defines the number of media that will be displayed in media manager (folders are not taken into account when counting items).</dd>
+    <dt>Använd inte standard favicon</dt>
+    <dd>Tillåter att inaktivera standard favicon i webbläsarens adressfält.</dd>
+  </dl>
+  <h5>Upplaga</h5>
+  <dl>
+    <dt>Föredraget format</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Standard poststatus</dt>
+    <dd>Standardstatus för nya poster kan ställas in till:
+      <ul>
+        <li><strong>Väntande:</strong> Publiceringsstatus har ännu inte beslutats.</li>
+        <li><strong>Schemalagd:</strong> Posten kommer att ställas in online vid den tidpunkt och datum som anges i <strong>Publicerad på</strong> fältet.</li>
+        <li><strong>Avpublicerat:</strong> Offline post.</li>
+        <li><strong>Publicerad:</strong> Online-post.</li>
+      </ul>
+    </dd>
+    <dt>Ändra fältets höjd</dt>
+    <dd>Sätter höjden på versionsfältet för en post. Som standard är denna parameter satt till 24.</dd>
+    <dt>Aktivera WYSIWYG-läge</dt>
+    <dd>Tillåter användning av den visuella redigeraren (WYSIWYG: Vad du ser är vad du får) för poster, sidor och kategorier beskrivning fält.</dd>
+  </dl>
+  <h5>Andra alternativ</h5>
+  <dl>
+    <dt>Etiketter listformat</dt>
+    <dd>Du kan välja om du vill se, medan du redigerar en post, alla taggar som används (<strong>Utökad</strong>) eller bara de mest använda (<strong>Kort</strong>).</dd>
+    <dt>Syntaxmarkering i tema-editorn</dt>
+    <dd>Aktiverar syntaxmarkering vid användning av tema-redigeraren (HTML och CSS-filer)</dd>
+  </dl>
+  <h4>Min instrumentpanel</h4>
+  <dl>
+    <dt>Mina favoriter</dt>
+    <dd>This zone displays the chosen favorites on the blog's dashboard. They can be reordered with your mouse if Javascript is activated in your browser. Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br>You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+    <dt>Definiera som standardfavoriter (superadministratör)</dt>
+    <dd>Aktivera för att ställa in just nu definierade favoriter som standardlista för alla användare. Denna lista kommer att föreslås till användare om de inte har definierat sina egna favoriter ännu.</dd>
+    <dt>Andra tillgängliga favoriter</dt>
+    <dd>Alla plugins som gör det möjligt att sätta som favoriter delas här. Markera motsvarande rutor och lägg till dem i instrumentpanelen genom att trycka på <strong>Lägg till mina favoriter</strong>.</dd>
+    <dt>Visa favoriter högst upp på menyn</dt>
+    <dd>Om aktiverad, visar favoriter högst upp på menyn.</dd>
+    <dt>Dashboard moduler</dt>
+    <dd>Val som görs i denna zon kommer att återspeglas på din bloggs instrumentpanel.</dd>
+    <dt>Visa dokumentationslänkar</dt>
+    <dd>Aktivera för att visa dokumentationslänkar på instrumentpanelens landningssida.</dd>
+    <dt>Visa Dotclear nyheter</dt>
+    <dd>Aktivera för att visa Dotclear nyheter på instrumentpanelens landningssida.</dd>
+    <dt>Visa snabbformulär</dt>
+    <dd>Aktivera för att visa formuläret "quick entry" på instrumentbrädans landningssida.</dd>
+    <dt>Visa förfallna uppgifter räknare på underhåll instrumentpanelen ikonen</dt>
+    <dd>Möjliggör för att visa antalet försenade uppgifter (dvs att de ska behandlas) under <strong>Underhåll</strong> -ikonen. <strong>Underhållsikonen</strong> måste ställas in i dina favoriter för att använda denna funktion.</dd>
+    <dt>Visa listan över förfallna uppgifter på instrumentpanelens objekt</dt>
+    <dd>Aktivera för att visa listan över förfallna uppgifter (dvs som ska behandlas) i en dedikerad avdelning på Dashboard landningssidan.</dd>
+  </dl>
 </body>
+
 </html>

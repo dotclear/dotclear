@@ -1,209 +1,155 @@
 <html>
+
 <head>
   <title>Ajustes del blog</title>
 </head>
 
 <body>
-<h4>Detalles del blog</h4>
-<dl>
-  <dt>ID del blog</dt>
-  <dd>ID único del blog. Obligatorio, sólo puede ser modificado por un superadministrador.</dd>
-
-  <dt>Nombre del blog</dt>
-  <dd>Name of the blog, mandatory.</dd>
-
-  <dt>URL del blog</dt>
-  <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
-
-  <dt>Blog status</dt>
-  <dd>Define la forma en que se lee la URL. PATH_INFO es recomendado, QUERY_STRING tiene que ser usado si PATH_INFO no funciona. Usando el modo PATH_INFO, la URL del blog debe terminar con un "/" y usando QUERY_STRING, debe terminar con un "?".</dd>
-
-  <dt>Blog description</dt>
-  <dd>
-    <ul>
-      <li><strong>En línea:</strong> Blog abierto a los visitantes.</li>
-      <li><strong>Fuera de línea:</strong> Blog cerrado a visitantes pero abierto a escritores.</li>
-      <li><strong>Eliminado:</strong> Blog cerrado a visitantes y escritores, abierto sólo a superadministradores.</li>
-    </ul>
-  </dd>
-
-  <dt>Descripción del blog</dt>
-  <dd>Aquí puedes poner la descripción que quieras para tu blog. Se trata de un texto sencillo, sin formato.</dd>
-</dl>
-
-<h4>Configuración del blog</h4>
-<dl>
-  <dt>Nombre del editor del blog</dt>
-  <dd>Name of the person responsible for the blog. It may be the owner or the
+  <h4>Detalles del blog</h4>
+  <dl>
+    <dt>ID del blog</dt>
+    <dd>ID único del blog. Obligatorio, sólo puede ser modificado por un superadministrador.</dd>
+    <dt>Nombre del blog</dt>
+    <dd>Name of the blog, mandatory.</dd>
+    <dt>URL del blog</dt>
+    <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
+    <dt>Blog status</dt>
+    <dd>Define la forma en que se lee la URL. PATH_INFO es recomendado, QUERY_STRING tiene que ser usado si PATH_INFO no funciona. Usando el modo PATH_INFO, la URL del blog debe terminar con un "/" y usando QUERY_STRING, debe terminar con un "?".</dd>
+    <dt>Blog description</dt>
+    <dd>
+      <ul>
+        <li><strong>En línea:</strong> Blog abierto a los visitantes.</li>
+        <li><strong>Fuera de línea:</strong> Blog cerrado a visitantes pero abierto a escritores.</li>
+        <li><strong>Eliminado:</strong> Blog cerrado a visitantes y escritores, abierto sólo a superadministradores.</li>
+      </ul>
+    </dd>
+    <dt>Descripción del blog</dt>
+    <dd>Aquí puedes poner la descripción que quieras para tu blog. Se trata de un texto sencillo, sin formato.</dd>
+  </dl>
+  <h4>Configuración del blog</h4>
+  <dl>
+    <dt>Nombre del editor del blog</dt>
+    <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
-
-  <dt>Copyright notice</dt>
-  <dd>Note about the reproduction rights for the blog.</dd>
-
-  <dt>Default language</dt>
-  <dd>Language of the blog interface. Either this language is among the avalaible ones,
+    <dt>Copyright notice</dt>
+    <dd>Note about the reproduction rights for the blog.</dd>
+    <dt>Default language</dt>
+    <dd>Language of the blog interface. Either this language is among the avalaible ones,
   and the interface will be translated, or it is not, and the interface will then
   default to English.</dd>
-
-  <dt>Blog timezone</dt>
-  <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
-
-  <dt>Date formats</dt>
-  <dd>The date format of the blog posts. See the date and time
+    <dt>Blog timezone</dt>
+    <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
+    <dt>Date formats</dt>
+    <dd>The date format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-
-  <dt>Time format</dt>
-  <dd>The time format of the blog posts. See the date and time
+    <dt>Time format</dt>
+    <dd>The time format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-
-  <dt>Display .. entries per page</dt>
-  <dd>The number will be used as the limit for the number of entries
+    <dt>Display .. entries per page</dt>
+    <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
-</dl>
-
-<h4>Comentarios y retroenlaces</h4>
-<dl>
-  <dt>Aceptar los comentarios</dt>
-  <dd>Acepta globalmente los comentarios en el blog. Tiene prioridad sobre la configuración por entrada.</dd>
-
-  <dt>Moderar los comentarios</dt>
-  <dd>Con esta opción, los comentarios sólo se publicarán previo acuerdo del editor.</dd>
-
-  <dt>Dejar comentarios abiertos durante X días</dt>
-  <dd>El número de días durante los cuales los comentarios estarán abiertos tras la publicación del post. Si está vacío, los comentarios se mantendrán abiertos indefinidamente.</dd>
-
-  <dt>Sintaxis wiki para los comentarios</dt>
-  <dd>Permite utilizar un subconjunto de la sintaxis wiki en los comentarios.</dd>
-
-  <dt>Aceptar retroenlaces</dt>
-  <dd>Acepta globalmente los trackbacks en el blog. Tiene prioridad sobre la configuración por entrada.</dd>
-
-  <dt>Moderar los retroenlaces</dt>
-  <dd>Con esta opción, los trackbacks sólo se publicarán previo acuerdo del editor.</dd>
-
-  <dt>Dejar abiertos los trackbacks durante X días</dt>
-  <dd>El número de días durante los cuales los trackbacks permanecerán abiertos tras la publicación del post. Si está vacío, los trackbacks se mantendrán abiertos indefinidamente.</dd>
-
-  <dt>Añadir la relación «nofollow» a los enlaces de los comentarios y retroenlaces</dt>
-  <dd>Añade un atributo a los enlaces en comentarios y trackbacks, indicando a los robots de búsqueda que no los sigan. Esta función antispam aún no ha demostrado su utilidad.</dd>
-</dl>
-
-<h4>Presentación del blog</h4>
-<dl>
-  <dt>Formato de fecha</dt>
-  <dd>Define el formato de fecha para las entradas del blog. Consulte la sección "Referencia de formato" a continuación para obtener más información. Puede utilizar la lista desplegable para seleccionar rápidamente un patrón preexistente.</dd>
-
-  <dt>Formato de hora</dt>
-  <dd>Define el formato de hora de las entradas del blog. Consulte la sección "Referencia de formato" a continuación para obtener más información. Puede utilizar la lista desplegable para seleccionar rápidamente un patrón preexistente.</dd>
-
-  <dt>Mostrar emoticones en las entradas y comentarios</dt>
-  <dd>Convierte algunas cadenas como :-) o ;-) en imágenes.</dd>
-
-  <dt>Mostrar X entradas por página</dt>
-  <dd>Mostrará X entradas en la página principal del blog, así como en las diferentes categorías.</dd>
-
-  <dt>Mostrar X entradas por alimentación</dt>
-  <dd>Mostrará X entradas en los feeds del blog.</dd>
-
-  <dt>Mostrar X comentarios por feed</dt>
-  <dd>Mostrará X comentarios en los feeds de comentarios del blog.</dd>
-
-  <dt>Omitir las fuentes</dt>
-  <dd>Esta opción sólo proporcionará un resumen de las entradas del blog en los feeds.</dd>
-
-  <dt>Incluir subcategorías en la página de categorías y en el feed de entradas de categorías</dt>
-  <dd>Si esta opción está activada, las entradas de las subcategorías se mostrarán en las páginas de las categorías principales, así como en sus feeds.</dd>
-</dl>
-
-<h4>Medios e imágenes</h4>
-<dl>
-  <dt>Tamaño de las imágenes generadas (en píxeles)</dt>
-  <dd>Cuando añades una imagen en el gestor multimedia, se generan automáticamente otros tamaños. Aquí puede definir la dimensión del tamaño más largo (anchura o altura) de cada tipo de imágenes generadas. Si dejas un campo vacío, el gestor de medios no creará la miniatura correspondiente.</dd>
-
-  <dt>Atributos de inserción de imágenes por defecto</dt>
-  <dd>Los ajustes seleccionados se aplicarán a todas las nuevas imágenes añadidas al gestor multimedia.</dd>
-
-  <dt>Títulos de las imágenes insertadas</dt>
-  <dd>Seleccione el formato de las etiquetas "título" aplicadas a sus imágenes, basándose en la información recuperada de los metadatos de las imágenes.</dd>
-
-  <dt>Si es posible, utilice la fecha original del soporte</dt>
-  <dd>Cuando se activa esta opción, si los metadatos de la imagen contienen una fecha, se utilizará. En caso contrario, se utilizará la fecha de subida.</dd>
-
-  <dt>Tamaño de la imagen insertada</dt>
-  <dd>Define el tamaño por defecto utilizado al insertar una imagen en una entrada de blog.</dd>
-
-  <dt>Alineación de la imagen</dt>
-  <dd>Define la alineación por defecto utilizada al insertar una imagen en una entrada de blog.</dd>
-
-  <dt>Insertar un enlace a la imagen original</dt>
-  <dd>Cuando esta opción está activada, las imágenes insertadas en una entrada de blog serán clicables y apuntarán a la imagen de tamaño original.</dd>
-
-</dl>
-
-<h4>Política de los robots de los motores de búsqueda</h4>
-<p>Some fields can be configured to format the date and time to your needs.
+  </dl>
+  <h4>Comentarios y retroenlaces</h4>
+  <dl>
+    <dt>Aceptar los comentarios</dt>
+    <dd>Acepta globalmente los comentarios en el blog. Tiene prioridad sobre la configuración por entrada.</dd>
+    <dt>Moderar los comentarios</dt>
+    <dd>Con esta opción, los comentarios sólo se publicarán previo acuerdo del editor.</dd>
+    <dt>Dejar comentarios abiertos durante X días</dt>
+    <dd>El número de días durante los cuales los comentarios estarán abiertos tras la publicación del post. Si está vacío, los comentarios se mantendrán abiertos indefinidamente.</dd>
+    <dt>Sintaxis wiki para los comentarios</dt>
+    <dd>Permite utilizar un subconjunto de la sintaxis wiki en los comentarios.</dd>
+    <dt>Aceptar retroenlaces</dt>
+    <dd>Acepta globalmente los trackbacks en el blog. Tiene prioridad sobre la configuración por entrada.</dd>
+    <dt>Moderar los retroenlaces</dt>
+    <dd>Con esta opción, los trackbacks sólo se publicarán previo acuerdo del editor.</dd>
+    <dt>Dejar abiertos los trackbacks durante X días</dt>
+    <dd>El número de días durante los cuales los trackbacks permanecerán abiertos tras la publicación del post. Si está vacío, los trackbacks se mantendrán abiertos indefinidamente.</dd>
+    <dt>Añadir la relación «nofollow» a los enlaces de los comentarios y retroenlaces</dt>
+    <dd>Añade un atributo a los enlaces en comentarios y trackbacks, indicando a los robots de búsqueda que no los sigan. Esta función antispam aún no ha demostrado su utilidad.</dd>
+  </dl>
+  <h4>Presentación del blog</h4>
+  <dl>
+    <dt>Formato de fecha</dt>
+    <dd>Define el formato de fecha para las entradas del blog. Consulte la sección "Referencia de formato" a continuación para obtener más información. Puede utilizar la lista desplegable para seleccionar rápidamente un patrón preexistente.</dd>
+    <dt>Formato de hora</dt>
+    <dd>Define el formato de hora de las entradas del blog. Consulte la sección "Referencia de formato" a continuación para obtener más información. Puede utilizar la lista desplegable para seleccionar rápidamente un patrón preexistente.</dd>
+    <dt>Mostrar emoticones en las entradas y comentarios</dt>
+    <dd>Convierte algunas cadenas como :-) o ;-) en imágenes.</dd>
+    <dt>Mostrar X entradas por página</dt>
+    <dd>Mostrará X entradas en la página principal del blog, así como en las diferentes categorías.</dd>
+    <dt>Mostrar X entradas por alimentación</dt>
+    <dd>Mostrará X entradas en los feeds del blog.</dd>
+    <dt>Mostrar X comentarios por feed</dt>
+    <dd>Mostrará X comentarios en los feeds de comentarios del blog.</dd>
+    <dt>Omitir las fuentes</dt>
+    <dd>Esta opción sólo proporcionará un resumen de las entradas del blog en los feeds.</dd>
+    <dt>Incluir subcategorías en la página de categorías y en el feed de entradas de categorías</dt>
+    <dd>Si esta opción está activada, las entradas de las subcategorías se mostrarán en las páginas de las categorías principales, así como en sus feeds.</dd>
+  </dl>
+  <h4>Medios e imágenes</h4>
+  <dl>
+    <dt>Tamaño de las imágenes generadas (en píxeles)</dt>
+    <dd>Cuando añades una imagen en el gestor multimedia, se generan automáticamente otros tamaños. Aquí puede definir la dimensión del tamaño más largo (anchura o altura) de cada tipo de imágenes generadas. Si dejas un campo vacío, el gestor de medios no creará la miniatura correspondiente.</dd>
+    <dt>Atributos de inserción de imágenes por defecto</dt>
+    <dd>Los ajustes seleccionados se aplicarán a todas las nuevas imágenes añadidas al gestor multimedia.</dd>
+    <dt>Títulos de las imágenes insertadas</dt>
+    <dd>Seleccione el formato de las etiquetas "título" aplicadas a sus imágenes, basándose en la información recuperada de los metadatos de las imágenes.</dd>
+    <dt>Si es posible, utilice la fecha original del soporte</dt>
+    <dd>Cuando se activa esta opción, si los metadatos de la imagen contienen una fecha, se utilizará. En caso contrario, se utilizará la fecha de subida.</dd>
+    <dt>Tamaño de la imagen insertada</dt>
+    <dd>Define el tamaño por defecto utilizado al insertar una imagen en una entrada de blog.</dd>
+    <dt>Alineación de la imagen</dt>
+    <dd>Define la alineación por defecto utilizada al insertar una imagen en una entrada de blog.</dd>
+    <dt>Insertar un enlace a la imagen original</dt>
+    <dd>Cuando esta opción está activada, las imágenes insertadas en una entrada de blog serán clicables y apuntarán a la imagen de tamaño original.</dd>
+  </dl>
+  <h4>Política de los robots de los motores de búsqueda</h4>
+  <p>Some fields can be configured to format the date and time to your needs.
 Here is a reference:</p>
-
-<h4>Antispam</h4>
-<p>Puede establecer el número de días tras los cuales desea que los comentarios basura se eliminen automáticamente. Deje ese campo en blanco (o ponga 0) para desactivar esta función.</p>
-
-<h4>Usuarios</h4>
-<p>Lista los usuarios de este blog, así como sus permisos.</p>
-
-<h3>Blog details</h3>
-<p>Algunos campos pueden configurarse para formatear la fecha y la hora según sus necesidades.
-Aquí tiene una referencia:</p>
-
-<ul>
-  <li><strong>%a</strong>: abreviated week day (local).</li>
-  <li><strong>%A</strong>: complete week day (local).</li>
-  <li><strong>%b</strong>: abbreviated month name (local).</li>
-  <li><strong>%B</strong>: complete month name (local).</li>
-  <li><strong>%c</strong>: default local date and time display.</li>
-  <li><strong>%C</strong>: century (the year, divided by 100 and
-  round up beetween 00 and 99)</li>
-  <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
-  <li><strong>%D</strong>: identical to %m/%d/%y</li>
-  <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
-  <li><strong>%g</strong>: identical to %G, 2 digits.</li>
-  <li><strong>%G</strong>: The year on 4 digits, according to the week number
-  (cf. %V). Format and value identical to %Y, except that if the number of the
-  week belongs to the preceding or following year, the current year
-  will be used instead.</li>
-  <li><strong>%h</strong>: identical to %b</li>
-  <li><strong>%H</strong>: digital hour of the day, 24H mode
-  (from 00 to 23)</li>
-  <li><strong>%I</strong>: digital hour of the day, 12H mode
-  (from 01 to 12)</li>
-  <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
-  <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
-  <li><strong>%M</strong>: minute, digital</li>
-  <li><strong>%n</strong>: newline character</li>
-  <li><strong>%p</strong>: either `am' or `pm', according to the absolute time,
-  or depending of the local settings.</li>
-  <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
-  <li><strong>%R</strong>: the hour, 24h format</li>
-  <li><strong>%S</strong>: seconds, digital</li>
-  <li><strong>%t</strong>: tab character</li>
-  <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
-  <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
-  <li><strong>%U</strong>: week number, the first sundqy of the year being the
-  first day of the first week.</li>
-  <li><strong>%V</strong>: the week numpber as defined in ISO
-  8601:1988, digital, from 01 to 53. The week 1 is the first week
-  with more than 4 days in the current year, whose monday is the first day.
-  (Use %G or %g for the year elements corresponding to the number of the
-  week for the considered timestamp.)</li>
-  <li><strong>%W</strong>: number of the week in the year, the first monday of
-  the year being the start of the first week</li>
-  <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
-  <li><strong>%x</strong>: prefered format for the date without the time</li>
-  <li><strong>%X</strong>: prefered format for the time without the date</li>
-  <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
-  <li><strong>%Y</strong>: the year, four digits</li>
-  <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
-  <li>: a litteral `%' character</li>
-</ul>
-
+  <h4>Antispam</h4>
+  <p>Puede establecer el número de días tras los cuales desea que los comentarios basura se eliminen automáticamente. Deje ese campo en blanco (o ponga 0) para desactivar esta función.</p>
+  <h4>Usuarios</h4>
+  <p>Lista los usuarios de este blog, así como sus permisos.</p>
+  <h3>Blog details</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a</strong>: abreviated week day (local).</li>
+    <li><strong>%A</strong>: complete week day (local).</li>
+    <li><strong>%b</strong>: abbreviated month name (local).</li>
+    <li><strong>%B</strong>: complete month name (local).</li>
+    <li><strong>%c</strong>: default local date and time display.</li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
+    <li><strong>%D</strong>: identical to %m/%d/%y</li>
+    <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
+    <li><strong>%g</strong>: identical to %G, 2 digits.</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h</strong>: identical to %b</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
+    <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
+    <li><strong>%M</strong>: minute, digital</li>
+    <li><strong>%n</strong>: newline character</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
+    <li><strong>%R</strong>: the hour, 24h format</li>
+    <li><strong>%S</strong>: seconds, digital</li>
+    <li><strong>%t</strong>: tab character</li>
+    <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
+    <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
+    <li><strong>%x</strong>: prefered format for the date without the time</li>
+    <li><strong>%X</strong>: prefered format for the time without the date</li>
+    <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
+    <li><strong>%Y</strong>: the year, four digits</li>
+    <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
+    <li>: a litteral `%' character</li>
+  </ul>
 </body>
+
 </html>

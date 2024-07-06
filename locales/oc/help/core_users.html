@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Users</title>
-  </head>
-  <body>
-    <p>This page lists all the users on the system.</p>
-    <p>To add (or modify) users' permissions, your password will be required in the <strong>Your password</strong> field.</p>
 
-    <h4>Users list filter</h4>
-    <dl>
-      <dt>Search</dt>
-      <dd>Search is based on the user ID. The <strong>*</strong> wildcard can be used to look only for a part of the user ID.</dd>
+<head>
+  <title>Users</title>
+</head>
 
-      <dt>Order by</dt>
-      <dd>The users list can be ordered by their <em>ID</em>, their <em>Last Name</em>, their <em>First Name</em>, their <em>Display Name</em> (nickname) or the <em>Number of Entries</em> they created.</dd>
+<body>
+  <p>This page lists all the users on the system.</p>
+  <p>To add (or modify) users' permissions, your password will be required in the <strong>Your password</strong> field.</p>
+  <h4>Users list filter</h4>
+  <dl>
+    <dt>Search</dt>
+    <dd>Search is based on the user ID. The <strong>*</strong> wildcard can be used to look only for a part of the user ID.</dd>
+    <dt>Order by</dt>
+    <dd>The users list can be ordered by their <em>ID</em>, their <em>Last Name</em>, their <em>First Name</em>, their <em>Display Name</em> (nickname) or the <em>Number of Entries</em> they created.</dd>
+    <dt>Sort</dt>
+    <dd>Indicates the sorting method that will be applied to the result list (<em>Ascending</em> or <em>Descending</em>).</dd>
+    <dt>Users per page</dt>
+    <dd>Sets the number of users displayed in each page of the result list.</dd>
+  </dl>
+  <h4>Users batch actions</h4>
+  <p>It is possible to make a batch of actions on several users at one time.</p>
+  <ul>
+    <li><strong>Set permissions:</strong> Set permissions for one or more blog(s).</li>
+    <li><strong>Delete:</strong> Remove the selected user(s) from the system. A user who created entries cannot be deleted.</li>
+  </ul>
+  <p>If you decide to set users' permissions, you will be redirected to a new page listing the blogs available on your system. Check the blogs you want to set the permissions on, and press <strong>Set permissions</strong>.</p>
+  <h4>Users permissions</h4>
+  <p>For each blog, you can set the following permissions:</p>
+  <ul>
+    <li><strong>Administrator:</strong> Can administrate the blog entirely.</li>
+    <li><strong>Manage their own entries and comments:</strong> The user can create entries and manage the comments on entries he created.</li>
+    <li><strong>Publish entries and comments:</strong> The user can modify the publication status of his own entries and of his entries' comments.</li>
+    <li><strong>Delete entries and comments:</strong> The user can delete his own entries as well as his entries' comments.</li>
+    <li><strong>Manage all entries and comments:</strong> The user can manage all the entries of this blog, no matter if he's the author or not.</li>
+    <li><strong>Manage categories:</strong> The user can create, modify and delete categories.</li>
+    <li><strong>Manage their own media items:</strong> The user can add media items and modifye or delete his own media.</li>
+    <li><strong>Manage all media items:</strong> The user can manage the media items from any user.</li>
+    <li><strong>Manage pages:</strong> The user can add and modify pages.</li>
+    <li><strong>Manage blogroll:</strong> The user can manage the blogroll of the current blog.</li>
+  </ul>
+  <p>The <strong>Super administrator</strong> status is set in the user profile.</p>
+</body>
 
-      <dt>Sort</dt>
-      <dd>Indicates the sorting method that will be applied to the result list (<em>Ascending</em> or <em>Descending</em>).</dd>
-
-      <dt>Users per page</dt>
-      <dd>Sets the number of users displayed in each page of the result list.</dd>
-    </dl>
-
-    <h4>Users batch actions</h4>
-    <p>It is possible to make a batch of actions on several users at one time.</p>
-    <ul>
-      <li><strong>Set permissions:</strong> Set permissions for one or more blog(s).</li>
-      <li><strong>Delete:</strong> Remove the selected user(s) from the system. A user who created entries cannot be deleted.</li>
-    </ul>
-    <p>If you decide to set users' permissions, you will be redirected to a new page listing the blogs available on your system. Check the blogs you want to set the permissions on, and press <strong>Set permissions</strong>.</p>
-
-    <h4>Users permissions</h4>
-    <p>For each blog, you can set the following permissions:</p>
-    <ul>
-      <li><strong>Administrator:</strong> Can administrate the blog entirely.</li>
-      <li><strong>Manage their own entries and comments:</strong> The user can create entries and manage the comments on entries he created.</li>
-      <li><strong>Publish entries and comments:</strong> The user can modify the publication status of his own entries and of his entries' comments.</li>
-      <li><strong>Delete entries and comments:</strong> The user can delete his own entries as well as his entries' comments.</li>
-      <li><strong>Manage all entries and comments:</strong> The user can manage all the entries of this blog, no matter if he's the author or not.</li>
-      <li><strong>Manage categories:</strong> The user can create, modify and delete categories.</li>
-      <li><strong>Manage their own media items:</strong> The user can add media items and modifye or delete his own media.</li>
-      <li><strong>Manage all media items:</strong> The user can manage the media items from any user.</li>
-      <li><strong>Manage pages:</strong> The user can add and modify pages.</li>
-      <li><strong>Manage blogroll:</strong> The user can manage the blogroll of the current blog.</li>
-    </ul>
-    <p>The <strong>Super administrator</strong> status is set in the user profile.</p>
-  </body>
 </html>

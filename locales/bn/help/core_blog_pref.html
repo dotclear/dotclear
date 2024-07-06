@@ -1,209 +1,155 @@
 <html>
+
 <head>
   <title>ব্লগ সেটিংস</title>
 </head>
 
 <body>
-<h4>ব্লগ বিবরণ</h4>
-<dl>
-  <dt>ব্লগ আইডি</dt>
-  <dd>ব্লগের ইউনিক আইডি. ম্যান্ডেটরি, শুধুমাত্র একজন সুপার প্রশাসক দ্বারা পরিবর্তিত হতে পারে.</dd>
-
-  <dt>ব্লগ নাম</dt>
-  <dd>Name of the blog, mandatory.</dd>
-
-  <dt>ব্লগ ইউআরএল</dt>
-  <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
-
-  <dt>Blog status</dt>
-  <dd>ইউআরএল পড়া উপায় নির্ধারণ করে. PATH_INFO সুপারিশ করা হয়, QUERY_STRING ব্যবহার করা হবে যদি PATH_INFO কাজ করে না. PATH_INFO মোড ব্যবহার করে, ব্লগ ইউআরএল একটি "/" দিয়ে শেষ করতে হবে এবং QUERY_STRING ব্যবহার করে, এটি একটি "?" দিয়ে শেষ করতে হবে.</dd>
-
-  <dt>Blog description</dt>
-  <dd>
-    <ul>
-      <li><strong>অনলাইন:</strong> ব্লগটি ভিজিটরদের জন্য উন্মুক্ত।</li>
-      <li><strong>অফলাইন:</strong> ব্লগ দর্শকদের জন্য বন্ধ কিন্তু লেখকদের জন্য উন্মুক্ত।</li>
-      <li><strong>অপসারণ:</strong> ব্লগ দর্শক এবং লেখক উভয়ের জন্য বন্ধ, শুধুমাত্র সুপার প্রশাসকদের জন্য উন্মুক্ত।</li>
-    </ul>
-  </dd>
-
-  <dt>ব্লগ বর্ণনা</dt>
-  <dd>এখানে আপনি আপনার ব্লগের জন্য যে কোন বর্ণনা দিতে পারেন. এটি একটি সহজ টেক্সট, কোন বিন্যাস ছাড়াই.</dd>
-</dl>
-
-<h4>ব্লগ কনফিগারেশন</h4>
-<dl>
-  <dt>ব্লগ সম্পাদকের নাম</dt>
-  <dd>Name of the person responsible for the blog. It may be the owner or the
+  <h4>ব্লগ বিবরণ</h4>
+  <dl>
+    <dt>ব্লগ আইডি</dt>
+    <dd>ব্লগের ইউনিক আইডি. ম্যান্ডেটরি, শুধুমাত্র একজন সুপার প্রশাসক দ্বারা পরিবর্তিত হতে পারে.</dd>
+    <dt>ব্লগ নাম</dt>
+    <dd>Name of the blog, mandatory.</dd>
+    <dt>ব্লগ ইউআরএল</dt>
+    <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
+    <dt>Blog status</dt>
+    <dd>ইউআরএল পড়া উপায় নির্ধারণ করে. PATH_INFO সুপারিশ করা হয়, QUERY_STRING ব্যবহার করা হবে যদি PATH_INFO কাজ করে না. PATH_INFO মোড ব্যবহার করে, ব্লগ ইউআরএল একটি "/" দিয়ে শেষ করতে হবে এবং QUERY_STRING ব্যবহার করে, এটি একটি "?" দিয়ে শেষ করতে হবে.</dd>
+    <dt>Blog description</dt>
+    <dd>
+      <ul>
+        <li><strong>অনলাইন:</strong> ব্লগটি ভিজিটরদের জন্য উন্মুক্ত।</li>
+        <li><strong>অফলাইন:</strong> ব্লগ দর্শকদের জন্য বন্ধ কিন্তু লেখকদের জন্য উন্মুক্ত।</li>
+        <li><strong>অপসারণ:</strong> ব্লগ দর্শক এবং লেখক উভয়ের জন্য বন্ধ, শুধুমাত্র সুপার প্রশাসকদের জন্য উন্মুক্ত।</li>
+      </ul>
+    </dd>
+    <dt>ব্লগ বর্ণনা</dt>
+    <dd>এখানে আপনি আপনার ব্লগের জন্য যে কোন বর্ণনা দিতে পারেন. এটি একটি সহজ টেক্সট, কোন বিন্যাস ছাড়াই.</dd>
+  </dl>
+  <h4>ব্লগ কনফিগারেশন</h4>
+  <dl>
+    <dt>ব্লগ সম্পাদকের নাম</dt>
+    <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
-
-  <dt>Copyright notice</dt>
-  <dd>Note about the reproduction rights for the blog.</dd>
-
-  <dt>Default language</dt>
-  <dd>Language of the blog interface. Either this language is among the avalaible ones,
+    <dt>Copyright notice</dt>
+    <dd>Note about the reproduction rights for the blog.</dd>
+    <dt>Default language</dt>
+    <dd>Language of the blog interface. Either this language is among the avalaible ones,
   and the interface will be translated, or it is not, and the interface will then
   default to English.</dd>
-
-  <dt>Blog timezone</dt>
-  <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
-
-  <dt>Date formats</dt>
-  <dd>The date format of the blog posts. See the date and time
+    <dt>Blog timezone</dt>
+    <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
+    <dt>Date formats</dt>
+    <dd>The date format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-
-  <dt>Time format</dt>
-  <dd>The time format of the blog posts. See the date and time
+    <dt>Time format</dt>
+    <dd>The time format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-
-  <dt>Display .. entries per page</dt>
-  <dd>The number will be used as the limit for the number of entries
+    <dt>Display .. entries per page</dt>
+    <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
-</dl>
-
-<h4>Comments and trackbacks</h4>
-<dl>
-  <dt>মন্তব্য গ্রহণ করুন</dt>
-  <dd>ব্লগের মন্তব্যে গোলোভাবে গ্রহণ করা হয়েছে. পোস্ট সেটিং এর উপর দৃষ্টি নিন.</dd>
-
-  <dt>মডার্ট মন্তব্য</dt>
-  <dd>এই অপশনের মাধ্যমে সম্পাদকের চুক্তির পর কেবলমাত্র মন্তব্য প্রকাশ করা হবে.</dd>
-
-  <dt>এক্স দিনের জন্য মন্তব্য খোলা হবে</dt>
-  <dd>পোস্ট প্রকাশের পর উইচ মন্তব্যের দিনসংখ্যা উন্মুক্ত হবে. যখন ফাঁকা, মন্তব্যগুলো অনিশ্চিতভাবেই উন্মুক্ত রাখা হবে.</dd>
-
-  <dt>মন্তব্যের জন্য উইকি সিনট্যাক্স</dt>
-  <dd>উইকি সিনট্যাক্সের একটি সাবসেটকে মন্তব্যে ব্যবহার করা হবে.</dd>
-
-  <dt>ট্র্যাকব্যাক গ্রহণ করুন</dt>
-  <dd>ব্লগের ট্রাকব্যাক গ্রহন করে. পোস্ট সেটিং এর উপর দৃষ্টি নিন.</dd>
-
-  <dt>মডার্ট ট্রাকব্যাক</dt>
-  <dd>এই অপশনটি দিয়ে ট্রাকব্যাক শুধুমাত্র সম্পাদকের চুক্তির পর প্রকাশ করা হবে.</dd>
-
-  <dt>X দিনের জন্য ট্র্যাকব্যাক খোলা রাখো</dt>
-  <dd>পোস্ট প্রকাশের পর উইচ ট্রাকব্যাকের দিনের সংখ্যা উন্মুক্ত হবে. যখন ফাঁকা, ট্রাকব্যাকগুলো অজ্ঞাত ভাবে খোলা রাখা হবে.</dd>
-
-  <dt>মন্তব্য এবং ট্রাকব্যাক লিংকের উপর "noपैरवी" সম্পর্ক যোগ করুন</dt>
-  <dd>মন্তব্য এবং ট্রাকব্যাকের লিংকগুলোতে একটি বৈশিষ্ট্য যোগ করে, অনুসন্ধান বটকে নির্দেশ করে তাদের অনুসরণ না করা. এই অ্যান্টিস্প্যাম বৈশিষ্ট্যগুলি এখনও এর মান প্রমাণ করতে হয়েছে.</dd>
-</dl>
-
-<h4>ব্লগ উপস্থাপনা</h4>
-<dl>
-  <dt>তারিখ বিন্যাস</dt>
-  <dd>ব্লগ পোস্টের জন্য তারিখ বিন্যাস নির্ধারণ করে. আরও তথ্যের জন্য নীচের "ফরম্যাট রেফারেন্স" সেকশন দেখুন. একটি প্রাক-বিদ্যমান প্যাটার্ন নির্বাচন করার জন্য আপনি ড্রপডাউন লিস্ট ব্যবহার করতে পারেন.</dd>
-
-  <dt>সময় বিন্যাস</dt>
-  <dd>ব্লগ পোস্টের জন্য টাইম ফরমেট নির্ধারণ করে. আরও তথ্যের জন্য নীচের "ফরম্যাট রেফারেন্স" সেকশন দেখুন. একটি প্রাক-বিদ্যমান প্যাটার্ন নির্বাচন করার জন্য আপনি ড্রপডাউন লিস্ট ব্যবহার করতে পারেন.</dd>
-
-  <dt>এন্ট্রি এবং মন্তব্যের উপর হাসি প্রদর্শন করা হবে</dt>
-  <dd>কিছু স্ট্রিং টার্ন করুন:-) অথবা;-) ছবিতে.</dd>
-
-  <dt>প্রতি পৃষ্ঠায় X এন্ট্রি প্রদর্শন করা হবে</dt>
-  <dd>ব্লগের মূল পাতায় এক্স এন্ট্রি প্রদর্শন করা হবে এবং একই সাথে বিভিন্ন বিভাগে.</dd>
-
-  <dt>প্রতি ফিডে X এন্ট্রি প্রদর্শন করা হবে</dt>
-  <dd>ব্লগ ফিড-এ এক্স এন্ট্রি প্রদর্শন করবে.</dd>
-
-  <dt>প্রতি ফিডে X মন্তব্য প্রদর্শন করা হবে</dt>
-  <dd>ব্লগের মন্তব্যে এক্স মন্তব্য প্রদর্শন করা হবে.</dd>
-
-  <dt>ফিড ট্রেন করা হবে</dt>
-  <dd>এই অপশনটি শুধুমাত্র খাদ্যের মধ্যে ব্লগ পোস্ট থেকে একটি বিমূর্তি প্রদান করবে.</dd>
-
-  <dt>শ্রেণীবিভাগ ও ক্যাটাগরিতে উপ-শ্রেণীবিভাগ অন্তর্ভুক্ত করা হবে</dt>
-  <dd>এই অপশনটি সক্রিয় করা হলে, উপ-শ্রেণীতে পোষ্ট করা হবে প্যারেন্ট ক্যাটাগরিতে এবং তাদের ফিডসে.</dd>
-</dl>
-
-<h4>মিডিয়া এবং ছবি</h4>
-<dl>
-  <dt>ছবির আকার তৈরি করা হয়েছে (পিক্সেলে)</dt>
-  <dd>মিডিয়া ম্যানেজারে একটি ছবি যোগ করলে অন্যান্য মাপ স্বয়ংক্রিয়ভাবে উৎপন্ন হয়. এখানে আপনি প্রতিটি ধরনের উৎপন্ন ছবিগুলোর দীর্ঘতম আকার (প্রস্থ বা heigth) এর মাত্রা নির্ধারণ করতে পারেন. যদি আপনি একটি ফিল্ড ফাঁকা রেখে যান, তাহলে মিডিয়া ম্যানেজার সংশ্লিষ্ট মিনিয়েচার তৈরি করবে না.</dd>
-
-  <dt>ডিফল্ট ছবি insertion attributes</dt>
-  <dd>নির্বাচিত সেটিংস মিডিয়া ম্যানেজারের সাথে যুক্ত সকল নতুন ছবির উপর আবেদন করবে.</dd>
-
-  <dt>প্রারম্ভিত ছবির শিরোনাম</dt>
-  <dd>ছবি মেটাডাটা থেকে প্রাপ্ত তথ্যের উপর ভিত্তি করে আপনার ছবির "শিরোনাম" ট্যাগ-এর বিন্যাস বেছে নিন.</dd>
-
-  <dt>সম্ভব হলে মূল মিডিয়া তারিখ ব্যবহার করা হবে</dt>
-  <dd>এই অপশনটি সক্রিয় করা হলে, যদি ছবির মেটাডাটা একটি তারিখ থাকে, তবে এটি ব্যবহার করা হবে. না থাকলে আপলোড তারিখ ব্যবহার করা হবে.</dd>
-
-  <dt>ঢোকানো ছবির আকার</dt>
-  <dd>একটি ব্লগ পোস্টে একটি ছবি পোস্ট করার সময় ব্যবহৃত ডিফল্ট আকার নির্ধারণ করে.</dd>
-
-  <dt>ছবির অ্যালগমেন্ট</dt>
-  <dd>একটি ব্লগ পোস্টে একটি ছবি ইনস্টল করার সময় ডিফল্ট অ্যালিগমেন্ট ব্যবহার করা হবে.</dd>
-
-  <dt>মূল ছবির একটি লিংক ঢোকাও</dt>
-  <dd>এই অপশনটি সক্রিয় করা হলে, একটি ব্লগ পোস্টে ঢোকানো ছবিগুলো মূল আকারের ছবির জন্য ক্লিক করা এবং বিন্দু হবে.</dd>
-
-</dl>
-
-<h4>সার্চ ইঞ্জিন রোবট পলিসি</h4>
-<p>Some fields can be configured to format the date and time to your needs.
+  </dl>
+  <h4>Comments and trackbacks</h4>
+  <dl>
+    <dt>মন্তব্য গ্রহণ করুন</dt>
+    <dd>ব্লগের মন্তব্যে গোলোভাবে গ্রহণ করা হয়েছে. পোস্ট সেটিং এর উপর দৃষ্টি নিন.</dd>
+    <dt>মডার্ট মন্তব্য</dt>
+    <dd>এই অপশনের মাধ্যমে সম্পাদকের চুক্তির পর কেবলমাত্র মন্তব্য প্রকাশ করা হবে.</dd>
+    <dt>এক্স দিনের জন্য মন্তব্য খোলা হবে</dt>
+    <dd>পোস্ট প্রকাশের পর উইচ মন্তব্যের দিনসংখ্যা উন্মুক্ত হবে. যখন ফাঁকা, মন্তব্যগুলো অনিশ্চিতভাবেই উন্মুক্ত রাখা হবে.</dd>
+    <dt>মন্তব্যের জন্য উইকি সিনট্যাক্স</dt>
+    <dd>উইকি সিনট্যাক্সের একটি সাবসেটকে মন্তব্যে ব্যবহার করা হবে.</dd>
+    <dt>ট্র্যাকব্যাক গ্রহণ করুন</dt>
+    <dd>ব্লগের ট্রাকব্যাক গ্রহন করে. পোস্ট সেটিং এর উপর দৃষ্টি নিন.</dd>
+    <dt>মডার্ট ট্রাকব্যাক</dt>
+    <dd>এই অপশনটি দিয়ে ট্রাকব্যাক শুধুমাত্র সম্পাদকের চুক্তির পর প্রকাশ করা হবে.</dd>
+    <dt>X দিনের জন্য ট্র্যাকব্যাক খোলা রাখো</dt>
+    <dd>পোস্ট প্রকাশের পর উইচ ট্রাকব্যাকের দিনের সংখ্যা উন্মুক্ত হবে. যখন ফাঁকা, ট্রাকব্যাকগুলো অজ্ঞাত ভাবে খোলা রাখা হবে.</dd>
+    <dt>মন্তব্য এবং ট্রাকব্যাক লিংকের উপর "noपैरवी" সম্পর্ক যোগ করুন</dt>
+    <dd>মন্তব্য এবং ট্রাকব্যাকের লিংকগুলোতে একটি বৈশিষ্ট্য যোগ করে, অনুসন্ধান বটকে নির্দেশ করে তাদের অনুসরণ না করা. এই অ্যান্টিস্প্যাম বৈশিষ্ট্যগুলি এখনও এর মান প্রমাণ করতে হয়েছে.</dd>
+  </dl>
+  <h4>ব্লগ উপস্থাপনা</h4>
+  <dl>
+    <dt>তারিখ বিন্যাস</dt>
+    <dd>ব্লগ পোস্টের জন্য তারিখ বিন্যাস নির্ধারণ করে. আরও তথ্যের জন্য নীচের "ফরম্যাট রেফারেন্স" সেকশন দেখুন. একটি প্রাক-বিদ্যমান প্যাটার্ন নির্বাচন করার জন্য আপনি ড্রপডাউন লিস্ট ব্যবহার করতে পারেন.</dd>
+    <dt>সময় বিন্যাস</dt>
+    <dd>ব্লগ পোস্টের জন্য টাইম ফরমেট নির্ধারণ করে. আরও তথ্যের জন্য নীচের "ফরম্যাট রেফারেন্স" সেকশন দেখুন. একটি প্রাক-বিদ্যমান প্যাটার্ন নির্বাচন করার জন্য আপনি ড্রপডাউন লিস্ট ব্যবহার করতে পারেন.</dd>
+    <dt>এন্ট্রি এবং মন্তব্যের উপর হাসি প্রদর্শন করা হবে</dt>
+    <dd>কিছু স্ট্রিং টার্ন করুন:-) অথবা;-) ছবিতে.</dd>
+    <dt>প্রতি পৃষ্ঠায় X এন্ট্রি প্রদর্শন করা হবে</dt>
+    <dd>ব্লগের মূল পাতায় এক্স এন্ট্রি প্রদর্শন করা হবে এবং একই সাথে বিভিন্ন বিভাগে.</dd>
+    <dt>প্রতি ফিডে X এন্ট্রি প্রদর্শন করা হবে</dt>
+    <dd>ব্লগ ফিড-এ এক্স এন্ট্রি প্রদর্শন করবে.</dd>
+    <dt>প্রতি ফিডে X মন্তব্য প্রদর্শন করা হবে</dt>
+    <dd>ব্লগের মন্তব্যে এক্স মন্তব্য প্রদর্শন করা হবে.</dd>
+    <dt>ফিড ট্রেন করা হবে</dt>
+    <dd>এই অপশনটি শুধুমাত্র খাদ্যের মধ্যে ব্লগ পোস্ট থেকে একটি বিমূর্তি প্রদান করবে.</dd>
+    <dt>শ্রেণীবিভাগ ও ক্যাটাগরিতে উপ-শ্রেণীবিভাগ অন্তর্ভুক্ত করা হবে</dt>
+    <dd>এই অপশনটি সক্রিয় করা হলে, উপ-শ্রেণীতে পোষ্ট করা হবে প্যারেন্ট ক্যাটাগরিতে এবং তাদের ফিডসে.</dd>
+  </dl>
+  <h4>মিডিয়া এবং ছবি</h4>
+  <dl>
+    <dt>ছবির আকার তৈরি করা হয়েছে (পিক্সেলে)</dt>
+    <dd>মিডিয়া ম্যানেজারে একটি ছবি যোগ করলে অন্যান্য মাপ স্বয়ংক্রিয়ভাবে উৎপন্ন হয়. এখানে আপনি প্রতিটি ধরনের উৎপন্ন ছবিগুলোর দীর্ঘতম আকার (প্রস্থ বা heigth) এর মাত্রা নির্ধারণ করতে পারেন. যদি আপনি একটি ফিল্ড ফাঁকা রেখে যান, তাহলে মিডিয়া ম্যানেজার সংশ্লিষ্ট মিনিয়েচার তৈরি করবে না.</dd>
+    <dt>ডিফল্ট ছবি insertion attributes</dt>
+    <dd>নির্বাচিত সেটিংস মিডিয়া ম্যানেজারের সাথে যুক্ত সকল নতুন ছবির উপর আবেদন করবে.</dd>
+    <dt>প্রারম্ভিত ছবির শিরোনাম</dt>
+    <dd>ছবি মেটাডাটা থেকে প্রাপ্ত তথ্যের উপর ভিত্তি করে আপনার ছবির "শিরোনাম" ট্যাগ-এর বিন্যাস বেছে নিন.</dd>
+    <dt>সম্ভব হলে মূল মিডিয়া তারিখ ব্যবহার করা হবে</dt>
+    <dd>এই অপশনটি সক্রিয় করা হলে, যদি ছবির মেটাডাটা একটি তারিখ থাকে, তবে এটি ব্যবহার করা হবে. না থাকলে আপলোড তারিখ ব্যবহার করা হবে.</dd>
+    <dt>ঢোকানো ছবির আকার</dt>
+    <dd>একটি ব্লগ পোস্টে একটি ছবি পোস্ট করার সময় ব্যবহৃত ডিফল্ট আকার নির্ধারণ করে.</dd>
+    <dt>ছবির অ্যালগমেন্ট</dt>
+    <dd>একটি ব্লগ পোস্টে একটি ছবি ইনস্টল করার সময় ডিফল্ট অ্যালিগমেন্ট ব্যবহার করা হবে.</dd>
+    <dt>মূল ছবির একটি লিংক ঢোকাও</dt>
+    <dd>এই অপশনটি সক্রিয় করা হলে, একটি ব্লগ পোস্টে ঢোকানো ছবিগুলো মূল আকারের ছবির জন্য ক্লিক করা এবং বিন্দু হবে.</dd>
+  </dl>
+  <h4>সার্চ ইঞ্জিন রোবট পলিসি</h4>
+  <p>Some fields can be configured to format the date and time to your needs.
 Here is a reference:</p>
-
-<h4>এন্টিস্প্যাম</h4>
-<p>আপনি যে সংখ্যক দিন পরে জাঙ্কের মন্তব্য স্বয়ংক্রিয়ভাবে মুছে ফেলতে চান তা নির্ধারণ করতে পারেন. এই বৈশিষ্ট্যটি নিষ্ক্রিয় করার জন্য ঐ মাঠ ফাঁকা (অথবা ০) ছাড়ো.</p>
-
-<h4>ব্যবহারকারীগণ</h4>
-<p>এই ব্লগের ব্যবহারকারীও তাদের অনুমতি নিয়ে লিস্ট করে.</p>
-
-<h3>Blog details</h3>
-<p>কিছু ক্ষেত্র আপনার প্রয়োজন অনুযায়ী তারিখ এবং সময় বিন্যাস করার জন্য কনফিগার করা যেতে পারে।
-এখানে একটি রেফারেন্স আছে:</p>
-
-<ul>
-  <li><strong>%a</strong>: abreviated week day (local).</li>
-  <li><strong>%A</strong>: complete week day (local).</li>
-  <li><strong>%b</strong>: abbreviated month name (local).</li>
-  <li><strong>%B</strong>: complete month name (local).</li>
-  <li><strong>%c</strong>: default local date and time display.</li>
-  <li><strong>%C</strong>: century (the year, divided by 100 and
-  round up beetween 00 and 99)</li>
-  <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
-  <li><strong>%D</strong>: identical to %m/%d/%y</li>
-  <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
-  <li><strong>%g</strong>: identical to %G, 2 digits.</li>
-  <li><strong>%G</strong>: The year on 4 digits, according to the week number
-  (cf. %V). Format and value identical to %Y, except that if the number of the
-  week belongs to the preceding or following year, the current year
-  will be used instead.</li>
-  <li><strong>%h</strong>: identical to %b</li>
-  <li><strong>%H</strong>: digital hour of the day, 24H mode
-  (from 00 to 23)</li>
-  <li><strong>%I</strong>: digital hour of the day, 12H mode
-  (from 01 to 12)</li>
-  <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
-  <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
-  <li><strong>%M</strong>: minute, digital</li>
-  <li><strong>%n</strong>: newline character</li>
-  <li><strong>%p</strong>: either `am' or `pm', according to the absolute time,
-  or depending of the local settings.</li>
-  <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
-  <li><strong>%R</strong>: the hour, 24h format</li>
-  <li><strong>%S</strong>: seconds, digital</li>
-  <li><strong>%t</strong>: tab character</li>
-  <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
-  <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
-  <li><strong>%U</strong>: week number, the first sundqy of the year being the
-  first day of the first week.</li>
-  <li><strong>%V</strong>: the week numpber as defined in ISO
-  8601:1988, digital, from 01 to 53. The week 1 is the first week
-  with more than 4 days in the current year, whose monday is the first day.
-  (Use %G or %g for the year elements corresponding to the number of the
-  week for the considered timestamp.)</li>
-  <li><strong>%W</strong>: number of the week in the year, the first monday of
-  the year being the start of the first week</li>
-  <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
-  <li><strong>%x</strong>: prefered format for the date without the time</li>
-  <li><strong>%X</strong>: prefered format for the time without the date</li>
-  <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
-  <li><strong>%Y</strong>: the year, four digits</li>
-  <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
-  <li>: a litteral `%' character</li>
-</ul>
-
+  <h4>এন্টিস্প্যাম</h4>
+  <p>আপনি যে সংখ্যক দিন পরে জাঙ্কের মন্তব্য স্বয়ংক্রিয়ভাবে মুছে ফেলতে চান তা নির্ধারণ করতে পারেন. এই বৈশিষ্ট্যটি নিষ্ক্রিয় করার জন্য ঐ মাঠ ফাঁকা (অথবা ০) ছাড়ো.</p>
+  <h4>ব্যবহারকারীগণ</h4>
+  <p>এই ব্লগের ব্যবহারকারীও তাদের অনুমতি নিয়ে লিস্ট করে.</p>
+  <h3>Blog details</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a</strong>: abreviated week day (local).</li>
+    <li><strong>%A</strong>: complete week day (local).</li>
+    <li><strong>%b</strong>: abbreviated month name (local).</li>
+    <li><strong>%B</strong>: complete month name (local).</li>
+    <li><strong>%c</strong>: default local date and time display.</li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
+    <li><strong>%D</strong>: identical to %m/%d/%y</li>
+    <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
+    <li><strong>%g</strong>: identical to %G, 2 digits.</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h</strong>: identical to %b</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
+    <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
+    <li><strong>%M</strong>: minute, digital</li>
+    <li><strong>%n</strong>: newline character</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
+    <li><strong>%R</strong>: the hour, 24h format</li>
+    <li><strong>%S</strong>: seconds, digital</li>
+    <li><strong>%t</strong>: tab character</li>
+    <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
+    <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
+    <li><strong>%x</strong>: prefered format for the date without the time</li>
+    <li><strong>%X</strong>: prefered format for the time without the date</li>
+    <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
+    <li><strong>%Y</strong>: the year, four digits</li>
+    <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
+    <li>: a litteral `%' character</li>
+  </ul>
 </body>
+
 </html>

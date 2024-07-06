@@ -1,48 +1,45 @@
 <html>
-  <head>
-    <title>Użytkownicy</title>
-  </head>
-  <body>
-    <p>Ta strona zawiera listę wszystkich użytkowników w systemie.</p>
-    <p>Aby dodać (lub zmodyfikować) uprawnienia użytkowników, Twoje hasło będzie wymagane w polu <strong>Twoje hasło</strong>.</p>
 
-    <h4>Filtr listy użytkowników</h4>
-    <dl>
-      <dt>Szukaj</dt>
-      <dd>Wyszukiwanie oparte jest na ID użytkownika. <strong>*</strong> wieloznacznik może być użyty do wyszukiwania tylko części identyfikatora użytkownika.</dd>
+<head>
+  <title>Użytkownicy</title>
+</head>
 
-      <dt>Sortuj według</dt>
-      <dd>Listę użytkowników można uporządkować według ich <em>ID</em>, ich <em>Nazwisko</em>, ich <em>Nazwisko</em>, ich <em>Wyświetlana nazwa</em> (nick) lub <em>Liczba utworzonych wpisów</em>.</dd>
+<body>
+  <p>Ta strona zawiera listę wszystkich użytkowników w systemie.</p>
+  <p>Aby dodać (lub zmodyfikować) uprawnienia użytkowników, Twoje hasło będzie wymagane w polu <strong>Twoje hasło</strong>.</p>
+  <h4>Filtr listy użytkowników</h4>
+  <dl>
+    <dt>Szukaj</dt>
+    <dd>Wyszukiwanie oparte jest na ID użytkownika. <strong>*</strong> wieloznacznik może być użyty do wyszukiwania tylko części identyfikatora użytkownika.</dd>
+    <dt>Sortuj według</dt>
+    <dd>Listę użytkowników można uporządkować według ich <em>ID</em>, ich <em>Nazwisko</em>, ich <em>Nazwisko</em>, ich <em>Wyświetlana nazwa</em> (nick) lub <em>Liczba utworzonych wpisów</em>.</dd>
+    <dt>Sortuj</dt>
+    <dd>Wskazuje metodę sortowania, która zostanie zastosowana do listy wyników (<em>rosnąco</em> lub <em>malejąco</em>).</dd>
+    <dt>Użytkownicy na stronie</dt>
+    <dd>Ustawia liczbę użytkowników wyświetlanych na każdej stronie listy wyników.</dd>
+  </dl>
+  <h4>Akcje wsadowe użytkowników</h4>
+  <p>Możliwe jest jednorazowe wykonanie serii akcji dla kilku użytkowników.</p>
+  <ul>
+    <li><strong>Ustaw uprawnienia:</strong> Ustaw uprawnienia dla jednego lub więcej blogów.</li>
+    <li><strong>Usuń:</strong> Usuń wybranych użytkowników z systemu. Użytkownika, który utworzył wpisy, nie można usunąć.</li>
+  </ul>
+  <p>Jeśli zdecydujesz się ustawić uprawnienia użytkowników, zostaniesz przekierowany na nową stronę z listą blogów dostępnych w Twoim systemie. Sprawdź blogi na których chcesz ustawić uprawnienia i naciśnij <strong>Ustaw uprawnienia</strong>.</p>
+  <h4>Uprawnienia użytkowników</h4>
+  <p>Dla każdego bloga możesz ustawić następujące uprawnienia:</p>
+  <ul>
+    <li><strong>Administrator:</strong> Może zarządzać blogiem w całości.</li>
+    <li><strong>Zarządzaj własnymi wpisami i komentarzami:</strong> Użytkownik może tworzyć wpisy i zarządzać komentarzami do wpisów, które utworzył.</li>
+    <li><strong>Publikuj wpisy i komentarze:</strong> Użytkownik może zmodyfikować status publikacji własnych wpisów i komentarzy swoich wpisów.</li>
+    <li><strong>Usuń wpisy i komentarze:</strong> Użytkownik może usunąć własne wpisy oraz komentarze swoich wpisów.</li>
+    <li><strong>Zarządzaj wszystkimi wpisami i komentarzami:</strong> Użytkownik może zarządzać wszystkimi wpisami tego bloga, bez względu na to, czy jest autorem.</li>
+    <li><strong>Zarządzaj kategoriami:</strong> Użytkownik może tworzyć, modyfikować i usuwać kategorie.</li>
+    <li><strong>Zarządzaj swoimi własnymi mediami:</strong> Użytkownik może dodawać elementy multimedialne i modyfikować lub usuwać własne media.</li>
+    <li><strong>Zarządzaj wszystkimi elementami multimedialnymi:</strong> Użytkownik może zarządzać elementami multimediów od dowolnego użytkownika.</li>
+    <li><strong>Zarządzaj stronami:</strong> Użytkownik może dodawać i modyfikować strony.</li>
+    <li><strong>Zarządzaj blogroll:</strong> Użytkownik może zarządzać blogroll bieżącego bloga.</li>
+  </ul>
+  <p>Status <strong>Super Administratora</strong> jest ustawiony w profilu użytkownika.</p>
+</body>
 
-      <dt>Sortuj</dt>
-      <dd>Wskazuje metodę sortowania, która zostanie zastosowana do listy wyników (<em>rosnąco</em> lub <em>malejąco</em>).</dd>
-
-      <dt>Użytkownicy na stronie</dt>
-      <dd>Ustawia liczbę użytkowników wyświetlanych na każdej stronie listy wyników.</dd>
-    </dl>
-
-    <h4>Akcje wsadowe użytkowników</h4>
-    <p>Możliwe jest jednorazowe wykonanie serii akcji dla kilku użytkowników.</p>
-    <ul>
-      <li><strong>Ustaw uprawnienia:</strong> Ustaw uprawnienia dla jednego lub więcej blogów.</li>
-      <li><strong>Usuń:</strong> Usuń wybranych użytkowników z systemu. Użytkownika, który utworzył wpisy, nie można usunąć.</li>
-    </ul>
-    <p>Jeśli zdecydujesz się ustawić uprawnienia użytkowników, zostaniesz przekierowany na nową stronę z listą blogów dostępnych w Twoim systemie. Sprawdź blogi na których chcesz ustawić uprawnienia i naciśnij <strong>Ustaw uprawnienia</strong>.</p>
-
-    <h4>Uprawnienia użytkowników</h4>
-    <p>Dla każdego bloga możesz ustawić następujące uprawnienia:</p>
-    <ul>
-      <li><strong>Administrator:</strong> Może zarządzać blogiem w całości.</li>
-      <li><strong>Zarządzaj własnymi wpisami i komentarzami:</strong> Użytkownik może tworzyć wpisy i zarządzać komentarzami do wpisów, które utworzył.</li>
-      <li><strong>Publikuj wpisy i komentarze:</strong> Użytkownik może zmodyfikować status publikacji własnych wpisów i komentarzy swoich wpisów.</li>
-      <li><strong>Usuń wpisy i komentarze:</strong> Użytkownik może usunąć własne wpisy oraz komentarze swoich wpisów.</li>
-      <li><strong>Zarządzaj wszystkimi wpisami i komentarzami:</strong> Użytkownik może zarządzać wszystkimi wpisami tego bloga, bez względu na to, czy jest autorem.</li>
-      <li><strong>Zarządzaj kategoriami:</strong> Użytkownik może tworzyć, modyfikować i usuwać kategorie.</li>
-      <li><strong>Zarządzaj swoimi własnymi mediami:</strong> Użytkownik może dodawać elementy multimedialne i modyfikować lub usuwać własne media.</li>
-      <li><strong>Zarządzaj wszystkimi elementami multimedialnymi:</strong> Użytkownik może zarządzać elementami multimediów od dowolnego użytkownika.</li>
-      <li><strong>Zarządzaj stronami:</strong> Użytkownik może dodawać i modyfikować strony.</li>
-      <li><strong>Zarządzaj blogroll:</strong> Użytkownik może zarządzać blogroll bieżącego bloga.</li>
-    </ul>
-    <p>Status <strong>Super Administratora</strong> jest ustawiony w profilu użytkownika.</p>
-  </body>
 </html>

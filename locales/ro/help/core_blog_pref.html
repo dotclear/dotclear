@@ -1,209 +1,155 @@
 <html>
+
 <head>
   <title>Setări blog</title>
 </head>
 
 <body>
-<h4>Detalii blog</h4>
-<dl>
-  <dt>ID Blog</dt>
-  <dd>ID-ul unic al blogului. Obligatoriu, poate fi modificat doar de un super administrator.</dd>
-
-  <dt>Nume blog</dt>
-  <dd>Name of the blog, mandatory.</dd>
-
-  <dt>URL Blog</dt>
-  <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
-
-  <dt>Blog status</dt>
-  <dd>Definește modul în care URL-ul este citit. PATH_INFO este recomandat, QUERY_STRING trebuie folosit dacă PATH_INFO nu funcționează. Folosind modul PATH_INFO, URL-ul blogului trebuie să se termine cu un "/" şi folosind QUERY_STRING, trebuie să se termine cu un "?".</dd>
-
-  <dt>Blog description</dt>
-  <dd>
-    <ul>
-      <li><strong>Online:</strong> Blog deschis vizitatorilor.</li>
-      <li><strong>Offline:</strong> Blog închis vizitatorilor, dar deschis autorilor.</li>
-      <li><strong>Eliminat:</strong> Blog închis atât pentru vizitatori, cât și pentru autori, deschis doar pentru super administratori.</li>
-    </ul>
-  </dd>
-
-  <dt>Descriere blog</dt>
-  <dd>Aici puteți pune orice descriere dorită pentru blogul dvs. Acesta este un text simplu, fără nicio formatare.</dd>
-</dl>
-
-<h4>Configurare Blog</h4>
-<dl>
-  <dt>Numele editorului de blog</dt>
-  <dd>Name of the person responsible for the blog. It may be the owner or the
+  <h4>Detalii blog</h4>
+  <dl>
+    <dt>ID Blog</dt>
+    <dd>ID-ul unic al blogului. Obligatoriu, poate fi modificat doar de un super administrator.</dd>
+    <dt>Nume blog</dt>
+    <dd>Name of the blog, mandatory.</dd>
+    <dt>URL Blog</dt>
+    <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
+    <dt>Blog status</dt>
+    <dd>Definește modul în care URL-ul este citit. PATH_INFO este recomandat, QUERY_STRING trebuie folosit dacă PATH_INFO nu funcționează. Folosind modul PATH_INFO, URL-ul blogului trebuie să se termine cu un "/" şi folosind QUERY_STRING, trebuie să se termine cu un "?".</dd>
+    <dt>Blog description</dt>
+    <dd>
+      <ul>
+        <li><strong>Online:</strong> Blog deschis vizitatorilor.</li>
+        <li><strong>Offline:</strong> Blog închis vizitatorilor, dar deschis autorilor.</li>
+        <li><strong>Eliminat:</strong> Blog închis atât pentru vizitatori, cât și pentru autori, deschis doar pentru super administratori.</li>
+      </ul>
+    </dd>
+    <dt>Descriere blog</dt>
+    <dd>Aici puteți pune orice descriere dorită pentru blogul dvs. Acesta este un text simplu, fără nicio formatare.</dd>
+  </dl>
+  <h4>Configurare Blog</h4>
+  <dl>
+    <dt>Numele editorului de blog</dt>
+    <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
-
-  <dt>Copyright notice</dt>
-  <dd>Note about the reproduction rights for the blog.</dd>
-
-  <dt>Default language</dt>
-  <dd>Language of the blog interface. Either this language is among the avalaible ones,
+    <dt>Copyright notice</dt>
+    <dd>Note about the reproduction rights for the blog.</dd>
+    <dt>Default language</dt>
+    <dd>Language of the blog interface. Either this language is among the avalaible ones,
   and the interface will be translated, or it is not, and the interface will then
   default to English.</dd>
-
-  <dt>Blog timezone</dt>
-  <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
-
-  <dt>Date formats</dt>
-  <dd>The date format of the blog posts. See the date and time
+    <dt>Blog timezone</dt>
+    <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
+    <dt>Date formats</dt>
+    <dd>The date format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-
-  <dt>Time format</dt>
-  <dd>The time format of the blog posts. See the date and time
+    <dt>Time format</dt>
+    <dd>The time format of the blog posts. See the date and time
   format reference section below for further details.</dd>
-
-  <dt>Display .. entries per page</dt>
-  <dd>The number will be used as the limit for the number of entries
+    <dt>Display .. entries per page</dt>
+    <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
-</dl>
-
-<h4>Comentarii și trackback-uri</h4>
-<dl>
-  <dt>Acceptă comentarii</dt>
-  <dd>Per ansamblu acceptă comentarii pe blog. Are prioritate față de setările pentru fiecare postare.</dd>
-
-  <dt>Moderează comentariile</dt>
-  <dd>Cu această opțiune, comentariile vor fi publicate numai după acordul redactorului.</dd>
-
-  <dt>Lăsați comentariile deschise pentru X zile</dt>
-  <dd>Numărul de zile în timpul comentariilor bogate va fi deschis după publicarea postării. Când este gol, comentariile vor fi păstrate deschise pe perioadă nedeterminată.</dd>
-
-  <dt>Sintaxă Wiki pentru comentarii</dt>
-  <dd>Permite unui subset al sintaxei wiki să fie folosit în comentarii.</dd>
-
-  <dt>Acceptă trackback-urile</dt>
-  <dd>Per ansamblu acceptă trackback-uri pe blog. Iare prioritate față de setările pentru fiecare postare.</dd>
-
-  <dt>Moderează trackback-urile</dt>
-  <dd>Cu această opțiune, căile ferate vor fi publicate numai după acordul redactorului.</dd>
-
-  <dt>Lăsați trackback-urile deschise pentru X zile</dt>
-  <dd>Numărul de zile din timpul wich trackback-urilor va fi deschis după publicarea postului. Când este gol, trackback-urile vor fi ţinute deschise pe o perioadă nedeterminată.</dd>
-
-  <dt>Adaugă relație "nofollow" pe link-uri de comentarii și trackback-uri</dt>
-  <dd>Adaugă un atribut pe link-uri în comentarii și trackback-uri, instruind roboții de căutare să nu le urmeze. Aceste caracteristici antispam nu şi-au dovedit încă valoarea.</dd>
-</dl>
-
-<h4>Prezentare blog</h4>
-<dl>
-  <dt>Formatul datei</dt>
-  <dd>Definește formatul datei pentru postările de blog. Vezi secțiunea "Formatare referință" de mai jos pentru mai multe informații. Puteți utiliza lista verticală pentru a selecta rapid un model preexistent.</dd>
-
-  <dt>Format oră</dt>
-  <dd>Definește formatul de timp pentru postările de blog. Vezi secțiunea "Formatare referință" de mai jos pentru mai multe informații. Puteți utiliza lista verticală pentru a selecta rapid un model preexistent.</dd>
-
-  <dt>Afişează smile la intrări şi comentarii</dt>
-  <dd>Transformă niște șiruri ca :-) sau ;-) în imagini.</dd>
-
-  <dt>Afișează X intrări pe pagină</dt>
-  <dd>Va afișa intrările X pe pagina principală de blog, precum și în diferitele categorii.</dd>
-
-  <dt>Afișează X intrări per flux</dt>
-  <dd>Vor fi afișate intrările X în fluxurile de blog.</dd>
-
-  <dt>Afișare comentarii X per flux</dt>
-  <dd>Va afișa comentariile X în feed-urile de comentarii de pe blog.</dd>
-
-  <dt>Trunchiază feed-urile</dt>
-  <dd>Această opțiune va furniza doar un abstract de la posturile de blog din feed-uri.</dd>
-
-  <dt>Include sub-categorii în pagina categoriei și în fluxul de postări</dt>
-  <dd>Atunci când această opțiune este activată, postările din subcategorii vor fi afișate în paginile categoriilor părinte, precum și în feed-urile lor.</dd>
-</dl>
-
-<h4>Mass-media și imagini</h4>
-<dl>
-  <dt>Dimensiuni de imagine generate (în pixeli)</dt>
-  <dd>Când adăugați o imagine în managerul media, sunt generate automat alte dimensiuni. Aici poți defini dimensiunea celei mai mari dimensiuni (lățime sau juninci) a fiecărui tip de imagini generate. Dacă lăsați un câmp gol, managerul media nu va crea miniaturile corespunzătoare.</dd>
-
-  <dt>Atributele de inserare a imaginii implicite</dt>
-  <dd>Setările selectate se vor aplica la toate imaginile noi adăugate la managerul media.</dd>
-
-  <dt>Titlu imagine inserat</dt>
-  <dd>Selectați formatul etichetelor "title" aplicate imaginilor dvs., pe baza informațiilor extrase din metadatele imaginilor.</dd>
-
-  <dt>Utilizați data originală a fișierului media dacă este posibil</dt>
-  <dd>Când această opțiune este activată, în cazul în care imaginea metadata conține o dată, va fi utilizată. Dacă nu, va fi utilizată data de încărcare.</dd>
-
-  <dt>Dimensiunea imaginii inserate</dt>
-  <dd>Definește dimensiunea implicită folosită la inserarea unei imagini într-o postare de blog.</dd>
-
-  <dt>Alinierea imaginilor</dt>
-  <dd>Definește alinierea implicită folosită la inserarea unei imagini într-o postare de blog.</dd>
-
-  <dt>Introduceți un link către imaginea originală</dt>
-  <dd>Când această opțiune este activată, imaginile introduse într-o postare pe blog vor fi apăsate și vor indica imaginea originală.</dd>
-
-</dl>
-
-<h4>Politica de roboți a motoarelor de căutare</h4>
-<p>Some fields can be configured to format the date and time to your needs.
+  </dl>
+  <h4>Comentarii și trackback-uri</h4>
+  <dl>
+    <dt>Acceptă comentarii</dt>
+    <dd>Per ansamblu acceptă comentarii pe blog. Are prioritate față de setările pentru fiecare postare.</dd>
+    <dt>Moderează comentariile</dt>
+    <dd>Cu această opțiune, comentariile vor fi publicate numai după acordul redactorului.</dd>
+    <dt>Lăsați comentariile deschise pentru X zile</dt>
+    <dd>Numărul de zile în timpul comentariilor bogate va fi deschis după publicarea postării. Când este gol, comentariile vor fi păstrate deschise pe perioadă nedeterminată.</dd>
+    <dt>Sintaxă Wiki pentru comentarii</dt>
+    <dd>Permite unui subset al sintaxei wiki să fie folosit în comentarii.</dd>
+    <dt>Acceptă trackback-urile</dt>
+    <dd>Per ansamblu acceptă trackback-uri pe blog. Iare prioritate față de setările pentru fiecare postare.</dd>
+    <dt>Moderează trackback-urile</dt>
+    <dd>Cu această opțiune, căile ferate vor fi publicate numai după acordul redactorului.</dd>
+    <dt>Lăsați trackback-urile deschise pentru X zile</dt>
+    <dd>Numărul de zile din timpul wich trackback-urilor va fi deschis după publicarea postului. Când este gol, trackback-urile vor fi ţinute deschise pe o perioadă nedeterminată.</dd>
+    <dt>Adaugă relație "nofollow" pe link-uri de comentarii și trackback-uri</dt>
+    <dd>Adaugă un atribut pe link-uri în comentarii și trackback-uri, instruind roboții de căutare să nu le urmeze. Aceste caracteristici antispam nu şi-au dovedit încă valoarea.</dd>
+  </dl>
+  <h4>Prezentare blog</h4>
+  <dl>
+    <dt>Formatul datei</dt>
+    <dd>Definește formatul datei pentru postările de blog. Vezi secțiunea "Formatare referință" de mai jos pentru mai multe informații. Puteți utiliza lista verticală pentru a selecta rapid un model preexistent.</dd>
+    <dt>Format oră</dt>
+    <dd>Definește formatul de timp pentru postările de blog. Vezi secțiunea "Formatare referință" de mai jos pentru mai multe informații. Puteți utiliza lista verticală pentru a selecta rapid un model preexistent.</dd>
+    <dt>Afişează smile la intrări şi comentarii</dt>
+    <dd>Transformă niște șiruri ca :-) sau ;-) în imagini.</dd>
+    <dt>Afișează X intrări pe pagină</dt>
+    <dd>Va afișa intrările X pe pagina principală de blog, precum și în diferitele categorii.</dd>
+    <dt>Afișează X intrări per flux</dt>
+    <dd>Vor fi afișate intrările X în fluxurile de blog.</dd>
+    <dt>Afișare comentarii X per flux</dt>
+    <dd>Va afișa comentariile X în feed-urile de comentarii de pe blog.</dd>
+    <dt>Trunchiază feed-urile</dt>
+    <dd>Această opțiune va furniza doar un abstract de la posturile de blog din feed-uri.</dd>
+    <dt>Include sub-categorii în pagina categoriei și în fluxul de postări</dt>
+    <dd>Atunci când această opțiune este activată, postările din subcategorii vor fi afișate în paginile categoriilor părinte, precum și în feed-urile lor.</dd>
+  </dl>
+  <h4>Mass-media și imagini</h4>
+  <dl>
+    <dt>Dimensiuni de imagine generate (în pixeli)</dt>
+    <dd>Când adăugați o imagine în managerul media, sunt generate automat alte dimensiuni. Aici poți defini dimensiunea celei mai mari dimensiuni (lățime sau juninci) a fiecărui tip de imagini generate. Dacă lăsați un câmp gol, managerul media nu va crea miniaturile corespunzătoare.</dd>
+    <dt>Atributele de inserare a imaginii implicite</dt>
+    <dd>Setările selectate se vor aplica la toate imaginile noi adăugate la managerul media.</dd>
+    <dt>Titlu imagine inserat</dt>
+    <dd>Selectați formatul etichetelor "title" aplicate imaginilor dvs., pe baza informațiilor extrase din metadatele imaginilor.</dd>
+    <dt>Utilizați data originală a fișierului media dacă este posibil</dt>
+    <dd>Când această opțiune este activată, în cazul în care imaginea metadata conține o dată, va fi utilizată. Dacă nu, va fi utilizată data de încărcare.</dd>
+    <dt>Dimensiunea imaginii inserate</dt>
+    <dd>Definește dimensiunea implicită folosită la inserarea unei imagini într-o postare de blog.</dd>
+    <dt>Alinierea imaginilor</dt>
+    <dd>Definește alinierea implicită folosită la inserarea unei imagini într-o postare de blog.</dd>
+    <dt>Introduceți un link către imaginea originală</dt>
+    <dd>Când această opțiune este activată, imaginile introduse într-o postare pe blog vor fi apăsate și vor indica imaginea originală.</dd>
+  </dl>
+  <h4>Politica de roboți a motoarelor de căutare</h4>
+  <p>Some fields can be configured to format the date and time to your needs.
 Here is a reference:</p>
-
-<h4>Antispam</h4>
-<p>Puteți seta numărul de zile după care doriți ștergerea automată a comentariilor nedorite. Lăsați câmpul gol (sau puneți 0) pentru a dezactiva această caracteristică.</p>
-
-<h4>Utilizatori</h4>
-<p>Listează utilizatorii acestui blog, precum și permisiunile lor.</p>
-
-<h3>Blog details</h3>
-<p>Unele câmpuri pot fi configurate pentru a formata data și ora la nevoile dvs.
-Aici este o referință:</p>
-
-<ul>
-  <li><strong>%a</strong>: abreviated week day (local).</li>
-  <li><strong>%A</strong>: complete week day (local).</li>
-  <li><strong>%b</strong>: abbreviated month name (local).</li>
-  <li><strong>%B</strong>: complete month name (local).</li>
-  <li><strong>%c</strong>: default local date and time display.</li>
-  <li><strong>%C</strong>: century (the year, divided by 100 and
-  round up beetween 00 and 99)</li>
-  <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
-  <li><strong>%D</strong>: identical to %m/%d/%y</li>
-  <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
-  <li><strong>%g</strong>: identical to %G, 2 digits.</li>
-  <li><strong>%G</strong>: The year on 4 digits, according to the week number
-  (cf. %V). Format and value identical to %Y, except that if the number of the
-  week belongs to the preceding or following year, the current year
-  will be used instead.</li>
-  <li><strong>%h</strong>: identical to %b</li>
-  <li><strong>%H</strong>: digital hour of the day, 24H mode
-  (from 00 to 23)</li>
-  <li><strong>%I</strong>: digital hour of the day, 12H mode
-  (from 01 to 12)</li>
-  <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
-  <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
-  <li><strong>%M</strong>: minute, digital</li>
-  <li><strong>%n</strong>: newline character</li>
-  <li><strong>%p</strong>: either `am' or `pm', according to the absolute time,
-  or depending of the local settings.</li>
-  <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
-  <li><strong>%R</strong>: the hour, 24h format</li>
-  <li><strong>%S</strong>: seconds, digital</li>
-  <li><strong>%t</strong>: tab character</li>
-  <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
-  <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
-  <li><strong>%U</strong>: week number, the first sundqy of the year being the
-  first day of the first week.</li>
-  <li><strong>%V</strong>: the week numpber as defined in ISO
-  8601:1988, digital, from 01 to 53. The week 1 is the first week
-  with more than 4 days in the current year, whose monday is the first day.
-  (Use %G or %g for the year elements corresponding to the number of the
-  week for the considered timestamp.)</li>
-  <li><strong>%W</strong>: number of the week in the year, the first monday of
-  the year being the start of the first week</li>
-  <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
-  <li><strong>%x</strong>: prefered format for the date without the time</li>
-  <li><strong>%X</strong>: prefered format for the time without the date</li>
-  <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
-  <li><strong>%Y</strong>: the year, four digits</li>
-  <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
-  <li>: a litteral `%' character</li>
-</ul>
-
+  <h4>Antispam</h4>
+  <p>Puteți seta numărul de zile după care doriți ștergerea automată a comentariilor nedorite. Lăsați câmpul gol (sau puneți 0) pentru a dezactiva această caracteristică.</p>
+  <h4>Utilizatori</h4>
+  <p>Listează utilizatorii acestui blog, precum și permisiunile lor.</p>
+  <h3>Blog details</h3>
+  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <ul>
+    <li><strong>%a</strong>: abreviated week day (local).</li>
+    <li><strong>%A</strong>: complete week day (local).</li>
+    <li><strong>%b</strong>: abbreviated month name (local).</li>
+    <li><strong>%B</strong>: complete month name (local).</li>
+    <li><strong>%c</strong>: default local date and time display.</li>
+    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
+    <li><strong>%D</strong>: identical to %m/%d/%y</li>
+    <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
+    <li><strong>%g</strong>: identical to %G, 2 digits.</li>
+    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%h</strong>: identical to %b</li>
+    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
+    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
+    <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
+    <li><strong>%M</strong>: minute, digital</li>
+    <li><strong>%n</strong>: newline character</li>
+    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
+    <li><strong>%R</strong>: the hour, 24h format</li>
+    <li><strong>%S</strong>: seconds, digital</li>
+    <li><strong>%t</strong>: tab character</li>
+    <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
+    <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
+    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
+    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
+    <li><strong>%x</strong>: prefered format for the date without the time</li>
+    <li><strong>%X</strong>: prefered format for the time without the date</li>
+    <li><strong>%y</strong>: the year, two digits (from 00 to 99)</li>
+    <li><strong>%Y</strong>: the year, four digits</li>
+    <li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
+    <li>: a litteral `%' character</li>
+  </ul>
 </body>
+
 </html>

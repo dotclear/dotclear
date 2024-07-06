@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-12-02 08:58\n"
+"PO-Revision-Date: 2024-07-05 22:48\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "MIME-Version: 1.0\n"
@@ -76,7 +76,7 @@ msgstr "שגיאת שרת פנימית"
 # in Dotclear\App
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr ""
+msgstr "<p>משמעות הדבר היא שפרטי שם המשתמש והסיסמה בקובץ <חזק>config.php</חזק> שלך שגויים או שאין באפשרותנו ליצור קשר עם שרת מסד הנתונים בכתובת \"<em>%s</em>\". משמעות הדבר עשויה להיות ששרת מסד הנתונים של המחשב המארח שלך מושבת.</p> <ul><li>האם אתה בטוח שיש לך את שם המשתמש והסיסמה הנכונים?</li><li>האם אתה בטוח שהקלדת את שם המארח הנכון?</li><li>האם אתה בטוח ששרת מסד הנתונים פועל?</li></ul><p>אם אינך בטוח מה המשמעות של מונחים אלה סביר להניח שעליכם ליצור קשר עם המארח שלכם. אם אתה עדיין זקוק לעזרה, אתה תמיד יכול לבקר <a href=\"https://forum.dotclear.net/\">otclear פורומים של תמיכה</a></p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"

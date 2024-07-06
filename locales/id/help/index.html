@@ -1,398 +1,382 @@
 <html>
+
 <head>
   <title></title> <!-- Leave the title empty -->
 </head>
 
 <body>
-
-<div class="multi-part legible" id="first-step" title="Langkah pertama">
-	<h3>Penemuan antarmuka</h3>
-	<div class="fieldset">
-		<h4>Langkah pertama</h4>
-		<p>Selain halaman bantuan global, beberapa halaman administrasi memiliki bantuan online. Jika javascript diaktifkan
-		pada browser Anda, Anda dapat melihat bantuan online pada posisi kanan atas halaman, dengan mengklik tautan <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong> . Jika Javascript dinonaktifkan, bantuan akan ditampilkan di bagian bawah halaman.</p>
-	</div>
-
-	<p>Setiap halaman administrasi akan menampilkan judul atas, menu utama dan footer yang sama. <em>(Urutan yang diberikan di sini adalah apa yang ditampilkan pada layar komputer. Untuk perangkat seluler atau tablet, urutan ini dapat bervariasi sesuai dengan ruang yang tersedia).</em></p>
-
-	<h4 class="pretty-title">Judul atas</h4>
-	<p>Judul teratas terdiri atas tiga elemen:</p>
-	<h5 class="as_h4">Logo</h5>
-	<p>Secara default, logo ini adalah logo Dotclear dan tautan ke halaman arahan administrasi. Namun, pengelola platform
-	dapat memilih logo lain dan mengarahkan ke hal lain (umumnya, halaman arahan layanan).</p>
-
-	<h5 class="as_h4">Blog</h5>
-	<p>Elemen pertama yang terletak setelah logo menunjukkan <em>blog</em> yang aktif, yaitu blog tempat Anda beraktivitas. Jika instalasi
-	Anda terdiri dari beberapa blog, informasi ini tersedia dalam menu kombo, yang memungkinkan Anda beralih ke blog lain.</p>
-	<p>Tautan yang mengikuti nama blog akan membuka blog Anda saat ini di jendela lain atau tab lain.</p>
-
-	<h5 class="as_h4">Pengguna</h5>
-	<p>Tautan <em>Dasbor saya</em> akan membawa Anda kembali ke halaman arahan administrasi blog.</p>
-	<p>Tautan <em>Preferensi saya</em> mengarah ke halaman di mana Anda dapat memodifikasi informasi pribadi Anda, mengatur dasbor dan memilih antarmuka dan opsi pengeditan.</p>
-	<p>Anehnya, tautan <em>Disconnect [login Anda]</em> memutuskan Anda dari administrasi blog Anda (di Dotclear's, kami adalah juara ergonomi!).</p>
-
-	<h4 class="pretty-title">Menu utama</h4>
-	<p>Menu utama terletak di sisi kiri layar. Menu ini dapat diciutkan dengan mengeklik batas kanannya (dan kemudian dibuka dengan mengekliknya lagi).</p>
-	<p>Ini mengarah ke halaman administrasi yang berbeda, sesuai dengan izin Anda di blog saat ini. Halaman ini terdiri dari empat blok:</p>
-	<ul>
-		<li><strong>Favorit saya</strong> mencantumkan halaman yang telah Anda pilih sebagai favorit di tab <em>Preferensi saya</em>/<em>Dasbor saya</em> . Jika Anda belum memilih favorit apa pun, daftar ini akan berisi set Dotclear default, atau set yang telah ditentukan oleh pengelola platform. Jika Anda tidak ingin menampilkan blok ini, Anda dapat menghapus centang pada kotak centang yang cocok di opsi dasbor Anda.</li>
-		<li><strong>Blog</strong> mencantumkan semua halaman yang memungkinkan untuk memberi makan dan mengatur blog saat ini, mulai dari mengedit entri, mengelola media, memilih tampilan blog atau parameter lainnya.<br>
-		<em>Jika Anda tidak memiliki hak administrator pada blog saat ini, tidak akan ada blok lain di bawahnya di menu utama.</em></li>
-		<li><strong>Pengaturan sistem</strong> tautan ke halaman yang memungkinkan Anda untuk mengelola instalasi Dotclear: manajemen blog, pengguna dan bahasa yang tersedia, instalasi pengaya, pengaturan sistem. Jika Anda memiliki hak pada beberapa blog, tetapi tidak memiliki hak superadministrator, Anda hanya akan melihat entri <em>Blogs</em> .</li>
-		<li><strong>Plugin</strong> memungkinkan Anda untuk mengatur plugin yang terinstal. Jika pengaturan plugin hanya berdampak pada satu blog saja, halaman administrasinya tersedia di blok <em>Blog</em> , tetapi jika berdampak pada keseluruhan instalasi, maka akan ditempatkan di sini, dan hanya tersedia untuk pengguna super-admin.</li>
-	</ul>
-
-	<h4 class="pretty-title">Footer</h4>
-	<p>Versi gratis dari Dotclear akan ditawarkan kepada setiap pengguna yang akan menemukan rahasia yang tersembunyi di footer.</p>
-
-	<h3>Bantuan untuk pemula yang hebat</h3>
-	<p>Jika Anda tidak terbiasa dengan blog, kami sarankan Anda untuk melihat dokumentasi kami (seluruh daftar isi tersedia di tab <strong>Dokumentasi</strong> pada halaman ini) serta tutorial seperti:
-	<ul>
-		<li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Entri pertama saya, langkah demi langkah.</a></li>
-	</ul>
-
-	<p>Forum <a href="https://dotclear.org/forum/">Dotclear</a> adalah tempat yang ramah di mana tidak ada yang namanya <em>pertanyaan bodoh</em>. Jangan ragu untuk berpartisipasi jika Anda membutuhkan bantuan dan, mengapa tidak, untuk membantu orang lain sebagai balasannya.</p>
-
-	<p class="info">Kami berusaha sebaik mungkin untuk menggunakan kosakata yang mudah dimengerti tanpa pengetahuan khusus. Namun, jika kami menggunakan istilah teknis, Anda mungkin akan menemukan definisinya di <a href="https://dotclear.org/documentation/glossary">glosarium</a> dokumentasi online kami.</p>
-</div>
-
-<div class="multi-part" id="users-doc" title="Panduan pengguna">
-	<h3>Panduan pengguna</h3>
-	<div class="three-boxes">
-		<h4 class="pretty-title">Mengelola konten</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/entries">Entri</a>
-					<ul>
-						<li>Membuat dan mengedit</li>
-						<li>Detail entri</li>
-						<li>Tindakan terkait entri</li>
-						<li>Komentar dan pelacakan balik</li>
-						<li>Manajemen entri secara batch</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Komentar dan pelacakan balik</a>
-					<ul>
-						<li>Tindak lanjut</li>
-						<li>Manajemen</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/categories">Kategori</a>
-					<ul>
-						<li>Membuat kategori</li>
-						<li>Mengedit kategori</li>
-						<li>Menghapus kategori</li>
-						<li>Mengurutkan daftar kategori</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/tags">Tag (kata kunci)</a>
-					<ul>
-						<li>Menambahkan tag</li>
-						<li>Manajemen tag</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/media">Media dan lampiran</a>
-					<ul>
-						<li>Membuat sub-direktori</li>
-						<li>Menambahkan file</li>
-						<li>Mengunduh arsip zip dari direktori saat ini</li>
-						<li>Perubahan pengisian rincian file</li>
-						<li>Menambahkan file secara langsung</li>
-						<li>Jenis file khusus</li>
-						<li>Lampiran</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Konten menu blog (widget)</a>
-					<ul>
-						<li>Bilah samping navigasi, Bilah samping tambahan</li>
-						<li>Widget default</li>
-						<li>Menambahkan/menghapus widget</li>
-						<li>Opsi widget</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
-					<ul>
-						<li>Blogroll</li>
-						<li>Menambahkan tautan</li>
-						<li>Menambahkan kategori</li>
-						<li>XFN</li>
-						<li>Mengimpor tautan dari file OPML atau XBEL</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes">
-		<h4 class="pretty-title">Pengaturan dan penyesuaian</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Pengaturan blog</a>
-					<ul>
-						<li>Detail blog</li>
-						<li>Konfigurasi blog</li>
-						<li>Komentar dan pelacakan balik</li>
-						<li>Presentasi blog</li>
-						<li>Media dan gambar</li>
-						<li>Kebijakan robot mesin pencari</li>
-						<li>Antispam</li>
-						<li>LightBox</li>
-						<li>Simpan</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Preferensi pengguna</a>
-					<ul>
-						<li>Profil saya</li>
-						<li>Pilihan saya</li>
-						<li>Dasbor saya</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">Penampilan blog</a>
-					<ul>
-						<li>Pilih tema</li>
-						<li>Memasang tema</li>
-						<li>Mempersonalisasikan sebuah tema</li>
-						<li>Editor tema</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes fieldset">
-			<h4 class="smart-title">Bacaan tambahan</h4>
-				<h5>Daftar Istilah</h5>
-				<ul><li><a href="https://dotclear.org/documentation/glossary">Semua kata misterius ini digunakan di Web dan di Dotclear</a></li></ul>
-				<h5>Sintaks masukan</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Sintaksis wiki dan padanan HTML</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Untuk melangkah lebih jauh</a></li>
-					</ul>
-				<h5>Langganan (RSS, Atom...)</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Apa itu?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Bagaimana cara membuatnya tersedia di blog saya?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Bagaimana cara berlangganan feed?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Untuk melangkah lebih jauh</a></li>
-					</ul>
-			<h4 class="smart-title">Bantuan</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">Forum Dotclear</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq">Pertanyaan yang Sering Diajukan</a></li>
-				</ul>
-	</div>
-</div>
-
-	<div class="multi-part" id="admin-doc" title="Dokumentasi untuk administrator">
-	<h3>Dokumentasi untuk administrator</h3>
-		<div class="three-boxes">
-		<h4 class="pretty-title">Instalasi dan pembaruan</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install">Instalasi</a>
-					<ul>
-						<li>Prasyarat</li>
-						<li>Instalasi otomatis</li>
-						<li>Instalasi standar</li>
-						<li>Menginstal menggunakan wizard</li>
-						<li>Menginstalasi dari berkas config.php</li>
-						<li>Menyelesaikan proses instalasi</li>
-						<li>Langkah selanjutnya</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Memperbarui</a>
-					<ul>
-						<li>Mempersiapkan pembaruan</li>
-						<li>Peningkatan otomatis</li>
-						<li>Memperbarui program</li>
-						<li>Memperbarui basis data</li>
-						<li>Lampiran: memperbarui salinan yang berubah-ubah</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/config">Parameter File Konfigurasi (config.php)</a>
-					<ul>
-						<li>Pendahuluan</li>
-						<li>Parameter</li>
-						<li>Menambahkan informasi ke file</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Meningkatkan dari Dotclear 1.2 ke Dotclear 2</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Migrasi dari perangkat lunak blog lain ke Dotclear</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Instalasi lokal</a>
-					<ul>
-						<li>Windows</li>
-						<li>Mac OS X</li>
-						<li>Linux</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Menginstalasi Dotclear dengan IIS7</a></li>
-			</ul>
-
-			<h5>Lampiran Hosting</h5>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/hosting">Hosting</a>
-				</li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">Administrasi</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/users">Mengelola pengguna</a>
-					<ul>
-						<li>Daftar pengguna yang ada</li>
-						<li>Membuat pengguna</li>
-						<li>Memodifikasi pengguna</li>
-						<li>Izin pengguna</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Instalasi bersih</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Instalasi Multiblog</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Mengelola plugin</a>
-					<ul>
-						<li>Memasang plugin</li>
-						<li>Mengonfigurasi plugin</li>
-						<li>Menghapus plugin</li>
-						<li>Memperbarui plugin</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">Tema default Blowup</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">Tema Blog</a>
-					<ul>
-						<li>Memilih tema</li>
-						<li>Memasang tema</li>
-						<li>Menyesuaikan tema</li>
-						<li>Editor tema</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Konfigurasi lanjutan</a></li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">Pemeliharaan</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/backup">Pencadangan dan pemulihan</a>
-					<ul>
-						<li>Impor/Ekspor</li>
-						<li>File</li>
-						<li>Basis data</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Filter komentar spam</a>
-					<ul>
-						<li>Organisasi filter</li>
-						<li>Konfigurasi filter</li>
-					</ul>
-				</li>
-			</ul>
-			<div class="fieldset vertical-separator">
-				<h4 class="smart-title">Bantuan</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">Forum Dotclear</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq#administration">Pertanyaan yang Sering Diajukan (Administrator)</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="multi-part" id="guide-dev" title="Dokumentasi pengembang">
-	<h3>Sumber daya Pengembang dan Perancang</h3>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">Desain &amp; Tema</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes">Tema</a>
-					<ul>
-						<li>Panduan pengguna untuk tema</li>
-						<li>Tag templat</li>
-						<li>Lampiran</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Tema warisan</a>
-					<ul>
-						<li>Prinsip</li>
-						<li>Keterbatasan</li>
-						<li>Mengatur</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Tag templat</a>
-					<ul>
-						<li>Umum / utilitas</li>
-						<li>Blog</li>
-						<li>Entri</li>
-						<li>Penomoran halaman entri</li>
-						<li>Komentar</li>
-						<li>Pratinjau komentar</li>
-						<li>Pings</li>
-						<li>Lampiran</li>
-						<li>Kategori</li>
-						<li>Tags</li>
-						<li>Arsip</li>
-						<li>Bahasa</li>
-						<li>Sistem</li>
-						<li>Widget</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">Kode &amp; Plugin</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Pembuatan tag tpl untuk plugin atau tema</a>
-					<ul>
-						<li>Pendahuluan</li>
-						<li>Nilai-nilai</li>
-						<li>Blok instruksi</li>
-						<li>Demonstrasi pengaruh cache template</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Plugin</a>
-					<ul>
-						<li>Menulis plugin</li>
-						<li>Lampiran</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Membangun bantuan kontekstual plugin</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Otentikasi eksternal</a>
-					<ul>
-						<li>Pembukaan</li>
-						<li>Kelas autentikasi baru</li>
-						<li>Skenario</li>
-						<li>Aplikasi</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">Antarmuka XML / RPC</a></li>
-				<li><a href="https://dev.dotclear.org/code/2/">Dokumentasi API</a></li>
-			</ul>
-		</div>
-
-		<div class="three-boxes">
-			<h4 class="pretty-title">Kontribusi &amp; Dukungan</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Berkontribusi</a>
-					<ul>
-						<li>Edit dokumentasi ini</li>
-						<li>Bagikan kreasi Anda</li>
-						<li>Laporkan bug atau sarankan fitur baru</li>
-						<li>Pelokalan</li>
-				</ul>
-			</li>
-				<li><a href="https://git.dotclear.org/dev/dotclear">Repositori kode sumber Dotclear</a></li>
-				<li><a href="https://dotclear.org/forum">Forum Dotclear</a></li>
-			</ul>
-
-			<div class="fieldset">
-				<h4 class="smart-title">Konvensi</h4>
-				<ul>
-					<li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Standar pengkodean</a></li>
-					<li><a href="index.php?process=HelpCharte">Bagan halaman administrasi</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="multi-part legible" id="a11y-ergo" title="Aksesibilitas dan ergonomi">
-	<h3>Aksesibilitas dan ergonomi</h3>
-	<p>Antarmuka Dotclear memenuhi hampir semua kriteria <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> . Kami sedang bekerja untuk membuat Dotclear kompatibel dengan <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> pedoman.</p>
-	<p>Aksesibilitas dan ergonomi adalah salah satu perhatian utama kami. Kami secara teratur menjalankan analisis dengan bantuan para ahli dan terus memberikan perbaikan dan peningkatan.</p>
-	<p>Anda dapat membantu kami dengan membuka tiket <a href="https://git.dotclear.org/dev/dotclear/issues"></a> atau dengan berpartisipasi di forum <a href="https://dotclear.org/forum/"></a>. Anda juga dapat berpartisipasi dalam pengujian pengguna atau bergabung dengan tim kami!</p>
-	</div>
-
+  <div class="multi-part legible" id="first-step" title="Langkah pertama">
+    <h3>Penemuan antarmuka</h3>
+    <div class="fieldset">
+      <h4>Langkah pertama</h4>
+      <p>In addition to the global help pages, several administration pages have an online help. If javascript is enabled
+        on your browser, you can see online help at the upper-right position of the page, by clicking on the <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong> link. If Javascript is disabled, the help is displayed at the bottom of the page.</p>
+    </div>
+    <p>Setiap halaman administrasi akan menampilkan judul atas, menu utama dan footer yang sama. <em>(Urutan yang diberikan di sini adalah apa yang ditampilkan pada layar komputer. Untuk perangkat seluler atau tablet, urutan ini dapat bervariasi sesuai dengan ruang yang tersedia).</em></p>
+    <h4 class="pretty-title">Judul atas</h4>
+    <p>Judul teratas terdiri atas tiga elemen:</p>
+    <h5 class="as_h4">Logo</h5>
+    <p>By default, this logo is the Dotclear logo and links to the administration landing page. However, a platform
+      manager can choose another logo and redirect towards something else (generally, the service landing page).</p>
+    <h5 class="as_h4">Blog</h5>
+    <p>The first element located after the logo shows the <em>active</em> blog, i.e. the blog on which you are acting. If your
+      installation is composed of several blogs, these informations are available in a combo menu, which lets you switch to another blog.</p>
+    <p>Tautan yang mengikuti nama blog akan membuka blog Anda saat ini di jendela lain atau tab lain.</p>
+    <h5 class="as_h4">Pengguna</h5>
+    <p>Tautan <em>Dasbor saya</em> akan membawa Anda kembali ke halaman arahan administrasi blog.</p>
+    <p>Tautan <em>Preferensi saya</em> mengarah ke halaman di mana Anda dapat memodifikasi informasi pribadi Anda, mengatur dasbor dan memilih antarmuka dan opsi pengeditan.</p>
+    <p>Anehnya, tautan <em>Disconnect [login Anda]</em> memutuskan Anda dari administrasi blog Anda (di Dotclear's, kami adalah juara ergonomi!).</p>
+    <h4 class="pretty-title">Menu utama</h4>
+    <p>Menu utama terletak di sisi kiri layar. Menu ini dapat diciutkan dengan mengeklik batas kanannya (dan kemudian dibuka dengan mengekliknya lagi).</p>
+    <p>Ini mengarah ke halaman administrasi yang berbeda, sesuai dengan izin Anda di blog saat ini. Halaman ini terdiri dari empat blok:</p>
+    <ul>
+      <li><strong>Favorit saya</strong> mencantumkan halaman yang telah Anda pilih sebagai favorit di tab <em>Preferensi saya</em>/<em>Dasbor saya</em> . Jika Anda belum memilih favorit apa pun, daftar ini akan berisi set Dotclear default, atau set yang telah ditentukan oleh pengelola platform. Jika Anda tidak ingin menampilkan blok ini, Anda dapat menghapus centang pada kotak centang yang cocok di opsi dasbor Anda.</li>
+      <li><strong>Blog</strong> lists all the pages that enable to feed and setup the current blog, from editing an entry, managing media, choosing the blog appearance or other parameters.<br>
+        <em>If you do not have administrator rights on the current blog, there will be no other block below that one in the main menu.</em></li>
+      <li><strong>Pengaturan sistem</strong> tautan ke halaman yang memungkinkan Anda untuk mengelola instalasi Dotclear: manajemen blog, pengguna dan bahasa yang tersedia, instalasi pengaya, pengaturan sistem. Jika Anda memiliki hak pada beberapa blog, tetapi tidak memiliki hak superadministrator, Anda hanya akan melihat entri <em>Blogs</em> .</li>
+      <li><strong>Plugin</strong> memungkinkan Anda untuk mengatur plugin yang terinstal. Jika pengaturan plugin hanya berdampak pada satu blog saja, halaman administrasinya tersedia di blok <em>Blog</em> , tetapi jika berdampak pada keseluruhan instalasi, maka akan ditempatkan di sini, dan hanya tersedia untuk pengguna super-admin.</li>
+    </ul>
+    <h4 class="pretty-title">Footer</h4>
+    <p>Versi gratis dari Dotclear akan ditawarkan kepada setiap pengguna yang akan menemukan rahasia yang tersembunyi di footer.</p>
+    <h3>Bantuan untuk pemula yang hebat</h3>
+    <p>Jika Anda tidak terbiasa dengan blog, kami sarankan Anda untuk melihat dokumentasi kami (seluruh daftar isi tersedia di tab <strong>Dokumentasi</strong> pada halaman ini) serta tutorial seperti:
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">Entri pertama saya, langkah demi langkah.</a></li>
+      </ul>
+      <p>Forum <a href="https://dotclear.org/forum/">Dotclear</a> adalah tempat yang ramah di mana tidak ada yang namanya <em>pertanyaan bodoh</em>. Jangan ragu untuk berpartisipasi jika Anda membutuhkan bantuan dan, mengapa tidak, untuk membantu orang lain sebagai balasannya.</p>
+      <p class="info">Kami berusaha sebaik mungkin untuk menggunakan kosakata yang mudah dimengerti tanpa pengetahuan khusus. Namun, jika kami menggunakan istilah teknis, Anda mungkin akan menemukan definisinya di <a href="https://dotclear.org/documentation/glossary">glosarium</a> dokumentasi online kami.</p>
+  </div>
+  <div class="multi-part" id="users-doc" title="Panduan pengguna">
+    <h3>Panduan pengguna</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Mengelola konten</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Entri</a>
+          <ul>
+            <li>Membuat dan mengedit</li>
+            <li>Detail entri</li>
+            <li>Tindakan terkait entri</li>
+            <li>Komentar dan pelacakan balik</li>
+            <li>Manajemen entri secara batch</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Komentar dan pelacakan balik</a>
+          <ul>
+            <li>Tindak lanjut</li>
+            <li>Manajemen</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">Kategori</a>
+          <ul>
+            <li>Membuat kategori</li>
+            <li>Mengedit kategori</li>
+            <li>Menghapus kategori</li>
+            <li>Mengurutkan daftar kategori</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Tag (kata kunci)</a>
+          <ul>
+            <li>Menambahkan tag</li>
+            <li>Manajemen tag</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Media dan lampiran</a>
+          <ul>
+            <li>Membuat sub-direktori</li>
+            <li>Menambahkan file</li>
+            <li>Mengunduh arsip zip dari direktori saat ini</li>
+            <li>Perubahan pengisian rincian file</li>
+            <li>Menambahkan file secara langsung</li>
+            <li>Jenis file khusus</li>
+            <li>Lampiran</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Konten menu blog (widget)</a>
+          <ul>
+            <li>Bilah samping navigasi, Bilah samping tambahan</li>
+            <li>Widget default</li>
+            <li>Menambahkan/menghapus widget</li>
+            <li>Opsi widget</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
+          <ul>
+            <li>Blogroll</li>
+            <li>Menambahkan tautan</li>
+            <li>Menambahkan kategori</li>
+            <li>XFN</li>
+            <li>Mengimpor tautan dari file OPML atau XBEL</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Pengaturan dan penyesuaian</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Pengaturan blog</a>
+          <ul>
+            <li>Detail blog</li>
+            <li>Konfigurasi blog</li>
+            <li>Komentar dan pelacakan balik</li>
+            <li>Presentasi blog</li>
+            <li>Media dan gambar</li>
+            <li>Kebijakan robot mesin pencari</li>
+            <li>Antispam</li>
+            <li>LightBox</li>
+            <li>Simpan</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Preferensi pengguna</a>
+          <ul>
+            <li>Profil saya</li>
+            <li>Pilihan saya</li>
+            <li>Dasbor saya</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Penampilan blog</a>
+          <ul>
+            <li>Pilih tema</li>
+            <li>Memasang tema</li>
+            <li>Mempersonalisasikan sebuah tema</li>
+            <li>Editor tema</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes fieldset">
+      <h4 class="smart-title">Bacaan tambahan</h4>
+      <h5>Daftar Istilah</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/glossary">Semua kata misterius ini digunakan di Web dan di Dotclear</a></li>
+      </ul>
+      <h5>Sintaks masukan</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Sintaksis wiki dan padanan HTML</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Untuk melangkah lebih jauh</a></li>
+      </ul>
+      <h5>Langganan (RSS, Atom...)</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Apa itu?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Bagaimana cara membuatnya tersedia di blog saya?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Bagaimana cara berlangganan feed?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Untuk melangkah lebih jauh</a></li>
+      </ul>
+      <h4 class="smart-title">Bantuan</h4>
+      <ul>
+        <li><a href="https://dotclear.org/forum">Forum Dotclear</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/faq">Pertanyaan yang Sering Diajukan</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="multi-part" id="admin-doc" title="Dokumentasi untuk administrator">
+    <h3>Dokumentasi untuk administrator</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Instalasi dan pembaruan</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Instalasi</a>
+          <ul>
+            <li>Prasyarat</li>
+            <li>Instalasi otomatis</li>
+            <li>Instalasi standar</li>
+            <li>Menginstal menggunakan wizard</li>
+            <li>Menginstalasi dari berkas config.php</li>
+            <li>Menyelesaikan proses instalasi</li>
+            <li>Langkah selanjutnya</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Memperbarui</a>
+          <ul>
+            <li>Mempersiapkan pembaruan</li>
+            <li>Peningkatan otomatis</li>
+            <li>Memperbarui program</li>
+            <li>Memperbarui basis data</li>
+            <li>Lampiran: memperbarui salinan yang berubah-ubah</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Parameter File Konfigurasi (config.php)</a>
+          <ul>
+            <li>Pendahuluan</li>
+            <li>Parameter</li>
+            <li>Menambahkan informasi ke file</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Meningkatkan dari Dotclear 1.2 ke Dotclear 2</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Migrasi dari perangkat lunak blog lain ke Dotclear</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Instalasi lokal</a>
+          <ul>
+            <li>Windows</li>
+            <li>Mac OS X</li>
+            <li>Linux</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Menginstalasi Dotclear dengan IIS7</a></li>
+      </ul>
+      <h5>Lampiran Hosting</h5>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/hosting">Hosting</a>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Administrasi</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Mengelola pengguna</a>
+          <ul>
+            <li>Daftar pengguna yang ada</li>
+            <li>Membuat pengguna</li>
+            <li>Memodifikasi pengguna</li>
+            <li>Izin pengguna</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Instalasi bersih</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Instalasi Multiblog</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Mengelola plugin</a>
+          <ul>
+            <li>Memasang plugin</li>
+            <li>Mengonfigurasi plugin</li>
+            <li>Menghapus plugin</li>
+            <li>Memperbarui plugin</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">Tema default Blowup</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Tema Blog</a>
+          <ul>
+            <li>Memilih tema</li>
+            <li>Memasang tema</li>
+            <li>Menyesuaikan tema</li>
+            <li>Editor tema</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Konfigurasi lanjutan</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Pemeliharaan</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Pencadangan dan pemulihan</a>
+          <ul>
+            <li>Impor/Ekspor</li>
+            <li>File</li>
+            <li>Basis data</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Filter komentar spam</a>
+          <ul>
+            <li>Organisasi filter</li>
+            <li>Konfigurasi filter</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="fieldset vertical-separator">
+        <h4 class="smart-title">Bantuan</h4>
+        <ul>
+          <li><a href="https://dotclear.org/forum">Forum Dotclear</a></li>
+          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Pertanyaan yang Sering Diajukan (Administrator)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part" id="guide-dev" title="Dokumentasi pengembang">
+    <h3>Sumber daya Pengembang dan Perancang</h3>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">Desain &amp; Tema</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Tema</a>
+          <ul>
+            <li>Panduan pengguna untuk tema</li>
+            <li>Tag templat</li>
+            <li>Lampiran</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Tema warisan</a>
+          <ul>
+            <li>Prinsip</li>
+            <li>Keterbatasan</li>
+            <li>Mengatur</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Tag templat</a>
+          <ul>
+            <li>Umum / utilitas</li>
+            <li>Blog</li>
+            <li>Entri</li>
+            <li>Penomoran halaman entri</li>
+            <li>Komentar</li>
+            <li>Pratinjau komentar</li>
+            <li>Pings</li>
+            <li>Lampiran</li>
+            <li>Kategori</li>
+            <li>Tags</li>
+            <li>Arsip</li>
+            <li>Bahasa</li>
+            <li>Sistem</li>
+            <li>Widget</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">Kode &amp; Plugin</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Pembuatan tag tpl untuk plugin atau tema</a>
+          <ul>
+            <li>Pendahuluan</li>
+            <li>Nilai-nilai</li>
+            <li>Blok instruksi</li>
+            <li>Demonstrasi pengaruh cache template</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Plugin</a>
+          <ul>
+            <li>Menulis plugin</li>
+            <li>Lampiran</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Membangun bantuan kontekstual plugin</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Otentikasi eksternal</a>
+          <ul>
+            <li>Pembukaan</li>
+            <li>Kelas autentikasi baru</li>
+            <li>Skenario</li>
+            <li>Aplikasi</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">Antarmuka XML / RPC</a></li>
+        <li><a href="https://dev.dotclear.org/code/2/">Dokumentasi API</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Kontribusi &amp; Dukungan</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Berkontribusi</a>
+          <ul>
+            <li>Edit dokumentasi ini</li>
+            <li>Bagikan kreasi Anda</li>
+            <li>Laporkan bug atau sarankan fitur baru</li>
+            <li>Pelokalan</li>
+          </ul>
+        </li>
+        <li><a href="https://git.dotclear.org/dev/dotclear">Repositori kode sumber Dotclear</a></li>
+        <li><a href="https://dotclear.org/forum">Forum Dotclear</a></li>
+      </ul>
+      <div class="fieldset">
+        <h4 class="smart-title">Konvensi</h4>
+        <ul>
+          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Standar pengkodean</a></li>
+          <li><a href="index.php?process=HelpCharte">Bagan halaman administrasi</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part legible" id="a11y-ergo" title="Aksesibilitas dan ergonomi">
+    <h3>Aksesibilitas dan ergonomi</h3>
+    <p>Antarmuka Dotclear memenuhi hampir semua kriteria <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> . Kami sedang bekerja untuk membuat Dotclear kompatibel dengan <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> pedoman.</p>
+    <p>Aksesibilitas dan ergonomi adalah salah satu perhatian utama kami. Kami secara teratur menjalankan analisis dengan bantuan para ahli dan terus memberikan perbaikan dan peningkatan.</p>
+    <p>Anda dapat membantu kami dengan membuka tiket <a href="https://git.dotclear.org/dev/dotclear/issues"></a> atau dengan berpartisipasi di forum <a href="https://dotclear.org/forum/"></a>. Anda juga dapat berpartisipasi dalam pengujian pengguna atau bergabung dengan tim kami!</p>
+  </div>
 </body>
+
 </html>

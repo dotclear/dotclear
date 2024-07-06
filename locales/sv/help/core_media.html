@@ -1,99 +1,72 @@
 <html>
-  <head>
-    <title>Media Manager</title>
-  </head>
-  <body>
-    <h4>Medialista</h4>
-    <p>The media manager's main page displays a list of available files (medias)
+
+<head>
+  <title>Media Manager</title>
+</head>
+
+<body>
+  <h4>Medialista</h4>
+  <p>The media manager's main page displays a list of available files (medias)
 for the currently selected blog.</p>
-
-    <p>You can click the icons or names of the medias in the folder or any
+  <p>You can click the icons or names of the medias in the folder or any
 subfolder to display them.</p>
-
-    <p>Selecting a MP3 sound file displays a player to immediatly play
+  <p>Selecting a MP3 sound file displays a player to immediatly play
 the file. The Flash plugin must be installed on your browser for
 this player to operate.</p>
-
-    <p>Bilderna visas med en miniatyrbild när det är möjligt.</p>
-
-    <h4>Lägg till filer</h4>
-    <dl>
-      <dt>Välj en fil</dt>
-      <dd>Here you can select one of your local files to send it on your 
-  blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
-      
-      <dt>Titel</dt>
-      <dd>Valfri titel för den fil du vill skicka.</dd>
-      
-      <dt>Privat</dt>
-      <dd>Check this if you want the file to be private, i.e. accessible only by
-  its owner and not accessible from the blog.</dd>
-    </dl>
-
-    <dl>
-      <dt>File name</dt>
-      <dd>Gör det möjligt att välja en eller flera av dina lokala filer för att skicka dem till din blogg på. Om någon fil är större än maxstorleken kommer den inte att skickas.<br>
-	När du väljer flera lokala filer läggs de till i kön. Du kan lägga till fler filer genom att klicka igen på <strong>Välj filer</strong>. Du kan också ta bort filer från kön genom att klicka på motsvarande röda korsformade ikon.<br>
-  När du är klar klickar du på <strong>Ladda upp</strong>.</dd>
-    </dl>
-
-    <h4>Ta bort filer</h4>
-    <p>This form allows you to create an new subfolder in the currently displayed
+  <p>Bilderna visas med en miniatyrbild när det är möjligt.</p>
+  <h4>Lägg till filer</h4>
+  <dl>
+    <dt>Välj en fil</dt>
+    <dd>Here you can select one of your local files to send it on your blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
+    <dt>Titel</dt>
+    <dd>Valfri titel för den fil du vill skicka.</dd>
+    <dt>Privat</dt>
+    <dd>Check this if you want the file to be private, i.e. accessible only by its owner and not accessible from the blog (until published).</dd>
+  </dl>
+  <dl>
+    <dt>File name</dt>
+    <dd>Allows to select one or several of your local files to send them on your blog. Should any file be bigger than the maximum size, it will not be sent.<br>When you select several local files, they are added to the queue. You can add more files by clicking again on <strong>Choose files</strong>. You can also remove files from the queue by clicking on the corresponding red cross-shaped icon.<br>When you are ready, click on <strong>Upload</strong>.</dd>
+  </dl>
+  <h4>Ta bort filer</h4>
+  <p>This form allows you to create an new subfolder in the currently displayed
 folder. Just choose a name for it as you would do on your own computer.</p>
-
-    <h4>Ny mapp</h4>
-    <p>This page displays a set of informations about the currently selected
-file and allows you to perform a few operations.</p>
-
-    <h4>Media detaljer</h4>
-    <p>When you add an image, depending of its size, up to four versions will be made available:</p>
-
-    <dl>
-      <dt>Filnamn</dt>
-      <dd>Ändra filnamnet för den aktuella filen.</dd>
-      
-      <dt>Filens titel</dt>
-      <dd>Ge en titel till filen eller ändra den nuvarande.</dd>
-      
-      <dt>Fil datum</dt>
-      <dd>Ändra filens datum.</dd>
-      
-      <dt>Privat</dt>
-      <dd>Ange att filen kommer att döljas för vem som helst men dess ägare i mediehanteraren.</dd>
-      
-      <dt>Ny katalog</dt>
-      <dd>Låter dig flytta filen i en annan mapp.</dd>
-      
-      <dt>Ändra fil</dt>
-      <dd>Med det här formuläret kan du ersätta filen samtidigt som du behåller alla attribut
-      (namn, titel. .). Som alltid måste du respektera den maximala filstorleken.</dd>
-    </dl>
-
-    <h4>Specifikt fall: bilder</h4>
-    <p>You can easily attach a file to one of your posts. First, create a new post
+  <h4>Ny mapp</h4>
+  <p>This form allows you to create a new subfolder in the currently displayed folder. Just choose a name for it as you would do on your own computer.</p>
+  <h4>Media detaljer</h4>
+  <p>When you add an image, depending of its size, up to four versions will be made available:</p>
+  <dl>
+    <dt>Filnamn</dt>
+    <dd>Ändra filnamnet för den aktuella filen.</dd>
+    <dt>Filens titel</dt>
+    <dd>Ge en titel till filen eller ändra den nuvarande.</dd>
+    <dt>Fil datum</dt>
+    <dd>Ändra filens datum.</dd>
+    <dt>Privat</dt>
+    <dd>Ange att filen kommer att döljas för vem som helst men dess ägare i mediehanteraren.</dd>
+    <dt>Ny katalog</dt>
+    <dd>Låter dig flytta filen i en annan mapp.</dd>
+    <dt>Ändra fil</dt>
+    <dd>With this form, you can replace the file while keeping all the attributes (name, title...). As always, you have to respect the maximum file size.</dd>
+  </dl>
+  <h4>Specifikt fall: bilder</h4>
+  <p>You can easily attach a file to one of your posts. First, create a new post
 and save it. Then click on "Add files to this entry" to open the media manager.</p>
-    <ul>
-      <li><strong>square</strong>: a 48x48 pixels square thumbnail,</li>
-      <li><strong>thumbnail</strong>: the image reduced to 100 pixels on its longest side.</li>
-      <li><strong>small</strong>: the longuest side is reduced to 240 pixels.</li>
-      <li><strong>medium</strong>: the longuest side is reduced to 500 pixels.</li>
-      <li><strong>original</strong>: the original, unchanged image.</li>
-    </ul>
-    <p>Just click on the [+] icon (Attach this file to entry). The file will then
+  <ul>
+    <li><strong>square</strong>: a 48x48 pixels square thumbnail,</li>
+    <li><strong>thumbnail</strong>: the image reduced to 100 pixels on its longest side.</li>
+    <li><strong>small</strong>: the longuest side is reduced to 240 pixels.</li>
+    <li><strong>medium</strong>: the longuest side is reduced to 500 pixels.</li>
+    <li><strong>original</strong>: the original, unchanged image.</li>
+  </ul>
+  <p>Just click on the [+] icon (Attach this file to entry). The file will then
 be attached to the post.</p>
-
-    <h4>Bifoga en fil till en post</h4>
-    <p>The attached files will be shown on the post page, as a list beside the post content.
+  <h4>Bifoga en fil till en post</h4>
+  <p>The attached files will be shown on the post page, as a list beside the post content.
 The MP3 files will be made available through the Flash player, so that they can easily by read by visitors.</p>
+  <p>Just click on the [+] icon (Attach this file to entry). The file will then be attached to the post.</p>
+  <p>De bifogade filerna kommer att visas på postsidan, som en lista efter inlägget innehåll. MP3-filerna kommer att göras tillgängliga via en Flash-spelare, så att de lätt kan spelas av dina besökare.</p>
+  <h4>Podcast och sändning av musikfiler</h4>
+  <p>All attached files will be included in your blog feeds, allowing an easy podcasting of any type of file.</p>
+</body>
 
-    <p>All attached files will be included in your RSS feeds, allowing for easy
-podcasting of any type of file.</p>
-
-    <p>De bifogade filerna kommer att visas på postsidan, som en lista efter inlägget innehåll. MP3-filerna kommer att göras tillgängliga via en Flash-spelare, så att de lätt kan spelas av dina besökare.</p>
-
-    <h4>Podcast och sändning av musikfiler</h4>
-    <p>Alla bifogade filer kommer att inkluderas i dina bloggflöden, vilket möjliggör en enkel
-podcasting av alla typer av filer.</p>
-
-  </body>
 </html>

@@ -1,94 +1,75 @@
 <html>
+
 <head>
   <title>Справка за синтаксиса в Wiki</title>
 </head>
 
 <body>
-
-<h4>Справка за синтаксиса в Wiki</h4>
-
-<p>Синтаксисът на Уики е начин да подобрите текста си с минимален набор от
-тагове, които покриват основните нужди (заглавия, параграфи, цитати,
-списъци...).</p>
-
-<dl>
-<dt>Елементи на блока</dt>
-<dd>
-<ul>
-  <li>Оставете празен ред между два подобни блока.</li>
-  <li><strong>Параграф:</strong> Свободен текст, завършващ с празен ред, ако
-  следва друг параграф.</li>
-  <li><strong>Заглавие:</strong> <code>!!! заглавие</code>, <code>!!! заглавие</code>
-  или <code>! заглавие</code>, което ви позволява да използвате три различни нива на
-  заглавие.</li>
-  <li><strong>Хоризонтална линия:</strong> <code>----</code></li>
-  <li><strong>Списъци:</strong> Започнете всеки ред с
-  <code>*</code> или <code>#</code> съответно за неномерирани или номерирани списъци.
-  Обличането на списъците се извършва чрез смесване на маркерите на списъците по този начин:
-  <pre>
+  <h4>Справка за синтаксиса в Wiki</h4>
+  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <dl>
+    <dt>Елементи на блока</dt>
+    <dd>
+      <ul>
+        <li>Оставете празен ред между два подобни блока.</li>
+        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
+        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Хоризонтална линия:</strong> <code>----</code></li>
+        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+          <pre>
     <code>*</code> позиция 1
     <code>**</code> позиция 1.1
     <code>*</code> позиция 2
     <code>*#</code> позиция 2.1
   ...
   </pre>
-  </li>
-  <li><strong>Списъци с определения:</strong> Започнете всеки ред с <code>=</code> за термина, който се дефинира, и с <code>:</code> за дефиницията на термина.
-  <pre>
+        </li>
+        <li><strong>Списъци с определения:</strong> Започнете всеки ред с <code>=</code> за термина, който се дефинира, и с <code>:</code> за дефиницията на термина.
+          <pre>
   <code>=</code> термин
   <code>:</code> описание на термина
   </pre>
-  </li>
-  <li><strong>Предварително форматиран текст:</strong> Всеки ред трябва да започва с интервал.</li>
-  <li><strong>Цитат в блок:</strong> Всеки ред трябва да започва с <code>&gt;</code>.</li>
-  <li><strong>Страничен блок:</strong> Всеки ред трябва да започва със знак <code>)</code>.</li>
-</ul>
-</dd>
-
-<dt>Тагове за форматиране</dt>
-<dd>
-<ul>
-  <li><strong>Подчертаване:</strong> Две кавички <code>''текст''</code></li>
-  <li><strong>Силен акцент:</strong> Две подчертавания <code>__text__</code></li>
-  <li><strong>Подчертано:</strong> Две двойни кавички <code>""текст""</code></li>
-  <li><strong>Нова линия:</strong> <code>%%%</code></li>
-  <li><strong>Вмъкване:</strong> Два плюса <code>++текст++</code></li>
-  <li><strong>Изтриване:</strong> Два минуса <code>--текст--</code></li>
-  <li><strong>Връзка:</strong> <code>[url]</code>, <code>[name|url]</code>,
-    <code>[name|url|language]</code> или <code>[name|url|language|title]</code></li>
-  <li><strong>Изображение:</strong>
-    ( <code>(url|алтернативен текст))</code>,
-    ( <code>(url|алтернативен текст|позиция))</code> или
-    ( <code>(url|алтернативен текст|позиция|дълго описание)).</code>
-    <br>Позицията може да бъде L (ляво), R (дясно) или C (центрирано).</li>
-  <li><strong>Котва:</strong> <code>~котва~</code></li>
-  <li><strong>Съкращение:</strong> <code>??акроним|заглавие??</code></li>
-  <li><strong>Вграден HTML:</strong> Две задни кавички <code>``HTML код``</code></li>
-  <li><strong>Цитат в линия</strong>: <code>{{quote}}</code>,
-    <code>{{quote|language}}</code> или <code>{{quote|language|url}}</code></li>
-  <li><strong>Код:</strong> <code>@@code@@@</code></li>
-  <li><strong>Бележки под линия:</strong> <code>$$footnote$$</code></li>
-  <li><strong>Суперскрипт</strong>&nbsp;: <code>^superscript^</code></li>
-  <li><strong>Подпис</strong>&nbsp;: <code>,,subscript,,</code></li>
-</ul>
-</dd>
-
-<dt>Неформатиран текст</dt>
-<dd>Ако не желаете един символ за форматиране да се интерпретира като такъв, добавете
-<code>\</code> точно преди него. Например:
-<code>\[Текст в скоби, без да е връзка\]</code>
-</dd>
-
-<dt>HTML код</dt>
-<dd>Дори и да сте избрали синтаксиса на Wiki, понякога може да ви е необходим по-
-мощен начин на форматиране, т.е. синтаксис на HTML. Направете го по следния начин:
-<pre>
+        </li>
+        <li><strong>Предварително форматиран текст:</strong> Всеки ред трябва да започва с интервал.</li>
+        <li><strong>Цитат в блок:</strong> Всеки ред трябва да започва с <code>&gt;</code>.</li>
+        <li><strong>Страничен блок:</strong> Всеки ред трябва да започва със знак <code>)</code>.</li>
+      </ul>
+    </dd>
+    <dt>Тагове за форматиране</dt>
+    <dd>
+      <ul>
+        <li><strong>Подчертаване:</strong> Две кавички <code>''текст''</code></li>
+        <li><strong>Силен акцент:</strong> Две подчертавания <code>__text__</code></li>
+        <li><strong>Подчертано:</strong> Две двойни кавички <code>""текст""</code></li>
+        <li><strong>Нова линия:</strong> <code>%%%</code></li>
+        <li><strong>Вмъкване:</strong> Два плюса <code>++текст++</code></li>
+        <li><strong>Изтриване:</strong> Два минуса <code>--текст--</code></li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
+        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Котва:</strong> <code>~котва~</code></li>
+        <li><strong>Съкращение:</strong> <code>??акроним|заглавие??</code></li>
+        <li><strong>Вграден HTML:</strong> Две задни кавички <code>``HTML код``</code></li>
+        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Код:</strong> <code>@@code@@@</code></li>
+        <li><strong>Бележки под линия:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Суперскрипт</strong>&nbsp;: <code>^superscript^</code></li>
+        <li><strong>Подпис</strong>&nbsp;: <code>,,subscript,,</code></li>
+      </ul>
+    </dd>
+    <dt>Неформатиран текст</dt>
+    <dd>If you don't want one formatting character to be interpreted as such, add a
+      <code>\</code> just before it. For instance:
+      <code>\[Text in brackets without being a link\]</code>
+    </dd>
+    <dt>HTML код</dt>
+    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+      <pre>
 ///html
 &lt;p style="color:red"&gt;моят текст в червено&lt;/p&gt;
 ///
 </pre>
-</dd>
-</dl>
-
+    </dd>
+  </dl>
 </body>
+
 </html>

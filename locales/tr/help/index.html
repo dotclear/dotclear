@@ -1,397 +1,382 @@
 <html>
+
 <head>
   <title></title> <!-- Leave the title empty -->
 </head>
 
 <body>
-
-<div class="multi-part legible" id="first-step" title="İlk adımlar">
-	<h3>Arayüz keşfi</h3>
-	<div class="fieldset">
-		<h4>İlk adımlar</h4>
-		<p>Genel yardım sayfalarına ek olarak, çeşitli yönetim sayfalarında çevrimiçi yardım bulunmaktadır. Tarayıcınızda javascript etkinse, sayfanın sağ üst konumunda <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Yardıma mı ihtiyacınız var?</strong> bağlantısına tıklayarak çevrimiçi yardımı görebilirsiniz. Javascript devre dışı bırakılmışsa, yardım sayfanın alt kısmında görüntülenir.</p>
-	</div>
-
-	<p>Her yönetim sayfası aynı üst başlığı, ana menüyü ve altbilgiyi gösterecektir. <em>(Burada verilen sıra bilgisayar ekranında gösterilen sıradır. Mobil cihazlar veya tabletler için mevcut alana göre değişebilir).</em></p>
-
-	<h4 class="pretty-title">Üst başlık</h4>
-	<p>Üst başlık üç unsurdan oluşur:</p>
-	<h5 class="as_h4">Logo</h5>
-	<p>Varsayılan olarak, bu logo Dotclear logosudur ve yönetim açılış sayfasına bağlantı verir. Ancak, bir platform
-	yöneticisi başka bir logo seçebilir ve başka bir şeye (genellikle hizmet açılış sayfasına) yönlendirebilir.</p>
-
-	<h5 class="as_h4">Blog(lar)</h5>
-	<p>Logodan sonra yer alan ilk öğe <em>aktif</em> blogunu, yani üzerinde hareket ettiğiniz blogu gösterir. Eğer
-	kurulumunuz birkaç blogdan oluşuyorsa, bu bilgiler başka bir bloga geçmenizi sağlayan bir kombo menüde mevcuttur.</p>
-	<p>Blog adını takip eden bağlantı, mevcut blogunuzu başka bir pencerede veya başka bir sekmede açar.</p>
-
-	<h5 class="as_h4">Kullanıcı</h5>
-	<p><em>Kontrol panelim</em> bağlantısı sizi blog yönetimi açılış sayfasına geri götürür.</p>
-	<p><em>Tercihlerim</em> bağlantısı, kişisel bilgilerinizi değiştirebileceğiniz, gösterge tablosunu ayarlayabileceğiniz ve arayüzünüzü ve düzenleme seçeneklerinizi seçebileceğiniz sayfaya yönlendirir.</p>
-	<p>Şaşırtıcı bir şekilde, <em>Disconnect [your login]</em> bağlantısı sizi blogunuzun yönetiminden ayırır (Dotclear'da biz ergonomi şampiyonlarıyız!).</p>
-
-	<h4 class="pretty-title">Ana menü</h4>
-	<p>Ana menü ekranın sol tarafında yer alır. Sağ kenarına tıklanarak daraltılabilir (ve üzerine tekrar tıklanarak daraltılabilir).</p>
-	<p>Mevcut blogdaki izinlerinize göre farklı yönetim sayfalarına yönlendirir. Dört bloktan oluşur:</p>
-	<ul>
-		<li><strong>Favorilerim</strong> , <em>Tercihlerim</em>/<em>Kontrol Panelim</em> sekmesinde favori olarak seçtiğiniz sayfaları listeler. Henüz herhangi bir favori seçmediyseniz, bu liste varsayılan Dotclear setini veya platform yöneticisi tarafından tanımlanan seti içerecektir. Bu bloğu görüntülemek istemiyorsanız, gösterge tablosu seçeneklerinizdeki eşleşen onay kutusunun işaretini kaldırabilirsiniz.</li>
-		<li><strong>Blog</strong>, bir girişi düzenlemek, medyayı yönetmek, blog görünümünü veya diğer parametreleri seçmek gibi mevcut blogu beslemeyi ve ayarlamayı sağlayan tüm sayfaları listeler.<br>
-		<em>Mevcut blogda yönetici haklarınız yoksa, ana menüde bunun altında başka bir blok olmayacaktır.</em></li>
-		<li><strong>Sistem ayarları</strong> Dotclear kurulumunu yönetmenizi sağlayan sayfalara bağlantılar: blog yönetimi, kullanıcılar ve mevcut diller, eklentilerin kurulumu, sistem ayarları. Birkaç blog üzerinde haklarınız varsa ancak süper yönetici haklarınız yoksa, yalnızca <em>Bloglar</em> girişini görürsünüz.</li>
-		<li><strong>Eklentiler</strong> yüklü eklentileri ayarlamanızı sağlar. Eklenti ayarları bir seferde yalnızca bir blogu etkiliyorsa, yönetim sayfasına <em>Blog</em> bloğundan erişilebilir, ancak tüm kurulumu etkiliyorlarsa, burada bulunurlar ve yalnızca süper yönetici kullanıcıları tarafından kullanılabilir.</li>
-	</ul>
-
-	<h4 class="pretty-title">Altbilgi</h4>
-	<p>Dotclear'ın ücretsiz bir sürümü, altbilgide saklı olan sırrı keşfedecek herhangi bir kullanıcıya sunulacaktır.</p>
-
-	<h3>Yeni başlayanlar için yardım</h3>
-	<p>Bloglara aşina değilseniz, belgelerimize (tüm içerik tablosu bu sayfanın <strong>Documentation</strong> sekmesinde mevcuttur) ve aşağıdaki gibi eğitimlere göz atmanızı öneririz:
-	<ul>
-		<li><a href="https://dotclear.org/documentation/2.0/usage/beginners">İlk yazım, adım adım.</a></li>
-	</ul>
-
-	<p><a href="https://dotclear.org/forum/">Dotclear forumu</a> , <em>aptalca bir soru</em>diye bir şeyin olmadığı sıcak bir yerdir. Yardıma ihtiyacınız varsa ve neden olmasın, karşılığında insanlara yardım etmek için katılmaktan çekinmeyin.</p>
-
-	<p class="info">Özel bir bilgiye sahip olmadan anlaşılması kolay bir kelime dağarcığı kullanmak için elimizden gelenin en iyisini yapmaya çalışıyoruz. Ancak, teknik bir terim kullanacak olursak, bunun tanımını muhtemelen çevrimiçi belgelerimizin <a href="https://dotclear.org/documentation/glossary">sözlüğünde</a> bulabilirsiniz.</p>
-</div>
-
-<div class="multi-part" id="users-doc" title="Kullanıcı kılavuzu">
-	<h3>Kullanıcı kılavuzu</h3>
-	<div class="three-boxes">
-		<h4 class="pretty-title">İçeriğin yönetilmesi</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/entries">Girişler</a>
-					<ul>
-						<li>Oluşturma ve düzenleme</li>
-						<li>Giriş detayları</li>
-						<li>Girişle ilgili eylemler</li>
-						<li>Yorumlar ve geri izlemeler</li>
-						<li>Girişlerin toplu yönetimi</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Yorumlar ve geri izlemeler</a>
-					<ul>
-						<li>Takip</li>
-						<li>Yönetim</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/categories">Kategoriler</a>
-					<ul>
-						<li>Kategori oluşturma</li>
-						<li>Kategori düzenleme</li>
-						<li>Kategori silme</li>
-						<li>Kategori listesinin düzenlenmesi</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/tags">Etiketler (anahtar kelimeler)</a>
-					<ul>
-						<li>Etiket ekleme</li>
-						<li>Etiket yönetimi</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/media">Medya ve ekler</a>
-					<ul>
-						<li>Bir alt dizin oluşturma</li>
-						<li>Dosya ekleme</li>
-						<li>Geçerli dizinin zip arşivini indirme</li>
-						<li>Doldurulan dosya bilgilerinin değiştirilmesi</li>
-						<li>Dosyaları doğrudan ekleme</li>
-						<li>Özel dosya türleri</li>
-						<li>Ekler</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Blog menü içeriği (widget'lar)</a>
-					<ul>
-						<li>Navigasyon kenar çubuğu, Ekstra kenar çubuğu</li>
-						<li>Varsayılan widget'lar</li>
-						<li>Widget ekleme/kaldırma</li>
-						<li>Widget seçenekleri</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
-					<ul>
-						<li>Blogroll</li>
-						<li>Bağlantı ekleme</li>
-						<li>Kategori ekleme</li>
-						<li>XFN</li>
-						<li>OPML veya XBEL dosyasından bağlantıları içe aktarma</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes">
-		<h4 class="pretty-title">Ayarlar ve özelleştirme</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Blog ayarları</a>
-					<ul>
-						<li>Blog detayları</li>
-						<li>Blog yapılandırması</li>
-						<li>Yorumlar ve geri izlemeler</li>
-						<li>Blog sunumu</li>
-						<li>Medya ve görüntüler</li>
-						<li>Arama motoru robot politikası</li>
-						<li>Antispam</li>
-						<li>Işık Kutusu</li>
-						<li>Kaydet</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Kullanıcı tercihleri</a>
-					<ul>
-						<li>Benim profilim</li>
-						<li>Benim seçeneklerim</li>
-						<li>Benim gösterge tablom</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blog görünümü</a>
-					<ul>
-						<li>Bir tema seçin</li>
-						<li>Bir tema yükleyin</li>
-						<li>Bir temayı kişiselleştirin</li>
-						<li>Tema düzenleyici</li>
-					</ul>
-				</li>
-			</ul>
-	</div>
-	<div class="three-boxes fieldset">
-			<h4 class="smart-title">Ek okumalar</h4>
-				<h5>Sözlük</h5>
-				<ul><li><a href="https://dotclear.org/documentation/glossary">Web'de ve Dotclear'da kullanılan tüm bu gizemli kelimeler</a></li></ul>
-				<h5>Girdi sözdizimleri</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Wiki sözdizimi ve HTML eşdeğeri</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Daha ileri gitmek için</a></li>
-					</ul>
-				<h5>Abonelik (RSS, Atom...)</h5>
-					<ul>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Neymiş o?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Blogumda nasıl kullanılabilir hale getirebilirim?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Bir beslemeye nasıl abone olabilirim?</a></li>
-						<li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Daha ileri gitmek için</a></li>
-					</ul>
-			<h4 class="smart-title">Yardım</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">Dotclear forumu</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq">Sıkça Sorulan Sorular</a></li>
-				</ul>
-	</div>
-</div>
-
-	<div class="multi-part" id="admin-doc" title="Yöneticiler için dokümantasyon">
-	<h3>Yöneticiler için dokümantasyon</h3>
-		<div class="three-boxes">
-		<h4 class="pretty-title">Kurulum ve güncelleme</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install">Kurulum</a>
-					<ul>
-						<li>Ön Koşullar</li>
-						<li>Otomatik kurulum</li>
-						<li>Standart kurulum</li>
-						<li>Sihirbazı kullanarak yükleme</li>
-						<li>config.php dosyasından yükleme</li>
-						<li>Kurulum işleminin tamamlanması</li>
-						<li>Sonraki adımlar</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Güncelleniyor</a>
-					<ul>
-						<li>Güncelleme için hazırlanma</li>
-						<li>Otomatik yükseltme</li>
-						<li>Programın güncellenmesi</li>
-						<li>Veritabanının güncellenmesi</li>
-						<li>Ek: mercurial kopyasını güncelleme</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/config">Yapılandırma Dosyası (config.php) Parametreler</a>
-					<ul>
-						<li>Giriş</li>
-						<li>Parametreler</li>
-						<li>Dosyaya bilgi ekleme</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Dotclear 1.2'den Dotclear 2'ye yükseltme</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Başka bir blog yazılımından Dotclear'a geçiş</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Yerel kurulum</a>
-					<ul>
-						<li>Pencereler</li>
-						<li>Mac OS X</li>
-						<li>Linux</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Dotclear'ı IIS7 ile Yükleme</a></li>
-			</ul>
-
-			<h5>Barındırma Eki</h5>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/hosting">Barındırma</a>
-				</li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">Yönetim</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/users">Kullanıcıları yönetme</a>
-					<ul>
-						<li>Mevcut kullanıcı listesi</li>
-						<li>Kullanıcı oluşturma</li>
-						<li>Bir kullanıcıyı değiştirme</li>
-						<li>Kullanıcı izinleri</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Temiz kurulum</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Multiblog Kurulumu</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Eklentileri yönetme</a>
-					<ul>
-						<li>Bir eklenti yükleme</li>
-						<li>Eklentileri yapılandırma</li>
-						<li>Bir eklentiyi kaldırma</li>
-						<li>Bir eklentinin güncellenmesi</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">Varsayılan tema Blowup</a>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blog Temaları</a>
-					<ul>
-						<li>Bir tema seçme</li>
-						<li>Tema yükleme</li>
-						<li>Bir temayı özelleştirme</li>
-						<li>Tema düzenleyici</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Gelişmiş yapılandırma</a></li>
-			</ul>
-		</div>
-		<div class="three-boxes">
-			<h4 class="pretty-title">Bakım</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/admin/backup">Yedekleme ve geri yükleme</a>
-					<ul>
-						<li>İthalat/İhracat</li>
-						<li>Dosyalar</li>
-						<li>Veritabanı</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Spam yorum filtreleri</a>
-					<ul>
-						<li>Filtre organizasyonu</li>
-						<li>Filtre yapılandırması</li>
-					</ul>
-				</li>
-			</ul>
-			<div class="fieldset vertical-separator">
-				<h4 class="smart-title">Yardım</h4>
-				<ul>
-					<li><a href="https://dotclear.org/forum">Dotclear forumu</a></li>
-					<li><a href="https://dotclear.org/documentation/2.0/faq#administration">Sıkça Sorulan Sorular (Yöneticiler)</a></li>
-				</ul>
-			</div>
-		</div>
-
-	</div>
-
-	<div class="multi-part" id="guide-dev" title="Geliştirici belgeleri">
-	<h3>Geliştirici ve Tasarımcı kaynakları</h3>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">Tasarım &amp; Temalar</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes">Temalar</a>
-					<ul>
-						<li>Temalar için kullanıcı kılavuzu</li>
-						<li>Şablon etiketleri</li>
-						<li>Ekler</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Temalar miras</a>
-					<ul>
-						<li>Prensip</li>
-						<li>Sınırlamalar</li>
-						<li>Kurulum</li>
-					</ul>
-					</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Şablon etiketleri</a>
-					<ul>
-						<li>Genel hususlar / yardımcı programlar</li>
-						<li>Blog</li>
-						<li>Girişler</li>
-						<li>Giriş sayfalandırması</li>
-						<li>Yorumlar</li>
-						<li>Yorum önizleme</li>
-						<li>Pings</li>
-						<li>Ekler</li>
-						<li>Kategoriler</li>
-						<li>Etiketler</li>
-						<li>Arşivler</li>
-						<li>Diller</li>
-						<li>Sistem</li>
-						<li>Widget'lar</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-
-		<div class="three-boxes first-child">
-			<h4 class="pretty-title">Kod &amp; Eklentiler</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Bir eklenti veya tema için tpl etiketi oluşturma</a>
-					<ul>
-						<li>Giriş</li>
-						<li>Değerler</li>
-						<li>Talimat blokları</li>
-						<li>Şablon önbellek etkisinin gösterilmesi</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Eklentiler</a>
-					<ul>
-						<li>Bir eklenti yazma</li>
-						<li>Ekler</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Eklenti bağlamsal yardımını oluşturma</a></li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Harici kimlik doğrulama</a>
-					<ul>
-						<li>Önsöz</li>
-						<li>Yeni bir kimlik doğrulama sınıfı</li>
-						<li>Senaryo</li>
-						<li>Uygulama</li>
-					</ul>
-				</li>
-				<li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC arayüzü</a></li>
-				<li><a href="https://dev.dotclear.org/code/2/">API belgeleri</a></li>
-			</ul>
-		</div>
-
-		<div class="three-boxes">
-			<h4 class="pretty-title">Katkı &amp; Destek</h4>
-			<ul class="from-left">
-				<li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Katkıda bulunun</a>
-					<ul>
-						<li>Bu belgeyi düzenleyin</li>
-						<li>Kreasyonlarınızı paylaşın</li>
-						<li>Hataları bildirin veya yeni özellikler önerin</li>
-						<li>Yerelleştirme</li>
-				</ul>
-			</li>
-				<li><a href="https://git.dotclear.org/dev/dotclear">Dotclear kaynak kodu deposu</a></li>
-				<li><a href="https://dotclear.org/forum">Dotclear forum</a></li>
-			</ul>
-
-			<div class="fieldset">
-				<h4 class="smart-title">Konvansiyonlar</h4>
-				<ul>
-					<li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Kodlama standartları</a></li>
-					<li><a href="index.php?process=HelpCharte">Yönetim sayfaları tablosu</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="multi-part legible" id="a11y-ergo" title="Erişilebilirlik ve ergonomi">
-	<h3>Erişilebilirlik ve ergonomi</h3>
-	<p>Dotclear arayüzü <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> kriterlerinin neredeyse tamamını karşılamaktadır. Dotclear'ı <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> yönergeleriyle uyumlu hale getirmek için çalışıyoruz.</p>
-	<p>Erişilebilirlik ve ergonomi ana kaygılarımızdan biridir. Uzmanların yardımıyla düzenli olarak analizler yapıyor ve sürekli olarak düzeltmeler ve geliştirmeler sağlıyoruz.</p>
-	<p><a href="https://git.dotclear.org/dev/dotclear/issues">biletlerini açarak</a> veya <a href="https://dotclear.org/forum/">forumuna</a>katılarak bize yardımcı olabilirsiniz. Ayrıca kullanıcı testlerine katılabilir veya ekibimize katılabilirsiniz!</p>
-	</div>
-
+  <div class="multi-part legible" id="first-step" title="İlk adımlar">
+    <h3>Arayüz keşfi</h3>
+    <div class="fieldset">
+      <h4>İlk adımlar</h4>
+      <p>In addition to the global help pages, several administration pages have an online help. If javascript is enabled
+        on your browser, you can see online help at the upper-right position of the page, by clicking on the <img src="images/menu/help.svg" alt="" style="width: 14px; vertical-align: middle;"> <strong>Need Help?</strong> link. If Javascript is disabled, the help is displayed at the bottom of the page.</p>
+    </div>
+    <p>Her yönetim sayfası aynı üst başlığı, ana menüyü ve altbilgiyi gösterecektir. <em>(Burada verilen sıra bilgisayar ekranında gösterilen sıradır. Mobil cihazlar veya tabletler için mevcut alana göre değişebilir).</em></p>
+    <h4 class="pretty-title">Üst başlık</h4>
+    <p>Üst başlık üç unsurdan oluşur:</p>
+    <h5 class="as_h4">Logo</h5>
+    <p>By default, this logo is the Dotclear logo and links to the administration landing page. However, a platform
+      manager can choose another logo and redirect towards something else (generally, the service landing page).</p>
+    <h5 class="as_h4">Blog(lar)</h5>
+    <p>The first element located after the logo shows the <em>active</em> blog, i.e. the blog on which you are acting. If your
+      installation is composed of several blogs, these informations are available in a combo menu, which lets you switch to another blog.</p>
+    <p>Blog adını takip eden bağlantı, mevcut blogunuzu başka bir pencerede veya başka bir sekmede açar.</p>
+    <h5 class="as_h4">Kullanıcı</h5>
+    <p><em>Kontrol panelim</em> bağlantısı sizi blog yönetimi açılış sayfasına geri götürür.</p>
+    <p><em>Tercihlerim</em> bağlantısı, kişisel bilgilerinizi değiştirebileceğiniz, gösterge tablosunu ayarlayabileceğiniz ve arayüzünüzü ve düzenleme seçeneklerinizi seçebileceğiniz sayfaya yönlendirir.</p>
+    <p>Şaşırtıcı bir şekilde, <em>Disconnect [your login]</em> bağlantısı sizi blogunuzun yönetiminden ayırır (Dotclear'da biz ergonomi şampiyonlarıyız!).</p>
+    <h4 class="pretty-title">Ana menü</h4>
+    <p>Ana menü ekranın sol tarafında yer alır. Sağ kenarına tıklanarak daraltılabilir (ve üzerine tekrar tıklanarak daraltılabilir).</p>
+    <p>Mevcut blogdaki izinlerinize göre farklı yönetim sayfalarına yönlendirir. Dört bloktan oluşur:</p>
+    <ul>
+      <li><strong>Favorilerim</strong> , <em>Tercihlerim</em>/<em>Kontrol Panelim</em> sekmesinde favori olarak seçtiğiniz sayfaları listeler. Henüz herhangi bir favori seçmediyseniz, bu liste varsayılan Dotclear setini veya platform yöneticisi tarafından tanımlanan seti içerecektir. Bu bloğu görüntülemek istemiyorsanız, gösterge tablosu seçeneklerinizdeki eşleşen onay kutusunun işaretini kaldırabilirsiniz.</li>
+      <li><strong>Blog</strong> lists all the pages that enable to feed and setup the current blog, from editing an entry, managing media, choosing the blog appearance or other parameters.<br>
+        <em>If you do not have administrator rights on the current blog, there will be no other block below that one in the main menu.</em></li>
+      <li><strong>Sistem ayarları</strong> Dotclear kurulumunu yönetmenizi sağlayan sayfalara bağlantılar: blog yönetimi, kullanıcılar ve mevcut diller, eklentilerin kurulumu, sistem ayarları. Birkaç blog üzerinde haklarınız varsa ancak süper yönetici haklarınız yoksa, yalnızca <em>Bloglar</em> girişini görürsünüz.</li>
+      <li><strong>Eklentiler</strong> yüklü eklentileri ayarlamanızı sağlar. Eklenti ayarları bir seferde yalnızca bir blogu etkiliyorsa, yönetim sayfasına <em>Blog</em> bloğundan erişilebilir, ancak tüm kurulumu etkiliyorlarsa, burada bulunurlar ve yalnızca süper yönetici kullanıcıları tarafından kullanılabilir.</li>
+    </ul>
+    <h4 class="pretty-title">Altbilgi</h4>
+    <p>Dotclear'ın ücretsiz bir sürümü, altbilgide saklı olan sırrı keşfedecek herhangi bir kullanıcıya sunulacaktır.</p>
+    <h3>Yeni başlayanlar için yardım</h3>
+    <p>Bloglara aşina değilseniz, belgelerimize (tüm içerik tablosu bu sayfanın <strong>Documentation</strong> sekmesinde mevcuttur) ve aşağıdaki gibi eğitimlere göz atmanızı öneririz:
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/beginners">İlk yazım, adım adım.</a></li>
+      </ul>
+      <p><a href="https://dotclear.org/forum/">Dotclear forumu</a> , <em>aptalca bir soru</em>diye bir şeyin olmadığı sıcak bir yerdir. Yardıma ihtiyacınız varsa ve neden olmasın, karşılığında insanlara yardım etmek için katılmaktan çekinmeyin.</p>
+      <p class="info">Özel bir bilgiye sahip olmadan anlaşılması kolay bir kelime dağarcığı kullanmak için elimizden gelenin en iyisini yapmaya çalışıyoruz. Ancak, teknik bir terim kullanacak olursak, bunun tanımını muhtemelen çevrimiçi belgelerimizin <a href="https://dotclear.org/documentation/glossary">sözlüğünde</a> bulabilirsiniz.</p>
+  </div>
+  <div class="multi-part" id="users-doc" title="Kullanıcı kılavuzu">
+    <h3>Kullanıcı kılavuzu</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">İçeriğin yönetilmesi</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/entries">Girişler</a>
+          <ul>
+            <li>Oluşturma ve düzenleme</li>
+            <li>Giriş detayları</li>
+            <li>Girişle ilgili eylemler</li>
+            <li>Yorumlar ve geri izlemeler</li>
+            <li>Girişlerin toplu yönetimi</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/comments-trackbacks">Yorumlar ve geri izlemeler</a>
+          <ul>
+            <li>Takip</li>
+            <li>Yönetim</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/categories">Kategoriler</a>
+          <ul>
+            <li>Kategori oluşturma</li>
+            <li>Kategori düzenleme</li>
+            <li>Kategori silme</li>
+            <li>Kategori listesinin düzenlenmesi</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/tags">Etiketler (anahtar kelimeler)</a>
+          <ul>
+            <li>Etiket ekleme</li>
+            <li>Etiket yönetimi</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/media">Medya ve ekler</a>
+          <ul>
+            <li>Bir alt dizin oluşturma</li>
+            <li>Dosya ekleme</li>
+            <li>Geçerli dizinin zip arşivini indirme</li>
+            <li>Doldurulan dosya bilgilerinin değiştirilmesi</li>
+            <li>Dosyaları doğrudan ekleme</li>
+            <li>Özel dosya türleri</li>
+            <li>Ekler</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/widgets">Blog menü içeriği (widget'lar)</a>
+          <ul>
+            <li>Navigasyon kenar çubuğu, Ekstra kenar çubuğu</li>
+            <li>Varsayılan widget'lar</li>
+            <li>Widget ekleme/kaldırma</li>
+            <li>Widget seçenekleri</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blogroll">Blogroll</a>
+          <ul>
+            <li>Blogroll</li>
+            <li>Bağlantı ekleme</li>
+            <li>Kategori ekleme</li>
+            <li>XFN</li>
+            <li>OPML veya XBEL dosyasından bağlantıları içe aktarma</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Ayarlar ve özelleştirme</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/usage/blog-parameters">Blog ayarları</a>
+          <ul>
+            <li>Blog detayları</li>
+            <li>Blog yapılandırması</li>
+            <li>Yorumlar ve geri izlemeler</li>
+            <li>Blog sunumu</li>
+            <li>Medya ve görüntüler</li>
+            <li>Arama motoru robot politikası</li>
+            <li>Antispam</li>
+            <li>Işık Kutusu</li>
+            <li>Kaydet</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/user-preferences">Kullanıcı tercihleri</a>
+          <ul>
+            <li>Benim profilim</li>
+            <li>Benim seçeneklerim</li>
+            <li>Benim gösterge tablom</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blog görünümü</a>
+          <ul>
+            <li>Bir tema seçin</li>
+            <li>Bir tema yükleyin</li>
+            <li>Bir temayı kişiselleştirin</li>
+            <li>Tema düzenleyici</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes fieldset">
+      <h4 class="smart-title">Ek okumalar</h4>
+      <h5>Sözlük</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/glossary">Web'de ve Dotclear'da kullanılan tüm bu gizemli kelimeler</a></li>
+      </ul>
+      <h5>Girdi sözdizimleri</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes">Wiki sözdizimi ve HTML eşdeğeri</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/syntaxes#to-go-further">Daha ileri gitmek için</a></li>
+      </ul>
+      <h5>Abonelik (RSS, Atom...)</h5>
+      <ul>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds">Neymiş o?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-make-it-available-on-my-blog">Blogumda nasıl kullanılabilir hale getirebilirim?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#how-do-i-suscribe-to-a-feed">Bir beslemeye nasıl abone olabilirim?</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/usage/feeds#to-go-further">Daha ileri gitmek için</a></li>
+      </ul>
+      <h4 class="smart-title">Yardım</h4>
+      <ul>
+        <li><a href="https://dotclear.org/forum">Dotclear forumu</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/faq">Sıkça Sorulan Sorular</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="multi-part" id="admin-doc" title="Yöneticiler için dokümantasyon">
+    <h3>Yöneticiler için dokümantasyon</h3>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Kurulum ve güncelleme</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install">Kurulum</a>
+          <ul>
+            <li>Ön Koşullar</li>
+            <li>Otomatik kurulum</li>
+            <li>Standart kurulum</li>
+            <li>Sihirbazı kullanarak yükleme</li>
+            <li>config.php dosyasından yükleme</li>
+            <li>Kurulum işleminin tamamlanması</li>
+            <li>Sonraki adımlar</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/upgrade">Güncelleniyor</a>
+          <ul>
+            <li>Güncelleme için hazırlanma</li>
+            <li>Otomatik yükseltme</li>
+            <li>Programın güncellenmesi</li>
+            <li>Veritabanının güncellenmesi</li>
+            <li>Ek: mercurial kopyasını güncelleme</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/config">Yapılandırma Dosyası (config.php) Parametreler</a>
+          <ul>
+            <li>Giriş</li>
+            <li>Parametreler</li>
+            <li>Dosyaya bilgi ekleme</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/1-to-2">Dotclear 1.2'den Dotclear 2'ye yükseltme</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/migrate">Başka bir blog yazılımından Dotclear'a geçiş</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/local-install">Yerel kurulum</a>
+          <ul>
+            <li>Pencereler</li>
+            <li>Mac OS X</li>
+            <li>Linux</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/install/iis">Dotclear'ı IIS7 ile Yükleme</a></li>
+      </ul>
+      <h5>Barındırma Eki</h5>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/hosting">Barındırma</a>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Yönetim</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/users">Kullanıcıları yönetme</a>
+          <ul>
+            <li>Mevcut kullanıcı listesi</li>
+            <li>Kullanıcı oluşturma</li>
+            <li>Bir kullanıcıyı değiştirme</li>
+            <li>Kullanıcı izinleri</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/clean-install">Temiz kurulum</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/multiblog">Multiblog Kurulumu</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/plugins">Eklentileri yönetme</a>
+          <ul>
+            <li>Bir eklenti yükleme</li>
+            <li>Eklentileri yapılandırma</li>
+            <li>Bir eklentiyi kaldırma</li>
+            <li>Bir eklentinin güncellenmesi</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes/blowup">Varsayılan tema Blowup</a>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/themes">Blog Temaları</a>
+          <ul>
+            <li>Bir tema seçme</li>
+            <li>Tema yükleme</li>
+            <li>Bir temayı özelleştirme</li>
+            <li>Tema düzenleyici</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/aboutconfig">Gelişmiş yapılandırma</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Bakım</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/admin/backup">Yedekleme ve geri yükleme</a>
+          <ul>
+            <li>İthalat/İhracat</li>
+            <li>Dosyalar</li>
+            <li>Veritabanı</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/admin/antispam">Spam yorum filtreleri</a>
+          <ul>
+            <li>Filtre organizasyonu</li>
+            <li>Filtre yapılandırması</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="fieldset vertical-separator">
+        <h4 class="smart-title">Yardım</h4>
+        <ul>
+          <li><a href="https://dotclear.org/forum">Dotclear forumu</a></li>
+          <li><a href="https://dotclear.org/documentation/2.0/faq#administration">Sıkça Sorulan Sorular (Yöneticiler)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part" id="guide-dev" title="Geliştirici belgeleri">
+    <h3>Geliştirici ve Tasarımcı kaynakları</h3>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">Tasarım &amp; Temalar</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes">Temalar</a>
+          <ul>
+            <li>Temalar için kullanıcı kılavuzu</li>
+            <li>Şablon etiketleri</li>
+            <li>Ekler</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/inheritance">Temalar miras</a>
+          <ul>
+            <li>Prensip</li>
+            <li>Sınırlamalar</li>
+            <li>Kurulum</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/themes/tags">Şablon etiketleri</a>
+          <ul>
+            <li>Genel hususlar / yardımcı programlar</li>
+            <li>Blog</li>
+            <li>Girişler</li>
+            <li>Giriş sayfalandırması</li>
+            <li>Yorumlar</li>
+            <li>Yorum önizleme</li>
+            <li>Pings</li>
+            <li>Ekler</li>
+            <li>Kategoriler</li>
+            <li>Etiketler</li>
+            <li>Arşivler</li>
+            <li>Diller</li>
+            <li>Sistem</li>
+            <li>Widget'lar</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="three-boxes first-child">
+      <h4 class="pretty-title">Kod &amp; Eklentiler</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/tpl">Bir eklenti veya tema için tpl etiketi oluşturma</a>
+          <ul>
+            <li>Giriş</li>
+            <li>Değerler</li>
+            <li>Talimat blokları</li>
+            <li>Şablon önbellek etkisinin gösterilmesi</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins">Eklentiler</a>
+          <ul>
+            <li>Bir eklenti yazma</li>
+            <li>Ekler</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/plugins/help">Eklenti bağlamsal yardımını oluşturma</a></li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/authentication">Harici kimlik doğrulama</a>
+          <ul>
+            <li>Önsöz</li>
+            <li>Yeni bir kimlik doğrulama sınıfı</li>
+            <li>Senaryo</li>
+            <li>Uygulama</li>
+          </ul>
+        </li>
+        <li><a href="https://dotclear.org/documentation/2.0/resources/xml-rpc">XML/RPC arayüzü</a></li>
+        <li><a href="https://dev.dotclear.org/code/2/">API belgeleri</a></li>
+      </ul>
+    </div>
+    <div class="three-boxes">
+      <h4 class="pretty-title">Katkı &amp; Destek</h4>
+      <ul class="from-left">
+        <li><a href="https://dotclear.org/documentation/2.0/resources/contribute">Katkıda bulunun</a>
+          <ul>
+            <li>Bu belgeyi düzenleyin</li>
+            <li>Kreasyonlarınızı paylaşın</li>
+            <li>Hataları bildirin veya yeni özellikler önerin</li>
+            <li>Yerelleştirme</li>
+          </ul>
+        </li>
+        <li><a href="https://git.dotclear.org/dev/dotclear">Dotclear kaynak kodu deposu</a></li>
+        <li><a href="https://dotclear.org/forum">Dotclear forum</a></li>
+      </ul>
+      <div class="fieldset">
+        <h4 class="smart-title">Konvansiyonlar</h4>
+        <ul>
+          <li><a href="https://dotclear.org/documentation/2.0/resources/coding-standards">Kodlama standartları</a></li>
+          <li><a href="index.php?process=HelpCharte">Yönetim sayfaları tablosu</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="multi-part legible" id="a11y-ergo" title="Erişilebilirlik ve ergonomi">
+    <h3>Erişilebilirlik ve ergonomi</h3>
+    <p>Dotclear arayüzü <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> kriterlerinin neredeyse tamamını karşılamaktadır. Dotclear'ı <a href="http://www.w3.org/TR/ATAG20/">ATAG 2.0</a> yönergeleriyle uyumlu hale getirmek için çalışıyoruz.</p>
+    <p>Erişilebilirlik ve ergonomi ana kaygılarımızdan biridir. Uzmanların yardımıyla düzenli olarak analizler yapıyor ve sürekli olarak düzeltmeler ve geliştirmeler sağlıyoruz.</p>
+    <p><a href="https://git.dotclear.org/dev/dotclear/issues">biletlerini açarak</a> veya <a href="https://dotclear.org/forum/">forumuna</a>katılarak bize yardımcı olabilirsiniz. Ayrıca kullanıcı testlerine katılabilir veya ekibimize katılabilirsiniz!</p>
+  </div>
 </body>
+
 </html>

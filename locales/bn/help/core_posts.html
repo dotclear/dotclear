@@ -1,70 +1,61 @@
 <html>
+
 <head>
   <title>Managing entries</title>
 </head>
 
 <body>
-
-<h4>এন্ট্রি তালিকা ফিল্টার</h4>
-
-<dl>
-  <dt>লেখক</dt>
-  <dd>Allows you to filter by author.</dd>
-  
-  <dt>শ্রেণীবিভাগ</dt>
-  <dd>Filter by category.</dd>
-  
-  <dt>অবস্থা</dt>
-  <dd>স্ট্যাটাস দ্বারা ফিল্টার এন্ট্রি:<ul>
-      <li><strong>pending:</strong> posts whose publication status has not yet
+  <h4>এন্ট্রি তালিকা ফিল্টার</h4>
+  <dl>
+    <dt>লেখক</dt>
+    <dd>Allows you to filter by author.</dd>
+    <dt>শ্রেণীবিভাগ</dt>
+    <dd>Filter by category.</dd>
+    <dt>অবস্থা</dt>
+    <dd>স্ট্যাটাস দ্বারা ফিল্টার এন্ট্রি:<ul>
+        <li><strong>pending:</strong> posts whose publication status has not yet
     been decided.</li>
-      <li><strong>scheduled:</strong> post to be set online automatically.</li>
-      <li><strong>unpublished:</strong> offline posts.</li>
-      <li><strong>published:</strong> online posts.</li>
-    </ul></dd>
-  
-  <dt>নির্বাচিত</dt>
-  <dd>Only the selected posts, or the non selected ones.</dd>
-
-  <dt>Month</dt>
-  <dd>Filter on a specific month and year.</dd>
-  
-  <dt>Language</dt>
-  <dd>Filter on the different languages used on the blog.</dd>
-  
-  <dt>Order by</dt>
-  <dd>Defines the list order, either on the date, the title, the author,
+        <li><strong>scheduled:</strong> post to be set online automatically.</li>
+        <li><strong>unpublished:</strong> offline posts.</li>
+        <li><strong>published:</strong> online posts.</li>
+      </ul>
+    </dd>
+    <dt>নির্বাচিত</dt>
+    <dd>Only the selected posts, or the non selected ones.</dd>
+    <dt>Month</dt>
+    <dd>Filter on a specific month and year.</dd>
+    <dt>Language</dt>
+    <dd>Filter on the different languages used on the blog.</dd>
+    <dt>Order by</dt>
+    <dd>Defines the list order, either on the date, the title, the author,
   the status or the selected status.</dd>
-  
-  <dt>Sort</dt>
-  <dd>Choose whether the list will be sorted in ascending or descending order.</dd>
-  
-  <dt>Entries per page</dt>
-  <dd>Number of entries that will be displayed on each page of the resulting
+    <dt>Sort</dt>
+    <dd>Choose whether the list will be sorted in ascending or descending order.</dd>
+    <dt>Entries per page</dt>
+    <dd>Number of entries that will be displayed on each page of the resulting
   set.</dd>
-  
-  <dt>প্রতি পৃষ্ঠার প্রচেষ্টা</dt>
-  <dd>পৃষ্ঠা প্রদর্শনের জন্য এন্ট্রির সংখ্যা.</dd>
-</dl>
-
-<h4>ব্যাচ কর্ম</h4>
-<p>If your user permission level allows it, you can perform batch operations on the
+    <dt>প্রতি পৃষ্ঠার প্রচেষ্টা</dt>
+    <dd>পৃষ্ঠা প্রদর্শনের জন্য এন্ট্রির সংখ্যা.</dd>
+  </dl>
+  <h4>ব্যাচ কর্ম</h4>
+  <p>If your user permission level allows it, you can perform batch operations on the
 entries you select in the list.</p>
-<ul>
-  <li><strong>Publish</strong>: set the entries online.</li>
-  <li><strong>Unpublish</strong>: set the entries offline.</li>
-  <li><strong>Schedule</strong>: schedule the entries to be set online at their
+  <ul>
+    <li><strong>Publish</strong>: set the entries online.</li>
+    <li><strong>Unpublish</strong>: set the entries offline.</li>
+    <li><strong>Schedule</strong>: schedule the entries to be set online at their
   publication date.</li>
-  <li><strong>Mark as pending</strong>: erase other publication status.</li>
-  <li><strong>Change category</strong>: directs you to the category list to choose a
+    <li><strong>Mark as pending</strong>: erase other publication status.</li>
+    <li><strong>Change category</strong>: directs you to the category list to choose a
   new one for the entries.
-  <li><strong>Change author</strong>: allows you to change the posts' author by
+    <li><strong>Change author</strong>: allows you to change the posts' author by
   entering the new author's ID.</li>
-  <li><strong>Delete</strong>: suppress the posts (this operation cannot be undone).</li>
-  <li><strong>লেখক পরিবর্তন:</strong> নতুন লেখকের আইডি প্রবেশ করে নির্বাচিত এন্ট্রিগুলির লেখক সংশোধন করুন।</li>
-  <li><strong>বিলোপ:</strong> নির্বাচিত এন্ট্রিগুলি মুছে ফেলুন (এই ক্রিয়াকলাপটি বাতিল করা যাবে না)।</li>
-  <li><strong>ট্যাগ যোগ/অপসারণ:</strong> নির্বাচিত এন্ট্রিগুলিতে ট্যাগ যুক্ত করুন বা সরান।</li>
-</ul>
-<p><em>আপনার সিস্টেমে সক্রিয় প্লাগ-ইন দ্বারা অতিরিক্ত ব্যবস্থা যোগ করা থাকলে উপরের তালিকাটি অন্যান্য আইটেম ধারণ করতে পারে.</em></p>
+    <li><strong>Delete</strong>: suppress the posts (this operation cannot be undone).</li>
+    <li><strong>লেখক পরিবর্তন:</strong> নতুন লেখকের আইডি প্রবেশ করে নির্বাচিত এন্ট্রিগুলির লেখক সংশোধন করুন।</li>
+    <li><strong>বিলোপ:</strong> নির্বাচিত এন্ট্রিগুলি মুছে ফেলুন (এই ক্রিয়াকলাপটি বাতিল করা যাবে না)।</li>
+    <li><strong>ট্যাগ যোগ/অপসারণ:</strong> নির্বাচিত এন্ট্রিগুলিতে ট্যাগ যুক্ত করুন বা সরান।</li>
+  </ul>
+  <p><em>আপনার সিস্টেমে সক্রিয় প্লাগ-ইন দ্বারা অতিরিক্ত ব্যবস্থা যোগ করা থাকলে উপরের তালিকাটি অন্যান্য আইটেম ধারণ করতে পারে.</em></p>
 </body>
+
 </html>

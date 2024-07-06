@@ -1,70 +1,55 @@
 <html>
+
 <head>
   <title>Kasutaja</title>
 </head>
 
 <body>
-
-<h4>Kasutaja profiil</h4>
-<dl>
-  <dt>Kasutaja ID</dt>
-  <dd>Vähemalt 2 tähemärki, kasutades tähti, numbreid või sümboleid (ilma tühikuta). See väli on kohustuslik.</dd>
-
-  <dt>Uus parool</dt>
-  <dd>Kui soovite oma salasõna muuta, sisestage uus salasõna kaks korda väljadele <strong>Uus salasõna</strong> ja <strong>Kinnita salasõna</strong>. Parool peab sisaldama vähemalt 6 märki. Mõlemad väljad on kohustuslikud.</dd>
-
-  <dt>Ühinemiseks on vaja muuta parooli</dt>
-  <dd>Märkige see ruut, et uus kasutaja peab ühendumisel ise oma parooli valima.</dd>
-
-  <dt>Super administraator</dt>
-  <dd>See annab praegusele kasutajale kõik õigused kõigile süsteemis asuvatele blogidele.</dd>
-  
-  <dt>Perekonnanimi, Eesnimi</dt>
-  <dd>Kui kuvatud nime ei ole esitatud, sisaldab kuvatud autori nimi nendesse kahte väljale sisestatud perekonna- ja eesnime.</dd>
-
-  <dt>Kuva nimi</dt>
-  <dd>Saate valida hüüdnime, mida soovite oma artiklite allkirjastamiseks kasutada. Kui see väli ei ole tühi, kasutatakse seda nime ja eesnime väljade asemel.</dd>
-
-  <dt>E-post</dt>
-  <dd>Seda e-posti aadressi kasutatakse, kui teil on vaja taastada oma parool Dotcleari autentimisekraanilt.</dd>
-
-  <dt>URL</dt>
-  <dd>Näitab kasutaja veebisaiti. Kui see väli ei ole tühi, muutub autori nimi klikitavaks lingiks sellele veebisaidile.</dd>
-</dl>
-
-<h4>Valikud</h4>
-<h5>Kasutajaliides</h5>
-<dl>
-  <dt>Keel</dt>
-  <dd>Määrake uute kirjete jaoks vaikimisi keel. Kui selle keele jaoks on olemas tõlge, tõlgitakse ka blogi kasutajaliides sellesse keelde.</dd>
-
-  <dt>Ajavöönd</dt>
-  <dd>See valik mõjutab kirjete avaldamisaja kuvamist.</dd>
-</dl>
-
-<h5>Väljaanne</h5>
-<dl>  
-  <dt>Eelistatud vorming</dt>
-  <dd>Valige kirje süntaks. Wiki on lihtsustatud süntaks
-  ja see teisendatakse kehtivaks HTML-ks. Kui te ei mõista HTML-i suurepäraselt
-  , soovitame valida Wiki süntaks.
-  Lisateavet leiate Wiki süntaksi viitedest.</dd>
-  
-  <dt>Vaikimisi sissekande staatus</dt>
-  <dd>Uute kirjete vaikimisi olekuks saab määrata:
-    <ul>
-      <li><strong>Ootel:</strong> Avaldamise staatus ei ole veel otsustatud.</li>
-      <li><strong>Planeeritud:</strong> Väljal <strong>Avaldatud on</strong> esitatud kuupäeval ja kellaajal.</li>
-      <li><strong>Avaldamata:</strong> Offline kanne.</li>
-      <li><strong>Avaldatud:</strong> Online kanne.</li>
-    </ul>
-  </dd>
-
-  <dt>Sissekande redigeerimisvälja kõrgus</dt>
-  <dd>Määrab kirjete välja kõrgust. Vaikimisi on selle parameetri väärtuseks 24.</dd>
-
-  <dt>Märksõnade loetelu formaat</dt>
-  <dd>Saate valida, kas soovite kande redigeerimisel näha kõiki kasutatud sildid<strong>(laiendatud</strong>) või ainult kõige rohkem kasutatud sildid<strong>(lühike</strong>).</dd>
-</dl>
+  <h4>Kasutaja profiil</h4>
+  <dl>
+    <dt>Kasutaja ID</dt>
+    <dd>Vähemalt 2 tähemärki, kasutades tähti, numbreid või sümboleid (ilma tühikuta). See väli on kohustuslik.</dd>
+    <dt>Uus parool</dt>
+    <dd>Kui soovite oma salasõna muuta, sisestage uus salasõna kaks korda väljadele <strong>Uus salasõna</strong> ja <strong>Kinnita salasõna</strong>. Parool peab sisaldama vähemalt 6 märki. Mõlemad väljad on kohustuslikud.</dd>
+    <dt>Ühinemiseks on vaja muuta parooli</dt>
+    <dd>Märkige see ruut, et uus kasutaja peab ühendumisel ise oma parooli valima.</dd>
+    <dt>Super administraator</dt>
+    <dd>See annab praegusele kasutajale kõik õigused kõigile süsteemis asuvatele blogidele.</dd>
+    <dt>Perekonnanimi, Eesnimi</dt>
+    <dd>Kui kuvatud nime ei ole esitatud, sisaldab kuvatud autori nimi nendesse kahte väljale sisestatud perekonna- ja eesnime.</dd>
+    <dt>Kuva nimi</dt>
+    <dd>Saate valida hüüdnime, mida soovite oma artiklite allkirjastamiseks kasutada. Kui see väli ei ole tühi, kasutatakse seda nime ja eesnime väljade asemel.</dd>
+    <dt>E-post</dt>
+    <dd>Seda e-posti aadressi kasutatakse, kui teil on vaja taastada oma parool Dotcleari autentimisekraanilt.</dd>
+    <dt>URL</dt>
+    <dd>Näitab kasutaja veebisaiti. Kui see väli ei ole tühi, muutub autori nimi klikitavaks lingiks sellele veebisaidile.</dd>
+  </dl>
+  <h4>Valikud</h4>
+  <h5>Kasutajaliides</h5>
+  <dl>
+    <dt>Keel</dt>
+    <dd>Määrake uute kirjete jaoks vaikimisi keel. Kui selle keele jaoks on olemas tõlge, tõlgitakse ka blogi kasutajaliides sellesse keelde.</dd>
+    <dt>Ajavöönd</dt>
+    <dd>See valik mõjutab kirjete avaldamisaja kuvamist.</dd>
+  </dl>
+  <h5>Väljaanne</h5>
+  <dl>
+    <dt>Eelistatud vorming</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>Vaikimisi sissekande staatus</dt>
+    <dd>Uute kirjete vaikimisi olekuks saab määrata:
+      <ul>
+        <li><strong>Ootel:</strong> Avaldamise staatus ei ole veel otsustatud.</li>
+        <li><strong>Planeeritud:</strong> Väljal <strong>Avaldatud on</strong> esitatud kuupäeval ja kellaajal.</li>
+        <li><strong>Avaldamata:</strong> Offline kanne.</li>
+        <li><strong>Avaldatud:</strong> Online kanne.</li>
+      </ul>
+    </dd>
+    <dt>Sissekande redigeerimisvälja kõrgus</dt>
+    <dd>Määrab kirjete välja kõrgust. Vaikimisi on selle parameetri väärtuseks 24.</dd>
+    <dt>Märksõnade loetelu formaat</dt>
+    <dd>Saate valida, kas soovite kande redigeerimisel näha kõiki kasutatud sildid<strong>(laiendatud</strong>) või ainult kõige rohkem kasutatud sildid<strong>(lühike</strong>).</dd>
+  </dl>
 </body>
+
 </html>

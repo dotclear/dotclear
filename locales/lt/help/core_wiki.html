@@ -1,95 +1,77 @@
 <html>
+
 <head>
   <title>Wiki Syntax Referenz</title>
 </head>
 
 <body>
-
-<h4>"Wiki" sintaksės nuoroda</h4>
-
-<p>Die Wiki Syntax ist ein Weg, mit minimalen Tags Deinen Text zu bearbeiten. 
-Du ben&ouml;ntigst nur die Grundvoraussetzungen wie Titel, Absatz, Zitat und Liste...</p>
-
-<dl>
-<dt>Blockelemente</dt>
-<dd>
-<ul>
-  <li>Lass eine leere Zeile zwischen zwei gleichen Blocks</li>
-  <li><strong>Absatz</strong>: Freier Text, endet mit einer leeren Zeile, wenn ein n&auml;chster Absatz folgt.</li>
-  <li><strong>Titel</strong>: <code>!!! title</code>, <code>!! title</code>
-  oder <code>! title</code>, was Dir die M&ouml;glichkeit gibt, 3 Formen zu haben.</li>
-  <li><strong>Horizontale Linie</strong>: <code>----</code></li>
-  <li><strong>Liste</strong>: Beginne jede Zeile mit
-  <code>*</code> oder <code>#</code> f&uuml;r nummerierte und unnummerierte Listen.
-  Listenzuordnung ist bereits gemacht mit folgenden Verwendungen:
-  <pre>
+  <h4>"Wiki" sintaksės nuoroda</h4>
+  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <dl>
+    <dt>Blockelemente</dt>
+    <dd>
+      <ul>
+        <li>Lass eine leere Zeile zwischen zwei gleichen Blocks</li>
+        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
+        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Horizontale Linie</strong>: <code>----</code></li>
+        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+          <pre>
     <code>*</code> * item 1
 ** item 1.1
 * item 2
 *# item 2.1
 ...
   </pre>
-  </li>
-  <li><strong>Apibrėžčių sąrašai:</strong> Kiekvieną eilutę pradėkite nuo <code>=</code> , jei norite apibrėžti terminą, ir nuo <code>:</code> , jei norite apibrėžti terminą.
-  <pre>
+        </li>
+        <li><strong>Apibrėžčių sąrašai:</strong> Kiekvieną eilutę pradėkite nuo <code>=</code> , jei norite apibrėžti terminą, ir nuo <code>:</code> , jei norite apibrėžti terminą.
+          <pre>
   <code>=</code> terminas
   <code>:</code> termino aprašymas
   </pre>
-  </li>
-  <li><strong>Zitat</strong>: Jede Zeile muss mit einem Semikolon beginnen (<code>&gt;</code>).</li>
-  <li><strong>Bloko citata:</strong> Kiekviena eilutė turi prasidėti <code>&gt;</code>.</li>
-  <li><strong>Šoninis blokas:</strong> Kiekviena eilutė turi prasidėti <code>)</code>.</li>
-</ul>
-</dd>
-
-<dt>Tagformate</dt>
-<dd>
-<ul>
-  <li><strong>Betonung</strong>: zwei Anf&uuml;hrungszeichen <code>''text''</code></li>
-  <li><strong>Starke Betonung</strong>: zwei Unterstriche <code>__text__</code></li>
-  <li><strong>Neue Zeile</strong>:</li>
-  <li><strong>Einschub</strong>: zwei Pluszeichen <code>++text++</code> <code>%%%</code></li>
-  <li><strong>L&ouml;schung</strong>: zwei Minuszeichen <code>--text--</code></li>
-  <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
+        </li>
+        <li><strong>Zitat</strong>: Jede Zeile muss mit einem Semikolon beginnen (<code>&gt;</code>).</li>
+        <li><strong>Bloko citata:</strong> Kiekviena eilutė turi prasidėti <code>&gt;</code>.</li>
+        <li><strong>Šoninis blokas:</strong> Kiekviena eilutė turi prasidėti <code>)</code>.</li>
+      </ul>
+    </dd>
+    <dt>Tagformate</dt>
+    <dd>
+      <ul>
+        <li><strong>Betonung</strong>: zwei Anf&uuml;hrungszeichen <code>''text''</code></li>
+        <li><strong>Starke Betonung</strong>: zwei Unterstriche <code>__text__</code></li>
+        <li><strong>Neue Zeile</strong>:</li>
+        <li><strong>Einschub</strong>: zwei Pluszeichen <code>++text++</code> <code>%%%</code></li>
+        <li><strong>L&ouml;schung</strong>: zwei Minuszeichen <code>--text--</code></li>
+        <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> oder <code>[name|url|language|title]</code></li>
-  <li><strong>Bild</strong>:
-    <code>((url|alternative text))</code>,
-    <code>((url|alternative text|position))</code> oder
-    <code>((url|alternative text|position|long description))</code>.
-    <br />Die Position kann L oder G (links), R oder D (rechts) oder C (zentriert) sein.</li>
-  <li><strong>Vaizdas:</strong>
-    <code>((url|alternatyvus tekstas))</code>,
-    <code>((url|alternatyvus tekstas|pozicija))</code> arba
-    <code>((url|alternatyvus tekstas|pozicija|ilgas aprašymas))</code>.
-    <br>Pozicija gali būti L (kairė), R (dešinė) arba C (centruota).</li>
-  <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
-  <li><strong>Inline HTML</strong>: zwei backquotes <code>``HTML code``</code></li>
-  <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
+        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
+        <li><strong>Inline HTML</strong>: zwei backquotes <code>``HTML code``</code></li>
+        <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> oder <code>{{quote|language|url}}</code></li>
-  <li><strong>Code</strong>: <code>@@code@@</code></li>
-  <li><strong>Fussnote</strong>: <code>$$footnote$$</code></li>
-  <li><strong>Pastabos:</strong> <code>$$footnote$$</code></li>
-  <li><strong>Viršutinis indeksas</strong>&nbsp;: <code>^viršutinis indeksas^</code></li>
-  <li><strong>Indeksas</strong>&nbsp;: <code>,,indeksas,,,</code></li>
-</ul>
-</dd>
-
-<dt>Unformatierter Text</dt>
-<dd>Wenn Du Deinen Text nicht formatieren willst, dann f&uuml;ge einfach nur
-<code>\</code> ein. Zum Beispiel:
-<code>\[Text in eckigen Klammern ohne URL\]</code>
-</dd>
-
-<dt>HTML Code</dt>
-<dd>Auch wenn Du Dich f&uuml;r die Verwendung der Wiki Syntax entschieden hast, Du ben&ouml;ntigst
-mitunter ausdrucksreichere M&ouml;glichkeiten, die Dir die HTML Syntax bietet. Geh folgendermassen vor:
-<pre>
+        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Fussnote</strong>: <code>$$footnote$$</code></li>
+        <li><strong>Pastabos:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Viršutinis indeksas</strong>&nbsp;: <code>^viršutinis indeksas^</code></li>
+        <li><strong>Indeksas</strong>&nbsp;: <code>,,indeksas,,,</code></li>
+      </ul>
+    </dd>
+    <dt>Unformatierter Text</dt>
+    <dd>If you don't want one formatting character to be interpreted as such, add a
+      <code>\</code> just before it. For instance:
+      <code>\[Text in brackets without being a link\]</code>
+    </dd>
+    <dt>HTML Code</dt>
+    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+      <pre>
 ///html
 &lt;p style="color:red"&gt;mein text in rot&lt;/p&gt;
 ///
 </pre>
-</dd>
-</dl>
-
+    </dd>
+  </dl>
 </body>
+
 </html>

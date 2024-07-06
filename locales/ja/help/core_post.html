@@ -1,100 +1,73 @@
 <html>
+
 <head>
   <title>エントリの編集</title>
 </head>
 
 <body>
-<h4>Editing an entry</h4>
-
-<dl>
-  <dt>エントリのタイトル</dt>
-  <dd>エントリのタイトルを入力します。 このフィールドは必須です。</dd>
-  
-  <dt>抜粋</dt>
-  <dd>このフィールドの内容は、ホームページやカテゴリページのようなエントリを一覧表示するページで、その後に「続きを読む...」リンクが続いた状態で表示されます。 また、投稿の全文を表示するページでは、先頭部分として表示されます。 空欄にした場合は、「<strong>内容</strong>」フィールドがホームページや他のエントリ一覧ページで表示されます。</dd>
-  
-  <dt>内容</dt>
-  <dd>エントリの内容を記入します。 このフィールドは必須です。</dd>
-  
-  <dt>注記</dt>
-  <dd>このテキストエリアは、注釈やメモに個人的に利用できます。 ここに記入された内容はブログには表示されません。</dd>
-  
-  <dt>カテゴリ</dt>
-  <dd>エントリのステータスを選択できます：
-    <ul>
-      <li><strong>保留中:</strong> 出版状況はまだ決定されていない。</li>
-      <li><strong>スケジュール日:</strong> 投稿は、 <strong>公開日時</strong> フィールドに設定されたオンラインで設定されます。</li>
-      <li><strong>未発表:</strong> 投稿はオフラインです。</li>
-      <li><strong>公開日:</strong> 投稿はオンラインです。</li>
-    </ul>
-  </dd>
-  
-  <dt>エントリの状態</dt>
-  <dd>ここでは、エントリの公開日時を変更できます。 エントリの
-  ステータスが <strong>スケジュール</strong>の場合、指定された日時にオンラインになります。</dd>
-
-  <dt>掲載の日時</dt>
-  <dd>ここで、投稿が掲載される日時を変更できます。 投稿の状態が「<strong>掲載予約</strong>」の場合、投稿は当該の日時にオンラインになります。</dd>
-
-  <dt>テキストの書式</dt>
-  <dd>投稿の構文を選択します。 Wikiは簡略化された構文であり、有効なHTMLに変換されます。 HTMLを完全に理解していない場合は、Wiki構文を選択することをお勧めします。 詳細は「Wiki 構文のリファレンス」を参照してください。</dd>
-
-  <dt>コメントを許可</dt>
-  <dd>このボックスにチェックを入れると、訪問者がエントリにコメントを付けられるようになります。 これに対応する全域的な設定は「ブログの設定」にあります。</dd>
-
-  <dt>トラックバックを許可</dt>
-  <dd>トラックバックは、あなたのエントリの一部に別のブログでコメントさせる方法です。 このボックスにチェックを入れると、他の人があなたのエントリへトラックバックできるようになります。 これに対応する全域的な設定は「ブログの設定」にあります。</dd>
-
-  <dt>イチ押しのエントリ</dt>
-  <dd>「イチ押しのエントリ」は、ブログメニューの「私のイチ押し」の下で一覧表示されます。</dd>
-  
-  <dt>エントリのパスワード</dt>
-  <dd>エントリ用のパスワードを入力することができます。 パスワード保護されたエントリはブログには表示されず、エントリのURL（「<strong>エントリの表示</strong>」リンクを参照）とパスワードを与えられた人のみがアクセスできるようになります。</dd>
-
-  <dt>ベース名</dt>
-  <dd>添付ファイルは、エントリーに追加されるメディアファイルです。 <strong>このエントリーにファイルを追加する</strong> ボタンを使用して、エントリーに追加するメディア ファイルを選択できます。<br>
-    このオプションはエントリーを保存した後に表示されます。<br>
-    詳しくはメディアマネージャーのヘルプをご覧ください。</dd>
-
-  <dt>エントリの言語</dt>
-  <dd>エントリの2文字の言語コードです。 デフォルトではあなたの言語（ユーザとして）になりますが、"en" や "fr-qc" のような好みの言語コードに変更することもできます。 このコードはエントリの表示に使用されます。</dd>
-
-  <dt>添付ファイル</dt>
-  <dd>添付ファイルは、エントリに加えられたすべてのメディアです。 「<strong>このエントリにファイルを追加</strong>」リンクは、エントリへ他のファイルを添付できるようにします。 このリンクをクリックする前に、忘れずに変更を保存してください。 より詳しい情報は「メディアマネージャのヘルプ」を参照してください。</dd>
-  
-  <dt>パスワード</dt>
-  <dd>エントリーにはパスワードを入力することができます。パスワードで保護されたエントリーは、
-  あなたのブログには表示されません。
-  エントリーのURL（ <strong>エントリーを見る</strong> リンクを参照）とパスワードを教えた人だけがアクセスできます。</dd>
-
-  <dt>Basename</dt>
-  <dd>右側の小さなロックをクリックして、あなたのエントリの別のURLを選択することで、このフィールドの保護を解除することができます。 使用しようとしているURLがすでに別のエントリで使用されている場合は、そのエントリに番号が追加されます。</dd>  
-  
-</dl>
-
-<h4>コメント</h4>
-<dl>
-  <dt>コメント一覧</dt>
-  <dd>「コメント」タブで、エントリのコメントを読んだり、状態を変更することができます。 ブログ管理者に許可されている場合、コメントをオンライン・オフラインにしたり、削除やジャンクに指定することができます。</dd>
-  
-  <dt>コメントの追加</dt>
-  <dd>「コメントを追加」タブで、バックエンドから出ずにエントリのコメントの1つに返信することができます。 ここで使用される構文は、プレーンかつ無制限の HTML です。 コメントを編集するように、フィールドを使用してください。</dd>
-</dl>
-  
-<h4>コメントを追加</h4>
-<dl>
-  <dt>Pingを送信するURL</dt>
-  <dd>Pingを送信したい投稿で見つけたトラックバックURLを貼り付けます。</dd>
-
-  <dt>送信する抜粋</dt>
-  <dd>このフィールドはエントリの最初の数行がデフォルトとなります。 これは投稿へのリンクと共に、Ping送信するブログへ送信されます。 このフィールドを編集することで、抜粋を修正することができます。</dd>
-
-  <dt>Ping URLを自動検出</dt>
-  <dd>エントリが特定の投稿にリンクし、それらの投稿を掲載しているブログが許可している場合、このツールはPing送信するURLを見つけます。</dd>
-
-  <dt>コメント</dt>
-  <dd>コメントの内容。このフィールドは HTML 構文を使用します。</dd>
-</dl>
-
+  <h4>Editing an entry</h4>
+  <dl>
+    <dt>エントリのタイトル</dt>
+    <dd>エントリのタイトルを入力します。 このフィールドは必須です。</dd>
+    <dt>抜粋</dt>
+    <dd>The content of this field will be shown in pages showing entries as a list, such as the homepage or categories pages, followed by a "continue reading" link. It will also be visible at the beginning of the page showing the whole post. Should you leave it blank, the <em>content</em> field will be shown entirely on the homepage and other entry list pages.</dd>
+    <dt>内容</dt>
+    <dd>エントリの内容を記入します。 このフィールドは必須です。</dd>
+    <dt>注記</dt>
+    <dd>This text area is for personal use, for notes or memos. What you enter here will never be displayed on the blog.</dd>
+    <dt>カテゴリ</dt>
+    <dd>エントリのステータスを選択できます：
+      <ul>
+        <li><strong>保留中:</strong> 出版状況はまだ決定されていない。</li>
+        <li><strong>スケジュール日:</strong> 投稿は、 <strong>公開日時</strong> フィールドに設定されたオンラインで設定されます。</li>
+        <li><strong>未発表:</strong> 投稿はオフラインです。</li>
+        <li><strong>公開日:</strong> 投稿はオンラインです。</li>
+      </ul>
+    </dd>
+    <dt>エントリの状態</dt>
+    <dd>Here you can change the entry's publication date and time. If the entry's status is <strong>Scheduled</strong>, it will be online at the given date and time.</dd>
+    <dt>掲載の日時</dt>
+    <dd>Select the language code of your entry. It defaults to your (as a user) language but you can change it to whatever language code you want, e.g. "en" or "es-ar". This code is used for the entry's display.</dd>
+    <dt>テキストの書式</dt>
+    <dd>Choose the entry's syntax. Wiki is a simplified syntax and will be converted to valid HTML. Unless you have a perfect understanding of HTML, we advise you to choose the Wiki syntax. See the Wiki syntax reference for more information.</dd>
+    <dt>コメントを許可</dt>
+    <dd>このボックスにチェックを入れると、訪問者がエントリにコメントを付けられるようになります。 これに対応する全域的な設定は「ブログの設定」にあります。</dd>
+    <dt>トラックバックを許可</dt>
+    <dd>Your entry's category. To create a new category, please see the <strong>Categories</strong> section. You can choose to leave you entry without a category by selecting the <em>(none)</em> item.</dd>
+    <dt>イチ押しのエントリ</dt>
+    <dd>「イチ押しのエントリ」は、ブログメニューの「私のイチ押し」の下で一覧表示されます。</dd>
+    <dt>エントリのパスワード</dt>
+    <dd>エントリ用のパスワードを入力することができます。 パスワード保護されたエントリはブログには表示されず、エントリのURL（「<strong>エントリの表示</strong>」リンクを参照）とパスワードを与えられた人のみがアクセスできるようになります。</dd>
+    <dt>ベース名</dt>
+    <dd>Attachments are media files added to the entry. You can use the <strong>Add files to this entry</strong> button to select media files to add to the entry.<br>This option will appear after you save your entry.<br>Please check the Media manager help for more information.</dd>
+    <dt>エントリの言語</dt>
+    <dd>エントリの2文字の言語コードです。 デフォルトではあなたの言語（ユーザとして）になりますが、"en" や "fr-qc" のような好みの言語コードに変更することもできます。 このコードはエントリの表示に使用されます。</dd>
+    <dt>添付ファイル</dt>
+    <dd>A trackback is a way to let a portion of your entry as a comment on another blog. Check this box to allow others to trackback your entry. The corresponding global setting is to be found in the blog settings.</dd>
+    <dt>パスワード</dt>
+    <dd>You can enter a password for your entry. A password protected entry will not be displayed on your blog, it will only be accessible to those you will give the entry URL to (see the <strong>view entry</strong> link) and password.</dd>
+    <dt>Basename</dt>
+    <dd>右側の小さなロックをクリックして、あなたのエントリの別のURLを選択することで、このフィールドの保護を解除することができます。 使用しようとしているURLがすでに別のエントリで使用されている場合は、そのエントリに番号が追加されます。</dd>
+  </dl>
+  <h4>コメント</h4>
+  <dl>
+    <dt>コメント一覧</dt>
+    <dd>On the <strong>Comments</strong> tab, you can read and change the status of
+      your entry's comments (and trackbacks). If you're allowed to by the blog administrator, you will be able to set your comments (and trackbacks) online or offline, to delete them or to mark them as junk.</dd>
+    <dt>コメントの追加</dt>
+    <dd>「コメントを追加」タブで、バックエンドから出ずにエントリのコメントの1つに返信することができます。 ここで使用される構文は、プレーンかつ無制限の HTML です。 コメントを編集するように、フィールドを使用してください。</dd>
+  </dl>
+  <h4>コメントを追加</h4>
+  <dl>
+    <dt>Pingを送信するURL</dt>
+    <dd>Pingを送信したい投稿で見つけたトラックバックURLを貼り付けます。</dd>
+    <dt>送信する抜粋</dt>
+    <dd>このフィールドはエントリの最初の数行がデフォルトとなります。 これは投稿へのリンクと共に、Ping送信するブログへ送信されます。 このフィールドを編集することで、抜粋を修正することができます。</dd>
+    <dt>Ping URLを自動検出</dt>
+    <dd>エントリが特定の投稿にリンクし、それらの投稿を掲載しているブログが許可している場合、このツールはPing送信するURLを見つけます。</dd>
+    <dt>コメント</dt>
+    <dd>コメントの内容。このフィールドは HTML 構文を使用します。</dd>
+  </dl>
 </body>
+
 </html>

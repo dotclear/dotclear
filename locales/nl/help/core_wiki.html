@@ -1,94 +1,75 @@
 <html>
+
 <head>
   <title>Wiki syntaxis referentie</title>
 </head>
 
 <body>
-
-<h4>Wiki syntaxis referentie</h4>
-
-<p>De Wiki-syntaxis is een manier om je tekst te verfraaien met een minimale set
-tags die bestudeerd werden om in de basisbehoeften te voorzien (titels, paragrafen, citaten,
-lijsten...).</p>
-
-<dl>
-<dt>Blokelementen</dt>
-<dd>
-<ul>
-  <li>Laat een lege regel tussen twee gelijksoortige blokken.</li>
-  <li><strong>Alinea:</strong> Vrije tekst, afgesloten met een lege regel als
-  nog een alinea volgt.</li>
-  <li><strong>Titel:</strong> <code>!!! titel</code>, <code>!! titel</code>
-  of <code>! titel</code>, zodat je drie verschillende niveaus van
-  koptekst kunt gebruiken.</li>
-  <li><strong>Horizontale lijn:</strong> <code>----</code></li>
-  <li><strong>Lijsten:</strong> Begin elke regel met
-  <code>*</code> of <code>#</code> voor respectievelijk ongenummerde of genummerde lijsten.
-  List imbrication wordt gedaan door list markers op deze manier te mengen:
-  <pre>
+  <h4>Wiki syntaxis referentie</h4>
+  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <dl>
+    <dt>Blokelementen</dt>
+    <dd>
+      <ul>
+        <li>Laat een lege regel tussen twee gelijksoortige blokken.</li>
+        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
+        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Horizontale lijn:</strong> <code>----</code></li>
+        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+          <pre>
     <code>*</code> item 1
     <code>**</code> item 1.1
     <code>*</code> item 2
     <code>*#</code> item 2.1
   ...
   </pre>
-  </li>
-  <li><strong>Definitie lijsten:</strong> Begin elke regel met <code>=</code> voor de te definiëren term en met <code>:</code> voor de definitie van de term.
-  <pre>
+        </li>
+        <li><strong>Definitie lijsten:</strong> Begin elke regel met <code>=</code> voor de te definiëren term en met <code>:</code> voor de definitie van de term.
+          <pre>
   <code>=</code> term
   <code>:</code> beschrijving van de term
   </pre>
-  </li>
-  <li><strong>Voorgeformatteerde tekst:</strong> Elke regel moet beginnen met een spatie.</li>
-  <li><strong>Blokcitaat:</strong> Elke regel moet beginnen met een <code>&gt;</code>.</li>
-  <li><strong>Zijblok:</strong> Elke regel moet beginnen met een <code>)</code>.</li>
-</ul>
-</dd>
-
-<dt>Tags voor opmaak</dt>
-<dd>
-<ul>
-  <li><strong>Nadruk:</strong> Twee aanhalingstekens <code>''tekst''</code></li>
-  <li><strong>Sterke nadruk:</strong> Twee onderstrepingen <code>__text__</code></li>
-  <li><strong>Gemarkeerd:</strong> Twee dubbele aanhalingstekens <code>""tekst""</code></li>
-  <li><strong>Nieuwe lijn:</strong> <code>%%%</code></li>
-  <li><strong>Invoegen:</strong> Twee pluspunten <code>++tekst++</code></li>
-  <li><strong>Verwijdering:</strong> Twee minnen <code>--text--.</code></li>
-  <li><strong>Link:</strong> <code>[url]</code>, <code>[naam|url]</code>,
-    <code>[naam|url|taal]</code> of <code>[naam|url|taal|titel]</code>.</li>
-  <li><strong>Afbeelding:</strong>
-    ( <code>(url|alternatieve tekst))</code>,
-    ( <code>(url|alternatieve tekst|positie))</code> of
-    ( <code>(url|alternatieve tekst|positie|lange beschrijving))</code>.
-    <br>De positie kan L (links), R (rechts) of C (gecentreerd) zijn.</li>
-  <li><strong>Anker:</strong> <code>~anchor~</code></li>
-  <li><strong>Acroniem:</strong> <code>?acroniem|titel??</code></li>
-  <li><strong>Inline HTML:</strong> Twee backquotes <code>``HTML code``</code></li>
-  <li><strong>Inline citaat</strong>: <code>{{quote}}</code>,
-    <code>{{quote|language}}</code> of <code>{{quote|language|url}}</code></li>
-  <li><strong>Code:</strong> <code>@@code@@</code></li>
-  <li><strong>Voetnoten:</strong> <code>$$footnote$$</code></li>
-  <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
-  <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,,</code></li>
-</ul>
-</dd>
-
-<dt>Onopgemaakte tekst</dt>
-<dd>Als je niet wilt dat een opmaakteken als zodanig wordt geïnterpreteerd, voeg <code> er</code> dan een
-net voor toe. Bijvoorbeeld:
-<code>\Tekst tussen haakjes zonder dat het een link is].</code>
-</dd>
-
-<dt>HTML-code</dt>
-<dd>Zelfs als je voor de Wiki-syntax hebt gekozen, heb je soms een meer
-krachtige opmaak nodig, namelijk HTML-syntax. Doe het op de volgende manier:
-<pre>
+        </li>
+        <li><strong>Voorgeformatteerde tekst:</strong> Elke regel moet beginnen met een spatie.</li>
+        <li><strong>Blokcitaat:</strong> Elke regel moet beginnen met een <code>&gt;</code>.</li>
+        <li><strong>Zijblok:</strong> Elke regel moet beginnen met een <code>)</code>.</li>
+      </ul>
+    </dd>
+    <dt>Tags voor opmaak</dt>
+    <dd>
+      <ul>
+        <li><strong>Nadruk:</strong> Twee aanhalingstekens <code>''tekst''</code></li>
+        <li><strong>Sterke nadruk:</strong> Twee onderstrepingen <code>__text__</code></li>
+        <li><strong>Gemarkeerd:</strong> Twee dubbele aanhalingstekens <code>""tekst""</code></li>
+        <li><strong>Nieuwe lijn:</strong> <code>%%%</code></li>
+        <li><strong>Invoegen:</strong> Twee pluspunten <code>++tekst++</code></li>
+        <li><strong>Verwijdering:</strong> Twee minnen <code>--text--.</code></li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
+        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Anker:</strong> <code>~anchor~</code></li>
+        <li><strong>Acroniem:</strong> <code>?acroniem|titel??</code></li>
+        <li><strong>Inline HTML:</strong> Twee backquotes <code>``HTML code``</code></li>
+        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Code:</strong> <code>@@code@@</code></li>
+        <li><strong>Voetnoten:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
+        <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,,</code></li>
+      </ul>
+    </dd>
+    <dt>Onopgemaakte tekst</dt>
+    <dd>If you don't want one formatting character to be interpreted as such, add a
+      <code>\</code> just before it. For instance:
+      <code>\[Text in brackets without being a link\]</code>
+    </dd>
+    <dt>HTML-code</dt>
+    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+      <pre>
 ///html
 &lt;p style="color:red"&gt;mijn tekst in rood&lt;/p&gt;
 ///
 </pre>
-</dd>
-</dl>
-
+    </dd>
+  </dl>
 </body>
+
 </html>
