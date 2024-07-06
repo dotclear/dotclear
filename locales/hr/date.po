@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2024-07-06 10:42\n"
+"PO-Revision-Date: 2024-07-06 22:20\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "MIME-Version: 1.0\n"
@@ -18,119 +18,119 @@ msgstr ""
 "Language: hr_HR\n"
 
 msgid "%Y-%m-%d %H:%M"
-msgstr ""
+msgstr "%Y-%m-%d %H:%M"
 
 msgid "_Jan"
-msgstr ""
+msgstr "Sij"
 
 msgid "_Feb"
-msgstr ""
+msgstr "Vel"
 
 msgid "_Mar"
-msgstr ""
+msgstr "Ožu"
 
 msgid "_Apr"
-msgstr ""
+msgstr "Trav"
 
 msgid "_May"
-msgstr ""
+msgstr "Svi"
 
 msgid "_Jun"
-msgstr ""
+msgstr "Lip"
 
 msgid "_Jul"
-msgstr ""
+msgstr "Srpa"
 
 msgid "_Aug"
-msgstr ""
+msgstr "Kol"
 
 msgid "_Sep"
-msgstr ""
+msgstr "Ruj"
 
 msgid "_Oct"
-msgstr ""
+msgstr "List"
 
 msgid "_Nov"
-msgstr ""
+msgstr "Stu"
 
 msgid "_Dec"
-msgstr ""
+msgstr "Pro"
 
 msgid "January"
-msgstr ""
+msgstr "Siječanj"
 
 msgid "February"
-msgstr ""
+msgstr "Veljača"
 
 msgid "March"
-msgstr ""
+msgstr "Ožujak"
 
 msgid "April"
-msgstr ""
+msgstr "Travanj"
 
 msgid "May"
-msgstr ""
+msgstr "Svibanj"
 
 msgid "June"
-msgstr ""
+msgstr "Lipanj"
 
 msgid "July"
-msgstr ""
+msgstr "Srpanj"
 
 msgid "August"
-msgstr ""
+msgstr "Kolovoz"
 
 msgid "September"
-msgstr ""
+msgstr "Rujan"
 
 msgid "October"
-msgstr ""
+msgstr "Listopad"
 
 msgid "November"
-msgstr ""
+msgstr "Studeni"
 
 msgid "December"
-msgstr ""
+msgstr "Prosinac"
 
 msgid "_Mon"
-msgstr ""
+msgstr "Pon"
 
 msgid "_Tue"
-msgstr ""
+msgstr "Uto"
 
 msgid "_Wed"
-msgstr ""
+msgstr "Sri"
 
 msgid "_Thu"
-msgstr ""
+msgstr "Čet"
 
 msgid "_Fri"
-msgstr ""
+msgstr "Pet"
 
 msgid "_Sat"
-msgstr ""
+msgstr "Sub"
 
 msgid "_Sun"
-msgstr ""
+msgstr "Ned"
 
 msgid "Monday"
-msgstr ""
+msgstr "Ponedjeljak"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Utorak"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Srijeda"
 
 msgid "Thursday"
-msgstr ""
+msgstr "Četvrtak"
 
 msgid "Friday"
-msgstr ""
+msgstr "Petak"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Subota"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Nedjelja"
 
