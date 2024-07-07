@@ -6,16 +6,16 @@
 
 <body>
   <h4>विकि वाक्यविन्यास संदर्भ</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>विकी सिंटैक्स बुनियादी जरूरतों (शीर्षक, पैराग्राफ, उद्धरण, सूचियां...) को कवर करने के लिए अध्ययन किए गए टैग के न्यूनतम सेट के साथ आपके पाठ को बढ़ाने का एक तरीका है।</p>
   <dl>
     <dt>खंडक तत्व</dt>
     <dd>
       <ul>
         <li>दो इसी तरह के ब्लॉक के बीच एक खाली लाइन छोड़ दें.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>अनुच्‍छेद:</strong> नि: शुल्क पाठ, एक खाली पंक्ति द्वारा समाप्त होता है यदि एक और पैराग्राफ का पालन करना है।</li>
+        <li><strong>शीर्षक:</strong> <code>!! title</code>, <code>!! title</code> या <code>! title</code>, जो आपको शीर्षक के तीन अलग-अलग स्तरों का उपयोग करने की अनुमति देता है।</li>
         <li><strong>क्षैतिज रेखा:</strong> <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>सूचियाँ:</strong> प्रत्येक पंक्ति को क्रमशः बिना संख्या वाली या क्रमांकित सूचियों के लिए <code>*</code> या <code>#</code> से शुरू करें। सूची मार्करों को इस तरह मिलाकर सूची स्नेहन किया जाता है:
           <pre>
     <code>*</code> आइटम 1
 <code>**</code> आइटम 1.1
@@ -43,12 +43,12 @@
         <li><strong>नई पंक्ति:</strong> <code>%%%</code></li>
         <li><strong>निवेशन:</strong> दो प्लसस <code>++टेक्स्ट ++</code></li>
         <li><strong>हटाने:</strong> दो माइनस <code>--टेक्स्ट--</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>लिंक:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> या <code>[name|url|language|title]</code></li>
+        <li><strong>छवि:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> या <code>((url|alternative text|position|long description))</code>.<br>स्थिति या तो L (बाएं), R (दाएं) या C (केन्द्रित) हो सकती है।</li>
         <li><strong>लंगर:</strong> <code>~ लंगर ~</code></li>
         <li><strong>संक्षिप्त शब्द:</strong> <code>?? संक्षिप्त शीर्षक??</code></li>
         <li><strong>इनलाइन एचटीएमएल:</strong> दो बैककोट <code>''एचटीएमएल कोड''</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>इनलाइन उद्धरण:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> या <code>{{quote|language|url}}</code></li>
         <li><strong>कोड:</strong> <code>@@code@@</code></li>
         <li><strong>फुटनोट:</strong> <code>$$footnote$$</code></li>
         <li><strong>सुपरस्क्रिप्ट</strong>&nbsp;: <code>^सुपरस्क्रिप्ट^</code></li>
@@ -56,12 +56,10 @@
       </ul>
     </dd>
     <dt>गैर प्रारूपित पाठ</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>अगर आप नहीं चाहते कि किसी फ़ॉर्मेटिंग कैरेक्टर को इस तरह से समझा जाए, तो उसके ठीक पहले <code>\</code> जोड़ें। उदाहरण के लिए: <code>\[लिंक के बिना ब्रैकेट में टेक्स्ट\]</code>
     </dd>
     <dt>HTML कोड</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>भले ही आपने विकी सिंटैक्स चुना हो, आपको कभी-कभी अधिक शक्तिशाली स्वरूपण i.e. HTML वाक्यविन्यास की आवश्यकता हो सकती है। इसे निम्न तरीके से करें:
       <pre>
 ///html
 &lt;p style="color:red"&gt;मेरा पाठ लाल रंग में&lt;/p&gt;
