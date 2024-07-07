@@ -12,8 +12,18 @@ namespace Dotclear\Core\Backend\Listing;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Caption;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
-use form;
 
 /**
  * @brief   Blogs list pager form helper.
@@ -33,11 +43,11 @@ class ListingBlogs extends Listing
     public function display(int $page, int $nb_per_page, string $enclose_block = '', bool $filter = false): void
     {
         if ($this->rs->isEmpty()) {
-            if ($filter) {
-                echo '<p><strong>' . __('No blog matches the filter') . '</strong></p>';
-            } else {
-                echo '<p><strong>' . __('No blog') . '</strong></p>';
-            }
+            echo (new Para())
+                ->items([
+                    (new Text('strong', $filter ? __('No blog matches the filter') : __('No blog'))),
+                ])
+            ->render();
         } else {
             $blogs = [];
             if (isset($_REQUEST['blogs'])) {
@@ -46,17 +56,46 @@ class ListingBlogs extends Listing
                 }
             }
 
-            $pager = new Pager($page, (int) $this->rs_count, $nb_per_page, 10);
+            $pager = (new Pager($page, (int) $this->rs_count, $nb_per_page, 10))->getLinks();
 
             $cols = [
-                'blog' => '<th' .
-                (App::auth()->isSuperAdmin() ? ' colspan="2"' : '') .
-                ' scope="col" abbr="comm" class="first nowrap">' . __('Blog id') . '</th>',
-                'name'   => '<th scope="col" abbr="name">' . __('Blog name') . '</th>',
-                'url'    => '<th scope="col" class="nowrap">' . __('URL') . '</th>',
-                'posts'  => '<th scope="col" class="nowrap">' . __('Entries (all types)') . '</th>',
-                'upddt'  => '<th scope="col" class="nowrap">' . __('Last update') . '</th>',
-                'status' => '<th scope="col" class="txt-center">' . __('Status') . '</th>',
+                'blog' => (new Th())
+                    ->colspan(App::auth()->isSuperAdmin() ? 2 : 1)
+                    ->scope('col')
+                    ->abbr('comm')
+                    ->class(['first', 'nowrap'])
+                    ->text(__('Blog id'))
+                ->render(),
+
+                'name' => (new Th())
+                    ->scope('col')
+                    ->abbr('name')
+                    ->text(__('Blog name'))
+                ->render(),
+
+                'url' => (new Th())
+                    ->scope('col')
+                    ->class('nowrap')
+                    ->text(__('URL'))
+                ->render(),
+
+                'posts' => (new Th())
+                    ->scope('col')
+                    ->class('nowrap')
+                    ->text(__('Entries (all types)'))
+                ->render(),
+
+                'upddt' => (new Th())
+                    ->scope('col')
+                    ->class('nowrap')
+                    ->text(__('Last update'))
+                ->render(),
+
+                'status' => (new Th())
+                    ->scope('col')
+                    ->class('txt-center')
+                    ->text(__('Status'))
+                ->render(),
             ];
 
             $cols = new ArrayObject($cols);
@@ -67,43 +106,46 @@ class ListingBlogs extends Listing
             // Cope with optional columns
             $this->userColumns('blogs', $cols);
 
-            $html_block = '<div class="table-outer"><table>' .
-            (
-                $filter ?
-                '<caption>' .
-                sprintf(__('%d blog matches the filter.', '%d blogs match the filter.', $this->rs_count), $this->rs_count) .
-                '</caption>'
-                :
-                '<caption class="hidden">' . __('Blogs list') . '</caption>'
-            ) .
-            '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
-
-            if ($enclose_block) {
-                $html_block = sprintf($enclose_block, $html_block);
-            }
-
-            $blocks = explode('%s', $html_block);
-
-            echo $pager->getLinks();
-
-            echo $blocks[0];
-
+            // Prepare listing
+            $lines = [
+                (new Tr())
+                    ->items([
+                        (new Text(null, implode(iterator_to_array($cols)))),
+                    ]),
+            ];
             while ($this->rs->fetch()) {
-                echo $this->blogLine(isset($blogs[$this->rs->blog_id]));
+                $lines[] = $this->blogLine(isset($blogs[$this->rs->blog_id]));
             }
 
-            echo $blocks[1];
+            $fmt = fn ($title, $image, $class) => (new Img('images/' . $image))
+                ->class(['mark', 'mark-' . $class])
+                ->alt($title)
+            ->render() . ' ' . $title;
 
-            $fmt = fn ($title, $image, $class) => sprintf('<img alt="%1$s" class="mark mark-%3$s" src="images/%2$s"> %1$s', $title, $image, $class);
-            echo '<p class="info">' . __('Legend: ') .
-                $fmt(__('online'), 'published.svg', 'published') . ' - ' .
-                $fmt(__('offline'), 'unpublished.svg', 'unpublished') . ' - ' .
-                $fmt(__('removed'), 'pending.svg', 'pending') .
-                '</p>';
+            $buffer = (new Div())
+                ->class('table-outer')
+                ->items([
+                    (new Table())
+                        ->caption((new Caption($filter ?
+                            sprintf(__('%d blog matches the filter.', '%d blogs match the filter.', $this->rs_count), $this->rs_count) :
+                            __('Blogs list')))
+                            ->class(array_filter([$filter ? '' : 'hidden'])))
+                        ->items($lines),
+                    (new Para())
+                        ->class('info')
+                        ->items([
+                            (new Text(null, __('Legend: '))),
+                            (new Text(null, $fmt(__('online'), 'published.svg', 'published') . ' - ')),
+                            (new Text(null, $fmt(__('offline'), 'unpublished.svg', 'unpublished') . ' - ')),
+                            (new Text(null, $fmt(__('removed'), 'pending.svg', 'pending'))),
+                        ]),
+                ])
+            ->render();
+            if ($enclose_block) {
+                $buffer = sprintf($enclose_block, $buffer);
+            }
 
-            echo $blocks[2];
-
-            echo $pager->getLinks();
+            echo $pager . $buffer . $pager;
         }
     }
 
@@ -112,51 +154,95 @@ class ListingBlogs extends Listing
      *
      * @param   bool    $checked    The checked flag
      *
-     * @return  string
+     * @return  Tr
      */
-    private function blogLine(bool $checked = false): string
+    private function blogLine(bool $checked = false): Tr
     {
-        $blog_id = Html::escapeHTML($this->rs->blog_id);
+        $blog_id          = Html::escapeHTML($this->rs->blog_id);
+        $blog_status      = (int) $this->rs->blog_status;
+        $blog_status_case = match ($blog_status) {
+            App::blog()::BLOG_ONLINE  => 'published',
+            App::blog()::BLOG_OFFLINE => 'unpublished',
+            default                   => 'pending',
+        };
 
         $cols = [
-            'check' => (App::auth()->isSuperAdmin() ?
-                '<td class="nowrap">' .
-                form::checkbox(['blogs[]'], $this->rs->blog_id, $checked) .
-                '</td>' : ''),
-            'blog' => '<td class="nowrap">' .
-            (App::auth()->isSuperAdmin() ?
-                '<a href="' . App::backend()->url()->get('admin.blog', ['id' => $blog_id]) . '"  ' .
-                'title="' . sprintf(__('Edit blog settings for %s'), $blog_id) . '">' .
-                '<img class="mark mark-edit light-only" src="images/edit.svg" alt="' . __('Edit blog settings') . '">' .
-                '<img class="mark mark-edit dark-only" src="images/edit-dark.svg" alt="' . __('Edit blog settings') . '">' .
-                ' ' . $blog_id . '</a> ' :
-                $blog_id . ' ') .
-            '</td>',
-            'name' => '<td class="maximal">' .
-            '<a href="' . App::backend()->url()->get('admin.home', ['switchblog' => $this->rs->blog_id]) . '" ' .
-            'title="' . sprintf(__('Switch to blog %s'), $this->rs->blog_id) . '">' .
-            Html::escapeHTML($this->rs->blog_name) . '</a>' .
-            '</td>',
-            'url' => '<td class="nowrap">' .
-            '<a class="outgoing" href="' .
-            Html::escapeHTML($this->rs->blog_url) . '">' . Html::escapeHTML($this->rs->blog_url) .
-            ' <img src="images/outgoing-link.svg" alt=""></a></td>',
-            'posts' => '<td class="nowrap count">' .
-            App::blogs()->countBlogPosts($this->rs->blog_id) .
-            '</td>',
-            'upddt' => '<td class="nowrap count">' .
-            '<time datetime="' . Date::iso8601((int) strtotime($this->rs->blog_upddt), App::auth()->getInfo('user_tz')) . '">' .
-            Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + Date::getTimeOffset(App::auth()->getInfo('user_tz'))) .
-            '</time>' .
-            '</td>',
-            'status' => '<td class="nowrap status txt-center">' .
-            sprintf(
-                '<img src="images/%1$s" class="mark mark-%3$s" alt="%2$s">',
-                ($this->rs->blog_status == App::blog()::BLOG_ONLINE ? 'published.svg' : ($this->rs->blog_status == App::blog()::BLOG_OFFLINE ? 'unpublished.svg' : 'pending.svg')),
-                App::blogs()->getBlogStatus((int) $this->rs->blog_status),
-                ($this->rs->blog_status == App::blog()::BLOG_ONLINE ? 'published' : ($this->rs->blog_status == App::blog()::BLOG_OFFLINE ? 'unpublished' : 'pending')),
-            ) .
-            '</td>',
+            'check' => App::auth()->isSuperAdmin() ?
+                (new Td())
+                    ->class('nowrap')
+                    ->items([
+                        (new Checkbox(['blogs[]'], $checked))
+                            ->value($this->rs->blog_id),
+                    ])
+                ->render() :
+                '',
+
+            'blog' => (new Td())
+                ->class('nowrap')
+                ->items([
+                    App::auth()->isSuperAdmin() ?
+                    (new Link())
+                        ->href(App::backend()->url()->get('admin.blog', ['id' => $blog_id]))
+                        ->title(sprintf(__('Edit blog settings for %s'), $blog_id))
+                        ->items([
+                            (new Img('images/edit.svg'))
+                                ->class(['mark', 'mark-edit', 'light-only'])
+                                ->alt(__('Edit blog settings')),
+                            (new Img('images/edit-dark.svg'))
+                                ->class(['mark', 'mark-edit', 'dark-only'])
+                                ->alt(__('Edit blog settings')),
+                            (new Text(null, $blog_id)),
+                        ]) :
+                    (new Text(null, $blog_id)),
+                ])
+            ->render(),
+
+            'name' => (new Td())
+                ->class('maximal')
+                ->items([
+                    (new Link())
+                        ->href(App::backend()->url()->get('admin.home', ['switchblog' => $this->rs->blog_id]))
+                        ->title(sprintf(__('Switch to blog %s'), $this->rs->blog_id))
+                        ->text(Html::escapeHTML($this->rs->blog_name)),
+                ])
+            ->render(),
+
+            'url' => (new Td())
+                ->class('nowrap')
+                ->items([
+                    (new Link())
+                        ->class('outgoing')
+                        ->href(Html::escapeHTML($this->rs->blog_url))
+                        ->separator(' ')
+                        ->items([
+                            (new Text(null, Html::escapeHTML($this->rs->blog_url))),
+                            (new Img('images/outgoing-link.svg'))
+                                ->alt(''),
+                        ]),
+                ])
+            ->render(),
+
+            'posts' => (new Td())
+                ->class(['nowrap', 'count'])
+                ->text((string) App::blogs()->countBlogPosts($this->rs->blog_id))
+            ->render(),
+
+            'upddt' => (new Td())
+                ->class(['nowrap', 'count'])
+                ->items([
+                    (new Text('time', Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + Date::getTimeOffset(App::auth()->getInfo('user_tz')))))
+                        ->extra('datetime="' . Date::iso8601((int) strtotime($this->rs->blog_upddt), App::auth()->getInfo('user_tz')) . '"'),
+                ])
+            ->render(),
+
+            'status' => (new Td())
+                ->class(['nowrap', 'status', 'txt-center'])
+                ->items([
+                    (new Img('images/' . $blog_status_case . '.svg'))
+                        ->class(['mark', 'mark-' . $blog_status_case])
+                        ->alt(App::blogs()->getBlogStatus($blog_status)),
+                ])
+            ->render(),
         ];
 
         $cols = new ArrayObject($cols);
@@ -166,9 +252,11 @@ class ListingBlogs extends Listing
         // Cope with optional columns
         $this->userColumns('blogs', $cols);
 
-        return
-        '<tr class="line" id="b' . $blog_id . '">' .
-        implode(iterator_to_array($cols)) .
-            '</tr>';
+        return (new Tr())
+            ->id('b' . $blog_id)
+            ->class('line')
+            ->items([
+                (new Text(null, implode(iterator_to_array($cols)))),
+            ]);
     }
 }
