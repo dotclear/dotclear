@@ -6,16 +6,16 @@
 
 <body>
   <h4>Wiki-Syntax-Referenz</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Die Wiki-Syntax ist eine Möglichkeit, Ihren Text mit einem minimalen Satz von Tags zu verbessern, die die grundlegenden Bedürfnisse abdecken (Überschriften, Absätze, Zitate, Listen...).</p>
   <dl>
     <dt>Blockelemente</dt>
     <dd>
       <ul>
         <li>Lass eine leere Zeile zwischen zwei gleichen Blocks</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Absatz:</strong> Freier Text, der mit einer Leerzeile endet, wenn ein weiterer Absatz folgen soll.</li>
+        <li><strong>Titel:</strong> <code>!!! Titel</code>, <code>!! Titel</code> oder <code>! Titel</code>, so dass Sie drei verschiedene Ebenen von Überschriften verwenden können.</li>
         <li><strong>Horizontale Linie</strong>: <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Listen:</strong> Beginnen Sie jede Zeile mit <code>*</code> oder <code>#</code> für unnummerierte bzw. nummerierte Listen. Die Listeneinbettung erfolgt durch Mischen von Listenmarkierungen auf diese Weise:
           <pre>
     <code>*</code> * item 1
 ** item 1.1
@@ -45,13 +45,13 @@
         <li><strong>L&ouml;schung</strong>: zwei Minuszeichen <code>--text--</code></li>
         <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> oder <code>[name|url|language|title]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|Sprache]</code> oder <code>[name|url|Sprache|Titel]</code></li>
+        <li><strong>Bild:</strong><code>((url|alternativer Text))</code>, <code>((url|alternativer Text|Position))</code> oder <code>((url|alternativer Text|Position|Lange Beschreibung))</code>.<br>Die Position kann entweder L (links), R (rechts) oder C (zentriert) sein.</li>
         <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
         <li><strong>Inline HTML</strong>: zwei backquotes <code>``HTML code``</code></li>
         <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> oder <code>{{quote|language|url}}</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Inline-Zitat</strong>: <code>{{quote}}</code>, <code>{{quote|language}}</code> oder <code>{{quote|language|url}}</code></li>
         <li><strong>Fussnote</strong>: <code>$$footnote$$</code></li>
         <li><strong>Fußnoten:</strong> <code>$$footnote$$</code></li>
         <li><strong>Hochgestellt</strong>&nbsp;: <code>^hochgestellt^</code></li>
@@ -59,12 +59,12 @@
       </ul>
     </dd>
     <dt>Unformatierter Text</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>Wenn Sie nicht wollen, dass ein Formatierungszeichen als solches interpretiert wird, fügen Sie ein
+      <code>\</code> direkt davor ein. Zum Beispiel:
+      <code>\[Text in Klammern, ohne ein Link zu sein\]</code>
     </dd>
     <dt>HTML Code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Auch wenn Sie sich für die Wiki-Syntax entschieden haben, benötigen Sie manchmal eine leistungsfähigere Formatierung, z. B. die HTML-Syntax. Gehen Sie dabei wie folgt vor:
       <pre>
 ///html
 &lt;p style="color:red"&gt;mein text in rot&lt;/p&gt;
