@@ -6,16 +6,16 @@
 
 <body>
   <h4>উইকি সিনট্যাক্স রেফারেন্স</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>উইকি সিনট্যাক্স হ'ল মৌলিক চাহিদাগুলি (শিরোনাম, অনুচ্ছেদ, উদ্ধৃতি, তালিকা ...) কভার করার জন্য অধ্যয়ন করা ট্যাগগুলির একটি ন্যূনতম সেট সহ আপনার পাঠ্যকে উন্নত করার একটি উপায়।</p>
   <dl>
     <dt>ব্লক মৌল</dt>
     <dd>
       <ul>
         <li>দুটি অনুরূপ ব্লকের মধ্যে একটি ফাঁকা রেখা রেখে দিন.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>অনুচ্ছেদ:</strong> বিনামূল্যে পাঠ্য, যদি অন্য অনুচ্ছেদ অনুসরণ করতে হয় তবে একটি খালি লাইন দ্বারা সমাপ্ত।</li>
+        <li><strong>শিরোনাম:</strong> <কোড>!!! শিরোনাম</code>, <code>!! শিরোনাম</code> বা <code>! শিরোনাম</code>, আপনাকে তিনটি ভিন্ন স্তরের শিরোনাম ব্যবহার করার অনুমতি দেয়।</li>
         <li><strong>Horizontal line</strong>: <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>তালিকা:</strong> প্রতিটি লাইন যথাক্রমে অসংখ্যিত বা সংখ্যাযুক্ত তালিকার জন্য <code>*</code> বা <code>#</code> দিয়ে শুরু করুন। তালিকা চিহ্নিতকরণ এইভাবে তালিকা মার্কারগুলিকে মিশ্রিত করে করা হয়:
           <pre>
     <code>*</code> * item 1
 ** item 1.1
@@ -45,13 +45,13 @@
         <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
         <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>লিংক:</strong> <code>[url]</code>, <code>[name|url</code><code>|language] or</code> <code>[name|url|language|title]</code></li>
+        <li><strong>ছবি:</strong><code>((url|বিকল্প পাঠ))</code>, <code>((url|বিকল্প পাঠ্য| অবস্থান))</code> বা <code>((url| বিকল্প পাঠ্য|অবস্থান|দীর্ঘ বর্ণনা))</code>।<br>পজিশনটি L (বাম), R (ডান) বা C (কেন্দ্রিক) হতে পারে।</li>
         <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
         <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
         <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>ইনলাইন উদ্ধৃতি:</strong> <code>{{উদ্ধৃতি}}</code>, <code>{{উদ্ধৃতি|ভাষা}}</code> বা <code>{{উদ্ধৃতি|ভাষা|ইউআরএল}}</code></li>
         <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
         <li><strong>Footnotes:</strong> <code>$$footnote$$</code></li>
         <li><strong>Superscript</strong>&nbsp;: <code>^ superscript ^</code></li>
@@ -59,12 +59,12 @@
       </ul>
     </dd>
     <dt>অবিন্যাসকৃত টেক্সট</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>আপনি যদি একটি ফরম্যাটিং অক্ষরকে এভাবে ব্যাখ্যা করতে না চান, তাহলে একটি যোগ করুন
+ <code>\</code> এর ঠিক আগে। এই ক্ষেত্রে:
+ <code>\[লিঙ্ক না হয়ে বন্ধনীতে পাঠ্য\]</code>
     </dd>
     <dt>HTML Code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>এমনকি যদি আপনি উইকি সিনট্যাক্স চয়ন করেন তবে আপনার মাঝে মাঝে আরও শক্তিশালী বিন্যাস i.e. HTML সিনট্যাক্সের প্রয়োজন হতে পারে। এটি নিম্নলিখিত উপায়ে করুন:
       <pre>
 /// html
 &lt;p style="color:red"&gt;আমার লেখা লাল&lt;/p&gt;
