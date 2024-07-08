@@ -6,16 +6,16 @@
 
 <body>
   <h4>Референца на викију</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Вики синтакса је начин да побољшате свој текст са минималним скупом проучених ознака како би се покриле основне потребе (наслови, пасуси, цитати, листе...).</p>
   <dl>
     <dt>Блокирај елементе</dt>
     <dd>
       <ul>
         <li>Оставите празну линију између два слична блока.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Параграф:</strong> Слободан текст, који се завршава празним редом ако следи други пасус.</li>
+        <li><strong>Наслов:</strong> <code>!!! наслов</code>, <code>!! наслов</code> или <code>! титле</code>, што вам омогућава да користите три различита нивоа наслова.</li>
         <li><strong>Horizontal line</strong>: <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Листе:</strong> Започните сваки ред са <code>*</code> или <code>#</code> за ненумерисане или нумерисане листе. Имбрикација листе се врши мешањем маркера листе на следећи начин:
           <pre>
     <code>*</code> * item 1
 ** item 1.1
@@ -45,13 +45,13 @@
         <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
         <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Веза:</strong> <code>[урл]</code>, <code>[име|урл]</code>, <code>[име| урл|језик]</code> или <code>[име|урл|језик|наслов]</code></li>
+        <li><strong>Слика:</strong><code>((урл|алтернативни текст))</code>, <code>((урл|алтернативни текст|позиција))</code> или <code>((урл| алтернативни текст|позиција|дуги опис))</code>.<br>Позиција може бити или L (лево), R (десно) или C (центрирано).</li>
         <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
         <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
         <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Инлине цитат:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> или <code>{{quote|language|url}}</code></li>
         <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
         <li><strong>Фусноте:</strong> <code>$$фоотноте$$</code></li>
         <li><strong>Суперсцрипт</strong>&nbsp;: <code>^суперсцрипт^</code></li>
@@ -59,12 +59,12 @@
       </ul>
     </dd>
     <dt>Неформатирани текст</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>Ако не желите да се један знак за форматирање тумачи као такав, додајте
+      <code>\</code> непосредно испред њега. На пример:
+      <code>\[Текст у заградама без везе\]</code>
     </dd>
     <dt>HTML Code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Чак и ако сте изабрали Вики синтаксу, понекад ће вам можда требати моћније форматирање, тј. ХТМЛ синтакса. Урадите то на следећи начин:
       <pre>
 ///html
 &lt;p style="color:red"&gt;мој текст у црвеној боји&lt;/p&gt;
