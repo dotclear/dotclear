@@ -6,16 +6,16 @@
 
 <body>
   <h4>Wiki syntaks reference</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Wiki-syntaksen er en måde at forbedre din tekst med et minimalt sæt tags, der er studeret for at dække de grundlæggende behov (titler, afsnit, citater, lister...).</p>
   <dl>
     <dt>Blokér elementer</dt>
     <dd>
       <ul>
         <li>Efterlad en tom linje mellem to lignende blokke.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Afsnit:</strong> Fritekst, afsluttet med en tom linje, hvis et andet afsnit skal følge.</li>
+        <li><strong>Titel:</strong> <code>!!! titel</code>, <code>!! titel</code> eller <code>! titel</code>, så du kan bruge tre forskellige overskriftsniveauer.</li>
         <li><strong>Horizontal line</strong>: <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Lister:</strong> Start hver linje med <code>*</code> eller <code>#</code> for henholdsvis unummererede eller nummererede lister. Listeimbrikation udføres ved at blande listemarkører på denne måde:
           <pre>
     <code>*</code> * item 1
 ** item 1.1
@@ -45,13 +45,13 @@
         <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
         <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[navn|url]</code>, <code>[navn| url|sprog]</code> eller <code>[navn|url|sprog|titel]</code></li>
+        <li><strong>Billede:</strong><code>((url|alternativ tekst))</code>, <code>((url|alternativ tekst|position))</code> eller <code>((url| alternativ tekst|position|lang beskrivelse))</code>.<br>Positionen kan være enten L (venstre), R (højre) eller C (centreret).</li>
         <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
         <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
         <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Inline-citat:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> eller <code>{{quote|language|url}}</code></li>
         <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
         <li><strong>Fodnoter:</strong> <code>$$footnote$$</code></li>
         <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
@@ -59,12 +59,12 @@
       </ul>
     </dd>
     <dt>Uformateret tekst</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>Hvis du ikke ønsker, at et formateringstegn skal fortolkes som sådan, skal du tilføje en
+      <code>\</code> lige før det. For eksempel:
+      <code>\[Tekst i parentes uden at være et link\]</code>
     </dd>
     <dt>HTML Code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Selvom du vælger Wiki-syntaksen, kan du nogle gange have brug for en mere kraftfuld formatering, dvs. HTML-syntaks. Gør det på følgende måde:
       <pre>
 ///html
 &lt;p style="color:red"&gt;min tekst med rød&lt;/p&gt;
