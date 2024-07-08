@@ -6,16 +6,16 @@
 
 <body>
   <h4>Синтаксическая ссылка на вики</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Синтаксис Wiki — это способ улучшить ваш текст с помощью минимального набора тегов, изученных для удовлетворения основных потребностей (заголовки, абзацы, цитаты, списки...).</p>
   <dl>
     <dt>Блокировать элементы</dt>
     <dd>
       <ul>
         <li>Оставьте пустую строку между двумя похожими блоками.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Абзац:</strong> Свободный текст, заканчивающийся пустой строкой, если за ним следует другой абзац.</li>
+        <li><strong>Название:</strong> <code>!!! заголовок</code>, <code>!! заголовок</code> или <code>! title</code>, позволяющий использовать три разных уровня заголовка.</li>
         <li><strong>Горизонтальная линия:</strong> <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Списки:</strong> Начинайте каждую строку с <code>*</code> или <code>#</code> для ненумерованных или нумерованных списков соответственно. Укладка списка выполняется путем смешивания маркеров списка следующим образом:
           <pre>
     <code>*</code> Пункт 1
     <code>**</code> пункт 1.1
@@ -44,12 +44,12 @@
         <li><strong>Новая строка:</strong> <code>%%%</code></li>
         <li><strong>Вставка:</strong> Два плюса <code>++text++</code></li>
         <li><strong>Удаление:</strong> Два минуты <code>--text--</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Ссылка:</strong> <code>[url]</code>, <code>[имя|url]</code>, <code>[имя| url|язык]</code> или <code>[имя|url|язык|название]</code></li>
+        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> или <code>(url|alternative text|position|long description))</code>.<br>Позиция может быть либо L (слева), R (справа) или C (по центру).</li>
         <li><strong>Якорь:</strong> <code>~anchor~</code></li>
         <li><strong>Acronym:</strong> <code>??acronym|title??</code></li>
         <li><strong>Встроенный HTML:</strong> Два backquotes <code>``HTML code``</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Встроенная цитата:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> или <code>{{quote|language|url}}</code></li>
         <li><strong>Код:</strong> <code>@@code@@</code></li>
         <li><strong>Примечания:</strong> <code>$$footnote$$</code></li>
         <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
@@ -57,12 +57,12 @@
       </ul>
     </dd>
     <dt>Неформатированный текст</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>Если вы не хотите, чтобы один символ форматирования интерпретировался как таковой, добавьте
+      <code>\</code> непосредственно перед ним. Например:
+      <code>\[Текст в скобках, не являющийся ссылкой\]</code>
     </dd>
     <dt>HTML-код</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Даже если вы выбрали синтаксис Wiki, иногда вам может понадобиться более мощное форматирование, например синтаксис HTML. Сделайте это следующим образом:
       <pre>
 ///html
 &lt;p style="color:red"&gt;мой текст красным&lt;/p&gt;
