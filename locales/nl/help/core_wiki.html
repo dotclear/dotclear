@@ -6,16 +6,16 @@
 
 <body>
   <h4>Wiki syntaxis referentie</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>De Wiki-syntaxis is een manier om uw tekst te verbeteren met een minimale set tags die zijn bestudeerd om aan de basisbehoeften te voldoen (titels, paragrafen, citaten, lijsten...).</p>
   <dl>
     <dt>Blokelementen</dt>
     <dd>
       <ul>
         <li>Laat een lege regel tussen twee gelijksoortige blokken.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Paragraaf:</strong> Vrije tekst, afgesloten met een lege regel als er nog een paragraaf volgt.</li>
+        <li><strong>Titel:</strong> <code>!!! titel</code>, <code>!! titel</code> of <code>! titel</code>, waardoor u drie verschillende kopniveaus kunt gebruiken.</li>
         <li><strong>Horizontale lijn:</strong> <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Lijsten:</strong> Begin elke regel met <code>*</code> of <code>#</code> voor respectievelijk ongenummerde of genummerde lijsten. Lijstovervloeiing wordt gedaan door lijstmarkeringen op deze manier te mixen:
           <pre>
     <code>*</code> item 1
     <code>**</code> item 1.1
@@ -44,12 +44,12 @@
         <li><strong>Nieuwe lijn:</strong> <code>%%%</code></li>
         <li><strong>Invoegen:</strong> Twee pluspunten <code>++tekst++</code></li>
         <li><strong>Verwijdering:</strong> Twee minnen <code>--text--.</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[naam|url]</code>, <code>[naam| url|taal]</code> of <code>[naam|url|taal|titel]</code></li>
         <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
         <li><strong>Anker:</strong> <code>~anchor~</code></li>
         <li><strong>Acroniem:</strong> <code>?acroniem|titel??</code></li>
         <li><strong>Inline HTML:</strong> Twee backquotes <code>``HTML code``</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Inline citaat:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> of <code>{{quote|language|url}}</code></li>
         <li><strong>Code:</strong> <code>@@code@@</code></li>
         <li><strong>Voetnoten:</strong> <code>$$footnote$$</code></li>
         <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
@@ -57,12 +57,12 @@
       </ul>
     </dd>
     <dt>Onopgemaakte tekst</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>Als je niet wilt dat een opmaakteken als zodanig wordt geïnterpreteerd, voeg dan een
+      <code>\</code> er vlak voor toe. Bijvoorbeeld:
+      <code>\[Tekst tussen haakjes zonder een link te zijn\]</code>
     </dd>
     <dt>HTML-code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Zelfs als je de Wiki-syntaxis hebt gekozen, heb je soms een krachtigere opmaak nodig, bijvoorbeeld de HTML-syntaxis. Doe het op de volgende manier:
       <pre>
 ///html
 &lt;p style="color:red"&gt;mijn tekst in rood&lt;/p&gt;
