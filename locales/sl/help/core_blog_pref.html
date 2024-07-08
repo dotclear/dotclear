@@ -1,147 +1,147 @@
 <html>
 
 <head>
-  <title>Blog settings</title>
+  <title>Nastavitve bloga</title>
 </head>
 
 <body>
-  <h4>Blog details</h4>
+  <h4>Podrobnosti bloga</h4>
   <dl>
-    <dt>Blog ID</dt>
-    <dd>Unique ID of the blog. Mandatory, can only be modified by a super administrator.</dd>
-    <dt>Blog name</dt>
-    <dd>Name of the blog, mandatory. It can be modified at any time without any impact on the blog operation.</dd>
-    <dt>Blog URL</dt>
-    <dd>Full blog URL. Mandatory, can only be modified by a super administrator.</dd>
-    <dt>URL scan method</dt>
-    <dd>Defines the way the URL is read. PATH_INFO is recommended, QUERY_STRING has to be used if PATH_INFO does not work. Using PATH_INFO mode, the blog URL must end with a "/" and using QUERY_STRING, it must end with an "?".</dd>
-    <dt>Blog status</dt>
+    <dt>ID bloga</dt>
+    <dd>Enolični ID bloga. Obvezno, spremeni ga lahko le super skrbnik.</dd>
+    <dt>Ime bloga</dt>
+    <dd>Ime bloga, obvezno. Kadar koli ga je mogoče spremeniti brez vpliva na delovanje spletnega dnevnika.</dd>
+    <dt>URL bloga</dt>
+    <dd>Celoten URL bloga. Obvezno, spremeni ga lahko le super skrbnik.</dd>
+    <dt>Metoda skeniranja URL-jev</dt>
+    <dd>Določa način branja URL-ja. PATH_INFO je priporočen, QUERY_STRING je treba uporabiti, če PATH_INFO ne deluje. Če uporabljate način PATH_INFO, se mora URL spletnega dnevnika končati z "/", če uporabljate QUERY_STRING, pa se mora končati z "?".</dd>
+    <dt>Status bloga</dt>
     <dd>
       <ul>
-        <li><strong>Online:</strong> Blog open to visitors.</li>
-        <li><strong>Offline:</strong> Blog closed to visitors but open to writers.</li>
-        <li><strong>Removed:</strong> Blog closed to both visitors and writers, open only to super administrators.</li>
+        <li><strong>Na spletu:</strong> Blog odprt za obiskovalce.</li>
+        <li><strong>Brez povezave:</strong> Blog zaprt za obiskovalce, vendar odprt za pisce.</li>
+        <li><strong>Odstranjeno:</strong> Blog zaprt za obiskovalce in pisce, odprt samo za superskrbnike.</li>
       </ul>
     </dd>
-    <dt>Blog description</dt>
-    <dd>Here you can put any description you want for your blog. This is a simple text, without any formatting.</dd>
+    <dt>Opis bloga</dt>
+    <dd>Tukaj lahko dodate poljuben opis za svoj blog. To je preprosto besedilo, brez oblikovanja.</dd>
   </dl>
-  <h4>Blog configuration</h4>
+  <h4>Konfiguracija bloga</h4>
   <dl>
-    <dt>Blog editor's name</dt>
-    <dd>Name of the person responsible for the blog. It may be the owner or the publisher if there is one. This information will be displayed in the blog feed.</dd>
-    <dt>Default language</dt>
-    <dd>Language of the blog interface. Either this language is amongst the avalaible ones, and the interface will be translated, or it is not, and the interface will be in English by default.</dd>
-    <dt>Blog timezone</dt>
-    <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
-    <dt>Copyright notice</dt>
-    <dd>Note about the reproduction rights for the blog.</dd>
-    <dt>New post URL format</dt>
-    <dd>Dropdown list to select the URL format.</dd>
-    <dt>HTML tag for the title of the notes on the blog</dt>
-    <dd>Dropdown list to select an HTML tag.</dd>
-    <dt>XML/RPC interface</dt>
-    <dd>Allows external clients to interact with your blog via the XML/RPC protocol. After activation the required parameters to be set in your external clients are displayed.</dd>
+    <dt>Ime urednika bloga</dt>
+    <dd>Ime osebe, odgovorne za blog. Lahko je lastnik ali založnik, če obstaja. Te informacije bodo prikazane v viru bloga.</dd>
+    <dt>Privzeti jezik</dt>
+    <dd>Jezik vmesnika bloga. Ali je ta jezik med razpoložljivimi in bo vmesnik preveden, ali pa ni in bo vmesnik privzeto v angleščini.</dd>
+    <dt>Časovni pas bloga</dt>
+    <dd>Določa časovni pas, ki bo uporabljen za komentarje in povratne sledi.</dd>
+    <dt>Obvestilo o avtorskih pravicah</dt>
+    <dd>Opomba o pravicah do reprodukcije spletnega dnevnika.</dd>
+    <dt>Nova oblika URL-ja objave</dt>
+    <dd>Spustni seznam za izbiro oblike URL-ja.</dd>
+    <dt>HTML oznaka za naslov zapiskov na blogu</dt>
+    <dd>Spustni seznam za izbiro oznake HTML.</dd>
+    <dt>Vmesnik XML/RPC</dt>
+    <dd>Zunanjim odjemalcem omogoča interakcijo z vašim blogom prek protokola XML/RPC. Po aktivaciji se prikažejo potrebni parametri, ki jih je treba nastaviti v vaših zunanjih odjemalcih.</dd>
   </dl>
-  <h4>Comments and trackbacks</h4>
+  <h4>Komentarji in povratne sledi</h4>
   <dl>
-    <dt>Accept comments</dt>
-    <dd>Globally accepts comments on the blog. Takes precedence over the per post setting.</dd>
-    <dt>Moderate comments</dt>
-    <dd>With this option, comments will be published only after editor's agreement.</dd>
-    <dt>Leave comments open for X days</dt>
-    <dd>The number of days during wich comments will be open after the post publication. When empty, the comments will be kept open indefinitly.</dd>
-    <dt>Wiki syntax for comments</dt>
-    <dd>Allows a subset of the wiki syntax to be used in comments.</dd>
-    <dt>Accept trackbacks</dt>
-    <dd>Globally accepts trackbacks on the blog. Takes precedence over the per post setting.</dd>
-    <dt>Moderate trackbacks</dt>
-    <dd>With this option, trackbacks will be published only after editor's agreement.</dd>
-    <dt>Leave trackbacks open for X days</dt>
-    <dd>The number of days during wich trackbacks will be open after the post publication. When empty, the trackbacks will be kept open indefinitly.</dd>
-    <dt>Add "nofollow" relation on comments and trackbacks links</dt>
-    <dd>Adds an attribute on links in comments and trackbacks, instructing the search bots not to follow them. This antispam features has yet to prove its value.</dd>
+    <dt>Sprejmi komentarje</dt>
+    <dd>Globalno sprejema komentarje na blogu. Ima prednost pred nastavitvijo na objavo.</dd>
+    <dt>Zmerni komentarji</dt>
+    <dd>Pri tej možnosti bodo komentarji objavljeni šele po soglasju urednika.</dd>
+    <dt>Pustite komentarje odprte X dni</dt>
+    <dd>Število dni, ko bodo komentarji odprti po objavi objave. Ko so prazni, bodo komentarji odprti za nedoločen čas.</dd>
+    <dt>Wiki sintaksa za komentarje</dt>
+    <dd>Omogoča uporabo podnabora sintakse wikija v komentarjih.</dd>
+    <dt>Sprejmi povratne sledi</dt>
+    <dd>Globalno sprejema povratne sledi na blogu. Ima prednost pred nastavitvijo na objavo.</dd>
+    <dt>Zmerne povratne informacije</dt>
+    <dd>Pri tej možnosti bodo povratne sledi objavljene šele po soglasju urednika.</dd>
+    <dt>Pustite povratne sledi odprte X dni</dt>
+    <dd>Število dni, v katerih bodo povratne sledi odprte po objavi objave. Ko so prazne, bodo povratne sledi odprte za nedoločen čas.</dd>
+    <dt>Dodajte povezavo »nofollow« na komentarje in povratne povezave</dt>
+    <dd>Povezavam v komentarjih in povratnih informacijah doda atribut, ki iskalnim robotom naroči, naj jim ne sledijo. Te funkcije za zaščito pred neželeno pošto še niso dokazale svoje vrednosti.</dd>
   </dl>
-  <h4>Blog presentation</h4>
+  <h4>Predstavitev bloga</h4>
   <dl>
-    <dt>Date format</dt>
-    <dd>Defines the date format for the blog posts. See the "Format reference" section below for more information. You can use the dropdown list to quickly select a pre-existing pattern.</dd>
-    <dt>Time format</dt>
-    <dd>Defines the time format for the blog posts. See the "Format reference" section below for more information. You can use the dropdown list to quickly select a pre-existing pattern.</dd>
-    <dt>Display smilies on entries and comments</dt>
-    <dd>Turns some strings like :-) or ;-) into pictures.</dd>
-    <dt>Display X entries per page</dt>
-    <dd>Will display X entries on the blog main page as well as in the different categories.</dd>
-    <dt>Display X entries per feed</dt>
-    <dd>Will display X entries in the blog feeds.</dd>
-    <dt>Display X comments per feed</dt>
-    <dd>Will display X comments in the blog comments feeds.</dd>
-    <dt>Truncate feeds</dt>
-    <dd>This option will only provide an abstract from the blog posts in the feeds.</dd>
-    <dt>Include sub-categories in category page and category posts feed</dt>
-    <dd>When this option is activated, posts in sub-categories will be displayed in the parent categories pages as well as in their feeds.</dd>
+    <dt>Format datuma</dt>
+    <dd>Določa obliko datuma za objave v spletnem dnevniku. Za več informacij glejte spodnji razdelek »Referenčna oblika«. S spustnim seznamom lahko hitro izberete že obstoječi vzorec.</dd>
+    <dt>Format časa</dt>
+    <dd>Določa časovni format za objave v spletnem dnevniku. Za več informacij glejte spodnji razdelek »Referenčna oblika«. S spustnim seznamom lahko hitro izberete že obstoječi vzorec.</dd>
+    <dt>Prikažite smeške na vnosih in komentarjih</dt>
+    <dd>Nekatere nize, kot je :-) ali ;-), spremeni v slike.</dd>
+    <dt>Prikaži X vnosov na stran</dt>
+    <dd>Na glavni strani spletnega dnevnika in v različnih kategorijah bo prikazal X vnosov.</dd>
+    <dt>Prikaži X vnosov na vir</dt>
+    <dd>V virih spletnega dnevnika bo prikazanih X vnosov.</dd>
+    <dt>Prikaži X komentarjev na vir</dt>
+    <dd>V virih komentarjev spletnega dnevnika bo prikazanih X komentarjev.</dd>
+    <dt>Skrajšaj vire</dt>
+    <dd>Ta možnost bo zagotovila samo izvleček objav v spletnem dnevniku v virih.</dd>
+    <dt>Vključite podkategorije na stran s kategorijami in vir objav kategorij</dt>
+    <dd>Ko je ta možnost aktivirana, bodo objave v podkategorijah prikazane na straneh nadrejenih kategorij kot tudi v njihovih virih.</dd>
   </dl>
-  <h4>Media and images</h4>
+  <h4>Mediji in slike</h4>
   <dl>
-    <dt>Generated image sizes (in pixels)</dt>
-    <dd>When you add an image in the media manager, other sizes are automatically generated. Here you can define the dimension of the longest size (width or heigth) of each type of generated images. If you leave one field empty, the media manager will not create the corresponding miniature.</dd>
-    <dt>Default image insertion attributes</dt>
-    <dd>The selected settings will apply on all the new images added to the media manager.</dd>
-    <dt>Inserted image title</dt>
-    <dd>Select the format of the "title" tags applied to your images, based on information retrieved from the images metadata.</dd>
-    <dt>Use original media date if possible</dt>
-    <dd>When this option is activated, if the image metadata contains a date, it will be used. If not, the upload date will be used.</dd>
-    <dt>Size of inserted image</dt>
-    <dd>Defines the default size used when inserting an image in a blog post.</dd>
-    <dt>Image alignment</dt>
-    <dd>Defines the default alignment used when inserting an image in a blog post.</dd>
-    <dt>Insert a link to the original image</dt>
-    <dd>When this option is activated, the pictures inserted in a blog post will be clickable and point to the original-sized picture.</dd>
+    <dt>Velikosti ustvarjene slike (v slikovnih pikah)</dt>
+    <dd>Ko dodate sliko v upravitelju medijev, se samodejno ustvarijo druge velikosti. Tu lahko določite dimenzijo najdaljše velikosti (širine ali višine) vsake vrste generiranih slik. Če pustite eno polje prazno, upravitelj medijev ne bo ustvaril ustrezne miniature.</dd>
+    <dt>Privzeti atributi za vstavljanje slik</dt>
+    <dd>Izbrane nastavitve bodo veljale za vse nove slike, dodane v upravitelja predstavnosti.</dd>
+    <dt>Vstavljen naslov slike</dt>
+    <dd>Izberite obliko oznak "naslov", uporabljenih za vaše slike, na podlagi informacij, pridobljenih iz metapodatkov slik.</dd>
+    <dt>Če je mogoče, uporabite izvirni datum medija</dt>
+    <dd>Če je ta možnost aktivirana, bo uporabljen datum, če metapodatki slike vsebujejo datum. Če ne, bo uporabljen datum nalaganja.</dd>
+    <dt>Velikost vstavljene slike</dt>
+    <dd>Določa privzeto velikost, uporabljeno pri vstavljanju slike v objavo v spletnem dnevniku.</dd>
+    <dt>Poravnava slike</dt>
+    <dd>Določa privzeto poravnavo, ki se uporablja pri vstavljanju slike v objavo v spletnem dnevniku.</dd>
+    <dt>Vstavite povezavo do izvirne slike</dt>
+    <dd>Ko je ta možnost aktivirana, bo slike, vstavljene v objavo v spletnem dnevniku, mogoče klikniti in bodo kazale na sliko izvirne velikosti.</dd>
   </dl>
-  <h4>Search engines robots policy</h4>
-  <p>Here you can indicate if you want Web search engines to index and/or archive your pages or not. Select the last option if you do not want people to be able to find your blog using a Web search engine.</p>
+  <h4>Politika robotov iskalnikov</h4>
+  <p>Tukaj lahko označite, ali želite, da spletni iskalniki indeksirajo in/ali arhivirajo vaše strani ali ne. Zadnjo možnost izberite, če ne želite, da ljudje najdejo vaš blog s spletnim iskalnikom.</p>
   <h4>Antispam</h4>
-  <p>You can set the number of days after which you want the junk comments to be automatically deleted. Leave that field blank (or put 0) to deactivate this feature.</p>
-  <h4>Users</h4>
-  <p>Lists this blog's users as well as their permissions.</p>
-  <h3>Format reference</h3>
-  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <p>Nastavite lahko število dni, po katerih želite, da se neželeni komentarji samodejno izbrišejo. Pustite to polje prazno (ali vnesite 0), da deaktivirate to funkcijo.</p>
+  <h4>Uporabniki</h4>
+  <p>Navaja uporabnike tega bloga in njihova dovoljenja.</p>
+  <h3>Sklic na obliko</h3>
+  <p>Nekatera polja je mogoče konfigurirati za oblikovanje datuma in časa po vaših potrebah. Tukaj je referenca:</p>
   <ul>
-    <li><strong>%a:</strong> Abreviated week day (local).</li>
-    <li><strong>%A:</strong> Complete week day (local).</li>
-    <li><strong>%b:</strong> Abbreviated month name (local).</li>
-    <li><strong>%B:</strong> Complete month name (local).</li>
-    <li><strong>%c:</strong> Default local date and time display.</li>
-    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
-    <li><strong>%d:</strong> Numeric month day (from 01 to 31)</li>
-    <li><strong>%D:</strong> Identical to %m/%d/%y</li>
-    <li><strong>%e:</strong> Numeric month day (from 1 to 31)</li>
-    <li><strong>%g:</strong> Identical to %G, 2 digits.</li>
-    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
-    <li><strong>%h:</strong> Identical to %b</li>
-    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
-    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
-    <li><strong>%j:</strong> Day of the year, digital (from 001 to 366)</li>
-    <li><strong>%m:</strong> Month, digital (from 1 à 12)</li>
-    <li><strong>%M:</strong> Minute, digital</li>
-    <li><strong>%n:</strong> Newline character</li>
-    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
-    <li><strong>%r:</strong> The hour, a.m. and p.m. format</li>
-    <li><strong>%R:</strong> The hour, 24h format</li>
-    <li><strong>%S:</strong> Seconds, digital</li>
-    <li><strong>%t:</strong> Tab character</li>
-    <li><strong>%T:</strong> The current time (identical to %H:%M:%S)</li>
-    <li><strong>%u:</strong> Day week, digit, from 1 to 7. (1 stands for monday)</li>
-    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
-    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
-    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
-    <li><strong>%w:</strong> Day of the week, digital, 0 stands for sunday</li>
-    <li><strong>%x:</strong> Prefered format for the date without the time</li>
-    <li><strong>%X:</strong> Prefered format for the time without the date</li>
-    <li><strong>%y:</strong> The year, two digits (from 00 to 99)</li>
-    <li><strong>%Y:</strong> The year, four digits</li>
-    <li><strong>%Z or %z:</strong> Timezone, name or abbreviation</li>
-    <li><strong>%%:</strong> A litteral `%' character</li>
+    <li><strong>%a:</strong> Skrajšan dan v tednu (lokalno).</li>
+    <li><strong>%A:</strong> Celoten dan v tednu (lokalno).</li>
+    <li><strong>%b:</strong> Skrajšano ime meseca (lokalno).</li>
+    <li><strong>%B:</strong> Celotno ime meseca (lokalno).</li>
+    <li><strong>%c:</strong> Privzeti lokalni prikaz datuma in časa.</li>
+    <li><strong>%C:</strong> Stoletje (leto, deljeno s 100 in zaokroženo navzgor med 00 in 99)</li>
+    <li><strong>%d:</strong> Številski dan meseca (od 01 do 31)</li>
+    <li><strong>%D:</strong> Identično %m/%d/%y</li>
+    <li><strong>%e:</strong> Številski dan meseca (od 1 do 31)</li>
+    <li><strong>%g:</strong> Identično %G, 2 števki.</li>
+    <li><strong>%G:</strong> 4-mestno leto, glede na številko tedna (prim. %V). Oblika in vrednost sta enaki kot %Y, le da bo namesto tega uporabljeno tekoče leto, če številka tedna pripada prejšnjemu ali naslednjemu letu.</li>
+    <li><strong>%h:</strong> Identično %b</li>
+    <li><strong>%H:</strong> Digitalna ura dneva, 24H način (od 00 do 23)</li>
+    <li><strong>%I:</strong> Digitalna ura dneva, način 12H (od 01 do 12)</li>
+    <li><strong>%j:</strong> Dan v letu, digitalno (od 001 do 366)</li>
+    <li><strong>%m:</strong> Mesec, digitalno (od 1 do 12)</li>
+    <li><strong>%M:</strong> Minuta, digitalno</li>
+    <li><strong>%n:</strong> znak nove vrstice</li>
+    <li><strong>%p:</strong> Bodisi `dopoldan' ali `popoldne', glede na absolutni čas ali odvisno od lokalnih nastavitev.</li>
+    <li><strong>%r:</strong> Oblika ure, dopoldne in popoldne</li>
+    <li><strong>%R:</strong> Ura, 24-urni format</li>
+    <li><strong>%S:</strong> Sekunde, digitalno</li>
+    <li><strong>%t:</strong> Tabulatorski znak</li>
+    <li><strong>%T:</strong> Trenutni čas (identičen %H:%M:%S)</li>
+    <li><strong>%u:</strong> Dan v tednu, številka, od 1 do 7. (1 pomeni ponedeljek)</li>
+    <li><strong>%U:</strong> Številka tedna, pri čemer je prva nedelja v letu prvi dan prvega tedna.</li>
+    <li><strong>%V:</strong> Številka tedna, kot je opredeljena v ISO 8601:1988, digitalna, od 01 do 53. Teden 1 je prvi teden z več kot 4 dnevi v tekočem letu , katere ponedeljek je prvi dan. (Uporabite %G ali %g za elemente leta, ki ustrezajo številki tedna za obravnavani časovni žig.)</li>
+    <li><strong>%W:</strong> Številka tedna v letu, pri čemer je prvi ponedeljek v letu začetek prvega tedna</li>
+    <li><strong>%w:</strong> Dan v tednu, digitalno, 0 pomeni nedeljo</li>
+    <li><strong>%x:</strong> Prednostna oblika za datum brez časa</li>
+    <li><strong>%X:</strong> Prednostna oblika za čas brez datuma</li>
+    <li><strong>%y:</strong> Leto, dve števki (od 00 do 99)</li>
+    <li><strong>%Y:</strong> Leto, štiri števke</li>
+    <li><strong>%Z ali %z:</strong> Časovni pas, ime ali okrajšava</li>
+    <li><strong>%%:</strong> Dobesedni znak »%«</li>
   </ul>
 </body>
 
