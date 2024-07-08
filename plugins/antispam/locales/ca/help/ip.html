@@ -1,18 +1,18 @@
 <html>
 
 <head>
-  <title>IP Filter</title>
+  <title>Filtre IP</title>
 </head>
 
 <body>
-  <h4>IP Filter</h4>
-  <p>This filter allows you to manually blacklist or whitelist IP addresses. A comment coming from an IP address listed in the black list section will immediately be considered as junk. A comment coming from an IP address listed in the white list section will be considered as trusted and the other antispam filters won't process it.</p>
-  <p>To add an IP, first select the tab you want (<strong>Blacklist</strong> or <strong>Whitelist</strong>) and enter the IP address. The <strong>Global IP</strong> checkbox is available if you are a super administrator and will allow you to add the IP address to all the blogs of your Dotclear installation.</p>
-  <p>You can add IP addresses with a network mask to block or allow a range of IP addresses. For example:</p>
+  <h4>Filtre IP</h4>
+  <p>Aquest filtre us permet afegir manualment a la llista negra o blanca adreces IP. Un comentari procedent d'una adreça IP que apareix a la secció de la llista negra es considerarà immediatament com a brossa. Un comentari procedent d'una adreça IP que apareix a la secció de la llista blanca es considerarà de confiança i els altres filtres antispam no el processaran.</p>
+  <p>Per afegir una IP, primer seleccioneu la pestanya que vulgueu (<strong>Llista negra</strong> o <strong>Llista blanca</strong>) i introduïu l'adreça IP. La casella de selecció <strong>IP global</strong> està disponible si sou un superadministrador i us permetrà afegir l'adreça IP a tots els blocs de la vostra instal·lació de Dotclear.</p>
+  <p>Podeu afegir adreces IP amb una màscara de xarxa per bloquejar o permetre un rang d'adreces IP. Per exemple:</p>
   <ul>
-    <li><code>127.0.0.0/255.0.0.0</code> or the abbreviated form <code>127/8</code> will recognize all the IP addresses like <code>127.xxx.xxx.xxx</code></li>
-    <li><code>127.0.0.0/255.255.0.0</code> or the abbreviated form <code>127.0/16</code> will recognize all the IP addresses like <code>127.0.xxx.xxx</code></li>
-    <li><code>127.0.0.0/255.255.255.0</code> or the abbreviated form <code>127.0.0/24</code> will recognize all the IP addresses like <code>127.0.0.xxx</code></li>
+    <li><code>127.0.0.0/255.0.0.0</code> o la forma abreujada <code>127/8</code> reconeixerà totes les adreces IP com <code>127.xxx. xxx.xxx</code></li>
+    <li><code>127.0.0.0/255.255.0.0</code> o la forma abreujada <code>127.0/16</code> reconeixerà totes les adreces IP com <code>127.0.0.0.0/255.255.0.0 xxx</code></li>
+    <li><code>127.0.0.0/255.255.255.0</code> o la forma abreujada <code>127.0.0/24</code> reconeixerà totes les adreces IP com <code>.1 0.xxx</code></li>
   </ul>
 </body>
 
