@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-01-16 09:45\n"
+"PO-Revision-Date: 2024-07-08 12:35\n"
 "Last-Translator: \n"
 "Language-Team: Basque\n"
 "Language: eu_ES\n"
@@ -24,27 +24,27 @@ msgid "%d comments"
 msgstr "%d iruzkin "
 
 msgid "%d trackbacks"
-msgstr ""
+msgstr "%d trackbacks"
 
 msgid "%s reactions"
-msgstr ""
+msgstr "%s erreakzioak"
 
 #: __html_tpl_dummy.php:2
 msgid "Access to content"
-msgstr ""
+msgstr "Edukirako sarbidea"
 
 msgid "Add a comment"
-msgstr ""
+msgstr "Gehitu iruzkin bat"
 
 #: __html_tpl_dummy.php:5
 msgid "Add ping"
-msgstr ""
+msgstr "Gehitu ping"
 
 msgid "Additionnal style directives"
-msgstr ""
+msgstr "Estilorako jarraibide gehigarriak"
 
 msgid "All keywords"
-msgstr ""
+msgstr "Gako-hitz guztiak"
 
 msgid "Archives"
 msgstr "Artxiboak "
@@ -53,15 +53,15 @@ msgid "Attachments"
 msgstr "Eranskinak "
 
 msgid "Best of me"
-msgstr ""
+msgstr "Nigandik onena"
 
 #: __html_tpl_dummy.php:8
 msgid "Blog info"
-msgstr ""
+msgstr "Blogaren informazioa"
 
 #: __html_tpl_dummy.php:9
 msgid "Blog menu"
-msgstr ""
+msgstr "Blog menua"
 
 #: __html_tpl_dummy.php:13
 msgid "By"
@@ -69,15 +69,15 @@ msgstr "Egilea:"
 
 #: __html_tpl_dummy.php:10
 msgid "By category"
-msgstr ""
+msgstr "Kategoriaren arabera"
 
 #: __html_tpl_dummy.php:11
 msgid "By date"
-msgstr ""
+msgstr "Dataren arabera"
 
 #: __html_tpl_dummy.php:12
 msgid "By tag"
-msgstr ""
+msgstr "Etiketa bidez"
 
 msgid "Categories"
 msgstr "Atalak"
@@ -89,10 +89,10 @@ msgid "Comments"
 msgstr "Iruzkinak"
 
 msgid "Comments can be formatted using a simple wiki syntax."
-msgstr ""
+msgstr "Iruzkinak wiki sintaxi sinple baten bidez formateatu daitezke."
 
 msgid "Comments feed"
-msgstr ""
+msgstr "Iruzkinen jarioa"
 
 #: __html_tpl_dummy.php:17
 msgid "Continue reading"
@@ -100,79 +100,79 @@ msgstr "Jarraitu irakurketa"
 
 #: __html_tpl_dummy.php:18
 msgid "Document not found"
-msgstr ""
+msgstr "Ez da dokumentua aurkitu"
 
 #: __html_tpl_dummy.php:19
 msgid "Email address"
 msgstr "Helbide elektronikoa"
 
 msgid "Email address is not valid"
-msgstr ""
+msgstr "Helbide elektronikoak ez du balio"
 
 msgid "Entries feed"
-msgstr ""
+msgstr "Sarrerak jarioa"
 
 #: __html_tpl_dummy.php:22
 msgid "Explore archives"
-msgstr ""
+msgstr "Arakatu artxiboak"
 
 #: __html_tpl_dummy.php:23
 msgid "Extra menu"
-msgstr ""
+msgstr "Menu gehigarria"
 
 #: __html_tpl_dummy.php:24
 msgid "Fields followed by * are mandatory"
-msgstr ""
+msgstr "* ondoko eremuak derrigorrezkoak dira"
 
 #: __html_tpl_dummy.php:25
 msgid "From"
-msgstr ""
+msgstr "Bertatik"
 
 #: __html_tpl_dummy.php:26
 msgid "FromDay"
-msgstr ""
+msgstr "Egunetik"
 
 #: __html_tpl_dummy.php:27
 msgid "Go to homepage"
-msgstr ""
+msgstr "Joan hasierako orrialdera"
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
-msgstr ""
+msgstr "HTML kodea testua eta web helbideak automatikoki bihurtzen diren moduan bistaratzen dira."
 
 msgid "Home"
 msgstr "webgunera "
 
 msgid "In"
-msgstr ""
+msgstr "In"
 
 msgid "Languages"
-msgstr ""
+msgstr "Hizkuntzak"
 
 msgid "Links"
 msgstr "estekak "
 
 #: __html_tpl_dummy.php:29
 msgid "Name or nickname"
-msgstr ""
+msgstr "Izena edo ezizena"
 
 #: __html_tpl_dummy.php:30
 msgid "Next entry:"
-msgstr ""
+msgstr "Hurrengo sarrera:"
 
 #: __html_tpl_dummy.php:31
 msgid "On"
-msgstr ""
+msgstr "On"
 
 msgid "Page top"
-msgstr ""
+msgstr "Orriaren goialdea"
 
 #: __html_tpl_dummy.php:34
 msgid "Pagination"
-msgstr ""
+msgstr "Paginazioa"
 
 #: __html_tpl_dummy.php:35
 msgid "Password needed"
-msgstr ""
+msgstr "Pasahitza behar da"
 
 msgid "Password:"
 msgstr "Pasahitza:"
@@ -182,17 +182,17 @@ msgid "Permalink"
 msgstr "Esteka iraunkorren"
 
 msgid "Powered by %s"
-msgstr ""
+msgstr "%s-ren eskutik"
 
 msgid "Preview"
-msgstr ""
+msgstr "Aurrebista"
 
 #: __html_tpl_dummy.php:39
 msgid "Previous entry:"
-msgstr ""
+msgstr "Aurreko sarrera:"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr ""
+msgstr "RSS jarioa doako blogaren laburpena da. Edukia (mezuak edo iruzkinak) edo edukien laburpenak eskaintzen ditu, bertsio osoetarako estekekin eta beste metadatuekin batera. Argitaratutako azken elementuak zure gogoko RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">agregatzaileak</a>irakur ditzake."
 
 msgid "Read"
 msgstr "Irakurri"
@@ -202,73 +202,73 @@ msgid "Remember me on this blog"
 msgstr "Gogora nazazu "
 
 msgid "Required field"
-msgstr ""
+msgstr "Beharrezko eremua"
 
 msgid "Search"
 msgstr "Bilatu "
 
 msgid "Send"
-msgstr ""
+msgstr "Bidali"
 
 msgid "Simply copy the following URL into your aggregator:"
-msgstr ""
+msgstr "Besterik gabe, kopiatu URL hau zure agregatzailean:"
 
 #: __html_tpl_dummy.php:45
 msgid "Subcategories"
-msgstr ""
+msgstr "Azpikategoriak"
 
 msgid "Subscribe"
-msgstr ""
+msgstr "Harpidetu"
 
 msgid "Subscribe to"
-msgstr ""
+msgstr "Harpidetu"
 
 #: __html_tpl_dummy.php:46
 msgid "Suggestions:"
-msgstr ""
+msgstr "Iradokizunak:"
 
 #: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
-msgstr ""
+msgstr "Bilatzen ari zaren dokumentua ez da existitzen."
 
 #: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
-msgstr ""
+msgstr "Azken argitalpenen zerrenda eskuragarri dago"
 
 #: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
-msgstr ""
+msgstr "Gai berari buruz argitaratu dute"
 
 msgid "This blog's comments Atom feed"
-msgstr ""
+msgstr "Blog honen iruzkinak Atom jarioa"
 
 #: __html_tpl_dummy.php:50
 msgid "This category's comments Atom feed"
-msgstr ""
+msgstr "Kategoria honetako iruzkinak Atom jarioa"
 
 #: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
-msgstr ""
+msgstr "Kategoria honetako sarrerak Atom jarioa"
 
 #: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
-msgstr ""
+msgstr "Argitalpen honen iruzkinak Atom jarioa"
 
 #: __html_tpl_dummy.php:53
 msgid "This post's comments feed"
-msgstr ""
+msgstr "Argitalpen honen iruzkinen jarioa"
 
 #: __html_tpl_dummy.php:54
 msgid "To content"
-msgstr ""
+msgstr "Edukiera"
 
 #: __html_tpl_dummy.php:55
 msgid "To menu"
-msgstr ""
+msgstr "Menura"
 
 #: __html_tpl_dummy.php:56
 msgid "To search"
-msgstr ""
+msgstr "Bilatu"
 
 #: __html_tpl_dummy.php:57
 msgid "Trackback URL"
@@ -276,31 +276,31 @@ msgstr "Aipurako URLa "
 
 #: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "Probatu duzun URLak akatsak ditu, edo orria ezabatu edo mugitu da."
 
 #: __html_tpl_dummy.php:59
 msgid "Use search form"
-msgstr ""
+msgstr "Erabili bilaketa-inprimakia"
 
 #: __html_tpl_dummy.php:60
 msgid "Website"
 msgstr "Webgunea"
 
 msgid "What is an RSS feed?"
-msgstr ""
+msgstr "Zer da RSS jarioa?"
 
 #: __html_tpl_dummy.php:62
 msgid "You must give a password to access this area."
-msgstr ""
+msgstr "Pasahitz bat eman behar duzu eremu honetara sartzeko."
 
 msgid "You must provide a comment"
-msgstr ""
+msgstr "Iruzkin bat eman behar duzu"
 
 msgid "You must provide a valid email address."
-msgstr ""
+msgstr "Baliozko helbide elektroniko bat eman behar duzu."
 
 msgid "You must provide an author name"
-msgstr ""
+msgstr "Egilearen izena eman behar duzu"
 
 #: __html_tpl_dummy.php:65
 msgid "Your comment"
@@ -308,20 +308,20 @@ msgstr "Zure iruzkina "
 
 #: __html_tpl_dummy.php:63
 msgid "Your comment has been published."
-msgstr ""
+msgstr "Zure iruzkina argitaratu da."
 
 #: __html_tpl_dummy.php:64
 msgid "Your comment has been submitted and will be reviewed for publication."
-msgstr ""
+msgstr "Zure iruzkina bidali da eta argitaratzeko berrikusiko da."
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr ""
+msgstr "<em>%1$s</em> bilaketak <strong>%2$s</strong> emaitza eman du."
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr ""
+msgstr "<em>%1$s</em> bilaketak <strong>%2$s</strong> emaitzak eman ditu."
 
 msgid "Your search for <em>%1$s</em> returned no result."
-msgstr ""
+msgstr "<em>%1$s</em> bilaketak ez du emaitzarik eman."
 
 #: __html_tpl_dummy.php:66
 msgid "by"
@@ -329,10 +329,10 @@ msgstr "egilea:"
 
 #: __html_tpl_dummy.php:67
 msgid "here"
-msgstr ""
+msgstr "hemen"
 
 msgid "in"
-msgstr ""
+msgstr "urtean"
 
 #: __html_tpl_dummy.php:68
 msgid "next entries"
@@ -342,21 +342,21 @@ msgid "no attachments"
 msgstr "eranskinik ez"
 
 msgid "no comments"
-msgstr ""
+msgstr "Iruzkinik gabe"
 
 msgid "no reactions"
-msgstr ""
+msgstr "erreakziorik ez"
 
 msgid "no trackbacks"
-msgstr ""
+msgstr "trackbackrik ez"
 
 #: __html_tpl_dummy.php:69
 msgid "of"
-msgstr ""
+msgstr "de"
 
 #: __html_tpl_dummy.php:70
 msgid "on"
-msgstr ""
+msgstr "on"
 
 msgid "one attachment"
 msgstr "eranskin 1"
@@ -365,10 +365,10 @@ msgid "one comment"
 msgstr "iruzkin 1 "
 
 msgid "one reaction"
-msgstr ""
+msgstr "erreakzio bat"
 
 msgid "one trackback"
-msgstr ""
+msgstr "trackback bat"
 
 #: __html_tpl_dummy.php:71
 msgid "optional"
@@ -387,7 +387,7 @@ msgid "previous entries"
 msgstr "Aurreko sarrerak "
 
 msgid "reactions"
-msgstr ""
+msgstr "erreakzioak"
 
 #: __html_tpl_dummy.php:75
 msgid "send"
@@ -395,5 +395,5 @@ msgstr "bidali"
 
 #: __html_tpl_dummy.php:76
 msgid "toDay"
-msgstr ""
+msgstr "gaur"
 
