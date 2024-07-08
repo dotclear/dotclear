@@ -1,45 +1,45 @@
 <html>
 
 <head>
-  <title>Users</title>
+  <title>Erabiltzaileak</title>
 </head>
 
 <body>
-  <p>This page lists all the users on the system.</p>
-  <p>To add (or modify) users' permissions, your password will be required in the <strong>Your password</strong> field.</p>
-  <h4>Users list filter</h4>
+  <p>Orrialde honek sistemako erabiltzaile guztiak zerrendatzen ditu.</p>
+  <p>Erabiltzaileen baimenak gehitzeko (edo aldatzeko), zure pasahitza beharrezkoa izango da <strong>Zure pasahitza</strong> eremuan.</p>
+  <h4>Erabiltzaileen zerrenda iragazkia</h4>
   <dl>
-    <dt>Search</dt>
-    <dd>Search is based on the user ID. The <strong>*</strong> wildcard can be used to look only for a part of the user ID.</dd>
-    <dt>Order by</dt>
-    <dd>The users list can be ordered by their <em>ID</em>, their <em>Last Name</em>, their <em>First Name</em>, their <em>Display Name</em> (nickname) or the <em>Number of Entries</em> they created.</dd>
-    <dt>Sort</dt>
-    <dd>Indicates the sorting method that will be applied to the result list (<em>Ascending</em> or <em>Descending</em>).</dd>
-    <dt>Users per page</dt>
-    <dd>Sets the number of users displayed in each page of the result list.</dd>
+    <dt>Bilatu</dt>
+    <dd>Bilaketa erabiltzailearen IDan oinarritzen da. <strong>*</strong> komodina erabil daiteke erabiltzailearen IDaren zati bat soilik bilatzeko.</dd>
+    <dt>Ordenatu</dt>
+    <dd>Erabiltzaileen zerrenda beren <em>ID</em>, <em>Abizena</em>, <em>Izena</em>, <em>Bistaratzeko izena</em> arabera ordena daitezke ( goitizena) edo sortu duten <em>Sarrera kopurua</em>.</dd>
+    <dt>Ordenatu</dt>
+    <dd>Emaitzen zerrendan aplikatuko den ordenatzeko metodoa adierazten du (<em>Goranzko</em> edo <em>Beheranzko</em>).</dd>
+    <dt>Erabiltzaileak orrialde bakoitzeko</dt>
+    <dd>Emaitzen zerrendako orrialde bakoitzean bistaratuko den erabiltzaile kopurua ezartzen du.</dd>
   </dl>
-  <h4>Users batch actions</h4>
-  <p>It is possible to make a batch of actions on several users at one time.</p>
+  <h4>Erabiltzaileen batch ekintzak</h4>
+  <p>Hainbat erabiltzailetan ekintza sorta bat egitea posible da aldi berean.</p>
   <ul>
-    <li><strong>Set permissions:</strong> Set permissions for one or more blog(s).</li>
-    <li><strong>Delete:</strong> Remove the selected user(s) from the system. A user who created entries cannot be deleted.</li>
+    <li><strong>Ezarri baimenak:</strong> Ezarri baimenak blog bat edo gehiagorentzat.</li>
+    <li><strong>Ezabatu:</strong> Kendu hautatutako erabiltzailea(k) sistematik. Sarrerak sortu dituen erabiltzailea ezin da ezabatu.</li>
   </ul>
-  <p>If you decide to set users' permissions, you will be redirected to a new page listing the blogs available on your system. Check the blogs you want to set the permissions on, and press <strong>Set permissions</strong>.</p>
-  <h4>Users permissions</h4>
-  <p>For each blog, you can set the following permissions:</p>
+  <p>Erabiltzaileen baimenak ezartzea erabakitzen baduzu, zure sisteman eskuragarri dauden blogak zerrendatzen dituen orri berri batera bideratuko zara. Egiaztatu baimenak ezarri nahi dituzun blogak eta sakatu <strong>Ezarri baimenak</strong>.</p>
+  <h4>Erabiltzaileen baimenak</h4>
+  <p>Blog bakoitzeko, baimen hauek ezar ditzakezu:</p>
   <ul>
-    <li><strong>Administrator:</strong> Can administrate the blog entirely.</li>
-    <li><strong>Manage their own entries and comments:</strong> The user can create entries and manage the comments on entries he created.</li>
-    <li><strong>Publish entries and comments:</strong> The user can modify the publication status of his own entries and of his entries' comments.</li>
-    <li><strong>Delete entries and comments:</strong> The user can delete his own entries as well as his entries' comments.</li>
-    <li><strong>Manage all entries and comments:</strong> The user can manage all the entries of this blog, no matter if he's the author or not.</li>
-    <li><strong>Manage categories:</strong> The user can create, modify and delete categories.</li>
-    <li><strong>Manage their own media items:</strong> The user can add media items and modifye or delete his own media.</li>
-    <li><strong>Manage all media items:</strong> The user can manage the media items from any user.</li>
-    <li><strong>Manage pages:</strong> The user can add and modify pages.</li>
-    <li><strong>Manage blogroll:</strong> The user can manage the blogroll of the current blog.</li>
+    <li><strong>Administratzailea:</strong> Bloga guztiz administra dezake.</li>
+    <li><strong>Kudeatu bere sarrerak eta iruzkinak:</strong> Erabiltzaileak sarrerak sor ditzake eta berak sortutako sarrerei buruzko iruzkinak kudeatu.</li>
+    <li><strong>Argitaratu sarrerak eta iruzkinak:</strong> Erabiltzaileak bere sarreren eta bere sarreren iruzkinen argitalpen egoera alda dezake.</li>
+    <li><strong>Ezabatu sarrerak eta iruzkinak:</strong> Erabiltzaileak bere sarrerak eta baita bere sarreren iruzkinak ezaba ditzake.</li>
+    <li><strong>Kudeatu sarrera eta iruzkin guztiak:</strong> Erabiltzaileak blog honetako sarrera guztiak kudeatu ditzake, egilea izan ala ez.</li>
+    <li><strong>Kudeatu kategoriak:</strong> Erabiltzaileak kategoriak sortu, aldatu eta ezaba ditzake.</li>
+    <li><strong>Kudeatu bere multimedia-elementuak:</strong> Erabiltzaileak multimedia-elementuak gehi ditzake eta bere multimedia-elementuak alda edo ezabatu.</li>
+    <li><strong>Kudeatu multimedia-elementu guztiak:</strong> Erabiltzaileak edozein erabiltzaileren multimedia-elementuak kudeatu ditzake.</li>
+    <li><strong>Kudeatu orriak:</strong> Erabiltzaileak orriak gehitu eta alda ditzake.</li>
+    <li><strong>Kudeatu blogroll:</strong> Erabiltzaileak uneko blogaren blogroll kudea dezake.</li>
   </ul>
-  <p>The <strong>Super administrator</strong> status is set in the user profile.</p>
+  <p><strong>Super administratzaile</strong> egoera erabiltzailearen profilean ezarrita dago.</p>
 </body>
 
 </html>
