@@ -1,71 +1,71 @@
 <html>
 
 <head>
-  <title>Wiki syntax reference</title>
+  <title>Odkaz na syntax Wiki</title>
 </head>
 
 <body>
-  <h4>Wiki syntax reference</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <h4>Odkaz na syntax Wiki</h4>
+  <p>Syntax Wiki je spôsob, ako vylepšiť váš text minimálnou sadou tagov, ktoré sú študované na pokrytie základných potrieb (nadpisy, odseky, citácie, zoznamy...).</p>
   <dl>
-    <dt>Block elements</dt>
+    <dt>Blokové prvky</dt>
     <dd>
       <ul>
-        <li>Leave an empty line between two similar blocks.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
-        <li><strong>Horizontal line:</strong> <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li>Medzi dvoma podobnými blokmi nechajte prázdny riadok.</li>
+        <li><strong>Odsek:</strong> Voľný text ukončený prázdnym riadkom, ak má nasledovať ďalší odsek.</li>
+        <li><strong>Názov:</strong> <code>!!! názov</code>, <code>!! titul</code> alebo <code>! title</code>, čo vám umožňuje použiť tri rôzne úrovne nadpisu.</li>
+        <li><strong>Vodorovná čiara:</strong> <code>----</code></li>
+        <li><strong>Zoznamy:</strong> Každý riadok začnite s <code>*</code> alebo <code>#</code> pre nečíslované alebo očíslované zoznamy. Imbrikácia zoznamu sa vykonáva zmiešaním značiek zoznamu týmto spôsobom:
           <pre>
-    <code>*</code> item 1
-    <code>**</code> item 1.1
-    <code>*</code> item 2
-    <code>*#</code> item 2.1
-  ...
+    <code>*</code> položka 1
+    <code>**</code> položka 1.1
+    <code>*</code> položka 2
+    <code>* #</code> položka 2.1
+...
   </pre>
         </li>
-        <li><strong>Definition lists:</strong> Start each line with <code>=</code> for the term to define and with <code>:</code> for the definition of the term.
+        <li><strong>Zoznamy definícií:</strong> Začnite každý riadok s <code>=</code> pre výraz, ktorý sa má definovať, a s <code>:</code> pre definíciu termín.
           <pre>
-  <code>=</code> term
-  <code>:</code> description of the term
+  <code>=</code> výraz
+  <code>:</code> popis výrazu
   </pre>
         </li>
-        <li><strong>Preformatted text:</strong> Each line must start with a space.</li>
-        <li><strong>Block quote:</strong> Each line must start with a <code>&gt;</code>.</li>
-        <li><strong>Side block:</strong> Each line must start with a <code>)</code>.</li>
+        <li><strong>Predformátovaný text:</strong> Každý riadok musí začínať medzerou.</li>
+        <li><strong>Bloková úvodzovka:</strong> Každý riadok musí začínať <code>&gt;</code>.</li>
+        <li><strong>Bočný blok:</strong> Každý riadok musí začínať <code>)</code>.</li>
       </ul>
     </dd>
-    <dt>Formatting tags</dt>
+    <dt>Formátovanie značiek</dt>
     <dd>
       <ul>
-        <li><strong>Emphasis:</strong> Two quotes <code>''text''</code></li>
-        <li><strong>Strong emphasis:</strong> Two underscores <code>__text__</code></li>
-        <li><strong>Highlighted:</strong> Two double quotes <code>""text""</code></li>
-        <li><strong>New line:</strong> <code>%%%</code></li>
-        <li><strong>Insertion:</strong> Two plusses <code>++text++</code></li>
-        <li><strong>Deletion:</strong> Two minuses <code>--text--</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
-        <li><strong>Anchor:</strong> <code>~anchor~</code></li>
-        <li><strong>Acronym:</strong> <code>??acronym|title??</code></li>
-        <li><strong>Inline HTML:</strong> Two backquotes <code>``HTML code``</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Code:</strong> <code>@@code@@</code></li>
-        <li><strong>Footnotes:</strong> <code>$$footnote$$</code></li>
-        <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
-        <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,,</code></li>
+        <li><strong>Dôraz:</strong> Dva úvodzovky <code>''text''</code></li>
+        <li><strong>Silný dôraz:</strong> Dve podčiarkovníky <code>__text__</code></li>
+        <li><strong>Zvýraznené:</strong> Dve dvojité úvodzovky <code>""text""</code></li>
+        <li><strong>Nový riadok:</strong> <code>%%%</code></li>
+        <li><strong>Vloženie:</strong> Dve plusy <code>++text++</code></li>
+        <li><strong>Vymazanie:</strong> Dve mínusky <code>--text--</code></li>
+        <li><strong>Odkaz:</strong> <code>[url]</code>, <code>[meno|url]</code>, <code>[meno| url|jazyk]</code> alebo <code>[meno|url|jazyk|názov]</code></li>
+        <li><strong>Obrázok:</strong><code>((url|alternatívny text))</code>, <code>((url|alternatívny text|pozícia))</code> alebo <code>((url| alternatívny text|pozícia|dlhý popis))</code>.<br>Pozícia môže byť buď L (vľavo), R (vpravo) alebo C (v strede).</li>
+        <li><strong>Kotva:</strong> <code>~kotva~</code></li>
+        <li><strong>Skratka:</strong> <code>??akronym|názov??</code></li>
+        <li><strong>Vložený kód HTML:</strong> Dve spätné úvodzovky <code>``HTML code``</code></li>
+        <li><strong>Vložená citácia:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> alebo <code>{{quote|language|url}}</code></li>
+        <li><strong>Kód:</strong> <code>@@code@@</code></li>
+        <li><strong>Poznámky pod čiarou:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Horný index</strong>&nbsp;: <code>^horný index^</code></li>
+        <li><strong>Dolný index</strong>&nbsp;: <code>,,dolný index,,</code></li>
       </ul>
     </dd>
-    <dt>Unformatted text</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dt>Neformátovaný text</dt>
+    <dd>Ak nechcete, aby sa jeden formátovací znak takto interpretoval, pridajte pred neho
+      <code>\</code> . Napríklad:
+      <code>\[Text v zátvorkách bez odkazu\]</code>
     </dd>
-    <dt>HTML code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dt>HTML kód</dt>
+    <dd>Aj keď ste si vybrali syntax Wiki, možno budete niekedy potrebovať výkonnejšie formátovanie, tj syntax HTML. Urobte to nasledujúcim spôsobom:
       <pre>
 ///html
-&lt;p style="color:red"&gt;my text in red&lt;/p&gt;
+&lt;p style="color:red"&gt;môj text červený&lt;/p&gt;
 ///
 </pre>
     </dd>
