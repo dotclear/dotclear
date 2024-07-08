@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-02 15:12+0200\n"
-"PO-Revision-Date: 2023-11-21 06:40\n"
+"PO-Revision-Date: 2024-07-08 12:56\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
@@ -19,235 +19,235 @@ msgstr ""
 
 #: themes/ductile/src/Config.php:55
 msgid "Full"
-msgstr ""
+msgstr "Complet"
 
 #: themes/ductile/src/Config.php:68
 msgid "Home (first page)"
-msgstr ""
+msgstr "Inici (primera pàgina)"
 
 #: themes/ductile/src/Config.php:69
 msgid "Home (other pages)"
-msgstr ""
+msgstr "Inici (altres pàgines)"
 
 #: themes/ductile/src/Config.php:70
 msgid "Entries for a category"
-msgstr ""
+msgstr "Entrades per a una categoria"
 
 #: themes/ductile/src/Config.php:71
 msgid "Entries for a tag"
-msgstr ""
+msgstr "Entrades per a una etiqueta"
 
 #: themes/ductile/src/Config.php:72
 msgid "Search result entries"
-msgstr ""
+msgstr "Entrades de resultats de cerca"
 
 #: themes/ductile/src/Config.php:73
 msgid "Month archive entries"
-msgstr ""
+msgstr "Entrades d'arxiu del mes"
 
 #: themes/ductile/src/Config.php:78
 msgid "Ductile primary"
-msgstr ""
+msgstr "Primari dúctil"
 
 #: themes/ductile/src/Config.php:79
 msgid "Ductile secondary"
-msgstr ""
+msgstr "Secundària dúctil"
 
 #: themes/ductile/src/Config.php:80
 msgid "Times New Roman"
-msgstr ""
+msgstr "Times New Roman"
 
 #: themes/ductile/src/Config.php:81
 msgid "Georgia"
-msgstr ""
+msgstr "Geòrgia"
 
 #: themes/ductile/src/Config.php:82
 msgid "Garamond"
-msgstr ""
+msgstr "Garamond"
 
 #: themes/ductile/src/Config.php:83
 msgid "Helvetica/Arial"
-msgstr ""
+msgstr "Helvetica/Arial"
 
 #: themes/ductile/src/Config.php:84
 msgid "Verdana"
-msgstr ""
+msgstr "Verdana"
 
 #: themes/ductile/src/Config.php:85
 msgid "Trebuchet MS"
-msgstr ""
+msgstr "Trebuchet MS"
 
 #: themes/ductile/src/Config.php:86
 msgid "Impact"
-msgstr ""
+msgstr "Impacte"
 
 #: themes/ductile/src/Config.php:87
 msgid "Monospace"
-msgstr ""
+msgstr "Monoespai"
 
 #: themes/ductile/src/Config.php:91
 msgid "none"
-msgstr ""
+msgstr "cap"
 
 #: themes/ductile/src/Config.php:92
 msgid "javascript (Adobe)"
-msgstr ""
+msgstr "javascript (Adobe)"
 
 #: themes/ductile/src/Config.php:93
 msgid "stylesheet (Google)"
-msgstr ""
+msgstr "full d'estil (Google)"
 
 #: themes/ductile/src/Config.php:340
 msgid "Theme configuration upgraded."
-msgstr ""
+msgstr "S'ha actualitzat la configuració del tema."
 
 #: themes/ductile/src/Config.php:361
 msgid "Font family"
-msgstr ""
+msgstr "Família de tipus de lletra"
 
 #: themes/ductile/src/Config.php:377
 msgid "Header"
-msgstr ""
+msgstr "Capçalera"
 
 #: themes/ductile/src/Config.php:378
 msgid "Hide blog description:"
-msgstr ""
+msgstr "Amaga la descripció del bloc:"
 
 #: themes/ductile/src/Config.php:381
 msgid "Logo URL:"
-msgstr ""
+msgstr "URL del logotip:"
 
 #: themes/ductile/src/Config.php:388
 #, php-format
 msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
-msgstr ""
+msgstr "Per configurar el menú superior, aneu a la pàgina d'administració del menú simple <a href=\"%s\"></a>."
 
 #: themes/ductile/src/Config.php:395
 msgid "Stickers"
-msgstr ""
+msgstr "Adhesius"
 
 #: themes/ductile/src/Config.php:397
 msgid "Stickers (footer)"
-msgstr ""
+msgstr "Adhesius (peu de pàgina)"
 
 #: themes/ductile/src/Config.php:401
 msgid "Image"
-msgstr ""
+msgstr "Imatge"
 
 #: themes/ductile/src/Config.php:429
 msgid "Entries list types and limits"
-msgstr ""
+msgstr "Llista d'entrades tipus i límits"
 
 #: themes/ductile/src/Config.php:430
 msgid "Entries lists"
-msgstr ""
+msgstr "Llistes d'entrades"
 
 #: themes/ductile/src/Config.php:433
 msgid "Context"
-msgstr ""
+msgstr "Context"
 
 #: themes/ductile/src/Config.php:434
 msgid "Entries list type"
-msgstr ""
+msgstr "Tipus de llista d'entrades"
 
 #: themes/ductile/src/Config.php:465
 msgid "Miscellaneous options"
-msgstr ""
+msgstr "Opcions diverses"
 
 #: themes/ductile/src/Config.php:466
 msgid "Comment preview is not mandatory:"
-msgstr ""
+msgstr "La previsualització dels comentaris no és obligatòria:"
 
 #: themes/ductile/src/Config.php:479
 msgid "Presentation"
-msgstr ""
+msgstr "Presentació"
 
 #: themes/ductile/src/Config.php:483
 msgid "General settings"
-msgstr ""
+msgstr "Configuració general"
 
 #: themes/ductile/src/Config.php:485
 msgid "Fonts"
-msgstr ""
+msgstr "Fonts"
 
 #: themes/ductile/src/Config.php:489
 msgid "Main text"
-msgstr ""
+msgstr "Text principal"
 
 #: themes/ductile/src/Config.php:490
 msgid "Main font:"
-msgstr ""
+msgstr "Tipus de lletra principal:"
 
 #: themes/ductile/src/Config.php:494 themes/ductile/src/Config.php:511
 msgid "Set to Default to use a webfont."
-msgstr ""
+msgstr "Establiu com a predeterminat per utilitzar una font web."
 
 #: themes/ductile/src/Config.php:495 themes/ductile/src/Config.php:512
 msgid "Webfont family:"
-msgstr ""
+msgstr "Família de fonts web:"
 
 #: themes/ductile/src/Config.php:497 themes/ductile/src/Config.php:514
 msgid "Webfont URL:"
-msgstr ""
+msgstr "URL de la font web:"
 
 #: themes/ductile/src/Config.php:499 themes/ductile/src/Config.php:516
 msgid "Webfont API:"
-msgstr ""
+msgstr "API Webfont:"
 
 #: themes/ductile/src/Config.php:506
 msgid "Secondary text"
-msgstr ""
+msgstr "Text secundari"
 
 #: themes/ductile/src/Config.php:507
 msgid "Secondary font:"
-msgstr ""
+msgstr "Tipus de lletra secundari:"
 
 #: themes/ductile/src/Config.php:522
 msgid "Titles"
-msgstr ""
+msgstr "Títols"
 
 #: themes/ductile/src/Config.php:526 themes/ductile/src/Config.php:605
 msgid "Blog title"
-msgstr ""
+msgstr "Títol del blog"
 
 #: themes/ductile/src/Config.php:527 themes/ductile/src/Config.php:547
 #: themes/ductile/src/Config.php:578 themes/ductile/src/Config.php:606
 #: themes/ductile/src/Config.php:625
 msgid "In bold:"
-msgstr ""
+msgstr "En negreta:"
 
 #: themes/ductile/src/Config.php:530 themes/ductile/src/Config.php:550
 #: themes/ductile/src/Config.php:609 themes/ductile/src/Config.php:628
 msgid "Font size (in em by default):"
-msgstr ""
+msgstr "Mida del tipus de lletra (en em per defecte):"
 
 #: themes/ductile/src/Config.php:533 themes/ductile/src/Config.php:553
 #: themes/ductile/src/Config.php:567 themes/ductile/src/Config.php:612
 #: themes/ductile/src/Config.php:631
 msgid "Color:"
-msgstr ""
+msgstr "Color:"
 
 #: themes/ductile/src/Config.php:546 themes/ductile/src/Config.php:624
 msgid "Post title"
-msgstr ""
+msgstr "Títol de la publicació"
 
 #: themes/ductile/src/Config.php:566
 msgid "Titles without link"
-msgstr ""
+msgstr "Títols sense enllaç"
 
 #: themes/ductile/src/Config.php:577
 msgid "Inside posts links"
-msgstr ""
+msgstr "Enllaços de publicacions dins"
 
 #: themes/ductile/src/Config.php:581
 msgid "Normal and visited links color:"
-msgstr ""
+msgstr "Color dels enllaços normals i visitats:"
 
 #: themes/ductile/src/Config.php:591
 msgid "Active, hover and focus links color:"
-msgstr ""
+msgstr "Color dels enllaços actius, desplaçats i de focus:"
 
 #: themes/ductile/src/Config.php:601
 msgid "Mobile specific settings"
-msgstr ""
+msgstr "Configuració específica del mòbil"
 
