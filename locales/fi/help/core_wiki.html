@@ -6,16 +6,16 @@
 
 <body>
   <h4>Wiki-syntaksiviite</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Wikin syntaksi on tapa parantaa tekstiäsi minimaalisella tunnistejoukolla, joka on tutkittu kattamaan perustarpeet (otsikot, kappaleet, lainaukset, luettelot...).</p>
   <dl>
     <dt>Lohkoelementit</dt>
     <dd>
       <ul>
         <li>Jätä tyhjä rivi kahden samanlaisen lohkon väliin.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Kappale:</strong> Vapaa teksti, joka päättyy tyhjään riviin, jos toinen kappale seuraa.</li>
+        <li><strong>Otsikko:</strong> <code>!!! otsikko</code>, <code>!! otsikko</code> tai <code>! otsikko</code>, jolloin voit käyttää kolmea eri otsikkotasoa.</li>
         <li><strong>Vaakaviiva:</strong> <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Listat:</strong> Aloita jokainen rivi numeroilla <code>*</code> tai <code>#</code> numeroimattomille tai numeroituille luetteloille. Listan merkintä tehdään sekoittamalla listamerkit tällä tavalla:
           <pre>
     <code>*</code> kohta 1
     <code>**</code> kohta 1.1
@@ -44,12 +44,12 @@
         <li><strong>Uusi linja:</strong> <code>%%%</code></li>
         <li><strong>Sisällytys:</strong> Kaksi plussaa <code>++text++</code></li>
         <li><strong>Poistaminen:</strong> Kaksi miinusta <code>--text--</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Linkki:</strong> <code>[url]</code>, <code>[nimi|url]</code>, <code>[nimi| url|kieli]</code> tai <code>[nimi|url|kieli|nimi]</code></li>
+        <li><strong>Kuva:</strong><code>(url·alternative text))</code>, <code>((url·alternative textwork/position))</code> tai <code>((url·alternative text- position- long description))</code>.<br>Sijainti voi olla joko L (vasen), R (oikea) tai C (keskitetty).</li>
         <li><strong>Ankkuri:</strong> <code>~anchor~</code></li>
         <li><strong>Lyhenne:</strong> <code>??acronym|title??</code></li>
         <li><strong>Inline HTML:</strong> Kaksi lainausmerkkiä <code>``HTML-koodi``</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Upotettu lainaus:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> tai <code>{{quote|language|url}}</code></li>
         <li><strong>Koodi:</strong> <code></code></li>
         <li><strong>Alaviitteet:</strong> <code>$$footnote$$</code></li>
         <li><strong>Ylinumero</strong>&nbsp;: <code>^superscript^</code></li>
@@ -57,12 +57,12 @@
       </ul>
     </dd>
     <dt>Muotoilematon teksti</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>Jos et halua, että yhtä muotoilumerkkiä tulkitaan sellaisenaan, lisää
+      <code>\</code> juuri sen eteen. Esimerkiksi:
+      <code>\[Teksti suluissa ilman linkkiä\]</code>
     </dd>
     <dt>HTML-koodi</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Vaikka valitsisit Wiki-syntaksin, saatat joskus tarvita tehokkaampaa muotoilua, eli HTML-syntaksia. Tee se seuraavalla tavalla:
       <pre>
 ///html
 &lt;p style="color:red"&gt;tekstini punaisella&lt;/p&gt;

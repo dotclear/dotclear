@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-21 08:26+0100\n"
-"PO-Revision-Date: 2024-07-05 10:44\n"
+"PO-Revision-Date: 2024-07-08 13:05\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -19,274 +19,274 @@ msgstr ""
 
 #: themes/blowup/src/Config.php:123
 msgid "Light linear gradient"
-msgstr ""
+msgstr "Viegls lineārs gradients"
 
 #: themes/blowup/src/Config.php:124
 msgid "Medium linear gradient"
-msgstr ""
+msgstr "Vidējs lineārs gradients"
 
 #: themes/blowup/src/Config.php:125
 msgid "Dark linear gradient"
-msgstr ""
+msgstr "Tumšs lineārs gradients"
 
 #: themes/blowup/src/Config.php:126
 msgid "Solid color"
-msgstr ""
+msgstr "Vienkrāsains"
 
 #: themes/blowup/src/Config.php:129
 msgid "Custom..."
-msgstr ""
+msgstr "Pielāgots..."
 
 #: themes/blowup/src/Config.php:231
 msgid "Theme configuration has been successfully updated."
-msgstr ""
+msgstr "Motīva konfigurācija ir veiksmīgi atjaunināta."
 
 #: themes/blowup/src/Config.php:253
 msgid "Back to Blog appearance"
-msgstr ""
+msgstr "Atgriezties uz emuāra izskatu"
 
 #: themes/blowup/src/Config.php:257
 msgid "Customization"
-msgstr ""
+msgstr "Pielāgošana"
 
 #: themes/blowup/src/Config.php:258
 msgid "General"
-msgstr ""
+msgstr "Ģenerālis"
 
 #: themes/blowup/src/Config.php:262
 msgid "Background color:"
-msgstr ""
+msgstr "Fona krāsa:"
 
 #: themes/blowup/src/Config.php:265
 msgid "Background color fill:"
-msgstr ""
+msgstr "Fona krāsas aizpildījums:"
 
 #: themes/blowup/src/Config.php:270
 msgid "Main text font:"
-msgstr ""
+msgstr "Galvenā teksta fonts:"
 
 #: themes/blowup/src/Config.php:273
 msgid "Main text font size:"
-msgstr ""
+msgstr "Galvenā teksta fonta lielums:"
 
 #: themes/blowup/src/Config.php:276
 msgid "Main text color:"
-msgstr ""
+msgstr "Galvenā teksta krāsa:"
 
 #: themes/blowup/src/Config.php:279
 msgid "Text line height:"
-msgstr ""
+msgstr "Teksta rindiņas augstums:"
 
 #: themes/blowup/src/Config.php:283
 msgid "Links color:"
-msgstr ""
+msgstr "Saišu krāsa:"
 
 #: themes/blowup/src/Config.php:286
 msgid "Visited links color:"
-msgstr ""
+msgstr "Apmeklēto saišu krāsa:"
 
 #: themes/blowup/src/Config.php:289
 msgid "Focus links color:"
-msgstr ""
+msgstr "Fokusa saišu krāsa:"
 
 #: themes/blowup/src/Config.php:296
 msgid "Prelude color:"
-msgstr ""
+msgstr "Prelūdijas krāsa:"
 
 #: themes/blowup/src/Config.php:301
 msgid "Hide main title"
-msgstr ""
+msgstr "Slēpt galveno nosaukumu"
 
 #: themes/blowup/src/Config.php:304
 msgid "Main title font:"
-msgstr ""
+msgstr "Galvenā nosaukuma fonts:"
 
 #: themes/blowup/src/Config.php:307
 msgid "Main title font size:"
-msgstr ""
+msgstr "Galvenā virsraksta fonta lielums:"
 
 #: themes/blowup/src/Config.php:310
 msgid "Main title color:"
-msgstr ""
+msgstr "Galvenā virsraksta krāsa:"
 
 #: themes/blowup/src/Config.php:313
 msgid "Main title alignment:"
-msgstr ""
+msgstr "Galvenā virsraksta līdzinājums:"
 
 #: themes/blowup/src/Config.php:314
 msgid "center"
-msgstr ""
+msgstr "centrs"
 
 #: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
 msgid "left"
-msgstr ""
+msgstr "pa kreisi"
 
 #: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
 msgid "right"
-msgstr ""
+msgstr "pa labi"
 
 #: themes/blowup/src/Config.php:316
 msgid "Main title position (x:y)"
-msgstr ""
+msgstr "Galvenā titula pozīcija (x:y)"
 
 #: themes/blowup/src/Config.php:327 themes/blowup/src/Config.php:328
 msgid "Top image"
-msgstr ""
+msgstr "Augšējais attēls"
 
 #: themes/blowup/src/Config.php:330
 msgid "Choose \"Custom...\" to upload your own image."
-msgstr ""
+msgstr "Izvēlieties \"Pielāgots...\", lai augšupielādētu savu attēlu."
 
 #: themes/blowup/src/Config.php:332
 msgid "Add your image:"
-msgstr ""
+msgstr "Pievienojiet savu attēlu:"
 
 #: themes/blowup/src/Config.php:333
 #, php-format
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-msgstr ""
+msgstr "JPEG vai PNG fails, 800 pikseļu platums, maksimālais izmērs %s"
 
 #: themes/blowup/src/Config.php:344
 msgid "Sidebar"
-msgstr ""
+msgstr "Sānjosla"
 
 #: themes/blowup/src/Config.php:345
 msgid "Sidebar position:"
-msgstr ""
+msgstr "Sānjoslas pozīcija:"
 
 #: themes/blowup/src/Config.php:348
 msgid "Sidebar text font:"
-msgstr ""
+msgstr "Sānjoslas teksta fonts:"
 
 #: themes/blowup/src/Config.php:351
 msgid "Sidebar text font size:"
-msgstr ""
+msgstr "Sānjoslas teksta fonta lielums:"
 
 #: themes/blowup/src/Config.php:354
 msgid "Sidebar text color:"
-msgstr ""
+msgstr "Sānjoslas teksta krāsa:"
 
 #: themes/blowup/src/Config.php:357
 msgid "Sidebar titles font:"
-msgstr ""
+msgstr "Sānjoslas virsrakstu fonts:"
 
 #: themes/blowup/src/Config.php:360
 msgid "Sidebar titles font size:"
-msgstr ""
+msgstr "Sānjoslas virsrakstu fonta lielums:"
 
 #: themes/blowup/src/Config.php:363
 msgid "Sidebar titles color:"
-msgstr ""
+msgstr "Sānjoslas virsrakstu krāsa:"
 
 #: themes/blowup/src/Config.php:366
 msgid "Sidebar 2nd level titles font:"
-msgstr ""
+msgstr "Sānjoslas 2. līmeņa virsrakstu fonts:"
 
 #: themes/blowup/src/Config.php:369
 msgid "Sidebar 2nd level titles font size:"
-msgstr ""
+msgstr "Sānjoslas 2. līmeņa virsrakstu fonta lielums:"
 
 #: themes/blowup/src/Config.php:372
 msgid "Sidebar 2nd level titles color:"
-msgstr ""
+msgstr "Sānjoslas 2. līmeņa virsrakstu krāsa:"
 
 #: themes/blowup/src/Config.php:375
 msgid "Sidebar lines color:"
-msgstr ""
+msgstr "Sānjoslas līniju krāsa:"
 
 #: themes/blowup/src/Config.php:378
 msgid "Sidebar links color:"
-msgstr ""
+msgstr "Sānjoslas saišu krāsa:"
 
 #: themes/blowup/src/Config.php:381
 msgid "Sidebar visited links color:"
-msgstr ""
+msgstr "Sānjoslas apmeklēto saišu krāsa:"
 
 #: themes/blowup/src/Config.php:384
 msgid "Sidebar focus links color:"
-msgstr ""
+msgstr "Sānjoslas fokusa saišu krāsa:"
 
 #: themes/blowup/src/Config.php:388
 msgid "Date title font:"
-msgstr ""
+msgstr "Datuma virsraksta fonts:"
 
 #: themes/blowup/src/Config.php:391
 msgid "Date title font size:"
-msgstr ""
+msgstr "Datuma virsraksta fonta lielums:"
 
 #: themes/blowup/src/Config.php:394
 msgid "Date title color:"
-msgstr ""
+msgstr "Datuma virsraksta krāsa:"
 
 #: themes/blowup/src/Config.php:397
 msgid "Entry title font:"
-msgstr ""
+msgstr "Ieraksta nosaukuma fonts:"
 
 #: themes/blowup/src/Config.php:400
 msgid "Entry title font size:"
-msgstr ""
+msgstr "Ieraksta virsraksta fonta lielums:"
 
 #: themes/blowup/src/Config.php:403
 msgid "Entry title color:"
-msgstr ""
+msgstr "Ieraksta virsraksta krāsa:"
 
 #: themes/blowup/src/Config.php:408
 msgid "Comment background color:"
-msgstr ""
+msgstr "Komentāra fona krāsa:"
 
 #: themes/blowup/src/Config.php:413
 msgid "Comment text color:"
-msgstr ""
+msgstr "Komentāra teksta krāsa:"
 
 #: themes/blowup/src/Config.php:418
 msgid "My comment background color:"
-msgstr ""
+msgstr "Mana komentāra fona krāsa:"
 
 #: themes/blowup/src/Config.php:423
 msgid "My comment text color:"
-msgstr ""
+msgstr "Mana komentāra teksta krāsa:"
 
 #: themes/blowup/src/Config.php:426
 msgid "Footer"
-msgstr ""
+msgstr "Kājene"
 
 #: themes/blowup/src/Config.php:427
 msgid "Footer font:"
-msgstr ""
+msgstr "Kājenes fonts:"
 
 #: themes/blowup/src/Config.php:430
 msgid "Footer font size:"
-msgstr ""
+msgstr "Kājenes fonta lielums:"
 
 #: themes/blowup/src/Config.php:433
 msgid "Footer color:"
-msgstr ""
+msgstr "Kājenes krāsa:"
 
 #: themes/blowup/src/Config.php:436
 msgid "Footer links color:"
-msgstr ""
+msgstr "Kājenes saišu krāsa:"
 
 #: themes/blowup/src/Config.php:439
 msgid "Footer background color:"
-msgstr ""
+msgstr "Kājenes fona krāsa:"
 
 #: themes/blowup/src/Config.php:442 themes/blowup/src/Config.php:447
 msgid "Additional CSS"
-msgstr ""
+msgstr "Papildu CSS"
 
 #: themes/blowup/src/Config.php:443
 msgid "Any additional CSS styles (must be written using the CSS syntax):"
-msgstr ""
+msgstr "Jebkuri papildu CSS stili (jāraksta, izmantojot CSS sintaksi):"
 
 #: themes/blowup/src/Config.php:465
 msgid "Configuration import / export"
-msgstr ""
+msgstr "Konfigurācijas importēšana / eksportēšana"
 
 #: themes/blowup/src/Config.php:467
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr ""
+msgstr "Varat kopīgot savu konfigurāciju, izmantojot tālāk norādīto kodu. Lai lietotu konfigurāciju, ielīmējiet kodu, noklikšķiniet uz \"Lietot kodu\" un saglabājiet."
 
 #: themes/blowup/src/Config.php:471
 msgid "Copy this code:"
-msgstr ""
+msgstr "Kopējiet šo kodu:"
 

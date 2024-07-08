@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-21 08:26+0100\n"
-"PO-Revision-Date: 2023-11-21 10:30\n"
+"PO-Revision-Date: 2024-07-08 12:56\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -20,13 +20,13 @@ msgstr ""
 #: themes/customCSS/src/Config.php:53
 #, php-format
 msgid "File %s does not exist and directory %s is not writable."
-msgstr ""
+msgstr "Dosiero %s ne ekzistas kaj dosierujo %s ne estas skribebla."
 
 #: themes/customCSS/src/Config.php:77
 msgid "Style sheet upgraded."
-msgstr ""
+msgstr "Stilfolio ĝisdatigita."
 
 #: themes/customCSS/src/Config.php:95
 msgid "Style sheet:"
-msgstr ""
+msgstr "Stilfolio:"
 

@@ -6,16 +6,16 @@
 
 <body>
   <h4>Referensi sintaksis wiki</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Sintaks Wiki adalah cara untuk menyempurnakan teks Anda dengan serangkaian tag minimal yang dipelajari untuk memenuhi kebutuhan dasar (judul, paragraf, kutipan, daftar...).</p>
   <dl>
     <dt>Elemen blok</dt>
     <dd>
       <ul>
         <li>Biarkan baris kosong di antara dua blok yang serupa.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Paragraf:</strong> Teks bebas, diakhiri dengan baris kosong jika ingin diikuti paragraf lain.</li>
+        <li><strong>Judul:</strong> <code>!!! judul</code>, <code>!! judul</code> atau <code>! title</code>, memungkinkan Anda menggunakan tiga tingkat judul yang berbeda.</li>
         <li><strong>Garis horizontal:</strong> <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Daftar:</strong> Mulai setiap baris dengan <code>*</code> atau <code>#</code> masing-masing untuk daftar yang tidak bernomor atau bernomor. Peniruan daftar dilakukan dengan mencampurkan penanda daftar dengan cara berikut:
           <pre>
     <code>*</code> item 1
     <code>**</code> item 1.1
@@ -44,12 +44,12 @@
         <li><strong>Baris baru:</strong> <code>%%%</code></li>
         <li><strong>Penyisipan:</strong> Dua nilai tambah <code>++teks++</code></li>
         <li><strong>Penghapusan:</strong> Dua minus <code>--teks--</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Tautan:</strong> <code>[url]</code>, <code>[nama|url]</code>, <code>[nama| url|bahasa]</code> atau <code>[nama|url|bahasa|judul]</code></li>
+        <li><strong>Gambar:</strong><code>((url|teks alternatif))</code>, <code>((url|teks alternatif|posisi))</code> atau <code>((url|teks alternatif|posisi|deskripsi panjang))</code>.<br>Posisinya bisa L (kiri), R (kanan) atau C (tengah).</li>
         <li><strong>Penyiar:</strong> <code>~penyiar~</code></li>
         <li><strong>Akronim:</strong> <code>??akronim|judul??</code></li>
         <li><strong>HTML sebaris:</strong> Dua tanda kutip <code>``Kode HTML``</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Kutipan sebaris:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> atau <code>{{quote|language|url}}</code></li>
         <li><strong>Kode:</strong> <code>@@code@@</code></li>
         <li><strong>Catatan kaki:</strong> <code>$$footnote$$</code></li>
         <li><strong>Superskrip</strong>&nbsp;: <code>^superscript^</code></li>
@@ -57,12 +57,12 @@
       </ul>
     </dd>
     <dt>Teks yang tidak diformat</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>Jika Anda tidak ingin satu karakter pemformatan ditafsirkan seperti itu, tambahkan
+      <code>\</code> tepat sebelum itu. Misalnya:
+      <code>\[Teks dalam tanda kurung tanpa tautan\]</code>
     </dd>
     <dt>Kode HTML</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Bahkan jika Anda memilih sintaks Wiki, terkadang Anda memerlukan format yang lebih canggih, misalnya sintaks HTML. Lakukan dengan cara berikut:
       <pre>
 ///html
 &lt;p style="color:red"&gt;teks saya berwarna merah&lt;/p&gt;

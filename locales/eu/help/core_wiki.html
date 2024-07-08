@@ -1,21 +1,21 @@
 <html>
 
 <head>
-  <title>Wiki syntax reference</title>
+  <title>Wiki sintaxiaren erreferentzia</title>
 </head>
 
 <body>
-  <h4>Wiki syntax reference</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <h4>Wiki sintaxiaren erreferentzia</h4>
+  <p>Wiki sintaxia zure testua hobetzeko modu bat da, oinarrizko beharrak estaltzeko aztertutako etiketa multzo minimo batekin (tituluak, paragrafoak, komatxoak, zerrendak...).</p>
   <dl>
-    <dt>Block elements</dt>
+    <dt>Bloke-elementuak</dt>
     <dd>
       <ul>
-        <li>Leave an empty line between two similar blocks.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li>Utzi lerro huts bat antzeko bi blokeen artean.</li>
+        <li><strong>Paragrafoa:</strong> Testu librea, lerro huts batekin amaituko den beste paragrafo bat jarraitu behar bada.</li>
+        <li><strong>Izenburua:</strong> <code>!!! izenburua</code>, <code>!! izenburua</code> edo <code>! izenburua</code>, hiru goiburu-maila desberdin erabiltzeko aukera emanez.</li>
         <li><strong>Horizontal line</strong>: <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Zerrendak:</strong> Hasi lerro bakoitza <code>*</code> edo <code>#</code> zenbakirik gabeko edo zenbakitutako zerrendetarako hurrenez hurren. Zerrenden inbrikazioa zerrenda-markatzaileak modu honetan nahastuz egiten da:
           <pre>
     <code>*</code> * item 1
 ** item 1.1
@@ -24,18 +24,18 @@
 ...
   </pre>
         </li>
-        <li><strong>Definition lists:</strong> Start each line with <code>=</code> for the term to define and with <code>:</code> for the definition of the term.
+        <li><strong>Definizio-zerrendak:</strong> Hasi lerro bakoitza <code>=</code> -rekin definitzeko terminoa eta <code>-rekin:</code> -rekin definitzeko. terminoa.
           <pre>
-  <code>=</code> term
-  <code>:</code> description of the term
+  <code>=</code> terminoa
+  <code>:</code> terminoaren deskribapena
   </pre>
         </li>
         <li><strong>Block quote</strong>: each line must start with a semicolon (<code>&gt;</code>).</li>
-        <li><strong>Block quote:</strong> Each line must start with a <code>&gt;</code>.</li>
-        <li><strong>Side block:</strong> Each line must start with a <code>)</code>.</li>
+        <li><strong>Blokearen komatxoa:</strong> Lerro bakoitzak <code>&gt;</code>batekin hasi behar du.</li>
+        <li><strong>Alboko blokea:</strong> Lerro bakoitzak <code>)</code>batekin hasi behar du.</li>
       </ul>
     </dd>
-    <dt>Formatting tags</dt>
+    <dt>Etiketak formateatzea</dt>
     <dd>
       <ul>
         <li><strong>Emphasis</strong>: two quotes <code>''text''</code></li>
@@ -45,29 +45,29 @@
         <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
         <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Esteka:</strong> <code>[url]</code>, <code>[izena|url]</code>, <code>[izena| url|hizkuntza]</code> edo <code>[izena|url|hizkuntza|izenburua]</code></li>
+        <li><strong>Irudia:</strong><code>((url|testu alternatiboa))</code>, <code>((url|testu alternatiboa|posizioa))</code> edo <code>((url| ordezko testua|posizioa|deskribapen luzea))</code>.<br>Kokapena L (ezkerrean), R (eskuinean) edo C (zentratua) izan daiteke.</li>
         <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
         <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
         <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>lerroko aipamena:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> edo <code>{{quote|language|url}}</code></li>
         <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
-        <li><strong>Footnotes:</strong> <code>$$footnote$$</code></li>
-        <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
-        <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,,</code></li>
+        <li><strong>Oin-oharrak:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Superindize</strong>&nbsp;: <code>^superindize^</code></li>
+        <li><strong>Indizea</strong>&nbsp;: <code>,,azpiindizea,,</code></li>
       </ul>
     </dd>
-    <dt>Unformatted text</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dt>Formateatu gabeko testua</dt>
+    <dd>Ez baduzu nahi formatuko karaktere bat horrela interpretatzea, gehitu
+      <code>\</code> aurretik. Adibidez:
+      <code>\[Testua parentesi artean esteka izan gabe\]</code>
     </dd>
     <dt>HTML Code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Wiki sintaxia aukeratu baduzu ere, baliteke batzuetan formatu indartsuagoa behar izatea, hau da, HTML sintaxia. Egin ezazu honela:
       <pre>
 ///html
-&lt;p style="color:red"&gt;my text in red&lt;/p&gt;
+&lt;p style="color:red"&gt;nire testua gorriz&lt;/p&gt;
 ///
 </pre>
     </dd>

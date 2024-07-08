@@ -1,147 +1,147 @@
 <html>
 
 <head>
-  <title>Blog settings</title>
+  <title>Emuāra iestatījumi</title>
 </head>
 
 <body>
-  <h4>Blog details</h4>
+  <h4>Emuāra informācija</h4>
   <dl>
-    <dt>Blog ID</dt>
-    <dd>Unique ID of the blog. Mandatory, can only be modified by a super administrator.</dd>
-    <dt>Blog name</dt>
-    <dd>Name of the blog, mandatory. It can be modified at any time without any impact on the blog operation.</dd>
-    <dt>Blog URL</dt>
-    <dd>Full blog URL. Mandatory, can only be modified by a super administrator.</dd>
-    <dt>URL scan method</dt>
-    <dd>Defines the way the URL is read. PATH_INFO is recommended, QUERY_STRING has to be used if PATH_INFO does not work. Using PATH_INFO mode, the blog URL must end with a "/" and using QUERY_STRING, it must end with an "?".</dd>
-    <dt>Blog status</dt>
+    <dt>Emuāra ID</dt>
+    <dd>Emuāra unikālais ID. Obligāti, to var mainīt tikai galvenais administrators.</dd>
+    <dt>Emuāra nosaukums</dt>
+    <dd>Emuāra nosaukums, obligāts. To var mainīt jebkurā laikā, neietekmējot emuāra darbību.</dd>
+    <dt>Emuāra URL</dt>
+    <dd>Pilns emuāra URL. Obligāti, to var mainīt tikai galvenais administrators.</dd>
+    <dt>URL skenēšanas metode</dt>
+    <dd>Definē URL nolasīšanas veidu. PATH_INFO ir ieteicams, QUERY_STRING ir jāizmanto, ja PATH_INFO nedarbojas. Izmantojot režīmu PATH_INFO, emuāra vietrādim URL jābeidzas ar "/", bet, izmantojot vaicājumu QUERY_STRING, tam jābeidzas ar "?".</dd>
+    <dt>Emuāra statuss</dt>
     <dd>
       <ul>
-        <li><strong>Online:</strong> Blog open to visitors.</li>
-        <li><strong>Offline:</strong> Blog closed to visitors but open to writers.</li>
-        <li><strong>Removed:</strong> Blog closed to both visitors and writers, open only to super administrators.</li>
+        <li><strong>Tiešsaistē:</strong> Apmeklētājiem atvērts emuārs.</li>
+        <li><strong>Bezsaistē:</strong> Emuārs ir slēgts apmeklētājiem, bet atvērts rakstniekiem.</li>
+        <li><strong>Noņemts:</strong> Emuārs slēgts gan apmeklētājiem, gan rakstītājiem, atvērts tikai superadministratoriem.</li>
       </ul>
     </dd>
-    <dt>Blog description</dt>
-    <dd>Here you can put any description you want for your blog. This is a simple text, without any formatting.</dd>
+    <dt>Emuāra apraksts</dt>
+    <dd>Šeit varat ievietot jebkuru aprakstu, ko vēlaties savam emuāram. Šis ir vienkāršs teksts bez formatējuma.</dd>
   </dl>
-  <h4>Blog configuration</h4>
+  <h4>Emuāra konfigurācija</h4>
   <dl>
-    <dt>Blog editor's name</dt>
-    <dd>Name of the person responsible for the blog. It may be the owner or the publisher if there is one. This information will be displayed in the blog feed.</dd>
-    <dt>Default language</dt>
-    <dd>Language of the blog interface. Either this language is amongst the avalaible ones, and the interface will be translated, or it is not, and the interface will be in English by default.</dd>
-    <dt>Blog timezone</dt>
-    <dd>Defines the timezone that will be used for comments and trackbacks.</dd>
-    <dt>Copyright notice</dt>
-    <dd>Note about the reproduction rights for the blog.</dd>
-    <dt>New post URL format</dt>
-    <dd>Dropdown list to select the URL format.</dd>
-    <dt>HTML tag for the title of the notes on the blog</dt>
-    <dd>Dropdown list to select an HTML tag.</dd>
-    <dt>XML/RPC interface</dt>
-    <dd>Allows external clients to interact with your blog via the XML/RPC protocol. After activation the required parameters to be set in your external clients are displayed.</dd>
+    <dt>Emuāra redaktora vārds</dt>
+    <dd>Par emuāru atbildīgās personas vārds. Tas var būt īpašnieks vai izdevējs, ja tāds ir. Šī informācija tiks parādīta emuāra plūsmā.</dd>
+    <dt>Noklusējuma valoda</dt>
+    <dd>Emuāra saskarnes valoda. Vai nu šī valoda ir viena no pieejamajām valodām, un saskarne tiks tulkota, vai arī tā nav, un saskarne pēc noklusējuma būs angļu valodā.</dd>
+    <dt>Emuāra laika josla</dt>
+    <dd>Definē laika joslu, kas tiks izmantota komentāriem un atpakaļskatīšanai.</dd>
+    <dt>Paziņojums par autortiesībām</dt>
+    <dd>Piezīme par emuāra reproducēšanas tiesībām.</dd>
+    <dt>Jauns ziņas URL formāts</dt>
+    <dd>Nolaižamais saraksts, lai atlasītu URL formātu.</dd>
+    <dt>HTML tags emuāra piezīmju virsrakstam</dt>
+    <dd>Nolaižamais saraksts, lai atlasītu HTML tagu.</dd>
+    <dt>XML/RPC interfeiss</dt>
+    <dd>Ļauj ārējiem klientiem mijiedarboties ar jūsu emuāru, izmantojot XML/RPC protokolu. Pēc aktivizēšanas tiek parādīti nepieciešamie parametri, kas jāiestata jūsu ārējos klientiem.</dd>
   </dl>
-  <h4>Comments and trackbacks</h4>
+  <h4>Komentāri un trases</h4>
   <dl>
-    <dt>Accept comments</dt>
-    <dd>Globally accepts comments on the blog. Takes precedence over the per post setting.</dd>
-    <dt>Moderate comments</dt>
-    <dd>With this option, comments will be published only after editor's agreement.</dd>
-    <dt>Leave comments open for X days</dt>
-    <dd>The number of days during wich comments will be open after the post publication. When empty, the comments will be kept open indefinitly.</dd>
-    <dt>Wiki syntax for comments</dt>
-    <dd>Allows a subset of the wiki syntax to be used in comments.</dd>
-    <dt>Accept trackbacks</dt>
-    <dd>Globally accepts trackbacks on the blog. Takes precedence over the per post setting.</dd>
-    <dt>Moderate trackbacks</dt>
-    <dd>With this option, trackbacks will be published only after editor's agreement.</dd>
-    <dt>Leave trackbacks open for X days</dt>
-    <dd>The number of days during wich trackbacks will be open after the post publication. When empty, the trackbacks will be kept open indefinitly.</dd>
-    <dt>Add "nofollow" relation on comments and trackbacks links</dt>
-    <dd>Adds an attribute on links in comments and trackbacks, instructing the search bots not to follow them. This antispam features has yet to prove its value.</dd>
+    <dt>Pieņemt komentārus</dt>
+    <dd>Visā pasaulē pieņem komentārus par emuāru. Ir prioritāte pār iestatījumam par katru ziņu.</dd>
+    <dt>Mēreni komentāri</dt>
+    <dd>Izmantojot šo iespēju, komentāri tiks publicēti tikai pēc redaktora piekrišanas.</dd>
+    <dt>Atstājiet komentārus atvērtus X dienas</dt>
+    <dd>Dienu skaits, kuru laikā komentāri būs atvērti pēc ziņas publicēšanas. Kad komentāri ir tukši, tie būs atvērti uz nenoteiktu laiku.</dd>
+    <dt>Wiki sintakse komentāriem</dt>
+    <dd>Ļauj komentāros izmantot wiki sintakses apakškopu.</dd>
+    <dt>Pieņemt trackbacks</dt>
+    <dd>Visā pasaulē pieņem trackbacks emuārā. Ir prioritāte pār iestatījumam par katru ziņu.</dd>
+    <dt>Mērens atpakaļsaistes</dt>
+    <dd>Izmantojot šo opciju, atgriezeniskās saites tiks publicētas tikai pēc redaktora piekrišanas.</dd>
+    <dt>Atstājiet atpakaļsekošanas iespējas atvērtas X dienas</dt>
+    <dd>Dienu skaits, kuru laikā būs atvērti atgriezeniskās saites pēc ziņas publicēšanas. Kad tie ir tukši, atpakaļceļi tiks atvērti uz nenoteiktu laiku.</dd>
+    <dt>Pievienot "nofollow" attiecību komentāriem un trackback saitēm</dt>
+    <dd>Pievieno atribūtu saitēm komentāros un atgriezeniskajās versijās, norādot, ka meklēšanas roboti tām neseko. Šīm pretsurogātpasta funkcijām vēl ir jāpierāda sava vērtība.</dd>
   </dl>
-  <h4>Blog presentation</h4>
+  <h4>Bloga prezentācija</h4>
   <dl>
-    <dt>Date format</dt>
-    <dd>Defines the date format for the blog posts. See the "Format reference" section below for more information. You can use the dropdown list to quickly select a pre-existing pattern.</dd>
-    <dt>Time format</dt>
-    <dd>Defines the time format for the blog posts. See the "Format reference" section below for more information. You can use the dropdown list to quickly select a pre-existing pattern.</dd>
-    <dt>Display smilies on entries and comments</dt>
-    <dd>Turns some strings like :-) or ;-) into pictures.</dd>
-    <dt>Display X entries per page</dt>
-    <dd>Will display X entries on the blog main page as well as in the different categories.</dd>
-    <dt>Display X entries per feed</dt>
-    <dd>Will display X entries in the blog feeds.</dd>
-    <dt>Display X comments per feed</dt>
-    <dd>Will display X comments in the blog comments feeds.</dd>
-    <dt>Truncate feeds</dt>
-    <dd>This option will only provide an abstract from the blog posts in the feeds.</dd>
-    <dt>Include sub-categories in category page and category posts feed</dt>
-    <dd>When this option is activated, posts in sub-categories will be displayed in the parent categories pages as well as in their feeds.</dd>
+    <dt>Datuma formāts</dt>
+    <dd>Definē emuāra ierakstu datuma formātu. Plašāku informāciju skatiet tālāk sadaļā "Formāta atsauce". Varat izmantot nolaižamo sarakstu, lai ātri atlasītu jau esošu modeli.</dd>
+    <dt>Laika formāts</dt>
+    <dd>Definē emuāra ziņu laika formātu. Plašāku informāciju skatiet tālāk sadaļā "Formāta atsauce". Varat izmantot nolaižamo sarakstu, lai ātri atlasītu jau esošu modeli.</dd>
+    <dt>Parādiet smaidiņus pie ierakstiem un komentāriem</dt>
+    <dd>Pārvērš dažas virknes, piemēram, :-) vai ;-) attēlos.</dd>
+    <dt>Parādīt X ierakstus vienā lapā</dt>
+    <dd>Parādīs X ierakstus emuāra galvenajā lapā, kā arī dažādās kategorijās.</dd>
+    <dt>Parādīt X ierakstus katrā plūsmā</dt>
+    <dd>Parādīs X ierakstus emuāra plūsmās.</dd>
+    <dt>Rādīt X komentārus katrai plūsmai</dt>
+    <dd>Parādīs X komentārus emuāra komentāru plūsmās.</dd>
+    <dt>Saīsināt plūsmas</dt>
+    <dd>Šī opcija nodrošinās tikai kopsavilkumu no emuāra ziņām plūsmās.</dd>
+    <dt>Iekļaut apakškategorijas kategoriju lapā un kategoriju ziņu plūsmā</dt>
+    <dd>Kad šī opcija ir aktivizēta, apakškategoriju ziņas tiks parādītas vecākkategoriju lapās, kā arī to plūsmās.</dd>
   </dl>
-  <h4>Media and images</h4>
+  <h4>Mediji un attēli</h4>
   <dl>
-    <dt>Generated image sizes (in pixels)</dt>
-    <dd>When you add an image in the media manager, other sizes are automatically generated. Here you can define the dimension of the longest size (width or heigth) of each type of generated images. If you leave one field empty, the media manager will not create the corresponding miniature.</dd>
-    <dt>Default image insertion attributes</dt>
-    <dd>The selected settings will apply on all the new images added to the media manager.</dd>
-    <dt>Inserted image title</dt>
-    <dd>Select the format of the "title" tags applied to your images, based on information retrieved from the images metadata.</dd>
-    <dt>Use original media date if possible</dt>
-    <dd>When this option is activated, if the image metadata contains a date, it will be used. If not, the upload date will be used.</dd>
-    <dt>Size of inserted image</dt>
-    <dd>Defines the default size used when inserting an image in a blog post.</dd>
-    <dt>Image alignment</dt>
-    <dd>Defines the default alignment used when inserting an image in a blog post.</dd>
-    <dt>Insert a link to the original image</dt>
-    <dd>When this option is activated, the pictures inserted in a blog post will be clickable and point to the original-sized picture.</dd>
+    <dt>Ģenerētie attēlu izmēri (pikseļos)</dt>
+    <dd>Pievienojot attēlu multivides pārvaldniekā, automātiski tiek ģenerēti citi izmēri. Šeit varat definēt katra ģenerēto attēlu veida garākā izmēra dimensiju (platumu vai augstumu). Ja atstājat vienu lauku tukšu, multivides pārvaldnieks neizveidos atbilstošo miniatūru.</dd>
+    <dt>Noklusējuma attēla ievietošanas atribūti</dt>
+    <dd>Atlasītie iestatījumi attieksies uz visiem jaunajiem attēliem, kas pievienoti multivides pārvaldniekam.</dd>
+    <dt>Ievietots attēla nosaukums</dt>
+    <dd>Atlasiet jūsu attēliem pievienoto tagu "title" formātu, pamatojoties uz informāciju, kas iegūta no attēlu metadatiem.</dd>
+    <dt>Ja iespējams, izmantojiet oriģinālo datu nesēju</dt>
+    <dd>Kad šī opcija ir aktivizēta un attēla metadatos ir datums, tā tiks izmantota. Ja nē, tiks izmantots augšupielādes datums.</dd>
+    <dt>Ievietotā attēla izmērs</dt>
+    <dd>Nosaka noklusējuma izmēru, ko izmanto, ievietojot attēlu emuāra ziņā.</dd>
+    <dt>Attēla izlīdzināšana</dt>
+    <dd>Definē noklusējuma līdzinājumu, ko izmanto, ievietojot attēlu emuāra ziņā.</dd>
+    <dt>Ievietojiet saiti uz sākotnējo attēlu</dt>
+    <dd>Kad šī opcija ir aktivizēta, emuāra ierakstā ievietotie attēli būs noklikšķināmi un norāda uz oriģinālā izmēra attēlu.</dd>
   </dl>
-  <h4>Search engines robots policy</h4>
-  <p>Here you can indicate if you want Web search engines to index and/or archive your pages or not. Select the last option if you do not want people to be able to find your blog using a Web search engine.</p>
+  <h4>Meklētājprogrammu robotu politika</h4>
+  <p>Šeit varat norādīt, vai vēlaties, lai tīmekļa meklētājprogrammas indeksētu un/vai arhivētu jūsu lapas. Atlasiet pēdējo opciju, ja nevēlaties, lai cilvēki varētu atrast jūsu emuāru, izmantojot tīmekļa meklētājprogrammu.</p>
   <h4>Antispam</h4>
-  <p>You can set the number of days after which you want the junk comments to be automatically deleted. Leave that field blank (or put 0) to deactivate this feature.</p>
-  <h4>Users</h4>
-  <p>Lists this blog's users as well as their permissions.</p>
-  <h3>Format reference</h3>
-  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <p>Varat iestatīt dienu skaitu, pēc kura vēlaties, lai nevēlamie komentāri tiktu automātiski dzēsti. Atstājiet šo lauku tukšu (vai ierakstiet 0), lai deaktivizētu šo funkciju.</p>
+  <h4>Lietotāji</h4>
+  <p>Uzskaita šī emuāra lietotājus, kā arī viņu atļaujas.</p>
+  <h3>Formāta atsauce</h3>
+  <p>Dažus laukus var konfigurēt, lai formatētu datumu un laiku atbilstoši jūsu vajadzībām. Šeit ir atsauce:</p>
   <ul>
-    <li><strong>%a:</strong> Abreviated week day (local).</li>
-    <li><strong>%A:</strong> Complete week day (local).</li>
-    <li><strong>%b:</strong> Abbreviated month name (local).</li>
-    <li><strong>%B:</strong> Complete month name (local).</li>
-    <li><strong>%c:</strong> Default local date and time display.</li>
-    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
-    <li><strong>%d:</strong> Numeric month day (from 01 to 31)</li>
-    <li><strong>%D:</strong> Identical to %m/%d/%y</li>
-    <li><strong>%e:</strong> Numeric month day (from 1 to 31)</li>
-    <li><strong>%g:</strong> Identical to %G, 2 digits.</li>
-    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
-    <li><strong>%h:</strong> Identical to %b</li>
-    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
-    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
-    <li><strong>%j:</strong> Day of the year, digital (from 001 to 366)</li>
-    <li><strong>%m:</strong> Month, digital (from 1 à 12)</li>
-    <li><strong>%M:</strong> Minute, digital</li>
-    <li><strong>%n:</strong> Newline character</li>
-    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
-    <li><strong>%r:</strong> The hour, a.m. and p.m. format</li>
-    <li><strong>%R:</strong> The hour, 24h format</li>
-    <li><strong>%S:</strong> Seconds, digital</li>
-    <li><strong>%t:</strong> Tab character</li>
-    <li><strong>%T:</strong> The current time (identical to %H:%M:%S)</li>
-    <li><strong>%u:</strong> Day week, digit, from 1 to 7. (1 stands for monday)</li>
-    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
-    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
-    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
-    <li><strong>%w:</strong> Day of the week, digital, 0 stands for sunday</li>
-    <li><strong>%x:</strong> Prefered format for the date without the time</li>
-    <li><strong>%X:</strong> Prefered format for the time without the date</li>
-    <li><strong>%y:</strong> The year, two digits (from 00 to 99)</li>
-    <li><strong>%Y:</strong> The year, four digits</li>
-    <li><strong>%Z or %z:</strong> Timezone, name or abbreviation</li>
-    <li><strong>%%:</strong> A litteral `%' character</li>
+    <li><strong>%a:</strong> Saīsināta nedēļas diena (vietējā).</li>
+    <li><strong>%A:</strong> Pilna nedēļas diena (vietējā).</li>
+    <li><strong>%b:</strong> Saīsināts mēneša nosaukums (vietējais).</li>
+    <li><strong>%B:</strong> Pilns mēneša nosaukums (vietējais).</li>
+    <li><strong>%c:</strong> Noklusējuma vietējā datuma un laika displejs.</li>
+    <li><strong>%C:</strong> gadsimts (gads, dalīts ar 100 un noapaļots starp 00 un 99)</li>
+    <li><strong>%d:</strong> Skaitliskā mēneša diena (no 01 līdz 31)</li>
+    <li><strong>%D:</strong> Identisks %m/%d/%y</li>
+    <li><strong>%e:</strong> Skaitliskā mēneša diena (no 1 līdz 31)</li>
+    <li><strong>%g:</strong> Identisks %G, 2 cipari.</li>
+    <li><strong>%G:</strong> Gads uz 4 cipariem atbilstoši nedēļas numuram (sal. %V). Formāts un vērtība ir identiska %Y, izņemot to, ka, ja nedēļas numurs pieder iepriekšējam vai nākamajam gadam, tā vietā tiks izmantots kārtējais gads.</li>
+    <li><strong>%h:</strong> Identisks %b</li>
+    <li><strong>%H:</strong> Digitālā diennakts stunda, 24h režīms (no 00 līdz 23)</li>
+    <li><strong>%I:</strong> Digitālā diennakts stunda, 12H režīms (no 01 līdz 12)</li>
+    <li><strong>%j:</strong> Gada diena, digitāla (no 001 līdz 366)</li>
+    <li><strong>%m:</strong> Mēnesis, digitāls (no 1 līdz 12)</li>
+    <li><strong>%M:</strong> Minūte, digitālā</li>
+    <li><strong>%n:</strong> Jaunrindas rakstzīme</li>
+    <li><strong>%p:</strong> Vai nu "am" vai "pm" atbilstoši absolūtajam laikam vai atkarībā no vietējiem iestatījumiem.</li>
+    <li><strong>%r:</strong> Stundu, am un pm formāts</li>
+    <li><strong>%R:</strong> Stundu, 24 stundu formāts</li>
+    <li><strong>%S:</strong> Sekundes, digitāli</li>
+    <li><strong>%t:</strong> Tabulēšanas rakstzīme</li>
+    <li><strong>%T:</strong> Pašreizējais laiks (identiski %H:%M:%S)</li>
+    <li><strong>%u:</strong> Diena nedēļa, cipars, no 1 līdz 7. (1 apzīmē pirmdienu)</li>
+    <li><strong>%U:</strong> Nedēļas numurs, gada pirmā svētdiena ir pirmās nedēļas pirmā diena.</li>
+    <li><strong>%V:</strong> Nedēļas numurs, kā noteikts ISO 8601:1988, digitāls, no 01 līdz 53. 1. nedēļa ir pirmā nedēļa, kurā ir vairāk nekā 4 dienas pašreizējā gadā , kuras pirmdiena ir pirmā diena. (Izmantojiet %G vai %g gada elementiem, kas atbilst aplūkotajam laika zīmoga nedēļas skaitam.)</li>
+    <li><strong>%W:</strong> Nedēļas numurs gadā, gada pirmā pirmdiena ir pirmās nedēļas sākums</li>
+    <li><strong>%w:</strong> Nedēļas diena, digitāla, 0 apzīmē svētdienu</li>
+    <li><strong>%x:</strong> Vēlamais datuma formāts bez laika</li>
+    <li><strong>%X:</strong> Vēlamais laika formāts bez datuma</li>
+    <li><strong>%y:</strong> Gads, divi cipari (no 00 līdz 99)</li>
+    <li><strong>%Y:</strong> Gads, četri cipari</li>
+    <li><strong>%Z vai %z:</strong> Laika josla, nosaukums vai saīsinājums</li>
+    <li><strong>%%:</strong> burtiska "%" rakstzīme</li>
   </ul>
 </body>
 

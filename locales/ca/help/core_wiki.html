@@ -1,21 +1,21 @@
 <html>
 
 <head>
-  <title>Wiki syntax reference</title>
+  <title>Referència de sintaxi de wiki</title>
 </head>
 
 <body>
-  <h4>Wiki syntax reference</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <h4>Referència de sintaxi de wiki</h4>
+  <p>La sintaxi Wiki és una manera de millorar el vostre text amb un conjunt mínim d'etiquetes estudiades per cobrir les necessitats bàsiques (títols, paràgrafs, cometes, llistes...).</p>
   <dl>
-    <dt>Block elements</dt>
+    <dt>Elements de bloc</dt>
     <dd>
       <ul>
-        <li>Leave an empty line between two similar blocks.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li>Deixeu una línia buida entre dos blocs semblants.</li>
+        <li><strong>Paràgraf:</strong> Text lliure, acabat amb una línia buida si ha de seguir un altre paràgraf.</li>
+        <li><strong>Títol:</strong> <code>!!! títol</code>, <code>!! títol</code> o <code>! títol</code>, que us permet utilitzar tres nivells diferents d'encapçalament.</li>
         <li><strong>Horizontal line</strong>: <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Llistes:</strong> Comença cada línia amb <code>*</code> o <code>#</code> per a llistes sense numerar o numerades respectivament. La imbricació de la llista es fa barrejant marcadors de llista d'aquesta manera:
           <pre>
     <code>*</code> * item 1
 ** item 1.1
@@ -24,18 +24,18 @@
 ...
   </pre>
         </li>
-        <li><strong>Definition lists:</strong> Start each line with <code>=</code> for the term to define and with <code>:</code> for the definition of the term.
+        <li><strong>Llistes de definicions:</strong> Comença cada línia amb <code>=</code> per al terme a definir i amb <code>:</code> per a la definició de el terme.
           <pre>
-  <code>=</code> term
-  <code>:</code> description of the term
+  <code>=</code> terme
+  <code>:</code> descripció del terme
   </pre>
         </li>
         <li><strong>Block quote</strong>: each line must start with a semicolon (<code>&gt;</code>).</li>
-        <li><strong>Block quote:</strong> Each line must start with a <code>&gt;</code>.</li>
-        <li><strong>Side block:</strong> Each line must start with a <code>)</code>.</li>
+        <li><strong>Cita de bloc:</strong> Cada línia ha de començar amb un <code>&gt;</code>.</li>
+        <li><strong>Bloc lateral:</strong> Cada línia ha de començar amb <code>)</code>.</li>
       </ul>
     </dd>
-    <dt>Formatting tags</dt>
+    <dt>Format de les etiquetes</dt>
     <dd>
       <ul>
         <li><strong>Emphasis</strong>: two quotes <code>''text''</code></li>
@@ -45,29 +45,29 @@
         <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
         <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Enllaç:</strong> <code>[url]</code>, <code>[nom|url]</code>, <code>[nom| url|idioma]</code> o <code>[nom|url|idioma|títol]</code></li>
+        <li><strong>Imatge:</strong><code>((url|text alternatiu))</code>, <code>((url|text alternatiu|posició))</code> o <code>((url| text alternatiu|posició|descripció llarga))</code>.<br>La posició pot ser L (esquerra), R (dreta) o C (centrada).</li>
         <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
         <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
         <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Cita en línia:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> o <code>{{quote|language|url}}</code></li>
         <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
-        <li><strong>Footnotes:</strong> <code>$$footnote$$</code></li>
-        <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
-        <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,,</code></li>
+        <li><strong>Notes al peu:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Superíndex</strong>&nbsp;: <code>^superíndex^</code></li>
+        <li><strong>Subíndex</strong>&nbsp;: <code>,,subíndex,,</code></li>
       </ul>
     </dd>
-    <dt>Unformatted text</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dt>Text sense format</dt>
+    <dd>Si no voleu que un caràcter de format s'interpreti com a tal, afegiu un
+      <code>\</code> just abans. Per exemple:
+      <code>\[Text entre parèntesis sense ser un enllaç\]</code>
     </dd>
     <dt>HTML Code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Fins i tot si trieu la sintaxi Wiki, de vegades necessiteu un format més potent, és a dir, la sintaxi HTML. Fes-ho de la següent manera:
       <pre>
 ///html
-&lt;p style="color:red"&gt;my text in red&lt;/p&gt;
+&lt;p style="color:red"&gt;el meu text en vermell&lt;/p&gt;
 ///
 </pre>
     </dd>

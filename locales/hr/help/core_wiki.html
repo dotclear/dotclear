@@ -1,71 +1,71 @@
 <html>
 
 <head>
-  <title>Wiki syntax reference</title>
+  <title>Referenca Wiki sintakse</title>
 </head>
 
 <body>
-  <h4>Wiki syntax reference</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <h4>Referenca Wiki sintakse</h4>
+  <p>Wiki sintaksa je način da poboljšate svoj tekst s minimalnim skupom oznaka proučavanih da pokriju osnovne potrebe (naslovi, odlomci, citati, popisi...).</p>
   <dl>
-    <dt>Block elements</dt>
+    <dt>Elementi bloka</dt>
     <dd>
       <ul>
-        <li>Leave an empty line between two similar blocks.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
-        <li><strong>Horizontal line:</strong> <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li>Ostavite prazan redak između dva slična bloka.</li>
+        <li><strong>Odlomak:</strong> Slobodni tekst, završava praznim redom ako slijedi drugi odlomak.</li>
+        <li><strong>Naslov:</strong> <code>!!! naslov</code>, <code>!! naslov</code> ili <code>! naslov</code>, što vam omogućuje korištenje tri različite razine naslova.</li>
+        <li><strong>Vodoravna crta:</strong> <code>----</code></li>
+        <li><strong>Popisi:</strong> Započnite svaki red s <code>*</code> ili <code>#</code> za nenumerirane ili numerirane popise. Imbrikacija popisa vrši se miješanjem oznaka popisa na ovaj način:
           <pre>
-    <code>*</code> item 1
-    <code>**</code> item 1.1
-    <code>*</code> item 2
-    <code>*#</code> item 2.1
-  ...
+    <code>*</code> stavka 1
+    <code>**</code> stavka 1.1
+    <code>*</code> stavka 2
+    <code>* #</code> stavka 2.1
+...
   </pre>
         </li>
-        <li><strong>Definition lists:</strong> Start each line with <code>=</code> for the term to define and with <code>:</code> for the definition of the term.
+        <li><strong>Popisi definicija:</strong> Započnite svaki red s <code>=</code> za pojam koji definirate i s <code>:</code> za definiciju uvjet.
           <pre>
-  <code>=</code> term
-  <code>:</code> description of the term
+  <code>=</code> pojam
+  <code>:</code> opis pojma
   </pre>
         </li>
-        <li><strong>Preformatted text:</strong> Each line must start with a space.</li>
-        <li><strong>Block quote:</strong> Each line must start with a <code>&gt;</code>.</li>
-        <li><strong>Side block:</strong> Each line must start with a <code>)</code>.</li>
+        <li><strong>Unaprijed oblikovani tekst:</strong> Svaki red mora započeti razmakom.</li>
+        <li><strong>Blok citat:</strong> Svaki red mora započeti s <code>&gt;</code>.</li>
+        <li><strong>Bočni blok:</strong> Svaki red mora započeti s <code>)</code>.</li>
       </ul>
     </dd>
-    <dt>Formatting tags</dt>
+    <dt>Oblikovanje oznaka</dt>
     <dd>
       <ul>
-        <li><strong>Emphasis:</strong> Two quotes <code>''text''</code></li>
-        <li><strong>Strong emphasis:</strong> Two underscores <code>__text__</code></li>
-        <li><strong>Highlighted:</strong> Two double quotes <code>""text""</code></li>
-        <li><strong>New line:</strong> <code>%%%</code></li>
-        <li><strong>Insertion:</strong> Two plusses <code>++text++</code></li>
-        <li><strong>Deletion:</strong> Two minuses <code>--text--</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
-        <li><strong>Anchor:</strong> <code>~anchor~</code></li>
-        <li><strong>Acronym:</strong> <code>??acronym|title??</code></li>
-        <li><strong>Inline HTML:</strong> Two backquotes <code>``HTML code``</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Code:</strong> <code>@@code@@</code></li>
-        <li><strong>Footnotes:</strong> <code>$$footnote$$</code></li>
-        <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
-        <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,,</code></li>
+        <li><strong>Naglasak:</strong> Dva navodnika <code>''tekst''</code></li>
+        <li><strong>Jak naglasak:</strong> Dvije podvlake <code>__text__</code></li>
+        <li><strong>Istaknuto:</strong> Dva dvostruka navodnika <code>""tekst""</code></li>
+        <li><strong>Novi redak:</strong> <code>%%%</code></li>
+        <li><strong>Umetanje:</strong> Dva plusa <code>++tekst++</code></li>
+        <li><strong>Brisanje:</strong> Dva minusa <code>--tekst--</code></li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[ime|url]</code>, <code>[ime| url|jezik]</code> ili <code>[ime|url|jezik|naslov]</code></li>
+        <li><strong>Slika:</strong><code>((url|alternativni tekst))</code>, <code>((url|alternativni tekst|pozicija))</code> ili <code>((url| alternativni tekst|položaj|dugi opis))</code>.<br>Položaj može biti L (lijevo), R (desno) ili C (centrirano).</li>
+        <li><strong>Sidro:</strong> <code>~sidro~</code></li>
+        <li><strong>Akronim:</strong> <code>??akronim|naslov??</code></li>
+        <li><strong>Inline HTML:</strong> Dva povratna citata <code>``HTML kod``</code></li>
+        <li><strong>Umetnuti citat:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> ili <code>{{quote|language|url}}</code></li>
+        <li><strong>Šifra:</strong> <code>@@code@@</code></li>
+        <li><strong>Fusnote:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Gornji indeks</strong>&nbsp;: <code>^gornji indeks^</code></li>
+        <li><strong>Indeks</strong>&nbsp;: <code>,,indeks,,</code></li>
       </ul>
     </dd>
-    <dt>Unformatted text</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dt>Neformatirani tekst</dt>
+    <dd>Ako ne želite da se jedan znak za oblikovanje tumači kao takav, dodajte
+      <code>\</code> neposredno prije njega. Na primjer:
+      <code>\[Tekst u zagradama bez poveznice\]</code>
     </dd>
-    <dt>HTML code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dt>HTML kôd</dt>
+    <dd>Čak i ako ste odabrali Wiki sintaksu, ponekad ćete možda trebati snažnije oblikovanje, tj. HTML sintaksu. Učinite to na sljedeći način:
       <pre>
 ///html
-&lt;p style="color:red"&gt;my text in red&lt;/p&gt;
+&lt;p style="color:red"&gt;moj tekst u crvenom&lt;/p&gt;
 ///
 </pre>
     </dd>

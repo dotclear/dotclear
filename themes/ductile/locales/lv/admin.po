@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-02 15:12+0200\n"
-"PO-Revision-Date: 2024-07-05 10:45\n"
+"PO-Revision-Date: 2024-07-08 13:05\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -19,235 +19,235 @@ msgstr ""
 
 #: themes/ductile/src/Config.php:55
 msgid "Full"
-msgstr ""
+msgstr "Pilns"
 
 #: themes/ductile/src/Config.php:68
 msgid "Home (first page)"
-msgstr ""
+msgstr "Sākums (pirmā lapa)"
 
 #: themes/ductile/src/Config.php:69
 msgid "Home (other pages)"
-msgstr ""
+msgstr "Sākums (citas lapas)"
 
 #: themes/ductile/src/Config.php:70
 msgid "Entries for a category"
-msgstr ""
+msgstr "Kategorijas ieraksti"
 
 #: themes/ductile/src/Config.php:71
 msgid "Entries for a tag"
-msgstr ""
+msgstr "Ieraksti birkai"
 
 #: themes/ductile/src/Config.php:72
 msgid "Search result entries"
-msgstr ""
+msgstr "Meklēšanas rezultātu ieraksti"
 
 #: themes/ductile/src/Config.php:73
 msgid "Month archive entries"
-msgstr ""
+msgstr "Mēneša arhīva ieraksti"
 
 #: themes/ductile/src/Config.php:78
 msgid "Ductile primary"
-msgstr ""
+msgstr "Kaļamais primārais"
 
 #: themes/ductile/src/Config.php:79
 msgid "Ductile secondary"
-msgstr ""
+msgstr "Kaļamā sekundārā"
 
 #: themes/ductile/src/Config.php:80
 msgid "Times New Roman"
-msgstr ""
+msgstr "Times New Roman"
 
 #: themes/ductile/src/Config.php:81
 msgid "Georgia"
-msgstr ""
+msgstr "Gruzija"
 
 #: themes/ductile/src/Config.php:82
 msgid "Garamond"
-msgstr ""
+msgstr "Garamonds"
 
 #: themes/ductile/src/Config.php:83
 msgid "Helvetica/Arial"
-msgstr ""
+msgstr "Helvetica/Arial"
 
 #: themes/ductile/src/Config.php:84
 msgid "Verdana"
-msgstr ""
+msgstr "Verdana"
 
 #: themes/ductile/src/Config.php:85
 msgid "Trebuchet MS"
-msgstr ""
+msgstr "Trebuchet MS"
 
 #: themes/ductile/src/Config.php:86
 msgid "Impact"
-msgstr ""
+msgstr "Ietekme"
 
 #: themes/ductile/src/Config.php:87
 msgid "Monospace"
-msgstr ""
+msgstr "Monotelpa"
 
 #: themes/ductile/src/Config.php:91
 msgid "none"
-msgstr ""
+msgstr "neviens"
 
 #: themes/ductile/src/Config.php:92
 msgid "javascript (Adobe)"
-msgstr ""
+msgstr "javascript (Adobe)"
 
 #: themes/ductile/src/Config.php:93
 msgid "stylesheet (Google)"
-msgstr ""
+msgstr "stila lapa (Google)"
 
 #: themes/ductile/src/Config.php:340
 msgid "Theme configuration upgraded."
-msgstr ""
+msgstr "Motīva konfigurācija ir jaunināta."
 
 #: themes/ductile/src/Config.php:361
 msgid "Font family"
-msgstr ""
+msgstr "Fontu saime"
 
 #: themes/ductile/src/Config.php:377
 msgid "Header"
-msgstr ""
+msgstr "Virsraksts"
 
 #: themes/ductile/src/Config.php:378
 msgid "Hide blog description:"
-msgstr ""
+msgstr "Slēpt emuāra aprakstu:"
 
 #: themes/ductile/src/Config.php:381
 msgid "Logo URL:"
-msgstr ""
+msgstr "Logotipa URL:"
 
 #: themes/ductile/src/Config.php:388
 #, php-format
 msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
-msgstr ""
+msgstr "Lai konfigurētu augšējo izvēlni, dodieties uz <a href=\"%s\">Vienkāršās izvēlnes administrēšanas lapu</a>."
 
 #: themes/ductile/src/Config.php:395
 msgid "Stickers"
-msgstr ""
+msgstr "Uzlīmes"
 
 #: themes/ductile/src/Config.php:397
 msgid "Stickers (footer)"
-msgstr ""
+msgstr "Uzlīmes (kājene)"
 
 #: themes/ductile/src/Config.php:401
 msgid "Image"
-msgstr ""
+msgstr "Attēls"
 
 #: themes/ductile/src/Config.php:429
 msgid "Entries list types and limits"
-msgstr ""
+msgstr "Ierakstu sarakstu veidi un ierobežojumi"
 
 #: themes/ductile/src/Config.php:430
 msgid "Entries lists"
-msgstr ""
+msgstr "Ierakstu saraksti"
 
 #: themes/ductile/src/Config.php:433
 msgid "Context"
-msgstr ""
+msgstr "Konteksts"
 
 #: themes/ductile/src/Config.php:434
 msgid "Entries list type"
-msgstr ""
+msgstr "Ierakstu saraksta veids"
 
 #: themes/ductile/src/Config.php:465
 msgid "Miscellaneous options"
-msgstr ""
+msgstr "Dažādas iespējas"
 
 #: themes/ductile/src/Config.php:466
 msgid "Comment preview is not mandatory:"
-msgstr ""
+msgstr "Komentāra priekšskatījums nav obligāts:"
 
 #: themes/ductile/src/Config.php:479
 msgid "Presentation"
-msgstr ""
+msgstr "Prezentācija"
 
 #: themes/ductile/src/Config.php:483
 msgid "General settings"
-msgstr ""
+msgstr "Vispārīgie iestatījumi"
 
 #: themes/ductile/src/Config.php:485
 msgid "Fonts"
-msgstr ""
+msgstr "Fonti"
 
 #: themes/ductile/src/Config.php:489
 msgid "Main text"
-msgstr ""
+msgstr "Galvenais teksts"
 
 #: themes/ductile/src/Config.php:490
 msgid "Main font:"
-msgstr ""
+msgstr "Galvenais fonts:"
 
 #: themes/ductile/src/Config.php:494 themes/ductile/src/Config.php:511
 msgid "Set to Default to use a webfont."
-msgstr ""
+msgstr "Iestatiet uz Noklusējums, lai izmantotu tīmekļa fontu."
 
 #: themes/ductile/src/Config.php:495 themes/ductile/src/Config.php:512
 msgid "Webfont family:"
-msgstr ""
+msgstr "Tīmekļa fontu saime:"
 
 #: themes/ductile/src/Config.php:497 themes/ductile/src/Config.php:514
 msgid "Webfont URL:"
-msgstr ""
+msgstr "Tīmekļa fonta URL:"
 
 #: themes/ductile/src/Config.php:499 themes/ductile/src/Config.php:516
 msgid "Webfont API:"
-msgstr ""
+msgstr "Webfont API:"
 
 #: themes/ductile/src/Config.php:506
 msgid "Secondary text"
-msgstr ""
+msgstr "Sekundārais teksts"
 
 #: themes/ductile/src/Config.php:507
 msgid "Secondary font:"
-msgstr ""
+msgstr "Sekundārais fonts:"
 
 #: themes/ductile/src/Config.php:522
 msgid "Titles"
-msgstr ""
+msgstr "Nosaukumi"
 
 #: themes/ductile/src/Config.php:526 themes/ductile/src/Config.php:605
 msgid "Blog title"
-msgstr ""
+msgstr "Emuāra nosaukums"
 
 #: themes/ductile/src/Config.php:527 themes/ductile/src/Config.php:547
 #: themes/ductile/src/Config.php:578 themes/ductile/src/Config.php:606
 #: themes/ductile/src/Config.php:625
 msgid "In bold:"
-msgstr ""
+msgstr "Treknrakstā:"
 
 #: themes/ductile/src/Config.php:530 themes/ductile/src/Config.php:550
 #: themes/ductile/src/Config.php:609 themes/ductile/src/Config.php:628
 msgid "Font size (in em by default):"
-msgstr ""
+msgstr "Fonta lielums (pēc noklusējuma em):"
 
 #: themes/ductile/src/Config.php:533 themes/ductile/src/Config.php:553
 #: themes/ductile/src/Config.php:567 themes/ductile/src/Config.php:612
 #: themes/ductile/src/Config.php:631
 msgid "Color:"
-msgstr ""
+msgstr "Krāsa:"
 
 #: themes/ductile/src/Config.php:546 themes/ductile/src/Config.php:624
 msgid "Post title"
-msgstr ""
+msgstr "Ziņas virsraksts"
 
 #: themes/ductile/src/Config.php:566
 msgid "Titles without link"
-msgstr ""
+msgstr "Virsraksti bez saites"
 
 #: themes/ductile/src/Config.php:577
 msgid "Inside posts links"
-msgstr ""
+msgstr "Iekšpusē esošās saites"
 
 #: themes/ductile/src/Config.php:581
 msgid "Normal and visited links color:"
-msgstr ""
+msgstr "Parasta un apmeklēto saišu krāsa:"
 
 #: themes/ductile/src/Config.php:591
 msgid "Active, hover and focus links color:"
-msgstr ""
+msgstr "Aktīvo, virzīt kursoru un fokusa saišu krāsa:"
 
 #: themes/ductile/src/Config.php:601
 msgid "Mobile specific settings"
-msgstr ""
+msgstr "Mobilajām ierīcēm noteiktie iestatījumi"
 

@@ -1,34 +1,34 @@
 <html>
 
 <head>
-  <title>Blog settings</title>
+  <title>Blogaren ezarpenak</title>
 </head>
 
 <body>
-  <h4>Blog details</h4>
+  <h4>Blogaren xehetasunak</h4>
   <dl>
-    <dt>Blog ID</dt>
-    <dd>Unique ID of the blog. Mandatory, can only be modified by a super administrator.</dd>
-    <dt>Blog name</dt>
+    <dt>Blogaren IDa</dt>
+    <dd>Blogaren ID bakarra. Nahitaezkoa, super administratzaile batek bakarrik alda dezake.</dd>
+    <dt>Blogaren izena</dt>
     <dd>Name of the blog, mandatory.</dd>
-    <dt>Blog URL</dt>
+    <dt>Blogaren URLa</dt>
     <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
     <dt>Blog status</dt>
-    <dd>Defines the way the URL is read. PATH_INFO is recommended, QUERY_STRING has to be used if PATH_INFO does not work. Using PATH_INFO mode, the blog URL must end with a "/" and using QUERY_STRING, it must end with an "?".</dd>
+    <dd>URLa irakurtzeko modua definitzen du. PATH_INFO gomendatzen da, QUERY_STRING erabili behar da PATH_INFO funtzionatzen ez badu. PATH_INFO modua erabiliz, blogaren URLak "/" batekin amaitu behar du eta QUERY_STRING erabiliz, "?" batekin amaitu behar du.</dd>
     <dt>Blog description</dt>
     <dd>
       <ul>
-        <li><strong>Online:</strong> Blog open to visitors.</li>
-        <li><strong>Offline:</strong> Blog closed to visitors but open to writers.</li>
-        <li><strong>Removed:</strong> Blog closed to both visitors and writers, open only to super administrators.</li>
+        <li><strong>Sarean:</strong> Bloga bisitariei irekita.</li>
+        <li><strong>Lineaz kanpo:</strong> Bloga bisitarientzat itxita baina idazleentzat irekia.</li>
+        <li><strong>Kendua:</strong> Bloga bisitarientzat eta idazleentzat itxita dago, super administratzaileentzat bakarrik irekita.</li>
       </ul>
     </dd>
-    <dt>Blog description</dt>
-    <dd>Here you can put any description you want for your blog. This is a simple text, without any formatting.</dd>
+    <dt>Blogaren deskribapena</dt>
+    <dd>Hemen zure blogerako nahi duzun deskribapena jar dezakezu. Testu sinple bat da, formatu gabe.</dd>
   </dl>
-  <h4>Blog configuration</h4>
+  <h4>Blogaren konfigurazioa</h4>
   <dl>
-    <dt>Blog editor's name</dt>
+    <dt>Blogaren editorearen izena</dt>
     <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
     <dt>Copyright notice</dt>
@@ -49,99 +49,99 @@
     <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
   </dl>
-  <h4>Comments and trackbacks</h4>
+  <h4>Iruzkinak eta jarraipenak</h4>
   <dl>
-    <dt>Accept comments</dt>
-    <dd>Globally accepts comments on the blog. Takes precedence over the per post setting.</dd>
-    <dt>Moderate comments</dt>
-    <dd>With this option, comments will be published only after editor's agreement.</dd>
-    <dt>Leave comments open for X days</dt>
-    <dd>The number of days during wich comments will be open after the post publication. When empty, the comments will be kept open indefinitly.</dd>
-    <dt>Wiki syntax for comments</dt>
-    <dd>Allows a subset of the wiki syntax to be used in comments.</dd>
-    <dt>Accept trackbacks</dt>
-    <dd>Globally accepts trackbacks on the blog. Takes precedence over the per post setting.</dd>
-    <dt>Moderate trackbacks</dt>
-    <dd>With this option, trackbacks will be published only after editor's agreement.</dd>
-    <dt>Leave trackbacks open for X days</dt>
-    <dd>The number of days during wich trackbacks will be open after the post publication. When empty, the trackbacks will be kept open indefinitly.</dd>
-    <dt>Add "nofollow" relation on comments and trackbacks links</dt>
-    <dd>Adds an attribute on links in comments and trackbacks, instructing the search bots not to follow them. This antispam features has yet to prove its value.</dd>
+    <dt>Onartu iruzkinak</dt>
+    <dd>Globalki onartzen ditu blogeko iruzkinak. Mezu bakoitzeko ezarpenari lehentasuna ematen dio.</dd>
+    <dt>Iruzkin moderatuak</dt>
+    <dd>Aukera honekin, iruzkinak editoreak adostu ondoren soilik argitaratuko dira.</dd>
+    <dt>Utzi iruzkinak irekita X egunez</dt>
+    <dd>Mezua argitaratu eta gero iruzkinak irekiko diren egun kopurua. Hutsik dagoenean, iruzkinak zabalik mantenduko dira mugagabe.</dd>
+    <dt>Wiki sintaxia iruzkinetarako</dt>
+    <dd>Wiki sintaxiaren azpimultzo bat iruzkinetan erabiltzeko aukera ematen du.</dd>
+    <dt>Onartu trackback-ak</dt>
+    <dd>Globalki onartzen ditu trackbackak blogean. Mezu bakoitzeko ezarpenari lehentasuna ematen dio.</dd>
+    <dt>Trackback moderatuak</dt>
+    <dd>Aukera honekin, trackback-ak editorearen adostasunaren ondoren bakarrik argitaratuko dira.</dd>
+    <dt>Utzi trackbackak zabalik X egunez</dt>
+    <dd>Posta argitaratu eta gero, zein egunetan zehar trackback-ak irekiko diren. Hutsik daudenean, trackbackak mugarik gabe mantenduko dira zabalik.</dd>
+    <dt>Gehitu "nofollow" erlazioa iruzkinen eta trackback-en esteketan</dt>
+    <dd>Iruzkinetan eta trackbacketan esteketan atributu bat gehitzen du, bilaketa-botei ez jarraitzeko aginduz. Spamaren aurkako funtzio honek oraindik ez du bere balioa frogatu.</dd>
   </dl>
-  <h4>Blog presentation</h4>
+  <h4>Blogaren aurkezpena</h4>
   <dl>
-    <dt>Date format</dt>
-    <dd>Defines the date format for the blog posts. See the "Format reference" section below for more information. You can use the dropdown list to quickly select a pre-existing pattern.</dd>
-    <dt>Time format</dt>
-    <dd>Defines the time format for the blog posts. See the "Format reference" section below for more information. You can use the dropdown list to quickly select a pre-existing pattern.</dd>
-    <dt>Display smilies on entries and comments</dt>
-    <dd>Turns some strings like :-) or ;-) into pictures.</dd>
-    <dt>Display X entries per page</dt>
-    <dd>Will display X entries on the blog main page as well as in the different categories.</dd>
-    <dt>Display X entries per feed</dt>
-    <dd>Will display X entries in the blog feeds.</dd>
-    <dt>Display X comments per feed</dt>
-    <dd>Will display X comments in the blog comments feeds.</dd>
-    <dt>Truncate feeds</dt>
-    <dd>This option will only provide an abstract from the blog posts in the feeds.</dd>
-    <dt>Include sub-categories in category page and category posts feed</dt>
-    <dd>When this option is activated, posts in sub-categories will be displayed in the parent categories pages as well as in their feeds.</dd>
+    <dt>Data-formatua</dt>
+    <dd>Blogeko argitalpenen data-formatua zehazten du. Ikus beheko "Formatu erreferentzia" atala informazio gehiago lortzeko. Goitibeherako zerrenda erabil dezakezu aurrez dagoen eredu bat azkar hautatzeko.</dd>
+    <dt>Denbora-formatua</dt>
+    <dd>Blogeko argitalpenen ordu-formatua zehazten du. Ikus beheko "Formatu erreferentzia" atala informazio gehiago lortzeko. Goitibeherako zerrenda erabil dezakezu aurrez dagoen eredu bat azkar hautatzeko.</dd>
+    <dt>Erakutsi irribarreak sarreretan eta iruzkinetan</dt>
+    <dd>:-) edo ;-) bezalako kate batzuk irudi bihurtzen ditu.</dd>
+    <dt>Bistaratu X sarrera orrialde bakoitzeko</dt>
+    <dd>X sarrera erakutsiko ditu blogaren orrialde nagusian eta baita kategoria ezberdinetan ere.</dd>
+    <dt>Bistaratu X sarrera jario bakoitzeko</dt>
+    <dd>X sarrera erakutsiko ditu blog-jarioetan.</dd>
+    <dt>Bistaratu X iruzkin jario bakoitzeko</dt>
+    <dd>X iruzkinak erakutsiko ditu blogeko iruzkinen jarioetan.</dd>
+    <dt>Moztu jarioak</dt>
+    <dd>Aukera honek jarioetako blog-argitalpenen laburpen bat bakarrik emango du.</dd>
+    <dt>Sartu azpikategoriak kategoria-orrian eta kategorien argitalpenen jarioan</dt>
+    <dd>Aukera hau aktibatuta dagoenean, azpikategorietako argitalpenak agertuko dira kategoria nagusien orrialdeetan, baita haien jarioetan ere.</dd>
   </dl>
-  <h4>Media and images</h4>
+  <h4>Komunikabideak eta irudiak</h4>
   <dl>
-    <dt>Generated image sizes (in pixels)</dt>
-    <dd>When you add an image in the media manager, other sizes are automatically generated. Here you can define the dimension of the longest size (width or heigth) of each type of generated images. If you leave one field empty, the media manager will not create the corresponding miniature.</dd>
-    <dt>Default image insertion attributes</dt>
-    <dd>The selected settings will apply on all the new images added to the media manager.</dd>
-    <dt>Inserted image title</dt>
-    <dd>Select the format of the "title" tags applied to your images, based on information retrieved from the images metadata.</dd>
-    <dt>Use original media date if possible</dt>
-    <dd>When this option is activated, if the image metadata contains a date, it will be used. If not, the upload date will be used.</dd>
-    <dt>Size of inserted image</dt>
-    <dd>Defines the default size used when inserting an image in a blog post.</dd>
-    <dt>Image alignment</dt>
-    <dd>Defines the default alignment used when inserting an image in a blog post.</dd>
-    <dt>Insert a link to the original image</dt>
-    <dd>When this option is activated, the pictures inserted in a blog post will be clickable and point to the original-sized picture.</dd>
+    <dt>Sortutako irudien tamainak (pixeletan)</dt>
+    <dd>Multimedia-kudeatzailean irudi bat gehitzen duzunean, beste tamaina batzuk automatikoki sortzen dira. Hemen, sortutako irudi mota bakoitzaren tamaina luzeenaren (zabalera edo altuera) dimentsioa defini dezakezu. Eremu bat hutsik uzten baduzu, multimedia-kudeatzaileak ez du dagokion miniatura sortuko.</dd>
+    <dt>Irudiak txertatzeko atributu lehenetsiak</dt>
+    <dd>Hautatutako ezarpenak multimedia-kudeatzailean gehitutako irudi berri guztietan aplikatuko dira.</dd>
+    <dt>Txertatu da irudiaren izenburua</dt>
+    <dd>Hautatu zure irudiei aplikatutako "izenburua" etiketen formatua, irudien metadatuetatik ateratako informazioan oinarrituta.</dd>
+    <dt>Erabili jatorrizko hedabidearen data ahal izanez gero</dt>
+    <dd>Aukera hau aktibatuta dagoenean, irudiaren metadatuek data bat badute, erabiliko da. Hala ez bada, kargatzeko data erabiliko da.</dd>
+    <dt>Txertatutako irudiaren tamaina</dt>
+    <dd>Blogeko argitalpen batean irudi bat txertatzean erabilitako tamaina lehenetsia zehazten du.</dd>
+    <dt>Irudiaren lerrokatzea</dt>
+    <dd>Blogeko argitalpen batean irudi bat txertatzean erabilitako lerrokadura lehenetsia definitzen du.</dd>
+    <dt>Sartu esteka bat jatorrizko irudirako</dt>
+    <dd>Aukera hau aktibatuta dagoenean, blogeko argitalpen batean txertatutako irudiak klikagarriak izango dira eta jatorrizko tamainako irudira seinalatu.</dd>
   </dl>
-  <h4>Search engines robots policy</h4>
+  <h4>Bilatzaileen roboten politika</h4>
   <p>Some fields can be configured to format the date and time to your needs.
 Here is a reference:</p>
-  <h4>Antispam</h4>
-  <p>You can set the number of days after which you want the junk comments to be automatically deleted. Leave that field blank (or put 0) to deactivate this feature.</p>
-  <h4>Users</h4>
-  <p>Lists this blog's users as well as their permissions.</p>
+  <h4>Spamaren aurkakoa</h4>
+  <p>Zabor iruzkinak automatikoki ezabatzea nahi duzun egun kopurua ezar dezakezu. Utzi eremu hori hutsik (edo jarri 0) eginbide hau desaktibatzeko.</p>
+  <h4>Erabiltzaileak</h4>
+  <p>Blog honen erabiltzaileak eta haien baimenak zerrendatzen ditu.</p>
   <h3>Blog details</h3>
-  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <p>Eremu batzuk data eta ordua zure beharretara formateatzeko konfigura daitezke. Hona hemen erreferentzia bat:</p>
   <ul>
     <li><strong>%a</strong>: abreviated week day (local).</li>
     <li><strong>%A</strong>: complete week day (local).</li>
     <li><strong>%b</strong>: abbreviated month name (local).</li>
     <li><strong>%B</strong>: complete month name (local).</li>
     <li><strong>%c</strong>: default local date and time display.</li>
-    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%C:</strong> Mendea (urtea, 100ez banatuta eta biribildu 00 eta 99 artean)</li>
     <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
     <li><strong>%D</strong>: identical to %m/%d/%y</li>
     <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
     <li><strong>%g</strong>: identical to %G, 2 digits.</li>
-    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%G:</strong> Urtea 4 zifratan, aste-zenbakiaren arabera (cf. %V). %Y-ren formatua eta balio berdina, izan ezik, astearen zenbakia aurreko edo hurrengo urtekoa bada, oraingo urtea erabiliko da.</li>
     <li><strong>%h</strong>: identical to %b</li>
-    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
-    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%H:</strong> Eguneko ordu digitala, 24 orduko moduan (00etatik 23etara)</li>
+    <li><strong>%I:</strong> Eguneko ordu digitala, 12 orduko moduan (01etik 12ra)</li>
     <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
     <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
     <li><strong>%M</strong>: minute, digital</li>
     <li><strong>%n</strong>: newline character</li>
-    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%p:</strong> `am' edo `pm', ordu absolutuaren arabera, edo tokiko ezarpenen arabera.</li>
     <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
     <li><strong>%R</strong>: the hour, 24h format</li>
     <li><strong>%S</strong>: seconds, digital</li>
     <li><strong>%t</strong>: tab character</li>
     <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
     <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
-    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
-    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
-    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%U:</strong> Astearen zenbakia, urteko lehen igandea lehen asteko lehen eguna izanik.</li>
+    <li><strong>%V:</strong> ISO 8601:1988n definitutako aste-zenbakia, digitala, 01etik 53ra. 1. astea urteko 4 egun baino gehiago dituen lehen astea da. , zeinen astelehena den lehen eguna. (Erabili %G edo %g kontuan hartutako denbora-zigilurako asteko zenbakiari dagozkion urteko elementuetarako.)</li>
+    <li><strong>%W:</strong> Urteko asteko zenbakia, urteko lehen astelehena lehenengo astearen hasiera izanik</li>
     <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
     <li><strong>%x</strong>: prefered format for the date without the time</li>
     <li><strong>%X</strong>: prefered format for the time without the date</li>

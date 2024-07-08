@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-21 08:26+0100\n"
-"PO-Revision-Date: 2023-11-21 10:29\n"
+"PO-Revision-Date: 2024-07-08 12:55\n"
 "Last-Translator: \n"
 "Language-Team: Basque\n"
 "Language: eu_ES\n"
@@ -19,274 +19,274 @@ msgstr ""
 
 #: themes/blowup/src/Config.php:123
 msgid "Light linear gradient"
-msgstr ""
+msgstr "Gradiente lineal argia"
 
 #: themes/blowup/src/Config.php:124
 msgid "Medium linear gradient"
-msgstr ""
+msgstr "Gradiente lineal ertaina"
 
 #: themes/blowup/src/Config.php:125
 msgid "Dark linear gradient"
-msgstr ""
+msgstr "Gradiente lineal iluna"
 
 #: themes/blowup/src/Config.php:126
 msgid "Solid color"
-msgstr ""
+msgstr "Kolore solidoa"
 
 #: themes/blowup/src/Config.php:129
 msgid "Custom..."
-msgstr ""
+msgstr "Pertsonalizatua..."
 
 #: themes/blowup/src/Config.php:231
 msgid "Theme configuration has been successfully updated."
-msgstr ""
+msgstr "Gaiaren konfigurazioa behar bezala eguneratu da."
 
 #: themes/blowup/src/Config.php:253
 msgid "Back to Blog appearance"
-msgstr ""
+msgstr "Itzuli Blogaren itxurara"
 
 #: themes/blowup/src/Config.php:257
 msgid "Customization"
-msgstr ""
+msgstr "Pertsonalizazioa"
 
 #: themes/blowup/src/Config.php:258
 msgid "General"
-msgstr ""
+msgstr "Orokorra"
 
 #: themes/blowup/src/Config.php:262
 msgid "Background color:"
-msgstr ""
+msgstr "Atzeko planoaren kolorea:"
 
 #: themes/blowup/src/Config.php:265
 msgid "Background color fill:"
-msgstr ""
+msgstr "Atzeko planoaren kolorea betetzea:"
 
 #: themes/blowup/src/Config.php:270
 msgid "Main text font:"
-msgstr ""
+msgstr "Testuaren letra nagusia:"
 
 #: themes/blowup/src/Config.php:273
 msgid "Main text font size:"
-msgstr ""
+msgstr "Testuaren letra nagusiaren tamaina:"
 
 #: themes/blowup/src/Config.php:276
 msgid "Main text color:"
-msgstr ""
+msgstr "Testuaren kolore nagusia:"
 
 #: themes/blowup/src/Config.php:279
 msgid "Text line height:"
-msgstr ""
+msgstr "Testu-lerroaren altuera:"
 
 #: themes/blowup/src/Config.php:283
 msgid "Links color:"
-msgstr ""
+msgstr "Estekaren kolorea:"
 
 #: themes/blowup/src/Config.php:286
 msgid "Visited links color:"
-msgstr ""
+msgstr "Bisitatutako esteken kolorea:"
 
 #: themes/blowup/src/Config.php:289
 msgid "Focus links color:"
-msgstr ""
+msgstr "Foku-esteken kolorea:"
 
 #: themes/blowup/src/Config.php:296
 msgid "Prelude color:"
-msgstr ""
+msgstr "Preludioaren kolorea:"
 
 #: themes/blowup/src/Config.php:301
 msgid "Hide main title"
-msgstr ""
+msgstr "Ezkutatu izenburu nagusia"
 
 #: themes/blowup/src/Config.php:304
 msgid "Main title font:"
-msgstr ""
+msgstr "Izenburuaren letra nagusia:"
 
 #: themes/blowup/src/Config.php:307
 msgid "Main title font size:"
-msgstr ""
+msgstr "Izenburu nagusiaren letra-tamaina:"
 
 #: themes/blowup/src/Config.php:310
 msgid "Main title color:"
-msgstr ""
+msgstr "Izenburuaren kolore nagusia:"
 
 #: themes/blowup/src/Config.php:313
 msgid "Main title alignment:"
-msgstr ""
+msgstr "Titulu nagusia lerrokatzea:"
 
 #: themes/blowup/src/Config.php:314
 msgid "center"
-msgstr ""
+msgstr "zentroa"
 
 #: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
 msgid "left"
-msgstr ""
+msgstr "ezker"
 
 #: themes/blowup/src/Config.php:314 themes/blowup/src/Config.php:346
 msgid "right"
-msgstr ""
+msgstr "eskubidea"
 
 #: themes/blowup/src/Config.php:316
 msgid "Main title position (x:y)"
-msgstr ""
+msgstr "Titulu nagusia (x:y)"
 
 #: themes/blowup/src/Config.php:327 themes/blowup/src/Config.php:328
 msgid "Top image"
-msgstr ""
+msgstr "Goiko irudia"
 
 #: themes/blowup/src/Config.php:330
 msgid "Choose \"Custom...\" to upload your own image."
-msgstr ""
+msgstr "Aukeratu \"Pertsonalizatua...\" zure irudia kargatzeko."
 
 #: themes/blowup/src/Config.php:332
 msgid "Add your image:"
-msgstr ""
+msgstr "Gehitu zure irudia:"
 
 #: themes/blowup/src/Config.php:333
 #, php-format
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-msgstr ""
+msgstr "JPEG edo PNG fitxategia, 800 pixeleko zabalera, gehienezko tamaina %s"
 
 #: themes/blowup/src/Config.php:344
 msgid "Sidebar"
-msgstr ""
+msgstr "Alboko barra"
 
 #: themes/blowup/src/Config.php:345
 msgid "Sidebar position:"
-msgstr ""
+msgstr "Alboko barraren posizioa:"
 
 #: themes/blowup/src/Config.php:348
 msgid "Sidebar text font:"
-msgstr ""
+msgstr "Alboko barrako testu-tipoa:"
 
 #: themes/blowup/src/Config.php:351
 msgid "Sidebar text font size:"
-msgstr ""
+msgstr "Alboko barrako testuaren letra-tipoaren tamaina:"
 
 #: themes/blowup/src/Config.php:354
 msgid "Sidebar text color:"
-msgstr ""
+msgstr "Alboko barrako testuaren kolorea:"
 
 #: themes/blowup/src/Config.php:357
 msgid "Sidebar titles font:"
-msgstr ""
+msgstr "Alboko barraren izenburuen letra-tipoa:"
 
 #: themes/blowup/src/Config.php:360
 msgid "Sidebar titles font size:"
-msgstr ""
+msgstr "Alboko barraren izenburuen letra-tamaina:"
 
 #: themes/blowup/src/Config.php:363
 msgid "Sidebar titles color:"
-msgstr ""
+msgstr "Alboko barraren izenburuen kolorea:"
 
 #: themes/blowup/src/Config.php:366
 msgid "Sidebar 2nd level titles font:"
-msgstr ""
+msgstr "Alboko barrako 2. mailako tituluen letra-tipoa:"
 
 #: themes/blowup/src/Config.php:369
 msgid "Sidebar 2nd level titles font size:"
-msgstr ""
+msgstr "Alboko barrako 2. mailako tituluen letra-tamaina:"
 
 #: themes/blowup/src/Config.php:372
 msgid "Sidebar 2nd level titles color:"
-msgstr ""
+msgstr "Alboko barraren 2. mailako tituluen kolorea:"
 
 #: themes/blowup/src/Config.php:375
 msgid "Sidebar lines color:"
-msgstr ""
+msgstr "Alboko barrako lerroen kolorea:"
 
 #: themes/blowup/src/Config.php:378
 msgid "Sidebar links color:"
-msgstr ""
+msgstr "Alboko barrako esteken kolorea:"
 
 #: themes/blowup/src/Config.php:381
 msgid "Sidebar visited links color:"
-msgstr ""
+msgstr "Bisitatutako esteken alboko barraren kolorea:"
 
 #: themes/blowup/src/Config.php:384
 msgid "Sidebar focus links color:"
-msgstr ""
+msgstr "Alboko barra fokuaren esteken kolorea:"
 
 #: themes/blowup/src/Config.php:388
 msgid "Date title font:"
-msgstr ""
+msgstr "Data izenburuaren letra-tipoa:"
 
 #: themes/blowup/src/Config.php:391
 msgid "Date title font size:"
-msgstr ""
+msgstr "Data izenburuaren letra-tamaina:"
 
 #: themes/blowup/src/Config.php:394
 msgid "Date title color:"
-msgstr ""
+msgstr "Data izenburuaren kolorea:"
 
 #: themes/blowup/src/Config.php:397
 msgid "Entry title font:"
-msgstr ""
+msgstr "Sarreraren izenburuaren letra-tipoa:"
 
 #: themes/blowup/src/Config.php:400
 msgid "Entry title font size:"
-msgstr ""
+msgstr "Sarreraren izenburuaren letra-tamaina:"
 
 #: themes/blowup/src/Config.php:403
 msgid "Entry title color:"
-msgstr ""
+msgstr "Sarreraren izenburuaren kolorea:"
 
 #: themes/blowup/src/Config.php:408
 msgid "Comment background color:"
-msgstr ""
+msgstr "Iruzkinaren atzeko planoaren kolorea:"
 
 #: themes/blowup/src/Config.php:413
 msgid "Comment text color:"
-msgstr ""
+msgstr "Iruzkinaren testuaren kolorea:"
 
 #: themes/blowup/src/Config.php:418
 msgid "My comment background color:"
-msgstr ""
+msgstr "Nire iruzkinaren atzeko planoaren kolorea:"
 
 #: themes/blowup/src/Config.php:423
 msgid "My comment text color:"
-msgstr ""
+msgstr "Nire iruzkinaren testuaren kolorea:"
 
 #: themes/blowup/src/Config.php:426
 msgid "Footer"
-msgstr ""
+msgstr "Oina"
 
 #: themes/blowup/src/Config.php:427
 msgid "Footer font:"
-msgstr ""
+msgstr "Oinaren letra-tipoa:"
 
 #: themes/blowup/src/Config.php:430
 msgid "Footer font size:"
-msgstr ""
+msgstr "Oinaren letra-tamaina:"
 
 #: themes/blowup/src/Config.php:433
 msgid "Footer color:"
-msgstr ""
+msgstr "Oinaren kolorea:"
 
 #: themes/blowup/src/Config.php:436
 msgid "Footer links color:"
-msgstr ""
+msgstr "Oinaren esteken kolorea:"
 
 #: themes/blowup/src/Config.php:439
 msgid "Footer background color:"
-msgstr ""
+msgstr "Oinaren atzeko planoaren kolorea:"
 
 #: themes/blowup/src/Config.php:442 themes/blowup/src/Config.php:447
 msgid "Additional CSS"
-msgstr ""
+msgstr "CSS gehigarria"
 
 #: themes/blowup/src/Config.php:443
 msgid "Any additional CSS styles (must be written using the CSS syntax):"
-msgstr ""
+msgstr "Edozein CSS estilo gehigarri (CSS sintaxia erabiliz idatzi behar da):"
 
 #: themes/blowup/src/Config.php:465
 msgid "Configuration import / export"
-msgstr ""
+msgstr "Konfigurazioa inportatu/esportatzea"
 
 #: themes/blowup/src/Config.php:467
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr ""
+msgstr "Zure konfigurazioa parteka dezakezu honako kodea erabiliz. Konfigurazio bat aplikatzeko, itsatsi kodea, sakatu \"Aplikatu kodea\" eta gorde."
 
 #: themes/blowup/src/Config.php:471
 msgid "Copy this code:"
-msgstr ""
+msgstr "Kopiatu kode hau:"
 

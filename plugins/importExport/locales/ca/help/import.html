@@ -1,33 +1,33 @@
 <html>
 
 <head>
-  <title>Import</title>
+  <title>Importar</title>
 </head>
 
 <body>
-  <h4>Flat file import</h4>
-  <p>Imports a blog or a full Dotclear installation from a flat file.</p>
-  <h5>Single blog</h5>
-  <p>Select the backup file (exported from another Dotclear install) or select one from the root directory of your media manager and click on the <strong>Import</strong> button to start the import process.</p>
-  <p>Note: the content imported during this process will be added to the existing content of the current blog, nothing will be lost.</p>
-  <h5>Multiple blogs</h5>
-  <p>Select the full backup file from your computer or select one from the root folder of your media manager, enter your password and click on the <strong>Import</strong> button to start the full import process.</p>
-  <p><strong>Warning:</strong> the whole content of the current blog will be deleted and replaced by the content of the backup file. Only current users will be kept. Additional users from the backup file will be added to the current users list.</p>
-  <h4>RSS or Atom feed import</h4>
-  <p>Add a feed content to the current blog.</p>
-  <p>Enter the URL of the RSS or Atom feed you want to import and click on <strong>Import</strong>. The content found in the feed will be added to your current blog content.</p>
-  <h4>Dotclear 1.2 import</h4>
-  <p>This feature allows you to import a Dotclear 1.2 installation into your current blog. This process will replace the categories, blogrolls, entries and comments of the current blog.</p>
-  <p>Enter the server URL where the Dotclear 1.2 database to import is located, then input the database name, the user name and password to connect to the database and the database tables prefix used in the Dotclear 1.2 installation. You can find this information in the <code>conf/config.php</code> file from your Dotclear 1.2 installation.</p>
-  <p>Click on the <strong>Import my blog now</strong> button to start the import process.</p>
-  <p>You can decrease or increase the amount of entries imported at once using the <strong>Number of entries to import at once</strong> field, depending on the access speed of your Dotclear 1.2 installation.</p>
-  <h4>Wordpress import</h4>
-  <p>This feature allows you to import a Wordpress installation into your current blog. This process will replace the categories, blogrolls, entries and comments of the current blog.</p>
-  <p>Enter the server URL where the Wordpress database to import is located, then input the database name, the user name and password to connect to the database and the database tables prefix used in the Wordpress installation.</p>
-  <p>You can set up a few import options regarding the categories import and the number of entries to import at once. You can also define the syntax used for the entries and the comments content (HTML, Wiki or others depending on the currently installed and activated syntaxes).</p>
-  <p>Click on <strong>Import my blog now</strong> to start the import process.</p>
+  <h4>Importació de fitxers plans</h4>
+  <p>Importa un bloc o una instal·lació completa de Dotclear des d'un fitxer pla.</p>
+  <h5>Bloc únic</h5>
+  <p>Seleccioneu el fitxer de còpia de seguretat (exportat des d'una altra instal·lació de Dotclear) o seleccioneu-ne un al directori arrel del vostre gestor de mitjans i feu clic al botó <strong>Importa</strong> per iniciar el procés d'importació.</p>
+  <p>Nota: el contingut importat durant aquest procés s'afegirà al contingut existent del bloc actual, no es perdrà res.</p>
+  <h5>Diversos blocs</h5>
+  <p>Seleccioneu el fitxer de còpia de seguretat complet del vostre ordinador o seleccioneu-ne un de la carpeta arrel del vostre gestor de mitjans, introduïu la vostra contrasenya i feu clic al botó <strong>Importa</strong> per iniciar el procés d'importació complet.</p>
+  <p><strong>Avís:</strong> s'eliminarà tot el contingut del bloc actual i se substituirà pel contingut del fitxer de còpia de seguretat. Només es conservaran els usuaris actuals. Els usuaris addicionals del fitxer de còpia de seguretat s'afegiran a la llista d'usuaris actual.</p>
+  <h4>Importació de canals RSS o Atom</h4>
+  <p>Afegeix un contingut de feed al bloc actual.</p>
+  <p>Introduïu l'URL del canal RSS o Atom que voleu importar i feu clic a <strong>Importa</strong>. El contingut que es trobi al canal s'afegirà al contingut actual del bloc.</p>
+  <h4>Importació de Dotclear 1.2</h4>
+  <p>Aquesta funció us permet importar una instal·lació de Dotclear 1.2 al vostre bloc actual. Aquest procés substituirà les categories, blogrolls, entrades i comentaris del bloc actual.</p>
+  <p>Introduïu l'URL del servidor on es troba la base de dades Dotclear 1.2 a importar i, a continuació, introduïu el nom de la base de dades, el nom d'usuari i la contrasenya per connectar-se a la base de dades i el prefix de les taules de base de dades utilitzats a la instal·lació de Dotclear 1.2. Podeu trobar aquesta informació al fitxer <code>conf/config.php</code> de la instal·lació de Dotclear 1.2.</p>
+  <p>Feu clic al botó <strong>Importa el meu bloc ara</strong> per iniciar el procés d'importació.</p>
+  <p>Podeu reduir o augmentar la quantitat d'entrades importades alhora utilitzant el camp <strong>Nombre d'entrades per importar alhora</strong> , depenent de la velocitat d'accés de la vostra instal·lació de Dotclear 1.2.</p>
+  <h4>Importació de Wordpress</h4>
+  <p>Aquesta característica us permet importar una instal·lació de Wordpress al vostre bloc actual. Aquest procés substituirà les categories, blogrolls, entrades i comentaris del bloc actual.</p>
+  <p>Introduïu l'URL del servidor on es troba la base de dades de Wordpress a importar i, a continuació, introduïu el nom de la base de dades, el nom d'usuari i la contrasenya per connectar-vos a la base de dades i el prefix de les taules de base de dades utilitzats a la instal·lació de Wordpress.</p>
+  <p>Podeu configurar algunes opcions d'importació pel que fa a la importació de categories i el nombre d'entrades a importar alhora. També podeu definir la sintaxi utilitzada per a les entrades i el contingut dels comentaris (HTML, Wiki o altres segons les sintaxis instal·lades i activades).</p>
+  <p>Feu clic a <strong>Importa el meu bloc ara</strong> per iniciar el procés d'importació.</p>
   <hr>
-  <p>Note: the export functions are now located in the<a href="/plugin.php?p=maintenance&tab=backup#backup">Maintenance</a> page.</p>
+  <p>Nota: les funcions d'exportació ara es troben a la pàgina<a href="/plugin.php?p=maintenance&tab=backup#backup">Manteniment</a> .</p>
 </body>
 
 </html>

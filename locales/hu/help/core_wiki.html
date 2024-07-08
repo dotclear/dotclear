@@ -6,16 +6,16 @@
 
 <body>
   <h4>Wiki szintaxis hivatkozás</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>A Wiki szintaxis egy módja annak, hogy javítsa a szöveget minimális címkék segítségével, amelyek megfelelnek az alapvető igényeknek (címek, bekezdések, idézetek, listák...).</p>
   <dl>
     <dt>Blokkelemek</dt>
     <dd>
       <ul>
         <li>Két hasonló blokk között hagyjon üres sort.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Bekezdés:</strong> Szabad szöveg, üres sorral végződik, ha újabb bekezdés következik.</li>
+        <li><strong>Cím:</strong> <code>!!! cím</code>, <code>!! cím</code> vagy <code>! cím</code>, amely lehetővé teszi három különböző szintű címsor használatát.</li>
         <li><strong>Horizontal line</strong>: <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Listák:</strong> Kezdje a sorokat <code>*</code> vagy <code>#</code> karakterekkel a számozatlan vagy számozott listák esetén. A lista jelölése a listajelzők keverésével történik a következő módon:
           <pre>
     <code>*</code> * item 1
 ** item 1.1
@@ -45,13 +45,13 @@
         <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
         <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[név|url]</code>, <code>[név| url|nyelv]</code> vagy <code>[név|url|nyelv|cím]</code></li>
+        <li><strong>Kép:</strong><code>((url|alternatív szöveg))</code>, <code>((url|alternatív szöveg|pozíció))</code> vagy <code>((url| alternatív szöveg|pozíció|hosszú leírás))</code>.<br>A pozíció lehet L (balra), R (jobbra) vagy C (középre).</li>
         <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
         <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
         <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Soron belüli idézet:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> vagy <code>{{quote|language|url}}</code></li>
         <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
         <li><strong>Lábjegyzetek:</strong> <code>$$footnote$$</code></li>
         <li><strong>Felirat</strong>&nbsp;: <code>^superscript^</code></li>
@@ -59,12 +59,12 @@
       </ul>
     </dd>
     <dt>Formázatlan szöveg</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>Ha nem szeretné, hogy egy formázási karaktert ekként értelmezzen, adjon hozzá egy
+      <code>\</code> karaktert közvetlenül előtte. Például:
+      <code>\[Szöveg zárójelben anélkül, hogy hivatkozás lenne\]</code>
     </dd>
     <dt>HTML Code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Még ha a Wiki szintaxist választotta is, néha erősebb formázásra, azaz HTML szintaxisra lehet szüksége. Csináld a következő módon:
       <pre>
 ///html
 &lt;p style="color:red"&gt;az én szövegem piros színben&lt;/p&gt;

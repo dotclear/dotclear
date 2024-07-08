@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-02 15:12+0200\n"
-"PO-Revision-Date: 2023-11-21 06:45\n"
+"PO-Revision-Date: 2024-07-08 12:56\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -19,235 +19,235 @@ msgstr ""
 
 #: themes/ductile/src/Config.php:55
 msgid "Full"
-msgstr ""
+msgstr "Plena"
 
 #: themes/ductile/src/Config.php:68
 msgid "Home (first page)"
-msgstr ""
+msgstr "Hejmo (unua paĝo)"
 
 #: themes/ductile/src/Config.php:69
 msgid "Home (other pages)"
-msgstr ""
+msgstr "Hejmo (aliaj paĝoj)"
 
 #: themes/ductile/src/Config.php:70
 msgid "Entries for a category"
-msgstr ""
+msgstr "Enskriboj por kategorio"
 
 #: themes/ductile/src/Config.php:71
 msgid "Entries for a tag"
-msgstr ""
+msgstr "Enskriboj por etikedo"
 
 #: themes/ductile/src/Config.php:72
 msgid "Search result entries"
-msgstr ""
+msgstr "Serĉrezultaj enskriboj"
 
 #: themes/ductile/src/Config.php:73
 msgid "Month archive entries"
-msgstr ""
+msgstr "Monataj arkivaj enskriboj"
 
 #: themes/ductile/src/Config.php:78
 msgid "Ductile primary"
-msgstr ""
+msgstr "Duktila primara"
 
 #: themes/ductile/src/Config.php:79
 msgid "Ductile secondary"
-msgstr ""
+msgstr "Duktila malĉefa"
 
 #: themes/ductile/src/Config.php:80
 msgid "Times New Roman"
-msgstr ""
+msgstr "Times New Roman"
 
 #: themes/ductile/src/Config.php:81
 msgid "Georgia"
-msgstr ""
+msgstr "Kartvelio"
 
 #: themes/ductile/src/Config.php:82
 msgid "Garamond"
-msgstr ""
+msgstr "Garamond"
 
 #: themes/ductile/src/Config.php:83
 msgid "Helvetica/Arial"
-msgstr ""
+msgstr "Helvetica/Arial"
 
 #: themes/ductile/src/Config.php:84
 msgid "Verdana"
-msgstr ""
+msgstr "Verdana"
 
 #: themes/ductile/src/Config.php:85
 msgid "Trebuchet MS"
-msgstr ""
+msgstr "Trebuchet MS"
 
 #: themes/ductile/src/Config.php:86
 msgid "Impact"
-msgstr ""
+msgstr "Efiko"
 
 #: themes/ductile/src/Config.php:87
 msgid "Monospace"
-msgstr ""
+msgstr "Monospaco"
 
 #: themes/ductile/src/Config.php:91
 msgid "none"
-msgstr ""
+msgstr "neniu"
 
 #: themes/ductile/src/Config.php:92
 msgid "javascript (Adobe)"
-msgstr ""
+msgstr "Javaskripto (Adobo)"
 
 #: themes/ductile/src/Config.php:93
 msgid "stylesheet (Google)"
-msgstr ""
+msgstr "stilfolio (Google)"
 
 #: themes/ductile/src/Config.php:340
 msgid "Theme configuration upgraded."
-msgstr ""
+msgstr "Temo-agordo ĝisdatigita."
 
 #: themes/ductile/src/Config.php:361
 msgid "Font family"
-msgstr ""
+msgstr "Tipara familio"
 
 #: themes/ductile/src/Config.php:377
 msgid "Header"
-msgstr ""
+msgstr "Kapo"
 
 #: themes/ductile/src/Config.php:378
 msgid "Hide blog description:"
-msgstr ""
+msgstr "Kaŝi blogan priskribon:"
 
 #: themes/ductile/src/Config.php:381
 msgid "Logo URL:"
-msgstr ""
+msgstr "Logo URL:"
 
 #: themes/ductile/src/Config.php:388
 #, php-format
 msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
-msgstr ""
+msgstr "Por agordi la supran menuon iru al la <a href=\"%s\">Administra paĝo de Simpla Menuo</a>."
 
 #: themes/ductile/src/Config.php:395
 msgid "Stickers"
-msgstr ""
+msgstr "Glumarkoj"
 
 #: themes/ductile/src/Config.php:397
 msgid "Stickers (footer)"
-msgstr ""
+msgstr "Glumarkoj (piedpiedo)"
 
 #: themes/ductile/src/Config.php:401
 msgid "Image"
-msgstr ""
+msgstr "Bildo"
 
 #: themes/ductile/src/Config.php:429
 msgid "Entries list types and limits"
-msgstr ""
+msgstr "Enskriboj listigas tipojn kaj limojn"
 
 #: themes/ductile/src/Config.php:430
 msgid "Entries lists"
-msgstr ""
+msgstr "Enskribo-listoj"
 
 #: themes/ductile/src/Config.php:433
 msgid "Context"
-msgstr ""
+msgstr "Kunteksto"
 
 #: themes/ductile/src/Config.php:434
 msgid "Entries list type"
-msgstr ""
+msgstr "Tipo de listo de enskriboj"
 
 #: themes/ductile/src/Config.php:465
 msgid "Miscellaneous options"
-msgstr ""
+msgstr "Diversaj opcioj"
 
 #: themes/ductile/src/Config.php:466
 msgid "Comment preview is not mandatory:"
-msgstr ""
+msgstr "Antaŭrigardo de komentoj ne estas deviga:"
 
 #: themes/ductile/src/Config.php:479
 msgid "Presentation"
-msgstr ""
+msgstr "Prezento"
 
 #: themes/ductile/src/Config.php:483
 msgid "General settings"
-msgstr ""
+msgstr "Ĝeneralaj Agordoj"
 
 #: themes/ductile/src/Config.php:485
 msgid "Fonts"
-msgstr ""
+msgstr "Tiparoj"
 
 #: themes/ductile/src/Config.php:489
 msgid "Main text"
-msgstr ""
+msgstr "Ĉefa teksto"
 
 #: themes/ductile/src/Config.php:490
 msgid "Main font:"
-msgstr ""
+msgstr "Ĉefa tiparo:"
 
 #: themes/ductile/src/Config.php:494 themes/ductile/src/Config.php:511
 msgid "Set to Default to use a webfont."
-msgstr ""
+msgstr "Agordu al Defaŭlta por uzi rettiparo."
 
 #: themes/ductile/src/Config.php:495 themes/ductile/src/Config.php:512
 msgid "Webfont family:"
-msgstr ""
+msgstr "Rettiparo-familio:"
 
 #: themes/ductile/src/Config.php:497 themes/ductile/src/Config.php:514
 msgid "Webfont URL:"
-msgstr ""
+msgstr "Rettiparo URL:"
 
 #: themes/ductile/src/Config.php:499 themes/ductile/src/Config.php:516
 msgid "Webfont API:"
-msgstr ""
+msgstr "Webfont API:"
 
 #: themes/ductile/src/Config.php:506
 msgid "Secondary text"
-msgstr ""
+msgstr "Sekundara teksto"
 
 #: themes/ductile/src/Config.php:507
 msgid "Secondary font:"
-msgstr ""
+msgstr "Malĉefa tiparo:"
 
 #: themes/ductile/src/Config.php:522
 msgid "Titles"
-msgstr ""
+msgstr "Titoloj"
 
 #: themes/ductile/src/Config.php:526 themes/ductile/src/Config.php:605
 msgid "Blog title"
-msgstr ""
+msgstr "Titolo de la blogo"
 
 #: themes/ductile/src/Config.php:527 themes/ductile/src/Config.php:547
 #: themes/ductile/src/Config.php:578 themes/ductile/src/Config.php:606
 #: themes/ductile/src/Config.php:625
 msgid "In bold:"
-msgstr ""
+msgstr "Grade:"
 
 #: themes/ductile/src/Config.php:530 themes/ductile/src/Config.php:550
 #: themes/ductile/src/Config.php:609 themes/ductile/src/Config.php:628
 msgid "Font size (in em by default):"
-msgstr ""
+msgstr "Tipara grandeco (en em defaŭlte):"
 
 #: themes/ductile/src/Config.php:533 themes/ductile/src/Config.php:553
 #: themes/ductile/src/Config.php:567 themes/ductile/src/Config.php:612
 #: themes/ductile/src/Config.php:631
 msgid "Color:"
-msgstr ""
+msgstr "Koloro:"
 
 #: themes/ductile/src/Config.php:546 themes/ductile/src/Config.php:624
 msgid "Post title"
-msgstr ""
+msgstr "Afiŝu titolon"
 
 #: themes/ductile/src/Config.php:566
 msgid "Titles without link"
-msgstr ""
+msgstr "Titoloj sen ligilo"
 
 #: themes/ductile/src/Config.php:577
 msgid "Inside posts links"
-msgstr ""
+msgstr "Ene de afiŝoj ligiloj"
 
 #: themes/ductile/src/Config.php:581
 msgid "Normal and visited links color:"
-msgstr ""
+msgstr "Koloro de normalaj kaj vizititaj ligiloj:"
 
 #: themes/ductile/src/Config.php:591
 msgid "Active, hover and focus links color:"
-msgstr ""
+msgstr "Koloro de aktiva, ŝveba kaj fokusa ligiloj:"
 
 #: themes/ductile/src/Config.php:601
 msgid "Mobile specific settings"
-msgstr ""
+msgstr "Poŝtelefonaj specifaj agordoj"
 

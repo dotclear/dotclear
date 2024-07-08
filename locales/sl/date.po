@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2024-07-05 10:40\n"
+"PO-Revision-Date: 2024-07-08 13:01\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "MIME-Version: 1.0\n"
@@ -18,119 +18,119 @@ msgstr ""
 "Language: sl_SI\n"
 
 msgid "%Y-%m-%d %H:%M"
-msgstr ""
+msgstr "%Y-%m-%d %H:%M"
 
 msgid "_Jan"
-msgstr ""
+msgstr "_jan"
 
 msgid "_Feb"
-msgstr ""
+msgstr "_feb"
 
 msgid "_Mar"
-msgstr ""
+msgstr "_mar"
 
 msgid "_Apr"
-msgstr ""
+msgstr "_apr"
 
 msgid "_May"
-msgstr ""
+msgstr "_maj"
 
 msgid "_Jun"
-msgstr ""
+msgstr "_Jun"
 
 msgid "_Jul"
-msgstr ""
+msgstr "_jul"
 
 msgid "_Aug"
-msgstr ""
+msgstr "_avg"
 
 msgid "_Sep"
-msgstr ""
+msgstr "_ sep"
 
 msgid "_Oct"
-msgstr ""
+msgstr "_okt"
 
 msgid "_Nov"
-msgstr ""
+msgstr "_ nov"
 
 msgid "_Dec"
-msgstr ""
+msgstr "_dec"
 
 msgid "January"
-msgstr ""
+msgstr "januarja"
 
 msgid "February"
-msgstr ""
+msgstr "februar"
 
 msgid "March"
-msgstr ""
+msgstr "marec"
 
 msgid "April"
-msgstr ""
+msgstr "aprila"
 
 msgid "May"
-msgstr ""
+msgstr "maja"
 
 msgid "June"
-msgstr ""
+msgstr "junija"
 
 msgid "July"
-msgstr ""
+msgstr "julija"
 
 msgid "August"
-msgstr ""
+msgstr "avgusta"
 
 msgid "September"
-msgstr ""
+msgstr "septembra"
 
 msgid "October"
-msgstr ""
+msgstr "oktobra"
 
 msgid "November"
-msgstr ""
+msgstr "novembra"
 
 msgid "December"
-msgstr ""
+msgstr "decembra"
 
 msgid "_Mon"
-msgstr ""
+msgstr "_pon"
 
 msgid "_Tue"
-msgstr ""
+msgstr "_tor"
 
 msgid "_Wed"
-msgstr ""
+msgstr "_sre"
 
 msgid "_Thu"
-msgstr ""
+msgstr "_čet"
 
 msgid "_Fri"
-msgstr ""
+msgstr "_pet"
 
 msgid "_Sat"
-msgstr ""
+msgstr "_sob"
 
 msgid "_Sun"
-msgstr ""
+msgstr "_Sonce"
 
 msgid "Monday"
-msgstr ""
+msgstr "ponedeljek"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "torek"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "sreda"
 
 msgid "Thursday"
-msgstr ""
+msgstr "četrtek"
 
 msgid "Friday"
-msgstr ""
+msgstr "Petek"
 
 msgid "Saturday"
-msgstr ""
+msgstr "sobota"
 
 msgid "Sunday"
-msgstr ""
+msgstr "nedelja"
 

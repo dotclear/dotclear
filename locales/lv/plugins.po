@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-02 12:26+0200\n"
-"PO-Revision-Date: 2024-07-05 10:41\n"
+"PO-Revision-Date: 2024-07-08 13:01\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -19,647 +19,647 @@ msgstr ""
 
 #: plugins/Uninstaller/src/Backend.php:46
 msgid "Uninstall"
-msgstr ""
+msgstr "Atinstalēt"
 
 #: plugins/Uninstaller/src/Backend.php:104
 msgid "Plugin has been successfully uninstalled."
-msgstr ""
+msgstr "Spraudnis ir veiksmīgi atinstalēts."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:37
 msgid "Folders from cache directory"
-msgstr ""
+msgstr "Mapes no kešatmiņas direktorija"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:42
 msgid "delete selected cache directories"
-msgstr ""
+msgstr "dzēst atlasītos kešatmiņas direktorijus"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:43
 #, php-format
 msgid "delete \"%s\" cache directory"
-msgstr ""
+msgstr "dzēst \"%s\" kešatmiņas direktoriju"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted"
-msgstr ""
+msgstr "\"%s\" kešatmiņas direktorijs ir izdzēsts"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
-msgstr ""
+msgstr "Neizdevās izdzēst kešatmiņas direktoriju \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:51
 msgid "empty selected cache directories"
-msgstr ""
+msgstr "iztukšojiet atlasītos kešatmiņas direktorijus"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:52
 #, php-format
 msgid "empty \"%s\" cache directory"
-msgstr ""
+msgstr "tukšs \"%s\" kešatmiņas direktorijs"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied"
-msgstr ""
+msgstr "\"%s\" kešatmiņas direktorijs ir iztukšots"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
-msgstr ""
+msgstr "Neizdevās iztukšot \"%s\" kešatmiņas direktoriju"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:37
 msgid "Logs"
-msgstr ""
+msgstr "Baļķi"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:38
 msgid "Logs in Dotclear logs table"
-msgstr ""
+msgstr "Reģistrējas Dotclear žurnālu tabulā"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:43
 msgid "delete selected logs tables"
-msgstr ""
+msgstr "dzēst atlasītās žurnālu tabulas"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:44
 #, php-format
 msgid "delete \"%s\" logs table"
-msgstr ""
+msgstr "dzēst žurnālu tabulu \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "\"%s\" logs table deleted"
-msgstr ""
+msgstr "\"%s\" žurnālu tabula ir izdzēsta"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
 msgid "Failed to delete \"%s\" logs table"
-msgstr ""
+msgstr "Neizdevās izdzēst žurnālu tabulu \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:36
 msgid "Folders from plugins directories"
-msgstr ""
+msgstr "Mapes no spraudņu direktorijiem"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:41
 msgid "delete selected plugins files and directories"
-msgstr ""
+msgstr "dzēst atlasītos spraudņu failus un direktorijus"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:42
 #, php-format
 msgid "delete \"%s\" plugin files and directories"
-msgstr ""
+msgstr "dzēst \"%s\" spraudņa failus un direktorijus"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "\"%s\" plugin files and directories deleted"
-msgstr ""
+msgstr "\"%s\" spraudņa faili un direktoriji ir izdzēsti"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
 msgid "Failed to delete \"%s\" plugin files and directories"
-msgstr ""
+msgstr "Neizdevās izdzēst spraudņa \"%s\" failus un direktorijus"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:37
 msgid "Preferences"
-msgstr ""
+msgstr "Preferences"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:38
 msgid "Users preferences workspaces"
-msgstr ""
+msgstr "Lietotāju preferenču darbvietas"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:43
 msgid "delete selected global preferences workspaces"
-msgstr ""
+msgstr "dzēst atlasītās globālo preferenču darbvietas"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:44
 #, php-format
 msgid "delete \"%s\" global preferences workspace"
-msgstr ""
+msgstr "dzēst globālo preferenču darbvietu \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "\"%s\" global preferences workspace deleted"
-msgstr ""
+msgstr "\"%s\" globālo preferenču darbvieta ir dzēsta"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global preferences workspace"
-msgstr ""
+msgstr "Neizdevās izdzēst globālo preferenču darbvietu \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:52
 msgid "delete selected users preferences workspaces"
-msgstr ""
+msgstr "dzēst atlasītās lietotāju preferenču darbvietas"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:53
 #, php-format
 msgid "delete \"%s\" users preferences workspace"
-msgstr ""
+msgstr "dzēst \"%s\" lietotāju preferenču darbvietu"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
 msgid "\"%s\" users preferences workspace deleted"
-msgstr ""
+msgstr "\"%s\" lietotāju preferenču darbvieta ir izdzēsta"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
 msgid "Failed to delete \"%s\" users preferences workspace"
-msgstr ""
+msgstr "Neizdevās izdzēst \"%s\" lietotāju preferenču darbvietu"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:61
 msgid "delete selected preferences workspaces"
-msgstr ""
+msgstr "dzēst atlasītās preferenču darbvietas"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:62
 #, php-format
 msgid "delete \"%s\" preferences workspace"
-msgstr ""
+msgstr "dzēst \"%s\" preferenču darbvietu"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
 msgid "\"%s\" preferences workspace deleted"
-msgstr ""
+msgstr "\"%s\" preferenču darbvieta ir izdzēsta"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
 msgid "Failed to delete \"%s\" preferences workspace"
-msgstr ""
+msgstr "Neizdevās izdzēst \"%s\" preferenču darbvietu"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:70
 msgid "delete related preferences"
-msgstr ""
+msgstr "dzēst saistītās preferences"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:71
 msgid "related preferences deleted"
-msgstr ""
+msgstr "saistītās preferences ir izdzēstas"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:72
 msgid "Failed to delete related preferences"
-msgstr ""
+msgstr "Neizdevās izdzēst saistītās preferences"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:37
 msgid "Settings"
-msgstr ""
+msgstr "Iestatījumi"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:38
 msgid "Namespaces registered in dcSettings"
-msgstr ""
+msgstr "Nosaukumvietas, kas reģistrētas dcSettings"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:43
 msgid "delete selected global settings namespaces"
-msgstr ""
+msgstr "dzēst atlasītās globālo iestatījumu nosaukumvietas"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:44
 #, php-format
 msgid "delete \"%s\" global settings namespace"
-msgstr ""
+msgstr "dzēst \"%s\" globālo iestatījumu nosaukumvietu"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "\"%s\" global settings namespace deleted"
-msgstr ""
+msgstr "\"%s\" globālo iestatījumu nosaukumvieta ir dzēsta"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global settings namespace"
-msgstr ""
+msgstr "Neizdevās izdzēst “%s” globālo iestatījumu nosaukumvietu"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:52
 msgid "delete selected blog settings namespaces"
-msgstr ""
+msgstr "dzēst atlasītās emuāra iestatījumu nosaukumvietas"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:53
 #, php-format
 msgid "delete \"%s\" blog settings namespace"
-msgstr ""
+msgstr "dzēst \"%s\" emuāra iestatījumu nosaukumvietu"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
 msgid "\"%s\" blog settings namespace deleted"
-msgstr ""
+msgstr "\"%s\" emuāra iestatījumu nosaukumvieta ir izdzēsta"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
 msgid "Failed to delete \"%s\" blog settings namespace"
-msgstr ""
+msgstr "Neizdevās izdzēst \"%s\" emuāra iestatījumu nosaukumvietu"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:61
 msgid "delete selected settings namespaces"
-msgstr ""
+msgstr "dzēst atlasīto iestatījumu nosaukumvietas"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:62
 #, php-format
 msgid "delete \"%s\" settings namespace"
-msgstr ""
+msgstr "dzēst \"%s\" iestatījumu nosaukumvietu"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
 msgid "\"%s\" settings namespace deleted"
-msgstr ""
+msgstr "\"%s\" iestatījumu nosaukumvieta ir izdzēsta"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
 msgid "Failed to delete \"%s\" settings namespace"
-msgstr ""
+msgstr "Neizdevās izdzēst \"%s\" iestatījumu nosaukumvietu"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:70
 msgid "delete related settings"
-msgstr ""
+msgstr "dzēst saistītos iestatījumus"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:71
 msgid "related settings deleted"
-msgstr ""
+msgstr "saistītie iestatījumi ir izdzēsti"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:72
 msgid "Failed to delete related settings"
-msgstr ""
+msgstr "Neizdevās izdzēst saistītos iestatījumus"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
-msgstr ""
+msgstr "Tabulas"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:39
 msgid "All database tables of Dotclear"
-msgstr ""
+msgstr "Visas Dotclear datu bāzes tabulas"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:44
 msgid "delete selected tables"
-msgstr ""
+msgstr "dzēst atlasītās tabulas"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
 msgid "delete \"%s\" table"
-msgstr ""
+msgstr "dzēst tabulu \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "\"%s\" table deleted"
-msgstr ""
+msgstr "Tabula \"%s\" ir izdzēsta"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 #, php-format
 msgid "Failed to delete \"%s\" table"
-msgstr ""
+msgstr "Neizdevās izdzēst tabulu \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:53
 msgid "empty selected tables"
-msgstr ""
+msgstr "tukšas atlasītās tabulas"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
 msgid "empty \"%s\" table"
-msgstr ""
+msgstr "tukša tabula \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "\"%s\" table emptied"
-msgstr ""
+msgstr "\"%s\" tabula ir iztukšota"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 #, php-format
 msgid "Failed to empty \"%s\" table"
-msgstr ""
+msgstr "Neizdevās iztukšot tabulu \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:35
 msgid "Themes"
-msgstr ""
+msgstr "Tēmas"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:36
 msgid "Folders from blog themes directory"
-msgstr ""
+msgstr "Mapes no emuāra tēmu direktorijas"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:41
 msgid "delete selected themes files and directories"
-msgstr ""
+msgstr "dzēst atlasītos motīvu failus un direktorijus"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:42
 #, php-format
 msgid "delete \"%s\" theme files and directories"
-msgstr ""
+msgstr "dzēst \"%s\" motīvu failus un direktorijus"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "\"%s\" theme files and directories deleted"
-msgstr ""
+msgstr "\"%s\" motīvu faili un direktoriji ir izdzēsti"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
 msgid "Failed to delete \"%s\" theme files and directories"
-msgstr ""
+msgstr "Neizdevās izdzēst \"%s\" motīvu failus un direktorijus"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:36
 msgid "Var"
-msgstr ""
+msgstr "Var"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:37
 msgid "Folders from Dotclear VAR directory"
-msgstr ""
+msgstr "Mapes no Dotclear VAR direktorijas"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:42
 msgid "delete selected var directories"
-msgstr ""
+msgstr "dzēst atlasītos var direktorijus"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:43
 #, php-format
 msgid "delete \"%s\" var directory"
-msgstr ""
+msgstr "dzēst \"%s\" var direktoriju"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "\"%s\" var directory deleted"
-msgstr ""
+msgstr "\"%s\" var dzēsts direktorijs"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
 msgid "Failed to delete \"%s\" var directory"
-msgstr ""
+msgstr "Neizdevās izdzēst \"%s\" var direktoriju"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:35
 msgid "Versions"
-msgstr ""
+msgstr "Versijas"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:36
 msgid "Versions registered in table \"version\" of Dotclear"
-msgstr ""
+msgstr "Versijas, kas reģistrētas Dotclear tabulā \"versija\"."
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:41
 msgid "delete selected versions numbers"
-msgstr ""
+msgstr "dzēst atlasīto versiju numurus"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:42
 #, php-format
 msgid "delete \"%s\" version number"
-msgstr ""
+msgstr "dzēst \"%s\" versijas numuru"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "\"%s\" version number deleted"
-msgstr ""
+msgstr "\"%s\" versijas numurs ir izdzēsts"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
 msgid "Failed to delete \"%s\" version number"
-msgstr ""
+msgstr "Neizdevās izdzēst \"%s\" versijas numuru"
 
 #: plugins/Uninstaller/src/CleanersStack.php:120
 #, php-format
 msgid "Unknown cleaner \"%s\""
-msgstr ""
+msgstr "Nezināms tīrīšanas līdzeklis \"%s\""
 
 #: plugins/Uninstaller/src/CleanersStack.php:123
 msgid "Unsintaller can't remove itself"
-msgstr ""
+msgstr "Atinstalētājs nevar noņemt sevi"
 
 #: plugins/Uninstaller/src/Manage.php:61
 msgid "Unknown module id to uninstall"
-msgstr ""
+msgstr "Nezināms atinstalējamā moduļa ID"
 
 #: plugins/Uninstaller/src/Manage.php:69
 msgid "There are no uninstall actions for this module"
-msgstr ""
+msgstr "Šim modulim nav atinstalēšanas darbību"
 
 #: plugins/Uninstaller/src/Manage.php:94
 msgid "Uninstall action successfuly excecuted"
-msgstr ""
+msgstr "Atinstalēšanas darbība ir veiksmīgi izpildīta"
 
 #: plugins/Uninstaller/src/Manage.php:97
 msgid "No uninstall action done"
-msgstr ""
+msgstr "Nav veikta neviena atinstalēšanas darbība"
 
 #: plugins/Uninstaller/src/Manage.php:143
 msgid "Perform selected actions"
-msgstr ""
+msgstr "Veiciet izvēlētās darbības"
 
 #: plugins/Uninstaller/src/Manage.php:158
 msgid "Are you sure you perform these ations?"
-msgstr ""
+msgstr "Vai esat pārliecināts, ka veicat šīs darbības?"
 
 #: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "Uninstall plugin \"%s\""
-msgstr ""
+msgstr "Atinstalēt spraudni \"%s\""
 
 #: plugins/Uninstaller/src/Manage.php:174
 #, php-format
 msgid "Uninstall theme \"%s\""
-msgstr ""
+msgstr "Atinstalējiet motīvu \"%s\""
 
 #: plugins/Uninstaller/src/Manage.php:175
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
-msgstr ""
+msgstr "Modulis \"%s %s\" piedāvā uzlabotu atinstalēšanas procesu:"
 
 #: plugins/_fake_plugin/_fake_l10n.php:6
 msgid "Cope with old core classes (< 2.26)"
-msgstr ""
+msgstr "Tikt galā ar vecām pamatklasēm (< 2,26)"
 
 #: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:28
 msgid "Generic antispam plugin for Dotclear"
-msgstr ""
+msgstr "Vispārējs pretspam spraudnis Dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:25
 msgid "Akismet interface for Dotclear"
-msgstr ""
+msgstr "Akismet interfeiss Dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:9
 #: plugins/fairTrackbacks/src/Prepend.php:25
 msgid "Trackback validity check"
-msgstr ""
+msgstr "Trackback derīguma pārbaude"
 
 #: plugins/_fake_plugin/_fake_l10n.php:10
 #: plugins/attachments/src/Backend.php:24
 msgid "Manage post attachments"
-msgstr ""
+msgstr "Pārvaldīt ziņu pielikumus"
 
 #: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:27
 msgid "Serve entries as simple web pages"
-msgstr ""
+msgstr "Pasniedziet ierakstus kā vienkāršas tīmekļa lapas"
 
 #: plugins/_fake_plugin/_fake_l10n.php:12
 #: plugins/aboutConfig/src/Backend.php:24
 msgid "Manage every blog configuration directive"
-msgstr ""
+msgstr "Pārvaldiet katru emuāra konfigurācijas direktīvu"
 
 #: plugins/_fake_plugin/_fake_l10n.php:13
 msgid "Uninstall cleanly plugins and themes"
-msgstr ""
+msgstr "Tīri atinstalējiet spraudņus un motīvus"
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
 #: plugins/dcLegacyEditor/src/Backend.php:24
 msgid "dotclear legacy editor"
-msgstr ""
+msgstr "dotclear mantotais redaktors"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
 #: plugins/themeEditor/src/Backend.php:24
 msgid "Theme Editor"
-msgstr ""
+msgstr "Tēmas redaktors"
 
 #: plugins/_fake_plugin/_fake_l10n.php:16 plugins/simpleMenu/src/Backend.php:25
 msgid "Simple menu for Dotclear"
-msgstr ""
+msgstr "Vienkārša Dotclear izvēlne"
 
 #: plugins/_fake_plugin/_fake_l10n.php:17
 #: plugins/importExport/src/Backend.php:26
 msgid "Import and Export your blog"
-msgstr ""
+msgstr "Importējiet un eksportējiet savu emuāru"
 
 #: plugins/_fake_plugin/_fake_l10n.php:18 plugins/userPref/src/Backend.php:24
 msgid "Manage every user preference directive"
-msgstr ""
+msgstr "Pārvaldiet katru lietotāja preferenču direktīvu"
 
 #: plugins/_fake_plugin/_fake_l10n.php:19 plugins/dcCKEditor/src/Backend.php:24
 msgid "dotclear CKEditor integration"
-msgstr ""
+msgstr "dotclear CKEditor integrācija"
 
 #: plugins/_fake_plugin/_fake_l10n.php:20
 #: plugins/maintenance/src/Backend.php:24
 msgid "Maintain your installation"
-msgstr ""
+msgstr "Uzturiet savu instalāciju"
 
 #: plugins/_fake_plugin/_fake_l10n.php:21 plugins/breadcrumb/src/Backend.php:24
 msgid "Breadcrumb for Dotclear"
-msgstr ""
+msgstr "Dotclear rīkkopa"
 
 #: plugins/_fake_plugin/_fake_l10n.php:22 plugins/blogroll/src/Backend.php:25
 msgid "Manage your blogroll"
-msgstr ""
+msgstr "Pārvaldiet savu emuāru sarakstu"
 
 #: plugins/_fake_plugin/_fake_l10n.php:23 plugins/pings/src/Backend.php:26
 msgid "Ping services"
-msgstr ""
+msgstr "Ping pakalpojumi"
 
 #: plugins/_fake_plugin/_fake_l10n.php:24 plugins/tags/src/Backend.php:24
 msgid "Tags for posts"
-msgstr ""
+msgstr "Atzīmes ziņām"
 
 #: plugins/_fake_plugin/_fake_l10n.php:25 plugins/widgets/src/Backend.php:26
 msgid "Widgets for your blog sidebars"
-msgstr ""
+msgstr "Logrīki jūsu emuāra sānjoslām"
 
 #: plugins/_fake_plugin/_fake_l10n.php:26
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
-msgstr ""
+msgstr "Darbojas ar funkcijas/metodes nospiedumu V1 (< 2,24, 2,25)"
 
 #: plugins/_fake_plugin/_fake_l10n.php:30
 msgid "Search engine form"
-msgstr ""
+msgstr "Meklētājprogrammas forma"
 
 #: plugins/_fake_plugin/_fake_l10n.php:31
 msgid "List of navigation links"
-msgstr ""
+msgstr "Navigācijas saišu saraksts"
 
 #: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of selected entries"
-msgstr ""
+msgstr "Atlasīto ierakstu saraksts"
 
 #: plugins/_fake_plugin/_fake_l10n.php:33
 msgid "List of available languages"
-msgstr ""
+msgstr "Pieejamo valodu saraksts"
 
 #: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:122
 msgid "List of categories"
-msgstr ""
+msgstr "Kategoriju saraksts"
 
 #: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "Feed subscription links (RSS or Atom)"
-msgstr ""
+msgstr "Plūsmas abonēšanas saites (RSS vai Atom)"
 
 #: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "List of last entries from feed (RSS or Atom)"
-msgstr ""
+msgstr "Pēdējo ierakstu saraksts no plūsmas (RSS vai Atom)"
 
 #: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "Simple text"
-msgstr ""
+msgstr "Vienkāršs teksts"
 
 #: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "List of last entries published"
-msgstr ""
+msgstr "Pēdējo publicēto ierakstu saraksts"
 
 #: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of last comments published"
-msgstr ""
+msgstr "Pēdējo publicēto komentāru saraksts"
 
 #: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of published pages"
-msgstr ""
+msgstr "Publicēto lapu saraksts"
 
 #: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "List of simple menu items"
-msgstr ""
+msgstr "Vienkāršu izvēlnes vienumu saraksts"
 
 #: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "Blogroll list"
-msgstr ""
+msgstr "Blogroll saraksts"
 
 #: plugins/_fake_plugin/_fake_l10n.php:43
 msgid "Tags cloud"
-msgstr ""
+msgstr "Atzīmju mākonis"
 
 #: plugins/aboutConfig/src/Backend.php:24
 msgid "about:config"
-msgstr ""
+msgstr "about:config"
 
 #: plugins/aboutConfig/src/Manage.php:91 plugins/aboutConfig/src/Manage.php:111
 msgid "Configuration successfully updated"
-msgstr ""
+msgstr "Konfigurācija ir veiksmīgi atjaunināta"
 
 #: plugins/aboutConfig/src/Manage.php:151
 #: plugins/aboutConfig/src/Manage.php:153
 #, php-format
 msgid "Settings for %s"
-msgstr ""
+msgstr "Iestatījumi %s"
 
 #: plugins/aboutConfig/src/Manage.php:161
 #: plugins/aboutConfig/src/Manage.php:163
 msgid "Global settings"
-msgstr ""
+msgstr "Globālie iestatījumi"
 
 #: plugins/aboutConfig/src/Manage.php:229 plugins/userPref/src/Manage.php:227
 msgid "Goto:"
-msgstr ""
+msgstr "Iet uz:"
 
 #: plugins/aboutConfig/src/Manage.php:257 plugins/userPref/src/Manage.php:255
 msgid "Setting ID"
-msgstr ""
+msgstr "Iestatīšanas ID"
 
 #: plugins/aboutConfig/src/Manage.php:258 plugins/userPref/src/Manage.php:256
 msgid "Value"
-msgstr ""
+msgstr "Vērtība"
 
 #: plugins/aboutConfig/src/Manage.php:307 plugins/userPref/src/Manage.php:305
 msgid "no"
-msgstr ""
+msgstr "Nē"
 
 #: plugins/aboutConfig/src/Manage.php:307 plugins/userPref/src/Manage.php:305
 msgid "yes"
-msgstr ""
+msgstr "Jā"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:88
 msgid "Akismet spam filter"
-msgstr ""
+msgstr "Akismet surogātpasta filtrs"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:101
 #, php-format
 msgid "Filtered by %s."
-msgstr ""
+msgstr "Filtrēts pēc %s."
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:219
 msgid "Filter configuration have been successfully saved."
-msgstr ""
+msgstr "Filtra konfigurācija ir veiksmīgi saglabāta."
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:241
 msgid "API key verified"
-msgstr ""
+msgstr "API atslēga ir pārbaudīta"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:244
 msgid "API key not verified"
-msgstr ""
+msgstr "API atslēga nav pārbaudīta"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:262
 msgid "Akismet API key"
-msgstr ""
+msgstr "Akismet API atslēga"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:265
 msgid "Akismet API key:"
-msgstr ""
+msgstr "Akismet API atslēga:"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:269
 #: plugins/blogroll/src/Manage.php:419 plugins/blogroll/src/Manage.php:431
@@ -674,430 +674,430 @@ msgstr ""
 #: plugins/importExport/src/ModuleImportFlat.php:298
 #: plugins/pages/src/ManagePage.php:712
 msgid "Required field"
-msgstr ""
+msgstr "Obligāts lauks"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:275
 msgid "Get your own API key"
-msgstr ""
+msgstr "Iegūstiet savu API atslēgu"
 
 #: plugins/akismet/src/Prepend.php:25
 msgid "Akismet"
-msgstr ""
+msgstr "Akismet"
 
 #: plugins/antispam/src/Antispam.php:145
 msgid "This comment is a spam:"
-msgstr ""
+msgstr "Šis komentārs ir surogātpasts:"
 
 #: plugins/antispam/src/Antispam.php:162 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
-msgstr ""
+msgstr "(ieskaitot %d surogātpasta komentāru)"
 
 #: plugins/antispam/src/Antispam.php:162 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
-msgstr ""
+msgstr "(tostarp %d surogātpasta komentāri)"
 
 #: plugins/antispam/src/Backend.php:28
 msgid "Antispam"
-msgstr ""
+msgstr "Antispam"
 
 #: plugins/antispam/src/BackendBehaviors.php:56
 #: plugins/antispam/src/Manage.php:222
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr ""
+msgstr "Visi nevēlamie komentāri, kas vecāki par %s dienu(-ām), tiks automātiski izdzēsti."
 
 #: plugins/antispam/src/BackendBehaviors.php:59
 #, php-format
 msgid "You can modify this duration in the %s."
-msgstr ""
+msgstr "Šo ilgumu varat mainīt sadaļā %s."
 
 #: plugins/antispam/src/BackendBehaviors.php:86
 msgid "Delete junk comments older than"
-msgstr ""
+msgstr "Dzēst nevēlamos komentārus, kas vecāki par"
 
 #: plugins/antispam/src/BackendBehaviors.php:86
 msgid "days"
-msgstr ""
+msgstr "dienas"
 
 #: plugins/antispam/src/BackendBehaviors.php:90
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
-msgstr ""
+msgstr "Iestatiet -1, lai atspējotu šo funkciju; ieteicamā kavēšanās ir 7 dienas."
 
 #: plugins/antispam/src/BackendBehaviors.php:94
 msgid "Set spam filters."
-msgstr ""
+msgstr "Iestatiet surogātpasta filtrus."
 
 #: plugins/antispam/src/Filters/Ip.php:90
 msgid "IP Blocklist / Allowlist Filter"
-msgstr ""
+msgstr "IP bloķēšanas saraksts / atļauto sarakstu filtrs"
 
 #: plugins/antispam/src/Filters/Ip.php:103
 #: plugins/antispam/src/Filters/IpV6.php:103
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
-msgstr ""
+msgstr "Filtrēts pēc %1$s ar kārtulu %2$s."
 
 #: plugins/antispam/src/Filters/Ip.php:164
 #: plugins/antispam/src/Filters/IpV6.php:164
 msgid "IP address has been successfully added."
-msgstr ""
+msgstr "IP adrese ir veiksmīgi pievienota."
 
 #: plugins/antispam/src/Filters/Ip.php:175
 #: plugins/antispam/src/Filters/IpV6.php:175
 msgid "IP addresses have been successfully removed."
-msgstr ""
+msgstr "IP adreses ir veiksmīgi noņemtas."
 
 #: plugins/antispam/src/Filters/Ip.php:184
 #: plugins/antispam/src/Filters/IpV6.php:184
 msgid "Blocklist"
-msgstr ""
+msgstr "Bloķēšanas saraksts"
 
 #: plugins/antispam/src/Filters/Ip.php:185
 #: plugins/antispam/src/Filters/IpV6.php:185
 msgid "Allowlist"
-msgstr ""
+msgstr "Atļauju saraksts"
 
 #: plugins/antispam/src/Filters/Ip.php:202
 #: plugins/antispam/src/Filters/IpV6.php:202
 msgid "No IP address in list."
-msgstr ""
+msgstr "Sarakstā nav IP adreses."
 
 #: plugins/antispam/src/Filters/Ip.php:231
 #: plugins/antispam/src/Filters/IpV6.php:230
 msgid "Local IPs (used only for this blog)"
-msgstr ""
+msgstr "Vietējie IP (izmanto tikai šim emuāram)"
 
 #: plugins/antispam/src/Filters/Ip.php:239
 #: plugins/antispam/src/Filters/IpV6.php:238
 msgid "Global IPs (used for all blogs)"
-msgstr ""
+msgstr "Globālās IP (izmanto visiem emuāriem)"
 
 #: plugins/antispam/src/Filters/Ip.php:250
 #: plugins/antispam/src/Filters/IpV6.php:249
 msgid "IP list"
-msgstr ""
+msgstr "IP saraksts"
 
 #: plugins/antispam/src/Filters/Ip.php:266
 #: plugins/antispam/src/Filters/IpV6.php:265
 msgid "Global IP (used for all blogs)"
-msgstr ""
+msgstr "Globālais IP (izmanto visiem emuāriem)"
 
 #: plugins/antispam/src/Filters/Ip.php:283
 #: plugins/antispam/src/Filters/IpV6.php:282
 msgid "Add an IP address:"
-msgstr ""
+msgstr "Pievienojiet IP adresi:"
 
 #: plugins/antispam/src/Filters/Ip.php:287
 #: plugins/antispam/src/Filters/IpV6.php:286
 #: plugins/antispam/src/Filters/Words.php:304
 #: plugins/widgets/src/Manage.php:319
 msgid "Add"
-msgstr ""
+msgstr "Pievienot"
 
 #: plugins/antispam/src/Filters/IpLookup.php:84
 msgid "Checks sender IP address against DNSBL servers"
-msgstr ""
+msgstr "Pārbauda sūtītāja IP adresi pret DNSBL serveriem"
 
 #: plugins/antispam/src/Filters/IpLookup.php:97
 #: plugins/antispam/src/Filters/LinksLookup.php:73
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
-msgstr ""
+msgstr "Filtrēts pēc %1$s ar serveri %2$s."
 
 #: plugins/antispam/src/Filters/IpLookup.php:155
 msgid "The list of DNSBL servers has been succesfully updated."
-msgstr ""
+msgstr "DNSBL serveru saraksts ir veiksmīgi atjaunināts."
 
 #: plugins/antispam/src/Filters/IpLookup.php:168
 msgid "IP Lookup servers"
-msgstr ""
+msgstr "IP meklēšanas serveri"
 
 #: plugins/antispam/src/Filters/IpLookup.php:173
 msgid "Add here a coma separated list of servers."
-msgstr ""
+msgstr "Pievienojiet šeit ar komu atdalītu serveru sarakstu."
 
 #: plugins/antispam/src/Filters/IpV6.php:90
 msgid "IP v6 Blocklist / Allowlist Filter"
-msgstr ""
+msgstr "IP v6 bloķēto sarakstu / atļauto sarakstu filtrs"
 
 #: plugins/antispam/src/Filters/LinksLookup.php:60
 msgid "Checks links in comments against surbl.org"
-msgstr ""
+msgstr "Pārbauda saites komentāros pret surbl.org"
 
 #: plugins/antispam/src/Filters/Words.php:90
 msgid "Words Blocklist"
-msgstr ""
+msgstr "Vārdu bloķēšanas saraksts"
 
 #: plugins/antispam/src/Filters/Words.php:103
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
-msgstr ""
+msgstr "Filtrēts pēc %1$s ar vārdu %2$s."
 
 #: plugins/antispam/src/Filters/Words.php:160
 msgid "Words have been successfully added."
-msgstr ""
+msgstr "Vārdi ir veiksmīgi pievienoti."
 
 #: plugins/antispam/src/Filters/Words.php:173
 msgid "Word has been successfully added."
-msgstr ""
+msgstr "Word ir veiksmīgi pievienots."
 
 #: plugins/antispam/src/Filters/Words.php:184
 msgid "Words have been successfully removed."
-msgstr ""
+msgstr "Vārdi ir veiksmīgi noņemti."
 
 #: plugins/antispam/src/Filters/Words.php:208
 msgid "No word in list."
-msgstr ""
+msgstr "Sarakstā nav neviena vārda."
 
 #: plugins/antispam/src/Filters/Words.php:236
 msgid "Local words (used only for this blog)"
-msgstr ""
+msgstr "Vietējie vārdi (izmanto tikai šim emuāram)"
 
 #: plugins/antispam/src/Filters/Words.php:244
 msgid "Global words (used for all blogs)"
-msgstr ""
+msgstr "Globālie vārdi (izmanto visos emuāros)"
 
 #: plugins/antispam/src/Filters/Words.php:255
 msgid "List of bad words"
-msgstr ""
+msgstr "Slikto vārdu saraksts"
 
 #: plugins/antispam/src/Filters/Words.php:260
 msgid "Delete selected words"
-msgstr ""
+msgstr "Dzēst atlasītos vārdus"
 
 #: plugins/antispam/src/Filters/Words.php:270
 msgid "Global word (used for all blogs)"
-msgstr ""
+msgstr "Globālais vārds (izmanto visiem emuāriem)"
 
 #: plugins/antispam/src/Filters/Words.php:280
 msgid "Create default wordlist"
-msgstr ""
+msgstr "Izveidojiet noklusējuma vārdu sarakstu"
 
 #: plugins/antispam/src/Filters/Words.php:301
 msgid "Add a word:"
-msgstr ""
+msgstr "Pievienojiet vārdu:"
 
 #: plugins/antispam/src/Filters/Words.php:366
 msgid "This word exists"
-msgstr ""
+msgstr "Šis vārds pastāv"
 
 #: plugins/antispam/src/FrontendUrl.php:60
 msgid "Spam moderation"
-msgstr ""
+msgstr "Surogātpasta regulēšana"
 
 #: plugins/antispam/src/FrontendUrl.php:64
 msgid "Spam"
-msgstr ""
+msgstr "Spams"
 
 #: plugins/antispam/src/FrontendUrl.php:68
 msgid "Ham"
-msgstr ""
+msgstr "Šķiņķis"
 
 #: plugins/antispam/src/Manage.php:70
 msgid "Filter does not exist."
-msgstr ""
+msgstr "Filtrs neeksistē."
 
 #: plugins/antispam/src/Manage.php:74
 msgid "Filter has no user interface."
-msgstr ""
+msgstr "Filtram nav lietotāja interfeisa."
 
 #: plugins/antispam/src/Manage.php:135 plugins/antispam/src/Manage.php:268
 msgid "Filters configuration has been successfully saved."
-msgstr ""
+msgstr "Filtru konfigurācija ir veiksmīgi saglabāta."
 
 #: plugins/antispam/src/Manage.php:152
 #, php-format
 msgid "%s configuration"
-msgstr ""
+msgstr "%s konfigurācija"
 
 #: plugins/antispam/src/Manage.php:173
 #, php-format
 msgid "%s filter configuration"
-msgstr ""
+msgstr "%s filtra konfigurācija"
 
 #: plugins/antispam/src/Manage.php:180
 msgid "Back to filters list"
-msgstr ""
+msgstr "Atgriezties uz filtru sarakstu"
 
 #: plugins/antispam/src/Manage.php:227
 #, php-format
 msgid "You can modify this duration in the %s"
-msgstr ""
+msgstr "Šo ilgumu varat mainīt sadaļā %s"
 
 #: plugins/antispam/src/Manage.php:236
 msgid "Information"
-msgstr ""
+msgstr "Informācija"
 
 #: plugins/antispam/src/Manage.php:247
 msgid "Junk comments:"
-msgstr ""
+msgstr "Nevēlami komentāri:"
 
 #: plugins/antispam/src/Manage.php:253
 msgid "Published comments:"
-msgstr ""
+msgstr "Publicētie komentāri:"
 
 #: plugins/antispam/src/Manage.php:277 plugins/antispam/src/Manage.php:280
 #: plugins/antispam/src/Manage.php:284
 msgid "Filter configuration"
-msgstr ""
+msgstr "Filtra konfigurācija"
 
 #: plugins/antispam/src/Manage.php:300 plugins/blogroll/src/Manage.php:283
 msgid "position"
-msgstr ""
+msgstr "pozīciju"
 
 #: plugins/antispam/src/Manage.php:307 plugins/antispam/src/Manage.php:341
 msgid "Active"
-msgstr ""
+msgstr "Aktīvs"
 
 #: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:342
 msgid "Auto Del."
-msgstr ""
+msgstr "Auto Del."
 
 #: plugins/antispam/src/Manage.php:335
 msgid "Available spam filters"
-msgstr ""
+msgstr "Pieejamie surogātpasta filtri"
 
 #: plugins/antispam/src/Manage.php:340
 #: plugins/pages/src/BackendDefaultActions.php:78
 msgid "Order"
-msgstr ""
+msgstr "Pasūtiet"
 
 #: plugins/antispam/src/Manage.php:343
 msgid "Filter name"
-msgstr ""
+msgstr "Filtra nosaukums"
 
 #: plugins/antispam/src/Manage.php:370
 msgid "Syndication"
-msgstr ""
+msgstr "Sindikācija"
 
 #: plugins/antispam/src/Manage.php:373
 msgid "Junk comments RSS feed"
-msgstr ""
+msgstr "Nevēlamo komentāru RSS plūsma"
 
 #: plugins/antispam/src/Manage.php:376
 msgid "Published comments RSS feed"
-msgstr ""
+msgstr "Publicētie komentāri RSS plūsma"
 
 #: plugins/antispam/src/SpamFilter.php:108
 msgid "No description"
-msgstr ""
+msgstr "Nav apraksta"
 
 #: plugins/antispam/src/SpamFilter.php:167
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
-msgstr ""
+msgstr "Filtrēts pēc %1$s (%2$s)"
 
 #: plugins/antispam/src/SpamFilters.php:158
 msgid "Unknown filter."
-msgstr ""
+msgstr "Nezināms filtrs."
 
 #: plugins/attachments/src/Backend.php:24
 msgid "attachments"
-msgstr ""
+msgstr "pielikumus"
 
 #: plugins/attachments/src/BackendBehaviors.php:95
 msgid "remove"
-msgstr ""
+msgstr "noņemt"
 
 #: plugins/attachments/src/BackendBehaviors.php:105
 msgid "No attachment."
-msgstr ""
+msgstr "Nav pielikuma."
 
 #: plugins/attachments/src/BackendBehaviors.php:110
 #, php-format
 msgid "Attachments (%d)"
-msgstr ""
+msgstr "Pielikumi (%d)"
 
 #: plugins/attachments/src/BackendBehaviors.php:119
 msgid "Add files to this entry"
-msgstr ""
+msgstr "Pievienojiet šim ierakstam failus"
 
 #: plugins/attachments/src/BackendBehaviors.php:128
 msgid "You must save the entry before adding an attachment."
-msgstr ""
+msgstr "Pirms pielikuma pievienošanas ieraksts ir jāsaglabā."
 
 #: plugins/blogroll/src/Backend.php:25
 msgid "Blogroll"
-msgstr ""
+msgstr "Blogroll"
 
 #: plugins/blogroll/src/Backend.php:36
 msgid "manage blogroll"
-msgstr ""
+msgstr "pārvaldīt emuāru sarakstu"
 
 #: plugins/blogroll/src/Blogroll.php:164 plugins/blogroll/src/Blogroll.php:207
 msgid "You must provide a link title"
-msgstr ""
+msgstr "Jānorāda saites nosaukums"
 
 #: plugins/blogroll/src/Blogroll.php:168 plugins/blogroll/src/Blogroll.php:211
 msgid "You must provide a link URL"
-msgstr ""
+msgstr "Jums ir jānorāda saites URL"
 
 #: plugins/blogroll/src/Manage.php:105 plugins/blogroll/src/Manage.php:544
 msgid "Nothing to import"
-msgstr ""
+msgstr "Nav ko importēt"
 
 #: plugins/blogroll/src/Manage.php:128
 msgid "links have been successfully imported."
-msgstr ""
+msgstr "saites ir veiksmīgi importētas."
 
 #: plugins/blogroll/src/Manage.php:135
 msgid "Import operation cancelled."
-msgstr ""
+msgstr "Importēšanas darbība ir atcelta."
 
 #: plugins/blogroll/src/Manage.php:150
 msgid "Link has been successfully created."
-msgstr ""
+msgstr "Saite ir veiksmīgi izveidota."
 
 #: plugins/blogroll/src/Manage.php:165
 msgid "category has been successfully created."
-msgstr ""
+msgstr "kategorija ir veiksmīgi izveidota."
 
 #: plugins/blogroll/src/Manage.php:187
 msgid "Items have been successfully removed."
-msgstr ""
+msgstr "Vienumi ir veiksmīgi noņemti."
 
 #: plugins/blogroll/src/Manage.php:217
 msgid "Items order has been successfully updated"
-msgstr ""
+msgstr "Preču secība ir veiksmīgi atjaunināta"
 
 #: plugins/blogroll/src/Manage.php:257
 msgid "Are you sure you want to delete selected links?"
-msgstr ""
+msgstr "Vai tiešām vēlaties dzēst atlasītās saites?"
 
 #: plugins/blogroll/src/Manage.php:290
 msgid "select this link"
-msgstr ""
+msgstr "atlasiet šo saiti"
 
 #: plugins/blogroll/src/Manage.php:337
 msgid "Lang"
-msgstr ""
+msgstr "Lang"
 
 #: plugins/blogroll/src/Manage.php:362
 msgid "Delete selected links"
-msgstr ""
+msgstr "Dzēst atlasītās saites"
 
 #: plugins/blogroll/src/Manage.php:380
 msgid "The link list is empty"
-msgstr ""
+msgstr "Saišu saraksts ir tukšs"
 
 #: plugins/blogroll/src/Manage.php:403
 msgid "Add a new link"
-msgstr ""
+msgstr "Pievienojiet jaunu saiti"
 
 #: plugins/blogroll/src/Manage.php:467
 msgid "Add a category"
-msgstr ""
+msgstr "Pievienojiet kategoriju"
 
 #: plugins/blogroll/src/Manage.php:515 plugins/blogroll/src/Manage.php:607
 #: plugins/blogroll/src/Manage.php:614
 msgid "Import links"
-msgstr ""
+msgstr "Importēt saites"
 
 #: plugins/blogroll/src/Manage.php:524
 msgid "OPML or XBEL File:"
-msgstr ""
+msgstr "OPML vai XBEL fails:"
 
 #: plugins/blogroll/src/Manage.php:534 plugins/blogroll/src/Manage.php:599
 #: plugins/importExport/src/Manage.php:129
@@ -1105,178 +1105,178 @@ msgstr ""
 #: plugins/importExport/src/ModuleImportFlat.php:244
 #: plugins/importExport/src/ModuleImportFlat.php:306
 msgid "Import"
-msgstr ""
+msgstr "Importēt"
 
 #: plugins/blogroll/src/ManageEdit.php:65
 msgid "No such link or title"
-msgstr ""
+msgstr "Nav šādas saites vai virsraksta"
 
 #: plugins/blogroll/src/ManageEdit.php:122
 msgid "Link has been successfully updated"
-msgstr ""
+msgstr "Saite ir veiksmīgi atjaunināta"
 
 #: plugins/blogroll/src/ManageEdit.php:139
 msgid "Category has been successfully updated"
-msgstr ""
+msgstr "Kategorija ir veiksmīgi atjaunināta"
 
 #: plugins/blogroll/src/ManageEdit.php:167
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:145
 msgid "Link"
-msgstr ""
+msgstr "Saite"
 
 #: plugins/blogroll/src/ManageEdit.php:174
 msgid "Return to blogroll"
-msgstr ""
+msgstr "Atgriezties uz emuāru sarakstu"
 
 #: plugins/blogroll/src/ManageEdit.php:185
 msgid "Edit category"
-msgstr ""
+msgstr "Rediģēt kategoriju"
 
 #: plugins/blogroll/src/ManageEdit.php:223
 msgid "Edit link"
-msgstr ""
+msgstr "Rediģēt saiti"
 
 #: plugins/blogroll/src/ManageEdit.php:276
 msgid "XFN information"
-msgstr ""
+msgstr "XFN informācija"
 
 #: plugins/blogroll/src/ManageEdit.php:279
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
-msgstr ""
+msgstr "Vairāk informācijas <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> vietnē"
 
 #: plugins/blogroll/src/ManageEdit.php:283
 msgid "_xfn_Me"
-msgstr ""
+msgstr "_xfn_Me"
 
 #: plugins/blogroll/src/ManageEdit.php:287
 msgid "_xfn_Another link for myself"
-msgstr ""
+msgstr "_xfn_Vēl viena saite man"
 
 #: plugins/blogroll/src/ManageEdit.php:291
 msgid "_xfn_Friendship"
-msgstr ""
+msgstr "_xfn_Draudzība"
 
 #: plugins/blogroll/src/ManageEdit.php:295
 msgid "_xfn_Contact"
-msgstr ""
+msgstr "_xfn_Sazināties"
 
 #: plugins/blogroll/src/ManageEdit.php:298
 msgid "_xfn_Acquaintance"
-msgstr ""
+msgstr "_xfn_Ieziņa"
 
 #: plugins/blogroll/src/ManageEdit.php:301
 msgid "_xfn_Friend"
-msgstr ""
+msgstr "_xfn_Draugs"
 
 #: plugins/blogroll/src/ManageEdit.php:311
 msgid "_xfn_Physical"
-msgstr ""
+msgstr "_xfn_Fiziskā"
 
 #: plugins/blogroll/src/ManageEdit.php:315
 msgid "_xfn_Met"
-msgstr ""
+msgstr "_xfn_Met"
 
 #: plugins/blogroll/src/ManageEdit.php:319
 msgid "_xfn_Professional"
-msgstr ""
+msgstr "_xfn_Profesionāls"
 
 #: plugins/blogroll/src/ManageEdit.php:323
 msgid "_xfn_Co-worker"
-msgstr ""
+msgstr "_xfn_Darbabiedrs"
 
 #: plugins/blogroll/src/ManageEdit.php:326
 msgid "_xfn_Colleague"
-msgstr ""
+msgstr "_xfn_kolēģe"
 
 #: plugins/blogroll/src/ManageEdit.php:330
 msgid "_xfn_Geographical"
-msgstr ""
+msgstr "_xfn_Ģeogrāfisks"
 
 #: plugins/blogroll/src/ManageEdit.php:334
 msgid "_xfn_Co-resident"
-msgstr ""
+msgstr "_xfn_Līdzdzīvotājs"
 
 #: plugins/blogroll/src/ManageEdit.php:337
 msgid "_xfn_Neighbor"
-msgstr ""
+msgstr "_xfn_Kaimiņš"
 
 #: plugins/blogroll/src/ManageEdit.php:347
 msgid "_xfn_Family"
-msgstr ""
+msgstr "_xfn_Ģimene"
 
 #: plugins/blogroll/src/ManageEdit.php:351
 msgid "_xfn_Child"
-msgstr ""
+msgstr "_xfn_Bērns"
 
 #: plugins/blogroll/src/ManageEdit.php:354
 msgid "_xfn_Parent"
-msgstr ""
+msgstr "_xfn_Parent"
 
 #: plugins/blogroll/src/ManageEdit.php:357
 msgid "_xfn_Sibling"
-msgstr ""
+msgstr "_xfn_Brālis un māsa"
 
 #: plugins/blogroll/src/ManageEdit.php:360
 msgid "_xfn_Spouse"
-msgstr ""
+msgstr "_xfn_Laulātais"
 
 #: plugins/blogroll/src/ManageEdit.php:363
 msgid "_xfn_Kin"
-msgstr ""
+msgstr "_xfn_Kin"
 
 #: plugins/blogroll/src/ManageEdit.php:373
 msgid "_xfn_Romantic"
-msgstr ""
+msgstr "_xfn_romantisks"
 
 #: plugins/blogroll/src/ManageEdit.php:377
 msgid "_xfn_Muse"
-msgstr ""
+msgstr "_xfn_Muse"
 
 #: plugins/blogroll/src/ManageEdit.php:380
 msgid "_xfn_Crush"
-msgstr ""
+msgstr "_xfn_Crush"
 
 #: plugins/blogroll/src/ManageEdit.php:383
 msgid "_xfn_Date"
-msgstr ""
+msgstr "_xfn_Datums"
 
 #: plugins/blogroll/src/ManageEdit.php:386
 msgid "_xfn_Sweetheart"
-msgstr ""
+msgstr "_xfn_Mīļā"
 
 #: plugins/blogroll/src/UtilsImport.php:38
 msgid "You need to provide a XBEL or OPML file."
-msgstr ""
+msgstr "Jums ir jāiesniedz XBEL vai OPML fails."
 
 #: plugins/blogroll/src/UtilsImport.php:56
 #: plugins/blogroll/src/UtilsImport.php:98
 msgid "File is not in XML format."
-msgstr ""
+msgstr "Fails nav XML formātā."
 
 #: plugins/blogroll/src/Widgets.php:35
 msgid "All categories"
-msgstr ""
+msgstr "Visas kategorijas"
 
 #: plugins/blogroll/src/Widgets.php:44
 msgid "Links"
-msgstr ""
+msgstr "Saites"
 
 #: plugins/breadcrumb/src/Backend.php:24
 msgid "Breadcrumb"
-msgstr ""
+msgstr "rīvmaize"
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:40
 msgid "Enable breadcrumb for this blog"
-msgstr ""
+msgstr "Iespējot šī emuāra hierarhiju"
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:44
 msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
-msgstr ""
+msgstr "Tagam {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} ir jābūt (vai jāievieto, ja nav) veidnē."
 
 #: plugins/breadcrumb/src/BackendBehaviors.php:49
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
-msgstr ""
+msgstr "Neiekapsulējiet rīvmaizi tagā &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; ."
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:74
 #: plugins/breadcrumb/src/FrontendTemplate.php:79
@@ -1296,7 +1296,7 @@ msgstr ""
 #: plugins/simpleMenu/src/Manage.php:142 plugins/simpleMenu/src/Manage.php:253
 #: plugins/widgets/src/Widgets.php:271
 msgid "Home"
-msgstr ""
+msgstr "Mājas"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:110
 #: plugins/breadcrumb/src/FrontendTemplate.php:125
@@ -1304,525 +1304,525 @@ msgstr ""
 #: plugins/breadcrumb/src/FrontendTemplate.php:203
 #, php-format
 msgid "page %d"
-msgstr ""
+msgstr "lapa %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:160
 #: plugins/breadcrumb/src/FrontendTemplate.php:163
 #: plugins/simpleMenu/src/Manage.php:280 plugins/widgets/src/Widgets.php:288
 msgid "Archives"
-msgstr ""
+msgstr "Arhīvi"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:179
 #: plugins/breadcrumb/src/FrontendTemplate.php:186
 #: plugins/simpleMenu/src/Manage.php:126 plugins/simpleMenu/src/Manage.php:300
 #: plugins/tags/src/Widgets.php:56
 msgid "All tags"
-msgstr ""
+msgstr "Visas atzīmes"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
 msgid "404"
-msgstr ""
+msgstr "404"
 
 #: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
 msgid "Generate fake l10n"
-msgstr ""
+msgstr "Ģenerējiet viltotu l10n"
 
 #: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:41
 msgid "fake l10n file generated."
-msgstr ""
+msgstr "ģenerēts viltots l10n fails."
 
 #: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:42
 msgid "Failed to generate fake l10n file."
-msgstr ""
+msgstr "Neizdevās ģenerēt viltotu l10n failu."
 
 #: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:43
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
-msgstr ""
+msgstr "Ģenerējiet php failu, kurā ir ietvertas tulkojamas virknes, kas netiek veiktas, izmantojot galvenos rīkus."
 
 #: plugins/dcCKEditor/src/Backend.php:24 plugins/dcCKEditor/src/Manage.php:169
 msgid "dcCKEditor"
-msgstr ""
+msgstr "dcCKEditor"
 
 #: plugins/dcCKEditor/src/Backend.php:39
 #: plugins/dcLegacyEditor/src/Backend.php:43
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:60
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:157
 msgid "Media chooser"
-msgstr ""
+msgstr "Multivides atlasītājs"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
 msgid "m"
-msgstr ""
+msgstr "m"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:161
 msgid "Link to an entry"
-msgstr ""
+msgstr "Saite uz ierakstu"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:64
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
 msgid "l"
-msgstr ""
+msgstr "l"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:65
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "External image"
-msgstr ""
+msgstr "Ārējais attēls"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:66
 msgid "URL field cannot be empty."
-msgstr ""
+msgstr "URL lauks nedrīkst būt tukšs."
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:92
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:172
 msgid "Open the media"
-msgstr ""
+msgstr "Atveriet multividi"
 
 #: plugins/dcCKEditor/src/Manage.php:148
 #: plugins/dcLegacyEditor/src/Manage.php:55
 msgid "The configuration has been updated."
-msgstr ""
+msgstr "Konfigurācija ir atjaunināta."
 
 #: plugins/dcCKEditor/src/Manage.php:178
 #: plugins/dcLegacyEditor/src/Manage.php:81
 msgid "Plugin activation"
-msgstr ""
+msgstr "Spraudņa aktivizēšana"
 
 #: plugins/dcCKEditor/src/Manage.php:184
 msgid "Enable dcCKEditor plugin"
-msgstr ""
+msgstr "Iespējot dcCKEditor spraudni"
 
 #: plugins/dcCKEditor/src/Manage.php:197
 msgid "Add alignment buttons"
-msgstr ""
+msgstr "Pievienojiet izlīdzināšanas pogas"
 
 #: plugins/dcCKEditor/src/Manage.php:203
 msgid "Add lists buttons"
-msgstr ""
+msgstr "Sarakstu pievienošanas pogas"
 
 #: plugins/dcCKEditor/src/Manage.php:209
 msgid "Add text color button"
-msgstr ""
+msgstr "Teksta krāsas pievienošanas poga"
 
 #: plugins/dcCKEditor/src/Manage.php:215
 msgid "Add background text color button"
-msgstr ""
+msgstr "Poga Pievienot fona teksta krāsu"
 
 #: plugins/dcCKEditor/src/Manage.php:218
 msgid "Custom colors list:"
-msgstr ""
+msgstr "Pielāgotu krāsu saraksts:"
 
 #: plugins/dcCKEditor/src/Manage.php:232
 msgid "Add colors without # separated by a comma."
-msgstr ""
+msgstr "Pievienojiet krāsas bez #, atdalot tos ar komatu."
 
 #: plugins/dcCKEditor/src/Manage.php:237
 msgid "Leave empty to use the default palette:"
-msgstr ""
+msgstr "Atstājiet tukšu, lai izmantotu noklusējuma paleti:"
 
 #: plugins/dcCKEditor/src/Manage.php:243
 msgid "Example of custom color list:"
-msgstr ""
+msgstr "Pielāgota krāsu saraksta piemērs:"
 
 #: plugins/dcCKEditor/src/Manage.php:251
 msgid "Colors per row in palette:"
-msgstr ""
+msgstr "Krāsas katrā paletes rindā:"
 
 #: plugins/dcCKEditor/src/Manage.php:255
 msgid "Valid range: 4 to 16"
-msgstr ""
+msgstr "Derīgs diapazons: no 4 līdz 16"
 
 #: plugins/dcCKEditor/src/Manage.php:260
 msgid "Add collapse button"
-msgstr ""
+msgstr "Pievienot sakukšanas pogu"
 
 #: plugins/dcCKEditor/src/Manage.php:266
 msgid "Add format selection"
-msgstr ""
+msgstr "Pievienojiet formāta atlasi"
 
 #: plugins/dcCKEditor/src/Manage.php:269
 msgid "Custom formats"
-msgstr ""
+msgstr "Pielāgoti formāti"
 
 #: plugins/dcCKEditor/src/Manage.php:283
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
-msgstr ""
+msgstr "Noklusējuma formāti ir p;h1;h2;h3;h4;h5;h6;pre;address"
 
 #: plugins/dcCKEditor/src/Manage.php:289
 msgid "Add table button"
-msgstr ""
+msgstr "Poga Pievienot tabulu"
 
 #: plugins/dcCKEditor/src/Manage.php:295
 msgid "Add clipboard buttons"
-msgstr ""
+msgstr "Pievienojiet starpliktuves pogas"
 
 #: plugins/dcCKEditor/src/Manage.php:299
 msgid "Copy, Paste, Paste Text, Paste from Word"
-msgstr ""
+msgstr "Kopēt, ielīmēt, ielīmēt tekstu, ielīmēt no Word"
 
 #: plugins/dcCKEditor/src/Manage.php:304
 msgid "Add undo/redo buttons"
-msgstr ""
+msgstr "Pievienojiet atsaukšanas/atcelšanas pogas"
 
 #: plugins/dcCKEditor/src/Manage.php:310
 msgid "Disables the built-in spell checker if the browser provides one"
-msgstr ""
+msgstr "Atspējo iebūvēto pareizrakstības pārbaudītāju, ja pārlūkprogramma to nodrošina"
 
 #: plugins/dcCKEditor/src/Manage.php:320
 #: plugins/dcLegacyEditor/src/Manage.php:110
 #: plugins/simpleMenu/src/Manage.php:749
 msgid "Save configuration"
-msgstr ""
+msgstr "Saglabāt konfigurāciju"
 
 #: plugins/dcCKEditor/src/ManagePostConfig.php:234
 msgid "Note(s)"
-msgstr ""
+msgstr "Piezīme(-es)"
 
 #: plugins/dcLegacyEditor/src/Backend.php:24
 #: plugins/dcLegacyEditor/src/Manage.php:72
 msgid "dcLegacyEditor"
-msgstr ""
+msgstr "dcLegacyEditor"
 
 #: plugins/dcLegacyEditor/src/Backend.php:47
 msgid "Dotclear wiki"
-msgstr ""
+msgstr "Dotclear wiki"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
 msgid "visual"
-msgstr ""
+msgstr "vizuāli"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "source"
-msgstr ""
+msgstr "avots"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "You can use the following shortcuts to format your text."
-msgstr ""
+msgstr "Lai formatētu tekstu, varat izmantot tālāk norādītos īsinājumtaustiņus."
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
 msgid "Block format"
-msgstr ""
+msgstr "Bloka formāts"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:120
 msgid "-- none --"
-msgstr ""
+msgstr "-- nav --"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
 msgid "-- block format --"
-msgstr ""
+msgstr "-- bloka formāts --"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
 msgid "Paragraph"
-msgstr ""
+msgstr "Paragrāfs"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Level 1 header"
-msgstr ""
+msgstr "1. līmeņa galvene"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
 msgid "Level 2 header"
-msgstr ""
+msgstr "2. līmeņa galvene"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "Level 3 header"
-msgstr ""
+msgstr "3. līmeņa galvene"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "Level 4 header"
-msgstr ""
+msgstr "4. līmeņa galvene"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
 msgid "Level 5 header"
-msgstr ""
+msgstr "5. līmeņa galvene"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
 msgid "Level 6 header"
-msgstr ""
+msgstr "6. līmeņa galvene"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
 msgid "Strong emphasis"
-msgstr ""
+msgstr "Spēcīgs uzsvars"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
 msgid "Emphasis"
-msgstr ""
+msgstr "Uzsvars"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Inserted"
-msgstr ""
+msgstr "Ievietots"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:134
 msgid "Deleted"
-msgstr ""
+msgstr "Izdzēsts"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:135
 msgid "Inline quote"
-msgstr ""
+msgstr "Iekļauts citāts"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
 msgid "Code"
-msgstr ""
+msgstr "Kods"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
 msgid "Line break"
-msgstr ""
+msgstr "Rindas pārtraukums"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
 msgid "Blockquote"
-msgstr ""
+msgstr "Blockquote"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
 msgid "Preformated text"
-msgstr ""
+msgstr "Iepriekš formatēts teksts"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "Unordered list"
-msgstr ""
+msgstr "Nesakārtots saraksts"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
 msgid "Ordered list"
-msgstr ""
+msgstr "Pasūtīts saraksts"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "URL?"
-msgstr ""
+msgstr "URL?"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Language?"
-msgstr ""
+msgstr "Valoda?"
 
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:162
 msgid "Remove text formating"
-msgstr ""
+msgstr "Noņemiet teksta formatējumu"
 
 #: plugins/dcLegacyEditor/src/Manage.php:87
 msgid "Enable standard editor plugin"
-msgstr ""
+msgstr "Iespējot standarta redaktora spraudni"
 
 #: plugins/dcLegacyEditor/src/Manage.php:100
 msgid "Adjust height of input area during editing"
-msgstr ""
+msgstr "Rediģēšanas laikā pielāgojiet ievades apgabala augstumu"
 
 #: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:63
 msgid "Checks trackback source for a link to the post"
-msgstr ""
+msgstr "Pārbauda izsekošanas avotu, lai atrastu saiti uz ziņu"
 
 #: plugins/fairTrackbacks/src/Prepend.php:25
 msgid "Fair Trackbacks"
-msgstr ""
+msgstr "Fair Trackbacks"
 
 #: plugins/importExport/src/Backend.php:26
 msgid "Import / Export"
-msgstr ""
+msgstr "Importa eksporta"
 
 #: plugins/importExport/src/ExportBlogMaintenanceTask.php:41
 #: plugins/importExport/src/ExportFullMaintenanceTask.php:40
 msgid "Database export"
-msgstr ""
+msgstr "Datu bāzes eksportēšana"
 
 #: plugins/importExport/src/ExportBlogMaintenanceTask.php:42
 msgid "Download database of current blog"
-msgstr ""
+msgstr "Lejupielādēt pašreizējā emuāra datu bāzi"
 
 #: plugins/importExport/src/ExportFullMaintenanceTask.php:41
 msgid "Download database of all blogs"
-msgstr ""
+msgstr "Lejupielādēt visu emuāru datu bāzi"
 
 #: plugins/importExport/src/FlatBackup.php:49
 msgid "No file to read."
-msgstr ""
+msgstr "Nav faila, ko lasīt."
 
 #: plugins/importExport/src/FlatExport.php:47
 msgid "Unable to create output file."
-msgstr ""
+msgstr "Nevar izveidot izvades failu."
 
 #: plugins/importExport/src/FlatImportV2.php:96
 msgid "Unable to read the DotClear backup file."
-msgstr ""
+msgstr "Nevar nolasīt DotClear dublējuma failu."
 
 #: plugins/importExport/src/FlatImportV2.php:100
 msgid "File is not a DotClear backup."
-msgstr ""
+msgstr "Fails nav DotClear dublējums."
 
 #: plugins/importExport/src/FlatImportV2.php:176
 msgid "File is not a single blog export."
-msgstr ""
+msgstr "Fails nav viens emuāra eksports."
 
 #: plugins/importExport/src/FlatImportV2.php:290
 #: plugins/importExport/src/FlatImportV2.php:344
 #, php-format
 msgid "Error raised at line %s"
-msgstr ""
+msgstr "Kļūda ir parādīta rindā %s"
 
 #: plugins/importExport/src/FlatImportV2.php:299
 msgid "File is not a full export."
-msgstr ""
+msgstr "Fails nav pilnībā eksportēts."
 
 #: plugins/importExport/src/FlatImportV2.php:755
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
-msgstr ""
+msgstr "“%3$s” ID neatbilst ierakstam “%1$s” dublējuma faila %2$s rindā."
 
 #: plugins/importExport/src/Manage.php:89
 #: plugins/maintenance/src/Manage.php:186
 msgid "Please wait..."
-msgstr ""
+msgstr "Lūdzu uzgaidiet..."
 
 #: plugins/importExport/src/Manage.php:135
 msgid "Export"
-msgstr ""
+msgstr "Eksportēt"
 
 #: plugins/importExport/src/Manage.php:140
 #, php-format
 msgid "Export functions are in the page %s."
-msgstr ""
+msgstr "Eksportēšanas funkcijas atrodas lapā %s."
 
 #: plugins/importExport/src/Manage.php:143
 #: plugins/maintenance/src/Backend.php:24
 #: plugins/maintenance/src/BackendBehaviors.php:189
 msgid "Maintenance"
-msgstr ""
+msgstr "Apkope"
 
 #: plugins/importExport/src/Module.php:177
 msgid "Congratulation!"
-msgstr ""
+msgstr "Apsveicu!"
 
 #: plugins/importExport/src/Module.php:181
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr ""
+msgstr "Jūsu emuārs ir veiksmīgi importēts. Laipni lūdzam Dotclear 2!"
 
 #: plugins/importExport/src/Module.php:188
 msgid "Why don't you blog this now?"
-msgstr ""
+msgstr "Kāpēc tu neraksti šo emuāru tagad?"
 
 #: plugins/importExport/src/Module.php:196
 msgid "visit your dashboard"
-msgstr ""
+msgstr "apmeklējiet savu informācijas paneli"
 
 #: plugins/importExport/src/ModuleExportFlat.php:27
 msgid "Flat file export"
-msgstr ""
+msgstr "Plakanā faila eksportēšana"
 
 #: plugins/importExport/src/ModuleExportFlat.php:28
 msgid "Exports a blog or a full Dotclear installation to flat file."
-msgstr ""
+msgstr "Eksportē emuāru vai pilnu Dotclear instalāciju plakanā failā."
 
 #: plugins/importExport/src/ModuleExportFlat.php:153
 msgid "Export file not found."
-msgstr ""
+msgstr "Eksporta fails nav atrasts."
 
 #: plugins/importExport/src/ModuleExportFlat.php:192
 msgid "Failed to compress export file."
-msgstr ""
+msgstr "Neizdevās saspiest eksporta failu."
 
 #: plugins/importExport/src/ModuleImportDc1.php:83
 msgid "Dotclear 1.2 import"
-msgstr ""
+msgstr "Dotclear 1.2 importēšana"
 
 #: plugins/importExport/src/ModuleImportDc1.php:84
 msgid "Import a Dotclear 1.2 installation into your current blog."
-msgstr ""
+msgstr "Importējiet Dotclear 1.2 instalāciju savā pašreizējā emuārā."
 
 #: plugins/importExport/src/ModuleImportDc1.php:203
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
-msgstr ""
+msgstr "Importējiet Dotclear 1.2 emuāra saturu pašreizējā emuārā: %s."
 
 #: plugins/importExport/src/ModuleImportDc1.php:211
 #: plugins/importExport/src/ModuleImportWp.php:240
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
-msgstr ""
+msgstr "Lūdzu, ņemiet vērā, ka šis process iztukšos jūsu kategorijas, emuāru sarakstu, ierakstus un komentārus pašreizējā emuārā."
 
 #: plugins/importExport/src/ModuleImportDc1.php:218
 msgid "We first need some information about your old Dotclear 1.2 installation."
-msgstr ""
+msgstr "Vispirms mums ir nepieciešama informācija par jūsu veco Dotclear 1.2 instalāciju."
 
 #: plugins/importExport/src/ModuleImportDc1.php:225
 msgid "Database driver:"
-msgstr ""
+msgstr "Datu bāzes draiveris:"
 
 #: plugins/importExport/src/ModuleImportDc1.php:267
 #: plugins/importExport/src/ModuleImportWp.php:289
 msgid "Entries import options"
-msgstr ""
+msgstr "Ierakstu importēšanas opcijas"
 
 #: plugins/importExport/src/ModuleImportDc1.php:272
 #: plugins/importExport/src/ModuleImportWp.php:334
 msgid "Number of entries to import at once:"
-msgstr ""
+msgstr "Vienlaicīgi importējamo ierakstu skaits:"
 
 #: plugins/importExport/src/ModuleImportDc1.php:278
 #: plugins/importExport/src/ModuleImportWp.php:359
 msgid "General information"
-msgstr ""
+msgstr "Galvenā informācija"
 
 #: plugins/importExport/src/ModuleImportDc1.php:278
 #: plugins/importExport/src/ModuleImportWp.php:359
 msgid "Import my blog now"
-msgstr ""
+msgstr "Importējiet manu emuāru tūlīt"
 
 #: plugins/importExport/src/ModuleImportDc1.php:285
 #: plugins/importExport/src/ModuleImportWp.php:366
 msgid "Importing users"
-msgstr ""
+msgstr "Lietotāju importēšana"
 
 #: plugins/importExport/src/ModuleImportDc1.php:292
 #: plugins/importExport/src/ModuleImportWp.php:373
 msgid "Importing categories"
-msgstr ""
+msgstr "Importē kategorijas"
 
 #: plugins/importExport/src/ModuleImportDc1.php:299
 #: plugins/importExport/src/ModuleImportWp.php:380
 msgid "Importing blogroll"
-msgstr ""
+msgstr "Emuāru saraksta importēšana"
 
 #: plugins/importExport/src/ModuleImportDc1.php:306
 #: plugins/importExport/src/ModuleImportWp.php:387
 #, php-format
 msgid "Importing entries from %d to %d / %d"
-msgstr ""
+msgstr "Ierakstu importēšana no %d līdz %d / %d"
 
 #: plugins/importExport/src/ModuleImportDc1.php:321
 #: plugins/importExport/src/ModuleImportWp.php:402
 msgid "Please read carefully"
-msgstr ""
+msgstr "Lūdzu, izlasiet uzmanīgi"
 
 #: plugins/importExport/src/ModuleImportDc1.php:323
 #: plugins/importExport/src/ModuleImportWp.php:405
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
-msgstr ""
+msgstr "Katrs tikko importētais lietotājs ir saņēmis nejaušu paroli, un viņam būs jāpieprasa jauna, pieteikšanās lapā noklikšķinot uz saites \"Es aizmirsu savu paroli\" (Viņa reģistrētajai e-pasta adresei ir jābūt derīgai.)"
 
 #: plugins/importExport/src/ModuleImportDc1.php:325
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
-msgstr ""
+msgstr "Lūdzu, ņemiet vērā, ka Dotclear 2 ir jauns URL izkārtojums. Varat izvairīties no bojātām saitēm, instalējot spraudni <a href=\"%s\">DC1 redirect</a> un aktivizējot to savā emuāra konfigurācijā."
 
 #: plugins/importExport/src/ModuleImportDc1.php:350
 #: plugins/importExport/src/ModuleImportWp.php:429
 msgid "next step"
-msgstr ""
+msgstr "Nākamais solis"
 
 #: plugins/importExport/src/ModuleImportDc1.php:368
 #: plugins/importExport/src/ModuleImportWp.php:447
 msgid "Depending on the size of your blog, it could take a few minutes."
-msgstr ""
+msgstr "Atkarībā no jūsu emuāra lieluma tas var ilgt dažas minūtes."
 
 #: plugins/importExport/src/ModuleImportDc1.php:396
 msgid "Dotclear tables not found"
-msgstr ""
+msgstr "Dotclear tabulas nav atrastas"
 
 #: plugins/importExport/src/ModuleImportFeed.php:127
 msgid "RSS or Atom feed import"
-msgstr ""
+msgstr "RSS vai Atom plūsmas importēšana"
 
 #: plugins/importExport/src/ModuleImportFeed.php:128
 msgid "Add a feed content to the blog."
-msgstr ""
+msgstr "Pievienojiet emuāram plūsmas saturu."
 
 #: plugins/importExport/src/ModuleImportFeed.php:150
 #: plugins/importExport/src/ModuleImportFeed.php:156
@@ -1831,1521 +1831,1521 @@ msgstr ""
 #: plugins/importExport/src/ModuleImportFeed.php:176
 #: plugins/importExport/src/ModuleImportFeed.php:183
 msgid "Cannot retrieve feed URL."
-msgstr ""
+msgstr "Nevar izgūt plūsmas URL."
 
 #: plugins/importExport/src/ModuleImportFeed.php:186
 msgid "No items in feed."
-msgstr ""
+msgstr "Plūsmā nav vienumu."
 
 #: plugins/importExport/src/ModuleImportFeed.php:220
 #: plugins/importExport/src/ModuleImportFlat.php:189
 msgid "Content successfully imported."
-msgstr ""
+msgstr "Saturs veiksmīgi importēts."
 
 #: plugins/importExport/src/ModuleImportFeed.php:229
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
-msgstr ""
+msgstr "Pievienojiet plūsmas saturu pašreizējam emuāram: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:237
 #: plugins/widgets/src/Widgets.php:144
 msgid "Feed URL:"
-msgstr ""
+msgstr "Plūsmas URL:"
 
 #: plugins/importExport/src/ModuleImportFlat.php:51
 msgid "Flat file import"
-msgstr ""
+msgstr "Plakanā faila importēšana"
 
 #: plugins/importExport/src/ModuleImportFlat.php:52
 msgid "Imports a blog or a full Dotclear installation from flat file."
-msgstr ""
+msgstr "Importē emuāru vai pilnu Dotclear instalāciju no plakana faila."
 
 #: plugins/importExport/src/ModuleImportFlat.php:184
 msgid "Single blog successfully imported."
-msgstr ""
+msgstr "Viens emuārs veiksmīgi importēts."
 
 #: plugins/importExport/src/ModuleImportFlat.php:200
 msgid "Are you sure you want to import a full backup file?"
-msgstr ""
+msgstr "Vai tiešām vēlaties importēt pilnu dublējuma failu?"
 
 #: plugins/importExport/src/ModuleImportFlat.php:210
 msgid "Single blog"
-msgstr ""
+msgstr "Viens emuārs"
 
 #: plugins/importExport/src/ModuleImportFlat.php:215
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
-msgstr ""
+msgstr "Tādējādi tiks importēts viens emuāra dublējums kā jauns pašreizējā emuāra saturs: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFlat.php:222
 #: plugins/importExport/src/ModuleImportFlat.php:269
 msgid "Upload a backup file"
-msgstr ""
+msgstr "Augšupielādējiet dublējuma failu"
 
 #: plugins/importExport/src/ModuleImportFlat.php:223
 #: plugins/importExport/src/ModuleImportFlat.php:270
 #, php-format
 msgid "maximum size %s"
-msgstr ""
+msgstr "maksimālais izmērs %s"
 
 #: plugins/importExport/src/ModuleImportFlat.php:235
 #: plugins/importExport/src/ModuleImportFlat.php:282
 msgid "or pick up a local file in your public directory"
-msgstr ""
+msgstr "vai paņemiet vietējo failu savā publiskajā direktorijā"
 
 #: plugins/importExport/src/ModuleImportFlat.php:257
 msgid "Multiple blogs"
-msgstr ""
+msgstr "Vairāki emuāri"
 
 #: plugins/importExport/src/ModuleImportFlat.php:264
 msgid "This will reset all the content of your database, except users."
-msgstr ""
+msgstr "Tādējādi tiks atiestatīts viss jūsu datu bāzes saturs, izņemot lietotājus."
 
 #: plugins/importExport/src/ModuleImportFlat.php:399
 msgid "Another file with same name exists."
-msgstr ""
+msgstr "Pastāv cits fails ar tādu pašu nosaukumu."
 
 #: plugins/importExport/src/ModuleImportFlat.php:407
 msgid "Failed to extract backup file."
-msgstr ""
+msgstr "Neizdevās izvilkt dublējuma failu."
 
 #: plugins/importExport/src/ModuleImportFlat.php:419
 msgid "No backup in compressed file."
-msgstr ""
+msgstr "Saspiestā failā nav dublējuma."
 
 #: plugins/importExport/src/ModuleImportWp.php:110
 msgid "WordPress import"
-msgstr ""
+msgstr "WordPress importēšana"
 
 #: plugins/importExport/src/ModuleImportWp.php:111
 msgid "Import a WordPress installation into your current blog."
-msgstr ""
+msgstr "Importējiet WordPress instalāciju savā pašreizējā emuārā."
 
 #: plugins/importExport/src/ModuleImportWp.php:232
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
-msgstr ""
+msgstr "Tādējādi jūsu WordPress saturs tiks importēts kā jauns pašreizējā emuāra saturs: %s."
 
 #: plugins/importExport/src/ModuleImportWp.php:247
 msgid "We first need some information about your old WordPress installation."
-msgstr ""
+msgstr "Vispirms mums ir nepieciešama informācija par jūsu veco WordPress instalāciju."
 
 #: plugins/importExport/src/ModuleImportWp.php:297
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
-msgstr ""
+msgstr "WordPress un Dotclear kategoriju apstrāde ir diezgan atšķirīga. Vienai ziņai pakalpojumā WordPress varat piešķirt vairākas kategorijas. Dotclear pasaulē mēs to redzam vairāk kā \"Viena kategorija, vairāki tagi\". Tāpēc Dotclear var importēt tikai vienu kategoriju katrā ziņā un izvēlēsies ar zemāko numuru. Ja vēlaties izsekot katrai kategorijai, varat tās importēt kā atzīmes ar neobligātu prefiksu."
 
 #: plugins/importExport/src/ModuleImportWp.php:299
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr ""
+msgstr "No otras puses, programmā WordPress ziņu nevar atdalīt no kategorijas, un noklusējuma instalācijas pirmā kategorija ir apzīmēta ar <i>“Uncategorized”</i>. Ja nemainījāt šo kategoriju, varat to vienkārši ignorēt, importējot emuāru, jo Dotclear ļauj faktiski saglabāt ziņas bez kategorijas."
 
 #: plugins/importExport/src/ModuleImportWp.php:308
 msgid "Ignore the first category:"
-msgstr ""
+msgstr "Ignorēt pirmo kategoriju:"
 
 #: plugins/importExport/src/ModuleImportWp.php:314
 msgid "Import lowest numbered category on posts:"
-msgstr ""
+msgstr "Importēt kategoriju ar zemāko numuru:"
 
 #: plugins/importExport/src/ModuleImportWp.php:320
 msgid "Import all categories as tags:"
-msgstr ""
+msgstr "Importēt visas kategorijas kā atzīmes:"
 
 #: plugins/importExport/src/ModuleImportWp.php:328
 msgid "Prefix such tags with:"
-msgstr ""
+msgstr "Priekšfiksējiet šādus tagus ar:"
 
 #: plugins/importExport/src/ModuleImportWp.php:338
 msgid "Content filters"
-msgstr ""
+msgstr "Satura filtri"
 
 #: plugins/importExport/src/ModuleImportWp.php:340
 msgid "You may want to process your post and/or comment content with the following filters."
-msgstr ""
+msgstr "Iespējams, vēlēsities apstrādāt savu ziņu un/vai komentāru saturu, izmantojot tālāk norādītos filtrus."
 
 #: plugins/importExport/src/ModuleImportWp.php:346
 msgid "Post content formatter:"
-msgstr ""
+msgstr "Ziņas satura formatētājs:"
 
 #: plugins/importExport/src/ModuleImportWp.php:353
 msgid "Comment content formatter:"
-msgstr ""
+msgstr "Komentāru satura formatētājs:"
 
 #: plugins/importExport/src/ModuleImportWp.php:475
 msgid "WordPress tables not found"
-msgstr ""
+msgstr "WordPress tabulas nav atrastas"
 
 #: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Servicing"
-msgstr ""
+msgstr "Apkope"
 
 #: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Tools to maintain the performance of your blogs."
-msgstr ""
+msgstr "Rīki jūsu emuāru veiktspējas uzturēšanai."
 
 #: plugins/maintenance/src/BackendBehaviors.php:49
 msgid "Backup"
-msgstr ""
+msgstr "Dublējums"
 
 #: plugins/maintenance/src/BackendBehaviors.php:49
 msgid "Tools to back up your content."
-msgstr ""
+msgstr "Rīki satura dublēšanai."
 
 #: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Development"
-msgstr ""
+msgstr "Attīstība"
 
 #: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Tools to assist in development of plugins, themes and core."
-msgstr ""
+msgstr "Rīki, kas palīdz izstrādāt spraudņus, motīvus un kodolu."
 
 #: plugins/maintenance/src/BackendBehaviors.php:52
 msgid "Optimize"
-msgstr ""
+msgstr "Optimizēt"
 
 #: plugins/maintenance/src/BackendBehaviors.php:53
 msgid "Count and index"
-msgstr ""
+msgstr "Skaitīt un rādīt"
 
 #: plugins/maintenance/src/BackendBehaviors.php:54
 msgid "Purge"
-msgstr ""
+msgstr "Iztīrīšana"
 
 #: plugins/maintenance/src/BackendBehaviors.php:56
 msgid "Current blog"
-msgstr ""
+msgstr "Pašreizējais emuārs"
 
 #: plugins/maintenance/src/BackendBehaviors.php:57
 msgid "All blogs"
-msgstr ""
+msgstr "Visi emuāri"
 
 #: plugins/maintenance/src/BackendBehaviors.php:59
 msgid "Maintain translations"
-msgstr ""
+msgstr "Uzturēt tulkojumus"
 
 #: plugins/maintenance/src/BackendBehaviors.php:59
 msgid "Translations"
-msgstr ""
+msgstr "Tulkojumi"
 
 #: plugins/maintenance/src/BackendBehaviors.php:135
 #: plugins/maintenance/src/Rest.php:75
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s izpildāmie uzdevumi"
+msgstr[1] "Viens uzdevums, kas jāizpilda"
+msgstr[2] "%s izpildāmie uzdevumi"
 
 #: plugins/maintenance/src/BackendBehaviors.php:171
 #: plugins/maintenance/src/Manage.php:291
 msgid "This task has never been executed."
-msgstr ""
+msgstr "Šis uzdevums nekad nav izpildīts."
 
 #: plugins/maintenance/src/BackendBehaviors.php:174
 #: plugins/maintenance/src/Manage.php:294
 #, php-format
 msgid "Last execution of this task was on %s."
-msgstr ""
+msgstr "Pēdējā šī uzdevuma izpilde notika %s."
 
 #: plugins/maintenance/src/BackendBehaviors.php:192
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Jāizpilda %s uzdevumi."
+msgstr[1] "Ir uzdevums, kas jāizpilda."
+msgstr[2] "Jāizpilda %s uzdevumi."
 
 #: plugins/maintenance/src/BackendBehaviors.php:199
 msgid "Manage tasks"
-msgstr ""
+msgstr "Pārvaldīt uzdevumus"
 
 #: plugins/maintenance/src/BackendBehaviors.php:221
 msgid "Display overdue tasks counter on maintenance dashboard icon"
-msgstr ""
+msgstr "Rādīt nokavēto uzdevumu skaitītāju uz apkopes informācijas paneļa ikonas"
 
 #: plugins/maintenance/src/BackendBehaviors.php:227
 msgid "Display overdue tasks list on dashboard items"
-msgstr ""
+msgstr "Rādīt nokavēto uzdevumu sarakstu informācijas paneļa vienumos"
 
 #: plugins/maintenance/src/MaintenanceTask.php:155
 msgid "Failed to execute task."
-msgstr ""
+msgstr "Neizdevās izpildīt uzdevumu."
 
 #: plugins/maintenance/src/MaintenanceTask.php:158
 msgid "Task successfully executed."
-msgstr ""
+msgstr "Uzdevums veiksmīgi izpildīts."
 
 #: plugins/maintenance/src/Manage.php:129
 msgid "Maintenance plugin has been successfully configured."
-msgstr ""
+msgstr "Apkopes spraudnis ir veiksmīgi konfigurēts."
 
 #: plugins/maintenance/src/Manage.php:147
 msgid "System settings have been saved."
-msgstr ""
+msgstr "Sistēmas iestatījumi ir saglabāti."
 
 #: plugins/maintenance/src/Manage.php:152
 msgid "All blog's Content-Security-Policy settings have been reset to default."
-msgstr ""
+msgstr "Visi emuāra satura drošības politikas iestatījumi ir atiestatīti uz noklusējuma iestatījumiem."
 
 #: plugins/maintenance/src/Manage.php:174
 msgid "Every week"
-msgstr ""
+msgstr "Katru nedēļu"
 
 #: plugins/maintenance/src/Manage.php:175
 msgid "Every two weeks"
-msgstr ""
+msgstr "Katras divas nedēļas"
 
 #: plugins/maintenance/src/Manage.php:176
 msgid "Every month"
-msgstr ""
+msgstr "Katru mēnesi"
 
 #: plugins/maintenance/src/Manage.php:177
 msgid "Every two months"
-msgstr ""
+msgstr "Ik pēc diviem mēnešiem"
 
 #: plugins/maintenance/src/Manage.php:203
 msgid "You have not sufficient permissions to view this page."
-msgstr ""
+msgstr "Jums nav pietiekamu atļauju, lai skatītu šo lapu."
 
 #: plugins/maintenance/src/Manage.php:291
 #: plugins/maintenance/src/Manage.php:297
 msgid "You should execute it now."
-msgstr ""
+msgstr "Jums tas jāizpilda tagad."
 
 #: plugins/maintenance/src/Manage.php:333
 #: plugins/maintenance/src/Manage.php:367
 msgid "Execute task"
-msgstr ""
+msgstr "Izpildīt uzdevumu"
 
 #: plugins/maintenance/src/Manage.php:338
 msgid "This may take a very long time."
-msgstr ""
+msgstr "Tas var aizņemt ļoti ilgu laiku."
 
 #: plugins/maintenance/src/Manage.php:398
 #: plugins/maintenance/src/Manage.php:400
 msgid "Alert settings"
-msgstr ""
+msgstr "Brīdinājumu iestatījumi"
 
 #: plugins/maintenance/src/Manage.php:402
 msgid "Activation"
-msgstr ""
+msgstr "Aktivizēšana"
 
 #: plugins/maintenance/src/Manage.php:408
 msgid "Display alert messages on late tasks"
-msgstr ""
+msgstr "Rādīt brīdinājuma ziņojumus par novēlotiem uzdevumiem"
 
 #: plugins/maintenance/src/Manage.php:413
 #, php-format
 msgid "You can place list of late tasks on your %s."
-msgstr ""
+msgstr "Novēloto uzdevumu sarakstu varat ievietot savā %s."
 
 #: plugins/maintenance/src/Manage.php:418
 msgid "Frequency"
-msgstr ""
+msgstr "Biežums"
 
 #: plugins/maintenance/src/Manage.php:426
 msgid "Use one recall time for all tasks"
-msgstr ""
+msgstr "Izmantojiet vienu atsaukšanas laiku visiem uzdevumiem"
 
 #: plugins/maintenance/src/Manage.php:436
 msgid "Recall time for all tasks:"
-msgstr ""
+msgstr "Atsaukt laiku visiem uzdevumiem:"
 
 #: plugins/maintenance/src/Manage.php:445
 msgid "Use one recall time per task"
-msgstr ""
+msgstr "Katram uzdevumam izmantojiet vienu atsaukšanas laiku"
 
 #: plugins/maintenance/src/Manage.php:475
 msgid "Content-Security-Policy"
-msgstr ""
+msgstr "Saturs-drošība-politika"
 
 #: plugins/maintenance/src/Manage.php:487
 msgid "Enable Content-Security-Policy system"
-msgstr ""
+msgstr "Iespējot satura drošības politikas sistēmu"
 
 #: plugins/maintenance/src/Manage.php:493
 msgid "Enable Content-Security-Policy report only"
-msgstr ""
+msgstr "Iespējot tikai satura drošības politikas pārskatu"
 
 #: plugins/maintenance/src/Manage.php:503
 msgid "Enable Content-Security-Policy system by default"
-msgstr ""
+msgstr "Pēc noklusējuma iespējot satura drošības politikas sistēmu"
 
 #: plugins/maintenance/src/Manage.php:509
 msgid "Enable Content-Security-Policy report only by default"
-msgstr ""
+msgstr "Iespējot satura drošības politikas pārskatu tikai pēc noklusējuma"
 
 #: plugins/maintenance/src/Manage.php:515
 msgid "Also apply these settings to all blogs"
-msgstr ""
+msgstr "Lietojiet šos iestatījumus arī visiem emuāriem"
 
 #: plugins/maintenance/src/Task/CSP.php:41
 msgid "Delete the Content-Security-Policy report file"
-msgstr ""
+msgstr "Izdzēsiet satura drošības politikas pārskata failu"
 
 #: plugins/maintenance/src/Task/CSP.php:42
 msgid "Content-Security-Policy report file has been deleted."
-msgstr ""
+msgstr "Satura drošības politikas pārskata fails ir izdzēsts."
 
 #: plugins/maintenance/src/Task/CSP.php:43
 msgid "Failed to delete the Content-Security-Policy report file."
-msgstr ""
+msgstr "Neizdevās izdzēst satura drošības politikas pārskata failu."
 
 #: plugins/maintenance/src/Task/CSP.php:45
 msgid "Remove the Content-Security-Policy report file."
-msgstr ""
+msgstr "Noņemiet satura drošības politikas pārskata failu."
 
 #: plugins/maintenance/src/Task/Cache.php:43
 msgid "Failed to empty templates cache directory."
-msgstr ""
+msgstr "Neizdevās iztukšot veidņu kešatmiņas direktoriju."
 
 #: plugins/maintenance/src/Task/Cache.php:45
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
-msgstr ""
+msgstr "Var būt noderīgi iztukšot šo kešatmiņu, mainot motīva .html vai .css failus (vai atjauninot motīvu vai spraudni). Piezīme: ar dažiem mitinātājiem veidņu kešatmiņu nevar iztukšot ar šo spraudni. Pēc tam, iespējams, vajadzēs dzēst direktoriju <strong>%s</strong> tieši serverī, izmantojot FTP programmatūru."
 
 #: plugins/maintenance/src/Task/CountComments.php:42
 msgid "Count again comments and trackbacks"
-msgstr ""
+msgstr "Vēlreiz saskaitiet komentārus un atgriezenisko saiti"
 
 #: plugins/maintenance/src/Task/CountComments.php:43
 msgid "Comments and trackback counted."
-msgstr ""
+msgstr "Tiek skaitīti komentāri un atpakaļi."
 
 #: plugins/maintenance/src/Task/CountComments.php:44
 msgid "Failed to count comments and trackbacks."
-msgstr ""
+msgstr "Neizdevās saskaitīt komentārus un atgriezenisko saiti."
 
 #: plugins/maintenance/src/Task/CountComments.php:46
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr ""
+msgstr "Atkārtoti skaitīt komentārus un trases ļauj pārbaudīt precīzu to skaitu. Šī darbība var būt noderīga, importējot no citas emuāra platformas (vai migrējot no dotclear 1 uz dotclear 2)."
 
 #: plugins/maintenance/src/Task/IndexComments.php:63
 #: plugins/maintenance/src/Task/IndexPosts.php:63
 msgid "Search engine index"
-msgstr ""
+msgstr "Meklētājprogrammas rādītājs"
 
 #: plugins/maintenance/src/Task/IndexComments.php:64
 msgid "Index all comments for search engine"
-msgstr ""
+msgstr "Indeksējiet visus komentārus meklētājprogrammai"
 
 #: plugins/maintenance/src/Task/IndexComments.php:65
 #: plugins/maintenance/src/Task/IndexPosts.php:65
 #: plugins/maintenance/src/Task/SynchPostMeta.php:65
 msgid "Next"
-msgstr ""
+msgstr "Nākamais"
 
 #: plugins/maintenance/src/Task/IndexComments.php:66
 #, php-format
 msgid "Indexing comment %d to %d."
-msgstr ""
+msgstr "Indeksē komentāru no %d līdz %d."
 
 #: plugins/maintenance/src/Task/IndexComments.php:67
 msgid "Comments index done."
-msgstr ""
+msgstr "Komentāru rādītājs ir izveidots."
 
 #: plugins/maintenance/src/Task/IndexComments.php:68
 msgid "Failed to index comments."
-msgstr ""
+msgstr "Neizdevās indeksēt komentārus."
 
 #: plugins/maintenance/src/Task/IndexComments.php:70
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
-msgstr ""
+msgstr "Indeksējiet visus komentārus un atgriezeniskās saites meklētājprogrammas rādītājā. Šī darbība ir nepieciešama pēc satura importēšanas jūsu emuārā, lai izmantotu iekšējo meklētājprogrammu publiskajās un privātajās lapās."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:64
 msgid "Index all entries for search engine"
-msgstr ""
+msgstr "Indeksējiet visus meklētājprogrammas ierakstus"
 
 #: plugins/maintenance/src/Task/IndexPosts.php:66
 #, php-format
 msgid "Indexing entry %d to %d."
-msgstr ""
+msgstr "Indeksēšanas ieraksts no %d līdz %d."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:67
 msgid "Entries index done."
-msgstr ""
+msgstr "Ierakstu indekss ir pabeigts."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:68
 msgid "Failed to index entries."
-msgstr ""
+msgstr "Neizdevās indeksēt ierakstus."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:70
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
-msgstr ""
+msgstr "Indeksējiet visus ierakstus meklētājprogrammas rādītājā. Šī darbība ir nepieciešama pēc satura importēšanas jūsu emuārā, lai izmantotu iekšējo meklētājprogrammu publiskajās un privātajās lapās."
 
 #: plugins/maintenance/src/Task/Logs.php:48
 msgid "Delete all logs"
-msgstr ""
+msgstr "Dzēst visus žurnālus"
 
 #: plugins/maintenance/src/Task/Logs.php:49
 msgid "Logs deleted."
-msgstr ""
+msgstr "Žurnāli izdzēsti."
 
 #: plugins/maintenance/src/Task/Logs.php:50
 msgid "Failed to delete logs."
-msgstr ""
+msgstr "Neizdevās izdzēst žurnālus."
 
 #: plugins/maintenance/src/Task/Logs.php:52
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
-msgstr ""
+msgstr "Žurnāli reģistrē visas darbības un savienojumus ar jūsu emuāra vēsturi. Ja vien jums nav jāsaglabā šī vēsture, apsveriet iespēju ik pa laikam dzēst šos žurnālus."
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:63
 msgid "Entries metadata"
-msgstr ""
+msgstr "Ierakstu metadati"
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:64
 msgid "Synchronize entries metadata"
-msgstr ""
+msgstr "Sinhronizējiet ierakstu metadatus"
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:66
 #, php-format
 msgid "Synchronize entry %d to %d."
-msgstr ""
+msgstr "Sinhronizējiet ierakstu %d ar %d."
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:67
 msgid "Entries metadata synchronize done."
-msgstr ""
+msgstr "Ierakstu metadatu sinhronizācija ir pabeigta."
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:68
 msgid "Failed to synchronize entries metadata."
-msgstr ""
+msgstr "Neizdevās sinhronizēt ierakstu metadatus."
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:70
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
-msgstr ""
+msgstr "Sinhronizējiet visus ierakstus, metadati var būt noderīgi pēc satura importēšanas jūsu emuārā vai sliktas darbības datu bāzes tabulās."
 
 #: plugins/maintenance/src/Task/Vacuum.php:40
 msgid "Optimise database"
-msgstr ""
+msgstr "Optimizēt datu bāzi"
 
 #: plugins/maintenance/src/Task/Vacuum.php:41
 msgid "optimize tables"
-msgstr ""
+msgstr "optimizēt tabulas"
 
 #: plugins/maintenance/src/Task/Vacuum.php:42
 msgid "Optimization successful."
-msgstr ""
+msgstr "Optimizācija veiksmīga."
 
 #: plugins/maintenance/src/Task/Vacuum.php:43
 msgid "Failed to optimize tables."
-msgstr ""
+msgstr "Neizdevās optimizēt tabulas."
 
 #: plugins/maintenance/src/Task/Vacuum.php:45
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
-msgstr ""
+msgstr "Pēc daudzām dzēšanas vai atjaunināšanas darbībām Dotclear datu bāzē tā tiek sadrumstalota. Optimizēšana ļaus to defragmentēt. Tas neietekmē jūsu datu integritāti. Pirms emuāra eksportēšanas ieteicams veikt optimizāciju."
 
 #: plugins/maintenance/src/Task/ZipMedia.php:62
 msgid "Download media folder of current blog"
-msgstr ""
+msgstr "Lejupielādējiet pašreizējā emuāra multivides mapi"
 
 #: plugins/maintenance/src/Task/ZipMedia.php:64
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
-msgstr ""
+msgstr "Var būt noderīgi dublēt multivides mapi. Tas saspiež visu multivides mapes saturu vienā zip failā. Piezīme: ar dažiem mitinātājiem multivides mapi nevar saspiest ar šo spraudni, ja tā ir pārāk liela."
 
 #: plugins/maintenance/src/Task/ZipTheme.php:63
 msgid "Download active theme of current blog"
-msgstr ""
+msgstr "Lejupielādējiet pašreizējā emuāra aktīvo tēmu"
 
 #: plugins/maintenance/src/Task/ZipTheme.php:65
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
-msgstr ""
+msgstr "Pirms jebkādām izmaiņām vai atjaunināšanas var būt noderīgi izveidot aktīvās motīva dublējumu. Šī motīva mape tiek saspiesta vienā ZIP failā."
 
 #: plugins/pages/src/Backend.php:38
 msgid "manage pages"
-msgstr ""
+msgstr "pārvaldīt lapas"
 
 #: plugins/pages/src/Backend.php:85
 #, php-format
 msgid "%d page"
-msgstr ""
+msgstr "%d lapa"
 
 #: plugins/pages/src/Backend.php:85
 #, php-format
 msgid "%d pages"
-msgstr ""
+msgstr "%d lapas"
 
 #: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:147
 #: plugins/pages/src/ManagePage.php:105 plugins/pages/src/ManagePage.php:833
 msgid "New page"
-msgstr ""
+msgstr "Jauna lapa"
 
 #: plugins/pages/src/BackendActions.php:55
 msgid "Pages actions"
-msgstr ""
+msgstr "Lapu darbības"
 
 #: plugins/pages/src/BackendActions.php:77
 msgid "Back to pages list"
-msgstr ""
+msgstr "Atgriezties uz lapu sarakstu"
 
 #: plugins/pages/src/BackendDefaultActions.php:123
 #: plugins/pages/src/Manage.php:138
 msgid "Selected pages have been successfully reordered."
-msgstr ""
+msgstr "Atlasītās lapas ir veiksmīgi pārkārtotas."
 
 #: plugins/pages/src/BackendList.php:50
 msgid "No page"
-msgstr ""
+msgstr "Nav lapas"
 
 #: plugins/pages/src/BackendList.php:180 plugins/pages/src/BackendList.php:241
 msgid "Hidden"
-msgstr ""
+msgstr "Slēpts"
 
 #: plugins/pages/src/BackendList.php:271
 msgid "Select this page"
-msgstr ""
+msgstr "Izvēlieties šo lapu"
 
 #: plugins/pages/src/Frontend.php:36
 msgid "Published on"
-msgstr ""
+msgstr "Publicēts"
 
 #: plugins/pages/src/Frontend.php:37
 msgid "This page's comments feed"
-msgstr ""
+msgstr "Šīs lapas komentāru plūsma"
 
 #: plugins/pages/src/Install.php:48
 msgid "My first page"
-msgstr ""
+msgstr "Mana pirmā lapa"
 
 #: plugins/pages/src/Install.php:49
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
-msgstr ""
+msgstr "Šī ir jūsu pirmā lapa. Kad esat gatavs rakstīt emuāru, piesakieties, lai to rediģētu vai dzēstu."
 
 #: plugins/pages/src/Manage.php:120
 msgid "Are you sure you want to delete selected pages?"
-msgstr ""
+msgstr "Vai tiešām vēlaties dzēst atlasītās lapas?"
 
 #: plugins/pages/src/Manage.php:134
 msgid "Selected pages have been successfully updated."
-msgstr ""
+msgstr "Atlasītās lapas ir veiksmīgi atjauninātas."
 
 #: plugins/pages/src/Manage.php:136
 msgid "Selected pages have been successfully deleted."
-msgstr ""
+msgstr "Atlasītās lapas ir veiksmīgi izdzēstas."
 
 #: plugins/pages/src/Manage.php:170
 msgid "Selected pages action:"
-msgstr ""
+msgstr "Atlasīto lapu darbība:"
 
 #: plugins/pages/src/Manage.php:176
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
-msgstr ""
+msgstr "Lai pārkārtotu lappušu secību, rindas sākumā mainiet numuru, pēc tam noklikšķiniet uz pogas “Saglabāt lapu secību”."
 
 #: plugins/pages/src/Manage.php:179
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
-msgstr ""
+msgstr "Lai pārkārtotu lapu secību, pārvietojiet vienumus, velkot un nometot, pēc tam noklikšķiniet uz pogas Saglabāt lapu secību."
 
 #: plugins/pages/src/Manage.php:186
 msgid "Save pages order"
-msgstr ""
+msgstr "Saglabājiet lapu secību"
 
 #: plugins/pages/src/ManagePage.php:162
 msgid "This page does not exist."
-msgstr ""
+msgstr "Šī lapa neeksistē."
 
 #: plugins/pages/src/ManagePage.php:183 plugins/pages/src/ManagePage.php:833
 #: plugins/pages/src/ManagePage.php:854
 msgid "Edit page"
-msgstr ""
+msgstr "Rediģēt lapu"
 
 #: plugins/pages/src/ManagePage.php:461
 msgid "Are you sure you want to delete this page?"
-msgstr ""
+msgstr "Vai tiešām vēlaties dzēst šo lapu?"
 
 #: plugins/pages/src/ManagePage.php:501
 msgid "Page has been successfully updated."
-msgstr ""
+msgstr "Lapa ir veiksmīgi atjaunināta."
 
 #: plugins/pages/src/ManagePage.php:503
 msgid "Page has been successfully created."
-msgstr ""
+msgstr "Lapa ir veiksmīgi izveidota."
 
 #: plugins/pages/src/ManagePage.php:516
 msgid "Don't forget to validate your HTML conversion by saving your post."
-msgstr ""
+msgstr "Neaizmirstiet apstiprināt savu HTML reklāmguvumu, saglabājot savu ziņu."
 
 #: plugins/pages/src/ManagePage.php:526
 msgid "Go to this page on the site"
-msgstr ""
+msgstr "Dodieties uz šo vietnes lapu"
 
 #: plugins/pages/src/ManagePage.php:568
 msgid "Page status"
-msgstr ""
+msgstr "Lapas statuss"
 
 #: plugins/pages/src/ManagePage.php:584
 msgid "Page language"
-msgstr ""
+msgstr "Lapas valoda"
 
 #: plugins/pages/src/ManagePage.php:611 plugins/pages/src/Widgets.php:40
 msgid "Page position"
-msgstr ""
+msgstr "Lapas pozīcija"
 
 #: plugins/pages/src/ManagePage.php:662
 msgid "Hide in widget Pages"
-msgstr ""
+msgstr "Paslēpt logrīkā Lapas"
 
 #: plugins/pages/src/ManagePage.php:686
 msgid "Warning: If you set the URL manually, it may conflict with another page."
-msgstr ""
+msgstr "Brīdinājums: ja URL iestatāt manuāli, tas var būt pretrunā ar citu lapu."
 
 #: plugins/pages/src/ManagePage.php:725
 msgid "Introduction to the page."
-msgstr ""
+msgstr "Ievads lapā."
 
 #: plugins/pages/src/ManagePage.php:1139
 msgid "Select this comment"
-msgstr ""
+msgstr "Atlasiet šo komentāru"
 
 #: plugins/pages/src/Widgets.php:39
 msgid "Page title"
-msgstr ""
+msgstr "Lapas nosaukums"
 
 #: plugins/pages/src/Widgets.php:41
 msgid "Publication date"
-msgstr ""
+msgstr "Publicēšanas datums"
 
 #: plugins/pings/src/Backend.php:26 plugins/pings/src/BackendBehaviors.php:67
 msgid "Pings"
-msgstr ""
+msgstr "Pings"
 
 #: plugins/pings/src/Manage.php:80
 msgid "Settings have been successfully updated."
-msgstr ""
+msgstr "Iestatījumi ir veiksmīgi atjaunināti."
 
 #: plugins/pings/src/Manage.php:98
 msgid "Pings configuration"
-msgstr ""
+msgstr "Ping konfigurācija"
 
 #: plugins/pings/src/Manage.php:112
 msgid "Error"
-msgstr ""
+msgstr "Kļūda"
 
 #: plugins/pings/src/Manage.php:164
 msgid "Service name:"
-msgstr ""
+msgstr "Pakalpojuma nosaukums:"
 
 #: plugins/pings/src/Manage.php:165
 msgid "Service URI:"
-msgstr ""
+msgstr "Pakalpojuma URI:"
 
 #: plugins/pings/src/Manage.php:180
 msgid "Activate pings extension"
-msgstr ""
+msgstr "Aktivizējiet ping paplašinājumu"
 
 #: plugins/pings/src/Manage.php:186
 msgid "Auto pings all services on first publication of entry (current blog only)"
-msgstr ""
+msgstr "Automātiski tiek pārbaudīti visi pakalpojumi pēc ieraksta pirmās publicēšanas (tikai pašreizējais emuārs)"
 
 #: plugins/pings/src/Manage.php:193
 msgid "Test ping services"
-msgstr ""
+msgstr "Testa ping pakalpojumus"
 
 #: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:69
 #: plugins/simpleMenu/src/Widgets.php:28
 msgid "Simple menu"
-msgstr ""
+msgstr "Vienkārša izvēlne"
 
 #: plugins/simpleMenu/src/FrontendTemplate.php:169
 msgid "Active page"
-msgstr ""
+msgstr "Aktīva lapa"
 
 #: plugins/simpleMenu/src/FrontendTemplate.php:169
 msgid "active page"
-msgstr ""
+msgstr "aktīva lapa"
 
 #: plugins/simpleMenu/src/Manage.php:92
 msgid "All months"
-msgstr ""
+msgstr "Visus mēnešus"
 
 #: plugins/simpleMenu/src/Manage.php:155
 msgid "Archive"
-msgstr ""
+msgstr "Arhīvs"
 
 #: plugins/simpleMenu/src/Manage.php:158
 msgid "Page"
-msgstr ""
+msgstr "Lappuse"
 
 #: plugins/simpleMenu/src/Manage.php:161 plugins/tags/src/Backend.php:24
 #: plugins/tags/src/Widgets.php:32
 msgid "Tags"
-msgstr ""
+msgstr "Tagi"
 
 #: plugins/simpleMenu/src/Manage.php:168
 msgid "User defined"
-msgstr ""
+msgstr "Lietotājs definēts"
 
 #: plugins/simpleMenu/src/Manage.php:209
 msgid "Configuration successfully updated."
-msgstr ""
+msgstr "Konfigurācija veiksmīgi atjaunināta."
 
 #: plugins/simpleMenu/src/Manage.php:248 plugins/simpleMenu/src/Manage.php:668
 #: plugins/simpleMenu/src/Manage.php:785
 msgid "Label"
-msgstr ""
+msgstr "Etiķete"
 
 #: plugins/simpleMenu/src/Manage.php:254
 msgid "Home page"
-msgstr ""
+msgstr "Mājas lapa"
 
 #: plugins/simpleMenu/src/Manage.php:254 plugins/simpleMenu/src/Manage.php:259
 #: plugins/widgets/src/Widgets.php:275 plugins/widgets/src/Widgets.php:282
 msgid "Recent posts"
-msgstr ""
+msgstr "Jaunākās publikācijas"
 
 #: plugins/simpleMenu/src/Manage.php:266
 #, php-format
 msgid "Switch to %s language"
-msgstr ""
+msgstr "Pārslēdzieties uz %s valodu"
 
 #: plugins/simpleMenu/src/Manage.php:273
 msgid "Recent Posts from this category"
-msgstr ""
+msgstr "Jaunākās ziņas no šīs kategorijas"
 
 #: plugins/simpleMenu/src/Manage.php:285
 #, php-format
 msgid "Posts from %s"
-msgstr ""
+msgstr "Ziņas no %s"
 
 #: plugins/simpleMenu/src/Manage.php:305
 #, php-format
 msgid "Recent posts for %s tag"
-msgstr ""
+msgstr "Jaunākās ziņas par atzīmi %s"
 
 #: plugins/simpleMenu/src/Manage.php:365
 msgid "Menu item has been successfully added."
-msgstr ""
+msgstr "Izvēlnes vienums ir veiksmīgi pievienots."
 
 #: plugins/simpleMenu/src/Manage.php:370
 msgid "Label and URL of menu item are mandatory."
-msgstr ""
+msgstr "Izvēlnes vienuma etiķete un URL ir obligāti."
 
 #: plugins/simpleMenu/src/Manage.php:403
 msgid "Menu items have been successfully removed."
-msgstr ""
+msgstr "Izvēlnes vienumi ir veiksmīgi noņemti."
 
 #: plugins/simpleMenu/src/Manage.php:406
 msgid "No menu items selected."
-msgstr ""
+msgstr "Nav atlasīts neviens izvēlnes vienums."
 
 #: plugins/simpleMenu/src/Manage.php:418
 msgid "Label is mandatory."
-msgstr ""
+msgstr "Etiķete ir obligāta."
 
 #: plugins/simpleMenu/src/Manage.php:423
 msgid "URL is mandatory."
-msgstr ""
+msgstr "URL ir obligāts."
 
 #: plugins/simpleMenu/src/Manage.php:468
 msgid "Menu items have been successfully updated."
-msgstr ""
+msgstr "Izvēlnes vienumi ir veiksmīgi atjaunināti."
 
 #: plugins/simpleMenu/src/Manage.php:495
 msgid "Are you sure you want to remove selected menu items?"
-msgstr ""
+msgstr "Vai tiešām vēlaties noņemt atlasītos izvēlnes vienumus?"
 
 #: plugins/simpleMenu/src/Manage.php:504
 msgid "Step #1"
-msgstr ""
+msgstr "1. darbība"
 
 #: plugins/simpleMenu/src/Manage.php:509 plugins/simpleMenu/src/Manage.php:517
 msgid "Step #2"
-msgstr ""
+msgstr "2. darbība"
 
 #: plugins/simpleMenu/src/Manage.php:515
 msgid "Step #3"
-msgstr ""
+msgstr "3. darbība"
 
 #: plugins/simpleMenu/src/Manage.php:527
 msgid "Add item"
-msgstr ""
+msgstr "Pievienot vienumu"
 
 #: plugins/simpleMenu/src/Manage.php:558
 msgid "Select type"
-msgstr ""
+msgstr "Izvēlieties tipu"
 
 #: plugins/simpleMenu/src/Manage.php:565
 msgid "Type of item menu:"
-msgstr ""
+msgstr "Vienuma izvēlnes veids:"
 
 #: plugins/simpleMenu/src/Manage.php:571 plugins/simpleMenu/src/Manage.php:635
 msgid "Continue..."
-msgstr ""
+msgstr "Turpināt..."
 
 #: plugins/simpleMenu/src/Manage.php:591
 msgid "Select language:"
-msgstr ""
+msgstr "Izvēlēties valodu:"
 
 #: plugins/simpleMenu/src/Manage.php:597
 msgid "Select category:"
-msgstr ""
+msgstr "Izvēlieties kategoriju:"
 
 #: plugins/simpleMenu/src/Manage.php:603
 msgid "Select month (if necessary):"
-msgstr ""
+msgstr "Izvēlieties mēnesi (ja nepieciešams):"
 
 #: plugins/simpleMenu/src/Manage.php:609
 msgid "Select page:"
-msgstr ""
+msgstr "Izvēlieties lapu:"
 
 #: plugins/simpleMenu/src/Manage.php:615
 msgid "Select tag (if necessary):"
-msgstr ""
+msgstr "Izvēlieties tagu (ja nepieciešams):"
 
 #: plugins/simpleMenu/src/Manage.php:673
 msgid "Label of item menu:"
-msgstr ""
+msgstr "Vienuma izvēlnes etiķete:"
 
 #: plugins/simpleMenu/src/Manage.php:687
 msgid "Description of item menu:"
-msgstr ""
+msgstr "Vienuma izvēlnes apraksts:"
 
 #: plugins/simpleMenu/src/Manage.php:702
 msgid "URL of item menu:"
-msgstr ""
+msgstr "Vienuma izvēlnes URL:"
 
 #: plugins/simpleMenu/src/Manage.php:712 plugins/simpleMenu/src/Manage.php:788
 msgid "Open URL on a new tab"
-msgstr ""
+msgstr "Atveriet URL jaunā cilnē"
 
 #: plugins/simpleMenu/src/Manage.php:720
 msgid "Add this item"
-msgstr ""
+msgstr "Pievienojiet šo vienumu"
 
 #: plugins/simpleMenu/src/Manage.php:743
 msgid "Enable simple menu for this blog"
-msgstr ""
+msgstr "Iespējot vienkāršu izvēlni šim emuāram"
 
 #: plugins/simpleMenu/src/Manage.php:766
 msgid "Add an item"
-msgstr ""
+msgstr "Pievienojiet vienumu"
 
 #: plugins/simpleMenu/src/Manage.php:884
 msgid "Menu items list"
-msgstr ""
+msgstr "Izvēlnes vienumu saraksts"
 
 #: plugins/simpleMenu/src/Manage.php:911
 msgid "Delete selected menu items"
-msgstr ""
+msgstr "Dzēst atlasītos izvēlnes vienumus"
 
 #: plugins/simpleMenu/src/Manage.php:920
 msgid "Update menu"
-msgstr ""
+msgstr "Atjaunināšanas izvēlne"
 
 #: plugins/simpleMenu/src/Manage.php:930
 msgid "No menu items so far."
-msgstr ""
+msgstr "Pagaidām nav neviena izvēlnes vienuma."
 
 #: plugins/simpleMenu/src/Widgets.php:32
 msgid "Item description"
-msgstr ""
+msgstr "Lietas apraksts"
 
 #: plugins/simpleMenu/src/Widgets.php:36
 msgid "Displayed in link"
-msgstr ""
+msgstr "Parādīts saitē"
 
 #: plugins/simpleMenu/src/Widgets.php:37
 msgid "Used as link title"
-msgstr ""
+msgstr "Izmantots kā saites nosaukums"
 
 #: plugins/simpleMenu/src/Widgets.php:38
 msgid "Displayed in link and used as title"
-msgstr ""
+msgstr "Parādīts saitē un izmantots kā virsraksts"
 
 #: plugins/simpleMenu/src/Widgets.php:39
 msgid "Not displayed nor used"
-msgstr ""
+msgstr "Nav ne rādīts, ne lietots"
 
 #: plugins/tags/src/BackendBehaviors.php:63
 #: plugins/tags/src/BackendBehaviors.php:74
 #: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
 msgid "Tag"
-msgstr ""
+msgstr "Tag"
 
 #: plugins/tags/src/BackendBehaviors.php:237
 msgid "Add tags"
-msgstr ""
+msgstr "Pievienojiet atzīmes"
 
 #: plugins/tags/src/BackendBehaviors.php:246
 msgid "Remove tags"
-msgstr ""
+msgstr "Noņemiet atzīmes"
 
 #: plugins/tags/src/BackendBehaviors.php:281
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Atlasītajiem ierakstiem ir veiksmīgi pievienotas atzīmes"
+msgstr[1] "Tags ir veiksmīgi pievienots atlasītajiem ierakstiem"
+msgstr[2] "Atlasītajiem ierakstiem ir veiksmīgi pievienotas atzīmes"
 
 #: plugins/tags/src/BackendBehaviors.php:294
 #: plugins/tags/src/BackendBehaviors.php:456
 msgid "Are you sure you want to remove this tag?"
-msgstr ""
+msgstr "Vai tiešām vēlaties noņemt šo atzīmi?"
 
 #: plugins/tags/src/BackendBehaviors.php:295
 #: plugins/tags/src/BackendBehaviors.php:457
 msgid "Add a tag to this entry"
-msgstr ""
+msgstr "Pievienojiet šim ierakstam atzīmi"
 
 #: plugins/tags/src/BackendBehaviors.php:296
 #: plugins/tags/src/BackendBehaviors.php:458
 msgid "Choose from list"
-msgstr ""
+msgstr "Izvēlieties no saraksta"
 
 #: plugins/tags/src/BackendBehaviors.php:297
 #: plugins/tags/src/BackendBehaviors.php:459
 msgid "all"
-msgstr ""
+msgstr "visi"
 
 #: plugins/tags/src/BackendBehaviors.php:298
 #: plugins/tags/src/BackendBehaviors.php:460
 msgid "Enter tags separated by comma"
-msgstr ""
+msgstr "Ievadiet atzīmes, atdalot tās ar komatu"
 
 #: plugins/tags/src/BackendBehaviors.php:302
 #: plugins/tags/src/BackendBehaviors.php:464
 msgid "used in %e - frequency %p%"
-msgstr ""
+msgstr "izmantots %e - frekvence %p%"
 
 #: plugins/tags/src/BackendBehaviors.php:303
 #: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:116
 msgid "entry"
-msgstr ""
+msgstr "ierakstu"
 
 #: plugins/tags/src/BackendBehaviors.php:304
 #: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:116
 msgid "entries"
-msgstr ""
+msgstr "ieraksti"
 
 #: plugins/tags/src/BackendBehaviors.php:312
 msgid "Add tags to this selection"
-msgstr ""
+msgstr "Pievienojiet šai atlasei atzīmes"
 
 #: plugins/tags/src/BackendBehaviors.php:331
 msgid "Tags to add:"
-msgstr ""
+msgstr "Atzīmes, ko pievienot:"
 
 #: plugins/tags/src/BackendBehaviors.php:370
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Atzīmes ir veiksmīgi noņemtas no atlasītajiem ierakstiem"
+msgstr[1] "Tags ir veiksmīgi noņemts no atlasītajiem ierakstiem"
+msgstr[2] "Atzīmes ir veiksmīgi noņemtas no atlasītajiem ierakstiem"
 
 #: plugins/tags/src/BackendBehaviors.php:393
 msgid "No tags for selected entries"
-msgstr ""
+msgstr "Nav atzīmju atlasītajiem ierakstiem"
 
 #: plugins/tags/src/BackendBehaviors.php:400
 msgid "Remove selected tags from this selection"
-msgstr ""
+msgstr "Noņemiet atlasītos tagus no šīs atlases"
 
 #: plugins/tags/src/BackendBehaviors.php:427
 msgid "Following tags have been found in selected entries:"
-msgstr ""
+msgstr "Atlasītajos ierakstos ir atrastas šādas atzīmes:"
 
 #: plugins/tags/src/BackendBehaviors.php:487
 msgid "Short"
-msgstr ""
+msgstr "Īss"
 
 #: plugins/tags/src/BackendBehaviors.php:488
 msgid "Extended"
-msgstr ""
+msgstr "Pagarināts"
 
 #: plugins/tags/src/BackendBehaviors.php:500
 msgid "Tags list format:"
-msgstr ""
+msgstr "Tagu saraksta formāts:"
 
 #: plugins/tags/src/FrontendBehaviors.php:29
 msgid "This tag's comments Atom feed"
-msgstr ""
+msgstr "Šī taga komentāri Atom plūsma"
 
 #: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's entries Atom feed"
-msgstr ""
+msgstr "Šī taga ieraksti ir Atom plūsma"
 
 #: plugins/tags/src/Manage.php:147
 msgid "No tags on this blog."
-msgstr ""
+msgstr "Šajā emuārā nav atzīmju."
 
 #: plugins/tags/src/ManagePosts.php:93
 msgid "Tag has been successfully renamed"
-msgstr ""
+msgstr "Tags ir veiksmīgi pārdēvēts"
 
 #: plugins/tags/src/ManagePosts.php:112
 msgid "Tag has been successfully removed"
-msgstr ""
+msgstr "Tags ir veiksmīgi noņemts"
 
 #: plugins/tags/src/ManagePosts.php:143
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
-msgstr ""
+msgstr "Vai tiešām vēlaties noņemt atzīmi: “%s”?"
 
 #: plugins/tags/src/ManagePosts.php:158
 msgid "Back to tags list"
-msgstr ""
+msgstr "Atpakaļ uz tagu sarakstu"
 
 #: plugins/tags/src/ManagePosts.php:173
 msgid "Delete this tag"
-msgstr ""
+msgstr "Dzēst šo tagu"
 
 #: plugins/tags/src/ManagePosts.php:195
 msgid "Rename:"
-msgstr ""
+msgstr "Pārdēvēt:"
 
 #: plugins/tags/src/ManagePosts.php:206
 msgid "List of entries with this tag"
-msgstr ""
+msgstr "Ierakstu saraksts ar šo tagu"
 
 #: plugins/tags/src/Widgets.php:33
 msgid "Limit (empty means no limit):"
-msgstr ""
+msgstr "Ierobežojums (tukšs nozīmē bez ierobežojuma):"
 
 #: plugins/tags/src/Widgets.php:40
 msgid "Tag name"
-msgstr ""
+msgstr "Atzīmes nosaukums"
 
 #: plugins/tags/src/Widgets.php:41
 msgid "Entries count"
-msgstr ""
+msgstr "Ieraksti skaitās"
 
 #: plugins/tags/src/Widgets.php:42
 msgid "Newest entry"
-msgstr ""
+msgstr "Jaunākais ieraksts"
 
 #: plugins/tags/src/Widgets.php:43
 msgid "Oldest entry"
-msgstr ""
+msgstr "Vecākais ieraksts"
 
 #: plugins/tags/src/Widgets.php:56
 msgid "Link to all tags:"
-msgstr ""
+msgstr "Saite uz visiem tagiem:"
 
 #: plugins/themeEditor/src/Backend.php:24
 msgid "themeEditor"
-msgstr ""
+msgstr "tēmaRedaktors"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:51
 #: plugins/themeEditor/src/Manage.php:188
 #: plugins/themeEditor/src/Manage.php:195
 msgid "Edit theme files"
-msgstr ""
+msgstr "Rediģēt motīvu failus"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:112
 msgid "Syntax highlighting"
-msgstr ""
+msgstr "Sintakses izcelšana"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:124
 msgid "Syntax highlighting in theme editor"
-msgstr ""
+msgstr "Sintakses izcelšana motīvu redaktorā"
 
 #: plugins/themeEditor/src/Manage.php:97
 msgid "The theme update has been locked."
-msgstr ""
+msgstr "Motīva atjauninājums ir bloķēts."
 
 #: plugins/themeEditor/src/Manage.php:105
 msgid "The theme update has been unocked."
-msgstr ""
+msgstr "Motīva atjauninājums ir atbloķēts."
 
 #: plugins/themeEditor/src/Manage.php:128
 msgid "The file has been reset."
-msgstr ""
+msgstr "Fails ir atiestatīts."
 
 #: plugins/themeEditor/src/Manage.php:161
 msgid "Lock update"
-msgstr ""
+msgstr "Bloķēšanas atjauninājums"
 
 #: plugins/themeEditor/src/Manage.php:161
 msgid "Unlock update"
-msgstr ""
+msgstr "Atbloķēt atjauninājumu"
 
 #: plugins/themeEditor/src/Manage.php:166
 msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
-msgstr ""
+msgstr "Motīva bloķēšanas atjauninājums neliedz modificēt tā failus, tikai atjaunināt to globāli."
 
 #: plugins/themeEditor/src/Manage.php:176
 msgid "Saving document..."
-msgstr ""
+msgstr "Notiek dokumenta saglabāšana..."
 
 #: plugins/themeEditor/src/Manage.php:177
 msgid "Document saved"
-msgstr ""
+msgstr "Dokuments saglabāts"
 
 #: plugins/themeEditor/src/Manage.php:178
 msgid "An error occurred:"
-msgstr ""
+msgstr "Notika kļūda:"
 
 #: plugins/themeEditor/src/Manage.php:179
 msgid "Are you sure you want to reset this file?"
-msgstr ""
+msgstr "Vai tiešām vēlaties atiestatīt šo failu?"
 
 #: plugins/themeEditor/src/Manage.php:203
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
-msgstr ""
+msgstr "Jūsu pašreizējā šī emuāra tēma ir \"%s\"."
 
 #: plugins/themeEditor/src/Manage.php:227
 msgid "Please select a file to edit."
-msgstr ""
+msgstr "Lūdzu, atlasiet rediģējamo failu."
 
 #: plugins/themeEditor/src/Manage.php:237
 msgid "File editor"
-msgstr ""
+msgstr "Failu redaktors"
 
 #: plugins/themeEditor/src/Manage.php:246
 #, php-format
 msgid "Editing file %s"
-msgstr ""
+msgstr "Rediģēt failu %s"
 
 #: plugins/themeEditor/src/Manage.php:256
 msgid "Reset"
-msgstr ""
+msgstr "Atiestatīt"
 
 #: plugins/themeEditor/src/Manage.php:263
 msgid "This file is not writable. Please check your theme files permissions."
-msgstr ""
+msgstr "Šis fails nav rakstāms. Lūdzu, pārbaudiet motīvu failu atļaujas."
 
 #: plugins/themeEditor/src/Manage.php:282
 msgid "Templates files"
-msgstr ""
+msgstr "Veidņu faili"
 
 #: plugins/themeEditor/src/Manage.php:287
 msgid "CSS files"
-msgstr ""
+msgstr "CSS faili"
 
 #: plugins/themeEditor/src/Manage.php:292
 msgid "JavaScript files"
-msgstr ""
+msgstr "JavaScript faili"
 
 #: plugins/themeEditor/src/Manage.php:297
 msgid "Locales files"
-msgstr ""
+msgstr "Lokalizācijas faili"
 
 #: plugins/themeEditor/src/Manage.php:302
 msgid "PHP files"
-msgstr ""
+msgstr "PHP faili"
 
 #: plugins/themeEditor/src/Manage.php:316
 msgid "You can't edit a distributed theme."
-msgstr ""
+msgstr "Jūs nevarat rediģēt izplatītu motīvu."
 
 #: plugins/themeEditor/src/ThemeEditor.php:151
 msgid "No file"
-msgstr ""
+msgstr "Nav faila"
 
 #: plugins/themeEditor/src/ThemeEditor.php:176
 msgid "From theme:"
-msgstr ""
+msgstr "No tēmas:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:184
 msgid "From parent:"
-msgstr ""
+msgstr "No vecākiem:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:194
 msgid "From template set:"
-msgstr ""
+msgstr "No veidņu kopas:"
 
 #: plugins/themeEditor/src/ThemeEditor.php:222
 #: plugins/themeEditor/src/ThemeEditor.php:252
 #: plugins/themeEditor/src/ThemeEditor.php:341
 msgid "File does not exist."
-msgstr ""
+msgstr "Fails neeksistē."
 
 #: plugins/themeEditor/src/ThemeEditor.php:227
 #, php-format
 msgid "File %s is not readable"
-msgstr ""
+msgstr "Fails %s nav lasāms"
 
 #: plugins/themeEditor/src/ThemeEditor.php:289
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr ""
+msgstr "Nevar ierakstīt failu %s. Lūdzu, pārbaudiet motīvu failu un mapju atļaujas."
 
 #: plugins/themeEditor/src/ThemeEditor.php:354
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-msgstr ""
+msgstr "Nevar izdzēst failu %s. Lūdzu, pārbaudiet motīvu failu un mapju atļaujas."
 
 #: plugins/userPref/src/Backend.php:24
 msgid "user:preferences"
-msgstr ""
+msgstr "lietotājs: preferences"
 
 #: plugins/userPref/src/Manage.php:90 plugins/userPref/src/Manage.php:109
 msgid "Preferences successfully updated"
-msgstr ""
+msgstr "Preferences ir veiksmīgi atjauninātas"
 
 #: plugins/userPref/src/Manage.php:149 plugins/userPref/src/Manage.php:151
 msgid "User preferences"
-msgstr ""
+msgstr "Lietotāja preferences"
 
 #: plugins/userPref/src/Manage.php:159 plugins/userPref/src/Manage.php:161
 msgid "Global preferences"
-msgstr ""
+msgstr "Globālās preferences"
 
 #: plugins/widgets/src/Backend.php:26
 msgid "Widgets"
-msgstr ""
+msgstr "Logrīki"
 
 #: plugins/widgets/src/Backend.php:47
 msgid "Widget's textareas"
-msgstr ""
+msgstr "Logrīka teksta apgabali"
 
 #: plugins/widgets/src/Install.php:35
 msgid "Unable to initialize default widgets."
-msgstr ""
+msgstr "Nevar inicializēt noklusējuma logrīkus."
 
 #: plugins/widgets/src/Manage.php:76
 msgid "navigation"
-msgstr ""
+msgstr "navigācija"
 
 #: plugins/widgets/src/Manage.php:77
 msgid "extra"
-msgstr ""
+msgstr "papildus"
 
 #: plugins/widgets/src/Manage.php:78
 msgid "custom"
-msgstr ""
+msgstr "pasūtījuma"
 
 #: plugins/widgets/src/Manage.php:214
 msgid "Sidebars and their widgets have been saved."
-msgstr ""
+msgstr "Sānjoslas un to logrīki ir saglabāti."
 
 #: plugins/widgets/src/Manage.php:228
 msgid "Sidebars have been resetting."
-msgstr ""
+msgstr "Sānjoslas ir atiestatītas."
 
 #: plugins/widgets/src/Manage.php:257
 msgid "Are you sure you want to reset sidebars?"
-msgstr ""
+msgstr "Vai tiešām vēlaties atiestatīt sānjoslas?"
 
 #: plugins/widgets/src/Manage.php:258 plugins/widgets/src/Manage.php:387
 msgid "Temporarily display the action buttons for each widget"
-msgstr ""
+msgstr "Īslaicīgi parādiet katra logrīka darbību pogas"
 
 #: plugins/widgets/src/Manage.php:259
 msgid "Hide the action buttons for each widget"
-msgstr ""
+msgstr "Slēpt katra logrīka darbību pogas"
 
 #: plugins/widgets/src/Manage.php:306 plugins/widgets/src/Manage.php:489
 msgid "order"
-msgstr ""
+msgstr "pasūtījums"
 
 #: plugins/widgets/src/Manage.php:318
 msgid "Append to:"
-msgstr ""
+msgstr "Pievienot:"
 
 #: plugins/widgets/src/Manage.php:337
 msgid "Available widgets"
-msgstr ""
+msgstr "Pieejamie logrīki"
 
 #: plugins/widgets/src/Manage.php:339
 msgid "Drag widgets from this list to one of the sidebars, for add."
-msgstr ""
+msgstr "Lai pievienotu, velciet logrīkus no šī saraksta uz kādu no sānjoslām."
 
 #: plugins/widgets/src/Manage.php:347
 msgid "Add widgets to sidebars"
-msgstr ""
+msgstr "Pievienojiet logrīkus sānjoslām"
 
 #: plugins/widgets/src/Manage.php:362
 msgid "Navigation sidebar"
-msgstr ""
+msgstr "Navigācijas sānjosla"
 
 #: plugins/widgets/src/Manage.php:369
 msgid "Extra sidebar"
-msgstr ""
+msgstr "Papildu sānjosla"
 
 #: plugins/widgets/src/Manage.php:376
 msgid "Custom sidebar"
-msgstr ""
+msgstr "Pielāgota sānjosla"
 
 #: plugins/widgets/src/Manage.php:383
 msgid "Update sidebars"
-msgstr ""
+msgstr "Atjauniniet sānjoslas"
 
 #: plugins/widgets/src/Manage.php:385
 msgid "Reset sidebars"
-msgstr ""
+msgstr "Atiestatīt sānjoslas"
 
 #: plugins/widgets/src/Manage.php:398
 msgid "No setting for this widget"
-msgstr ""
+msgstr "Šim logrīkam nav iestatījumu"
 
 #: plugins/widgets/src/Manage.php:404
 msgid "boolean"
-msgstr ""
+msgstr "Būla"
 
 #: plugins/widgets/src/Manage.php:404 plugins/widgets/src/Manage.php:409
 msgid "possible values:"
-msgstr ""
+msgstr "iespējamās vērtības:"
 
 #: plugins/widgets/src/Manage.php:408
 msgid "empty string"
-msgstr ""
+msgstr "tukša virkne"
 
 #: plugins/widgets/src/Manage.php:409
 msgid "listitem"
-msgstr ""
+msgstr "saraksta vienums"
 
 #: plugins/widgets/src/Manage.php:415
 msgid "string"
-msgstr ""
+msgstr "virkne"
 
 #: plugins/widgets/src/Manage.php:435
 msgid "Widget ID:"
-msgstr ""
+msgstr "Logrīka ID:"
 
 #: plugins/widgets/src/Manage.php:501 plugins/widgets/src/Manage.php:502
 msgid "Up the widget"
-msgstr ""
+msgstr "Augšup logrīkā"
 
 #: plugins/widgets/src/Manage.php:506 plugins/widgets/src/Manage.php:507
 msgid "Down the widget"
-msgstr ""
+msgstr "Lejup logrīkā"
 
 #: plugins/widgets/src/Manage.php:510 plugins/widgets/src/Manage.php:511
 msgid "Remove the widget"
-msgstr ""
+msgstr "Noņemiet logrīku"
 
 #: plugins/widgets/src/Manage.php:535
 msgid "No widget as far."
-msgstr ""
+msgstr "Pagaidām nav logrīku."
 
 #: plugins/widgets/src/Manage.php:544
 msgid "Drag widgets here to remove."
-msgstr ""
+msgstr "Lai noņemtu logrīkus, velciet šeit."
 
 #: plugins/widgets/src/Widgets.php:88
 msgid "Search engine"
-msgstr ""
+msgstr "Meklētājs"
 
 #: plugins/widgets/src/Widgets.php:90
 msgid "Placeholder (HTML5 only, optional):"
-msgstr ""
+msgstr "Vietturis (tikai HTML5, neobligāti):"
 
 #: plugins/widgets/src/Widgets.php:97
 msgid "Navigation links"
-msgstr ""
+msgstr "Navigācijas saites"
 
 #: plugins/widgets/src/Widgets.php:105
 msgid "Selected entries"
-msgstr ""
+msgstr "Atlasītie ieraksti"
 
 #: plugins/widgets/src/Widgets.php:106
 msgid "Best of me"
-msgstr ""
+msgstr "Labākais no manis"
 
 #: plugins/widgets/src/Widgets.php:114
 msgid "Blog languages"
-msgstr ""
+msgstr "Emuāru valodas"
 
 #: plugins/widgets/src/Widgets.php:124
 msgid "With entries counts"
-msgstr ""
+msgstr "Ar ierakstu skaitu"
 
 #: plugins/widgets/src/Widgets.php:125
 msgid "Include sub cats in count"
-msgstr ""
+msgstr "Skaitā iekļaujiet apakškaķus"
 
 #: plugins/widgets/src/Widgets.php:126
 msgid "Include empty categories"
-msgstr ""
+msgstr "Iekļaut tukšas kategorijas"
 
 #: plugins/widgets/src/Widgets.php:133
 msgid "Subscribe links"
-msgstr ""
+msgstr "Abonēšanas saites"
 
 #: plugins/widgets/src/Widgets.php:134
 msgid "Subscribe"
-msgstr ""
+msgstr "Abonēt"
 
 #: plugins/widgets/src/Widgets.php:135
 msgid "Feeds type:"
-msgstr ""
+msgstr "Plūsmas veids:"
 
 #: plugins/widgets/src/Widgets.php:142
 msgid "Feed reader"
-msgstr ""
+msgstr "Plūsmas lasītājs"
 
 #: plugins/widgets/src/Widgets.php:143
 msgid "Somewhere else"
-msgstr ""
+msgstr "Kaut kur citur"
 
 #: plugins/widgets/src/Widgets.php:145 plugins/widgets/src/Widgets.php:173
 msgid "Entries limit:"
-msgstr ""
+msgstr "Ieejas limits:"
 
 #: plugins/widgets/src/Widgets.php:152
 msgid "Text"
-msgstr ""
+msgstr "Teksts"
 
 #: plugins/widgets/src/Widgets.php:154
 msgid "Text:"
-msgstr ""
+msgstr "Teksts:"
 
 #: plugins/widgets/src/Widgets.php:161
 msgid "Uncategorized"
-msgstr ""
+msgstr "Bez kategorijas"
 
 #: plugins/widgets/src/Widgets.php:165 plugins/widgets/src/Widgets.php:167
 msgid "Last entries"
-msgstr ""
+msgstr "Pēdējie ieraksti"
 
 #: plugins/widgets/src/Widgets.php:170
 msgid "Tag:"
-msgstr ""
+msgstr "Tags:"
 
 #: plugins/widgets/src/Widgets.php:182
 msgid "Last comments"
-msgstr ""
+msgstr "Pēdējie komentāri"
 
 #: plugins/widgets/src/Widgets.php:183
 msgid "Comments limit:"
-msgstr ""
+msgstr "Komentāru ierobežojums:"
 
 #: plugins/widgets/src/Widgets.php:465
 #, php-format
 msgid "This blog's entries %s feed"
-msgstr ""
+msgstr "Šī emuāra ieraksti %s plūsma"
 
 #: plugins/widgets/src/Widgets.php:466
 #, php-format
 msgid "This blog's comments %s feed"
-msgstr ""
+msgstr "Šī emuāra komentāru %s plūsma"
 
 #: plugins/widgets/src/Widgets.php:474
 msgid "Entries feed"
-msgstr ""
+msgstr "Ierakstu plūsma"
 
 #: plugins/widgets/src/Widgets.php:480
 msgid "Comments feed"
-msgstr ""
+msgstr "Komentāru plūsma"
 
 #: plugins/widgets/src/WidgetsElement.php:556
 msgid "Title (optional)"
-msgstr ""
+msgstr "Nosaukums (neobligāti)"
 
 #: plugins/widgets/src/WidgetsElement.php:569
 msgid "All pages"
-msgstr ""
+msgstr "Visas lapas"
 
 #: plugins/widgets/src/WidgetsElement.php:570
 msgid "Home page only"
-msgstr ""
+msgstr "Tikai mājas lapa"
 
 #: plugins/widgets/src/WidgetsElement.php:571
 msgid "Except on home page"
-msgstr ""
+msgstr "Izņemot mājaslapu"
 
 #: plugins/widgets/src/WidgetsElement.php:579
 msgid "Display on:"
-msgstr ""
+msgstr "Parādīt:"
 
 #: plugins/widgets/src/WidgetsElement.php:615
 msgid "Content only"
-msgstr ""
+msgstr "Tikai saturs"
 
 #: plugins/widgets/src/WidgetsElement.php:627
 msgid "CSS class:"
-msgstr ""
+msgstr "CSS klase:"
 
 #: plugins/widgets/src/WidgetsElement.php:639
 msgid "Offline"
-msgstr ""
+msgstr "Bezsaistē"
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2024-07-05 10:40\n"
+"PO-Revision-Date: 2024-07-08 13:01\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "MIME-Version: 1.0\n"
@@ -18,119 +18,119 @@ msgstr ""
 "Language: sk_SK\n"
 
 msgid "%Y-%m-%d %H:%M"
-msgstr ""
+msgstr "%Y-%m-%d %H:%M"
 
 msgid "_Jan"
-msgstr ""
+msgstr "_Jan"
 
 msgid "_Feb"
-msgstr ""
+msgstr "_Feb"
 
 msgid "_Mar"
-msgstr ""
+msgstr "_Mar"
 
 msgid "_Apr"
-msgstr ""
+msgstr "_apr"
 
 msgid "_May"
-msgstr ""
+msgstr "_Smieť"
 
 msgid "_Jun"
-msgstr ""
+msgstr "_jún"
 
 msgid "_Jul"
-msgstr ""
+msgstr "_Júl"
 
 msgid "_Aug"
-msgstr ""
+msgstr "_Aug"
 
 msgid "_Sep"
-msgstr ""
+msgstr "_Sept"
 
 msgid "_Oct"
-msgstr ""
+msgstr "_Okt"
 
 msgid "_Nov"
-msgstr ""
+msgstr "_nov"
 
 msgid "_Dec"
-msgstr ""
+msgstr "_dec"
 
 msgid "January"
-msgstr ""
+msgstr "januára"
 
 msgid "February"
-msgstr ""
+msgstr "februára"
 
 msgid "March"
-msgstr ""
+msgstr "marca"
 
 msgid "April"
-msgstr ""
+msgstr "apríla"
 
 msgid "May"
-msgstr ""
+msgstr "Smieť"
 
 msgid "June"
-msgstr ""
+msgstr "júna"
 
 msgid "July"
-msgstr ""
+msgstr "júla"
 
 msgid "August"
-msgstr ""
+msgstr "augusta"
 
 msgid "September"
-msgstr ""
+msgstr "septembra"
 
 msgid "October"
-msgstr ""
+msgstr "októbra"
 
 msgid "November"
-msgstr ""
+msgstr "novembra"
 
 msgid "December"
-msgstr ""
+msgstr "December"
 
 msgid "_Mon"
-msgstr ""
+msgstr "_Po"
 
 msgid "_Tue"
-msgstr ""
+msgstr "_ut"
 
 msgid "_Wed"
-msgstr ""
+msgstr "_Str"
 
 msgid "_Thu"
-msgstr ""
+msgstr "_Št"
 
 msgid "_Fri"
-msgstr ""
+msgstr "_Pia"
 
 msgid "_Sat"
-msgstr ""
+msgstr "_So"
 
 msgid "_Sun"
-msgstr ""
+msgstr "_Slnko"
 
 msgid "Monday"
-msgstr ""
+msgstr "pondelok"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "utorok"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "streda"
 
 msgid "Thursday"
-msgstr ""
+msgstr "štvrtok"
 
 msgid "Friday"
-msgstr ""
+msgstr "piatok"
 
 msgid "Saturday"
-msgstr ""
+msgstr "sobota"
 
 msgid "Sunday"
-msgstr ""
+msgstr "nedeľa"
 

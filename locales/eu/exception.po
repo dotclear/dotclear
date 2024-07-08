@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-07 16:28+0200\n"
-"PO-Revision-Date: 2023-12-02 04:28\n"
+"PO-Revision-Date: 2024-07-08 12:58\n"
 "Last-Translator: \n"
 "Language-Team: Basque\n"
 "MIME-Version: 1.0\n"
@@ -19,107 +19,107 @@ msgstr ""
 
 # in Dotclear\Exception\ExceptionEnum (and Dotclear\App)
 msgid "Site temporarily unavailable"
-msgstr ""
+msgstr "Gunea aldi baterako ez dago erabilgarri"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Bad Request"
-msgstr ""
+msgstr "Eskaera txarra"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Blog handling error"
-msgstr ""
+msgstr "Blogaren kudeaketa-errorea"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Application configuration error"
-msgstr ""
+msgstr "Aplikazioaren konfigurazio-errorea"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Conflict"
-msgstr ""
+msgstr "Gatazka"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Application context error"
-msgstr ""
+msgstr "Aplikazioaren testuinguruko errorea"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Database connection error"
-msgstr ""
+msgstr "Datu-basearen konexio-errorea"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Not Found"
-msgstr ""
+msgstr "Ez da aurkitu"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Precondition Failed"
-msgstr ""
+msgstr "Aurrebaldintzak huts egin du"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Application process error"
-msgstr ""
+msgstr "Aplikazio-prozesuaren errorea"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Session handling error"
-msgstr ""
+msgstr "Saioa kudeatzeko errorea"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Template handling error"
-msgstr ""
+msgstr "Txantiloiak maneiatzeko errorea"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Unauthorized"
-msgstr ""
+msgstr "Baimenik gabe"
 
 # in Dotclear\Exception\ExceptionEnum
 msgid "Internal Server Error"
-msgstr ""
+msgstr "Barneko zerbitzari-errorea"
 
 # in Dotclear\App
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr ""
+msgstr "<p>Horrek esan nahi du zure <strong>config.php</strong> fitxategiko erabiltzaile-izena eta pasahitzaren informazioa okerra dela edo ezin dugula jarri datu-basearen zerbitzariarekin harremanetan jarri \"<em>%s</em>\" helbidean. Honek zure ostalariaren datu-base zerbitzaria hutsik dagoela esan dezake.</p> <ul><li>Ziur erabiltzaile-izen eta pasahitz zuzenak dituzula?</li><li>Ziur al zaude ostalari-izen zuzena idatzi duzula?</li><li>Ziur al zaude datu-basearen zerbitzaria martxan dagoela?</li></ul><p>Ziur ez bazaude baldintza hauek zer esan nahi duten ziurrenik zure ostalariarekin harremanetan jarri beharko zenuke. Oraindik laguntza behar baduzu, beti bisita dezakezu <a href=\"https://forum.dotclear.net/\">Dotclear laguntza-foroak</a>.</p>"
 
 # in Dotclear\Config
 msgid "Dotclear release file is not readable"
-msgstr ""
+msgstr "Dotclear bertsioaren fitxategia ezin da irakurtzen"
 
 # in Dotclear\Config
 msgid "Dotclear is not installed or failed to load config file."
-msgstr ""
+msgstr "Dotclear ez dago instalatuta edo huts egin du konfigurazio fitxategia kargatzean."
 
 # in Dotclear\Config
 #, php-format
 msgid "%s cryptographic algorithm configured is not strong enough, please change it."
-msgstr ""
+msgstr "%s konfiguratutako algoritmo kriptografikoa ez da nahikoa sendoa, mesedez aldatu."
 
 # in Dotclear\Config
 #, php-format
 msgid "%s directory does not exist. Please create it."
-msgstr ""
+msgstr "%s direktorioa ez dago. Mesedez, sortu."
 
 # in Dotclear\Config
 #, php-format
 msgid "Dotclear release key %s was not found"
-msgstr ""
+msgstr "Dotclear askatzeko giltza %s ez da aurkitu"
 
 # in Dotclear\Core\Task (and Dotclear\Core\Core and maybe others)
 msgid "Application can not be started twice."
-msgstr ""
+msgstr "Aplikazioa ezin da bi aldiz hasi."
 
 # in Dotclear\Core\Task
 msgid "Unable to load deprecated core"
-msgstr ""
+msgstr "Ezin da kargatu zaharkitutako nukleoa"
 
 # in Dotclear\Core\Task
 msgid "<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>"
-msgstr ""
+msgstr "<p>Barkamena eskatzen dizugu aldi baterako erabilgarritasun hauengatik.<br>Eskerrik asko zure ulertzeagatik.</p>"
 
 # in Dotclear\Core\Task
 #, php-format
 msgid "Unable to find class %s"
-msgstr ""
+msgstr "Ezin da %sklasea aurkitu"
 
 # in Dotclear\Core\Task
 #, php-format
 msgid "Unable to initialize class %s"
-msgstr ""
+msgstr "Ezin da %sklasea hasieratu"
 

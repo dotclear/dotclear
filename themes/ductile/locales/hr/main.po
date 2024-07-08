@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-02 15:12+0200\n"
-"PO-Revision-Date: 2024-07-06 10:43\n"
+"PO-Revision-Date: 2024-07-08 06:30\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -19,9 +19,9 @@ msgstr ""
 
 #: themes/ductile/__html_tpl_dummy.php:22
 msgid "Pages"
-msgstr ""
+msgstr "Stranice"
 
 #: themes/ductile/__html_tpl_dummy.php:39
 msgid "To top"
-msgstr ""
+msgstr "Na vrh"
 
