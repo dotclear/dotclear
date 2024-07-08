@@ -6,16 +6,16 @@
 
 <body>
   <h4>Referință de sintaxă Wiki</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Sintaxa Wiki este o modalitate de a vă îmbunătăți textul cu un set minim de etichete studiate pentru a acoperi nevoile de bază (titluri, paragrafe, citate, liste...).</p>
   <dl>
     <dt>Blocare elemente</dt>
     <dd>
       <ul>
         <li>Lăsați o linie goală între două blocuri similare.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Paragraf:</strong> Text liber, încheiat cu o linie goală dacă urmează un alt paragraf.</li>
+        <li><strong>Titlu:</strong> <code>!!! titlu</code>, <code>!! titlu</code> sau <code>! titlu</code>, permițându-vă să utilizați trei niveluri diferite de titlu.</li>
         <li><strong>Horizontal line</strong>: <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Liste:</strong> Începeți fiecare rând cu <code>*</code> sau <code>#</code> pentru listele nenumerotate sau, respectiv, numerotate. Imbricarea listei se face prin amestecarea markerilor listei astfel:
           <pre>
     <code>*</code> * item 1
 ** item 1.1
@@ -45,13 +45,13 @@
         <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
         <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[nume|url]</code>, <code>[nume| url|limba]</code> sau <code>[nume|url|limba|titlu]</code></li>
+        <li><strong>Imaginea:</strong><code>(url<unk> alternative text))</code>, <code>(url<unk> alternative text<unk> position))</code> sau <code>(url<unk> alternative text<unk> position<unk> long description))</code>.<br>Poziţia poate fi fie L (stânga), R (dreapta) sau C (centrată).</li>
         <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
         <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
         <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Citate în linie:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> sau <code>{{quote|language|url}}</code></li>
         <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
         <li><strong>Note de subsol:</strong> <code>$$footnote$$</code></li>
         <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
@@ -59,12 +59,12 @@
       </ul>
     </dd>
     <dt>Text neformatat</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>Dacă nu doriți ca un caracter de formatare să fie interpretat ca atare, adăugați un
+      <code>\</code> chiar înaintea acestuia. De exemplu:
+      <code>\[Text între paranteze fără a fi un link\]</code>
     </dd>
     <dt>HTML Code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Chiar dacă ați ales sintaxa Wiki, uneori este posibil să aveți nevoie de o formatare mai puternică, adică sintaxa HTML. Faceți-o în felul următor:
       <pre>
 //html
 &lt;p style="color:red"&gt;textul meu cu roșu&lt;/p&gt;
