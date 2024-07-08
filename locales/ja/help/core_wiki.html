@@ -6,16 +6,16 @@
 
 <body>
   <h4>Wiki シンタックスリファレンス</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Wiki 構文は、基本的なニーズ (タイトル、段落、引用、リストなど) をカバーするために研究された最小限のタグ セットを使用してテキストを強化する方法です。</p>
   <dl>
     <dt>ブロック要素</dt>
     <dd>
       <ul>
         <li>類似のブロック間に空行を入れます。</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>段落:</strong> 自由テキスト。別の段落が続く場合は空行で終了します。</li>
+        <li><strong>タイトル:</strong> <code>!!! タイトル</code>、 <code>!! タイトル</code> または <code>! タイトル</code>、3 つの異なるレベルの見出しを使用できます。</li>
         <li><strong>水平線</strong>： <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>リスト:</strong> 各行を <code>* で開始します。</code> または <code>#</code> はそれぞれ番号なしリストまたは番号付きリストです。リストの重なりは、次のようにリスト マーカーを混合することで行われます。
           <pre>
     <code>*</code> * 項目 1
 ** 項目 1.1
@@ -45,13 +45,13 @@
         <li><strong>削除</strong>： 2つのマイナス記号 <code>--テキスト--</code></li>
         <li><strong>リンク</strong>： <code>[URL]</code>, <code>[名前|URL]</code>,
     <code>[名前|URL|言語]</code>, <code>[名前|URL|言語|タイトル]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>リンク:</strong> <code>[url]</code>、 <code>[名前|url]</code>、 <code>[名前|url|言語]</code> または <code>[名前|url|言語|タイトル]</code></li>
+        <li><strong>画像:</strong><code>((url|代替テキスト))</code>、 <code>((url|代替テキスト|位置))</code> または <code>((url|代替テキスト|位置|長い説明))</code>。<br>位置は L (左)、R (右)、C (中央) のいずれかになります。</li>
         <li><strong>頭字語</strong>： <code>??頭字語|タイトル??</code></li>
         <li><strong>インライン引用</strong>： <code>{{引用}}</code>,
     <code>{{引用|言語}}</code>, <code>{{引用|言語|URL}}</code></li>
         <li><strong>コード</strong>： <code>@@コード@@</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>インライン引用:</strong> <code>{{quote}}</code>、 <code>{{quote|language}}</code> または <code>{{quote|language|url}}</code></li>
         <li><strong>コード:</strong> <code>@@code@</code></li>
         <li><strong>Footnotes:</strong> <code>$$footnote$$</code></li>
         <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
@@ -59,12 +59,12 @@
       </ul>
     </dd>
     <dt>書式なしテキスト</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>書式指定文字をそのように解釈させたくない場合は、その直前に
+      <code>\</code> を追加します。例:
+      <code>\[リンクではない括弧内のテキスト\]</code>
     </dd>
     <dt>HTMLコード</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Wiki 構文を選択した場合でも、より強力な書式設定、つまり HTML 構文が必要になる場合があります。次の方法で実行します。
       <pre>
 ///html
 &lt;p style="color:red"&gt;赤文字のテキスト&lt;/p&gt;
