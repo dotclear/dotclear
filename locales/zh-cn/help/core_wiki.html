@@ -6,16 +6,16 @@
 
 <body>
   <h4>维基语法参考</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Wiki 语法是一种通过研究一组最少的标签来增强您的文本以满足基本需求（标题、段落、引用、列表……）的方法。</p>
   <dl>
     <dt>区块元素</dt>
     <dd>
       <ul>
         <li>在两个相似区块中间留一个空行。</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>段落：</strong> 自由文本，如果有其他段落，则以空行结尾。</li>
+        <li><strong>标题：</strong> <code>!!! 标题</code>， <code>!! 标题</code> 或 <code>! 标题</code>，允许您使用三个不同级别的标题。</li>
         <li><strong>水平线</strong>： <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>列表：</strong> 每行以 <code>*</code> 或 <code>#</code> 开头，分别表示无编号列表或编号列表。列表叠置是通过混合列表标记来完成的，如下所示：
           <pre>
     <code>*</code> * 项目 1
 ** 项目 1.1
@@ -44,12 +44,12 @@
         <li><strong>下划线</strong>：两个加号 <code>++text++</code> <code>%%%</code></li>
         <li><strong>删除线</strong>：两个减号 <code>--text--</code></li>
         <li><strong>链接</strong>： <code>[url]</code>，<code>[名称|url]</code>，<code>[名称|url|语言]</code> 或者 <code>[名称|url|语言|标题]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>链接：</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> 或 <code>[name|url|language|title]</code></li>
+        <li><strong>图像：</strong><code>((url|alternative text))</code>， <code>((url|alternative text|position))</code> 或 <code>((url|alternative text|position|long description))</code>。<br>位置可以是 L（左）、R（右）或 C（居中）。</li>
         <li><strong>首字母缩写</strong>：<code>??缩写|标题??</code></li>
         <li><strong>行内 HTML</strong>：两个反引号 <code>``HTML 代码``</code></li>
         <li><strong>行内引用</strong>：<code>{{引用}}</code>，<code>{{引用|语言}}</code> 或者 <code>{{引用|语言|url}}</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>内联引用：</strong> <code>{{quote}}</code>， <code>{{quote|language}}</code> 或 <code>{{quote|language|url}}</code></li>
         <li><strong>脚标</strong>：<code>$$脚标$$</code></li>
         <li><strong>脚注：</strong> <code>$$footnote$$</code></li>
         <li><strong>上标</strong>&nbsp;： <code>^superscript^</code></li>
@@ -57,12 +57,12 @@
       </ul>
     </dd>
     <dt>未格式化文本</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>如果您不希望某个格式字符被这样解释，请在其前面添加
+      <code>\</code> 。例如：
+      <code>\[括号中的文本不是链接\]</code>
     </dd>
     <dt>HTML 代码</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>即使你选择了 Wiki 语法，有时你也可能需要更强大的格式，即 HTML 语法。请按以下步骤操作：
       <pre>
 ///html
 &lt;p style="color:red"&gt;红色的文字&lt;/p&gt;
