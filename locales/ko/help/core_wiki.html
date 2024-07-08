@@ -6,16 +6,16 @@
 
 <body>
   <h4>위키 구문 참조</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Wiki 구문은 기본 요구 사항(제목, 단락, 인용문, 목록...)을 충족하기 위해 연구된 최소한의 태그 세트로 텍스트를 향상시키는 방법입니다.</p>
   <dl>
     <dt>블록 요소</dt>
     <dd>
       <ul>
         <li>두 개의 유사한 블록 사이에 빈 줄을 둡니다.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>단락:</strong> 자유 텍스트, 다른 단락이 다음에 오면 빈 줄로 끝납니다.</li>
+        <li><strong>제목:</strong> <code>!!! 제목</code>, <code>!! 제목</code> 또는 <code>! title</code>, 세 가지 수준의 제목을 사용할 수 있습니다.</li>
         <li><strong>가로선</strong>: <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>목록:</strong> 각 줄은 <code>*</code> 또는 <code>#</code> 로 시작합니다. 목록 중첩은 다음과 같이 목록 마커를 혼합하여 수행됩니다.
           <pre>
     <code>*</code> * 요소 1
 ** 요소 1.1
@@ -45,13 +45,13 @@
         <li><strong>중간줄친 글씨</strong>: <code>--text--</code> (양쪽에 뺄셈표 두 개)</li>
         <li><strong>링크</strong>: <code>[url]</code>, <code>[이름|url]</code>,
     <code>[이름|url|언어]</code> or <code>[이름|url|언어|제목]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>링크:</strong> <code>[url]</code>, <code>[이름|url]</code>, <code>[이름| url|언어]</code> 또는 <code>[이름|url|언어|제목]</code></li>
+        <li><strong>이미지:</strong><code>((url|대체 텍스트))</code>, <code>((url|대체 텍스트|위치))</code> 또는 <code>((url|대체 텍스트|위치|긴 설명))</code>.<br>위치는 L(왼쪽), R(오른쪽) 또는 C(중앙) 가 될 수 있습니다.</li>
         <li><strong>약어</strong>: <code>??약어|제목??</code></li>
         <li><strong>문단내 인용</strong>: <code>{{인용문}}</code>,
     <code>{{인용문|언어}}</code> or <code>{{인용문|언어|url}}</code></li>
         <li><strong>코드</strong>: <code>@@코드문@@</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>인라인 인용:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> 또는 <code>{{quote|language|url}}</code></li>
         <li><strong>Code:</strong> <code>코드: @@코드@@</code></li>
         <li><strong>각주:</strong> <code>$footnote$$</code></li>
         <li><strong>위 첨자</strong>&nbsp;: <code>위 첨자^</code></li>
@@ -59,12 +59,12 @@
       </ul>
     </dd>
     <dt>회피문자</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>하나의 서식 지정 문자를 그렇게 해석하지 않으려면 그 바로 앞에
+      <code>\</code> 를 추가하세요. 예:
+      <code>\[링크가 아닌 괄호 안의 텍스트\]</code>
     </dd>
     <dt>HTML 코드</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Wiki 구문을 선택했더라도 때로는 더 강력한 형식, 즉 HTML 구문이 필요할 수 있습니다. 다음과 같은 방법으로 수행하십시오.
       <pre>
 ///html
 &lt;p style="color:red"&gt;이 글은 붉은 색으로 지정되었습니다.&lt;/p&gt;
