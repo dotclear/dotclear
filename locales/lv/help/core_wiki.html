@@ -1,71 +1,71 @@
 <html>
 
 <head>
-  <title>Wiki syntax reference</title>
+  <title>Wiki sintakses atsauce</title>
 </head>
 
 <body>
-  <h4>Wiki syntax reference</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <h4>Wiki sintakses atsauce</h4>
+  <p>Wiki sintakse ir veids, kā uzlabot tekstu ar minimālu tagu kopu, kas izpētīts, lai apmierinātu pamatvajadzības (nosaukumus, rindkopas, citātus, sarakstus...).</p>
   <dl>
-    <dt>Block elements</dt>
+    <dt>Bloku elementi</dt>
     <dd>
       <ul>
-        <li>Leave an empty line between two similar blocks.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
-        <li><strong>Horizontal line:</strong> <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li>Atstājiet tukšu līniju starp diviem līdzīgiem blokiem.</li>
+        <li><strong>Rindkopa:</strong> Brīvs teksts, kas beidzas ar tukšu rindu, ja seko cita rindkopa.</li>
+        <li><strong>Nosaukums:</strong> <code>!!! virsraksts</code>, <code>!! nosaukums</code> vai <code>! virsraksts</code>, ļaujot izmantot trīs dažādus virsraksta līmeņus.</li>
+        <li><strong>Horizontālā līnija:</strong> <code>----</code></li>
+        <li><strong>Saraksti:</strong> Sāciet katru rindiņu ar <code>*</code> vai <code>#</code> attiecīgi nenumurētiem vai numurētiem sarakstiem. Sarakstu imbriācija tiek veikta, sajaucot saraksta marķierus šādi:
           <pre>
-    <code>*</code> item 1
-    <code>**</code> item 1.1
-    <code>*</code> item 2
-    <code>*#</code> item 2.1
-  ...
+    <code>*</code> 1. vienums
+    <code>**</code> 1.1. vienums
+    <code>*</code> 2. vienums
+    <code>* #</code> 2.1. vienums
+...
   </pre>
         </li>
-        <li><strong>Definition lists:</strong> Start each line with <code>=</code> for the term to define and with <code>:</code> for the definition of the term.
+        <li><strong>Definīciju saraksti:</strong> Sāciet katru rindiņu ar <code>=</code> , lai definētu terminu, un ar <code>:</code> , lai definētu termiņš.
           <pre>
-  <code>=</code> term
-  <code>:</code> description of the term
+  <code>=</code> termins
+  <code>:</code> termina apraksts
   </pre>
         </li>
-        <li><strong>Preformatted text:</strong> Each line must start with a space.</li>
-        <li><strong>Block quote:</strong> Each line must start with a <code>&gt;</code>.</li>
-        <li><strong>Side block:</strong> Each line must start with a <code>)</code>.</li>
+        <li><strong>Iepriekš formatēts teksts:</strong> Katrai rindiņai jāsākas ar atstarpi.</li>
+        <li><strong>Bloķēt citātu:</strong> Katrai rindai jāsākas ar <code>&gt;</code>.</li>
+        <li><strong>Sānu bloks:</strong> Katrai rindai jāsākas ar <code>)</code>.</li>
       </ul>
     </dd>
-    <dt>Formatting tags</dt>
+    <dt>Tagu formatēšana</dt>
     <dd>
       <ul>
-        <li><strong>Emphasis:</strong> Two quotes <code>''text''</code></li>
-        <li><strong>Strong emphasis:</strong> Two underscores <code>__text__</code></li>
-        <li><strong>Highlighted:</strong> Two double quotes <code>""text""</code></li>
-        <li><strong>New line:</strong> <code>%%%</code></li>
-        <li><strong>Insertion:</strong> Two plusses <code>++text++</code></li>
-        <li><strong>Deletion:</strong> Two minuses <code>--text--</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
-        <li><strong>Anchor:</strong> <code>~anchor~</code></li>
-        <li><strong>Acronym:</strong> <code>??acronym|title??</code></li>
-        <li><strong>Inline HTML:</strong> Two backquotes <code>``HTML code``</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Code:</strong> <code>@@code@@</code></li>
-        <li><strong>Footnotes:</strong> <code>$$footnote$$</code></li>
-        <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
-        <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,,</code></li>
+        <li><strong>Uzsvars:</strong> Divas pēdiņas <code>''teksts''</code></li>
+        <li><strong>Spēcīgs uzsvars:</strong> Divas pasvītras <code>__text__</code></li>
+        <li><strong>Izcelts:</strong> Divas dubultpēdiņas <code>""teksts""</code></li>
+        <li><strong>Jauna rinda:</strong> <code>%%%</code></li>
+        <li><strong>Ievietošana:</strong> Divi plusi <code>++teksts++</code></li>
+        <li><strong>Dzēšana:</strong> Divi mīnusi <code>--teksts--</code></li>
+        <li><strong>Saite:</strong> <code>[url]</code>, <code>[nosaukums|url]</code>, <code>[nosaukums| url|valoda]</code> vai <code>[nosaukums|url|valoda|nosaukums]</code></li>
+        <li><strong>Attēls:</strong><code>((url|alternatīvais teksts))</code>, <code>((url|alternatīvais teksts|pozīcija))</code> vai <code>((url| alternatīvais teksts|pozīcija|garš apraksts))</code>.<br>Pozīcija var būt L (pa kreisi), R (pa labi) vai C (centrēta).</li>
+        <li><strong>Enkurs:</strong> <code>~enkurs~</code></li>
+        <li><strong>Akronīms:</strong> <code>??akronīms|nosaukums??</code></li>
+        <li><strong>Iekļauts HTML:</strong> Divi atpakaļ pēdiņas <code>``HTML kods``</code></li>
+        <li><strong>Iekļauts citāts:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> vai <code>{{quote|language|url}}</code></li>
+        <li><strong>Kods:</strong> <code>@@code@@</code></li>
+        <li><strong>Zemsvītras piezīmes:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Augšraksts</strong>&nbsp;: <code>^augšraksts^</code></li>
+        <li><strong>Apakšraksts</strong>&nbsp;: <code>,,apakšraksts,,</code></li>
       </ul>
     </dd>
-    <dt>Unformatted text</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dt>Neformatēts teksts</dt>
+    <dd>Ja nevēlaties, lai viena formatējuma rakstzīme tiktu interpretēta kā tāda, pievienojiet
+      <code>\</code> tieši pirms tās. Piemēram:
+      <code>\[Teksts iekavās bez saites\]</code>
     </dd>
-    <dt>HTML code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dt>HTML kods</dt>
+    <dd>Pat ja izvēlējāties Wiki sintaksi, dažreiz jums var būt nepieciešams jaudīgāks formatējums, ti, HTML sintakse. Dariet to šādā veidā:
       <pre>
 ///html
-&lt;p style="color:red"&gt;my text in red&lt;/p&gt;
+&lt;p style="color:red"&gt;mans teksts sarkanā krāsā&lt;/p&gt;
 ///
 </pre>
     </dd>
