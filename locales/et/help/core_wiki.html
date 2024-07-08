@@ -6,16 +6,16 @@
 
 <body>
   <h4>Wiki süntaksi viide</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Wiki süntaks on viis täiustada oma teksti minimaalsete põhivajaduste (pealkirjad, lõigud, tsitaadid, loendid) katmiseks uuritud siltide komplektiga.</p>
   <dl>
     <dt>Plokkide elemendid</dt>
     <dd>
       <ul>
         <li>Jätke kahe sarnase ploki vahele tühi rida.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Lõik:</strong> Vaba tekst, mis lõpeb tühja reaga, kui järgneb mõni lõik.</li>
+        <li><strong>Pealkiri:</strong> <code>!!! pealkiri</code>, <code>!! pealkiri</code> või <code>! pealkiri</code>, mis võimaldab kasutada kolme erinevat pealkirja taset.</li>
         <li><strong>Horisontaalne joon:</strong> <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Loendid:</strong> Nummerdamata või nummerdatud loendite jaoks alustage iga rida tähega <code>*</code> või <code>#</code> . Loendi märgistamine toimub loendimarkerite segamisel järgmiselt:
           <pre>
     <code>*</code> kirje 1
     <code>**</code> kirje 1.1
@@ -44,12 +44,12 @@
         <li><strong>Uus rida:</strong> <code>%%%</code></li>
         <li><strong>Sisestamine:</strong> Kaks plusspoolt <code>++tekst++</code></li>
         <li><strong>Kustutamine:</strong> <code> Teksti--</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[nimi|url]</code>, <code>[nimi| url|keel]</code> või <code>[nimi|url|keel|pealkiri]</code></li>
         <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
         <li><strong>Ankur:</strong> <code>~anchor~</code></li>
         <li><strong>Akronüüm:</strong> <code>Akronüüm|pealkiri?</code></li>
         <li><strong>Inline HTML:</strong> Kaks tagasilauset <code>``HTML kood``</code>.</li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Tekstisisene tsitaat:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> või <code>{{quote|language|url}}</code></li>
         <li><strong>Kood:</strong> <code>@@kood@@</code></li>
         <li><strong>Märkused:</strong> <code>$$footnote$$</code></li>
         <li><strong>Ülaltoodud</strong>&nbsp;: <code>^superscript^</code></li>
@@ -57,12 +57,12 @@
       </ul>
     </dd>
     <dt>Vormindamata tekst</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>Kui te ei soovi, et üht vormindusmärki sellisena tõlgendataks, lisage selle ette
+      <code>\</code> . Näiteks:
+      <code>\[Tekst sulgudes, ilma et see oleks link\]</code>
     </dd>
     <dt>HTML-kood</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Isegi kui valisite Wiki süntaksi, võib teil mõnikord vaja minna võimsamat vormingut, st HTML-i süntaksit. Tehke seda järgmisel viisil:
       <pre>
 ///html
 &lt;p style="color:red"&gt;minu tekst punasena&lt;/p&gt;
