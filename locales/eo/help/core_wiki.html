@@ -1,21 +1,21 @@
 <html>
 
 <head>
-  <title>Wiki syntax reference</title>
+  <title>Vikia sintaksa referenco</title>
 </head>
 
 <body>
-  <h4>Wiki syntax reference</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <h4>Vikia sintaksa referenco</h4>
+  <p>La Vikio-sintakso estas maniero plibonigi vian tekston per minimuma aro de etikedoj studitaj por kovri la bazajn bezonojn (titoloj, alineoj, citaĵoj, listoj...).</p>
   <dl>
-    <dt>Block elements</dt>
+    <dt>Blokaj elementoj</dt>
     <dd>
       <ul>
-        <li>Leave an empty line between two similar blocks.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li>Lasu malplenan linion inter du similaj blokoj.</li>
+        <li><strong>Alineo:</strong> Libera teksto, finita per malplena linio se alia alineo devas sekvi.</li>
+        <li><strong>Titolo:</strong> <code>!!! titolo</code>, <code>!! titolo</code> aŭ <code>! titolo</code>, permesante al vi uzi tri malsamajn nivelojn de titolo.</li>
         <li><strong>Horizontal line</strong>: <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Listoj:</strong> Komencu ĉiun linion per <code>*</code> aŭ <code>#</code> por nenumeritaj aŭ numeritaj listoj respektive. Listo-imbriko estas farita miksante listsignojn jene:
           <pre>
     <code>*</code> * item 1
 ** item 1.1
@@ -24,18 +24,18 @@
 ...
   </pre>
         </li>
-        <li><strong>Definition lists:</strong> Start each line with <code>=</code> for the term to define and with <code>:</code> for the definition of the term.
+        <li><strong>Difinlistoj:</strong> Komencu ĉiun linion per <code>=</code> por la termino por difini kaj per <code>:</code> por la difino de la termino.
           <pre>
-  <code>=</code> term
-  <code>:</code> description of the term
+  <code>=</code> termino
+  <code>:</code> priskribo de la termino
   </pre>
         </li>
         <li><strong>Block quote</strong>: each line must start with a semicolon (<code>&gt;</code>).</li>
-        <li><strong>Block quote:</strong> Each line must start with a <code>&gt;</code>.</li>
-        <li><strong>Side block:</strong> Each line must start with a <code>)</code>.</li>
+        <li><strong>Blokcitaĵo:</strong> Ĉiu linio devas komenciĝi per <code>&gt;</code>.</li>
+        <li><strong>Flankbloko:</strong> Ĉiu linio devas komenciĝi per <code>)</code>.</li>
       </ul>
     </dd>
-    <dt>Formatting tags</dt>
+    <dt>Formatado de etikedoj</dt>
     <dd>
       <ul>
         <li><strong>Emphasis</strong>: two quotes <code>''text''</code></li>
@@ -45,29 +45,29 @@
         <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
         <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Ligilo:</strong> <code>[url]</code>, <code>[nomo|url]</code>, <code>[nomo| url|lingvo]</code> aŭ <code>[nomo|url|lingvo|titolo]</code></li>
+        <li><strong>Bildo:</strong><code>((url|alternativa teksto))</code>, <code>((url|alternativa teksto|pozicio))</code> aŭ <code>((url| alternativa teksto|pozicio|longa priskribo))</code>.<br>La pozicio povas esti aŭ L (maldekstre), R (dekstre) aŭ C (centrita).</li>
         <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
         <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
         <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Enlinia citaĵo:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> aŭ <code>{{quote|language|url}}</code></li>
         <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
-        <li><strong>Footnotes:</strong> <code>$$footnote$$</code></li>
+        <li><strong>Piednotoj:</strong> <code>$$footnote$$</code></li>
         <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
-        <li><strong>Subscript</strong>&nbsp;: <code>,,subscript,,</code></li>
+        <li><strong>Indice</strong>&nbsp;: <code>,,subskribo,,</code></li>
       </ul>
     </dd>
-    <dt>Unformatted text</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dt>Neformata teksto</dt>
+    <dd>Se vi ne volas, ke unu formata signo estu interpretita kiel tia, aldonu
+      <code>\</code> tuj antaŭ ĝi. Ekzemple:
+      <code>\[Teksto inter krampoj sen esti ligilo\]</code>
     </dd>
     <dt>HTML Code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Eĉ se vi elektas la Viki-sintakso, vi eble bezonos pli potencan formatadon, t.e. HTML-sintakso. Faru ĝin jene:
       <pre>
 ///html
-&lt;p style="color:red"&gt;my text in red&lt;/p&gt;
+&lt;p style="color:red"&gt;mia teksto ruĝe&lt;/p&gt;
 ///
 </pre>
     </dd>
