@@ -1,34 +1,34 @@
 <html>
 
 <head>
-  <title>Blog settings</title>
+  <title>Blogaj agordoj</title>
 </head>
 
 <body>
-  <h4>Blog details</h4>
+  <h4>Blogaj detaloj</h4>
   <dl>
-    <dt>Blog ID</dt>
-    <dd>Unique ID of the blog. Mandatory, can only be modified by a super administrator.</dd>
-    <dt>Blog name</dt>
+    <dt>Bloga ID</dt>
+    <dd>Unika ID de la blogo. Deviga, povas esti modifita nur de superadministranto.</dd>
+    <dt>Blognomo</dt>
     <dd>Name of the blog, mandatory.</dd>
-    <dt>Blog URL</dt>
+    <dt>Bloga URL</dt>
     <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
     <dt>Blog status</dt>
-    <dd>Defines the way the URL is read. PATH_INFO is recommended, QUERY_STRING has to be used if PATH_INFO does not work. Using PATH_INFO mode, the blog URL must end with a "/" and using QUERY_STRING, it must end with an "?".</dd>
+    <dd>Difinas la manieron kiel la URL estas legita. PATH_INFO estas rekomendita, QUERY_STRING devas esti uzata se PATH_INFO ne funkcias. Uzante PATH_INFO-reĝimon, la bloga URL devas finiĝi per "/" kaj uzante QUERY_STRING, ĝi devas finiĝi per "?".</dd>
     <dt>Blog description</dt>
     <dd>
       <ul>
-        <li><strong>Online:</strong> Blog open to visitors.</li>
-        <li><strong>Offline:</strong> Blog closed to visitors but open to writers.</li>
-        <li><strong>Removed:</strong> Blog closed to both visitors and writers, open only to super administrators.</li>
+        <li><strong>Rete:</strong> Blogo malfermita al vizitantoj.</li>
+        <li><strong>Senrete:</strong> Blogo fermita al vizitantoj sed malfermita al verkistoj.</li>
+        <li><strong>Forigita:</strong> Blogo fermita por kaj vizitantoj kaj verkistoj, malfermita nur por superadministrantoj.</li>
       </ul>
     </dd>
-    <dt>Blog description</dt>
-    <dd>Here you can put any description you want for your blog. This is a simple text, without any formatting.</dd>
+    <dt>Bloga priskribo</dt>
+    <dd>Ĉi tie vi povas meti ajnan priskribon, kiun vi volas por via blogo. Ĉi tio estas simpla teksto, sen ajna formatado.</dd>
   </dl>
-  <h4>Blog configuration</h4>
+  <h4>Bloga agordo</h4>
   <dl>
-    <dt>Blog editor's name</dt>
+    <dt>Nomo de blogredaktisto</dt>
     <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
     <dt>Copyright notice</dt>
@@ -49,99 +49,99 @@
     <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
   </dl>
-  <h4>Comments and trackbacks</h4>
+  <h4>Komentoj kaj spuroj</h4>
   <dl>
-    <dt>Accept comments</dt>
-    <dd>Globally accepts comments on the blog. Takes precedence over the per post setting.</dd>
-    <dt>Moderate comments</dt>
-    <dd>With this option, comments will be published only after editor's agreement.</dd>
-    <dt>Leave comments open for X days</dt>
-    <dd>The number of days during wich comments will be open after the post publication. When empty, the comments will be kept open indefinitly.</dd>
-    <dt>Wiki syntax for comments</dt>
-    <dd>Allows a subset of the wiki syntax to be used in comments.</dd>
-    <dt>Accept trackbacks</dt>
-    <dd>Globally accepts trackbacks on the blog. Takes precedence over the per post setting.</dd>
-    <dt>Moderate trackbacks</dt>
-    <dd>With this option, trackbacks will be published only after editor's agreement.</dd>
-    <dt>Leave trackbacks open for X days</dt>
-    <dd>The number of days during wich trackbacks will be open after the post publication. When empty, the trackbacks will be kept open indefinitly.</dd>
-    <dt>Add "nofollow" relation on comments and trackbacks links</dt>
-    <dd>Adds an attribute on links in comments and trackbacks, instructing the search bots not to follow them. This antispam features has yet to prove its value.</dd>
+    <dt>Akceptu komentojn</dt>
+    <dd>Tutmonde akceptas komentojn en la blogo. Havas prioritaton super la agordo por afiŝo.</dd>
+    <dt>Moderaj komentoj</dt>
+    <dd>Kun ĉi tiu opcio, komentoj estos publikigitaj nur post konsento de redaktoro.</dd>
+    <dt>Lasu komentojn malfermitaj dum X tagoj</dt>
+    <dd>La nombro da tagoj dum kiuj komentoj estos malfermitaj post la postpublikigo. Kiam malplenaj, la komentoj restos malfermitaj senfine.</dd>
+    <dt>Vikia sintakso por komentoj</dt>
+    <dd>Permesas uzi subaron de la vikia sintakso en komentoj.</dd>
+    <dt>Akceptu spurojn</dt>
+    <dd>Tutmonde akceptas spurojn en la blogo. Havas prioritaton super la agordo por afiŝo.</dd>
+    <dt>Moderaj spuroj</dt>
+    <dd>Kun ĉi tiu opcio, spuroj estos publikigitaj nur post konsento de redaktisto.</dd>
+    <dt>Lasu spurojn malfermitaj dum X tagoj</dt>
+    <dd>La nombro da tagoj dum kiuj spuroj estos malfermitaj post la postpublikigo. Kiam malplenaj, la spuroj restos malfermitaj senfine.</dd>
+    <dt>Aldonu "nofollow" rilaton al komentoj kaj spuroj ligiloj</dt>
+    <dd>Aldonas atributon pri ligiloj en komentoj kaj spuroj, instrukciante la serĉajn robotojn ne sekvi ilin. Ĉi tiuj kontraŭspamaj funkcioj ankoraŭ devas pruvi sian valoron.</dd>
   </dl>
-  <h4>Blog presentation</h4>
+  <h4>Bloga prezento</h4>
   <dl>
-    <dt>Date format</dt>
-    <dd>Defines the date format for the blog posts. See the "Format reference" section below for more information. You can use the dropdown list to quickly select a pre-existing pattern.</dd>
-    <dt>Time format</dt>
-    <dd>Defines the time format for the blog posts. See the "Format reference" section below for more information. You can use the dropdown list to quickly select a pre-existing pattern.</dd>
-    <dt>Display smilies on entries and comments</dt>
-    <dd>Turns some strings like :-) or ;-) into pictures.</dd>
-    <dt>Display X entries per page</dt>
-    <dd>Will display X entries on the blog main page as well as in the different categories.</dd>
-    <dt>Display X entries per feed</dt>
-    <dd>Will display X entries in the blog feeds.</dd>
-    <dt>Display X comments per feed</dt>
-    <dd>Will display X comments in the blog comments feeds.</dd>
-    <dt>Truncate feeds</dt>
-    <dd>This option will only provide an abstract from the blog posts in the feeds.</dd>
-    <dt>Include sub-categories in category page and category posts feed</dt>
-    <dd>When this option is activated, posts in sub-categories will be displayed in the parent categories pages as well as in their feeds.</dd>
+    <dt>Datformato</dt>
+    <dd>Difinas la datformaton por la blogaj afiŝoj. Vidu la sekcion "Formatreferenco" malsupre por pliaj informoj. Vi povas uzi la falliston por rapide elekti antaŭekzistantan ŝablonon.</dd>
+    <dt>Tempoformato</dt>
+    <dd>Difinas la tempoformaton por la blogaj afiŝoj. Vidu la sekcion "Formatreferenco" malsupre por pliaj informoj. Vi povas uzi la falliston por rapide elekti antaŭekzistantan ŝablonon.</dd>
+    <dt>Montru ridetaĵojn sur enskriboj kaj komentoj</dt>
+    <dd>Transformas kelkajn ŝnurojn kiel :-) aŭ ;-) en bildojn.</dd>
+    <dt>Montru X-enskribojn po paĝo</dt>
+    <dd>Montros X-enskribojn sur la bloga ĉefpaĝo same kiel en la malsamaj kategorioj.</dd>
+    <dt>Montru X-enskribojn per feed</dt>
+    <dd>Montros X-enskribojn en la blogfluoj.</dd>
+    <dt>Montru X komentojn per fluaĵo</dt>
+    <dd>Montros X-komentojn en la blogaj komentoj.</dd>
+    <dt>Detranĉi nutraĵojn</dt>
+    <dd>Ĉi tiu opcio nur provizos resumon de la blogaj afiŝoj en la fluoj.</dd>
+    <dt>Enmetu subkategoriojn en kategoriopaĝo kaj kategorio-afiŝoj-fluo</dt>
+    <dd>Kiam ĉi tiu opcio estas aktivigita, afiŝoj en subkategorioj estos montrataj en la paĝaj kategorioj-paĝoj same kiel en iliaj fluoj.</dd>
   </dl>
-  <h4>Media and images</h4>
+  <h4>Amaskomunikiloj kaj bildoj</h4>
   <dl>
-    <dt>Generated image sizes (in pixels)</dt>
-    <dd>When you add an image in the media manager, other sizes are automatically generated. Here you can define the dimension of the longest size (width or heigth) of each type of generated images. If you leave one field empty, the media manager will not create the corresponding miniature.</dd>
-    <dt>Default image insertion attributes</dt>
-    <dd>The selected settings will apply on all the new images added to the media manager.</dd>
-    <dt>Inserted image title</dt>
-    <dd>Select the format of the "title" tags applied to your images, based on information retrieved from the images metadata.</dd>
-    <dt>Use original media date if possible</dt>
-    <dd>When this option is activated, if the image metadata contains a date, it will be used. If not, the upload date will be used.</dd>
-    <dt>Size of inserted image</dt>
-    <dd>Defines the default size used when inserting an image in a blog post.</dd>
-    <dt>Image alignment</dt>
-    <dd>Defines the default alignment used when inserting an image in a blog post.</dd>
-    <dt>Insert a link to the original image</dt>
-    <dd>When this option is activated, the pictures inserted in a blog post will be clickable and point to the original-sized picture.</dd>
+    <dt>Generitaj bildaj grandecoj (en pikseloj)</dt>
+    <dd>Kiam vi aldonas bildon en la amaskomunikilaro, aliaj grandecoj estas aŭtomate generitaj. Ĉi tie vi povas difini la dimension de la plej longa grandeco (larĝo aŭ alteco) de ĉiu speco de generitaj bildoj. Se vi lasas unu kampon malplena, la amaskomunikila administranto ne kreos la respondan miniaturon.</dd>
+    <dt>Defaŭltaj bildaj enmetaj atributoj</dt>
+    <dd>La elektitaj agordoj aplikiĝos al ĉiuj novaj bildoj aldonitaj al la amaskomunikila administranto.</dd>
+    <dt>Enigita bildotitolo</dt>
+    <dd>Elektu la formaton de la "titolaj" etikedoj aplikitaj al viaj bildoj, surbaze de informoj prenitaj de la bildaj metadatenoj.</dd>
+    <dt>Uzu originalan amaskomunikilaron se eble</dt>
+    <dd>Kiam ĉi tiu opcio estas aktivigita, se la bildaj metadatenoj enhavas daton, ĝi estos uzata. Se ne, la alŝuta dato estos uzata.</dd>
+    <dt>Grandeco de enigita bildo</dt>
+    <dd>Difinas la defaŭltan grandecon uzatan kiam oni enmetas bildon en blogaĵo.</dd>
+    <dt>Bilda vicigo</dt>
+    <dd>Difinas la defaŭltan vicigon uzatan kiam oni enmetas bildon en blogaĵo.</dd>
+    <dt>Enigu ligilon al la originala bildo</dt>
+    <dd>Kiam ĉi tiu opcio estas aktivigita, la bildoj enmetitaj en blogaĵo estos klakeblaj kaj montros al la originalgranda bildo.</dd>
   </dl>
-  <h4>Search engines robots policy</h4>
+  <h4>Politiko pri serĉiloj pri robotoj</h4>
   <p>Some fields can be configured to format the date and time to your needs.
 Here is a reference:</p>
-  <h4>Antispam</h4>
-  <p>You can set the number of days after which you want the junk comments to be automatically deleted. Leave that field blank (or put 0) to deactivate this feature.</p>
-  <h4>Users</h4>
-  <p>Lists this blog's users as well as their permissions.</p>
+  <h4>Kontraŭspamo</h4>
+  <p>Vi povas agordi la nombron da tagoj post kiuj vi volas, ke la rubkomentoj aŭtomate estu forigitaj. Lasu tiun kampon malplena (aŭ metu 0) por malaktivigi ĉi tiun funkcion.</p>
+  <h4>Uzantoj</h4>
+  <p>Listigas la uzantojn de ĉi tiu blogo kaj ankaŭ iliajn permesojn.</p>
   <h3>Blog details</h3>
-  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <p>Iuj kampoj povas esti agorditaj por formi la daton kaj horon laŭ viaj bezonoj. Jen referenco:</p>
   <ul>
     <li><strong>%a</strong>: abreviated week day (local).</li>
     <li><strong>%A</strong>: complete week day (local).</li>
     <li><strong>%b</strong>: abbreviated month name (local).</li>
     <li><strong>%B</strong>: complete month name (local).</li>
     <li><strong>%c</strong>: default local date and time display.</li>
-    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%C:</strong> Jarcento (la jaro, dividita per 100 kaj rondigi supren inter 00 kaj 99)</li>
     <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
     <li><strong>%D</strong>: identical to %m/%d/%y</li>
     <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
     <li><strong>%g</strong>: identical to %G, 2 digits.</li>
-    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%G:</strong> La jaro sur 4 ciferoj, laŭ la semajna numero (kp. %V). Formato kaj valoro identa al %Y, krom ke se la nombro de la semajno apartenas al la antaŭa aŭ sekva jaro, la nuna jaro estos uzata anstataŭe.</li>
     <li><strong>%h</strong>: identical to %b</li>
-    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
-    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%H:</strong> Cifereca horo de la tago, 24H-reĝimo (de 00 ĝis 23)</li>
+    <li><strong>%I:</strong> Cifereca horo de la tago, 12H-reĝimo (de 01 ĝis 12)</li>
     <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
     <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
     <li><strong>%M</strong>: minute, digital</li>
     <li><strong>%n</strong>: newline character</li>
-    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%p:</strong> Aŭ `am' aŭ `pm', laŭ la absoluta tempo, aŭ depende de la lokaj agordoj.</li>
     <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
     <li><strong>%R</strong>: the hour, 24h format</li>
     <li><strong>%S</strong>: seconds, digital</li>
     <li><strong>%t</strong>: tab character</li>
     <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
     <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
-    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
-    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
-    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%U:</strong> Semajna numero, la unua dimanĉo de la jaro estante la unua tago de la unua semajno.</li>
+    <li><strong>%V:</strong> La semajnonumero kiel difinita en ISO 8601:1988, cifereca, de 01 ĝis 53. La semajno 1 estas la unua semajno kun pli ol 4 tagoj en la kuranta jaro , kies lundo estas la unua tago. (Uzu %G aŭ %g por la jarelementoj respondantaj al la nombro de la semajno por la konsiderata tempomarko.)</li>
+    <li><strong>%W:</strong> Nombro de la semajno en la jaro, la unua lundo de la jaro estante la komenco de la unua semajno</li>
     <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
     <li><strong>%x</strong>: prefered format for the date without the time</li>
     <li><strong>%X</strong>: prefered format for the time without the date</li>
