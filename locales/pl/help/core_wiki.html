@@ -6,16 +6,16 @@
 
 <body>
   <h4>Odwołanie składni Wiki</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Składnia Wiki to sposób na wzbogacenie tekstu za pomocą minimalnego zestawu znaczników opracowanych w celu zaspokojenia podstawowych potrzeb (tytuły, akapity, cytaty, listy...).</p>
   <dl>
     <dt>Elementy blokowe</dt>
     <dd>
       <ul>
         <li>Pozostaw pustą linię pomiędzy dwoma podobnymi blokami.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Akapit:</strong> Dowolny tekst, zakończony pustą linią, jeśli po nim ma nastąpić kolejny akapit.</li>
+        <li><strong>Tytuł:</strong> <code>!!! tytuł</code>, <code>!! tytuł</code> lub <code>! tytuł</code>, pozwalający na użycie trzech różnych poziomów nagłówka.</li>
         <li><strong>Horizontal line</strong>: <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Listy:</strong> Rozpocznij każdą linię od <code>*</code> lub <code>#</code> odpowiednio dla list nienumerowanych i numerowanych. Zanurzenie listy odbywa się poprzez zmieszanie znaczników listy w następujący sposób:
           <pre>
     <code>*</code> * item 1
 ** item 1.1
@@ -45,13 +45,13 @@
         <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
         <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Link:</strong> <code>[url]</code>, <code>[nazwa|url]</code>, <code>[imię| adres URL|język]</code> lub <code>[nazwa|adres URL|język|tytuł]</code></li>
+        <li><strong>Obraz:</strong><code>(((url|tekst alternatywny))</code>, <code>((url|tekst alternatywny|pozycja))</code> lub <code>(((url|tekst alternatywny|pozycja|długi opis))</code>.<br>Pozycją może być L (po lewej), R (po prawej) lub C (po środku).</li>
         <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
         <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
         <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Cytat w tekście:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> lub <code>{{quote|language|url}}</code></li>
         <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
         <li><strong>Stopki:</strong> <code>$footnote$$</code></li>
         <li><strong>Skrypt górny</strong>&nbsp;: <code>^skrypt górny ^</code></li>
@@ -59,12 +59,12 @@
       </ul>
     </dd>
     <dt>Tekst niesformatowany</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>Jeśli nie chcesz, aby jeden znak formatujący był interpretowany jako taki, dodaj
+      <code>\</code> tuż przed nim. Na przykład:
+      <code>\[Tekst w nawiasach nie będący linkiem\]</code>
     </dd>
     <dt>HTML Code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>Nawet jeśli wybierzesz składnię Wiki, czasami możesz potrzebować mocniejszego formatowania, np. składni HTML. Zrób to w następujący sposób:
       <pre>
 ///html
 &lt;p style="color:red"&gt;mój tekst czerwony&lt;/p&gt;
