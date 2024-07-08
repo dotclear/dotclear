@@ -6,16 +6,16 @@
 
 <body>
   <h4>Wiki syntaxe reference</h4>
-  <p>The Wiki syntax is a way to enhance your text with a minimal set of tags studied to cover the basic needs (titles, paragraphs, quotes, lists...).</p>
+  <p>Syntaxe Wiki je způsob, jak vylepšit váš text minimální sadou tagů, které jsou prostudovány tak, aby pokryly základní potřeby (nadpisy, odstavce, citace, seznamy...).</p>
   <dl>
     <dt>Blokové prvky</dt>
     <dd>
       <ul>
         <li>Nechte prázdnou čáru mezi dvěma podobnými bloky.</li>
-        <li><strong>Paragraph:</strong> Free text, ended by an empty line if another paragraph is to follow.</li>
-        <li><strong>Title:</strong> <code>!!! title</code>, <code>!! title</code> or <code>! title</code>, allowing you to use three different levels of heading.</li>
+        <li><strong>Odstavec:</strong> Volný text zakončený prázdným řádkem, pokud má následovat další odstavec.</li>
+        <li><strong>Název:</strong> <code>!!! nadpis</code>, <code>!! titul</code> nebo <code>! title</code>, což vám umožňuje používat tři různé úrovně nadpisu.</li>
         <li><strong>Horizontal line</strong>: <code>----</code></li>
-        <li><strong>Lists:</strong> Start each line with <code>*</code> or <code>#</code> for unnumbered or numbered lists respectively. List imbrication is done by mixing list markers this way:
+        <li><strong>Seznamy:</strong> Každý řádek začněte znakem <code>*</code> nebo <code>#</code> pro nečíslované nebo číslované seznamy. Imbrikace seznamu se provádí smícháním značek seznamu tímto způsobem:
           <pre>
     <code>*</code> * item 1
 ** item 1.1
@@ -45,13 +45,13 @@
         <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
         <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
     <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
-        <li><strong>Link:</strong> <code>[url]</code>, <code>[name|url]</code>, <code>[name|url|language]</code> or <code>[name|url|language|title]</code></li>
-        <li><strong>Image:</strong><code>((url|alternative text))</code>, <code>((url|alternative text|position))</code> or <code>((url|alternative text|position|long description))</code>.<br>The position can be either L (left), R (right) or C (centered).</li>
+        <li><strong>Odkaz:</strong> <code>[url]</code>, <code>[jméno|url]</code>, <code>[jméno| url|jazyk]</code> nebo <code>[jméno|url|jazyk|název]</code></li>
+        <li><strong>Image:</strong><code>((url|alternativní text))</code>, <code>(url|alternativní text|pozice))</code> nebo <code>((url|alternativní text|pozice|dlouhý popis)</code>.<br>Poloha může být buď L (vlevo), R (vpravo) nebo C (uprostřed).</li>
         <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
         <li><strong>Inline HTML</strong>: two backquotes <code>``HTML code``</code></li>
         <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
     <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
-        <li><strong>Inline quote:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+        <li><strong>Vložená citace:</strong> <code>{{quote}}</code>, <code>{{quote|language}}</code> nebo <code>{{quote|language|url}}</code></li>
         <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
         <li><strong>Poznámky pod čarou:</strong> <code>$$footnote$$</code></li>
         <li><strong>Superscript</strong>&nbsp;: <code>^superscript^</code></li>
@@ -59,12 +59,12 @@
       </ul>
     </dd>
     <dt>Neformátovaný text</dt>
-    <dd>If you don't want one formatting character to be interpreted as such, add a
-      <code>\</code> just before it. For instance:
-      <code>\[Text in brackets without being a link\]</code>
+    <dd>Pokud nechcete, aby byl jeden formátovací znak takto interpretován, přidejte před něj
+      <code>\</code> . Například:
+      <code>\[Text v závorkách bez odkazu\]</code>
     </dd>
     <dt>HTML Code</dt>
-    <dd>Even if you chose the Wiki syntax, you may sometimes need a more powerful formatting, i.e. HTML syntax. Do it the following way:
+    <dd>I když jste zvolili syntaxi Wiki, možná budete někdy potřebovat výkonnější formátování, tj. syntaxi HTML. Udělejte to následujícím způsobem:
       <pre>
 ///html
 &lt;p style="color:red"&gt;můj text v červené&lt;/p&gt;
