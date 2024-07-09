@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-09 18:09+0200\n"
-"PO-Revision-Date: 2024-07-09 16:36\n"
+"PO-Revision-Date: 2024-07-09 17:42\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -969,34 +969,34 @@ msgstr "Seznam komentarjev in povratnih sledi (%s)"
 #: src/Core/Backend/Listing/ListingComments.php:99
 msgid "published (1)"
 msgid_plural "published (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "objavljeno"
+msgstr[1] "objavljeno"
+msgstr[2] "objavljeno"
+msgstr[3] "objavljeno"
 
 #: src/Core/Backend/Listing/ListingComments.php:108
 msgid "spam (1)"
 msgid_plural "spam (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "nezaželena pošta"
+msgstr[1] "nezaželena pošta"
+msgstr[2] "nezaželena pošta"
+msgstr[3] "nezaželena pošta"
 
 #: src/Core/Backend/Listing/ListingComments.php:117
 msgid "pending (1)"
 msgid_plural "pending (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "v teku"
+msgstr[1] "v teku"
+msgstr[2] "v teku"
+msgstr[3] "v teku"
 
 #: src/Core/Backend/Listing/ListingComments.php:126
 msgid "unpublished (1)"
 msgid_plural "unpublished (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "neobjavljeno"
+msgstr[1] "neobjavljeno"
+msgstr[2] "neobjavljeno"
+msgstr[3] "neobjavljeno"
 
 #: src/Core/Backend/Listing/ListingComments.php:139
 msgid "Type"
@@ -1045,7 +1045,7 @@ msgstr "smeti"
 
 #: src/Core/Backend/Listing/ListingComments.php:272
 msgid "Unknown"
-msgstr ""
+msgstr "Neznano"
 
 #: src/Core/Backend/Listing/ListingComments.php:296
 #, php-format
