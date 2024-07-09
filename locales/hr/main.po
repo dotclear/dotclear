@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-09 18:09+0200\n"
-"PO-Revision-Date: 2024-07-09 16:39\n"
+"PO-Revision-Date: 2024-07-09 17:44\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -957,15 +957,15 @@ msgstr "Popis komentara i povratnih informacija (%s)"
 msgid "published (1)"
 msgid_plural "published (> 1)"
 msgstr[0] "objavljeno"
-msgstr[1] ""
-msgstr[2] ""
+msgstr[1] "objavljeno"
+msgstr[2] "objavljeno"
 
 #: src/Core/Backend/Listing/ListingComments.php:108
 msgid "spam (1)"
 msgid_plural "spam (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "spam"
+msgstr[1] "spam"
+msgstr[2] "spam"
 
 #: src/Core/Backend/Listing/ListingComments.php:117
 msgid "pending (1)"
@@ -977,9 +977,9 @@ msgstr[2] "u tijeku"
 #: src/Core/Backend/Listing/ListingComments.php:126
 msgid "unpublished (1)"
 msgid_plural "unpublished (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "neobjavljeno"
+msgstr[1] "neobjavljeno"
+msgstr[2] "neobjavljeno"
 
 #: src/Core/Backend/Listing/ListingComments.php:139
 msgid "Type"
@@ -1028,7 +1028,7 @@ msgstr "Starudija"
 
 #: src/Core/Backend/Listing/ListingComments.php:272
 msgid "Unknown"
-msgstr ""
+msgstr "Nepoznato"
 
 #: src/Core/Backend/Listing/ListingComments.php:296
 #, php-format
