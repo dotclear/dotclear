@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-02 12:26+0200\n"
-"PO-Revision-Date: 2024-07-05 01:47\n"
+"PO-Revision-Date: 2024-07-09 00:30\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "Language: oc_FR\n"
@@ -110,11 +110,11 @@ msgstr "Blògs"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:89
 msgid "Back to blogs list"
-msgstr ""
+msgstr "Tornar a la lista dels blògs"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:119
 msgid "Blogs actions"
-msgstr ""
+msgstr "Accions dels blògs"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:157
 #: src/Core/Backend/Listing/ListingBlogs.php:54
@@ -145,15 +145,15 @@ msgstr "Estatut"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:35
 msgid "Set online"
-msgstr ""
+msgstr "Definir en linha"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:36
 msgid "Set offline"
-msgstr ""
+msgstr "Definir fòra linha"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:37
 msgid "Set as removed"
-msgstr ""
+msgstr "Definit coma suprimit"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:42
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:43
@@ -172,11 +172,11 @@ msgstr "Supremir"
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:63
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
 msgid "No blog selected"
-msgstr ""
+msgstr "Cap de blòg seleccionat"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:85
 msgid "Selected blogs have been successfully updated."
-msgstr ""
+msgstr "Los blògs seleccionats son estats mes a jorn amb succès."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:108
 #: src/Core/Backend/ModulesList.php:1685 src/Core/Backend/ThemesList.php:728
@@ -190,14 +190,14 @@ msgstr "La verificacion del senhal a fracassat"
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:114
 #: src/Process/Backend/BlogPref.php:942
 msgid "The current blog cannot be deleted."
-msgstr ""
+msgstr "Lo blòg actual pòt pas èsser suprimit."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:131
 #, php-format
 msgid "%d blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d blòg es estat suprimit amb succès"
+msgstr[1] "%d blògs son estats suprimits amb succès"
 
 #: src/Core/Backend/Action/ActionsComments.php:45
 #: src/Core/Backend/Action/ActionsComments.php:71
@@ -213,11 +213,11 @@ msgstr "Comentaris"
 
 #: src/Core/Backend/Action/ActionsComments.php:89
 msgid "Back to comments list"
-msgstr ""
+msgstr "Tornar a la lista dels comentaris"
 
 #: src/Core/Backend/Action/ActionsComments.php:119
 msgid "Comments actions"
-msgstr ""
+msgstr "Comentaris accions"
 
 #: src/Core/Backend/Action/ActionsComments.php:157
 #: src/Core/Backend/Combos.php:281 src/Core/Backend/Combos.php:304
@@ -243,19 +243,19 @@ msgstr "Des-publicar"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:38
 #: src/Core/Backend/Action/ActionsPostsDefault.php:53
 msgid "Mark as pending"
-msgstr ""
+msgstr "Marcar coma pendent"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:39
 msgid "Mark as junk"
-msgstr ""
+msgstr "Marcar coma brossa"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:66
 msgid "Blocklist IP"
-msgstr ""
+msgstr "IP de lista de blocatge"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:68
 msgid "Blocklist IP (global)"
-msgstr ""
+msgstr "Lista de blocatge IP (global)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:72
 #: src/Process/Backend/Post.php:1063
@@ -266,29 +266,29 @@ msgstr "Adreça IP"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:116
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:144
 msgid "No comment selected"
-msgstr ""
+msgstr "Cap de comentari seleccionat"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:101
 #: src/Process/Backend/Comments.php:128
 msgid "Selected comments have been successfully updated."
-msgstr ""
+msgstr "Los comentaris seleccionats son estats meses a jorn amb succès."
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:129
 #: src/Process/Backend/Comments.php:130
 msgid "Selected comments have been successfully deleted."
-msgstr ""
+msgstr "Los comentaris seleccionats son estats suprimits amb succès."
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:178
 msgid "IP addresses for selected comments have been blocklisted."
-msgstr ""
+msgstr "Las adreças IP pels comentaris seleccionats son estadas blocadas."
 
 #: src/Core/Backend/Action/ActionsPosts.php:82
 msgid "Back to entries list"
-msgstr ""
+msgstr "Tornar a la lista d'entradas"
 
 #: src/Core/Backend/Action/ActionsPosts.php:112
 msgid "Posts actions"
-msgstr ""
+msgstr "Accions de messatges"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:52
 msgid "Schedule"
@@ -296,17 +296,17 @@ msgstr "Planificacion"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:63
 msgid "First publication"
-msgstr ""
+msgstr "Primièra publicacion"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:64
 #: src/Core/Backend/Action/ActionsPostsDefault.php:199
 msgid "Never published"
-msgstr ""
+msgstr "Jamai publicat"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:65
 #: src/Core/Backend/Action/ActionsPostsDefault.php:199
 msgid "Already published"
-msgstr ""
+msgstr "Ja publicat"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:71
 msgid "Mark"
@@ -314,11 +314,11 @@ msgstr "Marcar"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:72
 msgid "Mark as selected"
-msgstr ""
+msgstr "Marcatz coma seleccionat"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:73
 msgid "Mark as unselected"
-msgstr ""
+msgstr "Marcatz coma pas seleccionat"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:78
 #: src/Core/Backend/Action/ActionsPostsDefault.php:84
@@ -336,7 +336,7 @@ msgstr "Cambiar la lenga"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:94
 msgid "Change author"
-msgstr ""
+msgstr "Cambiar l'autor"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:128
 #: src/Core/Backend/Action/ActionsPostsDefault.php:185
@@ -346,63 +346,63 @@ msgstr ""
 #: src/Core/Backend/Action/ActionsPostsDefault.php:427
 #: src/Core/Backend/Action/ActionsPostsDefault.php:525
 msgid "No entry selected"
-msgstr ""
+msgstr "Cap d'entrada pas seleccionada"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:147
 msgid "Published entries cannot be set to scheduled"
-msgstr ""
+msgstr "Las entradas publicadas pòdon pas èsser definidas a programadas"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:156
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d entrada es estada mesa a jorn amb succès cap a l'estat : \"%s\""
+msgstr[1] "%d dintradas son estadas mesas a jorn amb succès a l'estatut : \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:194
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\""
 msgid_plural "%d entries have been successfully updated as: \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d entrada es estada mesa a jorn amb succès coma: \"%s\""
+msgstr[1] "%d dintradas son estadas mesas a jorn amb succès coma : \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:226
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d entrada es estada marcada amb succès coma seleccionada"
+msgstr[1] "%d entradas son estadas marcadas amb succès coma seleccionadas"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:237
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d entrada es estada marcada amb succès coma pas seleccionada"
+msgstr[1] "%d entradas son estadas marcadas amb succès coma pas seleccionadas"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:274
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d entrada es estada suprimida amb succès"
+msgstr[1] "%d entradas son estadas suprimidas amb succès"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:320
 #: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:120
 #: src/Core/Backend/Listing/ListingPosts.php:162
 msgid "(No cat)"
-msgstr ""
+msgstr "(Pas de gat)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:327
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d entrada es estada desplaçada amb succès cap a la categoria « %s »"
+msgstr[1] "%d dintradas son estadas desplaçadas amb succès cap a la categoria « %s »"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:343
 msgid "Change category for this selection"
-msgstr ""
+msgstr "Cambiar la categoria per aquesta seleccion"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
 #: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:439
@@ -412,7 +412,7 @@ msgstr "Categoria :"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:370
 msgid "Create a new category for the post(s)"
-msgstr ""
+msgstr "Crear una novèla categoria pel(s) messatge(s)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
 #: src/Process/Backend/Home.php:429 src/Process/Backend/Home.php:446
@@ -441,33 +441,33 @@ msgstr "Salvar"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:430
 msgid "This user does not exist"
-msgstr ""
+msgstr "Aqueste utilizaire existís pas"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:444
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d dintrada es estada definida amb succès a l'utilizaire « %s »"
+msgstr[1] "%d dintradas son estadas definidas amb succès a l'utilizaire « %s »"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:477
 msgid "Change author for this selection"
-msgstr ""
+msgstr "Cambiar l'autor per aquesta seleccion"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:490
 msgid "New author (author ID):"
-msgstr ""
+msgstr "Novèl autor (ID d'autor):"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:540
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d entrada es estada definida amb succès a la lenga « %s »"
+msgstr[1] "%d dintradas son estadas definidas amb succès a la lenga « %s »"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 msgid "Change language for this selection"
-msgstr ""
+msgstr "Cambiar la lenga per aquesta seleccion"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:563
 #: src/Core/Backend/Action/ActionsPostsDefault.php:567
@@ -482,7 +482,7 @@ msgstr "Disponible"
 #: src/Core/Backend/Combos.php:135 src/Core/Backend/Combos.php:140
 #: src/Core/Backend/Combos.php:143
 msgid "Most used"
-msgstr ""
+msgstr "Lo mai utilizat"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:581
 msgid "Entry language:"
@@ -490,7 +490,7 @@ msgstr "Lenga de l’entrada :"
 
 #: src/Core/Backend/Combos.php:182
 msgid "Other"
-msgstr ""
+msgstr "Autre"
 
 #: src/Core/Backend/Combos.php:265 src/Process/Backend/UserPreferences.php:165
 msgid "Descending"
@@ -528,7 +528,7 @@ msgstr "Nombre de comentaris"
 
 #: src/Core/Backend/Combos.php:285
 msgid "Number of trackbacks"
-msgstr ""
+msgstr "Nombre de trackbacks"
 
 #: src/Core/Backend/Combos.php:302
 msgid "Entry title"
@@ -542,13 +542,13 @@ msgstr "Data de l’entrada"
 #: src/Core/Backend/Listing/ListingComments.php:120
 #: src/Core/Backend/UserPref.php:56
 msgid "Spam filter"
-msgstr ""
+msgstr "Filtre de corrièr indesirable"
 
 #: src/Core/Backend/Combos.php:317
 #: src/Core/Backend/Listing/ListingComments.php:117
 #: src/Core/Backend/UserPref.php:55
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 #: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingBlogs.php:58
 #: src/Core/Backend/UserPref.php:78
@@ -583,12 +583,12 @@ msgstr "Escais-nom"
 
 #: src/Core/Backend/Combos.php:359
 msgid "Number of entries"
-msgstr ""
+msgstr "Nombre d'intradas"
 
 #: src/Core/Backend/Favorites.php:304
 #: src/Process/Backend/UserPreferences.php:810
 msgid "My favorites"
-msgstr ""
+msgstr "Mos favorits"
 
 #: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:194
 #: src/Core/Backend/Page.php:381 src/Process/Backend/Media.php:557
@@ -606,15 +606,15 @@ msgstr "Publicacion novèla"
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d messatge"
+msgstr[1] "%d messatges"
 
 #: src/Core/Backend/Favorites.php:448 src/Process/Backend/Rest.php:91
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d comentari"
+msgstr[1] "%d comentaris"
 
 #: src/Core/Backend/Favorites.php:453 src/Core/Backend/Menus.php:141
 #: src/Core/Backend/UserPref.php:209 src/Process/Backend/PostsPopup.php:100
@@ -635,7 +635,7 @@ msgstr "Categorias"
 #: src/Process/Backend/Media.php:472 src/Process/Backend/Media.php:511
 #: src/Process/Backend/MediaItem.php:471 src/Process/Backend/MediaItem.php:477
 msgid "Media manager"
-msgstr ""
+msgstr "Gestionari de mèdias"
 
 #: src/Core/Backend/Favorites.php:482 src/Core/Backend/Menus.php:104
 #: src/Process/Backend/BlogPref.php:427 src/Process/Backend/BlogPref.php:435
@@ -664,7 +664,7 @@ msgstr "Utilizaires"
 #: src/Process/Backend/Plugins.php:342 src/Process/Backend/Plugins.php:349
 #: src/Process/Upgrade/Plugins.php:143 src/Process/Upgrade/Plugins.php:153
 msgid "Plugins management"
-msgstr ""
+msgstr "Gestion dels ensambladors"
 
 #: src/Core/Backend/Favorites.php:522 src/Core/Backend/Menus.php:214
 #: src/Core/Upgrade/Utility.php:291
@@ -715,7 +715,7 @@ msgstr "Comentari"
 
 #: src/Core/Backend/Filter/FilterComments.php:72
 msgid "Trackback"
-msgstr ""
+msgstr "Trackback"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
 #: src/Core/Backend/Page.php:1283 src/Process/Backend/Comment.php:259
@@ -724,23 +724,23 @@ msgstr "Adreça IP :"
 
 #: src/Core/Backend/Filter/FilterMedia.php:142
 msgid "Media type:"
-msgstr ""
+msgstr "Tipe de mèdia :"
 
 #: src/Core/Backend/Filter/FilterMedia.php:146
 msgid "image"
-msgstr ""
+msgstr "imatge"
 
 #: src/Core/Backend/Filter/FilterMedia.php:147
 msgid "text"
-msgstr ""
+msgstr "tèxt"
 
 #: src/Core/Backend/Filter/FilterMedia.php:148
 msgid "audio"
-msgstr ""
+msgstr "àudio"
 
 #: src/Core/Backend/Filter/FilterMedia.php:149
 msgid "video"
-msgstr ""
+msgstr "vidèo"
 
 #: src/Core/Backend/Filter/FilterPosts.php:167
 msgid "Format:"
@@ -758,7 +758,7 @@ msgstr "Amb senhal"
 
 #: src/Core/Backend/Filter/FilterPosts.php:185
 msgid "Without password"
-msgstr ""
+msgstr "Sens senhal"
 
 #: src/Core/Backend/Filter/FilterPosts.php:199
 msgid "Selected:"
@@ -766,19 +766,19 @@ msgstr "Seleccionat :"
 
 #: src/Core/Backend/Filter/FilterPosts.php:203
 msgid "Not selected"
-msgstr ""
+msgstr "Pas seleccionat"
 
 #: src/Core/Backend/Filter/FilterPosts.php:217
 msgid "Attachments:"
-msgstr ""
+msgstr "Adjunts:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:220
 msgid "With attachments"
-msgstr ""
+msgstr "Amb d'adjunts"
 
 #: src/Core/Backend/Filter/FilterPosts.php:221
 msgid "Without attachments"
-msgstr ""
+msgstr "Sens pièças juntas"
 
 #: src/Core/Backend/Filter/FilterPosts.php:251
 msgid "Month:"
@@ -795,7 +795,7 @@ msgstr "Comentaris :"
 #: src/Core/Backend/Filter/FilterPosts.php:293
 #: src/Core/Backend/Filter/FilterPosts.php:310
 msgid "Opened"
-msgstr ""
+msgstr "Dobèrt"
 
 #: src/Core/Backend/Filter/FilterPosts.php:294
 #: src/Core/Backend/Filter/FilterPosts.php:311
@@ -804,11 +804,11 @@ msgstr "Tampat"
 
 #: src/Core/Backend/Filter/FilterPosts.php:307
 msgid "Trackbacks:"
-msgstr ""
+msgstr "Trackbacks:"
 
 #: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1502
 msgid "Show filters and display options"
-msgstr ""
+msgstr "Afichar los filtres e las opcions d'afichatge"
 
 #: src/Core/Backend/Filter/Filters.php:345
 msgid "Filters"
@@ -837,7 +837,7 @@ msgstr "Enregistrar las opcions actualas"
 
 #: src/Core/Backend/Filter/Filters.php:409
 msgid "Apply filters and display options"
-msgstr ""
+msgstr "Aplicar de filtres e d'opcions d'afichatge"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:84
 #: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:487
@@ -846,82 +846,82 @@ msgstr "Recercar :"
 
 #: src/Core/Backend/Listing/Listing.php:59
 msgid "&#171; prev."
-msgstr ""
+msgstr "&#171; prec."
 
 #: src/Core/Backend/Listing/Listing.php:60
 msgid "next &#187;"
-msgstr ""
+msgstr "seg. &#187;"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:37
 msgid "No blog matches the filter"
-msgstr ""
+msgstr "Cap de blòg correspond pas al filtre"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:39
 #: src/Process/Backend/UsersActions.php:224
 msgid "No blog"
-msgstr ""
+msgstr "Pas de blòg"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:56
 #: src/Core/Backend/ModulesList.php:1799 src/Core/Backend/UserPref.php:76
 #: src/Process/Backend/LinkPopup.php:62
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:57
 #: src/Core/Backend/Listing/ListingUsers.php:57
 #: src/Core/Backend/UserPref.php:69 src/Core/Backend/UserPref.php:77
 msgid "Entries (all types)"
-msgstr ""
+msgstr "Entradas (totes tipes)"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:74
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d blòg correspond al filtre."
+msgstr[1] "%d blògs correspondon al filtre."
 
 #: src/Core/Backend/Listing/ListingBlogs.php:77
 msgid "Blogs list"
-msgstr ""
+msgstr "Lista de blògs"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:98
 #: src/Core/Backend/Listing/ListingComments.php:150
 #: src/Core/Backend/Listing/ListingPosts.php:122
 #: src/Core/Backend/Listing/ListingUsers.php:86
 msgid "Legend: "
-msgstr ""
+msgstr "Legenda: "
 
 #: src/Core/Backend/Listing/ListingBlogs.php:99 src/Core/Blogs.php:46
 msgid "online"
-msgstr ""
+msgstr "en linha"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:100 src/Core/Blogs.php:47
 msgid "offline"
-msgstr ""
+msgstr "fòra linha"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:101 src/Core/Blogs.php:48
 msgid "removed"
-msgstr ""
+msgstr "suprimit"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:129
 #, php-format
 msgid "Edit blog settings for %s"
-msgstr ""
+msgstr "Modificar los paramètres del blòg per %s"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:130
 #: src/Core/Backend/Listing/ListingBlogs.php:131
 msgid "Edit blog settings"
-msgstr ""
+msgstr "Modificar los paramètres del blòg"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:137
 #, php-format
 msgid "Switch to blog %s"
-msgstr ""
+msgstr "Passar al blòg %s"
 
 #: src/Core/Backend/Listing/ListingComments.php:40
 msgid "No comments or trackbacks matches the filter"
-msgstr ""
+msgstr "Cap de comentari o de trackback correspond pas al filtre"
 
 #: src/Core/Backend/Listing/ListingComments.php:42
 #: src/Process/Backend/Comment.php:133 src/Process/Backend/Post.php:861
@@ -932,44 +932,44 @@ msgstr "Cap de comentari"
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Comentari o trackback correspondent al filtre."
+msgstr[1] "Lista de %s comentaris o trackback correspondent al filtre."
 
 #: src/Core/Backend/Listing/ListingComments.php:82
 #, php-format
 msgid "List of comments and trackbacks (%s)"
-msgstr ""
+msgstr "Lista dels comentaris e de trackbacks (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:85
 #: src/Core/Backend/Listing/ListingPosts.php:63
 #, php-format
 msgid ", <a href=\"%s\">published</a> (1)"
 msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", <a href=\"%s\">publicat</a> (1)"
+msgstr[1] ", <a href=\"%s\">publicat</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:91
 #, php-format
 msgid ", <a href=\"%s\">spam</a> (1)"
 msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", <a href=\"%s\">spam</a> (1)"
+msgstr[1] ", <a href=\"%s\">spam</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:97
 #: src/Core/Backend/Listing/ListingPosts.php:69
 #, php-format
 msgid ", <a href=\"%s\">pending</a> (1)"
 msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", <a href=\"%s\">en espera</a> (1)"
+msgstr[1] ", <a href=\"%s\">en espera</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:103
 #: src/Core/Backend/Listing/ListingPosts.php:81
 #, php-format
 msgid ", <a href=\"%s\">unpublished</a> (1)"
 msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", <a href=\"%s\">inedita</a> (1)"
+msgstr[1] ", <a href=\"%s\">inedita</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:111
 msgid "Type"
@@ -1019,7 +1019,7 @@ msgstr "Corrièr indesirable"
 #: src/Core/Backend/Listing/ListingComments.php:213
 #, php-format
 msgid "Edit the %1$s from %2$s"
-msgstr ""
+msgstr "Modificatz lo %1$s dempuèi %2$s"
 
 #: src/Core/Backend/Listing/ListingComments.php:214
 #: src/Core/Backend/Listing/ListingComments.php:229
@@ -1029,11 +1029,11 @@ msgstr "coment"
 #: src/Core/Backend/Listing/ListingComments.php:214
 #: src/Core/Backend/Listing/ListingComments.php:229
 msgid "trackback"
-msgstr ""
+msgstr "trackback"
 
 #: src/Core/Backend/Listing/ListingComments.php:225
 msgid "Type and author"
-msgstr ""
+msgstr "Tipe e autor"
 
 #: src/Core/Backend/Listing/ListingComments.php:227
 #: src/Core/Backend/Listing/ListingComments.php:228
@@ -1043,7 +1043,7 @@ msgstr "Modificar"
 
 #: src/Core/Backend/Listing/ListingMedia.php:42
 msgid "No file matches the filter"
-msgstr ""
+msgstr "Cap de fichièr correspond pas al filtre"
 
 #: src/Core/Backend/Listing/ListingMedia.php:44
 msgid "No file."
@@ -1053,18 +1053,18 @@ msgstr "Cap de fichièr."
 #, php-format
 msgid "%d file matches the filter."
 msgid_plural "%d files match the filter."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d fichièr correspond al filtre."
+msgstr[1] "%d fichièrs correspondon al filtre."
 
 #: src/Core/Backend/Listing/ListingMedia.php:66
 #, php-format
 msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr ""
+msgstr "Nb d'elements : %d → %d dorsièr(s) + %d fichièr(s)"
 
 #: src/Core/Backend/Listing/ListingMedia.php:67
 #, php-format
 msgid "Nb of items: %d"
-msgstr ""
+msgstr "Nb d'elements : %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:86
 #: src/Core/Backend/ModulesList.php:832 src/Core/Backend/UserPref.php:200
@@ -1081,18 +1081,18 @@ msgstr "Talha"
 #: src/Core/Backend/Listing/ListingMedia.php:189
 #: src/Process/Backend/Media.php:371
 msgid "Select this file"
-msgstr ""
+msgstr "Seleccionatz aqueste fichièr"
 
 #: src/Core/Backend/Listing/ListingMedia.php:198
 #: src/Core/Backend/Listing/ListingMedia.php:204
 #: src/Process/Backend/Media.php:387 src/Process/Backend/Media.php:400
 msgid "Attach this file to entry"
-msgstr ""
+msgstr "Juntatz aqueste fichièr a l'entrada"
 
 #: src/Core/Backend/Listing/ListingMedia.php:209
 #: src/Core/Backend/Listing/ListingMedia.php:210
 msgid "Insert this file into entry"
-msgstr ""
+msgstr "Inserissètz aqueste fichièr dins l'entrada"
 
 #: src/Core/Backend/Listing/ListingMedia.php:222
 msgid "delete"
@@ -1110,34 +1110,34 @@ msgstr "dobrir"
 
 #: src/Core/Backend/Listing/ListingPosts.php:37
 msgid "No entry matches the filter"
-msgstr ""
+msgstr "Cap d'entrada correspond pas al filtre"
 
 #: src/Core/Backend/Listing/ListingPosts.php:39
 #: src/Core/Backend/Listing/ListingPostsMini.php:34
 msgid "No entry"
-msgstr ""
+msgstr "Pas d'entrada"
 
 #: src/Core/Backend/Listing/ListingPosts.php:53
 #, php-format
 msgid "List of %s entries matching the filter."
-msgstr ""
+msgstr "Lista de %s dintradas que correspondon al filtre."
 
 #: src/Core/Backend/Listing/ListingPosts.php:60
 #, php-format
 msgid "List of entries (%s)"
-msgstr ""
+msgstr "Lista de las dintradas (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:75
 #, php-format
 msgid ", <a href=\"%s\">programmed</a> (1)"
 msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] ", <a href=\"%s\">programat</a> (1)"
+msgstr[1] ", <a href=\"%s\">programat</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:94
 #: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:939
 msgid "Trackbacks"
-msgstr ""
+msgstr "Trackbacks"
 
 #: src/Core/Backend/Listing/ListingPosts.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:180
@@ -1160,13 +1160,13 @@ msgstr "Pèças juntas"
 #: src/Core/Backend/Listing/ListingPostsMini.php:122
 #, php-format
 msgid "%d attachment"
-msgstr ""
+msgstr "%d junta"
 
 #: src/Core/Backend/Listing/ListingPosts.php:204
 #: src/Core/Backend/Listing/ListingPostsMini.php:122
 #, php-format
 msgid "%d attachments"
-msgstr ""
+msgstr "%d pèças juntas"
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:39
 msgid "Entries list"
@@ -1174,16 +1174,16 @@ msgstr "Lista de las entradas"
 
 #: src/Core/Backend/Listing/ListingUsers.php:36
 msgid "No user matches the filter"
-msgstr ""
+msgstr "Cap d'utilizaire correspond pas al filtre"
 
 #: src/Core/Backend/Listing/ListingUsers.php:38
 msgid "No user"
-msgstr ""
+msgstr "Cap d'utilizaire"
 
 #: src/Core/Backend/Listing/ListingUsers.php:47
 #, php-format
 msgid "List of %s users match the filter."
-msgstr ""
+msgstr "La lista de %s utilizaires correspondon al filtre."
 
 #: src/Core/Backend/Listing/ListingUsers.php:49
 msgid "Users list"
@@ -1192,12 +1192,12 @@ msgstr "Lista d’utilizaires"
 #: src/Core/Backend/Listing/ListingUsers.php:87
 #: src/Core/Backend/Listing/ListingUsers.php:110
 msgid "admin"
-msgstr ""
+msgstr "admin"
 
 #: src/Core/Backend/Listing/ListingUsers.php:88
 #: src/Core/Backend/Listing/ListingUsers.php:113
 msgid "superadmin"
-msgstr ""
+msgstr "superadmin"
 
 #: src/Core/Backend/Listing/Pager.php:144
 msgid "First page"
@@ -1209,7 +1209,7 @@ msgstr "Pagina precedenta"
 
 #: src/Core/Backend/Listing/Pager.php:160
 msgid "Next page"
-msgstr ""
+msgstr "Pagina seguenta"
 
 #: src/Core/Backend/Listing/Pager.php:168
 msgid "Last page"
@@ -1218,11 +1218,11 @@ msgstr "Nom"
 #: src/Core/Backend/Listing/Pager.php:175
 #, php-format
 msgid "Page %s / %s"
-msgstr ""
+msgstr "Pagina %s / %s"
 
 #: src/Core/Backend/Listing/Pager.php:183
 msgid "Direct access page:"
-msgstr ""
+msgstr "Pagina d'accès dirècte :"
 
 #: src/Core/Backend/Listing/Pager.php:184 src/Core/Backend/Page.php:169
 #: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:187
@@ -1236,8 +1236,8 @@ msgstr "d’acòrdi"
 #, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s fichièr trobat"
+msgstr[1] "%s fichièrs trobats"
 
 #: src/Core/Backend/Menus.php:85
 msgid "Blog"
