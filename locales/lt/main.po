@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-09 18:09+0200\n"
-"PO-Revision-Date: 2024-07-09 16:14\n"
+"PO-Revision-Date: 2024-07-09 17:26\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -969,34 +969,34 @@ msgstr "Komentarų ir grįžtamųjų nuorodų sąrašas (%s)"
 #: src/Core/Backend/Listing/ListingComments.php:99
 msgid "published (1)"
 msgid_plural "published (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "paskelbta"
+msgstr[1] "paskelbta"
+msgstr[2] "paskelbta"
+msgstr[3] "paskelbta"
 
 #: src/Core/Backend/Listing/ListingComments.php:108
 msgid "spam (1)"
 msgid_plural "spam (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "šlamštas"
+msgstr[1] "šlamštas"
+msgstr[2] "šlamštas"
+msgstr[3] "šlamštas"
 
 #: src/Core/Backend/Listing/ListingComments.php:117
 msgid "pending (1)"
 msgid_plural "pending (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "kol"
+msgstr[1] "kol"
+msgstr[2] "kol"
+msgstr[3] "kol"
 
 #: src/Core/Backend/Listing/ListingComments.php:126
 msgid "unpublished (1)"
 msgid_plural "unpublished (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "nepaskelbtas"
+msgstr[1] "nepaskelbtas"
+msgstr[2] "nepaskelbtas"
+msgstr[3] "nepaskelbtas"
 
 #: src/Core/Backend/Listing/ListingComments.php:139
 msgid "Type"
@@ -1045,7 +1045,7 @@ msgstr "Junk"
 
 #: src/Core/Backend/Listing/ListingComments.php:272
 msgid "Unknown"
-msgstr ""
+msgstr "Nežinoma"
 
 #: src/Core/Backend/Listing/ListingComments.php:296
 #, php-format
