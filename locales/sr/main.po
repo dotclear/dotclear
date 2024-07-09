@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-02 12:26+0200\n"
-"PO-Revision-Date: 2024-07-02 11:06\n"
+"POT-Creation-Date: 2024-07-09 18:09+0200\n"
+"PO-Revision-Date: 2024-07-09 17:27\n"
 "Last-Translator: \n"
 "Language-Team: Serbian\n"
 "Language: srp\n"
@@ -117,12 +117,12 @@ msgid "Blogs actions"
 msgstr "Радње блогова"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:157
-#: src/Core/Backend/Listing/ListingBlogs.php:54
+#: src/Core/Backend/Listing/ListingBlogs.php:67
 msgid "Blog id"
 msgstr "Ид блога"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
-#: src/Core/Backend/Listing/ListingBlogs.php:55
+#: src/Core/Backend/Listing/ListingBlogs.php:73
 #: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:141
 #: src/Process/Backend/BlogPref.php:488
 #: src/Process/Backend/UsersActions.php:231
@@ -133,8 +133,8 @@ msgstr "Nom du blog"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:35
 #: src/Core/Backend/Action/ActionsPostsDefault.php:49
 #: src/Core/Backend/Combos.php:282 src/Core/Backend/Combos.php:305
-#: src/Core/Backend/Combos.php:337 src/Core/Backend/Listing/ListingBlogs.php:59
-#: src/Core/Backend/Listing/ListingComments.php:114
+#: src/Core/Backend/Combos.php:337 src/Core/Backend/Listing/ListingBlogs.php:97
+#: src/Core/Backend/Listing/ListingComments.php:154
 #: src/Core/Backend/Listing/ListingPosts.php:95
 #: src/Core/Backend/Listing/ListingPostsMini.php:45
 #: src/Core/Backend/UserPref.php:54 src/Core/Backend/UserPref.php:79
@@ -222,7 +222,7 @@ msgstr "Радње коментара"
 
 #: src/Core/Backend/Action/ActionsComments.php:157
 #: src/Core/Backend/Combos.php:281 src/Core/Backend/Combos.php:304
-#: src/Core/Backend/Listing/ListingComments.php:112
+#: src/Core/Backend/Listing/ListingComments.php:144
 #: src/Core/Backend/Listing/ListingPosts.php:92
 #: src/Core/Backend/Listing/ListingPostsMini.php:44
 #: src/Core/Backend/UserPref.php:44 src/Core/Backend/UserPref.php:53
@@ -510,7 +510,7 @@ msgid "Ascending"
 msgstr "Croissant"
 
 #: src/Core/Backend/Combos.php:278 src/Core/Backend/Combos.php:301
-#: src/Core/Backend/Listing/ListingComments.php:113
+#: src/Core/Backend/Listing/ListingComments.php:149
 #: src/Core/Backend/Listing/ListingMedia.php:87
 #: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:43
@@ -548,18 +548,18 @@ msgid "Entry date"
 msgstr "Датум уноса"
 
 #: src/Core/Backend/Combos.php:306
-#: src/Core/Backend/Listing/ListingComments.php:120
+#: src/Core/Backend/Listing/ListingComments.php:167
 #: src/Core/Backend/UserPref.php:56
 msgid "Spam filter"
 msgstr "Филтер спам"
 
 #: src/Core/Backend/Combos.php:317
-#: src/Core/Backend/Listing/ListingComments.php:117
+#: src/Core/Backend/Listing/ListingComments.php:161
 #: src/Core/Backend/UserPref.php:55
 msgid "IP"
 msgstr "IP"
 
-#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingBlogs.php:58
+#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingBlogs.php:91
 #: src/Core/Backend/UserPref.php:78
 msgid "Last update"
 msgstr "Dernière mise à jour"
@@ -863,29 +863,29 @@ msgstr "&#171; Прев."
 msgid "next &#187;"
 msgstr "следећи &#187;"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:37
-msgid "No blog matches the filter"
-msgstr "Ниједан блог не одговара филтеру"
-
-#: src/Core/Backend/Listing/ListingBlogs.php:39
+#: src/Core/Backend/Listing/ListingBlogs.php:48
 #: src/Process/Backend/UsersActions.php:224
 msgid "No blog"
 msgstr "Pas de blog"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:56
+#: src/Core/Backend/Listing/ListingBlogs.php:48
+msgid "No blog matches the filter"
+msgstr "Ниједан блог не одговара филтеру"
+
+#: src/Core/Backend/Listing/ListingBlogs.php:79
 #: src/Core/Backend/ModulesList.php:1799 src/Core/Backend/UserPref.php:76
 #: src/Process/Backend/LinkPopup.php:62
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
 msgstr "URL "
 
-#: src/Core/Backend/Listing/ListingBlogs.php:57
+#: src/Core/Backend/Listing/ListingBlogs.php:85
 #: src/Core/Backend/Listing/ListingUsers.php:57
 #: src/Core/Backend/UserPref.php:69 src/Core/Backend/UserPref.php:77
 msgid "Entries (all types)"
 msgstr "Уноси (сви типови)"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:74
+#: src/Core/Backend/Listing/ListingBlogs.php:130
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
@@ -893,54 +893,54 @@ msgstr[0] "%d блог се подудара са филтером."
 msgstr[1] "%d блогова се подудара са филтером."
 msgstr[2] "%d блогова се подудара са филтером."
 
-#: src/Core/Backend/Listing/ListingBlogs.php:77
+#: src/Core/Backend/Listing/ListingBlogs.php:131
 msgid "Blogs list"
 msgstr "Листа блогова"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:98
-#: src/Core/Backend/Listing/ListingComments.php:150
+#: src/Core/Backend/Listing/ListingBlogs.php:137
+#: src/Core/Backend/Listing/ListingComments.php:210
 #: src/Core/Backend/Listing/ListingPosts.php:122
 #: src/Core/Backend/Listing/ListingUsers.php:86
 msgid "Legend: "
 msgstr "Легенда: "
 
-#: src/Core/Backend/Listing/ListingBlogs.php:99 src/Core/Blogs.php:46
+#: src/Core/Backend/Listing/ListingBlogs.php:138 src/Core/Blogs.php:46
 msgid "online"
 msgstr "en ligne"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:100 src/Core/Blogs.php:47
+#: src/Core/Backend/Listing/ListingBlogs.php:139 src/Core/Blogs.php:47
 msgid "offline"
 msgstr "hors ligne"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:101 src/Core/Blogs.php:48
+#: src/Core/Backend/Listing/ListingBlogs.php:140 src/Core/Blogs.php:48
 msgid "removed"
 msgstr "supprimé"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:129
+#: src/Core/Backend/Listing/ListingBlogs.php:186
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr "Уреди поставке блога за %s"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:130
-#: src/Core/Backend/Listing/ListingBlogs.php:131
+#: src/Core/Backend/Listing/ListingBlogs.php:190
+#: src/Core/Backend/Listing/ListingBlogs.php:193
 msgid "Edit blog settings"
 msgstr "Уреди поставке блога"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:137
+#: src/Core/Backend/Listing/ListingBlogs.php:205
 #, php-format
 msgid "Switch to blog %s"
 msgstr "Passer au blog %s"
 
-#: src/Core/Backend/Listing/ListingComments.php:40
-msgid "No comments or trackbacks matches the filter"
-msgstr "Ниједан коментар или линк за праћење не одговара филтеру"
-
-#: src/Core/Backend/Listing/ListingComments.php:42
+#: src/Core/Backend/Listing/ListingComments.php:53
 #: src/Process/Backend/Comment.php:133 src/Process/Backend/Post.php:861
 msgid "No comments"
 msgstr "Aucun commentaire"
 
-#: src/Core/Backend/Listing/ListingComments.php:71
+#: src/Core/Backend/Listing/ListingComments.php:53
+msgid "No comments or trackbacks matches the filter"
+msgstr "Ниједан коментар или линк за праћење не одговара филтеру"
+
+#: src/Core/Backend/Listing/ListingComments.php:80
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
@@ -948,57 +948,50 @@ msgstr[0] "Коментар или линк за праћење који се п
 msgstr[1] "Листа од %s коментара или линкова за праћење који се подударају са филтером."
 msgstr[2] "Листа од %s коментара или линкова за праћење који се подударају са филтером."
 
-#: src/Core/Backend/Listing/ListingComments.php:82
+#: src/Core/Backend/Listing/ListingComments.php:93
 #, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr "Листа коментара и линкова за праћење (%s)"
 
-#: src/Core/Backend/Listing/ListingComments.php:85
-#: src/Core/Backend/Listing/ListingPosts.php:63
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ", <a href=\"%s\">је објавио</a> (1)"
-msgstr[1] ", <a href=\"%s\">је објавио</a> (%s)"
-msgstr[2] ", <a href=\"%s\">је објавио</a> (%s)"
+#: src/Core/Backend/Listing/ListingComments.php:99
+msgid "published (1)"
+msgid_plural "published (> 1)"
+msgstr[0] "објављено"
+msgstr[1] "објављено"
+msgstr[2] "објављено"
 
-#: src/Core/Backend/Listing/ListingComments.php:91
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ", <a href=\"%s\">spam</a> (1)"
-msgstr[1] ", <a href=\"%s\">Спам</a> (%s)"
-msgstr[2] ", <a href=\"%s\">Спам</a> (%s)"
+#: src/Core/Backend/Listing/ListingComments.php:108
+msgid "spam (1)"
+msgid_plural "spam (> 1)"
+msgstr[0] "спам"
+msgstr[1] "спам"
+msgstr[2] "спам"
 
-#: src/Core/Backend/Listing/ListingComments.php:97
-#: src/Core/Backend/Listing/ListingPosts.php:69
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ", <a href=\"%s\">чекајући</a> (1)"
-msgstr[1] ", <a href=\"%s\">на чекању</a> (%s)"
-msgstr[2] ", <a href=\"%s\">на чекању</a> (%s)"
+#: src/Core/Backend/Listing/ListingComments.php:117
+msgid "pending (1)"
+msgid_plural "pending (> 1)"
+msgstr[0] "нерешен"
+msgstr[1] "нерешен"
+msgstr[2] "нерешен"
 
-#: src/Core/Backend/Listing/ListingComments.php:103
-#: src/Core/Backend/Listing/ListingPosts.php:81
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ", <a href=\"%s\">необјављен</a> (1)"
-msgstr[1] ", <a href=\"%s\">необјављено</a> (%s)"
-msgstr[2] ", <a href=\"%s\">необјављено</a> (%s)"
+#: src/Core/Backend/Listing/ListingComments.php:126
+msgid "unpublished (1)"
+msgid_plural "unpublished (> 1)"
+msgstr[0] "необјављено"
+msgstr[1] "необјављено"
+msgstr[2] "необјављено"
 
-#: src/Core/Backend/Listing/ListingComments.php:111
+#: src/Core/Backend/Listing/ListingComments.php:139
 msgid "Type"
 msgstr "Тип"
 
-#: src/Core/Backend/Listing/ListingComments.php:122
+#: src/Core/Backend/Listing/ListingComments.php:172
 #: src/Core/Backend/UserPref.php:57
 msgid "Entry"
 msgstr "Унос"
 
-#: src/Core/Backend/Listing/ListingComments.php:151
-#: src/Core/Backend/Listing/ListingComments.php:187
+#: src/Core/Backend/Listing/ListingComments.php:211
+#: src/Core/Backend/Listing/ListingComments.php:248
 #: src/Core/Backend/Listing/ListingPosts.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:170
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
@@ -1007,8 +1000,8 @@ msgstr "Унос"
 msgid "Published"
 msgstr "Објављено"
 
-#: src/Core/Backend/Listing/ListingComments.php:152
-#: src/Core/Backend/Listing/ListingComments.php:192
+#: src/Core/Backend/Listing/ListingComments.php:212
+#: src/Core/Backend/Listing/ListingComments.php:254
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:175
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
@@ -1017,8 +1010,8 @@ msgstr "Објављено"
 msgid "Unpublished"
 msgstr "Необјављено"
 
-#: src/Core/Backend/Listing/ListingComments.php:153
-#: src/Core/Backend/Listing/ListingComments.php:197
+#: src/Core/Backend/Listing/ListingComments.php:213
+#: src/Core/Backend/Listing/ListingComments.php:260
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:185
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
@@ -1027,33 +1020,33 @@ msgstr "Необјављено"
 msgid "Pending"
 msgstr "Чекању"
 
-#: src/Core/Backend/Listing/ListingComments.php:154
-#: src/Core/Backend/Listing/ListingComments.php:202 src/Core/Blog.php:272
+#: src/Core/Backend/Listing/ListingComments.php:214
+#: src/Core/Backend/Listing/ListingComments.php:266 src/Core/Blog.php:272
 #: src/Process/Backend/Post.php:1098
 msgid "Junk"
 msgstr "Отпад"
 
-#: src/Core/Backend/Listing/ListingComments.php:213
+#: src/Core/Backend/Listing/ListingComments.php:272
+msgid "Unknown"
+msgstr "Непознат"
+
+#: src/Core/Backend/Listing/ListingComments.php:296
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr "Уредите %1$s од %2$s"
 
-#: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:229
+#: src/Core/Backend/Listing/ListingComments.php:297
+#: src/Core/Backend/Listing/ListingComments.php:323
 msgid "comment"
 msgstr "commentaire"
 
-#: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:229
+#: src/Core/Backend/Listing/ListingComments.php:297
+#: src/Core/Backend/Listing/ListingComments.php:323
 msgid "trackback"
 msgstr "rétrolien"
 
-#: src/Core/Backend/Listing/ListingComments.php:225
-msgid "Type and author"
-msgstr "Тип и аутор"
-
-#: src/Core/Backend/Listing/ListingComments.php:227
-#: src/Core/Backend/Listing/ListingComments.php:228
+#: src/Core/Backend/Listing/ListingComments.php:319
+#: src/Core/Backend/Listing/ListingComments.php:322
 #: src/Process/Backend/Post.php:1065 src/Process/Backend/Post.php:1138
 msgid "Edit"
 msgstr "Уреди"
@@ -1145,6 +1138,22 @@ msgstr "Листа од %s уноса који се подударају са ф
 msgid "List of entries (%s)"
 msgstr "Листа уноса (%s)"
 
+#: src/Core/Backend/Listing/ListingPosts.php:63
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ", <a href=\"%s\">је објавио</a> (1)"
+msgstr[1] ", <a href=\"%s\">је објавио</a> (%s)"
+msgstr[2] ", <a href=\"%s\">је објавио</a> (%s)"
+
+#: src/Core/Backend/Listing/ListingPosts.php:69
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ", <a href=\"%s\">чекајући</a> (1)"
+msgstr[1] ", <a href=\"%s\">на чекању</a> (%s)"
+msgstr[2] ", <a href=\"%s\">на чекању</a> (%s)"
+
 #: src/Core/Backend/Listing/ListingPosts.php:75
 #, php-format
 msgid ", <a href=\"%s\">programmed</a> (1)"
@@ -1152,6 +1161,14 @@ msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
 msgstr[0] ", <a href=\"%s\">програмиран</a> (1)"
 msgstr[1] ", <a href=\"%s\">програмиран</a> (%s)"
 msgstr[2] ", <a href=\"%s\">програмиран</a> (%s)"
+
+#: src/Core/Backend/Listing/ListingPosts.php:81
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ", <a href=\"%s\">необјављен</a> (1)"
+msgstr[1] ", <a href=\"%s\">необјављено</a> (%s)"
+msgstr[2] ", <a href=\"%s\">необјављено</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:94
 #: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:939

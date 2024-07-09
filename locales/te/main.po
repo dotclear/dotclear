@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-02 12:26+0200\n"
-"PO-Revision-Date: 2024-07-02 11:06\n"
+"POT-Creation-Date: 2024-07-09 18:09+0200\n"
+"PO-Revision-Date: 2024-07-09 17:26\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -117,12 +117,12 @@ msgid "Blogs actions"
 msgstr "బ్లాగుల చర్యలు"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:157
-#: src/Core/Backend/Listing/ListingBlogs.php:54
+#: src/Core/Backend/Listing/ListingBlogs.php:67
 msgid "Blog id"
 msgstr "బ్లాగు id"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
-#: src/Core/Backend/Listing/ListingBlogs.php:55
+#: src/Core/Backend/Listing/ListingBlogs.php:73
 #: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:141
 #: src/Process/Backend/BlogPref.php:488
 #: src/Process/Backend/UsersActions.php:231
@@ -133,8 +133,8 @@ msgstr "బ్లాగు పేరు"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:35
 #: src/Core/Backend/Action/ActionsPostsDefault.php:49
 #: src/Core/Backend/Combos.php:282 src/Core/Backend/Combos.php:305
-#: src/Core/Backend/Combos.php:337 src/Core/Backend/Listing/ListingBlogs.php:59
-#: src/Core/Backend/Listing/ListingComments.php:114
+#: src/Core/Backend/Combos.php:337 src/Core/Backend/Listing/ListingBlogs.php:97
+#: src/Core/Backend/Listing/ListingComments.php:154
 #: src/Core/Backend/Listing/ListingPosts.php:95
 #: src/Core/Backend/Listing/ListingPostsMini.php:45
 #: src/Core/Backend/UserPref.php:54 src/Core/Backend/UserPref.php:79
@@ -221,7 +221,7 @@ msgstr "వ్యాఖ్య చర్యలు"
 
 #: src/Core/Backend/Action/ActionsComments.php:157
 #: src/Core/Backend/Combos.php:281 src/Core/Backend/Combos.php:304
-#: src/Core/Backend/Listing/ListingComments.php:112
+#: src/Core/Backend/Listing/ListingComments.php:144
 #: src/Core/Backend/Listing/ListingPosts.php:92
 #: src/Core/Backend/Listing/ListingPostsMini.php:44
 #: src/Core/Backend/UserPref.php:44 src/Core/Backend/UserPref.php:53
@@ -501,7 +501,7 @@ msgid "Ascending"
 msgstr "ఆరోహణ"
 
 #: src/Core/Backend/Combos.php:278 src/Core/Backend/Combos.php:301
-#: src/Core/Backend/Listing/ListingComments.php:113
+#: src/Core/Backend/Listing/ListingComments.php:149
 #: src/Core/Backend/Listing/ListingMedia.php:87
 #: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPostsMini.php:43
@@ -539,18 +539,18 @@ msgid "Entry date"
 msgstr "ప్రవేశం చేసిన తేదీ"
 
 #: src/Core/Backend/Combos.php:306
-#: src/Core/Backend/Listing/ListingComments.php:120
+#: src/Core/Backend/Listing/ListingComments.php:167
 #: src/Core/Backend/UserPref.php:56
 msgid "Spam filter"
 msgstr "స్పామ్ ఫిల్టర్"
 
 #: src/Core/Backend/Combos.php:317
-#: src/Core/Backend/Listing/ListingComments.php:117
+#: src/Core/Backend/Listing/ListingComments.php:161
 #: src/Core/Backend/UserPref.php:55
 msgid "IP"
 msgstr "IP"
 
-#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingBlogs.php:58
+#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingBlogs.php:91
 #: src/Core/Backend/UserPref.php:78
 msgid "Last update"
 msgstr "చివరి తాజాకరణ"
@@ -852,136 +852,129 @@ msgstr "&#171; prev."
 msgid "next &#187;"
 msgstr "తదుపరి &#187;"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:37
-msgid "No blog matches the filter"
-msgstr "ఏ బ్లాగు ఫిల్టర్ మ్యాచ్ లేదు"
-
-#: src/Core/Backend/Listing/ListingBlogs.php:39
+#: src/Core/Backend/Listing/ListingBlogs.php:48
 #: src/Process/Backend/UsersActions.php:224
 msgid "No blog"
 msgstr "బ్లాగులు లేవు"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:56
+#: src/Core/Backend/Listing/ListingBlogs.php:48
+msgid "No blog matches the filter"
+msgstr "ఏ బ్లాగు ఫిల్టర్ మ్యాచ్ లేదు"
+
+#: src/Core/Backend/Listing/ListingBlogs.php:79
 #: src/Core/Backend/ModulesList.php:1799 src/Core/Backend/UserPref.php:76
 #: src/Process/Backend/LinkPopup.php:62
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
 msgstr "ఉర్ల్"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:57
+#: src/Core/Backend/Listing/ListingBlogs.php:85
 #: src/Core/Backend/Listing/ListingUsers.php:57
 #: src/Core/Backend/UserPref.php:69 src/Core/Backend/UserPref.php:77
 msgid "Entries (all types)"
 msgstr "సంప్రదాయ (అన్ని రకాలు)"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:74
+#: src/Core/Backend/Listing/ListingBlogs.php:130
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
 msgstr[0] "%d బ్లాగులు ఫిల్టర్."
 msgstr[1] "%d బ్లాగులు ఫిల్టర్ మ్యాచ్."
 
-#: src/Core/Backend/Listing/ListingBlogs.php:77
+#: src/Core/Backend/Listing/ListingBlogs.php:131
 msgid "Blogs list"
 msgstr "బ్లాగుల జాబితా"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:98
-#: src/Core/Backend/Listing/ListingComments.php:150
+#: src/Core/Backend/Listing/ListingBlogs.php:137
+#: src/Core/Backend/Listing/ListingComments.php:210
 #: src/Core/Backend/Listing/ListingPosts.php:122
 #: src/Core/Backend/Listing/ListingUsers.php:86
 msgid "Legend: "
 msgstr "లెజెండ్: "
 
-#: src/Core/Backend/Listing/ListingBlogs.php:99 src/Core/Blogs.php:46
+#: src/Core/Backend/Listing/ListingBlogs.php:138 src/Core/Blogs.php:46
 msgid "online"
 msgstr "ఆన్‌లైన్"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:100 src/Core/Blogs.php:47
+#: src/Core/Backend/Listing/ListingBlogs.php:139 src/Core/Blogs.php:47
 msgid "offline"
 msgstr "ఆఫ్‌లైన్"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:101 src/Core/Blogs.php:48
+#: src/Core/Backend/Listing/ListingBlogs.php:140 src/Core/Blogs.php:48
 msgid "removed"
 msgstr "తొలగించారు"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:129
+#: src/Core/Backend/Listing/ListingBlogs.php:186
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr "%s కొరకు బ్లాగు అమరికలను సరికూర్చు"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:130
-#: src/Core/Backend/Listing/ListingBlogs.php:131
+#: src/Core/Backend/Listing/ListingBlogs.php:190
+#: src/Core/Backend/Listing/ListingBlogs.php:193
 msgid "Edit blog settings"
 msgstr "బ్లాగు అమరికలను సరికూర్చు"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:137
+#: src/Core/Backend/Listing/ListingBlogs.php:205
 #, php-format
 msgid "Switch to blog %s"
 msgstr "%s బ్లాగుకి మారండి"
 
-#: src/Core/Backend/Listing/ListingComments.php:40
-msgid "No comments or trackbacks matches the filter"
-msgstr "వ్యాఖ్యలు లేదా ట్రాక్బాక్లు ఫిల్టర్ మ్యాచ్"
-
-#: src/Core/Backend/Listing/ListingComments.php:42
+#: src/Core/Backend/Listing/ListingComments.php:53
 #: src/Process/Backend/Comment.php:133 src/Process/Backend/Post.php:861
 msgid "No comments"
 msgstr "వ్యాఖ్యలు లేవు"
 
-#: src/Core/Backend/Listing/ListingComments.php:71
+#: src/Core/Backend/Listing/ListingComments.php:53
+msgid "No comments or trackbacks matches the filter"
+msgstr "వ్యాఖ్యలు లేదా ట్రాక్బాక్లు ఫిల్టర్ మ్యాచ్"
+
+#: src/Core/Backend/Listing/ListingComments.php:80
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] "వ్యాఖ్య లేదా ట్రాక్బ్యాక్ సరిజోడీ ఫిల్టర్."
 msgstr[1] "%s వ్యాఖ్యల జాబితా లేదా ట్రాక్బాలు సరిపోలిక ఫిల్టర్."
 
-#: src/Core/Backend/Listing/ListingComments.php:82
+#: src/Core/Backend/Listing/ListingComments.php:93
 #, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr "వ్యాఖ్యల జాబితా మరియు trackbacks (%s)"
 
-#: src/Core/Backend/Listing/ListingComments.php:85
-#: src/Core/Backend/Listing/ListingPosts.php:63
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ", <a href=\"%s\">ప్రచురించబడిన</a> (1)"
-msgstr[1] ", <a href=\"%s\">ప్రచురించిన</a> (%s)"
+#: src/Core/Backend/Listing/ListingComments.php:99
+msgid "published (1)"
+msgid_plural "published (> 1)"
+msgstr[0] "ప్రచురించబడింది"
+msgstr[1] "ప్రచురించబడింది"
 
-#: src/Core/Backend/Listing/ListingComments.php:91
-#, php-format
-msgid ", <a href=\"%s\">spam</a> (1)"
-msgid_plural ", <a href=\"%s\">spam</a> (%s)"
-msgstr[0] ", <a href=\"%s\">స్పేమ్</a> (1)"
-msgstr[1] ", <a href=\"%s\">స్పేమ్</a> (%s)"
+#: src/Core/Backend/Listing/ListingComments.php:108
+msgid "spam (1)"
+msgid_plural "spam (> 1)"
+msgstr[0] "స్పామ్"
+msgstr[1] "స్పామ్"
 
-#: src/Core/Backend/Listing/ListingComments.php:97
-#: src/Core/Backend/Listing/ListingPosts.php:69
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ", <a href=\"%s\">పెంటింగ్</a> (1)"
-msgstr[1] ", <a href=\"%s\">పెంటింగ్</a> (%s)"
+#: src/Core/Backend/Listing/ListingComments.php:117
+msgid "pending (1)"
+msgid_plural "pending (> 1)"
+msgstr[0] "పెండింగ్‌లో ఉంది"
+msgstr[1] "పెండింగ్‌లో ఉంది"
 
-#: src/Core/Backend/Listing/ListingComments.php:103
-#: src/Core/Backend/Listing/ListingPosts.php:81
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ", <a href=\"%s\">అప్రచురణ</a> (1)"
-msgstr[1] ", <a href=\"%s\">అప్రచురణ</a> (%s)"
+#: src/Core/Backend/Listing/ListingComments.php:126
+msgid "unpublished (1)"
+msgid_plural "unpublished (> 1)"
+msgstr[0] "ప్రచురించబడలేదు"
+msgstr[1] "ప్రచురించబడలేదు"
 
-#: src/Core/Backend/Listing/ListingComments.php:111
+#: src/Core/Backend/Listing/ListingComments.php:139
 msgid "Type"
 msgstr "రకం"
 
-#: src/Core/Backend/Listing/ListingComments.php:122
+#: src/Core/Backend/Listing/ListingComments.php:172
 #: src/Core/Backend/UserPref.php:57
 msgid "Entry"
 msgstr "ప్రవేశం"
 
-#: src/Core/Backend/Listing/ListingComments.php:151
-#: src/Core/Backend/Listing/ListingComments.php:187
+#: src/Core/Backend/Listing/ListingComments.php:211
+#: src/Core/Backend/Listing/ListingComments.php:248
 #: src/Core/Backend/Listing/ListingPosts.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:170
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
@@ -990,8 +983,8 @@ msgstr "ప్రవేశం"
 msgid "Published"
 msgstr "ప్రచురణ"
 
-#: src/Core/Backend/Listing/ListingComments.php:152
-#: src/Core/Backend/Listing/ListingComments.php:192
+#: src/Core/Backend/Listing/ListingComments.php:212
+#: src/Core/Backend/Listing/ListingComments.php:254
 #: src/Core/Backend/Listing/ListingPosts.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:175
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
@@ -1000,8 +993,8 @@ msgstr "ప్రచురణ"
 msgid "Unpublished"
 msgstr "ప్రచురించు"
 
-#: src/Core/Backend/Listing/ListingComments.php:153
-#: src/Core/Backend/Listing/ListingComments.php:197
+#: src/Core/Backend/Listing/ListingComments.php:213
+#: src/Core/Backend/Listing/ListingComments.php:260
 #: src/Core/Backend/Listing/ListingPosts.php:126
 #: src/Core/Backend/Listing/ListingPosts.php:185
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
@@ -1010,33 +1003,33 @@ msgstr "ప్రచురించు"
 msgid "Pending"
 msgstr "పెండింగ్"
 
-#: src/Core/Backend/Listing/ListingComments.php:154
-#: src/Core/Backend/Listing/ListingComments.php:202 src/Core/Blog.php:272
+#: src/Core/Backend/Listing/ListingComments.php:214
+#: src/Core/Backend/Listing/ListingComments.php:266 src/Core/Blog.php:272
 #: src/Process/Backend/Post.php:1098
 msgid "Junk"
 msgstr "జంక్"
 
-#: src/Core/Backend/Listing/ListingComments.php:213
+#: src/Core/Backend/Listing/ListingComments.php:272
+msgid "Unknown"
+msgstr "తెలియదు"
+
+#: src/Core/Backend/Listing/ListingComments.php:296
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr "%2$s నుండి %1$sని సవరించండి"
 
-#: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:229
+#: src/Core/Backend/Listing/ListingComments.php:297
+#: src/Core/Backend/Listing/ListingComments.php:323
 msgid "comment"
 msgstr "వ్యాఖ్య"
 
-#: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:229
+#: src/Core/Backend/Listing/ListingComments.php:297
+#: src/Core/Backend/Listing/ListingComments.php:323
 msgid "trackback"
 msgstr "ట్రాకుబ్యాకు"
 
-#: src/Core/Backend/Listing/ListingComments.php:225
-msgid "Type and author"
-msgstr "రకం మరియు రచయిత"
-
-#: src/Core/Backend/Listing/ListingComments.php:227
-#: src/Core/Backend/Listing/ListingComments.php:228
+#: src/Core/Backend/Listing/ListingComments.php:319
+#: src/Core/Backend/Listing/ListingComments.php:322
 #: src/Process/Backend/Post.php:1065 src/Process/Backend/Post.php:1138
 msgid "Edit"
 msgstr "సరికూర్చు"
@@ -1127,12 +1120,33 @@ msgstr "ఫిల్టర్ సరిపోలిన %s ఎంట్రీల 
 msgid "List of entries (%s)"
 msgstr "ఎంట్రీల జాబితా (%s)"
 
+#: src/Core/Backend/Listing/ListingPosts.php:63
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ", <a href=\"%s\">ప్రచురించబడిన</a> (1)"
+msgstr[1] ", <a href=\"%s\">ప్రచురించిన</a> (%s)"
+
+#: src/Core/Backend/Listing/ListingPosts.php:69
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ", <a href=\"%s\">పెంటింగ్</a> (1)"
+msgstr[1] ", <a href=\"%s\">పెంటింగ్</a> (%s)"
+
 #: src/Core/Backend/Listing/ListingPosts.php:75
 #, php-format
 msgid ", <a href=\"%s\">programmed</a> (1)"
 msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
 msgstr[0] ", <a href=\"%s\">ప్రోగ్రామ్</a> (1)"
 msgstr[1] ", <a href=\"%s\">ప్రోగ్రామ్</a> (%s)"
+
+#: src/Core/Backend/Listing/ListingPosts.php:81
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ", <a href=\"%s\">అప్రచురణ</a> (1)"
+msgstr[1] ", <a href=\"%s\">అప్రచురణ</a> (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:94
 #: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:939
