@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-09 18:09+0200\n"
-"PO-Revision-Date: 2024-07-09 16:13\n"
+"PO-Revision-Date: 2024-07-09 17:26\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -969,34 +969,34 @@ msgstr "רשימת הערות והפניות trackback (%s)"
 #: src/Core/Backend/Listing/ListingComments.php:99
 msgid "published (1)"
 msgid_plural "published (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "יצא לאור"
+msgstr[1] "יצא לאור"
+msgstr[2] "יצא לאור"
+msgstr[3] "יצא לאור"
 
 #: src/Core/Backend/Listing/ListingComments.php:108
 msgid "spam (1)"
 msgid_plural "spam (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "ספאם"
+msgstr[1] "ספאם"
+msgstr[2] "ספאם"
+msgstr[3] "ספאם"
 
 #: src/Core/Backend/Listing/ListingComments.php:117
 msgid "pending (1)"
 msgid_plural "pending (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "ממתין ל"
+msgstr[1] "ממתין ל"
+msgstr[2] "ממתין ל"
+msgstr[3] "ממתין ל"
 
 #: src/Core/Backend/Listing/ListingComments.php:126
 msgid "unpublished (1)"
 msgid_plural "unpublished (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "לא פורסם"
+msgstr[1] "לא פורסם"
+msgstr[2] "לא פורסם"
+msgstr[3] "לא פורסם"
 
 #: src/Core/Backend/Listing/ListingComments.php:139
 msgid "Type"
@@ -1045,7 +1045,7 @@ msgstr "זבל"
 
 #: src/Core/Backend/Listing/ListingComments.php:272
 msgid "Unknown"
-msgstr ""
+msgstr "לא ידוע"
 
 #: src/Core/Backend/Listing/ListingComments.php:296
 #, php-format
