@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-09 18:09+0200\n"
-"PO-Revision-Date: 2024-07-09 16:14\n"
+"PO-Revision-Date: 2024-07-09 17:26\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -943,26 +943,26 @@ msgstr "মন্তব্য এবং ট্র্যাকব্যাকগ�
 #: src/Core/Backend/Listing/ListingComments.php:99
 msgid "published (1)"
 msgid_plural "published (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "প্রকাশিত"
+msgstr[1] "প্রকাশিত"
 
 #: src/Core/Backend/Listing/ListingComments.php:108
 msgid "spam (1)"
 msgid_plural "spam (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "স্প্যাম"
+msgstr[1] "স্প্যাম"
 
 #: src/Core/Backend/Listing/ListingComments.php:117
 msgid "pending (1)"
 msgid_plural "pending (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "বিচারাধীন"
+msgstr[1] "বিচারাধীন"
 
 #: src/Core/Backend/Listing/ListingComments.php:126
 msgid "unpublished (1)"
 msgid_plural "unpublished (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "অপ্রকাশিত"
+msgstr[1] "অপ্রকাশিত"
 
 #: src/Core/Backend/Listing/ListingComments.php:139
 msgid "Type"
@@ -1011,7 +1011,7 @@ msgstr "Junk"
 
 #: src/Core/Backend/Listing/ListingComments.php:272
 msgid "Unknown"
-msgstr ""
+msgstr "অজানা"
 
 #: src/Core/Backend/Listing/ListingComments.php:296
 #, php-format
