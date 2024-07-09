@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-09 18:09+0200\n"
-"PO-Revision-Date: 2024-07-09 16:14\n"
+"PO-Revision-Date: 2024-07-09 17:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -930,22 +930,22 @@ msgstr "评论和回帖列表 (%s)"
 #: src/Core/Backend/Listing/ListingComments.php:99
 msgid "published (1)"
 msgid_plural "published (> 1)"
-msgstr[0] ""
+msgstr[0] "已发布"
 
 #: src/Core/Backend/Listing/ListingComments.php:108
 msgid "spam (1)"
 msgid_plural "spam (> 1)"
-msgstr[0] ""
+msgstr[0] "垃圾信息"
 
 #: src/Core/Backend/Listing/ListingComments.php:117
 msgid "pending (1)"
 msgid_plural "pending (> 1)"
-msgstr[0] ""
+msgstr[0] "待办的"
 
 #: src/Core/Backend/Listing/ListingComments.php:126
 msgid "unpublished (1)"
 msgid_plural "unpublished (> 1)"
-msgstr[0] ""
+msgstr[0] "未发布"
 
 #: src/Core/Backend/Listing/ListingComments.php:139
 msgid "Type"
@@ -994,7 +994,7 @@ msgstr "垃圾"
 
 #: src/Core/Backend/Listing/ListingComments.php:272
 msgid "Unknown"
-msgstr ""
+msgstr "未知的"
 
 #: src/Core/Backend/Listing/ListingComments.php:296
 #, php-format
