@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-09 18:09+0200\n"
-"PO-Revision-Date: 2024-07-09 16:36\n"
+"PO-Revision-Date: 2024-07-09 17:41\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "Language: sk_SK\n"
@@ -969,34 +969,34 @@ msgstr "Zoznam komentárov a spätných odkazov (%s)"
 #: src/Core/Backend/Listing/ListingComments.php:99
 msgid "published (1)"
 msgid_plural "published (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "publikovaný"
+msgstr[1] "publikovaný"
+msgstr[2] "publikovaný"
+msgstr[3] "publikovaný"
 
 #: src/Core/Backend/Listing/ListingComments.php:108
 msgid "spam (1)"
 msgid_plural "spam (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "nevyžiadaná pošta"
+msgstr[1] "nevyžiadaná pošta"
+msgstr[2] "nevyžiadaná pošta"
+msgstr[3] "nevyžiadaná pošta"
 
 #: src/Core/Backend/Listing/ListingComments.php:117
 msgid "pending (1)"
 msgid_plural "pending (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "čakajúce"
+msgstr[1] "čakajúce"
+msgstr[2] "čakajúce"
+msgstr[3] "čakajúce"
 
 #: src/Core/Backend/Listing/ListingComments.php:126
 msgid "unpublished (1)"
 msgid_plural "unpublished (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "nepublikované"
+msgstr[1] "nepublikované"
+msgstr[2] "nepublikované"
+msgstr[3] "nepublikované"
 
 #: src/Core/Backend/Listing/ListingComments.php:139
 msgid "Type"
@@ -1045,7 +1045,7 @@ msgstr "Nevyžiadaná pošta"
 
 #: src/Core/Backend/Listing/ListingComments.php:272
 msgid "Unknown"
-msgstr ""
+msgstr "Neznámy"
 
 #: src/Core/Backend/Listing/ListingComments.php:296
 #, php-format
