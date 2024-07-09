@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-09 18:09+0200\n"
-"PO-Revision-Date: 2024-07-09 16:14\n"
+"PO-Revision-Date: 2024-07-09 17:26\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -969,34 +969,34 @@ msgstr "Список комментариев и обратных ссылок (
 #: src/Core/Backend/Listing/ListingComments.php:99
 msgid "published (1)"
 msgid_plural "published (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "опубликовано"
+msgstr[1] "опубликовано"
+msgstr[2] "опубликовано"
+msgstr[3] "опубликовано"
 
 #: src/Core/Backend/Listing/ListingComments.php:108
 msgid "spam (1)"
 msgid_plural "spam (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "спам"
+msgstr[1] "спам"
+msgstr[2] "спам"
+msgstr[3] "спам"
 
 #: src/Core/Backend/Listing/ListingComments.php:117
 msgid "pending (1)"
 msgid_plural "pending (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "в ожидании"
+msgstr[1] "в ожидании"
+msgstr[2] "в ожидании"
+msgstr[3] "в ожидании"
 
 #: src/Core/Backend/Listing/ListingComments.php:126
 msgid "unpublished (1)"
 msgid_plural "unpublished (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "не опубликовано"
+msgstr[1] "не опубликовано"
+msgstr[2] "не опубликовано"
+msgstr[3] "снят с публикации"
 
 #: src/Core/Backend/Listing/ListingComments.php:139
 msgid "Type"
@@ -1045,7 +1045,7 @@ msgstr "Мусор"
 
 #: src/Core/Backend/Listing/ListingComments.php:272
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестен"
 
 #: src/Core/Backend/Listing/ListingComments.php:296
 #, php-format
