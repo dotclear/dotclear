@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-09 18:09+0200\n"
-"PO-Revision-Date: 2024-07-09 16:14\n"
+"PO-Revision-Date: 2024-07-13 14:30\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "Language: oc_FR\n"
@@ -943,26 +943,26 @@ msgstr "Lista dels comentaris e de trackbacks (%s)"
 #: src/Core/Backend/Listing/ListingComments.php:99
 msgid "published (1)"
 msgid_plural "published (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "publicat"
+msgstr[1] "publicat"
 
 #: src/Core/Backend/Listing/ListingComments.php:108
 msgid "spam (1)"
 msgid_plural "spam (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "espam"
+msgstr[1] "espam"
 
 #: src/Core/Backend/Listing/ListingComments.php:117
 msgid "pending (1)"
 msgid_plural "pending (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "en espèra"
+msgstr[1] "en espèra"
 
 #: src/Core/Backend/Listing/ListingComments.php:126
 msgid "unpublished (1)"
 msgid_plural "unpublished (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "inedita"
+msgstr[1] "inedita"
 
 #: src/Core/Backend/Listing/ListingComments.php:139
 msgid "Type"
@@ -1011,7 +1011,7 @@ msgstr "Corrièr indesirable"
 
 #: src/Core/Backend/Listing/ListingComments.php:272
 msgid "Unknown"
-msgstr ""
+msgstr "Desconegut"
 
 #: src/Core/Backend/Listing/ListingComments.php:296
 #, php-format
@@ -1278,46 +1278,46 @@ msgstr "autre"
 
 #: src/Core/Backend/ModulesList.php:436
 msgid "Search in repository:"
-msgstr ""
+msgstr "Recèrca dins lo depaus:"
 
 #: src/Core/Backend/ModulesList.php:437 src/Core/Backend/Page.php:489
 #: src/Process/Backend/Categories.php:204
 msgid "OK"
-msgstr ""
+msgstr "ÒC BEN"
 
 #: src/Core/Backend/ModulesList.php:439
 msgid "Reset search"
-msgstr ""
+msgstr "Reïnicializar la recèrca"
 
 #: src/Core/Backend/ModulesList.php:443
 msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr ""
+msgstr "La recèrca es autorizada sus de tèrmes multiples mai longs que 2 caractèrs, los tèrmes devon èsser separats per espaci."
 
 #: src/Core/Backend/ModulesList.php:449
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Trobat %d resultat per la recèrca \"%s\":"
+msgstr[1] "Trobat %d resultats per la recèrca \"%s\":"
 
 #: src/Core/Backend/ModulesList.php:523
 msgid "current selection"
-msgstr ""
+msgstr "seleccion actuala"
 
 #: src/Core/Backend/ModulesList.php:530
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d resultat"
+msgstr[1] "%d resultats"
 
 #: src/Core/Backend/ModulesList.php:545
 msgid "no results"
-msgstr ""
+msgstr "pas cap de resultat"
 
 #: src/Core/Backend/ModulesList.php:555
 msgid "Browse index:"
-msgstr ""
+msgstr "Consultar l'indici:"
 
 #: src/Core/Backend/ModulesList.php:841
 msgid "Score"
@@ -1329,7 +1329,7 @@ msgstr "Revirada"
 
 #: src/Core/Backend/ModulesList.php:855 src/Process/Upgrade/Plugins.php:452
 msgid "Current version"
-msgstr ""
+msgstr "Version actuala"
 
 #: src/Core/Backend/ModulesList.php:862 src/Core/Backend/ModulesList.php:1076
 #: src/Core/Backend/Page.php:1324 src/Core/Backend/ThemesList.php:212
@@ -1339,7 +1339,7 @@ msgstr "Detalhs"
 
 #: src/Core/Backend/ModulesList.php:869 src/Process/Upgrade/Plugins.php:464
 msgid "Repository"
-msgstr ""
+msgstr "Depaus"
 
 #: src/Core/Backend/ModulesList.php:882 src/Process/Backend/Langs.php:260
 #: src/Process/Upgrade/Langs.php:335
@@ -1349,34 +1349,34 @@ msgstr "Accions"
 #: src/Core/Backend/ModulesList.php:949 src/Process/Upgrade/Plugins.php:402
 #, php-format
 msgid " (%s)"
-msgstr ""
+msgstr " (%s)"
 
 #: src/Core/Backend/ModulesList.php:996
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr ""
+msgstr "Aqueste modul pòt pas èsser desactivat ni suprimit, vist que los moduls seguents son tanben activats : %s"
 
 #: src/Core/Backend/ModulesList.php:1008
 msgid "This module cannot be enabled, because of the following reasons :"
-msgstr ""
+msgstr "Aqueste modul pòt pas èsser activat, per las rasons seguentas :"
 
 #: src/Core/Backend/ModulesList.php:1028 src/Core/Backend/ThemesList.php:196
 #: src/Process/Upgrade/Plugins.php:418
 msgid "Official repository"
-msgstr ""
+msgstr "Depaus oficial"
 
 #: src/Core/Backend/ModulesList.php:1028 src/Core/Backend/ModulesList.php:1121
 #: src/Core/Backend/ThemesList.php:196 src/Process/Upgrade/Plugins.php:418
 msgid "Third-party repository"
-msgstr ""
+msgstr "Depaus tèrç"
 
 #: src/Core/Backend/ModulesList.php:1037
 msgid "Plugin from official distribution"
-msgstr ""
+msgstr "Ensamblador de la distribucion oficiala"
 
 #: src/Core/Backend/ModulesList.php:1038
 msgid "Plugin in development"
-msgstr ""
+msgstr "Ensamblador dins lo desvolopament"
 
 #: src/Core/Backend/ModulesList.php:1083 src/Core/Backend/Page.php:1325
 #: src/Core/Backend/ThemesList.php:219
@@ -1385,7 +1385,7 @@ msgstr "Sosténer"
 
 #: src/Core/Backend/ModulesList.php:1087 src/Core/Backend/ThemesList.php:200
 msgid "update locked"
-msgstr ""
+msgstr "mesa a jorn blocada"
 
 #: src/Core/Backend/ModulesList.php:1128 src/Core/Backend/Page.php:1327
 msgid "Section:"
@@ -1393,35 +1393,35 @@ msgstr "Seccion :"
 
 #: src/Core/Backend/ModulesList.php:1134 src/Core/Backend/Page.php:1328
 msgid "Tags:"
-msgstr ""
+msgstr "Etiquetas:"
 
 #: src/Core/Backend/ModulesList.php:1159
 msgid "No plugins matched your search."
-msgstr ""
+msgstr "Cap d'ensamblador correspond pas a vòstra recèrca."
 
 #: src/Core/Backend/ModulesList.php:1182
 msgid "Plugins list"
-msgstr ""
+msgstr "Lista dels ensambladors"
 
 #: src/Core/Backend/ModulesList.php:1227
 msgid "Configure plugin"
-msgstr ""
+msgstr "Configurar lo plugin"
 
 #: src/Core/Backend/ModulesList.php:1241
 msgid "Plugin settings (in blog parameters)"
-msgstr ""
+msgstr "Paramètres del plugin (dins los paramètres del blòg)"
 
 #: src/Core/Backend/ModulesList.php:1254
 msgid "Plugin settings (in user preferences)"
-msgstr ""
+msgstr "Paramètres de l'ensamblador (dins las preferéncias d'utilizaire)"
 
 #: src/Core/Backend/ModulesList.php:1265 src/Core/Backend/ModulesList.php:1278
 msgid "Plugin settings"
-msgstr ""
+msgstr "Paramètres del plugin"
 
 #: src/Core/Backend/ModulesList.php:1291
 msgid "Plugin main page"
-msgstr ""
+msgstr "Plugin la pagina principala"
 
 #: src/Core/Backend/ModulesList.php:1327 src/Core/Upgrade/PluginsList.php:103
 msgid "Activate"
@@ -1433,7 +1433,7 @@ msgstr "Desactivar"
 
 #: src/Core/Backend/ModulesList.php:1357
 msgid "Clone"
-msgstr ""
+msgstr "Clon"
 
 #: src/Core/Backend/ModulesList.php:1367 src/Core/Upgrade/PluginsList.php:128
 msgid "Install"
@@ -1441,11 +1441,11 @@ msgstr "Installar"
 
 #: src/Core/Backend/ModulesList.php:1418 src/Core/Upgrade/PluginsList.php:166
 msgid "Activate selected plugins"
-msgstr ""
+msgstr "Activar los ensambladors seleccionats"
 
 #: src/Core/Backend/ModulesList.php:1419 src/Core/Upgrade/PluginsList.php:167
 msgid "Activate all plugins from this list"
-msgstr ""
+msgstr "Activatz totes los ensambladors d'aquesta lista"
 
 #: src/Core/Backend/ModulesList.php:1429 src/Core/Upgrade/PluginsList.php:178
 msgid "Deactivate selected plugins"
