@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-01-16 09:46\n"
+"PO-Revision-Date: 2024-07-10 19:12\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "Language: oc_FR\n"
@@ -24,24 +24,24 @@ msgid "%d comments"
 msgstr "%d comentaris"
 
 msgid "%d trackbacks"
-msgstr ""
+msgstr "%d trackbacks"
 
 msgid "%s reactions"
-msgstr ""
+msgstr "%s reaccions"
 
 #: __html_tpl_dummy.php:2
 msgid "Access to content"
-msgstr ""
+msgstr "Accès al contengut"
 
 msgid "Add a comment"
 msgstr "Ajustar un comentari"
 
 #: __html_tpl_dummy.php:5
 msgid "Add ping"
-msgstr ""
+msgstr "Apondre de ping"
 
 msgid "Additionnal style directives"
-msgstr ""
+msgstr "Directivas d'estil suplementàrias"
 
 msgid "All keywords"
 msgstr "Totes los mots claus"
@@ -114,19 +114,19 @@ msgstr "Flux de las entradas"
 
 #: __html_tpl_dummy.php:22
 msgid "Explore archives"
-msgstr ""
+msgstr "Explorar los archius"
 
 #: __html_tpl_dummy.php:23
 msgid "Extra menu"
-msgstr ""
+msgstr "Menú suplementari"
 
 #: __html_tpl_dummy.php:24
 msgid "Fields followed by * are mandatory"
-msgstr ""
+msgstr "Los camps seguits de * son obligatòris"
 
 #: __html_tpl_dummy.php:25
 msgid "From"
-msgstr ""
+msgstr "De"
 
 #: __html_tpl_dummy.php:26
 msgid "FromDay"
@@ -134,7 +134,7 @@ msgstr "APartir"
 
 #: __html_tpl_dummy.php:27
 msgid "Go to homepage"
-msgstr ""
+msgstr "Anatz a la pagina d'accueil"
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "Lo còdi HTML es mostat coma de tèxt e las adreças web son automaticament convertidas."
@@ -157,7 +157,7 @@ msgstr "Nom o escais"
 
 #: __html_tpl_dummy.php:30
 msgid "Next entry:"
-msgstr ""
+msgstr "Entrada seguenta:"
 
 #: __html_tpl_dummy.php:31
 msgid "On"
@@ -168,7 +168,7 @@ msgstr "Naut de la pagina"
 
 #: __html_tpl_dummy.php:34
 msgid "Pagination"
-msgstr ""
+msgstr "Paginacion"
 
 #: __html_tpl_dummy.php:35
 msgid "Password needed"
@@ -185,11 +185,11 @@ msgid "Powered by %s"
 msgstr "Propulsat per %s"
 
 msgid "Preview"
-msgstr ""
+msgstr "Apercebut"
 
 #: __html_tpl_dummy.php:39
 msgid "Previous entry:"
-msgstr ""
+msgstr "Entrada precedenta:"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Un flux RSS es un resumit del blòg. Fornís de contenguts (siá de publicacions siá de comentaris) o un resumit del contengut amb de ligams cap a la version complèta e d’autras metadonadas. Los darrièrs elements publicats se pòdon legir dins vòstre <a href=\"https://ca.wikipedia.org/wiki/Agregador\">aggregator RSS</a>"
@@ -202,20 +202,20 @@ msgid "Remember me on this blog"
 msgstr "Se remembrar de ieu sul blòg"
 
 msgid "Required field"
-msgstr ""
+msgstr "Camp requerit"
 
 msgid "Search"
 msgstr "Recercar"
 
 msgid "Send"
-msgstr ""
+msgstr "Mandar"
 
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Copiatz simplament l’URL seguenta dins vòstre agregador :"
 
 #: __html_tpl_dummy.php:45
 msgid "Subcategories"
-msgstr ""
+msgstr "Soscategorias"
 
 msgid "Subscribe"
 msgstr "S’abonar"
@@ -225,7 +225,7 @@ msgstr "S’abonar a :"
 
 #: __html_tpl_dummy.php:46
 msgid "Suggestions:"
-msgstr ""
+msgstr "Suggeriments:"
 
 #: __html_tpl_dummy.php:47
 msgid "The document you are looking for does not exist."
@@ -233,7 +233,7 @@ msgstr "Lo document que cercatz existís pas."
 
 #: __html_tpl_dummy.php:48
 msgid "The list of recents posts is available"
-msgstr ""
+msgstr "La lista dels articles recents es disponibla"
 
 #: __html_tpl_dummy.php:49
 msgid "They posted on the same topic"
@@ -276,11 +276,11 @@ msgstr "URL trackback"
 
 #: __html_tpl_dummy.php:58
 msgid "URL you've tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "L'URL qu'avètz ensajat a de fautas d'escritura, o la pagina es estada suprimida o desplaçada."
 
 #: __html_tpl_dummy.php:59
 msgid "Use search form"
-msgstr ""
+msgstr "Utilizar lo formulari de recèrca"
 
 #: __html_tpl_dummy.php:60
 msgid "Website"
@@ -329,7 +329,7 @@ msgstr "per"
 
 #: __html_tpl_dummy.php:67
 msgid "here"
-msgstr ""
+msgstr "aicí"
 
 msgid "in"
 msgstr "dins"
@@ -342,10 +342,10 @@ msgid "no attachments"
 msgstr "cap de pèça-junta"
 
 msgid "no comments"
-msgstr ""
+msgstr "pas de comentari"
 
 msgid "no reactions"
-msgstr ""
+msgstr "pas de reaccions"
 
 msgid "no trackbacks"
 msgstr "cap de trackback"
@@ -365,7 +365,7 @@ msgid "one comment"
 msgstr "1 comentari"
 
 msgid "one reaction"
-msgstr ""
+msgstr "una reaccion"
 
 msgid "one trackback"
 msgstr "un trackback"
@@ -387,7 +387,7 @@ msgid "previous entries"
 msgstr "entradas precedentas"
 
 msgid "reactions"
-msgstr ""
+msgstr "reaccions"
 
 #: __html_tpl_dummy.php:75
 msgid "send"

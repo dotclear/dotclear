@@ -1,34 +1,34 @@
 <html>
 
 <head>
-  <title>Blog settings</title>
+  <title>Paramètres del blòg</title>
 </head>
 
 <body>
-  <h4>Blog details</h4>
+  <h4>Detalhs del blòg</h4>
   <dl>
-    <dt>Blog ID</dt>
-    <dd>Unique ID of the blog. Mandatory, can only be modified by a super administrator.</dd>
-    <dt>Blog name</dt>
+    <dt>ID del blòg</dt>
+    <dd>ID unic del blòg. Obligatòri, sonque pòt èsser modificat per un super administrator.</dd>
+    <dt>Nom del blòg</dt>
     <dd>Name of the blog, mandatory.</dd>
-    <dt>Blog URL</dt>
+    <dt>URL del blòg</dt>
     <dd>Complete blog URL. Mandatory, can only be modified by a super administrator.</dd>
     <dt>Blog status</dt>
-    <dd>Defines the way the URL is read. PATH_INFO is recommended, QUERY_STRING has to be used if PATH_INFO does not work. Using PATH_INFO mode, the blog URL must end with a "/" and using QUERY_STRING, it must end with an "?".</dd>
+    <dd>Definís la manièra de legir l'URL. PATH_INFO es recomandat, QUERY_STRING deu èsser utilizat se PATH_INFO fonciona pas. En utilizant lo mòde PATH_INFO, l'URL del blòg deu s'acabar per un "/" e en utilizant QUERY_STRING, deu s'acabar per un "?".</dd>
     <dt>Blog description</dt>
     <dd>
       <ul>
-        <li><strong>Online:</strong> Blog open to visitors.</li>
-        <li><strong>Offline:</strong> Blog closed to visitors but open to writers.</li>
-        <li><strong>Removed:</strong> Blog closed to both visitors and writers, open only to super administrators.</li>
+        <li><strong>En linha:</strong> Blòg dobèrt als visitors.</li>
+        <li><strong>Offline:</strong> Blòg barrat als visitors mas dobèrt als escrivans.</li>
+        <li><strong>Suprimit:</strong> Blòg barrat a l'encòp als visitors e als escrivans, dobèrt sonque als superadministrators.</li>
       </ul>
     </dd>
-    <dt>Blog description</dt>
-    <dd>Here you can put any description you want for your blog. This is a simple text, without any formatting.</dd>
+    <dt>Descripcion del blòg</dt>
+    <dd>Aquí podètz metre tota descripcion que volètz per vòstre blòg. Aquò's un tèxte simple, sens cap de formatatge.</dd>
   </dl>
-  <h4>Blog configuration</h4>
+  <h4>Configuracion del blòg</h4>
   <dl>
-    <dt>Blog editor's name</dt>
+    <dt>Nom de l'editor del blòg</dt>
     <dd>Name of the person responsible for the blog. It may be the owner or the
   publisher if he exists.</dd>
     <dt>Copyright notice</dt>
@@ -49,99 +49,99 @@
     <dd>The number will be used as the limit for the number of entries
   on the homepage, the first page of each category and the rss feeds.</dd>
   </dl>
-  <h4>Comments and trackbacks</h4>
+  <h4>Comentaris e pistas</h4>
   <dl>
-    <dt>Accept comments</dt>
-    <dd>Globally accepts comments on the blog. Takes precedence over the per post setting.</dd>
-    <dt>Moderate comments</dt>
-    <dd>With this option, comments will be published only after editor's agreement.</dd>
-    <dt>Leave comments open for X days</dt>
-    <dd>The number of days during wich comments will be open after the post publication. When empty, the comments will be kept open indefinitly.</dd>
-    <dt>Wiki syntax for comments</dt>
-    <dd>Allows a subset of the wiki syntax to be used in comments.</dd>
-    <dt>Accept trackbacks</dt>
-    <dd>Globally accepts trackbacks on the blog. Takes precedence over the per post setting.</dd>
-    <dt>Moderate trackbacks</dt>
-    <dd>With this option, trackbacks will be published only after editor's agreement.</dd>
-    <dt>Leave trackbacks open for X days</dt>
-    <dd>The number of days during wich trackbacks will be open after the post publication. When empty, the trackbacks will be kept open indefinitly.</dd>
-    <dt>Add "nofollow" relation on comments and trackbacks links</dt>
-    <dd>Adds an attribute on links in comments and trackbacks, instructing the search bots not to follow them. This antispam features has yet to prove its value.</dd>
+    <dt>Acceptar los comentaris</dt>
+    <dd>Accepta globalament los comentaris sul blòg. Pren la precedéncia sul paramètre per pòst.</dd>
+    <dt>Moderar los comentaris</dt>
+    <dd>Amb aquesta opcion, los comentaris seràn publicats sonque après l'acòrdi del redactor.</dd>
+    <dt>Daissatz los comentaris dobèrts pendent X jorns</dt>
+    <dd>Lo nombre de jorns pendent los quals los engatjaments seràn dobèrts après la publicacion del pòst. Quand serà void, los comentaris seràn mantenguts dobèrts indefinidament.</dd>
+    <dt>Sintaxi Wiki pels comentaris</dt>
+    <dd>Permet un sosensems de la sintaxi del wiki d'èsser utilizat dins los comentaris.</dd>
+    <dt>Acceptar los trackbacks</dt>
+    <dd>Accepta globalament los trackbacks sul blòg. Pren la precedéncia sul paramètre per pòst.</dd>
+    <dt>Trackbacks moderats</dt>
+    <dd>Amb aquesta opcion, los trackbacks seràn publicats sonque après l'acòrdi de l'editor.</dd>
+    <dt>Daissatz los trackbacks dobèrts pendent X jorns</dt>
+    <dd>Lo nombre de jorns pendent que los trackbacks seràn dobèrts après la publicacion del pòst. Quand es void, los trackbacks seràn mantenguts dobèrts indefinidament.</dd>
+    <dt>Apondre la relacion "nofollow" suls comentaris e los ligams de trackbacks</dt>
+    <dd>Apond un atribut suls ligams dins los comentaris e los trackbacks, en instruissent los robòts de recèrca de los seguir pas. Aquesta foncionalitat antispam a pas encara provat sa valor.</dd>
   </dl>
-  <h4>Blog presentation</h4>
+  <h4>Presentacion del bòg</h4>
   <dl>
-    <dt>Date format</dt>
-    <dd>Defines the date format for the blog posts. See the "Format reference" section below for more information. You can use the dropdown list to quickly select a pre-existing pattern.</dd>
-    <dt>Time format</dt>
-    <dd>Defines the time format for the blog posts. See the "Format reference" section below for more information. You can use the dropdown list to quickly select a pre-existing pattern.</dd>
-    <dt>Display smilies on entries and comments</dt>
-    <dd>Turns some strings like :-) or ;-) into pictures.</dd>
-    <dt>Display X entries per page</dt>
-    <dd>Will display X entries on the blog main page as well as in the different categories.</dd>
-    <dt>Display X entries per feed</dt>
-    <dd>Will display X entries in the blog feeds.</dd>
-    <dt>Display X comments per feed</dt>
-    <dd>Will display X comments in the blog comments feeds.</dd>
-    <dt>Truncate feeds</dt>
-    <dd>This option will only provide an abstract from the blog posts in the feeds.</dd>
-    <dt>Include sub-categories in category page and category posts feed</dt>
-    <dd>When this option is activated, posts in sub-categories will be displayed in the parent categories pages as well as in their feeds.</dd>
+    <dt>Format de data</dt>
+    <dd>Definís lo format de data pels articles del blòg. Vejatz la seccion "Format de referéncia" çai-jos per mai d'informacions. Podètz utilizar la lista desenrotlanta per seleccionar rapidament un modèl preexistent.</dd>
+    <dt>Format de temps</dt>
+    <dd>Definís lo format orari pels articles de blòg. Vejatz la seccion "Format de referéncia" çai-jos per mai d'informacions. Podètz utilizar la lista desenrotlanta per seleccionar rapidament un modèl preexistent.</dd>
+    <dt>Afichar de sorires sus las entradas e los comentaris</dt>
+    <dd>Transforma qualques cadenas coma :-) o ;-) en imatges.</dd>
+    <dt>Afichar X dintradas per pagina</dt>
+    <dd>Aficharà X entradas sus la pagina principala del blòg e tanben dins las diferentas categorias.</dd>
+    <dt>Afichar X entradas per flux</dt>
+    <dd>Aficharà X entradas dins los fluxes del blòg.</dd>
+    <dt>Afichar X comentaris per flux</dt>
+    <dd>Aficharà X comentaris dins los fluxes de comentaris del blòg.</dd>
+    <dt>Troncar los fluxes</dt>
+    <dd>Aquesta opcion provesirà pas qu'un resumit dels articles de blòg dins los fluxes.</dd>
+    <dt>Incluir las soscategorias dins la pagina de categoria e lo flux dels articles de categoria</dt>
+    <dd>Quand aquesta opcion es activada, los messatges dins las soscategorias seràn afichats dins las paginas de categorias maires e tanben dins lors fluxes.</dd>
   </dl>
-  <h4>Media and images</h4>
+  <h4>Mèdia e imatges</h4>
   <dl>
-    <dt>Generated image sizes (in pixels)</dt>
-    <dd>When you add an image in the media manager, other sizes are automatically generated. Here you can define the dimension of the longest size (width or heigth) of each type of generated images. If you leave one field empty, the media manager will not create the corresponding miniature.</dd>
-    <dt>Default image insertion attributes</dt>
-    <dd>The selected settings will apply on all the new images added to the media manager.</dd>
-    <dt>Inserted image title</dt>
-    <dd>Select the format of the "title" tags applied to your images, based on information retrieved from the images metadata.</dd>
-    <dt>Use original media date if possible</dt>
-    <dd>When this option is activated, if the image metadata contains a date, it will be used. If not, the upload date will be used.</dd>
-    <dt>Size of inserted image</dt>
-    <dd>Defines the default size used when inserting an image in a blog post.</dd>
-    <dt>Image alignment</dt>
-    <dd>Defines the default alignment used when inserting an image in a blog post.</dd>
-    <dt>Insert a link to the original image</dt>
-    <dd>When this option is activated, the pictures inserted in a blog post will be clickable and point to the original-sized picture.</dd>
+    <dt>Talhas d'imatge generadas (en pixèls)</dt>
+    <dd>Quand apondètz un imatge dins lo gestionari de mèdias, d'autras talhas son automaticament generadas. Aquí podètz definir la dimension de la talha mai longa (largor o nautor) de cada tipe d'imatges generats. Se daissatz un camp void, lo gestionari de mèdias crearà pas la miniatura correspondenta.</dd>
+    <dt>Atributs d'insercion d'imatge per defaut</dt>
+    <dd>Los paramètres seleccionats s'aplicaràn sus totes los imatges novèls aponduts al gestionari de mèdias.</dd>
+    <dt>Títol de l'imatge inserit</dt>
+    <dd>Seleccionatz lo format de las balisas "títol" aplicadas a vòstres imatges, en foncion de las informacions recuperadas de las metadonadas dels imatges.</dd>
+    <dt>Utilizar la data originala del mèdia se possible</dt>
+    <dd>Quand aquesta opcion es activada, se las metadonadas de l'imatge conten una data, serà utilizada. Se non, la data de cargament serà utilizada.</dd>
+    <dt>Talha de l'imatge inserida</dt>
+    <dd>Definís la talha per defaut utilizada al moment d'inserir un imatge dins un article de blòg.</dd>
+    <dt>Alinhament de l'imatge</dt>
+    <dd>Definís l'alinhament per defaut utilizat al moment d'inserir un imatge dins un article de blòg.</dd>
+    <dt>Inserir un ligam cap a l'imatge original</dt>
+    <dd>Quand aquesta opcion es activada, las imatges inseridas dins un article de blòg seràn clicablas e puntaràn cap a l'imatge de la talha originala.</dd>
   </dl>
-  <h4>Search engines robots policy</h4>
+  <h4>Politica dels robòts dels motors de recèrca</h4>
   <p>Some fields can be configured to format the date and time to your needs.
 Here is a reference:</p>
   <h4>Antispam</h4>
-  <p>You can set the number of days after which you want the junk comments to be automatically deleted. Leave that field blank (or put 0) to deactivate this feature.</p>
-  <h4>Users</h4>
-  <p>Lists this blog's users as well as their permissions.</p>
+  <p>Podètz definir lo nombre de jorns aprèp los quals volètz que los comentaris bruts sián automaticament suprimits. Daissatz aqueste camp void (o metètz 0) per desactivar aquesta foncionalitat.</p>
+  <h4>Utilizaires</h4>
+  <p>Lista los utilizaires d'aqueste blòg e tanben lors permissions.</p>
   <h3>Blog details</h3>
-  <p>Some fields can be configured to format the date and time to your needs. Here is a reference:</p>
+  <p>Qualques camps pòdon èsser configurats per formatar la data e l'ora segon vòstres besonhs. Vaquí una referéncia:</p>
   <ul>
     <li><strong>%a</strong>: abreviated week day (local).</li>
     <li><strong>%A</strong>: complete week day (local).</li>
     <li><strong>%b</strong>: abbreviated month name (local).</li>
     <li><strong>%B</strong>: complete month name (local).</li>
     <li><strong>%c</strong>: default local date and time display.</li>
-    <li><strong>%C:</strong> Century (the year, divided by 100 and round up beetween 00 and 99)</li>
+    <li><strong>%C:</strong> Sègle (l'annada, dividida per 100 e arrondida entre 00 e 99)</li>
     <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
     <li><strong>%D</strong>: identical to %m/%d/%y</li>
     <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
     <li><strong>%g</strong>: identical to %G, 2 digits.</li>
-    <li><strong>%G:</strong> The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+    <li><strong>%G:</strong> L'annada sus 4 chifras, segon lo nombre de la setmana (cf. %V). Format e valor identicas a %Y, levat que se lo nombre de la setmana aparten a l'annada precedenta o seguenta, l'annada correnta serà utilizada a la plaça.</li>
     <li><strong>%h</strong>: identical to %b</li>
-    <li><strong>%H:</strong> Digital hour of the day, 24H mode (from 00 to 23)</li>
-    <li><strong>%I:</strong> Digital hour of the day, 12H mode (from 01 to 12)</li>
+    <li><strong>%H:</strong> Hora numerica del dia, modo 24H (de 00 a 23)</li>
+    <li><strong>%I:</strong> Hora numerica de la jornada, mòde 12H (de 01 a 12)</li>
     <li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
     <li><strong>%m</strong>: month, digital (from 1 à 12)</li>
     <li><strong>%M</strong>: minute, digital</li>
     <li><strong>%n</strong>: newline character</li>
-    <li><strong>%p:</strong> Either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+    <li><strong>%p:</strong> Siá `am' siá `pm', segon l'ora absoluda, siá segon los paramètres locals.</li>
     <li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
     <li><strong>%R</strong>: the hour, 24h format</li>
     <li><strong>%S</strong>: seconds, digital</li>
     <li><strong>%t</strong>: tab character</li>
     <li><strong>%T</strong>: the current time (identical to %H:%M:%S)</li>
     <li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
-    <li><strong>%U:</strong> Week number, the first Sunday of the year being the first day of the first week.</li>
-    <li><strong>%V:</strong> The week number as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose Monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
-    <li><strong>%W:</strong> Number of the week in the year, the first Monday of the year being the start of the first week</li>
+    <li><strong>%U:</strong> Numèro de la setmana, lo primièr dimenge de l'annada essent lo primièr jorn de la primièra setmana.</li>
+    <li><strong>%V:</strong> Lo nombre de setmana coma definit dins l'ISO 8601:1988, numeric, de 01 a 53. La setmana 1 es la primièra setmana amb mai de 4 jorns de l'annada en cors, que lo diluns es lo primièr jorn. (Utilizatz %G o %g pels elements d'annada correspondent al nombre de la setmana per l'orari considerat.)</li>
+    <li><strong>%W:</strong> Nombre de la setmana de l'annada, lo primièr diluns de l'annada essent lo començament de la primièra setmana</li>
     <li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
     <li><strong>%x</strong>: prefered format for the date without the time</li>
     <li><strong>%X</strong>: prefered format for the time without the date</li>

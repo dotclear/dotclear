@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-09 18:09+0200\n"
-"PO-Revision-Date: 2024-07-09 16:14\n"
+"PO-Revision-Date: 2024-07-15 08:54\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "Language: oc_FR\n"
@@ -943,26 +943,26 @@ msgstr "Lista dels comentaris e de trackbacks (%s)"
 #: src/Core/Backend/Listing/ListingComments.php:99
 msgid "published (1)"
 msgid_plural "published (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "publicat"
+msgstr[1] "publicat"
 
 #: src/Core/Backend/Listing/ListingComments.php:108
 msgid "spam (1)"
 msgid_plural "spam (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "espam"
+msgstr[1] "espam"
 
 #: src/Core/Backend/Listing/ListingComments.php:117
 msgid "pending (1)"
 msgid_plural "pending (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "en espèra"
+msgstr[1] "en espèra"
 
 #: src/Core/Backend/Listing/ListingComments.php:126
 msgid "unpublished (1)"
 msgid_plural "unpublished (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "inedita"
+msgstr[1] "inedita"
 
 #: src/Core/Backend/Listing/ListingComments.php:139
 msgid "Type"
@@ -1011,7 +1011,7 @@ msgstr "Corrièr indesirable"
 
 #: src/Core/Backend/Listing/ListingComments.php:272
 msgid "Unknown"
-msgstr ""
+msgstr "Desconegut"
 
 #: src/Core/Backend/Listing/ListingComments.php:296
 #, php-format
@@ -1278,46 +1278,46 @@ msgstr "autre"
 
 #: src/Core/Backend/ModulesList.php:436
 msgid "Search in repository:"
-msgstr ""
+msgstr "Recèrca dins lo depaus:"
 
 #: src/Core/Backend/ModulesList.php:437 src/Core/Backend/Page.php:489
 #: src/Process/Backend/Categories.php:204
 msgid "OK"
-msgstr ""
+msgstr "ÒC BEN"
 
 #: src/Core/Backend/ModulesList.php:439
 msgid "Reset search"
-msgstr ""
+msgstr "Reïnicializar la recèrca"
 
 #: src/Core/Backend/ModulesList.php:443
 msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
-msgstr ""
+msgstr "La recèrca es autorizada sus de tèrmes multiples mai longs que 2 caractèrs, los tèrmes devon èsser separats per espaci."
 
 #: src/Core/Backend/ModulesList.php:449
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Trobat %d resultat per la recèrca \"%s\":"
+msgstr[1] "Trobat %d resultats per la recèrca \"%s\":"
 
 #: src/Core/Backend/ModulesList.php:523
 msgid "current selection"
-msgstr ""
+msgstr "seleccion actuala"
 
 #: src/Core/Backend/ModulesList.php:530
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d resultat"
+msgstr[1] "%d resultats"
 
 #: src/Core/Backend/ModulesList.php:545
 msgid "no results"
-msgstr ""
+msgstr "pas cap de resultat"
 
 #: src/Core/Backend/ModulesList.php:555
 msgid "Browse index:"
-msgstr ""
+msgstr "Consultar l'indici:"
 
 #: src/Core/Backend/ModulesList.php:841
 msgid "Score"
@@ -1329,7 +1329,7 @@ msgstr "Revirada"
 
 #: src/Core/Backend/ModulesList.php:855 src/Process/Upgrade/Plugins.php:452
 msgid "Current version"
-msgstr ""
+msgstr "Version actuala"
 
 #: src/Core/Backend/ModulesList.php:862 src/Core/Backend/ModulesList.php:1076
 #: src/Core/Backend/Page.php:1324 src/Core/Backend/ThemesList.php:212
@@ -1339,7 +1339,7 @@ msgstr "Detalhs"
 
 #: src/Core/Backend/ModulesList.php:869 src/Process/Upgrade/Plugins.php:464
 msgid "Repository"
-msgstr ""
+msgstr "Depaus"
 
 #: src/Core/Backend/ModulesList.php:882 src/Process/Backend/Langs.php:260
 #: src/Process/Upgrade/Langs.php:335
@@ -1349,34 +1349,34 @@ msgstr "Accions"
 #: src/Core/Backend/ModulesList.php:949 src/Process/Upgrade/Plugins.php:402
 #, php-format
 msgid " (%s)"
-msgstr ""
+msgstr " (%s)"
 
 #: src/Core/Backend/ModulesList.php:996
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr ""
+msgstr "Aqueste modul pòt pas èsser desactivat ni suprimit, vist que los moduls seguents son tanben activats : %s"
 
 #: src/Core/Backend/ModulesList.php:1008
 msgid "This module cannot be enabled, because of the following reasons :"
-msgstr ""
+msgstr "Aqueste modul pòt pas èsser activat, per las rasons seguentas :"
 
 #: src/Core/Backend/ModulesList.php:1028 src/Core/Backend/ThemesList.php:196
 #: src/Process/Upgrade/Plugins.php:418
 msgid "Official repository"
-msgstr ""
+msgstr "Depaus oficial"
 
 #: src/Core/Backend/ModulesList.php:1028 src/Core/Backend/ModulesList.php:1121
 #: src/Core/Backend/ThemesList.php:196 src/Process/Upgrade/Plugins.php:418
 msgid "Third-party repository"
-msgstr ""
+msgstr "Depaus tèrç"
 
 #: src/Core/Backend/ModulesList.php:1037
 msgid "Plugin from official distribution"
-msgstr ""
+msgstr "Ensamblador de la distribucion oficiala"
 
 #: src/Core/Backend/ModulesList.php:1038
 msgid "Plugin in development"
-msgstr ""
+msgstr "Ensamblador dins lo desvolopament"
 
 #: src/Core/Backend/ModulesList.php:1083 src/Core/Backend/Page.php:1325
 #: src/Core/Backend/ThemesList.php:219
@@ -1385,7 +1385,7 @@ msgstr "Sosténer"
 
 #: src/Core/Backend/ModulesList.php:1087 src/Core/Backend/ThemesList.php:200
 msgid "update locked"
-msgstr ""
+msgstr "mesa a jorn blocada"
 
 #: src/Core/Backend/ModulesList.php:1128 src/Core/Backend/Page.php:1327
 msgid "Section:"
@@ -1393,35 +1393,35 @@ msgstr "Seccion :"
 
 #: src/Core/Backend/ModulesList.php:1134 src/Core/Backend/Page.php:1328
 msgid "Tags:"
-msgstr ""
+msgstr "Etiquetas:"
 
 #: src/Core/Backend/ModulesList.php:1159
 msgid "No plugins matched your search."
-msgstr ""
+msgstr "Cap d'ensamblador correspond pas a vòstra recèrca."
 
 #: src/Core/Backend/ModulesList.php:1182
 msgid "Plugins list"
-msgstr ""
+msgstr "Lista dels ensambladors"
 
 #: src/Core/Backend/ModulesList.php:1227
 msgid "Configure plugin"
-msgstr ""
+msgstr "Configurar lo plugin"
 
 #: src/Core/Backend/ModulesList.php:1241
 msgid "Plugin settings (in blog parameters)"
-msgstr ""
+msgstr "Paramètres del plugin (dins los paramètres del blòg)"
 
 #: src/Core/Backend/ModulesList.php:1254
 msgid "Plugin settings (in user preferences)"
-msgstr ""
+msgstr "Paramètres de l'ensamblador (dins las preferéncias d'utilizaire)"
 
 #: src/Core/Backend/ModulesList.php:1265 src/Core/Backend/ModulesList.php:1278
 msgid "Plugin settings"
-msgstr ""
+msgstr "Paramètres del plugin"
 
 #: src/Core/Backend/ModulesList.php:1291
 msgid "Plugin main page"
-msgstr ""
+msgstr "Plugin la pagina principala"
 
 #: src/Core/Backend/ModulesList.php:1327 src/Core/Upgrade/PluginsList.php:103
 msgid "Activate"
@@ -1433,7 +1433,7 @@ msgstr "Desactivar"
 
 #: src/Core/Backend/ModulesList.php:1357
 msgid "Clone"
-msgstr ""
+msgstr "Clon"
 
 #: src/Core/Backend/ModulesList.php:1367 src/Core/Upgrade/PluginsList.php:128
 msgid "Install"
@@ -1441,27 +1441,27 @@ msgstr "Installar"
 
 #: src/Core/Backend/ModulesList.php:1418 src/Core/Upgrade/PluginsList.php:166
 msgid "Activate selected plugins"
-msgstr ""
+msgstr "Activar los ensambladors seleccionats"
 
 #: src/Core/Backend/ModulesList.php:1419 src/Core/Upgrade/PluginsList.php:167
 msgid "Activate all plugins from this list"
-msgstr ""
+msgstr "Activatz totes los ensambladors d'aquesta lista"
 
 #: src/Core/Backend/ModulesList.php:1429 src/Core/Upgrade/PluginsList.php:178
 msgid "Deactivate selected plugins"
-msgstr ""
+msgstr "Desactivar los ensambladors seleccionats"
 
 #: src/Core/Backend/ModulesList.php:1430 src/Core/Upgrade/PluginsList.php:179
 msgid "Deactivate all plugins from this list"
-msgstr ""
+msgstr "Desactivatz totes los ensambladors d'aquesta lista"
 
 #: src/Core/Backend/ModulesList.php:1440 src/Core/Upgrade/PluginsList.php:190
 msgid "Update selected plugins"
-msgstr ""
+msgstr "Metre a jorn los ensambladors seleccionats"
 
 #: src/Core/Backend/ModulesList.php:1441 src/Core/Upgrade/PluginsList.php:191
 msgid "Update all plugins from this list"
-msgstr ""
+msgstr "Metre a jorn totes los ensambladors d'aquesta lista"
 
 #: src/Core/Backend/ModulesList.php:1492 src/Core/Backend/ModulesList.php:1546
 #: src/Core/Backend/ModulesList.php:1577 src/Core/Backend/ModulesList.php:1615
@@ -1469,68 +1469,68 @@ msgstr ""
 #: src/Core/Upgrade/PluginsList.php:272 src/Core/Upgrade/PluginsList.php:297
 #: src/Core/Upgrade/PluginsList.php:329 src/Core/Upgrade/PluginsList.php:383
 msgid "No such plugin."
-msgstr ""
+msgstr "Pas d'un tal plugin."
 
 #: src/Core/Backend/ModulesList.php:1512 src/Core/Upgrade/PluginsList.php:244
 msgid "You don't have permissions to delete this plugin."
-msgstr ""
+msgstr "Avètz pas d'autorizacions per suprimir aqueste ensamblador."
 
 #: src/Core/Backend/ModulesList.php:1514 src/Core/Upgrade/PluginsList.php:246
 msgid "Some plugins have not been delete."
-msgstr ""
+msgstr "Qualques ensambladors son pas estats suprimits."
 
 #: src/Core/Backend/ModulesList.php:1517 src/Core/Upgrade/PluginsList.php:249
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lo plugin es estat suprimit amb succès."
+msgstr[1] "Los ensambladors son estats suprimits amb succès."
 
 #: src/Core/Backend/ModulesList.php:1550 src/Core/Upgrade/PluginsList.php:276
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lo plugin es estat installat amb succès."
+msgstr[1] "Los ensambladors son estats installats amb succès."
 
 #: src/Core/Backend/ModulesList.php:1581 src/Core/Upgrade/PluginsList.php:301
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "L'ensamblador es estat activat amb succès."
+msgstr[1] "Los ensambladors son estats activats amb succès."
 
 #: src/Core/Backend/ModulesList.php:1619 src/Core/Upgrade/PluginsList.php:333
 msgid "Some plugins have not been deactivated."
-msgstr ""
+msgstr "Qualques ensambladors son pas estats desactivats."
 
 #: src/Core/Backend/ModulesList.php:1622 src/Core/Upgrade/PluginsList.php:336
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "L'ensamblador es estat desactivat amb succès."
+msgstr[1] "Los ensambladors son estats desactivats amb succès."
 
 #: src/Core/Backend/ModulesList.php:1669 src/Core/Upgrade/PluginsList.php:376
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lo plugin es estat mes a jorn amb succès."
+msgstr[1] "Los ensambladors son estats mes a jorn amb succès."
 
 #: src/Core/Backend/ModulesList.php:1673 src/Core/Upgrade/PluginsList.php:380
 #, php-format
 msgid "Following plugins updates are locked: %s"
-msgstr ""
+msgstr "Las mesas a jorn dels ensambladors seguentas son verrolhats : %s"
 
 #: src/Core/Backend/ModulesList.php:1693 src/Core/Backend/ThemesList.php:736
 #: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/Langs.php:182
 #: src/Process/Upgrade/Langs.php:212
 msgid "Unable to move uploaded file."
-msgstr ""
+msgstr "Impossible de desplaçar lo fichièr mandat."
 
 #: src/Core/Backend/ModulesList.php:1711 src/Core/Upgrade/PluginsList.php:412
 msgid "The plugin has been successfully updated."
-msgstr ""
+msgstr "Lo plugin es estat mes a jorn amb succès."
 
 #: src/Core/Backend/ModulesList.php:1712 src/Core/Upgrade/PluginsList.php:413
 msgid "The plugin has been successfully installed."
-msgstr ""
+msgstr "Lo plugin es estat installat amb succès."
 
 #: src/Core/Backend/ModulesList.php:1740 src/Process/Backend/Langs.php:332
 msgid "Upload a zip file"
@@ -1547,11 +1547,11 @@ msgstr "Enviar un fichièr zip"
 #: src/Process/Install/Wizard.php:265 src/Process/Upgrade/Langs.php:402
 #, php-format
 msgid "Fields preceded by %s are mandatory."
-msgstr ""
+msgstr "Los camps precedits de %s son obligatòris."
 
 #: src/Core/Backend/ModulesList.php:1751
 msgid "Zip file path:"
-msgstr ""
+msgstr "Camin del fichièr zip:"
 
 #: src/Core/Backend/ModulesList.php:1762 src/Core/Backend/ModulesList.php:1812
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:343
@@ -1577,11 +1577,11 @@ msgstr "Enviar"
 
 #: src/Core/Backend/ModulesList.php:1787
 msgid "Download a zip file"
-msgstr ""
+msgstr "Telecargar un fichièr zip"
 
 #: src/Core/Backend/ModulesList.php:1801
 msgid "Zip file URL:"
-msgstr ""
+msgstr "URL del fichièr zip:"
 
 #: src/Core/Backend/ModulesList.php:1823
 msgid "Download"
@@ -1589,11 +1589,11 @@ msgstr "Telecargament"
 
 #: src/Core/Backend/ModulesList.php:1866
 msgid "Unknown plugin ID"
-msgstr ""
+msgstr "ID de plugin desconegut"
 
 #: src/Core/Backend/ModulesList.php:1877
 msgid "This plugin has no configuration file."
-msgstr ""
+msgstr "Aqueste ensamblador a pas cap de fichièr de configuracion."
 
 #: src/Core/Backend/ModulesList.php:1885 src/Process/Backend/Auth.php:279
 #: src/Process/Upgrade/Auth.php:138
@@ -1603,7 +1603,7 @@ msgstr "Autorizacions insufisentas"
 #: src/Core/Backend/ModulesList.php:1960
 #, php-format
 msgid "Configure \"%s\""
-msgstr ""
+msgstr "Configuratz « %s »"
 
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
@@ -1630,7 +1630,7 @@ msgstr "Errors :"
 
 #: src/Core/Backend/Notices.php:219 src/Core/Backend/Notices.php:252
 msgid "%H:%M:%S"
-msgstr ""
+msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Page.php:147 src/Process/Backend/User.php:457
 msgid "Blog:"
@@ -1638,7 +1638,7 @@ msgstr "Blòg:"
 
 #: src/Core/Backend/Page.php:152
 msgid "Change blog"
-msgstr ""
+msgstr "Cambiar lo blòg"
 
 #: src/Core/Backend/Page.php:167
 msgid "Blogs:"
@@ -1646,61 +1646,61 @@ msgstr "Blògs :"
 
 #: src/Core/Backend/Page.php:321 src/Core/Upgrade/Page.php:134
 msgid "Go to the content"
-msgstr ""
+msgstr "Anatz al contengut"
 
 #: src/Core/Backend/Page.php:325 src/Core/Upgrade/Page.php:135
 msgid "Go to the menu"
-msgstr ""
+msgstr "Anatz al menú"
 
 #: src/Core/Backend/Page.php:329 src/Core/Upgrade/Page.php:136
 msgid "Go to help"
-msgstr ""
+msgstr "Anatz ajudar"
 
 #: src/Core/Backend/Page.php:348 src/Core/Upgrade/Page.php:139
 #: src/Process/Backend/UserPreferences.php:805
 #: src/Process/Backend/UserPreferences.php:806
 msgid "My dashboard"
-msgstr ""
+msgstr "Mon tablèu de bòrd"
 
 #: src/Core/Backend/Page.php:364 src/Core/Backend/Page.php:366
 msgid "Go to site"
-msgstr ""
+msgstr "Anatz sul sit"
 
 #: src/Core/Backend/Page.php:389 src/Core/Upgrade/Page.php:147
 #, php-format
 msgid "Logout %s"
-msgstr ""
+msgstr "Desconnectar %s"
 
 #: src/Core/Backend/Page.php:410 src/Core/Upgrade/Page.php:155
 msgid "Hide main menu"
-msgstr ""
+msgstr "Amagar lo menú principal"
 
 #: src/Core/Backend/Page.php:413 src/Core/Upgrade/Page.php:156
 msgid "Show main menu"
-msgstr ""
+msgstr "Afichar lo menú principal"
 
 #: src/Core/Backend/Page.php:434
 msgid "Safe mode"
-msgstr ""
+msgstr "Mòde segur"
 
 #: src/Core/Backend/Page.php:436
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
-msgstr ""
+msgstr "Sètz en mòde segur. Totes los ensambladors son estats temporàriament desactivats. Remembratz de vos desconnectar puèi de vos connectar de nòu normalament per tornar obténer totas las foncionalitats"
 
 #: src/Core/Backend/Page.php:506 src/Core/Upgrade/Page.php:183
 #, php-format
 msgid "Thank you for using %s."
-msgstr ""
+msgstr "Mercés d'utilizar %s."
 
 #: src/Core/Backend/Page.php:522 src/Core/Backend/Page.php:524
 #: src/Core/Backend/Page.php:666 src/Core/Backend/Page.php:668
 #: src/Core/Upgrade/Page.php:189
 msgid "Page top"
-msgstr ""
+msgstr "Dessús de la pagina"
 
 #: src/Core/Backend/Page.php:544 src/Core/Backend/Page.php:547
 msgid "Dotclear logo"
-msgstr ""
+msgstr "Logotip Dotclear"
 
 #: src/Core/Backend/Page.php:877 src/Core/Backend/Page.php:880
 #: src/Core/Upgrade/Page.php:230 src/Core/Upgrade/Page.php:231
@@ -1709,12 +1709,12 @@ msgstr "Anar al tablèu de bòrd"
 
 #: src/Core/Backend/Page.php:1117 src/Core/Upgrade/Page.php:303
 msgid "Help about this page"
-msgstr ""
+msgstr "Ajuda sus aquesta pagina"
 
 #: src/Core/Backend/Page.php:1126 src/Core/Upgrade/Page.php:308
 #, php-format
 msgid "See also %s"
-msgstr ""
+msgstr "Vejatz tanben %s"
 
 #: src/Core/Backend/Page.php:1129 src/Core/Upgrade/Page.php:308
 msgid "the global help"
@@ -1722,7 +1722,7 @@ msgstr "l’ajuda globala"
 
 #: src/Core/Backend/Page.php:1266
 msgid "uncover"
-msgstr ""
+msgstr "descobrir"
 
 #: src/Core/Backend/Page.php:1270
 msgid "hide"
@@ -1734,7 +1734,7 @@ msgstr "Besonh d'ajuda ?"
 
 #: src/Core/Backend/Page.php:1275
 msgid "new window"
-msgstr ""
+msgstr "fenèstra novèla"
 
 #: src/Core/Backend/Page.php:1276
 msgid "Hide"
@@ -1746,11 +1746,11 @@ msgstr "Seleccionar :"
 
 #: src/Core/Backend/Page.php:1278
 msgid "No selection"
-msgstr ""
+msgstr "Pas de seleccion"
 
 #: src/Core/Backend/Page.php:1279
 msgid "Select all"
-msgstr ""
+msgstr "Seleccionatz totes"
 
 #: src/Core/Backend/Page.php:1280
 msgid "Invert selection"
@@ -1759,164 +1759,164 @@ msgstr "Inversar la seleccion"
 #: src/Core/Backend/Page.php:1285 src/Process/Backend/Post.php:440
 #: src/Process/Backend/Post.php:556
 msgid "Entry has been successfully created."
-msgstr ""
+msgstr "L'entrada es estada creada amb succès."
 
 #: src/Core/Backend/Page.php:1286
 msgid "Edit entry"
-msgstr ""
+msgstr "Modificar l'entrada"
 
 #: src/Core/Backend/Page.php:1287
 msgid "view entry"
-msgstr ""
+msgstr "visualizar l'entrada"
 
 #: src/Core/Backend/Page.php:1288
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir las dintradas seleccionadas (%s)?"
 
 #: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir los mèdias seleccionats (%d)?"
 
 #: src/Core/Backend/Page.php:1290
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir las categorias seleccionadas (%s)?"
 
 #: src/Core/Backend/Page.php:1291
 msgid "Are you sure you want to delete this entry?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir aquesta entrada?"
 
 #: src/Core/Backend/Page.php:1292
 msgid "Click here to unlock the field"
-msgstr ""
+msgstr "Clicatz aicí per desblocar lo camp"
 
 #: src/Core/Backend/Page.php:1293
 msgid "Are you sure you want to delete all spams?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir totes los corrièrs indesirables?"
 
 #: src/Core/Backend/Page.php:1294
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir los comentaris seleccionats (%s)?"
 
 #: src/Core/Backend/Page.php:1295
 msgid "Are you sure you want to delete this comment?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir aqueste comentari?"
 
 #: src/Core/Backend/Page.php:1296
 msgid "Users with posts cannot be deleted."
-msgstr ""
+msgstr "Los utilizaires amb de messatges pòdon pas èsser suprimits."
 
 #: src/Core/Backend/Page.php:1297
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir los utilizaires seleccionats (%s)?"
 
 #: src/Core/Backend/Page.php:1298
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir los blògs seleccionats (%s)?"
 
 #: src/Core/Backend/Page.php:1299
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir la categoria « %s »?"
 
 #: src/Core/Backend/Page.php:1300
 msgid "Are you sure you want to reorder all categories?"
-msgstr ""
+msgstr "Sètz segur que volètz tornar ordenar totas las categorias?"
 
 #: src/Core/Backend/Page.php:1301
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir lo mèdia « %s »?"
 
 #: src/Core/Backend/Page.php:1302
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir lo repertòri « %s »?"
 
 #: src/Core/Backend/Page.php:1303
 msgid "Are you sure you want to extract archive in current directory?"
-msgstr ""
+msgstr "Sètz segur que volètz extraire l'archiu dins lo repertòri actual?"
 
 #: src/Core/Backend/Page.php:1304
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir l'adjunta « %s »?"
 
 #: src/Core/Backend/Page.php:1305
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir la lenga \"%s\"?"
 
 #: src/Core/Backend/Page.php:1306
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir lo plugin \"%s\"?"
 
 #: src/Core/Backend/Page.php:1307
 msgid "Are you sure you want to delete selected plugins?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir los ensambladors seleccionats?"
 
 #: src/Core/Backend/Page.php:1308
 msgid "Use this theme"
-msgstr ""
+msgstr "Utilizar aqueste tèma"
 
 #: src/Core/Backend/Page.php:1309
 msgid "Remove this theme"
-msgstr ""
+msgstr "Suprimir aqueste tèma"
 
 #: src/Core/Backend/Page.php:1310
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir lo tèma \"%s\"?"
 
 #: src/Core/Backend/Page.php:1311
 msgid "Are you sure you want to delete selected themes?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir los tèmas seleccionats?"
 
 #: src/Core/Backend/Page.php:1312
 msgid "Are you sure you want to delete this backup?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir aquesta sauvagarda?"
 
 #: src/Core/Backend/Page.php:1313
 msgid "Are you sure you want to revert to this backup?"
-msgstr ""
+msgstr "Sètz segur que volètz tornar a aquesta sauvagarda?"
 
 #: src/Core/Backend/Page.php:1314
 msgid "Zip file content"
-msgstr ""
+msgstr "Contengut de fichièr zip"
 
 #: src/Core/Backend/Page.php:1315
 msgid "HTML markup validator"
-msgstr ""
+msgstr "Validador de marcatge HTML"
 
 #: src/Core/Backend/Page.php:1316
 msgid "HTML content is valid."
-msgstr ""
+msgstr "Lo contengut HTML es valid."
 
 #: src/Core/Backend/Page.php:1317
 msgid "There are HTML markup errors."
-msgstr ""
+msgstr "I a d'errors de marcatge HTML."
 
 #: src/Core/Backend/Page.php:1318
 msgid "Attention: an audit of a content not yet registered."
-msgstr ""
+msgstr "Atencion: una auditoria d'un contengut pas encara enregistrat."
 
 #: src/Core/Backend/Page.php:1319
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-msgstr ""
+msgstr "Avètz de modificacions pas enregistradas. Cambiar lo format del pòst perdrà aquestes cambiaments. Contunhar de tot biais?"
 
 #: src/Core/Backend/Page.php:1320
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
-msgstr ""
+msgstr "Atencion: lo cambiament del format del pòst convertirà pas lo contengut existent. Vos caldrà aplicar un novèl format per vos meteis. Contunhar de tot biais?"
 
 #: src/Core/Backend/Page.php:1321
 msgid "Loading enhanced uploader, please wait."
-msgstr ""
+msgstr "En carga lo cargaire melhorat, mercés d'esperar."
 
 #: src/Core/Backend/Page.php:1326
 msgid "Help:"
@@ -1924,47 +1924,47 @@ msgstr "Ajuda :"
 
 #: src/Core/Backend/Page.php:1330
 msgid "Hide this notice"
-msgstr ""
+msgstr "Amagar aqueste avís"
 
 #: src/Core/Backend/Page.php:1332
 msgid "Show password"
-msgstr ""
+msgstr "Mostrar lo senhal"
 
 #: src/Core/Backend/Page.php:1333
 msgid "Hide password"
-msgstr ""
+msgstr "Amagar lo senhal"
 
 #: src/Core/Backend/Page.php:1335
 msgid "Reset to now"
-msgstr ""
+msgstr "Reïnicializar a ara"
 
 #: src/Core/Backend/Page.php:1337
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
-msgstr ""
+msgstr "Un blocaire d'anóncias es estat detectat sus aqueste tablèu de bòrd Dotclear (Ghostery, Adblock plus, origina uBlock, …) e pòt interferir amb qualques foncionalitats. Dins aqueste cas lo deuriatz desactivar. Notatz qu'aquesta deteccion pòt èsser desactivada dins vòstras preferéncias."
 
 #: src/Core/Backend/Page.php:1392
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "Avètz de modificacions pas enregistradas."
 
 #: src/Core/Backend/Page.php:1393
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
-msgstr ""
+msgstr "vòstra carga de batariá sembla bassa (%d%) e avètz de modificacions pas enregistradas, las deuriátz enregistrar."
 
 #: src/Core/Backend/Page.php:1440
 msgid "Temporarily activate enhanced uploader"
-msgstr ""
+msgstr "Activar temporàriament lo cargaire melhorat"
 
 #: src/Core/Backend/Page.php:1441
 msgid "Temporarily disable enhanced uploader"
-msgstr ""
+msgstr "Desactivar temporàriament lo cargaire melhorat"
 
 #: src/Core/Backend/Page.php:1445
 msgid "Limit exceeded."
-msgstr ""
+msgstr "Limit despassat."
 
 #: src/Core/Backend/Page.php:1446
 msgid "File size exceeds allowed limit."
-msgstr ""
+msgstr "La talha del fichièr despassa la limita autorizada."
 
 #: src/Core/Backend/Page.php:1447
 msgid "Canceled."
@@ -1999,85 +1999,85 @@ msgstr "Mandar"
 
 #: src/Core/Backend/Page.php:1456
 msgid "File successfully uploaded."
-msgstr ""
+msgstr "Fichièr mandat amb succès."
 
 #: src/Core/Backend/Page.php:1457
 msgid "No file in queue."
-msgstr ""
+msgstr "Pas de fichièr dins la còla."
 
 #: src/Core/Backend/Page.php:1458
 msgid "1 file in queue."
-msgstr ""
+msgstr "1 fichièr en còla."
 
 #: src/Core/Backend/Page.php:1459
 #, php-format
 msgid "%d files in queue."
-msgstr ""
+msgstr "%d fichièrs en còla."
 
 #: src/Core/Backend/Page.php:1460
 msgid "Queue error:"
-msgstr ""
+msgstr "Error de còla:"
 
 #: src/Core/Backend/Page.php:1503
 msgid "Cancel filters and display options"
-msgstr ""
+msgstr "Anullar los filtres e las opcions d'afichatge"
 
 #: src/Core/Backend/ThemeConfig.php:120
 #, php-format
 msgid "(%s)"
-msgstr ""
+msgstr "(%s)"
 
 #: src/Core/Backend/ThemeConfig.php:120
 #, php-format
 msgid "ratio %.1f"
-msgstr ""
+msgstr "rapòrt %.1f"
 
 #: src/Core/Backend/ThemeConfig.php:249 src/Core/Backend/ThemeConfig.php:403
 msgid "The 'public' directory does not exist."
-msgstr ""
+msgstr "Lo repertòri « public » existís pas."
 
 #: src/Core/Backend/ThemeConfig.php:256 src/Core/Backend/ThemeConfig.php:268
 #: src/Core/Backend/ThemeConfig.php:410 src/Core/Backend/ThemeConfig.php:422
 #, php-format
 msgid "The '%s' directory cannot be modified."
-msgstr ""
+msgstr "Lo repertòri « %s » pòt pas èsser modificat."
 
 #: src/Core/Backend/ThemeConfig.php:390
 #, php-format
 msgid "The '%s' directory cannot be created."
-msgstr ""
+msgstr "Lo repertòri « %s » pòt pas èsser creat."
 
 #: src/Core/Backend/ThemeConfig.php:396
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr ""
+msgstr "Al mens una de las foncions seguentas es pas disponibla: imagecreatetruecolor, imagepng & imagecreatefrompng."
 
 #: src/Core/Backend/ThemeConfig.php:442
 msgid "Unable to create images."
-msgstr ""
+msgstr "Impossible de crear d'imatges."
 
 #: src/Core/Backend/ThemeConfig.php:449
 msgid "Invalid file type."
-msgstr ""
+msgstr "Tipe de fichièr invalid."
 
 #: src/Core/Backend/ThemeConfig.php:455 src/Helper/File/Manager.php:410
 #: src/Helper/File/Manager.php:450
 msgid "An error occurred while writing the file."
-msgstr ""
+msgstr "Una error s'es producha al moment de l'escritura del fichièr."
 
 #: src/Core/Backend/ThemeConfig.php:461
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
-msgstr ""
+msgstr "L'imatge mandat a pas %s pixèls de larg."
 
 #: src/Core/Backend/ThemesList.php:124
 #, php-format
 msgid "Score: %s"
-msgstr ""
+msgstr "Puntuacion: %s"
 
 #: src/Core/Backend/ThemesList.php:146
 #, php-format
 msgid "%s screenshot."
-msgstr ""
+msgstr "%s captura d'ecran."
 
 #: src/Core/Backend/ThemesList.php:175
 #, php-format
@@ -2087,7 +2087,7 @@ msgstr "per %s"
 #: src/Core/Backend/ThemesList.php:179
 #, php-format
 msgid "version %s"
-msgstr ""
+msgstr "version %s"
 
 #: src/Core/Backend/ThemesList.php:183
 #, php-format
@@ -2097,28 +2097,28 @@ msgstr "(version actuala %s)"
 #: src/Core/Backend/ThemesList.php:188
 #, php-format
 msgid "(built on \"%s\")"
-msgstr ""
+msgstr "(construit sus « %s »)"
 
 #: src/Core/Backend/ThemesList.php:191
 #, php-format
 msgid "(requires \"%s\")"
-msgstr ""
+msgstr "(requerís « %s »)"
 
 #: src/Core/Backend/ThemesList.php:247
 msgid "View stylesheet"
-msgstr ""
+msgstr "Afichar lo fuèlh d'estil"
 
 #: src/Core/Backend/ThemesList.php:272
 msgid "Configure theme"
-msgstr ""
+msgstr "Configurar lo tèma"
 
 #: src/Core/Backend/ThemesList.php:326
 msgid "No themes matched your search."
-msgstr ""
+msgstr "Cap de tèma correspond pas a vòstra recèrca."
 
 #: src/Core/Backend/ThemesList.php:376
 msgid "Use this one"
-msgstr ""
+msgstr "Utilizatz aqueste"
 
 #: src/Core/Backend/ThemesList.php:393 src/Process/Backend/Post.php:791
 msgid "Preview"
@@ -2126,92 +2126,92 @@ msgstr "Apercebut"
 
 #: src/Core/Backend/ThemesList.php:439
 msgid "Update selected themes"
-msgstr ""
+msgstr "Metre a jorn los tèmas seleccionats"
 
 #: src/Core/Backend/ThemesList.php:440
 msgid "Update all themes from this list"
-msgstr ""
+msgstr "Metre a jorn totes los tèmas d'aquesta lista"
 
 #: src/Core/Backend/ThemesList.php:484 src/Core/Backend/ThemesList.php:522
 #: src/Core/Backend/ThemesList.php:560 src/Core/Backend/ThemesList.php:595
 #: src/Core/Backend/ThemesList.php:635 src/Core/Backend/ThemesList.php:669
 #: src/Core/Backend/ThemesList.php:719
 msgid "No such theme."
-msgstr ""
+msgstr "Pas de tal tèma."
 
 #: src/Core/Backend/ThemesList.php:490
 #, php-format
 msgid "Theme %s has been successfully selected."
-msgstr ""
+msgstr "Lo tèma %s es estat seleccionat amb succès."
 
 #: src/Core/Backend/ThemesList.php:526
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lo tèma es estat activat amb succès."
+msgstr[1] "Los tèmas son estats activats amb succès."
 
 #: src/Core/Backend/ThemesList.php:564
 msgid "Some themes have not been deactivated."
-msgstr ""
+msgstr "Qualques tèmas son pas estats desactivats."
 
 #: src/Core/Backend/ThemesList.php:567
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lo tèma es estat desactivat amb succès."
+msgstr[1] "Los tèmas son estats desactivats amb succès."
 
 #: src/Core/Backend/ThemesList.php:599
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lo tèma es estat clonat amb succès."
+msgstr[1] "Los tèmas son estats clonats amb succès."
 
 #: src/Core/Backend/ThemesList.php:633
 msgid "You don't have permissions to delete this theme."
-msgstr ""
+msgstr "Avètz pas las autorizacions per suprimir aqueste tèma."
 
 #: src/Core/Backend/ThemesList.php:637
 msgid "Some themes have not been delete."
-msgstr ""
+msgstr "Qualques tèmas son pas estats suprimits."
 
 #: src/Core/Backend/ThemesList.php:640
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lo tèma es estat suprimit amb succès."
+msgstr[1] "Los tèmas son estats suprimits amb succès."
 
 #: src/Core/Backend/ThemesList.php:673
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lo tèma es estat installat amb succès."
+msgstr[1] "Los tèmas son estats installats amb succès."
 
 #: src/Core/Backend/ThemesList.php:712
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lo tèma es estat mes a jorn amb succès."
+msgstr[1] "Los tèmas son estats mes a jorn amb succès."
 
 #: src/Core/Backend/ThemesList.php:716
 #, php-format
 msgid "Following themes updates are locked: %s"
-msgstr ""
+msgstr "Las mesas a jorn dels tèmas seguents son verrolhats : %s"
 
 #: src/Core/Backend/ThemesList.php:754
 msgid "The theme has been successfully updated."
-msgstr ""
+msgstr "Lo tèma es estat mes a jorn amb succès."
 
 #: src/Core/Backend/ThemesList.php:755
 msgid "The theme has been successfully installed."
-msgstr ""
+msgstr "Lo tèma es estat installat amb succès."
 
 #: src/Core/Backend/UserPref.php:170
 msgid "users per page"
-msgstr ""
+msgstr "utilizaires per pagina"
 
 #: src/Core/Backend/UserPref.php:180
 msgid "entries per page"
-msgstr ""
+msgstr "entradas per pagina"
 
 #: src/Core/Backend/UserPref.php:187
 msgid "comments per page"
@@ -2223,88 +2223,88 @@ msgstr "blògs per pagina"
 
 #: src/Core/Backend/UserPref.php:206
 msgid "media per page"
-msgstr ""
+msgstr "mèdias per pagina"
 
 #: src/Core/Backend/UserPref.php:213
 msgid "results per page"
-msgstr ""
+msgstr "resultats per pagina"
 
 #: src/Core/Backend/Utility.php:146 src/Core/Upgrade/Utility.php:115
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
+msgstr "Sembla que i aja pas de taula de sesilha dins vòstra basa de donadas. Dotclear es completament installat?"
 
 #: src/Core/Blog.php:792
 msgid "You are not allowed to add categories"
-msgstr ""
+msgstr "Sètz pas autorizat a apondre de categorias"
 
 #: src/Core/Blog.php:840
 msgid "You are not allowed to update categories"
-msgstr ""
+msgstr "Sètz pas autorizat a metre a jorn las categorias"
 
 #: src/Core/Blog.php:897
 msgid "You are not allowed to delete categories"
-msgstr ""
+msgstr "Sètz pas autorizat a suprimir de categorias"
 
 #: src/Core/Blog.php:910
 msgid "This category is not empty."
-msgstr ""
+msgstr "Aquesta categoria es pas voida."
 
 #: src/Core/Blog.php:923
 msgid "You are not allowed to reset categories order"
-msgstr ""
+msgstr "Sètz pas autorizat a reïnicializar l'òrdre de las categorias"
 
 #: src/Core/Blog.php:994
 msgid "Empty category URL"
-msgstr ""
+msgstr "URL de categoria voida"
 
 #: src/Core/Blog.php:1011
 msgid "You must provide a category title"
-msgstr ""
+msgstr "Vos cal provesir un títol de categoria"
 
 #: src/Core/Blog.php:1021
 msgid "You must provide a category URL"
-msgstr ""
+msgstr "Vos cal provesir una URL de categoria"
 
 #: src/Core/Blog.php:1516
 msgid "You are not allowed to create an entry"
-msgstr ""
+msgstr "Sètz pas autorizat a crear una dintrada"
 
 #: src/Core/Blog.php:1576
 msgid "You are not allowed to update entries"
-msgstr ""
+msgstr "Sètz pas autorizat a metre a jorn las dintradas"
 
 #: src/Core/Blog.php:1582 src/Core/Blog.php:1838
 msgid "No such entry ID"
-msgstr ""
+msgstr "Pas d'identificant d'entrada aital"
 
 #: src/Core/Blog.php:1616
 msgid "You are not allowed to edit this entry"
-msgstr ""
+msgstr "Sètz pas autorizat a modificar aquesta entrada"
 
 #: src/Core/Blog.php:1644 src/Core/Blog.php:1679 src/Core/Meta.php:143
 #: src/Core/Meta.php:160
 msgid "You are not allowed to change this entry status"
-msgstr ""
+msgstr "Sètz pas autorizat a cambiar l'estat d'aqueste dintrada"
 
 #: src/Core/Blog.php:1725 src/Core/Blog.php:1763
 msgid "You are not allowed to change this entry category"
-msgstr ""
+msgstr "Sètz pas autorizat a cambiar aquesta categoria d'entrada"
 
 #: src/Core/Blog.php:1796
 msgid "You are not allowed to change entries category"
-msgstr ""
+msgstr "Sètz pas autorizat a cambiar la categoria d'entradas"
 
 #: src/Core/Blog.php:1832
 msgid "You are not allowed to delete entries"
-msgstr ""
+msgstr "Sètz pas autorizat a suprimir d'entradas"
 
 #: src/Core/Blog.php:2078
 msgid "No entry title"
-msgstr ""
+msgstr "Pas de títol d'entrada"
 
 #: src/Core/Blog.php:2082 src/Core/Blog.php:2098
 msgid "No entry content"
-msgstr ""
+msgstr "Pas de contengut d'entrada"
 
 #: src/Core/Blog.php:2164
 msgid "Notes"
@@ -2316,85 +2316,85 @@ msgstr "Nòta"
 
 #: src/Core/Blog.php:2265
 msgid "Empty entry URL"
-msgstr ""
+msgstr "URL d'entrada voida"
 
 #: src/Core/Blog.php:2526
 msgid "You are not allowed to update comments"
-msgstr ""
+msgstr "Sètz pas autorizat a metre a jorn los comentaris"
 
 #: src/Core/Blog.php:2532 src/Core/Blog.php:2538 src/Core/Blog.php:2634
 msgid "No such comment ID"
-msgstr ""
+msgstr "Pas d'identificacion de comentari aital"
 
 #: src/Core/Blog.php:2546
 msgid "You are not allowed to update this comment"
-msgstr ""
+msgstr "Sètz pas autorizat a metre a jorn aqueste comentari"
 
 #: src/Core/Blog.php:2587
 msgid "You are not allowed to change this comment's status"
-msgstr ""
+msgstr "Sètz pas autorizat a cambiar l'estat d'aqueste comentari"
 
 #: src/Core/Blog.php:2628 src/Core/Blog.php:2681
 msgid "You are not allowed to delete comments"
-msgstr ""
+msgstr "Sètz pas autorizat a suprimir los comentaris"
 
 #: src/Core/Blog.php:2716
 msgid "You must provide a comment"
-msgstr ""
+msgstr "Vos cal fornir un comentari"
 
 #: src/Core/Blog.php:2720
 msgid "You must provide an author name"
-msgstr ""
+msgstr "Vos cal provesir un nom d'autor"
 
 #: src/Core/Blog.php:2724
 msgid "Email address is not valid."
-msgstr ""
+msgstr "L'adreça de corrièl es pas valida."
 
 #: src/Core/BlogSettings.php:102
 msgid "Unable to retrieve namespaces:"
-msgstr ""
+msgstr "Impossible de recuperar los espacis de noms:"
 
 #: src/Core/BlogSettings.php:137
 #, php-format
 msgid "Invalid setting namespace: %s"
-msgstr ""
+msgstr "Paramètre invalid d'espaci de noms: %s"
 
 #: src/Core/BlogWorkspace.php:83
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
-msgstr ""
+msgstr "Paramètre invalid dcNamespace: %s"
 
 #: src/Core/BlogWorkspace.php:129
 msgid "Unable to retrieve settings:"
-msgstr ""
+msgstr "Impossible de recuperar los paramètres:"
 
 #: src/Core/BlogWorkspace.php:217 src/Core/BlogWorkspace.php:317
 #, php-format
 msgid "%s is not a valid setting id"
-msgstr ""
+msgstr "%s es pas un id de paramètre valid"
 
 #: src/Core/BlogWorkspace.php:309 src/Core/BlogWorkspace.php:349
 #: src/Core/BlogWorkspace.php:372 src/Core/BlogWorkspace.php:392
 msgid "No namespace specified"
-msgstr ""
+msgstr "Cap d'espaci de noms especificat"
 
 #: src/Core/Blogs.php:214 src/Core/Blogs.php:261 src/Core/Users.php:161
 #: src/Core/Users.php:191 src/Core/Users.php:231 src/Core/Users.php:308
 #: src/Core/Users.php:326
 msgid "You are not an administrator"
-msgstr ""
+msgstr "Sètz pas un administrator"
 
 #: src/Core/Blogs.php:246
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
+msgstr "L'identificant del blòg deu conténer al mens 2 caractèrs en utilizant de letras, de chifras o de simbòls."
 
 #: src/Core/Blogs.php:250
 msgid "No blog name"
-msgstr ""
+msgstr "Pas de nom de blòg"
 
 #: src/Core/Blogs.php:254
 msgid "No blog URL"
-msgstr ""
+msgstr "Pas d'URL de blòg"
 
 #: src/Core/Frontend/Url.php:607
 msgid "You must provide a valid email address."
@@ -2402,99 +2402,99 @@ msgstr "Devètz provesir una adreça electronica valida"
 
 #: src/Core/Frontend/Utility.php:138
 msgid "Something went wrong while trying to read the database."
-msgstr ""
+msgstr "Quicòm s'es marrit en ensajar de legir la basa de donadas."
 
 #: src/Core/Frontend/Utility.php:143
 msgid "Blog is not defined."
-msgstr ""
+msgstr "Lo blòg es pas definit."
 
 #: src/Core/Frontend/Utility.php:149
 msgid "This blog is offline. Please try again later."
-msgstr ""
+msgstr "Aqueste blòg es fòra linha. Mercés de tornar ensajar mai tard."
 
 #: src/Core/Frontend/Utility.php:239
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
-msgstr ""
+msgstr "Aquò vòl dire qu'avètz suprimit vòstre tèma per defaut o qu'avètz definit un camin de tèma incorrècte dins la configuracion de vòstre blòg. Verificatz la valor theme_path dins lo modul about:config o tornatz installar lo tèma per defaut. ("
 
 #: src/Core/Frontend/Utility.php:242
 msgid "Default theme not found."
-msgstr ""
+msgstr "Lo tèma per defaut pas trobat."
 
 #: src/Core/Frontend/Utility.php:298
 msgid "Something went wrong while loading template file for your blog."
-msgstr ""
+msgstr "Quicòm s'es marrit al moment del cargament del fichièr de modèl per vòstre blòg."
 
 #: src/Core/Frontend/Utility.php:340
 msgid "Can't create template files."
-msgstr ""
+msgstr "Impossible de crear de fichièrs de modèl."
 
 #: src/Core/Install/Utils.php:33 src/Process/Backend/Update.php:161
 #: src/Process/Upgrade/Upgrade.php:250
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
-msgstr ""
+msgstr "La version PHP es %s (%s o mai anciana necessària)."
 
 #: src/Core/Install/Utils.php:37
 msgid "Multibyte string module (mbstring) is not available."
-msgstr ""
+msgstr "Lo modul de cadena multioctet (mbstring) es pas disponible."
 
 #: src/Core/Install/Utils.php:41
 msgid "Iconv module is not available."
-msgstr ""
+msgstr "Lo modul Iconv es pas disponible."
 
 #: src/Core/Install/Utils.php:45
 msgid "Output control functions are not available."
-msgstr ""
+msgstr "Las foncions de contraròtle de sortida son pas disponiblas."
 
 #: src/Core/Install/Utils.php:49
 msgid "SimpleXML module is not available."
-msgstr ""
+msgstr "Lo modul SimpleXML es pas disponible."
 
 #: src/Core/Install/Utils.php:53
 msgid "DOM XML module is not available."
-msgstr ""
+msgstr "Lo modul DOM XML es pas disponible."
 
 #: src/Core/Install/Utils.php:58
 msgid "PCRE engine does not support UTF-8 strings."
-msgstr ""
+msgstr "Lo motor PCRE pren pas en carga las cadenas UTF-8."
 
 #: src/Core/Install/Utils.php:62
 msgid "SPL module is not available."
-msgstr ""
+msgstr "Lo modul SPL es pas disponible."
 
 #: src/Core/Install/Utils.php:67
 #, php-format
 msgid "MySQL version is %s (%s or earlier needed)."
-msgstr ""
+msgstr "La version MySQL es %s (%s o mai anciana necessària)."
 
 #: src/Core/Install/Utils.php:80
 msgid "MySQL InnoDB engine is not available."
-msgstr ""
+msgstr "Lo motor MySQL InnoDB es pas disponible."
 
 #: src/Core/Install/Utils.php:85
 #, php-format
 msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr ""
+msgstr "La version PostgreSQL es %s (%s o mai anciana necessària)."
 
 #: src/Core/Log.php:189
 msgid "No log message"
-msgstr ""
+msgstr "Pas de messatge de jornal"
 
 #: src/Core/Media.php:191
 msgid "No blog defined."
-msgstr ""
+msgstr "Cap de blòg definit."
 
 #: src/Core/Media.php:206 src/Process/Backend/Home.php:252
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr ""
+msgstr "I a pas cap de repertòri d'escritura /public/ a l'emplaçament definit dins about:config \"public_path\". Vos cal crear aqueste repertòri amb de dreches sufisents (o cambiar aqueste paramètre)."
 
 #: src/Core/Media.php:209 src/Process/Backend/Home.php:256
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr ""
+msgstr "I a pas de repertòri raiç escrible pel gestionari de mèdias. Vos caldriá contactar vòstre administrator."
 
 #: src/Core/Media.php:938 src/Core/Media.php:965
 msgid "You are not a super administrator."
-msgstr ""
+msgstr "Sètz pas un super administrator."
 
 #: src/Core/Media.php:1052 src/Core/Media.php:1142 src/Core/Media.php:1221
 #: src/Core/Media.php:1237 src/Core/Media.php:1255
@@ -2503,101 +2503,101 @@ msgstr "Permission refusada."
 
 #: src/Core/Media.php:1155
 msgid "You are not the file owner."
-msgstr ""
+msgstr "Sètz pas lo proprietari del fichièr."
 
 #: src/Core/Media.php:1170
 msgid "This file is not allowed."
-msgstr ""
+msgstr "Aqueste fichièr es pas autorizat."
 
 #: src/Core/Media.php:1174
 msgid "New file already exists."
-msgstr ""
+msgstr "Un fichièr novèl existís ja."
 
 #: src/Core/Media.php:1275
 msgid "File does not exist in the database."
-msgstr ""
+msgstr "Lo fichièr existís pas dins la basa de donadas."
 
 #: src/Core/Media.php:1320
 #, php-format
 msgid "Extract destination directory %s already exists."
-msgstr ""
+msgstr "Extraire lo repertòri de destinacion %s existís ja."
 
 #: src/Core/Notice.php:171
 msgid "No notice message"
-msgstr ""
+msgstr "Pas de messatge d'avís"
 
 #: src/Core/Trackback.php:117
 #, php-format
 msgid "%s has still been pinged"
-msgstr ""
+msgstr "%s es encara estat ping"
 
 #: src/Core/Trackback.php:134 src/Core/Trackback.php:143
 #: src/Core/Trackback.php:168 src/Core/Trackback.php:173
 #: src/Core/Trackback.php:197
 msgid "Unable to ping URL"
-msgstr ""
+msgstr "Impossible de far un ping a l'URL"
 
 #: src/Core/Trackback.php:148
 msgid "Bad server response code"
-msgstr ""
+msgstr "Còde de responsa del servidor marrit"
 
 #: src/Core/Trackback.php:181
 #, php-format
 msgid "%s is not a ping URL"
-msgstr ""
+msgstr "%s es pas una URL de ping"
 
 #: src/Core/Trackback.php:202
 #, php-format
 msgid "%s, ping error:"
-msgstr ""
+msgstr "%s, error de ping:"
 
 #: src/Core/Trackback.php:337
 msgid "Don't repeat yourself, please."
-msgstr ""
+msgstr "Repetissètz pas, mercés."
 
 #: src/Core/Trackback.php:344 src/Core/Trackback.php:415
 msgid "Where's your title?"
-msgstr ""
+msgstr "Ont es vòstre títol?"
 
 #: src/Core/Trackback.php:379
 msgid "Sorry, an internal problem has occured."
-msgstr ""
+msgstr "O planhèm, un problèma intèrne s'es produch."
 
 #: src/Core/Trackback.php:382
 msgid "Thanks, mate. It was a pleasure."
-msgstr ""
+msgstr "Mercés, companh. Èra un plaser."
 
 #: src/Core/Trackback.php:596
 msgid "Any chance you ping one of my contents? No? Really?"
-msgstr ""
+msgstr "Avètz de possibilitats de far un ping a un de mos contenguts? Non? Vertadièrament?"
 
 #: src/Core/Trackback.php:615
 msgid "Sorry but you can not ping this type of content."
-msgstr ""
+msgstr "O planhèm mas podètz pas far un ping a aqueste tipe de contengut."
 
 #: src/Core/Trackback.php:627
 msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr ""
+msgstr "Ups. Un pauc de causas \"pas trobadas\". Verificatz l'URL cibla dos còps."
 
 #: src/Core/Trackback.php:632
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr ""
+msgstr "O planhèm, tipe. Aquesta entrada accepta pas de pingback pel moment."
 
 #: src/Core/Trackback.php:666
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
-msgstr ""
+msgstr "Vòstra URL font sembla pas a un tipe de contengut suportat. Perdon. Adieu, adieu!"
 
 #: src/Core/Trackback.php:918
 msgid "No valid source URL provided? Try again!"
-msgstr ""
+msgstr "Pas d'URL de font valid provesit? Ensajatz tornarmai!"
 
 #: src/Core/Trackback.php:922
 msgid "No valid target URL provided? Try again!"
-msgstr ""
+msgstr "Cap d'URL cibla valid pas provesit? Ensajatz tornarmai!"
 
 #: src/Core/Trackback.php:926
 msgid "LOL!"
-msgstr ""
+msgstr "ESPETAT DE RIRE!"
 
 #: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:97
 #: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:433
@@ -2613,76 +2613,76 @@ msgstr "Sistèma"
 
 #: src/Core/Upgrade/Page.php:143
 msgid "Dotclear's update dashboard"
-msgstr ""
+msgstr "Tablèu de bòrd de mesa a jorn de Dotclear"
 
 #: src/Core/Upgrade/Page.php:146
 msgid "Go to normal dashboard"
-msgstr ""
+msgstr "Anatz al tablèu de bòrd normal"
 
 #: src/Core/Upgrade/Update.php:343
 msgid "Digests file not found."
-msgstr ""
+msgstr "Fichièr Digests pas trobat."
 
 #: src/Core/Upgrade/Update.php:380
 msgid "No file to download"
-msgstr ""
+msgstr "Pas de fichièr de telecargar"
 
 #: src/Core/Upgrade/Update.php:384 src/Core/Upgrade/Update.php:467
 msgid "Root directory is not writable."
-msgstr ""
+msgstr "Lo repertòri raiç es pas escrichable."
 
 #: src/Core/Upgrade/Update.php:422
 msgid "An error occurred while downloading archive."
-msgstr ""
+msgstr "Una error s'es producha al moment del telecargament de l'archiu."
 
 #: src/Core/Upgrade/Update.php:456 src/Core/Upgrade/Update.php:545
 msgid "Archive not found."
-msgstr ""
+msgstr "Archiu pas trobat."
 
 #: src/Core/Upgrade/Update.php:462 src/Core/Upgrade/Update.php:551
 msgid "Unable to read current digests file."
-msgstr ""
+msgstr "Impossible de legir lo fichièr de digests actuals."
 
 #: src/Core/Upgrade/Update.php:485 src/Core/Upgrade/Update.php:559
 msgid "Downloaded file does not seem to be a valid archive."
-msgstr ""
+msgstr "Lo fichièr telecargat sembla pas èsser un archiu valid."
 
 #: src/Core/Upgrade/Update.php:585
 msgid "Incomplete archive."
-msgstr ""
+msgstr "Archiu incomplet."
 
 #: src/Core/Upgrade/Update.php:689 src/Process/Upgrade/Digests.php:299
 msgid "Unable to read digests file."
-msgstr ""
+msgstr "Impossible de legir lo fichièr de digests."
 
 #: src/Core/Upgrade/Update.php:715 src/Process/Upgrade/Digests.php:339
 msgid "Invalid digests file."
-msgstr ""
+msgstr "Fichièr de digestion invalid."
 
 #: src/Core/Upgrade/Upgrade.php:76
 msgid "Something went wrong with auto upgrade:"
-msgstr ""
+msgstr "Quicòm s'es marrit amb la mesa a jorn automatica:"
 
 #: src/Core/Upgrade/Utility.php:270 src/Process/Upgrade/Upgrade.php:304
 msgid "On this page you can update dotclear to the latest release."
-msgstr ""
+msgstr "Sus aquesta pagina podètz metre a jorn dotclear a la darrièra version."
 
 #: src/Core/Upgrade/Utility.php:273 src/Process/Upgrade/Attic.php:82
 #: src/Process/Upgrade/Attic.php:106 src/Process/Upgrade/Attic.php:344
 msgid "Attic"
-msgstr ""
+msgstr "Grelh"
 
 #: src/Core/Upgrade/Utility.php:279 src/Process/Upgrade/Attic.php:354
 msgid "On this page you can update dotclear to a release between yours and latest."
-msgstr ""
+msgstr "Sus aquesta pagina podètz metre a jorn dotclear a una version entre la vòstra e la mai recenta."
 
 #: src/Core/Upgrade/Utility.php:282 src/Process/Upgrade/Backup.php:207
 msgid "Backups"
-msgstr ""
+msgstr "Sauvagardas"
 
 #: src/Core/Upgrade/Utility.php:288 src/Process/Upgrade/Backup.php:221
 msgid "On this page you can revert your previous installation or delete theses files."
-msgstr ""
+msgstr "Sus aquesta pagina podètz inversar vòstra installacion precedenta o suprimir aquestes fichièrs."
 
 #: src/Core/Upgrade/Utility.php:297 src/Process/Backend/Langs.php:230
 #: src/Process/Upgrade/Langs.php:448
@@ -2691,426 +2691,426 @@ msgstr "Aquí podètz installar, metre a jorn o suprimir de lengas de vòstras i
 
 #: src/Core/Upgrade/Utility.php:306
 msgid "On this page you will manage plugins."
-msgstr ""
+msgstr "En aquesta pagina geriretz los ensambladors."
 
 #: src/Core/Upgrade/Utility.php:309 src/Process/Upgrade/Cache.php:69
 msgid "Cache"
-msgstr ""
+msgstr "Cache"
 
 #: src/Core/Upgrade/Utility.php:315 src/Process/Upgrade/Cache.php:85
 msgid "On this page, you can clear templates and repositories cache."
-msgstr ""
+msgstr "Sus aquesta pagina, podètz escafar los modèls e l'escondedor dels depauses."
 
 #: src/Core/Upgrade/Utility.php:318
 msgid "Digests"
-msgstr ""
+msgstr "Digests"
 
 #: src/Core/Upgrade/Utility.php:324 src/Process/Upgrade/Digests.php:154
 msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
-msgstr ""
+msgstr "Sus aquesta pagina, podètz contornar los fichièrs damatjats o los fichièrs modificats per fin de realizar la mesa a jorn."
 
 #: src/Core/Upgrade/Utility.php:327 src/Process/Upgrade/Replay.php:76
 #: src/Process/Upgrade/Replay.php:104
 msgid "Replay"
-msgstr ""
+msgstr "Reproduire"
 
 #: src/Core/Upgrade/Utility.php:333 src/Process/Upgrade/Replay.php:90
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
-msgstr ""
+msgstr "Sus aquesta pagina, podètz ensajar de tornar jogar l'accion de mesa a jorn dempuèi una version donada se qualques fichièrs demòran de la darrièra mesa a jorn."
 
 #: src/Core/UserPreferences.php:69
 msgid "Unable to retrieve workspaces:"
-msgstr ""
+msgstr "Impossible de recuperar los espacis de trabalh:"
 
 #: src/Core/UserPreferences.php:147
 #, php-format
 msgid "Invalid UserWorkspace: %s"
-msgstr ""
+msgstr "UserWorkspace invalid: %s"
 
 #: src/Core/UserWorkspace.php:78
 #, php-format
 msgid "Invalid dcWorkspace: %s"
-msgstr ""
+msgstr "dcWorkspace invalid: %s"
 
 #: src/Core/UserWorkspace.php:84
 msgid "Unable to retrieve prefs:"
-msgstr ""
+msgstr "Impossible de recuperar los pref:"
 
 #: src/Core/UserWorkspace.php:216 src/Core/UserWorkspace.php:316
 #, php-format
 msgid "%s is not a valid pref id"
-msgstr ""
+msgstr "%s es pas un pref id valid"
 
 #: src/Core/UserWorkspace.php:308 src/Core/UserWorkspace.php:343
 #: src/Core/UserWorkspace.php:376 src/Core/UserWorkspace.php:406
 msgid "No workspace specified"
-msgstr ""
+msgstr "Cap d'espaci de trabalh especificat"
 
 #: src/Core/Users.php:165 src/Process/Install/Install.php:178
 msgid "No user ID given"
-msgstr ""
+msgstr "Pas d'identificant d'utilizaire donat"
 
 #: src/Core/Users.php:169 src/Process/Install/Install.php:188
 msgid "No password given"
-msgstr ""
+msgstr "Pas de senhal donat"
 
 #: src/Core/Users.php:389 src/Process/Install/Install.php:181
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr ""
+msgstr "L'identificant d'utilizaire deu conténer al mens 2 caractèrs en utilizant de letras, de chifras o de simbòls."
 
 #: src/Core/Users.php:400 src/Process/Backend/User.php:288
 #: src/Process/Install/Install.php:194
 msgid "Password must contain at least 6 characters."
-msgstr ""
+msgstr "Lo senhal deu conténer al mens 6 caractèrs."
 
 #: src/Core/Users.php:406
 msgid "Invalid user language code"
-msgstr ""
+msgstr "Còde de lenga d'utilizaire invalid"
 
 #: src/Database/Statement/DeleteStatement.php:33
 msgid "SQL DELETE requires a FROM source"
-msgstr ""
+msgstr "SQL DELETE demanda una font FROM"
 
 #: src/Database/Statement/DropStatement.php:33
 msgid "SQL DROP TABLE requires a FROM source"
-msgstr ""
+msgstr "SQL DROP TABLE requerís una font FROM"
 
 #: src/Database/Statement/InsertStatement.php:131
 msgid "SQL INSERT requires an INTO source"
-msgstr ""
+msgstr "SQL INSERT demanda una font INTO"
 
 #: src/Database/Statement/JoinStatement.php:93
 msgid "SQL JOIN requires a FROM source"
-msgstr ""
+msgstr "SQL JOIN demanda una font FROM"
 
 #: src/Database/Statement/SelectStatement.php:266
 msgid "SQL SELECT requires a FROM source"
-msgstr ""
+msgstr "SQL SELECT demanda una font FROM"
 
 #: src/Database/Statement/TruncateStatement.php:33
 msgid "SQL TRUNCATE TABLE requires a FROM source"
-msgstr ""
+msgstr "SQL TRUNCATE TABLE requerís una font FROM"
 
 #: src/Database/Statement/UpdateStatement.php:200
 msgid "SQL UPDATE requires a FROM source"
-msgstr ""
+msgstr "SQL UPDATE demanda una font FROM"
 
 #: src/Helper/Diff/Diff.php:248
 msgid "Bad range"
-msgstr ""
+msgstr "Marrida portada"
 
 #: src/Helper/Diff/Diff.php:252 src/Helper/Diff/Diff.php:321
 msgid "Invalid range"
-msgstr ""
+msgstr "Interval invalid"
 
 #: src/Helper/Diff/Diff.php:260 src/Helper/Diff/Diff.php:328
 msgid "Invalid line number"
-msgstr ""
+msgstr "Numèro de linha invalid"
 
 #: src/Helper/Diff/Diff.php:264 src/Helper/Diff/Diff.php:296
 #: src/Helper/Diff/Diff.php:332 src/Helper/Diff/Diff.php:366
 msgid "Chunk is out of range"
-msgstr ""
+msgstr "Lo tròç es fòra portada"
 
 #: src/Helper/Diff/Diff.php:273
 msgid "Bad context"
-msgstr ""
+msgstr "Marrit contèxte"
 
 #: src/Helper/Diff/Diff.php:287
 msgid "Bad context (in deletion)"
-msgstr ""
+msgstr "Contèxte marrit (en supression)"
 
 #: src/Helper/Diff/Diff.php:291 src/Helper/Diff/Diff.php:361
 msgid "Invalid diff format"
-msgstr ""
+msgstr "Format de diff invalid"
 
 #: src/Helper/File/Files.php:181 src/Helper/File/Files.php:540
 msgid "Unable to open directory."
-msgstr ""
+msgstr "Impossible de dobrir lo repertòri."
 
 #: src/Helper/File/Files.php:359
 msgid "Unable to create directory."
-msgstr ""
+msgstr "Impossible de crear un repertòri."
 
 #: src/Helper/File/Files.php:404
 msgid "File is not writable."
-msgstr ""
+msgstr "Lo fichièr es pas escrichable."
 
 #: src/Helper/File/Files.php:410
 msgid "Unable to open file."
-msgstr ""
+msgstr "Impossible de dobrir lo fichièr."
 
 #: src/Helper/File/Files.php:482
 msgid "Not an uploaded file."
-msgstr ""
+msgstr "Pas un fichièr mandat."
 
 #: src/Helper/File/Files.php:490
 msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr ""
+msgstr "Lo fichièr enviat despassa la talha maximala de fichièr autorizada."
 
 #: src/Helper/File/Files.php:492
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "Lo fichièr mandat es pas que parcialament mandat."
 
 #: src/Helper/File/Files.php:494
 msgid "No file was uploaded."
-msgstr ""
+msgstr "Cap de fichièr es pas estat mandat."
 
 #: src/Helper/File/Files.php:496
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "Manca un dorsièr temporari."
 
 #: src/Helper/File/Files.php:498
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "Fracàs a l'escritura del fichièr sul disc."
 
 #: src/Helper/File/Files.php:500
 msgid "A PHP extension stopped the file upload."
-msgstr ""
+msgstr "Una extension PHP a arrestat lo mandadís del fichièr."
 
 #: src/Helper/File/Files.php:533
 #, php-format
 msgid "%s is not a directory."
-msgstr ""
+msgstr "%s es pas un repertòri."
 
 #: src/Helper/File/Files.php:586
 msgid "Can't get file path"
-msgstr ""
+msgstr "Pòt pas obténer lo camin del fichièr"
 
 #: src/Helper/File/Files.php:593
 msgid "Can't lock a directory"
-msgstr ""
+msgstr "Pòt pas verrolhar un repertòri"
 
 #: src/Helper/File/Files.php:605
 msgid "Can't call php function named flock"
-msgstr ""
+msgstr "Pòt pas cridar la foncion php nomenada flock"
 
 #: src/Helper/File/Files.php:619
 msgid "Can't create file"
-msgstr ""
+msgstr "Pòt pas crear un fichièr"
 
 #: src/Helper/File/Files.php:628
 msgid "Can't open file"
-msgstr ""
+msgstr "Impossible de dobrir lo fichièr"
 
 #: src/Helper/File/Files.php:636
 msgid "Can't lock file"
-msgstr ""
+msgstr "Pòt pas verrolhar lo fichièr"
 
 #: src/Helper/File/Files.php:658 src/Helper/File/Manager.php:541
 #: src/Helper/File/Manager.php:545
 msgid "File cannot be removed."
-msgstr ""
+msgstr "Lo fichièr pòt pas èsser suprimit."
 
 #: src/Helper/File/Image/ImageTools.php:178
 msgid "Not enough memory to open image."
-msgstr ""
+msgstr "Pas pro de memòria per dobrir l'imatge."
 
 #: src/Helper/File/Manager.php:394 src/Helper/File/Manager.php:437
 msgid "Uploading this file is not allowed."
-msgstr ""
+msgstr "Lo mandadís d'aqueste fichièr es pas autorizat."
 
 #: src/Helper/File/Manager.php:398 src/Helper/File/Manager.php:441
 msgid "Destination directory is not in jail."
-msgstr ""
+msgstr "Lo repertòri de destinacion es pas en preson."
 
 #: src/Helper/File/Manager.php:402
 msgid "File already exists."
-msgstr ""
+msgstr "Lo fichièr existís ja."
 
 #: src/Helper/File/Manager.php:406 src/Helper/File/Manager.php:445
 msgid "Cannot write in this directory."
-msgstr ""
+msgstr "Pòt pas escriure dins aqueste repertòri."
 
 #: src/Helper/File/Manager.php:486
 msgid "Source file does not exist."
-msgstr ""
+msgstr "Lo fichièr font existís pas."
 
 #: src/Helper/File/Manager.php:492 src/Helper/File/Manager.php:495
 #: src/Helper/File/Manager.php:537
 msgid "File is not in jail."
-msgstr ""
+msgstr "Lo dossièr es pas en preson."
 
 #: src/Helper/File/Manager.php:499
 msgid "Destination directory is not writable."
-msgstr ""
+msgstr "Lo repertòri de destinacion es pas escrichable."
 
 #: src/Helper/File/Manager.php:503
 msgid "Unable to rename file."
-msgstr ""
+msgstr "Impossible de renomenar lo fichièr."
 
 #: src/Helper/File/Manager.php:561
 msgid "Directory is not in jail."
-msgstr ""
+msgstr "Lo repertòri es pas en preson."
 
 #: src/Helper/File/Manager.php:565 src/Helper/File/Manager.php:569
 msgid "Directory cannot be removed."
-msgstr ""
+msgstr "Lo repertòri pòt pas èsser suprimit."
 
 #: src/Helper/File/Zip/Unzip.php:154
 #, php-format
 msgid "File %s is not compressed in the zip."
-msgstr ""
+msgstr "Lo fichièr %s es pas comprimit dins lo zip."
 
 #: src/Helper/File/Zip/Unzip.php:162
 #, php-format
 msgid "Trying to unzip a folder name %s"
-msgstr ""
+msgstr "Ensajar de descomprimir un nom de dorsièr %s"
 
 #: src/Helper/File/Zip/Unzip.php:352
 msgid "Unable to write destination file."
-msgstr ""
+msgstr "Impossible d'escriure lo fichièr de destinacion."
 
 #: src/Helper/File/Zip/Unzip.php:372
 msgid "Unable to write in target directory, permission denied."
-msgstr ""
+msgstr "Impossible d'escriure dins lo repertòri cibla, l'autorizacion refusada."
 
 #: src/Helper/File/Zip/Unzip.php:754 src/Helper/File/Zip/Zip.php:470
 msgid "Not enough memory to open file."
-msgstr ""
+msgstr "Pas pro de memòria per dobrir lo fichièr."
 
 #: src/Helper/File/Zip/Zip.php:122
 msgid "File does not exist"
-msgstr ""
+msgstr "Lo fichièr existís pas"
 
 #: src/Helper/File/Zip/Zip.php:125
 msgid "Cannot read file"
-msgstr ""
+msgstr "Pòt pas legir lo fichièr"
 
 #: src/Helper/File/Zip/Zip.php:181
 msgid "Directory does not exist"
-msgstr ""
+msgstr "Lo repertòri existís pas"
 
 #: src/Helper/File/Zip/Zip.php:184
 msgid "Cannot read directory"
-msgstr ""
+msgstr "Impossible de legir lo repertòri"
 
 #: src/Helper/File/Zip/Zip.php:318
 msgid "Unable to write ZIP archive"
-msgstr ""
+msgstr "Impossible d'escriure l'archiu ZIP"
 
 #: src/Helper/Html/Template/Template.php:644
 #: src/Helper/Html/Template/Template.php:694
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
+msgstr "A pas trobat l'etiqueta de clausura pel blòt <tpl:%s>. Lo contengut es estat ignorat."
 
 #: src/Helper/Html/Template/Template.php:651
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
+msgstr "Etiqueta de clausura inesperada </tpl:%s> trobada."
 
 #: src/Helper/Html/Template/Template.php:702
 msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
+msgstr "ATENCION : las errors seguentas son estadas trobadas al moment de l'analisi del fichièr modèl :"
 
 #: src/Module/Modules.php:264
 #, php-format
 msgid "Requires %s module which is not installed"
-msgstr ""
+msgstr "Necessita lo modul %s qu'es pas installat"
 
 #: src/Module/Modules.php:277
 #, php-format
 msgid "Requires %s version %s, but version %s is installed"
-msgstr ""
+msgstr "Necessita %s version %s, mas la version %s es installada"
 
 #: src/Module/Modules.php:284
 #, php-format
 msgid "Requires %s module which is disabled"
-msgstr ""
+msgstr "Necessita lo modul %s qu'es desactivat"
 
 #: src/Module/Modules.php:648
 #, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr ""
+msgstr "Lo modul « %s » a un tipe « %s » que correspond pas al tipe de modul requerit « %s »."
 
 #: src/Module/Modules.php:676
 #, php-format
 msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr ""
+msgstr "Lo modul « %s » es installat dos còps dins « %s » e « %s »."
 
 #: src/Module/Modules.php:753
 msgid "Empty module zip file."
-msgstr ""
+msgstr "Fichièr zip de modul void."
 
 #: src/Module/Modules.php:760
 msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr ""
+msgstr "Lo fichièr zip sembla pas èsser un modul Dotclear valid."
 
 #: src/Module/Modules.php:794 src/Module/Modules.php:830
 #, php-format
 msgid "Module is not installed: %s"
-msgstr ""
+msgstr "Lo modul es pas installat : %s"
 
 #: src/Module/Modules.php:845
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
-msgstr ""
+msgstr "Impossible de metre a jorn « %s ». (mesa a jorn blocada)"
 
 #: src/Module/Modules.php:849
 msgid "An error occurred during module deletion."
-msgstr ""
+msgstr "Una error s'es producha pendent la supression del modul."
 
 #: src/Module/Modules.php:857
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
-msgstr ""
+msgstr "Impossible de metre a jorn « %s ». (version mai anciana o meteissa)"
 
 #: src/Module/Modules.php:863
 #, php-format
 msgid "Unable to read new %s file"
-msgstr ""
+msgstr "Impossible de legir lo fichièr %s novèl"
 
 #: src/Module/Modules.php:873 src/Module/Modules.php:993
 #: src/Module/Modules.php:997
 msgid "Cannot deactivate plugin."
-msgstr ""
+msgstr "Pòt pas desactivar lo plugin."
 
 #: src/Module/Modules.php:969 src/Module/Modules.php:989
 #: src/Module/Modules.php:1013
 msgid "No such module."
-msgstr ""
+msgstr "Pas de modul aital."
 
 #: src/Module/Modules.php:973
 msgid "Cannot remove module files"
-msgstr ""
+msgstr "Pòt pas suprimir los fichièrs de modul"
 
 #: src/Module/Modules.php:1017 src/Module/Modules.php:1021
 msgid "Cannot activate plugin."
-msgstr ""
+msgstr "Pòt pas activar lo plugin."
 
 #: src/Module/Store.php:360 src/Module/Store.php:363
 msgid "An error occurred while downloading the file."
-msgstr ""
+msgstr "Una error s'es producha al moment del telecargament del fichièr."
 
 #: src/Module/StoreParser.php:63
 msgid "Wrong data feed"
-msgstr ""
+msgstr "Flux de donadas incorrècte"
 
 #: src/Module/Themes.php:104
 msgid "Themes folder unreachable"
-msgstr ""
+msgstr "Lo dorsièr de tèmas inaccessible"
 
 #: src/Module/Themes.php:108
 msgid "Themes folder unreadable"
-msgstr ""
+msgstr "Lo dorsièr de tèmas illegible"
 
 #: src/Module/Themes.php:116
 #, php-format
 msgid " (copy #%s)"
-msgstr ""
+msgstr " (còpia #%s)"
 
 #: src/Module/Themes.php:116
 msgid " (copy)"
-msgstr ""
+msgstr " (còpia)"
 
 #: src/Module/Themes.php:154
 msgid "Unable to modify _define.php"
-msgstr ""
+msgstr "Impossible de modificar _define.php"
 
 #: src/Module/Themes.php:187
 msgid "Destination folder already exist"
-msgstr ""
+msgstr "Lo dorsièr de destinacion existís ja"
 
 #: src/Process/Backend/Auth.php:71 src/Process/Upgrade/Auth.php:78
 msgid "Dotclear has been upgraded."
@@ -3164,7 +3164,7 @@ msgstr "Vos cal cambiar lo senhal abans de vos connectar."
 
 #: src/Process/Backend/Auth.php:240
 msgid "In order to login, you have to change your password now."
-msgstr ""
+msgstr "Per vos connectar, vos cal cambiar vòstre senhal ara."
 
 #: src/Process/Backend/Auth.php:246
 msgid "Safe Mode can only be used for super administrators."
@@ -3192,7 +3192,7 @@ msgstr "recuperar"
 
 #: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:497
 msgid "Other option"
-msgstr ""
+msgstr "Autra opcion"
 
 #: src/Process/Backend/Auth.php:398
 msgid "Change your password"
@@ -3219,11 +3219,11 @@ msgstr "Mòde de connexion segur"
 
 #: src/Process/Backend/Auth.php:437
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
-msgstr ""
+msgstr "Aqueste mòde vos permet de vos connectar sens activar cap de vòstres ensambladors. Aquò pòt èsser util per resòlvre de problèmas de compatibilitat"
 
 #: src/Process/Backend/Auth.php:438
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
-msgstr ""
+msgstr "Metre a jorn, desactivatz o suprimissètz quin ensamblador que siá sospèchat de causar de problèmas, puèi vos desconnectar e vos tornatz connectar normalament."
 
 #: src/Process/Backend/Auth.php:474 src/Process/Upgrade/Auth.php:234
 msgid "Remember my ID on this device"
@@ -3298,7 +3298,7 @@ msgstr "Cap d’ID de blòg correspondent"
 #: src/Process/Backend/BlogDel.php:71
 #, php-format
 msgid "Blog \"%s\" successfully deleted"
-msgstr ""
+msgstr "Lo blòg « %s » suprimit amb succès"
 
 #: src/Process/Backend/BlogDel.php:86 src/Process/Backend/BlogDel.php:92
 msgid "Delete a blog"
@@ -3323,11 +3323,11 @@ msgstr "Suprimir aqueste blòg"
 
 #: src/Process/Backend/BlogPref.php:74
 msgid "No given blog id."
-msgstr ""
+msgstr "Pas d'identificacion de blòg donada."
 
 #: src/Process/Backend/BlogPref.php:79
 msgid "No such blog."
-msgstr ""
+msgstr "Pas de tal blòg."
 
 #: src/Process/Backend/BlogPref.php:128
 msgid "year/month/day/title"
@@ -3347,7 +3347,7 @@ msgstr "títol"
 
 #: src/Process/Backend/BlogPref.php:132
 msgid "post id/title"
-msgstr ""
+msgstr "id/títol del pòst"
 
 #: src/Process/Backend/BlogPref.php:133
 msgid "post id"
@@ -3355,15 +3355,15 @@ msgstr "id del post"
 
 #: src/Process/Backend/BlogPref.php:141
 msgid "H4"
-msgstr ""
+msgstr "H4"
 
 #: src/Process/Backend/BlogPref.php:142
 msgid "H3"
-msgstr ""
+msgstr "H3"
 
 #: src/Process/Backend/BlogPref.php:143
 msgid "P"
-msgstr ""
+msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:997
 #: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:667
@@ -3373,24 +3373,24 @@ msgstr "(cap)"
 
 #: src/Process/Backend/BlogPref.php:149
 msgid "Description"
-msgstr ""
+msgstr "Descripcion"
 
 #: src/Process/Backend/BlogPref.php:150
 msgid "Description, Date"
-msgstr ""
+msgstr "Descripcion, Data"
 
 #: src/Process/Backend/BlogPref.php:151
 msgid "Description, Country, Date"
-msgstr ""
+msgstr "Descripcion, País, Data"
 
 #: src/Process/Backend/BlogPref.php:152
 msgid "Description, City, Country, Date"
-msgstr ""
+msgstr "Descripcion, Ciutat, País, Data"
 
 #: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:560
 #: src/Process/Backend/MediaItem.php:634 src/Process/Backend/MediaItem.php:881
 msgid "original"
-msgstr ""
+msgstr "original"
 
 #: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
 #: src/Process/Backend/MediaItem.php:664 src/Process/Backend/MediaItem.php:676
@@ -3415,23 +3415,23 @@ msgstr "Centre"
 
 #: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:649
 msgid "Legend and alternate text"
-msgstr ""
+msgstr "Legenda e tèxte alternatiu"
 
 #: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:658
 msgid "Alternate text"
-msgstr ""
+msgstr "Tèxte alternatiu"
 
 #: src/Process/Backend/BlogPref.php:208
 msgid "I would like search engines and archivers to index and archive my blog's content."
-msgstr ""
+msgstr "M'agradariá que los motors de recèrca e los archivaires indexèsson e archivan lo contengut de mon blòg."
 
 #: src/Process/Backend/BlogPref.php:209
 msgid "I would like search engines and archivers to index but not archive my blog's content."
-msgstr ""
+msgstr "M'agradariá que los motors de recèrca e los archivaires indexèsson mas pas archivar lo contengut de mon blòg."
 
 #: src/Process/Backend/BlogPref.php:210
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
-msgstr ""
+msgstr "M'agradariá d'empachar los motors de recèrca e los archivaires d'indexar o d'archivar lo contengut de mon blòg."
 
 #: src/Process/Backend/BlogPref.php:215
 #: src/Process/Backend/UserPreferences.php:127
@@ -3440,27 +3440,27 @@ msgstr "Per defaut"
 
 #: src/Process/Backend/BlogPref.php:227
 msgid "Never"
-msgstr ""
+msgstr "Jamai"
 
 #: src/Process/Backend/BlogPref.php:228
 msgid "Three months"
-msgstr ""
+msgstr "Tres meses"
 
 #: src/Process/Backend/BlogPref.php:229
 msgid "Six months"
-msgstr ""
+msgstr "Sièis meses"
 
 #: src/Process/Backend/BlogPref.php:230
 msgid "One year"
-msgstr ""
+msgstr "Un an"
 
 #: src/Process/Backend/BlogPref.php:231
 msgid "Two years"
-msgstr ""
+msgstr "Dos ans"
 
 #: src/Process/Backend/BlogPref.php:312
 msgid "This blog ID is already used."
-msgstr ""
+msgstr "Aqueste identificant de blòg es ja utilizat."
 
 #: src/Process/Backend/BlogPref.php:320
 msgid "Invalid language code"
@@ -3468,19 +3468,19 @@ msgstr "Còdi de lenga invalid"
 
 #: src/Process/Backend/BlogPref.php:402 src/Process/Backend/BlogPref.php:471
 msgid "Blog has been successfully updated."
-msgstr ""
+msgstr "Lo blòg es estat mes a jorn amb succès."
 
 #: src/Process/Backend/BlogPref.php:450
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
-msgstr ""
+msgstr "Atencion : levat per las configuracions especialas, es generalament conselhat d'aver un \"/\" seguent dins vòstre URL de blòg en mòde PATH_INFO."
 
 #: src/Process/Backend/BlogPref.php:451
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
-msgstr ""
+msgstr "Atencion : levat per de configuracions especialas, es generalament conselhat d'aver un « ? dins vòstre URL de blòg en mòde QUERY_STRING."
 
 #: src/Process/Backend/BlogPref.php:467
 msgid "Blog has been successfully created."
-msgstr ""
+msgstr "Lo blòg es estat creat amb succès."
 
 #: src/Process/Backend/BlogPref.php:475
 msgid "Parameters"
@@ -3496,7 +3496,7 @@ msgstr "Detalhs del blòg"
 
 #: src/Process/Backend/BlogPref.php:504
 msgid "Blog status:"
-msgstr ""
+msgstr "Estat del blòg:"
 
 #: src/Process/Backend/BlogPref.php:520 src/Process/Backend/BlogPref.php:868
 msgid "Blog configuration"
@@ -3504,7 +3504,7 @@ msgstr "Configuracion del blòg"
 
 #: src/Process/Backend/BlogPref.php:521
 msgid "Blog editor name:"
-msgstr ""
+msgstr "Nom de l'editor de blòg:"
 
 #: src/Process/Backend/BlogPref.php:524
 msgid "Default language:"
@@ -3512,16 +3512,16 @@ msgstr "Lenga per defaut :"
 
 #: src/Process/Backend/BlogPref.php:527
 msgid "Blog timezone:"
-msgstr ""
+msgstr "Fus orari del blòg:"
 
 #: src/Process/Backend/BlogPref.php:530
 msgid "Copyright notice:"
-msgstr ""
+msgstr "Avís de drech d'autor:"
 
 #: src/Process/Backend/BlogPref.php:543 src/Process/Backend/Comments.php:118
 #: src/Process/Backend/Comments.php:123
 msgid "Comments and trackbacks"
-msgstr ""
+msgstr "Comentaris e pistas"
 
 #: src/Process/Backend/BlogPref.php:549 src/Process/Backend/Post.php:674
 msgid "Accept comments"
@@ -3534,40 +3534,40 @@ msgstr "Moderar los comentaris"
 #: src/Process/Backend/BlogPref.php:554
 #, php-format
 msgid "Leave comments open for %s days"
-msgstr ""
+msgstr "Daissatz los comentaris dobèrts pendent %s jorns"
 
 #: src/Process/Backend/BlogPref.php:565 src/Process/Backend/BlogPref.php:593
 msgid "No limit: leave blank."
-msgstr ""
+msgstr "Pas de limit: daissar void."
 
 #: src/Process/Backend/BlogPref.php:568
 msgid "Wiki syntax for comments"
-msgstr ""
+msgstr "Sintaxi Wiki pels comentaris"
 
 #: src/Process/Backend/BlogPref.php:571
 msgid "Preview of comment before submit is not mandatory"
-msgstr ""
+msgstr "L'apercebut del comentari abans l'enviament es pas obligatòri"
 
 #: src/Process/Backend/BlogPref.php:577 src/Process/Backend/Post.php:682
 msgid "Accept trackbacks"
-msgstr ""
+msgstr "Acceptar los trackbacks"
 
 #: src/Process/Backend/BlogPref.php:580
 msgid "Moderate trackbacks"
-msgstr ""
+msgstr "Trackbacks moderats"
 
 #: src/Process/Backend/BlogPref.php:582
 #, php-format
 msgid "Leave trackbacks open for %s days"
-msgstr ""
+msgstr "Daissatz los trackbacks dobèrts pendent %s jorns"
 
 #: src/Process/Backend/BlogPref.php:596
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
-msgstr ""
+msgstr "Apondre la relacion \"nofollow\" suls comentaris e los ligams de trackbacks"
 
 #: src/Process/Backend/BlogPref.php:600
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
-msgstr ""
+msgstr "Desactivatz totes los comentaris e los trackbacks sul blòg après un periòde de temps sens novèls articles:"
 
 #: src/Process/Backend/BlogPref.php:607
 msgid "Blog presentation"
@@ -3579,12 +3579,12 @@ msgstr "Format de la data :"
 
 #: src/Process/Backend/BlogPref.php:612
 msgid "Pattern of date"
-msgstr ""
+msgstr "Modèl de data"
 
 #: src/Process/Backend/BlogPref.php:614 src/Process/Backend/BlogPref.php:620
 #: src/Process/Backend/BlogPref.php:873
 msgid "Sample:"
-msgstr ""
+msgstr "Escapolon:"
 
 #: src/Process/Backend/BlogPref.php:616
 msgid "Time format:"
@@ -3592,55 +3592,55 @@ msgstr "Format orari :"
 
 #: src/Process/Backend/BlogPref.php:618
 msgid "Pattern of time"
-msgstr ""
+msgstr "Modèl de temps"
 
 #: src/Process/Backend/BlogPref.php:624
 msgid "Don't load standard stylesheet (used for media alignement)"
-msgstr ""
+msgstr "Cargatz pas lo fuèlh d'estil estandard (utilizat per l'alinhament dels mèdias)"
 
 #: src/Process/Backend/BlogPref.php:628
 msgid "Display smilies on entries and comments"
-msgstr ""
+msgstr "Afichar de sorires sus las entradas e los comentaris"
 
 #: src/Process/Backend/BlogPref.php:632
 msgid "Disable internal search system"
-msgstr ""
+msgstr "Desactivar lo sistèma de recèrca intèrne"
 
 #: src/Process/Backend/BlogPref.php:639
 #, php-format
 msgid "Display %s entries on first page"
-msgstr ""
+msgstr "Afichar %s dintradas sus la primièra pagina"
 
 #: src/Process/Backend/BlogPref.php:651
 #, php-format
 msgid "Display %s entries per page"
-msgstr ""
+msgstr "Afichar %s dintradas per pagina"
 
 #: src/Process/Backend/BlogPref.php:663
 #, php-format
 msgid "Display %s entries per feed"
-msgstr ""
+msgstr "Afichar %s dintradas per flux"
 
 #: src/Process/Backend/BlogPref.php:675
 #, php-format
 msgid "Display %s comments per feed"
-msgstr ""
+msgstr "Afichar %s comentaris per flux"
 
 #: src/Process/Backend/BlogPref.php:688
 msgid "Truncate feeds"
-msgstr ""
+msgstr "Troncar los fluxes"
 
 #: src/Process/Backend/BlogPref.php:692
 msgid "Include sub-categories in category page and category posts feed"
-msgstr ""
+msgstr "Incluir las soscategorias dins la pagina de categoria e lo flux dels articles de categoria"
 
 #: src/Process/Backend/BlogPref.php:700
 msgid "Display an entry as static home page"
-msgstr ""
+msgstr "Afichar una dintrada coma pagina d'accueil estatica"
 
 #: src/Process/Backend/BlogPref.php:702
 msgid "Entry URL (its content will be used for the static home page):"
-msgstr ""
+msgstr "URL d'entrada (son contengut serà utilizat per la pagina d'accueil estatica):"
 
 #: src/Process/Backend/BlogPref.php:704
 msgid "Choose an entry"
@@ -3648,7 +3648,7 @@ msgstr "Causir una entrada"
 
 #: src/Process/Backend/BlogPref.php:706
 msgid "Leave empty to use the default presentation."
-msgstr ""
+msgstr "Daissatz void per utilizar la presentacion per defaut."
 
 #: src/Process/Backend/BlogPref.php:710
 msgid "Media and images"
@@ -3656,19 +3656,19 @@ msgstr "Mèdia e imatges"
 
 #: src/Process/Backend/BlogPref.php:714
 msgid "Generated image sizes (max dimension in pixels)"
-msgstr ""
+msgstr "Talhas d'imatge generadas (dimension maximala en pixèls)"
 
 #: src/Process/Backend/BlogPref.php:717
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
-msgstr ""
+msgstr "Notatz que se cambiatz los paramètres actuals çai-jos, s'aplicaràn ara a totes los imatges novèls dins lo gestionari de mèdias."
 
 #: src/Process/Backend/BlogPref.php:718
 msgid "Be carefull if you share it with other blogs in your installation."
-msgstr ""
+msgstr "Atencion se lo partejatz amb d'autres blògs dins vòstra installacion."
 
 #: src/Process/Backend/BlogPref.php:719
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
-msgstr ""
+msgstr "Definissètz -1 per utilizar la talha per defaut, definissètz 0 per ignorar aquesta talha de miniatura (imatges solament)."
 
 #: src/Process/Backend/BlogPref.php:720
 msgid "Thumbnail"
@@ -3684,15 +3684,15 @@ msgstr "Mejana"
 
 #: src/Process/Backend/BlogPref.php:744
 msgid "Thumbnail character prefix:"
-msgstr ""
+msgstr "Prefix de caractèr de miniatura:"
 
 #: src/Process/Backend/BlogPref.php:747
 msgid "Leave empty to use the default one (.)"
-msgstr ""
+msgstr "Daissar void per utilizar lo per defaut (.)"
 
 #: src/Process/Backend/BlogPref.php:749
 msgid "Default size of the inserted video (in pixels)"
-msgstr ""
+msgstr "Talha per defaut de la vidèo inserida (en pixèls)"
 
 #: src/Process/Backend/BlogPref.php:750
 msgid "Width"
@@ -3704,97 +3704,97 @@ msgstr "Nautor"
 
 #: src/Process/Backend/BlogPref.php:768
 msgid "Default image insertion attributes"
-msgstr ""
+msgstr "Atributs d'insercion d'imatge per defaut"
 
 #: src/Process/Backend/BlogPref.php:769
 msgid "Inserted image legend:"
-msgstr ""
+msgstr "Legenda d'imatge inserida:"
 
 #: src/Process/Backend/BlogPref.php:773
 msgid "Use original media date if possible"
-msgstr ""
+msgstr "Utilizar la data originala del mèdia se possible"
 
 #: src/Process/Backend/BlogPref.php:776
 msgid "Do not display date if alone in title"
-msgstr ""
+msgstr "Afichar pas la data se sola dins lo títol"
 
 #: src/Process/Backend/BlogPref.php:777
 msgid "It is retrieved from the picture's metadata."
-msgstr ""
+msgstr "Es recuperat de las metadonadas de l'imatge."
 
 #: src/Process/Backend/BlogPref.php:779
 msgid "Size of inserted image:"
-msgstr ""
+msgstr "Talha de l'imatge inserida:"
 
 #: src/Process/Backend/BlogPref.php:786
 msgid "Image alignment:"
-msgstr ""
+msgstr "Alinhament de l'imatge:"
 
 #: src/Process/Backend/BlogPref.php:791
 msgid "Insert a link to the original image"
-msgstr ""
+msgstr "Inserir un ligam cap a l'imatge original"
 
 #: src/Process/Backend/BlogPref.php:792
 msgid "Image legend and alternate text:"
-msgstr ""
+msgstr "Legenda d'imatge e tèxte alternatiu:"
 
 #: src/Process/Backend/BlogPref.php:801
 msgid "Advanced parameters"
-msgstr ""
+msgstr "Paramètres avançats"
 
 #: src/Process/Backend/BlogPref.php:810
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr ""
+msgstr "Notatz que cambiar vòstre ID de blòg pòt demandar de modificacions dins vòstre fichièr index.php public."
 
 #: src/Process/Backend/BlogPref.php:821
 msgid "URL scan method:"
-msgstr ""
+msgstr "Metòde d'escanatge d'URL:"
 
 #: src/Process/Backend/BlogPref.php:844
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr ""
+msgstr "L'URL del blòg o lo metòde d'escanatge de l'URL es benlèu pas plan definit (<code>%s</code> retorna un <strong>%s</strong> estatut)."
 
 #: src/Process/Backend/BlogPref.php:855
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
-msgstr ""
+msgstr "L'URL del blòg o lo metòde d'escanatge de l'URL es benlèu pas plan definit (<code>%s</code> retorna pas un flux ATOM)."
 
 #: src/Process/Backend/BlogPref.php:870
 msgid "New post URL format:"
-msgstr ""
+msgstr "Format d'URL de novèl article:"
 
 #: src/Process/Backend/BlogPref.php:873
 msgid "Dotclear"
-msgstr ""
+msgstr "Dotclear"
 
 #: src/Process/Backend/BlogPref.php:876
 msgid "HTML tag for the title of the notes on the blog:"
-msgstr ""
+msgstr "Etiqueta HTML pel títol de las nòtas sul blòg:"
 
 #: src/Process/Backend/BlogPref.php:883
 msgid "Search engines robots policy"
-msgstr ""
+msgstr "Politica dels robòts dels motors de recèrca"
 
 #: src/Process/Backend/BlogPref.php:896
 msgid "Legacy javascript library"
-msgstr ""
+msgstr "Bibliotèca javascript legada"
 
 #: src/Process/Backend/BlogPref.php:899
 msgid "Load the Legacy JS library"
-msgstr ""
+msgstr "Cargar la bibliotèca Legacy JS"
 
 #: src/Process/Backend/BlogPref.php:902
 msgid "jQuery javascript library"
-msgstr ""
+msgstr "bibliotèca javascript jQuery"
 
 #: src/Process/Backend/BlogPref.php:905
 msgid "Load the jQuery library"
-msgstr ""
+msgstr "Cargar la bibliotèca jQuery"
 
 #: src/Process/Backend/BlogPref.php:907
 msgid "jQuery version to be loaded for this blog:"
-msgstr ""
+msgstr "la version jQuery a cargar per aqueste blòg:"
 
 #: src/Process/Backend/BlogPref.php:912
 msgid "Blog security"
@@ -3802,7 +3802,7 @@ msgstr "Seguretat del blòg"
 
 #: src/Process/Backend/BlogPref.php:915
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
-msgstr ""
+msgstr "Protegir lo blòg del Clickjacking (veire <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipèdia</a>)"
 
 #: src/Process/Backend/BlogPref.php:920
 msgid "Plugins parameters"
@@ -3810,24 +3810,24 @@ msgstr "Paramètres de las extensions"
 
 #: src/Process/Backend/BlogPref.php:944
 msgid "Only superadmin can delete a blog."
-msgstr ""
+msgstr "Sonque lo superadministrator pòt suprimir un blòg."
 
 #: src/Process/Backend/BlogPref.php:958
 msgid "Users on this blog"
-msgstr ""
+msgstr "Los utilizaires d'aqueste blòg"
 
 #: src/Process/Backend/BlogPref.php:961
 msgid "No users"
-msgstr ""
+msgstr "Pas d'utilizaire"
 
 #: src/Process/Backend/BlogPref.php:1002
 msgid "Publications on this blog:"
-msgstr ""
+msgstr "Publicacions sus aqueste blòg:"
 
 #: src/Process/Backend/BlogPref.php:1009
 #, php-format
 msgid "%1$s: %2$s"
-msgstr ""
+msgstr "%1$s: %2$s"
 
 #: src/Process/Backend/BlogPref.php:1014
 msgid "Permissions:"
@@ -3835,29 +3835,29 @@ msgstr "Autorizacions :"
 
 #: src/Process/Backend/BlogPref.php:1017 src/Process/Backend/User.php:321
 msgid "Super administrator"
-msgstr ""
+msgstr "Super administrator"
 
 #: src/Process/Backend/BlogPref.php:1018
 msgid "All rights on all blogs."
-msgstr ""
+msgstr "Totes los dreches sus totes los blògs."
 
 #: src/Process/Backend/BlogPref.php:1024
 #: src/Process/Backend/UsersActions.php:338
 #, php-format
 msgid "[%s] (unreferenced permission)"
-msgstr ""
+msgstr "[%s] (autorizacion sens referéncia)"
 
 #: src/Process/Backend/BlogPref.php:1028
 msgid "All rights on this blog."
-msgstr ""
+msgstr "Totes los dreches sus aqueste blòg."
 
 #: src/Process/Backend/BlogPref.php:1039 src/Process/Backend/User.php:471
 msgid "Change permissions"
-msgstr ""
+msgstr "Cambiar las permissions"
 
 #: src/Process/Backend/BlogTheme.php:59
 msgid "The following themes have been disabled :"
-msgstr ""
+msgstr "Los tèmas seguents son estats desactivats :"
 
 #: src/Process/Backend/BlogTheme.php:93
 msgid "Theme configuration"
@@ -3873,16 +3873,16 @@ msgstr "Tèmas installats"
 
 #: src/Process/Backend/BlogTheme.php:178
 msgid "Activated themes"
-msgstr ""
+msgstr "Tèmas activats"
 
 #: src/Process/Backend/BlogTheme.php:179 src/Process/Backend/Plugins.php:153
 #: src/Process/Upgrade/Plugins.php:168
 msgid "(in normal mode)"
-msgstr ""
+msgstr "(en mòde normal)"
 
 #: src/Process/Backend/BlogTheme.php:181
 msgid "You can configure and manage installed themes from this list."
-msgstr ""
+msgstr "Podètz configurar e gerir los tèmas installats dempuèi aquesta lista."
 
 #: src/Process/Backend/BlogTheme.php:202 src/Process/Backend/BlogTheme.php:203
 msgid "Deactivated themes"
@@ -3890,15 +3890,15 @@ msgstr "Tèmas desactivats"
 
 #: src/Process/Backend/BlogTheme.php:204
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
-msgstr ""
+msgstr "Los tèmas desactivats son installats mas pas utilizables. Los podètz activar dempuèi aicí."
 
 #: src/Process/Backend/BlogTheme.php:224 src/Process/Backend/Plugins.php:196
 msgid "Official repository could not be updated as there is no URL set in configuration."
-msgstr ""
+msgstr "Lo depaus oficial a pas pogut èsser mes a jorn perque i a pas cap d'URL definit en configuracion."
 
 #: src/Process/Backend/BlogTheme.php:228
 msgid "Manual checking of themes update done successfully."
-msgstr ""
+msgstr "Verificacion manuala de la mesa a jorn dels tèmas facha amb succès."
 
 #: src/Process/Backend/BlogTheme.php:232 src/Process/Backend/BlogTheme.php:233
 msgid "Update themes"
@@ -3906,25 +3906,25 @@ msgstr "Actualizar lo tèma"
 
 #: src/Process/Backend/BlogTheme.php:244
 msgid "Force checking update of themes"
-msgstr ""
+msgstr "Forçar la verificacion de la mesa a jorn dels tèmas"
 
 #: src/Process/Backend/BlogTheme.php:261
 msgid "No updates available for themes."
-msgstr ""
+msgstr "Cap de mesa a jorn disponibla pels tèmas."
 
 #: src/Process/Backend/BlogTheme.php:266
 #, php-format
 msgid "There is one theme update available:"
 msgid_plural "There are %s theme updates available:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "I a una mesa a jorn del tèma disponibla:"
+msgstr[1] "I a %s mesas a jorn del tèma disponibles:"
 
 #: src/Process/Backend/BlogTheme.php:286 src/Process/Backend/BlogTheme.php:322
 #: src/Process/Backend/Plugins.php:258 src/Process/Backend/Plugins.php:293
 #: src/Process/Upgrade/Plugins.php:255 src/Process/Upgrade/Plugins.php:294
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
-msgstr ""
+msgstr "Visitatz lo depaus %s, lo centre de las ressorsas per Dotclear."
 
 #: src/Process/Backend/BlogTheme.php:302
 msgid "Add themes"
@@ -3945,11 +3945,11 @@ msgstr "Ajustar de tèmas d’un paquet"
 
 #: src/Process/Backend/BlogTheme.php:333
 msgid "You can install themes by uploading or downloading zip files."
-msgstr ""
+msgstr "Podètz installar de tèmas en cargant o en telecargant de fichièrs zip."
 
 #: src/Process/Backend/BlogTheme.php:347
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
-msgstr ""
+msgstr "Qualques foncions son desactivadas, donatz un accès d'escritura a vòstre repertòri de tèmas per los activar."
 
 #: src/Process/Backend/Blogs.php:96 src/Process/Backend/Blogs.php:101
 msgid "List of blogs"
@@ -3966,11 +3966,11 @@ msgstr "Accions"
 
 #: src/Process/Backend/Blogs.php:141
 msgid "Selected blogs action:"
-msgstr ""
+msgstr "Accion dels blògs seleccionats:"
 
 #: src/Process/Backend/Blogs.php:159
 msgid "Please give your password to confirm blog(s) deletion:"
-msgstr ""
+msgstr "Mercés de donar vòstre senhal per confirmar la supression(s) del(s) blòg(s):"
 
 #: src/Process/Backend/Categories.php:47
 msgid "This category does not exist."
@@ -3979,33 +3979,33 @@ msgstr "Aquesta categoria existís pas."
 #: src/Process/Backend/Categories.php:57
 #, php-format
 msgid "The category \"%s\" has been successfully deleted."
-msgstr ""
+msgstr "La categoria « %s » es estada suprimida amb succès."
 
 #: src/Process/Backend/Categories.php:78
 msgid "Category where to move entries does not exist"
-msgstr ""
+msgstr "La categoria ont desplaçar d'entradas existís pas"
 
 #: src/Process/Backend/Categories.php:87
 #, php-format
 msgid "The entries have been successfully moved to category \"%s\""
-msgstr ""
+msgstr "Las entradas son estadas desplaçadas amb succès cap a la categoria « %s »"
 
 #: src/Process/Backend/Categories.php:104
 #: src/Process/Backend/Categories.php:155
 msgid "Categories have been successfully reordered."
-msgstr ""
+msgstr "Las categorias son estadas reordenadas amb succès."
 
 #: src/Process/Backend/Categories.php:112
 msgid "Categories order has been successfully reset."
-msgstr ""
+msgstr "L'òrdre de las categorias es estat reïnicializat amb succès."
 
 #: src/Process/Backend/Categories.php:152
 msgid "The category has been successfully removed."
-msgstr ""
+msgstr "La categoria es estada suprimida amb succès."
 
 #: src/Process/Backend/Categories.php:158
 msgid "Entries have been successfully moved to the category you choose."
-msgstr ""
+msgstr "Las dintradas son estadas desplaçadas amb succès cap a la categoria que causissètz."
 
 #: src/Process/Backend/Categories.php:164 src/Process/Backend/Category.php:197
 msgid "New category"
@@ -4044,40 +4044,40 @@ msgstr "Suprimir la categoria"
 
 #: src/Process/Backend/Categories.php:231
 msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
-msgstr ""
+msgstr "Per reorganizar l'òrdre de las categorias, desplaçatz los elements per arrossegar e descargar, puèi clicatz sul boton \"Enregistrar l'òrdre de las categorias\"."
 
 #: src/Process/Backend/Categories.php:236
 msgid "Save categories order"
-msgstr ""
+msgstr "Enregistrar las categorias òrdre"
 
 #: src/Process/Backend/Categories.php:243
 msgid "Reorder all categories on the top level"
-msgstr ""
+msgstr "Tornar ordenar totas las categorias al nivèl superior"
 
 #: src/Process/Backend/Category.php:81
 msgid "Top level"
-msgstr ""
+msgstr "Nivèl superior"
 
 #: src/Process/Backend/Category.php:122 src/Process/Backend/Category.php:134
 msgid "The category has been successfully moved"
-msgstr ""
+msgstr "La categoria es estada desplaçada amb succès"
 
 #: src/Process/Backend/Category.php:167
 msgid "The category has been successfully updated."
-msgstr ""
+msgstr "La categoria es estada mesa a jorn amb succès."
 
 #: src/Process/Backend/Category.php:182
 #, php-format
 msgid "The category \"%s\" has been successfully created."
-msgstr ""
+msgstr "La categoria « %s » es estada creada amb succès."
 
 #: src/Process/Backend/Category.php:227
 msgid "Category has been successfully updated."
-msgstr ""
+msgstr "La categoria es estada mesa a jorn amb succès."
 
 #: src/Process/Backend/Category.php:232
 msgid "Category information"
-msgstr ""
+msgstr "Informacion de categoria"
 
 #: src/Process/Backend/Category.php:234 src/Process/Backend/Post.php:888
 msgid "Name:"
@@ -4085,7 +4085,7 @@ msgstr "Nom :"
 
 #: src/Process/Backend/Category.php:261
 msgid "Warning: If you set the URL manually, it may conflict with another category."
-msgstr ""
+msgstr "Atencion: se definissètz l'URL manualament, pòt èsser en conflicte amb una autra categoria."
 
 #: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1105
 msgid "Description:"
@@ -4101,11 +4101,11 @@ msgstr "Parent de la categoria"
 
 #: src/Process/Backend/Category.php:325
 msgid "Category sibling"
-msgstr ""
+msgstr "Categoria fraire e sòrre"
 
 #: src/Process/Backend/Category.php:327
 msgid "Move current category"
-msgstr ""
+msgstr "Desplaçar la categoria actuala"
 
 #: src/Process/Backend/Category.php:332
 msgid "before"
@@ -4121,23 +4121,23 @@ msgstr "posicion : "
 
 #: src/Process/Backend/Comment.php:71
 msgid "Entry does not exist."
-msgstr ""
+msgstr "L'entrada existís pas."
 
 #: src/Process/Backend/Comment.php:90 src/Process/Backend/Post.php:564
 msgid "Comment has been successfully created."
-msgstr ""
+msgstr "Lo comentari es estat creat amb succès."
 
 #: src/Process/Backend/Comment.php:182 src/Process/Backend/Comment.php:242
 msgid "Comment has been successfully updated."
-msgstr ""
+msgstr "Lo comentari es estat mes a jorn amb succès."
 
 #: src/Process/Backend/Comment.php:198
 msgid "Comment has been successfully deleted."
-msgstr ""
+msgstr "Lo comentari es estat suprimit amb succès."
 
 #: src/Process/Backend/Comment.php:206
 msgid "You can't edit this comment."
-msgstr ""
+msgstr "Podètz pas modificar aqueste comentari."
 
 #: src/Process/Backend/Comment.php:227 src/Process/Backend/Comment.php:230
 msgid "Edit comment"
@@ -4146,14 +4146,16 @@ msgstr "Modificar lo comentari"
 #: src/Process/Backend/Comment.php:248
 #, php-format
 msgid "Your comment on my blog %s"
-msgstr ""
+msgstr "Vòstre comentari sus mon blòg %s"
 
 #: src/Process/Backend/Comment.php:249
 #, php-format
 msgid "Hi!\n\n"
 "You wrote a comment on:\n"
 "%s\n\n\n"
-msgstr ""
+msgstr "Adieu!\n\n"
+"As escrich un comentari sus:\n"
+"%s\n\n\n"
 
 #: src/Process/Backend/Comment.php:249
 msgid "Send an e-mail"
@@ -4161,7 +4163,7 @@ msgstr "Enviar un corrièl"
 
 #: src/Process/Backend/Comment.php:255
 msgid "Information collected"
-msgstr ""
+msgstr "Informacion collectada"
 
 #: src/Process/Backend/Comment.php:264
 msgid "Date:"
@@ -4169,7 +4171,7 @@ msgstr "Data :"
 
 #: src/Process/Backend/Comment.php:268
 msgid "Comment submitted"
-msgstr ""
+msgstr "Comentari mandat"
 
 #: src/Process/Backend/Comment.php:297 src/Process/Backend/Post.php:904
 msgid "Comment:"
@@ -4177,11 +4179,11 @@ msgstr "Comentari :"
 
 #: src/Process/Backend/Comments.php:135
 msgid "Spam comments have been successfully deleted."
-msgstr ""
+msgstr "Los comentaris indesirables son estats suprimits amb succès."
 
 #: src/Process/Backend/Comments.php:146
 msgid "You have one spam comment."
-msgstr ""
+msgstr "Avètz un comentari indesirables."
 
 #: src/Process/Backend/Comments.php:147
 msgid "Show it."
@@ -4190,7 +4192,7 @@ msgstr "Mostratz-lo."
 #: src/Process/Backend/Comments.php:149
 #, php-format
 msgid "You have %s spam comments."
-msgstr ""
+msgstr "Avètz %s comentaris indesirables."
 
 #: src/Process/Backend/Comments.php:150
 msgid "Show them."
@@ -4198,28 +4200,28 @@ msgstr "Los mostrar."
 
 #: src/Process/Backend/Comments.php:157
 msgid "Delete all spams"
-msgstr ""
+msgstr "Suprimir totes los corrièrs indesirables"
 
 #: src/Process/Backend/Comments.php:180 src/Process/Backend/Post.php:869
 #: src/Process/Backend/Search.php:349
 msgid "Selected comments action:"
-msgstr ""
+msgstr "Accion de comentaris seleccionadas:"
 
 #: src/Process/Backend/Home.php:53 src/Process/Backend/Plugins.php:49
 msgid "The following plugins have been disabled :"
-msgstr ""
+msgstr "Los ensambladors seguents son estats desactivats:"
 
 #: src/Process/Backend/Home.php:131
 msgid "Documentation and support"
-msgstr ""
+msgstr "Documentacion e supòrt"
 
 #: src/Process/Backend/Home.php:176
 msgid "Dashboard area's drag and drop is disabled"
-msgstr ""
+msgstr "L'arrossegament e la descarga de l'airal del tablèu de bòrd es desactivat"
 
 #: src/Process/Backend/Home.php:177
 msgid "Dashboard area's drag and drop is enabled"
-msgstr ""
+msgstr "L'arrossegament e la descarga de l'airal del tablèu de bòrd es activat"
 
 #: src/Process/Backend/Home.php:190 src/Process/Backend/Home.php:203
 #: src/Process/Upgrade/Home.php:132
@@ -4228,7 +4230,7 @@ msgstr "Tablèu de bòrd"
 
 #: src/Process/Backend/Home.php:211
 msgid "Make this blog my default blog"
-msgstr ""
+msgstr "Fasètz d'aqueste blòg mon blòg per defaut"
 
 #: src/Process/Backend/Home.php:215
 msgid "This blog is offline"
@@ -4236,40 +4238,40 @@ msgstr "Aqueste blòg es fòra linha"
 
 #: src/Process/Backend/Home.php:217
 msgid "This blog is removed"
-msgstr ""
+msgstr "Aqueste blòg es suprimit"
 
 #: src/Process/Backend/Home.php:222 src/Process/Backend/Home.php:230
 #: src/Process/Upgrade/Home.php:57 src/Process/Upgrade/Home.php:62
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
-msgstr ""
+msgstr "%s es pas definit, vos caldriá modificar vòstre fichièr de configuracion."
 
 #: src/Process/Backend/Home.php:223 src/Process/Backend/Home.php:231
 #: src/Process/Upgrade/Home.php:58 src/Process/Upgrade/Home.php:63
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
-msgstr ""
+msgstr "Consultatz <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> per mai d'informacions."
 
 #: src/Process/Backend/Home.php:241 src/Process/Upgrade/Home.php:67
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
-msgstr ""
+msgstr "Lo repertòri de cache existís pas o es pas escrichable. Vos cal crear aqueste repertòri amb de dreches sufisents e afectar aqueste emplaçament a \"DC_TPL_CACHE\" dins lo fichièr inc/config.php."
 
 #: src/Process/Backend/Home.php:245
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
-msgstr ""
+msgstr "Lo repertòri de cache existís pas o es pas escrichable. Vos caldriá contactar vòstre administrator."
 
 #: src/Process/Backend/Home.php:280 src/Process/Backend/Plugins.php:119
 #: src/Process/Install/Install.php:505 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
-msgstr ""
+msgstr "Los ensambladors seguents son estats installats:"
 
 #: src/Process/Backend/Home.php:294 src/Process/Backend/Plugins.php:133
 #: src/Process/Install/Install.php:512 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have not been installed:"
-msgstr ""
+msgstr "Los ensambladors seguents son pas estats installats:"
 
 #: src/Process/Backend/Home.php:307
 msgid "Errors have occured with following plugins:"
-msgstr ""
+msgstr "D'errors se son produchas amb los ensambladors seguents:"
 
 #: src/Process/Backend/Home.php:425
 msgid "Quick post"
@@ -4289,7 +4291,7 @@ msgstr "Ajustar una categoria novèla"
 
 #: src/Process/Backend/Home.php:451
 msgid "This category will be created when you will save your post."
-msgstr ""
+msgstr "Aquesta categoria serà creada quand enregistraretz vòstre messatge."
 
 #: src/Process/Backend/Home.php:458
 msgid "Save and publish"
@@ -4309,7 +4311,7 @@ msgstr "Una error s’es producha pendent la mesa a nivèl de la lenga."
 
 #: src/Process/Backend/Langs.php:109 src/Process/Upgrade/Langs.php:139
 msgid "No such installed language"
-msgstr ""
+msgstr "Pas de lenga installada aital"
 
 #: src/Process/Backend/Langs.php:113 src/Process/Upgrade/Langs.php:143
 msgid "You can't remove English language."
@@ -4317,32 +4319,32 @@ msgstr "Podètz pas tirar l’anglés."
 
 #: src/Process/Backend/Langs.php:117 src/Process/Upgrade/Langs.php:147
 msgid "Permissions to delete language denied."
-msgstr ""
+msgstr "Las autorizacions per suprimir la lenga refusadas."
 
 #: src/Process/Backend/Langs.php:120 src/Process/Backend/Langs.php:222
 #: src/Process/Upgrade/Langs.php:150 src/Process/Upgrade/Langs.php:236
 msgid "Language has been successfully deleted."
-msgstr ""
+msgstr "La lenga es estada suprimida amb succès."
 
 #: src/Process/Backend/Langs.php:137 src/Process/Upgrade/Langs.php:167
 msgid "Invalid language file URL."
-msgstr ""
+msgstr "URL de fichièr de lenga invalid."
 
 #: src/Process/Backend/Langs.php:149 src/Process/Upgrade/Langs.php:179
 msgid "Unable to make a HTTP request."
-msgstr ""
+msgstr "Impossible de far una requèsta HTTP."
 
 #: src/Process/Backend/Langs.php:162 src/Process/Backend/Langs.php:195
 #: src/Process/Backend/Langs.php:226 src/Process/Upgrade/Langs.php:192
 #: src/Process/Upgrade/Langs.php:225 src/Process/Upgrade/Langs.php:240
 msgid "Language has been successfully upgraded"
-msgstr ""
+msgstr "La lenga es estada mesa a jorn amb succès"
 
 #: src/Process/Backend/Langs.php:164 src/Process/Backend/Langs.php:197
 #: src/Process/Backend/Langs.php:226 src/Process/Upgrade/Langs.php:194
 #: src/Process/Upgrade/Langs.php:227 src/Process/Upgrade/Langs.php:240
 msgid "Language has been successfully installed."
-msgstr ""
+msgstr "La lenga es estada installada amb succès."
 
 #: src/Process/Backend/Langs.php:211 src/Process/Backend/Langs.php:216
 #: src/Process/Upgrade/Langs.php:258 src/Process/Upgrade/Langs.php:263
@@ -4352,7 +4354,7 @@ msgstr "Gestion de las lengas"
 #: src/Process/Backend/Langs.php:232
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
-msgstr ""
+msgstr "Podètz modificar vòstra lenga d'utilizaire dins vòstras <a href=\"%1$s\">preferéncias</a> o modificar la lenga principala de vòstre blòg dins vòstres <a href=\"%2$s\">paramètres del blòg</a>."
 
 #: src/Process/Backend/Langs.php:238 src/Process/Upgrade/Langs.php:322
 msgid "Installed languages"
@@ -4368,12 +4370,12 @@ msgstr "Lenga"
 
 #: src/Process/Backend/Langs.php:290
 msgid "Install or upgrade languages"
-msgstr ""
+msgstr "Installar o metre a jorn de lengas"
 
 #: src/Process/Backend/Langs.php:293 src/Process/Upgrade/Langs.php:245
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
-msgstr ""
+msgstr "Podètz installar o suprimir una lenga en apondent o suprimissent lo repertòri pertinent dins vòstre dorsièr %s."
 
 #: src/Process/Backend/Langs.php:307
 msgid "Available languages"
@@ -4382,7 +4384,7 @@ msgstr "Lengas disponiblas"
 #: src/Process/Backend/Langs.php:309 src/Process/Upgrade/Langs.php:359
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
-msgstr ""
+msgstr "Podètz telecargar e installar una lenga suplementària dirèctament dempuèi Dotclear.net. Las lengas prepausadas son basadas sus vòstra version : %s."
 
 #: src/Process/Backend/Langs.php:311 src/Process/Backend/User.php:381
 #: src/Process/Upgrade/Langs.php:365
@@ -4395,11 +4397,11 @@ msgstr "Installar la lenga"
 
 #: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:403
 msgid "You can install languages by uploading zip files."
-msgstr ""
+msgstr "Podètz installar de lengas en mandant de fichièrs zip."
 
 #: src/Process/Backend/Langs.php:335 src/Process/Upgrade/Langs.php:412
 msgid "Language zip file:"
-msgstr ""
+msgstr "Fichièr zip de lenga:"
 
 #: src/Process/Backend/Langs.php:346 src/Process/Upgrade/Langs.php:439
 msgid "Upload language"
@@ -4419,7 +4421,7 @@ msgstr "Títol del ligam :"
 
 #: src/Process/Backend/LinkPopup.php:67
 msgid "Link language:"
-msgstr ""
+msgstr "Lenga de ligam:"
 
 #: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:789
 msgid "Insert"
@@ -4427,45 +4429,45 @@ msgstr "Inserir"
 
 #: src/Process/Backend/Media.php:79
 msgid "Not a valid directory"
-msgstr ""
+msgstr "Pas un repertòri valid"
 
 #: src/Process/Backend/Media.php:100
 #, php-format
 msgid "Directory or file \"%s\" already exists."
-msgstr ""
+msgstr "Lo repertòri o lo fichièr « %s » existís ja."
 
 #: src/Process/Backend/Media.php:107
 #, php-format
 msgid "Directory \"%s\" has been successfully created."
-msgstr ""
+msgstr "Lo repertòri « %s » es estat creat amb succès."
 
 #: src/Process/Backend/Media.php:161
 msgid "Files have been successfully uploaded."
-msgstr ""
+msgstr "Los fichièrs son estats mandats amb succès."
 
 #: src/Process/Backend/Media.php:188
 #, php-format
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Suprimir amb succès un mèdia."
+msgstr[1] "Suprimir amb succès %d mèdias."
 
 #: src/Process/Backend/Media.php:208
 msgid "Directory has been successfully removed."
-msgstr ""
+msgstr "Lo repertòri es estat suprimit amb succès."
 
 #: src/Process/Backend/Media.php:212
 msgid "File has been successfully removed."
-msgstr ""
+msgstr "Lo fichièr es estat suprimit amb succès."
 
 #: src/Process/Backend/Media.php:233
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
-msgstr ""
+msgstr "Lo repertòri « %s » es estat completat amb succès."
 
 #: src/Process/Backend/Media.php:245 src/Process/Backend/PostMedia.php:96
 msgid "confirm removal"
-msgstr ""
+msgstr "confirmar la supression"
 
 #: src/Process/Backend/Media.php:250
 #, php-format
@@ -4478,33 +4480,33 @@ msgstr "Òc"
 
 #: src/Process/Backend/Media.php:294
 msgid "Remove this folder from your favorites"
-msgstr ""
+msgstr "Suprimissètz aqueste dorsièr de vòstres favorits"
 
 #: src/Process/Backend/Media.php:318
 msgid "Add this folder to your favorites"
-msgstr ""
+msgstr "Apondètz aqueste dorsièr a vòstres favorits"
 
 #: src/Process/Backend/Media.php:324
 msgid "Goto recent folder:"
-msgstr ""
+msgstr "Anatz al dorsièr recent:"
 
 #: src/Process/Backend/Media.php:357
 msgid "You do not have sufficient permissions to write to this folder."
-msgstr ""
+msgstr "Avètz pas pro d'autorizacions per escriure dins aqueste dorsièr."
 
 #: src/Process/Backend/Media.php:371
 #, php-format
 msgid "Select a file by clicking on %s"
-msgstr ""
+msgstr "Seleccionatz un fichièr en clicant sus %s"
 
 #: src/Process/Backend/Media.php:374 src/Process/Backend/Media.php:442
 msgid "Choose selected medias"
-msgstr ""
+msgstr "Causissètz los mèdias seleccionats"
 
 #: src/Process/Backend/Media.php:374
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
-msgstr ""
+msgstr "Seleccionatz los fichièrs e clicatz sul boton <strong>%s</strong>"
 
 #: src/Process/Backend/Media.php:378 src/Process/Backend/Media.php:391
 #: src/Process/Backend/Media.php:404 src/Process/Backend/MediaItem.php:805
@@ -4514,36 +4516,36 @@ msgstr "o"
 #: src/Process/Backend/Media.php:378 src/Process/Backend/Media.php:391
 #: src/Process/Backend/Media.php:404
 msgid "upload a new file"
-msgstr ""
+msgstr "enviar un fichièr novèl"
 
 #: src/Process/Backend/Media.php:385
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
-msgstr ""
+msgstr "Causissètz un fichièr a jonher a l'entrada %s en clicant sus %s"
 
 #: src/Process/Backend/Media.php:399
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
-msgstr ""
+msgstr "Causissètz un fichièr a inserir dins l'entrada en clicant sus %s"
 
 #: src/Process/Backend/Media.php:417 src/Process/Backend/Media.php:418
 #: src/Process/Backend/Media.php:419
 msgid "Grid display mode"
-msgstr ""
+msgstr "Mòde d'afichatge de grasilha"
 
 #: src/Process/Backend/Media.php:421 src/Process/Backend/Media.php:422
 #: src/Process/Backend/Media.php:423
 msgid "List display mode"
-msgstr ""
+msgstr "Mòde d'afichatge de la lista"
 
 #: src/Process/Backend/Media.php:445
 msgid "Remove selected medias"
-msgstr ""
+msgstr "Suprimir los mèdias seleccionats"
 
 #: src/Process/Backend/Media.php:472
 #, php-format
 msgid "In %s:"
-msgstr ""
+msgstr "Dins %s:"
 
 #: src/Process/Backend/Media.php:484
 msgid "Create new directory"
@@ -4555,11 +4557,11 @@ msgstr "Nom del dossièr :"
 
 #: src/Process/Backend/Media.php:499
 msgid "Build missing thumbnails in directory"
-msgstr ""
+msgstr "Bastir las miniaturas mancantas dins lo repertòri"
 
 #: src/Process/Backend/Media.php:501
 msgid "Build"
-msgstr ""
+msgstr "Bastir"
 
 #: src/Process/Backend/Media.php:511
 #, php-format
@@ -4576,17 +4578,17 @@ msgstr "Ajustar de fichièrs"
 
 #: src/Process/Backend/Media.php:536
 msgid "Please take care to publish media that you own and that are not protected by copyright."
-msgstr ""
+msgstr "Mercés de prene en carga de publicar de mèdias que possedissètz e que son pas protegits pels dreches d'autor."
 
 #: src/Process/Backend/Media.php:548
 msgid "Maximum file size allowed:"
-msgstr ""
+msgstr "Talha maximala de fichièr autorizada:"
 
 #: src/Process/Backend/Media.php:550 src/Process/Backend/MediaItem.php:667
 #: src/Process/Backend/MediaItem.php:1029
 #: src/Process/Backend/MediaItem.php:1092
 msgid "Alternate text:"
-msgstr ""
+msgstr "Tèxte alternatiu:"
 
 #: src/Process/Backend/Media.php:551 src/Process/Backend/MediaItem.php:1122
 msgid "Private"
@@ -4594,7 +4596,7 @@ msgstr "Privat"
 
 #: src/Process/Backend/Media.php:556
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
-msgstr ""
+msgstr "Per mandar divèrses fichièrs al meteis temps, podètz activar lo cargaire melhorat dins"
 
 #: src/Process/Backend/Media.php:561
 msgid "Refresh"
@@ -4607,7 +4609,7 @@ msgstr "Tot escafar"
 #: src/Process/Backend/Media.php:594
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
-msgstr ""
+msgstr "Los paramètres actuals pels mèdias e los imatges son definits dins %s"
 
 #: src/Process/Backend/MediaItem.php:112
 msgid "Not a valid file"
@@ -4616,35 +4618,35 @@ msgstr "Es pas un fichièr valid"
 #: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:235
 #: src/Process/Backend/MediaItem.php:498
 msgid "File has been successfully updated."
-msgstr ""
+msgstr "Lo fichièr es estat mes a jorn amb succès."
 
 #: src/Process/Backend/MediaItem.php:252 src/Process/Backend/MediaItem.php:501
 msgid "Thumbnails have been successfully updated."
-msgstr ""
+msgstr "Las miniaturas son estadas mesas a jorn amb succès."
 
 #: src/Process/Backend/MediaItem.php:269
 msgid "Zip file has been successfully extracted."
-msgstr ""
+msgstr "Lo fichièr zip es estat extrach amb succès."
 
 #: src/Process/Backend/MediaItem.php:299 src/Process/Backend/MediaItem.php:504
 msgid "Default media insertion settings have been successfully updated."
-msgstr ""
+msgstr "Los paramètres d'insercion dels mèdias per defaut son estats mes a jorn amb succès."
 
 #: src/Process/Backend/MediaItem.php:325
 msgid "Media insertion settings have been successfully registered for this folder."
-msgstr ""
+msgstr "Los paramètres d'insercion dels mèdias son estats enregistrats amb succès per aqueste dorsièr."
 
 #: src/Process/Backend/MediaItem.php:336
 msgid "Media insertion settings have been successfully removed for this folder."
-msgstr ""
+msgstr "Los paramètres d'insercion dels mèdias son estats suprimits amb succès per aqueste dorsièr."
 
 #: src/Process/Backend/MediaItem.php:533 src/Process/Backend/MediaItem.php:534
 msgid "Select media item"
-msgstr ""
+msgstr "Seleccionatz l'element mèdia"
 
 #: src/Process/Backend/MediaItem.php:545 src/Process/Backend/MediaItem.php:620
 msgid "Image size:"
-msgstr ""
+msgstr "Talha de l'imatge:"
 
 #: src/Process/Backend/MediaItem.php:572 src/Process/Upgrade/Attic.php:302
 msgid "Select"
@@ -4652,43 +4654,43 @@ msgstr "Seleccionar"
 
 #: src/Process/Backend/MediaItem.php:607 src/Process/Backend/MediaItem.php:608
 msgid "Insert media item"
-msgstr ""
+msgstr "Inserir l'element mèdia"
 
 #: src/Process/Backend/MediaItem.php:639
 msgid "Image legend and alternate text"
-msgstr ""
+msgstr "Legenda d'imatge e tèxte alternatiu"
 
 #: src/Process/Backend/MediaItem.php:669
 msgid "Legend:"
-msgstr ""
+msgstr "Legenda:"
 
 #: src/Process/Backend/MediaItem.php:674
 msgid "Image alignment"
-msgstr ""
+msgstr "Alinhament de l'imatge"
 
 #: src/Process/Backend/MediaItem.php:694
 msgid "Image insertion"
-msgstr ""
+msgstr "Insercion d'imatge"
 
 #: src/Process/Backend/MediaItem.php:697
 msgid "As a single image"
-msgstr ""
+msgstr "Coma una sola imatge"
 
 #: src/Process/Backend/MediaItem.php:699
 msgid "As a link to the original image"
-msgstr ""
+msgstr "Coma ligam cap a l'imatge original"
 
 #: src/Process/Backend/MediaItem.php:707
 msgid "MP3 disposition"
-msgstr ""
+msgstr "Disposicion MP3"
 
 #: src/Process/Backend/MediaItem.php:710
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
-msgstr ""
+msgstr "Notatz que podètz pas inserir de fichièrs mp3 amb l'editor estandard en mòde HTML WYSIWYG."
 
 #: src/Process/Backend/MediaItem.php:740
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
-msgstr ""
+msgstr "Notatz que podètz pas inserir de fichièrs vidèo amb l'editor estandard en mòde HTML WYSIWYG."
 
 #: src/Process/Backend/MediaItem.php:745
 msgid "Video size"
@@ -4704,49 +4706,49 @@ msgstr "_Nautor :"
 
 #: src/Process/Backend/MediaItem.php:755
 msgid "Video disposition"
-msgstr ""
+msgstr "Disposicion vidèo"
 
 #: src/Process/Backend/MediaItem.php:784
 msgid "Media item will be inserted as a link."
-msgstr ""
+msgstr "L'element mèdia serà inserit coma un ligam."
 
 #: src/Process/Backend/MediaItem.php:804
 msgid "Make current settings as default"
-msgstr ""
+msgstr "Rendre los paramètres actuals coma per defaut"
 
 #: src/Process/Backend/MediaItem.php:805
 msgid "For the blog"
-msgstr ""
+msgstr "Per lo blòg"
 
 #: src/Process/Backend/MediaItem.php:806
 msgid "For this folder only"
-msgstr ""
+msgstr "Per aqueste dorsièr solament"
 
 #: src/Process/Backend/MediaItem.php:815
 msgid "Settings exist for this folder:"
-msgstr ""
+msgstr "Los paramètres existisson per aqueste dorsièr:"
 
 #: src/Process/Backend/MediaItem.php:816
 msgid "Remove them"
-msgstr ""
+msgstr "Levatz-los"
 
 #: src/Process/Backend/MediaItem.php:835 src/Process/Backend/MediaItem.php:838
 #: src/Process/Backend/MediaItem.php:919
 msgid "Media details"
-msgstr ""
+msgstr "Detalhs dels mèdias"
 
 #: src/Process/Backend/MediaItem.php:870
 msgid "Available sizes:"
-msgstr ""
+msgstr "Talhas disponiblas:"
 
 #: src/Process/Backend/MediaItem.php:891
 msgid "Thumbnail details"
-msgstr ""
+msgstr "Detalhs de la miniatura"
 
 #: src/Process/Backend/MediaItem.php:896 src/Process/Backend/MediaItem.php:933
 #: src/Process/Backend/MediaItem.php:944
 msgid "Image width:"
-msgstr ""
+msgstr "Largor de l'imatge:"
 
 #: src/Process/Backend/MediaItem.php:897 src/Process/Backend/MediaItem.php:937
 #: src/Process/Backend/MediaItem.php:945
@@ -4759,62 +4761,62 @@ msgstr "Talha del fichièr :"
 
 #: src/Process/Backend/MediaItem.php:904 src/Process/Backend/MediaItem.php:951
 msgid "File URL:"
-msgstr ""
+msgstr "URL del fichièr:"
 
 #: src/Process/Backend/MediaItem.php:921
 msgid "File owner:"
-msgstr ""
+msgstr "Proprietari del fichièr:"
 
 #: src/Process/Backend/MediaItem.php:922
 msgid "File type:"
-msgstr ""
+msgstr "Tipe de fichièr:"
 
 #: src/Process/Backend/MediaItem.php:957
 msgid "Show entries containing this media"
-msgstr ""
+msgstr "Mostrar las entradas que contenon aqueste mèdia"
 
 #: src/Process/Backend/MediaItem.php:960
 msgid "Entries containing this media"
-msgstr ""
+msgstr "Entradas que contenon aqueste mèdia"
 
 #: src/Process/Backend/MediaItem.php:997
 msgid "No entry seems contain this media."
-msgstr ""
+msgstr "Cap d'entrada sembla pas conténer aqueste mèdia."
 
 #: src/Process/Backend/MediaItem.php:1024
 msgid "Image details"
-msgstr ""
+msgstr "Detalhs de l'imatge"
 
 #: src/Process/Backend/MediaItem.php:1034
 msgid ":"
-msgstr ""
+msgstr ":"
 
 #: src/Process/Backend/MediaItem.php:1043
 msgid "No detail"
-msgstr ""
+msgstr "Pas de detalh"
 
 #: src/Process/Backend/MediaItem.php:1050
 msgid "Updates and modifications"
-msgstr ""
+msgstr "Mesas a jorn e modificacions"
 
 #: src/Process/Backend/MediaItem.php:1056
 #: src/Process/Backend/MediaItem.php:1058
 msgid "Update thumbnails"
-msgstr ""
+msgstr "Metre a jorn las miniaturas"
 
 #: src/Process/Backend/MediaItem.php:1057
 msgid "This will create or update thumbnails for this image."
-msgstr ""
+msgstr "Aquò crearà o metrà a jorn de miniaturas per aqueste imatge."
 
 #: src/Process/Backend/MediaItem.php:1066
 #: src/Process/Backend/MediaItem.php:1074
 msgid "Extract in a new directory"
-msgstr ""
+msgstr "Extraire dins un repertòri novèl"
 
 #: src/Process/Backend/MediaItem.php:1067
 #: src/Process/Backend/MediaItem.php:1076
 msgid "Extract in current directory"
-msgstr ""
+msgstr "Extraire dins lo repertòri actual"
 
 #: src/Process/Backend/MediaItem.php:1072
 msgid "Extract archive"
@@ -4822,15 +4824,15 @@ msgstr "Traire l'archiu"
 
 #: src/Process/Backend/MediaItem.php:1075
 msgid "This will extract archive in a new directory that should not exist yet."
-msgstr ""
+msgstr "Aquò extrairà l'archiu dins un repertòri novèl que deuriá pas existir encara."
 
 #: src/Process/Backend/MediaItem.php:1077
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
-msgstr ""
+msgstr "Aquò extrairà l'archiu dins lo repertòri actual e subrescriurà los fichièrs o lo repertòri existents."
 
 #: src/Process/Backend/MediaItem.php:1079
 msgid "Extract mode:"
-msgstr ""
+msgstr "Mòde d'extraccion:"
 
 #: src/Process/Backend/MediaItem.php:1081
 msgid "Extract"
@@ -4838,7 +4840,7 @@ msgstr "Traire"
 
 #: src/Process/Backend/MediaItem.php:1089
 msgid "Change media properties"
-msgstr ""
+msgstr "Cambiar las proprietats del mèdia"
 
 #: src/Process/Backend/MediaItem.php:1090
 msgid "File name:"
@@ -4846,40 +4848,40 @@ msgstr "Nom de fichièrs :"
 
 #: src/Process/Backend/MediaItem.php:1115
 msgid "File date:"
-msgstr ""
+msgstr "Data del fichièr:"
 
 #: src/Process/Backend/MediaItem.php:1123
 msgid "New directory:"
-msgstr ""
+msgstr "Novèl repertòri:"
 
 #: src/Process/Backend/MediaItem.php:1131
 msgid "Change file"
-msgstr ""
+msgstr "Cambiar lo fichièr"
 
 #: src/Process/Backend/MediaItem.php:1133
 msgid "Choose a file:"
-msgstr ""
+msgstr "Causissètz un fichièr:"
 
 #: src/Process/Backend/MediaItem.php:1134
 #, php-format
 msgid "Maximum size %s"
-msgstr ""
+msgstr "Talha maximala %s"
 
 #: src/Process/Backend/MediaItem.php:1145
 msgid "Delete this media"
-msgstr ""
+msgstr "Suprimir aqueste mèdia"
 
 #: src/Process/Backend/Plugin.php:80
 msgid "No content found on this plugin."
-msgstr ""
+msgstr "Cap de contengut pas trobat sus aqueste ensamblador."
 
 #: src/Process/Backend/Plugin.php:130 src/Process/Backend/Plugin.php:135
 msgid "Plugin not found"
-msgstr ""
+msgstr "Lo plugin pas trobat"
 
 #: src/Process/Backend/Plugin.php:139
 msgid "The plugin you reached does not exist or does not have an admin page."
-msgstr ""
+msgstr "L'ensamblador qu'avètz atench existís pas o a pas una pagina d'administracion."
 
 #: src/Process/Backend/Plugins.php:143 src/Process/Backend/Plugins.php:152
 #: src/Process/Upgrade/Plugins.php:159
@@ -4888,43 +4890,43 @@ msgstr "Empeutons installats"
 
 #: src/Process/Backend/Plugins.php:152 src/Process/Upgrade/Plugins.php:168
 msgid "Activated plugins"
-msgstr ""
+msgstr "Ensambladors activats"
 
 #: src/Process/Backend/Plugins.php:155 src/Process/Upgrade/Plugins.php:170
 msgid "You can configure and manage installed plugins from this list."
-msgstr ""
+msgstr "Podètz configurar e gerir los ensambladors installats a partir d'aquesta lista."
 
 #: src/Process/Backend/Plugins.php:174 src/Process/Upgrade/Plugins.php:189
 msgid "Deactivated plugins"
-msgstr ""
+msgstr "Ensambladors desactivats"
 
 #: src/Process/Backend/Plugins.php:175 src/Process/Upgrade/Plugins.php:190
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
-msgstr ""
+msgstr "Los ensambladors desactivats son installats mas pas utilizables. Los podètz activar dempuèi aicí."
 
 #: src/Process/Backend/Plugins.php:200 src/Process/Upgrade/Plugins.php:133
 msgid "Manual checking of plugins update done successfully."
-msgstr ""
+msgstr "Verificacion manuala de la mesa a jorn dels ensambladors facha amb succès."
 
 #: src/Process/Backend/Plugins.php:204 src/Process/Backend/Plugins.php:205
 #: src/Process/Upgrade/Plugins.php:211 src/Process/Upgrade/Plugins.php:212
 msgid "Update plugins"
-msgstr ""
+msgstr "Metre a jorn los ensambladors"
 
 #: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:223
 msgid "Force checking update of plugins"
-msgstr ""
+msgstr "Forçar la mesa a jorn de verificacion dels ensambladors"
 
 #: src/Process/Backend/Plugins.php:233 src/Process/Upgrade/Plugins.php:230
 msgid "No updates available for plugins."
-msgstr ""
+msgstr "Cap de mesa a jorn disponibla pels ensambladors."
 
 #: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:235
 #, php-format
 msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "I a una mesa a jorn de plugin disponibla:"
+msgstr[1] "I a de mesas a jorn de %s ensambladors disponiblas:"
 
 #: src/Process/Backend/Plugins.php:273 src/Process/Upgrade/Plugins.php:274
 msgid "Add plugins"
@@ -4932,82 +4934,82 @@ msgstr "Apondre un lempeuton"
 
 #: src/Process/Backend/Plugins.php:274 src/Process/Upgrade/Plugins.php:275
 msgid "Add plugins from repository"
-msgstr ""
+msgstr "Apondre d'ensambladors dempuèi lo depaus"
 
 #: src/Process/Backend/Plugins.php:304 src/Process/Upgrade/Plugins.php:305
 msgid "Add plugins from a package"
-msgstr ""
+msgstr "Apondre d'ensambladors dempuèi un paquet"
 
 #: src/Process/Backend/Plugins.php:305 src/Process/Upgrade/Plugins.php:306
 msgid "You can install plugins by uploading or downloading zip files."
-msgstr ""
+msgstr "Podètz installar d'ensambladors en cargant o en telecargant de fichièrs zip."
 
 #: src/Process/Backend/Plugins.php:319 src/Process/Upgrade/Plugins.php:317
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
-msgstr ""
+msgstr "Qualques foncions son desactivadas, donatz un accès d'escritura a vòstre repertòri d'ensambladors per los activar."
 
 #: src/Process/Backend/Plugins.php:350
 msgid "Plugin configuration"
-msgstr ""
+msgstr "Configuracion del plugin"
 
 #: src/Process/Backend/Post.php:131 src/Process/Backend/Post.php:758
 #: src/Process/Backend/Post.php:763
 msgid "Edit post"
-msgstr ""
+msgstr "Modificar lo messatge"
 
 #: src/Process/Backend/Post.php:170
 msgid "Next entry"
-msgstr ""
+msgstr "Entrada seguenta"
 
 #: src/Process/Backend/Post.php:185
 msgid "Previous entry"
-msgstr ""
+msgstr "Entrada precedenta"
 
 #: src/Process/Backend/Post.php:266 src/Process/Backend/Post.php:567
 msgid "All pings sent."
-msgstr ""
+msgstr "Totes los pings mandats."
 
 #: src/Process/Backend/Post.php:296
 msgid "Invalid publication date"
-msgstr ""
+msgstr "Data de publicacion invalida"
 
 #: src/Process/Backend/Post.php:420
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
-msgstr ""
+msgstr "Lo messatge « %s » es estat mes a jorn amb succès"
 
 #: src/Process/Backend/Post.php:482
 #, php-format
 msgid "&ldquo;%s&rdquo;"
-msgstr ""
+msgstr "&ldquo;%s&rdquo;"
 
 #: src/Process/Backend/Post.php:554
 msgid "Entry has been successfully updated."
-msgstr ""
+msgstr "L'entrada es estada mesa a jorn amb succès."
 
 #: src/Process/Backend/Post.php:558
 msgid "File has been successfully attached."
-msgstr ""
+msgstr "Lo fichièr es estat jonch amb succès."
 
 #: src/Process/Backend/Post.php:560 src/Process/Backend/PostMedia.php:87
 msgid "Attachment has been successfully removed."
-msgstr ""
+msgstr "L'adjonch es estat suprimit amb succès."
 
 #: src/Process/Backend/Post.php:576
 msgid "Don't forget to validate your XHTML conversion by saving your post."
-msgstr ""
+msgstr "Oblidetz pas de validar vòstra conversion XHTML en enregistrant vòstre article."
 
 #: src/Process/Backend/Post.php:581
 msgid "Go to this entry on the site"
-msgstr ""
+msgstr "Anatz a aquesta dintrada sul sit"
 
 #: src/Process/Backend/Post.php:616
 msgid "Entry status"
-msgstr ""
+msgstr "Estat de dintrada"
 
 #: src/Process/Backend/Post.php:623
 msgid "Publication date and hour"
-msgstr ""
+msgstr "Data e ora de publicacion"
 
 #: src/Process/Backend/Post.php:629
 msgid "Entry language"
@@ -5015,51 +5017,51 @@ msgstr "Lenga de l’entrada"
 
 #: src/Process/Backend/Post.php:632
 msgid "Text formatting"
-msgstr ""
+msgstr "Formatatge del tèxte"
 
 #: src/Process/Backend/Post.php:638
 msgid "Convert to HTML"
-msgstr ""
+msgstr "Convertir en HTML"
 
 #: src/Process/Backend/Post.php:642
 msgid "Filing"
-msgstr ""
+msgstr "Depaus"
 
 #: src/Process/Backend/Post.php:646
 msgid "Selected entry"
-msgstr ""
+msgstr "Entrada seleccionada"
 
 #: src/Process/Backend/Post.php:668 src/Process/Backend/User.php:379
 msgid "Options"
-msgstr ""
+msgstr "Opcions"
 
 #: src/Process/Backend/Post.php:671
 msgid "Comments and trackbacks list"
-msgstr ""
+msgstr "Lista de comentaris e de pistas"
 
 #: src/Process/Backend/Post.php:677
 msgid "Warning: Comments are not more accepted for this entry."
-msgstr ""
+msgstr "Atencion: los comentaris son pas mai acceptats per aquesta entrada."
 
 #: src/Process/Backend/Post.php:679
 msgid "Comments are not accepted on this blog so far."
-msgstr ""
+msgstr "Los comentaris son pas acceptats sus aqueste blòg fins ara."
 
 #: src/Process/Backend/Post.php:685
 msgid "Warning: Trackbacks are not more accepted for this entry."
-msgstr ""
+msgstr "Atencion: los trackbacks son pas mai acceptats per aquesta entrada."
 
 #: src/Process/Backend/Post.php:686
 msgid "Trackbacks are not accepted on this blog so far."
-msgstr ""
+msgstr "Los trackbacks son pas acceptats sus aqueste blòg fins ara."
 
 #: src/Process/Backend/Post.php:692
 msgid "Edit basename"
-msgstr ""
+msgstr "Modificar lo nom de basa"
 
 #: src/Process/Backend/Post.php:696
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
-msgstr ""
+msgstr "Atencion: se definissètz l'URL manualament, pòt èsser en conflicte amb una autra dintrada."
 
 #: src/Process/Backend/Post.php:713
 msgid "Excerpt:"
@@ -5067,71 +5069,71 @@ msgstr "Estrach:"
 
 #: src/Process/Backend/Post.php:714
 msgid "Introduction to the post."
-msgstr ""
+msgstr "Introduccion al pòst."
 
 #: src/Process/Backend/Post.php:739
 msgid "Personal notes:"
-msgstr ""
+msgstr "Nòtas personalas:"
 
 #: src/Process/Backend/Post.php:740
 msgid "Unpublished notes."
-msgstr ""
+msgstr "Nòtas ineditas."
 
 #: src/Process/Backend/Post.php:848 src/Process/Backend/Post.php:883
 msgid "Add a comment"
-msgstr ""
+msgstr "Apondre un comentari"
 
 #: src/Process/Backend/Post.php:948
 msgid "Trackbacks received"
-msgstr ""
+msgstr "De trackbacks recebuts"
 
 #: src/Process/Backend/Post.php:954
 msgid "No trackback"
-msgstr ""
+msgstr "Pas de trackback"
 
 #: src/Process/Backend/Post.php:962
 msgid "Selected trackbacks action:"
-msgstr ""
+msgstr "Accion de trackback seleccionada:"
 
 #: src/Process/Backend/Post.php:979 src/Process/Backend/Post.php:990
 msgid "Ping blogs"
-msgstr ""
+msgstr "Los blògs de ping"
 
 #: src/Process/Backend/Post.php:981
 msgid "URLs to ping:"
-msgstr ""
+msgstr "URLs per ping:"
 
 #: src/Process/Backend/Post.php:985
 msgid "Excerpt to send:"
-msgstr ""
+msgstr "Extrach a mandar:"
 
 #: src/Process/Backend/Post.php:991
 msgid "Auto discover ping URLs"
-msgstr ""
+msgstr "Descobèrta automatica de las URL de ping"
 
 #: src/Process/Backend/Post.php:999
 msgid "Previously sent pings"
-msgstr ""
+msgstr "Pings mandats precedentament"
 
 #: src/Process/Backend/Post.php:1116
 msgid "select this comment"
-msgstr ""
+msgstr "seleccionatz aqueste comentari"
 
 #: src/Process/Backend/Post.php:1116
 msgid "select this trackback"
-msgstr ""
+msgstr "seleccionatz aqueste trackback"
 
 #: src/Process/Backend/Post.php:1135
 msgid "Edit this comment"
-msgstr ""
+msgstr "Modificatz aqueste comentari"
 
 #: src/Process/Backend/PostMedia.php:74
 msgid "This attachment does not exist"
-msgstr ""
+msgstr "Aquesta junta existís pas"
 
 #: src/Process/Backend/PostMedia.php:94
 msgid "Remove attachment"
-msgstr ""
+msgstr "Suprimir l'adjunta"
 
 #: src/Process/Backend/PostMedia.php:96
 msgid "Attachment"
@@ -5139,27 +5141,27 @@ msgstr "Pèça junta"
 
 #: src/Process/Backend/PostMedia.php:105
 msgid "Are you sure you want to remove this attachment?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir aqueste joint?"
 
 #: src/Process/Backend/Posts.php:95
 msgid "Selected entries have been successfully updated."
-msgstr ""
+msgstr "Las dintradas seleccionadas son estadas mesas a jorn amb succès."
 
 #: src/Process/Backend/Posts.php:97
 msgid "Selected entries have been successfully deleted."
-msgstr ""
+msgstr "Las entradas seleccionadas son estadas suprimidas amb succès."
 
 #: src/Process/Backend/Posts.php:117 src/Process/Backend/Search.php:270
 msgid "Selected entries action:"
-msgstr ""
+msgstr "Accion d'entradas seleccionadas:"
 
 #: src/Process/Backend/PostsPopup.php:78 src/Process/Backend/PostsPopup.php:85
 msgid "Add a link to an entry"
-msgstr ""
+msgstr "Apondre un ligam cap a una dintrada"
 
 #: src/Process/Backend/PostsPopup.php:89
 msgid "Entry type:"
-msgstr ""
+msgstr "Tipe d'entrada:"
 
 #: src/Process/Backend/PostsPopup.php:90
 msgid "Ok"
@@ -5167,7 +5169,7 @@ msgstr "D’acòrdi"
 
 #: src/Process/Backend/PostsPopup.php:99
 msgid "Search entry:"
-msgstr ""
+msgstr "Entrada de recèrca:"
 
 #: src/Process/Backend/PostsPopup.php:123
 msgid "cancel"
@@ -5175,28 +5177,28 @@ msgstr "anullar"
 
 #: src/Process/Backend/Rest.php:108
 msgid "Dotclear news not available"
-msgstr ""
+msgstr "Las novèlas de Dotclear pas disponiblas"
 
 #: src/Process/Backend/Rest.php:122
 msgid "Dotclear news"
-msgstr ""
+msgstr "Notícias de Dotclear"
 
 #: src/Process/Backend/Rest.php:128
 msgid "%d %B %Y:"
-msgstr ""
+msgstr "%d %B %Y:"
 
 #: src/Process/Backend/Rest.php:160
 msgid "Dotclear update not available"
-msgstr ""
+msgstr "La mesa a jorn de Dotclear pas disponibla"
 
 #: src/Process/Backend/Rest.php:171
 #, php-format
 msgid "Dotclear %s is available!"
-msgstr ""
+msgstr "Dotclear %s es disponible!"
 
 #: src/Process/Backend/Rest.php:172
 msgid "Upgrade now"
-msgstr ""
+msgstr "Metre a jorn ara"
 
 #: src/Process/Backend/Rest.php:173
 msgid "Remind me later"
@@ -5205,22 +5207,22 @@ msgstr "Lo me remembrar pus tard"
 #: src/Process/Backend/Rest.php:175 src/Process/Upgrade/Upgrade.php:244
 #: src/Process/Upgrade/Upgrade.php:245
 msgid "Information about this version"
-msgstr ""
+msgstr "Informacions sus aquesta version"
 
 #: src/Process/Backend/Rest.php:180
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
+msgstr "Una version novèla de Dotclear es disponibla mas a besonh de version PHP ≥ %s, la vòstra es actualament %s"
 
 #: src/Process/Backend/Rest.php:195 src/Process/Backend/Update.php:140
 #: src/Process/Upgrade/Upgrade.php:210
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
+msgstr "Las versions seguentas de Dotclear prendràn pas en carga la version PHP < %s, la vòstra es actualament %s"
 
 #: src/Process/Backend/Rest.php:227
 msgid "No updates are available"
-msgstr ""
+msgstr "Cap de mesa a jorn es pas disponibla"
 
 #: src/Process/Backend/Rest.php:270
 #, php-format
@@ -5231,23 +5233,23 @@ msgstr[1] "%s mesas a jorn son disponiblas."
 
 #: src/Process/Backend/Rest.php:833
 msgid "List options saved"
-msgstr ""
+msgstr "Opcions de lista enregistradas"
 
 #: src/Process/Backend/Search.php:152
 msgid "Search options"
-msgstr ""
+msgstr "Opcions de recèrca"
 
 #: src/Process/Backend/Search.php:153
 msgid "Query:"
-msgstr ""
+msgstr "Question:"
 
 #: src/Process/Backend/Search.php:155
 msgid "In:"
-msgstr ""
+msgstr "Dins:"
 
 #: src/Process/Backend/Search.php:172
 msgid "No results found"
-msgstr ""
+msgstr "Cap de resultat pas trobat"
 
 #: src/Process/Backend/Search.php:190
 msgid "Search in entries"
@@ -5255,21 +5257,21 @@ msgstr "Cercar dins las entradas"
 
 #: src/Process/Backend/Search.php:191
 msgid "Search in comments"
-msgstr ""
+msgstr "Cercar dins los comentaris"
 
 #: src/Process/Backend/Search.php:256
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "una entrada trobada"
+msgstr[1] "%d entradas trobadas"
 
 #: src/Process/Backend/Search.php:327
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "un comentari trobat"
+msgstr[1] "%d comentaris trobats"
 
 #: src/Process/Backend/Update.php:32 src/Process/Backend/Update.php:37
 #: src/Process/Backend/Update.php:50 src/Process/Backend/Update.php:55
@@ -5287,18 +5289,18 @@ msgstr[1] ""
 #: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
 #: src/Process/Upgrade/Upgrade.php:293
 msgid "Dotclear update"
-msgstr ""
+msgstr "Mesa a jorn de Dotclear"
 
 #: src/Process/Backend/Update.php:42 src/Process/Backend/Update.php:60
 #: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
 #: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
 #: src/Process/Upgrade/Upgrade.php:86
 msgid "Precheck update error"
-msgstr ""
+msgstr "Error de mesa a jorn de preverificacion"
 
 #: src/Process/Backend/Update.php:43
 msgid "Backup directory does not exist"
-msgstr ""
+msgstr "Lo repertòri de sauvagarda existís pas"
 
 #: src/Process/Backend/Update.php:61
 msgid "Access denied"
@@ -5307,43 +5309,43 @@ msgstr "Accès refusat"
 #: src/Process/Backend/Update.php:110 src/Process/Upgrade/Attic.php:327
 #: src/Process/Upgrade/Upgrade.php:275
 msgid "Congratulations, you're one click away from the end of the update."
-msgstr ""
+msgstr "Felicitacions, sètz a un clic de la fin de la mesa a jorn."
 
 #: src/Process/Backend/Update.php:111 src/Process/Upgrade/Attic.php:333
 #: src/Process/Upgrade/Upgrade.php:281
 msgid "Finish the update."
-msgstr ""
+msgstr "Acabatz la mesa a jorn."
 
 #: src/Process/Backend/Update.php:132
 msgid "Manual checking of update done successfully."
-msgstr ""
+msgstr "Verificacion manuala de la mesa a jorn facha amb succès."
 
 #: src/Process/Backend/Update.php:148 src/Process/Upgrade/Attic.php:234
 #: src/Process/Upgrade/Upgrade.php:219
 msgid "No newer Dotclear version available."
-msgstr ""
+msgstr "Pas de version Dotclear mai novèla disponibla."
 
 #: src/Process/Backend/Update.php:152 src/Process/Upgrade/Attic.php:246
 #: src/Process/Upgrade/Upgrade.php:231
 msgid "Force checking update Dotclear"
-msgstr ""
+msgstr "Forçar la verificacion de la mesa a jorn Dotclear"
 
 #: src/Process/Backend/Update.php:155 src/Process/Backend/Update.php:164
 msgid "Dotclear upgrade dashboard"
-msgstr ""
+msgstr "Tablèu de bòrd de mesa a jorn Dotclear"
 
 #: src/Process/Backend/Update.php:155
 msgid "Go to dedicated upgrade dashboard."
-msgstr ""
+msgstr "Anatz al tablèu de bòrd de mesa a jorn dedicat."
 
 #: src/Process/Backend/Update.php:158 src/Process/Upgrade/Upgrade.php:240
 #, php-format
 msgid "Dotclear %s is available."
-msgstr ""
+msgstr "Dotclear %s es disponible."
 
 #: src/Process/Backend/Update.php:164
 msgid "To upgrade your Dotclear installation go to dedicated dashboard and follow instructions."
-msgstr ""
+msgstr "Per metre a jorn vòstra installacion Dotclear anatz al tablèu de bòrd dedicat e seguissètz las instruccions."
 
 #: src/Process/Backend/User.php:33 src/Process/Backend/Users.php:118
 msgid "New user"
@@ -5352,20 +5354,20 @@ msgstr "Nòu utilizaire"
 #: src/Process/Backend/User.php:172 src/Process/Backend/User.php:242
 #: src/Process/Backend/UsersActions.php:136
 msgid "User has been successfully updated."
-msgstr ""
+msgstr "L'utilizaire es estat mes a jorn amb succès."
 
 #: src/Process/Backend/User.php:178
 #, php-format
 msgid "User \"%s\" already exists."
-msgstr ""
+msgstr "L'utilizaire « %s » existís ja."
 
 #: src/Process/Backend/User.php:202 src/Process/Backend/User.php:246
 msgid "User has been successfully created."
-msgstr ""
+msgstr "L'utilizaire es estat creat amb succès."
 
 #: src/Process/Backend/User.php:203
 msgid "User has no permission, he will not be able to login yet. See below to add some."
-msgstr ""
+msgstr "L'utilizaire a pas cap d'autorizacion, poirà pas encara se connectar. Vejatz çai-jos per n'apondre qualques unes."
 
 #: src/Process/Backend/User.php:224 src/Process/Backend/User.php:225
 #: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:496
@@ -5389,7 +5391,7 @@ msgstr "fòrta"
 
 #: src/Process/Backend/User.php:254
 msgid "User profile"
-msgstr ""
+msgstr "Perfil d'utilizaire"
 
 #: src/Process/Backend/User.php:257
 msgid "User ID:"
@@ -5405,11 +5407,11 @@ msgstr "Avertiment:"
 
 #: src/Process/Backend/User.php:269
 msgid "If you change your username, you will have to log in again."
-msgstr ""
+msgstr "Se cambiatz vòstre nom d'utilizaire, vos caldrà tornar vos connectar."
 
 #: src/Process/Backend/User.php:306
 msgid "Password change required to connect"
-msgstr ""
+msgstr "Lo cambiament de senhal requerit per se connectar"
 
 #: src/Process/Backend/User.php:324 src/Process/Backend/UserPreferences.php:522
 #: src/Process/Install/Install.php:459
@@ -5423,27 +5425,27 @@ msgstr "Prenom :"
 
 #: src/Process/Backend/User.php:338 src/Process/Backend/UserPreferences.php:536
 msgid "Display name:"
-msgstr ""
+msgstr "Nom d'afichatge:"
 
 #: src/Process/Backend/User.php:352
 msgid "Mandatory for password recovering procedure."
-msgstr ""
+msgstr "Obligatòri per la procedura de recuperacion de senhal."
 
 #: src/Process/Backend/User.php:354 src/Process/Backend/UserPreferences.php:550
 msgid "Alternate emails (comma separated list):"
-msgstr ""
+msgstr "Corrièls electronics alternatius (lista separada per virgulas):"
 
 #: src/Process/Backend/User.php:359 src/Process/Backend/UserPreferences.php:555
 msgid "Invalid emails will be automatically removed from list."
-msgstr ""
+msgstr "Los corrièls invalids seràn automaticament suprimits de la lista."
 
 #: src/Process/Backend/User.php:369 src/Process/Backend/UserPreferences.php:565
 msgid "Alternate URLs (comma separated list):"
-msgstr ""
+msgstr "URL alternativas (lista separada per virgulas):"
 
 #: src/Process/Backend/User.php:374 src/Process/Backend/UserPreferences.php:570
 msgid "Invalid URLs will be automatically removed from list."
-msgstr ""
+msgstr "Las URL invalidas seràn automaticament suprimidas de la lista."
 
 #: src/Process/Backend/User.php:380 src/Process/Backend/UserPreferences.php:629
 msgid "Interface"
@@ -5455,7 +5457,7 @@ msgstr "Zòna orària :"
 
 #: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:745
 msgid "Edition"
-msgstr ""
+msgstr "Edicion"
 
 #: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:759
 msgid "Preferred format:"
@@ -5463,60 +5465,60 @@ msgstr "Format preferit :"
 
 #: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:762
 msgid "Default entry status:"
-msgstr ""
+msgstr "Estat d'entrada per defaut:"
 
 #: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:765
 msgid "Entry edit field height:"
-msgstr ""
+msgstr "Nautor del camp de modificacion d'entrada:"
 
 #: src/Process/Backend/User.php:422
 msgid "Save and create another"
-msgstr ""
+msgstr "Enregistratz e ne creatz un autre"
 
 #: src/Process/Backend/User.php:433 src/Process/Backend/UsersActions.php:152
 msgid "Permissions"
-msgstr ""
+msgstr "Permissions"
 
 #: src/Process/Backend/User.php:438
 msgid "Add new permissions"
-msgstr ""
+msgstr "Apondre de novèlas permissions"
 
 #: src/Process/Backend/User.php:451
 msgid "No permissions so far."
-msgstr ""
+msgstr "Cap d'autorizacion fins ara."
 
 #: src/Process/Backend/User.php:484
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
-msgstr ""
+msgstr "%s es super admin (totes los dreches sus totes los blògs)."
 
 #: src/Process/Backend/User.php:492
 msgid "Direct links"
-msgstr ""
+msgstr "Ligams dirèctes"
 
 #: src/Process/Backend/User.php:496
 msgid "List of posts"
-msgstr ""
+msgstr "Lista dels messatges"
 
 #: src/Process/Backend/User.php:506
 msgid "List of comments"
-msgstr ""
+msgstr "Lista dels comentaris"
 
 #: src/Process/Backend/UserPreferences.php:118
 msgid "Light"
-msgstr ""
+msgstr "Lum"
 
 #: src/Process/Backend/UserPreferences.php:119
 msgid "Dark"
-msgstr ""
+msgstr "Fosc"
 
 #: src/Process/Backend/UserPreferences.php:120
 msgid "Automatic"
-msgstr ""
+msgstr "Automatic"
 
 #: src/Process/Backend/UserPreferences.php:125
 msgid "Smallest"
-msgstr ""
+msgstr "Lo mai pichon"
 
 #: src/Process/Backend/UserPreferences.php:126
 msgid "Smaller"
@@ -5532,7 +5534,7 @@ msgstr "Lo mai grand"
 
 #: src/Process/Backend/UserPreferences.php:141
 msgid "Blog description (in blog parameters)"
-msgstr ""
+msgstr "Descripcion del blòg (en paramètres del blòg)"
 
 #: src/Process/Backend/UserPreferences.php:142
 msgid "Category description"
@@ -5541,44 +5543,44 @@ msgstr "Descripcion de la categoria"
 #: src/Process/Backend/UserPreferences.php:183
 #: src/Process/Backend/UserPreferences.php:200
 msgid "If you want to change your email or password you must provide your current password."
-msgstr ""
+msgstr "Se volètz cambiar vòstre corrièl o vòstre senhal vos cal provesir vòstre senhal actual."
 
 #: src/Process/Backend/UserPreferences.php:231
 msgid "Personal information has been successfully updated."
-msgstr ""
+msgstr "Las informacions personalas son estadas mesas a jorn amb succès."
 
 #: src/Process/Backend/UserPreferences.php:348
 msgid "Personal options has been successfully updated."
-msgstr ""
+msgstr "Las opcions personalas son estadas mesas a jorn amb succès."
 
 #: src/Process/Backend/UserPreferences.php:375
 msgid "Dashboard options has been successfully updated."
-msgstr ""
+msgstr "Las opcions del tablèu de bòrd son estadas mesas a jorn amb succès."
 
 #: src/Process/Backend/UserPreferences.php:387
 #: src/Process/Backend/UserPreferences.php:411
 msgid "No favorite selected"
-msgstr ""
+msgstr "Pas de favorit seleccionat"
 
 #: src/Process/Backend/UserPreferences.php:398
 msgid "Favorites have been successfully added."
-msgstr ""
+msgstr "Los favorits son estats aponduts amb succès."
 
 #: src/Process/Backend/UserPreferences.php:424
 msgid "Favorites have been successfully removed."
-msgstr ""
+msgstr "Los favorits son estats suprimits amb succès."
 
 #: src/Process/Backend/UserPreferences.php:454
 msgid "Favorites have been successfully updated."
-msgstr ""
+msgstr "Los favorits son estats mes a jorn amb succès."
 
 #: src/Process/Backend/UserPreferences.php:466
 msgid "Default favorites have been successfully updated."
-msgstr ""
+msgstr "Los favorits per defaut son estats meses a jorn amb succès."
 
 #: src/Process/Backend/UserPreferences.php:480
 msgid "Dashboard items order have been successfully reset."
-msgstr ""
+msgstr "L'òrdre dels elements del tablèu de bòrd es estat reïnicializat amb succès."
 
 #: src/Process/Backend/UserPreferences.php:517
 #: src/Process/Backend/UserPreferences.php:519
@@ -5591,7 +5593,7 @@ msgstr "Lenga de mon interfàcia :"
 
 #: src/Process/Backend/UserPreferences.php:575
 msgid "My timezone:"
-msgstr ""
+msgstr "Mon fus orari:"
 
 #: src/Process/Backend/UserPreferences.php:580
 msgid "Change my password"
@@ -5599,15 +5601,15 @@ msgstr "Modificar mon senhal"
 
 #: src/Process/Backend/UserPreferences.php:590
 msgid "Confirm new password:"
-msgstr ""
+msgstr "Confirmatz lo senhal novèl:"
 
 #: src/Process/Backend/UserPreferences.php:598
 msgid "Your current password:"
-msgstr ""
+msgstr "Vòstre senhal actual:"
 
 #: src/Process/Backend/UserPreferences.php:609
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
-msgstr ""
+msgstr "S'avètz cambiat vòstre corrièl o vòstre senhal vos cal provesir vòstre senhal actual per enregistrar aquestas modificacions."
 
 #: src/Process/Backend/UserPreferences.php:615
 msgid "Update my profile"
@@ -5620,31 +5622,31 @@ msgstr "Mas opcions"
 
 #: src/Process/Backend/UserPreferences.php:631
 msgid "Theme:"
-msgstr ""
+msgstr "Tèma:"
 
 #: src/Process/Backend/UserPreferences.php:636
 msgid "Activate enhanced uploader in media manager"
-msgstr ""
+msgstr "Activar lo cargaire melhorat dins lo gestionari de mèdias"
 
 #: src/Process/Backend/UserPreferences.php:640
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
-msgstr ""
+msgstr "Previsualizar l'entrada en cors de modificacion dins una fenèstra o un onglet void (segon los paramètres de vòstre navigador)."
 
 #: src/Process/Backend/UserPreferences.php:644
 msgid "Disable javascript powered drag and drop for ordering items"
-msgstr ""
+msgstr "Desactivar l'arrossegament e la descargament alimentat per Javascript per comandar d'elements"
 
 #: src/Process/Backend/UserPreferences.php:645
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
-msgstr ""
+msgstr "Se marcat, los camps numerics permetràn de picar lo numèro d'òrdre dels elements."
 
 #: src/Process/Backend/UserPreferences.php:649
 msgid "Hide all secondary information and notes"
-msgstr ""
+msgstr "Amagar totas las informacions segondàrias e las nòtas"
 
 #: src/Process/Backend/UserPreferences.php:653
 msgid "Hide help button"
-msgstr ""
+msgstr "Amagar lo boton d'ajuda"
 
 #: src/Process/Backend/UserPreferences.php:655
 msgid "Font size:"
@@ -5652,137 +5654,137 @@ msgstr "Talha de la poliça :"
 
 #: src/Process/Backend/UserPreferences.php:660
 msgid "Use operating system font"
-msgstr ""
+msgstr "Utilizar la poliça del sistèma operatiu"
 
 #: src/Process/Backend/UserPreferences.php:662
 msgid "Number of recent folders proposed in media manager:"
-msgstr ""
+msgstr "Nombre de dorsièrs recents prepausats dins lo gestionari de mèdias:"
 
 #: src/Process/Backend/UserPreferences.php:664
 msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
-msgstr ""
+msgstr "Daissatz void per ignorar, afichat sonque se Javascript es activat dins vòstre navigador."
 
 #: src/Process/Backend/UserPreferences.php:670
 msgid "Do not use standard favicon"
-msgstr ""
+msgstr "Utilizatz pas de favicon estandard"
 
 #: src/Process/Backend/UserPreferences.php:671
 msgid "This will be applied for all users"
-msgstr ""
+msgstr "Aquò serà aplicat per totes los utilizaires"
 
 #: src/Process/Backend/UserPreferences.php:678
 msgid "Disable Ad-blocker check"
-msgstr ""
+msgstr "Desactivar la verificacion del blocaire d'anóncias"
 
 #: src/Process/Backend/UserPreferences.php:679
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
-msgstr ""
+msgstr "Qualques blocaires d'anóncias (Ghostery, Adblock plus, origina uBloc, …) pòdon interferir amb qualques foncionalitats coma l'insercion de ligam o de mèdias dins las dintradas amb CKEditor ; dins aqueste cas lo deuriatz desactivar per aquesta installacion de Dotclear (sonque lo backend). Notatz que Dotclear apond pas d'anóncias o de trackers dins lo backend."
 
 #: src/Process/Backend/UserPreferences.php:680
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
-msgstr ""
+msgstr "Notatz tanben que desactivar aquesta deteccion de blocaires d'anóncias desactivarà pas los blocaires d'anóncias installats. Dotclear pòt pas interferir amb lo foncionament de las extensions del navigador!"
 
 #: src/Process/Backend/UserPreferences.php:683
 msgid "Quick menu character:"
-msgstr ""
+msgstr "Caractèr de menú rapid:"
 
 #: src/Process/Backend/UserPreferences.php:688
 msgid "Leave empty to use the default character <kbd>:</kbd>"
-msgstr ""
+msgstr "Daissa void per utilizar lo caractèr per defaut <kbd>:</kbd>"
 
 #: src/Process/Backend/UserPreferences.php:695
 msgid "Optional columns displayed in lists"
-msgstr ""
+msgstr "Colomnas opcionalas afichadas dins las listas"
 
 #: src/Process/Backend/UserPreferences.php:714
 msgid "Options for lists"
-msgstr ""
+msgstr "Opcions per las listas"
 
 #: src/Process/Backend/UserPreferences.php:717
 msgid "Apply filters on the fly"
-msgstr ""
+msgstr "Aplicar de filtres a la volada"
 
 #: src/Process/Backend/UserPreferences.php:723
 msgid "List"
-msgstr ""
+msgstr "Lista"
 
 #: src/Process/Backend/UserPreferences.php:724
 msgid "Order by"
-msgstr ""
+msgstr "Comanda per"
 
 #: src/Process/Backend/UserPreferences.php:725
 msgid "Sort"
-msgstr ""
+msgstr "Mena"
 
 #: src/Process/Backend/UserPreferences.php:750
 #, php-format
 msgid "Preferred editor for %s:"
-msgstr ""
+msgstr "Editor preferit per %s:"
 
 #: src/Process/Backend/UserPreferences.php:753
 msgid "Choose an editor"
-msgstr ""
+msgstr "Causissètz un editor"
 
 #: src/Process/Backend/UserPreferences.php:770
 msgid "Enable WYSIWYG mode"
-msgstr ""
+msgstr "Activar lo mòde WYSIWYG"
 
 #: src/Process/Backend/UserPreferences.php:774
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
-msgstr ""
+msgstr "Afichar la barra d'aisinas de l'editor en bas de l'airal de tèxte (se possible)"
 
 #: src/Process/Backend/UserPreferences.php:780
 msgid "Use HTML editor for:"
-msgstr ""
+msgstr "Utilizatz l'editor HTML per:"
 
 #: src/Process/Backend/UserPreferences.php:790
 msgid "Other options"
-msgstr ""
+msgstr "D'autras opcions"
 
 #: src/Process/Backend/UserPreferences.php:798
 msgid "Save my options"
-msgstr ""
+msgstr "Enregistratz mas opcions"
 
 #: src/Process/Backend/UserPreferences.php:837
 #, php-format
 msgid "position of %s"
-msgstr ""
+msgstr "posicion de %s"
 
 #: src/Process/Backend/UserPreferences.php:854
 msgid "Save order"
-msgstr ""
+msgstr "Enregistrar la comanda"
 
 #: src/Process/Backend/UserPreferences.php:857
 msgid "Delete selected favorites"
-msgstr ""
+msgstr "Suprimir los favorits seleccionats"
 
 #: src/Process/Backend/UserPreferences.php:859
 msgid "Are you sure you want to remove selected favorites?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir los favorits seleccionats?"
 
 #: src/Process/Backend/UserPreferences.php:864
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
-msgstr ""
+msgstr "Se sètz un super administrator, podètz definir aqueste ensemble de favorits per èsser utilizats per defaut sus totes los blògs d'aquesta installacion."
 
 #: src/Process/Backend/UserPreferences.php:865
 msgid "Define as default favorites"
-msgstr ""
+msgstr "Definir coma favorits per defaut"
 
 #: src/Process/Backend/UserPreferences.php:872
 msgid "Currently no personal favorites."
-msgstr ""
+msgstr "Actualament pas de favorits personals."
 
 #: src/Process/Backend/UserPreferences.php:886
 msgid "Other available favorites"
-msgstr ""
+msgstr "D'autres favorits disponibles"
 
 #: src/Process/Backend/UserPreferences.php:914
 msgid "(default favorite)"
-msgstr ""
+msgstr "(preferit per defaut)"
 
 #: src/Process/Backend/UserPreferences.php:925
 msgid "Add to my favorites"
-msgstr ""
+msgstr "Apondre a mos favorits"
 
 #: src/Process/Backend/UserPreferences.php:934
 msgid "Menu"
@@ -5790,39 +5792,39 @@ msgstr "Menú"
 
 #: src/Process/Backend/UserPreferences.php:937
 msgid "Display favorites at the top of the menu"
-msgstr ""
+msgstr "Afichar los favorits en naut del menut"
 
 #: src/Process/Backend/UserPreferences.php:940
 msgid "Dashboard icons"
-msgstr ""
+msgstr "Icònas del tablèu de bòrd"
 
 #: src/Process/Backend/UserPreferences.php:943
 msgid "Display dashboard icons"
-msgstr ""
+msgstr "Afichar las icònas del tablèu de bòrd"
 
 #: src/Process/Backend/UserPreferences.php:947
 msgid "Dashboard modules"
-msgstr ""
+msgstr "Moduls de tablèu de bòrd"
 
 #: src/Process/Backend/UserPreferences.php:951
 msgid "Display documentation links"
-msgstr ""
+msgstr "Afichar los ligams de documentacion"
 
 #: src/Process/Backend/UserPreferences.php:955
 msgid "Display Dotclear news"
-msgstr ""
+msgstr "Afichar las novèlas de Dotclear"
 
 #: src/Process/Backend/UserPreferences.php:959
 msgid "Display quick entry form"
-msgstr ""
+msgstr "Afichar lo formulari d'intrada rapida"
 
 #: src/Process/Backend/UserPreferences.php:965
 msgid "Do not display Dotclear updates"
-msgstr ""
+msgstr "Afichar pas las mesas a jorn de Dotclear"
 
 #: src/Process/Backend/UserPreferences.php:978
 msgid "Save my dashboard options"
-msgstr ""
+msgstr "Enregistratz las opcions de mon tablèu de bòrd"
 
 #: src/Process/Backend/UserPreferences.php:985
 msgid "Dashboard items order"
@@ -5830,44 +5832,44 @@ msgstr "L'òrdre de triada dels elements del tablèu"
 
 #: src/Process/Backend/UserPreferences.php:988
 msgid "Reset dashboard items order"
-msgstr ""
+msgstr "Reïnicializar l'òrdre dels elements del tablèu de bòrd"
 
 #: src/Process/Backend/Users.php:41 src/Process/Backend/UsersActions.php:268
 msgid "Set permissions"
-msgstr ""
+msgstr "Definir las permissions"
 
 #: src/Process/Backend/Users.php:112
 msgid "User has been successfully removed."
-msgstr ""
+msgstr "L'utilizaire es estat suprimit amb succès."
 
 #: src/Process/Backend/Users.php:115
 msgid "The permissions have been successfully updated."
-msgstr ""
+msgstr "Las permissions son estadas mesas a jorn amb succès."
 
 #: src/Process/Backend/Users.php:141
 msgid "Selected users action:"
-msgstr ""
+msgstr "Accion dels utilizaires seleccionats:"
 
 #: src/Process/Backend/UsersActions.php:77
 msgid "No blog or user given."
-msgstr ""
+msgstr "Pas de blòg o d'utilizaire donat."
 
 #: src/Process/Backend/UsersActions.php:88
 msgid "You cannot delete yourself."
-msgstr ""
+msgstr "Vos podètz pas suprimir."
 
 #: src/Process/Backend/UsersActions.php:100
 msgid "User has been successfully deleted."
-msgstr ""
+msgstr "L'utilizaire es estat suprimit amb succès."
 
 #: src/Process/Backend/UsersActions.php:194
 msgid "Back to user profile"
-msgstr ""
+msgstr "Tornar al perfil d'utilizaire"
 
 #: src/Process/Backend/UsersActions.php:219
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
-msgstr ""
+msgstr "Causissètz un o mantun blòg que volètz donar d'autorizacions als utilizaires %s."
 
 #: src/Process/Backend/UsersActions.php:233
 msgid "Entries"
@@ -5880,15 +5882,15 @@ msgstr "seleccionar"
 #: src/Process/Backend/UsersActions.php:297
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
-msgstr ""
+msgstr "Sètz a mand de cambiar las permissions suls blògs seguents pels utilizaires %s."
 
 #: src/Process/Backend/UsersActions.php:346
 msgid "Validate permissions"
-msgstr ""
+msgstr "Validar las permissions"
 
 #: src/Process/Install/Install.php:141
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
-msgstr ""
+msgstr "Definissètz una clau mèstra (DC_MASTER_KEY) dins lo fichièr de configuracion."
 
 #: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:155
 msgid "Dotclear is already installed."
@@ -5896,7 +5898,7 @@ msgstr "Dotclear es ja installat."
 
 #: src/Process/Install/Install.php:155 src/Process/Install/Wizard.php:149
 msgid "Dotclear cannot be installed."
-msgstr ""
+msgstr "Dotclear pòt pas èsser installat."
 
 #: src/Process/Install/Install.php:184
 msgid "Invalid email address"
@@ -5908,7 +5910,7 @@ msgstr "Mon primièr blòg"
 
 #: src/Process/Install/Install.php:260
 msgid "%A, %B %e %Y"
-msgstr ""
+msgstr "%A, %B %e %Y"
 
 #: src/Process/Install/Install.php:336
 msgid "Welcome to Dotclear!"
@@ -5916,7 +5918,7 @@ msgstr "La benvenguda a Dotclear !"
 
 #: src/Process/Install/Install.php:337
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr ""
+msgstr "Aquò's vòstra primièra entrada. Quand sètz prèst per blogar, connectatz-vos per lo modificar o lo suprimir."
 
 #: src/Process/Install/Install.php:349
 msgid "Dotclear Team"
@@ -5925,7 +5927,8 @@ msgstr "La còla de Dotclear"
 #: src/Process/Install/Install.php:352
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
+msgstr "<p>Aquò's un comentari.</p>\n"
+"<p>Per lo suprimir, connectatz-vos e agachatz los comentaris de vòstre blòg. Puèi podètz lo suprimir o lo modificar.</p>"
 
 #: src/Process/Install/Install.php:408
 msgid "Dotclear Install"
@@ -5942,7 +5945,7 @@ msgstr "Installacion de Dotclear"
 #: src/Process/Install/Install.php:434
 #, php-format
 msgid "Cache directory %s is not writable."
-msgstr ""
+msgstr "Lo repertòri de cache %s es pas escrichable."
 
 #: src/Process/Install/Install.php:442
 msgid "Configuration file has been successfully created."
@@ -5954,7 +5957,7 @@ msgstr "Informacions utilizaire"
 
 #: src/Process/Install/Install.php:449
 msgid "Please provide the following information needed to create the first user."
-msgstr ""
+msgstr "Mercés de provesir las informacions seguentas necessàrias per crear lo primièr utilizaire."
 
 #: src/Process/Install/Install.php:474
 msgid "Username and password"
@@ -5966,7 +5969,7 @@ msgstr "Tot es prest !"
 
 #: src/Process/Install/Install.php:524
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr ""
+msgstr "Dotclear es estat installat amb succès. Vaquí qualques informacions utilas que deuriátz gardar."
 
 #: src/Process/Install/Install.php:526
 msgid "Your account"
@@ -5994,25 +5997,25 @@ msgstr "L’installacion se pòt pas terminar"
 
 #: src/Process/Install/Install.php:548
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr ""
+msgstr "Per las dichas rasons, Dotclear pòt pas èsser installat. Mercés de consultar <a href=\"https://dotclear.org/documentation/2.0/admin/install\">la documentacion</a> per saber cossí corregir lo problèma."
 
 #: src/Process/Install/Wizard.php:98
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
-msgstr ""
+msgstr "Lo camin <strong>%s</strong> es pas escrichable."
 
 #: src/Process/Install/Wizard.php:99
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr ""
+msgstr "L'assistent d'installacion Dotclear a pas pogut crear un fichièr de configuracion per vos. Vos cal cambiar lo dorsièr drech o crear lo fichièr <strong>config.php</strong> manualament, consultatz <a href=\"https://dotclear.org/documentation/2.0/admin/install\">la documentacion</a> per aprene cossí far aquò."
 
 #: src/Process/Install/Wizard.php:131
 #, php-format
 msgid "Cannot write \"%s\" directory."
-msgstr ""
+msgstr "Pòt pas escriure lo repertòri \"%s\"."
 
 #: src/Process/Install/Wizard.php:159
 msgid "Master email is not valid."
-msgstr ""
+msgstr "Lo corrièl mèstre es pas valid."
 
 #: src/Process/Install/Wizard.php:165
 #, php-format
@@ -6022,11 +6025,11 @@ msgstr "Lo fichièr %s existís pas."
 #: src/Process/Install/Wizard.php:170 src/Process/Install/Wizard.php:191
 #, php-format
 msgid "Cannot write %s file."
-msgstr ""
+msgstr "Pòt pas escriure lo fichièr %s."
 
 #: src/Process/Install/Wizard.php:234 src/Process/Install/Wizard.php:242
 msgid "Dotclear installation wizard"
-msgstr ""
+msgstr "Assistent d'installacion Dotclear"
 
 #: src/Process/Install/Wizard.php:248
 msgid "Welcome"
@@ -6034,7 +6037,7 @@ msgstr "Benvengut"
 
 #: src/Process/Install/Wizard.php:249
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
-msgstr ""
+msgstr "Per completar vòstra installacion de Dotclear e començar d'escriure sus vòstre blòg, nos cal pas que saber cossí accedir a vòstra basa de donadas e qual sètz. Emplenatz aqueste assistent de doas etapas amb aquesta informacion e aurem acabat."
 
 #: src/Process/Install/Wizard.php:252
 msgid "Attention:"
@@ -6042,7 +6045,7 @@ msgstr "Atencion :"
 
 #: src/Process/Install/Wizard.php:253
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr ""
+msgstr "aqueste assistent pòt pas foncionar sus cada òste. Se fonciona pas per vos, consultatz <a href=\"https://dotclear.org/documentation/2.0/admin/install\">la documentacion</a> per saber cossí crear la <strong>configuracion. fichièr php</strong> manualament."
 
 #: src/Process/Install/Wizard.php:260
 msgid "System information"
@@ -6050,7 +6053,7 @@ msgstr "Informacions sistèma"
 
 #: src/Process/Install/Wizard.php:262
 msgid "Please provide the following information needed to create your configuration file."
-msgstr ""
+msgstr "Mercés de provesir las informacions seguentas necessàrias per crear vòstre fichièr de configuracion."
 
 #: src/Process/Install/Wizard.php:266
 msgid "Database type:"
@@ -6058,7 +6061,7 @@ msgstr "Tipe de basa de donadas :"
 
 #: src/Process/Install/Wizard.php:270
 msgid "MySQLi"
-msgstr ""
+msgstr "MySQLi"
 
 #: src/Process/Install/Wizard.php:271
 msgid "MySQLi (full UTF-8)"
@@ -6066,11 +6069,11 @@ msgstr "MySQLi (UTF-8 a fons)"
 
 #: src/Process/Install/Wizard.php:272
 msgid "PostgreSQL"
-msgstr ""
+msgstr "PostgreSQL"
 
 #: src/Process/Install/Wizard.php:273
 msgid "SQLite"
-msgstr ""
+msgstr "SQLite"
 
 #: src/Process/Install/Wizard.php:274
 msgid "Driver"
@@ -6078,31 +6081,31 @@ msgstr "Pilòt"
 
 #: src/Process/Install/Wizard.php:276
 msgid "Database Host Name:"
-msgstr ""
+msgstr "Nom de l'òste de la basa de donadas:"
 
 #: src/Process/Install/Wizard.php:278
 msgid "Database Name:"
-msgstr ""
+msgstr "Nom de la basa de donadas:"
 
 #: src/Process/Install/Wizard.php:280
 msgid "Database User Name:"
-msgstr ""
+msgstr "Nom d'utilizaire de la basa de donadas:"
 
 #: src/Process/Install/Wizard.php:282
 msgid "Database Password:"
-msgstr ""
+msgstr "Senhal de la basa de donadas:"
 
 #: src/Process/Install/Wizard.php:284
 msgid "Database Tables Prefix:"
-msgstr ""
+msgstr "Prefixe de taulas de basa de donadas:"
 
 #: src/Process/Install/Wizard.php:287
 msgid "Prefix"
-msgstr ""
+msgstr "Prefixe"
 
 #: src/Process/Install/Wizard.php:290
 msgid "Master Email: (used as sender for password recovery)"
-msgstr ""
+msgstr "Corrièl principal: (utilizat coma expeditor per la recuperacion de senhal)"
 
 #: src/Process/Install/Wizard.php:298 src/Process/Upgrade/Digests.php:254
 #: src/Process/Upgrade/Digests.php:275
@@ -6112,336 +6115,336 @@ msgstr "Contunhar"
 #: src/Process/Upgrade/Attic.php:90 src/Process/Upgrade/Backup.php:69
 #: src/Process/Upgrade/Upgrade.php:63
 msgid "It seems that backup directory does not exist, upgrade can not be performed."
-msgstr ""
+msgstr "Sembla que lo repertòri de sauvagarda existís pas, la mesa a jorn pòt pas èsser efectuada."
 
 #: src/Process/Upgrade/Attic.php:114 src/Process/Upgrade/Upgrade.php:87
 msgid "It seems that there are no \"digests\" file on your system, upgrade can not be performed."
-msgstr ""
+msgstr "Sembla que i aja pas de fichièr \"digests\" sus vòstre sistèma, la mesa a jorn pòt pas èsser efectuada."
 
 #: src/Process/Upgrade/Attic.php:156 src/Process/Upgrade/Upgrade.php:135
 #, php-format
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
-msgstr ""
+msgstr "L'archiu Dotclear telecargat sembla èsser damatjat. Ensajatz <a %s>lo telecargar</a> tornarmai."
 
 #: src/Process/Upgrade/Attic.php:160 src/Process/Upgrade/Upgrade.php:139
 msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr ""
+msgstr "Se aqueste problèma persistís ensajatz de <a href=\"https://dotclear.org/download\">metre a jorn manualament</a>."
 
 #: src/Process/Upgrade/Attic.php:198 src/Process/Upgrade/Upgrade.php:175
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr ""
+msgstr "Los fichièrs seguents de vòstra installacion Dotclear son estats modificats per que ensajarem pas de metre a jorn vòstra installacion. Ensajatz de <a href=\"https://dotclear.org/download\">metre a jorn manualament</a>."
 
 #: src/Process/Upgrade/Attic.php:199
 msgid "You can bypass this warning by updating installation disgets file."
-msgstr ""
+msgstr "Podètz contornar aqueste avertiment en metent a jorn lo fichièr disgets d'installacion."
 
 #: src/Process/Upgrade/Attic.php:202 src/Process/Upgrade/Upgrade.php:178
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
-msgstr ""
+msgstr "Los fichièrs seguents de vòstra installacion Dotclear son pas legibles. Corregissètz aquò o ensajatz de far un fichièr de salvament nomenat %s manualament."
 
 #: src/Process/Upgrade/Attic.php:206 src/Process/Upgrade/Upgrade.php:182
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr ""
+msgstr "Los fichièrs seguents de vòstra installacion Dotclear pòdon pas èsser escriches. Corregissètz aquò o ensajatz de <a href=\"https://dotclear.org/download\">metre a jorn manualament</a>."
 
 #: src/Process/Upgrade/Attic.php:273
 #, php-format
 msgid "Required PHP version %s or higher"
-msgstr ""
+msgstr "Version PHP requerida %s o mai nauta"
 
 #: src/Process/Upgrade/Attic.php:280 src/Process/Upgrade/Attic.php:281
 msgid "Release note"
-msgstr ""
+msgstr "Nòta de sortida"
 
 #: src/Process/Upgrade/Attic.php:291
 msgid "Select intermediate stable release to update to:"
-msgstr ""
+msgstr "Seleccionatz la version establa intermediària per metre a jorn a:"
 
 #: src/Process/Upgrade/Attic.php:304
 msgid "There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear's blog."
-msgstr ""
+msgstr "I a pas d'informacions suplementàrias sus las versions listadas aicí, deuriátz legir atentivament l'informacion associada a la version seleccionada sul blòg Dotclear."
 
 #: src/Process/Upgrade/Attic.php:314
 #, php-format
 msgid "Are you sure to update to version %s?"
-msgstr ""
+msgstr "Sètz segur de metre a jorn a la version %s?"
 
 #: src/Process/Upgrade/Attic.php:320 src/Process/Upgrade/Digests.php:174
 #: src/Process/Upgrade/Digests.php:187 src/Process/Upgrade/Upgrade.php:263
 msgid "Update Dotclear"
-msgstr ""
+msgstr "Metre a jorn Dotclear"
 
 #: src/Process/Upgrade/Auth.php:179 src/Process/Upgrade/Auth.php:191
 msgid "Upgrade"
-msgstr ""
+msgstr "Melhorar"
 
 #: src/Process/Upgrade/Auth.php:238
 msgid "Back to normal dashboard"
-msgstr ""
+msgstr "Tornar al tablèu de bòrd normal"
 
 #: src/Process/Upgrade/Backup.php:61 src/Process/Upgrade/Backup.php:212
 msgid "Backups and restore"
-msgstr ""
+msgstr "Sauvagardas e restauracion"
 
 #: src/Process/Upgrade/Backup.php:104 src/Process/Upgrade/Backup.php:120
 #, php-format
 msgid "Unable to delete file %s"
-msgstr ""
+msgstr "Impossible de suprimir lo fichièr %s"
 
 #: src/Process/Upgrade/Backup.php:108 src/Process/Upgrade/Backup.php:122
 msgid "Backup deleted."
-msgstr ""
+msgstr "Sauvagarda suprimida."
 
 #: src/Process/Upgrade/Backup.php:130
 msgid "Backup restored."
-msgstr ""
+msgstr "La còpia de seguretat restablida."
 
 #: src/Process/Upgrade/Backup.php:144
 msgid "There are no backups available."
-msgstr ""
+msgstr "I a pas de còpias de seguretat disponiblas."
 
 #: src/Process/Upgrade/Backup.php:176
 msgid "Backups of previously updates"
-msgstr ""
+msgstr "Sauvagardas de las mesas a jorn precedentas"
 
 #: src/Process/Upgrade/Backup.php:187
 msgid "Revert to selected file"
-msgstr ""
+msgstr "Tornar al fichièr seleccionat"
 
 #: src/Process/Upgrade/Backup.php:188
 msgid "Delete selected file"
-msgstr ""
+msgstr "Suprimir lo fichièr seleccionat"
 
 #: src/Process/Upgrade/Backup.php:195
 msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
-msgstr ""
+msgstr "Notatz que la retorn de vòstra version Dotclear pòt aver qualques efièches secundaris indesirables. Pensatz a tornar sonque se avètz de problèmas fòrts amb aquesta version novèla."
 
 #: src/Process/Upgrade/Backup.php:196
 #, php-format
 msgid "You should not revert to version prior to last one (%s)."
-msgstr ""
+msgstr "Vos caldriá pas tornar a la version precedenta la darrièra (%s)."
 
 #: src/Process/Upgrade/Backup.php:200
 msgid "Delete all files but last"
-msgstr ""
+msgstr "Suprimir totes los fichièrs mas darrièr"
 
 #: src/Process/Upgrade/Cache.php:46
 msgid "Templates cache directory emptied."
-msgstr ""
+msgstr "Repertòri de cache dels modèls voidat."
 
 #: src/Process/Upgrade/Cache.php:51
 msgid "Repositories cache directory emptied."
-msgstr ""
+msgstr "Repertòri de cache dels depauses voidat."
 
 #: src/Process/Upgrade/Cache.php:56
 msgid "Dotclear versions cache directory emptied."
-msgstr ""
+msgstr "Lo repertòri de cache de las versions Dotclear voidat."
 
 #: src/Process/Upgrade/Cache.php:74
 msgid "Cache management"
-msgstr ""
+msgstr "Gestion de cache"
 
 #: src/Process/Upgrade/Cache.php:89
 msgid "Cache folders"
-msgstr ""
+msgstr "Dorsièrs de cache"
 
 #: src/Process/Upgrade/Cache.php:95
 msgid "Empty templates cache directory"
-msgstr ""
+msgstr "Repertòri de cache de modèls void"
 
 #: src/Process/Upgrade/Cache.php:97
 msgid "Empty repositories cache directory"
-msgstr ""
+msgstr "Repertòri de cache de depaus void"
 
 #: src/Process/Upgrade/Cache.php:99
 msgid "Empty Dotclear versions cache directory"
-msgstr ""
+msgstr "Voidar lo repertòri de cache de las versions Dotclear"
 
 #: src/Process/Upgrade/Digests.php:106
 msgid "The updates have been performed."
-msgstr ""
+msgstr "Las mesas a jorn son estadas realizadas."
 
 #: src/Process/Upgrade/Digests.php:110
 msgid "No changed filed have been found, nothing to do!"
-msgstr ""
+msgstr "Cap de fichièr modificat es pas estat trobat, pas res a far!"
 
 #: src/Process/Upgrade/Digests.php:113
 msgid "This tool has already been run once."
-msgstr ""
+msgstr "Aqueste aisina es ja estat executat un còp."
 
 #: src/Process/Upgrade/Digests.php:134
 msgid "Files"
-msgstr ""
+msgstr "Fichièrs"
 
 #: src/Process/Upgrade/Digests.php:139
 msgid "Corrupted files"
-msgstr ""
+msgstr "Fichièrs damatjats"
 
 #: src/Process/Upgrade/Digests.php:163
 msgid "Download backup of digests file."
-msgstr ""
+msgstr "Telecargar la còpia de seguretat del fichièr de digests."
 
 #: src/Process/Upgrade/Digests.php:183
 msgid "Digests file is up to date."
-msgstr ""
+msgstr "Lo fichièr Digests es a jorn."
 
 #: src/Process/Upgrade/Digests.php:201
 msgid "The following files will have their checksum faked:"
-msgstr ""
+msgstr "Los fichièrs seguents auràn lor soma de contraròtle falsificada:"
 
 #: src/Process/Upgrade/Digests.php:218
 msgid "The following files digests will have their checksum cleaned:"
-msgstr ""
+msgstr "Los digests de fichièrs seguents auràn lor soma de contraròtle netejada:"
 
 #: src/Process/Upgrade/Digests.php:233
 msgid "Still ok to continue"
-msgstr ""
+msgstr "Encara d'acòrdi per contunhar"
 
 #: src/Process/Upgrade/Digests.php:250
 msgid "Remove the backup digest file, I want to play again"
-msgstr ""
+msgstr "Suprimir lo fichièr de digest de salvagarda, vòli tornar jogar"
 
 #: src/Process/Upgrade/Digests.php:271
 msgid "I have read and understood the disclaimer and wish to continue anyway."
-msgstr ""
+msgstr "Ai legit e comprés lo disclaimer e vòli contunhar de tot biais."
 
 #: src/Process/Upgrade/Home.php:53
 #, php-format
 msgid "Installed Dotclear version is %s"
-msgstr ""
+msgstr "La version Dotclear installada es %s"
 
 #: src/Process/Upgrade/Home.php:54
 #, php-format
 msgid "Installed PHP version is %s, next Dotclear release required %s or earlier."
-msgstr ""
+msgstr "La version PHP installada es %s, la version Dotclear seguenta requerida %s o mai anciana."
 
 #: src/Process/Upgrade/Home.php:71
 #, php-format
 msgid "Backup directory \"%s\" does not exist or is not writable."
-msgstr ""
+msgstr "Lo repertòri de sauvagarda « %s » existís pas o es pas escrichable."
 
 #: src/Process/Upgrade/Home.php:75
 msgid "Your are using Sqlite database driver, Database structure upgrade will NOT be performed."
-msgstr ""
+msgstr "Utilizatz un pilòt de basa de donadas Sqlite, la mesa a jorn de l'estructura de la basa de donadas serà PAS realizada."
 
 #: src/Process/Upgrade/Home.php:79
 msgid "Your are using developement release, some features are not available."
-msgstr ""
+msgstr "Utilizatz la version de desvolopament, qualques foncionalitats son pas disponiblas."
 
 #: src/Process/Upgrade/Home.php:82
 #, php-format
 msgid "Dotclear digests file \"%s\" is not readable."
-msgstr ""
+msgstr "Lo fichièr « %s » de Digest de Dotclear es pas legible."
 
 #: src/Process/Upgrade/Home.php:86 src/Process/Upgrade/Plugins.php:129
 msgid "Official plugins repository could not be updated as there is no URL set in configuration."
-msgstr ""
+msgstr "Lo depaus oficial dels ensambladors a pas pogut èsser mes a jorn perque i a pas cap d'URL definit en configuracion."
 
 #: src/Process/Upgrade/Home.php:91
 msgid "Do you read the official post about this release on Dotclear's blog?"
-msgstr ""
+msgstr "Legissètz lo article oficial a prepaus d'aquela version sul blòg de Dotclear?"
 
 #: src/Process/Upgrade/Home.php:92
 msgid "Does your system support this release requirements like PHP version?"
-msgstr ""
+msgstr "Vòstre sistèma pren en carga aquestes requisits de version coma la version PHP?"
 
 #: src/Process/Upgrade/Home.php:93
 msgid "Does your plugins and themes are up to date?"
-msgstr ""
+msgstr "Vòstres ensambladors e tèmas son a jorn?"
 
 #: src/Process/Upgrade/Home.php:94
 msgid "Note if some plugins crash your installation, go back here to disable or to remove or to update them."
-msgstr ""
+msgstr "Notatz se qualques ensambladors arrèstan vòstra installacion, tornatz aicí per los desactivar o los suprimir o los metre a jorn."
 
 #: src/Process/Upgrade/Home.php:95
 msgid "Once update done, do not forget to check and update blogs themes."
-msgstr ""
+msgstr "Un còp la mesa a jorn facha, oblidetz pas de verificar e de metre a jorn los tèmas dels blògs."
 
 #: src/Process/Upgrade/Home.php:155
 msgid "Before performing update you should take into account some informations listed bellow:"
-msgstr ""
+msgstr "Abans de realizar la mesa a jorn deuriatz prene en compte qualques informacions listadas çai-jos:"
 
 #: src/Process/Upgrade/Langs.php:357
 msgid "Install or upgrade languages from available languages"
-msgstr ""
+msgstr "Installar o metre a jorn de lengas a partir de las lengas disponiblas"
 
 #: src/Process/Upgrade/Langs.php:399
 msgid "Install or upgrade languages from an upload a zip file"
-msgstr ""
+msgstr "Installar o metre a jorn de lengas dempuèi un enviament un fichièr zip"
 
 #: src/Process/Upgrade/Plugins.php:68
 msgid "Some plugins could not be loaded."
-msgstr ""
+msgstr "Qualques ensambladors poguèron pas èsser cargats."
 
 #: src/Process/Upgrade/Plugins.php:339
 msgid "There is no module to check"
-msgstr ""
+msgstr "I a pas de modul a verificar"
 
 #: src/Process/Upgrade/Plugins.php:347
 msgid "Store version"
-msgstr ""
+msgstr "Version de magasin"
 
 #: src/Process/Upgrade/Plugins.php:349
 msgid "Check stores versions"
-msgstr ""
+msgstr "Verificatz las versions dels magasins"
 
 #: src/Process/Upgrade/Plugins.php:357
 msgid "Check lastest stores versions"
-msgstr ""
+msgstr "Verificatz las darrièras versions de las botigas"
 
 #: src/Process/Upgrade/Plugins.php:360
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
-msgstr ""
+msgstr "Podètz verificar los depauses pels moduls escriches explicitament per la version Dotclear mai granda que %s."
 
 #: src/Process/Upgrade/Plugins.php:384 src/Process/Upgrade/Plugins.php:427
 msgid "No version available"
-msgstr ""
+msgstr "Cap de version disponibla"
 
 #: src/Process/Upgrade/Plugins.php:386
 msgid "No update available"
-msgstr ""
+msgstr "Cap de mesa a jorn disponibla"
 
 #: src/Process/Upgrade/Plugins.php:388
 msgid "Newer version available"
-msgstr ""
+msgstr "Version mai novèla disponibla"
 
 #: src/Process/Upgrade/Plugins.php:441
 msgid "Modules list"
-msgstr ""
+msgstr "Lista dels moduls"
 
 #: src/Process/Upgrade/Plugins.php:456
 msgid "Latest version"
-msgstr ""
+msgstr "Darrièra version"
 
 #: src/Process/Upgrade/Plugins.php:460
 msgid "Written for Dotclear"
-msgstr ""
+msgstr "Escrich per Dotclear"
 
 #: src/Process/Upgrade/Replay.php:63
 #, php-format
 msgid "Grow up from version %s successfully replayed."
-msgstr ""
+msgstr "Grow up a partir de la version %s reproducha amb succès."
 
 #: src/Process/Upgrade/Replay.php:81
 msgid "Replay update actions"
-msgstr ""
+msgstr "Tornatz jogar las accions de mesa a jorn"
 
 #: src/Process/Upgrade/Replay.php:99
 msgid "Replay grow up action from version:"
-msgstr ""
+msgstr "Tornar jogar l'accion de grandir dempuèi la version:"
 
 #: src/Process/Upgrade/Replay.php:106
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
-msgstr ""
+msgstr "La version de reproduccion mai bassa que la darrièra pòt trencar vòstra installacion, o fasètz a vòstre risc."
 
 #: src/Process/Upgrade/Upgrade.php:258
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
-msgstr ""
+msgstr "Per metre a jorn vòstra installacion Dotclear clicatz simplament sul boton seguent. Un fichièr de salvagarda de vòstra installacion actuala serà creat dins vòstre repertòri raiç."
 
 #: src/Process/Upgrade/Upgrade.php:266
 msgid "This update may potentially require some precautions, you should carefully read the information post associated with this release (see above)."
-msgstr ""
+msgstr "Aquesta mesa a jorn pòt potencialament demandar qualques precaucions, vos caldriá legir atentivament l'informacion associada a aquesta version (veire çai-sus)."
 
 #: src/Schema/Extension/Log.php:44
 msgid "unknown"
