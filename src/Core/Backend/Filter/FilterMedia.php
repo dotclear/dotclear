@@ -34,6 +34,12 @@ class FilterMedia extends Filters
      */
     protected $post_title = '';
 
+    /** @var    string  media grid display mode */
+    public const MODE_GRID = 'grid';
+
+    /** @var    string  media list display mode */
+    public const MODE_LIST = 'list';
+
     public function __construct(string $type = 'media')
     {
         parent::__construct($type);
@@ -130,7 +136,7 @@ class FilterMedia extends Filters
         } else {
             // Remove current view from user pref
             App::auth()->prefs()->interface->drop('media_file_mode');
-            $get = 'grid';
+            $get = self::MODE_GRID;
         }
 
         return new Filter('file_mode', $get);

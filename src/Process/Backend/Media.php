@@ -16,6 +16,7 @@ use Dotclear\Core\Backend\MediaPage;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
+use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
@@ -414,13 +415,13 @@ class Media extends Process
         // add file mode into the filter box
         App::backend()->page->add((new Filter('file_mode'))->value(App::backend()->page->file_mode)->html(
             '<p><span class="media-file-mode">' .
-            '<a href="' . App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => 'grid'])) . '" title="' . __('Grid display mode') . '">' .
-            '<img class="light-only' . (App::backend()->page->file_mode === 'grid' ? '' : ' disabled') . '" src="images/grid.svg" alt="' . __('Grid display mode') . '">' .
-            '<img class="dark-only' . (App::backend()->page->file_mode === 'grid' ? '' : ' disabled') . '" src="images/grid-dark.svg" alt="' . __('Grid display mode') . '">' .
+            '<a href="' . App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => FilterMedia::MODE_GRID])) . '" title="' . __('Grid display mode') . '">' .
+            '<img class="light-only' . (App::backend()->page->file_mode === FilterMedia::MODE_GRID ? '' : ' disabled') . '" src="images/grid.svg" alt="' . __('Grid display mode') . '">' .
+            '<img class="dark-only' . (App::backend()->page->file_mode === FilterMedia::MODE_GRID ? '' : ' disabled') . '" src="images/grid-dark.svg" alt="' . __('Grid display mode') . '">' .
             '</a>' .
-            '<a href="' . App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => 'list'])) . '" title="' . __('List display mode') . '">' .
-            '<img class="light-only' . (App::backend()->page->file_mode === 'list' ? '' : ' disabled') . '" src="images/list.svg" alt="' . __('List display mode') . '">' .
-            '<img class="dark-only' . (App::backend()->page->file_mode === 'list' ? '' : ' disabled') . '" src="images/list-dark.svg" alt="' . __('List display mode') . '">' .
+            '<a href="' . App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => FilterMedia::MODE_LIST])) . '" title="' . __('List display mode') . '">' .
+            '<img class="light-only' . (App::backend()->page->file_mode === FilterMedia::MODE_LIST ? '' : ' disabled') . '" src="images/list.svg" alt="' . __('List display mode') . '">' .
+            '<img class="dark-only' . (App::backend()->page->file_mode === FilterMedia::MODE_LIST ? '' : ' disabled') . '" src="images/list-dark.svg" alt="' . __('List display mode') . '">' .
             '</a>' .
             '</span></p>',
             false
