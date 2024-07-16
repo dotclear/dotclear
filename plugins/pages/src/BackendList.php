@@ -50,143 +50,129 @@ class BackendList extends Listing
                     (new Text('strong', __('No page'))),
                 ])
             ->render();
-        } else {
-            $pager   = new Pager($page, (int) $this->rs_count, $nb_per_page, 10);
-            $entries = [];
-            if (isset($_REQUEST['entries'])) {
-                foreach ($_REQUEST['entries'] as $v) {
-                    $entries[(int) $v] = true;
-                }
-            }
 
-            $cols = [
-                'title' => (new Th())
-                    ->scope('col')
-                    ->colspan(3)
-                    ->class('first')
-                    ->text(__('Title'))
-                ->render(),
-                'date' => (new Th())
-                    ->scope('col')
-                    ->text(__('Date'))
-                ->render(),
-                'author' => (new Th())
-                    ->scope('col')
-                    ->text(__('Author'))
-                ->render(),
-                'comments' => (new Th())
-                    ->scope('col')
-                    ->items([
-                        (new Img('images/comments.svg'))
-                            ->class('light-only')
-                            ->alt(__('Comments')),
-                        (new Img('images/comments-dark.svg'))
-                            ->class('dark-only')
-                            ->alt(__('Comments')),
-                        (new Text('span', __('Comments')))
-                            ->class('hidden'),
-                    ])
-                ->render(),
-                'trackbacks' => (new Th())
-                    ->scope('col')
-                    ->items([
-                        (new Img('images/trackbacks.svg'))
-                            ->class('light-only')
-                            ->alt(__('Trackbacks')),
-                        (new Img('images/trackbacks-dark.svg'))
-                            ->class('dark-only')
-                            ->alt(__('Trackbacks')),
-                        (new Text('span', __('Trackbacks')))
-                            ->class('hidden'),
-                    ])
-                ->render(),
-                'status' => (new Th())
-                    ->scope('col')
-                    ->text(__('Status'))
-                ->render(),
-            ];
-
-            $cols = new ArrayObject($cols);
-            # --BEHAVIOR-- adminPagesListHeaderV2 -- MetaRecord, ArrayObject
-            App::behavior()->callBehavior('adminPagesListHeaderV2', $this->rs, $cols);
-
-            // Cope with optional columns
-            $this->userColumns('pages', $cols);
-
-            $html_block = (new Div())
-                ->class('table-outer')
-                ->items([
-                    (new Table())
-                        ->class(['maximal', 'dragable'])
-                        ->items([
-                            (new Thead())
-                                ->rows([
-                                    (new Tr())
-                                        ->items([
-                                            (new Text(null, implode(iterator_to_array($cols)))),
-                                        ]),
-                                ]),
-                            (new Tbody())
-                                ->id('pageslist')
-                                ->rows([
-                                    (new Tr())
-                                        ->items([
-                                            (new Text(null, '%s')),
-                                        ]),
-                                ]),
-                        ]),
-                    (new Text(null, '%s')),
-                ])
-            ->render();
-
-            if ($enclose_block) {
-                $html_block = sprintf($enclose_block, $html_block);
-            }
-
-            echo $pager->getLinks();
-
-            $blocks = explode('%s', $html_block);
-
-            echo $blocks[0];
-
-            $count = 0;
-            while ($this->rs->fetch()) {
-                echo $this->postLine($count, isset($entries[$this->rs->post_id]));
-                $count++;
-            }
-
-            echo $blocks[1];
-
-            $fmt = fn ($title, $image, $class) => sprintf(
-                (new Img('images/%2$s'))
-                        ->alt('%1$s')
-                        ->class(['mark', 'mark-%3$s'])
-                        ->render() . ' %1$s',
-                $title,
-                $image,
-                $class
-            );
-
-            echo (new Para())->class('info')
-                ->items([
-                    (new Text(
-                        null,
-                        __('Legend: ') .
-                        $fmt(__('Published'), 'published.svg', 'published') . ' - ' .
-                        $fmt(__('Unpublished'), 'unpublished.svg', 'unpublished') . ' - ' .
-                        $fmt(__('Scheduled'), 'scheduled.svg', 'scheduled') . ' - ' .
-                        $fmt(__('Pending'), 'pending.svg', 'pending') . ' - ' .
-                        $fmt(__('Protected'), 'locker.svg', 'locked') . ' - ' .
-                        $fmt(__('Hidden'), 'hidden.svg', 'hidden') . ' - ' .
-                        $fmt(__('Attachments'), 'attach.svg', 'attach')
-                    )),
-                ])
-            ->render();
-
-            echo $blocks[2];
-
-            echo $pager->getLinks();
+            return;
         }
+
+        $pager   = (new Pager($page, (int) $this->rs_count, $nb_per_page, 10))->getLinks();
+        $entries = [];
+        if (isset($_REQUEST['entries'])) {
+            foreach ($_REQUEST['entries'] as $v) {
+                $entries[(int) $v] = true;
+            }
+        }
+
+        $cols = [
+            'title' => (new Th())
+                ->scope('col')
+                ->colspan(3)
+                ->class('first')
+                ->text(__('Title'))
+            ->render(),
+            'date' => (new Th())
+                ->scope('col')
+                ->text(__('Date'))
+            ->render(),
+            'author' => (new Th())
+                ->scope('col')
+                ->text(__('Author'))
+            ->render(),
+            'comments' => (new Th())
+                ->scope('col')
+                ->items([
+                    (new Img('images/comments.svg'))
+                        ->class('light-only')
+                        ->alt(__('Comments')),
+                    (new Img('images/comments-dark.svg'))
+                        ->class('dark-only')
+                        ->alt(__('Comments')),
+                    (new Text('span', __('Comments')))
+                        ->class('hidden'),
+                ])
+            ->render(),
+            'trackbacks' => (new Th())
+                ->scope('col')
+                ->items([
+                    (new Img('images/trackbacks.svg'))
+                        ->class('light-only')
+                        ->alt(__('Trackbacks')),
+                    (new Img('images/trackbacks-dark.svg'))
+                        ->class('dark-only')
+                        ->alt(__('Trackbacks')),
+                    (new Text('span', __('Trackbacks')))
+                        ->class('hidden'),
+                ])
+            ->render(),
+            'status' => (new Th())
+                ->scope('col')
+                ->text(__('Status'))
+            ->render(),
+        ];
+
+        $cols = new ArrayObject($cols);
+        # --BEHAVIOR-- adminPagesListHeaderV2 -- MetaRecord, ArrayObject
+        App::behavior()->callBehavior('adminPagesListHeaderV2', $this->rs, $cols);
+
+        // Cope with optional columns
+        $this->userColumns('pages', $cols);
+
+        // Prepare listing
+        $lines = [];
+        $count = 0;
+        while ($this->rs->fetch()) {
+            $lines[] = $this->postLine($count, isset($entries[$this->rs->post_id]));
+            $count++;
+        }
+
+        $fmt = fn ($title, $image, $class) => sprintf(
+            (new Img('images/%2$s'))
+                    ->alt('%1$s')
+                    ->class(['mark', 'mark-%3$s'])
+                    ->render() . ' %1$s',
+            $title,
+            $image,
+            $class
+        );
+
+        $buffer = (new Div())
+            ->class('table-outer')
+            ->items([
+                (new Table())
+                    ->class(['maximal', 'dragable'])
+                    ->items([
+                        (new Thead())
+                            ->rows([
+                                (new Tr())
+                                    ->items([
+                                        (new Text(null, implode(iterator_to_array($cols)))),
+                                    ]),
+                            ]),
+                        (new Tbody())
+                            ->id('pageslist')
+                            ->rows($lines),
+                    ]),
+                (new Para())
+                    ->class('info')
+                    ->items([
+                        (new Text(
+                            null,
+                            __('Legend: ') .
+                            $fmt(__('Published'), 'published.svg', 'published') . ' - ' .
+                            $fmt(__('Unpublished'), 'unpublished.svg', 'unpublished') . ' - ' .
+                            $fmt(__('Scheduled'), 'scheduled.svg', 'scheduled') . ' - ' .
+                            $fmt(__('Pending'), 'pending.svg', 'pending') . ' - ' .
+                            $fmt(__('Protected'), 'locker.svg', 'locked') . ' - ' .
+                            $fmt(__('Hidden'), 'hidden.svg', 'hidden') . ' - ' .
+                            $fmt(__('Attachments'), 'attach.svg', 'attach')
+                        )),
+                    ]),
+            ])
+        ->render();
+        if ($enclose_block) {
+            $buffer = sprintf($enclose_block, $buffer);
+        }
+
+        echo $pager . $buffer . $pager;
     }
 
     /**
@@ -195,9 +181,9 @@ class BackendList extends Listing
      * @param   int     $count      The count
      * @param   bool    $checked    The checked
      *
-     * @return  string
+     * @return  Tr
      */
-    private function postLine(int $count, bool $checked): string
+    private function postLine(int $count, bool $checked): Tr
     {
         $img = (new Img('images/%2$s'))
             ->alt('%1$s')
@@ -319,7 +305,6 @@ class BackendList extends Listing
             ->class($post_classes)
             ->items([
                 (new Text(null, implode(iterator_to_array($cols)))),
-            ])
-        ->render();
+            ]);
     }
 }
