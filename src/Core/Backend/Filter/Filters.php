@@ -9,14 +9,23 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend\Filter;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
-use form;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 
 /**
  * @brief   Generic class for admin list filters form.
@@ -317,99 +326,115 @@ class Filters
             $adminurl = $adminurl[0];
         }
 
-        $hiddens = '';
+        $hiddens = [];
         foreach (App::backend()->url()->getParams($adminurl) as $key => $value) {
-            $hiddens .= form::hidden($key, $value);
+            $hiddens[] = (new Hidden($key, $value));
         }
 
-        echo
-        '<form action="' . App::backend()->url()->get($adminurl) . $tab . '" method="get" id="filters-form">' .
-        '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
-
-        '<div class="table">';
-
-        $prime = true;
-        $cols  = [];
+        $prime   = true;
+        $columns = [];
         foreach ($this->filters as $filter) {
             if (in_array($filter->id, ['sortby', 'order', 'nb'])) {
                 continue;
             }
             if ($filter->html != '') {
-                $cols[$filter->prime ? 1 : 0][$filter->id] = sprintf('<p>%s</p>', $filter->html);
+                $columns[$filter->prime ? 1 : 0][$filter->id] = $filter->html;
             }
         }
-        sort($cols);
-        foreach ($cols as $col) {
-            echo sprintf(
-                $prime ?
-                    '<div class="cell"><h4>' . __('Filters') . '</h4>%s</div>' :
-                    '<div class="cell filters-sibling-cell">%s</div>',
-                implode('', $col)
-            );
+
+        sort($columns);
+        $filters = [];
+        foreach ($columns as $column) {
+            $items = [];
+            foreach ($column as $item) {
+                $items[] = (new Note())->text($item);
+            }
+            $filters[] = (new Div())
+                ->class(array_filter(['cell', $prime ? '' : 'filters-sibling-cell']))
+                ->items([
+                    $prime ?
+                        (new Text('h4', __('Filters'))) :
+                        (new None()),
+                    ...$items,
+                ]);
             $prime = false;
         }
 
+        $options = (new None());
         if (isset($this->filters['sortby']) || isset($this->filters['order']) || isset($this->filters['nb'])) {
-            echo
-            '<div class="cell filters-options">' .
-            '<h4>' . __('Display options') . '</h4>';
-
+            $items = [];
             if (isset($this->filters['sortby'])) {
-                $label = (new Label(__('Order by:'), Label::OUTSIDE_LABEL_BEFORE, 'sortby'))
-                    ->class('ib');
-
-                $select = (new Select('sortby'))
-                    ->default($this->filters['sortby']->value)
-                    ->items($this->filters['sortby']->options);
-
-                echo sprintf(
-                    '<p>%s</p>',
-                    $label->render($select->render())
-                );
+                $items[] = (new Para())
+                    ->items([
+                        (new Label(__('Order by:'), Label::OL_TF, 'sortby'))
+                            ->class('ib'),
+                        (new Select('sortby'))
+                            ->default($this->filters['sortby']->value)
+                            ->items($this->filters['sortby']->options),
+                    ]);
             }
             if (isset($this->filters['order'])) {
-                $label = (new Label(__('Sort:'), Label::OUTSIDE_LABEL_BEFORE, 'order'))
-                    ->class('ib');
-
-                $select = (new Select('order'))
-                    ->default($this->filters['order']->value)
-                    ->items($this->filters['order']->options);
-
-                echo sprintf(
-                    '<p>%s</p>',
-                    $label->render($select->render())
-                );
+                $items[] = (new Para())
+                    ->items([
+                        (new Label(__('Sort:'), Label::OL_TF, 'order'))
+                            ->class('ib'),
+                        (new Select('order'))
+                            ->default($this->filters['order']->value)
+                            ->items($this->filters['order']->options),
+                    ]);
             }
             if (isset($this->filters['nb'])) {
-                $label = (new Label($this->filters['nb']->title, Label::INSIDE_TEXT_AFTER, 'nb'))
-                    ->class('classic');
-
-                $number = (new Number('nb'))
-                    ->min(0)
-                    ->max(999)
-                    ->value($this->filters['nb']->value);
-
-                echo sprintf(
-                    '<p><span class="label ib">' . __('Show') . '</span> %s</p>',
-                    $label->render($number->render())
-                );
+                $items[] = (new Para())
+                    ->items([
+                        (new Number('nb', 0, 999, $this->filters['nb']->value))
+                            ->label((new Label(__('Show'), Label::IL_TF))
+                                ->suffix($this->filters['nb']->title)
+                                ->class(['ib', 'classic'])),
+                    ]);
             }
 
             if ($this->has_user_pref) {
-                echo
-                form::hidden('filters-options-id', $this->type) .
-                '<p class="hidden-if-no-js"><a href="#" id="filter-options-save">' . __('Save current options') . '</a></p>';
+                $items[] = (new Set())
+                    ->items([
+                        (new Para())
+                            ->class('hidden-if-no-js')
+                            ->items([
+                                (new Link('filter-options-save'))
+                                    ->href('#')
+                                    ->text(__('Save current options')),
+                            ]),
+                        (new Hidden('filters-options-id', $this->type)),
+                    ]);
             }
-            echo
-            '</div>';
+
+            $options = (new Div())
+                ->class(['cell', 'filters-options'])
+                ->items([
+                    (new Text('h4', __('Display options'))),
+                    ...$items,
+                ]);
         }
 
-        echo
-        '</div>' .
-        '<p><input type="submit" value="' . __('Apply filters and display options') . '">' .
-
-        $extra . $hiddens .
-
-        '</form>';
+        echo (new Form('filters-form'))
+            ->method('get')
+            ->action(App::backend()->url()->get($adminurl) . $tab)
+            ->fields([
+                (new Text('h3', __('Show filters and display options')))
+                    ->class('out-of-screen-if-js'),
+                (new Div())
+                    ->class('table')
+                    ->items([
+                        ...$filters,
+                        $options,
+                    ]),
+                (new Para())
+                    ->items([
+                        (new Submit('apply-filters-opts', __('Apply filters and display options'))),
+                    ]),
+                (new Text(null, $extra)),
+                (new Set())
+                    ->items($hiddens),
+            ])
+        ->render();
     }
 }
