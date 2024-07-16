@@ -48,105 +48,108 @@ class ListingBlogs extends Listing
                     (new Text('strong', $filter ? __('No blog matches the filter') : __('No blog'))),
                 ])
             ->render();
-        } else {
-            $blogs = [];
-            if (isset($_REQUEST['blogs'])) {
-                foreach ($_REQUEST['blogs'] as $v) {
-                    $blogs[$v] = true;
-                }
-            }
 
-            $pager = (new Pager($page, (int) $this->rs_count, $nb_per_page, 10))->getLinks();
-
-            $cols = [
-                'blog' => (new Th())
-                    ->colspan(App::auth()->isSuperAdmin() ? 2 : 1)
-                    ->scope('col')
-                    ->abbr('comm')
-                    ->class(['first', 'nowrap'])
-                    ->text(__('Blog id'))
-                ->render(),
-
-                'name' => (new Th())
-                    ->scope('col')
-                    ->abbr('name')
-                    ->text(__('Blog name'))
-                ->render(),
-
-                'url' => (new Th())
-                    ->scope('col')
-                    ->class('nowrap')
-                    ->text(__('URL'))
-                ->render(),
-
-                'posts' => (new Th())
-                    ->scope('col')
-                    ->class('nowrap')
-                    ->text(__('Entries (all types)'))
-                ->render(),
-
-                'upddt' => (new Th())
-                    ->scope('col')
-                    ->class('nowrap')
-                    ->text(__('Last update'))
-                ->render(),
-
-                'status' => (new Th())
-                    ->scope('col')
-                    ->class('txt-center')
-                    ->text(__('Status'))
-                ->render(),
-            ];
-
-            $cols = new ArrayObject($cols);
-
-            # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject
-            App::behavior()->callBehavior('adminBlogListHeaderV2', $this->rs, $cols);
-
-            // Cope with optional columns
-            $this->userColumns('blogs', $cols);
-
-            // Prepare listing
-            $lines = [
-                (new Tr())
-                    ->items([
-                        (new Text(null, implode(iterator_to_array($cols)))),
-                    ]),
-            ];
-            while ($this->rs->fetch()) {
-                $lines[] = $this->blogLine(isset($blogs[$this->rs->blog_id]));
-            }
-
-            $fmt = fn ($title, $image, $class) => (new Img('images/' . $image))
-                ->class(['mark', 'mark-' . $class])
-                ->alt($title)
-            ->render() . ' ' . $title;
-
-            $buffer = (new Div())
-                ->class('table-outer')
-                ->items([
-                    (new Table())
-                        ->caption((new Caption($filter ?
-                            sprintf(__('%d blog matches the filter.', '%d blogs match the filter.', $this->rs_count), $this->rs_count) :
-                            __('Blogs list')))
-                            ->class(array_filter([$filter ? '' : 'hidden'])))
-                        ->items($lines),
-                    (new Para())
-                        ->class('info')
-                        ->items([
-                            (new Text(null, __('Legend: '))),
-                            (new Text(null, $fmt(__('online'), 'published.svg', 'published') . ' - ')),
-                            (new Text(null, $fmt(__('offline'), 'unpublished.svg', 'unpublished') . ' - ')),
-                            (new Text(null, $fmt(__('removed'), 'pending.svg', 'pending'))),
-                        ]),
-                ])
-            ->render();
-            if ($enclose_block) {
-                $buffer = sprintf($enclose_block, $buffer);
-            }
-
-            echo $pager . $buffer . $pager;
+            return;
         }
+
+        // At least one blog to render
+        $blogs = [];
+        if (isset($_REQUEST['blogs'])) {
+            foreach ($_REQUEST['blogs'] as $v) {
+                $blogs[$v] = true;
+            }
+        }
+
+        $pager = (new Pager($page, (int) $this->rs_count, $nb_per_page, 10))->getLinks();
+
+        $cols = [
+            'blog' => (new Th())
+                ->colspan(App::auth()->isSuperAdmin() ? 2 : 1)
+                ->scope('col')
+                ->abbr('comm')
+                ->class(['first', 'nowrap'])
+                ->text(__('Blog id'))
+            ->render(),
+
+            'name' => (new Th())
+                ->scope('col')
+                ->abbr('name')
+                ->text(__('Blog name'))
+            ->render(),
+
+            'url' => (new Th())
+                ->scope('col')
+                ->class('nowrap')
+                ->text(__('URL'))
+            ->render(),
+
+            'posts' => (new Th())
+                ->scope('col')
+                ->class('nowrap')
+                ->text(__('Entries (all types)'))
+            ->render(),
+
+            'upddt' => (new Th())
+                ->scope('col')
+                ->class('nowrap')
+                ->text(__('Last update'))
+            ->render(),
+
+            'status' => (new Th())
+                ->scope('col')
+                ->class('txt-center')
+                ->text(__('Status'))
+            ->render(),
+        ];
+
+        $cols = new ArrayObject($cols);
+
+        # --BEHAVIOR-- adminBlogListHeaderV2 -- MetaRecord, ArrayObject
+        App::behavior()->callBehavior('adminBlogListHeaderV2', $this->rs, $cols);
+
+        // Cope with optional columns
+        $this->userColumns('blogs', $cols);
+
+        // Prepare listing
+        $lines = [
+            (new Tr())
+                ->items([
+                    (new Text(null, implode(iterator_to_array($cols)))),
+                ]),
+        ];
+        while ($this->rs->fetch()) {
+            $lines[] = $this->blogLine(isset($blogs[$this->rs->blog_id]));
+        }
+
+        $fmt = fn ($title, $image, $class) => (new Img('images/' . $image))
+            ->class(['mark', 'mark-' . $class])
+            ->alt($title)
+        ->render() . ' ' . $title;
+
+        $buffer = (new Div())
+            ->class('table-outer')
+            ->items([
+                (new Table())
+                    ->caption((new Caption($filter ?
+                        sprintf(__('%d blog matches the filter.', '%d blogs match the filter.', $this->rs_count), $this->rs_count) :
+                        __('Blogs list')))
+                        ->class(array_filter([$filter ? '' : 'hidden'])))
+                    ->items($lines),
+                (new Para())
+                    ->class('info')
+                    ->items([
+                        (new Text(null, __('Legend: '))),
+                        (new Text(null, $fmt(__('online'), 'published.svg', 'published') . ' - ')),
+                        (new Text(null, $fmt(__('offline'), 'unpublished.svg', 'unpublished') . ' - ')),
+                        (new Text(null, $fmt(__('removed'), 'pending.svg', 'pending'))),
+                    ]),
+            ])
+        ->render();
+        if ($enclose_block) {
+            $buffer = sprintf($enclose_block, $buffer);
+        }
+
+        echo $pager . $buffer . $pager;
     }
 
     /**

@@ -53,174 +53,178 @@ class ListingComments extends Listing
                     (new Text('strong', $filter ? __('No comments or trackbacks matches the filter') : __('No comments'))),
                 ])
             ->render();
+
+            return;
+        }
+
+        // At least one comment+trackback to render
+
+        // Get antispam filters' name
+        $filters = [];
+        if ($spam) {
+            if (class_exists('Dotclear\Plugin\antispam\Antispam')) {
+                Antispam::initFilters();
+                $fs = Antispam::$filters->getFilters();
+                foreach ($fs as $fid => $f) {
+                    $filters[$fid] = $f->name;
+                }
+            }
+        }
+
+        $pager = (new Pager($page, (int) $this->rs_count, $nb_per_page, 10))->getLinks();
+
+        $comments = [];
+        if (isset($_REQUEST['comments'])) {
+            foreach ($_REQUEST['comments'] as $v) {
+                $comments[(int) $v] = true;
+            }
+        }
+
+        if ($filter) {
+            $caption = sprintf(__(
+                'Comment or trackback matching the filter.',
+                'List of %s comments or trackbacks matching the filter.',
+                $this->rs_count
+            ), $this->rs_count);
         } else {
-            // Get antispam filters' name
-            $filters = [];
-            if ($spam) {
-                if (class_exists('Dotclear\Plugin\antispam\Antispam')) {
-                    Antispam::initFilters();
-                    $fs = Antispam::$filters->getFilters();
-                    foreach ($fs as $fid => $f) {
-                        $filters[$fid] = $f->name;
-                    }
-                }
-            }
+            $nb_published   = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_PUBLISHED], true)->f(0);
+            $nb_spam        = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_JUNK], true)->f(0);
+            $nb_pending     = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_PENDING], true)->f(0);
+            $nb_unpublished = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_UNPUBLISHED], true)->f(0);
 
-            $pager = (new Pager($page, (int) $this->rs_count, $nb_per_page, 10))->getLinks();
-
-            $comments = [];
-            if (isset($_REQUEST['comments'])) {
-                foreach ($_REQUEST['comments'] as $v) {
-                    $comments[(int) $v] = true;
-                }
-            }
-
-            if ($filter) {
-                $caption = sprintf(__(
-                    'Comment or trackback matching the filter.',
-                    'List of %s comments or trackbacks matching the filter.',
-                    $this->rs_count
-                ), $this->rs_count);
-            } else {
-                $nb_published   = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_PUBLISHED], true)->f(0);
-                $nb_spam        = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_JUNK], true)->f(0);
-                $nb_pending     = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_PENDING], true)->f(0);
-                $nb_unpublished = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_UNPUBLISHED], true)->f(0);
-
-                $caption = (new Set())
-                    ->separator(', ')
-                    ->items([
-                        (new Text(null, sprintf(__('List of comments and trackbacks (%s)'), $this->rs_count))),
-                        $nb_published > 0 ?
-                            (new Set())
-                                ->items([
-                                    (new Link())
-                                        ->href(App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_PUBLISHED]))
-                                        ->text(__('published (1)', 'published (> 1)', $nb_published)),
-                                    (new Text(null, sprintf(' (%d)', $nb_published))),
-                                ]) :
-                            (new None()),
-                        $nb_spam > 0 ?
-                            (new Set())
-                                ->items([
-                                    (new Link())
-                                        ->href(App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_JUNK]))
-                                        ->text(__('spam (1)', 'spam (> 1)', $nb_spam)),
-                                    (new Text(null, sprintf(' (%d)', $nb_spam))),
-                                ]) :
-                            (new None()),
-                        $nb_pending > 0 ?
-                            (new Set())
-                                ->items([
-                                    (new Link())
-                                        ->href(App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_PENDING]))
-                                        ->text(__('pending (1)', 'pending (> 1)', $nb_pending)),
-                                    (new Text(null, sprintf(' (%d)', $nb_pending))),
-                                ]) :
-                            (new None()),
-                        $nb_unpublished > 0 ?
-                            (new Set())
-                                ->items([
-                                    (new Link())
-                                        ->href(App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_UNPUBLISHED]))
-                                        ->text(__('unpublished (1)', 'unpublished (> 1)', $nb_unpublished)),
-                                    (new Text(null, sprintf(' (%d)', $nb_unpublished))),
-                                ]) :
-                            (new None()),
-                    ])
-                ->render();
-            }
-
-            $cols = [
-                'type' => (new Th())
-                    ->colspan(2)
-                    ->scope('col')
-                    ->class('first')
-                    ->text(__('Type'))
-                ->render(),
-
-                'author' => (new Th())
-                    ->scope('col')
-                    ->text(__('Author'))
-                ->render(),
-
-                'date' => (new Th())
-                    ->scope('col')
-                    ->text(__('Date'))
-                ->render(),
-
-                'status' => (new Th())
-                    ->scope('col')
-                    ->text(__('Status'))
-                    ->class('txt-center')
-                ->render(),
-            ];
-            if ($show_ip) {
-                $cols['ip'] = (new Th())
-                    ->scope('col')
-                    ->text(__('IP'))
-                ->render();
-            }
-            if ($spam) {
-                $cols['spam_filter'] = (new Th())
-                    ->scope('col')
-                    ->text(__('Spam filter'))
-                ->render();
-            }
-            $cols['entry'] = (new Th())
-                ->scope('col')
-                ->text(__('Entry'))
-            ->render();
-
-            $cols = new ArrayObject($cols);
-            # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject
-            App::behavior()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
-
-            // Cope with optional columns
-            $this->userColumns('comments', $cols);
-
-            // Prepare listing
-            $lines = [
-                (new Tr())
-                    ->items([
-                        (new Text(null, implode(iterator_to_array($cols)))),
-                    ]),
-            ];
-            while ($this->rs->fetch()) {
-                $lines[] = $this->commentLine(isset($comments[$this->rs->comment_id]), $spam, $filters, $show_ip);
-            }
-
-            $fmt = fn ($title, $image, $class, $dark = false) => (new Img('images/' . $image . '.svg'))
-                ->class(array_filter(['mark', 'mark-' . $class, $dark ? 'light-only' : '']))
-                ->alt($title)
-            ->render() . ($dark ? (new Img('images/' . $image . '-dark.svg'))
-                ->class(['mark', 'mark-' . $class, 'dark-only'])
-                ->alt($title)
-            ->render() : '') . ' ' . $title;
-
-            $buffer = (new Div())
-                ->class('table-outer')
+            $caption = (new Set())
+                ->separator(', ')
                 ->items([
-                    (new Table())
-                        ->caption(new Caption($caption))
-                        ->items($lines),
-                    (new Para())
-                        ->class('info')
-                        ->items([
-                            (new Text(null, __('Legend: '))),
-                            (new Text(null, $fmt(__('Published'), 'published', 'published') . ' - ')),
-                            (new Text(null, $fmt(__('Unpublished'), 'unpublished', 'unpublished') . ' - ')),
-                            (new Text(null, $fmt(__('Pending'), 'pending', 'pending') . ' - ')),
-                            (new Text(null, $fmt(__('Junk'), 'junk', 'junk', true))),
-                        ]),
+                    (new Text(null, sprintf(__('List of comments and trackbacks (%s)'), $this->rs_count))),
+                    $nb_published > 0 ?
+                        (new Set())
+                            ->items([
+                                (new Link())
+                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_PUBLISHED]))
+                                    ->text(__('published (1)', 'published (> 1)', $nb_published)),
+                                (new Text(null, sprintf(' (%d)', $nb_published))),
+                            ]) :
+                        (new None()),
+                    $nb_spam > 0 ?
+                        (new Set())
+                            ->items([
+                                (new Link())
+                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_JUNK]))
+                                    ->text(__('spam (1)', 'spam (> 1)', $nb_spam)),
+                                (new Text(null, sprintf(' (%d)', $nb_spam))),
+                            ]) :
+                        (new None()),
+                    $nb_pending > 0 ?
+                        (new Set())
+                            ->items([
+                                (new Link())
+                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_PENDING]))
+                                    ->text(__('pending (1)', 'pending (> 1)', $nb_pending)),
+                                (new Text(null, sprintf(' (%d)', $nb_pending))),
+                            ]) :
+                        (new None()),
+                    $nb_unpublished > 0 ?
+                        (new Set())
+                            ->items([
+                                (new Link())
+                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_UNPUBLISHED]))
+                                    ->text(__('unpublished (1)', 'unpublished (> 1)', $nb_unpublished)),
+                                (new Text(null, sprintf(' (%d)', $nb_unpublished))),
+                            ]) :
+                        (new None()),
                 ])
             ->render();
-            if ($enclose_block) {
-                $buffer = sprintf($enclose_block, $buffer);
-            }
-
-            echo $pager . $buffer . $pager;
         }
+
+        $cols = [
+            'type' => (new Th())
+                ->colspan(2)
+                ->scope('col')
+                ->class('first')
+                ->text(__('Type'))
+            ->render(),
+
+            'author' => (new Th())
+                ->scope('col')
+                ->text(__('Author'))
+            ->render(),
+
+            'date' => (new Th())
+                ->scope('col')
+                ->text(__('Date'))
+            ->render(),
+
+            'status' => (new Th())
+                ->scope('col')
+                ->text(__('Status'))
+                ->class('txt-center')
+            ->render(),
+        ];
+        if ($show_ip) {
+            $cols['ip'] = (new Th())
+                ->scope('col')
+                ->text(__('IP'))
+            ->render();
+        }
+        if ($spam) {
+            $cols['spam_filter'] = (new Th())
+                ->scope('col')
+                ->text(__('Spam filter'))
+            ->render();
+        }
+        $cols['entry'] = (new Th())
+            ->scope('col')
+            ->text(__('Entry'))
+        ->render();
+
+        $cols = new ArrayObject($cols);
+        # --BEHAVIOR-- adminCommentListHeaderV2 -- MetaRecord, ArrayObject
+        App::behavior()->callBehavior('adminCommentListHeaderV2', $this->rs, $cols);
+
+        // Cope with optional columns
+        $this->userColumns('comments', $cols);
+
+        // Prepare listing
+        $lines = [
+            (new Tr())
+                ->items([
+                    (new Text(null, implode(iterator_to_array($cols)))),
+                ]),
+        ];
+        while ($this->rs->fetch()) {
+            $lines[] = $this->commentLine(isset($comments[$this->rs->comment_id]), $spam, $filters, $show_ip);
+        }
+
+        $fmt = fn ($title, $image, $class, $dark = false) => (new Img('images/' . $image . '.svg'))
+            ->class(array_filter(['mark', 'mark-' . $class, $dark ? 'light-only' : '']))
+            ->alt($title)
+        ->render() . ($dark ? (new Img('images/' . $image . '-dark.svg'))
+            ->class(['mark', 'mark-' . $class, 'dark-only'])
+            ->alt($title)
+        ->render() : '') . ' ' . $title;
+
+        $buffer = (new Div())
+            ->class('table-outer')
+            ->items([
+                (new Table())
+                    ->caption(new Caption($caption))
+                    ->items($lines),
+                (new Para())
+                    ->class('info')
+                    ->items([
+                        (new Text(null, __('Legend: '))),
+                        (new Text(null, $fmt(__('Published'), 'published', 'published') . ' - ')),
+                        (new Text(null, $fmt(__('Unpublished'), 'unpublished', 'unpublished') . ' - ')),
+                        (new Text(null, $fmt(__('Pending'), 'pending', 'pending') . ' - ')),
+                        (new Text(null, $fmt(__('Junk'), 'junk', 'junk', true))),
+                    ]),
+            ])
+        ->render();
+        if ($enclose_block) {
+            $buffer = sprintf($enclose_block, $buffer);
+        }
+
+        echo $pager . $buffer . $pager;
     }
 
     /**
