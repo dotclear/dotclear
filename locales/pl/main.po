@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-17 05:25+0200\n"
-"PO-Revision-Date: 2024-07-17 03:32\n"
+"PO-Revision-Date: 2024-07-17 04:31\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -1160,7 +1160,7 @@ msgstr "Trackbacki"
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
-msgstr[0] ""
+msgstr[0] "Lista wpisów %s pasujących do filtra."
 msgstr[1] "Lista %s wpisów pasujących do filtra."
 msgstr[2] "Lista %s wpisów pasujących do filtra."
 msgstr[3] "Lista %s wpisów pasujących do filtra."
@@ -1173,10 +1173,10 @@ msgstr "Lista wpisów (%s)"
 #: src/Core/Backend/Listing/ListingPosts.php:179
 msgid "scheduled (1)"
 msgid_plural "scheduled (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "zaplanowane"
+msgstr[1] "zaplanowane"
+msgstr[2] "zaplanowane"
+msgstr[3] "zaplanowane"
 
 #: src/Core/Backend/Listing/ListingPosts.php:225
 #: src/Core/Backend/Listing/ListingPosts.php:271
@@ -1209,7 +1209,7 @@ msgstr "%d załączników"
 
 #: src/Core/Backend/Listing/ListingPosts.php:325
 msgid "Select this post"
-msgstr ""
+msgstr "Wybierz ten post"
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:39
 msgid "Entries list"
