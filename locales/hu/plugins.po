@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-02 12:26+0200\n"
-"PO-Revision-Date: 2024-07-02 10:29\n"
+"POT-Creation-Date: 2024-07-17 05:25+0200\n"
+"PO-Revision-Date: 2024-07-17 04:31\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -2383,11 +2383,11 @@ msgstr "A kiválasztott oldalakat sikeresen átrendeztük."
 msgid "No page"
 msgstr "Nincs oldal"
 
-#: plugins/pages/src/BackendList.php:180 plugins/pages/src/BackendList.php:241
+#: plugins/pages/src/BackendList.php:165 plugins/pages/src/BackendList.php:227
 msgid "Hidden"
 msgstr "Rejtett"
 
-#: plugins/pages/src/BackendList.php:271
+#: plugins/pages/src/BackendList.php:257
 msgid "Select this page"
 msgstr "Válassza ki ezt az oldalt"
 

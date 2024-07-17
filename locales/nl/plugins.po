@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-02 12:26+0200\n"
-"PO-Revision-Date: 2024-07-02 10:49\n"
+"POT-Creation-Date: 2024-07-17 05:25+0200\n"
+"PO-Revision-Date: 2024-07-17 03:42\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -2383,11 +2383,11 @@ msgstr "Geselecteerde pagina's zijn opnieuw gerangschikt."
 msgid "No page"
 msgstr "Geen pagina"
 
-#: plugins/pages/src/BackendList.php:180 plugins/pages/src/BackendList.php:241
+#: plugins/pages/src/BackendList.php:165 plugins/pages/src/BackendList.php:227
 msgid "Hidden"
 msgstr "Verborgen"
 
-#: plugins/pages/src/BackendList.php:271
+#: plugins/pages/src/BackendList.php:257
 msgid "Select this page"
 msgstr "Selecteer deze pagina"
 
