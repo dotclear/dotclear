@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-17 05:25+0200\n"
-"PO-Revision-Date: 2024-07-17 03:32\n"
+"PO-Revision-Date: 2024-07-17 04:31\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -1116,7 +1116,7 @@ msgstr "출품작 목록 (%s)"
 #: src/Core/Backend/Listing/ListingPosts.php:179
 msgid "scheduled (1)"
 msgid_plural "scheduled (> 1)"
-msgstr[0] ""
+msgstr[0] "예약됨"
 
 #: src/Core/Backend/Listing/ListingPosts.php:225
 #: src/Core/Backend/Listing/ListingPosts.php:271
@@ -1149,7 +1149,7 @@ msgstr "첨부파일 %d 개"
 
 #: src/Core/Backend/Listing/ListingPosts.php:325
 msgid "Select this post"
-msgstr ""
+msgstr "이 게시물 선택"
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:39
 msgid "Entries list"
