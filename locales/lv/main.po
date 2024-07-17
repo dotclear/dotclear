@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-17 05:25+0200\n"
-"PO-Revision-Date: 2024-07-17 03:44\n"
+"PO-Revision-Date: 2024-07-17 04:47\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -1143,7 +1143,7 @@ msgstr "Trackbacks"
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
 msgstr[0] "Saraksts ar %s ierakstiem, kas atbilst filtram."
-msgstr[1] ""
+msgstr[1] "Filtram atbilstošo %s ierakstu saraksts."
 msgstr[2] "Saraksts ar %s ierakstiem, kas atbilst filtram."
 
 #: src/Core/Backend/Listing/ListingPosts.php:151
@@ -1154,9 +1154,9 @@ msgstr "Ierakstu saraksts (%s)"
 #: src/Core/Backend/Listing/ListingPosts.php:179
 msgid "scheduled (1)"
 msgid_plural "scheduled (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "plānots"
+msgstr[1] "plānots"
+msgstr[2] "plānots"
 
 #: src/Core/Backend/Listing/ListingPosts.php:225
 #: src/Core/Backend/Listing/ListingPosts.php:271
@@ -1189,7 +1189,7 @@ msgstr "%d pielikumi"
 
 #: src/Core/Backend/Listing/ListingPosts.php:325
 msgid "Select this post"
-msgstr ""
+msgstr "Izvēlieties šo amatu"
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:39
 msgid "Entries list"
