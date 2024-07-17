@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-09 18:09+0200\n"
-"PO-Revision-Date: 2024-07-09 17:27\n"
+"POT-Creation-Date: 2024-07-17 05:25+0200\n"
+"PO-Revision-Date: 2024-07-17 03:33\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -91,7 +91,7 @@ msgstr "Tiu ŝlosilo ne ekzistas en la datumbazo."
 
 #: src/Core/Backend/Action/Actions.php:158
 #: src/Core/Backend/Action/ActionsComments.php:159
-#: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:89
+#: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:71
 #: src/Core/Backend/Listing/ListingPostsMini.php:42
 #: src/Process/Backend/Home.php:432 src/Process/Backend/Post.php:709
 msgid "Title"
@@ -117,12 +117,12 @@ msgid "Blogs actions"
 msgstr "Blogaj agoj"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:157
-#: src/Core/Backend/Listing/ListingBlogs.php:67
+#: src/Core/Backend/Listing/ListingBlogs.php:71
 msgid "Blog id"
 msgstr "Blogo-identigilo"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
-#: src/Core/Backend/Listing/ListingBlogs.php:73
+#: src/Core/Backend/Listing/ListingBlogs.php:77
 #: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:141
 #: src/Process/Backend/BlogPref.php:488
 #: src/Process/Backend/UsersActions.php:231
@@ -133,9 +133,10 @@ msgstr "Blognomo"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:35
 #: src/Core/Backend/Action/ActionsPostsDefault.php:49
 #: src/Core/Backend/Combos.php:282 src/Core/Backend/Combos.php:305
-#: src/Core/Backend/Combos.php:337 src/Core/Backend/Listing/ListingBlogs.php:97
-#: src/Core/Backend/Listing/ListingComments.php:154
-#: src/Core/Backend/Listing/ListingPosts.php:95
+#: src/Core/Backend/Combos.php:337
+#: src/Core/Backend/Listing/ListingBlogs.php:101
+#: src/Core/Backend/Listing/ListingComments.php:159
+#: src/Core/Backend/Listing/ListingPosts.php:113
 #: src/Core/Backend/Listing/ListingPostsMini.php:45
 #: src/Core/Backend/UserPref.php:54 src/Core/Backend/UserPref.php:79
 #: src/Process/Backend/Post.php:614 src/Process/Backend/Post.php:1064
@@ -161,7 +162,8 @@ msgstr "Agordu kiel forigita"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:51
 #: src/Core/Backend/Action/ActionsPostsDefault.php:103
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
-#: src/Core/Backend/Listing/ListingMedia.php:224
+#: src/Core/Backend/Listing/ListingMedia.php:331
+#: src/Core/Backend/Listing/ListingMedia.php:334
 #: src/Core/Backend/ModulesList.php:1347 src/Core/Upgrade/PluginsList.php:120
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Langs.php:278
 #: src/Process/Backend/Post.php:798 src/Process/Backend/Users.php:42
@@ -204,7 +206,9 @@ msgstr[1] "%d blogoj estis sukcese forigitaj"
 #: src/Core/Backend/Action/ActionsComments.php:78
 #: src/Core/Backend/Action/ActionsComments.php:118
 #: src/Core/Backend/Favorites.php:438
-#: src/Core/Backend/Listing/ListingPosts.php:93 src/Core/Backend/Menus.php:154
+#: src/Core/Backend/Listing/ListingPosts.php:90
+#: src/Core/Backend/Listing/ListingPosts.php:93
+#: src/Core/Backend/Listing/ListingPosts.php:94 src/Core/Backend/Menus.php:154
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:50
 #: src/Core/Backend/UserPref.php:183 src/Process/Backend/Post.php:847
 #: src/Process/Backend/Post.php:856
@@ -221,8 +225,8 @@ msgstr "Komentoj agoj"
 
 #: src/Core/Backend/Action/ActionsComments.php:157
 #: src/Core/Backend/Combos.php:281 src/Core/Backend/Combos.php:304
-#: src/Core/Backend/Listing/ListingComments.php:144
-#: src/Core/Backend/Listing/ListingPosts.php:92
+#: src/Core/Backend/Listing/ListingComments.php:149
+#: src/Core/Backend/Listing/ListingPosts.php:83
 #: src/Core/Backend/Listing/ListingPostsMini.php:44
 #: src/Core/Backend/UserPref.php:44 src/Core/Backend/UserPref.php:53
 #: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:891
@@ -389,7 +393,7 @@ msgstr[1] "%d enskriboj estis sukcese forigitaj"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:320
 #: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:120
-#: src/Core/Backend/Listing/ListingPosts.php:162
+#: src/Core/Backend/Listing/ListingPosts.php:315
 msgid "(No cat)"
 msgstr "(Neniu kato)"
 
@@ -501,23 +505,23 @@ msgid "Ascending"
 msgstr "Ascendenta"
 
 #: src/Core/Backend/Combos.php:278 src/Core/Backend/Combos.php:301
-#: src/Core/Backend/Listing/ListingComments.php:149
-#: src/Core/Backend/Listing/ListingMedia.php:87
-#: src/Core/Backend/Listing/ListingPosts.php:90
+#: src/Core/Backend/Listing/ListingComments.php:154
+#: src/Core/Backend/Listing/ListingMedia.php:130
+#: src/Core/Backend/Listing/ListingPosts.php:75
 #: src/Core/Backend/Listing/ListingPostsMini.php:43
 #: src/Core/Backend/UserPref.php:42 src/Core/Backend/UserPref.php:52
 #: src/Core/Backend/UserPref.php:201 src/Process/Backend/Post.php:1062
 msgid "Date"
 msgstr "Dato"
 
-#: src/Core/Backend/Combos.php:280 src/Core/Backend/Listing/ListingPosts.php:91
+#: src/Core/Backend/Combos.php:280 src/Core/Backend/Listing/ListingPosts.php:79
 #: src/Core/Backend/UserPref.php:43 src/Process/Backend/Post.php:648
 msgid "Category"
 msgstr "Kategorio"
 
 #: src/Core/Backend/Combos.php:283 src/Core/Backend/Filter/FilterPosts.php:202
-#: src/Core/Backend/Listing/ListingPosts.php:128
-#: src/Core/Backend/Listing/ListingPosts.php:198
+#: src/Core/Backend/Listing/ListingPosts.php:228
+#: src/Core/Backend/Listing/ListingPosts.php:289
 #: src/Core/Backend/Listing/ListingPostsMini.php:116
 msgid "Selected"
 msgstr "Elektita"
@@ -539,18 +543,18 @@ msgid "Entry date"
 msgstr "Dato de eniro"
 
 #: src/Core/Backend/Combos.php:306
-#: src/Core/Backend/Listing/ListingComments.php:167
+#: src/Core/Backend/Listing/ListingComments.php:172
 #: src/Core/Backend/UserPref.php:56
 msgid "Spam filter"
 msgstr "Spamfiltrilo"
 
 #: src/Core/Backend/Combos.php:317
-#: src/Core/Backend/Listing/ListingComments.php:161
+#: src/Core/Backend/Listing/ListingComments.php:166
 #: src/Core/Backend/UserPref.php:55
 msgid "IP"
 msgstr "IP"
 
-#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingBlogs.php:91
+#: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingBlogs.php:95
 #: src/Core/Backend/UserPref.php:78
 msgid "Last update"
 msgstr "Lasta ĝisdatigo"
@@ -591,7 +595,7 @@ msgid "My favorites"
 msgstr "Miaj plej ŝatataj"
 
 #: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:381 src/Process/Backend/Media.php:557
+#: src/Core/Backend/Page.php:381 src/Process/Backend/Media.php:558
 #: src/Process/Backend/UserPreferences.php:39
 msgid "My preferences"
 msgstr "Miaj preferoj"
@@ -632,7 +636,7 @@ msgstr "Kategorioj"
 #: src/Core/Backend/Favorites.php:472 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
-#: src/Process/Backend/Media.php:472 src/Process/Backend/Media.php:511
+#: src/Process/Backend/Media.php:473 src/Process/Backend/Media.php:512
 #: src/Process/Backend/MediaItem.php:471 src/Process/Backend/MediaItem.php:477
 msgid "Media manager"
 msgstr "Administranto de amaskomunikiloj"
@@ -722,23 +726,23 @@ msgstr "Spurback"
 msgid "IP address:"
 msgstr "IP-adreso:"
 
-#: src/Core/Backend/Filter/FilterMedia.php:142
+#: src/Core/Backend/Filter/FilterMedia.php:148
 msgid "Media type:"
 msgstr "Tipo de amaskomunikilaro:"
 
-#: src/Core/Backend/Filter/FilterMedia.php:146
+#: src/Core/Backend/Filter/FilterMedia.php:152
 msgid "image"
 msgstr "bildo"
 
-#: src/Core/Backend/Filter/FilterMedia.php:147
+#: src/Core/Backend/Filter/FilterMedia.php:153
 msgid "text"
 msgstr "teksto"
 
-#: src/Core/Backend/Filter/FilterMedia.php:148
+#: src/Core/Backend/Filter/FilterMedia.php:154
 msgid "audio"
 msgstr "audio"
 
-#: src/Core/Backend/Filter/FilterMedia.php:149
+#: src/Core/Backend/Filter/FilterMedia.php:155
 msgid "video"
 msgstr "video"
 
@@ -806,36 +810,36 @@ msgstr "Fermita"
 msgid "Trackbacks:"
 msgstr "Spuroj:"
 
-#: src/Core/Backend/Filter/Filters.php:327 src/Core/Backend/Page.php:1502
-msgid "Show filters and display options"
-msgstr "Montru filtrilojn kaj montrajn opciojn"
-
-#: src/Core/Backend/Filter/Filters.php:345
+#: src/Core/Backend/Filter/Filters.php:356
 msgid "Filters"
 msgstr "Filtriloj"
 
-#: src/Core/Backend/Filter/Filters.php:355
-msgid "Display options"
-msgstr "Montraj opcioj"
-
-#: src/Core/Backend/Filter/Filters.php:358
+#: src/Core/Backend/Filter/Filters.php:369
 msgid "Order by:"
 msgstr "Mendu per:"
 
-#: src/Core/Backend/Filter/Filters.php:371
+#: src/Core/Backend/Filter/Filters.php:379
 msgid "Sort:"
 msgstr "Ordigi:"
 
-#: src/Core/Backend/Filter/Filters.php:393
+#: src/Core/Backend/Filter/Filters.php:390
 #: src/Process/Backend/UserPreferences.php:726
 msgid "Show"
 msgstr "Montru"
 
-#: src/Core/Backend/Filter/Filters.php:401
+#: src/Core/Backend/Filter/Filters.php:404
 msgid "Save current options"
 msgstr "Konservu nunajn eblojn"
 
-#: src/Core/Backend/Filter/Filters.php:409
+#: src/Core/Backend/Filter/Filters.php:413
+msgid "Display options"
+msgstr "Montraj opcioj"
+
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1502
+msgid "Show filters and display options"
+msgstr "Montru filtrilojn kaj montrajn opciojn"
+
+#: src/Core/Backend/Filter/Filters.php:432
 msgid "Apply filters and display options"
 msgstr "Apliki filtrilojn kaj montri opciojn"
 
@@ -861,60 +865,60 @@ msgstr "Neniu blogo"
 msgid "No blog matches the filter"
 msgstr "Neniu blogo kongruas kun la filtrilo"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:79
+#: src/Core/Backend/Listing/ListingBlogs.php:83
 #: src/Core/Backend/ModulesList.php:1799 src/Core/Backend/UserPref.php:76
 #: src/Process/Backend/LinkPopup.php:62
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
 msgstr "URL"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:85
+#: src/Core/Backend/Listing/ListingBlogs.php:89
 #: src/Core/Backend/Listing/ListingUsers.php:57
 #: src/Core/Backend/UserPref.php:69 src/Core/Backend/UserPref.php:77
 msgid "Entries (all types)"
 msgstr "Enskriboj (ĉiuj tipoj)"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:130
+#: src/Core/Backend/Listing/ListingBlogs.php:134
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
 msgstr[0] "%d blogo kongruas kun la filtrilo."
 msgstr[1] "%d blogoj kongruas kun la filtrilo."
 
-#: src/Core/Backend/Listing/ListingBlogs.php:131
+#: src/Core/Backend/Listing/ListingBlogs.php:135
 msgid "Blogs list"
 msgstr "Listo de blogoj"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:137
-#: src/Core/Backend/Listing/ListingComments.php:210
-#: src/Core/Backend/Listing/ListingPosts.php:122
+#: src/Core/Backend/Listing/ListingBlogs.php:141
+#: src/Core/Backend/Listing/ListingComments.php:215
+#: src/Core/Backend/Listing/ListingPosts.php:222
 #: src/Core/Backend/Listing/ListingUsers.php:86
 msgid "Legend: "
 msgstr "Legendo: "
 
-#: src/Core/Backend/Listing/ListingBlogs.php:138 src/Core/Blogs.php:46
+#: src/Core/Backend/Listing/ListingBlogs.php:142 src/Core/Blogs.php:46
 msgid "online"
 msgstr "rete"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:139 src/Core/Blogs.php:47
+#: src/Core/Backend/Listing/ListingBlogs.php:143 src/Core/Blogs.php:47
 msgid "offline"
 msgstr "eksterrete"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:140 src/Core/Blogs.php:48
+#: src/Core/Backend/Listing/ListingBlogs.php:144 src/Core/Blogs.php:48
 msgid "removed"
 msgstr "forigita"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:186
+#: src/Core/Backend/Listing/ListingBlogs.php:189
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr "Redaktu blogajn agordojn por %s"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:190
 #: src/Core/Backend/Listing/ListingBlogs.php:193
+#: src/Core/Backend/Listing/ListingBlogs.php:196
 msgid "Edit blog settings"
 msgstr "Redaktu blogajn agordojn"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:205
+#: src/Core/Backend/Listing/ListingBlogs.php:208
 #, php-format
 msgid "Switch to blog %s"
 msgstr "Ŝanĝu al blogo %s"
@@ -928,259 +932,244 @@ msgstr "Sen komentoj"
 msgid "No comments or trackbacks matches the filter"
 msgstr "Neniuj komentoj aŭ spuroj kongruas kun la filtrilo"
 
-#: src/Core/Backend/Listing/ListingComments.php:80
+#: src/Core/Backend/Listing/ListingComments.php:85
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] "Komentu aŭ spuron kongruas kun la filtrilo."
 msgstr[1] "Listo de %s komentoj aŭ spuroj kongruaj kun la filtrilo."
 
-#: src/Core/Backend/Listing/ListingComments.php:93
+#: src/Core/Backend/Listing/ListingComments.php:98
 #, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr "Listo de komentoj kaj spuroj (%s)"
 
-#: src/Core/Backend/Listing/ListingComments.php:99
+#: src/Core/Backend/Listing/ListingComments.php:104
+#: src/Core/Backend/Listing/ListingPosts.php:159
 msgid "published (1)"
 msgid_plural "published (> 1)"
 msgstr[0] "eldonita"
 msgstr[1] "eldonita"
 
-#: src/Core/Backend/Listing/ListingComments.php:108
+#: src/Core/Backend/Listing/ListingComments.php:113
 msgid "spam (1)"
 msgid_plural "spam (> 1)"
 msgstr[0] "spamo"
 msgstr[1] "spamoj"
 
-#: src/Core/Backend/Listing/ListingComments.php:117
+#: src/Core/Backend/Listing/ListingComments.php:122
+#: src/Core/Backend/Listing/ListingPosts.php:169
 msgid "pending (1)"
 msgid_plural "pending (> 1)"
 msgstr[0] "decidota"
 msgstr[1] "decidota"
 
-#: src/Core/Backend/Listing/ListingComments.php:126
+#: src/Core/Backend/Listing/ListingComments.php:131
+#: src/Core/Backend/Listing/ListingPosts.php:189
 msgid "unpublished (1)"
 msgid_plural "unpublished (> 1)"
 msgstr[0] "neeldonita"
 msgstr[1] "neeldonita"
 
-#: src/Core/Backend/Listing/ListingComments.php:139
+#: src/Core/Backend/Listing/ListingComments.php:144
 msgid "Type"
 msgstr "Tajpu"
 
-#: src/Core/Backend/Listing/ListingComments.php:172
+#: src/Core/Backend/Listing/ListingComments.php:177
 #: src/Core/Backend/UserPref.php:57
 msgid "Entry"
 msgstr "Eniro"
 
-#: src/Core/Backend/Listing/ListingComments.php:211
-#: src/Core/Backend/Listing/ListingComments.php:248
-#: src/Core/Backend/Listing/ListingPosts.php:123
-#: src/Core/Backend/Listing/ListingPosts.php:170
+#: src/Core/Backend/Listing/ListingComments.php:216
+#: src/Core/Backend/Listing/ListingComments.php:252
+#: src/Core/Backend/Listing/ListingPosts.php:223
+#: src/Core/Backend/Listing/ListingPosts.php:261
 #: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
 #: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:1004
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1083
 msgid "Published"
 msgstr "Eldonita"
 
-#: src/Core/Backend/Listing/ListingComments.php:212
-#: src/Core/Backend/Listing/ListingComments.php:254
-#: src/Core/Backend/Listing/ListingPosts.php:124
-#: src/Core/Backend/Listing/ListingPosts.php:175
+#: src/Core/Backend/Listing/ListingComments.php:217
+#: src/Core/Backend/Listing/ListingComments.php:258
+#: src/Core/Backend/Listing/ListingPosts.php:224
+#: src/Core/Backend/Listing/ListingPosts.php:266
 #: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
 #: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:1005
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1088
 msgid "Unpublished"
 msgstr "Neeldonita"
 
-#: src/Core/Backend/Listing/ListingComments.php:213
-#: src/Core/Backend/Listing/ListingComments.php:260
-#: src/Core/Backend/Listing/ListingPosts.php:126
-#: src/Core/Backend/Listing/ListingPosts.php:185
+#: src/Core/Backend/Listing/ListingComments.php:218
+#: src/Core/Backend/Listing/ListingComments.php:264
+#: src/Core/Backend/Listing/ListingPosts.php:226
+#: src/Core/Backend/Listing/ListingPosts.php:276
 #: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
 #: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:1007
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1093
 msgid "Pending"
 msgstr "Decidota"
 
-#: src/Core/Backend/Listing/ListingComments.php:214
-#: src/Core/Backend/Listing/ListingComments.php:266 src/Core/Blog.php:272
+#: src/Core/Backend/Listing/ListingComments.php:219
+#: src/Core/Backend/Listing/ListingComments.php:270 src/Core/Blog.php:272
 #: src/Process/Backend/Post.php:1098
 msgid "Junk"
 msgstr "Rubaĵo"
 
-#: src/Core/Backend/Listing/ListingComments.php:272
+#: src/Core/Backend/Listing/ListingComments.php:276
 msgid "Unknown"
 msgstr "Nekonata"
 
-#: src/Core/Backend/Listing/ListingComments.php:296
+#: src/Core/Backend/Listing/ListingComments.php:300
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr "Redaktu la %1$s el %2$s"
 
-#: src/Core/Backend/Listing/ListingComments.php:297
-#: src/Core/Backend/Listing/ListingComments.php:323
+#: src/Core/Backend/Listing/ListingComments.php:301
+#: src/Core/Backend/Listing/ListingComments.php:327
 msgid "comment"
 msgstr "komento"
 
-#: src/Core/Backend/Listing/ListingComments.php:297
-#: src/Core/Backend/Listing/ListingComments.php:323
+#: src/Core/Backend/Listing/ListingComments.php:301
+#: src/Core/Backend/Listing/ListingComments.php:327
 msgid "trackback"
 msgstr "spuro"
 
-#: src/Core/Backend/Listing/ListingComments.php:319
-#: src/Core/Backend/Listing/ListingComments.php:322
+#: src/Core/Backend/Listing/ListingComments.php:323
+#: src/Core/Backend/Listing/ListingComments.php:326
 #: src/Process/Backend/Post.php:1065 src/Process/Backend/Post.php:1138
 msgid "Edit"
 msgstr "Redakti"
 
-#: src/Core/Backend/Listing/ListingMedia.php:42
+#: src/Core/Backend/Listing/ListingMedia.php:60
 msgid "No file matches the filter"
 msgstr "Neniu dosiero kongruas kun la filtrilo"
 
-#: src/Core/Backend/Listing/ListingMedia.php:44
+#: src/Core/Backend/Listing/ListingMedia.php:70
 msgid "No file."
 msgstr "Neniu dosiero."
 
-#: src/Core/Backend/Listing/ListingMedia.php:63
+#: src/Core/Backend/Listing/ListingMedia.php:92
 #, php-format
 msgid "%d file matches the filter."
 msgid_plural "%d files match the filter."
 msgstr[0] "%d dosiero kongruas kun la filtrilo."
 msgstr[1] "%d dosieroj kongruas kun la filtrilo."
 
-#: src/Core/Backend/Listing/ListingMedia.php:66
+#: src/Core/Backend/Listing/ListingMedia.php:95
 #, php-format
 msgid "Nb of items: %d → %d folder(s) + %d file(s)"
 msgstr "Nombro da eroj: %d → %d dosierujo(j) + %d dosiero(j)"
 
-#: src/Core/Backend/Listing/ListingMedia.php:67
+#: src/Core/Backend/Listing/ListingMedia.php:96
 #, php-format
 msgid "Nb of items: %d"
 msgstr "Nombro da eroj: %d"
 
-#: src/Core/Backend/Listing/ListingMedia.php:86
+#: src/Core/Backend/Listing/ListingMedia.php:127
 #: src/Core/Backend/ModulesList.php:832 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:448
 msgid "Name"
 msgstr "Nomo"
 
-#: src/Core/Backend/Listing/ListingMedia.php:88
+#: src/Core/Backend/Listing/ListingMedia.php:133
 #: src/Core/Backend/UserPref.php:202
 msgid "Size"
 msgstr "Grandeco"
 
-#: src/Core/Backend/Listing/ListingMedia.php:188
-#: src/Core/Backend/Listing/ListingMedia.php:189
-#: src/Process/Backend/Media.php:371
+#: src/Core/Backend/Listing/ListingMedia.php:267
+#: src/Core/Backend/Listing/ListingMedia.php:270
+#: src/Process/Backend/Media.php:372
 msgid "Select this file"
 msgstr "Elektu ĉi tiun dosieron"
 
-#: src/Core/Backend/Listing/ListingMedia.php:198
-#: src/Core/Backend/Listing/ListingMedia.php:204
-#: src/Process/Backend/Media.php:387 src/Process/Backend/Media.php:400
+#: src/Core/Backend/Listing/ListingMedia.php:293
+#: src/Core/Backend/Listing/ListingMedia.php:296
+#: src/Process/Backend/Media.php:388 src/Process/Backend/Media.php:401
 msgid "Attach this file to entry"
 msgstr "Aligu ĉi tiun dosieron al eniro"
 
-#: src/Core/Backend/Listing/ListingMedia.php:209
-#: src/Core/Backend/Listing/ListingMedia.php:210
+#: src/Core/Backend/Listing/ListingMedia.php:304
+#: src/Core/Backend/Listing/ListingMedia.php:307
 msgid "Insert this file into entry"
 msgstr "Enigu ĉi tiun dosieron en eniron"
 
-#: src/Core/Backend/Listing/ListingMedia.php:222
-msgid "delete"
-msgstr "forigi"
-
-#: src/Core/Backend/Listing/ListingMedia.php:238
-#: src/Core/Backend/Listing/ListingMedia.php:262
+#: src/Core/Backend/Listing/ListingMedia.php:372
+#: src/Core/Backend/Listing/ListingMedia.php:411
 msgid "private media"
 msgstr "privataj amaskomunikiloj"
 
-#: src/Core/Backend/Listing/ListingMedia.php:245
-#: src/Core/Backend/Listing/ListingMedia.php:270
+#: src/Core/Backend/Listing/ListingMedia.php:398
+#: src/Core/Backend/Listing/ListingMedia.php:424
 msgid "open"
 msgstr "malfermita"
 
-#: src/Core/Backend/Listing/ListingPosts.php:37
-msgid "No entry matches the filter"
-msgstr "Neniu eniro kongruas kun la filtrilo"
-
-#: src/Core/Backend/Listing/ListingPosts.php:39
+#: src/Core/Backend/Listing/ListingPosts.php:51
 #: src/Core/Backend/Listing/ListingPostsMini.php:34
 msgid "No entry"
 msgstr "Neniu eniro"
 
-#: src/Core/Backend/Listing/ListingPosts.php:53
-#, php-format
-msgid "List of %s entries matching the filter."
-msgstr "Listo de %s enskriboj kongruaj kun la filtrilo."
+#: src/Core/Backend/Listing/ListingPosts.php:51
+msgid "No entry matches the filter"
+msgstr "Neniu eniro kongruas kun la filtrilo"
 
-#: src/Core/Backend/Listing/ListingPosts.php:60
-#, php-format
-msgid "List of entries (%s)"
-msgstr "Listo de enskriboj (%s)"
-
-#: src/Core/Backend/Listing/ListingPosts.php:63
-#, php-format
-msgid ", <a href=\"%s\">published</a> (1)"
-msgid_plural ", <a href=\"%s\">published</a> (%s)"
-msgstr[0] ", <a href=\"%s\">publikigita</a> (1)"
-msgstr[1] ", <a href=\"%s\">publikigita</a> (%s)"
-
-#: src/Core/Backend/Listing/ListingPosts.php:69
-#, php-format
-msgid ", <a href=\"%s\">pending</a> (1)"
-msgid_plural ", <a href=\"%s\">pending</a> (%s)"
-msgstr[0] ", <a href=\"%s\">pritraktata</a> (1)"
-msgstr[1] ", <a href=\"%s\">pritraktata</a> (%s)"
-
-#: src/Core/Backend/Listing/ListingPosts.php:75
-#, php-format
-msgid ", <a href=\"%s\">programmed</a> (1)"
-msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
-msgstr[0] ", <a href=\"%s\">programita</a> (1)"
-msgstr[1] ", <a href=\"%s\">programita</a> (%s)"
-
-#: src/Core/Backend/Listing/ListingPosts.php:81
-#, php-format
-msgid ", <a href=\"%s\">unpublished</a> (1)"
-msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
-msgstr[0] ", <a href=\"%s\">neeldonita</a> (1)"
-msgstr[1] ", <a href=\"%s\">neeldonita</a> (%s)"
-
-#: src/Core/Backend/Listing/ListingPosts.php:94
+#: src/Core/Backend/Listing/ListingPosts.php:103
+#: src/Core/Backend/Listing/ListingPosts.php:106
+#: src/Core/Backend/Listing/ListingPosts.php:107
 #: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:939
 msgid "Trackbacks"
 msgstr "Spuroj"
 
-#: src/Core/Backend/Listing/ListingPosts.php:125
-#: src/Core/Backend/Listing/ListingPosts.php:180
+#: src/Core/Backend/Listing/ListingPosts.php:142
+#, php-format
+msgid "List of %s entry matching the filter."
+msgid_plural "List of %s entries matching the filter."
+msgstr[0] ""
+msgstr[1] "Listo de %s enskriboj kongruaj kun la filtrilo."
+
+#: src/Core/Backend/Listing/ListingPosts.php:151
+#, php-format
+msgid "List of entries (%s)"
+msgstr "Listo de enskriboj (%s)"
+
+#: src/Core/Backend/Listing/ListingPosts.php:179
+msgid "scheduled (1)"
+msgid_plural "scheduled (> 1)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Core/Backend/Listing/ListingPosts.php:225
+#: src/Core/Backend/Listing/ListingPosts.php:271
 #: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
 #: src/Process/Backend/MediaItem.php:1006 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "Planita"
 
-#: src/Core/Backend/Listing/ListingPosts.php:127
-#: src/Core/Backend/Listing/ListingPosts.php:193
+#: src/Core/Backend/Listing/ListingPosts.php:227
+#: src/Core/Backend/Listing/ListingPosts.php:284
 #: src/Core/Backend/Listing/ListingPostsMini.php:111
 msgid "Protected"
 msgstr "Protektata"
 
-#: src/Core/Backend/Listing/ListingPosts.php:129
+#: src/Core/Backend/Listing/ListingPosts.php:229
 msgid "Attachments"
 msgstr "Aldonaĵoj"
 
-#: src/Core/Backend/Listing/ListingPosts.php:204
+#: src/Core/Backend/Listing/ListingPosts.php:295
 #: src/Core/Backend/Listing/ListingPostsMini.php:122
 #, php-format
 msgid "%d attachment"
 msgstr "%d aldono"
 
-#: src/Core/Backend/Listing/ListingPosts.php:204
+#: src/Core/Backend/Listing/ListingPosts.php:295
 #: src/Core/Backend/Listing/ListingPostsMini.php:122
 #, php-format
 msgid "%d attachments"
 msgstr "%d aldonaĵoj"
+
+#: src/Core/Backend/Listing/ListingPosts.php:325
+msgid "Select this post"
+msgstr ""
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:39
 msgid "Entries list"
@@ -1571,7 +1560,7 @@ msgid "Your password:"
 msgstr "Via pasvorto:"
 
 #: src/Core/Backend/ModulesList.php:1773 src/Core/Backend/Page.php:1454
-#: src/Process/Backend/Media.php:563
+#: src/Process/Backend/Media.php:564
 msgid "Upload"
 msgstr "Alŝutu"
 
@@ -1608,7 +1597,7 @@ msgstr "Agordi \"%s\""
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:600 src/Process/Backend/MediaItem.php:1166
+#: src/Process/Backend/Media.php:601 src/Process/Backend/MediaItem.php:1166
 #: src/Process/Backend/Post.php:792 src/Process/Backend/Search.php:158
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:616
 #: src/Process/Backend/UserPreferences.php:799
@@ -1974,16 +1963,16 @@ msgstr "Nuligite."
 msgid "HTTP Error:"
 msgstr "HTTP-eraro:"
 
-#: src/Core/Backend/Page.php:1450 src/Process/Backend/Media.php:544
+#: src/Core/Backend/Page.php:1450 src/Process/Backend/Media.php:545
 msgid "Choose file"
 msgstr "Elektu dosieron"
 
-#: src/Core/Backend/Page.php:1451 src/Process/Backend/Media.php:545
+#: src/Core/Backend/Page.php:1451 src/Process/Backend/Media.php:546
 msgid "Choose files"
 msgstr "Elektu dosierojn"
 
 #: src/Core/Backend/Page.php:1452 src/Process/Backend/LinkPopup.php:73
-#: src/Process/Backend/Media.php:253 src/Process/Backend/MediaItem.php:573
+#: src/Process/Backend/Media.php:254 src/Process/Backend/MediaItem.php:573
 #: src/Process/Backend/MediaItem.php:790 src/Process/Backend/Post.php:795
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
@@ -3287,7 +3276,7 @@ msgstr "Bloga URL:"
 msgid "Blog description:"
 msgstr "Bloga priskribo:"
 
-#: src/Process/Backend/Blog.php:191 src/Process/Backend/Media.php:488
+#: src/Process/Backend/Blog.php:191 src/Process/Backend/Media.php:489
 msgid "Create"
 msgstr "Krei"
 
@@ -3486,7 +3475,7 @@ msgstr "Blogo estis sukcese kreita."
 msgid "Parameters"
 msgstr "Parametroj"
 
-#: src/Process/Backend/BlogPref.php:476 src/Process/Backend/Media.php:595
+#: src/Process/Backend/BlogPref.php:476 src/Process/Backend/Media.php:596
 msgid "Blog parameters"
 msgstr "Parametroj de blogo"
 
@@ -4427,186 +4416,186 @@ msgstr "Lingvo de ligilo:"
 msgid "Insert"
 msgstr "Enmetu"
 
-#: src/Process/Backend/Media.php:79
+#: src/Process/Backend/Media.php:80
 msgid "Not a valid directory"
 msgstr "Ne valida dosierujo"
 
-#: src/Process/Backend/Media.php:100
+#: src/Process/Backend/Media.php:101
 #, php-format
 msgid "Directory or file \"%s\" already exists."
 msgstr "Dosierujo aŭ dosiero \"%s\" jam ekzistas."
 
-#: src/Process/Backend/Media.php:107
+#: src/Process/Backend/Media.php:108
 #, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "Dosierujo \"%s\" estas sukcese kreita."
 
-#: src/Process/Backend/Media.php:161
+#: src/Process/Backend/Media.php:162
 msgid "Files have been successfully uploaded."
 msgstr "Dosieroj estis sukcese alŝutitaj."
 
-#: src/Process/Backend/Media.php:188
+#: src/Process/Backend/Media.php:189
 #, php-format
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
 msgstr[0] "Sukcese forigi unu amaskomunikilaron."
 msgstr[1] "Sukcese forigi %d amaskomunikilaron."
 
-#: src/Process/Backend/Media.php:208
+#: src/Process/Backend/Media.php:209
 msgid "Directory has been successfully removed."
 msgstr "Dosierujo estis sukcese forigita."
 
-#: src/Process/Backend/Media.php:212
+#: src/Process/Backend/Media.php:213
 msgid "File has been successfully removed."
 msgstr "Dosiero estis sukcese forigita."
 
-#: src/Process/Backend/Media.php:233
+#: src/Process/Backend/Media.php:234
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "Dosierujo \"%s\" estas sukcese kompletigita."
 
-#: src/Process/Backend/Media.php:245 src/Process/Backend/PostMedia.php:96
+#: src/Process/Backend/Media.php:246 src/Process/Backend/PostMedia.php:96
 msgid "confirm removal"
 msgstr "konfirmi forigon"
 
-#: src/Process/Backend/Media.php:250
+#: src/Process/Backend/Media.php:251
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "Ĉu vi certas, ke vi volas forigi %s?"
 
-#: src/Process/Backend/Media.php:254 src/Process/Backend/PostMedia.php:111
+#: src/Process/Backend/Media.php:255 src/Process/Backend/PostMedia.php:111
 msgid "Yes"
 msgstr "Jes"
 
-#: src/Process/Backend/Media.php:294
+#: src/Process/Backend/Media.php:295
 msgid "Remove this folder from your favorites"
 msgstr "Forigu ĉi tiun dosierujon el viaj plej ŝatataj"
 
-#: src/Process/Backend/Media.php:318
+#: src/Process/Backend/Media.php:319
 msgid "Add this folder to your favorites"
 msgstr "Aldonu ĉi tiun dosierujon al viaj plej ŝatataj"
 
-#: src/Process/Backend/Media.php:324
+#: src/Process/Backend/Media.php:325
 msgid "Goto recent folder:"
 msgstr "Iru al lastatempa dosierujo:"
 
-#: src/Process/Backend/Media.php:357
+#: src/Process/Backend/Media.php:358
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Vi ne havas sufiĉajn permesojn por skribi al ĉi tiu dosierujo."
 
-#: src/Process/Backend/Media.php:371
+#: src/Process/Backend/Media.php:372
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "Elektu dosieron alklakante %s"
 
-#: src/Process/Backend/Media.php:374 src/Process/Backend/Media.php:442
+#: src/Process/Backend/Media.php:375 src/Process/Backend/Media.php:443
 msgid "Choose selected medias"
 msgstr "Elektu elektitajn amaskomunikilarojn"
 
-#: src/Process/Backend/Media.php:374
+#: src/Process/Backend/Media.php:375
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Elektu dosierojn kaj alklaku la butonon <strong>%s</strong>"
 
-#: src/Process/Backend/Media.php:378 src/Process/Backend/Media.php:391
-#: src/Process/Backend/Media.php:404 src/Process/Backend/MediaItem.php:805
+#: src/Process/Backend/Media.php:379 src/Process/Backend/Media.php:392
+#: src/Process/Backend/Media.php:405 src/Process/Backend/MediaItem.php:805
 msgid "or"
 msgstr "aŭ"
 
-#: src/Process/Backend/Media.php:378 src/Process/Backend/Media.php:391
-#: src/Process/Backend/Media.php:404
+#: src/Process/Backend/Media.php:379 src/Process/Backend/Media.php:392
+#: src/Process/Backend/Media.php:405
 msgid "upload a new file"
 msgstr "alŝutu novan dosieron"
 
-#: src/Process/Backend/Media.php:385
+#: src/Process/Backend/Media.php:386
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Elektu dosieron por alfiksi al eniro %s alklakante %s"
 
-#: src/Process/Backend/Media.php:399
+#: src/Process/Backend/Media.php:400
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Elektu dosieron por enmeti en enskribon alklakante %s"
 
-#: src/Process/Backend/Media.php:417 src/Process/Backend/Media.php:418
-#: src/Process/Backend/Media.php:419
+#: src/Process/Backend/Media.php:418 src/Process/Backend/Media.php:419
+#: src/Process/Backend/Media.php:420
 msgid "Grid display mode"
 msgstr "Reĝimo de ekrano de krado"
 
-#: src/Process/Backend/Media.php:421 src/Process/Backend/Media.php:422
-#: src/Process/Backend/Media.php:423
+#: src/Process/Backend/Media.php:422 src/Process/Backend/Media.php:423
+#: src/Process/Backend/Media.php:424
 msgid "List display mode"
 msgstr "Listo de ekranreĝimo"
 
-#: src/Process/Backend/Media.php:445
+#: src/Process/Backend/Media.php:446
 msgid "Remove selected medias"
 msgstr "Forigi elektitajn amaskomunikilarojn"
 
-#: src/Process/Backend/Media.php:472
+#: src/Process/Backend/Media.php:473
 #, php-format
 msgid "In %s:"
 msgstr "En %s:"
 
-#: src/Process/Backend/Media.php:484
+#: src/Process/Backend/Media.php:485
 msgid "Create new directory"
 msgstr "Krei novan dosierujon"
 
-#: src/Process/Backend/Media.php:486
+#: src/Process/Backend/Media.php:487
 msgid "Directory Name:"
 msgstr "Dosierujo Nomo:"
 
-#: src/Process/Backend/Media.php:499
+#: src/Process/Backend/Media.php:500
 msgid "Build missing thumbnails in directory"
 msgstr "Konstruu mankantajn bildetojn en dosierujo"
 
-#: src/Process/Backend/Media.php:501
+#: src/Process/Backend/Media.php:502
 msgid "Build"
 msgstr "Konstruu"
 
-#: src/Process/Backend/Media.php:511
+#: src/Process/Backend/Media.php:512
 #, php-format
 msgid "Backup content of %s"
 msgstr "Rezerva enhavo de %s"
 
-#: src/Process/Backend/Media.php:515
+#: src/Process/Backend/Media.php:516
 msgid "Download zip file"
 msgstr "Elŝutu zip-dosieron"
 
-#: src/Process/Backend/Media.php:535
+#: src/Process/Backend/Media.php:536
 msgid "Add files"
 msgstr "Aldoni dosierojn"
 
-#: src/Process/Backend/Media.php:536
+#: src/Process/Backend/Media.php:537
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "Bonvolu zorgi publikigi amaskomunikilaron kiujn vi posedas kaj kiuj ne estas protektitaj per kopirajto."
 
-#: src/Process/Backend/Media.php:548
+#: src/Process/Backend/Media.php:549
 msgid "Maximum file size allowed:"
 msgstr "Maksimuma dosiergrandeco permesita:"
 
-#: src/Process/Backend/Media.php:550 src/Process/Backend/MediaItem.php:667
+#: src/Process/Backend/Media.php:551 src/Process/Backend/MediaItem.php:667
 #: src/Process/Backend/MediaItem.php:1029
 #: src/Process/Backend/MediaItem.php:1092
 msgid "Alternate text:"
 msgstr "Alterna teksto:"
 
-#: src/Process/Backend/Media.php:551 src/Process/Backend/MediaItem.php:1122
+#: src/Process/Backend/Media.php:552 src/Process/Backend/MediaItem.php:1122
 msgid "Private"
 msgstr "Privata"
 
-#: src/Process/Backend/Media.php:556
+#: src/Process/Backend/Media.php:557
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "Por sendi plurajn dosierojn samtempe, vi povas aktivigi la plibonigitan alŝutilon"
 
-#: src/Process/Backend/Media.php:561
+#: src/Process/Backend/Media.php:562
 msgid "Refresh"
 msgstr "Refreŝigi"
 
-#: src/Process/Backend/Media.php:562
+#: src/Process/Backend/Media.php:563
 msgid "Clear all"
 msgstr "Forigi ĉion"
 
-#: src/Process/Backend/Media.php:594
+#: src/Process/Backend/Media.php:595
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Nunaj agordoj por amaskomunikiloj kaj bildoj estas difinitaj en %s"
