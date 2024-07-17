@@ -10,9 +10,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Core\Backend\Listing\Pager;
 use Dotclear\Core\Backend\Listing\Listing;
-use Dotclear\App;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
@@ -266,14 +266,11 @@ class BackendList extends Listing
                 ])
             ->render(),
             'date' => (new Td())
-                ->class('nowrap')
-                ->text(
-                    '<time datetime="' .
-                    Date::iso8601((int) strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz')) .
-                    '">' .
-                    Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
-                    '</time>'
-                )
+                ->class(['nowrap', 'count'])
+                ->items([
+                    (new Text('time', Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt)))
+                        ->extra('datetime="' . Date::iso8601((int) strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz')) . '"'),
+                ])
             ->render(),
             'author' => (new Td())
                 ->class('nowrap')

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-09 18:09+0200\n"
+"POT-Creation-Date: 2024-07-17 05:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2383,11 +2383,11 @@ msgstr ""
 msgid "No page"
 msgstr ""
 
-#: plugins/pages/src/BackendList.php:180 plugins/pages/src/BackendList.php:241
+#: plugins/pages/src/BackendList.php:165 plugins/pages/src/BackendList.php:227
 msgid "Hidden"
 msgstr ""
 
-#: plugins/pages/src/BackendList.php:271
+#: plugins/pages/src/BackendList.php:257
 msgid "Select this page"
 msgstr ""
 
