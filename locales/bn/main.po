@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-17 05:25+0200\n"
-"PO-Revision-Date: 2024-07-17 03:33\n"
+"PO-Revision-Date: 2024-07-17 04:31\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -1124,7 +1124,7 @@ msgstr "ট্র্যাকব্যাক"
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
-msgstr[0] ""
+msgstr[0] "ফিল্টারের সাথে মিলে যাওয়া %s এন্ট্রির তালিকা।"
 msgstr[1] "ফিল্টারের সাথে মিলছে এমন %s এন্ট্রির তালিকা।"
 
 #: src/Core/Backend/Listing/ListingPosts.php:151
@@ -1135,8 +1135,8 @@ msgstr "এন্ট্রির তালিকা (%s)"
 #: src/Core/Backend/Listing/ListingPosts.php:179
 msgid "scheduled (1)"
 msgid_plural "scheduled (> 1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "তালিকাভুক্ত"
+msgstr[1] "তালিকাভুক্ত"
 
 #: src/Core/Backend/Listing/ListingPosts.php:225
 #: src/Core/Backend/Listing/ListingPosts.php:271
@@ -1169,7 +1169,7 @@ msgstr "%dটি সংযুক্তি"
 
 #: src/Core/Backend/Listing/ListingPosts.php:325
 msgid "Select this post"
-msgstr ""
+msgstr "এই পোস্ট নির্বাচন করুন"
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:39
 msgid "Entries list"
