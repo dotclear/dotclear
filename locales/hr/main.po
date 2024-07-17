@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-07-17 05:25+0200\n"
-"PO-Revision-Date: 2024-07-17 03:46\n"
+"PO-Revision-Date: 2024-07-17 04:49\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -1142,7 +1142,7 @@ msgstr "Trackbackovi"
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
-msgstr[0] ""
+msgstr[0] "Popis %s unosa koji odgovaraju filtru."
 msgstr[1] "Popis %s unosa koji odgovaraju filtru."
 msgstr[2] "Popis %s unosa koji odgovaraju filtru."
 
@@ -1154,9 +1154,9 @@ msgstr "Popis unosa (%s)"
 #: src/Core/Backend/Listing/ListingPosts.php:179
 msgid "scheduled (1)"
 msgid_plural "scheduled (> 1)"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "zakazano"
+msgstr[1] "zakazano"
+msgstr[2] "zakazano"
 
 #: src/Core/Backend/Listing/ListingPosts.php:225
 #: src/Core/Backend/Listing/ListingPosts.php:271
@@ -1189,7 +1189,7 @@ msgstr "%d privici"
 
 #: src/Core/Backend/Listing/ListingPosts.php:325
 msgid "Select this post"
-msgstr ""
+msgstr "Odaberite ovu objavu"
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:39
 msgid "Entries list"
