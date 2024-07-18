@@ -12,6 +12,18 @@ namespace Dotclear\Core\Backend\Listing;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Caption;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 
 /**
@@ -31,77 +43,112 @@ class ListingPostsMini extends Listing
     public function display(int $page, int $nb_per_page, string $enclose_block = ''): void
     {
         if ($this->rs->isEmpty()) {
-            echo '<p><strong>' . __('No entry') . '</strong></p>';
-        } else {
-            $pager = new Pager($page, (int) $this->rs_count, $nb_per_page, 10);
+            echo (new Para())
+                ->items([
+                    (new Text('strong', __('No entry'))),
+                ])
+            ->render();
 
-            $html_block = '<div class="table-outer clear">' .
-            '<table><caption class="hidden">' . __('Entries list') . '</caption><tr>';
-
-            $cols = [
-                'title'  => '<th scope="col">' . __('Title') . '</th>',
-                'date'   => '<th scope="col">' . __('Date') . '</th>',
-                'author' => '<th scope="col">' . __('Author') . '</th>',
-                'status' => '<th scope="col">' . __('Status') . '</th>',
-            ];
-
-            $cols = new ArrayObject($cols);
-            # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject
-            App::behavior()->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
-
-            // Cope with optional columns
-            $this->userColumns('posts', $cols);
-
-            $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table></div>';
-            if ($enclose_block) {
-                $html_block = sprintf($enclose_block, $html_block);
-            }
-
-            echo $pager->getLinks();
-
-            $blocks = explode('%s', $html_block);
-
-            echo $blocks[0];
-
-            while ($this->rs->fetch()) {
-                echo $this->postLine();
-            }
-
-            echo $blocks[1];
-
-            echo $pager->getLinks();
+            return;
         }
+
+        $pager = (new Pager($page, (int) $this->rs_count, $nb_per_page, 10))->getLinks();
+
+        $cols = [
+            'title' => (new Th())
+                ->scope('col')
+                ->text(__('Title'))
+            ->render(),
+            'date' => (new Th())
+                ->scope('col')
+                ->text(__('Date'))
+            ->render(),
+            'author' => (new Th())
+                ->scope('col')
+                ->text(__('Author'))
+            ->render(),
+            'status' => (new Th())
+                ->scope('col')
+                ->text(__('Status'))
+            ->render(),
+        ];
+
+        $cols = new ArrayObject($cols);
+        # --BEHAVIOR-- adminPostMiniListHeaderV2 -- MetaRecord, ArrayObject
+        App::behavior()->callBehavior('adminPostMiniListHeaderV2', $this->rs, $cols);
+
+        // Cope with optional columns
+        $this->userColumns('posts', $cols);
+
+        // Prepare listing
+        $lines = [];
+        while ($this->rs->fetch()) {
+            $lines[] = $this->postLine();
+        }
+
+        $buffer = (new Div())
+            ->class(['table-outer', 'clear'])
+            ->items([
+                (new Table())
+                    ->class(['maximal', 'dragable'])
+                    ->caption((new Caption(__('Entries list')))
+                        ->class('hidden'))
+                    ->items([
+                        (new Thead())
+                            ->rows([
+                                (new Tr())
+                                    ->items([
+                                        (new Text(null, implode(iterator_to_array($cols)))),
+                                    ]),
+                            ]),
+                        (new Tbody())
+                            ->id('pageslist')
+                            ->rows($lines),
+                    ]),
+            ])
+        ->render();
+        if ($enclose_block) {
+            $buffer = sprintf($enclose_block, $buffer);
+        }
+
+        echo $pager . $buffer . $pager;
     }
 
     /**
      * Get a line.
      *
-     * @return  string
+     * @return  Tr
      */
-    private function postLine(): string
+    private function postLine(): Tr
     {
-        $img        = '<img alt="%1$s" src="images/%2$s" class="mark mark-%3$s">';
+        $img = (new Img('images/%2$s'))
+            ->alt('%1$s')
+            ->class(['mark', 'mark-%3$s'])
+            ->render();
+        $post_classes = ['line'];
+        if ((int) $this->rs->post_status !== App::blog()::POST_PUBLISHED) {
+            $post_classes[] = 'offline';
+        }
         $img_status = '';
-        $sts_class  = '';
         switch ($this->rs->post_status) {
             case App::blog()::POST_PUBLISHED:
-                $img_status = sprintf($img, __('Published'), 'published.svg', 'published');
-                $sts_class  = 'sts-online';
+                $img_status     = sprintf($img, __('Published'), 'published.svg', 'published');
+                $post_classes[] = 'sts-online';
 
                 break;
             case App::blog()::POST_UNPUBLISHED:
-                $img_status = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
-                $sts_class  = 'sts-offline';
+                $img_status     = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
+                $post_classes[] = 'sts-offline';
 
                 break;
             case App::blog()::POST_SCHEDULED:
-                $img_status = sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled');
-                $sts_class  = 'sts-scheduled';
+                $img_status     = sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled');
+                $post_classes[] = 'sts-scheduled';
 
                 break;
             case App::blog()::POST_PENDING:
-                $img_status = sprintf($img, __('Pending'), 'pending.svg', 'pending');
-                $sts_class  = 'sts-pending';
+                $img_status     = sprintf($img, __('Pending'), 'pending.svg', 'pending');
+                $post_classes[] = 'sts-pending';
 
                 break;
         }
@@ -123,21 +170,31 @@ class ListingPostsMini extends Listing
             $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.svg', 'attach');
         }
 
-        $res = '<tr class="line ' . ($this->rs->post_status != App::blog()::POST_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
-        ' id="p' . $this->rs->post_id . '">';
-
         $cols = [
-            'title' => '<td scope="row" class="maximal"><a href="' .
-            App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id) . '" ' .
-            'title="' . Html::escapeHTML($this->rs->getURL()) . '">' .
-            Html::escapeHTML(trim(Html::clean($this->rs->post_title))) . '</a></td>',
-            'date' => '<td class="nowrap count">' .
-                '<time datetime="' . Date::iso8601((int) strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz')) . '">' .
-                Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) .
-                '</time>' .
-                '</td>',
-            'author' => '<td class="nowrap">' . Html::escapeHTML($this->rs->user_id) . '</td>',
-            'status' => '<td class="nowrap status">' . $img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach . '</td>',
+            'title' => (new Td())
+                ->class('maximal')
+                ->items([
+                    (new Link())
+                        ->href(App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id))
+                        ->title(Html::escapeHTML($this->rs->getURL()))
+                        ->text(Html::escapeHTML(trim(Html::clean($this->rs->post_title)))),
+                ])
+            ->render(),
+            'date' => (new Td())
+                ->class(['nowrap', 'count'])
+                ->items([
+                    (new Text('time', Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt)))
+                        ->extra('datetime="' . Date::iso8601((int) strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz')) . '"'),
+                ])
+            ->render(),
+            'author' => (new Td())
+                ->class('nowrap')
+                ->text($this->rs->user_id)
+            ->render(),
+            'status' => (new Td())
+                ->class(['nowrap', 'count'])
+                ->text($img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach)
+            ->render(),
         ];
 
         $cols = new ArrayObject($cols);
@@ -147,9 +204,11 @@ class ListingPostsMini extends Listing
         // Cope with optional columns
         $this->userColumns('posts', $cols);
 
-        $res .= implode(iterator_to_array($cols));
-        $res .= '</tr>';
-
-        return $res;
+        return (new Tr())
+            ->id('p' . (string) $this->rs->post_id)
+            ->class($post_classes)
+            ->items([
+                (new Text(null, implode(iterator_to_array($cols)))),
+            ]);
     }
 }
