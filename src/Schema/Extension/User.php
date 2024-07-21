@@ -60,6 +60,13 @@ class User
         return [];
     }
 
+    /**
+     * Returns admin status of the current user
+     *
+     * @param      MetaRecord   $rs       Invisible parameter
+     *
+     * @return     string
+     */
     public static function admin(MetaRecord $rs): string
     {
         if ($rs->user_super) {
