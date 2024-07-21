@@ -10,7 +10,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Schema\Extension;
 
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Interface\Core\AuthInterface;
 
 /**
  * @brief Dotclear dates Record helpers.
@@ -56,6 +58,20 @@ class User
         }
 
         return [];
+    }
+
+    public static function admin(MetaRecord $rs): string
+    {
+        if ($rs->user_super) {
+            return AuthInterface::PERMISSION_SUPERADMIN;
+        }
+
+        $permissions = App::users()->getUserPermissions($rs->user_id);
+        if (isset($permissions[App::blog()->id()]['p'][AuthInterface::PERMISSION_ADMIN])) {
+            return AuthInterface::PERMISSION_ADMIN;
+        }
+
+        return '';
     }
 
     /**

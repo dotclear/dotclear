@@ -24,6 +24,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Interface\Core\AuthInterface;
 
 /**
  * @brief   Users list pager form helper.
@@ -153,14 +154,11 @@ class ListingUsers extends Listing
             ->class(['mark', 'mark-admin'])
             ->render();
 
-        $p = App::users()->getUserPermissions($this->rs->user_id);
-
-        $img_status = '';
-        if ($this->rs->user_super) {
-            $img_status = sprintf($img, __('superadmin'), 'superadmin.svg');
-        } elseif (isset($p[App::blog()->id()]['p']['admin'])) {
-            $img_status = sprintf($img, __('admin'), 'admin.svg');
-        }
+        $img_status = match ($this->rs->admin()) {
+            AuthInterface::PERMISSION_SUPERADMIN => sprintf($img, __('superadmin'), 'superadmin.svg'),
+            AuthInterface::PERMISSION_ADMIN      => sprintf($img, __('admin'), 'admin.svg'),
+            default                              => '',
+        };
 
         $cols = [
             'check' => (new Td())

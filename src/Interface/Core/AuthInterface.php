@@ -35,6 +35,13 @@ interface AuthInterface
     public const PERMISSIONS_TABLE_NAME = 'permissions';
 
     /**
+     * User blog permission code for : All (super).
+     *
+     * @var    string  PERMISSION_SUPERADMIN
+     */
+    public const PERMISSION_SUPERADMIN = 'superadmin';
+
+    /**
      * User blog permission code for : All.
      *
      * @var    string  PERMISSION_ADMIN
