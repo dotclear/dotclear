@@ -11,8 +11,19 @@ namespace Dotclear\Core\Backend\Listing;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Caption;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
-use form;
 
 /**
  * @brief   Users list pager form helper.
@@ -32,101 +43,168 @@ class ListingUsers extends Listing
     public function display(int $page, int $nb_per_page, string $enclose_block = '', bool $filter = false): void
     {
         if ($this->rs->isEmpty()) {
-            if ($filter) {
-                echo '<p><strong>' . __('No user matches the filter') . '</strong></p>';
-            } else {
-                echo '<p><strong>' . __('No user') . '</strong></p>';
-            }
-        } else {
-            $pager = new Pager($page, (int) $this->rs_count, $nb_per_page, 10);
+            echo (new Para())
+                ->items([
+                    (new Text('strong', $filter ? __('No user matches the filter') : __('No user'))),
+                ])
+            ->render();
 
-            $html_block = '<div class="table-outer clear">' .
-                '<table>';
-
-            if ($filter) {
-                $html_block .= '<caption>' . sprintf(__('List of %s users match the filter.'), $this->rs_count) . '</caption>';
-            } else {
-                $html_block .= '<caption class="hidden">' . __('Users list') . '</caption>';
-            }
-
-            $cols = [
-                'username'     => '<th colspan="2" scope="col" class="first">' . __('Username') . '</th>',
-                'first_name'   => '<th scope="col">' . __('First Name') . '</th>',
-                'last_name'    => '<th scope="col">' . __('Last Name') . '</th>',
-                'display_name' => '<th scope="col">' . __('Display name') . '</th>',
-                'entries'      => '<th scope="col" class="nowrap">' . __('Entries (all types)') . '</th>',
-            ];
-
-            $cols = new ArrayObject($cols);
-
-            # --BEHAVIOR-- adminUserListHeaderV2 -- MetaRecord, ArrayObject
-            App::behavior()->callBehavior('adminUserListHeaderV2', $this->rs, $cols);
-
-            // Cope with optional columns
-            $this->userColumns('users', $cols);
-
-            $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
-            if ($enclose_block) {
-                $html_block = sprintf($enclose_block, $html_block);
-            }
-
-            echo $pager->getLinks();
-
-            $blocks = explode('%s', $html_block);
-
-            echo $blocks[0];
-
-            while ($this->rs->fetch()) {
-                echo $this->userLine();
-            }
-
-            echo $blocks[1];
-
-            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" class="mark mark-admin" src="images/%2$s"> %1$s', $title, $image);
-            echo '<p class="info">' . __('Legend: ') .
-                $fmt(__('admin'), 'admin.svg') . ' - ' .
-                $fmt(__('superadmin'), 'superadmin.svg') .
-                '</p>';
-
-            echo $blocks[2];
-
-            echo $pager->getLinks();
+            return;
         }
+
+        $pager = (new Pager($page, (int) $this->rs_count, $nb_per_page, 10))->getLinks();
+
+        $cols = [
+            'username' => (new Th())
+                ->colspan(2)
+                ->scope('col')
+                ->class('first')
+                ->text(__('Username'))
+            ->render(),
+
+            'first_name' => (new Th())
+                ->scope('col')
+                ->text(__('First Name'))
+            ->render(),
+
+            'last_name' => (new Th())
+                ->scope('col')
+                ->text(__('Last Name'))
+            ->render(),
+
+            'display_name' => (new Th())
+                ->scope('col')
+                ->text(__('Display name'))
+            ->render(),
+
+            'entries' => (new Th())
+                ->scope('col')
+                ->class('nowrap')
+                ->text(__('Entries (all types)'))
+            ->render(),
+        ];
+
+        $cols = new ArrayObject($cols);
+
+        # --BEHAVIOR-- adminUserListHeaderV2 -- MetaRecord, ArrayObject
+        App::behavior()->callBehavior('adminUserListHeaderV2', $this->rs, $cols);
+
+        // Cope with optional columns
+        $this->userColumns('users', $cols);
+
+        $fmt = fn ($title, $image) => sprintf(
+            (new Img('images/%2$s'))
+                    ->alt('%1$s')
+                    ->class(['mark', 'mark-admin'])
+                    ->render() . ' %1$s',
+            $title,
+            $image
+        );
+
+        // Prepare listing
+        $lines = [
+            (new Tr())
+                ->items([
+                    (new Text(null, implode(iterator_to_array($cols)))),
+                ]),
+        ];
+        while ($this->rs->fetch()) {
+            $lines[] = $this->userLine();
+        }
+
+        if ($filter) {
+            $caption = (new Caption(sprintf(__('List of %s users match the filter.'), $this->rs_count)));
+        } else {
+            $caption = (new Caption(__('Users list')))
+                ->class('hidden');
+        }
+
+        $buffer = (new Div())
+            ->class(['table-outer', 'clear'])
+            ->items([
+                (new Table())
+                    ->caption($caption)
+                    ->items($lines),
+                (new Para())
+                    ->class('info')
+                    ->items([
+                        (new Text(null, __('Legend: '))),
+                        (new Text(null, $fmt(__('admin'), 'admin.svg') . ' - ')),
+                        (new Text(null, $fmt(__('superadmin'), 'superadmin.svg'))),
+                    ]),
+            ])
+        ->render();
+        if ($enclose_block) {
+            $buffer = sprintf($enclose_block, $buffer);
+        }
+
+        echo $pager . $buffer . $pager;
     }
 
     /**
      * Get a user line.
      *
-     * @return  string
+     * @return  Tr
      */
-    private function userLine(): string
+    private function userLine(): Tr
     {
-        $img        = '<img alt="%1$s" class="mark mark-admin" src="images/%2$s">';
-        $img_status = '';
+        $img = (new Img('images/%2$s'))
+            ->alt('%1$s')
+            ->class(['mark', 'mark-admin'])
+            ->render();
 
         $p = App::users()->getUserPermissions($this->rs->user_id);
 
-        if (isset($p[App::blog()->id()]['p']['admin'])) {
-            $img_status = sprintf($img, __('admin'), 'admin.svg');
-        }
+        $img_status = '';
         if ($this->rs->user_super) {
             $img_status = sprintf($img, __('superadmin'), 'superadmin.svg');
+        } elseif (isset($p[App::blog()->id()]['p']['admin'])) {
+            $img_status = sprintf($img, __('admin'), 'admin.svg');
         }
 
-        $res = '<tr class="line">';
-
         $cols = [
-            'check' => '<td class="nowrap">' . form::hidden(['nb_post[]'], (int) $this->rs->nb_post) .
-            form::checkbox(['users[]'], $this->rs->user_id) . '</td>',
-            'username' => '<td class="maximal" scope="row"><a href="' .
-            App::backend()->url()->get('admin.user', ['id' => $this->rs->user_id]) . '">' .
-            $this->rs->user_id . '</a>&nbsp;' . $img_status . '</td>',
-            'first_name'   => '<td class="nowrap">' . Html::escapeHTML($this->rs->user_firstname) . '</td>',
-            'last_name'    => '<td class="nowrap">' . Html::escapeHTML($this->rs->user_name) . '</td>',
-            'display_name' => '<td class="nowrap">' . Html::escapeHTML($this->rs->user_displayname) . '</td>',
-            'entries'      => '<td class="nowrap count"><a href="' .
-            App::backend()->url()->get('admin.posts', ['user_id' => $this->rs->user_id]) . '">' .
-            $this->rs->nb_post . '</a></td>',
+            'check' => (new Td())
+                ->class('nowrap')
+                ->items([
+                    (new Hidden(['nb_post[]'], (string) $this->rs->nb_post)),
+                    (new Checkbox(['users[]']))
+                        ->value($this->rs->user_id),
+                ])
+            ->render(),
+
+            'username' => (new Td())
+                ->class('maximal')
+                ->items([
+                    (new Link())
+                        ->href(App::backend()->url()->get('admin.user', ['id' => $this->rs->user_id]))
+                        ->text(Html::escapeHTML($this->rs->user_id)),
+                    (new Text(null, $img_status)),
+                ])
+            ->render(),
+
+            'first_name' => (new Td())
+                ->class('nowrap')
+                ->text(Html::escapeHTML($this->rs->user_firstname))
+            ->render(),
+
+            'last_name' => (new Td())
+                ->class('nowrap')
+                ->text(Html::escapeHTML($this->rs->user_name))
+            ->render(),
+
+            'display_name' => (new Td())
+                ->class('nowrap')
+                ->text(Html::escapeHTML($this->rs->user_displayname))
+            ->render(),
+
+            'entries' => (new Td())
+                ->class(['nowrap', 'count'])
+                ->items([
+                    (new Link())
+                        ->href(App::backend()->url()->get('admin.posts', ['user_id' => $this->rs->user_id]))
+                        ->text((string) $this->rs->nb_post),
+                ])
+            ->render(),
         ];
 
         $cols = new ArrayObject($cols);
@@ -136,9 +214,10 @@ class ListingUsers extends Listing
         // Cope with optional columns
         $this->userColumns('users', $cols);
 
-        $res .= implode(iterator_to_array($cols));
-        $res .= '</tr>';
-
-        return $res;
+        return (new Tr())
+            ->class('line')
+            ->items([
+                (new Text(null, implode(iterator_to_array($cols)))),
+            ]);
     }
 }
