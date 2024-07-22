@@ -11,6 +11,8 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\L10n;
 
 class Helper
@@ -38,20 +40,21 @@ class Helper
             $light_img = $img ?: ($fallback ? $unknown_img : '');  // Fallback to no icon if necessary
         }
 
-        $title = '';    // No title on img, @since 2.29
-        if ($light_img !== '' && $dark_img !== '') {
-            $icon = '<img src="' . $light_img .
-            '" class="light-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . '>' .
-                '<img src="' . $dark_img .
-            '" class="dark-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . '>';
-        } elseif ($light_img !== '') {
-            $icon = '<img src="' . $light_img .
-            '" class="' . ($class !== '' ? $class : '') . '" alt="' . $alt . '"' . $title . '>';
-        } else {
-            $icon = '';
+        $icons = [];
+        if ($light_img !== '') {
+            $icons[] = (new Img($light_img))
+                ->class(array_filter(['light-only', $class]))
+                ->alt($alt);
+        }
+        if ($dark_img !== '') {
+            $icons[] = (new Img($dark_img))
+                ->class(array_filter(['dark-only', $class]))
+                ->alt($alt);
         }
 
-        return $icon;
+        return (new Set())
+            ->items($icons)
+        ->render();
     }
 
     /**
