@@ -24,32 +24,45 @@ class Helper
      * @param bool      $fallback   use fallback image if none given
      * @param string    $alt        alt attribute
      * @param string    $title      title attribute
+     * @param string    $class      class attribute
      *
      * @return string
      */
     public static function adminIcon($img, bool $fallback = true, string $alt = '', string $title = '', string $class = ''): string
     {
-        $unknown_img = 'images/menu/no-icon.svg';
-        $dark_img    = '';
+        $default_img = $fallback ? 'images/menu/no-icon.svg' : '';  // Fallback to no icon if requested
+
+        $dark_img = '';
         if (is_array($img)) {
-            $light_img = $img[0] ?: ($fallback ? $unknown_img : '');   // Fallback to no icon if necessary
+            $light_img = $img[0] ?: $default_img;
             if (isset($img[1]) && $img[1] !== '') {
                 $dark_img = $img[1];
             }
         } else {
-            $light_img = $img ?: ($fallback ? $unknown_img : '');  // Fallback to no icon if necessary
+            $light_img = $img ?: $default_img;
+        }
+
+        if ($title === $alt) {
+            // Don't repeat alt in title
+            $title = '';
         }
 
         $icons = [];
         if ($light_img !== '') {
-            $icons[] = (new Img($light_img))
-                ->class(array_filter(['light-only', $class]))
+            $icons[0] = (new Img($light_img))
+                ->class(array_filter([$dark_img !== '' ? 'light-only' : '', $class]))
                 ->alt($alt);
-        }
-        if ($dark_img !== '') {
-            $icons[] = (new Img($dark_img))
-                ->class(array_filter(['dark-only', $class]))
-                ->alt($alt);
+            if ($title) {
+                $icons[0]->title($title);
+            }
+            if ($dark_img !== '') {
+                $icons[1] = (new Img($dark_img))
+                    ->class(array_filter(['dark-only', $class]))
+                    ->alt($alt);
+                if ($title) {
+                    $icons[1]->title($title);
+                }
+            }
         }
 
         return (new Set())
