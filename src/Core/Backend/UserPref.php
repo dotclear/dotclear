@@ -245,7 +245,7 @@ class UserPref
                         $sorts[$stype][3] = $sdata[1];
                     }
                     if (is_array($sorts[$stype][4]) && is_numeric($sdata[2]) && $sdata[2] > 0) {
-                        $sorts[$stype][4][1] = abs($sdata[2]);
+                        $sorts[$stype][4][1] = abs((int) $sdata[2]);
                     }
                 }
             }
