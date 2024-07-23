@@ -11,6 +11,12 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 
 class Menu
 {
@@ -110,23 +116,30 @@ class Menu
             return '';
         }
 
-        $res = '<div id="' . $this->id . '">' . ($this->title ? '<h3>' . $this->title . '</h3>' : '') . '<ul>' . "\n";
-
-        // 1. Display pinned items (unsorted)
-        foreach ($this->pinned as $item) {
-            $res .= $item . "\n";
+        $lines = [];
+        if (count($this->pinned)) {
+            // 1. Pinned items (unsorted)
+            foreach ($this->pinned as $item) {
+                $lines[] = (new Text(null, $item));
+            }
+        }
+        if (count($this->items)) {
+            // 2. Unpinned items (sorted)
+            $items = $this->items;
+            App::lexical()->lexicalKeySort($items, App::lexical()::ADMIN_LOCALE);
+            foreach ($items as $item) {
+                $lines[] = (new Text(null, $item));
+            }
         }
 
-        // 2. Display unpinned items (sorted)
-        $items = $this->items;
-        App::lexical()->lexicalKeySort($items, App::lexical()::ADMIN_LOCALE);
-        foreach ($items as $item) {
-            $res .= $item . "\n";
-        }
-
-        $res .= '</ul></div>' . "\n";
-
-        return $res;
+        return (new Div())
+            ->id($this->id)
+            ->items([
+                $this->title ? (new Text('h3', $this->title)) : (new None()),
+                (new Ul())
+                    ->items($lines),
+            ])
+        ->render();
     }
 
     /**
@@ -134,7 +147,7 @@ class Menu
      *
      * @param      string       $title   The title
      * @param      string       $url     The url
-     * @param      mixed        $img     The image(s)
+     * @param      mixed        $img     The image(s), string (default) or array (0 : light, 1 : dark)
      * @param      mixed        $active  The active flag
      * @param      null|string  $id      The identifier
      * @param      null|string  $class   The class
@@ -143,10 +156,38 @@ class Menu
      */
     protected function itemDef(string $title, string $url, $img, $active, ?string $id = null, ?string $class = null): string
     {
-        return
-        '<li' . (($active || $class) ? ' class="' . (($active) ? 'active ' : '') . ($class ?? '') . '"' : '') . (($id) ? ' id="menu-item-' . $id . '"' : '') . '>' .
-        '<a href="' . $url . '"' . ($active ? ' aria-current="page"' : '') . ($id ? ' id="menu-process-' . $id . '"' : '') . '>' . Helper::adminIcon($img) . $title . '</a>' .
-        '</li>' . "\n";
+        // Menu link
+        $link = (new Link())
+            ->href($url)
+            ->text(Helper::adminIcon($img) . $title);
+        if ($id) {
+            $link->id('menu-process-' . $id);
+        }
+        if ($active) {
+            $link->extra('aria-current="page"');
+        }
+
+        // Menu list item
+        $code = (new Li())
+            ->items([
+                $link,
+            ]);
+        if ($id) {
+            $code->id('menu-item-' . $id);
+        }
+        $classes = [];
+        if ($class) {
+            $classes[] = $class;
+        }
+        if ($active) {
+            $classes[] = 'active';
+        }
+        $classes = array_filter($classes);
+        if (count($classes)) {
+            $code->class($classes);
+        }
+
+        return $code->render();
     }
 
     /**
