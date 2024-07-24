@@ -13,6 +13,11 @@ namespace Dotclear\Core\Backend;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Text;
 
 /**
  * Backend notices handling facilities
@@ -64,11 +69,20 @@ class Notices
             if (!empty($notice_error)) {
                 $res .= $notice_error;
             } else {
-                $res .= '<div role="alert"><p><strong>' . (App::error()->count() > 1 ? __('Errors:') : __('Error:')) . '</strong></p>';
+                $errors = [];
                 foreach (App::error()->dump() as $msg) {
-                    $res .= self::error($msg, true, false, false);
+                    $errors[] = (new Text(null, self::error($msg, true, false, false)));
                 }
-                $res .= '</div>';
+                $res .= (new Div())
+                    ->extra('role="alert"')
+                    ->items([
+                        (new Para())
+                            ->items([
+                                (new Text('strong', App::error()->count() > 1 ? __('Errors:') : __('Error:'))),
+                            ]),
+                        ...$errors,
+                    ])
+                ->render();
             }
             self::$error_displayed = true;
         } else {
@@ -211,20 +225,32 @@ class Notices
      */
     protected static function getNotification(array $notice): string
     {
-        $container = (isset($notice['format']) && $notice['format'] === 'html') ? 'div' : 'p';
-        $timestamp = '';
+        if (isset($notice['format']) && $notice['format'] === 'html') {
+            $container = (new Div());
+        } else {
+            $container = (new Para());
+        }
+        $container
+            ->class($notice['class'])
+            ->extra('role="alert"');
+
         if (!isset($notice['with_ts']) || ($notice['with_ts'])) {
-            $timestamp = '<span class="notice-ts">' .
-                '<time datetime="' . Date::iso8601((int) strtotime($notice['ts']), App::auth()->getInfo('user_tz')) . '">' .
-                Date::dt2str(__('%H:%M:%S'), $notice['ts'], App::auth()->getInfo('user_tz')) .
-                '</time>' .
-                '</span> ';
+            $timestamp = (new Div(null, 'span'))
+                ->class('notice-ts')
+                ->items([
+                    (new Text('time', Date::dt2str(__('%H:%M:%S'), $notice['ts'], App::auth()->getInfo('user_tz'))))
+                        ->extra('datetime="' . Date::iso8601((int) strtotime($notice['ts']), App::auth()->getInfo('user_tz')) . '"'),
+                ]);
+        } else {
+            $timestamp = (new None());
         }
 
-        return
-            '<' . $container . ' class="' . $notice['class'] . '" role="alert">' .
-            $timestamp . $notice['text'] .
-            '</' . $container . '>';
+        return $container
+            ->items([
+                $timestamp,
+                (new Text(null, $notice['text'])),
+            ])
+        ->render();
     }
 
     // Direct messages
@@ -234,7 +260,7 @@ class Notices
      *
      * @param      string       $msg        The message
      * @param      bool         $timestamp  With the timestamp
-     * @param      bool         $div        Inside a div (else in a p)
+     * @param      bool         $div        Inside a div?
      * @param      bool         $echo       Display the message?
      * @param      null|string  $class      The class of block (div/p)
      *
@@ -244,18 +270,37 @@ class Notices
     {
         $class ??= self::$notice_types[self::NOTICE_MESSAGE];
         $res = '';
-        if ($msg != '') {
-            $ts = '';
+        if ($msg !== '') {
+            $ts = (new None());
             if ($timestamp) {
-                $ts = '<span class="notice-ts">' .
-                    '<time datetime="' . Date::iso8601(time(), App::auth()->getInfo('user_tz')) . '">' .
-                    Date::str(__('%H:%M:%S'), null, App::auth()->getInfo('user_tz')) .
-                    '</time>' .
-                    '</span> ';
+                $timestamp = (new Div(null, 'span'))
+                    ->class('notice-ts')
+                    ->items([
+                        (new Text('time', Date::str(__('%H:%M:%S'), null, App::auth()->getInfo('user_tz'))))
+                            ->extra('datetime="' . Date::iso8601(time(), App::auth()->getInfo('user_tz')) . '"'),
+                    ]);
             }
-            $res = ($div ? '<div class="' . $class . '">' : '') . '<p' . ($div ? '' : ' class="' . $class . '"') . '>' .
-                $ts . $msg .
-                '</p>' . ($div ? '</div>' : '');
+            $container = $div ?
+                (new Div())
+                    ->class($class)
+                    ->items([
+                        (new Para())
+                            ->items([
+                                $ts,
+                                (new Text(null, $msg)),
+                            ]),
+                    ]) :
+                (new Set())
+                    ->items([
+                        (new Para())
+                            ->class($class)
+                            ->items([
+                                $ts,
+                                (new Text(null, $msg)),
+                            ]),
+                    ]);
+
+            $res = $container->render();
             if ($echo) {
                 echo $res;
             }
