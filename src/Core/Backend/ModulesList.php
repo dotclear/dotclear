@@ -1345,7 +1345,7 @@ class ModulesList
                     if (App::auth()->isSuperAdmin() && !$define->distributed && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', $define->get('root')) && App::config()->devMode() ? ' debug' : '';
                         $submits[] = (new Submit(['delete[' . Html::escapeHTML($id) . ']'], __('Delete')))
-                            ->class(['delete', $dev])
+                            ->class(array_filter(['delete', $dev]))
                         ->render();
                     }
 

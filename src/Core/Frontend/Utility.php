@@ -20,7 +20,6 @@ use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\L10n;
-use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Exception\BlogException;
 use Dotclear\Exception\ContextException;

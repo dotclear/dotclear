@@ -383,7 +383,7 @@ class Page
                         (new Li())
                             ->items([
                                 (new Link())
-                                    ->class('Logout')
+                                    ->class('logout')
                                     ->href(App::backend()->url()->get('admin.logout'))
                                     ->items([
                                         (new Text('span', sprintf(__('Logout %s'), App::auth()->userID())))
