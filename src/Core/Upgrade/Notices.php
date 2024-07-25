@@ -12,6 +12,9 @@ namespace Dotclear\Core\Upgrade;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Notices as BackendNotices;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Text;
 
 /**
  * @brief   Upgrade notices handling facilities.
@@ -31,11 +34,20 @@ class Notices extends BackendNotices
 
         // return error messages if any
         if (App::error()->flag() && !self::$error_displayed) {
-            $res .= '<div role="alert"><p><strong>' . (App::error()->count() > 1 ? __('Errors:') : __('Error:')) . '</strong></p>';
+            $errors = [];
             foreach (App::error()->dump() as $msg) {
-                $res .= self::message($msg, true, false, false, self::NOTICE_ERROR);
+                $errors[] = (new Text(null, self::message($msg, true, false, false, self::NOTICE_ERROR)));
             }
-            $res .= '</div>';
+            $res .= (new Div())
+                ->extra('role="alert"')
+                ->items([
+                    (new Para())
+                        ->items([
+                            (new Text('strong', App::error()->count() > 1 ? __('Errors:') : __('Error:'))),
+                        ]),
+                    ...$errors,
+                ])
+            ->render();
 
             self::$error_displayed = true;
         } else {

@@ -13,6 +13,17 @@ namespace Dotclear\Core\Upgrade;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Page as BackendPage;
+use Dotclear\Helper\Html\Form\Btn;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Single;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 
@@ -127,34 +138,98 @@ class Page extends BackendPage
         self::jsToggles() .
         $head;
 
-        echo
-        "</head>\n" .
-        '<body id="dotclear-admin" class="upgrade-mode no-js' . ($rtl ? ' rtl ' : '') . '">' . "\n" .
-        '<ul id="prelude">' .
-        '<li><a href="#content">' . __('Go to the content') . '</a></li>' .
-        '<li><a href="#main-menu">' . __('Go to the menu') . '</a></li>' .
-        '<li><a href="#help">' . __('Go to help') . '</a></li>' .
-        '</ul>' . "\n" .
-        '<header id="header" role="banner">' .
-        '<h1><a href="' . App::upgrade()->url()->get('upgrade.home') . '" title="' . __('My dashboard') . '"><span class="hidden">' . App::config()->vendorName() . '</span></a></h1>' . "\n";
+        $prelude = (new Ul())
+            ->id('prelude')
+            ->items([
+                (new Li())
+                    ->items([
+                        (new Link())->href('#content')->text(__('Go to the content')),
+                    ]),
+                (new Li())
+                    ->items([
+                        (new Link())->href('#main-menu')->text(__('Go to the menu')),
+                    ]),
+                (new Li())
+                    ->items([
+                        (new Link())->href('#help')->text(__('Go to help')),
+                    ]),
+            ]);
 
         echo
-        '<div id="top-info-blog">' .
-        '<p><strong>' . __("Dotclear's update dashboard") . '</strong></p>' .
-        '</div>' .
-        '<ul id="top-info-user">' .
-        '<li><a class="smallscreen" href="' . App::upgrade()->url()->get('admin.home') . '">' . __('Go to normal dashboard') . '</a></li>' .
-        '<li><a href="' . App::upgrade()->url()->get('upgrade.logout') . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), App::auth()->userID()) .
-        '</span><img src="images/logout.svg" alt=""></a></li>' .
-        '</ul>' .
-        '</header>'; // end header
+        "</head>\n";
+
+        echo
+        '<body id="dotclear-admin" class="upgrade-mode no-js' . ($rtl ? ' rtl ' : '') . '">' . "\n" .
+        $prelude->render() . "\n";
+
+        // Header
+        echo (new Div(null, 'header'))
+            ->id('header')
+            ->extra('role="banner"')
+            ->items([
+                (new Text('h1', (new Link())
+                        ->href(App::upgrade()->url()->get('upgrade.home'))
+                        ->title(__('My dashboard'))
+                        ->items([
+                            (new Text('span', App::config()->vendorName()))->class('hidden'),
+                        ])
+                    ->render())),
+                (new Div())
+                    ->id('top-info-blog')
+                    ->items([
+                        (new Para())
+                            ->items([
+                                (new Text('strong', __("Dotclear's update dashboard"))),
+                            ]),
+                    ]),
+                (new Ul())
+                    ->id('top-info-user')
+                    ->items([
+                        (new Li())
+                            ->items([
+                                (new Link())
+                                    ->class('smallscreen')
+                                    ->href(App::upgrade()->url()->get('admin.home'))
+                                    ->text(__('Go to normal dashboard')),
+                            ]),
+                        (new Li())
+                            ->items([
+                                (new Link())
+                                    ->class('logout')
+                                    ->href(App::upgrade()->url()->get('upgrade.logout'))
+                                    ->items([
+                                        (new Text('span', sprintf(__('Logout %s'), App::auth()->userID())))
+                                            ->class('nomobile'),
+                                        (new Img('images/logout.svg'))
+                                            ->alt(''),
+                                    ]),
+                            ]),
+                    ]),
+            ])
+        ->render();
+
+        $expander = (new Div())
+            ->class(['hidden-if-no-js', 'collapser-box'])
+            ->items([
+                (new Btn())
+                    ->type('button')
+                    ->id('collapser')
+                    ->class('void-btn')
+                    ->text((new Set())
+                            ->items([
+                                (new Img('images/hide.svg'))
+                                    ->class(['collapse-mm', 'visually-hidden'])
+                                    ->alt(__('Hide main menu')),
+                                (new Img('images/expand.svg'))
+                                    ->class(['expand-mm', 'visually-hidden'])
+                                    ->alt(__('Show main menu')),
+                            ])
+                        ->render()),
+            ]);
 
         echo
         '<div id="wrapper" class="clearfix">' . "\n" .
-        '<div class="hidden-if-no-js collapser-box"><button type="button" id="collapser" class="void-btn">' .
-        '<img class="collapse-mm visually-hidden" src="images/hide.svg" alt="' . __('Hide main menu') . '">' .
-        '<img class="expand-mm visually-hidden" src="images/expand.svg" alt="' . __('Show main menu') . '">' .
-        '</button></div>' .
+        $expander->render() .
         '<main id="main" role="main">' . "\n" .
         '<div id="content" class="clearfix">' . "\n";
 
@@ -183,21 +258,45 @@ class Page extends BackendPage
         $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion() . '<br>(Codename: ' . App::config()->dotclearName() . ')');
         $text = Html::escapeHTML($text);
 
+        $gototop = (new Para())
+            ->id('gototop')
+            ->items([
+                (new Link())
+                    ->href('#wrapper')
+                    ->items([
+                        (new Img('images/up.svg'))
+                            ->alt(__('Page top'))
+                            ->extra('aria-hidden="true"'),
+                        (new Text('span', __('Page top')))
+                            ->class('visually-hidden'),
+                    ]),
+            ]);
+
         echo
         "</nav>\n" . // End of #main-menu
-        "</div>\n" . // End of #wrapper
-        '<p id="gototop"><a href="#wrapper"><img aria-hidden="true" src="images/up.svg" alt="' . __('Page top') . '"><span class="visually-hidden">' . __('Page top') . '</span></a></p>' . "\n";
+        "</div>\n";  // End of #wrapper
+        $gototop->render() . "\n";
 
         $figure = "\n" .
         ' ' . "\n" .
         'ᓚᘏᗢ' . "\n";
 
+        $logo = (new Link())
+            ->href('https://dotclear.org/')
+            ->title($text)
+            ->items([
+                (new Img('style/dc_logos/dotclear-light.svg'))
+                    ->class('light-only')
+                    ->alt(__('Dotclear logo')),
+                (new Img('style/dc_logos/dotclear-dark.svg'))
+                    ->class('dark-only')
+                    ->alt(__('Dotclear logo')),
+            ]);
+
         echo
         '<footer id="footer" role="contentinfo">' .
-        '<a href="https://dotclear.org/" title="' . $text . '">' .
-        '<img src="style/dc_logos/dotclear-light.svg" class="light-only" alt="' . $text . '">' .
-        '<img src="style/dc_logos/dotclear-dark.svg" class="dark-only" alt="' . $text . '">' .
-        '</a></footer>' . "\n" .
+        $logo->render() .
+        '</footer>' . "\n" .
         '<!-- ' . "\n" .
         $figure .
         ' -->' . "\n";
@@ -225,31 +324,69 @@ class Page extends BackendPage
         $hl_pos         = $options['hl_pos']    ?? -1;
 
         // First item of array elements should be blog's name, System or Plugins
-        $res = '<h2 role="navigation">' . ($with_home_link ?
-            '<a class="go_home" href="' . App::upgrade()->url()->get('upgrade.home') . '">' .
-            '<img class="go_home light-only" src="style/dashboard.svg" alt="' . __('Go to dashboard') . '">' .
-            '<img class="go_home dark-only" src="style/dashboard-dark.svg" alt="' . __('Go to dashboard') . '">' .
-            '</a>' :
-            '<img class="go_home light-only" src="style/dashboard-alt.svg" alt="">' .
-            '<img class="go_home dark-only" src="style/dashboard-alt-dark.svg" alt="">');
+        $home = $with_home_link ?
+        (new Link())
+            ->class('go_home')
+            ->href(App::upgrade()->url()->get('upgrade.home'))
+            ->items([
+                (new Img('style/dashboard.svg'))
+                    ->class(['go_home', 'light-only'])
+                    ->alt(__('Go to dashboard')),
+                (new Img('style/dashboard-dark.svg'))
+                    ->class(['go_home', 'dark-only'])
+                    ->alt(__('Go to dashboard')),
+            ]) :
+        (new Set())
+            ->items([
+                (new Img('style/dashboard-alt.svg'))
+                    ->class(['go_home', 'light-only']),
+                (new Img('style/dashboard-alt-dark.svg'))
+                    ->class(['go_home', 'dark-only']),
+            ])
+        ;
 
+        // Next items
+        $links = [];
         $index = 0;
         if ($hl_pos < 0) {
             $hl_pos = count((array) $elements) + $hl_pos;
         }
         foreach ((array) $elements as $element => $url) {
             if ($hl && $index === $hl_pos) {
-                $element = sprintf('<span class="page-title" aria-current="location">%s</span>', $element);
+                $label = (new Text('span', (string) $element))
+                    ->class('page-title')
+                    ->extra('aria-current="location"');
+            } else {
+                $label = (new Text(null, (string) $element));
             }
-            $res .= ($with_home_link ? ($index === 1 ? ' : ' : ' &rsaquo; ') : ($index === 0 ? ' ' : ' &rsaquo; ')) .
-                ($url ? '<a href="' . $url . '">' : '') . $element . ($url ? '</a>' : '');
+            $links[] = $url ?
+            (new Link())
+                ->href($url)
+                ->items([$label]) :
+            (new Set())
+                ->items([$label])
+            ;
             $index++;
         }
 
-        $res .= '</h2>';
+        // Each items (but home) are separated by > (&rsaquo)
+        $next = (new Set())
+            ->separator(' &rsaquo; ')
+            ->items($links);
 
-        return $res;
+        // Home and other items are separated by :
+        $breadcrumb = (new Div(null, 'h2'))
+            ->extra('role="navigation"')
+            ->separator(' : ')
+            ->items([
+                $home,
+                $next,
+            ])
+        ->render();
+
+        return $breadcrumb;
     }
+
     /**
      * Display Help block.
      *
@@ -299,15 +436,31 @@ class Page extends BackendPage
         // Set contextual help global flag
         App::upgrade()->resources()->context(true);
 
-        echo
-        '<div id="help"><hr><div class="help-content clear"><h3>' . __('Help about this page') . '</h3>' .
-        $content .
-        '</div>' .
-        '<div id="helplink"><hr>' .
-        '<p>' .
-        sprintf(__('See also %s'), sprintf('<a href="%s">%s</a>', App::upgrade()->url()->get('upgrade.home'), __('the global help'))) .
-        '.</p>' .
-        '</div></div>';
+        echo (new Div())
+            ->id('help')
+            ->items([
+                (new Single('hr')),
+                (new Div())
+                    ->class(['help-content', 'clear'])
+                    ->items([
+                        (new Text('h3', __('Help about this page'))),
+                        (new Text(null, $content)),
+                    ]),
+                (new Div())
+                    ->id('helplink')
+                    ->items([
+                        (new Single('hr')),
+                        (new Note())
+                            ->text(sprintf(
+                                __('See also %s'),
+                                sprintf(
+                                    (new Link())->href(App::upgrade()->url()->get('upgrade.home'))->text('%s')->render(),
+                                    __('the global help')
+                                )
+                            ) . '.'),
+                    ]),
+            ])
+        ->render();
     }
 
     /**

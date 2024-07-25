@@ -14,6 +14,8 @@ use Dotclear\App;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Interface\Module\ModulesInterface;
@@ -89,7 +91,8 @@ class PluginsList extends ModulesList
 
         // mark module state
         if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
-            $submits[] = '<input type="hidden" name="disabled[' . Html::escapeHTML($id) . ']" value="1">';
+            $submits[] = (new Hidden(['disabled[' . Html::escapeHTML($id) . ']'], '1'))
+            ->render();
         }
 
         # Use loop to keep requested order
@@ -100,7 +103,8 @@ class PluginsList extends ModulesList
                     // do not allow activation of duplciate modules already activated
                     $multi = !self::$allow_multi_install && count($this->modules->getDefines(['id' => $id, 'state' => ModuleDefine::STATE_ENABLED])) > 0;
                     if ($define->get('root_writable') && empty($define->getMissing()) && !$multi) {
-                        $submits[] = '<input type="submit" name="activate[' . Html::escapeHTML($id) . ']" value="' . __('Activate') . '">';
+                        $submits[] = (new Submit(['activate[' . Html::escapeHTML($id) . ']'], __('Activate')))
+                        ->render();
                     }
 
                     break;
@@ -108,7 +112,9 @@ class PluginsList extends ModulesList
                     # Activate
                 case 'deactivate':
                     if ($define->get('root_writable') && empty($define->getUsing())) {
-                        $submits[] = '<input type="submit" name="deactivate[' . Html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset">';
+                        $submits[] = (new Submit(['deactivate[' . Html::escapeHTML($id) . ']'], __('Deactivate')))
+                            ->class('reset')
+                        ->render();
                     }
 
                     break;
@@ -117,7 +123,9 @@ class PluginsList extends ModulesList
                 case 'delete':
                     if (!$define->distributed && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', $define->get('root')) && App::config()->devMode() ? ' debug' : '';
-                        $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . Html::escapeHTML($id) . ']" value="' . __('Delete') . '">';
+                        $submits[] = (new Submit(['delete[' . Html::escapeHTML($id) . ']'], __('Delete')))
+                            ->class(array_filter(['delete', $dev]))
+                        ->render();
                     }
 
                     break;
@@ -125,7 +133,8 @@ class PluginsList extends ModulesList
                     # Install (from store)
                 case 'install':
                     if ($this->path_writable) {
-                        $submits[] = '<input type="submit" name="install[' . Html::escapeHTML($id) . ']" value="' . __('Install') . '">';
+                        $submits[] = (new Submit(['install[' . Html::escapeHTML($id) . ']'], __('Install')))
+                        ->render();
                     }
 
                     break;
@@ -133,7 +142,8 @@ class PluginsList extends ModulesList
                     # Update (from store)
                 case 'update':
                     if ($this->path_writable && !$define->updLocked()) {
-                        $submits[] = '<input type="submit" name="update[' . Html::escapeHTML($id) . ']" value="' . __('Update') . '">';
+                        $submits[] = (new Submit(['update[' . Html::escapeHTML($id) . ']'], __('Update')))
+                        ->render();
                     }
 
                     break;
@@ -161,11 +171,10 @@ class PluginsList extends ModulesList
                 # Deactivate
                 case 'activate':
                     if ($this->path_writable) {
-                        $submits[] = '<input type="submit" name="activate" value="' . (
-                            $with_selection ?
+                        $submits[] = (new Submit(['activate'], $with_selection ?
                             __('Activate selected plugins') :
-                            __('Activate all plugins from this list')
-                        ) . '">';
+                            __('Activate all plugins from this list')))
+                        ->render();
                     }
 
                     break;
@@ -173,11 +182,10 @@ class PluginsList extends ModulesList
                     # Activate
                 case 'deactivate':
                     if ($this->path_writable) {
-                        $submits[] = '<input type="submit" name="deactivate" value="' . (
-                            $with_selection ?
+                        $submits[] = (new Submit(['deactivate'], $with_selection ?
                             __('Deactivate selected plugins') :
-                            __('Deactivate all plugins from this list')
-                        ) . '">';
+                            __('Deactivate all plugins from this list')))
+                        ->render();
                     }
 
                     break;
@@ -185,11 +193,10 @@ class PluginsList extends ModulesList
                     # Update (from store)
                 case 'update':
                     if ($this->path_writable) {
-                        $submits[] = '<input type="submit" name="update" value="' . (
-                            $with_selection ?
+                        $submits[] = (new Submit(['update'], $with_selection ?
                             __('Update selected plugins') :
-                            __('Update all plugins from this list')
-                        ) . '">';
+                            __('Update all plugins from this list')))
+                        ->render();
                     }
 
                     break;
