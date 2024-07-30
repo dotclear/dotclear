@@ -2,15 +2,15 @@
 'use strict';
 
 dotclear.confirmClose = class {
-  constructor() {
+  constructor(...args) {
     // Init properties
     this.prompt = 'You have unsaved changes.';
     this.forms_id = [];
     this.forms = [];
     this.form_submit = false;
     // Add given forms
-    if (arguments.length > 0) {
-      for (const argument of arguments) {
+    if (args.length > 0) {
+      for (const argument of args) {
         this.forms_id.push(argument);
       }
     }

@@ -31,7 +31,7 @@ class metaEditor {
       `<input type="text" class="ib meta-helper" title="${this.text_add_meta.replace(/%s/, this.meta_type)}" id="${input_id}">`,
     );
     // Meta dialog input
-    this.meta_dialog.on('keydown', function (event) {
+    this.meta_dialog.on('keydown', (event) => {
       // We don't want to submit form!
       if (event.key === 'Enter') {
         event.stopPropagation();

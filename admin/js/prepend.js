@@ -22,10 +22,10 @@ const dotclear = {
  * @param      {Function}  fn      The callback
  */
 dotclear.ready = (fn) => {
-  if (document.readyState !== 'complete') {
-    window.addEventListener('load', fn);
-  } else {
+  if (document.readyState === 'complete') {
     fn();
+  } else {
+    window.addEventListener('load', fn);
   }
 };
 

@@ -73,10 +73,10 @@ dotclear.ready(() => {
       if (reset_url !== '?' && !window.location.href.endsWith(reset_url)) window.location.href = reset_url;
       summary.classList.remove('open');
       summary.innerText = dotclear.msg.filter_posts_list;
-    } else {
-      summary.classList.add('open');
-      summary.innerText = dotclear.msg.cancel_the_filter;
+      return;
     }
+    summary.classList.add('open');
+    summary.innerText = dotclear.msg.cancel_the_filter;
   });
 
   const save = document.getElementById('filter-options-save');
