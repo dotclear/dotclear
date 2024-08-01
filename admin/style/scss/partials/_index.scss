@@ -173,11 +173,11 @@
 // Drag'n'drop of dashboard areas
 
 #dragndrop {
+  position: absolute;
+
   .no-js & {
     display: none;
   }
-
-  position: absolute;
 
   & + label {
     position: absolute;

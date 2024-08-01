@@ -200,7 +200,7 @@ class Home extends Process
             App::behavior()->callBehavior('adminDashboardHeaders'),
             Page::breadcrumb(
                 [
-                    __('Dashboard') . ' : ' . Html::escapeHTML(App::blog()->name()) => '',
+                    __('Dashboard') . ' : ' . '<span class="blog-title">' . Html::escapeHTML(App::blog()->name()) . '</span>' => '',
                 ],
                 ['home_link' => false]
             )

@@ -4817,6 +4817,10 @@ img.go_home {
   height: auto;
 }
 
+.blog-title {
+  color: var(--title-color);
+}
+
 /* Pagination */
 .pager {
   margin: 2em 0 1em 0;
