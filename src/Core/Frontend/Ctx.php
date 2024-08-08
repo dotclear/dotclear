@@ -681,7 +681,7 @@ class Ctx
                 // Don't mess with quotes inside tags.
                 $result .= $cur_token[1];
                 if (preg_match('@<(/?)(?:pre|code|kbd|script|math)[\s>]@', $cur_token[1], $matches)) {
-                    $in_pre = isset($matches[1]) && $matches[1] === '/';
+                    $in_pre = $matches[1] === '/';
                 }
             } else {
                 $text = $cur_token[1];

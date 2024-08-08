@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d093eee295e20d89e6cfcd3e6d2752ca",
+    "content-hash": "23ed571852531e70daae176deca0f9f0",
     "packages": [],
     "packages-dev": [
         {
@@ -1189,16 +1189,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.11.x-dev",
+            "version": "1.12.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "6321600a1910a90d53cc07cf209c7fc85aa6063b"
+                "reference": "62b6486d8a5923cbc12c4135e4dc03649cfed44a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/6321600a1910a90d53cc07cf209c7fc85aa6063b",
-                "reference": "6321600a1910a90d53cc07cf209c7fc85aa6063b",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/62b6486d8a5923cbc12c4135e4dc03649cfed44a",
+                "reference": "62b6486d8a5923cbc12c4135e4dc03649cfed44a",
                 "shasum": ""
             },
             "require": {
@@ -1207,6 +1207,7 @@
             "conflict": {
                 "phpstan/phpstan-shim": "*"
             },
+            "default-branch": true,
             "bin": [
                 "phpstan",
                 "phpstan.phar"
@@ -1243,7 +1244,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-07T09:30:12+00:00"
+            "time": "2024-08-07T09:30:20+00:00"
         },
         {
             "name": "psr/container",

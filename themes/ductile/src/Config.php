@@ -57,7 +57,7 @@ class Config extends Process
         // Get all _entry-*.html in tpl folder of theme
         $list_types_templates = Files::scandir($tpl_path);
         foreach ($list_types_templates as $v) {
-            if (preg_match('/^_entry\-(.*)\.html$/', $v, $m) && isset($m[1]) && !in_array($m[1], $list_types)) {
+            if (preg_match('/^_entry\-(.*)\.html$/', $v, $m) && !in_array($m[1], $list_types)) {
                 // template not already in full list
                 $list_types[__($m[1])] = $m[1];
             }

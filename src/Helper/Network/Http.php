@@ -272,21 +272,19 @@ class Http
                 $matches
             );
 
-            if (isset($matches[1])) {
-                // create a list like "en" => 0.8
-                $accepted_languages = array_combine($matches[1], $matches[4]);
+            // create a list like "en" => 0.8
+            $accepted_languages = array_combine($matches[1], $matches[4]);
 
-                // set default to 1 for any without q factor
-                foreach ($accepted_languages as $language => $q_factor) {
-                    if ($q_factor === '') {
-                        $accepted_languages[$language] = 1;
-                    }
+            // set default to 1 for any without q factor
+            foreach ($accepted_languages as $language => $q_factor) {
+                if ($q_factor === '') {
+                    $accepted_languages[$language] = 1;
                 }
-
-                // sort list based on value
-                arsort($accepted_languages, SORT_NUMERIC);
-                $accepted_languages = array_map('strtolower', array_keys($accepted_languages));
             }
+
+            // sort list based on value
+            arsort($accepted_languages, SORT_NUMERIC);
+            $accepted_languages = array_map('strtolower', array_keys($accepted_languages));
         }
 
         return $accepted_languages;

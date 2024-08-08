@@ -626,9 +626,9 @@ class Template
             foreach ($blocks as $block) {
                 $isblock = preg_match('#<~?tpl:(\w+)(?:(\s+.*?)~?>|~?>)|</~?tpl:(\w+)~?>|{{~?tpl:(\w+)(\s(.*?))?~?}}#ms', $block, $match);
                 if ($isblock == 1) {
-                    if (substr($match[0], 1, 1) == '/') {
+                    if (substr($match[0] ?? '', 1, 1) == '/') {
                         // Closing tag, check if it matches current opened node
-                        $tag = $match[3];
+                        $tag = $match[3] ?? '';
                         if (($node instanceof TplNodeBlock) && $node->getTag() == $tag) {
                             $node->setClosing();
                             $node = $node->getParent();
@@ -653,9 +653,9 @@ class Template
                                 );
                             }
                         }
-                    } elseif (str_starts_with($match[0], '{')) {
+                    } elseif (str_starts_with($match[0] ?? '', '{')) {
                         // Value tag
-                        $tag      = $match[4];
+                        $tag      = $match[4] ?? '';
                         $str_attr = '';
                         $attr     = [];
                         if (isset($match[6])) {
@@ -673,7 +673,7 @@ class Template
                         }
                     } else {
                         // Opening tag, create new node and dive into it
-                        $tag = $match[1];
+                        $tag = $match[1] ?? '';
                         if ($tag == 'Block') {
                             $newnode = new TplNodeBlockDefinition($tag, isset($match[2]) ? $this->getAttrs($match[2]) : []);
                         } else {

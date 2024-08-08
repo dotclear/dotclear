@@ -351,7 +351,7 @@ class Trackback implements TrackbackInterface
             $blog_name = $this->getSourceName($remote_content);
 
             preg_match('!<body[^>]*?>(.*)?</body>!msi', $remote_content, $m);
-            $source = $m[1];
+            $source = $m[1] ?? '';
             $source = (string) preg_replace('![\r\n\s]+!ms', ' ', $source);
             $source = (string) preg_replace("/<\/*(h\d|p|th|td|li|dt|dd|pre|caption|input|textarea|button)[^>]*>/", "\n\n", $source);
             $source = strip_tags($source, '<a>');
@@ -422,7 +422,7 @@ class Trackback implements TrackbackInterface
             $blog_name = $this->getSourceName($remote_content);
 
             preg_match('!<body[^>]*?>(.*)?</body>!msi', $remote_content, $m);
-            $source = $m[1];
+            $source = $m[1] ?? '';
             $source = (string) preg_replace('![\r\n\s]+!ms', ' ', $source);
             $source = (string) preg_replace("/<\/*(h\d|p|th|td|li|dt|dd|pre|caption|input|textarea|button)[^>]*>/", "\n\n", $source);
             $source = strip_tags($source, '<a>');

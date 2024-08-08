@@ -30,7 +30,7 @@ class FrontendUrl extends Url
         if ($args == '' && !$n) {
             self::p404();
         } elseif (preg_match('%(.*?)/feed/(rss2|atom)?$%u', (string) $args, $m)) {
-            $type = $m[2] == 'atom' ? 'atom' : 'rss2';
+            $type = ($m[2] ?? '') == 'atom' ? 'atom' : 'rss2';
             $mime = 'application/xml';
 
             App::frontend()->context()->meta = App::meta()->computeMetaStats(
