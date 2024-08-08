@@ -464,7 +464,7 @@ class Unzip
                 ];
 
                 $zip_comment_len          = $this->zipUnpack(2, 'v');
-                $eodir['zipfile_comment'] = $zip_comment_len[1] ? fread($fp, (int) $zip_comment_len) : '';
+                $eodir['zipfile_comment'] = $zip_comment_len[1] && (int) $zip_comment_len ? fread($fp, (int) $zip_comment_len) : '';
 
                 $this->eo_central = [
                     'disk_number_this'   => $eodir['disk_number_this'][1],
@@ -671,6 +671,10 @@ class Unzip
      */
     protected function zipRead(int $len)
     {
+        if (abs($len) < 1) {
+            return '';
+        }
+
         $fp     = $this->fp();
         $buffer = fread($fp, abs($len));
 
