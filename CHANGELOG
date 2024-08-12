@@ -1,3 +1,31 @@
+Dotclear 2.31 - 2024-08-13
+===========================================================
+* 🐘 PHP 8.1+ is required, PHP 8.2 and 8.3 compliance
+* Core: Remove unnecessary sass folders from production archive
+* UX/UI: Add a visual dot indicator to current menu-item
+* UX/UI: Harmonize entry format look'n'feel with other status items (status, date, lang)
+* UX/UI: Use italic font-style for placeholder (in inputs)
+* UX/UI: Enforce contrast for add button hover/active/focus
+* UX/UI: Admin CSS review
+* Fix: Hide convert to HTML button for pages already in this format
+* Fix: Cope with media alternative text in IPTC/XMP/Exif metadata
+* Fix: Fix favorites menu current item detection
+* Fix: Avoid sortable mechanism for pages on small devices (interfere with scrolling)
+* Fix: Media change file upload process
+* Fix: Deletion on search mode in media manager
+* Fix: Review position of help button depending on context (scrolled or on top, help opened or not, …)
+* Fix: Really do garbage collector of expired sessions
+* Fix: Dependencies (modules) mechanism reviewed
+* Fix: Do not render debug/dev HTML comment warning in CLI Mode
+* Fix: Cope with event propagation for meta editor helper (tags, …)
+* Fix: Use lexical sorting for tags
+* Fix: Disable unauthorized option for media insertion (link without alt, legend without alt)
+* Fix: Cope with newly uploaded media for deletion button activation
+* Fix: Better identification of the blog name on the breadcrumb of the dashboard (home)
+* 🛡 Security: Add .inc to exclusion list for media (see https://www.exploit-db.com/exploits/52037)
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.30.1 - 2024-05-17
 ===========================================================
 * Fix: Template engine might not found some theme's template in some contexts
