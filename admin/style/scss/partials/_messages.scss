@@ -110,11 +110,6 @@
     color: var(--dc-update-color);
   }
 
-  p {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
   a {
     color: var(--dc-update-color);
     margin-right: 1em;
@@ -126,7 +121,7 @@
 }
 
 .updt-info a {
-  margin-left: 2em;
+  margin-left: 0;
   border-color: var(--dc-update-color);
   font-weight: bold;
 }

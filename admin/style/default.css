@@ -2541,10 +2541,6 @@ a:is(.checkbox-helper, .metaGetList, .metaGetMore):hover {
   margin-top: 0;
   color: var(--dc-update-color);
 }
-.dc-update p {
-  display: inline-block;
-  vertical-align: middle;
-}
 .dc-update a {
   color: var(--dc-update-color);
   margin-right: 1em;
@@ -2554,7 +2550,7 @@ a:is(.checkbox-helper, .metaGetList, .metaGetMore):hover {
 }
 
 .updt-info a {
-  margin-left: 2em;
+  margin-left: 0;
   border-color: var(--dc-update-color);
   font-weight: bold;
 }
@@ -3693,15 +3689,6 @@ span.ibw {
 .upgrade-mode .badge-icon.badge-left {
   right: inherit;
   left: -0.5em;
-}
-.upgrade-mode .dc-update p {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5em;
-  flex-wrap: wrap;
-}
-.upgrade-mode .updt-info a {
-  margin-left: 0;
 }
 
 #media_img_title_pattern {
