@@ -337,7 +337,7 @@ class ListingMedia extends Listing
         }
 
         $file_type     = explode('/', (string) $file->type);
-        $class_open    = 'class="modal-' . $file_type[0] . '" ';
+        $class_open    = 'modal-' . $file_type[0];
         $class_preview = !$file->d && $file->media_preview ? 'media-icon-preview' : '';
 
         if ($mode === FilterMedia::MODE_LIST) {
