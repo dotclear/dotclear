@@ -1,3 +1,8 @@
+Dotclear 2.31.1 - 2024-08-19
+===========================================================
+* Fix: Media couldn't be opened as preview (overlay)
+* Fix: Fix Page management with PHP 8.1
+
 Dotclear 2.31 - 2024-08-13
 ===========================================================
 * 🐘 PHP 8.1+ is required, PHP 8.2 and 8.3 compliance
