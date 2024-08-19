@@ -779,7 +779,7 @@ class ManagePage extends Process
                     ->class('sb-box')
                     ->items([
                         (new Text('h4', $c['title'])),
-                        (new Text('', implode('', iterator_to_array($c['items'])))),
+                        (new Text('', implode('', $c['items']))),
                     ])
                     ->render();
             }
