@@ -967,7 +967,7 @@ class ManagePage extends Process
                     (new Set())
                         ->items($fields),
                     //Add a comment
-                    (new Form('comments-form'))
+                    (new Form('comment-form'))
                         ->method('post')
                         ->action(App::backend()->url()->get('admin.comment'))
                         ->fields([
