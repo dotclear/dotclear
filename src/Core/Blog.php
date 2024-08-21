@@ -11,6 +11,7 @@ namespace Dotclear\Core;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
@@ -40,6 +41,7 @@ use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Schema\Extension\Comment;
 use Dotclear\Schema\Extension\Dates;
 use Dotclear\Schema\Extension\Post;
+use stdClass;
 use Throwable;
 
 /**
@@ -2217,6 +2219,12 @@ class Blog implements BlogInterface
         } else {
             $url = Text::tidyURL($url);
         }
+
+        # --BEHAVIOR-- coreGetPostURL
+        $obj      = new stdClass();
+        $obj->url = $url;
+        App::behavior()->callBehavior('coreGetPostURL', $obj);
+        $url = $obj->url;
 
         # Let's check if URL is taken...
         $sql = new SelectStatement();
