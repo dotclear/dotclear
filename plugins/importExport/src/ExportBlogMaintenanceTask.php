@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\importExport;
 
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Note;
@@ -97,6 +98,10 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
                             ))
                         )
                         ->title(__('Required field')),
+                ]),
+                (new Para())->items([
+                    (new Checkbox('file_zip'))
+                        ->label(new Label(__('Compress file'), Label::INSIDE_LABEL_AFTER)),
                 ]),
                 (new Para())->items([
                     (new Password('your_pwd'))
