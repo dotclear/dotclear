@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 05:25+0200\n"
-"PO-Revision-Date: 2024-07-17 04:30\n"
+"POT-Creation-Date: 2024-08-23 19:51+0200\n"
+"PO-Revision-Date: 2024-08-23 17:54\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -92,7 +92,7 @@ msgstr "Avainta ei ole tietokannassa."
 #: src/Core/Backend/Action/Actions.php:158
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:71
-#: src/Core/Backend/Listing/ListingPostsMini.php:42
+#: src/Core/Backend/Listing/ListingPostsMini.php:60
 #: src/Process/Backend/Home.php:432 src/Process/Backend/Post.php:709
 msgid "Title"
 msgstr "Otsikko"
@@ -137,7 +137,7 @@ msgstr "Blogin nimi"
 #: src/Core/Backend/Listing/ListingBlogs.php:101
 #: src/Core/Backend/Listing/ListingComments.php:159
 #: src/Core/Backend/Listing/ListingPosts.php:113
-#: src/Core/Backend/Listing/ListingPostsMini.php:45
+#: src/Core/Backend/Listing/ListingPostsMini.php:72
 #: src/Core/Backend/UserPref.php:54 src/Core/Backend/UserPref.php:79
 #: src/Process/Backend/Post.php:614 src/Process/Backend/Post.php:1064
 #: src/Process/Backend/UsersActions.php:234
@@ -164,7 +164,7 @@ msgstr "Aseta: poistettu"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
 #: src/Core/Backend/Listing/ListingMedia.php:331
 #: src/Core/Backend/Listing/ListingMedia.php:334
-#: src/Core/Backend/ModulesList.php:1347 src/Core/Upgrade/PluginsList.php:120
+#: src/Core/Backend/ModulesList.php:1347 src/Core/Upgrade/PluginsList.php:126
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Langs.php:278
 #: src/Process/Backend/Post.php:798 src/Process/Backend/Users.php:42
 #: src/Process/Upgrade/Langs.php:296
@@ -182,7 +182,7 @@ msgstr "Valitut blogit on päivitetty."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:108
 #: src/Core/Backend/ModulesList.php:1685 src/Core/Backend/ThemesList.php:728
-#: src/Core/Upgrade/PluginsList.php:392 src/Process/Backend/BlogDel.php:67
+#: src/Core/Upgrade/PluginsList.php:399 src/Process/Backend/BlogDel.php:67
 #: src/Process/Backend/Langs.php:131 src/Process/Backend/Langs.php:176
 #: src/Process/Backend/User.php:100 src/Process/Backend/UsersActions.php:109
 #: src/Process/Upgrade/Langs.php:161 src/Process/Upgrade/Langs.php:206
@@ -227,7 +227,7 @@ msgstr "Toimet kommenttien suhteen"
 #: src/Core/Backend/Combos.php:281 src/Core/Backend/Combos.php:304
 #: src/Core/Backend/Listing/ListingComments.php:149
 #: src/Core/Backend/Listing/ListingPosts.php:83
-#: src/Core/Backend/Listing/ListingPostsMini.php:44
+#: src/Core/Backend/Listing/ListingPostsMini.php:68
 #: src/Core/Backend/UserPref.php:44 src/Core/Backend/UserPref.php:53
 #: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:891
 #: src/Process/Backend/Post.php:1061
@@ -508,7 +508,7 @@ msgstr "Nouseva"
 #: src/Core/Backend/Listing/ListingComments.php:154
 #: src/Core/Backend/Listing/ListingMedia.php:130
 #: src/Core/Backend/Listing/ListingPosts.php:75
-#: src/Core/Backend/Listing/ListingPostsMini.php:43
+#: src/Core/Backend/Listing/ListingPostsMini.php:64
 #: src/Core/Backend/UserPref.php:42 src/Core/Backend/UserPref.php:52
 #: src/Core/Backend/UserPref.php:201 src/Process/Backend/Post.php:1062
 msgid "Date"
@@ -522,7 +522,7 @@ msgstr "Luokka"
 #: src/Core/Backend/Combos.php:283 src/Core/Backend/Filter/FilterPosts.php:202
 #: src/Core/Backend/Listing/ListingPosts.php:228
 #: src/Core/Backend/Listing/ListingPosts.php:289
-#: src/Core/Backend/Listing/ListingPostsMini.php:116
+#: src/Core/Backend/Listing/ListingPostsMini.php:163
 msgid "Selected"
 msgstr "Valittu"
 
@@ -565,22 +565,22 @@ msgstr "Viimeisin päivitys"
 msgid "Blog ID"
 msgstr "Blogin tunniste"
 
-#: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:53
+#: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:63
 #: src/Process/Install/Install.php:479
 msgid "Username"
 msgstr "Käyttäjänimi"
 
-#: src/Core/Backend/Combos.php:356 src/Core/Backend/Listing/ListingUsers.php:55
+#: src/Core/Backend/Combos.php:356 src/Core/Backend/Listing/ListingUsers.php:73
 #: src/Core/Backend/UserPref.php:67
 msgid "Last Name"
 msgstr "Sukunimi"
 
-#: src/Core/Backend/Combos.php:357 src/Core/Backend/Listing/ListingUsers.php:54
+#: src/Core/Backend/Combos.php:357 src/Core/Backend/Listing/ListingUsers.php:68
 #: src/Core/Backend/UserPref.php:66
 msgid "First Name"
 msgstr "Etunimi"
 
-#: src/Core/Backend/Combos.php:358 src/Core/Backend/Listing/ListingUsers.php:56
+#: src/Core/Backend/Combos.php:358 src/Core/Backend/Listing/ListingUsers.php:78
 #: src/Core/Backend/UserPref.php:68
 msgid "Display name"
 msgstr "Näytettävä nimi"
@@ -689,7 +689,7 @@ msgid "Status:"
 msgstr "Tila:"
 
 #: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1282
-#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:996
+#: src/Process/Backend/Auth.php:375 src/Process/Backend/BlogPref.php:996
 #: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:895
 #: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:543
 #: src/Process/Install/Install.php:465
@@ -751,7 +751,7 @@ msgid "Format:"
 msgstr "Muoto:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:464 src/Process/Backend/User.php:277
+#: src/Process/Backend/Auth.php:460 src/Process/Backend/User.php:277
 #: src/Process/Install/Install.php:529 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "Salasana:"
@@ -873,7 +873,7 @@ msgid "URL"
 msgstr "URL:"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:89
-#: src/Core/Backend/Listing/ListingUsers.php:57
+#: src/Core/Backend/Listing/ListingUsers.php:84
 #: src/Core/Backend/UserPref.php:69 src/Core/Backend/UserPref.php:77
 msgid "Entries (all types)"
 msgstr "Merkinnät (kaikki lajit)"
@@ -892,7 +892,7 @@ msgstr "Blogien luettelo"
 #: src/Core/Backend/Listing/ListingBlogs.php:141
 #: src/Core/Backend/Listing/ListingComments.php:215
 #: src/Core/Backend/Listing/ListingPosts.php:222
-#: src/Core/Backend/Listing/ListingUsers.php:86
+#: src/Core/Backend/Listing/ListingUsers.php:132
 msgid "Legend: "
 msgstr "Teksti:"
 
@@ -984,8 +984,8 @@ msgstr "Merkintä"
 #: src/Core/Backend/Listing/ListingComments.php:252
 #: src/Core/Backend/Listing/ListingPosts.php:223
 #: src/Core/Backend/Listing/ListingPosts.php:261
-#: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:1004
+#: src/Core/Backend/Listing/ListingPostsMini.php:135 src/Core/Blog.php:272
+#: src/Core/Blog.php:277 src/Process/Backend/MediaItem.php:1004
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1083
 msgid "Published"
 msgstr "Julkaistu"
@@ -994,8 +994,8 @@ msgstr "Julkaistu"
 #: src/Core/Backend/Listing/ListingComments.php:258
 #: src/Core/Backend/Listing/ListingPosts.php:224
 #: src/Core/Backend/Listing/ListingPosts.php:266
-#: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:1005
+#: src/Core/Backend/Listing/ListingPostsMini.php:140 src/Core/Blog.php:271
+#: src/Core/Blog.php:276 src/Process/Backend/MediaItem.php:1005
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1088
 msgid "Unpublished"
 msgstr "Julkaisematon"
@@ -1004,14 +1004,14 @@ msgstr "Julkaisematon"
 #: src/Core/Backend/Listing/ListingComments.php:264
 #: src/Core/Backend/Listing/ListingPosts.php:226
 #: src/Core/Backend/Listing/ListingPosts.php:276
-#: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:1007
+#: src/Core/Backend/Listing/ListingPostsMini.php:150 src/Core/Blog.php:269
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:1007
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1093
 msgid "Pending"
 msgstr "Odottaa"
 
 #: src/Core/Backend/Listing/ListingComments.php:219
-#: src/Core/Backend/Listing/ListingComments.php:270 src/Core/Blog.php:272
+#: src/Core/Backend/Listing/ListingComments.php:270 src/Core/Blog.php:274
 #: src/Process/Backend/Post.php:1098
 msgid "Junk"
 msgstr "Roska"
@@ -1105,7 +1105,7 @@ msgid "open"
 msgstr "avaa"
 
 #: src/Core/Backend/Listing/ListingPosts.php:51
-#: src/Core/Backend/Listing/ListingPostsMini.php:34
+#: src/Core/Backend/Listing/ListingPostsMini.php:48
 msgid "No entry"
 msgstr "Ei merkintöjä"
 
@@ -1140,14 +1140,14 @@ msgstr[1] "aikataulutettu"
 
 #: src/Core/Backend/Listing/ListingPosts.php:225
 #: src/Core/Backend/Listing/ListingPosts.php:271
-#: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
+#: src/Core/Backend/Listing/ListingPostsMini.php:145 src/Core/Blog.php:270
 #: src/Process/Backend/MediaItem.php:1006 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "Ajastettu"
 
 #: src/Core/Backend/Listing/ListingPosts.php:227
 #: src/Core/Backend/Listing/ListingPosts.php:284
-#: src/Core/Backend/Listing/ListingPostsMini.php:111
+#: src/Core/Backend/Listing/ListingPostsMini.php:158
 msgid "Protected"
 msgstr "Suojattu"
 
@@ -1156,13 +1156,13 @@ msgid "Attachments"
 msgstr "Liitteet:"
 
 #: src/Core/Backend/Listing/ListingPosts.php:295
-#: src/Core/Backend/Listing/ListingPostsMini.php:122
+#: src/Core/Backend/Listing/ListingPostsMini.php:169
 #, php-format
 msgid "%d attachment"
 msgstr "%d liite"
 
 #: src/Core/Backend/Listing/ListingPosts.php:295
-#: src/Core/Backend/Listing/ListingPostsMini.php:122
+#: src/Core/Backend/Listing/ListingPostsMini.php:169
 #, php-format
 msgid "%d attachments"
 msgstr "%d liitettä"
@@ -1171,34 +1171,34 @@ msgstr "%d liitettä"
 msgid "Select this post"
 msgstr "Valitse tämä virka"
 
-#: src/Core/Backend/Listing/ListingPostsMini.php:39
+#: src/Core/Backend/Listing/ListingPostsMini.php:94
 msgid "Entries list"
 msgstr "Blogimerkintöjen luettelo"
 
-#: src/Core/Backend/Listing/ListingUsers.php:36
-msgid "No user matches the filter"
-msgstr "Suodatinta ei vastaa mikään käyttäjä"
-
-#: src/Core/Backend/Listing/ListingUsers.php:38
+#: src/Core/Backend/Listing/ListingUsers.php:49
 msgid "No user"
 msgstr "Ei käyttäjiä"
 
-#: src/Core/Backend/Listing/ListingUsers.php:47
+#: src/Core/Backend/Listing/ListingUsers.php:49
+msgid "No user matches the filter"
+msgstr "Suodatinta ei vastaa mikään käyttäjä"
+
+#: src/Core/Backend/Listing/ListingUsers.php:117
 #, php-format
 msgid "List of %s users match the filter."
 msgstr "Suodatinta vastaa %s käyttäjän luettelo."
 
-#: src/Core/Backend/Listing/ListingUsers.php:49
+#: src/Core/Backend/Listing/ListingUsers.php:119
 msgid "Users list"
 msgstr "Käyttäjäluettelo"
 
-#: src/Core/Backend/Listing/ListingUsers.php:87
-#: src/Core/Backend/Listing/ListingUsers.php:110
+#: src/Core/Backend/Listing/ListingUsers.php:133
+#: src/Core/Backend/Listing/ListingUsers.php:159
 msgid "admin"
 msgstr "järjestelmänvalvoja"
 
-#: src/Core/Backend/Listing/ListingUsers.php:88
-#: src/Core/Backend/Listing/ListingUsers.php:113
+#: src/Core/Backend/Listing/ListingUsers.php:134
+#: src/Core/Backend/Listing/ListingUsers.php:158
 msgid "superadmin"
 msgstr "superjärjestelmänvalvoja"
 
@@ -1255,13 +1255,13 @@ msgid "Plugins"
 msgstr "Liitännäiset"
 
 #: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1376
-#: src/Core/Upgrade/PluginsList.php:136 src/Core/Upgrade/Utility.php:264
+#: src/Core/Upgrade/PluginsList.php:145 src/Core/Upgrade/Utility.php:264
 #: src/Process/Upgrade/Upgrade.php:55 src/Process/Upgrade/Upgrade.php:79
 #: src/Process/Upgrade/Upgrade.php:294
 msgid "Update"
 msgstr "Päivitä"
 
-#: src/Core/Backend/ModulesList.php:221 src/Core/Upgrade/PluginsList.php:58
+#: src/Core/Backend/ModulesList.php:221 src/Core/Upgrade/PluginsList.php:60
 msgid "other"
 msgstr "muut"
 
@@ -1412,11 +1412,11 @@ msgstr "Liitännäisen asetukset"
 msgid "Plugin main page"
 msgstr "Pluginin pääsivu"
 
-#: src/Core/Backend/ModulesList.php:1327 src/Core/Upgrade/PluginsList.php:103
+#: src/Core/Backend/ModulesList.php:1327 src/Core/Upgrade/PluginsList.php:106
 msgid "Activate"
 msgstr "Ota käyttöön"
 
-#: src/Core/Backend/ModulesList.php:1336 src/Core/Upgrade/PluginsList.php:111
+#: src/Core/Backend/ModulesList.php:1336 src/Core/Upgrade/PluginsList.php:115
 msgid "Deactivate"
 msgstr "Poista käytöstä"
 
@@ -1424,100 +1424,100 @@ msgstr "Poista käytöstä"
 msgid "Clone"
 msgstr "Kloonaa"
 
-#: src/Core/Backend/ModulesList.php:1367 src/Core/Upgrade/PluginsList.php:128
+#: src/Core/Backend/ModulesList.php:1367 src/Core/Upgrade/PluginsList.php:136
 msgid "Install"
 msgstr "Asenna"
 
-#: src/Core/Backend/ModulesList.php:1418 src/Core/Upgrade/PluginsList.php:166
+#: src/Core/Backend/ModulesList.php:1418 src/Core/Upgrade/PluginsList.php:175
 msgid "Activate selected plugins"
 msgstr "Ota valitut liitännäiset käyttöön"
 
-#: src/Core/Backend/ModulesList.php:1419 src/Core/Upgrade/PluginsList.php:167
+#: src/Core/Backend/ModulesList.php:1419 src/Core/Upgrade/PluginsList.php:176
 msgid "Activate all plugins from this list"
 msgstr "Ota kaikki luettelon liitännäiset käyttöön"
 
-#: src/Core/Backend/ModulesList.php:1429 src/Core/Upgrade/PluginsList.php:178
+#: src/Core/Backend/ModulesList.php:1429 src/Core/Upgrade/PluginsList.php:186
 msgid "Deactivate selected plugins"
 msgstr "Poista valitut liitännäiset käytöstä"
 
-#: src/Core/Backend/ModulesList.php:1430 src/Core/Upgrade/PluginsList.php:179
+#: src/Core/Backend/ModulesList.php:1430 src/Core/Upgrade/PluginsList.php:187
 msgid "Deactivate all plugins from this list"
 msgstr "Poista kaikki luettelon liitännäiset käytöstä"
 
-#: src/Core/Backend/ModulesList.php:1440 src/Core/Upgrade/PluginsList.php:190
+#: src/Core/Backend/ModulesList.php:1440 src/Core/Upgrade/PluginsList.php:197
 msgid "Update selected plugins"
 msgstr "Päivitä valitut liitännäiset"
 
-#: src/Core/Backend/ModulesList.php:1441 src/Core/Upgrade/PluginsList.php:191
+#: src/Core/Backend/ModulesList.php:1441 src/Core/Upgrade/PluginsList.php:198
 msgid "Update all plugins from this list"
 msgstr "Päivitä kaikki luettelon liitännäiset"
 
 #: src/Core/Backend/ModulesList.php:1492 src/Core/Backend/ModulesList.php:1546
 #: src/Core/Backend/ModulesList.php:1577 src/Core/Backend/ModulesList.php:1615
-#: src/Core/Backend/ModulesList.php:1676 src/Core/Upgrade/PluginsList.php:230
-#: src/Core/Upgrade/PluginsList.php:272 src/Core/Upgrade/PluginsList.php:297
-#: src/Core/Upgrade/PluginsList.php:329 src/Core/Upgrade/PluginsList.php:383
+#: src/Core/Backend/ModulesList.php:1676 src/Core/Upgrade/PluginsList.php:237
+#: src/Core/Upgrade/PluginsList.php:279 src/Core/Upgrade/PluginsList.php:304
+#: src/Core/Upgrade/PluginsList.php:336 src/Core/Upgrade/PluginsList.php:390
 msgid "No such plugin."
 msgstr "Kyseistä liitännäistä ei ole."
 
-#: src/Core/Backend/ModulesList.php:1512 src/Core/Upgrade/PluginsList.php:244
+#: src/Core/Backend/ModulesList.php:1512 src/Core/Upgrade/PluginsList.php:251
 msgid "You don't have permissions to delete this plugin."
 msgstr "Käyttöoikeutesi eivät riitä tämän liitännäisen poistamiseen."
 
-#: src/Core/Backend/ModulesList.php:1514 src/Core/Upgrade/PluginsList.php:246
+#: src/Core/Backend/ModulesList.php:1514 src/Core/Upgrade/PluginsList.php:253
 msgid "Some plugins have not been delete."
 msgstr "Joitain liitännäisiä ei voitu poistaa."
 
-#: src/Core/Backend/ModulesList.php:1517 src/Core/Upgrade/PluginsList.php:249
+#: src/Core/Backend/ModulesList.php:1517 src/Core/Upgrade/PluginsList.php:256
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Tämä liitännäinen on poistettu."
 msgstr[1] "Nämä liitännäiset on poistettu."
 
-#: src/Core/Backend/ModulesList.php:1550 src/Core/Upgrade/PluginsList.php:276
+#: src/Core/Backend/ModulesList.php:1550 src/Core/Upgrade/PluginsList.php:283
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Tämä liitännäinen on asennettu."
 msgstr[1] "Nämä liitännäiset on asennettu."
 
-#: src/Core/Backend/ModulesList.php:1581 src/Core/Upgrade/PluginsList.php:301
+#: src/Core/Backend/ModulesList.php:1581 src/Core/Upgrade/PluginsList.php:308
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "Tämä liitännäinen on otettu käyttöön."
 msgstr[1] "Nämä liitännäiset on otettu käyttöön."
 
-#: src/Core/Backend/ModulesList.php:1619 src/Core/Upgrade/PluginsList.php:333
+#: src/Core/Backend/ModulesList.php:1619 src/Core/Upgrade/PluginsList.php:340
 msgid "Some plugins have not been deactivated."
 msgstr "Joitain liitännäisiä ei saatu pois käytöstä."
 
-#: src/Core/Backend/ModulesList.php:1622 src/Core/Upgrade/PluginsList.php:336
+#: src/Core/Backend/ModulesList.php:1622 src/Core/Upgrade/PluginsList.php:343
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Tämä liitännäinen on saatu pois käytöstä."
 msgstr[1] "Nämä liitännäiset on saatu pois käytöstä."
 
-#: src/Core/Backend/ModulesList.php:1669 src/Core/Upgrade/PluginsList.php:376
+#: src/Core/Backend/ModulesList.php:1669 src/Core/Upgrade/PluginsList.php:383
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Tämä liitännäinen on päivitetty."
 msgstr[1] "Nämä liitännäiset on päivitetty."
 
-#: src/Core/Backend/ModulesList.php:1673 src/Core/Upgrade/PluginsList.php:380
+#: src/Core/Backend/ModulesList.php:1673 src/Core/Upgrade/PluginsList.php:387
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "Seuraavat lisäosien päivitykset on lukittu: %s"
 
 #: src/Core/Backend/ModulesList.php:1693 src/Core/Backend/ThemesList.php:736
-#: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/Langs.php:182
+#: src/Core/Upgrade/PluginsList.php:407 src/Process/Backend/Langs.php:182
 #: src/Process/Upgrade/Langs.php:212
 msgid "Unable to move uploaded file."
 msgstr "Ei voida siirtää verkkosijaintiin ladattua tiedostoa."
 
-#: src/Core/Backend/ModulesList.php:1711 src/Core/Upgrade/PluginsList.php:412
+#: src/Core/Backend/ModulesList.php:1711 src/Core/Upgrade/PluginsList.php:419
 msgid "The plugin has been successfully updated."
 msgstr "Lisäosa on päivitetty onnistuneesti."
 
-#: src/Core/Backend/ModulesList.php:1712 src/Core/Upgrade/PluginsList.php:413
+#: src/Core/Backend/ModulesList.php:1712 src/Core/Upgrade/PluginsList.php:420
 msgid "The plugin has been successfully installed."
 msgstr "Lisäosa on asennettu onnistuneesti."
 
@@ -1605,19 +1605,19 @@ msgstr "Määritä \"%s\""
 msgid "Back"
 msgstr "Takaisin"
 
-#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1284
-#: src/Core/Backend/Page.php:1449 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Notices.php:81 src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1449 src/Core/Upgrade/Notices.php:46
 #: src/Process/Backend/Home.php:263
 msgid "Error:"
 msgstr "Virhe:"
 
-#: src/Core/Backend/Notices.php:67 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Notices.php:81 src/Core/Upgrade/Notices.php:46
 #: src/Process/Install/Install.php:438 src/Process/Install/Install.php:547
 #: src/Process/Install/Wizard.php:246
 msgid "Errors:"
 msgstr "Virheet:"
 
-#: src/Core/Backend/Notices.php:219 src/Core/Backend/Notices.php:252
+#: src/Core/Backend/Notices.php:241 src/Core/Backend/Notices.php:279
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
@@ -1633,19 +1633,19 @@ msgstr "Vaihda blogia"
 msgid "Blogs:"
 msgstr "Blogit:"
 
-#: src/Core/Backend/Page.php:321 src/Core/Upgrade/Page.php:134
+#: src/Core/Backend/Page.php:321 src/Core/Upgrade/Page.php:146
 msgid "Go to the content"
 msgstr "Sisältöön"
 
-#: src/Core/Backend/Page.php:325 src/Core/Upgrade/Page.php:135
+#: src/Core/Backend/Page.php:325 src/Core/Upgrade/Page.php:150
 msgid "Go to the menu"
 msgstr "Valikkoon"
 
-#: src/Core/Backend/Page.php:329 src/Core/Upgrade/Page.php:136
+#: src/Core/Backend/Page.php:329 src/Core/Upgrade/Page.php:154
 msgid "Go to help"
 msgstr "Ohjeeseen"
 
-#: src/Core/Backend/Page.php:348 src/Core/Upgrade/Page.php:139
+#: src/Core/Backend/Page.php:348 src/Core/Upgrade/Page.php:172
 #: src/Process/Backend/UserPreferences.php:805
 #: src/Process/Backend/UserPreferences.php:806
 msgid "My dashboard"
@@ -1655,16 +1655,16 @@ msgstr "Ohjaustaulu"
 msgid "Go to site"
 msgstr "Sivustolle"
 
-#: src/Core/Backend/Page.php:389 src/Core/Upgrade/Page.php:147
+#: src/Core/Backend/Page.php:389 src/Core/Upgrade/Page.php:201
 #, php-format
 msgid "Logout %s"
 msgstr "Kirjaa %s ulos"
 
-#: src/Core/Backend/Page.php:410 src/Core/Upgrade/Page.php:155
+#: src/Core/Backend/Page.php:410 src/Core/Upgrade/Page.php:222
 msgid "Hide main menu"
 msgstr "Piilota päävalikko"
 
-#: src/Core/Backend/Page.php:413 src/Core/Upgrade/Page.php:156
+#: src/Core/Backend/Page.php:413 src/Core/Upgrade/Page.php:225
 msgid "Show main menu"
 msgstr "Näytä päävalikko"
 
@@ -1676,36 +1676,37 @@ msgstr "Vikasietotila"
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Olet vikasietotilassa. Kaikki liitännäiset on tilapäisesti poistettu käytöstä. Muista ensin kirjautua ulos ja sitten sisään normaalisti, jotta saat kaikki toiminnot käyttöön."
 
-#: src/Core/Backend/Page.php:506 src/Core/Upgrade/Page.php:183
+#: src/Core/Backend/Page.php:506 src/Core/Upgrade/Page.php:258
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Käytät versiota %s. Kiitos!"
 
 #: src/Core/Backend/Page.php:522 src/Core/Backend/Page.php:524
 #: src/Core/Backend/Page.php:666 src/Core/Backend/Page.php:668
-#: src/Core/Upgrade/Page.php:189
+#: src/Core/Upgrade/Page.php:268 src/Core/Upgrade/Page.php:270
 msgid "Page top"
 msgstr "Sivun ylälaitaan"
 
 #: src/Core/Backend/Page.php:544 src/Core/Backend/Page.php:547
+#: src/Core/Upgrade/Page.php:290 src/Core/Upgrade/Page.php:293
 msgid "Dotclear logo"
 msgstr "Dotclearin logo"
 
 #: src/Core/Backend/Page.php:877 src/Core/Backend/Page.php:880
-#: src/Core/Upgrade/Page.php:230 src/Core/Upgrade/Page.php:231
+#: src/Core/Upgrade/Page.php:334 src/Core/Upgrade/Page.php:337
 msgid "Go to dashboard"
 msgstr "Ohjaustauluun"
 
-#: src/Core/Backend/Page.php:1117 src/Core/Upgrade/Page.php:303
+#: src/Core/Backend/Page.php:1117 src/Core/Upgrade/Page.php:446
 msgid "Help about this page"
 msgstr "Täman sivun ohje"
 
-#: src/Core/Backend/Page.php:1126 src/Core/Upgrade/Page.php:308
+#: src/Core/Backend/Page.php:1126 src/Core/Upgrade/Page.php:455
 #, php-format
 msgid "See also %s"
 msgstr "Katso myös %s"
 
-#: src/Core/Backend/Page.php:1129 src/Core/Upgrade/Page.php:308
+#: src/Core/Backend/Page.php:1129 src/Core/Upgrade/Page.php:458
 msgid "the global help"
 msgstr "yleisohje"
 
@@ -2222,120 +2223,120 @@ msgstr "tulokset per sivu"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Tietokannassasi ei ole taulua nimeltä \"Session\". Onko Dotclearin asennus saatu loppuun suoritetuksi?"
 
-#: src/Core/Blog.php:792
+#: src/Core/Blog.php:794
 msgid "You are not allowed to add categories"
 msgstr "Sinulla ei ole oikeutta lisätä luokkia"
 
-#: src/Core/Blog.php:840
+#: src/Core/Blog.php:842
 msgid "You are not allowed to update categories"
 msgstr "Sinulla ei ole oikeutta päivittää luokkia"
 
-#: src/Core/Blog.php:897
+#: src/Core/Blog.php:899
 msgid "You are not allowed to delete categories"
 msgstr "Sinulla ei ole oikeutta poistaa luokkia"
 
-#: src/Core/Blog.php:910
+#: src/Core/Blog.php:912
 msgid "This category is not empty."
 msgstr "Luokka ei ole tyhjä."
 
-#: src/Core/Blog.php:923
+#: src/Core/Blog.php:925
 msgid "You are not allowed to reset categories order"
 msgstr "Sinulla ei ole oikeutta palauttaa luokkien järjestystä oletusarvoon"
 
-#: src/Core/Blog.php:994
+#: src/Core/Blog.php:996
 msgid "Empty category URL"
 msgstr "Tyhjän luokan verkko-osoite"
 
-#: src/Core/Blog.php:1011
+#: src/Core/Blog.php:1013
 msgid "You must provide a category title"
 msgstr "Luokalle täytyy antaa otsikko"
 
-#: src/Core/Blog.php:1021
+#: src/Core/Blog.php:1023
 msgid "You must provide a category URL"
 msgstr "Luokalle täytyy antaa verkko-osoite"
 
-#: src/Core/Blog.php:1516
+#: src/Core/Blog.php:1518
 msgid "You are not allowed to create an entry"
 msgstr "Sinulla ei ole oikeutta luoda blogimerkintöjä"
 
-#: src/Core/Blog.php:1576
+#: src/Core/Blog.php:1578
 msgid "You are not allowed to update entries"
 msgstr "Sinulla ei ole oikeutta päivittää blogimerkintöjä"
 
-#: src/Core/Blog.php:1582 src/Core/Blog.php:1838
+#: src/Core/Blog.php:1584 src/Core/Blog.php:1840
 msgid "No such entry ID"
 msgstr "Tuntematon merkinnän tunniste"
 
-#: src/Core/Blog.php:1616
+#: src/Core/Blog.php:1618
 msgid "You are not allowed to edit this entry"
 msgstr "Sinulla ei ole oikeutta muokata tätä merkintää"
 
-#: src/Core/Blog.php:1644 src/Core/Blog.php:1679 src/Core/Meta.php:143
+#: src/Core/Blog.php:1646 src/Core/Blog.php:1681 src/Core/Meta.php:143
 #: src/Core/Meta.php:160
 msgid "You are not allowed to change this entry status"
 msgstr "Sinulla ei ole oikeutta muuttaa tämän merkinnän tilaa"
 
-#: src/Core/Blog.php:1725 src/Core/Blog.php:1763
+#: src/Core/Blog.php:1727 src/Core/Blog.php:1765
 msgid "You are not allowed to change this entry category"
 msgstr "Sinulla ei ole oikeutta muuttaa tämän merkinnän luokkaa"
 
-#: src/Core/Blog.php:1796
+#: src/Core/Blog.php:1798
 msgid "You are not allowed to change entries category"
 msgstr "Sinulla ei ole oikeutta muuttaa blogimerkintöjen luokkaa"
 
-#: src/Core/Blog.php:1832
+#: src/Core/Blog.php:1834
 msgid "You are not allowed to delete entries"
 msgstr "Sinulla ei ole oikeutta poistaa blogimerkintöjä"
 
-#: src/Core/Blog.php:2078
+#: src/Core/Blog.php:2080
 msgid "No entry title"
 msgstr "Merkinnällä ei otsikkoa"
 
-#: src/Core/Blog.php:2082 src/Core/Blog.php:2098
+#: src/Core/Blog.php:2084 src/Core/Blog.php:2100
 msgid "No entry content"
 msgstr "Merkinnällä ei sisältöä"
 
-#: src/Core/Blog.php:2164
+#: src/Core/Blog.php:2166
 msgid "Notes"
 msgstr "Huomautuksia"
 
-#: src/Core/Blog.php:2166
+#: src/Core/Blog.php:2168
 msgid "Note"
 msgstr "Huomautus"
 
-#: src/Core/Blog.php:2265
+#: src/Core/Blog.php:2273
 msgid "Empty entry URL"
 msgstr "Tyhjä merkinnän verkko-osoite"
 
-#: src/Core/Blog.php:2526
+#: src/Core/Blog.php:2534
 msgid "You are not allowed to update comments"
 msgstr "Sinulla ei ole oikeutta päivittää kommentteja"
 
-#: src/Core/Blog.php:2532 src/Core/Blog.php:2538 src/Core/Blog.php:2634
+#: src/Core/Blog.php:2540 src/Core/Blog.php:2546 src/Core/Blog.php:2642
 msgid "No such comment ID"
 msgstr "Tuntematon kommentin tunniste"
 
-#: src/Core/Blog.php:2546
+#: src/Core/Blog.php:2554
 msgid "You are not allowed to update this comment"
 msgstr "Sinulla ei ole oikeutta päivittää tätä kommenttia"
 
-#: src/Core/Blog.php:2587
+#: src/Core/Blog.php:2595
 msgid "You are not allowed to change this comment's status"
 msgstr "Sinulla ei ole oikeutta muuttaa tämän kommentin tilaa "
 
-#: src/Core/Blog.php:2628 src/Core/Blog.php:2681
+#: src/Core/Blog.php:2636 src/Core/Blog.php:2689
 msgid "You are not allowed to delete comments"
 msgstr "Sinulla ei ole oikeutta poistaa kommentteja "
 
-#: src/Core/Blog.php:2716
+#: src/Core/Blog.php:2724
 msgid "You must provide a comment"
 msgstr "Kirjoita kommentti"
 
-#: src/Core/Blog.php:2720
+#: src/Core/Blog.php:2728
 msgid "You must provide an author name"
 msgstr "Anna kirjoittajan nimi"
 
-#: src/Core/Blog.php:2724
+#: src/Core/Blog.php:2732
 msgid "Email address is not valid."
 msgstr "Sähköpostiosoite ei kelpaa."
 
@@ -2389,31 +2390,31 @@ msgstr "Blogilla ei verkko-osoitetta"
 msgid "You must provide a valid email address."
 msgstr "Anna kelvollinen sähköpostiosoite."
 
-#: src/Core/Frontend/Utility.php:138
+#: src/Core/Frontend/Utility.php:137
 msgid "Something went wrong while trying to read the database."
 msgstr "Jokin meni pieleen, kun yritettiin lukea tietokantaa."
 
-#: src/Core/Frontend/Utility.php:143
+#: src/Core/Frontend/Utility.php:142
 msgid "Blog is not defined."
 msgstr "Blogia ei ole määritelty."
 
-#: src/Core/Frontend/Utility.php:149
+#: src/Core/Frontend/Utility.php:148
 msgid "This blog is offline. Please try again later."
 msgstr "Tämä blogi on offline-tilassa. Yritä myöhemmin uudelleen."
 
-#: src/Core/Frontend/Utility.php:239
+#: src/Core/Frontend/Utility.php:238
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
 msgstr "Tämä tarkoittaa joko sitä, että olet poistanut oletusteemasi tai asettanut väärän teemapolun blogisi asetuksissa. Tarkista theme_path-arvo about:config-moduulissa tai asenna oletusteema uudelleen. ("
 
-#: src/Core/Frontend/Utility.php:242
+#: src/Core/Frontend/Utility.php:241
 msgid "Default theme not found."
 msgstr "Oletusteemaa ei löydy."
 
-#: src/Core/Frontend/Utility.php:298
+#: src/Core/Frontend/Utility.php:297
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Jotain meni pieleen blogisi mallitiedoston lataamisen aikana."
 
-#: src/Core/Frontend/Utility.php:340
+#: src/Core/Frontend/Utility.php:339
 msgid "Can't create template files."
 msgstr "Ei voi luoda mallitiedostoja."
 
@@ -2600,11 +2601,11 @@ msgstr "LOL!"
 msgid "System"
 msgstr "Järjestelmä"
 
-#: src/Core/Upgrade/Page.php:143
+#: src/Core/Upgrade/Page.php:182
 msgid "Dotclear's update dashboard"
 msgstr "Dotclearin päivitysmittaristo"
 
-#: src/Core/Upgrade/Page.php:146
+#: src/Core/Upgrade/Page.php:193
 msgid "Go to normal dashboard"
 msgstr "Siirry normaaliin kojelautaan"
 
@@ -2954,7 +2955,7 @@ msgstr "Kohdetiedoston kirjoittaminen ei onnistu."
 msgid "Unable to write in target directory, permission denied."
 msgstr "Kirjoittaminen kohdehakemistoon ei onnistu, oikeus evätty."
 
-#: src/Helper/File/Zip/Unzip.php:754 src/Helper/File/Zip/Zip.php:470
+#: src/Helper/File/Zip/Unzip.php:758 src/Helper/File/Zip/Zip.php:470
 msgid "Not enough memory to open file."
 msgstr "Muisti ei riitä tiedoston avaamiseen."
 
@@ -3118,7 +3119,7 @@ msgid "To reset your password visit the following address, otherwise just ignore
 msgstr "Jos haluat vaihtaa salasanasi käy seuraavassa osoitteessa, muutoin jättämällä tämän sähköpostiviestin huomioitta mitään ei tapahdu."
 
 #: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:453
+#: src/Process/Backend/Auth.php:363 src/Process/Backend/Auth.php:449
 #: src/Process/Install/Install.php:476 src/Process/Install/Install.php:528
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
@@ -3167,78 +3168,78 @@ msgstr "Käyttöliittymä:"
 msgid "Wrong username or password"
 msgstr "Väärä käyttäjänimi tai salasana"
 
-#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:392
+#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:391
 msgid "Back to login screen"
 msgstr "Takaisin kirjautumisruutuun"
 
-#: src/Process/Backend/Auth.php:363
+#: src/Process/Backend/Auth.php:362
 msgid "Request a new password"
 msgstr "Hanki uusi salasana"
 
-#: src/Process/Backend/Auth.php:386
+#: src/Process/Backend/Auth.php:385
 msgid "recover"
 msgstr "palauta"
 
-#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:497
+#: src/Process/Backend/Auth.php:390 src/Process/Backend/Auth.php:493
 msgid "Other option"
 msgstr "Muu vaihtoehto"
 
-#: src/Process/Backend/Auth.php:398
+#: src/Process/Backend/Auth.php:396
 msgid "Change your password"
 msgstr "Vaihda salasanasi"
 
-#: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:277
+#: src/Process/Backend/Auth.php:397 src/Process/Backend/User.php:277
 #: src/Process/Backend/UserPreferences.php:581
 #: src/Process/Install/Install.php:484
 msgid "New password:"
 msgstr "Uusi salasana:"
 
-#: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:291
+#: src/Process/Backend/Auth.php:408 src/Process/Backend/User.php:291
 #: src/Process/Install/Install.php:491
 msgid "Confirm password:"
 msgstr "Vahvista salasana:"
 
-#: src/Process/Backend/Auth.php:419
+#: src/Process/Backend/Auth.php:417
 msgid "change"
 msgstr "muuta"
 
-#: src/Process/Backend/Auth.php:435
+#: src/Process/Backend/Auth.php:431
 msgid "Safe mode login"
 msgstr "Vikasietotila"
 
-#: src/Process/Backend/Auth.php:437
+#: src/Process/Backend/Auth.php:433
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Tässä tilassa voit kirjautua ilman liitännäisten käynnistämistä. Näin voit yrittää ratkaista yhteensopivuusongelmia."
 
-#: src/Process/Backend/Auth.php:438
+#: src/Process/Backend/Auth.php:434
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Ota pois käytöstä tai poista liittännäinen, jota epäilet ongelman aiheuttajaksi, kirjaudu ulos ja kirjaudu sitten uudelleen sisään normaalisti."
 
-#: src/Process/Backend/Auth.php:474 src/Process/Upgrade/Auth.php:234
+#: src/Process/Backend/Auth.php:470 src/Process/Upgrade/Auth.php:234
 msgid "Remember my ID on this device"
 msgstr "Muista minut tällä tietokoneella"
 
-#: src/Process/Backend/Auth.php:475 src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:471 src/Process/Upgrade/Auth.php:235
 msgid "log in"
 msgstr "kirjaudu"
 
-#: src/Process/Backend/Auth.php:491 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:487 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "Evästeiden käyttö on sallittava, jotta voit käyttää yksityisaluetta."
 
-#: src/Process/Backend/Auth.php:498
+#: src/Process/Backend/Auth.php:494
 msgid "Get back to normal authentication"
 msgstr "Paluu normaaliin todentamisruutuun"
 
-#: src/Process/Backend/Auth.php:501
+#: src/Process/Backend/Auth.php:497
 msgid "Connection issue?"
 msgstr "Yhteysongelmako?"
 
-#: src/Process/Backend/Auth.php:504
+#: src/Process/Backend/Auth.php:500
 msgid "I forgot my password"
 msgstr "Unohdin salasanani"
 
-#: src/Process/Backend/Auth.php:507
+#: src/Process/Backend/Auth.php:503
 msgid "I want to log in in safe mode"
 msgstr "Vikasietotilaan kirjautuminen"
 
