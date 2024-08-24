@@ -1624,7 +1624,6 @@ body.dark-mode.upgrade-mode :is(.collapse-mm, .expand-mm) {
   }
 }
 @media screen and (width <= 43em) {
-  #top-info-blog label,
   .nomobile {
     display: none;
   }
