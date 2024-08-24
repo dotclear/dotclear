@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 05:25+0200\n"
-"PO-Revision-Date: 2024-07-17 04:47\n"
+"POT-Creation-Date: 2024-08-23 19:51+0200\n"
+"PO-Revision-Date: 2024-08-23 17:53\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -92,7 +92,7 @@ msgstr "Този ключ не съществува в базата данни."
 #: src/Core/Backend/Action/Actions.php:158
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:71
-#: src/Core/Backend/Listing/ListingPostsMini.php:42
+#: src/Core/Backend/Listing/ListingPostsMini.php:60
 #: src/Process/Backend/Home.php:432 src/Process/Backend/Post.php:709
 msgid "Title"
 msgstr "Заглавие"
@@ -137,7 +137,7 @@ msgstr "Име на блога"
 #: src/Core/Backend/Listing/ListingBlogs.php:101
 #: src/Core/Backend/Listing/ListingComments.php:159
 #: src/Core/Backend/Listing/ListingPosts.php:113
-#: src/Core/Backend/Listing/ListingPostsMini.php:45
+#: src/Core/Backend/Listing/ListingPostsMini.php:72
 #: src/Core/Backend/UserPref.php:54 src/Core/Backend/UserPref.php:79
 #: src/Process/Backend/Post.php:614 src/Process/Backend/Post.php:1064
 #: src/Process/Backend/UsersActions.php:234
@@ -164,7 +164,7 @@ msgstr "Задайте като премахнат"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
 #: src/Core/Backend/Listing/ListingMedia.php:331
 #: src/Core/Backend/Listing/ListingMedia.php:334
-#: src/Core/Backend/ModulesList.php:1347 src/Core/Upgrade/PluginsList.php:120
+#: src/Core/Backend/ModulesList.php:1347 src/Core/Upgrade/PluginsList.php:126
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Langs.php:278
 #: src/Process/Backend/Post.php:798 src/Process/Backend/Users.php:42
 #: src/Process/Upgrade/Langs.php:296
@@ -182,7 +182,7 @@ msgstr "Избрани блогове бяха успешно актуализи
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:108
 #: src/Core/Backend/ModulesList.php:1685 src/Core/Backend/ThemesList.php:728
-#: src/Core/Upgrade/PluginsList.php:392 src/Process/Backend/BlogDel.php:67
+#: src/Core/Upgrade/PluginsList.php:399 src/Process/Backend/BlogDel.php:67
 #: src/Process/Backend/Langs.php:131 src/Process/Backend/Langs.php:176
 #: src/Process/Backend/User.php:100 src/Process/Backend/UsersActions.php:109
 #: src/Process/Upgrade/Langs.php:161 src/Process/Upgrade/Langs.php:206
@@ -227,7 +227,7 @@ msgstr "Коментари действия"
 #: src/Core/Backend/Combos.php:281 src/Core/Backend/Combos.php:304
 #: src/Core/Backend/Listing/ListingComments.php:149
 #: src/Core/Backend/Listing/ListingPosts.php:83
-#: src/Core/Backend/Listing/ListingPostsMini.php:44
+#: src/Core/Backend/Listing/ListingPostsMini.php:68
 #: src/Core/Backend/UserPref.php:44 src/Core/Backend/UserPref.php:53
 #: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:891
 #: src/Process/Backend/Post.php:1061
@@ -508,7 +508,7 @@ msgstr "Възходящ"
 #: src/Core/Backend/Listing/ListingComments.php:154
 #: src/Core/Backend/Listing/ListingMedia.php:130
 #: src/Core/Backend/Listing/ListingPosts.php:75
-#: src/Core/Backend/Listing/ListingPostsMini.php:43
+#: src/Core/Backend/Listing/ListingPostsMini.php:64
 #: src/Core/Backend/UserPref.php:42 src/Core/Backend/UserPref.php:52
 #: src/Core/Backend/UserPref.php:201 src/Process/Backend/Post.php:1062
 msgid "Date"
@@ -522,7 +522,7 @@ msgstr "Категория"
 #: src/Core/Backend/Combos.php:283 src/Core/Backend/Filter/FilterPosts.php:202
 #: src/Core/Backend/Listing/ListingPosts.php:228
 #: src/Core/Backend/Listing/ListingPosts.php:289
-#: src/Core/Backend/Listing/ListingPostsMini.php:116
+#: src/Core/Backend/Listing/ListingPostsMini.php:163
 msgid "Selected"
 msgstr "Избрани"
 
@@ -565,22 +565,22 @@ msgstr "Последна актуализация"
 msgid "Blog ID"
 msgstr "Идентификатор на блога"
 
-#: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:53
+#: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:63
 #: src/Process/Install/Install.php:479
 msgid "Username"
 msgstr "Потребителско име"
 
-#: src/Core/Backend/Combos.php:356 src/Core/Backend/Listing/ListingUsers.php:55
+#: src/Core/Backend/Combos.php:356 src/Core/Backend/Listing/ListingUsers.php:73
 #: src/Core/Backend/UserPref.php:67
 msgid "Last Name"
 msgstr "Фамилия"
 
-#: src/Core/Backend/Combos.php:357 src/Core/Backend/Listing/ListingUsers.php:54
+#: src/Core/Backend/Combos.php:357 src/Core/Backend/Listing/ListingUsers.php:68
 #: src/Core/Backend/UserPref.php:66
 msgid "First Name"
 msgstr "Първо име"
 
-#: src/Core/Backend/Combos.php:358 src/Core/Backend/Listing/ListingUsers.php:56
+#: src/Core/Backend/Combos.php:358 src/Core/Backend/Listing/ListingUsers.php:78
 #: src/Core/Backend/UserPref.php:68
 msgid "Display name"
 msgstr "Показвайте името"
@@ -689,7 +689,7 @@ msgid "Status:"
 msgstr "Статус:"
 
 #: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1282
-#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:996
+#: src/Process/Backend/Auth.php:375 src/Process/Backend/BlogPref.php:996
 #: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:895
 #: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:543
 #: src/Process/Install/Install.php:465
@@ -751,7 +751,7 @@ msgid "Format:"
 msgstr "Формат:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:464 src/Process/Backend/User.php:277
+#: src/Process/Backend/Auth.php:460 src/Process/Backend/User.php:277
 #: src/Process/Install/Install.php:529 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "Парола:"
@@ -873,7 +873,7 @@ msgid "URL"
 msgstr "URL"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:89
-#: src/Core/Backend/Listing/ListingUsers.php:57
+#: src/Core/Backend/Listing/ListingUsers.php:84
 #: src/Core/Backend/UserPref.php:69 src/Core/Backend/UserPref.php:77
 msgid "Entries (all types)"
 msgstr "Вписвания (всички видове)"
@@ -892,7 +892,7 @@ msgstr "Списък с блогове"
 #: src/Core/Backend/Listing/ListingBlogs.php:141
 #: src/Core/Backend/Listing/ListingComments.php:215
 #: src/Core/Backend/Listing/ListingPosts.php:222
-#: src/Core/Backend/Listing/ListingUsers.php:86
+#: src/Core/Backend/Listing/ListingUsers.php:132
 msgid "Legend: "
 msgstr "Легенда: "
 
@@ -984,8 +984,8 @@ msgstr "Вход"
 #: src/Core/Backend/Listing/ListingComments.php:252
 #: src/Core/Backend/Listing/ListingPosts.php:223
 #: src/Core/Backend/Listing/ListingPosts.php:261
-#: src/Core/Backend/Listing/ListingPostsMini.php:88 src/Core/Blog.php:270
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:1004
+#: src/Core/Backend/Listing/ListingPostsMini.php:135 src/Core/Blog.php:272
+#: src/Core/Blog.php:277 src/Process/Backend/MediaItem.php:1004
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1083
 msgid "Published"
 msgstr "Публикувано на"
@@ -994,8 +994,8 @@ msgstr "Публикувано на"
 #: src/Core/Backend/Listing/ListingComments.php:258
 #: src/Core/Backend/Listing/ListingPosts.php:224
 #: src/Core/Backend/Listing/ListingPosts.php:266
-#: src/Core/Backend/Listing/ListingPostsMini.php:93 src/Core/Blog.php:269
-#: src/Core/Blog.php:274 src/Process/Backend/MediaItem.php:1005
+#: src/Core/Backend/Listing/ListingPostsMini.php:140 src/Core/Blog.php:271
+#: src/Core/Blog.php:276 src/Process/Backend/MediaItem.php:1005
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1088
 msgid "Unpublished"
 msgstr "Непубликувано"
@@ -1004,14 +1004,14 @@ msgstr "Непубликувано"
 #: src/Core/Backend/Listing/ListingComments.php:264
 #: src/Core/Backend/Listing/ListingPosts.php:226
 #: src/Core/Backend/Listing/ListingPosts.php:276
-#: src/Core/Backend/Listing/ListingPostsMini.php:103 src/Core/Blog.php:267
-#: src/Core/Blog.php:273 src/Process/Backend/MediaItem.php:1007
+#: src/Core/Backend/Listing/ListingPostsMini.php:150 src/Core/Blog.php:269
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:1007
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1093
 msgid "Pending"
 msgstr "В очакване"
 
 #: src/Core/Backend/Listing/ListingComments.php:219
-#: src/Core/Backend/Listing/ListingComments.php:270 src/Core/Blog.php:272
+#: src/Core/Backend/Listing/ListingComments.php:270 src/Core/Blog.php:274
 #: src/Process/Backend/Post.php:1098
 msgid "Junk"
 msgstr "Junk"
@@ -1105,7 +1105,7 @@ msgid "open"
 msgstr "отворен"
 
 #: src/Core/Backend/Listing/ListingPosts.php:51
-#: src/Core/Backend/Listing/ListingPostsMini.php:34
+#: src/Core/Backend/Listing/ListingPostsMini.php:48
 msgid "No entry"
 msgstr "Без вписване"
 
@@ -1140,14 +1140,14 @@ msgstr[1] "планирани"
 
 #: src/Core/Backend/Listing/ListingPosts.php:225
 #: src/Core/Backend/Listing/ListingPosts.php:271
-#: src/Core/Backend/Listing/ListingPostsMini.php:98 src/Core/Blog.php:268
+#: src/Core/Backend/Listing/ListingPostsMini.php:145 src/Core/Blog.php:270
 #: src/Process/Backend/MediaItem.php:1006 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "Планирано"
 
 #: src/Core/Backend/Listing/ListingPosts.php:227
 #: src/Core/Backend/Listing/ListingPosts.php:284
-#: src/Core/Backend/Listing/ListingPostsMini.php:111
+#: src/Core/Backend/Listing/ListingPostsMini.php:158
 msgid "Protected"
 msgstr "Защитен"
 
@@ -1156,13 +1156,13 @@ msgid "Attachments"
 msgstr "Прикачени файлове"
 
 #: src/Core/Backend/Listing/ListingPosts.php:295
-#: src/Core/Backend/Listing/ListingPostsMini.php:122
+#: src/Core/Backend/Listing/ListingPostsMini.php:169
 #, php-format
 msgid "%d attachment"
 msgstr "%d прикачен файл"
 
 #: src/Core/Backend/Listing/ListingPosts.php:295
-#: src/Core/Backend/Listing/ListingPostsMini.php:122
+#: src/Core/Backend/Listing/ListingPostsMini.php:169
 #, php-format
 msgid "%d attachments"
 msgstr "%d прикачени файлове"
@@ -1171,34 +1171,34 @@ msgstr "%d прикачени файлове"
 msgid "Select this post"
 msgstr "Изберете тази публикация"
 
-#: src/Core/Backend/Listing/ListingPostsMini.php:39
+#: src/Core/Backend/Listing/ListingPostsMini.php:94
 msgid "Entries list"
 msgstr "Списък на вписванията"
 
-#: src/Core/Backend/Listing/ListingUsers.php:36
-msgid "No user matches the filter"
-msgstr "Никой потребител не отговаря на филтъра"
-
-#: src/Core/Backend/Listing/ListingUsers.php:38
+#: src/Core/Backend/Listing/ListingUsers.php:49
 msgid "No user"
 msgstr "Няма потребител"
 
-#: src/Core/Backend/Listing/ListingUsers.php:47
+#: src/Core/Backend/Listing/ListingUsers.php:49
+msgid "No user matches the filter"
+msgstr "Никой потребител не отговаря на филтъра"
+
+#: src/Core/Backend/Listing/ListingUsers.php:117
 #, php-format
 msgid "List of %s users match the filter."
 msgstr "Списък на потребителите на %s , които отговарят на филтъра."
 
-#: src/Core/Backend/Listing/ListingUsers.php:49
+#: src/Core/Backend/Listing/ListingUsers.php:119
 msgid "Users list"
 msgstr "Списък на потребителите"
 
-#: src/Core/Backend/Listing/ListingUsers.php:87
-#: src/Core/Backend/Listing/ListingUsers.php:110
+#: src/Core/Backend/Listing/ListingUsers.php:133
+#: src/Core/Backend/Listing/ListingUsers.php:159
 msgid "admin"
 msgstr "Администратор"
 
-#: src/Core/Backend/Listing/ListingUsers.php:88
-#: src/Core/Backend/Listing/ListingUsers.php:113
+#: src/Core/Backend/Listing/ListingUsers.php:134
+#: src/Core/Backend/Listing/ListingUsers.php:158
 msgid "superadmin"
 msgstr "суперадминистратор"
 
@@ -1255,13 +1255,13 @@ msgid "Plugins"
 msgstr "Плъгини"
 
 #: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1376
-#: src/Core/Upgrade/PluginsList.php:136 src/Core/Upgrade/Utility.php:264
+#: src/Core/Upgrade/PluginsList.php:145 src/Core/Upgrade/Utility.php:264
 #: src/Process/Upgrade/Upgrade.php:55 src/Process/Upgrade/Upgrade.php:79
 #: src/Process/Upgrade/Upgrade.php:294
 msgid "Update"
 msgstr "Актуализация"
 
-#: src/Core/Backend/ModulesList.php:221 src/Core/Upgrade/PluginsList.php:58
+#: src/Core/Backend/ModulesList.php:221 src/Core/Upgrade/PluginsList.php:60
 msgid "other"
 msgstr "други"
 
@@ -1412,11 +1412,11 @@ msgstr "Настройки на плъгина"
 msgid "Plugin main page"
 msgstr "Основна страница на плъгина"
 
-#: src/Core/Backend/ModulesList.php:1327 src/Core/Upgrade/PluginsList.php:103
+#: src/Core/Backend/ModulesList.php:1327 src/Core/Upgrade/PluginsList.php:106
 msgid "Activate"
 msgstr "Активиране на"
 
-#: src/Core/Backend/ModulesList.php:1336 src/Core/Upgrade/PluginsList.php:111
+#: src/Core/Backend/ModulesList.php:1336 src/Core/Upgrade/PluginsList.php:115
 msgid "Deactivate"
 msgstr "Деактивиране на"
 
@@ -1424,100 +1424,100 @@ msgstr "Деактивиране на"
 msgid "Clone"
 msgstr "Клониране"
 
-#: src/Core/Backend/ModulesList.php:1367 src/Core/Upgrade/PluginsList.php:128
+#: src/Core/Backend/ModulesList.php:1367 src/Core/Upgrade/PluginsList.php:136
 msgid "Install"
 msgstr "Инсталиране на"
 
-#: src/Core/Backend/ModulesList.php:1418 src/Core/Upgrade/PluginsList.php:166
+#: src/Core/Backend/ModulesList.php:1418 src/Core/Upgrade/PluginsList.php:175
 msgid "Activate selected plugins"
 msgstr "Активиране на избрани плъгини"
 
-#: src/Core/Backend/ModulesList.php:1419 src/Core/Upgrade/PluginsList.php:167
+#: src/Core/Backend/ModulesList.php:1419 src/Core/Upgrade/PluginsList.php:176
 msgid "Activate all plugins from this list"
 msgstr "Активиране на всички плъгини от този списък"
 
-#: src/Core/Backend/ModulesList.php:1429 src/Core/Upgrade/PluginsList.php:178
+#: src/Core/Backend/ModulesList.php:1429 src/Core/Upgrade/PluginsList.php:186
 msgid "Deactivate selected plugins"
 msgstr "Деактивиране на избрани плъгини"
 
-#: src/Core/Backend/ModulesList.php:1430 src/Core/Upgrade/PluginsList.php:179
+#: src/Core/Backend/ModulesList.php:1430 src/Core/Upgrade/PluginsList.php:187
 msgid "Deactivate all plugins from this list"
 msgstr "Деактивиране на всички плъгини от този списък"
 
-#: src/Core/Backend/ModulesList.php:1440 src/Core/Upgrade/PluginsList.php:190
+#: src/Core/Backend/ModulesList.php:1440 src/Core/Upgrade/PluginsList.php:197
 msgid "Update selected plugins"
 msgstr "Актуализиране на избрани плъгини"
 
-#: src/Core/Backend/ModulesList.php:1441 src/Core/Upgrade/PluginsList.php:191
+#: src/Core/Backend/ModulesList.php:1441 src/Core/Upgrade/PluginsList.php:198
 msgid "Update all plugins from this list"
 msgstr "Актуализиране на всички плъгини от този списък"
 
 #: src/Core/Backend/ModulesList.php:1492 src/Core/Backend/ModulesList.php:1546
 #: src/Core/Backend/ModulesList.php:1577 src/Core/Backend/ModulesList.php:1615
-#: src/Core/Backend/ModulesList.php:1676 src/Core/Upgrade/PluginsList.php:230
-#: src/Core/Upgrade/PluginsList.php:272 src/Core/Upgrade/PluginsList.php:297
-#: src/Core/Upgrade/PluginsList.php:329 src/Core/Upgrade/PluginsList.php:383
+#: src/Core/Backend/ModulesList.php:1676 src/Core/Upgrade/PluginsList.php:237
+#: src/Core/Upgrade/PluginsList.php:279 src/Core/Upgrade/PluginsList.php:304
+#: src/Core/Upgrade/PluginsList.php:336 src/Core/Upgrade/PluginsList.php:390
 msgid "No such plugin."
 msgstr "Няма такава приставка."
 
-#: src/Core/Backend/ModulesList.php:1512 src/Core/Upgrade/PluginsList.php:244
+#: src/Core/Backend/ModulesList.php:1512 src/Core/Upgrade/PluginsList.php:251
 msgid "You don't have permissions to delete this plugin."
 msgstr "Нямате права да изтриете тази приставка."
 
-#: src/Core/Backend/ModulesList.php:1514 src/Core/Upgrade/PluginsList.php:246
+#: src/Core/Backend/ModulesList.php:1514 src/Core/Upgrade/PluginsList.php:253
 msgid "Some plugins have not been delete."
 msgstr "Някои плъгини не са изтрити."
 
-#: src/Core/Backend/ModulesList.php:1517 src/Core/Upgrade/PluginsList.php:249
+#: src/Core/Backend/ModulesList.php:1517 src/Core/Upgrade/PluginsList.php:256
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Плъгинът е успешно изтрит."
 msgstr[1] "Плъгините са успешно изтрити."
 
-#: src/Core/Backend/ModulesList.php:1550 src/Core/Upgrade/PluginsList.php:276
+#: src/Core/Backend/ModulesList.php:1550 src/Core/Upgrade/PluginsList.php:283
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Плъгинът е успешно инсталиран."
 msgstr[1] "Плъгините са инсталирани успешно."
 
-#: src/Core/Backend/ModulesList.php:1581 src/Core/Upgrade/PluginsList.php:301
+#: src/Core/Backend/ModulesList.php:1581 src/Core/Upgrade/PluginsList.php:308
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "Плъгинът е активиран успешно."
 msgstr[1] "Плъгините са успешно активирани."
 
-#: src/Core/Backend/ModulesList.php:1619 src/Core/Upgrade/PluginsList.php:333
+#: src/Core/Backend/ModulesList.php:1619 src/Core/Upgrade/PluginsList.php:340
 msgid "Some plugins have not been deactivated."
 msgstr "Някои плъгини не са деактивирани."
 
-#: src/Core/Backend/ModulesList.php:1622 src/Core/Upgrade/PluginsList.php:336
+#: src/Core/Backend/ModulesList.php:1622 src/Core/Upgrade/PluginsList.php:343
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Плъгинът беше успешно деактивиран."
 msgstr[1] "Плъгините са успешно деактивирани."
 
-#: src/Core/Backend/ModulesList.php:1669 src/Core/Upgrade/PluginsList.php:376
+#: src/Core/Backend/ModulesList.php:1669 src/Core/Upgrade/PluginsList.php:383
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Плъгинът беше успешно актуализиран."
 msgstr[1] "Плъгините бяха успешно актуализирани."
 
-#: src/Core/Backend/ModulesList.php:1673 src/Core/Upgrade/PluginsList.php:380
+#: src/Core/Backend/ModulesList.php:1673 src/Core/Upgrade/PluginsList.php:387
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "Следните актуализации на плъгини са заключени: %s"
 
 #: src/Core/Backend/ModulesList.php:1693 src/Core/Backend/ThemesList.php:736
-#: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/Langs.php:182
+#: src/Core/Upgrade/PluginsList.php:407 src/Process/Backend/Langs.php:182
 #: src/Process/Upgrade/Langs.php:212
 msgid "Unable to move uploaded file."
 msgstr "Невъзможно е да се премести каченият файл."
 
-#: src/Core/Backend/ModulesList.php:1711 src/Core/Upgrade/PluginsList.php:412
+#: src/Core/Backend/ModulesList.php:1711 src/Core/Upgrade/PluginsList.php:419
 msgid "The plugin has been successfully updated."
 msgstr "Плъгинът беше успешно актуализиран."
 
-#: src/Core/Backend/ModulesList.php:1712 src/Core/Upgrade/PluginsList.php:413
+#: src/Core/Backend/ModulesList.php:1712 src/Core/Upgrade/PluginsList.php:420
 msgid "The plugin has been successfully installed."
 msgstr "Плъгинът е инсталиран успешно."
 
@@ -1605,19 +1605,19 @@ msgstr "Конфигуриране \"%s\""
 msgid "Back"
 msgstr "Обратно"
 
-#: src/Core/Backend/Notices.php:67 src/Core/Backend/Page.php:1284
-#: src/Core/Backend/Page.php:1449 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Notices.php:81 src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1449 src/Core/Upgrade/Notices.php:46
 #: src/Process/Backend/Home.php:263
 msgid "Error:"
 msgstr "Грешка:"
 
-#: src/Core/Backend/Notices.php:67 src/Core/Upgrade/Notices.php:34
+#: src/Core/Backend/Notices.php:81 src/Core/Upgrade/Notices.php:46
 #: src/Process/Install/Install.php:438 src/Process/Install/Install.php:547
 #: src/Process/Install/Wizard.php:246
 msgid "Errors:"
 msgstr "Грешки:"
 
-#: src/Core/Backend/Notices.php:219 src/Core/Backend/Notices.php:252
+#: src/Core/Backend/Notices.php:241 src/Core/Backend/Notices.php:279
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
@@ -1633,19 +1633,19 @@ msgstr "Блог за промени"
 msgid "Blogs:"
 msgstr "Блогове:"
 
-#: src/Core/Backend/Page.php:321 src/Core/Upgrade/Page.php:134
+#: src/Core/Backend/Page.php:321 src/Core/Upgrade/Page.php:146
 msgid "Go to the content"
 msgstr "Отидете на съдържанието"
 
-#: src/Core/Backend/Page.php:325 src/Core/Upgrade/Page.php:135
+#: src/Core/Backend/Page.php:325 src/Core/Upgrade/Page.php:150
 msgid "Go to the menu"
 msgstr "Отидете в менюто"
 
-#: src/Core/Backend/Page.php:329 src/Core/Upgrade/Page.php:136
+#: src/Core/Backend/Page.php:329 src/Core/Upgrade/Page.php:154
 msgid "Go to help"
 msgstr "Отидете на помощ"
 
-#: src/Core/Backend/Page.php:348 src/Core/Upgrade/Page.php:139
+#: src/Core/Backend/Page.php:348 src/Core/Upgrade/Page.php:172
 #: src/Process/Backend/UserPreferences.php:805
 #: src/Process/Backend/UserPreferences.php:806
 msgid "My dashboard"
@@ -1655,16 +1655,16 @@ msgstr "Моето табло за управление"
 msgid "Go to site"
 msgstr "Отидете на сайта"
 
-#: src/Core/Backend/Page.php:389 src/Core/Upgrade/Page.php:147
+#: src/Core/Backend/Page.php:389 src/Core/Upgrade/Page.php:201
 #, php-format
 msgid "Logout %s"
 msgstr "Излизане от системата %s"
 
-#: src/Core/Backend/Page.php:410 src/Core/Upgrade/Page.php:155
+#: src/Core/Backend/Page.php:410 src/Core/Upgrade/Page.php:222
 msgid "Hide main menu"
 msgstr "Скриване на главното меню"
 
-#: src/Core/Backend/Page.php:413 src/Core/Upgrade/Page.php:156
+#: src/Core/Backend/Page.php:413 src/Core/Upgrade/Page.php:225
 msgid "Show main menu"
 msgstr "Показване на главното меню"
 
@@ -1676,36 +1676,37 @@ msgstr "Безопасен режим"
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Намираш се в безопасен режим. Всички плъгини са временно деактивирани. Напомняме ви, че трябва да излезете от системата и да влезете отново в нея, за да възстановите всички функционалности."
 
-#: src/Core/Backend/Page.php:506 src/Core/Upgrade/Page.php:183
+#: src/Core/Backend/Page.php:506 src/Core/Upgrade/Page.php:258
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Благодарим ви, че използвате %s."
 
 #: src/Core/Backend/Page.php:522 src/Core/Backend/Page.php:524
 #: src/Core/Backend/Page.php:666 src/Core/Backend/Page.php:668
-#: src/Core/Upgrade/Page.php:189
+#: src/Core/Upgrade/Page.php:268 src/Core/Upgrade/Page.php:270
 msgid "Page top"
 msgstr "Начало на страницата"
 
 #: src/Core/Backend/Page.php:544 src/Core/Backend/Page.php:547
+#: src/Core/Upgrade/Page.php:290 src/Core/Upgrade/Page.php:293
 msgid "Dotclear logo"
 msgstr "Лого на Dotclear"
 
 #: src/Core/Backend/Page.php:877 src/Core/Backend/Page.php:880
-#: src/Core/Upgrade/Page.php:230 src/Core/Upgrade/Page.php:231
+#: src/Core/Upgrade/Page.php:334 src/Core/Upgrade/Page.php:337
 msgid "Go to dashboard"
 msgstr "Отидете на таблото за управление"
 
-#: src/Core/Backend/Page.php:1117 src/Core/Upgrade/Page.php:303
+#: src/Core/Backend/Page.php:1117 src/Core/Upgrade/Page.php:446
 msgid "Help about this page"
 msgstr "Помощ за тази страница"
 
-#: src/Core/Backend/Page.php:1126 src/Core/Upgrade/Page.php:308
+#: src/Core/Backend/Page.php:1126 src/Core/Upgrade/Page.php:455
 #, php-format
 msgid "See also %s"
 msgstr "Вижте също %s"
 
-#: src/Core/Backend/Page.php:1129 src/Core/Upgrade/Page.php:308
+#: src/Core/Backend/Page.php:1129 src/Core/Upgrade/Page.php:458
 msgid "the global help"
 msgstr "глобалната помощ"
 
@@ -2222,120 +2223,120 @@ msgstr "резултати на страница"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Изглежда, че във вашата база данни няма таблица Session. Напълно ли е инсталиран Dotclear?"
 
-#: src/Core/Blog.php:792
+#: src/Core/Blog.php:794
 msgid "You are not allowed to add categories"
 msgstr "Не ви е позволено да добавяте категории"
 
-#: src/Core/Blog.php:840
+#: src/Core/Blog.php:842
 msgid "You are not allowed to update categories"
 msgstr "Не ви е позволено да актуализирате категории"
 
-#: src/Core/Blog.php:897
+#: src/Core/Blog.php:899
 msgid "You are not allowed to delete categories"
 msgstr "Нямате право да изтривате категории."
 
-#: src/Core/Blog.php:910
+#: src/Core/Blog.php:912
 msgid "This category is not empty."
 msgstr "Тази категория не е празна."
 
-#: src/Core/Blog.php:923
+#: src/Core/Blog.php:925
 msgid "You are not allowed to reset categories order"
 msgstr "Нямате право да променяте реда на категориите"
 
-#: src/Core/Blog.php:994
+#: src/Core/Blog.php:996
 msgid "Empty category URL"
 msgstr "Празен URL адрес на категория"
 
-#: src/Core/Blog.php:1011
+#: src/Core/Blog.php:1013
 msgid "You must provide a category title"
 msgstr "Трябва да посочите заглавие на категорията."
 
-#: src/Core/Blog.php:1021
+#: src/Core/Blog.php:1023
 msgid "You must provide a category URL"
 msgstr "Трябва да предоставите URL адрес на категорията"
 
-#: src/Core/Blog.php:1516
+#: src/Core/Blog.php:1518
 msgid "You are not allowed to create an entry"
 msgstr "Нямате право да създавате записи"
 
-#: src/Core/Blog.php:1576
+#: src/Core/Blog.php:1578
 msgid "You are not allowed to update entries"
 msgstr "Нямате право да актуализирате записи"
 
-#: src/Core/Blog.php:1582 src/Core/Blog.php:1838
+#: src/Core/Blog.php:1584 src/Core/Blog.php:1840
 msgid "No such entry ID"
 msgstr "Няма такъв запис ID"
 
-#: src/Core/Blog.php:1616
+#: src/Core/Blog.php:1618
 msgid "You are not allowed to edit this entry"
 msgstr "Нямате право да редактирате този запис"
 
-#: src/Core/Blog.php:1644 src/Core/Blog.php:1679 src/Core/Meta.php:143
+#: src/Core/Blog.php:1646 src/Core/Blog.php:1681 src/Core/Meta.php:143
 #: src/Core/Meta.php:160
 msgid "You are not allowed to change this entry status"
 msgstr "Нямате право да променяте този статус на вписване"
 
-#: src/Core/Blog.php:1725 src/Core/Blog.php:1763
+#: src/Core/Blog.php:1727 src/Core/Blog.php:1765
 msgid "You are not allowed to change this entry category"
 msgstr "Нямате право да променяте тази категория на вписване"
 
-#: src/Core/Blog.php:1796
+#: src/Core/Blog.php:1798
 msgid "You are not allowed to change entries category"
 msgstr "Нямате право да променяте категорията на записите"
 
-#: src/Core/Blog.php:1832
+#: src/Core/Blog.php:1834
 msgid "You are not allowed to delete entries"
 msgstr "Нямате право да изтривате записи"
 
-#: src/Core/Blog.php:2078
+#: src/Core/Blog.php:2080
 msgid "No entry title"
 msgstr "Няма заглавие на вписването"
 
-#: src/Core/Blog.php:2082 src/Core/Blog.php:2098
+#: src/Core/Blog.php:2084 src/Core/Blog.php:2100
 msgid "No entry content"
 msgstr "Без съдържание за въвеждане"
 
-#: src/Core/Blog.php:2164
+#: src/Core/Blog.php:2166
 msgid "Notes"
 msgstr "Бележки"
 
-#: src/Core/Blog.php:2166
+#: src/Core/Blog.php:2168
 msgid "Note"
 msgstr "Забележка"
 
-#: src/Core/Blog.php:2265
+#: src/Core/Blog.php:2273
 msgid "Empty entry URL"
 msgstr "Празен URL адрес на вписване"
 
-#: src/Core/Blog.php:2526
+#: src/Core/Blog.php:2534
 msgid "You are not allowed to update comments"
 msgstr "Нямате право да актуализирате коментари"
 
-#: src/Core/Blog.php:2532 src/Core/Blog.php:2538 src/Core/Blog.php:2634
+#: src/Core/Blog.php:2540 src/Core/Blog.php:2546 src/Core/Blog.php:2642
 msgid "No such comment ID"
 msgstr "Няма такъв идентификатор на коментар"
 
-#: src/Core/Blog.php:2546
+#: src/Core/Blog.php:2554
 msgid "You are not allowed to update this comment"
 msgstr "Нямате право да актуализирате този коментар"
 
-#: src/Core/Blog.php:2587
+#: src/Core/Blog.php:2595
 msgid "You are not allowed to change this comment's status"
 msgstr "Нямате право да променяте статуса на този коментар"
 
-#: src/Core/Blog.php:2628 src/Core/Blog.php:2681
+#: src/Core/Blog.php:2636 src/Core/Blog.php:2689
 msgid "You are not allowed to delete comments"
 msgstr "Нямате право да изтривате коментари"
 
-#: src/Core/Blog.php:2716
+#: src/Core/Blog.php:2724
 msgid "You must provide a comment"
 msgstr "Трябва да предоставите коментар"
 
-#: src/Core/Blog.php:2720
+#: src/Core/Blog.php:2728
 msgid "You must provide an author name"
 msgstr "Трябва да посочите името на автора."
 
-#: src/Core/Blog.php:2724
+#: src/Core/Blog.php:2732
 msgid "Email address is not valid."
 msgstr "Имейл адресът не е валиден."
 
@@ -2389,31 +2390,31 @@ msgstr "Няма URL адрес на блога"
 msgid "You must provide a valid email address."
 msgstr "Трябва да посочите валиден имейл адрес."
 
-#: src/Core/Frontend/Utility.php:138
+#: src/Core/Frontend/Utility.php:137
 msgid "Something went wrong while trying to read the database."
 msgstr "Нещо се е объркало при опита за четене на базата данни."
 
-#: src/Core/Frontend/Utility.php:143
+#: src/Core/Frontend/Utility.php:142
 msgid "Blog is not defined."
 msgstr "Блогът не е дефиниран."
 
-#: src/Core/Frontend/Utility.php:149
+#: src/Core/Frontend/Utility.php:148
 msgid "This blog is offline. Please try again later."
 msgstr "Този блог е офлайн. Моля, опитайте отново по-късно."
 
-#: src/Core/Frontend/Utility.php:239
+#: src/Core/Frontend/Utility.php:238
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme. ("
 msgstr "Това означава, че сте премахнали темата по подразбиране или сте задали грешен път на темата в конфигурацията на блога си. Моля, проверете стойността на theme_path в модула about:config или преинсталирайте темата по подразбиране. ("
 
-#: src/Core/Frontend/Utility.php:242
+#: src/Core/Frontend/Utility.php:241
 msgid "Default theme not found."
 msgstr "Темата по подразбиране не е намерена."
 
-#: src/Core/Frontend/Utility.php:298
+#: src/Core/Frontend/Utility.php:297
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Нещо се е объркало при зареждането на файла с шаблона за вашия блог."
 
-#: src/Core/Frontend/Utility.php:340
+#: src/Core/Frontend/Utility.php:339
 msgid "Can't create template files."
 msgstr "Не мога да създам файлове с шаблони."
 
@@ -2600,11 +2601,11 @@ msgstr "LOL!"
 msgid "System"
 msgstr "Система"
 
-#: src/Core/Upgrade/Page.php:143
+#: src/Core/Upgrade/Page.php:182
 msgid "Dotclear's update dashboard"
 msgstr "Табло за актуализация на Dotclear"
 
-#: src/Core/Upgrade/Page.php:146
+#: src/Core/Upgrade/Page.php:193
 msgid "Go to normal dashboard"
 msgstr "Влезте в нормалното табло за управление"
 
@@ -2954,7 +2955,7 @@ msgstr "Невъзможно е да се запише дестинационе�
 msgid "Unable to write in target directory, permission denied."
 msgstr "Невъзможно е да се записва в целевата директория, разрешението е отказано."
 
-#: src/Helper/File/Zip/Unzip.php:754 src/Helper/File/Zip/Zip.php:470
+#: src/Helper/File/Zip/Unzip.php:758 src/Helper/File/Zip/Zip.php:470
 msgid "Not enough memory to open file."
 msgstr "Няма достатъчно памет за отваряне на файла."
 
@@ -3118,7 +3119,7 @@ msgid "To reset your password visit the following address, otherwise just ignore
 msgstr "За да възстановите паролата си, посетете следния адрес, а в противен случай просто игнорирайте този имейл и нищо няма да се случи."
 
 #: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:453
+#: src/Process/Backend/Auth.php:363 src/Process/Backend/Auth.php:449
 #: src/Process/Install/Install.php:476 src/Process/Install/Install.php:528
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
@@ -3167,78 +3168,78 @@ msgstr "Сесията на администрацията е изтекла"
 msgid "Wrong username or password"
 msgstr "Грешно потребителско име или парола"
 
-#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:392
+#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:391
 msgid "Back to login screen"
 msgstr "Връщане към екрана за вход"
 
-#: src/Process/Backend/Auth.php:363
+#: src/Process/Backend/Auth.php:362
 msgid "Request a new password"
 msgstr "Заявка за нова парола"
 
-#: src/Process/Backend/Auth.php:386
+#: src/Process/Backend/Auth.php:385
 msgid "recover"
 msgstr "възстановяване"
 
-#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:497
+#: src/Process/Backend/Auth.php:390 src/Process/Backend/Auth.php:493
 msgid "Other option"
 msgstr "Друг вариант"
 
-#: src/Process/Backend/Auth.php:398
+#: src/Process/Backend/Auth.php:396
 msgid "Change your password"
 msgstr "Променете паролата си"
 
-#: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:277
+#: src/Process/Backend/Auth.php:397 src/Process/Backend/User.php:277
 #: src/Process/Backend/UserPreferences.php:581
 #: src/Process/Install/Install.php:484
 msgid "New password:"
 msgstr "Нова парола:"
 
-#: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:291
+#: src/Process/Backend/Auth.php:408 src/Process/Backend/User.php:291
 #: src/Process/Install/Install.php:491
 msgid "Confirm password:"
 msgstr "Потвърдете паролата:"
 
-#: src/Process/Backend/Auth.php:419
+#: src/Process/Backend/Auth.php:417
 msgid "change"
 msgstr "промяна"
 
-#: src/Process/Backend/Auth.php:435
+#: src/Process/Backend/Auth.php:431
 msgid "Safe mode login"
 msgstr "Вход в безопасен режим"
 
-#: src/Process/Backend/Auth.php:437
+#: src/Process/Backend/Auth.php:433
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Този режим ви позволява да влезете в системата, без да активирате нито един от плъгините си. Това може да е полезно за решаване на проблеми със съвместимостта"
 
-#: src/Process/Backend/Auth.php:438
+#: src/Process/Backend/Auth.php:434
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Актуализирайте, деактивирайте или изтрийте всички плъгини, за които се предполага, че причиняват проблеми, след което излезте от системата и влезте отново нормално."
 
-#: src/Process/Backend/Auth.php:474 src/Process/Upgrade/Auth.php:234
+#: src/Process/Backend/Auth.php:470 src/Process/Upgrade/Auth.php:234
 msgid "Remember my ID on this device"
 msgstr "Запомняне на моя идентификатор на това устройство"
 
-#: src/Process/Backend/Auth.php:475 src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:471 src/Process/Upgrade/Auth.php:235
 msgid "log in"
 msgstr "влизане в системата"
 
-#: src/Process/Backend/Auth.php:491 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:487 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "Трябва да приемете \"бисквитките\", за да използвате частната зона."
 
-#: src/Process/Backend/Auth.php:498
+#: src/Process/Backend/Auth.php:494
 msgid "Get back to normal authentication"
 msgstr "Върнете се към нормално удостоверяване"
 
-#: src/Process/Backend/Auth.php:501
+#: src/Process/Backend/Auth.php:497
 msgid "Connection issue?"
 msgstr "Проблем с връзката?"
 
-#: src/Process/Backend/Auth.php:504
+#: src/Process/Backend/Auth.php:500
 msgid "I forgot my password"
 msgstr "Забравих паролата си"
 
-#: src/Process/Backend/Auth.php:507
+#: src/Process/Backend/Auth.php:503
 msgid "I want to log in in safe mode"
 msgstr "Искам да вляза в безопасен режим"
 

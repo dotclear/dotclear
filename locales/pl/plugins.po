@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 05:25+0200\n"
-"PO-Revision-Date: 2024-07-17 03:33\n"
+"POT-Creation-Date: 2024-08-23 19:51+0200\n"
+"PO-Revision-Date: 2024-08-23 17:55\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -667,10 +667,10 @@ msgstr "Klucz API Akismet:"
 #: plugins/blogroll/src/ManageEdit.php:204
 #: plugins/blogroll/src/ManageEdit.php:241
 #: plugins/blogroll/src/ManageEdit.php:253
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:99
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:114
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:98
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:113
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:100
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:119
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:99
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:118
 #: plugins/importExport/src/ModuleImportFlat.php:298
 #: plugins/pages/src/ManagePage.php:712
 msgid "Required field"
@@ -1620,16 +1620,21 @@ msgstr "Uczciwe ślady"
 msgid "Import / Export"
 msgstr "Import / Eksport"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:41
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:40
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:42
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:41
 msgid "Database export"
 msgstr "Eksport bazy danych"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:42
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:43
 msgid "Download database of current blog"
 msgstr "Pobierz bazę danych bieżącego bloga"
 
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:41
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:104
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:103
+msgid "Compress file"
+msgstr "Skompresuj plik"
+
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:42
 msgid "Download database of all blogs"
 msgstr "Pobierz bazę danych wszystkich blogów"
 
