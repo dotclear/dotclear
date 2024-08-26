@@ -983,7 +983,7 @@ class ModulesList
                 $tds++;
                 $data[] = (new Td())
                     ->class(['module-current-version', 'nowrap', 'count'])
-                    ->text(Html::escapeHTML($define->get('current-version')));
+                    ->text(Html::escapeHTML($define->get('current_version')));
             }
 
             if (in_array('desc', $cols)) {
