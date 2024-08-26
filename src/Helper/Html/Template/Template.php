@@ -431,15 +431,7 @@ class Template
             throw new Exception('No template found for ' . $file);
         }
 
-        $file_md5  = md5($tpl_file);
-        $dest_file = sprintf(
-            '%s/%s/%s/%s/%s.php',
-            $this->cache_dir,
-            self::CACHE_FOLDER,
-            substr($file_md5, 0, 2),
-            substr($file_md5, 2, 2),
-            $file_md5
-        );
+        $dest_file = $this->getFileCachePath($tpl_file);
 
         clearstatcache();
         $stat_f = $stat_d = false;
@@ -467,6 +459,27 @@ class Template
         }
 
         return $dest_file;
+    }
+
+    /**
+     * Gets the file cache path.
+     *
+     * @param      string  $tpl_file  The tpl file (full path)
+     *
+     * @return     string  The file cache path.
+     */
+    public function getFileCachePath(string $tpl_file): string
+    {
+        $file_md5 = md5($tpl_file);
+
+        return sprintf(
+            '%s/%s/%s/%s/%s.php',
+            $this->cache_dir,
+            self::CACHE_FOLDER,
+            substr($file_md5, 0, 2),
+            substr($file_md5, 2, 2),
+            $file_md5
+        );
     }
 
     /**

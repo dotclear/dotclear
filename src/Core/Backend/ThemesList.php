@@ -792,10 +792,7 @@ class ThemesList extends ModulesList
     }
 
     /**
-     * Remove any existing compiled theme (and theme's parent) template files
-     *
-     * Experimental: may be moved or replaced in future release as this function depends on cache file fullpath
-     * calculation done in Helper/Html/Template/Template.php, getFile() method
+     * Remove any existing compiled theme (and theme's parent) template cache files
      *
      * @since 2.31
      */
@@ -810,27 +807,24 @@ class ThemesList extends ModulesList
             $paths[] = App::blog()->themesPath() . '/' . $parent_theme . '/tpl';
         }
 
+        // Instantiate a shadow template engine with only path(s) from theme (and theme's parent if any)
+        $engine = new Template(App::config()->cacheRoot(), 'App::frontend()->template()');
+        $engine->setPath($paths);
+
         // Template stack
         $stack = [];
         // Loop on template paths
         foreach ($paths as $path) {
-            $md5_path = $path;
-            if (str_starts_with((string) Path::real($path), App::config()->dotclearRoot())) {
-                $md5_path = Path::real($path);
-            }
             $files = Files::scandir($path);
-            foreach ($files as $file) {
-                if (preg_match('/^(.*)\.(html|xml|xsl)$/', $file, $matches) && !in_array($file, $stack)) {
-                    $stack[]        = $file;
-                    $cache_file     = md5($md5_path . DIRECTORY_SEPARATOR . $file) . '.php';
-                    $cache_subpath  = sprintf('%s/%s', substr($cache_file, 0, 2), substr($cache_file, 2, 2));
-                    $cache_fullpath = Path::real(App::config()->cacheRoot()) . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER . DIRECTORY_SEPARATOR . $cache_subpath;
-                    $file_check     = $cache_fullpath . DIRECTORY_SEPARATOR . $cache_file;
-                    if (file_exists($file_check)) {
+            foreach ($files as $filename) {
+                if (preg_match('/^(.*)\.(html|xml|xsl)$/', $filename, $matches) && !in_array($filename, $stack)) {
+                    $stack[] = $filename;
+                    $cache   = $engine->getFileCachePath($engine->getFilePath($filename));
+                    if (file_exists($cache)) {
                         try {
-                            unlink($file_check);
+                            unlink($cache);
                         } catch (Exception) {
-                            // Ignore deletion error (may be fixed later by administrator using clear full template cache)
+                            // Ignore deletion error (may be fixed later by administrator using full template cache emptying)
                         }
                     }
                 }
