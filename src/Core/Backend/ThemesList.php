@@ -30,6 +30,7 @@ use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Summary;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Interface\Module\ModulesInterface;
 use Dotclear\Module\ModuleDefine;
@@ -487,6 +488,9 @@ class ThemesList extends ModulesList
                 App::blog()->settings()->system->put('theme', $define->getId());
                 App::blog()->triggerBlog();
 
+                // Empty theme (and theme's parent if any) template cache
+                $this->emptyThemeTemplatesCache();
+
                 Notices::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($define->get('name'))));
                 Http::redirect($this->getURL() . '#themes');
             }
@@ -785,5 +789,52 @@ class ThemesList extends ModulesList
         }
 
         return $this->config_file;
+    }
+
+    /**
+     * Remove any existing compiled theme (and theme's parent) template files
+     *
+     * Experimental: may be moved or replaced in future release as this function depends on cache file fullpath
+     * calculation done in Helper/Html/Template/Template.php, getFile() method
+     *
+     * @since 2.31
+     */
+    private function emptyThemeTemplatesCache(): void
+    {
+        $theme = App::blog()->settings()->system->theme;
+        $paths = [
+            App::blog()->themesPath() . '/' . $theme . '/tpl',
+        ];
+        $parent_theme = App::themes()->moduleInfo($theme, 'parent');
+        if ($parent_theme) {
+            $paths[] = App::blog()->themesPath() . '/' . $parent_theme . '/tpl';
+        }
+
+        // Template stack
+        $stack = [];
+        // Loop on template paths
+        foreach ($paths as $path) {
+            $md5_path = $path;
+            if (str_starts_with((string) Path::real($path), App::config()->dotclearRoot())) {
+                $md5_path = Path::real($path);
+            }
+            $files = Files::scandir($path);
+            foreach ($files as $file) {
+                if (preg_match('/^(.*)\.(html|xml|xsl)$/', $file, $matches) && !in_array($file, $stack)) {
+                    $stack[]        = $file;
+                    $cache_file     = md5($md5_path . DIRECTORY_SEPARATOR . $file) . '.php';
+                    $cache_subpath  = sprintf('%s/%s', substr($cache_file, 0, 2), substr($cache_file, 2, 2));
+                    $cache_fullpath = Path::real(App::config()->cacheRoot()) . DIRECTORY_SEPARATOR . Template::CACHE_FOLDER . DIRECTORY_SEPARATOR . $cache_subpath;
+                    $file_check     = $cache_fullpath . DIRECTORY_SEPARATOR . $cache_file;
+                    if (file_exists($file_check)) {
+                        try {
+                            unlink($file_check);
+                        } catch (Exception) {
+                            // Ignore deletion error (may be fixed later by administrator using clear full template cache)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
