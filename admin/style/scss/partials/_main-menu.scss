@@ -63,7 +63,7 @@
       color: var(--main-menu-active-color);
       position: relative;
       &::after {
-        content: '•';
+        content: ':';
         position: absolute;
         right: 0;
       }
