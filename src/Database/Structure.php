@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Dotclear\Database;
 
 use Dotclear\Interface\Core\ConnectionInterface;
-use Exception;
 
 /**
  * @class Structure
@@ -141,10 +140,6 @@ class Structure
     {
         $this->tables = [];
         $this->reverse();
-
-        if (!($s instanceof self)) {
-            throw new Exception('Invalid database schema');
-        }
 
         $tables = $s->getTables();
 
