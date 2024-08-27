@@ -819,7 +819,7 @@ class ThemesList extends ModulesList
             foreach ($files as $filename) {
                 if (preg_match('/^(.*)\.(html|xml|xsl)$/', $filename, $matches) && !in_array($filename, $stack)) {
                     $stack[] = $filename;
-                    $cache   = $engine->getFileCachePath($engine->getFilePath($filename));
+                    $cache   = $engine->getFileCachePath((string) $engine->getFilePath($filename));
                     if (file_exists($cache)) {
                         try {
                             unlink($cache);
