@@ -11,7 +11,7 @@ namespace Dotclear\Helper\Html\Form;
 
 /**
  * @class Submit
- * @brief HTML Forms password field creation helpers
+ * @brief HTML Forms submit input field creation helpers
  */
 class Submit extends Input
 {
