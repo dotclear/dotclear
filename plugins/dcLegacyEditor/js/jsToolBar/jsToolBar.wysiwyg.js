@@ -521,14 +521,12 @@ jsToolBar.prototype.simpleCleanRegex = new Array(
   [/<p><blockquote>(.*)(\n)+<\/blockquote><\/p>/i, '<blockquote>$1</blockquote>\n'],
   /* mise en forme identique contigue */
   [/<\/(strong|em|ins|del|q|code)>(\s*?)<\1>/gim, '$2'],
-  [/<(br|BR)>/g, '<br />'],
-  [/<(hr|HR)>/g, '<hr />'],
-  /* opera est trop strict ;)) */
-  [/([^\s])\/>/g, '$1 />'],
+  [/<(br|BR)>/g, '<br>'],
+  [/<(hr|HR)>/g, '<hr>'],
   /* br intempestifs de fin de block */
   [/<br \/>\s*<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote|div)/gi, '</$1'],
   [/<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote)>([^\n\u000B\r\f])/gi, '</$1>\n$2'],
-  [/<hr style="width: 100%; height: 2px;" \/>/g, '<hr />'],
+  [/<hr style="width: 100%; height: 2px;" \/>/g, '<hr>'],
 );
 
 /** Cleanup HTML code
