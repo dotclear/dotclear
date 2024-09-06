@@ -756,7 +756,7 @@ class Post extends Process
 
             echo
             '<div class="multi-part" title="' . (App::backend()->post_id ? __('Edit post') : __('New post')) .
-            sprintf(' &rsaquo; %s', App::formater()->getFormaterName(App::backend()->post_format)) . '" id="edit-entry">' .
+            sprintf('<span> &rsaquo; %s</span>', App::formater()->getFormaterName(App::backend()->post_format)) . '" id="edit-entry">' .
             '<form action="' . App::backend()->url()->get('admin.post') . '" method="post" id="entry-form">' .
             '<div id="entry-wrapper">' .
             '<div id="entry-content"><div class="constrained">' .
