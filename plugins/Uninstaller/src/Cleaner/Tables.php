@@ -112,23 +112,25 @@ class Tables extends CleanerParent
 
     public function execute(string $action, string $ns): bool
     {
-        if (in_array($action, ['empty', 'delete'])) {
-            $sql = new DeleteStatement();
-            $sql->from(App::con()->prefix() . $ns)
-                ->delete();
-        }
-        if ($action == 'empty') {
-            return true;
-        }
-        if ($action == 'delete') {
-            $struct = new Structure(App::con(), App::con()->prefix());
-            if ($struct->tableExists($ns)) {
+        $struct = new Structure(App::con(), App::con()->prefix());
+        $struct->reverse();
+        $struct->getTables();
+        if ($struct->tableExists($ns)) {
+            if (in_array($action, ['empty', 'delete'])) {
+                $sql = new DeleteStatement();
+                $sql->from(App::con()->prefix() . $ns)
+                    ->delete();
+            }
+            if ($action === 'empty') {
+                return true;
+            }
+            if ($action === 'delete') {
                 $sql = new DropStatement();
                 $sql->from(App::con()->prefix() . $ns)
                     ->drop();
-            }
 
-            return true;
+                return true;
+            }
         }
 
         return false;

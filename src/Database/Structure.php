@@ -340,7 +340,7 @@ class Structure
     }
 
     /**
-     * Gets the tables.
+     * Gets the tables (table keys include prefix).
      *
      * @return     array<string, Table>  The tables.
      */
@@ -357,7 +357,7 @@ class Structure
     /**
      * Determines if table exists.
      *
-     * @param      string  $name   The name
+     * @param      string  $name   The name (including prefix)
      *
      * @return     bool    True if table exists, False otherwise.
      */
