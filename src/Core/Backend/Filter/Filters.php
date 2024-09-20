@@ -147,7 +147,7 @@ class Filters
             }
         }
 
-        return $escape ? preg_replace('/%/', '%%', $res) ?? $res : $res;
+        return $escape ? preg_replace('/%/', '%%', $res) : $res;
     }
 
     /**

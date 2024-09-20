@@ -81,7 +81,6 @@ class ThemeConfig
                     'px' => (float) $matches[1] / 16,
                     'rem', 'em' => (float) $matches[1],
                     'ex', 'ch' => (float) $matches[1] / 2,
-                    default => 0,
                 };
 
                 if ($absolute_size) {

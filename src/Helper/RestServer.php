@@ -187,8 +187,6 @@ class RestServer implements RestInterface
 
                 return true;
         }
-
-        return false;
     }
 
     /**
