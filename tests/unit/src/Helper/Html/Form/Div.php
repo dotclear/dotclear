@@ -660,6 +660,34 @@ class Div extends atoum
         ;
     }
 
+    public function testCommonAttributeInert()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->inert(true);
+
+        $this
+            ->string($component->render())
+            ->match('/<div.*?>\n<\/div>/')
+            ->contains('name="my"')
+            ->contains('id="my"')
+            ->contains('inert')
+        ;
+    }
+
+    public function testCommonAttributeNoInert()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->inert(false);
+
+        $this
+            ->string($component->render())
+            ->match('/<div.*?>\n<\/div>/')
+            ->contains('name="my"')
+            ->contains('id="my"')
+            ->notContains('inert')
+        ;
+    }
+
     public function testCommonAttributeInputmode()
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');

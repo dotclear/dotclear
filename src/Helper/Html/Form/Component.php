@@ -31,6 +31,7 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this extra(string|array<string> $extra)
  * @method      $this form(string $form)
  * @method      $this id(string $id)
+ * @method      $this inert(bool $inert)
  * @method      $this inputmode(string $inputmode)
  * @method      $this label(Label $label)
  * @method      $this lang(string $lang)
@@ -68,6 +69,7 @@ namespace Dotclear\Helper\Html\Form;
  * @property    string|array<string> $extra
  * @property    string $form
  * @property    string $id
+ * @property    bool $inert
  * @property    string $inputmode
  * @property    Label $label
  * @property    string $lang
@@ -367,6 +369,7 @@ abstract class Component
      *          disabled        => boolean disabled.
      *          enterkeyhint    => string enter key hint.
      *          form            => string form id.
+     *          inert           => boolean inert.
      *          inputmode       => string inputmode.
      *          lang            => string lang.
      *          list            => string list id.
@@ -443,6 +446,8 @@ abstract class Component
                 ' enterkeyhint="' . $this->enterkeyhint . '"' : '') .
             (isset($this->form) ?
                 ' form="' . $this->form . '"' : '') .
+            (isset($this->inert) && $this->inert ?
+                ' inert' : '') .
             (isset($this->inputmode) ?
                 ' inputmode="' . $this->inputmode . '"' : '') .
             (isset($this->lang) ?
