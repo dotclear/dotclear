@@ -11,6 +11,7 @@ namespace Dotclear\Plugin\attachments;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Core\Frontend\Ctx;
 use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Helper\File\Files;
 
@@ -228,7 +229,7 @@ class FrontendTemplate
      */
     public static function AttachmentTitle(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->media_title') . ' ?>';
+        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), Ctx::class . '::attachmentTitle($attach_f)') . ' ?>';
     }
 
     /**

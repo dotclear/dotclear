@@ -13,6 +13,7 @@ namespace Dotclear\Core\Frontend;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
+use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
@@ -907,5 +908,32 @@ class Ctx
         }
 
         return false;
+    }
+
+    /**
+     * Gets the post media attachment title
+     *
+     * @param      File  $file   The file
+     *
+     * @return     string
+     */
+    public static function attachmentTitle(File $file): string
+    {
+        // Use file title if exists
+        if (!is_null($file->media_title) && $file->media_title !== '') {
+            return $file->media_title;
+        }
+
+        // Use alternate text if exists
+        if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
+            foreach ($file->media_meta as $k => $v) {
+                if ((string) $v && ($k == 'AltText')) {
+                    return (string) $v;
+                }
+            }
+        }
+
+        // Use file name if exists
+        return $file->basename ?: '';
     }
 }
