@@ -998,29 +998,22 @@ class MediaItem extends Process
             }
         }
 
-        if (App::backend()->file->media_image) {
-            echo
-            '<h3>' . __('Image details') . '</h3>';
-
-            $details = '';
-            $alttext = $getImageAlt(App::backend()->file);
-            if ($alttext !== '') {
-                $details .= '<li><strong>' . __('Alternate text:') . '</strong> ' . Html::escapeHTML($alttext) . '</li>';
-            }
-            if ((is_countable(App::backend()->file->media_meta) ? count(App::backend()->file->media_meta) : 0) > 0) {
-                foreach (App::backend()->file->media_meta as $k => $v) {
-                    if ($k !== 'AltText' && (string) $v) {
-                        $details .= '<li><strong>' . $k . __(':') . '</strong> ' . Html::escapeHTML((string) $v) . '</li>';
-                    }
+        $details = '';
+        $alttext = $getImageAlt(App::backend()->file, false);
+        if ($alttext !== '') {
+            $details .= '<li><strong>' . __('Alternate text:') . '</strong> ' . Html::escapeHTML($alttext) . '</li>';
+        }
+        if ((is_countable(App::backend()->file->media_meta) ? count(App::backend()->file->media_meta) : 0) > 0) {
+            foreach (App::backend()->file->media_meta as $k => $v) {
+                if ($k !== 'AltText' && (string) $v) {
+                    $details .= '<li><strong>' . $k . __(':') . '</strong> ' . Html::escapeHTML((string) $v) . '</li>';
                 }
             }
-            if ($details) {
-                echo
-                '<ul>' . $details . '</ul>';
-            } else {
-                echo
-                '<p>' . __('No detail') . '</p>';
-            }
+        }
+        if ($details) {
+            echo
+            '<h3>' . __('Metadata') . '</h3>' .
+            '<ul>' . $details . '</ul>';
         }
 
         echo
