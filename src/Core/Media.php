@@ -1510,8 +1510,12 @@ class Media extends Manager implements MediaInterface
         $c             = $this->openMediaCursor();
         $c->media_meta = $xml->toXML();
 
-        if ($cur->media_title !== '' && $cur->media_title === basename((string) $cur->media_file)) {
-            if ($meta['Title']) {
+        if ($meta['Title']) {
+            // If a non empty Title exists in metatada and
+            // - the current media title is empty
+            // - or the current media title si equal to the filename
+            // then use it instead for media title
+            if (($cur->media_title === '') || ($cur->media_title !== '' && $cur->media_title === basename((string) $cur->media_file))) {
                 $c->media_title = $meta['Title'];
             }
         }
