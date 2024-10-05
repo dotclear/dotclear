@@ -148,7 +148,7 @@ class Home extends Process
         if (App::auth()->prefs()->dashboard->donate) {
             $donation = '<div class="box small dc-box" id="donate">' .
                 '<h3>' . __('Donate to Dotclear') . '</h3>' .
-                '<p>' . __('Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses.') . '</p>' .
+                '<p>' . __('Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses.') . '</p>' .
                 '<p>' . __('The collected funds will be spent as follows:') . '</p>' .
                 '<ul>' .
                 '<li>' . __('Paying for the website hosting and translations') . '</li>' .
