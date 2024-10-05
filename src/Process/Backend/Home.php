@@ -94,6 +94,12 @@ class Home extends Process
             }
             App::auth()->prefs()->dashboard->put('doclinks', true, 'boolean');
         }
+        if (!App::auth()->prefs()->dashboard->prefExists('donate')) {
+            if (!App::auth()->prefs()->dashboard->prefExists('donate', true)) {
+                App::auth()->prefs()->dashboard->put('donate', true, 'boolean', '', false, true);
+            }
+            App::auth()->prefs()->dashboard->put('donate', true, 'boolean');
+        }
         if (!App::auth()->prefs()->dashboard->prefExists('dcnews')) {
             if (!App::auth()->prefs()->dashboard->prefExists('dcnews', true)) {
                 App::auth()->prefs()->dashboard->put('dcnews', true, 'boolean', '', false, true);
@@ -136,6 +142,24 @@ class Home extends Process
 
             $doc_links .= '</ul></div>';
             $__dashboard_items[$dashboardItem]->append($doc_links); // @phpstan-ignore-line
+            $dashboardItem++;
+        }
+
+        // Call for donations
+        if (App::auth()->prefs()->dashboard->donate) {
+            $donation = '<div class="box small dc-box" id="donate">' .
+                '<h3>' . __('Donate to Dotclear') . '</h3>' .
+                '<p>' . __('Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses.') . '</p>' .
+                '<p>' . __('The collected funds will be spent as follows:') . '</p>' .
+                '<ul>' .
+                '<li>' . __('Paying for the website hosting and translations') . '</li>' .
+                '<li>' . __('Paying for the domain names') . '</li>' .
+                '<li>' . __('Supporting related projects such as Dotaddict.org') . '</li>' .
+                '<li>' . __('Cover the costs of events set up by Dotclear') . '</li>' .
+                '</ul>' .
+                '<p>' . __('See <a href="https://dotclear.org/donate">this page</a> for more information and donation') . '</p>' .
+                '</div>';
+            $__dashboard_items[$dashboardItem]->append($donation); // @phpstan-ignore-line
             $dashboardItem++;
         }
 

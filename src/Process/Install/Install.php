@@ -360,6 +360,7 @@ class Install extends Process
 
                 # Add dashboard module options
                 App::auth()->prefs()->dashboard->put('doclinks', true, 'boolean', '', false, true);
+                App::auth()->prefs()->dashboard->put('donate', true, 'boolean', '', false, true);
                 App::auth()->prefs()->dashboard->put('dcnews', true, 'boolean', '', false, true);
                 App::auth()->prefs()->dashboard->put('quickentry', true, 'boolean', '', false, true);
                 App::auth()->prefs()->dashboard->put('nodcupdate', false, 'boolean', '', false, true);

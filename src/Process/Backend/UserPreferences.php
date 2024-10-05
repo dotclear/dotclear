@@ -56,6 +56,7 @@ class UserPreferences extends Process
         App::backend()->user_profile_urls  = App::auth()->prefs()->profile->urls;
 
         App::backend()->user_dm_doclinks   = App::auth()->prefs()->dashboard->doclinks;
+        App::backend()->user_dm_donate     = App::auth()->prefs()->dashboard->donate;
         App::backend()->user_dm_dcnews     = App::auth()->prefs()->dashboard->dcnews;
         App::backend()->user_dm_quickentry = App::auth()->prefs()->dashboard->quickentry;
         App::backend()->user_dm_nofavicons = App::auth()->prefs()->dashboard->nofavicons;
@@ -361,6 +362,7 @@ class UserPreferences extends Process
 
                 // Update user prefs
                 App::auth()->prefs()->dashboard->put('doclinks', !empty($_POST['user_dm_doclinks']), 'boolean');
+                App::auth()->prefs()->dashboard->put('donate', !empty($_POST['user_dm_donate']), 'boolean');
                 App::auth()->prefs()->dashboard->put('dcnews', !empty($_POST['user_dm_dcnews']), 'boolean');
                 App::auth()->prefs()->dashboard->put('quickentry', !empty($_POST['user_dm_quickentry']), 'boolean');
                 App::auth()->prefs()->dashboard->put('nofavicons', empty($_POST['user_dm_nofavicons']), 'boolean');
@@ -949,6 +951,10 @@ class UserPreferences extends Process
         '<p><label for="user_dm_doclinks" class="classic">' .
         form::checkbox('user_dm_doclinks', 1, App::backend()->user_dm_doclinks) . ' ' .
         __('Display documentation links') . '</label></p>' .
+
+        '<p><label for="user_dm_donate" class="classic">' .
+        form::checkbox('user_dm_donate', 1, App::backend()->user_dm_donate) . ' ' .
+        __('Display donate links') . '</label></p>' .
 
         '<p><label for="user_dm_dcnews" class="classic">' .
         form::checkbox('user_dm_dcnews', 1, App::backend()->user_dm_dcnews) . ' ' .
