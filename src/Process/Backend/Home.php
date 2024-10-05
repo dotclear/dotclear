@@ -142,7 +142,6 @@ class Home extends Process
 
             $doc_links .= '</ul></div>';
             $__dashboard_items[$dashboardItem]->append($doc_links); // @phpstan-ignore-line
-            $dashboardItem++;
         }
 
         // Call for donations
@@ -160,7 +159,6 @@ class Home extends Process
                 '<p>' . __('See <a href="https://dotclear.org/donate">this page</a> for more information and donation') . '</p>' .
                 '</div>';
             $__dashboard_items[$dashboardItem]->append($donation); // @phpstan-ignore-line
-            $dashboardItem++;
         }
 
         # --BEHAVIOR-- adminDashboardItemsV2 -- ArrayObject
@@ -396,7 +394,7 @@ class Home extends Process
             foreach ($items as $v) {
                 $position = array_search($index, $order, true);
                 if ($position === false) {
-                    $ret[count($ret)] = $v;
+                    $ret[] = $v;
                 }
                 $index++;
             }
