@@ -202,7 +202,7 @@ class Menus extends ArrayObject
         $this->addItem(
             self::MENU_SYSTEM,
             __('Update'),
-            'admin.update',
+            'upgrade.home',
             ['images/menu/update.svg', 'images/menu/update-dark.svg'],
             App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
             false,

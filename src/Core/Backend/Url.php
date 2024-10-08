@@ -310,7 +310,6 @@ class Url
         $this->register('admin.user', 'User');
         $this->register('admin.user.actions', 'UsersActions');
         $this->register('admin.users', 'Users');
-        $this->register('admin.update', 'Update');
         $this->register('admin.csp.report', 'CspReport');
         $this->register('admin.rest', 'Rest');
 
@@ -321,5 +320,8 @@ class Url
         // from upgrade
         $this->register('upgrade.home', static::UPGRADE);
         $this->register('upgrade.upgrade', static::UPGRADE, ['process' => 'Upgrade']);
+
+        // Deprecated since 2.32, use upgrade.home or upgrade.upgrade instead
+        $this->register('admin.update', static::UPGRADE, ['process' => 'Upgrade']);
     }
 }

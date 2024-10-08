@@ -1,6 +1,6 @@
 <?php
 /**
- * @deprecated 	since 2.27, use name "admin.update" on App::backend()->url() methods instead
+ * @deprecated 	since 2.27, use name "upgrade.home" on App::backend()->url() methods instead
  *
  * @package 	Dotclear
  *
@@ -9,4 +9,4 @@
  */
 require_once implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'src', 'App.php']);
 
-new Dotclear\App('Backend', 'Update');
+new Dotclear\App('Upgrade', 'Home');

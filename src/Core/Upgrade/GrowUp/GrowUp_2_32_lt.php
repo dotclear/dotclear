@@ -36,6 +36,7 @@ class GrowUp_2_32_lt
         Upgrade::houseCleaning(
             // Files
             [
+                'src/Process/Backend/Update.php',
                 'src/Helper/tz.dat',
             ],
             // Folders
