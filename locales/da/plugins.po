@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 19:51+0200\n"
-"PO-Revision-Date: 2024-08-23 17:55\n"
+"POT-Creation-Date: 2024-10-05 09:45+0200\n"
+"PO-Revision-Date: 2024-10-10 04:31\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -2367,7 +2367,7 @@ msgid "%d pages"
 msgstr "%d sider"
 
 #: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:147
-#: plugins/pages/src/ManagePage.php:105 plugins/pages/src/ManagePage.php:833
+#: plugins/pages/src/ManagePage.php:105 plugins/pages/src/ManagePage.php:837
 msgid "New page"
 msgstr "Ny side"
 
@@ -2444,8 +2444,8 @@ msgstr "Gem siders rækkefølge"
 msgid "This page does not exist."
 msgstr "Denne side findes ikke."
 
-#: plugins/pages/src/ManagePage.php:183 plugins/pages/src/ManagePage.php:833
-#: plugins/pages/src/ManagePage.php:854
+#: plugins/pages/src/ManagePage.php:183 plugins/pages/src/ManagePage.php:837
+#: plugins/pages/src/ManagePage.php:858
 msgid "Edit page"
 msgstr "Rediger side"
 
@@ -2493,7 +2493,7 @@ msgstr "Advarsel: Hvis du angiver URL'en manuelt, kan det være i strid med en a
 msgid "Introduction to the page."
 msgstr "Introduktion til siden."
 
-#: plugins/pages/src/ManagePage.php:1139
+#: plugins/pages/src/ManagePage.php:1143
 msgid "Select this comment"
 msgstr "Vælg denne kommentar"
 
