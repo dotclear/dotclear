@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-05 09:45+0200\n"
-"PO-Revision-Date: 2024-10-10 04:30\n"
+"PO-Revision-Date: 2024-10-10 06:22\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -4208,35 +4208,35 @@ msgstr "Dokümantasyon ve destek"
 
 #: src/Process/Backend/Home.php:151
 msgid "Donate to Dotclear"
-msgstr ""
+msgstr "Dotclear'a Bağış Yapın"
 
 #: src/Process/Backend/Home.php:152
 msgid "Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr ""
+msgstr "Dotclear ticari bir proje değildir - Dotclear'ı kullanmak ücretsizdir ve her zaman da öyle olacaktır. İsterseniz, proje ile ilgili masrafları karşılamamıza yardımcı olmak için Dotclear'a katkıda bulunabilirsiniz."
 
 #: src/Process/Backend/Home.php:153
 msgid "The collected funds will be spent as follows:"
-msgstr ""
+msgstr "Toplanan fonlar aşağıdaki şekilde harcanacaktır:"
 
 #: src/Process/Backend/Home.php:155
 msgid "Paying for the website hosting and translations"
-msgstr ""
+msgstr "Web sitesi barındırma ve çeviriler için ödeme yapmak"
 
 #: src/Process/Backend/Home.php:156
 msgid "Paying for the domain names"
-msgstr ""
+msgstr "Alan adları için ödeme yapma"
 
 #: src/Process/Backend/Home.php:157
 msgid "Supporting related projects such as Dotaddict.org"
-msgstr ""
+msgstr "Dotaddict.org gibi ilgili projelerin desteklenmesi"
 
 #: src/Process/Backend/Home.php:158
 msgid "Cover the costs of events set up by Dotclear"
-msgstr ""
+msgstr "Dotclear tarafından düzenlenen etkinliklerin masraflarını karşılayın"
 
 #: src/Process/Backend/Home.php:160
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
-msgstr ""
+msgstr "Daha fazla bilgi ve bağış için <a href=\"https://dotclear.org/donate\">bu sayfaya</a> bakın"
 
 #: src/Process/Backend/Home.php:200
 msgid "Dashboard area's drag and drop is disabled"
@@ -4812,7 +4812,7 @@ msgstr ":"
 
 #: src/Process/Backend/MediaItem.php:1015
 msgid "Metadata"
-msgstr ""
+msgstr "Metadata"
 
 #: src/Process/Backend/MediaItem.php:1022
 msgid "Updates and modifications"
@@ -5831,7 +5831,7 @@ msgstr "Belge bağlantılarını görüntüleme"
 
 #: src/Process/Backend/UserPreferences.php:957
 msgid "Display donate links"
-msgstr ""
+msgstr "Bağış bağlantılarını görüntüle"
 
 #: src/Process/Backend/UserPreferences.php:961
 msgid "Display Dotclear news"
