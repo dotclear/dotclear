@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-05 09:45+0200\n"
-"PO-Revision-Date: 2024-10-10 04:30\n"
+"PO-Revision-Date: 2024-10-10 06:21\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -4278,35 +4278,35 @@ msgstr "Dokumentacija ir parama"
 
 #: src/Process/Backend/Home.php:151
 msgid "Donate to Dotclear"
-msgstr ""
+msgstr "Paaukokite \"Dotclear"
 
 #: src/Process/Backend/Home.php:152
 msgid "Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr ""
+msgstr "\"Dotclear\" nėra komercinis projektas - naudojimasis \"Dotclear\" yra nemokamas ir visada bus nemokamas. Jei norite, galite prisidėti prie \"Dotclear\", kad padėtumėte mums padengti su projektu susijusias išlaidas."
 
 #: src/Process/Backend/Home.php:153
 msgid "The collected funds will be spent as follows:"
-msgstr ""
+msgstr "Surinktos lėšos bus panaudotos taip:"
 
 #: src/Process/Backend/Home.php:155
 msgid "Paying for the website hosting and translations"
-msgstr ""
+msgstr "Mokėti už svetainės prieglobą ir vertimus"
 
 #: src/Process/Backend/Home.php:156
 msgid "Paying for the domain names"
-msgstr ""
+msgstr "Mokėjimas už domenų vardus"
 
 #: src/Process/Backend/Home.php:157
 msgid "Supporting related projects such as Dotaddict.org"
-msgstr ""
+msgstr "Parama susijusiems projektams, tokiems kaip Dotaddict.org"
 
 #: src/Process/Backend/Home.php:158
 msgid "Cover the costs of events set up by Dotclear"
-msgstr ""
+msgstr "Padengti \"Dotclear\" organizuojamų renginių išlaidas"
 
 #: src/Process/Backend/Home.php:160
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
-msgstr ""
+msgstr "Daugiau informacijos ir aukų rasite <a href=\"https://dotclear.org/donate\">šiame puslapyje</a>"
 
 #: src/Process/Backend/Home.php:200
 msgid "Dashboard area's drag and drop is disabled"
@@ -4884,7 +4884,7 @@ msgstr ":"
 
 #: src/Process/Backend/MediaItem.php:1015
 msgid "Metadata"
-msgstr ""
+msgstr "Metaduomenys"
 
 #: src/Process/Backend/MediaItem.php:1022
 msgid "Updates and modifications"
@@ -5911,7 +5911,7 @@ msgstr "Rodyti dokumentų nuorodas"
 
 #: src/Process/Backend/UserPreferences.php:957
 msgid "Display donate links"
-msgstr ""
+msgstr "Rodyti dovanoti nuorodas"
 
 #: src/Process/Backend/UserPreferences.php:961
 msgid "Display Dotclear news"
