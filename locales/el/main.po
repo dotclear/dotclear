@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 19:51+0200\n"
-"PO-Revision-Date: 2024-08-23 17:54\n"
+"POT-Creation-Date: 2024-10-05 09:45+0200\n"
+"PO-Revision-Date: 2024-10-10 06:21\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -18,8 +18,8 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/User.php:225
-#: src/Process/Backend/UserPreferences.php:497
-#: src/Process/Install/Install.php:417
+#: src/Process/Backend/UserPreferences.php:499
+#: src/Process/Install/Install.php:418
 msgid "medium"
 msgstr "μέτρια"
 
@@ -93,7 +93,7 @@ msgstr "Αυτό το κλειδί δεν υπάρχει στη βάση δεδ�
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:71
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
-#: src/Process/Backend/Home.php:432 src/Process/Backend/Post.php:709
+#: src/Process/Backend/Home.php:456 src/Process/Backend/Post.php:709
 msgid "Title"
 msgstr "Τίτλος"
 
@@ -181,7 +181,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Τα επιλεγμένα blogs έχουν ενημερωθεί με επιτυχία."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:108
-#: src/Core/Backend/ModulesList.php:1685 src/Core/Backend/ThemesList.php:728
+#: src/Core/Backend/ModulesList.php:1685 src/Core/Backend/ThemesList.php:732
 #: src/Core/Upgrade/PluginsList.php:399 src/Process/Backend/BlogDel.php:67
 #: src/Process/Backend/Langs.php:131 src/Process/Backend/Langs.php:176
 #: src/Process/Backend/User.php:100 src/Process/Backend/UsersActions.php:109
@@ -409,7 +409,7 @@ msgid "Change category for this selection"
 msgstr "Αλλαγή κατηγορίας για αυτήν την επιλογή"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:439
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:463
 #: src/Process/Backend/Post.php:649
 msgid "Category:"
 msgstr "Κατηγορία:"
@@ -419,14 +419,15 @@ msgid "Create a new category for the post(s)"
 msgstr "Δημιουργία νέας κατηγορίας για την(τις) ανάρτηση(εις)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
-#: src/Process/Backend/Home.php:429 src/Process/Backend/Home.php:446
-#: src/Process/Backend/Post.php:657 src/Process/Backend/Post.php:705
+#: src/Process/Backend/Home.php:453 src/Process/Backend/Home.php:470
+#: src/Process/Backend/MediaItem.php:1064 src/Process/Backend/Post.php:657
+#: src/Process/Backend/Post.php:705
 msgid "Title:"
 msgstr "Τίτλος:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:383
 #: src/Process/Backend/Category.php:244 src/Process/Backend/Category.php:298
-#: src/Process/Backend/Home.php:448 src/Process/Backend/Post.php:659
+#: src/Process/Backend/Home.php:472 src/Process/Backend/Post.php:659
 msgid "Parent:"
 msgstr "Γονικός:"
 
@@ -436,10 +437,10 @@ msgstr "Γονικός:"
 #: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1125
+#: src/Process/Backend/Home.php:478 src/Process/Backend/MediaItem.php:1109
 #: src/Process/Backend/Post.php:776 src/Process/Backend/Post.php:916
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
-#: src/Process/Install/Install.php:499
+#: src/Process/Install/Install.php:500
 msgid "Save"
 msgstr "Αποθήκευση"
 
@@ -496,11 +497,11 @@ msgstr "Γλώσσα εισόδου:"
 msgid "Other"
 msgstr "Άλλο"
 
-#: src/Core/Backend/Combos.php:265 src/Process/Backend/UserPreferences.php:165
+#: src/Core/Backend/Combos.php:265 src/Process/Backend/UserPreferences.php:166
 msgid "Descending"
 msgstr "Φθίνουσα"
 
-#: src/Core/Backend/Combos.php:266 src/Process/Backend/UserPreferences.php:166
+#: src/Core/Backend/Combos.php:266 src/Process/Backend/UserPreferences.php:167
 msgid "Ascending"
 msgstr "Αύξουσα"
 
@@ -566,7 +567,7 @@ msgid "Blog ID"
 msgstr "Ταυτότητα Ιστολογίου"
 
 #: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:63
-#: src/Process/Install/Install.php:479
+#: src/Process/Install/Install.php:480
 msgid "Username"
 msgstr "Όνομα Χρήστη"
 
@@ -590,7 +591,7 @@ msgid "Number of entries"
 msgstr "Αριθμός καταχωρήσεων"
 
 #: src/Core/Backend/Favorites.php:304
-#: src/Process/Backend/UserPreferences.php:810
+#: src/Process/Backend/UserPreferences.php:812
 msgid "My favorites"
 msgstr "Τα αγαπημένα μου"
 
@@ -601,7 +602,7 @@ msgid "My preferences"
 msgstr "Οι προτιμήσεις μου"
 
 #: src/Core/Backend/Favorites.php:412 src/Core/Backend/Menus.php:180
-#: src/Process/Backend/Home.php:427 src/Process/Backend/Post.php:70
+#: src/Process/Backend/Home.php:451 src/Process/Backend/Post.php:70
 #: src/Process/Backend/Post.php:758 src/Process/Backend/Posts.php:101
 msgid "New post"
 msgstr "Νέα δημοσίευση"
@@ -637,7 +638,7 @@ msgstr "Κατηγορίες"
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
 #: src/Process/Backend/Media.php:473 src/Process/Backend/Media.php:512
-#: src/Process/Backend/MediaItem.php:471 src/Process/Backend/MediaItem.php:477
+#: src/Process/Backend/MediaItem.php:450 src/Process/Backend/MediaItem.php:456
 msgid "Media manager"
 msgstr "Διαχειριστής πολυμέσων"
 
@@ -689,10 +690,10 @@ msgid "Status:"
 msgstr "Κατάσταση:"
 
 #: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1282
-#: src/Process/Backend/Auth.php:375 src/Process/Backend/BlogPref.php:996
+#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:996
 #: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:895
-#: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:543
-#: src/Process/Install/Install.php:465
+#: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:545
+#: src/Process/Install/Install.php:466
 msgid "Email:"
 msgstr "Email:"
 
@@ -751,8 +752,8 @@ msgid "Format:"
 msgstr "Μορφή:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:460 src/Process/Backend/User.php:277
-#: src/Process/Install/Install.php:529 src/Process/Upgrade/Auth.php:224
+#: src/Process/Backend/Auth.php:464 src/Process/Backend/User.php:277
+#: src/Process/Install/Install.php:530 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "Κωδικός:"
 
@@ -823,7 +824,7 @@ msgid "Sort:"
 msgstr "Ταξινόμιση:"
 
 #: src/Core/Backend/Filter/Filters.php:390
-#: src/Process/Backend/UserPreferences.php:726
+#: src/Process/Backend/UserPreferences.php:728
 msgid "Show"
 msgstr "Εμφάνιση"
 
@@ -985,7 +986,7 @@ msgstr "Καταχώρηση"
 #: src/Core/Backend/Listing/ListingPosts.php:223
 #: src/Core/Backend/Listing/ListingPosts.php:261
 #: src/Core/Backend/Listing/ListingPostsMini.php:135 src/Core/Blog.php:272
-#: src/Core/Blog.php:277 src/Process/Backend/MediaItem.php:1004
+#: src/Core/Blog.php:277 src/Process/Backend/MediaItem.php:983
 #: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1083
 msgid "Published"
 msgstr "Δημοσιεύθηκε"
@@ -995,7 +996,7 @@ msgstr "Δημοσιεύθηκε"
 #: src/Core/Backend/Listing/ListingPosts.php:224
 #: src/Core/Backend/Listing/ListingPosts.php:266
 #: src/Core/Backend/Listing/ListingPostsMini.php:140 src/Core/Blog.php:271
-#: src/Core/Blog.php:276 src/Process/Backend/MediaItem.php:1005
+#: src/Core/Blog.php:276 src/Process/Backend/MediaItem.php:984
 #: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1088
 msgid "Unpublished"
 msgstr "Αδημοσίευτο"
@@ -1005,7 +1006,7 @@ msgstr "Αδημοσίευτο"
 #: src/Core/Backend/Listing/ListingPosts.php:226
 #: src/Core/Backend/Listing/ListingPosts.php:276
 #: src/Core/Backend/Listing/ListingPostsMini.php:150 src/Core/Blog.php:269
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:1007
+#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:986
 #: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1093
 msgid "Pending"
 msgstr "Εκκρεμεί"
@@ -1141,7 +1142,7 @@ msgstr[1] "προγραμματισμένο"
 #: src/Core/Backend/Listing/ListingPosts.php:225
 #: src/Core/Backend/Listing/ListingPosts.php:271
 #: src/Core/Backend/Listing/ListingPostsMini.php:145 src/Core/Blog.php:270
-#: src/Process/Backend/MediaItem.php:1006 src/Process/Backend/Post.php:477
+#: src/Process/Backend/MediaItem.php:985 src/Process/Backend/Post.php:477
 msgid "Scheduled"
 msgstr "Προγραμματισμένο"
 
@@ -1321,8 +1322,8 @@ msgid "Current version"
 msgstr "Τρέχουσα έκδοση"
 
 #: src/Core/Backend/ModulesList.php:862 src/Core/Backend/ModulesList.php:1076
-#: src/Core/Backend/Page.php:1324 src/Core/Backend/ThemesList.php:212
-#: src/Core/Backend/ThemesList.php:298
+#: src/Core/Backend/Page.php:1324 src/Core/Backend/ThemesList.php:213
+#: src/Core/Backend/ThemesList.php:299
 msgid "Details"
 msgstr "Λεπτομέρειες"
 
@@ -1349,13 +1350,13 @@ msgstr "Αυτό το πρόσθετο δεν μπορεί να απενεργο
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Αυτό το module δεν μπορεί να ενεργοποιηθεί, λόγω των ακόλουθων λόγων:"
 
-#: src/Core/Backend/ModulesList.php:1028 src/Core/Backend/ThemesList.php:196
+#: src/Core/Backend/ModulesList.php:1028 src/Core/Backend/ThemesList.php:197
 #: src/Process/Upgrade/Plugins.php:418
 msgid "Official repository"
 msgstr "Επίσημο αποθετήριο"
 
 #: src/Core/Backend/ModulesList.php:1028 src/Core/Backend/ModulesList.php:1121
-#: src/Core/Backend/ThemesList.php:196 src/Process/Upgrade/Plugins.php:418
+#: src/Core/Backend/ThemesList.php:197 src/Process/Upgrade/Plugins.php:418
 msgid "Third-party repository"
 msgstr "Αποθετήριο τρίτων"
 
@@ -1368,11 +1369,11 @@ msgid "Plugin in development"
 msgstr "Πρόσθετο σε ανάπτυξη"
 
 #: src/Core/Backend/ModulesList.php:1083 src/Core/Backend/Page.php:1325
-#: src/Core/Backend/ThemesList.php:219
+#: src/Core/Backend/ThemesList.php:220
 msgid "Support"
 msgstr "Υποστήριξη"
 
-#: src/Core/Backend/ModulesList.php:1087 src/Core/Backend/ThemesList.php:200
+#: src/Core/Backend/ModulesList.php:1087 src/Core/Backend/ThemesList.php:201
 msgid "update locked"
 msgstr "η ενημέρωση κλειδώθηκε"
 
@@ -1507,7 +1508,7 @@ msgstr[1] "Τα πρόσθετα έχουν ενημερωθεί με επιτυ
 msgid "Following plugins updates are locked: %s"
 msgstr "Οι παρακάτω ενημερώσεις προσθέτων είναι κλειδωμένες: %s"
 
-#: src/Core/Backend/ModulesList.php:1693 src/Core/Backend/ThemesList.php:736
+#: src/Core/Backend/ModulesList.php:1693 src/Core/Backend/ThemesList.php:740
 #: src/Core/Upgrade/PluginsList.php:407 src/Process/Backend/Langs.php:182
 #: src/Process/Upgrade/Langs.php:212
 msgid "Unable to move uploaded file."
@@ -1528,11 +1529,11 @@ msgstr "Ανεβάστε ένα αρχείο zip"
 #: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
 #: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:480
 #: src/Process/Backend/BlogPref.php:806 src/Process/Backend/Category.php:233
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:428
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:452
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:764
 #: src/Process/Backend/Post.php:884 src/Process/Backend/User.php:255
-#: src/Process/Backend/UsersActions.php:347 src/Process/Install/Install.php:475
+#: src/Process/Backend/UsersActions.php:347 src/Process/Install/Install.php:476
 #: src/Process/Install/Wizard.php:265 src/Process/Upgrade/Langs.php:402
 #, php-format
 msgid "Fields preceded by %s are mandatory."
@@ -1546,8 +1547,8 @@ msgstr "Διαδρομή αρχείου zip:"
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:343
 #: src/Process/Backend/Post.php:688 src/Process/Backend/User.php:284
 #: src/Process/Backend/User.php:297 src/Process/Backend/User.php:417
-#: src/Process/Backend/UsersActions.php:354 src/Process/Install/Install.php:487
-#: src/Process/Install/Install.php:493 src/Process/Upgrade/Langs.php:425
+#: src/Process/Backend/UsersActions.php:354 src/Process/Install/Install.php:488
+#: src/Process/Install/Install.php:494 src/Process/Upgrade/Langs.php:425
 msgid "Password"
 msgstr "Κωδικός"
 
@@ -1597,22 +1598,22 @@ msgstr "Ρύθμιση παραμέτρων \"%s\""
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:601 src/Process/Backend/MediaItem.php:1166
+#: src/Process/Backend/Media.php:601 src/Process/Backend/MediaItem.php:1150
 #: src/Process/Backend/Post.php:792 src/Process/Backend/Search.php:158
-#: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:616
-#: src/Process/Backend/UserPreferences.php:799
-#: src/Process/Backend/UserPreferences.php:979
+#: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:618
+#: src/Process/Backend/UserPreferences.php:801
+#: src/Process/Backend/UserPreferences.php:985
 msgid "Back"
 msgstr "Πίσω"
 
 #: src/Core/Backend/Notices.php:81 src/Core/Backend/Page.php:1284
 #: src/Core/Backend/Page.php:1449 src/Core/Upgrade/Notices.php:46
-#: src/Process/Backend/Home.php:263
+#: src/Process/Backend/Home.php:287
 msgid "Error:"
 msgstr "Σφάλμα:"
 
 #: src/Core/Backend/Notices.php:81 src/Core/Upgrade/Notices.php:46
-#: src/Process/Install/Install.php:438 src/Process/Install/Install.php:547
+#: src/Process/Install/Install.php:439 src/Process/Install/Install.php:548
 #: src/Process/Install/Wizard.php:246
 msgid "Errors:"
 msgstr "Σφάλματα:"
@@ -1646,8 +1647,8 @@ msgid "Go to help"
 msgstr "Πηγαίνετε στη βοήθεια"
 
 #: src/Core/Backend/Page.php:348 src/Core/Upgrade/Page.php:172
-#: src/Process/Backend/UserPreferences.php:805
-#: src/Process/Backend/UserPreferences.php:806
+#: src/Process/Backend/UserPreferences.php:807
+#: src/Process/Backend/UserPreferences.php:808
 msgid "My dashboard"
 msgstr "Το ταμπλό μου"
 
@@ -1973,8 +1974,8 @@ msgid "Choose files"
 msgstr "Επιλογή αρχείων"
 
 #: src/Core/Backend/Page.php:1452 src/Process/Backend/LinkPopup.php:73
-#: src/Process/Backend/Media.php:254 src/Process/Backend/MediaItem.php:573
-#: src/Process/Backend/MediaItem.php:790 src/Process/Backend/Post.php:795
+#: src/Process/Backend/Media.php:254 src/Process/Backend/MediaItem.php:552
+#: src/Process/Backend/MediaItem.php:769 src/Process/Backend/Post.php:795
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "Ακύρωση"
@@ -1983,7 +1984,7 @@ msgstr "Ακύρωση"
 msgid "Clean"
 msgstr "Καθαρισμός"
 
-#: src/Core/Backend/Page.php:1455 src/Process/Backend/MediaItem.php:1137
+#: src/Core/Backend/Page.php:1455 src/Process/Backend/MediaItem.php:1121
 msgid "Send"
 msgstr "Αποστολή"
 
@@ -2012,186 +2013,186 @@ msgstr "Σφάλμα ουράς:"
 msgid "Cancel filters and display options"
 msgstr "Ακύρωση φίλτρων και επιλογών εμφάνισης"
 
-#: src/Core/Backend/ThemeConfig.php:120
+#: src/Core/Backend/ThemeConfig.php:119
 #, php-format
 msgid "(%s)"
 msgstr "(%s)"
 
-#: src/Core/Backend/ThemeConfig.php:120
+#: src/Core/Backend/ThemeConfig.php:119
 #, php-format
 msgid "ratio %.1f"
 msgstr "αναλογία %.1f"
 
-#: src/Core/Backend/ThemeConfig.php:249 src/Core/Backend/ThemeConfig.php:403
+#: src/Core/Backend/ThemeConfig.php:248 src/Core/Backend/ThemeConfig.php:402
 msgid "The 'public' directory does not exist."
 msgstr "Ο κατάλογος 'δημόσιο' δεν υπάρχει."
 
-#: src/Core/Backend/ThemeConfig.php:256 src/Core/Backend/ThemeConfig.php:268
-#: src/Core/Backend/ThemeConfig.php:410 src/Core/Backend/ThemeConfig.php:422
+#: src/Core/Backend/ThemeConfig.php:255 src/Core/Backend/ThemeConfig.php:267
+#: src/Core/Backend/ThemeConfig.php:409 src/Core/Backend/ThemeConfig.php:421
 #, php-format
 msgid "The '%s' directory cannot be modified."
 msgstr "Ο κατάλογος '%s' δεν μπορεί να τροποποιηθεί."
 
-#: src/Core/Backend/ThemeConfig.php:390
+#: src/Core/Backend/ThemeConfig.php:389
 #, php-format
 msgid "The '%s' directory cannot be created."
 msgstr "Ο κατάλογος '%s' δεν μπορεί να δημιουργηθεί."
 
-#: src/Core/Backend/ThemeConfig.php:396
+#: src/Core/Backend/ThemeConfig.php:395
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
 msgstr "Τουλάχιστον μία από τις ακόλουθες λειτουργίες δεν είναι διαθέσιμη: imagecreatetruecolor, imagepng & imagecreatefrompng."
 
-#: src/Core/Backend/ThemeConfig.php:442
+#: src/Core/Backend/ThemeConfig.php:441
 msgid "Unable to create images."
 msgstr "Δεν είναι δυνατή η δημιουργία εικόνων."
 
-#: src/Core/Backend/ThemeConfig.php:449
+#: src/Core/Backend/ThemeConfig.php:448
 msgid "Invalid file type."
 msgstr "Μη έγκυρος τύπος αρχείου."
 
-#: src/Core/Backend/ThemeConfig.php:455 src/Helper/File/Manager.php:410
+#: src/Core/Backend/ThemeConfig.php:454 src/Helper/File/Manager.php:410
 #: src/Helper/File/Manager.php:450
 msgid "An error occurred while writing the file."
 msgstr "Παρουσιάστηκε σφάλμα κατά την εγγραφή του αρχείου."
 
-#: src/Core/Backend/ThemeConfig.php:461
+#: src/Core/Backend/ThemeConfig.php:460
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Η φορτώθηκε εικόνα δεν είναι %s pixels πλάτος."
 
-#: src/Core/Backend/ThemesList.php:124
+#: src/Core/Backend/ThemesList.php:125
 #, php-format
 msgid "Score: %s"
 msgstr "Βαθμολογία: %s"
 
-#: src/Core/Backend/ThemesList.php:146
+#: src/Core/Backend/ThemesList.php:147
 #, php-format
 msgid "%s screenshot."
 msgstr "%s στιγμιότυπο οθόνης."
 
-#: src/Core/Backend/ThemesList.php:175
+#: src/Core/Backend/ThemesList.php:176
 #, php-format
 msgid "by %s"
 msgstr "από %s"
 
-#: src/Core/Backend/ThemesList.php:179
+#: src/Core/Backend/ThemesList.php:180
 #, php-format
 msgid "version %s"
 msgstr "έκδοση %s"
 
-#: src/Core/Backend/ThemesList.php:183
+#: src/Core/Backend/ThemesList.php:184
 #, php-format
 msgid "(current version %s)"
 msgstr "(τρέχουσα έκδοση %s)"
 
-#: src/Core/Backend/ThemesList.php:188
+#: src/Core/Backend/ThemesList.php:189
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(χτισμένο στο \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:191
+#: src/Core/Backend/ThemesList.php:192
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(απαιτεί \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:247
+#: src/Core/Backend/ThemesList.php:248
 msgid "View stylesheet"
 msgstr "Προβολή stylesheet"
 
-#: src/Core/Backend/ThemesList.php:272
+#: src/Core/Backend/ThemesList.php:273
 msgid "Configure theme"
 msgstr "Ρύθμιση θέματος"
 
-#: src/Core/Backend/ThemesList.php:326
+#: src/Core/Backend/ThemesList.php:327
 msgid "No themes matched your search."
 msgstr "Δεν βρέθηκαν θέματα που ταιριάζουν στην αναζήτησή σας."
 
-#: src/Core/Backend/ThemesList.php:376
+#: src/Core/Backend/ThemesList.php:377
 msgid "Use this one"
 msgstr "Χρησιμοποιήστε αυτό το ένα"
 
-#: src/Core/Backend/ThemesList.php:393 src/Process/Backend/Post.php:791
+#: src/Core/Backend/ThemesList.php:394 src/Process/Backend/Post.php:791
 msgid "Preview"
 msgstr "Προεπισκόπηση"
 
-#: src/Core/Backend/ThemesList.php:439
+#: src/Core/Backend/ThemesList.php:440
 msgid "Update selected themes"
 msgstr "Ενημέρωση επιλεγμένων θεμάτων"
 
-#: src/Core/Backend/ThemesList.php:440
+#: src/Core/Backend/ThemesList.php:441
 msgid "Update all themes from this list"
 msgstr "Ενημέρωση όλων των θεμάτων από αυτήν τη λίστα"
 
-#: src/Core/Backend/ThemesList.php:484 src/Core/Backend/ThemesList.php:522
-#: src/Core/Backend/ThemesList.php:560 src/Core/Backend/ThemesList.php:595
-#: src/Core/Backend/ThemesList.php:635 src/Core/Backend/ThemesList.php:669
-#: src/Core/Backend/ThemesList.php:719
+#: src/Core/Backend/ThemesList.php:485 src/Core/Backend/ThemesList.php:526
+#: src/Core/Backend/ThemesList.php:564 src/Core/Backend/ThemesList.php:599
+#: src/Core/Backend/ThemesList.php:639 src/Core/Backend/ThemesList.php:673
+#: src/Core/Backend/ThemesList.php:723
 msgid "No such theme."
 msgstr "Δεν υπάρχει τέτοιο θέμα."
 
-#: src/Core/Backend/ThemesList.php:490
+#: src/Core/Backend/ThemesList.php:494
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Το θέμα %s επιλέχθηκε με επιτυχία."
 
-#: src/Core/Backend/ThemesList.php:526
+#: src/Core/Backend/ThemesList.php:530
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Το θέμα ενεργοποιήθηκε με επιτυχία."
 msgstr[1] "Τα θέματα έχουν ενεργοποιηθεί επιτυχώς."
 
-#: src/Core/Backend/ThemesList.php:564
+#: src/Core/Backend/ThemesList.php:568
 msgid "Some themes have not been deactivated."
 msgstr "Ορισμένα θέματα δεν έχουν απενεργοποιηθεί."
 
-#: src/Core/Backend/ThemesList.php:567
+#: src/Core/Backend/ThemesList.php:571
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Το θέμα απενεργοποιήθηκε επιτυχώς."
 msgstr[1] "Τα θέματα έχουν ενεργοποιηθεί επιτυχώς."
 
-#: src/Core/Backend/ThemesList.php:599
+#: src/Core/Backend/ThemesList.php:603
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Το θέμα κλωνοποιήθηκε επιτυχώς."
 msgstr[1] "Τα θέματα έχουν κλωνοποιηθεί επιτυχώς."
 
-#: src/Core/Backend/ThemesList.php:633
+#: src/Core/Backend/ThemesList.php:637
 msgid "You don't have permissions to delete this theme."
 msgstr "Δεν έχετε δικαιώματα για να διαγράψετε αυτό το θέμα."
 
-#: src/Core/Backend/ThemesList.php:637
+#: src/Core/Backend/ThemesList.php:641
 msgid "Some themes have not been delete."
 msgstr "Ορισμένα θέματα δεν έχουν διαγραφεί."
 
-#: src/Core/Backend/ThemesList.php:640
+#: src/Core/Backend/ThemesList.php:644
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Το θέμα έχει διαγραφεί επιτυχώς."
 msgstr[1] "Τα θέματα έχουν διαγραφεί επιτυχώς."
 
-#: src/Core/Backend/ThemesList.php:673
+#: src/Core/Backend/ThemesList.php:677
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Το θέμα εγκαταστάθηκε με επιτυχία."
 msgstr[1] "Τα θέματα εγκαταστάθηκαν με επιτυχία."
 
-#: src/Core/Backend/ThemesList.php:712
+#: src/Core/Backend/ThemesList.php:716
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "Το θέμα έχει ενημερωθεί με επιτυχία."
 msgstr[1] "Τα θέματα έχουν ενημερωθεί με επιτυχία."
 
-#: src/Core/Backend/ThemesList.php:716
+#: src/Core/Backend/ThemesList.php:720
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "Οι παρακάτω ενημερώσεις θεμάτων είναι κλειδωμένες: %s"
 
-#: src/Core/Backend/ThemesList.php:754
+#: src/Core/Backend/ThemesList.php:758
 msgid "The theme has been successfully updated."
 msgstr "Το θέμα έχει ενημερωθεί με επιτυχία."
 
-#: src/Core/Backend/ThemesList.php:755
+#: src/Core/Backend/ThemesList.php:759
 msgid "The theme has been successfully installed."
 msgstr "Το θέμα εγκαταστάθηκε με επιτυχία."
 
@@ -2474,11 +2475,11 @@ msgstr "Κανένα μήνυμα καταγραφής"
 msgid "No blog defined."
 msgstr "Δεν ορίστηκε ιστολόγιο."
 
-#: src/Core/Media.php:206 src/Process/Backend/Home.php:252
+#: src/Core/Media.php:206 src/Process/Backend/Home.php:276
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "Δεν υπάρχει εγγράψιμος κατάλογος /public/ στην τοποθεσία που έχει οριστεί σε about:config \"public_path\". Πρέπει να δημιουργήσετε αυτόν τον κατάλογο με επαρκή δικαιώματα (ή να αλλάξετε αυτήν τη ρύθμιση)."
 
-#: src/Core/Media.php:209 src/Process/Backend/Home.php:256
+#: src/Core/Media.php:209 src/Process/Backend/Home.php:280
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Δεν υπάρχει εγγράψιμος ριζικός κατάλογος για τον διαχειριστή πολυμέσων. Θα πρέπει να επικοινωνήσετε με το διαχειριστή."
 
@@ -2979,18 +2980,18 @@ msgstr "Αδυναμία ανάγνωσης καταλόγου"
 msgid "Unable to write ZIP archive"
 msgstr "Αδυναμία εγγραφής αρχείου ZIP"
 
-#: src/Helper/Html/Template/Template.php:644
-#: src/Helper/Html/Template/Template.php:694
+#: src/Helper/Html/Template/Template.php:657
+#: src/Helper/Html/Template/Template.php:707
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr "Δεν βρέθηκε ετικέτα κλεισίματος για το μπλοκ <tpl:%s>. Το περιεχόμενο έχει αγνοηθεί."
 
-#: src/Helper/Html/Template/Template.php:651
+#: src/Helper/Html/Template/Template.php:664
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "Βρέθηκε μη αναμενόμενη ετικέτα κλεισίματος </tpl:%s>."
 
-#: src/Helper/Html/Template/Template.php:702
+#: src/Helper/Html/Template/Template.php:715
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ: κατά την ανάλυση του αρχείου προτύπου έχουν βρεθεί τα ακόλουθα λάθη:"
 
@@ -3119,8 +3120,8 @@ msgid "To reset your password visit the following address, otherwise just ignore
 msgstr "Για να επαναφέρετε τον κωδικό πρόσβασής σας επισκεφθείτε την ακόλουθη διεύθυνση, διαφορετικά απλά αγνοήστε αυτό το email και τίποτα δεν θα συμβεί."
 
 #: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:363 src/Process/Backend/Auth.php:449
-#: src/Process/Install/Install.php:476 src/Process/Install/Install.php:528
+#: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:453
+#: src/Process/Install/Install.php:477 src/Process/Install/Install.php:529
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
 msgstr "Όνομα Χρήστη:"
@@ -3139,7 +3140,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Ο νέος κωδικός πρόσβασης βρίσκεται στο γραμματοκιβώτιό σας."
 
 #: src/Process/Backend/Auth.php:184 src/Process/Backend/User.php:126
-#: src/Process/Backend/UserPreferences.php:204
+#: src/Process/Backend/UserPreferences.php:205
 #: src/Process/Install/Install.php:191
 msgid "Passwords don't match"
 msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"
@@ -3168,78 +3169,78 @@ msgstr "Η συνεδρία διαχείρισης έληξε"
 msgid "Wrong username or password"
 msgstr "Λάθος όνομα χρήστη ή κωδικός πρόσβασης"
 
-#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:391
+#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:392
 msgid "Back to login screen"
 msgstr "Πίσω στην οθόνη σύνδεσης"
 
-#: src/Process/Backend/Auth.php:362
+#: src/Process/Backend/Auth.php:363
 msgid "Request a new password"
 msgstr "Αίτηση νέου κωδικού πρόσβασης"
 
-#: src/Process/Backend/Auth.php:385
+#: src/Process/Backend/Auth.php:386
 msgid "recover"
 msgstr "ανάκτηση"
 
-#: src/Process/Backend/Auth.php:390 src/Process/Backend/Auth.php:493
+#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:497
 msgid "Other option"
 msgstr "Άλλη επιλογή"
 
-#: src/Process/Backend/Auth.php:396
+#: src/Process/Backend/Auth.php:398
 msgid "Change your password"
 msgstr "Αλλάξτε τον κωδικό σας"
 
-#: src/Process/Backend/Auth.php:397 src/Process/Backend/User.php:277
-#: src/Process/Backend/UserPreferences.php:581
-#: src/Process/Install/Install.php:484
+#: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:277
+#: src/Process/Backend/UserPreferences.php:583
+#: src/Process/Install/Install.php:485
 msgid "New password:"
 msgstr "Νέος κωδικός πρόσβασης:"
 
-#: src/Process/Backend/Auth.php:408 src/Process/Backend/User.php:291
-#: src/Process/Install/Install.php:491
+#: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:291
+#: src/Process/Install/Install.php:492
 msgid "Confirm password:"
 msgstr "Επιβεβαίωση κωδικού πρόσβασης:"
 
-#: src/Process/Backend/Auth.php:417
+#: src/Process/Backend/Auth.php:419
 msgid "change"
 msgstr "αλλαγή"
 
-#: src/Process/Backend/Auth.php:431
+#: src/Process/Backend/Auth.php:435
 msgid "Safe mode login"
 msgstr "Ασφαλής σύνδεση"
 
-#: src/Process/Backend/Auth.php:433
+#: src/Process/Backend/Auth.php:437
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Αυτή η λειτουργία σας επιτρέπει να συνδεθείτε χωρίς να ενεργοποιήσετε οποιοδήποτε από τα plugins σας. Αυτό μπορεί να είναι χρήσιμο για την επίλυση προβλημάτων συμβατότητας"
 
-#: src/Process/Backend/Auth.php:434
+#: src/Process/Backend/Auth.php:438
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Ενημέρωση, απενεργοποιήστε ή διαγράψτε οποιοδήποτε πρόσθετο υπάρχει υποψία ότι προκαλεί προβλήματα, και στη συνέχεια αποσυνδεθείτε και συνδεθείτε ξανά κανονικά."
 
-#: src/Process/Backend/Auth.php:470 src/Process/Upgrade/Auth.php:234
+#: src/Process/Backend/Auth.php:474 src/Process/Upgrade/Auth.php:234
 msgid "Remember my ID on this device"
 msgstr "Απομνημόνευση του αναγνωριστικού μου σε αυτήν τη συσκευή"
 
-#: src/Process/Backend/Auth.php:471 src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:475 src/Process/Upgrade/Auth.php:235
 msgid "log in"
 msgstr "σύνδεση"
 
-#: src/Process/Backend/Auth.php:487 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:491 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "Πρέπει να αποδεχτείτε τα cookies για να χρησιμοποιήσετε τον ιδιωτικό χώρο."
 
-#: src/Process/Backend/Auth.php:494
+#: src/Process/Backend/Auth.php:498
 msgid "Get back to normal authentication"
 msgstr "Επιστρέψτε στην κανονική ταυτοποίηση"
 
-#: src/Process/Backend/Auth.php:497
+#: src/Process/Backend/Auth.php:501
 msgid "Connection issue?"
 msgstr "Θέμα σύνδεσης?"
 
-#: src/Process/Backend/Auth.php:500
+#: src/Process/Backend/Auth.php:504
 msgid "I forgot my password"
 msgstr "Ξέχασα τον κωδικό μου"
 
-#: src/Process/Backend/Auth.php:503
+#: src/Process/Backend/Auth.php:507
 msgid "I want to log in in safe mode"
 msgstr "Θέλω να συνδεθώ στην ασφαλή λειτουργία"
 
@@ -3356,8 +3357,8 @@ msgid "P"
 msgstr "Ρ"
 
 #: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:997
-#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:667
-#: src/Process/Backend/MediaItem.php:669
+#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:646
+#: src/Process/Backend/MediaItem.php:648
 msgid "(none)"
 msgstr "(κανένα)"
 
@@ -3377,37 +3378,37 @@ msgstr "Περιγραφή, Χώρα, Ημερομηνία"
 msgid "Description, City, Country, Date"
 msgstr "Περιγραφή, Πόλη, Χώρα, Ημερομηνία"
 
-#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:560
-#: src/Process/Backend/MediaItem.php:634 src/Process/Backend/MediaItem.php:881
+#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:539
+#: src/Process/Backend/MediaItem.php:613 src/Process/Backend/MediaItem.php:860
 msgid "original"
 msgstr "πρωτότυπο"
 
 #: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
-#: src/Process/Backend/MediaItem.php:664 src/Process/Backend/MediaItem.php:676
-#: src/Process/Backend/MediaItem.php:714 src/Process/Backend/MediaItem.php:758
+#: src/Process/Backend/MediaItem.php:643 src/Process/Backend/MediaItem.php:655
+#: src/Process/Backend/MediaItem.php:693 src/Process/Backend/MediaItem.php:737
 msgid "None"
 msgstr "Κανένα"
 
-#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:677
-#: src/Process/Backend/MediaItem.php:715 src/Process/Backend/MediaItem.php:759
+#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:656
+#: src/Process/Backend/MediaItem.php:694 src/Process/Backend/MediaItem.php:738
 msgid "Left"
 msgstr "Αριστερά"
 
-#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:678
-#: src/Process/Backend/MediaItem.php:716 src/Process/Backend/MediaItem.php:760
+#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:657
+#: src/Process/Backend/MediaItem.php:695 src/Process/Backend/MediaItem.php:739
 msgid "Right"
 msgstr "Δεξιά"
 
-#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:679
-#: src/Process/Backend/MediaItem.php:717 src/Process/Backend/MediaItem.php:761
+#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:658
+#: src/Process/Backend/MediaItem.php:696 src/Process/Backend/MediaItem.php:740
 msgid "Center"
 msgstr "Κέντρο"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:649
+#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:628
 msgid "Legend and alternate text"
 msgstr "Υπόμνημα και εναλλακτικό κείμενο"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:658
+#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:637
 msgid "Alternate text"
 msgstr "Εναλλακτικό κείμενο"
 
@@ -3424,7 +3425,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Θα ήθελα να αποτρέψω τις μηχανές αναζήτησης και τα αρχεία από την ευρετηρίαση ή την αρχειοθέτηση του περιεχομένου του ιστολογίου μου."
 
 #: src/Process/Backend/BlogPref.php:215
-#: src/Process/Backend/UserPreferences.php:127
+#: src/Process/Backend/UserPreferences.php:128
 msgid "Default"
 msgstr "Προεπιλογή"
 
@@ -4020,7 +4021,7 @@ msgid "total:"
 msgstr "σύνολο:"
 
 #: src/Process/Backend/Categories.php:192 src/Process/Backend/Category.php:257
-#: src/Process/Backend/User.php:361 src/Process/Backend/UserPreferences.php:557
+#: src/Process/Backend/User.php:361 src/Process/Backend/UserPreferences.php:559
 msgid "URL:"
 msgstr "URL:"
 
@@ -4077,7 +4078,7 @@ msgstr "Όνομα:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Προειδοποίηση: Αν ορίσετε το URL χειροκίνητα, ενδέχεται να έρχεται σε σύγκρουση με μια άλλη κατηγορία."
 
-#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1105
+#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1089
 msgid "Description:"
 msgstr "Περιγραφή:"
 
@@ -4201,89 +4202,121 @@ msgstr "Επιλεγμένη ενέργεια σχολίων:"
 msgid "The following plugins have been disabled :"
 msgstr "Τα ακόλουθα πρόσθετα έχουν απενεργοποιηθεί :"
 
-#: src/Process/Backend/Home.php:131
+#: src/Process/Backend/Home.php:137
 msgid "Documentation and support"
 msgstr "Τεκμηρίωση και υποστήριξη"
 
-#: src/Process/Backend/Home.php:176
+#: src/Process/Backend/Home.php:151
+msgid "Donate to Dotclear"
+msgstr "Δωρεά στο Dotclear"
+
+#: src/Process/Backend/Home.php:152
+msgid "Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
+msgstr "Το Dotclear δεν είναι ένα εμπορικό έργο - η χρήση του Dotclear είναι δωρεάν και θα είναι πάντα δωρεάν. Αν το επιθυμείτε, μπορείτε να συνεισφέρετε στο Dotclear για να μας βοηθήσετε να καλύψουμε τα έξοδα που σχετίζονται με το έργο."
+
+#: src/Process/Backend/Home.php:153
+msgid "The collected funds will be spent as follows:"
+msgstr "Τα συγκεντρωθέντα κεφάλαια θα δαπανηθούν ως εξής:"
+
+#: src/Process/Backend/Home.php:155
+msgid "Paying for the website hosting and translations"
+msgstr "Πληρωμή για τη φιλοξενία του δικτυακού τόπου και τις μεταφράσεις"
+
+#: src/Process/Backend/Home.php:156
+msgid "Paying for the domain names"
+msgstr "Πληρωμή για τα ονόματα τομέα"
+
+#: src/Process/Backend/Home.php:157
+msgid "Supporting related projects such as Dotaddict.org"
+msgstr "Υποστήριξη σχετικών έργων όπως το Dotaddict.org"
+
+#: src/Process/Backend/Home.php:158
+msgid "Cover the costs of events set up by Dotclear"
+msgstr "Κάλυψη του κόστους των εκδηλώσεων που διοργανώνει η Dotclear"
+
+#: src/Process/Backend/Home.php:160
+msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
+msgstr "Δείτε <a href=\"https://dotclear.org/donate\">αυτή τη σελίδα</a> για περισσότερες πληροφορίες και δωρεές"
+
+#: src/Process/Backend/Home.php:200
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "Η μεταφορά και η απόθεση στην περιοχή του ταμπλό είναι απενεργοποιημένη"
 
-#: src/Process/Backend/Home.php:177
+#: src/Process/Backend/Home.php:201
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "Η μεταφορά και η απόθεση στην περιοχή του ταμπλό είναι ενεργοποιημένη"
 
-#: src/Process/Backend/Home.php:190 src/Process/Backend/Home.php:203
+#: src/Process/Backend/Home.php:214 src/Process/Backend/Home.php:227
 #: src/Process/Upgrade/Home.php:132
 msgid "Dashboard"
 msgstr "Ταμπλό"
 
-#: src/Process/Backend/Home.php:211
+#: src/Process/Backend/Home.php:235
 msgid "Make this blog my default blog"
 msgstr "Κάντε αυτό το ιστολόγιο μου προεπιλεγμένο ιστολόγιο"
 
-#: src/Process/Backend/Home.php:215
+#: src/Process/Backend/Home.php:239
 msgid "This blog is offline"
 msgstr "Αυτό το ιστολόγιο είναι εκτός σύνδεσης"
 
-#: src/Process/Backend/Home.php:217
+#: src/Process/Backend/Home.php:241
 msgid "This blog is removed"
 msgstr "Αυτό το ιστολόγιο έχει αφαιρεθεί"
 
-#: src/Process/Backend/Home.php:222 src/Process/Backend/Home.php:230
+#: src/Process/Backend/Home.php:246 src/Process/Backend/Home.php:254
 #: src/Process/Upgrade/Home.php:57 src/Process/Upgrade/Home.php:62
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s δεν έχει οριστεί, θα πρέπει να επεξεργαστείτε το αρχείο ρυθμίσεων σας."
 
-#: src/Process/Backend/Home.php:223 src/Process/Backend/Home.php:231
+#: src/Process/Backend/Home.php:247 src/Process/Backend/Home.php:255
 #: src/Process/Upgrade/Home.php:58 src/Process/Upgrade/Home.php:63
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "Βλέπε <a href=\"https://dotclear.org/documentation/2.0/admin/config\">τεκμηρίωση</a> για περισσότερες πληροφορίες."
 
-#: src/Process/Backend/Home.php:241 src/Process/Upgrade/Home.php:67
+#: src/Process/Backend/Home.php:265 src/Process/Upgrade/Home.php:67
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "Ο κατάλογος προσωρινής αποθήκευσης δεν υπάρχει ή δεν είναι εγγράψιμος. Πρέπει να δημιουργήσετε αυτόν τον κατάλογο με επαρκή δικαιώματα και να επηρεάσει αυτή τη θέση για να \"DC_TPL_CACHE\" στο αρχείο inc/config.php."
 
-#: src/Process/Backend/Home.php:245
+#: src/Process/Backend/Home.php:269
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "Ο κατάλογος προσωρινής αποθήκευσης δεν υπάρχει ή δεν είναι εγγράψιμος. Θα πρέπει να επικοινωνήσετε με το διαχειριστή."
 
-#: src/Process/Backend/Home.php:280 src/Process/Backend/Plugins.php:119
-#: src/Process/Install/Install.php:505 src/Process/Upgrade/Plugins.php:111
+#: src/Process/Backend/Home.php:304 src/Process/Backend/Plugins.php:119
+#: src/Process/Install/Install.php:506 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
 msgstr "Τα ακόλουθα πρόσθετα έχουν εγκατασταθεί:"
 
-#: src/Process/Backend/Home.php:294 src/Process/Backend/Plugins.php:133
-#: src/Process/Install/Install.php:512 src/Process/Upgrade/Plugins.php:123
+#: src/Process/Backend/Home.php:318 src/Process/Backend/Plugins.php:133
+#: src/Process/Install/Install.php:513 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have not been installed:"
 msgstr "Τα ακόλουθα πρόσθετα δεν έχουν εγκατασταθεί:"
 
-#: src/Process/Backend/Home.php:307
+#: src/Process/Backend/Home.php:331
 msgid "Errors have occured with following plugins:"
 msgstr "Σφάλματα έχουν παρουσιαστεί με τα ακόλουθα plugins:"
 
-#: src/Process/Backend/Home.php:425
+#: src/Process/Backend/Home.php:449
 msgid "Quick post"
 msgstr "Γρήγορη δημοσίευση"
 
-#: src/Process/Backend/Home.php:436 src/Process/Backend/Post.php:727
+#: src/Process/Backend/Home.php:460 src/Process/Backend/Post.php:727
 msgid "Content:"
 msgstr "Περιεχόμενα:"
 
-#: src/Process/Backend/Home.php:437 src/Process/Backend/Post.php:734
+#: src/Process/Backend/Home.php:461 src/Process/Backend/Post.php:734
 msgid "Content"
 msgstr "Περιεχόμενο"
 
-#: src/Process/Backend/Home.php:445 src/Process/Backend/Post.php:656
+#: src/Process/Backend/Home.php:469 src/Process/Backend/Post.php:656
 msgid "Add a new category"
 msgstr "Προσθέστε μια νέα κατηγορία"
 
-#: src/Process/Backend/Home.php:451
+#: src/Process/Backend/Home.php:475
 msgid "This category will be created when you will save your post."
 msgstr "Αυτή η κατηγορία θα δημιουργηθεί όταν θα αποθηκεύσετε την ανάρτησή σας."
 
-#: src/Process/Backend/Home.php:458
+#: src/Process/Backend/Home.php:482
 msgid "Save and publish"
 msgstr "Αποθήκευση και δημοσίευση"
 
@@ -4413,7 +4446,7 @@ msgstr "Τίτλος συνδέσμου:"
 msgid "Link language:"
 msgstr "Γλώσσα σύνδεσης:"
 
-#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:789
+#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:768
 msgid "Insert"
 msgstr "Insert"
 
@@ -4499,7 +4532,7 @@ msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Επιλέξτε αρχεία και κάντε κλικ στο κουμπί <strong>%s</strong>"
 
 #: src/Process/Backend/Media.php:379 src/Process/Backend/Media.php:392
-#: src/Process/Backend/Media.php:405 src/Process/Backend/MediaItem.php:805
+#: src/Process/Backend/Media.php:405 src/Process/Backend/MediaItem.php:784
 msgid "or"
 msgstr "ή"
 
@@ -4574,13 +4607,13 @@ msgstr "Παρακαλώ φροντίστε να δημοσιεύσετε τα �
 msgid "Maximum file size allowed:"
 msgstr "Μέγιστο επιτρεπόμενο μέγεθος αρχείου:"
 
-#: src/Process/Backend/Media.php:551 src/Process/Backend/MediaItem.php:667
-#: src/Process/Backend/MediaItem.php:1029
-#: src/Process/Backend/MediaItem.php:1092
+#: src/Process/Backend/Media.php:551 src/Process/Backend/MediaItem.php:646
+#: src/Process/Backend/MediaItem.php:1004
+#: src/Process/Backend/MediaItem.php:1077
 msgid "Alternate text:"
 msgstr "Εναλλακτικό κείμενο:"
 
-#: src/Process/Backend/Media.php:552 src/Process/Backend/MediaItem.php:1122
+#: src/Process/Backend/Media.php:552 src/Process/Backend/MediaItem.php:1106
 msgid "Private"
 msgstr "Ιδιωτικό"
 
@@ -4605,259 +4638,255 @@ msgstr "Οι τρέχουσες ρυθμίσεις για τα μέσα και �
 msgid "Not a valid file"
 msgstr "Μη έγκυρο αρχείο"
 
-#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:235
-#: src/Process/Backend/MediaItem.php:498
+#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:212
+#: src/Process/Backend/MediaItem.php:477
 msgid "File has been successfully updated."
 msgstr "Το αρχείο ενημερώθηκε με επιτυχία."
 
-#: src/Process/Backend/MediaItem.php:252 src/Process/Backend/MediaItem.php:501
+#: src/Process/Backend/MediaItem.php:229 src/Process/Backend/MediaItem.php:480
 msgid "Thumbnails have been successfully updated."
 msgstr "Οι μικρογραφίες ενημερώθηκαν επιτυχώς."
 
-#: src/Process/Backend/MediaItem.php:269
+#: src/Process/Backend/MediaItem.php:246
 msgid "Zip file has been successfully extracted."
 msgstr "Το αρχείο zip έχει εξαχθεί επιτυχώς."
 
-#: src/Process/Backend/MediaItem.php:299 src/Process/Backend/MediaItem.php:504
+#: src/Process/Backend/MediaItem.php:276 src/Process/Backend/MediaItem.php:483
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Οι προεπιλεγμένες ρυθμίσεις εισαγωγής μέσων ενημερώθηκαν επιτυχώς."
 
-#: src/Process/Backend/MediaItem.php:325
+#: src/Process/Backend/MediaItem.php:302
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "Οι ρυθμίσεις εισαγωγής πολυμέσων έχουν εγγραφεί με επιτυχία για αυτόν το φάκελο."
 
-#: src/Process/Backend/MediaItem.php:336
+#: src/Process/Backend/MediaItem.php:313
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Οι ρυθμίσεις εισαγωγής πολυμέσων αφαιρέθηκαν με επιτυχία για αυτόν το φάκελο."
 
-#: src/Process/Backend/MediaItem.php:533 src/Process/Backend/MediaItem.php:534
+#: src/Process/Backend/MediaItem.php:512 src/Process/Backend/MediaItem.php:513
 msgid "Select media item"
 msgstr "Επιλέξτε στοιχείο πολυμέσων"
 
-#: src/Process/Backend/MediaItem.php:545 src/Process/Backend/MediaItem.php:620
+#: src/Process/Backend/MediaItem.php:524 src/Process/Backend/MediaItem.php:599
 msgid "Image size:"
 msgstr "Μέγεθος εικόνας:"
 
-#: src/Process/Backend/MediaItem.php:572 src/Process/Upgrade/Attic.php:302
+#: src/Process/Backend/MediaItem.php:551 src/Process/Upgrade/Attic.php:302
 msgid "Select"
 msgstr "Επιλογή"
 
-#: src/Process/Backend/MediaItem.php:607 src/Process/Backend/MediaItem.php:608
+#: src/Process/Backend/MediaItem.php:586 src/Process/Backend/MediaItem.php:587
 msgid "Insert media item"
 msgstr "Εισαγωγή στοιχείου πολυμέσων"
 
-#: src/Process/Backend/MediaItem.php:639
+#: src/Process/Backend/MediaItem.php:618
 msgid "Image legend and alternate text"
 msgstr "Υπόμνημα εικόνας και εναλλακτικό κείμενο"
 
-#: src/Process/Backend/MediaItem.php:669
+#: src/Process/Backend/MediaItem.php:648
 msgid "Legend:"
 msgstr "Υπόμνημα:"
 
-#: src/Process/Backend/MediaItem.php:674
+#: src/Process/Backend/MediaItem.php:653
 msgid "Image alignment"
 msgstr "Στοίχιση εικόνας"
 
-#: src/Process/Backend/MediaItem.php:694
+#: src/Process/Backend/MediaItem.php:673
 msgid "Image insertion"
 msgstr "Εισαγωγή εικόνας"
 
-#: src/Process/Backend/MediaItem.php:697
+#: src/Process/Backend/MediaItem.php:676
 msgid "As a single image"
 msgstr "Ως ενιαία εικόνα"
 
-#: src/Process/Backend/MediaItem.php:699
+#: src/Process/Backend/MediaItem.php:678
 msgid "As a link to the original image"
 msgstr "Ως σύνδεσμος στην αρχική εικόνα"
 
-#: src/Process/Backend/MediaItem.php:707
+#: src/Process/Backend/MediaItem.php:686
 msgid "MP3 disposition"
 msgstr "Διάθεση MP3"
 
-#: src/Process/Backend/MediaItem.php:710
+#: src/Process/Backend/MediaItem.php:689
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Λάβετε υπόψη ότι δεν μπορείτε να εισάγετε αρχεία mp3 με τον τυπικό επεξεργαστή σε λειτουργία WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:740
+#: src/Process/Backend/MediaItem.php:719
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Λάβετε υπόψη ότι δεν μπορείτε να εισάγετε αρχεία βίντεο με τον τυπικό επεξεργαστή σε λειτουργία WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:745
+#: src/Process/Backend/MediaItem.php:724
 msgid "Video size"
 msgstr "Μέγεθος βίντεο"
 
-#: src/Process/Backend/MediaItem.php:746
+#: src/Process/Backend/MediaItem.php:725
 msgid "Width:"
 msgstr "Πλάτος:"
 
-#: src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/MediaItem.php:727
 msgid "Height:"
 msgstr "Ύψος:"
 
-#: src/Process/Backend/MediaItem.php:755
+#: src/Process/Backend/MediaItem.php:734
 msgid "Video disposition"
 msgstr "Διάθεση βίντεο"
 
-#: src/Process/Backend/MediaItem.php:784
+#: src/Process/Backend/MediaItem.php:763
 msgid "Media item will be inserted as a link."
 msgstr "Το στοιχείο πολυμέσων θα εισαχθεί ως σύνδεσμος."
 
-#: src/Process/Backend/MediaItem.php:804
+#: src/Process/Backend/MediaItem.php:783
 msgid "Make current settings as default"
 msgstr "Κάντε τις τρέχουσες ρυθμίσεις ως προκαθορισμένες"
 
-#: src/Process/Backend/MediaItem.php:805
+#: src/Process/Backend/MediaItem.php:784
 msgid "For the blog"
 msgstr "Για το blog"
 
-#: src/Process/Backend/MediaItem.php:806
+#: src/Process/Backend/MediaItem.php:785
 msgid "For this folder only"
 msgstr "Μόνο για αυτόν το φάκελο"
 
-#: src/Process/Backend/MediaItem.php:815
+#: src/Process/Backend/MediaItem.php:794
 msgid "Settings exist for this folder:"
 msgstr "Οι ρυθμίσεις υπάρχουν για αυτόν το φάκελο:"
 
-#: src/Process/Backend/MediaItem.php:816
+#: src/Process/Backend/MediaItem.php:795
 msgid "Remove them"
 msgstr "Αφαιρέστε τα"
 
-#: src/Process/Backend/MediaItem.php:835 src/Process/Backend/MediaItem.php:838
-#: src/Process/Backend/MediaItem.php:919
+#: src/Process/Backend/MediaItem.php:814 src/Process/Backend/MediaItem.php:817
+#: src/Process/Backend/MediaItem.php:898
 msgid "Media details"
 msgstr "Λεπτομέρειες πολυμέσων"
 
-#: src/Process/Backend/MediaItem.php:870
+#: src/Process/Backend/MediaItem.php:849
 msgid "Available sizes:"
 msgstr "Διαθέσιμα μεγέθη:"
 
-#: src/Process/Backend/MediaItem.php:891
+#: src/Process/Backend/MediaItem.php:870
 msgid "Thumbnail details"
 msgstr "Thumbnail details"
 
-#: src/Process/Backend/MediaItem.php:896 src/Process/Backend/MediaItem.php:933
-#: src/Process/Backend/MediaItem.php:944
+#: src/Process/Backend/MediaItem.php:875 src/Process/Backend/MediaItem.php:912
+#: src/Process/Backend/MediaItem.php:923
 msgid "Image width:"
 msgstr "Πλάτος εικόνας:"
 
-#: src/Process/Backend/MediaItem.php:897 src/Process/Backend/MediaItem.php:937
-#: src/Process/Backend/MediaItem.php:945
+#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:916
+#: src/Process/Backend/MediaItem.php:924
 msgid "Image height:"
 msgstr "Ύψος εικόνας:"
 
-#: src/Process/Backend/MediaItem.php:901 src/Process/Backend/MediaItem.php:950
+#: src/Process/Backend/MediaItem.php:880 src/Process/Backend/MediaItem.php:929
 msgid "File size:"
 msgstr "Μέγεθος αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:904 src/Process/Backend/MediaItem.php:951
+#: src/Process/Backend/MediaItem.php:883 src/Process/Backend/MediaItem.php:930
 msgid "File URL:"
 msgstr "Url Αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:921
+#: src/Process/Backend/MediaItem.php:900
 msgid "File owner:"
 msgstr "Κάτοχος αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:922
+#: src/Process/Backend/MediaItem.php:901
 msgid "File type:"
 msgstr "Τύπος αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:957
+#: src/Process/Backend/MediaItem.php:936
 msgid "Show entries containing this media"
 msgstr "Εμφάνιση καταχωρήσεων που περιέχουν αυτό το μέσο"
 
-#: src/Process/Backend/MediaItem.php:960
+#: src/Process/Backend/MediaItem.php:939
 msgid "Entries containing this media"
 msgstr "Καταχωρήσεις που περιέχουν αυτό το μέσο"
 
-#: src/Process/Backend/MediaItem.php:997
+#: src/Process/Backend/MediaItem.php:976
 msgid "No entry seems contain this media."
 msgstr "Καμία καταχώρηση δεν φαίνεται να περιέχει αυτό το μέσο."
 
-#: src/Process/Backend/MediaItem.php:1024
-msgid "Image details"
-msgstr "Λεπτομέρειες εικόνας"
-
-#: src/Process/Backend/MediaItem.php:1034
+#: src/Process/Backend/MediaItem.php:1009
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1043
-msgid "No detail"
-msgstr "Καμία λεπτομέρεια"
+#: src/Process/Backend/MediaItem.php:1015
+msgid "Metadata"
+msgstr "Μεταδεδομένα"
 
-#: src/Process/Backend/MediaItem.php:1050
+#: src/Process/Backend/MediaItem.php:1022
 msgid "Updates and modifications"
 msgstr "Ενημερώσεις και τροποποιήσεις"
 
-#: src/Process/Backend/MediaItem.php:1056
-#: src/Process/Backend/MediaItem.php:1058
+#: src/Process/Backend/MediaItem.php:1028
+#: src/Process/Backend/MediaItem.php:1030
 msgid "Update thumbnails"
 msgstr "Ενημέρωση μικρογραφιών"
 
-#: src/Process/Backend/MediaItem.php:1057
+#: src/Process/Backend/MediaItem.php:1029
 msgid "This will create or update thumbnails for this image."
 msgstr "Αυτό θα δημιουργήσει ή θα ενημερώσει τις μικρογραφίες για αυτήν την εικόνα."
 
-#: src/Process/Backend/MediaItem.php:1066
-#: src/Process/Backend/MediaItem.php:1074
+#: src/Process/Backend/MediaItem.php:1038
+#: src/Process/Backend/MediaItem.php:1046
 msgid "Extract in a new directory"
 msgstr "Εξαγωγή σε νέο κατάλογο"
 
-#: src/Process/Backend/MediaItem.php:1067
-#: src/Process/Backend/MediaItem.php:1076
+#: src/Process/Backend/MediaItem.php:1039
+#: src/Process/Backend/MediaItem.php:1048
 msgid "Extract in current directory"
 msgstr "Εξαγωγή στον τρέχοντα κατάλογο"
 
-#: src/Process/Backend/MediaItem.php:1072
+#: src/Process/Backend/MediaItem.php:1044
 msgid "Extract archive"
 msgstr "Εξαγωγή αρχειοθήκης"
 
-#: src/Process/Backend/MediaItem.php:1075
+#: src/Process/Backend/MediaItem.php:1047
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Αυτό θα εξαγάγει την αρχειοθήκη σε ένα νέο φάκελο που δεν θα πρέπει να υπάρχει ακόμα."
 
-#: src/Process/Backend/MediaItem.php:1077
+#: src/Process/Backend/MediaItem.php:1049
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Αυτό θα εξαγάγει την αρχειοθήκη στον τρέχοντα κατάλογο και θα αντικαταστήσει τα υπάρχοντα αρχεία ή κατάλογο."
 
-#: src/Process/Backend/MediaItem.php:1079
+#: src/Process/Backend/MediaItem.php:1051
 msgid "Extract mode:"
 msgstr "Λειτουργία εξαγωγής:"
 
-#: src/Process/Backend/MediaItem.php:1081
+#: src/Process/Backend/MediaItem.php:1053
 msgid "Extract"
 msgstr "Εξαγωγή"
 
-#: src/Process/Backend/MediaItem.php:1089
+#: src/Process/Backend/MediaItem.php:1061
 msgid "Change media properties"
 msgstr "Αλλαγή ιδιοτήτων πολυμέσων"
 
-#: src/Process/Backend/MediaItem.php:1090
+#: src/Process/Backend/MediaItem.php:1062
 msgid "File name:"
 msgstr "Όνομα αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:1115
+#: src/Process/Backend/MediaItem.php:1102
 msgid "File date:"
 msgstr "Ημερομηνία αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:1123
+#: src/Process/Backend/MediaItem.php:1107
 msgid "New directory:"
 msgstr "Νέος κατάλογος:"
 
-#: src/Process/Backend/MediaItem.php:1131
+#: src/Process/Backend/MediaItem.php:1115
 msgid "Change file"
 msgstr "Αλλαγή αρχείου"
 
-#: src/Process/Backend/MediaItem.php:1133
+#: src/Process/Backend/MediaItem.php:1117
 msgid "Choose a file:"
 msgstr "Επιλέξτε ένα αρχείο:"
 
-#: src/Process/Backend/MediaItem.php:1134
+#: src/Process/Backend/MediaItem.php:1118
 #, php-format
 msgid "Maximum size %s"
 msgstr "Μέγιστο μέγεθος %s"
 
-#: src/Process/Backend/MediaItem.php:1145
+#: src/Process/Backend/MediaItem.php:1129
 msgid "Delete this media"
 msgstr "Διαγραφή αυτού του μέσου"
 
@@ -5360,22 +5389,22 @@ msgid "User has no permission, he will not be able to login yet. See below to ad
 msgstr "Ο χρήστης δεν έχει καμία άδεια, δεν θα είναι σε θέση να συνδεθεί ακόμα. Δείτε παρακάτω για να προσθέσετε μερικά."
 
 #: src/Process/Backend/User.php:224 src/Process/Backend/User.php:225
-#: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:496
-#: src/Process/Backend/UserPreferences.php:497
-#: src/Process/Backend/UserPreferences.php:498
-#: src/Process/Install/Install.php:416 src/Process/Install/Install.php:417
-#: src/Process/Install/Install.php:418
+#: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:498
+#: src/Process/Backend/UserPreferences.php:499
+#: src/Process/Backend/UserPreferences.php:500
+#: src/Process/Install/Install.php:417 src/Process/Install/Install.php:418
+#: src/Process/Install/Install.php:419
 #, php-format
 msgid "Password strength: %s"
 msgstr "Δύναμη κωδικού πρόσβασης: %s"
 
-#: src/Process/Backend/User.php:224 src/Process/Backend/UserPreferences.php:496
-#: src/Process/Install/Install.php:416
+#: src/Process/Backend/User.php:224 src/Process/Backend/UserPreferences.php:498
+#: src/Process/Install/Install.php:417
 msgid "weak"
 msgstr "αδύναμο"
 
-#: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:498
-#: src/Process/Install/Install.php:418
+#: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:500
+#: src/Process/Install/Install.php:419
 msgid "strong"
 msgstr "ισχυρός"
 
@@ -5403,17 +5432,17 @@ msgstr "Αν αλλάξετε το όνομα χρήστη, θα πρέπει ν
 msgid "Password change required to connect"
 msgstr "Απαιτείται αλλαγή κωδικού πρόσβασης για σύνδεση"
 
-#: src/Process/Backend/User.php:324 src/Process/Backend/UserPreferences.php:522
-#: src/Process/Install/Install.php:459
+#: src/Process/Backend/User.php:324 src/Process/Backend/UserPreferences.php:524
+#: src/Process/Install/Install.php:460
 msgid "Last Name:"
 msgstr "Επώνυμο:"
 
-#: src/Process/Backend/User.php:331 src/Process/Backend/UserPreferences.php:529
-#: src/Process/Install/Install.php:453
+#: src/Process/Backend/User.php:331 src/Process/Backend/UserPreferences.php:531
+#: src/Process/Install/Install.php:454
 msgid "First Name:"
 msgstr "Όνομα:"
 
-#: src/Process/Backend/User.php:338 src/Process/Backend/UserPreferences.php:536
+#: src/Process/Backend/User.php:338 src/Process/Backend/UserPreferences.php:538
 msgid "Display name:"
 msgstr "Εμφάνιση ονόματος:"
 
@@ -5421,23 +5450,23 @@ msgstr "Εμφάνιση ονόματος:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Υποχρεωτικό για τη διαδικασία ανάκτησης κωδικού πρόσβασης."
 
-#: src/Process/Backend/User.php:354 src/Process/Backend/UserPreferences.php:550
+#: src/Process/Backend/User.php:354 src/Process/Backend/UserPreferences.php:552
 msgid "Alternate emails (comma separated list):"
 msgstr "Εναλλακτικά emails (λίστα χωρισμένη με κόμμα):"
 
-#: src/Process/Backend/User.php:359 src/Process/Backend/UserPreferences.php:555
+#: src/Process/Backend/User.php:359 src/Process/Backend/UserPreferences.php:557
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Μη έγκυρα emails θα διαγραφούν αυτόματα από τη λίστα."
 
-#: src/Process/Backend/User.php:369 src/Process/Backend/UserPreferences.php:565
+#: src/Process/Backend/User.php:369 src/Process/Backend/UserPreferences.php:567
 msgid "Alternate URLs (comma separated list):"
 msgstr "Εναλλακτικές διευθύνσεις URL (λίστα χωρισμένη με κόμμα):"
 
-#: src/Process/Backend/User.php:374 src/Process/Backend/UserPreferences.php:570
+#: src/Process/Backend/User.php:374 src/Process/Backend/UserPreferences.php:572
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Μη έγκυρες διευθύνσεις URL θα καταργηθούν αυτόματα από τη λίστα."
 
-#: src/Process/Backend/User.php:380 src/Process/Backend/UserPreferences.php:629
+#: src/Process/Backend/User.php:380 src/Process/Backend/UserPreferences.php:631
 msgid "Interface"
 msgstr "Διεπαφή"
 
@@ -5445,19 +5474,19 @@ msgstr "Διεπαφή"
 msgid "Timezone:"
 msgstr "Timezone:"
 
-#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:745
+#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:747
 msgid "Edition"
 msgstr "Έκδοση"
 
-#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:759
+#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:761
 msgid "Preferred format:"
 msgstr "Προτιμώμενη μορφή:"
 
-#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:762
+#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:764
 msgid "Default entry status:"
 msgstr "Προεπιλεγμένη κατάσταση εισόδου:"
 
-#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:765
+#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:767
 msgid "Entry edit field height:"
 msgstr "Ύψος πεδίου επεξεργασίας εισόδου:"
 
@@ -5494,333 +5523,337 @@ msgstr "Λίστα αναρτήσεων"
 msgid "List of comments"
 msgstr "Κατάλογος σχολίων"
 
-#: src/Process/Backend/UserPreferences.php:118
+#: src/Process/Backend/UserPreferences.php:119
 msgid "Light"
 msgstr "Φωτεινό"
 
-#: src/Process/Backend/UserPreferences.php:119
+#: src/Process/Backend/UserPreferences.php:120
 msgid "Dark"
 msgstr "Σκοτεινό"
 
-#: src/Process/Backend/UserPreferences.php:120
+#: src/Process/Backend/UserPreferences.php:121
 msgid "Automatic"
 msgstr "Αυτόματο"
 
-#: src/Process/Backend/UserPreferences.php:125
+#: src/Process/Backend/UserPreferences.php:126
 msgid "Smallest"
 msgstr "Μικρότερο"
 
-#: src/Process/Backend/UserPreferences.php:126
+#: src/Process/Backend/UserPreferences.php:127
 msgid "Smaller"
 msgstr "Μικρότερο"
 
-#: src/Process/Backend/UserPreferences.php:128
+#: src/Process/Backend/UserPreferences.php:129
 msgid "Larger"
 msgstr "Μεγαλύτερο"
 
-#: src/Process/Backend/UserPreferences.php:129
+#: src/Process/Backend/UserPreferences.php:130
 msgid "Largest"
 msgstr "Μεγαλύτερο"
 
-#: src/Process/Backend/UserPreferences.php:141
+#: src/Process/Backend/UserPreferences.php:142
 msgid "Blog description (in blog parameters)"
 msgstr "Περιγραφή ιστολογίου (σε παραμέτρους ιστολογίου)"
 
-#: src/Process/Backend/UserPreferences.php:142
+#: src/Process/Backend/UserPreferences.php:143
 msgid "Category description"
 msgstr "Περιγραφή κατηγορίας"
 
-#: src/Process/Backend/UserPreferences.php:183
-#: src/Process/Backend/UserPreferences.php:200
+#: src/Process/Backend/UserPreferences.php:184
+#: src/Process/Backend/UserPreferences.php:201
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Αν θέλετε να αλλάξετε το email ή τον κωδικό πρόσβασής σας, πρέπει να δώσετε τον τρέχοντα κωδικό πρόσβασής σας."
 
-#: src/Process/Backend/UserPreferences.php:231
+#: src/Process/Backend/UserPreferences.php:232
 msgid "Personal information has been successfully updated."
 msgstr "Τα προσωπικά στοιχεία ενημερώθηκαν επιτυχώς."
 
-#: src/Process/Backend/UserPreferences.php:348
+#: src/Process/Backend/UserPreferences.php:349
 msgid "Personal options has been successfully updated."
 msgstr "Οι προσωπικές επιλογές ενημερώθηκαν με επιτυχία."
 
-#: src/Process/Backend/UserPreferences.php:375
+#: src/Process/Backend/UserPreferences.php:377
 msgid "Dashboard options has been successfully updated."
 msgstr "Οι επιλογές του ταμπλό ενημερώθηκαν με επιτυχία."
 
-#: src/Process/Backend/UserPreferences.php:387
-#: src/Process/Backend/UserPreferences.php:411
+#: src/Process/Backend/UserPreferences.php:389
+#: src/Process/Backend/UserPreferences.php:413
 msgid "No favorite selected"
 msgstr "Δεν έχουν επιλεγεί αγαπημένα"
 
-#: src/Process/Backend/UserPreferences.php:398
+#: src/Process/Backend/UserPreferences.php:400
 msgid "Favorites have been successfully added."
 msgstr "Τα αγαπημένα προστέθηκαν με επιτυχία."
 
-#: src/Process/Backend/UserPreferences.php:424
+#: src/Process/Backend/UserPreferences.php:426
 msgid "Favorites have been successfully removed."
 msgstr "Τα αγαπημένα αφαιρέθηκαν επιτυχώς."
 
-#: src/Process/Backend/UserPreferences.php:454
+#: src/Process/Backend/UserPreferences.php:456
 msgid "Favorites have been successfully updated."
 msgstr "Τα αγαπημένα ενημερώθηκαν επιτυχώς."
 
-#: src/Process/Backend/UserPreferences.php:466
+#: src/Process/Backend/UserPreferences.php:468
 msgid "Default favorites have been successfully updated."
 msgstr "Τα προεπιλεγμένα αγαπημένα ενημερώθηκαν επιτυχώς."
 
-#: src/Process/Backend/UserPreferences.php:480
+#: src/Process/Backend/UserPreferences.php:482
 msgid "Dashboard items order have been successfully reset."
 msgstr "Η σειρά στοιχείων του ταμπλό έχει γίνει με επιτυχία."
 
-#: src/Process/Backend/UserPreferences.php:517
 #: src/Process/Backend/UserPreferences.php:519
+#: src/Process/Backend/UserPreferences.php:521
 msgid "My profile"
 msgstr "Το προφίλ μου"
 
-#: src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/UserPreferences.php:574
 msgid "Language for my interface:"
 msgstr "Γλώσσα για τη διεπαφή μου:"
 
-#: src/Process/Backend/UserPreferences.php:575
+#: src/Process/Backend/UserPreferences.php:577
 msgid "My timezone:"
 msgstr "Η ώρα μου:"
 
-#: src/Process/Backend/UserPreferences.php:580
+#: src/Process/Backend/UserPreferences.php:582
 msgid "Change my password"
 msgstr "Αλλαγή κωδικού πρόσβασης"
 
-#: src/Process/Backend/UserPreferences.php:590
+#: src/Process/Backend/UserPreferences.php:592
 msgid "Confirm new password:"
 msgstr "Επιβεβαίωση νέου κωδικού πρόσβασης:"
 
-#: src/Process/Backend/UserPreferences.php:598
+#: src/Process/Backend/UserPreferences.php:600
 msgid "Your current password:"
 msgstr "Ο τρέχων κωδικός πρόσβασης:"
 
-#: src/Process/Backend/UserPreferences.php:609
+#: src/Process/Backend/UserPreferences.php:611
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Εάν έχετε αλλάξει το email ή τον κωδικό πρόσβασής σας, πρέπει να δώσετε τον τρέχοντα κωδικό πρόσβασης για να αποθηκεύσετε αυτές τις τροποποιήσεις."
 
-#: src/Process/Backend/UserPreferences.php:615
+#: src/Process/Backend/UserPreferences.php:617
 msgid "Update my profile"
 msgstr "Ενημέρωση του προφίλ μου"
 
-#: src/Process/Backend/UserPreferences.php:623
-#: src/Process/Backend/UserPreferences.php:626
+#: src/Process/Backend/UserPreferences.php:625
+#: src/Process/Backend/UserPreferences.php:628
 msgid "My options"
 msgstr "Οι επιλογές μου"
 
-#: src/Process/Backend/UserPreferences.php:631
+#: src/Process/Backend/UserPreferences.php:633
 msgid "Theme:"
 msgstr "Θέμα:"
 
-#: src/Process/Backend/UserPreferences.php:636
+#: src/Process/Backend/UserPreferences.php:638
 msgid "Activate enhanced uploader in media manager"
 msgstr "Ενεργοποίηση βελτιωμένου uploader στο πρόγραμμα διαχείρισης πολυμέσων"
 
-#: src/Process/Backend/UserPreferences.php:640
+#: src/Process/Backend/UserPreferences.php:642
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Προεπισκόπηση της καταχώρησης που επεξεργάζεται σε κενό παράθυρο ή καρτέλα (ανάλογα με τις ρυθμίσεις του προγράμματος περιήγησης)."
 
-#: src/Process/Backend/UserPreferences.php:644
+#: src/Process/Backend/UserPreferences.php:646
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Απενεργοποίηση javascript powered drag and drop για την παραγγελία στοιχείων"
 
-#: src/Process/Backend/UserPreferences.php:645
+#: src/Process/Backend/UserPreferences.php:647
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Αν ενεργοποιηθεί, τα αριθμητικά πεδία θα επιτρέπουν να πληκτρολογήσετε τον αριθμό παραγγελίας των στοιχείων."
 
-#: src/Process/Backend/UserPreferences.php:649
+#: src/Process/Backend/UserPreferences.php:651
 msgid "Hide all secondary information and notes"
 msgstr "Απόκρυψη όλων των δευτερευουσών πληροφοριών και σημειώσεων"
 
-#: src/Process/Backend/UserPreferences.php:653
+#: src/Process/Backend/UserPreferences.php:655
 msgid "Hide help button"
 msgstr "Απόκρυψη κουμπιού βοήθειας"
 
-#: src/Process/Backend/UserPreferences.php:655
+#: src/Process/Backend/UserPreferences.php:657
 msgid "Font size:"
 msgstr "Μέγεθος γραμματοσειράς:"
 
-#: src/Process/Backend/UserPreferences.php:660
+#: src/Process/Backend/UserPreferences.php:662
 msgid "Use operating system font"
 msgstr "Χρήση γραμματοσειράς λειτουργικού συστήματος"
 
-#: src/Process/Backend/UserPreferences.php:662
+#: src/Process/Backend/UserPreferences.php:664
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Αριθμός πρόσφατων φακέλων που προτείνονται στο διαχειριστή μέσων:"
 
-#: src/Process/Backend/UserPreferences.php:664
+#: src/Process/Backend/UserPreferences.php:666
 msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Αφήστε κενό για να αγνοήσετε, εμφανίζεται μόνο αν η Javascript είναι ενεργοποιημένη στο πρόγραμμα περιήγησής σας."
 
-#: src/Process/Backend/UserPreferences.php:670
+#: src/Process/Backend/UserPreferences.php:672
 msgid "Do not use standard favicon"
 msgstr "Μην χρησιμοποιήσετε το τυπικό favicon"
 
-#: src/Process/Backend/UserPreferences.php:671
+#: src/Process/Backend/UserPreferences.php:673
 msgid "This will be applied for all users"
 msgstr "Αυτό θα εφαρμοστεί για όλους τους χρήστες"
 
-#: src/Process/Backend/UserPreferences.php:678
+#: src/Process/Backend/UserPreferences.php:680
 msgid "Disable Ad-blocker check"
 msgstr "Απενεργοποίηση ελέγχου αποκλεισμού διαφημίσεων"
 
-#: src/Process/Backend/UserPreferences.php:679
+#: src/Process/Backend/UserPreferences.php:681
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Μερικά ad-blockers (Φιλοξενία, Adblock plus, uBloc προέλευσης, …) μπορεί να παρεμβαίνει με κάποια δυνατότητα ως εισαγωγή συνδέσμου ή πολυμέσων σε καταχωρήσεις με CKEditor; σε αυτή την περίπτωση θα πρέπει να το απενεργοποιήσετε για αυτήν την εγκατάσταση Dotclear (backend μόνο). Σημειώστε ότι το Dotclear δεν προσθέτει διαφημίσεις ot trackers στο σύστημα υποστήριξης."
 
-#: src/Process/Backend/UserPreferences.php:680
+#: src/Process/Backend/UserPreferences.php:682
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Σημειώστε επίσης ότι η απενεργοποίηση αυτής της ανίχνευσης των αποκλειστών διαφημίσεων δεν θα απενεργοποιήσει τους εγκατεστημένους αποκλειστές διαφημίσεων. Η Dotclear δεν μπορεί να παρέμβει στη λειτουργία των επεκτάσεων του προγράμματος περιήγησης!"
 
-#: src/Process/Backend/UserPreferences.php:683
+#: src/Process/Backend/UserPreferences.php:685
 msgid "Quick menu character:"
 msgstr "Χαρακτήρας γρήγορου μενού:"
 
-#: src/Process/Backend/UserPreferences.php:688
+#: src/Process/Backend/UserPreferences.php:690
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Αφήστε το κενό για να χρησιμοποιήσετε τον προεπιλεγμένο χαρακτήρα <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:695
+#: src/Process/Backend/UserPreferences.php:697
 msgid "Optional columns displayed in lists"
 msgstr "Προαιρετικές στήλες που εμφανίζονται σε λίστες"
 
-#: src/Process/Backend/UserPreferences.php:714
+#: src/Process/Backend/UserPreferences.php:716
 msgid "Options for lists"
 msgstr "Επιλογές για λίστες"
 
-#: src/Process/Backend/UserPreferences.php:717
+#: src/Process/Backend/UserPreferences.php:719
 msgid "Apply filters on the fly"
 msgstr "Εφαρμογή φίλτρων στη μύγα"
 
-#: src/Process/Backend/UserPreferences.php:723
+#: src/Process/Backend/UserPreferences.php:725
 msgid "List"
 msgstr "Λίστα"
 
-#: src/Process/Backend/UserPreferences.php:724
+#: src/Process/Backend/UserPreferences.php:726
 msgid "Order by"
 msgstr "Ταξινόμηση κατά"
 
-#: src/Process/Backend/UserPreferences.php:725
+#: src/Process/Backend/UserPreferences.php:727
 msgid "Sort"
 msgstr "Ταξινόμηση"
 
-#: src/Process/Backend/UserPreferences.php:750
+#: src/Process/Backend/UserPreferences.php:752
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Προτιμώμενος επεξεργαστής για %s:"
 
-#: src/Process/Backend/UserPreferences.php:753
+#: src/Process/Backend/UserPreferences.php:755
 msgid "Choose an editor"
 msgstr "Επιλέξτε έναν επεξεργαστή"
 
-#: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:772
 msgid "Enable WYSIWYG mode"
 msgstr "Ενεργοποίηση λειτουργίας WYSIWYG"
 
-#: src/Process/Backend/UserPreferences.php:774
+#: src/Process/Backend/UserPreferences.php:776
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Εμφάνιση γραμμής εργαλείων του επεξεργαστή στο κάτω μέρος του textarea (αν είναι δυνατόν)"
 
-#: src/Process/Backend/UserPreferences.php:780
+#: src/Process/Backend/UserPreferences.php:782
 msgid "Use HTML editor for:"
 msgstr "Χρήση επεξεργαστή HTML για:"
 
-#: src/Process/Backend/UserPreferences.php:790
+#: src/Process/Backend/UserPreferences.php:792
 msgid "Other options"
 msgstr "Άλλες επιλογές"
 
-#: src/Process/Backend/UserPreferences.php:798
+#: src/Process/Backend/UserPreferences.php:800
 msgid "Save my options"
 msgstr "Αποθήκευση των επιλογών μου"
 
-#: src/Process/Backend/UserPreferences.php:837
+#: src/Process/Backend/UserPreferences.php:839
 #, php-format
 msgid "position of %s"
 msgstr "θέση του %s"
 
-#: src/Process/Backend/UserPreferences.php:854
+#: src/Process/Backend/UserPreferences.php:856
 msgid "Save order"
 msgstr "Αποθήκευση παραγγελίας"
 
-#: src/Process/Backend/UserPreferences.php:857
+#: src/Process/Backend/UserPreferences.php:859
 msgid "Delete selected favorites"
 msgstr "Διαγραφή επιλεγμένων αγαπημένων"
 
-#: src/Process/Backend/UserPreferences.php:859
+#: src/Process/Backend/UserPreferences.php:861
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Είστε βέβαιοι ότι θέλετε να καταργήσετε τα επιλεγμένα αγαπημένα?"
 
-#: src/Process/Backend/UserPreferences.php:864
+#: src/Process/Backend/UserPreferences.php:866
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Εάν είστε υπερδιαχειριστής, μπορείτε να ορίσετε αυτό το σύνολο αγαπημένων που θα χρησιμοποιηθεί από προεπιλογή σε όλα τα blogs αυτής της εγκατάστασης."
 
-#: src/Process/Backend/UserPreferences.php:865
+#: src/Process/Backend/UserPreferences.php:867
 msgid "Define as default favorites"
 msgstr "Ορισμός ως προεπιλεγμένα αγαπημένα"
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:874
 msgid "Currently no personal favorites."
 msgstr "Προς το παρόν δεν υπάρχουν προσωπικά αγαπημένα."
 
-#: src/Process/Backend/UserPreferences.php:886
+#: src/Process/Backend/UserPreferences.php:888
 msgid "Other available favorites"
 msgstr "Άλλα διαθέσιμα αγαπημένα"
 
-#: src/Process/Backend/UserPreferences.php:914
+#: src/Process/Backend/UserPreferences.php:916
 msgid "(default favorite)"
 msgstr "(προεπιλεγμένο favorite)"
 
-#: src/Process/Backend/UserPreferences.php:925
+#: src/Process/Backend/UserPreferences.php:927
 msgid "Add to my favorites"
 msgstr "Προσθήκη στα αγαπημένα μου"
 
-#: src/Process/Backend/UserPreferences.php:934
+#: src/Process/Backend/UserPreferences.php:936
 msgid "Menu"
 msgstr "Μενού"
 
-#: src/Process/Backend/UserPreferences.php:937
+#: src/Process/Backend/UserPreferences.php:939
 msgid "Display favorites at the top of the menu"
 msgstr "Εμφάνιση αγαπημένων στο πάνω μέρος του μενού"
 
-#: src/Process/Backend/UserPreferences.php:940
+#: src/Process/Backend/UserPreferences.php:942
 msgid "Dashboard icons"
 msgstr "Εικονίδια ταμπλό"
 
-#: src/Process/Backend/UserPreferences.php:943
+#: src/Process/Backend/UserPreferences.php:945
 msgid "Display dashboard icons"
 msgstr "Εμφάνιση εικονιδίων ταμπλό"
 
-#: src/Process/Backend/UserPreferences.php:947
+#: src/Process/Backend/UserPreferences.php:949
 msgid "Dashboard modules"
 msgstr "Πρόσθετα ταμπλό"
 
-#: src/Process/Backend/UserPreferences.php:951
+#: src/Process/Backend/UserPreferences.php:953
 msgid "Display documentation links"
 msgstr "Εμφάνιση συνδέσμων τεκμηρίωσης"
 
-#: src/Process/Backend/UserPreferences.php:955
+#: src/Process/Backend/UserPreferences.php:957
+msgid "Display donate links"
+msgstr "Εμφάνιση συνδέσμων δωρεάς"
+
+#: src/Process/Backend/UserPreferences.php:961
 msgid "Display Dotclear news"
 msgstr "Εμφάνιση ειδήσεων Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:959
+#: src/Process/Backend/UserPreferences.php:965
 msgid "Display quick entry form"
 msgstr "Εμφάνιση φόρμας γρήγορης καταχώρησης"
 
-#: src/Process/Backend/UserPreferences.php:965
+#: src/Process/Backend/UserPreferences.php:971
 msgid "Do not display Dotclear updates"
 msgstr "Να μην εμφανίζονται ενημερώσεις Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:978
+#: src/Process/Backend/UserPreferences.php:984
 msgid "Save my dashboard options"
 msgstr "Αποθήκευση των επιλογών του ταμπλό μου"
 
-#: src/Process/Backend/UserPreferences.php:985
+#: src/Process/Backend/UserPreferences.php:991
 msgid "Dashboard items order"
 msgstr "Σειρά στοιχείων ταμπλό"
 
-#: src/Process/Backend/UserPreferences.php:988
+#: src/Process/Backend/UserPreferences.php:994
 msgid "Reset dashboard items order"
 msgstr "Επαναφορά παραγγελίας ταμπλό"
 
@@ -5920,72 +5953,72 @@ msgid "<p>This is a comment.</p>\n"
 msgstr "<p>Αυτό είναι ένα σχόλιο.</p>\n"
 "<p>Για να το διαγράψετε, συνδεθείτε και δείτε τα σχόλια του ιστολογίου σας. Στη συνέχεια, μπορείτε να το αφαιρέσετε ή να το επεξεργαστείτε.</p>"
 
-#: src/Process/Install/Install.php:408
+#: src/Process/Install/Install.php:409
 msgid "Dotclear Install"
 msgstr "Εγκατάσταση Dotclear"
 
-#: src/Process/Install/Install.php:422
+#: src/Process/Install/Install.php:423
 msgid "show"
 msgstr "εμφάνιση"
 
-#: src/Process/Install/Install.php:430
+#: src/Process/Install/Install.php:431
 msgid "Dotclear installation"
 msgstr "Εγκατάσταση Dotclear"
 
-#: src/Process/Install/Install.php:434
+#: src/Process/Install/Install.php:435
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "Ο κατάλογος προσωρινής αποθήκευσης %s δεν είναι εγγράψιμος."
 
-#: src/Process/Install/Install.php:442
+#: src/Process/Install/Install.php:443
 msgid "Configuration file has been successfully created."
 msgstr "Το αρχείο ρυθμίσεων δημιουργήθηκε επιτυχώς."
 
-#: src/Process/Install/Install.php:447 src/Process/Install/Install.php:452
+#: src/Process/Install/Install.php:448 src/Process/Install/Install.php:453
 msgid "User information"
 msgstr "Πληροφορίες χρήστη"
 
-#: src/Process/Install/Install.php:449
+#: src/Process/Install/Install.php:450
 msgid "Please provide the following information needed to create the first user."
 msgstr "Παρακαλώ δώστε τις ακόλουθες πληροφορίες που απαιτούνται για τη δημιουργία του πρώτου χρήστη."
 
-#: src/Process/Install/Install.php:474
+#: src/Process/Install/Install.php:475
 msgid "Username and password"
 msgstr "Όνομα χρήστη και κωδικός πρόσβασης"
 
-#: src/Process/Install/Install.php:520
+#: src/Process/Install/Install.php:521
 msgid "All done!"
 msgstr "Όλα ολοκληρώθηκαν!"
 
-#: src/Process/Install/Install.php:524
+#: src/Process/Install/Install.php:525
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "Το Dotclear εγκαταστάθηκε με επιτυχία. Εδώ είναι μερικές χρήσιμες πληροφορίες που πρέπει να κρατήσετε."
 
-#: src/Process/Install/Install.php:526
+#: src/Process/Install/Install.php:527
 msgid "Your account"
 msgstr "Ο λογαριασμός σας"
 
-#: src/Process/Install/Install.php:532
+#: src/Process/Install/Install.php:533
 msgid "Your blog"
 msgstr "Το ιστολόγιό σας"
 
-#: src/Process/Install/Install.php:534
+#: src/Process/Install/Install.php:535
 msgid "Blog address:"
 msgstr "Διεύθυνση ιστολογίου:"
 
-#: src/Process/Install/Install.php:535
+#: src/Process/Install/Install.php:536
 msgid "Administration interface:"
 msgstr "Διεπαφή διοίκησης:"
 
-#: src/Process/Install/Install.php:539
+#: src/Process/Install/Install.php:540
 msgid "Manage your blog now"
 msgstr "Διαχειριστείτε το ιστολόγιό σας τώρα"
 
-#: src/Process/Install/Install.php:546
+#: src/Process/Install/Install.php:547
 msgid "Installation can not be completed"
 msgstr "Η εγκατάσταση δεν μπορεί να ολοκληρωθεί"
 
-#: src/Process/Install/Install.php:548
+#: src/Process/Install/Install.php:549
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "Για τους λόγους που προανέφερα, το Dotclear δεν μπορεί να εγκατασταθεί. Παρακαλούμε ανατρέξτε στην <a href=\"https://dotclear.org/documentation/2.0/admin/install\">τεκμηρίωση</a> για να μάθετε πώς να διορθώνετε το πρόβλημα."
 
