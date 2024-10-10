@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-05 09:45+0200\n"
-"PO-Revision-Date: 2024-10-10 04:30\n"
+"PO-Revision-Date: 2024-10-10 06:22\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -4208,35 +4208,35 @@ msgstr "Dokumentatsioon ja tugi"
 
 #: src/Process/Backend/Home.php:151
 msgid "Donate to Dotclear"
-msgstr ""
+msgstr "Dotclearile annetada"
 
 #: src/Process/Backend/Home.php:152
 msgid "Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr ""
+msgstr "Dotclear ei ole kommertsprojekt - Dotcleari kasutamine on ja jääb alati tasuta. Kui soovite, võite Dotcleari toetada, et aidata meil katta projektiga seotud kulusid."
 
 #: src/Process/Backend/Home.php:153
 msgid "The collected funds will be spent as follows:"
-msgstr ""
+msgstr "Kogutud vahendeid kasutatakse järgmiselt:"
 
 #: src/Process/Backend/Home.php:155
 msgid "Paying for the website hosting and translations"
-msgstr ""
+msgstr "Veebisaidi majutuse ja tõlgete eest tasumine"
 
 #: src/Process/Backend/Home.php:156
 msgid "Paying for the domain names"
-msgstr ""
+msgstr "Domeeninimede eest maksmine"
 
 #: src/Process/Backend/Home.php:157
 msgid "Supporting related projects such as Dotaddict.org"
-msgstr ""
+msgstr "Toetades selliseid seotud projekte nagu Dotaddict.org"
 
 #: src/Process/Backend/Home.php:158
 msgid "Cover the costs of events set up by Dotclear"
-msgstr ""
+msgstr "Dotcleari korraldatud ürituste kulude katmine"
 
 #: src/Process/Backend/Home.php:160
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
-msgstr ""
+msgstr "Lisateavet ja annetusi leiate <a href=\"https://dotclear.org/donate\">sellelt leheküljelt</a>"
 
 #: src/Process/Backend/Home.php:200
 msgid "Dashboard area's drag and drop is disabled"
@@ -4812,7 +4812,7 @@ msgstr ":"
 
 #: src/Process/Backend/MediaItem.php:1015
 msgid "Metadata"
-msgstr ""
+msgstr "Metaandmed"
 
 #: src/Process/Backend/MediaItem.php:1022
 msgid "Updates and modifications"
@@ -5831,7 +5831,7 @@ msgstr "Dokumentatsiooni linkide kuvamine"
 
 #: src/Process/Backend/UserPreferences.php:957
 msgid "Display donate links"
-msgstr ""
+msgstr "Kuva annetada linke"
 
 #: src/Process/Backend/UserPreferences.php:961
 msgid "Display Dotclear news"
