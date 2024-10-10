@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-05 09:45+0200\n"
-"PO-Revision-Date: 2024-10-10 04:30\n"
+"PO-Revision-Date: 2024-10-10 06:22\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -4208,35 +4208,35 @@ msgstr "ডকুমেন্টেশন এবং সমর্থন"
 
 #: src/Process/Backend/Home.php:151
 msgid "Donate to Dotclear"
-msgstr ""
+msgstr "ডটক্লিয়ারে দান করুন"
 
 #: src/Process/Backend/Home.php:152
 msgid "Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr ""
+msgstr "ডটক্লিয়ার একটি বাণিজ্যিক প্রকল্প নয় — ডটক্লিয়ার ব্যবহার বিনামূল্যে এবং সর্বদা হবে। আপনি যদি চান, আপনি আমাদের প্রকল্প-সম্পর্কিত খরচ কভার করতে সাহায্য করতে ডটক্লিয়ারে অবদান রাখতে পারেন।."
 
 #: src/Process/Backend/Home.php:153
 msgid "The collected funds will be spent as follows:"
-msgstr ""
+msgstr "সংগৃহীত তহবিল নিম্নরূপ ব্যয় করা হবে:"
 
 #: src/Process/Backend/Home.php:155
 msgid "Paying for the website hosting and translations"
-msgstr ""
+msgstr "ওয়েবসাইট হোস্টিং এবং অনুবাদের জন্য অর্থ প্রদান"
 
 #: src/Process/Backend/Home.php:156
 msgid "Paying for the domain names"
-msgstr ""
+msgstr "ডোমেইন নামের জন্য অর্থপ্রদান"
 
 #: src/Process/Backend/Home.php:157
 msgid "Supporting related projects such as Dotaddict.org"
-msgstr ""
+msgstr "সহায়তা সম্পর্কিত প্রকল্প যেমন Dotaddict.org"
 
 #: src/Process/Backend/Home.php:158
 msgid "Cover the costs of events set up by Dotclear"
-msgstr ""
+msgstr "Dotclear দ্বারা সেট আপ ইভেন্ট খরচ কভার"
 
 #: src/Process/Backend/Home.php:160
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
-msgstr ""
+msgstr "আরও তথ্য এবং অনুদানের জন্য <a href=\"https://dotclear.org/donate\">এই পৃষ্ঠা</a> দেখুন"
 
 #: src/Process/Backend/Home.php:200
 msgid "Dashboard area's drag and drop is disabled"
@@ -4812,7 +4812,7 @@ msgstr ":"
 
 #: src/Process/Backend/MediaItem.php:1015
 msgid "Metadata"
-msgstr ""
+msgstr "মেটাডেটা"
 
 #: src/Process/Backend/MediaItem.php:1022
 msgid "Updates and modifications"
@@ -5831,7 +5831,7 @@ msgstr "ডকুমেন্টেশন লিঙ্ক প্রদর্শ�
 
 #: src/Process/Backend/UserPreferences.php:957
 msgid "Display donate links"
-msgstr ""
+msgstr "দান লিঙ্ক প্রদর্শন করুন"
 
 #: src/Process/Backend/UserPreferences.php:961
 msgid "Display Dotclear news"
