@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-05 09:45+0200\n"
-"PO-Revision-Date: 2024-10-10 04:30\n"
+"PO-Revision-Date: 2024-10-10 06:21\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -4173,35 +4173,35 @@ msgstr "문서 및 지원"
 
 #: src/Process/Backend/Home.php:151
 msgid "Donate to Dotclear"
-msgstr ""
+msgstr "닷클리어에 기부하기"
 
 #: src/Process/Backend/Home.php:152
 msgid "Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr ""
+msgstr "닷클리어는 상업적 프로젝트가 아닙니다. 닷클리어 사용은 무료이며 앞으로도 그럴 것입니다. 원하시는 경우, 프로젝트 관련 비용을 충당하기 위해 Dotclear에 기부하실 수 있습니다."
 
 #: src/Process/Backend/Home.php:153
 msgid "The collected funds will be spent as follows:"
-msgstr ""
+msgstr "모금된 기금은 다음과 같이 사용됩니다:"
 
 #: src/Process/Backend/Home.php:155
 msgid "Paying for the website hosting and translations"
-msgstr ""
+msgstr "웹사이트 호스팅 및 번역 비용 지불하기"
 
 #: src/Process/Backend/Home.php:156
 msgid "Paying for the domain names"
-msgstr ""
+msgstr "도메인 네임에 대한 비용 지불"
 
 #: src/Process/Backend/Home.php:157
 msgid "Supporting related projects such as Dotaddict.org"
-msgstr ""
+msgstr "Dotaddict.org와 같은 관련 프로젝트 지원"
 
 #: src/Process/Backend/Home.php:158
 msgid "Cover the costs of events set up by Dotclear"
-msgstr ""
+msgstr "닷클리어에서 설정한 이벤트 비용 지원"
 
 #: src/Process/Backend/Home.php:160
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
-msgstr ""
+msgstr "자세한 정보 및 기부는 <a href=\"https://dotclear.org/donate\">이 페이지를</a> 참조하세요."
 
 #: src/Process/Backend/Home.php:200
 msgid "Dashboard area's drag and drop is disabled"
@@ -4776,7 +4776,7 @@ msgstr ":"
 
 #: src/Process/Backend/MediaItem.php:1015
 msgid "Metadata"
-msgstr ""
+msgstr "메타데이터"
 
 #: src/Process/Backend/MediaItem.php:1022
 msgid "Updates and modifications"
@@ -5791,7 +5791,7 @@ msgstr "문서 링크 표시"
 
 #: src/Process/Backend/UserPreferences.php:957
 msgid "Display donate links"
-msgstr ""
+msgstr "기부 링크 표시"
 
 #: src/Process/Backend/UserPreferences.php:961
 msgid "Display Dotclear news"
