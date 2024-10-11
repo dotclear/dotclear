@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-05 09:45+0200\n"
-"PO-Revision-Date: 2024-10-10 06:21\n"
+"POT-Creation-Date: 2024-10-11 10:52+0200\n"
+"PO-Revision-Date: 2024-10-11 08:54\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -93,7 +93,7 @@ msgstr "Tento klíč v databázi neexistuje"
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:71
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
-#: src/Process/Backend/Home.php:456 src/Process/Backend/Post.php:709
+#: src/Process/Backend/Home.php:454 src/Process/Backend/Post.php:709
 msgid "Title"
 msgstr "Název"
 
@@ -423,7 +423,7 @@ msgid "Change category for this selection"
 msgstr "Změnit kategorii pro články"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:463
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:461
 #: src/Process/Backend/Post.php:649
 msgid "Category:"
 msgstr "Kategorie:"
@@ -433,7 +433,7 @@ msgid "Create a new category for the post(s)"
 msgstr "Vytvořit novou kategorii pro příspěvek"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
-#: src/Process/Backend/Home.php:453 src/Process/Backend/Home.php:470
+#: src/Process/Backend/Home.php:451 src/Process/Backend/Home.php:468
 #: src/Process/Backend/MediaItem.php:1064 src/Process/Backend/Post.php:657
 #: src/Process/Backend/Post.php:705
 msgid "Title:"
@@ -441,7 +441,7 @@ msgstr "Název:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:383
 #: src/Process/Backend/Category.php:244 src/Process/Backend/Category.php:298
-#: src/Process/Backend/Home.php:472 src/Process/Backend/Post.php:659
+#: src/Process/Backend/Home.php:470 src/Process/Backend/Post.php:659
 msgid "Parent:"
 msgstr "Rodič:"
 
@@ -451,7 +451,7 @@ msgstr "Rodič:"
 #: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:478 src/Process/Backend/MediaItem.php:1109
+#: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1109
 #: src/Process/Backend/Post.php:776 src/Process/Backend/Post.php:916
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:500
@@ -620,7 +620,7 @@ msgid "My preferences"
 msgstr "Moje předvolby"
 
 #: src/Core/Backend/Favorites.php:412 src/Core/Backend/Menus.php:180
-#: src/Process/Backend/Home.php:451 src/Process/Backend/Post.php:70
+#: src/Process/Backend/Home.php:449 src/Process/Backend/Post.php:70
 #: src/Process/Backend/Post.php:758 src/Process/Backend/Posts.php:101
 msgid "New post"
 msgstr "Nový článek"
@@ -1585,7 +1585,7 @@ msgstr "Nahrát zip soubor"
 #: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
 #: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:480
 #: src/Process/Backend/BlogPref.php:806 src/Process/Backend/Category.php:233
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:452
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:450
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:764
 #: src/Process/Backend/Post.php:884 src/Process/Backend/User.php:255
@@ -1664,7 +1664,7 @@ msgstr "Zpět"
 
 #: src/Core/Backend/Notices.php:81 src/Core/Backend/Page.php:1284
 #: src/Core/Backend/Page.php:1449 src/Core/Upgrade/Notices.php:46
-#: src/Process/Backend/Home.php:287
+#: src/Process/Backend/Home.php:285
 msgid "Error:"
 msgstr "Chyba:"
 
@@ -2487,8 +2487,7 @@ msgstr "Při načítání souboru šablony pro váš blog se něco pokazilo."
 msgid "Can't create template files."
 msgstr "Nelze vytvořit soubory šablon."
 
-#: src/Core/Install/Utils.php:33 src/Process/Backend/Update.php:161
-#: src/Process/Upgrade/Upgrade.php:250
+#: src/Core/Install/Utils.php:33 src/Process/Upgrade/Upgrade.php:250
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "Verze PHP je %s (%s nebo dříve potřeba)."
@@ -2543,11 +2542,11 @@ msgstr "Žádná log zpráva"
 msgid "No blog defined."
 msgstr "Žádný blog není definován"
 
-#: src/Core/Media.php:206 src/Process/Backend/Home.php:276
+#: src/Core/Media.php:206 src/Process/Backend/Home.php:274
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "V adresáři about:config \"public_path\" není žádný zapisovatelný adresář. Musíte vytvořit tento adresář s dostatečným právem (nebo změnit toto nastavení)."
 
-#: src/Core/Media.php:209 src/Process/Backend/Home.php:280
+#: src/Core/Media.php:209 src/Process/Backend/Home.php:278
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Neexistuje žádný zapisovatelný kořenový adresář pro správce médií. Měli byste kontaktovat správce."
 
@@ -2662,8 +2661,6 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:433
 #: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
 #: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:105
-#: src/Process/Backend/Update.php:36 src/Process/Backend/Update.php:54
-#: src/Process/Backend/Update.php:99 src/Process/Backend/Update.php:125
 #: src/Process/Backend/User.php:234 src/Process/Backend/Users.php:104
 #: src/Process/Backend/UsersActions.php:150
 #: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
@@ -4276,117 +4273,117 @@ msgstr "Následující zásuvné moduly byly zakázány:"
 msgid "Documentation and support"
 msgstr "Dokumentace a podpora"
 
-#: src/Process/Backend/Home.php:151
+#: src/Process/Backend/Home.php:150
 msgid "Donate to Dotclear"
 msgstr "Přispějte společnosti Dotclear"
 
-#: src/Process/Backend/Home.php:152
-msgid "Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr "Dotclear není komerční projekt - používání Dotclear je zdarma a vždy bude. Pokud chcete, můžete na Dotclear přispět a pomoci nám tak pokrýt náklady spojené s projektem."
+#: src/Process/Backend/Home.php:151
+msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
+msgstr ""
 
-#: src/Process/Backend/Home.php:153
+#: src/Process/Backend/Home.php:152
 msgid "The collected funds will be spent as follows:"
 msgstr "Vybrané prostředky budou použity takto:"
 
-#: src/Process/Backend/Home.php:155
+#: src/Process/Backend/Home.php:154
 msgid "Paying for the website hosting and translations"
 msgstr "Platba za hosting a překlady webových stránek"
 
-#: src/Process/Backend/Home.php:156
+#: src/Process/Backend/Home.php:155
 msgid "Paying for the domain names"
 msgstr "Platba za názvy domén"
 
-#: src/Process/Backend/Home.php:157
+#: src/Process/Backend/Home.php:156
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "Podpora souvisejících projektů, jako je Dotaddict.org"
 
-#: src/Process/Backend/Home.php:158
+#: src/Process/Backend/Home.php:157
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "Pokrytí nákladů na akce pořádané společností Dotclear"
 
-#: src/Process/Backend/Home.php:160
+#: src/Process/Backend/Home.php:159
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
 msgstr "Další informace a příspěvek naleznete na <a href=\"https://dotclear.org/donate\">této stránce</a>"
 
-#: src/Process/Backend/Home.php:200
+#: src/Process/Backend/Home.php:198
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "Přetažení oblasti hlavního panelu je zakázáno"
 
-#: src/Process/Backend/Home.php:201
+#: src/Process/Backend/Home.php:199
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "Přetažení oblasti hlavního panelu je povoleno"
 
-#: src/Process/Backend/Home.php:214 src/Process/Backend/Home.php:227
+#: src/Process/Backend/Home.php:212 src/Process/Backend/Home.php:225
 #: src/Process/Upgrade/Home.php:132
 msgid "Dashboard"
 msgstr "Nástěnka"
 
-#: src/Process/Backend/Home.php:235
+#: src/Process/Backend/Home.php:233
 msgid "Make this blog my default blog"
 msgstr "Nastavit tento blog jako výchozí"
 
-#: src/Process/Backend/Home.php:239
+#: src/Process/Backend/Home.php:237
 msgid "This blog is offline"
 msgstr "Tento blog je offline"
 
-#: src/Process/Backend/Home.php:241
+#: src/Process/Backend/Home.php:239
 msgid "This blog is removed"
 msgstr "Tento blog byl odstraněn"
 
-#: src/Process/Backend/Home.php:246 src/Process/Backend/Home.php:254
+#: src/Process/Backend/Home.php:244 src/Process/Backend/Home.php:252
 #: src/Process/Upgrade/Home.php:57 src/Process/Upgrade/Home.php:62
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s není definován, měli byste upravit konfigurační soubor."
 
-#: src/Process/Backend/Home.php:247 src/Process/Backend/Home.php:255
+#: src/Process/Backend/Home.php:245 src/Process/Backend/Home.php:253
 #: src/Process/Upgrade/Home.php:58 src/Process/Upgrade/Home.php:63
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "Další informace naleznete v <a href=\"https://dotclear.org/documentation/2.0/admin/config\">dokumentaci</a>."
 
-#: src/Process/Backend/Home.php:265 src/Process/Upgrade/Home.php:67
+#: src/Process/Backend/Home.php:263 src/Process/Upgrade/Home.php:67
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "Adresář pro mezipaměť neexistuje nebo není zapisovatelný. Musíte vytvořit tento adresář s dostatečnými právy a ovlivnit jeho umístění na \"DC_TPL_CACHE\" v souboru inc/config.php."
 
-#: src/Process/Backend/Home.php:269
+#: src/Process/Backend/Home.php:267
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "Adresář pro mezipaměť neexistuje nebo není zapisovatelný. Měli byste kontaktovat správce."
 
-#: src/Process/Backend/Home.php:304 src/Process/Backend/Plugins.php:119
+#: src/Process/Backend/Home.php:302 src/Process/Backend/Plugins.php:119
 #: src/Process/Install/Install.php:506 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
 msgstr "Následující pluginy byly nainstalovány:"
 
-#: src/Process/Backend/Home.php:318 src/Process/Backend/Plugins.php:133
+#: src/Process/Backend/Home.php:316 src/Process/Backend/Plugins.php:133
 #: src/Process/Install/Install.php:513 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have not been installed:"
 msgstr "Následující pluginy nebyly nainstalovány:"
 
-#: src/Process/Backend/Home.php:331
+#: src/Process/Backend/Home.php:329
 msgid "Errors have occured with following plugins:"
 msgstr "Došlo k chybám s následujícími pluginy:"
 
-#: src/Process/Backend/Home.php:449
+#: src/Process/Backend/Home.php:447
 msgid "Quick post"
 msgstr "Rychlý článek"
 
-#: src/Process/Backend/Home.php:460 src/Process/Backend/Post.php:727
+#: src/Process/Backend/Home.php:458 src/Process/Backend/Post.php:727
 msgid "Content:"
 msgstr "Obsah:"
 
-#: src/Process/Backend/Home.php:461 src/Process/Backend/Post.php:734
+#: src/Process/Backend/Home.php:459 src/Process/Backend/Post.php:734
 msgid "Content"
 msgstr "Obsah"
 
-#: src/Process/Backend/Home.php:469 src/Process/Backend/Post.php:656
+#: src/Process/Backend/Home.php:467 src/Process/Backend/Post.php:656
 msgid "Add a new category"
 msgstr "Přidat novou kategorii"
 
-#: src/Process/Backend/Home.php:475
+#: src/Process/Backend/Home.php:473
 msgid "This category will be created when you will save your post."
 msgstr "Tato kategorie bude vytvořena, když uložíte váš příspěvek."
 
-#: src/Process/Backend/Home.php:482
+#: src/Process/Backend/Home.php:480
 msgid "Save and publish"
 msgstr "Uložit a publikovat"
 
@@ -5307,8 +5304,7 @@ msgstr "Informace o této verzi"
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "Nová verze Dotclear je k dispozici, ale potřebuje PHP verzi ≥ %s, Váš je v současné době %s"
 
-#: src/Process/Backend/Rest.php:195 src/Process/Backend/Update.php:140
-#: src/Process/Upgrade/Upgrade.php:210
+#: src/Process/Backend/Rest.php:195 src/Process/Upgrade/Upgrade.php:210
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr "Další verze Dotclear nepodpoří PHP verzi < %s, vaše je v současné době %s"
@@ -5371,80 +5367,6 @@ msgstr[0] "jeden komentář nalezen"
 msgstr[1] "%d komentářů nalezeno"
 msgstr[2] "%d komentářů nalezeno"
 msgstr[3] "%d komentářů nalezeno"
-
-#: src/Process/Backend/Update.php:32 src/Process/Backend/Update.php:37
-#: src/Process/Backend/Update.php:50 src/Process/Backend/Update.php:55
-#: src/Process/Backend/Update.php:95 src/Process/Backend/Update.php:100
-#: src/Process/Backend/Update.php:121 src/Process/Backend/Update.php:126
-#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
-#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
-#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
-#: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
-#: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
-#: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
-#: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
-#: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
-#: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
-#: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
-#: src/Process/Upgrade/Upgrade.php:293
-msgid "Dotclear update"
-msgstr "Dotclear aktualizace"
-
-#: src/Process/Backend/Update.php:42 src/Process/Backend/Update.php:60
-#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
-#: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
-#: src/Process/Upgrade/Upgrade.php:86
-msgid "Precheck update error"
-msgstr "Chyba při aktualizaci předplatného"
-
-#: src/Process/Backend/Update.php:43
-msgid "Backup directory does not exist"
-msgstr "Složka zálohy neexistuje"
-
-#: src/Process/Backend/Update.php:61
-msgid "Access denied"
-msgstr "Přístup odepřen"
-
-#: src/Process/Backend/Update.php:110 src/Process/Upgrade/Attic.php:327
-#: src/Process/Upgrade/Upgrade.php:275
-msgid "Congratulations, you're one click away from the end of the update."
-msgstr "Blahopřejeme, jste už pouze jedno kliknutí před koncem aktualizace."
-
-#: src/Process/Backend/Update.php:111 src/Process/Upgrade/Attic.php:333
-#: src/Process/Upgrade/Upgrade.php:281
-msgid "Finish the update."
-msgstr "Dokončit aktualizaci."
-
-#: src/Process/Backend/Update.php:132
-msgid "Manual checking of update done successfully."
-msgstr "Ruční kontrola aktualizace proběhla úspěšně."
-
-#: src/Process/Backend/Update.php:148 src/Process/Upgrade/Attic.php:234
-#: src/Process/Upgrade/Upgrade.php:219
-msgid "No newer Dotclear version available."
-msgstr "Není dostupná novější verze Dotclearu."
-
-#: src/Process/Backend/Update.php:152 src/Process/Upgrade/Attic.php:246
-#: src/Process/Upgrade/Upgrade.php:231
-msgid "Force checking update Dotclear"
-msgstr "Vynutit kontrolu aktualizace Dotclear"
-
-#: src/Process/Backend/Update.php:155 src/Process/Backend/Update.php:164
-msgid "Dotclear upgrade dashboard"
-msgstr "Přístrojový panel pro upgrade Dotclear"
-
-#: src/Process/Backend/Update.php:155
-msgid "Go to dedicated upgrade dashboard."
-msgstr "Přejděte na vyhrazený panel pro upgrade."
-
-#: src/Process/Backend/Update.php:158 src/Process/Upgrade/Upgrade.php:240
-#, php-format
-msgid "Dotclear %s is available."
-msgstr "Dotclear %s je k dispozici."
-
-#: src/Process/Backend/Update.php:164
-msgid "To upgrade your Dotclear installation go to dedicated dashboard and follow instructions."
-msgstr "Chcete-li aktualizovat instalaci Dotclear, přejděte na vyhrazený řídicí panel a postupujte podle pokynů."
 
 #: src/Process/Backend/User.php:33 src/Process/Backend/Users.php:118
 msgid "New user"
@@ -6215,6 +6137,26 @@ msgstr "Hlavní e-mail: (použit jako odesílatel pro obnovení hesla)"
 msgid "Continue"
 msgstr "Pokračovat"
 
+#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
+#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
+#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
+#: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
+#: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
+#: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
+#: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
+#: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
+#: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
+#: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
+#: src/Process/Upgrade/Upgrade.php:293
+msgid "Dotclear update"
+msgstr "Dotclear aktualizace"
+
+#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
+#: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
+#: src/Process/Upgrade/Upgrade.php:86
+msgid "Precheck update error"
+msgstr "Chyba při aktualizaci předplatného"
+
 #: src/Process/Upgrade/Attic.php:90 src/Process/Upgrade/Backup.php:69
 #: src/Process/Upgrade/Upgrade.php:63
 msgid "It seems that backup directory does not exist, upgrade can not be performed."
@@ -6250,6 +6192,14 @@ msgstr "Následující soubory z vaší instalace Dotclearu není možné přeč
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "Následující soubory z vaší instalace Dotclearu nemůžou být zapsány. Prosím, pokuste se to napravit, nebo se pokuste o <a href=\"https://dotclear.org/download\">manuální aktualizaci</a>."
 
+#: src/Process/Upgrade/Attic.php:234 src/Process/Upgrade/Upgrade.php:219
+msgid "No newer Dotclear version available."
+msgstr "Není dostupná novější verze Dotclearu."
+
+#: src/Process/Upgrade/Attic.php:246 src/Process/Upgrade/Upgrade.php:231
+msgid "Force checking update Dotclear"
+msgstr "Vynutit kontrolu aktualizace Dotclear"
+
 #: src/Process/Upgrade/Attic.php:273
 #, php-format
 msgid "Required PHP version %s or higher"
@@ -6276,6 +6226,14 @@ msgstr "Jste si jisti, že aktualizujete na verzi %s?"
 #: src/Process/Upgrade/Digests.php:187 src/Process/Upgrade/Upgrade.php:263
 msgid "Update Dotclear"
 msgstr "Aktualizovat Dotclear"
+
+#: src/Process/Upgrade/Attic.php:327 src/Process/Upgrade/Upgrade.php:275
+msgid "Congratulations, you're one click away from the end of the update."
+msgstr "Blahopřejeme, jste už pouze jedno kliknutí před koncem aktualizace."
+
+#: src/Process/Upgrade/Attic.php:333 src/Process/Upgrade/Upgrade.php:281
+msgid "Finish the update."
+msgstr "Dokončit aktualizaci."
 
 #: src/Process/Upgrade/Auth.php:179 src/Process/Upgrade/Auth.php:191
 msgid "Upgrade"
@@ -6540,6 +6498,11 @@ msgstr "Přehrajte si akci grow up z verze:"
 #: src/Process/Upgrade/Replay.php:106
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
 msgstr "Přehrání verze nižší než poslední může poškodit vaši instalaci, dělejte to na vlastní nebezpečí."
+
+#: src/Process/Upgrade/Upgrade.php:240
+#, php-format
+msgid "Dotclear %s is available."
+msgstr "Dotclear %s je k dispozici."
 
 #: src/Process/Upgrade/Upgrade.php:258
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."

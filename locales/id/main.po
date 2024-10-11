@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-05 09:45+0200\n"
-"PO-Revision-Date: 2024-10-10 06:22\n"
+"POT-Creation-Date: 2024-10-11 10:52+0200\n"
+"PO-Revision-Date: 2024-10-11 08:55\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -93,7 +93,7 @@ msgstr "Kunci tersebut tidak ada dalam database."
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:71
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
-#: src/Process/Backend/Home.php:456 src/Process/Backend/Post.php:709
+#: src/Process/Backend/Home.php:454 src/Process/Backend/Post.php:709
 msgid "Title"
 msgstr "Judul"
 
@@ -402,7 +402,7 @@ msgid "Change category for this selection"
 msgstr "Ubah kategori untuk pilihan ini"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:463
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:461
 #: src/Process/Backend/Post.php:649
 msgid "Category:"
 msgstr "Kategori:"
@@ -412,7 +412,7 @@ msgid "Create a new category for the post(s)"
 msgstr "Buat kategori baru untuk postingan"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
-#: src/Process/Backend/Home.php:453 src/Process/Backend/Home.php:470
+#: src/Process/Backend/Home.php:451 src/Process/Backend/Home.php:468
 #: src/Process/Backend/MediaItem.php:1064 src/Process/Backend/Post.php:657
 #: src/Process/Backend/Post.php:705
 msgid "Title:"
@@ -420,7 +420,7 @@ msgstr "Judul:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:383
 #: src/Process/Backend/Category.php:244 src/Process/Backend/Category.php:298
-#: src/Process/Backend/Home.php:472 src/Process/Backend/Post.php:659
+#: src/Process/Backend/Home.php:470 src/Process/Backend/Post.php:659
 msgid "Parent:"
 msgstr "Orang tua:"
 
@@ -430,7 +430,7 @@ msgstr "Orang tua:"
 #: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:478 src/Process/Backend/MediaItem.php:1109
+#: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1109
 #: src/Process/Backend/Post.php:776 src/Process/Backend/Post.php:916
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:500
@@ -593,7 +593,7 @@ msgid "My preferences"
 msgstr "Preferensi saya"
 
 #: src/Core/Backend/Favorites.php:412 src/Core/Backend/Menus.php:180
-#: src/Process/Backend/Home.php:451 src/Process/Backend/Post.php:70
+#: src/Process/Backend/Home.php:449 src/Process/Backend/Post.php:70
 #: src/Process/Backend/Post.php:758 src/Process/Backend/Posts.php:101
 msgid "New post"
 msgstr "Pos baru"
@@ -1501,7 +1501,7 @@ msgstr "Unggah file zip"
 #: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
 #: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:480
 #: src/Process/Backend/BlogPref.php:806 src/Process/Backend/Category.php:233
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:452
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:450
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:764
 #: src/Process/Backend/Post.php:884 src/Process/Backend/User.php:255
@@ -1580,7 +1580,7 @@ msgstr "Kembali"
 
 #: src/Core/Backend/Notices.php:81 src/Core/Backend/Page.php:1284
 #: src/Core/Backend/Page.php:1449 src/Core/Upgrade/Notices.php:46
-#: src/Process/Backend/Home.php:287
+#: src/Process/Backend/Home.php:285
 msgid "Error:"
 msgstr "Kesalahan:"
 
@@ -2385,8 +2385,7 @@ msgstr "Terjadi kesalahan saat memuat file template untuk blog Anda."
 msgid "Can't create template files."
 msgstr "Tidak dapat membuat file template."
 
-#: src/Core/Install/Utils.php:33 src/Process/Backend/Update.php:161
-#: src/Process/Upgrade/Upgrade.php:250
+#: src/Core/Install/Utils.php:33 src/Process/Upgrade/Upgrade.php:250
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "Versi PHP adalah %s (%s atau yang lebih lama diperlukan)."
@@ -2441,11 +2440,11 @@ msgstr "Tidak ada pesan log"
 msgid "No blog defined."
 msgstr "Tidak ada blog yang didefinisikan."
 
-#: src/Core/Media.php:206 src/Process/Backend/Home.php:276
+#: src/Core/Media.php:206 src/Process/Backend/Home.php:274
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "Tidak ada direktori yang dapat ditulis /public/ pada lokasi yang ditetapkan di about:config \"public_path\". Anda harus membuat direktori ini dengan hak yang memadai (atau ubah pengaturan ini)."
 
-#: src/Core/Media.php:209 src/Process/Backend/Home.php:280
+#: src/Core/Media.php:209 src/Process/Backend/Home.php:278
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Tidak ada direktori root yang dapat ditulis untuk manajer media. Anda harus menghubungi administrator Anda."
 
@@ -2560,8 +2559,6 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:433
 #: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
 #: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:105
-#: src/Process/Backend/Update.php:36 src/Process/Backend/Update.php:54
-#: src/Process/Backend/Update.php:99 src/Process/Backend/Update.php:125
 #: src/Process/Backend/User.php:234 src/Process/Backend/Users.php:104
 #: src/Process/Backend/UsersActions.php:150
 #: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
@@ -4171,117 +4168,117 @@ msgstr "Plugin berikut ini telah dinonaktifkan:"
 msgid "Documentation and support"
 msgstr "Dokumentasi dan dukungan"
 
-#: src/Process/Backend/Home.php:151
+#: src/Process/Backend/Home.php:150
 msgid "Donate to Dotclear"
 msgstr "Donasi ke Dotclear"
 
-#: src/Process/Backend/Home.php:152
-msgid "Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr "Dotclear bukanlah proyek komersial - menggunakan Dotclear gratis dan akan selalu gratis. Jika Anda ingin, Anda dapat berkontribusi ke Dotclear untuk membantu kami menutupi biaya terkait proyek."
+#: src/Process/Backend/Home.php:151
+msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
+msgstr ""
 
-#: src/Process/Backend/Home.php:153
+#: src/Process/Backend/Home.php:152
 msgid "The collected funds will be spent as follows:"
 msgstr "Dana yang terkumpul akan digunakan sebagai berikut:"
 
-#: src/Process/Backend/Home.php:155
+#: src/Process/Backend/Home.php:154
 msgid "Paying for the website hosting and translations"
 msgstr "Membayar hosting situs web dan terjemahan"
 
-#: src/Process/Backend/Home.php:156
+#: src/Process/Backend/Home.php:155
 msgid "Paying for the domain names"
 msgstr "Membayar nama domain"
 
-#: src/Process/Backend/Home.php:157
+#: src/Process/Backend/Home.php:156
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "Mendukung proyek-proyek terkait seperti Dotaddict.org"
 
-#: src/Process/Backend/Home.php:158
+#: src/Process/Backend/Home.php:157
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "Menanggung biaya acara yang disiapkan oleh Dotclear"
 
-#: src/Process/Backend/Home.php:160
+#: src/Process/Backend/Home.php:159
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
 msgstr "Lihat <a href=\"https://dotclear.org/donate\">halaman ini</a> untuk informasi lebih lanjut dan donasi"
 
-#: src/Process/Backend/Home.php:200
+#: src/Process/Backend/Home.php:198
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "Seret dan lepas area dasbor dinonaktifkan"
 
-#: src/Process/Backend/Home.php:201
+#: src/Process/Backend/Home.php:199
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "Seret dan lepas area dasbor diaktifkan"
 
-#: src/Process/Backend/Home.php:214 src/Process/Backend/Home.php:227
+#: src/Process/Backend/Home.php:212 src/Process/Backend/Home.php:225
 #: src/Process/Upgrade/Home.php:132
 msgid "Dashboard"
 msgstr "Dasbor"
 
-#: src/Process/Backend/Home.php:235
+#: src/Process/Backend/Home.php:233
 msgid "Make this blog my default blog"
 msgstr "Jadikan blog ini sebagai blog default saya"
 
-#: src/Process/Backend/Home.php:239
+#: src/Process/Backend/Home.php:237
 msgid "This blog is offline"
 msgstr "Blog ini sedang offline"
 
-#: src/Process/Backend/Home.php:241
+#: src/Process/Backend/Home.php:239
 msgid "This blog is removed"
 msgstr "Blog ini telah dihapus"
 
-#: src/Process/Backend/Home.php:246 src/Process/Backend/Home.php:254
+#: src/Process/Backend/Home.php:244 src/Process/Backend/Home.php:252
 #: src/Process/Upgrade/Home.php:57 src/Process/Upgrade/Home.php:62
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s tidak didefinisikan, Anda harus mengedit file konfigurasi Anda."
 
-#: src/Process/Backend/Home.php:247 src/Process/Backend/Home.php:255
+#: src/Process/Backend/Home.php:245 src/Process/Backend/Home.php:253
 #: src/Process/Upgrade/Home.php:58 src/Process/Upgrade/Home.php:63
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "Lihat <a href=\"https://dotclear.org/documentation/2.0/admin/config\">dokumentasi</a> untuk informasi lebih lanjut."
 
-#: src/Process/Backend/Home.php:265 src/Process/Upgrade/Home.php:67
+#: src/Process/Backend/Home.php:263 src/Process/Upgrade/Home.php:67
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "Direktori cache tidak ada atau tidak dapat ditulis. Anda harus membuat direktori ini dengan hak yang memadai dan mengubah lokasi ini menjadi \"DC_TPL_CACHE\" di file inc/config.php."
 
-#: src/Process/Backend/Home.php:269
+#: src/Process/Backend/Home.php:267
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "Direktori cache tidak ada atau tidak dapat ditulis. Anda harus menghubungi administrator Anda."
 
-#: src/Process/Backend/Home.php:304 src/Process/Backend/Plugins.php:119
+#: src/Process/Backend/Home.php:302 src/Process/Backend/Plugins.php:119
 #: src/Process/Install/Install.php:506 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
 msgstr "Plugin berikut ini telah diinstal:"
 
-#: src/Process/Backend/Home.php:318 src/Process/Backend/Plugins.php:133
+#: src/Process/Backend/Home.php:316 src/Process/Backend/Plugins.php:133
 #: src/Process/Install/Install.php:513 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have not been installed:"
 msgstr "Plugin-pugin berikut ini belum diinstal:"
 
-#: src/Process/Backend/Home.php:331
+#: src/Process/Backend/Home.php:329
 msgid "Errors have occured with following plugins:"
 msgstr "Terjadi kesalahan pada plugin berikut ini:"
 
-#: src/Process/Backend/Home.php:449
+#: src/Process/Backend/Home.php:447
 msgid "Quick post"
 msgstr "Posting cepat"
 
-#: src/Process/Backend/Home.php:460 src/Process/Backend/Post.php:727
+#: src/Process/Backend/Home.php:458 src/Process/Backend/Post.php:727
 msgid "Content:"
 msgstr "Konten:"
 
-#: src/Process/Backend/Home.php:461 src/Process/Backend/Post.php:734
+#: src/Process/Backend/Home.php:459 src/Process/Backend/Post.php:734
 msgid "Content"
 msgstr "Konten"
 
-#: src/Process/Backend/Home.php:469 src/Process/Backend/Post.php:656
+#: src/Process/Backend/Home.php:467 src/Process/Backend/Post.php:656
 msgid "Add a new category"
 msgstr "Menambahkan kategori baru"
 
-#: src/Process/Backend/Home.php:475
+#: src/Process/Backend/Home.php:473
 msgid "This category will be created when you will save your post."
 msgstr "Kategori ini akan dibuat ketika Anda akan menyimpan postingan Anda."
 
-#: src/Process/Backend/Home.php:482
+#: src/Process/Backend/Home.php:480
 msgid "Save and publish"
 msgstr "Simpan dan terbitkan"
 
@@ -5196,8 +5193,7 @@ msgstr "Informasi tentang versi ini"
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "Versi baru Dotclear tersedia tetapi membutuhkan versi PHP ≥ %s, versi Anda saat ini adalah %s"
 
-#: src/Process/Backend/Rest.php:195 src/Process/Backend/Update.php:140
-#: src/Process/Upgrade/Upgrade.php:210
+#: src/Process/Backend/Rest.php:195 src/Process/Upgrade/Upgrade.php:210
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr "Versi Dotclear berikutnya tidak akan mendukung versi PHP < %s, versi Anda saat ini adalah %s"
@@ -5251,80 +5247,6 @@ msgstr[0] "%d entri ditemukan"
 msgid "one comment found"
 msgid_plural "%d comments found"
 msgstr[0] "%d komentar ditemukan"
-
-#: src/Process/Backend/Update.php:32 src/Process/Backend/Update.php:37
-#: src/Process/Backend/Update.php:50 src/Process/Backend/Update.php:55
-#: src/Process/Backend/Update.php:95 src/Process/Backend/Update.php:100
-#: src/Process/Backend/Update.php:121 src/Process/Backend/Update.php:126
-#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
-#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
-#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
-#: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
-#: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
-#: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
-#: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
-#: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
-#: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
-#: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
-#: src/Process/Upgrade/Upgrade.php:293
-msgid "Dotclear update"
-msgstr "Pembaruan Dotclear"
-
-#: src/Process/Backend/Update.php:42 src/Process/Backend/Update.php:60
-#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
-#: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
-#: src/Process/Upgrade/Upgrade.php:86
-msgid "Precheck update error"
-msgstr "Periksa terlebih dahulu kesalahan pembaruan"
-
-#: src/Process/Backend/Update.php:43
-msgid "Backup directory does not exist"
-msgstr "Direktori cadangan tidak ada"
-
-#: src/Process/Backend/Update.php:61
-msgid "Access denied"
-msgstr "Akses ditolak"
-
-#: src/Process/Backend/Update.php:110 src/Process/Upgrade/Attic.php:327
-#: src/Process/Upgrade/Upgrade.php:275
-msgid "Congratulations, you're one click away from the end of the update."
-msgstr "Selamat, Anda tinggal satu klik lagi dari akhir pembaruan."
-
-#: src/Process/Backend/Update.php:111 src/Process/Upgrade/Attic.php:333
-#: src/Process/Upgrade/Upgrade.php:281
-msgid "Finish the update."
-msgstr "Selesaikan pembaruan."
-
-#: src/Process/Backend/Update.php:132
-msgid "Manual checking of update done successfully."
-msgstr "Pengecekan manual pembaruan berhasil dilakukan."
-
-#: src/Process/Backend/Update.php:148 src/Process/Upgrade/Attic.php:234
-#: src/Process/Upgrade/Upgrade.php:219
-msgid "No newer Dotclear version available."
-msgstr "Tidak ada versi Dotclear yang lebih baru yang tersedia."
-
-#: src/Process/Backend/Update.php:152 src/Process/Upgrade/Attic.php:246
-#: src/Process/Upgrade/Upgrade.php:231
-msgid "Force checking update Dotclear"
-msgstr "Memaksa memeriksa pembaruan Dotclear"
-
-#: src/Process/Backend/Update.php:155 src/Process/Backend/Update.php:164
-msgid "Dotclear upgrade dashboard"
-msgstr "Dasbor pemutakhiran Dotclear"
-
-#: src/Process/Backend/Update.php:155
-msgid "Go to dedicated upgrade dashboard."
-msgstr "Buka dasbor peningkatan khusus."
-
-#: src/Process/Backend/Update.php:158 src/Process/Upgrade/Upgrade.php:240
-#, php-format
-msgid "Dotclear %s is available."
-msgstr "Dotclear %s tersedia."
-
-#: src/Process/Backend/Update.php:164
-msgid "To upgrade your Dotclear installation go to dedicated dashboard and follow instructions."
-msgstr "Untuk meningkatkan instalasi Dotclear Anda, buka dasbor khusus dan ikuti petunjuknya."
 
 #: src/Process/Backend/User.php:33 src/Process/Backend/Users.php:118
 msgid "New user"
@@ -6095,6 +6017,26 @@ msgstr "Email Master: (digunakan sebagai pengirim untuk pemulihan kata sandi)"
 msgid "Continue"
 msgstr "Lanjutkan"
 
+#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
+#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
+#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
+#: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
+#: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
+#: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
+#: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
+#: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
+#: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
+#: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
+#: src/Process/Upgrade/Upgrade.php:293
+msgid "Dotclear update"
+msgstr "Pembaruan Dotclear"
+
+#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
+#: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
+#: src/Process/Upgrade/Upgrade.php:86
+msgid "Precheck update error"
+msgstr "Periksa terlebih dahulu kesalahan pembaruan"
+
 #: src/Process/Upgrade/Attic.php:90 src/Process/Upgrade/Backup.php:69
 #: src/Process/Upgrade/Upgrade.php:63
 msgid "It seems that backup directory does not exist, upgrade can not be performed."
@@ -6130,6 +6072,14 @@ msgstr "File-file berikut ini dari instalasi Dotclear Anda tidak dapat dibaca. P
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "File-file berikut dari instalasi Dotclear Anda tidak dapat ditulis. Harap perbaiki ini atau coba <a href=\"https://dotclear.org/download\">perbarui secara manual</a>."
 
+#: src/Process/Upgrade/Attic.php:234 src/Process/Upgrade/Upgrade.php:219
+msgid "No newer Dotclear version available."
+msgstr "Tidak ada versi Dotclear yang lebih baru yang tersedia."
+
+#: src/Process/Upgrade/Attic.php:246 src/Process/Upgrade/Upgrade.php:231
+msgid "Force checking update Dotclear"
+msgstr "Memaksa memeriksa pembaruan Dotclear"
+
 #: src/Process/Upgrade/Attic.php:273
 #, php-format
 msgid "Required PHP version %s or higher"
@@ -6156,6 +6106,14 @@ msgstr "Apakah Anda yakin untuk memperbarui ke versi %s?"
 #: src/Process/Upgrade/Digests.php:187 src/Process/Upgrade/Upgrade.php:263
 msgid "Update Dotclear"
 msgstr "Perbarui Dotclear"
+
+#: src/Process/Upgrade/Attic.php:327 src/Process/Upgrade/Upgrade.php:275
+msgid "Congratulations, you're one click away from the end of the update."
+msgstr "Selamat, Anda tinggal satu klik lagi dari akhir pembaruan."
+
+#: src/Process/Upgrade/Attic.php:333 src/Process/Upgrade/Upgrade.php:281
+msgid "Finish the update."
+msgstr "Selesaikan pembaruan."
 
 #: src/Process/Upgrade/Auth.php:179 src/Process/Upgrade/Auth.php:191
 msgid "Upgrade"
@@ -6420,6 +6378,11 @@ msgstr "Putar ulang aksi tumbuh dewasa dari versi:"
 #: src/Process/Upgrade/Replay.php:106
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
 msgstr "Memutar ulang versi yang lebih rendah dari yang terakhir dapat merusak instalasi Anda, lakukan dengan risiko Anda sendiri."
+
+#: src/Process/Upgrade/Upgrade.php:240
+#, php-format
+msgid "Dotclear %s is available."
+msgstr "Dotclear %s tersedia."
 
 #: src/Process/Upgrade/Upgrade.php:258
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
