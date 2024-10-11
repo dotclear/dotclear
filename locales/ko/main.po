@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-05 09:45+0200\n"
-"PO-Revision-Date: 2024-10-10 06:21\n"
+"POT-Creation-Date: 2024-10-11 10:52+0200\n"
+"PO-Revision-Date: 2024-10-11 08:54\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -93,7 +93,7 @@ msgstr "이 키는 데이터베이스에 없습니다."
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:71
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
-#: src/Process/Backend/Home.php:456 src/Process/Backend/Post.php:709
+#: src/Process/Backend/Home.php:454 src/Process/Backend/Post.php:709
 msgid "Title"
 msgstr "제목"
 
@@ -402,7 +402,7 @@ msgid "Change category for this selection"
 msgstr "글꼭지들의 분류 변경"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:463
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:461
 #: src/Process/Backend/Post.php:649
 msgid "Category:"
 msgstr "분류 :"
@@ -412,7 +412,7 @@ msgid "Create a new category for the post(s)"
 msgstr "글에 대한 새 카테고리 만들기"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
-#: src/Process/Backend/Home.php:453 src/Process/Backend/Home.php:470
+#: src/Process/Backend/Home.php:451 src/Process/Backend/Home.php:468
 #: src/Process/Backend/MediaItem.php:1064 src/Process/Backend/Post.php:657
 #: src/Process/Backend/Post.php:705
 msgid "Title:"
@@ -420,7 +420,7 @@ msgstr "제목 :"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:383
 #: src/Process/Backend/Category.php:244 src/Process/Backend/Category.php:298
-#: src/Process/Backend/Home.php:472 src/Process/Backend/Post.php:659
+#: src/Process/Backend/Home.php:470 src/Process/Backend/Post.php:659
 msgid "Parent:"
 msgstr "상위분류 :"
 
@@ -430,7 +430,7 @@ msgstr "상위분류 :"
 #: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:478 src/Process/Backend/MediaItem.php:1109
+#: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1109
 #: src/Process/Backend/Post.php:776 src/Process/Backend/Post.php:916
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:500
@@ -593,7 +593,7 @@ msgid "My preferences"
 msgstr "내 기본 설정"
 
 #: src/Core/Backend/Favorites.php:412 src/Core/Backend/Menus.php:180
-#: src/Process/Backend/Home.php:451 src/Process/Backend/Post.php:70
+#: src/Process/Backend/Home.php:449 src/Process/Backend/Post.php:70
 #: src/Process/Backend/Post.php:758 src/Process/Backend/Posts.php:101
 msgid "New post"
 msgstr "새 글꼭지"
@@ -1501,7 +1501,7 @@ msgstr "테마 zip 파일 올리기"
 #: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
 #: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:480
 #: src/Process/Backend/BlogPref.php:806 src/Process/Backend/Category.php:233
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:452
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:450
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:764
 #: src/Process/Backend/Post.php:884 src/Process/Backend/User.php:255
@@ -1580,7 +1580,7 @@ msgstr "뒤로"
 
 #: src/Core/Backend/Notices.php:81 src/Core/Backend/Page.php:1284
 #: src/Core/Backend/Page.php:1449 src/Core/Upgrade/Notices.php:46
-#: src/Process/Backend/Home.php:287
+#: src/Process/Backend/Home.php:285
 msgid "Error:"
 msgstr "오류 :"
 
@@ -2385,8 +2385,7 @@ msgstr "블로그용 템플릿 파일을 로드하는 동안 문제가 발생했
 msgid "Can't create template files."
 msgstr "템플릿 파일을 만들 수 없습니다."
 
-#: src/Core/Install/Utils.php:33 src/Process/Backend/Update.php:161
-#: src/Process/Upgrade/Upgrade.php:250
+#: src/Core/Install/Utils.php:33 src/Process/Upgrade/Upgrade.php:250
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "PHP 버전은 %s (%s 또는 이전 버전 필요)입니다."
@@ -2441,11 +2440,11 @@ msgstr "로그 메시지 없음"
 msgid "No blog defined."
 msgstr "정의된 블로그가 없습니다."
 
-#: src/Core/Media.php:206 src/Process/Backend/Home.php:276
+#: src/Core/Media.php:206 src/Process/Backend/Home.php:274
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "about:config \"public_path\"에 설정된 위치에 쓰기 가능한 디렉터리 /public/이 없습니다. 충분한 권한으로 이 디렉터리를 만들거나 이 설정을 변경해야 합니다."
 
-#: src/Core/Media.php:209 src/Process/Backend/Home.php:280
+#: src/Core/Media.php:209 src/Process/Backend/Home.php:278
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "미디어 관리자를 위한 쓰기 가능한 루트 디렉터리가 없습니다. 관리자에게 문의해야 합니다."
 
@@ -2560,8 +2559,6 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:433
 #: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
 #: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:105
-#: src/Process/Backend/Update.php:36 src/Process/Backend/Update.php:54
-#: src/Process/Backend/Update.php:99 src/Process/Backend/Update.php:125
 #: src/Process/Backend/User.php:234 src/Process/Backend/Users.php:104
 #: src/Process/Backend/UsersActions.php:150
 #: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
@@ -4171,117 +4168,117 @@ msgstr "다음 플러그인이 비활성화되었습니다 :"
 msgid "Documentation and support"
 msgstr "문서 및 지원"
 
-#: src/Process/Backend/Home.php:151
+#: src/Process/Backend/Home.php:150
 msgid "Donate to Dotclear"
 msgstr "닷클리어에 기부하기"
 
-#: src/Process/Backend/Home.php:152
-msgid "Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr "닷클리어는 상업적 프로젝트가 아닙니다. 닷클리어 사용은 무료이며 앞으로도 그럴 것입니다. 원하시는 경우, 프로젝트 관련 비용을 충당하기 위해 Dotclear에 기부하실 수 있습니다."
+#: src/Process/Backend/Home.php:151
+msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
+msgstr ""
 
-#: src/Process/Backend/Home.php:153
+#: src/Process/Backend/Home.php:152
 msgid "The collected funds will be spent as follows:"
 msgstr "모금된 기금은 다음과 같이 사용됩니다:"
 
-#: src/Process/Backend/Home.php:155
+#: src/Process/Backend/Home.php:154
 msgid "Paying for the website hosting and translations"
 msgstr "웹사이트 호스팅 및 번역 비용 지불하기"
 
-#: src/Process/Backend/Home.php:156
+#: src/Process/Backend/Home.php:155
 msgid "Paying for the domain names"
 msgstr "도메인 네임에 대한 비용 지불"
 
-#: src/Process/Backend/Home.php:157
+#: src/Process/Backend/Home.php:156
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "Dotaddict.org와 같은 관련 프로젝트 지원"
 
-#: src/Process/Backend/Home.php:158
+#: src/Process/Backend/Home.php:157
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "닷클리어에서 설정한 이벤트 비용 지원"
 
-#: src/Process/Backend/Home.php:160
+#: src/Process/Backend/Home.php:159
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
 msgstr "자세한 정보 및 기부는 <a href=\"https://dotclear.org/donate\">이 페이지를</a> 참조하세요."
 
-#: src/Process/Backend/Home.php:200
+#: src/Process/Backend/Home.php:198
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "대시보드 영역의 끌어서 놓기가 비활성화됩니다."
 
-#: src/Process/Backend/Home.php:201
+#: src/Process/Backend/Home.php:199
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "대시보드 영역의 끌어서 놓기가 활성화됩니다."
 
-#: src/Process/Backend/Home.php:214 src/Process/Backend/Home.php:227
+#: src/Process/Backend/Home.php:212 src/Process/Backend/Home.php:225
 #: src/Process/Upgrade/Home.php:132
 msgid "Dashboard"
 msgstr "관리마당"
 
-#: src/Process/Backend/Home.php:235
+#: src/Process/Backend/Home.php:233
 msgid "Make this blog my default blog"
 msgstr "이 블로그를 기본 블로그로 설정"
 
-#: src/Process/Backend/Home.php:239
+#: src/Process/Backend/Home.php:237
 msgid "This blog is offline"
 msgstr "이 블로그는 비공개 상태입니다."
 
-#: src/Process/Backend/Home.php:241
+#: src/Process/Backend/Home.php:239
 msgid "This blog is removed"
 msgstr "이 블로그는 삭제되었습니다."
 
-#: src/Process/Backend/Home.php:246 src/Process/Backend/Home.php:254
+#: src/Process/Backend/Home.php:244 src/Process/Backend/Home.php:252
 #: src/Process/Upgrade/Home.php:57 src/Process/Upgrade/Home.php:62
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s 가 정의되어 있지 않으면 구성 파일을 편집해야 합니다."
 
-#: src/Process/Backend/Home.php:247 src/Process/Backend/Home.php:255
+#: src/Process/Backend/Home.php:245 src/Process/Backend/Home.php:253
 #: src/Process/Upgrade/Home.php:58 src/Process/Upgrade/Home.php:63
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "자세한 내용은 <a href=\"https://dotclear.org/documentation/2.0/admin/config\">문서</a> 를 참조하세요."
 
-#: src/Process/Backend/Home.php:265 src/Process/Upgrade/Home.php:67
+#: src/Process/Backend/Home.php:263 src/Process/Upgrade/Home.php:67
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "캐시 디렉터리가 존재하지 않거나 쓰기 불가능한 경우. 충분한 권한으로 이 디렉터리를 생성하고 inc/config.php 파일에서 이 위치를 \"DC_TPL_CACHE\"에 영향을 주어야 합니다."
 
-#: src/Process/Backend/Home.php:269
+#: src/Process/Backend/Home.php:267
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "캐시 디렉터리가 존재하지 않거나 쓸 수 없습니다. 관리자에게 문의해야 합니다."
 
-#: src/Process/Backend/Home.php:304 src/Process/Backend/Plugins.php:119
+#: src/Process/Backend/Home.php:302 src/Process/Backend/Plugins.php:119
 #: src/Process/Install/Install.php:506 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
 msgstr "다음 플러그인들이 설치되어있습니다 :"
 
-#: src/Process/Backend/Home.php:318 src/Process/Backend/Plugins.php:133
+#: src/Process/Backend/Home.php:316 src/Process/Backend/Plugins.php:133
 #: src/Process/Install/Install.php:513 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have not been installed:"
 msgstr "다음 플러그인들은 설치되지 않았습니다 :"
 
-#: src/Process/Backend/Home.php:331
+#: src/Process/Backend/Home.php:329
 msgid "Errors have occured with following plugins:"
 msgstr "다음 플러그인에서 오류가 발생했습니다:"
 
-#: src/Process/Backend/Home.php:449
+#: src/Process/Backend/Home.php:447
 msgid "Quick post"
 msgstr "글꼭지 바로 만들기"
 
-#: src/Process/Backend/Home.php:460 src/Process/Backend/Post.php:727
+#: src/Process/Backend/Home.php:458 src/Process/Backend/Post.php:727
 msgid "Content:"
 msgstr "내용 :"
 
-#: src/Process/Backend/Home.php:461 src/Process/Backend/Post.php:734
+#: src/Process/Backend/Home.php:459 src/Process/Backend/Post.php:734
 msgid "Content"
 msgstr "콘텐츠"
 
-#: src/Process/Backend/Home.php:469 src/Process/Backend/Post.php:656
+#: src/Process/Backend/Home.php:467 src/Process/Backend/Post.php:656
 msgid "Add a new category"
 msgstr "새 분류 만들기"
 
-#: src/Process/Backend/Home.php:475
+#: src/Process/Backend/Home.php:473
 msgid "This category will be created when you will save your post."
 msgstr "이 카테고리는 글을 저장할 때 생성됩니다."
 
-#: src/Process/Backend/Home.php:482
+#: src/Process/Backend/Home.php:480
 msgid "Save and publish"
 msgstr "저장 및 게시"
 
@@ -5196,8 +5193,7 @@ msgstr "이 버전에 대한 정보"
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "새 버전의 닷클리어를 사용할 수 있지만 PHP 버전이 %s이상이어야 하며, 현재 사용 중인 버전은 %s입니다."
 
-#: src/Process/Backend/Rest.php:195 src/Process/Backend/Update.php:140
-#: src/Process/Upgrade/Upgrade.php:210
+#: src/Process/Backend/Rest.php:195 src/Process/Upgrade/Upgrade.php:210
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr "다음 버전의 닷클리어는 PHP 버전< %s, 현재 사용 중인 버전은 %s>을 지원하지 않습니다."
@@ -5251,80 +5247,6 @@ msgstr[0] "%d 항목이 발견됨"
 msgid "one comment found"
 msgid_plural "%d comments found"
 msgstr[0] "%d 댓글이 발견되었습니다."
-
-#: src/Process/Backend/Update.php:32 src/Process/Backend/Update.php:37
-#: src/Process/Backend/Update.php:50 src/Process/Backend/Update.php:55
-#: src/Process/Backend/Update.php:95 src/Process/Backend/Update.php:100
-#: src/Process/Backend/Update.php:121 src/Process/Backend/Update.php:126
-#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
-#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
-#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
-#: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
-#: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
-#: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
-#: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
-#: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
-#: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
-#: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
-#: src/Process/Upgrade/Upgrade.php:293
-msgid "Dotclear update"
-msgstr "Dotclear 갱신"
-
-#: src/Process/Backend/Update.php:42 src/Process/Backend/Update.php:60
-#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
-#: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
-#: src/Process/Upgrade/Upgrade.php:86
-msgid "Precheck update error"
-msgstr "업데이트 오류 사전 확인"
-
-#: src/Process/Backend/Update.php:43
-msgid "Backup directory does not exist"
-msgstr "백업 디렉터리가 존재하지 않습니다."
-
-#: src/Process/Backend/Update.php:61
-msgid "Access denied"
-msgstr "액세스 거부됨"
-
-#: src/Process/Backend/Update.php:110 src/Process/Upgrade/Attic.php:327
-#: src/Process/Upgrade/Upgrade.php:275
-msgid "Congratulations, you're one click away from the end of the update."
-msgstr "축하합니다. DotClear 갱신과정 마무리 한 클릭만 남았습니다."
-
-#: src/Process/Backend/Update.php:111 src/Process/Upgrade/Attic.php:333
-#: src/Process/Upgrade/Upgrade.php:281
-msgid "Finish the update."
-msgstr "갱신 마무리."
-
-#: src/Process/Backend/Update.php:132
-msgid "Manual checking of update done successfully."
-msgstr "업데이트가 성공적으로 완료되었는지 수동으로 확인합니다."
-
-#: src/Process/Backend/Update.php:148 src/Process/Upgrade/Attic.php:234
-#: src/Process/Upgrade/Upgrade.php:219
-msgid "No newer Dotclear version available."
-msgstr "새 버전이 아직 없습니다."
-
-#: src/Process/Backend/Update.php:152 src/Process/Upgrade/Attic.php:246
-#: src/Process/Upgrade/Upgrade.php:231
-msgid "Force checking update Dotclear"
-msgstr "업데이트 강제 확인 도트클리어"
-
-#: src/Process/Backend/Update.php:155 src/Process/Backend/Update.php:164
-msgid "Dotclear upgrade dashboard"
-msgstr "도트클리어 업그레이드 대시보드"
-
-#: src/Process/Backend/Update.php:155
-msgid "Go to dedicated upgrade dashboard."
-msgstr "전용 업그레이드 대시보드로 이동합니다."
-
-#: src/Process/Backend/Update.php:158 src/Process/Upgrade/Upgrade.php:240
-#, php-format
-msgid "Dotclear %s is available."
-msgstr "Dotclear %s 버전이 출시되었습니다."
-
-#: src/Process/Backend/Update.php:164
-msgid "To upgrade your Dotclear installation go to dedicated dashboard and follow instructions."
-msgstr "닷클리어 설치를 업그레이드하려면 전용 대시보드로 이동하여 지침을 따르세요."
 
 #: src/Process/Backend/User.php:33 src/Process/Backend/Users.php:118
 msgid "New user"
@@ -6095,6 +6017,26 @@ msgstr "마스터 이메일: (비밀번호 복구 시 발신자로 사용)"
 msgid "Continue"
 msgstr "계속"
 
+#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
+#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
+#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
+#: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
+#: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
+#: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
+#: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
+#: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
+#: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
+#: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
+#: src/Process/Upgrade/Upgrade.php:293
+msgid "Dotclear update"
+msgstr "Dotclear 갱신"
+
+#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
+#: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
+#: src/Process/Upgrade/Upgrade.php:86
+msgid "Precheck update error"
+msgstr "업데이트 오류 사전 확인"
+
 #: src/Process/Upgrade/Attic.php:90 src/Process/Upgrade/Backup.php:69
 #: src/Process/Upgrade/Upgrade.php:63
 msgid "It seems that backup directory does not exist, upgrade can not be performed."
@@ -6130,6 +6072,14 @@ msgstr "당신의 Dotclear에 있는 다음 파일들을 읽을 수 없습니다
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "당신의 Dotclear에 다음 파일들을 쓸 수 없습니다. 이 문제를 해결해 주시거나, <a href=\"https://www.dotclear.net/download\">수동으로 갱신</a>하셔야 합니다."
 
+#: src/Process/Upgrade/Attic.php:234 src/Process/Upgrade/Upgrade.php:219
+msgid "No newer Dotclear version available."
+msgstr "새 버전이 아직 없습니다."
+
+#: src/Process/Upgrade/Attic.php:246 src/Process/Upgrade/Upgrade.php:231
+msgid "Force checking update Dotclear"
+msgstr "업데이트 강제 확인 도트클리어"
+
 #: src/Process/Upgrade/Attic.php:273
 #, php-format
 msgid "Required PHP version %s or higher"
@@ -6156,6 +6106,14 @@ msgstr "%s버전으로 업데이트하시겠습니까?"
 #: src/Process/Upgrade/Digests.php:187 src/Process/Upgrade/Upgrade.php:263
 msgid "Update Dotclear"
 msgstr "Dotclear 갱신"
+
+#: src/Process/Upgrade/Attic.php:327 src/Process/Upgrade/Upgrade.php:275
+msgid "Congratulations, you're one click away from the end of the update."
+msgstr "축하합니다. DotClear 갱신과정 마무리 한 클릭만 남았습니다."
+
+#: src/Process/Upgrade/Attic.php:333 src/Process/Upgrade/Upgrade.php:281
+msgid "Finish the update."
+msgstr "갱신 마무리."
 
 #: src/Process/Upgrade/Auth.php:179 src/Process/Upgrade/Auth.php:191
 msgid "Upgrade"
@@ -6420,6 +6378,11 @@ msgstr "버전에서 성장 액션을 다시 플레이하세요:"
 #: src/Process/Upgrade/Replay.php:106
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
 msgstr "마지막 버전보다 낮은 버전으로 재생하면 설치가 중단될 수 있으므로 위험 부담은 본인에게 있습니다."
+
+#: src/Process/Upgrade/Upgrade.php:240
+#, php-format
+msgid "Dotclear %s is available."
+msgstr "Dotclear %s 버전이 출시되었습니다."
 
 #: src/Process/Upgrade/Upgrade.php:258
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
