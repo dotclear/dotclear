@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-11 10:52+0200\n"
-"PO-Revision-Date: 2024-10-11 08:55\n"
+"PO-Revision-Date: 2024-10-11 09:29\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -4209,7 +4209,7 @@ msgstr "डॉटक्लियर को दान करें"
 
 #: src/Process/Backend/Home.php:151
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr ""
+msgstr "डॉटक्लियर कोई व्यावसायिक परियोजना नहीं है — डॉटक्लियर का उपयोग करना <strong>मुफ़्त</strong> है और <strong>हमेशा</strong> रहेगा। यदि आप चाहें, तो आप परियोजना से संबंधित खर्चों को कवर करने में हमारी मदद करने के लिए डॉटक्लियर में योगदान दे सकते हैं।"
 
 #: src/Process/Backend/Home.php:152
 msgid "The collected funds will be spent as follows:"

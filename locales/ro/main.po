@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-11 10:52+0200\n"
-"PO-Revision-Date: 2024-10-11 08:54\n"
+"PO-Revision-Date: 2024-10-11 09:28\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -4244,7 +4244,7 @@ msgstr "Donează pentru Dotclear"
 
 #: src/Process/Backend/Home.php:151
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr ""
+msgstr "Dotclear nu este un proiect comercial - utilizarea Dotclear este <strong>gratuită</strong> și va fi <strong>întotdeauna</strong>. Dacă doriți, puteți contribui la Dotclear pentru a ne ajuta să acoperim cheltuielile legate de proiect."
 
 #: src/Process/Backend/Home.php:152
 msgid "The collected funds will be spent as follows:"

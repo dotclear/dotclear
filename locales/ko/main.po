@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-11 10:52+0200\n"
-"PO-Revision-Date: 2024-10-11 08:54\n"
+"PO-Revision-Date: 2024-10-11 09:28\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -4174,7 +4174,7 @@ msgstr "닷클리어에 기부하기"
 
 #: src/Process/Backend/Home.php:151
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr ""
+msgstr "닷클리어는 상업적 프로젝트가 아닙니다. 닷클리어 사용은 <strong>무료이며</strong> <strong>앞으로도</strong> 그럴 것입니다. 원하시는 경우, 프로젝트 관련 비용을 충당하기 위해 Dotclear에 기부하실 수 있습니다."
 
 #: src/Process/Backend/Home.php:152
 msgid "The collected funds will be spent as follows:"
