@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-05 09:45+0200\n"
-"PO-Revision-Date: 2024-10-10 06:21\n"
+"POT-Creation-Date: 2024-10-11 10:52+0200\n"
+"PO-Revision-Date: 2024-10-11 08:54\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -93,7 +93,7 @@ msgstr "Avainta ei ole tietokannassa."
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:71
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
-#: src/Process/Backend/Home.php:456 src/Process/Backend/Post.php:709
+#: src/Process/Backend/Home.php:454 src/Process/Backend/Post.php:709
 msgid "Title"
 msgstr "Otsikko"
 
@@ -409,7 +409,7 @@ msgid "Change category for this selection"
 msgstr "Vaihda luokka tämän valinnan osalta"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:463
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:461
 #: src/Process/Backend/Post.php:649
 msgid "Category:"
 msgstr "Luokka:"
@@ -419,7 +419,7 @@ msgid "Create a new category for the post(s)"
 msgstr "Luo uusi luokka tällä merkinnälle (näille merkinnöille)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
-#: src/Process/Backend/Home.php:453 src/Process/Backend/Home.php:470
+#: src/Process/Backend/Home.php:451 src/Process/Backend/Home.php:468
 #: src/Process/Backend/MediaItem.php:1064 src/Process/Backend/Post.php:657
 #: src/Process/Backend/Post.php:705
 msgid "Title:"
@@ -427,7 +427,7 @@ msgstr "Otsikko:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:383
 #: src/Process/Backend/Category.php:244 src/Process/Backend/Category.php:298
-#: src/Process/Backend/Home.php:472 src/Process/Backend/Post.php:659
+#: src/Process/Backend/Home.php:470 src/Process/Backend/Post.php:659
 msgid "Parent:"
 msgstr "Emo:"
 
@@ -437,7 +437,7 @@ msgstr "Emo:"
 #: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:478 src/Process/Backend/MediaItem.php:1109
+#: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1109
 #: src/Process/Backend/Post.php:776 src/Process/Backend/Post.php:916
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:500
@@ -602,7 +602,7 @@ msgid "My preferences"
 msgstr "Asetukset"
 
 #: src/Core/Backend/Favorites.php:412 src/Core/Backend/Menus.php:180
-#: src/Process/Backend/Home.php:451 src/Process/Backend/Post.php:70
+#: src/Process/Backend/Home.php:449 src/Process/Backend/Post.php:70
 #: src/Process/Backend/Post.php:758 src/Process/Backend/Posts.php:101
 msgid "New post"
 msgstr "Uusi merkintä"
@@ -1529,7 +1529,7 @@ msgstr "Lataa zip-tiedosto palvelimelle"
 #: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
 #: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:480
 #: src/Process/Backend/BlogPref.php:806 src/Process/Backend/Category.php:233
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:452
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:450
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:764
 #: src/Process/Backend/Post.php:884 src/Process/Backend/User.php:255
@@ -1608,7 +1608,7 @@ msgstr "Takaisin"
 
 #: src/Core/Backend/Notices.php:81 src/Core/Backend/Page.php:1284
 #: src/Core/Backend/Page.php:1449 src/Core/Upgrade/Notices.php:46
-#: src/Process/Backend/Home.php:287
+#: src/Process/Backend/Home.php:285
 msgid "Error:"
 msgstr "Virhe:"
 
@@ -2419,8 +2419,7 @@ msgstr "Jotain meni pieleen blogisi mallitiedoston lataamisen aikana."
 msgid "Can't create template files."
 msgstr "Ei voi luoda mallitiedostoja."
 
-#: src/Core/Install/Utils.php:33 src/Process/Backend/Update.php:161
-#: src/Process/Upgrade/Upgrade.php:250
+#: src/Core/Install/Utils.php:33 src/Process/Upgrade/Upgrade.php:250
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "PHP-versiosi on %s (tarvitaan %s tai uudempi)."
@@ -2475,11 +2474,11 @@ msgstr "Lokissa ei viestejä"
 msgid "No blog defined."
 msgstr "Ei määriteltyä blogia."
 
-#: src/Core/Media.php:206 src/Process/Backend/Home.php:276
+#: src/Core/Media.php:206 src/Process/Backend/Home.php:274
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "Kirjoitusoikeuksilla varustettua hakemistoa /public/ ei ole siellä, mihin \"public_path\" viittaa kohdassa about:config. Kyseinen hakemisto on luotava riittävin oikeuksin (tai muutettava  \"public_path\" -asetusta)."
 
-#: src/Core/Media.php:209 src/Process/Backend/Home.php:280
+#: src/Core/Media.php:209 src/Process/Backend/Home.php:278
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Medianhallintaa varten ei ole kirjoitettavaa hakemistoa. Ota yhteys järjestelmänvalvojaan."
 
@@ -2594,8 +2593,6 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:433
 #: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
 #: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:105
-#: src/Process/Backend/Update.php:36 src/Process/Backend/Update.php:54
-#: src/Process/Backend/Update.php:99 src/Process/Backend/Update.php:125
 #: src/Process/Backend/User.php:234 src/Process/Backend/Users.php:104
 #: src/Process/Backend/UsersActions.php:150
 #: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
@@ -4206,117 +4203,117 @@ msgstr "Seuraavat laajennukset on poistettu käytöstä:"
 msgid "Documentation and support"
 msgstr "Dokumentaatio ja tuki"
 
-#: src/Process/Backend/Home.php:151
+#: src/Process/Backend/Home.php:150
 msgid "Donate to Dotclear"
 msgstr "Lahjoita Dotclearille"
 
-#: src/Process/Backend/Home.php:152
-msgid "Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr "Dotclear ei ole kaupallinen projekti - Dotclearin käyttö on ilmaista ja tulee aina olemaan. Halutessasi voit tukea Dotclearia auttamalla meitä kattamaan projektiin liittyviä kuluja."
+#: src/Process/Backend/Home.php:151
+msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
+msgstr ""
 
-#: src/Process/Backend/Home.php:153
+#: src/Process/Backend/Home.php:152
 msgid "The collected funds will be spent as follows:"
 msgstr "Kerätyt varat käytetään seuraavasti:"
 
-#: src/Process/Backend/Home.php:155
+#: src/Process/Backend/Home.php:154
 msgid "Paying for the website hosting and translations"
 msgstr "Verkkosivuston isännöinnin ja käännösten maksaminen"
 
-#: src/Process/Backend/Home.php:156
+#: src/Process/Backend/Home.php:155
 msgid "Paying for the domain names"
 msgstr "Verkkotunnusten maksaminen"
 
-#: src/Process/Backend/Home.php:157
+#: src/Process/Backend/Home.php:156
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "Tukemalla asiaan liittyviä hankkeita, kuten Dotaddict.org-sivustoa"
 
-#: src/Process/Backend/Home.php:158
+#: src/Process/Backend/Home.php:157
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "Dotclearin järjestämien tapahtumien kustannusten kattaminen"
 
-#: src/Process/Backend/Home.php:160
+#: src/Process/Backend/Home.php:159
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
 msgstr "Katso <a href=\"https://dotclear.org/donate\">tältä sivulta</a> lisätietoja ja lahjoitus"
 
-#: src/Process/Backend/Home.php:200
+#: src/Process/Backend/Home.php:198
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "Ohjaustaulun vedä ja pudota -ominaisuus ei ole käytössä"
 
-#: src/Process/Backend/Home.php:201
+#: src/Process/Backend/Home.php:199
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "Ohjaustaulun vedä ja pudota -ominaisuus on käytössä"
 
-#: src/Process/Backend/Home.php:214 src/Process/Backend/Home.php:227
+#: src/Process/Backend/Home.php:212 src/Process/Backend/Home.php:225
 #: src/Process/Upgrade/Home.php:132
 msgid "Dashboard"
 msgstr "Ohjaustaulu"
 
-#: src/Process/Backend/Home.php:235
+#: src/Process/Backend/Home.php:233
 msgid "Make this blog my default blog"
 msgstr "Tee tästä blogista oletusblogini"
 
-#: src/Process/Backend/Home.php:239
+#: src/Process/Backend/Home.php:237
 msgid "This blog is offline"
 msgstr "Tämä blogi ei näy nyt verkossa"
 
-#: src/Process/Backend/Home.php:241
+#: src/Process/Backend/Home.php:239
 msgid "This blog is removed"
 msgstr "Tämä blogi on poistettu"
 
-#: src/Process/Backend/Home.php:246 src/Process/Backend/Home.php:254
+#: src/Process/Backend/Home.php:244 src/Process/Backend/Home.php:252
 #: src/Process/Upgrade/Home.php:57 src/Process/Upgrade/Home.php:62
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s ei ole määritelty, muokkaa asetustiedostoasi."
 
-#: src/Process/Backend/Home.php:247 src/Process/Backend/Home.php:255
+#: src/Process/Backend/Home.php:245 src/Process/Backend/Home.php:253
 #: src/Process/Upgrade/Home.php:58 src/Process/Upgrade/Home.php:63
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "Katso tarkemmin <a href=\"https://dotclear.org/documentation/2.0/admin/config\">dokumentaatiosta</a>."
 
-#: src/Process/Backend/Home.php:265 src/Process/Upgrade/Home.php:67
+#: src/Process/Backend/Home.php:263 src/Process/Upgrade/Home.php:67
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "Välimuistihakemistoa ei ole tai sinne ei voida kirjoittaa. Luo tämä hakemisto riittävin oikeuksin sekä merkitse kyseinen hakemisto-osoite kohtaan \"DC_TPL_CACHE\" tiedostossa inc/config.php."
 
-#: src/Process/Backend/Home.php:269
+#: src/Process/Backend/Home.php:267
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "Välimuistihakemistoa ei ole tai sinne ei voida kirjoittaa. Ota yhteys järjestelmänvalvojaasi."
 
-#: src/Process/Backend/Home.php:304 src/Process/Backend/Plugins.php:119
+#: src/Process/Backend/Home.php:302 src/Process/Backend/Plugins.php:119
 #: src/Process/Install/Install.php:506 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
 msgstr "Seuraavat liitännäiset on asennettu:"
 
-#: src/Process/Backend/Home.php:318 src/Process/Backend/Plugins.php:133
+#: src/Process/Backend/Home.php:316 src/Process/Backend/Plugins.php:133
 #: src/Process/Install/Install.php:513 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have not been installed:"
 msgstr "Seuraavia liitännäisiä ei ole asennettu:"
 
-#: src/Process/Backend/Home.php:331
+#: src/Process/Backend/Home.php:329
 msgid "Errors have occured with following plugins:"
 msgstr "Seuraavat liitännäiset ovat aiheuttaneet virheitä:"
 
-#: src/Process/Backend/Home.php:449
+#: src/Process/Backend/Home.php:447
 msgid "Quick post"
 msgstr "Nopea merkintä"
 
-#: src/Process/Backend/Home.php:460 src/Process/Backend/Post.php:727
+#: src/Process/Backend/Home.php:458 src/Process/Backend/Post.php:727
 msgid "Content:"
 msgstr "Sisältö:"
 
-#: src/Process/Backend/Home.php:461 src/Process/Backend/Post.php:734
+#: src/Process/Backend/Home.php:459 src/Process/Backend/Post.php:734
 msgid "Content"
 msgstr "Sisältö:"
 
-#: src/Process/Backend/Home.php:469 src/Process/Backend/Post.php:656
+#: src/Process/Backend/Home.php:467 src/Process/Backend/Post.php:656
 msgid "Add a new category"
 msgstr "Lisää uusi luokka"
 
-#: src/Process/Backend/Home.php:475
+#: src/Process/Backend/Home.php:473
 msgid "This category will be created when you will save your post."
 msgstr "Tämä luokka luodaan, kun tallennat blogimerkintäsi."
 
-#: src/Process/Backend/Home.php:482
+#: src/Process/Backend/Home.php:480
 msgid "Save and publish"
 msgstr "Tallenna ja julkaise"
 
@@ -5233,8 +5230,7 @@ msgstr "Tietoja tästä versiosta"
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "Uusi versio Dotclearista on tarjolla, mutta se vaatii PHP-versiota, joka on ≥ %s, käyttämäsi PHP-versio on nyt %s"
 
-#: src/Process/Backend/Rest.php:195 src/Process/Backend/Update.php:140
-#: src/Process/Upgrade/Upgrade.php:210
+#: src/Process/Backend/Rest.php:195 src/Process/Upgrade/Upgrade.php:210
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr "Seuraavat versiot Dotclearista eivät tue PHP-versiota, joka on < %s, käyttämäsi PHP-versio on nyt %s"
@@ -5291,80 +5287,6 @@ msgid "one comment found"
 msgid_plural "%d comments found"
 msgstr[0] "yksi kommentti löytyi"
 msgstr[1] "%d löydetyt kommentit"
-
-#: src/Process/Backend/Update.php:32 src/Process/Backend/Update.php:37
-#: src/Process/Backend/Update.php:50 src/Process/Backend/Update.php:55
-#: src/Process/Backend/Update.php:95 src/Process/Backend/Update.php:100
-#: src/Process/Backend/Update.php:121 src/Process/Backend/Update.php:126
-#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
-#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
-#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
-#: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
-#: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
-#: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
-#: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
-#: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
-#: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
-#: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
-#: src/Process/Upgrade/Upgrade.php:293
-msgid "Dotclear update"
-msgstr "Dotclearin päivitys"
-
-#: src/Process/Backend/Update.php:42 src/Process/Backend/Update.php:60
-#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
-#: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
-#: src/Process/Upgrade/Upgrade.php:86
-msgid "Precheck update error"
-msgstr "Virhe ennen päivitystä"
-
-#: src/Process/Backend/Update.php:43
-msgid "Backup directory does not exist"
-msgstr "Varmistushakemistoa ei ole"
-
-#: src/Process/Backend/Update.php:61
-msgid "Access denied"
-msgstr "Lupa evätty."
-
-#: src/Process/Backend/Update.php:110 src/Process/Upgrade/Attic.php:327
-#: src/Process/Upgrade/Upgrade.php:275
-msgid "Congratulations, you're one click away from the end of the update."
-msgstr "Onnittelut, päivitys on valmis yhden napin painalluksen jälkeen."
-
-#: src/Process/Backend/Update.php:111 src/Process/Upgrade/Attic.php:333
-#: src/Process/Upgrade/Upgrade.php:281
-msgid "Finish the update."
-msgstr "Suorita päivitys loppuun."
-
-#: src/Process/Backend/Update.php:132
-msgid "Manual checking of update done successfully."
-msgstr "Päivityksen itse käynnistetty tarkistus onnistui."
-
-#: src/Process/Backend/Update.php:148 src/Process/Upgrade/Attic.php:234
-#: src/Process/Upgrade/Upgrade.php:219
-msgid "No newer Dotclear version available."
-msgstr "Ei uudempaa Dotclear-versiota."
-
-#: src/Process/Backend/Update.php:152 src/Process/Upgrade/Attic.php:246
-#: src/Process/Upgrade/Upgrade.php:231
-msgid "Force checking update Dotclear"
-msgstr "Pakota Dotclearin päivityksen tarkistus"
-
-#: src/Process/Backend/Update.php:155 src/Process/Backend/Update.php:164
-msgid "Dotclear upgrade dashboard"
-msgstr "Dotclearin päivitysmittaristo"
-
-#: src/Process/Backend/Update.php:155
-msgid "Go to dedicated upgrade dashboard."
-msgstr "Siirry omaan päivitysmittaristoon."
-
-#: src/Process/Backend/Update.php:158 src/Process/Upgrade/Upgrade.php:240
-#, php-format
-msgid "Dotclear %s is available."
-msgstr "Dotclear %s on saatavilla."
-
-#: src/Process/Backend/Update.php:164
-msgid "To upgrade your Dotclear installation go to dedicated dashboard and follow instructions."
-msgstr "Päivittääksesi Dotclearin asennuksen mene omaan kojelautaan ja seuraa ohjeita."
 
 #: src/Process/Backend/User.php:33 src/Process/Backend/Users.php:118
 msgid "New user"
@@ -6135,6 +6057,26 @@ msgstr "Mastersähköposti: (käytetään lähettäjänä salasanan palautuksess
 msgid "Continue"
 msgstr "Jatka"
 
+#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
+#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
+#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
+#: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
+#: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
+#: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
+#: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
+#: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
+#: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
+#: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
+#: src/Process/Upgrade/Upgrade.php:293
+msgid "Dotclear update"
+msgstr "Dotclearin päivitys"
+
+#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
+#: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
+#: src/Process/Upgrade/Upgrade.php:86
+msgid "Precheck update error"
+msgstr "Virhe ennen päivitystä"
+
 #: src/Process/Upgrade/Attic.php:90 src/Process/Upgrade/Backup.php:69
 #: src/Process/Upgrade/Upgrade.php:63
 msgid "It seems that backup directory does not exist, upgrade can not be performed."
@@ -6170,6 +6112,14 @@ msgstr "Seuraaravia Dotclear-asennukseesi kuuluvia tiedostoja ei voitu lukea. Ko
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "Seuraaravia Dotclear-asennukseesi kuuluvia tiedostoja ei voitu kirjoittaa. Korjaa tämä asiaintila tai <a href=\"https://dotclear.org/download\">ladata tästä</a> ja päivittää itse käsin."
 
+#: src/Process/Upgrade/Attic.php:234 src/Process/Upgrade/Upgrade.php:219
+msgid "No newer Dotclear version available."
+msgstr "Ei uudempaa Dotclear-versiota."
+
+#: src/Process/Upgrade/Attic.php:246 src/Process/Upgrade/Upgrade.php:231
+msgid "Force checking update Dotclear"
+msgstr "Pakota Dotclearin päivityksen tarkistus"
+
 #: src/Process/Upgrade/Attic.php:273
 #, php-format
 msgid "Required PHP version %s or higher"
@@ -6196,6 +6146,14 @@ msgstr "Oletko varma, että päivität versioon %s?"
 #: src/Process/Upgrade/Digests.php:187 src/Process/Upgrade/Upgrade.php:263
 msgid "Update Dotclear"
 msgstr "Päivitä Dotclear"
+
+#: src/Process/Upgrade/Attic.php:327 src/Process/Upgrade/Upgrade.php:275
+msgid "Congratulations, you're one click away from the end of the update."
+msgstr "Onnittelut, päivitys on valmis yhden napin painalluksen jälkeen."
+
+#: src/Process/Upgrade/Attic.php:333 src/Process/Upgrade/Upgrade.php:281
+msgid "Finish the update."
+msgstr "Suorita päivitys loppuun."
 
 #: src/Process/Upgrade/Auth.php:179 src/Process/Upgrade/Auth.php:191
 msgid "Upgrade"
@@ -6460,6 +6418,11 @@ msgstr "Toista aikuistumistoiminta versiosta:"
 #: src/Process/Upgrade/Replay.php:106
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
 msgstr "Edellistä alhaisempi uusintaversio voi rikkoa asennuksen, tee se omalla vastuullasi."
+
+#: src/Process/Upgrade/Upgrade.php:240
+#, php-format
+msgid "Dotclear %s is available."
+msgstr "Dotclear %s on saatavilla."
 
 #: src/Process/Upgrade/Upgrade.php:258
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
