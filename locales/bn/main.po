@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-05 09:45+0200\n"
-"PO-Revision-Date: 2024-10-10 06:22\n"
+"POT-Creation-Date: 2024-10-11 10:52+0200\n"
+"PO-Revision-Date: 2024-10-11 08:55\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -93,7 +93,7 @@ msgstr "এই চাবি ডাটাবেসে নেই."
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:71
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
-#: src/Process/Backend/Home.php:456 src/Process/Backend/Post.php:709
+#: src/Process/Backend/Home.php:454 src/Process/Backend/Post.php:709
 msgid "Title"
 msgstr "টাইটেল"
 
@@ -409,7 +409,7 @@ msgid "Change category for this selection"
 msgstr "এই নির্বাচনের জন্য শ্রেণীবিভাগ পরিবর্তন করুন"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:463
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:461
 #: src/Process/Backend/Post.php:649
 msgid "Category:"
 msgstr "ক্যাটাগরি:"
@@ -419,7 +419,7 @@ msgid "Create a new category for the post(s)"
 msgstr "পোস্টের জন্য একটি নতুন বিভাগ তৈরি করুন (_s)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
-#: src/Process/Backend/Home.php:453 src/Process/Backend/Home.php:470
+#: src/Process/Backend/Home.php:451 src/Process/Backend/Home.php:468
 #: src/Process/Backend/MediaItem.php:1064 src/Process/Backend/Post.php:657
 #: src/Process/Backend/Post.php:705
 msgid "Title:"
@@ -427,7 +427,7 @@ msgstr "টাইটেল:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:383
 #: src/Process/Backend/Category.php:244 src/Process/Backend/Category.php:298
-#: src/Process/Backend/Home.php:472 src/Process/Backend/Post.php:659
+#: src/Process/Backend/Home.php:470 src/Process/Backend/Post.php:659
 msgid "Parent:"
 msgstr "প্যারেন্ট:"
 
@@ -437,7 +437,7 @@ msgstr "প্যারেন্ট:"
 #: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:927
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:478 src/Process/Backend/MediaItem.php:1109
+#: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1109
 #: src/Process/Backend/Post.php:776 src/Process/Backend/Post.php:916
 #: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:500
@@ -602,7 +602,7 @@ msgid "My preferences"
 msgstr "আমার পছন্দসমূহ"
 
 #: src/Core/Backend/Favorites.php:412 src/Core/Backend/Menus.php:180
-#: src/Process/Backend/Home.php:451 src/Process/Backend/Post.php:70
+#: src/Process/Backend/Home.php:449 src/Process/Backend/Post.php:70
 #: src/Process/Backend/Post.php:758 src/Process/Backend/Posts.php:101
 msgid "New post"
 msgstr "নতুন এন্ট্রি"
@@ -1529,7 +1529,7 @@ msgstr "Zip ফাইল আপলোড করুন"
 #: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
 #: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:480
 #: src/Process/Backend/BlogPref.php:806 src/Process/Backend/Category.php:233
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:452
+#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:450
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:764
 #: src/Process/Backend/Post.php:884 src/Process/Backend/User.php:255
@@ -1608,7 +1608,7 @@ msgstr "ব্যাক"
 
 #: src/Core/Backend/Notices.php:81 src/Core/Backend/Page.php:1284
 #: src/Core/Backend/Page.php:1449 src/Core/Upgrade/Notices.php:46
-#: src/Process/Backend/Home.php:287
+#: src/Process/Backend/Home.php:285
 msgid "Error:"
 msgstr "ত্রুটি:"
 
@@ -2419,8 +2419,7 @@ msgstr "আপনার ব্লগের জন্য টেম্পলেট
 msgid "Can't create template files."
 msgstr "টেমপ্লেট ফাইল তৈরি করা যাচ্ছে না."
 
-#: src/Core/Install/Utils.php:33 src/Process/Backend/Update.php:161
-#: src/Process/Upgrade/Upgrade.php:250
+#: src/Core/Install/Utils.php:33 src/Process/Upgrade/Upgrade.php:250
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "PHP সংস্করণ হল %s (%s বা পূর্বের প্রয়োজন)।"
@@ -2475,11 +2474,11 @@ msgstr "কোনো লগ-বার্তা নেই"
 msgid "No blog defined."
 msgstr "কোন ব্লগ সংজ্ঞায়িত হয়নি."
 
-#: src/Core/Media.php:206 src/Process/Backend/Home.php:276
+#: src/Core/Media.php:206 src/Process/Backend/Home.php:274
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "কোন লিখনযোগ্য ডিরেক্টরি/পাবলিক/-এ অবস্থান নির্ধারিত স্থানে নেই: কনফিগ \"পাবলিক পাথ\". আপনি এই ডিরেক্টরি তৈরি করতে হবে পর্যাপ্ত অধিকার (অথবা এই সেটিং পরিবর্তন)."
 
-#: src/Core/Media.php:209 src/Process/Backend/Home.php:280
+#: src/Core/Media.php:209 src/Process/Backend/Home.php:278
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "মিডিয়া ম্যানেজারের জন্য কোন লিখনযোগ্য মূল ডিরেক্টরি নেই. আপনার প্রশাসকের সাথে যোগাযোগ করা উচিত."
 
@@ -2594,8 +2593,6 @@ msgstr "লোল!"
 #: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:433
 #: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
 #: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:105
-#: src/Process/Backend/Update.php:36 src/Process/Backend/Update.php:54
-#: src/Process/Backend/Update.php:99 src/Process/Backend/Update.php:125
 #: src/Process/Backend/User.php:234 src/Process/Backend/Users.php:104
 #: src/Process/Backend/UsersActions.php:150
 #: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
@@ -4206,117 +4203,117 @@ msgstr "নিম্নলিখিত প্লাগ-ইন নিষ্ক্
 msgid "Documentation and support"
 msgstr "ডকুমেন্টেশন এবং সমর্থন"
 
-#: src/Process/Backend/Home.php:151
+#: src/Process/Backend/Home.php:150
 msgid "Donate to Dotclear"
 msgstr "ডটক্লিয়ারে দান করুন"
 
-#: src/Process/Backend/Home.php:152
-msgid "Dotclear is not a commercial project — using Dotclear is free and always will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr "ডটক্লিয়ার একটি বাণিজ্যিক প্রকল্প নয় — ডটক্লিয়ার ব্যবহার বিনামূল্যে এবং সর্বদা হবে। আপনি যদি চান, আপনি আমাদের প্রকল্প-সম্পর্কিত খরচ কভার করতে সাহায্য করতে ডটক্লিয়ারে অবদান রাখতে পারেন।."
+#: src/Process/Backend/Home.php:151
+msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
+msgstr ""
 
-#: src/Process/Backend/Home.php:153
+#: src/Process/Backend/Home.php:152
 msgid "The collected funds will be spent as follows:"
 msgstr "সংগৃহীত তহবিল নিম্নরূপ ব্যয় করা হবে:"
 
-#: src/Process/Backend/Home.php:155
+#: src/Process/Backend/Home.php:154
 msgid "Paying for the website hosting and translations"
 msgstr "ওয়েবসাইট হোস্টিং এবং অনুবাদের জন্য অর্থ প্রদান"
 
-#: src/Process/Backend/Home.php:156
+#: src/Process/Backend/Home.php:155
 msgid "Paying for the domain names"
 msgstr "ডোমেইন নামের জন্য অর্থপ্রদান"
 
-#: src/Process/Backend/Home.php:157
+#: src/Process/Backend/Home.php:156
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "সহায়তা সম্পর্কিত প্রকল্প যেমন Dotaddict.org"
 
-#: src/Process/Backend/Home.php:158
+#: src/Process/Backend/Home.php:157
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "Dotclear দ্বারা সেট আপ ইভেন্ট খরচ কভার"
 
-#: src/Process/Backend/Home.php:160
+#: src/Process/Backend/Home.php:159
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
 msgstr "আরও তথ্য এবং অনুদানের জন্য <a href=\"https://dotclear.org/donate\">এই পৃষ্ঠা</a> দেখুন"
 
-#: src/Process/Backend/Home.php:200
+#: src/Process/Backend/Home.php:198
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "ড্যাশবোর্ড এলাকার ড্রাগ এবং ড্রপ নিষ্ক্রিয় করা হচ্ছে"
 
-#: src/Process/Backend/Home.php:201
+#: src/Process/Backend/Home.php:199
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "ড্যাশবোর্ড এলাকার ড্রাগ এবং ড্রপ সক্রিয় করা হচ্ছে"
 
-#: src/Process/Backend/Home.php:214 src/Process/Backend/Home.php:227
+#: src/Process/Backend/Home.php:212 src/Process/Backend/Home.php:225
 #: src/Process/Upgrade/Home.php:132
 msgid "Dashboard"
 msgstr "ড্যাশবোর্ড"
 
-#: src/Process/Backend/Home.php:235
+#: src/Process/Backend/Home.php:233
 msgid "Make this blog my default blog"
 msgstr "এই ব্লগটিকে আমার ডিফল্ট ব্লগ বানাও"
 
-#: src/Process/Backend/Home.php:239
+#: src/Process/Backend/Home.php:237
 msgid "This blog is offline"
 msgstr "এই ব্লগটি অফলাইনে আছে"
 
-#: src/Process/Backend/Home.php:241
+#: src/Process/Backend/Home.php:239
 msgid "This blog is removed"
 msgstr "এই ব্লগটি মুছে ফেলা হয়েছে"
 
-#: src/Process/Backend/Home.php:246 src/Process/Backend/Home.php:254
+#: src/Process/Backend/Home.php:244 src/Process/Backend/Home.php:252
 #: src/Process/Upgrade/Home.php:57 src/Process/Upgrade/Home.php:62
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s সংজ্ঞায়িত করা হয়নি, আপনার কনফিগারেশন ফাইলটি সম্পাদনা করা উচিত।"
 
-#: src/Process/Backend/Home.php:247 src/Process/Backend/Home.php:255
+#: src/Process/Backend/Home.php:245 src/Process/Backend/Home.php:253
 #: src/Process/Upgrade/Home.php:58 src/Process/Upgrade/Home.php:63
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "আরও তথ্যের জন্য <a href=\"https://dotclear.org/documentation/2.0/admin/config\">নথি দেখুন</a>।"
 
-#: src/Process/Backend/Home.php:265 src/Process/Upgrade/Home.php:67
+#: src/Process/Backend/Home.php:263 src/Process/Upgrade/Home.php:67
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "ক্যাশ ডিরেক্টরি নেই অথবা লিখনযোগ্য নয়. আপনি এই ডিরেক্টরি যথেষ্ট অধিকারের সাথে তৈরি করতে হবে এবং ইনক/config.php ফাইলে \"DC_TPL_CACHE\" এ অবস্থানটি প্রভাবিত করতে হবে."
 
-#: src/Process/Backend/Home.php:269
+#: src/Process/Backend/Home.php:267
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "ক্যাশ ডিরেক্টরি নেই অথবা লিখনযোগ্য নয়. আপনার প্রশাসকের সাথে যোগাযোগ করা উচিত."
 
-#: src/Process/Backend/Home.php:304 src/Process/Backend/Plugins.php:119
+#: src/Process/Backend/Home.php:302 src/Process/Backend/Plugins.php:119
 #: src/Process/Install/Install.php:506 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
 msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
 
-#: src/Process/Backend/Home.php:318 src/Process/Backend/Plugins.php:133
+#: src/Process/Backend/Home.php:316 src/Process/Backend/Plugins.php:133
 #: src/Process/Install/Install.php:513 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have not been installed:"
 msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
 
-#: src/Process/Backend/Home.php:331
+#: src/Process/Backend/Home.php:329
 msgid "Errors have occured with following plugins:"
 msgstr "নিম্নোক্ত প্লাগ-ইন দ্বারা ত্রুটি ঘটেছে:"
 
-#: src/Process/Backend/Home.php:449
+#: src/Process/Backend/Home.php:447
 msgid "Quick post"
 msgstr "দ্রুত এন্ট্রি"
 
-#: src/Process/Backend/Home.php:460 src/Process/Backend/Post.php:727
+#: src/Process/Backend/Home.php:458 src/Process/Backend/Post.php:727
 msgid "Content:"
 msgstr "কন্টেন্ট:"
 
-#: src/Process/Backend/Home.php:461 src/Process/Backend/Post.php:734
+#: src/Process/Backend/Home.php:459 src/Process/Backend/Post.php:734
 msgid "Content"
 msgstr "বিষয়বস্তু"
 
-#: src/Process/Backend/Home.php:469 src/Process/Backend/Post.php:656
+#: src/Process/Backend/Home.php:467 src/Process/Backend/Post.php:656
 msgid "Add a new category"
 msgstr "নতুন ক্যাটাগরি তৈরি করুন"
 
-#: src/Process/Backend/Home.php:475
+#: src/Process/Backend/Home.php:473
 msgid "This category will be created when you will save your post."
 msgstr "এই বিভাগটি তৈরি হবে যখন আপনি আপনার পোস্ট সংরক্ষণ করবেন."
 
-#: src/Process/Backend/Home.php:482
+#: src/Process/Backend/Home.php:480
 msgid "Save and publish"
 msgstr "সংরক্ষণ ও প্রকাশ করুন"
 
@@ -5233,8 +5230,7 @@ msgstr "এই সংস্করণের তথ্য"
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "Dotclear এর একটি নতুন সংস্করণ পাওয়া যায় কিন্তু প্রয়োজন PHP সংস্করণ ≥ %s, your's is currently %s"
 
-#: src/Process/Backend/Rest.php:195 src/Process/Backend/Update.php:140
-#: src/Process/Upgrade/Upgrade.php:210
+#: src/Process/Backend/Rest.php:195 src/Process/Upgrade/Upgrade.php:210
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr "ডটক্লিয়ারের পরবর্তী সংস্করণগুলি %s < PHP সংস্করণ সমর্থন করবে না, আপনার বর্তমানে %s"
@@ -5291,80 +5287,6 @@ msgid "one comment found"
 msgid_plural "%d comments found"
 msgstr[0] "একটি মন্তব্যটি পাওয়া গেছে"
 msgstr[1] "%dটি মন্তব্য খুঁজে পাওয়া গেছে"
-
-#: src/Process/Backend/Update.php:32 src/Process/Backend/Update.php:37
-#: src/Process/Backend/Update.php:50 src/Process/Backend/Update.php:55
-#: src/Process/Backend/Update.php:95 src/Process/Backend/Update.php:100
-#: src/Process/Backend/Update.php:121 src/Process/Backend/Update.php:126
-#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
-#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
-#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
-#: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
-#: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
-#: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
-#: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
-#: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
-#: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
-#: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
-#: src/Process/Upgrade/Upgrade.php:293
-msgid "Dotclear update"
-msgstr "Dotclear আপডেট"
-
-#: src/Process/Backend/Update.php:42 src/Process/Backend/Update.php:60
-#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
-#: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
-#: src/Process/Upgrade/Upgrade.php:86
-msgid "Precheck update error"
-msgstr "প্রেরকের আপডেট সংক্রান্ত ত্রুটি"
-
-#: src/Process/Backend/Update.php:43
-msgid "Backup directory does not exist"
-msgstr "ব্যাকআপ ডিরেক্টরি নেই"
-
-#: src/Process/Backend/Update.php:61
-msgid "Access denied"
-msgstr "অ্যাক্সেস অস্বীকার"
-
-#: src/Process/Backend/Update.php:110 src/Process/Upgrade/Attic.php:327
-#: src/Process/Upgrade/Upgrade.php:275
-msgid "Congratulations, you're one click away from the end of the update."
-msgstr "অভিনন্দন, আপডেটের শেষ থেকে আপনি একটি ক্লিক করুন."
-
-#: src/Process/Backend/Update.php:111 src/Process/Upgrade/Attic.php:333
-#: src/Process/Upgrade/Upgrade.php:281
-msgid "Finish the update."
-msgstr "আপডেট শেষ করো."
-
-#: src/Process/Backend/Update.php:132
-msgid "Manual checking of update done successfully."
-msgstr "সফলভাবে আপডেট করার জন্য ম্যানুয়াল চেক করা হয়েছে."
-
-#: src/Process/Backend/Update.php:148 src/Process/Upgrade/Attic.php:234
-#: src/Process/Upgrade/Upgrade.php:219
-msgid "No newer Dotclear version available."
-msgstr "ডটক্লিয়ারের কোনো নতুন ভার্সন বের হয় নি।"
-
-#: src/Process/Backend/Update.php:152 src/Process/Upgrade/Attic.php:246
-#: src/Process/Upgrade/Upgrade.php:231
-msgid "Force checking update Dotclear"
-msgstr "Dotclear হালনাগাদ পরীক্ষা করতে বাধ্য করা হবে"
-
-#: src/Process/Backend/Update.php:155 src/Process/Backend/Update.php:164
-msgid "Dotclear upgrade dashboard"
-msgstr "ডটক্লিয়ার আপগ্রেড ড্যাশবোর্ড"
-
-#: src/Process/Backend/Update.php:155
-msgid "Go to dedicated upgrade dashboard."
-msgstr "ডেডিকেটেড আপগ্রেড ড্যাশবোর্ডে যান।"
-
-#: src/Process/Backend/Update.php:158 src/Process/Upgrade/Upgrade.php:240
-#, php-format
-msgid "Dotclear %s is available."
-msgstr "Dotclear %s বের হয়েছে।"
-
-#: src/Process/Backend/Update.php:164
-msgid "To upgrade your Dotclear installation go to dedicated dashboard and follow instructions."
-msgstr "আপনার ডটক্লিয়ার ইনস্টলেশন আপগ্রেড করতে ডেডিকেটেড ড্যাশবোর্ডে যান এবং নির্দেশাবলী অনুসরণ করুন।"
 
 #: src/Process/Backend/User.php:33 src/Process/Backend/Users.php:118
 msgid "New user"
@@ -6135,6 +6057,26 @@ msgstr "মাস্টার ইমেইল: (পাসওয়ার্ড প�
 msgid "Continue"
 msgstr "@ title: group"
 
+#: src/Process/Upgrade/Attic.php:77 src/Process/Upgrade/Attic.php:81
+#: src/Process/Upgrade/Attic.php:101 src/Process/Upgrade/Attic.php:105
+#: src/Process/Upgrade/Attic.php:339 src/Process/Upgrade/Attic.php:343
+#: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
+#: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
+#: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
+#: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
+#: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
+#: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
+#: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
+#: src/Process/Upgrade/Upgrade.php:293
+msgid "Dotclear update"
+msgstr "Dotclear আপডেট"
+
+#: src/Process/Upgrade/Attic.php:89 src/Process/Upgrade/Attic.php:113
+#: src/Process/Upgrade/Backup.php:68 src/Process/Upgrade/Upgrade.php:62
+#: src/Process/Upgrade/Upgrade.php:86
+msgid "Precheck update error"
+msgstr "প্রেরকের আপডেট সংক্রান্ত ত্রুটি"
+
 #: src/Process/Upgrade/Attic.php:90 src/Process/Upgrade/Backup.php:69
 #: src/Process/Upgrade/Upgrade.php:63
 msgid "It seems that backup directory does not exist, upgrade can not be performed."
@@ -6170,6 +6112,14 @@ msgstr "আপনার ডটক্লিয়ার ইনস্টলেশ�
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "আপনার ডটক্লিয়ার ইনস্টলেশনের নিম্নলিখিত ফাইলগুলি লেখা যাবে না। দয়া করে এটি ঠিক করুন বা <a href=\"https://dotclear.org/download\">ম্যানুয়ালি আপডেট করার চেষ্টা করুন</a>।"
 
+#: src/Process/Upgrade/Attic.php:234 src/Process/Upgrade/Upgrade.php:219
+msgid "No newer Dotclear version available."
+msgstr "ডটক্লিয়ারের কোনো নতুন ভার্সন বের হয় নি।"
+
+#: src/Process/Upgrade/Attic.php:246 src/Process/Upgrade/Upgrade.php:231
+msgid "Force checking update Dotclear"
+msgstr "Dotclear হালনাগাদ পরীক্ষা করতে বাধ্য করা হবে"
+
 #: src/Process/Upgrade/Attic.php:273
 #, php-format
 msgid "Required PHP version %s or higher"
@@ -6196,6 +6146,14 @@ msgstr "আপনি কি %s সংস্করণে আপডেট কর�
 #: src/Process/Upgrade/Digests.php:187 src/Process/Upgrade/Upgrade.php:263
 msgid "Update Dotclear"
 msgstr "আপডেট Dotclear"
+
+#: src/Process/Upgrade/Attic.php:327 src/Process/Upgrade/Upgrade.php:275
+msgid "Congratulations, you're one click away from the end of the update."
+msgstr "অভিনন্দন, আপডেটের শেষ থেকে আপনি একটি ক্লিক করুন."
+
+#: src/Process/Upgrade/Attic.php:333 src/Process/Upgrade/Upgrade.php:281
+msgid "Finish the update."
+msgstr "আপডেট শেষ করো."
 
 #: src/Process/Upgrade/Auth.php:179 src/Process/Upgrade/Auth.php:191
 msgid "Upgrade"
@@ -6460,6 +6418,11 @@ msgstr "সংস্করণ থেকে রিপ্লে গ্রো আ�
 #: src/Process/Upgrade/Replay.php:106
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
 msgstr "শেষের চেয়ে কম রিপ্লে সংস্করণটি আপনার ইনস্টলেশনটি ভেঙে ফেলতে পারে, এটি আপনার নিজের ঝুঁকিতে করুন।"
+
+#: src/Process/Upgrade/Upgrade.php:240
+#, php-format
+msgid "Dotclear %s is available."
+msgstr "Dotclear %s বের হয়েছে।"
 
 #: src/Process/Upgrade/Upgrade.php:258
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
