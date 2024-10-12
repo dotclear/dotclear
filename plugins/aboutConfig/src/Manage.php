@@ -16,6 +16,7 @@ use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Decimal;
+use Dotclear\Helper\Html\Form\Details;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -25,6 +26,7 @@ use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Summary;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
 use Dotclear\Helper\Html\Form\Td;
@@ -244,12 +246,12 @@ class Manage extends Process
                 $strong = $global ? false : !$v['global'];
                 $rows[] = self::settingLine($k, $v, $ns, $field_name, $strong);
             }
-            $tables[] = (new Div())
+            $table = (new Div())
                 ->class('table-outer')
                 ->items([
                     (new Table($prefix . $ns))
                         ->class('settings')
-                        ->caption((new Caption($ns))->class('as_h3'))
+                        //->caption((new Caption($ns))->class('as_h3'))
                         ->thead(
                             (new Thead())
                                 ->rows([
@@ -266,6 +268,9 @@ class Manage extends Process
                                 ->rows($rows)
                         ),
                 ]);
+            $tables[] = (new Details(['setting_details']))
+                ->summary(new Summary($ns))
+                ->items([$table]);
         }
 
         $elements[] = (new Form([$submit_id . '_form']))

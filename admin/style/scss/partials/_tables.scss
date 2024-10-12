@@ -91,14 +91,17 @@ table.posts-list {
   min-width: 50%;
 }
 
-table:is(.settings, .prefs) {
-  margin-bottom: 3em;
+/* Settings/Preferences */
 
-  &:target caption::before {
-    content: '•';
-    margin-inline-end: 0.5em;
+details:has(.settings, .prefs) {
+  margin-bottom: 1em;
+  &[open] summary {
+    color: var(--title-alt-color);
+    margin-block-end: 1em;
   }
+}
 
+table:is(.settings, .prefs) {
   th:first-child {
     width: 20%;
   }
