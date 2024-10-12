@@ -14,7 +14,6 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
-use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Decimal;
 use Dotclear\Helper\Html\Form\Details;
 use Dotclear\Helper\Html\Form\Div;
@@ -249,9 +248,8 @@ class Manage extends Process
             $table = (new Div())
                 ->class('table-outer')
                 ->items([
-                    (new Table($prefix . $ns))
+                    (new Table())
                         ->class('settings')
-                        //->caption((new Caption($ns))->class('as_h3'))
                         ->thead(
                             (new Thead())
                                 ->rows([
@@ -268,7 +266,7 @@ class Manage extends Process
                                 ->rows($rows)
                         ),
                 ]);
-            $tables[] = (new Details(['setting_details']))
+            $tables[] = (new Details(['setting_details', $prefix . $ns]))
                 ->summary(new Summary($ns))
                 ->items([$table]);
         }
