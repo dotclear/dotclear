@@ -6,9 +6,9 @@ dotclear.ready(() => {
 
   const move = (selection) => {
     window.location = selection;
-    document
-      .getElementById(selection.substring(1))
-      .caption?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    const block = document.getElementById(selection.substring(1));
+    block.open = true;
+    block.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   };
 
   // Hide submit buttons

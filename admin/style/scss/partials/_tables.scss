@@ -95,6 +95,7 @@ table.posts-list {
 
 details:has(.settings, .prefs) {
   margin-bottom: 1em;
+
   &[open] summary {
     color: var(--title-alt-color);
     margin-block-end: 1em;
