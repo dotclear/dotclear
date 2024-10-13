@@ -4737,7 +4737,7 @@ body.auth .pw-hide {
   background: var(--nav-background);
   position: sticky;
   top: 0;
-  padding: 0.5em 0;
+  padding: 0.5em 0 1em;
 }
 
 .anchor-nav {
