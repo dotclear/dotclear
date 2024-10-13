@@ -24,6 +24,7 @@ use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Summary;
 use Dotclear\Helper\Html\Form\Table;
@@ -266,22 +267,32 @@ class Manage extends Process
                                 ->rows($rows)
                         ),
                 ]);
-            $tables[] = (new Details(['setting_details', $prefix . $ns]))
-                ->summary(new Summary($ns))
-                ->items([$table]);
+
+            $tables[] = (new Form([$submit_id . '_' . $ns . '_form']))
+                ->action(App::backend()->url()->get('admin.plugin') . '#' . ($global ? 'global' : 'local') . '.' . $prefix . $ns)
+                ->method('post')
+                ->fields([
+                    (new Details(['setting_details', $prefix . $ns]))
+                        ->summary(new Summary($ns))
+                        ->items([
+                            $table,
+                            (new Para())
+                                ->class('form-buttons')
+                                ->items([
+                                    (new Submit([$submit_id . '_' . $ns . '_post'], __('Save'))),
+                                    ...My::hiddenFields(),
+                                ]),
+                        ]),
+                ]);
         }
 
-        $elements[] = (new Form([$submit_id . '_form']))
-            ->action(App::backend()->url()->get('admin.plugin'))
-            ->method('post')
-            ->fields([
+        $elements[] = (new Set())
+            ->items([
                 ... $tables,
                 (new Para())
                     ->class('form-buttons')
                     ->items([
-                        (new Submit([$submit_id . '_post'], __('Save'))),
                         (new Button([$submit_id . '_back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
-                        ...My::hiddenFields(),
                     ]),
             ]);
 

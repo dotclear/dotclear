@@ -24,4 +24,16 @@ dotclear.ready(() => {
   for (const element of document.querySelectorAll('table.prefs')) {
     element.classList.add('rch', 'rch-thead');
   }
+
+  // If there is a sub-hash in URL, open the according details block and set the correct value in selector
+  const hash = document.location.hash.split('.');
+  if (hash.length > 1) {
+    const details_id = hash[1];
+    const details = document.getElementById(details_id);
+    if (details) {
+      details.open = true;
+      const select = document.getElementById(`${Array.from(details_id)[0]}p_nav`);
+      if (select) select.value = `#${details_id}`;
+    }
+  }
 });
