@@ -2296,13 +2296,19 @@ a.button.delete:is(:hover, :focus) {
 }
 
 .button.add,
-button.add {
+button.add,
+input.add {
   color: var(--add-color);
   background-color: var(--add-background);
+}
+.button.add:is(.button, button),
+button.add:is(.button, button),
+input.add:is(.button, button) {
   padding: 0.4em 1.25em 0.4em;
 }
 .button.add:is(:hover, :active, :focus),
-button.add:is(:hover, :active, :focus) {
+button.add:is(:hover, :active, :focus),
+input.add:is(:hover, :active, :focus) {
   color: var(--add-color-alt);
   background-color: var(--add-background-alt);
 }

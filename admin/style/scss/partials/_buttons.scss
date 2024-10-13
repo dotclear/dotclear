@@ -74,10 +74,14 @@ a.button.delete {
 }
 
 .button.add,
-button.add {
+button.add,
+input.add {
   color: var(--add-color);
   background-color: var(--add-background);
-  padding: 0.4em 1.25em 0.4em;
+
+  &:is(.button, button) {
+    padding: 0.4em 1.25em 0.4em;
+  }
 
   &:is(:hover, :active, :focus) {
     color: var(--add-color-alt);
