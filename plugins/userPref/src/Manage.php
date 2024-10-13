@@ -270,7 +270,7 @@ class Manage extends Process
                 ->action(App::backend()->url()->get('admin.plugin') . '#' . ($global ? 'global' : 'local') . '.' . $prefix . $ws)
                 ->method('post')
                 ->fields([
-                    (new Details(['pref_details', $prefix . $ws]))
+                    (new Details([$prefix . 'pref_details', $prefix . $ws]))
                         ->summary(new Summary($ws))
                         ->items([
                             $table,
