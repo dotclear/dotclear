@@ -16,8 +16,10 @@ dotclear.ready(() => {
   document.getElementById('lp_submit').style.display = 'none';
 
   // Listen for selection change
-  document.getElementById('gp_nav')?.addEventListener('change', (event) => move(event.target.value));
-  document.getElementById('lp_nav')?.addEventListener('change', (event) => move(event.target.value));
+  const select_g = document.getElementById('gp_nav');
+  const select_l = document.getElementById('lp_nav');
+  select_g?.addEventListener('change', (event) => move(event.target.value));
+  select_l?.addEventListener('change', (event) => move(event.target.value));
 
   // Prepare mobile display for tables
   dotclear.responsiveCellHeaders(document.querySelector('table.prefs'), 'table.prefs', 0, true);
@@ -36,4 +38,22 @@ dotclear.ready(() => {
       if (select) select.value = `#${details_id}`;
     }
   }
+
+  // Update selector on opening a details block
+  const update = (list, select) => {
+    for (const item of list) {
+      item.addEventListener('toggle', () => {
+        if (!item.open) {
+          return;
+        }
+        const details_id = item.id;
+        select.value = `#${details_id}`;
+        return;
+      });
+    }
+  };
+  const blocks_l = document.querySelectorAll('[name^="l_pref_"]');
+  const blocks_g = document.querySelectorAll('[name^="g_pref_"]');
+  update(blocks_l, select_l);
+  update(blocks_g, select_g);
 });
