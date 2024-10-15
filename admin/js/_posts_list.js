@@ -59,5 +59,5 @@ dotclear.ready(() => {
   dotclear.enableShiftClick('#form-entries td input[type=checkbox]');
   dotclear.condSubmit('#form-entries td input[type=checkbox]', '#form-entries #do-action');
   dotclear.postsActionsHelper();
-  dotclear.responsiveCellHeaders(document.querySelector('#form-entries table'), '#form-entries table', 1);
+  dotclear.responsiveCellHeaders(document.querySelector('#form-entries table'), '#form-entries table', 1, true);
 });
