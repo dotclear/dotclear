@@ -177,7 +177,7 @@ class Manage extends Process
      *
      * @param      bool  $global  The global
      *
-     * @return     array<int, Form>
+     * @return     array<int, Set|Form>
      */
     protected static function settingsTable(bool $global = false): array
     {
