@@ -10,16 +10,34 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
-use Dotclear\Core\Backend\Page;
 use Dotclear\App;
+use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
+use Dotclear\Core\Upgrade\Upgrade;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\Mail\Mail;
-use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Details;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Email;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Summary;
+use Dotclear\Helper\Html\Form\Text;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/auth.php
@@ -308,20 +326,25 @@ class Auth extends Process
 
         $dlang  = App::backend()->dlang;
         $vendor = Html::escapeHTML(App::config()->vendorName());
-        $buffer = '<!DOCTYPE html>' . "\n" .
-            '<html lang="' . $dlang . '">' . "\n" .
-            '<head>' . "\n" .
-            '  <meta charset="UTF-8">' . "\n" .
-            '  <meta http-equiv="Content-Script-Type" content="text/javascript">' . "\n" .
-            '  <meta http-equiv="Content-Style-Type" content="text/css">' . "\n" .
-            '  <meta http-equiv="Content-Language" content="' . $dlang . '">' . "\n" .
-            '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
-            '  <meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
-            '  <meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
-            '  <title>' . $vendor . '</title>' . "\n" .
-            '  <link rel="icon" type="image/png" href="images/favicon96-logout.png">' . "\n" .
-            '  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">' . "\n" .
-            '  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen">';
+
+        echo
+        '<!DOCTYPE html>' . "\n" .
+        '<html lang="' . $dlang . '">' . "\n";
+
+        // Head part
+
+        $buffer = '<head>' . "\n" .
+            '<meta charset="UTF-8">' . "\n" .
+            '<meta http-equiv="Content-Script-Type" content="text/javascript">' . "\n" .
+            '<meta http-equiv="Content-Style-Type" content="text/css">' . "\n" .
+            '<meta http-equiv="Content-Language" content="' . $dlang . '">' . "\n" .
+            '<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
+            '<meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
+            '<title>' . $vendor . '</title>' . "\n" .
+            '<link rel="icon" type="image/png" href="images/favicon96-logout.png">' . "\n" .
+            '<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">' . "\n" .
+            '<link rel="stylesheet" href="style/default.css" type="text/css" media="screen">';
 
         echo
         $buffer . Page::jsCommon();
@@ -330,186 +353,249 @@ class Auth extends Process
         App::behavior()->callBehavior('loginPageHTMLHead');
 
         echo
-        Page::jsLoad('js/_auth.js');
+        Page::jsJson('pwstrength', [
+            'min' => sprintf(__('Password strength: %s'), __('weak')),
+            'avg' => sprintf(__('Password strength: %s'), __('medium')),
+            'max' => sprintf(__('Password strength: %s'), __('strong')),
+        ]) .
+        Page::jsLoad('js/pwstrength.js') .
+        Page::jsLoad('js/_auth.js') .
+        '</head>';
+
+        // Body part
 
         $action = App::backend()->url()->get('admin.auth');
         $banner = Html::escapeHTML(App::config()->vendorName());
-        $buffer = '</head>' . "\n" .
-            '<body id="dotclear-admin" class="auth">' . "\n" .
-            '<form action="' . $action . '" method="post" id="login-screen">' . "\n" .
-            '<h1 role="banner">' . $banner . '</h1>';
 
         echo
-        $buffer;
+        '<body id="dotclear-admin" class="auth">' . "\n";
+
+        // Authentication form
+
+        $parts = [
+            (new Text('h1', $banner))->role('banner'),
+        ];
 
         if (App::backend()->err) {
-            echo
-            '<div class="' . (App::backend()->change_pwd ? 'info' : 'error') . '" role="alert">' . App::backend()->err . '</div>';
+            $parts[] = (new Div())
+                ->role('alert')
+                ->class(App::backend()->change_pwd ? 'info' : 'error')
+                ->items([
+                    (new Text(null, App::backend()->err)),
+                ]);
         }
         if (App::backend()->msg) {
-            echo
-            '<p class="success" role="alert">' . App::backend()->msg . '</p>';
+            $parts[] = (new Para())
+                ->role('alert')
+                ->class('success')
+                ->items([
+                    (new Text(null, App::backend()->msg)),
+                ]);
         }
 
         if (App::backend()->akey) {
             // Recovery key has been sent
-
-            echo
-            '<p><a href="' . App::backend()->url()->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>';
+            $parts[] = (new Para())
+                ->items([
+                    (new Link())
+                        ->href(App::backend()->url()->get('admin.auth'))
+                        ->text(__('Back to login screen')),
+                ]);
         } elseif (App::backend()->recover) {
             // User request a new password
-
-            echo
-            '<fieldset role="main"><h2>' . __('Request a new password') . '</h2>' .
-            '<p><label for="user_id">' . __('Username:') . '</label> ' .
-            form::field(
-                'user_id',
-                20,
-                32,
-                [
-                    'default'      => Html::escapeHTML(App::backend()->user_id),
-                    'autocomplete' => 'username',
-                ]
-            ) .
-            '</p>' .
-
-            '<p><label for="user_email">' . __('Email:') . '</label> ' .
-            form::email(
-                'user_email',
-                [
-                    'default'      => Html::escapeHTML(App::backend()->user_email),
-                    'autocomplete' => 'email',
-                ]
-            ) .
-            '</p>' .
-
-            '<p><input type="submit" value="' . __('recover') . '">' .
-            form::hidden('recover', 1) . '</p>' .
-            '</fieldset>' .
-
-            '<details open id="issue">' . "\n" .
-            '<summary>' . __('Other option') . '</summary>' . "\n" .
-            '<p><a href="' . App::backend()->url()->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>' .
-            '</details>';
+            $parts[] = (new Set())
+                ->items([
+                    (new Fieldset())
+                        ->role('main')
+                        ->legend((new Legend(__('Request a new password'))))
+                        ->fields([
+                            (new Para())
+                                ->items([
+                                    (new Input('user_id'))
+                                        ->label((new Label(__('Username:'), Label::IL_TF)))
+                                        ->size(20)
+                                        ->maxlength(32)
+                                        ->default(Html::escapeHTML(App::backend()->user_id))
+                                        ->autocomplete('username'),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Email('user_email'))
+                                        ->label((new Label(__('Email:'), Label::IL_TF)))
+                                        ->size(20)
+                                        ->maxlength(255)
+                                        ->default(Html::escapeHTML(App::backend()->user_email))
+                                        ->autocomplete('email'),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Submit('recover_submit', __('recover'))),
+                                    (new Hidden('recover', '1')),
+                                ]),
+                        ]),
+                    (new Details('issue'))
+                        ->open(true)
+                        ->summary((new Summary(__('Other option'))))
+                        ->items([
+                            (new Para())
+                                ->items([
+                                    (new Link())
+                                        ->href(App::backend()->url()->get('admin.auth'))
+                                        ->text(__('Back to login screen')),
+                                ]),
+                        ]),
+                ]);
         } elseif (App::backend()->change_pwd) {
             // User need to change password
-
-            echo
-            '<fieldset><h2>' . __('Change your password') . '</h2>' .
-            '<p><label for="new_pwd">' . __('New password:') . '</label> ' .
-            form::password(
-                'new_pwd',
-                20,
-                255,
-                [
-                    'autocomplete' => 'new-password',
-                    'class'        => 'pw-strength',
-                ]
-            ) . '</p>' .
-
-            '<p><label for="new_pwd_c">' . __('Confirm password:') . '</label> ' .
-            form::password(
-                'new_pwd_c',
-                20,
-                255,
-                [
-                    'autocomplete' => 'new-password',
-                ]
-            ) . '</p>' .
-            '<p><input type="submit" value="' . __('change') . '">' .
-            form::hidden('login_data', App::backend()->login_data) . '</p>' .
-            '</fieldset>';
+            $parts[] = (new Fieldset())
+                ->legend((new Legend(__('Change your password'))))
+                ->fields([
+                    (new Para())
+                        ->items([
+                            (new Password('new_pwd'))
+                                ->label((new Label(__('New password:'), Label::IL_TF)))
+                                ->size(20)
+                                ->maxlength(255)
+                                ->autocomplete('new-password')
+                                ->class('pw-strength'),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Password('new_pwd_c'))
+                                ->label((new Label(__('Confirm password:'), Label::IL_TF)))
+                                ->size(20)
+                                ->maxlength(255)
+                                ->autocomplete('new-password'),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Submit('change_submit', __('change'))),
+                            (new Hidden('login_data', App::backend()->login_data)),
+                        ]),
+                ]);
         } else {
             // Authentication
-
-            if (is_callable([App::auth(), 'authForm'])) {
+            $user_defined_auth_form = null;
+            if (is_callable([App::auth(), 'authForm'], false, $user_defined_auth_form)) {
                 // User-defined authentication form
 
-                echo App::auth()->authForm(App::backend()->user_id);
+                echo $user_defined_auth_form(App::backend()->user_id);
+
+                $parts[] = (new Text(null, $user_defined_auth_form(App::backend()->user_id)));
             } else {
                 // Standard authentication form
 
-                if (App::backend()->safe_mode) {
-                    echo
-                    '<fieldset role="main">' .
-                    '<h2>' . __('Safe mode login') . '</h2>' .
-                    '<p class="form-note">' .
-                    __('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems') . '&nbsp;</p>' .
-                    '<p class="form-note">' . __('Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally.') .
-                    '</p>';
-                } else {
-                    echo
-                    '<fieldset role="main">';
+                $fields = [];
+                $legend = null;
 
+                if (App::backend()->safe_mode) {
+                    $legend   = (new Legend(__('Safe mode login')));
+                    $fields[] = (new Set())
+                        ->items([
+                            (new Note())->class('form-note')->text(__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems')),
+                            (new Note())->class('form-note')->text(__('Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally.')),
+                        ]);
+                } else {
                     if (isset($_REQUEST['go'])) {
-                        echo
-                        '<p>' .
-                        form::hidden('go', Html::escapeHTML($_REQUEST['go'])) .
-                        '</p>';
+                        $fields[] = (new Hidden('go', Html::escapeHTML($_REQUEST['go'])));
                     }
                 }
 
-                echo
-                '<p><label for="user_id">' . __('Username:') . '</label> ' .
-                form::field(
-                    'user_id',
-                    20,
-                    32,
-                    [
-                        'default'      => Html::escapeHTML(App::backend()->user_id),
-                        'autocomplete' => 'username',
-                    ]
-                ) . '</p>' .
+                $fields[] = (new Set())
+                    ->items([
+                        (new Para())
+                            ->items([
+                                (new Input('user_id'))
+                                    ->label((new Label(__('Username:'), Label::IL_TF)))
+                                    ->size(20)
+                                    ->maxlength(32)
+                                    ->default(Html::escapeHTML(App::backend()->user_id))
+                                    ->autocomplete('username'),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Password('user_pwd'))
+                                    ->label((new Label(__('Password:'), Label::IL_TF)))
+                                    ->size(20)
+                                    ->maxlength(255)
+                                    ->autocomplete('current-password'),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Checkbox('user_remember'))
+                                    ->value(1)
+                                    ->label((new Label(__('Remember my ID on this device'), Label::IL_FT))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Submit('login', __('log in')))
+                                    ->class('login'),
+                            ]),
+                    ]);
 
-                '<p><label for="user_pwd">' . __('Password:') . '</label> ' .
-                form::password(
-                    'user_pwd',
-                    20,
-                    255,
-                    [
-                        'autocomplete' => 'current-password',
-                    ]
-                ) . '</p>' .
-                '<p>' . form::checkbox('user_remember', 1) . '<label for="user_remember" class="classic">' .
-                __('Remember my ID on this device') . '</label></p>' .
-                '<p><input type="submit" value="' . __('log in') . '" class="login">';
                 if (!empty($_REQUEST['blog'])) {
-                    echo
-                    form::hidden('blog', Html::escapeHTML($_REQUEST['blog']));
+                    $fields[] = (new Hidden('blog', Html::escapeHTML($_REQUEST['blog'])));
                 }
                 if (App::backend()->safe_mode) {
-                    echo
-                    form::hidden('safe_mode', 1);
+                    $fields[] = (new Hidden('safe_mode', '1'));
                 }
-                echo
-                '</p>';
 
-                echo
-                '</fieldset>';
+                $fieldset = (new Fieldset())
+                    ->role('main')
+                    ->fields($fields);
+                if ($legend) {
+                    $fieldset->legend($legend);
+                }
 
-                echo
-                '<p id="cookie_help" class="error">' . __('You must accept cookies in order to use the private area.') . '</p>';
+                $parts[] = $fieldset;
 
-                echo
-                '<details ' . (App::backend()->safe_mode ? 'open ' : '') . 'id="issue">' . "\n";
+                // Cookie warning
+                $parts[] = (new Para('cookie_help'))
+                    ->class('error')
+                    ->items([
+                        (new Text(null, __('You must accept cookies in order to use the private area.'))),
+                    ]);
+
+                // Authentification helpers
                 if (App::backend()->safe_mode) {
-                    echo
-                    '<summary>' . __('Other option') . '</summary>' . "\n" .
-                    '<p><a href="' . App::backend()->url()->get('admin.auth') . '" id="normal_mode_link">' . __('Get back to normal authentication') . '</a></p>';
+                    $parts[] = (new Details('issue'))
+                        ->summary((new Summary(__('Other option'))))
+                        ->items([
+                            (new Para())
+                                ->items([
+                                    (new Link('normal_mode_link'))
+                                        ->href(App::backend()->url()->get('admin.auth'))
+                                        ->text(__('Get back to normal authentication')),
+                                ]),
+                        ]);
                 } else {
-                    echo
-                    '<summary>' . __('Connection issue?') . '</summary>' . "\n";
-                    if (App::auth()->allowPassChange()) {
-                        echo
-                        '<p><a href="' . App::backend()->url()->get('admin.auth', ['recover' => 1]) . '">' . __('I forgot my password') . '</a></p>';
-                    }
-                    echo
-                    '<p><a href="' . App::backend()->url()->get('admin.auth', ['safe_mode' => 1]) . '" id="safe_mode_link">' . __('I want to log in in safe mode') . '</a></p>';
+                    $parts[] = (new Details('issue'))
+                        ->summary((new Summary(__('Connection issue?'))))
+                            ->items([
+                                App::auth()->allowPassChange() ?
+                                (new Para())
+                                    ->items([
+                                        (new Link('forgot_pwd'))
+                                            ->href(App::backend()->url()->get('admin.auth', ['recover' => 1]))
+                                            ->text(__('I forgot my password')),
+                                    ]) :
+                                (new None()),
+                                (new Para())
+                                    ->items([
+                                        (new Link('safe_mode_link'))
+                                            ->href(App::backend()->url()->get('admin.auth', ['safe_mode' => 1]))
+                                            ->text(__('I want to log in in safe mode')),
+                                    ]),
+                            ]);
                 }
-                echo
-                '</details>';
             }
         }
+
+        echo (new Form('login-screen'))
+            ->action($action)
+            ->method('post')
+            ->fields($parts)
+        ->render();
 
         echo self::html_end();
     }
@@ -541,7 +627,6 @@ class Auth extends Process
         // Tricky code to avoid xgettext bug on indented end heredoc identifier (see https://savannah.gnu.org/bugs/?62158)
         // Warning: don't use <<< if there is some __() l10n calls after as xgettext will not find them
         return <<<HTML_END
-            </form>
             </body>
             </html>
             HTML_END;

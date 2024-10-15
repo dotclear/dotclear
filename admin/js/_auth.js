@@ -17,6 +17,9 @@ dotclear.ready(() => {
   const ckh = document.getElementById('cookie_help');
   if (ckh) ckh.style.display = navigator.cookieEnabled ? 'none' : '';
 
+  // Password strength
+  dotclear.passwordStrength(dotclear.getData('pwstrength'));
+
   /**
    * @type {HTMLInputElement|null}
    */
