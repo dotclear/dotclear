@@ -45,6 +45,7 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this popover(bool $popover)
  * @method      $this readonly(bool $readonly)
  * @method      $this required(bool $required)
+ * @method      $this role(string $role)
  * @method      $this size(int $size)
  * @method      $this spellcheck(bool $spellcheck)
  * @method      $this step(string $step)
@@ -83,6 +84,7 @@ namespace Dotclear\Helper\Html\Form;
  * @property    bool $popover
  * @property    bool $readonly
  * @property    bool $required
+ * @property    string $role
  * @property    int $size
  * @property    bool $spellcheck
  * @property    string $step
@@ -378,6 +380,7 @@ abstract class Component
      *          min             => int|float min value.
      *          readonly        => boolean readonly.
      *          required        => boolean required.
+     *          role            => string role.
      *          pattern         => string pattern.
      *          placeholder     => string placeholder.
      *          popover         => bool popover.
@@ -470,6 +473,8 @@ abstract class Component
                 ' readonly' : '') .
             (isset($this->required) && $this->required ?
                 ' required' : '') .
+            (isset($this->role) && $this->role ?
+                ' role="' . $this->role . '"' : '') .
             (isset($this->size) ?
                 ' size="' . strval((int) $this->size) . '"' : '') .
             (isset($this->spellcheck) ?

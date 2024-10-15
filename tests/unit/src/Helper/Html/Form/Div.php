@@ -1038,6 +1038,34 @@ class Div extends atoum
         ;
     }
 
+    public function testCommonAttributeRole()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->role('banner');
+
+        $this
+            ->string($component->render())
+            ->match('/<div.*?>\n<\/div>/')
+            ->contains('name="my"')
+            ->contains('id="my"')
+            ->contains('role="banner"')
+        ;
+    }
+
+    public function testCommonAttributeNoRole()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->role('');
+
+        $this
+            ->string($component->render())
+            ->match('/<div.*?>\n<\/div>/')
+            ->contains('name="my"')
+            ->contains('id="my"')
+            ->notContains('role')
+        ;
+    }
+
     public function testCommonAttributeSize()
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
