@@ -4735,6 +4735,7 @@ body.auth .pw-hide {
 /* password strength indicator */
 .pw-strength-meter {
   display: block;
+  margin-block-start: 0.25em;
 }
 
 /* ------------------------------------------------------------------ navigation */
