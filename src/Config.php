@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear;
 
-use dcCore;
 use Dotclear\Helper\Container\Factories;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;
@@ -463,7 +462,7 @@ class Config implements ConfigInterface
 
         // Deprecated since 2.28, for backward compatibility, override core authentication class with third party class
         if (defined('DC_AUTH_CLASS') && is_subclass_of((string) DC_AUTH_CLASS, AuthInterface::class)) {
-            Factories::addService('core', AuthInterface::class, fn ($container) => new (DC_AUTH_CLASS)(dcCore::app()));
+            Factories::addService('core', AuthInterface::class, DC_AUTH_CLASS);
         }
 
         // Deprecated since 2.28, for backward compatibility, override core connection class with third party class
