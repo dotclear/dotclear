@@ -16,11 +16,35 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Capture;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Radio;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Single;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Textarea;
+use Dotclear\Helper\Html\Form\Ul;
+use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Network\HttpClient;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/blog_pref.php
@@ -34,7 +58,7 @@ class BlogPref extends Process
          *
          * @var \Dotclear\Core\Backend\Utility
          */
-        $da = App::backend();
+        $data = App::backend();
 
         /*
          * Is standalone blog preferences?
@@ -44,30 +68,30 @@ class BlogPref extends Process
          *
          * @var        bool
          */
-        $da->standalone = !(isset($da->edit_blog_mode) && $da->edit_blog_mode);
-        if ($da->standalone) {
+        $data->standalone = !(isset($data->edit_blog_mode) && $data->edit_blog_mode);
+        if ($data->standalone) {
             Page::check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,
             ]));
 
-            $da->blog_id       = App::blog()->id();
-            $da->blog_status   = App::blog()->status();
-            $da->blog_name     = App::blog()->name();
-            $da->blog_desc     = App::blog()->desc();
-            $da->blog_settings = App::blog()->settings();
-            $da->blog_url      = App::blog()->url();
+            $data->blog_id       = App::blog()->id();
+            $data->blog_status   = App::blog()->status();
+            $data->blog_name     = App::blog()->name();
+            $data->blog_desc     = App::blog()->desc();
+            $data->blog_settings = App::blog()->settings();
+            $data->blog_url      = App::blog()->url();
 
-            $da->action = App::backend()->url()->get('admin.blog.pref');
-            $da->redir  = App::backend()->url()->get('admin.blog.pref');
+            $data->action = App::backend()->url()->get('admin.blog.pref');
+            $data->redir  = App::backend()->url()->get('admin.blog.pref');
         } else {
             Page::checkSuper();
 
-            $da->blog_id       = false;
-            $da->blog_status   = App::blog()::BLOG_OFFLINE;
-            $da->blog_name     = '';
-            $da->blog_desc     = '';
-            $da->blog_settings = null;
-            $da->blog_url      = '';
+            $data->blog_id       = false;
+            $data->blog_status   = App::blog()::BLOG_OFFLINE;
+            $data->blog_name     = '';
+            $data->blog_desc     = '';
+            $data->blog_settings = null;
+            $data->blog_url      = '';
 
             try {
                 if (empty($_REQUEST['id'])) {
@@ -79,52 +103,52 @@ class BlogPref extends Process
                     throw new Exception(__('No such blog.'));
                 }
 
-                $da->blog_id       = $rs->blog_id;
-                $da->blog_status   = $rs->blog_status;
-                $da->blog_name     = $rs->blog_name;
-                $da->blog_desc     = $rs->blog_desc;
-                $da->blog_settings = App::blogSettings()->createFromBlog($da->blog_id);
-                $da->blog_url      = $rs->blog_url;
+                $data->blog_id       = $rs->blog_id;
+                $data->blog_status   = $rs->blog_status;
+                $data->blog_name     = $rs->blog_name;
+                $data->blog_desc     = $rs->blog_desc;
+                $data->blog_settings = App::blogSettings()->createFromBlog($data->blog_id);
+                $data->blog_url      = $rs->blog_url;
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
 
-            $da->action = App::backend()->url()->get('admin.blog');
-            $da->redir  = App::backend()->url()->get('admin.blog', ['id' => '%s'], '&', true);
+            $data->action = App::backend()->url()->get('admin.blog');
+            $data->redir  = App::backend()->url()->get('admin.blog', ['id' => '%s'], '&', true);
         }
 
         // Language codes
-        $da->lang_combo = Combos::getAdminLangsCombo();
+        $data->lang_combo = Combos::getAdminLangsCombo();
 
         // Status combo
-        $da->status_combo = Combos::getBlogStatusesCombo();
+        $data->status_combo = Combos::getBlogStatusesCombo();
 
         // Date format combo
-        $da->now = time();
+        $data->now = time();
 
-        $date_formats = $da->blog_settings?->system->date_formats;
-        $time_formats = $da->blog_settings?->system->time_formats;
+        $date_formats = $data->blog_settings?->system->date_formats;
+        $time_formats = $data->blog_settings?->system->time_formats;
 
         $stack = ['' => ''];
         foreach ($date_formats as $format) {
-            $stack[Date::str($format, $da->now)] = $format;
+            $stack[Date::str($format, $data->now)] = $format;
         }
-        $da->date_formats_combo = $stack;
+        $data->date_formats_combo = $stack;
 
         $stack = ['' => ''];
         foreach ($time_formats as $format) {
-            $stack[Date::str($format, $da->now)] = $format;
+            $stack[Date::str($format, $data->now)] = $format;
         }
-        $da->time_formats_combo = $stack;
+        $data->time_formats_combo = $stack;
 
         // URL scan modes
-        $da->url_scan_combo = [
+        $data->url_scan_combo = [
             'PATH_INFO'    => 'path_info',
             'QUERY_STRING' => 'query_string',
         ];
 
         // Post URL combo
-        $da->post_url_combo = [
+        $data->post_url_combo = [
             __('year/month/day/title') => '{y}/{m}/{d}/{t}',
             __('year/month/title')     => '{y}/{m}/{t}',
             __('year/title')           => '{y}/{t}',
@@ -132,27 +156,27 @@ class BlogPref extends Process
             __('post id/title')        => '{id}/{t}',
             __('post id')              => '{id}',
         ];
-        if (!in_array($da->blog_settings?->system->post_url_format, $da->post_url_combo)) {
-            $da->post_url_combo[Html::escapeHTML($da->blog_settings?->system->post_url_format)] = Html::escapeHTML($da->blog_settings?->system->post_url_format);
+        if (!in_array($data->blog_settings?->system->post_url_format, $data->post_url_combo)) {
+            $data->post_url_combo[Html::escapeHTML($data->blog_settings?->system->post_url_format)] = Html::escapeHTML($data->blog_settings?->system->post_url_format);
         }
 
         // Note title tag combo
-        $da->note_title_tag_combo = [
+        $data->note_title_tag_combo = [
             __('H4') => 0,
             __('H3') => 1,
             __('P')  => 2,
         ];
 
         // Image title combo
-        $da->img_title_combo = [
+        $data->img_title_combo = [
             __('(none)')                           => '',
             __('Description')                      => 'Description ;; separator(, )',
             __('Description, Date')                => 'Description ;; Date(%b %Y) ;; separator(, )',
             __('Description, Country, Date')       => 'Description ;; Country ;; Date(%b %Y) ;; separator(, )',
             __('Description, City, Country, Date') => 'Description ;; City ;; Country ;; Date(%b %Y) ;; separator(, )',
         ];
-        $da->media_img_title_pattern = $da->blog_settings?->system->media_img_title_pattern;
-        if (!in_array($da->media_img_title_pattern, $da->img_title_combo)) {
+        $data->media_img_title_pattern = $data->blog_settings?->system->media_img_title_pattern;
+        if (!in_array($data->media_img_title_pattern, $data->img_title_combo)) {
             // Convert old patterns (with Title ;;) to new ones (with Description ;;)
             $old_img_title_combo = [
                 'Title ;; separator(, )'                                   => 'Description ;; separator(, )',
@@ -160,15 +184,15 @@ class BlogPref extends Process
                 'Title ;; Country ;; Date(%b %Y) ;; separator(, )'         => 'Description ;; Country ;; Date(%b %Y) ;; separator(, )',
                 'Title ;; City ;; Country ;; Date(%b %Y) ;; separator(, )' => 'Description ;; City ;; Country ;; Date(%b %Y) ;; separator(, )',
             ];
-            if (in_array($da->media_img_title_pattern, $old_img_title_combo)) {
+            if (in_array($data->media_img_title_pattern, $old_img_title_combo)) {
                 // Store new pattern (with Description ;;)
-                $da->blog_settings?->system->put('media_img_title_pattern', $old_img_title_combo[$da->media_img_title_pattern]);
-                $da->media_img_title_pattern = $old_img_title_combo[$da->media_img_title_pattern];
+                $data->blog_settings?->system->put('media_img_title_pattern', $old_img_title_combo[$data->media_img_title_pattern]);
+                $data->media_img_title_pattern = $old_img_title_combo[$data->media_img_title_pattern];
             } else {
                 // Add custom pattern to combo
-                $da->img_title_combo = [
-                    ...$da->img_title_combo,
-                    Html::escapeHTML($da->media_img_title_pattern) => Html::escapeHTML($da->media_img_title_pattern),
+                $data->img_title_combo = [
+                    ...$data->img_title_combo,
+                    Html::escapeHTML($data->media_img_title_pattern) => Html::escapeHTML($data->media_img_title_pattern),
                 ];
             }
         }
@@ -186,10 +210,10 @@ class BlogPref extends Process
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
-        $da->img_default_size_combo = $stack;
+        $data->img_default_size_combo = $stack;
 
         // Image default alignment combo
-        $da->img_default_alignment_combo = [
+        $data->img_default_alignment_combo = [
             __('None')   => 'none',
             __('Left')   => 'left',
             __('Right')  => 'right',
@@ -197,14 +221,14 @@ class BlogPref extends Process
         ];
 
         // Image default legend and alternate text combo
-        $da->img_default_legend_combo = [
+        $data->img_default_legend_combo = [
             __('Legend and alternate text') => 'legend',
             __('Alternate text')            => 'title',
             __('None')                      => 'none',
         ];
 
         // Robots policy options
-        $da->robots_policy_options = [
+        $data->robots_policy_options = [
             'INDEX,FOLLOW'               => __("I would like search engines and archivers to index and archive my blog's content."),
             'INDEX,FOLLOW,NOARCHIVE'     => __("I would like search engines and archivers to index but not archive my blog's content."),
             'NOINDEX,NOFOLLOW,NOARCHIVE' => __("I would like to prevent search engines and archivers from indexing or archiving my blog's content."),
@@ -220,10 +244,10 @@ class BlogPref extends Process
                 }
             }
         }
-        $da->jquery_versions_combo = $stack;
+        $data->jquery_versions_combo = $stack;
 
         // SLeep mode timeout in second
-        $da->sleepmode_timeout_combo = [
+        $data->sleepmode_timeout_combo = [
             __('Never')        => 0,
             __('Three months') => 7_884_000,
             __('Six months')   => 15_768_000,
@@ -241,13 +265,13 @@ class BlogPref extends Process
          *
          * @var \Dotclear\Core\Backend\Utility
          */
-        $da = App::backend();
+        $data = App::backend();
 
-        if ($da->blog_id && !empty($_POST) && App::auth()->check(App::auth()->makePermissions(
+        if ($data->blog_id && !empty($_POST) && App::auth()->check(App::auth()->makePermissions(
             [
                 App::auth()::PERMISSION_ADMIN,
             ]
-        ), $da->blog_id)) {
+        ), $data->blog_id)) {
             // Update a blog
             $cur = App::blog()->openBlogCursor();
 
@@ -256,7 +280,7 @@ class BlogPref extends Process
             $cur->blog_name = $_POST['blog_name'];
             $cur->blog_desc = $_POST['blog_desc'];
 
-            if (App::auth()->isSuperAdmin() && in_array($_POST['blog_status'], $da->status_combo)) {
+            if (App::auth()->isSuperAdmin() && in_array($_POST['blog_status'], $data->status_combo)) {
                 $cur->blog_status = (int) $_POST['blog_status'];
             }
 
@@ -306,7 +330,7 @@ class BlogPref extends Process
             }
 
             try {
-                if ($cur->blog_id != null && $cur->blog_id != $da->blog_id) {
+                if ($cur->blog_id != null && $cur->blog_id != $data->blog_id) {
                     $rs = App::blogs()->getBlog($cur->blog_id);
                     if ($rs->count()) {
                         throw new Exception(__('This blog ID is already used.'));
@@ -314,13 +338,13 @@ class BlogPref extends Process
                 }
 
                 # --BEHAVIOR-- adminBeforeBlogUpdate -- Cursor, string
-                App::behavior()->callBehavior('adminBeforeBlogUpdate', $cur, $da->blog_id);
+                App::behavior()->callBehavior('adminBeforeBlogUpdate', $cur, $data->blog_id);
 
                 if (!preg_match('/^[a-z]{2}(-[a-z]{2})?$/', (string) $_POST['lang'])) {
                     throw new Exception(__('Invalid language code'));
                 }
 
-                App::blogs()->updBlog($da->blog_id, $cur);
+                App::blogs()->updBlog($data->blog_id, $cur);
 
                 if (App::auth()->isSuperAdmin() && $cur->blog_status === App::blog()::BLOG_REMOVED) {
                     // Remove this blog from user default blog
@@ -328,80 +352,80 @@ class BlogPref extends Process
                 }
 
                 # --BEHAVIOR-- adminAfterBlogUpdate -- Cursor, string
-                App::behavior()->callBehavior('adminAfterBlogUpdate', $cur, $da->blog_id);
+                App::behavior()->callBehavior('adminAfterBlogUpdate', $cur, $data->blog_id);
 
-                if ($cur->blog_id != null && $cur->blog_id != $da->blog_id) {
-                    if ($da->blog_id == App::blog()->id()) {
+                if ($cur->blog_id != null && $cur->blog_id != $data->blog_id) {
+                    if ($data->blog_id == App::blog()->id()) {
                         App::blog()->loadFromBlog($cur->blog_id);
                         $_SESSION['sess_blog_id'] = $cur->blog_id;
-                        $da->blog_settings        = App::blog()->settings();
+                        $data->blog_settings      = App::blog()->settings();
                     } else {
-                        $da->blog_settings = App::blogSettings()->createFromBlog($cur->blog_id);
+                        $data->blog_settings = App::blogSettings()->createFromBlog($cur->blog_id);
                     }
 
-                    $da->blog_id = $cur->blog_id;
+                    $data->blog_id = $cur->blog_id;
                 }
 
-                $da->blog_settings->system->put('editor', $_POST['editor']);
-                $da->blog_settings->system->put('copyright_notice', $_POST['copyright_notice']);
-                $da->blog_settings->system->put('post_url_format', $_POST['post_url_format']);
-                $da->blog_settings->system->put('lang', $_POST['lang']);
-                $da->blog_settings->system->put('blog_timezone', $_POST['blog_timezone']);
-                $da->blog_settings->system->put('date_format', $_POST['date_format']);
-                $da->blog_settings->system->put('time_format', $_POST['time_format']);
-                $da->blog_settings->system->put('comments_ttl', abs((int) $_POST['comments_ttl']));
-                $da->blog_settings->system->put('trackbacks_ttl', abs((int) $_POST['trackbacks_ttl']));
-                $da->blog_settings->system->put('allow_comments', !empty($_POST['allow_comments']));
-                $da->blog_settings->system->put('allow_trackbacks', !empty($_POST['allow_trackbacks']));
-                $da->blog_settings->system->put('comments_pub', empty($_POST['comments_pub']));
-                $da->blog_settings->system->put('trackbacks_pub', empty($_POST['trackbacks_pub']));
-                $da->blog_settings->system->put('comments_nofollow', !empty($_POST['comments_nofollow']));
-                $da->blog_settings->system->put('wiki_comments', !empty($_POST['wiki_comments']));
-                $da->blog_settings->system->put('comment_preview_optional', !empty($_POST['comment_preview_optional']));
-                $da->blog_settings->system->put('note_title_tag', $_POST['note_title_tag']);
-                $da->blog_settings->system->put('nb_post_for_home', $nb_post_for_home);
-                $da->blog_settings->system->put('nb_post_per_page', $nb_post_per_page);
-                $da->blog_settings->system->put('no_public_css', !empty($_POST['no_public_css']));
-                $da->blog_settings->system->put('use_smilies', !empty($_POST['use_smilies']));
-                $da->blog_settings->system->put('no_search', !empty($_POST['no_search']));
-                $da->blog_settings->system->put('inc_subcats', !empty($_POST['inc_subcats']));
-                $da->blog_settings->system->put('media_img_t_size', $media_img_t_size);
-                $da->blog_settings->system->put('media_img_s_size', $media_img_s_size);
-                $da->blog_settings->system->put('media_img_m_size', $media_img_m_size);
-                $da->blog_settings->system->put('media_thumbnail_prefix', $_POST['media_thumbnail_prefix']);
-                $da->blog_settings->system->put('media_video_width', $media_video_width);
-                $da->blog_settings->system->put('media_video_height', $media_video_height);
-                $da->blog_settings->system->put('media_img_title_pattern', $_POST['media_img_title_pattern']);
-                $da->blog_settings->system->put('media_img_use_dto_first', !empty($_POST['media_img_use_dto_first']));
-                $da->blog_settings->system->put('media_img_no_date_alone', !empty($_POST['media_img_no_date_alone']));
-                $da->blog_settings->system->put('media_img_default_size', $_POST['media_img_default_size']);
-                $da->blog_settings->system->put('media_img_default_alignment', $_POST['media_img_default_alignment']);
-                $da->blog_settings->system->put('media_img_default_link', !empty($_POST['media_img_default_link']));
-                $da->blog_settings->system->put('media_img_default_legend', $_POST['media_img_default_legend']);
-                $da->blog_settings->system->put('nb_post_per_feed', $nb_post_per_feed);
-                $da->blog_settings->system->put('nb_comment_per_feed', $nb_comment_per_feed);
-                $da->blog_settings->system->put('short_feed_items', !empty($_POST['short_feed_items']));
+                $data->blog_settings->system->put('editor', $_POST['editor']);
+                $data->blog_settings->system->put('copyright_notice', $_POST['copyright_notice']);
+                $data->blog_settings->system->put('post_url_format', $_POST['post_url_format']);
+                $data->blog_settings->system->put('lang', $_POST['lang']);
+                $data->blog_settings->system->put('blog_timezone', $_POST['blog_timezone']);
+                $data->blog_settings->system->put('date_format', $_POST['date_format']);
+                $data->blog_settings->system->put('time_format', $_POST['time_format']);
+                $data->blog_settings->system->put('comments_ttl', abs((int) $_POST['comments_ttl']));
+                $data->blog_settings->system->put('trackbacks_ttl', abs((int) $_POST['trackbacks_ttl']));
+                $data->blog_settings->system->put('allow_comments', !empty($_POST['allow_comments']));
+                $data->blog_settings->system->put('allow_trackbacks', !empty($_POST['allow_trackbacks']));
+                $data->blog_settings->system->put('comments_pub', empty($_POST['comments_pub']));
+                $data->blog_settings->system->put('trackbacks_pub', empty($_POST['trackbacks_pub']));
+                $data->blog_settings->system->put('comments_nofollow', !empty($_POST['comments_nofollow']));
+                $data->blog_settings->system->put('wiki_comments', !empty($_POST['wiki_comments']));
+                $data->blog_settings->system->put('comment_preview_optional', !empty($_POST['comment_preview_optional']));
+                $data->blog_settings->system->put('note_title_tag', $_POST['note_title_tag']);
+                $data->blog_settings->system->put('nb_post_for_home', $nb_post_for_home);
+                $data->blog_settings->system->put('nb_post_per_page', $nb_post_per_page);
+                $data->blog_settings->system->put('no_public_css', !empty($_POST['no_public_css']));
+                $data->blog_settings->system->put('use_smilies', !empty($_POST['use_smilies']));
+                $data->blog_settings->system->put('no_search', !empty($_POST['no_search']));
+                $data->blog_settings->system->put('inc_subcats', !empty($_POST['inc_subcats']));
+                $data->blog_settings->system->put('media_img_t_size', $media_img_t_size);
+                $data->blog_settings->system->put('media_img_s_size', $media_img_s_size);
+                $data->blog_settings->system->put('media_img_m_size', $media_img_m_size);
+                $data->blog_settings->system->put('media_thumbnail_prefix', $_POST['media_thumbnail_prefix']);
+                $data->blog_settings->system->put('media_video_width', $media_video_width);
+                $data->blog_settings->system->put('media_video_height', $media_video_height);
+                $data->blog_settings->system->put('media_img_title_pattern', $_POST['media_img_title_pattern']);
+                $data->blog_settings->system->put('media_img_use_dto_first', !empty($_POST['media_img_use_dto_first']));
+                $data->blog_settings->system->put('media_img_no_date_alone', !empty($_POST['media_img_no_date_alone']));
+                $data->blog_settings->system->put('media_img_default_size', $_POST['media_img_default_size']);
+                $data->blog_settings->system->put('media_img_default_alignment', $_POST['media_img_default_alignment']);
+                $data->blog_settings->system->put('media_img_default_link', !empty($_POST['media_img_default_link']));
+                $data->blog_settings->system->put('media_img_default_legend', $_POST['media_img_default_legend']);
+                $data->blog_settings->system->put('nb_post_per_feed', $nb_post_per_feed);
+                $data->blog_settings->system->put('nb_comment_per_feed', $nb_comment_per_feed);
+                $data->blog_settings->system->put('short_feed_items', !empty($_POST['short_feed_items']));
                 if (isset($_POST['robots_policy'])) {
-                    $da->blog_settings->system->put('robots_policy', $_POST['robots_policy']);
+                    $data->blog_settings->system->put('robots_policy', $_POST['robots_policy']);
                 }
-                $da->blog_settings->system->put('legacy_needed', !empty($_POST['legacy_needed']));
-                $da->blog_settings->system->put('jquery_needed', !empty($_POST['jquery_needed']));
-                $da->blog_settings->system->put('jquery_version', $_POST['jquery_version']);
-                $da->blog_settings->system->put('prevents_clickjacking', !empty($_POST['prevents_clickjacking']));
-                $da->blog_settings->system->put('static_home', !empty($_POST['static_home']));
-                $da->blog_settings->system->put('static_home_url', $_POST['static_home_url']);
+                $data->blog_settings->system->put('legacy_needed', !empty($_POST['legacy_needed']));
+                $data->blog_settings->system->put('jquery_needed', !empty($_POST['jquery_needed']));
+                $data->blog_settings->system->put('jquery_version', $_POST['jquery_version']);
+                $data->blog_settings->system->put('prevents_clickjacking', !empty($_POST['prevents_clickjacking']));
+                $data->blog_settings->system->put('static_home', !empty($_POST['static_home']));
+                $data->blog_settings->system->put('static_home_url', $_POST['static_home_url']);
 
-                $da->blog_settings->system->put('sleepmode_timeout', $_POST['sleepmode_timeout']);
+                $data->blog_settings->system->put('sleepmode_timeout', $_POST['sleepmode_timeout']);
 
                 # --BEHAVIOR-- adminBeforeBlogSettingsUpdate -- BlogSettingsInterface
-                App::behavior()->callBehavior('adminBeforeBlogSettingsUpdate', $da->blog_settings);
+                App::behavior()->callBehavior('adminBeforeBlogSettingsUpdate', $data->blog_settings);
 
-                if (App::auth()->isSuperAdmin() && in_array($_POST['url_scan'], $da->url_scan_combo)) {
-                    $da->blog_settings->system->put('url_scan', $_POST['url_scan']);
+                if (App::auth()->isSuperAdmin() && in_array($_POST['url_scan'], $data->url_scan_combo)) {
+                    $data->blog_settings->system->put('url_scan', $_POST['url_scan']);
                 }
                 Notices::addSuccessNotice(__('Blog has been successfully updated.'));
 
-                Http::redirect(sprintf($da->redir, $da->blog_id));
+                Http::redirect(sprintf($data->redir, $data->blog_id));
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -417,22 +441,22 @@ class BlogPref extends Process
          *
          * @var \Dotclear\Core\Backend\Utility
          */
-        $da = App::backend();
+        $data = App::backend();
 
         // Display
-        if ($da->standalone) {
+        if ($data->standalone) {
             $breadcrumb = Page::breadcrumb(
                 [
-                    Html::escapeHTML($da->blog_name) => '',
-                    __('Blog settings')              => '',
+                    Html::escapeHTML($data->blog_name) => '',
+                    __('Blog settings')                => '',
                 ]
             );
         } else {
             $breadcrumb = Page::breadcrumb(
                 [
-                    __('System')                                                   => '',
-                    __('Blogs')                                                    => App::backend()->url()->get('admin.blogs'),
-                    __('Blog settings') . ' : ' . Html::escapeHTML($da->blog_name) => '',
+                    __('System')                                                     => '',
+                    __('Blogs')                                                      => App::backend()->url()->get('admin.blogs'),
+                    __('Blog settings') . ' : ' . Html::escapeHTML($data->blog_name) => '',
                 ]
             );
         }
@@ -462,7 +486,7 @@ class BlogPref extends Process
             $breadcrumb
         );
 
-        if ($da->blog_id) {
+        if ($data->blog_id) {
             if (!empty($_GET['add'])) {
                 Notices::success(__('Blog has been successfully created.'));
             }
@@ -471,38 +495,22 @@ class BlogPref extends Process
                 Notices::success(__('Blog has been successfully updated.'));
             }
 
-            echo
-            '<div class="multi-part" id="params" title="' . __('Parameters') . '">' .
-            '<div id="standard-pref"><h3>' . __('Blog parameters') . '</h3>' .
-            '<form action="' . $da->action . '" method="post" id="blog-form">' .
-            '<div class="fieldset"><h4>' . __('Blog details') . '</h4>' .
-            App::nonce()->getFormNonce() .
-            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-            '<p><label for="blog_name" class="required"><span>*</span> ' . __('Blog name:') . '</label>' .
-            form::field(
-                'blog_name',
-                30,
-                255,
-                [
-                    'default'    => Html::escapeHTML($da->blog_name),
-                    'extra_html' => 'required placeholder="' . __('Blog name') . '" lang="' . $da->blog_settings->system->lang . '" spellcheck="true"',
-                ]
-            ) . '</p>' .
-            '<p class="area"><label for="blog_desc">' . __('Blog description:') . '</label>' .
-            form::textarea(
-                'blog_desc',
-                60,
-                5,
-                [
-                    'default'    => Html::escapeHTML($da->blog_desc),
-                    'extra_html' => 'lang="' . $da->blog_settings->system->lang . '" spellcheck="true"',
-                ]
-            ) . '</p>';
+            // Prepare tabs' content
+            $tabs = [];
 
+            // Blog parameters
+            $prefs = [];
+
+            // Standard parameters
+            $standard = [];
+
+            // Blog details
+            $details = [];
             if (App::auth()->isSuperAdmin()) {
-                echo
-                '<p><label for="blog_status">' . __('Blog status:') . '</label>' .
-                form::combo('blog_status', $da->status_combo, $da->blog_status) . '</p>';
+                $details[] = (new Select('blog_status'))
+                    ->items($data->status_combo)
+                    ->default((string) $data->blog_status)
+                    ->label(new Label(__('Blog status:'), Label::IL_TF));
             } else {
                 /*
                  * Only super admins can change the blog ID and URL, but we need to pass
@@ -510,322 +518,453 @@ class BlogPref extends Process
                  * to allow admins to update other settings.
                  * Otherwise App::blogs()->getBlogCursor() throws an exception.
                  */
-                echo
-                form::hidden('blog_id', Html::escapeHTML($da->blog_id)) .
-                form::hidden('blog_url', Html::escapeHTML($da->blog_url));
+                $details[] = (new Hidden('blog_id', Html::escapeHTML($data->blog_id)));
+                $details[] = (new Hidden('blog_url', Html::escapeHTML($data->blog_url)));
             }
 
-            echo '</div>' .
+            $standard[] = (new Fieldset('blog-details'))
+                ->legend(new Legend(__('Blog details')))
+                ->fields([
+                    (new Note())
+                        ->class('form-note')
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                    (new Para())
+                        ->items([
+                            (new Input('blog_name'))
+                                ->size(30)
+                                ->maxlength(255)
+                                ->value(Html::escapeHTML($data->blog_name))
+                                ->required(true)
+                                ->placeholder(__('Blog name'))
+                                ->title(__('Required field'))
+                                ->lang($data->blog_settings->system->lang)
+                                ->spellcheck(true)
+                                ->label(new Label((new Text('span', '*'))->render() . __('Blog name:'), Label::IL_TF))
+                                ->class('required'),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Textarea('blog_desc', Html::escapeHTML($data->blog_desc)))
+                                ->rows(5)
+                                ->cols(60)
+                                ->lang($data->blog_settings->system->lang)
+                                ->spellcheck(true)
+                                ->label(new Label(__('Blog description:'), Label::OL_TF)),
+                        ]),
+                    ... $details,
+                ]);
 
-            '<div class="fieldset"><h4>' . __('Blog configuration') . '</h4>' .
-            '<p><label for="editor">' . __('Blog editor name:') . '</label>' .
-            form::field('editor', 30, 255, Html::escapeHTML($da->blog_settings->system->editor)) .
-            '</p>' .
-            '<p><label for="lang">' . __('Default language:') . '</label>' .
-            form::combo('lang', $da->lang_combo, $da->blog_settings->system->lang) .
-            '</p>' .
-            '<p><label for="blog_timezone">' . __('Blog timezone:') . '</label>' .
-            form::combo('blog_timezone', Date::getZones(true, true), Html::escapeHTML($da->blog_settings->system->blog_timezone)) .
-            '</p>' .
-            '<p><label for="copyright_notice">' . __('Copyright notice:') . '</label>' .
-            form::field(
-                'copyright_notice',
-                30,
-                255,
-                [
-                    'default'    => Html::escapeHTML($da->blog_settings->system->copyright_notice),
-                    'extra_html' => 'lang="' . $da->blog_settings->system->lang . '" spellcheck="true"',
-                ]
-            ) .
-            '</p>' .
-            '</div>' .
+            // Blog configuration
+            $standard[] = (new Fieldset('blog-configuration'))
+                ->legend(new Legend(__('Blog configuration')))
+                ->fields([
+                    (new Para())
+                        ->items([
+                            (new Input('editor'))
+                                ->size(30)
+                                ->maxlength(255)
+                                ->default(Html::escapeHTML($data->blog_settings->system->editor))
+                                ->label(new Label(__('Blog editor name:'), Label::IL_TF)),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Select('lang'))
+                                ->items($data->lang_combo)
+                                ->default($data->blog_settings->system->lang)
+                                ->label(new Label(__('Default language:'), Label::IL_TF)),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Select('blog_timezone'))
+                                ->items(Date::getZones(true, true))
+                                ->default(Html::escapeHTML($data->blog_settings->system->blog_timezone))
+                                ->label(new Label(__('Blog timezone:'), Label::IL_TF)),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Input('copyright_notice'))
+                                ->size(30)
+                                ->maxlength(255)
+                                ->default(Html::escapeHTML($data->blog_settings->system->copyright_notice))
+                                ->lang($data->blog_settings->system->lang)
+                                ->spellcheck(true)
+                                ->label(new Label(__('Copyright notice:'), Label::IL_TF)),
+                        ]),
+                ]);
 
-            '<div class="fieldset"><h4>' . __('Comments and trackbacks') . '</h4>' .
-            '<div class="two-cols">' .
+            // Comments and trackbacks
+            $standard[] = (new Fieldset('comments-trackbacks'))
+                ->legend(new Legend(__('Comments and trackbacks')))
+                ->fields([
+                    (new Div())
+                        ->class('two-cols')
+                        ->items([
+                            (new Div())
+                                ->class('col')
+                                ->items([
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('allow_comments', (bool) $data->blog_settings->system->allow_comments))
+                                                ->value(1)
+                                                ->label(new Label(__('Accept comments'), Label::IL_FT)),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('comments_pub', ! (bool) $data->blog_settings->system->comments_pub))
+                                                ->value(1)
+                                                ->label(new Label(__('Moderate comments'), Label::IL_FT)),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Number('comments_ttl', 0, 999, $data->blog_settings->system->comments_ttl))
+                                                ->label((new Label(__('Leave comments open for'), Label::IL_TF))
+                                                    ->suffix(__('days')))
+                                                ->extra('aria-describedby="comments_ttl_help"'),
+                                        ]),
+                                    (new Note())
+                                        ->class('form-note')
+                                        ->text(__('No limit: leave blank.'))
+                                        ->id('comments_ttl_help'),
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('wiki_comments', (bool) $data->blog_settings->system->wiki_comments))
+                                                ->value(1)
+                                                ->label(new Label(__('Wiki syntax for comments'), Label::IL_FT)),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('comment_preview_optional', (bool) $data->blog_settings->system->comment_preview_optional))
+                                                ->value(1)
+                                                ->label(new Label(__('Preview of comment before submit is not mandatory'), Label::IL_FT)),
+                                        ]),
+                                ]),
+                            (new Div())
+                                ->class('col')
+                                ->items([
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('allow_trackbacks', (bool) $data->blog_settings->system->allow_trackbacks))
+                                                ->value(1)
+                                                ->label(new Label(__('Accept trackbacks'), Label::IL_FT)),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('trackbacks_pub', ! (bool) $data->blog_settings->system->trackbacks_pub))
+                                                ->value(1)
+                                                ->label(new Label(__('Moderate trackbacks'), Label::IL_FT)),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Number('trackbacks_ttl', 0, 999, $data->blog_settings->system->trackbacks_ttl))
+                                                ->label((new Label(__('Leave trackbacks open for'), Label::IL_TF))
+                                                    ->suffix(__('days')))
+                                                ->extra('aria-describedby="trackbacks_ttl_help"'),
+                                        ]),
+                                    (new Note())
+                                        ->class('form-note')
+                                        ->text(__('No limit: leave blank.'))
+                                        ->id('trackbacks_ttl_help'),
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('comments_nofollow', (bool) $data->blog_settings->system->comments_nofollow))
+                                                ->value(1)
+                                                ->label(new Label(__('Add "nofollow" relation on comments and trackbacks links'), Label::IL_FT)),
+                                        ]),
+                                ]),
+                            (new Para())
+                                ->class('col100')
+                                ->items([
+                                    (new Select('sleepmode_timeout'))
+                                        ->items($data->sleepmode_timeout_combo)
+                                        ->default($data->blog_settings->system->sleepmode_timeout)
+                                        ->label(new Label(__('Disable all comments and trackbacks on the blog after a period of time without new posts:'), Label::IL_TF)),
+                                ]),
+                        ]),
+                ]);
 
-            '<div class="col">' .
-            '<p><label for="allow_comments" class="classic">' .
-            form::checkbox('allow_comments', '1', $da->blog_settings->system->allow_comments) .
-            __('Accept comments') . '</label></p>' .
-            '<p><label for="comments_pub" class="classic">' .
-            form::checkbox('comments_pub', '1', !$da->blog_settings->system->comments_pub) .
-            __('Moderate comments') . '</label></p>' .
-            '<p><label for="comments_ttl" class="classic">' . sprintf(
-                __('Leave comments open for %s days') . '.',
-                form::number(
-                    'comments_ttl',
-                    [
-                        'min'        => 0,
-                        'max'        => 999,
-                        'default'    => $da->blog_settings->system->comments_ttl,
-                        'extra_html' => 'aria-describedby="comments_ttl_help"', ]
-                )
-            ) .
-            '</label></p>' .
-            '<p class="form-note" id="comments_ttl_help">' . __('No limit: leave blank.') . '</p>' .
-            '<p><label for="wiki_comments" class="classic">' .
-            form::checkbox('wiki_comments', '1', $da->blog_settings->system->wiki_comments) .
-            __('Wiki syntax for comments') . '</label></p>' .
-            '<p><label for="comment_preview_optional" class="classic">' .
-            form::checkbox('comment_preview_optional', '1', $da->blog_settings->system->comment_preview_optional) .
-            __('Preview of comment before submit is not mandatory') . '</label></p>' .
-            '</div>' .
+            // Blog presentation
+            $standard[] = (new Fieldset('blog-presentation'))
+                ->legend(new Legend(__('Blog presentation')))
+                ->fields([
+                    (new Div())
+                        ->class('two-cols')
+                        ->items([
+                            (new Div())
+                                ->class('col')
+                                ->items([
+                                    (new Para())
+                                        ->class('form-buttons')
+                                        ->items([
+                                            (new Input('date_format'))
+                                                ->size(30)
+                                                ->maxlength(255)
+                                                ->value($data->blog_settings->system->date_format)
+                                                ->label(new Label(__('Time format:'), Label::OL_TF))
+                                                ->extra('aria-describedby="date_format_help"'),
+                                            (new Select('date_format_select'))
+                                                ->items($data->date_formats_combo)
+                                                ->title(__('Pattern of date')),
+                                        ]),
+                                    (new Note())
+                                        ->class(['chosen', 'form-note'])
+                                        ->text(__('Sample:') . ' ' . Date::str(Html::escapeHTML($data->blog_settings->system->date_format)))
+                                        ->id('date_format_help'),
+                                    (new Para())
+                                        ->class('form-buttons')
+                                        ->items([
+                                            (new Input('time_format'))
+                                                ->size(30)
+                                                ->maxlength(255)
+                                                ->value($data->blog_settings->system->time_format)
+                                                ->label(new Label(__('Time format:'), Label::OL_TF))
+                                                ->extra('aria-describedby="time_format_help"'),
+                                            (new Select('time_format_select'))
+                                                ->items($data->time_formats_combo)
+                                                ->title(__('Pattern of time')),
+                                        ]),
+                                    (new Note())
+                                        ->class(['chosen', 'form-note'])
+                                        ->text(__('Sample:') . ' ' . Date::str(Html::escapeHTML($data->blog_settings->system->time_format)))
+                                        ->id('time_format_help'),
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('no_public_css', (bool) $data->blog_settings->system->no_public_css))
+                                                ->value(1)
+                                                ->label(new Label(__('Don\'t load standard stylesheet (used for media alignement)'), Label::IL_FT)),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('use_smilies', (bool) $data->blog_settings->system->use_smilies))
+                                                ->value(1)
+                                                ->label(new Label(__('Display smilies on entries and comments'), Label::IL_FT)),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('no_search', (bool) $data->blog_settings->system->no_search))
+                                                ->value(1)
+                                                ->label(new Label(__('Disable internal search system'), Label::IL_FT)),
+                                        ]),
+                                ]),
+                            (new Div())
+                                ->class('col')
+                                ->items([
+                                    (new Para())
+                                        ->items([
+                                            (new Number('nb_post_for_home', 1, 999, (int) $data->blog_settings->system->nb_post_for_home))
+                                                ->label(
+                                                    (new Label(__('Display'), Label::IL_TF))
+                                                    ->suffix(__('entries on first page'))
+                                                ),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Number('nb_post_per_page', 1, 999, (int) $data->blog_settings->system->nb_post_per_page))
+                                                ->label(
+                                                    (new Label(__('Display'), Label::IL_TF))
+                                                    ->suffix(__('entries per page'))
+                                                ),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Number('nb_post_per_feed', 1, 999, (int) $data->blog_settings->system->nb_post_per_feed))
+                                                ->label(
+                                                    (new Label(__('Display'), Label::IL_TF))
+                                                    ->suffix(__('entries per feed'))
+                                                ),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Number('nb_comment_per_feed', 1, 999, (int) $data->blog_settings->system->nb_comment_per_feed))
+                                                ->label(
+                                                    (new Label(__('Display'), Label::IL_TF))
+                                                    ->suffix(__('comments per feed'))
+                                                ),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('short_feed_items', (bool) $data->blog_settings->system->short_feed_items))
+                                                ->value(1)
+                                                ->label(new Label(__('Truncate feeds'), Label::IL_FT)),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('inc_subcats', (bool) $data->blog_settings->system->inc_subcats))
+                                                ->value(1)
+                                                ->label(new Label(__('Include sub-categories in category page and category posts feed'), Label::IL_FT)),
+                                        ]),
+                                ]),
+                        ]),
+                    (new Single('hr'))
+                        ->class('clear'),
+                    (new Para())
+                        ->items([
+                            (new Checkbox('static_home', (bool) $data->blog_settings->system->static_home))
+                                ->value(1)
+                                ->label(new Label(__('Display an entry as static home page'), Label::IL_FT)),
+                        ]),
+                    (new Para())
+                        ->class('form-buttons')
+                        ->items([
+                            (new Input('static_home_url'))
+                                ->size(30)
+                                ->maxlength(255)
+                                ->value(Html::escapeHTML($data->blog_settings->system->static_home_url))
+                                ->label(new Label(__('Entry URL (its content will be used for the static home page):'), Label::IL_TF))
+                                ->extra('aria-describedby="static_home_url_help"'),
+                            (new Button('static_home_url_selector', __('Choose an entry'))),
+                        ]),
+                    (new Note())
+                        ->class('form-note')
+                        ->text(__('Leave empty to use the default presentation.'))
+                        ->id('static_home_url_help'),
+                ]);
 
-            '<div class="col">' .
-            '<p><label for="allow_trackbacks" class="classic">' .
-            form::checkbox('allow_trackbacks', '1', $da->blog_settings->system->allow_trackbacks) .
-            __('Accept trackbacks') . '</label></p>' .
-            '<p><label for="trackbacks_pub" class="classic">' .
-            form::checkbox('trackbacks_pub', '1', !$da->blog_settings->system->trackbacks_pub) .
-            __('Moderate trackbacks') . '</label></p>' .
-            '<p><label for="trackbacks_ttl" class="classic">' . sprintf(
-                __('Leave trackbacks open for %s days') . '.',
-                form::number(
-                    'trackbacks_ttl',
-                    [
-                        'min'        => 0,
-                        'max'        => 999,
-                        'default'    => $da->blog_settings->system->trackbacks_ttl,
-                        'extra_html' => 'aria-describedby="trackbacks_ttl_help"', ]
-                )
-            ) .
-            '</label></p>' .
-            '<p class="form-note" id="trackbacks_ttl_help">' . __('No limit: leave blank.') . '</p>' .
-            '<p><label for="comments_nofollow" class="classic">' .
-            form::checkbox('comments_nofollow', '1', $da->blog_settings->system->comments_nofollow) .
-            __('Add "nofollow" relation on comments and trackbacks links') . '</label></p>' .
+            // Media and images
+            $standard[] = (new Fieldset('medias-settings'))
+                ->legend(new Legend(__('Media and images')))
+                ->fields([
+                    (new Div())
+                        ->class('two-cols')
+                        ->items([
+                            (new Div())
+                                ->class('col')
+                                ->items([
+                                    (new Div())
+                                        ->items([
+                                            (new Text('h5', __('Generated image sizes (max dimension in pixels)'))),
+                                            (new Note())
+                                                ->class(['form-note', 'warning'])
+                                                ->text(__('Please note that if you change current settings bellow, they will now apply to all new images in the media manager.') . ' ' . __('Be carefull if you share it with other blogs in your installation.') . '<br>' . __('Set -1 to use the default size, set 0 to ignore this thumbnail size (images only).')),
+                                            (new Para())
+                                                ->class('field')
+                                                ->items([
+                                                    (new Number('media_img_t_size', -1, 999, $data->blog_settings->system->media_img_t_size))
+                                                        ->label(new Label(__('Thumbnail'), Label::OL_TF)),
+                                                ]),
+                                            (new Para())
+                                                ->class('field')
+                                                ->items([
+                                                    (new Number('media_img_s_size', -1, 999, $data->blog_settings->system->media_img_s_size))
+                                                        ->label(new Label(__('Small'), Label::OL_TF)),
+                                                ]),
+                                            (new Para())
+                                                ->class('field')
+                                                ->items([
+                                                    (new Number('media_img_m_size', -1, 999, $data->blog_settings->system->media_img_m_size))
+                                                        ->label(new Label(__('Medium'), Label::OL_TF)),
+                                                ]),
+                                            (new Para())
+                                                ->class('field')
+                                                ->items([
+                                                    (new Input('media_thumbnail_prefix'))
+                                                        ->size(1)
+                                                        ->maxlength(1)
+                                                        ->value((string) $data->blog_settings->system->media_thumbnail_prefix)
+                                                        ->label(new Label(__('Thumbnail character prefix:'), Label::OL_TF)),
+                                                ]),
+                                            (new Note())
+                                                ->class(['form-note', 'info'])
+                                                ->text(__('Leave empty to use the default one (.)')),
+                                        ]),
+                                    (new Div())
+                                        ->items([
+                                            (new Text('h5', __('Default size of the inserted video (in pixels)'))),
+                                            (new Para())
+                                                ->class('field')
+                                                ->items([
+                                                    (new Number('media_video_width', -1, 999, $data->blog_settings->system->media_video_width))
+                                                        ->label(new Label(__('Width'), Label::OL_TF)),
+                                                ]),
+                                            (new Para())
+                                                ->class('field')
+                                                ->items([
+                                                    (new Number('media_video_height', -1, 999, $data->blog_settings->system->media_video_height))
+                                                        ->label(new Label(__('Height'), Label::OL_TF)),
+                                                ]),
+                                        ]),
+                                ]),
+                            (new Div())
+                                ->class('col')
+                                ->items([
+                                    (new Div())
+                                        ->items([
+                                            (new Text('h5', __('Default image insertion attributes'))),
+                                            (new Para())
+                                                ->items([
+                                                    (new Select('media_img_title_pattern'))
+                                                        ->items($data->img_title_combo)
+                                                        ->default(Html::escapeHTML($data->media_img_title_pattern))
+                                                        ->label(new Label(__('Inserted image legend:'), Label::IL_TF)),
+                                                ]),
+                                            (new Para())
+                                                ->items([
+                                                    (new Checkbox('media_img_use_dto_first', (bool) $data->blog_settings->system->media_img_use_dto_first))
+                                                        ->value(1)
+                                                        ->label(new Label(__('Use original media date if possible'), Label::IL_FT)),
+                                                ]),
+                                            (new Para())
+                                                ->items([
+                                                    (new Checkbox('media_img_no_date_alone', (bool) $data->blog_settings->system->media_img_no_date_alone))
+                                                        ->value(1)
+                                                        ->label(new Label(__('Do not display date if alone in title'), Label::IL_FT))
+                                                        ->extra('aria-describedby="media_img_no_date_alone_help"'),
+                                                ]),
+                                            (new Note())
+                                                ->class(['form-note', 'info'])
+                                                ->text(__('It is retrieved from the picture\'s metadata.'))
+                                                ->id('media_img_no_date_alone_help'),
+                                            (new Para())
+                                                ->class('field')
+                                                ->items([
+                                                    (new Select('media_img_default_size'))
+                                                        ->items($data->img_default_size_combo)
+                                                        ->default(Html::escapeHTML($data->blog_settings->system->media_img_default_size) != '' ? Html::escapeHTML($data->blog_settings->system->media_img_default_size) : 'm')
+                                                        ->label(new Label(__('Size of inserted image:'), Label::OL_TF)),
+                                                ]),
+                                            (new Para())
+                                                ->class('field')
+                                                ->items([
+                                                    (new Select('media_img_default_alignment'))
+                                                        ->items($data->img_default_alignment_combo)
+                                                        ->default(Html::escapeHTML($data->blog_settings->system->media_img_default_alignment))
+                                                        ->label(new Label(__('Image alignment:'), Label::OL_TF)),
+                                                ]),
+                                            (new Para())
+                                                ->items([
+                                                    (new Checkbox('media_img_default_link', (bool) $data->blog_settings->system->media_img_default_link))
+                                                        ->value(1)
+                                                        ->label(new Label(__('Insert a link to the original image'), Label::IL_FT)),
+                                                ]),
+                                            (new Para())
+                                                ->items([
+                                                    (new Select('media_img_default_legend'))
+                                                        ->items($data->img_default_legend_combo)
+                                                        ->default(Html::escapeHTML($data->blog_settings->system->media_img_default_legend))
+                                                        ->label(new Label(__('Image legend and alternate text:'), Label::IL_TF)),
+                                                ]),
+                                        ]),
+                                ]),
+                        ]),
+                ]);
 
-            '</div>' .
+            $prefs[] = (new Div('standard-pref'))
+                ->items([
+                    (new Text('h3', __('Blog parameters'))),
+                    ... $standard,
+                ]);
 
-            '<p class="col100"><label for="sleepmode_timeout" class="classic">' . __('Disable all comments and trackbacks on the blog after a period of time without new posts:') . '</label>' . ' ' .
-            form::combo('sleepmode_timeout', $da->sleepmode_timeout_combo, $da->blog_settings->system->sleepmode_timeout) .
-            '</p>' .
+            // Advanced parameters
+            $advanced = [];
 
-            '</div>' .
-            '</div>' .
-
-            '<div class="fieldset"><h4>' . __('Blog presentation') . '</h4>' .
-            '<div class="two-cols">' .
-            '<div class="col">' .
-            '<p><label for="date_format">' . __('Date format:') . '</label> ' .
-            form::field('date_format', 30, 255, Html::escapeHTML($da->blog_settings->system->date_format), '', '', false, 'aria-describedby="date_format_help"') .
-            form::combo('date_format_select', $da->date_formats_combo, ['extra_html' => 'title="' . __('Pattern of date') . '"']) .
-            '</p>' .
-            '<p class="chosen form-note" id="date_format_help">' . __('Sample:') . ' ' . Date::str(Html::escapeHTML($da->blog_settings->system->date_format)) . '</p>' .
-
-            '<p><label for="time_format">' . __('Time format:') . '</label>' .
-            form::field('time_format', 30, 255, Html::escapeHTML($da->blog_settings->system->time_format), '', '', false, 'aria-describedby="time_format_help"') .
-            form::combo('time_format_select', $da->time_formats_combo, ['extra_html' => 'title="' . __('Pattern of time') . '"']) .
-            '</p>' .
-            '<p class="chosen form-note" id="time_format_help">' . __('Sample:') . ' ' . Date::str(Html::escapeHTML($da->blog_settings->system->time_format)) . '</p>' .
-
-            '<p><label for="no_public_css" class="classic">' .
-            form::checkbox('no_public_css', '1', $da->blog_settings->system->no_public_css) .
-            __('Don\'t load standard stylesheet (used for media alignement)') . '</label></p>' .
-
-            '<p><label for="use_smilies" class="classic">' .
-            form::checkbox('use_smilies', '1', $da->blog_settings->system->use_smilies) .
-            __('Display smilies on entries and comments') . '</label></p>' .
-
-            '<p><label for="no_search" class="classic">' .
-            form::checkbox('no_search', '1', $da->blog_settings->system->no_search) .
-            __('Disable internal search system') . '</label></p>' .
-
-            '</div>' .
-
-            '<div class="col">' .
-
-            '<p><label for="nb_post_for_home" class="classic">' . sprintf(
-                __('Display %s entries on first page'),
-                form::number(
-                    'nb_post_for_home',
-                    [
-                        'min'     => 1,
-                        'max'     => 999,
-                        'default' => $da->blog_settings->system->nb_post_for_home, ]
-                )
-            ) .
-            '</label></p>' .
-
-            '<p><label for="nb_post_per_page" class="classic">' . sprintf(
-                __('Display %s entries per page'),
-                form::number(
-                    'nb_post_per_page',
-                    [
-                        'min'     => 1,
-                        'max'     => 999,
-                        'default' => $da->blog_settings->system->nb_post_per_page, ]
-                )
-            ) .
-            '</label></p>' .
-
-            '<p><label for="nb_post_per_feed" class="classic">' . sprintf(
-                __('Display %s entries per feed'),
-                form::number(
-                    'nb_post_per_feed',
-                    [
-                        'min'     => 1,
-                        'max'     => 999,
-                        'default' => $da->blog_settings->system->nb_post_per_feed, ]
-                )
-            ) .
-            '</label></p>' .
-
-            '<p><label for="nb_comment_per_feed" class="classic">' . sprintf(
-                __('Display %s comments per feed'),
-                form::number(
-                    'nb_comment_per_feed',
-                    [
-                        'min'     => 1,
-                        'max'     => 999,
-                        'default' => $da->blog_settings->system->nb_comment_per_feed, ]
-                )
-            ) .
-            '</label></p>' .
-
-            '<p><label for="short_feed_items" class="classic">' .
-            form::checkbox('short_feed_items', '1', $da->blog_settings->system->short_feed_items) .
-            __('Truncate feeds') . '</label></p>' .
-
-            '<p><label for="inc_subcats" class="classic">' .
-            form::checkbox('inc_subcats', '1', $da->blog_settings->system->inc_subcats) .
-            __('Include sub-categories in category page and category posts feed') . '</label></p>' .
-            '</div>' .
-            '</div>' .
-
-            '<hr class="clear">' .
-
-            '<p><label for="static_home" class="classic">' .
-            form::checkbox('static_home', '1', $da->blog_settings->system->static_home) .
-            __('Display an entry as static home page') . '</label></p>' .
-
-            '<p><label for="static_home_url" class="classic">' . __('Entry URL (its content will be used for the static home page):') . '</label> ' .
-            form::field('static_home_url', 30, 255, Html::escapeHTML($da->blog_settings->system->static_home_url), '', '', false, 'aria-describedby="static_home_url_help"') .
-            ' <button type="button" id="static_home_url_selector">' . __('Choose an entry') . '</button>' .
-            '</p>' .
-            '<p class="form-note" id="static_home_url_help">' . __('Leave empty to use the default presentation.') . '</p> ' .
-
-            '</div>' .
-
-            '<div class="fieldset"><h4 id="medias-settings">' . __('Media and images') . '</h4>' .
-            '<div class="two-cols">' .
-            '<div class="col">' .
-
-            '<h5>' . __('Generated image sizes (max dimension in pixels)') . '</h5>' .
-
-            '<p class="form-note warning">' .
-            __('Please note that if you change current settings bellow, they will now apply to all new images in the media manager.') .
-            ' ' . __('Be carefull if you share it with other blogs in your installation.') . '<br>' .
-            __('Set -1 to use the default size, set 0 to ignore this thumbnail size (images only).') . '</p>' .
-            '<p class="field"><label for="media_img_t_size">' . __('Thumbnail') . '</label> ' .
-            form::number('media_img_t_size', [
-                'min'     => -1,
-                'max'     => 999,
-                'default' => $da->blog_settings->system->media_img_t_size,
-            ]) .
-            '</p>' .
-
-            '<p class="field"><label for="media_img_s_size">' . __('Small') . '</label> ' .
-            form::number('media_img_s_size', [
-                'min'     => -1,
-                'max'     => 999,
-                'default' => $da->blog_settings->system->media_img_s_size,
-            ]) .
-            '</p>' .
-
-            '<p class="field"><label for="media_img_m_size">' . __('Medium') . '</label> ' .
-            form::number('media_img_m_size', [
-                'min'     => -1,
-                'max'     => 999,
-                'default' => $da->blog_settings->system->media_img_m_size,
-            ]) .
-            '</p>' .
-
-            '<p class="field"><label for"media_thumbnail_prefix">' . __('Thumbnail character prefix:') . '</label> ' .
-            form::field('media_thumbnail_prefix', 1, 1, (string) $da->blog_settings->system->media_thumbnail_prefix) .
-            '</p>' .
-            '<p class="form-note info" id="media_thumbnail_prefix_help">' . __('Leave empty to use the default one (.)') . '</p>' .
-
-            '<h5>' . __('Default size of the inserted video (in pixels)') . '</h5>' .
-            '<p class="field"><label for="media_video_width">' . __('Width') . '</label> ' .
-            form::number('media_video_width', [
-                'min'     => -1,
-                'max'     => 999,
-                'default' => $da->blog_settings->system->media_video_width,
-            ]) .
-            '</p>' .
-
-            '<p class="field"><label for="media_video_height">' . __('Height') . '</label> ' .
-            form::number('media_video_height', [
-                'min'     => -1,
-                'max'     => 999,
-                'default' => $da->blog_settings->system->media_video_height,
-            ]) .
-            '</p>' .
-            '</div>' .
-
-            '<div class="col">' .
-            '<h5>' . __('Default image insertion attributes') . '</h5>' .
-            '<p><label for="media_img_title_pattern">' . __('Inserted image legend:') . '</label>' .
-            form::combo('media_img_title_pattern', $da->img_title_combo, Html::escapeHTML($da->media_img_title_pattern)) . '</p>' .
-            '<p><label for="media_img_use_dto_first" class="classic">' .
-            form::checkbox('media_img_use_dto_first', '1', $da->blog_settings->system->media_img_use_dto_first) .
-            __('Use original media date if possible') . '</label></p>' .
-            '<p><label for="media_img_no_date_alone" class="classic">' .
-            form::checkbox('media_img_no_date_alone', '1', $da->blog_settings->system->media_img_no_date_alone, '', '', false, 'aria-describedby="media_img_no_date_alone_help"') .
-            __('Do not display date if alone in title') . '</label></p>' .
-            '<p class="form-note info" id="media_img_no_date_alone_help">' . __('It is retrieved from the picture\'s metadata.') . '</p>' .
-
-            '<p class="field vertical-separator"><label for="media_img_default_size">' . __('Size of inserted image:') . '</label>' .
-            form::combo(
-                'media_img_default_size',
-                $da->img_default_size_combo,
-                (Html::escapeHTML($da->blog_settings->system->media_img_default_size) != '' ? Html::escapeHTML($da->blog_settings->system->media_img_default_size) : 'm')
-            ) .
-            '</p>' .
-            '<p class="field"><label for="media_img_default_alignment">' . __('Image alignment:') . '</label>' .
-            form::combo('media_img_default_alignment', $da->img_default_alignment_combo, Html::escapeHTML($da->blog_settings->system->media_img_default_alignment)) .
-            '</p>' .
-            '<p><label for="media_img_default_link">' .
-            form::checkbox('media_img_default_link', '1', $da->blog_settings->system->media_img_default_link) .
-            __('Insert a link to the original image') . '</label></p>' .
-            '<p><label for="media_img_default_legend">' . __('Image legend and alternate text:') . '</label>' .
-            form::combo('media_img_default_legend', $da->img_default_legend_combo, Html::escapeHTML($da->blog_settings->system->media_img_default_legend)) .
-            '</p>' .
-            '</div>' .
-            '</div>' . '<br class="clear">' .
-
-            '</div>' .
-            '</div>' .
-
-            '<div id="advanced-pref"><h3>' . __('Advanced parameters') . '</h3>';
-
+            // Blog details
             if (App::auth()->isSuperAdmin()) {
-                echo '<div class="fieldset"><h4>' . __('Blog details') . '</h4>' .
-
-                '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-                '<p><label for="blog_id" class="required"><span>*</span> ' . __('Blog ID:') . '</label>' .
-                form::field('blog_id', 30, 32, Html::escapeHTML($da->blog_id), '', '', false, 'required placeholder="' . __('Blog ID') . '" aria-describedby="blog_id_help blog_id_warn"') . '</p>' .
-                '<p class="form-note" id="blog_id_help">' . __('At least 2 characters using letters, numbers or symbols.') . '</p> ' .
-                '<p class="form-note warn" id="blog_id_warn">' . __('Please note that changing your blog ID may require changes in your public index.php file.') . '</p>' .
-
-                '<p><label for="blog_url" class="required"><span>*</span> ' . __('Blog URL:') . '</label>' .
-                form::url('blog_url', [
-                    'size'       => 50,
-                    'max'        => 255,
-                    'default'    => Html::escapeHTML($da->blog_url),
-                    'extra_html' => 'required placeholder="' . __('Blog URL') . '"',
-                ]) .
-                '</p>' .
-
-                '<p><label for="url_scan">' . __('URL scan method:') . '</label>' .
-                form::combo('url_scan', $da->url_scan_combo, $da->blog_settings->system->url_scan) . '</p>';
+                // Check URL of blog by testing it's ATOM feed
+                $message = (new None());
 
                 try {
-                    # Test URL of blog by testing it's ATOM feed
-                    $file    = $da->blog_url . App::url()->getURLFor('feed', 'atom');
+                    $file    = $data->blog_url . App::url()->getURLFor('feed', 'atom');
                     $path    = '';
-                    $status  = '404';
+                    $status  = 404;
                     $content = '';
 
                     $client = HttpClient::initClient($file, $path);
@@ -836,225 +975,390 @@ class BlogPref extends Process
                         $status  = $client->getStatus();
                         $content = $client->getContent();
                     }
-                    if ($status != '200') {
+                    if ($status !== 200) {
                         // Might be 404 (URL not found), 670 (blog not online), ...
-                        echo
-                        '<p class="form-note warn">' .
-                        sprintf(
-                            __('The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status).'),
-                            Html::escapeHTML($file),
-                            $status
-                        ) .
-                        '</p>';
+                        $message = (new Note())
+                            ->class(['form-note', 'warn'])
+                            ->text(sprintf(
+                                __('The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status).'),
+                                Html::escapeHTML($file),
+                                (string) $status
+                            ));
                     } else {
                         if (!str_starts_with($content, '<?xml ')) {
                             // Not well formed XML feed
-                            echo
-                            '<p class="form-note warn">' .
-                            sprintf(
-                                __('The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed).'),
-                                Html::escapeHTML($file)
-                            ) .
-                            '</p>';
+                            $message = (new Note())
+                                ->class(['form-note', 'warn'])
+                                ->text(sprintf(
+                                    __('The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed).'),
+                                    Html::escapeHTML($file)
+                                ));
                         }
                     }
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }
-                echo '</div>';
+
+                $advanced[] = (new Fieldset())
+                    ->legend(new Legend(__('Blog details')))
+                    ->fields([
+                        (new Note())
+                            ->class('form-note')
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        (new Para())
+                            ->items([
+                                (new Input('blog_id'))
+                                    ->size(30)
+                                    ->maxlength(32)
+                                    ->value(Html::escapeHTML($data->blog_id))
+                                    ->required(true)
+                                    ->placeholder(__('Blog ID'))
+                                    ->title(__('Required field'))
+                                    ->label(new Label((new Text('span', '*'))->render() . __('Blog ID:'), Label::IL_TF))
+                                    ->class('required'),
+                            ]),
+                        (new Note())
+                            ->class('form-note')
+                            ->text(__('At least 2 characters using letters, numbers or symbols.'))
+                            ->id('blog_id_help'),
+                        (new Note())
+                            ->class(['form-note', 'warn'])
+                            ->text(__('Please note that changing your blog ID may require changes in your public index.php file.'))
+                            ->id('blog_id_warn'),
+                        (new Para())
+                            ->items([
+                                (new Url('blog_url'))
+                                    ->size(50)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($data->blog_url))
+                                    ->required(true)
+                                    ->placeholder(__('Blog URL'))
+                                    ->title(__('Required field'))
+                                    ->label(new Label((new Text('span', '*'))->render() . __('Blog URL:'), Label::IL_TF))
+                                    ->class('required'),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Select('url_scan'))
+                                    ->items($data->url_scan_combo)
+                                    ->default($data->blog_settings->system->url_scan)
+                                    ->label(new Label(__('URL scan method:'), Label::IL_TF)),
+                            ]),
+                        $message,
+                    ]);
             }
 
-            echo
-            '<div class="fieldset"><h4>' . __('Blog configuration') . '</h4>' .
+            // Blog configuration
+            $advanced[] = (new Fieldset())
+                ->legend(new Legend(__('Blog configuration')))
+                ->fields([
+                    (new Para())
+                        ->items([
+                            (new Select('post_url_format'))
+                                ->items($data->post_url_combo)
+                                ->default(Html::escapeHTML($data->blog_settings->system->post_url_format))
+                                ->label(new Label(__('New post URL format:'), Label::IL_TF))
+                                ->extra('aria-describedby="post_url_format_help"'),
+                        ]),
+                    (new Para())
+                        ->class(['chosen', 'form-note'])
+                        ->id('post_url_format_help')
+                        ->items([
+                            (new Text(null, __('Sample:') . ' ' . App::blog()->getPostURL('', date('Y-m-d H:i:00', $data->now), __('Dotclear'), 42))),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Select('note_title_tag'))
+                                ->items($data->note_title_tag_combo)
+                                ->default($data->blog_settings->system->note_title_tag)
+                                ->label(new Label(__('HTML tag for the title of the notes on the blog:'), Label::IL_TF)),
+                        ]),
+                ]);
 
-            '<p><label for="post_url_format">' . __('New post URL format:') . '</label>' .
-            form::combo('post_url_format', $da->post_url_combo, Html::escapeHTML($da->blog_settings->system->post_url_format), '', '', false, 'aria-describedby="post_url_format_help"') .
-            '</p>' .
-            '<p class="chosen form-note" id="post_url_format_help">' . __('Sample:') . ' ' . App::blog()->getPostURL('', date('Y-m-d H:i:00', $da->now), __('Dotclear'), 42) . '</p>' .
-            '</p>' .
+            // Search engine policies
+            $policies = function () use ($data) {
+                $index = 0;
+                foreach ($data->robots_policy_options as $key => $value) {
+                    yield (new Para())
+                        ->items([
+                            (new Radio(['robots_policy', 'robots_policy-' . $index], $data->blog_settings->system->robots_policy === $key))
+                                ->value($key)
+                                ->label(new Label($value, Label::IL_FT)),
+                        ]);
+                }
+            };
+            $advanced[] = (new Fieldset())
+                ->legend(new Legend(__('Search engines robots policy')))
+                ->fields($policies());
 
-            '<p><label for="note_title_tag">' . __('HTML tag for the title of the notes on the blog:') . '</label>' .
-            form::combo('note_title_tag', $da->note_title_tag_combo, $da->blog_settings->system->note_title_tag) .
-            '</p>' .
+            // Legacy JS library
+            $advanced[] = (new Fieldset())
+                ->legend(new Legend(__('Legacy javascript library')))
+                ->fields([
+                    (new Para())
+                        ->items([
+                            (new Checkbox('legacy_needed', (bool) $data->blog_settings->system->legacy_needed))
+                                ->value(1)
+                                ->label(new Label(__('Load the Legacy JS library'), Label::IL_FT)),
+                        ]),
+                ]);
 
-            '</div>' .
+            // jQuery
+            $advanced[] = (new Fieldset())
+                ->legend(new Legend(__('jQuery javascript library')))
+                ->fields([
+                    (new Para())
+                        ->items([
+                            (new Checkbox('jquery_needed', (bool) $data->blog_settings->system->jquery_needed))
+                                ->value(1)
+                                ->label(new Label(__('Load the jQuery library'), Label::IL_FT)),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Select('jquery_version'))
+                                ->items($data->jquery_versions_combo)
+                                ->default($data->blog_settings->system->jquery_version)
+                                ->label(new Label(__('jQuery version to be loaded for this blog:'), Label::IL_TF)),
+                        ]),
+                ]);
 
-            // Search engines policies
-            '<div class="fieldset"><h4>' . __('Search engines robots policy') . '</h4>';
+            // Blog security
+            $advanced[] = (new Fieldset())
+                ->legend((new Legend(__('Blog security'))))
+                ->fields([
+                    (new Para())
+                        ->items([
+                            (new Checkbox('prevents_clickjacking', (bool) $data->blog_settings->system->prevents_clickjacking))
+                                ->value(1)
+                                ->label(new Label(__('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)'), Label::IL_FT)),
+                        ]),
+                ]);
 
-            $i = 0;
-            foreach ($da->robots_policy_options as $k => $v) {
-                echo
-                '<p><label for="robots_policy-' . $i . '" class="classic">' .
-                form::radio(['robots_policy', 'robots_policy-' . $i], $k, $da->blog_settings->system->robots_policy == $k) . ' ' . $v . '</label></p>';
+            $prefs[] = (new Div('advanced-pref'))
+                ->items([
+                    (new Text('h3', __('Advanced parameters'))),
+                    ... $advanced,
+                ]);
 
-                $i++;
-            }
+            // Plugins parameters
+            $prefs[] = (new Div('plugins-pref'))
+                ->items([
+                    (new Text('h3', __('Plugins parameters'))),
+                    (new Capture(
+                        App::behavior()->callBehavior(...),
+                        ['adminBlogPreferencesFormV2', $data->blog_settings]
+                    )),
+                ]);
 
-            echo '</div>' .
+            // Buttons
+            $prefs[] = (new Para())
+                ->class('form-buttons')
+                ->items([
+                    (new Submit('submit-params', __('Save')))
+                        ->accesskey('s'),
+                    (new Button('go-back', __('Back')))
+                        ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                    $data->standalone ? (new None()) : (new Hidden('id', $data->blog_id)),
+                    App::nonce()->formNonce(),
+                ]);
 
-            '<div class="fieldset"><h4>' . __('Legacy javascript library') . '</h4>' .
-            '<p><label for="legacy_needed" class="classic">' .
-            form::checkbox('legacy_needed', '1', $da->blog_settings->system->legacy_needed) .
-            __('Load the Legacy JS library') . '</label></p>' .
-            '</div>' .
-
-            '<div class="fieldset"><h4>' . __('jQuery javascript library') . '</h4>' .
-            '<p><label for="jquery_needed" class="classic">' .
-            form::checkbox('jquery_needed', '1', $da->blog_settings->system->jquery_needed) .
-            __('Load the jQuery library') . '</label></p>' .
-
-            '<p><label for="jquery_version" class="classic">' . __('jQuery version to be loaded for this blog:') . '</label>' . ' ' .
-            form::combo('jquery_version', $da->jquery_versions_combo, $da->blog_settings->system->jquery_version) .
-            '</p>' .
-            '</div>' .
-
-            '<div class="fieldset"><h4>' . __('Blog security') . '</h4>' .
-            '<p><label for="prevents_clickjacking" class="classic">' .
-            form::checkbox('prevents_clickjacking', '1', $da->blog_settings->system->prevents_clickjacking) .
-            __('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)') . '</label></p>' .
-            '</div>' .
-
-            '</div>' . // End advanced
-
-            '<div id="plugins-pref"><h3>' . __('Plugins parameters') . '</h3>';
-
-            # --BEHAVIOR-- adminBlogPreferencesForm -- BlogSettingsInterface
-            App::behavior()->callBehavior('adminBlogPreferencesFormV2', $da->blog_settings);
-
-            echo '</div>' . // End 3rd party, aka plugins
-
-            '<p class="form-buttons"><input type="submit" accesskey="s" value="' . __('Save') . '">' .
-            ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-            (!$da->standalone ? form::hidden('id', $da->blog_id) : '') .
-            '</p>' .
-            '</form>';
-
-            if (App::auth()->isSuperAdmin() && $da->blog_id != App::blog()->id()) {
-                echo
-                '<form action="' . App::backend()->url()->get('admin.blog.del') . '" method="post">' .
-                '<p><input type="submit" class="delete" value="' . __('Delete this blog') . '">' .
-                form::hidden(['blog_id'], $da->blog_id) .
-                App::nonce()->getFormNonce() . '</p>' .
-                '</form>';
+            // Additional stuff
+            if (App::auth()->isSuperAdmin() && $data->blog_id !== App::blog()->id()) {
+                $additional = (new Form('del-blog'))
+                    ->action(App::backend()->url()->get('admin.blog.del'))
+                    ->method('post')
+                    ->fields([
+                        (new Para())
+                            ->items([
+                                (new Submit('submit-del-blog', __('Delete this blog')))
+                                    ->class('delete'),
+                                (new Hidden(['blog_id'], $data->blog_id)),
+                                App::nonce()->formNonce(),
+                            ]),
+                    ]);
             } else {
-                if ($da->blog_id == App::blog()->id()) {
-                    echo '<p class="message">' . __('The current blog cannot be deleted.') . '</p>';
+                if ($data->blog_id === App::blog()->id()) {
+                    $additional = (new Note())
+                        ->class('message')
+                        ->text(__('The current blog cannot be deleted.'));
                 } else {
-                    echo '<p class="message">' . __('Only superadmin can delete a blog.') . '</p>';
+                    $additional = (new Note())
+                        ->class('message')
+                        ->text(__('Only superadmin can delete a blog.'));
                 }
             }
 
-            echo '</div>';
+            $tabs[] = (new Div('params'))
+                ->title(__('Parameters'))
+                ->class('multi-part')
+                ->items([
+                    (new Form('blog-form'))
+                        ->action($data->action)
+                        ->method('post')
+                        ->fields($prefs),
+                    $additional,
+                ]);
 
-            #
-            # Users on the blog (with permissions)
+            // Blog users
+            $users = [];
 
-            $da->blog_users = App::blogs()->getBlogPermissions($da->blog_id, App::auth()->isSuperAdmin());
-            $perm_types     = App::auth()->getPermissionsTypes();
+            // Users on the blog (with permissions)
+            $data->blog_users = App::blogs()->getBlogPermissions($data->blog_id, App::auth()->isSuperAdmin());
+            $perm_types       = App::auth()->getPermissionsTypes();
 
-            echo
-            '<div class="multi-part" id="users" title="' . __('Users') . '">' .
-            '<h3 class="out-of-screen-if-js">' . __('Users on this blog') . '</h3>';
-
-            if (empty($da->blog_users)) {
-                echo '<p>' . __('No users') . '</p>';
+            if (empty($data->blog_users)) {
+                $users[] = (new Note())
+                    ->text(__('No users'));
             } else {
                 if (App::auth()->isSuperAdmin()) {
-                    $user_url_p = '<a href="' . App::backend()->url()->get('admin.user', ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
+                    $user_url_p = (new Link())
+                        ->href(App::backend()->url()->get('admin.user', ['id' => '%1$s'], '&amp;', true))
+                        ->text('%1$s')
+                    ->render();
                 } else {
                     $user_url_p = '%1$s';
                 }
 
                 // Sort users list on user_id key
-                $blog_users = $da->blog_users;
+                $blog_users = $data->blog_users;
                 if (App::lexical()->lexicalKeySort($blog_users, App::lexical()::ADMIN_LOCALE)) {
-                    $da->blog_users = $blog_users;
+                    $data->blog_users = $blog_users;
                 }
 
                 $post_types      = App::postTypes()->dump();
                 $current_blog_id = App::blog()->id();
-                if ($da->blog_id != App::blog()->id()) {
-                    App::blog()->loadFromBlog($da->blog_id);
+                if ($data->blog_id !== App::blog()->id()) {
+                    App::blog()->loadFromBlog($data->blog_id);
                 }
 
-                echo '<div>';
-                foreach ($da->blog_users as $k => $v) {
+                // Prepare user list
+                foreach ($data->blog_users as $k => $v) {
                     if ((is_countable($v['p']) ? count($v['p']) : 0) > 0) {
-                        echo
-                        '<div class="user-perm' . ($v['super'] ? ' user_super' : '') . '">' .
-                        '<h4>' . sprintf($user_url_p, Html::escapeHTML($k)) .
-                        ' (' . Html::escapeHTML(App::users()->getUserCN(
-                            $k,
-                            $v['name'],
-                            $v['firstname'],
-                            $v['displayname']
-                        )) . ')</h4>';
+                        // User email
+                        $mail = $v['email'] ?
+                            (new Link())
+                                ->href('mailto:' . (string) $v['email'])
+                                ->text($v['email'])
+                            ->render() :
+                            __('(none)');
 
-                        if (App::auth()->isSuperAdmin()) {
-                            echo
-                            '<p>' . __('Email:') . ' ' .
-                            ($v['email'] != '' ? '<a href="mailto:' . $v['email'] . '">' . $v['email'] . '</a>' : __('(none)')) .
-                            '</p>';
-                        }
-
-                        echo
-                        '<h5>' . __('Publications on this blog:') . '</h5>' .
-                        '<ul>';
+                        // User publications
+                        $pubs = [];
                         foreach ($post_types as $pt) {
-                            $params = [
+                            $prefs = [
                                 'post_type' => $pt->get('type'),
                                 'user_id'   => $k,
                             ];
-                            echo '<li>' . sprintf(__('%1$s: %2$s'), __($pt->get('label')), App::blog()->getPosts($params, true)->f(0)) . '</li>';
+                            $pubs[] = (new Li())
+                                ->text(sprintf(__('%1$s: %2$s'), __($pt->get('label')), App::blog()->getPosts($prefs, true)->f(0)));
                         }
-                        echo
-                        '</ul>' .
 
-                        '<h5>' . __('Permissions:') . '</h5>' .
-                        '<ul>';
+                        // User permissions
+                        $perms = [];
                         if ($v['super']) {
-                            echo '<li class="user_super">' . __('Super administrator') . '<br>' .
-                            '<span class="form-note">' . __('All rights on all blogs.') . '</span></li>';
+                            $perms[] = (new Li())
+                                ->class('user_super')
+                                ->items([
+                                    (new Text(null, __('Super administrator'))),
+                                    (new Single('br')),
+                                    (new Text('span', __('All rights on all blogs.')))
+                                        ->class('form-note'),
+                                ]);
                         } else {
                             foreach ($v['p'] as $p => $V) {
-                                if (isset($perm_types[$p])) {
-                                    echo '<li ' . ($p == 'admin' ? 'class="user_admin"' : '') . '>' . __($perm_types[$p]);
+                                $perm = (new Li());
+                                if ($p === 'admin') {
+                                    $super = (new Set())
+                                        ->items([
+                                            (new Single('br')),
+                                            (new Text('span', __('All rights on this blog.')))
+                                                ->class('form-note'),
+                                        ]);
                                 } else {
-                                    echo '<li>' . sprintf(__('[%s] (unreferenced permission)'), $p);
+                                    $super = (new None());
                                 }
-
-                                if ($p == 'admin') {
-                                    echo '<br><span class="form-note">' . __('All rights on this blog.') . '</span>';
+                                if (isset($perm_types[$p])) {
+                                    if ($p === 'admin') {
+                                        $perm->class('user_admin');
+                                    }
+                                    $perm->items([
+                                        (new Text(null, __($perm_types[$p]))),
+                                        $super,
+                                    ]);
+                                } else {
+                                    $perm->items([
+                                        (new Text(null, sprintf(__('[%s] (unreferenced permission)')))),
+                                        $super,
+                                    ]);
                                 }
-                                echo '</li>';
+                                $perms[] = $perm;
                             }
                         }
-                        echo
-                        '</ul>';
 
+                        // User actions
                         if (!$v['super'] && App::auth()->isSuperAdmin()) {
-                            echo
-                            '<form action="' . App::backend()->url()->get('admin.user.actions') . '" method="post">' .
-                            '<p class="change-user-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '">' .
-                            form::hidden(['redir'], App::backend()->url()->get('admin.blog.pref', ['id' => $k], '&')) .
-                            form::hidden(['action'], 'perms') .
-                            form::hidden(['users[]'], $k) .
-                            form::hidden(['blogs[]'], $da->blog_id) .
-                            App::nonce()->getFormNonce() .
-                            '</p>' .
-                            '</form>';
+                            $action = (new Form(['user-action']))
+                                ->action(App::backend()->url()->get('admin.user.actions'))
+                                ->method('post')
+                                ->fields([
+                                    (new Para())
+                                        ->class('change-user-perm')
+                                        ->items([
+                                            (new Submit('submit-user-perm'))
+                                                ->class('reset')
+                                                ->value(__('Change permissions')),
+                                            (new Hidden(['redir'], App::backend()->url()->get('admin.blog.pref', ['id' => $k], '&'))),
+                                            (new Hidden(['action'], 'perms')),
+                                            (new Hidden(['users[]'], $k)),
+                                            (new Hidden(['blogs[]'], $data->blog_id)),
+                                            App::nonce()->formNonce(),
+                                        ]),
+                                ]);
+                        } else {
+                            $action = (new None());
                         }
-                        echo '</div>';
+
+                        // User card
+                        $users[] = (new Div())
+                            ->class(array_filter(['user-perm', ($v['super'] ? 'user_super' : '')]))
+                            ->items([
+                                (new Text('h4', sprintf($user_url_p, Html::escapeHTML($k)) . ' (' . Html::escapeHTML(App::users()->getUserCN($k, $v['name'], $v['firstname'], $v['displayname'])) . ')')),
+                                App::auth()->isSuperAdmin() ?
+                                    (new Para())
+                                        ->items([
+                                            (new Text(null, __('Email:') . ' ' . $mail)),
+                                        ]) :
+                                    (new None()),
+                                (new Text('h5', __('Publications on this blog:'))),
+                                (new Ul())
+                                    ->items($pubs),
+                                (new Text('h5', __('Permissions:'))),
+                                (new Ul())
+                                    ->items($perms),
+                                $action,
+                            ]);
                     }
                 }
-                echo '</div>';
-                if ($current_blog_id != App::blog()->id()) {
+
+                if ($current_blog_id !== App::blog()->id()) {
                     App::blog()->loadFromBlog($current_blog_id);
                 }
             }
 
-            echo '</div>';
+            $tabs[] = (new Div('users'))
+                ->title(__('Users'))
+                ->class('multi-part')
+                ->items([
+                    (new Text('h3', __('Users on this blog')))
+                        ->class('out-of-screen-if-js'),
+                    (new Div('blog-users'))
+                        ->items($users),
+                ]);
+
+            // Render
+            echo (new Set())
+                ->items($tabs)
+            ->render();
         }
 
         Page::helpBlock('core_blog_pref');
