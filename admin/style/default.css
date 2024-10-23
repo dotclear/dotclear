@@ -365,8 +365,6 @@ h6 {
   --fieldset-border: #3a539b;
   --fieldset-background: #fff;
   --fieldset-focus-background: rgb(237.15, 237.15, 237.15);
-  --legend-border: #676e78;
-  --legend-background: #fff;
   --invalid-input-color: #000;
   --invalid-input-border: #ae323b;
   --invalid-input-background: #ffbaba;
@@ -616,8 +614,6 @@ h6 {
   --fieldset-border: rgb(202.4905829596, 205.553632287, 209.9294170404);
   --fieldset-background: var(--body-background);
   --fieldset-focus-background: rgb(52.2734482759, 57.6348275862, 64.3365517241);
-  --legend-border: rgb(202.4905829596, 205.553632287, 209.9294170404);
-  --legend-background: rgb(86.0136986301, 89.7534246575, 95.9863013699);
   --invalid-input-color: #000;
   --invalid-input-border: #ae323b;
   --invalid-input-background: #ffbaba;
@@ -868,8 +864,6 @@ h6 {
     --fieldset-border: rgb(202.4905829596, 205.553632287, 209.9294170404);
     --fieldset-background: var(--body-background);
     --fieldset-focus-background: rgb(52.2734482759, 57.6348275862, 64.3365517241);
-    --legend-border: rgb(202.4905829596, 205.553632287, 209.9294170404);
-    --legend-background: rgb(86.0136986301, 89.7534246575, 95.9863013699);
     --invalid-input-color: #000;
     --invalid-input-border: #ae323b;
     --invalid-input-background: #ffbaba;

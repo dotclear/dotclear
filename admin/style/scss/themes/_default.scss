@@ -173,9 +173,6 @@
   --fieldset-background: #{$white};
   --fieldset-focus-background: #{scale-color($white, $lightness: -7%)};
 
-  --legend-border: #{$gray-dark};
-  --legend-background: #{$white};
-
   --invalid-input-color: #{$black};
   --invalid-input-border: #{$error-alt};
   --invalid-input-background: #{$error};
