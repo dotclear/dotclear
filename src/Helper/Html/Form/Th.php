@@ -21,7 +21,7 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this text(string $text)
  * @method      $this separator(string $separator)
  * @method      $this format(string $format)
- * @method      $this items(array $items)
+ * @method      $this items(array|Iterable $items)
  *
  * @property    int $colspan
  * @property    int $rowspan
@@ -31,7 +31,7 @@ namespace Dotclear\Helper\Html\Form;
  * @property    string $text
  * @property    string $separator
  * @property    string $format
- * @property    array $items
+ * @property    array|Iterable $items
  */
 class Th extends Component
 {

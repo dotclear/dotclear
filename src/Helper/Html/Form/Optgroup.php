@@ -14,10 +14,10 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms optgroup creation helpers
  *
  * @method      $this text(string $text)
- * @method      $this items(array $items)
+ * @method      $this items(array|Iterable $items)
  *
  * @property    string $text
- * @property    array $items
+ * @property    array|Iterable $items
  */
 class Optgroup extends Component
 {

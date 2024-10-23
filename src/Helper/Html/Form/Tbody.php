@@ -14,12 +14,12 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms Tbody creation helpers
  *
  * @method      $this format(string $format)
- * @method      $this rows(array $rows)
- * @method      $this items(array $items)
+ * @method      $this rows(array|Iterable $rows)
+ * @method      $this items(array|Iterable $items)
  *
  * @property    string $format
- * @property    array $rows
- * @property    array $items
+ * @property    array|Iterable $rows
+ * @property    array|Iterable $items
  */
 class Tbody extends Component
 {

@@ -13,11 +13,11 @@ namespace Dotclear\Helper\Html\Form;
  * @class Div
  * @brief HTML Forms Div creation helpers
  *
- * @method      $this items(array $items)
+ * @method      $this items(array|Iterable $items)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
  *
- * @property    array $items
+ * @property    array|Iterable $items
  * @property    string $format
  * @property    string $separator
  */

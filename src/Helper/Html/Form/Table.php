@@ -17,13 +17,13 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this thead(Thead $thead)
  * @method      $this tbody(Tbody $tbody)
  * @method      $this tfoot(Tbody $tfoot)
- * @method      $this items(array $items)
+ * @method      $this items(array|Iterable $items)
  *
  * @property    Caption $caption
  * @property    Thead $thead
  * @property    Tbody $tbody
  * @property    Tfoot $tfoot
- * @property    array $items
+ * @property    array|Iterable $items
  */
 class Table extends Component
 {

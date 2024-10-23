@@ -14,13 +14,13 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms Ol creation helpers
  *
  * @method      $this separator(string $separator)
- * @method      $this items(array $items)
+ * @method      $this items(array|Iterable $items)
  * @method      $this format(string $format)
  * @method      $this start(string $start)
  * @method      $this reversed(bool $reversed)
  *
  * @property    string $separator
- * @property    array $items
+ * @property    array|Iterable $items
  * @property    string $format
  * @property    string $start
  * @property    bool $reversed

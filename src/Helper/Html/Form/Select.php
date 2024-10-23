@@ -15,9 +15,9 @@ use Dotclear\App;
  * @class Select
  * @brief HTML Forms select creation helpers
  *
- * @method      $this items(array $items)
+ * @method      $this items(array|Iterable $items)
  *
- * @property    array $items
+ * @property    array|Iterable $items
  */
 class Select extends Component
 {

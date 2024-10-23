@@ -17,15 +17,15 @@ use Dotclear\App;
  *
  * @method      $this action(null|string $action)
  * @method      $this method(string $action)
- * @method      $this fields(array $fields)
- * @method      $this items(array $items)
+ * @method      $this fields(array|Iterable $fields)
+ * @method      $this items(array|Iterable $items)
  * @method      $this separator(string $separator)
  * @method      $this enctype(string $enctype)
  *
  * @property    null|string $action
  * @property    string $method
- * @property    array $fields
- * @property    array $items
+ * @property    array|Iterable $fields
+ * @property    array|Iterable $items
  * @property    string $separator
  * @property    string $enctype
  */

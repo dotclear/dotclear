@@ -14,12 +14,12 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms note creation helpers
  *
  * @method      $this text(string $text)
- * @method      $this items(array $items)
+ * @method      $this items(array|Iterable $items)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
  *
  * @property    string $text
- * @property    array $items
+ * @property    array|Iterable $items
  * @property    string $format
  * @property    string $separator
  */

@@ -15,12 +15,12 @@ namespace Dotclear\Helper\Html\Form;
  *
  * @method      $this text(string $text)
  * @method      $this separator(string $separator)
- * @method      $this items(array $items)
+ * @method      $this items(array|Iterable $items)
  * @method      $this format(string $format)
  *
  * @property    string $text
  * @property    string $separator
- * @property    array $items
+ * @property    array|Iterable $items
  * @property    string $format
  */
 class Dt extends Component

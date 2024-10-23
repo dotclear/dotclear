@@ -14,11 +14,11 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms Dl creation helpers
  *
  * @method      $this separator(string $separator)
- * @method      $this items(array $items)
+ * @method      $this items(array|Iterable $items)
  * @method      $this format(string $format)
  *
  * @property    string $separator
- * @property    array $items
+ * @property    array|Iterable $items
  * @property    string $format
  */
 class Dl extends Component
