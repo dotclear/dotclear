@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-05 09:45+0200\n"
-"PO-Revision-Date: 2024-10-10 04:31\n"
+"POT-Creation-Date: 2024-10-25 07:54+0200\n"
+"PO-Revision-Date: 2024-10-25 05:57\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -597,38 +597,38 @@ msgstr "Nuvem de tags"
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:91 plugins/aboutConfig/src/Manage.php:111
+#: plugins/aboutConfig/src/Manage.php:93 plugins/aboutConfig/src/Manage.php:113
 msgid "Configuration successfully updated"
 msgstr "A Configuração foi actualizada com sucesso"
 
-#: plugins/aboutConfig/src/Manage.php:151
 #: plugins/aboutConfig/src/Manage.php:153
+#: plugins/aboutConfig/src/Manage.php:155
 #, php-format
 msgid "Settings for %s"
 msgstr "Configurações para %s"
 
-#: plugins/aboutConfig/src/Manage.php:161
 #: plugins/aboutConfig/src/Manage.php:163
+#: plugins/aboutConfig/src/Manage.php:165
 msgid "Global settings"
 msgstr "Configurações Globais"
 
-#: plugins/aboutConfig/src/Manage.php:229 plugins/userPref/src/Manage.php:227
+#: plugins/aboutConfig/src/Manage.php:231 plugins/userPref/src/Manage.php:229
 msgid "Goto:"
 msgstr "Ir para:"
 
-#: plugins/aboutConfig/src/Manage.php:257 plugins/userPref/src/Manage.php:255
+#: plugins/aboutConfig/src/Manage.php:258 plugins/userPref/src/Manage.php:256
 msgid "Setting ID"
 msgstr "Configurando ID"
 
-#: plugins/aboutConfig/src/Manage.php:258 plugins/userPref/src/Manage.php:256
+#: plugins/aboutConfig/src/Manage.php:259 plugins/userPref/src/Manage.php:257
 msgid "Value"
 msgstr "Valor"
 
-#: plugins/aboutConfig/src/Manage.php:307 plugins/userPref/src/Manage.php:305
+#: plugins/aboutConfig/src/Manage.php:321 plugins/userPref/src/Manage.php:319
 msgid "no"
 msgstr "não"
 
-#: plugins/aboutConfig/src/Manage.php:307 plugins/userPref/src/Manage.php:305
+#: plugins/aboutConfig/src/Manage.php:321 plugins/userPref/src/Manage.php:319
 msgid "yes"
 msgstr "sim"
 
@@ -660,21 +660,6 @@ msgstr "Chave da API Akismet"
 #: plugins/akismet/src/AntispamFilterAkismet.php:265
 msgid "Akismet API key:"
 msgstr "Chave da API Akismet:"
-
-#: plugins/akismet/src/AntispamFilterAkismet.php:269
-#: plugins/blogroll/src/Manage.php:419 plugins/blogroll/src/Manage.php:431
-#: plugins/blogroll/src/Manage.php:492 plugins/blogroll/src/Manage.php:528
-#: plugins/blogroll/src/ManageEdit.php:204
-#: plugins/blogroll/src/ManageEdit.php:241
-#: plugins/blogroll/src/ManageEdit.php:253
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:100
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:119
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:99
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:118
-#: plugins/importExport/src/ModuleImportFlat.php:298
-#: plugins/pages/src/ManagePage.php:712
-msgid "Required field"
-msgstr "Campo obrigatório"
 
 #: plugins/akismet/src/AntispamFilterAkismet.php:275
 msgid "Get your own API key"
@@ -716,10 +701,6 @@ msgstr "Esta duração pode ser modificada no sítio %s."
 #: plugins/antispam/src/BackendBehaviors.php:86
 msgid "Delete junk comments older than"
 msgstr "Eliminar comentários spam mais velhos do que"
-
-#: plugins/antispam/src/BackendBehaviors.php:86
-msgid "days"
-msgstr "dias"
 
 #: plugins/antispam/src/BackendBehaviors.php:90
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
@@ -3068,15 +3049,15 @@ msgstr "Não é possível eliminar o ficheiro %s. Verifique as permissões dos f
 msgid "user:preferences"
 msgstr "usuário:preferências"
 
-#: plugins/userPref/src/Manage.php:90 plugins/userPref/src/Manage.php:109
+#: plugins/userPref/src/Manage.php:92 plugins/userPref/src/Manage.php:111
 msgid "Preferences successfully updated"
 msgstr "Preferências atualizadas com sucesso"
 
-#: plugins/userPref/src/Manage.php:149 plugins/userPref/src/Manage.php:151
+#: plugins/userPref/src/Manage.php:151 plugins/userPref/src/Manage.php:153
 msgid "User preferences"
 msgstr "Preferências do usuário"
 
-#: plugins/userPref/src/Manage.php:159 plugins/userPref/src/Manage.php:161
+#: plugins/userPref/src/Manage.php:161 plugins/userPref/src/Manage.php:163
 msgid "Global preferences"
 msgstr "Preferências globais"
 
