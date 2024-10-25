@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 10:52+0200\n"
-"PO-Revision-Date: 2024-10-11 09:29\n"
+"POT-Creation-Date: 2024-10-25 07:54+0200\n"
+"PO-Revision-Date: 2024-10-25 06:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -17,8 +17,8 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: inc/core/_fake_l10n.php:6 src/Process/Backend/User.php:225
-#: src/Process/Backend/UserPreferences.php:499
+#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:358
+#: src/Process/Backend/User.php:225 src/Process/Backend/UserPreferences.php:499
 #: src/Process/Install/Install.php:418
 msgid "medium"
 msgstr "介质"
@@ -104,7 +104,7 @@ msgstr "标题"
 #: src/Core/Backend/Favorites.php:500 src/Core/Backend/Menus.php:244
 #: src/Core/Backend/UserPref.php:73 src/Core/Backend/UserPref.php:190
 #: src/Process/Backend/Blog.php:98 src/Process/Backend/BlogDel.php:91
-#: src/Process/Backend/BlogPref.php:434
+#: src/Process/Backend/BlogPref.php:458
 msgid "Blogs"
 msgstr "博客"
 
@@ -124,7 +124,7 @@ msgstr "博客ID"
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
 #: src/Core/Backend/Listing/ListingBlogs.php:77
 #: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:141
-#: src/Process/Backend/BlogPref.php:488
+#: src/Process/Backend/BlogPref.php:538
 #: src/Process/Backend/UsersActions.php:231
 msgid "Blog name"
 msgstr "博客名称"
@@ -190,7 +190,7 @@ msgid "Password verification failed"
 msgstr "密码验证失败"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:114
-#: src/Process/Backend/BlogPref.php:942
+#: src/Process/Backend/BlogPref.php:1183
 msgid "The current blog cannot be deleted."
 msgstr "当前的博客不能被删除。"
 
@@ -427,7 +427,7 @@ msgstr "上层目录："
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:927
+#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1157
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
 #: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1109
@@ -552,7 +552,7 @@ msgid "Last update"
 msgstr "最后更新"
 
 #: src/Core/Backend/Combos.php:336 src/Process/Backend/Blog.php:122
-#: src/Process/Backend/BlogPref.php:808
+#: src/Process/Backend/BlogPref.php:1015
 #: src/Process/Backend/UsersActions.php:230
 msgid "Blog ID"
 msgstr "博客 ID"
@@ -632,8 +632,8 @@ msgid "Media manager"
 msgstr "媒体管理中心"
 
 #: src/Core/Backend/Favorites.php:482 src/Core/Backend/Menus.php:104
-#: src/Process/Backend/BlogPref.php:427 src/Process/Backend/BlogPref.php:435
-#: src/Process/Backend/BlogPref.php:448
+#: src/Process/Backend/BlogPref.php:451 src/Process/Backend/BlogPref.php:459
+#: src/Process/Backend/BlogPref.php:472
 msgid "Blog settings"
 msgstr "博客设置"
 
@@ -645,7 +645,7 @@ msgstr "博客外观"
 
 #: src/Core/Backend/Favorites.php:510 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:64 src/Core/Backend/UserPref.php:166
-#: src/Process/Backend/BlogPref.php:957 src/Process/Backend/User.php:235
+#: src/Process/Backend/BlogPref.php:1349 src/Process/Backend/User.php:235
 #: src/Process/Backend/Users.php:100 src/Process/Backend/Users.php:105
 #: src/Process/Backend/UsersActions.php:151
 #: src/Process/Backend/UsersActions.php:159
@@ -679,7 +679,7 @@ msgid "Status:"
 msgstr "状态："
 
 #: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1282
-#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:996
+#: src/Process/Backend/Auth.php:424 src/Process/Backend/BlogPref.php:1329
 #: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:895
 #: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:545
 #: src/Process/Install/Install.php:466
@@ -740,8 +740,8 @@ msgstr "视频"
 msgid "Format:"
 msgstr "格式："
 
-#: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:464 src/Process/Backend/User.php:277
+#: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:154
+#: src/Process/Backend/Auth.php:518 src/Process/Backend/User.php:277
 #: src/Process/Install/Install.php:530 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "密码："
@@ -1499,8 +1499,8 @@ msgid "Upload a zip file"
 msgstr "上传一个 zip 文件"
 
 #: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
-#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:480
-#: src/Process/Backend/BlogPref.php:806 src/Process/Backend/Category.php:233
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:530
+#: src/Process/Backend/BlogPref.php:1007 src/Process/Backend/Category.php:233
 #: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:450
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:764
@@ -1557,7 +1557,7 @@ msgstr "未知的插件ID"
 msgid "This plugin has no configuration file."
 msgstr "这个插件没有配置文件。"
 
-#: src/Core/Backend/ModulesList.php:1885 src/Process/Backend/Auth.php:279
+#: src/Core/Backend/ModulesList.php:1885 src/Process/Backend/Auth.php:297
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "许可证不充分"
@@ -1568,7 +1568,7 @@ msgid "Configure \"%s\""
 msgstr "配置 \"%s\""
 
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:193
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1159
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
 #: src/Process/Backend/Media.php:601 src/Process/Backend/MediaItem.php:1150
 #: src/Process/Backend/Post.php:792 src/Process/Backend/Search.php:158
@@ -2166,7 +2166,7 @@ msgstr "该主题已成功安装。"
 msgid "users per page"
 msgstr "每页用户数"
 
-#: src/Core/Backend/UserPref.php:180
+#: src/Core/Backend/UserPref.php:180 src/Process/Backend/BlogPref.php:764
 msgid "entries per page"
 msgstr "每页的条目"
 
@@ -2556,7 +2556,7 @@ msgid "LOL!"
 msgstr "LOL!"
 
 #: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:97
-#: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:433
+#: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:457
 #: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
 #: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:105
 #: src/Process/Backend/User.php:234 src/Process/Backend/Users.php:104
@@ -3066,144 +3066,168 @@ msgstr "无法修改_define.php"
 msgid "Destination folder already exist"
 msgstr "目标文件夹已经存在"
 
-#: src/Process/Backend/Auth.php:71 src/Process/Upgrade/Auth.php:78
+#: src/Process/Backend/Auth.php:89 src/Process/Upgrade/Auth.php:78
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear 己被升级。"
 
-#: src/Process/Backend/Auth.php:118
+#: src/Process/Backend/Auth.php:136
 msgid "Password reset"
 msgstr "密码重置"
 
-#: src/Process/Backend/Auth.php:119
+#: src/Process/Backend/Auth.php:137
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "有人请求为下列站点和用户重置密码。"
 
-#: src/Process/Backend/Auth.php:119
+#: src/Process/Backend/Auth.php:137
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "要重置您的密码浏览下列网站，否则不要理会这个邮件则什么都不会发生。"
 
-#: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:453
+#: src/Process/Backend/Auth.php:137 src/Process/Backend/Auth.php:154
+#: src/Process/Backend/Auth.php:415 src/Process/Backend/Auth.php:509
 #: src/Process/Install/Install.php:477 src/Process/Install/Install.php:529
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
 msgstr "用户名："
 
-#: src/Process/Backend/Auth.php:125
+#: src/Process/Backend/Auth.php:143
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "邮件成功发送到 %s。"
 
-#: src/Process/Backend/Auth.php:135
+#: src/Process/Backend/Auth.php:153
 msgid "Your new password"
 msgstr "您的新密码"
 
-#: src/Process/Backend/Auth.php:141
+#: src/Process/Backend/Auth.php:159
 msgid "Your new password is in your mailbox."
 msgstr "您的新密码在您的邮箱里。"
 
-#: src/Process/Backend/Auth.php:184 src/Process/Backend/User.php:126
+#: src/Process/Backend/Auth.php:202 src/Process/Backend/User.php:126
 #: src/Process/Backend/UserPreferences.php:205
 #: src/Process/Install/Install.php:191
 msgid "Passwords don't match"
 msgstr "密码不匹配"
 
-#: src/Process/Backend/Auth.php:188
+#: src/Process/Backend/Auth.php:206
 msgid "You didn't change your password."
 msgstr "您没有改变您的密码。"
 
-#: src/Process/Backend/Auth.php:238
+#: src/Process/Backend/Auth.php:256
 msgid "You have to change your password before you can login."
 msgstr "在您能登录前，您必须改变您的密码。"
 
-#: src/Process/Backend/Auth.php:240
+#: src/Process/Backend/Auth.php:258
 msgid "In order to login, you have to change your password now."
 msgstr "您必须现在更改密码以便登录。"
 
-#: src/Process/Backend/Auth.php:246
+#: src/Process/Backend/Auth.php:264
 msgid "Safe Mode can only be used for super administrators."
 msgstr "安全模式只能用于超级管理员。"
 
-#: src/Process/Backend/Auth.php:283 src/Process/Upgrade/Auth.php:142
+#: src/Process/Backend/Auth.php:301 src/Process/Upgrade/Auth.php:142
 msgid "Administration session expired"
 msgstr "行政会议过期"
 
-#: src/Process/Backend/Auth.php:283 src/Process/Upgrade/Auth.php:142
+#: src/Process/Backend/Auth.php:301 src/Process/Upgrade/Auth.php:142
 msgid "Wrong username or password"
 msgstr "错误的用户名或密码"
 
-#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:392
+#: src/Process/Backend/Auth.php:357 src/Process/Backend/Auth.php:358
+#: src/Process/Backend/Auth.php:359 src/Process/Backend/User.php:224
+#: src/Process/Backend/User.php:225 src/Process/Backend/User.php:226
+#: src/Process/Backend/UserPreferences.php:498
+#: src/Process/Backend/UserPreferences.php:499
+#: src/Process/Backend/UserPreferences.php:500
+#: src/Process/Install/Install.php:417 src/Process/Install/Install.php:418
+#: src/Process/Install/Install.php:419
+#, php-format
+msgid "Password strength: %s"
+msgstr "密码强度: %s"
+
+#: src/Process/Backend/Auth.php:357 src/Process/Backend/User.php:224
+#: src/Process/Backend/UserPreferences.php:498
+#: src/Process/Install/Install.php:417
+msgid "weak"
+msgstr "软弱"
+
+#: src/Process/Backend/Auth.php:359 src/Process/Backend/User.php:226
+#: src/Process/Backend/UserPreferences.php:500
+#: src/Process/Install/Install.php:419
+msgid "strong"
+msgstr "强大的"
+
+#: src/Process/Backend/Auth.php:402 src/Process/Backend/Auth.php:444
 msgid "Back to login screen"
 msgstr "返回到登录界面"
 
-#: src/Process/Backend/Auth.php:363
+#: src/Process/Backend/Auth.php:410
 msgid "Request a new password"
 msgstr "请求一个新密码"
 
-#: src/Process/Backend/Auth.php:386
+#: src/Process/Backend/Auth.php:432
 msgid "recover"
 msgstr "恢复"
 
-#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:497
+#: src/Process/Backend/Auth.php:438 src/Process/Backend/Auth.php:562
 msgid "Other option"
 msgstr "其他选项"
 
-#: src/Process/Backend/Auth.php:398
+#: src/Process/Backend/Auth.php:451
 msgid "Change your password"
 msgstr "改变您的密码"
 
-#: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:277
+#: src/Process/Backend/Auth.php:456 src/Process/Backend/User.php:277
 #: src/Process/Backend/UserPreferences.php:583
 #: src/Process/Install/Install.php:485
 msgid "New password:"
 msgstr "新密码："
 
-#: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:291
+#: src/Process/Backend/Auth.php:465 src/Process/Backend/User.php:291
 #: src/Process/Install/Install.php:492
 msgid "Confirm password:"
 msgstr "确认密码："
 
-#: src/Process/Backend/Auth.php:419
+#: src/Process/Backend/Auth.php:472
 msgid "change"
 msgstr "更改"
 
-#: src/Process/Backend/Auth.php:435
+#: src/Process/Backend/Auth.php:492
 msgid "Safe mode login"
 msgstr "安全模式登录"
 
-#: src/Process/Backend/Auth.php:437
+#: src/Process/Backend/Auth.php:495
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "这种模式允许你在不激活任何插件的情况下登录。这对解决兼容性问题可能是有用的"
 
-#: src/Process/Backend/Auth.php:438
+#: src/Process/Backend/Auth.php:496
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "更新、禁用或删除任何怀疑会造成麻烦的插件，然后退出并正常登录。"
 
-#: src/Process/Backend/Auth.php:474 src/Process/Upgrade/Auth.php:234
+#: src/Process/Backend/Auth.php:527 src/Process/Upgrade/Auth.php:234
 msgid "Remember my ID on this device"
 msgstr "在这台计算机上记住我的 ID"
 
-#: src/Process/Backend/Auth.php:475 src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:531 src/Process/Upgrade/Auth.php:235
 msgid "log in"
 msgstr "登录"
 
-#: src/Process/Backend/Auth.php:491 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:556 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "您必须接受 cookies 以使用私有区域。"
 
-#: src/Process/Backend/Auth.php:498
+#: src/Process/Backend/Auth.php:568
 msgid "Get back to normal authentication"
 msgstr "恢复正常认证"
 
-#: src/Process/Backend/Auth.php:501
+#: src/Process/Backend/Auth.php:573
 msgid "Connection issue?"
 msgstr "连接问题？"
 
-#: src/Process/Backend/Auth.php:504
+#: src/Process/Backend/Auth.php:580
 msgid "I forgot my password"
 msgstr "我忘记了我的密码"
 
-#: src/Process/Backend/Auth.php:507
+#: src/Process/Backend/Auth.php:587
 msgid "I want to log in in safe mode"
 msgstr "我想在安全模式下登录"
 
@@ -3216,28 +3240,28 @@ msgstr "博客 \"%s\" 成功创建"
 msgid "New blog"
 msgstr "新博客"
 
-#: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:807
+#: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:1017
 msgid "Blog ID:"
 msgstr "博客 ID："
 
-#: src/Process/Backend/Blog.php:133 src/Process/Backend/BlogPref.php:809
+#: src/Process/Backend/Blog.php:133 src/Process/Backend/BlogPref.php:1022
 #: src/Process/Backend/User.php:264
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "至少 2 个字符，使用字母、数字或符号。"
 
-#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:481
+#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:542
 msgid "Blog name:"
 msgstr "博客名称："
 
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:817
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:1035
 msgid "Blog URL"
 msgstr "博客网址"
 
-#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:812
+#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:1037
 msgid "Blog URL:"
 msgstr "博客 URL："
 
-#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:491
+#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:552
 msgid "Blog description:"
 msgstr "博客描述："
 
@@ -3271,543 +3295,543 @@ msgstr "您准备删除博客 %s。每篇文章、评论和分类目录都将被
 msgid "Please give your password to confirm the blog deletion."
 msgstr "请提供您的密码以确认删除博客。"
 
-#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:936
+#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:1173
 msgid "Delete this blog"
 msgstr "删除这个博客"
 
-#: src/Process/Backend/BlogPref.php:74
+#: src/Process/Backend/BlogPref.php:98
 msgid "No given blog id."
 msgstr "没有这样的博客 ID。"
 
-#: src/Process/Backend/BlogPref.php:79
+#: src/Process/Backend/BlogPref.php:103
 msgid "No such blog."
 msgstr "没有这样的博客。"
 
-#: src/Process/Backend/BlogPref.php:128
+#: src/Process/Backend/BlogPref.php:152
 msgid "year/month/day/title"
 msgstr "年／月／日／标题"
 
-#: src/Process/Backend/BlogPref.php:129
+#: src/Process/Backend/BlogPref.php:153
 msgid "year/month/title"
 msgstr "年／月／标题"
 
-#: src/Process/Backend/BlogPref.php:130
+#: src/Process/Backend/BlogPref.php:154
 msgid "year/title"
 msgstr "年／标题"
 
-#: src/Process/Backend/BlogPref.php:131
+#: src/Process/Backend/BlogPref.php:155
 msgid "title"
 msgstr "标题"
 
-#: src/Process/Backend/BlogPref.php:132
+#: src/Process/Backend/BlogPref.php:156
 msgid "post id/title"
 msgstr "帖子ID/标题"
 
-#: src/Process/Backend/BlogPref.php:133
+#: src/Process/Backend/BlogPref.php:157
 msgid "post id"
 msgstr "岗位ID"
 
-#: src/Process/Backend/BlogPref.php:141
+#: src/Process/Backend/BlogPref.php:165
 msgid "H4"
 msgstr "H4"
 
-#: src/Process/Backend/BlogPref.php:142
+#: src/Process/Backend/BlogPref.php:166
 msgid "H3"
 msgstr "H3"
 
-#: src/Process/Backend/BlogPref.php:143
+#: src/Process/Backend/BlogPref.php:167
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:997
+#: src/Process/Backend/BlogPref.php:172 src/Process/Backend/BlogPref.php:1243
 #: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:646
 #: src/Process/Backend/MediaItem.php:648
 msgid "(none)"
 msgstr "(无)"
 
-#: src/Process/Backend/BlogPref.php:149
+#: src/Process/Backend/BlogPref.php:173
 msgid "Description"
 msgstr "描述"
 
-#: src/Process/Backend/BlogPref.php:150
+#: src/Process/Backend/BlogPref.php:174
 msgid "Description, Date"
 msgstr "说明、日期"
 
-#: src/Process/Backend/BlogPref.php:151
+#: src/Process/Backend/BlogPref.php:175
 msgid "Description, Country, Date"
 msgstr "描述、国家、日期"
 
-#: src/Process/Backend/BlogPref.php:152
+#: src/Process/Backend/BlogPref.php:176
 msgid "Description, City, Country, Date"
 msgstr "描述、城市、国家、日期"
 
-#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:539
+#: src/Process/Backend/BlogPref.php:206 src/Process/Backend/MediaItem.php:539
 #: src/Process/Backend/MediaItem.php:613 src/Process/Backend/MediaItem.php:860
 msgid "original"
 msgstr "原始"
 
-#: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
+#: src/Process/Backend/BlogPref.php:217 src/Process/Backend/BlogPref.php:227
 #: src/Process/Backend/MediaItem.php:643 src/Process/Backend/MediaItem.php:655
 #: src/Process/Backend/MediaItem.php:693 src/Process/Backend/MediaItem.php:737
 msgid "None"
 msgstr "无"
 
-#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:656
+#: src/Process/Backend/BlogPref.php:218 src/Process/Backend/MediaItem.php:656
 #: src/Process/Backend/MediaItem.php:694 src/Process/Backend/MediaItem.php:738
 msgid "Left"
 msgstr "左"
 
-#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:657
+#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:657
 #: src/Process/Backend/MediaItem.php:695 src/Process/Backend/MediaItem.php:739
 msgid "Right"
 msgstr "右"
 
-#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:658
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:658
 #: src/Process/Backend/MediaItem.php:696 src/Process/Backend/MediaItem.php:740
 msgid "Center"
 msgstr "中心"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:628
+#: src/Process/Backend/BlogPref.php:225 src/Process/Backend/MediaItem.php:628
 msgid "Legend and alternate text"
 msgstr "图例和备用文本"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:637
+#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:637
 msgid "Alternate text"
 msgstr "备用文本"
 
-#: src/Process/Backend/BlogPref.php:208
+#: src/Process/Backend/BlogPref.php:232
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "我想要搜索引擎和 archivers 来索引和存档我的博客内容。"
 
-#: src/Process/Backend/BlogPref.php:209
+#: src/Process/Backend/BlogPref.php:233
 msgid "I would like search engines and archivers to index but not archive my blog's content."
 msgstr "我想要搜索引擎和 archivers 来索引但不要存档我的博客内容。"
 
-#: src/Process/Backend/BlogPref.php:210
+#: src/Process/Backend/BlogPref.php:234
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "我想要阻止搜索引擎和 archivers 来索引或者存档我的博客内容。"
 
-#: src/Process/Backend/BlogPref.php:215
+#: src/Process/Backend/BlogPref.php:239
 #: src/Process/Backend/UserPreferences.php:128
 msgid "Default"
 msgstr "默认情况下"
 
-#: src/Process/Backend/BlogPref.php:227
+#: src/Process/Backend/BlogPref.php:251
 msgid "Never"
 msgstr "从不"
 
-#: src/Process/Backend/BlogPref.php:228
+#: src/Process/Backend/BlogPref.php:252
 msgid "Three months"
 msgstr "三个月"
 
-#: src/Process/Backend/BlogPref.php:229
+#: src/Process/Backend/BlogPref.php:253
 msgid "Six months"
 msgstr "6个月"
 
-#: src/Process/Backend/BlogPref.php:230
+#: src/Process/Backend/BlogPref.php:254
 msgid "One year"
 msgstr "一年"
 
-#: src/Process/Backend/BlogPref.php:231
+#: src/Process/Backend/BlogPref.php:255
 msgid "Two years"
 msgstr "两年"
 
-#: src/Process/Backend/BlogPref.php:312
+#: src/Process/Backend/BlogPref.php:336
 msgid "This blog ID is already used."
 msgstr "这个博客ID已经被使用。"
 
-#: src/Process/Backend/BlogPref.php:320
+#: src/Process/Backend/BlogPref.php:344
 msgid "Invalid language code"
 msgstr "无效的语言代码"
 
-#: src/Process/Backend/BlogPref.php:402 src/Process/Backend/BlogPref.php:471
+#: src/Process/Backend/BlogPref.php:426 src/Process/Backend/BlogPref.php:495
 msgid "Blog has been successfully updated."
 msgstr "博客已被成功更新。"
 
-#: src/Process/Backend/BlogPref.php:450
+#: src/Process/Backend/BlogPref.php:474
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "警告：除了特殊的配置，一般建议在PATH_INFO模式下，在你的博客URL中要有一个尾部的\"/\"。"
 
-#: src/Process/Backend/BlogPref.php:451
+#: src/Process/Backend/BlogPref.php:475
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "警告：除特殊配置外，一般建议在QUERY_STRING模式下，在你的博客URL中设置一个尾部的\"？\"。"
 
-#: src/Process/Backend/BlogPref.php:467
+#: src/Process/Backend/BlogPref.php:491
 msgid "Blog has been successfully created."
 msgstr "博客已被成功创建。"
 
-#: src/Process/Backend/BlogPref.php:475
-msgid "Parameters"
-msgstr "参数"
-
-#: src/Process/Backend/BlogPref.php:476 src/Process/Backend/Media.php:596
-msgid "Blog parameters"
-msgstr "博客参数"
-
-#: src/Process/Backend/BlogPref.php:478 src/Process/Backend/BlogPref.php:804
-msgid "Blog details"
-msgstr "博客详情"
-
-#: src/Process/Backend/BlogPref.php:504
+#: src/Process/Backend/BlogPref.php:513
 msgid "Blog status:"
 msgstr "博客状态："
 
-#: src/Process/Backend/BlogPref.php:520 src/Process/Backend/BlogPref.php:868
+#: src/Process/Backend/BlogPref.php:526 src/Process/Backend/BlogPref.php:1003
+msgid "Blog details"
+msgstr "博客详情"
+
+#: src/Process/Backend/BlogPref.php:539 src/Process/Backend/BlogPref.php:1016
+#: src/Process/Backend/BlogPref.php:1036
+msgid "Required field"
+msgstr "必添字段"
+
+#: src/Process/Backend/BlogPref.php:559 src/Process/Backend/BlogPref.php:1053
 msgid "Blog configuration"
 msgstr "博客配置"
 
-#: src/Process/Backend/BlogPref.php:521
+#: src/Process/Backend/BlogPref.php:567
 msgid "Blog editor name:"
 msgstr "博客编辑者姓名："
 
-#: src/Process/Backend/BlogPref.php:524
+#: src/Process/Backend/BlogPref.php:574
 msgid "Default language:"
 msgstr "默认语言："
 
-#: src/Process/Backend/BlogPref.php:527
+#: src/Process/Backend/BlogPref.php:581
 msgid "Blog timezone:"
 msgstr "博客时区："
 
-#: src/Process/Backend/BlogPref.php:530
+#: src/Process/Backend/BlogPref.php:591
 msgid "Copyright notice:"
 msgstr "版权声明："
 
-#: src/Process/Backend/BlogPref.php:543 src/Process/Backend/Comments.php:118
+#: src/Process/Backend/BlogPref.php:597 src/Process/Backend/Comments.php:118
 #: src/Process/Backend/Comments.php:123
 msgid "Comments and trackbacks"
 msgstr "评论和 trackbacks"
 
-#: src/Process/Backend/BlogPref.php:549 src/Process/Backend/Post.php:674
+#: src/Process/Backend/BlogPref.php:609 src/Process/Backend/Post.php:674
 msgid "Accept comments"
 msgstr "接受评论"
 
-#: src/Process/Backend/BlogPref.php:552
+#: src/Process/Backend/BlogPref.php:615
 msgid "Moderate comments"
 msgstr "审核评论"
 
-#: src/Process/Backend/BlogPref.php:554
-#, php-format
-msgid "Leave comments open for %s days"
-msgstr "保持评论开放 %s 天"
+#: src/Process/Backend/BlogPref.php:620
+msgid "Leave comments open for"
+msgstr "欢迎发表评论"
 
-#: src/Process/Backend/BlogPref.php:565 src/Process/Backend/BlogPref.php:593
+#: src/Process/Backend/BlogPref.php:621 src/Process/Backend/BlogPref.php:660
+msgid "days"
+msgstr "天"
+
+#: src/Process/Backend/BlogPref.php:626 src/Process/Backend/BlogPref.php:665
 msgid "No limit: leave blank."
 msgstr "无限制：留空。"
 
-#: src/Process/Backend/BlogPref.php:568
+#: src/Process/Backend/BlogPref.php:632
 msgid "Wiki syntax for comments"
 msgstr "对评论使用Wiki语法"
 
-#: src/Process/Backend/BlogPref.php:571
+#: src/Process/Backend/BlogPref.php:638
 msgid "Preview of comment before submit is not mandatory"
 msgstr "提交前的评论预览不是强制性的"
 
-#: src/Process/Backend/BlogPref.php:577 src/Process/Backend/Post.php:682
+#: src/Process/Backend/BlogPref.php:648 src/Process/Backend/Post.php:682
 msgid "Accept trackbacks"
 msgstr "接受 trackbacks"
 
-#: src/Process/Backend/BlogPref.php:580
+#: src/Process/Backend/BlogPref.php:654
 msgid "Moderate trackbacks"
 msgstr "审核 trackbacks"
 
-#: src/Process/Backend/BlogPref.php:582
-#, php-format
-msgid "Leave trackbacks open for %s days"
-msgstr "保持 trackbacks 开放 %s 天"
+#: src/Process/Backend/BlogPref.php:659
+msgid "Leave trackbacks open for"
+msgstr "保留引用打开"
 
-#: src/Process/Backend/BlogPref.php:596
+#: src/Process/Backend/BlogPref.php:671
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "在评论和 trackbacks 链接上添加“nofollow”关系"
 
-#: src/Process/Backend/BlogPref.php:600
+#: src/Process/Backend/BlogPref.php:680
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr "在一段时间内没有新文章后，禁止博客上的所有评论和跟踪："
 
-#: src/Process/Backend/BlogPref.php:607
+#: src/Process/Backend/BlogPref.php:687
 msgid "Blog presentation"
 msgstr "博客展示"
 
-#: src/Process/Backend/BlogPref.php:610
-msgid "Date format:"
-msgstr "日期格式："
-
-#: src/Process/Backend/BlogPref.php:612
-msgid "Pattern of date"
-msgstr "日期的模式"
-
-#: src/Process/Backend/BlogPref.php:614 src/Process/Backend/BlogPref.php:620
-#: src/Process/Backend/BlogPref.php:873
-msgid "Sample:"
-msgstr "样本："
-
-#: src/Process/Backend/BlogPref.php:616
+#: src/Process/Backend/BlogPref.php:702 src/Process/Backend/BlogPref.php:719
 msgid "Time format:"
 msgstr "时间格式："
 
-#: src/Process/Backend/BlogPref.php:618
+#: src/Process/Backend/BlogPref.php:706
+msgid "Pattern of date"
+msgstr "日期的模式"
+
+#: src/Process/Backend/BlogPref.php:710 src/Process/Backend/BlogPref.php:727
+#: src/Process/Backend/BlogPref.php:1067
+msgid "Sample:"
+msgstr "样本："
+
+#: src/Process/Backend/BlogPref.php:723
 msgid "Pattern of time"
 msgstr "时间的模式"
 
-#: src/Process/Backend/BlogPref.php:624
+#: src/Process/Backend/BlogPref.php:733
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr "不加载标准样式表（用于媒体对齐）。"
 
-#: src/Process/Backend/BlogPref.php:628
+#: src/Process/Backend/BlogPref.php:739
 msgid "Display smilies on entries and comments"
 msgstr "在文章和评论上显示表情"
 
-#: src/Process/Backend/BlogPref.php:632
+#: src/Process/Backend/BlogPref.php:745
 msgid "Disable internal search system"
 msgstr "禁用内部搜索系统"
 
-#: src/Process/Backend/BlogPref.php:639
-#, php-format
-msgid "Display %s entries on first page"
-msgstr "在第一页显示 %s 条目"
+#: src/Process/Backend/BlogPref.php:755 src/Process/Backend/BlogPref.php:763
+#: src/Process/Backend/BlogPref.php:771 src/Process/Backend/BlogPref.php:779
+msgid "Display"
+msgstr "显示屏"
 
-#: src/Process/Backend/BlogPref.php:651
-#, php-format
-msgid "Display %s entries per page"
-msgstr "每页显示 %s 篇文章"
+#: src/Process/Backend/BlogPref.php:756
+msgid "entries on first page"
+msgstr "首页条目"
 
-#: src/Process/Backend/BlogPref.php:663
-#, php-format
-msgid "Display %s entries per feed"
-msgstr "每个 feed 显示 %s 篇文章"
+#: src/Process/Backend/BlogPref.php:772
+msgid "entries per feed"
+msgstr "每次进料的参赛作品"
 
-#: src/Process/Backend/BlogPref.php:675
-#, php-format
-msgid "Display %s comments per feed"
-msgstr "每个 feed 显示 %s 个评论"
+#: src/Process/Backend/BlogPref.php:780
+msgid "comments per feed"
+msgstr "每条新闻的评论数"
 
-#: src/Process/Backend/BlogPref.php:688
+#: src/Process/Backend/BlogPref.php:787
 msgid "Truncate feeds"
 msgstr "截断 feeds"
 
-#: src/Process/Backend/BlogPref.php:692
+#: src/Process/Backend/BlogPref.php:793
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "在分类页面和分类帖子中包括子类别的反馈"
 
-#: src/Process/Backend/BlogPref.php:700
+#: src/Process/Backend/BlogPref.php:803
 msgid "Display an entry as static home page"
 msgstr "将一个条目显示为静态主页"
 
-#: src/Process/Backend/BlogPref.php:702
+#: src/Process/Backend/BlogPref.php:812
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "输入URL（其内容将用于静态主页）："
 
-#: src/Process/Backend/BlogPref.php:704
+#: src/Process/Backend/BlogPref.php:814
 msgid "Choose an entry"
 msgstr "选择一个条目"
 
-#: src/Process/Backend/BlogPref.php:706
+#: src/Process/Backend/BlogPref.php:818
 msgid "Leave empty to use the default presentation."
 msgstr "留空以使用默认演示。"
 
-#: src/Process/Backend/BlogPref.php:710
+#: src/Process/Backend/BlogPref.php:824
 msgid "Media and images"
 msgstr "媒体和图片"
 
-#: src/Process/Backend/BlogPref.php:714
+#: src/Process/Backend/BlogPref.php:834
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "生成的图像尺寸（最大尺寸为像素）。"
 
-#: src/Process/Backend/BlogPref.php:717
-msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
-msgstr "请注意，如果你改变了下面的当前设置，它们现在将适用于媒体管理器中的所有新图像。"
-
-#: src/Process/Backend/BlogPref.php:718
+#: src/Process/Backend/BlogPref.php:837
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "如果你与你安装的其他博客分享它，请小心。"
 
-#: src/Process/Backend/BlogPref.php:719
+#: src/Process/Backend/BlogPref.php:837
+msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
+msgstr "请注意，如果你改变了下面的当前设置，它们现在将适用于媒体管理器中的所有新图像。"
+
+#: src/Process/Backend/BlogPref.php:837
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "设置-1可以使用默认尺寸，设置0可以忽略这个缩略图的尺寸（仅图像）。"
 
-#: src/Process/Backend/BlogPref.php:720
+#: src/Process/Backend/BlogPref.php:842
 msgid "Thumbnail"
 msgstr "缩略图"
 
-#: src/Process/Backend/BlogPref.php:728
+#: src/Process/Backend/BlogPref.php:848
 msgid "Small"
 msgstr "小型"
 
-#: src/Process/Backend/BlogPref.php:736
+#: src/Process/Backend/BlogPref.php:854
 msgid "Medium"
 msgstr "中型"
 
-#: src/Process/Backend/BlogPref.php:744
+#: src/Process/Backend/BlogPref.php:863
 msgid "Thumbnail character prefix:"
 msgstr "缩略图字符前缀："
 
-#: src/Process/Backend/BlogPref.php:747
+#: src/Process/Backend/BlogPref.php:867
 msgid "Leave empty to use the default one (.)"
 msgstr "留空以使用默认值 (.)"
 
-#: src/Process/Backend/BlogPref.php:749
+#: src/Process/Backend/BlogPref.php:871
 msgid "Default size of the inserted video (in pixels)"
 msgstr "插入的视频的默认尺寸（像素）。"
 
-#: src/Process/Backend/BlogPref.php:750
+#: src/Process/Backend/BlogPref.php:876
 msgid "Width"
 msgstr "宽度"
 
-#: src/Process/Backend/BlogPref.php:758
+#: src/Process/Backend/BlogPref.php:882
 msgid "Height"
 msgstr "高度"
 
-#: src/Process/Backend/BlogPref.php:768
+#: src/Process/Backend/BlogPref.php:891
 msgid "Default image insertion attributes"
 msgstr "默认的图像插入属性"
 
-#: src/Process/Backend/BlogPref.php:769
+#: src/Process/Backend/BlogPref.php:897
 msgid "Inserted image legend:"
 msgstr "插入图像图例："
 
-#: src/Process/Backend/BlogPref.php:773
+#: src/Process/Backend/BlogPref.php:903
 msgid "Use original media date if possible"
 msgstr "如果可能的话，使用原始媒体日期"
 
-#: src/Process/Backend/BlogPref.php:776
+#: src/Process/Backend/BlogPref.php:909
 msgid "Do not display date if alone in title"
 msgstr "如果在标题中单独出现，则不显示日期"
 
-#: src/Process/Backend/BlogPref.php:777
+#: src/Process/Backend/BlogPref.php:914
 msgid "It is retrieved from the picture's metadata."
 msgstr "它是从图片的元数据中检索出来的。"
 
-#: src/Process/Backend/BlogPref.php:779
+#: src/Process/Backend/BlogPref.php:922
 msgid "Size of inserted image:"
 msgstr "插入的图像的大小："
 
-#: src/Process/Backend/BlogPref.php:786
+#: src/Process/Backend/BlogPref.php:930
 msgid "Image alignment:"
 msgstr "图片对齐:"
 
-#: src/Process/Backend/BlogPref.php:791
+#: src/Process/Backend/BlogPref.php:936
 msgid "Insert a link to the original image"
 msgstr "插入一个原始图片的链接"
 
-#: src/Process/Backend/BlogPref.php:792
+#: src/Process/Backend/BlogPref.php:943
 msgid "Image legend and alternate text:"
 msgstr "图像图例和备用文本："
 
-#: src/Process/Backend/BlogPref.php:801
-msgid "Advanced parameters"
-msgstr "高级参数"
+#: src/Process/Backend/BlogPref.php:952 src/Process/Backend/Media.php:596
+msgid "Blog parameters"
+msgstr "博客参数"
 
-#: src/Process/Backend/BlogPref.php:810
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr "请注意改变您的博客 ID 可能需要修改您的公共 index.php 文件。"
-
-#: src/Process/Backend/BlogPref.php:821
-msgid "URL scan method:"
-msgstr "URL 扫描方法："
-
-#: src/Process/Backend/BlogPref.php:844
+#: src/Process/Backend/BlogPref.php:983
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr "博客的URL或URL扫描方法可能没有设置好（<code>%s</code> ，返回一个 <strong>%s</strong> 状态）。"
 
-#: src/Process/Backend/BlogPref.php:855
+#: src/Process/Backend/BlogPref.php:993
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "博客的URL或URL扫描方法可能没有设置好（<code>%s</code> ，不返回ATOM feed）。"
 
-#: src/Process/Backend/BlogPref.php:870
+#: src/Process/Backend/BlogPref.php:1026
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr "请注意改变您的博客 ID 可能需要修改您的公共 index.php 文件。"
+
+#: src/Process/Backend/BlogPref.php:1045
+msgid "URL scan method:"
+msgstr "URL 扫描方法："
+
+#: src/Process/Backend/BlogPref.php:1060
 msgid "New post URL format:"
 msgstr "新文章的 URL 格式："
 
-#: src/Process/Backend/BlogPref.php:873
+#: src/Process/Backend/BlogPref.php:1067
 msgid "Dotclear"
 msgstr "淘宝网"
 
-#: src/Process/Backend/BlogPref.php:876
+#: src/Process/Backend/BlogPref.php:1074
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "博客上笔记的标题的HTML标签："
 
-#: src/Process/Backend/BlogPref.php:883
+#: src/Process/Backend/BlogPref.php:1091
 msgid "Search engines robots policy"
 msgstr "搜索引擎机器人规则"
 
-#: src/Process/Backend/BlogPref.php:896
+#: src/Process/Backend/BlogPref.php:1096
 msgid "Legacy javascript library"
 msgstr "旧的 javascript 库"
 
-#: src/Process/Backend/BlogPref.php:899
+#: src/Process/Backend/BlogPref.php:1102
 msgid "Load the Legacy JS library"
 msgstr "加载传统 JS 库"
 
-#: src/Process/Backend/BlogPref.php:902
+#: src/Process/Backend/BlogPref.php:1108
 msgid "jQuery javascript library"
 msgstr "jQuery的javascript库"
 
-#: src/Process/Backend/BlogPref.php:905
+#: src/Process/Backend/BlogPref.php:1114
 msgid "Load the jQuery library"
 msgstr "加载jQuery库"
 
-#: src/Process/Backend/BlogPref.php:907
+#: src/Process/Backend/BlogPref.php:1121
 msgid "jQuery version to be loaded for this blog:"
 msgstr "这个博客要加载的jQuery版本："
 
-#: src/Process/Backend/BlogPref.php:912
+#: src/Process/Backend/BlogPref.php:1127
 msgid "Blog security"
 msgstr "博客安全"
 
-#: src/Process/Backend/BlogPref.php:915
+#: src/Process/Backend/BlogPref.php:1133
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "保护博客免受点击劫持（见 <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 
-#: src/Process/Backend/BlogPref.php:920
+#: src/Process/Backend/BlogPref.php:1139
+msgid "Advanced parameters"
+msgstr "高级参数"
+
+#: src/Process/Backend/BlogPref.php:1146
 msgid "Plugins parameters"
 msgstr "插件参数"
 
-#: src/Process/Backend/BlogPref.php:944
+#: src/Process/Backend/BlogPref.php:1187
 msgid "Only superadmin can delete a blog."
 msgstr "只有超级管理员可以删除一个博客。"
 
-#: src/Process/Backend/BlogPref.php:958
-msgid "Users on this blog"
-msgstr "这个博客上的用户"
+#: src/Process/Backend/BlogPref.php:1192
+msgid "Parameters"
+msgstr "参数"
 
-#: src/Process/Backend/BlogPref.php:961
+#: src/Process/Backend/BlogPref.php:1211
 msgid "No users"
 msgstr "没有用户"
 
-#: src/Process/Backend/BlogPref.php:1002
-msgid "Publications on this blog:"
-msgstr "本博客上的出版物："
-
-#: src/Process/Backend/BlogPref.php:1009
+#: src/Process/Backend/BlogPref.php:1253
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1014
-msgid "Permissions:"
-msgstr "权限:"
-
-#: src/Process/Backend/BlogPref.php:1017 src/Process/Backend/User.php:321
+#: src/Process/Backend/BlogPref.php:1262 src/Process/Backend/User.php:321
 msgid "Super administrator"
 msgstr "超级管理员"
 
-#: src/Process/Backend/BlogPref.php:1018
+#: src/Process/Backend/BlogPref.php:1264
 msgid "All rights on all blogs."
 msgstr "所有博客上的权利。"
 
-#: src/Process/Backend/BlogPref.php:1024
+#: src/Process/Backend/BlogPref.php:1274
+msgid "All rights on this blog."
+msgstr "本博客的所有权利。"
+
+#: src/Process/Backend/BlogPref.php:1290
 #: src/Process/Backend/UsersActions.php:338
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (未提及的许可)"
 
-#: src/Process/Backend/BlogPref.php:1028
-msgid "All rights on this blog."
-msgstr "本博客的所有权利。"
-
-#: src/Process/Backend/BlogPref.php:1039 src/Process/Backend/User.php:471
+#: src/Process/Backend/BlogPref.php:1309 src/Process/Backend/User.php:471
 msgid "Change permissions"
 msgstr "改变权限"
+
+#: src/Process/Backend/BlogPref.php:1332
+msgid "Publications on this blog:"
+msgstr "本博客上的出版物："
+
+#: src/Process/Backend/BlogPref.php:1335
+msgid "Permissions:"
+msgstr "权限:"
+
+#: src/Process/Backend/BlogPref.php:1352
+msgid "Users on this blog"
+msgstr "这个博客上的用户"
 
 #: src/Process/Backend/BlogTheme.php:59
 msgid "The following themes have been disabled :"
@@ -5269,26 +5293,6 @@ msgstr "成功创建用户。"
 #: src/Process/Backend/User.php:203
 msgid "User has no permission, he will not be able to login yet. See below to add some."
 msgstr "用户没有权限，他还不能登录。请看下面添加一些。"
-
-#: src/Process/Backend/User.php:224 src/Process/Backend/User.php:225
-#: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:498
-#: src/Process/Backend/UserPreferences.php:499
-#: src/Process/Backend/UserPreferences.php:500
-#: src/Process/Install/Install.php:417 src/Process/Install/Install.php:418
-#: src/Process/Install/Install.php:419
-#, php-format
-msgid "Password strength: %s"
-msgstr "密码强度: %s"
-
-#: src/Process/Backend/User.php:224 src/Process/Backend/UserPreferences.php:498
-#: src/Process/Install/Install.php:417
-msgid "weak"
-msgstr "软弱"
-
-#: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:500
-#: src/Process/Install/Install.php:419
-msgid "strong"
-msgstr "强大的"
 
 #: src/Process/Backend/User.php:254
 msgid "User profile"
