@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-25 07:54+0200\n"
-"PO-Revision-Date: 2024-10-25 05:57\n"
+"PO-Revision-Date: 2024-10-25 06:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -3508,7 +3508,7 @@ msgstr "审核评论"
 
 #: src/Process/Backend/BlogPref.php:620
 msgid "Leave comments open for"
-msgstr ""
+msgstr "欢迎发表评论"
 
 #: src/Process/Backend/BlogPref.php:621 src/Process/Backend/BlogPref.php:660
 msgid "days"
@@ -3536,7 +3536,7 @@ msgstr "审核 trackbacks"
 
 #: src/Process/Backend/BlogPref.php:659
 msgid "Leave trackbacks open for"
-msgstr ""
+msgstr "保留引用打开"
 
 #: src/Process/Backend/BlogPref.php:671
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
@@ -3582,19 +3582,19 @@ msgstr "禁用内部搜索系统"
 #: src/Process/Backend/BlogPref.php:755 src/Process/Backend/BlogPref.php:763
 #: src/Process/Backend/BlogPref.php:771 src/Process/Backend/BlogPref.php:779
 msgid "Display"
-msgstr ""
+msgstr "显示屏"
 
 #: src/Process/Backend/BlogPref.php:756
 msgid "entries on first page"
-msgstr ""
+msgstr "首页条目"
 
 #: src/Process/Backend/BlogPref.php:772
 msgid "entries per feed"
-msgstr ""
+msgstr "每次进料的参赛作品"
 
 #: src/Process/Backend/BlogPref.php:780
 msgid "comments per feed"
-msgstr ""
+msgstr "每条新闻的评论数"
 
 #: src/Process/Backend/BlogPref.php:787
 msgid "Truncate feeds"
