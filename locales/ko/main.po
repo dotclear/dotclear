@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-25 07:54+0200\n"
-"PO-Revision-Date: 2024-10-25 05:56\n"
+"PO-Revision-Date: 2024-10-25 06:29\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -3508,7 +3508,7 @@ msgstr "점검된 댓글만 공개"
 
 #: src/Process/Backend/BlogPref.php:620
 msgid "Leave comments open for"
-msgstr ""
+msgstr "다음에 대한 댓글을 열어 둡니다."
 
 #: src/Process/Backend/BlogPref.php:621 src/Process/Backend/BlogPref.php:660
 msgid "days"
@@ -3536,7 +3536,7 @@ msgstr "점검된 글걸이만 공개"
 
 #: src/Process/Backend/BlogPref.php:659
 msgid "Leave trackbacks open for"
-msgstr ""
+msgstr "다음에 대한 트랙백을 열어 둡니다."
 
 #: src/Process/Backend/BlogPref.php:671
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
@@ -3582,19 +3582,19 @@ msgstr "내부 검색 시스템 비활성화"
 #: src/Process/Backend/BlogPref.php:755 src/Process/Backend/BlogPref.php:763
 #: src/Process/Backend/BlogPref.php:771 src/Process/Backend/BlogPref.php:779
 msgid "Display"
-msgstr ""
+msgstr "디스플레이"
 
 #: src/Process/Backend/BlogPref.php:756
 msgid "entries on first page"
-msgstr ""
+msgstr "첫 페이지의 항목"
 
 #: src/Process/Backend/BlogPref.php:772
 msgid "entries per feed"
-msgstr ""
+msgstr "피드당 항목 수"
 
 #: src/Process/Backend/BlogPref.php:780
 msgid "comments per feed"
-msgstr ""
+msgstr "피드별 댓글"
 
 #: src/Process/Backend/BlogPref.php:787
 msgid "Truncate feeds"
