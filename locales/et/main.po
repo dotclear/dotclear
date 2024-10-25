@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-25 07:54+0200\n"
-"PO-Revision-Date: 2024-10-25 05:57\n"
+"PO-Revision-Date: 2024-10-25 06:30\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -3542,7 +3542,7 @@ msgstr "Mõõdukad kommentaarid"
 
 #: src/Process/Backend/BlogPref.php:620
 msgid "Leave comments open for"
-msgstr ""
+msgstr "Jäta kommentaarid avatuks"
 
 #: src/Process/Backend/BlogPref.php:621 src/Process/Backend/BlogPref.php:660
 msgid "days"
@@ -3570,7 +3570,7 @@ msgstr "Mõõdukas tagasiside"
 
 #: src/Process/Backend/BlogPref.php:659
 msgid "Leave trackbacks open for"
-msgstr ""
+msgstr "Jäta tagasiside avatud"
 
 #: src/Process/Backend/BlogPref.php:671
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
@@ -3616,19 +3616,19 @@ msgstr "Sisemise otsingusüsteemi väljalülitamine"
 #: src/Process/Backend/BlogPref.php:755 src/Process/Backend/BlogPref.php:763
 #: src/Process/Backend/BlogPref.php:771 src/Process/Backend/BlogPref.php:779
 msgid "Display"
-msgstr ""
+msgstr "Näita"
 
 #: src/Process/Backend/BlogPref.php:756
 msgid "entries on first page"
-msgstr ""
+msgstr "kirjed esimesel leheküljel"
 
 #: src/Process/Backend/BlogPref.php:772
 msgid "entries per feed"
-msgstr ""
+msgstr "kirjed sööda kohta"
 
 #: src/Process/Backend/BlogPref.php:780
 msgid "comments per feed"
-msgstr ""
+msgstr "kommentaarid sööda kohta"
 
 #: src/Process/Backend/BlogPref.php:787
 msgid "Truncate feeds"
