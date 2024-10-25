@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 10:52+0200\n"
-"PO-Revision-Date: 2024-10-11 09:28\n"
+"POT-Creation-Date: 2024-10-25 07:54+0200\n"
+"PO-Revision-Date: 2024-10-25 05:56\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
@@ -17,8 +17,8 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: inc/core/_fake_l10n.php:6 src/Process/Backend/User.php:225
-#: src/Process/Backend/UserPreferences.php:499
+#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:358
+#: src/Process/Backend/User.php:225 src/Process/Backend/UserPreferences.php:499
 #: src/Process/Install/Install.php:418
 msgid "medium"
 msgstr "mitjà"
@@ -104,7 +104,7 @@ msgstr "Títol"
 #: src/Core/Backend/Favorites.php:500 src/Core/Backend/Menus.php:244
 #: src/Core/Backend/UserPref.php:73 src/Core/Backend/UserPref.php:190
 #: src/Process/Backend/Blog.php:98 src/Process/Backend/BlogDel.php:91
-#: src/Process/Backend/BlogPref.php:434
+#: src/Process/Backend/BlogPref.php:458
 msgid "Blogs"
 msgstr "Blocs"
 
@@ -124,7 +124,7 @@ msgstr "ID del bloc"
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
 #: src/Core/Backend/Listing/ListingBlogs.php:77
 #: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:141
-#: src/Process/Backend/BlogPref.php:488
+#: src/Process/Backend/BlogPref.php:538
 #: src/Process/Backend/UsersActions.php:231
 msgid "Blog name"
 msgstr "Nom del blog"
@@ -190,7 +190,7 @@ msgid "Password verification failed"
 msgstr "La verificació de la contrasenya ha fallat"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:114
-#: src/Process/Backend/BlogPref.php:942
+#: src/Process/Backend/BlogPref.php:1183
 msgid "The current blog cannot be deleted."
 msgstr "El bloc actual no es pot suprimir."
 
@@ -434,7 +434,7 @@ msgstr "Pare:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:927
+#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1157
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
 #: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1109
@@ -561,7 +561,7 @@ msgid "Last update"
 msgstr "Última actualització"
 
 #: src/Core/Backend/Combos.php:336 src/Process/Backend/Blog.php:122
-#: src/Process/Backend/BlogPref.php:808
+#: src/Process/Backend/BlogPref.php:1015
 #: src/Process/Backend/UsersActions.php:230
 msgid "Blog ID"
 msgstr "Identificador del blog"
@@ -643,8 +643,8 @@ msgid "Media manager"
 msgstr "Gestor de media"
 
 #: src/Core/Backend/Favorites.php:482 src/Core/Backend/Menus.php:104
-#: src/Process/Backend/BlogPref.php:427 src/Process/Backend/BlogPref.php:435
-#: src/Process/Backend/BlogPref.php:448
+#: src/Process/Backend/BlogPref.php:451 src/Process/Backend/BlogPref.php:459
+#: src/Process/Backend/BlogPref.php:472
 msgid "Blog settings"
 msgstr "Paràmetres del blog"
 
@@ -656,7 +656,7 @@ msgstr "Aparició al bloc"
 
 #: src/Core/Backend/Favorites.php:510 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:64 src/Core/Backend/UserPref.php:166
-#: src/Process/Backend/BlogPref.php:957 src/Process/Backend/User.php:235
+#: src/Process/Backend/BlogPref.php:1349 src/Process/Backend/User.php:235
 #: src/Process/Backend/Users.php:100 src/Process/Backend/Users.php:105
 #: src/Process/Backend/UsersActions.php:151
 #: src/Process/Backend/UsersActions.php:159
@@ -690,7 +690,7 @@ msgid "Status:"
 msgstr "Estat :"
 
 #: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1282
-#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:996
+#: src/Process/Backend/Auth.php:424 src/Process/Backend/BlogPref.php:1329
 #: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:895
 #: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:545
 #: src/Process/Install/Install.php:466
@@ -751,8 +751,8 @@ msgstr "vídeo"
 msgid "Format:"
 msgstr "Format:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:464 src/Process/Backend/User.php:277
+#: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:154
+#: src/Process/Backend/Auth.php:518 src/Process/Backend/User.php:277
 #: src/Process/Install/Install.php:530 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "Contrasenya:"
@@ -1527,8 +1527,8 @@ msgid "Upload a zip file"
 msgstr "Carregueu un fitxer zip"
 
 #: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
-#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:480
-#: src/Process/Backend/BlogPref.php:806 src/Process/Backend/Category.php:233
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:530
+#: src/Process/Backend/BlogPref.php:1007 src/Process/Backend/Category.php:233
 #: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:450
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:764
@@ -1585,7 +1585,7 @@ msgstr "Identificador del connector desconegut"
 msgid "This plugin has no configuration file."
 msgstr "Aquest connector no té cap fitxer de configuració."
 
-#: src/Core/Backend/ModulesList.php:1885 src/Process/Backend/Auth.php:279
+#: src/Core/Backend/ModulesList.php:1885 src/Process/Backend/Auth.php:297
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "Permisos insuficients"
@@ -1596,7 +1596,7 @@ msgid "Configure \"%s\""
 msgstr "Configura \"%s\""
 
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:193
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1159
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
 #: src/Process/Backend/Media.php:601 src/Process/Backend/MediaItem.php:1150
 #: src/Process/Backend/Post.php:792 src/Process/Backend/Search.php:158
@@ -2200,7 +2200,7 @@ msgstr "El tema s'ha instal·lat correctament."
 msgid "users per page"
 msgstr "usuaris per pàgina"
 
-#: src/Core/Backend/UserPref.php:180
+#: src/Core/Backend/UserPref.php:180 src/Process/Backend/BlogPref.php:764
 msgid "entries per page"
 msgstr "entrades per pàgina"
 
@@ -2590,7 +2590,7 @@ msgid "LOL!"
 msgstr "LOL!"
 
 #: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:97
-#: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:433
+#: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:457
 #: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
 #: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:105
 #: src/Process/Backend/User.php:234 src/Process/Backend/Users.php:104
@@ -3100,144 +3100,168 @@ msgstr "No es pot modificar _define.php"
 msgid "Destination folder already exist"
 msgstr "La carpeta de destinació ja existeix"
 
-#: src/Process/Backend/Auth.php:71 src/Process/Upgrade/Auth.php:78
+#: src/Process/Backend/Auth.php:89 src/Process/Upgrade/Auth.php:78
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear s'ha actualitzat."
 
-#: src/Process/Backend/Auth.php:118
+#: src/Process/Backend/Auth.php:136
 msgid "Password reset"
 msgstr "Reinicialització de contrasenya"
 
-#: src/Process/Backend/Auth.php:119
+#: src/Process/Backend/Auth.php:137
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Algú ha demanat restaurar la contrasenya per al lloc i l'identificador següents:"
 
-#: src/Process/Backend/Auth.php:119
+#: src/Process/Backend/Auth.php:137
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Per tal de restaurar la seva contrasenya visiti l'adreça següent, altrament ignori aquest correu i no passarà res."
 
-#: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:453
+#: src/Process/Backend/Auth.php:137 src/Process/Backend/Auth.php:154
+#: src/Process/Backend/Auth.php:415 src/Process/Backend/Auth.php:509
 #: src/Process/Install/Install.php:477 src/Process/Install/Install.php:529
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
 msgstr "Identificador:"
 
-#: src/Process/Backend/Auth.php:125
+#: src/Process/Backend/Auth.php:143
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "El correu electrònic s'ha enviat amb èxit a %s."
 
-#: src/Process/Backend/Auth.php:135
+#: src/Process/Backend/Auth.php:153
 msgid "Your new password"
 msgstr "La seva nova contrasenya"
 
-#: src/Process/Backend/Auth.php:141
+#: src/Process/Backend/Auth.php:159
 msgid "Your new password is in your mailbox."
 msgstr "La seva nova contrasenya és en el seu correu electrònic."
 
-#: src/Process/Backend/Auth.php:184 src/Process/Backend/User.php:126
+#: src/Process/Backend/Auth.php:202 src/Process/Backend/User.php:126
 #: src/Process/Backend/UserPreferences.php:205
 #: src/Process/Install/Install.php:191
 msgid "Passwords don't match"
 msgstr "La contrasenya no es correspon"
 
-#: src/Process/Backend/Auth.php:188
+#: src/Process/Backend/Auth.php:206
 msgid "You didn't change your password."
 msgstr "No has canviat la teva contrasenya."
 
-#: src/Process/Backend/Auth.php:238
+#: src/Process/Backend/Auth.php:256
 msgid "You have to change your password before you can login."
 msgstr "Heu de canviar la vostra contrasenya abans de poder iniciar sessió."
 
-#: src/Process/Backend/Auth.php:240
+#: src/Process/Backend/Auth.php:258
 msgid "In order to login, you have to change your password now."
 msgstr "Per iniciar sessió, heu de canviar la vostra contrasenya ara."
 
-#: src/Process/Backend/Auth.php:246
+#: src/Process/Backend/Auth.php:264
 msgid "Safe Mode can only be used for super administrators."
 msgstr "El mode segur només es pot utilitzar per a superadministradors."
 
-#: src/Process/Backend/Auth.php:283 src/Process/Upgrade/Auth.php:142
+#: src/Process/Backend/Auth.php:301 src/Process/Upgrade/Auth.php:142
 msgid "Administration session expired"
 msgstr "La sessió d'administració ha caducat"
 
-#: src/Process/Backend/Auth.php:283 src/Process/Upgrade/Auth.php:142
+#: src/Process/Backend/Auth.php:301 src/Process/Upgrade/Auth.php:142
 msgid "Wrong username or password"
 msgstr "Identificador o contrasenya incorrectes"
 
-#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:392
+#: src/Process/Backend/Auth.php:357 src/Process/Backend/Auth.php:358
+#: src/Process/Backend/Auth.php:359 src/Process/Backend/User.php:224
+#: src/Process/Backend/User.php:225 src/Process/Backend/User.php:226
+#: src/Process/Backend/UserPreferences.php:498
+#: src/Process/Backend/UserPreferences.php:499
+#: src/Process/Backend/UserPreferences.php:500
+#: src/Process/Install/Install.php:417 src/Process/Install/Install.php:418
+#: src/Process/Install/Install.php:419
+#, php-format
+msgid "Password strength: %s"
+msgstr "Força de la contrasenya: %s"
+
+#: src/Process/Backend/Auth.php:357 src/Process/Backend/User.php:224
+#: src/Process/Backend/UserPreferences.php:498
+#: src/Process/Install/Install.php:417
+msgid "weak"
+msgstr "feble"
+
+#: src/Process/Backend/Auth.php:359 src/Process/Backend/User.php:226
+#: src/Process/Backend/UserPreferences.php:500
+#: src/Process/Install/Install.php:419
+msgid "strong"
+msgstr "fort"
+
+#: src/Process/Backend/Auth.php:402 src/Process/Backend/Auth.php:444
 msgid "Back to login screen"
 msgstr "Retorn a la pantalla de connexió"
 
-#: src/Process/Backend/Auth.php:363
+#: src/Process/Backend/Auth.php:410
 msgid "Request a new password"
 msgstr "Es requereix una nova contrasenya"
 
-#: src/Process/Backend/Auth.php:386
+#: src/Process/Backend/Auth.php:432
 msgid "recover"
 msgstr "Recuperar"
 
-#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:497
+#: src/Process/Backend/Auth.php:438 src/Process/Backend/Auth.php:562
 msgid "Other option"
 msgstr "Una altra opció"
 
-#: src/Process/Backend/Auth.php:398
+#: src/Process/Backend/Auth.php:451
 msgid "Change your password"
 msgstr "Canviar la seva contrasenya"
 
-#: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:277
+#: src/Process/Backend/Auth.php:456 src/Process/Backend/User.php:277
 #: src/Process/Backend/UserPreferences.php:583
 #: src/Process/Install/Install.php:485
 msgid "New password:"
 msgstr "Nova contrasenya:"
 
-#: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:291
+#: src/Process/Backend/Auth.php:465 src/Process/Backend/User.php:291
 #: src/Process/Install/Install.php:492
 msgid "Confirm password:"
 msgstr "Confirmar la contrasenya :"
 
-#: src/Process/Backend/Auth.php:419
+#: src/Process/Backend/Auth.php:472
 msgid "change"
 msgstr "canvi"
 
-#: src/Process/Backend/Auth.php:435
+#: src/Process/Backend/Auth.php:492
 msgid "Safe mode login"
 msgstr "Inici de sessió en mode segur"
 
-#: src/Process/Backend/Auth.php:437
+#: src/Process/Backend/Auth.php:495
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Aquest mode us permet iniciar sessió sense activar cap dels vostres connectors. Això pot ser útil per resoldre problemes de compatibilitat"
 
-#: src/Process/Backend/Auth.php:438
+#: src/Process/Backend/Auth.php:496
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Actualitzeu, desactiveu o suprimiu qualsevol connector que se sospiti de causar problemes i, a continuació, tanqueu la sessió i torneu a iniciar sessió amb normalitat."
 
-#: src/Process/Backend/Auth.php:474 src/Process/Upgrade/Auth.php:234
+#: src/Process/Backend/Auth.php:527 src/Process/Upgrade/Auth.php:234
 msgid "Remember my ID on this device"
 msgstr "Recordar el meu Identificador en aquest ordinador"
 
-#: src/Process/Backend/Auth.php:475 src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:531 src/Process/Upgrade/Auth.php:235
 msgid "log in"
 msgstr "iniciar Sessió"
 
-#: src/Process/Backend/Auth.php:491 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:556 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "És necessari que accepti les cookies per tal d'accedir a l'àrea privada."
 
-#: src/Process/Backend/Auth.php:498
+#: src/Process/Backend/Auth.php:568
 msgid "Get back to normal authentication"
 msgstr "Torneu a l'autenticació normal"
 
-#: src/Process/Backend/Auth.php:501
+#: src/Process/Backend/Auth.php:573
 msgid "Connection issue?"
 msgstr "Problema de connexió?"
 
-#: src/Process/Backend/Auth.php:504
+#: src/Process/Backend/Auth.php:580
 msgid "I forgot my password"
 msgstr "He oblidat la meva contrasenya"
 
-#: src/Process/Backend/Auth.php:507
+#: src/Process/Backend/Auth.php:587
 msgid "I want to log in in safe mode"
 msgstr "Vull iniciar sessió en mode segur"
 
@@ -3250,28 +3274,28 @@ msgstr "El bloc \"%s\" s'ha creat correctament"
 msgid "New blog"
 msgstr "Blog nou"
 
-#: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:807
+#: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:1017
 msgid "Blog ID:"
 msgstr "Identificador del blog :"
 
-#: src/Process/Backend/Blog.php:133 src/Process/Backend/BlogPref.php:809
+#: src/Process/Backend/Blog.php:133 src/Process/Backend/BlogPref.php:1022
 #: src/Process/Backend/User.php:264
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Com a mínim 2 caràcters han de ser lletres, números o símbols."
 
-#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:481
+#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:542
 msgid "Blog name:"
 msgstr "Nom del blog :"
 
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:817
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:1035
 msgid "Blog URL"
 msgstr "URL del blog"
 
-#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:812
+#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:1037
 msgid "Blog URL:"
 msgstr "URL del blog :"
 
-#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:491
+#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:552
 msgid "Blog description:"
 msgstr "Descripció del blog :"
 
@@ -3305,543 +3329,543 @@ msgstr "Està a punt de suprimir el blog %s. Se suprimiran totes les entrades, c
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Si us plau, introdueixi la seva contrasenya per tal de confirmar la supressió del blog."
 
-#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:936
+#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:1173
 msgid "Delete this blog"
 msgstr "Suprimir aquest blog"
 
-#: src/Process/Backend/BlogPref.php:74
+#: src/Process/Backend/BlogPref.php:98
 msgid "No given blog id."
 msgstr "No s'ha donat cap identificador de blog."
 
-#: src/Process/Backend/BlogPref.php:79
+#: src/Process/Backend/BlogPref.php:103
 msgid "No such blog."
 msgstr "Blog inexistent."
 
-#: src/Process/Backend/BlogPref.php:128
+#: src/Process/Backend/BlogPref.php:152
 msgid "year/month/day/title"
 msgstr "any/mes/dia/títol"
 
-#: src/Process/Backend/BlogPref.php:129
+#: src/Process/Backend/BlogPref.php:153
 msgid "year/month/title"
 msgstr "any/mes/títol"
 
-#: src/Process/Backend/BlogPref.php:130
+#: src/Process/Backend/BlogPref.php:154
 msgid "year/title"
 msgstr "any/títol"
 
-#: src/Process/Backend/BlogPref.php:131
+#: src/Process/Backend/BlogPref.php:155
 msgid "title"
 msgstr "títol"
 
-#: src/Process/Backend/BlogPref.php:132
+#: src/Process/Backend/BlogPref.php:156
 msgid "post id/title"
 msgstr "identificació/títol de la publicació"
 
-#: src/Process/Backend/BlogPref.php:133
+#: src/Process/Backend/BlogPref.php:157
 msgid "post id"
 msgstr "identificació de publicació"
 
-#: src/Process/Backend/BlogPref.php:141
+#: src/Process/Backend/BlogPref.php:165
 msgid "H4"
 msgstr "H4"
 
-#: src/Process/Backend/BlogPref.php:142
+#: src/Process/Backend/BlogPref.php:166
 msgid "H3"
 msgstr "H3"
 
-#: src/Process/Backend/BlogPref.php:143
+#: src/Process/Backend/BlogPref.php:167
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:997
+#: src/Process/Backend/BlogPref.php:172 src/Process/Backend/BlogPref.php:1243
 #: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:646
 #: src/Process/Backend/MediaItem.php:648
 msgid "(none)"
 msgstr "(cap)"
 
-#: src/Process/Backend/BlogPref.php:149
+#: src/Process/Backend/BlogPref.php:173
 msgid "Description"
 msgstr "Descripció"
 
-#: src/Process/Backend/BlogPref.php:150
+#: src/Process/Backend/BlogPref.php:174
 msgid "Description, Date"
 msgstr "Descripció, data"
 
-#: src/Process/Backend/BlogPref.php:151
+#: src/Process/Backend/BlogPref.php:175
 msgid "Description, Country, Date"
 msgstr "Descripció, país, data"
 
-#: src/Process/Backend/BlogPref.php:152
+#: src/Process/Backend/BlogPref.php:176
 msgid "Description, City, Country, Date"
 msgstr "Descripció, ciutat, país, data"
 
-#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:539
+#: src/Process/Backend/BlogPref.php:206 src/Process/Backend/MediaItem.php:539
 #: src/Process/Backend/MediaItem.php:613 src/Process/Backend/MediaItem.php:860
 msgid "original"
 msgstr "original"
 
-#: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
+#: src/Process/Backend/BlogPref.php:217 src/Process/Backend/BlogPref.php:227
 #: src/Process/Backend/MediaItem.php:643 src/Process/Backend/MediaItem.php:655
 #: src/Process/Backend/MediaItem.php:693 src/Process/Backend/MediaItem.php:737
 msgid "None"
 msgstr "Cap"
 
-#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:656
+#: src/Process/Backend/BlogPref.php:218 src/Process/Backend/MediaItem.php:656
 #: src/Process/Backend/MediaItem.php:694 src/Process/Backend/MediaItem.php:738
 msgid "Left"
 msgstr "Esquerra"
 
-#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:657
+#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:657
 #: src/Process/Backend/MediaItem.php:695 src/Process/Backend/MediaItem.php:739
 msgid "Right"
 msgstr "Dreta"
 
-#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:658
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:658
 #: src/Process/Backend/MediaItem.php:696 src/Process/Backend/MediaItem.php:740
 msgid "Center"
 msgstr "Centre"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:628
+#: src/Process/Backend/BlogPref.php:225 src/Process/Backend/MediaItem.php:628
 msgid "Legend and alternate text"
 msgstr "Llegenda i text alternatiu"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:637
+#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:637
 msgid "Alternate text"
 msgstr "Text alternatiu"
 
-#: src/Process/Backend/BlogPref.php:208
+#: src/Process/Backend/BlogPref.php:232
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "M'agradaria que els motors de cerca i els arxivadors indexessin i arxivessin el contingut del meu bloc."
 
-#: src/Process/Backend/BlogPref.php:209
+#: src/Process/Backend/BlogPref.php:233
 msgid "I would like search engines and archivers to index but not archive my blog's content."
 msgstr "M'agradaria que els motors de cerca i els arxivadors indexessin el contingut del meu bloc, però no arxivissin."
 
-#: src/Process/Backend/BlogPref.php:210
+#: src/Process/Backend/BlogPref.php:234
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "M'agradaria evitar que els motors de cerca i els arxivadors indexin o arxivin el contingut del meu bloc."
 
-#: src/Process/Backend/BlogPref.php:215
+#: src/Process/Backend/BlogPref.php:239
 #: src/Process/Backend/UserPreferences.php:128
 msgid "Default"
 msgstr "Per defecte"
 
-#: src/Process/Backend/BlogPref.php:227
+#: src/Process/Backend/BlogPref.php:251
 msgid "Never"
 msgstr "Mai"
 
-#: src/Process/Backend/BlogPref.php:228
+#: src/Process/Backend/BlogPref.php:252
 msgid "Three months"
 msgstr "Tres mesos"
 
-#: src/Process/Backend/BlogPref.php:229
+#: src/Process/Backend/BlogPref.php:253
 msgid "Six months"
 msgstr "Sis mesos"
 
-#: src/Process/Backend/BlogPref.php:230
+#: src/Process/Backend/BlogPref.php:254
 msgid "One year"
 msgstr "Un any"
 
-#: src/Process/Backend/BlogPref.php:231
+#: src/Process/Backend/BlogPref.php:255
 msgid "Two years"
 msgstr "Dos anys"
 
-#: src/Process/Backend/BlogPref.php:312
+#: src/Process/Backend/BlogPref.php:336
 msgid "This blog ID is already used."
 msgstr "Aquest identificador del bloc ja s'utilitza."
 
-#: src/Process/Backend/BlogPref.php:320
+#: src/Process/Backend/BlogPref.php:344
 msgid "Invalid language code"
 msgstr "Codi d'idioma no vàlid"
 
-#: src/Process/Backend/BlogPref.php:402 src/Process/Backend/BlogPref.php:471
+#: src/Process/Backend/BlogPref.php:426 src/Process/Backend/BlogPref.php:495
 msgid "Blog has been successfully updated."
 msgstr "El blog s'ha actualitzat amb èxit."
 
-#: src/Process/Backend/BlogPref.php:450
+#: src/Process/Backend/BlogPref.php:474
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "Avís: excepte per a configuracions especials, generalment es recomana tenir un \"/\" final a l'URL del vostre bloc en mode PATH_INFO."
 
-#: src/Process/Backend/BlogPref.php:451
+#: src/Process/Backend/BlogPref.php:475
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Avís: tret de configuracions especials, generalment es recomana tenir un \"?\" a l'URL del vostre bloc en mode QUERY_STRING."
 
-#: src/Process/Backend/BlogPref.php:467
+#: src/Process/Backend/BlogPref.php:491
 msgid "Blog has been successfully created."
 msgstr "El blog s'ha creat amb èxit."
 
-#: src/Process/Backend/BlogPref.php:475
-msgid "Parameters"
-msgstr "Paràmetres"
-
-#: src/Process/Backend/BlogPref.php:476 src/Process/Backend/Media.php:596
-msgid "Blog parameters"
-msgstr "Paràmetres del bloc"
-
-#: src/Process/Backend/BlogPref.php:478 src/Process/Backend/BlogPref.php:804
-msgid "Blog details"
-msgstr "Detalls del blog"
-
-#: src/Process/Backend/BlogPref.php:504
+#: src/Process/Backend/BlogPref.php:513
 msgid "Blog status:"
 msgstr "Estat del blog"
 
-#: src/Process/Backend/BlogPref.php:520 src/Process/Backend/BlogPref.php:868
+#: src/Process/Backend/BlogPref.php:526 src/Process/Backend/BlogPref.php:1003
+msgid "Blog details"
+msgstr "Detalls del blog"
+
+#: src/Process/Backend/BlogPref.php:539 src/Process/Backend/BlogPref.php:1016
+#: src/Process/Backend/BlogPref.php:1036
+msgid "Required field"
+msgstr "Camp necessari"
+
+#: src/Process/Backend/BlogPref.php:559 src/Process/Backend/BlogPref.php:1053
 msgid "Blog configuration"
 msgstr "Configuració del blog"
 
-#: src/Process/Backend/BlogPref.php:521
+#: src/Process/Backend/BlogPref.php:567
 msgid "Blog editor name:"
 msgstr "Nom de l'editor del blog :"
 
-#: src/Process/Backend/BlogPref.php:524
+#: src/Process/Backend/BlogPref.php:574
 msgid "Default language:"
 msgstr "Llengua per defecte :"
 
-#: src/Process/Backend/BlogPref.php:527
+#: src/Process/Backend/BlogPref.php:581
 msgid "Blog timezone:"
 msgstr "Zona horaria del blog:"
 
-#: src/Process/Backend/BlogPref.php:530
+#: src/Process/Backend/BlogPref.php:591
 msgid "Copyright notice:"
 msgstr "Nota de copyright:"
 
-#: src/Process/Backend/BlogPref.php:543 src/Process/Backend/Comments.php:118
+#: src/Process/Backend/BlogPref.php:597 src/Process/Backend/Comments.php:118
 #: src/Process/Backend/Comments.php:123
 msgid "Comments and trackbacks"
 msgstr "Comentaris i trackbacks"
 
-#: src/Process/Backend/BlogPref.php:549 src/Process/Backend/Post.php:674
+#: src/Process/Backend/BlogPref.php:609 src/Process/Backend/Post.php:674
 msgid "Accept comments"
 msgstr "Acceptar els comentaris"
 
-#: src/Process/Backend/BlogPref.php:552
+#: src/Process/Backend/BlogPref.php:615
 msgid "Moderate comments"
 msgstr "Modera els comentaris"
 
-#: src/Process/Backend/BlogPref.php:554
-#, php-format
-msgid "Leave comments open for %s days"
-msgstr "Deixar els comentaris oberts durant %s dies"
+#: src/Process/Backend/BlogPref.php:620
+msgid "Leave comments open for"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:565 src/Process/Backend/BlogPref.php:593
+#: src/Process/Backend/BlogPref.php:621 src/Process/Backend/BlogPref.php:660
+msgid "days"
+msgstr "dies"
+
+#: src/Process/Backend/BlogPref.php:626 src/Process/Backend/BlogPref.php:665
 msgid "No limit: leave blank."
 msgstr "Sense límit: deixar en blanc."
 
-#: src/Process/Backend/BlogPref.php:568
+#: src/Process/Backend/BlogPref.php:632
 msgid "Wiki syntax for comments"
 msgstr "Sintaxi Wiki pels comentaris"
 
-#: src/Process/Backend/BlogPref.php:571
+#: src/Process/Backend/BlogPref.php:638
 msgid "Preview of comment before submit is not mandatory"
 msgstr "La previsualització del comentari abans de l'enviament no és obligatòria"
 
-#: src/Process/Backend/BlogPref.php:577 src/Process/Backend/Post.php:682
+#: src/Process/Backend/BlogPref.php:648 src/Process/Backend/Post.php:682
 msgid "Accept trackbacks"
 msgstr "Acceptar les respostes"
 
-#: src/Process/Backend/BlogPref.php:580
+#: src/Process/Backend/BlogPref.php:654
 msgid "Moderate trackbacks"
 msgstr "Trackbacks moderats"
 
-#: src/Process/Backend/BlogPref.php:582
-#, php-format
-msgid "Leave trackbacks open for %s days"
-msgstr "Deixa els trackbacks oberts durant %s dies"
+#: src/Process/Backend/BlogPref.php:659
+msgid "Leave trackbacks open for"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:596
+#: src/Process/Backend/BlogPref.php:671
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Afegir \"nofollow\" la relació en els comentaris i en els enllaços de respostes"
 
-#: src/Process/Backend/BlogPref.php:600
+#: src/Process/Backend/BlogPref.php:680
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr "Desactiveu tots els comentaris i trackbacks al bloc després d'un període de temps sense publicacions noves:"
 
-#: src/Process/Backend/BlogPref.php:607
+#: src/Process/Backend/BlogPref.php:687
 msgid "Blog presentation"
 msgstr "Presentació del Blog"
 
-#: src/Process/Backend/BlogPref.php:610
-msgid "Date format:"
-msgstr "Format de la data:"
-
-#: src/Process/Backend/BlogPref.php:612
-msgid "Pattern of date"
-msgstr "Patró de data"
-
-#: src/Process/Backend/BlogPref.php:614 src/Process/Backend/BlogPref.php:620
-#: src/Process/Backend/BlogPref.php:873
-msgid "Sample:"
-msgstr "Mostra:"
-
-#: src/Process/Backend/BlogPref.php:616
+#: src/Process/Backend/BlogPref.php:702 src/Process/Backend/BlogPref.php:719
 msgid "Time format:"
 msgstr "Format de les hores:"
 
-#: src/Process/Backend/BlogPref.php:618
+#: src/Process/Backend/BlogPref.php:706
+msgid "Pattern of date"
+msgstr "Patró de data"
+
+#: src/Process/Backend/BlogPref.php:710 src/Process/Backend/BlogPref.php:727
+#: src/Process/Backend/BlogPref.php:1067
+msgid "Sample:"
+msgstr "Mostra:"
+
+#: src/Process/Backend/BlogPref.php:723
 msgid "Pattern of time"
 msgstr "Patró del temps"
 
-#: src/Process/Backend/BlogPref.php:624
+#: src/Process/Backend/BlogPref.php:733
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr "No carregueu el full d'estil estàndard (utilitzat per a l'alineació dels mitjans)"
 
-#: src/Process/Backend/BlogPref.php:628
+#: src/Process/Backend/BlogPref.php:739
 msgid "Display smilies on entries and comments"
 msgstr "Mostrar emoticons en entrades i comentaris"
 
-#: src/Process/Backend/BlogPref.php:632
+#: src/Process/Backend/BlogPref.php:745
 msgid "Disable internal search system"
 msgstr "Desactiva el sistema de cerca intern"
 
-#: src/Process/Backend/BlogPref.php:639
-#, php-format
-msgid "Display %s entries on first page"
-msgstr "Mostra %s entrades a la primera pàgina"
+#: src/Process/Backend/BlogPref.php:755 src/Process/Backend/BlogPref.php:763
+#: src/Process/Backend/BlogPref.php:771 src/Process/Backend/BlogPref.php:779
+msgid "Display"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:651
-#, php-format
-msgid "Display %s entries per page"
-msgstr "Mostrar %s entrades per pàgina"
+#: src/Process/Backend/BlogPref.php:756
+msgid "entries on first page"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:663
-#, php-format
-msgid "Display %s entries per feed"
-msgstr "Mostrar %s entrades per registre"
+#: src/Process/Backend/BlogPref.php:772
+msgid "entries per feed"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:675
-#, php-format
-msgid "Display %s comments per feed"
-msgstr "Mostrar %s comentaris per registre"
+#: src/Process/Backend/BlogPref.php:780
+msgid "comments per feed"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:688
+#: src/Process/Backend/BlogPref.php:787
 msgid "Truncate feeds"
 msgstr "Registres truncats"
 
-#: src/Process/Backend/BlogPref.php:692
+#: src/Process/Backend/BlogPref.php:793
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "Inclou subcategories a la pàgina de categoria i al feed de publicacions de categoria"
 
-#: src/Process/Backend/BlogPref.php:700
+#: src/Process/Backend/BlogPref.php:803
 msgid "Display an entry as static home page"
 msgstr "Mostra una entrada com a pàgina d'inici estàtica"
 
-#: src/Process/Backend/BlogPref.php:702
+#: src/Process/Backend/BlogPref.php:812
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "URL d'entrada (el seu contingut s'utilitzarà per a la pàgina d'inici estàtica):"
 
-#: src/Process/Backend/BlogPref.php:704
+#: src/Process/Backend/BlogPref.php:814
 msgid "Choose an entry"
 msgstr "Trieu una entrada"
 
-#: src/Process/Backend/BlogPref.php:706
+#: src/Process/Backend/BlogPref.php:818
 msgid "Leave empty to use the default presentation."
 msgstr "Deixeu-lo en blanc per utilitzar la presentació predeterminada."
 
-#: src/Process/Backend/BlogPref.php:710
+#: src/Process/Backend/BlogPref.php:824
 msgid "Media and images"
 msgstr "Mitjans i imatges"
 
-#: src/Process/Backend/BlogPref.php:714
+#: src/Process/Backend/BlogPref.php:834
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Mides d'imatge generades (dimensió màxima en píxels)"
 
-#: src/Process/Backend/BlogPref.php:717
-msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
-msgstr "Tingueu en compte que si canvieu la configuració actual a continuació, ara s'aplicaran a totes les imatges noves del gestor de mitjans."
-
-#: src/Process/Backend/BlogPref.php:718
+#: src/Process/Backend/BlogPref.php:837
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Aneu amb compte si ho compartiu amb altres blocs de la vostra instal·lació."
 
-#: src/Process/Backend/BlogPref.php:719
+#: src/Process/Backend/BlogPref.php:837
+msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
+msgstr "Tingueu en compte que si canvieu la configuració actual a continuació, ara s'aplicaran a totes les imatges noves del gestor de mitjans."
+
+#: src/Process/Backend/BlogPref.php:837
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "Establiu -1 per utilitzar la mida predeterminada, establiu 0 per ignorar aquesta mida de miniatura (només imatges)."
 
-#: src/Process/Backend/BlogPref.php:720
+#: src/Process/Backend/BlogPref.php:842
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: src/Process/Backend/BlogPref.php:728
+#: src/Process/Backend/BlogPref.php:848
 msgid "Small"
 msgstr "Petit"
 
-#: src/Process/Backend/BlogPref.php:736
+#: src/Process/Backend/BlogPref.php:854
 msgid "Medium"
 msgstr "Mitjana"
 
-#: src/Process/Backend/BlogPref.php:744
+#: src/Process/Backend/BlogPref.php:863
 msgid "Thumbnail character prefix:"
 msgstr "Prefix de caràcters en miniatura:"
 
-#: src/Process/Backend/BlogPref.php:747
+#: src/Process/Backend/BlogPref.php:867
 msgid "Leave empty to use the default one (.)"
 msgstr "Deixeu-lo en blanc per utilitzar el predeterminat (.)"
 
-#: src/Process/Backend/BlogPref.php:749
+#: src/Process/Backend/BlogPref.php:871
 msgid "Default size of the inserted video (in pixels)"
 msgstr "Mida predeterminada del vídeo inserit (en píxels)"
 
-#: src/Process/Backend/BlogPref.php:750
+#: src/Process/Backend/BlogPref.php:876
 msgid "Width"
 msgstr "Amplada"
 
-#: src/Process/Backend/BlogPref.php:758
+#: src/Process/Backend/BlogPref.php:882
 msgid "Height"
 msgstr "Alçada"
 
-#: src/Process/Backend/BlogPref.php:768
+#: src/Process/Backend/BlogPref.php:891
 msgid "Default image insertion attributes"
 msgstr "Atributs d'inserció d'imatges per defecte"
 
-#: src/Process/Backend/BlogPref.php:769
+#: src/Process/Backend/BlogPref.php:897
 msgid "Inserted image legend:"
 msgstr "Llegenda de la imatge inserida:"
 
-#: src/Process/Backend/BlogPref.php:773
+#: src/Process/Backend/BlogPref.php:903
 msgid "Use original media date if possible"
 msgstr "Si és possible, utilitzeu la data original dels mitjans"
 
-#: src/Process/Backend/BlogPref.php:776
+#: src/Process/Backend/BlogPref.php:909
 msgid "Do not display date if alone in title"
 msgstr "No mostri la data si està sol al títol"
 
-#: src/Process/Backend/BlogPref.php:777
+#: src/Process/Backend/BlogPref.php:914
 msgid "It is retrieved from the picture's metadata."
 msgstr "Es recupera de les metadades de la imatge."
 
-#: src/Process/Backend/BlogPref.php:779
+#: src/Process/Backend/BlogPref.php:922
 msgid "Size of inserted image:"
 msgstr "Mida de la imatge inserida:"
 
-#: src/Process/Backend/BlogPref.php:786
+#: src/Process/Backend/BlogPref.php:930
 msgid "Image alignment:"
 msgstr "Alineació de la imatge:"
 
-#: src/Process/Backend/BlogPref.php:791
+#: src/Process/Backend/BlogPref.php:936
 msgid "Insert a link to the original image"
 msgstr "Insereix un enllaç a la imatge original"
 
-#: src/Process/Backend/BlogPref.php:792
+#: src/Process/Backend/BlogPref.php:943
 msgid "Image legend and alternate text:"
 msgstr "Llegenda de la imatge i text alternatiu:"
 
-#: src/Process/Backend/BlogPref.php:801
-msgid "Advanced parameters"
-msgstr "Paràmetres avançats"
+#: src/Process/Backend/BlogPref.php:952 src/Process/Backend/Media.php:596
+msgid "Blog parameters"
+msgstr "Paràmetres del bloc"
 
-#: src/Process/Backend/BlogPref.php:810
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr "Tingueu en compte que canviar l'identificador del vostre bloc pot requerir canvis al vostre fitxer index.php públic."
-
-#: src/Process/Backend/BlogPref.php:821
-msgid "URL scan method:"
-msgstr "Mètode de lectura de l'URL"
-
-#: src/Process/Backend/BlogPref.php:844
+#: src/Process/Backend/BlogPref.php:983
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr "És possible que l'URL del bloc o el mètode d'exploració d'URL no estiguin ben definits (<code>%s</code> retorna un estat <strong>%s</strong> )."
 
-#: src/Process/Backend/BlogPref.php:855
+#: src/Process/Backend/BlogPref.php:993
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "És possible que l'URL del bloc o el mètode d'exploració d'URL no estiguin ben definits (<code>%s</code> no retorna cap canal ATOM)."
 
-#: src/Process/Backend/BlogPref.php:870
+#: src/Process/Backend/BlogPref.php:1026
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr "Tingueu en compte que canviar l'identificador del vostre bloc pot requerir canvis al vostre fitxer index.php públic."
+
+#: src/Process/Backend/BlogPref.php:1045
+msgid "URL scan method:"
+msgstr "Mètode de lectura de l'URL"
+
+#: src/Process/Backend/BlogPref.php:1060
 msgid "New post URL format:"
 msgstr "Nou format d'URL de publicació:"
 
-#: src/Process/Backend/BlogPref.php:873
+#: src/Process/Backend/BlogPref.php:1067
 msgid "Dotclear"
 msgstr "Dotclear"
 
-#: src/Process/Backend/BlogPref.php:876
+#: src/Process/Backend/BlogPref.php:1074
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "Etiqueta HTML per al títol de les notes al bloc:"
 
-#: src/Process/Backend/BlogPref.php:883
+#: src/Process/Backend/BlogPref.php:1091
 msgid "Search engines robots policy"
 msgstr "Política de robots de motors de cerca"
 
-#: src/Process/Backend/BlogPref.php:896
+#: src/Process/Backend/BlogPref.php:1096
 msgid "Legacy javascript library"
 msgstr "Biblioteca javascript heretada"
 
-#: src/Process/Backend/BlogPref.php:899
+#: src/Process/Backend/BlogPref.php:1102
 msgid "Load the Legacy JS library"
 msgstr "Carregueu la biblioteca Legacy JS"
 
-#: src/Process/Backend/BlogPref.php:902
+#: src/Process/Backend/BlogPref.php:1108
 msgid "jQuery javascript library"
 msgstr "Biblioteca javascript jQuery"
 
-#: src/Process/Backend/BlogPref.php:905
+#: src/Process/Backend/BlogPref.php:1114
 msgid "Load the jQuery library"
 msgstr "Carregueu la biblioteca jQuery"
 
-#: src/Process/Backend/BlogPref.php:907
+#: src/Process/Backend/BlogPref.php:1121
 msgid "jQuery version to be loaded for this blog:"
 msgstr "La versió de jQuery que es carregarà per a aquest bloc:"
 
-#: src/Process/Backend/BlogPref.php:912
+#: src/Process/Backend/BlogPref.php:1127
 msgid "Blog security"
 msgstr "Seguretat del bloc"
 
-#: src/Process/Backend/BlogPref.php:915
+#: src/Process/Backend/BlogPref.php:1133
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Protegiu el bloc del clic (vegeu <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Viquipèdia</a>)"
 
-#: src/Process/Backend/BlogPref.php:920
+#: src/Process/Backend/BlogPref.php:1139
+msgid "Advanced parameters"
+msgstr "Paràmetres avançats"
+
+#: src/Process/Backend/BlogPref.php:1146
 msgid "Plugins parameters"
 msgstr "Paràmetres dels connectors"
 
-#: src/Process/Backend/BlogPref.php:944
+#: src/Process/Backend/BlogPref.php:1187
 msgid "Only superadmin can delete a blog."
 msgstr "Només el superadministrador pot suprimir un bloc."
 
-#: src/Process/Backend/BlogPref.php:958
-msgid "Users on this blog"
-msgstr "Usuaris en aquest blog"
+#: src/Process/Backend/BlogPref.php:1192
+msgid "Parameters"
+msgstr "Paràmetres"
 
-#: src/Process/Backend/BlogPref.php:961
+#: src/Process/Backend/BlogPref.php:1211
 msgid "No users"
 msgstr "Cap usuari"
 
-#: src/Process/Backend/BlogPref.php:1002
-msgid "Publications on this blog:"
-msgstr "Publicacions en aquest bloc:"
-
-#: src/Process/Backend/BlogPref.php:1009
+#: src/Process/Backend/BlogPref.php:1253
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1014
-msgid "Permissions:"
-msgstr "Permisos:"
-
-#: src/Process/Backend/BlogPref.php:1017 src/Process/Backend/User.php:321
+#: src/Process/Backend/BlogPref.php:1262 src/Process/Backend/User.php:321
 msgid "Super administrator"
 msgstr "Super administrador"
 
-#: src/Process/Backend/BlogPref.php:1018
+#: src/Process/Backend/BlogPref.php:1264
 msgid "All rights on all blogs."
 msgstr "Tots els drets a tots els blocs."
 
-#: src/Process/Backend/BlogPref.php:1024
+#: src/Process/Backend/BlogPref.php:1274
+msgid "All rights on this blog."
+msgstr "Tots els drets en aquest bloc."
+
+#: src/Process/Backend/BlogPref.php:1290
 #: src/Process/Backend/UsersActions.php:338
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (permís sense referència)"
 
-#: src/Process/Backend/BlogPref.php:1028
-msgid "All rights on this blog."
-msgstr "Tots els drets en aquest bloc."
-
-#: src/Process/Backend/BlogPref.php:1039 src/Process/Backend/User.php:471
+#: src/Process/Backend/BlogPref.php:1309 src/Process/Backend/User.php:471
 msgid "Change permissions"
 msgstr "Canviar permisos"
+
+#: src/Process/Backend/BlogPref.php:1332
+msgid "Publications on this blog:"
+msgstr "Publicacions en aquest bloc:"
+
+#: src/Process/Backend/BlogPref.php:1335
+msgid "Permissions:"
+msgstr "Permisos:"
+
+#: src/Process/Backend/BlogPref.php:1352
+msgid "Users on this blog"
+msgstr "Usuaris en aquest blog"
 
 #: src/Process/Backend/BlogTheme.php:59
 msgid "The following themes have been disabled :"
@@ -5309,26 +5333,6 @@ msgstr "L'usuari s'ha creat amb èxit."
 #: src/Process/Backend/User.php:203
 msgid "User has no permission, he will not be able to login yet. See below to add some."
 msgstr "L'usuari no té permís, encara no podrà iniciar sessió. Vegeu a continuació per afegir-ne alguns."
-
-#: src/Process/Backend/User.php:224 src/Process/Backend/User.php:225
-#: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:498
-#: src/Process/Backend/UserPreferences.php:499
-#: src/Process/Backend/UserPreferences.php:500
-#: src/Process/Install/Install.php:417 src/Process/Install/Install.php:418
-#: src/Process/Install/Install.php:419
-#, php-format
-msgid "Password strength: %s"
-msgstr "Força de la contrasenya: %s"
-
-#: src/Process/Backend/User.php:224 src/Process/Backend/UserPreferences.php:498
-#: src/Process/Install/Install.php:417
-msgid "weak"
-msgstr "feble"
-
-#: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:500
-#: src/Process/Install/Install.php:419
-msgid "strong"
-msgstr "fort"
 
 #: src/Process/Backend/User.php:254
 msgid "User profile"
