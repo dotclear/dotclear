@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-11 10:52+0200\n"
-"PO-Revision-Date: 2024-10-11 09:28\n"
+"POT-Creation-Date: 2024-10-25 07:54+0200\n"
+"PO-Revision-Date: 2024-10-25 05:56\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -17,8 +17,8 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: inc/core/_fake_l10n.php:6 src/Process/Backend/User.php:225
-#: src/Process/Backend/UserPreferences.php:499
+#: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:358
+#: src/Process/Backend/User.php:225 src/Process/Backend/UserPreferences.php:499
 #: src/Process/Install/Install.php:418
 msgid "medium"
 msgstr "среден"
@@ -104,7 +104,7 @@ msgstr "Заглавие"
 #: src/Core/Backend/Favorites.php:500 src/Core/Backend/Menus.php:244
 #: src/Core/Backend/UserPref.php:73 src/Core/Backend/UserPref.php:190
 #: src/Process/Backend/Blog.php:98 src/Process/Backend/BlogDel.php:91
-#: src/Process/Backend/BlogPref.php:434
+#: src/Process/Backend/BlogPref.php:458
 msgid "Blogs"
 msgstr "Блогове"
 
@@ -124,7 +124,7 @@ msgstr "Идентификатор на блога"
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
 #: src/Core/Backend/Listing/ListingBlogs.php:77
 #: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:141
-#: src/Process/Backend/BlogPref.php:488
+#: src/Process/Backend/BlogPref.php:538
 #: src/Process/Backend/UsersActions.php:231
 msgid "Blog name"
 msgstr "Име на блога"
@@ -190,7 +190,7 @@ msgid "Password verification failed"
 msgstr "Проверката на паролата е неуспешна"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:114
-#: src/Process/Backend/BlogPref.php:942
+#: src/Process/Backend/BlogPref.php:1183
 msgid "The current blog cannot be deleted."
 msgstr "Настоящият блог не може да бъде изтрит."
 
@@ -434,7 +434,7 @@ msgstr "Родител:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:927
+#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1157
 #: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
 #: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
 #: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1109
@@ -561,7 +561,7 @@ msgid "Last update"
 msgstr "Последна актуализация"
 
 #: src/Core/Backend/Combos.php:336 src/Process/Backend/Blog.php:122
-#: src/Process/Backend/BlogPref.php:808
+#: src/Process/Backend/BlogPref.php:1015
 #: src/Process/Backend/UsersActions.php:230
 msgid "Blog ID"
 msgstr "Идентификатор на блога"
@@ -643,8 +643,8 @@ msgid "Media manager"
 msgstr "Мениджър на медиите"
 
 #: src/Core/Backend/Favorites.php:482 src/Core/Backend/Menus.php:104
-#: src/Process/Backend/BlogPref.php:427 src/Process/Backend/BlogPref.php:435
-#: src/Process/Backend/BlogPref.php:448
+#: src/Process/Backend/BlogPref.php:451 src/Process/Backend/BlogPref.php:459
+#: src/Process/Backend/BlogPref.php:472
 msgid "Blog settings"
 msgstr "Настройки на блога"
 
@@ -656,7 +656,7 @@ msgstr "Появяване в блога"
 
 #: src/Core/Backend/Favorites.php:510 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:64 src/Core/Backend/UserPref.php:166
-#: src/Process/Backend/BlogPref.php:957 src/Process/Backend/User.php:235
+#: src/Process/Backend/BlogPref.php:1349 src/Process/Backend/User.php:235
 #: src/Process/Backend/Users.php:100 src/Process/Backend/Users.php:105
 #: src/Process/Backend/UsersActions.php:151
 #: src/Process/Backend/UsersActions.php:159
@@ -690,7 +690,7 @@ msgid "Status:"
 msgstr "Статус:"
 
 #: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1282
-#: src/Process/Backend/Auth.php:376 src/Process/Backend/BlogPref.php:996
+#: src/Process/Backend/Auth.php:424 src/Process/Backend/BlogPref.php:1329
 #: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:895
 #: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:545
 #: src/Process/Install/Install.php:466
@@ -751,8 +751,8 @@ msgstr "видео"
 msgid "Format:"
 msgstr "Формат:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:464 src/Process/Backend/User.php:277
+#: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:154
+#: src/Process/Backend/Auth.php:518 src/Process/Backend/User.php:277
 #: src/Process/Install/Install.php:530 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "Парола:"
@@ -1527,8 +1527,8 @@ msgid "Upload a zip file"
 msgstr "Качване на zip файл"
 
 #: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
-#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:480
-#: src/Process/Backend/BlogPref.php:806 src/Process/Backend/Category.php:233
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:530
+#: src/Process/Backend/BlogPref.php:1007 src/Process/Backend/Category.php:233
 #: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:450
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
 #: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:764
@@ -1585,7 +1585,7 @@ msgstr "Неизвестен идентификатор на плъгин"
 msgid "This plugin has no configuration file."
 msgstr "Тази приставка няма конфигурационен файл."
 
-#: src/Core/Backend/ModulesList.php:1885 src/Process/Backend/Auth.php:279
+#: src/Core/Backend/ModulesList.php:1885 src/Process/Backend/Auth.php:297
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "Недостатъчни разрешения"
@@ -1596,7 +1596,7 @@ msgid "Configure \"%s\""
 msgstr "Конфигуриране \"%s\""
 
 #: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:193
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:928
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1159
 #: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
 #: src/Process/Backend/Media.php:601 src/Process/Backend/MediaItem.php:1150
 #: src/Process/Backend/Post.php:792 src/Process/Backend/Search.php:158
@@ -2200,7 +2200,7 @@ msgstr "Темата е инсталирана успешно."
 msgid "users per page"
 msgstr "потребители на страница"
 
-#: src/Core/Backend/UserPref.php:180
+#: src/Core/Backend/UserPref.php:180 src/Process/Backend/BlogPref.php:764
 msgid "entries per page"
 msgstr "вписвания на страница"
 
@@ -2590,7 +2590,7 @@ msgid "LOL!"
 msgstr "LOL!"
 
 #: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:97
-#: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:433
+#: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:457
 #: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
 #: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:105
 #: src/Process/Backend/User.php:234 src/Process/Backend/Users.php:104
@@ -3100,144 +3100,168 @@ msgstr "Невъзможност за модифициране на _define.php"
 msgid "Destination folder already exist"
 msgstr "Папката за местоназначение вече съществува"
 
-#: src/Process/Backend/Auth.php:71 src/Process/Upgrade/Auth.php:78
+#: src/Process/Backend/Auth.php:89 src/Process/Upgrade/Auth.php:78
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear е обновен."
 
-#: src/Process/Backend/Auth.php:118
+#: src/Process/Backend/Auth.php:136
 msgid "Password reset"
 msgstr "Възстановяване на паролата"
 
-#: src/Process/Backend/Auth.php:119
+#: src/Process/Backend/Auth.php:137
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "Някой е поискал да възстанови паролата за следния сайт и потребителско име."
 
-#: src/Process/Backend/Auth.php:119
+#: src/Process/Backend/Auth.php:137
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "За да възстановите паролата си, посетете следния адрес, а в противен случай просто игнорирайте този имейл и нищо няма да се случи."
 
-#: src/Process/Backend/Auth.php:119 src/Process/Backend/Auth.php:136
-#: src/Process/Backend/Auth.php:364 src/Process/Backend/Auth.php:453
+#: src/Process/Backend/Auth.php:137 src/Process/Backend/Auth.php:154
+#: src/Process/Backend/Auth.php:415 src/Process/Backend/Auth.php:509
 #: src/Process/Install/Install.php:477 src/Process/Install/Install.php:529
 #: src/Process/Upgrade/Auth.php:213
 msgid "Username:"
 msgstr "Потребителско име:"
 
-#: src/Process/Backend/Auth.php:125
+#: src/Process/Backend/Auth.php:143
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "Имейлът беше изпратен успешно на %s."
 
-#: src/Process/Backend/Auth.php:135
+#: src/Process/Backend/Auth.php:153
 msgid "Your new password"
 msgstr "Вашата нова парола"
 
-#: src/Process/Backend/Auth.php:141
+#: src/Process/Backend/Auth.php:159
 msgid "Your new password is in your mailbox."
 msgstr "Новата ви парола е в пощенската ви кутия."
 
-#: src/Process/Backend/Auth.php:184 src/Process/Backend/User.php:126
+#: src/Process/Backend/Auth.php:202 src/Process/Backend/User.php:126
 #: src/Process/Backend/UserPreferences.php:205
 #: src/Process/Install/Install.php:191
 msgid "Passwords don't match"
 msgstr "Паролите не съвпадат"
 
-#: src/Process/Backend/Auth.php:188
+#: src/Process/Backend/Auth.php:206
 msgid "You didn't change your password."
 msgstr "Не сте променили паролата си."
 
-#: src/Process/Backend/Auth.php:238
+#: src/Process/Backend/Auth.php:256
 msgid "You have to change your password before you can login."
 msgstr "Преди да влезете в системата, трябва да промените паролата си."
 
-#: src/Process/Backend/Auth.php:240
+#: src/Process/Backend/Auth.php:258
 msgid "In order to login, you have to change your password now."
 msgstr "За да влезете в системата, трябва да промените паролата си."
 
-#: src/Process/Backend/Auth.php:246
+#: src/Process/Backend/Auth.php:264
 msgid "Safe Mode can only be used for super administrators."
 msgstr "Безопасният режим може да се използва само от супер администратори."
 
-#: src/Process/Backend/Auth.php:283 src/Process/Upgrade/Auth.php:142
+#: src/Process/Backend/Auth.php:301 src/Process/Upgrade/Auth.php:142
 msgid "Administration session expired"
 msgstr "Сесията на администрацията е изтекла"
 
-#: src/Process/Backend/Auth.php:283 src/Process/Upgrade/Auth.php:142
+#: src/Process/Backend/Auth.php:301 src/Process/Upgrade/Auth.php:142
 msgid "Wrong username or password"
 msgstr "Грешно потребителско име или парола"
 
-#: src/Process/Backend/Auth.php:358 src/Process/Backend/Auth.php:392
+#: src/Process/Backend/Auth.php:357 src/Process/Backend/Auth.php:358
+#: src/Process/Backend/Auth.php:359 src/Process/Backend/User.php:224
+#: src/Process/Backend/User.php:225 src/Process/Backend/User.php:226
+#: src/Process/Backend/UserPreferences.php:498
+#: src/Process/Backend/UserPreferences.php:499
+#: src/Process/Backend/UserPreferences.php:500
+#: src/Process/Install/Install.php:417 src/Process/Install/Install.php:418
+#: src/Process/Install/Install.php:419
+#, php-format
+msgid "Password strength: %s"
+msgstr "Сила на паролата: %s"
+
+#: src/Process/Backend/Auth.php:357 src/Process/Backend/User.php:224
+#: src/Process/Backend/UserPreferences.php:498
+#: src/Process/Install/Install.php:417
+msgid "weak"
+msgstr "слаб"
+
+#: src/Process/Backend/Auth.php:359 src/Process/Backend/User.php:226
+#: src/Process/Backend/UserPreferences.php:500
+#: src/Process/Install/Install.php:419
+msgid "strong"
+msgstr "силен"
+
+#: src/Process/Backend/Auth.php:402 src/Process/Backend/Auth.php:444
 msgid "Back to login screen"
 msgstr "Връщане към екрана за вход"
 
-#: src/Process/Backend/Auth.php:363
+#: src/Process/Backend/Auth.php:410
 msgid "Request a new password"
 msgstr "Заявка за нова парола"
 
-#: src/Process/Backend/Auth.php:386
+#: src/Process/Backend/Auth.php:432
 msgid "recover"
 msgstr "възстановяване"
 
-#: src/Process/Backend/Auth.php:391 src/Process/Backend/Auth.php:497
+#: src/Process/Backend/Auth.php:438 src/Process/Backend/Auth.php:562
 msgid "Other option"
 msgstr "Друг вариант"
 
-#: src/Process/Backend/Auth.php:398
+#: src/Process/Backend/Auth.php:451
 msgid "Change your password"
 msgstr "Променете паролата си"
 
-#: src/Process/Backend/Auth.php:399 src/Process/Backend/User.php:277
+#: src/Process/Backend/Auth.php:456 src/Process/Backend/User.php:277
 #: src/Process/Backend/UserPreferences.php:583
 #: src/Process/Install/Install.php:485
 msgid "New password:"
 msgstr "Нова парола:"
 
-#: src/Process/Backend/Auth.php:410 src/Process/Backend/User.php:291
+#: src/Process/Backend/Auth.php:465 src/Process/Backend/User.php:291
 #: src/Process/Install/Install.php:492
 msgid "Confirm password:"
 msgstr "Потвърдете паролата:"
 
-#: src/Process/Backend/Auth.php:419
+#: src/Process/Backend/Auth.php:472
 msgid "change"
 msgstr "промяна"
 
-#: src/Process/Backend/Auth.php:435
+#: src/Process/Backend/Auth.php:492
 msgid "Safe mode login"
 msgstr "Вход в безопасен режим"
 
-#: src/Process/Backend/Auth.php:437
+#: src/Process/Backend/Auth.php:495
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Този режим ви позволява да влезете в системата, без да активирате нито един от плъгините си. Това може да е полезно за решаване на проблеми със съвместимостта"
 
-#: src/Process/Backend/Auth.php:438
+#: src/Process/Backend/Auth.php:496
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Актуализирайте, деактивирайте или изтрийте всички плъгини, за които се предполага, че причиняват проблеми, след което излезте от системата и влезте отново нормално."
 
-#: src/Process/Backend/Auth.php:474 src/Process/Upgrade/Auth.php:234
+#: src/Process/Backend/Auth.php:527 src/Process/Upgrade/Auth.php:234
 msgid "Remember my ID on this device"
 msgstr "Запомняне на моя идентификатор на това устройство"
 
-#: src/Process/Backend/Auth.php:475 src/Process/Upgrade/Auth.php:235
+#: src/Process/Backend/Auth.php:531 src/Process/Upgrade/Auth.php:235
 msgid "log in"
 msgstr "влизане в системата"
 
-#: src/Process/Backend/Auth.php:491 src/Process/Upgrade/Auth.php:237
+#: src/Process/Backend/Auth.php:556 src/Process/Upgrade/Auth.php:237
 msgid "You must accept cookies in order to use the private area."
 msgstr "Трябва да приемете \"бисквитките\", за да използвате частната зона."
 
-#: src/Process/Backend/Auth.php:498
+#: src/Process/Backend/Auth.php:568
 msgid "Get back to normal authentication"
 msgstr "Върнете се към нормално удостоверяване"
 
-#: src/Process/Backend/Auth.php:501
+#: src/Process/Backend/Auth.php:573
 msgid "Connection issue?"
 msgstr "Проблем с връзката?"
 
-#: src/Process/Backend/Auth.php:504
+#: src/Process/Backend/Auth.php:580
 msgid "I forgot my password"
 msgstr "Забравих паролата си"
 
-#: src/Process/Backend/Auth.php:507
+#: src/Process/Backend/Auth.php:587
 msgid "I want to log in in safe mode"
 msgstr "Искам да вляза в безопасен режим"
 
@@ -3250,28 +3274,28 @@ msgstr "Блог \"%s\" успешно създаден"
 msgid "New blog"
 msgstr "Нов блог"
 
-#: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:807
+#: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:1017
 msgid "Blog ID:"
 msgstr "ID на блога:"
 
-#: src/Process/Backend/Blog.php:133 src/Process/Backend/BlogPref.php:809
+#: src/Process/Backend/Blog.php:133 src/Process/Backend/BlogPref.php:1022
 #: src/Process/Backend/User.php:264
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Най-малко 2 символа, използващи букви, цифри или символи."
 
-#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:481
+#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:542
 msgid "Blog name:"
 msgstr "Име на блога:"
 
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:817
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:1035
 msgid "Blog URL"
 msgstr "Адрес на блога"
 
-#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:812
+#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:1037
 msgid "Blog URL:"
 msgstr "Адрес на блога:"
 
-#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:491
+#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:552
 msgid "Blog description:"
 msgstr "Описание на блога:"
 
@@ -3305,543 +3329,543 @@ msgstr "На път сте да изтриете блога %s. Всеки за�
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Моля, дайте паролата си, за да потвърдите изтриването на блога."
 
-#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:936
+#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:1173
 msgid "Delete this blog"
 msgstr "Изтрийте този блог"
 
-#: src/Process/Backend/BlogPref.php:74
+#: src/Process/Backend/BlogPref.php:98
 msgid "No given blog id."
 msgstr "Не е даден идентификатор на блога."
 
-#: src/Process/Backend/BlogPref.php:79
+#: src/Process/Backend/BlogPref.php:103
 msgid "No such blog."
 msgstr "Няма такъв блог."
 
-#: src/Process/Backend/BlogPref.php:128
+#: src/Process/Backend/BlogPref.php:152
 msgid "year/month/day/title"
 msgstr "година/месец/ден/заглавие"
 
-#: src/Process/Backend/BlogPref.php:129
+#: src/Process/Backend/BlogPref.php:153
 msgid "year/month/title"
 msgstr "година/месец/заглавие"
 
-#: src/Process/Backend/BlogPref.php:130
+#: src/Process/Backend/BlogPref.php:154
 msgid "year/title"
 msgstr "година/заглавие"
 
-#: src/Process/Backend/BlogPref.php:131
+#: src/Process/Backend/BlogPref.php:155
 msgid "title"
 msgstr "заглавие"
 
-#: src/Process/Backend/BlogPref.php:132
+#: src/Process/Backend/BlogPref.php:156
 msgid "post id/title"
 msgstr "id/заглавие на публикацията"
 
-#: src/Process/Backend/BlogPref.php:133
+#: src/Process/Backend/BlogPref.php:157
 msgid "post id"
 msgstr "ID на публикацията"
 
-#: src/Process/Backend/BlogPref.php:141
+#: src/Process/Backend/BlogPref.php:165
 msgid "H4"
 msgstr "H4"
 
-#: src/Process/Backend/BlogPref.php:142
+#: src/Process/Backend/BlogPref.php:166
 msgid "H3"
 msgstr "H3"
 
-#: src/Process/Backend/BlogPref.php:143
+#: src/Process/Backend/BlogPref.php:167
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:148 src/Process/Backend/BlogPref.php:997
+#: src/Process/Backend/BlogPref.php:172 src/Process/Backend/BlogPref.php:1243
 #: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:646
 #: src/Process/Backend/MediaItem.php:648
 msgid "(none)"
 msgstr "(няма)"
 
-#: src/Process/Backend/BlogPref.php:149
+#: src/Process/Backend/BlogPref.php:173
 msgid "Description"
 msgstr "Описание"
 
-#: src/Process/Backend/BlogPref.php:150
+#: src/Process/Backend/BlogPref.php:174
 msgid "Description, Date"
 msgstr "Описание, дата"
 
-#: src/Process/Backend/BlogPref.php:151
+#: src/Process/Backend/BlogPref.php:175
 msgid "Description, Country, Date"
 msgstr "Описание, държава, дата"
 
-#: src/Process/Backend/BlogPref.php:152
+#: src/Process/Backend/BlogPref.php:176
 msgid "Description, City, Country, Date"
 msgstr "Описание, Град, Държава, Дата"
 
-#: src/Process/Backend/BlogPref.php:182 src/Process/Backend/MediaItem.php:539
+#: src/Process/Backend/BlogPref.php:206 src/Process/Backend/MediaItem.php:539
 #: src/Process/Backend/MediaItem.php:613 src/Process/Backend/MediaItem.php:860
 msgid "original"
 msgstr "оригинал"
 
-#: src/Process/Backend/BlogPref.php:193 src/Process/Backend/BlogPref.php:203
+#: src/Process/Backend/BlogPref.php:217 src/Process/Backend/BlogPref.php:227
 #: src/Process/Backend/MediaItem.php:643 src/Process/Backend/MediaItem.php:655
 #: src/Process/Backend/MediaItem.php:693 src/Process/Backend/MediaItem.php:737
 msgid "None"
 msgstr "Няма"
 
-#: src/Process/Backend/BlogPref.php:194 src/Process/Backend/MediaItem.php:656
+#: src/Process/Backend/BlogPref.php:218 src/Process/Backend/MediaItem.php:656
 #: src/Process/Backend/MediaItem.php:694 src/Process/Backend/MediaItem.php:738
 msgid "Left"
 msgstr "Вляво"
 
-#: src/Process/Backend/BlogPref.php:195 src/Process/Backend/MediaItem.php:657
+#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:657
 #: src/Process/Backend/MediaItem.php:695 src/Process/Backend/MediaItem.php:739
 msgid "Right"
 msgstr "Вдясно"
 
-#: src/Process/Backend/BlogPref.php:196 src/Process/Backend/MediaItem.php:658
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:658
 #: src/Process/Backend/MediaItem.php:696 src/Process/Backend/MediaItem.php:740
 msgid "Center"
 msgstr "Център"
 
-#: src/Process/Backend/BlogPref.php:201 src/Process/Backend/MediaItem.php:628
+#: src/Process/Backend/BlogPref.php:225 src/Process/Backend/MediaItem.php:628
 msgid "Legend and alternate text"
 msgstr "Легенда и алтернативен текст"
 
-#: src/Process/Backend/BlogPref.php:202 src/Process/Backend/MediaItem.php:637
+#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:637
 msgid "Alternate text"
 msgstr "Алтернативен текст"
 
-#: src/Process/Backend/BlogPref.php:208
+#: src/Process/Backend/BlogPref.php:232
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "Бих искал търсачките и архиваторите да индексират и архивират съдържанието на моя блог."
 
-#: src/Process/Backend/BlogPref.php:209
+#: src/Process/Backend/BlogPref.php:233
 msgid "I would like search engines and archivers to index but not archive my blog's content."
 msgstr "Бих искал търсачките и архиваторите да индексират, но не и да архивират съдържанието на моя блог."
 
-#: src/Process/Backend/BlogPref.php:210
+#: src/Process/Backend/BlogPref.php:234
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Бих искал да попреча на търсачките и архиваторите да индексират или архивират съдържанието на моя блог."
 
-#: src/Process/Backend/BlogPref.php:215
+#: src/Process/Backend/BlogPref.php:239
 #: src/Process/Backend/UserPreferences.php:128
 msgid "Default"
 msgstr "По подразбиране"
 
-#: src/Process/Backend/BlogPref.php:227
+#: src/Process/Backend/BlogPref.php:251
 msgid "Never"
 msgstr "Никога"
 
-#: src/Process/Backend/BlogPref.php:228
+#: src/Process/Backend/BlogPref.php:252
 msgid "Three months"
 msgstr "Три месеца"
 
-#: src/Process/Backend/BlogPref.php:229
+#: src/Process/Backend/BlogPref.php:253
 msgid "Six months"
 msgstr "Шест месеца"
 
-#: src/Process/Backend/BlogPref.php:230
+#: src/Process/Backend/BlogPref.php:254
 msgid "One year"
 msgstr "Една година"
 
-#: src/Process/Backend/BlogPref.php:231
+#: src/Process/Backend/BlogPref.php:255
 msgid "Two years"
 msgstr "Две години"
 
-#: src/Process/Backend/BlogPref.php:312
+#: src/Process/Backend/BlogPref.php:336
 msgid "This blog ID is already used."
 msgstr "Този идентификатор на блога вече е използван."
 
-#: src/Process/Backend/BlogPref.php:320
+#: src/Process/Backend/BlogPref.php:344
 msgid "Invalid language code"
 msgstr "Невалиден код на езика"
 
-#: src/Process/Backend/BlogPref.php:402 src/Process/Backend/BlogPref.php:471
+#: src/Process/Backend/BlogPref.php:426 src/Process/Backend/BlogPref.php:495
 msgid "Blog has been successfully updated."
 msgstr "Блогът беше успешно актуализиран."
 
-#: src/Process/Backend/BlogPref.php:450
+#: src/Process/Backend/BlogPref.php:474
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "Предупреждение: с изключение на специални конфигурации, обикновено се препоръчва в URL адреса на блога да има крайно \"/\" в режим PATH_INFO."
 
-#: src/Process/Backend/BlogPref.php:451
+#: src/Process/Backend/BlogPref.php:475
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Предупреждение: с изключение на специални конфигурации, обикновено се препоръчва да имате завършващ \"?\" в URL адреса на блога си в режим QUERY_STRING."
 
-#: src/Process/Backend/BlogPref.php:467
+#: src/Process/Backend/BlogPref.php:491
 msgid "Blog has been successfully created."
 msgstr "Блогът е създаден успешно."
 
-#: src/Process/Backend/BlogPref.php:475
-msgid "Parameters"
-msgstr "Параметри"
-
-#: src/Process/Backend/BlogPref.php:476 src/Process/Backend/Media.php:596
-msgid "Blog parameters"
-msgstr "Параметри на блога"
-
-#: src/Process/Backend/BlogPref.php:478 src/Process/Backend/BlogPref.php:804
-msgid "Blog details"
-msgstr "Подробности за блога"
-
-#: src/Process/Backend/BlogPref.php:504
+#: src/Process/Backend/BlogPref.php:513
 msgid "Blog status:"
 msgstr "Статус на блога:"
 
-#: src/Process/Backend/BlogPref.php:520 src/Process/Backend/BlogPref.php:868
+#: src/Process/Backend/BlogPref.php:526 src/Process/Backend/BlogPref.php:1003
+msgid "Blog details"
+msgstr "Подробности за блога"
+
+#: src/Process/Backend/BlogPref.php:539 src/Process/Backend/BlogPref.php:1016
+#: src/Process/Backend/BlogPref.php:1036
+msgid "Required field"
+msgstr "Задължително поле"
+
+#: src/Process/Backend/BlogPref.php:559 src/Process/Backend/BlogPref.php:1053
 msgid "Blog configuration"
 msgstr "Конфигурация на блога"
 
-#: src/Process/Backend/BlogPref.php:521
+#: src/Process/Backend/BlogPref.php:567
 msgid "Blog editor name:"
 msgstr "Име на редактора на блога:"
 
-#: src/Process/Backend/BlogPref.php:524
+#: src/Process/Backend/BlogPref.php:574
 msgid "Default language:"
 msgstr "Език по подразбиране:"
 
-#: src/Process/Backend/BlogPref.php:527
+#: src/Process/Backend/BlogPref.php:581
 msgid "Blog timezone:"
 msgstr "Часова зона на блога:"
 
-#: src/Process/Backend/BlogPref.php:530
+#: src/Process/Backend/BlogPref.php:591
 msgid "Copyright notice:"
 msgstr "Уведомление за авторски права:"
 
-#: src/Process/Backend/BlogPref.php:543 src/Process/Backend/Comments.php:118
+#: src/Process/Backend/BlogPref.php:597 src/Process/Backend/Comments.php:118
 #: src/Process/Backend/Comments.php:123
 msgid "Comments and trackbacks"
 msgstr "Коментари и Trackbacks"
 
-#: src/Process/Backend/BlogPref.php:549 src/Process/Backend/Post.php:674
+#: src/Process/Backend/BlogPref.php:609 src/Process/Backend/Post.php:674
 msgid "Accept comments"
 msgstr "Приемане на коментари"
 
-#: src/Process/Backend/BlogPref.php:552
+#: src/Process/Backend/BlogPref.php:615
 msgid "Moderate comments"
 msgstr "Умерени коментари"
 
-#: src/Process/Backend/BlogPref.php:554
-#, php-format
-msgid "Leave comments open for %s days"
-msgstr "Оставете коментарите отворени за %s дни"
+#: src/Process/Backend/BlogPref.php:620
+msgid "Leave comments open for"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:565 src/Process/Backend/BlogPref.php:593
+#: src/Process/Backend/BlogPref.php:621 src/Process/Backend/BlogPref.php:660
+msgid "days"
+msgstr "дни"
+
+#: src/Process/Backend/BlogPref.php:626 src/Process/Backend/BlogPref.php:665
 msgid "No limit: leave blank."
 msgstr "Без ограничение: оставете празно място."
 
-#: src/Process/Backend/BlogPref.php:568
+#: src/Process/Backend/BlogPref.php:632
 msgid "Wiki syntax for comments"
 msgstr "Синтаксис на коментарите в Уикипедия"
 
-#: src/Process/Backend/BlogPref.php:571
+#: src/Process/Backend/BlogPref.php:638
 msgid "Preview of comment before submit is not mandatory"
 msgstr "Прегледът на коментара преди изпращане не е задължителен"
 
-#: src/Process/Backend/BlogPref.php:577 src/Process/Backend/Post.php:682
+#: src/Process/Backend/BlogPref.php:648 src/Process/Backend/Post.php:682
 msgid "Accept trackbacks"
 msgstr "Приемане на Trackbacks"
 
-#: src/Process/Backend/BlogPref.php:580
+#: src/Process/Backend/BlogPref.php:654
 msgid "Moderate trackbacks"
 msgstr "Умерени Trackbacks"
 
-#: src/Process/Backend/BlogPref.php:582
-#, php-format
-msgid "Leave trackbacks open for %s days"
-msgstr "Оставете проследяванията отворени за %s дни"
+#: src/Process/Backend/BlogPref.php:659
+msgid "Leave trackbacks open for"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:596
+#: src/Process/Backend/BlogPref.php:671
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Добавяне на връзка \"nofollow\" към коментарите и връзките за проследяване"
 
-#: src/Process/Backend/BlogPref.php:600
+#: src/Process/Backend/BlogPref.php:680
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr "Деактивирайте всички коментари и проследявания в блога след определен период от време без нови публикации:"
 
-#: src/Process/Backend/BlogPref.php:607
+#: src/Process/Backend/BlogPref.php:687
 msgid "Blog presentation"
 msgstr "Представяне на блога"
 
-#: src/Process/Backend/BlogPref.php:610
-msgid "Date format:"
-msgstr "Формат на датата:"
-
-#: src/Process/Backend/BlogPref.php:612
-msgid "Pattern of date"
-msgstr "Модел на датата"
-
-#: src/Process/Backend/BlogPref.php:614 src/Process/Backend/BlogPref.php:620
-#: src/Process/Backend/BlogPref.php:873
-msgid "Sample:"
-msgstr "Образец:"
-
-#: src/Process/Backend/BlogPref.php:616
+#: src/Process/Backend/BlogPref.php:702 src/Process/Backend/BlogPref.php:719
 msgid "Time format:"
 msgstr "Формат на времето:"
 
-#: src/Process/Backend/BlogPref.php:618
+#: src/Process/Backend/BlogPref.php:706
+msgid "Pattern of date"
+msgstr "Модел на датата"
+
+#: src/Process/Backend/BlogPref.php:710 src/Process/Backend/BlogPref.php:727
+#: src/Process/Backend/BlogPref.php:1067
+msgid "Sample:"
+msgstr "Образец:"
+
+#: src/Process/Backend/BlogPref.php:723
 msgid "Pattern of time"
 msgstr "Модел на времето"
 
-#: src/Process/Backend/BlogPref.php:624
+#: src/Process/Backend/BlogPref.php:733
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr "Не зареждайте стандартен набор от стилове (използва се за подравняване на медията)"
 
-#: src/Process/Backend/BlogPref.php:628
+#: src/Process/Backend/BlogPref.php:739
 msgid "Display smilies on entries and comments"
 msgstr "Показване на усмивки в записи и коментари"
 
-#: src/Process/Backend/BlogPref.php:632
+#: src/Process/Backend/BlogPref.php:745
 msgid "Disable internal search system"
 msgstr "Деактивиране на системата за вътрешно търсене"
 
-#: src/Process/Backend/BlogPref.php:639
-#, php-format
-msgid "Display %s entries on first page"
-msgstr "Показване на записи в %s на първата страница"
+#: src/Process/Backend/BlogPref.php:755 src/Process/Backend/BlogPref.php:763
+#: src/Process/Backend/BlogPref.php:771 src/Process/Backend/BlogPref.php:779
+msgid "Display"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:651
-#, php-format
-msgid "Display %s entries per page"
-msgstr "Показване на %s записи на страница"
+#: src/Process/Backend/BlogPref.php:756
+msgid "entries on first page"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:663
-#, php-format
-msgid "Display %s entries per feed"
-msgstr "Показване на %s записи за един канал"
+#: src/Process/Backend/BlogPref.php:772
+msgid "entries per feed"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:675
-#, php-format
-msgid "Display %s comments per feed"
-msgstr "Показване на %s коментари за един канал"
+#: src/Process/Backend/BlogPref.php:780
+msgid "comments per feed"
+msgstr ""
 
-#: src/Process/Backend/BlogPref.php:688
+#: src/Process/Backend/BlogPref.php:787
 msgid "Truncate feeds"
 msgstr "Съкращаване на фуражи"
 
-#: src/Process/Backend/BlogPref.php:692
+#: src/Process/Backend/BlogPref.php:793
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "Включване на подкатегории в страницата на категорията и емисията на публикациите в категорията"
 
-#: src/Process/Backend/BlogPref.php:700
+#: src/Process/Backend/BlogPref.php:803
 msgid "Display an entry as static home page"
 msgstr "Показване на даден запис като статична начална страница"
 
-#: src/Process/Backend/BlogPref.php:702
+#: src/Process/Backend/BlogPref.php:812
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "URL адрес на входа (съдържанието му ще се използва за статичната начална страница):"
 
-#: src/Process/Backend/BlogPref.php:704
+#: src/Process/Backend/BlogPref.php:814
 msgid "Choose an entry"
 msgstr "Изберете запис"
 
-#: src/Process/Backend/BlogPref.php:706
+#: src/Process/Backend/BlogPref.php:818
 msgid "Leave empty to use the default presentation."
 msgstr "Оставете празно, за да използвате презентацията по подразбиране."
 
-#: src/Process/Backend/BlogPref.php:710
+#: src/Process/Backend/BlogPref.php:824
 msgid "Media and images"
 msgstr "Медии и изображения"
 
-#: src/Process/Backend/BlogPref.php:714
+#: src/Process/Backend/BlogPref.php:834
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Генерирани размери на изображението (максимален размер в пиксели)"
 
-#: src/Process/Backend/BlogPref.php:717
-msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
-msgstr "Моля, имайте предвид, че ако промените текущите настройки по-долу, те ще се прилагат за всички нови изображения в мениджъра на медиите."
-
-#: src/Process/Backend/BlogPref.php:718
+#: src/Process/Backend/BlogPref.php:837
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Бъдете внимателни, ако го споделяте с други блогове в инсталацията си."
 
-#: src/Process/Backend/BlogPref.php:719
+#: src/Process/Backend/BlogPref.php:837
+msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
+msgstr "Моля, имайте предвид, че ако промените текущите настройки по-долу, те ще се прилагат за всички нови изображения в мениджъра на медиите."
+
+#: src/Process/Backend/BlogPref.php:837
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "Задайте -1, за да използвате размера по подразбиране, задайте 0, за да игнорирате този размер на миниатюрата (само за изображения)."
 
-#: src/Process/Backend/BlogPref.php:720
+#: src/Process/Backend/BlogPref.php:842
 msgid "Thumbnail"
 msgstr "Миниатюра"
 
-#: src/Process/Backend/BlogPref.php:728
+#: src/Process/Backend/BlogPref.php:848
 msgid "Small"
 msgstr "Малък"
 
-#: src/Process/Backend/BlogPref.php:736
+#: src/Process/Backend/BlogPref.php:854
 msgid "Medium"
 msgstr "Среден"
 
-#: src/Process/Backend/BlogPref.php:744
+#: src/Process/Backend/BlogPref.php:863
 msgid "Thumbnail character prefix:"
 msgstr "Префикс на символа на миниатюрата:"
 
-#: src/Process/Backend/BlogPref.php:747
+#: src/Process/Backend/BlogPref.php:867
 msgid "Leave empty to use the default one (.)"
 msgstr "Оставете празен, за да използвате този по подразбиране (.)"
 
-#: src/Process/Backend/BlogPref.php:749
+#: src/Process/Backend/BlogPref.php:871
 msgid "Default size of the inserted video (in pixels)"
 msgstr "Размер по подразбиране на вмъкнатия видеоклип (в пиксели)"
 
-#: src/Process/Backend/BlogPref.php:750
+#: src/Process/Backend/BlogPref.php:876
 msgid "Width"
 msgstr "Ширина"
 
-#: src/Process/Backend/BlogPref.php:758
+#: src/Process/Backend/BlogPref.php:882
 msgid "Height"
 msgstr "Височина"
 
-#: src/Process/Backend/BlogPref.php:768
+#: src/Process/Backend/BlogPref.php:891
 msgid "Default image insertion attributes"
 msgstr "Атрибути за вмъкване на изображения по подразбиране"
 
-#: src/Process/Backend/BlogPref.php:769
+#: src/Process/Backend/BlogPref.php:897
 msgid "Inserted image legend:"
 msgstr "Вмъкната легенда на изображението:"
 
-#: src/Process/Backend/BlogPref.php:773
+#: src/Process/Backend/BlogPref.php:903
 msgid "Use original media date if possible"
 msgstr "Ако е възможно, използвайте оригиналната дата на носителя"
 
-#: src/Process/Backend/BlogPref.php:776
+#: src/Process/Backend/BlogPref.php:909
 msgid "Do not display date if alone in title"
 msgstr "Да не се показва датата, ако е сама в заглавието"
 
-#: src/Process/Backend/BlogPref.php:777
+#: src/Process/Backend/BlogPref.php:914
 msgid "It is retrieved from the picture's metadata."
 msgstr "Тя се извлича от метаданните на снимката."
 
-#: src/Process/Backend/BlogPref.php:779
+#: src/Process/Backend/BlogPref.php:922
 msgid "Size of inserted image:"
 msgstr "Размер на вмъкнатото изображение:"
 
-#: src/Process/Backend/BlogPref.php:786
+#: src/Process/Backend/BlogPref.php:930
 msgid "Image alignment:"
 msgstr "Подравняване на изображенията:"
 
-#: src/Process/Backend/BlogPref.php:791
+#: src/Process/Backend/BlogPref.php:936
 msgid "Insert a link to the original image"
 msgstr "Вмъкване на връзка към оригиналното изображение"
 
-#: src/Process/Backend/BlogPref.php:792
+#: src/Process/Backend/BlogPref.php:943
 msgid "Image legend and alternate text:"
 msgstr "Легенда на изображението и алтернативен текст:"
 
-#: src/Process/Backend/BlogPref.php:801
-msgid "Advanced parameters"
-msgstr "Разширени параметри"
+#: src/Process/Backend/BlogPref.php:952 src/Process/Backend/Media.php:596
+msgid "Blog parameters"
+msgstr "Параметри на блога"
 
-#: src/Process/Backend/BlogPref.php:810
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr "Моля, имайте предвид, че промяната на идентификатора на блога може да изисква промени в публичния ви файл index.php."
-
-#: src/Process/Backend/BlogPref.php:821
-msgid "URL scan method:"
-msgstr "Метод за сканиране на URL:"
-
-#: src/Process/Backend/BlogPref.php:844
+#: src/Process/Backend/BlogPref.php:983
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr "URL адресът на блога или методът за сканиране на URL може да не са добре зададени (<code>%s</code> връща <strong>%s</strong> състояние)."
 
-#: src/Process/Backend/BlogPref.php:855
+#: src/Process/Backend/BlogPref.php:993
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "URL адресът на блога или методът за сканиране на URL може да не са добре зададени (<code>%s</code> не връща ATOM feed)."
 
-#: src/Process/Backend/BlogPref.php:870
+#: src/Process/Backend/BlogPref.php:1026
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr "Моля, имайте предвид, че промяната на идентификатора на блога може да изисква промени в публичния ви файл index.php."
+
+#: src/Process/Backend/BlogPref.php:1045
+msgid "URL scan method:"
+msgstr "Метод за сканиране на URL:"
+
+#: src/Process/Backend/BlogPref.php:1060
 msgid "New post URL format:"
 msgstr "Нов формат на URL адреса на публикацията:"
 
-#: src/Process/Backend/BlogPref.php:873
+#: src/Process/Backend/BlogPref.php:1067
 msgid "Dotclear"
 msgstr "Dotclear"
 
-#: src/Process/Backend/BlogPref.php:876
+#: src/Process/Backend/BlogPref.php:1074
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "HTML таг за заглавието на бележките в блога:"
 
-#: src/Process/Backend/BlogPref.php:883
+#: src/Process/Backend/BlogPref.php:1091
 msgid "Search engines robots policy"
 msgstr "Политика за роботите на търсачките"
 
-#: src/Process/Backend/BlogPref.php:896
+#: src/Process/Backend/BlogPref.php:1096
 msgid "Legacy javascript library"
 msgstr "Наследствена библиотека на javascript"
 
-#: src/Process/Backend/BlogPref.php:899
+#: src/Process/Backend/BlogPref.php:1102
 msgid "Load the Legacy JS library"
 msgstr "Зареждане на библиотеката Legacy JS"
 
-#: src/Process/Backend/BlogPref.php:902
+#: src/Process/Backend/BlogPref.php:1108
 msgid "jQuery javascript library"
 msgstr "библиотека jQuery javascript"
 
-#: src/Process/Backend/BlogPref.php:905
+#: src/Process/Backend/BlogPref.php:1114
 msgid "Load the jQuery library"
 msgstr "Зареждане на библиотеката jQuery"
 
-#: src/Process/Backend/BlogPref.php:907
+#: src/Process/Backend/BlogPref.php:1121
 msgid "jQuery version to be loaded for this blog:"
 msgstr "Версията на jQuery, която трябва да бъде заредена за този блог:"
 
-#: src/Process/Backend/BlogPref.php:912
+#: src/Process/Backend/BlogPref.php:1127
 msgid "Blog security"
 msgstr "Сигурност на блога"
 
-#: src/Process/Backend/BlogPref.php:915
+#: src/Process/Backend/BlogPref.php:1133
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Защита на блога от Clickjacking (вж. <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Уикипедия</a>)"
 
-#: src/Process/Backend/BlogPref.php:920
+#: src/Process/Backend/BlogPref.php:1139
+msgid "Advanced parameters"
+msgstr "Разширени параметри"
+
+#: src/Process/Backend/BlogPref.php:1146
 msgid "Plugins parameters"
 msgstr "Параметри на плъгините"
 
-#: src/Process/Backend/BlogPref.php:944
+#: src/Process/Backend/BlogPref.php:1187
 msgid "Only superadmin can delete a blog."
 msgstr "Само суперадминистратор може да изтрие блог."
 
-#: src/Process/Backend/BlogPref.php:958
-msgid "Users on this blog"
-msgstr "Потребители на този блог"
+#: src/Process/Backend/BlogPref.php:1192
+msgid "Parameters"
+msgstr "Параметри"
 
-#: src/Process/Backend/BlogPref.php:961
+#: src/Process/Backend/BlogPref.php:1211
 msgid "No users"
 msgstr "Няма потребители"
 
-#: src/Process/Backend/BlogPref.php:1002
-msgid "Publications on this blog:"
-msgstr "Публикации в този блог:"
-
-#: src/Process/Backend/BlogPref.php:1009
+#: src/Process/Backend/BlogPref.php:1253
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1014
-msgid "Permissions:"
-msgstr "Разрешения:"
-
-#: src/Process/Backend/BlogPref.php:1017 src/Process/Backend/User.php:321
+#: src/Process/Backend/BlogPref.php:1262 src/Process/Backend/User.php:321
 msgid "Super administrator"
 msgstr "Супер администратор"
 
-#: src/Process/Backend/BlogPref.php:1018
+#: src/Process/Backend/BlogPref.php:1264
 msgid "All rights on all blogs."
 msgstr "Всички права върху всички блогове."
 
-#: src/Process/Backend/BlogPref.php:1024
+#: src/Process/Backend/BlogPref.php:1274
+msgid "All rights on this blog."
+msgstr "Всички права върху този блог."
+
+#: src/Process/Backend/BlogPref.php:1290
 #: src/Process/Backend/UsersActions.php:338
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (разрешение без препратка)"
 
-#: src/Process/Backend/BlogPref.php:1028
-msgid "All rights on this blog."
-msgstr "Всички права върху този блог."
-
-#: src/Process/Backend/BlogPref.php:1039 src/Process/Backend/User.php:471
+#: src/Process/Backend/BlogPref.php:1309 src/Process/Backend/User.php:471
 msgid "Change permissions"
 msgstr "Промяна на разрешенията"
+
+#: src/Process/Backend/BlogPref.php:1332
+msgid "Publications on this blog:"
+msgstr "Публикации в този блог:"
+
+#: src/Process/Backend/BlogPref.php:1335
+msgid "Permissions:"
+msgstr "Разрешения:"
+
+#: src/Process/Backend/BlogPref.php:1352
+msgid "Users on this blog"
+msgstr "Потребители на този блог"
 
 #: src/Process/Backend/BlogTheme.php:59
 msgid "The following themes have been disabled :"
@@ -5309,26 +5333,6 @@ msgstr "Потребителят е създаден успешно."
 #: src/Process/Backend/User.php:203
 msgid "User has no permission, he will not be able to login yet. See below to add some."
 msgstr "Потребителят няма разрешение, той все още няма да може да влезе в системата. Вижте по-долу, за да добавите някои от тях."
-
-#: src/Process/Backend/User.php:224 src/Process/Backend/User.php:225
-#: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:498
-#: src/Process/Backend/UserPreferences.php:499
-#: src/Process/Backend/UserPreferences.php:500
-#: src/Process/Install/Install.php:417 src/Process/Install/Install.php:418
-#: src/Process/Install/Install.php:419
-#, php-format
-msgid "Password strength: %s"
-msgstr "Сила на паролата: %s"
-
-#: src/Process/Backend/User.php:224 src/Process/Backend/UserPreferences.php:498
-#: src/Process/Install/Install.php:417
-msgid "weak"
-msgstr "слаб"
-
-#: src/Process/Backend/User.php:226 src/Process/Backend/UserPreferences.php:500
-#: src/Process/Install/Install.php:419
-msgid "strong"
-msgstr "силен"
 
 #: src/Process/Backend/User.php:254
 msgid "User profile"
