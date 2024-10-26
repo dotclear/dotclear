@@ -1,3 +1,5 @@
+@use "../init/config";
+
 table {
   .maximal {
     overflow: hidden;
@@ -159,7 +161,7 @@ td.expand {
   display: none;
 }
 
-@media screen and (width <= $mobile-screen), print and (width <= 5in) {
+@media screen and (width <= config.$mobile-screen), print and (width <= 5in) {
   table.rch {
     display: block;
 

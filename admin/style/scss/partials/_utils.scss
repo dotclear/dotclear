@@ -1,3 +1,5 @@
+@use "../init/config";
+
 /* ---------------------------------------------- Couleurs ajoutées via javascript
 
 /* Sortable (jQuery UI) */
@@ -79,7 +81,7 @@ tr.ui-sortable-handle {
   right: -10px;
 }
 
-@media screen and (width <= $mobile-screen) {
+@media screen and (width <= config.$mobile-screen) {
   .badge-block {
     right: -5px;
   }
@@ -95,7 +97,7 @@ tr.ui-sortable-handle {
   right: 1.75em;
 }
 
-@media screen and (width <= $mobile-screen) {
+@media screen and (width <= config.$mobile-screen) {
   .badge-icon {
     top: 5px;
   }

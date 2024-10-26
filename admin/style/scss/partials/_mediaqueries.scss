@@ -1,8 +1,10 @@
+@use "../init/config";
+
 /* ------------------------------------------------------------------------------------
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 
-@media screen and (width <= $laptop-screen) {
+@media screen and (width <= config.$laptop-screen) {
   #header,
   h1 {
     background: var(--header-background-alt);
@@ -29,7 +31,7 @@
   }
 }
 
-@media screen and (width <= $tablet-screen) {
+@media screen and (width <= config.$tablet-screen) {
   #help-button {
     background-color: var(--header-border);
     padding: 0;
@@ -38,7 +40,7 @@
   }
 }
 
-@media screen and (width <= $mobile-screen) {
+@media screen and (width <= config.$mobile-screen) {
   h1 a {
     &:link {
       border-right: 1px solid var(--tabs-border);
@@ -80,7 +82,7 @@
   }
 }
 
-@media screen and (width <= $mobile-screen) {
+@media screen and (width <= config.$mobile-screen) {
   h1,
   h1 a {
     border-right: var(--header-border-alt) !important;

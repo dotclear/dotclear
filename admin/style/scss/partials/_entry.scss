@@ -1,3 +1,5 @@
+@use "../init/config";
+
 #entry-form {
   display: flex;
   flex-wrap: wrap;
@@ -7,7 +9,7 @@
   flex-grow: 1;
   width: calc(100% - 19em);
 
-  @media screen and (width <= $laptop-screen) {
+  @media screen and (width <= config.$laptop-screen) {
     width: 100%;
   }
 }
@@ -15,17 +17,17 @@
 #entry-content {
   margin-left: 0;
 
-  @media screen and (width > $laptop-screen) {
+  @media screen and (width > config.$laptop-screen) {
     // Large padding on big screens
     padding-right: 3em;
   }
 
-  @media screen and (width <= $mobile-screen) {
+  @media screen and (width <= config.$mobile-screen) {
     // Small padding on medium screens
     padding-right: 1em;
   }
 
-  @media screen and (width <= $mobile-screen) {
+  @media screen and (width <= config.$mobile-screen) {
     // No padding on small screens
     padding-right: 0;
   }
@@ -38,7 +40,7 @@
   flex-direction: column;
   margin-bottom: 1em;
 
-  @media screen and (width <= $laptop-screen) {
+  @media screen and (width <= config.$laptop-screen) {
     flex-direction: row;
   }
 

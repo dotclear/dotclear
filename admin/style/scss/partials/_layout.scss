@@ -1,3 +1,5 @@
+@use "../init/config";
+
 // Admin layout
 #dotclear-admin {
   display: flex;
@@ -186,7 +188,7 @@ body.dark-mode.upgrade-mode {
   }
 }
 
-@media screen and (width <= $tablet-screen) {
+@media screen and (width <= config.$tablet-screen) {
   .two-cols,
   .two-cols.clearfix {
     display: block;
@@ -216,7 +218,7 @@ body.dark-mode.upgrade-mode {
   }
 }
 
-@media screen and (width <= $tablet-screen) {
+@media screen and (width <= config.$tablet-screen) {
   .three-cols,
   .three-cols.clearfix {
     display: block;
@@ -383,7 +385,7 @@ body.dark-mode.upgrade-mode {
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 
-@media screen and (width <= $laptop-screen) {
+@media screen and (width <= config.$laptop-screen) {
   #header {
     h1,
     h1 a {
@@ -440,7 +442,7 @@ body.dark-mode.upgrade-mode {
   }
 }
 
-@media screen and (width <= $tablet-screen) {
+@media screen and (width <= config.$tablet-screen) {
   #dashboard-boxes :is(.box.medium, .box.small, .box.large),
   :is(.box.medium, .box.small, .box.large) {
     width: 95%;
@@ -448,7 +450,7 @@ body.dark-mode.upgrade-mode {
   }
 }
 
-@media screen and (width <= $tablet-screen) {
+@media screen and (width <= config.$tablet-screen) {
   #help-button {
     height: 26px;
     width: 26px;
@@ -468,7 +470,7 @@ body.dark-mode.upgrade-mode {
   }
 }
 
-@media screen and (width <= $mobile-screen) {
+@media screen and (width <= config.$mobile-screen) {
   #header h1,
   #header h1 a {
     width: 42px !important;
@@ -525,7 +527,7 @@ body.dark-mode.upgrade-mode {
   }
 }
 
-@media screen and (width <= $mobile-screen) {
+@media screen and (width <= config.$mobile-screen) {
   .nomobile {
     display: none;
   }

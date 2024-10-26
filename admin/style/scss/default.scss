@@ -9,84 +9,84 @@
 /** --------------------------------------------------
     Start
 --------------------------------------------------- */
-@import 'init/rebase'; // init html tags
-@import 'init/config'; // variables
+@use 'init/rebase'; // init html tags
+@use 'init/config'; // variables
 
 /** --------------------------------------------------
   Colors
 --------------------------------------------------- */
-@import 'themes/default'; // Light theme
-@import 'themes/dark'; // Dark theme
-@import 'themes/themes'; // Theme selector
+@use 'themes/default'; // Light theme
+@use 'themes/dark'; // Dark theme
+@use 'themes/themes'; // Theme selector
 
 /** --------------------------------------------------
     Common rules
 --------------------------------------------------- */
-@import 'partials/common'; // headings, links
-@import 'partials/a11y';
+@use 'partials/common'; // headings, links
+@use 'partials/a11y';
 
 /** --------------------------------------------------
     Layout
 --------------------------------------------------- */
-@import 'partials/layout';
+@use 'partials/layout';
 
 /** --------------------------------------------------
     Elements
 --------------------------------------------------- */
-@import 'partials/markup';
-@import 'partials/forms';
-@import 'partials/buttons';
-@import 'partials/messages';
+@use 'partials/markup';
+@use 'partials/forms';
+@use 'partials/buttons';
+@use 'partials/messages';
 
 /** --------------------------------------------------
     Components
 --------------------------------------------------- */
-@import 'partials/header';
-@import 'partials/main-menu';
-@import 'partials/content';
-@import 'partials/footer';
+@use 'partials/header';
+@use 'partials/main-menu';
+@use 'partials/content';
+@use 'partials/footer';
 
 /** --------------------------------------------------
     Tables and Filters
 --------------------------------------------------- */
-@import 'partials/tables';
-@import 'partials/filters';
+@use 'partials/tables';
+@use 'partials/filters';
 
 /** --------------------------------------------------
     Pages
 --------------------------------------------------- */
-@import 'partials/auth';
-@import 'partials/index';
-@import 'partials/blog_pref';
-@import 'partials/blog_theme';
-@import 'partials/categories';
-@import 'partials/media';
-@import 'partials/media_item';
-@import 'partials/plugins';
-@import 'partials/entry';
-@import 'partials/preferences';
-@import 'partials/user';
-@import 'partials/charte';
+@use 'partials/auth';
+@use 'partials/index';
+@use 'partials/blog_pref';
+@use 'partials/blog_theme';
+@use 'partials/categories';
+@use 'partials/media';
+@use 'partials/media_item';
+@use 'partials/plugins';
+@use 'partials/entry';
+@use 'partials/preferences';
+@use 'partials/user';
+@use 'partials/charte';
 
 /** --------------------------------------------------
     Misc
 --------------------------------------------------- */
-@import 'partials/classes';
-@import 'partials/utils';
-@import 'partials/mediaqueries';
+@use 'partials/classes';
+@use 'partials/utils';
+@use 'partials/mediaqueries';
 
 /** --------------------------------------------------
   Plugins
 --------------------------------------------------- */
-@import 'partials/editors';
+@use 'partials/editors';
 
 /** --------------------------------------------------
   3rd parties
 --------------------------------------------------- */
-@import 'vendor/magnific-popup';
-@import 'vendor/codemirror';
+@use 'vendor/magnific-popup';
+@use 'vendor/codemirror';
 
 /** --------------------------------------------------
     Debug
 --------------------------------------------------- */
-@import 'partials/debug';
+@use 'partials/debug';

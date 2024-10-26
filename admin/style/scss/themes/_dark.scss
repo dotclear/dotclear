@@ -1,3 +1,4 @@
+@use "sass:color";
 // ========================================================================== //
 // =Couleurs
 // ========================================================================== //
@@ -15,12 +16,12 @@
   $gray: #b2b5ba;
   $gray-dark: #676e78;
 
-  $gray-very-dark: scale-color($gray, $lightness: -72%);
-  $gray-darker: scale-color($gray, $lightness: -50%);
-  $gray-semi-dark: scale-color($gray, $lightness: -25%);
-  $gray-light: scale-color($gray, $lightness: 30%);
-  $gray-lighter: scale-color($gray, $lightness: 75%);
-  $gray-very-light: scale-color($gray, $lightness: 85%);
+  $gray-very-dark: color.scale($gray, $lightness: -72%);
+  $gray-darker: color.scale($gray, $lightness: -50%);
+  $gray-semi-dark: color.scale($gray, $lightness: -25%);
+  $gray-light: color.scale($gray, $lightness: 30%);
+  $gray-lighter: color.scale($gray, $lightness: 75%);
+  $gray-very-light: color.scale($gray, $lightness: 85%);
 
   $white: #fff;
   $black: #000;
@@ -113,10 +114,10 @@
   --tabs-active-color: #{$white};
   --tabs-active-background: #{$gray-semi-dark};
 
-  --main-menu-background: #{scale-color($gray-darker, $lightness: -15%)};
+  --main-menu-background: #{color.scale($gray-darker, $lightness: -15%)};
   --main-menu-title-color: #{$gray-light};
   --main-menu-item-color: var(--body-color);
-  --main-menu-item-border: #{scale-color($gray-dark, $lightness: 66%)};
+  --main-menu-item-border: #{color.scale($gray-dark, $lightness: 66%)};
   --main-menu-active-color: #{$white};
   --main-menu-active-background: #{$gray-semi-dark};
   --main-menu-border: #{$light-blue};
@@ -128,7 +129,7 @@
   --search-outline: #{$link-outline};
 
   --footer-background: var(--body-background);
-  --footer-border: #{scale-color($gray-dark, $lightness: 66%)};
+  --footer-border: #{color.scale($gray-dark, $lightness: 66%)};
 
   --collapser-focus: #{$green};
   --collapser-background: #{$green};
@@ -148,14 +149,14 @@
   --title-label-color: #{$gray-lighter};
 
   --table-caption-color: var(--body-color);
-  --head-border: #{scale-color($gray-very-light, $lightness: -10%)};
+  --head-border: #{color.scale($gray-very-light, $lightness: -10%)};
   --head-background: #{$gray-darker};
   --line-input-background: #{$gray-light};
-  --line-focus-background: #{scale-color($gray-darker, $lightness: -15%)};
+  --line-focus-background: #{color.scale($gray-darker, $lightness: -15%)};
   --cell-border: #{$gray-lighter};
-  --cell-noborder-color: #{scale-color($gray-very-light, $lightness: -10%)};
+  --cell-noborder-color: #{color.scale($gray-very-light, $lightness: -10%)};
 
-  --hr-color: #{scale-color($gray-dark, $lightness: 66%)};
+  --hr-color: #{color.scale($gray-dark, $lightness: 66%)};
 
   --code-color: var(--body-background);
   --code-background: #{$code};
@@ -169,9 +170,9 @@
 
   // Forms
 
-  --fieldset-border: #{scale-color($gray-dark, $lightness: 66%)};
+  --fieldset-border: #{color.scale($gray-dark, $lightness: 66%)};
   --fieldset-background: var(--body-background);
-  --fieldset-focus-background: #{scale-color($soft-gray, $lightness: 7%)};
+  --fieldset-focus-background: #{color.scale($soft-gray, $lightness: 7%)};
 
   --invalid-input-color: #{$black};
   --invalid-input-border: #{$error-alt};
@@ -179,7 +180,7 @@
 
   --input-color: #{$black};
   --input-background: #{$gray-lighter};
-  --input-border: #{scale-color($gray-dark, $lightness: 10%)};
+  --input-border: #{color.scale($gray-dark, $lightness: 10%)};
   --input-focus: #{$link-outline};
 
   --input-file-color: var(--body-color);
@@ -232,17 +233,17 @@
   --addmeta-color: #{$white};
   --addmeta-background: transparent;
   --addmeta-focus-color: #{$black};
-  --addmeta-focus-background: #{scale-color($light-blue, $lightness: 10%)};
+  --addmeta-focus-background: #{color.scale($light-blue, $lightness: 10%)};
 
   // Messages
 
   --msg-color: #{$white};
   --msg-background: #{$gray-dark};
-  --msg-background-alt: #{scale-color($gray-dark, $lightness: 66%)};
+  --msg-background-alt: #{color.scale($gray-dark, $lightness: 66%)};
 
   --msg-info-color: #{$white};
-  --msg-info-background: #{scale-color($gray-darker, $lightness: -15%)};
-  --msg-info-border: #{scale-color($gray-darker, $lightness: -15%)};
+  --msg-info-background: #{color.scale($gray-darker, $lightness: -15%)};
+  --msg-info-border: #{color.scale($gray-darker, $lightness: -15%)};
 
   --msg-warn-color: #{$gray-very-dark};
   --msg-warn-background: #{$warning};
@@ -266,7 +267,7 @@
 
   --filter-border: #{$light-blue};
   --filter-options-border: #{$gray-light};
-  --filter-focus-background: #{scale-color($gray-darker, $lightness: -15%)};
+  --filter-focus-background: #{color.scale($gray-darker, $lightness: -15%)};
 
   // Prelude
 
@@ -309,25 +310,25 @@
   --index-icon-contrast: 130%;
 
   --quick-background: #{$gray-very-dark};
-  --quick-border: #{scale-color($gray-very-light, $lightness: -10%)};
+  --quick-border: #{color.scale($gray-very-light, $lightness: -10%)};
   --quick-info-background: #{$info};
   --quick-info-border: #{$info-alt};
   --quick-info-color: #{$gray-very-dark};
 
-  --index-box-border: #{scale-color($gray-dark, $lightness: 66%)};
+  --index-box-border: #{color.scale($gray-dark, $lightness: 66%)};
 
   --drag-n-drop-off: #{$gray-semi-dark};
   --drag-n-drop-on: #{$success};
 
   // - Blog params
 
-  --blog-user-border: #{scale-color($gray-dark, $lightness: 66%)};
+  --blog-user-border: #{color.scale($gray-dark, $lightness: 66%)};
   --blog-super-background: #{rgba($info, 0.15)};
   --blog-super-border: #{$link-outline};
 
   // - Blog theme
 
-  --theme-box-border: #{scale-color($gray-very-light, $lightness: -10%)};
+  --theme-box-border: #{color.scale($gray-very-light, $lightness: -10%)};
   --theme-box-over: #{$gray-darker};
 
   --theme-name-color: #{$gray-light};
@@ -348,8 +349,8 @@
 
   --cat-placeholder-outline: #{$link};
 
-  --cat-line-border: #{scale-color($gray-dark, $lightness: 66%)};
-  --subcat-line-border: #{scale-color($gray-very-light, $lightness: -10%)};
+  --cat-line-border: #{color.scale($gray-dark, $lightness: 66%)};
+  --subcat-line-border: #{color.scale($gray-very-light, $lightness: -10%)};
 
   // - Media
 
@@ -357,15 +358,15 @@
   --media-folder-border: #{$gray-lighter};
   --media-folderup-border: transparent;
   --media-folder-link: #{$gray-light};
-  --media-item-border: #{scale-color($gray-very-light, $lightness: -10%)};
+  --media-item-border: #{color.scale($gray-very-light, $lightness: -10%)};
   --media-item-border-private: #{$red};
-  --media-files-border: #{scale-color($gray-very-light, $lightness: -10%)};
-  --media-item-active-background: #{scale-color($gray, $lightness: -66%)};
+  --media-files-border: #{color.scale($gray-very-light, $lightness: -10%)};
+  --media-item-active-background: #{color.scale($gray, $lightness: -66%)};
 
-  --upload-color: #{scale-color($success-alt, $lightness: -45%)};
+  --upload-color: #{color.scale($success-alt, $lightness: -45%)};
   --upload-progress-color: #{$white};
-  --upload-progress-background: #{scale-color($success-alt, $lightness: -45%)};
-  --upload-file-border: #{scale-color($gray-very-light, $lightness: -10%)};
+  --upload-progress-background: #{color.scale($success-alt, $lightness: -45%)};
+  --upload-file-border: #{color.scale($gray-very-light, $lightness: -10%)};
   --upload-error-color: #{$error-alt};
 
   // - Plugins
@@ -376,27 +377,27 @@
   // - Entry
 
   --entry-sb-title-border: #{$white};
-  --entry-sb-background: #{scale-color($gray-darker, $lightness: -15%)};
+  --entry-sb-background: #{color.scale($gray-darker, $lightness: -15%)};
   --entry-sb-focus-background: #{$gray-darker};
 
   // - Preferences
 
   --fav-list-border: #{$gray-lighter};
-  --fav-list-border-alt: #{scale-color($gray-very-light, $lightness: -10%)};
+  --fav-list-border-alt: #{color.scale($gray-very-light, $lightness: -10%)};
 
   --my-favs-border: #{$green};
 
   // - Charte
 
   --charte-title: #{$orange};
-  --charte-one-box-border: #{scale-color($gray-very-light, $lightness: -10%)};
+  --charte-one-box-border: #{color.scale($gray-very-light, $lightness: -10%)};
 
   // Classes
 
   --ac-results-background: #{$gray-very-dark};
   --ac-results-border: #{$warning-alt};
   --ac-results-over: #{$white};
-  --ac-results-over-background: #{scale-color($link, $lightness: -20%)};
+  --ac-results-over-background: #{color.scale($link, $lightness: -20%)};
 
   --nav-background: var(--body-background);
   --nav-prevnext: #{$link};
@@ -409,10 +410,10 @@
   --pager-link: #{$link};
   --pager-active: #{$gray-light};
   --pager-background: #{$gray-very-light};
-  --pager-background-over: #{scale-color($gray-very-light, $lightness: -10%)};
+  --pager-background-over: #{color.scale($gray-very-light, $lightness: -10%)};
   --pager-off-background: #{$white};
   --pager-input-background: #{$white};
-  --pager-border: #{scale-color($gray-very-light, $lightness: -10%)};
+  --pager-border: #{color.scale($gray-very-light, $lightness: -10%)};
 
   --index-no-link: #{$gray-light};
   --index-active: #{$white};
@@ -420,7 +421,7 @@
 
   --step: #{$gray-dark};
   --step-background: #{$gray-very-light};
-  --step-border: #{scale-color($gray-dark, $lightness: 66%)};
+  --step-border: #{color.scale($gray-dark, $lightness: 66%)};
 
   --offline: #{$gray-semi-dark};
   --offline-background: #{$gray-very-dark};
