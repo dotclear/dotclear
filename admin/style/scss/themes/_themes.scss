@@ -1,5 +1,5 @@
-@use "dark";
-@use "default";
+@use 'dark';
+@use 'default';
 
 // ========================================================================== //
 // =Themes
@@ -7,16 +7,16 @@
 
 :root,
 :root[data-theme='light'] {
-  @include default.theme-light;
+  @include default.theme;
 }
 
 :root[data-theme='dark'] {
-  @include dark.theme-dark;
+  @include dark.theme;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    @include dark.theme-dark;
+    @include dark.theme;
   }
 }
 
