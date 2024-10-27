@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcCore;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
@@ -121,8 +120,6 @@ class Auth implements AuthInterface
 
     /**
      * Class constructor.
-     *
-     * Takes dcCore object as single argument in DC_AUTH_CLASS.
      *
      * @param   BlogInterface               $blog           The blog instance
      * @param   BlogsInterface              $blogs          The blogs handler
