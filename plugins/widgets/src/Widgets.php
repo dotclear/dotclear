@@ -233,7 +233,7 @@ class Widgets
             $widget->class,
             'id="search"',
             ($widget->title ? $widget->renderTitle(
-                (new Label(Html::escapeHTML($widget->title)))->for('q')->render()
+                (new Label(Html::escapeHTML($widget->title), Label::OL_TF))->for('q')->render()
                 //'<label for="q">' . Html::escapeHTML($widget->title) . '</label>'
             ) : '') .
             '<form action="' . App::blog()->url() . '" method="get" role="search">' .
