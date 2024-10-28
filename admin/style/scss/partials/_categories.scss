@@ -40,16 +40,17 @@
     align-items: center;
   }
 
-  .cat-line {
-    border: 1px solid var(--subcat-line-border);
+  .cat-title {
+    a {
+      font-weight: bold;
+    }
   }
 
   .cat-buttons {
     margin-inline-start: auto;
   }
-  label {
-    a {
-      font-weight: bold;
-    }
+
+  .cat-line {
+    border: 1px solid var(--subcat-line-border);
   }
 }

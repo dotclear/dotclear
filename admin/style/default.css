@@ -3946,14 +3946,14 @@ On adapte largeur et hauteur en fonction
   gap: 0.5em;
   align-items: center;
 }
-.cat-line .cat-line {
-  border: 1px solid var(--subcat-line-border);
+.cat-line .cat-title a {
+  font-weight: bold;
 }
 .cat-line .cat-buttons {
   margin-inline-start: auto;
 }
-.cat-line label a {
-  font-weight: bold;
+.cat-line .cat-line {
+  border: 1px solid var(--subcat-line-border);
 }
 
 span.media-file-mode {

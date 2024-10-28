@@ -15,12 +15,26 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
- * @since 2.27 Before as admin/cateogires.php
+ * @since 2.27 Before as admin/categories.php
  */
 class Categories extends Process
 {
@@ -160,96 +174,182 @@ class Categories extends Process
 
         $categories_combo = Combos::getCategoriesCombo($rs);
 
-        echo
-        '<p class="top-add"><a class="button add" href="' . App::backend()->url()->get('admin.category') . '">' . __('New category') . '</a></p>';
+        echo (new Para())
+            ->class('top-add')
+            ->items([
+                (new Link())
+                    ->class(['button', 'add'])
+                    ->href(App::backend()->url()->get('admin.category'))
+                    ->text(__('New category')),
+            ])
+            ->render();
 
-        echo
-        '<div class="col">';
+        $parts = [];
+
         if ($rs->isEmpty()) {
-            echo '<p>' . __('No category so far.') . '</p>';
+            $parts[] = (new Note())
+                ->text(__('No category so far.'));
         } else {
-            echo
-            '<form action="' . App::backend()->url()->get('admin.categories') . '" method="post" id="form-categories">' .
-            '<div id="categories">';
+            // List of categories
+            $list = (new Div('categories'))
+                ->items([
+                    self::categorieList(1, $rs, $categories_combo),
+                ]);
 
-            $ref_level = $level = $rs->level - 1;
-            while ($rs->fetch()) {
-                $attr = 'id="cat_' . $rs->cat_id . '" class="cat-line clearfix"';
-
-                if ($rs->level > $level) {
-                    echo str_repeat('<ul><li ' . $attr . '>', (int) ($rs->level - $level));
-                } elseif ($rs->level < $level) {
-                    echo str_repeat('</li></ul>', (int) -($rs->level - $level));
-                }
-
-                if ($rs->level <= $level) {
-                    echo '</li><li ' . $attr . '>';
-                }
-
-                echo
-                '<p class="cat-title"><label class="classic" for="cat_' . $rs->cat_id . '"><a href="' . App::backend()->url()->get('admin.category', ['id' => $rs->cat_id]) . '">' . Html::escapeHTML($rs->cat_title) . '</a></label> </p>' .
-                '<p class="cat-nb-posts">(<a href="' . App::backend()->url()->get('admin.posts', ['cat_id' => $rs->cat_id]) . '">' . sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry')), $rs->nb_post) . '</a>' . ', ' . __('total:') . ' ' . $rs->nb_total . ')</p>' .
-                '<p class="cat-url">' . __('URL:') . ' <code>' . Html::escapeHTML($rs->cat_url) . '</code></p>';
-
-                echo
-                '<p class="cat-buttons form-buttons">';
-                if ($rs->nb_total > 0) {
-                    // remove current category
-                    echo
-                    '<label for="mov_cat_' . $rs->cat_id . '">' . __('Move entries to') . '</label> ' .
-                    form::combo(['mov_cat[' . $rs->cat_id . ']', 'mov_cat_' . $rs->cat_id], array_filter(
-                        $categories_combo,
-                        fn ($cat) => $cat->value != ($rs->cat_id ?? '0')
-                    ), '', '') .
-                    ' <input type="submit" class="reset" name="mov[' . $rs->cat_id . ']" value="' . __('OK') . '">';
-
-                    $attr_disabled = ' disabled="disabled"';
-                    $input_class   = 'disabled ';
-                } else {
-                    $attr_disabled = '';
-                    $input_class   = '';
-                }
-                echo
-                ' <input type="submit"' . $attr_disabled . ' class="' . $input_class . 'delete" name="delete[' . $rs->cat_id . ']" value="' . __('Delete category') . '">' .
-                '</p>';
-
-                $level = $rs->level;
-            }
-
-            if ($ref_level - $level < 0) {
-                echo str_repeat('</li></ul>', (int) -($ref_level - $level));
-            }
-            echo
-            '</div>';
-
-            echo '<div class="clear">';
+            // Actions
+            $actions = [];
+            $message = (new None());
 
             if (App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id()) && $rs->count() > 1) {
                 if (!App::auth()->prefs()->accessibility->nodragdrop) {
-                    echo '<p class="form-note hidden-if-no-js">' . __('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.') . '</p>';
+                    $message = (new Note())
+                        ->class(['form-note', 'hidden-if-no-js'])
+                        ->text(__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.'));
                 }
-                echo
-                '<p class="form-buttons"><span class="hidden-if-no-js">' .
-                '<input type="hidden" id="categories_order" name="categories_order" value="">' .
-                '<input type="submit" name="save_order" id="save-set-order" value="' . __('Save categories order') . '">' .
-                '</span> ';
-            } else {
-                echo '<p class="form-buttons">';
+
+                $actions[] = (new Set())
+                    ->items([
+                        (new Para(null, 'span'))
+                            ->class('hidden-if-no-js')
+                            ->items([
+                                (new Hidden('categories_order', '')),
+                                (new Submit(['save_order', 'save-set-order'], __('Save categories order'))),
+                            ]),
+                    ]);
             }
 
-            echo
-            '<input type="submit" class="reset" name="reset" value="' . __('Reorder all categories on the top level') . '">' .
-            '<input type="hidden" name="process" value="Categories">' .
-            App::nonce()->getFormNonce() .
-            '</p>' .
-            '</div></form>';
+            $actions[] = (new Set())
+                ->items([
+                    (new Submit(['reset'], __('Reorder all categories on the top level')))
+                        ->class('reset'),
+                    (new Hidden(['process'], 'Categories')),
+                ]);
+
+            $action = (new Div())
+                ->items([
+                    $message,
+                    (new Para())
+                        ->class('form-buttons')
+                        ->items([
+                            ...$actions,
+                            App::nonce()->formNonce(),
+                        ]),
+                ]);
+
+            $parts[] = (new Form('form-categories'))
+                ->action(App::backend()->url()->get('admin.categories'))
+                ->method('post')
+                ->fields([
+                    $list,
+                    $action,
+                ]);
         }
 
-        echo '</div>';
+        echo (new Div())
+            ->items($parts)
+        ->render();
 
         Page::helpBlock('core_categories');
         Page::close();
+    }
+
+    /**
+     * Return Ul with current level categories as LI
+     *
+     * @param      int                            $level             The level
+     * @param      MetaRecord                     $rs                The recordset
+     * @param      array                          $categories_combo  The categories combo
+     *
+     * @return     Ul|None
+     */
+    private static function categorieList(int $level, MetaRecord $rs, array $categories_combo): Ul|None
+    {
+        $categories = [];
+        while (!$rs->isEnd() && $rs->fetch()) {
+            if ((int) $rs->level < $level) {
+                // Back to upper level
+                if ($rs->isEnd()) {
+                    $rs->moveEnd();
+                }
+                $rs->movePrev();
+
+                break;
+            }
+
+            $categories[] = self::categorieLine($rs, $categories_combo);
+        }
+
+        return count($categories) ?
+            (new Ul())->items($categories) :
+            (new None());
+    }
+
+    private static function categorieLine(MetaRecord $rs, array $categories_combo): Li
+    {
+        // Category info
+        $category = (new Set())
+            ->items([
+                (new Para())
+                    ->class(['cat-title', 'form-buttons'])
+                    ->items([
+                        (new Link())
+                            ->href(App::backend()->url()->get('admin.category', ['id' => $rs->cat_id]))
+                            ->text(Html::escapeHTML($rs->cat_title)),
+                    ]),
+                (new Para())
+                    ->class(['cat-nb-posts'])
+                    ->items([
+                        (new Text(null, '(')),
+                        (new Link())
+                            ->href(App::backend()->url()->get('admin.posts', ['cat_id' => $rs->cat_id]))
+                            ->text(sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry')), $rs->nb_post)),
+                        (new Text(null, ', ' . __('total:') . ' ' . $rs->nb_total . ')')),
+                    ]),
+                (new Para())
+                    ->class(['cat_url', 'form-buttons'])
+                    ->items([
+                        (new Text(null, __('URL:'))),
+                        (new Text('code', Html::escapeHTML($rs->cat_url))),
+                    ]),
+            ]);
+
+        // Move entries button
+        if ($rs->nb_total > 0) {
+            $move = (new Set())
+                ->items([
+                    (new Select(['mov_cat[' . $rs->cat_id . ']', 'mov_cat_' . $rs->cat_id]))
+                        ->items(array_filter($categories_combo, fn ($cat) => $cat->value != ($rs->cat_id ?? '0')))
+                        ->label(new Label(__('Move entries to'), Label::IL_TF)),
+                    (new Submit(['mov[' . $rs->cat_id . ']'], __('Ok'))),
+                ]);
+        } else {
+            $move = (new None());
+        }
+
+        // Delete button
+        $classes = ['delete'];
+        $delete  = (new Submit(['delete[' . $rs->cat_id . ']'], __('Delete category')));
+        if ($rs->nb_total > 0) {
+            $delete
+                ->disabled(true);
+            $classes[] = 'disabled';
+        }
+        $delete
+            ->class($classes);
+
+        return (new Li('cat_' . $rs->cat_id))
+            ->class(['cat-line', 'clearfix'])
+            ->items([
+                $category,
+                (new Para())
+                    ->class(['cat-buttons', 'form-buttons'])
+                    ->items([
+                        $move,
+                        $delete,
+                    ]),
+                static::categorieList((int) $rs->level + 1, $rs, $categories_combo),
+            ]);
     }
 }
