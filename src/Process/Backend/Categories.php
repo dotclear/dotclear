@@ -172,7 +172,7 @@ class Categories extends Process
             Notices::success(__('Entries have been successfully moved to the category you choose.'));
         }
 
-        $categories_combo = Combos::getCategoriesCombo($rs);
+        App::backend()->categories_combo = Combos::getCategoriesCombo($rs);
 
         echo (new Para())
             ->class('top-add')
@@ -193,7 +193,7 @@ class Categories extends Process
             // List of categories
             $list = (new Div('categories'))
                 ->items([
-                    self::categorieList(1, $rs, $categories_combo),
+                    self::categorieList(1, $rs),
                 ]);
 
             // Actions
@@ -256,21 +256,21 @@ class Categories extends Process
     }
 
     /**
-     * Return Ul with current level categories as LI
+     * Return Ul with current level categories as LI or None if nothing to list
      *
      * @param      int                            $level             The level
      * @param      MetaRecord                     $rs                The recordset
-     * @param      array                          $categories_combo  The categories combo
      *
      * @return     Ul|None
      */
-    private static function categorieList(int $level, MetaRecord $rs, array $categories_combo): Ul|None
+    private static function categorieList(int $level, MetaRecord $rs): Ul|None
     {
         $categories = [];
         while (!$rs->isEnd() && $rs->fetch()) {
             if ((int) $rs->level < $level) {
                 // Back to upper level
-                if ($rs->isEnd()) {
+                if ($rs->isEnd()) { // @phpstan-ignore-line
+                    // Clear end of recordset flag
                     $rs->moveEnd();
                 }
                 $rs->movePrev();
@@ -278,7 +278,7 @@ class Categories extends Process
                 break;
             }
 
-            $categories[] = self::categorieLine($rs, $categories_combo);
+            $categories[] = self::categorieLine($rs);
         }
 
         return count($categories) ?
@@ -286,7 +286,14 @@ class Categories extends Process
             (new None());
     }
 
-    private static function categorieLine(MetaRecord $rs, array $categories_combo): Li
+    /**
+     * Return an LI with the category, including sub-categories if any
+     *
+     * @param      MetaRecord                     $rs                The recordset
+     *
+     * @return     Li
+     */
+    private static function categorieLine(MetaRecord $rs): Li
     {
         // Category info
         $category = (new Set())
@@ -316,16 +323,18 @@ class Categories extends Process
             ]);
 
         // Move entries button
+        $move = (new None());
         if ($rs->nb_total > 0) {
-            $move = (new Set())
-                ->items([
-                    (new Select(['mov_cat[' . $rs->cat_id . ']', 'mov_cat_' . $rs->cat_id]))
-                        ->items(array_filter($categories_combo, fn ($cat) => $cat->value != ($rs->cat_id ?? '0')))
-                        ->label(new Label(__('Move entries to'), Label::IL_TF)),
-                    (new Submit(['mov[' . $rs->cat_id . ']'], __('Ok'))),
-                ]);
-        } else {
-            $move = (new None());
+            $options = array_filter(App::backend()->categories_combo, fn ($cat) => $cat->value !== ((string) $rs->cat_id));
+            if (!is_null($options) && count($options)) {
+                $move = (new Set())
+                    ->items([
+                        (new Select(['mov_cat[' . $rs->cat_id . ']', 'mov_cat_' . $rs->cat_id]))
+                            ->items($options)
+                            ->label(new Label(__('Move entries to'), Label::IL_TF)),
+                        (new Submit(['mov[' . $rs->cat_id . ']'], __('Ok'))),
+                    ]);
+            }
         }
 
         // Delete button
@@ -349,7 +358,7 @@ class Categories extends Process
                         $move,
                         $delete,
                     ]),
-                static::categorieList((int) $rs->level + 1, $rs, $categories_combo),
+                self::categorieList((int) $rs->level + 1, $rs),
             ]);
     }
 }
