@@ -235,11 +235,6 @@ class Category extends Process
             Notices::success(__('Category has been successfully updated.'));
         }
 
-        if (!App::backend()->cat_id) {
-            $options = Combos::getCategoriesCombo(App::blog()->getCategories());
-            $parent  = !empty($_POST['new_cat_parent']) && $_POST['new_cat_parent'] ? $_POST['new_cat_parent'] : '';
-        }
-
         echo (new Form('category-form'))
             ->action(App::backend()->url()->get('admin.category'))
             ->method('post')
@@ -265,8 +260,8 @@ class Category extends Process
                     (new Para())
                         ->items([
                             (new Select('new_cat_parent'))
-                                ->items($options)
-                                ->default($parent)
+                                ->items(Combos::getCategoriesCombo(App::blog()->getCategories()))
+                                ->default(!empty($_POST['new_cat_parent']) ? $_POST['new_cat_parent'] : '')
                                 ->label(new Label(__('Parent:'), Label::IL_TF)),
                         ]),
                 (new Div())
