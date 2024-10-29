@@ -13,16 +13,24 @@ namespace Dotclear\Process\Backend;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
+use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
@@ -227,65 +235,82 @@ class Category extends Process
             Notices::success(__('Category has been successfully updated.'));
         }
 
-        echo
-        '<form action="' . App::backend()->url()->get('admin.category') . '" method="post" id="category-form">' .
-        '<h3>' . __('Category information') . '</h3>' .
-        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-        '<p><label class="required" for="cat_title"><span>*</span> ' . __('Name:') . '</label> ' .
-        \form::field('cat_title', 40, 255, [
-            'default'    => Html::escapeHTML(App::backend()->cat_title),
-            'extra_html' => 'required placeholder="' . __('Name') . '" lang="' . App::backend()->blog_lang . '" spellcheck="true"',
-        ]) .
-        '</p>';
-
         if (!App::backend()->cat_id) {
-            $rs = App::blog()->getCategories();
-            echo
-            '<p><label for="new_cat_parent">' . __('Parent:') . ' ' .
-            '<select id="new_cat_parent" name="new_cat_parent" >' .
-            '<option value="0">' . __('(none)') . '</option>';
-            while ($rs->fetch()) {
-                echo
-                '<option value="' . $rs->cat_id . '" ' . (!empty($_POST['new_cat_parent']) && $_POST['new_cat_parent'] == $rs->cat_id ? 'selected="selected"' : '') . '>' . str_repeat('&nbsp;&nbsp;', (int) $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . Html::escapeHTML($rs->cat_title) . '</option>';
-            }
-            echo
-            '</select></label></p>';
-            unset($rs);
+            $options = Combos::getCategoriesCombo(App::blog()->getCategories());
+            $parent  = !empty($_POST['new_cat_parent']) && $_POST['new_cat_parent'] ? $_POST['new_cat_parent'] : '';
         }
-        echo
-        '<div class="lockable">' .
-        '<p><label for="cat_url">' . __('URL:') . '</label> '
-        . \form::field('cat_url', 40, 255, Html::escapeHTML(App::backend()->cat_url)) .
-        '</p>' .
-        '<p class="form-note warn" id="note-cat-url">' .
-        __('Warning: If you set the URL manually, it may conflict with another category.') . '</p>' .
-        '</div>' .
 
-        '<p class="area"><label for="cat_desc">' . __('Description:') . '</label> ' .
-        \form::textarea(
-            'cat_desc',
-            50,
-            8,
-            [
-                'default'    => Html::escapeHTML(App::backend()->cat_desc),
-                'extra_html' => 'lang="' . App::backend()->blog_lang . '" spellcheck="true"',
-            ]
-        ) .
-        '</p>' .
-
-        '<p class="form-buttons"><input type="submit" accesskey="s" value="' . __('Save') . '">' .
-        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-        (App::backend()->cat_id ? \form::hidden('id', App::backend()->cat_id) : '') .
-        App::nonce()->getFormNonce() .
-        '</p>' .
-        '</form>';
+        echo (new Form('category-form'))
+            ->action(App::backend()->url()->get('admin.category'))
+            ->method('post')
+            ->fields([
+                (new Text('h3', __('Category information'))),
+                (new Note())
+                    ->class('form-note')
+                    ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                (new Para())
+                    ->items([
+                        (new Input('cat_title'))
+                            ->size(40)
+                            ->maxlength(255)
+                            ->default(Html::escapeHTML(App::backend()->cat_title))
+                            ->required(true)
+                            ->placeholder(__('Name'))
+                            ->lang(App::backend()->blog_lang)
+                            ->spellcheck(true)
+                            ->label((new Label((new Text('span', '*'))->render() . __('Name:'), Label::OL_TF))->class('required')),
+                    ]),
+                App::backend()->cat_id ?
+                    (new None()) :
+                    (new Para())
+                        ->items([
+                            (new Select('new_cat_parent'))
+                                ->items($options)
+                                ->default($parent)
+                                ->label(new Label(__('Parent:'), Label::IL_TF)),
+                        ]),
+                (new Div())
+                    ->class('lockable')
+                    ->items([
+                        (new Para())
+                            ->items([
+                                (new Input('cat_url'))
+                                    ->size(40)
+                                    ->maxlength(255)
+                                    ->default(Html::escapeHTML(App::backend()->cat_url))
+                                    ->label(new Label(__('URL:'), Label::OL_TF)),
+                            ]),
+                        (new Note('note-cat-url'))
+                            ->class(['form-note', 'warn'])
+                            ->text(__('Warning: If you set the URL manually, it may conflict with another category.')),
+                    ]),
+                (new Para())
+                    ->class('area')
+                    ->items([
+                        (new Textarea('cat_desc', Html::escapeHTML(App::backend()->cat_desc)))
+                            ->cols(50)
+                            ->rows(8)
+                            ->lang(App::backend()->blog_lang)
+                            ->spellcheck(true)
+                            ->label(new Label(__('Description:'), Label::OL_TF)),
+                    ]),
+                (new Para())
+                    ->class('form-buttons')
+                    ->items([
+                        (new Submit('new_cat_submit', __('Save')))
+                            ->accesskey('s'),
+                        (new Button(['cancel']))
+                            ->value(__('Back'))
+                            ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                        App::nonce()->formNonce(),
+                    ]),
+            ])
+        ->render();
 
         if (App::backend()->cat_id) {
-            echo
-            '<h3 class="border-top">' . __('Move this category') . '</h3>' .
-            '<div class="two-cols">';
+            $cols = [];
 
-            echo (new Div())
+            $cols[] = (new Div())
                 ->class('col')
                 ->items([
                     (new Form('cat-parent-form'))
@@ -294,27 +319,29 @@ class Category extends Process
                         ->class('fieldset')
                         ->fields([
                             new Text('h4', __('Category parent')),
-                            (new Para())->items([
-                                (new Label(__('Parent:')))
-                                    ->for('cat_parent')
-                                    ->class('classic'),
-                                (new Select('cat_parent'))
-                                    ->items(App::backend()->cat_allowed_parents)
-                                    ->default((string) App::backend()->cat_parent),
-                            ]),
-                            (new Para())->items([
-                                (new Submit('cat-parent-submit'))
-                                    ->accesskey('s')
-                                    ->value(__('Save')),
-                                new Hidden('id', (string) App::backend()->cat_id),
-                                App::nonce()->formNonce(),
-                            ]),
+                            (new Para())
+                                ->class('form-buttons')
+                                ->items([
+                                    (new Label(__('Parent:')))
+                                        ->for('cat_parent')
+                                        ->class('classic'),
+                                    (new Select('cat_parent'))
+                                        ->items(App::backend()->cat_allowed_parents)
+                                        ->default((string) App::backend()->cat_parent),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Submit('cat-parent-submit'))
+                                        ->accesskey('s')
+                                        ->value(__('Save')),
+                                    new Hidden('id', (string) App::backend()->cat_id),
+                                    App::nonce()->formNonce(),
+                                ]),
                         ]),
-                ])
-                ->render();
+                ]);
 
             if (is_countable(App::backend()->cat_siblings) ? count(App::backend()->cat_siblings) : 0) {
-                echo (new Div())
+                $cols[] = (new Div())
                     ->class('col')
                     ->items([
                         (new Form('cat-sibling-form'))
@@ -323,32 +350,41 @@ class Category extends Process
                             ->class('fieldset')
                             ->fields([
                                 new Text('h4', __('Category sibling')),
-                                (new Para())->items([
-                                    (new Label(__('Move current category')))
-                                        ->for('cat_sibling')
-                                        ->class('classic'),
-                                    (new Select('cat_move'))
-                                        ->items([
-                                            __('before') => 'before',
-                                            __('after')  => 'after',
-                                        ])
-                                        ->title(__('position: ')),
-                                    (new Select('cat_sibling'))
-                                        ->items(App::backend()->cat_siblings),
-                                ]),
-                                (new Para())->items([
-                                    (new Submit('cat-sibling-submit'))
-                                        ->accesskey('s')
-                                        ->value(__('Save')),
-                                    new Hidden('id', (string) App::backend()->cat_id),
-                                    App::nonce()->formNonce(),
-                                ]),
+                                (new Para())
+                                    ->class('form-buttons')
+                                    ->items([
+                                        (new Label(__('Move current category')))
+                                            ->for('cat_sibling')
+                                            ->class('classic'),
+                                        (new Select('cat_move'))
+                                            ->items([
+                                                __('before') => 'before',
+                                                __('after')  => 'after',
+                                            ])
+                                            ->title(__('position: ')),
+                                        (new Select('cat_sibling'))
+                                            ->items(App::backend()->cat_siblings),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Submit('cat-sibling-submit'))
+                                            ->accesskey('s')
+                                            ->value(__('Save')),
+                                        new Hidden('id', (string) App::backend()->cat_id),
+                                        App::nonce()->formNonce(),
+                                    ]),
                             ]),
-                    ])
-                    ->render();
+                    ]);
             }
 
-            echo '</div>';
+            echo (new Fieldset())
+                ->legend(new Legend(__('Move this category')))
+                ->fields([
+                    (new Div())
+                        ->class('two-cols')
+                        ->items($cols),
+                ])
+            ->render();
         }
 
         Page::helpBlock('core_category');

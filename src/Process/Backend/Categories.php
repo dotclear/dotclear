@@ -270,7 +270,7 @@ class Categories extends Process
             if ((int) $rs->level < $level) {
                 // Back to upper level
                 if ($rs->isEnd()) { // @phpstan-ignore-line
-                    // Clear end of recordset flag
+                    // Clear end flag of recordset
                     $rs->moveEnd();
                 }
                 $rs->movePrev();
