@@ -18,10 +18,18 @@ use Dotclear\Core\Backend\ThemesList;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Form\Capture;
+use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Module\ModuleDefine;
@@ -54,10 +62,14 @@ class BlogTheme extends Process
         ThemesList::$distributed_modules = explode(',', App::config()->distributedThemes());
 
         $disabled = App::themes()->disableDepModules();
+
         if (count($disabled)) {
+            $list = (new Ul())
+                ->items(array_map(fn ($item) => (new Li())->text($item), $disabled))
+            ->render();
+
             Notices::addWarningNotice(
-                __('The following themes have been disabled :') .
-                '<ul><li>' . implode("</li>\n<li>", $disabled) . '</li></ul>',
+                __('The following themes have been disabled :') . $list,
                 ['divtag' => true, 'with_ts' => false]
             );
 
@@ -166,21 +178,14 @@ class BlogTheme extends Process
         );
 
         // Display themes lists --
+        $parts = [];
 
         // Activated themes
         $defines = App::backend()->list->modules->getDefines(
             ['state' => App::backend()->list->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
         );
         if (!empty($defines)) {
-            echo
-            '<div class="multi-part" id="themes" title="' . __('Installed themes') . '">' .
-            '<h3>' .
-            (App::auth()->isSuperAdmin() ? __('Activated themes') : __('Installed themes')) .
-            (App::backend()->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
-            '</h3>' .
-            '<p class="more-info">' . __('You can configure and manage installed themes from this list.') . '</p>';
-
-            App::backend()->list
+            $list = fn () => App::backend()->list
                 ->setList('theme-activate')
                 ->setTab('themes')
                 ->setDefines($defines)
@@ -191,19 +196,22 @@ class BlogTheme extends Process
                     ['select', 'behavior', 'deactivate', 'clone', 'delete', 'try']
                 );
 
-            echo
-            '</div>';
+            $parts[] = (new Div('themes'))
+                ->class('multi-part')
+                ->title(__('Installed themes'))
+                ->items([
+                    (new Text('h3', (App::auth()->isSuperAdmin() ? __('Activated themes') : __('Installed themes')) . (App::backend()->list->modules->safeMode() ? ' ' . __('(in normal mode)') : ''))),
+                    (new Note())
+                        ->class('more-info')
+                        ->text(__('You can configure and manage installed themes from this list.')),
+                    (new Capture($list)),
+                ]);
         }
 
         // Deactivated modules
         $defines = App::backend()->list->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
         if (!empty($defines)) {
-            echo
-            '<div class="multi-part" id="deactivate" title="' . __('Deactivated themes') . '">' .
-            '<h3>' . __('Deactivated themes') . '</h3>' .
-            '<p class="more-info">' . __('Deactivated themes are installed but not usable. You can activate them from here.') . '</p>';
-
-            App::backend()->list
+            $list = fn () => App::backend()->list
                 ->setList('theme-deactivate')
                 ->setTab('themes')
                 ->setDefines($defines)
@@ -214,82 +222,94 @@ class BlogTheme extends Process
                     ['activate', 'delete', 'try']
                 );
 
-            echo
-            '</div>';
+            $parts[] = (new Div('deactivate'))
+                ->class('multi-part')
+                ->title(__('Deactivated themes'))
+                ->items([
+                    (new Text('h3', __('Deactivated themes'))),
+                    (new Note())
+                        ->class('more-info')
+                        ->text(__('Deactivated themes are installed but not usable. You can activate them from here.')),
+                    (new Capture($list)),
+                ]);
         }
 
         // Updatable modules
         if (App::auth()->isSuperAdmin()) {
-            if (null == App::blog()->settings()->system->store_theme_url) {
-                Notices::message(__('Official repository could not be updated as there is no URL set in configuration.'));
+            $messages = '';
+            if (!App::blog()->settings()->system->store_theme_url) {
+                $messages .= Notices::message(
+                    __('Official repository could not be updated as there is no URL set in configuration.'),
+                    echo: false
+                );
             }
 
             if (!App::error()->flag() && !empty($_GET['nocache'])) {
-                Notices::success(__('Manual checking of themes update done successfully.'));
+                $messages .= Notices::success(
+                    __('Manual checking of themes update done successfully.'),
+                    echo: false
+                );
             }
-
-            echo
-            '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update themes')) . '">' .
-            '<h3>' . Html::escapeHTML(__('Update themes')) . '</h3>';
-
-            echo
-            (new Form('force-checking'))
-                ->action(App::backend()->list->getURL('', false))
-                ->method('get')
-                ->fields([
-                    (new Para())
-                    ->items([
-                        (new Hidden('nocache', '1')),
-                        (new Hidden(['process'], 'BlogTheme')),
-                        (new Submit('force-checking-update', __('Force checking update of themes'))),
-                    ]),
-                ])
-                ->render();
 
             // Updated themes from repo
             $defines = App::backend()->list->store->getDefines(true);
-
-            $tmp = new ArrayObject($defines);
+            $tmp     = new ArrayObject($defines);
 
             # --BEHAVIOR-- afterCheckStoreUpdate -- string, ArrayObject<int, ModuleDefine>
             App::behavior()->callBehavior('afterCheckStoreUpdate', 'themes', $tmp);
 
             $defines = $tmp->getArrayCopy();
 
-            if (empty($defines)) {
-                echo
-                '<p>' . __('No updates available for themes.') . '</p>';
-            } else {
-                echo
-                    '<p>' . sprintf(
-                        __(
-                            'There is one theme update available:',
-                            'There are %s theme updates available:',
-                            count($defines)
-                        ),
-                        count($defines)
-                    ) . '</p>';
+            $list = fn () => App::backend()->list
+                ->setList('theme-update')
+                ->setTab('themes')
+                ->setDefines($defines)
+                ->displayModules(
+                    // cols
+                    ['checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'repository', 'parent'],
+                    // actions
+                    ['update', 'delete']
+                );
 
-                App::backend()->list
-                    ->setList('theme-update')
-                    ->setTab('themes')
-                    ->setDefines($defines)
-                    ->displayModules(
-                        // cols
-                        ['checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'repository', 'parent'],
-                        // actions
-                        ['update', 'delete']
-                    );
-
-                echo
-                '<p class="info vertical-separator">' . sprintf(
-                    __('Visit %s repository, the resources center for Dotclear.'),
-                    '<a href="https://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>'
-                ) .
-                '</p>';
-            }
-            echo
-            '</div>';
+            $parts[] = (new Div('update'))
+                ->title(Html::escapeHTML(__('Update themes')))
+                ->class('multi-part')
+                ->items([
+                    $messages !== '' ? (new Text(null, $messages)) : (new None()),
+                    (new Form('force-checking'))
+                        ->action(App::backend()->list->getURL('', false))
+                        ->method('get')
+                        ->fields([
+                            (new Para())
+                            ->items([
+                                (new Hidden('nocache', '1')),
+                                (new Hidden(['process'], 'BlogTheme')),
+                                (new Submit('force-checking-update', __('Force checking update of themes'))),
+                            ]),
+                        ]),
+                    empty($defines) ?
+                        (new Note())
+                            ->text(__('No updates available for themes.')) :
+                        (new Set())
+                            ->items([
+                                (new Note())
+                                    ->text(sprintf(
+                                        __(
+                                            'There is one theme update available:',
+                                            'There are %s theme updates available:',
+                                            count($defines)
+                                        ),
+                                        count($defines)
+                                    )),
+                                (new Capture($list)),
+                                (new Note())
+                                    ->class(['info', 'vertical-separator'])
+                                    ->text(sprintf(
+                                        __('Visit %s repository, the resources center for Dotclear.'),
+                                        '<a href="https://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>'
+                                    )),
+                            ]),
+                ]);
         }
 
         if (App::auth()->isSuperAdmin() && App::backend()->list->isWritablePath()) {
@@ -298,11 +318,7 @@ class BlogTheme extends Process
             $defines = $search ? App::backend()->list->store->searchDefines($search) : App::backend()->list->store->getDefines();
 
             if (!empty($search) || !empty($defines)) {
-                echo
-                '<div class="multi-part" id="new" title="' . __('Add themes') . '">' .
-                '<h3>' . __('Add themes from repository') . '</h3>';
-
-                App::backend()->list
+                $list = fn () => App::backend()->list
                     ->setList('theme-new')
                     ->setTab('new')
                     ->setDefines($defines)
@@ -317,34 +333,49 @@ class BlogTheme extends Process
                         true
                     );
 
-                echo
-                '<p class="info vertical-separator">' . sprintf(
-                    __('Visit %s repository, the resources center for Dotclear.'),
-                    '<a href="https://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>'
-                ) .
-                '</p>' .
-                '</div>';
+                $parts[] = (new Div('new'))
+                    ->title(__('Add themes'))
+                    ->class('multi-part')
+                    ->items([
+                        (new Text('h3', __('Add themes from repository'))),
+                        (new Capture($list)),
+                        (new Note())
+                            ->class(['info', 'vertical-separator'])
+                            ->text(sprintf(
+                                __('Visit %s repository, the resources center for Dotclear.'),
+                                '<a href="https://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>'
+                            )),
+                    ]);
             }
 
             // Add a new theme
-            echo
-            '<div class="multi-part" id="addtheme" title="' . __('Install or upgrade manually') . '">' .
-            '<h3>' . __('Add themes from a package') . '</h3>' .
-            '<p class="more-info">' . __('You can install themes by uploading or downloading zip files.') . '</p>';
+            $list = fn () => App::backend()->list->displayManualForm();
 
-            App::backend()->list->displayManualForm();
-
-            echo
-            '</div>';
+            $parts[] = (new Div('addtheme'))
+                ->title(__('Install or upgrade manually'))
+                ->class('multi-part')
+                ->items([
+                    (new Text('h3', __('Add themes from a package'))),
+                    (new Note())
+                        ->class('more-info')
+                        ->text(__('You can install themes by uploading or downloading zip files.')),
+                    (new Capture($list)),
+                ]);
         }
+
+        echo (new Set())
+            ->items($parts)
+        ->render();
 
         # --BEHAVIOR-- themesToolsTabs --
         App::behavior()->callBehavior('themesToolsTabsV2');
 
         // Notice for super admin
         if (App::auth()->isSuperAdmin() && !App::backend()->list->isWritablePath()) {
-            echo
-            '<p class="warning">' . __('Some functions are disabled, please give write access to your themes directory to enable them.') . '</p>';
+            echo (new Note())
+                ->class('warning')
+                ->text(__('Some functions are disabled, please give write access to your themes directory to enable them.'))
+            ->render();
         }
 
         Page::helpBlock('core_blog_theme');
