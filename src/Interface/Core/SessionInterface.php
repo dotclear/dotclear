@@ -54,15 +54,6 @@ interface SessionInterface
     public function createFromCookieName(string $cookie_name): SessionInterface;
 
     /**
-     * Session Transient
-     *
-     * This method set the transient flag of the session
-     *
-     * @param   bool    $transient  Session transient flag
-     */
-    public function setTransientSession(bool $transient = false): void;
-
-    /**
      * Session Cookie
      *
      * This method returns an array of all session cookie parameters,
@@ -80,56 +71,4 @@ interface SessionInterface
      * @return  array<int,int|string|bool>
      */
     public function getCookieParameters($value = null, int $expire = 0): array;
-
-    /**
-     * Session handler callback called on session open
-     *
-     * @param   string  $path   The save path
-     * @param   string  $name   The session name
-     *
-     * @return  bool
-     */
-    public function _open(string $path, string $name): bool;
-
-    /**
-     * Session handler callback called on session close
-     *
-     * @return  bool
-     */
-    public function _close(): bool;
-
-    /**
-     * Session handler callback called on session read
-     *
-     * @param   string  $ses_id     The session identifier
-     *
-     * @return  string
-     */
-    public function _read(string $ses_id): string;
-
-    /**
-     * Session handler callback called on session write
-     *
-     * @param   string  $ses_id     The session identifier
-     * @param   string  $data       The data
-     *
-     * @return  bool
-     */
-    public function _write(string $ses_id, string $data): bool;
-
-    /**
-     * Session handler callback called on session destroy
-     *
-     * @param   string  $ses_id     The session identifier
-     *
-     * @return  bool
-     */
-    public function _destroy(string $ses_id): bool;
-
-    /**
-     * Session handler callback called on session garbage collect
-     *
-     * @return  bool
-     */
-    public function _gc(): bool;
 }

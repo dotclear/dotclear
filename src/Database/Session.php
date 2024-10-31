@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
-use Dotclear\Database\Statement\DeleteStatement;
-use Dotclear\Database\Statement\SelectStatement;
-use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\SessionInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 
@@ -30,6 +27,11 @@ class Session implements SessionInterface
     private string $ttl = '-120 minutes';
 
     /**
+     * Session handler
+     */
+    protected SessionHandler $handler;
+
+    /**
      * Constructor
      *
      * This method creates an instance of Session class.
@@ -41,7 +43,6 @@ class Session implements SessionInterface
      * @param string                $cookie_domain     Session cookie domaine
      * @param bool                  $cookie_secure     Session cookie is available only through SSL if true
      * @param string                $ttl               TTL (default -120 minutes)
-     * @param bool                  $transient         Transient session : no db optimize on session destruction if true
      */
     public function __construct(
         private ConnectionInterface $con,
@@ -50,16 +51,10 @@ class Session implements SessionInterface
         private ?string $cookie_path = null,
         private ?string $cookie_domain = null,
         private bool $cookie_secure = false,
-        ?string $ttl = null,
-        private bool $transient = false
+        ?string $ttl = null
     ) {
-        $this->con         = &$con;   // May be not necessary, to be checked
         $this->cookie_path = is_null($cookie_path) ? '/' : $cookie_path;
         if (!is_null($ttl)) {
-            if (!str_starts_with(trim($ttl), '-')) {
-                // Clearbricks requires negative session TTL
-                $ttl = '-' . trim($ttl);
-            }
             $this->ttl = $ttl;
         }
 
@@ -95,8 +90,7 @@ class Session implements SessionInterface
             $this->cookie_path,
             $this->cookie_domain,
             $this->cookie_secure,
-            $this->ttl,
-            $this->transient
+            $this->ttl
         );
     }
 
@@ -105,14 +99,8 @@ class Session implements SessionInterface
      */
     public function start(): void
     {
-        session_set_save_handler(
-            $this->_open(...),
-            $this->_close(...),
-            $this->_read(...),
-            $this->_write(...),
-            $this->_destroy(...),
-            $this->_gc(...)
-        );
+        $this->handler = (new SessionHandler($this->con, $this->table, $this->ttl));
+        session_set_save_handler($this->handler);
 
         if (isset($_SESSION) && session_name() !== $this->cookie_name) {
             $this->destroy();
@@ -144,11 +132,12 @@ class Session implements SessionInterface
      *
      * This method set the transient flag of the session
      *
+     * @deprecated since 2.32, no more used
+     *
      * @param bool     $transient     Session transient flag
      */
     public function setTransientSession(bool $transient = false): void
     {
-        $this->transient = $transient;
     }
 
     /**
@@ -169,162 +158,5 @@ class Session implements SessionInterface
             (string) $this->cookie_domain,
             (bool) $this->cookie_secure,
         ];
-    }
-
-    /**
-     * Session handler callback called on session open
-     *
-     * @param      string  $path   The save path
-     * @param      string  $name   The session name
-     *
-     * @return     bool
-     */
-    public function _open(string $path, string $name): bool
-    {
-        return true;
-    }
-
-    /**
-     * Session handler callback called on session close
-     *
-     * @return     bool  ( description_of_the_return_value )
-     */
-    public function _close(): bool
-    {
-        $this->_gc();
-
-        return true;
-    }
-
-    /**
-     * Session handler callback called on session read
-     *
-     * @param      string  $ses_id  The session identifier
-     *
-     * @return     string
-     */
-    public function _read(string $ses_id): string
-    {
-        $sql = new SelectStatement($this->con, $this->con->syntax());
-        $sql
-            ->field('ses_value')
-            ->from($this->table)
-            ->where('ses_id = ' . $sql->quote($this->checkID($ses_id)))
-        ;
-
-        $rs = $sql->select();
-        if (!$rs || $rs->isEmpty()) {
-            return '';
-        }
-
-        return $rs->f('ses_value');
-    }
-
-    /**
-     * Session handler callback called on session write
-     *
-     * @param      string  $ses_id  The session identifier
-     * @param      string  $data    The data
-     *
-     * @return     bool
-     */
-    public function _write(string $ses_id, string $data): bool
-    {
-        $sql = new SelectStatement($this->con, $this->con->syntax());
-        $sql
-            ->field('ses_id')
-            ->from($this->table)
-            ->where('ses_id = ' . $sql->quote($this->checkID($ses_id)))
-        ;
-
-        $rs = $sql->select();
-        if ($rs) {
-            $cur            = $this->con->openCursor($this->table);
-            $cur->ses_time  = (string) time();
-            $cur->ses_value = (string) $data;
-
-            if (!$rs->isEmpty()) {
-                $sqlUpdate = new UpdateStatement($this->con, $this->con->syntax());
-                $sqlUpdate
-                    ->where('ses_id = ' . $sqlUpdate->quote($this->checkID($ses_id)))
-                    ->update($cur)
-                ;
-            } else {
-                $cur->ses_id    = $this->checkID($ses_id);
-                $cur->ses_start = (string) time();
-
-                $cur->insert();
-            }
-
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Session handler callback called on session destroy
-     *
-     * @param      string  $ses_id  The session identifier
-     *
-     * @return     bool
-     */
-    public function _destroy(string $ses_id): bool
-    {
-        $sql = new DeleteStatement($this->con, $this->con->syntax());
-        $sql
-            ->from($this->table)
-            ->where('ses_id = ' . $sql->quote($this->checkID($ses_id)))
-        ;
-        $sql->delete();
-
-        if (!$this->transient) {
-            $this->_optimize();
-        }
-
-        return true;
-    }
-
-    /**
-     * Session handler callback called on session garbage collect
-     *
-     * @return     bool
-     */
-    public function _gc(): bool
-    {
-        $ses_life = strtotime($this->ttl);
-
-        $sql = new DeleteStatement($this->con, $this->con->syntax());
-        $sql
-            ->from($this->table)
-            ->where('ses_time < ' . $ses_life)
-        ;
-        $sql->delete();
-
-        if ($this->con->changes() > 0) {
-            $this->_optimize();
-        }
-
-        return true;
-    }
-
-    /**
-     * Optimize the session table
-     */
-    private function _optimize(): void
-    {
-        $this->con->vacuum($this->table);
-    }
-
-    /**
-     * Check a session id
-     *
-     * @param      string  $id     The identifier
-     *
-     * @return     string
-     */
-    private function checkID(string $id)
-    {
-        return preg_match('/^([0-9a-f]{40})$/i', $id) ? $id : '';
     }
 }
