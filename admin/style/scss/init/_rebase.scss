@@ -1,17 +1,24 @@
-/* Josh's Custom CSS Reset - https://www.joshwcomeau.com/css/custom-css-reset/ */
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 * {
   margin: 0;
   min-width: 0; /* cf https://raphaelgoetter.wordpress.com/2016/11/09/flexbox-min-width-0-is-the-new-zoom-1/ */
 }
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
+
 img {
   /* max-width: 100%; don't do this with unsized SVG used as it may cause unexpected behavior */
   /* display: block; do not display:block for img! */
@@ -23,12 +30,14 @@ svg {
   display: block;
   max-width: 100%;
 }
+
 input,
 button,
 textarea,
 select {
   font: inherit;
 }
+
 p,
 h1,
 h2,
@@ -38,6 +47,19 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
 #root,
 #__next {
   isolation: isolate;
