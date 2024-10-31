@@ -242,13 +242,13 @@ class Date
      * function.
      * Special cases %a, %A, %b and %B are handled by {@link l10n} library.
      *
-     * @param   string      $pattern        Format pattern
-     * @param   int|false   $timestamp      Timestamp
-     * @param   string      $timezone       Timezone
+     * @param   string           $pattern        Format pattern
+     * @param   int|false        $timestamp      Timestamp
+     * @param   null|string      $timezone       Timezone
      *
      * @return  string
      */
-    public static function str(string $pattern, $timestamp = null, string $timezone = null): string
+    public static function str(string $pattern, $timestamp = null, null|string $timezone = null): string
     {
         if ($timestamp === null || $timestamp === false) {
             $timestamp = time();

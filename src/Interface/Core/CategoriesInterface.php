@@ -46,13 +46,13 @@ interface CategoriesInterface
      * Gets the category children.
      *
      * @param   int             $start      The start
-     * @param   int             $id         The identifier
+     * @param   null|int        $id         The identifier
      * @param   string          $sort       The sort
      * @param   array<string>   $fields     The fields
      *
      * @return  MetaRecord  The children.
      */
-    public function getChildren(int $start = 0, int $id = null, string $sort = 'asc', array $fields = []): MetaRecord;
+    public function getChildren(int $start = 0, null|int $id = null, string $sort = 'asc', array $fields = []): MetaRecord;
 
     /**
      * Gets the parents.
