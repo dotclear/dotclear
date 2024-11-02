@@ -112,15 +112,16 @@ class Wizard extends Process
             throw new Exception('Not found', 404);
         }
 
-        self::$DBDRIVER      = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : 'mysqli';
-        self::$DBHOST        = !empty($_POST['DBHOST']) ? $_POST['DBHOST'] : '';
-        self::$DBNAME        = !empty($_POST['DBNAME']) ? $_POST['DBNAME'] : '';
-        self::$DBUSER        = !empty($_POST['DBUSER']) ? $_POST['DBUSER'] : '';
-        self::$DBPASSWORD    = !empty($_POST['DBPASSWORD']) ? $_POST['DBPASSWORD'] : '';
-        self::$DBPREFIX      = !empty($_POST['DBPREFIX']) ? $_POST['DBPREFIX'] : 'dc_';
-        self::$ADMINMAILFROM = !empty($_POST['ADMINMAILFROM']) ? $_POST['ADMINMAILFROM'] : '';
+        # Uses HTML form or server variables (ie docker)
+        self::$DBDRIVER      = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : (!empty($_SERVER['DC_DBDRIVER']) ? $_SERVER['DC_DBDRIVER'] : 'mysqli');
+        self::$DBHOST        = !empty($_POST['DBHOST']) ? $_POST['DBHOST'] : (!empty($_SERVER['DC_DBHOST']) ? $_SERVER['DC_DBHOST'] : '');
+        self::$DBNAME        = !empty($_POST['DBNAME']) ? $_POST['DBNAME'] : (!empty($_SERVER['DC_DBNAME']) ? $_SERVER['DC_DBNAME'] : '');
+        self::$DBUSER        = !empty($_POST['DBUSER']) ? $_POST['DBUSER'] : (!empty($_SERVER['DC_DBUSER']) ? $_SERVER['DC_DBUSER'] : '');
+        self::$DBPASSWORD    = !empty($_POST['DBPASSWORD']) ? $_POST['DBPASSWORD'] : (!empty($_SERVER['DC_DBPASSWORD']) ? $_SERVER['DC_DBPASSWORD'] : '');
+        self::$DBPREFIX      = !empty($_POST['DBPREFIX']) ? $_POST['DBPREFIX'] : (!empty($_SERVER['DC_DBPREFIX']) ? $_SERVER['DC_DBPREFIX'] : 'dc_');
+        self::$ADMINMAILFROM = !empty($_POST['ADMINMAILFROM']) ? $_POST['ADMINMAILFROM'] : (!empty($_SERVER['DC_ADMINMAILFROM']) ? $_SERVER['DC_ADMINMAILFROM'] : '');
 
-        if (!empty($_POST)) {
+        if (!empty($_POST) || !empty($_SERVER['DC_DBDRIVER'])) {
             try {
                 if (self::$DBDRIVER == 'sqlite' && !str_contains(self::$DBNAME, '/')) {
                     $sqlite_db_directory = dirname(App::config()->configPath()) . '/../db/';
@@ -185,6 +186,11 @@ class Wizard extends Process
                 $admin_email = !empty(self::$ADMINMAILFROM) ? self::$ADMINMAILFROM : 'dotclear@' . $_SERVER['HTTP_HOST'];
                 self::writeConfigValue('DC_ADMIN_MAILFROM', $admin_email, $full_conf);
                 self::writeConfigValue('DC_MASTER_KEY', md5(uniqid()), $full_conf);
+
+                # Set a second path for plugins from server variables
+                if (!empty($_SERVER['DC_PLUGINS_ROOT']) && is_writable(dirname($_SERVER['DC_PLUGINS_ROOT'])) {
+                    self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins' . PATH_SEPARATOR . $_SERVER['DC_PLUGINS_ROOT'], $full_conf);
+                }
 
                 $fp = @fopen(App::config()->configPath(), 'wb');
                 if ($fp === false) {
