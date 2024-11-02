@@ -570,7 +570,7 @@ class BlogPref extends Process
                         ->items([
                             (new Select('lang'))
                                 ->items($data->lang_combo)
-                                ->default($data->blog_settings->system->lang)
+                                ->default((string) $data->blog_settings->system->lang)
                                 ->label(new Label(__('Default language:'), Label::IL_TF)),
                         ]),
                     (new Para())
@@ -676,7 +676,7 @@ class BlogPref extends Process
                                 ->items([
                                     (new Select('sleepmode_timeout'))
                                         ->items($data->sleepmode_timeout_combo)
-                                        ->default($data->blog_settings->system->sleepmode_timeout)
+                                        ->default((string) $data->blog_settings->system->sleepmode_timeout)
                                         ->label(new Label(__('Disable all comments and trackbacks on the blog after a period of time without new posts:'), Label::IL_TF)),
                                 ]),
                         ]),
@@ -1041,7 +1041,7 @@ class BlogPref extends Process
                             ->items([
                                 (new Select('url_scan'))
                                     ->items($data->url_scan_combo)
-                                    ->default($data->blog_settings->system->url_scan)
+                                    ->default((string) $data->blog_settings->system->url_scan)
                                     ->label(new Label(__('URL scan method:'), Label::IL_TF)),
                             ]),
                         $message,
@@ -1070,7 +1070,7 @@ class BlogPref extends Process
                         ->items([
                             (new Select('note_title_tag'))
                                 ->items($data->note_title_tag_combo)
-                                ->default($data->blog_settings->system->note_title_tag)
+                                ->default((string) $data->blog_settings->system->note_title_tag)
                                 ->label(new Label(__('HTML tag for the title of the notes on the blog:'), Label::IL_TF)),
                         ]),
                 ]);
@@ -1117,7 +1117,7 @@ class BlogPref extends Process
                         ->items([
                             (new Select('jquery_version'))
                                 ->items($data->jquery_versions_combo)
-                                ->default($data->blog_settings->system->jquery_version)
+                                ->default((string) $data->blog_settings->system->jquery_version)
                                 ->label(new Label(__('jQuery version to be loaded for this blog:'), Label::IL_TF)),
                         ]),
                 ]);
