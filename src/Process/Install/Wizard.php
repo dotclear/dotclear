@@ -188,7 +188,7 @@ class Wizard extends Process
                 self::writeConfigValue('DC_MASTER_KEY', md5(uniqid()), $full_conf);
 
                 # Set a second path for plugins from server variables
-                if (!empty($_SERVER['DC_PLUGINS_ROOT']) && is_writable(dirname($_SERVER['DC_PLUGINS_ROOT'])) {
+                if (!empty($_SERVER['DC_PLUGINS_ROOT']) && is_writable(dirname($_SERVER['DC_PLUGINS_ROOT']))) {
                     self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins' . PATH_SEPARATOR . $_SERVER['DC_PLUGINS_ROOT'], $full_conf);
                 }
 
