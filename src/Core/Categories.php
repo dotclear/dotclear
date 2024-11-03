@@ -86,7 +86,7 @@ class Categories implements CategoriesInterface
      *
      * @return     MetaRecord    The children.
      */
-    public function getChildren(int $start = 0, null|int $id = null, string $sort = 'asc', array $fields = []): MetaRecord
+    public function getChildren(int $start = 0, ?int $id = null, string $sort = 'asc', array $fields = []): MetaRecord
     {
         $fields = $this->getFields($fields, 'C2.');
 

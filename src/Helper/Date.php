@@ -248,7 +248,7 @@ class Date
      *
      * @return  string
      */
-    public static function str(string $pattern, $timestamp = null, null|string $timezone = null): string
+    public static function str(string $pattern, $timestamp = null, ?string $timezone = null): string
     {
         if ($timestamp === null || $timestamp === false) {
             $timestamp = time();
