@@ -117,10 +117,10 @@
   gap: 1em;
 
   .box {
-    padding: 10px;
+    padding: 0.75em;
     border: 1px solid var(--index-box-border);
     border-radius: 3px;
-    min-height: 200px;
+    min-height: 16em;
     text-align: left;
     margin: 0; // No necessary as we have gap on flex parent
   }

@@ -361,11 +361,11 @@ body.dark-mode.upgrade-mode {
   flex: 1 1 auto;
 
   &.small {
-    flex-basis: 312px;
+    flex-basis: 24em;
   }
 
   &.medium {
-    flex-basis: 644px;
+    flex-basis: 42em;
   }
 
   &.large {
@@ -446,7 +446,7 @@ body.dark-mode.upgrade-mode {
   #dashboard-boxes :is(.box.medium, .box.small, .box.large),
   :is(.box.medium, .box.small, .box.large) {
     width: 95%;
-    margin: 10px auto;
+    margin: 0 auto;
   }
 }
 
@@ -511,7 +511,7 @@ body.dark-mode.upgrade-mode {
   #dashboard-boxes :is(.box.medium, .box.small, .box.large),
   :is(.box.medium, .box.small, .box.large) {
     width: 95%;
-    margin: 10px auto;
+    margin: 0 auto;
   }
 
   .cell,

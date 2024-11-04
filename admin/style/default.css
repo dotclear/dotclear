@@ -1503,10 +1503,10 @@ body.dark-mode.upgrade-mode :is(.collapse-mm, .expand-mm) {
   flex: 1 1 auto;
 }
 .box.small {
-  flex-basis: 312px;
+  flex-basis: 24em;
 }
 .box.medium {
-  flex-basis: 644px;
+  flex-basis: 42em;
 }
 .box.large {
   width: 100%;
@@ -1571,7 +1571,7 @@ body.dark-mode.upgrade-mode :is(.collapse-mm, .expand-mm) {
   #dashboard-boxes :is(.box.medium, .box.small, .box.large),
   :is(.box.medium, .box.small, .box.large) {
     width: 95%;
-    margin: 10px auto;
+    margin: 0 auto;
   }
 }
 @media screen and (width <= 62em) {
@@ -1623,7 +1623,7 @@ body.dark-mode.upgrade-mode :is(.collapse-mm, .expand-mm) {
   #dashboard-boxes :is(.box.medium, .box.small, .box.large),
   :is(.box.medium, .box.small, .box.large) {
     width: 95%;
-    margin: 10px auto;
+    margin: 0 auto;
   }
   .cell,
   #filters-form .cell {
@@ -3562,10 +3562,10 @@ span.ibw {
   gap: 1em;
 }
 #dashboard-boxes .box {
-  padding: 10px;
+  padding: 0.75em;
   border: 1px solid var(--index-box-border);
   border-radius: 3px;
-  min-height: 200px;
+  min-height: 16em;
   text-align: left;
   margin: 0;
 }
