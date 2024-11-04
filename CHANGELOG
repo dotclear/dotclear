@@ -1,3 +1,36 @@
+Dotclear 2.32 - 2024-11-13
+===========================================================
+* 🐘 PHP 8.1+ is required, PHP 8.2 and 8.3 compliance
+* Core: Add a new behavior, coreGetPostURL, to cope with URL transformers (tweakURL, …)
+* Core: Use HTML5 <br> and <hr> rather than old XHTML <br /> and <hr />
+* Core: Add inert global attribute to Helper/Html/Form/Component
+* Core: Cope with title, alternate text and description for all types of media
+* Core: Use metadata Title (if not empty) to fulfill the media title on upload (if the media title is empty or equal to the media filename)
+* Core: Add donate dashboard module
+* Core: about:config/user:pref code and UX/UI review and isolate each workspace/namespace with its own form
+* Core: Add role generic attribute (only inserted if given and not empty) for Html/Form/Component
+* Core: Management of 3rd party authentication class has been reviewed
+* Core: No more need to reference dcCore in Auth class (not used)
+* Core: Light adaptation for PHP 8.4 (excluding session management), the next 2.33 will be 8.4 compliant
+* Core: Bypass wizard from server install (docker, ...)
+* UX/UI: Fix blog switch select visibility on small screens (mobile)
+* UX/UI: Switch from • to : character for current/active menu-item indicator
+* UX/UI: Make distinction between action (edit entry) and syntax used (post/page edition) in tab title
+* UX/UI: Display media metadata whatever is the type of media
+* UX/UI: Direct access to upgrade dashboard rather than using an intermediate page
+* UX/UI: Add upper margin for password strentgh indicator (HTML meter element)
+* UX/UI: Update Josh's Custom CSS Reset for admin CSS
+* a11y: Enforce contrast on add button hover
+* Fix: Typo on comment-form id in page management
+* Fix: Forgot an option (zip export) for maintenance > export blog(s)
+* Fix: Typo on module current version (update tab)
+* Fix: Clear template cache when theme is changed
+* Fix: Fix attachment name in link (frontend)
+* Fix: First post was missing in posts list on small devices
+* Fix: The for attribute of label in search widget (was missing)
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.31.1 - 2024-08-19
 ===========================================================
 * Fix: Media couldn't be opened as preview (overlay)
