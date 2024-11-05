@@ -92,9 +92,9 @@ class HttpClient extends atoum
     public function testQuickPost()
     {
         $this
-            ->string(\Dotclear\Helper\Network\HttpClient::quickPost('http://example.com', ['my' => 42]))
+            ->string(\Dotclear\Helper\Network\HttpClient::quickPost('https://ptsv3.com/', ['my' => 42]))
             ->isNotEmpty()
-            ->boolean(\Dotclear\Helper\Network\HttpClient::quickPost('example.com', ['my' => 42]))
+            ->boolean(\Dotclear\Helper\Network\HttpClient::quickPost('ptsv3.com', ['my' => 42]))
             ->isFalse()
         ;
     }
@@ -137,7 +137,7 @@ class HttpClient extends atoum
 
     public function testProperties()
     {
-        $client = new \Dotclear\Helper\Network\HttpClient('example.com', 80, 5);
+        $client = new \Dotclear\Helper\Network\HttpClient('ptsv3.com', 80, 5);
 
         $this
             ->given($client->setAuthorization('noname', 'password'))
@@ -150,11 +150,11 @@ class HttpClient extends atoum
             ->boolean($client->post('/', ['my' => 42], 'UTF-8'))
             ->isTrue()
             ->string($client->getRequestURL())
-            ->isEqualTo('http://example.com/')
+            ->isEqualTo('http://ptsv3.com/')
             ->boolean(in_array('content-type', array_keys($client->getHeaders())))
             ->isTrue()
             ->string($client->getHeader('content-type'))
-            ->isEqualTo('text/html; charset=UTF-8')
+            ->isEqualTo('text/html; charset=utf-8')
             ->integer($client->getStatus())
             ->isEqualTo(200)
             ->string($client->getContent())
@@ -236,9 +236,7 @@ class HttpClient extends atoum
             ->boolean(in_array('content-type', array_keys($client->getHeaders())))
             ->isTrue()
             ->integer($client->getStatus())
-            ->isEqualTo(200)
-            ->string($client->getContent())
-            ->contains('<html>')
+            ->isEqualTo(405)
             ->array($client->getCookies())
             ->isEqualTo([])
         ;

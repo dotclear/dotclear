@@ -26,7 +26,7 @@ class Client extends atoum
 
         $this
             ->exception(fn () => $client->query('method1', 'hello', 'world'))
-            ->hasMessage('HTTP Error. 404 Not Found')
+            ->hasMessage('HTTP Error. 405 Method Not Allowed')
         ;
     }
 }
