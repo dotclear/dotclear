@@ -20,6 +20,7 @@ Dotclear 2.32 - 2024-11-13
 * UX/UI: Direct access to upgrade dashboard rather than using an intermediate page
 * UX/UI: Add upper margin for password strentgh indicator (HTML meter element)
 * UX/UI: Update Josh's Custom CSS Reset for admin CSS
+* UX/UI: Adjust dashboard boxes margins and dimensions
 * a11y: Enforce contrast on add button hover
 * Fix: Typo on comment-form id in page management
 * Fix: Forgot an option (zip export) for maintenance > export blog(s)
@@ -28,6 +29,8 @@ Dotclear 2.32 - 2024-11-13
 * Fix: Fix attachment name in link (frontend)
 * Fix: First post was missing in posts list on small devices
 * Fix: The for attribute of label in search widget (was missing)
+* Fix: Do not scan template path if it is not a directory or not readable
+* Fix: Cope with non existing root media folder or not sufficient rights to read it
 * 🐛 → Various bugs, a11y concerns and typos fixed
 * 🌼 → Some locales and cosmetic adjustments
 
