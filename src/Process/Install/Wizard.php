@@ -187,15 +187,15 @@ class Wizard extends Process
                 self::writeConfigValue('DC_ADMIN_MAILFROM', $admin_email, $full_conf);
                 self::writeConfigValue('DC_MASTER_KEY', md5(uniqid()), $full_conf);
 
-                # Set a second path for plugins from server variables
-                if (!empty($_SERVER['DC_PLUGINS_ROOT']) && is_writable(dirname($_SERVER['DC_PLUGINS_ROOT']))) {
-                    self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins' . PATH_SEPARATOR . $_SERVER['DC_PLUGINS_ROOT'], $full_conf);
-                }
-
                 # Fix path if config file has moved elsewhere
                 self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins', $full_conf);
                 self::writeConfigValue('DC_TPL_CACHE', App::config()->dotclearRoot() . '/cache', $full_conf);
                 self::writeConfigValue('DC_VAR', App::config()->dotclearRoot() . '/var', $full_conf);
+
+                # Set a second path for plugins from server variables
+                if (!empty($_SERVER['DC_PLUGINS_ROOT']) && is_writable(dirname($_SERVER['DC_PLUGINS_ROOT']))) {
+                    self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins' . PATH_SEPARATOR . $_SERVER['DC_PLUGINS_ROOT'], $full_conf);
+                }
 
                 $fp = @fopen(App::config()->configPath(), 'wb');
                 if ($fp === false) {
