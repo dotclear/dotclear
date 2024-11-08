@@ -815,16 +815,18 @@ class ThemesList extends ModulesList
         $stack = [];
         // Loop on template paths
         foreach ($paths as $path) {
-            $files = Files::scandir($path);
-            foreach ($files as $filename) {
-                if (preg_match('/^(.*)\.(html|xml|xsl)$/', $filename, $matches) && !in_array($filename, $stack)) {
-                    $stack[] = $filename;
-                    $cache   = $engine->getFileCachePath((string) $engine->getFilePath($filename));
-                    if (file_exists($cache)) {
-                        try {
-                            unlink($cache);
-                        } catch (Exception) {
-                            // Ignore deletion error (may be fixed later by administrator using full template cache emptying)
+            if (is_dir($path) && is_readable($path)) {
+                $files = Files::scandir($path);
+                foreach ($files as $filename) {
+                    if (preg_match('/^(.*)\.(html|xml|xsl)$/', $filename, $matches) && !in_array($filename, $stack)) {
+                        $stack[] = $filename;
+                        $cache   = $engine->getFileCachePath((string) $engine->getFilePath($filename));
+                        if (file_exists($cache)) {
+                            try {
+                                unlink($cache);
+                            } catch (Exception) {
+                                // Ignore deletion error (may be fixed later by administrator using full template cache emptying)
+                            }
                         }
                     }
                 }
