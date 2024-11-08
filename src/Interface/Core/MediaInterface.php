@@ -91,6 +91,13 @@ interface MediaInterface
     public function setFilterMimeType(string $type): void;
 
     /**
+     * Determines if root folder missing.
+     *
+     * @return     bool  True if root missing, False otherwise.
+     */
+    public function isRootMissing(): bool;
+
+    /**
      * Get current root path.
      *
      * @return  string The current root path

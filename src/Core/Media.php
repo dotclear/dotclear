@@ -168,6 +168,13 @@ class Media extends Manager implements MediaInterface
     public string $icon_img = 'images/media/%s.svg';
 
     /**
+     * Identify if blog root public folder is missing or not
+     *
+     * @var bool
+     */
+    protected bool $root_missing = false;
+
+    /**
      * Constructs a new instance.
      *
      * @throws     ProcessException|ConfigException
@@ -200,19 +207,17 @@ class Media extends Manager implements MediaInterface
             $root_url = rawurldecode($this->blog->host() . Path::clean($this->blog->settings()->system->public_url));
         }
 
-        if (!is_dir($root)) {
-            # Check public directory
-            if ($this->auth->isSuperAdmin()) {
-                throw new ConfigException(__('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).'));
-            }
-
-            throw new ConfigException(__('There is no writable root directory for the media manager. You should contact your administrator.'));
+        // Check public directory
+        if (!is_dir($root) || !is_readable($root)) {
+            $this->root_missing = true;
         }
 
-        parent::__construct($root, $root_url);
-        $this->chdir('');
+        if (!$this->root_missing) {
+            parent::__construct($root, $root_url);
+            $this->chdir('');
 
-        $this->path = $this->blog->settings()->system->public_path;
+            $this->path = $this->blog->settings()->system->public_path;
+        }
 
         $this->addExclusion($this->config->configPath());
         $this->addExclusion(__DIR__ . '/../');
@@ -281,6 +286,21 @@ class Media extends Manager implements MediaInterface
 
         // deprecated since 2.28, use App::media() instead
         dcCore::app()->media = $this;
+    }
+
+    public function isRootMissing(): bool
+    {
+        return $this->root_missing;
+    }
+
+    public function getRoot(): string
+    {
+        return $this->root_missing ? '' : parent::getRoot();
+    }
+
+    public function getRootUrl(): string
+    {
+        return $this->root_missing ? '' : parent::getRootUrl();
     }
 
     public function openMediaCursor(): Cursor
@@ -407,6 +427,10 @@ class Media extends Manager implements MediaInterface
 
     public function breadCrumb(string $href, string $last = ''): string
     {
+        if ($this->root_missing) {
+            return '';
+        }
+
         $res = '';
         if ($this->relpwd && $this->relpwd != '.') {
             $pwd   = '';
@@ -427,6 +451,10 @@ class Media extends Manager implements MediaInterface
 
     public function chdir(?string $dir): void
     {
+        if ($this->root_missing) {
+            return;
+        }
+
         parent::chdir($dir);
         $this->relpwd = (string) preg_replace('/^' . preg_quote($this->root, '/') . '\/?/', '', $this->pwd);
     }
@@ -440,6 +468,10 @@ class Media extends Manager implements MediaInterface
      */
     protected function fileRecord(MetaRecord $rs): ?File
     {
+        if ($this->root_missing) {
+            return null;
+        }
+
         if ($rs->isEmpty()) {
             return null;
         }
@@ -653,11 +685,19 @@ class Media extends Manager implements MediaInterface
 
     public function getFSDir()
     {
+        if ($this->root_missing) {
+            return;
+        }
+
         parent::getDir();
     }
 
     public function getDir($type = null): void
     {
+        if ($this->root_missing) {
+            return;
+        }
+
         if ($type) {
             $this->type = $type;
         }
@@ -848,6 +888,10 @@ class Media extends Manager implements MediaInterface
 
     public function searchMedia(string $query): bool
     {
+        if ($this->root_missing) {
+            return false;
+        }
+
         if ($query === '') {
             return false;
         }
@@ -934,6 +978,10 @@ class Media extends Manager implements MediaInterface
 
     public function rebuild(string $pwd = '', bool $recursive = false): void
     {
+        if ($this->root_missing) {
+            return;
+        }
+
         if (!$this->auth->isSuperAdmin()) {
             throw new UnauthorizedException(__('You are not a super administrator.'));
         }
@@ -961,6 +1009,10 @@ class Media extends Manager implements MediaInterface
 
     public function rebuildThumbnails(string $pwd = '', bool $recursive = false, bool $force = false): void
     {
+        if ($this->root_missing) {
+            return;
+        }
+
         if (!$this->auth->isSuperAdmin()) {
             throw new UnauthorizedException(__('You are not a super administrator.'));
         }
@@ -996,6 +1048,10 @@ class Media extends Manager implements MediaInterface
      */
     protected function rebuildDB(?string $pwd): void
     {
+        if ($this->root_missing) {
+            return;
+        }
+
         $media_dir = $pwd ?: '.';
 
         $sql = new SelectStatement();
@@ -1028,6 +1084,10 @@ class Media extends Manager implements MediaInterface
 
     public function makeDir(?string $name): void
     {
+        if ($this->root_missing) {
+            return;
+        }
+
         $name = Files::tidyFileName((string) $name);
         parent::makeDir($name);
 
@@ -1037,6 +1097,10 @@ class Media extends Manager implements MediaInterface
 
     public function removeDir(?string $directory): void
     {
+        if ($this->root_missing) {
+            return;
+        }
+
         parent::removeDir($directory);
 
         # --BEHAVIOR-- coreAfterMediaDirDelete - string|null
@@ -1045,6 +1109,10 @@ class Media extends Manager implements MediaInterface
 
     public function createFile(string $name, ?string $title = null, bool $private = false, $dt = null, bool $force = true)
     {
+        if ($this->root_missing) {
+            return false;
+        }
+
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_MEDIA,
             $this->auth::PERMISSION_MEDIA_ADMIN,
@@ -1135,6 +1203,10 @@ class Media extends Manager implements MediaInterface
 
     public function updateFile(File $file, File $newFile)
     {
+        if ($this->root_missing) {
+            return;
+        }
+
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_MEDIA,
             $this->auth::PERMISSION_MEDIA_ADMIN,
@@ -1214,6 +1286,10 @@ class Media extends Manager implements MediaInterface
      */
     public function uploadFile(string $tmp, string $dest, bool $overwrite = false, ?string $title = null, bool $private = false)
     {
+        if ($this->root_missing) {
+            return;
+        }
+
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_MEDIA,
             $this->auth::PERMISSION_MEDIA_ADMIN,
@@ -1230,6 +1306,10 @@ class Media extends Manager implements MediaInterface
 
     public function uploadBits(string $name, string $bits): string
     {
+        if ($this->root_missing) {
+            return '';
+        }
+
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_MEDIA,
             $this->auth::PERMISSION_MEDIA_ADMIN,
@@ -1248,6 +1328,10 @@ class Media extends Manager implements MediaInterface
 
     public function removeFile(?string $file): void
     {
+        if ($this->root_missing) {
+            return;
+        }
+
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_MEDIA,
             $this->auth::PERMISSION_MEDIA_ADMIN,
@@ -1303,6 +1387,10 @@ class Media extends Manager implements MediaInterface
 
     public function inflateZipFile(File $f, bool $create_dir = true): string
     {
+        if ($this->root_missing) {
+            return '';
+        }
+
         $zip  = new Unzip($f->file);
         $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
@@ -1378,6 +1466,10 @@ class Media extends Manager implements MediaInterface
 
     public function imageThumbCreate(?Cursor $cur, string $f, int $id, bool $force = true): bool
     {
+        if ($this->root_missing) {
+            return false;
+        }
+
         $file = $this->pwd . '/' . $f;
 
         if (!file_exists($file)) {
@@ -1434,6 +1526,10 @@ class Media extends Manager implements MediaInterface
      */
     protected function imageThumbUpdate(File $file, File $newFile): bool
     {
+        if ($this->root_missing) {
+            return false;
+        }
+
         if ($file->relname !== $newFile->relname) {
             $p         = Path::info($file->relname);
             $pattern   = $this->getThumbnailFilePattern($p['extension']);
@@ -1468,6 +1564,10 @@ class Media extends Manager implements MediaInterface
 
     public function imageThumbRemove(string $f): bool
     {
+        if ($this->root_missing) {
+            return false;
+        }
+
         $p     = Path::info($f);
         $thumb = sprintf(
             $this->getThumbnailFilePattern($p['extension']),
