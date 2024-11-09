@@ -187,14 +187,18 @@ class Wizard extends Process
                 self::writeConfigValue('DC_ADMIN_MAILFROM', $admin_email, $full_conf);
                 self::writeConfigValue('DC_MASTER_KEY', md5(uniqid()), $full_conf);
 
-                # Fix path if config file has moved elsewhere
+                # Fix path if config file has moved elsewhere and allow environment variables
                 self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins', $full_conf);
-                self::writeConfigValue('DC_TPL_CACHE', App::config()->dotclearRoot() . '/cache', $full_conf);
-                self::writeConfigValue('DC_VAR', App::config()->dotclearRoot() . '/var', $full_conf);
-
-                # Set a second path for plugins from server variables
                 if (!empty($_SERVER['DC_PLUGINS_ROOT']) && is_writable(dirname($_SERVER['DC_PLUGINS_ROOT']))) {
                     self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins' . PATH_SEPARATOR . $_SERVER['DC_PLUGINS_ROOT'], $full_conf);
+                }
+                self::writeConfigValue('DC_TPL_CACHE', App::config()->dotclearRoot() . '/cache', $full_conf);
+                if (!empty($_SERVER['DC_TPL_CACHE']) && is_writable(dirname($_SERVER['DC_TPL_CACHE']))) {
+                    self::writeConfigValue('DC_TPL_CACHE', $_SERVER['DC_TPL_CACHE'], $full_conf);
+                }
+                self::writeConfigValue('DC_VAR', App::config()->dotclearRoot() . '/var', $full_conf);
+                if (!empty($_SERVER['DC_VAR']) && is_writable(dirname($_SERVER['DC_VAR']))) {
+                    self::writeConfigValue('DC_VAR', $_SERVER['DC_VAR'], $full_conf);
                 }
 
                 $fp = @fopen(App::config()->configPath(), 'wb');
