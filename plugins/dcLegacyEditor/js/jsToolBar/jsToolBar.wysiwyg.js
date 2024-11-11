@@ -139,7 +139,7 @@ jsToolBar.prototype.initWindow = function () {
     }
 
     doc.open();
-    const html = `<html>
+    const html = `<!DOCTYPE html><html>
   <head>
     <link rel="stylesheet" href="style/default.css" type="text/css" media="screen">
     <style type="text/css">${This.iframe_css}</style>
