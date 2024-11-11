@@ -726,7 +726,7 @@ class HttpClient extends Socket
      */
     public function getStatus(): int
     {
-        return $this->status;
+        return (int) $this->status;
     }
 
     /**

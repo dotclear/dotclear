@@ -968,7 +968,7 @@ class ModulesList
                 $data[] = (new Td())
                     ->class(['module-version', 'nowrap', 'count'])
                     ->items([
-                        (new Text('span', $define->get('score')))->class('debug'),
+                        (new Text('span', (string) $define->get('score')))->class('debug'),
                     ]);
             }
 
