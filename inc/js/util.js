@@ -1,4 +1,4 @@
-/*exported dotclear, getData, isObject, mergeDeep, getCookie, setCookie, deleteCookie */
+/*exported dotclear */
 'use strict';
 
 /* Dotclear common object */

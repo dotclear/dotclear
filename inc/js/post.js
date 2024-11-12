@@ -78,7 +78,7 @@ window.addEventListener('load', () => {
 
     const result = JSON.parse(data);
 
-    if (Object.keys(result).length != 3) {
+    if (Object.keys(result).length !== 3) {
       dropRememberInfo();
       return false;
     }
