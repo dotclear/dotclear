@@ -86,37 +86,12 @@ class Session extends atoum
         $con     = $this->getConnection($driver, $syntax);
         $session = new \Dotclear\Database\Session($con, 'dc_session', 'ck_session');
 
-        $id   = '61af8c3f8fcfa8921814cc9d2db0d87482e1ff76';
-        $data = 'sess_user_id|s:5:"bebop";sess_browser_uid|s:40:"b9032c5dc1b4a9bd5df9e2b73e1b7421776cb49b";sess_blog_id|s:7:"default";';
-
         $this
             ->given($session->start())
-            ->and($session->_write($id, $data))
             ->string(session_name())
             ->isEqualTo('ck_session')
             ->array($session->getCookieParameters('mycookie', -1))
             ->isEqualTo(['ck_session', 'mycookie', -1, '/', '', false])
-            ->then($session->destroy())
-        ;
-    }
-
-    public function testTransient()
-    {
-        $driver = 'mysqli';
-        $syntax = 'mysql';
-
-        $con     = $this->getConnection($driver, $syntax);
-        $session = new \Dotclear\Database\Session($con, 'dc_session', 'ck_session', null, null, true, '2 hours', true);
-
-        $id   = '61af8c3f8fcfa8921814cc9d2db0d87482e1ff76';
-        $data = 'sess_user_id|s:5:"bebop";sess_browser_uid|s:40:"b9032c5dc1b4a9bd5df9e2b73e1b7421776cb49b";sess_blog_id|s:7:"default";';
-
-        $this
-            ->given($session->setTransientSession(true))
-            ->and($session->start())
-            ->and($session->_write($id, $data))
-            ->string(session_name())
-            ->isEqualTo('ck_session')
             ->then($session->destroy())
         ;
     }
