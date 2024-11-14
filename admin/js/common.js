@@ -247,6 +247,47 @@ $.expandContent = (opts) => {
 /* Dotclear common methods
 -------------------------------------------------------- */
 
+dotclear.toggleWithDetails = (target, options) => {
+  const defaults = {
+    unfolded_sections: dotclear.unfolded_sections,
+    hide: true, // Is section unfolded?
+    fn: false, // A function called on first display,
+    user_pref: false,
+    reverse_user_pref: false, // Reverse user pref behavior
+  };
+  const p = Object.assign(defaults, options);
+  if (p.user_pref && p.unfolded_sections !== undefined && p.user_pref in p.unfolded_sections) {
+    p.hide = p.reverse_user_pref;
+  }
+
+  const toggle = () => {
+    if (!p.hide && p.fn) {
+      p.fn.apply(target);
+      p.fn = false;
+    }
+    p.hide = !p.hide;
+    if (p.hide && target.getAttribute('open')) {
+      target.removeAttribute('open');
+    } else if (!p.hide && !target.getAttribute('open')) {
+      target.setAttribute('open', 'open');
+    }
+  };
+
+  target.addEventListener('click', (e) => {
+    // Catch click only on summary child of details HTML element
+    if (p.user_pref) {
+      dotclear.jsonServicesPost('setSectionFold', () => {}, {
+        section: p.user_pref,
+        value: p.hide ^ p.reverse_user_pref ? 1 : 0,
+      });
+    }
+    toggle();
+    e.preventDefault();
+    return false;
+  });
+  toggle();
+};
+
 /**
  * Show help viewer
  *
