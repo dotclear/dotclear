@@ -799,11 +799,26 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
  * @param      [options.classes='']       Additionnal badge classes
  */
 dotclear.badge = (elt, options = null) => {
-  // Cope with selector given as string or DOM element rather than a jQuery object
-  const target = typeof elt === 'string' || elt instanceof Element ? $(elt) : elt;
+  // Cope with selector given as string or DOM element or a NodeList rather than a jQuery object
+  let target;
+  if (elt instanceof jQuery) {
+    target = elt;
+  } else {
+    if (NodeList.prototype.isPrototypeOf(elt) && elt.length) {
+      // Keep only the first element of the NodeList
+      target = $(elt[0]);
+    } else {
+      if (typeof elt === 'string' || elt instanceof Element) {
+        // Get a jQuery object from string selector or from DOM Element
+        target = $(elt);
+      } else {
+        return;
+      }
+    }
+  }
 
-  // Return if target does not exist
-  if (!target.length) return;
+  // Return if jQuery target does not exist
+  if (target === undefined || !target.length) return;
 
   // Cope with options
   const opt = Object.assign(
