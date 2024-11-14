@@ -266,19 +266,27 @@ class Categories extends Process
     private static function categorieList(int $level, MetaRecord $rs): Ul|None
     {
         $categories = [];
-        while (!$rs->isEnd() && $rs->fetch()) {
-            if ((int) $rs->level < $level) {
-                // Back to upper level
-                if ($rs->isEnd()) { // @phpstan-ignore-line
-                    // Clear end flag of recordset
-                    $rs->moveEnd();
-                }
-                $rs->movePrev();
 
-                break;
+        if ($rs->isEnd() && $rs->count() === 1) {
+            // Only one category
+            if ((int) $rs->level >= $level) {
+                $categories[] = self::categorieLine($rs);
             }
+        } else {
+            while (!$rs->isEnd() && $rs->fetch()) {
+                if ((int) $rs->level < $level) {
+                    // Back to upper level
+                    if ($rs->isEnd()) { // @phpstan-ignore-line
+                        // Clear end flag of recordset
+                        $rs->moveEnd();
+                    }
+                    $rs->movePrev();
 
-            $categories[] = self::categorieLine($rs);
+                    break;
+                }
+
+                $categories[] = self::categorieLine($rs);
+            }
         }
 
         return count($categories) ?
