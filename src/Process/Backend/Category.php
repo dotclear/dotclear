@@ -297,6 +297,9 @@ class Category extends Process
                         (new Button(['cancel']))
                             ->value(__('Back'))
                             ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                        App::backend()->cat_id ?
+                            new Hidden('id', (string) App::backend()->cat_id) :
+                            new None(),
                         App::nonce()->formNonce(),
                     ]),
             ])
