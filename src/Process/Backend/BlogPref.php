@@ -616,7 +616,7 @@ class BlogPref extends Process
                                         ]),
                                     (new Para())
                                         ->items([
-                                            (new Number('comments_ttl', 0, 999, $data->blog_settings->system->comments_ttl))
+                                            (new Number('comments_ttl', 0, 999, (int) $data->blog_settings->system->comments_ttl))
                                                 ->label((new Label(__('Leave comments open for'), Label::IL_TF))
                                                     ->suffix(__('days')))
                                                 ->extra('aria-describedby="comments_ttl_help"'),
@@ -655,7 +655,7 @@ class BlogPref extends Process
                                         ]),
                                     (new Para())
                                         ->items([
-                                            (new Number('trackbacks_ttl', 0, 999, $data->blog_settings->system->trackbacks_ttl))
+                                            (new Number('trackbacks_ttl', 0, 999, (int) $data->blog_settings->system->trackbacks_ttl))
                                                 ->label((new Label(__('Leave trackbacks open for'), Label::IL_TF))
                                                     ->suffix(__('days')))
                                                 ->extra('aria-describedby="trackbacks_ttl_help"'),
@@ -838,19 +838,19 @@ class BlogPref extends Process
                                             (new Para())
                                                 ->class('field')
                                                 ->items([
-                                                    (new Number('media_img_t_size', -1, 999, $data->blog_settings->system->media_img_t_size))
+                                                    (new Number('media_img_t_size', -1, 999, (int) $data->blog_settings->system->media_img_t_size))
                                                         ->label(new Label(__('Thumbnail'), Label::OL_TF)),
                                                 ]),
                                             (new Para())
                                                 ->class('field')
                                                 ->items([
-                                                    (new Number('media_img_s_size', -1, 999, $data->blog_settings->system->media_img_s_size))
+                                                    (new Number('media_img_s_size', -1, 999, (int) $data->blog_settings->system->media_img_s_size))
                                                         ->label(new Label(__('Small'), Label::OL_TF)),
                                                 ]),
                                             (new Para())
                                                 ->class('field')
                                                 ->items([
-                                                    (new Number('media_img_m_size', -1, 999, $data->blog_settings->system->media_img_m_size))
+                                                    (new Number('media_img_m_size', -1, 999, (int) $data->blog_settings->system->media_img_m_size))
                                                         ->label(new Label(__('Medium'), Label::OL_TF)),
                                                 ]),
                                             (new Para())
@@ -872,13 +872,13 @@ class BlogPref extends Process
                                             (new Para())
                                                 ->class('field')
                                                 ->items([
-                                                    (new Number('media_video_width', -1, 999, $data->blog_settings->system->media_video_width))
+                                                    (new Number('media_video_width', -1, 999, (int) $data->blog_settings->system->media_video_width))
                                                         ->label(new Label(__('Width'), Label::OL_TF)),
                                                 ]),
                                             (new Para())
                                                 ->class('field')
                                                 ->items([
-                                                    (new Number('media_video_height', -1, 999, $data->blog_settings->system->media_video_height))
+                                                    (new Number('media_video_height', -1, 999, (int) $data->blog_settings->system->media_video_height))
                                                         ->label(new Label(__('Height'), Label::OL_TF)),
                                                 ]),
                                         ]),
