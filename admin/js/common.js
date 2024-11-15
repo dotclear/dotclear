@@ -148,7 +148,7 @@ $.fn.toggleWithDetails = function (options) {
   }
   const toggle = () => {
     if (!p.hide && p.fn) {
-      p.fn.apply(this);
+      p.fn.apply(target);
       p.fn = false;
     }
     p.hide = !p.hide;
@@ -296,7 +296,92 @@ dotclear.nodes = (elt) => {
 };
 
 /**
- * Expands element using callback to get content.
+ * Add toggle mecanism for a target element
+ *
+ * @param      {Element}           target      The DOM Element
+ * @param      {NodeList}          childs      The DOM Element childs to be hidden/shown
+ * @param      {Object}            options     The options
+ */
+dotclear.toggleWithLegend = (target, childs, options) => {
+  const defaults = {
+    img_on_txt: dotclear.img_plus_txt,
+    img_on_alt: dotclear.img_plus_alt,
+    img_off_txt: dotclear.img_minus_txt,
+    img_off_alt: dotclear.img_minus_alt,
+    unfolded_sections: dotclear.unfolded_sections,
+    hide: true,
+    legend_click: false,
+    fn: false, // A function called on first display,
+    user_pref: false,
+    reverse_user_pref: false, // Reverse user pref behavior
+  };
+  const parameters = Object.assign(defaults, options);
+  if (!childs?.length) {
+    return;
+  }
+  const set_user_pref = parameters.hide ^ parameters.reverse_user_pref;
+  if (
+    parameters.user_pref &&
+    parameters.unfolded_sections !== undefined &&
+    parameters.user_pref in parameters.unfolded_sections
+  ) {
+    parameters.hide = parameters.reverse_user_pref;
+  }
+
+  const toggle = (elt) => {
+    if (parameters.hide) {
+      elt.firstChild.data = parameters.img_on_txt;
+      elt.setAttribute('value', parameters.img_on_txt);
+      elt.setAttribute('aria-label', parameters.img_on_alt);
+      elt.setAttribute('aria-expanded', false);
+      for (const child of childs) child.classList.add('hide');
+    } else {
+      elt.firstChild.data = parameters.img_off_txt;
+      elt.setAttribute('value', parameters.img_off_txt);
+      elt.setAttribute('aria-label', parameters.img_off_alt);
+      elt.setAttribute('aria-expanded', true);
+      for (const child of childs) child.classList.remove('hide');
+      if (parameters.fn) {
+        for (const child of childs) parameters.fn.apply(child);
+        parameters.fn = false;
+      }
+    }
+    parameters.hide = !parameters.hide;
+  };
+
+  const button = document.createElement('button');
+  button.setAttribute('type', 'button');
+  button.className = 'details-cmd';
+  button.value = parameters.img_on_txt;
+  button.setAttribute('aria-label', parameters.img_on_alt);
+  const t = document.createTextNode(parameters.img_on_txt);
+  button.appendChild(t);
+
+  const ctarget = parameters.legend_click ? target : button;
+  target.style.cursor = 'pointer';
+  if (parameters.legend_click) {
+    const label = ctarget.querySelector('label');
+    if (label) label.style.cursor = 'pointer';
+  }
+  target.addEventListener('click', (e) => {
+    // Catch click only on summary child of details HTML element
+    if (e.target !== target && e.target !== button) return;
+    if (parameters.user_pref && set_user_pref) {
+      dotclear.jsonServicesPost('setSectionFold', () => {}, {
+        section: parameters.user_pref,
+        value: parameters.hide ^ parameters.reverse_user_pref ? 1 : 0,
+      });
+    }
+    toggle(button);
+    e.preventDefault();
+    return false;
+  });
+  toggle(button);
+  target.prepend(button);
+};
+
+/**
+ * Add toggle mecanism for a details element
  *
  * @param      {Element}           target      The DOM Element
  * @param      {Object}            options     The options
@@ -309,30 +394,35 @@ dotclear.toggleWithDetails = (target, options) => {
     user_pref: false,
     reverse_user_pref: false, // Reverse user pref behavior
   };
-  const p = Object.assign(defaults, options);
-  if (p.user_pref && p.unfolded_sections !== undefined && p.user_pref in p.unfolded_sections) {
-    p.hide = p.reverse_user_pref;
+  const parameters = Object.assign(defaults, options);
+  if (
+    parameters.user_pref &&
+    parameters.unfolded_sections !== undefined &&
+    parameters.user_pref in parameters.unfolded_sections
+  ) {
+    parameters.hide = parameters.reverse_user_pref;
   }
 
   const toggle = () => {
-    if (!p.hide && p.fn) {
-      p.fn.apply(target);
-      p.fn = false;
+    if (!parameters.hide && parameters.fn) {
+      parameters.fn.apply(target);
+      parameters.fn = false;
     }
-    p.hide = !p.hide;
-    if (p.hide && target.getAttribute('open')) {
+    parameters.hide = !parameters.hide;
+    if (parameters.hide && target.getAttribute('open')) {
       target.removeAttribute('open');
-    } else if (!p.hide && !target.getAttribute('open')) {
+    } else if (!parameters.hide && !target.getAttribute('open')) {
       target.setAttribute('open', 'open');
     }
   };
 
   target.addEventListener('click', (e) => {
     // Catch click only on summary child of details HTML element
-    if (p.user_pref) {
+    if (e.target !== target) return;
+    if (parameters.user_pref) {
       dotclear.jsonServicesPost('setSectionFold', () => {}, {
-        section: p.user_pref,
-        value: p.hide ^ p.reverse_user_pref ? 1 : 0,
+        section: parameters.user_pref,
+        value: parameters.hide ^ parameters.reverse_user_pref ? 1 : 0,
       });
     }
     toggle();
