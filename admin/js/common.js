@@ -247,6 +247,60 @@ $.expandContent = (opts) => {
 /* Dotclear common methods
 -------------------------------------------------------- */
 
+/**
+ * Return a jQuery collection with the given element(s)
+ *
+ * @param      {(string|Element|NodeList|jQuery)}  elt    The element (selector string as in CSS, DOM Element, NodeList, jQuery object)
+ *
+ * @return     {jQuery}
+ */
+dotclear.jQueryNodes = (elt) => {
+  // jQuery instance
+  if (elt instanceof jQuery) return elt;
+
+  // NodeList
+  if (elt instanceof NodeList) return jQuery(Array.from(elt));
+
+  // String selector or DOM Element
+  if (typeof elt === 'string' || elt instanceof Element) return jQuery(elt);
+
+  // Return an empty collection (length === 0)
+  return jQuery();
+};
+
+/**
+ * Return a NodeList or an Array with the given element(s)
+ *
+ * @param      {(jQuery|NodeList|Element|string|array)}  elt  The element (selector string, NodeList, DOM Element, jQuery object, array)
+ *
+ * @return     {NodeList|Array}
+ */
+dotclear.Nodes = (elt) => {
+  // NodeList
+  if (elt instanceof NodeList) return elt;
+
+  // Array
+  if (Array.isArray(elt)) return elt;
+
+  // String selector
+  if (typeof elt === 'string') return document.querySelectorAll(elt);
+
+  // DOM Element
+  if (elt instanceof Element) return [elt];
+
+  // jQuery instance
+  if (elt instanceof jQuery) return elt.get();
+
+  // Return an empty array (length === 0)
+  return [];
+};
+
+/**
+ * Expands element using callback to get content.
+ *
+ * @param      {Element}           target      The DOM Element
+ * @param      {Object}            options     The options
+ */
 dotclear.toggleWithDetails = (target, options) => {
   const defaults = {
     unfolded_sections: dotclear.unfolded_sections,
@@ -589,19 +643,7 @@ dotclear.hideLockable = () => {
  * @param      {(jQuery|NodeList|string|array)}  target  The target
  */
 dotclear.toggleCheck = (target) => {
-  let list;
-  if (typeof target === 'string') {
-    list = document.querySelectorAll(target);
-  } else if (target instanceof NodeList) {
-    list = target;
-  } else if (target instanceof jQuery) {
-    list = target.get();
-  } else if (Array.isArray(target)) {
-    list = target;
-  }
-  if (!list) return;
-
-  for (const item of list) {
+  for (const item of dotclear.Nodes(target)) {
     if (item?.checked !== undefined) {
       item.checked = !item.checked;
     }
@@ -615,19 +657,7 @@ dotclear.toggleCheck = (target) => {
  * @param      {boolean}                         status  The checked status
  */
 dotclear.setChecked = (target, status) => {
-  let list;
-  if (typeof target === 'string') {
-    list = document.querySelectorAll(target);
-  } else if (target instanceof NodeList) {
-    list = target;
-  } else if (target instanceof jQuery) {
-    list = target.get();
-  } else if (Array.isArray(target)) {
-    list = target;
-  }
-  if (!list) return;
-
-  for (const item of list) {
+  for (const item of dotclear.Nodes(target)) {
     if (item?.checked !== undefined) {
       item.checked = status;
     }
@@ -803,7 +833,7 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
 /**
  * Badge helper
  *
- * @param      {(string|Element|jQuery)}  elt            The element (selector string as in CSS, DOM Element, jQuery object)
+ * @param      {(string|Element|NodeList|jQuery)}  elt    The element (selector string as in CSS, DOM Element, NodeList, jQuery object)
  * @param      {{sibling: boolean,
  *               id: string,
  *               remove: boolean,
@@ -840,26 +870,10 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
  * @param      [options.classes='']       Additionnal badge classes
  */
 dotclear.badge = (elt, options = null) => {
-  // Cope with selector given as string or DOM element or a NodeList rather than a jQuery object
-  let target;
-  if (elt instanceof jQuery) {
-    target = elt;
-  } else {
-    if (NodeList.prototype.isPrototypeOf(elt) && elt.length) {
-      // Keep only the first element of the NodeList
-      target = $(elt[0]);
-    } else {
-      if (typeof elt === 'string' || elt instanceof Element) {
-        // Get a jQuery object from string selector or from DOM Element
-        target = $(elt);
-      } else {
-        return;
-      }
-    }
-  }
+  const $target = dotclear.jQueryNodes(elt);
 
   // Return if jQuery target does not exist
-  if (target === undefined || !target.length) return;
+  if (!$target.length) return;
 
   // Cope with options
   const opt = Object.assign(
@@ -883,11 +897,11 @@ dotclear.badge = (elt, options = null) => {
   const classid = `span.badge.badge-${opt.id}`; // Pseudo unique class
 
   // Set badgeable class to target parent's (if sibling) or target itself, if it is necessary
-  const parent = opt.sibling ? target.parent() : target;
+  const parent = opt.sibling ? $target.parent() : $target;
   if (!opt.inline && !opt.remove && !parent.hasClass('badgeable')) parent.addClass('badgeable');
 
   // Remove existing badge if exists
-  const badge = opt.sibling ? parent.children(classid) : target.children(classid);
+  const badge = opt.sibling ? parent.children(classid) : $target.children(classid);
   if (badge.length) badge.remove();
 
   // Return if no new badge to add
@@ -906,8 +920,8 @@ dotclear.badge = (elt, options = null) => {
 
   // Compose badge
   const xml = `<span class="${classes.join(' ')}" aria-hidden="true">${opt.value}</span>`;
-  if (opt.sibling) target.after(xml);
-  else target.append(xml);
+  if (opt.sibling) $target.after(xml);
+  else $target.append(xml);
 };
 
 /**
@@ -1233,21 +1247,21 @@ dotclear.ready(() => {
   body.classList.add('with-js');
 
   // Special management for first HTML comment found in markup (popover in footer), 1st level only
-  body.childNodes.forEach((child) => {
+  for (const child of body.childNodes) {
     if (child.nodeType !== Node.COMMENT_NODE) {
-      return;
+      continue;
     }
     const data = child.data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br>').replace(/\n/g, '<br>');
     const dcnet = document.querySelector('#footer a');
     if (!dcnet) {
-      return;
+      continue;
     }
     const tooltip = document.createElement('span');
     tooltip.classList.add('tooltip');
     tooltip.setAttribute('aria-hidden', 'true');
     tooltip.innerHTML = (dcnet.getAttribute('title') || '') + data;
     dcnet.append(tooltip);
-  });
+  }
 
   // manage outgoing links
   dotclear.outgoingLinks('a');
@@ -1306,21 +1320,20 @@ dotclear.ready(() => {
   dotclear.passwordHelpers();
 
   // Cope with ellipsis'ed cells
-  document.querySelectorAll('table .maximal').forEach((element) => {
+  for (const element of document.querySelectorAll('table .maximal')) {
     if (element.offsetWidth < element.scrollWidth && element.title === '') {
       element.title = element.innerText;
       element.classList.add('ellipsis');
     }
-  });
-  document.querySelectorAll('table .maximal.ellipsis a').forEach((element) => {
+  }
+  for (const element of document.querySelectorAll('table .maximal.ellipsis a')) {
     if (element.title === '') element.title = element.innerText;
-  });
+  }
 
   // Advanced users, hide secondary information
   if (dotclear.data.hideMoreInfo) {
-    document
-      .querySelectorAll('.more-info,.form-note:not(.warn,.warning,.info)')
-      .forEach((element) => element.classList.add('no-more-info'));
+    for (const element of document.querySelectorAll('.more-info,.form-note:not(.warn,.warning,.info)'))
+      element.classList.add('no-more-info');
   }
 
   // Main menu collapser
@@ -1379,7 +1392,10 @@ dotclear.ready(() => {
         const step = (newTimestamp) => {
           if (oldTimestamp !== null) {
             scrollCount += (Math.PI * (newTimestamp - oldTimestamp)) / duration;
-            if (scrollCount >= Math.PI) return (document.scrollingElement.scrollTop = 0);
+            if (scrollCount >= Math.PI) {
+              document.scrollingElement.scrollTop = 0;
+              return;
+            }
             document.scrollingElement.scrollTop = cosParameter + cosParameter * Math.cos(scrollCount);
           }
           oldTimestamp = newTimestamp;
@@ -1393,11 +1409,10 @@ dotclear.ready(() => {
   });
 
   // Go back (aka Cancel) button
-  document.querySelectorAll('.go-back')?.forEach((button) => {
-    button.addEventListener('click', () => {
+  for (const back of document.querySelectorAll('.go-back'))
+    back.addEventListener('click', () => {
       history.back();
     });
-  });
 
   // Menu command
   const searchinput = document.getElementById('qx');
