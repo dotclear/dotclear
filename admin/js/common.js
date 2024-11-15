@@ -275,7 +275,7 @@ dotclear.jQueryNodes = (elt) => {
  *
  * @return     {NodeList|Array}
  */
-dotclear.Nodes = (elt) => {
+dotclear.nodes = (elt) => {
   // NodeList
   if (elt instanceof NodeList) return elt;
 
@@ -643,7 +643,7 @@ dotclear.hideLockable = () => {
  * @param      {(jQuery|NodeList|string|array)}  target  The target
  */
 dotclear.toggleCheck = (target) => {
-  for (const item of dotclear.Nodes(target)) {
+  for (const item of dotclear.nodes(target)) {
     if (item?.checked !== undefined) {
       item.checked = !item.checked;
     }
@@ -657,7 +657,7 @@ dotclear.toggleCheck = (target) => {
  * @param      {boolean}                         status  The checked status
  */
 dotclear.setChecked = (target, status) => {
-  for (const item of dotclear.Nodes(target)) {
+  for (const item of dotclear.nodes(target)) {
     if (item?.checked !== undefined) {
       item.checked = status;
     }
