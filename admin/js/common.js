@@ -418,8 +418,10 @@ dotclear.toggleWithDetails = (target, options) => {
 
   target.addEventListener('click', (e) => {
     // Catch click only on summary child of details HTML element
-    if (e.target !== target) return;
+    const summary = target.querySelector('summary');
+    if (e.target !== summary) return;
     if (parameters.user_pref) {
+      // Store current user choice
       dotclear.jsonServicesPost('setSectionFold', () => {}, {
         section: parameters.user_pref,
         value: parameters.hide ^ parameters.reverse_user_pref ? 1 : 0,
