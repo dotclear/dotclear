@@ -4,15 +4,13 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('#media-insert').on('onetabload', () => {
-    $('#media-insert-cancel').on('click', () => {
-      window.close();
-    });
+  $('#media-insert-cancel').on('click', () => {
+    window.close();
+  });
 
-    $('#media-insert-ok').on('click', () => {
-      sendClose();
-      window.close();
-    });
+  $('#media-insert-ok').on('click', () => {
+    sendClose();
+    window.close();
   });
 
   function sendClose() {
