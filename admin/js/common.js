@@ -251,7 +251,6 @@ $.expandContent = (opts) => {
  * Return a jQuery collection with the given element(s)
  *
  * @param      {(string|Element|NodeList|jQuery)}  elt    The element (selector string as in CSS, DOM Element, NodeList, jQuery object)
- *
  * @return     {jQuery}
  */
 dotclear.jQueryNodes = (elt) => {
@@ -272,7 +271,6 @@ dotclear.jQueryNodes = (elt) => {
  * Return a NodeList or an Array with the given element(s)
  *
  * @param      {(jQuery|NodeList|Element|string|array)}  elt  The element (selector string, NodeList, DOM Element, jQuery object, array)
- *
  * @return     {NodeList|Array}
  */
 dotclear.nodes = (elt) => {
@@ -293,6 +291,18 @@ dotclear.nodes = (elt) => {
 
   // Return an empty array (length === 0)
   return [];
+};
+
+/**
+ * Return a DOM Element created from an HTML string, may return Null on error
+ *
+ * @param      {string}         html    The html
+ * @return     {Element|null}
+ */
+dotclear.htmlToNode = (html) => {
+  const template = document.createElement('template');
+  template.innerHTML = html;
+  return template.content.firstChild;
 };
 
 /**
@@ -349,13 +359,9 @@ dotclear.toggleWithLegend = (target, childs, options) => {
     parameters.hide = !parameters.hide;
   };
 
-  const button = document.createElement('button');
-  button.setAttribute('type', 'button');
-  button.className = 'details-cmd';
-  button.value = parameters.img_on_txt;
-  button.setAttribute('aria-label', parameters.img_on_alt);
-  const t = document.createTextNode(parameters.img_on_txt);
-  button.appendChild(t);
+  const button = dotclear.htmlToNode(
+    `<button type="button" class="details-cmd" value="${parameters.img_on_txt}" aria-label="${parameters.img_on_alt}">${parameters.img_on_txt}</button>`,
+  );
 
   const ctarget = parameters.legend_click ? target : button;
   target.style.cursor = 'pointer';
@@ -451,14 +457,10 @@ dotclear.helpViewer = (selector) => {
   };
 
   // Buttons templates
-  const helpButtonTemplate = new DOMParser().parseFromString(
-    `<p id="help-button"><span><a href="">${dotclear.msg.help}</a></span></p>`,
-    'text/html',
-  ).body.firstChild;
-  const chapterButtonTemplate = new DOMParser().parseFromString(
+  const helpButtonTemplate = dotclear.htmlToNode(`<p id="help-button"><span><a href="">${dotclear.msg.help}</a></span></p>`);
+  const chapterButtonTemplate = dotclear.htmlToNode(
     `<button type="button" class="details-cmd" aria-label="${p.img_on_alt}">${p.img_on_txt}</button>`,
-    'text/html',
-  ).body.firstChild;
+  );
 
   // Helpers
 
@@ -1037,10 +1039,9 @@ dotclear.passwordHelpers = () => {
   };
 
   // Compose button
-  const buttonTemplate = new DOMParser().parseFromString(
+  const buttonTemplate = dotclear.htmlToNode(
     `<button type="button" class="pw-show" title="${dotclear.msg.show_password}"><span class="sr-only">${dotclear.msg.show_password}</span></button>`,
-    'text/html',
-  ).body.firstChild;
+  );
 
   const passwordFields = document.querySelectorAll('input[type=password]');
 
@@ -1348,10 +1349,9 @@ dotclear.ready(() => {
     if (!dcnet) {
       continue;
     }
-    const tooltip = document.createElement('span');
-    tooltip.classList.add('tooltip');
-    tooltip.setAttribute('aria-hidden', 'true');
-    tooltip.innerHTML = (dcnet.getAttribute('title') || '') + data;
+    const tooltip = dotclear.htmlToNode(
+      `<span class="tooltip" aria-hidden="true">${dcnet.getAttribute('title') || ''}${data}</span>`,
+    );
     dcnet.append(tooltip);
   }
 
