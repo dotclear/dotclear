@@ -703,30 +703,21 @@ dotclear.hideLockable = () => {
     for (const formNote of formNotes) formNote.style.display = 'none';
     const inputs = lockableDiv.querySelectorAll('input, textarea');
     for (const input of inputs) {
-      input.readOnly = true;
-      input.style.width = `${input.offsetWidth - 14}px`;
-      const image = document.createElement('img');
-      image.src = 'images/locker.svg';
-      image.style.position = 'absolute';
-      if (input.tagName === 'TEXTAREA') {
-        image.style.top = '4px';
-        image.style.right = '4px';
-      } else {
-        image.style.top = '1.6em';
-        image.style.left = `${input.offsetWidth + 4}px`;
-      }
-      image.style.width = '1.4em';
-      image.alt = dotclear.msg.click_to_unlock;
-      image.classList.add('mark', 'mark-locked');
-      image.style.cursor = 'pointer';
-      image.addEventListener('click', () => {
-        image.style.display = 'none';
+      // Prepare lock/unlock button
+      const position = input.tagName === 'TEXTAREA' ? 'right: 4px' : `left: ${input.offsetWidth - 24}px`;
+      const button = dotclear.htmlToNode(
+        `<button type="button" style="position: absolute; ${position}; top: ${input.tagName === 'TEXTAREA' ? '4px' : '1.6em'}; border: none; background: transparent; padding: 0; margin: 0;"><img src="images/locker.svg" alt="${dotclear.msg.click_to_unlock}" style="width: 1.4em" class="mark mark-locked"></button>`,
+      );
+      button.addEventListener('click', () => {
+        button.style.display = 'none';
         input.readOnly = false;
-        input.style.width = `${input.offsetWidth + 14}px`;
         for (const formNote of formNotes) formNote.style.display = 'block';
       });
+
+      // Add button to input/textarea
+      input.readOnly = true;
       input.parentElement.style.position = 'relative';
-      input.after(image);
+      input.before(button);
     }
   }
 };
