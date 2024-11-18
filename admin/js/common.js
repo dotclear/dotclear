@@ -766,49 +766,56 @@ dotclear.check = (target) => dotclear.setChecked(target, true);
 /**
  * Add checkboxes helper buttons at the end in an area
  *
- * @param      {(Element|string)}  area        The jQuery, DOM Element or string selector for area element
- * @param      {!(jQuery)=}        target      The jQuery objet for target checkboxes
- * @param      {!string=}          checkboxes  The CSS string selector for checkboxes to control submit
- * @param      {!string=}          submit      The CSS string selector of the submit button
+ * @param      {(Element)}          area        The DOM Element for area element
+ * @param      {(jQuery|NodeList)}  target      The jQuery objet or NodeList for target checkboxes
+ * @param      {string}             checkboxes  The CSS string selector for checkboxes to control submit
+ * @param      {string}             submit      The CSS string selector of the submit button
  */
 dotclear.checkboxesHelpers = (area, target, checkboxes, submit) => {
-  $(area).append(document.createTextNode(dotclear.msg.to_select));
-  $(area).append(document.createTextNode(' '));
-  $(`<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`)
-    .on('click', () => {
-      dotclear.check(
-        target !== undefined ? target : $(area).parents('form').find('input[type="checkbox"]:not(:disabled)').get(),
-      );
-      if (checkboxes !== undefined && submit !== undefined) {
-        dotclear.condSubmit(checkboxes, submit);
-      }
-      return false;
-    })
-    .appendTo($(area));
-  $(area).append(document.createTextNode(' '));
-  $(`<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`)
-    .on('click', () => {
-      dotclear.unCheck(
-        target !== undefined ? target : $(area).parents('form').find('input[type="checkbox"]:not(:disabled)').get(),
-      );
-      if (checkboxes !== undefined && submit !== undefined) {
-        dotclear.condSubmit(checkboxes, submit);
-      }
-      return false;
-    })
-    .appendTo($(area));
-  $(area).append(document.createTextNode(' '));
-  $(`<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`)
-    .on('click', () => {
-      dotclear.toggleCheck(
-        target !== undefined ? target : $(area).parents('form').find('input[type="checkbox"]:not(:disabled)').get(),
-      );
-      if (checkboxes !== undefined && submit !== undefined) {
-        dotclear.condSubmit(checkboxes, submit);
-      }
-      return false;
-    })
-    .appendTo($(area));
+  const form = area.closest('form');
+  if (!form) return;
+
+  // Prepare buttons
+  const btn_all = dotclear.htmlToNode(
+    `<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`,
+  );
+  btn_all.addEventListener('click', (event) => {
+    dotclear.check(target !== undefined ? target : form.querySelectorAll('input[type="checkbox"]:not(:disabled)'));
+    if (checkboxes !== undefined && submit !== undefined) {
+      dotclear.condSubmit(checkboxes, submit);
+    }
+    event.preventDefault();
+    return false;
+  });
+  const btn_none = dotclear.htmlToNode(
+    `<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`,
+  );
+  btn_none.addEventListener('click', (event) => {
+    dotclear.unCheck(target !== undefined ? target : form.querySelectorAll('input[type="checkbox"]:not(:disabled)'));
+    if (checkboxes !== undefined && submit !== undefined) {
+      dotclear.condSubmit(checkboxes, submit);
+    }
+    event.preventDefault();
+    return false;
+  });
+  const btn_invert = dotclear.htmlToNode(
+    `<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`,
+  );
+  btn_invert.addEventListener('click', (event) => {
+    dotclear.toggleCheck(target !== undefined ? target : form.querySelectorAll('input[type="checkbox"]:not(:disabled)'));
+    if (checkboxes !== undefined && submit !== undefined) {
+      dotclear.condSubmit(checkboxes, submit);
+    }
+    event.preventDefault();
+    return false;
+  });
+
+  // Add buttons
+  area.classList.add('form-buttons');
+  area.append(document.createTextNode(dotclear.msg.to_select));
+  area.append(btn_all);
+  area.append(btn_none);
+  area.append(btn_invert);
 };
 
 /**
@@ -1365,36 +1372,15 @@ dotclear.ready(() => {
   });
 
   // Menu state
-  const menu_settings = {
-    legend_click: true,
-    speed: 100,
-  };
-  $('#blog-menu h3:first').toggleWithLegend(
-    $('#blog-menu ul:first'),
-    Object.assign(menu_settings, {
-      user_pref: 'dc_blog_menu',
-    }),
-  );
-  $('#system-menu h3:first').toggleWithLegend(
-    $('#system-menu ul:first'),
-    Object.assign(menu_settings, {
-      user_pref: 'dc_system_menu',
-    }),
-  );
-  $('#plugins-menu h3:first').toggleWithLegend(
-    $('#plugins-menu ul:first'),
-    Object.assign(menu_settings, {
-      user_pref: 'dc_plugins_menu',
-    }),
-  );
-  $('#favorites-menu h3:first').toggleWithLegend(
-    $('#favorites-menu ul:first'),
-    Object.assign(menu_settings, {
-      user_pref: 'dc_favorites_menu',
-      hide: false,
-      reverse_user_pref: true,
-    }),
-  );
+  for (const menu of ['blog', 'system', 'plugins', 'favorites']) {
+    const fav = menu === 'favorites';
+    dotclear.toggleWithLegend(document.querySelector(`#${menu}-menu h3`), document.querySelectorAll(`#${menu}-menu ul`), {
+      legend_click: true,
+      user_pref: `dc_${menu}_menu`,
+      hide: !fav,
+      reverse_user_pref: fav,
+    });
+  }
 
   // Help viewer
   dotclear.helpViewer('#help');
@@ -1513,12 +1499,13 @@ dotclear.ready(() => {
       if (!document.activeElement.nodeName || acceptsKeyboardInput(document.activeElement)) {
         return;
       }
-      if (e.key === quickMenuPrefix) {
-        e.preventDefault();
-        searchinput.setAttribute('value', quickMenuPrefix);
-        searchinput.setSelectionRange(1, 1);
-        searchinput.focus();
+      if (e.key !== quickMenuPrefix) {
+        return;
       }
+      e.preventDefault();
+      searchinput.setAttribute('value', quickMenuPrefix);
+      searchinput.setSelectionRange(1, 1);
+      searchinput.focus();
     });
   }
 });
