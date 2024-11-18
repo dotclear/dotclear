@@ -76,34 +76,38 @@ dotclear.ready(() => {
     dotclear.commentTb.draw('xhtml');
   }
 
-  // Remove required attribut from #comment_content as textarea might be not more focusable
-  if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#comment_content')) {
-    if ($('#comment_content').length > 0) $('#comment_content')[0].removeAttribute('required');
-  }
-
-  // Remove required attribut from #post_content in HTML mode as textarea is not more focusable
-  if (
-    formatField !== undefined &&
-    formatField.value == 'xhtml' &&
-    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_content')
-  ) {
-    if ($('#post_content').length > 0) $('#post_content')[0].removeAttribute('required');
-  }
-
-  // Load toolbars
-  if (excerptTb !== undefined) {
-    excerptTb.switchMode(formatField.value);
-  }
-  if (contentTb !== undefined) {
-    contentTb.switchMode(formatField.value);
-  }
-
-  // Check unsaved changes before HTML conversion
-  const excerpt = $('#post_excerpt').val();
-  const content = $('#post_content').val();
-  $('#convert-xhtml').on('click', () => {
-    if (excerpt != $('#post_excerpt').val() || content != $('#post_content').val()) {
-      return window.confirm(dotclear.msg.confirm_change_post_format);
+  $('#comments').on('onetabload', () => {
+    // Remove required attribut from #comment_content as textarea might be not more focusable
+    if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#comment_content')) {
+      $('#comment_content')[0].removeAttribute('required');
     }
+  });
+
+  $('#edit-entry').on('onetabload', () => {
+    // Remove required attribut from #post_content in HTML mode as textarea is not more focusable
+    if (
+      formatField !== undefined &&
+      formatField.value == 'xhtml' &&
+      dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_content')
+    ) {
+      $('#post_content')[0].removeAttribute('required');
+    }
+
+    // Load toolbars
+    if (excerptTb !== undefined) {
+      excerptTb.switchMode(formatField.value);
+    }
+    if (contentTb !== undefined) {
+      contentTb.switchMode(formatField.value);
+    }
+
+    // Check unsaved changes before HTML conversion
+    const excerpt = $('#post_excerpt').val();
+    const content = $('#post_content').val();
+    $('#convert-xhtml').on('click', () => {
+      if (excerpt != $('#post_excerpt').val() || content != $('#post_content').val()) {
+        return window.confirm(dotclear.msg.confirm_change_post_format);
+      }
+    });
   });
 });
