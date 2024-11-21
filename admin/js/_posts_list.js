@@ -48,9 +48,9 @@ dotclear.ready(() => {
     this.form.submit();
   });
 
-  $.expandContent({
-    line: $('#form-entries tr:not(.line)'),
-    lines: $('#form-entries tr.line'),
+  dotclear.expandContent({
+    line: document.querySelector('#form-entries tr:not(.line)'),
+    lines: document.querySelectorAll('#form-entries tr.line'),
     callback: dotclear.viewPostContent,
   });
   for (const elt of document.querySelectorAll('.checkboxes-helpers')) {

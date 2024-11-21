@@ -185,9 +185,9 @@ dotclear.ready(() => {
   });
 
   $('#comments').on('onetabload', () => {
-    $.expandContent({
-      line: $('#form-comments .comments-list tr:not(.line)'),
-      lines: $('#form-comments .comments-list tr.line'),
+    dotclear.expandContent({
+      line: document.querySelector('#form-comments .comments-list tr:not(.line)'),
+      lines: document.querySelectorAll('#form-comments .comments-list tr.line'),
       callback: dotclear.viewCommentContent,
     });
     $('#form-comments .checkboxes-helpers').each(function () {
@@ -198,9 +198,9 @@ dotclear.ready(() => {
   });
 
   $('#trackbacks').on('onetabload', () => {
-    $.expandContent({
-      line: $('#form-trackbacks .comments-list tr:not(.line)'),
-      lines: $('#form-trackbacks .comments-list tr.line'),
+    dotclear.expandContent({
+      line: document.querySelector('#form-trackbacks .comments-list tr:not(.line)'),
+      lines: document.querySelectorAll('#form-trackbacks .comments-list tr.line'),
       callback: dotclear.viewCommentContent,
     });
     $('#form-trackbacks .checkboxes-helpers').each(function () {

@@ -48,9 +48,9 @@ dotclear.ready(() => {
 
   $('#pageslist tr.line').prepend('<td class="expander"></td>');
   $('#form-entries tr:not(.line) th:first').attr('colspan', 4);
-  $.expandContent({
-    line: $('#form-entries tr:not(.line)'),
-    lines: $('#form-entries tr.line'),
+  dotclear.expandContent({
+    line: document.querySelector('#form-entries tr:not(.line)'),
+    lines: document.querySelectorAll('#form-entries tr.line'),
     callback: dotclear.viewPostContent,
   });
 

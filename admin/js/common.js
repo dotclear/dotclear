@@ -78,6 +78,18 @@ dotclear.nodes = (elt) => {
 };
 
 /**
+ * Return an DOM Element with the given element
+ *
+ * @param      {(jQuery|NodeList|Element|string|array)}  elt  The element (selector string, NodeList, DOM Element, jQuery object, array)
+ * @return     {Element|null}
+ */
+dotclear.node = (elt) => {
+  const list = dotclear.nodes(elt);
+
+  return list.length ? list[0] : null;
+};
+
+/**
  * Return a DOM Element created from an HTML string, may return Null on error
  *
  * @param      {string}         html    The html
@@ -87,6 +99,85 @@ dotclear.htmlToNode = (html) => {
   const template = document.createElement('template');
   template.innerHTML = html;
   return template.content.firstChild;
+};
+
+/**
+ * Expands element using callback to get content.
+ *
+ * @param      {Object}           opts    The options
+ */
+dotclear.expandContent = (opts) => {
+  const toggleArrow = (button, actionRequested = '') => {
+    const actionDone =
+      actionRequested === ''
+        ? button.getAttribute('aria-label') === dotclear.img_plus_alt
+          ? 'open'
+          : 'close'
+        : actionRequested;
+    if (actionDone === 'open' && button.getAttribute('aria-expanded') === 'false') {
+      button.firstChild.data = dotclear.img_minus_txt;
+      button.setAttribute('value', dotclear.img_minus_txt);
+      button.setAttribute('aria-label', dotclear.img_minus_alt);
+      button.setAttribute('aria-expanded', true);
+    } else if (actionDone === 'close' && button.getAttribute('aria-expanded') === 'true') {
+      button.firstChild.data = dotclear.img_plus_txt;
+      button.setAttribute('value', dotclear.img_plus_txt);
+      button.setAttribute('aria-label', dotclear.img_plus_alt);
+      button.setAttribute('aria-expanded', false);
+    } else {
+      // Nothing done
+      return '';
+    }
+    return actionDone;
+  };
+
+  const singleExpander = (line, callback) => {
+    const elt = dotclear.node(line);
+    if (elt) {
+      const button = dotclear.htmlToNode(
+        `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`,
+      );
+      button.addEventListener('click', (event) => {
+        if (toggleArrow(button) !== '') callback(elt, '', event);
+        event.preventDefault();
+      });
+      // Add button at the beginning of the first TD child of given line
+      const td = line.firstChild;
+      if (td) td.prepend(button);
+    }
+  };
+
+  const multipleExpander = (line, lines, callback) => {
+    const elt = dotclear.node(line);
+    if (elt) {
+      const list = dotclear.nodes(lines);
+      if (list.length) {
+        const button = dotclear.htmlToNode(
+          `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`,
+        );
+        button.addEventListener('click', (event) => {
+          const action = toggleArrow(button);
+          for (const item of list) {
+            if (toggleArrow(item.firstChild.firstChild, action) !== '') callback(item, action, event);
+          }
+          event.preventDefault();
+        });
+        // Add button at the beginning of the first TF child of given line
+        const td = line.firstChild;
+        if (td) td.prepend(button);
+      }
+    }
+  };
+
+  if (opts === undefined || opts.callback === undefined || typeof opts.callback !== 'function') {
+    return;
+  }
+  if (opts.line !== undefined) {
+    multipleExpander(opts.line, opts.lines, opts.callback);
+  }
+  for (const line of opts.lines) {
+    singleExpander(line, opts.callback);
+  }
 };
 
 /**
