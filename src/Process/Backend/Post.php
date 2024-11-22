@@ -81,7 +81,7 @@ class Post extends Process
         App::backend()->can_delete = false;
 
         $post_headlink            = '<link rel="%s" title="%s" href="' . App::backend()->url()->get('admin.post', ['id' => '%s'], '&amp;', true) . '">';
-        App::backend()->post_link = '<a href="' . App::backend()->url()->get('admin.post', ['id' => '%s'], '&amp;', true) . '" title="%s">%s</a>';
+        App::backend()->post_link = '<a href="' . App::backend()->url()->get('admin.post', ['id' => '%s'], '&amp;', true) . '" class="%s" title="%s">%s</a>';
 
         App::backend()->next_link     = null;
         App::backend()->prev_link     = null;
@@ -166,6 +166,7 @@ class Post extends Process
                     App::backend()->next_link = sprintf(
                         App::backend()->post_link,
                         $next_rs->post_id,
+                        'next',
                         Html::escapeHTML(trim(Html::clean($next_rs->post_title))),
                         __('Next entry') . '&nbsp;&#187;'
                     );
@@ -181,6 +182,7 @@ class Post extends Process
                     App::backend()->prev_link = sprintf(
                         App::backend()->post_link,
                         $prev_rs->post_id,
+                        'prev',
                         Html::escapeHTML(trim(Html::clean($prev_rs->post_title))),
                         '&#171;&nbsp;' . __('Previous entry')
                     );

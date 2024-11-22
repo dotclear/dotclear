@@ -102,6 +102,23 @@ dotclear.htmlToNode = (html) => {
 };
 
 /**
+ * Check if the current DOM element accept keybpard input
+ *
+ * @param      {Element}  element  The element
+ * @return     {boolean}
+ */
+dotclear.acceptsKeyboardInput = (element) => {
+  const nonTypingInputTypes = new Set(['checkbox', 'radio', 'button', 'reset', 'submit', 'file']);
+  return (
+    (element.tagName === 'INPUT' && !nonTypingInputTypes.has(element.type)) ||
+    element.tagName === 'TEXTAREA' ||
+    element.tagName === 'SELECT' ||
+    element.tagName === 'BUTTON' ||
+    element.isContentEditable
+  );
+};
+
+/**
  * Expands element using callback to get content.
  *
  * @param      {Object}           opts    The options
@@ -1362,17 +1379,9 @@ dotclear.ready(() => {
   // Menu command
   const searchinput = document.getElementById('qx');
   if (searchinput) {
-    const nonTypingInputTypes = new Set(['checkbox', 'radio', 'button', 'reset', 'submit', 'file']);
-    const acceptsKeyboardInput = (element) =>
-      (element.tagName === 'INPUT' && !nonTypingInputTypes.has(element.type)) ||
-      element.tagName === 'TEXTAREA' ||
-      element.tagName === 'SELECT' ||
-      element.tagName === 'BUTTON' ||
-      element.isContentEditable;
     const quickMenuPrefix = dotclear.data.quickMenuPrefix || ':';
-
     window.addEventListener('keyup', (e) => {
-      if (!document.activeElement.nodeName || acceptsKeyboardInput(document.activeElement)) {
+      if (!document.activeElement.nodeName || dotclear.acceptsKeyboardInput(document.activeElement)) {
         return;
       }
       if (e.key !== quickMenuPrefix) {
@@ -1390,4 +1399,28 @@ dotclear.ready(() => {
     back.addEventListener('click', () => {
       history.back();
     });
+
+  // Navigation arrow keys (left/right)
+  const goprev = document.querySelector('.nav_prevnext > .prev');
+  if (goprev) {
+    window.addEventListener('keyup', (e) => {
+      if (!document.activeElement.nodeName || dotclear.acceptsKeyboardInput(document.activeElement)) {
+        return;
+      }
+      if (e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      goprev.click();
+    });
+  }
+  const gonext = document.querySelector('.nav_prevnext > .next');
+  if (gonext) {
+    window.addEventListener('keyup', (e) => {
+      if (!document.activeElement.nodeName || dotclear.acceptsKeyboardInput(document.activeElement)) {
+        return;
+      }
+      if (e.key !== 'ArrowRight') return;
+      e.preventDefault();
+      gonext.click();
+    });
+  }
 });

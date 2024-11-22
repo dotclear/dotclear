@@ -118,7 +118,7 @@ class ManagePage extends Process
 
         $post_headlink = '<link rel="%s" title="%s" href="' . My::manageUrl(['act' => 'page', 'id' => '%s'], parametric: true) . '">';
 
-        App::backend()->post_link = '<a href="' . My::manageUrl(['act' => 'page', 'id' => '%s'], parametric: true) . '" title="%s">%s</a>';
+        App::backend()->post_link = '<a href="' . My::manageUrl(['act' => 'page', 'id' => '%s'], parametric: true) . '" class="%s" title="%s">%s</a>';
 
         App::backend()->next_link = App::backend()->prev_link = App::backend()->next_headlink = App::backend()->prev_headlink = null;
 
@@ -192,6 +192,7 @@ class ManagePage extends Process
                     App::backend()->next_link = sprintf(
                         App::backend()->post_link,
                         $next_rs->post_id,
+                        'next',
                         Html::escapeHTML(trim(Html::clean($next_rs->post_title))),
                         __('Next page') . '&nbsp;&#187;'
                     );
@@ -207,6 +208,7 @@ class ManagePage extends Process
                     App::backend()->prev_link = sprintf(
                         App::backend()->post_link,
                         $prev_rs->post_id,
+                        'prev',
                         Html::escapeHTML(trim(Html::clean($prev_rs->post_title))),
                         '&#171;&nbsp;' . __('Previous page')
                     );
