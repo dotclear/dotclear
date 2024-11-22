@@ -1,4 +1,4 @@
-/*global $, jQuery, dotclear */
+/*global dotclear */
 'use strict';
 
 /* Get PreInit JSON data */
@@ -133,18 +133,19 @@ dotclear.expandContent = (opts) => {
 
   const singleExpander = (line, callback) => {
     const elt = dotclear.node(line);
-    if (elt) {
-      const button = dotclear.htmlToNode(
-        `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`,
-      );
-      button.addEventListener('click', (event) => {
-        if (toggleArrow(button) !== '') callback(elt, '', event);
-        event.preventDefault();
-      });
-      // Add button at the beginning of the first TD child of given line
-      const td = line.firstChild;
-      if (td) td.prepend(button);
+    if (!elt) {
+      return;
     }
+    const button = dotclear.htmlToNode(
+      `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`,
+    );
+    button.addEventListener('click', (event) => {
+      if (toggleArrow(button) !== '') callback(elt, '', event);
+      event.preventDefault();
+    });
+    // Add button at the beginning of the first TD child of given line
+    const td = line.firstChild;
+    if (td) td.prepend(button);
   };
 
   const multipleExpander = (line, lines, callback) => {
@@ -447,14 +448,14 @@ dotclear.helpViewer = (selector) => {
   }
 
   const positionButton = () => {
-    if (!helpButtonElement.classList.contains('floatable')) {
-      const bodyRect = document.body.getBoundingClientRect();
-      const elemRect = helpBox.getBoundingClientRect();
-      const offset = elemRect.top - bodyRect.top;
-      helpButtonElement.style.top = `${offset}px`;
-    } else {
+    if (helpButtonElement.classList.contains('floatable')) {
       helpButtonElement.style.top = '0';
+      return;
     }
+    const bodyRect = document.body.getBoundingClientRect();
+    const elemRect = helpBox.getBoundingClientRect();
+    const offset = elemRect.top - bodyRect.top;
+    helpButtonElement.style.top = `${offset}px`;
   };
 
   // Add scroll event listener
@@ -790,7 +791,7 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
       }
       table.className += `${table.className === '' ? '' : ' '}rch${thead ? ' rch-thead' : ''}`;
     } catch (e) {
-      console.log(`responsiveCellHeaders(): ${e}`);
+      if (dotclear.debug) console.log(`responsiveCellHeaders(): ${e}`);
     }
   }
 };
@@ -837,10 +838,9 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
  * @param      [options.classes='']       Additionnal badge classes
  */
 dotclear.badge = (elt, options = null) => {
-  const $target = dotclear.jQueryNodes(elt);
+  const target = dotclear.nodes(elt);
 
-  // Return if jQuery target does not exist
-  if (!$target.length) return;
+  if (!target.length) return;
 
   // Cope with options
   const opt = Object.assign(
@@ -863,13 +863,15 @@ dotclear.badge = (elt, options = null) => {
   // Set some constants
   const classid = `span.badge.badge-${opt.id}`; // Pseudo unique class
 
-  // Set badgeable class to target parent's (if sibling) or target itself, if it is necessary
-  const parent = opt.sibling ? $target.parent() : $target;
-  if (!opt.inline && !opt.remove && !parent.hasClass('badgeable')) parent.addClass('badgeable');
+  for (const item of target) {
+    // Set badgeable class to target parent's (if sibling) or target itself, if it is necessary
+    const parent = options.sibling ? item.parentNode : item;
+    if (!opt.inline && !opt.remove && !parent.classList.contains('badgeable')) parent.classList.add('badgeable');
 
-  // Remove existing badge if exists
-  const badge = opt.sibling ? parent.children(classid) : $target.children(classid);
-  if (badge.length) badge.remove();
+    // Remove existing badge if exists
+    const badge = opt.sibling ? parent.querySelector(classid) : item.querySelector(classid);
+    if (badge) badge.remove();
+  }
 
   // Return if no new badge to add
   if (!(!opt.remove && opt.value !== null)) return;
@@ -886,9 +888,12 @@ dotclear.badge = (elt, options = null) => {
   if (opt.classes) classes.push(`${opt.classes}`);
 
   // Compose badge
-  const xml = `<span class="${classes.join(' ')}" aria-hidden="true">${opt.value}</span>`;
-  if (opt.sibling) $target.after(xml);
-  else $target.append(xml);
+  const template = dotclear.htmlToNode(`<span class="${classes.join(' ')}" aria-hidden="true">${opt.value}</span>`);
+  for (const item of target) {
+    const element = template.cloneNode(true);
+    if (opt.sibling) item.after(element);
+    else item.append(element);
+  }
 };
 
 /**
@@ -1060,12 +1065,12 @@ dotclear.jsonServices = (
           onSuccess(response.payload);
         } else {
           const msg = dotclear.debug && response?.message ? response.message : 'Dotclear REST server error';
-          if (dotclear.debug) console.log(msg);
+          if (dotclear.debug) console.log(`jsonServices(): ${msg}`);
           onError(msg);
           return;
         }
       } catch (error) {
-        if (dotclear.debug) console.log(fn, data);
+        if (dotclear.debug) console.log(`jsonServices(): ${error}`, fn, data);
         onError(error);
       }
     },
@@ -1153,13 +1158,15 @@ dotclear.ready(() => {
     try {
       dotclear.theme_OS.addEventListener('change', (e) => switchScheme(e));
     } catch (e) {
+      if (dotclear.debug) console.log(`matchMedia/prefers-color-scheme: ${e}`);
       try {
         dotclear.theme_OS.addListener((e) => switchScheme(e));
       } catch (e) {
+        if (dotclear.debug) console.log(`matchMedia/prefers-color-scheme: ${e}`);
         try {
           dotclear.theme_OS.onchange((e) => switchScheme(e));
         } catch (e) {
-          console.log(e);
+          if (dotclear.debug) console.log(`matchMedia/prefers-color-scheme: ${e}`);
         }
       }
     }
@@ -1352,12 +1359,6 @@ dotclear.ready(() => {
     event.preventDefault();
   });
 
-  // Go back (aka Cancel) button
-  for (const back of document.querySelectorAll('.go-back'))
-    back.addEventListener('click', () => {
-      history.back();
-    });
-
   // Menu command
   const searchinput = document.getElementById('qx');
   if (searchinput) {
@@ -1383,4 +1384,10 @@ dotclear.ready(() => {
       searchinput.focus();
     });
   }
+
+  // Go back (aka Cancel) button
+  for (const back of document.querySelectorAll('.go-back'))
+    back.addEventListener('click', () => {
+      history.back();
+    });
 });
