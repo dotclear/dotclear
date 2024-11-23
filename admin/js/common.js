@@ -1384,9 +1384,8 @@ dotclear.ready(() => {
       if (!document.activeElement.nodeName || dotclear.acceptsKeyboardInput(document.activeElement)) {
         return;
       }
-      if (e.key !== quickMenuPrefix) {
-        return;
-      }
+      if (e.key !== quickMenuPrefix) return;
+      if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.isComposing) return;
       e.preventDefault();
       searchinput.setAttribute('value', quickMenuPrefix);
       searchinput.setSelectionRange(1, 1);
@@ -1408,6 +1407,7 @@ dotclear.ready(() => {
         return;
       }
       if (e.key !== 'ArrowLeft') return;
+      if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.isComposing) return;
       e.preventDefault();
       goprev.click();
     });
@@ -1419,6 +1419,7 @@ dotclear.ready(() => {
         return;
       }
       if (e.key !== 'ArrowRight') return;
+      if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.isComposing) return;
       e.preventDefault();
       gonext.click();
     });
