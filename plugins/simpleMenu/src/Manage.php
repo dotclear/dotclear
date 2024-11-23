@@ -25,6 +25,7 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Para;
@@ -569,8 +570,11 @@ class Manage extends Process
                                         ->items([
                                             ...My::hiddenFields(),
                                             (new Submit('appendaction', __('Continue...'))),
-                                            (new Button(['back'], __('Back')))
-                                                ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                                            (new Link('cancel'))
+                                                ->href(My::manageUrl())
+                                                ->class('button')
+                                                ->accesskey('c')
+                                                ->text(__('Cancel') . ' (c)'),
                                         ]),
                                 ]),
                         ])
@@ -633,8 +637,11 @@ class Manage extends Process
                                                 ...My::hiddenFields(),
                                                 (new Hidden('item_type', App::backend()->item_type)),
                                                 (new Submit('appendaction', __('Continue...'))),
-                                                (new Button(['back'], __('Back')))
-                                                    ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                                                (new Link('cancel'))
+                                                    ->href(My::manageUrl())
+                                                    ->class('button')
+                                                    ->accesskey('c')
+                                                    ->text(__('Cancel') . ' (c)'),
                                             ]),
                                     ]),
                             ])
@@ -718,8 +725,11 @@ class Manage extends Process
                                             (new Hidden('item_type', App::backend()->item_type)),
                                             (new Hidden('item_select', App::backend()->item_select)),
                                             (new Submit('appendaction', __('Add this item'))),
-                                            (new Button(['back'], __('Back')))
-                                                ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                                            (new Link('cancel'))
+                                                ->href(My::manageUrl())
+                                                ->class('button')
+                                                ->accesskey('c')
+                                                ->text(__('Cancel') . ' (c)'),
                                         ]),
                                 ]),
                         ])
