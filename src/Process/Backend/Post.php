@@ -794,7 +794,7 @@ class Post extends Process
                 ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">';
             } else {
                 echo
-                '<a id="post-cancel" href="' . App::backend()->url()->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
+                '<a id="post-cancel" href="' . App::backend()->url()->get('admin.posts') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
             }
 
             echo(App::backend()->can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete">' : '') .

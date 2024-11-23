@@ -818,7 +818,7 @@ class ManagePage extends Process
                 $buttons[] = (new Button(['back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']);
             } else {
                 $buttons[] = (new Link('post-cancel'))
-                    ->href(App::backend()->url()->get('admin.home'))
+                    ->href(My::manageUrl(['act' => 'list']))
                     ->class('button')
                     ->accesskey('c')
                     ->text(__('Cancel') . ' (c)');
