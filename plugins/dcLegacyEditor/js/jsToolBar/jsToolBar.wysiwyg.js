@@ -42,8 +42,8 @@ jsToolBar.prototype.syncContents = function (from = 'textarea') {
   } else {
     this.validBlockquote();
     let html = this.applyHtmlFilters(this.ibody.innerHTML);
-    if (html == '<br />' || html == '<br>') {
-      html = '<p></p>';
+    if (html === '<br />' || html === '<br>' || html === '<p></p>' || html === '<p><br></p>') {
+      html = '';
     }
     this.textarea.value = html;
   }
@@ -534,12 +534,6 @@ jsToolBar.prototype.simpleCleanRegex = new Array(
 jsToolBar.prototype.tagsoup2xhtml = function (html) {
   for (const reg in this.simpleCleanRegex) {
     html = html.replace(this.simpleCleanRegex[reg][0], this.simpleCleanRegex[reg][1]);
-  }
-  /* tags vides */
-  /* note : on tente de ne pas tenir compte des commentaires html, ceux-ci
-     permettent entre autre d'inserer des commentaires conditionnels pour ie */
-  while (/(<[^/!]>|<[^/!][^>]*[^/]>)\s*<\/[^>]*[^-]>/.test(html)) {
-    html = html.replace(/(<[^/!]>|<[^/!][^>]*[^/]>)\s*<\/[^>]*[^-]>/g, '');
   }
 
   /* tous les tags en minuscule */
