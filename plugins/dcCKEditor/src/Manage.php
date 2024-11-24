@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\dcCKEditor;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -61,7 +61,7 @@ class Manage extends Process
 
         if (!empty($_GET['config'])) {
             // text/javascript response stop stream just after including file
-            require_once __DIR__ . '/ManagePostConfig.php';
+            ManagePostConfig::load();
             exit();
         }
 
