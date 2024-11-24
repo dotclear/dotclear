@@ -5659,7 +5659,8 @@ img.mfp-img {
   box-sizing: border-box;
   padding: 40px 0 40px;
   margin: 0 auto;
-  min-height: 75vh;
+  min-height: 25vh;
+  object-fit: scale-down;
 }
 
 /* The shadow behind the image */

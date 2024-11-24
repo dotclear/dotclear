@@ -435,7 +435,8 @@ button {
       box-sizing: border-box;
       padding: $mfp-image-padding-top 0 $mfp-image-padding-bottom;
       margin: 0 auto;
-      min-height: 75vh;
+      min-height: 25vh;
+      object-fit: scale-down;
     }
   }
 
