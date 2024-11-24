@@ -517,7 +517,7 @@ class Files
      *
      * @return array<string, array<string>>|null
      */
-    public static function getDirList(string $directory, array &$list = null): ?array
+    public static function getDirList(string $directory, ?array &$list = null): ?array
     {
         if (!$list) {
             $list = [

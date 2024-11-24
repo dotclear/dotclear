@@ -1847,11 +1847,11 @@ class ModulesList
      * ... [put here page headers and other stuff]
      * $xxx->displayConfiguration();
      *
-     * @param    string    $id        Module to work on or it gather through REQUEST
+     * @param    string|null    $id        Module to work on or it gather through REQUEST
      *
      * @return   bool  True if config set
      */
-    public function setConfiguration(string $id = null): bool
+    public function setConfiguration(?string $id = null): bool
     {
         if (empty($_REQUEST['conf']) || empty($_REQUEST['module']) && !$id) {
             return false;
