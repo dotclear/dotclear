@@ -1,21 +1,20 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
 dotclear.viewCommentContent = (line, _action = 'toggle', e = null) => {
-  if ($(line).attr('id') === undefined) {
-    return;
-  }
+  const target = dotclear.node(line);
+  if (!target || target.getAttribute('id') === null) return;
 
-  const commentId = $(line).attr('id').substring(1);
+  const commentId = target.getAttribute('id').substring(1);
   const lineId = `ce${commentId}`;
   let tr = document.getElementById(lineId);
 
   // If meta key down or it's a spam then display content HTML code
-  const clean = e.metaKey || $(line).hasClass('sts-junk');
+  const clean = e.metaKey || target.classList.contains('sts-junk');
 
   if (tr) {
-    $(tr).toggle();
-    $(line).toggleClass('expand');
+    tr.style.display = tr.style.display === 'none' ? '' : 'none';
+    target.classList.toggleClass('expand');
   } else {
     // Get comment content if possible
     dotclear.getCommentContent(
@@ -26,16 +25,17 @@ dotclear.viewCommentContent = (line, _action = 'toggle', e = null) => {
           tr = document.createElement('tr');
           tr.id = lineId;
           const td = document.createElement('td');
-          td.colSpan = $(line).children('td').length;
+          // Set colspan of supplementary line to all cells of target line as we need only one cell in this line
+          td.colSpan = target.children.length;
           td.className = 'expand';
           tr.appendChild(td);
-          $(td).append(content);
-          $(line).addClass('expand');
+          td.append(...dotclear.htmlToNodes(content));
+          target.classList.add('expand');
           line.parentNode.insertBefore(tr, line.nextSibling);
           return;
         }
         // No content, content not found or server error
-        $(line).removeClass('expand');
+        target.classList.remove('expand');
       },
       {
         clean,
@@ -58,5 +58,8 @@ dotclear.ready(() => {
   dotclear.commentsActionsHelper();
   dotclear.condSubmit('#form-comments td input[type=checkbox]', '#form-comments #do-action');
   dotclear.responsiveCellHeaders(document.querySelector('#form-comments table'), '#form-comments table', 1);
-  $('form input[type=submit][name=delete_all_spam]').on('click', () => window.confirm(dotclear.msg.confirm_spam_delete));
+
+  for (const action of document.querySelectorAll('form input[type=submit][name=delete_all_spam]')) {
+    action.addEventListener('click', () => window.confirm(dotclear.msg.confirm_spam_delete));
+  }
 });
