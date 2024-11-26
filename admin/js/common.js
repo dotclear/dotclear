@@ -90,15 +90,28 @@ dotclear.node = (elt) => {
 };
 
 /**
+ * Return a NodeList created from an HTML string
+ *
+ * @param      {string}         html    The html
+ * @return     {NodeList}
+ */
+dotclear.htmlToNodes = (html) => {
+  const template = document.createElement('template');
+  template.innerHTML = html;
+
+  return template.content.childNodes;
+};
+
+/**
  * Return a DOM Element created from an HTML string, may return Null on error
  *
  * @param      {string}         html    The html
  * @return     {Element|null}
  */
 dotclear.htmlToNode = (html) => {
-  const template = document.createElement('template');
-  template.innerHTML = html;
-  return template.content.firstChild;
+  const list = dotclear.htmlToNodes(html);
+
+  return list.length ? list[0] : null;
 };
 
 /**
