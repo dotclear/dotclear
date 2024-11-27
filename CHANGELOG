@@ -1,3 +1,11 @@
+Dotclear 2.32.1 - 2024-11-27
+===========================================================
+* Fix: A category could not be renamed
+* Fix: The categories page doesn't display any categories if there's only one for the blog
+* Fix: Cast number values to int in blog parameters form as they might be non-existent
+* Fix: Replace return button by a cancel button in intermediary steps during creation of a new SimpleMenu item
+* Fix: legacyEditor with pseudo empty excerpt (thanks Ben Griffith for documenting this issue)
+
 Dotclear 2.32 - 2024-11-13
 ===========================================================
 * 🐘 PHP 8.1+ is required, PHP 8.2 and 8.3 compliance
