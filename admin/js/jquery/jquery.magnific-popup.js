@@ -1,9 +1,6 @@
-/*global $ */
-'use strict';
-
-/*! Magnific Popup - v1.1.0 - 2016-02-20
+/*! Magnific Popup - v1.2.0 - 2024-06-08
  * http://dimsemenov.com/plugins/magnific-popup/
- * Copyright (c) 2016 Dmitry Semenov; */
+ * Copyright (c) 2024 Dmytro Semenov; */
 (() => {
   const factory = ($) => {
     /*>>core*/
@@ -34,8 +31,89 @@
      */
     /*jshint -W079 */
     let mfp; // As we have only one instance of MagnificPopup object, we define it locally to not to use 'this'
-    class MagnificPopup {
-      constructor() {}
+    const MagnificPopup = function () {}; // Don't change this line - Franck Paul
+    const _isJQ = !!window.jQuery;
+    let _prevStatus;
+    const _window = $(window);
+    let _document;
+    let _prevContentType;
+    let _wrapClasses;
+    let _currPopupType;
+
+    /**
+     * Private functions
+     */
+    const _mfpOn = (name, f) => {
+      mfp.ev.on(NS + name + EVENT_NS, f);
+    };
+    const _getEl = (className, appendTo, html, raw) => {
+      let el = document.createElement('div');
+      el.className = `mfp-${className}`;
+      if (html) {
+        el.innerHTML = html;
+      }
+      if (!raw) {
+        el = $(el);
+        if (appendTo) {
+          el.appendTo(appendTo);
+        }
+      } else if (appendTo) {
+        appendTo.appendChild(el);
+      }
+      return el;
+    };
+    const _mfpTrigger = (e, data) => {
+      mfp.ev.triggerHandler(NS + e, data);
+
+      if (mfp.st.callbacks) {
+        // converts "mfpEventName" to "eventName" callback and triggers it if it's present
+        e = e.charAt(0).toLowerCase() + e.slice(1);
+        if (mfp.st.callbacks[e]) {
+          mfp.st.callbacks[e].apply(mfp, Array.isArray(data) ? data : [data]);
+        }
+      }
+    };
+    const _getCloseBtn = (type) => {
+      if (type !== _currPopupType || !mfp.currTemplate.closeBtn) {
+        mfp.currTemplate.closeBtn = $(mfp.st.closeMarkup.replace('%title%', mfp.st.tClose));
+        _currPopupType = type;
+      }
+      return mfp.currTemplate.closeBtn;
+    };
+    // Initialize Magnific Popup only when called at least once
+    const _checkInstance = () => {
+      if ($.magnificPopup.instance) {
+        return;
+      }
+      /*jshint -W020 */
+      mfp = new MagnificPopup();
+      mfp.init();
+      $.magnificPopup.instance = mfp;
+    };
+    // CSS transition detection, http://stackoverflow.com/questions/7264899/detect-css-transitions-using-javascript-and-without-modernizr
+    const supportsTransitions = () => {
+      const s = document.createElement('p').style; // 's' for style. better to create an element if body yet to exist
+      const v = ['ms', 'O', 'Moz', 'Webkit']; // 'v' for vendor
+
+      if (s.transition !== undefined) {
+        return true;
+      }
+
+      while (v.length) {
+        if (`${v.pop()}Transition` in s) {
+          return true;
+        }
+      }
+
+      return false;
+    };
+
+    /**
+     * Public functions
+     */
+    MagnificPopup.prototype = {
+      constructor: MagnificPopup,
+
       /**
        * Initializes Magnific Popup plugin.
        * This function is triggered only once when $.fn.magnificPopup or $.magnificPopup is executed
@@ -56,7 +134,7 @@
         _document = $(document);
 
         mfp.popupsCache = {};
-      }
+      },
 
       /**
        * Opens popup
@@ -151,13 +229,13 @@
 
         if (mfp.st.showCloseBtn) {
           // Close button
-          if (!mfp.st.closeBtnInside) {
-            mfp.wrap.append(_getCloseBtn());
-          } else {
+          if (mfp.st.closeBtnInside) {
             _mfpOn(MARKUP_PARSE_EVENT, (e, template, values, item) => {
               values.close_replaceWith = _getCloseBtn(item.type);
             });
             _wrapClasses += ' mfp-close-btn-in';
+          } else {
+            mfp.wrap.append(_getCloseBtn());
           }
         }
 
@@ -216,11 +294,11 @@
         }
 
         if (mfp.fixedContentPos) {
-          if (!mfp.isIE7) {
-            windowStyles.overflow = 'hidden';
-          } else {
+          if (mfp.isIE7) {
             // ie7 double-scroll bug
             $('body, html').css('overflow', 'hidden');
+          } else {
+            windowStyles.overflow = 'hidden';
           }
         }
 
@@ -265,7 +343,7 @@
         _mfpTrigger(OPEN_EVENT);
 
         return data;
-      }
+      },
 
       /**
        * Closes the popup
@@ -284,7 +362,7 @@
         } else {
           mfp._close();
         }
-      }
+      },
 
       /**
        * Helper for close() function
@@ -339,7 +417,7 @@
         mfp.prevHeight = 0;
 
         _mfpTrigger(AFTER_CLOSE_EVENT);
-      }
+      },
 
       updateSize(winHeight) {
         if (mfp.isIOS) {
@@ -357,7 +435,7 @@
         }
 
         _mfpTrigger('Resize');
-      }
+      },
 
       /**
        * Set content of popup based on current index
@@ -379,6 +457,7 @@
         _mfpTrigger('BeforeChange', [mfp.currItem ? mfp.currItem.type : '', type]);
         // BeforeChange event works like so:
         // _mfpOn('BeforeChange', function(e, prevType, newType) { });
+
         mfp.currItem = item;
 
         if (!mfp.currTemplate[type]) {
@@ -406,7 +485,7 @@
         mfp.container.prepend(mfp.contentContainer);
 
         _mfpTrigger('AfterChange');
-      }
+      },
 
       /**
        * Set HTML content of popup
@@ -431,7 +510,7 @@
         mfp.container.addClass(`mfp-${type}-holder`);
 
         mfp.contentContainer.append(mfp.content);
-      }
+      },
 
       /**
        * Creates Magnific Popup data object based on given data
@@ -452,9 +531,9 @@
           const { types } = mfp;
 
           // check for 'mfp-TYPE' class
-          for (const elt of types) {
-            if (item.el.hasClass(`mfp-${elt}`)) {
-              type = elt;
+          for (const typeElement of types) {
+            if (item.el.hasClass(`mfp-${typeElement}`)) {
+              type = typeElement;
               break;
             }
           }
@@ -472,7 +551,7 @@
         _mfpTrigger('ElementParse', item);
 
         return mfp.items[index];
-      }
+      },
 
       /**
        * Initializes single popup or a group of popups
@@ -502,7 +581,7 @@
             el.off(eName).on(eName, eHandler);
           }
         }
-      }
+      },
       _openClick(e, el, options) {
         const midClick = options.midClick !== undefined ? options.midClick : $.magnificPopup.defaults.midClick;
 
@@ -517,8 +596,11 @@
             if (!disableOn.call(mfp)) {
               return true;
             }
-          } else if (_window.width() < disableOn) {
-            return true;
+          } else {
+            // else it's number
+            if (_window.width() < disableOn) {
+              return true;
+            }
           }
         }
 
@@ -536,49 +618,54 @@
           options.items = el.find(options.delegate);
         }
         mfp.open(options);
-      }
+      },
 
       /**
        * Updates text on preloader
        */
       updateStatus(status, text) {
-        if (mfp.preloader) {
-          if (_prevStatus !== status) {
-            mfp.container.removeClass(`mfp-s-${_prevStatus}`);
-          }
-
-          if (!text && status === 'loading') {
-            text = mfp.st.tLoading;
-          }
-
-          const data = {
-            status,
-            text,
-          };
-          // allows to modify status
-          _mfpTrigger('UpdateStatus', data);
-
-          status = data.status;
-          text = data.text;
-
-          mfp.preloader.html(text);
-
-          mfp.preloader.find('a').on('click', (e) => {
-            e.stopImmediatePropagation();
-          });
-
-          mfp.container.addClass(`mfp-s-${status}`);
-          _prevStatus = status;
+        if (!mfp.preloader) {
+          return;
         }
-      }
+        if (_prevStatus !== status) {
+          mfp.container.removeClass(`mfp-s-${_prevStatus}`);
+        }
+
+        if (!text && status === 'loading') {
+          text = mfp.st.tLoading;
+        }
+
+        const data = {
+          status,
+          text,
+        };
+        // allows to modify status
+        _mfpTrigger('UpdateStatus', data);
+
+        status = data.status;
+        text = data.text;
+
+        if (mfp.st.allowHTMLInStatusIndicator) {
+          mfp.preloader.html(text);
+        } else {
+          mfp.preloader.text(text);
+        }
+
+        mfp.preloader.find('a').on('click', (e) => {
+          e.stopImmediatePropagation();
+        });
+
+        mfp.container.addClass(`mfp-s-${status}`);
+        _prevStatus = status;
+      },
 
       /*
-      "Private" helpers that aren't private at all
-     */
+        "Private" helpers that aren't private at all
+       */
       // Check to close popup or not
       // "target" is an element that was clicked
       _checkIfClose(target) {
-        if ($(target).hasClass(PREVENT_CLOSE_CLASS)) {
+        if ($(target).closest(`.${PREVENT_CLOSE_CLASS}`).length) {
           return;
         }
 
@@ -589,7 +676,7 @@
           return true;
         }
         // We close the popup if click is on close button or on preloader. Or if there is no content.
-        if (!mfp.content || $(target).hasClass('mfp-close') || (mfp.preloader && target === mfp.preloader[0])) {
+        if (!mfp.content || $(target).closest('.mfp-close').length || (mfp.preloader && target === mfp.preloader[0])) {
           return true;
         }
 
@@ -602,27 +689,27 @@
           return true;
         }
         return false;
-      }
+      },
       _addClassToMFP(cName) {
         mfp.bgOverlay.addClass(cName);
         mfp.wrap.addClass(cName);
-      }
+      },
       _removeClassFromMFP(cName) {
         this.bgOverlay.removeClass(cName);
         mfp.wrap.removeClass(cName);
-      }
+      },
       _hasScrollBar(winHeight) {
         return (mfp.isIE7 ? _document.height() : document.body.scrollHeight) > (winHeight || _window.height());
-      }
+      },
       _setFocus() {
         (mfp.st.focus ? mfp.content.find(mfp.st.focus).eq(0) : mfp.wrap).trigger('focus');
-      }
+      },
       _onFocusIn(e) {
         if (e.target !== mfp.wrap[0] && !$.contains(mfp.wrap[0], e.target)) {
           mfp._setFocus();
           return false;
         }
-      }
+      },
       _parseMarkup(template, values, item) {
         let arr;
         if (item.data) {
@@ -654,11 +741,13 @@
                 el.attr(arr[1], value);
               }
             }
-          } else {
+          } else if (mfp.st.allowHTMLInTemplate) {
             template.find(`${EVENT_NS}-${key}`).html(value);
+          } else {
+            template.find(`${EVENT_NS}-${key}`).text(value);
           }
         });
-      }
+      },
 
       _getScrollbarSize() {
         // thx David
@@ -670,82 +759,8 @@
           document.body.removeChild(scrollDiv);
         }
         return mfp.scrollbarSize;
-      }
-    }
-    const _isJQ = !!window.jQuery;
-    let _prevStatus;
-    const _window = $(window);
-    let _document;
-    let _prevContentType;
-    let _wrapClasses;
-    let _currPopupType;
-
-    /**
-     * Private functions
-     */
-    const _mfpOn = (name, f) => {
-      mfp.ev.on(NS + name + EVENT_NS, f);
-    };
-    const _getEl = (className, appendTo, html, raw) => {
-      let el = document.createElement('div');
-      el.className = `mfp-${className}`;
-      if (html) {
-        el.innerHTML = html;
-      }
-      if (!raw) {
-        el = $(el);
-        if (appendTo) {
-          el.appendTo(appendTo);
-        }
-      } else if (appendTo) {
-        appendTo.appendChild(el);
-      }
-      return el;
-    };
-    const _mfpTrigger = (e, data) => {
-      mfp.ev.triggerHandler(NS + e, data);
-
-      if (mfp.st.callbacks) {
-        // converts "mfpEventName" to "eventName" callback and triggers it if it's present
-        e = e.charAt(0).toLowerCase() + e.slice(1);
-        if (mfp.st.callbacks[e]) {
-          mfp.st.callbacks[e].apply(mfp, Array.isArray(data) ? data : [data]);
-        }
-      }
-    };
-    const _getCloseBtn = (type) => {
-      if (type !== _currPopupType || !mfp.currTemplate.closeBtn) {
-        mfp.currTemplate.closeBtn = $(mfp.st.closeMarkup.replace('%title%', mfp.st.tClose));
-        _currPopupType = type;
-      }
-      return mfp.currTemplate.closeBtn;
-    };
-    // Initialize Magnific Popup only when called at least once
-    const _checkInstance = () => {
-      if (!$.magnificPopup.instance) {
-        /*jshint -W020 */
-        mfp = new MagnificPopup();
-        mfp.init();
-        $.magnificPopup.instance = mfp;
-      }
-    };
-    // CSS transition detection, http://stackoverflow.com/questions/7264899/detect-css-transitions-using-javascript-and-without-modernizr
-    const supportsTransitions = () => {
-      const s = document.createElement('p').style; // 's' for style. better to create an element if body yet to exist
-      const v = ['ms', 'O', 'Moz', 'Webkit']; // 'v' for vendor
-
-      if (s.transition !== undefined) {
-        return true;
-      }
-
-      while (v.length) {
-        if (`${v.pop()}Transition` in s) {
-          return true;
-        }
-      }
-
-      return false;
-    };
+      },
+    }; /* MagnificPopup core prototype end */
 
     /**
      * Public static functions
@@ -758,7 +773,7 @@
       open(options, index) {
         _checkInstance();
 
-        options = !options ? {} : $.extend(true, {}, options);
+        options = options ? $.extend(true, {}, options) : {};
 
         options.isObj = true;
         options.index = index || 0;
@@ -824,6 +839,10 @@
         tLoading: 'Loading...',
 
         autoFocusLast: true,
+
+        allowHTMLInStatusIndicator: false,
+
+        allowHTMLInTemplate: false,
       },
     };
 
@@ -837,7 +856,7 @@
         if (options === 'open') {
           let items;
           const itemOpts = _isJQ ? jqEl.data('magnificPopup') : jqEl[0].magnificPopup;
-          const index = parseInt(arguments[1], 10) || 0;
+          const index = Number.parseInt(arguments[1], 10) || 0;
 
           if (itemOpts.items) {
             items = itemOpts.items[index];
@@ -958,7 +977,7 @@
       options: {
         settings: null,
         cursor: 'mfp-ajax-cur',
-        tError: '<a href="%url%">The content</a> could not be loaded.',
+        tError: 'The content could not be loaded.',
       },
 
       proto: {
@@ -1056,7 +1075,7 @@
         cursor: 'mfp-zoom-out-cur',
         titleSrc: 'title',
         verticalFit: true,
-        tError: '<a href="%url%">The image</a> could not be loaded.',
+        tError: 'The image could not be loaded.',
       },
 
       proto: {
@@ -1089,31 +1108,30 @@
           if (!item || !item.img) return;
 
           if (mfp.st.image.verticalFit) {
-            let decr = 0;
-            // fix box-sizing in ie7/8
-            if (mfp.isLowIE) {
-              decr = parseInt(item.img.css('padding-top'), 10) + parseInt(item.img.css('padding-bottom'), 10);
-            }
+            const decr = mfp.isLowIE
+              ? Number.parseInt(item.img.css('padding-top'), 10) + Number.parseInt(item.img.css('padding-bottom'), 10)
+              : 0;
             item.img.css('max-height', mfp.wH - decr);
           }
         },
         _onImageHasSize(item) {
-          if (item.img) {
-            item.hasSize = true;
+          if (!item.img) {
+            return;
+          }
+          item.hasSize = true;
 
-            if (_imgInterval) {
-              clearInterval(_imgInterval);
-            }
+          if (_imgInterval) {
+            clearInterval(_imgInterval);
+          }
 
-            item.isCheckingImgSize = false;
+          item.isCheckingImgSize = false;
 
-            _mfpTrigger('ImageHasSize', item);
+          _mfpTrigger('ImageHasSize', item);
 
-            if (item.imgHidden) {
-              if (mfp.content) mfp.content.removeClass('mfp-loading');
+          if (item.imgHidden) {
+            if (mfp.content) mfp.content.removeClass('mfp-loading');
 
-              item.imgHidden = false;
-            }
+            item.imgHidden = false;
           }
         },
 
@@ -1123,7 +1141,7 @@
         findImageSize(item) {
           let counter = 0;
           const img = item.img[0];
-          var mfpSetInterval = (delay) => {
+          const mfpSetInterval = (delay) => {
             if (_imgInterval) {
               clearInterval(_imgInterval);
             }
@@ -1154,9 +1172,24 @@
 
         getImage(item, template) {
           let guard = 0;
+          const imgSt = mfp.st.image;
+          // image error handler
+          const onLoadError = () => {
+            if (!item) {
+              return;
+            }
+            item.img.off('.mfploader');
+            if (item === mfp.currItem) {
+              mfp._onImageHasSize(item);
+              mfp.updateStatus('error', imgSt.tError.replace('%url%', item.src));
+            }
 
+            item.hasSize = true;
+            item.loaded = true;
+            item.loadError = true;
+          };
           // image load complete handler
-          var onLoadComplete = () => {
+          const onLoadComplete = () => {
             if (item) {
               if (item.img[0].complete) {
                 item.img.off('.mfploader');
@@ -1183,27 +1216,11 @@
             }
           };
 
-          // image error handler
-          var onLoadError = () => {
-            if (item) {
-              item.img.off('.mfploader');
-              if (item === mfp.currItem) {
-                mfp._onImageHasSize(item);
-                mfp.updateStatus('error', imgSt.tError.replace('%url%', item.src));
-              }
-
-              item.hasSize = true;
-              item.loaded = true;
-              item.loadError = true;
-            }
-          };
-          var imgSt = mfp.st.image;
-
           const el = template.find('.mfp-img');
           if (el.length) {
             let img = document.createElement('img');
             img.className = 'mfp-img';
-            if (item.el && item.el.find('img').length) {
+            if (item.el?.find('img').length) {
               img.alt = item.el.find('img').attr('alt');
             }
             item.img = $(img).on('load.mfploader', onLoadComplete).on('error.mfploader', onLoadError);
@@ -1301,7 +1318,7 @@
               zIndex: 9999,
               left: 0,
               top: 0,
-              'backface-visibility': 'hidden',
+              '-webkit-backface-visibility': 'hidden',
             };
             const t = 'transition';
 
@@ -1317,73 +1334,74 @@
           let animatedImg;
 
           _mfpOn(`BuildControls${ns}`, () => {
-            if (mfp._allowZoom()) {
-              clearTimeout(openTimeout);
-              mfp.content.css('visibility', 'hidden');
-
-              // Basically, all code below does is clones existing image, puts in on top of the current one and animated it
-
-              image = mfp._getItemToZoom();
-
-              if (!image) {
-                showMainContent();
-                return;
-              }
-
-              animatedImg = getElToAnimate(image);
-
-              animatedImg.css(mfp._getOffset());
-
-              mfp.wrap.append(animatedImg);
-
-              openTimeout = setTimeout(() => {
-                animatedImg.css(mfp._getOffset(true));
-                openTimeout = setTimeout(() => {
-                  showMainContent();
-
-                  setTimeout(() => {
-                    animatedImg.remove();
-                    image = animatedImg = null;
-                    _mfpTrigger('ZoomAnimationEnded');
-                  }, 16); // avoid blink when switching images
-                }, duration); // this timeout equals animation duration
-              }, 16); // by adding this timeout we avoid short glitch at the beginning of animation
-
-              // Lots of timeouts...
+            if (!mfp._allowZoom()) {
+              return;
             }
+            clearTimeout(openTimeout);
+            mfp.content.css('visibility', 'hidden');
+
+            // Basically, all code below does is clones existing image, puts in on top of the current one and animated it
+
+            image = mfp._getItemToZoom();
+
+            if (!image) {
+              showMainContent();
+              return;
+            }
+
+            animatedImg = getElToAnimate(image);
+
+            animatedImg.css(mfp._getOffset());
+
+            mfp.wrap.append(animatedImg);
+
+            openTimeout = setTimeout(() => {
+              animatedImg.css(mfp._getOffset(true));
+              openTimeout = setTimeout(() => {
+                showMainContent();
+
+                setTimeout(() => {
+                  animatedImg.remove();
+                  image = animatedImg = null;
+                  _mfpTrigger('ZoomAnimationEnded');
+                }, 16); // avoid blink when switching images
+              }, duration); // this timeout equals animation duration
+            }, 16); // by adding this timeout we avoid short glitch at the beginning of animation
           });
           _mfpOn(BEFORE_CLOSE_EVENT + ns, () => {
-            if (mfp._allowZoom()) {
-              clearTimeout(openTimeout);
-
-              mfp.st.removalDelay = duration;
-
-              if (!image) {
-                image = mfp._getItemToZoom();
-                if (!image) {
-                  return;
-                }
-                animatedImg = getElToAnimate(image);
-              }
-
-              animatedImg.css(mfp._getOffset(true));
-              mfp.wrap.append(animatedImg);
-              mfp.content.css('visibility', 'hidden');
-
-              setTimeout(() => {
-                animatedImg.css(mfp._getOffset());
-              }, 16);
+            if (!mfp._allowZoom()) {
+              return;
             }
+            clearTimeout(openTimeout);
+
+            mfp.st.removalDelay = duration;
+
+            if (!image) {
+              image = mfp._getItemToZoom();
+              if (!image) {
+                return;
+              }
+              animatedImg = getElToAnimate(image);
+            }
+
+            animatedImg.css(mfp._getOffset(true));
+            mfp.wrap.append(animatedImg);
+            mfp.content.css('visibility', 'hidden');
+
+            setTimeout(() => {
+              animatedImg.css(mfp._getOffset());
+            }, 16);
           });
 
           _mfpOn(CLOSE_EVENT + ns, () => {
-            if (mfp._allowZoom()) {
-              showMainContent();
-              if (animatedImg) {
-                animatedImg.remove();
-              }
-              image = null;
+            if (!mfp._allowZoom()) {
+              return;
             }
+            showMainContent();
+            if (animatedImg) {
+              animatedImg.remove();
+            }
+            image = null;
           });
         },
 
@@ -1400,15 +1418,15 @@
           const el = isLarge ? mfp.currItem.img : mfp.st.zoom.opener(mfp.currItem.el || mfp.currItem);
 
           const offset = el.offset();
-          const paddingTop = parseInt(el.css('padding-top'), 10);
-          const paddingBottom = parseInt(el.css('padding-bottom'), 10);
+          const paddingTop = Number.parseInt(el.css('padding-top'), 10);
+          const paddingBottom = Number.parseInt(el.css('padding-bottom'), 10);
           offset.top -= $(window).scrollTop() - paddingTop;
 
           /*
 
-        Animating left + top + width/height looks glitchy in Firefox, but perfect in Chrome. And vice-versa.
+          Animating left + top + width/height looks glitchy in Firefox, but perfect in Chrome. And vice-versa.
 
-         */
+           */
           const obj = {
             width: el.width(),
             // fix Zepto height+padding issue
@@ -1417,7 +1435,7 @@
 
           // I hate to do this, but there is no another option
           if (getHasMozTransform()) {
-            obj['-moz-transform'] = obj['transform'] = `translate(${offset.left}px,${offset.top}px)`;
+            obj['-moz-transform'] = obj.transform = `translate(${offset.left}px,${offset.top}px)`;
           } else {
             obj.left = offset.left;
             obj.top = offset.top;
@@ -1505,22 +1523,24 @@
           const iframeSt = mfp.st.iframe;
 
           $.each(iframeSt.patterns, function () {
-            if (embedSrc.includes(this.index)) {
-              if (this.id) {
-                embedSrc =
-                  typeof this.id === 'string'
-                    ? embedSrc.substr(embedSrc.lastIndexOf(this.id) + this.id.length, embedSrc.length)
-                    : this.id.call(this, embedSrc);
-              }
-              embedSrc = this.src.replace('%id%', embedSrc);
-              return false; // break;
+            if (!embedSrc.includes(this.index)) {
+              return;
             }
+            if (this.id) {
+              embedSrc =
+                typeof this.id === 'string'
+                  ? embedSrc.substr(embedSrc.lastIndexOf(this.id) + this.id.length, embedSrc.length)
+                  : this.id.call(this, embedSrc);
+            }
+            embedSrc = this.src.replace('%id%', embedSrc);
+            return false; // break;
           });
 
           const dataObj = {};
           if (iframeSt.srcAction) {
             dataObj[iframeSt.srcAction] = embedSrc;
           }
+
           mfp._parseMarkup(template, dataObj, item);
 
           mfp.updateStatus('ready');
@@ -1558,6 +1578,9 @@
         tPrev: 'Previous (Left arrow key)',
         tNext: 'Next (Right arrow key)',
         tCounter: '%curr% of %total%',
+
+        langDir: null,
+        loop: true,
       },
 
       proto: {
@@ -1568,6 +1591,10 @@
           mfp.direction = true; // true - next, false - prev
 
           if (!gSt || !gSt.enabled) return false;
+
+          if (!gSt.langDir) {
+            gSt.langDir = document.dir || 'ltr';
+          }
 
           _wrapClasses += ' mfp-gallery';
 
@@ -1583,11 +1610,19 @@
 
             _document.on(`keydown${ns}`, (e) => {
               if (e.keyCode === 37) {
-                mfp.prev();
+                if (gSt.langDir === 'rtl') mfp.next();
+                else mfp.prev();
               } else if (e.keyCode === 39) {
-                mfp.next();
+                if (gSt.langDir === 'rtl') mfp.prev();
+                else mfp.next();
               }
             });
+
+            mfp.updateGalleryButtons();
+          });
+
+          _mfpOn(`UpdateStatus${ns}`, () => {
+            mfp.updateGalleryButtons();
           });
 
           _mfpOn(`UpdateStatus${ns}`, (e, data) => {
@@ -1602,24 +1637,58 @@
           });
 
           _mfpOn(`BuildControls${ns}`, () => {
-            if (mfp.items.length > 1 && gSt.arrows && !mfp.arrowLeft) {
-              const markup = gSt.arrowMarkup;
-              const arrowLeft = (mfp.arrowLeft = $(markup.replace(/%title%/gi, gSt.tPrev).replace(/%dir%/gi, 'left')).addClass(
-                PREVENT_CLOSE_CLASS,
-              ));
-              const arrowRight = (mfp.arrowRight = $(
-                markup.replace(/%title%/gi, gSt.tNext).replace(/%dir%/gi, 'right'),
-              ).addClass(PREVENT_CLOSE_CLASS));
-
-              arrowLeft.click(() => {
-                mfp.prev();
-              });
-              arrowRight.click(() => {
-                mfp.next();
-              });
-
-              mfp.container.append(arrowLeft.add(arrowRight));
+            if (!(mfp.items.length > 1 && gSt.arrows && !mfp.arrowLeft)) {
+              return;
             }
+            let arrowLeftDesc;
+            let arrowRightDesc;
+            let arrowLeftAction;
+            let arrowRightAction;
+
+            if (gSt.langDir === 'rtl') {
+              arrowLeftDesc = gSt.tNext;
+              arrowRightDesc = gSt.tPrev;
+              arrowLeftAction = 'next';
+              arrowRightAction = 'prev';
+            } else {
+              arrowLeftDesc = gSt.tPrev;
+              arrowRightDesc = gSt.tNext;
+              arrowLeftAction = 'prev';
+              arrowRightAction = 'next';
+            }
+
+            const markup = gSt.arrowMarkup;
+            const arrowLeft = (mfp.arrowLeft = $(
+              markup
+                .replace(/%title%/gi, arrowLeftDesc)
+                .replace(/%action%/gi, arrowLeftAction)
+                .replace(/%dir%/gi, 'left'),
+            ).addClass(PREVENT_CLOSE_CLASS));
+            const arrowRight = (mfp.arrowRight = $(
+              markup
+                .replace(/%title%/gi, arrowRightDesc)
+                .replace(/%action%/gi, arrowRightAction)
+                .replace(/%dir%/gi, 'right'),
+            ).addClass(PREVENT_CLOSE_CLASS));
+
+            if (gSt.langDir === 'rtl') {
+              mfp.arrowNext = arrowLeft;
+              mfp.arrowPrev = arrowRight;
+            } else {
+              mfp.arrowNext = arrowRight;
+              mfp.arrowPrev = arrowLeft;
+            }
+
+            arrowLeft.on('click', () => {
+              if (gSt.langDir === 'rtl') mfp.next();
+              else mfp.prev();
+            });
+            arrowRight.on('click', () => {
+              if (gSt.langDir === 'rtl') mfp.prev();
+              else mfp.next();
+            });
+
+            mfp.container.append(arrowLeft.add(arrowRight));
           });
 
           _mfpOn(CHANGE_EVENT + ns, () => {
@@ -1638,13 +1707,17 @@
           });
         },
         next() {
+          const newIndex = _getLoopedId(mfp.index + 1);
+          if (!mfp.st.gallery.loop && newIndex === 0) return false;
           mfp.direction = true;
-          mfp.index = _getLoopedId(mfp.index + 1);
+          mfp.index = newIndex;
           mfp.updateItemHTML();
         },
         prev() {
+          const newIndex = mfp.index - 1;
+          if (!mfp.st.gallery.loop && newIndex < 0) return false;
           mfp.direction = false;
-          mfp.index = _getLoopedId(mfp.index - 1);
+          mfp.index = _getLoopedId(newIndex);
           mfp.updateItemHTML();
         },
         goTo(newIndex) {
@@ -1694,6 +1767,20 @@
 
           item.preloaded = true;
         },
+
+        /**
+         * Show/hide the gallery prev/next buttons if we're at the start/end, if looping is turned off
+         * Added by Joloco for Veg
+         */
+        updateGalleryButtons() {
+          if (!mfp.st.gallery.loop && typeof mfp.arrowPrev === 'object' && mfp.arrowPrev !== null) {
+            if (mfp.index === 0) mfp.arrowPrev.hide();
+            else mfp.arrowPrev.show();
+
+            if (mfp.index === mfp.items.length - 1) mfp.arrowNext.hide();
+            else mfp.arrowNext.show();
+          }
+        },
       },
     });
 
@@ -1712,23 +1799,24 @@
       },
       proto: {
         initRetina() {
-          if (window.devicePixelRatio > 1) {
-            const st = mfp.st.retina;
-            let { ratio } = st;
+          if (window.devicePixelRatio <= 1) {
+            return;
+          }
+          const st = mfp.st.retina;
+          let { ratio } = st;
 
-            ratio = !isNaN(ratio) ? ratio : ratio();
+          ratio = Number.isNaN(ratio) ? ratio() : ratio;
 
-            if (ratio > 1) {
-              _mfpOn(`ImageHasSize.${RETINA_NS}`, (e, item) => {
-                item.img.css({
-                  'max-width': item.img[0].naturalWidth / ratio,
-                  width: '100%',
-                });
+          if (ratio > 1) {
+            _mfpOn(`ImageHasSize.${RETINA_NS}`, (e, item) => {
+              item.img.css({
+                'max-width': item.img[0].naturalWidth / ratio,
+                width: '100%',
               });
-              _mfpOn(`ElementParse.${RETINA_NS}`, (e, item) => {
-                item.src = st.replaceSrc(item, ratio);
-              });
-            }
+            });
+            _mfpOn(`ElementParse.${RETINA_NS}`, (e, item) => {
+              item.src = st.replaceSrc(item, ratio);
+            });
           }
         },
       },
