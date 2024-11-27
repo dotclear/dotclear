@@ -999,6 +999,9 @@ class MediaItem extends Process
         }
 
         $details = '';
+        if (App::backend()->file->media_title !== '') {
+            $details .= '<li><strong>' . __('Title') . __(':') . '</strong> ' . Html::escapeHTML((string) App::backend()->file->media_title) . '</li>';
+        }
         $alttext = $getImageAlt(App::backend()->file, false);
         if ($alttext !== '') {
             $details .= '<li><strong>' . __('Alternate text:') . '</strong> ' . Html::escapeHTML($alttext) . '</li>';
