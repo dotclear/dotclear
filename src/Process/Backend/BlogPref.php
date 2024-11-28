@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -470,10 +471,23 @@ class BlogPref extends Process
 
         Page::open(
             __('Blog settings'),
-            Page::jsJson('blog_pref', [
-                'warning_path_info'    => __('Warning: except for special configurations, it is generally advised to have a trailing "/" in your blog URL in PATH_INFO mode.'),
-                'warning_query_string' => __('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in QUERY_STRING mode.'),
-            ]) .
+            Page::jsJson(
+                'blog_pref',
+                [
+                    'url' => [
+                        'popup_posts' => App::backend()->url()->get('admin.posts.popup', [
+                            'popup'     => 1,
+                            'plugin_id' => 'admin.blog_pref',
+                            'type'      => 'page',
+                        ], '&'),
+                    ],
+                    'msg' => [
+                        'warning_path_info'    => __('Warning: except for special configurations, it is generally advised to have a trailing "/" in your blog URL in PATH_INFO mode.'),
+                        'warning_query_string' => __('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in QUERY_STRING mode.'),
+                        'example_prefix'       => __('Sample:') . ' ',
+                    ],
+                ]
+            ) .
             Page::jsConfirmClose('blog-form') .
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
             ($rte_flag ? App::behavior()->callBehavior('adminPostEditor', $desc_editor['xhtml'], 'blog_desc', ['#blog_desc'], 'xhtml') : '') .

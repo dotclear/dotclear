@@ -1,43 +1,72 @@
-/*global $, dotclear, jsToolBar */
+/*global dotclear, jsToolBar */
 'use strict';
 
-Object.assign(dotclear.msg, dotclear.getData('blog_pref'));
+// Get blog preferences data
+const data = dotclear.getData('blog_pref');
+Object.assign(dotclear.msg, data.msg);
+dotclear.blog_pref = data.url;
 
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  const blog_url = $('#blog_url');
-  if (blog_url.length > 0 && !blog_url.is(':hidden')) {
-    const checkQueryString = () => {
-      const url = blog_url[0].value;
-      const scan = $('#url_scan')[0].value;
+  // Blog URL scan method helper
+  const url = document.getElementById('blog_url');
+  if (url && !url.hidden) {
+    const scan = document.getElementById('url_scan');
+
+    // Check URL scan method
+    const checkQueryString = (url, scan) => {
       let msg = '';
-      if (/.*[^/]$/.exec(url) && scan === 'path_info') {
+      if (/.*[^/]$/.exec(url.value) && scan.value === 'path_info') {
         msg = dotclear.msg.warning_path_info;
-      } else if (/.*[^?]$/.exec(url) && scan === 'query_string') {
+      } else if (/.*[^?]$/.exec(url.value) && scan.value === 'query_string') {
         msg = dotclear.msg.warning_query_string;
       }
-      $('p#urlwarning').remove();
+      // Warning if necessary
+      const warning = document.getElementById('urlwarning');
+      if (warning) warning.remove();
       if (msg !== '') {
-        blog_url.parents('p').after(`<p id="urlwarning" class="warning">${msg}</p>`);
+        url.parentNode.parentNode.after(dotclear.htmlToNode(`<p id="urlwarning" class="warning">${msg}</p>`));
       }
     };
-    checkQueryString();
-    blog_url.on('focusout', checkQueryString);
-    $('body').on('change', '#url_scan', checkQueryString);
+
+    // 1st checking
+    checkQueryString(url, scan);
+
+    // Check on leaving URL field
+    url?.addEventListener('focusout', () => {
+      checkQueryString(url, scan);
+    });
+
+    // Check on changing scan method
+    scan?.addEventListener('change', () => {
+      checkQueryString(url, scan);
+    });
   }
 
-  $('#date_format_select,#time_format_select').on('change', function () {
-    if ($(this).prop('value') === '') {
-      return;
+  // Date and time format helpers
+  for (const type of ['date', 'time']) {
+    const select = document.getElementById(`${type}_format_select`);
+    if (select) {
+      const current = document.getElementById(`${type}_format`);
+      const help = document.getElementById(`${type}_format_help`);
+      if (current) {
+        select.addEventListener('change', (event) => {
+          if (event.currentTarget.value === '') return;
+          current.value = event.currentTarget.value;
+          if (help) {
+            help.innerText = dotclear.msg?.example_prefix + event.currentTarget.selectedOptions[0]?.label;
+          }
+        });
+      }
     }
-    $(`#${$(this).attr('id').replace('_select', '')}`).prop('value', $(this).prop('value'));
-    $(this).parent().next('.chosen').html($(this).find(':selected').prop('label'));
-  });
+  }
 
-  $('#static_home_url_selector').on('click', (e) => {
+  // Static home URL selector helper
+  const staticUrlSelector = document.getElementById('static_home_url_selector');
+  staticUrlSelector?.addEventListener('click', (e) => {
     window.open(
-      'popup_posts.php?plugin_id=admin.blog_pref&type=page',
+      dotclear.blog_pref.popup_posts,
       'dc_popup',
       'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,menubar=no,resizable=yes,scrollbars=yes,status=no',
     );
@@ -45,26 +74,29 @@ dotclear.ready(() => {
     return false;
   });
 
-  // HTML text editor
+  // HTML text editor for blog description
   if (typeof jsToolBar === 'function') {
-    $('#blog_desc').each(function () {
-      const tbWidgetText = new jsToolBar(this);
+    const desc = document.getElementById('blog_desc');
+    if (desc) {
+      const tbWidgetText = new jsToolBar(desc);
       tbWidgetText.context = 'blog_desc';
       tbWidgetText.draw('xhtml');
-    });
+    }
   }
 
-  // Hide advanced and plugins prefs sections
-  $('#standard-pref h3').toggleWithLegend($('#standard-pref').children().not('h3'), {
-    legend_click: true,
-    user_pref: 'dcx_blog_pref_std',
-  });
-  $('#advanced-pref h3').toggleWithLegend($('#advanced-pref').children().not('h3'), {
-    legend_click: true,
-    user_pref: 'dcx_blog_pref_adv',
-  });
-  $('#plugins-pref h3').toggleWithLegend($('#plugins-pref').children().not('h3'), {
-    legend_click: true,
-    user_pref: 'dcx_blog_pref_plg',
-  });
+  // Cope with standard, advanced and plugins prefs sections (add/restore collapse button)
+  for (const part of [
+    { id: 'standard', pref: 'std' },
+    { id: 'advanced', pref: 'adv' },
+    { id: 'plugins', pref: 'plg' },
+  ]) {
+    const title = document.querySelector(`#${part.id}-pref h3`);
+    if (title) {
+      const siblings = title.parentNode.querySelectorAll(':not(h3)');
+      dotclear.toggleWithLegend(title, siblings, {
+        legend_click: true,
+        user_pref: `dcx_blog_pref_${part.pref}`,
+      });
+    }
+  }
 });
