@@ -1,4 +1,4 @@
-/*global $, dotclear */
+/*global jQuery, dotclear */
 'use strict';
 
 dotclear.dbStoreUpdate = (/** @type {any} */ store, /** @type {string} */ url) => {
@@ -9,10 +9,14 @@ dotclear.dbStoreUpdate = (/** @type {any} */ store, /** @type {string} */ url) =
         if (data.new) {
           if (data.check) {
             if (data.nb) {
-              $('#force-checking').replaceWith(`<p class="info"><a href="${url}" title="${data.ret}">${data.ret}</a></p>`);
+              const form = document.getElementById('force-checking');
+              form?.replaceWith(
+                dotclear.htmlToNode(`<p class="info"><a href="${url}" title="${data.ret}">${data.ret}</a></p>`),
+              );
             }
           } else {
-            $('#force-checking p').prepend(`<span class="info">${data.ret}</span> `);
+            const target = document.querySelector('#force-checking p');
+            target?.prepend(dotclear.htmlToNode(`<span class="info">${data.ret}</span>`));
           }
         }
       },
@@ -24,132 +28,130 @@ dotclear.dbStoreUpdate = (/** @type {any} */ store, /** @type {string} */ url) =
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  // expend theme info
-  $('.module-sshot')
-    .not('.current-theme .module-sshot')
-    .each(function () {
-      $(this)
-        .children('img')
-        .on('click', function () {
-          // Click on theme thumbnail
-          const details_element = $(this).parent().parent().children('details');
-          details_element.attr('open', details_element.attr('open') ? null : 'true');
-        });
+  // Expand theme info helper
+  for (const theme of document.querySelectorAll('.module-sshot:not(.current-theme .module-sshot)')) {
+    const img = theme.querySelector('img');
+    img?.addEventListener('click', (event) => {
+      // Click on theme thumbnail
+      const details = event.currentTarget.parentNode.parentNode.querySelector('details');
+      details.open = details.open ? null : 'true';
     });
+  }
 
-  $('.modules-search').each(function () {
-    const m_search = $(this).find('input[name=m_search]');
-    const m_submit = $(this).find('input[type=submit]');
+  // Theme search helper
+  const search = document.querySelector('.modules-search');
+  if (search) {
+    const searchInput = search.querySelector(':scope input[name=m_search]');
+    const searchSubmit = search.querySelector(':scope input[type=submit]');
 
-    m_submit.attr('disabled', m_search.val().length < 2);
-    if (m_search.val().length < 2) {
-      m_submit.addClass('disabled');
-    } else {
-      m_submit.removeClass('disabled');
-    }
-
-    m_search.on('keyup', () => {
-      m_submit.attr('disabled', m_search.val().length < 2);
-      if (m_search.val().length < 2) {
-        m_submit.addClass('disabled');
+    const condSubmit = () => {
+      if (searchInput.value.length < 2) {
+        searchSubmit.classList.add('disabled');
+        searchSubmit.setAttribute('disabled', 'true');
       } else {
-        m_submit.removeClass('disabled');
+        searchSubmit.classList.remove('disabled');
+        searchSubmit.removeAttribute('disabled');
       }
+    };
+
+    condSubmit();
+    searchInput?.addEventListener('keyup', () => {
+      condSubmit();
     });
-  });
+  }
 
   // checkboxes selection
-  $('.checkboxes-helpers').each(function () {
-    dotclear.checkboxesHelpers(this);
-  });
+  for (const helper of document.querySelectorAll('.checkboxes-helpers')) {
+    dotclear.checkboxesHelpers(helper);
+  }
 
   // actions tests
-  $('.modules-form-actions').each(function () {
+  for (const action of document.querySelectorAll('.modules-form-actions')) {
     const rxActionType = /^[^[]+/;
     const rxActionValue = /([^[]+)\]$/;
-    const checkboxes = $(this).find('input[type=checkbox]');
+    const checkboxes = action.querySelectorAll(':scope input[type=checkbox]');
 
-    // check if submit is a global action or one line action
-    $('input[type=submit]', this).on('click', function () {
-      const keyword = $(this).attr('name');
-      if (!keyword) {
-        return true;
-      }
-      const maction = keyword.match(rxActionType);
-      const action = maction ? maction[0] : '';
-      const mvalues = keyword.match(rxActionValue);
-
-      // action on multiple modules
-      if (mvalues) {
-        const module = mvalues[1];
-
-        // confirm delete
-        if (action === 'delete') {
-          return window.confirm(dotclear.msg.confirm_delete_theme.replace('%s', module));
+    for (const submit of action.querySelectorAll(':scope input[type=submit]')) {
+      submit?.addEventListener('click', (event) => {
+        const keyword = event.currentTarget?.name;
+        if (!keyword) {
+          return true;
         }
-      } else {
-        let checked = false;
+        const maction = keyword.match(rxActionType);
+        const action = maction ? maction[0] : '';
+        const mvalues = keyword.match(rxActionValue);
 
-        // check if there is checkboxes in form
-        if (checkboxes.length > 0) {
-          // check if there is at least one checkbox checked
-          $(checkboxes).each(function () {
-            if (this.checked) {
-              checked = true;
+        // action on multiple modules
+        if (mvalues) {
+          const module = mvalues[1];
+
+          // confirm delete
+          if (action === 'delete') {
+            return window.confirm(dotclear.msg.confirm_delete_theme.replace('%s', module));
+          }
+        } else {
+          let checked = false;
+
+          // check if there is checkboxes in form
+          if (checkboxes.length > 0) {
+            // check if there is at least one checkbox checked
+            for (const checkbox of checkboxes) {
+              if (checkbox.checked) {
+                checked = true;
+                break;
+              }
             }
-          });
-          if (!checked) {
-            if (dotclear.debug) {
-              alert(dotclear.msg.no_selection);
+            if (!checked) {
+              if (dotclear.debug) {
+                alert(dotclear.msg.no_selection);
+              }
+              event.preventDefault();
+              return false;
             }
-            return false;
+          }
+
+          // confirm delete
+          if (action === 'delete') {
+            return window.confirm(dotclear.msg.confirm_delete_themes);
           }
         }
 
-        // confirm delete
-        if (action === 'delete') {
-          return window.confirm(dotclear.msg.confirm_delete_themes);
-        }
-
-        // action on one module
-      }
-
-      return true;
-    });
-  });
+        return true;
+      });
+    }
+  }
 
   // Theme preview
-  $('.theme-preview').each(function () {
-    const preview_url = $(this).attr('href');
-    if (preview_url) {
-      const has_modal = $(this).hasClass('modal');
-
+  for (const preview of document.querySelectorAll('.theme-preview')) {
+    const url = preview.href;
+    if (url) {
+      const modal = preview.classList.contains('modal');
       // Check if admin and blog have same protocol (ie not mixed-content)
-      if (has_modal && window.location.protocol === preview_url.substring(0, window.location.protocol.length)) {
+      if (modal && window.location.protocol === url.substring(0, window.location.protocol.length)) {
         // Open preview in a modal iframe
-        $(this).magnificPopup({
+        jQuery(preview).magnificPopup({
           type: 'iframe',
           iframe: {
             patterns: {
               dotclear_preview: {
-                index: preview_url,
-                src: preview_url,
+                index: url,
+                src: url,
               },
             },
           },
         });
       } else {
         // If has not modal class, the preview is cope by direct link with target="blank" in HTML
-        if (has_modal) {
+        if (modal) {
           // Open preview on antother window
-          $(this).on('click', function (e) {
-            e.preventDefault();
-            window.open($(this).attr('href'));
+          preview.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.open(event.currentTarget.href);
           });
         }
       }
     }
-  });
+  }
 
   // Prevent history back if currently previewing Theme (with magnificPopup)
   history.pushState(null, '', null);
@@ -158,7 +160,7 @@ dotclear.ready(() => {
       // Prevent history back
       history.go(1);
       // Close current preview
-      $.magnificPopup.close();
+      jQuery.magnificPopup.close();
     }
   });
 

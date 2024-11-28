@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -281,6 +282,7 @@ class BlogTheme extends Process
                         ->method('get')
                         ->fields([
                             (new Para())
+                            ->class('form-buttons')
                             ->items([
                                 (new Hidden('nocache', '1')),
                                 (new Hidden(['process'], 'BlogTheme')),
