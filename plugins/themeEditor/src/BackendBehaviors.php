@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -138,7 +139,7 @@ console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenhe
                             ->class('col70')
                             ->items([
                                 (new Text(null, $codemirror)),
-                                (new Text(null, $sample)),
+                                (new Text(null, trim($sample))),
                             ]),
                     ]),
             ])

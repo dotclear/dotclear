@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -336,7 +337,7 @@ class Page
         ($safe_mode ? ' safe-mode' : '') .
         (App::config()->debugMode() ? ' debug-mode' : '') .
         '">' . "\n" .
-        $prelude->render() . "\n";
+        $prelude->render();
 
         // Header
         echo (new Div(null, 'header'))
@@ -529,7 +530,7 @@ class Page
         echo
         "</nav>\n" . // End of #main-menu
         "</div>\n" . // End of #wrapper
-        $gototop->render() . "\n";
+        $gototop->render();
 
         $figure = "\n" .
         ' ' . "\n" .
