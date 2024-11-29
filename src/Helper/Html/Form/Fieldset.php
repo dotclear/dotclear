@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -14,14 +15,14 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms fieldset creation helpers
  *
  * @method      $this legend(Legend $legend)
- * @method      $this fields(array|Iterable $fields)
- * @method      $this items(array|Iterable $items)
+ * @method      $this fields(array<int|string, Component>|Iterable<int|string, Component> $fields)
+ * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
  *
  * @property    Legend $legend
- * @property    array|Iterable $fields
- * @property    array|Iterable $items
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $fields
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $items
  * @property    string $format
  * @property    string $separator
  */

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -132,7 +133,7 @@ class Media extends Process
                 $message = [];
 
                 try {
-                    Files::uploadStatus($upfile);
+                    Files::uploadStatus($upfile);   // @phpstan-ignore-line
                     $new_file_id = App::media()->uploadFile($upfile['tmp_name'], $upfile['name'], false, $upfile['title']);
 
                     $message['files'][] = [
@@ -152,7 +153,7 @@ class Media extends Process
             }
 
             try {
-                Files::uploadStatus($upfile);
+                Files::uploadStatus($upfile);   // @phpstan-ignore-line
 
                 $f_title   = (isset($_POST['upfiletitle']) ? Html::escapeHTML($_POST['upfiletitle']) : '');
                 $f_private = ($_POST['upfilepriv'] ?? false);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -237,7 +238,7 @@ class Frontend extends Process
             return $img_url;
         }
 
-        if (isset($s['logo_src']) && $s['logo_src'] !== null && $s['logo_src'] != '') {
+        if (isset($s['logo_src']) && $s['logo_src']) {
             if ((str_starts_with($s['logo_src'], '/')) || (parse_url($s['logo_src'], PHP_URL_SCHEME) != '')) {
                 // absolute URL
                 $img_url = $s['logo_src'];

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -201,18 +202,20 @@ class FrontendTemplate
 
         $widget = clone Widgets::$widgets->{$id};
 
-        foreach ($xml->setting as $e) {
-            if (empty($e['name'])) {
-                continue;
-            }
+        if ($xml->setting) {
+            foreach ($xml->setting as $e) {
+                if (empty($e['name'])) {
+                    continue;
+                }
 
-            $setting = (string) $e['name'];
-            if ($e->count() > 0) {
-                $text = preg_replace('#^<setting[^>]*>(.*)</setting>$#msu', '\1', (string) $e->asXML());
-            } else {
-                $text = $e;
+                $setting = (string) $e['name'];
+                if ($e->count() > 0) {
+                    $text = preg_replace('#^<setting[^>]*>(.*)</setting>$#msu', '\1', (string) $e->asXML());
+                } else {
+                    $text = $e;
+                }
+                $widget->{$setting} = preg_replace_callback('/\{tpl:lang (.*?)\}/msu', fn ($m) => __($m[1]), (string) $text);
             }
-            $widget->{$setting} = preg_replace_callback('/\{tpl:lang (.*?)\}/msu', fn ($m) => __($m[1]), (string) $text);
         }
 
         echo $widget->call(0);

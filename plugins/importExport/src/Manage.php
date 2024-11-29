@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -51,8 +52,8 @@ class Manage extends Process
         /**
          * @var null|Module
          */
-        $module = $_REQUEST['module'] ?? false;
-        if (App::backend()->type && $module !== false && isset(App::backend()->modules[App::backend()->type]) && in_array($module, App::backend()->modules[App::backend()->type])) {
+        $module = $_REQUEST['module'] ?? false; // @phpstan-ignore-line
+        if (App::backend()->type && $module && isset(App::backend()->modules[App::backend()->type]) && in_array($module, App::backend()->modules[App::backend()->type])) {
             App::backend()->module = new $module();
             App::backend()->module->init();
         }

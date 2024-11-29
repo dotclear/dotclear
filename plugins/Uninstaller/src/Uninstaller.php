@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -119,7 +120,7 @@ class Uninstaller
         $this->direct_actions = [];
 
         foreach ($modules as $module) {
-            if (!($module instanceof ModuleDefine)) {
+            if (!($module instanceof ModuleDefine)) {   // @phpstan-ignore-line
                 continue;
             }
             $class = $module->get('namespace') . '\\' . self::UNINSTALL_CLASS_NAME;

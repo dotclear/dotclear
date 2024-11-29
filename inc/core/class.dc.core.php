@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Core
@@ -517,7 +518,7 @@ final class dcCore
      * @param      string    $name       The formater name
      * @param      callable  $func       The function to use, must be a valid and callable callback
      */
-    public function addEditorFormater(string $editor_id, string $name, $func): void
+    public function addEditorFormater(string $editor_id, string $name, callable $func): void
     {
         App::formater()->addEditorFormater($editor_id, $name, $func);
     }
@@ -1112,7 +1113,7 @@ final class dcCore
      *
      * @param      string  $id     The blog identifier
      *
-     * @return     MetaRecord|false
+     * @return     MetaRecord
      */
     public function getBlog(string $id)
     {

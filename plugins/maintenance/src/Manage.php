@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -170,11 +171,11 @@ class Manage extends Process
         // Combos
 
         $combo_ts = [
-            __('Never')            => 0,
-            __('Every week')       => 604800,
-            __('Every two weeks')  => 1_209_600,
-            __('Every month')      => 2_592_000,
-            __('Every two months') => 5_184_000,
+            __('Never')            => (string) 0,
+            __('Every week')       => (string) 604800,
+            __('Every two weeks')  => (string) 1_209_600,
+            __('Every month')      => (string) 2_592_000,
+            __('Every two months') => (string) 5_184_000,
         ];
 
         // Display page

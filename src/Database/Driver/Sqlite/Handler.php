@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -93,7 +94,7 @@ class Handler extends AbstractHandler
             $this->db_exec($handle, 'PRAGMA short_column_names = 1');
             $this->db_exec($handle, 'PRAGMA encoding = "UTF-8"');
             $handle->sqliteCreateFunction('now', $this->now(...), 0);
-            if (class_exists('Collator') && method_exists($handle, 'sqliteCreateCollation')) {
+            if (class_exists('Collator')) {
                 $this->utf8_unicode_ci = new Collator('root');
                 if (!$handle->sqliteCreateCollation('utf8_unicode_ci', [$this->utf8_unicode_ci, 'compare'])) {
                     $this->utf8_unicode_ci = null;
@@ -171,7 +172,7 @@ class Handler extends AbstractHandler
         while ($r = $result->fetch(PDO::FETCH_ASSOC)) {
             $R = [];
             foreach ($r as $k => $v) {
-                $k     = (string) preg_replace('/^(.*)\./', '', $k);
+                $k     = (string) preg_replace('/^(.*)\./', '', $k);    // @phpstan-ignore-line
                 $R[$k] = $v;
                 $R[]   = &$R[$k];
             }

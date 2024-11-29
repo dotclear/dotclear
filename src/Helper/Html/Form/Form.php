@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -17,15 +18,15 @@ use Dotclear\App;
  *
  * @method      $this action(null|string $action)
  * @method      $this method(string $action)
- * @method      $this fields(array|Iterable $fields)
- * @method      $this items(array|Iterable $items)
+ * @method      $this fields(array<int|string, Component>|Iterable<int|string, Component> $fields)
+ * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
  * @method      $this separator(string $separator)
  * @method      $this enctype(string $enctype)
  *
  * @property    null|string $action
  * @property    string $method
- * @property    array|Iterable $fields
- * @property    array|Iterable $items
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $fields
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $items
  * @property    string $separator
  * @property    string $enctype
  */

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -133,7 +134,7 @@ class Ip extends SpamFilter
 
         # Black list check
         if (($s = $this->checkIP($ip, 'black')) !== false) {
-            $status = $s;
+            $status = (string) $s;
 
             return true;
         }

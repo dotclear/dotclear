@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -136,37 +137,37 @@ class Manage extends Process
         /**
          * Liste des types d'item de menu
          *
-         * @var        ArrayObject<string, ArrayObject<int, string|bool>>
+         * @var        ArrayObject<string, ArrayObject<string, bool>>
          */
         $items = new ArrayObject();
 
-        $items['home'] = new ArrayObject([__('Home'), false]);
+        $items['home'] = new ArrayObject([__('Home'), false]);  // @phpstan-ignore-line
 
         if (App::blog()->settings()->system->static_home) {
-            $items['posts'] = new ArrayObject([__('Posts'), false]);
+            $items['posts'] = new ArrayObject([__('Posts'), false]);    // @phpstan-ignore-line
         }
 
         if (count(App::backend()->langs_combo) > 1) {
-            $items['lang'] = new ArrayObject([__('Language'), true]);
+            $items['lang'] = new ArrayObject([__('Language'), true]);   // @phpstan-ignore-line
         }
         if (count(App::backend()->categories_combo)) {
-            $items['category'] = new ArrayObject([__('Category'), true]);
+            $items['category'] = new ArrayObject([__('Category'), true]);   // @phpstan-ignore-line
         }
         if (count(App::backend()->months_combo) > 1) {
-            $items['archive'] = new ArrayObject([__('Archive'), true]);
+            $items['archive'] = new ArrayObject([__('Archive'), true]); // @phpstan-ignore-line
         }
         if (App::plugins()->moduleExists('pages') && count(App::backend()->pages_combo)) {
-            $items['pages'] = new ArrayObject([__('Page'), true]);
+            $items['pages'] = new ArrayObject([__('Page'), true]);  // @phpstan-ignore-line
         }
         if (App::plugins()->moduleExists('tags') && count(App::backend()->tags_combo) > 1) {
-            $items['tags'] = new ArrayObject([__('Tags'), true]);
+            $items['tags'] = new ArrayObject([__('Tags'), true]);   // @phpstan-ignore-line
         }
 
         # --BEHAVIOR-- adminSimpleMenuAddType -- ArrayObject
         # Should add an item to $items[<id>] as an [<label>,<optional step (true or false)>]
         App::behavior()->callBehavior('adminSimpleMenuAddType', $items);
 
-        $items['special'] = new ArrayObject([__('User defined'), false]);
+        $items['special'] = new ArrayObject([__('User defined'), false]);   // @phpstan-ignore-line
 
         $items_combo = [];
         foreach ($items as $k => $v) {

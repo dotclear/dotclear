@@ -172,7 +172,7 @@ class Wizard extends Process
                 }
 
                 # Creates config.php file
-                $full_conf = file_get_contents($config_in);
+                $full_conf = (string) file_get_contents($config_in);
 
                 self::writeConfigValue('DC_DBDRIVER', self::$DBDRIVER, $full_conf);
                 self::writeConfigValue('DC_DBHOST', self::$DBHOST, $full_conf);
@@ -330,6 +330,6 @@ class Wizard extends Process
     private static function writeConfigValue($name, $val, &$str): void
     {
         $val = str_replace("'", "\'", $val);
-        $str = preg_replace('/(\'' . $name . '\')(.*?)$/ms', '$1,\'' . $val . '\');', $str);
+        $str = preg_replace('/(\'' . $name . '\')(.*?)$/ms', '$1,\'' . $val . '\');', $str);    // @phpstan-ignore-line
     }
 }

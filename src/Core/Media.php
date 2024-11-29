@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -404,7 +405,7 @@ class Media extends Manager implements MediaInterface
      */
     public function addFileHandler(string $type, string $event, $function): void
     {
-        if (is_callable($function)) {
+        if (is_callable($function)) {   // @phpstan-ignore-line waiting to put callable type in method signature for $function
             $this->file_handler[$type][$event][] = $function;
         }
     }
@@ -1615,6 +1616,8 @@ class Media extends Manager implements MediaInterface
             // - the current media title is empty
             // - or the current media title si equal to the filename
             // then use it instead for media title
+
+            /* @phpstan-ignore-next-line */
             if (($cur->media_title === '') || ($cur->media_title !== '' && $cur->media_title === basename((string) $cur->media_file))) {
                 $c->media_title = $meta['Title'];
             }

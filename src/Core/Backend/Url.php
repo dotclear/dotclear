@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -208,9 +209,7 @@ class Url
         $qs  = array_merge($url['qs'], $params);
         $str = '';
         foreach ($qs as $field => $value) {
-            if (strval($value) !== false) {
-                $str .= (new Hidden([(string) $field], (string) $value))->render();
-            }
+            $str .= (new Hidden([(string) $field], (string) $value))->render();
         }
 
         return $str;
@@ -239,9 +238,7 @@ class Url
         $qs    = array_merge($url['qs'], $params);
         $stack = [];
         foreach ($qs as $field => $value) {
-            if (strval($value) !== false) {
-                $stack[] = new Hidden([(string) $field], (string) $value);
-            }
+            $stack[] = new Hidden([(string) $field], (string) $value);
         }
 
         return $stack;

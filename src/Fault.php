@@ -102,7 +102,7 @@ class Fault
                 ' at %s%s%s (%s%s%s)',
                 count($trace) && array_key_exists('class', $trace[0]) ? str_replace('\\', '.', $trace[0]['class']) : '',
                 count($trace) && array_key_exists('class', $trace[0]) && array_key_exists('function', $trace[0]) ? '.' : '',
-                count($trace) && array_key_exists('function', $trace[0]) ? str_replace('\\', '.', $trace[0]['function']) : '(main)',
+                count($trace) ? str_replace('\\', '.', $trace[0]['function']) : '(main)',
                 $line === null ? $file : basename($file),
                 $line === null ? '' : ':',
                 $line === null ? '' : $line

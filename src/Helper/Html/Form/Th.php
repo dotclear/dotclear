@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -21,7 +22,7 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this text(string $text)
  * @method      $this separator(string $separator)
  * @method      $this format(string $format)
- * @method      $this items(array|Iterable $items)
+ * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
  *
  * @property    int $colspan
  * @property    int $rowspan
@@ -31,7 +32,7 @@ namespace Dotclear\Helper\Html\Form;
  * @property    string $text
  * @property    string $separator
  * @property    string $format
- * @property    array|Iterable $items
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $items
  */
 class Th extends Component
 {

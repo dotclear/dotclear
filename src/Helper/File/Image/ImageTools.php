@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -389,7 +390,7 @@ class ImageTools
         // truecolor is 24 bit RGB, ie. 3 bytes per pixel.
         $this->memoryAllocate($computed_width, $computed_height, 3);
 
-        $dest = imagecreatetruecolor($computed_width, $computed_height);
+        $dest = imagecreatetruecolor($computed_width, $computed_height);    // @phpstan-ignore-line
         if ($dest !== false) {
             // Fill image with neutral gray (#808080)
             imagefill($dest, 0, 0, (int) imagecolorallocate($dest, 128, 128, 128));

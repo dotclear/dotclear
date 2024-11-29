@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -301,7 +302,7 @@ class Http
      */
     public static function cache(array $mod_files, array $mod_timestamps = []): void
     {
-        if (empty($mod_files) || !is_array($mod_files)) {
+        if (empty($mod_files)) {
             return;
         }
 

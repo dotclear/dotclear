@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -115,7 +116,7 @@ class BackendBehaviors
     public static function adminDashboardFavoritesCallback(ArrayObject $icon): void
     {
         // Check user option
-        if (!My::prefs() || !My::prefs()->dashboard_icon) {
+        if (!My::prefs()->dashboard_icon) {
             return;
         }
 
@@ -153,7 +154,7 @@ class BackendBehaviors
      */
     public static function adminDashboardItems(ArrayObject $items): void
     {
-        if (!My::prefs() || !My::prefs()->dashboard_item) {
+        if (!My::prefs()->dashboard_item) {
             return;
         }
 
@@ -216,13 +217,13 @@ class BackendBehaviors
             ->fields([
                 (new Para())
                     ->items([
-                        (new Checkbox('maintenance_dashboard_icon', (bool) My::prefs()?->dashboard_icon))
+                        (new Checkbox('maintenance_dashboard_icon', (bool) My::prefs()->dashboard_icon))
                             ->value(1)
                             ->label((new Label(__('Display overdue tasks counter on maintenance dashboard icon'), Label::INSIDE_TEXT_AFTER))),
                     ]),
                 (new Para())
                     ->items([
-                        (new Checkbox('maintenance_dashboard_item', (bool) My::prefs()?->dashboard_item))
+                        (new Checkbox('maintenance_dashboard_item', (bool) My::prefs()->dashboard_item))
                             ->value(1)
                             ->label((new Label(__('Display overdue tasks list on dashboard items'), Label::INSIDE_TEXT_AFTER))),
                     ]),
@@ -241,8 +242,8 @@ class BackendBehaviors
             return;
         }
 
-        My::prefs()?->put('dashboard_icon', !empty($_POST['maintenance_dashboard_icon']), 'boolean');
-        My::prefs()?->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), 'boolean');
+        My::prefs()->put('dashboard_icon', !empty($_POST['maintenance_dashboard_icon']), 'boolean');
+        My::prefs()->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), 'boolean');
     }
 
     /**

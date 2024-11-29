@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -205,7 +206,7 @@ class Filters
         }
 
         # not well formed filter or reserved id
-        if (!($filter instanceof Filter) || $filter->id == '') {
+        if (!($filter instanceof Filter) || $filter->id == '') {    // @phpstan-ignore-line
             return null;
         }
 

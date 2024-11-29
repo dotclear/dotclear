@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -402,7 +403,7 @@ class WikiToHtml
      */
     public function registerFunction(string $type, $name): void
     {
-        if (is_callable($name)) {
+        if (is_callable($name)) {   // @phpstan-ignore-line
             $this->functions[$type] = $name;
         }
     }
@@ -455,7 +456,7 @@ class WikiToHtml
             # If urls are not active, escape URLs tags
             if (!$active_urls) {
                 $html = preg_replace(
-                    '%(?<!\\\\)([' . preg_quote(implode('', $this->tags['a'])) . '])%msU',
+                    '%(?<!\\\\)([' . preg_quote(implode('', $this->tags['a'])) . '])%msU',  // @phpstan-ignore-line
                     '\\\$1',
                     (string) $html
                 );
@@ -1097,23 +1098,27 @@ class WikiToHtml
         $tree = preg_split($this->tag_pattern, $str, -1, PREG_SPLIT_DELIM_CAPTURE);
 
         $html = '';
-        for ($i = 0; $i < (is_countable($tree) ? count($tree) : 0); $i++) {
-            $attr = '';
+        if ($tree) {
+            for ($i = 0; $i < count($tree); $i++) {
+                $attr = '';
 
-            if (in_array($tree[$i], array_values($this->open_tags)) && ($allow_only == null || in_array(array_search($tree[$i], $this->open_tags), $allow_only))) {
-                $tag      = array_search($tree[$i], $this->open_tags);
-                $tag_type = 'open';
+                if (in_array($tree[$i], array_values($this->open_tags)) && ($allow_only == null || in_array(array_search($tree[$i], $this->open_tags), $allow_only))) {
+                    $tag      = array_search($tree[$i], $this->open_tags);
+                    $tag_type = 'open';
 
-                if (($tidy = $this->__makeTag($tree, $tag, (int) $i, $i, $attr, $tag_type)) !== false) {
-                    if ($tag != '') {
-                        $html .= '<' . $tag . $attr . '>';
+                    if ($tag) {
+                        if (($tidy = $this->__makeTag($tree, $tag, (int) $i, $i, $attr, $tag_type)) !== false) {
+                            if ($tag != '') {
+                                $html .= '<' . $tag . $attr . '>';
+                            }
+                            $html .= $tidy;
+                        } else {
+                            $html .= $tree[$i];
+                        }
                     }
-                    $html .= $tidy;
                 } else {
                     $html .= $tree[$i];
                 }
-            } else {
-                $html .= $tree[$i];
             }
         }
 

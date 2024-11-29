@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -217,8 +218,8 @@ class Schema extends AbstractSchema
 
         $res = [];
         while ($rs->fetch()) {
-            $conkey  = (string) preg_replace('/[^\d]/', '', $rs->conkey);
-            $confkey = (string) preg_replace('/[^\d]/', '', $rs->confkey);
+            $conkey  = (string) preg_replace('/[^\d]/', '', $rs->conkey);   // @phpstan-ignore-line
+            $confkey = (string) preg_replace('/[^\d]/', '', $rs->confkey);  // @phpstan-ignore-line
 
             $k = [
                 'name'    => $rs->conname,
@@ -261,9 +262,9 @@ class Schema extends AbstractSchema
             $len  = $len > 0 ? '(' . $len . ')' : '';
             $null = $null ? 'NULL' : 'NOT NULL';
 
-            if ($default === null) {
+            if ($default === null) {        // @phpstan-ignore-line
                 $default = 'DEFAULT NULL';
-            } elseif ($default !== false) {
+            } elseif ($default !== false) {     // @phpstan-ignore-line
                 $default = 'DEFAULT ' . $default . ' ';
             } else {
                 $default = '';
@@ -293,9 +294,9 @@ class Schema extends AbstractSchema
     public function db_create_field(string $table, string $name, string $type, ?int $len, bool $null, $default): void
     {
         $type = $this->udt2dbt($type, $len, $default);
-        if ($default === null) {
+        if ($default === null) {        // @phpstan-ignore-line
             $default = 'DEFAULT NULL';
-        } elseif ($default !== false) {
+        } elseif ($default !== false) {     // @phpstan-ignore-line
             $default = 'DEFAULT ' . $default . ' ';
         } else {
             $default = '';
@@ -398,9 +399,9 @@ class Schema extends AbstractSchema
         $sql = 'ALTER TABLE ' . $table . ' ALTER COLUMN ' . $name . ' TYPE ' . $type . ($len > 0 ? '(' . $len . ')' : '');
         $this->con->execute($sql);
 
-        if ($default === null) {
+        if ($default === null) {        // @phpstan-ignore-line
             $default = 'SET DEFAULT NULL';
-        } elseif ($default !== false) {
+        } elseif ($default !== false) {     // @phpstan-ignore-line
             $default = 'SET DEFAULT ' . $default;
         } else {
             $default = 'DROP DEFAULT';

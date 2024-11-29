@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Frontend
@@ -580,7 +581,7 @@ class Ctx
             }
         }
 
-        if ($policies['ARCHIVE'] === 'ARCHIVE') {
+        if ($policies['ARCHIVE'] === 'ARCHIVE') {   // @phpstan-ignore-line
             // No need of ARCHIVE in robots policy, only NOARCHIVE
             unset($policies['ARCHIVE']);
         }

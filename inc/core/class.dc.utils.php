@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -280,6 +281,8 @@ class dcUtils
      * @param   string          $lang       language to be used if $ns = 'lang'
      *
      * @return  bool
+     *
+     * @phpstan-param-out array<string, mixed> $arr
      */
     public static function lexicalKeySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {

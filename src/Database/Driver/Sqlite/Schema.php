@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -412,7 +413,7 @@ class Schema extends AbstractSchema
 
         if ($default === null) {
             $default = 'DEFAULT NULL';
-        } elseif ($default !== false) {
+        } elseif ($default !== false) {     // @phpstan-ignore-line
             $default = 'DEFAULT ' . $default . ' ';
         } else {
             $default = '';

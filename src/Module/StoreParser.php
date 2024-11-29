@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -79,37 +80,42 @@ class StoreParser
         }
 
         foreach ($this->xml->module as $i) {
-            $attrs = $i->attributes();
-            if (!isset($attrs['id'])) {
-                continue;
-            }
+            if ($attrs = $i->attributes()) {
+                if (!isset($attrs['id'])) {
+                    continue;
+                }
 
-            $define = new ModuleDefine((string) $attrs['id']);
+                $define = new ModuleDefine((string) $attrs['id']);
 
-            # DC/DA shared markers
-            $define->set('file', (string) $i->file);
-            $define->set('label', (string) $i->name); // deprecated
-            $define->set('name', (string) $i->name);
-            $define->set('version', (string) $i->version);
-            $define->set('author', (string) $i->author);
-            $define->set('desc', (string) $i->desc);
+                # DC/DA shared markers
+                $define->set('file', (string) $i->file);
+                $define->set('label', (string) $i->name); // deprecated
+                $define->set('name', (string) $i->name);
+                $define->set('version', (string) $i->version);
+                $define->set('author', (string) $i->author);
+                $define->set('desc', (string) $i->desc);
 
-            # DA specific markers
-            $define->set('dc_min', (string) $i->children(self::$bloc)->dcmin);
-            $define->set('details', (string) $i->children(self::$bloc)->details);
-            $define->set('section', (string) $i->children(self::$bloc)->section);
-            $define->set('support', (string) $i->children(self::$bloc)->support);
-            $define->set('sshot', (string) $i->children(self::$bloc)->sshot);
+                # DA specific markers
+                if ($children = $i->children(self::$bloc)) {
+                    $define->set('dc_min', (string) $children->dcmin);
+                    $define->set('details', (string) $children->details);
+                    $define->set('section', (string) $children->section);
+                    $define->set('support', (string) $children->support);
+                    $define->set('sshot', (string) $children->sshot);
 
-            $tags = [];
-            foreach ($i->children(self::$bloc)->tags as $t) {
-                $tags[] = (string) $t->tag;
-            }
-            $define->set('tags', implode(', ', $tags));
+                    $tags = [];
+                    if (is_countable($children->tags)) {
+                        foreach ($children->tags as $t) {
+                            $tags[] = (string) $t->tag;
+                        }
+                    }
+                    $define->set('tags', implode(', ', $tags));
+                }
 
-            # First filter right now. If DC_DEV is set all modules are parse
-            if (App::config()->devMode() === true || App::plugins()->versionsCompare(App::config()->dotclearVersion(), $define->get('dc_min'), '>=', false)) {
-                $this->defines[] = $define;
+                # First filter right now. If DC_DEV is set all modules are parse
+                if (App::config()->devMode() === true || App::plugins()->versionsCompare(App::config()->dotclearVersion(), $define->get('dc_min'), '>=', false)) {
+                    $this->defines[] = $define;
+                }
             }
         }
     }

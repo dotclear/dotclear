@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -245,9 +246,9 @@ abstract class MyModule
     /**
      * The module preferences instance.
      *
-     * @return  null|UserWorkspaceInterface     The module preferences instance
+     * @return  UserWorkspaceInterface     The module preferences instance
      */
-    final public static function prefs(): ?UserWorkspaceInterface
+    final public static function prefs(): UserWorkspaceInterface
     {
         return App::auth()->prefs()->get(static::id());
     }

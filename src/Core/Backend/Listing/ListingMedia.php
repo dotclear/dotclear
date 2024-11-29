@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -78,7 +79,7 @@ class ListingMedia extends Listing
 
         $items = $this->rs->rows();
         foreach ($items as $item) {
-            if (is_array($item)) {
+            if (is_array($item)) {  // @phpstan-ignore-line
                 // Convert array to object->properties (will then pretend to be like a File object)
                 $item = (object) $item;
             }
@@ -100,7 +101,7 @@ class ListingMedia extends Listing
         $files = [];
         for ($index = $pager->index_start, $index_in_page = 0; $index <= $pager->index_end; $index++, $index_in_page++) {
             $item = $items[$index];
-            if (is_array($item)) {
+            if (is_array($item)) {  // @phpstan-ignore-line
                 // Convert array to object->properties (will then pretend to be like a File object)
                 $item = (object) $item;
             }
@@ -198,7 +199,7 @@ class ListingMedia extends Listing
                 return '';
             }
 
-            if ($file->media_title && $file->media_title !== '') {
+            if ((string) $file->media_title !== '') {
                 return $file->media_title;
             }
 

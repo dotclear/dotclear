@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Frontend
@@ -424,16 +425,14 @@ class Tpl extends Template
 
         $alias = $alias->getArrayCopy();
 
-        if (is_array($alias)) {
-            foreach ($alias as $k => $v) {  // @phpstan-ignore-line
-                if (!is_array($v)) {
-                    $alias[$k] = [];
-                }
-                if (!isset($default_alias[$k])) {
-                    $default_alias[$k] = [];
-                }
-                $default_alias[$k] = array_merge($default_alias[$k], $alias[$k]);
+        foreach ($alias as $k => $v) {  // @phpstan-ignore-line
+            if (!is_array($v)) {            // @phpstan-ignore-line
+                $alias[$k] = [];
             }
+            if (!isset($default_alias[$k])) {
+                $default_alias[$k] = [];
+            }
+            $default_alias[$k] = array_merge($default_alias[$k], $alias[$k]);
         }
 
         if ($table && !array_key_exists($table, $default_alias)) {
@@ -1490,25 +1489,23 @@ class Tpl extends Template
 
         if (isset($attr['urls'])) {
             $urls = explode(',', addslashes(trim((string) $attr['urls'])));
-            if (is_array($urls)) {
-                foreach ($urls as $url) {
-                    $args = preg_split('/\s*[?]\s*/', trim($url), -1, PREG_SPLIT_NO_EMPTY);
-                    if ($args !== false) {
-                        $url  = array_shift($args) ?? '';
-                        $args = array_flip($args);
-                        if (str_starts_with($url, '!')) {
-                            $url = substr($url, 1);
-                            if (isset($args['sub'])) {
-                                $if->append('(!App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
-                            } else {
-                                $if->append('(App::frontend()->context()->categories->cat_url != "' . $url . '")');
-                            }
+            foreach ($urls as $url) {
+                $args = preg_split('/\s*[?]\s*/', trim($url), -1, PREG_SPLIT_NO_EMPTY);
+                if ($args !== false) {
+                    $url  = array_shift($args) ?? '';
+                    $args = array_flip($args);
+                    if (str_starts_with($url, '!')) {
+                        $url = substr($url, 1);
+                        if (isset($args['sub'])) {
+                            $if->append('(!App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
                         } else {
-                            if (isset($args['sub'])) {
-                                $if->append('(App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
-                            } else {
-                                $if->append('(App::frontend()->context()->categories->cat_url == "' . $url . '")');
-                            }
+                            $if->append('(App::frontend()->context()->categories->cat_url != "' . $url . '")');
+                        }
+                    } else {
+                        if (isset($args['sub'])) {
+                            $if->append('(App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
+                        } else {
+                            $if->append('(App::frontend()->context()->categories->cat_url == "' . $url . '")');
                         }
                     }
                 }
@@ -1980,25 +1977,23 @@ class Tpl extends Template
 
         if (isset($attr['categories'])) {
             $categories = explode(',', addslashes(trim((string) $attr['categories'])));
-            if (is_array($categories)) {
-                foreach ($categories as $category) {
-                    $args = preg_split('/\s*[?]\s*/', trim((string) $category), -1, PREG_SPLIT_NO_EMPTY);
-                    if ($args !== false) {
-                        $category = array_shift($args) ?? '';
-                        $args     = array_flip($args);
-                        if (str_starts_with($category, '!')) {
-                            $category = substr($category, 1);
-                            if (isset($args['sub'])) {
-                                $if->append('(!App::frontend()->context()->posts->underCat("' . $category . '"))');
-                            } else {
-                                $if->append('(App::frontend()->context()->posts->cat_url != "' . $category . '")');
-                            }
+            foreach ($categories as $category) {
+                $args = preg_split('/\s*[?]\s*/', trim((string) $category), -1, PREG_SPLIT_NO_EMPTY);
+                if ($args !== false) {
+                    $category = array_shift($args) ?? '';
+                    $args     = array_flip($args);
+                    if (str_starts_with($category, '!')) {
+                        $category = substr($category, 1);
+                        if (isset($args['sub'])) {
+                            $if->append('(!App::frontend()->context()->posts->underCat("' . $category . '"))');
                         } else {
-                            if (isset($args['sub'])) {
-                                $if->append('(App::frontend()->context()->posts->underCat("' . $category . '"))');
-                            } else {
-                                $if->append('(App::frontend()->context()->posts->cat_url == "' . $category . '")');
-                            }
+                            $if->append('(App::frontend()->context()->posts->cat_url != "' . $category . '")');
+                        }
+                    } else {
+                        if (isset($args['sub'])) {
+                            $if->append('(App::frontend()->context()->posts->underCat("' . $category . '"))');
+                        } else {
+                            $if->append('(App::frontend()->context()->posts->cat_url == "' . $category . '")');
                         }
                     }
                 }

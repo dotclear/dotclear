@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -14,12 +15,12 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms Tr creation helpers
  *
  * @method      $this format(string $format)
- * @method      $this cols(array|Iterable $cols)
- * @method      $this items(array|Iterable $items)
+ * @method      $this cols(array<int|string, Component>|Iterable<int|string, Component> $cols)
+ * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
  *
  * @property    string $format
- * @property    array|Iterable $cols
- * @property    array|Iterable $items
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $cols
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $items
  */
 class Tr extends Component
 {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -566,8 +567,9 @@ class ThemeEditor
         $d = dir($dir);
         if ($d !== false) {
             while (($f = $d->read()) !== false) {
+                /* @phpstan-ignore-next-line */
                 if (is_file($dir . '/' . $f) && !preg_match('/^\./', $f) && (!$ext || preg_match('/\.' . preg_quote($ext) . '$/i', $f))) {
-                    if (!$model || preg_match('/^' . preg_quote($model) . '$/i', $f)) {
+                    if (!$model || preg_match('/^' . preg_quote($model) . '$/i', $f)) { // @phpstan-ignore-line
                         $res[$prefix . $f] = $dir . '/' . $f;
                     }
                 }

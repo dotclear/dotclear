@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -287,7 +288,7 @@ class ListingComments extends Listing
         ];
         if ($img_status_dark) {
             $img_status[] = (new Img('images/' . $img_status_case . '-dark.svg'))
-                    ->class(array_filter(['mark', 'mark-' . $img_status_case, 'dark-only']))
+                    ->class(['mark', 'mark-' . $img_status_case, 'dark-only'])
                     ->alt($img_status_alt)
             ;
         }

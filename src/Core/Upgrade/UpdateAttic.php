@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -152,18 +153,20 @@ class UpdateAttic extends Update
             if (!$xml) {
                 return;
             }
-        } catch(Exception) {
+        } catch (Exception) {
             return;
         }
 
-        foreach ($xml->subject->release as $release) {
-            $v                              = (string) $release['version'];
-            $this->releases[$v]['version']  = (string) ($release['version'] ?? '');
-            $this->releases[$v]['href']     = (string) ($release['href'] ?? '');
-            $this->releases[$v]['checksum'] = (string) ($release['checksum'] ?? '');
-            $this->releases[$v]['info']     = (string) ($release['info'] ?? '');
-            $this->releases[$v]['php']      = (string) ($release['php'] ?? '');
-            $this->releases[$v]['warning']  = (string) ($release['warning'] ?? '');
+        if ($xml->subject?->release) {
+            foreach ($xml->subject->release as $release) {
+                $v                              = (string) $release['version'];
+                $this->releases[$v]['version']  = (string) ($release['version'] ?? '');
+                $this->releases[$v]['href']     = (string) ($release['href'] ?? '');
+                $this->releases[$v]['checksum'] = (string) ($release['checksum'] ?? '');
+                $this->releases[$v]['info']     = (string) ($release['info'] ?? '');
+                $this->releases[$v]['php']      = (string) ($release['php'] ?? '');
+                $this->releases[$v]['warning']  = (string) ($release['warning'] ?? '');
+            }
         }
 
         uksort($this->releases, fn ($a, $b) => version_compare($a, $b, '<') ? 1 : -1);

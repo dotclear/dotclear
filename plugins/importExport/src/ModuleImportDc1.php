@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -612,7 +613,7 @@ class ModuleImportDc1 extends Module
         if ($this->post_offset > $this->post_count) {
             $percent = 100;
         } else {
-            $percent = $this->post_offset * 100 / $this->post_count;
+            $percent = (int) ($this->post_offset * 100 / $this->post_count);
         }
     }
 

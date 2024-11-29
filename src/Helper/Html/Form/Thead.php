@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -14,12 +15,12 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms Thead creation helpers
  *
  * @method      $this format(string $format)
- * @method      $this rows(array|Iterable $rows)
- * @method      $this items(array|Iterable $items)
+ * @method      $this rows(array<int|string, Component>|Iterable<int|string, Component> $rows)
+ * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
  *
  * @property    string $format
- * @property    array|Iterable $rows
- * @property    array|Iterable $items
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $rows
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $items
  */
 class Thead extends Component
 {

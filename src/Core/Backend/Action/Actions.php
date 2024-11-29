@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -163,10 +164,8 @@ abstract class Actions
             unset($this->redir_args['action_anchor']);
         }
 
-        $uri_parts = explode('?', $_SERVER['REQUEST_URI']);
-        if ($uri_parts !== false) {
-            $this->in_plugin = !empty($_REQUEST['process']) && $_REQUEST['process'] == 'Plugin' || str_contains($uri_parts[0], 'plugin.php');
-        }
+        $uri_parts       = explode('?', $_SERVER['REQUEST_URI']);
+        $this->in_plugin = !empty($_REQUEST['process']) && $_REQUEST['process'] == 'Plugin' || str_contains($uri_parts[0], 'plugin.php');
     }
 
     /**

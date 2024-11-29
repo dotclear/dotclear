@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -70,8 +71,8 @@ class ThemeConfig
      */
     public static function contrastRatioLevel(float $ratio, ?string $size, bool $bold = false): string
     {
-        if ($size && $size !== '') {
-            if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $size, $matches)) {
+        if ((string) $size !== '') {
+            if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', (string) $size, $matches)) {
                 if (empty($matches[2])) {
                     $matches[2] = 'em';
                 }
@@ -111,7 +112,7 @@ class ThemeConfig
      */
     public static function contrastRatio(?string $color, ?string $background, string $size = '', bool $bold = false): string
     {
-        if ($color && $background && $color !== '' && $background !== '') {
+        if ((string) $color !== '' && (string) $background !== '') {
             $ratio = self::computeContrastRatio($color, $background);
             $level = self::contrastRatioLevel($ratio, $size, $bold);
 
@@ -283,7 +284,7 @@ class ThemeConfig
     public static function prop(array &$css, string $selector, string $prop, $value): void
     {
         if ($value) {
-            $css[$selector][$prop] = $value;
+            $css[$selector][$prop] = $value;    // @phpstan-ignore-line
         }
     }
 

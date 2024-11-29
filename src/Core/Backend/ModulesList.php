@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -621,6 +622,7 @@ class ModulesList
         $this->defines = [];
 
         foreach ($defines as $define) {
+            /* @phpstan-ignore-next-line */
             if (!($define instanceof ModuleDefine)) {
                 continue;
             }
@@ -1952,6 +1954,7 @@ class ModulesList
      */
     public function displayConfiguration(): ModulesList
     {
+        /* @phpstan-ignore-next-line */
         if (($this->config_define instanceof ModuleDefine) && (!empty($this->config_class) || !empty($this->config_file))) {
             $items = [];
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -159,7 +160,7 @@ class WidgetsStack
     public function __wakeup()
     {
         foreach ($this->widgets as $i => $w) {
-            if (!($w instanceof WidgetsElement)) {
+            if (!($w instanceof WidgetsElement)) {  // @phpstan-ignore-line
                 unset($this->widgets[$i]);
             }
         }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -17,13 +18,13 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this thead(Thead $thead)
  * @method      $this tbody(Tbody $tbody)
  * @method      $this tfoot(Tbody $tfoot)
- * @method      $this items(array|Iterable $items)
+ * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
  *
  * @property    Caption $caption
  * @property    Thead $thead
  * @property    Tbody $tbody
  * @property    Tfoot $tfoot
- * @property    array|Iterable $items
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $items
  */
 class Table extends Component
 {

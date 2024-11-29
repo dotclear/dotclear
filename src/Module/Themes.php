@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -146,7 +147,7 @@ class Themes extends Modules implements ThemesInterface
                             // Change theme name to $new_name in _define.php
                             if (preg_match('/(\$this->registerModule\(\s*)((\s*|.*)+?)(\s*\);+)/m', $buf, $matches)) {
                                 // Change only first occurence in registerModule parameters (should be the theme name)
-                                $matches[2] = preg_replace('/' . preg_quote($module->get('name')) . '/', $new_name, $matches[2], 1);
+                                $matches[2] = preg_replace('/' . preg_quote($module->get('name')) . '/', $new_name, $matches[2], 1);    // @phpstan-ignore-line
                                 $buf        = substr($buf, 0, $pos) . $matches[1] . $matches[2] . $matches[4];
                                 $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $module->get('name'));
                                 file_put_contents($new_dir . $rel, $buf);
@@ -163,7 +164,7 @@ class Themes extends Modules implements ThemesInterface
                                 'Dotclear\Theme\\',     // ex: namespace Dotclear\Theme\Berlin; → namespace Dotclear\Theme\Berlin_Copy;
                             ];
                             foreach ($prefixes as $prefix) {
-                                if (preg_match('/^namespace\s*' . preg_quote($prefix) . '([^;].*);$/m', $buf, $matches)) {
+                                if (preg_match('/^namespace\s*' . preg_quote($prefix) . '([^;].*);$/m', $buf, $matches)) {  // @phpstan-ignore-line
                                     $pos     = (int) strpos($buf, $matches[0]);
                                     $rel_dir = substr($new_dir, strlen($root));
                                     $ns      = preg_replace('/\W/', '', str_replace(['-', '.'], '', $rel_dir));

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -78,7 +79,7 @@ class FlatBackup
 
             return $this->getLine();
         } elseif (str_starts_with($line, '"')) {
-            $line = (string) preg_replace('/^"|"$/', '', $line);
+            $line = (string) preg_replace('/^"|"$/', '', $line);    // @phpstan-ignore-line
             $line = preg_split('/(^"|","|(?<!\\\)\"$)/m', $line);
             if ($line === false) {
                 return false;
@@ -91,7 +92,7 @@ class FlatBackup
             $res = [];
 
             for ($i = 0; $i < count($line); $i++) {
-                $res[$this->line_cols[$i]] = preg_replace(array_keys($this->replacement), array_values($this->replacement), $line[$i]);
+                $res[$this->line_cols[$i]] = preg_replace(array_keys($this->replacement), array_values($this->replacement), $line[$i]); // @phpstan-ignore-line
             }
 
             return new FlatBackupItem((string) $this->line_name, $res, (int) $this->line_num);

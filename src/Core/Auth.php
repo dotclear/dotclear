@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -219,7 +220,7 @@ class Auth implements AuthInterface
             } else {
                 // Check if pwd still stored in old fashion way
                 $ret = password_get_info($rs->user_pwd);
-                if (is_array($ret) && isset($ret['algo']) && $ret['algo'] == 0) {
+                if (isset($ret['algo']) && $ret['algo'] == 0) {
                     // hash not done with password_hash() function, check by old fashion way
                     if (Crypt::hmac($this->config->masterKey(), $pwd, $this->config->cryptAlgo()) == $rs->user_pwd) {
                         // Password Ok, need to store it in new fashion way
@@ -393,7 +394,7 @@ class Auth implements AuthInterface
 
     public function sudo($fn, ...$args)
     {
-        if (!is_callable($fn)) {
+        if (!is_callable($fn)) {    // @phpstan-ignore-line
             throw new ProcessException(print_r($fn, true) . ' function doest not exist');
         }
 

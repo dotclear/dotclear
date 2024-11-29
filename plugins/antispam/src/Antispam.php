@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -71,7 +72,7 @@ class Antispam
         App::behavior()->callBehavior('AntispamInitFilters', $spamfilters);
 
         foreach ($spamfilters as $spamfilter) {
-            if (is_subclass_of($spamfilter, SpamFilter::class)) {
+            if (is_subclass_of($spamfilter, SpamFilter::class)) {   // @phpstan-ignore-line
                 self::$spamfilters[] = $spamfilter;
             }
         }

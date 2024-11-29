@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -1130,6 +1131,9 @@ class HttpClient extends Socket
      * @param string    $pass            Password
      *
      * @return boolean
+     *
+     * @phpstan-param-out string|null  $user
+     * @phpstan-param-out string|null  $pass
      */
     public static function readURL(string $url, bool &$ssl, string &$host, int &$port, string &$path, string &$user, string &$pass): bool
     {

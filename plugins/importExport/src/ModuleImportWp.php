@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -744,7 +745,7 @@ class ModuleImportWp extends Module
         if ($this->post_offset > $this->post_count) {
             $percent = 100;
         } else {
-            $percent = $this->post_offset * 100 / $this->post_count;
+            $percent = (int) ($this->post_offset * 100 / $this->post_count);
         }
     }
 
@@ -804,7 +805,7 @@ class ModuleImportWp extends Module
             $cur->cat_id,
             $cur->user_id,
         ];
-        $cur->post_url = (string) str_replace(
+        $cur->post_url = (string) str_replace(  // @phpstan-ignore-line
             $this->vars['permalink_tags'],
             $permalink_infos,
             $rs->post_type == 'post' ? $this->vars['permalink_template'] : '%postname%'

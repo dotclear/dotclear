@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -133,7 +134,7 @@ class IpV6 extends SpamFilter
 
         # Black list check
         if (($s = $this->checkIP($ip, 'blackv6')) !== false) {
-            $status = $s;
+            $status = (string) $s;
 
             return true;
         }
@@ -521,7 +522,7 @@ class IpV6 extends SpamFilter
             $min = gmp_cmp(gmp_init($value, 10), gmp_init($ipmin, 10));
             $max = gmp_cmp(gmp_init($value, 10), $ipmax);
         } elseif (function_exists('bcadd')) {
-            $min = bccomp($value, $ipmin);
+            $min = bccomp($value, $ipmin);  // @phpstan-ignore-line
             $max = bccomp($value, $ipmax);  // @phpstan-ignore-line
         } else {
             trigger_error('GMP or BCMATH extension not installed!', E_USER_ERROR);
@@ -597,7 +598,7 @@ class IpV6 extends SpamFilter
             $dec = '0';
             for ($i = 0; $i < strlen($bin); $i++) {
                 $dec = bcmul($dec, '2', 0);
-                $dec = bcadd($dec, $bin[$i], 0);
+                $dec = bcadd($dec, $bin[$i], 0);    // @phpstan-ignore-line
             }
 
             return $dec;

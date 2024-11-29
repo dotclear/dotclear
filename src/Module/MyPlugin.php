@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -46,7 +47,7 @@ abstract class MyPlugin extends MyModule
             static::name(),
             static::manageUrl($params, '&'),
             static::icons(),
-            preg_match('/' . preg_quote(static::manageUrl([], '&')) . $scheme . '/', (string) $_SERVER['REQUEST_URI']),
+            preg_match('/' . preg_quote(static::manageUrl([], '&')) . $scheme . '/', (string) $_SERVER['REQUEST_URI']), // @phpstan-ignore-line
             static::checkContext(static::MENU),
             'plugin-' . ($id ?? static::id())
         );

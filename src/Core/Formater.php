@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -43,7 +44,7 @@ class Formater implements FormaterInterface
     ) {
     }
 
-    public function addEditorFormater(string $editor_id, string $name, $func): void
+    public function addEditorFormater(string $editor_id, string $name, ?callable $func): void
     {
         if (is_callable($func)) {
             $this->stack[$editor_id][$name] = $func;

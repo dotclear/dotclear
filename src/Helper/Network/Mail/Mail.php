@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -38,7 +39,7 @@ class Mail
         /**
          * User defined mail function
          *
-         * @var callable  $user_defined_mail
+         * @var callable|null  $user_defined_mail
          */
         $user_defined_mail = function_exists('_mail') ? '_mail' : null;
 
@@ -50,7 +51,7 @@ class Mail
             $headers = [];
         }
 
-        if ($user_defined_mail == null) {
+        if (is_null($user_defined_mail)) {
             if (!@mail($to, $subject, $message, $headers, (string) $params)) {
                 throw new Exception('Unable to send email');
             }

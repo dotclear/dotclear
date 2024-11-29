@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -14,10 +15,10 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms optgroup creation helpers
  *
  * @method      $this text(string $text)
- * @method      $this items(array|Iterable $items)
+ * @method      $this items(array<int|string, Component|string|array<int, Component|string>>|Iterable<int|string, Component|string|array<int, Component|string>> $items)
  *
  * @property    string $text
- * @property    array|Iterable $items
+ * @property    array<int|string, Component|string|array<int, Component|string>>|Iterable<int|string, Component|string|array<int, Component|string>> $items
  */
 class Optgroup extends Component
 {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -64,7 +65,7 @@ class RestServer implements RestInterface
      */
     public function addFunction(string $name, $callback): void
     {
-        if (is_callable($callback)) {
+        if (is_callable($callback)) {   // @phpstan-ignore-line
             $this->functions[$name] = $callback;
         }
     }

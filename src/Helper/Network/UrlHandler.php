@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -263,7 +264,7 @@ class UrlHandler
      */
     protected function callHelper($handler, ?string $args = null, string $type = 'default'): void
     {
-        if (!is_callable($handler)) {
+        if (!is_callable($handler)) {   // @phpstan-ignore-line
             throw new Exception('Unable to call function');
         }
 

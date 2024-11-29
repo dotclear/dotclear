@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -348,14 +349,14 @@ namespace Dotclear\Helper {
                         $items = [];
                         foreach ($tr as $t) {
                             $t       = str_replace("'", "\\'", $t);
-                            $items[] = '\'' . $t . '\'';
+                            $items[] = '\'' . $t . '\'';    // @phpstan-ignore-line str_replace() may return array, but not in this case
                         }
                         if (count($items)) {
                             $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = [' . "\n\t" . join(',' . "\n\t", $items) . ",\n" . '];' . "\n";
                         }
                     } else {
                         $tr = str_replace("'", "\\'", $tr);
-                        $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = \'' . $tr . '\';' . "\n";
+                        $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = \'' . $tr . '\';' . "\n";   // @phpstan-ignore-line see above
                     }
                 }
             }
@@ -648,7 +649,7 @@ namespace Dotclear\Helper {
          */
         protected static function cleanPoString($_): string
         {
-            return stripslashes((string) str_replace(['\n', '\r\n'], "\n", $_));
+            return stripslashes((string) str_replace(['\n', '\r\n'], "\n", $_));    // @phpstan-ignore-line
         }
 
         /**

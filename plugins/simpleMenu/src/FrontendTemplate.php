@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -183,7 +184,7 @@ class FrontendTemplate
                 # --BEHAVIOR-- publicSimpleMenuItem -- int, ArrayObject
                 App::behavior()->callBehavior('publicSimpleMenuItem', $i, $item);
 
-                $ret .= '<li class="li' . ($i + 1) .
+                $ret .= '<li class="li' . ((int) $i + 1) .
                     ($item['active'] ? ' active' : '') .
                     ($i === 0 ? ' li-first' : '') .
                     ($i === count($menu) - 1 ? ' li-last' : '') .

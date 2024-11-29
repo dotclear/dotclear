@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -95,7 +96,7 @@ class Config implements ConfigInterface
     private readonly string $min_required_pgsql;
     private readonly string $next_required_php;
     private readonly string $vendor_name;
-    private readonly ?string $session_ttl;
+    private readonly string $session_ttl;
     private readonly string $session_name;
     private readonly bool $admin_ssl;
     private readonly string $admin_url;

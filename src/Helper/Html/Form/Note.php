@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -14,12 +15,12 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms note creation helpers
  *
  * @method      $this text(string $text)
- * @method      $this items(array|Iterable $items)
+ * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
  *
  * @property    string $text
- * @property    array|Iterable $items
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $items
  * @property    string $format
  * @property    string $separator
  */

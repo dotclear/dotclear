@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -264,13 +265,13 @@ class HtmlFilter
             /* @phpstan-ignore-next-line */
             $str = (string) $tidy;
 
-            $str = (string) preg_replace('#^<p>tt</p>\s?#', '', $str);
+            $str = (string) preg_replace('#^<p>tt</p>\s?#', '', $str);  // @phpstan-ignore-line
         } else {
             $str = $this->miniTidy($str);
         }
 
         # Removing open comments, open CDATA and processing instructions
-        $str = (string) preg_replace('%<!--.*?-->%msu', '', $str);
+        $str = (string) preg_replace('%<!--.*?-->%msu', '', $str);  // @phpstan-ignore-line
         $str = str_replace('<!--', '', $str);
         $str = (string) preg_replace('%<!\[CDATA\[.*?\]\]>%msu', '', $str);
         $str = str_replace('<![CDATA[', '', $str);

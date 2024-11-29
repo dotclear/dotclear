@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -99,7 +100,7 @@ class WidgetsElement
         $callback,
         private string $desc = ''
     ) {
-        if (!is_callable($callback)) {
+        if (!is_callable($callback)) {  // @phpstan-ignore-line
             $widget = new ArrayObject(['id' => $id, 'callback' => $callback]);
             # --BEHAVIOR-- widgetGetCallback -- ArrayObject
             App::behavior()->callBehavior('widgetGetCallback', $widget);

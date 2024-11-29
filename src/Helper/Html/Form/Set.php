@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -15,11 +16,11 @@ namespace Dotclear\Helper\Html\Form;
  *
  * Warning: there is no attributes (id, …)
  *
- * @method      $this items(array|Iterable $items)
+ * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
  *
- * @property    array|Iterable $items
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $items
  * @property    string $format
  * @property    string $separator
  */

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -489,7 +490,7 @@ class Update
         $opts        = FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES;
         $cur_digests = file($root_digests, $opts);
         $new_digests = explode("\n", $zip->unzip($zip_digests));
-        if ($cur_digests !== false && $new_digests !== false) {
+        if ($cur_digests !== false && $new_digests !== false) {     // @phpstan-ignore-line
             $new_files = $this->getNewFiles($cur_digests, $new_digests);
         }
         $zip->close();
@@ -563,7 +564,7 @@ class Update
         $opts        = FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES;
         $cur_digests = file($root_digests, $opts);
         $new_digests = explode("\n", $zip->unzip($zip_digests));
-        if ($cur_digests !== false && $new_digests !== false) {
+        if ($cur_digests !== false && $new_digests !== false) {     // @phpstan-ignore-line
             $new_files = $this->getNewFiles($cur_digests, $new_digests);
         }
 

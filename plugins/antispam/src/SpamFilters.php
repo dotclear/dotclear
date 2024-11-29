@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -186,7 +187,7 @@ class SpamFilters
         }
 
         // Create default options if needed
-        if (!is_array($this->filters_opt)) {
+        if (!is_array($this->filters_opt)) {    // @phpstan-ignore-line
             $this->saveFilterOpts([], true);
             $this->filters_opt = [];
         }

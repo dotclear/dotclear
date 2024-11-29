@@ -377,7 +377,7 @@ class Page
                                 (new Link())
                                     ->class(array_filter([
                                         'smallscreen',
-                                        preg_match('/' . preg_quote(App::backend()->url()->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '']))
+                                        preg_match('/' . preg_quote(App::backend()->url()->get('admin.user.preferences')) . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '']))  // @phpstan-ignore-line
                                     ->href(App::backend()->url()->get('admin.user.preferences'))
                                     ->text(__('My preferences')),
                             ]),

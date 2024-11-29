@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -27,7 +28,7 @@ class Behavior implements BehaviorInterface
 
     public function addBehavior(string $behavior, $func): void
     {
-        if (is_callable($func)) {
+        if (is_callable($func)) {   // @phpstan-ignore-line waiting to put callable type in method signature
             $this->stack[$behavior][] = $func;
         }
     }

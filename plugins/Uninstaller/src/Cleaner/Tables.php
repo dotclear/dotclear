@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -92,7 +93,7 @@ class Tables extends CleanerParent
         foreach ($tables as $k => $v) {
             // get only tables with dotclear prefix
             if ('' != App::con()->prefix()) {
-                if (!preg_match('/^' . preg_quote(App::con()->prefix()) . '(.*?)$/', $v, $m)) {
+                if (!preg_match('/^' . preg_quote(App::con()->prefix()) . '(.*?)$/', $v, $m)) { // @phpstan-ignore-line
                     continue;
                 }
                 $v = $m[1];

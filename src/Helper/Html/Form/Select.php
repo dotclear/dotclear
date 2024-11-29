@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -15,9 +16,9 @@ use Dotclear\App;
  * @class Select
  * @brief HTML Forms select creation helpers
  *
- * @method      $this items(array|Iterable $items)
+ * @method      $this items(array<int|string, Component|string|array<int, Component|string>>|Iterable<int|string, Component|string|array<int, Component|string>> $items)
  *
- * @property    array|Iterable $items
+ * @property    array<int|string, Component|string|array<int, Component|string>>|Iterable<int|string, Component|string|array<int, Component|string>> $items
  */
 class Select extends Component
 {

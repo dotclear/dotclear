@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -2211,9 +2212,9 @@ class Blog implements BlogInterface
         # If URL is empty, we create a new one
         if ($url == '') {
             # Transform with format
-            $url = (string) str_replace(
+            $url = (string) str_replace(    // @phpstan-ignore-line
                 array_keys($url_patterns),
-                array_values($url_patterns),
+                array_values($url_patterns),    // @phpstan-ignore-line
                 $this->settings->system->post_url_format
             );
         } else {
@@ -2395,12 +2396,12 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['comment_email'])) {
-            $comment_email = $sql->escape((string) str_replace('*', '%', $params['comment_email']));
+            $comment_email = $sql->escape((string) str_replace('*', '%', $params['comment_email']));    // @phpstan-ignore-line
             $sql->and($sql->like('comment_email', $comment_email));
         }
 
         if (isset($params['comment_site'])) {
-            $comment_site = $sql->escape((string) str_replace('*', '%', $params['comment_site']));
+            $comment_site = $sql->escape((string) str_replace('*', '%', $params['comment_site']));  // @phpstan-ignore-line
             $sql->and($sql->like('comment_site', $comment_site));
         }
 
@@ -2417,7 +2418,7 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['comment_ip'])) {
-            $comment_ip = $sql->escape((string) str_replace('*', '%', $params['comment_ip']));
+            $comment_ip = $sql->escape((string) str_replace('*', '%', $params['comment_ip']));  // @phpstan-ignore-line
             $sql->and($sql->like('comment_ip', $comment_ip));
         }
 

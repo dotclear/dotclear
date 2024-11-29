@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -286,7 +287,7 @@ class Socket
      */
     protected function iterator()
     {
-        if (!$this->isOpen()) {
+        if (!$this->isOpen() || is_null($this->_handle)) {
             return false;
         }
 

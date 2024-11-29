@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -290,7 +291,7 @@ class Template
      */
     public function addBlock(string $name, $callback): void
     {
-        if (!is_callable($callback)) {
+        if (!is_callable($callback)) {  // @phpstan-ignore-line waiting for add a callable type in method signature
             throw new Exception('No valid callback for ' . $name);
         }
 
@@ -309,7 +310,7 @@ class Template
      */
     public function addValue(string $name, $callback): void
     {
-        if (!is_callable($callback)) {
+        if (!is_callable($callback)) {  // @phpstan-ignore-line waiting for add a callable type in method signature
             throw new Exception('No valid callback for ' . $name);
         }
 

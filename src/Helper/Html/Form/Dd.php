@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -15,12 +16,12 @@ namespace Dotclear\Helper\Html\Form;
  *
  * @method      $this text(string $text)
  * @method      $this separator(string $separator)
- * @method      $this items(array|Iterable $items)
+ * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
  * @method      $this format(string $format)
  *
  * @property    string $text
  * @property    string $separator
- * @property    array|Iterable $items
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $items
  * @property    string $format
  */
 class Dd extends Component

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -182,7 +183,7 @@ class Menu
         if ($active) {
             $classes[] = 'active';
         }
-        $classes = array_filter($classes);
+        $classes = array_filter($classes);  // @phpstan-ignore-line
         if (count($classes)) {
             $code->class($classes);
         }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -902,18 +903,19 @@ class MediaItem extends Process
         if (App::backend()->file->media_image) {
             if (App::backend()->file->type === 'image/svg+xml') {
                 if (($xmlget = simplexml_load_file(App::backend()->file->file)) !== false) {
-                    $xmlattributes = $xmlget->attributes();
-                    $image_size    = [
-                        (string) $xmlattributes->width,
-                        (string) $xmlattributes->height,
-                    ];
-                    if ($image_size[0]) {
-                        echo
-                        '<li><strong>' . __('Image width:') . '</strong> ' . $image_size[0] . '</li>';
-                    }
-                    if ($image_size[1]) {
-                        echo
-                        '<li><strong>' . __('Image height:') . '</strong> ' . $image_size[1] . '</li>';
+                    if ($xmlattributes = $xmlget->attributes()) {
+                        $image_size = [
+                            (string) $xmlattributes->width,
+                            (string) $xmlattributes->height,
+                        ];
+                        if ($image_size[0]) {
+                            echo
+                            '<li><strong>' . __('Image width:') . '</strong> ' . $image_size[0] . '</li>';
+                        }
+                        if ($image_size[1]) {
+                            echo
+                            '<li><strong>' . __('Image height:') . '</strong> ' . $image_size[1] . '</li>';
+                        }
                     }
                 }
             } else {
@@ -961,7 +963,7 @@ class MediaItem extends Process
                     /**
                      * @var        string
                      */
-                    $v = App::con()->escapeStr((string) preg_replace('/^' . preg_quote($media_root, '/') . '/', '', $v));
+                    $v = App::con()->escapeStr((string) preg_replace('/^' . preg_quote($media_root, '/') . '/', '', $v)); // @phpstan-ignore-line
                     $params['sql'] .= "OR post_content_xhtml LIKE '%" . $v . "%' ";
                     $params['sql'] .= "OR post_excerpt_xhtml LIKE '%" . $v . "%' ";
                 }

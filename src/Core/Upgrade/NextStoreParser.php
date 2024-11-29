@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -45,18 +46,22 @@ class NextStoreParser extends StoreParser
             $define->set('author', (string) $i->author);
             $define->set('desc', (string) $i->desc);
 
-            # DA specific markers
-            $define->set('dc_min', (string) $i->children(self::$bloc)->dcmin);
-            $define->set('details', (string) $i->children(self::$bloc)->details);
-            $define->set('section', (string) $i->children(self::$bloc)->section);
-            $define->set('support', (string) $i->children(self::$bloc)->support);
-            $define->set('sshot', (string) $i->children(self::$bloc)->sshot);
+            if ($children = $i->children(self::$bloc)) {
+                # DA specific markers
+                $define->set('dc_min', (string) $children->dcmin);
+                $define->set('details', (string) $children->details);
+                $define->set('section', (string) $children->section);
+                $define->set('support', (string) $children->support);
+                $define->set('sshot', (string) $children->sshot);
 
-            $tags = [];
-            foreach ($i->children(self::$bloc)->tags as $t) {
-                $tags[] = (string) $t->tag;
+                $tags = [];
+                if ($children->tags) {
+                    foreach ($children->tags as $t) {
+                        $tags[] = (string) $t->tag;
+                    }
+                }
+                $define->set('tags', implode(', ', $tags));
             }
-            $define->set('tags', implode(', ', $tags));
 
             // No more filters here, return all modules
             $this->defines[] = $define;

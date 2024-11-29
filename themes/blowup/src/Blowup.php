@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -343,7 +344,7 @@ class Blowup
                 'width'   => '800px',
             ];
         }
-        ThemeConfig::prop($css, '#top', 'height', $s['top_height']);
+        ThemeConfig::prop($css, '#top', 'height', $s['top_height']);    // @phpstan-ignore-line
 
         ThemeConfig::prop($css, '.day-date', 'color', $s['date_title_c']);
         ThemeConfig::prop($css, '.day-date', 'font-family', self::fontDef($s['date_title_f']));
@@ -562,13 +563,26 @@ class Blowup
                 }
             }
 
+            // Helper
+
+            /**
+             * Return a valid color element value
+             *
+             * @param      int   $value  The value
+             * @param      int   $min    The minimum
+             * @param      int   $max    The maximum
+             *
+             * @return     int<0, 255>
+             */
+            $colorvalue = fn (int $value): int => min(max($value, 255), 0);
+
             # Create top image from uploaded image
             $size = getimagesize($page_t);
             if ($size !== false) {
                 $size = $size[1];
                 $type = Files::getMimeType($page_t);
 
-                $d_page_t = imagecreatetruecolor(800, $size);
+                $d_page_t = imagecreatetruecolor(800, $size);   // @phpstan-ignore-line
 
                 if ($type == 'image/png') {
                     $s_page_t = @imagecreatefrompng($page_t);
@@ -581,7 +595,12 @@ class Blowup
                 }
 
                 if ($d_page_t) {
-                    $fill = imagecolorallocate($d_page_t, (int) $body_color[0], (int) $body_color[1], (int) $body_color[2]);
+                    $fill = imagecolorallocate(
+                        $d_page_t,
+                        $colorvalue((int) $body_color[0]),
+                        $colorvalue((int) $body_color[1]),
+                        $colorvalue((int) $body_color[2])
+                    );
                     imagefill($d_page_t, 0, 0, (int) $fill);
 
                     if ($d_body_bg !== false) {
@@ -625,7 +644,12 @@ class Blowup
                 # Create bottom image with color
                 $d_page_b = imagecreatetruecolor(800, 8);
                 if ($d_page_b !== false) {
-                    $fill = imagecolorallocate($d_page_b, (int) $body_color[0], (int) $body_color[1], (int) $body_color[2]);
+                    $fill = imagecolorallocate(
+                        $d_page_b,
+                        $colorvalue((int) $body_color[0]),
+                        $colorvalue((int) $body_color[1]),
+                        $colorvalue((int) $body_color[2])
+                    );
                     imagefill($d_page_b, 0, 0, (int) $fill);
 
                     $s_page_b = imagecreatefrompng($page_b);

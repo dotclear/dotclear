@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -235,7 +236,7 @@ class Post extends Process
 
             if (!empty($_POST['tb_urls']) && App::backend()->post_id && App::backend()->post_status == App::blog()::POST_PUBLISHED && App::backend()->can_edit_post) {
                 App::backend()->tb_urls = $_POST['tb_urls'];
-                App::backend()->tb_urls = (string) str_replace("\r", '', App::backend()->tb_urls);
+                App::backend()->tb_urls = (string) str_replace("\r", '', App::backend()->tb_urls);  // @phpstan-ignore-line
 
                 $tb_post_title = Html::escapeHTML(trim(Html::clean(App::backend()->post_title)));
                 $tb_post_url   = App::backend()->post->getURL();
