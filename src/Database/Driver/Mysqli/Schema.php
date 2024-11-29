@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -164,7 +165,7 @@ class Schema extends AbstractSchema
                 'type'    => $type,
                 'len'     => $len,
                 'null'    => $null,
-                'default' => $default,
+                'default' => (string) $default,
             ];
         }
 

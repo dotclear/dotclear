@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Frontend
@@ -576,7 +577,7 @@ class Url extends UrlHandler implements UrlInterface
                         $content = App::filter()->HTMLfilter($content);
                     }
 
-                    App::frontend()->context()->comment_preview['content']    = $content;
+                    App::frontend()->context()->comment_preview['content']    = (string) $content;
                     App::frontend()->context()->comment_preview['rawcontent'] = $_POST['c_content'];
                     App::frontend()->context()->comment_preview['name']       = $name;
                     App::frontend()->context()->comment_preview['mail']       = $mail;
