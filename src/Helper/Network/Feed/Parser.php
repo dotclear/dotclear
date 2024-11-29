@@ -123,11 +123,13 @@ class Parser
             $this->link        = (string) $this->xml->channel->link;
             $this->description = (string) $this->xml->channel->description;
 
+            $this->pubdate = '';
             if ($children = $this->xml->channel->children('http://purl.org/dc/elements/1.1/')) {
                 $this->pubdate = (string) $children->date;
             }
 
             # Feed generator agent
+            $this->generator = null;
             if ($children = $this->xml->channel->children('http://webns.net/mvcb/')) {
                 $generator = $children->generatorAgent;
                 if ($generator) {
@@ -146,8 +148,11 @@ class Parser
             $item->title       = (string) $i->title;
             $item->link        = (string) $i->link;
             $item->description = (string) $i->description;
-            $item->TS          = strtotime($item->pubdate);
 
+            $item->subject = [];
+            $item->creator = '';
+            $item->pubdate = '';
+            $item->content = '';
             if ($children = $i->children('http://purl.org/dc/elements/1.1/')) {
                 if ($children->subject) {
                     $item->subject = $this->nodes2array($children->subject);
@@ -155,7 +160,7 @@ class Parser
                 $item->creator = (string) $children->creator;
                 $item->pubdate = (string) $children->date;
             }
-
+            $item->TS = strtotime((string) $item->pubdate);
             if ($children = $i->children('http://purl.org/rss/1.0/modules/content/')) {
                 $item->content = (string) $children->encoded;
             }
@@ -204,6 +209,9 @@ class Parser
                     $item->guid = (string) $i->guid;
                 }
 
+                $item->subject = [];
+                $item->creator = '';
+                $item->content = '';
                 if ($children = $i->children('http://purl.org/dc/elements/1.1/')) {
                     $item->creator = (string) $children->creator;
                     if ($children->subject && $i->category) {
@@ -217,7 +225,6 @@ class Parser
                         $item->pubdate = (string) $children->date;
                     }
                 }
-
                 if ($children = $i->children('http://purl.org/rss/1.0/modules/content/')) {
                     $item->content = (string) $children->encoded;
                 }
@@ -280,6 +287,7 @@ class Parser
             $item->pubdate     = (string) $i->modified;
             $item->TS          = strtotime($item->pubdate);
 
+            $item->subject = [];
             if ($children = $i->children('http://purl.org/dc/elements/1.1/')) {
                 if ($children->subject) {
                     $item->subject = $this->nodes2array($children->subject);
@@ -343,6 +351,7 @@ class Parser
             $item->pubdate     = !empty($i->published) ? (string) $i->published : (string) $i->updated;
             $item->TS          = strtotime($item->pubdate);
 
+            $item->subject = [];
             if ($children = $i->children('http://purl.org/dc/elements/1.1/')) {
                 if ($children->subject) {
                     $item->subject = $this->nodes2array($children->subject);

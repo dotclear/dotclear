@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -55,17 +56,19 @@ class Parser extends atoum
             ->isNotEmpty()
             ->integer(count($parser->items))
             ->isEqualTo(3)
-            ->array((array) $parser->items[0])
+            ->given($list = (array) $parser->items[0])
+            ->given(ksort($list))
+            ->array($list)
             ->isEqualTo([
-                'title'       => 'Le PNG face au GIF',
-                'link'        => 'http://openweb.eu.org/articles/png_vs_gif/',
+                'TS'          => false,
+                'content'     => '',
                 'creator'     => '',
                 'description' => 'Qui est donc ce remplaçant du GIF, datant de 1996 et méconnu de la plupart des graphistes, amateurs comme professionnels ?',
-                'content'     => '',
-                'subject'     => [],
-                'pubdate'     => '',
-                'TS'          => false,
                 'guid'        => 'http://openweb.eu.org/articles/png_vs_gif/',
+                'link'        => 'http://openweb.eu.org/articles/png_vs_gif/',
+                'pubdate'     => '',
+                'subject'     => [],
+                'title'       => 'Le PNG face au GIF',
             ])
         ;
     }
@@ -92,17 +95,19 @@ class Parser extends atoum
             ->isNotEmpty()
             ->integer(count($parser->items))
             ->isEqualTo(1)
-            ->array((array) $parser->items[0])
+            ->given($list = (array) $parser->items[0])
+            ->given(ksort($list))
+            ->array($list)
             ->isEqualTo([
-                'title'       => 'Atom-Powered Robots Run Amok',
-                'link'        => 'http://example.org/2003/12/13/atom03',
+                'TS'          => 1071340202,
+                'content'     => '',
                 'creator'     => '',
                 'description' => 'Some text.',
-                'content'     => '',
-                'subject'     => [],
-                'pubdate'     => 'Sat, 13 Dec 2003 18:30:02 GMT',
-                'TS'          => 1071340202,
                 'guid'        => 'urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a',
+                'link'        => 'http://example.org/2003/12/13/atom03',
+                'pubdate'     => 'Sat, 13 Dec 2003 18:30:02 GMT',
+                'title'       => 'Atom-Powered Robots Run Amok',
+                'subject'     => [],
             ])
         ;
     }
@@ -129,16 +134,18 @@ class Parser extends atoum
             ->isNotEmpty()
             ->integer(count($parser->items))
             ->isEqualTo(1)
-            ->array((array) $parser->items[0])
+            ->given($list = (array) $parser->items[0])
+            ->given(ksort($list))
+            ->array($list)
             ->isEqualTo([
-                'link'        => 'http://www.example.com/item1-info-page.html',
-                'title'       => 'Red wool sweater',
+                'TS'          => 1129228202,
+                'content'     => '',
                 'creator'     => '',
                 'description' => 'Comfortable and soft, this sweater will keep you warm on those cold winter nights.',
-                'content'     => '',
-                'subject'     => [],
+                'link'        => 'http://www.example.com/item1-info-page.html',
                 'pubdate'     => '2005-10-13T18:30:02Z',
-                'TS'          => 1129228202,
+                'subject'     => [],
+                'title'       => 'Red wool sweater',
             ])
         ;
     }
@@ -165,16 +172,18 @@ class Parser extends atoum
             ->isNotEmpty()
             ->integer(count($parser->items))
             ->isEqualTo(1)
-            ->array((array) $parser->items[0])
+            ->given($list = (array) $parser->items[0])
+            ->given(ksort($list))
+            ->array($list)
             ->isEqualTo([
-                'link'        => 'http://example.org/2003/12/13/atom03',
-                'title'       => 'Atom-Powered Robots Run Amok',
+                'TS'          => 1071340202,
+                'content'     => '',
                 'creator'     => '',
                 'description' => 'Some text.',
-                'content'     => '',
-                'subject'     => [],
+                'link'        => 'http://example.org/2003/12/13/atom03',
                 'pubdate'     => '2003-12-13T18:30:02Z',
-                'TS'          => 1071340202,
+                'subject'     => [],
+                'title'       => 'Atom-Powered Robots Run Amok',
             ])
         ;
     }
