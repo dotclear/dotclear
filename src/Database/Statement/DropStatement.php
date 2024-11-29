@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -30,7 +31,7 @@ class DropStatement extends SqlStatement
 
         // Check if source given
         if (!count($this->from)) {
-            trigger_error(__('SQL DROP TABLE requires a FROM source'), E_USER_ERROR);
+            trigger_error(__('SQL DROP TABLE requires a FROM source'), E_USER_WARNING);
         }
 
         // Query

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -183,7 +184,7 @@ class ImageMeta extends atoum
     public function testGetImageSizeDisabled()
     {
         $this
-            ->if($this->function->getimagesize = fn (string $filename, array &$image_info = null) => false)
+            ->if($this->function->getimagesize = fn (string $filename, ?array &$image_info = null) => false)
             ->then
             ->array(\Dotclear\Helper\File\Image\ImageMeta::readMeta(implode(DIRECTORY_SEPARATOR, [$this->root, 'img_exif_iptc.jpg'])))
             ->isEqualTo([

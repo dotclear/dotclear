@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -197,7 +198,7 @@ class UpdateStatement extends SqlStatement
 
         // Check if source given
         if (!count($this->from)) {
-            trigger_error(__('SQL UPDATE requires a FROM source'), E_USER_ERROR);
+            trigger_error(__('SQL UPDATE requires a FROM source'), E_USER_WARNING);
         }
 
         // Query

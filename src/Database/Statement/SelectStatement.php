@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -263,7 +264,7 @@ class SelectStatement extends SqlStatement
 
         // Check if source given
         if (!count($this->from)) {
-            trigger_error(__('SQL SELECT requires a FROM source'), E_USER_ERROR);
+            trigger_error(__('SQL SELECT requires a FROM source'), E_USER_WARNING);
         }
 
         // Query

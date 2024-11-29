@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -118,7 +119,7 @@ class SqlStatement
         if (property_exists($this, $property)) {
             return $this->$property;
         }
-        trigger_error('Unknown property ' . $property, E_USER_ERROR);
+        trigger_error('Unknown property ' . $property, E_USER_WARNING);
     }
 
     /**
@@ -135,7 +136,7 @@ class SqlStatement
         if (property_exists($this, $property)) {
             $this->$property = $value;
         } else {
-            trigger_error('Unknown property ' . $property, E_USER_ERROR);
+            trigger_error('Unknown property ' . $property, E_USER_WARNING);
         }
 
         return $this;   // @phpstan-ignore-line
@@ -699,7 +700,7 @@ class SqlStatement
      * May be used for debugging purpose as:
      *
      * if (!$sql->isSame($sql->statement(), $strReq)) {
-     *     trigger_error('SQL statement error: ' . $sql->statement() . ' / ' . $strReq, E_USER_ERROR);
+     *     trigger_error('SQL statement error: ' . $sql->statement() . ' / ' . $strReq, E_USER_WARNING);
      * }
      *
      * @param      string   $local     The local
@@ -749,7 +750,7 @@ class SqlStatement
                 var_dump($external);
             }
             if ($trigger_error) {
-                trigger_error('SQL statement error (internal/external): ' . $str . ' / ' . $external, E_USER_ERROR);
+                trigger_error('SQL statement error (internal/external): ' . $str . ' / ' . $external, E_USER_WARNING);
             }
 
             return false;

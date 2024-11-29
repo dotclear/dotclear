@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -70,9 +71,9 @@ class MailSocket extends atoum
             ->assert('mail')
             ->given($this->newTestedInstance())
                 // Mock fsockopen()
-                ->given($this->function->fsockopen = fn (string $hostname, int $port = -1, int & $error_code = null, string & $error_message = null, float $timeout = null) => fopen($output, 'wb'))
+                ->given($this->function->fsockopen = fn (string $hostname, int $port = -1, ?int & $error_code = null, ?string & $error_message = null, ?float $timeout = null) => fopen($output, 'wb'))
                 // Mock fgets()
-                ->given($this->function->fgets = function ($fp, int $length = null) use ($that, &$fgets_counter, $fgets_socket) {
+                ->given($this->function->fgets = function ($fp, ?int $length = null) use ($that, &$fgets_counter, $fgets_socket) {
                     return $fgets_socket[$fgets_counter++];
                 })
                 // Mock stream_set_timeout()

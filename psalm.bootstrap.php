@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Psalm bootstrap
  *
@@ -54,6 +55,6 @@ function __error(string $summary, string $message, int $code = 0)
     # 60 : template processing error
     # 70 : blog is offline
 
-    trigger_error($summary, E_USER_ERROR);
+    trigger_error($summary, E_USER_WARNING);
     exit;
 }

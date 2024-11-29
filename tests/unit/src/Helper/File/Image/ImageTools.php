@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -95,7 +96,7 @@ class ImageTools extends atoum
                     ->isTrue()
                 ;
             })
-            ->and($this->function->imagejpeg = function ($image, $file = null, int $quality = null) use ($that) {
+            ->and($this->function->imagejpeg = function ($image, $file = null, ?int $quality = null) use ($that) {
                 $file ??= implode(DIRECTORY_SEPARATOR, [$that->root, 'output.jpg']);
                 \imagejpeg($image, $file, $quality);
             })

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Core
@@ -108,7 +109,7 @@ class MetaRecord implements Iterator, Countable
             }
         }
 
-        trigger_error('Call to undefined method ' . $f . '()', E_USER_ERROR);
+        trigger_error('Call to undefined method ' . $f . '()', E_USER_WARNING);
     }
 
     /**

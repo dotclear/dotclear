@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -117,7 +118,7 @@ class Record implements Iterator, Countable
             return $this->__extend[$f]($this, ...$args);
         }
 
-        trigger_error('Call to undefined method Record::' . $f . '()', E_USER_ERROR);
+        trigger_error('Call to undefined method Record::' . $f . '()', E_USER_WARNING);
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -551,14 +552,14 @@ class SqlStatement extends atoum
                     $sql->syntaxEngine = 'Hello';
                 }
             )
-            ->error('Unknown property syntaxEngine', E_USER_ERROR)->exists()
+            ->error('Unknown property syntaxEngine', E_USER_WARNING)->exists()
             ->when(
                 function () use ($sql) {
                     if ($sql->syntaxEngine === 'Hello')
                     ;
                 }
             )
-            ->error('Unknown property syntaxEngine', E_USER_ERROR)->exists()
+            ->error('Unknown property syntaxEngine', E_USER_WARNING)->exists()
         ;
     }
 }

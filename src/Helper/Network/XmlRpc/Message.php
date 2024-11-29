@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -167,7 +168,9 @@ class Message
         xml_parser_set_option($this->_parser, XML_OPTION_CASE_FOLDING, 0);
 
         # Set XML parser callback functions
-        xml_set_object($this->_parser, $this);
+        if (version_compare(PHP_VERSION, '8.4.0', '<')) {
+            xml_set_object($this->_parser, $this); // No more needed with PHP 8.4
+        }
         xml_set_element_handler(
             $this->_parser,
             $this->tag_open(...),
