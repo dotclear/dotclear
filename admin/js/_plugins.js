@@ -104,11 +104,9 @@ dotclear.ready(() => {
 
         // confirm delete
         if (action === 'delete') {
-          if (!window.confirm(dotclear.msg.confirm_delete_plugins)) {
-            event.preventDefault();
-            return false;
-          }
-          return true;
+          if (window.confirm(dotclear.msg.confirm_delete_plugins)) return true;
+          event.preventDefault();
+          return false;
         }
 
         // action on one module

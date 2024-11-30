@@ -6,5 +6,9 @@ Object.assign(dotclear.msg, dotclear.getData('uninstaller'));
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  document.getElementById('uninstall-form')?.addEventListener(() => window.confirm(dotclear.msg.confirm_uninstall));
+  document.getElementById('uninstall-form')?.addEventListener('submit', (event) => {
+    if (window.confirm(dotclear.msg.confirm_uninstall)) return true;
+    event.preventDefault();
+    return false;
+  });
 });

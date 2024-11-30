@@ -49,11 +49,10 @@ dotclear.ready(() => {
     }
 
     if (action === 'deleteuser') {
-      if (!window.confirm(dotclear.msg.confirm_delete_user.replace('%s', $('input[name="users[]"]:checked').length))) {
-        event.preventDefault();
-        return false;
-      }
-      return true;
+      if (window.confirm(dotclear.msg.confirm_delete_user.replace('%s', $('input[name="users[]"]:checked').length)))
+        return true;
+      event.preventDefault();
+      return false;
     }
 
     return true;

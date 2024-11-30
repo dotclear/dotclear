@@ -87,7 +87,9 @@ dotclear.ready(() => {
 
           // confirm delete
           if (action === 'delete') {
-            return window.confirm(dotclear.msg.confirm_delete_theme.replace('%s', module));
+            if (window.confirm(dotclear.msg.confirm_delete_theme.replace('%s', module))) return true;
+            event.preventDefault();
+            return false;
           }
         } else {
           let checked = false;
@@ -112,7 +114,9 @@ dotclear.ready(() => {
 
           // confirm delete
           if (action === 'delete') {
-            return window.confirm(dotclear.msg.confirm_delete_themes);
+            if (window.confirm(dotclear.msg.confirm_delete_themes)) return true;
+            event.preventDefault();
+            return false;
           }
         }
 

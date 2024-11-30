@@ -34,10 +34,8 @@ dotclear.ready(() => {
 
   const msg = dotclear.getData('simplemenu');
   document.querySelector('#menuitems #remove-action')?.addEventListener('click', (event) => {
-    if (!window.confirm(msg.confirm_items_delete)) {
-      event.preventDefault();
-      return false;
-    }
-    return true;
+    if (window.confirm(msg.confirm_items_delete)) return true;
+    event.preventDefault();
+    return false;
   });
 });

@@ -732,11 +732,9 @@ dotclear.postsActionsHelper = () => {
     if (this.querySelector('select[name="action"]')?.value === 'delete') {
       const nb = this.querySelectorAll('input[name="entries[]"]:checked')?.length;
       if (nb) {
-        if (!window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', nb))) {
-          event.preventDefault();
-          return false;
-        }
-        return true;
+        if (window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', nb))) return true;
+        event.preventDefault();
+        return false;
       }
     }
   });
@@ -750,11 +748,9 @@ dotclear.commentsActionsHelper = () => {
     if (this.querySelector('select[name="action"]')?.value === 'delete') {
       const nb = this.querySelectorAll('input[name="comments[]"]:checked')?.length;
       if (nb) {
-        if (!window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', nb))) {
-          event.preventDefault();
-          return false;
-        }
-        return true;
+        if (window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', nb))) return true;
+        event.preventDefault();
+        return false;
       }
     }
   });

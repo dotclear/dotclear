@@ -16,11 +16,9 @@ dotclear.ready(() => {
     if (document.querySelector('select[name="action"]')?.value === 'delete') {
       const number = document.querySelectorAll('input[name="blogs[]"]:checked').length;
       if (number) {
-        if (!window.confirm(dotclear.msg.confirm_delete_blog.replace('%s', number))) {
-          event.preventDefault();
-          return false;
-        }
-        return true;
+        if (window.confirm(dotclear.msg.confirm_delete_blog.replace('%s', number))) return true;
+        event.preventDefault();
+        return false;
       }
     }
   });

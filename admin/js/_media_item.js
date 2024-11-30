@@ -61,11 +61,9 @@ dotclear.ready(() => {
   // Confirm for inflating in current directory
   $('#file-unzip').on('submit', function (event) {
     if ($(this).find('#inflate_mode').val() === 'current') {
-      if (!window.confirm(dotclear.msg.confirm_extract_current)) {
-        event.preventDefault();
-        return false;
-      }
-      return true;
+      if (window.confirm(dotclear.msg.confirm_extract_current)) return true;
+      event.preventDefault();
+      return false;
     }
     return true;
   });

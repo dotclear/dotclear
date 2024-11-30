@@ -60,6 +60,10 @@ dotclear.ready(() => {
   dotclear.responsiveCellHeaders(document.querySelector('#form-comments table'), '#form-comments table', 1);
 
   for (const action of document.querySelectorAll('form input[type=submit][name=delete_all_spam]')) {
-    action.addEventListener('click', () => window.confirm(dotclear.msg.confirm_spam_delete));
+    action.addEventListener('click', (event) => {
+      if (window.confirm(dotclear.msg.confirm_spam_delete)) return true;
+      event.preventDefault();
+      return false;
+    });
   }
 });
