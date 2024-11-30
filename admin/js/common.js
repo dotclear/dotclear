@@ -132,6 +132,24 @@ dotclear.acceptsKeyboardInput = (element) => {
 };
 
 /**
+ * Ask a confirmation and return result, the optional event is stopped (default and propagation) if canceled
+ *
+ * Example:
+ *
+ * element.addEventListener('click', (event) => dotclear.confirm(dotclear.msg.confirm_doing_something, event));
+ *
+ * @param      {string}       message       The message
+ * @param      {Event|null}   [event=null]  The event
+ * @return     {boolean}      true if user confirm, else false
+ */
+dotclear.confirm = (message, event = null) => {
+  if (window.confirm(message)) return true;
+  event?.preventDefault();
+  event?.stopPropagation();
+  return false;
+};
+
+/**
  * Expands element using callback to get content.
  *
  * @param      {Object}           opts    The options
