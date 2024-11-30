@@ -124,7 +124,7 @@ class Media extends Process
                 'tmp_name' => $_FILES['upfile']['tmp_name'][0],
                 'error'    => is_array($_FILES['upfile']['error']) ? $_FILES['upfile']['error'][0] : 0,
                 'size'     => is_array($_FILES['upfile']['size']) ? $_FILES['upfile']['size'][0] : 0,
-                'title'    => Html::escapeHTML($_FILES['upfile']['name'][0]),
+                'title'    => '',
             ];
 
             if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
