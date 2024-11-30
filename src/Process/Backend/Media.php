@@ -549,7 +549,7 @@ class Media extends Process
 
             '<p class="max-sizer form-note">&nbsp;' . __('Maximum file size allowed:') . ' ' . Files::size(App::config()->maxUploadSize()) . '</p>' .
 
-            '<p class="one-file"><label for="upfiletitle">' . __('Alternate text:') . '</label>' . form::field('upfiletitle', 35, 255) . '</p>' .
+            '<p class="one-file"><label for="upfiletitle">' . __('Title:') . '</label>' . form::field('upfiletitle', 35, 255) . '</p>' .
             '<p class="one-file"><label for="upfilepriv" class="classic">' . __('Private') . '</label> ' .
             form::checkbox('upfilepriv', 1) . '</p>';
 
