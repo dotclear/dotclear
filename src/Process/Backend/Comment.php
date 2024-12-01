@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -10,16 +11,32 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Email;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Textarea;
+use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/comment.php
@@ -242,81 +259,104 @@ class Comment extends Process
                 Notices::success(__('Comment has been successfully updated.'));
             }
 
-            $comment_mailto = '';
-            if (App::backend()->comment_email) {
-                $comment_mailto = '<a href="mailto:' . Html::escapeHTML(App::backend()->comment_email) .
-                    '?subject=' . rawurlencode(sprintf(__('Your comment on my blog %s'), App::blog()->name())) .
-                    '&amp;body=' . rawurlencode(sprintf(__("Hi!\n\nYou wrote a comment on:\n%s\n\n\n"), App::backend()->rs->getPostURL())) . '">' . __('Send an e-mail') . '</a>';
-            }
+            echo (new Form('comment-form'))
+                ->method('post')
+                ->action(App::backend()->url()->get('admin.comment'))
+                ->fields([
+                    (new Fieldset())
+                        ->legend(new Legend(__('Information collected')))
+                        ->items([
+                            App::backend()->show_ip ?
+                                (new Para())
+                                    ->items([
+                                        (new Text(null, __('IP address:') . ' ')),
+                                        (new Link())
+                                            ->href(App::backend()->url()->get('admin.comments', ['ip' => App::backend()->comment_ip]))
+                                            ->text(App::backend()->comment_ip),
+                                    ]) :
+                                (new None()),
+                            (new Para())
+                                ->items([
+                                    (new Text(null, __('Date:') . ' ' . Date::dt2str(__('%Y-%m-%d %H:%M'), App::backend()->comment_dt))),
+                                ]),
+                        ]),
+                    (new Text('h3', __('Comment submitted'))),
+                    (new Note())
+                        ->class('form-note')
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                    (new Para())
+                        ->items([
+                            (new Input('comment_author'))
+                                ->size(30)
+                                ->maxlength(255)
+                                ->default(Html::escapeHTML(App::backend()->comment_author))
+                                ->required(true)
+                                ->placeholder(__('Author'))
+                                ->label((new Label(
+                                    (new Text('span', '*'))->render() . __('Author:'),
+                                    Label::OL_TF
+                                ))),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Email('comment_email', Html::escapeHTML(App::backend()->comment_email)))
+                                ->size(30)
+                                ->maxlength(255)
+                                ->label(
+                                    (new Label(__('Email:'), Label::OL_TF))
+                                    ->suffix(App::backend()->comment_email ?
+                                        (new Link())
+                                            ->href('mailto:' . Html::escapeHTML(App::backend()->comment_email) . '?subject=' . rawurlencode(sprintf(__('Your comment on my blog %s'), App::blog()->name())) . '&amp;body=' . rawurlencode(sprintf(__("Hi!\n\nYou wrote a comment on:\n%s\n\n\n"), App::backend()->rs->getPostURL())))
+                                            ->text(__('Send an e-mail'))
+                                        ->render() :
+                                        '')
+                                ),
 
-            echo
-            '<form action="' . App::backend()->url()->get('admin.comment') . '" method="post" id="comment-form">' .
-            '<div class="fieldset">' .
-            '<h3>' . __('Information collected') . '</h3>';
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Url('comment_site', Html::escapeHTML(App::backend()->comment_site)))
+                                ->size(30)
+                                ->maxlength(255)
+                                ->label(new Label(__('Web site:'), Label::OL_TF)),
 
-            if (App::backend()->show_ip) {
-                echo
-                '<p>' . __('IP address:') . ' ' .
-                '<a href="' . App::backend()->url()->get('admin.comments', ['ip' => App::backend()->comment_ip]) . '">' . App::backend()->comment_ip . '</a></p>';
-            }
-
-            echo
-            '<p>' . __('Date:') . ' ' .
-            Date::dt2str(__('%Y-%m-%d %H:%M'), App::backend()->comment_dt) . '</p>' .
-            '</div>' .
-
-            '<h3>' . __('Comment submitted') . '</h3>' .
-            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-            '<p><label for="comment_author" class="required"><span>*</span> ' . __('Author:') . '</label>' .
-            form::field('comment_author', 30, 255, [
-                'default'    => Html::escapeHTML(App::backend()->comment_author),
-                'extra_html' => 'required placeholder="' . __('Author') . '"',
-            ]) .
-            '</p>' .
-
-            '<p><label for="comment_email">' . __('Email:') . '</label>' .
-            form::email('comment_email', 30, 255, Html::escapeHTML(App::backend()->comment_email)) .
-            '<span>' . $comment_mailto . '</span>' .
-            '</p>' .
-
-            '<p><label for="comment_site">' . __('Web site:') . '</label>' .
-            form::url('comment_site', 30, 255, Html::escapeHTML(App::backend()->comment_site)) .
-            '</p>' .
-
-            '<p><label for="comment_status">' . __('Status:') . '</label>' .
-            form::combo(
-                'comment_status',
-                App::backend()->status_combo,
-                ['default' => App::backend()->comment_status, 'disabled' => !App::backend()->can_publish]
-            ) .
-            '</p>' .
-
-            # --BEHAVIOR-- adminAfterCommentDesc -- MetaRecord
-            App::behavior()->callBehavior('adminAfterCommentDesc', App::backend()->rs) .
-
-            '<p class="area"><label for="comment_content">' . __('Comment:') . '</label> ' .
-            form::textarea(
-                'comment_content',
-                50,
-                10,
-                [
-                    'default'    => Html::escapeHTML(App::backend()->comment_content),
-                    'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                ]
-            ) .
-            '</p>' .
-
-            '<p class="form-buttons">' . form::hidden('id', App::backend()->comment_id) .
-            App::nonce()->getFormNonce() .
-            '<input type="submit" accesskey="s" name="update" value="' . __('Save') . '">' .
-            ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">';
-
-            if (App::backend()->can_delete) {
-                echo ' <input type="submit" class="delete" name="delete" value="' . __('Delete') . '">';
-            }
-            echo
-            '</p>' .
-            '</form>';
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Select('comment_status'))
+                                ->items(App::backend()->status_combo)
+                                ->default(App::backend()->comment_status)
+                                ->disabled(!App::backend()->can_publish)
+                                ->label(new Label(__('Status:'), Label::OL_TF)),
+                        ]),
+                    # --BEHAVIOR-- adminAfterCommentDesc -- MetaRecord
+                    (new Text(null, App::behavior()->callBehavior('adminAfterCommentDesc', App::backend()->rs))),
+                    (new Para())
+                        ->class('area')
+                        ->items([
+                            (new Textarea('comment_content', Html::escapeHTML(App::backend()->comment_content)))
+                                ->cols(50)
+                                ->rows(10)
+                                ->lang(App::auth()->getInfo('user_lang'))
+                                ->spellcheck(true)
+                                ->label(new Label(__('Comment:'), Label::OL_TF)),
+                        ]),
+                    (new Para())
+                        ->class('form-buttons')
+                        ->items([
+                            (new Hidden('id', App::backend()->comment_id)),
+                            App::nonce()->formNonce(),
+                            (new Submit('update', __('Save')))
+                                ->accesskey('s'),
+                            (new Button('back', __('Back')))
+                                ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                            App::backend()->can_delete ?
+                            (new Submit('delete', __('Delete')))
+                                ->class('delete') :
+                            (new None()),
+                        ]),
+                ])
+            ->render();
         }
 
         Page::helpBlock('core_comments');
