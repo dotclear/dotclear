@@ -36,7 +36,7 @@ else
     SOURCE=$2
 fi
 
-java -jar ./build-tools/ckeditor/ckbuilder.jar \
+java --add-exports java.desktop/sun.java2d=ALL-UNNAMED -jar ./build-tools/ckeditor/ckbuilder.jar \
      --build $SOURCE ./plugins/dcCKEditor/js/ckeditor \
      --build-config ./build-tools/ckeditor/build-config.js \
      --overwrite \
