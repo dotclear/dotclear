@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief     The module backend manage javascript
@@ -197,6 +198,8 @@ class ManagePostConfig
                * Dotclear loading resource system does not allow other param that file to load (pf param), so remove timestamp
                */
               CKEDITOR.timestamp = '';
+
+              CKEDITOR.config.versionCheck = false;
 
               CKEDITOR.config.disableNativeSpellChecker = $disableNativeSpellChecker;
               CKEDITOR.config.skin = `dotclear,\${dotclear.dcckeditor_plugin_url}/js/ckeditor-skins/dotclear/`;

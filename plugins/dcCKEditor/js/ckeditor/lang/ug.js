@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license/
 */
 CKEDITOR.lang['ug'] = {
     widget : 
@@ -450,7 +450,7 @@ CKEDITOR.lang['ug'] = {
     	dlgTitle : 'CKEditor تەھرىرلىگۈچى 4 ھەقىدە',
     	moreInfo : 'تور تۇرايىمىزنى زىيارەت قىلىپ كېلىشىمگە ئائىت تېخىمۇ كۆپ ئۇچۇرغا ئېرىشىڭ'
     },
-    application : 'Rich Text Editor',
+    application : 'مول تېكست تەھرىرلىگۈچ',
     editor : 'تەھرىرلىگۈچ',
     editorPanel : 'مول تېكست تەھرىرلىگۈچ تاختىسى',
     common : 
@@ -511,7 +511,7 @@ CKEDITOR.lang['ug'] = {
     	justify : 'ئىككى تەرەپتىن توغرىلا',
     	alignLeft : 'سولغا توغرىلا',
     	alignRight : 'ئوڭغا توغرىلا',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'ئوتتۇرىغا توغرىلا',
     	alignTop : 'ئۈستى',
     	alignMiddle : 'ئوتتۇرا',
     	alignBottom : 'ئاستى',
@@ -564,4 +564,11 @@ CKEDITOR.lang['ug'] = {
     	},
     	keyboardShortcut : 'تېزلەتمە كونۇپكا',
     	optionDefault : 'سۈكۈتتىكى'
+    },
+    versionCheck : 
+    {
+    	notificationMessage : 'This CKEditor %current version is not secure. Consider <a target="_blank" href="%link">upgrading to the latest one</a>, %latest.',
+    	consoleMessage : 'This CKEditor %current version is not secure. Consider upgrading to the latest one, %latest: %link',
+    	aboutDialogInsecureMessage : 'This CKEditor %current version is not secure.<br>Consider upgrading to the latest one, %latest:<br><a target="_blank" href="%link">%link</a>',
+    	aboutDialogUpgradeMessage : 'Consider upgrading to the latest editor version, %latest:<br><a target="_blank" href="%link">%link</a>'
     } }; 
