@@ -129,7 +129,6 @@ class Parser
             }
 
             # Feed generator agent
-            $this->generator = null;
             if ($children = $this->xml->channel->children('http://webns.net/mvcb/')) {
                 $generator = $children->generatorAgent;
                 if ($generator) {
