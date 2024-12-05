@@ -1406,18 +1406,30 @@ dotclear.ready(() => {
   // Menu command
   const searchinput = document.getElementById('qx');
   if (searchinput) {
+    // Intercept quick menu prefix key
     const quickMenuPrefix = dotclear.data.quickMenuPrefix || ':';
-    window.addEventListener('keyup', (e) => {
+    window.addEventListener('keyup', (event) => {
       if (!document.activeElement.nodeName || dotclear.acceptsKeyboardInput(document.activeElement)) {
         return;
       }
-      if (e.key !== quickMenuPrefix) return;
-      if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.isComposing) return;
+      if (event.key !== quickMenuPrefix) return;
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.isComposing) return;
       e.preventDefault();
       searchinput.setAttribute('value', quickMenuPrefix);
       searchinput.setSelectionRange(1, 1);
       searchinput.focus();
     });
+    // Add direct submit on menu choice
+    const menuList = document.querySelectorAll('#menulist option');
+    if (menulist) {
+      searchinput.addEventListener('change', (event) => {
+        const found = [...menuList].find((opt) => opt.value === searchinput.value);
+        if (found) {
+          event.preventDefault();
+          searchinput.form?.submit();
+        }
+      });
+    }
   }
 
   // Go back (aka Cancel) button
