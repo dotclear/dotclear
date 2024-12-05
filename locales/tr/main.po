@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-25 07:54+0200\n"
-"PO-Revision-Date: 2024-10-25 06:30\n"
+"POT-Creation-Date: 2024-12-05 13:05+0100\n"
+"PO-Revision-Date: 2024-12-05 12:08\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:358
-#: src/Process/Backend/User.php:225 src/Process/Backend/UserPreferences.php:499
+#: src/Process/Backend/User.php:230 src/Process/Backend/UserPreferences.php:499
 #: src/Process/Install/Install.php:418
 msgid "medium"
 msgstr "orta"
@@ -35,12 +35,12 @@ msgstr "küçük resim"
 msgid "square"
 msgstr "kare"
 
-#: inc/core/_fake_l10n.php:13 src/Core/Backend/Action/Actions.php:159
+#: inc/core/_fake_l10n.php:13 src/Core/Backend/Action/Actions.php:160
 #: src/Core/Backend/Action/ActionsPosts.php:64
 #: src/Core/Backend/Action/ActionsPosts.php:71
 #: src/Core/Backend/Favorites.php:423 src/Core/Backend/Menus.php:167
 #: src/Core/Backend/UserPref.php:40 src/Core/Backend/UserPref.php:176
-#: src/Process/Backend/Post.php:528 src/Process/Backend/Post.php:542
+#: src/Process/Backend/Post.php:531 src/Process/Backend/Post.php:545
 #: src/Process/Backend/Posts.php:85 src/Process/Backend/Posts.php:90
 msgid "Posts"
 msgstr "Mesajlar"
@@ -49,51 +49,52 @@ msgstr "Mesajlar"
 msgid "Pages"
 msgstr "Sayfalar"
 
-#: src/Core/Auth.php:147
+#: src/Core/Auth.php:145
 msgid "administrator"
 msgstr "YÖNETİCİ"
 
-#: src/Core/Auth.php:148
+#: src/Core/Auth.php:146
 msgid "manage all entries and comments"
 msgstr "tüm girişleri ve yorumları yönetin"
 
-#: src/Core/Auth.php:149
+#: src/Core/Auth.php:147
 msgid "manage their own entries and comments"
 msgstr "kendi girişlerini ve yorumlarını yönetebilme"
 
-#: src/Core/Auth.php:150
+#: src/Core/Auth.php:148
 msgid "publish entries and comments"
 msgstr "yazıları ve ahkamları yayınla"
 
-#: src/Core/Auth.php:151
+#: src/Core/Auth.php:149
 msgid "delete entries and comments"
 msgstr "girişleri ve yorumları silme"
 
-#: src/Core/Auth.php:152
+#: src/Core/Auth.php:150
 msgid "manage categories"
 msgstr "kategorileri yönet"
 
-#: src/Core/Auth.php:153
+#: src/Core/Auth.php:151
 msgid "manage all media items"
 msgstr "tüm medya öğelerini yönetin"
 
-#: src/Core/Auth.php:154
+#: src/Core/Auth.php:152
 msgid "manage their own media items"
 msgstr "kendi medya öğelerini yönetebilme"
 
-#: src/Core/Auth.php:606
+#: src/Core/Auth.php:604
 msgid "That user does not exist in the database."
 msgstr "Bu kullanıcı veritabanında mevcut değil."
 
-#: src/Core/Auth.php:633
+#: src/Core/Auth.php:631
 msgid "That key does not exist in the database."
 msgstr "Bu anahtar veritabanında mevcut değil."
 
-#: src/Core/Backend/Action/Actions.php:158
+#: src/Core/Backend/Action/Actions.php:159
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:71
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
-#: src/Process/Backend/Home.php:454 src/Process/Backend/Post.php:709
+#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1005
+#: src/Process/Backend/Post.php:712
 msgid "Title"
 msgstr "Başlık"
 
@@ -104,7 +105,7 @@ msgstr "Başlık"
 #: src/Core/Backend/Favorites.php:500 src/Core/Backend/Menus.php:244
 #: src/Core/Backend/UserPref.php:73 src/Core/Backend/UserPref.php:190
 #: src/Process/Backend/Blog.php:98 src/Process/Backend/BlogDel.php:91
-#: src/Process/Backend/BlogPref.php:458
+#: src/Process/Backend/BlogPref.php:459
 msgid "Blogs"
 msgstr "Bloglar"
 
@@ -124,7 +125,7 @@ msgstr "Blog kimliği"
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
 #: src/Core/Backend/Listing/ListingBlogs.php:77
 #: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:141
-#: src/Process/Backend/BlogPref.php:538
+#: src/Process/Backend/BlogPref.php:552
 #: src/Process/Backend/UsersActions.php:231
 msgid "Blog name"
 msgstr "Blog adı"
@@ -135,11 +136,11 @@ msgstr "Blog adı"
 #: src/Core/Backend/Combos.php:282 src/Core/Backend/Combos.php:305
 #: src/Core/Backend/Combos.php:337
 #: src/Core/Backend/Listing/ListingBlogs.php:101
-#: src/Core/Backend/Listing/ListingComments.php:159
+#: src/Core/Backend/Listing/ListingComments.php:160
 #: src/Core/Backend/Listing/ListingPosts.php:113
 #: src/Core/Backend/Listing/ListingPostsMini.php:72
 #: src/Core/Backend/UserPref.php:54 src/Core/Backend/UserPref.php:79
-#: src/Process/Backend/Post.php:614 src/Process/Backend/Post.php:1064
+#: src/Process/Backend/Post.php:617 src/Process/Backend/Post.php:1067
 #: src/Process/Backend/UsersActions.php:234
 msgid "Status"
 msgstr "Durum"
@@ -162,11 +163,11 @@ msgstr "Kaldırılmış olarak ayarla"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:51
 #: src/Core/Backend/Action/ActionsPostsDefault.php:103
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
-#: src/Core/Backend/Listing/ListingMedia.php:331
-#: src/Core/Backend/Listing/ListingMedia.php:334
-#: src/Core/Backend/ModulesList.php:1347 src/Core/Upgrade/PluginsList.php:126
-#: src/Process/Backend/Comment.php:315 src/Process/Backend/Langs.php:278
-#: src/Process/Backend/Post.php:798 src/Process/Backend/Users.php:42
+#: src/Core/Backend/Listing/ListingMedia.php:332
+#: src/Core/Backend/Listing/ListingMedia.php:335
+#: src/Core/Backend/ModulesList.php:1349 src/Core/Upgrade/PluginsList.php:126
+#: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:278
+#: src/Process/Backend/Post.php:801 src/Process/Backend/Users.php:42
 #: src/Process/Upgrade/Langs.php:296
 msgid "Delete"
 msgstr "Sil"
@@ -181,16 +182,16 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Seçilen bloglar başarıyla güncellendi."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:108
-#: src/Core/Backend/ModulesList.php:1685 src/Core/Backend/ThemesList.php:732
+#: src/Core/Backend/ModulesList.php:1687 src/Core/Backend/ThemesList.php:732
 #: src/Core/Upgrade/PluginsList.php:399 src/Process/Backend/BlogDel.php:67
 #: src/Process/Backend/Langs.php:131 src/Process/Backend/Langs.php:176
-#: src/Process/Backend/User.php:100 src/Process/Backend/UsersActions.php:109
+#: src/Process/Backend/User.php:101 src/Process/Backend/UsersActions.php:109
 #: src/Process/Upgrade/Langs.php:161 src/Process/Upgrade/Langs.php:206
 msgid "Password verification failed"
 msgstr "Parola doğrulaması başarısız"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:114
-#: src/Process/Backend/BlogPref.php:1183
+#: src/Process/Backend/BlogPref.php:1197
 msgid "The current blog cannot be deleted."
 msgstr "Mevcut blog silinemez."
 
@@ -210,8 +211,8 @@ msgstr[1] "%d bloglar başarıyla silindi"
 #: src/Core/Backend/Listing/ListingPosts.php:93
 #: src/Core/Backend/Listing/ListingPosts.php:94 src/Core/Backend/Menus.php:154
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:50
-#: src/Core/Backend/UserPref.php:183 src/Process/Backend/Post.php:847
-#: src/Process/Backend/Post.php:856
+#: src/Core/Backend/UserPref.php:183 src/Process/Backend/Post.php:850
+#: src/Process/Backend/Post.php:859
 msgid "Comments"
 msgstr "Ahkamlar"
 
@@ -225,12 +226,12 @@ msgstr "Yorumlar eylemler"
 
 #: src/Core/Backend/Action/ActionsComments.php:157
 #: src/Core/Backend/Combos.php:281 src/Core/Backend/Combos.php:304
-#: src/Core/Backend/Listing/ListingComments.php:149
+#: src/Core/Backend/Listing/ListingComments.php:150
 #: src/Core/Backend/Listing/ListingPosts.php:83
 #: src/Core/Backend/Listing/ListingPostsMini.php:68
 #: src/Core/Backend/UserPref.php:44 src/Core/Backend/UserPref.php:53
-#: src/Process/Backend/Comment.php:273 src/Process/Backend/Post.php:891
-#: src/Process/Backend/Post.php:1061
+#: src/Process/Backend/Comment.php:294 src/Process/Backend/Post.php:894
+#: src/Process/Backend/Post.php:1064
 msgid "Author"
 msgstr "Yazar"
 
@@ -262,7 +263,7 @@ msgid "Blocklist IP (global)"
 msgstr "Engelleme Listesi IP'si (global)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:72
-#: src/Process/Backend/Post.php:1063
+#: src/Process/Backend/Post.php:1066
 msgid "IP address"
 msgstr "IP adresi"
 
@@ -273,12 +274,12 @@ msgid "No comment selected"
 msgstr "Yorum seçilmedi"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:101
-#: src/Process/Backend/Comments.php:128
+#: src/Process/Backend/Comments.php:129
 msgid "Selected comments have been successfully updated."
 msgstr "Seçilen yorumlar başarıyla güncellenmiştir."
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:129
-#: src/Process/Backend/Comments.php:130
+#: src/Process/Backend/Comments.php:131
 msgid "Selected comments have been successfully deleted."
 msgstr "Seçilen yorumlar başarıyla silindi."
 
@@ -410,7 +411,7 @@ msgstr "Yazıların kategorisini değiştir"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
 #: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:461
-#: src/Process/Backend/Post.php:649
+#: src/Process/Backend/Post.php:652
 msgid "Category:"
 msgstr "Kategori:"
 
@@ -420,26 +421,26 @@ msgstr "Yazı(lar) için yeni bir kategori oluşturun"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
 #: src/Process/Backend/Home.php:451 src/Process/Backend/Home.php:468
-#: src/Process/Backend/MediaItem.php:1064 src/Process/Backend/Post.php:657
-#: src/Process/Backend/Post.php:705
+#: src/Process/Backend/Media.php:552 src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/Post.php:660 src/Process/Backend/Post.php:708
 msgid "Title:"
 msgstr "Başlık:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:383
-#: src/Process/Backend/Category.php:244 src/Process/Backend/Category.php:298
-#: src/Process/Backend/Home.php:470 src/Process/Backend/Post.php:659
+#: src/Process/Backend/Category.php:265 src/Process/Backend/Category.php:323
+#: src/Process/Backend/Home.php:470 src/Process/Backend/Post.php:662
 msgid "Parent:"
 msgstr "Ana:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1979 src/Process/Backend/BlogPref.php:1157
-#: src/Process/Backend/Category.php:276 src/Process/Backend/Category.php:308
-#: src/Process/Backend/Category.php:342 src/Process/Backend/Comment.php:311
-#: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1109
-#: src/Process/Backend/Post.php:776 src/Process/Backend/Post.php:916
-#: src/Process/Backend/User.php:421 src/Process/Backend/UsersActions.php:358
+#: src/Core/Backend/ModulesList.php:1982 src/Process/Backend/BlogPref.php:1171
+#: src/Process/Backend/Category.php:295 src/Process/Backend/Category.php:334
+#: src/Process/Backend/Category.php:370 src/Process/Backend/Comment.php:349
+#: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1114
+#: src/Process/Backend/Post.php:779 src/Process/Backend/Post.php:919
+#: src/Process/Backend/User.php:426 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:500
 msgid "Save"
 msgstr "Kaydet"
@@ -506,17 +507,17 @@ msgid "Ascending"
 msgstr "Yükselen"
 
 #: src/Core/Backend/Combos.php:278 src/Core/Backend/Combos.php:301
-#: src/Core/Backend/Listing/ListingComments.php:154
-#: src/Core/Backend/Listing/ListingMedia.php:130
+#: src/Core/Backend/Listing/ListingComments.php:155
+#: src/Core/Backend/Listing/ListingMedia.php:131
 #: src/Core/Backend/Listing/ListingPosts.php:75
 #: src/Core/Backend/Listing/ListingPostsMini.php:64
 #: src/Core/Backend/UserPref.php:42 src/Core/Backend/UserPref.php:52
-#: src/Core/Backend/UserPref.php:201 src/Process/Backend/Post.php:1062
+#: src/Core/Backend/UserPref.php:201 src/Process/Backend/Post.php:1065
 msgid "Date"
 msgstr "Tarih"
 
 #: src/Core/Backend/Combos.php:280 src/Core/Backend/Listing/ListingPosts.php:79
-#: src/Core/Backend/UserPref.php:43 src/Process/Backend/Post.php:648
+#: src/Core/Backend/UserPref.php:43 src/Process/Backend/Post.php:651
 msgid "Category"
 msgstr "Kategori"
 
@@ -544,13 +545,13 @@ msgid "Entry date"
 msgstr "Giriş tarihi"
 
 #: src/Core/Backend/Combos.php:306
-#: src/Core/Backend/Listing/ListingComments.php:172
+#: src/Core/Backend/Listing/ListingComments.php:173
 #: src/Core/Backend/UserPref.php:56
 msgid "Spam filter"
 msgstr "Spam filtresi"
 
 #: src/Core/Backend/Combos.php:317
-#: src/Core/Backend/Listing/ListingComments.php:166
+#: src/Core/Backend/Listing/ListingComments.php:167
 #: src/Core/Backend/UserPref.php:55
 msgid "IP"
 msgstr "IP"
@@ -561,27 +562,27 @@ msgid "Last update"
 msgstr "Son güncelleme"
 
 #: src/Core/Backend/Combos.php:336 src/Process/Backend/Blog.php:122
-#: src/Process/Backend/BlogPref.php:1015
+#: src/Process/Backend/BlogPref.php:1029
 #: src/Process/Backend/UsersActions.php:230
 msgid "Blog ID"
 msgstr "Blog Kimliği"
 
-#: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:63
+#: src/Core/Backend/Combos.php:355 src/Core/Backend/Listing/ListingUsers.php:65
 #: src/Process/Install/Install.php:480
 msgid "Username"
 msgstr "Kullanıcı adı:"
 
-#: src/Core/Backend/Combos.php:356 src/Core/Backend/Listing/ListingUsers.php:73
+#: src/Core/Backend/Combos.php:356 src/Core/Backend/Listing/ListingUsers.php:75
 #: src/Core/Backend/UserPref.php:67
 msgid "Last Name"
 msgstr "Soy İsim"
 
-#: src/Core/Backend/Combos.php:357 src/Core/Backend/Listing/ListingUsers.php:68
+#: src/Core/Backend/Combos.php:357 src/Core/Backend/Listing/ListingUsers.php:70
 #: src/Core/Backend/UserPref.php:66
 msgid "First Name"
 msgstr "İlk İsim"
 
-#: src/Core/Backend/Combos.php:358 src/Core/Backend/Listing/ListingUsers.php:78
+#: src/Core/Backend/Combos.php:358 src/Core/Backend/Listing/ListingUsers.php:80
 #: src/Core/Backend/UserPref.php:68
 msgid "Display name"
 msgstr "Gösterim ismi"
@@ -596,14 +597,14 @@ msgid "My favorites"
 msgstr "Favorilerim"
 
 #: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:381 src/Process/Backend/Media.php:558
+#: src/Core/Backend/Page.php:382 src/Process/Backend/Media.php:559
 #: src/Process/Backend/UserPreferences.php:39
 msgid "My preferences"
 msgstr "Benim tercihlerim"
 
 #: src/Core/Backend/Favorites.php:412 src/Core/Backend/Menus.php:180
-#: src/Process/Backend/Home.php:449 src/Process/Backend/Post.php:70
-#: src/Process/Backend/Post.php:758 src/Process/Backend/Posts.php:101
+#: src/Process/Backend/Home.php:449 src/Process/Backend/Post.php:71
+#: src/Process/Backend/Post.php:761 src/Process/Backend/Posts.php:101
 msgid "New post"
 msgstr "Yeni yazı"
 
@@ -629,34 +630,34 @@ msgid "Search"
 msgstr "Ara"
 
 #: src/Core/Backend/Favorites.php:463 src/Core/Backend/Menus.php:129
-#: src/Process/Backend/Categories.php:141
-#: src/Process/Backend/Categories.php:146 src/Process/Backend/Category.php:201
+#: src/Process/Backend/Categories.php:155
+#: src/Process/Backend/Categories.php:160 src/Process/Backend/Category.php:209
 msgid "Categories"
 msgstr "Kategoriler"
 
 #: src/Core/Backend/Favorites.php:472 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
-#: src/Process/Backend/Media.php:473 src/Process/Backend/Media.php:512
-#: src/Process/Backend/MediaItem.php:450 src/Process/Backend/MediaItem.php:456
+#: src/Process/Backend/Media.php:474 src/Process/Backend/Media.php:513
+#: src/Process/Backend/MediaItem.php:451 src/Process/Backend/MediaItem.php:457
 msgid "Media manager"
 msgstr "Medya yönetimi"
 
 #: src/Core/Backend/Favorites.php:482 src/Core/Backend/Menus.php:104
-#: src/Process/Backend/BlogPref.php:451 src/Process/Backend/BlogPref.php:459
-#: src/Process/Backend/BlogPref.php:472
+#: src/Process/Backend/BlogPref.php:452 src/Process/Backend/BlogPref.php:460
+#: src/Process/Backend/BlogPref.php:473
 msgid "Blog settings"
 msgstr "Blog ayarları"
 
 #: src/Core/Backend/Favorites.php:491 src/Core/Backend/Menus.php:92
-#: src/Process/Backend/BlogTheme.php:82 src/Process/Backend/BlogTheme.php:91
-#: src/Process/Backend/BlogTheme.php:163
+#: src/Process/Backend/BlogTheme.php:95 src/Process/Backend/BlogTheme.php:104
+#: src/Process/Backend/BlogTheme.php:176
 msgid "Blog appearance"
 msgstr "Blog görünüşü"
 
 #: src/Core/Backend/Favorites.php:510 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:64 src/Core/Backend/UserPref.php:166
-#: src/Process/Backend/BlogPref.php:1349 src/Process/Backend/User.php:235
+#: src/Process/Backend/BlogPref.php:1363 src/Process/Backend/User.php:240
 #: src/Process/Backend/Users.php:100 src/Process/Backend/Users.php:105
 #: src/Process/Backend/UsersActions.php:151
 #: src/Process/Backend/UsersActions.php:159
@@ -676,8 +677,8 @@ msgstr "Eklenti yönetimi"
 msgid "Languages"
 msgstr "Diller"
 
-#: src/Core/Backend/Favorites.php:528 src/Core/Backend/Page.php:458
-#: src/Core/Backend/Page.php:459 src/Process/Backend/Help.php:107
+#: src/Core/Backend/Favorites.php:528 src/Core/Backend/Page.php:459
+#: src/Core/Backend/Page.php:460 src/Process/Backend/Help.php:107
 #: src/Process/Backend/Help.php:114 src/Process/Backend/Help.php:120
 msgid "Global help"
 msgstr "Küresel yardım"
@@ -685,27 +686,27 @@ msgstr "Küresel yardım"
 #: src/Core/Backend/Filter/FilterBlogs.php:50
 #: src/Core/Backend/Filter/FilterComments.php:86
 #: src/Core/Backend/Filter/FilterPosts.php:145
-#: src/Process/Backend/Comment.php:286
+#: src/Process/Backend/Comment.php:330
 msgid "Status:"
 msgstr "Durum:"
 
-#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1282
-#: src/Process/Backend/Auth.php:424 src/Process/Backend/BlogPref.php:1329
-#: src/Process/Backend/Comment.php:277 src/Process/Backend/Post.php:895
-#: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:545
+#: src/Core/Backend/Filter/FilterComments.php:34 src/Core/Backend/Page.php:1283
+#: src/Process/Backend/Auth.php:424 src/Process/Backend/BlogPref.php:1343
+#: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:898
+#: src/Process/Backend/User.php:350 src/Process/Backend/UserPreferences.php:545
 #: src/Process/Install/Install.php:466
 msgid "Email:"
 msgstr "Eposta:"
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1281
-#: src/Process/Backend/Comment.php:282 src/Process/Backend/Post.php:899
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1282
+#: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:902
 msgid "Web site:"
 msgstr "Web sayfası"
 
 #: src/Core/Backend/Filter/FilterComments.php:56
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:1068 src/Core/Backend/Page.php:1323
-#: src/Process/Backend/Comment.php:270
+#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1324
+#: src/Process/Backend/Comment.php:296
 msgid "Author:"
 msgstr "Yazar:"
 
@@ -714,7 +715,7 @@ msgid "Type:"
 msgstr "Tip:"
 
 #: src/Core/Backend/Filter/FilterComments.php:71
-#: src/Process/Backend/Post.php:909
+#: src/Process/Backend/Post.php:912
 msgid "Comment"
 msgstr "Yorum"
 
@@ -723,7 +724,7 @@ msgid "Trackback"
 msgstr "Gerizlemeler"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1283 src/Process/Backend/Comment.php:259
+#: src/Core/Backend/Page.php:1284 src/Process/Backend/Comment.php:272
 msgid "IP address:"
 msgstr "IP adresi"
 
@@ -752,7 +753,7 @@ msgid "Format:"
 msgstr "Format:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:154
-#: src/Process/Backend/Auth.php:518 src/Process/Backend/User.php:277
+#: src/Process/Backend/Auth.php:518 src/Process/Backend/User.php:282
 #: src/Process/Install/Install.php:530 src/Process/Upgrade/Auth.php:224
 msgid "Password:"
 msgstr "Parola:"
@@ -811,41 +812,41 @@ msgstr "Kapalı"
 msgid "Trackbacks:"
 msgstr "Gerizlemeler:"
 
-#: src/Core/Backend/Filter/Filters.php:356
+#: src/Core/Backend/Filter/Filters.php:357
 msgid "Filters"
 msgstr "Süzgeçler"
 
-#: src/Core/Backend/Filter/Filters.php:369
+#: src/Core/Backend/Filter/Filters.php:370
 msgid "Order by:"
 msgstr "Sıralama ölçütü"
 
-#: src/Core/Backend/Filter/Filters.php:379
+#: src/Core/Backend/Filter/Filters.php:380
 msgid "Sort:"
 msgstr "Sırala:"
 
-#: src/Core/Backend/Filter/Filters.php:390
+#: src/Core/Backend/Filter/Filters.php:391
 #: src/Process/Backend/UserPreferences.php:728
 msgid "Show"
 msgstr "Göster"
 
-#: src/Core/Backend/Filter/Filters.php:404
+#: src/Core/Backend/Filter/Filters.php:405
 msgid "Save current options"
 msgstr "Geçerli seçenekleri kaydet"
 
-#: src/Core/Backend/Filter/Filters.php:413
+#: src/Core/Backend/Filter/Filters.php:414
 msgid "Display options"
 msgstr "Görüntüleme seçenekleri"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1502
+#: src/Core/Backend/Filter/Filters.php:423 src/Core/Backend/Page.php:1504
 msgid "Show filters and display options"
 msgstr "Filtreleri ve görüntüleme seçeneklerini göster"
 
-#: src/Core/Backend/Filter/Filters.php:432
+#: src/Core/Backend/Filter/Filters.php:433
 msgid "Apply filters and display options"
 msgstr "Filtreleri ve görüntüleme seçeneklerini uygulama"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:84
-#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:487
+#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:488
 msgid "Search:"
 msgstr "Ara:"
 
@@ -867,14 +868,13 @@ msgid "No blog matches the filter"
 msgstr "Hiçbir blog filtreyle eşleşmiyor"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:83
-#: src/Core/Backend/ModulesList.php:1799 src/Core/Backend/UserPref.php:76
+#: src/Core/Backend/ModulesList.php:1801 src/Core/Backend/UserPref.php:76
 #: src/Process/Backend/LinkPopup.php:62
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
 msgstr "URL"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:89
-#: src/Core/Backend/Listing/ListingUsers.php:84
 #: src/Core/Backend/UserPref.php:69 src/Core/Backend/UserPref.php:77
 msgid "Entries (all types)"
 msgstr "Girişler (tüm tipler)"
@@ -891,21 +891,21 @@ msgid "Blogs list"
 msgstr "Bloglar listesi"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:141
-#: src/Core/Backend/Listing/ListingComments.php:215
+#: src/Core/Backend/Listing/ListingComments.php:216
 #: src/Core/Backend/Listing/ListingPosts.php:222
-#: src/Core/Backend/Listing/ListingUsers.php:132
+#: src/Core/Backend/Listing/ListingUsers.php:134
 msgid "Legend: "
 msgstr "Efsane: "
 
-#: src/Core/Backend/Listing/ListingBlogs.php:142 src/Core/Blogs.php:46
+#: src/Core/Backend/Listing/ListingBlogs.php:142 src/Core/Blogs.php:47
 msgid "online"
 msgstr "çevrimiçi"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:143 src/Core/Blogs.php:47
+#: src/Core/Backend/Listing/ListingBlogs.php:143 src/Core/Blogs.php:48
 msgid "offline"
 msgstr "çevrimdışı"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:144 src/Core/Blogs.php:48
+#: src/Core/Backend/Listing/ListingBlogs.php:144 src/Core/Blogs.php:49
 msgid "removed"
 msgstr "kaldırıldı"
 
@@ -924,184 +924,184 @@ msgstr "Blog ayarlarını düzenleme"
 msgid "Switch to blog %s"
 msgstr "%s bloga geç"
 
-#: src/Core/Backend/Listing/ListingComments.php:53
-#: src/Process/Backend/Comment.php:133 src/Process/Backend/Post.php:861
+#: src/Core/Backend/Listing/ListingComments.php:54
+#: src/Process/Backend/Comment.php:150 src/Process/Backend/Post.php:864
 msgid "No comments"
 msgstr "Ahkam yok"
 
-#: src/Core/Backend/Listing/ListingComments.php:53
+#: src/Core/Backend/Listing/ListingComments.php:54
 msgid "No comments or trackbacks matches the filter"
 msgstr "Filtreyle eşleşen yorum veya geri izleme yok"
 
-#: src/Core/Backend/Listing/ListingComments.php:85
+#: src/Core/Backend/Listing/ListingComments.php:86
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] "Filtreyle eşleşen yorum veya geri izleme."
 msgstr[1] "Filtreyle eşleşen %s yorumlarının veya geri izlemelerin listesi."
 
-#: src/Core/Backend/Listing/ListingComments.php:98
+#: src/Core/Backend/Listing/ListingComments.php:99
 #, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr "Yorumların ve geri izlemelerin listesi (%s)"
 
-#: src/Core/Backend/Listing/ListingComments.php:104
+#: src/Core/Backend/Listing/ListingComments.php:105
 #: src/Core/Backend/Listing/ListingPosts.php:159
 msgid "published (1)"
 msgid_plural "published (> 1)"
 msgstr[0] "yayınlanan"
 msgstr[1] "yayınlanan"
 
-#: src/Core/Backend/Listing/ListingComments.php:113
+#: src/Core/Backend/Listing/ListingComments.php:114
 msgid "spam (1)"
 msgid_plural "spam (> 1)"
 msgstr[0] "istenmeyen e-posta"
 msgstr[1] "istenmeyen e-posta"
 
-#: src/Core/Backend/Listing/ListingComments.php:122
+#: src/Core/Backend/Listing/ListingComments.php:123
 #: src/Core/Backend/Listing/ListingPosts.php:169
 msgid "pending (1)"
 msgid_plural "pending (> 1)"
 msgstr[0] "askıda olması"
 msgstr[1] "askıda olması"
 
-#: src/Core/Backend/Listing/ListingComments.php:131
+#: src/Core/Backend/Listing/ListingComments.php:132
 #: src/Core/Backend/Listing/ListingPosts.php:189
 msgid "unpublished (1)"
 msgid_plural "unpublished (> 1)"
 msgstr[0] "yayınlanmamış"
 msgstr[1] "yayınlanmamış"
 
-#: src/Core/Backend/Listing/ListingComments.php:144
+#: src/Core/Backend/Listing/ListingComments.php:145
 msgid "Type"
 msgstr "Tip"
 
-#: src/Core/Backend/Listing/ListingComments.php:177
+#: src/Core/Backend/Listing/ListingComments.php:178
 #: src/Core/Backend/UserPref.php:57
 msgid "Entry"
 msgstr "Giriş"
 
-#: src/Core/Backend/Listing/ListingComments.php:216
-#: src/Core/Backend/Listing/ListingComments.php:252
+#: src/Core/Backend/Listing/ListingComments.php:217
+#: src/Core/Backend/Listing/ListingComments.php:253
 #: src/Core/Backend/Listing/ListingPosts.php:223
 #: src/Core/Backend/Listing/ListingPosts.php:261
-#: src/Core/Backend/Listing/ListingPostsMini.php:135 src/Core/Blog.php:272
-#: src/Core/Blog.php:277 src/Process/Backend/MediaItem.php:983
-#: src/Process/Backend/Post.php:475 src/Process/Backend/Post.php:1083
+#: src/Core/Backend/Listing/ListingPostsMini.php:135 src/Core/Blog.php:273
+#: src/Core/Blog.php:278 src/Process/Backend/MediaItem.php:985
+#: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1086
 msgid "Published"
 msgstr "Yayınlandı"
 
-#: src/Core/Backend/Listing/ListingComments.php:217
-#: src/Core/Backend/Listing/ListingComments.php:258
+#: src/Core/Backend/Listing/ListingComments.php:218
+#: src/Core/Backend/Listing/ListingComments.php:259
 #: src/Core/Backend/Listing/ListingPosts.php:224
 #: src/Core/Backend/Listing/ListingPosts.php:266
-#: src/Core/Backend/Listing/ListingPostsMini.php:140 src/Core/Blog.php:271
-#: src/Core/Blog.php:276 src/Process/Backend/MediaItem.php:984
-#: src/Process/Backend/Post.php:476 src/Process/Backend/Post.php:1088
+#: src/Core/Backend/Listing/ListingPostsMini.php:140 src/Core/Blog.php:272
+#: src/Core/Blog.php:277 src/Process/Backend/MediaItem.php:986
+#: src/Process/Backend/Post.php:479 src/Process/Backend/Post.php:1091
 msgid "Unpublished"
 msgstr "Yayınlanmamış"
 
-#: src/Core/Backend/Listing/ListingComments.php:218
-#: src/Core/Backend/Listing/ListingComments.php:264
+#: src/Core/Backend/Listing/ListingComments.php:219
+#: src/Core/Backend/Listing/ListingComments.php:265
 #: src/Core/Backend/Listing/ListingPosts.php:226
 #: src/Core/Backend/Listing/ListingPosts.php:276
-#: src/Core/Backend/Listing/ListingPostsMini.php:150 src/Core/Blog.php:269
-#: src/Core/Blog.php:275 src/Process/Backend/MediaItem.php:986
-#: src/Process/Backend/Post.php:478 src/Process/Backend/Post.php:1093
+#: src/Core/Backend/Listing/ListingPostsMini.php:150 src/Core/Blog.php:270
+#: src/Core/Blog.php:276 src/Process/Backend/MediaItem.php:988
+#: src/Process/Backend/Post.php:481 src/Process/Backend/Post.php:1096
 msgid "Pending"
 msgstr "Beklemede"
 
-#: src/Core/Backend/Listing/ListingComments.php:219
-#: src/Core/Backend/Listing/ListingComments.php:270 src/Core/Blog.php:274
-#: src/Process/Backend/Post.php:1098
+#: src/Core/Backend/Listing/ListingComments.php:220
+#: src/Core/Backend/Listing/ListingComments.php:271 src/Core/Blog.php:275
+#: src/Process/Backend/Post.php:1101
 msgid "Junk"
 msgstr "Hurda"
 
-#: src/Core/Backend/Listing/ListingComments.php:276
+#: src/Core/Backend/Listing/ListingComments.php:277
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: src/Core/Backend/Listing/ListingComments.php:300
+#: src/Core/Backend/Listing/ListingComments.php:301
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr "%1$s adresini %2$sadresinden düzenleyin"
 
-#: src/Core/Backend/Listing/ListingComments.php:301
-#: src/Core/Backend/Listing/ListingComments.php:327
+#: src/Core/Backend/Listing/ListingComments.php:302
+#: src/Core/Backend/Listing/ListingComments.php:328
 msgid "comment"
 msgstr "ahkam"
 
-#: src/Core/Backend/Listing/ListingComments.php:301
-#: src/Core/Backend/Listing/ListingComments.php:327
+#: src/Core/Backend/Listing/ListingComments.php:302
+#: src/Core/Backend/Listing/ListingComments.php:328
 msgid "trackback"
 msgstr "gerizleme"
 
-#: src/Core/Backend/Listing/ListingComments.php:323
-#: src/Core/Backend/Listing/ListingComments.php:326
-#: src/Process/Backend/Post.php:1065 src/Process/Backend/Post.php:1138
+#: src/Core/Backend/Listing/ListingComments.php:324
+#: src/Core/Backend/Listing/ListingComments.php:327
+#: src/Process/Backend/Post.php:1068 src/Process/Backend/Post.php:1141
 msgid "Edit"
 msgstr "Düzenle"
 
-#: src/Core/Backend/Listing/ListingMedia.php:60
+#: src/Core/Backend/Listing/ListingMedia.php:61
 msgid "No file matches the filter"
 msgstr "Filtreyle eşleşen dosya yok"
 
-#: src/Core/Backend/Listing/ListingMedia.php:70
+#: src/Core/Backend/Listing/ListingMedia.php:71
 msgid "No file."
 msgstr "Dosya yok."
 
-#: src/Core/Backend/Listing/ListingMedia.php:92
+#: src/Core/Backend/Listing/ListingMedia.php:93
 #, php-format
 msgid "%d file matches the filter."
 msgid_plural "%d files match the filter."
 msgstr[0] "%d dosyası filtreyle eşleşir."
 msgstr[1] "%d dosyalar filtreyle eşleşir."
 
-#: src/Core/Backend/Listing/ListingMedia.php:95
+#: src/Core/Backend/Listing/ListingMedia.php:96
 #, php-format
 msgid "Nb of items: %d → %d folder(s) + %d file(s)"
 msgstr "Öğe sayısı: %d → %d klasör(ler) + %d dosya(lar)"
 
-#: src/Core/Backend/Listing/ListingMedia.php:96
+#: src/Core/Backend/Listing/ListingMedia.php:97
 #, php-format
 msgid "Nb of items: %d"
 msgstr "Ürün sayısı: %d"
 
-#: src/Core/Backend/Listing/ListingMedia.php:127
-#: src/Core/Backend/ModulesList.php:832 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Category.php:237 src/Process/Upgrade/Plugins.php:448
+#: src/Core/Backend/Listing/ListingMedia.php:128
+#: src/Core/Backend/ModulesList.php:834 src/Core/Backend/UserPref.php:200
+#: src/Process/Backend/Category.php:253 src/Process/Upgrade/Plugins.php:448
 msgid "Name"
 msgstr "İsim"
 
-#: src/Core/Backend/Listing/ListingMedia.php:133
+#: src/Core/Backend/Listing/ListingMedia.php:134
 #: src/Core/Backend/UserPref.php:202
 msgid "Size"
 msgstr "Boyut"
 
-#: src/Core/Backend/Listing/ListingMedia.php:267
-#: src/Core/Backend/Listing/ListingMedia.php:270
-#: src/Process/Backend/Media.php:372
+#: src/Core/Backend/Listing/ListingMedia.php:268
+#: src/Core/Backend/Listing/ListingMedia.php:271
+#: src/Process/Backend/Media.php:373
 msgid "Select this file"
 msgstr "Bu dosyayı seçin"
 
-#: src/Core/Backend/Listing/ListingMedia.php:293
-#: src/Core/Backend/Listing/ListingMedia.php:296
-#: src/Process/Backend/Media.php:388 src/Process/Backend/Media.php:401
+#: src/Core/Backend/Listing/ListingMedia.php:294
+#: src/Core/Backend/Listing/ListingMedia.php:297
+#: src/Process/Backend/Media.php:389 src/Process/Backend/Media.php:402
 msgid "Attach this file to entry"
 msgstr "Bu dosyayı yazıya ekle"
 
-#: src/Core/Backend/Listing/ListingMedia.php:304
-#: src/Core/Backend/Listing/ListingMedia.php:307
+#: src/Core/Backend/Listing/ListingMedia.php:305
+#: src/Core/Backend/Listing/ListingMedia.php:308
 msgid "Insert this file into entry"
 msgstr "Bu dosyayı yazıya kat"
 
-#: src/Core/Backend/Listing/ListingMedia.php:372
-#: src/Core/Backend/Listing/ListingMedia.php:411
+#: src/Core/Backend/Listing/ListingMedia.php:373
+#: src/Core/Backend/Listing/ListingMedia.php:412
 msgid "private media"
 msgstr "özel medya"
 
-#: src/Core/Backend/Listing/ListingMedia.php:398
-#: src/Core/Backend/Listing/ListingMedia.php:424
+#: src/Core/Backend/Listing/ListingMedia.php:399
+#: src/Core/Backend/Listing/ListingMedia.php:425
 msgid "open"
 msgstr "aç"
 
@@ -1117,7 +1117,7 @@ msgstr "Filtreyle eşleşen giriş yok"
 #: src/Core/Backend/Listing/ListingPosts.php:103
 #: src/Core/Backend/Listing/ListingPosts.php:106
 #: src/Core/Backend/Listing/ListingPosts.php:107
-#: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:939
+#: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:942
 msgid "Trackbacks"
 msgstr "Gerizlemeler"
 
@@ -1141,8 +1141,8 @@ msgstr[1] "programlar"
 
 #: src/Core/Backend/Listing/ListingPosts.php:225
 #: src/Core/Backend/Listing/ListingPosts.php:271
-#: src/Core/Backend/Listing/ListingPostsMini.php:145 src/Core/Blog.php:270
-#: src/Process/Backend/MediaItem.php:985 src/Process/Backend/Post.php:477
+#: src/Core/Backend/Listing/ListingPostsMini.php:145 src/Core/Blog.php:271
+#: src/Process/Backend/MediaItem.php:987 src/Process/Backend/Post.php:480
 msgid "Scheduled"
 msgstr "Planlanmış"
 
@@ -1176,32 +1176,40 @@ msgstr "Bu gönderiyi seçin"
 msgid "Entries list"
 msgstr "Giriş listesi"
 
-#: src/Core/Backend/Listing/ListingUsers.php:49
+#: src/Core/Backend/Listing/ListingUsers.php:51
 msgid "No user"
 msgstr "Kullanıcı yok"
 
-#: src/Core/Backend/Listing/ListingUsers.php:49
+#: src/Core/Backend/Listing/ListingUsers.php:51
 msgid "No user matches the filter"
 msgstr "Filtreyle eşleşen kullanıcı yok"
 
-#: src/Core/Backend/Listing/ListingUsers.php:117
+#: src/Core/Backend/Listing/ListingUsers.php:86
+msgid "No. of entries"
+msgstr ""
+
+#: src/Core/Backend/Listing/ListingUsers.php:119
 #, php-format
 msgid "List of %s users match the filter."
 msgstr "Filtreyle eşleşen %s kullanıcılarının listesi."
 
-#: src/Core/Backend/Listing/ListingUsers.php:119
+#: src/Core/Backend/Listing/ListingUsers.php:121
 msgid "Users list"
 msgstr "Kullanıcı listesi"
 
-#: src/Core/Backend/Listing/ListingUsers.php:133
-#: src/Core/Backend/Listing/ListingUsers.php:159
+#: src/Core/Backend/Listing/ListingUsers.php:135
+#: src/Core/Backend/Listing/ListingUsers.php:164
 msgid "admin"
 msgstr "Yönetici"
 
-#: src/Core/Backend/Listing/ListingUsers.php:134
-#: src/Core/Backend/Listing/ListingUsers.php:158
+#: src/Core/Backend/Listing/ListingUsers.php:136
+#: src/Core/Backend/Listing/ListingUsers.php:163
 msgid "superadmin"
 msgstr "superadmin"
+
+#: src/Core/Backend/Listing/ListingUsers.php:140
+msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
+msgstr ""
 
 #: src/Core/Backend/Listing/Pager.php:144
 msgid "First page"
@@ -1228,9 +1236,9 @@ msgstr "Sayfa %s / %s"
 msgid "Direct access page:"
 msgstr "Doğrudan erişim sayfası:"
 
-#: src/Core/Backend/Listing/Pager.php:184 src/Core/Backend/Page.php:169
-#: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:187
-#: src/Process/Backend/Post.php:874 src/Process/Backend/Post.php:967
+#: src/Core/Backend/Listing/Pager.php:184 src/Core/Backend/Page.php:170
+#: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:188
+#: src/Process/Backend/Post.php:877 src/Process/Backend/Post.php:970
 #: src/Process/Backend/Posts.php:119 src/Process/Backend/Search.php:272
 #: src/Process/Backend/Search.php:351 src/Process/Backend/Users.php:149
 msgid "ok"
@@ -1255,366 +1263,365 @@ msgstr "Sistem ayarları"
 msgid "Plugins"
 msgstr "Eklentiler"
 
-#: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1376
+#: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1378
 #: src/Core/Upgrade/PluginsList.php:145 src/Core/Upgrade/Utility.php:264
 #: src/Process/Upgrade/Upgrade.php:55 src/Process/Upgrade/Upgrade.php:79
 #: src/Process/Upgrade/Upgrade.php:294
 msgid "Update"
 msgstr "Güncellemeler"
 
-#: src/Core/Backend/ModulesList.php:221 src/Core/Upgrade/PluginsList.php:60
+#: src/Core/Backend/ModulesList.php:222 src/Core/Upgrade/PluginsList.php:60
 msgid "other"
 msgstr "diğer"
 
-#: src/Core/Backend/ModulesList.php:436
+#: src/Core/Backend/ModulesList.php:437
 msgid "Search in repository:"
 msgstr "Depoda arama yapın:"
 
-#: src/Core/Backend/ModulesList.php:437 src/Core/Backend/Page.php:489
-#: src/Process/Backend/Categories.php:204
+#: src/Core/Backend/ModulesList.php:438 src/Core/Backend/Page.php:490
 msgid "OK"
 msgstr "TAMAM."
 
-#: src/Core/Backend/ModulesList.php:439
+#: src/Core/Backend/ModulesList.php:440
 msgid "Reset search"
 msgstr "Aramayı sıfırla"
 
-#: src/Core/Backend/ModulesList.php:443
+#: src/Core/Backend/ModulesList.php:444
 msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
 msgstr "Aramaya 2 karakterden uzun birden fazla terim üzerinde izin verilir, terimler boşlukla ayrılmalıdır."
 
-#: src/Core/Backend/ModulesList.php:449
+#: src/Core/Backend/ModulesList.php:450
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
 msgstr[0] "\"%s\" araması için %d sonucu bulundu:"
 msgstr[1] "\"%s\" araması için %d sonuçları bulundu:"
 
-#: src/Core/Backend/ModulesList.php:523
+#: src/Core/Backend/ModulesList.php:524
 msgid "current selection"
 msgstr "mevcut seçim"
 
-#: src/Core/Backend/ModulesList.php:530
+#: src/Core/Backend/ModulesList.php:531
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
 msgstr[0] "%d Sonuç"
 msgstr[1] "%d Sonuçlar"
 
-#: src/Core/Backend/ModulesList.php:545
+#: src/Core/Backend/ModulesList.php:546
 msgid "no results"
 msgstr "Sonuç yok"
 
-#: src/Core/Backend/ModulesList.php:555
+#: src/Core/Backend/ModulesList.php:556
 msgid "Browse index:"
 msgstr "Dizine göz atın:"
 
-#: src/Core/Backend/ModulesList.php:841
+#: src/Core/Backend/ModulesList.php:843
 msgid "Score"
 msgstr "Skor"
 
-#: src/Core/Backend/ModulesList.php:848
+#: src/Core/Backend/ModulesList.php:850
 msgid "Version"
 msgstr "Sürüm"
 
-#: src/Core/Backend/ModulesList.php:855 src/Process/Upgrade/Plugins.php:452
+#: src/Core/Backend/ModulesList.php:857 src/Process/Upgrade/Plugins.php:452
 msgid "Current version"
 msgstr "Güncel sürüm"
 
-#: src/Core/Backend/ModulesList.php:862 src/Core/Backend/ModulesList.php:1076
-#: src/Core/Backend/Page.php:1324 src/Core/Backend/ThemesList.php:213
+#: src/Core/Backend/ModulesList.php:864 src/Core/Backend/ModulesList.php:1078
+#: src/Core/Backend/Page.php:1325 src/Core/Backend/ThemesList.php:213
 #: src/Core/Backend/ThemesList.php:299
 msgid "Details"
 msgstr "Ayrıntılar"
 
-#: src/Core/Backend/ModulesList.php:869 src/Process/Upgrade/Plugins.php:464
+#: src/Core/Backend/ModulesList.php:871 src/Process/Upgrade/Plugins.php:464
 msgid "Repository"
 msgstr "Depo"
 
-#: src/Core/Backend/ModulesList.php:882 src/Process/Backend/Langs.php:260
+#: src/Core/Backend/ModulesList.php:884 src/Process/Backend/Langs.php:260
 #: src/Process/Upgrade/Langs.php:335
 msgid "Action"
 msgstr "Eylem"
 
-#: src/Core/Backend/ModulesList.php:949 src/Process/Upgrade/Plugins.php:402
+#: src/Core/Backend/ModulesList.php:951 src/Process/Upgrade/Plugins.php:402
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
 
-#: src/Core/Backend/ModulesList.php:996
+#: src/Core/Backend/ModulesList.php:998
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
 msgstr "Aşağıdaki modüller de etkinleştirildiğinden bu modül devre dışı bırakılamaz veya silinemez: %s"
 
-#: src/Core/Backend/ModulesList.php:1008
+#: src/Core/Backend/ModulesList.php:1010
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Bu modül aşağıdaki nedenlerden dolayı etkinleştirilemez:"
 
-#: src/Core/Backend/ModulesList.php:1028 src/Core/Backend/ThemesList.php:197
+#: src/Core/Backend/ModulesList.php:1030 src/Core/Backend/ThemesList.php:197
 #: src/Process/Upgrade/Plugins.php:418
 msgid "Official repository"
 msgstr "Resmi depo"
 
-#: src/Core/Backend/ModulesList.php:1028 src/Core/Backend/ModulesList.php:1121
+#: src/Core/Backend/ModulesList.php:1030 src/Core/Backend/ModulesList.php:1123
 #: src/Core/Backend/ThemesList.php:197 src/Process/Upgrade/Plugins.php:418
 msgid "Third-party repository"
 msgstr "Üçüncü taraf deposu"
 
-#: src/Core/Backend/ModulesList.php:1037
+#: src/Core/Backend/ModulesList.php:1039
 msgid "Plugin from official distribution"
 msgstr "Resmi dağıtımdan eklenti"
 
-#: src/Core/Backend/ModulesList.php:1038
+#: src/Core/Backend/ModulesList.php:1040
 msgid "Plugin in development"
 msgstr "Eklenti geliştirme aşamasında"
 
-#: src/Core/Backend/ModulesList.php:1083 src/Core/Backend/Page.php:1325
+#: src/Core/Backend/ModulesList.php:1085 src/Core/Backend/Page.php:1326
 #: src/Core/Backend/ThemesList.php:220
 msgid "Support"
 msgstr "Destek"
 
-#: src/Core/Backend/ModulesList.php:1087 src/Core/Backend/ThemesList.php:201
+#: src/Core/Backend/ModulesList.php:1089 src/Core/Backend/ThemesList.php:201
 msgid "update locked"
 msgstr "güncelleme ki̇li̇tlendi̇"
 
-#: src/Core/Backend/ModulesList.php:1128 src/Core/Backend/Page.php:1327
+#: src/Core/Backend/ModulesList.php:1130 src/Core/Backend/Page.php:1328
 msgid "Section:"
 msgstr "Bölüm:"
 
-#: src/Core/Backend/ModulesList.php:1134 src/Core/Backend/Page.php:1328
+#: src/Core/Backend/ModulesList.php:1136 src/Core/Backend/Page.php:1329
 msgid "Tags:"
 msgstr "Etiketler:"
 
-#: src/Core/Backend/ModulesList.php:1159
+#: src/Core/Backend/ModulesList.php:1161
 msgid "No plugins matched your search."
 msgstr "Aramanızla eşleşen eklenti yok."
 
-#: src/Core/Backend/ModulesList.php:1182
+#: src/Core/Backend/ModulesList.php:1184
 msgid "Plugins list"
 msgstr "Eklentiler listesi"
 
-#: src/Core/Backend/ModulesList.php:1227
+#: src/Core/Backend/ModulesList.php:1229
 msgid "Configure plugin"
 msgstr "Eklentiyi yapılandırma"
 
-#: src/Core/Backend/ModulesList.php:1241
+#: src/Core/Backend/ModulesList.php:1243
 msgid "Plugin settings (in blog parameters)"
 msgstr "Eklenti ayarları (blog parametrelerinde)"
 
-#: src/Core/Backend/ModulesList.php:1254
+#: src/Core/Backend/ModulesList.php:1256
 msgid "Plugin settings (in user preferences)"
 msgstr "Eklenti ayarları (kullanıcı tercihlerinde)"
 
-#: src/Core/Backend/ModulesList.php:1265 src/Core/Backend/ModulesList.php:1278
+#: src/Core/Backend/ModulesList.php:1267 src/Core/Backend/ModulesList.php:1280
 msgid "Plugin settings"
 msgstr "Eklenti ayarları"
 
-#: src/Core/Backend/ModulesList.php:1291
+#: src/Core/Backend/ModulesList.php:1293
 msgid "Plugin main page"
 msgstr "Eklenti ana sayfası"
 
-#: src/Core/Backend/ModulesList.php:1327 src/Core/Upgrade/PluginsList.php:106
+#: src/Core/Backend/ModulesList.php:1329 src/Core/Upgrade/PluginsList.php:106
 msgid "Activate"
 msgstr "Etkinleştir"
 
-#: src/Core/Backend/ModulesList.php:1336 src/Core/Upgrade/PluginsList.php:115
+#: src/Core/Backend/ModulesList.php:1338 src/Core/Upgrade/PluginsList.php:115
 msgid "Deactivate"
 msgstr "Etkisizleştir"
 
-#: src/Core/Backend/ModulesList.php:1357
+#: src/Core/Backend/ModulesList.php:1359
 msgid "Clone"
 msgstr "Klon"
 
-#: src/Core/Backend/ModulesList.php:1367 src/Core/Upgrade/PluginsList.php:136
+#: src/Core/Backend/ModulesList.php:1369 src/Core/Upgrade/PluginsList.php:136
 msgid "Install"
 msgstr "Kurulum"
 
-#: src/Core/Backend/ModulesList.php:1418 src/Core/Upgrade/PluginsList.php:175
+#: src/Core/Backend/ModulesList.php:1420 src/Core/Upgrade/PluginsList.php:175
 msgid "Activate selected plugins"
 msgstr "Seçili eklentileri etkinleştirin"
 
-#: src/Core/Backend/ModulesList.php:1419 src/Core/Upgrade/PluginsList.php:176
+#: src/Core/Backend/ModulesList.php:1421 src/Core/Upgrade/PluginsList.php:176
 msgid "Activate all plugins from this list"
 msgstr "Bu listedeki tüm eklentileri etkinleştirin"
 
-#: src/Core/Backend/ModulesList.php:1429 src/Core/Upgrade/PluginsList.php:186
+#: src/Core/Backend/ModulesList.php:1431 src/Core/Upgrade/PluginsList.php:186
 msgid "Deactivate selected plugins"
 msgstr "Seçili eklentileri devre dışı bırakma"
 
-#: src/Core/Backend/ModulesList.php:1430 src/Core/Upgrade/PluginsList.php:187
+#: src/Core/Backend/ModulesList.php:1432 src/Core/Upgrade/PluginsList.php:187
 msgid "Deactivate all plugins from this list"
 msgstr "Bu listedeki tüm eklentileri devre dışı bırakın"
 
-#: src/Core/Backend/ModulesList.php:1440 src/Core/Upgrade/PluginsList.php:197
+#: src/Core/Backend/ModulesList.php:1442 src/Core/Upgrade/PluginsList.php:197
 msgid "Update selected plugins"
 msgstr "Seçili eklentileri güncelle"
 
-#: src/Core/Backend/ModulesList.php:1441 src/Core/Upgrade/PluginsList.php:198
+#: src/Core/Backend/ModulesList.php:1443 src/Core/Upgrade/PluginsList.php:198
 msgid "Update all plugins from this list"
 msgstr "Bu listedeki tüm eklentileri güncelleyin"
 
-#: src/Core/Backend/ModulesList.php:1492 src/Core/Backend/ModulesList.php:1546
-#: src/Core/Backend/ModulesList.php:1577 src/Core/Backend/ModulesList.php:1615
-#: src/Core/Backend/ModulesList.php:1676 src/Core/Upgrade/PluginsList.php:237
+#: src/Core/Backend/ModulesList.php:1494 src/Core/Backend/ModulesList.php:1548
+#: src/Core/Backend/ModulesList.php:1579 src/Core/Backend/ModulesList.php:1617
+#: src/Core/Backend/ModulesList.php:1678 src/Core/Upgrade/PluginsList.php:237
 #: src/Core/Upgrade/PluginsList.php:279 src/Core/Upgrade/PluginsList.php:304
 #: src/Core/Upgrade/PluginsList.php:336 src/Core/Upgrade/PluginsList.php:390
 msgid "No such plugin."
 msgstr "Böyle plugin yok"
 
-#: src/Core/Backend/ModulesList.php:1512 src/Core/Upgrade/PluginsList.php:251
+#: src/Core/Backend/ModulesList.php:1514 src/Core/Upgrade/PluginsList.php:251
 msgid "You don't have permissions to delete this plugin."
 msgstr "Bu eklentiyi silmek için izniniz yok."
 
-#: src/Core/Backend/ModulesList.php:1514 src/Core/Upgrade/PluginsList.php:253
+#: src/Core/Backend/ModulesList.php:1516 src/Core/Upgrade/PluginsList.php:253
 msgid "Some plugins have not been delete."
 msgstr "Bazı eklentiler silinmemiştir."
 
-#: src/Core/Backend/ModulesList.php:1517 src/Core/Upgrade/PluginsList.php:256
+#: src/Core/Backend/ModulesList.php:1519 src/Core/Upgrade/PluginsList.php:256
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Eklenti başarıyla silindi."
 msgstr[1] "Eklentiler başarılı bir şekilde silindi."
 
-#: src/Core/Backend/ModulesList.php:1550 src/Core/Upgrade/PluginsList.php:283
+#: src/Core/Backend/ModulesList.php:1552 src/Core/Upgrade/PluginsList.php:283
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Eklenti başarıyla yüklendi."
 msgstr[1] "Eklentiler başarıyla yüklendi."
 
-#: src/Core/Backend/ModulesList.php:1581 src/Core/Upgrade/PluginsList.php:308
+#: src/Core/Backend/ModulesList.php:1583 src/Core/Upgrade/PluginsList.php:308
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "Eklenti başarıyla etkinleştirildi."
 msgstr[1] "Eklentiler başarılı bir şekilde etkinleştirildi."
 
-#: src/Core/Backend/ModulesList.php:1619 src/Core/Upgrade/PluginsList.php:340
+#: src/Core/Backend/ModulesList.php:1621 src/Core/Upgrade/PluginsList.php:340
 msgid "Some plugins have not been deactivated."
 msgstr "Bazı eklentiler devre dışı bırakılmamış."
 
-#: src/Core/Backend/ModulesList.php:1622 src/Core/Upgrade/PluginsList.php:343
+#: src/Core/Backend/ModulesList.php:1624 src/Core/Upgrade/PluginsList.php:343
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Eklenti başarıyla devre dışı bırakıldı."
 msgstr[1] "Eklentiler başarılı bir şekilde devre dışı bırakıldı."
 
-#: src/Core/Backend/ModulesList.php:1669 src/Core/Upgrade/PluginsList.php:383
+#: src/Core/Backend/ModulesList.php:1671 src/Core/Upgrade/PluginsList.php:383
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Eklenti başarıyla güncellendi."
 msgstr[1] "Eklentiler başarıyla güncellendi."
 
-#: src/Core/Backend/ModulesList.php:1673 src/Core/Upgrade/PluginsList.php:387
+#: src/Core/Backend/ModulesList.php:1675 src/Core/Upgrade/PluginsList.php:387
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "Aşağıdaki eklentilerin güncellemeleri kilitlenmiştir: %s"
 
-#: src/Core/Backend/ModulesList.php:1693 src/Core/Backend/ThemesList.php:740
+#: src/Core/Backend/ModulesList.php:1695 src/Core/Backend/ThemesList.php:740
 #: src/Core/Upgrade/PluginsList.php:407 src/Process/Backend/Langs.php:182
 #: src/Process/Upgrade/Langs.php:212
 msgid "Unable to move uploaded file."
 msgstr "Yüklenen dosya taşınamıyor."
 
-#: src/Core/Backend/ModulesList.php:1711 src/Core/Upgrade/PluginsList.php:419
+#: src/Core/Backend/ModulesList.php:1713 src/Core/Upgrade/PluginsList.php:419
 msgid "The plugin has been successfully updated."
 msgstr "Eklenti başarıyla güncellendi."
 
-#: src/Core/Backend/ModulesList.php:1712 src/Core/Upgrade/PluginsList.php:420
+#: src/Core/Backend/ModulesList.php:1714 src/Core/Upgrade/PluginsList.php:420
 msgid "The plugin has been successfully installed."
 msgstr "Eklenti başarıyla yüklendi."
 
-#: src/Core/Backend/ModulesList.php:1740 src/Process/Backend/Langs.php:332
+#: src/Core/Backend/ModulesList.php:1742 src/Process/Backend/Langs.php:332
 msgid "Upload a zip file"
 msgstr "Zip dosyası"
 
-#: src/Core/Backend/ModulesList.php:1744 src/Core/Backend/ModulesList.php:1791
-#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:530
-#: src/Process/Backend/BlogPref.php:1007 src/Process/Backend/Category.php:233
-#: src/Process/Backend/Comment.php:269 src/Process/Backend/Home.php:450
+#: src/Core/Backend/ModulesList.php:1746 src/Core/Backend/ModulesList.php:1793
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:544
+#: src/Process/Backend/BlogPref.php:1021 src/Process/Backend/Category.php:245
+#: src/Process/Backend/Comment.php:286 src/Process/Backend/Home.php:450
 #: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
-#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:764
-#: src/Process/Backend/Post.php:884 src/Process/Backend/User.php:255
+#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:767
+#: src/Process/Backend/Post.php:887 src/Process/Backend/User.php:260
 #: src/Process/Backend/UsersActions.php:347 src/Process/Install/Install.php:476
-#: src/Process/Install/Wizard.php:265 src/Process/Upgrade/Langs.php:402
+#: src/Process/Install/Wizard.php:280 src/Process/Upgrade/Langs.php:402
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "Önünde %s yazan alanlar zorunludur."
 
-#: src/Core/Backend/ModulesList.php:1751
+#: src/Core/Backend/ModulesList.php:1753
 msgid "Zip file path:"
 msgstr "Zip dosyası yolu:"
 
-#: src/Core/Backend/ModulesList.php:1762 src/Core/Backend/ModulesList.php:1812
+#: src/Core/Backend/ModulesList.php:1764 src/Core/Backend/ModulesList.php:1814
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:343
-#: src/Process/Backend/Post.php:688 src/Process/Backend/User.php:284
-#: src/Process/Backend/User.php:297 src/Process/Backend/User.php:417
+#: src/Process/Backend/Post.php:691 src/Process/Backend/User.php:289
+#: src/Process/Backend/User.php:302 src/Process/Backend/User.php:422
 #: src/Process/Backend/UsersActions.php:354 src/Process/Install/Install.php:488
 #: src/Process/Install/Install.php:494 src/Process/Upgrade/Langs.php:425
 msgid "Password"
 msgstr "Şifre"
 
-#: src/Core/Backend/ModulesList.php:1765 src/Core/Backend/ModulesList.php:1815
+#: src/Core/Backend/ModulesList.php:1767 src/Core/Backend/ModulesList.php:1817
 #: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:313
-#: src/Process/Backend/Langs.php:337 src/Process/Backend/User.php:411
+#: src/Process/Backend/Langs.php:337 src/Process/Backend/User.php:416
 #: src/Process/Backend/UsersActions.php:348 src/Process/Upgrade/Langs.php:375
 #: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:429
 msgid "Your password:"
 msgstr "Parolanız"
 
-#: src/Core/Backend/ModulesList.php:1773 src/Core/Backend/Page.php:1454
-#: src/Process/Backend/Media.php:564
+#: src/Core/Backend/ModulesList.php:1775 src/Core/Backend/Page.php:1456
+#: src/Process/Backend/Media.php:565
 msgid "Upload"
 msgstr "Yükle"
 
-#: src/Core/Backend/ModulesList.php:1787
+#: src/Core/Backend/ModulesList.php:1789
 msgid "Download a zip file"
 msgstr "ZIP dosyası indir"
 
-#: src/Core/Backend/ModulesList.php:1801
+#: src/Core/Backend/ModulesList.php:1803
 msgid "Zip file URL:"
 msgstr "Zip dosyası URL'si:"
 
-#: src/Core/Backend/ModulesList.php:1823
+#: src/Core/Backend/ModulesList.php:1825
 msgid "Download"
 msgstr "İndir"
 
-#: src/Core/Backend/ModulesList.php:1866
+#: src/Core/Backend/ModulesList.php:1868
 msgid "Unknown plugin ID"
 msgstr "Bilinmeyen eklenti kimliği"
 
-#: src/Core/Backend/ModulesList.php:1877
+#: src/Core/Backend/ModulesList.php:1879
 msgid "This plugin has no configuration file."
 msgstr "Bu eklentinin yapılandırma dosyası yoktur."
 
-#: src/Core/Backend/ModulesList.php:1885 src/Process/Backend/Auth.php:297
+#: src/Core/Backend/ModulesList.php:1887 src/Process/Backend/Auth.php:297
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "Yetersiz izinler"
 
-#: src/Core/Backend/ModulesList.php:1960
+#: src/Core/Backend/ModulesList.php:1963
 #, php-format
 msgid "Configure \"%s\""
 msgstr "Yapılandır \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1966 src/Process/Backend/Blog.php:193
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1159
-#: src/Process/Backend/Category.php:277 src/Process/Backend/Comment.php:312
-#: src/Process/Backend/Media.php:601 src/Process/Backend/MediaItem.php:1150
-#: src/Process/Backend/Post.php:792 src/Process/Backend/Search.php:158
-#: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:618
+#: src/Core/Backend/ModulesList.php:1969 src/Process/Backend/Blog.php:193
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1173
+#: src/Process/Backend/Category.php:298 src/Process/Backend/Comment.php:351
+#: src/Process/Backend/Media.php:602 src/Process/Backend/MediaItem.php:1155
+#: src/Process/Backend/Post.php:795 src/Process/Backend/Search.php:158
+#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:618
 #: src/Process/Backend/UserPreferences.php:801
 #: src/Process/Backend/UserPreferences.php:985
 msgid "Back"
 msgstr "Geri"
 
-#: src/Core/Backend/Notices.php:81 src/Core/Backend/Page.php:1284
-#: src/Core/Backend/Page.php:1449 src/Core/Upgrade/Notices.php:46
+#: src/Core/Backend/Notices.php:81 src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1451 src/Core/Upgrade/Notices.php:46
 #: src/Process/Backend/Home.php:285
 msgid "Error:"
 msgstr "Hata:"
 
 #: src/Core/Backend/Notices.php:81 src/Core/Upgrade/Notices.php:46
 #: src/Process/Install/Install.php:439 src/Process/Install/Install.php:548
-#: src/Process/Install/Wizard.php:246
+#: src/Process/Install/Wizard.php:261
 msgid "Errors:"
 msgstr "Hatalar:"
 
@@ -1622,440 +1629,440 @@ msgstr "Hatalar:"
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
-#: src/Core/Backend/Page.php:147 src/Process/Backend/User.php:457
+#: src/Core/Backend/Page.php:148 src/Process/Backend/User.php:462
 msgid "Blog:"
 msgstr "Blog:"
 
-#: src/Core/Backend/Page.php:152
+#: src/Core/Backend/Page.php:153
 msgid "Change blog"
 msgstr "Blog değiştir"
 
-#: src/Core/Backend/Page.php:167
+#: src/Core/Backend/Page.php:168
 msgid "Blogs:"
 msgstr "Bloglar:"
 
-#: src/Core/Backend/Page.php:321 src/Core/Upgrade/Page.php:146
+#: src/Core/Backend/Page.php:322 src/Core/Upgrade/Page.php:146
 msgid "Go to the content"
 msgstr "İçeriğe git"
 
-#: src/Core/Backend/Page.php:325 src/Core/Upgrade/Page.php:150
+#: src/Core/Backend/Page.php:326 src/Core/Upgrade/Page.php:150
 msgid "Go to the menu"
 msgstr "Menüye git"
 
-#: src/Core/Backend/Page.php:329 src/Core/Upgrade/Page.php:154
+#: src/Core/Backend/Page.php:330 src/Core/Upgrade/Page.php:154
 msgid "Go to help"
 msgstr "Yardıma git"
 
-#: src/Core/Backend/Page.php:348 src/Core/Upgrade/Page.php:172
+#: src/Core/Backend/Page.php:349 src/Core/Upgrade/Page.php:172
 #: src/Process/Backend/UserPreferences.php:807
 #: src/Process/Backend/UserPreferences.php:808
 msgid "My dashboard"
 msgstr "Benim gösterge tablom"
 
-#: src/Core/Backend/Page.php:364 src/Core/Backend/Page.php:366
+#: src/Core/Backend/Page.php:365 src/Core/Backend/Page.php:367
 msgid "Go to site"
 msgstr "Siteye git"
 
-#: src/Core/Backend/Page.php:389 src/Core/Upgrade/Page.php:201
+#: src/Core/Backend/Page.php:390 src/Core/Upgrade/Page.php:201
 #, php-format
 msgid "Logout %s"
 msgstr "Çıkış %s"
 
-#: src/Core/Backend/Page.php:410 src/Core/Upgrade/Page.php:222
+#: src/Core/Backend/Page.php:411 src/Core/Upgrade/Page.php:222
 msgid "Hide main menu"
 msgstr "Ana menüyü gizle"
 
-#: src/Core/Backend/Page.php:413 src/Core/Upgrade/Page.php:225
+#: src/Core/Backend/Page.php:414 src/Core/Upgrade/Page.php:225
 msgid "Show main menu"
 msgstr "Ana menüyü göster"
 
-#: src/Core/Backend/Page.php:434
+#: src/Core/Backend/Page.php:435
 msgid "Safe mode"
 msgstr "Güvenli mod"
 
-#: src/Core/Backend/Page.php:436
+#: src/Core/Backend/Page.php:437
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Güvenli moddasınız. Tüm eklentiler geçici olarak devre dışı bırakıldı. Tüm işlevleri geri almak için oturumu kapatıp normal şekilde tekrar oturum açmayı hatırlatın"
 
-#: src/Core/Backend/Page.php:506 src/Core/Upgrade/Page.php:258
+#: src/Core/Backend/Page.php:507 src/Core/Upgrade/Page.php:258
 #, php-format
 msgid "Thank you for using %s."
 msgstr "\"%s\" kullandığınız için teşekkürler"
 
-#: src/Core/Backend/Page.php:522 src/Core/Backend/Page.php:524
-#: src/Core/Backend/Page.php:666 src/Core/Backend/Page.php:668
+#: src/Core/Backend/Page.php:523 src/Core/Backend/Page.php:525
+#: src/Core/Backend/Page.php:667 src/Core/Backend/Page.php:669
 #: src/Core/Upgrade/Page.php:268 src/Core/Upgrade/Page.php:270
 msgid "Page top"
 msgstr "Sayfa başı"
 
-#: src/Core/Backend/Page.php:544 src/Core/Backend/Page.php:547
+#: src/Core/Backend/Page.php:545 src/Core/Backend/Page.php:548
 #: src/Core/Upgrade/Page.php:290 src/Core/Upgrade/Page.php:293
 msgid "Dotclear logo"
 msgstr "Dotclear logosu"
 
-#: src/Core/Backend/Page.php:877 src/Core/Backend/Page.php:880
+#: src/Core/Backend/Page.php:878 src/Core/Backend/Page.php:881
 #: src/Core/Upgrade/Page.php:334 src/Core/Upgrade/Page.php:337
 msgid "Go to dashboard"
 msgstr "Kontrol paneline git"
 
-#: src/Core/Backend/Page.php:1117 src/Core/Upgrade/Page.php:446
+#: src/Core/Backend/Page.php:1118 src/Core/Upgrade/Page.php:446
 msgid "Help about this page"
 msgstr "Bu sayfa hakkında yardım"
 
-#: src/Core/Backend/Page.php:1126 src/Core/Upgrade/Page.php:455
+#: src/Core/Backend/Page.php:1127 src/Core/Upgrade/Page.php:455
 #, php-format
 msgid "See also %s"
 msgstr "Ayrıca bkz. %s"
 
-#: src/Core/Backend/Page.php:1129 src/Core/Upgrade/Page.php:458
+#: src/Core/Backend/Page.php:1130 src/Core/Upgrade/Page.php:458
 msgid "the global help"
 msgstr "küresel yardım"
 
-#: src/Core/Backend/Page.php:1266
+#: src/Core/Backend/Page.php:1267
 msgid "uncover"
 msgstr "ortaya çıkarmak"
 
-#: src/Core/Backend/Page.php:1270
+#: src/Core/Backend/Page.php:1271
 msgid "hide"
 msgstr "gizle"
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1275
 msgid "Need help?"
 msgstr "Yardıma ihtiyacınız var mı?"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1276
 msgid "new window"
 msgstr "yeni pencere"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1277
 msgid "Hide"
 msgstr "Gizle"
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1278
 msgid "Select:"
 msgstr "Seçin:"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1279
 msgid "No selection"
 msgstr "Seçim yok"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1280
 msgid "Select all"
 msgstr "Tümünü seçin"
 
-#: src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Page.php:1281
 msgid "Invert selection"
 msgstr "seçimi evir"
 
-#: src/Core/Backend/Page.php:1285 src/Process/Backend/Post.php:440
-#: src/Process/Backend/Post.php:556
+#: src/Core/Backend/Page.php:1286 src/Process/Backend/Post.php:443
+#: src/Process/Backend/Post.php:559
 msgid "Entry has been successfully created."
 msgstr "Yazı oluşturumu başarılı."
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1287
 msgid "Edit entry"
 msgstr "Girişi düzenle"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1288
 msgid "view entry"
 msgstr "yazıyı gör"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1289
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Seçili girişleri (%s) silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1290
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Seçili medyaları (%d) silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1291
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Seçili kategorileri (%s) silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1292
 msgid "Are you sure you want to delete this entry?"
 msgstr "Bu girişi silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1293
 msgid "Click here to unlock the field"
 msgstr "Alanın kilidini açmak için buraya tıklayın"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1294
 msgid "Are you sure you want to delete all spams?"
 msgstr "Tüm spamları silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1295
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Seçili yorumları (%s) silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1295
+#: src/Core/Backend/Page.php:1296
 msgid "Are you sure you want to delete this comment?"
 msgstr "Bu yorumu silmek istediğinize emin misiniz?"
 
-#: src/Core/Backend/Page.php:1296
+#: src/Core/Backend/Page.php:1297
 msgid "Users with posts cannot be deleted."
 msgstr "Gönderileri olan kullanıcılar silinemez."
 
-#: src/Core/Backend/Page.php:1297
+#: src/Core/Backend/Page.php:1298
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Seçili kullanıcıları (%s) silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1298
+#: src/Core/Backend/Page.php:1299
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Seçili blogları (%s) silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1300
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "\"%s\" kategorisini silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1300
+#: src/Core/Backend/Page.php:1301
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Tüm kategorileri yeniden sıralamak istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1301
+#: src/Core/Backend/Page.php:1302
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "\"%s\" ortamını kaldırmak istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1302
+#: src/Core/Backend/Page.php:1303
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "\"%s\" dizinini kaldırmak istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1304
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Arşivi geçerli dizine çıkarmak istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1304
+#: src/Core/Backend/Page.php:1305
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "\"%s\" ekini kaldırmak istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1306
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "\"%s\" dilini silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1307
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "\"%s\" eklentisini silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1307
+#: src/Core/Backend/Page.php:1308
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Seçili eklentileri silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1309
 msgid "Use this theme"
 msgstr "Bu temayı kullan"
 
-#: src/Core/Backend/Page.php:1309
+#: src/Core/Backend/Page.php:1310
 msgid "Remove this theme"
 msgstr "Bu temayı sil"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1311
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "\"%s\" temasını silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1311
+#: src/Core/Backend/Page.php:1312
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Seçili temaları silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1312
+#: src/Core/Backend/Page.php:1313
 msgid "Are you sure you want to delete this backup?"
 msgstr "Bu yedeği silmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1313
+#: src/Core/Backend/Page.php:1314
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Bu yedeğe geri dönmek istediğinizden emin misiniz?"
 
-#: src/Core/Backend/Page.php:1314
+#: src/Core/Backend/Page.php:1315
 msgid "Zip file content"
 msgstr "ZIP dosyası içeriği"
 
-#: src/Core/Backend/Page.php:1315
+#: src/Core/Backend/Page.php:1316
 msgid "HTML markup validator"
 msgstr "HTML tastikle"
 
-#: src/Core/Backend/Page.php:1316
+#: src/Core/Backend/Page.php:1317
 msgid "HTML content is valid."
 msgstr "HTML içeriği geçerli."
 
-#: src/Core/Backend/Page.php:1317
+#: src/Core/Backend/Page.php:1318
 msgid "There are HTML markup errors."
 msgstr "HTML markup hataları var."
 
-#: src/Core/Backend/Page.php:1318
+#: src/Core/Backend/Page.php:1319
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Dikkat: henüz kaydedilmemiş bir içeriğin denetimi."
 
-#: src/Core/Backend/Page.php:1319
+#: src/Core/Backend/Page.php:1320
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Kaydedilmemiş değişiklikleriniz var. Gönderi biçimini değiştirmek bu değişiklikleri kaybedecektir. Yine de devam edelim mi?"
 
-#: src/Core/Backend/Page.php:1320
+#: src/Core/Backend/Page.php:1321
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Uyarı: gönderi formatı değişikliği mevcut içeriği dönüştürmez. Yeni formatı kendiniz uygulamanız gerekecektir. Yine de devam edelim mi?"
 
-#: src/Core/Backend/Page.php:1321
+#: src/Core/Backend/Page.php:1322
 msgid "Loading enhanced uploader, please wait."
 msgstr "Gelişmiş yükleyici yükleniyor, lütfen bekleyin."
 
-#: src/Core/Backend/Page.php:1326
+#: src/Core/Backend/Page.php:1327
 msgid "Help:"
 msgstr "Yardım edin:"
 
-#: src/Core/Backend/Page.php:1330
+#: src/Core/Backend/Page.php:1331
 msgid "Hide this notice"
 msgstr "Bu bildirimi gizle"
 
-#: src/Core/Backend/Page.php:1332
+#: src/Core/Backend/Page.php:1333
 msgid "Show password"
 msgstr "Şifreyi göster"
 
-#: src/Core/Backend/Page.php:1333
+#: src/Core/Backend/Page.php:1334
 msgid "Hide password"
 msgstr "Şifreyi gizle"
 
-#: src/Core/Backend/Page.php:1335
+#: src/Core/Backend/Page.php:1336
 msgid "Reset to now"
 msgstr "Şimdiye sıfırla"
 
-#: src/Core/Backend/Page.php:1337
+#: src/Core/Backend/Page.php:1338
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Bu Dotclear kontrol panelinde bir reklam engelleyici tespit edildi (Ghostery, Adblock plus, uBlock origin, …) ve bazı özelliklere müdahale edebilir. Bu durumda devre dışı bırakmalısınız. Bu algılamanın tercihlerinizde devre dışı bırakılabileceğini unutmayın."
 
-#: src/Core/Backend/Page.php:1392
+#: src/Core/Backend/Page.php:1394
 msgid "You have unsaved changes."
 msgstr "Kaydedilmemiş değişiklikler var."
 
-#: src/Core/Backend/Page.php:1393
+#: src/Core/Backend/Page.php:1395
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "pil şarjınız düşük görünüyor (%d%) ve kaydedilmemiş değişiklikleriniz varsa, bunları kaydetmelisiniz."
 
-#: src/Core/Backend/Page.php:1440
+#: src/Core/Backend/Page.php:1442
 msgid "Temporarily activate enhanced uploader"
 msgstr "Gelişmiş yükleyiciyi etkinleştir"
 
-#: src/Core/Backend/Page.php:1441
+#: src/Core/Backend/Page.php:1443
 msgid "Temporarily disable enhanced uploader"
 msgstr "Gelişmiş yükleyiciyi kapat"
 
-#: src/Core/Backend/Page.php:1445
+#: src/Core/Backend/Page.php:1447
 msgid "Limit exceeded."
 msgstr "Sınır aşıldı."
 
-#: src/Core/Backend/Page.php:1446
+#: src/Core/Backend/Page.php:1448
 msgid "File size exceeds allowed limit."
 msgstr "Dosya boyutu müsaadelinin üzerinde."
 
-#: src/Core/Backend/Page.php:1447
+#: src/Core/Backend/Page.php:1449
 msgid "Canceled."
 msgstr "İptallendi."
 
-#: src/Core/Backend/Page.php:1448
+#: src/Core/Backend/Page.php:1450
 msgid "HTTP Error:"
 msgstr "HTTP Hatası:"
 
-#: src/Core/Backend/Page.php:1450 src/Process/Backend/Media.php:545
+#: src/Core/Backend/Page.php:1452 src/Process/Backend/Media.php:546
 msgid "Choose file"
 msgstr "Dosya seçimi"
 
-#: src/Core/Backend/Page.php:1451 src/Process/Backend/Media.php:546
+#: src/Core/Backend/Page.php:1453 src/Process/Backend/Media.php:547
 msgid "Choose files"
 msgstr "Dosyaları seçimi"
 
-#: src/Core/Backend/Page.php:1452 src/Process/Backend/LinkPopup.php:73
-#: src/Process/Backend/Media.php:254 src/Process/Backend/MediaItem.php:552
-#: src/Process/Backend/MediaItem.php:769 src/Process/Backend/Post.php:795
+#: src/Core/Backend/Page.php:1454 src/Process/Backend/LinkPopup.php:73
+#: src/Process/Backend/Media.php:255 src/Process/Backend/MediaItem.php:553
+#: src/Process/Backend/MediaItem.php:770 src/Process/Backend/Post.php:798
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
 msgstr "iptal"
 
-#: src/Core/Backend/Page.php:1453
+#: src/Core/Backend/Page.php:1455
 msgid "Clean"
 msgstr "Temizle"
 
-#: src/Core/Backend/Page.php:1455 src/Process/Backend/MediaItem.php:1121
+#: src/Core/Backend/Page.php:1457 src/Process/Backend/MediaItem.php:1126
 msgid "Send"
 msgstr "Gönder"
 
-#: src/Core/Backend/Page.php:1456
+#: src/Core/Backend/Page.php:1458
 msgid "File successfully uploaded."
 msgstr "Dosya başarıyla yüklendi."
 
-#: src/Core/Backend/Page.php:1457
+#: src/Core/Backend/Page.php:1459
 msgid "No file in queue."
 msgstr "Kuyrukta dosya yok."
 
-#: src/Core/Backend/Page.php:1458
+#: src/Core/Backend/Page.php:1460
 msgid "1 file in queue."
 msgstr "kuyrukta 1 dosya var."
 
-#: src/Core/Backend/Page.php:1459
+#: src/Core/Backend/Page.php:1461
 #, php-format
 msgid "%d files in queue."
 msgstr "Kuyrukta %d dosya var."
 
-#: src/Core/Backend/Page.php:1460
+#: src/Core/Backend/Page.php:1462
 msgid "Queue error:"
 msgstr "Kuyruk hatası."
 
-#: src/Core/Backend/Page.php:1503
+#: src/Core/Backend/Page.php:1505
 msgid "Cancel filters and display options"
 msgstr "Filtreleri ve görüntüleme seçeneklerini iptal etme"
 
-#: src/Core/Backend/ThemeConfig.php:119
+#: src/Core/Backend/ThemeConfig.php:120
 #, php-format
 msgid "(%s)"
 msgstr "(%s)"
 
-#: src/Core/Backend/ThemeConfig.php:119
+#: src/Core/Backend/ThemeConfig.php:120
 #, php-format
 msgid "ratio %.1f"
 msgstr "oran %.1f"
 
-#: src/Core/Backend/ThemeConfig.php:248 src/Core/Backend/ThemeConfig.php:402
+#: src/Core/Backend/ThemeConfig.php:249 src/Core/Backend/ThemeConfig.php:403
 msgid "The 'public' directory does not exist."
 msgstr "'public' dizini mevcut değil."
 
-#: src/Core/Backend/ThemeConfig.php:255 src/Core/Backend/ThemeConfig.php:267
-#: src/Core/Backend/ThemeConfig.php:409 src/Core/Backend/ThemeConfig.php:421
+#: src/Core/Backend/ThemeConfig.php:256 src/Core/Backend/ThemeConfig.php:268
+#: src/Core/Backend/ThemeConfig.php:410 src/Core/Backend/ThemeConfig.php:422
 #, php-format
 msgid "The '%s' directory cannot be modified."
 msgstr "'%s' dizini değiştirilemez."
 
-#: src/Core/Backend/ThemeConfig.php:389
+#: src/Core/Backend/ThemeConfig.php:390
 #, php-format
 msgid "The '%s' directory cannot be created."
 msgstr "'%s' dizini oluşturulamıyor."
 
-#: src/Core/Backend/ThemeConfig.php:395
+#: src/Core/Backend/ThemeConfig.php:396
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
 msgstr "Aşağıdaki işlevlerden en az biri kullanılamıyor: imagecreatetruecolor, imagepng & imagecreatefrompng."
 
-#: src/Core/Backend/ThemeConfig.php:441
+#: src/Core/Backend/ThemeConfig.php:442
 msgid "Unable to create images."
 msgstr "Görüntüler oluşturulamıyor."
 
-#: src/Core/Backend/ThemeConfig.php:448
+#: src/Core/Backend/ThemeConfig.php:449
 msgid "Invalid file type."
 msgstr "Geçersiz dosya türü."
 
-#: src/Core/Backend/ThemeConfig.php:454 src/Helper/File/Manager.php:410
+#: src/Core/Backend/ThemeConfig.php:455 src/Helper/File/Manager.php:410
 #: src/Helper/File/Manager.php:450
 msgid "An error occurred while writing the file."
 msgstr "Dosya yazılırken bir hata oluştu."
 
-#: src/Core/Backend/ThemeConfig.php:460
+#: src/Core/Backend/ThemeConfig.php:461
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Yüklenen resim %s piksel genişliğinde değil."
@@ -2111,7 +2118,7 @@ msgstr "Aramanızla eşleşen tema yok."
 msgid "Use this one"
 msgstr "Bunu kullanın"
 
-#: src/Core/Backend/ThemesList.php:394 src/Process/Backend/Post.php:791
+#: src/Core/Backend/ThemesList.php:394 src/Process/Backend/Post.php:794
 msgid "Preview"
 msgstr "Önizleme"
 
@@ -2200,7 +2207,7 @@ msgstr "Tema başarıyla yüklendi."
 msgid "users per page"
 msgstr "sayfa başına kullanıcı"
 
-#: src/Core/Backend/UserPref.php:180 src/Process/Backend/BlogPref.php:764
+#: src/Core/Backend/UserPref.php:180 src/Process/Backend/BlogPref.php:778
 msgid "entries per page"
 msgstr "sayfa başına giriş"
 
@@ -2224,120 +2231,120 @@ msgstr "sayfa başına sonuç"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Veritabanınızda Session tablosu yok gibi görünüyor. Dotclear tam olarak yüklendi mi?"
 
-#: src/Core/Blog.php:794
+#: src/Core/Blog.php:795
 msgid "You are not allowed to add categories"
 msgstr "Kategori ekleme izniniz yok"
 
-#: src/Core/Blog.php:842
+#: src/Core/Blog.php:843
 msgid "You are not allowed to update categories"
 msgstr "Kategorileri güncellemenize izin verilmiyor"
 
-#: src/Core/Blog.php:899
+#: src/Core/Blog.php:900
 msgid "You are not allowed to delete categories"
 msgstr "Kategorileri silmenize izin verilmez"
 
-#: src/Core/Blog.php:912
+#: src/Core/Blog.php:913
 msgid "This category is not empty."
 msgstr "Bu kategori boş değil."
 
-#: src/Core/Blog.php:925
+#: src/Core/Blog.php:926
 msgid "You are not allowed to reset categories order"
 msgstr "Kategori sırasını sıfırlamanıza izin verilmez"
 
-#: src/Core/Blog.php:996
+#: src/Core/Blog.php:997
 msgid "Empty category URL"
 msgstr "Boş kategori URL'si"
 
-#: src/Core/Blog.php:1013
+#: src/Core/Blog.php:1014
 msgid "You must provide a category title"
 msgstr "Kategori başlığı girmelisiniz"
 
-#: src/Core/Blog.php:1023
+#: src/Core/Blog.php:1024
 msgid "You must provide a category URL"
 msgstr "Kategori URL si girmelisiniz"
 
-#: src/Core/Blog.php:1518
+#: src/Core/Blog.php:1519
 msgid "You are not allowed to create an entry"
 msgstr "Bir giriş oluşturmanıza izin verilmez"
 
-#: src/Core/Blog.php:1578
+#: src/Core/Blog.php:1579
 msgid "You are not allowed to update entries"
 msgstr "Girişleri güncellemenize izin verilmez"
 
-#: src/Core/Blog.php:1584 src/Core/Blog.php:1840
+#: src/Core/Blog.php:1585 src/Core/Blog.php:1841
 msgid "No such entry ID"
 msgstr "Böyle bir giriş kimliği yok"
 
-#: src/Core/Blog.php:1618
+#: src/Core/Blog.php:1619
 msgid "You are not allowed to edit this entry"
 msgstr "Bu girişi düzenlemenize izin verilmiyor"
 
-#: src/Core/Blog.php:1646 src/Core/Blog.php:1681 src/Core/Meta.php:143
+#: src/Core/Blog.php:1647 src/Core/Blog.php:1682 src/Core/Meta.php:143
 #: src/Core/Meta.php:160
 msgid "You are not allowed to change this entry status"
 msgstr "Bu giriş durumunu değiştirmenize izin verilmez"
 
-#: src/Core/Blog.php:1727 src/Core/Blog.php:1765
+#: src/Core/Blog.php:1728 src/Core/Blog.php:1766
 msgid "You are not allowed to change this entry category"
 msgstr "Bu giriş kategorisini değiştirmenize izin verilmez"
 
-#: src/Core/Blog.php:1798
+#: src/Core/Blog.php:1799
 msgid "You are not allowed to change entries category"
 msgstr "Giriş kategorisini değiştirmenize izin verilmez"
 
-#: src/Core/Blog.php:1834
+#: src/Core/Blog.php:1835
 msgid "You are not allowed to delete entries"
 msgstr "Girişleri silmenize izin verilmez"
 
-#: src/Core/Blog.php:2080
+#: src/Core/Blog.php:2081
 msgid "No entry title"
 msgstr "Yazı başlığı yok"
 
-#: src/Core/Blog.php:2084 src/Core/Blog.php:2100
+#: src/Core/Blog.php:2085 src/Core/Blog.php:2101
 msgid "No entry content"
 msgstr "Yazı içeriği yok"
 
-#: src/Core/Blog.php:2166
+#: src/Core/Blog.php:2167
 msgid "Notes"
 msgstr "Notlar"
 
-#: src/Core/Blog.php:2168
+#: src/Core/Blog.php:2169
 msgid "Note"
 msgstr "Not"
 
-#: src/Core/Blog.php:2273
+#: src/Core/Blog.php:2274
 msgid "Empty entry URL"
 msgstr "Boş yazı URL si"
 
-#: src/Core/Blog.php:2534
+#: src/Core/Blog.php:2535
 msgid "You are not allowed to update comments"
 msgstr "Yorumları güncellemenize izin verilmiyor"
 
-#: src/Core/Blog.php:2540 src/Core/Blog.php:2546 src/Core/Blog.php:2642
+#: src/Core/Blog.php:2541 src/Core/Blog.php:2547 src/Core/Blog.php:2643
 msgid "No such comment ID"
 msgstr "Böyle bir yorum kimliği yok"
 
-#: src/Core/Blog.php:2554
+#: src/Core/Blog.php:2555
 msgid "You are not allowed to update this comment"
 msgstr "Bu yorumu güncelleme izniniz yok"
 
-#: src/Core/Blog.php:2595
+#: src/Core/Blog.php:2596
 msgid "You are not allowed to change this comment's status"
 msgstr "Bu yorumun durumunu değiştirmenize izin verilmiyor"
 
-#: src/Core/Blog.php:2636 src/Core/Blog.php:2689
+#: src/Core/Blog.php:2637 src/Core/Blog.php:2690
 msgid "You are not allowed to delete comments"
 msgstr "Yorumları silmenize izin verilmez"
 
-#: src/Core/Blog.php:2724
+#: src/Core/Blog.php:2725
 msgid "You must provide a comment"
 msgstr "Ahkam girmelisiniz"
 
-#: src/Core/Blog.php:2728
+#: src/Core/Blog.php:2729
 msgid "You must provide an author name"
 msgstr "Yazar ismi gimelisiniz"
 
-#: src/Core/Blog.php:2732
+#: src/Core/Blog.php:2733
 msgid "Email address is not valid."
 msgstr "Eposta adresi geçersiz"
 
@@ -2369,25 +2376,25 @@ msgstr "%s geçerli bir ayar id 'si değil"
 msgid "No namespace specified"
 msgstr "Namespace belirlenmedi"
 
-#: src/Core/Blogs.php:214 src/Core/Blogs.php:261 src/Core/Users.php:161
+#: src/Core/Blogs.php:215 src/Core/Blogs.php:262 src/Core/Users.php:161
 #: src/Core/Users.php:191 src/Core/Users.php:231 src/Core/Users.php:308
 #: src/Core/Users.php:326
 msgid "You are not an administrator"
 msgstr "Admin değilsiniz"
 
-#: src/Core/Blogs.php:246
+#: src/Core/Blogs.php:247
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "Blog kimliği harf, rakam veya sembol kullanılarak en az 2 karakter içermelidir."
 
-#: src/Core/Blogs.php:250
+#: src/Core/Blogs.php:251
 msgid "No blog name"
 msgstr "Blog adı yok"
 
-#: src/Core/Blogs.php:254
+#: src/Core/Blogs.php:255
 msgid "No blog URL"
 msgstr "Blog URL si yok"
 
-#: src/Core/Frontend/Url.php:607
+#: src/Core/Frontend/Url.php:608
 msgid "You must provide a valid email address."
 msgstr "Geçerli bir email adresi girin"
 
@@ -2470,44 +2477,36 @@ msgstr "PostgreSQL sürümü %s 'dur (%s veya öncesi gereklidir)."
 msgid "No log message"
 msgstr "Günlük mesajı yok"
 
-#: src/Core/Media.php:191
+#: src/Core/Media.php:199
 msgid "No blog defined."
 msgstr "Tanımlı blog yok."
 
-#: src/Core/Media.php:206 src/Process/Backend/Home.php:274
-msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
-msgstr "about:config \"public_path\" içinde ayarlanan konumda yazılabilir /public/ dizini yok. Bu dizini yeterli haklarla oluşturmalısınız (veya bu ayarı değiştirmelisiniz)."
-
-#: src/Core/Media.php:209 src/Process/Backend/Home.php:278
-msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr "Medya yöneticisi için yazılabilir bir kök dizin yok. Yöneticinizle iletişime geçmelisiniz."
-
-#: src/Core/Media.php:938 src/Core/Media.php:965
+#: src/Core/Media.php:987 src/Core/Media.php:1018
 msgid "You are not a super administrator."
 msgstr "Super admin değilsiniz."
 
-#: src/Core/Media.php:1052 src/Core/Media.php:1142 src/Core/Media.php:1221
-#: src/Core/Media.php:1237 src/Core/Media.php:1255
+#: src/Core/Media.php:1121 src/Core/Media.php:1215 src/Core/Media.php:1298
+#: src/Core/Media.php:1318 src/Core/Media.php:1340
 msgid "Permission denied."
 msgstr "İzin verilmedi."
 
-#: src/Core/Media.php:1155
+#: src/Core/Media.php:1228
 msgid "You are not the file owner."
 msgstr "Dosya sahibi siz değilsiniz."
 
-#: src/Core/Media.php:1170
+#: src/Core/Media.php:1243
 msgid "This file is not allowed."
 msgstr "Bu dosyaya izin verilmiyor."
 
-#: src/Core/Media.php:1174
+#: src/Core/Media.php:1247
 msgid "New file already exists."
 msgstr "Yeni dosya evvelce mevcut."
 
-#: src/Core/Media.php:1275
+#: src/Core/Media.php:1360
 msgid "File does not exist in the database."
 msgstr "Dosya veritabanında mevcut değil."
 
-#: src/Core/Media.php:1320
+#: src/Core/Media.php:1409
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Hedef dizini ayıkla %s zaten mevcut."
@@ -2590,10 +2589,10 @@ msgid "LOL!"
 msgstr "LOL!"
 
 #: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:97
-#: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:457
+#: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:458
 #: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
 #: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:105
-#: src/Process/Backend/User.php:234 src/Process/Backend/Users.php:104
+#: src/Process/Backend/User.php:239 src/Process/Backend/Users.php:104
 #: src/Process/Backend/UsersActions.php:150
 #: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
 msgid "System"
@@ -2607,43 +2606,43 @@ msgstr "Dotclear'ın güncelleme panosu"
 msgid "Go to normal dashboard"
 msgstr "Normal gösterge tablosuna git"
 
-#: src/Core/Upgrade/Update.php:343
+#: src/Core/Upgrade/Update.php:344
 msgid "Digests file not found."
 msgstr "Özet dosyası bulunamadı."
 
-#: src/Core/Upgrade/Update.php:380
+#: src/Core/Upgrade/Update.php:381
 msgid "No file to download"
 msgstr "İndirmeye dosya yok"
 
-#: src/Core/Upgrade/Update.php:384 src/Core/Upgrade/Update.php:467
+#: src/Core/Upgrade/Update.php:385 src/Core/Upgrade/Update.php:468
 msgid "Root directory is not writable."
 msgstr "Kök dizin yazılabilir değil."
 
-#: src/Core/Upgrade/Update.php:422
+#: src/Core/Upgrade/Update.php:423
 msgid "An error occurred while downloading archive."
 msgstr "Arşiv indirilirken bir hata oluştu."
 
-#: src/Core/Upgrade/Update.php:456 src/Core/Upgrade/Update.php:545
+#: src/Core/Upgrade/Update.php:457 src/Core/Upgrade/Update.php:546
 msgid "Archive not found."
 msgstr "Arşiv bulunamadı"
 
-#: src/Core/Upgrade/Update.php:462 src/Core/Upgrade/Update.php:551
+#: src/Core/Upgrade/Update.php:463 src/Core/Upgrade/Update.php:552
 msgid "Unable to read current digests file."
 msgstr "Geçerli özet dosyası okunamıyor."
 
-#: src/Core/Upgrade/Update.php:485 src/Core/Upgrade/Update.php:559
+#: src/Core/Upgrade/Update.php:486 src/Core/Upgrade/Update.php:560
 msgid "Downloaded file does not seem to be a valid archive."
 msgstr "İndirilen dosya geçerli bir arşiv gibi görünmüyor."
 
-#: src/Core/Upgrade/Update.php:585
+#: src/Core/Upgrade/Update.php:586
 msgid "Incomplete archive."
 msgstr "Eksik arşiv."
 
-#: src/Core/Upgrade/Update.php:689 src/Process/Upgrade/Digests.php:299
+#: src/Core/Upgrade/Update.php:690 src/Process/Upgrade/Digests.php:299
 msgid "Unable to read digests file."
 msgstr "Özet dosyası okunamıyor."
 
-#: src/Core/Upgrade/Update.php:715 src/Process/Upgrade/Digests.php:339
+#: src/Core/Upgrade/Update.php:716 src/Process/Upgrade/Digests.php:339
 msgid "Invalid digests file."
 msgstr "Geçersiz özet dosyası."
 
@@ -2697,12 +2696,12 @@ msgstr "Özetler"
 msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
 msgstr "Bu sayfada, güncellemeyi gerçekleştirmek için bozuk dosyaları veya değiştirilmiş dosyaları atlayabilirsiniz."
 
-#: src/Core/Upgrade/Utility.php:327 src/Process/Upgrade/Replay.php:76
-#: src/Process/Upgrade/Replay.php:104
+#: src/Core/Upgrade/Utility.php:327 src/Process/Upgrade/Replay.php:77
+#: src/Process/Upgrade/Replay.php:105
 msgid "Replay"
 msgstr "Tekrar Oynat"
 
-#: src/Core/Upgrade/Utility.php:333 src/Process/Upgrade/Replay.php:90
+#: src/Core/Upgrade/Utility.php:333 src/Process/Upgrade/Replay.php:91
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "Bu sayfada, son güncellemeden kalan bazı dosyalar varsa, belirli bir sürümden güncelleme eylemini yeniden oynatmayı deneyebilirsiniz."
 
@@ -2746,7 +2745,7 @@ msgstr "Parola girilmedi"
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "Kullanıcı kimliği harf, rakam veya sembol kullanılarak en az 2 karakter içermelidir."
 
-#: src/Core/Users.php:400 src/Process/Backend/User.php:288
+#: src/Core/Users.php:400 src/Process/Backend/User.php:293
 #: src/Process/Install/Install.php:194
 msgid "Password must contain at least 6 characters."
 msgstr "Parola en az 6 karakter içermelidir."
@@ -2755,31 +2754,31 @@ msgstr "Parola en az 6 karakter içermelidir."
 msgid "Invalid user language code"
 msgstr "Geçersiz kullanucı dili kodu."
 
-#: src/Database/Statement/DeleteStatement.php:33
+#: src/Database/Statement/DeleteStatement.php:34
 msgid "SQL DELETE requires a FROM source"
 msgstr "SQL DELETE için bir FROM kaynağı gerekir"
 
-#: src/Database/Statement/DropStatement.php:33
+#: src/Database/Statement/DropStatement.php:34
 msgid "SQL DROP TABLE requires a FROM source"
 msgstr "SQL DROP TABLE için bir FROM kaynağı gerekir"
 
-#: src/Database/Statement/InsertStatement.php:131
+#: src/Database/Statement/InsertStatement.php:132
 msgid "SQL INSERT requires an INTO source"
 msgstr "SQL INSERT bir INTO kaynağı gerektirir"
 
-#: src/Database/Statement/JoinStatement.php:93
+#: src/Database/Statement/JoinStatement.php:94
 msgid "SQL JOIN requires a FROM source"
 msgstr "SQL JOIN bir FROM kaynağı gerektirir"
 
-#: src/Database/Statement/SelectStatement.php:266
+#: src/Database/Statement/SelectStatement.php:267
 msgid "SQL SELECT requires a FROM source"
 msgstr "SQL SELECT bir FROM kaynağı gerektirir"
 
-#: src/Database/Statement/TruncateStatement.php:33
+#: src/Database/Statement/TruncateStatement.php:34
 msgid "SQL TRUNCATE TABLE requires a FROM source"
 msgstr "SQL TRUNCATE TABLE için bir FROM kaynağı gerekir"
 
-#: src/Database/Statement/UpdateStatement.php:200
+#: src/Database/Statement/UpdateStatement.php:201
 msgid "SQL UPDATE requires a FROM source"
 msgstr "SQL UPDATE için bir FROM kaynağı gerekir"
 
@@ -2890,7 +2889,7 @@ msgstr "Dosya kilitlenemiyor"
 msgid "File cannot be removed."
 msgstr "Dosya silinemedi."
 
-#: src/Helper/File/Image/ImageTools.php:178
+#: src/Helper/File/Image/ImageTools.php:179
 msgid "Not enough memory to open image."
 msgstr "Görüntüyü açmak için yeterli bellek yok."
 
@@ -2977,18 +2976,18 @@ msgstr "Dizin okunamadı"
 msgid "Unable to write ZIP archive"
 msgstr "ZIP arşivi yazılamıyor"
 
-#: src/Helper/Html/Template/Template.php:657
-#: src/Helper/Html/Template/Template.php:707
+#: src/Helper/Html/Template/Template.php:658
+#: src/Helper/Html/Template/Template.php:708
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr "<tpl:%s>bloğu için kapanış etiketi bulunamadı. İçerik göz ardı edildi."
 
-#: src/Helper/Html/Template/Template.php:664
+#: src/Helper/Html/Template/Template.php:665
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "Beklenmeyen kapanış etiketi </tpl:%s> bulundu."
 
-#: src/Helper/Html/Template/Template.php:715
+#: src/Helper/Html/Template/Template.php:716
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "UYARI: şablon dosyası ayrıştırılırken aşağıdaki hatalar bulundu :"
 
@@ -3071,32 +3070,32 @@ msgstr "Eklenti çalıştırılamadı."
 msgid "An error occurred while downloading the file."
 msgstr "Dosya indirilirken bir hata oluştu."
 
-#: src/Module/StoreParser.php:63
+#: src/Module/StoreParser.php:64
 msgid "Wrong data feed"
 msgstr "Yanlış veri akışı"
 
-#: src/Module/Themes.php:104
+#: src/Module/Themes.php:105
 msgid "Themes folder unreachable"
 msgstr "Temalar klasörüne ulaşılamıyor"
 
-#: src/Module/Themes.php:108
+#: src/Module/Themes.php:109
 msgid "Themes folder unreadable"
 msgstr "Temalar klasörü okunamıyor"
 
-#: src/Module/Themes.php:116
+#: src/Module/Themes.php:117
 #, php-format
 msgid " (copy #%s)"
 msgstr " (kopya #%s)"
 
-#: src/Module/Themes.php:116
+#: src/Module/Themes.php:117
 msgid " (copy)"
 msgstr " (kopya)"
 
-#: src/Module/Themes.php:154
+#: src/Module/Themes.php:155
 msgid "Unable to modify _define.php"
 msgstr "_define.php değiştirilemiyor"
 
-#: src/Module/Themes.php:187
+#: src/Module/Themes.php:188
 msgid "Destination folder already exist"
 msgstr "Hedef klasör zaten mevcut"
 
@@ -3136,7 +3135,7 @@ msgstr "Yeni parolanız"
 msgid "Your new password is in your mailbox."
 msgstr "Yeni şifreniz posta kutunuzda."
 
-#: src/Process/Backend/Auth.php:202 src/Process/Backend/User.php:126
+#: src/Process/Backend/Auth.php:202 src/Process/Backend/User.php:127
 #: src/Process/Backend/UserPreferences.php:205
 #: src/Process/Install/Install.php:191
 msgid "Passwords don't match"
@@ -3167,8 +3166,8 @@ msgid "Wrong username or password"
 msgstr "Hatalı kullanıcı adı ya da parola"
 
 #: src/Process/Backend/Auth.php:357 src/Process/Backend/Auth.php:358
-#: src/Process/Backend/Auth.php:359 src/Process/Backend/User.php:224
-#: src/Process/Backend/User.php:225 src/Process/Backend/User.php:226
+#: src/Process/Backend/Auth.php:359 src/Process/Backend/User.php:229
+#: src/Process/Backend/User.php:230 src/Process/Backend/User.php:231
 #: src/Process/Backend/UserPreferences.php:498
 #: src/Process/Backend/UserPreferences.php:499
 #: src/Process/Backend/UserPreferences.php:500
@@ -3178,13 +3177,13 @@ msgstr "Hatalı kullanıcı adı ya da parola"
 msgid "Password strength: %s"
 msgstr "Şifre gücü: %s"
 
-#: src/Process/Backend/Auth.php:357 src/Process/Backend/User.php:224
+#: src/Process/Backend/Auth.php:357 src/Process/Backend/User.php:229
 #: src/Process/Backend/UserPreferences.php:498
 #: src/Process/Install/Install.php:417
 msgid "weak"
 msgstr "zayıf"
 
-#: src/Process/Backend/Auth.php:359 src/Process/Backend/User.php:226
+#: src/Process/Backend/Auth.php:359 src/Process/Backend/User.php:231
 #: src/Process/Backend/UserPreferences.php:500
 #: src/Process/Install/Install.php:419
 msgid "strong"
@@ -3210,13 +3209,13 @@ msgstr "Diğer seçenek"
 msgid "Change your password"
 msgstr "Parolanızı değiştirin"
 
-#: src/Process/Backend/Auth.php:456 src/Process/Backend/User.php:277
+#: src/Process/Backend/Auth.php:456 src/Process/Backend/User.php:282
 #: src/Process/Backend/UserPreferences.php:583
 #: src/Process/Install/Install.php:485
 msgid "New password:"
 msgstr "Yeni parola:"
 
-#: src/Process/Backend/Auth.php:465 src/Process/Backend/User.php:291
+#: src/Process/Backend/Auth.php:465 src/Process/Backend/User.php:296
 #: src/Process/Install/Install.php:492
 msgid "Confirm password:"
 msgstr "Parolayı onayla:"
@@ -3274,32 +3273,32 @@ msgstr "Blog \"%s\" başarıyla oluşturuldu"
 msgid "New blog"
 msgstr "Yeni blog"
 
-#: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:1017
+#: src/Process/Backend/Blog.php:125 src/Process/Backend/BlogPref.php:1031
 msgid "Blog ID:"
 msgstr "Blog kimliği:"
 
-#: src/Process/Backend/Blog.php:133 src/Process/Backend/BlogPref.php:1022
-#: src/Process/Backend/User.php:264
+#: src/Process/Backend/Blog.php:133 src/Process/Backend/BlogPref.php:1036
+#: src/Process/Backend/User.php:269
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Harf, rakam veya sembol kullanarak en az 2 karakter."
 
-#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:542
+#: src/Process/Backend/Blog.php:146 src/Process/Backend/BlogPref.php:556
 msgid "Blog name:"
 msgstr "Blog adı:"
 
-#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:1035
+#: src/Process/Backend/Blog.php:159 src/Process/Backend/BlogPref.php:1049
 msgid "Blog URL"
 msgstr "Blog URL'si"
 
-#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:1037
+#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:1051
 msgid "Blog URL:"
 msgstr "Blog  URL'si"
 
-#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:552
+#: src/Process/Backend/Blog.php:179 src/Process/Backend/BlogPref.php:566
 msgid "Blog description:"
 msgstr "Blog açıklaması"
 
-#: src/Process/Backend/Blog.php:191 src/Process/Backend/Media.php:489
+#: src/Process/Backend/Blog.php:191 src/Process/Backend/Media.php:490
 msgid "Create"
 msgstr "Oluştur"
 
@@ -3329,637 +3328,636 @@ msgstr "%sblogunu silmek üzeresiniz. Her girdi, yorum ve kategori silinecektir.
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Blog silme işlemini onaylamak için lütfen şifrenizi verin."
 
-#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:1173
+#: src/Process/Backend/BlogDel.php:132 src/Process/Backend/BlogPref.php:1187
 msgid "Delete this blog"
 msgstr "Bu bloğu sil"
 
-#: src/Process/Backend/BlogPref.php:98
+#: src/Process/Backend/BlogPref.php:99
 msgid "No given blog id."
 msgstr "Verilmiş bir blog kimliği yok."
 
-#: src/Process/Backend/BlogPref.php:103
+#: src/Process/Backend/BlogPref.php:104
 msgid "No such blog."
 msgstr "Böyle blog yok"
 
-#: src/Process/Backend/BlogPref.php:152
+#: src/Process/Backend/BlogPref.php:153
 msgid "year/month/day/title"
 msgstr "yıl/ay/gün/başlık"
 
-#: src/Process/Backend/BlogPref.php:153
+#: src/Process/Backend/BlogPref.php:154
 msgid "year/month/title"
 msgstr "yıl/ay/başlık"
 
-#: src/Process/Backend/BlogPref.php:154
+#: src/Process/Backend/BlogPref.php:155
 msgid "year/title"
 msgstr "yıl/başlık"
 
-#: src/Process/Backend/BlogPref.php:155
+#: src/Process/Backend/BlogPref.php:156
 msgid "title"
 msgstr "başlık"
 
-#: src/Process/Backend/BlogPref.php:156
+#: src/Process/Backend/BlogPref.php:157
 msgid "post id/title"
 msgstr "gönderi kimliği/başlığı"
 
-#: src/Process/Backend/BlogPref.php:157
+#: src/Process/Backend/BlogPref.php:158
 msgid "post id"
 msgstr "gönderi kimliği"
 
-#: src/Process/Backend/BlogPref.php:165
+#: src/Process/Backend/BlogPref.php:166
 msgid "H4"
 msgstr "H4"
 
-#: src/Process/Backend/BlogPref.php:166
+#: src/Process/Backend/BlogPref.php:167
 msgid "H3"
 msgstr "H3"
 
-#: src/Process/Backend/BlogPref.php:167
+#: src/Process/Backend/BlogPref.php:168
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:172 src/Process/Backend/BlogPref.php:1243
-#: src/Process/Backend/Category.php:246 src/Process/Backend/MediaItem.php:646
-#: src/Process/Backend/MediaItem.php:648
+#: src/Process/Backend/BlogPref.php:173 src/Process/Backend/BlogPref.php:1257
+#: src/Process/Backend/MediaItem.php:647 src/Process/Backend/MediaItem.php:649
 msgid "(none)"
 msgstr "(hiçbiri)"
 
-#: src/Process/Backend/BlogPref.php:173
+#: src/Process/Backend/BlogPref.php:174
 msgid "Description"
 msgstr "Açıklama"
 
-#: src/Process/Backend/BlogPref.php:174
+#: src/Process/Backend/BlogPref.php:175
 msgid "Description, Date"
 msgstr "Açıklama, Tarih"
 
-#: src/Process/Backend/BlogPref.php:175
+#: src/Process/Backend/BlogPref.php:176
 msgid "Description, Country, Date"
 msgstr "Açıklama, Ülke, Tarih"
 
-#: src/Process/Backend/BlogPref.php:176
+#: src/Process/Backend/BlogPref.php:177
 msgid "Description, City, Country, Date"
 msgstr "Açıklama, Şehir, Ülke, Tarih"
 
-#: src/Process/Backend/BlogPref.php:206 src/Process/Backend/MediaItem.php:539
-#: src/Process/Backend/MediaItem.php:613 src/Process/Backend/MediaItem.php:860
+#: src/Process/Backend/BlogPref.php:207 src/Process/Backend/MediaItem.php:540
+#: src/Process/Backend/MediaItem.php:614 src/Process/Backend/MediaItem.php:861
 msgid "original"
 msgstr "orijinal"
 
-#: src/Process/Backend/BlogPref.php:217 src/Process/Backend/BlogPref.php:227
-#: src/Process/Backend/MediaItem.php:643 src/Process/Backend/MediaItem.php:655
-#: src/Process/Backend/MediaItem.php:693 src/Process/Backend/MediaItem.php:737
+#: src/Process/Backend/BlogPref.php:218 src/Process/Backend/BlogPref.php:228
+#: src/Process/Backend/MediaItem.php:644 src/Process/Backend/MediaItem.php:656
+#: src/Process/Backend/MediaItem.php:694 src/Process/Backend/MediaItem.php:738
 msgid "None"
 msgstr "Hiçbiri"
 
-#: src/Process/Backend/BlogPref.php:218 src/Process/Backend/MediaItem.php:656
-#: src/Process/Backend/MediaItem.php:694 src/Process/Backend/MediaItem.php:738
+#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:657
+#: src/Process/Backend/MediaItem.php:695 src/Process/Backend/MediaItem.php:739
 msgid "Left"
 msgstr "Sol"
 
-#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:657
-#: src/Process/Backend/MediaItem.php:695 src/Process/Backend/MediaItem.php:739
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:658
+#: src/Process/Backend/MediaItem.php:696 src/Process/Backend/MediaItem.php:740
 msgid "Right"
 msgstr "Sağ"
 
-#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:658
-#: src/Process/Backend/MediaItem.php:696 src/Process/Backend/MediaItem.php:740
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:659
+#: src/Process/Backend/MediaItem.php:697 src/Process/Backend/MediaItem.php:741
 msgid "Center"
 msgstr "Orta"
 
-#: src/Process/Backend/BlogPref.php:225 src/Process/Backend/MediaItem.php:628
+#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:629
 msgid "Legend and alternate text"
 msgstr "Açıklama ve alternatif metin"
 
-#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:637
+#: src/Process/Backend/BlogPref.php:227 src/Process/Backend/MediaItem.php:638
 msgid "Alternate text"
 msgstr "Alternatif metin"
 
-#: src/Process/Backend/BlogPref.php:232
+#: src/Process/Backend/BlogPref.php:233
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "Arama motorlarının ve arşivleyicilerin blogumun içeriğini indekslemesini ve arşivlemesini istiyorum."
 
-#: src/Process/Backend/BlogPref.php:233
+#: src/Process/Backend/BlogPref.php:234
 msgid "I would like search engines and archivers to index but not archive my blog's content."
 msgstr "Arama motorlarının ve arşivleyicilerin blogumun içeriğini indekslemesini ancak arşivlememesini istiyorum."
 
-#: src/Process/Backend/BlogPref.php:234
+#: src/Process/Backend/BlogPref.php:235
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Arama motorlarının ve arşivleyicilerin blogumun içeriğini dizine eklemesini veya arşivlemesini engellemek istiyorum."
 
-#: src/Process/Backend/BlogPref.php:239
+#: src/Process/Backend/BlogPref.php:240
 #: src/Process/Backend/UserPreferences.php:128
 msgid "Default"
 msgstr "Varsayılan"
 
-#: src/Process/Backend/BlogPref.php:251
+#: src/Process/Backend/BlogPref.php:252
 msgid "Never"
 msgstr "Asla"
 
-#: src/Process/Backend/BlogPref.php:252
+#: src/Process/Backend/BlogPref.php:253
 msgid "Three months"
 msgstr "Üç ay"
 
-#: src/Process/Backend/BlogPref.php:253
+#: src/Process/Backend/BlogPref.php:254
 msgid "Six months"
 msgstr "Altı ay"
 
-#: src/Process/Backend/BlogPref.php:254
+#: src/Process/Backend/BlogPref.php:255
 msgid "One year"
 msgstr "Bir yıl"
 
-#: src/Process/Backend/BlogPref.php:255
+#: src/Process/Backend/BlogPref.php:256
 msgid "Two years"
 msgstr "İki yıl"
 
-#: src/Process/Backend/BlogPref.php:336
+#: src/Process/Backend/BlogPref.php:337
 msgid "This blog ID is already used."
 msgstr "Bu blog kimliği zaten kullanılıyor."
 
-#: src/Process/Backend/BlogPref.php:344
+#: src/Process/Backend/BlogPref.php:345
 msgid "Invalid language code"
 msgstr "Geçersiz dil kodu"
 
-#: src/Process/Backend/BlogPref.php:426 src/Process/Backend/BlogPref.php:495
+#: src/Process/Backend/BlogPref.php:427 src/Process/Backend/BlogPref.php:509
 msgid "Blog has been successfully updated."
 msgstr "Blog başarıyla güncellendi"
 
-#: src/Process/Backend/BlogPref.php:474
+#: src/Process/Backend/BlogPref.php:485
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "Uyarı: Özel yapılandırmalar dışında, PATH_INFO modunda blog URL'nizde genellikle sonda bir \"/\" olması önerilir."
 
-#: src/Process/Backend/BlogPref.php:475
+#: src/Process/Backend/BlogPref.php:486
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Uyarı: Özel yapılandırmalar dışında, QUERY_STRING modunda blog URL'nizde genellikle sonda bir \"?\" olması önerilir."
 
-#: src/Process/Backend/BlogPref.php:491
-msgid "Blog has been successfully created."
-msgstr "Blog başarıyla oluşturuldu."
-
-#: src/Process/Backend/BlogPref.php:513
-msgid "Blog status:"
-msgstr "Blog durumu:"
-
-#: src/Process/Backend/BlogPref.php:526 src/Process/Backend/BlogPref.php:1003
-msgid "Blog details"
-msgstr "Blog ayrıntıları"
-
-#: src/Process/Backend/BlogPref.php:539 src/Process/Backend/BlogPref.php:1016
-#: src/Process/Backend/BlogPref.php:1036
-msgid "Required field"
-msgstr "Zorunlu alan"
-
-#: src/Process/Backend/BlogPref.php:559 src/Process/Backend/BlogPref.php:1053
-msgid "Blog configuration"
-msgstr "Blog ayarları"
-
-#: src/Process/Backend/BlogPref.php:567
-msgid "Blog editor name:"
-msgstr "Blog editörü adı:"
-
-#: src/Process/Backend/BlogPref.php:574
-msgid "Default language:"
-msgstr "Varsayılan dil"
-
-#: src/Process/Backend/BlogPref.php:581
-msgid "Blog timezone:"
-msgstr "Blog zamandilimi"
-
-#: src/Process/Backend/BlogPref.php:591
-msgid "Copyright notice:"
-msgstr "Telif hakkı uyarısı:"
-
-#: src/Process/Backend/BlogPref.php:597 src/Process/Backend/Comments.php:118
-#: src/Process/Backend/Comments.php:123
-msgid "Comments and trackbacks"
-msgstr "Ahkamlar ve gerizlemeler"
-
-#: src/Process/Backend/BlogPref.php:609 src/Process/Backend/Post.php:674
-msgid "Accept comments"
-msgstr "Ahkamlar kabul"
-
-#: src/Process/Backend/BlogPref.php:615
-msgid "Moderate comments"
-msgstr "Ahkamları yönet"
-
-#: src/Process/Backend/BlogPref.php:620
-msgid "Leave comments open for"
-msgstr "Yorumlar için açık bırakın"
-
-#: src/Process/Backend/BlogPref.php:621 src/Process/Backend/BlogPref.php:660
-msgid "days"
-msgstr "günler"
-
-#: src/Process/Backend/BlogPref.php:626 src/Process/Backend/BlogPref.php:665
-msgid "No limit: leave blank."
-msgstr "Sınır yok: boş bırakın."
-
-#: src/Process/Backend/BlogPref.php:632
-msgid "Wiki syntax for comments"
-msgstr "Ahkamlar içim Wiki yazımı"
-
-#: src/Process/Backend/BlogPref.php:638
-msgid "Preview of comment before submit is not mandatory"
-msgstr "Göndermeden önce yorumun önizlemesi zorunlu değildir"
-
-#: src/Process/Backend/BlogPref.php:648 src/Process/Backend/Post.php:682
-msgid "Accept trackbacks"
-msgstr "Gerizlemeler kabul"
-
-#: src/Process/Backend/BlogPref.php:654
-msgid "Moderate trackbacks"
-msgstr "Gerizlemeleri yönet"
-
-#: src/Process/Backend/BlogPref.php:659
-msgid "Leave trackbacks open for"
-msgstr "Geri izlemeleri açık bırakın"
-
-#: src/Process/Backend/BlogPref.php:671
-msgid "Add \"nofollow\" relation on comments and trackbacks links"
-msgstr "Yorumlara ve geri izleme bağlantılarına \"nofollow\" ilişkisi ekleyin"
-
-#: src/Process/Backend/BlogPref.php:680
-msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
-msgstr "Yeni gönderilerin olmadığı bir sürenin ardından blogdaki tüm yorumları ve geri izlemeleri devre dışı bırakın:"
-
-#: src/Process/Backend/BlogPref.php:687
-msgid "Blog presentation"
-msgstr "Blog sunumu:"
-
-#: src/Process/Backend/BlogPref.php:702 src/Process/Backend/BlogPref.php:719
-msgid "Time format:"
-msgstr "Zaman biçimi:"
-
-#: src/Process/Backend/BlogPref.php:706
-msgid "Pattern of date"
-msgstr "Tarih modeli"
-
-#: src/Process/Backend/BlogPref.php:710 src/Process/Backend/BlogPref.php:727
-#: src/Process/Backend/BlogPref.php:1067
+#: src/Process/Backend/BlogPref.php:487 src/Process/Backend/BlogPref.php:724
+#: src/Process/Backend/BlogPref.php:741 src/Process/Backend/BlogPref.php:1081
 msgid "Sample:"
 msgstr "Örnek:"
 
-#: src/Process/Backend/BlogPref.php:723
+#: src/Process/Backend/BlogPref.php:505
+msgid "Blog has been successfully created."
+msgstr "Blog başarıyla oluşturuldu."
+
+#: src/Process/Backend/BlogPref.php:527
+msgid "Blog status:"
+msgstr "Blog durumu:"
+
+#: src/Process/Backend/BlogPref.php:540 src/Process/Backend/BlogPref.php:1017
+msgid "Blog details"
+msgstr "Blog ayrıntıları"
+
+#: src/Process/Backend/BlogPref.php:553 src/Process/Backend/BlogPref.php:1030
+#: src/Process/Backend/BlogPref.php:1050
+msgid "Required field"
+msgstr "Zorunlu alan"
+
+#: src/Process/Backend/BlogPref.php:573 src/Process/Backend/BlogPref.php:1067
+msgid "Blog configuration"
+msgstr "Blog ayarları"
+
+#: src/Process/Backend/BlogPref.php:581
+msgid "Blog editor name:"
+msgstr "Blog editörü adı:"
+
+#: src/Process/Backend/BlogPref.php:588
+msgid "Default language:"
+msgstr "Varsayılan dil"
+
+#: src/Process/Backend/BlogPref.php:595
+msgid "Blog timezone:"
+msgstr "Blog zamandilimi"
+
+#: src/Process/Backend/BlogPref.php:605
+msgid "Copyright notice:"
+msgstr "Telif hakkı uyarısı:"
+
+#: src/Process/Backend/BlogPref.php:611 src/Process/Backend/Comments.php:119
+#: src/Process/Backend/Comments.php:124
+msgid "Comments and trackbacks"
+msgstr "Ahkamlar ve gerizlemeler"
+
+#: src/Process/Backend/BlogPref.php:623 src/Process/Backend/Post.php:677
+msgid "Accept comments"
+msgstr "Ahkamlar kabul"
+
+#: src/Process/Backend/BlogPref.php:629
+msgid "Moderate comments"
+msgstr "Ahkamları yönet"
+
+#: src/Process/Backend/BlogPref.php:634
+msgid "Leave comments open for"
+msgstr "Yorumlar için açık bırakın"
+
+#: src/Process/Backend/BlogPref.php:635 src/Process/Backend/BlogPref.php:674
+msgid "days"
+msgstr "günler"
+
+#: src/Process/Backend/BlogPref.php:640 src/Process/Backend/BlogPref.php:679
+msgid "No limit: leave blank."
+msgstr "Sınır yok: boş bırakın."
+
+#: src/Process/Backend/BlogPref.php:646
+msgid "Wiki syntax for comments"
+msgstr "Ahkamlar içim Wiki yazımı"
+
+#: src/Process/Backend/BlogPref.php:652
+msgid "Preview of comment before submit is not mandatory"
+msgstr "Göndermeden önce yorumun önizlemesi zorunlu değildir"
+
+#: src/Process/Backend/BlogPref.php:662 src/Process/Backend/Post.php:685
+msgid "Accept trackbacks"
+msgstr "Gerizlemeler kabul"
+
+#: src/Process/Backend/BlogPref.php:668
+msgid "Moderate trackbacks"
+msgstr "Gerizlemeleri yönet"
+
+#: src/Process/Backend/BlogPref.php:673
+msgid "Leave trackbacks open for"
+msgstr "Geri izlemeleri açık bırakın"
+
+#: src/Process/Backend/BlogPref.php:685
+msgid "Add \"nofollow\" relation on comments and trackbacks links"
+msgstr "Yorumlara ve geri izleme bağlantılarına \"nofollow\" ilişkisi ekleyin"
+
+#: src/Process/Backend/BlogPref.php:694
+msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
+msgstr "Yeni gönderilerin olmadığı bir sürenin ardından blogdaki tüm yorumları ve geri izlemeleri devre dışı bırakın:"
+
+#: src/Process/Backend/BlogPref.php:701
+msgid "Blog presentation"
+msgstr "Blog sunumu:"
+
+#: src/Process/Backend/BlogPref.php:716 src/Process/Backend/BlogPref.php:733
+msgid "Time format:"
+msgstr "Zaman biçimi:"
+
+#: src/Process/Backend/BlogPref.php:720
+msgid "Pattern of date"
+msgstr "Tarih modeli"
+
+#: src/Process/Backend/BlogPref.php:737
 msgid "Pattern of time"
 msgstr "Zaman örüntüsü"
 
-#: src/Process/Backend/BlogPref.php:733
+#: src/Process/Backend/BlogPref.php:747
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr "Standart stil sayfasını yükleme (medya hizalama için kullanılır)"
 
-#: src/Process/Backend/BlogPref.php:739
+#: src/Process/Backend/BlogPref.php:753
 msgid "Display smilies on entries and comments"
 msgstr "Girdilerde ve yorumlarda ifadeleri görüntüleme"
 
-#: src/Process/Backend/BlogPref.php:745
+#: src/Process/Backend/BlogPref.php:759
 msgid "Disable internal search system"
 msgstr "Dahili arama sistemini devre dışı bırakın"
 
-#: src/Process/Backend/BlogPref.php:755 src/Process/Backend/BlogPref.php:763
-#: src/Process/Backend/BlogPref.php:771 src/Process/Backend/BlogPref.php:779
+#: src/Process/Backend/BlogPref.php:769 src/Process/Backend/BlogPref.php:777
+#: src/Process/Backend/BlogPref.php:785 src/Process/Backend/BlogPref.php:793
 msgid "Display"
 msgstr "Ekran"
 
-#: src/Process/Backend/BlogPref.php:756
+#: src/Process/Backend/BlogPref.php:770
 msgid "entries on first page"
 msgstr "ilk sayfadaki girişler"
 
-#: src/Process/Backend/BlogPref.php:772
+#: src/Process/Backend/BlogPref.php:786
 msgid "entries per feed"
 msgstr "besleme başına girişler"
 
-#: src/Process/Backend/BlogPref.php:780
+#: src/Process/Backend/BlogPref.php:794
 msgid "comments per feed"
 msgstr "besleme başına yorum"
 
-#: src/Process/Backend/BlogPref.php:787
+#: src/Process/Backend/BlogPref.php:801
 msgid "Truncate feeds"
 msgstr "Beslemeleri kes"
 
-#: src/Process/Backend/BlogPref.php:793
+#: src/Process/Backend/BlogPref.php:807
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "Kategori sayfasına ve kategori gönderileri akışına alt kategoriler ekleyin"
 
-#: src/Process/Backend/BlogPref.php:803
+#: src/Process/Backend/BlogPref.php:817
 msgid "Display an entry as static home page"
 msgstr "Bir girişi statik ana sayfa olarak görüntüleme"
 
-#: src/Process/Backend/BlogPref.php:812
+#: src/Process/Backend/BlogPref.php:826
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "Giriş URL'si (içeriği statik ana sayfa için kullanılacaktır):"
 
-#: src/Process/Backend/BlogPref.php:814
+#: src/Process/Backend/BlogPref.php:828
 msgid "Choose an entry"
 msgstr "Bir giriş seçin"
 
-#: src/Process/Backend/BlogPref.php:818
+#: src/Process/Backend/BlogPref.php:832
 msgid "Leave empty to use the default presentation."
 msgstr "Varsayılan sunumu kullanmak için boş bırakın."
 
-#: src/Process/Backend/BlogPref.php:824
+#: src/Process/Backend/BlogPref.php:838
 msgid "Media and images"
 msgstr "Ortam ve görüntüler"
 
-#: src/Process/Backend/BlogPref.php:834
+#: src/Process/Backend/BlogPref.php:848
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Oluşturulan görüntü boyutları (piksel cinsinden maksimum boyut)"
 
-#: src/Process/Backend/BlogPref.php:837
+#: src/Process/Backend/BlogPref.php:851
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Kurulumunuzdaki diğer bloglarla paylaşırsanız dikkatli olun."
 
-#: src/Process/Backend/BlogPref.php:837
+#: src/Process/Backend/BlogPref.php:851
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr "Aşağıdaki mevcut ayarları değiştirirseniz, bunların artık medya yöneticisindeki tüm yeni görüntülere uygulanacağını lütfen unutmayın."
 
-#: src/Process/Backend/BlogPref.php:837
+#: src/Process/Backend/BlogPref.php:851
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "Varsayılan boyutu kullanmak için -1 olarak ayarlayın, bu küçük resim boyutunu yok saymak için 0 olarak ayarlayın (yalnızca resimler)."
 
-#: src/Process/Backend/BlogPref.php:842
+#: src/Process/Backend/BlogPref.php:856
 msgid "Thumbnail"
 msgstr "Küçük Resim"
 
-#: src/Process/Backend/BlogPref.php:848
+#: src/Process/Backend/BlogPref.php:862
 msgid "Small"
 msgstr "Küçük"
 
-#: src/Process/Backend/BlogPref.php:854
+#: src/Process/Backend/BlogPref.php:868
 msgid "Medium"
 msgstr "Orta"
 
-#: src/Process/Backend/BlogPref.php:863
+#: src/Process/Backend/BlogPref.php:877
 msgid "Thumbnail character prefix:"
 msgstr "Küçük resim karakter öneki:"
 
-#: src/Process/Backend/BlogPref.php:867
+#: src/Process/Backend/BlogPref.php:881
 msgid "Leave empty to use the default one (.)"
 msgstr "Varsayılanı kullanmak için boş bırakın (.)"
 
-#: src/Process/Backend/BlogPref.php:871
+#: src/Process/Backend/BlogPref.php:885
 msgid "Default size of the inserted video (in pixels)"
 msgstr "Eklenen videonun varsayılan boyutu (piksel cinsinden)"
 
-#: src/Process/Backend/BlogPref.php:876
+#: src/Process/Backend/BlogPref.php:890
 msgid "Width"
 msgstr "Genişlik"
 
-#: src/Process/Backend/BlogPref.php:882
+#: src/Process/Backend/BlogPref.php:896
 msgid "Height"
 msgstr "Yükseklik"
 
-#: src/Process/Backend/BlogPref.php:891
+#: src/Process/Backend/BlogPref.php:905
 msgid "Default image insertion attributes"
 msgstr "Varsayılan görüntü ekleme nitelikleri"
 
-#: src/Process/Backend/BlogPref.php:897
+#: src/Process/Backend/BlogPref.php:911
 msgid "Inserted image legend:"
 msgstr "Eklenen görüntü açıklaması:"
 
-#: src/Process/Backend/BlogPref.php:903
+#: src/Process/Backend/BlogPref.php:917
 msgid "Use original media date if possible"
 msgstr "Mümkünse orijinal medya tarihini kullanın"
 
-#: src/Process/Backend/BlogPref.php:909
+#: src/Process/Backend/BlogPref.php:923
 msgid "Do not display date if alone in title"
 msgstr "Başlıkta tek başına ise tarihi göstermeyin"
 
-#: src/Process/Backend/BlogPref.php:914
+#: src/Process/Backend/BlogPref.php:928
 msgid "It is retrieved from the picture's metadata."
 msgstr "Resmin meta verilerinden alınır."
 
-#: src/Process/Backend/BlogPref.php:922
+#: src/Process/Backend/BlogPref.php:936
 msgid "Size of inserted image:"
 msgstr "Eklenen görüntünün boyutu:"
 
-#: src/Process/Backend/BlogPref.php:930
+#: src/Process/Backend/BlogPref.php:944
 msgid "Image alignment:"
 msgstr "Görüntü hizalama:"
 
-#: src/Process/Backend/BlogPref.php:936
+#: src/Process/Backend/BlogPref.php:950
 msgid "Insert a link to the original image"
 msgstr "Orijinal resme bir bağlantı ekleyin"
 
-#: src/Process/Backend/BlogPref.php:943
+#: src/Process/Backend/BlogPref.php:957
 msgid "Image legend and alternate text:"
 msgstr "Resim açıklaması ve alternatif metin:"
 
-#: src/Process/Backend/BlogPref.php:952 src/Process/Backend/Media.php:596
+#: src/Process/Backend/BlogPref.php:966 src/Process/Backend/Media.php:597
 msgid "Blog parameters"
 msgstr "Blog parametreleri"
 
-#: src/Process/Backend/BlogPref.php:983
+#: src/Process/Backend/BlogPref.php:997
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr "Blog URL'si veya URL tarama yöntemi iyi ayarlanmamış olabilir (<code>%s</code> , <strong>%s</strong> durumunu döndürür)."
 
-#: src/Process/Backend/BlogPref.php:993
+#: src/Process/Backend/BlogPref.php:1007
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "Blogun URL'si veya URL tarama yöntemi iyi ayarlanmamış olabilir (<code>%s</code> bir ATOM beslemesi döndürmez)."
 
-#: src/Process/Backend/BlogPref.php:1026
+#: src/Process/Backend/BlogPref.php:1040
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "Blog kimliğinizi değiştirmenin genel index.php dosyanızda değişiklik gerektirebileceğini lütfen unutmayın."
 
-#: src/Process/Backend/BlogPref.php:1045
+#: src/Process/Backend/BlogPref.php:1059
 msgid "URL scan method:"
 msgstr "URL tarama yöntemi"
 
-#: src/Process/Backend/BlogPref.php:1060
+#: src/Process/Backend/BlogPref.php:1074
 msgid "New post URL format:"
 msgstr "Yeni gönderi URL biçimi:"
 
-#: src/Process/Backend/BlogPref.php:1067
+#: src/Process/Backend/BlogPref.php:1081
 msgid "Dotclear"
 msgstr "Dotclear"
 
-#: src/Process/Backend/BlogPref.php:1074
+#: src/Process/Backend/BlogPref.php:1088
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "Blogdaki notların başlığı için HTML etiketi:"
 
-#: src/Process/Backend/BlogPref.php:1091
+#: src/Process/Backend/BlogPref.php:1105
 msgid "Search engines robots policy"
 msgstr "Arama motoru robotları politikası"
 
-#: src/Process/Backend/BlogPref.php:1096
+#: src/Process/Backend/BlogPref.php:1110
 msgid "Legacy javascript library"
 msgstr "Eski javascript kütüphanesi"
 
-#: src/Process/Backend/BlogPref.php:1102
+#: src/Process/Backend/BlogPref.php:1116
 msgid "Load the Legacy JS library"
 msgstr "Legacy JS kütüphanesini yükleyin"
 
-#: src/Process/Backend/BlogPref.php:1108
+#: src/Process/Backend/BlogPref.php:1122
 msgid "jQuery javascript library"
 msgstr "jQuery javascript kütüphanesi"
 
-#: src/Process/Backend/BlogPref.php:1114
+#: src/Process/Backend/BlogPref.php:1128
 msgid "Load the jQuery library"
 msgstr "jQuery kütüphanesini yükleyin"
 
-#: src/Process/Backend/BlogPref.php:1121
+#: src/Process/Backend/BlogPref.php:1135
 msgid "jQuery version to be loaded for this blog:"
 msgstr "Bu blog için yüklenecek jQuery sürümü:"
 
-#: src/Process/Backend/BlogPref.php:1127
+#: src/Process/Backend/BlogPref.php:1141
 msgid "Blog security"
 msgstr "Blog güvenliği"
 
-#: src/Process/Backend/BlogPref.php:1133
+#: src/Process/Backend/BlogPref.php:1147
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Blogu Clickjacking'den koruyun (bkz. <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 
-#: src/Process/Backend/BlogPref.php:1139
+#: src/Process/Backend/BlogPref.php:1153
 msgid "Advanced parameters"
 msgstr "Gelişmiş parametreler"
 
-#: src/Process/Backend/BlogPref.php:1146
+#: src/Process/Backend/BlogPref.php:1160
 msgid "Plugins parameters"
 msgstr "Eklenti parametreleri"
 
-#: src/Process/Backend/BlogPref.php:1187
+#: src/Process/Backend/BlogPref.php:1201
 msgid "Only superadmin can delete a blog."
 msgstr "Bir blogu yalnızca superadmin silebilir."
 
-#: src/Process/Backend/BlogPref.php:1192
+#: src/Process/Backend/BlogPref.php:1206
 msgid "Parameters"
 msgstr "Parametreler"
 
-#: src/Process/Backend/BlogPref.php:1211
+#: src/Process/Backend/BlogPref.php:1225
 msgid "No users"
 msgstr "Kullanıcı yok"
 
-#: src/Process/Backend/BlogPref.php:1253
+#: src/Process/Backend/BlogPref.php:1267
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1262 src/Process/Backend/User.php:321
+#: src/Process/Backend/BlogPref.php:1276 src/Process/Backend/User.php:326
 msgid "Super administrator"
 msgstr "Süper admin"
 
-#: src/Process/Backend/BlogPref.php:1264
+#: src/Process/Backend/BlogPref.php:1278
 msgid "All rights on all blogs."
 msgstr "Tüm blogların tüm hakları saklıdır."
 
-#: src/Process/Backend/BlogPref.php:1274
+#: src/Process/Backend/BlogPref.php:1288
 msgid "All rights on this blog."
 msgstr "Bu blogun tüm hakları saklıdır."
 
-#: src/Process/Backend/BlogPref.php:1290
+#: src/Process/Backend/BlogPref.php:1304
 #: src/Process/Backend/UsersActions.php:338
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (referanssız izin)"
 
-#: src/Process/Backend/BlogPref.php:1309 src/Process/Backend/User.php:471
+#: src/Process/Backend/BlogPref.php:1323 src/Process/Backend/User.php:476
 msgid "Change permissions"
 msgstr "izinleri değiştir"
 
-#: src/Process/Backend/BlogPref.php:1332
+#: src/Process/Backend/BlogPref.php:1346
 msgid "Publications on this blog:"
 msgstr "Bu blogdaki yayınlar:"
 
-#: src/Process/Backend/BlogPref.php:1335
+#: src/Process/Backend/BlogPref.php:1349
 msgid "Permissions:"
 msgstr "İzinler:"
 
-#: src/Process/Backend/BlogPref.php:1352
+#: src/Process/Backend/BlogPref.php:1366
 msgid "Users on this blog"
 msgstr "Bu blog'daki kullanıcılar"
 
-#: src/Process/Backend/BlogTheme.php:59
+#: src/Process/Backend/BlogTheme.php:73
 msgid "The following themes have been disabled :"
 msgstr "Aşağıdaki temalar devre dışı bırakılmıştır:"
 
-#: src/Process/Backend/BlogTheme.php:93
+#: src/Process/Backend/BlogTheme.php:106
 msgid "Theme configuration"
 msgstr "Tema ayarları"
 
-#: src/Process/Backend/BlogTheme.php:149
+#: src/Process/Backend/BlogTheme.php:162
 msgid "Themes management"
 msgstr "Tema yönetimi"
 
-#: src/Process/Backend/BlogTheme.php:176 src/Process/Backend/BlogTheme.php:178
+#: src/Process/Backend/BlogTheme.php:202 src/Process/Backend/BlogTheme.php:204
 msgid "Installed themes"
 msgstr "Yüklü temalar"
 
-#: src/Process/Backend/BlogTheme.php:178
-msgid "Activated themes"
-msgstr "Etkinleştirilmiş temalar"
-
-#: src/Process/Backend/BlogTheme.php:179 src/Process/Backend/Plugins.php:153
+#: src/Process/Backend/BlogTheme.php:204 src/Process/Backend/Plugins.php:153
 #: src/Process/Upgrade/Plugins.php:168
 msgid "(in normal mode)"
 msgstr "(normal modda)"
 
-#: src/Process/Backend/BlogTheme.php:181
+#: src/Process/Backend/BlogTheme.php:204
+msgid "Activated themes"
+msgstr "Etkinleştirilmiş temalar"
+
+#: src/Process/Backend/BlogTheme.php:207
 msgid "You can configure and manage installed themes from this list."
 msgstr "Yüklü temaları bu listeden yapılandırabilir ve yönetebilirsiniz."
 
-#: src/Process/Backend/BlogTheme.php:202 src/Process/Backend/BlogTheme.php:203
+#: src/Process/Backend/BlogTheme.php:228 src/Process/Backend/BlogTheme.php:230
 msgid "Deactivated themes"
 msgstr "Devre dışı bırakılan temalar"
 
-#: src/Process/Backend/BlogTheme.php:204
+#: src/Process/Backend/BlogTheme.php:233
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "Devre dışı bırakılan temalar yüklüdür ancak kullanılamaz. Onları buradan etkinleştirebilirsiniz."
 
-#: src/Process/Backend/BlogTheme.php:224 src/Process/Backend/Plugins.php:196
+#: src/Process/Backend/BlogTheme.php:243 src/Process/Backend/Plugins.php:196
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "Yapılandırmada URL ayarlanmadığı için resmi depo güncellenemedi."
 
-#: src/Process/Backend/BlogTheme.php:228
+#: src/Process/Backend/BlogTheme.php:250
 msgid "Manual checking of themes update done successfully."
 msgstr "Tema güncellemesinin manuel kontrolü başarıyla yapıldı."
 
-#: src/Process/Backend/BlogTheme.php:232 src/Process/Backend/BlogTheme.php:233
+#: src/Process/Backend/BlogTheme.php:276
 msgid "Update themes"
 msgstr "Temaları güncelleyin"
 
-#: src/Process/Backend/BlogTheme.php:244
+#: src/Process/Backend/BlogTheme.php:289
 msgid "Force checking update of themes"
 msgstr "Temaların güncellemesini kontrol etmeye zorla"
 
-#: src/Process/Backend/BlogTheme.php:261
+#: src/Process/Backend/BlogTheme.php:294
 msgid "No updates available for themes."
 msgstr "Temalar için güncelleme mevcut değil."
 
-#: src/Process/Backend/BlogTheme.php:266
+#: src/Process/Backend/BlogTheme.php:300
 #, php-format
 msgid "There is one theme update available:"
 msgid_plural "There are %s theme updates available:"
 msgstr[0] "Bir adet tema güncellemesi mevcuttur:"
 msgstr[1] "%s tema güncellemeleri mevcuttur:"
 
-#: src/Process/Backend/BlogTheme.php:286 src/Process/Backend/BlogTheme.php:322
+#: src/Process/Backend/BlogTheme.php:310 src/Process/Backend/BlogTheme.php:347
 #: src/Process/Backend/Plugins.php:258 src/Process/Backend/Plugins.php:293
 #: src/Process/Upgrade/Plugins.php:255 src/Process/Upgrade/Plugins.php:294
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "Dotclear için kaynak merkezi olan %s deposunu ziyaret edin."
 
-#: src/Process/Backend/BlogTheme.php:302
+#: src/Process/Backend/BlogTheme.php:339
 msgid "Add themes"
 msgstr "Tema ekleme"
 
-#: src/Process/Backend/BlogTheme.php:303
+#: src/Process/Backend/BlogTheme.php:342
 msgid "Add themes from repository"
 msgstr "Depodan tema ekleme"
 
-#: src/Process/Backend/BlogTheme.php:331 src/Process/Backend/Plugins.php:303
+#: src/Process/Backend/BlogTheme.php:357 src/Process/Backend/Plugins.php:303
 #: src/Process/Upgrade/Plugins.php:304
 msgid "Install or upgrade manually"
 msgstr "Manuel olarak yükleme veya yükseltme"
 
-#: src/Process/Backend/BlogTheme.php:332
+#: src/Process/Backend/BlogTheme.php:360
 msgid "Add themes from a package"
 msgstr "Bir paketten tema ekleme"
 
-#: src/Process/Backend/BlogTheme.php:333
+#: src/Process/Backend/BlogTheme.php:363
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Temaları zip dosyalarını yükleyerek veya indirerek yükleyebilirsiniz."
 
-#: src/Process/Backend/BlogTheme.php:347
+#: src/Process/Backend/BlogTheme.php:379
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Bazı işlevler devre dışı bırakılmıştır, bunları etkinleştirmek için lütfen temalar dizininize yazma erişimi verin."
 
@@ -3971,7 +3969,7 @@ msgstr "Blog listesi"
 msgid "Create a new blog"
 msgstr "Yeni bir blog oluştur"
 
-#: src/Process/Backend/Blogs.php:138 src/Process/Backend/Comments.php:184
+#: src/Process/Backend/Blogs.php:138 src/Process/Backend/Comments.php:185
 #: src/Process/Backend/Users.php:138 src/Process/Backend/UsersActions.php:160
 msgid "Actions"
 msgstr "Eylemler"
@@ -3984,183 +3982,194 @@ msgstr "Seçilmiş bloglar eylemi:"
 msgid "Please give your password to confirm blog(s) deletion:"
 msgstr "Blog(lar)ın silinmesini onaylamak için lütfen şifrenizi verin:"
 
-#: src/Process/Backend/Categories.php:47
+#: src/Process/Backend/Categories.php:61
 msgid "This category does not exist."
 msgstr "Bu kategori mevcut değil."
 
-#: src/Process/Backend/Categories.php:57
+#: src/Process/Backend/Categories.php:71
 #, php-format
 msgid "The category \"%s\" has been successfully deleted."
 msgstr "\"%s\" kategorisi başarıyla silindi."
 
-#: src/Process/Backend/Categories.php:78
+#: src/Process/Backend/Categories.php:92
 msgid "Category where to move entries does not exist"
 msgstr "Girişlerin taşınacağı kategori mevcut değil"
 
-#: src/Process/Backend/Categories.php:87
+#: src/Process/Backend/Categories.php:101
 #, php-format
 msgid "The entries have been successfully moved to category \"%s\""
 msgstr "Girişler başarılı bir şekilde \"%s\" kategorisine taşınmıştır."
 
-#: src/Process/Backend/Categories.php:104
-#: src/Process/Backend/Categories.php:155
+#: src/Process/Backend/Categories.php:118
+#: src/Process/Backend/Categories.php:169
 msgid "Categories have been successfully reordered."
 msgstr "Kategori sıralanımı başarılı."
 
-#: src/Process/Backend/Categories.php:112
+#: src/Process/Backend/Categories.php:126
 msgid "Categories order has been successfully reset."
 msgstr "Kategoriler siparişi başarıyla sıfırlandı."
 
-#: src/Process/Backend/Categories.php:152
+#: src/Process/Backend/Categories.php:166
 msgid "The category has been successfully removed."
 msgstr "Kategori başarıyla kaldırıldı."
 
-#: src/Process/Backend/Categories.php:158
+#: src/Process/Backend/Categories.php:172
 msgid "Entries have been successfully moved to the category you choose."
 msgstr "Girişler seçtiğiniz kategoriye başarıyla taşınmıştır."
 
-#: src/Process/Backend/Categories.php:164 src/Process/Backend/Category.php:197
+#: src/Process/Backend/Categories.php:183 src/Process/Backend/Category.php:205
 msgid "New category"
 msgstr "Yeni kategori"
 
-#: src/Process/Backend/Categories.php:169
+#: src/Process/Backend/Categories.php:191
 msgid "No category so far."
 msgstr "Henüz kategori yok"
 
-#: src/Process/Backend/Categories.php:191
+#: src/Process/Backend/Categories.php:209
+msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
+msgstr "Kategori sırasını yeniden düzenlemek için, öğeleri sürükle ve bırak yöntemiyle taşıyın, ardından \"Kategori sırasını kaydet\" düğmesine tıklayın."
+
+#: src/Process/Backend/Categories.php:218
+msgid "Save categories order"
+msgstr "Kategori sırasını kaydet"
+
+#: src/Process/Backend/Categories.php:225
+msgid "Reorder all categories on the top level"
+msgstr "Tüm kategorileri en üst seviyede yeniden sıralayın"
+
+#: src/Process/Backend/Categories.php:322
 #, php-format
 msgid "%d entries"
 msgstr "%d yazı"
 
-#: src/Process/Backend/Categories.php:191
+#: src/Process/Backend/Categories.php:322
 #, php-format
 msgid "%d entry"
 msgstr "%d Giriş"
 
-#: src/Process/Backend/Categories.php:191
+#: src/Process/Backend/Categories.php:323
 msgid "total:"
 msgstr "toplam:"
 
-#: src/Process/Backend/Categories.php:192 src/Process/Backend/Category.php:257
-#: src/Process/Backend/User.php:361 src/Process/Backend/UserPreferences.php:559
+#: src/Process/Backend/Categories.php:328 src/Process/Backend/Category.php:276
+#: src/Process/Backend/User.php:366 src/Process/Backend/UserPreferences.php:559
 msgid "URL:"
 msgstr "URL:"
 
-#: src/Process/Backend/Categories.php:199
+#: src/Process/Backend/Categories.php:342
 msgid "Move entries to"
 msgstr "Girişleri şuraya taşı"
 
-#: src/Process/Backend/Categories.php:213
+#: src/Process/Backend/Categories.php:343 src/Process/Backend/PostsPopup.php:90
+msgid "Ok"
+msgstr "Tamam."
+
+#: src/Process/Backend/Categories.php:350
 msgid "Delete category"
 msgstr "Kategori sil"
 
-#: src/Process/Backend/Categories.php:231
-msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
-msgstr "Kategori sırasını yeniden düzenlemek için, öğeleri sürükle ve bırak yöntemiyle taşıyın, ardından \"Kategori sırasını kaydet\" düğmesine tıklayın."
-
-#: src/Process/Backend/Categories.php:236
-msgid "Save categories order"
-msgstr "Kategori sırasını kaydet"
-
-#: src/Process/Backend/Categories.php:243
-msgid "Reorder all categories on the top level"
-msgstr "Tüm kategorileri en üst seviyede yeniden sıralayın"
-
-#: src/Process/Backend/Category.php:81
+#: src/Process/Backend/Category.php:89
 msgid "Top level"
 msgstr "Üst seviye"
 
-#: src/Process/Backend/Category.php:122 src/Process/Backend/Category.php:134
+#: src/Process/Backend/Category.php:130 src/Process/Backend/Category.php:142
 msgid "The category has been successfully moved"
 msgstr "Kategori başarıyla taşındı"
 
-#: src/Process/Backend/Category.php:167
+#: src/Process/Backend/Category.php:175
 msgid "The category has been successfully updated."
 msgstr "Kategori başarıyla güncellendi."
 
-#: src/Process/Backend/Category.php:182
+#: src/Process/Backend/Category.php:190
 #, php-format
 msgid "The category \"%s\" has been successfully created."
 msgstr "\"%s\" kategorisi başarıyla oluşturulmuştur."
 
-#: src/Process/Backend/Category.php:227
+#: src/Process/Backend/Category.php:235
 msgid "Category has been successfully updated."
 msgstr "Kategori güncellenimi başarılı."
 
-#: src/Process/Backend/Category.php:232
+#: src/Process/Backend/Category.php:242
 msgid "Category information"
 msgstr "Kategori bilgisi"
 
-#: src/Process/Backend/Category.php:234 src/Process/Backend/Post.php:888
+#: src/Process/Backend/Category.php:256 src/Process/Backend/Post.php:891
 msgid "Name:"
 msgstr "İsim:"
 
-#: src/Process/Backend/Category.php:261
+#: src/Process/Backend/Category.php:280
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Uyarı: URL'yi manuel olarak ayarlarsanız, başka bir kategoriyle çakışabilir."
 
-#: src/Process/Backend/Category.php:264 src/Process/Backend/MediaItem.php:1089
+#: src/Process/Backend/Category.php:290 src/Process/Backend/MediaItem.php:1094
 msgid "Description:"
 msgstr "Açıklama:"
 
-#: src/Process/Backend/Category.php:285
-msgid "Move this category"
-msgstr "Bu kategoriyi taşı"
-
-#: src/Process/Backend/Category.php:296
+#: src/Process/Backend/Category.php:319
 msgid "Category parent"
 msgstr "Ana kategori"
 
-#: src/Process/Backend/Category.php:325
+#: src/Process/Backend/Category.php:350
 msgid "Category sibling"
 msgstr "Yavru kategori"
 
-#: src/Process/Backend/Category.php:327
+#: src/Process/Backend/Category.php:354
 msgid "Move current category"
 msgstr "Geçerli kategoriyi taşı"
 
-#: src/Process/Backend/Category.php:332
+#: src/Process/Backend/Category.php:359
 msgid "before"
 msgstr "sonra"
 
-#: src/Process/Backend/Category.php:333
+#: src/Process/Backend/Category.php:360
 msgid "after"
 msgstr "önce"
 
-#: src/Process/Backend/Category.php:335
+#: src/Process/Backend/Category.php:362
 msgid "position: "
 msgstr "Pozisyon: "
 
-#: src/Process/Backend/Comment.php:71
+#: src/Process/Backend/Category.php:379
+msgid "Move this category"
+msgstr "Bu kategoriyi taşı"
+
+#: src/Process/Backend/Comment.php:88
 msgid "Entry does not exist."
 msgstr "Yazı mevcut değil."
 
-#: src/Process/Backend/Comment.php:90 src/Process/Backend/Post.php:564
+#: src/Process/Backend/Comment.php:107 src/Process/Backend/Post.php:567
 msgid "Comment has been successfully created."
 msgstr "Ahkam başarıyla oluşturuldu."
 
-#: src/Process/Backend/Comment.php:182 src/Process/Backend/Comment.php:242
+#: src/Process/Backend/Comment.php:199 src/Process/Backend/Comment.php:259
 msgid "Comment has been successfully updated."
 msgstr "Ahkam başarıyla güncellendi"
 
-#: src/Process/Backend/Comment.php:198
+#: src/Process/Backend/Comment.php:215
 msgid "Comment has been successfully deleted."
 msgstr "Yorum başarıyla silindi."
 
-#: src/Process/Backend/Comment.php:206
+#: src/Process/Backend/Comment.php:223
 msgid "You can't edit this comment."
 msgstr "Bu ahkamı düzenleyemezsiniz."
 
-#: src/Process/Backend/Comment.php:227 src/Process/Backend/Comment.php:230
+#: src/Process/Backend/Comment.php:244 src/Process/Backend/Comment.php:247
 msgid "Edit comment"
 msgstr "Ahkamı düzenle"
 
-#: src/Process/Backend/Comment.php:248
-#, php-format
-msgid "Your comment on my blog %s"
-msgstr "%s Blogundaki ahkamlarınız"
+#: src/Process/Backend/Comment.php:267
+msgid "Information collected"
+msgstr "Toplanan bilgiler"
 
-#: src/Process/Backend/Comment.php:249
+#: src/Process/Backend/Comment.php:280
+msgid "Date:"
+msgstr "Tarih:"
+
+#: src/Process/Backend/Comment.php:283
+msgid "Comment submitted"
+msgstr "Yorum gönderildi"
+
+#: src/Process/Backend/Comment.php:309
 #, php-format
 msgid "Hi!\n\n"
 "You wrote a comment on:\n"
@@ -4169,52 +4178,45 @@ msgstr "Merhaba!\n\n"
 "adresine bir yorum yazmışsınız:\n"
 "%s\n\n\n"
 
-#: src/Process/Backend/Comment.php:249
+#: src/Process/Backend/Comment.php:309
+#, php-format
+msgid "Your comment on my blog %s"
+msgstr "%s Blogundaki ahkamlarınız"
+
+#: src/Process/Backend/Comment.php:310
 msgid "Send an e-mail"
 msgstr "Bir e-posta gönder"
 
-#: src/Process/Backend/Comment.php:255
-msgid "Information collected"
-msgstr "Toplanan bilgiler"
-
-#: src/Process/Backend/Comment.php:264
-msgid "Date:"
-msgstr "Tarih:"
-
-#: src/Process/Backend/Comment.php:268
-msgid "Comment submitted"
-msgstr "Yorum gönderildi"
-
-#: src/Process/Backend/Comment.php:297 src/Process/Backend/Post.php:904
+#: src/Process/Backend/Comment.php:342 src/Process/Backend/Post.php:907
 msgid "Comment:"
 msgstr "Ahkam:"
 
-#: src/Process/Backend/Comments.php:135
+#: src/Process/Backend/Comments.php:136
 msgid "Spam comments have been successfully deleted."
 msgstr "Spam yorumlar başarıyla silindi."
 
-#: src/Process/Backend/Comments.php:146
+#: src/Process/Backend/Comments.php:147
 msgid "You have one spam comment."
 msgstr "Bir spam yorumunuz var."
 
-#: src/Process/Backend/Comments.php:147
+#: src/Process/Backend/Comments.php:148
 msgid "Show it."
 msgstr "Göster."
 
-#: src/Process/Backend/Comments.php:149
+#: src/Process/Backend/Comments.php:150
 #, php-format
 msgid "You have %s spam comments."
 msgstr "%s spam ahkam var."
 
-#: src/Process/Backend/Comments.php:150
+#: src/Process/Backend/Comments.php:151
 msgid "Show them."
 msgstr "Göster onlara."
 
-#: src/Process/Backend/Comments.php:157
+#: src/Process/Backend/Comments.php:158
 msgid "Delete all spams"
 msgstr "Tüm spam'leri sil"
 
-#: src/Process/Backend/Comments.php:180 src/Process/Backend/Post.php:869
+#: src/Process/Backend/Comments.php:181 src/Process/Backend/Post.php:872
 #: src/Process/Backend/Search.php:349
 msgid "Selected comments action:"
 msgstr "Seçili ahkamlara yap:"
@@ -4303,6 +4305,14 @@ msgstr "Önbellek dizini mevcut değil veya yazılabilir değil. Bu dizini yeter
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "Önbellek dizini mevcut değil veya yazılabilir değil. Yöneticinizle iletişime geçmelisiniz."
 
+#: src/Process/Backend/Home.php:274
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "about:config \"public_path\" içinde ayarlanan konumda yazılabilir /public/ dizini yok. Bu dizini yeterli haklarla oluşturmalısınız (veya bu ayarı değiştirmelisiniz)."
+
+#: src/Process/Backend/Home.php:278
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "Medya yöneticisi için yazılabilir bir kök dizin yok. Yöneticinizle iletişime geçmelisiniz."
+
 #: src/Process/Backend/Home.php:302 src/Process/Backend/Plugins.php:119
 #: src/Process/Install/Install.php:506 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
@@ -4321,15 +4331,15 @@ msgstr "Aşağıdaki eklentilerde hatalar oluştu:"
 msgid "Quick post"
 msgstr "Hızlı entri"
 
-#: src/Process/Backend/Home.php:458 src/Process/Backend/Post.php:727
+#: src/Process/Backend/Home.php:458 src/Process/Backend/Post.php:730
 msgid "Content:"
 msgstr "İçerik:"
 
-#: src/Process/Backend/Home.php:459 src/Process/Backend/Post.php:734
+#: src/Process/Backend/Home.php:459 src/Process/Backend/Post.php:737
 msgid "Content"
 msgstr "İçerik"
 
-#: src/Process/Backend/Home.php:467 src/Process/Backend/Post.php:656
+#: src/Process/Backend/Home.php:467 src/Process/Backend/Post.php:659
 msgid "Add a new category"
 msgstr "Yeni kategori ekle"
 
@@ -4430,7 +4440,7 @@ msgstr "Mevcut diller"
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
 msgstr "Ek bir dili doğrudan Dotclear.net adresinden indirebilir ve yükleyebilirsiniz. Önerilen diller sürümünüze bağlıdır: %s."
 
-#: src/Process/Backend/Langs.php:311 src/Process/Backend/User.php:381
+#: src/Process/Backend/Langs.php:311 src/Process/Backend/User.php:386
 #: src/Process/Upgrade/Langs.php:365
 msgid "Language:"
 msgstr "Dil:"
@@ -4467,447 +4477,447 @@ msgstr "Bağlantı başlığı:"
 msgid "Link language:"
 msgstr "Bağlantı dili:"
 
-#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:768
+#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:769
 msgid "Insert"
 msgstr "Kat"
 
-#: src/Process/Backend/Media.php:80
+#: src/Process/Backend/Media.php:81
 msgid "Not a valid directory"
 msgstr "Geçerli bir dizin değil"
 
-#: src/Process/Backend/Media.php:101
+#: src/Process/Backend/Media.php:102
 #, php-format
 msgid "Directory or file \"%s\" already exists."
 msgstr "Dizin veya dosya \"%s\" zaten var."
 
-#: src/Process/Backend/Media.php:108
+#: src/Process/Backend/Media.php:109
 #, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "Dizin \"%s\" başarıyla oluşturuldu."
 
-#: src/Process/Backend/Media.php:162
+#: src/Process/Backend/Media.php:163
 msgid "Files have been successfully uploaded."
 msgstr "Dosyaların yüklenimi başarılı."
 
-#: src/Process/Backend/Media.php:189
+#: src/Process/Backend/Media.php:190
 #, php-format
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
 msgstr[0] "Bir medya başarıyla silindi."
 msgstr[1] "%d medias başarıyla silindi."
 
-#: src/Process/Backend/Media.php:209
+#: src/Process/Backend/Media.php:210
 msgid "Directory has been successfully removed."
 msgstr "Dizin silinimi başarılı."
 
-#: src/Process/Backend/Media.php:213
+#: src/Process/Backend/Media.php:214
 msgid "File has been successfully removed."
 msgstr "Dosya silinimi başarılı."
 
-#: src/Process/Backend/Media.php:234
+#: src/Process/Backend/Media.php:235
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "Dizin \"%s\" başarıyla tamamlanmıştır."
 
-#: src/Process/Backend/Media.php:246 src/Process/Backend/PostMedia.php:96
+#: src/Process/Backend/Media.php:247 src/Process/Backend/PostMedia.php:96
 msgid "confirm removal"
 msgstr "kaldırmayı onayla"
 
-#: src/Process/Backend/Media.php:251
+#: src/Process/Backend/Media.php:252
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "%sadresini kaldırmak istediğinizden emin misiniz?"
 
-#: src/Process/Backend/Media.php:255 src/Process/Backend/PostMedia.php:111
+#: src/Process/Backend/Media.php:256 src/Process/Backend/PostMedia.php:111
 msgid "Yes"
 msgstr "evet"
 
-#: src/Process/Backend/Media.php:295
+#: src/Process/Backend/Media.php:296
 msgid "Remove this folder from your favorites"
 msgstr "Bu klasörü favorilerinizden kaldırın"
 
-#: src/Process/Backend/Media.php:319
+#: src/Process/Backend/Media.php:320
 msgid "Add this folder to your favorites"
 msgstr "Bu klasörü favorilerinize ekleyin"
 
-#: src/Process/Backend/Media.php:325
+#: src/Process/Backend/Media.php:326
 msgid "Goto recent folder:"
 msgstr "Son klasöre git:"
 
-#: src/Process/Backend/Media.php:358
+#: src/Process/Backend/Media.php:359
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Bu klasöre yazmak için yeterli izniniz yok."
 
-#: src/Process/Backend/Media.php:372
+#: src/Process/Backend/Media.php:373
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "%süzerine tıklayarak bir dosya seçin"
 
-#: src/Process/Backend/Media.php:375 src/Process/Backend/Media.php:443
+#: src/Process/Backend/Media.php:376 src/Process/Backend/Media.php:444
 msgid "Choose selected medias"
 msgstr "Seçili medyaları seçin"
 
-#: src/Process/Backend/Media.php:375
+#: src/Process/Backend/Media.php:376
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Dosyaları seçin ve <strong>%s</strong> düğmesine tıklayın"
 
-#: src/Process/Backend/Media.php:379 src/Process/Backend/Media.php:392
-#: src/Process/Backend/Media.php:405 src/Process/Backend/MediaItem.php:784
+#: src/Process/Backend/Media.php:380 src/Process/Backend/Media.php:393
+#: src/Process/Backend/Media.php:406 src/Process/Backend/MediaItem.php:785
 msgid "or"
 msgstr "veya"
 
-#: src/Process/Backend/Media.php:379 src/Process/Backend/Media.php:392
-#: src/Process/Backend/Media.php:405
+#: src/Process/Backend/Media.php:380 src/Process/Backend/Media.php:393
+#: src/Process/Backend/Media.php:406
 msgid "upload a new file"
 msgstr "yeni bir dosya yükleyin"
 
-#: src/Process/Backend/Media.php:386
+#: src/Process/Backend/Media.php:387
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "%süzerine tıklayarak %s girişine eklenecek bir dosya seçin"
 
-#: src/Process/Backend/Media.php:400
+#: src/Process/Backend/Media.php:401
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "%sadresine tıklayarak girişe eklenecek bir dosya seçin"
 
-#: src/Process/Backend/Media.php:418 src/Process/Backend/Media.php:419
-#: src/Process/Backend/Media.php:420
+#: src/Process/Backend/Media.php:419 src/Process/Backend/Media.php:420
+#: src/Process/Backend/Media.php:421
 msgid "Grid display mode"
 msgstr "Izgara görüntüleme modu"
 
-#: src/Process/Backend/Media.php:422 src/Process/Backend/Media.php:423
-#: src/Process/Backend/Media.php:424
+#: src/Process/Backend/Media.php:423 src/Process/Backend/Media.php:424
+#: src/Process/Backend/Media.php:425
 msgid "List display mode"
 msgstr "Liste görüntüleme modu"
 
-#: src/Process/Backend/Media.php:446
+#: src/Process/Backend/Media.php:447
 msgid "Remove selected medias"
 msgstr "Seçili medyaları kaldırın"
 
-#: src/Process/Backend/Media.php:473
+#: src/Process/Backend/Media.php:474
 #, php-format
 msgid "In %s:"
 msgstr "%sadresinde:"
 
-#: src/Process/Backend/Media.php:485
+#: src/Process/Backend/Media.php:486
 msgid "Create new directory"
 msgstr "Yeni dizin oluşturun"
 
-#: src/Process/Backend/Media.php:487
+#: src/Process/Backend/Media.php:488
 msgid "Directory Name:"
 msgstr "Dizin adı:"
 
-#: src/Process/Backend/Media.php:500
+#: src/Process/Backend/Media.php:501
 msgid "Build missing thumbnails in directory"
 msgstr "Dizinde eksik küçük resimler oluşturun"
 
-#: src/Process/Backend/Media.php:502
+#: src/Process/Backend/Media.php:503
 msgid "Build"
 msgstr "İnşa etmek"
 
-#: src/Process/Backend/Media.php:512
+#: src/Process/Backend/Media.php:513
 #, php-format
 msgid "Backup content of %s"
 msgstr "%sadresinin içeriğini yedekleyin"
 
-#: src/Process/Backend/Media.php:516
+#: src/Process/Backend/Media.php:517
 msgid "Download zip file"
 msgstr "Zip dosyasını indirin"
 
-#: src/Process/Backend/Media.php:536
+#: src/Process/Backend/Media.php:537
 msgid "Add files"
 msgstr "Dosya ekle"
 
-#: src/Process/Backend/Media.php:537
+#: src/Process/Backend/Media.php:538
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "Lütfen sahip olduğunuz ve telif hakkı ile korunmayan medyayı yayınlamaya özen gösterin."
 
-#: src/Process/Backend/Media.php:549
+#: src/Process/Backend/Media.php:550
 msgid "Maximum file size allowed:"
 msgstr "İzin verilen maksimum dosya boyutu:"
 
-#: src/Process/Backend/Media.php:551 src/Process/Backend/MediaItem.php:646
-#: src/Process/Backend/MediaItem.php:1004
-#: src/Process/Backend/MediaItem.php:1077
-msgid "Alternate text:"
-msgstr "Alternatif metin:"
-
-#: src/Process/Backend/Media.php:552 src/Process/Backend/MediaItem.php:1106
+#: src/Process/Backend/Media.php:553 src/Process/Backend/MediaItem.php:1111
 msgid "Private"
 msgstr "Özel"
 
-#: src/Process/Backend/Media.php:557
+#: src/Process/Backend/Media.php:558
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "Aynı anda birden fazla dosya göndermek için, gelişmiş yükleyiciyi"
 
-#: src/Process/Backend/Media.php:562
+#: src/Process/Backend/Media.php:563
 msgid "Refresh"
 msgstr "Yenile"
 
-#: src/Process/Backend/Media.php:563
+#: src/Process/Backend/Media.php:564
 msgid "Clear all"
 msgstr "Tümünü temizle"
 
-#: src/Process/Backend/Media.php:595
+#: src/Process/Backend/Media.php:596
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Medyalar ve görüntüler için geçerli ayarlar %sadresinde tanımlanmıştır."
 
-#: src/Process/Backend/MediaItem.php:112
+#: src/Process/Backend/MediaItem.php:113
 msgid "Not a valid file"
 msgstr "Geçerli bir dosya değil"
 
-#: src/Process/Backend/MediaItem.php:150 src/Process/Backend/MediaItem.php:212
-#: src/Process/Backend/MediaItem.php:477
+#: src/Process/Backend/MediaItem.php:151 src/Process/Backend/MediaItem.php:213
+#: src/Process/Backend/MediaItem.php:478
 msgid "File has been successfully updated."
 msgstr "Dosya güncellenimi  başarılı."
 
-#: src/Process/Backend/MediaItem.php:229 src/Process/Backend/MediaItem.php:480
+#: src/Process/Backend/MediaItem.php:230 src/Process/Backend/MediaItem.php:481
 msgid "Thumbnails have been successfully updated."
 msgstr "Pulların güncellenimi başarılı."
 
-#: src/Process/Backend/MediaItem.php:246
+#: src/Process/Backend/MediaItem.php:247
 msgid "Zip file has been successfully extracted."
 msgstr "Zip dosyası başarıyla çıkarıldı."
 
-#: src/Process/Backend/MediaItem.php:276 src/Process/Backend/MediaItem.php:483
+#: src/Process/Backend/MediaItem.php:277 src/Process/Backend/MediaItem.php:484
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Varsayılan medya ekleme ayarları başarıyla güncellendi."
 
-#: src/Process/Backend/MediaItem.php:302
+#: src/Process/Backend/MediaItem.php:303
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "Medya ekleme ayarları bu klasör için başarıyla kaydedildi."
 
-#: src/Process/Backend/MediaItem.php:313
+#: src/Process/Backend/MediaItem.php:314
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Bu klasör için medya ekleme ayarları başarıyla kaldırıldı."
 
-#: src/Process/Backend/MediaItem.php:512 src/Process/Backend/MediaItem.php:513
+#: src/Process/Backend/MediaItem.php:513 src/Process/Backend/MediaItem.php:514
 msgid "Select media item"
 msgstr "Medya öğesini seçin"
 
-#: src/Process/Backend/MediaItem.php:524 src/Process/Backend/MediaItem.php:599
+#: src/Process/Backend/MediaItem.php:525 src/Process/Backend/MediaItem.php:600
 msgid "Image size:"
 msgstr "Görüntü boyutu:"
 
-#: src/Process/Backend/MediaItem.php:551 src/Process/Upgrade/Attic.php:302
+#: src/Process/Backend/MediaItem.php:552 src/Process/Upgrade/Attic.php:302
 msgid "Select"
 msgstr "Seçiniz"
 
-#: src/Process/Backend/MediaItem.php:586 src/Process/Backend/MediaItem.php:587
+#: src/Process/Backend/MediaItem.php:587 src/Process/Backend/MediaItem.php:588
 msgid "Insert media item"
 msgstr "Medya parçası ekle"
 
-#: src/Process/Backend/MediaItem.php:618
+#: src/Process/Backend/MediaItem.php:619
 msgid "Image legend and alternate text"
 msgstr "Resim açıklaması ve alternatif metin"
 
-#: src/Process/Backend/MediaItem.php:648
+#: src/Process/Backend/MediaItem.php:647 src/Process/Backend/MediaItem.php:1009
+#: src/Process/Backend/MediaItem.php:1082
+msgid "Alternate text:"
+msgstr "Alternatif metin:"
+
+#: src/Process/Backend/MediaItem.php:649
 msgid "Legend:"
 msgstr "Efsane:"
 
-#: src/Process/Backend/MediaItem.php:653
+#: src/Process/Backend/MediaItem.php:654
 msgid "Image alignment"
 msgstr "Görüntü hizalaması"
 
-#: src/Process/Backend/MediaItem.php:673
+#: src/Process/Backend/MediaItem.php:674
 msgid "Image insertion"
 msgstr "Görüntü kat"
 
-#: src/Process/Backend/MediaItem.php:676
+#: src/Process/Backend/MediaItem.php:677
 msgid "As a single image"
 msgstr "Tek görüntü gibi"
 
-#: src/Process/Backend/MediaItem.php:678
+#: src/Process/Backend/MediaItem.php:679
 msgid "As a link to the original image"
 msgstr "Orijinal resme bir bağlantı olarak"
 
-#: src/Process/Backend/MediaItem.php:686
+#: src/Process/Backend/MediaItem.php:687
 msgid "MP3 disposition"
 msgstr "MP3 bileşimi"
 
-#: src/Process/Backend/MediaItem.php:689
+#: src/Process/Backend/MediaItem.php:690
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Lütfen mp3 dosyalarını WYSIWYG HTML modunda standart düzenleyici ile ekleyemeyeceğinizi unutmayın."
 
-#: src/Process/Backend/MediaItem.php:719
+#: src/Process/Backend/MediaItem.php:720
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Lütfen video dosyalarını WYSIWYG HTML modunda standart düzenleyici ile ekleyemeyeceğinizi unutmayın."
 
-#: src/Process/Backend/MediaItem.php:724
+#: src/Process/Backend/MediaItem.php:725
 msgid "Video size"
 msgstr "Vidyo boyutu:"
 
-#: src/Process/Backend/MediaItem.php:725
+#: src/Process/Backend/MediaItem.php:726
 msgid "Width:"
 msgstr "Genişlik:"
 
-#: src/Process/Backend/MediaItem.php:727
+#: src/Process/Backend/MediaItem.php:728
 msgid "Height:"
 msgstr "Yükseklik:"
 
-#: src/Process/Backend/MediaItem.php:734
+#: src/Process/Backend/MediaItem.php:735
 msgid "Video disposition"
 msgstr "Vidyo disposition"
 
-#: src/Process/Backend/MediaItem.php:763
+#: src/Process/Backend/MediaItem.php:764
 msgid "Media item will be inserted as a link."
 msgstr "Medya öğesi bir bağlantı olarak eklenecektir."
 
-#: src/Process/Backend/MediaItem.php:783
+#: src/Process/Backend/MediaItem.php:784
 msgid "Make current settings as default"
 msgstr "Geçerli ayarları varsayılan yap"
 
-#: src/Process/Backend/MediaItem.php:784
+#: src/Process/Backend/MediaItem.php:785
 msgid "For the blog"
 msgstr "Blog için"
 
-#: src/Process/Backend/MediaItem.php:785
+#: src/Process/Backend/MediaItem.php:786
 msgid "For this folder only"
 msgstr "Yalnızca bu klasör için"
 
-#: src/Process/Backend/MediaItem.php:794
+#: src/Process/Backend/MediaItem.php:795
 msgid "Settings exist for this folder:"
 msgstr "Bu klasör için ayarlar mevcuttur:"
 
-#: src/Process/Backend/MediaItem.php:795
+#: src/Process/Backend/MediaItem.php:796
 msgid "Remove them"
 msgstr "Kaldırın onları"
 
-#: src/Process/Backend/MediaItem.php:814 src/Process/Backend/MediaItem.php:817
-#: src/Process/Backend/MediaItem.php:898
+#: src/Process/Backend/MediaItem.php:815 src/Process/Backend/MediaItem.php:818
+#: src/Process/Backend/MediaItem.php:899
 msgid "Media details"
 msgstr "Medya ayrıntıları"
 
-#: src/Process/Backend/MediaItem.php:849
+#: src/Process/Backend/MediaItem.php:850
 msgid "Available sizes:"
 msgstr "Mevcut ölçüler"
 
-#: src/Process/Backend/MediaItem.php:870
+#: src/Process/Backend/MediaItem.php:871
 msgid "Thumbnail details"
 msgstr "Küçük resim ayrıntıları"
 
-#: src/Process/Backend/MediaItem.php:875 src/Process/Backend/MediaItem.php:912
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:913
+#: src/Process/Backend/MediaItem.php:925
 msgid "Image width:"
 msgstr "Görüntü genişliği:"
 
-#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:916
-#: src/Process/Backend/MediaItem.php:924
+#: src/Process/Backend/MediaItem.php:877 src/Process/Backend/MediaItem.php:917
+#: src/Process/Backend/MediaItem.php:926
 msgid "Image height:"
 msgstr "Resim yüksekliği:"
 
-#: src/Process/Backend/MediaItem.php:880 src/Process/Backend/MediaItem.php:929
+#: src/Process/Backend/MediaItem.php:881 src/Process/Backend/MediaItem.php:931
 msgid "File size:"
 msgstr "Dosya boyutu:"
 
-#: src/Process/Backend/MediaItem.php:883 src/Process/Backend/MediaItem.php:930
+#: src/Process/Backend/MediaItem.php:884 src/Process/Backend/MediaItem.php:932
 msgid "File URL:"
 msgstr "Dosya URL'si"
 
-#: src/Process/Backend/MediaItem.php:900
+#: src/Process/Backend/MediaItem.php:901
 msgid "File owner:"
 msgstr "Dosya sahibi:"
 
-#: src/Process/Backend/MediaItem.php:901
+#: src/Process/Backend/MediaItem.php:902
 msgid "File type:"
 msgstr "Dosya tipi:"
 
-#: src/Process/Backend/MediaItem.php:936
+#: src/Process/Backend/MediaItem.php:938
 msgid "Show entries containing this media"
 msgstr "Bu medyayı içeren girişleri göster"
 
-#: src/Process/Backend/MediaItem.php:939
+#: src/Process/Backend/MediaItem.php:941
 msgid "Entries containing this media"
 msgstr "Bu medyayı içeren yazılar"
 
-#: src/Process/Backend/MediaItem.php:976
+#: src/Process/Backend/MediaItem.php:978
 msgid "No entry seems contain this media."
 msgstr "Hiçbir giriş bu medyayı içermiyor gibi görünüyor."
 
-#: src/Process/Backend/MediaItem.php:1009
+#: src/Process/Backend/MediaItem.php:1005
+#: src/Process/Backend/MediaItem.php:1014
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1015
+#: src/Process/Backend/MediaItem.php:1020
 msgid "Metadata"
 msgstr "Metadata"
 
-#: src/Process/Backend/MediaItem.php:1022
+#: src/Process/Backend/MediaItem.php:1027
 msgid "Updates and modifications"
 msgstr "Güncellemeler ve değişiklikler"
 
-#: src/Process/Backend/MediaItem.php:1028
-#: src/Process/Backend/MediaItem.php:1030
+#: src/Process/Backend/MediaItem.php:1033
+#: src/Process/Backend/MediaItem.php:1035
 msgid "Update thumbnails"
 msgstr "Pulları güncelle"
 
-#: src/Process/Backend/MediaItem.php:1029
+#: src/Process/Backend/MediaItem.php:1034
 msgid "This will create or update thumbnails for this image."
 msgstr "Bu, bu görüntü için küçük resimler oluşturacak veya güncelleyecektir."
 
-#: src/Process/Backend/MediaItem.php:1038
-#: src/Process/Backend/MediaItem.php:1046
+#: src/Process/Backend/MediaItem.php:1043
+#: src/Process/Backend/MediaItem.php:1051
 msgid "Extract in a new directory"
 msgstr "Yeni dizine aç"
 
-#: src/Process/Backend/MediaItem.php:1039
-#: src/Process/Backend/MediaItem.php:1048
+#: src/Process/Backend/MediaItem.php:1044
+#: src/Process/Backend/MediaItem.php:1053
 msgid "Extract in current directory"
 msgstr "Bulunduğu dizine aç"
 
-#: src/Process/Backend/MediaItem.php:1044
+#: src/Process/Backend/MediaItem.php:1049
 msgid "Extract archive"
 msgstr "Arşivi çıkar"
 
-#: src/Process/Backend/MediaItem.php:1047
+#: src/Process/Backend/MediaItem.php:1052
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Bu, arşivi henüz var olmaması gereken yeni bir dizine çıkaracaktır."
 
-#: src/Process/Backend/MediaItem.php:1049
+#: src/Process/Backend/MediaItem.php:1054
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Bu, arşivi geçerli dizine çıkaracak ve mevcut dosyaların veya dizinin üzerine yazacaktır."
 
-#: src/Process/Backend/MediaItem.php:1051
+#: src/Process/Backend/MediaItem.php:1056
 msgid "Extract mode:"
 msgstr "Çıkarma kipi:"
 
-#: src/Process/Backend/MediaItem.php:1053
+#: src/Process/Backend/MediaItem.php:1058
 msgid "Extract"
 msgstr "Özüt"
 
-#: src/Process/Backend/MediaItem.php:1061
+#: src/Process/Backend/MediaItem.php:1066
 msgid "Change media properties"
 msgstr "Medya özelliklerini değiştir"
 
-#: src/Process/Backend/MediaItem.php:1062
+#: src/Process/Backend/MediaItem.php:1067
 msgid "File name:"
 msgstr "Dosya adı:"
 
-#: src/Process/Backend/MediaItem.php:1102
+#: src/Process/Backend/MediaItem.php:1107
 msgid "File date:"
 msgstr "Dosya tarihi:"
 
-#: src/Process/Backend/MediaItem.php:1107
+#: src/Process/Backend/MediaItem.php:1112
 msgid "New directory:"
 msgstr "Yeni dizin:"
 
-#: src/Process/Backend/MediaItem.php:1115
+#: src/Process/Backend/MediaItem.php:1120
 msgid "Change file"
 msgstr "Dosyayı değiştir"
 
-#: src/Process/Backend/MediaItem.php:1117
+#: src/Process/Backend/MediaItem.php:1122
 msgid "Choose a file:"
 msgstr "Bir dosya seçin:"
 
-#: src/Process/Backend/MediaItem.php:1118
+#: src/Process/Backend/MediaItem.php:1123
 #, php-format
 msgid "Maximum size %s"
 msgstr "En büyük boyut %s"
 
-#: src/Process/Backend/MediaItem.php:1129
+#: src/Process/Backend/MediaItem.php:1134
 msgid "Delete this media"
 msgstr "Bu medyayı silin"
 
@@ -4992,178 +5002,178 @@ msgstr "Bazı işlevler devre dışı bırakılmıştır, bunları etkinleştirm
 msgid "Plugin configuration"
 msgstr "Eklenti yapılandırması"
 
-#: src/Process/Backend/Post.php:131 src/Process/Backend/Post.php:758
-#: src/Process/Backend/Post.php:763
+#: src/Process/Backend/Post.php:132 src/Process/Backend/Post.php:761
+#: src/Process/Backend/Post.php:766
 msgid "Edit post"
 msgstr "Gönderiyi düzenle"
 
-#: src/Process/Backend/Post.php:170
+#: src/Process/Backend/Post.php:172
 msgid "Next entry"
 msgstr "Sonraki giriş"
 
-#: src/Process/Backend/Post.php:185
+#: src/Process/Backend/Post.php:188
 msgid "Previous entry"
 msgstr "Önceki giriş"
 
-#: src/Process/Backend/Post.php:266 src/Process/Backend/Post.php:567
+#: src/Process/Backend/Post.php:269 src/Process/Backend/Post.php:570
 msgid "All pings sent."
 msgstr "Tüm pingler gönderildi."
 
-#: src/Process/Backend/Post.php:296
+#: src/Process/Backend/Post.php:299
 msgid "Invalid publication date"
 msgstr "Geçersiz yayın tarihi"
 
-#: src/Process/Backend/Post.php:420
+#: src/Process/Backend/Post.php:423
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
 msgstr "The post \"%s\" has been successfully updated"
 
-#: src/Process/Backend/Post.php:482
+#: src/Process/Backend/Post.php:485
 #, php-format
 msgid "&ldquo;%s&rdquo;"
 msgstr "&ldquo;%s&rdquo;"
 
-#: src/Process/Backend/Post.php:554
+#: src/Process/Backend/Post.php:557
 msgid "Entry has been successfully updated."
 msgstr "Yazı güncellemini başarılı."
 
-#: src/Process/Backend/Post.php:558
+#: src/Process/Backend/Post.php:561
 msgid "File has been successfully attached."
 msgstr "Dosya eklenimi başarılı."
 
-#: src/Process/Backend/Post.php:560 src/Process/Backend/PostMedia.php:87
+#: src/Process/Backend/Post.php:563 src/Process/Backend/PostMedia.php:87
 msgid "Attachment has been successfully removed."
 msgstr "Eklenti silinimi başarılı."
 
-#: src/Process/Backend/Post.php:576
+#: src/Process/Backend/Post.php:579
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Gönderinizi kaydederek XHTML dönüşümünüzü doğrulamayı unutmayın."
 
-#: src/Process/Backend/Post.php:581
+#: src/Process/Backend/Post.php:584
 msgid "Go to this entry on the site"
 msgstr "Sitedeki bu girişe gidin"
 
-#: src/Process/Backend/Post.php:616
+#: src/Process/Backend/Post.php:619
 msgid "Entry status"
 msgstr "Giriş durumu"
 
-#: src/Process/Backend/Post.php:623
+#: src/Process/Backend/Post.php:626
 msgid "Publication date and hour"
 msgstr "Yayın tarihi ve saati"
 
-#: src/Process/Backend/Post.php:629
+#: src/Process/Backend/Post.php:632
 msgid "Entry language"
 msgstr "Giriş dili"
 
-#: src/Process/Backend/Post.php:632
+#: src/Process/Backend/Post.php:635
 msgid "Text formatting"
 msgstr "Metin biçimlendirme"
 
-#: src/Process/Backend/Post.php:638
+#: src/Process/Backend/Post.php:641
 msgid "Convert to HTML"
 msgstr "HTML ye dönüştür"
 
-#: src/Process/Backend/Post.php:642
+#: src/Process/Backend/Post.php:645
 msgid "Filing"
 msgstr "Dosyalama"
 
-#: src/Process/Backend/Post.php:646
+#: src/Process/Backend/Post.php:649
 msgid "Selected entry"
 msgstr "Seçilmiş yazı"
 
-#: src/Process/Backend/Post.php:668 src/Process/Backend/User.php:379
+#: src/Process/Backend/Post.php:671 src/Process/Backend/User.php:384
 msgid "Options"
 msgstr "Seçenekler"
 
-#: src/Process/Backend/Post.php:671
+#: src/Process/Backend/Post.php:674
 msgid "Comments and trackbacks list"
 msgstr "Yorumlar ve geri izleme listesi"
 
-#: src/Process/Backend/Post.php:677
+#: src/Process/Backend/Post.php:680
 msgid "Warning: Comments are not more accepted for this entry."
 msgstr "Uyarı: Bu yazı için daha fazla yorum kabul edilmemektedir."
 
-#: src/Process/Backend/Post.php:679
+#: src/Process/Backend/Post.php:682
 msgid "Comments are not accepted on this blog so far."
 msgstr "Bu blogda şu ana kadar yorum kabul edilmemiştir."
 
-#: src/Process/Backend/Post.php:685
+#: src/Process/Backend/Post.php:688
 msgid "Warning: Trackbacks are not more accepted for this entry."
 msgstr "Uyarı: Bu yazı için daha fazla geri izleme kabul edilmemektedir."
 
-#: src/Process/Backend/Post.php:686
+#: src/Process/Backend/Post.php:689
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "Şimdiye kadar bu blogda geri izleme kabul edilmedi."
 
-#: src/Process/Backend/Post.php:692
+#: src/Process/Backend/Post.php:695
 msgid "Edit basename"
 msgstr "Temel adı düzenle"
 
-#: src/Process/Backend/Post.php:696
+#: src/Process/Backend/Post.php:699
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Uyarı: URL'yi manuel olarak ayarlarsanız, başka bir girişle çakışabilir."
 
-#: src/Process/Backend/Post.php:713
+#: src/Process/Backend/Post.php:716
 msgid "Excerpt:"
 msgstr "Alıntı:"
 
-#: src/Process/Backend/Post.php:714
+#: src/Process/Backend/Post.php:717
 msgid "Introduction to the post."
 msgstr "Yazıya giriş."
 
-#: src/Process/Backend/Post.php:739
+#: src/Process/Backend/Post.php:742
 msgid "Personal notes:"
 msgstr "Kişisel notlar:"
 
-#: src/Process/Backend/Post.php:740
+#: src/Process/Backend/Post.php:743
 msgid "Unpublished notes."
 msgstr "Yayınlanmamış notlar."
 
-#: src/Process/Backend/Post.php:848 src/Process/Backend/Post.php:883
+#: src/Process/Backend/Post.php:851 src/Process/Backend/Post.php:886
 msgid "Add a comment"
 msgstr "Ahkam ekle"
 
-#: src/Process/Backend/Post.php:948
+#: src/Process/Backend/Post.php:951
 msgid "Trackbacks received"
 msgstr "Alınan geri bildirimler"
 
-#: src/Process/Backend/Post.php:954
+#: src/Process/Backend/Post.php:957
 msgid "No trackback"
 msgstr "Gerizleme yok"
 
-#: src/Process/Backend/Post.php:962
+#: src/Process/Backend/Post.php:965
 msgid "Selected trackbacks action:"
 msgstr "Seçilen geri izleme eylemi:"
 
-#: src/Process/Backend/Post.php:979 src/Process/Backend/Post.php:990
+#: src/Process/Backend/Post.php:982 src/Process/Backend/Post.php:993
 msgid "Ping blogs"
 msgstr "Blogları \"pingle\""
 
-#: src/Process/Backend/Post.php:981
+#: src/Process/Backend/Post.php:984
 msgid "URLs to ping:"
 msgstr "pingl URL' leri"
 
-#: src/Process/Backend/Post.php:985
+#: src/Process/Backend/Post.php:988
 msgid "Excerpt to send:"
 msgstr "Gönderilecek alıntı:"
 
-#: src/Process/Backend/Post.php:991
+#: src/Process/Backend/Post.php:994
 msgid "Auto discover ping URLs"
 msgstr "Ping URL'lerini otomatik keşfetme"
 
-#: src/Process/Backend/Post.php:999
+#: src/Process/Backend/Post.php:1002
 msgid "Previously sent pings"
 msgstr "Önceden gönderilen pingler"
 
-#: src/Process/Backend/Post.php:1116
+#: src/Process/Backend/Post.php:1119
 msgid "select this comment"
 msgstr "bu yorumu seçin"
 
-#: src/Process/Backend/Post.php:1116
+#: src/Process/Backend/Post.php:1119
 msgid "select this trackback"
 msgstr "bu geri izlemeyi seçin"
 
-#: src/Process/Backend/Post.php:1135
+#: src/Process/Backend/Post.php:1138
 msgid "Edit this comment"
 msgstr "Bu ahkamı düzenle"
 
@@ -5202,10 +5212,6 @@ msgstr "Bu yazıya bağlantı ekle"
 #: src/Process/Backend/PostsPopup.php:89
 msgid "Entry type:"
 msgstr "Giriş türü:"
-
-#: src/Process/Backend/PostsPopup.php:90
-msgid "Ok"
-msgstr "Tamam."
 
 #: src/Process/Backend/PostsPopup.php:99
 msgid "Search entry:"
@@ -5312,140 +5318,140 @@ msgid_plural "%d comments found"
 msgstr[0] "bir yorum bulundu"
 msgstr[1] "%d yorumlar bulundu"
 
-#: src/Process/Backend/User.php:33 src/Process/Backend/Users.php:118
+#: src/Process/Backend/User.php:34 src/Process/Backend/Users.php:118
 msgid "New user"
 msgstr "Yeni kullanıcı"
 
-#: src/Process/Backend/User.php:172 src/Process/Backend/User.php:242
+#: src/Process/Backend/User.php:174 src/Process/Backend/User.php:247
 #: src/Process/Backend/UsersActions.php:136
 msgid "User has been successfully updated."
 msgstr "Kullanıcı güncellenimi başarılı."
 
-#: src/Process/Backend/User.php:178
+#: src/Process/Backend/User.php:180
 #, php-format
 msgid "User \"%s\" already exists."
 msgstr "Kullanıcı \"%s\" evvelden mevcut."
 
-#: src/Process/Backend/User.php:202 src/Process/Backend/User.php:246
+#: src/Process/Backend/User.php:204 src/Process/Backend/User.php:251
 msgid "User has been successfully created."
 msgstr "Kullanıcı oluşturumu başarılı."
 
-#: src/Process/Backend/User.php:203
+#: src/Process/Backend/User.php:207
 msgid "User has no permission, he will not be able to login yet. See below to add some."
 msgstr "Kullanıcının izni yok, henüz giriş yapamayacak. Bazılarını eklemek için aşağıya bakın."
 
-#: src/Process/Backend/User.php:254
+#: src/Process/Backend/User.php:259
 msgid "User profile"
 msgstr "Kullanıcı profili"
 
-#: src/Process/Backend/User.php:257
+#: src/Process/Backend/User.php:262
 msgid "User ID:"
 msgstr "Kullanıcı kimliği:"
 
-#: src/Process/Backend/User.php:260
+#: src/Process/Backend/User.php:265
 msgid "Login"
 msgstr "Giriş"
 
-#: src/Process/Backend/User.php:268
+#: src/Process/Backend/User.php:273
 msgid "Warning:"
 msgstr "Uyarı:"
 
-#: src/Process/Backend/User.php:269
+#: src/Process/Backend/User.php:274
 msgid "If you change your username, you will have to log in again."
 msgstr "Kullanıcı adınızı değiştirirseniz, yeniden giriş yapmanız gerekecektir."
 
-#: src/Process/Backend/User.php:306
+#: src/Process/Backend/User.php:311
 msgid "Password change required to connect"
 msgstr "Bağlanmak için şifre değişikliği gerekiyor"
 
-#: src/Process/Backend/User.php:324 src/Process/Backend/UserPreferences.php:524
+#: src/Process/Backend/User.php:329 src/Process/Backend/UserPreferences.php:524
 #: src/Process/Install/Install.php:460
 msgid "Last Name:"
 msgstr "Soy İsim:"
 
-#: src/Process/Backend/User.php:331 src/Process/Backend/UserPreferences.php:531
+#: src/Process/Backend/User.php:336 src/Process/Backend/UserPreferences.php:531
 #: src/Process/Install/Install.php:454
 msgid "First Name:"
 msgstr "İlk isim:"
 
-#: src/Process/Backend/User.php:338 src/Process/Backend/UserPreferences.php:538
+#: src/Process/Backend/User.php:343 src/Process/Backend/UserPreferences.php:538
 msgid "Display name:"
 msgstr "Gösterim ismi:"
 
-#: src/Process/Backend/User.php:352
+#: src/Process/Backend/User.php:357
 msgid "Mandatory for password recovering procedure."
 msgstr "Parola kurtarma prosedürü için zorunludur."
 
-#: src/Process/Backend/User.php:354 src/Process/Backend/UserPreferences.php:552
+#: src/Process/Backend/User.php:359 src/Process/Backend/UserPreferences.php:552
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternatif e-postalar (virgülle ayrılmış liste):"
 
-#: src/Process/Backend/User.php:359 src/Process/Backend/UserPreferences.php:557
+#: src/Process/Backend/User.php:364 src/Process/Backend/UserPreferences.php:557
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Geçersiz e-postalar otomatik olarak listeden kaldırılacaktır."
 
-#: src/Process/Backend/User.php:369 src/Process/Backend/UserPreferences.php:567
+#: src/Process/Backend/User.php:374 src/Process/Backend/UserPreferences.php:567
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternatif URL'ler (virgülle ayrılmış liste):"
 
-#: src/Process/Backend/User.php:374 src/Process/Backend/UserPreferences.php:572
+#: src/Process/Backend/User.php:379 src/Process/Backend/UserPreferences.php:572
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Geçersiz URL'ler otomatik olarak listeden kaldırılacaktır."
 
-#: src/Process/Backend/User.php:380 src/Process/Backend/UserPreferences.php:631
+#: src/Process/Backend/User.php:385 src/Process/Backend/UserPreferences.php:631
 msgid "Interface"
 msgstr "Arayüz"
 
-#: src/Process/Backend/User.php:385
+#: src/Process/Backend/User.php:390
 msgid "Timezone:"
 msgstr "Saat dilimi:"
 
-#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:747
+#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:747
 msgid "Edition"
 msgstr "Baskı"
 
-#: src/Process/Backend/User.php:390 src/Process/Backend/UserPreferences.php:761
+#: src/Process/Backend/User.php:395 src/Process/Backend/UserPreferences.php:761
 msgid "Preferred format:"
 msgstr "Yeğlenen biçim:"
 
-#: src/Process/Backend/User.php:394 src/Process/Backend/UserPreferences.php:764
+#: src/Process/Backend/User.php:399 src/Process/Backend/UserPreferences.php:764
 msgid "Default entry status:"
 msgstr "Varsayılan yazı durumu:"
 
-#: src/Process/Backend/User.php:398 src/Process/Backend/UserPreferences.php:767
+#: src/Process/Backend/User.php:403 src/Process/Backend/UserPreferences.php:767
 msgid "Entry edit field height:"
 msgstr "Giriş düzenleme alanı yüksekliği:"
 
-#: src/Process/Backend/User.php:422
+#: src/Process/Backend/User.php:427
 msgid "Save and create another"
 msgstr "Kaydet ve başka bir tane oluştur"
 
-#: src/Process/Backend/User.php:433 src/Process/Backend/UsersActions.php:152
+#: src/Process/Backend/User.php:438 src/Process/Backend/UsersActions.php:152
 msgid "Permissions"
 msgstr "İzinler"
 
-#: src/Process/Backend/User.php:438
+#: src/Process/Backend/User.php:443
 msgid "Add new permissions"
 msgstr "Yeni izin ekle"
 
-#: src/Process/Backend/User.php:451
+#: src/Process/Backend/User.php:456
 msgid "No permissions so far."
 msgstr "Şimdilik izin yok."
 
-#: src/Process/Backend/User.php:484
+#: src/Process/Backend/User.php:489
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s süper yöneticidir (tüm bloglarda tüm haklara sahiptir)."
 
-#: src/Process/Backend/User.php:492
+#: src/Process/Backend/User.php:497
 msgid "Direct links"
 msgstr "Doğrudan bağlantılar"
 
-#: src/Process/Backend/User.php:496
+#: src/Process/Backend/User.php:501
 msgid "List of posts"
 msgstr "Gönderilerin listesi"
 
-#: src/Process/Backend/User.php:506
+#: src/Process/Backend/User.php:511
 msgid "List of comments"
 msgstr "Yorumların listesi"
 
@@ -5841,11 +5847,11 @@ msgstr "İzinleri doğrulayın"
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Lütfen yapılandırma dosyasında bir ana anahtar (DC_MASTER_KEY) ayarlayın."
 
-#: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:155
+#: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:156
 msgid "Dotclear is already installed."
 msgstr "Dotclear evvelce kurulmuş."
 
-#: src/Process/Install/Install.php:155 src/Process/Install/Wizard.php:149
+#: src/Process/Install/Install.php:155 src/Process/Install/Wizard.php:150
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear yüklenemez."
 
@@ -5957,106 +5963,106 @@ msgstr "<strong>%s</strong> yolu yazılabilir değil."
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
 msgstr "Dotclear kurulum sihirbazı sizin için yapılandırma dosyası oluşturamadı. Klasör hakkını değiştirmeli veya <strong>config.php</strong> dosyasını manuel olarak oluşturmalısınız, bunu nasıl yapacağınızı öğrenmek için lütfen <a href=\"https://dotclear.org/documentation/2.0/admin/install\">belgelerine</a> bakın."
 
-#: src/Process/Install/Wizard.php:131
+#: src/Process/Install/Wizard.php:132
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "\"%s\" dizini yazılamıyor."
 
-#: src/Process/Install/Wizard.php:159
+#: src/Process/Install/Wizard.php:160
 msgid "Master email is not valid."
 msgstr "Ana e-posta geçerli değil."
 
-#: src/Process/Install/Wizard.php:165
+#: src/Process/Install/Wizard.php:166
 #, php-format
 msgid "File %s does not exist."
 msgstr "%s dosyası mevcut değil."
 
-#: src/Process/Install/Wizard.php:170 src/Process/Install/Wizard.php:191
+#: src/Process/Install/Wizard.php:171 src/Process/Install/Wizard.php:206
 #, php-format
 msgid "Cannot write %s file."
 msgstr "%s dosyası yazılamadı."
 
-#: src/Process/Install/Wizard.php:234 src/Process/Install/Wizard.php:242
+#: src/Process/Install/Wizard.php:249 src/Process/Install/Wizard.php:257
 msgid "Dotclear installation wizard"
 msgstr "Dotclear kurulum sihirbazı"
 
-#: src/Process/Install/Wizard.php:248
+#: src/Process/Install/Wizard.php:263
 msgid "Welcome"
 msgstr "Hoş geldiniz"
 
-#: src/Process/Install/Wizard.php:249
+#: src/Process/Install/Wizard.php:264
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "Dotclear kurulumunuzu tamamlamak ve blogunuza yazmaya başlamak için veritabanınıza nasıl erişeceğinizi ve kim olduğunuzu bilmemiz yeterlidir. Bu iki adımlı sihirbazı bu bilgilerle doldurun ve işimiz bitsin."
 
-#: src/Process/Install/Wizard.php:252
+#: src/Process/Install/Wizard.php:267
 msgid "Attention:"
 msgstr "Dikkat:"
 
-#: src/Process/Install/Wizard.php:253
+#: src/Process/Install/Wizard.php:268
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr "bu sihirbaz her ana bilgisayarda çalışmayabilir. Sizin için çalışmazsa, <strong>config.php</strong> dosyasını manuel olarak nasıl oluşturacağınızı öğrenmek için lütfen <a href=\"https://dotclear.org/documentation/2.0/admin/install\"></a> belgelerine bakın."
 
-#: src/Process/Install/Wizard.php:260
+#: src/Process/Install/Wizard.php:275
 msgid "System information"
 msgstr "Sistem bilgisi"
 
-#: src/Process/Install/Wizard.php:262
+#: src/Process/Install/Wizard.php:277
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "Lütfen yapılandırma dosyanızı oluşturmak için gereken aşağıdaki bilgileri sağlayın."
 
-#: src/Process/Install/Wizard.php:266
+#: src/Process/Install/Wizard.php:281
 msgid "Database type:"
 msgstr "Veritabanı tipi:"
 
-#: src/Process/Install/Wizard.php:270
+#: src/Process/Install/Wizard.php:285
 msgid "MySQLi"
 msgstr "MySQLi"
 
-#: src/Process/Install/Wizard.php:271
+#: src/Process/Install/Wizard.php:286
 msgid "MySQLi (full UTF-8)"
 msgstr "MySQLi (tam UTF-8)"
 
-#: src/Process/Install/Wizard.php:272
+#: src/Process/Install/Wizard.php:287
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
-#: src/Process/Install/Wizard.php:273
+#: src/Process/Install/Wizard.php:288
 msgid "SQLite"
 msgstr "SQLite"
 
-#: src/Process/Install/Wizard.php:274
+#: src/Process/Install/Wizard.php:289
 msgid "Driver"
 msgstr "Sürücü"
 
-#: src/Process/Install/Wizard.php:276
+#: src/Process/Install/Wizard.php:291
 msgid "Database Host Name:"
 msgstr "Veritabanı Sunucu Adı:"
 
-#: src/Process/Install/Wizard.php:278
+#: src/Process/Install/Wizard.php:293
 msgid "Database Name:"
 msgstr "Veritabanı İsmi:"
 
-#: src/Process/Install/Wizard.php:280
+#: src/Process/Install/Wizard.php:295
 msgid "Database User Name:"
 msgstr "Veritabanı Kullanıcı İsmi:"
 
-#: src/Process/Install/Wizard.php:282
+#: src/Process/Install/Wizard.php:297
 msgid "Database Password:"
 msgstr "Veritabanı parolası:"
 
-#: src/Process/Install/Wizard.php:284
+#: src/Process/Install/Wizard.php:299
 msgid "Database Tables Prefix:"
 msgstr "Veritabanı tabloları öneki:"
 
-#: src/Process/Install/Wizard.php:287
+#: src/Process/Install/Wizard.php:302
 msgid "Prefix"
 msgstr "Önek"
 
-#: src/Process/Install/Wizard.php:290
+#: src/Process/Install/Wizard.php:305
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Ana E-posta: (şifre kurtarma için gönderen olarak kullanılır)"
 
-#: src/Process/Install/Wizard.php:298 src/Process/Upgrade/Digests.php:254
+#: src/Process/Install/Wizard.php:313 src/Process/Upgrade/Digests.php:254
 #: src/Process/Upgrade/Digests.php:275
 msgid "Continue"
 msgstr "Devam et"
@@ -6068,7 +6074,7 @@ msgstr "Devam et"
 #: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
 #: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
 #: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
-#: src/Process/Upgrade/Replay.php:80 src/Process/Upgrade/Upgrade.php:50
+#: src/Process/Upgrade/Replay.php:81 src/Process/Upgrade/Upgrade.php:50
 #: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
 #: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
 #: src/Process/Upgrade/Upgrade.php:293
@@ -6406,20 +6412,20 @@ msgstr "En son sürüm"
 msgid "Written for Dotclear"
 msgstr "Dotclear için yazıldı"
 
-#: src/Process/Upgrade/Replay.php:63
+#: src/Process/Upgrade/Replay.php:64
 #, php-format
 msgid "Grow up from version %s successfully replayed."
 msgstr "%s sürümünden büyüyün başarıyla tekrar oynatıldı."
 
-#: src/Process/Upgrade/Replay.php:81
+#: src/Process/Upgrade/Replay.php:82
 msgid "Replay update actions"
 msgstr "Yeniden oynatma güncelleme eylemleri"
 
-#: src/Process/Upgrade/Replay.php:99
+#: src/Process/Upgrade/Replay.php:100
 msgid "Replay grow up action from version:"
 msgstr "Sürümdeki büyüme eylemini tekrar oynatın:"
 
-#: src/Process/Upgrade/Replay.php:106
+#: src/Process/Upgrade/Replay.php:107
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
 msgstr "Son sürümden daha düşük bir sürümü yeniden oynatmak kurulumunuzu bozabilir, bunu kendi sorumluluğunuzda yapın."
 
