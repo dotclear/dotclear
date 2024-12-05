@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-25 07:54+0200\n"
-"PO-Revision-Date: 2024-10-25 05:58\n"
+"POT-Creation-Date: 2024-12-05 13:05+0100\n"
+"PO-Revision-Date: 2024-12-05 12:10\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -271,48 +271,48 @@ msgstr "संबंधित सेटिंग मिटाया"
 msgid "Failed to delete related settings"
 msgstr "संबंधित सेटिंग को मिटाने में असफल"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:38
+#: plugins/Uninstaller/src/Cleaner/Tables.php:39
 msgid "Tables"
 msgstr "तालिकाएँ"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:39
+#: plugins/Uninstaller/src/Cleaner/Tables.php:40
 msgid "All database tables of Dotclear"
 msgstr "डैटक्लियर के सभी डेटाबेस टेबलें"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:44
+#: plugins/Uninstaller/src/Cleaner/Tables.php:45
 msgid "delete selected tables"
 msgstr "चयनित टेबल मिटाएँ"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:45
+#: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "delete \"%s\" table"
 msgstr "\"%s\" तालिका हटाएँ"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:46
+#: plugins/Uninstaller/src/Cleaner/Tables.php:47
 #, php-format
 msgid "\"%s\" table deleted"
 msgstr "\"%s\" तालिका हटाई गई"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:47
+#: plugins/Uninstaller/src/Cleaner/Tables.php:48
 #, php-format
 msgid "Failed to delete \"%s\" table"
 msgstr "\"%s\" तालिका हटाने में विफल"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:53
+#: plugins/Uninstaller/src/Cleaner/Tables.php:54
 msgid "empty selected tables"
 msgstr "खाली चयनित टेबल"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:54
+#: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "empty \"%s\" table"
 msgstr "रिक्त \"%s\" तालिका"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:55
+#: plugins/Uninstaller/src/Cleaner/Tables.php:56
 #, php-format
 msgid "\"%s\" table emptied"
 msgstr "\"%s\" तालिका रिक्त"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:56
+#: plugins/Uninstaller/src/Cleaner/Tables.php:57
 #, php-format
 msgid "Failed to empty \"%s\" table"
 msgstr "\"%s\" तालिका खाली करने में विफल"
@@ -482,7 +482,7 @@ msgid "Uninstall cleanly plugins and themes"
 msgstr "सफाई प्लगइन्स और थीम को अनइंस्टॉल करें"
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
-#: plugins/dcLegacyEditor/src/Backend.php:24
+#: plugins/dcLegacyEditor/src/Backend.php:25
 msgid "dotclear legacy editor"
 msgstr "डॉटकॉम स्पष्ट विरासत संपादक"
 
@@ -669,16 +669,16 @@ msgstr "अपने स्वयं के एपीआई कुंजी प�
 msgid "Akismet"
 msgstr "आइस्मेट"
 
-#: plugins/antispam/src/Antispam.php:145
+#: plugins/antispam/src/Antispam.php:146
 msgid "This comment is a spam:"
 msgstr "यह टिप्पणी एक स्पैम है:"
 
-#: plugins/antispam/src/Antispam.php:162 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(%d स्पैम टिप्पणी सहित)"
 
-#: plugins/antispam/src/Antispam.php:162 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(%d स्पैम टिप्पणियों सहित)"
@@ -710,68 +710,68 @@ msgstr "सेट -1 इस सुविधा को अक्षम करन�
 msgid "Set spam filters."
 msgstr "स्पैम फ़िल्टर सेट करें."
 
-#: plugins/antispam/src/Filters/Ip.php:90
+#: plugins/antispam/src/Filters/Ip.php:91
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "आईपी ब्लॉकलिस्ट/अनुमति सूची फिल्टर"
 
-#: plugins/antispam/src/Filters/Ip.php:103
-#: plugins/antispam/src/Filters/IpV6.php:103
+#: plugins/antispam/src/Filters/Ip.php:104
+#: plugins/antispam/src/Filters/IpV6.php:104
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
 msgstr "नियम %2$s के साथ %1$s द्वारा फ़िल्टर किया गया."
 
-#: plugins/antispam/src/Filters/Ip.php:164
-#: plugins/antispam/src/Filters/IpV6.php:164
+#: plugins/antispam/src/Filters/Ip.php:165
+#: plugins/antispam/src/Filters/IpV6.php:165
 msgid "IP address has been successfully added."
 msgstr "आईपी पता सफलतापूर्वक जोड़ा गया है."
 
-#: plugins/antispam/src/Filters/Ip.php:175
-#: plugins/antispam/src/Filters/IpV6.php:175
+#: plugins/antispam/src/Filters/Ip.php:176
+#: plugins/antispam/src/Filters/IpV6.php:176
 msgid "IP addresses have been successfully removed."
 msgstr "आईपी पता सफलतापूर्वक हटा दिया गया है."
 
-#: plugins/antispam/src/Filters/Ip.php:184
-#: plugins/antispam/src/Filters/IpV6.php:184
+#: plugins/antispam/src/Filters/Ip.php:185
+#: plugins/antispam/src/Filters/IpV6.php:185
 msgid "Blocklist"
 msgstr "ब्लॉकसूची"
 
-#: plugins/antispam/src/Filters/Ip.php:185
-#: plugins/antispam/src/Filters/IpV6.php:185
+#: plugins/antispam/src/Filters/Ip.php:186
+#: plugins/antispam/src/Filters/IpV6.php:186
 msgid "Allowlist"
 msgstr "स्वीकार्य सूची"
 
-#: plugins/antispam/src/Filters/Ip.php:202
-#: plugins/antispam/src/Filters/IpV6.php:202
+#: plugins/antispam/src/Filters/Ip.php:203
+#: plugins/antispam/src/Filters/IpV6.php:203
 msgid "No IP address in list."
 msgstr "कोई आईपी पता सूची में नहीं है."
 
-#: plugins/antispam/src/Filters/Ip.php:231
-#: plugins/antispam/src/Filters/IpV6.php:230
+#: plugins/antispam/src/Filters/Ip.php:232
+#: plugins/antispam/src/Filters/IpV6.php:231
 msgid "Local IPs (used only for this blog)"
 msgstr "स्थानीय वीआईपी (केवल इस ब्लॉग के लिए इस्तेमाल किया)"
 
-#: plugins/antispam/src/Filters/Ip.php:239
-#: plugins/antispam/src/Filters/IpV6.php:238
+#: plugins/antispam/src/Filters/Ip.php:240
+#: plugins/antispam/src/Filters/IpV6.php:239
 msgid "Global IPs (used for all blogs)"
 msgstr "वैश्विक बीमाकृत (सभी ब्लॉग के लिए प्रयुक्त)"
 
-#: plugins/antispam/src/Filters/Ip.php:250
-#: plugins/antispam/src/Filters/IpV6.php:249
+#: plugins/antispam/src/Filters/Ip.php:251
+#: plugins/antispam/src/Filters/IpV6.php:250
 msgid "IP list"
 msgstr "आईपी सूची"
 
-#: plugins/antispam/src/Filters/Ip.php:266
-#: plugins/antispam/src/Filters/IpV6.php:265
+#: plugins/antispam/src/Filters/Ip.php:267
+#: plugins/antispam/src/Filters/IpV6.php:266
 msgid "Global IP (used for all blogs)"
 msgstr "वैश्विक आईपी (सभी ब्लॉग के लिए प्रयुक्त)"
 
-#: plugins/antispam/src/Filters/Ip.php:283
-#: plugins/antispam/src/Filters/IpV6.php:282
+#: plugins/antispam/src/Filters/Ip.php:284
+#: plugins/antispam/src/Filters/IpV6.php:283
 msgid "Add an IP address:"
 msgstr "IP पता जोड़ें:"
 
-#: plugins/antispam/src/Filters/Ip.php:287
-#: plugins/antispam/src/Filters/IpV6.php:286
+#: plugins/antispam/src/Filters/Ip.php:288
+#: plugins/antispam/src/Filters/IpV6.php:287
 #: plugins/antispam/src/Filters/Words.php:304
 #: plugins/widgets/src/Manage.php:319
 msgid "Add"
@@ -799,7 +799,7 @@ msgstr "आईपी लुकअप सर्वर"
 msgid "Add here a coma separated list of servers."
 msgstr "यहाँ एक कोमा से अलग सर्वर की सूची जोड़ें."
 
-#: plugins/antispam/src/Filters/IpV6.php:90
+#: plugins/antispam/src/Filters/IpV6.php:91
 msgid "IP v6 Blocklist / Allowlist Filter"
 msgstr "आईपी v6 Blocklist/अनुमति सूची फिल्टर"
 
@@ -970,7 +970,7 @@ msgstr "कोई विवरण नहीं"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "%1$s (%2$s) द्वारा फ़िल्टर किया गया"
 
-#: plugins/antispam/src/SpamFilters.php:158
+#: plugins/antispam/src/SpamFilters.php:159
 msgid "Unknown filter."
 msgstr "अज्ञात फ़िल्टर."
 
@@ -1081,7 +1081,7 @@ msgid "OPML or XBEL File:"
 msgstr "ओपीएमएल या एक्सबीएल फ़ाइल:"
 
 #: plugins/blogroll/src/Manage.php:534 plugins/blogroll/src/Manage.php:599
-#: plugins/importExport/src/Manage.php:129
+#: plugins/importExport/src/Manage.php:130
 #: plugins/importExport/src/ModuleImportFeed.php:244
 #: plugins/importExport/src/ModuleImportFlat.php:244
 #: plugins/importExport/src/ModuleImportFlat.php:306
@@ -1274,7 +1274,7 @@ msgstr "ब्रेडक्रम्ब को &lt;p id=\"breadcrumb\"&gt;...&
 #: plugins/breadcrumb/src/FrontendTemplate.php:198
 #: plugins/breadcrumb/src/FrontendTemplate.php:210
 #: plugins/breadcrumb/src/FrontendTemplate.php:216
-#: plugins/simpleMenu/src/Manage.php:142 plugins/simpleMenu/src/Manage.php:253
+#: plugins/simpleMenu/src/Manage.php:144 plugins/simpleMenu/src/Manage.php:255
 #: plugins/widgets/src/Widgets.php:271
 msgid "Home"
 msgstr "घर"
@@ -1289,13 +1289,13 @@ msgstr "पृष्ठ %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:160
 #: plugins/breadcrumb/src/FrontendTemplate.php:163
-#: plugins/simpleMenu/src/Manage.php:280 plugins/widgets/src/Widgets.php:288
+#: plugins/simpleMenu/src/Manage.php:282 plugins/widgets/src/Widgets.php:288
 msgid "Archives"
 msgstr "अभिलेखागार"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:179
 #: plugins/breadcrumb/src/FrontendTemplate.php:186
-#: plugins/simpleMenu/src/Manage.php:126 plugins/simpleMenu/src/Manage.php:300
+#: plugins/simpleMenu/src/Manage.php:128 plugins/simpleMenu/src/Manage.php:302
 #: plugins/tags/src/Widgets.php:56
 msgid "All tags"
 msgstr "सभी टैग"
@@ -1325,7 +1325,7 @@ msgid "dcCKEditor"
 msgstr "डीसीकेएडीटर"
 
 #: plugins/dcCKEditor/src/Backend.php:39
-#: plugins/dcLegacyEditor/src/Backend.php:43
+#: plugins/dcLegacyEditor/src/Backend.php:44
 msgid "HTML"
 msgstr "एचटीएमएल"
 
@@ -1455,20 +1455,16 @@ msgstr "अंतर्निहित वर्तनी जाँचकर्�
 
 #: plugins/dcCKEditor/src/Manage.php:320
 #: plugins/dcLegacyEditor/src/Manage.php:110
-#: plugins/simpleMenu/src/Manage.php:749
+#: plugins/simpleMenu/src/Manage.php:760
 msgid "Save configuration"
 msgstr "कॉन्फ़िगरेशन सहेजें"
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:234
-msgid "Note(s)"
-msgstr "नोट (ओं)"
-
-#: plugins/dcLegacyEditor/src/Backend.php:24
+#: plugins/dcLegacyEditor/src/Backend.php:25
 #: plugins/dcLegacyEditor/src/Manage.php:72
 msgid "dcLegacyEditor"
 msgstr "DclegacyEds"
 
-#: plugins/dcLegacyEditor/src/Backend.php:47
+#: plugins/dcLegacyEditor/src/Backend.php:48
 msgid "Dotclear wiki"
 msgstr "साफ-साफ विकि"
 
@@ -1619,7 +1615,7 @@ msgstr "फ़ाइल संपीडित करें"
 msgid "Download database of all blogs"
 msgstr "सभी ब्लॉग का डेटाबेस डाउनलोड करें"
 
-#: plugins/importExport/src/FlatBackup.php:49
+#: plugins/importExport/src/FlatBackup.php:50
 msgid "No file to read."
 msgstr "पढ़ने के लिए कोई फ़ाइल नहीं."
 
@@ -1654,23 +1650,23 @@ msgstr "फ़ाइल पूर्ण निर्यात नहीं ह�
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "\"%3$s\" की आईडी बैकअप फ़ाइल की पंक्ति %2$s पर रिकॉर्ड \"%1$s\" से मेल नहीं खाती।"
 
-#: plugins/importExport/src/Manage.php:89
-#: plugins/maintenance/src/Manage.php:186
+#: plugins/importExport/src/Manage.php:90
+#: plugins/maintenance/src/Manage.php:187
 msgid "Please wait..."
 msgstr "कृपया प्रतीक्षा करें ..."
 
-#: plugins/importExport/src/Manage.php:135
+#: plugins/importExport/src/Manage.php:136
 msgid "Export"
 msgstr "निर्यात"
 
-#: plugins/importExport/src/Manage.php:140
+#: plugins/importExport/src/Manage.php:141
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "निर्यात फ़ंक्शंस पृष्ठ %s में हैं."
 
-#: plugins/importExport/src/Manage.php:143
+#: plugins/importExport/src/Manage.php:144
 #: plugins/maintenance/src/Backend.php:24
-#: plugins/maintenance/src/BackendBehaviors.php:189
+#: plugins/maintenance/src/BackendBehaviors.php:190
 msgid "Maintenance"
 msgstr "अनुरक्षण"
 
@@ -1706,99 +1702,99 @@ msgstr "निर्यात फ़ाइल नहीं मिला."
 msgid "Failed to compress export file."
 msgstr "निर्यात फ़ाइल को संपीडित करने में विफल."
 
-#: plugins/importExport/src/ModuleImportDc1.php:83
+#: plugins/importExport/src/ModuleImportDc1.php:84
 msgid "Dotclear 1.2 import"
 msgstr "डॉटकॉम साफ 1.2 आयात"
 
-#: plugins/importExport/src/ModuleImportDc1.php:84
+#: plugins/importExport/src/ModuleImportDc1.php:85
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "अपने मौजूदा ब्लॉग में एक Dotbd 1.2 अधिष्ठापन आयात करें."
 
-#: plugins/importExport/src/ModuleImportDc1.php:203
+#: plugins/importExport/src/ModuleImportDc1.php:204
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "वर्तमान ब्लॉग में Dotclear 1.2 के ब्लॉग की सामग्री आयात करें: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:211
-#: plugins/importExport/src/ModuleImportWp.php:240
+#: plugins/importExport/src/ModuleImportDc1.php:212
+#: plugins/importExport/src/ModuleImportWp.php:241
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "कृपया ध्यान दें कि यह प्रक्रिया आपके श्रेणियों, ब्लॉगनेप, प्रविष्टियों और वर्तमान ब्लॉग पर टिप्पणियों को खाली कर देगी."
 
-#: plugins/importExport/src/ModuleImportDc1.php:218
+#: plugins/importExport/src/ModuleImportDc1.php:219
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "हम पहली बार अपने पुराने Dotold 1.2 अधिष्ठापन के बारे में कुछ जानकारी की जरूरत है."
 
-#: plugins/importExport/src/ModuleImportDc1.php:225
+#: plugins/importExport/src/ModuleImportDc1.php:226
 msgid "Database driver:"
 msgstr "डाटाबेस ड्राइवरः"
 
-#: plugins/importExport/src/ModuleImportDc1.php:267
-#: plugins/importExport/src/ModuleImportWp.php:289
+#: plugins/importExport/src/ModuleImportDc1.php:268
+#: plugins/importExport/src/ModuleImportWp.php:290
 msgid "Entries import options"
 msgstr "प्रविष्टियों का आयात विकल्प"
 
-#: plugins/importExport/src/ModuleImportDc1.php:272
-#: plugins/importExport/src/ModuleImportWp.php:334
+#: plugins/importExport/src/ModuleImportDc1.php:273
+#: plugins/importExport/src/ModuleImportWp.php:335
 msgid "Number of entries to import at once:"
 msgstr "प्रविष्टियों की संख्या जो एक बार में आयात करने के लिए:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:278
-#: plugins/importExport/src/ModuleImportWp.php:359
+#: plugins/importExport/src/ModuleImportDc1.php:279
+#: plugins/importExport/src/ModuleImportWp.php:360
 msgid "General information"
 msgstr "सामान्य जानकारी"
 
-#: plugins/importExport/src/ModuleImportDc1.php:278
-#: plugins/importExport/src/ModuleImportWp.php:359
+#: plugins/importExport/src/ModuleImportDc1.php:279
+#: plugins/importExport/src/ModuleImportWp.php:360
 msgid "Import my blog now"
 msgstr "मेरा ब्लॉग आयात करें अब"
 
-#: plugins/importExport/src/ModuleImportDc1.php:285
-#: plugins/importExport/src/ModuleImportWp.php:366
+#: plugins/importExport/src/ModuleImportDc1.php:286
+#: plugins/importExport/src/ModuleImportWp.php:367
 msgid "Importing users"
 msgstr "उपयोक्ता आयात करें"
 
-#: plugins/importExport/src/ModuleImportDc1.php:292
-#: plugins/importExport/src/ModuleImportWp.php:373
+#: plugins/importExport/src/ModuleImportDc1.php:293
+#: plugins/importExport/src/ModuleImportWp.php:374
 msgid "Importing categories"
 msgstr "श्रेणी आयात करें"
 
-#: plugins/importExport/src/ModuleImportDc1.php:299
-#: plugins/importExport/src/ModuleImportWp.php:380
+#: plugins/importExport/src/ModuleImportDc1.php:300
+#: plugins/importExport/src/ModuleImportWp.php:381
 msgid "Importing blogroll"
 msgstr "ब्लूमग्रोल आयात करें"
 
-#: plugins/importExport/src/ModuleImportDc1.php:306
-#: plugins/importExport/src/ModuleImportWp.php:387
+#: plugins/importExport/src/ModuleImportDc1.php:307
+#: plugins/importExport/src/ModuleImportWp.php:388
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "%d से %d / %d में प्रविष्टियाँ आयात करना"
 
-#: plugins/importExport/src/ModuleImportDc1.php:321
-#: plugins/importExport/src/ModuleImportWp.php:402
+#: plugins/importExport/src/ModuleImportDc1.php:322
+#: plugins/importExport/src/ModuleImportWp.php:403
 msgid "Please read carefully"
 msgstr "कृपया ध्यान से पढ़ें"
 
-#: plugins/importExport/src/ModuleImportDc1.php:323
-#: plugins/importExport/src/ModuleImportWp.php:405
+#: plugins/importExport/src/ModuleImportDc1.php:324
+#: plugins/importExport/src/ModuleImportWp.php:406
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "हर नए आयातित उपयोगकर्ता को एक यादृच्छिक पासवर्ड मिला है और \"मैं अपना पासवर्ड भूल गया\" लॉगिन पेज पर लिंक (उनके पंजीकृत ईमेल पता वैध होने के लिए) के बाद से एक नया के लिए पूछने के लिए की जरूरत होगी."
 
-#: plugins/importExport/src/ModuleImportDc1.php:325
+#: plugins/importExport/src/ModuleImportDc1.php:326
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "कृपया ध्यान दें कि डॉटक्लियर 2 में एक नया यूआरएल लेआउट है। आप <a href=\"%s\">DC1 रीडायरेक्ट प्लगइन स्थापित करके टूटी हुई कड़ियों से बच सकते हैं</a> और उसे अपने ब्लॉग कॉन्फ़िगरेशन में सक्रिय कर सकते हैं."
 
-#: plugins/importExport/src/ModuleImportDc1.php:350
-#: plugins/importExport/src/ModuleImportWp.php:429
+#: plugins/importExport/src/ModuleImportDc1.php:351
+#: plugins/importExport/src/ModuleImportWp.php:430
 msgid "next step"
 msgstr "अगला कदम"
 
-#: plugins/importExport/src/ModuleImportDc1.php:368
-#: plugins/importExport/src/ModuleImportWp.php:447
+#: plugins/importExport/src/ModuleImportDc1.php:369
+#: plugins/importExport/src/ModuleImportWp.php:448
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "अपने ब्लॉग के आकार पर निर्भर करता है, यह कुछ मिनट लग सकता है."
 
-#: plugins/importExport/src/ModuleImportDc1.php:396
+#: plugins/importExport/src/ModuleImportDc1.php:397
 msgid "Dotclear tables not found"
 msgstr "डॉटकॉम साफ टेबल नहीं मिला"
 
@@ -1899,120 +1895,120 @@ msgstr "बैकअप फ़ाइल निकालने में वि�
 msgid "No backup in compressed file."
 msgstr "संकुचित फ़ाइल में कोई बैकअप नहीं."
 
-#: plugins/importExport/src/ModuleImportWp.php:110
+#: plugins/importExport/src/ModuleImportWp.php:111
 msgid "WordPress import"
 msgstr "वर्डप्रेस आयात"
 
-#: plugins/importExport/src/ModuleImportWp.php:111
+#: plugins/importExport/src/ModuleImportWp.php:112
 msgid "Import a WordPress installation into your current blog."
 msgstr "अपने मौजूदा ब्लॉग में वर्डप्रेस अधिष्ठापन आयात करें."
 
-#: plugins/importExport/src/ModuleImportWp.php:232
+#: plugins/importExport/src/ModuleImportWp.php:233
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "यह आपकी वर्डप्रेस सामग्री को वर्तमान ब्लॉग में नई सामग्री के रूप में आयात करेगा: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:247
+#: plugins/importExport/src/ModuleImportWp.php:248
 msgid "We first need some information about your old WordPress installation."
 msgstr "हम पहली बार अपने पुराने वर्डप्रेस अधिष्ठापन के बारे में कुछ जानकारी की जरूरत है."
 
-#: plugins/importExport/src/ModuleImportWp.php:297
+#: plugins/importExport/src/ModuleImportWp.php:298
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "वर्डप्रेस और डीओटेड की श्रेणियों की हैंडलिंग काफी अलग है। आप वर्डप्रेस में कई श्रेणियों को एक ही पोस्ट में नियुक्त कर सकते हैं. दुसाफ दुनिया में, हम इसे अधिक \"एक श्रेणी, कई टैग की तरह देखते हैं.\" इसलिए डॉटकॉम स्पष्ट रूप से एक श्रेणी प्रति पद का आयात कर सकता है और सबसे कम गिने जाने वाले व्यक्ति को चुना जाएगा. यदि आप प्रत्येक श्रेणी का एक ट्रेस रखना चाहते हैं, तो आप उन्हें टैग के रूप में आयात कर सकते हैं, एक वैकल्पिक उपसर्ग के साथ."
 
-#: plugins/importExport/src/ModuleImportWp.php:299
+#: plugins/importExport/src/ModuleImportWp.php:300
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "दूसरी ओर, वर्डप्रेस में, किसी पोस्ट को वर्गीकृत नहीं किया जा सकता है, और डिफ़ॉल्ट इंस्टॉलेशन में पहली श्रेणी <i>\"अवर्गीकृत\"</i> लेबल की गई होती है। यदि आपने उस श्रेणी को नहीं बदला है, तो आप अपने ब्लॉग को आयात करते समय इसे अनदेखा कर सकते हैं, क्योंकि डॉटक्लियर आपको वास्तव में अपनी पोस्ट को वर्गीकृत नहीं रखने देता है।"
 
-#: plugins/importExport/src/ModuleImportWp.php:308
+#: plugins/importExport/src/ModuleImportWp.php:309
 msgid "Ignore the first category:"
 msgstr "पहली श्रेणी की उपेक्षा करें:"
 
-#: plugins/importExport/src/ModuleImportWp.php:314
+#: plugins/importExport/src/ModuleImportWp.php:315
 msgid "Import lowest numbered category on posts:"
 msgstr "पदों पर सबसे कम संख्यांकित श्रेणी का आयात करें:"
 
-#: plugins/importExport/src/ModuleImportWp.php:320
+#: plugins/importExport/src/ModuleImportWp.php:321
 msgid "Import all categories as tags:"
 msgstr "टैग की तरह सभी श्रेणियों को आयात करें:"
 
-#: plugins/importExport/src/ModuleImportWp.php:328
+#: plugins/importExport/src/ModuleImportWp.php:329
 msgid "Prefix such tags with:"
 msgstr "के साथ इस तरह के टैग उपसर्ग:"
 
-#: plugins/importExport/src/ModuleImportWp.php:338
+#: plugins/importExport/src/ModuleImportWp.php:339
 msgid "Content filters"
 msgstr "सामग्री फिल्टर"
 
-#: plugins/importExport/src/ModuleImportWp.php:340
+#: plugins/importExport/src/ModuleImportWp.php:341
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "आप निम्नलिखित फ़िल्टर के साथ अपने पोस्ट और/या टिप्पणी सामग्री की प्रक्रिया करने के लिए चाहते हो सकता है."
 
-#: plugins/importExport/src/ModuleImportWp.php:346
+#: plugins/importExport/src/ModuleImportWp.php:347
 msgid "Post content formatter:"
 msgstr "पोस्ट सामग्री फार्मेटर:"
 
-#: plugins/importExport/src/ModuleImportWp.php:353
+#: plugins/importExport/src/ModuleImportWp.php:354
 msgid "Comment content formatter:"
 msgstr "टिप्पणी सामग्री फार्मेटर:"
 
-#: plugins/importExport/src/ModuleImportWp.php:475
+#: plugins/importExport/src/ModuleImportWp.php:476
 msgid "WordPress tables not found"
 msgstr "वर्डप्रेस टेबल नहीं मिला"
 
-#: plugins/maintenance/src/BackendBehaviors.php:48
+#: plugins/maintenance/src/BackendBehaviors.php:49
 msgid "Servicing"
 msgstr "सर्विसिंग"
 
-#: plugins/maintenance/src/BackendBehaviors.php:48
+#: plugins/maintenance/src/BackendBehaviors.php:49
 msgid "Tools to maintain the performance of your blogs."
 msgstr "अपने ब्लॉग के प्रदर्शन को बनाए रखने के लिए उपकरण."
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
+#: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Backup"
 msgstr "बैकअप"
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
+#: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Tools to back up your content."
 msgstr "अपनी सामग्री को वापस करने के लिए उपकरण."
 
-#: plugins/maintenance/src/BackendBehaviors.php:50
+#: plugins/maintenance/src/BackendBehaviors.php:51
 msgid "Development"
 msgstr "विकास"
 
-#: plugins/maintenance/src/BackendBehaviors.php:50
+#: plugins/maintenance/src/BackendBehaviors.php:51
 msgid "Tools to assist in development of plugins, themes and core."
 msgstr "प्लगइन, थीम और कोर के विकास में सहायता करने के लिए उपकरण."
 
-#: plugins/maintenance/src/BackendBehaviors.php:52
+#: plugins/maintenance/src/BackendBehaviors.php:53
 msgid "Optimize"
 msgstr "अनुकूलित करें"
 
-#: plugins/maintenance/src/BackendBehaviors.php:53
+#: plugins/maintenance/src/BackendBehaviors.php:54
 msgid "Count and index"
 msgstr "गिनती और सूचकांक"
 
-#: plugins/maintenance/src/BackendBehaviors.php:54
+#: plugins/maintenance/src/BackendBehaviors.php:55
 msgid "Purge"
 msgstr "शुद्धिकरण"
 
-#: plugins/maintenance/src/BackendBehaviors.php:56
+#: plugins/maintenance/src/BackendBehaviors.php:57
 msgid "Current blog"
 msgstr "वर्तमान ब्लॉग"
 
-#: plugins/maintenance/src/BackendBehaviors.php:57
+#: plugins/maintenance/src/BackendBehaviors.php:58
 msgid "All blogs"
 msgstr "सभी ब्लॉग"
 
-#: plugins/maintenance/src/BackendBehaviors.php:59
+#: plugins/maintenance/src/BackendBehaviors.php:60
 msgid "Maintain translations"
 msgstr "अनुवाद बनाए रखें"
 
-#: plugins/maintenance/src/BackendBehaviors.php:59
+#: plugins/maintenance/src/BackendBehaviors.php:60
 msgid "Translations"
 msgstr "अनुवाद"
 
-#: plugins/maintenance/src/BackendBehaviors.php:135
+#: plugins/maintenance/src/BackendBehaviors.php:136
 #: plugins/maintenance/src/Rest.php:75
 #, php-format
 msgid "One task to execute"
@@ -2020,33 +2016,33 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "निष्पादित करने के लिए एक कार्य"
 msgstr[1] "निष्पादित करने के लिए %s कार्य"
 
-#: plugins/maintenance/src/BackendBehaviors.php:171
-#: plugins/maintenance/src/Manage.php:291
+#: plugins/maintenance/src/BackendBehaviors.php:172
+#: plugins/maintenance/src/Manage.php:292
 msgid "This task has never been executed."
 msgstr "यह कार्य कभी निष्पादित नहीं किया गया है."
 
-#: plugins/maintenance/src/BackendBehaviors.php:174
-#: plugins/maintenance/src/Manage.php:294
+#: plugins/maintenance/src/BackendBehaviors.php:175
+#: plugins/maintenance/src/Manage.php:295
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "इस कार्य का अंतिम निष्पादन %s पर था."
 
-#: plugins/maintenance/src/BackendBehaviors.php:192
+#: plugins/maintenance/src/BackendBehaviors.php:193
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "निष्पादित करने के लिए एक कार्य है."
 msgstr[1] "निष्पादित करने के लिए %s कार्य हैं."
 
-#: plugins/maintenance/src/BackendBehaviors.php:199
+#: plugins/maintenance/src/BackendBehaviors.php:200
 msgid "Manage tasks"
 msgstr "कार्य प्रबंधित करें"
 
-#: plugins/maintenance/src/BackendBehaviors.php:221
+#: plugins/maintenance/src/BackendBehaviors.php:222
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "रखरखाव डैशबोर्ड प्रतीक पर अतिदेय कार्य काउंटर दिखाएँ"
 
-#: plugins/maintenance/src/BackendBehaviors.php:227
+#: plugins/maintenance/src/BackendBehaviors.php:228
 msgid "Display overdue tasks list on dashboard items"
 msgstr "डैशबोर्ड मद पर अतिदेय कार्य सूची को प्रदर्शित करें"
 
@@ -2058,107 +2054,107 @@ msgstr "कार्य निष्पादित करने में व�
 msgid "Task successfully executed."
 msgstr "कार्य सफलतापूर्वक निष्पादित किया."
 
-#: plugins/maintenance/src/Manage.php:129
+#: plugins/maintenance/src/Manage.php:130
 msgid "Maintenance plugin has been successfully configured."
 msgstr "रखरखाव प्लगिन सफलतापूर्वक विन्यस्त किया गया है."
 
-#: plugins/maintenance/src/Manage.php:147
+#: plugins/maintenance/src/Manage.php:148
 msgid "System settings have been saved."
 msgstr "सिस्टम सेटिंग सहेजा गया है."
 
-#: plugins/maintenance/src/Manage.php:152
+#: plugins/maintenance/src/Manage.php:153
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "सभी ब्लॉग की सामग्री-सुरक्षा-नीति सेटिंग्स डिफ़ॉल्ट रूप से रीसेट कर दिया गया है."
 
-#: plugins/maintenance/src/Manage.php:174
+#: plugins/maintenance/src/Manage.php:175
 msgid "Every week"
 msgstr "हर सप्ताह"
 
-#: plugins/maintenance/src/Manage.php:175
+#: plugins/maintenance/src/Manage.php:176
 msgid "Every two weeks"
 msgstr "हर दो सप्ताह"
 
-#: plugins/maintenance/src/Manage.php:176
+#: plugins/maintenance/src/Manage.php:177
 msgid "Every month"
 msgstr "हर महीने"
 
-#: plugins/maintenance/src/Manage.php:177
+#: plugins/maintenance/src/Manage.php:178
 msgid "Every two months"
 msgstr "हर दो महीने"
 
-#: plugins/maintenance/src/Manage.php:203
+#: plugins/maintenance/src/Manage.php:204
 msgid "You have not sufficient permissions to view this page."
 msgstr "इस पृष्ठ को देखने के लिए आपके पास पर्याप्त अनुमतियाँ नहीं हैं."
 
-#: plugins/maintenance/src/Manage.php:291
-#: plugins/maintenance/src/Manage.php:297
+#: plugins/maintenance/src/Manage.php:292
+#: plugins/maintenance/src/Manage.php:298
 msgid "You should execute it now."
 msgstr "आप इसे अब चलाना चाहिए."
 
-#: plugins/maintenance/src/Manage.php:333
-#: plugins/maintenance/src/Manage.php:367
+#: plugins/maintenance/src/Manage.php:334
+#: plugins/maintenance/src/Manage.php:368
 msgid "Execute task"
 msgstr "कार्य निष्पादित करें"
 
-#: plugins/maintenance/src/Manage.php:338
+#: plugins/maintenance/src/Manage.php:339
 msgid "This may take a very long time."
 msgstr "यह बहुत लंबा समय ले सकता है."
 
-#: plugins/maintenance/src/Manage.php:398
-#: plugins/maintenance/src/Manage.php:400
+#: plugins/maintenance/src/Manage.php:399
+#: plugins/maintenance/src/Manage.php:401
 msgid "Alert settings"
 msgstr "चेतावनी सेटिंग्स"
 
-#: plugins/maintenance/src/Manage.php:402
+#: plugins/maintenance/src/Manage.php:403
 msgid "Activation"
 msgstr "सक्रियकरण"
 
-#: plugins/maintenance/src/Manage.php:408
+#: plugins/maintenance/src/Manage.php:409
 msgid "Display alert messages on late tasks"
 msgstr "देर के कार्यों पर चेतावनी संदेश प्रदर्शित करें"
 
-#: plugins/maintenance/src/Manage.php:413
+#: plugins/maintenance/src/Manage.php:414
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "आप अपने %s पर देर से कार्यों की सूची रख सकते हैं."
 
-#: plugins/maintenance/src/Manage.php:418
+#: plugins/maintenance/src/Manage.php:419
 msgid "Frequency"
 msgstr "आवृत्ति"
 
-#: plugins/maintenance/src/Manage.php:426
+#: plugins/maintenance/src/Manage.php:427
 msgid "Use one recall time for all tasks"
 msgstr "सभी कार्यों के लिए एक याद करने का समय उपयोग करें"
 
-#: plugins/maintenance/src/Manage.php:436
+#: plugins/maintenance/src/Manage.php:437
 msgid "Recall time for all tasks:"
 msgstr "सभी कार्यों के लिए समय याद करें:"
 
-#: plugins/maintenance/src/Manage.php:445
+#: plugins/maintenance/src/Manage.php:446
 msgid "Use one recall time per task"
 msgstr "एक याद करें समय प्रति कार्य का उपयोग करें"
 
-#: plugins/maintenance/src/Manage.php:475
+#: plugins/maintenance/src/Manage.php:476
 msgid "Content-Security-Policy"
 msgstr "सामग्री-सुरक्षा-नीति"
 
-#: plugins/maintenance/src/Manage.php:487
+#: plugins/maintenance/src/Manage.php:488
 msgid "Enable Content-Security-Policy system"
 msgstr "सामग्री सुरक्षा-नीति प्रणाली सक्षम करें"
 
-#: plugins/maintenance/src/Manage.php:493
+#: plugins/maintenance/src/Manage.php:494
 msgid "Enable Content-Security-Policy report only"
 msgstr "सामग्री-सुरक्षा-नीति की रिपोर्ट सक्षम करें"
 
-#: plugins/maintenance/src/Manage.php:503
+#: plugins/maintenance/src/Manage.php:504
 msgid "Enable Content-Security-Policy system by default"
 msgstr "डिफ़ॉल्ट रूप से सामग्री-सुरक्षा-नीति प्रणाली सक्षम करें"
 
-#: plugins/maintenance/src/Manage.php:509
+#: plugins/maintenance/src/Manage.php:510
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "सामग्री-सुरक्षा-नीति की रिपोर्ट केवल तयशुदा से सक्रिय करें"
 
-#: plugins/maintenance/src/Manage.php:515
+#: plugins/maintenance/src/Manage.php:516
 msgid "Also apply these settings to all blogs"
 msgstr "इन सेटिंग्स को सभी ब्लॉगों में भी लागू करें"
 
@@ -2348,7 +2344,7 @@ msgid "%d pages"
 msgstr "%d पृष्ठ"
 
 #: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:147
-#: plugins/pages/src/ManagePage.php:105 plugins/pages/src/ManagePage.php:837
+#: plugins/pages/src/ManagePage.php:105 plugins/pages/src/ManagePage.php:839
 msgid "New page"
 msgstr "नया पृष्ठ"
 
@@ -2425,56 +2421,56 @@ msgstr "पृष्ठ क्रम सहेजें"
 msgid "This page does not exist."
 msgstr "यह पृष्ठ मौजूद नहीं है."
 
-#: plugins/pages/src/ManagePage.php:183 plugins/pages/src/ManagePage.php:837
-#: plugins/pages/src/ManagePage.php:858
+#: plugins/pages/src/ManagePage.php:183 plugins/pages/src/ManagePage.php:839
+#: plugins/pages/src/ManagePage.php:860
 msgid "Edit page"
 msgstr "पृष्ठ संपादित करें"
 
-#: plugins/pages/src/ManagePage.php:461
+#: plugins/pages/src/ManagePage.php:463
 msgid "Are you sure you want to delete this page?"
 msgstr "क्या आप निश्चित हैं कि आप इस पृष्ठ को मिटाना चाहते हैं?"
 
-#: plugins/pages/src/ManagePage.php:501
+#: plugins/pages/src/ManagePage.php:503
 msgid "Page has been successfully updated."
 msgstr "पृष्ठ सफलतापूर्वक अद्यतन किया गया है."
 
-#: plugins/pages/src/ManagePage.php:503
+#: plugins/pages/src/ManagePage.php:505
 msgid "Page has been successfully created."
 msgstr "पृष्ठ सफलतापूर्वक बनाया गया है."
 
-#: plugins/pages/src/ManagePage.php:516
+#: plugins/pages/src/ManagePage.php:518
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "अपने पोस्ट को बचाने के द्वारा अपने HTML रूपांतरण को वैध बनाने के लिए मत भूलना."
 
-#: plugins/pages/src/ManagePage.php:526
+#: plugins/pages/src/ManagePage.php:528
 msgid "Go to this page on the site"
 msgstr "साइट पर इस पृष्ठ पर जाएँ"
 
-#: plugins/pages/src/ManagePage.php:568
+#: plugins/pages/src/ManagePage.php:570
 msgid "Page status"
 msgstr "पृष्ठ स्थिति"
 
-#: plugins/pages/src/ManagePage.php:584
+#: plugins/pages/src/ManagePage.php:586
 msgid "Page language"
 msgstr "पृष्ठ भाषा"
 
-#: plugins/pages/src/ManagePage.php:611 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:613 plugins/pages/src/Widgets.php:40
 msgid "Page position"
 msgstr "पृष्ठ स्थिति"
 
-#: plugins/pages/src/ManagePage.php:662
+#: plugins/pages/src/ManagePage.php:664
 msgid "Hide in widget Pages"
 msgstr "विज़ेट पृष्ठों में छुपाएं"
 
-#: plugins/pages/src/ManagePage.php:686
+#: plugins/pages/src/ManagePage.php:688
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "चेतावनी: यदि आप URL को दस्ती रूप से सेट करते हैं, यह किसी अन्य पृष्ठ के साथ संघर्ष कर सकता है."
 
-#: plugins/pages/src/ManagePage.php:725
+#: plugins/pages/src/ManagePage.php:727
 msgid "Introduction to the page."
 msgstr "पृष्ठ के लिए परिचय."
 
-#: plugins/pages/src/ManagePage.php:1143
+#: plugins/pages/src/ManagePage.php:1145
 msgid "Select this comment"
 msgstr "इस टिप्पणी को चुनें"
 
@@ -2522,198 +2518,198 @@ msgstr "प्रवेश के पहले प्रकाशन पर स�
 msgid "Test ping services"
 msgstr "पिंग सेवाओं का परीक्षण"
 
-#: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:69
+#: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:71
 #: plugins/simpleMenu/src/Widgets.php:28
 msgid "Simple menu"
 msgstr "सरल मेनू"
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:169
+#: plugins/simpleMenu/src/FrontendTemplate.php:170
 msgid "Active page"
 msgstr "सक्रिय पृष्ठ"
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:169
+#: plugins/simpleMenu/src/FrontendTemplate.php:170
 msgid "active page"
 msgstr "सक्रिय पृष्ठ"
 
-#: plugins/simpleMenu/src/Manage.php:92
+#: plugins/simpleMenu/src/Manage.php:94
 msgid "All months"
 msgstr "सभी महीने"
 
-#: plugins/simpleMenu/src/Manage.php:155
+#: plugins/simpleMenu/src/Manage.php:157
 msgid "Archive"
 msgstr "अभिलेखागार"
 
-#: plugins/simpleMenu/src/Manage.php:158
+#: plugins/simpleMenu/src/Manage.php:160
 msgid "Page"
 msgstr "पृष्ठ"
 
-#: plugins/simpleMenu/src/Manage.php:161 plugins/tags/src/Backend.php:24
+#: plugins/simpleMenu/src/Manage.php:163 plugins/tags/src/Backend.php:24
 #: plugins/tags/src/Widgets.php:32
 msgid "Tags"
 msgstr "टैग"
 
-#: plugins/simpleMenu/src/Manage.php:168
+#: plugins/simpleMenu/src/Manage.php:170
 msgid "User defined"
 msgstr "उपयोक्ता पारिभाषित"
 
-#: plugins/simpleMenu/src/Manage.php:209
+#: plugins/simpleMenu/src/Manage.php:211
 msgid "Configuration successfully updated."
 msgstr "कॉन्फ़िगरेशन सफलतापूर्वक अद्यतन किया गया."
 
-#: plugins/simpleMenu/src/Manage.php:248 plugins/simpleMenu/src/Manage.php:668
-#: plugins/simpleMenu/src/Manage.php:785
+#: plugins/simpleMenu/src/Manage.php:250 plugins/simpleMenu/src/Manage.php:676
+#: plugins/simpleMenu/src/Manage.php:796
 msgid "Label"
 msgstr "लेबल"
 
-#: plugins/simpleMenu/src/Manage.php:254
+#: plugins/simpleMenu/src/Manage.php:256
 msgid "Home page"
 msgstr "घर पृष्ठ"
 
-#: plugins/simpleMenu/src/Manage.php:254 plugins/simpleMenu/src/Manage.php:259
+#: plugins/simpleMenu/src/Manage.php:256 plugins/simpleMenu/src/Manage.php:261
 #: plugins/widgets/src/Widgets.php:275 plugins/widgets/src/Widgets.php:282
 msgid "Recent posts"
 msgstr "हाल के डाक"
 
-#: plugins/simpleMenu/src/Manage.php:266
+#: plugins/simpleMenu/src/Manage.php:268
 #, php-format
 msgid "Switch to %s language"
 msgstr "%s भाषा पर स्विच करना"
 
-#: plugins/simpleMenu/src/Manage.php:273
+#: plugins/simpleMenu/src/Manage.php:275
 msgid "Recent Posts from this category"
 msgstr "इस श्रेणी से हाल के डाक"
 
-#: plugins/simpleMenu/src/Manage.php:285
+#: plugins/simpleMenu/src/Manage.php:287
 #, php-format
 msgid "Posts from %s"
 msgstr "%s से पोस्ट"
 
-#: plugins/simpleMenu/src/Manage.php:305
+#: plugins/simpleMenu/src/Manage.php:307
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "%s टैग के लिए हाल की पोस्ट"
 
-#: plugins/simpleMenu/src/Manage.php:365
+#: plugins/simpleMenu/src/Manage.php:367
 msgid "Menu item has been successfully added."
 msgstr "मेन्यू मद सफलतापूर्वक जोड़ा गया है."
 
-#: plugins/simpleMenu/src/Manage.php:370
+#: plugins/simpleMenu/src/Manage.php:372
 msgid "Label and URL of menu item are mandatory."
 msgstr "मेनू मद का लेबल और यूआरएल अनिवार्य है."
 
-#: plugins/simpleMenu/src/Manage.php:403
+#: plugins/simpleMenu/src/Manage.php:405
 msgid "Menu items have been successfully removed."
 msgstr "मेन्यू मद सफलतापूर्वक हटा दिया गया है."
 
-#: plugins/simpleMenu/src/Manage.php:406
+#: plugins/simpleMenu/src/Manage.php:408
 msgid "No menu items selected."
 msgstr "कोई मेनू आइटम चयनित नहीं है."
 
-#: plugins/simpleMenu/src/Manage.php:418
+#: plugins/simpleMenu/src/Manage.php:420
 msgid "Label is mandatory."
 msgstr "लेबल अनिवार्य है."
 
-#: plugins/simpleMenu/src/Manage.php:423
+#: plugins/simpleMenu/src/Manage.php:425
 msgid "URL is mandatory."
 msgstr "यूआरएल अनिवार्य है."
 
-#: plugins/simpleMenu/src/Manage.php:468
+#: plugins/simpleMenu/src/Manage.php:470
 msgid "Menu items have been successfully updated."
 msgstr "मेनू आइटम सफलतापूर्वक अद्यतन किया गया है."
 
-#: plugins/simpleMenu/src/Manage.php:495
+#: plugins/simpleMenu/src/Manage.php:497
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "क्या आप निश्चित हैं कि आप चयनित मेनू आइटम को मिटाना चाहते हैं?"
 
-#: plugins/simpleMenu/src/Manage.php:504
+#: plugins/simpleMenu/src/Manage.php:506
 msgid "Step #1"
 msgstr "चरण #1"
 
-#: plugins/simpleMenu/src/Manage.php:509 plugins/simpleMenu/src/Manage.php:517
+#: plugins/simpleMenu/src/Manage.php:511 plugins/simpleMenu/src/Manage.php:519
 msgid "Step #2"
 msgstr "चरण #2"
 
-#: plugins/simpleMenu/src/Manage.php:515
+#: plugins/simpleMenu/src/Manage.php:517
 msgid "Step #3"
 msgstr "चरण #3"
 
-#: plugins/simpleMenu/src/Manage.php:527
+#: plugins/simpleMenu/src/Manage.php:529
 msgid "Add item"
 msgstr "मद जोड़ें"
 
-#: plugins/simpleMenu/src/Manage.php:558
+#: plugins/simpleMenu/src/Manage.php:560
 msgid "Select type"
 msgstr "क़िस्म चुनें"
 
-#: plugins/simpleMenu/src/Manage.php:565
+#: plugins/simpleMenu/src/Manage.php:567
 msgid "Type of item menu:"
 msgstr "आइटम मेनू का प्रकार:"
 
-#: plugins/simpleMenu/src/Manage.php:571 plugins/simpleMenu/src/Manage.php:635
+#: plugins/simpleMenu/src/Manage.php:573 plugins/simpleMenu/src/Manage.php:640
 msgid "Continue..."
 msgstr "जारी रखें ..."
 
-#: plugins/simpleMenu/src/Manage.php:591
+#: plugins/simpleMenu/src/Manage.php:596
 msgid "Select language:"
 msgstr "भाषा चुनें:"
 
-#: plugins/simpleMenu/src/Manage.php:597
+#: plugins/simpleMenu/src/Manage.php:602
 msgid "Select category:"
 msgstr "श्रेणी चुनें:"
 
-#: plugins/simpleMenu/src/Manage.php:603
+#: plugins/simpleMenu/src/Manage.php:608
 msgid "Select month (if necessary):"
 msgstr "माह चुनें (यदि आवश्यक हो):"
 
-#: plugins/simpleMenu/src/Manage.php:609
+#: plugins/simpleMenu/src/Manage.php:614
 msgid "Select page:"
 msgstr "चुनें पृष्ठ:"
 
-#: plugins/simpleMenu/src/Manage.php:615
+#: plugins/simpleMenu/src/Manage.php:620
 msgid "Select tag (if necessary):"
 msgstr "टैग का चयन करें (यदि आवश्यक हो):"
 
-#: plugins/simpleMenu/src/Manage.php:673
+#: plugins/simpleMenu/src/Manage.php:681
 msgid "Label of item menu:"
 msgstr "आइटम मेनू का लेबल:"
 
-#: plugins/simpleMenu/src/Manage.php:687
+#: plugins/simpleMenu/src/Manage.php:695
 msgid "Description of item menu:"
 msgstr "आइटम मेनू का विवरण:"
 
-#: plugins/simpleMenu/src/Manage.php:702
+#: plugins/simpleMenu/src/Manage.php:710
 msgid "URL of item menu:"
 msgstr "आइटम मेनू का यूआरएल:"
 
-#: plugins/simpleMenu/src/Manage.php:712 plugins/simpleMenu/src/Manage.php:788
+#: plugins/simpleMenu/src/Manage.php:720 plugins/simpleMenu/src/Manage.php:799
 msgid "Open URL on a new tab"
 msgstr "यूआरएल नए टैब पर खोलें"
 
-#: plugins/simpleMenu/src/Manage.php:720
+#: plugins/simpleMenu/src/Manage.php:728
 msgid "Add this item"
 msgstr "इस मद को जोड़ें"
 
-#: plugins/simpleMenu/src/Manage.php:743
+#: plugins/simpleMenu/src/Manage.php:754
 msgid "Enable simple menu for this blog"
 msgstr "इस ब्लॉग के लिए सरल मेनू सक्षम करें"
 
-#: plugins/simpleMenu/src/Manage.php:766
+#: plugins/simpleMenu/src/Manage.php:777
 msgid "Add an item"
 msgstr "एक मद जोड़ें"
 
-#: plugins/simpleMenu/src/Manage.php:884
+#: plugins/simpleMenu/src/Manage.php:895
 msgid "Menu items list"
 msgstr "मेन्यू मद सूची"
 
-#: plugins/simpleMenu/src/Manage.php:911
+#: plugins/simpleMenu/src/Manage.php:922
 msgid "Delete selected menu items"
 msgstr "चयनित मेनू मद को मिटाएँ"
 
-#: plugins/simpleMenu/src/Manage.php:920
+#: plugins/simpleMenu/src/Manage.php:931
 msgid "Update menu"
 msgstr "अद्यतन मेनू"
 
-#: plugins/simpleMenu/src/Manage.php:930
+#: plugins/simpleMenu/src/Manage.php:941
 msgid "No menu items so far."
 msgstr "अभी तक कोई मेन्यू आइटम नहीं है."
 
@@ -2904,17 +2900,17 @@ msgstr "सभी टैग के लिए लिंक:"
 msgid "themeEditor"
 msgstr "मुख्य-संपादक"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:51
+#: plugins/themeEditor/src/BackendBehaviors.php:52
 #: plugins/themeEditor/src/Manage.php:188
 #: plugins/themeEditor/src/Manage.php:195
 msgid "Edit theme files"
 msgstr "प्रसंग फ़ाइल संपादित करें"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:112
+#: plugins/themeEditor/src/BackendBehaviors.php:113
 msgid "Syntax highlighting"
 msgstr "वाक्यविन्यास उभारें"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:124
+#: plugins/themeEditor/src/BackendBehaviors.php:125
 msgid "Syntax highlighting in theme editor"
 msgstr "प्रसंग संपादक में सिंटेक्स हाइलाइटिंग"
 
@@ -3008,39 +3004,39 @@ msgstr "पीएचपी फ़ाइलें"
 msgid "You can't edit a distributed theme."
 msgstr "आप एक वितरित थीम संपादित नहीं कर सकते."
 
-#: plugins/themeEditor/src/ThemeEditor.php:151
+#: plugins/themeEditor/src/ThemeEditor.php:152
 msgid "No file"
 msgstr "कोई फ़ाइल नहीं"
 
-#: plugins/themeEditor/src/ThemeEditor.php:176
+#: plugins/themeEditor/src/ThemeEditor.php:177
 msgid "From theme:"
 msgstr "प्रसंग से:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:185
 msgid "From parent:"
 msgstr "माता-पिता से:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:194
+#: plugins/themeEditor/src/ThemeEditor.php:195
 msgid "From template set:"
 msgstr "टेम्पलेट सेट से:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:222
-#: plugins/themeEditor/src/ThemeEditor.php:252
-#: plugins/themeEditor/src/ThemeEditor.php:341
+#: plugins/themeEditor/src/ThemeEditor.php:223
+#: plugins/themeEditor/src/ThemeEditor.php:253
+#: plugins/themeEditor/src/ThemeEditor.php:342
 msgid "File does not exist."
 msgstr "फ़ाइल मौज़ूद नहीं है."
 
-#: plugins/themeEditor/src/ThemeEditor.php:227
+#: plugins/themeEditor/src/ThemeEditor.php:228
 #, php-format
 msgid "File %s is not readable"
 msgstr "फ़ाइल %s पढ़ने योग्य नहीं है"
 
-#: plugins/themeEditor/src/ThemeEditor.php:289
+#: plugins/themeEditor/src/ThemeEditor.php:290
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "फ़ाइल %s लिखने में असमर्थ. कृपया अपनी थीम फ़ाइलों और फ़ोल्डरों की अनुमतियों की जाँच करें।"
 
-#: plugins/themeEditor/src/ThemeEditor.php:354
+#: plugins/themeEditor/src/ThemeEditor.php:355
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "फ़ाइल %s को हटाने में असमर्थ. कृपया अपनी थीम फ़ाइलों और फ़ोल्डरों की अनुमतियों की जाँच करें।"
@@ -3299,35 +3295,35 @@ msgstr "प्रविष्टियाँ फीड"
 msgid "Comments feed"
 msgstr "टिप्पणियाँ फीड"
 
-#: plugins/widgets/src/WidgetsElement.php:556
+#: plugins/widgets/src/WidgetsElement.php:557
 msgid "Title (optional)"
 msgstr "शीर्षक (वैकल्पिक)"
 
-#: plugins/widgets/src/WidgetsElement.php:569
+#: plugins/widgets/src/WidgetsElement.php:570
 msgid "All pages"
 msgstr "सभी पृष्ठ"
 
-#: plugins/widgets/src/WidgetsElement.php:570
+#: plugins/widgets/src/WidgetsElement.php:571
 msgid "Home page only"
 msgstr "सिर्फ घर पृष्ठ"
 
-#: plugins/widgets/src/WidgetsElement.php:571
+#: plugins/widgets/src/WidgetsElement.php:572
 msgid "Except on home page"
 msgstr "घर के पृष्ठ को छोड़कर"
 
-#: plugins/widgets/src/WidgetsElement.php:579
+#: plugins/widgets/src/WidgetsElement.php:580
 msgid "Display on:"
 msgstr "पर प्रदर्शन:"
 
-#: plugins/widgets/src/WidgetsElement.php:615
+#: plugins/widgets/src/WidgetsElement.php:616
 msgid "Content only"
 msgstr "केवल सामग्री"
 
-#: plugins/widgets/src/WidgetsElement.php:627
+#: plugins/widgets/src/WidgetsElement.php:628
 msgid "CSS class:"
 msgstr "सीएसएस वर्गः"
 
-#: plugins/widgets/src/WidgetsElement.php:639
+#: plugins/widgets/src/WidgetsElement.php:640
 msgid "Offline"
 msgstr "ऑफ़लाइन"
 
