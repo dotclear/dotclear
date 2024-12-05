@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-05 13:05+0100\n"
-"PO-Revision-Date: 2024-12-05 12:08\n"
+"PO-Revision-Date: 2024-12-05 12:36\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1166,7 +1166,7 @@ msgstr "没有符合过滤器的用户"
 
 #: src/Core/Backend/Listing/ListingUsers.php:86
 msgid "No. of entries"
-msgstr ""
+msgstr "参赛作品数量"
 
 #: src/Core/Backend/Listing/ListingUsers.php:119
 #, php-format
@@ -1189,7 +1189,7 @@ msgstr "超级管理员"
 
 #: src/Core/Backend/Listing/ListingUsers.php:140
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
-msgstr ""
+msgstr "条目数量 \"一栏包括安装中所有博客的所有条目类型（文章、页面、 …）。链接在某些情况下可能不相关"
 
 #: src/Core/Backend/Listing/Pager.php:144
 msgid "First page"
