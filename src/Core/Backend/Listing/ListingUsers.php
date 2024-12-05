@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -17,6 +18,7 @@ use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Td;
@@ -81,7 +83,7 @@ class ListingUsers extends Listing
             'entries' => (new Th())
                 ->scope('col')
                 ->class('nowrap')
-                ->text(__('Entries (all types)'))
+                ->text(__('No. of entries'))
             ->render(),
         ];
 
@@ -133,6 +135,9 @@ class ListingUsers extends Listing
                         (new Text(null, $fmt(__('admin'), 'admin.svg') . ' - ')),
                         (new Text(null, $fmt(__('superadmin'), 'superadmin.svg'))),
                     ]),
+                (new Note())
+                    ->class('warning')
+                    ->text(__('The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts')),
             ])
         ->render();
         if ($enclose_block) {
