@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -200,7 +201,10 @@ class User extends Process
                     App::behavior()->callBehavior('adminAfterUserCreate', $cur, $new_id);
 
                     Notices::addSuccessNotice(__('User has been successfully created.'));
-                    Notices::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
+
+                    if (!$cur->user_super) {
+                        Notices::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
+                    }
                     if (!empty($_POST['saveplus'])) {
                         App::backend()->url()->redirect('admin.user');
                     } else {
