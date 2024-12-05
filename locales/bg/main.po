@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-05 13:05+0100\n"
-"PO-Revision-Date: 2024-12-05 12:08\n"
+"PO-Revision-Date: 2024-12-05 12:35\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -1186,7 +1186,7 @@ msgstr "Никой потребител не отговаря на филтър�
 
 #: src/Core/Backend/Listing/ListingUsers.php:86
 msgid "No. of entries"
-msgstr ""
+msgstr "Брой вписвания"
 
 #: src/Core/Backend/Listing/ListingUsers.php:119
 #, php-format
@@ -1209,7 +1209,7 @@ msgstr "суперадминистратор"
 
 #: src/Core/Backend/Listing/ListingUsers.php:140
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
-msgstr ""
+msgstr "Колоната \"Брой записи\" включва всички видове записи (статии, страници, …) за всички блогове в инсталацията. Връзката може да не е подходяща в някои контексти"
 
 #: src/Core/Backend/Listing/Pager.php:144
 msgid "First page"
