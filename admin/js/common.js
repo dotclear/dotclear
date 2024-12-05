@@ -1414,7 +1414,7 @@ dotclear.ready(() => {
       }
       if (event.key !== quickMenuPrefix) return;
       if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.isComposing) return;
-      e.preventDefault();
+      event.preventDefault();
       searchinput.setAttribute('value', quickMenuPrefix);
       searchinput.setSelectionRange(1, 1);
       searchinput.focus();
