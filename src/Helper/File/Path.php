@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -213,6 +214,15 @@ class Path
         try {
             if (extension_loaded('opcache') || extension_loaded('Zend OPcache')) {
                 if (function_exists('opcache_get_status') && function_exists('opcache_reset')) {
+                    if (ini_get('opcache.restrict_api') !== false && ini_get('opcache.restrict_api') !== '') {
+                        // OPCache API is restricted via .htaccess (or web server config), PHP_INI_USER or PHP_INI_PERDIR
+                        return;
+                    }
+                    if (get_cfg_var('opcache.restrict_api') !== false && get_cfg_var('opcache.restrict_api') !== '') {
+                        // OPCache API is restricted via PHP.ini
+                        return;
+                    }
+
                     if (is_array(opcache_get_status())) {
                         opcache_reset();
                     }
