@@ -1010,6 +1010,11 @@ class MediaItem extends Process
         }
         if ((is_countable(App::backend()->file->media_meta) ? count(App::backend()->file->media_meta) : 0) > 0) {
             foreach (App::backend()->file->media_meta as $k => $v) {
+                if ($k === 'Title' && App::backend()->file->media_title !== '' && (string) $v) {
+                    // Title already displayed
+                    continue;
+                }
+
                 if ($k !== 'AltText' && (string) $v) {
                     $details .= '<li><strong>' . $k . __(':') . '</strong> ' . Html::escapeHTML((string) $v) . '</li>';
                 }
