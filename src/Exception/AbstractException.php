@@ -20,9 +20,8 @@ use Throwable;
 /**
  * @brief   Application exception.
  *
- * Abstract exceptpion class adds a layer with a new Exception
- * in order to have a label and a description of an Exception in
- * Dotclear.Fault parser.
+ * Abstract exceptpion class will provide a default label and description if none given
+ * Useful when used by Dotclear.Fault parser.
  *
  * @see     Dotclear.Fault
  *
