@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -14,7 +15,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Exception;
 
-use Exception;
 use Throwable;
 
 /**
@@ -32,6 +32,6 @@ abstract class AbstractException extends AppException
 {
     public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null)
     {
-        parent::__construct(static::label(), static::code(), new Exception($message ?: static::label(), $code ?: static::code(), $previous));
+        parent::__construct($message ?: static::label(), $code ?: static::code(), $previous);
     }
 }
