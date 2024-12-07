@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -146,7 +147,7 @@ class BackendBehaviors
                 ->method('post')
                 ->fields([
                     (new Div())->items([
-                        (new Hidden(['post_id'], $post->post_id)),
+                        (new Hidden(['post_id'], (string) $post->post_id)),
                         (new Hidden(['media_id'], '')),
                         (new Hidden(['link_type'], 'attachment')),
                         (new Hidden(['remove'], '1')),
