@@ -36,6 +36,8 @@ document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme ==
  *
  * @param      {(string|Element|NodeList|jQuery)}  elt    The element (selector string as in CSS, DOM Element, NodeList, jQuery object)
  * @return     {jQuery}
+ *
+ * @since   2.33
  */
 dotclear.jQueryNodes = (elt) => {
   // jQuery instance
@@ -56,6 +58,8 @@ dotclear.jQueryNodes = (elt) => {
  *
  * @param      {(jQuery|NodeList|Element|string|array)}  elt  The element (selector string, NodeList, DOM Element, jQuery object, array)
  * @return     {NodeList|Array}
+ *
+ * @since   2.33
  */
 dotclear.nodes = (elt) => {
   // NodeList
@@ -82,6 +86,8 @@ dotclear.nodes = (elt) => {
  *
  * @param      {(jQuery|NodeList|Element|string|array)}  elt  The element (selector string, NodeList, DOM Element, jQuery object, array)
  * @return     {Element|null}
+ *
+ * @since   2.33
  */
 dotclear.node = (elt) => {
   const list = dotclear.nodes(elt);
@@ -94,6 +100,8 @@ dotclear.node = (elt) => {
  *
  * @param      {string}         html    The html
  * @return     {NodeList}
+ *
+ * @since   2.33
  */
 dotclear.htmlToNodes = (html) => {
   const template = document.createElement('template');
@@ -107,6 +115,8 @@ dotclear.htmlToNodes = (html) => {
  *
  * @param      {string}         html    The html
  * @return     {Element|null}
+ *
+ * @since   2.33
  */
 dotclear.htmlToNode = (html) => {
   const list = dotclear.htmlToNodes(html);
@@ -119,6 +129,8 @@ dotclear.htmlToNode = (html) => {
  *
  * @param      {Element}  element  The element
  * @return     {boolean}
+ *
+ * @since   2.33
  */
 dotclear.acceptsKeyboardInput = (element) => {
   const nonTypingInputTypes = new Set(['checkbox', 'radio', 'button', 'reset', 'submit', 'file']);
@@ -141,6 +153,8 @@ dotclear.acceptsKeyboardInput = (element) => {
  * @param      {string}       message       The message
  * @param      {Event|null}   [event=null]  The event
  * @return     {boolean}      true if user confirm, else false
+ *
+ * @since   2.33
  */
 dotclear.confirm = (message, event = null) => {
   if (window.confirm(message)) return true;
@@ -153,6 +167,8 @@ dotclear.confirm = (message, event = null) => {
  * Expands element using callback to get content.
  *
  * @param      {Object}           opts    The options
+ *
+ * @since   2.33
  */
 dotclear.expandContent = (opts) => {
   const toggleArrow = (button, actionRequested = '') => {
