@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -200,8 +201,19 @@ class Plugins extends Process
                 Notices::success(__('Manual checking of plugins update done successfully.'));
             }
 
+            // Updated modules from repo
+            $defines = App::backend()->list->store->getDefines(true);
+
+            $tmp = new ArrayObject($defines);
+
+            # --BEHAVIOR-- afterCheckStoreUpdate -- string, ArrayObject<int, ModuleDefine>
+            App::behavior()->callBehavior('afterCheckStoreUpdate', 'plugins', $tmp);
+
+            $defines = $tmp->getArrayCopy();
+            $updates = !empty($defines) && count($defines) > 0 ? sprintf(' (%s)', count($defines)) : '';
+
             echo
-            '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . '">' .
+            '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . $updates . '">' .
             '<h3>' . Html::escapeHTML(__('Update plugins')) . '</h3>';
 
             echo
@@ -217,16 +229,6 @@ class Plugins extends Process
                     ]),
                 ])
                 ->render();
-
-            // Updated modules from repo
-            $defines = App::backend()->list->store->getDefines(true);
-
-            $tmp = new ArrayObject($defines);
-
-            # --BEHAVIOR-- afterCheckStoreUpdate -- string, ArrayObject<int, ModuleDefine>
-            App::behavior()->callBehavior('afterCheckStoreUpdate', 'plugins', $tmp);
-
-            $defines = $tmp->getArrayCopy();
 
             if (empty($defines)) {
                 echo

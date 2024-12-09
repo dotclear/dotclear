@@ -260,6 +260,7 @@ class BlogTheme extends Process
             App::behavior()->callBehavior('afterCheckStoreUpdate', 'themes', $tmp);
 
             $defines = $tmp->getArrayCopy();
+            $updates = !empty($defines) && count($defines) > 0 ? sprintf(' (%s)', count($defines)) : '';
 
             $list = fn () => App::backend()->list
                 ->setList('theme-update')
@@ -273,7 +274,7 @@ class BlogTheme extends Process
                 );
 
             $parts[] = (new Div('update'))
-                ->title(Html::escapeHTML(__('Update themes')))
+                ->title(Html::escapeHTML(__('Update themes') . $updates))
                 ->class('multi-part')
                 ->items([
                     $messages !== '' ? (new Text(null, $messages)) : (new None()),
