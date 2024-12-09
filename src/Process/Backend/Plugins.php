@@ -210,7 +210,7 @@ class Plugins extends Process
             App::behavior()->callBehavior('afterCheckStoreUpdate', 'plugins', $tmp);
 
             $defines = $tmp->getArrayCopy();
-            $updates = !empty($defines) && count($defines) > 0 ? sprintf(' (%s)', count($defines)) : '';
+            $updates = !empty($defines) ? sprintf(' (%s)', count($defines)) : '';
 
             echo
             '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . $updates . '">' .
