@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-10 11:01+0100\n"
-"PO-Revision-Date: 2024-12-10 10:05\n"
+"PO-Revision-Date: 2024-12-10 10:41\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -2932,7 +2932,7 @@ msgstr "アップデートのロックを解除"
 
 #: plugins/themeEditor/src/Manage.php:167
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
-msgstr ""
+msgstr "テーマ更新のロックはテーマ更新を無効にしますが、テーマファイルの変更は許可します。"
 
 #: plugins/themeEditor/src/Manage.php:177
 msgid "Saving document..."
