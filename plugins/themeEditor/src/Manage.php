@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -163,7 +164,7 @@ class Manage extends Process
                                 ]),
                             (new Note())
                                 ->class('info')
-                                ->text(__('Lock update of the theme does not prevent to modify its files, only to update it globally.')),
+                                ->text(__('Lock theme update disables theme update, but allows theme files to be modified.')),
                         ]),
                 ]) :
             (new None());
