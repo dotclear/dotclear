@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-10 11:01+0100\n"
-"PO-Revision-Date: 2024-12-10 10:05\n"
+"PO-Revision-Date: 2024-12-10 10:41\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -2932,7 +2932,7 @@ msgstr "업데이트 잠금 해제"
 
 #: plugins/themeEditor/src/Manage.php:167
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
-msgstr ""
+msgstr "테마 업데이트 잠금은 테마 업데이트를 비활성화하지만 테마 파일은 수정할 수 있습니다."
 
 #: plugins/themeEditor/src/Manage.php:177
 msgid "Saving document..."
