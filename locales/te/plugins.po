@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-05 13:05+0100\n"
-"PO-Revision-Date: 2024-12-05 12:10\n"
+"POT-Creation-Date: 2024-12-10 11:01+0100\n"
+"PO-Revision-Date: 2024-12-10 10:06\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -978,24 +978,24 @@ msgstr "తెలియని ఫిల్టర్."
 msgid "attachments"
 msgstr "యాటాక్మెంట్లుComment"
 
-#: plugins/attachments/src/BackendBehaviors.php:95
+#: plugins/attachments/src/BackendBehaviors.php:96
 msgid "remove"
 msgstr "తొలగించు"
 
-#: plugins/attachments/src/BackendBehaviors.php:105
+#: plugins/attachments/src/BackendBehaviors.php:106
 msgid "No attachment."
 msgstr "అనుబంధం లేదు."
 
-#: plugins/attachments/src/BackendBehaviors.php:110
+#: plugins/attachments/src/BackendBehaviors.php:111
 #, php-format
 msgid "Attachments (%d)"
 msgstr "అటవీ (%d)"
 
-#: plugins/attachments/src/BackendBehaviors.php:119
+#: plugins/attachments/src/BackendBehaviors.php:120
 msgid "Add files to this entry"
 msgstr "ఈ ప్రవేశమునకు ఫైళ్ళను జతచేయుము"
 
-#: plugins/attachments/src/BackendBehaviors.php:128
+#: plugins/attachments/src/BackendBehaviors.php:129
 msgid "You must save the entry before adding an attachment."
 msgstr "జోడింపుని జోడించే ముందు మీరు తప్పనిసరిగా ఎంట్రీని సేవ్ చేయాలి."
 
@@ -2901,8 +2901,8 @@ msgid "themeEditor"
 msgstr "థీమ్ఎడిటర్"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:52
-#: plugins/themeEditor/src/Manage.php:188
-#: plugins/themeEditor/src/Manage.php:195
+#: plugins/themeEditor/src/Manage.php:189
+#: plugins/themeEditor/src/Manage.php:196
 msgid "Edit theme files"
 msgstr "థీమ్ ఫైళ్ళను సరికూర్చు"
 
@@ -2914,93 +2914,93 @@ msgstr "@ info: whatस"
 msgid "Syntax highlighting in theme editor"
 msgstr "థీమ్ ఎడిటర్ లో సింపర్ హైలైటింగ్"
 
-#: plugins/themeEditor/src/Manage.php:97
+#: plugins/themeEditor/src/Manage.php:98
 msgid "The theme update has been locked."
 msgstr "థీమ్ నవీకరణను లాక్ చేయబడింది."
 
-#: plugins/themeEditor/src/Manage.php:105
+#: plugins/themeEditor/src/Manage.php:106
 msgid "The theme update has been unocked."
 msgstr "థీమ్ నవీకరణ చేయబడింది."
 
-#: plugins/themeEditor/src/Manage.php:128
+#: plugins/themeEditor/src/Manage.php:129
 msgid "The file has been reset."
 msgstr "ఫైలు రిసెట్ చేయబడింది."
 
-#: plugins/themeEditor/src/Manage.php:161
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Lock update"
 msgstr "నవీకరణను లాక్ చేయుము"
 
-#: plugins/themeEditor/src/Manage.php:161
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Unlock update"
 msgstr "అన్లాక్ నవీకరణ"
 
-#: plugins/themeEditor/src/Manage.php:166
-msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
-msgstr "థీమ్ యొక్క లాక్ నవీకరణను దాని ఫైళ్ళను సవరించటానికి నిరోధించదు, దానిని ప్రపంచంలోనే నవీకరణ చేయడానికి మాత్రమే."
+#: plugins/themeEditor/src/Manage.php:167
+msgid "Lock theme update disables theme update, but allows theme files to be modified."
+msgstr "లాక్ థీమ్ నవీకరణ థీమ్ నవీకరణను నిలిపివేస్తుంది, కానీ థీమ్ ఫైల్‌లను సవరించడానికి అనుమతిస్తుంది."
 
-#: plugins/themeEditor/src/Manage.php:176
+#: plugins/themeEditor/src/Manage.php:177
 msgid "Saving document..."
 msgstr "డాక్యుమెంటు దాచు ..."
 
-#: plugins/themeEditor/src/Manage.php:177
+#: plugins/themeEditor/src/Manage.php:178
 msgid "Document saved"
 msgstr "డాక్యుమెంటు సేవ్"
 
-#: plugins/themeEditor/src/Manage.php:178
+#: plugins/themeEditor/src/Manage.php:179
 msgid "An error occurred:"
 msgstr "ఒక దోషము సంభవించింది:"
 
-#: plugins/themeEditor/src/Manage.php:179
+#: plugins/themeEditor/src/Manage.php:180
 msgid "Are you sure you want to reset this file?"
 msgstr "మీరు ఈ ఫైలును తిరస్కరిస్తున్నారా?"
 
-#: plugins/themeEditor/src/Manage.php:203
+#: plugins/themeEditor/src/Manage.php:204
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "ఈ బ్లాగులో మీ ప్రస్తుత థీమ్ \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:228
 msgid "Please select a file to edit."
 msgstr "దయచేసి సరికూర్చు ఫైలు యెంపికచేయుము."
 
-#: plugins/themeEditor/src/Manage.php:237
+#: plugins/themeEditor/src/Manage.php:238
 msgid "File editor"
 msgstr "దస్త్రపు ఎడిటర్"
 
-#: plugins/themeEditor/src/Manage.php:246
+#: plugins/themeEditor/src/Manage.php:247
 #, php-format
 msgid "Editing file %s"
 msgstr "ఎడిటింగ్ ఫైలు %s"
 
-#: plugins/themeEditor/src/Manage.php:256
+#: plugins/themeEditor/src/Manage.php:257
 msgid "Reset"
 msgstr "పునరాశి"
 
-#: plugins/themeEditor/src/Manage.php:263
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "ఈ దస్త్రం వ్రాయదగినది కాదు. దయచేసి మీ థీమ్ ఫైల్స్ అనుమతులను పరిశీలించు."
 
-#: plugins/themeEditor/src/Manage.php:282
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "టెంప్లెట్లు దస్త్రములు"
 
-#: plugins/themeEditor/src/Manage.php:287
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "CSS దస్త్రములు"
 
-#: plugins/themeEditor/src/Manage.php:292
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "జావాస్క్రిప్ట్ దస్త్రములు"
 
-#: plugins/themeEditor/src/Manage.php:297
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "Locales దస్త్రములు"
 
-#: plugins/themeEditor/src/Manage.php:302
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "PHP ఫైల్స్"
 
-#: plugins/themeEditor/src/Manage.php:316
+#: plugins/themeEditor/src/Manage.php:317
 msgid "You can't edit a distributed theme."
 msgstr "మీరు పంపిణీ థీమ్ ఎडिट చేయలేరు."
 
