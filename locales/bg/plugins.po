@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-05 13:05+0100\n"
-"PO-Revision-Date: 2024-12-05 12:09\n"
+"POT-Creation-Date: 2024-12-10 11:01+0100\n"
+"PO-Revision-Date: 2024-12-10 10:05\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -978,24 +978,24 @@ msgstr "Неизвестен филтър."
 msgid "attachments"
 msgstr "прикачени файлове"
 
-#: plugins/attachments/src/BackendBehaviors.php:95
+#: plugins/attachments/src/BackendBehaviors.php:96
 msgid "remove"
 msgstr "премахване на"
 
-#: plugins/attachments/src/BackendBehaviors.php:105
+#: plugins/attachments/src/BackendBehaviors.php:106
 msgid "No attachment."
 msgstr "Няма прикачен файл."
 
-#: plugins/attachments/src/BackendBehaviors.php:110
+#: plugins/attachments/src/BackendBehaviors.php:111
 #, php-format
 msgid "Attachments (%d)"
 msgstr "Прикачени файлове (%d)"
 
-#: plugins/attachments/src/BackendBehaviors.php:119
+#: plugins/attachments/src/BackendBehaviors.php:120
 msgid "Add files to this entry"
 msgstr "Добавяне на файлове към този запис"
 
-#: plugins/attachments/src/BackendBehaviors.php:128
+#: plugins/attachments/src/BackendBehaviors.php:129
 msgid "You must save the entry before adding an attachment."
 msgstr "Трябва да запазите записа, преди да добавите прикачен файл."
 
@@ -2901,8 +2901,8 @@ msgid "themeEditor"
 msgstr "ТемаЕдитор"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:52
-#: plugins/themeEditor/src/Manage.php:188
-#: plugins/themeEditor/src/Manage.php:195
+#: plugins/themeEditor/src/Manage.php:189
+#: plugins/themeEditor/src/Manage.php:196
 msgid "Edit theme files"
 msgstr "Редактиране на файловете на темата"
 
@@ -2914,93 +2914,93 @@ msgstr "Подчертаване на синтаксиса"
 msgid "Syntax highlighting in theme editor"
 msgstr "Подчертаване на синтаксиса в редактора на теми"
 
-#: plugins/themeEditor/src/Manage.php:97
+#: plugins/themeEditor/src/Manage.php:98
 msgid "The theme update has been locked."
 msgstr "Актуализацията на темата е заключена."
 
-#: plugins/themeEditor/src/Manage.php:105
+#: plugins/themeEditor/src/Manage.php:106
 msgid "The theme update has been unocked."
 msgstr "Актуализацията на темата е пусната в действие."
 
-#: plugins/themeEditor/src/Manage.php:128
+#: plugins/themeEditor/src/Manage.php:129
 msgid "The file has been reset."
 msgstr "Файлът е нулиран."
 
-#: plugins/themeEditor/src/Manage.php:161
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Lock update"
 msgstr "Актуализация на заключването"
 
-#: plugins/themeEditor/src/Manage.php:161
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Unlock update"
 msgstr "Актуализация за отключване"
 
-#: plugins/themeEditor/src/Manage.php:166
-msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
-msgstr "Обновяването на темата с блокиране не пречи да се променят нейните файлове, а само да се актуализира глобално."
+#: plugins/themeEditor/src/Manage.php:167
+msgid "Lock theme update disables theme update, but allows theme files to be modified."
+msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:176
+#: plugins/themeEditor/src/Manage.php:177
 msgid "Saving document..."
 msgstr "Запазване на документ..."
 
-#: plugins/themeEditor/src/Manage.php:177
+#: plugins/themeEditor/src/Manage.php:178
 msgid "Document saved"
 msgstr "Запазен документ"
 
-#: plugins/themeEditor/src/Manage.php:178
+#: plugins/themeEditor/src/Manage.php:179
 msgid "An error occurred:"
 msgstr "Възникна грешка:"
 
-#: plugins/themeEditor/src/Manage.php:179
+#: plugins/themeEditor/src/Manage.php:180
 msgid "Are you sure you want to reset this file?"
 msgstr "Сигурни ли сте, че искате да нулирате този файл?"
 
-#: plugins/themeEditor/src/Manage.php:203
+#: plugins/themeEditor/src/Manage.php:204
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Вашата текуща тема в този блог е \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:228
 msgid "Please select a file to edit."
 msgstr "Моля, изберете файл за редактиране."
 
-#: plugins/themeEditor/src/Manage.php:237
+#: plugins/themeEditor/src/Manage.php:238
 msgid "File editor"
 msgstr "Редактор на файлове"
 
-#: plugins/themeEditor/src/Manage.php:246
+#: plugins/themeEditor/src/Manage.php:247
 #, php-format
 msgid "Editing file %s"
 msgstr "Редактиране на файл %s"
 
-#: plugins/themeEditor/src/Manage.php:256
+#: plugins/themeEditor/src/Manage.php:257
 msgid "Reset"
 msgstr "Нулиране на"
 
-#: plugins/themeEditor/src/Manage.php:263
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Този файл не може да се записва. Моля, проверете разрешенията на файловете на темата."
 
-#: plugins/themeEditor/src/Manage.php:282
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "Файлове с шаблони"
 
-#: plugins/themeEditor/src/Manage.php:287
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "CSS файлове"
 
-#: plugins/themeEditor/src/Manage.php:292
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "Файлове на JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:297
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "Файлове с локали"
 
-#: plugins/themeEditor/src/Manage.php:302
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "Файлове на PHP"
 
-#: plugins/themeEditor/src/Manage.php:316
+#: plugins/themeEditor/src/Manage.php:317
 msgid "You can't edit a distributed theme."
 msgstr "Не можете да редактирате разпределена тема."
 
