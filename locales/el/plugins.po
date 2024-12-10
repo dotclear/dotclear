@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-10 11:01+0100\n"
-"PO-Revision-Date: 2024-12-10 10:05\n"
+"PO-Revision-Date: 2024-12-10 10:41\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -2936,7 +2936,7 @@ msgstr "Ξεκλείδωμα ενημέρωσης"
 
 #: plugins/themeEditor/src/Manage.php:167
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
-msgstr ""
+msgstr "Η επιλογή Κλείδωμα ενημέρωσης θέματος απενεργοποιεί την ενημέρωση του θέματος, αλλά επιτρέπει την τροποποίηση των αρχείων του θέματος."
 
 #: plugins/themeEditor/src/Manage.php:177
 msgid "Saving document..."
