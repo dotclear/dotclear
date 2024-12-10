@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-05 13:05+0100\n"
-"PO-Revision-Date: 2024-12-05 12:35\n"
+"POT-Creation-Date: 2024-12-10 11:01+0100\n"
+"PO-Revision-Date: 2024-12-10 10:04\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -428,7 +428,7 @@ msgstr "Creează o categorie nouă pentru postările"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
 #: src/Process/Backend/Home.php:451 src/Process/Backend/Home.php:468
-#: src/Process/Backend/Media.php:552 src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/Media.php:552 src/Process/Backend/MediaItem.php:1074
 #: src/Process/Backend/Post.php:660 src/Process/Backend/Post.php:708
 msgid "Title:"
 msgstr "Titlul:"
@@ -445,7 +445,7 @@ msgstr "Părinte:"
 #: src/Core/Backend/ModulesList.php:1982 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:295 src/Process/Backend/Category.php:334
 #: src/Process/Backend/Category.php:370 src/Process/Backend/Comment.php:349
-#: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1114
+#: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1119
 #: src/Process/Backend/Post.php:779 src/Process/Backend/Post.php:919
 #: src/Process/Backend/User.php:426 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:500
@@ -677,8 +677,8 @@ msgid "Users"
 msgstr "Utilizatori"
 
 #: src/Core/Backend/Favorites.php:516 src/Core/Backend/Menus.php:224
-#: src/Process/Backend/Plugins.php:93 src/Process/Backend/Plugins.php:106
-#: src/Process/Backend/Plugins.php:342 src/Process/Backend/Plugins.php:349
+#: src/Process/Backend/Plugins.php:94 src/Process/Backend/Plugins.php:107
+#: src/Process/Backend/Plugins.php:344 src/Process/Backend/Plugins.php:351
 #: src/Process/Upgrade/Plugins.php:143 src/Process/Upgrade/Plugins.php:153
 msgid "Plugins management"
 msgstr "Gestionare plugin-uri"
@@ -1633,7 +1633,7 @@ msgstr "Configurare \"%s\""
 #: src/Core/Backend/ModulesList.php:1969 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1173
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Comment.php:351
-#: src/Process/Backend/Media.php:602 src/Process/Backend/MediaItem.php:1155
+#: src/Process/Backend/Media.php:602 src/Process/Backend/MediaItem.php:1160
 #: src/Process/Backend/Post.php:795 src/Process/Backend/Search.php:158
 #: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:618
 #: src/Process/Backend/UserPreferences.php:801
@@ -2019,7 +2019,7 @@ msgstr "Anulează"
 msgid "Clean"
 msgstr "Curăță"
 
-#: src/Core/Backend/Page.php:1457 src/Process/Backend/MediaItem.php:1126
+#: src/Core/Backend/Page.php:1457 src/Process/Backend/MediaItem.php:1131
 msgid "Send"
 msgstr "Trimite"
 
@@ -2625,7 +2625,7 @@ msgstr "LOL!"
 #: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:97
 #: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:458
 #: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
-#: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:105
+#: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:106
 #: src/Process/Backend/User.php:239 src/Process/Backend/Users.php:104
 #: src/Process/Backend/UsersActions.php:150
 #: src/Process/Backend/UsersActions.php:158 src/Process/Upgrade/Home.php:158
@@ -3915,7 +3915,7 @@ msgstr "Gestionare teme"
 msgid "Installed themes"
 msgstr "Teme instalate"
 
-#: src/Process/Backend/BlogTheme.php:204 src/Process/Backend/Plugins.php:153
+#: src/Process/Backend/BlogTheme.php:204 src/Process/Backend/Plugins.php:154
 #: src/Process/Upgrade/Plugins.php:168
 msgid "(in normal mode)"
 msgstr "(în mod normal)"
@@ -3936,7 +3936,7 @@ msgstr "Teme dezactivate"
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "Temele dezactivate sunt instalate, dar nu pot fi utilizate. Le puteţi activa de aici."
 
-#: src/Process/Backend/BlogTheme.php:243 src/Process/Backend/Plugins.php:196
+#: src/Process/Backend/BlogTheme.php:243 src/Process/Backend/Plugins.php:197
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "Depozitul oficial nu a putut fi actualizat deoarece nu există o adresă URL setată în configurare."
 
@@ -3944,19 +3944,19 @@ msgstr "Depozitul oficial nu a putut fi actualizat deoarece nu există o adresă
 msgid "Manual checking of themes update done successfully."
 msgstr "Verificarea manuala a temelor actualizata cu succes."
 
-#: src/Process/Backend/BlogTheme.php:276
+#: src/Process/Backend/BlogTheme.php:277
 msgid "Update themes"
 msgstr "Actualizare teme"
 
-#: src/Process/Backend/BlogTheme.php:289
+#: src/Process/Backend/BlogTheme.php:290
 msgid "Force checking update of themes"
 msgstr "Forţează verificarea actualizării temelor"
 
-#: src/Process/Backend/BlogTheme.php:294
+#: src/Process/Backend/BlogTheme.php:295
 msgid "No updates available for themes."
 msgstr "Nu sunt disponibile actualizări pentru teme."
 
-#: src/Process/Backend/BlogTheme.php:300
+#: src/Process/Backend/BlogTheme.php:301
 #, php-format
 msgid "There is one theme update available:"
 msgid_plural "There are %s theme updates available:"
@@ -3964,35 +3964,35 @@ msgstr[0] "Este disponibilă o actualizare a temei:"
 msgstr[1] "Este disponibilă o actualizare a temei:"
 msgstr[2] "Există %s actualizări de teme disponibile:"
 
-#: src/Process/Backend/BlogTheme.php:310 src/Process/Backend/BlogTheme.php:347
-#: src/Process/Backend/Plugins.php:258 src/Process/Backend/Plugins.php:293
+#: src/Process/Backend/BlogTheme.php:311 src/Process/Backend/BlogTheme.php:348
+#: src/Process/Backend/Plugins.php:260 src/Process/Backend/Plugins.php:295
 #: src/Process/Upgrade/Plugins.php:255 src/Process/Upgrade/Plugins.php:294
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "Vizitează depozitul %s , centrul de resurse pentru Dotclear."
 
-#: src/Process/Backend/BlogTheme.php:339
+#: src/Process/Backend/BlogTheme.php:340
 msgid "Add themes"
 msgstr "Adaugă teme"
 
-#: src/Process/Backend/BlogTheme.php:342
+#: src/Process/Backend/BlogTheme.php:343
 msgid "Add themes from repository"
 msgstr "Adaugă teme din repo"
 
-#: src/Process/Backend/BlogTheme.php:357 src/Process/Backend/Plugins.php:303
+#: src/Process/Backend/BlogTheme.php:358 src/Process/Backend/Plugins.php:305
 #: src/Process/Upgrade/Plugins.php:304
 msgid "Install or upgrade manually"
 msgstr "Instalează sau actualizează manual"
 
-#: src/Process/Backend/BlogTheme.php:360
+#: src/Process/Backend/BlogTheme.php:361
 msgid "Add themes from a package"
 msgstr "Adaugă teme dintr-un pachet"
 
-#: src/Process/Backend/BlogTheme.php:363
+#: src/Process/Backend/BlogTheme.php:364
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Puteți instala teme prin încărcarea sau descărcarea fișierelor zip."
 
-#: src/Process/Backend/BlogTheme.php:379
+#: src/Process/Backend/BlogTheme.php:380
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Unele funcții sunt dezactivate, vă rugăm să permiteți scrierea la directorul cu teme pentru a le activa."
 
@@ -4136,7 +4136,7 @@ msgstr "Nume:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Avertisment: Dacă setați URL-ul manual, acesta poate intra în conflict cu o altă categorie."
 
-#: src/Process/Backend/Category.php:290 src/Process/Backend/MediaItem.php:1094
+#: src/Process/Backend/Category.php:290 src/Process/Backend/MediaItem.php:1099
 msgid "Description:"
 msgstr "Descriere:"
 
@@ -4256,7 +4256,7 @@ msgstr "Şterge toate spam-urile"
 msgid "Selected comments action:"
 msgstr "Acțiune comentarii selectate:"
 
-#: src/Process/Backend/Home.php:53 src/Process/Backend/Plugins.php:49
+#: src/Process/Backend/Home.php:53 src/Process/Backend/Plugins.php:50
 msgid "The following plugins have been disabled :"
 msgstr "Următoarele plugin-uri au fost dezactivate :"
 
@@ -4348,12 +4348,12 @@ msgstr "Nu există nici un director de scriere /public/ în locația setată în
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Nu există nici un director rădăcină inscriptibil pentru managerul media. Contactează administratorul."
 
-#: src/Process/Backend/Home.php:302 src/Process/Backend/Plugins.php:119
+#: src/Process/Backend/Home.php:302 src/Process/Backend/Plugins.php:120
 #: src/Process/Install/Install.php:506 src/Process/Upgrade/Plugins.php:111
 msgid "Following plugins have been installed:"
 msgstr "Următoarele plugin-uri au fost instalate:"
 
-#: src/Process/Backend/Home.php:316 src/Process/Backend/Plugins.php:133
+#: src/Process/Backend/Home.php:316 src/Process/Backend/Plugins.php:134
 #: src/Process/Install/Install.php:513 src/Process/Upgrade/Plugins.php:123
 msgid "Following plugins have not been installed:"
 msgstr "Următoarele plugin-uri nu au fost instalate:"
@@ -4674,7 +4674,7 @@ msgstr "Vă rugăm să aveți grijă să publicați media pe care o dețineți �
 msgid "Maximum file size allowed:"
 msgstr "Dimensiunea maximă a fișierului permisă:"
 
-#: src/Process/Backend/Media.php:553 src/Process/Backend/MediaItem.php:1111
+#: src/Process/Backend/Media.php:553 src/Process/Backend/MediaItem.php:1116
 msgid "Private"
 msgstr "Privat"
 
@@ -4745,7 +4745,7 @@ msgid "Image legend and alternate text"
 msgstr "Legenda imaginii și textul alternativ"
 
 #: src/Process/Backend/MediaItem.php:647 src/Process/Backend/MediaItem.php:1009
-#: src/Process/Backend/MediaItem.php:1082
+#: src/Process/Backend/MediaItem.php:1087
 msgid "Alternate text:"
 msgstr "Text alternativ:"
 
@@ -4873,87 +4873,87 @@ msgid "No entry seems contain this media."
 msgstr "Nicio intrare nu pare să conțină această media."
 
 #: src/Process/Backend/MediaItem.php:1005
-#: src/Process/Backend/MediaItem.php:1014
+#: src/Process/Backend/MediaItem.php:1019
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1020
+#: src/Process/Backend/MediaItem.php:1025
 msgid "Metadata"
 msgstr "Metadate"
 
-#: src/Process/Backend/MediaItem.php:1027
+#: src/Process/Backend/MediaItem.php:1032
 msgid "Updates and modifications"
 msgstr "Actualizări și modificări"
 
-#: src/Process/Backend/MediaItem.php:1033
-#: src/Process/Backend/MediaItem.php:1035
+#: src/Process/Backend/MediaItem.php:1038
+#: src/Process/Backend/MediaItem.php:1040
 msgid "Update thumbnails"
 msgstr "Actualizeaza miniaturi"
 
-#: src/Process/Backend/MediaItem.php:1034
+#: src/Process/Backend/MediaItem.php:1039
 msgid "This will create or update thumbnails for this image."
 msgstr "Aceasta va crea sau actualiza miniaturile pentru aceasta imagine."
 
-#: src/Process/Backend/MediaItem.php:1043
-#: src/Process/Backend/MediaItem.php:1051
+#: src/Process/Backend/MediaItem.php:1048
+#: src/Process/Backend/MediaItem.php:1056
 msgid "Extract in a new directory"
 msgstr "Extrage într-un director nou"
 
-#: src/Process/Backend/MediaItem.php:1044
-#: src/Process/Backend/MediaItem.php:1053
+#: src/Process/Backend/MediaItem.php:1049
+#: src/Process/Backend/MediaItem.php:1058
 msgid "Extract in current directory"
 msgstr "Extrage în directorul curent"
 
-#: src/Process/Backend/MediaItem.php:1049
+#: src/Process/Backend/MediaItem.php:1054
 msgid "Extract archive"
 msgstr "Extrage arhiva"
 
-#: src/Process/Backend/MediaItem.php:1052
+#: src/Process/Backend/MediaItem.php:1057
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Acest lucru va extrage arhiva într-un director nou care nu ar trebui să existe încă."
 
-#: src/Process/Backend/MediaItem.php:1054
+#: src/Process/Backend/MediaItem.php:1059
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Aceasta va extrage arhiva în directorul curent şi va suprascrie fişierele existente sau folderul existent."
 
-#: src/Process/Backend/MediaItem.php:1056
+#: src/Process/Backend/MediaItem.php:1061
 msgid "Extract mode:"
 msgstr "Extragere mod:"
 
-#: src/Process/Backend/MediaItem.php:1058
+#: src/Process/Backend/MediaItem.php:1063
 msgid "Extract"
 msgstr "Extrage"
 
-#: src/Process/Backend/MediaItem.php:1066
+#: src/Process/Backend/MediaItem.php:1071
 msgid "Change media properties"
 msgstr "Modificare proprietăți media"
 
-#: src/Process/Backend/MediaItem.php:1067
+#: src/Process/Backend/MediaItem.php:1072
 msgid "File name:"
 msgstr "Nume fișier:"
 
-#: src/Process/Backend/MediaItem.php:1107
+#: src/Process/Backend/MediaItem.php:1112
 msgid "File date:"
 msgstr "Data fișierului:"
 
-#: src/Process/Backend/MediaItem.php:1112
+#: src/Process/Backend/MediaItem.php:1117
 msgid "New directory:"
 msgstr "Director nou:"
 
-#: src/Process/Backend/MediaItem.php:1120
+#: src/Process/Backend/MediaItem.php:1125
 msgid "Change file"
 msgstr "Schimbă fișierul"
 
-#: src/Process/Backend/MediaItem.php:1122
+#: src/Process/Backend/MediaItem.php:1127
 msgid "Choose a file:"
 msgstr "Alegeți un fișier:"
 
-#: src/Process/Backend/MediaItem.php:1123
+#: src/Process/Backend/MediaItem.php:1128
 #, php-format
 msgid "Maximum size %s"
 msgstr "Dimensiune maximă %s"
 
-#: src/Process/Backend/MediaItem.php:1134
+#: src/Process/Backend/MediaItem.php:1139
 msgid "Delete this media"
 msgstr "Șterge acest fișier media"
 
@@ -4969,45 +4969,45 @@ msgstr "Plugin-ul nu a fost găsit"
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "Plugin-ul la care aţi ajuns nu există sau nu are o pagină de administrare."
 
-#: src/Process/Backend/Plugins.php:143 src/Process/Backend/Plugins.php:152
+#: src/Process/Backend/Plugins.php:144 src/Process/Backend/Plugins.php:153
 #: src/Process/Upgrade/Plugins.php:159
 msgid "Installed plugins"
 msgstr "Plugin-uri instalate"
 
-#: src/Process/Backend/Plugins.php:152 src/Process/Upgrade/Plugins.php:168
+#: src/Process/Backend/Plugins.php:153 src/Process/Upgrade/Plugins.php:168
 msgid "Activated plugins"
 msgstr "Plugin-uri activate"
 
-#: src/Process/Backend/Plugins.php:155 src/Process/Upgrade/Plugins.php:170
+#: src/Process/Backend/Plugins.php:156 src/Process/Upgrade/Plugins.php:170
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Puteți configura și gestiona plugin-urile instalate din această listă."
 
-#: src/Process/Backend/Plugins.php:174 src/Process/Upgrade/Plugins.php:189
+#: src/Process/Backend/Plugins.php:175 src/Process/Upgrade/Plugins.php:189
 msgid "Deactivated plugins"
 msgstr "Plugin-uri dezactivate"
 
-#: src/Process/Backend/Plugins.php:175 src/Process/Upgrade/Plugins.php:190
+#: src/Process/Backend/Plugins.php:176 src/Process/Upgrade/Plugins.php:190
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "Plugin-urile dezactivate sunt instalate, dar nu sunt utilizabile. Le puteți activa de aici."
 
-#: src/Process/Backend/Plugins.php:200 src/Process/Upgrade/Plugins.php:133
+#: src/Process/Backend/Plugins.php:201 src/Process/Upgrade/Plugins.php:133
 msgid "Manual checking of plugins update done successfully."
 msgstr "Verificarea manuala a actualizarii plugin-urilor s-a efectuat cu succes."
 
-#: src/Process/Backend/Plugins.php:204 src/Process/Backend/Plugins.php:205
+#: src/Process/Backend/Plugins.php:216 src/Process/Backend/Plugins.php:217
 #: src/Process/Upgrade/Plugins.php:211 src/Process/Upgrade/Plugins.php:212
 msgid "Update plugins"
 msgstr "Actualizare plugin-uri"
 
-#: src/Process/Backend/Plugins.php:216 src/Process/Upgrade/Plugins.php:223
+#: src/Process/Backend/Plugins.php:228 src/Process/Upgrade/Plugins.php:223
 msgid "Force checking update of plugins"
 msgstr "Forţează verificarea actualizării plugin-urilor"
 
-#: src/Process/Backend/Plugins.php:233 src/Process/Upgrade/Plugins.php:230
+#: src/Process/Backend/Plugins.php:235 src/Process/Upgrade/Plugins.php:230
 msgid "No updates available for plugins."
 msgstr "Nu sunt disponibile actualizări pentru plugin-uri."
 
-#: src/Process/Backend/Plugins.php:238 src/Process/Upgrade/Plugins.php:235
+#: src/Process/Backend/Plugins.php:240 src/Process/Upgrade/Plugins.php:235
 #, php-format
 msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
@@ -5015,27 +5015,27 @@ msgstr[0] "Este disponibilă o actualizare a plugin-ului:"
 msgstr[1] "Este disponibilă o actualizare a plugin-ului:"
 msgstr[2] "Există %s actualizări de plugin-uri disponibile:"
 
-#: src/Process/Backend/Plugins.php:273 src/Process/Upgrade/Plugins.php:274
+#: src/Process/Backend/Plugins.php:275 src/Process/Upgrade/Plugins.php:274
 msgid "Add plugins"
 msgstr "Adaugă plugin-uri"
 
-#: src/Process/Backend/Plugins.php:274 src/Process/Upgrade/Plugins.php:275
+#: src/Process/Backend/Plugins.php:276 src/Process/Upgrade/Plugins.php:275
 msgid "Add plugins from repository"
 msgstr "Adaugă plugin-uri din repo"
 
-#: src/Process/Backend/Plugins.php:304 src/Process/Upgrade/Plugins.php:305
+#: src/Process/Backend/Plugins.php:306 src/Process/Upgrade/Plugins.php:305
 msgid "Add plugins from a package"
 msgstr "Adaugă plugin-uri dintr-un pachet"
 
-#: src/Process/Backend/Plugins.php:305 src/Process/Upgrade/Plugins.php:306
+#: src/Process/Backend/Plugins.php:307 src/Process/Upgrade/Plugins.php:306
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Puteți instala plugin-uri prin încărcarea sau descărcarea fișierelor zip."
 
-#: src/Process/Backend/Plugins.php:319 src/Process/Upgrade/Plugins.php:317
+#: src/Process/Backend/Plugins.php:321 src/Process/Upgrade/Plugins.php:317
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Unele funcții sunt dezactivate, vă rugăm să oferiți acces la scriere la directorul de plugin-uri pentru a le activa."
 
-#: src/Process/Backend/Plugins.php:350
+#: src/Process/Backend/Plugins.php:352
 msgid "Plugin configuration"
 msgstr "Configurare plugin"
 
