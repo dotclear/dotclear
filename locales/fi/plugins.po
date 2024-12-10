@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-05 13:05+0100\n"
-"PO-Revision-Date: 2024-12-05 12:09\n"
+"POT-Creation-Date: 2024-12-10 11:01+0100\n"
+"PO-Revision-Date: 2024-12-10 10:05\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -978,24 +978,24 @@ msgstr "Tuntematon suodatin"
 msgid "attachments"
 msgstr "liitteet"
 
-#: plugins/attachments/src/BackendBehaviors.php:95
+#: plugins/attachments/src/BackendBehaviors.php:96
 msgid "remove"
 msgstr "poista"
 
-#: plugins/attachments/src/BackendBehaviors.php:105
+#: plugins/attachments/src/BackendBehaviors.php:106
 msgid "No attachment."
 msgstr "Ei liitetiedostoa."
 
-#: plugins/attachments/src/BackendBehaviors.php:110
+#: plugins/attachments/src/BackendBehaviors.php:111
 #, php-format
 msgid "Attachments (%d)"
 msgstr "Liitteitä (%d)"
 
-#: plugins/attachments/src/BackendBehaviors.php:119
+#: plugins/attachments/src/BackendBehaviors.php:120
 msgid "Add files to this entry"
 msgstr "Lisää tiedostoja tähän blogimerkintään"
 
-#: plugins/attachments/src/BackendBehaviors.php:128
+#: plugins/attachments/src/BackendBehaviors.php:129
 msgid "You must save the entry before adding an attachment."
 msgstr "Sinun on tallennettava merkintä ennen liitteen lisäämistä."
 
@@ -2901,8 +2901,8 @@ msgid "themeEditor"
 msgstr "themeEditor"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:52
-#: plugins/themeEditor/src/Manage.php:188
-#: plugins/themeEditor/src/Manage.php:195
+#: plugins/themeEditor/src/Manage.php:189
+#: plugins/themeEditor/src/Manage.php:196
 msgid "Edit theme files"
 msgstr "Muokkaa teematiedostoja"
 
@@ -2914,93 +2914,93 @@ msgstr "Teemojen muokkausohjelman syntaksiväritys"
 msgid "Syntax highlighting in theme editor"
 msgstr "Teemojen muokkausohjelman syntaksiväritys"
 
-#: plugins/themeEditor/src/Manage.php:97
+#: plugins/themeEditor/src/Manage.php:98
 msgid "The theme update has been locked."
 msgstr "Teemapäivitys on lukittu."
 
-#: plugins/themeEditor/src/Manage.php:105
+#: plugins/themeEditor/src/Manage.php:106
 msgid "The theme update has been unocked."
 msgstr "Teemapäivitys on vapautettu."
 
-#: plugins/themeEditor/src/Manage.php:128
+#: plugins/themeEditor/src/Manage.php:129
 msgid "The file has been reset."
 msgstr "Tiedosto on palautettu alkuarvoihin."
 
-#: plugins/themeEditor/src/Manage.php:161
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Lock update"
 msgstr "Lukituksen päivitys"
 
-#: plugins/themeEditor/src/Manage.php:161
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Unlock update"
 msgstr "Avaa lukituksen päivitys"
 
-#: plugins/themeEditor/src/Manage.php:166
-msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
-msgstr "Teeman lukituspäivitys ei estä muuttamasta sen tiedostoja, vaan ainoastaan päivittää sen globaalisti."
+#: plugins/themeEditor/src/Manage.php:167
+msgid "Lock theme update disables theme update, but allows theme files to be modified."
+msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:176
+#: plugins/themeEditor/src/Manage.php:177
 msgid "Saving document..."
 msgstr "Asiakirjan tallennus käynnissä…"
 
-#: plugins/themeEditor/src/Manage.php:177
+#: plugins/themeEditor/src/Manage.php:178
 msgid "Document saved"
 msgstr "Asiakirja tallennettu"
 
-#: plugins/themeEditor/src/Manage.php:178
+#: plugins/themeEditor/src/Manage.php:179
 msgid "An error occurred:"
 msgstr "Tapahtui virhe:"
 
-#: plugins/themeEditor/src/Manage.php:179
+#: plugins/themeEditor/src/Manage.php:180
 msgid "Are you sure you want to reset this file?"
 msgstr "Oletko varma, että haluat palauttaa tämän tiedoston alkuarvoihin?"
 
-#: plugins/themeEditor/src/Manage.php:203
+#: plugins/themeEditor/src/Manage.php:204
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Käytät tässä blogissa nyt teemaa \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:228
 msgid "Please select a file to edit."
 msgstr "Valitse muokattava tiedosto."
 
-#: plugins/themeEditor/src/Manage.php:237
+#: plugins/themeEditor/src/Manage.php:238
 msgid "File editor"
 msgstr "Tiedostonmuokkain"
 
-#: plugins/themeEditor/src/Manage.php:246
+#: plugins/themeEditor/src/Manage.php:247
 #, php-format
 msgid "Editing file %s"
 msgstr "Muokataan tiedostoa %s"
 
-#: plugins/themeEditor/src/Manage.php:256
+#: plugins/themeEditor/src/Manage.php:257
 msgid "Reset"
 msgstr "Palauta alkuarvoihin"
 
-#: plugins/themeEditor/src/Manage.php:263
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Tämä tiedosto ei ole kirjoitettavissa. Tarkista teemasi tiedostojen käyttöoikeudet."
 
-#: plugins/themeEditor/src/Manage.php:282
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "Mallitiedostot"
 
-#: plugins/themeEditor/src/Manage.php:287
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "CSS-tiedostot"
 
-#: plugins/themeEditor/src/Manage.php:292
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "JavaScript-tiedostot"
 
-#: plugins/themeEditor/src/Manage.php:297
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "Lokalisointitiedostot"
 
-#: plugins/themeEditor/src/Manage.php:302
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "CSS-tiedostot"
 
-#: plugins/themeEditor/src/Manage.php:316
+#: plugins/themeEditor/src/Manage.php:317
 msgid "You can't edit a distributed theme."
 msgstr "Jaettua teemaa ei voi muokata."
 
