@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-05 13:05+0100\n"
-"PO-Revision-Date: 2024-12-05 12:09\n"
+"POT-Creation-Date: 2024-12-10 11:01+0100\n"
+"PO-Revision-Date: 2024-12-10 10:05\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
@@ -978,24 +978,24 @@ msgstr "Filtre desconegut."
 msgid "attachments"
 msgstr "adjunts"
 
-#: plugins/attachments/src/BackendBehaviors.php:95
+#: plugins/attachments/src/BackendBehaviors.php:96
 msgid "remove"
 msgstr "eliminar"
 
-#: plugins/attachments/src/BackendBehaviors.php:105
+#: plugins/attachments/src/BackendBehaviors.php:106
 msgid "No attachment."
 msgstr "Cap adjunt."
 
-#: plugins/attachments/src/BackendBehaviors.php:110
+#: plugins/attachments/src/BackendBehaviors.php:111
 #, php-format
 msgid "Attachments (%d)"
 msgstr "Fitxers adjunts (%d)"
 
-#: plugins/attachments/src/BackendBehaviors.php:119
+#: plugins/attachments/src/BackendBehaviors.php:120
 msgid "Add files to this entry"
 msgstr "Afegeix fitxers a aquesta entrada"
 
-#: plugins/attachments/src/BackendBehaviors.php:128
+#: plugins/attachments/src/BackendBehaviors.php:129
 msgid "You must save the entry before adding an attachment."
 msgstr "Heu de desar l'entrada abans d'afegir un fitxer adjunt."
 
@@ -2901,8 +2901,8 @@ msgid "themeEditor"
 msgstr "editor de temes"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:52
-#: plugins/themeEditor/src/Manage.php:188
-#: plugins/themeEditor/src/Manage.php:195
+#: plugins/themeEditor/src/Manage.php:189
+#: plugins/themeEditor/src/Manage.php:196
 msgid "Edit theme files"
 msgstr "Editeu fitxers de tema"
 
@@ -2914,93 +2914,93 @@ msgstr "Ressaltat sintaxi"
 msgid "Syntax highlighting in theme editor"
 msgstr "Ressaltat de sintaxi a l'editor de temes"
 
-#: plugins/themeEditor/src/Manage.php:97
+#: plugins/themeEditor/src/Manage.php:98
 msgid "The theme update has been locked."
 msgstr "L'actualització del tema s'ha bloquejat."
 
-#: plugins/themeEditor/src/Manage.php:105
+#: plugins/themeEditor/src/Manage.php:106
 msgid "The theme update has been unocked."
 msgstr "L'actualització del tema s'ha desactivat."
 
-#: plugins/themeEditor/src/Manage.php:128
+#: plugins/themeEditor/src/Manage.php:129
 msgid "The file has been reset."
 msgstr "El fitxer s'ha restablert."
 
-#: plugins/themeEditor/src/Manage.php:161
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Lock update"
 msgstr "Actualització de bloqueig"
 
-#: plugins/themeEditor/src/Manage.php:161
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Unlock update"
 msgstr "Desbloqueja l'actualització"
 
-#: plugins/themeEditor/src/Manage.php:166
-msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
-msgstr "Bloquejar l'actualització del tema no impedeix modificar els seus fitxers, només actualitzar-lo globalment."
+#: plugins/themeEditor/src/Manage.php:167
+msgid "Lock theme update disables theme update, but allows theme files to be modified."
+msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:176
+#: plugins/themeEditor/src/Manage.php:177
 msgid "Saving document..."
 msgstr "S'està desant el document..."
 
-#: plugins/themeEditor/src/Manage.php:177
+#: plugins/themeEditor/src/Manage.php:178
 msgid "Document saved"
 msgstr "Document desat"
 
-#: plugins/themeEditor/src/Manage.php:178
+#: plugins/themeEditor/src/Manage.php:179
 msgid "An error occurred:"
 msgstr "Hi ha hagut un error:"
 
-#: plugins/themeEditor/src/Manage.php:179
+#: plugins/themeEditor/src/Manage.php:180
 msgid "Are you sure you want to reset this file?"
 msgstr "Esteu segur que voleu restablir aquest fitxer?"
 
-#: plugins/themeEditor/src/Manage.php:203
+#: plugins/themeEditor/src/Manage.php:204
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "El vostre tema actual en aquest bloc és \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:228
 msgid "Please select a file to edit."
 msgstr "Seleccioneu un fitxer per editar."
 
-#: plugins/themeEditor/src/Manage.php:237
+#: plugins/themeEditor/src/Manage.php:238
 msgid "File editor"
 msgstr "Editor de fitxers"
 
-#: plugins/themeEditor/src/Manage.php:246
+#: plugins/themeEditor/src/Manage.php:247
 #, php-format
 msgid "Editing file %s"
 msgstr "S'està editant el fitxer %s"
 
-#: plugins/themeEditor/src/Manage.php:256
+#: plugins/themeEditor/src/Manage.php:257
 msgid "Reset"
 msgstr "Restableix"
 
-#: plugins/themeEditor/src/Manage.php:263
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Aquest fitxer no es pot escriure. Comproveu els permisos dels fitxers del tema."
 
-#: plugins/themeEditor/src/Manage.php:282
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "Arxius de plantilles"
 
-#: plugins/themeEditor/src/Manage.php:287
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "Fitxers CSS"
 
-#: plugins/themeEditor/src/Manage.php:292
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "Fitxers JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:297
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "Fitxers locals"
 
-#: plugins/themeEditor/src/Manage.php:302
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "Fitxers PHP"
 
-#: plugins/themeEditor/src/Manage.php:316
+#: plugins/themeEditor/src/Manage.php:317
 msgid "You can't edit a distributed theme."
 msgstr "No podeu editar un tema distribuït."
 
