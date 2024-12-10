@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-05 13:05+0100\n"
-"PO-Revision-Date: 2024-12-05 12:09\n"
+"POT-Creation-Date: 2024-12-10 11:01+0100\n"
+"PO-Revision-Date: 2024-12-10 10:06\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -978,24 +978,24 @@ msgstr "Neznan filter."
 msgid "attachments"
 msgstr "priloge"
 
-#: plugins/attachments/src/BackendBehaviors.php:95
+#: plugins/attachments/src/BackendBehaviors.php:96
 msgid "remove"
 msgstr "Odstrani"
 
-#: plugins/attachments/src/BackendBehaviors.php:105
+#: plugins/attachments/src/BackendBehaviors.php:106
 msgid "No attachment."
 msgstr "Brez priloge."
 
-#: plugins/attachments/src/BackendBehaviors.php:110
+#: plugins/attachments/src/BackendBehaviors.php:111
 #, php-format
 msgid "Attachments (%d)"
 msgstr "Priloge (%d)"
 
-#: plugins/attachments/src/BackendBehaviors.php:119
+#: plugins/attachments/src/BackendBehaviors.php:120
 msgid "Add files to this entry"
 msgstr "Dodajte datoteke v ta vnos"
 
-#: plugins/attachments/src/BackendBehaviors.php:128
+#: plugins/attachments/src/BackendBehaviors.php:129
 msgid "You must save the entry before adding an attachment."
 msgstr "Pred dodajanjem priloge morate vnos shraniti."
 
@@ -2909,8 +2909,8 @@ msgid "themeEditor"
 msgstr "urejevalnik tem"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:52
-#: plugins/themeEditor/src/Manage.php:188
-#: plugins/themeEditor/src/Manage.php:195
+#: plugins/themeEditor/src/Manage.php:189
+#: plugins/themeEditor/src/Manage.php:196
 msgid "Edit theme files"
 msgstr "Uredite datoteke tem"
 
@@ -2922,93 +2922,93 @@ msgstr "Označevanje sintakse"
 msgid "Syntax highlighting in theme editor"
 msgstr "Označevanje sintakse v urejevalniku tem"
 
-#: plugins/themeEditor/src/Manage.php:97
+#: plugins/themeEditor/src/Manage.php:98
 msgid "The theme update has been locked."
 msgstr "Posodobitev teme je bila zaklenjena."
 
-#: plugins/themeEditor/src/Manage.php:105
+#: plugins/themeEditor/src/Manage.php:106
 msgid "The theme update has been unocked."
 msgstr "Posodobitev teme je bila odklenjena."
 
-#: plugins/themeEditor/src/Manage.php:128
+#: plugins/themeEditor/src/Manage.php:129
 msgid "The file has been reset."
 msgstr "Datoteka je bila ponastavljena."
 
-#: plugins/themeEditor/src/Manage.php:161
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Lock update"
 msgstr "Zakleni posodobitev"
 
-#: plugins/themeEditor/src/Manage.php:161
+#: plugins/themeEditor/src/Manage.php:162
 msgid "Unlock update"
 msgstr "Odkleni posodobitev"
 
-#: plugins/themeEditor/src/Manage.php:166
-msgid "Lock update of the theme does not prevent to modify its files, only to update it globally."
-msgstr "Zaklepanje posodobitve teme ne preprečuje spreminjanja njenih datotek, temveč samo globalno posodobitev."
+#: plugins/themeEditor/src/Manage.php:167
+msgid "Lock theme update disables theme update, but allows theme files to be modified."
+msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:176
+#: plugins/themeEditor/src/Manage.php:177
 msgid "Saving document..."
 msgstr "Shranjevanje dokumenta ..."
 
-#: plugins/themeEditor/src/Manage.php:177
+#: plugins/themeEditor/src/Manage.php:178
 msgid "Document saved"
 msgstr "Dokument shranjen"
 
-#: plugins/themeEditor/src/Manage.php:178
+#: plugins/themeEditor/src/Manage.php:179
 msgid "An error occurred:"
 msgstr "Pojavila se je napaka:"
 
-#: plugins/themeEditor/src/Manage.php:179
+#: plugins/themeEditor/src/Manage.php:180
 msgid "Are you sure you want to reset this file?"
 msgstr "Ali ste prepričani, da želite ponastaviti to datoteko?"
 
-#: plugins/themeEditor/src/Manage.php:203
+#: plugins/themeEditor/src/Manage.php:204
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Vaša trenutna tema na tem blogu je »%s«."
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:228
 msgid "Please select a file to edit."
 msgstr "Izberite datoteko za urejanje."
 
-#: plugins/themeEditor/src/Manage.php:237
+#: plugins/themeEditor/src/Manage.php:238
 msgid "File editor"
 msgstr "Urejevalnik datotek"
 
-#: plugins/themeEditor/src/Manage.php:246
+#: plugins/themeEditor/src/Manage.php:247
 #, php-format
 msgid "Editing file %s"
 msgstr "Urejanje datoteke %s"
 
-#: plugins/themeEditor/src/Manage.php:256
+#: plugins/themeEditor/src/Manage.php:257
 msgid "Reset"
 msgstr "Ponastaviti"
 
-#: plugins/themeEditor/src/Manage.php:263
+#: plugins/themeEditor/src/Manage.php:264
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "V to datoteko ni mogoče pisati. Preverite dovoljenja za datoteke s temo."
 
-#: plugins/themeEditor/src/Manage.php:282
+#: plugins/themeEditor/src/Manage.php:283
 msgid "Templates files"
 msgstr "Datoteke s predlogami"
 
-#: plugins/themeEditor/src/Manage.php:287
+#: plugins/themeEditor/src/Manage.php:288
 msgid "CSS files"
 msgstr "datoteke CSS"
 
-#: plugins/themeEditor/src/Manage.php:292
+#: plugins/themeEditor/src/Manage.php:293
 msgid "JavaScript files"
 msgstr "datoteke JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:297
+#: plugins/themeEditor/src/Manage.php:298
 msgid "Locales files"
 msgstr "Področne datoteke"
 
-#: plugins/themeEditor/src/Manage.php:302
+#: plugins/themeEditor/src/Manage.php:303
 msgid "PHP files"
 msgstr "datoteke PHP"
 
-#: plugins/themeEditor/src/Manage.php:316
+#: plugins/themeEditor/src/Manage.php:317
 msgid "You can't edit a distributed theme."
 msgstr "Porazdeljene teme ne morete urejati."
 
