@@ -9,7 +9,9 @@
 }
 body {
   background: #cdcdcd;
-  font: 0.7em Arial, sans-serif;
+  font:
+    0.7em Arial,
+    sans-serif;
 }
 /* Common styles
 -------------------------------------------------------- */
@@ -31,6 +33,19 @@ pre {
   overflow: auto;
   width: 100%;
   height: auto;
+}
+sup,
+sub {
+  font-size: calc(0.5em + 4px);
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: calc(-0.83 * (1em - 4px));
+}
+sub {
+  top: calc(0.415 * (1em - 4px));
 }
 .left {
   float: left;
@@ -283,7 +298,10 @@ pre {
   padding: 10px 5px;
   margin: 6px 0;
   background: #f5f5f5;
-  font: 1.1em 'courier new', courier, monospace;
+  font:
+    1.1em 'courier new',
+    courier,
+    monospace;
 }
 .post-content h3,
 .post-excerpt h3 {
@@ -758,7 +776,9 @@ dd.comment-preview * {
   width: 60%;
   padding: 1px 2px;
   border: 1px solid #cdcdcd;
-  font: 1em Arial, sans-serif;
+  font:
+    1em Arial,
+    sans-serif;
   color: #005d99;
 }
 #comment-form input#c_remember {

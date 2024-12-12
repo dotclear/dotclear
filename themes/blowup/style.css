@@ -3,7 +3,10 @@ body {
   padding: 0;
   background: #e0e0e0 url(img/body-bg.png) repeat-x top;
   color: #6b6b6b;
-  font: 62.5% 'Lucida Grande', Arial, sans-serif;
+  font:
+    62.5% 'Lucida Grande',
+    Arial,
+    sans-serif;
 }
 
 a {
@@ -32,9 +35,20 @@ pre {
   word-wrap: break-word;
 }
 
+sup,
+sub {
+  font-size: calc(0.5em + 4px);
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
 sup {
-  font-size: 80%;
-  line-height: 50%;
+  top: calc(-0.83 * (1em - 4px));
+}
+
+sub {
+  top: calc(0.415 * (1em - 4px));
 }
 
 .left {
@@ -418,7 +432,10 @@ dd.comment-preview {
 .post-content pre,
 .post-excerpt pre {
   padding: 10px;
-  font: 1.1em 'courier new', courier, monospace;
+  font:
+    1.1em 'courier new',
+    courier,
+    monospace;
 }
 
 .post-content ul,
@@ -558,7 +575,10 @@ dd.comment-preview {
 }
 #comment-form input,
 #comment-form textarea {
-  font: 1em 'Lucida Grande', Arial, sans-serif;
+  font:
+    1em 'Lucida Grande',
+    Arial,
+    sans-serif;
   color: #279ac4;
   border: 1px solid #cdcdcd;
   padding: 1px 2px;

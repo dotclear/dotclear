@@ -50,8 +50,16 @@ img a {
 }
 sup,
 sub {
-  font-size: 0.7em;
-  line-height: 0.7em;
+  font-size: calc(0.5em + 4px);
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: calc(-0.83 * (1em - 4px));
+}
+sub {
+  top: calc(0.415 * (1em - 4px));
 }
 abbr {
   border-bottom: 1px dotted;
