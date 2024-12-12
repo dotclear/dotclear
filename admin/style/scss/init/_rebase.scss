@@ -105,18 +105,18 @@ q::after {
 
 sup,
 sub {
-  font-size: 0.75em;
+  font-size: calc(0.5em + 4px);
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 
 sup {
-  top: -0.5em;
+  top: calc(-0.5 * 0.83 * 2 * (1em - 4px));
 }
 
 sub {
-  bottom: -0.25em;
+  top: calc(0.25 * 0.83 * 2 * (1em - 4px));
 }
 
 abbr[title] {
