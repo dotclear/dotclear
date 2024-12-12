@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -10,16 +11,25 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Filter\FilterComments;
 use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Capture;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/comments.php
@@ -138,57 +148,84 @@ class Comments extends Process
 
             $spam_count = App::blog()->getComments(['comment_status' => App::blog()::COMMENT_JUNK], true)->f(0);
             if ($spam_count > 0) {
-                echo
-                '<form action="' . App::backend()->url()->get('admin.comments') . '" method="post" class="fieldset">';
-
                 if (!App::backend()->comment_filter->show() || (App::backend()->comment_filter->status != -2)) {
                     if ($spam_count == 1) {
-                        echo '<p>' . sprintf(__('You have one spam comment.'), '<strong>' . $spam_count . '</strong>') . ' ' .
-                        '<a href="' . App::backend()->url()->get('admin.comments', ['status' => -2]) . '">' . __('Show it.') . '</a></p>';
+                        $count = (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                new Text(null, sprintf(__('You have one spam comment.'), '<strong>' . $spam_count . '</strong>')),
+                                (new Link())
+                                    ->href(App::backend()->url()->get('admin.comments', ['status' => -2]))
+                                    ->text(__('Show it.')),
+                            ]);
                     } elseif ($spam_count > 1) {
-                        echo '<p>' . sprintf(__('You have %s spam comments.'), '<strong>' . $spam_count . '</strong>') . ' ' .
-                        '<a href="' . App::backend()->url()->get('admin.comments', ['status' => -2]) . '">' . __('Show them.') . '</a></p>';
+                        $count = (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                new Text(null, sprintf(__('You have %s spam comments.'), '<strong>' . $spam_count . '</strong>')),
+                                (new Link())
+                                    ->href(App::backend()->url()->get('admin.comments', ['status' => -2]))
+                                    ->text(__('Show them.')),
+                            ]);
+                    } else {
+                        $count = (new None());
                     }
+                } else {
+                    $count = (new None());
                 }
 
-                echo
-                '<p>' .
-                App::nonce()->getFormNonce() .
-                '<input name="delete_all_spam" class="delete" type="submit" value="' . __('Delete all spams') . '"></p>';
-
-                # --BEHAVIOR-- adminCommentsSpamForm --
-                App::behavior()->callBehavior('adminCommentsSpamFormV2');
-
-                echo
-                '</form>';
+                echo (new Form('form-spams'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.comments'))
+                    ->class('fieldset')
+                    ->fields([
+                        $count,
+                        (new Para())
+                            ->items([
+                                App::nonce()->formNonce(),
+                                (new Submit('delete_all_spam', __('Delete all spams')))
+                                    ->class('delete'),
+                            ]),
+                        # --BEHAVIOR-- adminCommentsSpamForm --
+                        (new Capture(App::behavior()->callBehavior(...), ['adminCommentsSpamFormV2'])),
+                    ])
+                ->render();
             }
 
             App::backend()->comment_filter->display('admin.comments');
 
             // Show comments
 
+            $form = (new Form('form-comments'))
+                ->method('post')
+                ->action(App::backend()->url()->get('admin.comments'))
+                ->fields([
+                    (new Text(null, '%s')),
+                    (new Div())
+                        ->class('two-cols')
+                        ->items([
+                            (new Para())
+                                ->class(['col', 'checkboxes-helpers']),
+                            (new Para())
+                                ->class(['col', 'right', 'form-buttons'])
+                                ->items([
+                                    (new Select('action'))
+                                        ->items(App::backend()->comments_actions_page->getCombo())
+                                        ->value(App::backend()->default_action)
+                                        ->title(__('Actions'))
+                                        ->label(new Label(__('Selected comments action:'), Label::IL_TF)),
+                                    App::nonce()->formNonce(),
+                                    (new Submit('do-action', __('ok'))),
+                                    ...App::backend()->url()->hiddenFormFields('admin.comments', App::backend()->comment_filter->values(true)),
+                                ]),
+                        ]),
+                ])
+            ->render();
+
             App::backend()->comment_list->display(
                 App::backend()->comment_filter->page,
                 App::backend()->comment_filter->nb,
-                '<form action="' . App::backend()->url()->get('admin.comments') . '" method="post" id="form-comments">' .
-
-                '%s' .
-
-                '<div class="two-cols">' .
-                '<p class="col checkboxes-helpers"></p>' .
-
-                '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
-                form::combo(
-                    'action',
-                    App::backend()->comments_actions_page->getCombo(),
-                    ['default' => App::backend()->default_action, 'extra_html' => 'title="' . __('Actions') . '"']
-                ) .
-                App::nonce()->getFormNonce() .
-                '<input id="do-action" type="submit" value="' . __('ok') . '"></p>' .
-                App::backend()->url()->getHiddenFormFields('admin.comments', App::backend()->comment_filter->values(true)) .
-                '</div>' .
-
-                '</form>',
+                $form,
                 App::backend()->comment_filter->show(),
                 (App::backend()->comment_filter->show() || (App::backend()->comment_filter->status == -2)),
                 $show_ip
