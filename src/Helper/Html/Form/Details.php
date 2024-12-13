@@ -91,6 +91,9 @@ class Details extends Component
         // Cope with items
         if (isset($this->items)) {
             foreach ($this->items as $item) {
+                if ($item instanceof None) {
+                    continue;
+                }
                 if (isset($this->summary) && $item->getDefaultElement() === 'summary') {
                     // Do not put more than one summary in fieldset
                     continue;

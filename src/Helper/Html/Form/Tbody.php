@@ -57,6 +57,9 @@ class Tbody extends Component
         // Cope with rows
         if (isset($this->rows)) {
             foreach ($this->rows as $row) {
+                if ($row instanceof None) {
+                    continue;
+                }
                 $buffer .= sprintf($format, $row->render());
             }
         }
@@ -64,6 +67,9 @@ class Tbody extends Component
         // Cope with items (as rows)
         if (isset($this->items)) {
             foreach ($this->items as $item) {
+                if ($item instanceof None) {
+                    continue;
+                }
                 $buffer .= sprintf($format, $item->render());
             }
         }

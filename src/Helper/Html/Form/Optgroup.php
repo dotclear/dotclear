@@ -52,6 +52,9 @@ class Optgroup extends Component
 
         if (isset($this->items)) {
             foreach ($this->items as $item => $value) {
+                if ($value instanceof None) {
+                    continue;
+                }
                 if ($value instanceof Option || $value instanceof Optgroup) {
                     $buffer .= $value->render($default);
                 } elseif (is_array($value)) {

@@ -59,6 +59,9 @@ class Dl extends Component
         if (isset($this->items)) {
             $first = true;
             foreach ($this->items as $item) {
+                if ($item instanceof None) {
+                    continue;
+                }
                 if (!$first && $this->separator) {
                     $buffer .= (string) $this->separator;
                 }

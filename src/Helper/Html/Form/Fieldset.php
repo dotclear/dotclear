@@ -89,6 +89,9 @@ class Fieldset extends Component
         // Cope with fields
         if (isset($this->fields)) {
             foreach ($this->fields as $field) {
+                if ($field instanceof None) {
+                    continue;
+                }
                 if (isset($this->legend) && $field->getDefaultElement() === 'legend') {
                     // Do not put more than one legend in fieldset
                     continue;
@@ -104,6 +107,9 @@ class Fieldset extends Component
         // Cope with items
         if (isset($this->items)) {
             foreach ($this->items as $item) {
+                if ($item instanceof None) {
+                    continue;
+                }
                 if (isset($this->legend) && $item->getDefaultElement() === 'legend') {
                     // Do not put more than one legend in fieldset
                     continue;

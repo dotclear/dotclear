@@ -58,6 +58,9 @@ class Div extends Component
         // Cope with items
         if (isset($this->items)) {
             foreach ($this->items as $item) {
+                if ($item instanceof None) {
+                    continue;
+                }
                 if (!$first && $this->separator) {
                     $buffer .= (string) $this->separator;
                 }

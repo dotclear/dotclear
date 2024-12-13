@@ -57,6 +57,9 @@ class Tr extends Component
         // Cope with cols
         if (isset($this->cols)) {
             foreach ($this->cols as $col) {
+                if ($col instanceof None) {
+                    continue;
+                }
                 $buffer .= sprintf(($this->format ?: '%s'), $col->render());
             }
         }
@@ -64,6 +67,9 @@ class Tr extends Component
         // Cope with items (as cols)
         if (isset($this->items)) {
             foreach ($this->items as $item) {
+                if ($item instanceof None) {
+                    continue;
+                }
                 $buffer .= sprintf($format, $item->render());
             }
         }

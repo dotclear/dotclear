@@ -95,6 +95,9 @@ class Table extends Component
 
         if (isset($this->items)) {
             foreach ($this->items as $item) {
+                if ($item instanceof None) {
+                    continue;
+                }
                 if (isset($this->caption) && $item->getDefaultElement() === 'caption') {
                     // Do not put more than one legend in fieldset
                     continue;

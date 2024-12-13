@@ -77,6 +77,9 @@ class Form extends Component
         // Cope with fields
         if (isset($this->fields)) {
             foreach ($this->fields as $field) {
+                if ($field instanceof None) {
+                    continue;
+                }
                 if (!$first && $this->separator) {
                     $buffer .= (string) $this->separator;
                 }
@@ -89,6 +92,9 @@ class Form extends Component
         if (isset($this->items)) {
             $first = true;
             foreach ($this->items as $item) {
+                if ($item instanceof None) {
+                    continue;
+                }
                 if (!$first && $this->separator) {
                     $buffer .= (string) $this->separator;
                 }

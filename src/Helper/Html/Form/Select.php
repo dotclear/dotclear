@@ -64,6 +64,9 @@ class Select extends Component
 
         if (isset($this->items)) {
             foreach ($this->items as $item => $value) {
+                if ($value instanceof None) {
+                    continue;
+                }
                 if ($value instanceof Option || $value instanceof Optgroup) {
                     /* @phpstan-ignore-next-line */
                     $buffer .= $value->render($this->default ?? $default ?? null);
