@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -11,16 +12,34 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Details;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Single;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Summary;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Textarea;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/index.php
@@ -51,12 +70,38 @@ class Home extends Process
         if (count($disabled)) {
             Notices::addWarningNotice(
                 __('The following plugins have been disabled :') .
-                '<ul><li>' . implode("</li>\n<li>", $disabled) . '</li></ul>',
+                (new Ul())
+                    ->items(
+                        array_map(fn ($item) => (new Li())->text($item), $disabled)
+                    )
+                ->render() .
                 ['divtag' => true, 'with_ts' => false]
             );
 
             App::backend()->url()->redirect('admin.home');
             exit;
+        }
+
+        // Check dashboard module global prefs
+        if (!App::auth()->prefs()->dashboard->prefExists('doclinks', true)) {
+            App::auth()->prefs()->dashboard->put('doclinks', true, 'boolean', '', false, true);
+        }
+        if (!App::auth()->prefs()->dashboard->prefExists('donate', true)) {
+            App::auth()->prefs()->dashboard->put('donate', true, 'boolean', '', false, true);
+        }
+        if (!App::auth()->prefs()->dashboard->prefExists('dcnews', true)) {
+            App::auth()->prefs()->dashboard->put('dcnews', true, 'boolean', '', false, true);
+        }
+        if (!App::auth()->prefs()->dashboard->prefExists('quickentry', true)) {
+            App::auth()->prefs()->dashboard->put('quickentry', false, 'boolean', '', false, true);
+        }
+        if (!App::auth()->prefs()->dashboard->prefExists('nodcupdate', true)) {
+            App::auth()->prefs()->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
+        }
+
+        // Handle folded/unfolded sections in admin from user preferences
+        if (!App::auth()->prefs()->toggles->prefExists('unfolded_sections')) {
+            App::auth()->prefs()->toggles->put('unfolded_sections', '', 'string', 'Folded sections in admin', false, true);
         }
 
         return self::status(true);
@@ -87,43 +132,6 @@ class Home extends Process
 
     public static function render(): void
     {
-        // Check dashboard module prefs
-        if (!App::auth()->prefs()->dashboard->prefExists('doclinks')) {
-            if (!App::auth()->prefs()->dashboard->prefExists('doclinks', true)) {
-                App::auth()->prefs()->dashboard->put('doclinks', true, 'boolean', '', false, true);
-            }
-            App::auth()->prefs()->dashboard->put('doclinks', true, 'boolean');
-        }
-        if (!App::auth()->prefs()->dashboard->prefExists('donate')) {
-            if (!App::auth()->prefs()->dashboard->prefExists('donate', true)) {
-                App::auth()->prefs()->dashboard->put('donate', true, 'boolean', '', false, true);
-            }
-            App::auth()->prefs()->dashboard->put('donate', true, 'boolean');
-        }
-        if (!App::auth()->prefs()->dashboard->prefExists('dcnews')) {
-            if (!App::auth()->prefs()->dashboard->prefExists('dcnews', true)) {
-                App::auth()->prefs()->dashboard->put('dcnews', true, 'boolean', '', false, true);
-            }
-            App::auth()->prefs()->dashboard->put('dcnews', true, 'boolean');
-        }
-        if (!App::auth()->prefs()->dashboard->prefExists('quickentry')) {
-            if (!App::auth()->prefs()->dashboard->prefExists('quickentry', true)) {
-                App::auth()->prefs()->dashboard->put('quickentry', false, 'boolean', '', false, true);
-            }
-            App::auth()->prefs()->dashboard->put('quickentry', false, 'boolean');
-        }
-        if (!App::auth()->prefs()->dashboard->prefExists('nodcupdate')) {
-            if (!App::auth()->prefs()->dashboard->prefExists('nodcupdate', true)) {
-                App::auth()->prefs()->dashboard->put('nodcupdate', false, 'boolean', '', false, true);
-            }
-            App::auth()->prefs()->dashboard->put('nodcupdate', false, 'boolean');
-        }
-
-        // Handle folded/unfolded sections in admin from user preferences
-        if (!App::auth()->prefs()->toggles->prefExists('unfolded_sections')) {
-            App::auth()->prefs()->toggles->put('unfolded_sections', '', 'string', 'Folded sections in admin', false, true);
-        }
-
         // Dashboard icons
         $__dashboard_icons = new ArrayObject();
         App::backend()->favorites()->appendDashboardIcons($__dashboard_icons);
@@ -134,31 +142,12 @@ class Home extends Process
 
         // Documentation links
         if (App::auth()->prefs()->dashboard->doclinks && !empty(App::backend()->resources()->entries('doc'))) {
-            $doc_links = '<div class="box small dc-box" id="doc-and-support"><h3>' . __('Documentation and support') . '</h3><ul>';
-
-            foreach (App::backend()->resources()->entries('doc') as $k => $v) {
-                $doc_links .= '<li><a href="' . $v . '" title="' . $k . '">' . $k . '</a></li>';
-            }
-
-            $doc_links .= '</ul></div>';
-            $__dashboard_items[$dashboardItem]->append($doc_links); // @phpstan-ignore-line
+            $__dashboard_items[$dashboardItem]->append(static::docLinks(App::backend()->resources()->entries('doc'))); // @phpstan-ignore-line
         }
 
         // Call for donations
         if (App::auth()->prefs()->dashboard->donate) {
-            $donation = '<div class="box small dc-box" id="donate">' .
-                '<h3>' . __('Donate to Dotclear') . '</h3>' .
-                '<p>' . __('Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses.') . '</p>' .
-                '<p>' . __('The collected funds will be spent as follows:') . '</p>' .
-                '<ul>' .
-                '<li>' . __('Paying for the website hosting and translations') . '</li>' .
-                '<li>' . __('Paying for the domain names') . '</li>' .
-                '<li>' . __('Supporting related projects such as Dotaddict.org') . '</li>' .
-                '<li>' . __('Cover the costs of events set up by Dotclear') . '</li>' .
-                '</ul>' .
-                '<p>' . __('See <a href="https://dotclear.org/donate">this page</a> for more information and donation') . '</p>' .
-                '</div>';
-            $__dashboard_items[$dashboardItem]->append($donation); // @phpstan-ignore-line
+            $__dashboard_items[$dashboardItem]->append(static::donationBlock()); // @phpstan-ignore-line
         }
 
         # --BEHAVIOR-- adminDashboardItemsV2 -- ArrayObject
@@ -199,13 +188,16 @@ class Home extends Process
                 'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled'),
             ];
             $dragndrop_head = Page::jsJson('dotclear_dragndrop', $dragndrop_msg);
-            $dragndrop      = '<input type="checkbox" id="dragndrop" class="sr-only" title="' . $dragndrop_msg['dragndrop_off'] . '">' .
-                '<label for="dragndrop">' .
-                '<svg aria-hidden="true" focusable="false" class="dragndrop-svg">' .
-                '<use xlink:href="images/dragndrop.svg#mask"></use>' .
-                '</svg>' .
-                '<span id="dragndrop-label" class="sr-only">' . $dragndrop_msg['dragndrop_off'] . '</span>' .
-                '</label>';
+            $dragndrop_icon = '<svg aria-hidden="true" focusable="false" class="dragndrop-svg"><use xlink:href="images/dragndrop.svg#mask"></use></svg>' .
+                (new Text('span', $dragndrop_msg['dragndrop_off']))
+                    ->id('dragndrop-label')
+                    ->class('sr-only')
+                ->render();
+            $dragndrop = (new Checkbox('dragndrop'))
+                ->class('sr-only')
+                ->title($dragndrop_msg['dragndrop_off'])
+                ->label((new Label($dragndrop_icon, Label::OL_FT)))
+            ->render();
         }
 
         Page::open(
@@ -229,8 +221,14 @@ class Home extends Process
         );
 
         if (App::auth()->getInfo('user_default_blog') != App::blog()->id() && App::auth()->getBlogCount() > 1) {
-            echo
-            '<p><a href="' . App::backend()->url()->get('admin.home', ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
+            echo (new Para())
+                ->items([
+                    (new Link())
+                        ->class('button')
+                        ->href(App::backend()->url()->get('admin.home', ['default_blog' => 1]))
+                        ->text(__('Make this blog my default blog')),
+                ])
+            ->render();
         }
 
         if (App::blog()->status() == App::blog()::BLOG_OFFLINE) {
@@ -283,7 +281,11 @@ class Home extends Process
         if (count($err)) {
             Notices::error(
                 __('Error:') .
-                '<ul><li>' . implode("</li>\n<li>", $err) . '</li></ul>',
+                (new Ul())
+                    ->items(
+                        array_map(fn ($item) => (new Li())->text($item), $err)
+                    )
+                ->render() .
                 false,
                 true
             );
@@ -300,7 +302,11 @@ class Home extends Process
 
             Notices::success(
                 __('Following plugins have been installed:') .
-                '<ul><li>' . implode("</li>\n<li>", $success) . '</li></ul>',
+                (new Ul())
+                    ->items(
+                        array_map(fn ($item) => (new Li())->text($item), $success)
+                    )
+                ->render() .
                 false,
                 true
             );
@@ -314,7 +320,11 @@ class Home extends Process
 
             Notices::error(
                 __('Following plugins have not been installed:') .
-                '<ul><li>' . implode("</li>\n<li>", $failure) . '</li></ul>',
+                (new Ul())
+                    ->items(
+                        array_map(fn ($item) => (new Li())->text($item), $failure)
+                    )
+                ->render() .
                 false,
                 true
             );
@@ -327,7 +337,11 @@ class Home extends Process
             if (!empty($list)) {
                 Notices::error(
                     __('Errors have occured with following plugins:') .
-                    '<ul><li>' . implode("</li>\n<li>", $list) . '</li></ul>',
+                    (new Ul())
+                        ->items(
+                            array_map(fn ($item) => (new Li())->text($item), $list)
+                        )
+                    ->render() .
                     false,
                     true
                 );
@@ -411,24 +425,47 @@ class Home extends Process
         // Compose dashboard boxes (items, contents)
         $__dashboard_boxes = [];
         if ($dashboardItems != '') {
-            $__dashboard_boxes[] = '<div class="db-items" id="db-items">' . $dashboardItems . '</div>';
+            $__dashboard_boxes[] = (new Div('db-items'))
+                ->class('db-items')
+                ->items([
+                    (new Text(null, $dashboardItems)),
+                ])
+            ->render();
         }
         if ($dashboardContents != '') {
-            $__dashboard_boxes[] = '<div class="db-contents" id="db-contents">' . $dashboardContents . '</div>';
+            $__dashboard_boxes[] = (new Div('db-contents'))
+                ->class('db-contents')
+                ->items([
+                    (new Text(null, $dashboardContents)),
+                ])
+            ->render();
         }
         $dashboardBoxes = $composeItems($boxes_order, $__dashboard_boxes, true);
 
         // Compose main area (icons, quick entry, boxes)
         $__dashboard_main = [];
+
         if (!App::auth()->prefs()->dashboard->nofavicons) {
             // Dashboard icons
-
-            $dashboardIcons = '<div id="icons">';
-            foreach ($__dashboard_icons as $k => $i) {
-                $dashboardIcons .= '<p><a href="' . $i[1] . '" id="icon-process-' . $k . '-fav">' . Helper::adminIcon($i[2]) .
-            '<br><span class="db-icon-title">' . $i[0] . '</span></a></p>';
-            }
-            $dashboardIcons .= '</div>';
+            $dashboardIcons = (new Div('icons'))
+                ->items(
+                    array_map(
+                        fn ($id, $info) => (new Para())
+                            ->items([
+                                (new Link('icon-process-' . $id . '-fav'))
+                                    ->href($info[1])
+                                    ->items([
+                                        (new Text(null, Helper::adminIcon($info[2]))),
+                                        (new Single('br')),
+                                        (new Text('span', $info[0]))
+                                            ->class('db-icon-title'),
+                                    ]),
+                            ]),
+                        array_keys($__dashboard_icons->getArrayCopy()),
+                        array_values($__dashboard_icons->getArrayCopy())
+                    )
+                )
+            ->render();
             $__dashboard_main[] = $dashboardIcons;
         }
 
@@ -437,58 +474,9 @@ class Home extends Process
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
             // Quick entry
-
-            // Get categories
-            $categories_combo = Combos::getCategoriesCombo(
-                App::blog()->getCategories([])
-            );
-
-            $__dashboard_main[] = '<div id="quick">' .
-                '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', App::formater()->getFormaterName(App::auth()->getOption('post_format'))) . '</h3>' .
-                '<form id="quick-entry" action="' . App::backend()->url()->get('admin.post') . '" method="post" class="fieldset">' .
-                '<h4>' . __('New post') . '</h4>' .
-                '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-                '<p class="col"><label for="post_title" class="required"><span>*</span> ' . __('Title:') . '</label>' .
-                form::field('post_title', 20, 255, [
-                    'class'      => 'maximal',
-                    'extra_html' => 'required placeholder="' . __('Title') . '"',
-                ]) .
-                '</p>' .
-                '<div class="area"><label class="required" ' .
-                'for="post_content"><span>*</span> ' . __('Content:') . '</label> ' .
-                form::textarea('post_content', 50, 10, ['extra_html' => 'required placeholder="' . __('Content') . '"']) .
-                '</div>' .
-                '<p><label for="cat_id" class="classic">' . __('Category:') . '</label> ' .
-                form::combo('cat_id', $categories_combo) . '</p>' .
-                (App::auth()->check(App::auth()->makePermissions([
-                    App::auth()::PERMISSION_CATEGORIES,
-                ]), App::blog()->id())
-                    ? '<div>' .
-                    '<p id="new_cat" class="q-cat">' . __('Add a new category') . '</p>' .
-                    '<p class="q-cat"><label for="new_cat_title">' . __('Title:') . '</label> ' .
-                    form::field('new_cat_title', 30, 255) . '</p>' .
-                    '<p class="q-cat"><label for="new_cat_parent">' . __('Parent:') . '</label> ' .
-                    form::combo('new_cat_parent', $categories_combo) .
-                    '</p>' .
-                    '<p class="form-note info clear">' . __('This category will be created when you will save your post.') . '</p>' .
-                    '</div>'
-                    : '') .
-                '<p class="form-buttons"><input type="submit" value="' . __('Save') . '" name="save"> ' .
-                (App::auth()->check(App::auth()->makePermissions([
-                    App::auth()::PERMISSION_PUBLISH,
-                ]), App::blog()->id())
-                    ? '<input type="hidden" value="' . __('Save and publish') . '" name="save-publish">'
-                    : '') .
-                App::nonce()->getFormNonce() .
-                form::hidden('post_status', App::blog()::POST_PENDING) .
-                form::hidden('post_format', App::auth()->getOption('post_format')) .
-                form::hidden('post_excerpt', '') .
-                form::hidden('post_lang', App::auth()->getInfo('user_lang')) .
-                form::hidden('post_notes', '') .
-                '</p>' .
-                '</form>' .
-                '</div>';
+            $__dashboard_main[] = static::quickEntry();
         }
+
         if ($dashboardBoxes != '') {
             $__dashboard_main[] = '<div id="dashboard-boxes">' . $dashboardBoxes . '</div>';
         }
@@ -499,5 +487,160 @@ class Home extends Process
 
         Page::helpBlock('core_dashboard');
         Page::close();
+    }
+
+    // Helpers
+
+    protected static function quickEntry(): string
+    {
+        // Get categories
+        $categories_combo = Combos::getCategoriesCombo(
+            App::blog()->getCategories([])
+        );
+
+        return
+        (new Div('quick'))
+            ->items([
+                (new Text('h3', __('Quick post') . sprintf(' &rsaquo; %s', App::formater()->getFormaterName(App::auth()->getOption('post_format'))))),
+                (new Form('quick-entry'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.post'))
+                    ->class('fieldset')
+                    ->fields([
+                        (new Text('h4', __('New post'))),
+                        (new Note())
+                            ->class('form-note')
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        (new Para())
+                            ->class('col')
+                            ->items([
+                                (new Input('post_title'))
+                                    ->size(20)
+                                    ->maxlength(255)
+                                    ->class('maximal')
+                                    ->placeholder(__('Title'))
+                                    ->required(true)
+                                    ->label(
+                                        (new Label(
+                                            (new Text('span', '*'))->render() . __('Title:'),
+                                            Label::IL_TF
+                                        ))
+                                        ->class('required')
+                                    ),
+                            ]),
+                        (new Para())
+                            ->class('area')
+                            ->items([
+                                (new Textarea('post_content'))
+                                    ->cols(50)
+                                    ->rows(10)
+                                    ->placeholder(__('Content'))
+                                    ->required(true)
+                                    ->label(
+                                        (new Label(
+                                            (new Text('span', '*'))->render() . __('Content:'),
+                                            Label::IL_TF
+                                        ))
+                                        ->class('required')
+                                    ),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Select('cat_id'))
+                                    ->items($categories_combo)
+                                    ->label(new Label(__('Category:'), Label::IL_TF)),
+                            ]),
+                        App::auth()->check(App::auth()->makePermissions([App::auth()::PERMISSION_CATEGORIES]), App::blog()->id()) ?
+                            (new Details('new_cat'))
+                                ->summary(new Summary(__('Add a new category')))
+                                ->items([
+                                    (new Para())
+                                        ->class('q-cat')
+                                        ->items([
+                                            (new Input('new_cat_title'))
+                                                ->size(30)
+                                                ->maxlength(255)
+                                                ->label(new Label(__('Title:'), Label::IL_TF)),
+                                        ]),
+                                    (new Para())
+                                        ->class('q-cat')
+                                        ->items([
+                                            (new Select('new_cat_parent'))
+                                                ->items($categories_combo)
+                                                ->label(new Label(__('Parent:'), Label::IL_TF)),
+                                        ]),
+                                    (new Note())
+                                        ->class(['form-note', 'info', 'clear'])
+                                        ->text(__('This category will be created when you will save your post.')),
+                                ]) :
+                            (new None()),
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                (new Submit('save', __('Save'))),
+                                App::auth()->check(App::auth()->makePermissions([App::auth()::PERMISSION_PUBLISH]), App::blog()->id()) ?
+                                    (new Hidden('save-publish', __('Save and publish'))) :
+                                    (new None()),
+                                App::nonce()->formNonce(),
+                                (new Hidden('post_status', (string) App::blog()::POST_PENDING)),
+                                (new Hidden('post_format', (string) App::auth()->getOption('post_format'))),
+                                (new Hidden('post_excerpt', '')),
+                                (new Hidden('post_lang', (string) App::auth()->getInfo('user_lang'))),
+                                (new Hidden('post_notes', '')),
+                            ]),
+                    ]),
+            ])
+        ->render();
+    }
+
+    protected static function donationBlock(): string
+    {
+        return (new Div('donate'))
+            ->class(['box', 'small', 'dc-box'])
+            ->items([
+                (new Text('h3', __('Donate to Dotclear'))),
+                (new Note())
+                    ->text(__('Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses.')),
+                (new Note())
+                    ->text(__('The collected funds will be spent as follows:')),
+                (new Ul())
+                    ->items([
+                        (new Li())
+                            ->text(__('Paying for the website hosting and translations')),
+                        (new Li())
+                            ->text(__('Paying for the domain names')),
+                        (new Li())
+                            ->text(__('Supporting related projects such as Dotaddict.org')),
+                        (new Li())
+                            ->text(__('Cover the costs of events set up by Dotclear')),
+                    ]),
+                (new Note())
+                    ->text(__('See <a href="https://dotclear.org/donate">this page</a> for more information and donation')),
+            ])
+        ->render();
+    }
+
+    protected static function docLinks(array $links): string
+    {
+        return (new Div('doc-and-support'))
+            ->class(['box', 'small', 'dc-box'])
+            ->items([
+                (new Text('h3', __('Documentation and support'))),
+                (new Ul())
+                    ->items(
+                        array_map(
+                            fn ($title, $href) => (new Li())
+                                ->items([
+                                    (new Link())
+                                        ->href($href)
+                                        ->title($title)
+                                        ->text($title),
+                                ]),
+                            array_keys($links),
+                            array_values($links)
+                        )
+                    ),
+            ])
+        ->render();
     }
 }
