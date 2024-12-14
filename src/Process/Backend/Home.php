@@ -285,7 +285,7 @@ class Home extends Process
                     ->items(
                         array_map(fn ($item) => (new Li())->text($item), $err)
                     )
-                ->render() .
+                ->render(),
                 false,
                 true
             );
@@ -306,7 +306,7 @@ class Home extends Process
                     ->items(
                         array_map(fn ($item) => (new Li())->text($item), $success)
                     )
-                ->render() .
+                ->render(),
                 false,
                 true
             );
@@ -324,7 +324,7 @@ class Home extends Process
                     ->items(
                         array_map(fn ($item) => (new Li())->text($item), $failure)
                     )
-                ->render() .
+                ->render(),
                 false,
                 true
             );
@@ -341,7 +341,7 @@ class Home extends Process
                         ->items(
                             array_map(fn ($item) => (new Li())->text($item), $list)
                         )
-                    ->render() .
+                    ->render(),
                     false,
                     true
                 );
