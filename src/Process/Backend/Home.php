@@ -531,18 +531,14 @@ class Home extends Process
                         (new Para())
                             ->class('area')
                             ->items([
+                                (new Label((new Text('span', '*'))->render() . __('Content:'), Label::OL_TF))
+                                    ->for('post_content')
+                                    ->class('required'),
                                 (new Textarea('post_content'))
                                     ->cols(50)
                                     ->rows(10)
                                     ->placeholder(__('Content'))
-                                    ->required(true)
-                                    ->label(
-                                        (new Label(
-                                            (new Text('span', '*'))->render() . __('Content:'),
-                                            Label::IL_TF
-                                        ))
-                                        ->class('required')
-                                    ),
+                                    ->required(true),
                             ]),
                         (new Para())
                             ->items([
