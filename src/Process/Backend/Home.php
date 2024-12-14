@@ -74,7 +74,7 @@ class Home extends Process
                     ->items(
                         array_map(fn ($item) => (new Li())->text($item), $disabled)
                     )
-                ->render() .
+                ->render(),
                 ['divtag' => true, 'with_ts' => false]
             );
 
@@ -133,6 +133,12 @@ class Home extends Process
     public static function render(): void
     {
         // Dashboard icons
+
+        /**
+         * List of dashboard icons (user favorites)
+         *
+         * @var        ArrayObject<string, ArrayObject<int, mixed>>
+         */
         $__dashboard_icons = new ArrayObject();
         App::backend()->favorites()->appendDashboardIcons($__dashboard_icons);
 
@@ -491,6 +497,11 @@ class Home extends Process
 
     // Helpers
 
+    /**
+     * Get rendered quick entry form module
+     *
+     * @return     string
+     */
     protected static function quickEntry(): string
     {
         // Get categories
@@ -589,6 +600,11 @@ class Home extends Process
         ->render();
     }
 
+    /**
+     * Get rendered donation module
+     *
+     * @return     string
+     */
     protected static function donationBlock(): string
     {
         return (new Div('donate'))
@@ -616,6 +632,13 @@ class Home extends Process
         ->render();
     }
 
+    /**
+     * Get rendered documentation links module
+     *
+     * @param      array<string, string>       $links  The links
+     *
+     * @return     string
+     */
     protected static function docLinks(array $links): string
     {
         return (new Div('doc-and-support'))
@@ -629,8 +652,8 @@ class Home extends Process
                                 ->items([
                                     (new Link())
                                         ->href($href)
-                                        ->title($title)
-                                        ->text($title),
+                                        ->title((string) $title)
+                                        ->text((string) $title),
                                 ]),
                             array_keys($links),
                             array_values($links)
