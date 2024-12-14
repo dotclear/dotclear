@@ -1,4 +1,4 @@
-/*global $, dotclear, jsToolBar */
+/*global jQuery, dotclear, jsToolBar */
 'use strict';
 
 dotclear.dbCommentsCount = (icon) => {
@@ -7,9 +7,9 @@ dotclear.dbCommentsCount = (icon) => {
       return;
     }
     // First pass or counter changed
-    const nb_label = icon.children('span.db-icon-title');
-    if (nb_label.length) {
-      nb_label.text(data.ret);
+    const nbLabel = icon.querySelector('span.db-icon-title');
+    if (nbLabel) {
+      nbLabel.textContent = data.ret;
     }
     // Store current counter
     dotclear.dbCommentsCount_Counter = data.ret;
@@ -21,9 +21,9 @@ dotclear.dbPostsCount = (icon) => {
       return;
     }
     // First pass or counter changed
-    const nb_label = icon.children('span.db-icon-title');
-    if (nb_label.length) {
-      nb_label.text(data.ret);
+    const nbLabel = icon.querySelector('span.db-icon-title');
+    if (nbLabel) {
+      nbLabel.textContent = data.ret;
     }
     // Store current counter
     dotclear.dbPostsCount_Counter = data.ret;
@@ -38,23 +38,18 @@ dotclear.dbStoreUpdate = (store, icon) => {
       }
       // Something has to be displayed
       // update link to details
-      icon.children('a').attr('href', `${icon.children('a').attr('href')}#update`);
+      icon.setAttribute('href', `${icon.getAttribute('href')}#update`);
       // update icon
-      icon
-        .children('a')
-        .children('img')
-        .attr(
-          'src',
-          icon
-            .children('a')
-            .children('img')
-            .attr('src')
-            .replace(/([^/]+)(\..*)$/g, '$1-update$2'),
-        );
+      for (const img of icon.querySelectorAll('img')) {
+        img.setAttribute('src', img.getAttribute('src').replace(/([^/]+)(\..*)$/g, '$1-update$2'));
+      }
       // add icon text says there is an update
-      icon.children('a').children('.db-icon-title').append('<br>').append(data.ret);
+      const label = icon.querySelector('.db-icon-title');
+      if (label) {
+        label.innerHTML = `${label.innerHTML}<br>${data.ret}`;
+      }
       // Badge (info) on dashboard icon
-      dotclear.badge(icon, {
+      dotclear.badge(icon.parentNode, {
         id: `mu-${store}`,
         value: data.nb,
         icon: true,
@@ -68,79 +63,83 @@ dotclear.dbStoreUpdate = (store, icon) => {
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  function quickPost(f, status) {
-    if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() === 'wysiwyg') {
-      dotclear.contentTb.syncContents('iframe');
-    }
-
-    $('p.info', f).remove();
-    $('p.error', f).remove();
-
-    dotclear.jsonServicesPost(
-      'quickPost',
-      (data) => {
-        let msg = `<p class="info">${dotclear.msg.entry_created} - <a href="post.php?id=${data.id}">${dotclear.msg.edit_entry}</a>`;
-        if (data.status === dotclear.post_published) {
-          msg += ` - <a href="${data.url}">${dotclear.msg.view_entry}</a>`;
-        }
-        msg += '</p>';
-        $('#post_title', f).val('');
-        $('#post_content', f).val('');
-        $('#post_content', f).change();
-        if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() === 'wysiwyg') {
-          dotclear.contentTb.syncContents('textarea');
-        }
-        $('#cat_id', f).val('0');
-        $('#new_cat_title', f).val('');
-        $('#new_cat_parent', f).val('0');
-        f.append(msg);
-      },
-      {
-        post_title: $('#post_title', f).val(),
-        post_content: $('#post_content', f).val(),
-        cat_id: $('#cat_id', f).val(),
-        post_status: status,
-        post_format: $('#post_format', f).val(),
-        post_lang: $('#post_lang', f).val(),
-        new_cat_title: $('#new_cat_title', f).val(),
-        new_cat_parent: $('#new_cat_parent', f).val(),
-      },
-      (error) => {
-        const msg = `<p class="error"><strong>${dotclear.msg.error}</strong> ${error}</p>`;
-        f.append(msg);
-      },
-    );
-  }
-
-  const f = $('#quick-entry');
-  if (f.length > 0) {
+  const formQuickEntry = document.getElementById('quick-entry');
+  if (formQuickEntry) {
     Object.assign(dotclear, dotclear.getData('dotclear_quickentry'));
 
-    if (typeof jsToolBar === 'function') {
-      dotclear.contentTb = new jsToolBar($('#post_content', f)[0]);
-      dotclear.contentTb.switchMode($('#post_format', f).val());
+    function quickPost(status) {
+      if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() === 'wysiwyg') {
+        dotclear.contentTb.syncContents('iframe');
+      }
+
+      formQuickEntry.querySelector('p.info')?.remove();
+      formQuickEntry.querySelector('p.error')?.remove();
+
+      dotclear.jsonServicesPost(
+        'quickPost',
+        (data) => {
+          let msg = `<p class="info">${dotclear.msg.entry_created} - <a href="post.php?id=${data.id}">${dotclear.msg.edit_entry}</a>`;
+          if (data.status === dotclear.post_published) {
+            msg += ` - <a href="${data.url}">${dotclear.msg.view_entry}</a>`;
+          }
+          msg += '</p>';
+          formQuickEntry.append(dotclear.htmlToNode(msg));
+          // Reset form
+          formQuickEntry.reset();
+          document.getElementById('post_content').dispatchEvent(new Event('change', { bubbles: true }));
+          if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() === 'wysiwyg') {
+            dotclear.contentTb.syncContents('textarea');
+          }
+        },
+        {
+          post_title: formQuickEntry.querySelector('#post_title').value,
+          post_content: formQuickEntry.querySelector('#post_content').value,
+          cat_id: formQuickEntry.querySelector('#cat_id').value,
+          post_status: status,
+          post_format: formQuickEntry.querySelector('#post_format').value,
+          post_lang: formQuickEntry.querySelector('#post_lang').value,
+          new_cat_title: formQuickEntry.querySelector('#new_cat_title').value,
+          new_cat_parent: formQuickEntry.querySelector('#new_cat_parent').value,
+        },
+        (error) => {
+          formQuickEntry.append(dotclear.htmlToNode(`<p class="error"><strong>${dotclear.msg.error}</strong> ${error}</p>`));
+        },
+      );
     }
 
-    $('input[name=save]', f).on('click', () => {
-      quickPost(f, dotclear.post_pending);
+    if (typeof jsToolBar === 'function') {
+      dotclear.contentTb = new jsToolBar(formQuickEntry.querySelector('#post_content'));
+      dotclear.contentTb.switchMode(formQuickEntry.querySelector('#post_format').value);
+    }
+
+    // Form submission (save)
+    formQuickEntry.querySelector('input[name=save]')?.addEventListener('click', (event) => {
+      quickPost(dotclear.post_pending);
+      event.preventDefault();
       return false;
     });
 
-    if ($('input[name=save-publish]', f).length > 0) {
-      const btn = $(`<input type="submit" value="${$('input[name=save-publish]', f).val()}" name="save-and-publish">`);
-      $('input[name=save-publish]', f).remove();
-      $('input[name=save]', f).after(btn).after(' ');
-      btn.on('click', () => {
-        quickPost(f, dotclear.post_published);
+    const savePublish = formQuickEntry.querySelector('input[name=save-publish]');
+    if (savePublish) {
+      const btn = dotclear.htmlToNode(`<input type="submit" value="${savePublish.value}" name="save-and-publish">`);
+      savePublish.remove();
+      formQuickEntry.querySelector('input[name=save]').after(btn);
+      btn.addEventListener('click', (event) => {
+        quickPost(dotclear.post_published);
+        event.preventDefault();
         return false;
       });
     }
 
     // allow to hide quick entry div, and remember choice
-    $('#quick h3').toggleWithLegend($('#quick').children().not('h3'), {
-      legend_click: true,
-      user_pref: 'dcx_quick_entry',
-    });
+    const title = document.querySelector('#quick h3');
+    if (title) {
+      const siblings = title.parentNode.querySelectorAll(':not(h3)');
+      dotclear.toggleWithLegend(title, siblings, {
+        legend_click: true,
+        user_pref: 'dcx_quick_entry',
+      });
+    }
   }
 
   // outgoing links for documentation
@@ -150,20 +149,20 @@ dotclear.ready(() => {
   dotclear.jsonServicesGet('checkCoreUpdate', (data) => {
     if (data.check) {
       // Something has to be displayed
-      $('#content h2').after(data.ret);
+      document.querySelector('#content h2').after(dotclear.htmlToNode(data.ret));
       // manage outgoing links
       dotclear.outgoingLinks('#ajax-update a');
     }
   });
 
   // check if store update available, if db has icon
-  if ($('#dashboard-main #icons p #icon-process-plugins-fav').length) {
-    const plugins_db_icon = $('#dashboard-main #icons p #icon-process-plugins-fav').parent();
-    dotclear.dbStoreUpdate('plugins', plugins_db_icon);
+  const iconPlugins = document.querySelector('#dashboard-main #icons p #icon-process-plugins-fav');
+  if (iconPlugins) {
+    dotclear.dbStoreUpdate('plugins', iconPlugins);
   }
-  if ($('#dashboard-main #icons p #icon-process-blog_theme-fav').length) {
-    const themes_db_icon = $('#dashboard-main #icons p #icon-process-blog_theme-fav').parent();
-    dotclear.dbStoreUpdate('themes', themes_db_icon);
+  const iconThemes = document.querySelector('#dashboard-main #icons p #icon-process-blog_theme-fav');
+  if (iconThemes) {
+    dotclear.dbStoreUpdate('themes', iconThemes);
   }
 
   // check if some news are available
@@ -172,50 +171,52 @@ dotclear.ready(() => {
       return;
     }
     // Something has to be displayed
-    if ($('#dashboard-boxes').length === 0) {
+    if (!document.getElementById('dashboard-boxes')) {
       // Create the #dashboard-boxes container
-      $('#dashboard-main').append('<div id="dashboard-boxes"></div>');
+      document.getElementById('dashboard-main').append(dotclear.htmlToNode('<div id="dashboard-boxes"></div>'));
     }
-    if ($('#dashboard-boxes div.db-items').length === 0) {
+    if (!document.querySelector('#dashboard-boxes div.db-items')) {
       // Create the #dashboard-boxes div.db-items container
-      $('#dashboard-boxes').prepend('<div class="db-items"></div>');
+      document.getElementById('dashboard-boxes').prepend(dotclear.htmlToNode('<div class="db-items"></div>'));
     }
-    $('#dashboard-boxes div.db-items').prepend(data.ret);
+    document.querySelector('#dashboard-boxes div.db-items').prepend(dotclear.htmlToNode(data.ret));
     // manage outgoing links
     dotclear.outgoingLinks('#ajax-news a');
   });
 
   // run counters' update on some dashboard icons
   // Comments (including everything)
-  const icon_comments = $('#dashboard-main #icons p #icon-process-comments-fav');
-  if (icon_comments.length) {
+  const iconComments = document.querySelector('#dashboard-main #icons p #icon-process-comments-fav');
+  if (iconComments) {
     // Icon exists on dashboard
     // First pass
-    dotclear.dbCommentsCount(icon_comments);
+    dotclear.dbCommentsCount(iconComments);
     // Then fired every 60 seconds (1 minute)
-    dotclear.dbCommentsCount_Timer = setInterval(dotclear.dbCommentsCount, 60 * 1000, icon_comments);
+    dotclear.dbCommentsCount_Timer = setInterval(dotclear.dbCommentsCount, 60 * 1000, iconComments);
   }
   // Posts
-  const icon_posts = $('#dashboard-main #icons p #icon-process-posts-fav');
-  if (icon_posts.length) {
+  const iconPosts = document.querySelector('#dashboard-main #icons p #icon-process-posts-fav');
+  if (iconPosts) {
     // Icon exists on dashboard
     // First pass
-    dotclear.dbPostsCount(icon_posts);
+    dotclear.dbPostsCount(iconPosts);
     // Then fired every 600 seconds (10 minutes)
-    dotclear.dbPostsCount_Timer = setInterval(dotclear.dbPostsCount, 600 * 1000, icon_posts);
+    dotclear.dbPostsCount_Timer = setInterval(dotclear.dbPostsCount, 600 * 1000, iconPosts);
   }
 
   if (dotclear.data.noDragDrop) {
     return;
   }
+
   // Dashboard boxes and their children are sortable
+  Object.assign(dotclear, dotclear.getData('dotclear_dragndrop'));
   const set_positions = (sel, id) => {
-    const list = $(sel).sortable('toArray').join();
+    const list = jQuery(sel).sortable('toArray').join();
     // Save positions (via services) for id
     dotclear.jsonServicesPost('setDashboardPositions', () => {}, { id, list });
   };
   const init_positions = (sel, id) => {
-    $(sel).sortable({
+    jQuery(sel).sortable({
       cursor: 'move',
       opacity: 0.5,
       delay: 200,
@@ -225,15 +226,15 @@ dotclear.ready(() => {
         set_positions(sel, id);
       },
       start() {
-        $(sel).addClass('sortable-area');
+        sel.classList.add('sortable-area');
       },
       stop() {
-        $(sel).removeClass('sortable-area');
+        sel.classList.remove('sortable-area');
       },
     });
   };
   const reset_positions = (sel) => {
-    $(sel).sortable('destroy');
+    jQuery(sel).sortable('destroy');
   };
   // List of sortable areas
   const areas = [
@@ -243,18 +244,19 @@ dotclear.ready(() => {
     ['#db-contents', 'boxes_contents_order'],
   ];
   // Set or reset sortable depending on #dragndrop checbkox value
-  $('#dragndrop').on('click', function () {
-    Object.assign(dotclear, dotclear.getData('dotclear_dragndrop'));
-    if ($(this).is(':checked')) {
+  const dragndrop = document.getElementById('dragndrop');
+  const dragndropLabel = document.getElementById('dragndrop-label');
+  dragndrop?.addEventListener('click', (event) => {
+    if (event.target.checked) {
       // Activate sorting feature
       for (const element of areas) init_positions(element[0], element[1]);
-      $(this).prop('title', dotclear.dragndrop_on);
-      $('#dragndrop-label').text(dotclear.dragndrop_on);
+      dragndrop.setAttribute('title', dotclear.dragndrop_on);
+      dragndropLabel.textContent = dotclear.dragndrop_on;
       return;
     }
     // Deactivate sorting feature
     for (const element of areas) reset_positions(element[0]);
-    $(this).prop('title', dotclear.dragndrop_off);
-    $('#dragndrop-label').text(dotclear.dragndrop_off);
+    dragndrop.setAttribute('title', dotclear.dragndrop_off);
+    dragndropLabel.textContent = dotclear.dragndrop_off;
   });
 });
