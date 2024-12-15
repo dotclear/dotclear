@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -102,6 +103,23 @@ class Lexical implements LexicalInterface
             };
         } catch (UnhandledMatchError) {
         }
+    }
+
+    /**
+     * Locale specific string comparison function.
+     *
+     * @param   string  $a          1st string
+     * @param   string  $b          2nd string
+     * @param   string  $namespace  The namespace (admin/public/lang)
+     * @param   string  $lang       The language
+     *
+     * @return     int
+     */
+    public function lexicalCompare(string $a, string $b, string $namespace = '', string $lang = 'en_US'): int
+    {
+        $this->setLexicalLang($namespace, $lang);
+
+        return self::lexicalSortHelper($a, $b);
     }
 
     /**

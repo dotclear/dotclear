@@ -674,28 +674,20 @@ class Media extends Manager implements MediaInterface
     protected function sortFileHandler(?File $a, ?File $b): int
     {
         if (is_null($a) || is_null($b)) {
-            return (is_null($a) ? 1 : -1);
+            return is_null($a) ? 1 : -1;
         }
 
-        switch ($this->file_sort) {
-            case 'title-asc':
-                return strcasecmp($a->media_title, $b->media_title);
-            case 'title-desc':
-                return strcasecmp($b->media_title, $a->media_title);
-            case 'size-asc':
-                return $a->size <=> $b->size;
-            case 'size-desc':
-                return $b->size <=> $a->size;
-            case 'date-asc':
-                return $a->media_dt <=> $b->media_dt;
-            case 'date-desc':
-                return $b->media_dt <=> $a->media_dt;
-            case 'name-desc':
-                return strcasecmp($b->basename, $a->basename);
-            case 'name-asc':
-            default:
-                return strcasecmp($a->basename, $b->basename);
-        }
+        return match ($this->file_sort) {
+            'title-asc'  => App::lexical()->lexicalCompare($a->media_title, $b->media_title, App::lexical()::ADMIN_LOCALE),
+            'title-desc' => App::lexical()->lexicalCompare($b->media_title, $a->media_title, App::lexical()::ADMIN_LOCALE),
+            'size-asc'   => $a->size     <=> $b->size,
+            'size-desc'  => $b->size     <=> $a->size,
+            'date-asc'   => $a->media_dt <=> $b->media_dt,
+            'date-desc'  => $b->media_dt <=> $a->media_dt,
+            'name-asc'   => App::lexical()->lexicalCompare($a->basename, $b->basename, App::lexical()::ADMIN_LOCALE),
+            'name-desc'  => App::lexical()->lexicalCompare($b->basename, $a->basename, App::lexical()::ADMIN_LOCALE),
+            default      => App::lexical()->lexicalCompare($a->basename, $b->basename, App::lexical()::ADMIN_LOCALE),
+        };
     }
 
     public function getFSDir()

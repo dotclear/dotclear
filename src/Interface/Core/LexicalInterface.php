@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -77,4 +78,16 @@ interface LexicalInterface
      * @param   string  $lang       The language
      */
     public function setLexicalLang(string $namespace = '', string $lang = 'en_US'): void;
+
+    /**
+     * Locale specific string comparison function.
+     *
+     * @param   string                  $a          1st string
+     * @param   string                  $b          2nd string
+     * @param   string                  $namespace  admin/public/lang
+     * @param   string                  $lang       language to be used if $ns = 'lang'
+     *
+     * @return  int
+     */
+    public function lexicalCompare(string $a, string $b, string $namespace = '', string $lang = 'en_US'): int;
 }
