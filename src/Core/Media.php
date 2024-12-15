@@ -649,7 +649,16 @@ class Media extends Manager implements MediaInterface
 
     public function setFileSort(string $type = 'name')
     {
-        if (in_array($type, ['size-asc', 'size-desc', 'name-asc', 'name-desc', 'date-asc', 'date-desc'])) {
+        if (in_array($type, [
+            'size-asc',
+            'size-desc',
+            'name-asc',
+            'name-desc',
+            'date-asc',
+            'date-desc',
+            'title-asc',
+            'title-desc',
+        ])) {
             $this->file_sort = $type;
         }
     }
@@ -667,7 +676,12 @@ class Media extends Manager implements MediaInterface
         if (is_null($a) || is_null($b)) {
             return (is_null($a) ? 1 : -1);
         }
+
         switch ($this->file_sort) {
+            case 'title-asc':
+                return strcasecmp($a->media_title, $b->media_title);
+            case 'title-desc':
+                return strcasecmp($b->media_title, $a->media_title);
             case 'size-asc':
                 return $a->size <=> $b->size;
             case 'size-desc':

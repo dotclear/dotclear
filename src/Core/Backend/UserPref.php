@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -197,9 +198,10 @@ class UserPref
             'media' => [
                 __('Media manager'),
                 [
-                    __('Name') => 'name',
-                    __('Date') => 'date',
-                    __('Size') => 'size',
+                    __('Name')  => 'name',
+                    __('Date')  => 'date',
+                    __('Size')  => 'size',
+                    __('Title') => 'title',
                 ],
                 'name',
                 'asc',
