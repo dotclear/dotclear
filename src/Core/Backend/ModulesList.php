@@ -337,10 +337,20 @@ class ModulesList
      */
     public function getURL($queries = '', bool $with_tab = true, ?string $force_tab = null): string
     {
-        return $this->page_url .
-            (!empty($queries) ? (str_contains($this->page_url, '?') ? '&amp;' : '?') : '') .
-            (is_array($queries) ? http_build_query($queries) : $queries) .
-            ($with_tab && !empty($this->page_tab) ? '#' . (!empty($force_tab) ? $force_tab : $this->page_tab) : '');
+        $query = '';
+        if (!empty($queries)) {
+            // Cope with queries
+            $query = str_contains($this->page_url, '?') ? '&amp;' : '?';
+            $query .= is_array($queries) ? http_build_query($queries) : $queries;
+        }
+
+        $tab = '';
+        if ($with_tab && (!empty($this->page) || !empty($force_tab))) {
+            // Cope with tab (as hash in URL)
+            $tab = '#' . $force_tab ?: $this->page_tab;
+        }
+
+        return $this->page_url . $query . $tab;
     }
 
     /**
