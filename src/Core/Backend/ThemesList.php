@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -492,7 +493,7 @@ class ThemesList extends ModulesList
                 $this->emptyThemeTemplatesCache();
 
                 Notices::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($define->get('name'))));
-                Http::redirect($this->getURL() . '#themes');
+                Http::redirect($this->getURL('', true, 'themes'));
             }
         } else {
             if (!$this->isWritablePath()) {
@@ -709,7 +710,7 @@ class ThemesList extends ModulesList
                     $count++;
                 }
 
-                $tab = $count == count($defines) ? '#themes' : '#update';
+                $tab = $count == count($defines) ? 'themes' : 'update';
 
                 if ($count) {
                     Notices::addSuccessNotice(
@@ -722,7 +723,7 @@ class ThemesList extends ModulesList
                 } else {
                     throw new Exception(__('No such theme.'));
                 }
-                Http::redirect($this->getURL() . $tab);
+                Http::redirect($this->getURL('', true, $tab));
             }
 
             # Manual actions
@@ -758,7 +759,7 @@ class ThemesList extends ModulesList
                     __('The theme has been successfully updated.') :
                     __('The theme has been successfully installed.')
                 );
-                Http::redirect($this->getURL() . '#themes');
+                Http::redirect($this->getURL('', true, 'themes'));
             } else {
                 # --BEHAVIOR-- adminModulesListDoActions -- ModulesList, array<int,string>, string
                 App::behavior()->callBehavior('adminModulesListDoActions', $this, $modules, 'theme');
@@ -778,7 +779,7 @@ class ThemesList extends ModulesList
         if (empty($this->config_class) && !$this->config_file) {
             return;
         }
-        $this->setRedir($this->getURL() . '#themes');
+        $this->setRedir($this->getURL('', true, 'themes'));
 
         ob_start();
 

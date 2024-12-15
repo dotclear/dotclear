@@ -218,13 +218,13 @@ class Plugins extends Process
 
             echo
             (new Form('force-checking'))
-                ->action(App::backend()->list->getURL('', false) . '#update') // Switch to update tab if possible
+                ->action(App::backend()->list->getURL('', true, 'update'))
                 ->method('get')
                 ->fields([
                     (new Para())
                     ->items([
                         (new Hidden('nocache', '1')),
-                        (new Hidden('process', 'Plugins')),
+                        (new Hidden(['process'], 'Plugins')),
                         (new Submit('force-checking-update', __('Force checking update of plugins'))),
                     ]),
                 ])

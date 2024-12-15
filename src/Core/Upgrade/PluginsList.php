@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -376,7 +377,7 @@ class PluginsList extends ModulesList
                 $count++;
             }
 
-            $tab = $count == count($defines) ? '#plugins' : '#update';
+            $tab = $count == count($defines) ? 'plugins' : 'update';
 
             if ($count) {
                 Notices::addSuccessNotice(
@@ -389,7 +390,7 @@ class PluginsList extends ModulesList
             } else {
                 throw new Exception(__('No such plugin.'));
             }
-            Http::redirect($this->getURL() . $tab);
+            Http::redirect($this->getURL('', true, $tab));
         }
 
         # Manual actions
@@ -419,7 +420,7 @@ class PluginsList extends ModulesList
                 __('The plugin has been successfully updated.') :
                 __('The plugin has been successfully installed.')
             );
-            Http::redirect($this->getURL() . '#plugins');
+            Http::redirect($this->getURL('', true, 'plugins'));
         }
     }
 

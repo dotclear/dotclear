@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -64,7 +65,7 @@ class Plugins extends Process
 
         try {
             App::plugins()->loadModules(App::config()->pluginsRoot(), 'upgrade', App::lang()->getLang());
-        } catch(Throwable) {
+        } catch (Throwable) {
             App::error()->add(__('Some plugins could not be loaded.'));
         }
 
@@ -213,7 +214,7 @@ class Plugins extends Process
 
         echo
         (new Form('force-checking'))
-            ->action(self::$plugins_list->getURL('', false))
+            ->action(self::$plugins_list->getURL('', true, 'update'))
             ->method('get')
             ->fields([
                 (new Para())

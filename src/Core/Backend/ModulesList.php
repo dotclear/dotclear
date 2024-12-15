@@ -331,15 +331,16 @@ class ModulesList
      *
      * @param    string|array<mixed>    $queries    Additionnal query string
      * @param    bool                   $with_tab   Add current tab to URL end
+     * @param    string|null            $force_tab  Tab to use in URL instead of $this->page_tab
      *
      * @return   string Clean page URL
      */
-    public function getURL($queries = '', bool $with_tab = true): string
+    public function getURL($queries = '', bool $with_tab = true, ?string $force_tab = null): string
     {
         return $this->page_url .
             (!empty($queries) ? (str_contains($this->page_url, '?') ? '&amp;' : '?') : '') .
             (is_array($queries) ? http_build_query($queries) : $queries) .
-            ($with_tab && !empty($this->page_tab) ? '#' . $this->page_tab : '');
+            ($with_tab && !empty($this->page_tab) ? '#' . (!empty($force_tab) ? $force_tab : $this->page_tab) : '');
     }
 
     /**
@@ -1664,7 +1665,7 @@ class ModulesList
                 $count++;
             }
 
-            $tab = $count == count($defines) ? '#plugins' : '#update';
+            $tab = $count == count($defines) ? 'plugins' : 'update';
 
             if ($count) {
                 Notices::addSuccessNotice(
@@ -1677,7 +1678,7 @@ class ModulesList
             } else {
                 throw new Exception(__('No such plugin.'));
             }
-            Http::redirect($this->getURL() . $tab);
+            Http::redirect($this->getURL('', true, $tab));
         }
 
         # Manual actions
@@ -1713,7 +1714,7 @@ class ModulesList
                 __('The plugin has been successfully updated.') :
                 __('The plugin has been successfully installed.')
             );
-            Http::redirect($this->getURL() . '#plugins');
+            Http::redirect($this->getURL('', true, 'plugins'));
         } else {
             # --BEHAVIOR-- adminModulesListDoActions -- ModulesList, array<int,string>, string
             App::behavior()->callBehavior('adminModulesListDoActions', $this, $modules, 'plugin');
@@ -1911,7 +1912,7 @@ class ModulesList
         if (empty($this->config_class) && empty($this->config_file)) {
             return;
         }
-        $this->setRedir($this->getURL() . '#plugins');
+        $this->setRedir($this->getURL('', true, 'plugins'));
 
         ob_start();
 

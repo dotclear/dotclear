@@ -279,7 +279,7 @@ class BlogTheme extends Process
                 ->items([
                     $messages !== '' ? (new Text(null, $messages)) : (new None()),
                     (new Form('force-checking'))
-                        ->action(App::backend()->list->getURL('', false))
+                        ->action(App::backend()->list->getURL('', true, 'update'))
                         ->method('get')
                         ->fields([
                             (new Para())
