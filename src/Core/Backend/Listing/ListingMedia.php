@@ -61,18 +61,12 @@ class ListingMedia extends Listing
                     (new Text('strong', __('No file matches the filter'))),
                 ])
             ->render();
-
-            return;
-        }
-
-        if ($nb_items < 1) {
+        } elseif ($nb_items < 1) {
             echo (new Para())
                 ->items([
                     (new Text('strong', __('No file.'))),
                 ])
             ->render();
-
-            return;
         }
 
         $pager = new Pager($filters->page, (int) $this->rs_count, $filters->nb, 10);

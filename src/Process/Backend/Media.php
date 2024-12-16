@@ -11,12 +11,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Filter\Filter;
 use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Core\Backend\MediaPage;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
@@ -176,9 +176,11 @@ class Media extends Process
                     $currentDir = App::backend()->page->d;
                     App::media()->chdir(null);
                 }
+
                 foreach ($_POST['medias'] as $media) {
                     App::media()->removeItem(rawurldecode($media));
                 }
+
                 if ($search_filter) {
                     // Back to current directory
                     App::media()->chdir($currentDir);
