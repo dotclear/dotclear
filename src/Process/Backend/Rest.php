@@ -655,12 +655,12 @@ class Rest extends Process
             default    => 'meta_type',
         };
 
-        $rs->sort($sort, $order);
+        $rs->lexicalSort($sort, $order);
 
         $rsp = new XmlTag();
 
         while ($rs->fetch()) {
-            if (stripos($rs->meta_id, (string) $q) === 0) {
+            if (mb_stripos($rs->meta_id, (string) $q) === 0) {
                 $metaTag               = new XmlTag('meta');
                 $metaTag->type         = $rs->meta_type;
                 $metaTag->uri          = rawurlencode($rs->meta_id);
