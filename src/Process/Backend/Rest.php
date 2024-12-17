@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -705,12 +706,12 @@ class Rest extends Process
             default    => 'meta_type',
         };
 
-        $rs->sort($sort, $order);
+        $rs->lexicalSort($sort, $order);
 
         $data = [];
 
         while ($rs->fetch()) {
-            if (stripos($rs->meta_id, (string) $q) === 0) {
+            if (mb_stripos($rs->meta_id, (string) $q) === 0) {
                 $data[] = [
                     'meta_id'      => $rs->meta_id,
                     'type'         => $rs->meta_type,
