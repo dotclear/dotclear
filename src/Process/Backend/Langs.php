@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -16,12 +17,30 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Zip\Unzip;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\File;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Network\HttpClient;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/langs.php
@@ -63,45 +82,7 @@ class Langs extends Process
 
     public static function process(): bool
     {
-        /**
-         * Language installation function
-         *
-         * @param      mixed      $file   The file
-         *
-         * @throws     Exception
-         *
-         * @return     int        1 = installation ok, 2 = update ok
-         */
-        $lang_install = function ($file): int {
-            // Language installation function
-            $zip = new Unzip($file);
-            $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
-
-            if (!preg_match('/^[a-z]{2,3}(-[a-z]{2})?$/', (string) $zip->getRootDir())) {
-                throw new Exception(__('Invalid language zip file.'));
-            }
-
-            if ($zip->isEmpty() || !$zip->hasFile($zip->getRootDir() . '/main.po')) {
-                throw new Exception(__('The zip file does not appear to be a valid Dotclear language pack.'));
-            }
-
-            $target      = dirname($file);
-            $destination = $target . '/' . $zip->getRootDir();
-            $res         = self::LANG_INSTALLED;
-
-            if (is_dir($destination)) {
-                if (!Files::deltree($destination)) {
-                    throw new Exception(__('An error occurred during language upgrade.'));
-                }
-                $res = self::LANG_UPDATED;
-            }
-
-            $zip->unzipAll($target);
-
-            return $res;
-        };
-
-        # Delete a language pack
+        // Delete a language pack
         if (App::backend()->is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id'])) {
             try {
                 $locale_id = $_POST['locale_id'];
@@ -124,7 +105,7 @@ class Langs extends Process
             }
         }
 
-        # Download a language pack
+        // Download a language pack
         if (App::backend()->is_writable && !empty($_POST['pkg_url'])) {
             try {
                 if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
@@ -150,14 +131,14 @@ class Langs extends Process
                 }
 
                 try {
-                    $ret_code = $lang_install($dest);
+                    $ret_code = self::installLanguage($dest);
                 } catch (Exception $e) {
-                    @unlink($dest);
-
                     throw $e;
+                } finally {
+                    // Remove temporary file
+                    @unlink($dest);
                 }
 
-                @unlink($dest);
                 if ($ret_code === self::LANG_UPDATED) {
                     Notices::addSuccessNotice(__('Language has been successfully upgraded'));
                 } else {
@@ -169,7 +150,7 @@ class Langs extends Process
             }
         }
 
-        # Upload a language pack
+        // Upload a language pack
         if (App::backend()->is_writable && !empty($_POST['upload_pkg'])) {
             try {
                 if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
@@ -183,14 +164,14 @@ class Langs extends Process
                 }
 
                 try {
-                    $ret_code = $lang_install($dest);
+                    $ret_code = self::installLanguage($dest);
                 } catch (Exception $e) {
-                    @unlink($dest);
-
                     throw $e;
+                } finally {
+                    // Remove temporary file
+                    @unlink($dest);
                 }
 
-                @unlink($dest);
                 if ($ret_code === self::LANG_UPDATED) {
                     Notices::addSuccessNotice(__('Language has been successfully upgraded'));
                 } else {
@@ -207,36 +188,7 @@ class Langs extends Process
 
     public static function render(): void
     {
-        Page::open(
-            __('Languages management'),
-            Page::jsLoad('js/_langs.js'),
-            Page::breadcrumb(
-                [
-                    __('System')               => '',
-                    __('Languages management') => '',
-                ]
-            )
-        );
-
-        if (!empty($_GET['removed'])) {
-            Notices::success(__('Language has been successfully deleted.'));
-        }
-
-        if (!empty($_GET['added'])) {
-            Notices::success(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
-        }
-
-        echo
-        '<p>' . __('Here you can install, upgrade or remove languages for your Dotclear installation.') . '</p>' .
-        '<p>' . sprintf(
-            __('You can change your user language in your <a href="%1$s">preferences</a> or change your blog\'s main language in your <a href="%2$s">blog settings</a>.'),
-            App::backend()->url()->get('admin.user.preferences'),
-            App::backend()->url()->get('admin.blog.pref')
-        ) . '</p>';
-
-        echo
-        '<h3>' . __('Installed languages') . '</h3>';
-
+        // Get current list of installed languages
         $langs      = scandir(App::config()->l10nRoot());
         $langs_list = [];
         if ($langs) {
@@ -249,52 +201,103 @@ class Langs extends Process
             }
         }
 
-        if (empty($langs_list)) {
-            echo
-            '<p><strong>' . __('No additional language is installed.') . '</strong></p>';
-        } else {
-            echo
-            '<div class="table-outer clear">' .
-            '<table class="langs"><tr>' .
-            '<th>' . __('Language') . '</th>' .
-            '<th class="nowrap">' . __('Action') . '</th>' .
-            '</tr>';
+        $rows = [];
+        foreach ($langs_list as $lang_code => $lang) {
+            $is_deletable = App::backend()->is_writable && is_writable($lang);
 
-            foreach ($langs_list as $lang_code => $lang) {
-                $is_deletable = App::backend()->is_writable && is_writable($lang);
-
-                echo
-                '<tr class="line wide">' .
-                '<td class="maximal nowrap" lang="' . $lang_code . '">(' . $lang_code . ') ' .
-                '<strong>' . Html::escapeHTML(App::backend()->iso_codes[$lang_code]) . '</strong></td>' .
-                '<td class="nowrap action">';
-
-                if ($is_deletable) {
-                    echo
-                    '<form action="' . App::backend()->url()->get('admin.langs') . '" method="post">' .
-                    '<div>' .
-                    App::nonce()->getFormNonce() .
-                    form::hidden(['locale_id'], Html::escapeHTML($lang_code)) .
-                    '<input type="submit" class="delete" name="delete" value="' . __('Delete') . '"> ' .
-                    '</div>' .
-                    '</form>';
-                }
-
-                echo
-                '</td></tr>';
-            }
-            echo
-            '</table></div>';
+            $rows[] = (new Tr())
+                ->class(['line', 'wide'])
+                ->items([
+                    (new Td())
+                        ->class(['maximal', 'nowrap'])
+                        ->lang($lang_code)
+                        ->text('(' . $lang_code . ') ' . (new Text('strong', Html::escapeHTML(App::backend()->iso_codes[$lang_code])))->render()),
+                    (new Td())
+                        ->class(['action', 'nowrap'])
+                        ->items([
+                            $is_deletable ?
+                            (new Form('delete-' . Html::escapeHTML($lang_code)))
+                                ->method('post')
+                                ->action(App::backend()->url()->get('admin.langs'))
+                                ->fields([
+                                    (new Para())
+                                        ->class('form-buttons')
+                                        ->items([
+                                            App::nonce()->formNonce(),
+                                            (new Hidden(['locale_id'], Html::escapeHTML($lang_code))),
+                                            (new Submit(['delete'], __('Delete')))
+                                                ->class('delete'),
+                                        ]),
+                                ]) :
+                            (new None()),
+                        ]),
+                ]);
         }
 
-        echo '<h3>' . __('Install or upgrade languages') . '</h3>';
+        // Display
+
+        Page::open(
+            __('Languages management'),
+            Page::jsLoad('js/_langs.js'),
+            Page::breadcrumb(
+                [
+                    __('System')               => '',
+                    __('Languages management') => '',
+                ]
+            )
+        );
+
+        $parts = [];
+
+        $parts[] = (new Set())
+            ->items([
+                (new Note())
+                    ->text(__('Here you can install, upgrade or remove languages for your Dotclear installation.')),
+                (new Note())
+                    ->text(sprintf(
+                        __('You can change your user language in your <a href="%1$s">preferences</a> or change your blog\'s main language in your <a href="%2$s">blog settings</a>.'),
+                        App::backend()->url()->get('admin.user.preferences'),
+                        App::backend()->url()->get('admin.blog.pref')
+                    )),
+                (new Text('h3', __('Installed languages'))),
+            ]);
+
+        if (empty($langs_list)) {
+            $parts[] = (new Para())
+                ->items([
+                    (new Text('strong', __('No additional language is installed.'))),
+                ]);
+        } else {
+            $parts[] = (new Div())
+                ->class(['table-outer', 'clear'])
+                ->items([
+                    (new Table())
+                        ->class('langs')
+                        ->thead((new Thead())
+                            ->rows([
+                                (new Tr())
+                                    ->items([
+                                        (new Th())
+                                            ->text(__('Language')),
+                                        (new Th())
+                                            ->class('nowrap')
+                                            ->text(__('Action')),
+                                    ]),
+                            ]))
+                        ->tbody((new Tbody())
+                            ->rows($rows)),
+                ]);
+        }
+
+        $parts[] = (new Text('h3', __('Install or upgrade languages')));
 
         if (!App::backend()->is_writable) {
-            echo '<p>' . sprintf(__('You can install or remove a language by adding or ' .
-        'removing the relevant directory in your %s folder.'), '<strong>locales</strong>') . '</p>';
+            $parts[] = (new Note())
+                ->text(sprintf(__('You can install or remove a language by adding or removing the relevant directory in your %s folder.'), '<strong>locales</strong>'));
         }
 
         if (!empty(App::backend()->dc_langs) && App::backend()->is_writable) {
+            // Prepare list of available languages
             $dc_langs_combo = [];
             foreach (App::backend()->dc_langs as $lang) {
                 if ($lang->link && isset(App::backend()->iso_codes[$lang->title])) {
@@ -302,53 +305,146 @@ class Langs extends Process
                 }
             }
 
-            echo
-            '<form method="post" action="' . App::backend()->url()->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
-            '<h4>' . __('Available languages') . '</h4>' .
-            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-            '<p>' . sprintf(__('You can download and install a additional language directly from Dotclear.net. ' .
-                'Proposed languages are based on your version: %s.'), '<strong>' . App::config()->dotclearVersion() . '</strong>') . '</p>' .
-            '<p class="field"><label for="pkg_url" class="classic">' . __('Language:') . '</label> ' .
-            form::combo(['pkg_url'], $dc_langs_combo) . '</p>' .
-            '<p class="field"><label for="your_pwd1" class="classic required"><span>*</span> ' . __('Your password:') . '</label> ' .
-            form::password(
-                ['your_pwd', 'your_pwd1'],
-                20,
-                255,
-                [
-                    'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                    'autocomplete' => 'current-password', ]
-            ) . '</p>' .
-            '<p><input type="submit" value="' . __('Install language') . '">' .
-            App::nonce()->getFormNonce() .
-            '</p>' .
-            '</form>';
+            // 'Install language pack' form
+            $parts[] = (new Form('install'))
+                ->method('post')
+                ->action(App::backend()->url()->get('admin.langs'))
+                ->class('fieldset')
+                ->enctype('multipart/form-data')
+                ->fields([
+                    (new Text('h4', __('Available languages'))),
+                    (new Note())
+                        ->class('form-note')
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                    (new Note())
+                        ->text(sprintf(__('You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s.'), '<strong>' . App::config()->dotclearVersion() . '</strong>')),
+                    (new Para())
+                        ->class('field')
+                        ->items([
+                            (new Select('pkg_url'))
+                                ->items($dc_langs_combo)
+                                ->required(true)
+                                ->label((new Label(
+                                    (new Text('span', '*'))->render() . __('Language:'),
+                                    Label::OL_TF
+                                ))
+                                    ->class('required')),
+                        ]),
+                    (new Para())
+                        ->class('field')
+                        ->items([
+                            (new Password(['your_pwd', 'your_pwd1']))
+                                ->size(20)
+                                ->maxlength(255)
+                                ->required(true)
+                                ->placeholder(__('Password'))
+                                ->autocomplete('current-password')
+                                ->label((new Label(
+                                    (new Text('span', '*'))->render() . __('Your password:'),
+                                    Label::OL_TF
+                                ))
+                                    ->class('required')),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Submit('upload_pkg', __('Install language'))),
+                            App::nonce()->formNonce(),
+                        ]),
+                ]);
         }
 
         if (App::backend()->is_writable) {
-            # 'Upload language pack' form
-            echo
-            '<form method="post" action="' . App::backend()->url()->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
-            '<h4>' . __('Upload a zip file') . '</h4>' .
-            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-            '<p>' . __('You can install languages by uploading zip files.') . '</p>' .
-            '<p class="field"><label for="pkg_file" class="classic required"><span>*</span> ' . __('Language zip file:') . '</label> ' .
-            '<input type="file" id="pkg_file" name="pkg_file" required></p>' .
-            '<p class="field"><label for="your_pwd2" class="classic required"><span>*</span> ' . __('Your password:') . '</label> ' .
-            form::password(
-                ['your_pwd', 'your_pwd2'],
-                20,
-                255,
-                [
-                    'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                    'autocomplete' => 'current-password', ]
-            ) . '</p>' .
-            '<p><input type="submit" name="upload_pkg" value="' . __('Upload language') . '">' .
-            App::nonce()->getFormNonce() .
-            '</p>' .
-            '</form>';
+            // 'Upload language pack' form
+            $parts[] = (new Form('upload'))
+                ->method('post')
+                ->action(App::backend()->url()->get('admin.langs'))
+                ->class('fieldset')
+                ->enctype('multipart/form-data')
+                ->fields([
+                    (new Text('h4', __('Upload a zip file'))),
+                    (new Note())
+                        ->class('form-note')
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                    (new Note())
+                        ->text(__('You can install languages by uploading zip files.')),
+                    (new Para())
+                        ->class('field')
+                        ->items([
+                            (new File('pkg_file'))
+                                ->required(true)
+                                ->label((new Label(
+                                    (new Text('span', '*'))->render() . __('Language zip file:'),
+                                    Label::OL_TF
+                                ))
+                                    ->class('required')),
+                        ]),
+                    (new Para())
+                        ->class('field')
+                        ->items([
+                            (new Password(['your_pwd', 'your_pwd2']))
+                                ->size(20)
+                                ->maxlength(255)
+                                ->required(true)
+                                ->placeholder(__('Password'))
+                                ->autocomplete('current-password')
+                                ->label((new Label(
+                                    (new Text('span', '*'))->render() . __('Your password:'),
+                                    Label::OL_TF
+                                ))
+                                    ->class('required')),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Submit('upload_pkg', __('Upload language'))),
+                            App::nonce()->formNonce(),
+                        ]),
+                ]);
         }
+
+        echo (new Set())
+            ->items($parts)
+        ->render();
+
         Page::helpBlock('core_langs');
         Page::close();
+    }
+
+    /**
+     * Language installation function
+     *
+     * @param      mixed      $file   The file
+     *
+     * @throws     Exception
+     *
+     * @return     int        self::LANG_INSTALLED = installation ok, self::LANG_UPDATED = update ok
+     */
+    protected static function installLanguage($file): int
+    {
+        // Language installation function
+        $zip = new Unzip($file);
+        $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+
+        if (!preg_match('/^[a-z]{2,3}(-[a-z]{2})?$/', (string) $zip->getRootDir())) {
+            throw new Exception(__('Invalid language zip file.'));
+        }
+
+        if ($zip->isEmpty() || !$zip->hasFile($zip->getRootDir() . '/main.po')) {
+            throw new Exception(__('The zip file does not appear to be a valid Dotclear language pack.'));
+        }
+
+        $target      = dirname($file);
+        $destination = $target . '/' . $zip->getRootDir();
+        $res         = self::LANG_INSTALLED;
+
+        if (is_dir($destination)) {
+            if (!Files::deltree($destination)) {
+                throw new Exception(__('An error occurred during language upgrade.'));
+            }
+            $res = self::LANG_UPDATED;
+        }
+
+        $zip->unzipAll($target);
+
+        return $res;
     }
 }
