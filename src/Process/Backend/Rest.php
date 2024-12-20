@@ -659,8 +659,25 @@ class Rest extends Process
 
         $rsp = new XmlTag();
 
+        // 1st loop looking at the beginning
         while ($rs->fetch()) {
             if (mb_stripos($rs->meta_id, (string) $q) === 0) {
+                $metaTag               = new XmlTag('meta');
+                $metaTag->type         = $rs->meta_type;
+                $metaTag->uri          = rawurlencode($rs->meta_id);
+                $metaTag->count        = $rs->count;
+                $metaTag->percent      = $rs->percent;
+                $metaTag->roundpercent = $rs->roundpercent;
+                $metaTag->CDATA($rs->meta_id);
+
+                $rsp->insertNode($metaTag);
+            }
+        }
+
+        // 2nd loop looking anywhere
+        $rs->moveStart();
+        while ($rs->fetch()) {
+            if (mb_stripos($rs->meta_id, (string) $q) > 0) {
                 $metaTag               = new XmlTag('meta');
                 $metaTag->type         = $rs->meta_type;
                 $metaTag->uri          = rawurlencode($rs->meta_id);
@@ -710,8 +727,24 @@ class Rest extends Process
 
         $data = [];
 
+        // 1st loop looking at the beginning
         while ($rs->fetch()) {
             if (mb_stripos($rs->meta_id, (string) $q) === 0) {
+                $data[] = [
+                    'meta_id'      => $rs->meta_id,
+                    'type'         => $rs->meta_type,
+                    'uri'          => rawurlencode($rs->meta_id),
+                    'count'        => $rs->count,
+                    'percent'      => $rs->percent,
+                    'roundpercent' => $rs->roundpercent,
+                ];
+            }
+        }
+
+        // 2nd loop looking anywhere
+        $rs->moveStart();
+        while ($rs->fetch()) {
+            if (mb_stripos($rs->meta_id, (string) $q) > 0) {
                 $data[] = [
                     'meta_id'      => $rs->meta_id,
                     'type'         => $rs->meta_type,
