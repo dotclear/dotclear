@@ -54,14 +54,7 @@ dotclear.ready(() => {
         return results;
       },
       formatItem(tag) {
-        return (
-          tag.id +
-          ' <em>(' +
-          dotclear.msg.tags_autocomplete
-            .replace('%p', tag.percent)
-            .replace('%e', `${tag.count} ${tag.count > 1 ? dotclear.msg.entries : dotclear.msg.entry}`) +
-          ')</em>'
-        );
+        return tag.id;
       },
       formatResult(tag) {
         return tag.result;
