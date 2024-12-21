@@ -162,6 +162,14 @@ jsToolBar.prototype.initWindow = function () {
 
     This.iwin = This.iframe.contentWindow;
 
+    // Set some CSS attributes to avoid dynamic inline style insertion during copy'n'paste
+    const css = window.getComputedStyle(This.textarea);
+    This.iwin.document.body.style.fontFamily = css.getPropertyValue('font-family');
+    This.iwin.document.body.style.fontSize = css.getPropertyValue('font-size');
+    This.iwin.document.body.style.color = css.getPropertyValue('color');
+    This.iwin.document.body.style.backgroundColor = css.getPropertyValue('background-color');
+    This.iwin.document.body.style.textWrapMode = css.getPropertyValue('text-wrap-mode');
+
     This.syncContents('textarea');
 
     if (This.wwg_mode == undefined) {
