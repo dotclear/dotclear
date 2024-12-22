@@ -345,7 +345,7 @@ class ModulesList
         }
 
         $tab = '';
-        if ($with_tab && (!empty($this->page) || !empty($force_tab))) {
+        if ($with_tab && (!empty($this->page_tab) || !empty($force_tab))) {
             // Cope with tab (as hash in URL)
             $tab = '#' . ($force_tab ?: $this->page_tab);
         }
