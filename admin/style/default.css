@@ -2846,7 +2846,7 @@ h1 a:link {
   position: relative;
 }
 #main-menu .active a::after {
-  content: ":";
+  content: "▶"/":";
   position: absolute;
   right: 0;
 }
