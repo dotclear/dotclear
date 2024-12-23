@@ -676,7 +676,7 @@ class Rest extends Process
 
         // 2nd loop looking anywhere
         $rs->moveStart();
-        while ($rs->fetch()) {
+        while ($rs->fetch()) {  // @phpstan-ignore-line as we have done a moveStart(), the fetch() is not always false (while.alwaysFalse)
             if (mb_stripos($rs->meta_id, (string) $q) > 0) {
                 $metaTag               = new XmlTag('meta');
                 $metaTag->type         = $rs->meta_type;
@@ -743,7 +743,7 @@ class Rest extends Process
 
         // 2nd loop looking anywhere
         $rs->moveStart();
-        while ($rs->fetch()) {
+        while ($rs->fetch()) {  // @phpstan-ignore-line as we have done a moveStart(), the fetch() is not always false (while.alwaysFalse)
             if (mb_stripos($rs->meta_id, (string) $q) > 0) {
                 $data[] = [
                     'meta_id'      => $rs->meta_id,
