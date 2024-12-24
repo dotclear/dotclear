@@ -154,7 +154,7 @@ class Handler extends AbstractHandler
      */
     public function db_close($handle): void
     {
-        if (class_exists('PgSql\Connection') && $handle instanceof Connection) {
+        if (class_exists(\PgSql\Connection::class) && $handle instanceof Connection) {
             pg_close($handle);
         }
     }
@@ -168,7 +168,7 @@ class Handler extends AbstractHandler
      */
     public function db_version($handle): string
     {
-        if (class_exists('PgSql\Connection') && $handle instanceof Connection) {
+        if (class_exists(\PgSql\Connection::class) && $handle instanceof Connection) {
             return pg_parameter_status($handle, 'server_version') ?: '';
         }
 
@@ -185,7 +185,7 @@ class Handler extends AbstractHandler
      */
     public function db_search_path($handle, $path): string
     {
-        if (class_exists('PgSql\Connection') && $handle instanceof Connection) {
+        if (class_exists(\PgSql\Connection::class) && $handle instanceof Connection) {
             $searchpath = explode('.', $path, 2);
             if (count($searchpath) > 1) {
                 $path  = $searchpath[1];
@@ -209,7 +209,7 @@ class Handler extends AbstractHandler
      */
     public function db_query($handle, string $query)
     {
-        if (class_exists('PgSql\Connection') && $handle instanceof Connection) {
+        if (class_exists(\PgSql\Connection::class) && $handle instanceof Connection) {
             $res = @pg_query($handle, $query);
             if ($res === false) {
                 $msg = (string) $this->db_last_error($handle);
@@ -246,7 +246,7 @@ class Handler extends AbstractHandler
      */
     public function db_num_fields($res): int
     {
-        if (class_exists('PgSql\Result') && $res instanceof Result) {
+        if (class_exists(\PgSql\Result::class) && $res instanceof Result) {
             return pg_num_fields($res);
         }
 
@@ -262,7 +262,7 @@ class Handler extends AbstractHandler
      */
     public function db_num_rows($res): int
     {
-        if (class_exists('PgSql\Result') && $res instanceof Result) {
+        if (class_exists(\PgSql\Result::class) && $res instanceof Result) {
             return pg_num_rows($res);
         }
 
@@ -279,7 +279,7 @@ class Handler extends AbstractHandler
      */
     public function db_field_name($res, int $position): string
     {
-        if (class_exists('PgSql\Result') && $res instanceof Result) {
+        if (class_exists(\PgSql\Result::class) && $res instanceof Result) {
             return pg_field_name($res, $position);
         }
 
@@ -296,7 +296,7 @@ class Handler extends AbstractHandler
      */
     public function db_field_type($res, int $position): string
     {
-        if (class_exists('PgSql\Result') && $res instanceof Result) {
+        if (class_exists(\PgSql\Result::class) && $res instanceof Result) {
             return pg_field_type($res, $position);
         }
 
@@ -312,7 +312,7 @@ class Handler extends AbstractHandler
      */
     public function db_fetch_assoc($res)
     {
-        if (class_exists('PgSql\Result') && $res instanceof Result) {
+        if (class_exists(\PgSql\Result::class) && $res instanceof Result) {
             return pg_fetch_assoc($res);
         }
 
@@ -329,7 +329,7 @@ class Handler extends AbstractHandler
      */
     public function db_result_seek($res, int $row): bool
     {
-        if (class_exists('PgSql\Result') && $res instanceof Result) {
+        if (class_exists(\PgSql\Result::class) && $res instanceof Result) {
             return pg_result_seek($res, (int) $row);
         }
 
@@ -346,7 +346,7 @@ class Handler extends AbstractHandler
      */
     public function db_changes($handle, $res): int
     {
-        if (class_exists('PgSql\Result') && $res instanceof Result) {
+        if (class_exists(\PgSql\Result::class) && $res instanceof Result) {
             return pg_affected_rows($res);
         }
 
@@ -362,7 +362,7 @@ class Handler extends AbstractHandler
      */
     public function db_last_error($handle)
     {
-        if (class_exists('PgSql\Connection') && $handle instanceof Connection) {
+        if (class_exists(\PgSql\Connection::class) && $handle instanceof Connection) {
             return pg_last_error($handle);
         }
 
@@ -379,7 +379,7 @@ class Handler extends AbstractHandler
      */
     public function db_escape_string($str, $handle = null): string
     {
-        if (class_exists('PgSql\Connection') && $handle instanceof Connection) {
+        if (class_exists(\PgSql\Connection::class) && $handle instanceof Connection) {
             return pg_escape_string($handle, (string) $str);
         }
 

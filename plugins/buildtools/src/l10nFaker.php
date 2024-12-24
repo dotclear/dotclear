@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -61,7 +62,7 @@ class l10nFaker
             }
         }
 
-        if (class_exists('Dotclear\Plugin\Widgets\Widgets')) {
+        if (class_exists(\Dotclear\Plugin\widgets\Widgets::class)) {
             $plugin .= "\n// Widget settings names\n\n";
             $widgets = \Dotclear\Plugin\widgets\Widgets::$widgets->elements();
             foreach ($widgets as $w) {

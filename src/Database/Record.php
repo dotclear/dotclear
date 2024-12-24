@@ -257,7 +257,7 @@ class Record implements Iterator, Countable
     public function index(?int $row = null)
     {
         if ($row === null) {
-            return $this->__index === null ? 0 : $this->__index;
+            return $this->__index;
         }
 
         if ($row < 0 || $row + 1 > $this->__info['rows']) {

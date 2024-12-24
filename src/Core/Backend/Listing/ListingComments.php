@@ -63,7 +63,7 @@ class ListingComments extends Listing
         // Get antispam filters' name
         $filters = [];
         if ($spam) {
-            if (class_exists('Dotclear\Plugin\antispam\Antispam')) {
+            if (class_exists(Antispam::class)) {
                 Antispam::initFilters();
                 $fs = Antispam::$filters->getFilters();
                 foreach ($fs as $fid => $f) {

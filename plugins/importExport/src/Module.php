@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -86,14 +87,14 @@ abstract class Module
         $this->setInfo();
 
         if (!in_array($this->type, ['import', 'export'])) {
-            throw new Exception(sprintf('Unknown type for module %s', get_class($this)));
+            throw new Exception(sprintf('Unknown type for module %s', static::class));
         }
 
         if (!$this->name) {
-            $this->name = get_class($this);
+            $this->name = static::class;
         }
 
-        $this->id  = get_class($this);
+        $this->id  = static::class;
         $this->url = sprintf(urldecode(App::backend()->url()->get('admin.plugin', ['p' => 'importExport', 'type' => '%s', 'module' => '%s'], '&')), $this->type, $this->id);
     }
 
