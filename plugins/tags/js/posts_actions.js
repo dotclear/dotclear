@@ -1,8 +1,6 @@
 /*global $, dotclear, metaEditor */
 'use strict';
 
-dotclear.mergeDeep(dotclear.msg, dotclear.getData('editor_tags_msg'));
-
 dotclear.ready(() => {
   // DOM ready and content loaded
 
@@ -45,7 +43,6 @@ dotclear.ready(() => {
             data: {
               id: elt.meta_id,
               count: elt.count,
-              percent: elt.roundpercent,
             },
             result: elt.meta_id,
           };
@@ -54,14 +51,7 @@ dotclear.ready(() => {
       return results;
     },
     formatItem(tag) {
-      return (
-        tag.id +
-        ' <em>(' +
-        dotclear.msg.tags_autocomplete
-          .replace('%p', tag.percent)
-          .replace('%e', `${tag.count} ${tag.count > 1 ? dotclear.msg.entries : dotclear.msg.entry}`) +
-        ')</em>'
-      );
+      return tag.id;
     },
     formatResult(tag) {
       return tag.result;

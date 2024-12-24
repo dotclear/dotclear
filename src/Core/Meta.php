@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -350,10 +351,33 @@ class Meta implements MetaInterface
         return $sql->select() ?? MetaRecord::newFromArray([]);
     }
 
+    /**
+     * Calculates the meta statistics from metadata recordset.
+     *
+     * @param      MetaRecord             $rs     Metadata recordset
+     *
+     * Will add these fields of each record of given recordset:
+     *
+     * - meta_id_lower = metadata id in lowercase without any diacritics
+     * - percent = Usage frequency of this metadata upon all metadata of same type
+     * - roundpercent = Decile usage (0 to 100 by 10 step)
+     *
+     * The percent (and roundpercent) will be calculate based on metadata usage (most used = 100%)
+     *
+     * Ex: A "photo" tag (assuming it's the the most used) is used 476 times (in 476 entries), its frequency will be 100%,
+     * then a "blog" tag which is used in 327 entries will have a 69% frequency (327 ÷ 476 * 100).
+     *
+     * @return     MetaRecord
+     */
     public function computeMetaStats(MetaRecord $rs): MetaRecord
     {
         $rs_static = $rs->toStatic();
 
+        /**
+         * Maximum usage of metadata for each type (tag, …)
+         *
+         * @var        array<string, int>
+         */
         $max = [];
         while ($rs_static->fetch()) {
             $type = $rs_static->meta_type;
@@ -372,8 +396,8 @@ class Meta implements MetaInterface
 
             $percent = ((int) $rs_static->count) * 100 / $max[$rs_static->meta_type];
 
-            $rs_static->set('percent', (int) round($percent));
-            $rs_static->set('roundpercent', round($percent / 10) * 10);
+            $rs_static->set('percent', (int) round($percent));          // Usage frequency of this metadata upon all metadata of same type
+            $rs_static->set('roundpercent', round($percent / 10) * 10); // Decile usage (0 to 100 by 10 step)
         }
 
         return $rs_static;

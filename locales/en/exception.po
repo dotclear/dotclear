@@ -6,6 +6,7 @@ msgstr ""
 "PO-Revision-Date: 2024-01-16 10:06\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,7 +16,6 @@ msgstr ""
 "X-Crowdin-Language: en\n"
 "X-Crowdin-File: /master/locales/_pot/exception.pot\n"
 "X-Crowdin-File-ID: 580\n"
-"Language: en_US\n"
 
 # in Dotclear\Exception\ExceptionEnum (and Dotclear\App)
 msgid "Site temporarily unavailable"
@@ -122,4 +122,3 @@ msgstr ""
 #, php-format
 msgid "Unable to initialize class %s"
 msgstr ""
-

@@ -1,8 +1,6 @@
 /*global $, dotclear, metaEditor */
 'use strict';
 
-dotclear.mergeDeep(dotclear.msg, dotclear.getData('editor_tags_msg'));
-
 dotclear.ready(() => {
   // DOM ready and content loaded
 
@@ -45,7 +43,6 @@ dotclear.ready(() => {
               data: {
                 id: elt.meta_id,
                 count: elt.count,
-                percent: elt.roundpercent,
               },
               result: elt.meta_id,
             };
