@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-10 11:01+0100\n"
-"PO-Revision-Date: 2024-12-10 10:41\n"
+"POT-Creation-Date: 2024-12-24 09:22+0100\n"
+"PO-Revision-Date: 2024-12-24 08:27\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -1459,6 +1459,10 @@ msgstr "ব্রাউজার যদি একটি সরবরাহ ক�
 msgid "Save configuration"
 msgstr "কনফিগারেশন সংরক্ষণ করুন"
 
+#: plugins/dcCKEditor/src/ManagePostConfig.php:193
+msgid "Note(s)"
+msgstr "নোট (s)"
+
 #: plugins/dcLegacyEditor/src/Backend.php:25
 #: plugins/dcLegacyEditor/src/Manage.php:72
 msgid "dcLegacyEditor"
@@ -2733,101 +2737,86 @@ msgstr "লিংকে ডিসবাজ করা হয়েছে এবং �
 msgid "Not displayed nor used"
 msgstr "প্রদর্শিত বা ব্যবহার করা হয়নি"
 
-#: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/BackendBehaviors.php:64
+#: plugins/tags/src/BackendBehaviors.php:75
 #: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
 msgid "Tag"
 msgstr "ট্যাগ"
 
-#: plugins/tags/src/BackendBehaviors.php:237
+#: plugins/tags/src/BackendBehaviors.php:238
 msgid "Add tags"
 msgstr "ট্যাগ যোগ করো"
 
-#: plugins/tags/src/BackendBehaviors.php:246
+#: plugins/tags/src/BackendBehaviors.php:247
 msgid "Remove tags"
 msgstr "ট্যাগ অপসারণ করো"
 
-#: plugins/tags/src/BackendBehaviors.php:281
+#: plugins/tags/src/BackendBehaviors.php:282
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "নির্বাচিত এন্ট্রিতে ট্যাগ সফলভাবে যোগ করা হয়েছে"
 msgstr[1] "নির্বাচিত এন্ট্রিতে ট্যাগ সফলভাবে যোগ করা হয়েছে"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:456
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Are you sure you want to remove this tag?"
 msgstr "আপনি কি এই ট্যাগ অপসারণ করতে চান?"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:457
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Add a tag to this entry"
 msgstr "এই এন্ট্রিতে একটি ট্যাগ যোগ করুন"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:458
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Choose from list"
 msgstr "তালিকা থেকে বেছে নিন"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:459
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "all"
 msgstr "সব"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:460
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "Enter tags separated by comma"
 msgstr "কমা দ্বারা পৃথক ট্যাগ লিখুন"
 
-#: plugins/tags/src/BackendBehaviors.php:302
-#: plugins/tags/src/BackendBehaviors.php:464
-msgid "used in %e - frequency %p%"
-msgstr "%e - ফ্রিকোয়েন্সি %p%-এ ব্যবহৃত হয়েছে"
-
-#: plugins/tags/src/BackendBehaviors.php:303
-#: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:116
-msgid "entry"
-msgstr "এন্ট্রি"
-
-#: plugins/tags/src/BackendBehaviors.php:304
-#: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:116
-msgid "entries"
-msgstr "এন্ট্রি"
-
-#: plugins/tags/src/BackendBehaviors.php:312
+#: plugins/tags/src/BackendBehaviors.php:307
 msgid "Add tags to this selection"
 msgstr "এই নির্বাচন থেকে ট্যাগ যোগ করো"
 
-#: plugins/tags/src/BackendBehaviors.php:331
+#: plugins/tags/src/BackendBehaviors.php:325
 msgid "Tags to add:"
 msgstr "যোগ করার জন্য ট্যাগ:"
 
-#: plugins/tags/src/BackendBehaviors.php:370
+#: plugins/tags/src/BackendBehaviors.php:364
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "নির্বাচিত এন্ট্রি থেকে ট্যাগ সফলভাবে মুছে ফেলা হয়েছে"
 msgstr[1] "নির্বাচিত এন্ট্রি থেকে ট্যাগ সফলভাবে মুছে ফেলা হয়েছে"
 
-#: plugins/tags/src/BackendBehaviors.php:393
+#: plugins/tags/src/BackendBehaviors.php:387
 msgid "No tags for selected entries"
 msgstr "নির্বাচিত এন্ট্রির জন্য কোনো ট্যাগ নেই"
 
-#: plugins/tags/src/BackendBehaviors.php:400
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Remove selected tags from this selection"
 msgstr "এই নির্বাচন থেকে নির্বাচিত ট্যাগ মুছে ফেলো"
 
-#: plugins/tags/src/BackendBehaviors.php:427
+#: plugins/tags/src/BackendBehaviors.php:421
 msgid "Following tags have been found in selected entries:"
 msgstr "নির্বাচিত এন্ট্রির মধ্যে ট্যাগ অনুসরণ করা হয়েছে:"
 
-#: plugins/tags/src/BackendBehaviors.php:487
+#: plugins/tags/src/BackendBehaviors.php:474
 msgid "Short"
 msgstr "সংক্ষিপ্ত"
 
-#: plugins/tags/src/BackendBehaviors.php:488
+#: plugins/tags/src/BackendBehaviors.php:475
 msgid "Extended"
 msgstr "এক্সটেন্ডেড"
 
-#: plugins/tags/src/BackendBehaviors.php:500
+#: plugins/tags/src/BackendBehaviors.php:487
 msgid "Tags list format:"
 msgstr "ট্যাগ তালিকার বিন্যাস:"
 
@@ -2838,6 +2827,14 @@ msgstr "এই ট্যাগের মন্তব্যের এটম ফ�
 #: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's entries Atom feed"
 msgstr "এই ট্যাগের এন্ট্রি এটম ফিড"
+
+#: plugins/tags/src/Manage.php:116
+msgid "entries"
+msgstr "এন্ট্রি"
+
+#: plugins/tags/src/Manage.php:116
+msgid "entry"
+msgstr "এন্ট্রি"
 
 #: plugins/tags/src/Manage.php:147
 msgid "No tags on this blog."

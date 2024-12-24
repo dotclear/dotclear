@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-10 11:01+0100\n"
-"PO-Revision-Date: 2024-12-10 10:41\n"
+"POT-Creation-Date: 2024-12-24 09:22+0100\n"
+"PO-Revision-Date: 2024-12-24 08:27\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1459,6 +1459,10 @@ msgstr "如果浏览器提供了内置的拼写检查程序，则禁用该程序
 msgid "Save configuration"
 msgstr "保存配置"
 
+#: plugins/dcCKEditor/src/ManagePostConfig.php:193
+msgid "Note(s)"
+msgstr "备注(s)"
+
 #: plugins/dcLegacyEditor/src/Backend.php:25
 #: plugins/dcLegacyEditor/src/Manage.php:72
 msgid "dcLegacyEditor"
@@ -2731,99 +2735,84 @@ msgstr "显示在链接中并作为标题使用"
 msgid "Not displayed nor used"
 msgstr "不显示也不使用"
 
-#: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/BackendBehaviors.php:64
+#: plugins/tags/src/BackendBehaviors.php:75
 #: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
 msgid "Tag"
 msgstr "标签"
 
-#: plugins/tags/src/BackendBehaviors.php:237
+#: plugins/tags/src/BackendBehaviors.php:238
 msgid "Add tags"
 msgstr "添加标签"
 
-#: plugins/tags/src/BackendBehaviors.php:246
+#: plugins/tags/src/BackendBehaviors.php:247
 msgid "Remove tags"
 msgstr "移除标签"
 
-#: plugins/tags/src/BackendBehaviors.php:281
+#: plugins/tags/src/BackendBehaviors.php:282
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "标签已被成功添加到选定的条目中"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:456
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Are you sure you want to remove this tag?"
 msgstr "你确定要删除这个标签吗？"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:457
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Add a tag to this entry"
 msgstr "为该条目添加标签"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:458
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Choose from list"
 msgstr "从列表中选择"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:459
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "all"
 msgstr "所有"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:460
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "Enter tags separated by comma"
 msgstr "输入由逗号分隔的标签"
 
-#: plugins/tags/src/BackendBehaviors.php:302
-#: plugins/tags/src/BackendBehaviors.php:464
-msgid "used in %e - frequency %p%"
-msgstr "用在 %e - 频率 %p%"
-
-#: plugins/tags/src/BackendBehaviors.php:303
-#: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:116
-msgid "entry"
-msgstr "入职"
-
-#: plugins/tags/src/BackendBehaviors.php:304
-#: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:116
-msgid "entries"
-msgstr "文章"
-
-#: plugins/tags/src/BackendBehaviors.php:312
+#: plugins/tags/src/BackendBehaviors.php:307
 msgid "Add tags to this selection"
 msgstr "为这个选择添加标签"
 
-#: plugins/tags/src/BackendBehaviors.php:331
+#: plugins/tags/src/BackendBehaviors.php:325
 msgid "Tags to add:"
 msgstr "要添加的标签："
 
-#: plugins/tags/src/BackendBehaviors.php:370
+#: plugins/tags/src/BackendBehaviors.php:364
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "标签已成功从选定的条目中删除"
 
-#: plugins/tags/src/BackendBehaviors.php:393
+#: plugins/tags/src/BackendBehaviors.php:387
 msgid "No tags for selected entries"
 msgstr "所选文章没有标签"
 
-#: plugins/tags/src/BackendBehaviors.php:400
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Remove selected tags from this selection"
 msgstr "从这个选择中删除选定的标签"
 
-#: plugins/tags/src/BackendBehaviors.php:427
+#: plugins/tags/src/BackendBehaviors.php:421
 msgid "Following tags have been found in selected entries:"
 msgstr "所选文章中发现下列标签："
 
-#: plugins/tags/src/BackendBehaviors.php:487
+#: plugins/tags/src/BackendBehaviors.php:474
 msgid "Short"
 msgstr "短篇"
 
-#: plugins/tags/src/BackendBehaviors.php:488
+#: plugins/tags/src/BackendBehaviors.php:475
 msgid "Extended"
 msgstr "延长"
 
-#: plugins/tags/src/BackendBehaviors.php:500
+#: plugins/tags/src/BackendBehaviors.php:487
 msgid "Tags list format:"
 msgstr "标签列表格式："
 
@@ -2834,6 +2823,14 @@ msgstr "此标签的评论 Atom feed"
 #: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's entries Atom feed"
 msgstr "此标签的文章 Atom feed"
+
+#: plugins/tags/src/Manage.php:116
+msgid "entries"
+msgstr "文章"
+
+#: plugins/tags/src/Manage.php:116
+msgid "entry"
+msgstr "入职"
 
 #: plugins/tags/src/Manage.php:147
 msgid "No tags on this blog."

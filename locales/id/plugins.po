@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-10 11:01+0100\n"
-"PO-Revision-Date: 2024-12-10 10:41\n"
+"POT-Creation-Date: 2024-12-24 09:22+0100\n"
+"PO-Revision-Date: 2024-12-24 08:27\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -1459,6 +1459,10 @@ msgstr "Menonaktifkan pemeriksa ejaan bawaan jika browser menyediakannya"
 msgid "Save configuration"
 msgstr "Menyimpan konfigurasi"
 
+#: plugins/dcCKEditor/src/ManagePostConfig.php:193
+msgid "Note(s)"
+msgstr "Catatan"
+
 #: plugins/dcLegacyEditor/src/Backend.php:25
 #: plugins/dcLegacyEditor/src/Manage.php:72
 msgid "dcLegacyEditor"
@@ -2731,99 +2735,84 @@ msgstr "Ditampilkan dalam tautan dan digunakan sebagai judul"
 msgid "Not displayed nor used"
 msgstr "Tidak ditampilkan atau digunakan"
 
-#: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/BackendBehaviors.php:64
+#: plugins/tags/src/BackendBehaviors.php:75
 #: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
 msgid "Tag"
 msgstr "Tag"
 
-#: plugins/tags/src/BackendBehaviors.php:237
+#: plugins/tags/src/BackendBehaviors.php:238
 msgid "Add tags"
 msgstr "Tambahkan tag"
 
-#: plugins/tags/src/BackendBehaviors.php:246
+#: plugins/tags/src/BackendBehaviors.php:247
 msgid "Remove tags"
 msgstr "Menghapus tag"
 
-#: plugins/tags/src/BackendBehaviors.php:281
+#: plugins/tags/src/BackendBehaviors.php:282
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Tag telah berhasil ditambahkan ke entri yang dipilih"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:456
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Are you sure you want to remove this tag?"
 msgstr "Apakah Anda yakin ingin menghapus tag ini?"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:457
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Add a tag to this entry"
 msgstr "Tambahkan tag ke entri ini"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:458
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Choose from list"
 msgstr "Pilih dari daftar"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:459
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "all"
 msgstr "semua"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:460
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "Enter tags separated by comma"
 msgstr "Masukkan tag yang dipisahkan dengan koma"
 
-#: plugins/tags/src/BackendBehaviors.php:302
-#: plugins/tags/src/BackendBehaviors.php:464
-msgid "used in %e - frequency %p%"
-msgstr "digunakan dalam %e - frekuensi %p%"
-
-#: plugins/tags/src/BackendBehaviors.php:303
-#: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:116
-msgid "entry"
-msgstr "entri"
-
-#: plugins/tags/src/BackendBehaviors.php:304
-#: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:116
-msgid "entries"
-msgstr "entri"
-
-#: plugins/tags/src/BackendBehaviors.php:312
+#: plugins/tags/src/BackendBehaviors.php:307
 msgid "Add tags to this selection"
 msgstr "Menambahkan tag ke pilihan ini"
 
-#: plugins/tags/src/BackendBehaviors.php:331
+#: plugins/tags/src/BackendBehaviors.php:325
 msgid "Tags to add:"
 msgstr "Tag untuk ditambahkan:"
 
-#: plugins/tags/src/BackendBehaviors.php:370
+#: plugins/tags/src/BackendBehaviors.php:364
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Tag telah berhasil dihapus dari entri yang dipilih"
 
-#: plugins/tags/src/BackendBehaviors.php:393
+#: plugins/tags/src/BackendBehaviors.php:387
 msgid "No tags for selected entries"
 msgstr "Tidak ada tag untuk entri yang dipilih"
 
-#: plugins/tags/src/BackendBehaviors.php:400
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Remove selected tags from this selection"
 msgstr "Menghapus tag yang dipilih dari pilihan ini"
 
-#: plugins/tags/src/BackendBehaviors.php:427
+#: plugins/tags/src/BackendBehaviors.php:421
 msgid "Following tags have been found in selected entries:"
 msgstr "Tag berikut ini telah ditemukan dalam entri yang dipilih:"
 
-#: plugins/tags/src/BackendBehaviors.php:487
+#: plugins/tags/src/BackendBehaviors.php:474
 msgid "Short"
 msgstr "Pendek"
 
-#: plugins/tags/src/BackendBehaviors.php:488
+#: plugins/tags/src/BackendBehaviors.php:475
 msgid "Extended"
 msgstr "Diperpanjang"
 
-#: plugins/tags/src/BackendBehaviors.php:500
+#: plugins/tags/src/BackendBehaviors.php:487
 msgid "Tags list format:"
 msgstr "Format daftar tag:"
 
@@ -2834,6 +2823,14 @@ msgstr "Komentar tag ini Umpan atom Umpan atom"
 #: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's entries Atom feed"
 msgstr "Entri tag ini Umpan atom"
+
+#: plugins/tags/src/Manage.php:116
+msgid "entries"
+msgstr "entri"
+
+#: plugins/tags/src/Manage.php:116
+msgid "entry"
+msgstr "entri"
 
 #: plugins/tags/src/Manage.php:147
 msgid "No tags on this blog."

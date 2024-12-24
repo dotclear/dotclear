@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-10 11:01+0100\n"
-"PO-Revision-Date: 2024-12-10 10:04\n"
+"POT-Creation-Date: 2024-12-24 09:22+0100\n"
+"PO-Revision-Date: 2024-12-24 08:25\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -39,7 +39,7 @@ msgstr "neliö"
 #: src/Core/Backend/Action/ActionsPosts.php:64
 #: src/Core/Backend/Action/ActionsPosts.php:71
 #: src/Core/Backend/Favorites.php:423 src/Core/Backend/Menus.php:167
-#: src/Core/Backend/UserPref.php:40 src/Core/Backend/UserPref.php:176
+#: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:177
 #: src/Process/Backend/Post.php:531 src/Process/Backend/Post.php:545
 #: src/Process/Backend/Posts.php:85 src/Process/Backend/Posts.php:90
 msgid "Posts"
@@ -93,8 +93,8 @@ msgstr "Avainta ei ole tietokannassa."
 #: src/Core/Backend/Action/ActionsComments.php:159
 #: src/Core/Backend/Combos.php:279 src/Core/Backend/Listing/ListingPosts.php:71
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
-#: src/Process/Backend/Home.php:454 src/Process/Backend/MediaItem.php:1005
-#: src/Process/Backend/Post.php:712
+#: src/Core/Backend/UserPref.php:204 src/Process/Backend/Home.php:532
+#: src/Process/Backend/MediaItem.php:1005 src/Process/Backend/Post.php:712
 msgid "Title"
 msgstr "Otsikko"
 
@@ -103,7 +103,7 @@ msgstr "Otsikko"
 #: src/Core/Backend/Action/ActionsBlogs.php:78
 #: src/Core/Backend/Action/ActionsBlogs.php:118
 #: src/Core/Backend/Favorites.php:500 src/Core/Backend/Menus.php:244
-#: src/Core/Backend/UserPref.php:73 src/Core/Backend/UserPref.php:190
+#: src/Core/Backend/UserPref.php:74 src/Core/Backend/UserPref.php:191
 #: src/Process/Backend/Blog.php:98 src/Process/Backend/BlogDel.php:91
 #: src/Process/Backend/BlogPref.php:459
 msgid "Blogs"
@@ -124,7 +124,7 @@ msgstr "Blogin tunniste"
 
 #: src/Core/Backend/Action/ActionsBlogs.php:159 src/Core/Backend/Combos.php:335
 #: src/Core/Backend/Listing/ListingBlogs.php:77
-#: src/Core/Backend/UserPref.php:75 src/Process/Backend/Blog.php:141
+#: src/Core/Backend/UserPref.php:76 src/Process/Backend/Blog.php:141
 #: src/Process/Backend/BlogPref.php:552
 #: src/Process/Backend/UsersActions.php:231
 msgid "Blog name"
@@ -139,7 +139,7 @@ msgstr "Blogin nimi"
 #: src/Core/Backend/Listing/ListingComments.php:160
 #: src/Core/Backend/Listing/ListingPosts.php:113
 #: src/Core/Backend/Listing/ListingPostsMini.php:72
-#: src/Core/Backend/UserPref.php:54 src/Core/Backend/UserPref.php:79
+#: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:80
 #: src/Process/Backend/Post.php:617 src/Process/Backend/Post.php:1067
 #: src/Process/Backend/UsersActions.php:234
 msgid "Status"
@@ -163,10 +163,10 @@ msgstr "Aseta: poistettu"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:51
 #: src/Core/Backend/Action/ActionsPostsDefault.php:103
 #: src/Core/Backend/Action/ActionsPostsDefault.php:104
-#: src/Core/Backend/Listing/ListingMedia.php:332
-#: src/Core/Backend/Listing/ListingMedia.php:335
-#: src/Core/Backend/ModulesList.php:1349 src/Core/Upgrade/PluginsList.php:126
-#: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:278
+#: src/Core/Backend/Listing/ListingMedia.php:326
+#: src/Core/Backend/Listing/ListingMedia.php:329
+#: src/Core/Backend/ModulesList.php:1360 src/Core/Upgrade/PluginsList.php:127
+#: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:228
 #: src/Process/Backend/Post.php:801 src/Process/Backend/Users.php:42
 #: src/Process/Upgrade/Langs.php:296
 msgid "Delete"
@@ -182,9 +182,9 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Valitut blogit on päivitetty."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:108
-#: src/Core/Backend/ModulesList.php:1687 src/Core/Backend/ThemesList.php:732
-#: src/Core/Upgrade/PluginsList.php:399 src/Process/Backend/BlogDel.php:67
-#: src/Process/Backend/Langs.php:131 src/Process/Backend/Langs.php:176
+#: src/Core/Backend/ModulesList.php:1698 src/Core/Backend/ThemesList.php:733
+#: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/BlogDel.php:67
+#: src/Process/Backend/Langs.php:112 src/Process/Backend/Langs.php:157
 #: src/Process/Backend/User.php:101 src/Process/Backend/UsersActions.php:109
 #: src/Process/Upgrade/Langs.php:161 src/Process/Upgrade/Langs.php:206
 msgid "Password verification failed"
@@ -210,8 +210,8 @@ msgstr[1] "%d blogin poisto onnistui."
 #: src/Core/Backend/Listing/ListingPosts.php:90
 #: src/Core/Backend/Listing/ListingPosts.php:93
 #: src/Core/Backend/Listing/ListingPosts.php:94 src/Core/Backend/Menus.php:154
-#: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:50
-#: src/Core/Backend/UserPref.php:183 src/Process/Backend/Post.php:850
+#: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
+#: src/Core/Backend/UserPref.php:184 src/Process/Backend/Post.php:850
 #: src/Process/Backend/Post.php:859
 msgid "Comments"
 msgstr "Kommentit"
@@ -229,7 +229,7 @@ msgstr "Toimet kommenttien suhteen"
 #: src/Core/Backend/Listing/ListingComments.php:150
 #: src/Core/Backend/Listing/ListingPosts.php:83
 #: src/Core/Backend/Listing/ListingPostsMini.php:68
-#: src/Core/Backend/UserPref.php:44 src/Core/Backend/UserPref.php:53
+#: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
 #: src/Process/Backend/Comment.php:294 src/Process/Backend/Post.php:894
 #: src/Process/Backend/Post.php:1064
 msgid "Author"
@@ -274,12 +274,12 @@ msgid "No comment selected"
 msgstr "Ei valittua kommenttia"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:101
-#: src/Process/Backend/Comments.php:129
+#: src/Process/Backend/Comments.php:138
 msgid "Selected comments have been successfully updated."
 msgstr "Valitut kommentit on päivitetty."
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:129
-#: src/Process/Backend/Comments.php:131
+#: src/Process/Backend/Comments.php:140
 msgid "Selected comments have been successfully deleted."
 msgstr "Valitut kommentit on poistettu."
 
@@ -410,7 +410,7 @@ msgid "Change category for this selection"
 msgstr "Vaihda luokka tämän valinnan osalta"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:357
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:461
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:558
 #: src/Process/Backend/Post.php:652
 msgid "Category:"
 msgstr "Luokka:"
@@ -420,25 +420,25 @@ msgid "Create a new category for the post(s)"
 msgstr "Luo uusi luokka tällä merkinnälle (näille merkinnöille)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:374
-#: src/Process/Backend/Home.php:451 src/Process/Backend/Home.php:468
-#: src/Process/Backend/Media.php:552 src/Process/Backend/MediaItem.php:1074
+#: src/Process/Backend/Home.php:536 src/Process/Backend/Home.php:570
+#: src/Process/Backend/Media.php:554 src/Process/Backend/MediaItem.php:1074
 #: src/Process/Backend/Post.php:660 src/Process/Backend/Post.php:708
 msgid "Title:"
 msgstr "Otsikko:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:383
 #: src/Process/Backend/Category.php:265 src/Process/Backend/Category.php:323
-#: src/Process/Backend/Home.php:470 src/Process/Backend/Post.php:662
+#: src/Process/Backend/Home.php:577 src/Process/Backend/Post.php:662
 msgid "Parent:"
 msgstr "Emo:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:398
 #: src/Core/Backend/Action/ActionsPostsDefault.php:503
 #: src/Core/Backend/Action/ActionsPostsDefault.php:593
-#: src/Core/Backend/ModulesList.php:1982 src/Process/Backend/BlogPref.php:1171
+#: src/Core/Backend/ModulesList.php:1993 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:295 src/Process/Backend/Category.php:334
 #: src/Process/Backend/Category.php:370 src/Process/Backend/Comment.php:349
-#: src/Process/Backend/Home.php:476 src/Process/Backend/MediaItem.php:1119
+#: src/Process/Backend/Home.php:587 src/Process/Backend/MediaItem.php:1119
 #: src/Process/Backend/Post.php:779 src/Process/Backend/Post.php:919
 #: src/Process/Backend/User.php:426 src/Process/Backend/UsersActions.php:358
 #: src/Process/Install/Install.php:500
@@ -508,16 +508,16 @@ msgstr "Nouseva"
 
 #: src/Core/Backend/Combos.php:278 src/Core/Backend/Combos.php:301
 #: src/Core/Backend/Listing/ListingComments.php:155
-#: src/Core/Backend/Listing/ListingMedia.php:131
+#: src/Core/Backend/Listing/ListingMedia.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:75
 #: src/Core/Backend/Listing/ListingPostsMini.php:64
-#: src/Core/Backend/UserPref.php:42 src/Core/Backend/UserPref.php:52
-#: src/Core/Backend/UserPref.php:201 src/Process/Backend/Post.php:1065
+#: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
+#: src/Core/Backend/UserPref.php:202 src/Process/Backend/Post.php:1065
 msgid "Date"
 msgstr "Päiväys"
 
 #: src/Core/Backend/Combos.php:280 src/Core/Backend/Listing/ListingPosts.php:79
-#: src/Core/Backend/UserPref.php:43 src/Process/Backend/Post.php:651
+#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:651
 msgid "Category"
 msgstr "Luokka"
 
@@ -546,18 +546,18 @@ msgstr "Blogimerkinnän otsikko"
 
 #: src/Core/Backend/Combos.php:306
 #: src/Core/Backend/Listing/ListingComments.php:173
-#: src/Core/Backend/UserPref.php:56
+#: src/Core/Backend/UserPref.php:57
 msgid "Spam filter"
 msgstr "Spämmisuodatin"
 
 #: src/Core/Backend/Combos.php:317
 #: src/Core/Backend/Listing/ListingComments.php:167
-#: src/Core/Backend/UserPref.php:55
+#: src/Core/Backend/UserPref.php:56
 msgid "IP"
 msgstr "P"
 
 #: src/Core/Backend/Combos.php:334 src/Core/Backend/Listing/ListingBlogs.php:95
-#: src/Core/Backend/UserPref.php:78
+#: src/Core/Backend/UserPref.php:79
 msgid "Last update"
 msgstr "Viimeisin päivitys"
 
@@ -573,17 +573,17 @@ msgid "Username"
 msgstr "Käyttäjänimi"
 
 #: src/Core/Backend/Combos.php:356 src/Core/Backend/Listing/ListingUsers.php:75
-#: src/Core/Backend/UserPref.php:67
+#: src/Core/Backend/UserPref.php:68
 msgid "Last Name"
 msgstr "Sukunimi"
 
 #: src/Core/Backend/Combos.php:357 src/Core/Backend/Listing/ListingUsers.php:70
-#: src/Core/Backend/UserPref.php:66
+#: src/Core/Backend/UserPref.php:67
 msgid "First Name"
 msgstr "Etunimi"
 
 #: src/Core/Backend/Combos.php:358 src/Core/Backend/Listing/ListingUsers.php:80
-#: src/Core/Backend/UserPref.php:68
+#: src/Core/Backend/UserPref.php:69
 msgid "Display name"
 msgstr "Näytettävä nimi"
 
@@ -597,25 +597,25 @@ msgid "My favorites"
 msgstr "Suosikit"
 
 #: src/Core/Backend/Favorites.php:406 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:382 src/Process/Backend/Media.php:559
+#: src/Core/Backend/Page.php:382 src/Process/Backend/Media.php:561
 #: src/Process/Backend/UserPreferences.php:39
 msgid "My preferences"
 msgstr "Asetukset"
 
 #: src/Core/Backend/Favorites.php:412 src/Core/Backend/Menus.php:180
-#: src/Process/Backend/Home.php:449 src/Process/Backend/Post.php:71
+#: src/Process/Backend/Home.php:521 src/Process/Backend/Post.php:71
 #: src/Process/Backend/Post.php:761 src/Process/Backend/Posts.php:101
 msgid "New post"
 msgstr "Uusi merkintä"
 
-#: src/Core/Backend/Favorites.php:433 src/Process/Backend/Rest.php:77
+#: src/Core/Backend/Favorites.php:433 src/Process/Backend/Rest.php:78
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
 msgstr[0] "%d merkintä"
 msgstr[1] "%d merkintää"
 
-#: src/Core/Backend/Favorites.php:448 src/Process/Backend/Rest.php:91
+#: src/Core/Backend/Favorites.php:448 src/Process/Backend/Rest.php:92
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
@@ -623,7 +623,7 @@ msgstr[0] "%d kommentti"
 msgstr[1] "%d kommenttia"
 
 #: src/Core/Backend/Favorites.php:453 src/Core/Backend/Menus.php:141
-#: src/Core/Backend/UserPref.php:209 src/Process/Backend/PostsPopup.php:100
+#: src/Core/Backend/UserPref.php:211 src/Process/Backend/PostsPopup.php:100
 #: src/Process/Backend/Search.php:140 src/Process/Backend/Search.php:145
 #: src/Process/Backend/Search.php:157
 msgid "Search"
@@ -637,8 +637,8 @@ msgstr "Luokat"
 
 #: src/Core/Backend/Favorites.php:472 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:406
-#: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:198
-#: src/Process/Backend/Media.php:474 src/Process/Backend/Media.php:513
+#: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:199
+#: src/Process/Backend/Media.php:476 src/Process/Backend/Media.php:515
 #: src/Process/Backend/MediaItem.php:451 src/Process/Backend/MediaItem.php:457
 msgid "Media manager"
 msgstr "Medianhallinta"
@@ -656,7 +656,7 @@ msgid "Blog appearance"
 msgstr "Blogin ulkoasu"
 
 #: src/Core/Backend/Favorites.php:510 src/Core/Backend/Menus.php:234
-#: src/Core/Backend/UserPref.php:64 src/Core/Backend/UserPref.php:166
+#: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:167
 #: src/Process/Backend/BlogPref.php:1363 src/Process/Backend/User.php:240
 #: src/Process/Backend/Users.php:100 src/Process/Backend/Users.php:105
 #: src/Process/Backend/UsersActions.php:151
@@ -668,7 +668,7 @@ msgstr "Käyttäjät"
 #: src/Core/Backend/Favorites.php:516 src/Core/Backend/Menus.php:224
 #: src/Process/Backend/Plugins.php:94 src/Process/Backend/Plugins.php:107
 #: src/Process/Backend/Plugins.php:344 src/Process/Backend/Plugins.php:351
-#: src/Process/Upgrade/Plugins.php:143 src/Process/Upgrade/Plugins.php:153
+#: src/Process/Upgrade/Plugins.php:144 src/Process/Upgrade/Plugins.php:154
 msgid "Plugins management"
 msgstr "Liitännäisten hallinta"
 
@@ -705,7 +705,7 @@ msgstr "Sivusto:"
 
 #: src/Core/Backend/Filter/FilterComments.php:56
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:1070 src/Core/Backend/Page.php:1324
+#: src/Core/Backend/ModulesList.php:1081 src/Core/Backend/Page.php:1324
 #: src/Process/Backend/Comment.php:296
 msgid "Author:"
 msgstr "Kirjoittanut:"
@@ -868,14 +868,14 @@ msgid "No blog matches the filter"
 msgstr "Mikään blogi ei vastaa suodatinta"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:83
-#: src/Core/Backend/ModulesList.php:1801 src/Core/Backend/UserPref.php:76
-#: src/Process/Backend/LinkPopup.php:62
+#: src/Core/Backend/ModulesList.php:1812 src/Core/Backend/UserPref.php:77
+#: src/Process/Backend/LinkPopup.php:84
 #: src/Process/Backend/UsersActions.php:232
 msgid "URL"
 msgstr "URL:"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:89
-#: src/Core/Backend/UserPref.php:69 src/Core/Backend/UserPref.php:77
+#: src/Core/Backend/UserPref.php:70 src/Core/Backend/UserPref.php:78
 msgid "Entries (all types)"
 msgstr "Merkinnät (kaikki lajit)"
 
@@ -977,7 +977,7 @@ msgid "Type"
 msgstr "Tyyppi"
 
 #: src/Core/Backend/Listing/ListingComments.php:178
-#: src/Core/Backend/UserPref.php:57
+#: src/Core/Backend/UserPref.php:58
 msgid "Entry"
 msgstr "Merkintä"
 
@@ -1046,62 +1046,62 @@ msgstr "Muokkaa"
 msgid "No file matches the filter"
 msgstr "Mikään tiedosto ei vastaa suodatinta"
 
-#: src/Core/Backend/Listing/ListingMedia.php:71
+#: src/Core/Backend/Listing/ListingMedia.php:67
 msgid "No file."
 msgstr "Ei tiedostoa."
 
-#: src/Core/Backend/Listing/ListingMedia.php:93
+#: src/Core/Backend/Listing/ListingMedia.php:87
 #, php-format
 msgid "%d file matches the filter."
 msgid_plural "%d files match the filter."
 msgstr[0] "%d tiedosto vastaa suodatinta."
 msgstr[1] "%d tiedostot vastaavat suodatinta."
 
-#: src/Core/Backend/Listing/ListingMedia.php:96
+#: src/Core/Backend/Listing/ListingMedia.php:90
 #, php-format
 msgid "Nb of items: %d → %d folder(s) + %d file(s)"
 msgstr "Kohteiden määrä: %d → %d kansio(ta) + %d tiedosto(a)"
 
-#: src/Core/Backend/Listing/ListingMedia.php:97
+#: src/Core/Backend/Listing/ListingMedia.php:91
 #, php-format
 msgid "Nb of items: %d"
 msgstr "Kohteiden määrä: %d"
 
-#: src/Core/Backend/Listing/ListingMedia.php:128
-#: src/Core/Backend/ModulesList.php:834 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Category.php:253 src/Process/Upgrade/Plugins.php:448
+#: src/Core/Backend/Listing/ListingMedia.php:122
+#: src/Core/Backend/ModulesList.php:845 src/Core/Backend/UserPref.php:201
+#: src/Process/Backend/Category.php:253 src/Process/Upgrade/Plugins.php:449
 msgid "Name"
 msgstr "Nimi"
 
-#: src/Core/Backend/Listing/ListingMedia.php:134
-#: src/Core/Backend/UserPref.php:202
+#: src/Core/Backend/Listing/ListingMedia.php:128
+#: src/Core/Backend/UserPref.php:203
 msgid "Size"
 msgstr "Koko"
 
-#: src/Core/Backend/Listing/ListingMedia.php:268
-#: src/Core/Backend/Listing/ListingMedia.php:271
-#: src/Process/Backend/Media.php:373
+#: src/Core/Backend/Listing/ListingMedia.php:262
+#: src/Core/Backend/Listing/ListingMedia.php:265
+#: src/Process/Backend/Media.php:375
 msgid "Select this file"
 msgstr "Poista tämä blogi"
 
-#: src/Core/Backend/Listing/ListingMedia.php:294
-#: src/Core/Backend/Listing/ListingMedia.php:297
-#: src/Process/Backend/Media.php:389 src/Process/Backend/Media.php:402
+#: src/Core/Backend/Listing/ListingMedia.php:288
+#: src/Core/Backend/Listing/ListingMedia.php:291
+#: src/Process/Backend/Media.php:391 src/Process/Backend/Media.php:404
 msgid "Attach this file to entry"
 msgstr "Liitä tämä tiedosto merkintään"
 
-#: src/Core/Backend/Listing/ListingMedia.php:305
-#: src/Core/Backend/Listing/ListingMedia.php:308
+#: src/Core/Backend/Listing/ListingMedia.php:299
+#: src/Core/Backend/Listing/ListingMedia.php:302
 msgid "Insert this file into entry"
 msgstr "Liitä tämä tiedosto merkintään"
 
-#: src/Core/Backend/Listing/ListingMedia.php:373
-#: src/Core/Backend/Listing/ListingMedia.php:412
+#: src/Core/Backend/Listing/ListingMedia.php:367
+#: src/Core/Backend/Listing/ListingMedia.php:406
 msgid "private media"
 msgstr "Yksityinen"
 
-#: src/Core/Backend/Listing/ListingMedia.php:399
-#: src/Core/Backend/Listing/ListingMedia.php:425
+#: src/Core/Backend/Listing/ListingMedia.php:393
+#: src/Core/Backend/Listing/ListingMedia.php:419
 msgid "open"
 msgstr "avaa"
 
@@ -1117,7 +1117,7 @@ msgstr "Suodatinta ei vastaa mikään merkintä"
 #: src/Core/Backend/Listing/ListingPosts.php:103
 #: src/Core/Backend/Listing/ListingPosts.php:106
 #: src/Core/Backend/Listing/ListingPosts.php:107
-#: src/Core/Backend/UserPref.php:46 src/Process/Backend/Post.php:942
+#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:942
 msgid "Trackbacks"
 msgstr "Takaisinviittaukset"
 
@@ -1237,7 +1237,7 @@ msgid "Direct access page:"
 msgstr "Suora pääsy sivulle:"
 
 #: src/Core/Backend/Listing/Pager.php:184 src/Core/Backend/Page.php:170
-#: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:188
+#: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:218
 #: src/Process/Backend/Post.php:877 src/Process/Backend/Post.php:970
 #: src/Process/Backend/Posts.php:119 src/Process/Backend/Search.php:272
 #: src/Process/Backend/Search.php:351 src/Process/Backend/Users.php:149
@@ -1263,282 +1263,282 @@ msgstr "Järjestelmän asetukset"
 msgid "Plugins"
 msgstr "Liitännäiset"
 
-#: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1378
-#: src/Core/Upgrade/PluginsList.php:145 src/Core/Upgrade/Utility.php:264
+#: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1389
+#: src/Core/Upgrade/PluginsList.php:146 src/Core/Upgrade/Utility.php:264
 #: src/Process/Upgrade/Upgrade.php:55 src/Process/Upgrade/Upgrade.php:79
 #: src/Process/Upgrade/Upgrade.php:294
 msgid "Update"
 msgstr "Päivitä"
 
-#: src/Core/Backend/ModulesList.php:222 src/Core/Upgrade/PluginsList.php:60
+#: src/Core/Backend/ModulesList.php:222 src/Core/Upgrade/PluginsList.php:61
 msgid "other"
 msgstr "muut"
 
-#: src/Core/Backend/ModulesList.php:437
+#: src/Core/Backend/ModulesList.php:448
 msgid "Search in repository:"
 msgstr "Etsi säilöstä:"
 
-#: src/Core/Backend/ModulesList.php:438 src/Core/Backend/Page.php:490
+#: src/Core/Backend/ModulesList.php:449 src/Core/Backend/Page.php:490
 msgid "OK"
 msgstr "OK"
 
-#: src/Core/Backend/ModulesList.php:440
+#: src/Core/Backend/ModulesList.php:451
 msgid "Reset search"
 msgstr "Nollaa haku"
 
-#: src/Core/Backend/ModulesList.php:444
+#: src/Core/Backend/ModulesList.php:455
 msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
 msgstr "Useampia, 2 merkkiä pidempiä, välilyönnillä eroteltuja, termejä voi hakea hakutoiminnolla."
 
-#: src/Core/Backend/ModulesList.php:450
+#: src/Core/Backend/ModulesList.php:461
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
 msgstr[0] "Löydetty %d tulos haulla \"%s\":"
 msgstr[1] "Löydetty %d tulosta haulla \"%s\":"
 
-#: src/Core/Backend/ModulesList.php:524
+#: src/Core/Backend/ModulesList.php:535
 msgid "current selection"
 msgstr "nykyvalinta"
 
-#: src/Core/Backend/ModulesList.php:531
+#: src/Core/Backend/ModulesList.php:542
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
 msgstr[0] "%d tulos"
 msgstr[1] "%d tulosta"
 
-#: src/Core/Backend/ModulesList.php:546
+#: src/Core/Backend/ModulesList.php:557
 msgid "no results"
 msgstr "ei tuloksia"
 
-#: src/Core/Backend/ModulesList.php:556
+#: src/Core/Backend/ModulesList.php:567
 msgid "Browse index:"
 msgstr "Hakemiston selaus:"
 
-#: src/Core/Backend/ModulesList.php:843
+#: src/Core/Backend/ModulesList.php:854
 msgid "Score"
 msgstr "Pistemäärä"
 
-#: src/Core/Backend/ModulesList.php:850
+#: src/Core/Backend/ModulesList.php:861
 msgid "Version"
 msgstr "Versio"
 
-#: src/Core/Backend/ModulesList.php:857 src/Process/Upgrade/Plugins.php:452
+#: src/Core/Backend/ModulesList.php:868 src/Process/Upgrade/Plugins.php:453
 msgid "Current version"
 msgstr "Nykyversio"
 
-#: src/Core/Backend/ModulesList.php:864 src/Core/Backend/ModulesList.php:1078
-#: src/Core/Backend/Page.php:1325 src/Core/Backend/ThemesList.php:213
-#: src/Core/Backend/ThemesList.php:299
+#: src/Core/Backend/ModulesList.php:875 src/Core/Backend/ModulesList.php:1089
+#: src/Core/Backend/Page.php:1325 src/Core/Backend/ThemesList.php:214
+#: src/Core/Backend/ThemesList.php:300
 msgid "Details"
 msgstr "Tiedot"
 
-#: src/Core/Backend/ModulesList.php:871 src/Process/Upgrade/Plugins.php:464
+#: src/Core/Backend/ModulesList.php:882 src/Process/Upgrade/Plugins.php:465
 msgid "Repository"
 msgstr "Varasto"
 
-#: src/Core/Backend/ModulesList.php:884 src/Process/Backend/Langs.php:260
+#: src/Core/Backend/ModulesList.php:895 src/Process/Backend/Langs.php:284
 #: src/Process/Upgrade/Langs.php:335
 msgid "Action"
 msgstr "Toimenpide"
 
-#: src/Core/Backend/ModulesList.php:951 src/Process/Upgrade/Plugins.php:402
+#: src/Core/Backend/ModulesList.php:962 src/Process/Upgrade/Plugins.php:403
 #, php-format
 msgid " (%s)"
 msgstr "(%s)"
 
-#: src/Core/Backend/ModulesList.php:998
+#: src/Core/Backend/ModulesList.php:1009
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
 msgstr "Tätä moduulia ei voi poistaa käytöstä, koska seuraavat moduulit ovat käytössä: %s"
 
-#: src/Core/Backend/ModulesList.php:1010
+#: src/Core/Backend/ModulesList.php:1021
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Tätä moduulia ei voi ottaa käyttöön seuraavista syistä:"
 
-#: src/Core/Backend/ModulesList.php:1030 src/Core/Backend/ThemesList.php:197
-#: src/Process/Upgrade/Plugins.php:418
+#: src/Core/Backend/ModulesList.php:1041 src/Core/Backend/ThemesList.php:198
+#: src/Process/Upgrade/Plugins.php:419
 msgid "Official repository"
 msgstr "Virallinen arkisto"
 
-#: src/Core/Backend/ModulesList.php:1030 src/Core/Backend/ModulesList.php:1123
-#: src/Core/Backend/ThemesList.php:197 src/Process/Upgrade/Plugins.php:418
+#: src/Core/Backend/ModulesList.php:1041 src/Core/Backend/ModulesList.php:1134
+#: src/Core/Backend/ThemesList.php:198 src/Process/Upgrade/Plugins.php:419
 msgid "Third-party repository"
 msgstr "Kolmannen osapuolen arkisto"
 
-#: src/Core/Backend/ModulesList.php:1039
+#: src/Core/Backend/ModulesList.php:1050
 msgid "Plugin from official distribution"
 msgstr "Viralliseen jakeluun kuuluva liitännäinen"
 
-#: src/Core/Backend/ModulesList.php:1040
+#: src/Core/Backend/ModulesList.php:1051
 msgid "Plugin in development"
 msgstr "Plugin kehitteillä"
 
-#: src/Core/Backend/ModulesList.php:1085 src/Core/Backend/Page.php:1326
-#: src/Core/Backend/ThemesList.php:220
+#: src/Core/Backend/ModulesList.php:1096 src/Core/Backend/Page.php:1326
+#: src/Core/Backend/ThemesList.php:221
 msgid "Support"
 msgstr "Tuki"
 
-#: src/Core/Backend/ModulesList.php:1089 src/Core/Backend/ThemesList.php:201
+#: src/Core/Backend/ModulesList.php:1100 src/Core/Backend/ThemesList.php:202
 msgid "update locked"
 msgstr "päivitys lukittu"
 
-#: src/Core/Backend/ModulesList.php:1130 src/Core/Backend/Page.php:1328
+#: src/Core/Backend/ModulesList.php:1141 src/Core/Backend/Page.php:1328
 msgid "Section:"
 msgstr "Osa:"
 
-#: src/Core/Backend/ModulesList.php:1136 src/Core/Backend/Page.php:1329
+#: src/Core/Backend/ModulesList.php:1147 src/Core/Backend/Page.php:1329
 msgid "Tags:"
 msgstr "Avainsanat:"
 
-#: src/Core/Backend/ModulesList.php:1161
+#: src/Core/Backend/ModulesList.php:1172
 msgid "No plugins matched your search."
 msgstr "Mikään liitännäinen ei vastaa hakuasi."
 
-#: src/Core/Backend/ModulesList.php:1184
+#: src/Core/Backend/ModulesList.php:1195
 msgid "Plugins list"
 msgstr "Liitännäisten luettelo"
 
-#: src/Core/Backend/ModulesList.php:1229
+#: src/Core/Backend/ModulesList.php:1240
 msgid "Configure plugin"
 msgstr "Määritä liitännäisen asetukset"
 
-#: src/Core/Backend/ModulesList.php:1243
+#: src/Core/Backend/ModulesList.php:1254
 msgid "Plugin settings (in blog parameters)"
 msgstr "Liitännäisen asetukset (blogin parametreissä)"
 
-#: src/Core/Backend/ModulesList.php:1256
+#: src/Core/Backend/ModulesList.php:1267
 msgid "Plugin settings (in user preferences)"
 msgstr "Liitännäisen asetukset (käyttäjän valitsemissa asetuksissa)"
 
-#: src/Core/Backend/ModulesList.php:1267 src/Core/Backend/ModulesList.php:1280
+#: src/Core/Backend/ModulesList.php:1278 src/Core/Backend/ModulesList.php:1291
 msgid "Plugin settings"
 msgstr "Liitännäisen asetukset"
 
-#: src/Core/Backend/ModulesList.php:1293
+#: src/Core/Backend/ModulesList.php:1304
 msgid "Plugin main page"
 msgstr "Pluginin pääsivu"
 
-#: src/Core/Backend/ModulesList.php:1329 src/Core/Upgrade/PluginsList.php:106
+#: src/Core/Backend/ModulesList.php:1340 src/Core/Upgrade/PluginsList.php:107
 msgid "Activate"
 msgstr "Ota käyttöön"
 
-#: src/Core/Backend/ModulesList.php:1338 src/Core/Upgrade/PluginsList.php:115
+#: src/Core/Backend/ModulesList.php:1349 src/Core/Upgrade/PluginsList.php:116
 msgid "Deactivate"
 msgstr "Poista käytöstä"
 
-#: src/Core/Backend/ModulesList.php:1359
+#: src/Core/Backend/ModulesList.php:1370
 msgid "Clone"
 msgstr "Kloonaa"
 
-#: src/Core/Backend/ModulesList.php:1369 src/Core/Upgrade/PluginsList.php:136
+#: src/Core/Backend/ModulesList.php:1380 src/Core/Upgrade/PluginsList.php:137
 msgid "Install"
 msgstr "Asenna"
 
-#: src/Core/Backend/ModulesList.php:1420 src/Core/Upgrade/PluginsList.php:175
+#: src/Core/Backend/ModulesList.php:1431 src/Core/Upgrade/PluginsList.php:176
 msgid "Activate selected plugins"
 msgstr "Ota valitut liitännäiset käyttöön"
 
-#: src/Core/Backend/ModulesList.php:1421 src/Core/Upgrade/PluginsList.php:176
+#: src/Core/Backend/ModulesList.php:1432 src/Core/Upgrade/PluginsList.php:177
 msgid "Activate all plugins from this list"
 msgstr "Ota kaikki luettelon liitännäiset käyttöön"
 
-#: src/Core/Backend/ModulesList.php:1431 src/Core/Upgrade/PluginsList.php:186
+#: src/Core/Backend/ModulesList.php:1442 src/Core/Upgrade/PluginsList.php:187
 msgid "Deactivate selected plugins"
 msgstr "Poista valitut liitännäiset käytöstä"
 
-#: src/Core/Backend/ModulesList.php:1432 src/Core/Upgrade/PluginsList.php:187
+#: src/Core/Backend/ModulesList.php:1443 src/Core/Upgrade/PluginsList.php:188
 msgid "Deactivate all plugins from this list"
 msgstr "Poista kaikki luettelon liitännäiset käytöstä"
 
-#: src/Core/Backend/ModulesList.php:1442 src/Core/Upgrade/PluginsList.php:197
+#: src/Core/Backend/ModulesList.php:1453 src/Core/Upgrade/PluginsList.php:198
 msgid "Update selected plugins"
 msgstr "Päivitä valitut liitännäiset"
 
-#: src/Core/Backend/ModulesList.php:1443 src/Core/Upgrade/PluginsList.php:198
+#: src/Core/Backend/ModulesList.php:1454 src/Core/Upgrade/PluginsList.php:199
 msgid "Update all plugins from this list"
 msgstr "Päivitä kaikki luettelon liitännäiset"
 
-#: src/Core/Backend/ModulesList.php:1494 src/Core/Backend/ModulesList.php:1548
-#: src/Core/Backend/ModulesList.php:1579 src/Core/Backend/ModulesList.php:1617
-#: src/Core/Backend/ModulesList.php:1678 src/Core/Upgrade/PluginsList.php:237
-#: src/Core/Upgrade/PluginsList.php:279 src/Core/Upgrade/PluginsList.php:304
-#: src/Core/Upgrade/PluginsList.php:336 src/Core/Upgrade/PluginsList.php:390
+#: src/Core/Backend/ModulesList.php:1505 src/Core/Backend/ModulesList.php:1559
+#: src/Core/Backend/ModulesList.php:1590 src/Core/Backend/ModulesList.php:1628
+#: src/Core/Backend/ModulesList.php:1689 src/Core/Upgrade/PluginsList.php:238
+#: src/Core/Upgrade/PluginsList.php:280 src/Core/Upgrade/PluginsList.php:305
+#: src/Core/Upgrade/PluginsList.php:337 src/Core/Upgrade/PluginsList.php:391
 msgid "No such plugin."
 msgstr "Kyseistä liitännäistä ei ole."
 
-#: src/Core/Backend/ModulesList.php:1514 src/Core/Upgrade/PluginsList.php:251
+#: src/Core/Backend/ModulesList.php:1525 src/Core/Upgrade/PluginsList.php:252
 msgid "You don't have permissions to delete this plugin."
 msgstr "Käyttöoikeutesi eivät riitä tämän liitännäisen poistamiseen."
 
-#: src/Core/Backend/ModulesList.php:1516 src/Core/Upgrade/PluginsList.php:253
+#: src/Core/Backend/ModulesList.php:1527 src/Core/Upgrade/PluginsList.php:254
 msgid "Some plugins have not been delete."
 msgstr "Joitain liitännäisiä ei voitu poistaa."
 
-#: src/Core/Backend/ModulesList.php:1519 src/Core/Upgrade/PluginsList.php:256
+#: src/Core/Backend/ModulesList.php:1530 src/Core/Upgrade/PluginsList.php:257
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Tämä liitännäinen on poistettu."
 msgstr[1] "Nämä liitännäiset on poistettu."
 
-#: src/Core/Backend/ModulesList.php:1552 src/Core/Upgrade/PluginsList.php:283
+#: src/Core/Backend/ModulesList.php:1563 src/Core/Upgrade/PluginsList.php:284
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Tämä liitännäinen on asennettu."
 msgstr[1] "Nämä liitännäiset on asennettu."
 
-#: src/Core/Backend/ModulesList.php:1583 src/Core/Upgrade/PluginsList.php:308
+#: src/Core/Backend/ModulesList.php:1594 src/Core/Upgrade/PluginsList.php:309
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "Tämä liitännäinen on otettu käyttöön."
 msgstr[1] "Nämä liitännäiset on otettu käyttöön."
 
-#: src/Core/Backend/ModulesList.php:1621 src/Core/Upgrade/PluginsList.php:340
+#: src/Core/Backend/ModulesList.php:1632 src/Core/Upgrade/PluginsList.php:341
 msgid "Some plugins have not been deactivated."
 msgstr "Joitain liitännäisiä ei saatu pois käytöstä."
 
-#: src/Core/Backend/ModulesList.php:1624 src/Core/Upgrade/PluginsList.php:343
+#: src/Core/Backend/ModulesList.php:1635 src/Core/Upgrade/PluginsList.php:344
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Tämä liitännäinen on saatu pois käytöstä."
 msgstr[1] "Nämä liitännäiset on saatu pois käytöstä."
 
-#: src/Core/Backend/ModulesList.php:1671 src/Core/Upgrade/PluginsList.php:383
+#: src/Core/Backend/ModulesList.php:1682 src/Core/Upgrade/PluginsList.php:384
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Tämä liitännäinen on päivitetty."
 msgstr[1] "Nämä liitännäiset on päivitetty."
 
-#: src/Core/Backend/ModulesList.php:1675 src/Core/Upgrade/PluginsList.php:387
+#: src/Core/Backend/ModulesList.php:1686 src/Core/Upgrade/PluginsList.php:388
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "Seuraavat lisäosien päivitykset on lukittu: %s"
 
-#: src/Core/Backend/ModulesList.php:1695 src/Core/Backend/ThemesList.php:740
-#: src/Core/Upgrade/PluginsList.php:407 src/Process/Backend/Langs.php:182
+#: src/Core/Backend/ModulesList.php:1706 src/Core/Backend/ThemesList.php:741
+#: src/Core/Upgrade/PluginsList.php:408 src/Process/Backend/Langs.php:163
 #: src/Process/Upgrade/Langs.php:212
 msgid "Unable to move uploaded file."
 msgstr "Ei voida siirtää verkkosijaintiin ladattua tiedostoa."
 
-#: src/Core/Backend/ModulesList.php:1713 src/Core/Upgrade/PluginsList.php:419
+#: src/Core/Backend/ModulesList.php:1724 src/Core/Upgrade/PluginsList.php:420
 msgid "The plugin has been successfully updated."
 msgstr "Lisäosa on päivitetty onnistuneesti."
 
-#: src/Core/Backend/ModulesList.php:1714 src/Core/Upgrade/PluginsList.php:420
+#: src/Core/Backend/ModulesList.php:1725 src/Core/Upgrade/PluginsList.php:421
 msgid "The plugin has been successfully installed."
 msgstr "Lisäosa on asennettu onnistuneesti."
 
-#: src/Core/Backend/ModulesList.php:1742 src/Process/Backend/Langs.php:332
+#: src/Core/Backend/ModulesList.php:1753 src/Process/Backend/Langs.php:364
 msgid "Upload a zip file"
 msgstr "Lataa zip-tiedosto palvelimelle"
 
-#: src/Core/Backend/ModulesList.php:1746 src/Core/Backend/ModulesList.php:1793
+#: src/Core/Backend/ModulesList.php:1757 src/Core/Backend/ModulesList.php:1804
 #: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogPref.php:544
 #: src/Process/Backend/BlogPref.php:1021 src/Process/Backend/Category.php:245
-#: src/Process/Backend/Comment.php:286 src/Process/Backend/Home.php:450
-#: src/Process/Backend/Langs.php:308 src/Process/Backend/Langs.php:333
-#: src/Process/Backend/LinkPopup.php:58 src/Process/Backend/Post.php:767
+#: src/Process/Backend/Comment.php:286 src/Process/Backend/Home.php:524
+#: src/Process/Backend/Langs.php:318 src/Process/Backend/Langs.php:367
+#: src/Process/Backend/LinkPopup.php:77 src/Process/Backend/Post.php:767
 #: src/Process/Backend/Post.php:887 src/Process/Backend/User.php:260
 #: src/Process/Backend/UsersActions.php:347 src/Process/Install/Install.php:476
 #: src/Process/Install/Wizard.php:280 src/Process/Upgrade/Langs.php:402
@@ -1546,12 +1546,12 @@ msgstr "Lataa zip-tiedosto palvelimelle"
 msgid "Fields preceded by %s are mandatory."
 msgstr "Kentät, joita edeltää %s, ovat pakollisia."
 
-#: src/Core/Backend/ModulesList.php:1753
+#: src/Core/Backend/ModulesList.php:1764
 msgid "Zip file path:"
 msgstr "Zip-tiedoston polku:"
 
-#: src/Core/Backend/ModulesList.php:1764 src/Core/Backend/ModulesList.php:1814
-#: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:343
+#: src/Core/Backend/ModulesList.php:1775 src/Core/Backend/ModulesList.php:1825
+#: src/Process/Backend/Langs.php:340 src/Process/Backend/Langs.php:388
 #: src/Process/Backend/Post.php:691 src/Process/Backend/User.php:289
 #: src/Process/Backend/User.php:302 src/Process/Backend/User.php:422
 #: src/Process/Backend/UsersActions.php:354 src/Process/Install/Install.php:488
@@ -1559,53 +1559,53 @@ msgstr "Zip-tiedoston polku:"
 msgid "Password"
 msgstr "Salasana"
 
-#: src/Core/Backend/ModulesList.php:1767 src/Core/Backend/ModulesList.php:1817
-#: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:313
-#: src/Process/Backend/Langs.php:337 src/Process/Backend/User.php:416
+#: src/Core/Backend/ModulesList.php:1778 src/Core/Backend/ModulesList.php:1828
+#: src/Process/Backend/BlogDel.php:123 src/Process/Backend/Langs.php:343
+#: src/Process/Backend/Langs.php:391 src/Process/Backend/User.php:416
 #: src/Process/Backend/UsersActions.php:348 src/Process/Upgrade/Langs.php:375
 #: src/Process/Upgrade/Langs.php:381 src/Process/Upgrade/Langs.php:429
 msgid "Your password:"
 msgstr "Salasanasi:"
 
-#: src/Core/Backend/ModulesList.php:1775 src/Core/Backend/Page.php:1456
-#: src/Process/Backend/Media.php:565
+#: src/Core/Backend/ModulesList.php:1786 src/Core/Backend/Page.php:1456
+#: src/Process/Backend/Media.php:567
 msgid "Upload"
 msgstr "Lähetä palvelimelle"
 
-#: src/Core/Backend/ModulesList.php:1789
+#: src/Core/Backend/ModulesList.php:1800
 msgid "Download a zip file"
 msgstr "Lataa zip-tiedosto"
 
-#: src/Core/Backend/ModulesList.php:1803
+#: src/Core/Backend/ModulesList.php:1814
 msgid "Zip file URL:"
 msgstr "Zip-tiedoston verkko-osoite:"
 
-#: src/Core/Backend/ModulesList.php:1825
+#: src/Core/Backend/ModulesList.php:1836
 msgid "Download"
 msgstr "Lataa"
 
-#: src/Core/Backend/ModulesList.php:1868
+#: src/Core/Backend/ModulesList.php:1879
 msgid "Unknown plugin ID"
 msgstr "Tuntematon liitännäisen tunniste"
 
-#: src/Core/Backend/ModulesList.php:1879
+#: src/Core/Backend/ModulesList.php:1890
 msgid "This plugin has no configuration file."
 msgstr "Tällä liitännäisellä ei ole asetustiedostoa."
 
-#: src/Core/Backend/ModulesList.php:1887 src/Process/Backend/Auth.php:297
+#: src/Core/Backend/ModulesList.php:1898 src/Process/Backend/Auth.php:297
 #: src/Process/Upgrade/Auth.php:138
 msgid "Insufficient permissions"
 msgstr "Oikeudet eivät riitä"
 
-#: src/Core/Backend/ModulesList.php:1963
+#: src/Core/Backend/ModulesList.php:1974
 #, php-format
 msgid "Configure \"%s\""
 msgstr "Määritä \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1969 src/Process/Backend/Blog.php:193
+#: src/Core/Backend/ModulesList.php:1980 src/Process/Backend/Blog.php:193
 #: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1173
 #: src/Process/Backend/Category.php:298 src/Process/Backend/Comment.php:351
-#: src/Process/Backend/Media.php:602 src/Process/Backend/MediaItem.php:1160
+#: src/Process/Backend/Media.php:604 src/Process/Backend/MediaItem.php:1160
 #: src/Process/Backend/Post.php:795 src/Process/Backend/Search.php:158
 #: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:618
 #: src/Process/Backend/UserPreferences.php:801
@@ -1615,7 +1615,7 @@ msgstr "Takaisin"
 
 #: src/Core/Backend/Notices.php:81 src/Core/Backend/Page.php:1285
 #: src/Core/Backend/Page.php:1451 src/Core/Upgrade/Notices.php:46
-#: src/Process/Backend/Home.php:285
+#: src/Process/Backend/Home.php:289
 msgid "Error:"
 msgstr "Virhe:"
 
@@ -1972,16 +1972,16 @@ msgstr "Peruutettu."
 msgid "HTTP Error:"
 msgstr "HTTP-virhe:"
 
-#: src/Core/Backend/Page.php:1452 src/Process/Backend/Media.php:546
+#: src/Core/Backend/Page.php:1452 src/Process/Backend/Media.php:548
 msgid "Choose file"
 msgstr "Valitse tiedosto"
 
-#: src/Core/Backend/Page.php:1453 src/Process/Backend/Media.php:547
+#: src/Core/Backend/Page.php:1453 src/Process/Backend/Media.php:549
 msgid "Choose files"
 msgstr "Valitse tiedostot"
 
-#: src/Core/Backend/Page.php:1454 src/Process/Backend/LinkPopup.php:73
-#: src/Process/Backend/Media.php:255 src/Process/Backend/MediaItem.php:553
+#: src/Core/Backend/Page.php:1454 src/Process/Backend/LinkPopup.php:105
+#: src/Process/Backend/Media.php:257 src/Process/Backend/MediaItem.php:553
 #: src/Process/Backend/MediaItem.php:770 src/Process/Backend/Post.php:798
 #: src/Process/Backend/PostMedia.php:110
 msgid "Cancel"
@@ -2067,163 +2067,163 @@ msgstr "Virhe tiedostoa kirjoitettaessa."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Palvelimelle lähetetty kuva ei ole %s pikseliä leveä."
 
-#: src/Core/Backend/ThemesList.php:125
+#: src/Core/Backend/ThemesList.php:126
 #, php-format
 msgid "Score: %s"
 msgstr "Pistemäärä: %s"
 
-#: src/Core/Backend/ThemesList.php:147
+#: src/Core/Backend/ThemesList.php:148
 #, php-format
 msgid "%s screenshot."
 msgstr "%s:n ruutukaappaus."
 
-#: src/Core/Backend/ThemesList.php:176
+#: src/Core/Backend/ThemesList.php:177
 #, php-format
 msgid "by %s"
 msgstr "luonut %s"
 
-#: src/Core/Backend/ThemesList.php:180
+#: src/Core/Backend/ThemesList.php:181
 #, php-format
 msgid "version %s"
 msgstr "versio %s"
 
-#: src/Core/Backend/ThemesList.php:184
+#: src/Core/Backend/ThemesList.php:185
 #, php-format
 msgid "(current version %s)"
 msgstr "(nykyversio %s)"
 
-#: src/Core/Backend/ThemesList.php:189
+#: src/Core/Backend/ThemesList.php:190
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(tehty \"%s\":n perustalle)"
 
-#: src/Core/Backend/ThemesList.php:192
+#: src/Core/Backend/ThemesList.php:193
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(vaatii \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:248
+#: src/Core/Backend/ThemesList.php:249
 msgid "View stylesheet"
 msgstr "Tarkastele tyyliarkkia"
 
-#: src/Core/Backend/ThemesList.php:273
+#: src/Core/Backend/ThemesList.php:274
 msgid "Configure theme"
 msgstr "Säädä teeman asetuksia"
 
-#: src/Core/Backend/ThemesList.php:327
+#: src/Core/Backend/ThemesList.php:328
 msgid "No themes matched your search."
 msgstr "Mikään teema ei vastannut hakuasi."
 
-#: src/Core/Backend/ThemesList.php:377
+#: src/Core/Backend/ThemesList.php:378
 msgid "Use this one"
 msgstr "Käytä tätä"
 
-#: src/Core/Backend/ThemesList.php:394 src/Process/Backend/Post.php:794
+#: src/Core/Backend/ThemesList.php:395 src/Process/Backend/Post.php:794
 msgid "Preview"
 msgstr "Esikatsele"
 
-#: src/Core/Backend/ThemesList.php:440
+#: src/Core/Backend/ThemesList.php:441
 msgid "Update selected themes"
 msgstr "Päivitä valitut teemat"
 
-#: src/Core/Backend/ThemesList.php:441
+#: src/Core/Backend/ThemesList.php:442
 msgid "Update all themes from this list"
 msgstr "Päivitä kaikki tämän luettelon teemat"
 
-#: src/Core/Backend/ThemesList.php:485 src/Core/Backend/ThemesList.php:526
-#: src/Core/Backend/ThemesList.php:564 src/Core/Backend/ThemesList.php:599
-#: src/Core/Backend/ThemesList.php:639 src/Core/Backend/ThemesList.php:673
-#: src/Core/Backend/ThemesList.php:723
+#: src/Core/Backend/ThemesList.php:486 src/Core/Backend/ThemesList.php:527
+#: src/Core/Backend/ThemesList.php:565 src/Core/Backend/ThemesList.php:600
+#: src/Core/Backend/ThemesList.php:640 src/Core/Backend/ThemesList.php:674
+#: src/Core/Backend/ThemesList.php:724
 msgid "No such theme."
 msgstr "Teemaa ei ole."
 
-#: src/Core/Backend/ThemesList.php:494
+#: src/Core/Backend/ThemesList.php:495
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Teema on valittu."
 
-#: src/Core/Backend/ThemesList.php:530
+#: src/Core/Backend/ThemesList.php:531
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Teema on otettu käyttöön."
 msgstr[1] "Teemat on otettu käyttöön."
 
-#: src/Core/Backend/ThemesList.php:568
+#: src/Core/Backend/ThemesList.php:569
 msgid "Some themes have not been deactivated."
 msgstr "Joitain teemoja ei saatu pois käytöstä."
 
-#: src/Core/Backend/ThemesList.php:571
+#: src/Core/Backend/ThemesList.php:572
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Teema on poistettu käytöstä."
 msgstr[1] "Teemat on poistettu käytöstä."
 
-#: src/Core/Backend/ThemesList.php:603
+#: src/Core/Backend/ThemesList.php:604
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Teema on kloonattu."
 msgstr[1] "Teemat on kloonattu."
 
-#: src/Core/Backend/ThemesList.php:637
+#: src/Core/Backend/ThemesList.php:638
 msgid "You don't have permissions to delete this theme."
 msgstr "Sinulla ei ole oikeuksia poistaa tätä teemaa."
 
-#: src/Core/Backend/ThemesList.php:641
+#: src/Core/Backend/ThemesList.php:642
 msgid "Some themes have not been delete."
 msgstr "Joitain teemoja ei ole saatu poistettua."
 
-#: src/Core/Backend/ThemesList.php:644
+#: src/Core/Backend/ThemesList.php:645
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Tämä teema on poistettu."
 msgstr[1] "Nämä teemat on poistettu."
 
-#: src/Core/Backend/ThemesList.php:677
+#: src/Core/Backend/ThemesList.php:678
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Tämä teema on asennettu."
 msgstr[1] "Nämä teemat on asennettu."
 
-#: src/Core/Backend/ThemesList.php:716
+#: src/Core/Backend/ThemesList.php:717
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "Tämä teema on päivitetty."
 msgstr[1] "Nämä teemat on päivitetty."
 
-#: src/Core/Backend/ThemesList.php:720
+#: src/Core/Backend/ThemesList.php:721
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "Seuraavat teemapäivitykset on lukittu: %s"
 
-#: src/Core/Backend/ThemesList.php:758
+#: src/Core/Backend/ThemesList.php:759
 msgid "The theme has been successfully updated."
 msgstr "Teema on päivitetty onnistuneesti."
 
-#: src/Core/Backend/ThemesList.php:759
+#: src/Core/Backend/ThemesList.php:760
 msgid "The theme has been successfully installed."
 msgstr "Teema on asennettu onnistuneesti."
 
-#: src/Core/Backend/UserPref.php:170
+#: src/Core/Backend/UserPref.php:171
 msgid "users per page"
 msgstr "käyttäjää sivua kohti"
 
-#: src/Core/Backend/UserPref.php:180 src/Process/Backend/BlogPref.php:778
+#: src/Core/Backend/UserPref.php:181 src/Process/Backend/BlogPref.php:778
 msgid "entries per page"
 msgstr "merkintää sivua kohti"
 
-#: src/Core/Backend/UserPref.php:187
+#: src/Core/Backend/UserPref.php:188
 msgid "comments per page"
 msgstr "kommenttia sivua kohti"
 
-#: src/Core/Backend/UserPref.php:194
+#: src/Core/Backend/UserPref.php:195
 msgid "blogs per page"
 msgstr "blogia sivua kohti"
 
-#: src/Core/Backend/UserPref.php:206
+#: src/Core/Backend/UserPref.php:208
 msgid "media per page"
 msgstr "mediaa per sivu"
 
-#: src/Core/Backend/UserPref.php:213
+#: src/Core/Backend/UserPref.php:215
 msgid "results per page"
 msgstr "tulokset per sivu"
 
@@ -2279,8 +2279,8 @@ msgstr "Tuntematon merkinnän tunniste"
 msgid "You are not allowed to edit this entry"
 msgstr "Sinulla ei ole oikeutta muokata tätä merkintää"
 
-#: src/Core/Blog.php:1647 src/Core/Blog.php:1682 src/Core/Meta.php:143
-#: src/Core/Meta.php:160
+#: src/Core/Blog.php:1647 src/Core/Blog.php:1682 src/Core/Meta.php:144
+#: src/Core/Meta.php:161
 msgid "You are not allowed to change this entry status"
 msgstr "Sinulla ei ole oikeutta muuttaa tämän merkinnän tilaa"
 
@@ -2481,32 +2481,32 @@ msgstr "Lokissa ei viestejä"
 msgid "No blog defined."
 msgstr "Ei määriteltyä blogia."
 
-#: src/Core/Media.php:987 src/Core/Media.php:1018
+#: src/Core/Media.php:993 src/Core/Media.php:1024
 msgid "You are not a super administrator."
 msgstr "Et ole superjärjestelmänvalvoja."
 
-#: src/Core/Media.php:1121 src/Core/Media.php:1215 src/Core/Media.php:1298
-#: src/Core/Media.php:1318 src/Core/Media.php:1340
+#: src/Core/Media.php:1127 src/Core/Media.php:1221 src/Core/Media.php:1304
+#: src/Core/Media.php:1324 src/Core/Media.php:1346
 msgid "Permission denied."
 msgstr "Lupa evätty."
 
-#: src/Core/Media.php:1228
+#: src/Core/Media.php:1234
 msgid "You are not the file owner."
 msgstr "Et ole tiedoston omistaja."
 
-#: src/Core/Media.php:1243
+#: src/Core/Media.php:1249
 msgid "This file is not allowed."
 msgstr "Luvaton tiedosto."
 
-#: src/Core/Media.php:1247
+#: src/Core/Media.php:1253
 msgid "New file already exists."
 msgstr "Uusi tiedosto on jo."
 
-#: src/Core/Media.php:1360
+#: src/Core/Media.php:1366
 msgid "File does not exist in the database."
 msgstr "Tiedostoa ei ole tietokannassa."
 
-#: src/Core/Media.php:1409
+#: src/Core/Media.php:1415
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Purkamisen kohdehakemisto %s on jo olemassa."
@@ -2590,7 +2590,7 @@ msgstr "LOL!"
 
 #: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:97
 #: src/Process/Backend/BlogDel.php:90 src/Process/Backend/BlogPref.php:458
-#: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:215
+#: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:244
 #: src/Process/Backend/Plugin.php:134 src/Process/Backend/Plugins.php:106
 #: src/Process/Backend/User.php:239 src/Process/Backend/Users.php:104
 #: src/Process/Backend/UsersActions.php:150
@@ -2671,7 +2671,7 @@ msgstr "Varmuuskopiot"
 msgid "On this page you can revert your previous installation or delete theses files."
 msgstr "Tällä sivulla voit palauttaa edellisen asennuksen tai poistaa nämä tiedostot."
 
-#: src/Core/Upgrade/Utility.php:297 src/Process/Backend/Langs.php:230
+#: src/Core/Upgrade/Utility.php:297 src/Process/Backend/Langs.php:255
 #: src/Process/Upgrade/Langs.php:448
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "Voit tästä asentaa, päivittää tai poistaa Dotcleariin asentamiasi kieliä."
@@ -3298,7 +3298,7 @@ msgstr "Blogin verkko-osoite:"
 msgid "Blog description:"
 msgstr "Blogin kuvaus:"
 
-#: src/Process/Backend/Blog.php:191 src/Process/Backend/Media.php:490
+#: src/Process/Backend/Blog.php:191 src/Process/Backend/Media.php:492
 msgid "Create"
 msgstr "Luo"
 
@@ -3530,8 +3530,8 @@ msgstr "Blogin aikavyöhyke:"
 msgid "Copyright notice:"
 msgstr "Copyright-merkintä:"
 
-#: src/Process/Backend/BlogPref.php:611 src/Process/Backend/Comments.php:119
-#: src/Process/Backend/Comments.php:124
+#: src/Process/Backend/BlogPref.php:611 src/Process/Backend/Comments.php:128
+#: src/Process/Backend/Comments.php:133
 msgid "Comments and trackbacks"
 msgstr "Kommentit ja takaisinviittaukset"
 
@@ -3740,7 +3740,7 @@ msgstr "Lisää linkki alkuperäiseen kuvaan"
 msgid "Image legend and alternate text:"
 msgstr "Kuvan selitys ja vaihtoehtoinen teksti:"
 
-#: src/Process/Backend/BlogPref.php:966 src/Process/Backend/Media.php:597
+#: src/Process/Backend/BlogPref.php:966 src/Process/Backend/Media.php:599
 msgid "Blog parameters"
 msgstr "Blogin asetukset"
 
@@ -3882,7 +3882,7 @@ msgid "Installed themes"
 msgstr "Asennetut teemat"
 
 #: src/Process/Backend/BlogTheme.php:204 src/Process/Backend/Plugins.php:154
-#: src/Process/Upgrade/Plugins.php:168
+#: src/Process/Upgrade/Plugins.php:169
 msgid "(in normal mode)"
 msgstr "(normaalitilassa)"
 
@@ -3931,7 +3931,7 @@ msgstr[1] "Saatavilla on %s teemapäivityksiä:"
 
 #: src/Process/Backend/BlogTheme.php:311 src/Process/Backend/BlogTheme.php:348
 #: src/Process/Backend/Plugins.php:260 src/Process/Backend/Plugins.php:295
-#: src/Process/Upgrade/Plugins.php:255 src/Process/Upgrade/Plugins.php:294
+#: src/Process/Upgrade/Plugins.php:256 src/Process/Upgrade/Plugins.php:295
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "Käy %s-säilössä, jossa Dotclear-resursseja pidetään."
@@ -3945,7 +3945,7 @@ msgid "Add themes from repository"
 msgstr "Lisää teemoja säilöstä"
 
 #: src/Process/Backend/BlogTheme.php:358 src/Process/Backend/Plugins.php:305
-#: src/Process/Upgrade/Plugins.php:304
+#: src/Process/Upgrade/Plugins.php:305
 msgid "Install or upgrade manually"
 msgstr "Asenna tai päivitä käsin"
 
@@ -3969,7 +3969,7 @@ msgstr "Blogien luettelo"
 msgid "Create a new blog"
 msgstr "Luo uusi blogi"
 
-#: src/Process/Backend/Blogs.php:138 src/Process/Backend/Comments.php:185
+#: src/Process/Backend/Blogs.php:138 src/Process/Backend/Comments.php:215
 #: src/Process/Backend/Users.php:138 src/Process/Backend/UsersActions.php:160
 msgid "Actions"
 msgstr "Toimet"
@@ -4191,293 +4191,293 @@ msgstr "Lähetä sähköposti"
 msgid "Comment:"
 msgstr "Kommentti:"
 
-#: src/Process/Backend/Comments.php:136
+#: src/Process/Backend/Comments.php:145
 msgid "Spam comments have been successfully deleted."
 msgstr "Turhat kommentit on poistettu."
 
-#: src/Process/Backend/Comments.php:147
+#: src/Process/Backend/Comments.php:156
 msgid "You have one spam comment."
 msgstr "Blogissa on yksi spämmikommentti."
 
-#: src/Process/Backend/Comments.php:148
+#: src/Process/Backend/Comments.php:159
 msgid "Show it."
 msgstr "Näytä se!"
 
-#: src/Process/Backend/Comments.php:150
+#: src/Process/Backend/Comments.php:165
 #, php-format
 msgid "You have %s spam comments."
 msgstr "Blogissa on %s spämmikommenttia."
 
-#: src/Process/Backend/Comments.php:151
+#: src/Process/Backend/Comments.php:168
 msgid "Show them."
 msgstr "Näytä ne!"
 
-#: src/Process/Backend/Comments.php:158
+#: src/Process/Backend/Comments.php:186
 msgid "Delete all spams"
 msgstr "Poista kaikki spämmit"
 
-#: src/Process/Backend/Comments.php:181 src/Process/Backend/Post.php:872
+#: src/Process/Backend/Comments.php:216 src/Process/Backend/Post.php:872
 #: src/Process/Backend/Search.php:349
 msgid "Selected comments action:"
 msgstr "Tee valituille kommenteille:"
 
-#: src/Process/Backend/Home.php:53 src/Process/Backend/Plugins.php:50
+#: src/Process/Backend/Home.php:72 src/Process/Backend/Plugins.php:50
 msgid "The following plugins have been disabled :"
 msgstr "Seuraavat laajennukset on poistettu käytöstä:"
 
-#: src/Process/Backend/Home.php:137
-msgid "Documentation and support"
-msgstr "Dokumentaatio ja tuki"
-
-#: src/Process/Backend/Home.php:150
-msgid "Donate to Dotclear"
-msgstr "Lahjoita Dotclearille"
-
-#: src/Process/Backend/Home.php:151
-msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
-msgstr "Dotclear ei ole kaupallinen projekti - Dotclearin käyttö on <strong>ilmaista</strong> ja tulee <strong>aina</strong> olemaan. Halutessasi voit tukea Dotclearia auttamalla meitä kattamaan projektiin liittyviä kuluja."
-
-#: src/Process/Backend/Home.php:152
-msgid "The collected funds will be spent as follows:"
-msgstr "Kerätyt varat käytetään seuraavasti:"
-
-#: src/Process/Backend/Home.php:154
-msgid "Paying for the website hosting and translations"
-msgstr "Verkkosivuston isännöinnin ja käännösten maksaminen"
-
-#: src/Process/Backend/Home.php:155
-msgid "Paying for the domain names"
-msgstr "Verkkotunnusten maksaminen"
-
-#: src/Process/Backend/Home.php:156
-msgid "Supporting related projects such as Dotaddict.org"
-msgstr "Tukemalla asiaan liittyviä hankkeita, kuten Dotaddict.org-sivustoa"
-
-#: src/Process/Backend/Home.php:157
-msgid "Cover the costs of events set up by Dotclear"
-msgstr "Dotclearin järjestämien tapahtumien kustannusten kattaminen"
-
-#: src/Process/Backend/Home.php:159
-msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
-msgstr "Katso <a href=\"https://dotclear.org/donate\">tältä sivulta</a> lisätietoja ja lahjoitus"
-
-#: src/Process/Backend/Home.php:198
+#: src/Process/Backend/Home.php:193
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "Ohjaustaulun vedä ja pudota -ominaisuus ei ole käytössä"
 
-#: src/Process/Backend/Home.php:199
+#: src/Process/Backend/Home.php:194
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "Ohjaustaulun vedä ja pudota -ominaisuus on käytössä"
 
-#: src/Process/Backend/Home.php:212 src/Process/Backend/Home.php:225
+#: src/Process/Backend/Home.php:210 src/Process/Backend/Home.php:223
 #: src/Process/Upgrade/Home.php:132
 msgid "Dashboard"
 msgstr "Ohjaustaulu"
 
-#: src/Process/Backend/Home.php:233
+#: src/Process/Backend/Home.php:235
 msgid "Make this blog my default blog"
 msgstr "Tee tästä blogista oletusblogini"
 
-#: src/Process/Backend/Home.php:237
+#: src/Process/Backend/Home.php:241
 msgid "This blog is offline"
 msgstr "Tämä blogi ei näy nyt verkossa"
 
-#: src/Process/Backend/Home.php:239
+#: src/Process/Backend/Home.php:243
 msgid "This blog is removed"
 msgstr "Tämä blogi on poistettu"
 
-#: src/Process/Backend/Home.php:244 src/Process/Backend/Home.php:252
+#: src/Process/Backend/Home.php:248 src/Process/Backend/Home.php:256
 #: src/Process/Upgrade/Home.php:57 src/Process/Upgrade/Home.php:62
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s ei ole määritelty, muokkaa asetustiedostoasi."
 
-#: src/Process/Backend/Home.php:245 src/Process/Backend/Home.php:253
+#: src/Process/Backend/Home.php:249 src/Process/Backend/Home.php:257
 #: src/Process/Upgrade/Home.php:58 src/Process/Upgrade/Home.php:63
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "Katso tarkemmin <a href=\"https://dotclear.org/documentation/2.0/admin/config\">dokumentaatiosta</a>."
 
-#: src/Process/Backend/Home.php:263 src/Process/Upgrade/Home.php:67
+#: src/Process/Backend/Home.php:267 src/Process/Upgrade/Home.php:67
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "Välimuistihakemistoa ei ole tai sinne ei voida kirjoittaa. Luo tämä hakemisto riittävin oikeuksin sekä merkitse kyseinen hakemisto-osoite kohtaan \"DC_TPL_CACHE\" tiedostossa inc/config.php."
 
-#: src/Process/Backend/Home.php:267
+#: src/Process/Backend/Home.php:271
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "Välimuistihakemistoa ei ole tai sinne ei voida kirjoittaa. Ota yhteys järjestelmänvalvojaasi."
 
-#: src/Process/Backend/Home.php:274
+#: src/Process/Backend/Home.php:278
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "Kirjoitusoikeuksilla varustettua hakemistoa /public/ ei ole siellä, mihin \"public_path\" viittaa kohdassa about:config. Kyseinen hakemisto on luotava riittävin oikeuksin (tai muutettava  \"public_path\" -asetusta)."
 
-#: src/Process/Backend/Home.php:278
+#: src/Process/Backend/Home.php:282
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Medianhallintaa varten ei ole kirjoitettavaa hakemistoa. Ota yhteys järjestelmänvalvojaan."
 
-#: src/Process/Backend/Home.php:302 src/Process/Backend/Plugins.php:120
-#: src/Process/Install/Install.php:506 src/Process/Upgrade/Plugins.php:111
+#: src/Process/Backend/Home.php:310 src/Process/Backend/Plugins.php:120
+#: src/Process/Install/Install.php:506 src/Process/Upgrade/Plugins.php:112
 msgid "Following plugins have been installed:"
 msgstr "Seuraavat liitännäiset on asennettu:"
 
-#: src/Process/Backend/Home.php:316 src/Process/Backend/Plugins.php:134
-#: src/Process/Install/Install.php:513 src/Process/Upgrade/Plugins.php:123
+#: src/Process/Backend/Home.php:328 src/Process/Backend/Plugins.php:134
+#: src/Process/Install/Install.php:513 src/Process/Upgrade/Plugins.php:124
 msgid "Following plugins have not been installed:"
 msgstr "Seuraavia liitännäisiä ei ole asennettu:"
 
-#: src/Process/Backend/Home.php:329
+#: src/Process/Backend/Home.php:345
 msgid "Errors have occured with following plugins:"
 msgstr "Seuraavat liitännäiset ovat aiheuttaneet virheitä:"
 
-#: src/Process/Backend/Home.php:447
+#: src/Process/Backend/Home.php:515
 msgid "Quick post"
 msgstr "Nopea merkintä"
 
-#: src/Process/Backend/Home.php:458 src/Process/Backend/Post.php:730
+#: src/Process/Backend/Home.php:545 src/Process/Backend/Post.php:730
 msgid "Content:"
 msgstr "Sisältö:"
 
-#: src/Process/Backend/Home.php:459 src/Process/Backend/Post.php:737
+#: src/Process/Backend/Home.php:551 src/Process/Backend/Post.php:737
 msgid "Content"
 msgstr "Sisältö:"
 
-#: src/Process/Backend/Home.php:467 src/Process/Backend/Post.php:659
+#: src/Process/Backend/Home.php:562 src/Process/Backend/Post.php:659
 msgid "Add a new category"
 msgstr "Lisää uusi luokka"
 
-#: src/Process/Backend/Home.php:473
+#: src/Process/Backend/Home.php:581
 msgid "This category will be created when you will save your post."
 msgstr "Tämä luokka luodaan, kun tallennat blogimerkintäsi."
 
-#: src/Process/Backend/Home.php:480
+#: src/Process/Backend/Home.php:589
 msgid "Save and publish"
 msgstr "Tallenna ja julkaise"
 
-#: src/Process/Backend/Langs.php:81 src/Process/Upgrade/Langs.php:111
-msgid "Invalid language zip file."
-msgstr "Virheellinen kielen zip-tiedosto."
+#: src/Process/Backend/Home.php:613
+msgid "Donate to Dotclear"
+msgstr "Lahjoita Dotclearille"
 
-#: src/Process/Backend/Langs.php:85 src/Process/Upgrade/Langs.php:115
-msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr "Zip-tiedosto ei liene kelvollinen Dotclear-kielitiedosto."
+#: src/Process/Backend/Home.php:615
+msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
+msgstr "Dotclear ei ole kaupallinen projekti - Dotclearin käyttö on <strong>ilmaista</strong> ja tulee <strong>aina</strong> olemaan. Halutessasi voit tukea Dotclearia auttamalla meitä kattamaan projektiin liittyviä kuluja."
 
-#: src/Process/Backend/Langs.php:94 src/Process/Upgrade/Langs.php:124
-msgid "An error occurred during language upgrade."
-msgstr "Kielen päivittäminen epäonnistui."
+#: src/Process/Backend/Home.php:617
+msgid "The collected funds will be spent as follows:"
+msgstr "Kerätyt varat käytetään seuraavasti:"
 
-#: src/Process/Backend/Langs.php:109 src/Process/Upgrade/Langs.php:139
+#: src/Process/Backend/Home.php:621
+msgid "Paying for the website hosting and translations"
+msgstr "Verkkosivuston isännöinnin ja käännösten maksaminen"
+
+#: src/Process/Backend/Home.php:623
+msgid "Paying for the domain names"
+msgstr "Verkkotunnusten maksaminen"
+
+#: src/Process/Backend/Home.php:625
+msgid "Supporting related projects such as Dotaddict.org"
+msgstr "Tukemalla asiaan liittyviä hankkeita, kuten Dotaddict.org-sivustoa"
+
+#: src/Process/Backend/Home.php:627
+msgid "Cover the costs of events set up by Dotclear"
+msgstr "Dotclearin järjestämien tapahtumien kustannusten kattaminen"
+
+#: src/Process/Backend/Home.php:630
+msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
+msgstr "Katso <a href=\"https://dotclear.org/donate\">tältä sivulta</a> lisätietoja ja lahjoitus"
+
+#: src/Process/Backend/Home.php:647
+msgid "Documentation and support"
+msgstr "Dokumentaatio ja tuki"
+
+#: src/Process/Backend/Langs.php:90 src/Process/Upgrade/Langs.php:139
 msgid "No such installed language"
 msgstr "Kyseistä kieltä ei ole asennettu"
 
-#: src/Process/Backend/Langs.php:113 src/Process/Upgrade/Langs.php:143
+#: src/Process/Backend/Langs.php:94 src/Process/Upgrade/Langs.php:143
 msgid "You can't remove English language."
 msgstr "Englannin kieltä ei voi poistaa."
 
-#: src/Process/Backend/Langs.php:117 src/Process/Upgrade/Langs.php:147
+#: src/Process/Backend/Langs.php:98 src/Process/Upgrade/Langs.php:147
 msgid "Permissions to delete language denied."
 msgstr "Ei oikeutta poistaa kieltä."
 
-#: src/Process/Backend/Langs.php:120 src/Process/Backend/Langs.php:222
-#: src/Process/Upgrade/Langs.php:150 src/Process/Upgrade/Langs.php:236
+#: src/Process/Backend/Langs.php:101 src/Process/Upgrade/Langs.php:150
+#: src/Process/Upgrade/Langs.php:236
 msgid "Language has been successfully deleted."
 msgstr "Kieli poistettu."
 
-#: src/Process/Backend/Langs.php:137 src/Process/Upgrade/Langs.php:167
+#: src/Process/Backend/Langs.php:118 src/Process/Upgrade/Langs.php:167
 msgid "Invalid language file URL."
 msgstr "Kielitiedoston verkko-osoite virheellinen."
 
-#: src/Process/Backend/Langs.php:149 src/Process/Upgrade/Langs.php:179
+#: src/Process/Backend/Langs.php:130 src/Process/Upgrade/Langs.php:179
 msgid "Unable to make a HTTP request."
 msgstr "HTTP-pyyntöä ei voida tehdä."
 
-#: src/Process/Backend/Langs.php:162 src/Process/Backend/Langs.php:195
-#: src/Process/Backend/Langs.php:226 src/Process/Upgrade/Langs.php:192
-#: src/Process/Upgrade/Langs.php:225 src/Process/Upgrade/Langs.php:240
+#: src/Process/Backend/Langs.php:143 src/Process/Backend/Langs.php:176
+#: src/Process/Upgrade/Langs.php:192 src/Process/Upgrade/Langs.php:225
+#: src/Process/Upgrade/Langs.php:240
 msgid "Language has been successfully upgraded"
 msgstr "Kieli päivitetty."
 
-#: src/Process/Backend/Langs.php:164 src/Process/Backend/Langs.php:197
-#: src/Process/Backend/Langs.php:226 src/Process/Upgrade/Langs.php:194
-#: src/Process/Upgrade/Langs.php:227 src/Process/Upgrade/Langs.php:240
+#: src/Process/Backend/Langs.php:145 src/Process/Backend/Langs.php:178
+#: src/Process/Upgrade/Langs.php:194 src/Process/Upgrade/Langs.php:227
+#: src/Process/Upgrade/Langs.php:240
 msgid "Language has been successfully installed."
 msgstr "Kieli asennettu."
 
-#: src/Process/Backend/Langs.php:211 src/Process/Backend/Langs.php:216
+#: src/Process/Backend/Langs.php:240 src/Process/Backend/Langs.php:245
 #: src/Process/Upgrade/Langs.php:258 src/Process/Upgrade/Langs.php:263
 msgid "Languages management"
 msgstr "Kielten hallinta"
 
-#: src/Process/Backend/Langs.php:232
+#: src/Process/Backend/Langs.php:258
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
 msgstr "Voit vaihtaa käyttöliittymäkielesi Dotclear-järjestelmän <a href=\"%1$s\">asetuksista</a> tai blogisi pääkielen <a href=\"%2$s\">blogin asetuksista</a>."
 
-#: src/Process/Backend/Langs.php:238 src/Process/Upgrade/Langs.php:322
+#: src/Process/Backend/Langs.php:262 src/Process/Upgrade/Langs.php:322
 msgid "Installed languages"
 msgstr "Asennetut kielet"
 
-#: src/Process/Backend/Langs.php:254
+#: src/Process/Backend/Langs.php:268
 msgid "No additional language is installed."
 msgstr "Lisäkieliä ei ole asennettu."
 
-#: src/Process/Backend/Langs.php:259 src/Process/Upgrade/Langs.php:332
+#: src/Process/Backend/Langs.php:281 src/Process/Upgrade/Langs.php:332
 msgid "Language"
 msgstr "Kieli"
 
-#: src/Process/Backend/Langs.php:290
+#: src/Process/Backend/Langs.php:292
 msgid "Install or upgrade languages"
 msgstr "Asenna tai päivitä kieliä"
 
-#: src/Process/Backend/Langs.php:293 src/Process/Upgrade/Langs.php:245
+#: src/Process/Backend/Langs.php:296 src/Process/Upgrade/Langs.php:245
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
 msgstr "Voit asentaa tai poistaa kielen lisäämällä tai poistamalla ao. alihakemiston %s-kansiossasi."
 
-#: src/Process/Backend/Langs.php:307
+#: src/Process/Backend/Langs.php:315
 msgid "Available languages"
 msgstr "Saatavilla olevat kielet"
 
-#: src/Process/Backend/Langs.php:309 src/Process/Upgrade/Langs.php:359
+#: src/Process/Backend/Langs.php:320 src/Process/Upgrade/Langs.php:359
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
 msgstr "Voit ladata ja asentaa lisäkieliä suoraan Dotclear.netistä. Ehdotetut kielet perustuvat käyttämääsi versioon: %s."
 
-#: src/Process/Backend/Langs.php:311 src/Process/Backend/User.php:386
+#: src/Process/Backend/Langs.php:328 src/Process/Backend/User.php:386
 #: src/Process/Upgrade/Langs.php:365
 msgid "Language:"
 msgstr "Kieli:"
 
-#: src/Process/Backend/Langs.php:322 src/Process/Upgrade/Langs.php:386
+#: src/Process/Backend/Langs.php:350 src/Process/Upgrade/Langs.php:386
 msgid "Install language"
 msgstr "Asenna kieli"
 
-#: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:403
+#: src/Process/Backend/Langs.php:369 src/Process/Upgrade/Langs.php:403
 msgid "You can install languages by uploading zip files."
 msgstr "Voit asentaa kieliä lataamalla palvelimelle zip-tiedostoja."
 
-#: src/Process/Backend/Langs.php:335 src/Process/Upgrade/Langs.php:412
+#: src/Process/Backend/Langs.php:376 src/Process/Upgrade/Langs.php:412
 msgid "Language zip file:"
 msgstr "Kielen zip-tiedosto:"
 
-#: src/Process/Backend/Langs.php:346 src/Process/Upgrade/Langs.php:439
+#: src/Process/Backend/Langs.php:398 src/Process/Upgrade/Langs.php:439
 msgid "Upload language"
 msgstr "Lataa kieli palvelimelle"
 
-#: src/Process/Backend/LinkPopup.php:52 src/Process/Backend/LinkPopup.php:54
+#: src/Process/Backend/Langs.php:428 src/Process/Upgrade/Langs.php:111
+msgid "Invalid language zip file."
+msgstr "Virheellinen kielen zip-tiedosto."
+
+#: src/Process/Backend/Langs.php:432 src/Process/Upgrade/Langs.php:115
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr "Zip-tiedosto ei liene kelvollinen Dotclear-kielitiedosto."
+
+#: src/Process/Backend/Langs.php:441 src/Process/Upgrade/Langs.php:124
+msgid "An error occurred during language upgrade."
+msgstr "Kielen päivittäminen epäonnistui."
+
+#: src/Process/Backend/LinkPopup.php:64 src/Process/Backend/LinkPopup.php:70
 msgid "Add a link"
 msgstr "Lisää linkki"
 
-#: src/Process/Backend/LinkPopup.php:59
+#: src/Process/Backend/LinkPopup.php:85
 msgid "Link URL:"
 msgstr "Linkin verkko-osoite:"
 
-#: src/Process/Backend/LinkPopup.php:65
+#: src/Process/Backend/LinkPopup.php:93
 msgid "Link title:"
 msgstr "Linkin otsikko:"
 
-#: src/Process/Backend/LinkPopup.php:67
+#: src/Process/Backend/LinkPopup.php:100
 msgid "Link language:"
 msgstr "Linkin kieli:"
 
-#: src/Process/Backend/LinkPopup.php:74 src/Process/Backend/MediaItem.php:769
+#: src/Process/Backend/LinkPopup.php:107 src/Process/Backend/MediaItem.php:769
 msgid "Insert"
 msgstr "Liitä"
 
@@ -4499,162 +4499,162 @@ msgstr "Hakemisto \"%s\" on luotu."
 msgid "Files have been successfully uploaded."
 msgstr "Tiedosto on siirretty palvelimelle."
 
-#: src/Process/Backend/Media.php:190
+#: src/Process/Backend/Media.php:192
 #, php-format
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
 msgstr[0] "Yksi mediatiedosto poistettu."
 msgstr[1] "%d mediatiedostoa poistettu."
 
-#: src/Process/Backend/Media.php:210
+#: src/Process/Backend/Media.php:212
 msgid "Directory has been successfully removed."
 msgstr "Hakemisto on poistettu."
 
-#: src/Process/Backend/Media.php:214
+#: src/Process/Backend/Media.php:216
 msgid "File has been successfully removed."
 msgstr "Tiedosto on poistettu."
 
-#: src/Process/Backend/Media.php:235
+#: src/Process/Backend/Media.php:237
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "Hakemisto \"%s\" on saatu onnistuneesti valmiiksi."
 
-#: src/Process/Backend/Media.php:247 src/Process/Backend/PostMedia.php:96
+#: src/Process/Backend/Media.php:249 src/Process/Backend/PostMedia.php:96
 msgid "confirm removal"
 msgstr "vahvista poisto"
 
-#: src/Process/Backend/Media.php:252
+#: src/Process/Backend/Media.php:254
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "Oletko varma, että haluat poistaa tämän: %s?"
 
-#: src/Process/Backend/Media.php:256 src/Process/Backend/PostMedia.php:111
+#: src/Process/Backend/Media.php:258 src/Process/Backend/PostMedia.php:111
 msgid "Yes"
 msgstr "Kyllä"
 
-#: src/Process/Backend/Media.php:296
+#: src/Process/Backend/Media.php:298
 msgid "Remove this folder from your favorites"
 msgstr "Poista tämä kansio suosikeista"
 
-#: src/Process/Backend/Media.php:320
+#: src/Process/Backend/Media.php:322
 msgid "Add this folder to your favorites"
 msgstr "Lisää tämä kansio suosikkeihin"
 
-#: src/Process/Backend/Media.php:326
+#: src/Process/Backend/Media.php:328
 msgid "Goto recent folder:"
 msgstr "Siirry aiempaan kansioon:"
 
-#: src/Process/Backend/Media.php:359
+#: src/Process/Backend/Media.php:361
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Sinulla ei ole riittäviä oikeuksia tähän kansioon kirjoittamiseksi."
 
-#: src/Process/Backend/Media.php:373
+#: src/Process/Backend/Media.php:375
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "Valitse merkintään liitettävä tiedosto painamalla %s."
 
-#: src/Process/Backend/Media.php:376 src/Process/Backend/Media.php:444
+#: src/Process/Backend/Media.php:378 src/Process/Backend/Media.php:446
 msgid "Choose selected medias"
 msgstr "Poista valitut media-aineistot"
 
-#: src/Process/Backend/Media.php:376
+#: src/Process/Backend/Media.php:378
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Valitse tiedostot ja paina <strong>%s</strong>-nappia"
 
-#: src/Process/Backend/Media.php:380 src/Process/Backend/Media.php:393
-#: src/Process/Backend/Media.php:406 src/Process/Backend/MediaItem.php:785
+#: src/Process/Backend/Media.php:382 src/Process/Backend/Media.php:395
+#: src/Process/Backend/Media.php:408 src/Process/Backend/MediaItem.php:785
 msgid "or"
 msgstr "tai"
 
-#: src/Process/Backend/Media.php:380 src/Process/Backend/Media.php:393
-#: src/Process/Backend/Media.php:406
+#: src/Process/Backend/Media.php:382 src/Process/Backend/Media.php:395
+#: src/Process/Backend/Media.php:408
 msgid "upload a new file"
 msgstr "Lataa zip-tiedosto palvelimelle"
 
-#: src/Process/Backend/Media.php:387
+#: src/Process/Backend/Media.php:389
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Valitse tiedosto, joka liitetään blogimerkintään %s painamalla %s"
 
-#: src/Process/Backend/Media.php:401
+#: src/Process/Backend/Media.php:403
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Valitse merkintään liitettävä tiedosto painamalla %s"
 
-#: src/Process/Backend/Media.php:419 src/Process/Backend/Media.php:420
-#: src/Process/Backend/Media.php:421
+#: src/Process/Backend/Media.php:421 src/Process/Backend/Media.php:422
+#: src/Process/Backend/Media.php:423
 msgid "Grid display mode"
 msgstr "Näyttöruudukko"
 
-#: src/Process/Backend/Media.php:423 src/Process/Backend/Media.php:424
-#: src/Process/Backend/Media.php:425
+#: src/Process/Backend/Media.php:425 src/Process/Backend/Media.php:426
+#: src/Process/Backend/Media.php:427
 msgid "List display mode"
 msgstr "Näyttöluettelo"
 
-#: src/Process/Backend/Media.php:447
+#: src/Process/Backend/Media.php:449
 msgid "Remove selected medias"
 msgstr "Poista valitut media-aineistot"
 
-#: src/Process/Backend/Media.php:474
+#: src/Process/Backend/Media.php:476
 #, php-format
 msgid "In %s:"
 msgstr "%s:n sisällä:"
 
-#: src/Process/Backend/Media.php:486
+#: src/Process/Backend/Media.php:488
 msgid "Create new directory"
 msgstr "Luo uusi hakemisto"
 
-#: src/Process/Backend/Media.php:488
+#: src/Process/Backend/Media.php:490
 msgid "Directory Name:"
 msgstr "Hakemiston nimi:"
 
-#: src/Process/Backend/Media.php:501
+#: src/Process/Backend/Media.php:503
 msgid "Build missing thumbnails in directory"
 msgstr "Rakenna puuttuvat pikkukuvat hakemistoon"
 
-#: src/Process/Backend/Media.php:503
+#: src/Process/Backend/Media.php:505
 msgid "Build"
 msgstr "Rakenna"
 
-#: src/Process/Backend/Media.php:513
+#: src/Process/Backend/Media.php:515
 #, php-format
 msgid "Backup content of %s"
 msgstr "Varmista %s:n sisältö"
 
-#: src/Process/Backend/Media.php:517
+#: src/Process/Backend/Media.php:519
 msgid "Download zip file"
 msgstr "Lataa zip-tiedosto"
 
-#: src/Process/Backend/Media.php:537
+#: src/Process/Backend/Media.php:539
 msgid "Add files"
 msgstr "Lisää tiedostoja"
 
-#: src/Process/Backend/Media.php:538
+#: src/Process/Backend/Media.php:540
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "Varo julkaisemasta media-aineistoja, joita et omista tai jotka ovat tekijänoikeudellisesti suojattuja."
 
-#: src/Process/Backend/Media.php:550
+#: src/Process/Backend/Media.php:552
 msgid "Maximum file size allowed:"
 msgstr "Suurin sallittu tiedostokoko:"
 
-#: src/Process/Backend/Media.php:553 src/Process/Backend/MediaItem.php:1116
+#: src/Process/Backend/Media.php:555 src/Process/Backend/MediaItem.php:1116
 msgid "Private"
 msgstr "Yksityinen"
 
-#: src/Process/Backend/Media.php:558
+#: src/Process/Backend/Media.php:560
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "Jotta voisit lähettää useita tiedostoja samalla kertaa, voit ottaa parannetun tiedostonlatauksen käyttöön kohdassa"
 
-#: src/Process/Backend/Media.php:563
+#: src/Process/Backend/Media.php:565
 msgid "Refresh"
 msgstr "Päivitä"
 
-#: src/Process/Backend/Media.php:564
+#: src/Process/Backend/Media.php:566
 msgid "Clear all"
 msgstr "Peruuta kaikki"
 
-#: src/Process/Backend/Media.php:596
+#: src/Process/Backend/Media.php:598
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Media-aineistojen ja kuvien nykyasetukset on määritelty kohdassa %s"
@@ -4934,67 +4934,67 @@ msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "Etsimäänne liitännäistä ei ole tai sillä ei ole admin-sivua."
 
 #: src/Process/Backend/Plugins.php:144 src/Process/Backend/Plugins.php:153
-#: src/Process/Upgrade/Plugins.php:159
+#: src/Process/Upgrade/Plugins.php:160
 msgid "Installed plugins"
 msgstr "Asennetut liitännäiset"
 
-#: src/Process/Backend/Plugins.php:153 src/Process/Upgrade/Plugins.php:168
+#: src/Process/Backend/Plugins.php:153 src/Process/Upgrade/Plugins.php:169
 msgid "Activated plugins"
 msgstr "Käytössä olevat liitännäiset"
 
-#: src/Process/Backend/Plugins.php:156 src/Process/Upgrade/Plugins.php:170
+#: src/Process/Backend/Plugins.php:156 src/Process/Upgrade/Plugins.php:171
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Voit hallita asennettuja liitännäisiä ja määritellä niiden asetukset tästä luettelosta."
 
-#: src/Process/Backend/Plugins.php:175 src/Process/Upgrade/Plugins.php:189
+#: src/Process/Backend/Plugins.php:175 src/Process/Upgrade/Plugins.php:190
 msgid "Deactivated plugins"
 msgstr "Käytöstä poistetut liitännäiset"
 
-#: src/Process/Backend/Plugins.php:176 src/Process/Upgrade/Plugins.php:190
+#: src/Process/Backend/Plugins.php:176 src/Process/Upgrade/Plugins.php:191
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "Käytöstä poistetut liitännäiset ovat asennettuja, mutta niitä ei voi käyttää. Voit ottaa ne käyttöön täältä."
 
-#: src/Process/Backend/Plugins.php:201 src/Process/Upgrade/Plugins.php:133
+#: src/Process/Backend/Plugins.php:201 src/Process/Upgrade/Plugins.php:134
 msgid "Manual checking of plugins update done successfully."
 msgstr "Päivityksen itse käynnistetty tarkistus onnistui."
 
 #: src/Process/Backend/Plugins.php:216 src/Process/Backend/Plugins.php:217
-#: src/Process/Upgrade/Plugins.php:211 src/Process/Upgrade/Plugins.php:212
+#: src/Process/Upgrade/Plugins.php:212 src/Process/Upgrade/Plugins.php:213
 msgid "Update plugins"
 msgstr "Liitännäisten päivitys"
 
-#: src/Process/Backend/Plugins.php:228 src/Process/Upgrade/Plugins.php:223
+#: src/Process/Backend/Plugins.php:228 src/Process/Upgrade/Plugins.php:224
 msgid "Force checking update of plugins"
 msgstr "Pakota Dotclearin päivityksen tarkistus"
 
-#: src/Process/Backend/Plugins.php:235 src/Process/Upgrade/Plugins.php:230
+#: src/Process/Backend/Plugins.php:235 src/Process/Upgrade/Plugins.php:231
 msgid "No updates available for plugins."
 msgstr "Liitännäisiin ei ole saatavilla päivityksiä."
 
-#: src/Process/Backend/Plugins.php:240 src/Process/Upgrade/Plugins.php:235
+#: src/Process/Backend/Plugins.php:240 src/Process/Upgrade/Plugins.php:236
 #, php-format
 msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
 msgstr[0] "Yksi plugin-päivitys on saatavilla:"
 msgstr[1] "Saatavilla on %s -lisäosapäivityksiä:"
 
-#: src/Process/Backend/Plugins.php:275 src/Process/Upgrade/Plugins.php:274
+#: src/Process/Backend/Plugins.php:275 src/Process/Upgrade/Plugins.php:275
 msgid "Add plugins"
 msgstr "Lisää liitännäisiä"
 
-#: src/Process/Backend/Plugins.php:276 src/Process/Upgrade/Plugins.php:275
+#: src/Process/Backend/Plugins.php:276 src/Process/Upgrade/Plugins.php:276
 msgid "Add plugins from repository"
 msgstr "Lisää liitännäisiä säilöstä"
 
-#: src/Process/Backend/Plugins.php:306 src/Process/Upgrade/Plugins.php:305
+#: src/Process/Backend/Plugins.php:306 src/Process/Upgrade/Plugins.php:306
 msgid "Add plugins from a package"
 msgstr "Lisää liitännäisiä ohjelmapaketista"
 
-#: src/Process/Backend/Plugins.php:307 src/Process/Upgrade/Plugins.php:306
+#: src/Process/Backend/Plugins.php:307 src/Process/Upgrade/Plugins.php:307
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Voit asentaa liitännäisiä zip-tiedostoina lataamalla ne omalta koneeltasi tai verkkosijainnista palvelimelle."
 
-#: src/Process/Backend/Plugins.php:321 src/Process/Upgrade/Plugins.php:317
+#: src/Process/Backend/Plugins.php:321 src/Process/Upgrade/Plugins.php:318
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Jotkin toiminnot ovat pois käytöstä, anna kirjoitusoikeus liitännäishakemistoosi, jotta voisit hyödyntää niitä."
 
@@ -5221,62 +5221,62 @@ msgstr "Etsi merkintää:"
 msgid "cancel"
 msgstr "peruuta"
 
-#: src/Process/Backend/Rest.php:108
+#: src/Process/Backend/Rest.php:109
 msgid "Dotclear news not available"
 msgstr "Dotclear news ei ole saatavana"
 
-#: src/Process/Backend/Rest.php:122
+#: src/Process/Backend/Rest.php:123
 msgid "Dotclear news"
 msgstr "Dotclear news"
 
-#: src/Process/Backend/Rest.php:128
+#: src/Process/Backend/Rest.php:129
 msgid "%d %B %Y:"
 msgstr "%d.%m.%Y:"
 
-#: src/Process/Backend/Rest.php:160
+#: src/Process/Backend/Rest.php:161
 msgid "Dotclear update not available"
 msgstr "Dotclear-päivitystä ei ole tarjolla"
 
-#: src/Process/Backend/Rest.php:171
+#: src/Process/Backend/Rest.php:172
 #, php-format
 msgid "Dotclear %s is available!"
 msgstr "Dotclearin versio %s on saatavana!"
 
-#: src/Process/Backend/Rest.php:172
+#: src/Process/Backend/Rest.php:173
 msgid "Upgrade now"
 msgstr "Päivitä nyt"
 
-#: src/Process/Backend/Rest.php:173
+#: src/Process/Backend/Rest.php:174
 msgid "Remind me later"
 msgstr "Muistuta myöhemmin"
 
-#: src/Process/Backend/Rest.php:175 src/Process/Upgrade/Upgrade.php:244
+#: src/Process/Backend/Rest.php:176 src/Process/Upgrade/Upgrade.php:244
 #: src/Process/Upgrade/Upgrade.php:245
 msgid "Information about this version"
 msgstr "Tietoja tästä versiosta"
 
-#: src/Process/Backend/Rest.php:180
+#: src/Process/Backend/Rest.php:181
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "Uusi versio Dotclearista on tarjolla, mutta se vaatii PHP-versiota, joka on ≥ %s, käyttämäsi PHP-versio on nyt %s"
 
-#: src/Process/Backend/Rest.php:195 src/Process/Upgrade/Upgrade.php:210
+#: src/Process/Backend/Rest.php:196 src/Process/Upgrade/Upgrade.php:210
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr "Seuraavat versiot Dotclearista eivät tue PHP-versiota, joka on < %s, käyttämäsi PHP-versio on nyt %s"
 
-#: src/Process/Backend/Rest.php:227
+#: src/Process/Backend/Rest.php:228
 msgid "No updates are available"
 msgstr "Päivityksiä ei ole saatavilla"
 
-#: src/Process/Backend/Rest.php:270
+#: src/Process/Backend/Rest.php:271
 #, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] "Päivitys on saatavana."
 msgstr[1] "%s päivitystä on saatavana."
 
-#: src/Process/Backend/Rest.php:833
+#: src/Process/Backend/Rest.php:867
 msgid "List options saved"
 msgstr "Luetteloasetukset tallennettu"
 
@@ -6073,7 +6073,7 @@ msgstr "Jatka"
 #: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
 #: src/Process/Upgrade/Backup.php:211 src/Process/Upgrade/Cache.php:73
 #: src/Process/Upgrade/Digests.php:138 src/Process/Upgrade/Home.php:137
-#: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:152
+#: src/Process/Upgrade/Langs.php:262 src/Process/Upgrade/Plugins.php:153
 #: src/Process/Upgrade/Replay.php:81 src/Process/Upgrade/Upgrade.php:50
 #: src/Process/Upgrade/Upgrade.php:54 src/Process/Upgrade/Upgrade.php:74
 #: src/Process/Upgrade/Upgrade.php:78 src/Process/Upgrade/Upgrade.php:287
@@ -6327,7 +6327,7 @@ msgstr "Käytät kehitysversiota, jotkin ominaisuudet eivät ole käytettäviss�
 msgid "Dotclear digests file \"%s\" is not readable."
 msgstr "Dotclear digests -tiedostoa \"%s\" ei voi lukea."
 
-#: src/Process/Upgrade/Home.php:86 src/Process/Upgrade/Plugins.php:129
+#: src/Process/Upgrade/Home.php:86 src/Process/Upgrade/Plugins.php:130
 msgid "Official plugins repository could not be updated as there is no URL set in configuration."
 msgstr "Virallista lisäosien arkistoa ei voitu päivittää, koska kokoonpanossa ei ole URL-osoitetta."
 
@@ -6363,52 +6363,52 @@ msgstr "Asenna tai päivitä kielet käytettävissä olevista kielistä"
 msgid "Install or upgrade languages from an upload a zip file"
 msgstr "Asenna tai päivitä kielet zip-tiedoston latauksesta"
 
-#: src/Process/Upgrade/Plugins.php:68
+#: src/Process/Upgrade/Plugins.php:69
 msgid "Some plugins could not be loaded."
 msgstr "Joitakin lisäosia ei voitu ladata."
 
-#: src/Process/Upgrade/Plugins.php:339
+#: src/Process/Upgrade/Plugins.php:340
 msgid "There is no module to check"
 msgstr "Tarkistettavaa moduulia ei ole"
 
-#: src/Process/Upgrade/Plugins.php:347
+#: src/Process/Upgrade/Plugins.php:348
 msgid "Store version"
 msgstr "Store-versio"
 
-#: src/Process/Upgrade/Plugins.php:349
+#: src/Process/Upgrade/Plugins.php:350
 msgid "Check stores versions"
 msgstr "Tarkista myymälöiden versiot"
 
-#: src/Process/Upgrade/Plugins.php:357
+#: src/Process/Upgrade/Plugins.php:358
 msgid "Check lastest stores versions"
 msgstr "Tarkista viimeisimmät myymäläversiot"
 
-#: src/Process/Upgrade/Plugins.php:360
+#: src/Process/Upgrade/Plugins.php:361
 #, php-format
 msgid "You can check repositories for modules written explicitly for Dotclear release greater than %s."
 msgstr "Voit tarkistaa arkistoista moduulit, jotka on kirjoitettu nimenomaisesti Dotclearin versiota varten, joka on suurempi kuin %s."
 
-#: src/Process/Upgrade/Plugins.php:384 src/Process/Upgrade/Plugins.php:427
+#: src/Process/Upgrade/Plugins.php:385 src/Process/Upgrade/Plugins.php:428
 msgid "No version available"
 msgstr "Ei saatavilla olevaa versiota"
 
-#: src/Process/Upgrade/Plugins.php:386
+#: src/Process/Upgrade/Plugins.php:387
 msgid "No update available"
 msgstr "Ei päivitystä saatavilla"
 
-#: src/Process/Upgrade/Plugins.php:388
+#: src/Process/Upgrade/Plugins.php:389
 msgid "Newer version available"
 msgstr "Uudempi versio saatavilla"
 
-#: src/Process/Upgrade/Plugins.php:441
+#: src/Process/Upgrade/Plugins.php:442
 msgid "Modules list"
 msgstr "Moduulien luettelo"
 
-#: src/Process/Upgrade/Plugins.php:456
+#: src/Process/Upgrade/Plugins.php:457
 msgid "Latest version"
 msgstr "Uusin versio"
 
-#: src/Process/Upgrade/Plugins.php:460
+#: src/Process/Upgrade/Plugins.php:461
 msgid "Written for Dotclear"
 msgstr "Kirjoitettu Dotclearia varten"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-10 11:01+0100\n"
-"PO-Revision-Date: 2024-12-10 10:06\n"
+"POT-Creation-Date: 2024-12-24 09:22+0100\n"
+"PO-Revision-Date: 2024-12-24 08:27\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -1459,6 +1459,10 @@ msgstr "బ్రౌజర్ ఒకటి అందించినట్లయ�
 msgid "Save configuration"
 msgstr "ఆకృతీకరణను దాయుము"
 
+#: plugins/dcCKEditor/src/ManagePostConfig.php:193
+msgid "Note(s)"
+msgstr "Note (s)"
+
 #: plugins/dcLegacyEditor/src/Backend.php:25
 #: plugins/dcLegacyEditor/src/Manage.php:72
 msgid "dcLegacyEditor"
@@ -2733,101 +2737,86 @@ msgstr "లింకులో వుపయోగించి టైటిల్ 
 msgid "Not displayed nor used"
 msgstr "ప్రదర్శించలేదు మరియు ఉపయోగించబడలేదు"
 
-#: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/BackendBehaviors.php:64
+#: plugins/tags/src/BackendBehaviors.php:75
 #: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
 msgid "Tag"
 msgstr "ట్యాగు"
 
-#: plugins/tags/src/BackendBehaviors.php:237
+#: plugins/tags/src/BackendBehaviors.php:238
 msgid "Add tags"
 msgstr "ట్యాగ్లను జతచేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:246
+#: plugins/tags/src/BackendBehaviors.php:247
 msgid "Remove tags"
 msgstr "ట్యాగ్లను తీసివేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:281
+#: plugins/tags/src/BackendBehaviors.php:282
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "ఎంపికచేసిన ఎంటర్లలో టాగ్ సమర్ధవంతంగా చేర్చబడింది"
 msgstr[1] "ఎంపికచేసిన ఎంట్రీలను టాగ్లు సమర్ధవంతంగా చేర్చారు"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:456
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Are you sure you want to remove this tag?"
 msgstr "మీరు ఈ ట్యాగ్ను తీసివేయాలని అనుకొనుచున్నారా?"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:457
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Add a tag to this entry"
 msgstr "ఈ ప్రవేశమునకు ట్యాగ్ను జతచేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:458
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Choose from list"
 msgstr "జాబితా నుండి యెంచుకొనుము"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:459
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "all"
 msgstr "అన్నీ"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:460
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "Enter tags separated by comma"
 msgstr "కామన్ ద్వారా వేరుచేయబడిన టాగ్లను ప్రవేశపెట్టుము"
 
-#: plugins/tags/src/BackendBehaviors.php:302
-#: plugins/tags/src/BackendBehaviors.php:464
-msgid "used in %e - frequency %p%"
-msgstr "%e - ఫ్రీక్వెన్సీ %p%లో ఉపయోగించబడింది"
-
-#: plugins/tags/src/BackendBehaviors.php:303
-#: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:116
-msgid "entry"
-msgstr "ప్రవేశం"
-
-#: plugins/tags/src/BackendBehaviors.php:304
-#: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:116
-msgid "entries"
-msgstr "టపాలు"
-
-#: plugins/tags/src/BackendBehaviors.php:312
+#: plugins/tags/src/BackendBehaviors.php:307
 msgid "Add tags to this selection"
 msgstr "ఈ ఎంపికకు టాగ్లను జతచేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:331
+#: plugins/tags/src/BackendBehaviors.php:325
 msgid "Tags to add:"
 msgstr "చేర్చాల్సిన ట్యాగులు:"
 
-#: plugins/tags/src/BackendBehaviors.php:370
+#: plugins/tags/src/BackendBehaviors.php:364
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "ఎంపికచేసిన ఎంటర్ల నుండి టాగ్ సమర్ధవంతంగా తొలగించబడింది"
 msgstr[1] "@ info: status"
 
-#: plugins/tags/src/BackendBehaviors.php:393
+#: plugins/tags/src/BackendBehaviors.php:387
 msgid "No tags for selected entries"
 msgstr "ఎంపికచేసిన ఎంట్రీలకు టాగ్స్ లేదు"
 
-#: plugins/tags/src/BackendBehaviors.php:400
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Remove selected tags from this selection"
 msgstr "ఈ ఎంపిక నుండి ఎంపికచేసిన టాగ్లను తీసివేయుము"
 
-#: plugins/tags/src/BackendBehaviors.php:427
+#: plugins/tags/src/BackendBehaviors.php:421
 msgid "Following tags have been found in selected entries:"
 msgstr "@ info: status"
 
-#: plugins/tags/src/BackendBehaviors.php:487
+#: plugins/tags/src/BackendBehaviors.php:474
 msgid "Short"
 msgstr "శీఘ్రము"
 
-#: plugins/tags/src/BackendBehaviors.php:488
+#: plugins/tags/src/BackendBehaviors.php:475
 msgid "Extended"
 msgstr "విస్తృత"
 
-#: plugins/tags/src/BackendBehaviors.php:500
+#: plugins/tags/src/BackendBehaviors.php:487
 msgid "Tags list format:"
 msgstr "టాగ్స్ జాబితా ఫార్మాట్:"
 
@@ -2838,6 +2827,14 @@ msgstr "ఈ ట్యాగ్ యొక్క వ్యాఖ్యలు Atom 
 #: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's entries Atom feed"
 msgstr "ఈ ట్యాగ్ యొక్క ఎంట్రీలు Atom ఫీడ్"
+
+#: plugins/tags/src/Manage.php:116
+msgid "entries"
+msgstr "టపాలు"
+
+#: plugins/tags/src/Manage.php:116
+msgid "entry"
+msgstr "ప్రవేశం"
 
 #: plugins/tags/src/Manage.php:147
 msgid "No tags on this blog."

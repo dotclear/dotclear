@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-10 11:01+0100\n"
-"PO-Revision-Date: 2024-12-10 10:41\n"
+"POT-Creation-Date: 2024-12-24 09:22+0100\n"
+"PO-Revision-Date: 2024-12-24 08:27\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -1459,6 +1459,10 @@ msgstr "Inaktiverar den inbyggda stavningskontrollen om webbläsaren tillhandah�
 msgid "Save configuration"
 msgstr "Spara konfiguration"
 
+#: plugins/dcCKEditor/src/ManagePostConfig.php:193
+msgid "Note(s)"
+msgstr "Anteckningar"
+
 #: plugins/dcLegacyEditor/src/Backend.php:25
 #: plugins/dcLegacyEditor/src/Manage.php:72
 msgid "dcLegacyEditor"
@@ -2733,101 +2737,86 @@ msgstr "Visas i länk och används som titel"
 msgid "Not displayed nor used"
 msgstr "Visas inte eller används"
 
-#: plugins/tags/src/BackendBehaviors.php:63
-#: plugins/tags/src/BackendBehaviors.php:74
+#: plugins/tags/src/BackendBehaviors.php:64
+#: plugins/tags/src/BackendBehaviors.php:75
 #: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
 msgid "Tag"
 msgstr "Tagg"
 
-#: plugins/tags/src/BackendBehaviors.php:237
+#: plugins/tags/src/BackendBehaviors.php:238
 msgid "Add tags"
 msgstr "Lägg till taggar"
 
-#: plugins/tags/src/BackendBehaviors.php:246
+#: plugins/tags/src/BackendBehaviors.php:247
 msgid "Remove tags"
 msgstr "Ta bort taggar"
 
-#: plugins/tags/src/BackendBehaviors.php:281
+#: plugins/tags/src/BackendBehaviors.php:282
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Taggen har lagts till i valda poster"
 msgstr[1] "Taggar har lagts till i valda poster"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:456
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Are you sure you want to remove this tag?"
 msgstr "Är du säker på att du vill ta bort denna tagg?"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:457
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Add a tag to this entry"
 msgstr "Lägg till en tagg till denna post"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:458
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Choose from list"
 msgstr "Välj från listan"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:459
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "all"
 msgstr "alla"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:460
+#: plugins/tags/src/BackendBehaviors.php:299
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "Enter tags separated by comma"
 msgstr "Ange taggar separerade med kommatecken"
 
-#: plugins/tags/src/BackendBehaviors.php:302
-#: plugins/tags/src/BackendBehaviors.php:464
-msgid "used in %e - frequency %p%"
-msgstr "används i %e - frekvens %p%"
-
-#: plugins/tags/src/BackendBehaviors.php:303
-#: plugins/tags/src/BackendBehaviors.php:465 plugins/tags/src/Manage.php:116
-msgid "entry"
-msgstr "post"
-
-#: plugins/tags/src/BackendBehaviors.php:304
-#: plugins/tags/src/BackendBehaviors.php:466 plugins/tags/src/Manage.php:116
-msgid "entries"
-msgstr "poster"
-
-#: plugins/tags/src/BackendBehaviors.php:312
+#: plugins/tags/src/BackendBehaviors.php:307
 msgid "Add tags to this selection"
 msgstr "Lägg till taggar till detta val"
 
-#: plugins/tags/src/BackendBehaviors.php:331
+#: plugins/tags/src/BackendBehaviors.php:325
 msgid "Tags to add:"
 msgstr "Taggar att lägga till:"
 
-#: plugins/tags/src/BackendBehaviors.php:370
+#: plugins/tags/src/BackendBehaviors.php:364
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Taggen har tagits bort från valda poster"
 msgstr[1] "Taggar har tagits bort från valda poster"
 
-#: plugins/tags/src/BackendBehaviors.php:393
+#: plugins/tags/src/BackendBehaviors.php:387
 msgid "No tags for selected entries"
 msgstr "Inga taggar för valda poster"
 
-#: plugins/tags/src/BackendBehaviors.php:400
+#: plugins/tags/src/BackendBehaviors.php:394
 msgid "Remove selected tags from this selection"
 msgstr "Ta bort valda taggar från detta val"
 
-#: plugins/tags/src/BackendBehaviors.php:427
+#: plugins/tags/src/BackendBehaviors.php:421
 msgid "Following tags have been found in selected entries:"
 msgstr "Följande taggar har hittats i valda poster:"
 
-#: plugins/tags/src/BackendBehaviors.php:487
+#: plugins/tags/src/BackendBehaviors.php:474
 msgid "Short"
 msgstr "Kort"
 
-#: plugins/tags/src/BackendBehaviors.php:488
+#: plugins/tags/src/BackendBehaviors.php:475
 msgid "Extended"
 msgstr "Utökad"
 
-#: plugins/tags/src/BackendBehaviors.php:500
+#: plugins/tags/src/BackendBehaviors.php:487
 msgid "Tags list format:"
 msgstr "Tagglistans format:"
 
@@ -2838,6 +2827,14 @@ msgstr "Denna taggs kommentarer Atom feed"
 #: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's entries Atom feed"
 msgstr "Den här taggens poster Atom feed"
+
+#: plugins/tags/src/Manage.php:116
+msgid "entries"
+msgstr "poster"
+
+#: plugins/tags/src/Manage.php:116
+msgid "entry"
+msgstr "post"
 
 #: plugins/tags/src/Manage.php:147
 msgid "No tags on this blog."
