@@ -96,7 +96,7 @@ class Handler extends AbstractHandler
             $handle->sqliteCreateFunction('now', $this->now(...), 0);
             if (class_exists('Collator')) {
                 $this->utf8_unicode_ci = new Collator('root');
-                if (!$handle->sqliteCreateCollation('utf8_unicode_ci', [$this->utf8_unicode_ci, 'compare'])) {
+                if (!$handle->sqliteCreateCollation('utf8_unicode_ci', $this->utf8_unicode_ci->compare(...))) {
                     $this->utf8_unicode_ci = null;
                 }
             }
@@ -172,7 +172,7 @@ class Handler extends AbstractHandler
         while ($r = $result->fetch(PDO::FETCH_ASSOC)) {
             $R = [];
             foreach ($r as $k => $v) {
-                $k     = (string) preg_replace('/^(.*)\./', '', $k);    // @phpstan-ignore-line
+                $k     = (string) preg_replace('/^(.*)\./', '', (string) $k);    // @phpstan-ignore-line
                 $R[$k] = $v;
                 $R[]   = &$R[$k];
             }
@@ -363,7 +363,7 @@ class Handler extends AbstractHandler
      */
     public function db_escape_string($str, $handle = null): string
     {
-        return $handle instanceof PDO ? trim($handle->quote($str), "'") : addslashes($str);
+        return $handle instanceof PDO ? trim($handle->quote($str), "'") : addslashes((string) $str);
     }
 
     public function escapeSystem(string $str): string
@@ -451,7 +451,7 @@ class Handler extends AbstractHandler
                 $res[] = $v;
             } elseif (is_array($v) && !empty($v['field'])) {
                 $v          = array_merge($default, $v);
-                $v['order'] = (strtoupper($v['order']) == 'DESC' ? 'DESC' : '');
+                $v['order'] = (strtoupper((string) $v['order']) == 'DESC' ? 'DESC' : '');
                 if ($v['collate']) {
                     if ($this->utf8_unicode_ci instanceof Collator) {
                         $res[] = $v['field'] . ' COLLATE utf8_unicode_ci ' . $v['order'];

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -139,7 +140,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
                 $type  = $rs->f('setting_type');
 
                 if ($type === self::NS_ARRAY) {
-                    $value = @json_decode($value, true, 512, JSON_THROW_ON_ERROR);
+                    $value = @json_decode((string) $value, true, 512, JSON_THROW_ON_ERROR);
                 } else {
                     if ($type === self::NS_FLOAT || $type === self::NS_DOUBLE) {
                         $type = self::NS_FLOAT;

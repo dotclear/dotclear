@@ -302,7 +302,7 @@ class SqlStatement
      */
     public function where($c, bool $reset = false): static
     {
-        $filter = fn ($v) => preg_replace('/^\s*(AND|OR)\s*/i', '', $v);
+        $filter = fn ($v) => preg_replace('/^\s*(AND|OR)\s*/i', '', (string) $v);
         if ($reset) {
             $this->where = [];
         }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -45,7 +46,7 @@ class Blogroll
      *
      * @var     string  $table
      */
-    private string $table;
+    private readonly string $table;
 
     /**
      * Constructs a new instance.
@@ -53,7 +54,7 @@ class Blogroll
      * @param   BlogInterface   $blog   Current blog
      */
     public function __construct(
-        private BlogInterface $blog
+        private readonly BlogInterface $blog
     ) {
         $this->table = App::con()->prefix() . self::LINK_TABLE_NAME;
     }

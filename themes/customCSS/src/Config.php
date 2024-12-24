@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -71,7 +72,7 @@ class Config extends Process
 
         if (isset($_POST['css'])) {
             if ($fp = fopen(App::backend()->css_file, 'wb')) {
-                fwrite($fp, $_POST['css']);
+                fwrite($fp, (string) $_POST['css']);
                 fclose($fp);
             }
 

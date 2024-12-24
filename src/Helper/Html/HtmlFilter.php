@@ -28,7 +28,7 @@ class HtmlFilter
      *
      * @var XMLParser
      */
-    private XMLParser $parser;
+    private readonly XMLParser $parser;
 
     /**
      * HTML content
@@ -273,7 +273,7 @@ class HtmlFilter
         }
 
         # Removing open comments, open CDATA and processing instructions
-        $str = (string) preg_replace('%<!--.*?-->%msu', '', $str);  // @phpstan-ignore-line
+        $str = (string) preg_replace('%<!--.*?-->%msu', '', (string) $str);  // @phpstan-ignore-line
         $str = str_replace('<!--', '', $str);
         $str = (string) preg_replace('%<!\[CDATA\[.*?\]\]>%msu', '', $str);
         $str = str_replace('<![CDATA[', '', $str);

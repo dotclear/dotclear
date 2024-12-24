@@ -86,7 +86,7 @@ class ThemesList extends ModulesList
 
             # Show only requested modules
             if ($nav_limit && $this->getSearch() === null) {
-                $char = substr($define->get($sort_field), 0, 1);
+                $char = substr((string) $define->get($sort_field), 0, 1);
                 if (!in_array($char, $this->nav_list)) {
                     $char = $this->nav_special;
                 }
@@ -128,7 +128,7 @@ class ThemesList extends ModulesList
 
             if (in_array('sshot', $cols)) {
                 // Screenshot from url
-                if (preg_match('#^http(s)?://#', $define->get('sshot'))) {
+                if (preg_match('#^http(s)?://#', (string) $define->get('sshot'))) {
                     $sshot = $define->get('sshot');
                 }
                 // Screenshot from installed module
@@ -657,7 +657,7 @@ class ThemesList extends ModulesList
                         continue;
                     }
 
-                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($define->get('file'));
+                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename((string) $define->get('file'));
 
                     # --BEHAVIOR-- themeBeforeAdd -- ModuleDefine
                     App::behavior()->callBehavior('themeBeforeAddV2', $define);
@@ -697,7 +697,7 @@ class ThemesList extends ModulesList
                         continue;
                     }
 
-                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename($define->get('file'))]);
+                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename((string) $define->get('file'))]);
 
                     # --BEHAVIOR-- themeBeforeUpdate -- ModuleDefine
                     App::behavior()->callBehavior('themeBeforeUpdateV2', $define);
@@ -741,7 +741,7 @@ class ThemesList extends ModulesList
                         throw new Exception(__('Unable to move uploaded file.'));
                     }
                 } else {
-                    $url  = urldecode($_POST['pkg_url']);
+                    $url  = urldecode((string) $_POST['pkg_url']);
                     $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($url);
                     $this->store->download($url, $dest);
                 }

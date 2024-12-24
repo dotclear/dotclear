@@ -123,7 +123,7 @@ class PluginsList extends ModulesList
                     # Delete
                 case 'delete':
                     if (!$define->distributed && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
-                        $dev       = !preg_match('!^' . $this->path_pattern . '!', $define->get('root')) && App::config()->devMode() ? ' debug' : '';
+                        $dev       = !preg_match('!^' . $this->path_pattern . '!', (string) $define->get('root')) && App::config()->devMode() ? ' debug' : '';
                         $submits[] = (new Submit(['delete[' . Html::escapeHTML($id) . ']'], __('Delete')))
                             ->class(array_filter(['delete', $dev]))
                         ->render();
@@ -269,7 +269,7 @@ class PluginsList extends ModulesList
                     continue;
                 }
 
-                $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($define->get('file'));
+                $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename((string) $define->get('file'));
 
                 $this->store->process($define->get('file'), $dest);
 
@@ -365,9 +365,9 @@ class PluginsList extends ModulesList
                 }
 
                 if (!self::$allow_multi_install) {
-                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename($define->get('file'))]);
+                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename((string) $define->get('file'))]);
                 } else {
-                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($define->get('file'));
+                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename((string) $define->get('file'));
                     if ($define->get('root') != $dest) {
                         @file_put_contents($define->get('root') . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_DISABLED, '');
                     }
@@ -408,7 +408,7 @@ class PluginsList extends ModulesList
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
             } else {
-                $url  = urldecode($_POST['pkg_url']);
+                $url  = urldecode((string) $_POST['pkg_url']);
                 $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($url);
                 $this->store->download($url, $dest);
             }

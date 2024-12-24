@@ -416,12 +416,12 @@ class Ctx
      */
     public static function categoryPostParam(array &$args): void
     {
-        $not = str_starts_with($args['cat_url'], '!');
+        $not = str_starts_with((string) $args['cat_url'], '!');
         if ($not) {
-            $args['cat_url'] = substr($args['cat_url'], 1);
+            $args['cat_url'] = substr((string) $args['cat_url'], 1);
         }
 
-        $args['cat_url'] = preg_split('/\s*,\s*/', $args['cat_url'], -1, PREG_SPLIT_NO_EMPTY);
+        $args['cat_url'] = preg_split('/\s*,\s*/', (string) $args['cat_url'], -1, PREG_SPLIT_NO_EMPTY);
 
         if ($args['cat_url'] !== false) {
             $pattern = '/#self/';
@@ -544,7 +544,7 @@ class Ctx
         // Cope with search param if any
         if (!empty($_GET['q'])) {
             $s = str_contains($url, '?') ? '&amp;' : '?';
-            $url .= $s . 'q=' . rawurlencode($_GET['q']);
+            $url .= $s . 'q=' . rawurlencode((string) $_GET['q']);
         }
 
         return $url;

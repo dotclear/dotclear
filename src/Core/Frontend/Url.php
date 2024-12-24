@@ -111,10 +111,10 @@ class Url extends UrlHandler implements UrlInterface
      */
     public static function getPageNumber(&$args): bool|int
     {
-        if (preg_match('#(^|/)page/(\d+)$#', $args, $m)) {
+        if (preg_match('#(^|/)page/(\d+)$#', (string) $args, $m)) {
             $n = (int) $m[2];
             if ($n > 0) {
-                $args = preg_replace('#(^|/)page/(\d+)$#', '', $args);
+                $args = preg_replace('#(^|/)page/(\d+)$#', '', (string) $args);
 
                 return $n;
             }
@@ -217,7 +217,7 @@ class Url extends UrlHandler implements UrlInterface
         $type = '';
 
         if ($this->mode == 'path_info') {
-            $part = substr($_SERVER['PATH_INFO'], 1);
+            $part = substr((string) $_SERVER['PATH_INFO'], 1);
         } else {
             $part = '';
 
@@ -360,7 +360,7 @@ class Url extends UrlHandler implements UrlInterface
         } else {
             App::url()->setType('search');
 
-            App::frontend()->search = !empty($_GET['q']) ? Html::escapeHTML(rawurldecode($_GET['q'])) : '';
+            App::frontend()->search = !empty($_GET['q']) ? Html::escapeHTML(rawurldecode((string) $_GET['q'])) : '';
             if (App::frontend()->search) {
                 $params = new ArrayObject(['search' => App::frontend()->search]);
                 # --BEHAVIOR-- publicBeforeSearchCount -- ArrayObject
@@ -517,7 +517,7 @@ class Url extends UrlHandler implements UrlInterface
                 if ($post_password != '' && !App::frontend()->context()->preview) {
                     // Get passwords cookie
                     if (isset($_COOKIE['dc_passwd'])) {
-                        $pwd_cookie = json_decode($_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
+                        $pwd_cookie = json_decode((string) $_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
                         if ($pwd_cookie === null) {
                             $pwd_cookie = [];
                         } else {

@@ -87,10 +87,8 @@ class Antispam
      * The Cursor may be modified (or deleted) according to the result
      *
      * @param   Cursor  $cur    The current
-     *
-     * @return  mixed
      */
-    public static function isSpam(Cursor $cur)
+    public static function isSpam(Cursor $cur): void
     {
         self::initFilters();
         self::$filters->isSpam($cur);

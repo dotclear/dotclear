@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -83,7 +84,7 @@ class Manage extends Process
                 foreach ($_POST['s'] as $ws => $s) {
                     foreach ($s as $k => $v) {
                         if ($_POST['s_type'][$ws][$k] === App::userWorkspace()::WS_ARRAY) {
-                            $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
+                            $v = json_decode((string) $v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         App::auth()->prefs()->$ws->put($k, $v);
                     }
@@ -102,7 +103,7 @@ class Manage extends Process
                 foreach ($_POST['gs'] as $ws => $s) {
                     foreach ($s as $k => $v) {
                         if ($_POST['gs_type'][$ws][$k] === App::userWorkspace()::WS_ARRAY) {
-                            $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
+                            $v = json_decode((string) $v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         App::auth()->prefs()->$ws->put($k, $v, null, null, true, true);
                     }

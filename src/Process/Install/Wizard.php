@@ -123,7 +123,7 @@ class Wizard extends Process
 
         if (!empty($_POST) || !empty($_SERVER['DC_DBDRIVER'])) {
             try {
-                if (self::$DBDRIVER == 'sqlite' && !str_contains(self::$DBNAME, '/')) {
+                if (self::$DBDRIVER == 'sqlite' && !str_contains((string) self::$DBNAME, '/')) {
                     $sqlite_db_directory = dirname(App::config()->configPath()) . '/../db/';
                     Files::makeDir($sqlite_db_directory, true);
 
@@ -189,15 +189,15 @@ class Wizard extends Process
 
                 # Fix path if config file has moved elsewhere and allow environment variables
                 self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins', $full_conf);
-                if (!empty($_SERVER['DC_PLUGINS_ROOT']) && is_writable(dirname($_SERVER['DC_PLUGINS_ROOT']))) {
+                if (!empty($_SERVER['DC_PLUGINS_ROOT']) && is_writable(dirname((string) $_SERVER['DC_PLUGINS_ROOT']))) {
                     self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins' . PATH_SEPARATOR . $_SERVER['DC_PLUGINS_ROOT'], $full_conf);
                 }
                 self::writeConfigValue('DC_TPL_CACHE', App::config()->dotclearRoot() . '/cache', $full_conf);
-                if (!empty($_SERVER['DC_TPL_CACHE']) && is_writable(dirname($_SERVER['DC_TPL_CACHE']))) {
+                if (!empty($_SERVER['DC_TPL_CACHE']) && is_writable(dirname((string) $_SERVER['DC_TPL_CACHE']))) {
                     self::writeConfigValue('DC_TPL_CACHE', $_SERVER['DC_TPL_CACHE'], $full_conf);
                 }
                 self::writeConfigValue('DC_VAR', App::config()->dotclearRoot() . '/var', $full_conf);
-                if (!empty($_SERVER['DC_VAR']) && is_writable(dirname($_SERVER['DC_VAR']))) {
+                if (!empty($_SERVER['DC_VAR']) && is_writable(dirname((string) $_SERVER['DC_VAR']))) {
                     self::writeConfigValue('DC_VAR', $_SERVER['DC_VAR'], $full_conf);
                 }
 

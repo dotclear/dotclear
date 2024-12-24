@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -218,7 +219,7 @@ class StaticRecord extends Record
             return ($a - $b) * $this->__sortsign;
         }
 
-        return strcmp($a, $b) * $this->__sortsign;
+        return strcmp((string) $a, (string) $b) * $this->__sortsign;
     }
 
     /**

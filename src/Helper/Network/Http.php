@@ -61,7 +61,7 @@ class Http
             $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'];
 
             if (isset($_SERVER['HTTP_HOST'])) {
-                $name_port_array = explode(':', $_SERVER['HTTP_HOST']);
+                $name_port_array = explode(':', (string) $_SERVER['HTTP_HOST']);
             } else {
                 // Fallback to server name and port
                 $name_port_array = [
@@ -80,7 +80,7 @@ class Http
         }
 
         if (isset($_SERVER['HTTP_HOST'])) {
-            $server_name = explode(':', $_SERVER['HTTP_HOST']);
+            $server_name = explode(':', (string) $_SERVER['HTTP_HOST']);
             $server_name = $server_name[0];
         } else {
             // Fallback to server name
@@ -115,7 +115,7 @@ class Http
         preg_match('~^(?:((?:[a-z]+:)?//)|:(//))?(?:([^:\r\n]*?)/[^:\r\n]*|([^:\r\n]*))$~', $url, $matches);
         array_shift($matches);
 
-        return join($matches);
+        return join('', $matches);
     }
 
     /**
@@ -127,7 +127,7 @@ class Http
      */
     public static function getSelfURI(): string
     {
-        if (!str_starts_with($_SERVER['REQUEST_URI'], '/')) {
+        if (!str_starts_with((string) $_SERVER['REQUEST_URI'], '/')) {
             return self::getHost() . '/' . $_SERVER['REQUEST_URI'];
         }
 
@@ -151,7 +151,7 @@ class Http
             if (str_starts_with($relative_url, '/')) {
                 $full_url = $host . $relative_url;
             } else {
-                $path = str_replace(DIRECTORY_SEPARATOR, '/', dirname($_SERVER['PHP_SELF']));
+                $path = str_replace(DIRECTORY_SEPARATOR, '/', dirname((string) $_SERVER['PHP_SELF']));
                 if (str_ends_with($path, '/')) {
                     $path = substr($path, 0, -1);
                 }
@@ -245,7 +245,7 @@ class Http
         $client_language_code = '';
 
         if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-            $accepted_languages       = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+            $accepted_languages       = explode(',', (string) $_SERVER['HTTP_ACCEPT_LANGUAGE']);
             $first_acccepted_language = explode(';', $accepted_languages[0]);
             $client_language_code     = substr(trim((string) $first_acccepted_language[0]), 0, 2);
         }
@@ -269,7 +269,7 @@ class Http
             // break up string into pieces (languages and q factors)
             preg_match_all(
                 '/([a-z]{1,8}(-[a-z]{1,8})?)\s*(;\s*q\s*=\s*(1|0\.[0-9]+))?/i',
-                $_SERVER['HTTP_ACCEPT_LANGUAGE'],
+                (string) $_SERVER['HTTP_ACCEPT_LANGUAGE'],
                 $matches
             );
 
@@ -367,7 +367,7 @@ class Http
 
         # Do we have a previously sent content?
         if (!empty($_SERVER['HTTP_IF_NONE_MATCH'])) {
-            foreach (explode(',', $_SERVER['HTTP_IF_NONE_MATCH']) as $i) {
+            foreach (explode(',', (string) $_SERVER['HTTP_IF_NONE_MATCH']) as $i) {
                 if (stripslashes(trim($i)) == $etag) {
                     self::head(304, 'Not Modified');
                     exit;

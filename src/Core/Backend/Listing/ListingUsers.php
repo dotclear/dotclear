@@ -108,7 +108,7 @@ class ListingUsers extends Listing
         $lines = [
             (new Tr())
                 ->items([
-                    (new Text(null, implode(iterator_to_array($cols)))),
+                    (new Text(null, implode('', iterator_to_array($cols)))),
                 ]),
         ];
         while ($this->rs->fetch()) {
@@ -220,7 +220,7 @@ class ListingUsers extends Listing
         return (new Tr())
             ->class('line')
             ->items([
-                (new Text(null, implode(iterator_to_array($cols)))),
+                (new Text(null, implode('', iterator_to_array($cols)))),
             ]);
     }
 }

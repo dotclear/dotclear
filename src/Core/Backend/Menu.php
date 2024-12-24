@@ -205,7 +205,7 @@ class Menu
             if ($exact && (strtolower($title) === strtolower($term))) {
                 return $link;
             }
-            if (strpos(strtolower($title), strtolower($term)) !== false) {
+            if (str_contains(strtolower($title), strtolower($term))) {
                 return $link;
             }
         }

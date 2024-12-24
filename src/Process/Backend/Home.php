@@ -388,7 +388,7 @@ class Home extends Process
             $order = [];
             $index = 0;
             foreach ($items as $v) {
-                if (preg_match('/<div.*?id="([^"].*?)".*?>/ms', $v, $match)) {
+                if (preg_match('/<div.*?id="([^"].*?)".*?>/ms', (string) $v, $match)) {
                     $id       = $match[1];
                     $position = array_search($id, $list, true);
                     if ($position !== false) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -115,7 +116,7 @@ class ImageMeta
             $this->properties['DateTimeOriginal'] = preg_replace(
                 '/^(\d{4}):(\d{2}):(\d{2})/',
                 '$1-$2-$3',
-                $this->properties['DateTimeOriginal']
+                (string) $this->properties['DateTimeOriginal']
             );
         }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -383,7 +384,7 @@ class ModuleImportFlat extends Module
 
             # Check zipped file contents
             $content = $zip->unzip($zip_file);
-            if (!str_starts_with($content, '///DOTCLEAR|')) {
+            if (!str_starts_with((string) $content, '///DOTCLEAR|')) {
                 unset($content);
 
                 continue;

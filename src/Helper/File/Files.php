@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -221,11 +222,7 @@ class Files
         $ext   = self::getExtension($filename);
         $types = self::mimeTypes();
 
-        if (isset($types[$ext])) {
-            return $types[$ext];
-        }
-
-        return 'application/octet-stream';
+        return $types[$ext] ?? 'application/octet-stream';
     }
 
     /**

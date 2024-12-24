@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -42,20 +43,20 @@ class FrontendTemplate
         $item     = '<li%2$s>%1$s</li>';
 
         if (isset($attr['category'])) {
-            $category = addslashes($attr['category']);
+            $category = addslashes((string) $attr['category']);
         }
 
         if (isset($attr['block'])) {
-            $block = addslashes($attr['block']);
+            $block = addslashes((string) $attr['block']);
         }
 
         if (isset($attr['item'])) {
-            $item = addslashes($attr['item']);
+            $item = addslashes((string) $attr['item']);
         }
 
         $only_cat = 'null';
         if (!empty($attr['only_category'])) {
-            $only_cat = "'" . addslashes($attr['only_category']) . "'";
+            $only_cat = "'" . addslashes((string) $attr['only_category']) . "'";
         }
 
         return

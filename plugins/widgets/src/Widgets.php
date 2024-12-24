@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -367,7 +368,7 @@ class Widgets
         $params = [
             'post_selected' => true,
             'no_content'    => true,
-            'order'         => 'post_dt ' . strtoupper($widget->get('orderby')),
+            'order'         => 'post_dt ' . strtoupper((string) $widget->get('orderby')),
         ];
 
         $rs = App::blog()->getPosts($params);

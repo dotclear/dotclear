@@ -48,7 +48,7 @@ class Path
 
         # Adding root if !$_abs
         if (!$absolute) {
-            $filename = dirname($_SERVER['SCRIPT_FILENAME']) . '/' . $filename;
+            $filename = dirname((string) $_SERVER['SCRIPT_FILENAME']) . '/' . $filename;
         }
 
         # Clean up
@@ -141,7 +141,7 @@ class Path
             // Explode all elements with given separator
             $list = [];
             foreach ($flat as $value) {
-                array_push($list, ... explode($separator, $value));
+                array_push($list, ... explode($separator, (string) $value));
             }
         } else {
             $list = $flat;

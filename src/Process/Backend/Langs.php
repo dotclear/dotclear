@@ -432,7 +432,7 @@ class Langs extends Process
             throw new Exception(__('The zip file does not appear to be a valid Dotclear language pack.'));
         }
 
-        $target      = dirname($file);
+        $target      = dirname((string) $file);
         $destination = $target . '/' . $zip->getRootDir();
         $res         = self::LANG_INSTALLED;
 

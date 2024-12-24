@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -155,8 +156,8 @@ class ModuleExportFlat extends Module
 
             ob_end_clean();
 
-            if (str_ends_with($_SESSION['export_filename'], '.zip')) {
-                $_SESSION['export_filename'] = substr($_SESSION['export_filename'], 0, -4); //.'.txt';
+            if (str_ends_with((string) $_SESSION['export_filename'], '.zip')) {
+                $_SESSION['export_filename'] = substr((string) $_SESSION['export_filename'], 0, -4); //.'.txt';
             }
 
             // Flat export

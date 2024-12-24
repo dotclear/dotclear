@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -25,8 +26,8 @@ use UnhandledMatchError;
  */
 class FlatImportV2 extends FlatBackup
 {
-    private ConnectionInterface $con;
-    private string $prefix;
+    private readonly ConnectionInterface $con;
+    private readonly string $prefix;
 
     private ?string $dc_version       = null;
     private ?string $dc_major_version = null;
@@ -34,21 +35,21 @@ class FlatImportV2 extends FlatBackup
 
     private string $blog_id;
 
-    private Cursor $cur_blog;
-    private Cursor $cur_category;
-    private Cursor $cur_link;
-    private Cursor $cur_setting;
-    private Cursor $cur_user;
-    private Cursor $cur_pref;
-    private Cursor $cur_permissions;
-    private Cursor $cur_post;
-    private Cursor $cur_meta;
-    private Cursor $cur_media;
-    private Cursor $cur_post_media;
-    private Cursor $cur_log;
-    private Cursor $cur_ping;
-    private Cursor $cur_comment;
-    private Cursor $cur_spamrule;
+    private readonly Cursor $cur_blog;
+    private readonly Cursor $cur_category;
+    private readonly Cursor $cur_link;
+    private readonly Cursor $cur_setting;
+    private readonly Cursor $cur_user;
+    private readonly Cursor $cur_pref;
+    private readonly Cursor $cur_permissions;
+    private readonly Cursor $cur_post;
+    private readonly Cursor $cur_meta;
+    private readonly Cursor $cur_media;
+    private readonly Cursor $cur_post_media;
+    private readonly Cursor $cur_log;
+    private readonly Cursor $cur_ping;
+    private readonly Cursor $cur_comment;
+    private readonly Cursor $cur_spamrule;
 
     /**
      * @var array<string, Cursor>

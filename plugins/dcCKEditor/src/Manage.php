@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -117,7 +118,7 @@ class Manage extends Process
 
                     $allowed_tags = explode(';', App::backend()->editor_cke_format_tags);
                     if (!empty($_POST['dcckeditor_format_tags'])) {
-                        $tags     = explode(';', $_POST['dcckeditor_format_tags']);
+                        $tags     = explode(';', (string) $_POST['dcckeditor_format_tags']);
                         $new_tags = true;
                         foreach ($tags as $tag) {
                             if (!in_array($tag, $allowed_tags)) {

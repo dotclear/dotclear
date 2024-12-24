@@ -94,7 +94,7 @@ class Page
         }
         // Keep requested URL (in query params)
         $params         = [];
-        $url_components = parse_url($_SERVER['REQUEST_URI']);
+        $url_components = parse_url((string) $_SERVER['REQUEST_URI']);
         if ($url_components !== false && isset($url_components['query'])) {
             $params['go'] = urlencode($url_components['query']);
         }
@@ -1673,7 +1673,7 @@ class Page
         }
 
         if ($origin !== null) {
-            $url                        = parse_url($origin);
+            $url                        = parse_url((string) $origin);
             $headers['x-frame-options'] = sprintf('X-Frame-Options: %s', is_array($url) && isset($url['host']) ?
                 ('ALLOW-FROM ' . (isset($url['scheme']) ? $url['scheme'] . ':' : '') . '//' . $url['host']) :
                 'SAMEORIGIN');

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -35,7 +36,7 @@ class FrontendTemplate
     {
         $separator = $attr['separator'] ?? '';
 
-        return '<?= ' . self::class . '::displayBreadcrumb(' . "'" . addslashes($separator) . "'" . ') ?>';
+        return '<?= ' . self::class . '::displayBreadcrumb(' . "'" . addslashes((string) $separator) . "'" . ') ?>';
     }
 
     /**

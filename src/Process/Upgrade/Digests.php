@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -118,7 +119,7 @@ class Digests extends Process
 
     public static function render(): void
     {
-        if (!empty($_GET['download']) && preg_match('/^fmu_backup_[0-9]{14}.zip$/', $_GET['download'])) {
+        if (!empty($_GET['download']) && preg_match('/^fmu_backup_[0-9]{14}.zip$/', (string) $_GET['download'])) {
             $f = App::config()->varRoot() . DIRECTORY_SEPARATOR . $_GET['download'];
             if (is_file($f)) {
                 $c = (string) file_get_contents($f);

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Clearbricks
  * @subpackage Zip
@@ -594,7 +595,7 @@ class Unzip
             $this->compressed_list[$filename] = $details;   // @phpstan-ignore-line
             $return                           = true;
 
-            if (($stop_on_file !== false) && (strtolower($stop_on_file) == strtolower($filename))) {
+            if (($stop_on_file !== false) && (strtolower($stop_on_file) == strtolower((string) $filename))) {
                 break;
             }
         }

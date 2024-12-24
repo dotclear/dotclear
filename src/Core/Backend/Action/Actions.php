@@ -164,7 +164,7 @@ abstract class Actions
             unset($this->redir_args['action_anchor']);
         }
 
-        $uri_parts       = explode('?', $_SERVER['REQUEST_URI']);
+        $uri_parts       = explode('?', (string) $_SERVER['REQUEST_URI']);
         $this->in_plugin = !empty($_REQUEST['process']) && $_REQUEST['process'] == 'Plugin' || str_contains($uri_parts[0], 'plugin.php');
     }
 
@@ -376,7 +376,7 @@ abstract class Actions
      *                                                          each value is the wanted value
      * @return  never
      */
-    public function redirect(bool $with_selected_entries = false, array $params = [])
+    public function redirect(bool $with_selected_entries = false, array $params = []): void
     {
         Http::redirect($this->getRedirection($with_selected_entries, $params));
         exit;

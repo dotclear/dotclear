@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -39,7 +40,7 @@ class XmlTag
      * @param mixed         $content        Tag content
      */
     public function __construct(
-        private ?string $_name = null,
+        private readonly ?string $_name = null,
         $content = null
     ) {
         if ($content !== null) {

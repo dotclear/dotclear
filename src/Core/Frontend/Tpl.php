@@ -443,7 +443,7 @@ class Tpl extends Template
             $default_order = (string) $attr['order'];
         }
         if (isset($attr['sortby'])) {
-            $sorts = explode(',', $attr['sortby']);
+            $sorts = explode(',', (string) $attr['sortby']);
             foreach ($sorts as $k => $sort) {
                 $order = $default_order;
                 if (preg_match('/([a-z]*)\s*\?(desc|asc)$/i', $sort, $matches)) {
@@ -500,7 +500,7 @@ class Tpl extends Template
         $patterns = $values;
         array_walk($patterns, function (&$v, $k) use ($attr) {
             if (isset($attr[$k])) {
-                $v = addslashes($attr[$k]);
+                $v = addslashes((string) $attr[$k]);
             }
         });
 
@@ -616,16 +616,16 @@ class Tpl extends Template
             "\$params['type'] = 'month';\n";
 
         if (isset($attr['type'])) {
-            $params .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
+            $params .= "\$params['type'] = '" . addslashes((string) $attr['type']) . "';\n";
         }
         if (isset($attr['category'])) {
-            $params .= "\$params['cat_url'] = '" . addslashes($attr['category']) . "';\n";
+            $params .= "\$params['cat_url'] = '" . addslashes((string) $attr['category']) . "';\n";
         }
         if (isset($attr['post_type'])) {
-            $params .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
+            $params .= "\$params['post_type'] = '" . addslashes((string) $attr['post_type']) . "';\n";
         }
         if (isset($attr['post_lang'])) {
-            $params .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
+            $params .= "\$params['post_lang'] = '" . addslashes((string) $attr['post_lang']) . "';\n";
         }
         if (empty($attr['no_context']) && !isset($attr['category'])) {
             $params .= 'if (App::frontend()->context()->exists("categories")) { ' .
@@ -734,7 +734,7 @@ class Tpl extends Template
     {
         $format = '%B %Y';
         if (!empty($attr['format'])) {
-            $format = addslashes($attr['format']);
+            $format = addslashes((string) $attr['format']);
         }
 
         return '<?= ' . sprintf($this->getFilters($attr), Date::class . "::dt2str('" . $format . "',App::frontend()->context()->archives->dt)") . ' ?>';
@@ -784,15 +784,15 @@ class Tpl extends Template
         $params = "if (!isset(\$params)) \$params = [];\n";
         $params .= "\$params['type'] = 'month';\n";
         if (isset($attr['type'])) {
-            $params .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
+            $params .= "\$params['type'] = '" . addslashes((string) $attr['type']) . "';\n";
         }
 
         if (isset($attr['post_type'])) {
-            $params .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
+            $params .= "\$params['post_type'] = '" . addslashes((string) $attr['post_type']) . "';\n";
         }
 
         if (isset($attr['post_lang'])) {
-            $params .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
+            $params .= "\$params['post_lang'] = '" . addslashes((string) $attr['post_lang']) . "';\n";
         }
 
         $params .= "\$params['next'] = App::frontend()->context()->archives->dt;";
@@ -833,15 +833,15 @@ class Tpl extends Template
         $params = 'if (!isset($params)) $params = [];';
         $params .= "\$params['type'] = 'month';\n";
         if (isset($attr['type'])) {
-            $params .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
+            $params .= "\$params['type'] = '" . addslashes((string) $attr['type']) . "';\n";
         }
 
         if (isset($attr['post_type'])) {
-            $params .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
+            $params .= "\$params['post_type'] = '" . addslashes((string) $attr['post_type']) . "';\n";
         }
 
         if (isset($attr['post_lang'])) {
-            $params .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
+            $params .= "\$params['post_lang'] = '" . addslashes((string) $attr['post_lang']) . "';\n";
         }
 
         $params .= "\$params['previous'] = App::frontend()->context()->archives->dt;";
@@ -976,7 +976,7 @@ class Tpl extends Template
      */
     public function BlogFeedURL(ArrayObject $attr): string
     {
-        $type = !empty($attr['type']) ? strtolower($attr['type']) : 'atom';
+        $type = !empty($attr['type']) ? strtolower((string) $attr['type']) : 'atom';
         if (!in_array($type, ['rss2', 'atom'])) {
             $type = 'atom';
         }
@@ -1105,7 +1105,7 @@ class Tpl extends Template
     {
         $format = '';
         if (!empty($attr['format'])) {
-            $format = addslashes($attr['format']);
+            $format = addslashes((string) $attr['format']);
         } else {
             $format = '%Y-%m-%d %H:%M:%S';
         }
@@ -1239,7 +1239,7 @@ class Tpl extends Template
      */
     public function BlogMetaRobots(ArrayObject $attr): string
     {
-        $robots = isset($attr['robots']) ? addslashes($attr['robots']) : '';
+        $robots = isset($attr['robots']) ? addslashes((string) $attr['robots']) : '';
 
         return '<?= ' . Ctx::class . "::robotsPolicy(App::blog()->settings()->system->robots_policy,'" . $robots . "') ?>";
     }
@@ -1374,10 +1374,10 @@ class Tpl extends Template
     {
         $params = "if (!isset(\$params)) \$params = [];\n";
         if (isset($attr['url'])) {
-            $params .= "\$params['cat_url'] = '" . addslashes($attr['url']) . "';\n";
+            $params .= "\$params['cat_url'] = '" . addslashes((string) $attr['url']) . "';\n";
         }
         if (!empty($attr['post_type'])) {
-            $params .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
+            $params .= "\$params['post_type'] = '" . addslashes((string) $attr['post_type']) . "';\n";
         }
         if (!empty($attr['level'])) {
             $params .= "\$params['level'] = " . (int) $attr['level'] . ";\n";
@@ -1772,11 +1772,11 @@ class Tpl extends Template
         }
 
         if (isset($attr['author'])) {
-            $params .= "\$params['user_id'] = '" . addslashes($attr['author']) . "';\n";
+            $params .= "\$params['user_id'] = '" . addslashes((string) $attr['author']) . "';\n";
         }
 
         if (isset($attr['category'])) {
-            $params .= "\$params['cat_url'] = '" . addslashes($attr['category']) . "';\n";
+            $params .= "\$params['cat_url'] = '" . addslashes((string) $attr['category']) . "';\n";
             $params .= Ctx::class . "::categoryPostParam(\$params);\n";
         }
 
@@ -1790,11 +1790,11 @@ class Tpl extends Template
         }
 
         if (!empty($attr['type'])) {
-            $params .= "\$params['post_type'] = preg_split('/\s*,\s*/','" . addslashes($attr['type']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
+            $params .= "\$params['post_type'] = preg_split('/\s*,\s*/','" . addslashes((string) $attr['type']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
         }
 
         if (!empty($attr['url'])) {
-            $params .= "\$params['post_url'] = '" . addslashes($attr['url']) . "';\n";
+            $params .= "\$params['post_url'] = '" . addslashes((string) $attr['url']) . "';\n";
         }
 
         if (empty($attr['no_context'])) {
@@ -2576,7 +2576,7 @@ class Tpl extends Template
         $content_only  = !empty($attr['content_only']) ? 'true' : 'false';
         $cat_only      = !empty($attr['cat_only']) ? 'true' : 'false';
 
-        return '<?= ' . Ctx::class . "::EntryFirstImageHelper('" . addslashes($size) . "'," . $with_category . ",'" . addslashes($class) . "'," . $no_tag . ',' . $content_only . ',' . $cat_only . ') ?>';
+        return '<?= ' . Ctx::class . "::EntryFirstImageHelper('" . addslashes((string) $size) . "'," . $with_category . ",'" . addslashes((string) $class) . "'," . $no_tag . ',' . $content_only . ',' . $cat_only . ') ?>';
     }
 
     /**
@@ -2728,7 +2728,7 @@ class Tpl extends Template
     {
         $format = '';
         if (!empty($attr['format'])) {
-            $format = addslashes($attr['format']);
+            $format = addslashes((string) $attr['format']);
         }
 
         $iso8601 = !empty($attr['iso8601']);
@@ -2768,7 +2768,7 @@ class Tpl extends Template
     {
         $format = '';
         if (!empty($attr['format'])) {
-            $format = addslashes($attr['format']);
+            $format = addslashes((string) $attr['format']);
         }
 
         $type = (!empty($attr['creadt']) ? 'creadt' : '');
@@ -2931,7 +2931,7 @@ class Tpl extends Template
         $params = "if (!isset(\$params)) \$params = [];\n";
 
         if (isset($attr['lang'])) {
-            $params = "\$params['lang'] = '" . addslashes($attr['lang']) . "';\n";
+            $params = "\$params['lang'] = '" . addslashes((string) $attr['lang']) . "';\n";
         }
 
         if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', (string) $attr['order'])) {
@@ -3413,7 +3413,7 @@ class Tpl extends Template
     {
         $format = '';
         if (!empty($attr['format'])) {
-            $format = addslashes($attr['format']);
+            $format = addslashes((string) $attr['format']);
         }
 
         $iso8601 = !empty($attr['iso8601']);
@@ -3448,7 +3448,7 @@ class Tpl extends Template
     {
         $format = '';
         if (!empty($attr['format'])) {
-            $format = addslashes($attr['format']);
+            $format = addslashes((string) $attr['format']);
         }
         $type = (!empty($attr['upddt']) ? 'upddt' : '');
 
@@ -3926,7 +3926,7 @@ class Tpl extends Template
     {
         $format = '';
         if (!empty($attr['format'])) {
-            $format = addslashes($attr['format']);
+            $format = addslashes((string) $attr['format']);
         }
 
         $iso8601 = !empty($attr['iso8601']);
@@ -3961,7 +3961,7 @@ class Tpl extends Template
     {
         $format = '';
         if (!empty($attr['format'])) {
-            $format = addslashes($attr['format']);
+            $format = addslashes((string) $attr['format']);
         }
         $type = (!empty($attr['upddt']) ? 'upddt' : '');
 
@@ -4298,7 +4298,7 @@ class Tpl extends Template
             return '';
         }
 
-        $behavior = addslashes($attr['behavior']);
+        $behavior = addslashes((string) $attr['behavior']);
 
         return
             '<?php if (App::behavior()->hasBehavior(\'' . $behavior . '\')) { ' .
@@ -4357,56 +4357,56 @@ class Tpl extends Template
 
         if (isset($attr['blog_lang'])) {
             $sign = '=';
-            if (str_starts_with($attr['blog_lang'], '!')) {
+            if (str_starts_with((string) $attr['blog_lang'], '!')) {
                 $sign              = '!';
-                $attr['blog_lang'] = substr($attr['blog_lang'], 1);
+                $attr['blog_lang'] = substr((string) $attr['blog_lang'], 1);
             }
-            $if->append('App::blog()->settings()->system->lang ' . $sign . "= '" . addslashes($attr['blog_lang']) . "'");
+            $if->append('App::blog()->settings()->system->lang ' . $sign . "= '" . addslashes((string) $attr['blog_lang']) . "'");
         }
 
         if (isset($attr['current_tpl'])) {
             $sign = '=';
-            if (str_starts_with($attr['current_tpl'], '!')) {
+            if (str_starts_with((string) $attr['current_tpl'], '!')) {
                 $sign                = '!';
-                $attr['current_tpl'] = substr($attr['current_tpl'], 1);
+                $attr['current_tpl'] = substr((string) $attr['current_tpl'], 1);
             }
-            $if->append('App::frontend()->context()->current_tpl ' . $sign . "= '" . addslashes($attr['current_tpl']) . "'");
+            $if->append('App::frontend()->context()->current_tpl ' . $sign . "= '" . addslashes((string) $attr['current_tpl']) . "'");
         }
 
         if (isset($attr['current_mode'])) {
             $sign = '=';
-            if (str_starts_with($attr['current_mode'], '!')) {
+            if (str_starts_with((string) $attr['current_mode'], '!')) {
                 $sign                 = '!';
-                $attr['current_mode'] = substr($attr['current_mode'], 1);
+                $attr['current_mode'] = substr((string) $attr['current_mode'], 1);
             }
-            $if->append('App::url()->getType() ' . $sign . "= '" . addslashes($attr['current_mode']) . "'");
+            $if->append('App::url()->getType() ' . $sign . "= '" . addslashes((string) $attr['current_mode']) . "'");
         }
 
         if (isset($attr['has_tpl'])) {
             $sign = '';
-            if (str_starts_with($attr['has_tpl'], '!')) {
+            if (str_starts_with((string) $attr['has_tpl'], '!')) {
                 $sign            = '!';
-                $attr['has_tpl'] = substr($attr['has_tpl'], 1);
+                $attr['has_tpl'] = substr((string) $attr['has_tpl'], 1);
             }
-            $if->append($sign . "App::frontend()->template()->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false");
+            $if->append($sign . "App::frontend()->template()->getFilePath('" . addslashes((string) $attr['has_tpl']) . "') !== false");
         }
 
         if (isset($attr['has_tag'])) {
             $sign = 'true';
-            if (str_starts_with($attr['has_tag'], '!')) {
+            if (str_starts_with((string) $attr['has_tag'], '!')) {
                 $sign            = 'false';
-                $attr['has_tag'] = substr($attr['has_tag'], 1);
+                $attr['has_tag'] = substr((string) $attr['has_tag'], 1);
             }
-            $if->append("App::frontend()->template()->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign);
+            $if->append("App::frontend()->template()->tagExists('" . addslashes((string) $attr['has_tag']) . "') === " . $sign);
         }
 
         if (isset($attr['blog_id'])) {
             $sign = '';
-            if (str_starts_with($attr['blog_id'], '!')) {
+            if (str_starts_with((string) $attr['blog_id'], '!')) {
                 $sign            = '!';
-                $attr['blog_id'] = substr($attr['blog_id'], 1);
+                $attr['blog_id'] = substr((string) $attr['blog_id'], 1);
             }
-            $if->append($sign . "(App::blog()->id() == '" . addslashes($attr['blog_id']) . "')");
+            $if->append($sign . "(App::blog()->id() == '" . addslashes((string) $attr['blog_id']) . "')");
         }
 
         if (isset($attr['comments_active'])) {

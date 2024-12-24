@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -98,14 +99,14 @@ class Auth extends Process
 
             App::backend()->user_id  = $_POST['user_id'];
             App::backend()->user_pwd = $_POST['user_pwd'];
-        } elseif (isset($_COOKIE[App::backend()::COOKIE_NAME]) && strlen($_COOKIE[App::backend()::COOKIE_NAME]) == 104) {
+        } elseif (isset($_COOKIE[App::backend()::COOKIE_NAME]) && strlen((string) $_COOKIE[App::backend()::COOKIE_NAME]) == 104) {
             // If we have a remember cookie, go through auth process with user_key
 
-            $user_id = substr($_COOKIE[App::backend()::COOKIE_NAME], 40);
+            $user_id = substr((string) $_COOKIE[App::backend()::COOKIE_NAME], 40);
             $user_id = @unpack('a32', @pack('H*', $user_id));
             if (is_array($user_id)) {
                 $user_id                 = trim((string) $user_id[1]);
-                App::backend()->user_key = substr($_COOKIE[App::backend()::COOKIE_NAME], 0, 40);
+                App::backend()->user_key = substr((string) $_COOKIE[App::backend()::COOKIE_NAME], 0, 40);
                 App::backend()->user_pwd = null;
             } else {
                 $user_id = null;
@@ -164,7 +165,7 @@ class Auth extends Process
             // Change password and retry to log
 
             try {
-                $tmp_data = explode('/', $_POST['login_data']);
+                $tmp_data = explode('/', (string) $_POST['login_data']);
                 if (count($tmp_data) != 3) {
                     throw new Exception();
                 }

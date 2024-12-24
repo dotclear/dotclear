@@ -110,7 +110,7 @@ class Auth implements AuthInterface
      *
      * @var     int|null     $blog_count
      */
-    public ?int $blog_count;
+    public ?int $blog_count = null;
 
     /**
      * Permission types.
@@ -202,7 +202,7 @@ class Auth implements AuthInterface
 
         if (!$rs || $rs->isEmpty()) {
             // Avoid time attacks by measuring server response time during user existence check
-            sleep(rand(2, 5));
+            sleep(random_int(2, 5));
 
             return false;
         }
@@ -228,13 +228,13 @@ class Auth implements AuthInterface
                         $rehash       = true;
                     } else {
                         // Password KO
-                        sleep(rand(2, 5));
+                        sleep(random_int(2, 5));
 
                         return false;
                     }
                 } else {
                     // Password KO
-                    sleep(rand(2, 5));
+                    sleep(random_int(2, 5));
 
                     return false;
                 }
@@ -305,7 +305,7 @@ class Auth implements AuthInterface
     public function checkPassword(string $pwd): bool
     {
         if (!empty($this->user_info['user_pwd'])) {
-            return password_verify($pwd, $this->user_info['user_pwd']);
+            return password_verify($pwd, (string) $this->user_info['user_pwd']);
         }
 
         return false;

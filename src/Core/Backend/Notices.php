@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -239,7 +240,7 @@ class Notices
                 ->class('notice-ts')
                 ->items([
                     (new Text('time', Date::dt2str(__('%H:%M:%S'), $notice['ts'], App::auth()->getInfo('user_tz'))))
-                        ->extra('datetime="' . Date::iso8601((int) strtotime($notice['ts']), App::auth()->getInfo('user_tz')) . '"'),
+                        ->extra('datetime="' . Date::iso8601((int) strtotime((string) $notice['ts']), App::auth()->getInfo('user_tz')) . '"'),
                 ]);
         } else {
             $timestamp = (new None());

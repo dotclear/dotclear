@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -56,14 +57,14 @@ class Auth extends Process
 
             self::$user_id  = $_POST['user_id'];
             self::$user_pwd = $_POST['user_pwd'];
-        } elseif (isset($_COOKIE[App::upgrade()::COOKIE_NAME]) && strlen($_COOKIE[App::upgrade()::COOKIE_NAME]) == 104) {
+        } elseif (isset($_COOKIE[App::upgrade()::COOKIE_NAME]) && strlen((string) $_COOKIE[App::upgrade()::COOKIE_NAME]) == 104) {
             // If we have a remember cookie, go through auth process with user_key
 
-            $user_id = substr($_COOKIE[App::upgrade()::COOKIE_NAME], 40);
+            $user_id = substr((string) $_COOKIE[App::upgrade()::COOKIE_NAME], 40);
             $user_id = @unpack('a32', @pack('H*', $user_id));
             if (is_array($user_id)) {
                 $user_id        = trim((string) $user_id[1]);
-                self::$user_key = substr($_COOKIE[App::upgrade()::COOKIE_NAME], 0, 40);
+                self::$user_key = substr((string) $_COOKIE[App::upgrade()::COOKIE_NAME], 0, 40);
                 self::$user_pwd = null;
             } else {
                 $user_id = null;

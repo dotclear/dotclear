@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -109,7 +110,7 @@ class Categories extends Process
 
         if (!empty($_POST['save_order']) && !empty($_POST['categories_order'])) {
             // Update order
-            $categories = json_decode($_POST['categories_order'], null, 512, JSON_THROW_ON_ERROR);
+            $categories = json_decode((string) $_POST['categories_order'], null, 512, JSON_THROW_ON_ERROR);
             foreach ($categories as $category) {
                 if (!empty($category->item_id) && !empty($category->left) && !empty($category->right)) {
                     App::blog()->updCategoryPosition((int) $category->item_id, (int) $category->left, (int) $category->right);

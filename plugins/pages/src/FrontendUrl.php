@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -74,7 +75,7 @@ class FrontendUrl extends Url
                 if ($post_password != '' && !App::frontend()->context()->preview) {
                     # Get passwords cookie
                     if (isset($_COOKIE['dc_passwd'])) {
-                        $pwd_cookie = json_decode($_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
+                        $pwd_cookie = json_decode((string) $_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
                         if ($pwd_cookie === null) {
                             $pwd_cookie = [];
                         } else {

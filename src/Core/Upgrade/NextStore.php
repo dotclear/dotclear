@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -33,7 +34,7 @@ class NextStore extends Store
 
         try {
             $str_parser = App::config()->storeNotUpdate() ? false : NextStoreReader::quickParse($this->xml_url, App::config()->cacheRoot(), $force);
-        } catch (Exception $e) {
+        } catch (Exception) {
             return false;
         }
 
@@ -62,7 +63,7 @@ class NextStore extends Store
         foreach ($this->modules->getDefines() as $cur_define) {
             if ($cur_define->get('repository') != '' && App::config()->allowRepositories()) {
                 try {
-                    $str_url    = str_ends_with($cur_define->get('repository'), '/dcstore.xml') ? $cur_define->get('repository') : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
+                    $str_url    = str_ends_with((string) $cur_define->get('repository'), '/dcstore.xml') ? $cur_define->get('repository') : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
                     $str_parser = NextStoreReader::quickParse($str_url, App::config()->cacheRoot(), $force);
                     if (is_bool($str_parser)) {
                         continue;

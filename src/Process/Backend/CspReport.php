@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -51,20 +52,20 @@ class CspReport extends Process
             if (
                 // avoid false positives notifications coming from Chrome extensions (Wappalyzer, MuteTab, etc.)
                 // bug here https://code.google.com/p/chromium/issues/detail?id=524356
-                !str_contains($source_file, 'chrome-extension://')
+                !str_contains((string) $source_file, 'chrome-extension://')
 
                 // avoid false positives notifications coming from Safari extensions (diigo, evernote, etc.)
-                && !str_contains($source_file, 'safari-extension://')
-                && !str_contains($blocked_uri, 'safari-extension://')
+                && !str_contains((string) $source_file, 'safari-extension://')
+                && !str_contains((string) $blocked_uri, 'safari-extension://')
 
                 // search engine extensions ?
-                && !str_contains($source_file, 'se-extension://')
+                && !str_contains((string) $source_file, 'se-extension://')
 
                 // added by browsers in webviews
-                && !str_contains($blocked_uri, 'webviewprogressproxy://')
+                && !str_contains((string) $blocked_uri, 'webviewprogressproxy://')
 
                 // Google Search App see for details https://github.com/nico3333fr/CSP-useful/commit/ecc8f9b0b379ae643bc754d2db33c8b47e185fd1
-                && !str_contains($blocked_uri, 'gsa://onpageload')
+                && !str_contains((string) $blocked_uri, 'gsa://onpageload')
 
             ) {
                 // Prepare report data (hash => info)

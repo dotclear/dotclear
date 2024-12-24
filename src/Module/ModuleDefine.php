@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -161,7 +162,7 @@ class ModuleDefine
      * @param   string  $id The module identifier (root path)
      */
     public function __construct(
-        private string $id
+        private readonly string $id
     ) {
         $this->default['tplset'] = App::config()->defaultTplset();
 

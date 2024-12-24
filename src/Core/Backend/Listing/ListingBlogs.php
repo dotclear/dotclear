@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -114,7 +115,7 @@ class ListingBlogs extends Listing
         $lines = [
             (new Tr())
                 ->items([
-                    (new Text(null, implode(iterator_to_array($cols)))),
+                    (new Text(null, implode('', iterator_to_array($cols)))),
                 ]),
         ];
         while ($this->rs->fetch()) {
@@ -259,7 +260,7 @@ class ListingBlogs extends Listing
             ->id('b' . $blog_id)
             ->class('line')
             ->items([
-                (new Text(null, implode(iterator_to_array($cols)))),
+                (new Text(null, implode('', iterator_to_array($cols)))),
             ]);
     }
 }

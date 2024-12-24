@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -126,7 +127,7 @@ class Handler extends MysqliHandler
                 $res[] = $v;
             } elseif (is_array($v) && !empty($v['field'])) {
                 $v          = array_merge($default, $v);
-                $v['order'] = (strtoupper($v['order']) == 'DESC' ? 'DESC' : '');
+                $v['order'] = (strtoupper((string) $v['order']) == 'DESC' ? 'DESC' : '');
                 $res[]      = $v['field'] . ($v['collate'] ? ' COLLATE utf8mb4_unicode_ci' : '') . ' ' . $v['order'];
             }
         }

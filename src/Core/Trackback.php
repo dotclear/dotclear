@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -276,10 +277,10 @@ class Trackback implements TrackbackInterface
                 $charset = self::detectCharset($title . ' ' . $excerpt . ' ' . $blog_name);
             }
 
-            if (strtolower($charset) != 'utf-8') {
-                $title     = iconv($charset, 'UTF-8', $title);
-                $excerpt   = iconv($charset, 'UTF-8', $excerpt);
-                $blog_name = iconv($charset, 'UTF-8', $blog_name);
+            if (strtolower((string) $charset) != 'utf-8') {
+                $title     = iconv((string) $charset, 'UTF-8', (string) $title);
+                $excerpt   = iconv((string) $charset, 'UTF-8', (string) $excerpt);
+                $blog_name = iconv((string) $charset, 'UTF-8', (string) $blog_name);
             }
 
             $title = trim(Html::clean($title));
@@ -393,8 +394,8 @@ class Trackback implements TrackbackInterface
                 throw new BadRequestException('Source or target is not valid');
             }
 
-            $from_url = urldecode($_POST['source']);
-            $to_url   = urldecode($_POST['target']);
+            $from_url = urldecode((string) $_POST['source']);
+            $to_url   = urldecode((string) $_POST['target']);
 
             self::checkURLs($from_url, $to_url);
 
@@ -555,7 +556,7 @@ class Trackback implements TrackbackInterface
         }
 
         if ($header) {
-            if (preg_match('|charset=([a-zA-Z0-9-]+)|', $header, $m)) {
+            if (preg_match('|charset=([a-zA-Z0-9-]+)|', (string) $header, $m)) {
                 return $m[1];
             }
         }
@@ -679,8 +680,8 @@ class Trackback implements TrackbackInterface
             if (!$charset) {
                 $charset = self::detectCharset($remote_content);
             }
-            if (strtolower($charset) != 'utf-8') {
-                $remote_content = iconv($charset, 'UTF-8', $remote_content);
+            if (strtolower((string) $charset) != 'utf-8') {
+                $remote_content = iconv((string) $charset, 'UTF-8', $remote_content);
                 if ($remote_content === false) {
                     $remote_content = '';
                 }
@@ -727,7 +728,7 @@ class Trackback implements TrackbackInterface
     private function getSourceName(string $content): string
     {
         // Clean text utility function
-        $clean = fn ($text, $size = 255) => Text::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean(trim($text)))), $size);
+        $clean = fn ($text, $size = 255) => Text::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean(trim((string) $text)))), $size);
 
         // First step: look for site name
         // ------------------------------

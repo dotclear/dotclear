@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -207,9 +208,9 @@ class Task implements TaskInterface
             });
         } else {
             // Config file does not exist, go to install page
-            if (!str_contains($_SERVER['SCRIPT_FILENAME'], '\admin') && !str_contains($_SERVER['SCRIPT_FILENAME'], '/admin')) {
+            if (!str_contains((string) $_SERVER['SCRIPT_FILENAME'], '\admin') && !str_contains((string) $_SERVER['SCRIPT_FILENAME'], '/admin')) {
                 Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
-            } elseif (!str_contains($_SERVER['PHP_SELF'], '\install') && !str_contains($_SERVER['PHP_SELF'], '/install')) {
+            } elseif (!str_contains((string) $_SERVER['PHP_SELF'], '\install') && !str_contains((string) $_SERVER['PHP_SELF'], '/install')) {
                 Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
             }
         }
@@ -217,7 +218,7 @@ class Task implements TaskInterface
         // Process app utility. If any.
         if ($utility_response && true === $this->loadUtility('Dotclear\\Core\\' . $utility . '\\Utility', true)) {
             // Try to load utility process, the _REQUEST process as priority on method process.
-            if (!empty($_REQUEST['process']) && preg_match('/^[A-Za-z]+$/', $_REQUEST['process'])) {
+            if (!empty($_REQUEST['process']) && preg_match('/^[A-Za-z]+$/', (string) $_REQUEST['process'])) {
                 $process = $_REQUEST['process'];
             }
             if (!empty($process)) {

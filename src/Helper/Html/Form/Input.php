@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -35,7 +36,7 @@ class Input extends Component
     public function __construct(
         $id = null,
         string $type = 'text',
-        private bool $renderLabel = true
+        private readonly bool $renderLabel = true
     ) {
         parent::__construct(self::class, self::DEFAULT_ELEMENT);
         $this->type($type);

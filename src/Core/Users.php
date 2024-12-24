@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -98,7 +99,7 @@ class Users implements UsersInterface
         }
 
         if (!empty($params['q'])) {
-            $q = $sql->escape(str_replace('*', '%', strtolower($params['q'])));
+            $q = $sql->escape(str_replace('*', '%', strtolower((string) $params['q'])));
             $sql->and($sql->orGroup([
                 $sql->like('LOWER(U.user_id)', $q),
                 $sql->like('LOWER(user_name)', $q),
@@ -130,7 +131,7 @@ class Users implements UsersInterface
             ]);
 
             if (!empty($params['order'])) {
-                if (preg_match('`^([^. ]+) (?:asc|desc)`i', $params['order'], $matches)) {
+                if (preg_match('`^([^. ]+) (?:asc|desc)`i', (string) $params['order'], $matches)) {
                     if (in_array($matches[1], ['user_id', 'user_name', 'user_firstname', 'user_displayname'])) {
                         $table_prefix = 'U.';
                     } else {

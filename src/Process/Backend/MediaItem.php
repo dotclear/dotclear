@@ -170,7 +170,7 @@ class MediaItem extends Process
                 $newFile->relname = $newFile->basename;
             }
             $newFile->media_title = Html::escapeHTML($_POST['media_title']);
-            $newFile->media_dt    = strtotime($_POST['media_dt']);
+            $newFile->media_dt    = strtotime((string) $_POST['media_dt']);
             $newFile->media_dtstr = $_POST['media_dt'];
             $newFile->media_priv  = !empty($_POST['media_private']);
 

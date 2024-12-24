@@ -36,7 +36,7 @@ class WidgetsStack
     {
         if (!is_array($s)) {
             // Cope with old way to store widgets settings
-            $o = @unserialize(base64_decode($s));
+            $o = @unserialize(base64_decode((string) $s));
 
             if ($o instanceof self) {
                 return $o;

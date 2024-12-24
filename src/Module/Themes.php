@@ -128,7 +128,7 @@ class Themes extends Modules implements ThemesInterface
                 if (is_array($content)) {
                     // Create sub directories if necessary
                     foreach ($content['dirs'] as $dir) {
-                        $rel = substr($dir, strlen($module->get('root')));
+                        $rel = substr($dir, strlen((string) $module->get('root')));
                         if ($rel !== '') {
                             Files::makeDir($new_dir . $rel);
                         }
@@ -137,7 +137,7 @@ class Themes extends Modules implements ThemesInterface
                     // Copy files from source to destination
                     foreach ($content['files'] as $file) {
                         // Copy file
-                        $rel = substr($file, strlen($module->get('root')));
+                        $rel = substr($file, strlen((string) $module->get('root')));
                         copy($file, $new_dir . $rel);
 
                         if ($rel === (DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
@@ -147,7 +147,7 @@ class Themes extends Modules implements ThemesInterface
                             // Change theme name to $new_name in _define.php
                             if (preg_match('/(\$this->registerModule\(\s*)((\s*|.*)+?)(\s*\);+)/m', $buf, $matches)) {
                                 // Change only first occurence in registerModule parameters (should be the theme name)
-                                $matches[2] = preg_replace('/' . preg_quote($module->get('name')) . '/', $new_name, $matches[2], 1);    // @phpstan-ignore-line
+                                $matches[2] = preg_replace('/' . preg_quote((string) $module->get('name')) . '/', $new_name, $matches[2], 1);    // @phpstan-ignore-line
                                 $buf        = substr($buf, 0, $pos) . $matches[1] . $matches[2] . $matches[4];
                                 $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $module->get('name'));
                                 file_put_contents($new_dir . $rel, $buf);

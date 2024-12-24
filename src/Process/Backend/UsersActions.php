@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -61,7 +62,7 @@ class UsersActions extends Process
         if (!empty($_POST['action']) && !empty($_POST['users'])) {
             App::backend()->action = $_POST['action'];
 
-            if (isset($_POST['redir']) && !str_contains($_POST['redir'], '://')) {
+            if (isset($_POST['redir']) && !str_contains((string) $_POST['redir'], '://')) {
                 App::backend()->redir = $_POST['redir'];
             } else {
                 App::backend()->redir = App::backend()->url()->get('admin.users', [
@@ -180,7 +181,7 @@ class UsersActions extends Process
             $hidden_fields .= form::hidden(['users[]'], $u);
         }
 
-        if (isset($_POST['redir']) && !str_contains($_POST['redir'], '://')) {
+        if (isset($_POST['redir']) && !str_contains((string) $_POST['redir'], '://')) {
             $hidden_fields .= form::hidden(['redir'], Html::escapeURL($_POST['redir']));
         } else {
             $hidden_fields .= form::hidden(['q'], Html::escapeHTML($_POST['q'] ?? '')) .

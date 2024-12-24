@@ -39,27 +39,6 @@ class Update
     public const CACHE_FOLDER = 'versions';
 
     /**
-     * Version file URL
-     *
-     * @var string
-     */
-    protected string $url;
-
-    /**
-     * Subject to check (usually 'dotclear')
-     *
-     * @var string
-     */
-    protected string $subject;
-
-    /**
-     * Version channel (stable, testing, unstable, …)
-     *
-     * @var string
-     */
-    protected string $version;
-
-    /**
      * Cache file
      *
      * @var string
@@ -110,12 +89,22 @@ class Update
      * @param   string  $version    Version channel
      * @param   string  $cache_dir  Directory cache path
      */
-    public function __construct(string $url, string $subject, string $version, string $cache_dir)
-    {
-        $this->url        = $url;
-        $this->subject    = $subject;
-        $this->version    = $version;
-        $this->cache_file = $cache_dir . '/' . $subject . '-' . $version;
+    public function __construct(
+        /**
+         * Version file URL
+         */
+        protected string $url,
+        /**
+         * Subject to check (usually 'dotclear')
+         */
+        protected string $subject,
+        /**
+         * Version channel (stable, testing, unstable, …)
+         */
+        protected string $version,
+        string $cache_dir
+    ) {
+        $this->cache_file = $cache_dir . '/' . $this->subject . '-' . $this->version;
     }
 
     /**
@@ -489,7 +478,7 @@ class Update
         $new_files   = [];
         $opts        = FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES;
         $cur_digests = file($root_digests, $opts);
-        $new_digests = explode("\n", $zip->unzip($zip_digests));
+        $new_digests = explode("\n", (string) $zip->unzip($zip_digests));
         if ($cur_digests !== false && $new_digests !== false) {     // @phpstan-ignore-line
             $new_files = $this->getNewFiles($cur_digests, $new_digests);
         }
@@ -563,7 +552,7 @@ class Update
         $new_files   = [];
         $opts        = FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES;
         $cur_digests = file($root_digests, $opts);
-        $new_digests = explode("\n", $zip->unzip($zip_digests));
+        $new_digests = explode("\n", (string) $zip->unzip($zip_digests));
         if ($cur_digests !== false && $new_digests !== false) {     // @phpstan-ignore-line
             $new_files = $this->getNewFiles($cur_digests, $new_digests);
         }
@@ -728,7 +717,7 @@ class Update
      */
     protected function parseLine(&$v, $k, $n): void
     {
-        if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $v, $m)) {
+        if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', (string) $v, $m)) {
             return;
         }
 

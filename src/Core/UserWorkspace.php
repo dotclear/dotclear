@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -138,7 +139,7 @@ class UserWorkspace implements UserWorkspaceInterface
                 $type  = $rs->f('pref_type');
 
                 if ($type === self::WS_ARRAY) {
-                    $value = @json_decode($value, true);
+                    $value = @json_decode((string) $value, true);
                 } else {
                     if ($type === self::WS_FLOAT || $type === self::WS_DOUBLE) {
                         $type = self::WS_FLOAT;

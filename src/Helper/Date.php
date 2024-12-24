@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -167,7 +168,7 @@ class Date
 
             // Year
             '%C' => fn ($timestamp) => floor($timestamp->format('Y') / 100),    // Century (-1): 19 for 20th century
-            '%g' => fn ($timestamp) => substr($timestamp->format('o'), -2),
+            '%g' => fn ($timestamp) => substr((string) $timestamp->format('o'), -2),
             '%G' => 'o',
             '%y' => 'y',
             '%Y' => 'Y',

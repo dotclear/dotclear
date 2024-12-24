@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -246,8 +247,8 @@ class FilterPosts extends Filters
         }
 
         return (new Filter('month'))
-            ->param('post_month', fn ($f) => substr($f[0], 4, 2))
-            ->param('post_year', fn ($f) => substr($f[0], 0, 4))
+            ->param('post_month', fn ($f) => substr((string) $f[0], 4, 2))
+            ->param('post_year', fn ($f) => substr((string) $f[0], 0, 4))
             ->title(__('Month:'))
             ->options(['-' => '', ...Combos::getDatesCombo($dates)]);
     }

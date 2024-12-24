@@ -189,7 +189,7 @@ class ListingComments extends Listing
         $lines = [
             (new Tr())
                 ->items([
-                    (new Text(null, implode(iterator_to_array($cols)))),
+                    (new Text(null, implode('', iterator_to_array($cols)))),
                 ]),
         ];
         while ($this->rs->fetch()) {
@@ -404,7 +404,7 @@ class ListingComments extends Listing
                 $sts_class,
             ]))
             ->items([
-                (new Text(null, implode(iterator_to_array($cols)))),
+                (new Text(null, implode('', iterator_to_array($cols)))),
             ]);
     }
 }

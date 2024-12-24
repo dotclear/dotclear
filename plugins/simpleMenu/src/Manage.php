@@ -285,7 +285,7 @@ class Manage extends Process
                                 } else {
                                     App::backend()->item_label = App::backend()->item_select_label;
                                     App::backend()->item_descr = sprintf(__('Posts from %s'), App::backend()->item_select_label);
-                                    App::backend()->item_url .= App::url()->getURLFor('archive', substr(App::backend()->item_select, 0, 4) . '/' . substr(App::backend()->item_select, -2));
+                                    App::backend()->item_url .= App::url()->getURLFor('archive', substr((string) App::backend()->item_select, 0, 4) . '/' . substr((string) App::backend()->item_select, -2));
                                 }
 
                                 break;
@@ -445,10 +445,10 @@ class Manage extends Process
                                 $order = array_keys($order);
                             } elseif (!empty($_POST['im_order'])) {
                                 $order = $_POST['im_order'];
-                                if (str_ends_with($order, ',')) {
-                                    $order = substr($order, 0, strlen($order) - 1);
+                                if (str_ends_with((string) $order, ',')) {
+                                    $order = substr((string) $order, 0, strlen((string) $order) - 1);
                                 }
-                                $order = explode(',', $order);
+                                $order = explode(',', (string) $order);
                             }
                             if (!empty($order)) {
                                 $newmenu = [];

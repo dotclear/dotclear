@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Frontend
@@ -39,7 +40,7 @@ class XmlRpc extends IntrospectionServer
      *
      * @var     string
      */
-    private string $debug_file;
+    private readonly string $debug_file;
 
     /**
      * Trace arguments
@@ -61,7 +62,7 @@ class XmlRpc extends IntrospectionServer
      * @param   string  $blog_id  The blog ID
      */
     public function __construct(
-        private string $blog_id
+        private readonly string $blog_id
     ) {
         $this->debug_file = App::config()->cacheRoot() . '/dotclear-xmlrpc.log';
 

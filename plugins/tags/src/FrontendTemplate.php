@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -39,7 +40,7 @@ class FrontendTemplate
      */
     public static function Tags(ArrayObject $attr, string $content): string
     {
-        $type = isset($attr['type']) ? addslashes($attr['type']) : 'tag';
+        $type = isset($attr['type']) ? addslashes((string) $attr['type']) : 'tag';
 
         $limit = isset($attr['limit']) ? (int) $attr['limit'] : 'null';
 
@@ -47,7 +48,7 @@ class FrontendTemplate
 
         $sortby = 'meta_id_lower';
         if (isset($attr['sortby']) && in_array($attr['sortby'], $combo)) {
-            $sortby = mb_strtolower($attr['sortby']);
+            $sortby = mb_strtolower((string) $attr['sortby']);
         }
 
         $order = 'asc';
@@ -116,13 +117,13 @@ class FrontendTemplate
      */
     public static function EntryTags(ArrayObject $attr, string $content): string
     {
-        $type = isset($attr['type']) ? addslashes($attr['type']) : 'tag';
+        $type = isset($attr['type']) ? addslashes((string) $attr['type']) : 'tag';
 
         $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
         $sortby = 'meta_id_lower';
         if (isset($attr['sortby']) && in_array($attr['sortby'], $combo)) {
-            $sortby = mb_strtolower($attr['sortby']);
+            $sortby = mb_strtolower((string) $attr['sortby']);
         }
 
         $order = 'asc';

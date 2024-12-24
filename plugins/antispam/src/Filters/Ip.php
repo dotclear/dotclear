@@ -72,7 +72,7 @@ class Ip extends SpamFilter
      *
      * @var     string  $table
      */
-    private string $table;
+    private readonly string $table;
 
     /**
      * Constructs a new instance.

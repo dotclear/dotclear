@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -88,7 +89,7 @@ class Pager extends HelperPager
     public function setURL(): void
     {
         parent::setURL();
-        $url = parse_url($_SERVER['REQUEST_URI']);
+        $url = parse_url((string) $_SERVER['REQUEST_URI']);
         if (isset($url['query'])) {
             parse_str($url['query'], $args);
         } else {

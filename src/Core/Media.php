@@ -647,7 +647,7 @@ class Media extends Manager implements MediaInterface
         return null;
     }
 
-    public function setFileSort(string $type = 'name')
+    public function setFileSort(string $type = 'name'): void
     {
         if (in_array($type, [
             'size-asc',
@@ -690,7 +690,7 @@ class Media extends Manager implements MediaInterface
         };
     }
 
-    public function getFSDir()
+    public function getFSDir(): void
     {
         if ($this->root_missing) {
             return;
@@ -1208,7 +1208,7 @@ class Media extends Manager implements MediaInterface
         return $media_id;
     }
 
-    public function updateFile(File $file, File $newFile)
+    public function updateFile(File $file, File $newFile): void
     {
         if ($this->root_missing) {
             return;
@@ -1631,7 +1631,7 @@ class Media extends Manager implements MediaInterface
 
         if ($meta['DateTimeOriginal'] && $cur->media_dt === '') {
             # We set picture time to user timezone
-            $media_ts = strtotime($meta['DateTimeOriginal']);
+            $media_ts = strtotime((string) $meta['DateTimeOriginal']);
             if ($media_ts !== false) {
                 $o           = Date::getTimeOffset($this->auth->getInfo('user_tz'), $media_ts);
                 $c->media_dt = Date::str('%Y-%m-%d %H:%M:%S', $media_ts + $o);

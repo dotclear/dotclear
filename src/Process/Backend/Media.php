@@ -178,7 +178,7 @@ class Media extends Process
                 }
 
                 foreach ($_POST['medias'] as $media) {
-                    App::media()->removeItem(rawurldecode($media));
+                    App::media()->removeItem(rawurldecode((string) $media));
                 }
 
                 if ($search_filter) {
@@ -204,7 +204,7 @@ class Media extends Process
 
         # Removing item from popup only
         if (App::backend()->page->getDirs() && !empty($_POST['rmyes']) && !empty($_POST['remove'])) {
-            $_POST['remove'] = rawurldecode($_POST['remove']);
+            $_POST['remove'] = rawurldecode((string) $_POST['remove']);
             $forget          = false;
 
             try {

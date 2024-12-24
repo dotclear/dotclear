@@ -95,10 +95,10 @@ class WidgetsElement
      * @param   string          $desc       The widget description
      */
     public function __construct(
-        private string $id,
-        private string $name,
+        private readonly string $id,
+        private readonly string $name,
         $callback,
-        private string $desc = ''
+        private readonly string $desc = ''
     ) {
         if (!is_callable($callback)) {  // @phpstan-ignore-line
             $widget = new ArrayObject(['id' => $id, 'callback' => $callback]);

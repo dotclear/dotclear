@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -197,7 +198,7 @@ class Manage extends Process
             asort($order);
             $order = array_keys($order);
         } elseif (!empty($_POST['links_order'])) {
-            $order = explode(',', $_POST['links_order']);
+            $order = explode(',', (string) $_POST['links_order']);
         }
 
         if (!empty($_POST['saveorder']) && !empty($order)) {

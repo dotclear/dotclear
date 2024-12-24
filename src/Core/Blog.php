@@ -981,7 +981,7 @@ class Blog implements BlogInterface
             natsort($a);
             $t_url = end($a);
 
-            if (preg_match('/(.*?)(\d+)$/', $t_url, $m)) {
+            if (preg_match('/(.*?)(\d+)$/', (string) $t_url, $m)) {
                 $i   = (int) $m[2];
                 $url = $m[1];
             } else {
@@ -1391,7 +1391,7 @@ class Blog implements BlogInterface
         $sql->group('post_lang');
 
         $order = 'desc';
-        if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', $params['order'])) {
+        if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', (string) $params['order'])) {
             $order = $params['order'];
         }
         $sql->order('post_lang ' . $order);
@@ -1490,14 +1490,14 @@ class Blog implements BlogInterface
                 $dt              = $params['previous'];
             }
 
-            $dt = date('YmdHis', (int) strtotime($dt));
+            $dt = date('YmdHis', (int) strtotime((string) $dt));
 
             $sql->and($sql->dateFormat('post_dt', $dt_fc) . $pdir . $sql->quote($dt));
             $sql->limit(1);
         }
 
         $order = 'desc';
-        if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', $params['order'])) {
+        if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', (string) $params['order'])) {
             $order = $params['order'];
         }
         $sql->order('dt ' . $order);
@@ -2259,7 +2259,7 @@ class Blog implements BlogInterface
 
                     natsort($a);
                     $t_url = end($a);
-                    if (preg_match('/(.*?)(\d+)$/', $t_url, $m)) {
+                    if (preg_match('/(.*?)(\d+)$/', (string) $t_url, $m)) {
                         $i   = (int) $m[2];
                         $url = $m[1];
                     }
@@ -2423,7 +2423,7 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['q_author'])) {
-            $q_author = $sql->escape(str_replace('*', '%', strtolower($params['q_author'])));
+            $q_author = $sql->escape(str_replace('*', '%', strtolower((string) $params['q_author'])));
             $sql->and($sql->like('LOWER(comment_author)', $q_author));
         }
 

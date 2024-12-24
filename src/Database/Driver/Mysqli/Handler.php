@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -284,7 +285,7 @@ class Handler extends AbstractHandler
         if ($res instanceof mysqli_result) {
             $v = $res->fetch_assoc();
 
-            return ($v === null) ? false : $v;
+            return $v ?? false;
         }
 
         return false;
@@ -342,7 +343,7 @@ class Handler extends AbstractHandler
      */
     public function db_escape_string($str, $handle = null): string
     {
-        return $handle instanceof mysqli ? $handle->real_escape_string((string) $str) : addslashes($str);
+        return $handle instanceof mysqli ? $handle->real_escape_string((string) $str) : addslashes((string) $str);
     }
 
     /**
@@ -419,7 +420,7 @@ class Handler extends AbstractHandler
                 $res[] = $v;
             } elseif (is_array($v) && !empty($v['field'])) {
                 $v          = array_merge($default, $v);
-                $v['order'] = (strtoupper($v['order']) == 'DESC' ? 'DESC' : '');
+                $v['order'] = (strtoupper((string) $v['order']) == 'DESC' ? 'DESC' : '');
                 $res[]      = $v['field'] . ($v['collate'] ? ' COLLATE utf8_unicode_ci' : '') . ' ' . $v['order'];
             }
         }

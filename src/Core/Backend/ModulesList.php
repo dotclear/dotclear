@@ -62,13 +62,6 @@ use Exception;
 class ModulesList
 {
     /**
-     * Stack of known modules
-     *
-     * @var ModulesInterface
-     */
-    public ModulesInterface $modules;
-
-    /**
      * Store instance
      *
      * @var Store
@@ -211,10 +204,16 @@ class ModulesList
      * @param    null|string        $xml_url        URL of modules feed from repository
      * @param    null|bool          $force          Force query repository
      */
-    public function __construct(ModulesInterface $modules, string $modules_root, ?string $xml_url, ?bool $force = false)
-    {
-        $this->modules = $modules;
-        $this->store   = new Store($modules, $xml_url, $force);
+    public function __construct(
+        /*
+         * Stack of known modules
+         */
+        public ModulesInterface $modules,
+        string $modules_root,
+        ?string $xml_url,
+        ?bool $force = false
+    ) {
+        $this->store = new Store($this->modules, $xml_url, $force);
 
         $this->page_url = App::backend()->url()->get('admin.plugins');
 
@@ -516,7 +515,7 @@ class ModulesList
             if ($define->get($this->sort_field) === null) {
                 continue;
             }
-            $char = substr($define->get($this->sort_field), 0, 1);
+            $char = substr((string) $define->get($this->sort_field), 0, 1);
             if (!in_array($char, $this->nav_list)) {
                 $char = $this->nav_special;
             }
@@ -911,7 +910,7 @@ class ModulesList
 
             # Show only requested modules
             if ($nav_limit && $this->getSearch() === null) {
-                $char = substr($define->get($sort_field), 0, 1);
+                $char = substr((string) $define->get($sort_field), 0, 1);
                 if (!in_array($char, $this->nav_list)) {
                     $char = $this->nav_special;
                 }
@@ -1356,7 +1355,7 @@ class ModulesList
                     # Delete
                 case 'delete':
                     if (App::auth()->isSuperAdmin() && !$define->distributed && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
-                        $dev       = !preg_match('!^' . $this->path_pattern . '!', $define->get('root')) && App::config()->devMode() ? ' debug' : '';
+                        $dev       = !preg_match('!^' . $this->path_pattern . '!', (string) $define->get('root')) && App::config()->devMode() ? ' debug' : '';
                         $submits[] = (new Submit(['delete[' . Html::escapeHTML($id) . ']'], __('Delete')))
                             ->class(array_filter(['delete', $dev]))
                         ->render();
@@ -1542,7 +1541,7 @@ class ModulesList
                     continue;
                 }
 
-                $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($define->get('file'));
+                $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename((string) $define->get('file'));
 
                 # --BEHAVIOR-- moduleBeforeAdd -- ModuleDefine
                 App::behavior()->callBehavior('pluginBeforeAddV2', $define);
@@ -1656,9 +1655,9 @@ class ModulesList
                 }
 
                 if (!self::$allow_multi_install) {
-                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename($define->get('file'))]);
+                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename((string) $define->get('file'))]);
                 } else {
-                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($define->get('file'));
+                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename((string) $define->get('file'));
                     if ($define->get('root') != $dest) {
                         @file_put_contents($define->get('root') . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_DISABLED, '');
                     }
@@ -1706,7 +1705,7 @@ class ModulesList
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
             } else {
-                $url  = urldecode($_POST['pkg_url']);
+                $url  = urldecode((string) $_POST['pkg_url']);
                 $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($url);
                 $this->store->download($url, $dest);
             }

@@ -100,7 +100,7 @@ final class dcCore
      *
      * @var BlogInterface|null
      */
-    public ?BlogInterface $blog;
+    public ?BlogInterface $blog = null;
 
     /**
      * Auth instance

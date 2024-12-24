@@ -534,7 +534,7 @@ class HttpClient extends Socket
             }
 
             foreach ($cookies as $cookie) {
-                if (preg_match('/([^=]+)=([^;]+);/', $cookie, $m)) {
+                if (preg_match('/([^=]+)=([^;]+);/', (string) $cookie, $m)) {
                     $this->cookies[$m[1]] = $m[2];
                 }
             }
@@ -766,11 +766,8 @@ class HttpClient extends Socket
     public function getHeader($header)
     {
         $header = strtolower($header);
-        if (isset($this->headers[$header])) {
-            return $this->headers[$header];
-        }
 
-        return false;
+        return $this->headers[$header] ?? false;
     }
 
     /**

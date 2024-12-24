@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -83,7 +84,7 @@ class Manage extends Process
                 foreach ($_POST['s'] as $ns => $s) {
                     foreach ($s as $k => $v) {
                         if ($_POST['s_type'][$ns][$k] === App::blogWorkspace()::NS_ARRAY) {
-                            $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
+                            $v = json_decode((string) $v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         App::blog()->settings()->$ns->put($k, $v);
                     }
@@ -103,7 +104,7 @@ class Manage extends Process
                 foreach ($_POST['gs'] as $ns => $s) {
                     foreach ($s as $k => $v) {
                         if ($_POST['gs_type'][$ns][$k] === App::blogWorkspace()::NS_ARRAY) {
-                            $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
+                            $v = json_decode((string) $v, true, 512, JSON_THROW_ON_ERROR);
                         }
                         App::blog()->settings()->$ns->put($k, $v, null, null, true, true);
                     }

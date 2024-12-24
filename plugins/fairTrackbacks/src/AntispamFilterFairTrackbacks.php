@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -77,10 +78,8 @@ class AntispamFilterFairTrackbacks extends SpamFilter
      * @param   string  $content    The comment content
      * @param   int     $post_id    The comment post_id
      * @param   string  $status     The comment status
-     *
-     * @return  mixed
      */
-    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status)
+    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status): void
     {
         if ($type != 'trackback') {
             return;

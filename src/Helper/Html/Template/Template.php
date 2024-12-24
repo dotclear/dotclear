@@ -26,13 +26,6 @@ class Template
     public const CACHE_FOLDER = 'cbtpl';
 
     /**
-     * Instance self name
-     *
-     * Will be use in compiled template to call instance method or use instance properties
-     */
-    private string $self_name;
-
-    /**
      * Use cache for compiled template files
      *
      * @var        bool
@@ -147,11 +140,17 @@ class Template
      * @param      string  $cache_dir  The cache dir
      * @param      string  $self_name  The self name
      */
-    public function __construct(string $cache_dir, string $self_name)
-    {
+    public function __construct(
+        string $cache_dir,
+        /**
+         * Instance self name
+         *
+         * Will be use in compiled template to call instance method or use instance properties
+         */
+        private readonly string $self_name
+    ) {
         $this->setCacheDir($cache_dir);
 
-        $this->self_name = $self_name;
         $this->addValue('include', $this->includeFile(...));
         $this->addBlock('Block', $this->blockSection(...));
     }

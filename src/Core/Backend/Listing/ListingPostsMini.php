@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -98,7 +99,7 @@ class ListingPostsMini extends Listing
                             ->rows([
                                 (new Tr())
                                     ->items([
-                                        (new Text(null, implode(iterator_to_array($cols)))),
+                                        (new Text(null, implode('', iterator_to_array($cols)))),
                                     ]),
                             ]),
                         (new Tbody())
@@ -208,7 +209,7 @@ class ListingPostsMini extends Listing
             ->id('p' . (string) $this->rs->post_id)
             ->class($post_classes)
             ->items([
-                (new Text(null, implode(iterator_to_array($cols)))),
+                (new Text(null, implode('', iterator_to_array($cols)))),
             ]);
     }
 }

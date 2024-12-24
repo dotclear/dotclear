@@ -53,11 +53,8 @@ class Blogs implements BlogsInterface
     public function getBlogStatus(int $s): string
     {
         $r = $this->getAllBlogStatus();
-        if (isset($r[$s])) {
-            return $r[$s];
-        }
 
-        return $r[0];
+        return $r[$s] ?? $r[0];
     }
 
     /**

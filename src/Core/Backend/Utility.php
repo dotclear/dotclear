@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -193,7 +194,7 @@ class Utility extends Process
             }
 
             // Check if requested blog is in URL query (blog=blog_id)
-            if ($url = parse_url($_SERVER['REQUEST_URI'])) {
+            if ($url = parse_url((string) $_SERVER['REQUEST_URI'])) {
                 if (isset($url['query'])) {
                     $params = [];
                     parse_str($url['query'], $params);
@@ -447,7 +448,12 @@ class Utility extends Process
         // Unset cookie if necessary
         if (isset($_COOKIE[self::COOKIE_NAME])) {
             unset($_COOKIE[self::COOKIE_NAME]);
-            setcookie(self::COOKIE_NAME, '', -600, '', '', App::config()->adminSsl());
+            setcookie(self::COOKIE_NAME, '', [
+                'expires' => -600,
+                'path'    => '',
+                'domain'  => '',
+                'secure'  => App::config()->adminSsl(),
+            ]);
         }
     }
 }

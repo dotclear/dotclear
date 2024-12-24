@@ -36,7 +36,7 @@ class Meta implements MetaInterface
      *
      * @var     string  $table
      */
-    private string $table;
+    private readonly string $table;
 
     /**
      * Constructor.

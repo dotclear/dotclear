@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -34,8 +35,8 @@ class SessionHandler implements SessionHandlerInterface
      * @param string                $ttl               TTL (default -120 minutes)
      */
     public function __construct(
-        private ConnectionInterface $con,
-        private string $table,
+        private readonly ConnectionInterface $con,
+        private readonly string $table,
         private string $ttl
     ) {
         if (!str_starts_with(trim($this->ttl), '-')) {

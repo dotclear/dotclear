@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -251,8 +252,8 @@ class Modules implements ModulesInterface
                     $dep = [$dep];
                 }
                 // optionnal minimum dependancy
-                if (str_ends_with($dep[0], '?')) {
-                    $dep[0]                                = substr($dep[0], 0, -1);
+                if (str_ends_with((string) $dep[0], '?')) {
+                    $dep[0]                                = substr((string) $dep[0], 0, -1);
                     $optionnals[$module->getId()][$dep[0]] = true;
                 }
                 // search required module

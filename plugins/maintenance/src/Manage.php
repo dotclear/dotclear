@@ -221,7 +221,7 @@ class Manage extends Process
             Notices::getNotices();
 
             // Content
-            if (str_starts_with($res, '<')) {
+            if (str_starts_with((string) $res, '<')) {
                 $content = new Text(null, $res);
             } else {
                 // Encapsulate content in paragraph

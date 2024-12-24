@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -176,7 +177,7 @@ class AntispamFilterAkismet extends SpamFilter
      * @param   string      $content    The comment content
      * @param   MetaRecord  $rs         The comment record
      */
-    public function trainFilter(string $status, string $filter, string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, MetaRecord $rs)
+    public function trainFilter(string $status, string $filter, string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, MetaRecord $rs): void
     {
         # We handle only false positive from akismet
         if ($status === 'spam' && $filter !== 'dcFilterAkismet') {

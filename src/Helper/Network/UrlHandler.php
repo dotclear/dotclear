@@ -178,7 +178,7 @@ class UrlHandler
         $type = $args = '';
 
         if ($this->mode === 'path_info') {
-            $part = substr($_SERVER['PATH_INFO'], 1);
+            $part = substr((string) $_SERVER['PATH_INFO'], 1);
         } else {
             $part = '';
 
@@ -324,7 +324,7 @@ class UrlHandler
     {
         $res = [];
         if (!empty($_SERVER['QUERY_STRING'])) {
-            $parameters = explode('&', $_SERVER['QUERY_STRING']);
+            $parameters = explode('&', (string) $_SERVER['QUERY_STRING']);
             foreach ($parameters as $parameter) {
                 $elements = explode('=', $parameter, 2);
 

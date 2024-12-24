@@ -433,7 +433,7 @@ abstract class AbstractHandler extends Connection
                 $res[] = $v;
             } elseif (is_array($v) && !empty($v['field'])) {    // @phpstan-ignore-line
                 $v          = array_merge($default, $v);
-                $v['order'] = (strtoupper($v['order']) == 'DESC' ? 'DESC' : '');
+                $v['order'] = (strtoupper((string) $v['order']) == 'DESC' ? 'DESC' : '');
                 $res[]      = ($v['collate'] ? 'LOWER(' . $v['field'] . ')' : $v['field']) . ' ' . $v['order'];
             }
         }

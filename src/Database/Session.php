@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -45,12 +46,12 @@ class Session implements SessionInterface
      * @param string                $ttl               TTL (default -120 minutes)
      */
     public function __construct(
-        private ConnectionInterface $con,
-        private string $table,
-        private string $cookie_name,
+        private readonly ConnectionInterface $con,
+        private readonly string $table,
+        private readonly string $cookie_name,
         private ?string $cookie_path = null,
-        private ?string $cookie_domain = null,
-        private bool $cookie_secure = false,
+        private readonly ?string $cookie_domain = null,
+        private readonly bool $cookie_secure = false,
         ?string $ttl = null
     ) {
         $this->cookie_path = is_null($cookie_path) ? '/' : $cookie_path;

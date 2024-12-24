@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -171,7 +172,7 @@ class Favorites
             $this->user_favorites = $this->getFavorites(['new_post']);
         }
 
-        $uri = explode('?', $_SERVER['REQUEST_URI']);
+        $uri = explode('?', (string) $_SERVER['REQUEST_URI']);
         // take only last part of the URI, all plugins work like that
         $uri[0] = preg_replace('#(.*?)([^/]+)$#', '$2', $uri[0]);
 
@@ -185,7 +186,7 @@ class Favorites
             } else {
                 // Failback active detection. We test against URI name & parameters
                 $favorite['active'] = true; // true until something proves it is false
-                $url                = explode('?', $favorite['url'], 2);
+                $url                = explode('?', (string) $favorite['url'], 2);
                 if (!preg_match('/' . preg_quote($url[0], '/') . '/', (string) $_SERVER['REQUEST_URI'])) {
                     $favorite['active'] = false; // no URI match
                 }

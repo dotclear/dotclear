@@ -46,7 +46,7 @@ class FrontendTemplate
             if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM])) {
                 $type = Widgets::WIDGETS_NAV;
             }
-            $res = self::class . "::widgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "');";
+            $res = self::class . "::widgetsHandler('" . addslashes((string) $type) . "','" . addslashes($disable) . "');";
         }
 
         return '<?php ' . $res . ' ?>';
@@ -111,7 +111,7 @@ class FrontendTemplate
             if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM])) {
                 $type = Widgets::WIDGETS_NAV;
             }
-            $res = self::class . "::ifWidgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "')";
+            $res = self::class . "::ifWidgetsHandler('" . addslashes((string) $type) . "','" . addslashes($disable) . "')";
         }
 
         return '<?php if(' . $res . ') : ?>' . $content . '<?php endif; ?>';
@@ -177,7 +177,7 @@ class FrontendTemplate
         $content = (string) preg_replace('/\{\{tpl:.*?\}\}/msu', '', $content);
 
         return
-        '<?php ' . self::class . "::widgetHandler('" . addslashes($attr['id']) . "','" . str_replace("'", "\\'", $content) . "'); ?>";
+        '<?php ' . self::class . "::widgetHandler('" . addslashes((string) $attr['id']) . "','" . str_replace("'", "\\'", $content) . "'); ?>";
     }
 
     /**

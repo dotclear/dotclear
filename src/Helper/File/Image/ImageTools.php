@@ -303,11 +303,11 @@ class ImageTools
         $imgage_height = $this->getH();
 
         if (strpos((string) $width, '%', 0)) {
-            $width = $imgage_width * (int) trim($width, '%') / 100;
+            $width = $imgage_width * (int) trim((string) $width, '%') / 100;
         }
 
         if (strpos((string) $height, '%', 0)) {
-            $height = $imgage_height * (int) trim($height, '%') / 100;
+            $height = $imgage_height * (int) trim((string) $height, '%') / 100;
         }
 
         $ratio = $imgage_width / $imgage_height;

@@ -94,7 +94,7 @@ class Fault
         }
         $trace    = $exception->getTrace();
         $prev     = $exception->getPrevious();
-        $result[] = sprintf('%s%s: %s', $starter, get_class($exception), $exception->getMessage());
+        $result[] = sprintf('%s%s: %s', $starter, $exception::class, $exception->getMessage());
         $file     = $exception->getFile();
         $line     = $exception->getLine();
         while (true) {
@@ -105,7 +105,7 @@ class Fault
                 count($trace) ? str_replace('\\', '.', $trace[0]['function']) : '(main)',
                 $line === null ? $file : basename($file),
                 $line === null ? '' : ':',
-                $line === null ? '' : $line
+                $line ?? ''
             );
             $seen[] = "$file:$line";
             if (!count($trace)) {

@@ -469,7 +469,7 @@ class WikiToHtml
                     $leaf = preg_replace($this->getOpt('auto_url_pattern'), '[$1$2]', $leaf);
                 }
                 unset($leaf);
-                $html = implode($tree);
+                $html = implode('', $tree);
             }
         }
 

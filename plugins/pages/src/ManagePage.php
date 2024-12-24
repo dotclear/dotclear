@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -262,7 +263,7 @@ class ManagePage extends Process
                 App::backend()->post_dt = '';
             } else {
                 try {
-                    App::backend()->post_dt = strtotime($_POST['post_dt']);
+                    App::backend()->post_dt = strtotime((string) $_POST['post_dt']);
                     if (!App::backend()->post_dt || App::backend()->post_dt == -1) {
                         App::backend()->bad_dt = true;
 
