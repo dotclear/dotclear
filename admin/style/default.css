@@ -2385,6 +2385,18 @@ button.details-cmd:is(:hover, :focus) {
   color: var(--input-focus);
 }
 
+details summary:is(:hover) {
+  cursor: pointer;
+}
+details summary:is(:hover)::marker {
+  cursor: pointer;
+}
+
+details summary:is(:hover, :focus)::marker {
+  background: transparent;
+  color: var(--input-focus);
+}
+
 /* specific buttons */
 #gototop,
 a#gototop,

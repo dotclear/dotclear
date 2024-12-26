@@ -151,6 +151,18 @@ button.details-cmd {
   }
 }
 
+details summary:is(:hover) {
+  cursor: pointer;
+  &::marker {
+    cursor: pointer;
+  }
+}
+
+details summary:is(:hover, :focus)::marker {
+  background: transparent;
+  color: var(--input-focus);
+}
+
 /* specific buttons */
 
 // Ajax or js buttons (action do not reload current page)
