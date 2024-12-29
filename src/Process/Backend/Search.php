@@ -33,8 +33,6 @@ class Search extends Process
 
     /**
      * Number of items found
-     *
-     * @var int
      */
     protected static ?int $count = null;
 
@@ -43,14 +41,14 @@ class Search extends Process
      *
      * @var null|ListingPosts|ListingComments
      */
-    protected static $list = null;
+    protected static $list;
 
     /**
      * Available actions on entries
      *
      * @var null|ActionsPosts|ActionsComments
      */
-    protected static $actions = null;
+    protected static $actions;
 
     public static function init(): bool
     {
@@ -82,9 +80,9 @@ class Search extends Process
 
     public static function process(): bool
     {
-        App::backend()->q = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
+        App::backend()->q = $_REQUEST['q'] ?? $_REQUEST['qx'] ?? null;
 
-        if (strlen((string) App::backend()->q)) {
+        if (strlen((string) App::backend()->q) !== 0) {
             // Cope with search beginning with : (quick menu access)
             $prefix = App::auth()->prefs()->interface->quickmenuprefix ?: ':';
             if (str_starts_with((string) App::backend()->q, $prefix)) {
@@ -109,14 +107,14 @@ class Search extends Process
             }
         }
 
-        App::backend()->qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
+        App::backend()->qtype = $_REQUEST['qtype'] ?? 'p';
         App::backend()->q     = Html::escapeHTML(App::backend()->q);
 
         if (!empty(App::backend()->q) && !in_array(App::backend()->qtype, App::backend()->qtype_combo)) {
             App::backend()->qtype = 'p';
         }
 
-        App::backend()->page = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
+        App::backend()->page = empty($_GET['page']) ? 1 : max(1, (int) $_GET['page']);
         App::backend()->nb   = UserPref::getUserFilters('search', 'nb');
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
             App::backend()->nb = (int) $_GET['nb'];
@@ -196,29 +194,27 @@ class Search extends Process
      * Add specific scripts
      *
      * @param      array<string,string>   $args   The arguments
-     *
-     * @return     string|void
      */
-    public static function pageHead(array $args)
+    public static function pageHead(array $args): string
     {
         if ($args['qtype'] == 'p') {
             return Page::jsLoad('js/_posts_list.js');
         } elseif ($args['qtype'] == 'c') {
             return Page::jsLoad('js/_comments.js');
         }
+
+        return '';
     }
 
     /**
      * Process search in posts
      *
      * @param      array<string,string>   $args   The arguments
-     *
-     * @return     null|void
      */
-    public static function processPosts(array $args)
+    public static function processPosts(array $args): string
     {
         if ($args['qtype'] != 'p') {
-            return null;
+            return '';
         }
 
         $params = [
@@ -232,25 +228,23 @@ class Search extends Process
             self::$count   = (int) App::blog()->getPosts($params, true)->f(0);
             self::$list    = new ListingPosts(App::blog()->getPosts($params), self::$count);
             self::$actions = new ActionsPosts(App::backend()->url()->get('admin.search'), $args);
-            if (self::$actions->process()) {
-                return;
-            }
+            self::$actions->process();
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
+
+        return '';
     }
 
     /**
      * Display search in posts
      *
      * @param      array<string,string>   $args   The arguments
-     *
-     * @return     null|void
      */
-    public static function displayPosts(array $args)
+    public static function displayPosts(array $args): string
     {
         if ($args['qtype'] != 'p' || self::$count === null) {
-            return null;
+            return '';
         }
 
         if (self::$count > 0) {
@@ -277,19 +271,19 @@ class Search extends Process
                 '</form>'
             );
         }
+
+        return '';
     }
 
     /**
      * Process search in comments
      *
      * @param      array<string,string>   $args   The arguments
-     *
-     * @return     null|void
      */
-    public static function processComments(array $args)
+    public static function processComments(array $args): string
     {
         if ($args['qtype'] != 'c') {
-            return null;
+            return '';
         }
 
         $params = [
@@ -304,24 +298,24 @@ class Search extends Process
             self::$list    = new ListingComments(App::blog()->getComments($params), self::$count);
             self::$actions = new ActionsComments(App::backend()->url()->get('admin.search'), $args);
             if (self::$actions->process()) {
-                return;
+                return '';
             }
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
+
+        return '';
     }
 
     /**
      * Display search in comments
      *
      * @param      array<string,string>   $args   The arguments
-     *
-     * @return     null|void
      */
-    public static function displayComments(array $args)
+    public static function displayComments(array $args): string
     {
         if ($args['qtype'] != 'c' || self::$count === null) {
-            return null;
+            return '';
         }
 
         if (self::$count > 0) {
@@ -359,5 +353,7 @@ class Search extends Process
                 $show_ip
             );
         }
+
+        return '';
     }
 }

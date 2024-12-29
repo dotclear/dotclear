@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -23,7 +24,7 @@ class Cli extends Process
 {
     public static function init(): bool
     {
-        if (!self::status(App::task()->checkContext('UPGRADE') && defined('PHP_SAPI') && PHP_SAPI == 'cli')) {
+        if (!self::status(App::task()->checkContext('UPGRADE') && defined('PHP_SAPI') && PHP_SAPI === 'cli')) {
             throw new Exception('Application is not in CLI mode', 550);
         }
 

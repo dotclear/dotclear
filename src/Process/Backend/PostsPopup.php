@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -10,9 +11,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Listing\ListingPostsMini;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -30,13 +31,11 @@ class PostsPopup extends Process
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        App::backend()->q         = !empty($_GET['q']) ? $_GET['q'] : null;
-        App::backend()->plugin_id = !empty($_GET['plugin_id']) ? Html::sanitizeURL($_GET['plugin_id']) : '';
-
-        App::backend()->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
+        App::backend()->q           = $_GET['q'] ?? null;
+        App::backend()->plugin_id   = empty($_GET['plugin_id']) ? '' : Html::sanitizeURL($_GET['plugin_id']);
+        App::backend()->page        = empty($_GET['page']) ? 1 : max(1, (int) $_GET['page']);
         App::backend()->nb_per_page = 10;
-
-        App::backend()->type = !empty($_GET['type']) ? $_GET['type'] : null;
+        App::backend()->type        = $_GET['type'] ?? null;
 
         $post_types = App::postTypes()->dump();
         $type_combo = [];
@@ -115,7 +114,7 @@ class PostsPopup extends Process
         }
 
         echo '<div id="form-entries">'; // I know it's not a form but we just need the ID
-        if ($post_list) {
+        if ($post_list instanceof ListingPostsMini) {
             $post_list->display(App::backend()->page, App::backend()->nb_per_page);
         }
         echo '</div>';

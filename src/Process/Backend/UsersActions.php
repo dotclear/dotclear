@@ -15,6 +15,7 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
@@ -171,7 +172,7 @@ class UsersActions extends Process
             $breadcrumb
         );
 
-        if (!isset(App::backend()->action)) {
+        if (App::backend()->action === null) {
             Page::close();
             exit;
         }
@@ -235,7 +236,7 @@ class UsersActions extends Process
                 '<th class="nowrap">' . __('Status') . '</th>' .
                 '</tr>';
 
-                if ($rs) {
+                if ($rs instanceof MetaRecord) {
                     while ($rs->fetch()) {
                         $img_status = $rs->blog_status == App::blog()::BLOG_ONLINE ? 'published.svg' : ($rs->blog_status == App::blog()::BLOG_OFFLINE ? 'unpublished.svg' : 'pending.svg');
                         $txt_status = App::blogs()->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : App::blog()::BLOG_ONLINE);
@@ -302,7 +303,7 @@ class UsersActions extends Process
 
             foreach (App::backend()->blogs as $b) {
                 echo
-                '<h3>' . ('Blog:') . ' <a href="' . App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
+                '<h3>' . __('Blog:') . ' <a href="' . App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
                 form::hidden(['blogs[]'], $b) . '</h3>';
 
                 $unknown_perms = $user_perm;

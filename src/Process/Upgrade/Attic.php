@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -41,15 +42,11 @@ class Attic extends Process
 {
     /**
      * Step in update process.
-     *
-     * @var     string  $step
      */
     private static string $step = '';
 
     /**
      * The downloaded release zip file name.
-     *
-     * @var     string  $zip_file
      */
     private static string $zip_file = '';
 
@@ -62,8 +59,6 @@ class Attic extends Process
 
     /**
      * The attic updater instance.
-     *
-     * @var     UpdateAttic     $updater
      */
     private static UpdateAttic $updater;
 
@@ -196,7 +191,7 @@ class Attic extends Process
 
             if ($e->getCode() == self::$updater::ERR_FILES_CHANGED) {
                 $msg = __('The following files of your Dotclear installation have been modified so we won\'t try to update your installation. Please try to <a href="https://dotclear.org/download">update manually</a>.');
-                $msg .= ' ' . '(<a href="' . App::upgrade()->url()->get('upgrade.digests') . '">' . __('You can bypass this warning by updating installation disgets file.') . '</a>)';
+                $msg .= ' (<a href="' . App::upgrade()->url()->get('upgrade.digests') . '">' . __('You can bypass this warning by updating installation disgets file.') . '</a>)';
             } elseif ($e->getCode() == self::$updater::ERR_FILES_UNREADABLE) {
                 $msg = sprintf(
                     __('The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually.'),
@@ -206,7 +201,7 @@ class Attic extends Process
                 $msg = __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="https://dotclear.org/download">update manually</a>.');
             }
 
-            if (count($bad_files = self::$updater->getBadFiles())) {
+            if (($bad_files = self::$updater->getBadFiles()) !== []) {
                 $msg .= '<ul><li><strong>' . implode('</strong></li><li><strong>', $bad_files) . '</strong></li></ul>';
             }
 
@@ -218,7 +213,7 @@ class Attic extends Process
 
     public static function render(): void
     {
-        if (self::$step == 'unzip' && !App::error()->flag()) {
+        if (self::$step === 'unzip' && !App::error()->flag()) {
             // Update done, need to go back to authentication (see below), but we need
             // to kill the admin session before sending any header
             App::upgrade()->killAdminSession();
@@ -227,8 +222,8 @@ class Attic extends Process
         $items = [];
 
         if (empty(self::$step)) {
-            // No redirect avec each step as we need selected version in a POST form
-            if (empty(self::$releases)) {
+            // No redirect with no step as we need selected version in a POST form
+            if (self::$releases === []) {
                 $items[] = (new Para())
                     ->items([
                         (new Text('strong', __('No newer Dotclear version available.'))),
@@ -305,7 +300,7 @@ class Attic extends Process
                             ->class('warning'),
                     ]);
             }
-        } elseif (self::$step == 'check' && !App::error()->flag()) {
+        } elseif (self::$step === 'check' && !App::error()->flag()) {
             $items[] = (new Form('atticstep2'))
                 ->class('fieldset')
                 ->method('post')
@@ -320,7 +315,7 @@ class Attic extends Process
                             (new Submit(['submit'], __('Update Dotclear'))),
                         ]),
                 ]);
-        } elseif (self::$step == 'unzip' && !App::error()->flag()) {
+        } elseif (self::$step === 'unzip' && !App::error()->flag()) {
             $items[] = (new Div())
                 ->class('fieldset')
                 ->items([

@@ -90,7 +90,7 @@ class Socket
      *
      * @return string|true
      */
-    public function host(?string $host = null)
+    public function host(?string $host = null): bool|string
     {
         if ($host) {
             $this->_host = $host;
@@ -165,13 +165,7 @@ class Socket
     }
 
     /**
-     * Set blocking
-     *
      * Sets blocking or non-blocking mode on the socket.
-     *
-     * @param   bool    $block
-     *
-     * @return    bool
      */
     public function setBlocking(bool $block): bool
     {
@@ -179,7 +173,7 @@ class Socket
             return false;
         }
 
-        return $this->_handle ? stream_set_blocking($this->_handle, $block) : false;
+        return $this->_handle && stream_set_blocking($this->_handle, $block);
     }
 
     /**
@@ -199,7 +193,7 @@ class Socket
         }
         $this->_handle = $handle;
 
-        if (isset($this->_stream_timeout)) {
+        if ($this->_stream_timeout !== null) {
             stream_set_timeout($handle, $this->_stream_timeout);
         }
 
@@ -263,13 +257,9 @@ class Socket
     }
 
     /**
-     * Flush buffer
-     *
      * Flushes socket write buffer.
-     *
-     * @return  void|false
      */
-    public function flush()
+    public function flush(): ?bool
     {
         if (!$this->isOpen()) {
             return false;
@@ -278,6 +268,8 @@ class Socket
         if ($this->_handle) {
             fflush($this->_handle);
         }
+
+        return null;
     }
 
     /**
@@ -285,7 +277,7 @@ class Socket
      *
      * @return    Iterator|false
      */
-    protected function iterator()
+    protected function iterator(): bool|Iterator
     {
         if (!$this->isOpen() || is_null($this->_handle)) {
             return false;
@@ -295,11 +287,7 @@ class Socket
     }
 
     /**
-     * Is open
-     *
      * Returns true if socket connection is open.
-     *
-     * @return    bool
      */
     public function isOpen(): bool
     {

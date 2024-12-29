@@ -12,12 +12,12 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Helper;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
@@ -83,17 +83,6 @@ class UserPreferences extends Process
         App::backend()->user_ui_media_nb_last_dirs = App::auth()->prefs()->interface->media_nb_last_dirs;
         App::backend()->user_ui_nocheckadblocker   = App::auth()->prefs()->interface->nocheckadblocker;
         App::backend()->user_ui_quickmenuprefix    = App::auth()->prefs()->interface->quickmenuprefix;
-
-        App::backend()->default_tab = !empty($_GET['tab']) ? Html::escapeHTML($_GET['tab']) : 'user-profile';
-
-        if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || !empty($_GET['replaced']) || !empty($_POST['appendaction']) || !empty($_POST['removeaction']) || !empty($_GET['db-updated']) || !empty($_POST['resetorder'])) {
-            App::backend()->default_tab = 'user-favorites';
-        } elseif (!empty($_GET['updated'])) {
-            App::backend()->default_tab = 'user-options';
-        }
-        if ((App::backend()->default_tab != 'user-profile') && (App::backend()->default_tab != 'user-options') && (App::backend()->default_tab != 'user-favorites')) {
-            App::backend()->default_tab = 'user-profile';
-        }
 
         // Format by editors
         $formaters         = App::formater()->getFormaters();
@@ -169,6 +158,9 @@ class UserPreferences extends Process
         ];
         // All filters
         App::backend()->auto_filter = App::auth()->prefs()->interface->auto_filter;
+
+        // Specific tab
+        App::backend()->tab = empty($_REQUEST['tab']) ? '' : Html::escapeHTML($_REQUEST['tab']);
 
         return self::status(true);
     }
@@ -297,14 +289,14 @@ class UserPreferences extends Process
                 foreach (App::backend()->cols as $col_type => $cols_list) {
                     $ct = [];
                     foreach (array_keys($cols_list[1]) as $col_name) {
-                        $ct[$col_name] = isset($_POST['cols_' . $col_type]) && in_array($col_name, $_POST['cols_' . $col_type], true) ? true : false;
+                        $ct[$col_name] = isset($_POST['cols_' . $col_type]) && in_array($col_name, $_POST['cols_' . $col_type], true);
                     }
-                    if (count($ct)) {
+                    if ($ct !== []) {
                         if (isset($_POST['cols_' . $col_type])) {
                             // Sort resulting list
                             $order = array_values($_POST['cols_' . $col_type]);
                             $order = array_unique(array_merge($order, array_keys($ct)));
-                            uksort($ct, fn ($key1, $key2) => array_search($key1, $order) <=> array_search($key2, $order));
+                            uksort($ct, fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
                         }
                         $cu[$col_type] = $ct;
                     }
@@ -337,7 +329,7 @@ class UserPreferences extends Process
                 // Update user HTML editor flags
                 $rf = [];
                 foreach (App::backend()->rte as $rk => $rv) {
-                    $rf[$rk] = isset($_POST['rte_flags']) && in_array($rk, $_POST['rte_flags'], true) ? true : false;
+                    $rf[$rk] = isset($_POST['rte_flags']) && in_array($rk, $_POST['rte_flags'], true);
                 }
                 App::auth()->prefs()->interface->put('rte_flags', $rf, 'array');
 
@@ -444,7 +436,7 @@ class UserPreferences extends Process
             $order = [];
         }
 
-        if (!empty($_POST['saveorder']) && !empty($order)) {
+        if (!empty($_POST['saveorder']) && $order !== []) {
             // Order favs
 
             foreach ($order as $k => $v) {
@@ -502,7 +494,7 @@ class UserPreferences extends Process
             ]) .
             Page::jsLoad('js/pwstrength.js') .
             Page::jsLoad('js/_preferences.js') .
-            Page::jsPageTabs(App::backend()->default_tab) .
+            Page::jsPageTabs(App::backend()->tab) .
             Page::jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
             Page::jsAdsBlockCheck() .
 
@@ -888,12 +880,12 @@ class UserPreferences extends Process
         echo
         '<h5 class="pretty-title">' . __('Other available favorites') . '</h5>';
         $count = 0;
-        uasort($avail_fav, fn ($a, $b) => strcoll(
+        uasort($avail_fav, fn ($a, $b): int => strcoll(
             strtolower(Text::removeDiacritics($a['title'])),
             strtolower(Text::removeDiacritics($b['title']))
         ));
 
-        foreach ($avail_fav as $k => $v) {
+        foreach (array_keys($avail_fav) as $k) {
             if (in_array($k, $user_fav)) {
                 unset($avail_fav[$k]);
             }

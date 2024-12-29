@@ -29,97 +29,73 @@ class Install extends Process
 {
     /**
      * Installation checking flag
-     *
-     * @var        bool
      */
-    private static $can_install = true;
+    private static bool $can_install = true;
 
     /**
      * Error description
-     *
-     * @var        string
      */
-    private static $err = '';
+    private static string $err = '';
 
     /**
      * Installation step
-     *
-     * @var        int
      */
-    private static $step = 0;
+    private static int $step = 0;
 
     /**
      * Current language
-     *
-     * @var        string
      */
-    private static $dlang = 'en';
+    private static string $dlang = 'en';
 
     /**
      * Dotclear root URL
-     *
-     * @var        string
      */
-    private static $root_url = '';
+    private static string $root_url = '';
 
     /**
      * Dotclear admin URL
-     *
-     * @var        string
      */
-    private static $admin_url = '';
+    private static string $admin_url = '';
 
     /**
      * Plugin installation results
      *
      * @var        array<string, array<string, bool|string>>
      */
-    private static $plugins_install = [
+    private static array $plugins_install = [
         'success' => [],
         'failure' => [],
     ];
 
     /**
      * User email
-     *
-     * @var        string
      */
-    private static $u_email = '';
+    private static ?string $u_email = '';
 
     /**
      * User firstname
-     *
-     * @var        string
      */
-    private static $u_firstname = '';
+    private static ?string $u_firstname = '';
 
     /**
      * User lastname
-     *
-     * @var        string
      */
-    private static $u_name = '';
+    private static ?string $u_name = '';
 
     /**
      * User login
-     *
-     * @var        string
      */
-    private static $u_login = '';
+    private static ?string $u_login = '';
 
     /**
      * User password
-     *
-     * @var        string
      */
-    private static $u_pwd = '';
+    private static ?string $u_pwd = '';
 
     /**
      * User password verification
-     *
-     * @var        string
      */
-    private static $u_pwd2 = '';
+    private static ?string $u_pwd2 = '';
 
     public static function init(): bool
     {
@@ -129,14 +105,14 @@ class Install extends Process
 
         # Loading locales for detected language
         self::$dlang = Http::getAcceptLanguage();
-        if (self::$dlang != 'en') {
+        if (self::$dlang !== 'en') {
             L10n::init(self::$dlang);
             L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/date');
             L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/main');
             L10n::set(App::config()->l10nRoot() . '/' . self::$dlang . '/plugins');
         }
 
-        if (App::config()->masterKey() == '') {
+        if (App::config()->masterKey() === '') {
             self::$can_install = false;
             self::$err         = '<p>' . __('Please set a master key (DC_MASTER_KEY) in configuration file.') . '</p>';
         }
@@ -165,12 +141,12 @@ class Install extends Process
         }
 
         if (self::$can_install && !empty($_POST)) {
-            self::$u_email     = !empty($_POST['u_email']) ? $_POST['u_email'] : null;
-            self::$u_firstname = !empty($_POST['u_firstname']) ? $_POST['u_firstname'] : null;
-            self::$u_name      = !empty($_POST['u_name']) ? $_POST['u_name'] : null;
-            self::$u_login     = !empty($_POST['u_login']) ? $_POST['u_login'] : null;
-            self::$u_pwd       = !empty($_POST['u_pwd']) ? $_POST['u_pwd'] : null;
-            self::$u_pwd2      = !empty($_POST['u_pwd2']) ? $_POST['u_pwd2'] : null;
+            self::$u_email     = $_POST['u_email']     ?? null;
+            self::$u_firstname = $_POST['u_firstname'] ?? null;
+            self::$u_name      = $_POST['u_name']      ?? null;
+            self::$u_login     = $_POST['u_login']     ?? null;
+            self::$u_pwd       = $_POST['u_pwd']       ?? null;
+            self::$u_pwd2      = $_POST['u_pwd2']      ?? null;
 
             try {
                 # Check user information
@@ -204,7 +180,7 @@ class Install extends Process
 
                         // check if timezone is valid
                         // date_default_timezone_set throw E_NOTICE and/or E_WARNING if timezone is not valid and return false
-                        if (@date_default_timezone_set($_tz) !== false && $_tz) {
+                        if (@date_default_timezone_set($_tz) && $_tz) {
                             $default_tz = $_tz;
                         }
                     }
@@ -262,10 +238,10 @@ class Install extends Process
                     '%a, %Y-%m-%d', '%a, %m/%d/%Y', '%a, %d/%m/%Y', '%a, %Y/%m/%d', '%B %e, %Y', '%e %B, %Y', '%Y, %B %e', '%e. %B %Y',
                     '%A, %B %e, %Y', '%A, %e %B, %Y', '%A, %Y, %B %e', '%A, %Y, %B %e', '%A, %e. %B %Y', ];
                 $time_formats = ['%H:%M', '%I:%M', '%l:%M', '%Hh%M', '%Ih%M', '%lh%M'];
-                if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+                if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
                     $formatDate   = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $formatDate);
                     $date_formats = array_map(
-                        fn ($f) => str_replace('%e', '%#d', $f),
+                        fn ($f): string => str_replace('%e', '%#d', $f),
                         $date_formats
                     );
                 }
@@ -282,8 +258,8 @@ class Install extends Process
                 /* SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
                 so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
                  */
-                $csp_prefix = App::con()->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
-                $csp_suffix = App::con()->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
+                $csp_prefix = App::con()->driver() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
+                $csp_suffix = App::con()->driver() === 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
 
                 $blog_settings->system->put('csp_admin_on', true, 'boolean', 'Send CSP header (admin)', true, true);
                 $blog_settings->system->put('csp_admin_report_only', false, 'boolean', 'CSP Report only violations (admin)', true, true);
@@ -504,7 +480,7 @@ class Install extends Process
             $plugins_install_result = '';
             if (!empty(self::$plugins_install['success'])) {
                 $plugins_install_result .= '<div class="static-msg">' . __('Following plugins have been installed:') . '<ul>';
-                foreach (self::$plugins_install['success'] as $k => $v) {
+                foreach (array_keys(self::$plugins_install['success']) as $k) {
                     $plugins_install_result .= '<li>' . $k . '</li>';
                 }
                 $plugins_install_result .= '</ul></div>';

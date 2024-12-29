@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -279,7 +280,7 @@ class Langs extends Process
             }
         }
 
-        if (!empty($langs_list)) {
+        if ($langs_list !== []) {
             $options = [];
             $i       = 0;
             foreach ($langs_list as $lang_code => $lang) {

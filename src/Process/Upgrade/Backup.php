@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -80,8 +81,8 @@ class Backup extends Process
                 $archives[] = $v;
             }
         }
-        if (!empty($archives)) {
-            usort($archives, fn ($a, $b) => $a <=> $b);
+        if ($archives !== []) {
+            usort($archives, fn ($a, $b): int => $a <=> $b);
         }
 
         self::$archives = $archives;
@@ -100,7 +101,7 @@ class Backup extends Process
                 try {
                     @unlink(App::config()->backupRoot() . '/' . $b_file);
                     $done = true;
-                } catch(Exception) {
+                } catch (Exception) {
                     App::error()->add(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
                 }
             }
@@ -140,7 +141,7 @@ class Backup extends Process
 
     public static function render(): void
     {
-        if (empty(self::$archives)) {
+        if (self::$archives === []) {
             $items[] = (new Text('p', __('There are no backups available.')))
                 ->class('message');
         } else {

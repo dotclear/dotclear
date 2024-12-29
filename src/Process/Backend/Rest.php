@@ -17,6 +17,7 @@ use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Core\Upgrade\Update;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\File\File;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Network\Feed\Reader;
@@ -111,7 +112,7 @@ class Rest extends Process
 
         if (App::auth()->prefs()->dashboard->dcnews) {
             try {
-                if ('' == ($rss_news = App::backend()->resources()->entry('rss_news', 'Dotclear'))) {
+                if ('' === $rss_news = App::backend()->resources()->entry('rss_news', 'Dotclear')) {
                     throw new Exception();
                 }
                 $feed_reader = new Reader();
@@ -188,21 +189,19 @@ class Rest extends Process
                     'check' => true,
                     'ret'   => $ret,
                 ];
-            } else {
-                if (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
-                    if (!App::auth()->prefs()->interface->hidemoreinfo) {
-                        $ret = '<p class="info">' .
-                        sprintf(
-                            __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
-                            App::config()->nextRequiredPhp(),
-                            phpversion()
-                        ) .
-                        '</p>';
-                        $data = [
-                            'check' => true,
-                            'ret'   => $ret,
-                        ];
-                    }
+            } elseif (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
+                if (!App::auth()->prefs()->interface->hidemoreinfo) {
+                    $ret = '<p class="info">' .
+                    sprintf(
+                        __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
+                        App::config()->nextRequiredPhp(),
+                        phpversion()
+                    ) .
+                    '</p>';
+                    $data = [
+                        'check' => true,
+                        'ret'   => $ret,
+                    ];
                 }
             }
         }
@@ -235,28 +234,32 @@ class Rest extends Process
             throw new Exception('No store type');
         }
 
-        $mod = '';
-        $url = '';
-        if ($post['store'] == 'themes') {
+        if ($post['store'] === 'themes') {
             // load once themes
             if (App::themes()->isEmpty() && App::blog()->isDefined()) {
                 App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
             }
             $mod = App::themes();
             $url = App::blog()->settings()->system->store_theme_url;
-        } elseif ($post['store'] == 'plugins') {
+        } elseif ($post['store'] === 'plugins') {
             $mod = App::plugins();
             $url = App::blog()->settings()->system->store_plugin_url;
         } else {
+            $mod = [];
+            $url = '';
             # --BEHAVIOR-- restCheckStoreUpdate -- string, array<int,Modules>, array<int,string>
             App::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], [&$mod], [&$url]);
 
-            if (empty($mod) || empty($url)) {   // @phpstan-ignore-line
+            /**
+             * @var array<\Dotclear\Process\Backend\ModulesInterface>    $mod
+             * @var string                                               $url
+             */
+            if ($mod === [] || $url === '') {        // @phpstan-ignore-line
                 throw new Exception('Unknown store type');
             }
         }
 
-        $repo = new Store($mod, $url);
+        $repo = new Store($mod, $url);     // @phpstan-ignore-line
         $upd  = $repo->getDefines(true);
 
         $tmp = new ArrayObject($upd);
@@ -287,7 +290,7 @@ class Rest extends Process
      *
      * @return     array<string, mixed>    returned data
      */
-    public static function getPostById(array $get)
+    public static function getPostById(array $get): array
     {
         if (empty($get['id'])) {
             throw new Exception('No post ID');
@@ -306,12 +309,10 @@ class Rest extends Process
         }
 
         $metadata = [];
-        if ($rs->post_meta) {
-            if (($meta = @unserialize($rs->post_meta)) !== false) {
-                foreach ($meta as $K => $V) {
-                    foreach ($V as $v) {
-                        $metadata[$K] = $v;
-                    }
+        if ($rs->post_meta && ($meta = @unserialize($rs->post_meta)) !== false) {
+            foreach ($meta as $K => $V) {
+                foreach ($V as $v) {
+                    $metadata[$K] = $v;
                 }
             }
         }
@@ -364,7 +365,7 @@ class Rest extends Process
      *
      * @return     array<string, mixed>    returned data
      */
-    public static function getCommentById(array $get)
+    public static function getCommentById(array $get): array
     {
         if (empty($get['id'])) {
             throw new Exception('No comment ID');
@@ -418,7 +419,7 @@ class Rest extends Process
             $cur_cat->cat_title = $post['new_cat_title'];
             $cur_cat->cat_url   = '';
 
-            $parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
+            $parent_cat = $post['new_cat_parent'] ?? '';
 
             # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
             App::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
@@ -431,13 +432,13 @@ class Rest extends Process
 
         $cur = App::blog()->openPostCursor();
 
-        $cur->post_title        = !empty($post['post_title']) ? $post['post_title'] : '';
+        $cur->post_title        = $post['post_title'] ?? '';
         $cur->user_id           = App::auth()->userID();
-        $cur->post_content      = !empty($post['post_content']) ? $post['post_content'] : '';
-        $cur->cat_id            = !empty($post['cat_id']) ? (int) $post['cat_id'] : null;
-        $cur->post_format       = !empty($post['post_format']) ? $post['post_format'] : 'xhtml';
-        $cur->post_lang         = !empty($post['post_lang']) ? $post['post_lang'] : '';
-        $cur->post_status       = !empty($post['post_status']) ? (int) $post['post_status'] : App::blog()::POST_UNPUBLISHED;
+        $cur->post_content      = $post['post_content'] ?? '';
+        $cur->cat_id            = $post['cat_id']       ?? null;
+        $cur->post_format       = $post['post_format']  ?? 'xhtml';
+        $cur->post_lang         = $post['post_lang']    ?? '';
+        $cur->post_status       = $post['post_status']  ?? App::blog()::POST_UNPUBLISHED;
         $cur->post_open_comment = (int) App::blog()->settings()->system->allow_comments;
         $cur->post_open_tb      = (int) App::blog()->settings()->system->allow_trackbacks;
 
@@ -485,12 +486,12 @@ class Rest extends Process
         $file = null;
 
         try {
-            $file = App::media()->getFile((int) $id);
+            $file = App::media()->getFile($id);
         } catch (Exception) {
             // Ignore exceptions
         }
 
-        if ($file === null || $file->type != 'application/zip' || !$file->editable) {
+        if (!$file instanceof File || $file->type != 'application/zip' || !$file->editable) {
             throw new Exception('Not a valid file');
         }
 
@@ -513,12 +514,12 @@ class Rest extends Process
      */
     public static function getMeta(array $get): array
     {
-        $postid   = !empty($get['postId']) ? $get['postId'] : null;
-        $limit    = !empty($get['limit']) ? $get['limit'] : null;
-        $metaId   = !empty($get['metaId']) ? $get['metaId'] : null;
-        $metaType = !empty($get['metaType']) ? $get['metaType'] : null;
+        $postid   = $get['postId']   ?? null;
+        $limit    = $get['limit']    ?? null;
+        $metaId   = $get['metaId']   ?? null;
+        $metaType = $get['metaType'] ?? null;
 
-        $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
+        $sortby = $get['sortby'] ?? 'meta_type,asc';
 
         $rs = App::meta()->getMetadata([
             'meta_type' => $metaType,
@@ -569,7 +570,7 @@ class Rest extends Process
             throw new Exception('No post ID');
         }
 
-        if (empty($post['meta']) && $post['meta'] != '0') {
+        if (empty($post['meta']) && $post['meta'] !== '0') {
             throw new Exception('No meta');
         }
 
@@ -609,7 +610,7 @@ class Rest extends Process
             throw new Exception('No post ID');
         }
 
-        if (empty($post['metaId']) && $post['metaId'] != '0') {
+        if (empty($post['metaId']) && $post['metaId'] !== '0') {
             throw new Exception('No meta ID');
         }
 
@@ -631,15 +632,14 @@ class Rest extends Process
      * @param      array<string, string>    $get        The get
      *
      * @deprecated Since 2.29, use searchMetadata instead
-     *
-     * @return     XmlTag
      */
     public static function searchMeta(mixed $unused, array $get): XmlTag
     {
-        $q        = !empty($get['q']) ? $get['q'] : null;
-        $metaType = !empty($get['metaType']) ? $get['metaType'] : null;
+        $q = $get['q'] ?? null;
+        ;
+        $metaType = $get['metaType'] ?? null;
 
-        $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
+        $sortby = $get['sortby'] ?? 'meta_type,asc';
 
         $rs = App::meta()->getMetadata(['meta_type' => $metaType]);
         $rs = App::meta()->computeMetaStats($rs);
@@ -704,10 +704,10 @@ class Rest extends Process
      */
     public static function searchMetadata(array $get): array
     {
-        $q        = !empty($get['q']) ? $get['q'] : null;
-        $metaType = !empty($get['metaType']) ? $get['metaType'] : null;
+        $q        = $get['q']        ?? null;
+        $metaType = $get['metaType'] ?? null;
 
-        $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
+        $sortby = $get['sortby'] ?? 'meta_type,asc';
 
         $rs = App::meta()->getMetadata(['meta_type' => $metaType]);
         $rs = App::meta()->computeMetaStats($rs);
@@ -785,13 +785,11 @@ class Rest extends Process
             if ($k !== false) {
                 unset($toggles[$k]);
             }
-        } else {
+        } elseif ($k === false) {
             // false == unfold section ==> add it to unfolded list
-            if ($k === false) {
-                $toggles[] = $section;
-            }
+            $toggles[] = $section;
         }
-        App::auth()->prefs()->toggles->put('unfolded_sections', join(',', $toggles));
+        App::auth()->prefs()->toggles->put('unfolded_sections', implode(',', $toggles));
 
         return true;
     }

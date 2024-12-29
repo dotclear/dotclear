@@ -107,7 +107,7 @@ class Blogs implements BlogsInterface
 
         $res = [];
 
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $res[$rs->user_id] = [
                     'name'        => $rs->user_name,

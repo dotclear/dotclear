@@ -119,7 +119,7 @@ class Digests extends Process
 
     public static function render(): void
     {
-        if (!empty($_GET['download']) && preg_match('/^fmu_backup_[0-9]{14}.zip$/', (string) $_GET['download'])) {
+        if (!empty($_GET['download']) && preg_match('/^fmu_backup_\d{14}.zip$/', (string) $_GET['download'])) {
             $f = App::config()->varRoot() . DIRECTORY_SEPARATOR . $_GET['download'];
             if (is_file($f)) {
                 $c = (string) file_get_contents($f);
@@ -237,48 +237,46 @@ class Digests extends Process
                     ])
                     ->render();
             }
+        } elseif (file_exists(self::$path_backup)) {
+            echo (new Form('frm-erase'))
+                ->class('fieldset')
+                ->action(App::upgrade()->url()->get('upgrade.digests'))
+                ->method('post')
+                ->fields([
+                    (new Para())
+                        ->items([
+                            (new Checkbox('erase_backup'))
+                                ->value(1)
+                                ->label((new Label(__('Remove the backup digest file, I want to play again'), Label::INSIDE_TEXT_AFTER))),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Submit(['confirm'], __('Continue'))),
+                            App::nonce()->formNonce(),
+                        ]),
+                ])
+            ->render();
         } else {
-            if (file_exists(self::$path_backup)) {
-                echo (new Form('frm-erase'))
-                    ->class('fieldset')
-                    ->action(App::upgrade()->url()->get('upgrade.digests'))
-                    ->method('post')
-                    ->fields([
-                        (new Para())
-                            ->items([
-                                (new Checkbox('erase_backup'))
-                                    ->value(1)
-                                    ->label((new Label(__('Remove the backup digest file, I want to play again'), Label::INSIDE_TEXT_AFTER))),
-                            ]),
-                        (new Para())
-                            ->items([
-                                (new Submit(['confirm'], __('Continue'))),
-                                App::nonce()->formNonce(),
-                            ]),
-                    ])
+            echo (new Form('frm-disclaimer'))
+                ->class('fieldset')
+                ->action(App::upgrade()->url()->get('upgrade.digests'))
+                ->method('post')
+                ->fields([
+                    (new Div())
+                        ->items([(new Text(null, is_file(self::$path_disclaimer) ? (string) file_get_contents(self::$path_disclaimer) : '...'))]),
+                    (new Para())
+                        ->items([
+                            (new Checkbox('disclaimer_ok'))
+                                ->value(1)
+                                ->label((new Label(__('I have read and understood the disclaimer and wish to continue anyway.'), Label::INSIDE_TEXT_AFTER))),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Submit(['confirm'], __('Continue'))),
+                            App::nonce()->formNonce(),
+                        ]),
+                ])
                 ->render();
-            } else {
-                echo (new Form('frm-disclaimer'))
-                    ->class('fieldset')
-                    ->action(App::upgrade()->url()->get('upgrade.digests'))
-                    ->method('post')
-                    ->fields([
-                        (new Div())
-                            ->items([(new Text(null, is_file(self::$path_disclaimer) ? (string) file_get_contents(self::$path_disclaimer) : '...'))]),
-                        (new Para())
-                            ->items([
-                                (new Checkbox('disclaimer_ok'))
-                                    ->value(1)
-                                    ->label((new Label(__('I have read and understood the disclaimer and wish to continue anyway.'), Label::INSIDE_TEXT_AFTER))),
-                            ]),
-                        (new Para())
-                            ->items([
-                                (new Submit(['confirm'], __('Continue'))),
-                                App::nonce()->formNonce(),
-                            ]),
-                    ])
-                    ->render();
-            }
         }
 
         Page::close();
@@ -354,7 +352,7 @@ class Digests extends Process
      *
      * @return  string  False on error, zip name on success
      */
-    private static function backup(array $changes)
+    private static function backup(array $changes): string
     {
         $zip_name      = sprintf('fmu_backup_%s.zip', date('YmdHis'));
         $zip_file      = sprintf('%s/%s', App::config()->varRoot(), $zip_name);
@@ -364,7 +362,7 @@ class Digests extends Process
             'Dotclear version : ' . App::config()->dotclearVersion() . "\n\n";
         if (count($changes['removed'])) {
             $c_data .= "== Removed files ==\n";
-            foreach ($changes['removed'] as $k => $v) {
+            foreach (array_keys($changes['removed']) as $k) {
                 $c_data .= sprintf(" * %s\n", $k);
             }
             $c_data .= "\n";

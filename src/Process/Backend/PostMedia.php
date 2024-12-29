@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -34,9 +35,9 @@ class PostMedia extends Process
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        App::backend()->post_id   = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
-        App::backend()->media_id  = !empty($_REQUEST['media_id']) ? (int) $_REQUEST['media_id'] : null;
-        App::backend()->link_type = !empty($_REQUEST['link_type']) ? $_REQUEST['link_type'] : null;
+        App::backend()->post_id   = empty($_REQUEST['post_id']) ? null : (int) $_REQUEST['post_id'];
+        App::backend()->media_id  = empty($_REQUEST['media_id']) ? null : (int) $_REQUEST['media_id'];
+        App::backend()->link_type = $_REQUEST['link_type'] ?? null;
 
         if (!App::backend()->post_id) {
             exit;
@@ -68,7 +69,7 @@ class PostMedia extends Process
             }
 
             $f = App::media()->getPostMedia(App::backend()->post_id, App::backend()->media_id, App::backend()->link_type);
-            if (empty($f)) {
+            if ($f === []) {
                 App::backend()->post_id = App::backend()->media_id = null;
 
                 throw new Exception(__('This attachment does not exist'));

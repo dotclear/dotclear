@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -53,12 +54,12 @@ class Home extends Process
         $infos[] = (new li())->text(sprintf(__('Installed Dotclear version is %s'), App::config()->dotclearVersion()));
         $infos[] = (new li())->text(sprintf(__('Installed PHP version is %s, next Dotclear release required %s or earlier.'), phpversion(), App::config()->nextRequiredPhp()));
 
-        if (App::config()->adminUrl() == '') {
+        if (App::config()->adminUrl() === '') {
             $infos[] = (new li())->text(sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') . ' ' .
                 __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.'));
         }
 
-        if (App::config()->adminMailfrom() == 'dotclear@local') {
+        if (App::config()->adminMailfrom() === 'dotclear@local') {
             $infos[] = (new li())->text(sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_MAILFROM') . ' ' .
                 __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.'));
         }
@@ -71,7 +72,7 @@ class Home extends Process
             $infos[] = (new li())->text(sprintf(__('Backup directory "%s" does not exist or is not writable.'), App::config()->backupRoot()));
         }
 
-        if (App::con()->driver() == 'sqlite') {
+        if (App::con()->driver() === 'sqlite') {
             $infos[] = (new li())->text(__('Your are using Sqlite database driver, Database structure upgrade will NOT be performed.'));
         }
 

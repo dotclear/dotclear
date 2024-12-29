@@ -27,69 +27,53 @@ class Wizard extends Process
 {
     /**
      * Error description
-     *
-     * @var        string
      */
-    private static $err = '';
+    private static string $err = '';
 
     /**
      * DB driver name
-     *
-     * @var        string
      */
-    private static $DBDRIVER = 'mysqli';
+    private static string $DBDRIVER = 'mysqli';
 
     /**
      * DB host
-     *
-     * @var        string
      */
-    private static $DBHOST = '';
+    private static string $DBHOST = '';
 
     /**
      * DB name
-     *
-     * @var        string
      */
-    private static $DBNAME = '';
+    private static string $DBNAME = '';
 
     /**
      * DB credentials username
-     *
-     * @var        string
      */
-    private static $DBUSER = '';
+    private static string $DBUSER = '';
 
     /**
      * DB credentials password
-     *
-     * @var        string
      */
-    private static $DBPASSWORD = '';
+    private static string $DBPASSWORD = '';
 
     /**
      * DB tables prefix
-     *
-     * @var        string
      */
-    private static $DBPREFIX = 'dc_';
+    private static string $DBPREFIX = 'dc_';
 
     /**
      * Admin email
-     *
-     * @var        string
      */
-    private static $ADMINMAILFROM = '';
+    private static string $ADMINMAILFROM = '';
 
     public static function init(): bool
     {
-        if (!self::status(App::task()->checkContext('INSTALL') && App::config()->configPath() != '')) {
+        if (!self::status(App::task()->checkContext('INSTALL') && App::config()->configPath() !== '')) {
             throw new Exception('Not found', 404);
         }
 
         // Loading locales for detected language
         $dlang = Http::getAcceptLanguage();
-        if ($dlang != 'en') {
+        if ($dlang !== 'en') {
             L10n::init($dlang);
             L10n::set(App::config()->dotclearRoot() . '/locales/' . $dlang . '/main');
         }
@@ -113,13 +97,13 @@ class Wizard extends Process
         }
 
         # Uses HTML form or server variables (ie docker)
-        self::$DBDRIVER      = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : (!empty($_SERVER['DC_DBDRIVER']) ? $_SERVER['DC_DBDRIVER'] : 'mysqli');
-        self::$DBHOST        = !empty($_POST['DBHOST']) ? $_POST['DBHOST'] : (!empty($_SERVER['DC_DBHOST']) ? $_SERVER['DC_DBHOST'] : '');
-        self::$DBNAME        = !empty($_POST['DBNAME']) ? $_POST['DBNAME'] : (!empty($_SERVER['DC_DBNAME']) ? $_SERVER['DC_DBNAME'] : '');
-        self::$DBUSER        = !empty($_POST['DBUSER']) ? $_POST['DBUSER'] : (!empty($_SERVER['DC_DBUSER']) ? $_SERVER['DC_DBUSER'] : '');
-        self::$DBPASSWORD    = !empty($_POST['DBPASSWORD']) ? $_POST['DBPASSWORD'] : (!empty($_SERVER['DC_DBPASSWORD']) ? $_SERVER['DC_DBPASSWORD'] : '');
-        self::$DBPREFIX      = !empty($_POST['DBPREFIX']) ? $_POST['DBPREFIX'] : (!empty($_SERVER['DC_DBPREFIX']) ? $_SERVER['DC_DBPREFIX'] : 'dc_');
-        self::$ADMINMAILFROM = !empty($_POST['ADMINMAILFROM']) ? $_POST['ADMINMAILFROM'] : (!empty($_SERVER['DC_ADMINMAILFROM']) ? $_SERVER['DC_ADMINMAILFROM'] : '');
+        self::$DBDRIVER      = $_POST['DBDRIVER']      ?? $_SERVER['DC_DBDRIVER'] ?? 'mysqli';
+        self::$DBHOST        = $_POST['DBHOST']        ?? $_SERVER['DC_DBHOST'] ?? '';
+        self::$DBNAME        = $_POST['DBNAME']        ?? $_SERVER['DC_DBNAME'] ?? '';
+        self::$DBUSER        = $_POST['DBUSER']        ?? $_SERVER['DC_DBUSER'] ?? '';
+        self::$DBPASSWORD    = $_POST['DBPASSWORD']    ?? $_SERVER['DC_DBPASSWORD'] ?? '';
+        self::$DBPREFIX      = $_POST['DBPREFIX']      ?? $_SERVER['DC_DBPREFIX'] ?? 'dc_';
+        self::$ADMINMAILFROM = $_POST['ADMINMAILFROM'] ?? $_SERVER['DC_ADMINMAILFROM'] ?? '';
 
         if (!empty($_POST) || !empty($_SERVER['DC_DBDRIVER'])) {
             try {
@@ -141,7 +125,7 @@ class Wizard extends Process
                 try {
                     $con = App::newConnectionFromValues(self::$DBDRIVER, self::$DBHOST, self::$DBNAME, self::$DBUSER, self::$DBPASSWORD);
                 } catch (Exception $e) {
-                    throw new Exception('<p>' . __($e->getMessage()) . '</p>');
+                    throw new Exception('<p>' . __($e->getMessage()) . '</p>', (int) $e->getCode(), $e);
                 }
 
                 # Checks system capabilites
@@ -172,33 +156,33 @@ class Wizard extends Process
                 }
 
                 # Creates config.php file
+                $admin_url   = preg_replace('%install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
+                $admin_email = self::$ADMINMAILFROM ?: 'dotclear@' . $_SERVER['HTTP_HOST'];
+
                 $full_conf = (string) file_get_contents($config_in);
 
-                self::writeConfigValue('DC_DBDRIVER', self::$DBDRIVER, $full_conf);
-                self::writeConfigValue('DC_DBHOST', self::$DBHOST, $full_conf);
-                self::writeConfigValue('DC_DBUSER', self::$DBUSER, $full_conf);
-                self::writeConfigValue('DC_DBPASSWORD', self::$DBPASSWORD, $full_conf);
-                self::writeConfigValue('DC_DBNAME', self::$DBNAME, $full_conf);
-                self::writeConfigValue('DC_DBPREFIX', self::$DBPREFIX, $full_conf);
-
-                $admin_url = preg_replace('%install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
-                self::writeConfigValue('DC_ADMIN_URL', Http::getHost() . $admin_url, $full_conf);
-                $admin_email = !empty(self::$ADMINMAILFROM) ? self::$ADMINMAILFROM : 'dotclear@' . $_SERVER['HTTP_HOST'];
-                self::writeConfigValue('DC_ADMIN_MAILFROM', $admin_email, $full_conf);
-                self::writeConfigValue('DC_MASTER_KEY', md5(uniqid()), $full_conf);
+                $full_conf = self::writeConfigValue('DC_DBDRIVER', self::$DBDRIVER, $full_conf);
+                $full_conf = self::writeConfigValue('DC_DBHOST', self::$DBHOST, $full_conf);
+                $full_conf = self::writeConfigValue('DC_DBUSER', self::$DBUSER, $full_conf);
+                $full_conf = self::writeConfigValue('DC_DBPASSWORD', self::$DBPASSWORD, $full_conf);
+                $full_conf = self::writeConfigValue('DC_DBNAME', self::$DBNAME, $full_conf);
+                $full_conf = self::writeConfigValue('DC_DBPREFIX', self::$DBPREFIX, $full_conf);
+                $full_conf = self::writeConfigValue('DC_ADMIN_URL', Http::getHost() . $admin_url, $full_conf);
+                $full_conf = self::writeConfigValue('DC_ADMIN_MAILFROM', $admin_email, $full_conf);
+                $full_conf = self::writeConfigValue('DC_MASTER_KEY', md5(uniqid()), $full_conf);
 
                 # Fix path if config file has moved elsewhere and allow environment variables
-                self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins', $full_conf);
+                $full_conf = self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins', $full_conf);
                 if (!empty($_SERVER['DC_PLUGINS_ROOT']) && is_writable(dirname((string) $_SERVER['DC_PLUGINS_ROOT']))) {
-                    self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins' . PATH_SEPARATOR . $_SERVER['DC_PLUGINS_ROOT'], $full_conf);
+                    $full_conf = self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins' . PATH_SEPARATOR . $_SERVER['DC_PLUGINS_ROOT'], $full_conf);
                 }
-                self::writeConfigValue('DC_TPL_CACHE', App::config()->dotclearRoot() . '/cache', $full_conf);
+                $full_conf = self::writeConfigValue('DC_TPL_CACHE', App::config()->dotclearRoot() . '/cache', $full_conf);
                 if (!empty($_SERVER['DC_TPL_CACHE']) && is_writable(dirname((string) $_SERVER['DC_TPL_CACHE']))) {
-                    self::writeConfigValue('DC_TPL_CACHE', $_SERVER['DC_TPL_CACHE'], $full_conf);
+                    $full_conf = self::writeConfigValue('DC_TPL_CACHE', (string) $_SERVER['DC_TPL_CACHE'], $full_conf);
                 }
-                self::writeConfigValue('DC_VAR', App::config()->dotclearRoot() . '/var', $full_conf);
+                $full_conf = self::writeConfigValue('DC_VAR', App::config()->dotclearRoot() . '/var', $full_conf);
                 if (!empty($_SERVER['DC_VAR']) && is_writable(dirname((string) $_SERVER['DC_VAR']))) {
-                    self::writeConfigValue('DC_VAR', $_SERVER['DC_VAR'], $full_conf);
+                    $full_conf = self::writeConfigValue('DC_VAR', (string) $_SERVER['DC_VAR'], $full_conf);
                 }
 
                 $fp = @fopen(App::config()->configPath(), 'wb');
@@ -227,7 +211,7 @@ class Wizard extends Process
 
     public static function render(): void
     {
-        if (App::config()->configPath() == '') {
+        if (App::config()->configPath() === '') {
             throw new Exception('Not found', 404);
         }
 
@@ -321,15 +305,18 @@ class Wizard extends Process
     }
 
     /**
-     * Writes a configuration value.
+     * Writes a configuration value in configuration file content.
      *
-     * @param      string  $name   The name
-     * @param      string  $val    The value
-     * @param      string  $str    The string
+     * @param      string  $name                The name
+     * @param      string  $value               The value
+     * @param      string  $config_content      The configuration file content
+     *
+     * @return     string  The new configuration file content
      */
-    private static function writeConfigValue($name, $val, &$str): void
+    private static function writeConfigValue(string $name, string $value, string $config_content): string
     {
-        $val = str_replace("'", "\'", $val);
-        $str = preg_replace('/(\'' . $name . '\')(.*?)$/ms', '$1,\'' . $val . '\');', $str);    // @phpstan-ignore-line
+        $value = str_replace("'", "\'", $value);
+
+        return (string) preg_replace('/(\'' . $name . '\')(.*?)$/ms', '$1,\'' . $value . '\');', $config_content);
     }
 }

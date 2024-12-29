@@ -104,7 +104,7 @@ class User extends Process
                 $cur = App::auth()->openUserCursor();
 
                 $cur->user_id          = $_POST['user_id'];
-                $cur->user_super       = App::backend()->user_super = !empty($_POST['user_super']) ? 1 : 0;
+                $cur->user_super       = App::backend()->user_super = empty($_POST['user_super']) ? 0 : 1;
                 $cur->user_name        = App::backend()->user_name = Html::escapeHTML($_POST['user_name']);
                 $cur->user_firstname   = App::backend()->user_firstname = Html::escapeHTML($_POST['user_firstname']);
                 $cur->user_displayname = App::backend()->user_displayname = Html::escapeHTML($_POST['user_displayname']);
@@ -119,7 +119,7 @@ class User extends Process
                     $cur->user_super = App::backend()->user_super = true;
                 }
                 if (App::auth()->allowPassChange()) {
-                    $cur->user_change_pwd = !empty($_POST['user_change_pwd']) ? 1 : 0;
+                    $cur->user_change_pwd = empty($_POST['user_change_pwd']) ? 0 : 1;
                 }
 
                 if (!empty($_POST['new_pwd'])) {
@@ -451,7 +451,7 @@ class User extends Process
                 $permissions = App::users()->getUserPermissions(App::backend()->user_id);
                 $perm_types  = App::auth()->getPermissionsTypes();
 
-                if (count($permissions) === 0) {
+                if ($permissions === []) {
                     echo
                     '<p>' . __('No permissions so far.') . '</p>';
                 } else {
