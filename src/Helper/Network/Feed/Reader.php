@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -43,28 +44,22 @@ class Reader extends HttpClient
      *
      * @var        array<string, string>|null
      */
-    protected $validators = null;
+    protected $validators;
 
     /**
      * Cache directory path
-     *
-     * @var        string|null
      */
-    protected $cache_dir = null;
+    protected ?string $cache_dir = null;
 
     /**
      * Cache file prefix
-     *
-     * @var        string
      */
-    protected $cache_file_prefix = 'cbfeed';
+    protected string $cache_file_prefix = 'cbfeed';
 
     /**
      * Cache TTL (must be a negative string value as "-30 minutes")
-     *
-     * @var        string
      */
-    protected $cache_ttl = '-30 minutes';
+    protected string $cache_ttl = '-30 minutes';
 
     /**
      * Constructor.
@@ -133,14 +128,12 @@ class Reader extends HttpClient
      * a writable directory. Otherwise, returns false.
      *
      * @param string    $dir            Cache directory
-     *
-     * @return bool
      */
     public function setCacheDir(string $dir): bool
     {
         $this->cache_dir = null;
 
-        if (!empty($dir) && is_dir($dir) && is_writeable($dir)) {
+        if ($dir !== '' && is_dir($dir) && is_writable($dir)) {
             $this->cache_dir = $dir;
 
             return true;
@@ -160,7 +153,7 @@ class Reader extends HttpClient
     public function setCacheTTL(string $str): void
     {
         $str = trim($str);
-        if (!empty($str)) {
+        if ($str !== '') {
             if (!str_starts_with($str, '-')) {
                 $str = '-' . $str;
             }

@@ -95,7 +95,7 @@ class XmlRpc extends IntrospectionServer
      *
      * @return  mixed
      */
-    public function call(string $methodname, $args)
+    public function call(string $methodname, $args): mixed
     {
         try {
             $rsp = @parent::call($methodname, $args);

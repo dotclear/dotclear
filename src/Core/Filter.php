@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -27,15 +28,11 @@ class Filter implements FilterInterface
 {
     /**
      * The working blog instance
-     *
-     * @var     null|BlogInterface   $blog
      */
     private ?BlogInterface $blog = null;
 
     /**
      * The wiki instance.
-     *
-     * @var     null|WikiToHtml  $wiki
      */
     private ?WikiToHtml $wiki = null;
 
@@ -82,18 +79,18 @@ class Filter implements FilterInterface
 
     public function wikiTransform(string $str): string
     {
-        if (!isset($this->wiki)) {
+        if (!$this->wiki instanceof WikiToHtml) {
             $this->initWiki();
         }
 
-        return $this->wiki ? $this->wiki->transform($str) : $str;
+        return $this->wiki instanceof WikiToHtml ? $this->wiki->transform($str) : $str;
     }
 
     public function initWikiPost(): void
     {
         $this->initWiki();
 
-        if (!$this->wiki) {
+        if (!$this->wiki instanceof WikiToHtml) {
             return;
         }
 
@@ -150,7 +147,7 @@ class Filter implements FilterInterface
     {
         $this->initWiki();
 
-        if (!$this->wiki) {
+        if (!$this->wiki instanceof WikiToHtml) {
             return;
         }
 
@@ -200,7 +197,7 @@ class Filter implements FilterInterface
     {
         $this->initWiki();
 
-        if (!$this->wiki) {
+        if (!$this->wiki instanceof WikiToHtml) {
             return;
         }
 
@@ -252,7 +249,7 @@ class Filter implements FilterInterface
         }
 
         $post_id = abs((int) substr($url, 5));
-        if (!$post_id) {
+        if ($post_id === 0) {
             return [];
         }
 
@@ -263,11 +260,11 @@ class Filter implements FilterInterface
 
         $res = ['url' => $post->getURL()];
 
-        if ($content != $url) {
+        if ($content !== $url) {
             $res['title'] = Html::escapeHTML($post->post_title);
         }
 
-        if ($content == '' || $content == $url) {
+        if ($content === '' || $content === $url) {
             $res['content'] = Html::escapeHTML($post->post_title);
         }
 
@@ -293,8 +290,7 @@ class Filter implements FilterInterface
         $this->behavior->callBehavior('HTMLfilter', $options);
 
         $filter = new HtmlFilter((bool) $options['keep_aria'], (bool) $options['keep_data'], (bool) $options['keep_js']);
-        $str    = trim($filter->apply($str));
 
-        return $str;
+        return trim($filter->apply($str));
     }
 }

@@ -158,8 +158,6 @@ class UrlHandler
      * Gets the base URI of an URL handler.
      *
      * @param      string  $type   The type
-     *
-     * @return     string
      */
     public function getBase(string $type): string
     {
@@ -185,7 +183,7 @@ class UrlHandler
             $query_string = $this->parseQueryString();
 
             # Recreates some _GET and _REQUEST pairs
-            if (!empty($query_string)) {
+            if ($query_string !== []) {
                 foreach ($_GET as $k => $v) {
                     if (isset($_REQUEST[$k])) {
                         unset($_REQUEST[$k]);
@@ -227,7 +225,7 @@ class UrlHandler
      */
     public function getArgs(string $part, &$type, &$args): void
     {
-        if ($part == '') {
+        if ($part === '') {
             $type = null;
             $args = null;
 
@@ -243,7 +241,7 @@ class UrlHandler
                 $args = null;
 
                 return;
-            } elseif (preg_match('#' . $repr . '#', (string) $part, $m)) {
+            } elseif (preg_match('#' . $repr . '#', $part, $m)) {
                 $type = $k;
                 $args = $m[1] ?? null;
 
@@ -308,7 +306,7 @@ class UrlHandler
      */
     public function callDefaultHandler(?string $args = null): void
     {
-        if (!isset($this->default_handler)) {
+        if ($this->default_handler === null) {
             throw new Exception('Undefined default URL handler');
         }
 
@@ -330,13 +328,8 @@ class UrlHandler
 
                 // Decode the parameter's name
                 $elements[0] = rawurldecode($elements[0]);
-                if (!isset($elements[1])) {
-                    // No parameter value
-                    $res[$elements[0]] = null;
-                } else {
-                    // Decode parameter's value
-                    $res[$elements[0]] = urldecode($elements[1]);
-                }
+                // Decode parameter's value if set
+                $res[$elements[0]] = isset($elements[1]) ? urldecode($elements[1]) : null;
             }
         }
 

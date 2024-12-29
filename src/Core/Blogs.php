@@ -158,7 +158,7 @@ class Blogs implements BlogsInterface
                 $sql->columns($params['columns']);
             }
 
-            $sql->order(!empty($params['order']) ? $sql->escape($params['order']) : 'B.blog_id ASC');
+            $sql->order(empty($params['order']) ? 'B.blog_id ASC' : $sql->escape($params['order']));
 
             if (!empty($params['limit'])) {
                 $sql->limit($params['limit']);
@@ -275,7 +275,7 @@ class Blogs implements BlogsInterface
             ->where('blog_id = ' . $sql->quote($id))
             ->select();
 
-        return $rs && !$rs->isEmpty();
+        return $rs instanceof MetaRecord && !$rs->isEmpty();
     }
 
     public function countBlogPosts(string $id, ?string $type = null): int

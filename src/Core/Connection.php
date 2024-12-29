@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -41,8 +42,6 @@ abstract class Connection implements ConnectionInterface
      * @param   string  $password       Password
      * @param   bool    $persistent     Persistent connection
      * @param   string  $prefix         Database tables prefix
-     *
-     * @return ConnectionInterface
      */
     public static function init(string $driver, string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface
     {

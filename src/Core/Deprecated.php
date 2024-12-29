@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -24,8 +25,6 @@ class Deprecated implements DeprecatedInterface
 {
     /**
      * Purge limit checked.
-     *
-     * @var     bool    $purged
      */
     private static bool $purged = false;
 
@@ -46,16 +45,16 @@ class Deprecated implements DeprecatedInterface
         $title = '';
         $lines = [];
         foreach ($traces as $line) {
-            $class = !empty($line['class']) ? $line['class'] . '::' : '';
-            $func  = !empty($line['function']) ? $line['function'] . '() ' : '';
-            $file  = !empty($line['file']) ? $line['file'] . ':' : '';
-            $line  = !empty($line['line']) ? $line['line'] : '';
+            $class = empty($line['class']) ? '' : $line['class'] . '::';
+            $func  = empty($line['function']) ? '' : $line['function'] . '() ';
+            $file  = empty($line['file']) ? '' : $line['file'] . ':';
+            $line  = empty($line['line']) ? '' : $line['line'];
 
-            if ($replacement !== null && empty($lines)) {
+            if ($replacement !== null && $lines === []) {
                 $title = $class . $func . ' is deprecated' .
                     ($since !== null ? ' since version ' . $since : '') .
                     ($upto !== null ? ' and wil be removed in version ' . $upto : '') .
-                    (!empty($replacement) ? ', use ' . $replacement . ' as replacement' : '') .
+                    ($replacement === '' ? '' : ', use ' . $replacement . ' as replacement') .
                     '.';
             }
 
@@ -69,7 +68,7 @@ class Deprecated implements DeprecatedInterface
 
         self::purge();
 
-        if (!empty($title)) {
+        if ($title !== '') {
             array_unshift($lines, $title);
         }
 

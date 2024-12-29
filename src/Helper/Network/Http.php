@@ -42,11 +42,7 @@ class Http
     public static $reverse_proxy = false;
 
     /**
-     * Self root URI
-     *
-     * Returns current scheme, host and port.
-     *
-     * @return string
+     * Self root URI, returns current scheme, host and port.
      */
     public static function getHost(): string
     {
@@ -58,7 +54,7 @@ class Http
                 throw new Exception('Reverse proxy parametter is setted, header HTTP_X_FORWARDED_FOR is found but not the X-Forwarded-Proto. Please check your reverse proxy server settings');
             }
 
-            $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+            $scheme = (string) $_SERVER['HTTP_X_FORWARDED_PROTO'];
 
             if (isset($_SERVER['HTTP_HOST'])) {
                 $name_port_array = explode(':', (string) $_SERVER['HTTP_HOST']);
@@ -72,7 +68,7 @@ class Http
             $server_name = $name_port_array[0];
 
             $port = isset($name_port_array[1]) ? ':' . $name_port_array[1] : '';
-            if (($port == ':80' && $scheme == 'http') || ($port == ':443' && $scheme == 'https')) {
+            if (($port === ':80' && $scheme === 'http') || ($port === ':443' && $scheme === 'https')) {
                 $port = '';
             }
 
@@ -92,7 +88,7 @@ class Http
             $port   = '';
         } elseif (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
             $scheme = 'https';
-            $port   = !in_array($_SERVER['SERVER_PORT'], ['80', '443']) ? ':' . $_SERVER['SERVER_PORT'] : '';
+            $port   = in_array($_SERVER['SERVER_PORT'], ['80', '443']) ? '' : ':' . $_SERVER['SERVER_PORT'];
         } else {
             $scheme = 'http';
             $port   = ($_SERVER['SERVER_PORT'] != '80') ? ':' . $_SERVER['SERVER_PORT'] : '';
@@ -107,23 +103,19 @@ class Http
      * Returns current scheme and host from a static URL.
      *
      * @param string    $url URL to retrieve the host from.
-     *
-     * @return string
      */
     public static function getHostFromURL(string $url): string
     {
         preg_match('~^(?:((?:[a-z]+:)?//)|:(//))?(?:([^:\r\n]*?)/[^:\r\n]*|([^:\r\n]*))$~', $url, $matches);
         array_shift($matches);
 
-        return join('', $matches);
+        return implode('', $matches);
     }
 
     /**
      * Self URI
      *
      * Returns current URI with full hostname.
-     *
-     * @return string
      */
     public static function getSelfURI(): string
     {
@@ -138,8 +130,6 @@ class Http
      * Prepare a full redirect URI from a relative or absolute URL
      *
      * @param      string $relative_url Relative URL
-     *
-     * @return     string full URI
      */
     protected static function prepareRedirect(string $relative_url): string
     {
@@ -190,8 +180,6 @@ class Http
      *
      * @param string    $url        URL
      * @param string    $path       Path to append
-     *
-     * @return string
      */
     public static function concatURL(string $url, string $path): string
     {
@@ -211,8 +199,6 @@ class Http
      * Real IP
      *
      * Returns the real client IP (or tries to do its best).
-     *
-     * @return string
      */
     public static function realIP(): ?string
     {
@@ -225,8 +211,6 @@ class Http
      * Returns a "almost" safe client unique ID.
      *
      * @param string    $key        HMAC key
-     *
-     * @return string
      */
     public static function browserUID(string $key): string
     {
@@ -237,8 +221,6 @@ class Http
      * Client language
      *
      * Returns a two letters language code take from HTTP_ACCEPT_LANGUAGE.
-     *
-     * @return string
      */
     public static function getAcceptLanguage(): string
     {
@@ -247,7 +229,7 @@ class Http
         if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
             $accepted_languages       = explode(',', (string) $_SERVER['HTTP_ACCEPT_LANGUAGE']);
             $first_acccepted_language = explode(';', $accepted_languages[0]);
-            $client_language_code     = substr(trim((string) $first_acccepted_language[0]), 0, 2);
+            $client_language_code     = substr(trim($first_acccepted_language[0]), 0, 2);
         }
 
         return $client_language_code;
@@ -302,12 +284,12 @@ class Http
      */
     public static function cache(array $mod_files, array $mod_timestamps = []): void
     {
-        if (empty($mod_files)) {
+        if ($mod_files === []) {
             return;
         }
 
         // Replace each files in array by its last modification timestamp
-        array_walk($mod_files, function (&$mod_timestamp) {
+        array_walk($mod_files, function (&$mod_timestamp): void {
             $mod_timestamp = filemtime($mod_timestamp);
         });
 
@@ -355,7 +337,7 @@ class Http
      */
     public static function etag(...$args): void
     {
-        if (empty($args)) {
+        if ($args === []) {
             return;
         }
 
@@ -368,7 +350,7 @@ class Http
         # Do we have a previously sent content?
         if (!empty($_SERVER['HTTP_IF_NONE_MATCH'])) {
             foreach (explode(',', (string) $_SERVER['HTTP_IF_NONE_MATCH']) as $i) {
-                if (stripslashes(trim($i)) == $etag) {
+                if (stripslashes(trim($i)) === $etag) {
                     self::head(304, 'Not Modified');
                     exit;
                 }
@@ -450,18 +432,18 @@ class Http
      */
     public static function trimRequest(): void
     {
-        $cleanup = function (&$value) { $value = trim((string) $value); };
+        $cleanup = function (&$value): void { $value = trim((string) $value); };
 
-        if (!empty($_GET)) {
+        if ($_GET !== []) {
             array_walk_recursive($_GET, $cleanup);
         }
-        if (!empty($_POST)) {
+        if ($_POST !== []) {
             array_walk_recursive($_POST, $cleanup);
         }
-        if (!empty($_REQUEST)) {
+        if ($_REQUEST !== []) {
             array_walk_recursive($_REQUEST, $cleanup);
         }
-        if (!empty($_COOKIE)) {
+        if ($_COOKIE !== []) {
             array_walk_recursive($_COOKIE, $cleanup);
         }
     }

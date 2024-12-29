@@ -23,8 +23,6 @@ class RestServer implements RestInterface
 {
     /**
      * Response: XML.
-     *
-     * @var     XmlTag     $rsp
      */
     public XmlTag $rsp;
 
@@ -91,6 +89,8 @@ class RestServer implements RestInterface
 
             return call_user_func($this->functions[$name], $get, $post);
         }
+
+        return null;
     }
 
     /**
@@ -101,8 +101,6 @@ class RestServer implements RestInterface
      * @param   string  $encoding   Server charset
      * @param   int     $format     Response format
      * @param   mixed   $param  Supplemental parameter
-     *
-     * @return  bool
      */
     public function serve(string $encoding = 'UTF-8', int $format = self::DEFAULT_RESPONSE, $param = null): bool
     {
@@ -223,8 +221,6 @@ class RestServer implements RestInterface
 
     /**
      * Check if we need to serve REST requests.
-     *
-     * @return  bool
      */
     public function serveRestRequests(): bool
     {

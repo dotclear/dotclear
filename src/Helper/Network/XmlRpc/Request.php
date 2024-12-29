@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -50,8 +51,6 @@ class Request
      * Request length
      *
      * Returns {@link $xml} content length.
-     *
-     * @return int
      */
     public function getLength(): int
     {
@@ -62,8 +61,6 @@ class Request
      * Request XML
      *
      * Returns request XML version.
-     *
-     * @return string
      */
     public function getXml(): string
     {

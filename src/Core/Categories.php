@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -28,29 +29,21 @@ class Categories implements CategoriesInterface
 {
     /**
      * Table name.
-     *
-     * @var     string  $table
      */
     protected string $table;
 
     /**
      * Left cat field name (integer type).
-     *
-     * @var     string  $f_left
      */
     protected string $f_left = 'cat_lft';
 
     /**
      * Right cat field name (integer type).
-     *
-     * @var     string  f_right
      */
     protected string $f_right = 'cat_rgt';
 
     /**
      * Cat ID field name (integer type).
-     *
-     * @var     string  $f_id
      */
     protected string $f_id = 'cat_id';
 
@@ -90,12 +83,12 @@ class Categories implements CategoriesInterface
     {
         $fields = $this->getFields($fields, 'C2.');
 
-        $sql = 'SELECT C2.' . $this->f_id . ', C2.' . $this->f_left . ', C2.' . $this->f_right . ', COUNT(C1.' . $this->f_id . ') AS level ' . $fields . ' ' . 'FROM ' . $this->table . ' AS C1, ' . $this->table . ' AS C2 %s ' . 'WHERE C2.' . $this->f_left . ' BETWEEN C1.' . $this->f_left . ' AND C1.' . $this->f_right . ' ' . ' %s ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'GROUP BY C2.' . $this->f_id . ', C2.' . $this->f_left . ', C2.' . $this->f_right . ' ' . $fields . ' ' . ' %s ' . 'ORDER BY C2.' . $this->f_left . ' ' . ($sort == 'asc' ? 'ASC' : 'DESC') . ' ';
+        $sql = 'SELECT C2.' . $this->f_id . ', C2.' . $this->f_left . ', C2.' . $this->f_right . ', COUNT(C1.' . $this->f_id . ') AS level ' . $fields . ' ' . 'FROM ' . $this->table . ' AS C1, ' . $this->table . ' AS C2 %s ' . 'WHERE C2.' . $this->f_left . ' BETWEEN C1.' . $this->f_left . ' AND C1.' . $this->f_right . ' ' . ' %s ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'GROUP BY C2.' . $this->f_id . ', C2.' . $this->f_left . ', C2.' . $this->f_right . ' ' . $fields . ' ' . ' %s ' . 'ORDER BY C2.' . $this->f_left . ' ' . ($sort === 'asc' ? 'ASC' : 'DESC') . ' ';
 
         $from = $where = '';
         if ($start > 0) {
             $from  = ', ' . $this->table . ' AS C3';
-            $where = 'AND C3.' . $this->f_id . ' = ' . (string) $start . ' AND C1.' . $this->f_left . ' >= C3.' . $this->f_left . ' AND C1.' . $this->f_right . ' <= C3.' . $this->f_right;
+            $where = 'AND C3.' . $this->f_id . ' = ' . $start . ' AND C1.' . $this->f_left . ' >= C3.' . $this->f_left . ' AND C1.' . $this->f_right . ' <= C3.' . $this->f_right;
             $where .= $this->getCondition('AND', 'C3.');
         }
 
@@ -187,6 +180,8 @@ class Categories implements CategoriesInterface
 
             throw $e;
         }
+
+        return null;
     }
 
     public function updatePosition(int $id, int $left, int $right): void
@@ -284,7 +279,7 @@ class Categories implements CategoriesInterface
         $target_right = (int) $rs->{$this->f_right};
         $target_level = (int) $rs->level;
 
-        if ($node_left == $target_left
+        if ($node_left === $target_left
             || ($target_left >= $node_left && $target_left <= $node_right)
             || ($node_level === $target_level + 1 && $node_left > $target_left && $node_right < $target_right)
         ) {
@@ -334,18 +329,16 @@ class Categories implements CategoriesInterface
             throw new Exception('Cannot change position');
         }
 
-        if ($position == 'before') {
+        if ($position === 'before') {
             if ($A_left > $B_left) {
                 $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_right . ' = CASE WHEN ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $A_right . ' THEN ' . $this->f_right . ' - (' . ($A_left - $B_left) . ') ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . $B_left . ' AND ' . ($A_left - 1) . ' THEN ' . $this->f_right . ' +  ' . ($A_right - $A_left + 1) . ' ELSE ' . $this->f_right . ' END, ' . $this->f_left . ' = CASE WHEN ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $A_right . ' THEN ' . $this->f_left . ' - (' . ($A_left - $B_left) . ') ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . $B_left . ' AND ' . ($A_left - 1) . ' THEN ' . $this->f_left . ' + ' . ($A_right - $A_left + 1) . ' ELSE ' . $this->f_left . ' END ' . 'WHERE ' . $this->f_left . ' BETWEEN ' . $B_left . ' AND ' . $A_right;
             } else {
                 $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_right . ' = CASE WHEN ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $A_right . ' THEN ' . $this->f_right . ' + ' . (($B_left - $A_left) - ($A_right - $A_left + 1)) . ' ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . ($A_right + 1) . ' AND ' . ($B_left - 1) . ' THEN ' . $this->f_right . ' - (' . ($A_right - $A_left + 1) . ') ELSE ' . $this->f_right . ' END, ' . $this->f_left . ' = CASE WHEN ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $A_right . ' THEN ' . $this->f_left . ' + ' . (($B_left - $A_left) - ($A_right - $A_left + 1)) . ' ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . ($A_right + 1) . ' AND ' . ($B_left - 1) . ' THEN ' . $this->f_left . ' - (' . ($A_right - $A_left + 1) . ') ELSE ' . $this->f_left . ' END ' . 'WHERE ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . ($B_left - 1);
             }
+        } elseif ($A_left > $B_left) {
+            $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_right . ' = CASE WHEN ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $A_right . ' THEN ' . $this->f_right . ' - (' . ($A_left - $B_left - ($B_right - $B_left + 1)) . ') ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . ($B_right + 1) . ' AND ' . ($A_left - 1) . ' THEN ' . $this->f_right . ' +  ' . ($A_right - $A_left + 1) . ' ELSE ' . $this->f_right . ' END, ' . $this->f_left . ' = CASE WHEN ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $A_right . ' THEN ' . $this->f_left . ' - (' . ($A_left - $B_left - ($B_right - $B_left + 1)) . ') ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . ($B_right + 1) . ' AND ' . ($A_left - 1) . ' THEN ' . $this->f_left . ' + ' . ($A_right - $A_left + 1) . ' ELSE ' . $this->f_left . ' END ' . 'WHERE ' . $this->f_left . ' BETWEEN ' . ($B_right + 1) . ' AND ' . $A_right;
         } else {
-            if ($A_left > $B_left) {
-                $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_right . ' = CASE WHEN ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $A_right . ' THEN ' . $this->f_right . ' - (' . ($A_left - $B_left - ($B_right - $B_left + 1)) . ') ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . ($B_right + 1) . ' AND ' . ($A_left - 1) . ' THEN ' . $this->f_right . ' +  ' . ($A_right - $A_left + 1) . ' ELSE ' . $this->f_right . ' END, ' . $this->f_left . ' = CASE WHEN ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $A_right . ' THEN ' . $this->f_left . ' - (' . ($A_left - $B_left - ($B_right - $B_left + 1)) . ') ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . ($B_right + 1) . ' AND ' . ($A_left - 1) . ' THEN ' . $this->f_left . ' + ' . ($A_right - $A_left + 1) . ' ELSE ' . $this->f_left . ' END ' . 'WHERE ' . $this->f_left . ' BETWEEN ' . ($B_right + 1) . ' AND ' . $A_right;
-            } else {
-                $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_right . ' = CASE WHEN ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $A_right . ' THEN ' . $this->f_right . ' + ' . ($B_right - $A_right) . ' ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . ($A_right + 1) . ' AND ' . $B_right . ' THEN ' . $this->f_right . ' - (' . ($A_right - $A_left + 1) . ') ELSE ' . $this->f_right . ' END, ' . $this->f_left . ' = CASE WHEN ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $A_right . ' THEN ' . $this->f_left . ' + ' . ($B_right - $A_right) . ' ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . ($A_right + 1) . ' AND ' . $B_right . ' THEN ' . $this->f_left . ' - (' . ($A_right - $A_left + 1) . ') ELSE ' . $this->f_left . ' END ' . 'WHERE ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $B_right;
-            }
+            $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_right . ' = CASE WHEN ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $A_right . ' THEN ' . $this->f_right . ' + ' . ($B_right - $A_right) . ' ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . ($A_right + 1) . ' AND ' . $B_right . ' THEN ' . $this->f_right . ' - (' . ($A_right - $A_left + 1) . ') ELSE ' . $this->f_right . ' END, ' . $this->f_left . ' = CASE WHEN ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $A_right . ' THEN ' . $this->f_left . ' + ' . ($B_right - $A_right) . ' ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . ($A_right + 1) . ' AND ' . $B_right . ' THEN ' . $this->f_left . ' - (' . ($A_right - $A_left + 1) . ') ELSE ' . $this->f_left . ' END ' . 'WHERE ' . $this->f_left . ' BETWEEN ' . $A_left . ' AND ' . $B_right;
         }
 
         $sql .= $this->getCondition();

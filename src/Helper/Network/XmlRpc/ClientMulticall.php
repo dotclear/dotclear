@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -43,7 +44,6 @@ class ClientMulticall extends Client
      * $r = $o->query();
      * ```
      *
-     * @param string    $method
      * @param mixed     $args
      */
     public function addCall(string $method, ...$args): void

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -18,50 +19,36 @@ class Date
 {
     /**
      * Date year part
-     *
-     * @var string
      */
     protected string $year;
 
     /**
      * Date month part
-     *
-     * @var string
      */
     protected string $month;
 
     /**
      * Date day part
-     *
-     * @var string
      */
     protected string $day;
 
     /**
      * Date hour part
-     *
-     * @var string
      */
     protected string $hour;
 
     /**
      * Date minute part
-     *
-     * @var string
      */
     protected string $minute;
 
     /**
      * Date second part
-     *
-     * @var string
      */
     protected string $second;
 
     /**
      * Date timestamp
-     *
-     * @var int
      */
     protected int $ts;
 
@@ -100,8 +87,6 @@ class Date
      * ISO Date
      *
      * Returns the date in ISO-8601 format.
-     *
-     * @return string
      */
     public function getIso(): string
     {
@@ -112,8 +97,6 @@ class Date
      * XML Date
      *
      * Returns the XML fragment for XML-RPC message inclusion.
-     *
-     * @return string
      */
     public function getXml(): string
     {
@@ -124,8 +107,6 @@ class Date
      * Timestamp
      *
      * Returns the date timestamp (Unix).
-     *
-     * @return int
      */
     public function getTimestamp(): int
     {

@@ -94,11 +94,11 @@ class Parser
             return;
         }
 
-        if (preg_match('/<rdf:RDF/', (string) $data)) {
+        if (preg_match('/<rdf:RDF/', $data)) {
             $this->parseRSSRDF();
-        } elseif (preg_match('/<rss/', (string) $data)) {
+        } elseif (preg_match('/<rss/', $data)) {
             $this->parseRSS();
-        } elseif (preg_match('!www.w3.org/2005/Atom!', (string) $data)) {
+        } elseif (preg_match('!www.w3.org/2005/Atom!', $data)) {
             $this->parseAtom10();
         } else {
             $this->parseAtom03();
@@ -287,10 +287,8 @@ class Parser
             $item->TS          = strtotime($item->pubdate);
 
             $item->subject = [];
-            if ($children = $i->children('http://purl.org/dc/elements/1.1/')) {
-                if ($children->subject) {
-                    $item->subject = $this->nodes2array($children->subject);
-                }
+            if (($children = $i->children('http://purl.org/dc/elements/1.1/')) && $children->subject) {
+                $item->subject = $this->nodes2array($children->subject);
             }
 
             $this->items[] = $item;
@@ -347,14 +345,12 @@ class Parser
             $item->creator     = (string) $i->author?->name;
             $item->description = (string) $i->summary;
             $item->content     = (string) $i->content;
-            $item->pubdate     = !empty($i->published) ? (string) $i->published : (string) $i->updated;
+            $item->pubdate     = empty($i->published) ? (string) $i->updated : (string) $i->published;
             $item->TS          = strtotime($item->pubdate);
 
             $item->subject = [];
-            if ($children = $i->children('http://purl.org/dc/elements/1.1/')) {
-                if ($children->subject) {
-                    $item->subject = $this->nodes2array($children->subject);
-                }
+            if (($children = $i->children('http://purl.org/dc/elements/1.1/')) && $children->subject) {
+                $item->subject = $this->nodes2array($children->subject);
             }
 
             $this->items[] = $item;

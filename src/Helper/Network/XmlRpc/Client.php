@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -80,7 +81,6 @@ class Client extends HttpClient
      * $r = $o->query('method1','hello','world');
      * ```
      *
-     * @param string                    $method
      * @param array<string, mixed>      $args
      *
      * @return mixed

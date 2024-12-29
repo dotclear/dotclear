@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -32,8 +33,6 @@ class Base64
      * XML Data
      *
      * Returns the XML fragment for XML-RPC message inclusion.
-     *
-     * @return string
      */
     public function getXml(): string
     {

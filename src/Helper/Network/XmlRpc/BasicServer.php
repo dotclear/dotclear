@@ -42,13 +42,6 @@ class BasicServer
     protected $data;
 
     /**
-     * Server encoding
-     *
-     * @var string
-     */
-    protected $encoding;
-
-    /**
      * Returned message
      *
      * @var Message
@@ -76,9 +69,8 @@ class BasicServer
      * @param mixed     $data            Server data
      * @param string    $encoding        Server encoding
      */
-    public function __construct($callbacks = false, $data = false, string $encoding = 'UTF-8')
+    public function __construct($callbacks = false, $data = false, protected string $encoding = 'UTF-8')
     {
-        $this->encoding = $encoding;
         $this->setCapabilities();
         if ($callbacks) {
             $this->callbacks = $callbacks;
@@ -204,10 +196,8 @@ class BasicServer
      *
      * @param string                        $methodname      Method name
      * @param array<int|string, mixed>      $args            Method arguments
-     *
-     * @return mixed
      */
-    protected function call(string $methodname, array $args)
+    protected function call(string $methodname, array $args): mixed
     {
         if (!$this->hasMethod($methodname)) {
             throw new XmlRpcException('server error. requested method "' . $methodname . '" does not exist.', -32601);
@@ -283,8 +273,6 @@ class BasicServer
      * Returns true if the server has the given method <var>$method</var>
      *
      * @param string    $method        Method name
-     *
-     * @return bool
      */
     protected function hasMethod(string $method): bool
     {

@@ -110,7 +110,7 @@ class Search extends Process
         App::backend()->qtype = $_REQUEST['qtype'] ?? 'p';
         App::backend()->q     = Html::escapeHTML(App::backend()->q);
 
-        if (!empty(App::backend()->q) && !in_array(App::backend()->qtype, App::backend()->qtype_combo)) {
+        if (App::backend()->q !== '' && !in_array(App::backend()->qtype, App::backend()->qtype_combo)) {
             App::backend()->qtype = 'p';
         }
 

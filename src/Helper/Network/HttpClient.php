@@ -127,10 +127,8 @@ class HttpClient extends Socket
      * HTTP accept header
      *
      * Composed with $mime_types (see above)
-     *
-     * @var string
      */
-    protected $accept = '';
+    protected string $accept = '';
 
     /**
      * HTTP accept encoding
@@ -311,14 +309,14 @@ class HttpClient extends Socket
      *
      * @var string|null
      */
-    protected $output = null;
+    protected $output;
 
     /**
      * Output resource
      *
      * @var resource|null|false
      */
-    protected $output_h = null;
+    protected $output_h;
 
     /**
      * Constructor.
@@ -361,8 +359,6 @@ class HttpClient extends Socket
      *
      * @param string                        $path            Request path
      * @param false|array<string, mixed>    $data            Request parameters
-     *
-     * @return bool
      */
     public function get(string $path, $data = false): bool
     {
@@ -387,8 +383,6 @@ class HttpClient extends Socket
      * @param string                        $path            Request path
      * @param array<string, mixed>|string   $data            Request parameters
      * @param string                        $charset         Request charset
-     *
-     * @return bool
      */
     public function post(string $path, $data, ?string $charset = null): bool
     {
@@ -409,8 +403,6 @@ class HttpClient extends Socket
      * array of arguments.
      *
      * @param array<string, mixed>|string        $data            Query data
-     *
-     * @return string
      */
     protected function buildQueryString($data): string
     {
@@ -438,12 +430,10 @@ class HttpClient extends Socket
      * Do Request
      *
      * Sends HTTP request and stores status, headers, content object properties.
-     *
-     * @return bool
      */
     protected function doRequest(): bool
     {
-        if (isset($this->proxy_host) && isset($this->proxy_port)) {
+        if ($this->proxy_host !== null && $this->proxy_port !== null) {
             $this->_host      = $this->proxy_host;
             $this->_port      = $this->proxy_port;
             $this->_transport = '';
@@ -481,7 +471,7 @@ class HttpClient extends Socket
                 // Read headers
                 if ($in_headers) {
                     $line = rtrim((string) $line, "\r\n");
-                    if ($line == '') {
+                    if ($line === '') {
                         $in_headers = false;
                         $this->debug('Received Headers', $this->headers);
                         if ($this->headers_only) {
@@ -495,8 +485,8 @@ class HttpClient extends Socket
                         // Skip to the next header
                         continue;
                     }
-                    $key = strtolower(trim((string) $m[1]));
-                    $val = trim((string) $m[2]);
+                    $key = strtolower(trim($m[1]));
+                    $val = trim($m[2]);
 
                     // Deal with the possibility of multiple headers of same name
                     if (isset($this->headers[$key])) {
@@ -565,19 +555,17 @@ class HttpClient extends Socket
             $redir_path = '';
             $redir_user = '';
             $redir_pass = '';
-            if ($location || $uri) {
-                if (self::readUrl($location . $uri, $redir_ssl, $redir_host, $redir_port, $redir_path, $redir_user, $redir_pass)) {
-                    // If we try to move on another host, remove cookies, user and pass
-                    if ($redir_host !== $this->host || $redir_port !== $this->port) {
-                        $this->cookies = [];
-                        $this->setAuthorization(null, null);
-                        $this->setHost($redir_host, $redir_port);
-                    }
-                    $this->useSSL($redir_ssl);
-                    $this->debug('Redirect to: ' . $location . $uri);
-
-                    return $this->get($redir_path);
+            if (($location || $uri) && self::readUrl($location . $uri, $redir_ssl, $redir_host, $redir_port, $redir_path, $redir_user, $redir_pass)) {
+                // If we try to move on another host, remove cookies, user and pass
+                if ($redir_host !== $this->host || $redir_port !== $this->port) {
+                    $this->cookies = [];
+                    $this->setAuthorization(null, null);
+                    $this->setHost($redir_host, $redir_port);
                 }
+                $this->useSSL($redir_ssl);
+                $this->debug('Redirect to: ' . $location . $uri);
+
+                return $this->get($redir_path);
             }
             $this->redirect_count = 0;
         }
@@ -596,11 +584,7 @@ class HttpClient extends Socket
     {
         $headers = [];
 
-        if (isset($this->proxy_host)) {
-            $path = $this->getRequestURL();
-        } else {
-            $path = $this->path;
-        }
+        $path = $this->proxy_host !== null ? $this->getRequestURL() : $this->path;
 
         // Using 1.1 leads to all manner of problems, such as "chunked" encoding
         $headers[] = $this->method . ' ' . $path . ' HTTP/1.0';
@@ -632,10 +616,10 @@ class HttpClient extends Socket
         if (isset($_SERVER['REMOTE_ADDR'])) {
             $xforward[] = $_SERVER['REMOTE_ADDR'];
         }
-        if (isset($this->proxy_host) && isset($_SERVER['SERVER_ADDR'])) {
+        if ($this->proxy_host !== null && isset($_SERVER['SERVER_ADDR'])) {
             $xforward[] = $_SERVER['SERVER_ADDR'];
         }
-        if (count($xforward)) {
+        if ($xforward !== []) {
             $headers[] = 'X-Forwarded-For: ' . implode(', ', $xforward);
         }
 
@@ -708,7 +692,7 @@ class HttpClient extends Socket
      *
      * @param string    $content                Data content
      */
-    protected function outputWrite($content): void
+    protected function outputWrite(string $content): void
     {
         if ($this->output && is_resource($this->output_h)) {
             fwrite($this->output_h, $content);
@@ -722,8 +706,6 @@ class HttpClient extends Socket
      *
      * Returns the status code of the response - 200 means OK, 404 means file not
      * found, etc.
-     *
-     * @return int
      */
     public function getStatus(): int
     {
@@ -734,8 +716,6 @@ class HttpClient extends Socket
      * Get Content
      *
      * Returns the content of the HTTP response. This is usually an HTML document.
-     *
-     * @return string
      */
     public function getContent(): string
     {
@@ -763,7 +743,7 @@ class HttpClient extends Socket
      *
      * @return string|false
      */
-    public function getHeader($header)
+    public function getHeader($header): bool|string
     {
         $header = strtolower($header);
 
@@ -786,8 +766,6 @@ class HttpClient extends Socket
      * Request URL
      *
      * Returns the full URL that has been requested.
-     *
-     * @return string
      */
     public function getRequestURL(): string
     {
@@ -795,9 +773,8 @@ class HttpClient extends Socket
         if (!$this->use_ssl && $this->port != 80 || $this->use_ssl && $this->port != 443) {
             $url .= ':' . $this->port;
         }
-        $url .= $this->path;
 
-        return $url;
+        return $url . $this->path;
     }
 
     /**
@@ -1044,10 +1021,8 @@ class HttpClient extends Socket
      *
      * @param string    $url                Request URL
      * @param string    $output             Optionnal output stream
-     *
-     * @return string|false
      */
-    public static function quickGet(string $url, ?string $output = null)
+    public static function quickGet(string $url, ?string $output = null): false|string
     {
         $path = '';
         if (($client = self::initClient($url, $path)) === false) {
@@ -1068,10 +1043,8 @@ class HttpClient extends Socket
      * @param string                $url               Request URL
      * @param array<string, mixed>  $data              Array of parameters
      * @param string                $output            Optionnal output stream
-     *
-     * @return string|false
      */
-    public static function quickPost(string $url, array $data, ?string $output = null)
+    public static function quickPost(string $url, array $data, ?string $output = null): false|string
     {
         $path = '';
         if (($client = self::initClient($url, $path)) === false) {
@@ -1093,7 +1066,7 @@ class HttpClient extends Socket
      *
      * @return HttpClient|false
      */
-    public static function initClient(string $url, string &$path)
+    public static function initClient(string $url, string &$path): false|HttpClient
     {
         $ssl  = false;
         $host = '';
@@ -1126,8 +1099,6 @@ class HttpClient extends Socket
      * @param string    $path            Path
      * @param string    $user            Username
      * @param string    $pass            Password
-     *
-     * @return boolean
      *
      * @phpstan-param-out string|null  $user
      * @phpstan-param-out string|null  $pass

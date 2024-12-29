@@ -184,7 +184,7 @@ class Socket
      *
      * @return    Iterator|false
      */
-    public function open()
+    public function open(): false|Iterator
     {
         $errno  = $errstr = null;
         $handle = @fsockopen($this->_transport . $this->_host, $this->_port, $errno, $errstr, (float) $this->_timeout);
@@ -239,7 +239,7 @@ class Socket
      *
      * @return    Iterator|false
      */
-    public function write($data)
+    public function write($data): false|Iterator
     {
         if (!$this->isOpen()) {
             return false;
@@ -277,7 +277,7 @@ class Socket
      *
      * @return    Iterator|false
      */
-    protected function iterator(): bool|Iterator
+    protected function iterator(): false|Iterator
     {
         if (!$this->isOpen() || is_null($this->_handle)) {
             return false;

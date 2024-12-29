@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -120,10 +121,8 @@ class IntrospectionServer extends BasicServer
      *
      * @param string        $methodname      Method name
      * @param mixed         $args            Arguments
-     *
-     * @return mixed
      */
-    protected function call(string $methodname, $args)
+    protected function call(string $methodname, $args): mixed
     {
         // Make sure it's in an array
         $params = [];
@@ -167,8 +166,6 @@ class IntrospectionServer extends BasicServer
      *
      * @param array<int, mixed>     $args             Method given arguments
      * @param array<string, mixed>  $signature        Method defined arguments
-     *
-     * @return bool
      */
     protected function checkArgs(array $args, array $signature): bool
     {
@@ -283,8 +280,6 @@ class IntrospectionServer extends BasicServer
      * This method return given XML-RPC method help string.
      *
      * @param string    $method        Method name
-     *
-     * @return string
      */
     protected function methodHelp(string $method): string
     {

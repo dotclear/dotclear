@@ -43,7 +43,7 @@ class Mail
          */
         $user_defined_mail = function_exists('_mail') ? '_mail' : null;
 
-        $eol = trim((string) ini_get('sendmail_path')) ? "\n" : "\r\n";
+        $eol = trim((string) ini_get('sendmail_path')) !== '' ? "\n" : "\r\n";
 
         if (is_array($headers)) {
             $headers = implode($eol, $headers);
@@ -71,7 +71,7 @@ class Mail
      *
      * @return array<string, mixed>|false
      */
-    public static function getMX(string $host)
+    public static function getMX(string $host): false|array
     {
         if (!getmxrr($host, $mx_hosts, $mx_weights) || count($mx_hosts) === 0) {
             return false;
@@ -90,8 +90,6 @@ class Mail
      *
      * @param string   $str     String to encode
      * @param string   $charset Charset (default UTF-8)
-     *
-     * @return string
      */
     public static function B64Header(string $str, string $charset = 'UTF-8'): string
     {

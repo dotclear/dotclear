@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -29,10 +30,8 @@ class Iterator implements \Iterator
 
     /**
      * Current index position
-     *
-     * @var int
      */
-    protected $_index;
+    protected int $_index;
 
     /**
      * Constructor

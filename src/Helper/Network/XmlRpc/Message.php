@@ -22,10 +22,8 @@ class Message
 {
     /**
      * Brut XML message
-     *
-     * @var string
      */
-    protected $brutxml;
+    protected string $brutxml;
 
     /**
      * Type of message - methodCall / methodResponse / fault
@@ -119,14 +117,12 @@ class Message
 
     /**
      * Message parser
-     *
-     * @return bool
      */
     public function parse(): bool
     {
         // first remove the XML declaration
-        $this->message = (string) preg_replace('/<\?xml(.*)?\?>/', '', (string) $this->message);
-        if (trim($this->message) == '') {
+        $this->message = (string) preg_replace('/<\?xml(.*)?\?>/', '', $this->message);
+        if (trim($this->message) === '') {
             throw new Exception('XML Parser Error. Empty message');
         }
 
@@ -134,7 +130,7 @@ class Message
         $header = (string) preg_replace('/^<!DOCTYPE[^>]*+>/im', '', substr($this->message, 0, 200), 1);
 
         $xml = trim(substr_replace($this->message, $header, 0, 200));
-        if ($xml == '') {
+        if ($xml === '') {
             throw new Exception('XML Parser Error.');
         }
 
@@ -142,7 +138,7 @@ class Message
         $root_tag = substr($xml, 0, strcspn(substr($xml, 0, 20), "> \t\r\n"));
 
         // Reject a second DTD.
-        if (strtoupper($root_tag) == '<!DOCTYPE') {
+        if (strtoupper($root_tag) === '<!DOCTYPE') {
             throw new Exception('XML Parser Error.');
         }
 
@@ -178,7 +174,7 @@ class Message
         );
         xml_set_character_data_handler($this->_parser, $this->cdata(...));
 
-        if (!xml_parse($this->_parser, $this->message)) {
+        if (xml_parse($this->_parser, $this->message) === 0) {
             $c = xml_get_error_code($this->_parser);
             $e = xml_error_string($c);
             $e .= ' on line ' . xml_get_current_line_number($this->_parser);
@@ -266,7 +262,7 @@ class Message
 
                 break;
             case 'string':
-                $value                     = (string) trim((string) $this->_currentTagContents);
+                $value                     = trim((string) $this->_currentTagContents);
                 $this->_currentTagContents = '';
                 $valueFlag                 = true;
 
@@ -279,7 +275,7 @@ class Message
                 break;
             case 'value':
                 # "If no type is indicated, the type is string."
-                if (trim($this->_currentTagContents) != '') {
+                if (trim($this->_currentTagContents) !== '') {
                     $value                     = (string) $this->_currentTagContents;
                     $this->_currentTagContents = '';
                     $valueFlag                 = true;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -85,8 +86,6 @@ class Core extends Container
 
     /**
      * Core "singleton" instance.
-     *
-     * @var    Core  $instance
      */
     protected static Core $instance;
 
@@ -136,8 +135,8 @@ class Core extends Container
     {
         return [    // @phpstan-ignore-line
             ConfigInterface::class     => fn ($container) => $container->getConfig(),
-            ConnectionInterface::class => function ($container, string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = '') {
-                if (empty($driver)) {
+            ConnectionInterface::class => function ($container, string $driver = '', string $host = '', string $database = '', string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface {
+                if ($driver === '') {
                     $driver     = $container->config()->dbDriver();
                     $host       = $container->config()->dbHost();
                     $database   = $container->config()->dbName();

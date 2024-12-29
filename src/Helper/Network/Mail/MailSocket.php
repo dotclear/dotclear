@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -28,15 +29,11 @@ class MailSocket
 
     /**
      * Connection timeout (in seconds)
-     *
-     * @var        int
      */
     public static int $timeout = 10;
 
     /**
      * SMTP Relay to user
-     *
-     * @var        string
      */
     public static ?string $smtp_relay = null;
 
@@ -153,13 +150,13 @@ class MailSocket
                 $from = '';
 
                 if (preg_match('/^from: (.+?)$/msi', $header, $m)) {
-                    $from = trim((string) $m[1]);
+                    $from = trim($m[1]);
                 }
 
                 if (preg_match('/(?:<)(.+?)(?:$|>)/si', $from, $m)) {
-                    $from = trim((string) $m[1]);
+                    $from = trim($m[1]);
                 } elseif (preg_match('/^(.+?)\(/si', $from, $m)) {
-                    $from = trim((string) $m[1]);
+                    $from = trim($m[1]);
                 } elseif (!Text::isEmail($from)) {
                     $from = '';
                 }
@@ -184,8 +181,6 @@ class MailSocket
      *
      * @param      string  $out    The out
      * @param      string  $data   The received data
-     *
-     * @return     bool
      */
     private static function cmd(string $out, string &$data = ''): bool
     {
@@ -194,17 +189,11 @@ class MailSocket
         }
         $data = self::data();
 
-        if (!str_starts_with($data, '250')) {
-            return false;
-        }
-
-        return true;
+        return str_starts_with($data, '250');
     }
 
     /**
      * Get data from opened stream
-     *
-     * @return     string
      */
     private static function data(): string
     {
@@ -225,8 +214,6 @@ class MailSocket
      *
      * @param      string  $msg    The message
      * @param      string  $data   The data
-     *
-     * @return     bool
      */
     private static function sendMessage(string $msg, string &$data): bool
     {
