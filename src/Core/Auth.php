@@ -460,11 +460,7 @@ class Auth implements AuthInterface
             ->from($this->perm_table)
             ->where('user_id = ' . $sql->quote($this->userID()))
             ->and('blog_id = ' . $sql->quote((string) $blog_id))
-            ->and($sql->orGroup([
-                $sql->like('permissions', '%|' . self::PERMISSION_USAGE . '|%'),
-                $sql->like('permissions', '%|' . self::PERMISSION_ADMIN . '|%'),
-                $sql->like('permissions', '%|' . self::PERMISSION_CONTENT_ADMIN . '|%'),
-            ]));
+            ->and($sql->isNotNull('permissions'));
 
         $rs                         = $sql->select();
         $this->user_blogs[$blog_id] = !$rs || $rs->isEmpty() ? false : $this->parsePermissions($rs->permissions);
@@ -510,11 +506,8 @@ class Auth implements AuthInterface
                 ])
                 ->where('user_id = ' . $sql->quote($this->userID()))
                 ->and('P.blog_id = B.blog_id')
-                ->and($sql->orGroup([
-                    $sql->like('permissions', '%|' . self::PERMISSION_USAGE . '|%'),
-                    $sql->like('permissions', '%|' . self::PERMISSION_ADMIN . '|%'),
-                    $sql->like('permissions', '%|' . self::PERMISSION_CONTENT_ADMIN . '|%'),
-                ]))
+                // from 2.33 each Utility or Process must check user permissions (with Auth::check(), Page::check(), ...)
+                ->and($sql->isNotNull('permissions'))
                 ->and('blog_status >= ' . (string) $this->blog::BLOG_OFFLINE)
                 ->order('P.blog_id ASC')
                 ->limit(1);
