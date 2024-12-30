@@ -195,7 +195,6 @@ namespace Dotclear\Helper {
                 return is_array($t) ? $t[0] : $t;
             } elseif (!empty(self::$locales[$singular])
                     && is_array(self::$locales[$singular])
-                    && array_key_exists($i, self::$locales[$singular])
                     && (isset(self::$locales[$singular][$i]) && self::$locales[$singular][$i] !== '')) {
                 // If it is plural and index exists in plurals translations
                 return self::$locales[$singular][$i];
