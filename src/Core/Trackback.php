@@ -659,6 +659,9 @@ class Trackback implements TrackbackInterface
         $http->setHeadersOnly(true);
         $http->get($from_path);
         $header_ct = $http->getHeader('content-type');
+        if (is_array($header_ct)) {
+            $header_ct = implode(';', $header_ct);
+        }
         if ($header_ct !== false) {
             $c_type = explode(';', $header_ct);
 
@@ -675,6 +678,9 @@ class Trackback implements TrackbackInterface
 
         # Convert content charset
         $header_ct = $http->getHeader('content-type');
+        if (is_array($header_ct)) {
+            $header_ct = implode(';', $header_ct);
+        }
         if ($header_ct !== false) {
             $charset = self::getCharsetFromRequest($header_ct);
             if (!$charset) {
@@ -813,6 +819,15 @@ class Trackback implements TrackbackInterface
             $page_content = $http->getContent();
             $pb_url       = $http->getHeader('x-pingback');
             $wm_url       = $http->getHeader('link');
+
+            if (is_array($pb_url)) {
+                // We keep the first pingback URL only
+                $pb_url = $pb_url[0];
+            }
+            if (is_array($wm_url)) {
+                // We keep the first webmention URL only
+                $wm_url = $wm_url[0];
+            }
         } catch (Throwable) {
             return false;
         }
@@ -858,6 +873,9 @@ class Trackback implements TrackbackInterface
         # Nothing, let's try webmention. Only support x/html content
         if ($wm_url) {
             $header_ct = $http->getHeader('content-type');
+            if (is_array($header_ct)) {
+                $header_ct = implode(';', $header_ct);
+            }
             if ($header_ct !== false) {
                 $type = explode(';', $header_ct);
                 if (!in_array($type[0], ['text/html', 'application/xhtml+xml'])) {

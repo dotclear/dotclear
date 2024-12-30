@@ -271,7 +271,7 @@ class HttpClient extends Socket
     /**
      * Response headers
      *
-     * @var array<string, mixed>
+     * @var array<string, string|array<int, string>>
      */
     protected $headers = [];
 
@@ -453,7 +453,7 @@ class HttpClient extends Socket
             if ($line !== false) {
                 // Deal with first line of returned data
                 if ($index == 0) {
-                    $line = rtrim((string) $line, "\r\n");
+                    $line = rtrim($line, "\r\n");
                     if (!preg_match('/HTTP\/(\\d\\.\\d)\\s*(\\d+)\\s*(.*)/', $line, $m)) {
                         throw new Exception('Status code line invalid: ' . $line);
                     }
@@ -466,7 +466,7 @@ class HttpClient extends Socket
 
                 // Read headers
                 if ($in_headers) {
-                    $line = rtrim((string) $line, "\r\n");
+                    $line = rtrim($line, "\r\n");
                     if ($line === '') {
                         $in_headers = false;
                         $this->debug('Received Headers', $this->headers);
@@ -543,8 +543,18 @@ class HttpClient extends Socket
                 throw new Exception('Number of redirects exceeded maximum (' . $this->max_redirects . ')');
             }
 
-            $location   = $this->headers['location'] ?? '';
-            $uri        = $this->headers['uri']      ?? '';
+            $location = $this->headers['location'] ?? '';
+            $uri      = $this->headers['uri']      ?? '';
+
+            if (is_array($location)) {
+                // Header may contain an array as value
+                $location = $location[0];
+            }
+            if (is_array($uri)) {
+                // Header may contain an array as value
+                $uri = $uri[0];
+            }
+
             $redir_ssl  = false;
             $redir_host = '';
             $redir_port = 0;
@@ -723,7 +733,7 @@ class HttpClient extends Socket
      *
      * Returns the HTTP headers returned by the server as an associative array.
      *
-     * @return array<string, mixed>
+     * @return array<string, string|array<int, string>>
      */
     public function getHeaders(): array
     {
@@ -737,9 +747,9 @@ class HttpClient extends Socket
      *
      * @param string    $header            Header name
      *
-     * @return string|false
+     * @return string|false|array<int, string>
      */
-    public function getHeader($header): bool|string
+    public function getHeader($header): array|bool|string
     {
         $header = strtolower($header);
 
