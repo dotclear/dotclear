@@ -28,7 +28,7 @@ class XmlTag
      *
      * @var        array<string|XmlTag>
      */
-    private $_nodes = [];
+    private array $_nodes = [];
 
     /**
      * Constructor
@@ -71,7 +71,7 @@ class XmlTag
      * @param string            $name        Tag name
      * @param array<mixed>      $args        Function arguments, the first one would be tag content
      *
-     * @return false|void
+     * @return false|null
      */
     public function __call(string $name, array $args)
     {
@@ -84,6 +84,8 @@ class XmlTag
         }
 
         $this->insertNode(new self($name, $args[0]));
+
+        return null;
     }
 
     /**
@@ -105,8 +107,6 @@ class XmlTag
      *
      * @param string    $name         Attribute name
      * @param mixed     $value        Attribute value
-     *
-     * @see insertAttr()
      */
     public function insertAttr(string $name, $value): void
     {
@@ -145,14 +145,12 @@ class XmlTag
      *
      * @param bool      $prolog          Append prolog to result
      * @param string    $encoding        Result charset
-     *
-     * @return string
      */
     public function toXML(bool $prolog = false, string $encoding = 'UTF-8'): string
     {
-        if ($this->_name && count($this->_nodes) > 0) {
+        if ($this->_name && $this->_nodes !== []) {
             $format = '<%1$s%2$s>%3$s</%1$s>';
-        } elseif ($this->_name && count($this->_nodes) === 0) {
+        } elseif ($this->_name && $this->_nodes === []) {
             $format = '<%1$s%2$s/>';
         } else {
             $format = '%3$s';

@@ -83,8 +83,6 @@ interface FormaterInterface
      * @param   string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      * @param   string  $name       The formater name
      * @param   string  $str        The string to transform
-     *
-     * @return  string
      */
     public function callEditorFormater(string $editor_id, string $name, string $str): string;
 }

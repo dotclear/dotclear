@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -36,43 +37,31 @@ interface ConnectionInterface extends InterfaceHandler
 
     /**
      * Returns database schema handler
-     *
-     * @return SchemaInterface
      */
     public function schema(): SchemaInterface;
 
     /**
      * Returns database driver name
-     *
-     * @return string
      */
     public function driver(): string;
 
     /**
      * Returns database SQL syntax name
-     *
-     * @return string
      */
     public function syntax(): string;
 
     /**
      * Returns database driver version
-     *
-     * @return string
      */
     public function version(): string;
 
     /**
      * Returns database table prefix
-     *
-     * @return  string
      */
     public function prefix(): string;
 
     /**
      * Returns current database name
-     *
-     * @return string
      */
     public function database(): string;
 
@@ -89,8 +78,6 @@ interface ConnectionInterface extends InterfaceHandler
      * Executes a query and return a {@link record} object.
      *
      * @param string    $sql            SQL query
-     *
-     * @return Record
      */
     public function select(string $sql): Record;
 
@@ -98,8 +85,6 @@ interface ConnectionInterface extends InterfaceHandler
      * Return an empty record
      *
      * Return an empty {@link record} object (without any information).
-     *
-     * @return Record
      */
     public function nullRecord(): Record;
 
@@ -109,8 +94,6 @@ interface ConnectionInterface extends InterfaceHandler
      * Executes a query and return true if succeed
      *
      * @param string    $sql            SQL query
-     *
-     * @return bool true
      */
     public function execute(string $sql): bool;
 
@@ -164,8 +147,6 @@ interface ConnectionInterface extends InterfaceHandler
      *
      * Returns the number of lines affected by the last DELETE, INSERT or UPDATE
      * query.
-     *
-     * @return int
      */
     public function changes(): int;
 
@@ -194,8 +175,6 @@ interface ConnectionInterface extends InterfaceHandler
      *
      * @param string    $field            Field name
      * @param string    $pattern          Date format
-     *
-     * @return string
      */
     public function dateFormat(string $field, string $pattern): string;
 
@@ -208,8 +187,6 @@ interface ConnectionInterface extends InterfaceHandler
      *
      * @param array<mixed>|int      $arg1        array or integer with limit intervals
      * @param int|null              $arg2        integer or null
-     *
-     * @return string
      */
     public function limit($arg1, ?int $arg2 = null): string;
 
@@ -220,8 +197,6 @@ interface ConnectionInterface extends InterfaceHandler
      * an integer or null
      *
      * @param array<mixed>|string|int|null        $in        "IN" values
-     *
-     * @return string
      */
     public function in($in): string;
 
@@ -239,8 +214,6 @@ interface ConnectionInterface extends InterfaceHandler
      * string param field name (Binary ascending order)
      *
      * @param   array<string, mixed>|string     $args
-     *
-     * @return string
      */
     public function orderBy(...$args): string;
 
@@ -253,8 +226,6 @@ interface ConnectionInterface extends InterfaceHandler
      * string param: field name
      *
      * @param   array<string>|string     $args
-     *
-     * @return string
      */
     public function lexFields(...$args): string;
 
@@ -265,8 +236,6 @@ interface ConnectionInterface extends InterfaceHandler
      * should be properly escaped when needed.
      *
      * @param   array<mixed>     $args
-     *
-     * @return string
      */
     public function concat(...$args): string;
 
@@ -287,8 +256,6 @@ interface ConnectionInterface extends InterfaceHandler
      * Returns SQL protected string value.
      *
      * @param string    $str        String to protect
-     *
-     * @return string
      */
     public function escapeStr(string $str): string;
 
@@ -298,8 +265,6 @@ interface ConnectionInterface extends InterfaceHandler
      * Returns SQL system protected string.
      *
      * @param string        $str        String to protect
-     *
-     * @return string
      */
     public function escapeSystem(string $str): string;
 
@@ -310,8 +275,6 @@ interface ConnectionInterface extends InterfaceHandler
      * the current connection.
      *
      * @param string        $table    Target table
-     *
-     * @return Cursor
      */
     public function openCursor(string $table): Cursor;
 }

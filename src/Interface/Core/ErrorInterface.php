@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -25,15 +26,11 @@ interface ErrorInterface
 
     /**
      * Returns the value of <var>flag</var> property. True if errors stack is not empty
-     *
-     * @return bool
      */
     public function flag(): bool;
 
     /**
      * Return number of stacked errors
-     *
-     * @return     int
      */
     public function count(): int;
 
@@ -55,8 +52,6 @@ interface ErrorInterface
      * @deprecated since 2.28, use your own parser instead.
      *
      * @param   bool    $reset  True if error stack should be reset
-     *
-     * @return string
      */
     public function toHTML(bool $reset = true): string;
 }

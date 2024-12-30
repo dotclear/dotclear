@@ -140,7 +140,7 @@ class Install extends Process
             throw new Exception('Not found', 404);
         }
 
-        if (self::$can_install && !empty($_POST)) {
+        if (self::$can_install && $_POST !== []) {
             self::$u_email     = $_POST['u_email']     ?? null;
             self::$u_firstname = $_POST['u_firstname'] ?? null;
             self::$u_name      = $_POST['u_name']      ?? null;
@@ -411,7 +411,7 @@ class Install extends Process
             echo '<div class="error" role="alert"><p>' . sprintf(__('Cache directory %s is not writable.'), App::config()->cacheRoot()) . '</p></div>';
         }
 
-        if (self::$can_install && !empty(self::$err)) {
+        if (self::$can_install && self::$err !== '') {
             echo '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . self::$err . '</div>';
         }
 

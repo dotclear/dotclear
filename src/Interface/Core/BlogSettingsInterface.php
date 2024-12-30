@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -41,8 +42,6 @@ interface BlogSettingsInterface
      * If the workspace already exists, return it without modification.
      *
      * @param   string  $workspace  Namespace name
-     *
-     * @return  BlogWorkspaceInterface
      */
     public function addWorkspace(string $workspace): BlogWorkspaceInterface;
 
@@ -62,8 +61,6 @@ interface BlogSettingsInterface
      * Delete a whole workspace with all settings pertaining to it.
      *
      * @param   string  $workspace  workspace name
-     *
-     * @return  bool
      */
     public function delWorkspace(string $workspace): bool;
 
@@ -71,8 +68,6 @@ interface BlogSettingsInterface
      * Returns full workspace with all settings pertaining to it.
      *
      * @param   string  $workspace  workspace name
-     *
-     * @return  BlogWorkspaceInterface
      */
     public function get(string $workspace): BlogWorkspaceInterface;
 
@@ -80,8 +75,6 @@ interface BlogSettingsInterface
      * Magic __get method.
      *
      * @param   string  $workspace  workspace name
-     *
-     * @return  BlogWorkspaceInterface
      */
     public function __get(string $workspace): BlogWorkspaceInterface;
 
@@ -89,8 +82,6 @@ interface BlogSettingsInterface
      * Check if a workspace exists.
      *
      * @param   string  $workspace  Namespace name
-     *
-     * @return  bool
      */
     public function exists(string $workspace): bool;
 

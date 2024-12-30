@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -40,7 +41,7 @@ interface BlogWorkspaceInterface
      * Regexp namespace ID schema.
      *
      * @var    string  Regexp NS_ID_SCHEMA */
-    public const NS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
+    public const NS_ID_SCHEMA = '/^[a-zA-Z]\w+$/';
 
     /**
      * Settings types stored in table subset of settype() allowed type : string.
@@ -111,8 +112,6 @@ interface BlogWorkspaceInterface
      * @param   null|string         $blog_id    The blog identifier
      * @param   string              $workspace  The namespace ID
      * @param   MetaRecord          $rs         The recordset
-     *
-     * @return  BlogWorkspaceInterface
      */
     public function createFromBlog(?string $blog_id, string $workspace, ?MetaRecord $rs = null): BlogWorkspaceInterface;
 
@@ -217,8 +216,6 @@ interface BlogWorkspaceInterface
      * @param   string  $new_name   The new setting identifier
      *
      * @throws  BadRequestException
-     *
-     * @return  bool
      */
     public function rename(string $old_name, string $new_name): bool;
 
@@ -252,8 +249,6 @@ interface BlogWorkspaceInterface
 
     /**
      * Get the workspace name.
-     *
-     * @return  string
      */
     public function dumpWorkspace(): string;
 

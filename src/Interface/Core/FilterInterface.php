@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -38,8 +39,6 @@ interface FilterInterface
      * Returns a transformed string with WikiToHtml.
      *
      * @param   string  $str    The string
-     *
-     * @return  string
      */
     public function wikiTransform(string $str): string;
 
@@ -77,8 +76,6 @@ interface FilterInterface
      * false, returns not filtered string.
      *
      * @param   string  $str    The string
-     *
-     * @return  string
      */
     public function HTMLfilter(string $str): string;
     //@}
