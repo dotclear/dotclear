@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -28,11 +29,13 @@ class Frontend extends Process
             return false;
         }
 
-        App::behavior()->addBehavior('publicHeadContent', function () {
+        App::behavior()->addBehavior('publicHeadContent', function (): string {
             $url = Blowup::publicCssUrlHelper();
-            if ($url) {
+            if ($url !== '') {
                 echo '<link rel="stylesheet" href="' . $url . '" type="text/css">';
             }
+
+            return '';
         });
 
         return true;

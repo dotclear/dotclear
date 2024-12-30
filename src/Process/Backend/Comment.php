@@ -16,6 +16,7 @@ use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Email;
@@ -152,7 +153,7 @@ class Comment extends Process
 
         $can_edit = App::backend()->can_delete = App::backend()->can_publish = false;
 
-        if (!App::error()->flag() && isset(App::backend()->rs)) {
+        if (!App::error()->flag() && App::backend()->rs instanceof MetaRecord) {
             $can_edit = App::backend()->can_delete = App::backend()->can_publish = App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]), App::blog()->id());

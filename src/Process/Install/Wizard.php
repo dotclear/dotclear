@@ -105,7 +105,7 @@ class Wizard extends Process
         self::$DBPREFIX      = $_POST['DBPREFIX']      ?? $_SERVER['DC_DBPREFIX'] ?? 'dc_';
         self::$ADMINMAILFROM = $_POST['ADMINMAILFROM'] ?? $_SERVER['DC_ADMINMAILFROM'] ?? '';
 
-        if (!empty($_POST) || !empty($_SERVER['DC_DBDRIVER'])) {
+        if ($_POST !== [] || !empty($_SERVER['DC_DBDRIVER'])) {
             try {
                 if (self::$DBDRIVER == 'sqlite' && !str_contains((string) self::$DBNAME, '/')) {
                     $sqlite_db_directory = dirname(App::config()->configPath()) . '/../db/';
@@ -241,7 +241,7 @@ class Wizard extends Process
         '<h1>' . __('Dotclear installation wizard') . '</h1>' .
             '<div id="main">';
 
-        if (!empty(self::$err)) {
+        if (self::$err !== '') {
             echo '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . self::$err . '</div>';
         } else {
             echo '<h2>' . __('Welcome') . '</h2>' .

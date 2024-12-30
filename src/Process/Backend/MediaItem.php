@@ -38,7 +38,7 @@ class MediaItem extends Process
 
         App::backend()->tab = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
 
-        $post_id = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
+        $post_id = empty($_REQUEST['post_id']) ? null : (int) $_REQUEST['post_id'];
         if ($post_id) {
             $post = App::blog()->getPosts(['post_id' => $post_id]);
             if ($post->isEmpty()) {
@@ -47,13 +47,13 @@ class MediaItem extends Process
         }
 
         // Attachement type if any
-        $link_type = !empty($_REQUEST['link_type']) ? $_REQUEST['link_type'] : null;
+        $link_type = empty($_REQUEST['link_type']) ? null : $_REQUEST['link_type'];
 
         App::backend()->file  = null;
         App::backend()->popup = (int) !empty($_REQUEST['popup']);
 
         // 0 : none, 1 : single media, >1 : multiple medias
-        App::backend()->select = !empty($_REQUEST['select']) ? (int) $_REQUEST['select'] : 0;
+        App::backend()->select = empty($_REQUEST['select']) ? 0 : (int) $_REQUEST['select'];
 
         App::backend()->plugin_id = isset($_REQUEST['plugin_id']) ? Html::sanitizeURL($_REQUEST['plugin_id']) : '';
 
@@ -80,7 +80,7 @@ class MediaItem extends Process
             ];
         }
 
-        App::backend()->id = !empty($_REQUEST['id']) ? (int) $_REQUEST['id'] : '';
+        App::backend()->id = empty($_REQUEST['id']) ? '' : (int) $_REQUEST['id'];
 
         if (App::backend()->id != '') {
             App::backend()->page_url_params = [
@@ -89,12 +89,12 @@ class MediaItem extends Process
             ];
         }
 
-        if (App::backend()->popup) {
+        if (App::backend()->popup !== 0) {
             App::backend()->open_function  = Page::openPopup(...);
             App::backend()->close_function = Page::closePopup(...);
         } else {
             App::backend()->open_function  = Page::open(...);
-            App::backend()->close_function = function () {
+            App::backend()->close_function = function (): void {
                 Page::helpBlock('core_media');
                 Page::close();
             };
@@ -109,7 +109,7 @@ class MediaItem extends Process
                 App::backend()->file = App::media()->getFile((int) App::backend()->id);
             }
 
-            if (App::backend()->file === null) {
+            if (!App::backend()->file instanceof File) {
                 throw new Exception(__('Not a valid file'));
             }
 
@@ -325,7 +325,7 @@ class MediaItem extends Process
 
         // Function to get image alternate text
         $getImageAlt = function (?File $file, bool $fallback = true): string {
-            if (!$file) {
+            if (!$file instanceof File) {
                 return '';
             }
 
@@ -348,7 +348,7 @@ class MediaItem extends Process
 
         // Function to get image legend
         $getImageLegend = function (?File $file, $pattern, bool $dto_first = false, bool $no_date_alone = false): string {
-            if (!$file) {
+            if (!$file instanceof File) {
                 return '';
             }
 
@@ -372,9 +372,7 @@ class MediaItem extends Process
                             }
                         }
                     } elseif ($file->media_meta->{$v}) {
-                        if ((string) $file->media_meta->{$v} != '') {
-                            $res[] = (string) $file->media_meta->{$v};
-                        }
+                        $res[] = (string) $file->media_meta->{$v};
                         $items++;
                     } elseif (preg_match('/^Date\((.+?)\)$/u', $v, $m)) {
                         if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
@@ -393,7 +391,7 @@ class MediaItem extends Process
                     }
                 }
             }
-            if ($no_date_alone && $dates == count($res) && $dates < $items) {
+            if ($no_date_alone && $dates === count($res) && $dates < $items) {
                 // On ne laisse pas les dates seules, sauf si ce sont les seuls items du pattern (hors séparateur)
                 return '';
             }
@@ -410,7 +408,7 @@ class MediaItem extends Process
                 'mediadef'  => false,
             ];
 
-            if (!$file) {
+            if (!$file instanceof File) {
                 return $defaults;
             }
 
@@ -539,9 +537,9 @@ class MediaItem extends Process
                 '<label class="classic">' .
                 form::radio(['src'], App::backend()->file->file_url, $s_checked) . ' ' . __('original') . '</label><br> ' .
                 '</p>';
-            } elseif (App::backend()->file_type[0] == 'audio') {
+            } elseif (App::backend()->file_type[0] === 'audio') {
                 $media_type = 'mp3';
-            } elseif (App::backend()->file_type[0] == 'video') {
+            } elseif (App::backend()->file_type[0] === 'video') {
                 $media_type = 'flv';
             } else {
                 $media_type = 'default';
@@ -633,7 +631,7 @@ class MediaItem extends Process
                     ($defaults['legend'] === 'title' && $media_alt !== ''),
                     '',
                     '',
-                    $media_alt !== '' ? false : true
+                    $media_alt === ''
                 ) .
                 __('Alternate text') . '</label><br>' .
                 '<label for="legend3" class="classic">' . form::radio(
@@ -644,9 +642,9 @@ class MediaItem extends Process
                 __('None') . '</label>' .
                 '</p>' .
                 '<p id="media-attribute">' .
-                __('Alternate text:') . ' ' . ($media_alt != '' ? '<span class="media-title">' . $media_alt . '</span>' : __('(none)')) .
+                __('Alternate text:') . ' ' . ($media_alt !== '' ? '<span class="media-title">' . $media_alt . '</span>' : __('(none)')) .
                 '<br>' .
-                __('Legend:') . ' ' . ($media_legend != '' ? ' <span class="media-desc">' . $media_legend . '</span>' : __('(none)')) .
+                __('Legend:') . ' ' . ($media_legend !== '' ? ' <span class="media-desc">' . $media_legend . '</span>' : __('(none)')) .
                 '</p>' .
                 '</div>' .
 
@@ -675,11 +673,11 @@ class MediaItem extends Process
                 '<p>' .
                 '<label for="insert1" class="classic">' . form::radio(['insertion', 'insert1'], 'simple', !$defaults['link'] || $media_alt === '') .
                 __('As a single image') . '</label><br>' .
-                '<label for="insert2" class="classic">' . form::radio(['insertion', 'insert2'], 'link', $defaults['link'] && $media_alt !== '', '', '', $media_alt !== '' ? false : true) .
+                '<label for="insert2" class="classic">' . form::radio(['insertion', 'insert2'], 'link', $defaults['link'] && $media_alt !== '', '', '', $media_alt === '') .
                 __('As a link to the original image') . '</label>' .
                 '</p>' .
                 '</div>';
-            } elseif (App::backend()->file_type[0] == 'audio') {
+            } elseif (App::backend()->file_type[0] === 'audio') {
                 $media_type = 'mp3';
 
                 echo
@@ -713,7 +711,7 @@ class MediaItem extends Process
                 form::hidden('public_player', Html::escapeHTML(App::media()::audioPlayer(App::backend()->file->type, $url))) .
                 '</p>' .
                 '</div>';
-            } elseif (App::backend()->file_type[0] == 'video') {
+            } elseif (App::backend()->file_type[0] === 'video') {
                 $media_type = 'flv';
 
                 if (App::backend()->plugin_id === 'dcLegacyEditor') {
@@ -777,7 +775,7 @@ class MediaItem extends Process
             echo
             '</form>';
 
-            if ($media_type != 'default') {
+            if ($media_type !== 'default') {
                 echo
                 '<div class="border-top">' .
                 '<form id="save_settings" action="' . App::backend()->url()->getBase('admin.media.item') . '" method="post">' .
@@ -825,7 +823,7 @@ class MediaItem extends Process
         '<div class="near-icon">';
 
         if (App::backend()->file->media_image) {
-            $thumb_size = !empty($_GET['size']) ? (string) $_GET['size'] : 's';
+            $thumb_size = empty($_GET['size']) ? 's' : (string) $_GET['size'];
 
             if (!isset(App::media()->getThumbSizes()[$thumb_size]) && $thumb_size !== 'o') {
                 $thumb_size = 's';
@@ -848,7 +846,7 @@ class MediaItem extends Process
 
             echo
             '<p>' . __('Available sizes:') . ' ';
-            foreach (array_reverse(App::backend()->file->media_thumb) as $s => $v) {
+            foreach (array_keys(array_reverse(App::backend()->file->media_thumb)) as $s) {
                 $strong_link = ($s === $thumb_size) ? '<strong>%s</strong>' : '%s';
                 echo
                 sprintf($strong_link, '<a href="' . App::backend()->url()->get('admin.media.item', array_merge(
@@ -888,10 +886,10 @@ class MediaItem extends Process
         }
 
         // Show player if relevant
-        if (App::backend()->file_type[0] == 'audio') {
+        if (App::backend()->file_type[0] === 'audio') {
             echo App::media()::audioPlayer(App::backend()->file->type, App::backend()->file->file_url);
         }
-        if (App::backend()->file_type[0] == 'video') {
+        if (App::backend()->file_type[0] === 'video') {
             echo App::media()::videoPlayer(App::backend()->file->type, App::backend()->file->file_url);
         }
 
@@ -902,20 +900,18 @@ class MediaItem extends Process
         '<li><strong>' . __('File type:') . '</strong> ' . App::backend()->file->type . '</li>';
         if (App::backend()->file->media_image) {
             if (App::backend()->file->type === 'image/svg+xml') {
-                if (($xmlget = simplexml_load_file(App::backend()->file->file)) !== false) {
-                    if ($xmlattributes = $xmlget->attributes()) {
-                        $image_size = [
-                            (string) $xmlattributes->width,
-                            (string) $xmlattributes->height,
-                        ];
-                        if ($image_size[0]) {
-                            echo
-                            '<li><strong>' . __('Image width:') . '</strong> ' . $image_size[0] . '</li>';
-                        }
-                        if ($image_size[1]) {
-                            echo
-                            '<li><strong>' . __('Image height:') . '</strong> ' . $image_size[1] . '</li>';
-                        }
+                if (($xmlget = simplexml_load_file(App::backend()->file->file)) !== false && $xmlattributes = $xmlget->attributes()) {
+                    $image_size = [
+                        (string) $xmlattributes->width,
+                        (string) $xmlattributes->height,
+                    ];
+                    if ($image_size[0] !== '') {
+                        echo
+                        '<li><strong>' . __('Image width:') . '</strong> ' . $image_size[0] . '</li>';
+                    }
+                    if ($image_size[1] !== '') {
+                        echo
+                        '<li><strong>' . __('Image height:') . '</strong> ' . $image_size[1] . '</li>';
                     }
                 }
             } else {
@@ -1020,7 +1016,7 @@ class MediaItem extends Process
                 }
             }
         }
-        if ($details) {
+        if ($details !== '') {
             echo
             '<h3>' . __('Metadata') . '</h3>' .
             '<ul>' . $details . '</ul>';

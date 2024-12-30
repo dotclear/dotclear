@@ -23,6 +23,7 @@ use Dotclear\Helper\Html\Form\{
     Hidden,
     Label,
     Link,
+    None,
     Note,
     Para,
     Submit,
@@ -103,7 +104,7 @@ class Digests extends Process
 
         // Mesasges
         if (isset($_POST['override'])) {
-            if (empty(self::$zip_name)) {
+            if (self::$zip_name === '') {
                 Notices::addSuccessNotice(__('The updates have been performed.'));
             }
         } elseif (isset($_POST['disclaimer_ok'])) {
@@ -157,7 +158,7 @@ class Digests extends Process
             ->render();
 
         if (isset($_POST['override'])) {
-            $item = empty(self::$zip_name) ? (new Text()) : (new Text(
+            $item = self::$zip_name === '' ? (new None()) : (new Text(
                 null,
                 is_file(self::$path_helpus) ?
                 sprintf((string) file_get_contents(self::$path_helpus), App::upgrade()->url()->get('upgrade.digests', ['download' => self::$zip_name]), self::$zip_name, 'fakemeup@dotclear.org') :
@@ -312,11 +313,13 @@ class Digests extends Process
         $same    = [];
         $removed = [];
 
+        $none = true;
         foreach ($contents as $digest) {
             if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $digest, $m)) {
                 continue;
             }
 
+            $none     = false;
             $md5      = $m[1];
             $filename = $root . '/' . $m[2];
 
@@ -334,7 +337,7 @@ class Digests extends Process
         }
 
         # No checksum found in digests file
-        if (empty($md5)) {
+        if ($none) {
             throw new Exception(__('Invalid digests file.'));
         }
 

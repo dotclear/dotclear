@@ -34,7 +34,7 @@ class Config extends Process
             // Cope with old way of customize this theme
             if ($id === 'customCSS' && !is_file(App::backend()->css_file)) {
                 $old_file = Path::real(App::blog()->publicPath()) . '/custom_style.css';
-                if (is_file($old_file) && is_writeable(dirname(App::backend()->css_file))) {
+                if (is_file($old_file) && is_writable(dirname(App::backend()->css_file))) {
                     // Try to copy old file to new one
                     $content = file_get_contents($old_file);
                     if ($content !== false) {

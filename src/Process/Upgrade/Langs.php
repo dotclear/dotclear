@@ -341,7 +341,7 @@ class Langs extends Process
                 ]);
         }
 
-        if (is_array(self::$dc_langs) && !empty(self::$dc_langs) && self::$is_writable) {
+        if (is_array(self::$dc_langs) && self::$dc_langs !== [] && self::$is_writable) {
             $dc_langs_combo = [];
             foreach (self::$dc_langs as $lang) {
                 if ($lang->link && isset(self::$iso_codes[$lang->title])) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -182,7 +183,7 @@ class Upgrade extends Process
                     $msg = __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="https://dotclear.org/download">update manually</a>.');
                 }
 
-                if (count($bad_files = self::$updater->getBadFiles())) {
+                if (($bad_files = self::$updater->getBadFiles()) !== []) {
                     $msg .= '<ul><li><strong>' . implode('</strong></li><li><strong>', $bad_files) . '</strong></li></ul>';
                 }
 
@@ -195,7 +196,7 @@ class Upgrade extends Process
 
     public static function render(): void
     {
-        if (self::$step == 'unzip' && !App::error()->flag()) {
+        if (self::$step === 'unzip' && !App::error()->flag()) {
             // Update done, need to go back to authentication (see below), but we need
             // to kill the admin session before sending any header
             App::upgrade()->killAdminSession();
@@ -203,7 +204,7 @@ class Upgrade extends Process
 
         $items = [];
 
-        if (!self::$step) {
+        if (self::$step === '') {
             // Warning about PHP version if necessary
             if (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
                 $items[] = (new Text('p', sprintf(
@@ -213,7 +214,7 @@ class Upgrade extends Process
                 )))
                     ->class('info more-info');
             }
-            if (empty(self::$new_ver)) {
+            if (self::$new_ver === false || self::$new_ver === '') {
                 $items[] = (new Para())
                     ->items([
                         (new Text('strong', __('No newer Dotclear version available.'))),
@@ -238,7 +239,7 @@ class Upgrade extends Process
                     ->separator(' ')
                     ->items([
                         (new Text('', sprintf(__('Dotclear %s is available.'), self::$new_ver))),
-                        self::$version_info ?
+                        self::$version_info !== '' ?
                             (new Link())
                                 ->href(self::$version_info)
                                 ->title(__('Information about this version'))
@@ -268,7 +269,7 @@ class Upgrade extends Process
                         ]);
                 }
             }
-        } elseif (self::$step == 'unzip' && !App::error()->flag()) {
+        } elseif (self::$step === 'unzip' && !App::error()->flag()) {
             $items[] = (new Div())
                 ->class('fieldset')
                 ->items([
@@ -285,9 +286,7 @@ class Upgrade extends Process
 
         Page::open(
             __('Dotclear update'),
-            (!self::$step ?
-                Page::jsLoad('js/_update.js')
-                : ''),
+            self::$step === '' ? Page::jsLoad('js/_update.js') : '',
             Page::breadcrumb(
                 [
                     __('Dotclear update') => '',

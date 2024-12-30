@@ -37,7 +37,7 @@ class Plugins extends Process
             App::plugins(),
             App::config()->pluginsRoot(),
             App::blog()->settings()->system->store_plugin_url,
-            !empty($_GET['nocache']) ? true : null
+            empty($_GET['nocache']) ? null : true
         );
 
         ModulesList::$allow_multi_install = App::config()->allowMultiModules();
@@ -45,7 +45,7 @@ class Plugins extends Process
         ModulesList::$distributed_modules = explode(',', App::config()->distributedPlugins());
 
         $disabled = App::plugins()->disableDepModules();
-        if (count($disabled)) {
+        if ($disabled !== []) {
             Notices::addWarningNotice(
                 __('The following plugins have been disabled :') .
                 '<ul><li>' . implode("</li>\n<li>", $disabled) . '</li></ul>',
@@ -210,7 +210,7 @@ class Plugins extends Process
             App::behavior()->callBehavior('afterCheckStoreUpdate', 'plugins', $tmp);
 
             $defines = $tmp->getArrayCopy();
-            $updates = !empty($defines) ? sprintf(' (%s)', count($defines)) : '';
+            $updates = empty($defines) ? '' : sprintf(' (%s)', count($defines));
 
             echo
             '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . $updates . '">' .

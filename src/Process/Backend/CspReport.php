@@ -84,7 +84,7 @@ class CspReport extends Process
                                 // Remove final comma if present
                                 $contents = substr($contents, 0, -1);
                             }
-                            if ($contents != '') {
+                            if ($contents !== '') {
                                 $list = json_decode('[' . $contents . ']', true);
                                 if (is_array($list)) {
                                     foreach ($list as $value) {

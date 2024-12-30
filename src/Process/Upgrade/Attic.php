@@ -221,7 +221,7 @@ class Attic extends Process
 
         $items = [];
 
-        if (empty(self::$step)) {
+        if (self::$step === '') {
             // No redirect with no step as we need selected version in a POST form
             if (self::$releases === []) {
                 $items[] = (new Para())

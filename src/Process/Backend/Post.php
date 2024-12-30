@@ -163,7 +163,7 @@ class Post extends Process
                 $next_rs = App::blog()->getNextPost(App::backend()->post, 1);
                 $prev_rs = App::blog()->getNextPost(App::backend()->post, -1);
 
-                if ($next_rs !== null) {
+                if ($next_rs instanceof MetaRecord) {
                     App::backend()->next_link = sprintf(
                         App::backend()->post_link,
                         $next_rs->post_id,
@@ -179,7 +179,7 @@ class Post extends Process
                     );
                 }
 
-                if ($prev_rs !== null) {
+                if ($prev_rs instanceof MetaRecord) {
                     App::backend()->prev_link = sprintf(
                         App::backend()->post_link,
                         $prev_rs->post_id,
@@ -207,11 +207,7 @@ class Post extends Process
                 App::backend()->tb_excerpt = $buffer;
             }
         }
-        if (isset($_REQUEST['section']) && $_REQUEST['section'] == 'trackbacks') {
-            $anchor = 'trackbacks';
-        } else {
-            $anchor = 'comments';
-        }
+        $anchor = isset($_REQUEST['section']) && $_REQUEST['section'] == 'trackbacks' ? 'trackbacks' : 'comments';
 
         App::backend()->comments_actions_page = new ActionsComments(
             App::backend()->url()->get('admin.post'),
@@ -273,7 +269,7 @@ class Post extends Process
                     );
                 }
             }
-        } elseif (!empty($_POST) && App::backend()->can_edit_post) {
+        } elseif ($_POST !== [] && App::backend()->can_edit_post) {
             // Format excerpt and content
 
             App::backend()->post_format  = $_POST['post_format'];
@@ -308,7 +304,7 @@ class Post extends Process
             App::backend()->post_open_tb      = !empty($_POST['post_open_tb']);
             App::backend()->post_selected     = !empty($_POST['post_selected']);
             App::backend()->post_lang         = $_POST['post_lang'];
-            App::backend()->post_password     = !empty($_POST['post_password']) ? $_POST['post_password'] : null;
+            App::backend()->post_password     = empty($_POST['post_password']) ? null : $_POST['post_password'];
 
             App::backend()->post_notes = $_POST['post_notes'];
 
@@ -358,7 +354,7 @@ class Post extends Process
             }
         }
 
-        if (!empty($_POST) && !empty($_POST['save']) && App::backend()->can_edit_post && !App::backend()->bad_dt) {
+        if ($_POST !== [] && !empty($_POST['save']) && App::backend()->can_edit_post && !App::backend()->bad_dt) {
             // Create or update post
 
             if (!empty($_POST['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
@@ -371,7 +367,7 @@ class Post extends Process
                 $cur_cat->cat_title = $_POST['new_cat_title'];
                 $cur_cat->cat_url   = '';
 
-                $parent_cat = !empty($_POST['new_cat_parent']) ? $_POST['new_cat_parent'] : '';
+                $parent_cat = empty($_POST['new_cat_parent']) ? '' : $_POST['new_cat_parent'];
 
                 # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
                 App::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
@@ -1039,10 +1035,8 @@ class Post extends Process
             if ((App::blog()->settings()->system->comments_ttl == 0) || (time() - App::blog()->settings()->system->comments_ttl * 86400 < $dt)) {
                 return true;
             }
-        } else {
-            if ((App::blog()->settings()->system->trackbacks_ttl == 0) || (time() - App::blog()->settings()->system->trackbacks_ttl * 86400 < $dt)) {
-                return true;
-            }
+        } elseif ((App::blog()->settings()->system->trackbacks_ttl == 0) || (time() - App::blog()->settings()->system->trackbacks_ttl * 86400 < $dt)) {
+            return true;
         }
 
         return false;

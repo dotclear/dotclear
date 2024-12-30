@@ -58,13 +58,8 @@ class Media extends Process
 
                     $thumb_sizes  = implode('|', array_keys(App::media()->getThumbSizes()));
                     $thumb_prefix = App::media()->getThumbnailPrefix();
-                    if ($thumb_prefix !== '.') {
-                        // Exclude . (hidden files) and prefixed thumbnails
-                        $pattern_prefix = sprintf('(\.|%s)', preg_quote($thumb_prefix));
-                    } else {
-                        // Exclude . (hidden files)
-                        $pattern_prefix = '\.';
-                    }
+                    // Exclude . (hidden files) and prefixed thumbnails if necessary
+                    $pattern_prefix = $thumb_prefix !== '.' ? sprintf('(\.|%s)', preg_quote($thumb_prefix)) : '\.';
                     $zip->addExclusion('/(^|\/)' . $pattern_prefix . '(.*?)_(' . $thumb_sizes . ')\.(jpg|jpeg|png|webp|avif)$/');
                     $zip->addExclusion('#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
@@ -95,8 +90,7 @@ class Media extends Process
         # New directory
         if (App::backend()->page->getDirs() && !empty($_POST['newdir'])) {
             $nd = Files::tidyFileName($_POST['newdir']);
-            if (array_filter(App::backend()->page->getDirs('files'), fn ($i) => ($i->basename === $nd))
-        || array_filter(App::backend()->page->getDirs('dirs'), fn ($i) => ($i->basename === $nd))
+            if (array_filter(App::backend()->page->getDirs('files'), fn ($i): bool => ($i->basename === $nd)) || array_filter(App::backend()->page->getDirs('dirs'), fn ($i): bool => ($i->basename === $nd))
             ) {
                 Notices::addWarningNotice(sprintf(
                     __('Directory or file "%s" already exists.'),
@@ -298,7 +292,7 @@ class Media extends Process
                     $fav_alt      = __('Remove this folder from your favorites');
                 }
             }
-            if ($last_folders_item != '') {
+            if ($last_folders_item !== '') {
                 // add a separator between favorite dirs and recent dirs
                 $last_folders_item .= '<option disabled>_________</option>';
             }
@@ -323,7 +317,7 @@ class Media extends Process
                     }
                 }
             }
-            if ($last_folders_item != '') {
+            if ($last_folders_item !== '') {
                 $last_folders = '<p class="media-recent hidden-if-no-js">' .
                     '<label class="classic" for="switchfolder">' . __('Goto recent folder:') . '</label> ' .
                     '<select name="switchfolder" id="switchfolder">' .
@@ -439,7 +433,7 @@ class Media extends Process
 
         if (!App::backend()->page->popup || App::backend()->page->select > 1) {
             // Checkboxes and action
-            $fmt_form_media .= '<div class="' . (!App::backend()->page->popup ? 'medias-delete' : '') . ' ' . (App::backend()->page->select > 1 ? 'medias-select' : '') . '">' .
+            $fmt_form_media .= '<div class="' . (App::backend()->page->popup ? '' : 'medias-delete') . ' ' . (App::backend()->page->select > 1 ? 'medias-select' : '') . '">' .
                 '<p class="checkboxes-helpers"></p>' .
                 '<p>';
             if (App::backend()->page->select > 1) {
