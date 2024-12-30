@@ -244,17 +244,13 @@ class HttpClient extends Socket
 
     /**
      * Proxy server host
-     *
-     * @var string|null
      */
-    protected $proxy_host;
+    protected ?string $proxy_host = null;
 
     /**
      * Proxy server port
-     *
-     * @var int|null
      */
-    protected $proxy_port;
+    protected ?int $proxy_port = null;
 
     // Response vars
 
@@ -798,9 +794,8 @@ class HttpClient extends Socket
     public function setProxy(?string $host, ?int $port = 8080): void
     {
         if ($host === null || $port === null) {
-            $this->proxy_host = '';
-            $this->proxy_port = 0;
-            unset($this->proxy_host, $this->proxy_port);
+            $this->proxy_host = null;
+            $this->proxy_port = null;
 
             return;
         }
