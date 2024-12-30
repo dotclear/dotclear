@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -147,8 +148,6 @@ interface BlogInterface
      * Set authentication handler.
      *
      * This is a bad way to avoid circular reference for Auth class in constructor.
-     *
-     * @param   AuthInterface     $auth
      */
     public function setAuth(AuthInterface $auth): void;
 
@@ -184,8 +183,6 @@ interface BlogInterface
 
     /**
      * Check if a blog is loaded.
-     *
-     * @return  bool    True if loaded
      */
     public function isDefined(): bool;
 
@@ -196,85 +193,61 @@ interface BlogInterface
 
     /**
      * Get blog ID.
-     *
-     * @return  string  The blog ID
      */
     public function id(): string;
 
     /**
      * Get blog UID.
-     *
-     * @return  string  The blog UID
      */
     public function uid(): string;
 
     /**
      * Get blog name.
-     *
-     * @return  string  The blog name
      */
     public function name(): string;
 
     /**
      * Get blog description.
-     *
-     * @return  string  The blog description
      */
     public function desc(): string;
 
     /**
      * Get blog URL.
-     *
-     * @return  string  The blog url
      */
     public function url(): string;
 
     /**
      * Get blog host.
-     *
-     * @return  string  The blog host
      */
     public function host(): string;
 
     /**
      * Get blog creation date.
-     *
-     * @return  int     The blog creation date
      */
     public function creadt(): int;
 
     /**
      * Get blog last update date.
-     *
-     * @return  int     The blog update date
      */
     public function upddt(): int;
 
     /**
      * Get blog status.
-     *
-     * @return  int     The blog status
      */
     public function status(): int;
 
     /**
      * Get blog settings instance.
-     *
-     * @return  BlogSettingsInterface  The settings instance
      */
     public function settings(): BlogSettingsInterface;
 
     /**
      * Get blog themes path.
-     *
-     * @return  string  The blog themes path
      */
     public function themesPath(): string;
 
     /**
      * Get blog public path.
-     *
-     * @return  string  The blog public path
      */
     public function publicPath(): string;
 
@@ -285,15 +258,11 @@ interface BlogInterface
 
     /**
      * Returns blog URL ending with a question mark.
-     *
-     * @return  string  The qmark url.
      */
     public function getQmarkURL(): string;
 
     /**
      * Gets the jQuery version.
-     *
-     * @return  string  The jQuery version
      */
     public function getJsJQuery(): string;
 
@@ -302,8 +271,6 @@ interface BlogInterface
      *
      * @param   string  $pf             plugin file
      * @param   bool    $strip_host     Strip host in URL
-     *
-     * @return  string
      */
     public function getPF(string $pf, bool $strip_host = true): string;
 
@@ -312,8 +279,6 @@ interface BlogInterface
      *
      * @param   string  $vf             var file
      * @param   bool    $strip_host     Strip host in URL
-     *
-     * @return  string
      */
     public function getVF(string $vf, bool $strip_host = true): string;
 
@@ -324,8 +289,6 @@ interface BlogInterface
      * use it for tests. If status code does not exist, returns <i>unpublished</i>.
      *
      * @param   int     $status     The status code
-     *
-     * @return  string  The post status.
      */
     public function getPostStatus(int $status): string;
 
@@ -396,8 +359,6 @@ interface BlogInterface
 
     /**
      * Get Categories instance.
-     *
-     * @return  CategoriesInterface
      */
     public function categories(): CategoriesInterface;
 
@@ -635,8 +596,6 @@ interface BlogInterface
      * @param   Cursor  $cur    The post Cursor
      *
      * @throws  UnauthorizedException
-     *
-     * @return  int
      */
     public function addPost(Cursor $cur): int;
 
@@ -762,8 +721,6 @@ interface BlogInterface
      * Retrieves all users having posts on current blog.
      *
      * @param   string  $post_type post_type filter (post)
-     *
-     * @return  MetaRecord
      */
     public function getPostsUsers(string $post_type = 'post'): MetaRecord;
 
@@ -832,8 +789,6 @@ interface BlogInterface
      * Creates a new comment. Takes a Cursor as input and returns the new comment ID.
      *
      * @param   Cursor  $cur    The comment Cursor
-     *
-     * @return  int
      */
     public function addComment(Cursor $cur): int;
 

@@ -34,8 +34,6 @@ namespace Dotclear\Helper {
         //@{
 
         /**
-         * { var_description }
-         *
          * @var        array<array<mixed>>
          */
         protected static array $languages_definitions = [];
@@ -43,22 +41,22 @@ namespace Dotclear\Helper {
         /**
          * @var        array<string, string>
          */
-        protected static array $languages_name;
+        protected static array $languages_name = [];
 
         /**
          * @var        array<string, string>
          */
-        protected static array $languages_textdirection;
+        protected static array $languages_textdirection = [];
 
         /**
          * @var        array<string, null|int>
          */
-        protected static array $languages_pluralsnumber;
+        protected static array $languages_pluralsnumber = [];
 
         /**
          * @var        array<string, null|string>
          */
-        protected static array $languages_pluralexpression;
+        protected static array $languages_pluralexpression = [];
         //@}
 
         /// @name Current language properties
@@ -66,36 +64,26 @@ namespace Dotclear\Helper {
 
         /**
          * Language code
-         *
-         * @var        string|null
          */
         protected static ?string $language_code = null;
 
         /**
          * Language name
-         *
-         * @var        string
          */
         protected static string $language_name;
 
         /**
          * Text direction according to a language code
-         *
-         * @var        string
          */
         protected static string $language_textdirection;
 
         /**
          * Number of plurals according to a language code
-         *
-         * @var        int
          */
         protected static int $language_pluralsnumber = 1;
 
         /**
          * Plural expression according to a language code
-         *
-         * @var        string
          */
         protected static string $language_pluralexpression = '';
 
@@ -184,17 +172,15 @@ namespace Dotclear\Helper {
          */
         public static function trans(string $singular, ?string $plural = null, ?int $count = null): string
         {
-            // If no string to translate, return no string
-            if ($singular == '') {
+            if ($singular === '') {
+                // If no string to translate, return no string
                 return '';
-
+            } elseif ((self::$locales === [] || !array_key_exists($singular, self::$locales)) && is_null($count)) {
                 // If no l10n translation loaded or exists
-            } elseif ((empty(self::$locales) || !array_key_exists($singular, self::$locales)) && is_null($count)) {
                 return $singular;
-
-                // If no $plural form or if current language has no plural form return $singular translation
             } elseif ($plural === null || $count === null || self::$language_pluralsnumber == 1) {
-                $t = !empty(self::$locales[$singular]) ? self::$locales[$singular] : $singular;
+                // If no $plural form or if current language has no plural form return $singular translation
+                $t = empty(self::$locales[$singular]) ? $singular : self::$locales[$singular];
 
                 return is_array($t) ? $t[0] : $t;
             }
@@ -202,22 +188,20 @@ namespace Dotclear\Helper {
             // Else return translation according to $count
             $i = self::index($count);
 
-            // If it is a plural and translation exists in "singular" form
             if ($i > 0 && !empty(self::$locales[$plural])) {
+                // If it is a plural and translation exists in "singular" form
                 $t = self::$locales[$plural];
 
                 return is_array($t) ? $t[0] : $t;
-
-                // If it is plural and index exists in plurals translations
             } elseif (!empty(self::$locales[$singular])
                     && is_array(self::$locales[$singular])
                     && array_key_exists($i, self::$locales[$singular])
-                    && !empty(self::$locales[$singular][$i])) {
+                    && (isset(self::$locales[$singular][$i]) && self::$locales[$singular][$i] !== '')) {
+                // If it is plural and index exists in plurals translations
                 return self::$locales[$singular][$i];
-
-                // Else return input string according to "en" plural form
             }
 
+            // Else return input string according to "en" plural form
             return $i > 0 ? $plural : $singular;
         }
 
@@ -296,7 +280,7 @@ namespace Dotclear\Helper {
 
          * @return array<mixed>|false
          */
-        public static function getPoFile(string $file)
+        public static function getPoFile(string $file): false|array
         {
             if (($m = self::parsePoFile($file)) === false) {
                 return false;
@@ -351,8 +335,8 @@ namespace Dotclear\Helper {
                             $t       = str_replace("'", "\\'", $t);
                             $items[] = '\'' . $t . '\'';    // @phpstan-ignore-line str_replace() may return array, but not in this case
                         }
-                        if (count($items)) {
-                            $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = [' . "\n\t" . join(',' . "\n\t", $items) . ",\n" . '];' . "\n";
+                        if ($items !== []) {
+                            $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = [' . "\n\t" . implode(',' . "\n\t", $items) . ",\n" . '];' . "\n";
                         }
                     } else {
                         $tr = str_replace("'", "\\'", $tr);
@@ -380,7 +364,7 @@ namespace Dotclear\Helper {
          *
          * @return array<mixed>|false Parsed file
          */
-        public static function parsePoFile(string $file)
+        public static function parsePoFile(string $file): false|array
         {
             // stop if file not exists
             if (!file_exists($file)) {
@@ -417,9 +401,10 @@ namespace Dotclear\Helper {
             $desc = [];
 
             // read through lines
-            for ($i = 0; $i < count($lines); $i++) {
+            $counter = count($lines);
+            for ($i = 0; $i < $counter; $i++) {
                 // some people like mirovinben add white space at the end of line
-                $line = trim((string) $lines[$i]);
+                $line = trim($lines[$i]);
 
                 // jump to next line on blank one or empty comment (#)
                 if (strlen($line) < 2) {
@@ -427,10 +412,10 @@ namespace Dotclear\Helper {
                 }
 
                 // headers
-                if (!$headers_searched && preg_match('/^msgid\s+""$/', trim((string) $line))) {
+                if (!$headers_searched && preg_match('/^msgid\s+""$/', trim($line))) {
                     // headers start wih empty msgid and msgstr follow be multine
-                    if (!preg_match('/^msgstr\s+""$/', trim((string) $lines[$i + 1]))
-                        || !preg_match('/^"(.*)"$/', trim((string) $lines[$i + 2]))) {
+                    if (!preg_match('/^msgstr\s+""$/', trim($lines[$i + 1]))
+                        || !preg_match('/^"(.*)"$/', trim($lines[$i + 2]))) {
                         $headers_searched = true;
                     } else {
                         $l = $i + 2;
@@ -440,8 +425,8 @@ namespace Dotclear\Helper {
                             // an header has key:val
                             if (false === ($h_index = strpos($h_line, ':'))) {
                                 // multiline value
-                                if (!empty($h_key) && !empty($headers[$h_key])) {
-                                    $headers[$h_key] = trim((string) $headers[$h_key] . $h_line);
+                                if ($h_key !== '' && (isset($headers[$h_key]) && $headers[$h_key] !== '')) {
+                                    $headers[$h_key] = trim($headers[$h_key] . $h_line);
 
                                     continue;
 
@@ -576,36 +561,31 @@ namespace Dotclear\Helper {
                 elseif (false !== ($def = self::cleanPoLine('multi', $line))) {
                     $str = self::cleanPoString($def[1]);
 
-                    // msgid
                     if (!isset($entry['msgstr'])) {
-                        //msgid plural
+                        // msgid
                         if (isset($entry['msgid_plural'])) {
+                            //msgid plural
                             if (!is_array($entry['msgid_plural'])) {
                                 $entry['msgid_plural'] .= $str;
                             } else {
                                 $entry['msgid_plural'][count($entry['msgid_plural']) - 1] .= $str;
                             }
+                        } elseif (!is_array($entry['msgid'])) {
+                            $entry['msgid'] .= $str;
                         } else {
-                            if (!is_array($entry['msgid'])) {
-                                $entry['msgid'] .= $str;
-                            } else {
-                                $entry['msgid'][count($entry['msgid']) - 1] .= $str;
-                            }
+                            $entry['msgid'][count($entry['msgid']) - 1] .= $str;
                         }
-
+                    } elseif (!is_array($entry['msgstr'])) {
                         // msgstr
+                        $entry['msgstr'] .= $str;
                     } else {
-                        if (!is_array($entry['msgstr'])) {
-                            $entry['msgstr'] .= $str;
-                        } else {
-                            $entry['msgstr'][count($entry['msgstr']) - 1] .= $str;
-                        }
+                        $entry['msgstr'][count($entry['msgstr']) - 1] .= $str;
                     }
                 }
             }
 
             // Add last translation
-            if (!empty($entry)) {
+            if ($entry !== []) {
                 if (!empty($desc)) {
                     $entry = array_merge($entry, $desc);
                 }
@@ -623,7 +603,7 @@ namespace Dotclear\Helper {
          *
          * @return     false|array<string>
          */
-        protected static function cleanPoLine(string $type, $_)
+        protected static function cleanPoLine(string $type, $_): array|false
         {
             $patterns = [
                 'msgid'   => 'msgid(_plural|)\s+"(.*)"',
@@ -644,8 +624,6 @@ namespace Dotclear\Helper {
          * Clean string from .po
          *
          * @param      mixed   $_      The string
-         *
-         * @return     string
          */
         protected static function cleanPoString($_): string
         {
@@ -791,7 +769,7 @@ namespace Dotclear\Helper {
          */
         public static function getLanguagesName(): array
         {
-            if (empty(self::$languages_name)) {
+            if (self::$languages_name === []) {
                 self::$languages_name = self::getLanguagesDefinitions(3);
             }
 
@@ -819,7 +797,7 @@ namespace Dotclear\Helper {
          */
         public static function getLanguagesTextDirection(): array
         {
-            if (empty(self::$languages_textdirection)) {
+            if (self::$languages_textdirection === []) {
                 self::$languages_textdirection = self::getLanguagesDefinitions(4);
             }
 
@@ -837,7 +815,7 @@ namespace Dotclear\Helper {
         {
             $_ = self::getLanguagesPluralsNumber();
 
-            return !empty($_[$code]) ? $_[$code] : self::$language_pluralsnumber;
+            return empty($_[$code]) ? self::$language_pluralsnumber : $_[$code];
         }
 
         /**
@@ -847,7 +825,7 @@ namespace Dotclear\Helper {
          */
         public static function getLanguagesPluralsNumber(): array
         {
-            if (empty(self::$languages_pluralsnumber)) {
+            if (self::$languages_pluralsnumber === []) {
                 self::$languages_pluralsnumber = self::getLanguagesDefinitions(5);
             }
 
@@ -865,7 +843,7 @@ namespace Dotclear\Helper {
         {
             $_ = self::getLanguagesPluralExpression();
 
-            return !empty($_[$code]) ? $_[$code] : self::$language_pluralexpression;
+            return empty($_[$code]) ? self::$language_pluralexpression : $_[$code];
         }
 
         /**
@@ -875,7 +853,7 @@ namespace Dotclear\Helper {
          */
         public static function getLanguagesPluralExpression(): array
         {
-            if (empty(self::$languages_pluralexpression)) {
+            if (self::$languages_pluralexpression === []) {
                 self::$languages_pluralexpression = self::getLanguagesDefinitions(6);
             }
 
@@ -921,7 +899,7 @@ namespace Dotclear\Helper {
                 return [];
             }
 
-            if (empty(self::$languages_definitions)) {
+            if (self::$languages_definitions === []) {
                 self::$languages_definitions = [
                     ['aa', 'aar', 'Afar', 'Afaraf', 'ltr', null, null],
                     ['ab', 'abk', 'Abkhazian', 'Аҧсуа', 'ltr', null, null],

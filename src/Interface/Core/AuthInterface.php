@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -126,8 +127,6 @@ interface AuthInterface
      * @param   string  $pwd            User password
      * @param   string  $user_key       User key check
      * @param   bool    $check_blog     Checks if user is associated to a blog or not.
-     *
-     * @return  bool
      */
     public function checkUser(string $user_id, ?string $pwd = null, ?string $user_key = null, bool $check_blog = true): bool;
 
@@ -153,15 +152,11 @@ interface AuthInterface
      * This method only check current user password.
      *
      * @param   string  $pwd    User password
-     *
-     * @return  bool
      */
     public function checkPassword(string $pwd): bool;
 
     /**
      * This method checks if user session cookie exists.
-     *
-     * @return  bool
      */
     public function sessionExists(): bool;
 
@@ -169,22 +164,16 @@ interface AuthInterface
      * This method checks user session validity.
      *
      * @param   string  $uid    Browser UID
-     *
-     * @return  bool
      */
     public function checkSession(?string $uid = null): bool;
 
     /**
      * Checks if user must change his password in order to login.
-     *
-     * @return  bool
      */
     public function mustChangePassword(): bool;
 
     /**
      * Checks if user is super admin.
-     *
-     * @return  bool
      */
     public function isSuperAdmin(): bool;
 
@@ -194,15 +183,11 @@ interface AuthInterface
      *
      * @param   string  $permissions    Permissions list (comma separated)
      * @param   string  $blog_id        Blog ID
-     *
-     * @return  bool
      */
     public function check(?string $permissions, ?string $blog_id): bool;
 
     /**
      * Returns true if user is allowed to change its password.
-     *
-     * @return  bool
      */
     public function allowPassChange(): bool;
 
@@ -232,8 +217,6 @@ interface AuthInterface
      * Get user preferences handler.
      *
      * @throws  \Error   if no user is set
-     *
-     * @return  UserPreferencesInterface
      */
     public function prefs(): UserPreferencesInterface;
 
@@ -318,8 +301,6 @@ interface AuthInterface
      * Makes permissions string from an array.
      *
      * @param   array<string>   $list   The list
-     *
-     * @return  string
      */
     public function makePermissions(array $list): string;
 
@@ -352,8 +333,6 @@ interface AuthInterface
      *
      * @param   string  $user_id        User ID
      * @param   string  $user_email     User Email
-     *
-     * @return  string
      */
     public function setRecoverKey(string $user_id, string $user_email): string;
 

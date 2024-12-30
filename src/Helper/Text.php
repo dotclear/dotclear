@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -22,8 +23,6 @@ class Text
      * Returns true if $email is a valid email address.
      *
      * @param string    $email    Email string
-     *
-     * @return bool
      */
     public static function isEmail(string $email): bool
     {
@@ -37,8 +36,6 @@ class Text
      * representation.
      *
      * @param    string    $str        String to deaccent
-     *
-     * @return    string
      */
     public static function deaccent(string $str): string
     {
@@ -87,8 +84,6 @@ class Text
      *
      * @param string    $str            String to transform
      * @param bool      $with_slashes   Keep slashes in URL
-     *
-     * @return string
      */
     public static function str2URL(string $str, bool $with_slashes = true): string
     {
@@ -104,8 +99,6 @@ class Text
      * @param string    $str            URL to tidy
      * @param bool      $keep_slashes   Keep slashes in URL
      * @param bool      $keep_spaces    Keep spaces in URL
-     *
-     * @return string
      */
     public static function tidyURL(string $str, bool $keep_slashes = true, bool $keep_spaces = false): string
     {
@@ -124,11 +117,8 @@ class Text
 
         $str = (string) preg_replace('/\-+/', '-', $str);
 
-        # Remove path changes in URL
-        $str = (string) preg_replace('%^/%', '', $str);
-        $str = (string) preg_replace('%\.+/%', '', $str);
-
-        return $str;
+        // Remove path changes in URL
+        return (string) preg_replace(['%^/%', '%\.+/%'], '', $str);
     }
 
     /**
@@ -138,27 +128,24 @@ class Text
      *
      * @param    string    $str           String to cut
      * @param    integer   $length        Length to keep
-     *
-     * @return    string
      */
     public static function cutString(string $str, int $length): string
     {
-        $res = '';
-        $L   = 0;
+        $res             = '';
+        $composed_length = 0;
 
-        $s = preg_split('/([\s]+)/u', $str, -1, PREG_SPLIT_DELIM_CAPTURE);
-        if ($s !== false) {
-            if (mb_strlen($s[0]) >= $length) {
-                return mb_substr($s[0], 0, $length);
+        $parts = preg_split('/([\s]+)/u', $str, -1, PREG_SPLIT_DELIM_CAPTURE);
+        if ($parts !== false) {
+            if (mb_strlen($parts[0]) >= $length) {
+                return mb_substr($parts[0], 0, $length);
             }
 
-            foreach ($s as $v) {
-                $L = $L + mb_strlen($v);
-
-                if ($L > $length) {
+            foreach ($parts as $part) {
+                $composed_length += mb_strlen($part);
+                if ($composed_length > $length) {
                     break;
                 }
-                $res .= $v;
+                $res .= $part;
             }
         }
 
@@ -194,8 +181,6 @@ class Text
      * Returns the encoding (in lowercase) of given $str.
      *
      * @param string    $str        String
-     *
-     * @return string
      */
     public static function detectEncoding(string $str): string
     {
@@ -228,8 +213,6 @@ class Text
      *
      * @param string    $str         String to convert
      * @param string    $encoding    Optionnal "from" encoding
-     *
-     * @return string
      */
     public static function toUTF8(string $str, ?string $encoding = null): string
     {
@@ -256,10 +239,8 @@ class Text
      * @copyright Harry Fuecks (http://phputf8.sourceforge.net <a href="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">GNU LGPL 2.1</a>)
      *
      * @param string    $str        String to search
-     *
-     * @return integer|false
      */
-    public static function utf8badFind(string $str)
+    public static function utf8badFind(string $str): false|int
     {
         $UTF8_BAD = '([\x00-\x7F]' .            // ASCII (including control chars)
         '|[\xC2-\xDF][\x80-\xBF]' .             // non-overlong 2-byte
@@ -293,8 +274,6 @@ class Text
      *
      * @param string    $str        String to clean
      * @param string    $repl       Replacement string
-     *
-     * @return string
      */
     public static function cleanUTF8(string $str, string $repl = '?'): string
     {
@@ -309,8 +288,6 @@ class Text
      * Clean a string
      *
      * @param      string  $str    The string
-     *
-     * @return     string
      */
     public static function cleanStr(string $str): string
     {
@@ -692,12 +669,11 @@ class Text
      * see https://github.com/infralabs/DiacriticsRemovePHP
      *
      * @param      string  $str    The string
-     *
-     * @return     string
      */
     public static function removeDiacritics(string $str): string
     {
-        for ($i = 0; $i < sizeof(self::$defaultDiacriticsRemovalMap); $i++) {
+        $counter = count(self::$defaultDiacriticsRemovalMap);
+        for ($i = 0; $i < $counter; $i++) {
             $str = (string) preg_replace(
                 self::$defaultDiacriticsRemovalMap[$i]['letters'] . 'um',
                 self::$defaultDiacriticsRemovalMap[$i]['base'],

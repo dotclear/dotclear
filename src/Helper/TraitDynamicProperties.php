@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Core
@@ -53,8 +54,6 @@ trait TraitDynamicProperties
      * Test if a property exists
      *
      * @param      string  $identifier  The identifier
-     *
-     * @return     bool
      */
     public function __isset(string $identifier): bool
     {
