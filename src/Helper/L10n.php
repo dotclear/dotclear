@@ -276,7 +276,7 @@ namespace Dotclear\Helper {
          * Returns an array of strings found in a given gettext (.po) file
          *
          * @param string    $file        Filename
-
+         *
          * @return array<mixed>|false
          */
         public static function getPoFile(string $file): false|array
