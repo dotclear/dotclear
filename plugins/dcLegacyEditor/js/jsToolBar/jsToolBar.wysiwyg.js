@@ -40,7 +40,7 @@ jsToolBar.prototype.syncContents = function (from = 'textarea') {
   if (from == 'textarea') {
     initContent();
   } else {
-    this.validBlockquote();
+    // this.validBlockquote();  // Franck disable this validation as it's not robust solid
     let html = this.applyHtmlFilters(this.ibody.innerHTML);
     if (html === '<br />' || html === '<br>' || html === '<p></p>' || html === '<p><br></p>') {
       html = '';
