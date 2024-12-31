@@ -26,7 +26,7 @@ class Utils
      *
      * @return  bool    False on error
      */
-    public static function check(ConnectionInterface $con, array &$err)
+    public static function check(ConnectionInterface $con, array &$err): bool
     {
         $err = [];
 
@@ -63,14 +63,14 @@ class Utils
             $err[] = __('SPL module is not available.');
         }
 
-        if ($con->syntax() == 'mysql') {
+        if ($con->syntax() === 'mysql') {
             if (version_compare($con->version(), App::config()->minRequiredMysql(), '<')) {
                 $err[] = sprintf(__('MySQL version is %s (%s or earlier needed).'), $con->version(), App::config()->minRequiredMysql());
             } else {
                 $rs     = $con->select('SHOW ENGINES');
                 $innodb = false;
                 while ($rs->fetch()) {
-                    if (strtolower((string) $rs->f(0)) == 'innodb' && strtolower((string) $rs->f(1)) != 'disabled' && strtolower((string) $rs->f(1)) != 'no') {
+                    if (strtolower((string) $rs->f(0)) === 'innodb' && strtolower((string) $rs->f(1)) !== 'disabled' && strtolower((string) $rs->f(1)) !== 'no') {
                         $innodb = true;
 
                         break;
@@ -81,13 +81,13 @@ class Utils
                     $err[] = __('MySQL InnoDB engine is not available.');
                 }
             }
-        } elseif ($con->driver() == 'pgsql') {
+        } elseif ($con->driver() === 'pgsql') {
             if (version_compare($con->version(), App::config()->minRequiredPgsql(), '<')) {
                 $err[] = sprintf(__('PostgreSQL version is %s (%s or earlier needed).'), $con->version(), App::config()->minRequiredPgsql());
             }
         }
 
-        return !count($err);
+        return $err === [];
     }
 
     /**
@@ -369,7 +369,7 @@ class Utils
 
         /* PostgreSQL specific indexes
         -------------------------------------------------------- */
-        if ($_s->driver() == 'pgsql') {
+        if ($_s->driver() === 'pgsql') {
             $_s->setting->index('idx_setting_blog_id_null', 'btree', '(blog_id IS NULL)');
             $_s->media->index('idx_media_media_path', 'btree', 'media_path', 'media_dir');
             $_s->pref->index('idx_pref_user_id_null', 'btree', '(user_id IS NULL)');

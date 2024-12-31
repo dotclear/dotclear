@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -60,8 +61,6 @@ interface RestInterface
      * @param string    $encoding       Server charset
      * @param int       $format         Response format
      * @param mixed     $param          Supplemental parameter
-     *
-     * @return bool
      */
     public function serve(string $encoding = 'UTF-8', int $format = self::DEFAULT_RESPONSE, $param = null): bool;
 
@@ -76,8 +75,6 @@ interface RestInterface
 
     /**
      * Check if we need to serve REST requests.
-     *
-     * @return     bool
      */
     public function serveRestRequests(): bool;
 }

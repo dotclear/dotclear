@@ -507,7 +507,7 @@ class WikiToHtml
         while (preg_match('/<p>((?:.(?!p>))*?)(<a[^>]*>)?\s*(<figure[^>]*>)(.*?)(<\/figure>)\s*(<\/a>)?(.*?)<\/p>/msu', (string) $ret)) {
             $ret = preg_replace_callback(
                 '/<p>((?:.(?!p>))*?)(<a[^>]*>)?\s*(<figure[^>]*>)(.*?)(<\/figure>)\s*(<\/a>)?(.*?)<\/p>/msu',
-                function ($matches): string {
+                function (array $matches): string {
                     $figure = $matches[2] . $matches[3] . $matches[4] . $matches[5] . $matches[6];
                     $before = trim((string) $matches[1]);
                     if ($before !== '') {
@@ -943,7 +943,7 @@ class WikiToHtml
 
         $attr_parent = $attr_child = '';
         if ($attr && $attrs = $this->__splitTagsAttr($attr)) {
-            $attr_child  = $attrs[0] ? ' ' . $attrs[0] : '';
+            $attr_child  = $attrs[0] !== '' ? ' ' . $attrs[0] : '';
             $attr_parent = isset($attrs[1]) ? ' ' . $attrs[1] : '';
         }
 
@@ -1118,10 +1118,8 @@ class WikiToHtml
      * @param      int                  $next_position      The next position
      * @param      string               $attr               The attribute
      * @param      string               $type               The type
-     *
-     * @return     bool|string|null
      */
-    private function __makeTag(array &$tree, string &$tag, int $position, int &$next_position, string &$attr, string &$type)
+    private function __makeTag(array &$tree, string &$tag, int $position, int &$next_position, string &$attr, string &$type): false|string|null
     {
         $html   = '';
         $closed = false;
@@ -1316,8 +1314,8 @@ class WikiToHtml
         }
 
         $attr .= ' href="' . $this->protectAttr($this->protectUrls($url)) . '"';
-        $attr .= $lang !== '' ? ' hreflang="' . $lang . '"' : '';
-        $attr .= ($title) ? ' title="' . $this->protectAttr($title) . '"' : '';
+        $attr .= $lang  !== '' ? ' hreflang="' . $lang . '"' : '';
+        $attr .= $title !== '' ? ' title="' . $this->protectAttr($title) . '"' : '';
 
         return $content;
     }

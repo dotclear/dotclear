@@ -61,7 +61,7 @@ class Auth extends Process
             L10n::set(App::config()->l10nRoot() . '/' . App::backend()->dlang . '/main');
         }
 
-        if (App::config()->adminUrl() != '') {
+        if (App::config()->adminUrl() !== '') {
             App::backend()->page_url = App::config()->adminUrl() . App::backend()->url()->get('admin.auth');
         } else {
             App::backend()->page_url = Http::getHost() . $_SERVER['REQUEST_URI'];
@@ -69,7 +69,7 @@ class Auth extends Process
 
         App::backend()->change_pwd = App::auth()->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
 
-        App::backend()->login_data = !empty($_POST['login_data']) ? Html::escapeHTML($_POST['login_data']) : null;
+        App::backend()->login_data = empty($_POST['login_data']) ? null : Html::escapeHTML($_POST['login_data']);
 
         App::backend()->recover = App::auth()->allowPassChange() && !empty($_REQUEST['recover']);
         App::backend()->akey    = App::auth()->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
@@ -84,7 +84,7 @@ class Auth extends Process
         App::backend()->msg        = null;
 
         // Auto upgrade, keep it for backward compatibility. (now on Dotclear\Process\Upgrade\Auth)
-        if ((count($_GET) == 1 && empty($_POST)) || App::backend()->safe_mode) {
+        if ((count($_GET) == 1 && $_POST === []) || App::backend()->safe_mode) {
             try {
                 if (($changes = Upgrade::dotclearUpgrade()) !== false) {
                     App::backend()->msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
@@ -172,7 +172,7 @@ class Auth extends Process
                 $data = [
                     'user_id'       => base64_decode($tmp_data[0], true),
                     'cookie_admin'  => $tmp_data[1],
-                    'user_remember' => $tmp_data[2] == '1',
+                    'user_remember' => $tmp_data[2] === '1',
                 ];
                 if ($data['user_id'] === false) {
                     throw new Exception();
@@ -184,9 +184,9 @@ class Auth extends Process
                     $user_id = substr($data['cookie_admin'], 40);
                     $user_id = @unpack('a32', @pack('H*', $user_id));
                     if (is_array($user_id)) {
-                        $user_id                 = trim((string) $data['user_id']);
+                        $user_id                 = trim($data['user_id']);
                         App::backend()->user_key = substr($data['cookie_admin'], 0, 40);
-                        $check_user              = App::auth()->checkUser($user_id, null, App::backend()->user_key) === true;
+                        $check_user              = App::auth()->checkUser($user_id, null, App::backend()->user_key);
                     } else {
                         $user_id = trim((string) $user_id);
                     }
@@ -203,7 +203,7 @@ class Auth extends Process
                     throw new Exception(__("Passwords don't match"));
                 }
 
-                if (App::auth()->checkUser(App::backend()->user_id, $_POST['new_pwd']) === true) {
+                if (App::auth()->checkUser(App::backend()->user_id, $_POST['new_pwd'])) {
                     throw new Exception(__("You didn't change your password."));
                 }
 
@@ -233,21 +233,17 @@ class Auth extends Process
                 App::backend()->user_pwd,
                 App::backend()->user_key,
                 false
-            ) === true;
+            );
 
-            if ($check_user) {
-                // Check user permissions
-                $check_perms = App::auth()->findUserBlog() !== false;
-            } else {
-                $check_perms = false;
-            }
+            // Check user permissions
+            $check_perms = $check_user && App::auth()->findUserBlog() !== false;
 
             $cookie_admin = Http::browserUID(App::config()->masterKey() . App::backend()->user_id . App::auth()->cryptLegacy(App::backend()->user_id)) . bin2hex(pack('a32', App::backend()->user_id));
 
             if ($check_perms && App::auth()->mustChangePassword()) {
                 // User need to change password
 
-                App::backend()->login_data = join('/', [
+                App::backend()->login_data = implode('/', [
                     base64_encode(App::backend()->user_id),
                     $cookie_admin,
                     empty($_POST['user_remember']) ? '0' : '1',
@@ -282,10 +278,8 @@ class Auth extends Process
                     setcookie(App::backend()::COOKIE_NAME, $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
                 }
 
-                if (isset($_REQUEST['go'])) {
-                    if ($url = self::thenGo($_REQUEST['go'])) {
-                        Http::redirect($url);
-                    }
+                if (isset($_REQUEST['go']) && $url = self::thenGo($_REQUEST['go'])) {
+                    Http::redirect($url);
                 }
 
                 App::backend()->url()->redirect('admin.home');
@@ -496,10 +490,8 @@ class Auth extends Process
                             (new Note())->class('form-note')->text(__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems')),
                             (new Note())->class('form-note')->text(__('Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally.')),
                         ]);
-                } else {
-                    if (isset($_REQUEST['go'])) {
-                        $fields[] = (new Hidden('go', Html::escapeHTML($_REQUEST['go'])));
-                    }
+                } elseif (isset($_REQUEST['go'])) {
+                    $fields[] = (new Hidden('go', Html::escapeHTML($_REQUEST['go'])));
                 }
 
                 $fields[] = (new Set())
@@ -544,7 +536,7 @@ class Auth extends Process
                 $fieldset = (new Fieldset())
                     ->role('main')
                     ->fields($fields);
-                if ($legend) {
+                if ($legend instanceof Legend) {
                     $fieldset->legend($legend);
                 }
 

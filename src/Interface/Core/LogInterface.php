@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -59,8 +60,6 @@ interface LogInterface
      * @throws  BadRequestException
      *
      * @param   Cursor  $cur    The current
-     *
-     * @return  int
      */
     public function addLog(Cursor $cur): int;
 

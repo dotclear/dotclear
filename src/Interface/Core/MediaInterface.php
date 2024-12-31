@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -178,8 +179,6 @@ interface MediaInterface
      * @param   string      $type       The media type
      * @param   string      $event      The event
      * @param   callable    $function   The callback
-     *
-     * @return void
      */
     public function addFileHandler(string $type, string $event, $function): void;
 
@@ -188,8 +187,6 @@ interface MediaInterface
      *
      * @param   string  $href   The URL pattern
      * @param   string  $last   The last item pattern
-     *
-     * @return  string  HTML code
      */
     public function breadCrumb(string $href, string $last = ''): string;
 
@@ -428,7 +425,8 @@ interface MediaInterface
     public function mediaFireRecreateEvent(File $f): void;
 
     /* Image handlers
-    ------------------------------------------------------- */
+       ------------------------------------------------------- */
+
     /**
      * Create image thumbnails.
      *
@@ -436,8 +434,6 @@ interface MediaInterface
      * @param   string  $f      Image filename
      * @param   int     $id     Media ID
      * @param   bool    $force  Force creation
-     *
-     * @return  bool
      */
     public function imageThumbCreate(?Cursor $cur, string $f, int $id, bool $force = true): bool;
 
@@ -445,8 +441,6 @@ interface MediaInterface
      * Remove image thumbnails.
      *
      * @param   string  $f  Image filename
-     *
-     * @return  bool
      */
     public function imageThumbRemove(string $f): bool;
 
@@ -459,8 +453,6 @@ interface MediaInterface
      * @param   mixed   $args       The player arguments
      * @param   bool    $fallback   The fallback
      * @param   bool    $preload    Add preload="auto" attribute if true, else preload="none"
-     *
-     * @return  string
      */
     public static function audioPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string;
 
@@ -473,8 +465,6 @@ interface MediaInterface
      * @param   mixed   $args       The player arguments
      * @param   bool    $fallback   The fallback (not more used)
      * @param   bool    $preload    Add preload="auto" attribute if true, else preload="none"
-     *
-     * @return  string
      */
     public static function videoPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string;
 
@@ -486,8 +476,6 @@ interface MediaInterface
      * @param   mixed   $args       The player arguments
      * @param   bool    $fallback   The fallback (not more used)
      * @param   bool    $preload    Add preload="auto" attribute if true, else preload="none"
-     *
-     * @return  string
      */
     public static function mp3player(string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string;
 
@@ -499,8 +487,6 @@ interface MediaInterface
      * @param   string  $url        The url
      * @param   string  $player     The player
      * @param   mixed   $args       The arguments
-     *
-     * @return  string
      */
     public static function flvplayer(string $url, ?string $player = null, $args = null): string;
 }

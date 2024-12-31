@@ -23,36 +23,26 @@ class XmlRpc extends IntrospectionServer
 {
     /**
      * Set to true as soon as Blog is set (using Blog ID)
-     *
-     * @var     bool
      */
     private bool $blog_loaded = false;
 
     /**
      * Debug mode
-     *
-     * @var     bool
      */
     private bool $debug = false;
 
     /**
      * Debug file log
-     *
-     * @var     string
      */
     private readonly string $debug_file;
 
     /**
      * Trace arguments
-     *
-     * @var     bool
      */
     private bool $trace_args = true;
 
     /**
      * Trace response
-     *
-     * @var     bool
      */
     private bool $trace_response = true;
 
@@ -92,8 +82,6 @@ class XmlRpc extends IntrospectionServer
      *
      * @param   string  $methodname     The methodname
      * @param   mixed   $args           The arguments
-     *
-     * @return  mixed
      */
     public function call(string $methodname, $args): mixed
     {
@@ -144,12 +132,10 @@ class XmlRpc extends IntrospectionServer
      * Sets the blog.
      *
      * @throws  Exception
-     *
-     * @return  bool
      */
-    private function setBlog()
+    private function setBlog(): bool
     {
-        if (!$this->blog_id) {
+        if ($this->blog_id === '') {
             throw new Exception('No blog ID given.');
         }
 
@@ -160,7 +146,7 @@ class XmlRpc extends IntrospectionServer
         App::blog()->loadFromBlog($this->blog_id);
         $this->blog_loaded = true;
 
-        if (!App::blog()->id()) {
+        if (App::blog()->id() === '') {
             App::blog()->loadFromBlog('');
 
             throw new Exception('Blog does not exist.');

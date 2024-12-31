@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -24,8 +25,6 @@ interface SchemaInterface
      * @param   string  $type       Type name
      * @param   int     $len        Field length (in/out)
      * @param   mixed   $default    Default field value (in/out)
-     *
-     * @return  string
      */
     public function dbt2udt(string $type, ?int &$len, &$default): string;
 
@@ -35,8 +34,6 @@ interface SchemaInterface
      * @param   string      $type       Type name
      * @param   integer     $len        Field length (in/out)
      * @param   string      $default    Default field value (in/out)
-     *
-     * @return  string
      */
     public function udt2dbt(string $type, ?int &$len, &$default): string;
 

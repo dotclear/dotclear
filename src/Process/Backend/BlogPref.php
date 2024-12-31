@@ -69,7 +69,7 @@ class BlogPref extends Process
          *
          * @var        bool
          */
-        $data->standalone = !(isset($data->edit_blog_mode) && $data->edit_blog_mode);
+        $data->standalone = !($data->edit_blog_mode ?? false);
         if ($data->standalone) {
             Page::check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,
@@ -100,7 +100,7 @@ class BlogPref extends Process
                 }
 
                 $rs = App::blogs()->getBlog($_REQUEST['id']);
-                if (!$rs->count()) {
+                if ($rs->count() === 0) {
                     throw new Exception(__('No such blog.'));
                 }
 
@@ -268,7 +268,7 @@ class BlogPref extends Process
          */
         $data = App::backend();
 
-        if ($data->blog_id && !empty($_POST) && App::auth()->check(App::auth()->makePermissions(
+        if ($data->blog_id && $_POST !== [] && App::auth()->check(App::auth()->makePermissions(
             [
                 App::auth()::PERMISSION_ADMIN,
             ]
@@ -333,7 +333,7 @@ class BlogPref extends Process
             try {
                 if ($cur->blog_id != null && $cur->blog_id != $data->blog_id) {
                     $rs = App::blogs()->getBlog($cur->blog_id);
-                    if ($rs->count()) {
+                    if ($rs->count() !== 0) {
                         throw new Exception(__('This blog ID is already used.'));
                     }
                 }
@@ -932,7 +932,7 @@ class BlogPref extends Process
                                                 ->items([
                                                     (new Select('media_img_default_size'))
                                                         ->items($data->img_default_size_combo)
-                                                        ->default(Html::escapeHTML($data->blog_settings->system->media_img_default_size) != '' ? Html::escapeHTML($data->blog_settings->system->media_img_default_size) : 'm')
+                                                        ->default(Html::escapeHTML($data->blog_settings->system->media_img_default_size) !== '' ? Html::escapeHTML($data->blog_settings->system->media_img_default_size) : 'm')
                                                         ->label(new Label(__('Size of inserted image:'), Label::OL_TF)),
                                                 ]),
                                             (new Para())
@@ -998,16 +998,14 @@ class BlogPref extends Process
                                 Html::escapeHTML($file),
                                 (string) $status
                             ));
-                    } else {
-                        if (!str_starts_with($content, '<?xml ')) {
-                            // Not well formed XML feed
-                            $message = (new Note())
-                                ->class(['form-note', 'warn'])
-                                ->text(sprintf(
-                                    __('The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed).'),
-                                    Html::escapeHTML($file)
-                                ));
-                        }
+                    } elseif (!str_starts_with($content, '<?xml ')) {
+                        // Not well formed XML feed
+                        $message = (new Note())
+                            ->class(['form-note', 'warn'])
+                            ->text(sprintf(
+                                __('The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed).'),
+                                Html::escapeHTML($file)
+                            ));
                     }
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
@@ -1190,16 +1188,14 @@ class BlogPref extends Process
                                 App::nonce()->formNonce(),
                             ]),
                     ]);
+            } elseif ($data->blog_id === App::blog()->id()) {
+                $additional = (new Note())
+                    ->class('message')
+                    ->text(__('The current blog cannot be deleted.'));
             } else {
-                if ($data->blog_id === App::blog()->id()) {
-                    $additional = (new Note())
-                        ->class('message')
-                        ->text(__('The current blog cannot be deleted.'));
-                } else {
-                    $additional = (new Note())
-                        ->class('message')
-                        ->text(__('Only superadmin can delete a blog.'));
-                }
+                $additional = (new Note())
+                    ->class('message')
+                    ->text(__('Only superadmin can delete a blog.'));
             }
 
             $tabs[] = (new Div('params'))
@@ -1220,7 +1216,7 @@ class BlogPref extends Process
             $data->blog_users = App::blogs()->getBlogPermissions($data->blog_id, App::auth()->isSuperAdmin());
             $perm_types       = App::auth()->getPermissionsTypes();
 
-            if (empty($data->blog_users)) {
+            if ($data->blog_users === []) {
                 $users[] = (new Note())
                     ->text(__('No users'));
             } else {
@@ -1251,7 +1247,7 @@ class BlogPref extends Process
                         // User email
                         $mail = $v['email'] ?
                             (new Link())
-                                ->href('mailto:' . (string) $v['email'])
+                                ->href('mailto:' . $v['email'])
                                 ->text($v['email'])
                             ->render() :
                             __('(none)');
@@ -1301,7 +1297,7 @@ class BlogPref extends Process
                                     ]);
                                 } else {
                                     $perm->items([
-                                        (new Text(null, sprintf(__('[%s] (unreferenced permission)')))),
+                                        (new Text(null, sprintf(__('[%s] (unreferenced permission)'), $p))),
                                         $super,
                                     ]);
                                 }
