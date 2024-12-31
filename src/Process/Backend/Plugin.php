@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -35,8 +36,8 @@ class Plugin extends Process
     public static function render(): void
     {
         $p_file = '';
-        $plugin = !empty($_REQUEST['p']) ? $_REQUEST['p'] : '';
-        $popup  = (int) !empty($_REQUEST['popup']);
+        $plugin = empty($_REQUEST['p']) ? '' : $_REQUEST['p'];
+        $popup  = !empty($_REQUEST['popup']);
 
         if ($popup) {
             $open_function  = Page::openPopup(...);
@@ -57,7 +58,7 @@ class Plugin extends Process
 
             // by class name
             $class = App::plugins()->loadNsClass($plugin, App::plugins()::MODULE_CLASS_MANAGE);
-            if (!empty($class)) {
+            if ($class !== '') {
                 ob_start();
                 $class::render();
                 $res = (string) ob_get_contents();
@@ -74,7 +75,7 @@ class Plugin extends Process
             }
         }
 
-        if (!empty($res)) {
+        if ($res !== '') {
             $p_title   = 'no content - plugin';
             $p_head    = '';
             $p_content = '<p>' . __('No content found on this plugin.') . '</p>';
@@ -119,7 +120,7 @@ class Plugin extends Process
             if (!$popup) {
                 // Add direct links to plugin settings if any
                 $settings = ModulesList::getSettingsUrls((string) $plugin, true, false);
-                if (!empty($settings)) {
+                if ($settings !== []) {
                     echo '<hr class="clear"><p class="right modules">' . implode(' - ', $settings) . '</p>';
                 }
             }

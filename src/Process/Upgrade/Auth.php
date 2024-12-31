@@ -73,7 +73,7 @@ class Auth extends Process
         }
 
         // Auto upgrade
-        if ((count($_GET) == 1 && empty($_POST))) {
+        if ((count($_GET) === 1 && $_POST === [])) {
             try {
                 if (($changes = Upgrade::dotclearUpgrade()) !== false) {
                     self::$msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
@@ -93,7 +93,6 @@ class Auth extends Process
 
     public static function process(): bool
     {
-        $headers = [];
         if (self::$user_id !== null && (self::$user_pwd !== null || self::$user_key !== null)) {
             // Try to log
 
@@ -103,14 +102,10 @@ class Auth extends Process
                 self::$user_pwd,
                 self::$user_key,
                 false
-            ) === true;
+            );
 
-            if ($check_user) {
-                // Check user permissions
-                $check_perms = App::auth()->isSuperAdmin();
-            } else {
-                $check_perms = false;
-            }
+            // Check user permissions
+            $check_perms = $check_user && App::auth()->isSuperAdmin();
 
             $cookie_admin = Http::browserUID(App::config()->masterKey() . self::$user_id . App::auth()->cryptLegacy(self::$user_id)) . bin2hex(pack('a32', self::$user_id));
 
@@ -201,11 +196,11 @@ class Auth extends Process
         }
 
         // Authentication
-
-        if (is_callable([App::auth(), 'authForm'])) {
+        $user_defined_auth_form = null;
+        if (is_callable([App::auth(), 'authForm'], false, $user_defined_auth_form)) {
             // User-defined authentication form
 
-            echo App::auth()->authForm(self::$user_id);
+            echo $user_defined_auth_form(self::$user_id);
         } else {
             // Standard authentication form
 

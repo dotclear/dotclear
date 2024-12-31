@@ -22,15 +22,11 @@ class Blowup
 {
     /**
      * CSS folder name
-     *
-     * @var        string
      */
     protected static string $css_folder = 'blowup-css';
 
     /**
      * Images folder name
-     *
-     * @var        string
      */
     protected static string $img_folder = 'blowup-images';
 
@@ -105,7 +101,7 @@ class Blowup
      */
     public static function fontsList(): array
     {
-        if (empty(self::$fonts_combo)) {
+        if (self::$fonts_combo === []) {
             self::$fonts_combo[__('default')] = '';
             foreach (self::$fonts as $family => $g) {
                 $fonts = [];
@@ -123,10 +119,8 @@ class Blowup
      * Return the font family depending on given setting
      *
      * @param      mixed  $c    Font family setting
-     *
-     * @return     string|null
      */
-    public static function fontDef($c)
+    public static function fontDef($c): ?string
     {
         if (empty(self::$fonts_list)) {
             foreach (self::$fonts as $g) {
@@ -141,8 +135,6 @@ class Blowup
 
     /**
      * Return theme folder URL
-     *
-     * @return     string
      */
     public static function themeURL(): string
     {
@@ -151,8 +143,6 @@ class Blowup
 
     /**
      * Return css folder path
-     *
-     * @return     string
      */
     public static function cssPath(): string
     {
@@ -161,8 +151,6 @@ class Blowup
 
     /**
      * Return CSS url
-     *
-     * @return     string
      */
     public static function cssURL(): string
     {
@@ -173,8 +161,6 @@ class Blowup
      * Determines ability to write css.
      *
      * @param      bool  $create  Create CSS folder if necessary
-     *
-     * @return     bool  True if able to write css, False otherwise.
      */
     public static function canWriteCss(bool $create = false): bool
     {
@@ -217,8 +203,6 @@ class Blowup
 
     /**
      * Get public URL of CSS
-     *
-     * @return     string
      */
     public static function publicCssUrlHelper(): string
     {
@@ -229,18 +213,14 @@ class Blowup
 
     /**
      * Get images path
-     *
-     * @return     string|false
      */
-    public static function imagesPath()
+    public static function imagesPath(): string|bool
     {
         return ThemeConfig::imagesPath(self::$img_folder);
     }
 
     /**
      * Get images URL
-     *
-     * @return     string
      */
     public static function imagesURL(): string
     {
@@ -251,8 +231,6 @@ class Blowup
      * Determines ability to write images.
      *
      * @param      bool  $create  Create the image folder if necessary
-     *
-     * @return     bool  True if able to write images, False otherwise.
      */
     public static function canWriteImages(bool $create = false): bool
     {
@@ -263,8 +241,6 @@ class Blowup
      * Uploads an image.
      *
      * @param      array<string, string>   $f      file properties
-     *
-     * @return     string
      */
     public static function uploadImage(array $f): string
     {
@@ -287,13 +263,11 @@ class Blowup
      * @param      array<string, mixed>|null     $s
      *
      * @throws     Exception  (description)
-     *
-     * @return     void|string
      */
-    public static function createCss(?array $s)
+    public static function createCss(?array $s): ?string
     {
         if ($s === null) {
-            return;
+            return null;
         }
 
         $css = [];
@@ -422,7 +396,7 @@ class Blowup
         foreach ($css as $selector => $values) {
             $res .= $selector . " {\n";
             foreach ($values as $k => $v) {
-                if ($v) {
+                if ($v !== '') {
                     $res .= $k . ':' . $v . ";\n";
                 }
             }
@@ -455,7 +429,7 @@ class Blowup
     public static function createImages(array &$config, ?string $uploaded): void
     {
         // Helper
-        $destroy_img = fn ($img) => $img ? imagedestroy($img) : true;
+        $destroy_img = fn ($img): bool => $img ? imagedestroy($img) : true;
 
         $body_color       = is_string($config['body_bg_c']) ? $config['body_bg_c'] : null;
         $prelude_color    = is_string($config['prelude_c']) ? $config['prelude_c'] : null;
@@ -512,7 +486,7 @@ class Blowup
         $d_body_bg = false;
 
         if ($top_image || $body_color || $gradient != 'light' || $prelude_color || $uploaded) {
-            if (!$body_color) {
+            if ($body_color === '') {
                 $body_color = $default_bg;
             }
             $body_color = sscanf($body_color, '#%2X%2X%2X');
@@ -536,7 +510,7 @@ class Blowup
                     }
                 }
 
-                if (!$prelude_color) {
+                if ($prelude_color === '') {
                     $prelude_color = $default_prelude;
                 }
                 $prelude_color = sscanf($prelude_color, '#%2X%2X%2X');
@@ -583,12 +557,7 @@ class Blowup
                 $type = Files::getMimeType($page_t);
 
                 $d_page_t = imagecreatetruecolor(800, $size);   // @phpstan-ignore-line
-
-                if ($type == 'image/png') {
-                    $s_page_t = @imagecreatefrompng($page_t);
-                } else {
-                    $s_page_t = @imagecreatefromjpeg($page_t);
-                }
+                $s_page_t = $type === 'image/png' ? @imagecreatefrompng($page_t) : @imagecreatefromjpeg($page_t);
 
                 if ($s_page_t === false) {
                     throw new Exception(__('Unable to open image.'));
@@ -604,7 +573,7 @@ class Blowup
                     imagefill($d_page_t, 0, 0, (int) $fill);
 
                     if ($d_body_bg !== false) {
-                        if ($type == 'image/png') {
+                        if ($type === 'image/png') {
                             # PNG, we only add body gradient and image
                             imagealphablending($s_page_t, true);
                             imagecopyresized($d_page_t, $d_body_bg, 0, 0, 0, 50, 800, 130, 50, 130);
@@ -665,7 +634,7 @@ class Blowup
             }
         }
 
-        if ($comment_color) {
+        if ($comment_color !== '') {
             self::commentImages($comment_color, $comment_t, $comment_b, basename($comment_t), basename($comment_b));
         }
         if ($comment_color_my) {
@@ -685,7 +654,7 @@ class Blowup
     protected static function commentImages(string $comment_color, string $comment_t, string $comment_b, string $dest_t, string $dest_b): void
     {
         // Helper
-        $destroy_img = fn ($img) => $img ? imagedestroy($img) : true;
+        $destroy_img = fn ($img): bool => $img ? imagedestroy($img) : true;
 
         $comment_color = sscanf($comment_color, '#%2X%2X%2X');
         if (!is_array($comment_color)) {

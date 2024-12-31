@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -15,6 +16,7 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Process;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -68,7 +70,7 @@ class Category extends Process
                 App::error()->add($e->getMessage());
             }
 
-            if ($rs) {
+            if ($rs instanceof MetaRecord) {
                 if (!App::error()->flag() && !$rs->isEmpty()) {
                     App::backend()->cat_id    = (int) $rs->cat_id;
                     App::backend()->cat_title = $rs->cat_title;
@@ -261,7 +263,7 @@ class Category extends Process
                         ->items([
                             (new Select('new_cat_parent'))
                                 ->items(Combos::getCategoriesCombo(App::blog()->getCategories()))
-                                ->default(!empty($_POST['new_cat_parent']) ? $_POST['new_cat_parent'] : '')
+                                ->default(empty($_POST['new_cat_parent']) ? '' : $_POST['new_cat_parent'])
                                 ->label(new Label(__('Parent:'), Label::IL_TF)),
                         ]),
                 (new Div())
@@ -338,7 +340,7 @@ class Category extends Process
                         ]),
                 ]);
 
-            if (is_countable(App::backend()->cat_siblings) ? count(App::backend()->cat_siblings) : 0) {
+            if (App::backend()->cat_siblings !== []) {
                 $cols[] = (new Div())
                     ->class('col')
                     ->items([

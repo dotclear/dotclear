@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -47,8 +48,6 @@ interface MetaInterface
      * Make a metadata ID URL-proof.
      *
      * @param      string  $str    The metadata ID
-     *
-     * @return     string
      */
     public static function sanitizeMetaID(string $str): string;
 
@@ -78,8 +77,6 @@ interface MetaInterface
      *
      * @param   string  $str    The serialized metadata
      * @param   string  $type   The meta type to retrieve metaIDs from
-     *
-     * @return  MetaRecord  meta recordset.
      */
     public function getMetaRecordset(?string $str, string $type): MetaRecord;
 
@@ -125,8 +122,6 @@ interface MetaInterface
      * @param   array<string, mixed>    $params         The parameters
      * @param   bool                    $count_only     Only counts results
      * @param   SelectStatement|null    $ext_sql        Optional SqlStatement instance
-     *
-     * @return  MetaRecord  The metadata.
      */
     public function getMetadata(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord;
 
@@ -135,8 +130,6 @@ interface MetaInterface
      * Each record gets enriched with lowercase name, percent and roundpercent columns
      *
      * @param      MetaRecord  $rs     The metadata recordset
-     *
-     * @return     MetaRecord  The meta statistics.
      */
     public function computeMetaStats(MetaRecord $rs): MetaRecord;
 

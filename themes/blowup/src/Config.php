@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -128,7 +129,7 @@ class Config extends Process
 
         App::backend()->top_images = array_merge([__('Custom...') => 'custom'], array_flip(Blowup::$top_images));
 
-        if (!empty($_POST)) {
+        if ($_POST !== []) {
             try {
                 $blowup_user = App::backend()->blowup_user;
 

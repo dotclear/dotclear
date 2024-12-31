@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Frontend
@@ -40,7 +41,7 @@ class CommentPublic extends Comment
         if (App::blog()->settings()->system->use_smilies) {
             $content = parent::getContent($rs, $absolute_urls);
 
-            if (!isset(App::frontend()->smilies)) {
+            if (App::frontend()->smilies === null) {
                 App::frontend()->smilies = Ctx::getSmilies(App::blog());
             }
 

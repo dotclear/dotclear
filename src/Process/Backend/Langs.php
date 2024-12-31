@@ -262,7 +262,7 @@ class Langs extends Process
                 (new Text('h3', __('Installed languages'))),
             ]);
 
-        if (empty($langs_list)) {
+        if ($langs_list === []) {
             $parts[] = (new Para())
                 ->items([
                     (new Text('strong', __('No additional language is installed.'))),

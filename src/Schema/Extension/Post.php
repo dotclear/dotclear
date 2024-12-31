@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Core
@@ -48,15 +49,10 @@ class Post
             return false;
         }
 
-        # If user is usage and owner of the entry
-        if (App::auth()->check(App::auth()->makePermissions([
+        # Ckeck if user is usage and owner of the entry
+        return App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
-        ]), App::blog()->id())
-            && $rs->user_id == App::auth()->userID()) {
-            return true;
-        }
-
-        return false;
+        ]), App::blog()->id()) && $rs->user_id == App::auth()->userID();
     }
 
     /**
@@ -80,23 +76,16 @@ class Post
             return false;
         }
 
-        # If user has delete rights and is owner of the entrie
-        if (App::auth()->check(App::auth()->makePermissions([
+        # Check if user has delete rights and is owner of the entry
+        return App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
-        ]), App::blog()->id())
-            && $rs->user_id == App::auth()->userID()) {
-            return true;
-        }
-
-        return false;
+        ]), App::blog()->id()) && $rs->user_id == App::auth()->userID();
     }
 
     /**
      * Returns whether post is the first one of its day.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     bool
      */
     public static function firstPostOfDay(MetaRecord $rs): bool
     {
@@ -116,8 +105,6 @@ class Post
      * Returns whether post is the last one of its day.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     bool
      */
     public static function lastPostOfDay(MetaRecord $rs): bool
     {
@@ -137,8 +124,6 @@ class Post
      * Returns whether comments are enabled on post.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     bool
      */
     public static function commentsActive(MetaRecord $rs): bool
     {
@@ -152,8 +137,6 @@ class Post
      * Returns whether trackbacks are enabled on post.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     bool
      */
     public static function trackbacksActive(MetaRecord $rs): bool
     {
@@ -167,8 +150,6 @@ class Post
      * Returns whether post has at least one comment.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     bool
      */
     public static function hasComments(MetaRecord $rs): bool
     {
@@ -179,8 +160,6 @@ class Post
      * Returns whether post has at least one trackbacks.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     bool
      */
     public static function hasTrackbacks(MetaRecord $rs): bool
     {
@@ -191,8 +170,6 @@ class Post
      * Returns whether post has been updated since publication.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     bool
      */
     public static function isRepublished(MetaRecord $rs): bool
     {
@@ -204,8 +181,6 @@ class Post
      * Gets the full post url.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string  The url.
      */
     public static function getURL(MetaRecord $rs): string
     {
@@ -218,8 +193,6 @@ class Post
      * Returns full post category URL.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string  The category url.
      */
     public static function getCategoryURL(MetaRecord $rs): string
     {
@@ -230,8 +203,6 @@ class Post
      * Returns whether post has an excerpt.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     bool
      */
     public static function isExtended(MetaRecord $rs): bool
     {
@@ -243,8 +214,6 @@ class Post
      *
      * @param      MetaRecord  $rs     Invisible parameter
      * @param      string    $type   The type, (dt|upddt|creadt) defaults to post_dt
-     *
-     * @return     integer  The ts.
      */
     public static function getTS(MetaRecord $rs, string $type = ''): int
     {
@@ -262,8 +231,6 @@ class Post
      *
      * @param      MetaRecord  $rs     Invisible parameter
      * @param      string    $type   The type, (dt|upddt|creadt) defaults to post_dt
-     *
-     * @return     string  The iso 8601 date.
      */
     public static function getISO8601Date(MetaRecord $rs, string $type = ''): string
     {
@@ -279,8 +246,6 @@ class Post
      *
      * @param      MetaRecord  $rs     Invisible parameter
      * @param      string    $type   The type, (dt|upddt|creadt) defaults to post_dt
-     *
-     * @return     string  The rfc 822 date.
      */
     public static function getRFC822Date(MetaRecord $rs, string $type = ''): string
     {
@@ -298,8 +263,6 @@ class Post
      * @param      MetaRecord  $rs     Invisible parameter
      * @param      string    $format  The date format pattern
      * @param      string    $type    The type, (dt|upddt|creadt) defaults to post_dt
-     *
-     * @return     string  The date.
      */
     public static function getDate(MetaRecord $rs, ?string $format, string $type = ''): string
     {
@@ -307,9 +270,9 @@ class Post
             $format = App::blog()->settings()->system->date_format;
         }
 
-        if ($type == 'upddt') {
+        if ($type === 'upddt') {
             return Date::dt2str($format, (string) $rs->post_upddt, (string) $rs->post_tz);
-        } elseif ($type == 'creadt') {
+        } elseif ($type === 'creadt') {
             return Date::dt2str($format, (string) $rs->post_creadt, (string) $rs->post_tz);
         }
 
@@ -323,8 +286,6 @@ class Post
      * @param      MetaRecord  $rs     Invisible parameter
      * @param      string    $format  The time format pattern
      * @param      string    $type    The type, (dt|upddt|creadt) defaults to post_dt
-     *
-     * @return     string  The time.
      */
     public static function getTime(MetaRecord $rs, ?string $format, string $type = ''): string
     {
@@ -332,9 +293,9 @@ class Post
             $format = App::blog()->settings()->system->time_format;
         }
 
-        if ($type == 'upddt') {
+        if ($type === 'upddt') {
             return Date::dt2str($format, (string) $rs->post_upddt, (string) $rs->post_tz);
-        } elseif ($type == 'creadt') {
+        } elseif ($type === 'creadt') {
             return Date::dt2str($format, (string) $rs->post_creadt, (string) $rs->post_tz);
         }
 
@@ -346,8 +307,6 @@ class Post
      * user_displayname fields.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string  The author common name.
      */
     public static function getAuthorCN(MetaRecord $rs): string
     {
@@ -363,8 +322,6 @@ class Post
      * Returns author common name with a link if he specified one in its preferences.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string
      */
     public static function getAuthorLink(MetaRecord $rs): string
     {
@@ -383,8 +340,6 @@ class Post
      *
      * @param      MetaRecord  $rs     Invisible parameter
      * @param      bool      $encoded  Encode address
-     *
-     * @return     string  The author email.
      */
     public static function getAuthorEmail(MetaRecord $rs, bool $encoded = true): string
     {
@@ -399,8 +354,6 @@ class Post
      * Gets the post feed unique id.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string  The feed id.
      */
     public static function getFeedID(MetaRecord $rs): string
     {
@@ -412,8 +365,6 @@ class Post
      *
      * @param      MetaRecord  $rs     Invisible parameter
      * @param      string    $format   The format (html|xml)
-     *
-     * @return     string
      */
     public static function getTrackbackData(MetaRecord $rs, string $format = 'html'): string
     {
@@ -429,7 +380,7 @@ class Post
         '  dc:title="' . htmlspecialchars((string) $rs->post_title, ENT_COMPAT, 'UTF-8') . '"' . "\n" .
         '  trackback:ping="' . $rs->getTrackbackLink() . '" />' . "\n" .
             "</rdf:RDF>\n" .
-            ($format == 'xml' ? '<!]]><!--' : '') .
+            ($format === 'xml' ? '<!]]><!--' : '') .
             "-->\n";
     }
 
@@ -437,12 +388,10 @@ class Post
      * Gets the post trackback full URL.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string  The trackback link.
      */
     public static function getTrackbackLink(MetaRecord $rs): string
     {
-        return App::blog()->url() . App::url()->getURLFor('trackback', (string) $rs->post_id);
+        return App::blog()->url() . App::url()->getURLFor('trackback', $rs->post_id);
     }
 
     /**
@@ -451,8 +400,6 @@ class Post
      *
      * @param      MetaRecord   $rs             Invisible parameter
      * @param      bool|int     $absolute_urls  With absolute URLs
-     *
-     * @return     string  The content.
      */
     public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
@@ -469,8 +416,6 @@ class Post
      *
      * @param      MetaRecord   $rs             Invisible parameter
      * @param      bool|int     $absolute_urls  With absolute URLs
-     *
-     * @return     string  The excerpt.
      */
     public static function getExcerpt(MetaRecord $rs, $absolute_urls = false): string
     {
@@ -486,8 +431,6 @@ class Post
      *
      * @param      MetaRecord  $rs     Invisible parameter
      * @param      string    $link_type  The link type
-     *
-     * @return     integer Number of media.
      */
     public static function countMedia(MetaRecord $rs, ?string $link_type = null): int
     {
@@ -500,13 +443,13 @@ class Post
         $sql
             ->column($sql->count('media_id'))
             ->from(App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME)
-            ->where('post_id = ' . (string) $rs->post_id);
+            ->where('post_id = ' . $rs->post_id);
 
         if ($link_type) {
             $sql->and('link_type = ' . $sql->quote($link_type));
         }
 
-        if ($run = $sql->select()) {
+        if (($run = $sql->select()) instanceof MetaRecord) {
             $value = $run->f(0);
             if (is_string($value) || is_numeric($value)) {
                 $res = (int) $value;
@@ -523,8 +466,6 @@ class Post
      *
      * @param      MetaRecord  $rs     Invisible parameter
      * @param      string    $cat_url  The cat url
-     *
-     * @return     bool     true if current cat is in given cat subtree
      */
     public static function underCat(MetaRecord $rs, string $cat_url): bool
     {

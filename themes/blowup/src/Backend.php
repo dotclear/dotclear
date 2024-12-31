@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -29,7 +30,7 @@ class Backend extends Process
             return false;
         }
 
-        App::behavior()->addBehavior('adminPageHTMLHead', function () {
+        App::behavior()->addBehavior('adminPageHTMLHead', function (): string {
             echo "\n" . '<!-- Header directives for Blowup configuration -->' . "\n" .
             Page::jsJson('blowup', [
                 'blowup_public_url' => Blowup::imagesURL(),
@@ -41,6 +42,8 @@ class Backend extends Process
                 ],
             ]) .
             Page::jsLoad(Blowup::themeURL() . '/js/config.js');
+
+            return '';
         });
 
         return true;

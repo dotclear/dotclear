@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -229,7 +230,7 @@ class Config extends Process
             return false;
         }
 
-        if (!empty($_POST)) {
+        if ($_POST !== []) {
             try {
                 // HTML
                 if (App::backend()->conf_tab === 'html') {
@@ -255,9 +256,9 @@ class Config extends Process
                         asort($order);
                         $order = array_keys($order);
                     }
-                    if (!empty($order)) {
+                    if ($order !== []) {
                         $new_ductile_stickers = [];
-                        foreach ($order as $i => $k) {
+                        foreach ($order as $k) {
                             $new_ductile_stickers[] = [
                                 'label' => $ductile_stickers[$k]['label'],
                                 'url'   => $ductile_stickers[$k]['url'],
@@ -355,7 +356,7 @@ class Config extends Process
 
         // Helpers
 
-        $fontDef = fn ($c) => isset(App::backend()->font_families[$c]) ?
+        $fontDef = fn ($c): string => isset(App::backend()->font_families[$c]) ?
             '<abbr title="' . Html::escapeHTML(App::backend()->font_families[$c]) . '"> ' . __('Font family') . ' </abbr>' :
             '';
 
@@ -483,7 +484,7 @@ class Config extends Process
         '<h5>' . __('Main text') . '</h5>' .
         '<p class="field"><label for="body_font">' . __('Main font:') . '</label> ' .
         form::combo('body_font', App::backend()->fonts, App::backend()->ductile_user['body_font']) .
-        (!empty(App::backend()->ductile_user['body_font']) ? ' ' . $fontDef(App::backend()->ductile_user['body_font']) : '') .
+        (empty(App::backend()->ductile_user['body_font']) ? '' : ' ' . $fontDef(App::backend()->ductile_user['body_font'])) .
         '</p>' .
         '<p class="form-note">' . __('Set to Default to use a webfont.') . '</p>' .
         '<p class="field"><label for="body_webfont_family">' . __('Webfont family:') . '</label> ' .
@@ -500,7 +501,7 @@ class Config extends Process
         '<h5>' . __('Secondary text') . '</h5>' .
         '<p class="field"><label for="alternate_font">' . __('Secondary font:') . '</label> ' .
         form::combo('alternate_font', App::backend()->fonts, App::backend()->ductile_user['alternate_font']) .
-        (!empty(App::backend()->ductile_user['alternate_font']) ? ' ' . $fontDef(App::backend()->ductile_user['alternate_font']) : '') .
+        (empty(App::backend()->ductile_user['alternate_font']) ? '' : ' ' . $fontDef(App::backend()->ductile_user['alternate_font'])) .
         '</p>' .
         '<p class="form-note">' . __('Set to Default to use a webfont.') . '</p>' .
         '<p class="field"><label for="alternate_webfont_family">' . __('Webfont family:') . '</label> ' .
@@ -529,7 +530,7 @@ class Config extends Process
         ThemeConfig::contrastRatio(
             App::backend()->ductile_user['blog_title_c'],
             '#ffffff',
-            (!empty(App::backend()->ductile_user['blog_title_s']) ? App::backend()->ductile_user['blog_title_s'] : '2em'),
+            (empty(App::backend()->ductile_user['blog_title_s']) ? '2em' : App::backend()->ductile_user['blog_title_s']),
             (bool) App::backend()->ductile_user['blog_title_w']
         ) .
         '</p>' .
@@ -549,7 +550,7 @@ class Config extends Process
         ThemeConfig::contrastRatio(
             App::backend()->ductile_user['post_title_c'],
             '#ffffff',
-            (!empty(App::backend()->ductile_user['post_title_s']) ? App::backend()->ductile_user['post_title_s'] : '2.5em'),
+            (empty(App::backend()->ductile_user['post_title_s']) ? '2.5em' : App::backend()->ductile_user['post_title_s']),
             (bool) App::backend()->ductile_user['post_title_w']
         ) .
         '</p>' .
@@ -608,7 +609,7 @@ class Config extends Process
         ThemeConfig::contrastRatio(
             App::backend()->ductile_user['blog_title_c_m'],
             '#d7d7dc',
-            (!empty(App::backend()->ductile_user['blog_title_s_m']) ? App::backend()->ductile_user['blog_title_s_m'] : '1.8em'),
+            (empty(App::backend()->ductile_user['blog_title_s_m']) ? '1.8em' : App::backend()->ductile_user['blog_title_s_m']),
             (bool) App::backend()->ductile_user['blog_title_w_m']
         ) .
         '</p>' .
@@ -627,7 +628,7 @@ class Config extends Process
         ThemeConfig::contrastRatio(
             App::backend()->ductile_user['post_title_c_m'],
             '#ffffff',
-            (!empty(App::backend()->ductile_user['post_title_s_m']) ? App::backend()->ductile_user['post_title_s_m'] : '1.5em'),
+            (empty(App::backend()->ductile_user['post_title_s_m']) ? '1.5em' : App::backend()->ductile_user['post_title_s_m']),
             (bool) App::backend()->ductile_user['post_title_w_m']
         ) .
         '</p>' .

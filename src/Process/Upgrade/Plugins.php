@@ -74,7 +74,7 @@ class Plugins extends Process
             App::plugins(),
             App::config()->pluginsRoot(),
             App::blog()->settings()->system->store_plugin_url,
-            !empty($_GET['nocache']) ? true : null
+            empty($_GET['nocache']) ? null : true
         );
 
         PluginsList::$allow_multi_install = App::config()->allowMultiModules();
@@ -104,7 +104,7 @@ class Plugins extends Process
         // Messages
         if (!empty(self::$plugins_install['success'])) {
             $success = [];
-            foreach (self::$plugins_install['success'] as $k => $v) {
+            foreach (array_keys(self::$plugins_install['success']) as $k) {
                 $info      = implode(' - ', self::$plugins_list->getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
@@ -163,7 +163,7 @@ class Plugins extends Process
         $defines = self::$plugins_list->modules->getDefines(
             ['state' => self::$plugins_list->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
         );
-        if (!empty($defines)) {
+        if ($defines !== []) {
             echo
             '<h3>' .
             __('Activated plugins') . ' ' . __('(in normal mode)') .
@@ -185,7 +185,7 @@ class Plugins extends Process
         # Deactivated modules
         if (App::auth()->isSuperAdmin()) {
             $defines = self::$plugins_list->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
-            if (!empty($defines)) {
+            if ($defines !== []) {
                 echo
                 '<h3>' . __('Deactivated plugins') . '</h3>' .
                 '<p class="more-info">' . __('Deactivated plugins are installed but not usable. You can activate them from here.') . '</p>';
@@ -226,7 +226,7 @@ class Plugins extends Process
             ])
             ->render();
 
-        if (empty($defines)) {
+        if ($defines === []) {
             echo
             '<p>' . __('No updates available for plugins.') . '</p>';
         } else {
@@ -270,7 +270,7 @@ class Plugins extends Process
             $search  = self::$plugins_list->getSearch();
             $defines = $search ? self::$plugins_list->store->searchDefines($search) : self::$plugins_list->store->getDefines();
 
-            if (!empty($search) || !empty($defines)) {
+            if (!empty($search) || $defines !== []) {
                 echo
                 '<div class="multi-part" id="new" title="' . __('Add plugins') . '">' .
                 '<h3>' . __('Add plugins from repository') . '</h3>';
@@ -336,7 +336,7 @@ class Plugins extends Process
         }
 
         $items = [];
-        if (!count($list)) {
+        if ($list === []) {
             $items[] = (new Text('p', __('There is no module to check')))
                 ->class('info');
         } elseif (isset(self::$next_store)) {
@@ -368,8 +368,6 @@ class Plugins extends Process
     /**
      * @param   array<string, ModuleDefine>     $modules
      * @param   array<int, ModuleDefine>        $repos
-     *
-     * @return  Div
      */
     protected static function displayNextStoreList(array $modules, array $repos): Div
     {

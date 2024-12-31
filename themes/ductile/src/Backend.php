@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -29,7 +30,7 @@ class Backend extends Process
             return false;
         }
 
-        App::behavior()->addBehavior('adminPageHTMLHead', function () {
+        App::behavior()->addBehavior('adminPageHTMLHead', function (): void {
             if (App::blog()->settings()->system->theme !== My::id()) {
                 return;
             }

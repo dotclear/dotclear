@@ -57,7 +57,7 @@ class Categories extends Process
             $name   = '';
 
             // Check if category to delete exists
-            $rs = App::blog()->getCategory((int) $cat_id);
+            $rs = App::blog()->getCategory($cat_id);
             if ($rs->isEmpty()) {
                 Notices::addErrorNotice(__('This category does not exist.'));
                 App::backend()->url()->redirect('admin.categories');
@@ -261,8 +261,6 @@ class Categories extends Process
      *
      * @param      int                            $level             The level
      * @param      MetaRecord                     $rs                The recordset
-     *
-     * @return     Ul|None
      */
     private static function categorieList(int $level, MetaRecord $rs): Ul|None
     {
@@ -299,8 +297,6 @@ class Categories extends Process
      * Return an LI with the category, including sub-categories if any
      *
      * @param      MetaRecord                     $rs                The recordset
-     *
-     * @return     Li
      */
     private static function categorieLine(MetaRecord $rs): Li
     {
@@ -334,7 +330,7 @@ class Categories extends Process
         // Move entries button
         $move = (new None());
         if ($rs->nb_total > 0) {
-            $options = array_filter(App::backend()->categories_combo, fn ($cat) => $cat->value !== ((string) $rs->cat_id));
+            $options = array_filter(App::backend()->categories_combo, fn ($cat): bool => $cat->value !== ((string) $rs->cat_id));
             if (!is_null($options) && count($options)) {
                 $move = (new Set())
                     ->items([

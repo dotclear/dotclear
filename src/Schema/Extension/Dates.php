@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Core
@@ -28,8 +29,6 @@ class Dates
      * Convert date to timestamp
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     integer
      */
     public static function ts(MetaRecord $rs): int
     {
@@ -40,8 +39,6 @@ class Dates
      * Get date year
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string
      */
     public static function year(MetaRecord $rs): string
     {
@@ -52,8 +49,6 @@ class Dates
      * Get date month
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string
      */
     public static function month(MetaRecord $rs): string
     {
@@ -64,8 +59,6 @@ class Dates
      * Get date day
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string
      */
     public static function day(MetaRecord $rs): string
     {
@@ -76,8 +69,6 @@ class Dates
      * Returns date month archive full URL.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string
      */
     public static function url(MetaRecord $rs): string
     {
@@ -90,8 +81,6 @@ class Dates
      * Returns whether date is the first of year.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     bool
      */
     public static function yearHeader(MetaRecord $rs): bool
     {
@@ -111,8 +100,6 @@ class Dates
      * Returns whether date is the last of year.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     bool
      */
     public static function yearFooter(MetaRecord $rs): bool
     {

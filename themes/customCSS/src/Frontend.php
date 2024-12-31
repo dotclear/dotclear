@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -25,7 +26,7 @@ class Frontend extends Process
     public static function process(): bool
     {
         if (self::status()) {
-            App::behavior()->addBehavior('publicHeadContent', function () {
+            App::behavior()->addBehavior('publicHeadContent', function (): void {
                 echo
                 '<link rel="stylesheet" type="text/css" href="' .
                 App::blog()->settings()->system->public_url . DIRECTORY_SEPARATOR . My::id() . '.css' .

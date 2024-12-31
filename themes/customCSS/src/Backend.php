@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -29,14 +30,14 @@ class Backend extends Process
             return false;
         }
 
-        App::behavior()->addBehavior('adminPageHTMLHead', function () {
+        App::behavior()->addBehavior('adminPageHTMLHead', function (): string {
             if (App::blog()->settings()->system->theme !== My::id()) {
-                return;
+                return '';
             }
 
             if (!App::task()->checkContext('MODULE')) {
                 // Not on module configuration page
-                return;
+                return '';
             }
 
             echo "\n" . '<!-- Header directives for customCSS configuration -->' . "\n";
@@ -44,6 +45,8 @@ class Backend extends Process
                 echo
                 Page::jsLoadCodeMirror(App::auth()->prefs()->interface->colorsyntax_theme);
             }
+
+            return '';
         });
 
         return true;

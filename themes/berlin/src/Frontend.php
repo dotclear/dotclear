@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -30,13 +31,15 @@ class Frontend extends Process
             return false;
         }
 
-        App::behavior()->addBehavior('publicHeadContent', function () {
+        App::behavior()->addBehavior('publicHeadContent', function (): string {
             echo
             Html::jsJson('dotclear_berlin', [
                 'show_menu'  => __('Show menu'),
                 'hide_menu'  => __('Hide menu'),
                 'navigation' => __('Main menu'),
             ]);
+
+            return '';
         });
 
         return true;

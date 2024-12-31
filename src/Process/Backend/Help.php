@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -39,19 +40,19 @@ class Help extends Process
          *
          * @return     array
          */
-        $helpPage = function (...$args) {
+        $helpPage = function (...$args): array {
             // Init return value
             $ret = [
                 'content' => '',
                 'title'   => '',
             ];
 
-            if (empty($args)) {
+            if ($args === []) {
                 // No context given
                 return $ret;
             }
 
-            if (empty(App::backend()->resources()->entries('help'))) {
+            if (App::backend()->resources()->entries('help') === []) {
                 // No available help
                 return $ret;
             }
@@ -66,7 +67,7 @@ class Help extends Process
                 }
 
                 $f = App::backend()->resources()->entry('help', $v);
-                if (empty($f) || !file_exists($f) || !is_readable($f)) {
+                if ($f === '' || !file_exists($f) || !is_readable($f)) {
                     continue;
                 }
 
@@ -81,19 +82,19 @@ class Help extends Process
                 }
             }
 
-            if (trim($content) == '') {
+            if (trim($content) === '') {
                 return $ret;
             }
 
             $ret['content'] = $content;
-            if ($title != '') {
+            if ($title !== '') {
                 $ret['title'] = $title;
             }
 
             return $ret;
         };
 
-        $help_page = !empty($_GET['page']) ? Html::escapeHTML($_GET['page']) : 'index';
+        $help_page = empty($_GET['page']) ? 'index' : Html::escapeHTML($_GET['page']);
 
         $content_array = $helpPage($help_page);
 

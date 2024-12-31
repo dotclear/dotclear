@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Core
@@ -139,7 +140,7 @@ class Comment
         if (App::blog()->settings()->system->comments_nofollow) {
             $res = (string) preg_replace_callback(
                 '#<a(.*?href=".*?".*?)>#ms',
-                function ($m) {
+                function (array $m): string {
                     if (preg_match('/rel="ugc nofollow"/', $m[1])) {
                         return $m[0];
                     }
@@ -151,7 +152,7 @@ class Comment
         } else {
             $res = (string) preg_replace_callback(
                 '#<a(.*?href=".*?".*?)>#ms',
-                function ($m) {
+                function (array $m): string {
                     if (preg_match('/rel="ugc"/', $m[1])) {
                         return $m[0];
                     }
@@ -173,22 +174,20 @@ class Comment
      * Returns comment author link to his website if he specified one.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     mixed  The author url.
      */
-    public static function getAuthorURL(MetaRecord $rs)
+    public static function getAuthorURL(MetaRecord $rs): ?string
     {
-        if (trim((string) $rs->comment_site)) {
+        if (trim((string) $rs->comment_site) !== '') {
             return trim((string) $rs->comment_site);
         }
+
+        return null;
     }
 
     /**
      * Returns comment post full URL.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string  The comment post url.
      */
     public static function getPostURL(MetaRecord $rs): string
     {
@@ -201,8 +200,6 @@ class Comment
      * Returns comment author name in a link to his website if he specified one.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string  The author link.
      */
     public static function getAuthorLink(MetaRecord $rs): string
     {
@@ -226,8 +223,6 @@ class Comment
      *
      * @param      MetaRecord  $rs     Invisible parameter
      * @param      bool      $encoded  Encode address
-     *
-     * @return     string  The email.
      */
     public static function getEmail(MetaRecord $rs, bool $encoded = true): string
     {
@@ -238,8 +233,6 @@ class Comment
      * Returns trackback site title if comment is a trackback.
      *
      * @param      MetaRecord  $rs       Invisible parameter
-     *
-     * @return     string  The trackback title.
      */
     public static function getTrackbackTitle(MetaRecord $rs): string
     {
@@ -258,8 +251,6 @@ class Comment
      * Returns trackback content if comment is a trackback.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string  The trackback content.
      */
     public static function getTrackbackContent(MetaRecord $rs): string
     {
@@ -278,8 +269,6 @@ class Comment
      * Returns comment feed unique ID.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     string  The feed id.
      */
     public static function getFeedID(MetaRecord $rs): string
     {
@@ -290,8 +279,6 @@ class Comment
      * Determines whether the specified comment is from the post author.
      *
      * @param      MetaRecord  $rs     Invisible parameter
-     *
-     * @return     bool    True if the specified comment is from the post author, False otherwise.
      */
     public static function isMe(MetaRecord $rs): bool
     {

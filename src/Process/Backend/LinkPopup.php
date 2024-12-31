@@ -40,10 +40,10 @@ class LinkPopup extends Process
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        App::backend()->href      = !empty($_GET['href']) ? $_GET['href'] : '';
-        App::backend()->hreflang  = !empty($_GET['hreflang']) ? $_GET['hreflang'] : '';
-        App::backend()->title     = !empty($_GET['title']) ? $_GET['title'] : '';
-        App::backend()->plugin_id = !empty($_GET['plugin_id']) ? Html::sanitizeURL($_GET['plugin_id']) : '';
+        App::backend()->href      = $_GET['href']     ?? '';
+        App::backend()->hreflang  = $_GET['hreflang'] ?? '';
+        App::backend()->title     = $_GET['title']    ?? '';
+        App::backend()->plugin_id = empty($_GET['plugin_id']) ? '' : Html::sanitizeURL($_GET['plugin_id']);
 
         if (App::themes()->isEmpty()) {
             // Loading themes, may be useful for some configurable theme --

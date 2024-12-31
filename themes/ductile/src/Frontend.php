@@ -22,8 +22,6 @@ class Frontend extends Process
 {
     /**
      * Init the process.
-     *
-     * @return     bool
      */
     public static function init(): bool
     {
@@ -32,8 +30,6 @@ class Frontend extends Process
 
     /**
      * Processes
-     *
-     * @return     bool
      */
     public static function process(): bool
     {
@@ -170,7 +166,7 @@ class Frontend extends Process
             }
         }
 
-        $default = isset($attr['default']) ? trim((string) $attr['default']) : 'short';
+        $default = isset($attr['default']) ? trim($attr['default']) : 'short';
         $ret     = '<?php ' . "\n" .
         'switch (' . self::class . '::ductileEntriesListHelper(\'' . $default . '\')) {' . "\n";
 
@@ -182,18 +178,13 @@ class Frontend extends Process
                 '       break;' . "\n";
         }
 
-        $ret .= '}' . "\n" .
-            '?>';
-
-        return $ret;
+        return $ret . '}' . "\n" . '?>';
     }
 
     /**
      * Helper for Tpl:ductileEntriesList
      *
      * @param      string  $default  The default
-     *
-     * @return     string
      */
     public static function ductileEntriesListHelper(string $default): string
     {
@@ -210,8 +201,6 @@ class Frontend extends Process
 
     /**
      * Tpl:ductileLogoSrc template element
-     *
-     * @return     string  rendered element
      */
     public static function ductileLogoSrc(): string
     {
@@ -220,8 +209,6 @@ class Frontend extends Process
 
     /**
      * Helper for Tpl:ductileLogoSrc
-     *
-     * @return     string
      */
     public static function ductileLogoSrcHelper(): string
     {
@@ -275,19 +262,19 @@ class Frontend extends Process
                 } else {
                     $count = 1;
                     foreach ($s as $sticker) {
-                        $res .= self::setSticker($count, ($count == count($s)), $sticker['label'], $sticker['url'], $img_url . $sticker['image']);
+                        $res .= self::setSticker($count, ($count === count($s)), $sticker['label'], $sticker['url'], $img_url . $sticker['image']);
                         $count++;
                     }
                 }
             }
         }
 
-        if ($default || $res == '') {
+        if ($default || $res === '') {
             $res = self::setSticker(1, true, __('Subscribe'), App::blog()->url() .
                 App::url()->getURLFor('feed', 'atom'), $img_url . 'sticker-feed.png');
         }
 
-        if ($res != '') {
+        if ($res !== '') {
             $res = '<ul id="stickers">' . "\n" . $res . '</ul>' . "\n";
             echo $res;
         }
@@ -297,16 +284,10 @@ class Frontend extends Process
      * Check if a sticker is fully defined
      *
      * @param      array<string, mixed>  $s      sticker properties
-     *
-     * @return     bool
      */
     protected static function cleanStickers(array $s): bool
     {
-        if (isset($s['label']) && isset($s['url']) && isset($s['image']) && $s['label'] != null && $s['url'] != null && $s['image'] != null) {
-            return true;
-        }
-
-        return false;
+        return isset($s['label']) && isset($s['url']) && isset($s['image']) && $s['label'] != null && $s['url'] != null && $s['image'] != null;
     }
 
     /**
@@ -361,8 +342,6 @@ class Frontend extends Process
 
     /**
      * Font helper
-     *
-     * @return     string
      */
     public static function ductileWebfontHelper(): string
     {
@@ -425,7 +404,7 @@ class Frontend extends Process
             }
             $res .= "}\n";
         }
-        if ($res != '') {
+        if ($res !== '') {
             $ret .= '<style type="text/css">' . "\n" . $res . '</style>' . "\n";
         }
 
@@ -434,8 +413,6 @@ class Frontend extends Process
 
     /**
      * Style helper
-     *
-     * @return     string
      */
     public static function ductileStyleHelper(): string
     {
@@ -546,7 +523,7 @@ class Frontend extends Process
         }
 
         # Style directives for large screens
-        if (count($css_large)) {
+        if ($css_large !== []) {
             $res .= '@media only screen and (min-width: 481px) {' . "\n";
             foreach ($css_large as $selector => $values) {
                 $res .= $selector . " {\n";
@@ -598,7 +575,7 @@ class Frontend extends Process
         }
 
         # Style directives for small screens
-        if (count($css_small)) {
+        if ($css_small !== []) {
             $res .= '@media only screen and (max-width: 480px) {' . "\n";
             foreach ($css_small as $selector => $values) {
                 $res .= $selector . " {\n";
@@ -617,10 +594,8 @@ class Frontend extends Process
      * Return CSS font family depending on given setting
      *
      * @param      mixed   $c      Font family
-     *
-     * @return     string|null
      */
-    protected static function fontDef($c)
+    protected static function fontDef($c): ?string
     {
         $fonts = [
             // Theme standard

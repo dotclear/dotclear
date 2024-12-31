@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Frontend
@@ -35,8 +36,6 @@ class PostPublic extends Post
      *
      * @param      MetaRecord   $rs             Invisible parameter
      * @param      bool|int     $absolute_urls  Use absolute urls
-     *
-     * @return     string  The content.
      */
     public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
@@ -46,11 +45,9 @@ class PostPublic extends Post
             $content = Ctx::remove_html($content);
             $content = Ctx::cut_string($content, 350);
 
-            $content = '<p>' . $content . '... ' .
+            return '<p>' . $content . '... ' .
             '<a href="' . $rs->getURL() . '"><em>' . __('Read') . '</em> ' .
             Html::escapeHTML($rs->post_title) . '</a></p>';
-
-            return $content;
         }
 
         if (App::blog()->settings()->system->use_smilies) {
@@ -67,8 +64,6 @@ class PostPublic extends Post
      *
      * @param      MetaRecord   $rs             Invisible parameter
      * @param      bool|int     $absolute_urls  Use absolute urls
-     *
-     * @return     string  The excerpt.
      */
     public static function getExcerpt(MetaRecord $rs, $absolute_urls = false): string
     {
@@ -84,12 +79,10 @@ class PostPublic extends Post
      *
      * @param      string         $content  The content
      * @param      BlogInterface  $blog     The blog
-     *
-     * @return     string
      */
     protected static function smilies(string $content, BlogInterface $blog): string
     {
-        if (!isset(App::frontend()->smilies)) {
+        if (App::frontend()->smilies === null) {
             App::frontend()->smilies = Ctx::getSmilies($blog);
         }
 

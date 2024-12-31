@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -14,6 +15,7 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -46,7 +48,7 @@ class BlogDel extends Process
                 App::error()->add($e->getMessage());
             }
 
-            if ($rs) {
+            if ($rs instanceof MetaRecord) {
                 if ($rs->isEmpty()) {
                     App::error()->add(__('No such blog ID'));
                 } else {

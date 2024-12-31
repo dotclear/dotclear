@@ -57,14 +57,14 @@ class BlogTheme extends Process
             App::themes(),
             App::blog()->themesPath(),
             App::blog()->settings()->system->store_theme_url,
-            !empty($_GET['nocache']) ? true : null
+            empty($_GET['nocache']) ? null : true
         );
         // deprecated since 2.26
         ThemesList::$distributed_modules = explode(',', App::config()->distributedThemes());
 
         $disabled = App::themes()->disableDepModules();
 
-        if (count($disabled)) {
+        if ($disabled !== []) {
             $list = (new Ul())
                 ->items(array_map(fn ($item) => (new Li())->text($item), $disabled))
             ->render();
@@ -138,7 +138,7 @@ class BlogTheme extends Process
                 App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src'])
             );
 
-            if (!file_exists((string) $filename)) {
+            if (!file_exists($filename)) {
                 $filename = __DIR__ . '/images/noscreenshot.svg';
             }
 
@@ -260,7 +260,7 @@ class BlogTheme extends Process
             App::behavior()->callBehavior('afterCheckStoreUpdate', 'themes', $tmp);
 
             $defines = $tmp->getArrayCopy();
-            $updates = !empty($defines) ? sprintf(' (%s)', count($defines)) : '';
+            $updates = empty($defines) ? '' : sprintf(' (%s)', count($defines));
 
             $list = fn () => App::backend()->list
                 ->setList('theme-update')

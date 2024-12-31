@@ -67,7 +67,7 @@ class Home extends Process
         ]));
 
         $disabled = App::plugins()->disableDepModules();
-        if (count($disabled)) {
+        if ($disabled !== []) {
             Notices::addWarningNotice(
                 __('The following plugins have been disabled :') .
                 (new Ul())
@@ -147,7 +147,7 @@ class Home extends Process
         $dashboardItem     = 0;
 
         // Documentation links
-        if (App::auth()->prefs()->dashboard->doclinks && !empty(App::backend()->resources()->entries('doc'))) {
+        if (App::auth()->prefs()->dashboard->doclinks && App::backend()->resources()->entries('doc') !== []) {
             $__dashboard_items[$dashboardItem]->append(static::docLinks(App::backend()->resources()->entries('doc'))); // @phpstan-ignore-line
         }
 
@@ -237,13 +237,13 @@ class Home extends Process
             ->render();
         }
 
-        if (App::blog()->status() == App::blog()::BLOG_OFFLINE) {
+        if (App::blog()->status() === App::blog()::BLOG_OFFLINE) {
             Notices::message(__('This blog is offline'), false);
-        } elseif (App::blog()->status() == App::blog()::BLOG_REMOVED) {
+        } elseif (App::blog()->status() === App::blog()::BLOG_REMOVED) {
             Notices::message(__('This blog is removed'), false);
         }
 
-        if (App::config()->adminUrl() == '') {
+        if (App::config()->adminUrl() === '') {
             Notices::message(
                 sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') . ' ' .
                 __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.'),
@@ -251,7 +251,7 @@ class Home extends Process
             );
         }
 
-        if (App::config()->adminMailfrom() == 'dotclear@local') {
+        if (App::config()->adminMailfrom() === 'dotclear@local') {
             Notices::message(
                 sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_MAILFROM') . ' ' .
                 __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.'),
@@ -266,10 +266,8 @@ class Home extends Process
             if (!is_dir(App::config()->cacheRoot()) || !is_writable(App::config()->cacheRoot())) {
                 $err[] = __('The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to "DC_TPL_CACHE" in inc/config.php file.');
             }
-        } else {
-            if (!is_dir(App::config()->cacheRoot()) || !is_writable(App::config()->cacheRoot())) {
-                $err[] = __('The cache directory does not exist or is not writable. You should contact your administrator.');
-            }
+        } elseif (!is_dir(App::config()->cacheRoot()) || !is_writable(App::config()->cacheRoot())) {
+            $err[] = __('The cache directory does not exist or is not writable. You should contact your administrator.');
         }
 
         // Check public directory
@@ -277,14 +275,12 @@ class Home extends Process
             if (!is_dir(App::blog()->publicPath()) || !is_writable(App::blog()->publicPath())) {
                 $err[] = __('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).');
             }
-        } else {
-            if (!is_dir(App::blog()->publicPath()) || !is_writable(App::blog()->publicPath())) {
-                $err[] = __('There is no writable root directory for the media manager. You should contact your administrator.');
-            }
+        } elseif (!is_dir(App::blog()->publicPath()) || !is_writable(App::blog()->publicPath())) {
+            $err[] = __('There is no writable root directory for the media manager. You should contact your administrator.');
         }
 
         // Error list
-        if (count($err)) {
+        if ($err !== []) {
             Notices::error(
                 __('Error:') .
                 (new Ul())
@@ -340,7 +336,7 @@ class Home extends Process
         // Errors modules notifications
         if (App::auth()->isSuperAdmin()) {
             $list = App::plugins()->getErrors();
-            if (!empty($list)) {
+            if ($list !== []) {
                 Notices::error(
                     __('Errors have occured with following plugins:') .
                     (new Ul())
@@ -370,7 +366,7 @@ class Home extends Process
         $boxes_contents_order = App::auth()->prefs()->dashboard->boxes_contents_order;
         $boxes_contents_order = ($boxes_contents_order != '' ? explode(',', $boxes_contents_order) : []);
 
-        $composeItems = function ($list, $blocks, $flat = false) {
+        $composeItems = function ($list, $blocks, $flat = false): string {
             $ret   = [];
             $items = [];
 
@@ -419,7 +415,7 @@ class Home extends Process
                 $index++;
             }
 
-            return join('', $ret);
+            return implode('', $ret);
         };
 
         // Compose dashboard items (doc, …)
@@ -430,7 +426,7 @@ class Home extends Process
 
         // Compose dashboard boxes (items, contents)
         $__dashboard_boxes = [];
-        if ($dashboardItems != '') {
+        if ($dashboardItems !== '') {
             $__dashboard_boxes[] = (new Div('db-items'))
                 ->class('db-items')
                 ->items([
@@ -438,7 +434,7 @@ class Home extends Process
                 ])
             ->render();
         }
-        if ($dashboardContents != '') {
+        if ($dashboardContents !== '') {
             $__dashboard_boxes[] = (new Div('db-contents'))
                 ->class('db-contents')
                 ->items([
@@ -483,7 +479,7 @@ class Home extends Process
             $__dashboard_main[] = static::quickEntry();
         }
 
-        if ($dashboardBoxes != '') {
+        if ($dashboardBoxes !== '') {
             $__dashboard_main[] = '<div id="dashboard-boxes">' . $dashboardBoxes . '</div>';
         }
 
@@ -499,8 +495,6 @@ class Home extends Process
 
     /**
      * Get rendered quick entry form module
-     *
-     * @return     string
      */
     protected static function quickEntry(): string
     {
@@ -602,8 +596,6 @@ class Home extends Process
 
     /**
      * Get rendered donation module
-     *
-     * @return     string
      */
     protected static function donationBlock(): string
     {
@@ -636,8 +628,6 @@ class Home extends Process
      * Get rendered documentation links module
      *
      * @param      array<string, string>       $links  The links
-     *
-     * @return     string
      */
     protected static function docLinks(array $links): string
     {
@@ -652,8 +642,8 @@ class Home extends Process
                                 ->items([
                                     (new Link())
                                         ->href($href)
-                                        ->title((string) $title)
-                                        ->text((string) $title),
+                                        ->title($title)
+                                        ->text($title),
                                 ]),
                             array_keys($links),
                             array_values($links)

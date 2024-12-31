@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Core
@@ -38,9 +39,7 @@ class User
     {
         $options = self::options($rs);
 
-        if (isset($options[$name])) {
-            return $options[$name];
-        }
+        return $options[$name] ?? null;
     }
 
     /**
@@ -64,8 +63,6 @@ class User
      * Returns admin status of the current user
      *
      * @param      MetaRecord   $rs       Invisible parameter
-     *
-     * @return     string
      */
     public static function admin(MetaRecord $rs): string
     {
@@ -85,8 +82,6 @@ class User
      * Converts this Record to a {@link StaticRecord} instance.
      *
      * @param      MetaRecord   $rs       Invisible parameter
-     *
-     * @return     MetaRecord  The extent static record.
      */
     public static function toExtStatic(MetaRecord $rs): MetaRecord
     {
