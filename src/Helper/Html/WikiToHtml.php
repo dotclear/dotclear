@@ -509,11 +509,11 @@ class WikiToHtml
                 '/<p>((?:.(?!p>))*?)(<a[^>]*>)?\s*(<figure[^>]*>)(.*?)(<\/figure>)\s*(<\/a>)?(.*?)<\/p>/msu',
                 function (array $matches): string {
                     $figure = $matches[2] . $matches[3] . $matches[4] . $matches[5] . $matches[6];
-                    $before = trim((string) $matches[1]);
+                    $before = trim($matches[1]);
                     if ($before !== '') {
                         $before = '<p>' . $before . '</p>';
                     }
-                    $after = trim((string) $matches[7]);
+                    $after = trim($matches[7]);
                     if ($after !== '') {
                         $after = '<p>' . $after . '</p>';
                     }

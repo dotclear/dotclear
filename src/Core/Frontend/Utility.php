@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Frontend
@@ -40,15 +41,11 @@ class Utility extends Process
 
     /**
      * Context
-     *
-     * @var Ctx
      */
     private Ctx $ctx;
 
     /**
      * Tpl instance
-     *
-     * @var Tpl
      */
     private Tpl $tpl;
 
@@ -111,8 +108,6 @@ class Utility extends Process
 
     /**
      * Prepare the context.
-     *
-     * @return     bool
      */
     public static function init(): bool
     {
@@ -130,7 +125,7 @@ class Utility extends Process
         App::frontend();
 
         // Loading blog
-        if (App::config()->blogId() != '') {
+        if (App::config()->blogId() !== '') {
             try {
                 App::blog()->loadFromBlog(App::config()->blogId());
             } catch (Throwable) {
@@ -150,19 +145,25 @@ class Utility extends Process
 
         // Load some class extents and set some public behaviors (was in public prepend before)
         App::behavior()->addBehaviors([
-            'publicHeadContent' => function () {
+            'publicHeadContent' => function (): string {
                 if (!App::blog()->settings()->system->no_public_css) {
                     echo App::plugins()->cssLoad(App::blog()->getQmarkURL() . 'pf=public.css');
                 }
                 if (App::blog()->settings()->system->use_smilies) {
                     echo App::plugins()->cssLoad(App::blog()->getQmarkURL() . 'pf=smilies.css');
                 }
+
+                return '';
             },
-            'coreBlogGetPosts' => function (MetaRecord $rs) {
+            'coreBlogGetPosts' => function (MetaRecord $rs): string {
                 $rs->extend(PostPublic::class);
+
+                return '';
             },
-            'coreBlogGetComments' => function (MetaRecord $rs) {
+            'coreBlogGetComments' => function (MetaRecord $rs): string {
                 $rs->extend(CommentPublic::class);
+
+                return '';
             },
         ]);
 
@@ -193,7 +194,7 @@ class Utility extends Process
         # Loading locales
         App::lang()->setLang((string) App::blog()->settings()->system->lang);
 
-        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() != 'en') {
+        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
             L10n::set(App::config()->l10nRoot() . '/en/date');
         }
         L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/public');
@@ -218,7 +219,7 @@ class Utility extends Process
         App::themes()->loadModules(App::blog()->themesPath());
 
         # Defining theme if not defined
-        if (!isset(App::frontend()->theme)) {
+        if (App::frontend()->theme === null) {
             App::frontend()->theme = App::blog()->settings()->system->theme;
         }
 
@@ -227,7 +228,8 @@ class Utility extends Process
         }
 
         App::frontend()->parent_theme = App::themes()->moduleInfo(App::frontend()->theme, 'parent');
-        if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme) && !App::themes()->moduleExists(App::frontend()->parent_theme)) {
+        if (is_string(App::frontend()->parent_theme) && (App::frontend()->parent_theme !== null && App::frontend()->parent_theme !== '') && !App::themes()->moduleExists(App::frontend()->parent_theme)) {
+            // Parent theme defined but not installed, fallback theme to default one
             App::frontend()->theme        = App::blog()->settings()->system->theme = App::config()->defaultTheme();
             App::frontend()->parent_theme = null;
         }
@@ -245,7 +247,7 @@ class Utility extends Process
         App::themes()->loadNsFile(App::frontend()->theme, 'public');
 
         # Loading translations for selected theme
-        if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme)) {
+        if (is_string(App::frontend()->parent_theme) && (App::frontend()->parent_theme !== null && App::frontend()->parent_theme !== '')) {
             App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::lang()->getLang(), 'main');
         }
         App::themes()->loadModuleL10N(App::frontend()->theme, App::lang()->getLang(), 'main');

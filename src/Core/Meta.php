@@ -33,8 +33,6 @@ class Meta implements MetaInterface
 {
     /**
      * The mate table name with prefix.
-     *
-     * @var     string  $table
      */
     private readonly string $table;
 
@@ -62,8 +60,8 @@ class Meta implements MetaInterface
     {
         $res = [];
         foreach (explode(',', $str) as $i => $tag) {
-            $tag = self::sanitizeMetaID(trim((string) $tag));
-            if ($tag) {
+            $tag = self::sanitizeMetaID(trim($tag));
+            if ($tag !== '') {
                 $res[$i] = $tag;
             }
         }
@@ -157,7 +155,7 @@ class Meta implements MetaInterface
 
             $rs = $sql->select();
 
-            if (!$rs || $rs->isEmpty()) {
+            if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
                 throw new UnauthorizedException(__('You are not allowed to change this entry status'));
             }
         }
@@ -181,7 +179,7 @@ class Meta implements MetaInterface
             ])
             ->where('post_id = ' . $post_id);
 
-        if ($rs = $sql->select()) {
+        if (($rs = $sql->select()) instanceof MetaRecord) {
             $meta = [];
             while ($rs->fetch()) {
                 $meta[$rs->meta_type][] = $rs->meta_id;
@@ -216,7 +214,7 @@ class Meta implements MetaInterface
             return MetaRecord::newFromArray([]);
         }
 
-        $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
+        $sql = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
 
         $sql
             ->from($this->table . ' META')
@@ -249,7 +247,7 @@ class Meta implements MetaInterface
             return MetaRecord::newFromArray([]);
         }
 
-        $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
+        $sql = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
 
         $sql
             ->from($this->table . ' META')
@@ -276,7 +274,7 @@ class Meta implements MetaInterface
      */
     public function getMetadata(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
-        $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
+        $sql = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
 
         if ($count_only) {
             $sql->column($sql->count($sql->unique('M.meta_id')));
@@ -318,7 +316,7 @@ class Meta implements MetaInterface
         ]), $this->blog->id())) {
             $user_id = $this->auth->userID();
 
-            $and = ['post_status = ' . (string) $this->blog::POST_PUBLISHED];
+            $and = ['post_status = ' . $this->blog::POST_PUBLISHED];
             if ($this->blog->withoutPassword()) {
                 $and[] = 'post_password IS NULL';
             }
@@ -366,8 +364,6 @@ class Meta implements MetaInterface
      *
      * Ex: A "photo" tag (assuming it's the the most used) is used 476 times (in 476 entries), its frequency will be 100%,
      * then a "blog" tag which is used in 327 entries will have a 69% frequency (327 ÷ 476 * 100).
-     *
-     * @return     MetaRecord
      */
     public function computeMetaStats(MetaRecord $rs): MetaRecord
     {
@@ -383,10 +379,8 @@ class Meta implements MetaInterface
             $type = $rs_static->meta_type;
             if (!isset($max[$type])) {
                 $max[$type] = $rs_static->count;
-            } else {
-                if ($rs_static->count > $max[$type]) {
-                    $max[$type] = $rs_static->count;
-                }
+            } elseif ($rs_static->count > $max[$type]) {
+                $max[$type] = $rs_static->count;
             }
         }
 
@@ -415,7 +409,7 @@ class Meta implements MetaInterface
         $cur = $this->openMetaCursor();
 
         $cur->post_id   = (int) $post_id;
-        $cur->meta_id   = (string) $value;
+        $cur->meta_id   = $value;
         $cur->meta_type = (string) $type;
 
         $cur->insert();
@@ -450,7 +444,7 @@ class Meta implements MetaInterface
     {
         $new_meta_id = self::sanitizeMetaID($new_meta_id);
 
-        if ($new_meta_id == $meta_id) {
+        if ($new_meta_id === $meta_id) {
             return true;
         }
 
@@ -484,19 +478,19 @@ class Meta implements MetaInterface
 
         $sql->and('meta_id = ' . $sql->quote($meta_id));
 
-        if ($rs = $sql->select()) {
+        if (($rs = $sql->select()) instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $to_update[] = $rs->post_id;
             }
 
-            if (empty($to_update)) {
+            if ($to_update === []) {
                 return false;
             }
         }
 
         $sqlNew->and('meta_id = ' . $sqlNew->quote($new_meta_id));
 
-        if ($rs = $sqlNew->select()) {
+        if (($rs = $sqlNew->select()) instanceof MetaRecord) {
             while ($rs->fetch()) {
                 if (in_array($rs->post_id, $to_update)) {
                     $to_remove[] = $rs->post_id;
@@ -506,7 +500,7 @@ class Meta implements MetaInterface
         }
 
         # Delete duplicate meta
-        if (!empty($to_remove)) {
+        if ($to_remove !== []) {
             $sqlDel = new DeleteStatement();
             $sqlDel
                 ->from($this->table)
@@ -525,7 +519,7 @@ class Meta implements MetaInterface
         }
 
         # Update meta
-        if (!empty($to_update)) {
+        if ($to_update !== []) {
             $sqlUpd = new UpdateStatement();
             $sqlUpd
                 ->from($this->table)
@@ -570,7 +564,7 @@ class Meta implements MetaInterface
 
         $rs = $sql->select();
 
-        if (!$rs || $rs->isEmpty()) {
+        if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
             return [];
         }
 

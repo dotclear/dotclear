@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -52,7 +53,7 @@ class PostType implements PostTypeInterface
     {
         $url = sprintf($this->admin_url, $post_id);
 
-        if (!empty($params)) {
+        if ($params !== []) {
             $url .= (str_contains($url, '?') ? '&' : '?') . http_build_query($params, '', '&');
         }
 

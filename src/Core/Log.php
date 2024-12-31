@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -35,17 +36,13 @@ class Log implements LogInterface
 {
     /**
      * Full log table name (including db prefix).
-     *
-     * @var     string  $log_table
      */
-    protected $log_table;
+    protected string $log_table;
 
     /**
      * Full user table name (including db prefix).
-     *
-     * @var     string  $user_table
      */
-    protected $user_table;
+    protected string $user_table;
 
     /**
      * Constructor.
@@ -163,7 +160,7 @@ class Log implements LogInterface
         }
 
         $rs = $sql->select();
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             $rs->extend(ExtLog::class);
         }
 
@@ -183,7 +180,7 @@ class Log implements LogInterface
 
             $rs = $sql->select();
 
-            $cur->log_id = $rs ? (int) $rs->f(0) + 1 : 1;
+            $cur->log_id = $rs instanceof MetaRecord ? (int) $rs->f(0) + 1 : 1;
 
             if ($cur->log_msg === '') {
                 throw new BadRequestException(__('No log message'));

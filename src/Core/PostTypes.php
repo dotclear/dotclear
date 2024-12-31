@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -37,7 +38,7 @@ class PostTypes implements PostTypesInterface
 
     public function get(string $type): PostType
     {
-        if (!empty($type) && !isset($this->stack[$type])) {
+        if ($type !== '' && !isset($this->stack[$type])) {
             $type = 'post';
         }
 

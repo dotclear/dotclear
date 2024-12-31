@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -53,7 +54,7 @@ class Rest extends RestServer
 
     public function enableRestServer(bool $serve = true): void
     {
-        if ($this->config->coreUpgrade() != '') {
+        if ($this->config->coreUpgrade() !== '') {
             try {
                 if ($serve && file_exists($this->config->coreUpgrade())) {
                     // Remove watchdog file

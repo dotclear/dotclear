@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -27,15 +28,11 @@ class PostMedia implements PostMediaInterface
 {
     /**
      * The working blog instance
-     *
-     * @var     null|BlogInterface   $blog
      */
     private ?BlogInterface $blog = null;
 
     /**
      * Full table name (including db prefix).
-     *
-     * @var     string  $table
      */
     protected string $table;
 

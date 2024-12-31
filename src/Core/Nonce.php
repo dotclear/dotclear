@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -42,7 +43,7 @@ class Nonce implements NonceInterface
             return false;
         }
 
-        return $secret == $this->auth->cryptLegacy((string) session_id());
+        return $secret === $this->auth->cryptLegacy((string) session_id());
     }
 
     public function getFormNonce(): string
@@ -52,6 +53,6 @@ class Nonce implements NonceInterface
 
     public function formNonce(): Hidden
     {
-        return new Hidden(['xd_check'], !session_id() ? '' : $this->getNonce());
+        return new Hidden(['xd_check'], session_id() ? $this->getNonce() : '');
     }
 }

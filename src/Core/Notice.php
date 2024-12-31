@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -29,8 +30,6 @@ class Notice implements NoticeInterface
 {
     /**
      * Full table name (including db prefix).
-     *
-     * @var     string  $table
      */
     protected string $table;
 
@@ -88,7 +87,7 @@ class Notice implements NoticeInterface
 
         if (isset($params['notice_id']) && $params['notice_id'] !== '') {
             if (is_array($params['notice_id'])) {
-                array_walk($params['notice_id'], function (&$v) { if ($v !== null) {$v = (int) $v;}});
+                array_walk($params['notice_id'], function (&$v): void { if ($v !== null) {$v = (int) $v;}});
             } else {
                 $params['notice_id'] = [(int) $params['notice_id']];
             }
@@ -133,11 +132,11 @@ class Notice implements NoticeInterface
                 ->column($sql->max('notice_id'))
                 ->from($this->table);
 
-            if ($rs = $sql->select()) {
+            if (($rs = $sql->select()) instanceof MetaRecord) {
                 $cur->notice_id = (int) $rs->f(0) + 1;
                 $cur->ses_id    = (string) session_id();
 
-                $this->fillNoticeCursor($cur, $cur->notice_id);
+                $this->fillNoticeCursor($cur);
 
                 # --BEHAVIOR-- coreBeforeNoticeCreate -- Notice, Cursor
                 $this->behavior->callBehavior('coreBeforeNoticeCreate', $this, $cur);
@@ -161,11 +160,10 @@ class Notice implements NoticeInterface
      * Fills the notice Cursor.
      *
      * @param      Cursor     $cur        The current
-     * @param      int        $notice_id  The notice identifier
      *
      * @throws     BadRequestException
      */
-    private function fillNoticeCursor(Cursor $cur, ?int $notice_id = null): void
+    private function fillNoticeCursor(Cursor $cur): void
     {
         if ($cur->notice_msg === '') {
             throw new BadRequestException(__('No notice message'));
@@ -178,8 +176,6 @@ class Notice implements NoticeInterface
         if ($cur->notice_format === '' || $cur->notice_format === null) {
             $cur->notice_format = 'text';
         }
-
-        $notice_id = is_int($notice_id) ? $notice_id : $cur->notice_id;
     }
 
     public function delNotice(int $id): void

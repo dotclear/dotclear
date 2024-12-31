@@ -41,8 +41,6 @@ class Lexical implements LexicalInterface
      * @param   array<string>   $arr        single array of strings
      * @param   string          $namespace  admin/public/lang
      * @param   string          $lang       language to be used if $ns = 'lang'
-     *
-     * @return  bool
      */
     public function lexicalSort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
@@ -57,8 +55,6 @@ class Lexical implements LexicalInterface
      * @param   array<string, string>   $arr        single associative array of strings
      * @param   string                  $namespace  admin/public/lang
      * @param   string                  $lang       language to be used if $ns = 'lang'
-     *
-     * @return  bool
      */
     public function lexicalArraySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
@@ -73,8 +69,6 @@ class Lexical implements LexicalInterface
      * @param   array<string, mixed>    $arr        single associative array of values
      * @param   string                  $namespace  admin/public/lang
      * @param   string                  $lang       language to be used if $ns = 'lang'
-     *
-     * @return  bool
      */
     public function lexicalKeySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
@@ -112,8 +106,6 @@ class Lexical implements LexicalInterface
      * @param   string  $b          2nd string
      * @param   string  $namespace  The namespace (admin/public/lang)
      * @param   string  $lang       The language
-     *
-     * @return     int
      */
     public function lexicalCompare(string $a, string $b, string $namespace = '', string $lang = 'en_US'): int
     {
@@ -124,13 +116,8 @@ class Lexical implements LexicalInterface
 
     /**
      * Callback helper for lexical sort.
-     *
-     * @param   mixed   $a
-     * @param   mixed   $b
-     *
-     * @return  int
      */
-    private function lexicalSortHelper($a, $b): int
+    private function lexicalSortHelper(string $a, string $b): int
     {
         return strcoll(strtolower(Text::removeDiacritics($a)), strtolower(Text::removeDiacritics($b)));
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -19,7 +20,7 @@ namespace Dotclear\Core;
 abstract class Process
 {
     /**
-     * Kepp track of parent status.
+     * Keep track of parent status.
      *
      * @deprecated since 2.27, use self::status()
      *
@@ -32,7 +33,7 @@ abstract class Process
      *
      * @var     array<string,bool>  $statuses
      */
-    private static $statuses = [];
+    private static array $statuses = [];
 
     /**
      * Get/set process status.
