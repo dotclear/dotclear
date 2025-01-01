@@ -42,7 +42,7 @@ class DeleteStatement extends SqlStatement
 
         // Where clause(s)
         if (count($this->where)) {
-            $query .= 'WHERE ' . join(' AND ', $this->where) . ' ';
+            $query .= 'WHERE ' . implode(' AND ', $this->where) . ' ';
         }
 
         // Direct where clause(s)
@@ -51,12 +51,12 @@ class DeleteStatement extends SqlStatement
                 // Hack to cope with the operator included in top of each condition
                 $query .= 'WHERE ' . ($this->syntax === 'sqlite' ? '1' : 'TRUE') . ' ';
             }
-            $query .= join(' ', $this->cond) . ' ';
+            $query .= implode(' ', $this->cond) . ' ';
         }
 
         // Generic clause(s)
         if (count($this->sql)) {
-            $query .= join(' ', $this->sql) . ' ';
+            $query .= implode(' ', $this->sql) . ' ';
         }
 
         $query = trim($query);
@@ -69,8 +69,6 @@ class DeleteStatement extends SqlStatement
 
     /**
      * Run the SQL select query and return result
-     *
-     * @return     bool
      */
     public function delete(): bool
     {
@@ -83,8 +81,6 @@ class DeleteStatement extends SqlStatement
 
     /**
      * delete() alias
-     *
-     * @return     bool
      */
     public function run(): bool
     {

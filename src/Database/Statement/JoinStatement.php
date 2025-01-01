@@ -22,7 +22,7 @@ class JoinStatement extends SqlStatement
     /**
      * @var ?string
      */
-    protected $type = null;
+    protected $type;
 
     /**
      * Constructs a new instance.
@@ -38,7 +38,6 @@ class JoinStatement extends SqlStatement
     /**
      * Defines the type for join
      *
-     * @param string $type
      *
      * @return self instance, enabling to chain calls
      */
@@ -107,17 +106,17 @@ class JoinStatement extends SqlStatement
 
         // Where clause(s)
         if (count($this->where)) {
-            $query .= 'ON ' . join(' AND ', $this->where) . ' ';
+            $query .= 'ON ' . implode(' AND ', $this->where) . ' ';
         }
 
         // Direct where clause(s)
         if (count($this->cond)) {
-            $query .= join(' ', $this->cond) . ' ';
+            $query .= implode(' ', $this->cond) . ' ';
         }
 
         // Generic clause(s)
         if (count($this->sql)) {
-            $query .= join(' ', $this->sql) . ' ';
+            $query .= implode(' ', $this->sql) . ' ';
         }
 
         $query = trim($query);

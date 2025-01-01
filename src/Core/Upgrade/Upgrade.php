@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -44,7 +45,7 @@ class Upgrade
             try {
                 // Need to find a way to upgrade sqlite database
                 $changes = 0;
-                if (App::con()->driver() != 'sqlite') {
+                if (App::con()->driver() !== 'sqlite') {
                     # Database upgrade
                     $_s = new Structure(App::con(), App::con()->prefix());
 
@@ -73,8 +74,7 @@ class Upgrade
 
                 return $changes;
             } catch (Exception $e) {
-                throw new Exception(__('Something went wrong with auto upgrade:') .
-                    ' ' . $e->getMessage());
+                throw new Exception(__('Something went wrong with auto upgrade:') . ' ' . $e->getMessage(), (int) $e->getCode(), $e);
             }
         }
 
@@ -143,7 +143,7 @@ class Upgrade
 
             $equal = '<';
             // remove eq or at least lt
-            if (array_pop($parts) == 'eq') {
+            if (array_pop($parts) === 'eq') {
                 $equal = '<=';
                 // if eq exists remove also lt
                 array_pop($parts);
@@ -165,7 +165,7 @@ class Upgrade
         }
 
         // Sort growup versions
-        usort($upgrades, fn ($a, $b) => version_compare($a['version'], $b['version'], '>') ? 1 : -1);
+        usort($upgrades, fn ($a, $b): int => version_compare($a['version'], $b['version'], '>') ? 1 : -1);
 
         return $upgrades;
     }
@@ -188,7 +188,7 @@ class Upgrade
             if (!$value) {
                 $value = [];
             }
-            settype($value, 'array');
+            $value = (array) $value;
             $value = json_encode($value, JSON_THROW_ON_ERROR);
             $rs2   = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
             "SET setting_type='array', setting_value = '" . App::con()->escapeStr($value) . "' " .
@@ -221,7 +221,7 @@ class Upgrade
             if (!$value) {
                 $value = [];
             }
-            settype($value, 'array');
+            $value = (array) $value;
             $value = json_encode($value, JSON_THROW_ON_ERROR);
             $rs2   = 'UPDATE ' . App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME . ' ' .
             "SET pref_type='array', pref_value = '" . App::con()->escapeStr($value) . "' " .

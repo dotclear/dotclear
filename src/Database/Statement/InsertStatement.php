@@ -32,8 +32,6 @@ class InsertStatement extends SqlStatement
      */
     public function __construct($con = null, ?string $syntax = null)
     {
-        $this->lines = [];
-
         parent::__construct($con, $syntax);
     }
 
@@ -68,7 +66,7 @@ class InsertStatement extends SqlStatement
         if (is_array($c)) {
             $this->lines = [...$this->lines, ...$c];
         } else {
-            array_push($this->lines, [$c]);
+            $this->lines[] = [$c];
         }
 
         return $this;
@@ -100,18 +98,18 @@ class InsertStatement extends SqlStatement
         if ($reset) {
             $this->lines = [];
         }
-        $raws        = [];
+        $rows        = [];
         $formatValue = fn ($v) => is_string($v) ? $this->quote($v) : (is_null($v) ? 'NULL' : $v);
         foreach ($c as $line) {
             if (is_array($line)) {
                 $values = array_map($formatValue, $line);
-                $raws[] = join(', ', $values);
+                $rows[] = implode(', ', $values);
             } else {
-                $raws[] = $line;
+                $rows[] = $line;
             }
         }
-        if (count($raws)) {
-            $this->lines($raws);
+        if ($rows !== []) {
+            $this->lines($rows);
         }
 
         return $this;
@@ -128,7 +126,7 @@ class InsertStatement extends SqlStatement
         App::behavior()->callBehavior('coreBeforeInsertStatement', $this);
 
         // Check if source given
-        if (!count($this->from)) {
+        if ($this->from === []) {
             trigger_error(__('SQL INSERT requires an INTO source'), E_USER_WARNING);
         }
 
@@ -139,18 +137,18 @@ class InsertStatement extends SqlStatement
         $query .= 'INTO ' . $this->from[0] . ' ';
 
         // Column(s)
-        if (count($this->columns)) {
-            $query .= '(' . join(', ', $this->columns) . ') ';
+        if ($this->columns !== []) {
+            $query .= '(' . implode(', ', $this->columns) . ') ';
         }
 
         // Value(s)
         $query .= 'VALUES ';
-        if (count($this->lines)) {
-            $raws = [];
+        if ($this->lines !== []) {
+            $rows = [];
             foreach ($this->lines as $line) {
-                $raws[] = '(' . (is_array($line) ? join(', ', $line) : $line) . ')';
+                $rows[] = '(' . (is_array($line) ? implode(', ', $line) : $line) . ')';
             }
-            $query .= join(', ', $raws);
+            $query .= implode(', ', $rows);
         } else {
             // Use SQL default values
             // (useful only if SQL strict mode is off or if every columns has a defined default value)
@@ -167,8 +165,6 @@ class InsertStatement extends SqlStatement
 
     /**
      * Run the SQL select query and return result
-     *
-     * @return     bool  true
      */
     public function insert(): bool
     {
@@ -181,8 +177,6 @@ class InsertStatement extends SqlStatement
 
     /**
      * insert() alias
-     *
-     * @return     bool
      */
     public function run(): bool
     {

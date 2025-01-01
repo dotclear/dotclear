@@ -71,7 +71,7 @@ class Schema extends AbstractSchema
         while ($rs->fetch()) {
             $field   = trim($rs->column_name);
             $type    = trim($rs->udt_name);
-            $null    = strtolower($rs->is_nullable) == 'yes';
+            $null    = strtolower($rs->is_nullable) === 'yes';
             $default = $rs->column_default;
             $len     = $rs->character_maximum_length;
             $len     = $len == '' ? null : (int) $len;
@@ -80,7 +80,7 @@ class Schema extends AbstractSchema
             $default = (string) preg_replace('/^\((-?\d*)\)$/', '$1', $default);
 
             // $default from db is a string and is NULL in schema so upgrade failed.
-            if (strtoupper((string) $default) == 'NULL') {
+            if (strtoupper((string) $default) === 'NULL') {
                 $default = null;
             }
 

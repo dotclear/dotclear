@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -41,7 +42,7 @@ class Session extends DatabaseSession
             ttl: $this->config->sessionTtl()
         );
 
-        register_shutdown_function(function () {
+        register_shutdown_function(function (): void {
             try {
                 if (session_id()) {
                     // Explicitly close session before DB connection

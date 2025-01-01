@@ -91,7 +91,7 @@ class NextStore extends Store
             }
         }
 
-        uasort($upd_defines, fn ($a, $b) => strtolower($a->getId()) <=> strtolower($b->getId()));
+        uasort($upd_defines, fn ($a, $b): int => strtolower($a->getId()) <=> strtolower($b->getId()));
 
         $this->defines = [
             'new'    => [],

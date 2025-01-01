@@ -57,10 +57,8 @@ class Record implements Iterator, Countable
 
     /**
      * Fetch occured once?
-     *
-     * @var        bool
      */
-    private $__fetch = false;
+    private bool $__fetch = false;
 
     /**
      * Constructor
@@ -119,6 +117,8 @@ class Record implements Iterator, Countable
         }
 
         trigger_error('Call to undefined method Record::' . $f . '()', E_USER_WARNING);
+
+        return null;
     }
 
     /**
@@ -169,8 +169,6 @@ class Record implements Iterator, Countable
      * Returns true if a field exists.
      *
      * @param string|int     $n        Field name or field position
-     *
-     * @return bool
      */
     public function exists($n): bool
     {
@@ -183,8 +181,6 @@ class Record implements Iterator, Countable
      * Returns true if a field exists (magic method from PHP 5.1).
      *
      * @param string        $n        Field name
-     *
-     * @return bool
      */
     public function __isset(string $n): bool
     {
@@ -228,8 +224,6 @@ class Record implements Iterator, Countable
 
     /**
      * Sets the row data from result.
-     *
-     * @return     bool
      */
     private function setRow(): bool
     {
@@ -264,10 +258,10 @@ class Record implements Iterator, Countable
             return false;
         }
 
-        if ($this->__info['con']->db_result_seek($this->__result, (int) $row)) {
+        if ($this->__info['con']->db_result_seek($this->__result, $row)) {
             $this->__index = $row;
             $this->setRow();
-            $this->__info['con']->db_result_seek($this->__result, (int) $row);
+            $this->__info['con']->db_result_seek($this->__result, $row);
 
             return true;
         }
@@ -285,8 +279,6 @@ class Record implements Iterator, Countable
      *     echo $rs->field1;
      * }
      * ```
-     *
-     * @return bool
      */
     public function fetch(): bool
     {
@@ -309,8 +301,6 @@ class Record implements Iterator, Countable
 
     /**
      * Moves index to first position.
-     *
-     * @return bool
      */
     public function moveStart(): bool
     {
@@ -321,8 +311,6 @@ class Record implements Iterator, Countable
 
     /**
      * Moves index to last position.
-     *
-     * @return bool
      */
     public function moveEnd(): bool
     {
@@ -331,8 +319,6 @@ class Record implements Iterator, Countable
 
     /**
      * Moves index to next position.
-     *
-     * @return bool
      */
     public function moveNext(): bool
     {
@@ -341,8 +327,6 @@ class Record implements Iterator, Countable
 
     /**
      * Moves index to previous position.
-     *
-     * @return bool
      */
     public function movePrev(): bool
     {

@@ -12,6 +12,7 @@ namespace Dotclear\Database\Driver\Mysqlimb4;
 
 use Dotclear\Database\Driver\Mysqli\Handler as MysqliHandler;
 use Exception;
+use mysqli;
 
 /**
  * @class Handler
@@ -22,8 +23,6 @@ class Handler extends MysqliHandler
 {
     /**
      * Driver name
-     *
-     * @var        string
      */
     protected string $__driver = 'mysqlimb4';
 
@@ -89,9 +88,9 @@ class Handler extends MysqliHandler
     /**
      * Post connection helper
      *
-     * @param      mixed  $handle   The DB handle
+     * @param      mysqli  $handle   The DB handle
      */
-    private function db_post_connect($handle): void
+    private function db_post_connect(mysqli $handle): void
     {
         if (version_compare($this->db_version($handle), '5.7.7', '>=')) {
             $this->db_query($handle, 'SET NAMES utf8mb4');
@@ -113,11 +112,10 @@ class Handler extends MysqliHandler
      * Get an ORDER BY fragment to be used in a SQL query
      *
      * @param      mixed  ...$args  The arguments
-     *
-     * @return     string
      */
     public function orderBy(...$args): string
     {
+        $res     = [];
         $default = [
             'order'   => '',
             'collate' => false,
@@ -127,32 +125,31 @@ class Handler extends MysqliHandler
                 $res[] = $v;
             } elseif (is_array($v) && !empty($v['field'])) {
                 $v          = array_merge($default, $v);
-                $v['order'] = (strtoupper((string) $v['order']) == 'DESC' ? 'DESC' : '');
+                $v['order'] = (strtoupper((string) $v['order']) === 'DESC' ? 'DESC' : '');
                 $res[]      = $v['field'] . ($v['collate'] ? ' COLLATE utf8mb4_unicode_ci' : '') . ' ' . $v['order'];
             }
         }
 
-        return empty($res) ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
+        return $res === [] ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
     }
 
     /**
      * Get fields concerned by lexical sort
      *
      * @param      mixed  ...$args  The arguments
-     *
-     * @return     string
      */
     public function lexFields(...$args): string
     {
+        $res = [];
         $fmt = '%s COLLATE utf8mb4_unicode_ci';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
             } elseif (is_array($v)) {
-                $res = array_map(fn ($i) => sprintf($fmt, $i), $v);
+                $res = array_map(fn ($i): string => sprintf($fmt, $i), $v);
             }
         }
 
-        return empty($res) ? '' : implode(',', $res);
+        return $res === [] ? '' : implode(',', $res);
     }
 }

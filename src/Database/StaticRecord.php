@@ -37,10 +37,8 @@ class StaticRecord extends Record
 
     /**
      * Sort order (1 or -1)
-     *
-     * @var int|null
      */
-    private $__sortsign;
+    private ?int $__sortsign = null;
 
     /**
      * Constructs a new instance.
@@ -67,8 +65,6 @@ class StaticRecord extends Record
      * Returns a new instance of object from an associative array.
      *
      * @param array<mixed>        $data        Data array
-     *
-     * @return StaticRecord
      */
     public static function newFromArray(?array $data): StaticRecord
     {
@@ -78,11 +74,7 @@ class StaticRecord extends Record
 
         $data = array_values($data);
 
-        if (empty($data) || !is_array($data[0])) {
-            $cols = 0;
-        } else {
-            $cols = count($data[0]);
-        }
+        $cols = $data === [] || !is_array($data[0]) ? 0 : count($data[0]);
 
         $info = [
             'con'  => null,
@@ -110,8 +102,6 @@ class StaticRecord extends Record
      * Check if a field exists
      *
      * @param      string|int  $n      Field name|position
-     *
-     * @return     bool
      */
     public function exists($n): bool
     {
@@ -163,16 +153,16 @@ class StaticRecord extends Record
      *
      * @param string|int    $n            Field name|position
      * @param mixed         $v            Field value
-     *
-     * @return mixed
      */
-    public function set($n, $v)
+    public function set($n, $v): ?bool
     {
         if ($this->__index === null) {
             return false;
         }
 
         $this->__data[$this->__index][$n] = $v;
+
+        return null;
     }
 
     /**
@@ -180,33 +170,31 @@ class StaticRecord extends Record
      *
      * @param string|int    $field        Field name|position
      * @param string        $order        Sort type (asc or desc)
-     *
-     * @return mixed
      */
-    public function sort($field, string $order = 'asc')
+    public function sort($field, string $order = 'asc'): ?bool
     {
         if (!isset($this->__data[0][$field])) {
             return false;
         }
 
         $this->__sortfield = $field;
-        $this->__sortsign  = strtolower($order) == 'asc' ? 1 : -1;
+        $this->__sortsign  = strtolower($order) === 'asc' ? 1 : -1;
 
         usort($this->__data, $this->sortCallback(...));
 
         $this->__sortfield = null;
         $this->__sortsign  = null;
+
+        return null;
     }
 
     /**
      * Sort callback
      *
-     * @param      mixed   $a      First term to compare
-     * @param      mixed   $b      Second term to compare
-     *
-     * @return     int
+     * @param      array<mixed>   $a      First term to compare
+     * @param      array<mixed>   $b      Second term to compare
      */
-    private function sortCallback($a, $b)
+    private function sortCallback(array $a, array $b): int
     {
         $a = $a[$this->__sortfield];
         $b = $b[$this->__sortfield];
@@ -216,7 +204,7 @@ class StaticRecord extends Record
             $a = (int) $a;
             $b = (int) $b;
 
-            return ($a - $b) * $this->__sortsign;
+            return (int) (($a - $b) * $this->__sortsign);
         }
 
         return strcmp((string) $a, (string) $b) * $this->__sortsign;
@@ -231,7 +219,7 @@ class StaticRecord extends Record
     public function lexicalSort(string $field, string $order = 'asc'): void
     {
         $this->__sortfield = $field;
-        $this->__sortsign  = strtolower($order) == 'asc' ? 1 : -1;
+        $this->__sortsign  = strtolower($order) === 'asc' ? 1 : -1;
 
         usort($this->__data, $this->lexicalSortCallback(...));
 
@@ -244,8 +232,6 @@ class StaticRecord extends Record
      *
      * @param      mixed   $a      First term to compare
      * @param      mixed   $b      Second term to compare
-     *
-     * @return     int
      */
     private function lexicalSortCallback($a, $b): int
     {

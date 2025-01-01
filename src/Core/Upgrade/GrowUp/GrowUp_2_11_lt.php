@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -29,8 +30,8 @@ class GrowUp_2_11_lt
 
         // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
         // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
-        $csp_prefix = App::con()->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
-        $csp_suffix = App::con()->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
+        $csp_prefix = App::con()->driver() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
+        $csp_suffix = App::con()->driver() === 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
 
         # Try to fix some CSP directive wrongly stored for SQLite drivers
         $strReq = 'UPDATE ' . App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
@@ -69,7 +70,7 @@ class GrowUp_2_11_lt
         # Update first publication on published posts
         $strReq = 'UPDATE ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME .
             ' SET post_firstpub = 1' .
-            ' WHERE post_status = ' . (string) App::blog()::POST_PUBLISHED;
+            ' WHERE post_status = ' . App::blog()::POST_PUBLISHED;
         App::con()->execute($strReq);
 
         // A bit of housecleaning for no longer needed folders

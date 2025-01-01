@@ -47,22 +47,16 @@ class Utility extends Process
 
     /**
      * Upgrade Url handler instance.
-     *
-     * @var     Url     $url
      */
     private Url $url;
 
     /**
      * Upgrade Menus handler instance.
-     *
-     * @var     Menus   $menus
      */
     private Menus $menus;
 
     /**
      * Upgrade help resources instance.
-     *
-     * @var     Resources   $resources
      */
     private Resources $resources;
 
@@ -132,7 +126,7 @@ class Utility extends Process
             }
 
             // Check nonce from POST requests
-            if (!empty($_POST) && (empty($_POST['xd_check']) || !App::nonce()->checkNonce($_POST['xd_check']))) {
+            if ($_POST !== [] && (empty($_POST['xd_check']) || !App::nonce()->checkNonce($_POST['xd_check']))) {
                 throw new PreconditionException();
             }
 
@@ -153,7 +147,7 @@ class Utility extends Process
     {
         App::lang()->setLang((string) App::auth()->getInfo('user_lang'));
 
-        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() != 'en') {
+        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
             L10n::set(App::config()->l10nRoot() . '/en/date');
         }
         L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/main');

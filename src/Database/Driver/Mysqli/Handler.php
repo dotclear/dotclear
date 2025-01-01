@@ -25,22 +25,16 @@ class Handler extends AbstractHandler
 {
     /**
      * Enables weak locks if true
-     *
-     * @var        bool
      */
     public static bool $weak_locks = true;
 
     /**
      * Driver name
-     *
-     * @var        string
      */
     protected string $__driver = 'mysqli';
 
     /**
      * SQL Syntax supported
-     *
-     * @var        string
      */
     protected string $__syntax = 'mysql';
 
@@ -106,9 +100,9 @@ class Handler extends AbstractHandler
     /**
      * Post connection helper
      *
-     * @param      mixed  $handle   The DB handle
+     * @param      mysqli  $handle   The DB handle
      */
-    private function db_post_connect($handle): void
+    private function db_post_connect(mysqli $handle): void
     {
         if (version_compare($this->db_version($handle), '4.1', '>=')) {
             $this->db_query($handle, 'SET NAMES utf8');
@@ -140,8 +134,6 @@ class Handler extends AbstractHandler
      * Get DB version
      *
      * @param      mixed  $handle  The handle
-     *
-     * @return     string
      */
     public function db_version($handle): string
     {
@@ -159,8 +151,6 @@ class Handler extends AbstractHandler
      *
      * @param   mixed   $handle     The handle
      * @param   string  $path       The tables path
-     *
-     * @return  string
      */
     public function db_search_path($handle, $path): string
     {
@@ -213,8 +203,6 @@ class Handler extends AbstractHandler
      * Get number of fields in result
      *
      * @param      mixed  $res    The resource
-     *
-     * @return     int
      */
     public function db_num_fields($res): int
     {
@@ -225,8 +213,6 @@ class Handler extends AbstractHandler
      * Get number of rows in result
      *
      * @param      mixed  $res    The resource
-     *
-     * @return     int
      */
     public function db_num_rows($res): int
     {
@@ -238,8 +224,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $res       The resource
      * @param      int     $position  The position
-     *
-     * @return     string
      */
     public function db_field_name($res, int $position): string
     {
@@ -258,8 +242,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $res       The resource
      * @param      int     $position  The position
-     *
-     * @return     string
      */
     public function db_field_type($res, int $position): string
     {
@@ -296,12 +278,10 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $res    The resource
      * @param      int     $row    The row
-     *
-     * @return     bool
      */
     public function db_result_seek($res, int $row): bool
     {
-        return $res instanceof mysqli_result ? $res->data_seek($row) : false;
+        return $res instanceof mysqli_result && $res->data_seek($row);
     }
 
     /**
@@ -309,8 +289,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $handle  The DB handle
      * @param      mixed   $res     The resource
-     *
-     * @return     int
      */
     public function db_changes($handle, $res): int
     {
@@ -321,10 +299,8 @@ class Handler extends AbstractHandler
      * Get last query error, if any
      *
      * @param      mixed       $handle  The handle
-     *
-     * @return     false|string
      */
-    public function db_last_error($handle)
+    public function db_last_error($handle): false|string
     {
         if ($handle instanceof mysqli && ($e = $handle->error)) {
             return $e . ' (' . $handle->errno . ')';
@@ -338,8 +314,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $str     The string
      * @param      mixed   $handle  The DB handle
-     *
-     * @return     string
      */
     public function db_escape_string($str, $handle = null): string
     {
@@ -392,8 +366,6 @@ class Handler extends AbstractHandler
      *
      * @param      string  $field    The field
      * @param      string  $pattern  The pattern
-     *
-     * @return     string
      */
     public function dateFormat(string $field, string $pattern): string
     {
@@ -406,11 +378,10 @@ class Handler extends AbstractHandler
      * Get an ORDER BY fragment to be used in a SQL query
      *
      * @param      mixed  ...$args  The arguments
-     *
-     * @return     string
      */
     public function orderBy(...$args): string
     {
+        $res     = [];
         $default = [
             'order'   => '',
             'collate' => false,
@@ -420,41 +391,38 @@ class Handler extends AbstractHandler
                 $res[] = $v;
             } elseif (is_array($v) && !empty($v['field'])) {
                 $v          = array_merge($default, $v);
-                $v['order'] = (strtoupper((string) $v['order']) == 'DESC' ? 'DESC' : '');
+                $v['order'] = (strtoupper((string) $v['order']) === 'DESC' ? 'DESC' : '');
                 $res[]      = $v['field'] . ($v['collate'] ? ' COLLATE utf8_unicode_ci' : '') . ' ' . $v['order'];
             }
         }
 
-        return empty($res) ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
+        return $res === [] ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
     }
 
     /**
      * Get fields concerned by lexical sort
      *
      * @param      mixed  ...$args  The arguments
-     *
-     * @return     string
      */
     public function lexFields(...$args): string
     {
+        $res = [];
         $fmt = '%s COLLATE utf8_unicode_ci';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
             } elseif (is_array($v)) {
-                $res = array_map(fn ($i) => sprintf($fmt, $i), $v);
+                $res = array_map(fn ($i): string => sprintf($fmt, $i), $v);
             }
         }
 
-        return empty($res) ? '' : implode(',', $res);
+        return $res === [] ? '' : implode(',', $res);
     }
 
     /**
      * Get a CONCAT fragment
      *
      * @param   mixed     $args
-     *
-     * @return     string
      */
     public function concat(...$args): string
     {
@@ -465,8 +433,6 @@ class Handler extends AbstractHandler
      * Escape a string
      *
      * @param      string  $str    The string
-     *
-     * @return     string
      */
     public function escapeSystem(string $str): string
     {
@@ -477,10 +443,8 @@ class Handler extends AbstractHandler
      * Get type label
      *
      * @param      string  $id     The identifier
-     *
-     * @return     string
      */
-    protected function _convert_types(string $id)
+    protected function _convert_types(string $id): string
     {
         $id2type = [
             1 => 'int',

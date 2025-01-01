@@ -46,7 +46,7 @@ class Handler extends AbstractHandler
         $str  = '';
         $port = false;
 
-        if ($host) {
+        if ($host !== '') {
             if (str_contains($host, ':')) {
                 $bits = explode(':', $host);
                 $host = array_shift($bits);
@@ -58,13 +58,13 @@ class Handler extends AbstractHandler
                 $str .= 'port = ' . $port . ' ';
             }
         }
-        if ($user) {
+        if ($user !== '') {
             $str .= "user = '" . addslashes($user) . "' ";
         }
-        if ($password) {
+        if ($password !== '') {
             $str .= "password = '" . addslashes($password) . "' ";
         }
-        if ($database) {
+        if ($database !== '') {
             $str .= "dbname = '" . addslashes($database) . "' ";
         }
 
@@ -130,9 +130,9 @@ class Handler extends AbstractHandler
     /**
      * Post connection helper
      *
-     * @param      mixed  $handle   The DB handle
+     * @param      \PgSql\Connection  $handle   The DB handle
      */
-    private function db_post_connect($handle): void
+    private function db_post_connect(\PgSql\Connection $handle): void
     {
         if (version_compare($this->db_version($handle), '9.1') >= 0) {
             // Only for PostgreSQL 9.1+
@@ -163,8 +163,6 @@ class Handler extends AbstractHandler
      * Get DB version
      *
      * @param      mixed  $handle  The handle
-     *
-     * @return     string
      */
     public function db_version($handle): string
     {
@@ -180,8 +178,6 @@ class Handler extends AbstractHandler
      *
      * @param   mixed   $handle     The handle
      * @param   string  $path       The tables path
-     *
-     * @return  string
      */
     public function db_search_path($handle, $path): string
     {
@@ -204,10 +200,8 @@ class Handler extends AbstractHandler
      * @param      string     $query   The query
      *
      * @throws     Exception
-     *
-     * @return     mixed
      */
-    public function db_query($handle, string $query)
+    public function db_query($handle, string $query): ?\PgSql\Result
     {
         if (class_exists(\PgSql\Connection::class) && $handle instanceof Connection) {
             $res = @pg_query($handle, $query);
@@ -222,6 +216,8 @@ class Handler extends AbstractHandler
 
             return $res;
         }
+
+        return null;
     }
 
     /**
@@ -229,10 +225,8 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $handle  The handle
      * @param      string  $query   The query
-     *
-     * @return     mixed
      */
-    public function db_exec($handle, string $query)
+    public function db_exec($handle, string $query): ?\PgSql\Result
     {
         return $this->db_query($handle, $query);
     }
@@ -241,8 +235,6 @@ class Handler extends AbstractHandler
      * Get number of fields in result
      *
      * @param      mixed  $res    The resource
-     *
-     * @return     int
      */
     public function db_num_fields($res): int
     {
@@ -257,8 +249,6 @@ class Handler extends AbstractHandler
      * Get number of rows in result
      *
      * @param      mixed  $res    The resource
-     *
-     * @return     int
      */
     public function db_num_rows($res): int
     {
@@ -274,8 +264,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $res       The resource
      * @param      int     $position  The position
-     *
-     * @return     string
      */
     public function db_field_name($res, int $position): string
     {
@@ -291,8 +279,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $res       The resource
      * @param      int     $position  The position
-     *
-     * @return     string
      */
     public function db_field_type($res, int $position): string
     {
@@ -310,7 +296,7 @@ class Handler extends AbstractHandler
      *
      * @return     array<mixed>|false
      */
-    public function db_fetch_assoc($res)
+    public function db_fetch_assoc($res): false|array
     {
         if (class_exists(\PgSql\Result::class) && $res instanceof Result) {
             return pg_fetch_assoc($res);
@@ -324,13 +310,11 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $res    The resource
      * @param      int     $row    The row
-     *
-     * @return     bool
      */
     public function db_result_seek($res, int $row): bool
     {
         if (class_exists(\PgSql\Result::class) && $res instanceof Result) {
-            return pg_result_seek($res, (int) $row);
+            return pg_result_seek($res, $row);
         }
 
         return false;
@@ -341,8 +325,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $handle  The DB handle
      * @param      mixed   $res     The resource
-     *
-     * @return     int
      */
     public function db_changes($handle, $res): int
     {
@@ -357,10 +339,8 @@ class Handler extends AbstractHandler
      * Get last query error, if any
      *
      * @param      mixed       $handle  The handle
-     *
-     * @return     false|string
      */
-    public function db_last_error($handle)
+    public function db_last_error($handle): string|false
     {
         if (class_exists(\PgSql\Connection::class) && $handle instanceof Connection) {
             return pg_last_error($handle);
@@ -374,8 +354,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $str     The string
      * @param      mixed   $handle  The DB handle
-     *
-     * @return     string
      */
     public function db_escape_string($str, $handle = null): string
     {
@@ -420,8 +398,6 @@ class Handler extends AbstractHandler
      *
      * @param      string  $field    The field
      * @param      string  $pattern  The pattern
-     *
-     * @return     string
      */
     public function dateFormat(string $field, string $pattern): string
     {
@@ -443,11 +419,10 @@ class Handler extends AbstractHandler
      * Get an ORDER BY fragment to be used in a SQL query
      *
      * @param      mixed  ...$args  The arguments
-     *
-     * @return     string
      */
     public function orderBy(...$args): string
     {
+        $res     = [];
         $default = [
             'order'   => '',
             'collate' => false,
@@ -457,7 +432,7 @@ class Handler extends AbstractHandler
                 $res[] = $v;
             } elseif (is_array($v) && !empty($v['field'])) {
                 $v          = array_merge($default, $v);
-                $v['order'] = (strtoupper((string) $v['order']) == 'DESC' ? 'DESC' : '');
+                $v['order'] = (strtoupper((string) $v['order']) === 'DESC' ? 'DESC' : '');
                 if ($v['collate']) {
                     if ($this->utf8_unicode_ci) {
                         $res[] = $v['field'] . ' COLLATE ' . $this->utf8_unicode_ci . ' ' . $v['order'];
@@ -470,28 +445,27 @@ class Handler extends AbstractHandler
             }
         }
 
-        return empty($res) ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
+        return $res === [] ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
     }
 
     /**
      * Get fields concerned by lexical sort
      *
      * @param      mixed  ...$args  The arguments
-     *
-     * @return     string
      */
     public function lexFields(...$args): string
     {
+        $res = [];
         $fmt = $this->utf8_unicode_ci ? '%s COLLATE ' . $this->utf8_unicode_ci : 'LOWER(%s)';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
             } elseif (is_array($v)) {
-                $res = array_map(fn ($i) => sprintf($fmt, $i), $v);
+                $res = array_map(fn ($i): string => sprintf($fmt, $i), $v);
             }
         }
 
-        return empty($res) ? '' : implode(',', $res);
+        return $res === [] ? '' : implode(',', $res);
     }
 
     /**
@@ -504,8 +478,6 @@ class Handler extends AbstractHandler
      *
      * @param string    $name    Function name
      * @param mixed     ...$data
-     *
-     * @return    Record
      */
     public function callFunction(string $name, ...$data): Record
     {

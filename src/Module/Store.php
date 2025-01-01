@@ -40,8 +40,6 @@ class Store
 
     /**
      * User agent used to query repository.
-     *
-     * @var     string  $user_agent
      */
     protected string $user_agent = 'DotClear.org RepoBrowser/0.1';
 
@@ -67,8 +65,6 @@ class Store
 
     /**
      * Repositories new updates status.
-     *
-     * @var     bool    $has_new_update
      */
     private bool $has_new_update = false;
 
@@ -118,26 +114,24 @@ class Store
                 // is installed ?
                 $cur_define = $this->modules->getDefine($str_define->getId());
                 if ($cur_define->isDefined()) {
-                    // is update ?
-                    if (is_string($str_define->get('version')) && is_string($cur_define->get('version'))) {
-                        if ($this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>')) {
-                            $str_define->set('root', $cur_define->get('root'));
-                            $str_define->set('root_writable', $cur_define->get('root_writable'));
-                            $str_define->set('current_version', $cur_define->get('version'));
+                    if (is_string($str_define->get('version')) && is_string($cur_define->get('version')) && $this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>')) {
+                        // is update
+                        $str_define->set('root', $cur_define->get('root'));
+                        $str_define->set('root_writable', $cur_define->get('root_writable'));
+                        $str_define->set('current_version', $cur_define->get('version'));
 
-                            // set memo for third party updates
-                            $upd_versions[$str_define->getId()] = [count($upd_defines), $str_define->get('version')];
+                        // set memo for third party updates
+                        $upd_versions[$str_define->getId()] = [count($upd_defines), $str_define->get('version')];
 
-                            $upd_defines[] = $str_define;
+                        $upd_defines[] = $str_define;
 
-                            // This update is new from main repository
-                            if (StoreReader::readCode() === StoreReader::READ_FROM_SOURCE) {
-                                $this->has_new_update = true;
-                            }
+                        // This update is new from main repository
+                        if (StoreReader::readCode() === StoreReader::READ_FROM_SOURCE) {
+                            $this->has_new_update = true;
                         }
                     }
-                    // it's new
                 } else {
+                    // it's new
                     $new_defines[] = $str_define;
                 }
             }
@@ -181,8 +175,8 @@ class Store
         }
 
         // sort results by id
-        uasort($new_defines, fn ($a, $b) => strtolower($a->getId()) <=> strtolower($b->getId()));
-        uasort($upd_defines, fn ($a, $b) => strtolower($a->getId()) <=> strtolower($b->getId()));
+        uasort($new_defines, fn ($a, $b): int => strtolower((string) $a->getId()) <=> strtolower((string) $b->getId()));
+        uasort($upd_defines, fn ($a, $b): int => strtolower((string) $a->getId()) <=> strtolower((string) $b->getId()));
 
         $this->defines = [
             'new'    => $new_defines,
@@ -259,7 +253,7 @@ class Store
     public function searchDefines(string $pattern): array
     {
         # Split query into small clean words
-        if (!($patterns = self::patternize($pattern))) {
+        if (!($patterns = $this->patternize($pattern))) {
             return [];
         }
 
@@ -274,7 +268,7 @@ class Store
                 }
 
                 # Split field value into small clean word
-                if (!($subjects = self::patternize($define->get($field)))) {
+                if (!($subjects = $this->patternize($define->get($field)))) {
                     continue;
                 }
 
@@ -292,7 +286,7 @@ class Store
             }
         }
         # Sort response by matches count
-        usort($defines, fn ($a, $b) => (int) $b->get('score') <=> (int) $a->get('score'));
+        usort($defines, fn ($a, $b): int => (int) $b->get('score') <=> (int) $a->get('score'));
 
         return $defines;
     }
@@ -394,7 +388,7 @@ class Store
      *
      * @return  array<int, string>|false     Array of cleaned pieces of string or false if none
      */
-    private static function patternize(string $str): bool|array
+    private function patternize(string $str): bool|array
     {
         $arr = [];
 
@@ -405,6 +399,6 @@ class Store
             }
         }
 
-        return empty($arr) ? false : $arr;
+        return $arr === [] ? false : $arr;
     }
 }

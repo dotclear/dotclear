@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -11,6 +12,7 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
 
 /**
@@ -26,12 +28,12 @@ class GrowUp_2_25_lt
             ->from(App::con()->prefix() . App::blog()::BLOG_TABLE_NAME)
             ->where('blog_status = ' . App::blog()::BLOG_REMOVED)
             ->select();
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $ids[] = $rs->blog_id;
             }
         }
-        if (count($ids)) {
+        if ($ids !== []) {
             App::users()->removeUsersDefaultBlogs($ids);
         }
 

@@ -43,15 +43,11 @@ class Trackback implements TrackbackInterface
 {
     /**
      * Pings table name.
-     *
-     * @var    string   $table
      */
-    public $table;
+    public string $table;
 
     /**
      * The query timeout.
-     *
-     * @var     int     $query_timeout
      */
     protected static int $query_timeout = 4;
 
@@ -92,7 +88,7 @@ class Trackback implements TrackbackInterface
                 'ping_dt',
             ])
             ->from($this->table)
-            ->where('post_id = ' . (string) $post_id)
+            ->where('post_id = ' . $post_id)
             ->select() ?? MetaRecord::newFromArray([]);
     }
 
@@ -110,11 +106,11 @@ class Trackback implements TrackbackInterface
                 'ping_url',
             ])
             ->from($this->table)
-            ->where('post_id = ' . (string) $post_id)
+            ->where('post_id = ' . $post_id)
             ->and('ping_url = ' . $sql->quote($url))
             ->select();
 
-        if ($rs && !$rs->isEmpty()) {
+        if ($rs instanceof MetaRecord && !$rs->isEmpty()) {
             throw new BadRequestException(sprintf(__('%s has still been pinged'), $url));
         }
 
@@ -130,7 +126,7 @@ class Trackback implements TrackbackInterface
 
             try {
                 $path = '';
-                $http = self::initHttp($ping_parts[0], $path);
+                $http = $this->initHttp($ping_parts[0], $path);
                 if ($http === false) {
                     throw new BadRequestException(__('Unable to ping URL'));
                 }
@@ -164,7 +160,7 @@ class Trackback implements TrackbackInterface
 
             try {
                 $path = '';
-                $http = self::initHttp($url, $path);
+                $http = $this->initHttp($url, $path);
                 if ($http === false) {
                     throw new BadRequestException(__('Unable to ping URL'));
                 }
@@ -183,7 +179,7 @@ class Trackback implements TrackbackInterface
             }
 
             $ping_error = trim($match[1]);
-            $ping_msg   = (!empty($match[4])) ? $match[4] : '';
+            $ping_msg   = (empty($match[4])) ? '' : $match[4];
         }
         # Damnit ! Let's play pingback
         else {
@@ -219,7 +215,7 @@ class Trackback implements TrackbackInterface
     public function receiveTrackback(int $post_id): void
     {
         header('Content-Type: text/xml; charset=UTF-8');
-        if (empty($_POST)) {
+        if ($_POST === []) {
             Http::head(405, 'Method Not Allowed');
             echo
                 '<?xml version="1.0" encoding="utf-8"?>' . "\n" .
@@ -231,10 +227,10 @@ class Trackback implements TrackbackInterface
             return;
         }
 
-        $title     = !empty($_POST['title']) ? $_POST['title'] : '';
-        $excerpt   = !empty($_POST['excerpt']) ? $_POST['excerpt'] : '';
-        $url       = !empty($_POST['url']) ? $_POST['url'] : '';
-        $blog_name = !empty($_POST['blog_name']) ? $_POST['blog_name'] : '';
+        $title     = $_POST['title']     ?? '';
+        $excerpt   = $_POST['excerpt']   ?? '';
+        $url       = $_POST['url']       ?? '';
+        $blog_name = $_POST['blog_name'] ?? '';
         $charset   = '';
         $comment   = '';
 
@@ -271,16 +267,16 @@ class Trackback implements TrackbackInterface
         }
 
         if (!$err) {
-            $charset = self::getCharsetFromRequest();
+            $charset = $this->getCharsetFromRequest();
 
             if (!$charset) {
-                $charset = self::detectCharset($title . ' ' . $excerpt . ' ' . $blog_name);
+                $charset = $this->detectCharset($title . ' ' . $excerpt . ' ' . $blog_name);
             }
 
-            if (strtolower((string) $charset) != 'utf-8') {
-                $title     = iconv((string) $charset, 'UTF-8', (string) $title);
-                $excerpt   = iconv((string) $charset, 'UTF-8', (string) $excerpt);
-                $blog_name = iconv((string) $charset, 'UTF-8', (string) $blog_name);
+            if (strtolower($charset) !== 'utf-8') {
+                $title     = iconv($charset, 'UTF-8', (string) $title);
+                $excerpt   = iconv($charset, 'UTF-8', (string) $excerpt);
+                $blog_name = iconv($charset, 'UTF-8', (string) $blog_name);
             }
 
             $title = trim(Html::clean($title));
@@ -300,7 +296,7 @@ class Trackback implements TrackbackInterface
             $blog_name = Text::cutString($blog_name, 60);
 
             try {
-                $this->addBacklink((int) $post_id, $url, $blog_name, $title, $excerpt, $comment);
+                $this->addBacklink($post_id, $url, $blog_name, $title, $excerpt, $comment);
             } catch (Throwable $e) {
                 $err = 1;
                 $msg = 'Something went wrong : ' . $e->getMessage();
@@ -311,7 +307,7 @@ class Trackback implements TrackbackInterface
         "<response>\n" .
         '  <error>' . (int) $err . "</error>\n";
 
-        if ($msg) {
+        if ($msg !== '') {
             $resp .= '  <message>' . $msg . "</message>\n";
         }
 
@@ -360,15 +356,13 @@ class Trackback implements TrackbackInterface
 
             $excerpt = '';
             foreach ($source as $line) {
-                if (str_contains($line, $to_url)) {
-                    if (preg_match('!<a[^>]+?' . $to_url . '[^>]*>([^>]+?)</a>!', $line, $m)) {
-                        $excerpt = strip_tags($line);
+                if (str_contains($line, $to_url) && preg_match('!<a[^>]+?' . $to_url . '[^>]*>([^>]+?)</a>!', $line, $m)) {
+                    $excerpt = strip_tags($line);
 
-                        break;
-                    }
+                    break;
                 }
             }
-            if ($excerpt) {
+            if ($excerpt !== '') {
                 $excerpt = '(&#8230;) ' . Text::cutString(Html::escapeHTML($excerpt), 200) . ' (&#8230;)';
             } else {
                 $excerpt = '(&#8230;)';
@@ -431,15 +425,13 @@ class Trackback implements TrackbackInterface
 
             $excerpt = '';
             foreach ($source as $line) {
-                if (str_contains($line, $to_url)) {
-                    if (preg_match('!<a[^>]+?' . $to_url . '[^>]*>([^>]+?)</a>!', $line, $m)) {
-                        $excerpt = strip_tags($line);
+                if (str_contains($line, $to_url) && preg_match('!<a[^>]+?' . $to_url . '[^>]*>([^>]+?)</a>!', $line, $m)) {
+                    $excerpt = strip_tags($line);
 
-                        break;
-                    }
+                    break;
                 }
             }
-            if ($excerpt) {
+            if ($excerpt !== '') {
                 $excerpt = '(&#8230;) ' . Text::cutString(Html::escapeHTML($excerpt), 200) . ' (&#8230;)';
             } else {
                 $excerpt = '(&#8230;)';
@@ -466,8 +458,6 @@ class Trackback implements TrackbackInterface
      *
      * @param   int     $post_id    The post identifier
      * @param   string  $from_url   The from url
-     *
-     * @return  bool
      */
     private function pingAlreadyDone(int $post_id, string $from_url): bool
     {
@@ -497,7 +487,7 @@ class Trackback implements TrackbackInterface
      */
     private function addBacklink(int $post_id, string $url, string $blog_name, string $title, string $excerpt, string &$comment): void
     {
-        if (empty($blog_name)) {
+        if ($blog_name === '') {
             // Let use title as text link for this backlink
             $blog_name = ($title ?: 'Anonymous blog');
         }
@@ -517,7 +507,7 @@ class Trackback implements TrackbackInterface
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor
         $this->behavior->callBehavior('publicBeforeTrackbackCreate', $cur);
-        if ($cur->post_id) {
+        if ($cur->post_id !== 0) {
             $comment_id = $this->blog->addComment($cur);
 
             # --BEHAVIOR-- publicAfterTrackbackCreate -- Cursor, int
@@ -536,7 +526,7 @@ class Trackback implements TrackbackInterface
         $sql = new DeleteStatement();
         $sql
             ->from($this->con->prefix() . $this->blog::COMMENT_TABLE_NAME)
-            ->where('post_id = ' . (string) $post_id)
+            ->where('post_id = ' . $post_id)
             ->and('comment_site = ' . $sql->quote($this->con->escapeStr($url)))
             ->and('comment_trackback = 1')
             ->delete();
@@ -547,29 +537,27 @@ class Trackback implements TrackbackInterface
      *
      * @param   string  $header     The header
      *
-     * @return  mixed   The charset from request.
+     * @return  null|string   The charset from request.
      */
-    private static function getCharsetFromRequest(string $header = '')
+    private function getCharsetFromRequest(string $header = ''): ?string
     {
-        if (!$header && isset($_SERVER['CONTENT_TYPE'])) {
-            $header = $_SERVER['CONTENT_TYPE'];
+        if ($header === '' && isset($_SERVER['CONTENT_TYPE'])) {
+            $header = (string) $_SERVER['CONTENT_TYPE'];
         }
 
-        if ($header) {
-            if (preg_match('|charset=([a-zA-Z0-9-]+)|', (string) $header, $m)) {
-                return $m[1];
-            }
+        if ($header !== '' && preg_match('|charset=([a-zA-Z0-9-]+)|', $header, $m)) {
+            return $m[1];
         }
+
+        return null;
     }
 
     /**
      * Detect encoding.
      *
      * @param   string  $content    The content
-     *
-     * @return  string
      */
-    private static function detectCharset(string $content): string
+    private function detectCharset(string $content): string
     {
         return (string) mb_detect_encoding(
             $content,
@@ -642,15 +630,13 @@ class Trackback implements TrackbackInterface
      * @param   string  $from_url  Target URL
      *
      * @throws  BadRequestException
-     *
-     * @return  string
      */
     private function getRemoteContent(string $from_url): string
     {
         $remote_content = '';
 
         $from_path = '';
-        $http      = self::initHttp($from_url, $from_path);
+        $http      = $this->initHttp($from_url, $from_path);
         if ($http === false) {
             return '';
         }
@@ -682,12 +668,12 @@ class Trackback implements TrackbackInterface
             $header_ct = implode(';', $header_ct);
         }
         if ($header_ct !== false) {
-            $charset = self::getCharsetFromRequest($header_ct);
+            $charset = $this->getCharsetFromRequest($header_ct);
             if (!$charset) {
-                $charset = self::detectCharset($remote_content);
+                $charset = $this->detectCharset($remote_content);
             }
-            if (strtolower((string) $charset) != 'utf-8') {
-                $remote_content = iconv((string) $charset, 'UTF-8', $remote_content);
+            if (strtolower($charset) !== 'utf-8') {
+                $remote_content = iconv($charset, 'UTF-8', $remote_content);
                 if ($remote_content === false) {
                     $remote_content = '';
                 }
@@ -713,7 +699,7 @@ class Trackback implements TrackbackInterface
         $res = [];
 
         foreach ($this->getTextLinks($text) as $link) {
-            if (($url = $this->getPingURL($link)) !== null) {
+            if (($url = $this->getPingURL($link)) !== false) {
                 $res[] = $url;
             }
         }
@@ -728,13 +714,11 @@ class Trackback implements TrackbackInterface
      * Used when receive a webmention or a pingback
      *
      * @param   string  $content    The content
-     *
-     * @return  string
      */
     private function getSourceName(string $content): string
     {
         // Clean text utility function
-        $clean = fn ($text, $size = 255) => Text::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean(trim((string) $text)))), $size);
+        $clean = fn ($text, $size = 255): string => Text::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean(trim((string) $text)))), $size);
 
         // First step: look for site name
         // ------------------------------
@@ -775,7 +759,8 @@ class Trackback implements TrackbackInterface
 
         # href attribute on "a" tags
         if (preg_match_all('/<a ([^>]+)>/ms', $text, $match, PREG_SET_ORDER)) {
-            for ($i = 0; $i < count($match); $i++) {
+            $counter = count($match);
+            for ($i = 0; $i < $counter; $i++) {
                 if (preg_match('/href="((https?:\/)?\/[^"]+)"/ms', $match[$i][1], $matches)) {
                     $res[$matches[1]] = 1;
                 }
@@ -785,7 +770,8 @@ class Trackback implements TrackbackInterface
 
         # cite attributes on "blockquote" and "q" tags
         if (preg_match_all('/<(blockquote|q) ([^>]+)>/ms', $text, $match, PREG_SET_ORDER)) {
-            for ($i = 0; $i < count($match); $i++) {
+            $counter = count($match);
+            for ($i = 0; $i < $counter; $i++) {
                 if (preg_match('/cite="((https?:\/)?\/[^"]+)"/ms', $match[$i][2], $matches)) {
                     $res[$matches[1]] = 1;
                 }
@@ -800,9 +786,9 @@ class Trackback implements TrackbackInterface
      *
      * @param   string  $url    The url
      *
-     * @return  mixed   The ping url.
+     * @return  false|string   The ping url.
      */
-    private function getPingURL(string $url)
+    private function getPingURL(string $url): false|string
     {
         if (str_starts_with($url, '/')) {
             $url = Http::getHost() . $url;
@@ -810,7 +796,7 @@ class Trackback implements TrackbackInterface
 
         try {
             $path = '';
-            $http = self::initHttp($url, $path);
+            $http = $this->initHttp($url, $path);
             if ($http === false) {
                 return false;
             }
@@ -846,12 +832,11 @@ class Trackback implements TrackbackInterface
         }
         $sanitized_url = str_replace($url_path, Html::sanitizeURL($url_path), $url);
 
-        for ($i = 0; $i < count($rdf_all); $i++) {
+        $counter = count($rdf_all);
+        for ($i = 0; $i < $counter; $i++) {
             $rdf = $rdf_all[$i][1];
-            if (preg_match('/dc:identifier="' . preg_quote($url, '/') . '"/msi', $rdf) || preg_match('/dc:identifier="' . preg_quote($sanitized_url, '/') . '"/msi', $rdf)) {
-                if (preg_match('/trackback:ping="(.*?)"/msi', $rdf, $tb_link)) {
-                    return $tb_link[1];
-                }
+            if ((preg_match('/dc:identifier="' . preg_quote($url, '/') . '"/msi', $rdf) || preg_match('/dc:identifier="' . preg_quote($sanitized_url, '/') . '"/msi', $rdf)) && preg_match('/trackback:ping="(.*?)"/msi', $rdf, $tb_link)) {
+                return $tb_link[1];
             }
         }
 
@@ -886,12 +871,8 @@ class Trackback implements TrackbackInterface
 
         # Check HTTP headers for a Link: <ENDPOINT_URL>; rel="webmention"
         $wm_api = false;
-        if ($wm_url) {
-            if (preg_match('~<((?:https?://)?[^>]+)>; rel="?(?:https?://webmention.org/?|webmention)"?~', $wm_url, $match)) {
-                if (filter_var($match[1], FILTER_VALIDATE_URL) && preg_match('!^https?:!', $match[1])) {
-                    $wm_api = $match[1];
-                }
-            }
+        if ($wm_url && preg_match('~<((?:https?://)?[^>]+)>; rel="?(?:https?://webmention.org/?|webmention)"?~', $wm_url, $match) && (filter_var($match[1], FILTER_VALIDATE_URL) && preg_match('!^https?:!', $match[1]))) {
+            $wm_api = $match[1];
         }
 
         # Else check content for <link href="ENDPOINT_URL" rel="webmention">
@@ -907,6 +888,8 @@ class Trackback implements TrackbackInterface
         if ($wm_api) {
             return $wm_api . '|' . $url . '|webmention';
         }
+
+        return false;
     }
     //@}
 
@@ -915,10 +898,8 @@ class Trackback implements TrackbackInterface
      *
      * @param   string  $url    The url
      * @param   string  $path   The path
-     *
-     * @return  false|HttpClient
      */
-    private static function initHttp(string $url, string &$path)
+    private function initHttp(string $url, string &$path): false|HttpClient
     {
         $client = HttpClient::initClient($url, $path);
         if ($client !== false) {
@@ -941,7 +922,7 @@ class Trackback implements TrackbackInterface
             throw new BadRequestException(__('No valid target URL provided? Try again!'), 0);
         }
 
-        if (Html::sanitizeURL(urldecode($from_url)) == Html::sanitizeURL(urldecode($to_url))) {
+        if (Html::sanitizeURL(urldecode($from_url)) === Html::sanitizeURL(urldecode($to_url))) {
             throw new BadRequestException(__('LOL!'), 0);
         }
     }

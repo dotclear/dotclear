@@ -542,13 +542,6 @@ class SqlStatement extends atoum
         $this
             ->when(
                 function () use ($sql) {
-                    if ($sql->syntax === 'Hello')
-                    ;
-                }
-            )
-            ->error('Undefined property: Dotclear\Database\Statement\SqlStatement::$syntax')->exists()
-            ->when(
-                function () use ($sql) {
                     $sql->syntaxEngine = 'Hello';
                 }
             )

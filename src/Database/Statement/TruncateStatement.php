@@ -30,7 +30,7 @@ class TruncateStatement extends SqlStatement
         App::behavior()->callBehavior('coreBeforeTruncateStatement', $this);
 
         // Check if source given
-        if (!count($this->from)) {
+        if ($this->from === []) {
             trigger_error(__('SQL TRUNCATE TABLE requires a FROM source'), E_USER_WARNING);
         }
 
@@ -50,8 +50,6 @@ class TruncateStatement extends SqlStatement
 
     /**
      * Run the SQL select query and return result
-     *
-     * @return     bool
      */
     public function truncate(): bool
     {
@@ -64,8 +62,6 @@ class TruncateStatement extends SqlStatement
 
     /**
      * truncate() alias
-     *
-     * @return     bool
      */
     public function run(): bool
     {

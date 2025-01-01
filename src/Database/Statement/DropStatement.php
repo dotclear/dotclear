@@ -50,8 +50,6 @@ class DropStatement extends SqlStatement
 
     /**
      * Run the SQL select query and return result
-     *
-     * @return     bool
      */
     public function drop(): bool
     {
@@ -64,8 +62,6 @@ class DropStatement extends SqlStatement
 
     /**
      * drop() alias
-     *
-     * @return     bool
      */
     public function run(): bool
     {

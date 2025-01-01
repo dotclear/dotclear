@@ -25,8 +25,6 @@ class Schema extends AbstractSchema
      * @param      string       $type     The type
      * @param      int|null     $len      The length
      * @param      mixed        $default  The default valule
-     *
-     * @return     string
      */
     public function dbt2udt(string $type, ?int &$len, &$default): string
     {
@@ -83,8 +81,6 @@ class Schema extends AbstractSchema
      * @param      string       $type     The type
      * @param      int|null     $len      The length
      * @param      mixed        $default  The default value
-     *
-     * @return     string
      */
     public function udt2dbt(string $type, ?int &$len, &$default): string
     {
@@ -96,7 +92,7 @@ class Schema extends AbstractSchema
             case 'float':
                 return 'double';
             case 'timestamp':
-                if ($default == 'now()') {
+                if ($default === 'now()') {
                     # MySQL does not support now() default value...
                     $default = "'1970-01-01 00:00:00'";
                 }
@@ -145,7 +141,7 @@ class Schema extends AbstractSchema
         while ($rs->fetch()) {
             $field   = trim((string) $rs->f('Field'));
             $type    = trim((string) $rs->f('Type'));
-            $null    = strtolower((string) $rs->f('Null')) == 'yes';
+            $null    = strtolower((string) $rs->f('Null')) === 'yes';
             $default = $rs->f('Default');
 
             $len = null;
@@ -155,7 +151,7 @@ class Schema extends AbstractSchema
             }
 
             // $default from db is a string and is NULL in schema so upgrade failed.
-            if (strtoupper((string) $default) == 'NULL') {
+            if (strtoupper((string) $default) === 'NULL') {
                 $default = null;
             } elseif ($default != '' && !is_numeric($default)) {
                 $default = "'" . $default . "'";
@@ -272,21 +268,21 @@ class Schema extends AbstractSchema
         if ($n > 0) {
             foreach ($match[1] as $i => $name) {
                 # Columns transformation
-                $st_cols = (string) str_replace('`', '', $match[2][$i]);
+                $st_cols = str_replace('`', '', $match[2][$i]);
                 $t_cols  = explode(',', $st_cols);
-                $sr_cols = (string) str_replace('`', '', $match[4][$i]);
+                $sr_cols = str_replace('`', '', $match[4][$i]);
                 $r_cols  = explode(',', $sr_cols);
 
                 # ON UPDATE|DELETE
-                $on        = trim((string) $match[5][$i], ', ');
+                $on        = trim($match[5][$i], ', ');
                 $on_delete = null;
                 $on_update = null;
-                if ($on != '') {
+                if ($on !== '') {
                     if (preg_match('/ON DELETE (.+?)(?:\s+ON|$)/msi', $on, $m)) {
-                        $on_delete = strtolower(trim((string) $m[1]));
+                        $on_delete = strtolower(trim($m[1]));
                     }
                     if (preg_match('/ON UPDATE (.+?)(?:\s+ON|$)/msi', $on, $m)) {
-                        $on_update = strtolower(trim((string) $m[1]));
+                        $on_update = strtolower(trim($m[1]));
                     }
                 }
 
@@ -379,7 +375,7 @@ class Schema extends AbstractSchema
      */
     public function db_create_primary(string $table, string $name, array $fields): void
     {
-        $c = array_map(fn ($field) => $this->con->escapeSystem($field), $fields);
+        $c = array_map(fn ($field): string => $this->con->escapeSystem($field), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'ADD CONSTRAINT PRIMARY KEY (' . implode(',', $c) . ') ';
@@ -396,7 +392,7 @@ class Schema extends AbstractSchema
      */
     public function db_create_unique(string $table, string $name, array $fields): void
     {
-        $c = array_map(fn ($field) => $this->con->escapeSystem($field), $fields);
+        $c = array_map(fn ($field): string => $this->con->escapeSystem($field), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'ADD CONSTRAINT UNIQUE KEY ' . $this->con->escapeSystem($name) . ' ' .
@@ -415,7 +411,7 @@ class Schema extends AbstractSchema
      */
     public function db_create_index(string $table, string $name, string $type, array $fields): void
     {
-        $c = array_map(fn ($field) => $this->con->escapeSystem($field), $fields);
+        $c = array_map(fn ($field): string => $this->con->escapeSystem($field), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'ADD INDEX ' . $this->con->escapeSystem($name) . ' USING ' . $type . ' ' .
@@ -437,8 +433,8 @@ class Schema extends AbstractSchema
      */
     public function db_create_reference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
     {
-        $c = array_map(fn ($field) => $this->con->escapeSystem($field), $fields);
-        $p = array_map(fn ($field) => $this->con->escapeSystem($field), $foreign_fields);
+        $c = array_map(fn ($field): string => $this->con->escapeSystem($field), $fields);
+        $p = array_map(fn ($field): string => $this->con->escapeSystem($field), $foreign_fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'ADD CONSTRAINT ' . $name . ' FOREIGN KEY ' .
@@ -494,7 +490,7 @@ class Schema extends AbstractSchema
      */
     public function db_alter_primary(string $table, string $name, string $newname, array $fields): void
     {
-        $c = array_map(fn ($field) => $this->con->escapeSystem($field), $fields);
+        $c = array_map(fn ($field): string => $this->con->escapeSystem($field), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'DROP PRIMARY KEY, ADD PRIMARY KEY ' .
@@ -513,7 +509,7 @@ class Schema extends AbstractSchema
      */
     public function db_alter_unique(string $table, string $name, string $newname, array $fields): void
     {
-        $c = array_map(fn ($field) => $this->con->escapeSystem($field), $fields);
+        $c = array_map(fn ($field): string => $this->con->escapeSystem($field), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'DROP INDEX ' . $this->con->escapeSystem($name) . ', ' .
@@ -534,7 +530,7 @@ class Schema extends AbstractSchema
      */
     public function db_alter_index(string $table, string $name, string $newname, string $type, array $fields): void
     {
-        $c = array_map(fn ($field) => $this->con->escapeSystem($field), $fields);
+        $c = array_map(fn ($field): string => $this->con->escapeSystem($field), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'DROP INDEX ' . $this->con->escapeSystem($name) . ', ' .

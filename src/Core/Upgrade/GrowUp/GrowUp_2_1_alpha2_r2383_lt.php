@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -18,7 +19,7 @@ class GrowUp_2_1_alpha2_r2383_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
-        if (App::con()->driver() == 'sqlite') {
+        if (App::con()->driver() === 'sqlite') {
             return $cleanup_sessions;
         }
 

@@ -30,8 +30,6 @@ class UserWorkspace implements UserWorkspaceInterface
 {
     /**
      * Preferences table name.
-     *
-     * @var     string  $table
      */
     protected string $table;
 
@@ -104,7 +102,7 @@ class UserWorkspace implements UserWorkspaceInterface
      */
     private function getPrefs(?MetaRecord $rs = null): void
     {
-        if ($rs === null) {
+        if (!$rs instanceof MetaRecord) {
             $sql = new SelectStatement();
             $sql
                 ->columns([
@@ -123,13 +121,9 @@ class UserWorkspace implements UserWorkspaceInterface
                 ->and('pref_ws = ' . $sql->quote((string) $this->workspace))
                 ->order('pref_id ASC');
 
-            try {
-                $rs = $sql->select();
-            } catch (Throwable $e) {
-                throw $e;
-            }
+            $rs = $sql->select();
         }
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 if ($rs->f('pref_ws') !== $this->workspace) {
                     break;
@@ -140,12 +134,10 @@ class UserWorkspace implements UserWorkspaceInterface
 
                 if ($type === self::WS_ARRAY) {
                     $value = @json_decode((string) $value, true);
-                } else {
-                    if ($type === self::WS_FLOAT || $type === self::WS_DOUBLE) {
-                        $type = self::WS_FLOAT;
-                    } elseif ($type !== self::WS_BOOL && $type !== self::WS_INT) {
-                        $type = self::WS_STRING;
-                    }
+                } elseif ($type === self::WS_FLOAT || $type === self::WS_DOUBLE) {
+                    $type = self::WS_FLOAT;
+                } elseif ($type !== self::WS_BOOL && $type !== self::WS_INT) {
+                    $type = self::WS_STRING;
                 }
 
                 settype($value, $type);
@@ -178,6 +170,8 @@ class UserWorkspace implements UserWorkspaceInterface
         if (isset($this->prefs[$name]) && isset($this->prefs[$name]['value'])) {
             return $this->prefs[$name]['value'];
         }
+
+        return null;
     }
 
     public function getGlobal(string $name)
@@ -185,6 +179,8 @@ class UserWorkspace implements UserWorkspaceInterface
         if (isset($this->global_prefs[$name]) && isset($this->global_prefs[$name]['value'])) {
             return $this->global_prefs[$name]['value'];
         }
+
+        return null;
     }
 
     public function getLocal(string $name)
@@ -192,6 +188,8 @@ class UserWorkspace implements UserWorkspaceInterface
         if (isset($this->local_prefs[$name]) && isset($this->local_prefs[$name]['value'])) {
             return $this->local_prefs[$name]['value'];
         }
+
+        return null;
     }
 
     public function __get(string $name)
@@ -234,12 +232,10 @@ class UserWorkspace implements UserWorkspaceInterface
                 $type = $this->local_prefs[$name]['type'];
             } elseif ($this->prefExists($name, true)) {
                 $type = $this->global_prefs[$name]['type'];
+            } elseif (is_array($value)) {
+                $type = self::WS_ARRAY;
             } else {
-                if (is_array($value)) {
-                    $type = self::WS_ARRAY;
-                } else {
-                    $type = self::WS_STRING;
-                }
+                $type = self::WS_STRING;
             }
         } elseif ($type !== self::WS_BOOL && $type !== self::WS_INT && $type !== self::WS_FLOAT && $type !== self::WS_ARRAY) {
             $type = self::WS_STRING;

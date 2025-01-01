@@ -21,22 +21,16 @@ abstract class AbstractHandler extends Connection
 {
     /**
      * Driver name
-     *
-     * @var        string
      */
     protected string $__driver;
 
     /**
      * Syntax name
-     *
-     * @var        string
      */
     protected string $__syntax;
 
     /**
      * Database driver version
-     *
-     * @var        string
      */
     protected string $__version;
 
@@ -49,8 +43,6 @@ abstract class AbstractHandler extends Connection
 
     /**
      * Database tables prefix.
-     *
-     * @var string
      */
     protected string $__prefix = '';
 
@@ -63,8 +55,6 @@ abstract class AbstractHandler extends Connection
 
     /**
      * Database name
-     *
-     * @var string
      */
     protected string $__database;
 
@@ -101,8 +91,6 @@ abstract class AbstractHandler extends Connection
 
     /**
      * Returns database driver name
-     *
-     * @return string
      */
     public function driver(): string
     {
@@ -111,8 +99,6 @@ abstract class AbstractHandler extends Connection
 
     /**
      * Returns database SQL syntax name
-     *
-     * @return string
      */
     public function syntax(): string
     {
@@ -121,8 +107,6 @@ abstract class AbstractHandler extends Connection
 
     /**
      * Returns database driver version
-     *
-     * @return string
      */
     public function version(): string
     {
@@ -131,8 +115,6 @@ abstract class AbstractHandler extends Connection
 
     /**
      * Returns database table prefix
-     *
-     * @return  string
      */
     public function prefix(): string
     {
@@ -141,8 +123,6 @@ abstract class AbstractHandler extends Connection
 
     /**
      * Returns current database name
-     *
-     * @return string
      */
     public function database(): string
     {
@@ -165,8 +145,6 @@ abstract class AbstractHandler extends Connection
      * Executes a query and return a {@link record} object.
      *
      * @param string    $sql            SQL query
-     *
-     * @return Record
      */
     public function select(string $sql): Record
     {
@@ -193,8 +171,6 @@ abstract class AbstractHandler extends Connection
      * Return an empty record
      *
      * Return an empty {@link record} object (without any information).
-     *
-     * @return Record
      */
     public function nullRecord(): Record
     {
@@ -294,8 +270,6 @@ abstract class AbstractHandler extends Connection
      *
      * Returns the number of lines affected by the last DELETE, INSERT or UPDATE
      * query.
-     *
-     * @return int
      */
     public function changes(): int
     {
@@ -336,8 +310,6 @@ abstract class AbstractHandler extends Connection
      *
      * @param string    $field            Field name
      * @param string    $pattern          Date format
-     *
-     * @return string
      */
     public function dateFormat(string $field, string $pattern): string
     {
@@ -354,8 +326,6 @@ abstract class AbstractHandler extends Connection
      *
      * @param array<mixed>|int      $arg1        array or integer with limit intervals
      * @param int|null              $arg2        integer or null
-     *
-     * @return string
      */
     public function limit($arg1, ?int $arg2 = null): string
     {
@@ -365,13 +335,7 @@ abstract class AbstractHandler extends Connection
             $arg1 = $arg1[0];
         }
 
-        if ($arg2 === null) {
-            $sql = ' LIMIT ' . (int) $arg1 . ' ';
-        } else {
-            $sql = ' LIMIT ' . $arg2 . ' OFFSET ' . (int) $arg1 . ' ';
-        }
-
-        return $sql;
+        return $arg2 === null ? ' LIMIT ' . (int) $arg1 . ' ' : ' LIMIT ' . $arg2 . ' OFFSET ' . (int) $arg1 . ' ';
     }
 
     /**
@@ -381,8 +345,6 @@ abstract class AbstractHandler extends Connection
      * an integer or null
      *
      * @param array<mixed>|string|int|null        $in        "IN" values
-     *
-     * @return string
      */
     public function in($in): string
     {
@@ -419,11 +381,10 @@ abstract class AbstractHandler extends Connection
      * string param field name (Binary ascending order)
      *
      * @param   array<string, mixed>|string     $args
-     *
-     * @return string
      */
     public function orderBy(...$args): string
     {
+        $res     = [];
         $default = [
             'order'   => '',
             'collate' => false,
@@ -433,12 +394,12 @@ abstract class AbstractHandler extends Connection
                 $res[] = $v;
             } elseif (is_array($v) && !empty($v['field'])) {    // @phpstan-ignore-line
                 $v          = array_merge($default, $v);
-                $v['order'] = (strtoupper((string) $v['order']) == 'DESC' ? 'DESC' : '');
+                $v['order'] = (strtoupper((string) $v['order']) === 'DESC' ? 'DESC' : '');
                 $res[]      = ($v['collate'] ? 'LOWER(' . $v['field'] . ')' : $v['field']) . ' ' . $v['order'];
             }
         }
 
-        return empty($res) ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
+        return $res === [] ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
     }
 
     /**
@@ -450,21 +411,20 @@ abstract class AbstractHandler extends Connection
      * string param: field name
      *
      * @param   array<string>|string     $args
-     *
-     * @return string
      */
     public function lexFields(...$args): string
     {
+        $res = [];
         $fmt = 'LOWER(%s)';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
             } elseif (is_array($v)) {
-                $res = array_map(fn ($i) => sprintf($fmt, $i), $v);
+                $res = array_map(fn ($i): string => sprintf($fmt, $i), $v);
             }
         }
 
-        return empty($res) ? '' : implode(',', $res);
+        return $res === [] ? '' : implode(',', $res);
     }
 
     /**
@@ -474,8 +434,6 @@ abstract class AbstractHandler extends Connection
      * should be properly escaped when needed.
      *
      * @param   mixed     $args
-     *
-     * @return string
      */
     public function concat(...$args): string
     {
@@ -510,8 +468,6 @@ abstract class AbstractHandler extends Connection
      * Returns SQL protected string value.
      *
      * @param string    $str        String to protect
-     *
-     * @return string
      */
     public function escapeStr(string $str): string
     {
@@ -524,8 +480,6 @@ abstract class AbstractHandler extends Connection
      * Returns SQL system protected string.
      *
      * @param string        $str        String to protect
-     *
-     * @return string
      */
     public function escapeSystem(string $str): string
     {
@@ -539,8 +493,6 @@ abstract class AbstractHandler extends Connection
      * the current connection.
      *
      * @param string        $table    Target table
-     *
-     * @return Cursor
      */
     public function openCursor(string $table): Cursor
     {

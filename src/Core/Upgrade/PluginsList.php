@@ -35,8 +35,6 @@ class PluginsList extends ModulesList
 {
     /**
      * Store instance.
-     *
-     * @var     Store   $store
      */
     public readonly Store $store;
 
@@ -72,9 +70,7 @@ class PluginsList extends ModulesList
      */
     public static function getSettingsUrls(string $id, bool $check = false, bool $self = true): array
     {
-        $settings_urls = [];
-
-        return $settings_urls;
+        return [];
     }
 
     /**
@@ -102,8 +98,8 @@ class PluginsList extends ModulesList
                 # Deactivate
                 case 'activate':
                     // do not allow activation of duplciate modules already activated
-                    $multi = !self::$allow_multi_install && count($this->modules->getDefines(['id' => $id, 'state' => ModuleDefine::STATE_ENABLED])) > 0;
-                    if ($define->get('root_writable') && empty($define->getMissing()) && !$multi) {
+                    $multi = !self::$allow_multi_install && $this->modules->getDefines(['id' => $id, 'state' => ModuleDefine::STATE_ENABLED]) !== [];
+                    if ($define->get('root_writable') && $define->getMissing() === [] && !$multi) {
                         $submits[] = (new Submit(['activate[' . Html::escapeHTML($id) . ']'], __('Activate')))
                         ->render();
                     }
@@ -112,7 +108,7 @@ class PluginsList extends ModulesList
 
                     # Activate
                 case 'deactivate':
-                    if ($define->get('root_writable') && empty($define->getUsing())) {
+                    if ($define->get('root_writable') && $define->getUsing() === []) {
                         $submits[] = (new Submit(['deactivate[' . Html::escapeHTML($id) . ']'], __('Deactivate')))
                             ->class('reset')
                         ->render();
@@ -122,7 +118,7 @@ class PluginsList extends ModulesList
 
                     # Delete
                 case 'delete':
-                    if (!$define->distributed && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
+                    if (!$define->distributed && $this->isDeletablePath($define->get('root')) && $define->getUsing() === []) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', (string) $define->get('root')) && App::config()->devMode() ? ' debug' : '';
                         $submits[] = (new Submit(['delete[' . Html::escapeHTML($id) . ']'], __('Delete')))
                             ->class(array_filter(['delete', $dev]))
@@ -216,7 +212,7 @@ class PluginsList extends ModulesList
      */
     public function doActions(): void
     {
-        if (empty($_POST) || !empty($_REQUEST['conf'])
+        if ($_POST === [] || !empty($_REQUEST['conf'])
                           || !$this->isWritablePath()) {
             return;
         }
@@ -276,7 +272,7 @@ class PluginsList extends ModulesList
                 $count++;
             }
 
-            if (!$count) {
+            if ($count === 0) {
                 throw new Exception(__('No such plugin.'));
             }
 
@@ -301,7 +297,7 @@ class PluginsList extends ModulesList
                 $count++;
             }
 
-            if (!$count) {
+            if ($count === 0) {
                 throw new Exception(__('No such plugin.'));
             }
 
@@ -333,7 +329,7 @@ class PluginsList extends ModulesList
                 $count++;
             }
 
-            if (!$count) {
+            if ($count === 0) {
                 throw new Exception(__('No such plugin.'));
             }
 
@@ -377,13 +373,13 @@ class PluginsList extends ModulesList
                 $count++;
             }
 
-            $tab = $count == count($defines) ? 'plugins' : 'update';
+            $tab = $count === count($defines) ? 'plugins' : 'update';
 
-            if ($count) {
+            if ($count !== 0) {
                 Notices::addSuccessNotice(
                     __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
                 );
-            } elseif (!empty($locked)) {
+            } elseif ($locked !== []) {
                 Notices::addWarningNotice(
                     sprintf(__('Following plugins updates are locked: %s'), implode(', ', $locked))
                 );

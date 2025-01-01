@@ -50,8 +50,6 @@ class SessionHandler implements SessionHandlerInterface
      *
      * @param      string  $path   The save path
      * @param      string  $name   The session name
-     *
-     * @return     bool
      */
     public function open(string $path, string $name): bool
     {
@@ -60,8 +58,6 @@ class SessionHandler implements SessionHandlerInterface
 
     /**
      * Session handler callback called on session close
-     *
-     * @return     bool  ( description_of_the_return_value )
      */
     public function close(): bool
     {
@@ -74,8 +70,6 @@ class SessionHandler implements SessionHandlerInterface
      * Session handler callback called on session read
      *
      * @param      string  $ses_id  The session identifier
-     *
-     * @return     string
      */
     public function read(string $ses_id): string
     {
@@ -87,7 +81,7 @@ class SessionHandler implements SessionHandlerInterface
         ;
 
         $rs = $sql->select();
-        if (!$rs || $rs->isEmpty()) {
+        if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
             return '';
         }
 
@@ -99,8 +93,6 @@ class SessionHandler implements SessionHandlerInterface
      *
      * @param      string  $ses_id  The session identifier
      * @param      string  $data    The data
-     *
-     * @return     bool
      */
     public function write(string $ses_id, string $data): bool
     {
@@ -112,10 +104,10 @@ class SessionHandler implements SessionHandlerInterface
         ;
 
         $rs = $sql->select();
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             $cur            = $this->con->openCursor($this->table);
             $cur->ses_time  = (string) time();
-            $cur->ses_value = (string) $data;
+            $cur->ses_value = $data;
 
             if (!$rs->isEmpty()) {
                 $sqlUpdate = new UpdateStatement($this->con, $this->con->syntax());
@@ -140,8 +132,6 @@ class SessionHandler implements SessionHandlerInterface
      * Session handler callback called on session destroy
      *
      * @param      string  $ses_id  The session identifier
-     *
-     * @return     bool
      */
     public function destroy(string $ses_id): bool
     {
@@ -192,10 +182,8 @@ class SessionHandler implements SessionHandlerInterface
      * Check a session id
      *
      * @param      string  $id     The identifier
-     *
-     * @return     string
      */
-    private function checkID(string $id)
+    private function checkID(string $id): string
     {
         return preg_match('/^([0-9a-f]{40})$/i', $id) ? $id : '';
     }

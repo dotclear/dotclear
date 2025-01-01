@@ -214,13 +214,13 @@ class Users implements UsersInterface
 
         $rs = $sql->select();
 
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             $old_blog = $this->blog->id();
             while ($rs->fetch()) {
                 $this->blog->loadFromBlog($rs->blog_id);
                 $this->blog->triggerBlog();
             }
-            $this->blog->loadFromBlog(empty($old_blog) ? '' : $old_blog);
+            $this->blog->loadFromBlog($old_blog);
         }
 
         return $id;
@@ -263,7 +263,7 @@ class Users implements UsersInterface
 
         $rs = $sql->select();
 
-        return !$rs || !$rs->isEmpty();
+        return !$rs instanceof MetaRecord || !$rs->isEmpty();
     }
 
     public function getUserPermissions(string $id): array
@@ -290,7 +290,7 @@ class Users implements UsersInterface
 
         $res = [];
 
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $res[(string) $rs->blog_id] = [
                     'name' => $rs->blog_name,
@@ -327,7 +327,7 @@ class Users implements UsersInterface
             throw new UnauthorizedException(__('You are not an administrator'));
         }
 
-        $no_perm = empty($perms);
+        $no_perm = $perms === [];
 
         $perms = '|' . implode('|', array_keys($perms)) . '|';
 
@@ -390,10 +390,8 @@ class Users implements UsersInterface
             throw new BadRequestException(__('User ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
 
-        if ($cur->user_url !== null && $cur->user_url != '') {
-            if (!preg_match('|^https?://|', (string) $cur->user_url)) {
-                $cur->user_url = 'http://' . $cur->user_url;
-            }
+        if ($cur->user_url !== null && $cur->user_url != '' && !preg_match('|^https?://|', (string) $cur->user_url)) {
+            $cur->user_url = 'http://' . $cur->user_url;
         }
 
         if ($cur->isField('user_pwd')) {
@@ -429,17 +427,17 @@ class Users implements UsersInterface
 
     public function getUserCN(string $user_id, ?string $user_name, ?string $user_firstname, ?string $user_displayname): string
     {
-        if (!empty($user_displayname)) {
+        if ($user_displayname !== null && $user_displayname !== '') {
             return $user_displayname;
         }
 
-        if (!empty($user_name)) {
-            if (!empty($user_firstname)) {
+        if ($user_name !== null && $user_name !== '') {
+            if ($user_firstname !== null && $user_firstname !== '') {
                 return $user_firstname . ' ' . $user_name;
             }
 
             return $user_name;
-        } elseif (!empty($user_firstname)) {
+        } elseif ($user_firstname !== null && $user_firstname !== '') {
             return $user_firstname;
         }
 

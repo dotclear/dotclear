@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -28,12 +29,9 @@ class Cursor
     /**
      * @var        array<string, mixed>
      */
-    private $__data = [];
+    private array $__data = [];
 
-    /**
-     * @var        string
-     */
-    private $__table;
+    private string $__table;
 
     /**
      * Constructor
@@ -125,9 +123,7 @@ class Cursor
      */
     public function getField(string $name)
     {
-        if (isset($this->__data[$name])) {
-            return $this->__data[$name];
-        }
+        return $this->__data[$name] ?? null;
     }
 
     /**
@@ -169,8 +165,6 @@ class Cursor
      * Get insert query
      *
      * Returns the generated INSERT query
-     *
-     * @return string
      */
     public function getInsert(): string
     {
@@ -190,8 +184,6 @@ class Cursor
      * Returns the generated UPDATE query
      *
      * @param string    $where        WHERE condition
-     *
-     * @return string
      */
     public function getUpdate(string $where): string
     {
@@ -216,7 +208,7 @@ class Cursor
      */
     public function insert(): bool
     {
-        if (!$this->__table) {
+        if ($this->__table === '') {
             throw new Exception('No table name.');
         }
 
@@ -236,7 +228,7 @@ class Cursor
      */
     public function update(string $where): bool
     {
-        if (!$this->__table) {
+        if ($this->__table === '') {
             throw new Exception('No table name.');
         }
 

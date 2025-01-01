@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -10,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\Database\Cursor;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
@@ -34,8 +36,6 @@ class Version implements VersionInterface
 
     /**
      * Full table name (including db prefix).
-     *
-     * @var     string  $table
      */
     protected string $table;
 
@@ -126,7 +126,7 @@ class Version implements VersionInterface
                 ->from($this->table)
                 ->select();
 
-            if ($rs) {
+            if ($rs instanceof MetaRecord) {
                 while ($rs->fetch()) {
                     $this->stack[(string) $rs->f('module')] = (string) $rs->f('version');
                 }

@@ -37,8 +37,6 @@ class Task implements TaskInterface
 {
     /**
      * Watchdog.
-     *
-     * @var     bool    $runned
      */
     private static bool $watchdog = false;
 
@@ -130,7 +128,7 @@ class Task implements TaskInterface
         $this->addContext($utility);
 
         // Initialize Utility
-        $utility_response = empty($utility) ? false : $this->LoadUtility('Dotclear\\Core\\' . $utility . '\\Utility', false);
+        $utility_response = $utility === '' ? false : $this->LoadUtility('Dotclear\\Core\\' . $utility . '\\Utility', false);
 
         // deprecated since 2.28, loads core classes (old way)
         Clearbricks::lib()->autoload([
@@ -197,7 +195,7 @@ class Task implements TaskInterface
             $this->post_types->set(new PostType('post', 'index.php?process=Post&id=%d', $this->url->getURLFor('post', '%s'), 'Posts'));
 
             // Register local shutdown handler
-            register_shutdown_function(function () {
+            register_shutdown_function(function (): void {
                 if (isset($GLOBALS['__shutdown']) && is_array($GLOBALS['__shutdown'])) {
                     foreach ($GLOBALS['__shutdown'] as $f) {
                         if (is_callable($f)) {
@@ -206,17 +204,16 @@ class Task implements TaskInterface
                     }
                 }
             });
-        } else {
+        } elseif (!str_contains((string) $_SERVER['SCRIPT_FILENAME'], '\admin') && !str_contains((string) $_SERVER['SCRIPT_FILENAME'], '/admin')) {
             // Config file does not exist, go to install page
-            if (!str_contains((string) $_SERVER['SCRIPT_FILENAME'], '\admin') && !str_contains((string) $_SERVER['SCRIPT_FILENAME'], '/admin')) {
-                Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
-            } elseif (!str_contains((string) $_SERVER['PHP_SELF'], '\install') && !str_contains((string) $_SERVER['PHP_SELF'], '/install')) {
-                Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
-            }
+            Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
+        } elseif (!str_contains((string) $_SERVER['PHP_SELF'], '\install') && !str_contains((string) $_SERVER['PHP_SELF'], '/install')) {
+            // Config file does not exist, go to install page
+            Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
         }
 
         // Process app utility. If any.
-        if ($utility_response && true === $this->loadUtility('Dotclear\\Core\\' . $utility . '\\Utility', true)) {
+        if ($utility_response && $this->loadUtility('Dotclear\\Core\\' . $utility . '\\Utility', true)) {
             // Try to load utility process, the _REQUEST process as priority on method process.
             if (!empty($_REQUEST['process']) && preg_match('/^[A-Za-z]+$/', (string) $_REQUEST['process'])) {
                 $process = $_REQUEST['process'];

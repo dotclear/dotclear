@@ -45,8 +45,6 @@ class Schema extends AbstractSchema
      * @param      string    $type     The type
      * @param      int|null  $len      The length
      * @param      mixed     $default  The default value
-     *
-     * @return     string
      */
     public function dbt2udt(string $type, ?int &$len, &$default): string
     {
@@ -90,8 +88,6 @@ class Schema extends AbstractSchema
      * @param string    $type       The type
      * @param int       $len        The length
      * @param mixed     $default    The default value
-     *
-     * @return string
      */
     public function udt2dbt(string $type, ?int &$len, &$default): string
     {
@@ -572,7 +568,7 @@ class Schema extends AbstractSchema
     public function db_alter_field(string $table, string $name, string $type, ?int $len, bool $null, $default): void
     {
         $type = $this->udt2dbt($type, $len, $default);
-        if ($type != 'integer' && $type != 'text' && $type != 'timestamp') {
+        if ($type !== 'integer' && $type !== 'text' && $type !== 'timestamp') {
             throw new Exception('SQLite fields cannot be changed.');
         }
     }

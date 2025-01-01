@@ -55,14 +55,12 @@ class Url extends UrlHandler implements UrlInterface
      *
      * @param      string  $type   The type
      * @param      string  $value  The value
-     *
-     * @return     string
      */
     public function getURLFor(string $type, string $value = ''): string
     {
         # --BEHAVIOR-- publicGetURLFor -- string, string
         $url = App::behavior()->callBehavior('publicGetURLFor', $type, $value);
-        if (!$url) {
+        if ($url === '') {
             $url = $this->getBase($type);
             if ($value !== '') {
                 if ($url !== '') {
@@ -95,7 +93,6 @@ class Url extends UrlHandler implements UrlInterface
      * Throws a 404 (page not found) exception
      *
      * @throws     Exception
-     * @return never
      */
     public static function p404(): never
     {
@@ -216,7 +213,7 @@ class Url extends UrlHandler implements UrlInterface
     {
         $type = '';
 
-        if ($this->mode == 'path_info') {
+        if ($this->mode === 'path_info') {
             $part = substr((string) $_SERVER['PATH_INFO'], 1);
         } else {
             $part = '';
@@ -224,7 +221,7 @@ class Url extends UrlHandler implements UrlInterface
             $query_string = $this->parseQueryString();
 
             # Recreates some _GET and _REQUEST pairs
-            if (!empty($query_string)) {
+            if ($query_string !== []) {
                 foreach ($_GET as $key => $value) {
                     if (isset($_REQUEST[$key])) {
                         unset($_REQUEST[$key]);
@@ -336,10 +333,8 @@ class Url extends UrlHandler implements UrlInterface
             self::serveDocument('static.html');
             App::blog()->publishScheduledEntries();
         } else {
-            if ($args) {
-                if ($page_number = self::getPageNumber($args)) {
-                    App::frontend()->setPageNumber($page_number);
-                }
+            if ($args && $page_number = self::getPageNumber($args)) {
+                App::frontend()->setPageNumber($page_number);
             }
 
             self::search();
@@ -360,7 +355,7 @@ class Url extends UrlHandler implements UrlInterface
         } else {
             App::url()->setType('search');
 
-            App::frontend()->search = !empty($_GET['q']) ? Html::escapeHTML(rawurldecode((string) $_GET['q'])) : '';
+            App::frontend()->search = empty($_GET['q']) ? '' : Html::escapeHTML(rawurldecode((string) $_GET['q']));
             if (App::frontend()->search) {
                 $params = new ArrayObject(['search' => App::frontend()->search]);
                 # --BEHAVIOR-- publicBeforeSearchCount -- ArrayObject
@@ -447,7 +442,7 @@ class Url extends UrlHandler implements UrlInterface
         // Nothing or year and month
         if ($args == '') {
             self::serveDocument('archive.html');
-        } elseif (preg_match('|^/(\d{4})/(\d{2})$|', (string) $args, $m)) {
+        } elseif (preg_match('|^/(\d{4})/(\d{2})$|', $args, $m)) {
             $params = new ArrayObject(
                 [
                     'year'  => $m[1],
@@ -518,11 +513,7 @@ class Url extends UrlHandler implements UrlInterface
                     // Get passwords cookie
                     if (isset($_COOKIE['dc_passwd'])) {
                         $pwd_cookie = json_decode((string) $_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
-                        if ($pwd_cookie === null) {
-                            $pwd_cookie = [];
-                        } else {
-                            $pwd_cookie = (array) $pwd_cookie;
-                        }
+                        $pwd_cookie = $pwd_cookie === null ? [] : (array) $pwd_cookie;
                     } else {
                         $pwd_cookie = [];
                     }
@@ -564,7 +555,7 @@ class Url extends UrlHandler implements UrlInterface
                     if ($content != '') {
                         # --BEHAVIOR-- publicBeforeCommentTransform -- string
                         $buffer = App::behavior()->callBehavior('publicBeforeCommentTransform', $content);
-                        if ($buffer != '') {
+                        if ($buffer !== '') {
                             $content = $buffer;
                         } else {
                             if (App::blog()->settings()->system->wiki_comments) {
@@ -617,11 +608,7 @@ class Url extends UrlHandler implements UrlInterface
                                 App::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
-                            if ($cur->comment_status == App::blog()::COMMENT_PUBLISHED) {
-                                $redir_arg = 'pub=1';
-                            } else {
-                                $redir_arg = 'pub=0';
-                            }
+                            $redir_arg = $cur->comment_status === App::blog()::COMMENT_PUBLISHED ? 'pub=1' : 'pub=0';
 
                             # --BEHAVIOR-- publicBeforeCommentRedir -- Cursor
                             $redir_arg .= filter_var(App::behavior()->callBehavior('publicBeforeCommentRedir', $cur), FILTER_SANITIZE_URL);
@@ -663,7 +650,7 @@ class Url extends UrlHandler implements UrlInterface
                 self::p404();
             } else {
                 App::frontend()->context()->preview = true;
-                if (App::config()->adminUrl() != '') {
+                if (App::config()->adminUrl() !== '') {
                     App::frontend()->context()->xframeoption = App::config()->adminUrl();
                 }
                 self::post($post_url);
@@ -706,7 +693,7 @@ class Url extends UrlHandler implements UrlInterface
                 // Loading _public.php file for selected theme
                 App::themes()->loadNsFile(App::frontend()->theme, 'public');
                 // Loading translations for selected theme
-                if (is_string(App::frontend()->parent_theme) && !empty(App::frontend()->parent_theme)) {
+                if (is_string(App::frontend()->parent_theme) && App::frontend()->parent_theme !== '') {
                     App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::lang()->getLang(), 'main');
                 }
                 App::themes()->loadModuleL10N(App::frontend()->theme, App::lang()->getLang(), 'main');
@@ -741,7 +728,7 @@ class Url extends UrlHandler implements UrlInterface
                 App::frontend()->template()->use_cache = false;
                 // Reset HTTP cache
                 App::cache()->resetTimes();
-                if (App::config()->adminUrl() != '') {
+                if (App::config()->adminUrl() !== '') {
                     App::frontend()->context()->xframeoption = App::config()->adminUrl();
                 }
 
@@ -802,8 +789,9 @@ class Url extends UrlHandler implements UrlInterface
         } elseif (preg_match('#^(?:category/(.+)/)?(atom|rss2)(/comments)?$#', (string) $args, $matches)) {
             // All posts or comments feed
             $type     = $matches[2];
-            $comments = !empty($matches[3]);
-            if (!empty($matches[1])) {
+            $comments = isset($matches[3]);
+            if ($matches[1] !== '') {
+                // There is a category
                 $cat_url = $matches[1];
             }
         } else {
@@ -861,7 +849,7 @@ class Url extends UrlHandler implements UrlInterface
         }
         $tpl .= '.xml';
 
-        if ($type == 'atom') {
+        if ($type === 'atom') {
             $mime = 'application/atom+xml';
         }
 
@@ -938,7 +926,6 @@ class Url extends UrlHandler implements UrlInterface
      * https://example.com/wp-admin and https://example.com/wp-login
      *
      * @param      null|string  $args   The arguments
-     * @return never
      */
     public static function wpfaker(?string $args): never
     {

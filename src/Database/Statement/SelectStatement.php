@@ -48,16 +48,13 @@ class SelectStatement extends SqlStatement
     /**
      * @var null|int|string
      */
-    protected $limit = null;
+    protected $limit;
 
     /**
      * @var null|int|string
      */
-    protected $offset = null;
+    protected $offset;
 
-    /**
-     * @var bool
-     */
     protected bool $distinct = false;
 
     /**
@@ -87,7 +84,7 @@ class SelectStatement extends SqlStatement
         if (is_array($c)) {
             $this->join = [...$this->join, ...$c];
         } else {
-            array_push($this->join, $c);
+            $this->join[] = $c;
         }
 
         return $this;
@@ -109,7 +106,7 @@ class SelectStatement extends SqlStatement
         if (is_array($c)) {
             $this->union = [...$this->union, ...$c];
         } else {
-            array_push($this->union, $c);
+            $this->union[] = $c;
         }
 
         return $this;
@@ -131,7 +128,7 @@ class SelectStatement extends SqlStatement
         if (is_array($c)) {
             $this->having = [...$this->having, ...$c];
         } else {
-            array_push($this->having, $c);
+            $this->having[] = $c;
         }
 
         return $this;
@@ -153,7 +150,7 @@ class SelectStatement extends SqlStatement
         if (is_array($c)) {
             $this->order = [...$this->order, ...$c];
         } else {
-            array_push($this->order, $c);
+            $this->order[] = $c;
         }
 
         return $this;
@@ -175,7 +172,7 @@ class SelectStatement extends SqlStatement
         if (is_array($c)) {
             $this->group = [...$this->group, ...$c];
         } else {
-            array_push($this->group, $c);
+            $this->group[] = $c;
         }
 
         return $this;
@@ -227,7 +224,6 @@ class SelectStatement extends SqlStatement
     /**
      * Defines the OFFSET for select
      *
-     * @param integer $offset
      *
      * @return self instance, enabling to chain calls
      */
@@ -241,7 +237,6 @@ class SelectStatement extends SqlStatement
     /**
      * Defines the DISTINCT flag for select
      *
-     * @param boolean $distinct
      *
      * @return self instance, enabling to chain calls
      */
@@ -263,7 +258,7 @@ class SelectStatement extends SqlStatement
         App::behavior()->callBehavior('coreBeforeSelectStatement', $this);
 
         // Check if source given
-        if (!count($this->from)) {
+        if ($this->from === []) {
             trigger_error(__('SQL SELECT requires a FROM source'), E_USER_WARNING);
         }
 
@@ -271,61 +266,61 @@ class SelectStatement extends SqlStatement
         $query = 'SELECT ' . ($this->distinct ? 'DISTINCT ' : '');
 
         // Specific column(s) or all (*)
-        if (count($this->columns)) {
-            $query .= join(', ', $this->columns) . ' ';
+        if ($this->columns !== []) {
+            $query .= implode(', ', $this->columns) . ' ';
         } else {
             $query .= '* ';
         }
 
         // Table(s) and Join(s)
         $query .= 'FROM ' . $this->from[0] . ' ';
-        if (count($this->join)) {
-            $query .= join(' ', $this->join) . ' ';
+        if ($this->join !== []) {
+            $query .= implode(' ', $this->join) . ' ';
         }
         if (count($this->from) > 1) {
-            $query = trim($query) . ', ' . join(', ', array_slice($this->from, 1)) . ' '; // All other from(s)
+            $query = trim($query) . ', ' . implode(', ', array_slice($this->from, 1)) . ' '; // All other from(s)
         }
 
         // Where clause(s)
-        if (count($this->where)) {
-            $query .= 'WHERE ' . join(' AND ', $this->where) . ' ';
+        if ($this->where !== []) {
+            $query .= 'WHERE ' . implode(' AND ', $this->where) . ' ';
         }
 
         // Direct where clause(s)
-        if (count($this->cond)) {
-            if (!count($this->where)) {
+        if ($this->cond !== []) {
+            if ($this->where === []) {
                 // Hack to cope with the operator included in top of each condition
                 $query .= 'WHERE ' . ($this->syntax === 'sqlite' ? '1' : 'TRUE') . ' ';
             }
-            $query .= join(' ', $this->cond) . ' ';
+            $query .= implode(' ', $this->cond) . ' ';
         }
 
         // Generic clause(s)
-        if (count($this->sql)) {
-            $query .= join(' ', $this->sql) . ' ';
+        if ($this->sql !== []) {
+            $query .= implode(' ', $this->sql) . ' ';
         }
 
         // Group by clause (columns or aliases)
-        if (count($this->group)) {
-            $query .= 'GROUP BY ' . join(', ', $this->group) . ' ';
+        if ($this->group !== []) {
+            $query .= 'GROUP BY ' . implode(', ', $this->group) . ' ';
         }
 
         // Having clause(s)
-        if (count($this->having)) {
-            $query .= 'HAVING ' . join(' AND ', $this->having) . ' ';
+        if ($this->having !== []) {
+            $query .= 'HAVING ' . implode(' AND ', $this->having) . ' ';
         }
 
         // Union clause(s)
-        if (count($this->union)) {
-            $query .= 'UNION ' . join(' UNION ', $this->union) . ' ';
+        if ($this->union !== []) {
+            $query .= 'UNION ' . implode(' UNION ', $this->union) . ' ';
         }
 
         // Clauses applied on result
         // -------------------------
 
         // Order by clause (columns or aliases and optionnaly order ASC/DESC)
-        if (count($this->order)) {
-            $query .= 'ORDER BY ' . join(', ', $this->order) . ' ';
+        if ($this->order !== []) {
+            $query .= 'ORDER BY ' . implode(', ', $this->order) . ' ';
         }
 
         // Limit clause

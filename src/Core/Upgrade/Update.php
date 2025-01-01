@@ -40,8 +40,6 @@ class Update
 
     /**
      * Cache file
-     *
-     * @var string
      */
     protected string $cache_file;
 
@@ -62,8 +60,6 @@ class Update
 
     /**
      * Cache TTL (negative value)
-     *
-     * @var        string
      */
     protected string $cache_ttl = '-6 hours';
 
@@ -134,8 +130,6 @@ class Update
      * @param   bool    $nocache    The no cache flag
      *
      * @throws  Exception
-     *
-     * @return  null|HttpClient
      */
     public function getVersionInfo(bool $nocache = false): ?HttpClient
     {
@@ -176,7 +170,7 @@ class Update
             $path   = '';
             $status = 0;
 
-            $http_get = function ($http_url) use (&$status, $path) {
+            $http_get = function ($http_url) use (&$status, $path): false|HttpClient {
                 $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
                     $client->setTimeout(App::config()->queryTimeout());
@@ -192,7 +186,7 @@ class Update
             if ($client !== false && $status >= 400) {
                 // If original URL uses HTTPS, try with HTTP
                 $url_parts = parse_url($client->getRequestURL());
-                if (isset($url_parts['scheme']) && $url_parts['scheme'] == 'https') {
+                if (isset($url_parts['scheme']) && $url_parts['scheme'] === 'https') {
                     // Replace https by http in url
                     $this->url = (string) preg_replace('/^https(?=:\/\/)/i', 'http', $this->url);
                     $client    = $http_get($this->url);
@@ -324,18 +318,16 @@ class Update
      * @param   string  $root           The root
      *
      * @throws  Exception   If some files have changed
-     *
-     * @return  bool
      */
     public function checkIntegrity(string $digests_file, string $root): bool
     {
-        if (!$digests_file) {
+        if ($digests_file === '') {
             throw new Exception(__('Digests file not found.'));
         }
 
         $changes = $this->md5sum($root, $digests_file);
 
-        if (!empty($changes)) {
+        if ($changes !== []) {
             $e               = new Exception('Some files have changed.', self::ERR_FILES_CHANGED);
             $this->bad_files = $changes;
 
@@ -378,7 +370,7 @@ class Update
             $path   = '';
             $status = 0;
 
-            $http_get = function ($http_url) use (&$status, $dest, $path) {
+            $http_get = function ($http_url) use (&$status, $dest, $path): false|HttpClient {
                 $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
                     $client->setTimeout(App::config()->queryTimeout());
@@ -397,7 +389,7 @@ class Update
             if ($client !== false && $status >= 400) {
                 // If original URL uses HTTPS, try with HTTP
                 $url_parts = parse_url($client->getRequestURL());
-                if (isset($url_parts['scheme']) && $url_parts['scheme'] == 'https') {
+                if (isset($url_parts['scheme']) && $url_parts['scheme'] === 'https') {
                     // Replace https by http in url
                     $url    = preg_replace('/^https(?=:\/\/)/i', 'http', $url);
                     $client = $http_get($url);
@@ -417,8 +409,6 @@ class Update
      * Check downloaded file.
      *
      * @param   string  $zip    The zip
-     *
-     * @return  bool
      */
     public function checkDownload(string $zip): bool
     {
@@ -437,8 +427,6 @@ class Update
      * @param   string  $dest           The destination
      *
      * @throws  Exception
-     *
-     * @return  bool
      */
     public function backup(string $zip_file, string $zip_digests, string $root, string $root_digests, string $dest): bool
     {
@@ -487,7 +475,7 @@ class Update
 
         $not_readable = [];
 
-        if (!empty($this->forced_files)) {
+        if ($this->forced_files !== []) {
             $new_files = array_merge($new_files, $this->forced_files);
         }
 
@@ -504,7 +492,7 @@ class Update
         }
 
         # If only one file is not readable, stop everything now
-        if (!empty($not_readable)) {
+        if ($not_readable !== []) {
             $e               = new Exception('Some files are not readable.', self::ERR_FILES_UNREADABLE);
             $this->bad_files = $not_readable;
 
@@ -557,7 +545,7 @@ class Update
             $new_files = $this->getNewFiles($cur_digests, $new_digests);
         }
 
-        if (!empty($this->forced_files)) {
+        if ($this->forced_files !== []) {
             $new_files = array_merge($new_files, $this->forced_files);
         }
 
@@ -590,7 +578,7 @@ class Update
         }
 
         # If only one file is not writable, stop everything now
-        if (!empty($not_writable)) {
+        if ($not_writable !== []) {
             $e               = new Exception('Some files are not writable', self::ERR_FILES_UNWRITALBE);
             $this->bad_files = $not_writable;
 
@@ -645,21 +633,17 @@ class Update
      */
     protected function readVersion(string $str): void
     {
-        try {
-            $xml = new SimpleXMLElement($str, LIBXML_NOERROR);
-            $r   = $xml->xpath("/versions/subject[@name='" . $this->subject . "']/release[@name='" . $this->version . "']");
+        $xml = new SimpleXMLElement($str, LIBXML_NOERROR);
+        $r   = $xml->xpath("/versions/subject[@name='" . $this->subject . "']/release[@name='" . $this->version . "']");
 
-            if (!empty($r)) {
-                $r                              = $r[0];
-                $this->version_info['version']  = isset($r['version']) ? (string) $r['version'] : null;
-                $this->version_info['href']     = isset($r['href']) ? (string) $r['href'] : null;
-                $this->version_info['checksum'] = isset($r['checksum']) ? (string) $r['checksum'] : null;
-                $this->version_info['info']     = isset($r['info']) ? (string) $r['info'] : null;
-                $this->version_info['php']      = isset($r['php']) ? (string) $r['php'] : null;
-                $this->version_info['warning']  = isset($r['warning']) ? (bool) $r['warning'] : false;
-            }
-        } catch (Exception $e) {
-            throw $e;
+        if (!empty($r)) {
+            $r                              = $r[0];
+            $this->version_info['version']  = isset($r['version']) ? (string) $r['version'] : null;
+            $this->version_info['href']     = isset($r['href']) ? (string) $r['href'] : null;
+            $this->version_info['checksum'] = isset($r['checksum']) ? (string) $r['checksum'] : null;
+            $this->version_info['info']     = isset($r['info']) ? (string) $r['info'] : null;
+            $this->version_info['php']      = isset($r['php']) ? (string) $r['php'] : null;
+            $this->version_info['warning']  = isset($r['warning']) && (bool) $r['warning'];
         }
     }
 
@@ -684,14 +668,16 @@ class Update
 
         $changes = [];
 
+        $no_checksum = true;
         if ($contents !== false) {
             foreach ($contents as $digest) {
                 if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $digest, $m)) {
                     continue;
                 }
 
-                $md5      = $m[1];
-                $filename = $root . '/' . $m[2];
+                $no_checksum = false;
+                $md5         = $m[1];
+                $filename    = $root . '/' . $m[2];
 
                 // Invalid checksum
                 if (!is_readable($filename) || !self::md5_check($filename, $md5)) {
@@ -701,7 +687,7 @@ class Update
         }
 
         // No checksum found in digests file
-        if (empty($md5)) {
+        if ($no_checksum) {
             throw new Exception(__('Invalid digests file.'));
         }
 
@@ -729,19 +715,17 @@ class Update
      *
      * @param   string  $filename   The filename
      * @param   string  $md5        The MD5 checksum
-     *
-     * @return  bool
      */
     protected static function md5_check(string $filename, string $md5): bool
     {
-        if (md5_file($filename) == $md5) {
+        if (md5_file($filename) === $md5) {
             return true;
         }
         $filecontent = file_get_contents($filename);
         if ($filecontent !== false) {
             $filecontent = str_replace("\r\n", "\n", $filecontent);
             $filecontent = str_replace("\r", "\n", $filecontent);
-            if (md5($filecontent) == $md5) {
+            if (md5($filecontent) === $md5) {
                 return true;
             }
         }

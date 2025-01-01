@@ -110,6 +110,8 @@ class MetaRecord implements Iterator, Countable
         }
 
         trigger_error('Call to undefined method ' . $f . '()', E_USER_WARNING);
+
+        return null;
     }
 
     /**
@@ -162,8 +164,6 @@ class MetaRecord implements Iterator, Countable
      * Check if a field exists
      *
      * @param      string|int  $n      Field name|position
-     *
-     * @return     bool
      */
     public function exists($n): bool
     {
@@ -182,8 +182,6 @@ class MetaRecord implements Iterator, Countable
      * Returns true if a field exists (magic method from PHP 5.1).
      *
      * @param string        $n        Field name
-     *
-     * @return bool
      */
     public function __isset(string $n): bool
     {
@@ -262,8 +260,6 @@ class MetaRecord implements Iterator, Countable
      *     echo $rs->field1;
      * }
      * ```
-     *
-     * @return bool
      */
     public function fetch(): bool
     {
@@ -278,8 +274,6 @@ class MetaRecord implements Iterator, Countable
 
     /**
      * Moves index to first position.
-     *
-     * @return bool
      */
     public function moveStart(): bool
     {
@@ -294,8 +288,6 @@ class MetaRecord implements Iterator, Countable
 
     /**
      * Moves index to last position.
-     *
-     * @return bool
      */
     public function moveEnd(): bool
     {
@@ -310,8 +302,6 @@ class MetaRecord implements Iterator, Countable
 
     /**
      * Moves index to next position.
-     *
-     * @return bool
      */
     public function moveNext(): bool
     {
@@ -326,8 +316,6 @@ class MetaRecord implements Iterator, Countable
 
     /**
      * Moves index to previous position.
-     *
-     * @return bool
      */
     public function movePrev(): bool
     {
@@ -342,8 +330,6 @@ class MetaRecord implements Iterator, Countable
 
     /**
      * Check if index is at last position
-     *
-     * @return bool
      */
     public function isEnd(): bool
     {
@@ -358,8 +344,6 @@ class MetaRecord implements Iterator, Countable
 
     /**
      * Check if index is at first position
-     *
-     * @return bool
      */
     public function isStart(): bool
     {
@@ -374,8 +358,6 @@ class MetaRecord implements Iterator, Countable
 
     /**
      * Check if record is empty (no result)
-     *
-     * @return bool
      */
     public function isEmpty(): bool
     {
@@ -514,8 +496,6 @@ class MetaRecord implements Iterator, Countable
      * Returns a new instance of object from an associative array.
      *
      * @param array<mixed>        $data        Data array
-     *
-     * @return MetaRecord
      */
     public static function newFromArray(?array $data): self
     {
@@ -538,6 +518,8 @@ class MetaRecord implements Iterator, Countable
         if ($this->static instanceof StaticRecord) {
             return $this->static->set($n, $v);
         }
+
+        return null;
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -59,8 +60,6 @@ interface InterfaceHandler
      * This method should return database version number.
      *
      * @param mixed     $handle        Resource link
-     *
-     * @return string
      */
     public function db_version($handle): string;
 
@@ -71,8 +70,6 @@ interface InterfaceHandler
      *
      * @param   mixed   $handle     The handle
      * @param   string  $path       The tables path
-     *
-     * @return  string
      */
     public function db_search_path($handle, $path): string;
 
@@ -106,8 +103,6 @@ interface InterfaceHandler
      * This method should return the number of fields in a result.
      *
      * @param mixed   $res           Resource result
-     *
-     * @return int
      */
     public function db_num_fields($res): int;
 
@@ -117,8 +112,6 @@ interface InterfaceHandler
      * This method should return the number of rows in a result.
      *
      * @param mixed     $res            Resource result
-     *
-     * @return int
      */
     public function db_num_rows($res): int;
 
@@ -130,8 +123,6 @@ interface InterfaceHandler
      *
      * @param mixed    $res            Resource result
      * @param int      $position       Field position
-     *
-     * @return string
      */
     public function db_field_name($res, int $position): string;
 
@@ -143,8 +134,6 @@ interface InterfaceHandler
      *
      * @param mixed     $res            Resource result
      * @param int       $position       Field position
-     *
-     * @return string
      */
     public function db_field_type($res, int $position): string;
 
@@ -168,8 +157,6 @@ interface InterfaceHandler
      *
      * @param mixed     $res        Resource result
      * @param int       $row        Row position
-     *
-     * @return boolean
      */
     public function db_result_seek($res, int $row): bool;
 
@@ -181,8 +168,6 @@ interface InterfaceHandler
      *
      * @param mixed      $handle         Resource link
      * @param mixed      $res            Resource result
-     *
-     * @return int
      */
     public function db_changes($handle, $res): int;
 
@@ -192,10 +177,8 @@ interface InterfaceHandler
      * This method should return the last error string for the current connection.
      *
      * @param mixed     $handle        Resource link
-     *
-     * @return string|false
      */
-    public function db_last_error($handle);
+    public function db_last_error($handle): false|string;
 
     /**
      * Escape string
@@ -204,8 +187,6 @@ interface InterfaceHandler
      *
      * @param mixed     $str            String to escape
      * @param mixed     $handle         Resource link
-     *
-     * @return string
      */
     public function db_escape_string($str, $handle = null): string;
 

@@ -33,7 +33,7 @@ class Handler extends AbstractHandler
      *
      * @var        mixed (Collator if class exists)
      */
-    protected $utf8_unicode_ci = null;
+    protected $utf8_unicode_ci;
 
     protected bool $vacuum = false;
 
@@ -46,10 +46,8 @@ class Handler extends AbstractHandler
      * @param      string     $database  The database
      *
      * @throws     Exception
-     *
-     * @return     mixed
      */
-    public function db_connect(string $host, string $user, string $password, string $database)
+    public function db_connect(string $host, string $user, string $password, string $database): \PDO
     {
         if (!class_exists('PDO') || !in_array('sqlite', PDO::getAvailableDrivers())) {
             throw new Exception('PDO SQLite class is not available');
@@ -68,10 +66,8 @@ class Handler extends AbstractHandler
      * @param      string  $user      The user
      * @param      string  $password  The password
      * @param      string  $database  The database
-     *
-     * @return     mixed
      */
-    public function db_pconnect(string $host, string $user, string $password, string $database)
+    public function db_pconnect(string $host, string $user, string $password, string $database): \PDO
     {
         if (!class_exists('PDO') || !in_array('sqlite', PDO::getAvailableDrivers())) {
             throw new Exception('PDO SQLite class is not available');
@@ -86,19 +82,17 @@ class Handler extends AbstractHandler
     /**
      * Post connection helper
      *
-     * @param      mixed  $handle   The DB handle
+     * @param      \PDO  $handle   The DB handle
      */
-    private function db_post_connect($handle): void
+    private function db_post_connect(\PDO $handle): void
     {
-        if ($handle instanceof PDO) {
-            $this->db_exec($handle, 'PRAGMA short_column_names = 1');
-            $this->db_exec($handle, 'PRAGMA encoding = "UTF-8"');
-            $handle->sqliteCreateFunction('now', $this->now(...), 0);
-            if (class_exists('Collator')) {
-                $this->utf8_unicode_ci = new Collator('root');
-                if (!$handle->sqliteCreateCollation('utf8_unicode_ci', $this->utf8_unicode_ci->compare(...))) {
-                    $this->utf8_unicode_ci = null;
-                }
+        $this->db_exec($handle, 'PRAGMA short_column_names = 1');
+        $this->db_exec($handle, 'PRAGMA encoding = "UTF-8"');
+        $handle->sqliteCreateFunction('now', $this->now(...), 0);
+        if (class_exists('Collator')) {
+            $this->utf8_unicode_ci = new Collator('root');
+            if (!$handle->sqliteCreateCollation('utf8_unicode_ci', $this->utf8_unicode_ci->compare(...))) {
+                $this->utf8_unicode_ci = null;
             }
         }
     }
@@ -123,8 +117,6 @@ class Handler extends AbstractHandler
      * Get DB version
      *
      * @param      mixed  $handle  The handle
-     *
-     * @return     string
      */
     public function db_version($handle): string
     {
@@ -136,8 +128,6 @@ class Handler extends AbstractHandler
      *
      * @param   mixed   $handle     The handle
      * @param   string  $path       The tables path
-     *
-     * @return  string
      */
     public function db_search_path($handle, $path): string
     {
@@ -231,8 +221,6 @@ class Handler extends AbstractHandler
      * Get number of fields in result
      *
      * @param      mixed  $res    The resource
-     *
-     * @return     int
      */
     public function db_num_fields($res): int
     {
@@ -243,8 +231,6 @@ class Handler extends AbstractHandler
      * Get number of rows in result
      *
      * @param      mixed  $res    The resource
-     *
-     * @return     int
      */
     public function db_num_rows($res): int
     {
@@ -256,8 +242,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $res       The resource
      * @param      int     $position  The position
-     *
-     * @return     string
      */
     public function db_field_name($res, int $position): string
     {
@@ -276,8 +260,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $res       The resource
      * @param      int     $position  The position
-     *
-     * @return     string
      */
     public function db_field_type($res, int $position): string
     {
@@ -304,7 +286,7 @@ class Handler extends AbstractHandler
      *
      * @return     false
      */
-    public function db_fetch_assoc($res)
+    public function db_fetch_assoc($res): bool
     {
         return false;
     }
@@ -314,8 +296,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $res    The resource
      * @param      int     $row    The row
-     *
-     * @return     bool
      */
     public function db_result_seek($res, $row): bool
     {
@@ -327,8 +307,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $handle  The DB handle
      * @param      mixed   $res     The resource
-     *
-     * @return     int
      */
     public function db_changes($handle, $res): int
     {
@@ -339,10 +317,8 @@ class Handler extends AbstractHandler
      * Get last query error, if any
      *
      * @param      mixed       $handle  The handle
-     *
-     * @return     bool|string
      */
-    public function db_last_error($handle)
+    public function db_last_error($handle): false|string
     {
         if ($handle instanceof PDO) {
             $err = $handle->errorInfo();
@@ -358,8 +334,6 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $str     The string
      * @param      mixed   $handle  The DB handle
-     *
-     * @return     string
      */
     public function db_escape_string($str, $handle = null): string
     {
@@ -425,8 +399,6 @@ class Handler extends AbstractHandler
      *
      * @param      string  $field    The field
      * @param      string  $pattern  The pattern
-     *
-     * @return     string
      */
     public function dateFormat(string $field, string $pattern): string
     {
@@ -437,11 +409,10 @@ class Handler extends AbstractHandler
      * Get an ORDER BY fragment to be used in a SQL query
      *
      * @param      mixed  ...$args  The arguments
-     *
-     * @return     string
      */
     public function orderBy(...$args): string
     {
+        $res     = [];
         $default = [
             'order'   => '',
             'collate' => false,
@@ -451,7 +422,7 @@ class Handler extends AbstractHandler
                 $res[] = $v;
             } elseif (is_array($v) && !empty($v['field'])) {
                 $v          = array_merge($default, $v);
-                $v['order'] = (strtoupper((string) $v['order']) == 'DESC' ? 'DESC' : '');
+                $v['order'] = (strtoupper((string) $v['order']) === 'DESC' ? 'DESC' : '');
                 if ($v['collate']) {
                     if ($this->utf8_unicode_ci instanceof Collator) {
                         $res[] = $v['field'] . ' COLLATE utf8_unicode_ci ' . $v['order'];
@@ -464,28 +435,27 @@ class Handler extends AbstractHandler
             }
         }
 
-        return empty($res) ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
+        return $res === [] ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
     }
 
     /**
      * Get fields concerned by lexical sort
      *
      * @param      mixed  ...$args  The arguments
-     *
-     * @return     string
      */
     public function lexFields(...$args): string
     {
+        $res = [];
         $fmt = $this->utf8_unicode_ci instanceof Collator ? '%s COLLATE utf8_unicode_ci' : 'LOWER(%s)';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
             } elseif (is_array($v)) {
-                $res = array_map(fn ($i) => sprintf($fmt, $i), $v);
+                $res = array_map(fn ($i): string => sprintf($fmt, $i), $v);
             }
         }
 
-        return empty($res) ? '' : implode(',', $res);
+        return $res === [] ? '' : implode(',', $res);
     }
 
     # Internal SQLite function that adds NOW() SQL function.

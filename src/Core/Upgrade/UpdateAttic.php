@@ -108,7 +108,7 @@ class UpdateAttic extends Update
             $path   = '';
             $status = 0;
 
-            $http_get = function ($http_url) use (&$status, $path) {
+            $http_get = function ($http_url) use (&$status, $path): false|HttpClient {
                 $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
                     $client->setTimeout(App::config()->queryTimeout());
@@ -124,7 +124,7 @@ class UpdateAttic extends Update
             if ($client !== false && $status >= 400) {
                 // If original URL uses HTTPS, try with HTTP
                 $url_parts = parse_url($client->getRequestURL());
-                if (isset($url_parts['scheme']) && $url_parts['scheme'] == 'https') {
+                if (isset($url_parts['scheme']) && $url_parts['scheme'] === 'https') {
                     // Replace https by http in url
                     $this->url = (string) preg_replace('/^https(?=:\/\/)/i', 'http', $this->url);
                     $client    = $http_get($this->url);
@@ -169,7 +169,7 @@ class UpdateAttic extends Update
             }
         }
 
-        uksort($this->releases, fn ($a, $b) => version_compare($a, $b, '<') ? 1 : -1);
+        uksort($this->releases, fn ($a, $b): int => version_compare($a, $b, '<') ? 1 : -1);
     }
 
     /**
@@ -181,7 +181,7 @@ class UpdateAttic extends Update
      */
     public function getReleases(string $version = ''): array
     {
-        if (!$version) {
+        if ($version === '') {
             return $this->releases;
         }
 

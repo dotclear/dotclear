@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -9,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
@@ -32,10 +34,8 @@ class UserPreferences implements UserPreferencesInterface
 {
     /**
      * Preferences table name.
-     *
-     * @var     string  $table
      */
-    protected $table;
+    protected string $table;
 
     /**
      * Associative workspaces array.
@@ -62,7 +62,7 @@ class UserPreferences implements UserPreferencesInterface
     ) {
         $this->table = $this->con->prefix() . $this->workspace::WS_TABLE_NAME;
 
-        if (!empty($user_id)) {
+        if ($user_id !== '') {
             try {
                 $this->loadPrefs($user_workspace);
             } catch (Throwable) {
@@ -106,14 +106,10 @@ class UserPreferences implements UserPreferencesInterface
             $sql->and('pref_ws = ' . $sql->quote($user_workspace));
         }
 
-        try {
-            $rs = $sql->select();
-        } catch (Throwable $e) {
-            throw $e;
-        }
+        $rs = $sql->select();
 
         /* Prevent empty tables (install phase, for instance) */
-        if (!$rs || $rs->isEmpty()) {
+        if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
             return;
         }
 

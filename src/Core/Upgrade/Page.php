@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -104,7 +105,7 @@ class Page extends BackendPage
 
         echo self::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) === 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 
@@ -275,7 +276,7 @@ class Page extends BackendPage
         echo
         "</nav>\n" . // End of #main-menu
         "</div>\n";  // End of #wrapper
-        $gototop->render() . "\n";
+        $gototop->render();
 
         $figure = "\n" .
         ' ' . "\n" .
@@ -301,7 +302,7 @@ class Page extends BackendPage
         $figure .
         ' -->' . "\n";
 
-        if (App::config()->devMode() === true) {
+        if (App::config()->devMode()) {
             echo self::debugInfo();
         }
 
@@ -314,8 +315,6 @@ class Page extends BackendPage
      *
      * @param   array<int|string, mixed>|null   $elements   The elements
      * @param   array<string, mixed>            $options    The options
-     *
-     * @return  string
      */
     public static function breadcrumb(?array $elements = null, array $options = []): string
     {
@@ -400,11 +399,11 @@ class Page extends BackendPage
 
         $args = new ArrayObject($params);
 
-        if (!count($args)) {
+        if (count($args) === 0) {
             return;
         }
 
-        if (empty(App::upgrade()->resources()->entries('help'))) {
+        if (App::upgrade()->resources()->entries('help') === []) {
             return;
         }
 
@@ -417,7 +416,7 @@ class Page extends BackendPage
             }
 
             $file = App::upgrade()->resources()->entry('help', $arg);
-            if (empty($file) || !file_exists($file) || !is_readable($file)) {
+            if ($file === '' || !file_exists($file) || !is_readable($file)) {
                 continue;
             }
 
@@ -429,7 +428,7 @@ class Page extends BackendPage
             }
         }
 
-        if (trim($content) == '') {
+        if (trim($content) === '') {
             return;
         }
 
@@ -468,14 +467,12 @@ class Page extends BackendPage
      *
      * @param   string          $src        The source
      * @param   null|string     $version    The version
-     *
-     * @return  string
      */
     protected static function appendVersion(string $src, ?string $version = ''): string
     {
         return $src .
             (str_contains($src, '?') ? '&amp;' : '?') .
-            'v=' . (App::config()->devMode() === true ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
+            'v=' . (App::config()->devMode() ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
     }
 
     /**
