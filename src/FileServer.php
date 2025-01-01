@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -101,36 +102,26 @@ class FileServer
 
     /**
      * Default cache ttl (one week).
-     *
-     * @var     int     $cache_ttl
      */
     public static int $cache_ttl = 604800;
 
     /**
      * Debug mode.
-     *
-     * @var     bool    $debug
      */
     protected bool $debug = false;
 
     /**
      * The resource to find.
-     *
-     * @var     string  $resource
      */
     protected string $resource = '';
 
     /**
      * The file extension.
-     *
-     * @var     string  $extension
      */
     protected string $extension = '';
 
     /**
      * The file.
-     *
-     * @var     null|string     $file
      */
     protected ?string $file = null;
 
@@ -160,7 +151,7 @@ class FileServer
         protected string $type,
         string $resource
     ) {
-        $this->debug     = $this->config->debugMode() === true || $this->config->devMode() === true;
+        $this->debug     = $this->config->debugMode() || $this->config->devMode();
         $this->resource  = Path::clean($resource);
         $this->extension = Files::getExtension($this->resource);
 
@@ -181,7 +172,7 @@ class FileServer
      */
     protected function checkEnv(): void
     {
-        if (empty($this->resource)) {
+        if ($this->resource === '') {
             self::p403();
         }
 
@@ -303,7 +294,7 @@ class FileServer
      */
     protected function readFile(): void
     {
-        if (empty($this->file)) {
+        if ($this->file === null || $this->file === '') {
             self::p404();
         }
 

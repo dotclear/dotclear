@@ -262,7 +262,7 @@ class Handler extends AbstractHandler
      *
      * @return     array<mixed>|false
      */
-    public function db_fetch_assoc($res)
+    public function db_fetch_assoc($res): false|array
     {
         if ($res instanceof mysqli_result) {
             $v = $res->fetch_assoc();

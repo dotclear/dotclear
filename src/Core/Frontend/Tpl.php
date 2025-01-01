@@ -261,7 +261,7 @@ class Tpl extends Template
         # --BEHAVIOR-- tplBeforeData --
         if (App::behavior()->hasBehavior('tplBeforeData') || App::behavior()->hasBehavior('tplBeforeDataV2')) {
             self::$_r = App::behavior()->callBehavior('tplBeforeDataV2');
-            if (self::$_r) {
+            if (self::$_r !== '') {
                 return self::$_r;
             }
         }
@@ -282,8 +282,6 @@ class Tpl extends Template
      * @param      string                                           $tag      The tag
      * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr     The attributes
      * @param      string                                           $content  The content
-     *
-     * @return     string
      */
     public function compileBlockNode(string $tag, $attr, string $content): string
     {
@@ -310,8 +308,6 @@ class Tpl extends Template
      * @param      string                                           $tag       The tag
      * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr      The attributes
      * @param      string                                           $str_attr  The attributes (one string form)
-     *
-     * @return     string
      */
     public function compileValueNode(string $tag, $attr, string $str_attr): string
     {
@@ -375,14 +371,12 @@ class Tpl extends Template
      * - "and" (in any case) and "&&"" are aliases
      *
      * @param      string  $op     The operation
-     *
-     * @return     string  The operator.
      */
     public static function getOperator(string $op): string
     {
         return match (strtolower($op)) {
             'or', '||' => '||',
-            //'and', '&&',
+            'and', '&&' => '&&',
             default => '&&',
         };
     }
@@ -392,8 +386,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>   $attr      The attributes
      * @param      string                       $table     The table
-     *
-     * @return     string
      */
     public function getSortByStr(ArrayObject $attr, ?string $table = null): string
     {
@@ -444,20 +436,20 @@ class Tpl extends Template
         }
         if (isset($attr['sortby'])) {
             $sorts = explode(',', (string) $attr['sortby']);
-            foreach ($sorts as $k => $sort) {
+            foreach ($sorts as $sort) {
                 $order = $default_order;
                 if (preg_match('/([a-z]*)\s*\?(desc|asc)$/i', $sort, $matches)) {
                     $sort  = $matches[1];
                     $order = $matches[2];
                 }
                 if (array_key_exists($sort, $default_alias[$table])) {
-                    array_push($res, $default_alias[$table][$sort] . ' ' . $order);
+                    $res[] = $default_alias[$table][$sort] . ' ' . $order;
                 }
             }
         }
 
-        if (count($res) === 0) {
-            array_push($res, $default_alias[$table]['date'] . ' ' . $default_order);
+        if ($res === []) {
+            $res[] = $default_alias[$table]['date'] . ' ' . $default_order;
         }
 
         return implode(', ', $res);
@@ -472,10 +464,8 @@ class Tpl extends Template
      */
     public static function getAge(ArrayObject $attr): string
     {
-        if (isset($attr['age']) && preg_match('/^(\-\d+|last).*$/i', (string) $attr['age'])) {
-            if (($ts = strtotime((string) $attr['age'])) !== false) {
-                return Date::str('%Y-%m-%d %H:%m:%S', $ts);
-            }
+        if (isset($attr['age']) && preg_match('/^(\-\d+|last).*$/i', (string) $attr['age']) && ($ts = strtotime((string) $attr['age'])) !== false) {
+            return Date::str('%Y-%m-%d %H:%m:%S', $ts);
         }
 
         return '';
@@ -488,8 +478,6 @@ class Tpl extends Template
      * @param      array<string, mixed>         $values                 The values
      * @param      ArrayObject<string, mixed>   $attr                   The attributes
      * @param      bool                         $count_only_by_default  Display only counter value by default
-     *
-     * @return     string
      */
     public function displayCounter(string $variable, array $values, ArrayObject $attr, bool $count_only_by_default = false): string
     {
@@ -498,20 +486,20 @@ class Tpl extends Template
         }
 
         $patterns = $values;
-        array_walk($patterns, function (&$v, $k) use ($attr) {
+        array_walk($patterns, function (&$v, $k) use ($attr): void {
             if (isset($attr[$k])) {
                 $v = addslashes((string) $attr[$k]);
             }
         });
 
         return
-            '<?php if (' . $variable . " == 0) {\n" .
-            "  printf(__('" . $patterns['none'] . "')," . $variable . ");\n" .
-            '} elseif (' . $variable . " == 1) {\n" .
-            "  printf(__('" . $patterns['one'] . "')," . $variable . ");\n" .
-            "} else {\n" .
-            "  printf(__('" . $patterns['more'] . "')," . $variable . ");\n" .
-            '} ?>';
+        '<?php if (' . $variable . " == 0) {\n" .
+        "  printf(__('" . $patterns['none'] . "')," . $variable . ");\n" .
+        '} elseif (' . $variable . " == 1) {\n" .
+        "  printf(__('" . $patterns['one'] . "')," . $variable . ");\n" .
+        "} else {\n" .
+        "  printf(__('" . $patterns['more'] . "')," . $variable . ");\n" .
+        '} ?>';
     }
 
     // TEMPLATE FUNCTIONS
@@ -526,8 +514,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>   $attr      The attributes
      * @param      string                       $str_attr  The attributes (one string form)
-     *
-     * @return     string
      */
     public function l10n(ArrayObject $attr, string $str_attr): string
     {
@@ -549,8 +535,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function LoopPosition(ArrayObject $attr, string $content): string
     {
@@ -564,14 +548,7 @@ class Tpl extends Template
             $start--;
         }
 
-        return
-            '<?php if (App::frontend()->context()->loopPosition(' .
-            (string) $start . ',' .
-            (string) $length . ',' .
-            (string) $even . ',' .
-            (string) $modulo . ')) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->loopPosition(' . $start . ',' . $length . ',' . $even . ',' . $modulo . ')) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -582,8 +559,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function LoopIndex(ArrayObject $attr): string
     {
@@ -607,13 +582,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function Archives(ArrayObject $attr, string $content): string
     {
-        $params = "if (!isset(\$params)) \$params = [];\n" .
-            "\$params['type'] = 'month';\n";
+        $params = "if (!isset(\$params)) \$params = [];\n" . "\$params['type'] = 'month';\n";
 
         if (isset($attr['type'])) {
             $params .= "\$params['type'] = '" . addslashes((string) $attr['type']) . "';\n";
@@ -628,13 +600,11 @@ class Tpl extends Template
             $params .= "\$params['post_lang'] = '" . addslashes((string) $attr['post_lang']) . "';\n";
         }
         if (empty($attr['no_context']) && !isset($attr['category'])) {
-            $params .= 'if (App::frontend()->context()->exists("categories")) { ' .
-                "\$params['cat_id'] = App::frontend()->context()->categories->cat_id; " .
-                "}\n";
+            $params .= 'if (App::frontend()->context()->exists("categories")) { ' . "\$params['cat_id'] = App::frontend()->context()->categories->cat_id; " . "}\n";
         }
 
         if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', (string) $attr['order'])) {
-            $params .= "\$params['order'] = '" . (string) $attr['order'] . "';\n ";
+            $params .= "\$params['order'] = '" . $attr['order'] . "';\n ";
         }
 
         $res = "<?php\n" .
@@ -649,9 +619,7 @@ class Tpl extends Template
             'App::frontend()->context()->archives = App::blog()->getDates($params); unset($params);' . "\n" .
             "?>\n";
 
-        $res .= '<?php while (App::frontend()->context()->archives->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->archives = null; ?>';
-
-        return $res;
+        return $res . ('<?php while (App::frontend()->context()->archives->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->archives = null; ?>');
     }
 
     /**
@@ -659,15 +627,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function ArchivesHeader(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->archives->isStart()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->archives->isStart()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -675,15 +638,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function ArchivesFooter(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->archives->isEnd()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->archives->isEnd()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -691,15 +649,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function ArchivesYearHeader(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->archives->yearHeader()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->archives->yearHeader()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -707,15 +660,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function ArchivesYearFooter(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->archives->yearFooter()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->archives->yearFooter()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -727,8 +675,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function ArchiveDate(ArrayObject $attr): string
     {
@@ -748,8 +694,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function ArchiveEntriesCount(ArrayObject $attr): string
     {
@@ -776,8 +720,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function ArchiveNext(ArrayObject $attr, string $content): string
     {
@@ -809,9 +751,7 @@ class Tpl extends Template
         $res .= 'App::frontend()->context()->archives = App::blog()->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
-        $res .= '<?php while (App::frontend()->context()->archives->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->archives = null; ?>';
-
-        return $res;
+        return $res . ('<?php while (App::frontend()->context()->archives->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->archives = null; ?>');
     }
 
     /**
@@ -825,8 +765,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function ArchivePrevious(ArrayObject $attr, string $content): string
     {
@@ -858,9 +796,7 @@ class Tpl extends Template
         $res .= 'App::frontend()->context()->archives = App::blog()->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
-        $res .= '<?php while (App::frontend()->context()->archives->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->archives = null; ?>';
-
-        return $res;
+        return $res . ('<?php while (App::frontend()->context()->archives->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->archives = null; ?>');
     }
 
     /**
@@ -871,8 +807,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function ArchiveURL(ArrayObject $attr): string
     {
@@ -890,8 +824,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogArchiveURL(ArrayObject $attr): string
     {
@@ -906,8 +838,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogCopyrightNotice(ArrayObject $attr): string
     {
@@ -922,8 +852,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogDescription(ArrayObject $attr): string
     {
@@ -938,8 +866,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogEditor(ArrayObject $attr): string
     {
@@ -954,8 +880,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogFeedID(ArrayObject $attr): string
     {
@@ -971,12 +895,10 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogFeedURL(ArrayObject $attr): string
     {
-        $type = !empty($attr['type']) ? strtolower((string) $attr['type']) : 'atom';
+        $type = empty($attr['type']) ? 'atom' : strtolower((string) $attr['type']);
         if (!in_array($type, ['rss2', 'atom'])) {
             $type = 'atom';
         }
@@ -992,8 +914,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogName(ArrayObject $attr): string
     {
@@ -1008,8 +928,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogLanguage(ArrayObject $attr): string
     {
@@ -1024,17 +942,12 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogLanguageURL(ArrayObject $attr): string
     {
         $filters = $this->getFilters($attr);
 
-        return '<?php if (App::frontend()->context()->exists("cur_lang")) echo ' .
-            sprintf($filters, 'App::blog()->url().App::url()->getURLFor("lang",App::frontend()->context()->cur_lang)') .
-            '; else echo ' .
-            sprintf($filters, 'App::blog()->url()') . '; ?>';
+        return '<?php if (App::frontend()->context()->exists("cur_lang")) echo ' . sprintf($filters, 'App::blog()->url().App::url()->getURLFor("lang",App::frontend()->context()->cur_lang)') . '; else echo ' . sprintf($filters, 'App::blog()->url()') . '; ?>';
     }
 
     /**
@@ -1045,8 +958,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogThemeURL(ArrayObject $attr): string
     {
@@ -1061,8 +972,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogParentThemeURL(ArrayObject $attr): string
     {
@@ -1079,8 +988,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogPublicURL(ArrayObject $attr): string
     {
@@ -1098,18 +1005,10 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogUpdateDate(ArrayObject $attr): string
     {
-        $format = '';
-        if (!empty($attr['format'])) {
-            $format = addslashes((string) $attr['format']);
-        } else {
-            $format = '%Y-%m-%d %H:%M:%S';
-        }
-
+        $format  = empty($attr['format']) ? '%Y-%m-%d %H:%M:%S' : addslashes((string) $attr['format']);
         $iso8601 = !empty($attr['iso8601']);
         $rfc822  = !empty($attr['rfc822']);
 
@@ -1132,8 +1031,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogID(ArrayObject $attr): string
     {
@@ -1148,8 +1045,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      *
      * @deprecated  since 2.24, use another format instead !
      */
@@ -1168,13 +1063,10 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogXMLRPCURL(ArrayObject $attr): string
     {
-        return '<?= ' .
-            sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor(\'xmlrpc\',App::blog()->id())') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor(\'xmlrpc\',App::blog()->id())') . ' ?>';
     }
 
     /**
@@ -1185,13 +1077,10 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogWebmentionURL(ArrayObject $attr): string
     {
-        return '<?= ' .
-            sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor(\'webmention\')') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor(\'webmention\')') . ' ?>';
     }
 
     /**
@@ -1202,8 +1091,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogURL(ArrayObject $attr): string
     {
@@ -1218,8 +1105,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogQmarkURL(ArrayObject $attr): string
     {
@@ -1234,8 +1119,6 @@ class Tpl extends Template
      *      - robots          (INDEX|NOINDEX|FOLLOW|NOFOLLOW|ARCHIVE|NOARCHIVE)   will surcharge the blog's parameters
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogMetaRobots(ArrayObject $attr): string
     {
@@ -1252,8 +1135,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogJsJQuery(ArrayObject $attr): string
     {
@@ -1273,8 +1154,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogPostsURL(ArrayObject $attr): string
     {
@@ -1286,15 +1165,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function IfBlogStaticEntryURL(ArrayObject $attr, string $content): string
     {
-        return
-            "<?php if (App::blog()->settings()->system->static_home_url != '') : ?>" .
-            $content .
-            '<?php endif; ?>';
+        return "<?php if (App::blog()->settings()->system->static_home_url != '') : ?>" . $content . '<?php endif; ?>';
     }
 
     /**
@@ -1307,13 +1181,10 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogStaticEntryURL(ArrayObject $attr): string
     {
-        $code = "\$params['post_type'] = array_keys(App::postTypes()->dump());\n";
-        $code .= "\$params['post_url'] = " . sprintf($this->getFilters($attr), 'urldecode(App::blog()->settings()->system->static_home_url)') . ";\n";
+        $code = "\$params['post_type'] = array_keys(App::postTypes()->dump());\n" . "\$params['post_url'] = " . sprintf($this->getFilters($attr), 'urldecode(App::blog()->settings()->system->static_home_url)') . ";\n";
 
         return "<?php\n" . $code . ' ?>';
     }
@@ -1326,13 +1197,10 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogNbEntriesFirstPage(ArrayObject $attr): string
     {
-        return '<?= ' .
-            sprintf($this->getFilters($attr), 'App::blog()->settings()->system->nb_post_for_home') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->nb_post_for_home') . ' ?>';
     }
 
     /**
@@ -1343,13 +1211,10 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function BlogNbEntriesPerPage(ArrayObject $attr): string
     {
-        return '<?= ' .
-            sprintf($this->getFilters($attr), 'App::blog()->settings()->system->nb_post_per_page') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->system->nb_post_per_page') . ' ?>';
     }
 
     // Categories
@@ -1367,8 +1232,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function Categories(ArrayObject $attr, string $content): string
     {
@@ -1396,13 +1259,14 @@ class Tpl extends Template
             $content
         );
 
-        return "<?php\n" .
-            $params .
-            'App::frontend()->context()->categories = App::blog()->getCategories($params);' . "\n" .
-             "?>\n" .
-             '<?php while (App::frontend()->context()->categories->fetch()) : ?>' .
-             $content .
-             '<?php endwhile; App::frontend()->context()->categories = null; unset($params); ?>';
+        return
+        "<?php\n" .
+        $params .
+        'App::frontend()->context()->categories = App::blog()->getCategories($params);' . "\n" .
+         "?>\n" .
+         '<?php while (App::frontend()->context()->categories->fetch()) : ?>' .
+         $content .
+         '<?php endwhile; App::frontend()->context()->categories = null; unset($params); ?>';
     }
 
     /**
@@ -1410,15 +1274,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function CategoriesHeader(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->categories->isStart()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->categories->isStart()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -1426,15 +1285,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function CategoriesFooter(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->categories->isEnd()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->categories->isEnd()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -1453,8 +1307,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function CategoryIf(ArrayObject $attr, string $content): string
     {
@@ -1477,12 +1329,10 @@ class Tpl extends Template
                     } else {
                         $if->append('(App::frontend()->context()->categories->cat_url != "' . $url . '")');
                     }
+                } elseif (isset($args['sub'])) {
+                    $if->append('(App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
                 } else {
-                    if (isset($args['sub'])) {
-                        $if->append('(App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
-                    } else {
-                        $if->append('(App::frontend()->context()->categories->cat_url == "' . $url . '")');
-                    }
+                    $if->append('(App::frontend()->context()->categories->cat_url == "' . $url . '")');
                 }
             }
         }
@@ -1501,12 +1351,10 @@ class Tpl extends Template
                         } else {
                             $if->append('(App::frontend()->context()->categories->cat_url != "' . $url . '")');
                         }
+                    } elseif (isset($args['sub'])) {
+                        $if->append('(App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
                     } else {
-                        if (isset($args['sub'])) {
-                            $if->append('(App::blog()->IsInCatSubtree(App::frontend()->context()->categories->cat_url, "' . $url . '"))');
-                        } else {
-                            $if->append('(App::frontend()->context()->categories->cat_url == "' . $url . '")');
-                        }
+                        $if->append('(App::frontend()->context()->categories->cat_url == "' . $url . '")');
                     }
                 }
             }
@@ -1525,7 +1373,7 @@ class Tpl extends Template
         # --BEHAVIOR-- tplIfConditions -- string, ArrayObject, string, array<int,string>
         App::behavior()->callBehavior('tplIfConditions', 'CategoryIf', $attr, $content, $if);
 
-        if (count($if)) {
+        if (count($if) > 0) {
             return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
@@ -1537,15 +1385,13 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function CategoryFirstChildren(ArrayObject $attr, string $content): string
     {
         return
-            "<?php\n" .
-            'App::frontend()->context()->categories = App::blog()->getCategoryFirstChildren(App::frontend()->context()->categories->cat_id);' . "\n" .
-            'while (App::frontend()->context()->categories->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->categories = null; ?>';
+        "<?php\n" .
+        'App::frontend()->context()->categories = App::blog()->getCategoryFirstChildren(App::frontend()->context()->categories->cat_id);' . "\n" .
+        'while (App::frontend()->context()->categories->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->categories = null; ?>';
     }
 
     /**
@@ -1553,15 +1399,13 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function CategoryParents(ArrayObject $attr, string $content): string
     {
         return
-            "<?php\n" .
-            'App::frontend()->context()->categories = App::blog()->getCategoryParents(App::frontend()->context()->categories->cat_id);' . "\n" .
-            'while (App::frontend()->context()->categories->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->categories = null; ?>';
+        "<?php\n" .
+        'App::frontend()->context()->categories = App::blog()->getCategoryParents(App::frontend()->context()->categories->cat_id);' . "\n" .
+        'while (App::frontend()->context()->categories->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->categories = null; ?>';
     }
 
     /**
@@ -1573,20 +1417,16 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CategoryFeedURL(ArrayObject $attr): string
     {
-        $type = !empty($attr['type']) ? (string) $attr['type'] : 'atom';
+        $type = empty($attr['type']) ? 'atom' : (string) $attr['type'];
 
         if (!preg_match('#^(rss2|atom)$#', $type)) {
             $type = 'atom';
         }
 
-        return '<?= ' .
-            sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("feed","category/".' .
-            'App::frontend()->context()->categories->cat_url."/' . $type . '")') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("feed","category/".App::frontend()->context()->categories->cat_url."/' . $type . '")') . ' ?>';
     }
 
     /**
@@ -1597,8 +1437,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CategoryID(ArrayObject $attr): string
     {
@@ -1613,14 +1451,10 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CategoryURL(ArrayObject $attr): string
     {
-        return '<?= ' .
-            sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("category",' .
-            'App::frontend()->context()->categories->cat_url)') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("category",App::frontend()->context()->categories->cat_url)') . ' ?>';
     }
 
     /**
@@ -1631,8 +1465,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CategoryShortURL(ArrayObject $attr): string
     {
@@ -1647,8 +1479,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CategoryDescription(ArrayObject $attr): string
     {
@@ -1663,8 +1493,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CategoryTitle(ArrayObject $attr): string
     {
@@ -1680,8 +1508,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CategoryEntriesCount(ArrayObject $attr): string
     {
@@ -1729,14 +1555,12 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function Entries(ArrayObject $attr, string $content): string
     {
         $lastn = -1;
         if (isset($attr['lastn'])) {
-            $lastn = abs((int) $attr['lastn']) + 0;
+            $lastn = abs((int) $attr['lastn']);
         }
 
         $params = 'if (App::frontend()->getPageNumber() === 0) { App::frontend()->setPageNumber(1); }' . "\n";
@@ -1839,7 +1663,7 @@ class Tpl extends Template
 
         if (isset($attr['age'])) {
             $age = static::getAge($attr);
-            $params .= !empty($age) ? "\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n" : '';
+            $params .= $age === '' ? '' : "\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n";
         }
 
         $res = "<?php\n";
@@ -1854,10 +1678,8 @@ class Tpl extends Template
         $res .= 'App::frontend()->context()->post_params = $params;' . "\n";
         $res .= 'App::frontend()->context()->posts = App::blog()->getPosts($params); unset($params);' . "\n";
         $res .= "?>\n";
-        $res .= '<?php while (App::frontend()->context()->posts->fetch()) : ?>' . $content . '<?php endwhile; ' .
-            'App::frontend()->context()->posts = null; App::frontend()->context()->post_params = null; ?>';
 
-        return $res;
+        return $res . '<?php while (App::frontend()->context()->posts->fetch()) : ?>' . $content . '<?php endwhile; ' . 'App::frontend()->context()->posts = null; App::frontend()->context()->post_params = null; ?>';
     }
 
     /**
@@ -1865,15 +1687,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function DateHeader(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->posts->firstPostOfDay()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->posts->firstPostOfDay()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -1881,15 +1698,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function DateFooter(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->posts->lastPostOfDay()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->posts->lastPostOfDay()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -1924,8 +1736,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function EntryIf(ArrayObject $attr, string $content): string
     {
@@ -1938,7 +1748,7 @@ class Tpl extends Template
 
         if (isset($attr['type'])) {
             $type = trim((string) $attr['type']);
-            $type = !empty($type) ? $type : 'post';
+            $type = $type === '' ? $type : 'post';
             $if->append('App::frontend()->context()->posts->post_type == "' . addslashes($type) . '"');
         }
 
@@ -1965,12 +1775,10 @@ class Tpl extends Template
                     } else {
                         $if->append('(App::frontend()->context()->posts->cat_url != "' . $category . '")');
                     }
+                } elseif (isset($args['sub'])) {
+                    $if->append('(App::frontend()->context()->posts->underCat("' . $category . '"))');
                 } else {
-                    if (isset($args['sub'])) {
-                        $if->append('(App::frontend()->context()->posts->underCat("' . $category . '"))');
-                    } else {
-                        $if->append('(App::frontend()->context()->posts->cat_url == "' . $category . '")');
-                    }
+                    $if->append('(App::frontend()->context()->posts->cat_url == "' . $category . '")');
                 }
             }
         }
@@ -1978,7 +1786,7 @@ class Tpl extends Template
         if (isset($attr['categories'])) {
             $categories = explode(',', addslashes(trim((string) $attr['categories'])));
             foreach ($categories as $category) {
-                $args = preg_split('/\s*[?]\s*/', trim((string) $category), -1, PREG_SPLIT_NO_EMPTY);
+                $args = preg_split('/\s*[?]\s*/', trim($category), -1, PREG_SPLIT_NO_EMPTY);
                 if ($args !== false) {
                     $category = array_shift($args) ?? '';
                     $args     = array_flip($args);
@@ -1989,12 +1797,10 @@ class Tpl extends Template
                         } else {
                             $if->append('(App::frontend()->context()->posts->cat_url != "' . $category . '")');
                         }
+                    } elseif (isset($args['sub'])) {
+                        $if->append('(App::frontend()->context()->posts->underCat("' . $category . '"))');
                     } else {
-                        if (isset($args['sub'])) {
-                            $if->append('(App::frontend()->context()->posts->underCat("' . $category . '"))');
-                        } else {
-                            $if->append('(App::frontend()->context()->posts->cat_url == "' . $category . '")');
-                        }
+                        $if->append('(App::frontend()->context()->posts->cat_url == "' . $category . '")');
                     }
                 }
             }
@@ -2084,7 +1890,7 @@ class Tpl extends Template
         # --BEHAVIOR-- templatePrepareParams -- string, ArrayObject, array<int,string>
         App::behavior()->callBehavior('tplIfConditions', 'EntryIf', $attr, $content, $if);
 
-        if (count($if)) {
+        if (count($if) > 0) {
             return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
@@ -2099,17 +1905,13 @@ class Tpl extends Template
      *      - return      string      Value to display if it is the case (default: first)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryIfFirst(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'first';
         $ret = Html::escapeHTML($ret);
 
-        return
-        '<?php if (App::frontend()->context()->posts->index() == 0) { ' .
-        "echo '" . addslashes($ret) . "'; } ?>";
+        return '<?php if (App::frontend()->context()->posts->index() == 0) { ' . "echo '" . addslashes($ret) . "'; } ?>";
     }
 
     /**
@@ -2121,8 +1923,6 @@ class Tpl extends Template
      *      - even        string      Value to display if not (default: <empty>)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryIfOdd(ArrayObject $attr): string
     {
@@ -2132,9 +1932,7 @@ class Tpl extends Template
         $even = $attr['even'] ?? '';
         $even = Html::escapeHTML($even);
 
-        return '<?= ((App::frontend()->context()->posts->index()+1)%2 ? ' .
-        '"' . addslashes($odd) . '" : ' .
-        '"' . addslashes($even) . '") ?>';
+        return '<?= ((App::frontend()->context()->posts->index()+1)%2 ? ' . '"' . addslashes($odd) . '" : ' . '"' . addslashes($even) . '") ?>';
     }
 
     /**
@@ -2146,8 +1944,6 @@ class Tpl extends Template
      *      - odd         string      Value to display if not (default: <empty>)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryIfEven(ArrayObject $attr): string
     {
@@ -2157,9 +1953,7 @@ class Tpl extends Template
         $odd = $attr['odd'] ?? '';
         $odd = Html::escapeHTML($odd);
 
-        return '<?= ((App::frontend()->context()->posts->index()+1)%2+1 ? ' .
-        '"' . addslashes($even) . '" : ' .
-        '"' . addslashes($odd) . '") ?>';
+        return '<?= ((App::frontend()->context()->posts->index()+1)%2+1 ? ' . '"' . addslashes($even) . '" : ' . '"' . addslashes($odd) . '") ?>';
     }
 
     /**
@@ -2170,17 +1964,13 @@ class Tpl extends Template
      *      - return      string      Value to display if it is the case (default: selected)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryIfSelected(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'selected';
         $ret = Html::escapeHTML($ret);
 
-        return
-        '<?php if (App::frontend()->context()->posts->post_selected) { ' .
-        "echo '" . addslashes($ret) . "'; } ?>";
+        return '<?php if (App::frontend()->context()->posts->post_selected) { ' . "echo '" . addslashes($ret) . "'; } ?>";
     }
 
     /**
@@ -2193,8 +1983,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryContent(ArrayObject $attr): string
     {
@@ -2208,9 +1996,7 @@ class Tpl extends Template
         if (!empty($attr['full'])) {
             return '<?= ' . sprintf(
                 $filters,
-                'App::frontend()->context()->posts->getExcerpt(' . $urls . ').' .
-                '(strlen(App::frontend()->context()->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                'App::frontend()->context()->posts->getContent(' . $urls . ')'
+                'App::frontend()->context()->posts->getExcerpt(' . $urls . ').' . '(strlen(App::frontend()->context()->posts->getExcerpt(' . $urls . ')) ? " " : "").' . 'App::frontend()->context()->posts->getContent(' . $urls . ')'
             ) . ' ?>';
         }
 
@@ -2231,8 +2017,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function EntryIfContentCut(ArrayObject $attr, string $content): string
     {
@@ -2254,30 +2038,20 @@ class Tpl extends Template
         if (!empty($attr['full'])) {
             return '<?php if (strlen(' . sprintf(
                 $full,
-                'App::frontend()->context()->posts->getExcerpt(' . $urls . ').' .
-                '(strlen(App::frontend()->context()->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                'App::frontend()->context()->posts->getContent(' . $urls . ')'
-            ) . ') > ' .
-            'strlen(' . sprintf(
+                'App::frontend()->context()->posts->getExcerpt(' . $urls . ').' . '(strlen(App::frontend()->context()->posts->getExcerpt(' . $urls . ')) ? " " : "").' . 'App::frontend()->context()->posts->getContent(' . $urls . ')'
+            ) . ') > ' . 'strlen(' . sprintf(
                 $short,
-                'App::frontend()->context()->posts->getExcerpt(' . $urls . ').' .
-                '(strlen(App::frontend()->context()->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                'App::frontend()->context()->posts->getContent(' . $urls . ')'
-            ) . ')) : ?>' .
-                $content .
-                '<?php endif; ?>';
+                'App::frontend()->context()->posts->getExcerpt(' . $urls . ').' . '(strlen(App::frontend()->context()->posts->getExcerpt(' . $urls . ')) ? " " : "").' . 'App::frontend()->context()->posts->getContent(' . $urls . ')'
+            ) . ')) : ?>' . $content . '<?php endif; ?>';
         }
 
         return '<?php if (strlen(' . sprintf(
             $full,
             'App::frontend()->context()->posts->getContent(' . $urls . ')'
-        ) . ') > ' .
-            'strlen(' . sprintf(
-                $short,
-                'App::frontend()->context()->posts->getContent(' . $urls . ')'
-            ) . ')) : ?>' .
-                $content .
-                '<?php endif; ?>';
+        ) . ') > ' . 'strlen(' . sprintf(
+            $short,
+            'App::frontend()->context()->posts->getContent(' . $urls . ')'
+        ) . ')) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -2289,8 +2063,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryExcerpt(ArrayObject $attr): string
     {
@@ -2299,8 +2071,7 @@ class Tpl extends Template
             $urls = '1';
         }
 
-        return '<?= ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getExcerpt(' . $urls . ')') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getExcerpt(' . $urls . ')') . ' ?>';
     }
 
     /**
@@ -2311,8 +2082,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryAuthorCommonName(ArrayObject $attr): string
     {
@@ -2327,8 +2096,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryAuthorDisplayName(ArrayObject $attr): string
     {
@@ -2343,8 +2110,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryAuthorID(ArrayObject $attr): string
     {
@@ -2360,8 +2125,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryAuthorEmail(ArrayObject $attr): string
     {
@@ -2370,8 +2133,7 @@ class Tpl extends Template
             $protect = 'false';
         }
 
-        return '<?= ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getAuthorEmail(' . $protect . ')') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->posts->getAuthorEmail(' . $protect . ')') . ' ?>';
     }
 
     /**
@@ -2382,13 +2144,10 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryAuthorEmailMD5(ArrayObject $attr): string
     {
-        return '<?= ' .
-            sprintf($this->getFilters($attr), 'md5(App::frontend()->context()->posts->getAuthorEmail(false))') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'md5(App::frontend()->context()->posts->getAuthorEmail(false))') . ' ?>';
     }
 
     /**
@@ -2399,8 +2158,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryAuthorLink(ArrayObject $attr): string
     {
@@ -2415,8 +2172,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryAuthorURL(ArrayObject $attr): string
     {
@@ -2431,8 +2186,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryBasename(ArrayObject $attr): string
     {
@@ -2447,8 +2200,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryCategory(ArrayObject $attr): string
     {
@@ -2463,8 +2214,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryCategoryDescription(ArrayObject $attr): string
     {
@@ -2476,15 +2225,13 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function EntryCategoriesBreadcrumb(ArrayObject $attr, string $content): string
     {
         return
-            "<?php\n" .
-            'App::frontend()->context()->categories = App::blog()->getCategoryParents(App::frontend()->context()->posts->cat_id);' . "\n" .
-            'while (App::frontend()->context()->categories->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->categories = null; ?>';
+        "<?php\n" .
+        'App::frontend()->context()->categories = App::blog()->getCategoryParents(App::frontend()->context()->posts->cat_id);' . "\n" .
+        'while (App::frontend()->context()->categories->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->categories = null; ?>';
     }
 
     /**
@@ -2495,8 +2242,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryCategoryID(ArrayObject $attr): string
     {
@@ -2511,8 +2256,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryCategoryURL(ArrayObject $attr): string
     {
@@ -2527,8 +2270,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryCategoryShortURL(ArrayObject $attr): string
     {
@@ -2543,8 +2284,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryFeedID(ArrayObject $attr): string
     {
@@ -2564,17 +2303,15 @@ class Tpl extends Template
      *      - cat_only        (1|0)           Search in category description only (default 0)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryFirstImage(ArrayObject $attr): string
     {
-        $size          = !empty($attr['size']) ? $attr['size'] : '';
-        $class         = !empty($attr['class']) ? $attr['class'] : '';
-        $with_category = !empty($attr['with_category']) ? 'true' : 'false';
-        $no_tag        = !empty($attr['no_tag']) ? 'true' : 'false';
-        $content_only  = !empty($attr['content_only']) ? 'true' : 'false';
-        $cat_only      = !empty($attr['cat_only']) ? 'true' : 'false';
+        $size          = $attr['size']  ?? '';
+        $class         = $attr['class'] ?? '';
+        $with_category = empty($attr['with_category']) ? 'false' : 'true';
+        $no_tag        = empty($attr['no_tag']) ? 'false' : 'true';
+        $content_only  = empty($attr['content_only']) ? 'false' : 'true';
+        $cat_only      = empty($attr['cat_only']) ? 'false' : 'true';
 
         return '<?= ' . Ctx::class . "::EntryFirstImageHelper('" . addslashes((string) $size) . "'," . $with_category . ",'" . addslashes((string) $class) . "'," . $no_tag . ',' . $content_only . ',' . $cat_only . ') ?>';
     }
@@ -2587,8 +2324,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryID(ArrayObject $attr): string
     {
@@ -2603,8 +2338,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryLang(ArrayObject $attr): string
     {
@@ -2628,23 +2361,20 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function EntryNext(ArrayObject $attr, string $content): string
     {
-        $restrict_to_category = !empty($attr['restrict_to_category']) ? '1' : '0';
-        $restrict_to_lang     = !empty($attr['restrict_to_lang']) ? '1' : '0';
+        $restrict_to_category = empty($attr['restrict_to_category']) ? 'false' : 'true';
+        $restrict_to_lang     = empty($attr['restrict_to_lang']) ? 'false' : 'true';
 
         return
-            '<?php $next_post = App::blog()->getNextPost(App::frontend()->context()->posts,1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
-            '<?php if ($next_post !== null) : ?>' .
-
-            '<?php App::frontend()->context()->posts = $next_post; unset($next_post);' . "\n" .
-            'while (App::frontend()->context()->posts->fetch()) : ?>' .
-            $content .
-            '<?php endwhile; App::frontend()->context()->posts = null; ?>' .
-            "<?php endif; ?>\n";
+        '<?php $next_post = App::blog()->getNextPost(App::frontend()->context()->posts,1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
+        '<?php if ($next_post !== null) : ?>' .
+        '<?php App::frontend()->context()->posts = $next_post; unset($next_post);' . "\n" .
+        'while (App::frontend()->context()->posts->fetch()) : ?>' .
+        $content .
+        '<?php endwhile; App::frontend()->context()->posts = null; ?>' .
+        "<?php endif; ?>\n";
     }
 
     /**
@@ -2657,23 +2387,20 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function EntryPrevious(ArrayObject $attr, string $content): string
     {
-        $restrict_to_category = !empty($attr['restrict_to_category']) ? '1' : '0';
-        $restrict_to_lang     = !empty($attr['restrict_to_lang']) ? '1' : '0';
+        $restrict_to_category = empty($attr['restrict_to_category']) ? 'false' : 'true';
+        $restrict_to_lang     = empty($attr['restrict_to_lang']) ? 'false' : 'true';
 
         return
-            '<?php $prev_post = App::blog()->getNextPost(App::frontend()->context()->posts,-1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
-            '<?php if ($prev_post !== null) : ?>' .
-
-            '<?php App::frontend()->context()->posts = $prev_post; unset($prev_post);' . "\n" .
-            'while (App::frontend()->context()->posts->fetch()) : ?>' .
-            $content .
-            '<?php endwhile; App::frontend()->context()->posts = null; ?>' .
-            "<?php endif; ?>\n";
+        '<?php $prev_post = App::blog()->getNextPost(App::frontend()->context()->posts,-1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
+        '<?php if ($prev_post !== null) : ?>' .
+        '<?php App::frontend()->context()->posts = $prev_post; unset($prev_post);' . "\n" .
+        'while (App::frontend()->context()->posts->fetch()) : ?>' .
+        $content .
+        '<?php endwhile; App::frontend()->context()->posts = null; ?>' .
+        "<?php endif; ?>\n";
     }
 
     /**
@@ -2684,8 +2411,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryTitle(ArrayObject $attr): string
     {
@@ -2700,8 +2425,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryURL(ArrayObject $attr): string
     {
@@ -2721,8 +2444,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryDate(ArrayObject $attr): string
     {
@@ -2733,8 +2454,8 @@ class Tpl extends Template
 
         $iso8601 = !empty($attr['iso8601']);
         $rfc822  = !empty($attr['rfc822']);
-        $type    = (!empty($attr['creadt']) ? 'creadt' : '');
-        $type    = (!empty($attr['upddt']) ? 'upddt' : $type);
+        $type    = (empty($attr['creadt']) ? '' : 'creadt');
+        $type    = (empty($attr['upddt']) ? $type : 'upddt');
 
         $filters = $this->getFilters($attr);
 
@@ -2746,8 +2467,7 @@ class Tpl extends Template
                 sprintf($filters, "App::frontend()->context()->posts->getISO8601Date('" . $type . "')") . ' ?>';
         }
 
-        return '<?= ' .
-            sprintf($filters, "App::frontend()->context()->posts->getDate('" . $format . "','" . $type . "')") . ' ?>';
+        return '<?= ' . sprintf($filters, "App::frontend()->context()->posts->getDate('" . $format . "','" . $type . "')") . ' ?>';
     }
 
     /**
@@ -2761,8 +2481,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryTime(ArrayObject $attr): string
     {
@@ -2771,11 +2489,10 @@ class Tpl extends Template
             $format = addslashes((string) $attr['format']);
         }
 
-        $type = (!empty($attr['creadt']) ? 'creadt' : '');
-        $type = (!empty($attr['upddt']) ? 'upddt' : $type);
+        $type = (empty($attr['creadt']) ? '' : 'creadt');
+        $type = (empty($attr['upddt']) ? $type : 'upddt');
 
-        return '<?= ' .
-            sprintf($this->getFilters($attr), "App::frontend()->context()->posts->getTime('" . $format . "','" . $type . "')") . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), "App::frontend()->context()->posts->getTime('" . $format . "','" . $type . "')") . ' ?>';
     }
 
     /**
@@ -2783,15 +2500,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function EntriesHeader(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->posts->isStart()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->posts->isStart()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -2799,15 +2511,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function EntriesFooter(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->posts->isEnd()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->posts->isEnd()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -2825,8 +2532,6 @@ class Tpl extends Template
      *      1) %s will be replaced by the number of comments
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryCommentCount(ArrayObject $attr): string
     {
@@ -2863,8 +2568,6 @@ class Tpl extends Template
      *      2) %s will be replaced by the number of pings
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryPingCount(ArrayObject $attr): string
     {
@@ -2888,8 +2591,6 @@ class Tpl extends Template
      *      - format      (xml|html)  Format (default: html)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryPingData(ArrayObject $attr): string
     {
@@ -2902,8 +2603,6 @@ class Tpl extends Template
      * tpl:EntryPingLink : Display trackback link (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function EntryPingLink(ArrayObject $attr): string
     {
@@ -2923,8 +2622,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function Languages(ArrayObject $attr, string $content): string
     {
@@ -2935,7 +2632,7 @@ class Tpl extends Template
         }
 
         if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', (string) $attr['order'])) {
-            $params .= "\$params['order'] = '" . (string) $attr['order'] . "';\n ";
+            $params .= "\$params['order'] = '" . $attr['order'] . "';\n ";
         }
 
         $res = "<?php\n";
@@ -2950,11 +2647,7 @@ class Tpl extends Template
         $res .= 'App::frontend()->context()->langs = App::blog()->getLangs($params); unset($params);' . "\n";
         $res .= "?>\n";
 
-        $res .= '<?php if (App::frontend()->context()->langs->count() > 1) : ' .
-            'while (App::frontend()->context()->langs->fetch()) : ?>' . $content .
-            '<?php endwhile; App::frontend()->context()->langs = null; endif; ?>';
-
-        return $res;
+        return $res . ('<?php if (App::frontend()->context()->langs->count() > 1) : ' . 'while (App::frontend()->context()->langs->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->langs = null; endif; ?>');
     }
 
     /**
@@ -2962,15 +2655,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function LanguagesHeader(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->langs->isStart()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->langs->isStart()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -2978,15 +2666,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function LanguagesFooter(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->langs->isEnd()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->langs->isEnd()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -2997,8 +2680,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function LanguageCode(ArrayObject $attr): string
     {
@@ -3010,15 +2691,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function LanguageIfCurrent(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->cur_lang == App::frontend()->context()->langs->post_lang) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->cur_lang == App::frontend()->context()->langs->post_lang) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -3029,14 +2705,10 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function LanguageURL(ArrayObject $attr): string
     {
-        return '<?= ' .
-            sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("lang",' .
-            'App::frontend()->context()->langs->post_lang)') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("lang",App::frontend()->context()->langs->post_lang)') . ' ?>';
     }
 
     /**
@@ -3047,8 +2719,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function FeedLanguage(ArrayObject $attr): string
     {
@@ -3075,8 +2745,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function Pagination(ArrayObject $attr, string $content): string
     {
@@ -3099,11 +2767,7 @@ class Tpl extends Template
             return $params . $content;
         }
 
-        return
-            $params .
-            '<?php if (App::frontend()->context()->pagination->f(0) > App::frontend()->context()->posts->count()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return $params . '<?php if (App::frontend()->context()->pagination->f(0) > App::frontend()->context()->posts->count()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -3114,8 +2778,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PaginationCounter(ArrayObject $attr): string
     {
@@ -3131,8 +2793,6 @@ class Tpl extends Template
      *      - any filters         See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PaginationCurrent(ArrayObject $attr): string
     {
@@ -3151,8 +2811,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function PaginationIf(ArrayObject $attr, string $content): string
     {
@@ -3174,7 +2832,7 @@ class Tpl extends Template
         # --BEHAVIOR-- tplIfConditions -- string, ArrayObject, array<int,string>
         App::behavior()->callBehavior('tplIfConditions', 'PaginationIf', $attr, $content, $if);
 
-        if (count($if)) {
+        if (count($if) > 0) {
             return '<?php if(' . implode(' && ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
@@ -3190,8 +2848,6 @@ class Tpl extends Template
      *      - any filters         See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PaginationURL(ArrayObject $attr): string
     {
@@ -3225,8 +2881,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function Comments(ArrayObject $attr, string $content): string
     {
@@ -3238,7 +2892,7 @@ class Tpl extends Template
 
         $lastn = 0;
         if (isset($attr['lastn'])) {
-            $lastn = abs((int) $attr['lastn']) + 0;
+            $lastn = abs((int) $attr['lastn']);
         }
 
         if ($lastn > 0) {
@@ -3273,7 +2927,7 @@ class Tpl extends Template
 
         if (isset($attr['age'])) {
             $age = static::getAge($attr);
-            $params .= !empty($age) ? "\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n" : '';
+            $params .= $age === '' ? '' : "\$params['sql'] .= ' AND P.post_dt > \'" . $age . "\'';\n";
         }
 
         $res = "<?php\n";
@@ -3294,9 +2948,7 @@ class Tpl extends Template
 
         $res .= "?>\n";
 
-        $res .= '<?php while (App::frontend()->context()->comments->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->comments = null; ?>';
-
-        return $res;
+        return $res . '<?php while (App::frontend()->context()->comments->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->comments = null; ?>';
     }
 
     /**
@@ -3307,8 +2959,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentAuthor(ArrayObject $attr): string
     {
@@ -3319,8 +2969,6 @@ class Tpl extends Template
      * tpl:CommentAuthorDomain : Comment author website domain (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentAuthorDomain(ArrayObject $attr): string
     {
@@ -3335,8 +2983,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentAuthorLink(ArrayObject $attr): string
     {
@@ -3347,8 +2993,6 @@ class Tpl extends Template
      * tpl:CommentAuthorMailMD5 : Comment author mail MD5 sum (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentAuthorMailMD5(ArrayObject $attr): string
     {
@@ -3363,10 +3007,8 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
-    public function CommentAuthorURL($attr)
+    public function CommentAuthorURL($attr): string
     {
         return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getAuthorURL()') . ' ?>';
     }
@@ -3380,8 +3022,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentContent(ArrayObject $attr): string
     {
@@ -3390,8 +3030,7 @@ class Tpl extends Template
             $urls = '1';
         }
 
-        return '<?= ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getContent(' . $urls . ')') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getContent(' . $urls . ')') . ' ?>';
     }
 
     /**
@@ -3406,8 +3045,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentDate(ArrayObject $attr): string
     {
@@ -3418,7 +3055,7 @@ class Tpl extends Template
 
         $iso8601 = !empty($attr['iso8601']);
         $rfc822  = !empty($attr['rfc822']);
-        $type    = (!empty($attr['upddt']) ? 'upddt' : '');
+        $type    = (empty($attr['upddt']) ? '' : 'upddt');
 
         $filters = $this->getFilters($attr);
 
@@ -3441,8 +3078,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentTime(ArrayObject $attr): string
     {
@@ -3450,11 +3085,9 @@ class Tpl extends Template
         if (!empty($attr['format'])) {
             $format = addslashes((string) $attr['format']);
         }
-        $type = (!empty($attr['upddt']) ? 'upddt' : '');
+        $type = (empty($attr['upddt']) ? '' : 'upddt');
 
-        return '<?= ' .
-            sprintf($this->getFilters($attr), "App::frontend()->context()->comments->getTime('" . $format . "','" . $type . "')") .
-            ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), "App::frontend()->context()->comments->getTime('" . $format . "','" . $type . "')") . ' ?>';
     }
 
     /**
@@ -3466,8 +3099,6 @@ class Tpl extends Template
      *      - any filters                     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentEmail(ArrayObject $attr): string
     {
@@ -3476,8 +3107,7 @@ class Tpl extends Template
             $protect = 'false';
         }
 
-        return '<?= ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getEmail(' . $protect . ')') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->comments->getEmail(' . $protect . ')') . ' ?>';
     }
 
     /**
@@ -3488,8 +3118,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentEntryTitle(ArrayObject $attr): string
     {
@@ -3504,8 +3132,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentFeedID(ArrayObject $attr): string
     {
@@ -3516,8 +3142,6 @@ class Tpl extends Template
      * tpl:CommentID : Displays comment ID (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentID(ArrayObject $attr): string
     {
@@ -3533,8 +3157,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function CommentIf(ArrayObject $attr, string $content): string
     {
@@ -3551,7 +3173,7 @@ class Tpl extends Template
         # --BEHAVIOR-- templatePrepareParams -- string, ArrayObject, array<int,string>
         App::behavior()->callBehavior('tplIfConditions', 'CommentIf', $attr, $content, $if);
 
-        if (count($if)) {
+        if (count($if) > 0) {
             return '<?php if(' . implode(' && ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
@@ -3566,17 +3188,13 @@ class Tpl extends Template
      *      - return      string      Value to display if it is the case (default: first)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentIfFirst(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'first';
         $ret = Html::escapeHTML($ret);
 
-        return
-        '<?php if (App::frontend()->context()->comments->index() == 0) { ' .
-        "echo '" . addslashes($ret) . "'; } ?>";
+        return '<?php if (App::frontend()->context()->comments->index() == 0) { ' . "echo '" . addslashes($ret) . "'; } ?>";
     }
 
     /**
@@ -3587,17 +3205,13 @@ class Tpl extends Template
      *      - return      string      Value to display if it is the case (default: me)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentIfMe(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'me';
         $ret = Html::escapeHTML($ret);
 
-        return
-        '<?php if (App::frontend()->context()->comments->isMe()) { ' .
-        "echo '" . addslashes($ret) . "'; } ?>";
+        return '<?php if (App::frontend()->context()->comments->isMe()) { ' . "echo '" . addslashes($ret) . "'; } ?>";
     }
 
     /**
@@ -3609,8 +3223,6 @@ class Tpl extends Template
      *      - even        string      Value to display if it is not the case (default: <empty>)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentIfOdd(ArrayObject $attr): string
     {
@@ -3620,9 +3232,7 @@ class Tpl extends Template
         $even = $attr['even'] ?? '';
         $even = Html::escapeHTML($even);
 
-        return '<?= ((App::frontend()->context()->comments->index()+1)%2 ? ' .
-        '"' . addslashes($odd) . '" : ' .
-        '"' . addslashes($even) . '") ?>';
+        return '<?= ((App::frontend()->context()->comments->index()+1)%2 ? "' . addslashes($odd) . '" : "' . addslashes($even) . '") ?>';
     }
 
     /**
@@ -3634,8 +3244,6 @@ class Tpl extends Template
      *      - odd         string      Value to display if it is not the case (default: <empty>)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentIfEven(ArrayObject $attr): string
     {
@@ -3645,17 +3253,13 @@ class Tpl extends Template
         $odd = $attr['odd'] ?? '';
         $odd = Html::escapeHTML($odd);
 
-        return '<?= ((App::frontend()->context()->comments->index()+1)%2+1 ? ' .
-        '"' . addslashes($even) . '" : ' .
-        '"' . addslashes($odd) . '") ?>';
+        return '<?= ((App::frontend()->context()->comments->index()+1)%2+1 ? "' . addslashes($even) . '" : "' . addslashes($odd) . '") ?>';
     }
 
     /**
      * tpl:CommentIP : Displays comment IP (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentIP(ArrayObject $attr): string
     {
@@ -3666,8 +3270,6 @@ class Tpl extends Template
      * tpl:CommentOrderNumber : Displays comment order in page (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentOrderNumber(ArrayObject $attr): string
     {
@@ -3679,15 +3281,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function CommentsHeader(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->comments->isStart()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->comments->isStart()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -3695,15 +3292,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function CommentsFooter(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->comments->isEnd()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->comments->isEnd()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -3714,8 +3306,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentPostURL(ArrayObject $attr): string
     {
@@ -3727,15 +3317,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function IfCommentAuthorEmail(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->comments->comment_email) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->comments->comment_email) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -3743,17 +3328,15 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function CommentHelp(ArrayObject $attr, string $content): string
     {
         return
-            "<?php if (App::blog()->settings()->system->wiki_comments) {\n" .
-            "  echo __('Comments can be formatted using a simple wiki syntax.');\n" .
-            "} else {\n" .
-            "  echo __('HTML code is displayed as text and web addresses are automatically converted.');\n" .
-            '} ?>';
+        "<?php if (App::blog()->settings()->system->wiki_comments) {\n" .
+        "  echo __('Comments can be formatted using a simple wiki syntax.');\n" .
+        "} else {\n" .
+        "  echo __('HTML code is displayed as text and web addresses are automatically converted.');\n" .
+        '} ?>';
     }
 
     /**
@@ -3761,15 +3344,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function IfCommentPreviewOptional(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::blog()->settings()->system->comment_preview_optional || (App::frontend()->context()->comment_preview !== null && App::frontend()->context()->comment_preview["preview"])) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::blog()->settings()->system->comment_preview_optional || (App::frontend()->context()->comment_preview !== null && App::frontend()->context()->comment_preview["preview"])) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -3777,15 +3355,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function IfCommentPreview(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->comment_preview !== null && App::frontend()->context()->comment_preview["preview"]) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->comment_preview !== null && App::frontend()->context()->comment_preview["preview"]) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -3796,8 +3369,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentPreviewName(ArrayObject $attr): string
     {
@@ -3812,8 +3383,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentPreviewEmail(ArrayObject $attr): string
     {
@@ -3828,8 +3397,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentPreviewSite(ArrayObject $attr): string
     {
@@ -3845,8 +3412,6 @@ class Tpl extends Template
      *      - any filters         See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentPreviewContent(ArrayObject $attr): string
     {
@@ -3863,13 +3428,10 @@ class Tpl extends Template
      * tpl:CommentPreviewCheckRemember : checkbox attribute for "remember me" (same value as before preview) (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function CommentPreviewCheckRemember(ArrayObject $attr): string
     {
-        return
-            "<?php if (App::frontend()->context()->comment_preview['remember']) { echo ' checked=\"checked\"'; } ?>";
+        return "<?php if (App::frontend()->context()->comment_preview['remember']) { echo ' checked=\"checked\"'; } ?>";
     }
 
     // Trackbacks
@@ -3883,8 +3445,6 @@ class Tpl extends Template
      *      - any filters         See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingBlogName(ArrayObject $attr): string
     {
@@ -3899,8 +3459,6 @@ class Tpl extends Template
      *      - any filters         See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingContent(ArrayObject $attr): string
     {
@@ -3919,8 +3477,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingDate(ArrayObject $attr): string
     {
@@ -3931,7 +3487,7 @@ class Tpl extends Template
 
         $iso8601 = !empty($attr['iso8601']);
         $rfc822  = !empty($attr['rfc822']);
-        $type    = (!empty($attr['upddt']) ? 'upddt' : '');
+        $type    = (empty($attr['upddt']) ? '' : 'upddt');
 
         $filters = $this->getFilters($attr);
 
@@ -3954,8 +3510,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingTime(ArrayObject $attr): string
     {
@@ -3963,10 +3517,9 @@ class Tpl extends Template
         if (!empty($attr['format'])) {
             $format = addslashes((string) $attr['format']);
         }
-        $type = (!empty($attr['upddt']) ? 'upddt' : '');
+        $type = (empty($attr['upddt']) ? '' : 'upddt');
 
-        return '<?= ' .
-            sprintf($this->getFilters($attr), "App::frontend()->context()->pings->getTime('" . $format . "','" . $type . "')") . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), "App::frontend()->context()->pings->getTime('" . $format . "','" . $type . "')") . ' ?>';
     }
 
     /**
@@ -3977,8 +3530,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingEntryTitle(ArrayObject $attr): string
     {
@@ -3993,8 +3544,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingFeedID(ArrayObject $attr): string
     {
@@ -4005,8 +3554,6 @@ class Tpl extends Template
      * tpl:PingID : Displays ping ID (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingID(ArrayObject $attr): string
     {
@@ -4021,17 +3568,13 @@ class Tpl extends Template
      *      - return      string      Value to display if it is the case (default: first)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingIfFirst(ArrayObject $attr): string
     {
         $ret = $attr['return'] ?? 'first';
         $ret = Html::escapeHTML($ret);
 
-        return
-        '<?php if (App::frontend()->context()->pings->index() == 0) { ' .
-        "echo '" . addslashes($ret) . "'; } ?>";
+        return '<?php if (App::frontend()->context()->pings->index() == 0) { ' . "echo '" . addslashes($ret) . "'; } ?>";
     }
 
     /**
@@ -4043,8 +3586,6 @@ class Tpl extends Template
      *      - even        string      Value to display if it is not the case (default: <empty>)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingIfOdd(ArrayObject $attr): string
     {
@@ -4054,9 +3595,7 @@ class Tpl extends Template
         $even = $attr['even'] ?? '';
         $even = Html::escapeHTML($even);
 
-        return '<?= ((App::frontend()->context()->pings->index()+1)%2 ? ' .
-        '"' . addslashes($odd) . '" : ' .
-        '"' . addslashes($even) . '") ?>';
+        return '<?= ((App::frontend()->context()->pings->index()+1)%2 ? "' . addslashes($odd) . '" : "' . addslashes($even) . '") ?>';
     }
 
     /**
@@ -4068,8 +3607,6 @@ class Tpl extends Template
      *      - odd         string      Value to display if it is not the case (default: <empty>)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingIfEven(ArrayObject $attr): string
     {
@@ -4079,17 +3616,13 @@ class Tpl extends Template
         $odd = $attr['odd'] ?? '';
         $odd = Html::escapeHTML($odd);
 
-        return '<?= ((App::frontend()->context()->pings->index()+1)%2+1 ? ' .
-        '"' . addslashes($even) . '" : ' .
-        '"' . addslashes($odd) . '") ?>';
+        return '<?= ((App::frontend()->context()->pings->index()+1)%2+1 ? "' . addslashes($even) . '" : "' . addslashes($odd) . '") ?>';
     }
 
     /**
      * tpl:PingIP : Displays ping author IP (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingIP(ArrayObject $attr): string
     {
@@ -4100,23 +3633,16 @@ class Tpl extends Template
      * tpl:PingNoFollow : Displays 'rel="nofollow"' if set in blog (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingNoFollow(ArrayObject $attr): string
     {
-        return
-            '<?php if(App::blog()->settings()->system->comments_nofollow) { ' .
-            'echo \' rel="nofollow"\';' .
-            '} ?>';
+        return '<?php if (App::blog()->settings()->system->comments_nofollow) { ' . 'echo \' rel="nofollow"\'; } ?>';
     }
 
     /**
      * tpl:PingOrderNumber : Displays trackback order in page, 1 based (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingOrderNumber(ArrayObject $attr): string
     {
@@ -4131,8 +3657,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingPostURL(ArrayObject $attr): string
     {
@@ -4151,8 +3675,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function Pings(ArrayObject $attr, string $content): string
     {
@@ -4165,7 +3687,7 @@ class Tpl extends Template
 
         $lastn = 0;
         if (isset($attr['lastn'])) {
-            $lastn = abs((int) $attr['lastn']) + 0;
+            $lastn = abs((int) $attr['lastn']);
         }
 
         if ($lastn > 0) {
@@ -4208,9 +3730,7 @@ class Tpl extends Template
         $res .= "if (App::frontend()->context()->posts !== null) { App::blog()->withoutPassword(true);}\n";
         $res .= "?>\n";
 
-        $res .= '<?php while (App::frontend()->context()->pings->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->pings = null; ?>';
-
-        return $res;
+        return $res . ('<?php while (App::frontend()->context()->pings->fetch()) : ?>' . $content . '<?php endwhile; App::frontend()->context()->pings = null; ?>');
     }
 
     /**
@@ -4218,15 +3738,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function PingsHeader(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->pings->isStart()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->pings->isStart()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -4234,15 +3749,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function PingsFooter(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->pings->isEnd()) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->pings->isEnd()) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -4253,8 +3763,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingTitle(ArrayObject $attr): string
     {
@@ -4269,8 +3777,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function PingAuthorURL(ArrayObject $attr): string
     {
@@ -4289,8 +3795,6 @@ class Tpl extends Template
      * @todo    Remove old dcCore from tpl::SysBehavior returned call parameters
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return  string
      */
     public function SysBehavior(ArrayObject $attr): string
     {
@@ -4333,8 +3837,6 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function SysIf(ArrayObject $attr, string $content): string
     {
@@ -4441,7 +3943,7 @@ class Tpl extends Template
         # --BEHAVIOR-- templatePrepareParams -- string, ArrayObject, array<int,string>
         App::behavior()->callBehavior('tplIfConditions', 'SysIf', $attr, $content, $if);
 
-        if (count($if)) {
+        if (count($if) > 0) {
             return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
@@ -4453,15 +3955,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function SysIfCommentPublished(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (!empty($_GET[\'pub\'])) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (!empty($_GET[\'pub\'])) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -4469,15 +3966,10 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function SysIfCommentPending(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (isset($_GET[\'pub\']) && $_GET[\'pub\'] == 0) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (isset($_GET[\'pub\']) && $_GET[\'pub\'] == 0) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -4488,13 +3980,10 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function SysFeedSubtitle(ArrayObject $attr): string
     {
-        return '<?php if (App::frontend()->context()->feed_subtitle !== null) { echo ' .
-            sprintf($this->getFilters($attr), 'App::frontend()->context()->feed_subtitle') . ';} ?>';
+        return '<?php if (App::frontend()->context()->feed_subtitle !== null) { echo ' . sprintf($this->getFilters($attr), 'App::frontend()->context()->feed_subtitle') . ';} ?>';
     }
 
     /**
@@ -4502,41 +3991,30 @@ class Tpl extends Template
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      * @param      string                        $content  The content
-     *
-     * @return     string
      */
     public function SysIfFormError(ArrayObject $attr, string $content): string
     {
-        return
-            '<?php if (App::frontend()->context()->form_error !== null) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        return '<?php if (App::frontend()->context()->form_error !== null) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
      * tpl:SysFormError : Displays form error (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function SysFormError(ArrayObject $attr): string
     {
-        return
-            '<?php if (App::frontend()->context()->form_error !== null) { echo App::frontend()->context()->form_error; } ?>';
+        return '<?php if (App::frontend()->context()->form_error !== null) { echo App::frontend()->context()->form_error; } ?>';
     }
 
     /**
      * tpl:SysPoweredBy : Displays localized powered by (tpl value)
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function SysPoweredBy(ArrayObject $attr): string
     {
-        return
-            '<?php printf(__("Powered by %s"),"<a href=\"https://dotclear.org/\">Dotclear</a>"); ?>';
+        return '<?php printf(__("Powered by %s"),"<a href=\"https://dotclear.org/\">Dotclear</a>"); ?>';
     }
 
     /**
@@ -4547,15 +4025,12 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function SysSearchString(ArrayObject $attr): string
     {
         $string = $attr['string'] ?? '%1$s';
 
-        return '<?php if (isset(App::frontend()->search)) { echo sprintf(__(\'' . $string . '\'),' .
-            sprintf($this->getFilters($attr), 'App::frontend()->search') . ',App::frontend()->search_count);} ?>';
+        return '<?php if (isset(App::frontend()->search)) { echo sprintf(__(\'' . $string . '\'),' . sprintf($this->getFilters($attr), 'App::frontend()->search') . ',App::frontend()->search_count);} ?>';
     }
 
     /**
@@ -4566,8 +4041,6 @@ class Tpl extends Template
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function SysSelfURI(ArrayObject $attr): string
     {
@@ -4580,8 +4053,6 @@ class Tpl extends Template
      * May be used inside a tpl:If… block
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
-     *
-     * @return     string
      */
     public function GenericElse(ArrayObject $attr): string
     {

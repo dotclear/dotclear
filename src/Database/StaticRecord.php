@@ -204,7 +204,7 @@ class StaticRecord extends Record
             $a = (int) $a;
             $b = (int) $b;
 
-            return (int) (($a - $b) * $this->__sortsign);
+            return ($a - $b) * $this->__sortsign;
         }
 
         return strcmp((string) $a, (string) $b) * $this->__sortsign;

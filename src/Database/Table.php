@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -223,8 +224,6 @@ class Table
      * @param      bool       $to_null  Set type to null if type unknown
      *
      * @throws     Exception
-     *
-     * @return     Table|self
      */
     public function field(string $name, string $type, ?int $len, bool $null = true, $default = false, bool $to_null = false): Table
     {
@@ -242,7 +241,7 @@ class Table
             'type'    => $type,
             'len'     => (int) $len,
             'default' => $default,
-            'null'    => (bool) $null,
+            'null'    => $null,
         ];
 
         return $this;
@@ -251,12 +250,10 @@ class Table
     /**
      * Set field
      *
-     * @param      string  $name   The name
-     * @param      mixed   $properties   The arguments
-     *
-     * @return     Table|self
+     * @param      string                                                   $name           The name
+     * @param      array{0: string, 1: ?int, 2: bool, 3: mixed, 4: bool}    $properties     The arguments
      */
-    public function __call(string $name, $properties): Table
+    public function __call(string $name, array $properties): Table
     {
         return $this->field($name, ...$properties);
     }
@@ -268,8 +265,6 @@ class Table
      * @param      mixed          ...$fields    The cols
      *
      * @throws     Exception
-     *
-     * @return     Table|self
      */
     public function primary(string $name, ...$fields): Table
     {
@@ -285,8 +280,6 @@ class Table
      *
      * @param      string         $name       The name
      * @param      mixed          ...$fields  The fields
-     *
-     * @return     Table|self
      */
     public function unique(string $name, ...$fields): Table
     {
@@ -299,8 +292,6 @@ class Table
      * @param      string              $name        The name
      * @param      string              $type        The type
      * @param      mixed               ...$fields   The fields
-     *
-     * @return     Table|self
      */
     public function index(string $name, string $type, ...$fields): Table
     {
@@ -350,8 +341,6 @@ class Table
      * @param      string           $type    The type
      * @param      string           $name    The name
      * @param      array<string>    $fields  The fields
-     *
-     * @return     Table|self
      */
     protected function newKey(string $type, string $name, array $fields): Table
     {
@@ -362,7 +351,7 @@ class Table
             'cols' => $fields,
         ];
 
-        if ($type == 'primary') {
+        if ($type === 'primary') {
             $this->has_primary = true;
         }
 

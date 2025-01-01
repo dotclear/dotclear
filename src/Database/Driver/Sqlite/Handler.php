@@ -284,10 +284,14 @@ class Handler extends AbstractHandler
      *
      * @param      mixed  $res    The resource
      *
-     * @return     false
+     * @return     array<mixed>|false
      */
-    public function db_fetch_assoc($res): bool
+    public function db_fetch_assoc($res): false|array
     {
+        if ($res instanceof PDOStatement) {
+            return [];
+        }
+
         return false;
     }
 

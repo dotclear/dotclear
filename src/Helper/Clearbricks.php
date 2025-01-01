@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Clearbricks
  *
@@ -50,8 +51,6 @@ class Clearbricks
 
     /**
      * Get Clearbricks singleton instance
-     *
-     * @return     self
      *
      * @deprecated Since 2.26
      */

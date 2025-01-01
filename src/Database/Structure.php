@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -39,8 +40,6 @@ class Structure
 
     /**
      * Get driver name
-     *
-     * @return     string
      */
     public function driver(): string
     {
@@ -133,10 +132,8 @@ class Structure
      * Synchronize this schema taken from database with $schema.
      *
      * @param      Structure $s Structure to synchronize with
-     *
-     * @return     int
      */
-    public function synchronize(Structure $s)
+    public function synchronize(Structure $s): int
     {
         $this->tables = [];
         $this->reverse();
@@ -201,11 +198,7 @@ class Structure
                 $db_keys = $this->tables[$tname]->getKeys();
 
                 foreach ($keys as $kname => $k) {
-                    if ($k['type'] == 'primary' && $this->con->syntax() == 'mysql') {
-                        $kname = 'PRIMARY';
-                    } else {
-                        $kname = $this->prefix . $kname;
-                    }
+                    $kname = $k['type'] == 'primary' && $this->con->syntax() === 'mysql' ? 'PRIMARY' : $this->prefix . $kname;
 
                     $db_kname = $this->tables[$tname]->keyExists($kname, $k['type'], $k['cols']);
                     if (!$db_kname) {
@@ -358,8 +351,6 @@ class Structure
      * Determines if table exists.
      *
      * @param      string  $name   The name (including prefix)
-     *
-     * @return     bool    True if table exists, False otherwise.
      */
     public function tableExists(string $name): bool
     {
@@ -371,8 +362,6 @@ class Structure
      *
      * @param      array<string, mixed>  $dst_field  The destination field
      * @param      array<string, mixed>  $src_field  The source field
-     *
-     * @return     bool
      */
     private function fieldsDiffer(array $dst_field, array $src_field): bool
     {
@@ -386,7 +375,7 @@ class Structure
         $s_default = $src_field['default'];
         $s_null    = $src_field['null'];
 
-        return $d_type != $s_type || $d_len != $s_len || $d_default != $s_default || $d_null != $s_null;
+        return $d_type != $s_type || $d_len !== $s_len || $d_default != $s_default || $d_null != $s_null;
     }
 
     /**
@@ -396,12 +385,10 @@ class Structure
      * @param      array<string>    $dst_fields  The destination fields
      * @param      string           $src_name    The source name
      * @param      array<string>    $src_fields  The source fields
-     *
-     * @return     bool
      */
     private function keysDiffer(string $dst_name, array $dst_fields, string $src_name, array $src_fields): bool
     {
-        return $dst_name != $src_name || $dst_fields != $src_fields;
+        return $dst_name !== $src_name || $dst_fields !== $src_fields;
     }
 
     /**
@@ -411,12 +398,10 @@ class Structure
      * @param      array<string, mixed>     $dst_idx   The destination index
      * @param      string                   $src_name  The source name
      * @param      array<string, mixed>     $src_idc   The source idc
-     *
-     * @return     bool
      */
     private function indexesDiffer(string $dst_name, array $dst_idx, string $src_name, array $src_idc): bool
     {
-        return $dst_name != $src_name || $dst_idx['cols'] != $src_idc['cols'] || $dst_idx['type'] != $src_idc['type'];
+        return $dst_name !== $src_name || $dst_idx['cols'] != $src_idc['cols'] || $dst_idx['type'] != $src_idc['type'];
     }
 
     /**
@@ -426,11 +411,9 @@ class Structure
      * @param      array<string, mixed>     $dst_ref   The destination reference
      * @param      string                   $src_name  The source name
      * @param      array<string, mixed>     $src_ref   The source reference
-     *
-     * @return     bool
      */
     private function referencesDiffer(string $dst_name, array $dst_ref, string $src_name, array $src_ref): bool
     {
-        return $dst_name != $src_name || $dst_ref['c_cols'] != $src_ref['c_cols'] || $dst_ref['p_table'] != $src_ref['p_table'] || $dst_ref['p_cols'] != $src_ref['p_cols'] || $dst_ref['update'] != $src_ref['update'] || $dst_ref['delete'] != $src_ref['delete'];
+        return $dst_name !== $src_name || $dst_ref['c_cols'] != $src_ref['c_cols'] || $dst_ref['p_table'] != $src_ref['p_table'] || $dst_ref['p_cols'] != $src_ref['p_cols'] || $dst_ref['update'] != $src_ref['update'] || $dst_ref['delete'] != $src_ref['delete'];
     }
 }

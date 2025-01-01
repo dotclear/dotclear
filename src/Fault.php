@@ -24,8 +24,6 @@ class Fault
      * The application configuration (if loaded).
      *
      * Class can work without Config for early exception.
-     *
-     * @var     Config  $config
      */
     public static ?Config $config = null;
 
@@ -42,11 +40,11 @@ class Fault
         // Parse some Exception values. And try to translate them even if they are already translated.
         $code    = $exception->getCode() ?: 500;
         $label   = htmlspecialchars(__($exception->getMessage()));
-        $message = nl2br(__($exception->getPrevious() === null ? $exception->getMessage() : $exception->getPrevious()->getMessage()));
+        $message = nl2br(__($exception->getPrevious() instanceof Throwable ? $exception->getPrevious()->getMessage() : $exception->getMessage()));
         $trace   = htmlspecialchars(self::$config?->debugMode() !== false ? self::trace($exception) : '');
 
         // Stop in CLI mode
-        if (PHP_SAPI == 'cli') {
+        if (PHP_SAPI === 'cli') {
             echo $label . ' (' . $code . ")\n";
             exit;
         }
@@ -68,7 +66,7 @@ class Fault
     public static function setExceptionHandler(): void
     {
         // Set exception handler
-        if (set_exception_handler(function (Throwable $exception) { new self($exception); }) !== null) {
+        if (set_exception_handler(function (Throwable $exception): void { new self($exception); }) !== null) {
             // Keep previously defined exception handler if any
             restore_exception_handler();
         }
@@ -85,7 +83,7 @@ class Fault
      *
      * @return  string  The formated trace
      */
-    public static function trace(Throwable $exception, ?array $seen = null)
+    public static function trace(Throwable $exception, ?array $seen = null): string
     {
         $starter = $seen ? 'Caused by: ' : '';
         $result  = [];
@@ -108,7 +106,7 @@ class Fault
                 $line ?? ''
             );
             $seen[] = "$file:$line";
-            if (!count($trace)) {
+            if ($trace === []) {
                 break;
             }
             $file = array_key_exists('file', $trace[0]) ? $trace[0]['file'] : 'Unknown Source';
@@ -116,7 +114,7 @@ class Fault
             array_shift($trace);
         }
         $result = implode("\n", $result);
-        if ($prev) {
+        if ($prev instanceof Throwable) {
             $result .= "\n" . self::trace($prev, $seen);
         }
 
