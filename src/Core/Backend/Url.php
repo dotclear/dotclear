@@ -97,7 +97,7 @@ class Url
 
         $url       = $this->urls[$orig];
         $url['qs'] = array_merge($url['qs'], $params);
-        if ($newurl != '') {
+        if ($newurl !== '') {
             $url['url'] = $newurl;
         }
         $this->urls[$name] = $url;
@@ -124,7 +124,7 @@ class Url
         $url = $this->urls[$name];
         $qs  = array_merge($url['qs'], $params);
         $url = $url['url'];
-        if (!empty($qs)) {
+        if ($qs !== []) {
             $url .= (str_contains((string) $url, '?') ? $separator : '?') . http_build_query($qs, '', $separator);
         }
         if ($parametric) {

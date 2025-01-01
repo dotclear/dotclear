@@ -117,13 +117,13 @@ class UserPref
                 // Sort corresponding $cols columns
                 $order = array_keys($cv);
                 if (isset($cols[$ct][1])) {
-                    uksort($cols[$ct][1], fn ($key1, $key2) => array_search($key1, $order) <=> array_search($key2, $order));
+                    uksort($cols[$ct][1], fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
                 }
-                if (!empty($type) && !empty($columns) && $ct == $type) {
+                if ($type !== null && $type !== '' && !empty($columns) && $ct == $type) {
                     // Use ArrayObject in all cases
                     $columns = $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
                     // Sort also corresponding $columns columns
-                    $columns->uksort(fn ($key1, $key2) => array_search($key1, $order) <=> array_search($key2, $order));
+                    $columns->uksort(fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
                 }
                 /*
                  * $cn = column id
@@ -134,7 +134,7 @@ class UserPref
                         $cols[$ct][1][$cn][0] = $cd;
 
                         // remove unselected columns if type is given
-                        if (!$cd && !empty($type) && !empty($columns) && $ct == $type && isset($columns[$cn])) {
+                        if (!$cd && $type !== null && $type !== '' && !empty($columns) && $ct == $type && isset($columns[$cn])) {
                             unset($columns[$cn]);
                         }
                     }
@@ -227,7 +227,7 @@ class UserPref
      */
     public static function getUserFilters(?string $type = null, ?string $option = null)
     {
-        if (self::$sorts === null) {
+        if (!self::$sorts instanceof ArrayObject) {
             $sorts = self::getDefaultFilters();
             $sorts = new ArrayObject($sorts);
 
@@ -260,13 +260,13 @@ class UserPref
             if (null === $option) {
                 return self::$sorts[$type];
             }
-            if ($option == 'sortby' && null !== self::$sorts[$type][2]) {
+            if ($option === 'sortby' && null !== self::$sorts[$type][2]) {
                 return self::$sorts[$type][2];
             }
-            if ($option == 'order' && null !== self::$sorts[$type][3]) {
+            if ($option === 'order' && null !== self::$sorts[$type][3]) {
                 return self::$sorts[$type][3];
             }
-            if ($option == 'nb' && is_array(self::$sorts[$type][4])) {
+            if ($option === 'nb' && is_array(self::$sorts[$type][4])) {
                 return abs((int) self::$sorts[$type][4][1]);
             }
         }

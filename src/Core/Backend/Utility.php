@@ -38,36 +38,26 @@ class Utility extends Process
 
     /**
      * Current admin page URL.
-     *
-     * @var     string  $p_url
      */
     private string $p_url = '';
 
     /**
      * Backend (admin) Url handler instance.
-     *
-     * @var     Url     $url
      */
     private Url $url;
 
     /**
      * Backend (admin) Favorites handler instance.
-     *
-     *  @var    Favorites   $favorites
      */
     private Favorites $favorites;
 
     /**
      * Backend (admin) Menus handler instance.
-     *
-     * @var     Menus   $menus
      */
     private Menus $menus;
 
     /**
      * Backend help resources instance.
-     *
-     * @var     Resources   $resources
      */
     private Resources $resources;
 
@@ -140,7 +130,7 @@ class Utility extends Process
                     setcookie(...$p);   // @phpstan-ignore-line
 
                     // Preserve safe_mode if necessary
-                    $params = !empty($_REQUEST['safe_mode']) ? ['safe_mode' => 1] : [];
+                    $params = empty($_REQUEST['safe_mode']) ? [] : ['safe_mode' => 1];
                     App::backend()->url()->redirect('admin.auth', $params);
                 }
             } catch (Throwable) {
@@ -161,7 +151,7 @@ class Utility extends Process
             }
 
             // Check nonce from POST requests
-            if (!empty($_POST) && (empty($_POST['xd_check']) || !App::nonce()->checkNonce($_POST['xd_check']))) {
+            if ($_POST !== [] && (empty($_POST['xd_check']) || !App::nonce()->checkNonce($_POST['xd_check']))) {
                 throw new PreconditionException();
             }
 
@@ -194,13 +184,11 @@ class Utility extends Process
             }
 
             // Check if requested blog is in URL query (blog=blog_id)
-            if ($url = parse_url((string) $_SERVER['REQUEST_URI'])) {
-                if (isset($url['query'])) {
-                    $params = [];
-                    parse_str($url['query'], $params);
-                    if (isset($params['blog'])) {
-                        $_SESSION['sess_blog_id'] = $params['blog'];
-                    }
+            if (($url = parse_url((string) $_SERVER['REQUEST_URI'])) && isset($url['query'])) {
+                $params = [];
+                parse_str($url['query'], $params);
+                if (isset($params['blog'])) {
+                    $_SESSION['sess_blog_id'] = $params['blog'];
                 }
             }
 
@@ -209,11 +197,9 @@ class Utility extends Process
                 if (App::auth()->getPermissions($_SESSION['sess_blog_id']) === false) {
                     unset($_SESSION['sess_blog_id']);
                 }
-            } else {
-                if (($b = App::auth()->findUserBlog(App::auth()->getInfo('user_default_blog'), false)) !== false) {
-                    $_SESSION['sess_blog_id'] = $b;
-                    unset($b);
-                }
+            } elseif (($b = App::auth()->findUserBlog(App::auth()->getInfo('user_default_blog'), false)) !== false) {
+                $_SESSION['sess_blog_id'] = $b;
+                unset($b);
             }
 
             // Load locales

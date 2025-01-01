@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -17,11 +18,15 @@ use dcCore;
  */
 class Resources
 {
-    /** @var    bool    Non global help context */
-    private $context = false;
+    /**
+     * @var    bool    Non global help context
+     */
+    private bool $context = false;
 
-    /** @var    array<string,array<string,string>>   The help stack */
-    private $stack = [];
+    /**
+     * @var    array<string,array<string,string>>   The help stack
+     */
+    private array $stack = [];
 
     /**
      * Get / switch help context.

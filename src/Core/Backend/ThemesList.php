@@ -74,7 +74,7 @@ class ThemesList extends ModulesList
         // Sort modules by id
         $sort_field = $this->getSort();
         if ($this->getSearch() === null) {
-            uasort($this->defines, fn ($a, $b) => $a->get($sort_field) <=> $b->get($sort_field));
+            uasort($this->defines, fn ($a, $b): int => $a->get($sort_field) <=> $b->get($sort_field));
         }
 
         $themes = [];
@@ -90,7 +90,7 @@ class ThemesList extends ModulesList
                 if (!in_array($char, $this->nav_list)) {
                     $char = $this->nav_special;
                 }
-                if ($this->getIndex() != $char) {
+                if ($this->getIndex() !== $char) {
                     continue;
                 }
             }
@@ -195,7 +195,7 @@ class ThemesList extends ModulesList
                 }
             }
             if (in_array('repository', $cols) && App::config()->allowRepositories()) {
-                $infos[] = (new Text('span', !empty($define->get('repository')) ? __('Third-party repository') : __('Official repository')))
+                $infos[] = (new Text('span', empty($define->get('repository')) ? __('Official repository') : __('Third-party repository')))
                     ->class('module-repository');
             }
             if ($define->updLocked()) {
@@ -278,7 +278,7 @@ class ThemesList extends ModulesList
                     ]);
             }
             // _POST actions
-            if (!empty($actions)) {
+            if ($actions !== []) {
                 $module_actions[] = (new Para())
                     ->class('module-post-actions')
                     ->items([
@@ -326,9 +326,9 @@ class ThemesList extends ModulesList
             $bottom = (new Note())
                 ->class('message')
                 ->text(__('No themes matched your search.'));
-        } elseif ((in_array('checkbox', $cols) || $count > 1) && !empty($actions) && App::auth()->isSuperAdmin()) {
+        } elseif ((in_array('checkbox', $cols) || $count > 1) && $actions !== [] && App::auth()->isSuperAdmin()) {
             $buttons = $this->getGlobalActions($actions, in_array('checkbox', $cols));
-            if (!empty($buttons)) {
+            if ($buttons !== []) {
                 $bottom = (new Set())
                     ->items([
                         in_array('checkbox', $cols) ? ((new Para())->class('checkboxes-helpers')) : (new None()),
@@ -452,7 +452,7 @@ class ThemesList extends ModulesList
                     # --BEHAVIOR-- adminModulesListGetGlobalActions -- ModulesList
                     $tmp = App::behavior()->callBehavior('adminModulesListGetGlobalActions', $this);
 
-                    if (!empty($tmp)) {
+                    if ($tmp !== '') {
                         $submits[] = $tmp;
                     }
 
@@ -470,7 +470,7 @@ class ThemesList extends ModulesList
      */
     public function doActions(): void
     {
-        if (empty($_POST) || !empty($_REQUEST['conf'])) {
+        if ($_POST === [] || !empty($_REQUEST['conf'])) {
             return;
         }
 
@@ -523,7 +523,7 @@ class ThemesList extends ModulesList
                     $count++;
                 }
 
-                if (!$count) {
+                if ($count === 0) {
                     throw new Exception(__('No such theme.'));
                 }
 
@@ -561,7 +561,7 @@ class ThemesList extends ModulesList
                     $count++;
                 }
 
-                if (!$count) {
+                if ($count === 0) {
                     throw new Exception(__('No such theme.'));
                 }
 
@@ -596,7 +596,7 @@ class ThemesList extends ModulesList
                     $count++;
                 }
 
-                if (!$count) {
+                if ($count === 0) {
                     throw new Exception(__('No such theme.'));
                 }
 
@@ -636,7 +636,7 @@ class ThemesList extends ModulesList
 
                 if (!$count && $failed) {
                     throw new Exception(__("You don't have permissions to delete this theme."));
-                } elseif (!$count) {
+                } elseif ($count === 0) {
                     throw new Exception(__('No such theme.'));
                 } elseif ($failed) {
                     Notices::addWarningNotice(__('Some themes have not been delete.'));
@@ -670,7 +670,7 @@ class ThemesList extends ModulesList
                     $count++;
                 }
 
-                if (!$count) {
+                if ($count === 0) {
                     throw new Exception(__('No such theme.'));
                 }
 
@@ -710,13 +710,13 @@ class ThemesList extends ModulesList
                     $count++;
                 }
 
-                $tab = $count == count($defines) ? 'themes' : 'update';
+                $tab = $count === count($defines) ? 'themes' : 'update';
 
-                if ($count) {
+                if ($count !== 0) {
                     Notices::addSuccessNotice(
                         __('Theme has been successfully updated.', 'Themes have been successfully updated.', $count)
                     );
-                } elseif (!empty($locked)) {
+                } elseif ($locked !== []) {
                     Notices::addWarningNotice(
                         sprintf(__('Following themes updates are locked: %s'), implode(', ', $locked))
                     );
@@ -755,7 +755,7 @@ class ThemesList extends ModulesList
                 App::behavior()->callBehavior('themeAfterAdd', null);
 
                 Notices::addSuccessNotice(
-                    $ret_code == $this->modules::PACKAGE_UPDATED ?
+                    $ret_code === $this->modules::PACKAGE_UPDATED ?
                     __('The theme has been successfully updated.') :
                     __('The theme has been successfully installed.')
                 );
@@ -772,18 +772,18 @@ class ThemesList extends ModulesList
      *
      * @note Required previously set file info
      *
-     * @return mixed    Full path of config file or null
+     * @return null|string    Full path of config file or null
      */
-    public function includeConfiguration()
+    public function includeConfiguration(): ?string
     {
-        if (empty($this->config_class) && !$this->config_file) {
-            return;
+        if ($this->config_class === '' && !$this->config_file) {
+            return null;
         }
         $this->setRedir($this->getURL('', true, 'themes'));
 
         ob_start();
 
-        if (!empty($this->config_class) && $this->config_class::init() && $this->config_class::process()) {
+        if ($this->config_class !== '' && $this->config_class::init() && $this->config_class::process()) {
             $this->config_class::render();
 
             return null;

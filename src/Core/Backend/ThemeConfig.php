@@ -40,12 +40,12 @@ class ThemeConfig
         }
 
         $color = self::adjustColor($color);
-        if (($color == '') || (strlen($color) != 7)) {
+        if (($color === '') || (strlen($color) != 7)) {
             return 0;
         }
 
         $background = self::adjustColor($background);
-        if (($background == '') || (strlen($background) != 7)) {
+        if (($background === '') || (strlen($background) != 7)) {
             return 0;
         }
 
@@ -71,28 +71,26 @@ class ThemeConfig
      */
     public static function contrastRatioLevel(float $ratio, ?string $size, bool $bold = false): string
     {
-        if ((string) $size !== '') {
-            if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', (string) $size, $matches)) {
-                if (empty($matches[2])) {
-                    $matches[2] = 'em';
-                }
-                $absolute_size = match ($matches[2]) {
-                    '%'  => (float) $matches[1] / 100,
-                    'pt' => (float) $matches[1] / 12,
-                    'px' => (float) $matches[1] / 16,
-                    'rem', 'em' => (float) $matches[1],
-                    'ex', 'ch' => (float) $matches[1] / 2,
-                };
+        if ((string) $size !== '' && preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', (string) $size, $matches)) {
+            if (empty($matches[2])) {
+                $matches[2] = 'em';
+            }
+            $absolute_size = match ($matches[2]) {
+                '%'  => (float) $matches[1] / 100,
+                'pt' => (float) $matches[1] / 12,
+                'px' => (float) $matches[1] / 16,
+                'rem', 'em' => (float) $matches[1],
+                'ex', 'ch' => (float) $matches[1] / 2,
+            };
 
-                if ($absolute_size) {
-                    $large = ((($absolute_size > 1.5) && (!$bold)) || (($absolute_size > 1.2) && ($bold)));
+            if ($absolute_size !== 0.0) {
+                $large = ((($absolute_size > 1.5) && (!$bold)) || (($absolute_size > 1.2) && ($bold)));
 
-                    // Check ratio
-                    if ($ratio > 7 || (($ratio > 4.5) && $large)) {
-                        return 'AAA';
-                    } elseif ($ratio > 4.5 || (($ratio > 3) && $large)) {
-                        return 'AA';
-                    }
+                // Check ratio
+                if ($ratio > 7 || (($ratio > 4.5) && $large)) {
+                    return 'AAA';
+                } elseif ($ratio > 4.5 || (($ratio > 3) && $large)) {
+                    return 'AA';
                 }
             }
         }
@@ -132,14 +130,12 @@ class ThemeConfig
      */
     public static function adjustFontSize(?string $size): ?string
     {
-        if ($size) {
-            if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $size, $matches)) {
-                if (empty($matches[2])) {
-                    $matches[2] = 'em';
-                }
-
-                return $matches[1] . $matches[2];
+        if ($size && preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $size, $matches)) {
+            if (empty($matches[2])) {
+                $matches[2] = 'em';
             }
+
+            return $matches[1] . $matches[2];
         }
 
         return $size;
@@ -335,10 +331,8 @@ class ThemeConfig
      * Return public URL of user defined CSS
      *
      * @param  string $folder CSS folder
-     *
-     * @return mixed         CSS file URL
      */
-    public static function publicCssUrlHelper(string $folder)
+    public static function publicCssUrlHelper(string $folder): ?string
     {
         $theme = App::blog()->settings()->system->theme;
         $url   = self::cssURL($folder);
@@ -347,6 +341,8 @@ class ThemeConfig
         if (file_exists($path . '/' . $theme . '.css')) {
             return $url . '/' . $theme . '.css';
         }
+
+        return null;
     }
 
     /**
@@ -445,17 +441,17 @@ class ThemeConfig
         $name = $file['name'];
         $type = Files::getMimeType($name);
 
-        if ($type != 'image/jpeg' && $type != 'image/png') {
+        if ($type !== 'image/jpeg' && $type !== 'image/png') {
             throw new Exception(__('Invalid file type.'));
         }
 
-        $dest = self::imagesPath($folder) . '/uploaded' . ($type == 'image/png' ? '.png' : '.jpg');
+        $dest = self::imagesPath($folder) . '/uploaded' . ($type === 'image/png' ? '.png' : '.jpg');
 
         if (@move_uploaded_file($file['tmp_name'], $dest) === false) {
             throw new Exception(__('An error occurred while writing the file.'));
         }
 
-        if ($width) {
+        if ($width !== 0) {
             $size = getimagesize($dest);
             if ($size !== false && $size[0] != $width) {
                 throw new Exception(sprintf(__('Uploaded image is not %s pixels wide.'), $width));
