@@ -27,22 +27,16 @@ class Path
      *
      * @param string    $filename        Filename
      * @param boolean    $strict    File should exists
-     *
-     * @return string|false
      */
-    public static function real(string $filename, bool $strict = true)
+    public static function real(string $filename, bool $strict = true): false|string
     {
-        $os = (DIRECTORY_SEPARATOR == '\\') ? 'win' : 'nix';
+        $os = (DIRECTORY_SEPARATOR === '\\') ? 'win' : 'nix';
 
         # Absolute path?
-        if ($os == 'win') {
-            $absolute = preg_match('/^\w+:/', $filename);
-        } else {
-            $absolute = str_starts_with($filename, '/');
-        }
+        $absolute = $os === 'win' ? preg_match('/^\w+:/', $filename) : str_starts_with($filename, '/');
 
         # Standard path form
-        if ($os == 'win') {
+        if ($os === 'win') {
             $filename = str_replace('\\', '/', $filename);
         }
 
@@ -59,7 +53,7 @@ class Path
         }
 
         $prefix = '';
-        if ($os == 'win') {
+        if ($os === 'win') {
             [$prefix, $filename] = explode(':', $filename);
             $prefix .= ':/';
         } else {
@@ -68,20 +62,21 @@ class Path
         $filename = substr($filename, 1);
 
         # Go through
-        $parts = explode('/', $filename);
-        $res   = [];
+        $parts   = explode('/', $filename);
+        $res     = [];
+        $counter = count($parts);
 
-        for ($i = 0; $i < count($parts); $i++) {
-            if ($parts[$i] == '.') {
+        for ($i = 0; $i < $counter; $i++) {
+            if ($parts[$i] === '.') {
                 continue;
             }
 
-            if ($parts[$i] == '..') {
-                if (count($res) > 0) {
+            if ($parts[$i] === '..') {
+                if ($res !== []) {
                     array_pop($res);
                 }
             } else {
-                array_push($res, $parts[$i]);
+                $res[] = $parts[$i];
             }
         }
 
@@ -98,8 +93,6 @@ class Path
      * Returns a clean file path
      *
      * @param string    $filename        File path
-     *
-     * @return string
      */
     public static function clean(?string $filename): string
     {
@@ -123,15 +116,13 @@ class Path
      *
      * @param   array<int,string>   $elements   The elements
      * @param   string              $separator  The separator
-     *
-     * @return  string
      */
     public static function reduce(array $elements, string $separator = DIRECTORY_SEPARATOR): string
     {
         // Flattened all elements in list
         $flatten = function (array $list) {
             $new = [];
-            array_walk_recursive($list, function ($array) use (&$new) { $new[] = $array; });
+            array_walk_recursive($list, function ($array) use (&$new): void { $new[] = $array; });
 
             return $new;
         };
@@ -150,9 +141,9 @@ class Path
         $table = [];
         foreach ($list as $element) {
             if ($element === '..' && count($table)) {
-                array_pop($table);  // Remove previous element from $table
+                array_pop($table);     // Remove previous element from $table
             } elseif ($element !== '.') {
-                array_push($table, $element);   // Add element to $table
+                $table[] = $element;   // Add element to $table
             }
         }
 
@@ -178,7 +169,7 @@ class Path
         $res      = [];
 
         $res['dirname']   = $pathinfo['dirname'] ?? '.';
-        $res['basename']  = (string) $pathinfo['basename'];
+        $res['basename']  = $pathinfo['basename'];
         $res['extension'] = $pathinfo['extension'] ?? '';
         $res['base']      = (string) preg_replace('/\.' . preg_quote($res['extension'], '/') . '$/', '', $res['basename']);
 
@@ -192,8 +183,6 @@ class Path
      *
      * @param string    $path       File path
      * @param string    $root       Root path
-     *
-     * @return string
      */
     public static function fullFromRoot(string $path, string $root): string
     {
@@ -212,20 +201,18 @@ class Path
     public static function resetServerCache(): void
     {
         try {
-            if (extension_loaded('opcache') || extension_loaded('Zend OPcache')) {
-                if (function_exists('opcache_get_status') && function_exists('opcache_reset')) {
-                    if (ini_get('opcache.restrict_api') !== false && ini_get('opcache.restrict_api') !== '') {
-                        // OPCache API is restricted via .htaccess (or web server config), PHP_INI_USER or PHP_INI_PERDIR
-                        return;
-                    }
-                    if (get_cfg_var('opcache.restrict_api') !== false && get_cfg_var('opcache.restrict_api') !== '') {
-                        // OPCache API is restricted via PHP.ini
-                        return;
-                    }
+            if ((extension_loaded('opcache') || extension_loaded('Zend OPcache')) && (function_exists('opcache_get_status') && function_exists('opcache_reset'))) {
+                if (ini_get('opcache.restrict_api') !== false && ini_get('opcache.restrict_api') !== '') {
+                    // OPCache API is restricted via .htaccess (or web server config), PHP_INI_USER or PHP_INI_PERDIR
+                    return;
+                }
+                if (get_cfg_var('opcache.restrict_api') !== false && get_cfg_var('opcache.restrict_api') !== '') {
+                    // OPCache API is restricted via PHP.ini
+                    return;
+                }
 
-                    if (is_array(opcache_get_status())) {
-                        opcache_reset();
-                    }
+                if (is_array(opcache_get_status())) {
+                    opcache_reset();
                 }
             }
         } catch (Exception) {
@@ -245,7 +232,7 @@ class Path
      */
     public static function dirWithSym(string $dir): string
     {
-        if (empty($dir) || !is_dir($dir)) {
+        if ($dir === '' || !is_dir($dir)) {
             return '';
         }
 

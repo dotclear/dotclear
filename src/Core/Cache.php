@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -26,8 +27,6 @@ class Cache extends HttpCacheStack implements CacheInterface
 {
     /**
      * The full cache directory path.
-     *
-     * @var   string  $cache_dir
      */
     protected string $cache_dir;
 

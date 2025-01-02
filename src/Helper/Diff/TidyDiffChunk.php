@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -22,33 +23,22 @@ class TidyDiffChunk
      *
      * @var array<string, mixed>
      */
-    protected $__info;
+    protected $__info = [
+        'context' => 0,
+        'delete'  => 0,
+        'insert'  => 0,
+        'range'   => [
+            'start' => [],
+            'end'   => [],
+        ],
+    ];
 
     /**
      * Chunk data array
      *
      * @var array<TidyDiffLine>
      */
-    protected $__data;
-
-    /**
-     * Constructor
-     *
-     * Creates and initializes a chunk representation for a TIDY diff.
-     */
-    public function __construct()
-    {
-        $this->__info = [
-            'context' => 0,
-            'delete'  => 0,
-            'insert'  => 0,
-            'range'   => [
-                'start' => [],
-                'end'   => [],
-            ],
-        ];
-        $this->__data = [];
-    }
+    protected $__data = [];
 
     /**
      * Set chunk range
@@ -79,7 +69,7 @@ class TidyDiffChunk
     {
         $tidy_line = new TidyDiffLine($type, $lines, $content);
 
-        array_push($this->__data, $tidy_line);
+        $this->__data[] = $tidy_line;
         $this->__info[$type]++;
     }
 
@@ -181,18 +171,18 @@ class TidyDiffChunk
 
         foreach ($this->__data as $line) {
             if (in_array($line->type, $allowed_types)) {
-                array_push($group, $line);
+                $group[] = $line;
                 ${$line->type}++;
             } else {
                 if ($delete === $insert && count($group) > 0) {
-                    array_push($res, $group);
+                    $res[] = $group;
                 }
                 $delete = $insert = 0;
                 $group  = [];
             }
         }
         if ($delete === $insert && count($group) > 0) {
-            array_push($res, $group);
+            $res[] = $group;
         }
 
         return $res;
@@ -214,8 +204,8 @@ class TidyDiffChunk
             $start++;
         }
 
-        $end   = -1;
-        $limit = $limit - $start;
+        $end = -1;
+        $limit -= $start;
 
         while (-$end <= $limit && $str1[strlen($str1) + $end] === $str2[strlen($str2) + $end]) {
             $end--;

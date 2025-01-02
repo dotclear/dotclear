@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -24,7 +25,7 @@ class Factory
      *
      * @var     array<string,string|callable>   $stack
      */
-    private $stack = [];
+    private array $stack = [];
 
     /**
      * Constructor.

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -45,25 +46,21 @@ class Btn extends Component
 
     /**
      * Renders the HTML component.
-     *
-     * @return     string
      */
     public function render(): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
-            (isset($this->popovertarget) ? ' popovertarget="' . $this->popovertarget . '"' : '') .
-            (isset($this->popovertargetaction) ? ' popovertargetaction="' . $this->popovertargetaction . '"' : '') .
+            ($this->popovertarget !== null ? ' popovertarget="' . $this->popovertarget . '"' : '') .
+            ($this->popovertargetaction !== null ? ' popovertargetaction="' . $this->popovertargetaction . '"' : '') .
             $this->renderCommonAttributes(false) . '>';
 
-        if (isset($this->value)) {
+        if ($this->value !== null) {
             $buffer .= $this->value;
-        } elseif (isset($this->text)) {
+        } elseif ($this->text !== null) {
             $buffer .= $this->text;
         }
 
-        $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
-
-        return $buffer;
+        return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
     }
 
     /**

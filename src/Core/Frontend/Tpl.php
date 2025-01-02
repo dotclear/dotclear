@@ -1911,7 +1911,7 @@ class Tpl extends Template
         $ret = $attr['return'] ?? 'first';
         $ret = Html::escapeHTML($ret);
 
-        return '<?php if (App::frontend()->context()->posts->index() == 0) { ' . "echo '" . addslashes($ret) . "'; } ?>";
+        return '<?php if (App::frontend()->context()->posts->index() == 0) { echo \'' . addslashes($ret) . "'; } ?>";
     }
 
     /**
@@ -1932,7 +1932,7 @@ class Tpl extends Template
         $even = $attr['even'] ?? '';
         $even = Html::escapeHTML($even);
 
-        return '<?= ((App::frontend()->context()->posts->index()+1)%2 ? ' . '"' . addslashes($odd) . '" : ' . '"' . addslashes($even) . '") ?>';
+        return '<?= ((App::frontend()->context()->posts->index()+1)%2 ? "' . addslashes($odd) . '" : "' . addslashes($even) . '") ?>';
     }
 
     /**
@@ -1953,7 +1953,7 @@ class Tpl extends Template
         $odd = $attr['odd'] ?? '';
         $odd = Html::escapeHTML($odd);
 
-        return '<?= ((App::frontend()->context()->posts->index()+1)%2+1 ? ' . '"' . addslashes($even) . '" : ' . '"' . addslashes($odd) . '") ?>';
+        return '<?= ((App::frontend()->context()->posts->index()+1)%2+1 ? "' . addslashes($even) . '" : "' . addslashes($odd) . '") ?>';
     }
 
     /**
@@ -1970,7 +1970,7 @@ class Tpl extends Template
         $ret = $attr['return'] ?? 'selected';
         $ret = Html::escapeHTML($ret);
 
-        return '<?php if (App::frontend()->context()->posts->post_selected) { ' . "echo '" . addslashes($ret) . "'; } ?>";
+        return '<?php if (App::frontend()->context()->posts->post_selected) { echo \'' . addslashes($ret) . "'; } ?>";
     }
 
     /**
@@ -3194,7 +3194,7 @@ class Tpl extends Template
         $ret = $attr['return'] ?? 'first';
         $ret = Html::escapeHTML($ret);
 
-        return '<?php if (App::frontend()->context()->comments->index() == 0) { ' . "echo '" . addslashes($ret) . "'; } ?>";
+        return '<?php if (App::frontend()->context()->comments->index() == 0) { echo \'' . addslashes($ret) . "'; } ?>";
     }
 
     /**
@@ -3211,7 +3211,7 @@ class Tpl extends Template
         $ret = $attr['return'] ?? 'me';
         $ret = Html::escapeHTML($ret);
 
-        return '<?php if (App::frontend()->context()->comments->isMe()) { ' . "echo '" . addslashes($ret) . "'; } ?>";
+        return '<?php if (App::frontend()->context()->comments->isMe()) { echo \'' . addslashes($ret) . "'; } ?>";
     }
 
     /**
@@ -3574,7 +3574,7 @@ class Tpl extends Template
         $ret = $attr['return'] ?? 'first';
         $ret = Html::escapeHTML($ret);
 
-        return '<?php if (App::frontend()->context()->pings->index() == 0) { ' . "echo '" . addslashes($ret) . "'; } ?>";
+        return '<?php if (App::frontend()->context()->pings->index() == 0) { echo \'' . addslashes($ret) . "'; } ?>";
     }
 
     /**
@@ -3636,7 +3636,7 @@ class Tpl extends Template
      */
     public function PingNoFollow(ArrayObject $attr): string
     {
-        return '<?php if (App::blog()->settings()->system->comments_nofollow) { ' . 'echo \' rel="nofollow"\'; } ?>';
+        return '<?php if (App::blog()->settings()->system->comments_nofollow) { echo \' rel="nofollow"\'; } ?>';
     }
 
     /**

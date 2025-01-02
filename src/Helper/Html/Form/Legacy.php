@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -75,8 +76,6 @@ class form
      * @param boolean               $disabled    True if disabled
      * @param string                $extra_html  Extra HTML attributes
      *
-     * @return string
-     *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Select instead
      */
     public static function combo(
@@ -128,8 +127,6 @@ class form
      * @param boolean               $disabled    True if disabled
      * @param string                $extra_html  Extra HTML attributes
      *
-     * @return string
-     *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Radio instead
      */
     public static function radio(
@@ -180,8 +177,6 @@ class form
      * @param string                $tabindex    Element tabindex
      * @param boolean               $disabled    True if disabled
      * @param string                $extra_html  Extra HTML attributes
-     *
-     * @return string
      *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Checkbox instead
      */
@@ -237,8 +232,6 @@ class form
      * @param boolean               $required     Element is required
      * @param string                $type         Input type
      * @param string                $autocomplete Autocomplete attributes if relevant
-     *
-     * @return string
      *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Input instead
      */
@@ -312,8 +305,6 @@ class form
      * @param boolean               $required    Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant (new-password/current-password)
      *
-     * @return string
-     *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Password instead
      */
     public static function password(
@@ -339,7 +330,7 @@ class form
         if ($default || $default === '0') {
             $component->value($default);
         }
-        if ($size) {
+        if ($size !== 0) {
             $component->size($size);
         }
         if ($max) {
@@ -384,8 +375,6 @@ class form
      * @param string                $extra_html  Extra HTML attributes
      * @param boolean               $required    Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
-     *
-     * @return string
      *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Color instead
      */
@@ -458,8 +447,6 @@ class form
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @return string
-     *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Email instead
      */
     public static function email(
@@ -530,8 +517,6 @@ class form
      * @param string                $extra_html   Extra HTML attributes
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
-     *
-     * @return string
      *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Url instead
      */
@@ -604,8 +589,6 @@ class form
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @return string
-     *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Datetime instead
      */
     public static function datetime(
@@ -676,8 +659,6 @@ class form
      * @param string                $extra_html   Extra HTML attributes
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
-     *
-     * @return string
      *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Date instead
      */
@@ -750,8 +731,6 @@ class form
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @return string
-     *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Time instead
      */
     public static function time(
@@ -820,8 +799,6 @@ class form
      * @param string                $extra_html  Extra HTML attributes
      * @param boolean               $required    Element is required
      *
-     * @return string
-     *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/File instead
      */
     public static function file(
@@ -880,8 +857,6 @@ class form
      * @param string                $extra_html   Extra HTML attributes
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
-     *
-     * @return string
      *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Number instead
      */
@@ -948,8 +923,6 @@ class form
      * @param boolean               $required     Element is required
      * @param string                $autocomplete Autocomplete attributes if relevant
      *
-     * @return string
-     *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Textarea instead
      */
     public static function textArea(
@@ -1006,8 +979,6 @@ class form
      * @param string|array{0: string, 1?: string}|null      $nid        The identifier
      * @param mixed                                         $value      Element value
      *
-     * @return string
-     *
      * @deprecated Since 2.26, use Dotclear/Helper/Html/Form/Hidden instead
      */
     public static function hidden($nid, $value): string
@@ -1038,10 +1009,10 @@ class formSelectOption extends Option
     public function __construct(string $name, $value, string $class_name = '', string $html = '')
     {
         parent::__construct($name, strval($value));
-        if ($class_name) {
+        if ($class_name !== '') {
             $this->class($class_name);
         }
-        if ($html) {
+        if ($html !== '') {
             $this->extra($html);
         }
     }

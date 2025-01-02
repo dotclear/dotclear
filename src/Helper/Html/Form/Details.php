@@ -51,9 +51,9 @@ class Details extends Component
      */
     public function attachSummary(?Summary $summary): void
     {
-        if ($summary) {
+        if ($summary instanceof Summary) {
             $this->summary($summary);
-        } elseif (isset($this->summary)) {
+        } elseif ($this->summary !== null) {
             unset($this->summary);
         }
     }
@@ -63,7 +63,7 @@ class Details extends Component
      */
     public function detachSummary(): void
     {
-        if (isset($this->summary)) {
+        if ($this->summary !== null) {
             unset($this->summary);
         }
     }
@@ -72,16 +72,14 @@ class Details extends Component
      * Renders the HTML component (including the associated summary if any).
      *
      * @param   string  $format     sprintf() format applied for each items/fields ('%s' by default)
-     *
-     * @return     string
      */
     public function render(?string $format = null): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
-        (isset($this->open) && $this->open ? ' open' : '') .
+        ($this->open !== null && $this->open ? ' open' : '') .
         $this->renderCommonAttributes() . '>' . "\n";
 
-        if (isset($this->summary)) {
+        if ($this->summary !== null) {
             $buffer .= $this->summary->render();
         }
 
@@ -89,12 +87,12 @@ class Details extends Component
         $format ??= ($this->format ?? '%s');
 
         // Cope with items
-        if (isset($this->items)) {
+        if ($this->items !== null) {
             foreach ($this->items as $item) {
                 if ($item instanceof None) {
                     continue;
                 }
-                if (isset($this->summary) && $item->getDefaultElement() === 'summary') {
+                if ($this->summary !== null && $item->getDefaultElement() === 'summary') {
                     // Do not put more than one summary in fieldset
                     continue;
                 }
@@ -106,9 +104,7 @@ class Details extends Component
             }
         }
 
-        $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
-
-        return $buffer;
+        return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
     }
 
     /**

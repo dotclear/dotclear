@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -29,8 +30,6 @@ class Single extends Component
 
     /**
      * Renders the HTML component.
-     *
-     * @return     string
      */
     public function render(): string
     {
@@ -42,12 +41,7 @@ class Single extends Component
 
         $render_ca = $this->renderCommonAttributes();
 
-        $buffer = '';
-        if ($element) {
-            $buffer .= '<' . $element . $render_ca . '>';
-        }
-
-        return $buffer;
+        return '<' . $element . $render_ca . '>';
     }
 
     /**

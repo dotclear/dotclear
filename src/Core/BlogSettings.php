@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -9,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
@@ -33,8 +35,6 @@ class BlogSettings implements BlogSettingsInterface
 {
     /**
      * Settings table name.
-     *
-     * @var     string  $table
      */
     protected string $table;
 
@@ -103,7 +103,7 @@ class BlogSettings implements BlogSettingsInterface
         }
 
         /* Prevent empty tables (install phase, for instance) */
-        if (!$rs || $rs->isEmpty()) {
+        if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
             return;
         }
 

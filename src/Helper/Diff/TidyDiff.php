@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -83,7 +84,7 @@ class TidyDiff
                     $tidy_chunk->findInsideChanges();
                 }
 
-                array_push($this->__data, $tidy_chunk);
+                $this->__data[] = $tidy_chunk;
             }
         }
     }

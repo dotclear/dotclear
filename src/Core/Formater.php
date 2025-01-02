@@ -25,14 +25,14 @@ class Formater implements FormaterInterface
      *
      * @var     array<string,array<string,callable>>    $stack
      */
-    private $stack = [];
+    private array $stack = [];
 
     /**
      * Stack of registered content formaters' name.
      *
      * @var     array<string,string>    $names
      */
-    private $names = [];
+    private array $names = [];
 
     /**
      * Constructor.

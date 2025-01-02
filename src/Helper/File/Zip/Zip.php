@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Clearbricks
  * @subpackage Zip
@@ -27,9 +28,6 @@ class Zip
      */
     protected array $ctrl_dir = [];
 
-    /**
-     * @var        string
-     */
     protected string $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00";
 
     /**
@@ -45,7 +43,7 @@ class Zip
     /**
      * @var        mixed
      */
-    protected $memory_limit = null;
+    protected $memory_limit;
 
     /**
      * @var        array<string>
@@ -147,7 +145,7 @@ class Zip
     public function addDirectory($dir, ?string $name = null, bool $recursive = false): void
     {
         $dir = (string) preg_replace('#[\\\/]+#', '/', (string) $dir);
-        if (substr($dir, -1 - 1) != '/') {
+        if (substr($dir, -1 - 1) !== '/') {
             $dir .= '/';
         }
 
@@ -220,8 +218,8 @@ class Zip
             $this->fp,
             $ctrldir .
             $this->eof_ctrl_dir .
-            pack('v', sizeof($this->ctrl_dir)) . # total # of entries "on this disk"
-            pack('v', sizeof($this->ctrl_dir)) . # total # of entries overall
+            pack('v', count($this->ctrl_dir)) . # total # of entries "on this disk"
+            pack('v', count($this->ctrl_dir)) . # total # of entries overall
             pack('V', strlen($ctrldir)) . # size of central dir
             pack('V', $this->old_offset) . # offset to start of central dir
             "\x00\x00" # .zip file comment length
@@ -372,8 +370,6 @@ class Zip
      * Format a name
      *
      * @param      null|string  $name   The name
-     *
-     * @return     string
      */
     protected function formatName(?string $name): string
     {
@@ -400,7 +396,7 @@ class Zip
             return false;
         }
         foreach ($this->exclusions as $reg) {
-            if (preg_match((string) $reg, (string) $name)) {
+            if (preg_match((string) $reg, $name)) {
                 return true;
             }
         }
@@ -412,8 +408,6 @@ class Zip
      * Makes a date.
      *
      * @param      int        $ts     Timestamp
-     *
-     * @return     float|int
      */
     protected function makeDate(int $ts): int|float
     {
@@ -433,8 +427,6 @@ class Zip
      * Makes a time.
      *
      * @param      int        $ts     Timestamp
-     *
-     * @return     float|int
      */
     protected function makeTime(int $ts): int|float
     {
@@ -456,11 +448,11 @@ class Zip
     {
         $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
         $mem_limit = @ini_get('memory_limit');
-        if ($mem_limit && trim((string) $mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
+        if ($mem_limit && trim($mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
             // Cope with memory_limit set to -1 in PHP.ini
             return;
         }
-        if ($mem_limit) {
+        if ($mem_limit !== '') {
             $mem_limit  = Files::str2bytes($mem_limit);
             $mem_avail  = $mem_limit - $mem_used - (512 * 1024);
             $mem_needed = $size;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -85,10 +86,10 @@ class Manager
         $this->root_url = (string) $root_url;
 
         if (!preg_match('#/$#', $this->root_url)) {
-            $this->root_url = $this->root_url . '/';
+            $this->root_url .= '/';
         }
 
-        if (!$this->root) {
+        if ($this->root === '') {
             throw new Exception('Invalid root directory.');
         }
     }
@@ -139,8 +140,6 @@ class Manager
      * Get working directory
      *
      * Returns working directory path.
-     *
-     * @return string
      */
     public function getPwd(): string
     {
@@ -192,8 +191,6 @@ class Manager
      * @see $exclude_list
      *
      * @param string    $path            Path to match
-     *
-     * @return bool
      */
     protected function isExclude(string $path): bool
     {
@@ -225,8 +222,6 @@ class Manager
      * @see $exclude_pattern
      *
      * @param string    $file            File to match
-     *
-     * @return bool
      */
     protected function isFileExclude(string $file): bool
     {
@@ -243,8 +238,6 @@ class Manager
      * Returns true if file or directory $path is in jail (ie. not outside the {@link $root} directory).
      *
      * @param string    $path            Path to match
-     *
-     * @return bool
      */
     protected function inJail(string $path): bool
     {
@@ -263,8 +256,6 @@ class Manager
      * Returns true if file $file is in files array of {@link $dir}.
      *
      * @param string    $file            File to match (relative to root)
-     *
-     * @return bool
      */
     public function inFiles(string $file): bool
     {
@@ -386,7 +377,7 @@ class Manager
      *
      * @return string                Destination real path
      */
-    public function uploadFile(string $tmp, string $dest, bool $overwrite = false)
+    public function uploadFile(string $tmp, string $dest, bool $overwrite = false): string
     {
         $dest = $this->pwd . '/' . Path::clean($dest);
 
@@ -578,8 +569,6 @@ class Manager
      *
      * @param File    $a            File object
      * @param File    $b            File object
-     *
-     * @return int
      */
     protected function sortHandler(File $a, File $b): int
     {

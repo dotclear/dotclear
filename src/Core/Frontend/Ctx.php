@@ -60,7 +60,7 @@ class Ctx
     public function __get(string $name)
     {
         if (!isset($this->stack[$name])) {
-            return;
+            return null;
         }
 
         // Return last saved value
@@ -68,14 +68,14 @@ class Ctx
         if ($count > 0) {
             return $this->stack[$name][$count - 1];
         }
+
+        return null;
     }
 
     /**
      * Check if a context variable exists
      *
      * @param      string  $name   The name
-     *
-     * @return     bool
      */
     public function exists(string $name): bool
     {
@@ -107,8 +107,6 @@ class Ctx
      * @param      int       $length  The length
      * @param      int       $even    The even
      * @param      int       $modulo  The modulo
-     *
-     * @return     bool
      */
     public function loopPosition(int $start, ?int $length = null, ?int $even = null, ?int $modulo = null): bool
     {
@@ -123,20 +121,12 @@ class Ctx
         if ($start >= 0) {
             $test = ($index >= $start);
             if ($length !== null) {
-                if ($length >= 0) {
-                    $test = $test && $index < ($start + $length);
-                } else {
-                    $test = $test && $index < ($size + $length);
-                }
+                $test = $length >= 0 ? $test && $index < ($start + $length) : $test && $index < ($size + $length);
             }
         } else {
             $test = $index >= ($size + $start);
             if ($length !== null) {
-                if ($length >= 0) {
-                    $test = $test && $index < ($size + $start + $length);
-                } else {
-                    $test = $test && $index < ($size + $length);
-                }
+                $test = $length >= 0 ? $test && $index < ($size + $start + $length) : $test && $index < ($size + $length);
             }
         }
 
@@ -162,10 +152,8 @@ class Ctx
      * @param      mixed   $upper_case  The upper case
      * @param      mixed   $enc_url     The encode url
      * @param      string  $tag         The tag
-     *
-     * @return     string
      */
-    public static function global_filter(string $str, $enc_xml, $rem_html, $cut_string, $lower_case, $upper_case, $enc_url, $tag = '')
+    public static function global_filter(string $str, $enc_xml, $rem_html, $cut_string, $lower_case, $upper_case, $enc_url, string $tag = ''): string
     {
         App::deprecated()->set('Ctx::global_filters()', '2.11');
 
@@ -191,10 +179,8 @@ class Ctx
      * @param string    $filter     The filter
      * @param string    $str        The string
      * @param mixed     $arg        The arguments (filter option as length, …)
-     *
-     * @return string
      */
-    private static function default_filters($filter, string $str, $arg): string
+    private static function default_filters(string $filter, string $str, $arg): string
     {
         return match ($filter) {
             // Remove HTML tags
@@ -231,8 +217,6 @@ class Ctx
      * @param string                        $str    The string
      * @param array<int|string, mixed>      $args   The arguments containing required filter(s) to apply
      * @param string                        $tag    The tag
-     *
-     * @return string
      */
     public static function global_filters(?string $str, array $args, string $tag = ''): string
     {
@@ -281,8 +265,6 @@ class Ctx
      * Encode URL in a string
      *
      * @param string    $str    The string
-     *
-     * @return string
      */
     public static function encode_url(string $str): string
     {
@@ -294,8 +276,6 @@ class Ctx
      *
      * @param string    $str        The string
      * @param int       $length     The length
-     *
-     * @return string
      */
     public static function cut_string(string $str, int $length): string
     {
@@ -306,8 +286,6 @@ class Ctx
      * Encode HTML entities in a string
      *
      * @param string    $str The string
-     *
-     * @return string
      */
     public static function encode_xml(string $str): string
     {
@@ -321,8 +299,6 @@ class Ctx
      * This function will remove those cases from string
      *
      * @param string    $str The string
-     *
-     * @return string
      */
     public static function remove_isolated_figcaption(string $str): string
     {
@@ -345,8 +321,6 @@ class Ctx
      * Remove HTML from a string
      *
      * @param string    $str The string
-     *
-     * @return string
      */
     public static function remove_html(string $str): string
     {
@@ -359,8 +333,6 @@ class Ctx
      * Encode HTML tags from a string
      *
      * @param string    $str The string
-     *
-     * @return string
      */
     public static function strip_tags(string $str): string
     {
@@ -373,8 +345,6 @@ class Ctx
      * Lowercase a string
      *
      * @param string    $str The string
-     *
-     * @return string
      */
     public static function lower_case(string $str): string
     {
@@ -385,8 +355,6 @@ class Ctx
      * Uppercase a string
      *
      * @param string    $str The string
-     *
-     * @return string
      */
     public static function upper_case(string $str): string
     {
@@ -397,12 +365,10 @@ class Ctx
      * Capitalize a string
      *
      * @param string    $str The string
-     *
-     * @return string
      */
     public static function capitalize(string $str): string
     {
-        if ($str != '') {
+        if ($str !== '') {
             $str[0] = mb_strtoupper($str[0]);
         }
 
@@ -445,7 +411,7 @@ class Ctx
      *
      * @return false|int
      */
-    public static function PaginationNbPages()
+    public static function PaginationNbPages(): false|int
     {
         if (App::frontend()->context()->pagination === null) {
             return false;
@@ -466,18 +432,11 @@ class Ctx
      * Return current page number
      *
      * @param int   $offset     The offset
-     *
-     * @return int
      */
     public static function PaginationPosition(int $offset = 0): int
     {
-        if (App::frontend()->getPageNumber() !== 0) {
-            $current_page = App::frontend()->getPageNumber();
-        } else {
-            $current_page = 1;
-        }
-
-        $current_page = $current_page + $offset;
+        $current_page = App::frontend()->getPageNumber() !== 0 ? App::frontend()->getPageNumber() : 1;
+        $current_page += $offset;
 
         $page_number = self::PaginationNbPages();
         if (!$page_number) {
@@ -494,8 +453,6 @@ class Ctx
 
     /**
      * Check if the current page is the first one
-     *
-     * @return bool
      */
     public static function PaginationStart(): bool
     {
@@ -508,8 +465,6 @@ class Ctx
 
     /**
      * Check if the current page is the last one
-     *
-     * @return bool
      */
     public static function PaginationEnd(): bool
     {
@@ -526,8 +481,6 @@ class Ctx
      * If first page, remove it, else put /page/<page_number> in it.
      *
      * @param int   $offset     The offset
-     *
-     * @return string
      */
     public static function PaginationURL(int $offset = 0): string
     {
@@ -552,11 +505,6 @@ class Ctx
 
     /**
      * Return the robots policy
-     *
-     * @param null|string $base
-     * @param null|string $over
-     *
-     * @return string
      */
     public static function robotsPolicy(?string $base, ?string $over): string
     {
@@ -598,14 +546,14 @@ class Ctx
      *
      * @return array<string, string>|false
      */
-    public static function getSmilies(BlogInterface $blog)
+    public static function getSmilies(BlogInterface $blog): false|array
     {
         $definitions = [];
 
         $paths = [];
-        if (isset(App::frontend()->theme)) {
+        if (App::frontend()->theme !== null) {
             $paths[] = App::frontend()->theme;
-            if (isset(App::frontend()->parent_theme)) {
+            if (App::frontend()->parent_theme !== null) {
                 $paths[] = App::frontend()->parent_theme;
             }
         }
@@ -663,12 +611,10 @@ class Ctx
      * Replace textual smilies in string by their image representation
      *
      * @param      string  $str    The string
-     *
-     * @return     string
      */
     public static function addSmilies(string $str): string
     {
-        if (!isset(App::frontend()->smilies)) {
+        if (App::frontend()->smilies === null) {
             return $str;
         }
 
@@ -736,11 +682,7 @@ class Ctx
 
         if ($parts !== false) {
             foreach ($parts as $part) {
-                if (++$index % 2 && $part != '') {
-                    $tokens[] = ['text', $part];
-                } else {
-                    $tokens[] = ['tag', $part];
-                }
+                $tokens[] = ++$index % 2 && $part !== '' ? ['text', $part] : ['tag', $part];
             }
         }
 
@@ -760,8 +702,6 @@ class Ctx
      * @param      bool    $no_tag         Return only the found image URI if true
      * @param      bool    $content_only   Only content only, else search in excerpt too
      * @param      bool    $cat_only       Search only in category description
-     *
-     * @return     string
      */
     public static function EntryFirstImageHelper(string $size, bool $with_category, string $class = '', bool $no_tag = false, bool $content_only = false, bool $cat_only = false): string
     {
@@ -800,18 +740,16 @@ class Ctx
             }
 
             # No src, look in category description if available
-            if (!$src && $with_category && App::frontend()->context()->posts->cat_desc) {
-                if (preg_match_all($pattern, (string) App::frontend()->context()->posts->cat_desc, $m) > 0) {
-                    foreach ($m[1] as $i => $img) {
-                        if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
-                            $dirname = str_replace('\\', '/', dirname($img));
-                            $src     = $p_url . ($dirname != '/' ? $dirname : '') . '/' . $src;
-                            if (preg_match('/alt="([^"]+)"/', $m[0][$i], $malt)) {
-                                $alt = $malt[1];
-                            }
-
-                            break;
+            if (!$src && $with_category && App::frontend()->context()->posts->cat_desc && preg_match_all($pattern, (string) App::frontend()->context()->posts->cat_desc, $m) > 0) {
+                foreach ($m[1] as $i => $img) {
+                    if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
+                        $dirname = str_replace('\\', '/', dirname($img));
+                        $src     = $p_url . ($dirname != '/' ? $dirname : '') . '/' . $src;
+                        if (preg_match('/alt="([^"]+)"/', $m[0][$i], $malt)) {
+                            $alt = $malt[1];
                         }
+
+                        break;
                     }
                 }
             }
@@ -837,10 +775,8 @@ class Ctx
      * @param      string       $root   The root
      * @param      string       $img    The image
      * @param      string       $size   The size
-     *
-     * @return     false|string
      */
-    private static function ContentFirstImageLookup(string $root, string $img, string $size)
+    private static function ContentFirstImageLookup(string $root, string $img, string $size): false|string
     {
         # Image extensions
         $formats = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'wepb', 'avif'];
@@ -855,13 +791,8 @@ class Ctx
             $media        = App::media();
             $sizes        = implode('|', array_keys($media->getThumbSizes()));
             $thumb_prefix = App::media()->getThumbnailPrefix();
-            if ($thumb_prefix !== '.') {
-                // Exclude . (hidden files) and prefixed thumbnails
-                $pattern_prefix = sprintf('(\.|%s)', preg_quote($thumb_prefix));
-            } else {
-                // Exclude . (hidden files)
-                $pattern_prefix = '\.';
-            }
+            // Exclude . (hidden files) and prefixed thumbnails (if necessary)
+            $pattern_prefix = $thumb_prefix !== '.' ? sprintf('(\.|%s)', preg_quote($thumb_prefix)) : '\.';
             if (preg_match('/^' . $pattern_prefix . '(.+)_(' . $sizes . ')$/', $base, $m)) {
                 $base = $m[1];
             }
@@ -915,8 +846,6 @@ class Ctx
      * Gets the post media attachment title
      *
      * @param      File  $file   The file
-     *
-     * @return     string
      */
     public static function attachmentTitle(File $file): string
     {

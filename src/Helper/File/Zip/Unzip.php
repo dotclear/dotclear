@@ -30,38 +30,29 @@ class Unzip
 
     /**
      * Local file header signature
-     *
-     * @var        string
      */
     protected string $zip_sig = "\x50\x4b\x03\x04"; #
 
     /**
      * Central dir header signature
-     *
-     * @var        string
      */
     protected string $dir_sig = "\x50\x4b\x01\x02";
 
     /**
      * End of central dir signature
-     *
-     * @var        string
      */
     protected string $dir_sig_e = "\x50\x4b\x05\x06";
 
     /**
      * @var        mixed
      */
-    protected $fp = null;
+    protected $fp;
 
     /**
      * @var        mixed
      */
-    protected $memory_limit = null;
+    protected $memory_limit;
 
-    /**
-     * @var        string
-     */
     protected string $exclude_pattern = '';
 
     /**
@@ -104,7 +95,7 @@ class Unzip
      */
     public function getList(bool|string $stop_on_file = false, bool|string $exclude = false): array|bool
     {
-        if (!empty($this->compressed_list)) {
+        if ($this->compressed_list !== []) {
             return $this->compressed_list;
         }
 
@@ -122,7 +113,7 @@ class Unzip
      */
     public function unzipAll(bool|string $target): void
     {
-        if (empty($this->compressed_list)) {
+        if ($this->compressed_list === []) {
             $this->getList();
         }
 
@@ -147,7 +138,7 @@ class Unzip
      */
     public function unzip(string $file_name, bool|string $target = false)
     {
-        if (empty($this->compressed_list)) {
+        if ($this->compressed_list === []) {
             $this->getList($file_name);
         }
 
@@ -155,7 +146,7 @@ class Unzip
             throw new Exception(sprintf(__('File %s is not compressed in the zip.'), $file_name));
         }
         if ($this->isFileExcluded($file_name)) {
-            return;
+            return null;
         }
         $details = &$this->compressed_list[$file_name];
 
@@ -190,7 +181,7 @@ class Unzip
      */
     public function getFilesList(): array
     {
-        if (empty($this->compressed_list)) {
+        if ($this->compressed_list === []) {
             $this->getList();
         }
 
@@ -211,7 +202,7 @@ class Unzip
      */
     public function getDirsList(): array
     {
-        if (empty($this->compressed_list)) {
+        if ($this->compressed_list === []) {
             $this->getList();
         }
 
@@ -232,7 +223,7 @@ class Unzip
      */
     public function getRootDir(): string|bool
     {
-        if (empty($this->compressed_list)) {
+        if ($this->compressed_list === []) {
             $this->getList();
         }
 
@@ -266,7 +257,7 @@ class Unzip
      */
     public function isEmpty(): bool
     {
-        if (empty($this->compressed_list)) {
+        if ($this->compressed_list === []) {
             $this->getList();
         }
 
@@ -277,12 +268,10 @@ class Unzip
      * Determines if file exist in zip.
      *
      * @param      string  $f      Filename
-     *
-     * @return     bool
      */
     public function hasFile(string $f): bool
     {
-        if (empty($this->compressed_list)) {
+        if ($this->compressed_list === []) {
             $this->getList();
         }
 
@@ -328,11 +317,11 @@ class Unzip
      */
     protected function isFileExcluded(string $f): int|bool
     {
-        if (!$this->exclude_pattern) {
+        if ($this->exclude_pattern === '') {
             return false;
         }
 
-        return preg_match($this->exclude_pattern, (string) $f);
+        return preg_match($this->exclude_pattern, $f);
     }
 
     /**
@@ -441,8 +430,6 @@ class Unzip
      *
      * @param      false|string  $stop_on_file  The stop on file
      * @param      false|string  $exclude       The exclude
-     *
-     * @return     bool
      */
     protected function loadFileListByEOF(bool|string $stop_on_file = false, bool|string $exclude = false): bool
     {
@@ -452,7 +439,7 @@ class Unzip
             fseek($fp, -22 - $x, SEEK_END);
             $signature = $this->zipRead(4);
 
-            if ($signature == $this->dir_sig_e) {
+            if ($signature === $this->dir_sig_e) {
                 $dir_list = [];
 
                 $eodir = [
@@ -480,7 +467,7 @@ class Unzip
                 fseek($fp, $this->eo_central['offset_start_cd']);
                 $signature = $this->zipRead(4);
 
-                while ($signature == $this->dir_sig) {
+                while ($signature === $this->dir_sig) {
                     $dir                       = [];
                     $dir['version_madeby']     = $this->zipUnpack(2, 'v'); # version made by
                     $dir['version_needed']     = $this->zipUnpack(2, 'v'); # version needed to extract
@@ -530,7 +517,7 @@ class Unzip
                 }
 
                 foreach ($dir_list as $k => $v) {
-                    if (($exclude !== false) && preg_match($exclude, (string) $k)) {
+                    if (($exclude !== false) && preg_match($exclude, $k)) {
                         continue;
                     }
 
@@ -551,7 +538,7 @@ class Unzip
                         $this->compressed_list[$k]['contents_start_offset'] = $i['contents_start_offset'];
                     }
 
-                    if (($stop_on_file !== false) && (strtolower($stop_on_file) == strtolower($k))) {
+                    if (($stop_on_file !== false) && (strtolower($stop_on_file) === strtolower($k))) {
                         break;
                     }
                 }
@@ -568,8 +555,6 @@ class Unzip
      *
      * @param      false|string  $stop_on_file  The stop on file
      * @param      false|string  $exclude       The exclude
-     *
-     * @return     bool
      */
     protected function loadFileListBySignatures(bool|string $stop_on_file = false, bool|string $exclude = false): bool
     {
@@ -595,7 +580,7 @@ class Unzip
             $this->compressed_list[$filename] = $details;   // @phpstan-ignore-line
             $return                           = true;
 
-            if (($stop_on_file !== false) && (strtolower($stop_on_file) == strtolower((string) $filename))) {
+            if (($stop_on_file !== false) && (strtolower($stop_on_file) === strtolower((string) $filename))) {
                 break;
             }
         }
@@ -619,7 +604,7 @@ class Unzip
         }
 
         $signature = $this->zipRead(4);
-        if ($signature == $this->zip_sig) {
+        if ($signature === $this->zip_sig) {
             # Get information about the zipped file
             $file                       = [];
             $file['version_needed']     = $this->zipUnpack(2, 'v'); # version needed to extract
@@ -667,10 +652,8 @@ class Unzip
      * Read from ZIP archive
      *
      * @param      int     $len     The length
-     *
-     * @return     string
      */
-    protected function zipRead(int $len)
+    protected function zipRead(int $len): string
     {
         if (abs($len) < 1) {
             return '';
@@ -723,15 +706,12 @@ class Unzip
      * Clean a filename
      *
      * @param      mixed  $n      The name
-     *
-     * @return     string
      */
     protected function cleanFileName($n): string
     {
         $n = str_replace('../', '', (string) $n);
-        $n = (string) preg_replace('#^/+#', '', (string) $n);
 
-        return $n;
+        return (string) preg_replace('#^/+#', '', (string) $n);
     }
 
     /**
@@ -745,11 +725,11 @@ class Unzip
     {
         $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
         $mem_limit = @ini_get('memory_limit');
-        if ($mem_limit && trim((string) $mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
+        if ($mem_limit && trim($mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
             // Cope with memory_limit set to -1 in PHP.ini
             return;
         }
-        if ($mem_limit) {
+        if ($mem_limit !== '') {
             $mem_limit  = Files::str2bytes($mem_limit);
             $mem_avail  = $mem_limit - $mem_used - (512 * 1024);
             $mem_needed = $size;

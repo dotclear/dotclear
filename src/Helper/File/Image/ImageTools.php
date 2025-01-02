@@ -32,7 +32,7 @@ class ImageTools
      *
      * @var mixed   float|null|false
      */
-    public $memory_limit = null;
+    public $memory_limit;
 
     /**
      * Constructor, no parameters.
@@ -164,11 +164,11 @@ class ImageTools
     {
         $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
         $mem_limit = @ini_get('memory_limit');
-        if ($mem_limit && trim((string) $mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
+        if ($mem_limit && trim($mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
             // Cope with memory_limit set to -1 in PHP.ini
             return;
         }
-        if ($mem_limit) {
+        if ($mem_limit !== '') {
             $mem_limit = Files::str2bytes($mem_limit);
             $mem_avail = $mem_limit - $mem_used - (512 * 1024);
 
@@ -194,8 +194,6 @@ class ImageTools
      * @param string         $type        Image type (png, jpg, webp or avif)
      * @param string|null    $file        Output file. If null, output will be echoed in STDOUT
      * @param int            $qual        JPEG/WepB/Avif image quality (0-100)
-     *
-     * @return bool
      */
     public function output(string $type = 'png', ?string $file = null, int $qual = 90): bool
     {
@@ -294,7 +292,7 @@ class ImageTools
      *
      * @return true
      */
-    public function resize($width, $height, string $mode = 'ratio', bool $expand = false)
+    public function resize($width, $height, string $mode = 'ratio', bool $expand = false): bool
     {
         $computed_height = 0;
         $computed_width  = 0;
@@ -335,17 +333,8 @@ class ImageTools
         }
 
         if ($mode === 'force') {
-            if ($width > 0) {
-                $computed_width = $width;
-            } else {
-                $computed_width = $height * $ratio;
-            }
-
-            if ($height > 0) {
-                $computed_height = $height;
-            } else {
-                $computed_height = $width / $ratio;
-            }
+            $computed_width  = $width  > 0 ? $width : $height * $ratio;
+            $computed_height = $height > 0 ? $height : $width / $ratio;
 
             if (!$expand && $computed_width > $imgage_width) {
                 $computed_width  = $imgage_width;
@@ -380,12 +369,12 @@ class ImageTools
         }
 
         // convert float to int
-        settype($offset_width, 'int');
-        settype($offset_height, 'int');
-        settype($computed_width, 'int');
-        settype($computed_height, 'int');
-        settype($crop_width, 'int');
-        settype($crop_height, 'int');
+        $offset_width    = (int) $offset_width;
+        $offset_height   = (int) $offset_height;
+        $computed_width  = (int) $computed_width;
+        $computed_height = (int) $computed_height;
+        $crop_width      = (int) $crop_width;
+        $crop_height     = (int) $crop_height;
 
         // truecolor is 24 bit RGB, ie. 3 bytes per pixel.
         $this->memoryAllocate($computed_width, $computed_height, 3);
@@ -402,7 +391,7 @@ class ImageTools
             @imagesavealpha($dest, true);
 
             // Copy and resize (with resampling) from source to destination
-            imagecopyresampled($dest, $this->res, 0, 0, (int) $offset_width, (int) $offset_height, $computed_width, $computed_height, (int) $crop_width, (int) $crop_height);
+            imagecopyresampled($dest, $this->res, 0, 0, $offset_width, $offset_height, $computed_width, $computed_height, $crop_width, $crop_height);
 
             imagedestroy($this->res);
             $this->res = $dest;

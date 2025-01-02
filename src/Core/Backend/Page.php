@@ -63,8 +63,6 @@ class Page
 
     /**
      * Flag to avoid loading more than once the x-frame-options header
-     *
-     * @var bool
      */
     private static bool $xframe_loaded = false;
 
@@ -206,8 +204,8 @@ class Page
 
             // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
             // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
-            $csp_prefix = App::con()->syntax() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
-            $csp_suffix = App::con()->syntax() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
+            $csp_prefix = App::con()->syntax() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
+            $csp_suffix = App::con()->syntax() === 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
 
             $csp['default-src'] = App::blog()->settings()->system->csp_admin_default ?:
             $csp_prefix . "'self'" . $csp_suffix;
@@ -219,13 +217,13 @@ class Page
             $csp_prefix . "'self' data: https://media.dotaddict.org blob:";
 
             # Cope with blog post preview (via public URL in iframe)
-            if (App::blog()->host()) {
+            if (App::blog()->host() !== '') {
                 $csp['default-src'] .= ' ' . parse_url(App::blog()->host(), PHP_URL_HOST);
                 $csp['script-src']  .= ' ' . parse_url(App::blog()->host(), PHP_URL_HOST);
                 $csp['style-src']   .= ' ' . parse_url(App::blog()->host(), PHP_URL_HOST);
             }
             # Cope with media display in media manager (via public URL)
-            if (App::media()->getRootUrl()) {
+            if (App::media()->getRootUrl() !== '') {
                 $csp['img-src'] .= ' ' . parse_url(App::media()->getRootUrl(), PHP_URL_HOST);
             } elseif (!is_null(App::blog()->host())) {
                 // Let's try with the blog URL
@@ -244,7 +242,7 @@ class Page
                     $directives[] = $key . ' ' . $value;
                 }
             }
-            if (count($directives)) {
+            if ($directives !== []) {
                 $directives[]   = 'report-uri ' . App::config()->adminUrl() . App::backend()->url()->get('admin.csp.report');
                 $report_only    = (App::blog()->settings()->system->csp_admin_report_only) ? '-Report-Only' : '';
                 $headers['csp'] = 'Content-Security-Policy' . $report_only . ': ' . implode(' ; ', $directives);
@@ -253,7 +251,7 @@ class Page
 
         # --BEHAVIOR-- adminPageHTTPHeaders -- ArrayObject
         App::behavior()->callBehavior('adminPageHTTPHeaders', $headers);
-        foreach ($headers as $key => $value) {
+        foreach ($headers as $value) {
             header($value);
         }
 
@@ -271,7 +269,7 @@ class Page
 
         echo static::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) === 'rtl')) {
             echo static::cssLoad('style/default-rtl.css');
         }
 
@@ -296,9 +294,9 @@ class Page
 
         $js['debug'] = App::config()->debugMode();
 
-        $js['showIp'] = App::blog()->isDefined() ? App::auth()->check(App::auth()->makePermissions([
+        $js['showIp'] = App::blog()->isDefined() && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id()) : false;
+        ]), App::blog()->id());
 
         // Set some JSON data
         echo Html::jsJson('dotclear_init', $js);
@@ -448,19 +446,17 @@ class Page
      */
     public static function close(): void
     {
-        if (!App::backend()->resources()->context()) {
-            if (!App::auth()->prefs()->interface->hidehelpbutton) {
-                echo (new Para())
-                    ->id('help-button')
-                    ->items([
-                        (new Link())
-                            ->href(App::backend()->url()->get('admin.help'))
-                            ->class('outgoing')
-                            ->title(__('Global help'))
-                            ->text(__('Global help')),
-                    ])
-                ->render();
-            }
+        if (!App::backend()->resources()->context() && !App::auth()->prefs()->interface->hidehelpbutton) {
+            echo (new Para())
+                ->id('help-button')
+                ->items([
+                    (new Link())
+                        ->href(App::backend()->url()->get('admin.help'))
+                        ->class('outgoing')
+                        ->title(__('Global help'))
+                        ->text(__('Global help')),
+                ])
+            ->render();
         }
 
         // Prepare datalist for quick menu access
@@ -508,7 +504,7 @@ class Page
 
         # --BEHAVIOR-- adminPageFooter --
         $textAlt = App::behavior()->callBehavior('adminPageFooterV2', $text);
-        if ($textAlt != '') {
+        if ($textAlt !== '') {
             $text = $textAlt;
         }
         $text = Html::escapeHTML($text);
@@ -556,7 +552,7 @@ class Page
         $figure .
         ' -->' . "\n";
 
-        if (App::config()->devMode() === true) {
+        if (App::config()->devMode()) {
             echo static::debugInfo();
         }
 
@@ -600,7 +596,7 @@ class Page
 
         echo static::cssLoad('style/default.css');
 
-        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl')) {
+        if ($rtl = (L10n::getLanguageTextDirection(App::lang()->getLang()) === 'rtl')) {
             echo static::cssLoad('style/default-rtl.css');
         }
 
@@ -688,7 +684,7 @@ class Page
      */
     public static function openModule(string $title = '', ?string $head = ''): void
     {
-        if (!$title) {
+        if ($title === '') {
             $title = App::config()->vendorName();
         }
         echo '<html><head><title>' . $title . '</title>' . $head . '</head><body>';
@@ -706,8 +702,6 @@ class Page
      * Get current notices
      *
      * @deprecated since 2.27, use Notices::getNotices() instead
-     *
-     * @return     string
      */
     public static function notices(): string
     {
@@ -858,8 +852,6 @@ class Page
      *
      * @param      array<int|string, mixed>|null    $elements  The elements
      * @param      array<string, mixed>             $options   The options
-     *
-     * @return     string
      */
     public static function breadcrumb(?array $elements = null, array $options = []): string
     {
@@ -949,8 +941,6 @@ class Page
      *  xdebug.profiler_output_dir = /tmp
      *  xdebug.profiler_append = 0
      *  xdebug.profiler_output_name = timestamp
-     *
-     * @return      bool
      */
     private static function isXdebugStackAvailable(): bool
     {
@@ -977,8 +967,6 @@ class Page
 
     /**
      * Get HTML code of debug information
-     *
-     * @return     string
      */
     protected static function debugInfo(): string
     {
@@ -1001,7 +989,7 @@ class Page
                 ]);
 
             $prof_file = xdebug_get_profiler_filename();
-            if ($prof_file) {
+            if ($prof_file !== '') {
                 $items[] = (new Para())
                     ->items([
                         (new Text(null, 'Profiler file : ' . xdebug_get_profiler_filename())),
@@ -1072,11 +1060,11 @@ class Page
         # --BEHAVIOR-- adminPageHelpBlock -- ArrayObject
         App::behavior()->callBehavior('adminPageHelpBlock', $args);
 
-        if (!count($args)) {
+        if (count($args) === 0) {
             return;
         }
 
-        if (empty(App::backend()->resources()->entries('help'))) {
+        if (App::backend()->resources()->entries('help') === []) {
             return;
         }
 
@@ -1089,7 +1077,7 @@ class Page
             }
 
             $file = App::backend()->resources()->entry('help', $arg);
-            if (empty($file) || !file_exists($file) || !is_readable($file)) {
+            if ($file === '' || !file_exists($file) || !is_readable($file)) {
                 continue;
             }
 
@@ -1101,7 +1089,7 @@ class Page
             }
         }
 
-        if (trim($content) == '') {
+        if (trim($content) === '') {
             return;
         }
 
@@ -1141,8 +1129,6 @@ class Page
      * @param      string       $src         The source
      * @param      null|string  $version     The version
      * @param      string       $type        The type
-     *
-     * @return     string
      */
     public static function preload(string $src, ?string $version = '', string $type = 'style'): string
     {
@@ -1162,8 +1148,6 @@ class Page
      * @param      string       $src         The source
      * @param      string       $media       The media
      * @param      null|string  $version     The version
-     *
-     * @return     string
      */
     public static function cssLoad(string $src, string $media = 'screen', ?string $version = ''): string
     {
@@ -1183,8 +1167,6 @@ class Page
      * @param      string       $src         The source
      * @param      null|string  $version     The version
      * @param      bool         $module      Load source as JS module
-     *
-     * @return     string
      */
     public static function jsLoad(string $src, ?string $version = '', bool $module = false): string
     {
@@ -1203,8 +1185,6 @@ class Page
      *
      * @param      string       $src         The source
      * @param      null|string  $version     The version
-     *
-     * @return     string
      */
     protected static function appendVersion(string $src, ?string $version = ''): string
     {
@@ -1212,9 +1192,7 @@ class Page
             return $src;
         }
 
-        return $src .
-            (str_contains($src, '?') ? '&amp;' : '?') .
-            'v=' . (App::config()->devMode() === true ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
+        return $src . (str_contains($src, '?') ? '&amp;' : '?') . 'v=' . (App::config()->devMode() ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
     }
 
     /**
@@ -1222,8 +1200,6 @@ class Page
      *
      * @param      string  $id     The identifier
      * @param      mixed   $vars   The variables
-     *
-     * @return     string
      */
     public static function jsJson(string $id, $vars): string
     {
@@ -1232,8 +1208,6 @@ class Page
 
     /**
      * Get HTML code to load toggles JS
-     *
-     * @return     string
      */
     public static function jsToggles(): string
     {
@@ -1254,8 +1228,6 @@ class Page
 
     /**
      * Get HTML code to load common JS for admin pages
-     *
-     * @return     string
      */
     public static function jsCommon(): string
     {
@@ -1363,8 +1335,6 @@ class Page
 
     /**
      * Get HTML code to load ads blocker detector for admin pages (usually active on dashboard and user preferences pages)
-     *
-     * @return     string
      */
     public static function jsAdsBlockCheck(): string
     {
@@ -1385,8 +1355,6 @@ class Page
      * Get HTML code to load ConfirmClose JS
      *
      * @param      mixed  ...$args  The arguments
-     *
-     * @return     string
      */
     public static function jsConfirmClose(...$args): string
     {
@@ -1405,8 +1373,6 @@ class Page
      * Get HTML code to load page tabs JS
      *
      * @param      mixed   $default  The default
-     *
-     * @return     string
      */
     public static function jsPageTabs($default = null): string
     {
@@ -1422,8 +1388,6 @@ class Page
 
     /**
      * Get HTML code to load Magnific popup JS
-     *
-     * @return     string
      */
     public static function jsModal(): string
     {
@@ -1433,8 +1397,6 @@ class Page
 
     /**
      * Get HTML to load Upload JS utility
-     *
-     * @return     string
      */
     public static function jsUpload(): string
     {
@@ -1482,8 +1444,6 @@ class Page
 
     /**
      * Get HTML code to load meta editor
-     *
-     * @return     string
      */
     public static function jsMetaEditor(): string
     {
@@ -1494,13 +1454,11 @@ class Page
      * Get HTML code for filters control JS utility
      *
      * @param      bool    $show   Show filters?
-     *
-     * @return     string
      */
     public static function jsFilterControl(bool $show = true): string
     {
         $js = [
-            'show_filters'      => (bool) $show,
+            'show_filters'      => $show,
             'filter_posts_list' => __('Show filters and display options'),
             'cancel_the_filter' => __('Cancel filters and display options'),
         ];
@@ -1517,8 +1475,6 @@ class Page
      * @param      string           $theme  The theme
      * @param      bool             $multi  Is multiplex?
      * @param      array<string>    $modes  The modes
-     *
-     * @return     string
      */
     public static function jsLoadCodeMirror(string $theme = '', bool $multi = true, array $modes = ['css', 'htmlmixed', 'javascript', 'php', 'xml', 'clike']): string
     {
@@ -1553,7 +1509,7 @@ class Page
         static::jsLoad('js/codemirror/addon/edit/matchbrackets.js') .
         static::cssLoad('js/codemirror/addon/display/fullscreen.css') .
         static::jsLoad('js/codemirror/addon/display/fullscreen.js');
-        if ($theme != '' && $theme !== 'default') {
+        if ($theme !== '' && $theme !== 'default') {
             $ret .= static::cssLoad('js/codemirror/theme/' . $theme . '.css');
         }
 
@@ -1567,8 +1523,6 @@ class Page
      * @param      null|string  $id     The HTML id attribute
      * @param      mixed        $mode   The Codemirror mode
      * @param      string       $theme  The theme
-     *
-     * @return     string
      */
     public static function jsRunCodeMirror($name, ?string $id = null, $mode = null, string $theme = ''): string
     {
@@ -1622,15 +1576,13 @@ class Page
     {
         $themes      = [];
         $themes_root = implode(DIRECTORY_SEPARATOR, [__DIR__,  '..', '..', '..', 'admin', 'js','codemirror','theme']);
-        if (is_dir($themes_root) && is_readable($themes_root)) {
-            if (($d = @dir($themes_root)) !== false) {
-                while (($entry = $d->read()) !== false) {
-                    if ($entry != '.' && $entry != '..' && !str_starts_with($entry, '.') && is_readable($themes_root . '/' . $entry)) {
-                        $themes[] = substr($entry, 0, -4); // remove .css extension
-                    }
+        if (is_dir($themes_root) && is_readable($themes_root) && ($d = @dir($themes_root)) !== false) {
+            while (($entry = $d->read()) !== false) {
+                if ($entry != '.' && $entry != '..' && !str_starts_with($entry, '.') && is_readable($themes_root . '/' . $entry)) {
+                    $themes[] = substr($entry, 0, -4); // remove .css extension
                 }
-                sort($themes);
             }
+            sort($themes);
         }
 
         return $themes;
@@ -1666,7 +1618,7 @@ class Page
      * @param      array<string, string>|ArrayObject<string, string>    $headers  The headers
      * @param      mixed                                                $origin   The origin
      */
-    public static function setXFrameOptions($headers, $origin = null): void
+    public static function setXFrameOptions(array|ArrayObject $headers, $origin = null): void
     {
         if (self::$xframe_loaded) {
             return;
@@ -1698,8 +1650,6 @@ class Page
 
     /**
      * @deprecated  since 2.16, permanetly removed
-     *
-     * @return     string
      */
     public static function jsColorPicker(): string
     {
@@ -1712,8 +1662,6 @@ class Page
      * Get HTML code for date picker JS utility
      *
      * @deprecated  since 2.21, permanetly removed
-     *
-     * @return     string
      */
     public static function jsDatePicker(): string
     {
@@ -1726,10 +1674,8 @@ class Page
      * Load jsToolBar
      *
      * @deprecated  since 2.??, permanetly removed
-     *
-     * @return  string
      */
-    public static function jsToolBar()
+    public static function jsToolBar(): string
     {
         App::deprecated()->set('', '2.21');
 
@@ -1743,16 +1689,14 @@ class Page
      *
      * @deprecated  since 2.15, use Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript instead
      *
-     * @param      string  $name      variable name
-     * @param      mixed   $value      value
-     *
-     * @return     string  javascript code
+     * @param      string        $name       variable name
+     * @param      mixed         $value      value
      */
-    public static function jsVar(string $name, $value): string
+    public static function jsVar(string $name, mixed $value): string
     {
         App::deprecated()->set('Page::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
-        return $name . " = '" . Html::escapeJS($value) . "';\n";
+        return $name . " = '" . Html::escapeJS((string) $value) . "';\n";
     }
 
     /**
@@ -1772,17 +1716,14 @@ class Page
         foreach ($vars as $var => $value) {
             $ret .= $var . ' = ' . (is_string($value) ? "'" . Html::escapeJS($value) . "'" : $value) . ';' . "\n";
         }
-        $ret .= "</script>\n";
 
-        return $ret;
+        return $ret . "</script>\n";
     }
 
     /**
      * @deprecated  since 2.11, permanetly removed
-     *
-     * @return     string  ( description_of_the_return_value )
      */
-    public static function jsLoadIE7()
+    public static function jsLoadIE7(): string
     {
         App::deprecated()->set('', '2.11', '2.27');
 
@@ -1795,8 +1736,6 @@ class Page
      * @param      string       $src         The source
      * @param      string       $media       The media
      * @param      null|string  $version     The version
-     *
-     * @return     string
      */
     public static function cssModuleLoad(string $src, string $media = 'screen', ?string $version = ''): string
     {
@@ -1811,8 +1750,6 @@ class Page
      * @param      string       $src         The source
      * @param      null|string  $version     The version
      * @param      bool         $module      Load source as JS module
-     *
-     * @return     string
      */
     public static function jsModuleLoad(string $src, ?string $version = '', bool $module = false): string
     {

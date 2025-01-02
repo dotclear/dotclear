@@ -52,18 +52,16 @@ class Td extends Component
      * Renders the HTML component.
      *
      * @param   string  $format     sprintf() format applied for each items/fields ('%s' by default)
-     *
-     * @return     string
      */
     public function render(?string $format = null): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
-            (isset($this->colspan) ? ' colspan=' . strval((int) $this->colspan) : '') .
-            (isset($this->rowspan) ? ' rowspan=' . strval((int) $this->rowspan) : '') .
-            (isset($this->headers) ? ' headers="' . $this->headers . '"' : '') .
+            ($this->colspan !== null ? ' colspan=' . strval((int) $this->colspan) : '') .
+            ($this->rowspan !== null ? ' rowspan=' . strval((int) $this->rowspan) : '') .
+            ($this->headers !== null ? ' headers="' . $this->headers . '"' : '') .
             $this->renderCommonAttributes() . '>';
 
-        if (isset($this->text)) {
+        if ($this->text !== null) {
             $buffer .= $this->text;
         }
 
@@ -71,7 +69,7 @@ class Td extends Component
         $format ??= ($this->format ?? '%s');
 
         // Cope with items
-        if (isset($this->items)) {
+        if ($this->items !== null) {
             $first = true;
             foreach ($this->items as $item) {
                 if ($item instanceof None) {
@@ -85,9 +83,7 @@ class Td extends Component
             }
         }
 
-        $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>';
-
-        return $buffer;
+        return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>';
     }
 
     /**

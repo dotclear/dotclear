@@ -41,16 +41,14 @@ class Optgroup extends Component
      * Renders the HTML component.
      *
      * @param      null|string  $default   The default value
-     *
-     * @return     string
      */
     public function render(?string $default = null): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
-            (isset($this->text) ? ' label="' . $this->text . '"' : '') .
+            ($this->text !== null ? ' label="' . $this->text . '"' : '') .
             $this->renderCommonAttributes() . '>' . "\n";
 
-        if (isset($this->items)) {
+        if ($this->items !== null) {
             foreach ($this->items as $item => $value) {
                 if ($value instanceof None) {
                     continue;
@@ -67,9 +65,7 @@ class Optgroup extends Component
             }
         }
 
-        $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
-
-        return $buffer;
+        return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
     }
 
     /**

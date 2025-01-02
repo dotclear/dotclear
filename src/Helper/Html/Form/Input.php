@@ -47,13 +47,11 @@ class Input extends Component
 
     /**
      * Renders the HTML component.
-     *
-     * @return     string
      */
     public function render(): string
     {
         if (!$this->checkMandatoryAttributes()) {
-            if (!App::config()->cliMode() && App::config()->devMode() === true && App::config()->debugMode() === true) {
+            if (!App::config()->cliMode() && App::config()->devMode() && App::config()->debugMode()) {
                 return '<!-- ' . static::class . ': ' . 'Input (type = ' . $this->type . ') without id and name (provide at least one of them)' . ' -->';
             }
 
@@ -61,19 +59,17 @@ class Input extends Component
         }
 
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
-            (isset($this->popovertarget) ? ' popovertarget="' . $this->popovertarget . '"' : '') .
-            (isset($this->popovertargetaction) ? ' popovertargetaction="' . $this->popovertargetaction . '"' : '') .
+            ($this->popovertarget !== null ? ' popovertarget="' . $this->popovertarget . '"' : '') .
+            ($this->popovertargetaction !== null ? ' popovertargetaction="' . $this->popovertargetaction . '"' : '') .
             $this->renderCommonAttributes() . '>';
 
-        if ($this->renderLabel && isset($this->label)) {
+        if ($this->renderLabel && $this->label !== null) {
             $render = true;
-            if (isset($this->id)) {
+            if ($this->id !== null) {
                 $this->label->for = $this->id;
-            } else {
-                if ($this->label->getPosition() === Label::OL_FT || $this->label->getPosition() === Label::OL_TF) {
-                    // Do not render label if input is outside label and there is no id for input
-                    $render = false;
-                }
+            } elseif ($this->label->getPosition() === Label::OL_FT || $this->label->getPosition() === Label::OL_TF) {
+                // Do not render label if input is outside label and there is no id for input
+                $render = false;
             }
             if ($render) {
                 $buffer = $this->label->render($buffer);

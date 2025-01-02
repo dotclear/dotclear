@@ -52,13 +52,11 @@ class Form extends Component
      * Renders the HTML component.
      *
      * @param   string  $format     sprintf() format applied for each items/fields ('%s' by default)
-     *
-     * @return     string
      */
     public function render(?string $format = null): string
     {
         if (!$this->checkMandatoryAttributes()) {
-            if (!App::config()->cliMode() && App::config()->devMode() === true && App::config()->debugMode() === true) {
+            if (!App::config()->cliMode() && App::config()->devMode() && App::config()->debugMode()) {
                 return '<!-- ' . static::class . ': ' . 'Form without id and name (provide at least one of them)' . ' -->' . "\n";
             }
 
@@ -66,16 +64,16 @@ class Form extends Component
         }
 
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
-            (isset($this->action) ? ' action="' . $this->action . '"' : '') .
-            (isset($this->method) ? ' method="' . $this->method . '"' : '') .
-            (isset($this->enctype) ? ' enctype="' . $this->enctype . '"' : '') .
+            ($this->action !== null ? ' action="' . $this->action . '"' : '') .
+            ($this->method !== null ? ' method="' . $this->method . '"' : '') .
+            ($this->enctype !== null ? ' enctype="' . $this->enctype . '"' : '') .
             $this->renderCommonAttributes() . '>' . "\n";
 
         $first = true;
         $format ??= ($this->format ?? '%s');
 
         // Cope with fields
-        if (isset($this->fields)) {
+        if ($this->fields !== null) {
             foreach ($this->fields as $field) {
                 if ($field instanceof None) {
                     continue;
@@ -89,7 +87,7 @@ class Form extends Component
         }
 
         // Cope with items
-        if (isset($this->items)) {
+        if ($this->items !== null) {
             $first = true;
             foreach ($this->items as $item) {
                 if ($item instanceof None) {
@@ -105,10 +103,8 @@ class Form extends Component
 
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
-        if (!isset($this->action) || !isset($this->method)) {
-            if (!App::config()->cliMode() && App::config()->devMode() === true && App::config()->debugMode() === true) {
-                $buffer .= '<!-- ' . static::class . ': ' . 'Form without action or method, is this deliberate?' . ' -->' . "\n";
-            }
+        if (($this->action === null || $this->method === null) && (!App::config()->cliMode() && App::config()->devMode() && App::config()->debugMode())) {
+            $buffer .= '<!-- ' . static::class . ': ' . 'Form without action or method, is this deliberate?' . ' -->' . "\n";
         }
 
         return $buffer;

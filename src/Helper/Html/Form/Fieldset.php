@@ -51,9 +51,9 @@ class Fieldset extends Component
      */
     public function attachLegend(?Legend $legend): void
     {
-        if ($legend) {
+        if ($legend instanceof Legend) {
             $this->legend($legend);
-        } elseif (isset($this->legend)) {
+        } elseif ($this->legend !== null) {
             unset($this->legend);
         }
     }
@@ -63,7 +63,7 @@ class Fieldset extends Component
      */
     public function detachLegend(): void
     {
-        if (isset($this->legend)) {
+        if ($this->legend !== null) {
             unset($this->legend);
         }
     }
@@ -72,14 +72,12 @@ class Fieldset extends Component
      * Renders the HTML component (including the associated legend if any).
      *
      * @param   string  $format     sprintf() format applied for each items/fields ('%s' by default)
-     *
-     * @return     string
      */
     public function render(?string $format = null): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes() . '>' . "\n";
 
-        if (isset($this->legend)) {
+        if ($this->legend !== null) {
             $buffer .= $this->legend->render();
         }
 
@@ -87,12 +85,12 @@ class Fieldset extends Component
         $format ??= ($this->format ?? '%s');
 
         // Cope with fields
-        if (isset($this->fields)) {
+        if ($this->fields !== null) {
             foreach ($this->fields as $field) {
                 if ($field instanceof None) {
                     continue;
                 }
-                if (isset($this->legend) && $field->getDefaultElement() === 'legend') {
+                if ($this->legend !== null && $field->getDefaultElement() === 'legend') {
                     // Do not put more than one legend in fieldset
                     continue;
                 }
@@ -105,12 +103,12 @@ class Fieldset extends Component
         }
 
         // Cope with items
-        if (isset($this->items)) {
+        if ($this->items !== null) {
             foreach ($this->items as $item) {
                 if ($item instanceof None) {
                     continue;
                 }
-                if (isset($this->legend) && $item->getDefaultElement() === 'legend') {
+                if ($this->legend !== null && $item->getDefaultElement() === 'legend') {
                     // Do not put more than one legend in fieldset
                     continue;
                 }
@@ -122,9 +120,7 @@ class Fieldset extends Component
             }
         }
 
-        $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
-
-        return $buffer;
+        return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
     }
 
     /**

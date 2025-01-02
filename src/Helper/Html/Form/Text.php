@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -37,8 +38,6 @@ class Text extends Component
 
     /**
      * Renders the HTML component.
-     *
-     * @return     string
      */
     public function render(): string
     {
@@ -47,7 +46,7 @@ class Text extends Component
         $element = $this->getElement() ?? self::DEFAULT_ELEMENT;
         if ($element === '') {
             // Use span element to render common attributes
-            $element = $render_ca ? 'span' : null;
+            $element = $render_ca !== '' ? 'span' : null;
         }
 
         $buffer = '';
@@ -55,7 +54,7 @@ class Text extends Component
             $buffer .= '<' . $element . $render_ca . '>';
         }
 
-        if (isset($this->text)) {
+        if ($this->text !== null) {
             $buffer .= $this->text;
         }
 

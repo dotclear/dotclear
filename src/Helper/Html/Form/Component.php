@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -160,8 +161,6 @@ abstract class Component
      * Magic isset method
      *
      * @param      string  $property  The property
-     *
-     * @return     bool
      */
     public function __isset(string $property): bool
     {
@@ -190,7 +189,7 @@ abstract class Component
      *
      * @return     mixed   method called, property value (or null), self
      */
-    public function __call(string $method, $arguments)
+    public function __call(string $method, array $arguments)
     {
         // Cope with known methods
         if (method_exists($this, $method)) {
@@ -198,7 +197,7 @@ abstract class Component
         }
 
         // Unknown method
-        if (!count($arguments)) {
+        if ($arguments === []) {
             // No argument, assume its a get
             if (array_key_exists($method, $this->properties)) {
                 return $this->properties[$method];
@@ -216,8 +215,6 @@ abstract class Component
      * Magic invoke method
      *
      * Return rendering of component
-     *
-     * @return     string
      */
     public function __invoke(): string
     {
@@ -282,13 +279,13 @@ abstract class Component
      */
     public function attachLabel(?Label $label = null, ?int $position = null): static
     {
-        if ($label) {
+        if ($label instanceof Label) {
             $this->label($label);
             $label->for($this->id);
             if ($position !== null) {
                 $label->setPosition($position);
             }
-        } elseif (isset($this->label)) {
+        } elseif ($this->label !== null) {
             unset($this->label);
         }
 
@@ -302,7 +299,7 @@ abstract class Component
      */
     public function detachLabel(): static
     {
-        if (isset($this->label)) {
+        if ($this->label !== null) {
             unset($this->label);
         }
 
@@ -325,7 +322,7 @@ abstract class Component
         if (is_array($identifier)) {
             $this->name = (string) $identifier[0];
             if (isset($identifier[1])) {
-                $this->id = (string) $identifier[1];
+                $this->id = $identifier[1];
             }
         } elseif (!is_null($identifier)) {
             $this->name = (string) $identifier;
@@ -337,13 +334,11 @@ abstract class Component
 
     /**
      * Check mandatory attributes in properties, at least name or id must be present
-     *
-     * @return     bool
      */
     public function checkMandatoryAttributes(): bool
     {
         // Check for mandatory info
-        return isset($this->name) || isset($this->id);
+        return $this->name !== null || $this->id !== null;
     }
 
     /**
@@ -400,21 +395,19 @@ abstract class Component
      *
      * @param      bool    $includeValue    Includes $this->value if exist (default = true)
      *                                      should be set to false to textarea and may be some others
-     *
-     * @return     string
      */
     public function renderCommonAttributes(bool $includeValue = true): string
     {
         $render = '' .
 
             // Type (used for input component)
-            (isset($this->type) ?
+            ($this->type !== null ?
                 ' type="' . $this->type . '"' : '') .
 
             // Identifier
-            (isset($this->name) ?
+            ($this->name !== null ?
                  ' name="' . $this->name . '"' : '') .
-            (isset($this->id) ?
+            ($this->id !== null ?
                 ' id="' . $this->id . '"' : '') .
 
             // Value
@@ -423,79 +416,79 @@ abstract class Component
                 ' value="' . $this->value . '"' : '') .
             ($includeValue && !array_key_exists('value', $this->properties) && array_key_exists('default', $this->properties) ?
                 ' value="' . $this->default . '"' : '') .
-            (isset($this->checked) && $this->checked ?
+            ($this->checked !== null && $this->checked ?
                 ' checked' : '') .
 
             // Common attributes
-            (isset($this->accesskey) ?
+            ($this->accesskey !== null ?
                 ' accesskey="' . $this->accesskey . '"' : '') .
-            (isset($this->autocapitalize) ?
+            ($this->autocapitalize !== null ?
                 ' autocapitalize="' . $this->autocapitalize . '"' : '') .
-            (isset($this->autocomplete) ?
+            ($this->autocomplete !== null ?
                 ' autocomplete="' . $this->autocomplete . '"' : '') .
-            (isset($this->autocorrect) ?
+            ($this->autocorrect !== null ?
                 ' autocorrect="' . $this->autocorrect . '"' : '') .
-            (isset($this->autofocus) && $this->autofocus ?
+            ($this->autofocus !== null && $this->autofocus ?
                 ' autofocus' : '') .
-            (isset($this->class) ?
+            ($this->class !== null ?
                 ' class="' . (is_array($this->class) ? implode(' ', $this->class) : $this->class) . '"' : '') .
-            (isset($this->contenteditable) && $this->contenteditable ?
+            ($this->contenteditable !== null && $this->contenteditable ?
                 ' contenteditable' : '') .
-            (isset($this->dir) ?
+            ($this->dir !== null ?
                 ' dir="' . $this->dir . '"' : '') .
-            (isset($this->disabled) && $this->disabled ?
+            ($this->disabled !== null && $this->disabled ?
                 ' disabled' : '') .
-            (isset($this->enterkeyhint) ?
+            ($this->enterkeyhint !== null ?
                 ' enterkeyhint="' . $this->enterkeyhint . '"' : '') .
-            (isset($this->form) ?
+            ($this->form !== null ?
                 ' form="' . $this->form . '"' : '') .
-            (isset($this->inert) && $this->inert ?
+            ($this->inert !== null && $this->inert ?
                 ' inert' : '') .
-            (isset($this->inputmode) ?
+            ($this->inputmode !== null ?
                 ' inputmode="' . $this->inputmode . '"' : '') .
-            (isset($this->lang) ?
+            ($this->lang !== null ?
                 ' lang="' . $this->lang . '"' : '') .
-            (isset($this->list) ?
+            ($this->list !== null ?
                 ' list="' . $this->list . '"' : '') .
-            (isset($this->max) ?
+            ($this->max !== null ?
                 ' max="' . strval($this->max) . '"' : '') .
-            (isset($this->maxlength) ?
+            ($this->maxlength !== null ?
                 ' maxlength="' . strval((int) $this->maxlength) . '"' : '') .
-            (isset($this->min) ?
+            ($this->min !== null ?
                 ' min="' . strval($this->min) . '"' : '') .
-            (isset($this->pattern) ?
+            ($this->pattern !== null ?
                 ' pattern="' . $this->pattern . '"' : '') .
-            (isset($this->placeholder) ?
+            ($this->placeholder !== null ?
                 ' placeholder="' . $this->placeholder . '"' : '') .
-            (isset($this->popover) && $this->popover ?
+            ($this->popover !== null && $this->popover ?
                 ' popover' : '') .
-            (isset($this->readonly) && $this->readonly ?
+            ($this->readonly !== null && $this->readonly ?
                 ' readonly' : '') .
-            (isset($this->required) && $this->required ?
+            ($this->required !== null && $this->required ?
                 ' required' : '') .
-            (isset($this->role) && $this->role ?
+            ($this->role !== null && $this->role ?
                 ' role="' . $this->role . '"' : '') .
-            (isset($this->size) ?
+            ($this->size !== null ?
                 ' size="' . strval((int) $this->size) . '"' : '') .
-            (isset($this->spellcheck) ?
+            ($this->spellcheck !== null ?
                 ' spellcheck="' . ($this->spellcheck ? 'true' : 'false') . '"' : '') .
-            (isset($this->step) ?
+            ($this->step !== null ?
                 ' step="' . $this->step . '"' : '') .
-            (isset($this->tabindex) ?
+            ($this->tabindex !== null ?
                 ' tabindex="' . strval((int) $this->tabindex) . '"' : '') .
-            (isset($this->title) ?
+            ($this->title !== null ?
                 ' title="' . $this->title . '"' : '') .
 
         '';
 
-        if (isset($this->data)) {
+        if ($this->data !== null) {
             // Data attributes
             foreach ($this->data as $key => $value) {
                 $render .= ' data-' . $key . '="' . $value . '"';
             }
         }
 
-        if (isset($this->extra)) {
+        if ($this->extra !== null) {
             // Extra HTML
             $render .= ' ' . (is_array($this->extra) ? implode(' ', $this->extra) : $this->extra);
         }

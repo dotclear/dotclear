@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -95,7 +96,7 @@ class Diff
                 $y++;
             }
 
-            if ($x == $cx && $y == $cy) {
+            if ($x == $cx && $y === $cy) {
                 $x = $V[$k];    // @phpstan-ignore-line
                 $y = $x - $k;
 
@@ -120,8 +121,6 @@ class Diff
      * @param string        $src        Original data
      * @param string        $dst        New data
      * @param int           $ctx        Context length
-     *
-     * @return string
      */
     public static function uniDiff(string $src, string $dst, int $ctx = 2): string
     {
@@ -195,7 +194,7 @@ class Diff
         }
 
         # Remaining chunk
-        if ($buffer) {
+        if ($buffer !== '') {
             # Footer
             for ($i = 0; $i < $ctx; $i++) {
                 if (!isset($src[$pos_x + $i])) {
@@ -223,8 +222,6 @@ class Diff
      *
      * @param string        $src        Source text
      * @param string        $diff       Patch to apply
-     *
-     * @return string
      */
     public static function uniPatch(string $src, string $diff): string
     {
@@ -287,7 +284,7 @@ class Diff
                     throw new Exception(__('Bad context (in deletion)'));
                 }
                 $old_length--;
-            } elseif ($line != '') {
+            } elseif ($line !== '') {
                 throw new Exception(__('Invalid diff format'));
             }
         }
@@ -353,7 +350,7 @@ class Diff
                 $old_length--;
             }
             # Skip empty lines
-            elseif ($line == '') {
+            elseif ($line === '') {
                 continue;
             }
             # Unrecognized diff format

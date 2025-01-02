@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -39,8 +40,6 @@ class Image extends Input
 
     /**
      * Renders the HTML component.
-     *
-     * @return     string
      */
     public function render(): string
     {
@@ -51,9 +50,9 @@ class Image extends Input
         }
         $this->extra(array_filter(array_merge($extra, [
             'src="' . $this->src . '"',
-            (isset($this->alt) ? 'alt="' . $this->alt . '"' : ''),
-            (isset($this->height) ? 'height="' . strval((int) $this->height) . '"' : ''),
-            (isset($this->width) ? 'width="' . strval((int) $this->width) . '"' : ''),
+            ($this->alt !== null ? 'alt="' . $this->alt . '"' : ''),
+            ($this->height !== null ? 'height="' . strval((int) $this->height) . '"' : ''),
+            ($this->width !== null ? 'width="' . strval((int) $this->width) . '"' : ''),
         ])));
 
         return parent::render();

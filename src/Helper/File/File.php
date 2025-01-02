@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -208,7 +209,7 @@ class File
         $this->w   = is_writable($file);
         $this->d   = is_dir($file);
         $this->f   = is_file($file);
-        $this->x   = $this->d ? file_exists($file . '/.') : false;
+        $this->x   = $this->d && file_exists($file . '/.');
         $this->del = Files::isDeletable($file);
     }
 }

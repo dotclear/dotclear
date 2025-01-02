@@ -44,8 +44,6 @@ class Tr extends Component
      * Renders the HTML component.
      *
      * @param   string  $format     sprintf() format applied for each items/fields ('%s' by default)
-     *
-     * @return     string
      */
     public function render(?string $format = null): string
     {
@@ -55,7 +53,7 @@ class Tr extends Component
         $format ??= ($this->format ?? '%s');
 
         // Cope with cols
-        if (isset($this->cols)) {
+        if ($this->cols !== null) {
             foreach ($this->cols as $col) {
                 if ($col instanceof None) {
                     continue;
@@ -65,7 +63,7 @@ class Tr extends Component
         }
 
         // Cope with items (as cols)
-        if (isset($this->items)) {
+        if ($this->items !== null) {
             foreach ($this->items as $item) {
                 if ($item instanceof None) {
                     continue;
@@ -74,9 +72,7 @@ class Tr extends Component
             }
         }
 
-        $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
-
-        return $buffer;
+        return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
     }
 
     /**

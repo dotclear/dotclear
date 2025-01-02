@@ -51,9 +51,9 @@ class Table extends Component
      */
     public function attachCaption(?Caption $caption): void
     {
-        if ($caption) {
+        if ($caption instanceof Caption) {
             $this->caption($caption);
-        } elseif (isset($this->caption)) {
+        } elseif ($this->caption !== null) {
             unset($this->caption);
         }
     }
@@ -63,54 +63,52 @@ class Table extends Component
      */
     public function detachCaption(): void
     {
-        if (isset($this->caption)) {
+        if ($this->caption !== null) {
             unset($this->caption);
         }
     }
 
     /**
      * Renders the HTML component (including the associated caption if any).
-     *
-     * @return     string
      */
     public function render(): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes() . '>' . "\n";
 
-        if (isset($this->caption)) {
+        if ($this->caption !== null) {
             $buffer .= $this->caption->render();
         }
 
-        if (isset($this->thead)) {
+        if ($this->thead !== null) {
             $buffer .= $this->thead->render();
         }
 
-        if (isset($this->tbody)) {
+        if ($this->tbody !== null) {
             $buffer .= $this->tbody->render();
         }
 
-        if (isset($this->tfoot)) {
+        if ($this->tfoot !== null) {
             $buffer .= $this->tfoot->render();
         }
 
-        if (isset($this->items)) {
+        if ($this->items !== null) {
             foreach ($this->items as $item) {
                 if ($item instanceof None) {
                     continue;
                 }
-                if (isset($this->caption) && $item->getDefaultElement() === 'caption') {
+                if ($this->caption !== null && $item->getDefaultElement() === 'caption') {
                     // Do not put more than one legend in fieldset
                     continue;
                 }
-                if (isset($this->thead) && $item->getDefaultElement() === 'thead') {
+                if ($this->thead !== null && $item->getDefaultElement() === 'thead') {
                     // Do not put more than one thead in fieldset
                     continue;
                 }
-                if (isset($this->tbody) && $item->getDefaultElement() === 'tbody') {
+                if ($this->tbody !== null && $item->getDefaultElement() === 'tbody') {
                     // Do not put more than one tbody in fieldset
                     continue;
                 }
-                if (isset($this->tfoot) && $item->getDefaultElement() === 'tfoot') {
+                if ($this->tfoot !== null && $item->getDefaultElement() === 'tfoot') {
                     // Do not put more than one tfoot in fieldset
                     continue;
                 }
@@ -118,9 +116,7 @@ class Table extends Component
             }
         }
 
-        $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
-
-        return $buffer;
+        return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
     }
 
     /**

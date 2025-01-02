@@ -33,8 +33,6 @@ class BlogWorkspace implements BlogWorkspaceInterface
 {
     /**
      * Settings table name.
-     *
-     * @var     string  $table
      */
     protected string $table;
 
@@ -105,7 +103,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
      */
     private function getSettings(?MetaRecord $rs = null): void
     {
-        if ($rs === null) {
+        if (!$rs instanceof MetaRecord) {
             $sql = new SelectStatement();
             $sql
                 ->columns([
@@ -130,7 +128,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
                 throw new ProcessException(__('Unable to retrieve settings:') . ' ' . $this->con->error());
             }
         }
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 if ($rs->f('setting_ns') !== $this->workspace) {
                     break;
@@ -141,12 +139,10 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
                 if ($type === self::NS_ARRAY) {
                     $value = @json_decode((string) $value, true, 512, JSON_THROW_ON_ERROR);
-                } else {
-                    if ($type === self::NS_FLOAT || $type === self::NS_DOUBLE) {
-                        $type = self::NS_FLOAT;
-                    } elseif ($type !== self::NS_BOOL && $type !== self::NS_INT) {
-                        $type = self::NS_STRING;
-                    }
+                } elseif ($type === self::NS_FLOAT || $type === self::NS_DOUBLE) {
+                    $type = self::NS_FLOAT;
+                } elseif ($type !== self::NS_BOOL && $type !== self::NS_INT) {
+                    $type = self::NS_STRING;
                 }
 
                 settype($value, $type);
@@ -179,6 +175,8 @@ class BlogWorkspace implements BlogWorkspaceInterface
         if (isset($this->settings[$name]) && isset($this->settings[$name]['value'])) {
             return $this->settings[$name]['value'];
         }
+
+        return null;
     }
 
     public function getGlobal($name)
@@ -186,6 +184,8 @@ class BlogWorkspace implements BlogWorkspaceInterface
         if (isset($this->global_settings[$name]) && isset($this->global_settings[$name]['value'])) {
             return $this->global_settings[$name]['value'];
         }
+
+        return null;
     }
 
     public function getLocal($name)
@@ -193,6 +193,8 @@ class BlogWorkspace implements BlogWorkspaceInterface
         if (isset($this->local_settings[$name]) && isset($this->local_settings[$name]['value'])) {
             return $this->local_settings[$name]['value'];
         }
+
+        return null;
     }
 
     public function __get($name)
@@ -235,12 +237,10 @@ class BlogWorkspace implements BlogWorkspaceInterface
                 $type = $this->local_settings[$name]['type'];
             } elseif ($this->settingExists($name, true)) {
                 $type = $this->global_settings[$name]['type'];
+            } elseif (is_array($value)) {
+                $type = self::NS_ARRAY;
             } else {
-                if (is_array($value)) {
-                    $type = self::NS_ARRAY;
-                } else {
-                    $type = self::NS_STRING;
-                }
+                $type = self::NS_STRING;
             }
         } elseif ($type !== self::NS_BOOL && $type !== self::NS_INT && $type !== self::NS_FLOAT && $type !== self::NS_ARRAY) {
             $type = self::NS_STRING;

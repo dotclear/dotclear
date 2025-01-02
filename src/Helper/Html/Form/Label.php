@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -79,8 +80,6 @@ class Label extends Component
      *   IL_FT = inside label, label text after component
      *   OL_TF = after label (for=field_id will be set automatically)
      *   OL_FT = before label (for=field_id will be set automatically)
-     *
-     *   @var int
      */
     private int $_position = self::IL_TF;
 
@@ -201,8 +200,6 @@ class Label extends Component
      * Renders the HTML component.
      *
      * @param      null|string  $buffer  The buffer
-     *
-     * @return     string
      */
     public function render(?string $buffer = ''): string
     {
@@ -224,7 +221,7 @@ class Label extends Component
         ];
 
         $start = ($this->getElement() ?? self::DEFAULT_ELEMENT);
-        if ($this->_position !== self::IL_TF && $this->_position !== self::IL_FT && isset($this->for)) {
+        if ($this->_position !== self::IL_TF && $this->_position !== self::IL_FT && $this->for !== null) {
             $start .= ' for="' . $this->for . '"';
         }
         $start .= $this->renderCommonAttributes();
@@ -249,9 +246,9 @@ class Label extends Component
      *
      * @param      int   $position  The position
      *
-     * @return  self
+     * @return static    self instance, enabling to chain calls
      */
-    public function setPosition(int $position = self::IL_TF)
+    public function setPosition(int $position = self::IL_TF): static
     {
         if (in_array($position, $this->_positions)) {
             $this->_position = $position;

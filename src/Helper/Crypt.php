@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -25,8 +26,6 @@ class Crypt
      * @param    string    $key         Hash key
      * @param    string    $data        Data
      * @param    string    $hashfunc    Hash function (md5 or sha1)
-     *
-     * @return string
      */
     public static function hmac(string $key, string $data, string $hashfunc = 'sha1'): string
     {
@@ -47,13 +46,11 @@ class Crypt
      * @param      string  $key       The key
      * @param      string  $data      The data
      * @param      string  $hashfunc  The hashfunc
-     *
-     * @return     string
      */
     public static function hmacLegacy(string $key, string $data, string $hashfunc = 'sha1'): string
     {
         // Legacy way
-        if ($hashfunc != 'sha1') {
+        if ($hashfunc !== 'sha1') {
             $hashfunc = 'md5';
         }
         $blocksize = 64;
@@ -74,8 +71,6 @@ class Crypt
      * Returns an n characters random password.
      *
      * @param      integer $length required length
-     *
-     * @return     string
      */
     public static function createPassword(int $length = 8): string
     {

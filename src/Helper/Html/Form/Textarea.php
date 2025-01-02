@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -46,13 +47,11 @@ class Textarea extends Component
      * Renders the HTML component (including the associated label if any).
      *
      * @param      null|string  $extra  The extra
-     *
-     * @return     string
      */
     public function render(?string $extra = null): string
     {
         if (!$this->checkMandatoryAttributes()) {
-            if (!App::config()->cliMode() && App::config()->devMode() === true && App::config()->debugMode() === true) {
+            if (!App::config()->cliMode() && App::config()->devMode() && App::config()->debugMode()) {
                 return '<!-- ' . static::class . ': ' . 'Textarea without id and name (provide at least one of them)' . ' -->' . "\n";
             }
 
@@ -60,21 +59,19 @@ class Textarea extends Component
         }
 
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . ($extra ?? '') . $this->renderCommonAttributes(false) .
-            (isset($this->cols) ? ' cols="' . strval((int) $this->cols) . '"' : '') .
-            (isset($this->rows) ? ' rows="' . strval((int) $this->rows) . '"' : '') .
+            ($this->cols !== null ? ' cols="' . strval((int) $this->cols) . '"' : '') .
+            ($this->rows !== null ? ' rows="' . strval((int) $this->rows) . '"' : '') .
             '>' .
             ($this->value ?? '') .
             '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
-        if (isset($this->label)) {
+        if ($this->label !== null) {
             $render = true;
-            if (isset($this->id)) {
+            if ($this->id !== null) {
                 $this->label->for = $this->id;
-            } else {
-                if ($this->label->getPosition() === Label::OL_FT || $this->label->getPosition() === Label::OL_TF) {
-                    // Do not render label if textarea is outside label and there is no id for textarea
-                    $render = false;
-                }
+            } elseif ($this->label->getPosition() === Label::OL_FT || $this->label->getPosition() === Label::OL_TF) {
+                // Do not render label if textarea is outside label and there is no id for textarea
+                $render = false;
             }
             if ($render) {
                 $buffer = $this->label->render($buffer);

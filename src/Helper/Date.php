@@ -50,8 +50,6 @@ class Date
      * @param  string                   $format         Date format
      * @param  integer|string|DateTime  $timestamp      Timestamp
      *
-     * @return string
-     *
      * @author BohwaZ <https://bohwaz.net/>
      */
     public static function strftime(string $format, $timestamp = null, ?string $locale = null): string
@@ -68,7 +66,7 @@ class Date
 
         $timestamp->setTimezone(new DateTimeZone(date_default_timezone_get()));
 
-        if (empty($locale)) {
+        if ($locale === null || $locale === '') {
             // get current locale
             $locale = setlocale(LC_TIME, '0');
         }
@@ -86,7 +84,7 @@ class Date
             '%h' => 'MMM',    // Abbreviated month name, based on the locale (an alias of %b) Jan through Dec
         ];
 
-        $intl_formatter = function (DateTimeInterface $timestamp, string $format) use ($intl_formats, $locale) {
+        $intl_formatter = function (DateTimeInterface $timestamp, string $format) use ($intl_formats, $locale): string|false {
             $tz        = $timestamp->getTimezone();
             $date_type = IntlDateFormatter::FULL;
             $time_type = IntlDateFormatter::FULL;
@@ -140,20 +138,20 @@ class Date
             '%a' => $intl_formatter,
             '%A' => $intl_formatter,
             '%d' => 'd',
-            '%e' => fn ($timestamp) => sprintf('% 2u', $timestamp->format('j')),
-            '%j' => fn ($timestamp) => sprintf('%03d', $timestamp->format('z') + 1), // Day number in year, 001 to 366
+            '%e' => fn ($timestamp): string => sprintf('% 2u', $timestamp->format('j')),
+            '%j' => fn ($timestamp): string => sprintf('%03d', $timestamp->format('z') + 1), // Day number in year, 001 to 366
             '%u' => 'N',
             '%w' => 'w',
 
             // Week
-            '%U' => function ($timestamp) {
+            '%U' => function ($timestamp): string {
                 // Number of weeks between date and first Sunday of year
                 $day = new DateTime(sprintf('%d-01 Sunday', $timestamp->format('Y')));
 
                 return sprintf('%02u', 1 + ($timestamp->format('z') - $day->format('z')) / 7);
             },
             '%V' => 'W',
-            '%W' => function ($timestamp) {
+            '%W' => function ($timestamp): string {
                 // Number of weeks between date and first Monday of year
                 $day = new DateTime(sprintf('%d-01 Monday', $timestamp->format('Y')));
 
@@ -167,17 +165,17 @@ class Date
             '%m' => 'm',
 
             // Year
-            '%C' => fn ($timestamp) => floor($timestamp->format('Y') / 100),    // Century (-1): 19 for 20th century
-            '%g' => fn ($timestamp) => substr((string) $timestamp->format('o'), -2),
+            '%C' => fn ($timestamp): float => floor($timestamp->format('Y') / 100),    // Century (-1): 19 for 20th century
+            '%g' => fn ($timestamp): string => substr((string) $timestamp->format('o'), -2),
             '%G' => 'o',
             '%y' => 'y',
             '%Y' => 'Y',
 
             // Time
             '%H' => 'H',
-            '%k' => fn ($timestamp) => sprintf('% 2u', $timestamp->format('G')),
+            '%k' => fn ($timestamp): string => sprintf('% 2u', $timestamp->format('G')),
             '%I' => 'h',
-            '%l' => fn ($timestamp) => sprintf('% 2u', $timestamp->format('g')),
+            '%l' => fn ($timestamp): string => sprintf('% 2u', $timestamp->format('g')),
             '%M' => 'i',
             '%p' => 'A', // AM PM (this is reversed on purpose!)
             '%P' => 'a', // am pm
@@ -200,13 +198,13 @@ class Date
         ];
 
         /* @phpstan-ignore-next-line */
-        $out = (string) preg_replace_callback('/(?<!%)%([_#-]?)([a-zA-Z])/', function ($match) use ($translation_table, $timestamp) {
+        $out = (string) preg_replace_callback('/(?<!%)%([_#-]?)([a-zA-Z])/', function (array $match) use ($translation_table, $timestamp) {
             $prefix  = $match[1];
             $char    = $match[2];
             $pattern = '%' . $char;
-            if ($pattern == '%n') {
+            if ($pattern === '%n') {
                 return "\n";
-            } elseif ($pattern == '%t') {
+            } elseif ($pattern === '%t') {
                 return "\t";
             }
 
@@ -231,9 +229,7 @@ class Date
             };
         }, $format);
 
-        $out = str_replace('%%', '%', $out);
-
-        return $out;
+        return str_replace('%%', '%', $out);
     }
 
     /**
@@ -246,8 +242,6 @@ class Date
      * @param   string           $pattern        Format pattern
      * @param   int|false        $timestamp      Timestamp
      * @param   null|string      $timezone       Timezone
-     *
-     * @return  string
      */
     public static function str(string $pattern, $timestamp = null, ?string $timezone = null): string
     {
@@ -270,9 +264,9 @@ class Date
             self::setTZ($current_timezone);
         }
 
-        $res = (string) preg_replace_callback(
+        return (string) preg_replace_callback(
             '/{{' . $hash . '__(a|A|b|B)([0-9]{1,2})__}}/',
-            function ($args) {
+            function (array $args): string {
                 $b = [
                     1  => '_Jan',
                     2  => '_Feb',
@@ -323,8 +317,6 @@ class Date
             },
             $res
         );
-
-        return $res;
     }
 
     /**
@@ -335,8 +327,6 @@ class Date
      * @param string    $pattern         Format pattern
      * @param string    $datetime        Date
      * @param string    $timezone        Timezone
-     *
-     * @return    string
      */
     public static function dt2str(string $pattern, string $datetime, ?string $timezone = null): string
     {
@@ -350,8 +340,6 @@ class Date
      *
      * @param integer    $timestamp        Timestamp
      * @param string     $timezone         Timezone
-     *
-     * @return    string
      */
     public static function iso8601(int $timestamp, string $timezone = 'UTC'): string
     {
@@ -368,8 +356,6 @@ class Date
      *
      * @param integer    $timestamp        Timestamp
      * @param string     $timezone         Timezone
-     *
-     * @return    string
      */
     public static function rfc822(int $timestamp, string $timezone = 'UTC'): string
     {
@@ -403,8 +389,6 @@ class Date
      * Current timezone
      *
      * Returns current timezone.
-     *
-     * @return string
      */
     public static function getTZ(): string
     {
@@ -422,8 +406,6 @@ class Date
      *
      * @param string            $timezone        Timezone
      * @param int|false         $timestamp       Timestamp
-     *
-     * @return int
      */
     public static function getTimeOffset(string $timezone, $timestamp = false): int
     {
@@ -448,8 +430,6 @@ class Date
      * Returns any timestamp from current timezone to UTC timestamp.
      *
      * @param integer    $timestamp        Timestamp
-     *
-     * @return integer
      */
     public static function toUTC(int $timestamp): int
     {
@@ -463,8 +443,6 @@ class Date
      *
      * @param string             $timezone         Timezone
      * @param integer|boolean    $timestamp        Timestamp
-     *
-     * @return integer
      */
     public static function addTimeZone(string $timezone, $timestamp = false): int
     {
@@ -487,13 +465,13 @@ class Date
      */
     public static function getZones(bool $flip = false, bool $groups = false): array
     {
-        if (empty(self::$timezones)) {
+        if (self::$timezones === []) {
             $timezones = DateTimeZone::listIdentifiers();
             $res       = [];
             if ($timezones) {
                 foreach ($timezones as $timezone) {
                     $timezone = trim($timezone);
-                    if ($timezone) {
+                    if ($timezone !== '') {
                         $res[$timezone] = str_replace('_', ' ', $timezone);
                     }
                 }

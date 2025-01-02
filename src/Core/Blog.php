@@ -29,6 +29,7 @@ use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Exception\ConflictException;
 use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\UnauthorizedException;
+use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
@@ -59,8 +60,6 @@ class Blog implements BlogInterface
 
     /**
      * The authentication instance
-     *
-     * @var     AuthInterface     $auth
      */
     protected AuthInterface $auth;
 
@@ -68,8 +67,6 @@ class Blog implements BlogInterface
      * Database table prefix.
      *
      * @deprecated  since 2.28, use App::con()->prefix() instead
-     *
-     * @var     string  $prefix
      */
     public readonly string $prefix;
 
@@ -77,8 +74,6 @@ class Blog implements BlogInterface
      * Blog ID.
      *
      * @deprecated  since 2.28, use App::blog()->id() instead
-     *
-     * @var     string  $id
      */
     public string $id;
 
@@ -86,8 +81,6 @@ class Blog implements BlogInterface
      * Blog unique ID.
      *
      * @deprecated  since 2.28, use App::blog()->uid() instead
-     *
-     * @var     string  $uid
      */
     public string $uid;
 
@@ -95,8 +88,6 @@ class Blog implements BlogInterface
      * Blog name.
      *
      * @deprecated  since 2.28, use App::blog()->name() instead
-     *
-     * @var     string  $name
      */
     public string $name;
 
@@ -104,8 +95,6 @@ class Blog implements BlogInterface
      * Blog description.
      *
      * @deprecated  since 2.28, use App::blog()->desc() instead
-     *
-     * @var     string  $desc
      */
     public string $desc;
 
@@ -113,8 +102,6 @@ class Blog implements BlogInterface
      * Blog URL.
      *
      * @deprecated  since 2.28, use App::blog()->url() instead
-     *
-     * @var string
      */
     public string $url;
 
@@ -122,8 +109,6 @@ class Blog implements BlogInterface
      * Blog host.
      *
      * @deprecated  since 2.28, use App::blog()->host() instead
-     *
-     * @var string
      */
     public string $host;
 
@@ -131,8 +116,6 @@ class Blog implements BlogInterface
      * Blog creation date.
      *
      * @deprecated  since 2.28, use App::blog()->creadt() instead
-     *
-     * @var int
      */
     public int $creadt;
 
@@ -140,8 +123,6 @@ class Blog implements BlogInterface
      * Blog last update date.
      *
      * @deprecated  since 2.28, use App::blog()->upddt() instead
-     *
-     * @var     int     $upddt
      */
     public int $upddt;
 
@@ -149,8 +130,6 @@ class Blog implements BlogInterface
      * Blog status.
      *
      * @deprecated  since 2.28, use App::blog()->status() instead
-     *
-     * @var     int     $status
      */
     public int $status;
 
@@ -158,8 +137,6 @@ class Blog implements BlogInterface
      * Blog theme path.
      *
      * @deprecated  since 2.28, use App::blog()->themesPath() instead
-     *
-     * @var     string  $themes_path
      */
     public string $themes_path;
 
@@ -167,8 +144,6 @@ class Blog implements BlogInterface
      * Blog public path.
      *
      * @deprecated since 2.28, use App::blog()->publicPath() instead
-     *
-     * @var     string  $public_path
      */
     public string $public_path;
 
@@ -190,8 +165,6 @@ class Blog implements BlogInterface
      * Disallow entries password protection.
      *
      * @deprecated since 2.28, use App::blog()->withoutPassword() instead
-     *
-     * @var     bool    $without_password
      */
     public bool $without_password = true;
 
@@ -249,7 +222,7 @@ class Blog implements BlogInterface
         $themes_path = '';
         $public_path = '';
 
-        if (!empty($id)) {
+        if ($id !== '') {
             $blog = $this->getBlog($id);
             if ($blog->count() > 0) {
                 $uid    = (string) $blog->blog_uid;
@@ -295,12 +268,12 @@ class Blog implements BlogInterface
         $this->filter->loadFromBlog($this);
         $this->postmedia->loadFromBlog($this);
 
-        if (!empty($id)) {
+        if ($id !== '') {
             # --BEHAVIOR-- coreBlogConstruct -- BlogInterface -- deprecated since 2.28, as plugins are not yet loaded here
             $this->behavior->callBehavior('coreBlogConstruct', $this);
         }
 
-        dcCore::app()->blog = empty($uid) ? null : $this;
+        dcCore::app()->blog = $uid === '' ? null : $this;
 
         return $this;
     }
@@ -443,7 +416,7 @@ class Blog implements BlogInterface
 
     public function getQmarkURL(): string
     {
-        return !str_ends_with($this->url, '?') ? $this->url . '?' : $this->url;
+        return str_ends_with($this->url, '?') ? $this->url : $this->url . '?';
     }
 
     public function getJsJQuery(): string
@@ -452,11 +425,9 @@ class Blog implements BlogInterface
         if ($version == '') {
             // Version not set, use default one
             $version = $this->config->defaultJQuery(); // defined in src/App.php
-        } else {
-            if ((!$this->settings->system->jquery_allow_old_version) && version_compare($version, $this->config->defaultJQuery(), '<')) {
-                // Use the blog defined version only if more recent than default
-                $version = $this->config->defaultJQuery(); // defined in src/App.php
-            }
+        } elseif ((!$this->settings->system->jquery_allow_old_version) && version_compare($version, $this->config->defaultJQuery(), '<')) {
+            // Use the blog defined version only if more recent than default
+            $version = $this->config->defaultJQuery(); // defined in src/App.php
         }
 
         return 'jquery/' . $version;
@@ -541,14 +512,15 @@ class Blog implements BlogInterface
                 ->group('post_id');
 
             $affected_posts = [];
-            if ($rs = $sql->select()) {
+            $rs             = $sql->select();
+            if ($rs instanceof MetaRecord) {
                 while ($rs->fetch()) {
                     $affected_posts[] = (int) $rs->post_id;
                 }
             }
         }
 
-        if (!is_array($affected_posts) || empty($affected_posts)) {
+        if (!is_array($affected_posts) || $affected_posts === []) {
             return;
         }
 
@@ -561,7 +533,7 @@ class Blog implements BlogInterface
                 'comment_trackback',
             ])
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
-            ->where('comment_status = ' . (string) self::COMMENT_PUBLISHED)
+            ->where('comment_status = ' . self::COMMENT_PUBLISHED)
             ->and('post_id' . $sql->in($affected_posts))
             ->group([
                 'post_id',
@@ -569,7 +541,8 @@ class Blog implements BlogInterface
             ]);
 
         $posts = [];
-        if ($rs = $sql->select()) {
+        $rs    = $sql->select();
+        if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 if ($rs->comment_trackback) {
                     $posts[$rs->post_id]['trackback'] = $rs->nb_comment;
@@ -749,7 +722,7 @@ class Blog implements BlogInterface
      *
      * @return     array<int|string, mixed>  The categories counter.
      */
-    private function getCategoriesCounter($params = []): array
+    private function getCategoriesCounter(array|ArrayObject $params = []): array
     {
         $sql = new SelectStatement();
         $sql
@@ -768,7 +741,7 @@ class Blog implements BlogInterface
             ->where('C.blog_id = ' . $sql->quote($this->id));
 
         if (!$this->auth->userID()) {
-            $sql->and('P.post_status = ' . (string) self::POST_PUBLISHED);
+            $sql->and('P.post_status = ' . self::POST_PUBLISHED);
         }
 
         if (!empty($params['post_type'])) {
@@ -778,7 +751,8 @@ class Blog implements BlogInterface
         $sql->group('C.cat_id');
 
         $counters = [];
-        if ($rs = $sql->select()) {
+        $rs       = $sql->select();
+        if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $counters[$rs->cat_id] = $rs->nb_post;
             }
@@ -805,11 +779,7 @@ class Blog implements BlogInterface
             }
         }
 
-        if ($cur->cat_url == '') {
-            $url[] = Text::tidyURL($cur->cat_title, false);
-        } else {
-            $url[] = $cur->cat_url;
-        }
+        $url[] = $cur->cat_url == '' ? Text::tidyURL($cur->cat_title, false) : $cur->cat_url;
 
         $cur->cat_url = implode('/', $url);
 
@@ -863,7 +833,7 @@ class Blog implements BlogInterface
 
         $sql = new UpdateStatement();
         $sql
-            ->where('cat_id = ' . (string) $id)
+            ->where('cat_id = ' . $id)
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $sql->update($cur);
@@ -904,11 +874,11 @@ class Blog implements BlogInterface
         $sql
             ->column($sql->count('post_id', 'nb_post'))
             ->from($this->prefix . self::POST_TABLE_NAME)
-            ->where('cat_id = ' . (string) $id)
+            ->where('cat_id = ' . $id)
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $rs = $sql->select();
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             if ($rs->nb_post > 0) {
                 throw new ConflictException(__('This category is not empty.'));
             }
@@ -937,8 +907,6 @@ class Blog implements BlogInterface
      *
      * @param   string  $url    The url
      * @param   int     $id     The identifier
-     *
-     * @return  string
      */
     private function checkCategory(string $url, ?int $id = null): string
     {
@@ -951,11 +919,11 @@ class Blog implements BlogInterface
             ->and('blog_id = ' . $sql->quote($this->id))
             ->order('cat_url DESC');
         if ($id) {
-            $sql->and('cat_id <> ' . (string) $id);
+            $sql->and('cat_id <> ' . $id);
         }
 
         $rs = $sql->select();
-        if ($rs && !$rs->isEmpty()) {
+        if ($rs instanceof MetaRecord && !$rs->isEmpty()) {
             $sql = new SelectStatement();
             $sql
                 ->column('cat_url')
@@ -964,11 +932,11 @@ class Blog implements BlogInterface
                 ->and('blog_id = ' . $sql->quote($this->id))
                 ->order('cat_url DESC');
             if ($id) {
-                $sql->and('cat_id <> ' . (string) $id);
+                $sql->and('cat_id <> ' . $id);
             }
 
             $rs = $sql->select();
-            if (!$rs || $rs->isEmpty()) {
+            if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
                 // First duplicate, add '1' to URL and return it
                 return $url . '1';
             }
@@ -1045,7 +1013,7 @@ class Blog implements BlogInterface
         # --BEHAVIOR-- coreBlogBeforeGetPosts -- ArrayObject
         $this->behavior->callBehavior('coreBlogBeforeGetPosts', $params);
 
-        $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
+        $sql = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
 
         if ($count_only) {
             $sql->column($sql->count($sql->unique('P.post_id')));
@@ -1135,7 +1103,7 @@ class Blog implements BlogInterface
         ]), $this->id)) {
             $user_id = $this->auth->userID();
 
-            $and = ['post_status = ' . (string) self::POST_PUBLISHED];
+            $and = ['post_status = ' . self::POST_PUBLISHED];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1157,7 +1125,7 @@ class Blog implements BlogInterface
 
         if (isset($params['post_id']) && $params['post_id'] !== '') {
             if (is_array($params['post_id'])) {
-                array_walk($params['post_id'], function (&$v) {
+                array_walk($params['post_id'], function (&$v): void {
                     if ($v !== null) {
                         $v = (int) $v;
                     }
@@ -1170,7 +1138,7 @@ class Blog implements BlogInterface
 
         if (isset($params['exclude_post_id']) && $params['exclude_post_id'] !== '') {
             if (is_array($params['exclude_post_id'])) {
-                array_walk($params['exclude_post_id'], function (&$v) {
+                array_walk($params['exclude_post_id'], function (&$v): void {
                     if ($v !== null) {
                         $v = (int) $v;
                     }
@@ -1194,8 +1162,8 @@ class Blog implements BlogInterface
                 $params['cat_id'] = [$params['cat_id']];
             }
             if (!empty($params['cat_id_not'])) {
-                array_walk($params['cat_id'], function (&$v) {
-                    $v = $v . ' ?not';
+                array_walk($params['cat_id'], function (string &$v): void {
+                    $v .= ' ?not';
                 });
             }
 
@@ -1205,8 +1173,8 @@ class Blog implements BlogInterface
                 $params['cat_url'] = [$params['cat_url']];
             }
             if (!empty($params['cat_url_not'])) {
-                array_walk($params['cat_url'], function (&$v) {
-                    $v = $v . ' ?not';
+                array_walk($params['cat_url'], function (string &$v): void {
+                    $v .= ' ?not';
                 });
             }
 
@@ -1245,7 +1213,7 @@ class Blog implements BlogInterface
         if (!empty($params['search'])) {
             $words = Text::splitWords($params['search']);
 
-            if (!empty($words)) {
+            if ($words !== []) {
                 # --BEHAVIOR-- corePostSearch
                 if ($this->behavior->hasBehavior('corePostSearch') || $this->behavior->hasBehavior('corePostSearchV2')) {
                     # --BEHAVIOR-- corePostSearchV2 -- array<int,mixed>
@@ -1289,7 +1257,8 @@ class Blog implements BlogInterface
             $sql->limit($params['limit']);
         }
 
-        if ($rs = $sql->select()) {
+        $rs = $sql->select();
+        if ($rs instanceof MetaRecord) {
             $rs->_nb_media = [];
             $rs->extend(Post::class);
 
@@ -1365,7 +1334,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $and = ['post_status = ' . (string) self::POST_PUBLISHED];
+            $and = ['post_status = ' . self::POST_PUBLISHED];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1449,7 +1418,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $and = ['post_status = ' . (string) self::POST_PUBLISHED];
+            $and = ['post_status = ' . self::POST_PUBLISHED];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1503,7 +1472,7 @@ class Blog implements BlogInterface
         $sql->order('dt ' . $order);
 
         $rs = $sql->select();
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             $rs->extend(Dates::class);
         }
 
@@ -1529,7 +1498,7 @@ class Blog implements BlogInterface
                 ->from($this->prefix . self::POST_TABLE_NAME);
             $rs = $sql->select();
 
-            $cur->post_id     = $rs ? (int) $rs->f(0) + 1 : 1;
+            $cur->post_id     = $rs instanceof MetaRecord ? (int) $rs->f(0) + 1 : 1;
             $cur->blog_id     = $this->id;
             $cur->post_creadt = date('Y-m-d H:i:s');
             $cur->post_upddt  = date('Y-m-d H:i:s');
@@ -1581,7 +1550,7 @@ class Blog implements BlogInterface
 
         $id = (int) $id;
 
-        if (empty($id)) {
+        if ($id === 0) {
             throw new BadRequestException(__('No such entry ID'));
         }
 
@@ -1615,7 +1584,7 @@ class Blog implements BlogInterface
                 ->and('user_id = ' . $sql->quote((string) $this->auth->userID()));
 
             $rs = $sql->select();
-            if (!$rs || $rs->isEmpty()) {
+            if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
                 throw new UnauthorizedException(__('You are not allowed to edit this entry'));
             }
         }
@@ -1683,7 +1652,6 @@ class Blog implements BlogInterface
         }
 
         $posts_ids = $this->cleanIds($ids);
-        $status    = $status;
 
         $sql = new UpdateStatement();
         $sql
@@ -1805,7 +1773,7 @@ class Blog implements BlogInterface
         $sql = new UpdateStatement();
         $sql
             ->where('blog_id = ' . $sql->quote($this->id))
-            ->and('cat_id = ' . (string) $old_cat_id);
+            ->and('cat_id = ' . $old_cat_id);
 
         $cur = $this->openPostCursor();
 
@@ -1837,7 +1805,7 @@ class Blog implements BlogInterface
 
         $posts_ids = $this->cleanIds($ids);
 
-        if (empty($posts_ids)) {
+        if ($posts_ids === []) {
             throw new BadRequestException(__('No such entry ID'));
         }
 
@@ -1868,11 +1836,11 @@ class Blog implements BlogInterface
                 'post_tz',
             ])
             ->from($this->prefix . self::POST_TABLE_NAME)
-            ->where('post_status = ' . (string) self::POST_SCHEDULED)
+            ->where('post_status = ' . self::POST_SCHEDULED)
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $rs = $sql->select();
-        if (!$rs || $rs->isEmpty()) {
+        if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
             return;
         }
 
@@ -1895,14 +1863,14 @@ class Blog implements BlogInterface
                 $to_change->append((int) $rs->post_id);
             }
         }
-        if (count($to_change)) {
+        if (count($to_change) > 0) {
             # --BEHAVIOR-- coreBeforeScheduledEntriesPublish -- BlogInterface, ArrayObject
             $this->behavior->callBehavior('coreBeforeScheduledEntriesPublish', $this, $to_change);
 
             $sql = new UpdateStatement();
             $sql
                 ->ref($this->prefix . self::POST_TABLE_NAME)
-                ->set('post_status = ' . (string) self::POST_PUBLISHED)
+                ->set('post_status = ' . self::POST_PUBLISHED)
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and('post_id' . $sql->in([...$to_change]));
 
@@ -1929,7 +1897,7 @@ class Blog implements BlogInterface
             $to_change[] = $posts->post_id;
         }
 
-        if (count($to_change)) {
+        if ($to_change !== []) {
             $sql = new UpdateStatement();
             $sql
                 ->ref($this->prefix . self::POST_TABLE_NAME)
@@ -1969,7 +1937,7 @@ class Blog implements BlogInterface
                 'user_email',
             ]);
 
-        if ($post_type) {
+        if ($post_type !== '') {
             $sql->and('post_type = ' . $sql->quote($post_type));
         }
 
@@ -1982,13 +1950,10 @@ class Blog implements BlogInterface
      * @todo    Use sqlStatement in getPostsCategoryFilter
      *
      * @param  array<string>    $arr        filters
-     * @param  string           $field
-     *
-     * @return string
      */
     private function getPostsCategoryFilter($arr, string $field = 'cat_id'): string
     {
-        $field = $field == 'cat_id' ? 'cat_id' : 'cat_url';
+        $field = $field === 'cat_id' ? 'cat_id' : 'cat_url';
 
         $sub     = [];
         $not     = [];
@@ -2007,19 +1972,15 @@ class Blog implements BlogInterface
                 if (isset($args['sub'])) {
                     $sub[$id] = 1;
                 }
-                if ($field == 'cat_id') {
-                    if (preg_match('/^null$/i', (string) $id)) {
-                        $queries[$id] = 'P.cat_id IS NULL';
-                    } else {
-                        $queries[$id] = 'P.cat_id = ' . (int) $id;
-                    }
+                if ($field === 'cat_id') {
+                    $queries[$id] = preg_match('/^null$/i', (string) $id) ? 'P.cat_id IS NULL' : 'P.cat_id = ' . (int) $id;
                 } else {
                     $queries[$id] = "C.cat_url = '" . $this->con->escapeStr((string) $id) . "' ";
                 }
             }
         }
 
-        if (!empty($sub)) {
+        if ($sub !== []) {
             $sql = new SelectStatement();
             $sql
                 ->columns([
@@ -2032,7 +1993,8 @@ class Blog implements BlogInterface
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and($field . $sql->in(array_keys($sub)));
 
-            if ($rs = $sql->select()) {
+            $rs = $sql->select();
+            if ($rs instanceof MetaRecord) {
                 while ($rs->fetch()) {
                     $queries[$rs->f($field)] = '(C.cat_lft BETWEEN ' . $rs->cat_lft . ' AND ' . $rs->cat_rgt . ')';
                 }
@@ -2052,13 +2014,13 @@ class Blog implements BlogInterface
         $sql[0] = implode(' OR ', $sql[0]);
         $sql[1] = implode(' OR ', $sql[1]);
 
-        if ($sql[0]) {
+        if ($sql[0] !== '') {
             $sql[0] = '(' . $sql[0] . ')';
         } else {
             unset($sql[0]);
         }
 
-        if ($sql[1]) {
+        if ($sql[1] !== '') {
             $sql[1] = '(P.cat_id IS NULL OR NOT(' . $sql[1] . '))';
         } else {
             unset($sql[1]);
@@ -2073,9 +2035,8 @@ class Blog implements BlogInterface
      * @throws     BadRequestException
      *
      * @param      Cursor      $cur      The post Cursor
-     * @param      int         $post_id  The post identifier
      */
-    private function getPostCursor(Cursor $cur, $post_id = null): void
+    private function getPostCursor(Cursor $cur): void
     {
         if ($cur->post_title == '') {
             throw new BadRequestException(__('No entry title'));
@@ -2094,8 +2055,6 @@ class Blog implements BlogInterface
             $now          = time() + $offset;
             $cur->post_dt = date('Y-m-d H:i:00', $now);
         }
-
-        $post_id = is_int($post_id) ? $post_id : $cur->post_id;
 
         if ($cur->post_content_xhtml == '') {
             throw new BadRequestException(__('No entry content'));
@@ -2121,7 +2080,7 @@ class Blog implements BlogInterface
      * @param      Cursor  $cur      The post Cursor
      * @param      int     $post_id  The post identifier
      */
-    private function getPostContent(Cursor $cur, $post_id): void
+    private function getPostContent(Cursor $cur, int $post_id): void
     {
         [
             $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml
@@ -2156,7 +2115,7 @@ class Blog implements BlogInterface
     {
         if ($format == 'wiki') {
             $this->filter->initWikiPost();
-            if ($this->filter->wiki()) {
+            if ($this->filter->wiki() instanceof WikiToHtml) {
                 $this->filter->wiki()->setOpt('note_prefix', 'pnote-' . $post_id);
                 $tag = match ($this->settings->system->note_title_tag) {
                     1       => 'h3',
@@ -2210,7 +2169,7 @@ class Blog implements BlogInterface
         ];
 
         # If URL is empty, we create a new one
-        if ($url == '') {
+        if ($url === '') {
             # Transform with format
             $url = (string) str_replace(    // @phpstan-ignore-line
                 array_keys($url_patterns),
@@ -2238,8 +2197,7 @@ class Blog implements BlogInterface
             ->order('post_url DESC');
 
         $rs = $sql->select();
-
-        if ($rs && !$rs->isEmpty()) {
+        if ($rs instanceof MetaRecord && !$rs->isEmpty()) {
             $i   = 1;
             $sql = new SelectStatement();
             $sql
@@ -2250,19 +2208,18 @@ class Blog implements BlogInterface
                 ->and('blog_id = ' . $sql->quote($this->id))
                 ->order('post_url DESC');
 
-            if ($rs = $sql->select()) {
-                if ($rs->count()) {
-                    $a = [];
-                    while ($rs->fetch()) {
-                        $a[] = $rs->post_url;
-                    }
+            $rsOthers = $sql->select();
+            if ($rsOthers instanceof MetaRecord && $rsOthers->count()) {
+                $a = [];
+                while ($rsOthers->fetch()) {
+                    $a[] = $rsOthers->post_url;
+                }
 
-                    natsort($a);
-                    $t_url = end($a);
-                    if (preg_match('/(.*?)(\d+)$/', (string) $t_url, $m)) {
-                        $i   = (int) $m[2];
-                        $url = $m[1];
-                    }
+                natsort($a);
+                $t_url = end($a);
+                if (preg_match('/(.*?)(\d+)$/', (string) $t_url, $m)) {
+                    $i   = (int) $m[2];
+                    $url = $m[1];
                 }
             }
 
@@ -2283,7 +2240,7 @@ class Blog implements BlogInterface
 
     public function getComments($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
-        $sql = $ext_sql ? clone $ext_sql : new SelectStatement();
+        $sql = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
 
         if ($count_only) {
             $sql->column($sql->count('comment_id'));
@@ -2355,8 +2312,8 @@ class Blog implements BlogInterface
             $user_id = $this->auth->userID();
 
             $and = [
-                'comment_status = ' . (string) self::COMMENT_PUBLISHED,
-                'P.post_status = ' . (string) self::POST_PUBLISHED,
+                'comment_status = ' . self::COMMENT_PUBLISHED,
+                'P.post_status = ' . self::POST_PUBLISHED,
             ];
 
             if ($this->without_password) {
@@ -2384,7 +2341,7 @@ class Blog implements BlogInterface
 
         if (isset($params['comment_id']) && $params['comment_id'] !== '') {
             if (is_array($params['comment_id'])) {
-                array_walk($params['comment_id'], function (&$v) {
+                array_walk($params['comment_id'], function (&$v): void {
                     if ($v !== null) {
                         $v = (int) $v;
                     }
@@ -2430,7 +2387,7 @@ class Blog implements BlogInterface
         if (!empty($params['search'])) {
             $words = Text::splitWords($params['search']);
 
-            if (!empty($words)) {
+            if ($words !== []) {
                 # --BEHAVIOR coreCommentSearch
                 if ($this->behavior->hasBehavior('coreCommentSearch') || $this->behavior->hasBehavior('coreCommentSearchV2')) {
                     # --BEHAVIOR-- coreCommentSearchV2 -- array<int,mixed>
@@ -2461,7 +2418,7 @@ class Blog implements BlogInterface
         }
 
         $rs = $sql->select();
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             $rs->extend(Comment::class);
 
             # --BEHAVIOR-- coreBlogGetComments -- MetaRecord
@@ -2475,8 +2432,6 @@ class Blog implements BlogInterface
      * Creates a new comment. Takes a Cursor as input and returns the new comment ID.
      *
      * @param      Cursor  $cur    The comment Cursor
-     *
-     * @return     int
      */
     public function addComment(Cursor $cur): int
     {
@@ -2491,7 +2446,7 @@ class Blog implements BlogInterface
 
             $rs = $sql->select();
 
-            $cur->comment_id    = $rs ? (int) $rs->f(0) + 1 : 1;
+            $cur->comment_id    = $rs instanceof MetaRecord ? (int) $rs->f(0) + 1 : 1;
             $cur->comment_upddt = date('Y-m-d H:i:s');
 
             $offset          = Date::getTimeOffset($this->settings->system->blog_timezone);
@@ -2537,7 +2492,7 @@ class Blog implements BlogInterface
 
         $id = (int) $id;
 
-        if (empty($id)) {
+        if ($id === 0) {
             throw new BadRequestException(__('No such comment ID'));
         }
 
@@ -2550,10 +2505,8 @@ class Blog implements BlogInterface
         #If user is only usage, we need to check the post's owner
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id)) {
-            if ($rs->user_id != $this->auth->userID()) {
-                throw new UnauthorizedException(__('You are not allowed to update this comment'));
-            }
+        ]), $this->id) && $rs->user_id != $this->auth->userID()) {
+            throw new UnauthorizedException(__('You are not allowed to update this comment'));
         }
 
         $this->getCommentCursor($cur);
@@ -2639,7 +2592,7 @@ class Blog implements BlogInterface
 
         $co_ids = $this->cleanIds($ids);
 
-        if (empty($co_ids)) {
+        if ($co_ids === []) {
             throw new BadRequestException(__('No such comment ID'));
         }
 
@@ -2652,7 +2605,8 @@ class Blog implements BlogInterface
             ->where('comment_id' . $sql->in($co_ids))
             ->group('post_id');
 
-        if ($rs = $sql->select()) {
+        $rs = $sql->select();
+        if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $affected_posts[] = (int) $rs->post_id;
             }
@@ -2693,7 +2647,7 @@ class Blog implements BlogInterface
         $sql = new DeleteStatement();
         $sql
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
-            ->where('comment_status = ' . (string) self::COMMENT_JUNK);
+            ->where('comment_status = ' . self::COMMENT_JUNK);
 
         $sqlIn = new SelectStatement();
         $sqlIn
@@ -2762,7 +2716,7 @@ class Blog implements BlogInterface
             ->limit(1)
             ->select();
 
-        if (!$last || $last->isEmpty()) {
+        if (!$last instanceof MetaRecord || $last->isEmpty()) {
             return false;
         }
 

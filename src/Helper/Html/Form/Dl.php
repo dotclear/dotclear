@@ -44,8 +44,6 @@ class Dl extends Component
      * Renders the HTML component.
      *
      * @param   string  $format     sprintf() format applied for each items/fields ('%s' by default)
-     *
-     * @return     string
      */
     public function render(?string $format = null): string
     {
@@ -56,7 +54,7 @@ class Dl extends Component
         $format ??= ($this->format ?? '%s');
 
         // Cope with items
-        if (isset($this->items)) {
+        if ($this->items !== null) {
             $first = true;
             foreach ($this->items as $item) {
                 if ($item instanceof None) {
@@ -70,9 +68,7 @@ class Dl extends Component
             }
         }
 
-        $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
-
-        return $buffer;
+        return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
     }
 
     /**

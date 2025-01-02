@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -50,19 +51,17 @@ class Img extends Component
 
     /**
      * Renders the HTML component.
-     *
-     * @return     string
      */
     public function render(): string
     {
         return '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
             ' src="' . $this->src . '"' .
-            (isset($this->alt) ? ' alt="' . $this->alt . '"' : '') .
-            (isset($this->height) ? ' height="' . strval((int) $this->height) . '"' : '') .
-            (isset($this->loading) ? ' loading="' . $this->loading . '"' : '') .
-            (isset($this->sizes) ? ' sizes="' . $this->sizes . '"' : '') .
-            (isset($this->srcset) ? ' srcset="' . $this->srcset . '"' : '') .
-            (isset($this->width) ? ' width="' . strval((int) $this->width) . '"' : '') .
+            ($this->alt !== null ? ' alt="' . $this->alt . '"' : '') .
+            ($this->height !== null ? ' height="' . strval((int) $this->height) . '"' : '') .
+            ($this->loading !== null ? ' loading="' . $this->loading . '"' : '') .
+            ($this->sizes !== null ? ' sizes="' . $this->sizes . '"' : '') .
+            ($this->srcset !== null ? ' srcset="' . $this->srcset . '"' : '') .
+            ($this->width !== null ? ' width="' . strval((int) $this->width) . '"' : '') .
             $this->renderCommonAttributes() . '>';
     }
 

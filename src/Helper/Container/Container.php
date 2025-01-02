@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -105,10 +106,8 @@ class Container implements ContainerInterface
      * @param   array<int|string, mixed>    $args   The arguments
      *
      * @throws  ContainerException
-     *
-     * @return  mixed
      */
-    private function resolve(string $alias, array $args)
+    private function resolve(string $alias, array $args): object
     {
         if (!class_exists($alias)) {
             // Class does not exist
