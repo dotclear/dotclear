@@ -341,8 +341,6 @@ interface MediaInterface
     /**
      * Uploads a file.
      *
-     * Helper\Manager returns string but Core\Media returns int|false.
-     *
      * @param   string      $tmp        The full path of temporary uploaded file
      * @param   string      $dest       The file name (relative to working directory)me
      * @param   bool        $overwrite  File should be overwrite
@@ -351,9 +349,9 @@ interface MediaInterface
      *
      * @throws  UnauthorizedException
      *
-     * @return  mixed   New media ID or false (should be int|false)
+     * @return  string   New media ID or ''
      */
-    public function uploadFile(string $tmp, string $dest, bool $overwrite = false, ?string $title = null, bool $private = false);
+    public function uploadFile(string $tmp, string $dest, bool $overwrite = false, ?string $title = null, bool $private = false): string;
 
     /**
      * Creates a file from binary content.
@@ -363,7 +361,7 @@ interface MediaInterface
      *
      * @throws  UnauthorizedException
      *
-     * @return  string  New media ID or false
+     * @return  string  New media ID or ''
      */
     public function uploadBits(string $name, string $bits): string;
 

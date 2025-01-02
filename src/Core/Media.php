@@ -1247,10 +1247,6 @@ class Media extends Manager implements MediaInterface
     /**
      * Uploads a file.
      *
-     * Helper\Manager returns string but Core\Media returns int|false.
-     *
-     * @todo    Return type should be the same as the parent, need to refactor this method
-     *
      * @param   string      $tmp        The full path of temporary uploaded file
      * @param   string      $dest       The file name (relative to working directory)me
      * @param   bool        $overwrite  File should be overwrite
@@ -1259,12 +1255,12 @@ class Media extends Manager implements MediaInterface
      *
      * @throws  UnauthorizedException
      *
-     * @return  mixed   New media ID or false (should be int|false)
+     * @return  string      New media ID or ''
      */
-    public function uploadFile(string $tmp, string $dest, bool $overwrite = false, ?string $title = null, bool $private = false): mixed
+    public function uploadFile(string $tmp, string $dest, bool $overwrite = false, ?string $title = null, bool $private = false): string
     {
         if ($this->root_missing) {
-            return false;
+            return '';
         }
 
         if (!$this->auth->check($this->auth->makePermissions([
@@ -1278,7 +1274,9 @@ class Media extends Manager implements MediaInterface
 
         parent::uploadFile($tmp, $dest, $overwrite);
 
-        return $this->createFile($dest, $title, $private);
+        $id = $this->createFile($dest, $title, $private);
+
+        return $id === false ? '' : (string) $id;
     }
 
     public function uploadBits(string $name, string $bits): string

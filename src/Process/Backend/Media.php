@@ -133,7 +133,7 @@ class Media extends Process
                     $message['files'][] = [
                         'name' => $upfile['name'],
                         'size' => $upfile['size'],
-                        'html' => App::backend()->page->mediaLine((string) $new_file_id),
+                        'html' => App::backend()->page->mediaLine($new_file_id),
                     ];
                 } catch (Exception $e) {
                     $message['files'][] = [
