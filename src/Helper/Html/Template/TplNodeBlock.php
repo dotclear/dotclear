@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -17,32 +18,18 @@ namespace Dotclear\Helper\Html\Template;
 class TplNodeBlock extends TplNode
 {
     /**
-     * Node block tag name
-     *
-     * @var string
-     */
-    protected $tag;
-
-    /**
-     * Node block tag attributes
-     *
-     * @var array<string, mixed>
-     */
-    protected $attr;
-
-    /**
      * Closed node block flag
      *
      * @var bool
      */
-    protected $closed;
+    protected $closed = false;
 
     /**
      * Node block content
      *
      * @var string
      */
-    protected $content;
+    protected $content = '';
 
     /**
      * Constructs a new instance.
@@ -50,14 +37,11 @@ class TplNodeBlock extends TplNode
      * @param      string                   $tag    The tag
      * @param      array<string, mixed>     $attr   The attribute
      */
-    public function __construct(string $tag, array $attr)
-    {
+    public function __construct(
+        protected string $tag,
+        protected array $attr
+    ) {
         parent::__construct();
-
-        $this->content = '';
-        $this->tag     = $tag;
-        $this->attr    = $attr;
-        $this->closed  = false;
     }
 
     /**
@@ -82,8 +66,6 @@ class TplNodeBlock extends TplNode
      * Compile the node block
      *
      * @param  Template     $tpl    The current template engine instance
-     *
-     * @return     string
      */
     public function compile(Template $tpl): string
     {

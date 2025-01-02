@@ -32,8 +32,6 @@ class Html
      * Replaces HTML special characters by entities.
      *
      * @param     string $str    String to escape
-     *
-     * @return    string
      */
     public static function escapeHTML(?string $str): string
     {
@@ -47,8 +45,6 @@ class Html
      *
      * @param string        $str            String to protect
      * @param string|bool   $keep_special   Keep special characters: &gt; &lt; &amp;
-     *
-     * @return    string
      */
     public static function decodeEntities(?string $str, $keep_special = false): string
     {
@@ -76,14 +72,10 @@ class Html
      * Removes every tags, comments, cdata from string
      *
      * @param string    $str        String to clean
-     *
-     * @return    string
      */
     public static function clean(?string $str): string
     {
-        $str = strip_tags((string) $str);
-
-        return $str;
+        return strip_tags((string) $str);
     }
 
     /**
@@ -92,16 +84,13 @@ class Html
      * Returns a protected JavaScript string
      *
      * @param string    $str        String to protect
-     *
-     * @return    string
      */
     public static function escapeJS(?string $str): string
     {
         $str = htmlspecialchars((string) $str, ENT_NOQUOTES, 'UTF-8');
         $str = str_replace("'", "\'", $str);
-        $str = str_replace('"', '\"', $str);
 
-        return $str;
+        return str_replace('"', '\"', $str);
     }
 
     /**
@@ -110,8 +99,6 @@ class Html
      * Returns an escaped URL string for HTML content
      *
      * @param string    $str        String to escape
-     *
-     * @return    string
      */
     public static function escapeURL(?string $str): string
     {
@@ -124,8 +111,6 @@ class Html
      * Encode every parts between / in url
      *
      * @param string    $str        String to satinize
-     *
-     * @return    string
      */
     public static function sanitizeURL(?string $str): string
     {
@@ -138,8 +123,6 @@ class Html
      * Removes host part in URL
      *
      * @param string    $url        URL to transform
-     *
-     * @return    string
      */
     public static function stripHostURL(?string $url): string
     {
@@ -153,8 +136,6 @@ class Html
      *
      * @param string    $str        HTML to transform
      * @param string    $root       Base URL
-     *
-     * @return    string
      */
     public static function absoluteURLs(?string $str, ?string $root): string
     {
@@ -163,7 +144,7 @@ class Html
             foreach (self::$absolute_regs as $pattern) {
                 $str = (string) preg_replace_callback(
                     $pattern,
-                    function (array $matches) use ($root) {
+                    function (array $matches) use ($root): string {
                         $url = $matches[2];
 
                         $link = str_replace('%', '%%', $matches[1]) . '%s' . str_replace('%', '%%', $matches[3]);
@@ -202,8 +183,6 @@ class Html
      *
      * @param   string  $id     The identifier
      * @param   mixed   $vars   The variables
-     *
-     * @return  string
      */
     public static function jsJson(string $id, $vars): string
     {

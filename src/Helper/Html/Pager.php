@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -17,141 +18,101 @@ class Pager
 {
     /**
      * Current page index
-     *
-     * @var int
      */
     protected int $env;
 
     /**
      * Total number of elements
-     *
-     * @var int
      */
     protected int $nb_elements;
 
     /**
      * Number of elements per page
-     *
-     * @var int
      */
     protected int $nb_per_page;
 
     /**
      * Number of pages per group
-     *
-     * @var int
      */
     protected int $nb_pages_per_group;
 
     /**
      * Total number of pages
-     *
-     * @var int
      */
     protected int $nb_pages;
 
     /**
      * Total number of groups
-     *
-     * @var int
      */
     protected int $nb_groups;
 
     /**
      * Current group index
-     *
-     * @var int
      */
     protected int $env_group;
 
     /**
      * First page index of current group
-     *
-     * @var int
      */
     protected int $index_group_start;
 
     /**
      * Last page index of current group
-     *
-     * @var int
      */
     protected int $index_group_end;
 
     /**
      * Page URI
-     *
-     * @var string|null
      */
     protected ?string $page_url = null;
 
     /**
      * First element index of current page
-     *
-     * @var int
      */
     public int $index_start;
 
     /**
      * Last element index of current page
-     *
-     * @var int
      */
     public int $index_end;
 
     /**
      * Base URI
-     *
-     * @var string|null
      */
     public ?string $base_url = null;
 
     /**
      * GET param name for current page
-     *
-     * @var string
      */
     public string $var_page = 'page';
 
     /**
      * Current page format (HTML)
-     *
-     * @var string
      */
     public string $html_cur_page = '<strong>%s</strong>';
 
     /**
      * Link separator
-     *
-     * @var string
      */
     public string $html_link_sep = '-';
 
     /**
      * Previous HTML code
-     *
-     * @var string
      */
     public string $html_prev = '&#171;prev.';
 
     /**
      * Next HTML code
-     *
-     * @var string
      */
     public string $html_next = 'next&#187;';
 
     /**
      * Next group HTML code
-     *
-     * @var string
      */
     public string $html_prev_grp = '...';
 
     /**
      * Previous group HTML code
-     *
-     * @var string
      */
     public string $html_next_grp = '...';
 
@@ -207,8 +168,6 @@ class Pager
      * Pager Links
      *
      * Returns pager links
-     *
-     * @return string
      */
     public function getLinks(): string
     {
@@ -248,7 +207,7 @@ class Pager
         }
 
         # Next group
-        if ($this->env_group != $this->nb_groups) {
+        if ($this->env_group !== $this->nb_groups) {
             $htmlNextGrp = '&nbsp;<a href="' . sprintf((string) $this->page_url, $this->index_group_end + 1) . '">' . $this->html_next_grp . '</a>&nbsp;';
         }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -31,15 +32,14 @@ class TplNode
      *
      * @var ArrayObject<int, TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent>
      */
-    protected $children;
+    protected ArrayObject $children;
 
     /**
      * Constructs a new instance.
      */
     public function __construct()
     {
-        $this->children   = new ArrayObject();
-        $this->parentNode = null;
+        $this->children = new ArrayObject();
     }
 
     /**
@@ -54,10 +54,8 @@ class TplNode
      * Returns compiled block
      *
      * @param  Template     $tpl    The current template engine instance
-     *
-     * @return     string
      */
-    public function compile(Template $tpl)
+    public function compile(Template $tpl): string
     {
         $res = '';
         foreach ($this->children as $child) {
@@ -83,7 +81,7 @@ class TplNode
      *
      * @param      ArrayObject<int, TplNode|TplNodeBlock|TplNodeBlockDefinition|TplNodeText|TplNodeValue|TplNodeValueParent>  $children  The children
      */
-    public function setChildren($children): void
+    public function setChildren(ArrayObject $children): void
     {
         $this->children = $children;
         foreach ($this->children as $child) {

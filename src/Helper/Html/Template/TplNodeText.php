@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -17,24 +18,20 @@ namespace Dotclear\Helper\Html\Template;
 class TplNodeText extends TplNode
 {
     /**
-     * Simple text node, only holds its content
+     * Constructs a new instance.
      *
-     * @var string
+     * @param      string  $content  Simple text node, only holds its content
      */
-    protected $content;
-
-    public function __construct(string $text)
-    {
+    public function __construct(
+        protected string $content
+    ) {
         parent::__construct();
-        $this->content = $text;
     }
 
     /**
      * Compile node text
      *
      * @param  Template     $tpl    The current template engine instance
-     *
-     * @return     string
      */
     public function compile(Template $tpl): string
     {

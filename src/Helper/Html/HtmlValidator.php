@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -77,8 +78,6 @@ class HtmlValidator extends HttpClient
      * Returns an HTML document from a <var>$fragment</var>.
      *
      * @param string    $fragment            HTML content
-     *
-     * @return string
      */
     public function getDocument(string $fragment): string
     {
@@ -101,8 +100,6 @@ class HtmlValidator extends HttpClient
      *
      * @param string    $html               HTML document
      * @param string    $charset            Document charset
-     *
-     * @return boolean
      */
     public function perform(string $html, string $charset = 'UTF-8'): bool
     {

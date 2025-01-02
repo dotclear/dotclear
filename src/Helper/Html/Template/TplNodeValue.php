@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -17,32 +18,11 @@ namespace Dotclear\Helper\Html\Template;
 class TplNodeValue extends TplNode
 {
     /**
-     * Node tag
-     *
-     * @var string
-     */
-    protected $tag;
-
-    /**
-     * Node attributes
-     *
-     * @var array<string, mixed>
-     */
-    protected $attr;
-
-    /**
-     * Node string attributes
-     *
-     * @var string
-     */
-    protected $str_attr;
-
-    /**
      * Node content
      *
      * @var string
      */
-    protected $content;
+    protected $content = '';
 
     /**
      * Constructs a new instance.
@@ -51,21 +31,18 @@ class TplNodeValue extends TplNode
      * @param      array<string, mixed>     $attr      The attribute
      * @param      string                   $str_attr  The string attribute
      */
-    public function __construct(string $tag, array $attr, string $str_attr)
-    {
+    public function __construct(
+        protected string $tag,
+        protected array $attr,
+        protected string $str_attr
+    ) {
         parent::__construct();
-        $this->content  = '';
-        $this->tag      = $tag;
-        $this->attr     = $attr;
-        $this->str_attr = $str_attr;
     }
 
     /**
      * Compile the value node
      *
      * @param  Template     $tpl    The current template engine instance
-     *
-     * @return     string
      */
     public function compile(Template $tpl): string
     {

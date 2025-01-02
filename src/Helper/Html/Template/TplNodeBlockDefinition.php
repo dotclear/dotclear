@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -27,15 +28,11 @@ class TplNodeBlockDefinition extends TplNodeBlock
 
     /**
      * Current block
-     *
-     * @var string|null
      */
     protected static ?string $current_block = null;
 
     /**
      * Block name
-     *
-     * @var string
      */
     protected string $name = '';
 
@@ -46,7 +43,7 @@ class TplNodeBlockDefinition extends TplNodeBlock
      *
      * @return string      The compiled parent block
      */
-    public static function renderParent(Template $tpl)
+    public static function renderParent(Template $tpl): string
     {
         return self::getStackBlock((string) self::$current_block, $tpl);
     }
@@ -68,7 +65,7 @@ class TplNodeBlockDefinition extends TplNodeBlock
      *
      * @return string       The block (empty string if unavailable)
      */
-    public static function getStackBlock(string $name, Template $tpl)
+    public static function getStackBlock(string $name, Template $tpl): string
     {
         $stack = &self::$stack[$name];
         $pos   = $stack['pos'];

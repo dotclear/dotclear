@@ -25,7 +25,7 @@ class Files
      *
      * @var        int|null
      */
-    public static $dir_mode = null;
+    public static $dir_mode;
 
     /**
      * Locked files resource stack.
@@ -200,8 +200,6 @@ class Files
      * Returns a file extension.
      *
      * @param string    $filename    File name
-     *
-     * @return string
      */
     public static function getExtension(string $filename): string
     {
@@ -214,8 +212,6 @@ class Files
      * Returns a file MIME type, based on static var {@link $mime_types}
      *
      * @param string    $filename    File name
-     *
-     * @return string
      */
     public static function getMimeType(string $filename): string
     {
@@ -255,8 +251,6 @@ class Files
      * Returns true if $f is a file or directory and is deletable.
      *
      * @param string    $filename    File or directory
-     *
-     * @return boolean
      */
     public static function isDeletable(string $filename): bool
     {
@@ -275,19 +269,17 @@ class Files
      * Remove recursively a directory.
      *
      * @param string    $directory        Directory patch
-     *
-     * @return boolean
      */
     public static function deltree(string $directory): bool
     {
         $current_dir = opendir($directory);
         if ($current_dir !== false) {
             while ($filename = readdir($current_dir)) {
-                if (is_dir($directory . '/' . $filename) && ($filename != '.' && $filename != '..')) {
+                if (is_dir($directory . '/' . $filename) && ($filename !== '.' && $filename !== '..')) {
                     if (!static::deltree($directory . '/' . $filename)) {
                         return false;
                     }
-                } elseif ($filename != '.' && $filename != '..') {
+                } elseif ($filename !== '.' && $filename !== '..') {
                     if (!@unlink($directory . '/' . $filename)) {
                         return false;
                     }
@@ -324,11 +316,11 @@ class Files
      */
     public static function makeDir(string $name, bool $recursive = false): void
     {
-        if (empty($name)) {
+        if ($name === '') {
             return;
         }
 
-        if (DIRECTORY_SEPARATOR == '\\') {
+        if (DIRECTORY_SEPARATOR === '\\') {
             $name = str_replace('/', '\\', $name);
         }
 
@@ -347,7 +339,7 @@ class Files
 
             foreach ($directories as $directory) {
                 $path .= DIRECTORY_SEPARATOR . $directory;
-                if ($directory != '' && !is_dir($path)) {
+                if ($directory !== '' && !is_dir($path)) {
                     self::makeDir($path);
                 }
             }
@@ -373,10 +365,10 @@ class Files
                 if (self::$dir_mode === null) {
                     $perms = fileperms(dirname($file));
 
-                    return $perms !== false ? (bool) @chmod($file, $perms) : false;
+                    return $perms !== false && @chmod($file, $perms);
                 }
 
-                return (bool) @chmod($file, self::$dir_mode);
+                return @chmod($file, self::$dir_mode);
             } catch (Exception) {
                 // chmod and maybe fileperms functions may be disabled so catch exception and return false
             }
@@ -392,8 +384,6 @@ class Files
      *
      * @param string    $file       File to edit
      * @param string    $content    Content to write
-     *
-     * @return bool
      */
     public static function putContent(string $file, string $content): bool
     {
@@ -417,8 +407,6 @@ class Files
      * Human readable file size.
      *
      * @param integer    $size        Bytes
-     *
-     * @return string
      */
     public static function size(int $size): string
     {
@@ -444,8 +432,6 @@ class Files
      * Converts a human readable file size to bytes.
      *
      * @param string    $size            Size
-     *
-     * @return float
      */
     public static function str2bytes(string $size): float
     {
@@ -470,8 +456,6 @@ class Files
      * Returns true if upload status is ok, throws an exception instead.
      *
      * @param array<string, array<string, mixed>>        $file        File array as found in $_FILES
-     *
-     * @return boolean
      */
     public static function uploadStatus(array $file): bool
     {
@@ -481,6 +465,7 @@ class Files
 
         switch ($file['error']) {
             case UPLOAD_ERR_OK:
+            default:
                 return true;
             case UPLOAD_ERR_INI_SIZE:
             case UPLOAD_ERR_FORM_SIZE:
@@ -495,8 +480,6 @@ class Files
                 throw new Exception(__('Failed to write file to disk.'));
             case UPLOAD_ERR_EXTENSION:
                 throw new Exception(__('A PHP extension stopped the file upload.'));
-            default:
-                return true;
         }
     }
 
@@ -557,8 +540,6 @@ class Files
      * Removes unwanted characters in a filename.
      *
      * @param string    $filename        Filename
-     *
-     * @return string
      */
     public static function tidyFileName(string $filename): string
     {
@@ -650,10 +631,8 @@ class Files
     {
         if (isset(self::$lock_stack[$file])) {
             fclose(self::$lock_stack[$file]);
-            if (self::$lock_disposable[$file] && file_exists($file)) {
-                if (@unlink($file) === false) {
-                    throw new Exception(__('File cannot be removed.'));
-                }
+            if (self::$lock_disposable[$file] && file_exists($file) && @unlink($file) === false) {
+                throw new Exception(__('File cannot be removed.'));
             }
             unset(
                 self::$lock_stack[$file],

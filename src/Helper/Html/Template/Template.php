@@ -58,14 +58,14 @@ class Template
      *
      * @var        callable|null
      */
-    protected $unknown_value_handler = null;
+    protected $unknown_value_handler;
 
     /**
      * Unknown node block callback
      *
      * @var        callable|null
      */
-    protected $unknown_block_handler = null;
+    protected $unknown_block_handler;
 
     /**
      * Stack of template file paths
@@ -85,8 +85,6 @@ class Template
      * Parent file
      *
      * May be a filename or "__parent__"
-     *
-     * @var        string
      */
     protected string $parent_file = '';
 
@@ -161,8 +159,6 @@ class Template
      * Syntax: {tpl:include src="filename"}
      *
      * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr   The attribute
-     *
-     * @return     string
      */
     public function includeFile($attr): string
     {
@@ -193,10 +189,8 @@ class Template
      *
      * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr     The attribute
      * @param      string                                           $content  The content
-     *
-     * @return     string
      */
-    public function blockSection($attr, string $content)
+    public function blockSection($attr, string $content): string
     {
         // Ignore attributes and return block content only
         return $content;
@@ -420,8 +414,6 @@ class Template
      * @param      string     $file   The file
      *
      * @throws     Exception
-     *
-     * @return     string
      */
     public function getFile(string $file): string
     {
@@ -486,10 +478,8 @@ class Template
      * Gets the file path.
      *
      * @param      string       $file   The file
-     *
-     * @return     false|string  The file path.
      */
-    public function getFilePath(string $file)
+    public function getFilePath(string $file): false|string
     {
         foreach ($this->tpl_path as $p) {
             if (file_exists($p . '/' . $file)) {
@@ -505,10 +495,8 @@ class Template
      *
      * @param      string       $previous_path  The previous path
      * @param      string       $file           The file
-     *
-     * @return     bool|string  The parent file path.
      */
-    public function getParentFilePath(string $previous_path, string $file)
+    public function getParentFilePath(string $previous_path, string $file): false|string
     {
         $check_file = false;
         foreach ($this->tpl_path as $p) {
@@ -639,10 +627,10 @@ class Template
             foreach ($blocks as $block) {
                 $isblock = preg_match('#<~?tpl:(\w+)(?:(\s+.*?)~?>|~?>)|</~?tpl:(\w+)~?>|{{~?tpl:(\w+)(\s(.*?))?~?}}#ms', $block, $match);
                 if ($isblock == 1) {
-                    if (substr($match[0] ?? '', 1, 1) == '/') {
+                    if (substr($match[0] ?? '', 1, 1) === '/') {
                         // Closing tag, check if it matches current opened node
                         $tag = $match[3] ?? '';
-                        if (($node instanceof TplNodeBlock) && $node->getTag() == $tag) {
+                        if (($node instanceof TplNodeBlock) && $node->getTag() === $tag) {
                             $node->setClosing();
                             $node = $node->getParent();
                         } else {
@@ -675,11 +663,11 @@ class Template
                             $str_attr = $match[6];
                             $attr     = $this->getAttrs($match[6]);
                         }
-                        if (strtolower($tag) == 'extends') {
+                        if (strtolower($tag) === 'extends') {
                             if (isset($attr['parent']) && is_string($attr['parent']) && $this->parent_file === '') {
                                 $this->parent_file = $attr['parent'];
                             }
-                        } elseif (strtolower($tag) == 'parent') {
+                        } elseif (strtolower($tag) === 'parent') {
                             $node?->addChild(new TplNodeValueParent($tag, $attr, $str_attr));
                         } else {
                             $node?->addChild(new TplNodeValue($tag, $attr, $str_attr));
@@ -687,7 +675,7 @@ class Template
                     } else {
                         // Opening tag, create new node and dive into it
                         $tag = $match[1] ?? '';
-                        if ($tag == 'Block') {
+                        if ($tag === 'Block') {
                             $newnode = new TplNodeBlockDefinition($tag, isset($match[2]) ? $this->getAttrs($match[2]) : []);
                         } else {
                             $newnode = new TplNodeBlock($tag, isset($match[2]) ? $this->getAttrs($match[2]) : []);
@@ -710,12 +698,8 @@ class Template
         }
 
         $err = '';
-        if (count($errors)) {
-            $err = "\n\n<!-- \n" .
-            __('WARNING: the following errors have been found while parsing template file :') .
-            "\n * " .
-            join("\n * ", $errors) .
-                "\n -->\n";
+        if ($errors !== []) {
+            $err = "\n\n<!-- \n" . __('WARNING: the following errors have been found while parsing template file :') . "\n * " . implode("\n * ", $errors) . "\n -->\n";
         }
 
         return $rootNode;
@@ -727,8 +711,6 @@ class Template
      * @param      string     $file   The file
      *
      * @throws     Exception
-     *
-     * @return     string
      */
     protected function compileFile(string $file): string
     {
@@ -736,7 +718,6 @@ class Template
         $err  = '';
         while (true) {
             if ($file && !in_array($file, $this->parent_stack)) {
-                $file = (string) $file;
                 $tree = $this->getCompiledTree($file, $err);
 
                 if ($this->parent_file === '__parent__') {
@@ -771,8 +752,6 @@ class Template
      * @param      string                                           $tag      The tag
      * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr     The attribute
      * @param      string                                           $content  The content
-     *
-     * @return     string
      */
     public function compileBlockNode(string $tag, $attr, string $content): string
     {
@@ -792,14 +771,12 @@ class Template
      * @param      string                                           $tag       The tag
      * @param      array<string, mixed>|ArrayObject<string, mixed>  $attr      The attribute
      * @param      string                                           $str_attr  The string attribute
-     *
-     * @return     string
      */
     public function compileValueNode(string $tag, $attr, string $str_attr): string
     {
         $res = '';
         if (isset($this->values[$tag])) {
-            $res .= call_user_func($this->values[$tag], $attr, ltrim((string) $str_attr));
+            $res .= call_user_func($this->values[$tag], $attr, ltrim($str_attr));
         } elseif (is_callable($this->unknown_value_handler)) {
             $res .= call_user_func($this->unknown_value_handler, $tag, $attr, $str_attr);
         }
@@ -811,8 +788,6 @@ class Template
      * Compile value
      *
      * @param      array<mixed>   $match  The match
-     *
-     * @return     string
      */
     protected function compileValue(array $match): string
     {

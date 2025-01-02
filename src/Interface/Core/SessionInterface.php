@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -48,8 +49,6 @@ interface SessionInterface
      * This does not overwrite current session instance.
      *
      * @param   string  $cookie_name    The cookie name
-     *
-     * @return  SessionInterface
      */
     public function createFromCookieName(string $cookie_name): SessionInterface;
 

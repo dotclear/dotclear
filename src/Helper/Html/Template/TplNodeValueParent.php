@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -20,8 +21,6 @@ class TplNodeValueParent extends TplNodeValue
      * Compile node value parent
      *
      * @param  Template     $tpl    The current template engine instance
-     *
-     * @return     string
      */
     public function compile(Template $tpl): string
     {

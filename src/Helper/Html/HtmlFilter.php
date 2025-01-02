@@ -25,8 +25,6 @@ class HtmlFilter
 {
     /**
      * Parser handle
-     *
-     * @var XMLParser
      */
     private readonly XMLParser $parser;
 
@@ -294,24 +292,20 @@ class HtmlFilter
      * Mini Tidy, used if tidy extension is not loaded (see above)
      *
      * @param      string  $str    The string
-     *
-     * @return     mixed
      */
-    private function miniTidy(string $str)
+    private function miniTidy(string $str): string
     {
-        return preg_replace_callback('%(<(?!(\s*?/|!)).*?>)%msu', $this->miniTidyFixTag(...), $str);
+        return (string) preg_replace_callback('%(<(?!(\s*?/|!)).*?>)%msu', $this->miniTidyFixTag(...), $str);
     }
 
     /**
      * Tag (with its attributes) helper for miniTidy(), see above
      *
      * @param      array<string>   $match  The match
-     *
-     * @return     mixed
      */
-    private function miniTidyFixTag(array $match)
+    private function miniTidyFixTag(array $match): string
     {
-        return preg_replace_callback('%(=")(.*?)(")%msu', $this->miniTidyFixAttr(...), $match[1]);
+        return (string) preg_replace_callback('%(=")(.*?)(")%msu', $this->miniTidyFixAttr(...), $match[1]);
     }
 
     /**
@@ -320,8 +314,6 @@ class HtmlFilter
      * Escape entities in attributes value
      *
      * @param      array<string>   $match  The match
-     *
-     * @return     string
      */
     private function miniTidyFixAttr(array $match): string
     {
@@ -356,11 +348,11 @@ class HtmlFilter
      * @param      string                   $tag     The tag
      * @param      array<string, mixed>     $attrs   The attributes
      */
-    private function tag_open($parser, string $tag, array $attrs): void
+    protected function tag_open($parser, string $tag, array $attrs): void
     {
         $this->tag = strtolower($tag);
 
-        if ($this->tag == 'all') {
+        if ($this->tag === 'all') {
             return;
         }
 
@@ -381,7 +373,7 @@ class HtmlFilter
      * @param      mixed                $parser  The parser (resource|XMLParser)
      * @param      string               $tag     The tag
      */
-    private function tag_close($parser, string $tag): void
+    protected function tag_close($parser, string $tag): void
     {
         if (!in_array($tag, $this->single_tags) && $this->allowedTag($tag)) {
             $this->content .= '</' . $tag . '>';
@@ -394,7 +386,7 @@ class HtmlFilter
      * @param      mixed                $parser  The parser (resource|XMLParser)
      * @param      string               $cdata   The cdata
      */
-    private function cdata($parser, string $cdata): void
+    protected function cdata($parser, string $cdata): void
     {
         $this->content .= Html::escapeHTML($cdata);
     }
@@ -455,10 +447,8 @@ class HtmlFilter
         $uri = filter_var($uri, FILTER_SANITIZE_URL);
         if ($uri !== false) {
             $u = @parse_url($uri);
-            if (is_array($u) && (empty($u['scheme']) || in_array($u['scheme'], $this->allowed_schemes))) {
-                if (empty($u['host']) || (!in_array($u['host'], $this->removed_hosts))) {
-                    return $uri;
-                }
+            if (is_array($u) && (empty($u['scheme']) || in_array($u['scheme'], $this->allowed_schemes)) && (empty($u['host']) || !in_array($u['host'], $this->removed_hosts))) {
+                return $uri;
             }
         }
 
@@ -469,8 +459,6 @@ class HtmlFilter
      * Check if a tag is allowed
      *
      * @param      string  $tag    The tag
-     *
-     * @return     bool
      */
     private function allowedTag(string $tag): bool
     {
@@ -482,8 +470,6 @@ class HtmlFilter
      *
      * @param      string  $tag    The tag
      * @param      string  $attr   The attribute
-     *
-     * @return     bool    ( description_of_the_return_value )
      */
     private function allowedAttr(string $tag, string $attr): bool
     {
@@ -495,23 +481,18 @@ class HtmlFilter
             return false;
         }
 
-        if (!isset($this->tags[$tag]) || (!in_array($attr, $this->tags[$tag]) && !in_array($attr, $this->gen_attrs) && !in_array($attr, $this->event_attrs) && !$this->allowedPatternAttr($attr))) {
-            // Not in tag allowed attributes and
-            // Not in allowed generic attributes and
-            // Not in allowed event attributes and
-            // Not in allowed grep attributes
-            return false;
-        }
-
-        return true;
+        // Check if:
+        // - not in tag allowed attributes and
+        // - not in allowed generic attributes and
+        // - not in allowed event attributes and
+        // - not in allowed grep attributes
+        return isset($this->tags[$tag]) && !(!in_array($attr, $this->tags[$tag]) && !in_array($attr, $this->gen_attrs) && !in_array($attr, $this->event_attrs) && !$this->allowedPatternAttr($attr));
     }
 
     /**
      * Check if a tag's attribute is in allowed grep attributes
      *
      * @param      string  $attr   The attribute
-     *
-     * @return     bool
      */
     private function allowedPatternAttr(string $attr): bool
     {
