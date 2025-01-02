@@ -28,7 +28,7 @@ class Date
     /**
      * @var array<string, string>
      */
-    private static array $timezones;
+    private static array $timezones = [];
 
     /**
      * strftime() replacement when PHP version ≥ PHP 8.1
