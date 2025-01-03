@@ -236,18 +236,11 @@ class Config implements ConfigInterface
 
         // Constants that can be set in config.php file
 
-        //*== DC_DEBUG ==
-        if (!defined('DC_DEBUG')) {
-            define('DC_DEBUG', true);
-        }
-        if (DC_DEBUG) {
-            ini_set('display_errors', '1');
-            error_reporting(E_ALL);
-        }
-        //*/
-
         if (!defined('DC_DEBUG')) {
             define('DC_DEBUG', false);
+        } elseif (DC_DEBUG) {
+            ini_set('display_errors', '1');
+            error_reporting(E_ALL);
         }
 
         if (!defined('DC_DEV')) {

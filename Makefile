@@ -79,9 +79,6 @@ config: clean config-stamp
 	find $(DC)/themes -name '*.js' ! -name '*.min.js' ! -name 'jquery.js' -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/inc/js -name '*.js' ! -name '*.min.js' ! -name 'jquery.js' -exec ./build-tools/min-js.php \{\} \;
 
-	## Debug off
-	perl -pi -e "s|//\*== DC_DEBUG|/*== DC_DEBUG|sgi;" $(DC)/src/Config.php $(DC)/src/Config.php
-
 	## Remove scm files and folders from DC and CB
 	find ./$(DIST)/ -type d -name '.git' | xargs -r rm -rf
 	find ./$(DIST)/ -type f -name '.*ignore' | xargs -r rm -rf
