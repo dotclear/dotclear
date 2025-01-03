@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -124,7 +125,7 @@ class ActionsPostsDefault
         };
 
         $ids = $ap->getIDs();
-        if (empty($ids)) {
+        if ($ids === []) {
             throw new Exception(__('No entry selected'));
         }
 
@@ -139,11 +140,11 @@ class ActionsPostsDefault
                     }
                 }
             }
-            if (count($excluded_ids)) {
+            if ($excluded_ids !== []) {
                 $ids = array_diff($ids, $excluded_ids);
             }
         }
-        if (count($ids) === 0) {
+        if ($ids === []) {
             throw new Exception(__('Published entries cannot be set to scheduled'));
         }
 
@@ -181,7 +182,7 @@ class ActionsPostsDefault
 
         if (!is_null($status)) {
             $ids = $ap->getIDs();
-            if (empty($ids)) {
+            if ($ids === []) {
                 throw new Exception(__('No entry selected'));
             }
 
@@ -196,7 +197,7 @@ class ActionsPostsDefault
                         count($ids)
                     ),
                     count($ids),
-                    $status ? __('Already published') : __('Never published')
+                    $status !== 0 ? __('Already published') : __('Never published')
                 )
             );
         }
@@ -213,7 +214,7 @@ class ActionsPostsDefault
     public static function doUpdateSelectedPost(ActionsPosts $ap): void
     {
         $ids = $ap->getIDs();
-        if (empty($ids)) {
+        if ($ids === []) {
             throw new Exception(__('No entry selected'));
         }
 
@@ -255,7 +256,7 @@ class ActionsPostsDefault
     public static function doDeletePost(ActionsPosts $ap): void
     {
         $ids = $ap->getIDs();
-        if (empty($ids)) {
+        if ($ids === []) {
             throw new Exception(__('No entry selected'));
         }
         // Backward compatibility
@@ -294,7 +295,7 @@ class ActionsPostsDefault
     {
         if (isset($post['new_cat_id'])) {
             $ids = $ap->getIDs();
-            if (empty($ids)) {
+            if ($ids === []) {
                 throw new Exception(__('No entry selected'));
             }
             $new_cat_id = (int) $post['new_cat_id'];
@@ -305,7 +306,7 @@ class ActionsPostsDefault
                 $cur_cat->cat_title = $post['new_cat_title'];
                 $cur_cat->cat_url   = '';
 
-                $parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
+                $parent_cat = empty($post['new_cat_parent']) ? '' : $post['new_cat_parent'];
 
                 # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
                 App::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
@@ -318,7 +319,7 @@ class ActionsPostsDefault
 
             App::blog()->updPostsCategory($ids, $new_cat_id);
             $title = __('(No cat)');
-            if ($new_cat_id) {
+            if ($new_cat_id !== 0) {
                 $title = App::blog()->getCategory($new_cat_id)->cat_title;
             }
             Notices::addSuccessNotice(
@@ -423,7 +424,7 @@ class ActionsPostsDefault
         ]), App::blog()->id())) {
             $new_user_id = $post['new_auth_id'];
             $ids         = $ap->getIDs();
-            if (empty($ids)) {
+            if ($ids === []) {
                 throw new Exception(__('No entry selected'));
             }
             if (App::users()->getUser($new_user_id)->isEmpty()) {
@@ -520,8 +521,8 @@ class ActionsPostsDefault
      */
     public static function doChangePostLang(ActionsPosts $ap, ArrayObject $post): void
     {
-        $post_ids = $ap->getIDs();
-        if (empty($post_ids)) {
+        $ids = $ap->getIDs();
+        if ($ids === []) {
             throw new Exception(__('No entry selected'));
         }
         if (isset($post['new_lang'])) {
@@ -531,7 +532,7 @@ class ActionsPostsDefault
 
             $sql = new UpdateStatement();
             $sql
-                ->where('post_id ' . $sql->in($post_ids))
+                ->where('post_id ' . $sql->in($ids))
                 ->update($cur);
 
             Notices::addSuccessNotice(
@@ -539,9 +540,9 @@ class ActionsPostsDefault
                     __(
                         '%d entry has been successfully set to language "%s"',
                         '%d entries have been successfully set to language "%s"',
-                        count($post_ids)
+                        count($ids)
                     ),
-                    count($post_ids),
+                    count($ids),
                     Html::escapeHTML(L10n::getLanguageName($new_lang))
                 )
             );

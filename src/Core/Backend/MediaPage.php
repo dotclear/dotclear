@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -149,7 +150,7 @@ class MediaPage extends FilterMedia
      */
     public function getDirs(string $type = ''): ?array
     {
-        if (!empty($type)) {
+        if ($type !== '') {
             return $this->media_dir[$type] ?? null;
         }
 
@@ -177,7 +178,7 @@ class MediaPage extends FilterMedia
             $items = array_values(array_merge($dir['dirs'], $dir['files']));
 
             // Transform each File array value to associative array if necessary
-            $items = array_map(fn ($v) => $v instanceof File ? (array) $v : $v, $items);
+            $items = array_map(fn ($v): mixed => $v instanceof File ? (array) $v : $v, $items);
         }
 
         return MetaRecord::newFromArray($items);
@@ -194,7 +195,7 @@ class MediaPage extends FilterMedia
     {
         $file = App::media()->getFile((int) $file_id);
 
-        return $file ? ListingMedia::mediaLine($this, $file, 1, $this->media_has_query) : '';
+        return $file instanceof File ? ListingMedia::mediaLine($this, $file, 1, $this->media_has_query) : '';
     }
 
     /**
@@ -250,7 +251,7 @@ class MediaPage extends FilterMedia
         }
 
         $nb_last_dirs = $this->showLast();
-        if (!$nb_last_dirs) {
+        if ($nb_last_dirs === 0) {
             return false;
         }
 
@@ -262,21 +263,19 @@ class MediaPage extends FilterMedia
                 unset($last_dirs[array_search($dir, $last_dirs)]);
                 $done = true;
             }
-        } else {
-            if (!in_array($dir, $last_dirs)) {
-                // Add new dir at the top of the list
-                array_unshift($last_dirs, $dir);
-                // Remove oldest dir(s)
-                while (count($last_dirs) > $nb_last_dirs) {
-                    array_pop($last_dirs);
-                }
-                $done = true;
-            } else {
-                // Move current dir at the top of list
-                unset($last_dirs[array_search($dir, $last_dirs)]);
-                array_unshift($last_dirs, $dir);
-                $done = true;
+        } elseif (!in_array($dir, $last_dirs)) {
+            // Add new dir at the top of the list
+            array_unshift($last_dirs, $dir);
+            // Remove oldest dir(s)
+            while (count($last_dirs) > $nb_last_dirs) {
+                array_pop($last_dirs);
             }
+            $done = true;
+        } else {
+            // Move current dir at the top of list
+            unset($last_dirs[array_search($dir, $last_dirs)]);
+            array_unshift($last_dirs, $dir);
+            $done = true;
         }
 
         if ($done) {
@@ -320,7 +319,7 @@ class MediaPage extends FilterMedia
         }
 
         $nb_last_dirs = $this->showLast();
-        if (!$nb_last_dirs) {
+        if ($nb_last_dirs === 0) {
             return false;
         }
 
@@ -381,7 +380,7 @@ class MediaPage extends FilterMedia
     {
         $option = $param = [];
 
-        if (empty($element)) {
+        if ($element === []) {
             $param = [
                 'd' => '',
                 'q' => '',
@@ -394,7 +393,7 @@ class MediaPage extends FilterMedia
             } else {
                 $bc_url   = App::backend()->url()->get('admin.media', [...$this->values(), 'd' => '%s'], '&amp;', true);
                 $bc_media = App::media()->breadCrumb($bc_url, '<span class="page-title">%s</span>');
-                if ($bc_media != '') {
+                if ($bc_media !== '') {
                     $element[$bc_media] = '';
                     $option['hl']       = true;
                 }
@@ -403,7 +402,7 @@ class MediaPage extends FilterMedia
 
         $elements = [
             Html::escapeHTML(App::blog()->name()) => '',
-            __('Media manager')                   => empty($param) ? '' :
+            __('Media manager')                   => $param === [] ? '' :
                 App::backend()->url()->get('admin.media', array_merge($this->values(), [...$this->values(), ...$param])),
         ];
         $options = [

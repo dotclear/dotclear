@@ -29,7 +29,7 @@ class Themes extends Modules implements ThemesInterface
 
     protected function loadModulesContext(array $ignored, string $ns, ?string $lang): void
     {
-        if ($ns == 'admin' && App::blog()->isDefined()) {
+        if ($ns === 'admin' && App::blog()->isDefined()) {
             // Load current theme Backend process (and its parent)
             $this->loadNsFile((string) App::blog()->settings()->system->theme, 'admin');
         }
@@ -114,7 +114,7 @@ class Themes extends Modules implements ThemesInterface
         while (is_dir($new_dir)) {
             $new_dir = sprintf('%s_copy_%s', $module->get('root'), ++$counter);
         }
-        $new_name = $module->get('name') . ($counter ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
+        $new_name = $module->get('name') . ($counter !== 0 ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
 
         if (!is_dir($new_dir)) {
             try {
@@ -182,7 +182,7 @@ class Themes extends Modules implements ThemesInterface
             } catch (Exception $e) {
                 Files::deltree($new_dir);
 
-                throw new Exception($e->getMessage());
+                throw new Exception($e->getMessage(), (int) $e->getCode(), $e);
             }
         } else {
             throw new Exception(__('Destination folder already exist'));
@@ -221,17 +221,14 @@ class Themes extends Modules implements ThemesInterface
                 return;
         }
 
-        if ($parent->isDefined()) {
-            // by class name
-            if ($this->loadNsClass($parent->getId(), $class) === '') {
-                // by file name
-                $this->loadModuleFile((string) $parent->get('root') . DIRECTORY_SEPARATOR . $file, true);
-            }
+        if ($parent->isDefined() && $this->loadNsClass($parent->getId(), $class) === '') {
+            // by file name rather than by class name
+            $this->loadModuleFile($parent->get('root') . DIRECTORY_SEPARATOR . $file, true);
         }
-        // by class name
+
         if ($this->loadNsClass($id, $class) === '') {
-            // by file name
-            $this->loadModuleFile((string) $define->get('root') . DIRECTORY_SEPARATOR . $file, true);
+            // by file name rather than by class name
+            $this->loadModuleFile($define->get('root') . DIRECTORY_SEPARATOR . $file, true);
         }
     }
 }

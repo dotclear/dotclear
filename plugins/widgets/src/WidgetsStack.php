@@ -29,8 +29,6 @@ class WidgetsStack
      * Load widgets from settings.
      *
      * @param   mixed   $s  Settings
-     *
-     * @return  self
      */
     public static function load($s): self
     {
@@ -71,8 +69,6 @@ class WidgetsStack
      * @param   mixed   $callback           The callback
      * @param   mixed   $append_callback    The append callback
      * @param   string  $desc               The description
-     *
-     * @return  WidgetsElement
      */
     public function create(string $id, string $name, $callback, $append_callback = null, string $desc = ''): WidgetsElement
     {
@@ -115,7 +111,7 @@ class WidgetsStack
     public function elements(bool $sorted = false): array
     {
         if ($sorted) {
-            uasort($this->widgets, function ($a, $b) {
+            uasort($this->widgets, function ($a, $b): int {
                 $c = Text::removeDiacritics(mb_strtolower($a->name()));
                 $d = Text::removeDiacritics(mb_strtolower($b->name()));
 
@@ -136,7 +132,7 @@ class WidgetsStack
     public function __get($id)
     {
         if (!isset($this->widgets[$id])) {
-            return;
+            return null;
         }
 
         return $this->widgets[$id];
@@ -171,12 +167,10 @@ class WidgetsStack
      *
      * @param   array<array<string, mixed>>     $A
      * @param   WidgetsStack                    $widgets    The widgets
-     *
-     * @return  self
      */
     public static function loadArray(array $A, self $widgets): self
     {
-        uasort($A, fn ($a, $b) => $a['order'] <=> $b['order']);
+        uasort($A, fn ($a, $b): int => $a['order'] <=> $b['order']);
 
         $result = new self();
         foreach ($A as $v) {

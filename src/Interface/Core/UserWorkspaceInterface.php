@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -39,7 +40,7 @@ interface UserWorkspaceInterface
      *
      * @var    string  WS_ID_SCHEMA
      */
-    public const WS_ID_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
+    public const WS_ID_SCHEMA = '/^[a-zA-Z]\w+$/';
 
     /**
      * Preferences types stored in table, subset of settype() allowed type : string.
@@ -110,8 +111,6 @@ interface UserWorkspaceInterface
      * @param   null|string     $user_id    The user identifier
      * @param   string          $workspace  The workspace name
      * @param   MetaRecord      $rs         The recordset
-     *
-     * @return  UserWorkspaceInterface
      */
     public function createFromUser(?string $user_id, string $workspace, ?MetaRecord $rs = null): UserWorkspaceInterface;
 
@@ -127,8 +126,6 @@ interface UserWorkspaceInterface
      *
      * @param   string  $name       The identifier
      * @param   bool    $global     The global
-     *
-     * @return  bool    true if a pref exist, else false
      */
     public function prefExists(string $name, bool $global = false): bool;
 
@@ -252,8 +249,6 @@ interface UserWorkspaceInterface
 
     /**
      * Dumps a workspace.
-     *
-     * @return  string
      */
     public function dumpWorkspace(): string;
 

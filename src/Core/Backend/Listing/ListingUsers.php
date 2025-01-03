@@ -95,7 +95,7 @@ class ListingUsers extends Listing
         // Cope with optional columns
         $this->userColumns('users', $cols);
 
-        $fmt = fn ($title, $image) => sprintf(
+        $fmt = fn ($title, $image): string => sprintf(
             (new Img('images/%2$s'))
                     ->alt('%1$s')
                     ->class(['mark', 'mark-admin'])
@@ -140,7 +140,7 @@ class ListingUsers extends Listing
                     ->text(__('The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts')),
             ])
         ->render();
-        if ($enclose_block) {
+        if ($enclose_block !== '') {
             $buffer = sprintf($enclose_block, $buffer);
         }
 
@@ -149,8 +149,6 @@ class ListingUsers extends Listing
 
     /**
      * Get a user line.
-     *
-     * @return  Tr
      */
     private function userLine(): Tr
     {

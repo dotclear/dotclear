@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -10,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance;
 
 use Dotclear\App;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
 
 /**
@@ -76,10 +78,8 @@ class Maintenance
      * @param   string                  $id         The identifier
      * @param   string                  $name       The name
      * @param   array<string, string>   $options    The options
-     *
-     * @return  self
      */
-    public function addTab(string $id, string $name, array $options = [])
+    public function addTab(string $id, string $name, array $options = []): static
     {
         $this->tabs[$id] = new MaintenanceDescriptor($id, $name, $options);
 
@@ -117,10 +117,8 @@ class Maintenance
      * @param   string                  $id         The identifier
      * @param   string                  $name       The name
      * @param   array<string, string>   $options    The options
-     *
-     * @return  self
      */
-    public function addGroup(string $id, string $name, array $options = [])
+    public function addGroup(string $id, string $name, array $options = []): static
     {
         $this->groups[$id] = new MaintenanceDescriptor($id, $name, $options);
 
@@ -156,10 +154,8 @@ class Maintenance
      * Adds a task.
      *
      * @param   mixed   $task   The task, Class name or object
-     *
-     * @return  self
      */
-    public function addTask($task)
+    public function addTask($task): static
     {
         if (is_subclass_of($task, MaintenanceTask::class)) {
             $tmp                     = new $task($this);
@@ -217,7 +213,7 @@ class Maintenance
     public function setLog(string $id): void
     {
         // Check if taks exists
-        if (!$this->getTask($id)) {
+        if (!$this->getTask($id) instanceof MaintenanceTask) {
             return;
         }
 
@@ -231,14 +227,14 @@ class Maintenance
             ->select();
 
         $logs = [];
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $logs[] = $rs->log_id;
             }
         }
 
         // Delete old logs
-        if (!empty($logs)) {
+        if ($logs !== []) {
             App::log()->delLogs($logs);
         }
 
@@ -269,7 +265,7 @@ class Maintenance
         }
 
         // Delete old logs
-        if (!empty($logs)) {
+        if ($logs !== []) {
             App::log()->delLogs($logs);
         }
     }

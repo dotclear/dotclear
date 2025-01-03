@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -59,7 +60,7 @@ class ActionsBlogsDefault
         }
 
         $ids = $ap->getIDs();
-        if (empty($ids)) {
+        if ($ids === []) {
             throw new Exception(__('No blog selected'));
         }
 
@@ -100,7 +101,7 @@ class ActionsBlogsDefault
         }
 
         $ids = $ap->getIDs();
-        if (empty($ids)) {
+        if ($ids === []) {
             throw new Exception(__('No blog selected'));
         }
 
@@ -117,7 +118,7 @@ class ActionsBlogsDefault
             }
         }
 
-        if (!empty($checked_ids)) {
+        if ($checked_ids !== []) {
             # --BEHAVIOR-- adminBeforeBlogsDelete -- array<int,string>
             App::behavior()->callBehavior('adminBeforeBlogsDelete', $checked_ids);
 

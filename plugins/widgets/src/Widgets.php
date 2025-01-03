@@ -48,8 +48,6 @@ class Widgets
 
     /**
      * The current widgets stack.
-     *
-     * @var     WidgetsStack    $widgets
      */
     public static WidgetsStack $widgets;
 
@@ -210,8 +208,6 @@ class Widgets
      * Render search form widget.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function search(WidgetsElement $widget): string
     {
@@ -250,8 +246,6 @@ class Widgets
      * Render navigation widget.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function navigation(WidgetsElement $widget): string
     {
@@ -275,13 +269,10 @@ class Widgets
                 $res .= '<li class="topnav-posts">' .
                 '<a href="' . App::blog()->url() . App::url()->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
             }
-        } else {
-            // On home page (standard or static)
-            if (App::blog()->settings()->system->static_home) {
-                // Static mode: add recent posts link
-                $res .= '<li class="topnav-posts">' .
-                '<a href="' . App::blog()->url() . App::url()->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
-            }
+        } elseif (App::blog()->settings()->system->static_home) {
+            // Static mode: add recent posts link
+            $res .= '<li class="topnav-posts">' .
+            '<a href="' . App::blog()->url() . App::url()->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
         }
 
         $res .= '<li class="topnav-arch">' .
@@ -296,8 +287,6 @@ class Widgets
      * Render categories widget.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function categories(WidgetsElement $widget): string
     {
@@ -319,8 +308,8 @@ class Widgets
         $ref_level = $level = $rs->level - 1;
         while ($rs->fetch()) {
             $class = '';
-            if ((App::url()->getType() == 'category' && App::frontend()->context()->categories instanceof MetaRecord && App::frontend()->context()->categories->cat_id == $rs->cat_id)
-                || (App::url()->getType() == 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $rs->cat_id)) {
+            if ((App::url()->getType() === 'category' && App::frontend()->context()->categories instanceof MetaRecord && App::frontend()->context()->categories->cat_id == $rs->cat_id)
+                || (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $rs->cat_id)) {
                 $class = ' class="category-current"';
             }
 
@@ -352,8 +341,6 @@ class Widgets
      * Render selected posts widget.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function bestof(WidgetsElement $widget): string
     {
@@ -382,7 +369,7 @@ class Widgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (App::url()->getType() == 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
+            if (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= ' <li' . $class . '><a href="' . $rs->getURL() . '">' . Html::escapeHTML($rs->post_title) . '</a></li> ';
@@ -397,8 +384,6 @@ class Widgets
      * Render langs widget.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function langs(WidgetsElement $widget): string
     {
@@ -444,8 +429,6 @@ class Widgets
      * Render feed subscription widget.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function subscribe(WidgetsElement $widget): string
     {
@@ -490,8 +473,6 @@ class Widgets
      * Render feed widget.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function feed(WidgetsElement $widget): string
     {
@@ -551,8 +532,6 @@ class Widgets
      * Render text widget.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function text(WidgetsElement $widget): string
     {
@@ -573,8 +552,6 @@ class Widgets
      * Render last posts widget.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function lastposts(WidgetsElement $widget): string
     {
@@ -617,7 +594,7 @@ class Widgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (App::url()->getType() == 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
+            if (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .
@@ -633,8 +610,6 @@ class Widgets
      * Render last comments widget.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function lastcomments(WidgetsElement $widget): string
     {

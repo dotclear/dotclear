@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\Database\Cursor;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Helper\Crypt;
@@ -38,22 +39,16 @@ class Auth implements AuthInterface
 {
     /**
      * User table name.
-     *
-     * @var     string  $user_table
      */
     protected string $user_table;
 
     /**
      * Perm table name.
-     *
-     * @var  string     $perm_table
      */
     protected string $perm_table;
 
     /**
      * Current user ID.
-     *
-     * @var     string     $user_id
      */
     protected string $user_id;
 
@@ -73,22 +68,16 @@ class Auth implements AuthInterface
 
     /**
      * User must change his password after login.
-     *
-     * @var     bool    $user_change_pwd
      */
     protected bool $user_change_pwd;
 
     /**
      * User is super admin.
-     *
-     * @var     bool    $user_admin
      */
     protected bool $user_admin;
 
     /**
      * User can change its password.
-     *
-     * @var     bool    $allow_pass_change
      */
     protected bool $allow_pass_change = true;
 
@@ -107,8 +96,6 @@ class Auth implements AuthInterface
      * @todo    Set Auth::$blog_count as a protected property
      *
      * @deprecated  since 2.??, use App::auth()->getBlogCount() instead
-     *
-     * @var     int|null     $blog_count
      */
     public ?int $blog_count = null;
 
@@ -200,7 +187,7 @@ class Auth implements AuthInterface
             return false;
         }
 
-        if (!$rs || $rs->isEmpty()) {
+        if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
             // Avoid time attacks by measuring server response time during user existence check
             sleep(random_int(2, 5));
 
@@ -285,11 +272,7 @@ class Auth implements AuthInterface
         $this->user_prefs = $this->user_prefs->createFromUser($this->userID());
 
         # Get permissions on blogs
-        if ($check_blog && ($this->findUserBlog() === false)) {
-            return false;
-        }
-
-        return true;
+        return !($check_blog && $this->findUserBlog() === false);
     }
 
     public function crypt(string $pwd): string
@@ -449,7 +432,7 @@ class Auth implements AuthInterface
 
             $rs = $sql->select();
 
-            $this->user_blogs[$blog_id] = !$rs || $rs->isEmpty() ? false : [self::PERMISSION_ADMIN => true];
+            $this->user_blogs[$blog_id] = !$rs instanceof MetaRecord || $rs->isEmpty() ? false : [self::PERMISSION_ADMIN => true];
 
             return $this->user_blogs[$blog_id];
         }
@@ -463,14 +446,14 @@ class Auth implements AuthInterface
             ->and($sql->isNotNull('permissions'));
 
         $rs                         = $sql->select();
-        $this->user_blogs[$blog_id] = !$rs || $rs->isEmpty() ? false : $this->parsePermissions($rs->permissions);
+        $this->user_blogs[$blog_id] = !$rs instanceof MetaRecord || $rs->isEmpty() ? false : $this->parsePermissions($rs->permissions);
 
         return $this->user_blogs[$blog_id];
     }
 
     public function getBlogCount(): int
     {
-        if (!isset($this->blog_count)) {
+        if ($this->blog_count === null) {
             $this->blog_count = (int) $this->blogs->getBlogs([], true)->f(0);
         }
 
@@ -508,13 +491,13 @@ class Auth implements AuthInterface
                 ->and('P.blog_id = B.blog_id')
                 // from 2.33 each Utility or Process must check user permissions (with Auth::check(), Page::check(), ...)
                 ->and($sql->isNotNull('permissions'))
-                ->and('blog_status >= ' . (string) $this->blog::BLOG_OFFLINE)
+                ->and('blog_status >= ' . $this->blog::BLOG_OFFLINE)
                 ->order('P.blog_id ASC')
                 ->limit(1);
         }
 
         $rs = $sql->select();
-        if ($rs && !$rs->isEmpty()) {
+        if ($rs instanceof MetaRecord && !$rs->isEmpty()) {
             return $rs->blog_id;
         }
 
@@ -528,16 +511,12 @@ class Auth implements AuthInterface
 
     public function getInfo(string $information)
     {
-        if (isset($this->user_info[$information])) {
-            return $this->user_info[$information];
-        }
+        return $this->user_info[$information] ?? null;
     }
 
     public function getOption(string $option)
     {
-        if (isset($this->user_options[$option])) {
-            return $this->user_options[$option];
-        }
+        return $this->user_options[$option] ?? null;
     }
 
     public function getOptions(): array
@@ -593,7 +572,7 @@ class Auth implements AuthInterface
 
         $rs = $sql->select();
 
-        if (!$rs || $rs->isEmpty()) {
+        if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
             throw new BadRequestException(__('That user does not exist in the database.'));
         }
 
@@ -620,7 +599,7 @@ class Auth implements AuthInterface
 
         $rs = $sql->select();
 
-        if (!$rs || $rs->isEmpty()) {
+        if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
             throw new BadRequestException(__('That key does not exist in the database.'));
         }
 

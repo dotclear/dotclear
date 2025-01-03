@@ -20,10 +20,9 @@ use Exception;
 /**
  * @brief   Generic My module class.
  *
- * This class is an helper to have short access to
- * module properties and common requiremets.
- * A module My class must not extend this class
- * but MUST extend MyPlugin or MyTheme class.
+ * This class is an helper to have short access to module properties and common requirements.
+ *
+ * A module My class must not extend this class but MUST extend MyPlugin or MyTheme class.
  *
  * @since   2.27
  */
@@ -151,7 +150,7 @@ abstract class MyModule
         // else default permissions, we always check for whole module perms first
         return  static::checkCustomContext(self::MODULE) !== false && match ($context) {
             // Global module context (Beware this can be check in BACKEND, FRONTEND, INSTALL,...)
-            self::MODULE => App::config()->configPath() != '',
+            self::MODULE => App::config()->configPath() !== '',
 
             // Installation of module
             self::INSTALL => App::task()->checkContext('BACKEND')
@@ -161,13 +160,13 @@ abstract class MyModule
                     && App::version()->newerVersion(self::id(), (string) App::plugins()->getDefine(self::id())->get('version')),
 
             // Uninstallation of module
-            self::UNINSTALL => App::config()->configPath() != ''
+            self::UNINSTALL => App::config()->configPath() !== ''
                     // Manageable only by super-admin
                     && App::auth()->isSuperAdmin(),
 
             // Prepend and Frontend context
             self::PREPEND,
-            self::FRONTEND => App::config()->configPath() != '',
+            self::FRONTEND => App::config()->configPath() !== '',
 
             // Backend context
             self::BACKEND => App::task()->checkContext('BACKEND')
@@ -199,8 +198,6 @@ abstract class MyModule
 
     /**
      * Get the module path.
-     *
-     * @return  string  The module path
      */
     final public static function path(): string
     {
@@ -210,9 +207,7 @@ abstract class MyModule
     }
 
     /**
-     * The module ID.
-     *
-     * @return  string The module ID
+     * Get the module ID.
      */
     final public static function id(): string
     {
@@ -220,9 +215,7 @@ abstract class MyModule
     }
 
     /**
-     * The module name.
-     *
-     * @return  string The module translated name
+     * Get the module translated name.
      */
     final public static function name(): string
     {
@@ -235,8 +228,6 @@ abstract class MyModule
      * The module settings instance.
      *
      * @throws  Exception   Since 2.28 if blog is not defined
-     *
-     * @return  BlogWorkspaceInterface  The module settings instance
      */
     final public static function settings(): BlogWorkspaceInterface
     {
@@ -245,8 +236,6 @@ abstract class MyModule
 
     /**
      * The module preferences instance.
-     *
-     * @return  UserWorkspaceInterface     The module preferences instance
      */
     final public static function prefs(): UserWorkspaceInterface
     {
@@ -271,12 +260,10 @@ abstract class MyModule
      *
      * @param   string  $resource   The resource file
      * @param   bool    $frontend   Force to get frontend (public) URL even in backend
-     *
-     * @return  string
      */
     public static function fileURL(string $resource, bool $frontend = false): string
     {
-        if (!empty($resource) && !str_starts_with($resource, '/')) {
+        if ($resource !== '' && !str_starts_with($resource, '/')) {
             $resource = '/' . $resource;
         }
         if (App::task()->checkContext('BACKEND') && !$frontend) {
@@ -295,8 +282,6 @@ abstract class MyModule
      * @param   string          $resource   The resource
      * @param   string          $media      The media
      * @param   null|string     $version    The version
-     *
-     * @return  string
      */
     public static function cssLoad(string $resource, string $media = 'screen', ?string $version = ''): string
     {
@@ -319,8 +304,6 @@ abstract class MyModule
      * @param   string          $resource   The resource
      * @param   null|string     $version    The version
      * @param   bool            $module     Load source as JS module
-     *
-     * @return  string
      */
     public static function jsLoad(string $resource, ?string $version = '', bool $module = false): string
     {
@@ -344,13 +327,11 @@ abstract class MyModule
      * see MyPlugin::define() and MyTheme::define()
      *
      * @param   null|ModulesInterface   $modules    The modules instance (Themes or Plugins)
-     *
-     * @return  ModuleDefine  The module define
      */
     final protected static function getDefineFromNamespace(?ModulesInterface $modules): ModuleDefine
     {
         // take into account modules not loaded
-        if (null === $modules) {
+        if (!$modules instanceof ModulesInterface) {
             static::exception('Failed to load modules for ' . static::class);
         }
 
@@ -377,7 +358,7 @@ abstract class MyModule
      */
     final protected static function exception(string $msg = '')
     {
-        $msg = App::config()->devMode() && !empty($msg) ? ': ' . $msg : '';
+        $msg = App::config()->devMode() && $msg !== '' ? ': ' . $msg : '';
 
         throw new Exception('Invalid module structure' . $msg);
     }

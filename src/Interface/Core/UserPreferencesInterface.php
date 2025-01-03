@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -39,8 +40,6 @@ interface UserPreferencesInterface
      * If the workspace already exists, return it without modification.
      *
      * @param   string  $workspace  Workspace name
-     *
-     * @return  UserWorkspaceInterface
      */
     public function addWorkspace(string $workspace): UserWorkspaceInterface;
 
@@ -51,8 +50,6 @@ interface UserPreferencesInterface
      * @param   string  $new_workspace  The new workspace name
      *
      * @throws  BadRequestException
-     *
-     * @return  bool
      */
     public function renWorkspace(string $old_workspace, string $new_workspace): bool;
 
@@ -60,8 +57,6 @@ interface UserPreferencesInterface
      * Delete a whole workspace with all preferences pertaining to it.
      *
      * @param   string  $workspace  Workspace name
-     *
-     * @return  bool
      */
     public function delWorkspace(string $workspace): bool;
 
@@ -69,8 +64,6 @@ interface UserPreferencesInterface
      * Returns full workspace with all prefs pertaining to it.
      *
      * @param   string  $workspace  Workspace name
-     *
-     * @return  UserWorkspaceInterface
      */
     public function get(string $workspace): UserWorkspaceInterface;
 
@@ -80,8 +73,6 @@ interface UserPreferencesInterface
      * @copydoc ::get
      *
      * @param   string  $workspace  Workspace name
-     *
-     * @return  UserWorkspaceInterface
      */
     public function __get(string $workspace): UserWorkspaceInterface;
 
@@ -89,8 +80,6 @@ interface UserPreferencesInterface
      * Check if a workspace exists.
      *
      * @param   string  $workspace  Workspace name
-     *
-     * @return  boolean
      */
     public function exists(string $workspace): bool;
 

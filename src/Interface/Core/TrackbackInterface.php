@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -80,8 +81,6 @@ interface TrackbackInterface
      * @param   string  $to_url     Target URL
      *
      * @throws  BadRequestException
-     *
-     * @return  string
      */
     public function receivePingback(string $from_url, string $to_url): string;
 

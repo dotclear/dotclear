@@ -289,12 +289,10 @@ class Filters
      * Show foldable filters form.
      *
      * @param   bool    $set    Force to show filter form
-     *
-     * @return  bool    Show filter form
      */
     public function show(bool $set = false): bool
     {
-        if ($set === true) {
+        if ($set) {
             $this->show = true;
         }
 
@@ -308,7 +306,7 @@ class Filters
      */
     public function js(string $reset_url = ''): string
     {
-        $var = empty($reset_url) ? '' : Page::jsJson('filter_reset_url', $reset_url);
+        $var = $reset_url === '' ? '' : Page::jsJson('filter_reset_url', $reset_url);
 
         return $var . Page::jsFilterControl($this->show());
     }

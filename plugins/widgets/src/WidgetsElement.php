@@ -70,14 +70,14 @@ class WidgetsElement
      *
      * @var     null|callable   $public_callback
      */
-    private $public_callback = null;
+    private $public_callback;
 
     /**
      * Widget append callback.
      *
      * @var     null|callable   $append_callback
      */
-    public $append_callback = null;
+    public $append_callback;
 
     /**
      * Widget settings.
@@ -132,8 +132,6 @@ class WidgetsElement
 
     /**
      * Get widget ID.
-     *
-     * @return  string
      */
     public function id(): string
     {
@@ -142,8 +140,6 @@ class WidgetsElement
 
     /**
      * Get widget name.
-     *
-     * @return  string
      */
     public function name(): string
     {
@@ -152,8 +148,6 @@ class WidgetsElement
 
     /**
      * Get widget description.
-     *
-     * @return  string
      */
     public function desc(): string
     {
@@ -162,8 +156,6 @@ class WidgetsElement
 
     /**
      * Gets the widget callback.
-     *
-     * @return  null|callable   The callback.
      */
     public function getCallback(): ?callable
     {
@@ -193,8 +185,6 @@ class WidgetsElement
      * @param   string  $class          The class
      * @param   string  $attr           The attribute
      * @param   string  $content        The content
-     *
-     * @return  string
      */
     public function renderDiv(bool $content_only, string $class, string $attr, string $content): string
     {
@@ -217,7 +207,7 @@ class WidgetsElement
         }
 
         // Keep only unique classes
-        $class = trim(implode(' ', array_unique(explode(' ', 'widget' . ' ' . $class))));
+        $class = trim(implode(' ', array_unique(explode(' ', 'widget ' . $class))));
 
         return sprintf($wtscheme . "\n", Html::escapeHTML($class), $attr, $content);
     }
@@ -226,8 +216,6 @@ class WidgetsElement
      * Render widget title.
      *
      * @param   null|string     $title  The title
-     *
-     * @return  string
      */
     public function renderTitle(?string $title): string
     {
@@ -238,13 +226,12 @@ class WidgetsElement
         $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgettitleformat');
         if (empty($wtscheme)) {
             $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-            if (empty($tplset) || $tplset == App::config()->defaultTplset()) {
-                // Use H2 for mustek based themes
-                $wtscheme = '<h2>%s</h2>';
-            } else {
-                // Use H3 for dotty based themes
-                $wtscheme = '<h3>%s</h3>';
-            }
+            /**
+             * @todo should be reviewed as the default tpl set may change in future
+             *
+             * Use H2 for mustek based themes and H3 for dotty based themes
+             */
+            $wtscheme = empty($tplset) || $tplset == App::config()->defaultTplset() ? '<h2>%s</h2>' : '<h3>%s</h3>';
         }
 
         return sprintf($wtscheme, $title);
@@ -267,13 +254,12 @@ class WidgetsElement
         $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgetsubtitleformat');
         if (empty($wtscheme)) {
             $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-            if (empty($tplset) || $tplset == App::config()->defaultTplset()) {
-                // Use H2 for mustek based themes
-                $wtscheme = '<h3>%s</h3>';
-            } else {
-                // Use H3 for dotty based themes
-                $wtscheme = '<h4>%s</h4>';
-            }
+            /*
+             * @todo should be reviewed as the default tpl set may change in future
+             *
+             * Use H3 for mustek based themes and H4 for dotty based themes
+             */
+            $wtscheme = empty($tplset) || $tplset == App::config()->defaultTplset() ? '<h3>%s</h3>' : '<h4>%s</h4>';
         }
         if (!$render) {
             return $wtscheme;
@@ -308,6 +294,8 @@ class WidgetsElement
         if (isset($this->settings[$n])) {
             return $this->settings[$n]['value'];
         }
+
+        return null;
     }
 
     /**
@@ -341,8 +329,6 @@ class WidgetsElement
      * @param   string  $title  The title
      * @param   mixed   $value  The value
      * @param   string  $type   The type
-     *
-     * @return  self
      */
     public function setting(string $name, string $title, $value, string $type = 'text'): self
     {
@@ -408,8 +394,6 @@ class WidgetsElement
      *
      * @param   string  $pr     The prefix
      * @param   int     $i      The index
-     *
-     * @return  string
      */
     public function formSettings(string $pr = '', int &$i = 0): string
     {
@@ -429,13 +413,11 @@ class WidgetsElement
      * @param   array<string, mixed>    $s      The setting
      * @param   string                  $pr     The prefix
      * @param   int                     $i      The index
-     *
-     * @return  Set
      */
     public function formSetting(string $id, array $s, string $pr = '', int &$i = 0): Set
     {
         $wfid  = 'wf-' . $i;
-        $iname = $pr ? $pr . '[' . $id . ']' : $id;
+        $iname = $pr !== '' ? $pr . '[' . $id . ']' : $id;
         $class = (isset($s['opts']) && isset($s['opts']['class']) ? ' ' . $s['opts']['class'] : '');
         switch ($s['type']) {
             case 'text':
@@ -549,8 +531,6 @@ class WidgetsElement
      * Adds a title setting.
      *
      * @param   string  $title  The title
-     *
-     * @return  self
      */
     public function addTitle(string $title = ''): self
     {
@@ -561,8 +541,6 @@ class WidgetsElement
      * Adds a home only setting.
      *
      * @param   null|array<string, mixed>     $options
-     *
-     * @return  self
      */
     public function addHomeOnly(?array $options = null): self
     {
@@ -590,26 +568,16 @@ class WidgetsElement
      * @param   string  $type           The type
      * @param   int     $alt_not_home   Alternate not home test value
      * @param   int     $alt_home       Alternate home test value
-     *
-     * @return  bool
      */
-    public function checkHomeOnly($type, $alt_not_home = 1, $alt_home = 0)
+    public function checkHomeOnly(string $type, $alt_not_home = 1, $alt_home = 0): bool
     {
-        if (isset($this->settings['homeonly']) && isset($this->settings['homeonly']['value'])) {
-            if (($this->settings['homeonly']['value'] == self::HOME_ONLY && !App::url()->isHome($type) && $alt_not_home) || ($this->settings['homeonly']['value'] == self::EXCEPT_HOME && (App::url()->isHome($type) || $alt_home))) {
-                return false;
-            }
-        }
-
-        return true;
+        return !(isset($this->settings['homeonly']) && isset($this->settings['homeonly']['value']) && ($this->settings['homeonly']['value'] == self::HOME_ONLY && !App::url()->isHome($type) && $alt_not_home || $this->settings['homeonly']['value'] == self::EXCEPT_HOME && (App::url()->isHome($type) || $alt_home)));
     }
 
     /**
      * Adds a content only setting.
      *
      * @param   int     $content_only   The content only flag
-     *
-     * @return  self
      */
     public function addContentOnly(int $content_only = 0): self
     {
@@ -620,8 +588,6 @@ class WidgetsElement
      * Adds a class setting.
      *
      * @param   string  $class  The class
-     *
-     * @return  self
      */
     public function addClass(string $class = ''): self
     {
@@ -632,8 +598,6 @@ class WidgetsElement
      * Adds an offline setting.
      *
      * @param   int     $offline    The offline flag
-     *
-     * @return  self
      */
     public function addOffline(int $offline = 0): self
     {
@@ -642,8 +606,6 @@ class WidgetsElement
 
     /**
      * Determines if setting is offline.
-     *
-     * @return  bool    True if offline, False otherwise.
      */
     public function isOffline(): bool
     {

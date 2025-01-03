@@ -128,7 +128,7 @@ class ListingPosts extends Listing
             $lines[] = $this->postLine(isset($entries[$this->rs->post_id]));
         }
 
-        $fmt = fn ($title, $image, $class) => sprintf(
+        $fmt = fn ($title, $image, $class): string => sprintf(
             (new Img('images/%2$s'))
                     ->alt('%1$s')
                     ->class(['mark', 'mark-%3$s'])
@@ -151,7 +151,7 @@ class ListingPosts extends Listing
             $stats          = [
                 (new Text(null, sprintf(__('List of entries (%s)'), $this->rs_count))),
             ];
-            if ($nb_published) {
+            if ($nb_published !== 0) {
                 $stats[] = (new Set())
                     ->separator(' ')
                     ->items([
@@ -161,7 +161,7 @@ class ListingPosts extends Listing
                         (new Text(null, sprintf('(%d)', $nb_published))),
                     ]);
             }
-            if ($nb_pending) {
+            if ($nb_pending !== 0) {
                 $stats[] = (new Set())
                     ->separator(' ')
                     ->items([
@@ -171,7 +171,7 @@ class ListingPosts extends Listing
                         (new Text(null, sprintf('(%d)', $nb_pending))),
                     ]);
             }
-            if ($nb_scheduled) {
+            if ($nb_scheduled !== 0) {
                 $stats[] = (new Set())
                     ->separator(' ')
                     ->items([
@@ -181,7 +181,7 @@ class ListingPosts extends Listing
                         (new Text(null, sprintf('(%d)', $nb_scheduled))),
                     ]);
             }
-            if ($nb_unpublished) {
+            if ($nb_unpublished !== 0) {
                 $stats[] = (new Set())
                     ->separator(' ')
                     ->items([
@@ -232,7 +232,7 @@ class ListingPosts extends Listing
                     ]),
             ])
         ->render();
-        if ($enclose_block) {
+        if ($enclose_block !== '') {
             $buffer = sprintf($enclose_block, $buffer);
         }
 
@@ -243,8 +243,6 @@ class ListingPosts extends Listing
      * Get a line.
      *
      * @param   bool    $checked    The checked flag
-     *
-     * @return  Tr
      */
     private function postLine(bool $checked): Tr
     {
@@ -373,7 +371,7 @@ class ListingPosts extends Listing
         $this->userColumns('posts', $cols);
 
         return (new Tr())
-            ->id('p' . (string) $this->rs->post_id)
+            ->id('p' . $this->rs->post_id)
             ->class($post_classes)
             ->items([
                 (new Text(null, implode('', iterator_to_array($cols)))),

@@ -35,8 +35,6 @@ class Modules implements ModulesInterface
 {
     /**
      * Safe mode execution.
-     *
-     * @var     bool    $safe_mode
      */
     protected bool $safe_mode = false;
 
@@ -84,43 +82,31 @@ class Modules implements ModulesInterface
 
     /**
      * Current deactivation mode.
-     *
-     * @var     bool    $disabled_mode
      */
     protected bool $disabled_mode = false;
 
     /**
      * Current dc namespace.
-     *
-     * @var     string|null     $ns
      */
     protected ?string $ns = null;
 
     /**
      * Current module Define.
-     *
-     * @var     ModuleDefine    $define
      */
     protected ModuleDefine $define;
 
     /**
      * Current module identifier
-     *
-     * @var     string|null     $id
      */
     protected ?string $id = null;
 
     /**
      * Current module root path (where _define.php is located).
-     *
-     * @var     string|null     $mroot
      */
     protected ?string $mroot = null;
 
     /**
      * Current module php namespace.
-     *
-     * @var     string|null     $namespace
      */
     protected ?string $namespace = null;
 
@@ -150,15 +136,11 @@ class Modules implements ModulesInterface
 
     /**
      * Superglobals key name.
-     *
-     * @var     string  $_n
      */
     protected static string $_n;
 
     /**
      * Module type to work with.
-     *
-     * @var     string|null     $type
      */
     protected ?string $type = null;
 
@@ -174,7 +156,7 @@ class Modules implements ModulesInterface
     {
         $found = $this->getDefines([...$search, 'id' => $id]);
 
-        return empty($found) ? new ModuleDefine($id) : $found[0];
+        return $found === [] ? new ModuleDefine($id) : $found[0];
     }
 
     /**
@@ -284,7 +266,7 @@ class Modules implements ModulesInterface
                     // module disabled
                     $msg = sprintf(__('Requires %s module which is disabled'), $dep[0]);
                 }
-                if (!empty($msg)) {
+                if ($msg !== '') {
                     $module->addMissing($dep[0], $msg);
                     if ($to_error) {
                         $this->errors[] = $msg;
@@ -297,7 +279,7 @@ class Modules implements ModulesInterface
         }
 
         // Move in soft disabled state module with missing requirements
-        if (!$this->safe_mode && !empty($module->getMissing()) && $module->get('state') == ModuleDefine::STATE_ENABLED) {
+        if (!$this->safe_mode && $module->getMissing() !== [] && $module->get('state') == ModuleDefine::STATE_ENABLED) {
             $module->set('state', ModuleDefine::STATE_SOFT_DISABLED);
         }
     }
@@ -310,7 +292,7 @@ class Modules implements ModulesInterface
     public function lockDepModules(ModuleDefine $module): void
     {
         // Add dependencies to modules that use given module
-        if (!empty($module->getImplies()) && $module->get('state') == ModuleDefine::STATE_ENABLED) {
+        if ($module->getImplies() !== [] && $module->get('state') == ModuleDefine::STATE_ENABLED) {
             foreach ($module->getImplies() as $im) {
                 foreach ($this->getDefines(['id' => $im]) as $found) {
                     if ($found->get('state') == ModuleDefine::STATE_ENABLED) {
@@ -341,7 +323,7 @@ class Modules implements ModulesInterface
 
             try {
                 $this->deactivateModule($module->getId());
-                $reason[] = sprintf('%s : %s', $module->get('name'), join(',', $module->getMissing()));
+                $reason[] = sprintf('%s : %s', $module->get('name'), implode(',', $module->getMissing()));
             } catch (Exception) {
                 // Ignore exceptions
             }
@@ -354,8 +336,6 @@ class Modules implements ModulesInterface
      * Set and/or get safe mode state
      *
      * @param      bool|null  $mode   The mode
-     *
-     * @return     bool
      */
     public function safeMode(?bool $mode = null): bool
     {
@@ -469,7 +449,7 @@ class Modules implements ModulesInterface
         }
 
         // Sort modules by priority
-        uasort($this->defines, fn ($a, $b) => $a->get('priority') <=> $b->get('priority'));
+        uasort($this->defines, fn ($a, $b): int => $a->get('priority') <=> $b->get('priority'));
 
         // Prepend loop
         foreach ($this->defines as $module) {
@@ -500,7 +480,7 @@ class Modules implements ModulesInterface
         }
 
         // Load modules context
-        if (!empty($ns)) {
+        if ($ns !== null && $ns !== '') {
             // Give opportunity to do something before loading context (admin,public,upgrade) files
             # --BEHAVIOR-- coreBeforeLoadingNsFilesV2 -- Modules, string|null
             App::behavior()->callBehavior('coreBeforeLoadingNsFilesV2', $this, $lang);
@@ -657,17 +637,15 @@ class Modules implements ModulesInterface
 
             // Check module perms on admin side
             $permissions = $this->define->get('permissions');
-            if ($this->ns === 'admin') {
-                if ($permissions !== 'My' && (($permissions == '' && !App::auth()->isSuperAdmin()) || (!App::auth()->check($permissions, App::blog()->id())))) {
-                    return;
-                }
+            if ($this->ns === 'admin' && ($permissions !== 'My' && ($permissions == '' && !App::auth()->isSuperAdmin() || !App::auth()->check($permissions, App::blog()->id())))) {
+                return;
             }
         }
 
         # Check module install on multiple path
         if ($this->id) {
             $module_exists    = array_key_exists($this->id, $this->modules_ids);
-            $module_overwrite = $module_exists ? version_compare($this->modules_ids[$this->id], $this->define->get('version'), '<') : false;
+            $module_overwrite = $module_exists && version_compare($this->modules_ids[$this->id], $this->define->get('version'), '<');
             // Module exists => claim that
             if ($module_exists) {
                 $path1 = Path::real($this->moduleInfo($this->id, 'root') ?? '');
@@ -708,12 +686,11 @@ class Modules implements ModulesInterface
 
     /**
      * Determines if a module define is empty.
-     *
-     * @return     bool  True if empty, False otherwise.
      */
     public function isEmpty(): bool
     {
-        return empty($this->defines);
+        return $this->defines === [];
+        ;
     }
 
     /**
@@ -723,8 +700,6 @@ class Modules implements ModulesInterface
      * @param      \Dotclear\Interface\Module\ModulesInterface  $modules   The modules
      *
      * @throws     Exception
-     *
-     * @return     int
      */
     public static function installPackage(string $zip_file, ModulesInterface &$modules): int
     {
@@ -789,7 +764,7 @@ class Modules implements ModulesInterface
                 unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
                 $new_errors = $modules->getErrors();
-                if (!empty($new_errors)) {
+                if ($new_errors !== []) {
                     $new_errors = implode(" \n", $new_errors);
 
                     throw new Exception(sprintf(__('Module is not installed: %s'), $new_errors));
@@ -801,7 +776,7 @@ class Modules implements ModulesInterface
                 unlink($zip_file);
                 Files::deltree($destination);
 
-                throw new Exception($e->getMessage());
+                throw new Exception($e->getMessage(), (int) $e->getCode(), $e);
             }
         } else {
             //
@@ -825,7 +800,7 @@ class Modules implements ModulesInterface
             unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
             $new_errors = $modules->getErrors();
-            if (!empty($new_errors)) {
+            if ($new_errors !== []) {
                 $new_errors = implode(" \n", $new_errors);
 
                 throw new Exception(sprintf(__('Module is not installed: %s'), $new_errors));
@@ -844,7 +819,7 @@ class Modules implements ModulesInterface
                     unlink($zip_file);
 
                     throw new Exception(sprintf(__('Unable to upgrade "%s". (update locked)'), basename($destination)));
-                } elseif ($cur_define->isDefined() && (App::config()->devMode() === true || $modules->versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
+                } elseif ($cur_define->isDefined() && (App::config()->devMode() || $modules->versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
                     // delete old module
                     if (!Files::deltree($destination)) {
                         throw new Exception(__('An error occurred during module deletion.'));
@@ -869,10 +844,8 @@ class Modules implements ModulesInterface
         unlink($zip_file);
 
         // Restore hard disabled status if necessary
-        if ($module_disabled) {
-            if (@file_put_contents($destination . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
-                throw new Exception(__('Cannot deactivate plugin.'));
-            }
+        if ($module_disabled && !@file_put_contents($destination . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
+            throw new Exception(__('Cannot deactivate plugin.'));
         }
 
         // reset server cache (opcache) before refresh modules dirs
@@ -913,8 +886,6 @@ class Modules implements ModulesInterface
      *
      * @param      string     $id     The identifier
      * @param      string     $msg    The message
-     *
-     * @return     bool|null
      */
     public function installModule(string $id, string &$msg): ?bool
     {
@@ -926,7 +897,7 @@ class Modules implements ModulesInterface
 
         try {
             // by class name
-            $install = !empty($this->loadNsClass($id, self::MODULE_CLASS_INSTALL));
+            $install = $this->loadNsClass($id, self::MODULE_CLASS_INSTALL) !== '';
             // by file name
             if (!$install) {
                 $install = $this->loadModuleFile($module->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_INSTALL, true);
@@ -1050,7 +1021,7 @@ class Modules implements ModulesInterface
         $module = $this->getDefine($id);//, ['state' => ModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
             $lfile = $module->get('root') . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
-            if (L10n::set(sprintf($lfile, $lang, $file)) === false && $lang != 'en') {
+            if (L10n::set(sprintf($lfile, $lang, $file)) === false && $lang !== 'en') {
                 L10n::set(sprintf($lfile, 'en', $file));
             }
         }
@@ -1069,10 +1040,8 @@ class Modules implements ModulesInterface
         }
 
         $module = $this->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
-        if ($lang && $module->isDefined()) {
-            if ($file = L10n::getFilePath($module->get('root') . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang)) {
-                $this->loadModuleFile($file, true);
-            }
+        if ($lang && $module->isDefined() && ($file = L10n::getFilePath($module->get('root') . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang))) {
+            $this->loadModuleFile($file, true);
         }
     }
 
@@ -1116,8 +1085,6 @@ class Modules implements ModulesInterface
      * Determines if module exists.
      *
      * @param      string  $id     The identifier
-     *
-     * @return     bool    True if module exists, False otherwise.
      */
     public function moduleExists(string $id): bool
     {
@@ -1172,8 +1139,6 @@ class Modules implements ModulesInterface
      * @param      string       $id     The identifier
      *
      * @deprecated Since 2.26, use App::plugins()->moduleInfo() or App::themes()->moduleInfo() instead
-     *
-     * @return     null|string
      */
     public function moduleRoot(string $id): ?string
     {
@@ -1187,8 +1152,6 @@ class Modules implements ModulesInterface
      *
      * @param      string  $id     The identifier
      * @param      string  $info   The information
-     *
-     * @return     mixed
      */
     public function moduleInfo(string $id, string $info): mixed
     {
@@ -1253,8 +1216,6 @@ class Modules implements ModulesInterface
      * @param      string  $id       The identifier
      * @param      string  $ns       The context
      * @param      bool    $process  The process
-     *
-     * @return     string
      */
     public function loadNsClass(string $id, string $ns, bool $process = true): string
     {
@@ -1321,7 +1282,7 @@ class Modules implements ModulesInterface
     protected function loadModuleFile(string $________, bool $globals = false, bool $catch = true)
     {
         if (!file_exists($________)) {
-            return;
+            return null;
         }
 
         // Add globals
@@ -1357,8 +1318,6 @@ class Modules implements ModulesInterface
      * @param      string  $required_version  The required version
      * @param      string  $operator          The operator
      * @param      bool    $strict            The strict
-     *
-     * @return     bool
      */
     public function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool
     {
@@ -1370,7 +1329,7 @@ class Modules implements ModulesInterface
             $required_version = (string) preg_replace('/^([0-9\.]+)(.*?)$/', '$1', $required_version);
         }
 
-        return (bool) version_compare($current_version, $required_version, $operator);
+        return version_compare($current_version, $required_version, $operator);
     }
 
     /**
@@ -1378,8 +1337,6 @@ class Modules implements ModulesInterface
      *
      * @param   string  $src        The source
      * @param   string  $version    The version
-     *
-     * @return  string
      */
     private function appendVersion(string $src, ?string $version = ''): string
     {
@@ -1389,7 +1346,7 @@ class Modules implements ModulesInterface
 
         return $src .
             (str_contains($src, '?') ? '&amp;' : '?') .
-            'v=' . (App::config()->devMode() === true ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
+            'v=' . (App::config()->devMode() ? md5(uniqid()) : ($version ?: App::config()->dotclearVersion()));
     }
 
     /**
@@ -1398,8 +1355,6 @@ class Modules implements ModulesInterface
      * @param      string       $src      The source
      * @param      string       $media    The media
      * @param      null|string  $version  The version
-     *
-     * @return     string
      */
     public function cssLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
@@ -1417,8 +1372,6 @@ class Modules implements ModulesInterface
      * @param      string       $src      The source
      * @param      null|string  $version  The version
      * @param      bool         $module   True if it is a JS module
-     *
-     * @return     string
      */
     public function jsLoad(string $src, ?string $version = null, bool $module = false): string
     {

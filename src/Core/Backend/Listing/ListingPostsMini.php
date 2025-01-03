@@ -108,7 +108,7 @@ class ListingPostsMini extends Listing
                     ]),
             ])
         ->render();
-        if ($enclose_block) {
+        if ($enclose_block !== '') {
             $buffer = sprintf($enclose_block, $buffer);
         }
 
@@ -117,8 +117,6 @@ class ListingPostsMini extends Listing
 
     /**
      * Get a line.
-     *
-     * @return  Tr
      */
     private function postLine(): Tr
     {
@@ -206,7 +204,7 @@ class ListingPostsMini extends Listing
         $this->userColumns('posts', $cols);
 
         return (new Tr())
-            ->id('p' . (string) $this->rs->post_id)
+            ->id('p' . $this->rs->post_id)
             ->class($post_classes)
             ->items([
                 (new Text(null, implode('', iterator_to_array($cols)))),

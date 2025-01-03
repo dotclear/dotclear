@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -89,7 +90,7 @@ class FilterMedia extends Filters
 
     protected function getPostIdFilter(): Filter
     {
-        $post_id = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
+        $post_id = empty($_REQUEST['post_id']) ? null : (int) $_REQUEST['post_id'];
         if ($post_id) {
             $post = App::blog()->getPosts(['post_id' => $post_id, 'post_type' => '']);
             if ($post->isEmpty()) {
@@ -146,15 +147,13 @@ class FilterMedia extends Filters
     {
         return (new Filter('file_type'))
             ->title(__('Media type:'))
-            ->options(array_merge(
-                ['-' => ''],
-                [
-                    __('image') => 'image',
-                    __('text')  => 'text',
-                    __('audio') => 'audio',
-                    __('video') => 'video',
-                ]
-            ))
+            ->options([
+                '-'         => '',
+                __('image') => 'image',
+                __('text')  => 'text',
+                __('audio') => 'audio',
+                __('video') => 'video',
+            ])
             ->prime(true);
     }
 
@@ -167,7 +166,7 @@ class FilterMedia extends Filters
 
     protected function getLinkTypeFilter(): Filter
     {
-        $get = !empty($_REQUEST['link_type']) ? Html::escapeHTML($_REQUEST['link_type']) : null;
+        $get = empty($_REQUEST['link_type']) ? null : Html::escapeHTML($_REQUEST['link_type']);
 
         return new Filter('link_type', $get);
     }
@@ -182,7 +181,7 @@ class FilterMedia extends Filters
     protected function getSelectFilter(): Filter
     {
         // 0 : none, 1 : single media, >1 : multiple media
-        $get = !empty($_REQUEST['select']) ? (int) $_REQUEST['select'] : 0;
+        $get = empty($_REQUEST['select']) ? 0 : (int) $_REQUEST['select'];
 
         return new Filter('select', $get);
     }

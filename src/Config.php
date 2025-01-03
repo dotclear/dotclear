@@ -149,7 +149,7 @@ class Config implements ConfigInterface
         private readonly string $dotclear_root
     ) {
         // From php
-        $this->cli_mode = PHP_SAPI == 'cli';
+        $this->cli_mode = PHP_SAPI === 'cli';
 
         // From index file
         if (!defined('DC_BLOG_ID')) {
@@ -200,7 +200,7 @@ class Config implements ConfigInterface
         L10n::bootstrap();
         $detected_languages = Http::getAcceptLanguages();
         foreach ($detected_languages as $language) {
-            if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10nRoot(), $language, 'exception'])) !== false) {
+            if ($language === 'en' || L10n::set(implode(DIRECTORY_SEPARATOR, [$this->l10nRoot(), $language, 'exception']))) {
                 L10n::lang($language);
 
                 break;
@@ -406,15 +406,15 @@ class Config implements ConfigInterface
             define('DC_MIGRATE', $this->release('dotclear_migrate'));
         }
 
-        $this->debug_mode           = (bool) DC_DEBUG;
-        $this->dev_mode             = (bool) DC_DEV;
+        $this->debug_mode           = DC_DEBUG;
+        $this->dev_mode             = DC_DEV;
         $this->error_file           = (string) DC_ERRORFILE;
         $this->master_key           = (string) DC_MASTER_KEY;
         $this->next_required_php    = (string) DC_NEXT_REQUIRED_PHP;
         $this->vendor_name          = (string) DC_VENDOR_NAME;
         $this->session_ttl          = (string) (DC_SESSION_TTL ?? '-120 minutes');
         $this->session_name         = (string) DC_SESSION_NAME;
-        $this->admin_ssl            = (bool) DC_ADMIN_SSL;
+        $this->admin_ssl            = DC_ADMIN_SSL;
         $this->admin_url            = (string) DC_ADMIN_URL;
         $this->admin_mailfrom       = (string) DC_ADMIN_MAILFROM;
         $this->db_driver            = (string) DC_DBDRIVER;
@@ -423,7 +423,7 @@ class Config implements ConfigInterface
         $this->db_password          = (string) DC_DBPASSWORD;
         $this->db_name              = (string) DC_DBNAME;
         $this->db_prefix            = (string) DC_DBPREFIX;
-        $this->db_persist           = (bool) DC_DBPERSIST;
+        $this->db_persist           = DC_DBPERSIST;
         $this->plugins_root         = (string) DC_PLUGINS_ROOT;
         $this->core_attic_url       = (string) DC_ATTIC_URL;
         $this->core_update_url      = (string) DC_UPDATE_URL;
@@ -431,14 +431,14 @@ class Config implements ConfigInterface
         $this->core_not_update      = (bool) DC_NOT_UPDATE;
         $this->allow_multi_modules  = (bool) DC_ALLOW_MULTI_MODULES;
         $this->store_not_update     = (bool) DC_STORE_NOT_UPDATE;
-        $this->allow_rest_services  = (bool) DC_REST_SERVICES;
-        $this->allow_repositories   = (bool) DC_ALLOW_REPOSITORIES;
-        $this->query_timeout        = (int) DC_QUERY_TIMEOUT;
+        $this->allow_rest_services  = DC_REST_SERVICES;
+        $this->allow_repositories   = DC_ALLOW_REPOSITORIES;
+        $this->query_timeout        = DC_QUERY_TIMEOUT;
         $this->query_stream_timeout = DC_QUERY_STREAM_TIMEOUT ?? null;
-        $this->show_hidden_dirs     = (bool) DC_SHOW_HIDDEN_DIRS;
+        $this->show_hidden_dirs     = DC_SHOW_HIDDEN_DIRS;
         $this->crypt_algo           = (string) DC_CRYPT_ALGO;
-        $this->cache_root           = (string) DC_TPL_CACHE;
-        $this->var_root             = (string) DC_VAR;
+        $this->cache_root           = DC_TPL_CACHE;
+        $this->var_root             = DC_VAR;
         $this->backup_root          = (string) DC_BACKUP_PATH;
         $this->core_upgrade         = (string) DC_UPGRADE;
         $this->start_time           = DC_START_TIME;
@@ -457,17 +457,17 @@ class Config implements ConfigInterface
         Fault::$config = $this;
 
         // No release file
-        if ($this->dotclearVersion() == '') {
+        if ($this->dotclearVersion() === '') {
             throw new ConfigException(__('Dotclear release file is not readable'));
         }
 
         // Deprecated since 2.28, for backward compatibility, override core authentication class with third party class
-        if (defined('DC_AUTH_CLASS') && is_subclass_of((string) DC_AUTH_CLASS, AuthInterface::class)) {
+        if (defined('DC_AUTH_CLASS') && is_string(DC_AUTH_CLASS) && is_subclass_of(DC_AUTH_CLASS, AuthInterface::class)) {
             Factories::addService('core', AuthInterface::class, DC_AUTH_CLASS);
         }
 
         // Deprecated since 2.28, for backward compatibility, override core connection class with third party class
-        if (defined('DC_DBHANDLER_CLASS') && is_subclass_of((string) DC_DBHANDLER_CLASS, ConnectionInterface::class)) {
+        if (defined('DC_DBHANDLER_CLASS') && is_string(DC_DBHANDLER_CLASS) && is_subclass_of(DC_DBHANDLER_CLASS, ConnectionInterface::class)) {
             Factories::addService('core', ConnectionInterface::class, DC_DBHANDLER_CLASS);
         }
 

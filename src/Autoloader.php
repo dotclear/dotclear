@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -36,15 +37,11 @@ class Autoloader
 
     /**
      * Root namespace prepend to added ns.
-     *
-     * @var     string  $root_prefix
      */
     private string $root_prefix = '';
 
     /**
      * Root directory prepend to added ns.
-     *
-     * @var     string  $root_base_dir
      */
     private string $root_base_dir = '';
 
@@ -57,22 +54,16 @@ class Autoloader
 
     /**
      * Keep track of loads count.
-     *
-     * @var     int     $loads_count
      */
     private int $loads_count = 0;
 
     /**
      * Keep track of request count.
-     *
-     * @var     int     $request_count
      */
     private int $request_count = 0;
 
     /**
      * Instance singleton.
-     *
-     * @var    Autoloader    $instance
      */
     private static self $instance;
 
@@ -91,10 +82,10 @@ class Autoloader
 
         self::$instance = $this;
 
-        if (!empty($root_prefix)) {
+        if ($root_prefix !== '') {
             $this->root_prefix = $this->normalizePrefix($root_prefix);
         }
-        if (!empty($root_base_dir)) {
+        if ($root_base_dir !== '') {
             $this->root_base_dir = $this->normalizeBaseDir($root_base_dir);
         }
 
@@ -104,8 +95,6 @@ class Autoloader
 
     /**
      * Get Autoloader singleton instance.
-     *
-     * @return  self
      */
     public static function me(): self
     {
@@ -206,7 +195,7 @@ class Autoloader
         if ($prepend) {
             array_unshift($this->prefixes[$prefix], $base_dir);
         } else {
-            array_push($this->prefixes[$prefix], $base_dir);
+            $this->prefixes[$prefix][] = $base_dir;
         }
     }
 

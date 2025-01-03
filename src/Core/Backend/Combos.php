@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -209,7 +210,7 @@ class Combos
     {
         $formaters_combo = [];
 
-        if (!empty($editor_id)) {
+        if ($editor_id !== '') {
             foreach (App::formater()->getFormater($editor_id) as $formater) {
                 $formaters_combo[$formater] = $formater;
             }

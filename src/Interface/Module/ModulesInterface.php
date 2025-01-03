@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -213,8 +214,6 @@ interface ModulesInterface
      * Should run in safe mode?
      *
      * @param   null|bool   $mode   Mode, null to read current mode
-     *
-     * @return  bool
      */
     public function safeMode(?bool $mode = null): bool;
 
@@ -275,8 +274,6 @@ interface ModulesInterface
      * @param   ModulesInterface    $modules    The modules
      *
      * @throws  \Exception
-     *
-     * @return  int
      */
     public static function installPackage(string $zip_file, ModulesInterface &$modules): int;
 
@@ -299,8 +296,6 @@ interface ModulesInterface
      *
      * @param   string  $id     The identifier
      * @param   string  $msg    The message
-     *
-     * @return  null|bool
      */
     public function installModule(string $id, string &$msg): ?bool;
 
@@ -428,8 +423,6 @@ interface ModulesInterface
      * @deprecated  since 2.26, use self::moduleInfo() instead
      *
      * @param   string  $id     The module identifier
-     *
-     * @return  null|string
      */
     public function moduleRoot(string $id): ?string;
 
@@ -448,8 +441,6 @@ interface ModulesInterface
      *
      * @param   string  $id     The module identifier
      * @param   string  $info   The information
-     *
-     * @return  mixed
      */
     public function moduleInfo(string $id, string $info): mixed;
 
@@ -497,8 +488,6 @@ interface ModulesInterface
      * @param   string  $required_version   Required version
      * @param   string  $operator           Comparison operand
      * @param   bool    $strict             Use full version
-     *
-     * @return  bool    True if comparison success
      */
     public function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool;
 
@@ -508,8 +497,6 @@ interface ModulesInterface
      * @param   string  $src        The source
      * @param   string  $media      The media
      * @param   string  $version    The version
-     *
-     * @return  string
      */
     public function cssLoad(string $src, string $media = 'screen', ?string $version = null): string;
 
@@ -519,8 +506,6 @@ interface ModulesInterface
      * @param   string  $src        The source
      * @param   string  $version    The version
      * @param   bool    $module     Load source as JS module
-     *
-     * @return  string
      */
     public function jsLoad(string $src, ?string $version = null, bool $module = false): string;
 }

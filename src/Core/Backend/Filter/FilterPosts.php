@@ -25,10 +25,8 @@ class FilterPosts extends Filters
 {
     /**
      * The post type.
-     *
-     * @var     string  $post_type
      */
-    protected $post_type = 'post';
+    protected string $post_type = 'post';
 
     public function __construct(string $type = 'posts', string $post_type = '')
     {
@@ -164,7 +162,7 @@ class FilterPosts extends Filters
         }
 
         return (new Filter('format'))
-            ->param('where', fn ($f) => " AND post_format = '" . $f[0] . "' ")
+            ->param('where', fn ($f): string => " AND post_format = '" . $f[0] . "' ")
             ->title(__('Format:'))
             ->options(['-' => '', ...$available_formats])
             ->prime(true);
@@ -178,7 +176,7 @@ class FilterPosts extends Filters
     public function getPostPasswordFilter(): Filter
     {
         return (new Filter('password'))
-            ->param('where', fn ($f) => ' AND post_password IS ' . ($f[0] ? 'NOT ' : '') . 'NULL ')
+            ->param('where', fn ($f): string => ' AND post_password IS ' . ($f[0] ? 'NOT ' : '') . 'NULL ')
             ->title(__('Password:'))
             ->options([
                 '-'                    => '',
@@ -247,8 +245,8 @@ class FilterPosts extends Filters
         }
 
         return (new Filter('month'))
-            ->param('post_month', fn ($f) => substr((string) $f[0], 4, 2))
-            ->param('post_year', fn ($f) => substr((string) $f[0], 0, 4))
+            ->param('post_month', fn ($f): string => substr((string) $f[0], 4, 2))
+            ->param('post_year', fn ($f): string => substr((string) $f[0], 0, 4))
             ->title(__('Month:'))
             ->options(['-' => '', ...Combos::getDatesCombo($dates)]);
     }
@@ -287,7 +285,7 @@ class FilterPosts extends Filters
     public function getPostCommentFilter(): Filter
     {
         return (new Filter('comment'))
-            ->param('where', fn ($f) => " AND post_open_comment = '" . $f[0] . "' ")
+            ->param('where', fn ($f): string => " AND post_open_comment = '" . $f[0] . "' ")
             ->title(__('Comments:'))
             ->options([
                 '-'          => '',
@@ -304,7 +302,7 @@ class FilterPosts extends Filters
     public function getPostTrackbackFilter(): Filter
     {
         return (new Filter('trackback'))
-            ->param('where', fn ($f) => " AND post_open_tb = '" . $f[0] . "' ")
+            ->param('where', fn ($f): string => " AND post_open_tb = '" . $f[0] . "' ")
             ->title(__('Trackbacks:'))
             ->options([
                 '-'          => '',

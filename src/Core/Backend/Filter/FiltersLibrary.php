@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -47,7 +48,7 @@ class FiltersLibrary
      */
     public static function getSelectFilter(string $id, string $title, array $options, ?string $param = null): ?Filter
     {
-        if (empty($options)) {
+        if ($options === []) {
             return null;
         }
 
@@ -67,8 +68,8 @@ class FiltersLibrary
     public static function getPageFilter(string $id = 'page'): Filter
     {
         return (new Filter($id))
-            ->value(!empty($_GET[$id]) ? max(1, (int) $_GET[$id]) : 1)
-            ->param('limit', fn ($f) => [(($f[0] - 1) * $f['nb']), $f['nb']]);
+            ->value(empty($_GET[$id]) ? 1 : max(1, (int) $_GET[$id]))
+            ->param('limit', fn ($f): array => [(($f[0] - 1) * $f['nb']), $f['nb']]);
     }
 
     /**
@@ -99,6 +100,6 @@ class FiltersLibrary
     {
         return (new Filter($id))
             ->value(App::con()->escape(App::blog()->id()))
-            ->param('where', fn ($f) => " AND P.blog_id = '" . App::con()->escapeStr(App::blog()->id()) . "' ");
+            ->param('where', fn ($f): string => " AND P.blog_id = '" . App::con()->escapeStr(App::blog()->id()) . "' ");
     }
 }

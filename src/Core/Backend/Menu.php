@@ -108,8 +108,6 @@ class Menu
 
     /**
      * Draw a menu
-     *
-     * @return     string
      */
     public function draw(): string
     {
@@ -136,7 +134,7 @@ class Menu
         return (new Div())
             ->id($this->id)
             ->items([
-                $this->title ? (new Text('h3', $this->title)) : (new None()),
+                $this->title !== '' ? (new Text('h3', $this->title)) : (new None()),
                 (new Ul())
                     ->items($lines),
             ])
@@ -152,8 +150,6 @@ class Menu
      * @param      mixed        $active  The active flag
      * @param      null|string  $id      The identifier
      * @param      null|string  $class   The class
-     *
-     * @return     string
      */
     protected function itemDef(string $title, string $url, $img, $active, ?string $id = null, ?string $class = null): string
     {
@@ -184,7 +180,7 @@ class Menu
             $classes[] = 'active';
         }
         $classes = array_filter($classes);  // @phpstan-ignore-line
-        if (count($classes)) {
+        if ($classes !== []) {
             $code->class($classes);
         }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -18,12 +19,10 @@ class BlogPref
      * JS Popup helper for static home linked to an entry
      *
      * @param      string  $plugin_id  Plugin id (or admin URL)
-     *
-     * @return     string
      */
     public static function adminPopupPosts(string $plugin_id = ''): string
     {
-        if (empty($plugin_id) || $plugin_id != 'admin.blog_pref') {
+        if ($plugin_id === '' || $plugin_id !== 'admin.blog_pref') {
             return '';
         }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -14,6 +15,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend\Listing;
 
+use ArrayObject;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Database\MetaRecord;
 
@@ -26,22 +28,16 @@ class Listing
 {
     /**
      * Count of elements listed.
-     *
-     * @var     int|null    $rs_count
      */
     protected ?int $rs_count;
 
     /**
      * Previous page label.
-     *
-     * @var     string  $html_prev
      */
     protected string $html_prev;
 
     /**
      * Next page label.
-     *
-     * @var     string  $html_next
      */
     protected string $html_next;
 
@@ -66,8 +62,8 @@ class Listing
      * @param      string                                               $type   The type
      * @param      array<string, mixed>|\ArrayObject<string, mixed>     $cols   The columns
      */
-    public function userColumns(string $type, $cols): void
+    public function userColumns(string $type, array|ArrayObject $cols): void
     {
-        $cols = UserPref::getUserColumns($type, $cols);
+        UserPref::getUserColumns($type, $cols);
     }
 }

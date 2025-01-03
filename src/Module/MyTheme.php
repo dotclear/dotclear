@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -52,12 +53,10 @@ abstract class MyTheme extends MyModule
      *
      * @param   string  $resource   The resource file
      * @param   bool    $frontend   (not used for themes)
-     *
-     * @return  string
      */
     public static function fileURL(string $resource, bool $frontend = false): string
     {
-        if (!empty($resource) && !str_starts_with($resource, '/')) {
+        if ($resource !== '' && !str_starts_with($resource, '/')) {
             $resource = '/' . $resource;
         }
 

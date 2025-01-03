@@ -64,7 +64,7 @@ abstract class MyPlugin extends MyModule
      */
     public static function icons(string $suffix = ''): array
     {
-        $check = fn (string $base, string $name) => (file_exists($base . DIRECTORY_SEPARATOR . $name . '.svg') ?
+        $check = fn (string $base, string $name): false|string => (file_exists($base . DIRECTORY_SEPARATOR . $name . '.svg') ?
             static::fileURL($name . '.svg') :
             (file_exists($base . DIRECTORY_SEPARATOR . $name . '.png') ?
                 static::fileURL($name . '.png') :
@@ -81,7 +81,7 @@ abstract class MyPlugin extends MyModule
                 $icons[] = $icon;
             }
         }
-        if (!count($icons) && $suffix) {
+        if ($icons === [] && $suffix) {
             // Suffixed icons not found, try without
             return static::icons();
         }
@@ -95,8 +95,6 @@ abstract class MyPlugin extends MyModule
      * @param   array<string,string|int>    $params     The URL parameters
      * @param   string                      $separator  The query string separator
      * @param   bool                        $parametric Set to true if url will be used as (s)printf() format
-     *
-     * @return  string
      */
     public static function manageUrl(array $params = [], string $separator = '&amp;', bool $parametric = false): string
     {
@@ -131,8 +129,6 @@ abstract class MyPlugin extends MyModule
      * Get rendered form hidden fields.
      *
      * @param   array<string,string|int>    $params     The additionnal parameters
-     *
-     * @return  string
      */
     public static function parsedHiddenFields(array $params = []): string
     {
@@ -149,8 +145,6 @@ abstract class MyPlugin extends MyModule
      *
      * @param   array<string,string|int>    $params     The URL parameters
      * @param   string                      $suffix     The URL suffix (#)
-     *
-     * @return  void
      */
     public static function redirect(array $params = [], string $suffix = ''): void
     {

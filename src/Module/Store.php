@@ -175,8 +175,8 @@ class Store
         }
 
         // sort results by id
-        uasort($new_defines, fn ($a, $b): int => strtolower((string) $a->getId()) <=> strtolower((string) $b->getId()));
-        uasort($upd_defines, fn ($a, $b): int => strtolower((string) $a->getId()) <=> strtolower((string) $b->getId()));
+        uasort($new_defines, fn ($a, $b): int => strtolower($a->getId()) <=> strtolower($b->getId()));
+        uasort($upd_defines, fn ($a, $b): int => strtolower($a->getId()) <=> strtolower($b->getId()));
 
         $this->defines = [
             'new'    => $new_defines,

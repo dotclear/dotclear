@@ -62,13 +62,11 @@ class ListingComments extends Listing
 
         // Get antispam filters' name
         $filters = [];
-        if ($spam) {
-            if (class_exists(Antispam::class)) {
-                Antispam::initFilters();
-                $fs = Antispam::$filters->getFilters();
-                foreach ($fs as $fid => $f) {
-                    $filters[$fid] = $f->name;
-                }
+        if ($spam && class_exists(Antispam::class)) {
+            Antispam::initFilters();
+            $fs = Antispam::$filters->getFilters();
+            foreach ($fs as $fid => $f) {
+                $filters[$fid] = $f->name;
             }
         }
 
@@ -196,7 +194,7 @@ class ListingComments extends Listing
             $lines[] = $this->commentLine(isset($comments[$this->rs->comment_id]), $spam, $filters, $show_ip);
         }
 
-        $fmt = fn ($title, $image, $class, $dark = false) => (new Img('images/' . $image . '.svg'))
+        $fmt = fn ($title, $image, $class, $dark = false): string => (new Img('images/' . $image . '.svg'))
             ->class(array_filter(['mark', 'mark-' . $class, $dark ? 'light-only' : '']))
             ->alt($title)
         ->render() . ($dark ? (new Img('images/' . $image . '-dark.svg'))
@@ -221,7 +219,7 @@ class ListingComments extends Listing
                     ]),
             ])
         ->render();
-        if ($enclose_block) {
+        if ($enclose_block !== '') {
             $buffer = sprintf($enclose_block, $buffer);
         }
 
@@ -234,8 +232,6 @@ class ListingComments extends Listing
      * @param   bool                    $checked    The checked flag
      * @param   bool                    $spam       The spam flag
      * @param   array<string, string>   $filters    The filters
-     *
-     * @return  Tr
      */
     private function commentLine(bool $checked = false, bool $spam = false, array $filters = [], bool $show_ip = true): Tr
     {
@@ -397,7 +393,7 @@ class ListingComments extends Listing
         $this->userColumns('comments', $cols);
 
         return (new Tr())
-            ->id('c' . (string) $this->rs->comment_id)
+            ->id('c' . $this->rs->comment_id)
             ->class(array_filter([
                 'line',
                 $this->rs->comment_status != App::blog()::COMMENT_PUBLISHED ? 'offline' : '',

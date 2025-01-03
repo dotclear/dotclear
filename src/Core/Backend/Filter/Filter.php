@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -273,7 +274,7 @@ class Filter
         } elseif ($this->form == 'input') {
             # _GET value
             if ($this->value === null) {
-                $this->value(!empty($_GET[$this->id]) ? $_GET[$this->id] : '');
+                $this->value($_GET[$this->id] ?? '');
             }
             # HTML field
             $input = (new Input($this->id))

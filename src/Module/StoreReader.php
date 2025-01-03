@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -63,14 +64,14 @@ class StoreReader extends HttpClient
      *
      * @var     array<string, mixed>|null  $validators
      */
-    protected $validators = null;
+    protected $validators;
 
     /**
      * Cache temporary directory.
      *
      * @var     string|null     $cache_dir
      */
-    protected $cache_dir = null;
+    protected $cache_dir;
 
     /**
      * Cache file prefix.
@@ -106,8 +107,6 @@ class StoreReader extends HttpClient
 
     /**
      * Last response source (from cache or repository).
-     *
-     * @var     int     $read_code
      */
     private static int $read_code = self::READ_FROM_NONE;
 
@@ -192,7 +191,7 @@ class StoreReader extends HttpClient
     {
         $this->cache_dir = null;
 
-        if (!empty($dir) && is_dir($dir) && is_writeable($dir)) {
+        if ($dir !== '' && is_dir($dir) && is_writable($dir)) {
             $this->cache_dir = $dir;
 
             return true;
@@ -210,7 +209,7 @@ class StoreReader extends HttpClient
     {
         $str = trim($str);
 
-        if (!empty($str)) {
+        if ($str !== '') {
             $this->cache_ttl = str_starts_with($str, '-') ? $str : '-' . $str;
         }
     }
@@ -381,13 +380,13 @@ class StoreReader extends HttpClient
     /**
      * Tweak query cache validator.
      *
-     * @param   string  $key    Validator key
-     * @param   mixed   $value  Validator value
+     * @param   string   $key    Validator key
+     * @param   int|bool $value  Validator value
      */
-    private function setValidator(string $key, $value): void
+    private function setValidator(string $key, int|bool $value): void
     {
-        if ($key == 'IfModifiedSince') {
-            $value = gmdate('D, d M Y H:i:s', is_numeric($value) ? (int) $value : null) . ' GMT';
+        if ($key === 'IfModifiedSince') {
+            $value = gmdate('D, d M Y H:i:s', is_numeric($value) ? $value : null) . ' GMT';
         }
 
         $this->validators[$key] = $value;

@@ -46,8 +46,6 @@ class StoreParser
 
     /**
      * XML bloc tag.
-     *
-     * @var     string  $bloc
      */
     protected static string $bloc = 'http://dotaddict.org/da/';
 
@@ -113,7 +111,7 @@ class StoreParser
                 }
 
                 # First filter right now. If DC_DEV is set all modules are parse
-                if (App::config()->devMode() === true || App::plugins()->versionsCompare(App::config()->dotclearVersion(), $define->get('dc_min'), '>=', false)) {
+                if (App::config()->devMode() || App::plugins()->versionsCompare(App::config()->dotclearVersion(), $define->get('dc_min'), '>=', false)) {
                     $this->defines[] = $define;
                 }
             }
@@ -142,7 +140,7 @@ class StoreParser
         App::deprecated()->set(self::class . '::getDefines()', '2.26');
 
         // fill property once on demand
-        if (empty($this->items) && !empty($this->defines)) {
+        if ($this->items === [] && $this->defines !== []) {
             foreach ($this->defines as $define) {
                 $this->items[$define->getId()] = $define->dump();
             }

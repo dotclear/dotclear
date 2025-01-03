@@ -58,8 +58,6 @@ abstract class Actions
 
     /**
      * Record that challenges ids against permissions.
-     *
-     * @var     MetaRecord  $rs
      */
     protected MetaRecord $rs;
 
@@ -72,15 +70,11 @@ abstract class Actions
 
     /**
      * Redirection anchor if any.
-     *
-     * @var     string  $redir_anchor
      */
     protected string $redir_anchor = '';
 
     /**
      * Current action, if any.
-     *
-     * @var     string  $action
      */
     protected string $action = '';
 
@@ -93,36 +87,26 @@ abstract class Actions
 
     /**
      * Form field name for "entries" (usually "entries").
-     *
-     * @var     string  $field_entries
      */
-    protected string $field_entries;
+    protected string $field_entries = 'entries';
 
     /**
      * Title for checkboxes list, if displayed.
-     *
-     * @var     string  $cb_title
      */
     protected string $cb_title;
 
     /**
      * Title for caller page title.
-     *
-     * @var     string  $caller_title
      */
     protected string $caller_title;
 
     /**
      * True if we are acting inside a plugin (different handling of begin/endpage).
-     *
-     * @var     bool    $in_plugin
      */
     protected bool $in_plugin = false;
 
     /**
      * True if we enable to keep selection when redirecting.
-     *
-     * @var     bool    $enable_redir_selection
      */
     protected bool $enable_redir_selection = true;
 
@@ -130,15 +114,11 @@ abstract class Actions
      * Use render method.
      *
      * True if class uses silent process method and uses render method instead.
-     *
-     * @var     bool    $use_render
      */
     protected bool $use_render = false;
 
     /**
      * Action process content.
-     *
-     * @var     string  Action process content
      */
     protected string $render = '';
 
@@ -153,11 +133,10 @@ abstract class Actions
         protected ?string $uri,
         protected array $redir_args = []
     ) {
-        $this->actions       = new ArrayObject();
-        $this->from          = new ArrayObject($_POST);
-        $this->field_entries = 'entries';
-        $this->cb_title      = __('Title');
-        $this->caller_title  = __('Posts');
+        $this->actions      = new ArrayObject();
+        $this->from         = new ArrayObject($_POST);
+        $this->cb_title     = __('Title');
+        $this->caller_title = __('Posts');
 
         if (isset($this->redir_args['action_anchor'])) {
             $this->redir_anchor = '#' . $this->redir_args['action_anchor'];
@@ -311,8 +290,6 @@ abstract class Actions
 
     /**
      * Get record from DB Query containing requested IDs.
-     *
-     * @return  MetaRecord
      */
     public function getRS(): MetaRecord
     {
@@ -360,7 +337,7 @@ abstract class Actions
         $args = http_build_query($redirect_args);
         // Dirty hack to get back %[n]= instead of [n]= instead of %5B{0..9}%5D= in URLs used for named array,
         // as http_build_query urlencode() its result.
-        $args = preg_replace('/\%5B((\d)+?\%5D=)*/', '[$2]=', (string) $args);
+        $args = preg_replace('/\%5B((\d)+?\%5D=)*/', '[$2]=', $args);
 
         return $this->uri . (str_contains((string) $this->uri, '?') ? '&' : '?') . $args . $this->redir_anchor;
     }
@@ -451,6 +428,8 @@ abstract class Actions
                 return true;
             }
         }
+
+        return null;
     }
 
     /**

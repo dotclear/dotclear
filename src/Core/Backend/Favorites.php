@@ -29,8 +29,6 @@ class Favorites
 
     /**
      * Current favorite landing workspace
-     *
-     * @var UserWorkspaceInterface
      */
     protected UserWorkspaceInterface $workspace;
 
@@ -53,16 +51,15 @@ class Favorites
      *
      * @var array<string, mixed>
      */
-    protected $user_favorites;
+    protected $user_favorites = [];
 
     /**
      * Class constructor
      */
     public function __construct()
     {
-        $this->favorites      = new ArrayObject();
-        $this->workspace      = App::auth()->prefs()->dashboard;
-        $this->user_favorites = [];
+        $this->favorites = new ArrayObject();
+        $this->workspace = App::auth()->prefs()->dashboard;
 
         if ($this->workspace->prefExists('favorites')) {
             $this->local_favorites_ids  = $this->workspace->getLocal('favorites');
@@ -100,7 +97,7 @@ class Favorites
      *
      * @return array<string, mixed>|false   array the favorite, false if not found (or not permitted)
      */
-    public function getFavorite($id)
+    public function getFavorite($id): false|array
     {
         if (is_array($id)) {
             $fname = $id['name'];
@@ -165,10 +162,10 @@ class Favorites
     protected function setUserPrefs(): void
     {
         $this->user_favorites = $this->getFavorites($this->local_favorites_ids);
-        if (!count($this->user_favorites)) {
+        if ($this->user_favorites === []) {
             $this->user_favorites = $this->getFavorites($this->global_favorites_ids);
         }
-        if (!count($this->user_favorites)) {
+        if ($this->user_favorites === []) {
             $this->user_favorites = $this->getFavorites(['new_post']);
         }
 
@@ -333,7 +330,7 @@ class Favorites
      *
      * @param array<string, mixed>|ArrayObject<string, mixed>  $icons   dashboard icon list to enrich
      */
-    public function appendDashboardIcons($icons): void
+    public function appendDashboardIcons(array|ArrayObject $icons): void
     {
         foreach ($this->user_favorites as $icon_id => $icon_data) {
             if (isset($icon_data['dashboard_cb']) && is_callable($icon_data['dashboard_cb'])) {

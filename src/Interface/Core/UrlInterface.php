@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -20,8 +21,6 @@ interface UrlInterface
 {
     /**
      * Gets the current type.
-     *
-     * @return     string  The type.
      */
     public function getType(): string;
 
@@ -34,8 +33,6 @@ interface UrlInterface
 
     /**
      * Gets the current mode.
-     *
-     * @return     string  The mode.
      */
     public function getMode(): string;
 
@@ -47,9 +44,7 @@ interface UrlInterface
     public function setMode(string $mode): void;
 
     /**
-     * Gets the home type set for the blog.
-     *
-     * @return     string  The home type (static or default)
+     * Gets the home type (static or default) set for the blog.
      */
     public function getHomeType(): string;
 
@@ -57,8 +52,6 @@ interface UrlInterface
      * Determines whether the specified type is blog home page.
      *
      * @param      string  $type   The type
-     *
-     * @return     bool    True if the specified type is home, False otherwise.
      */
     public function isHome(string $type): bool;
 
@@ -67,8 +60,6 @@ interface UrlInterface
      *
      * @param      string  $type   The type
      * @param      string  $value  The value
-     *
-     * @return     string
      */
     public function getURLFor(string $type, string $value = ''): string;
 
@@ -114,17 +105,13 @@ interface UrlInterface
      * Gets the base URI of an URL handler.
      *
      * @param      string  $type   The type
-     *
-     * @return     string
      */
-    public function getBase(string $type);
+    public function getBase(string $type): string;
 
     /**
      * Throws a 404 (page not found) exception
      *
      * @throws     Exception
-     *
-     * @return     never
      */
     public static function p404(): never;
 
@@ -286,13 +273,11 @@ interface UrlInterface
     public static function xmlrpc(?string $args): void;
 
     /**
-     * Rick Roll script kiddies which try the administrative page wordpress URLs on the blog :-)
+     * Rick Roll script-kiddies trying to connect using a wordpress URL :-)
      *
      * https://example.com/wp-admin and https://example.com/wp-login
      *
      * @param      null|string  $args   The arguments
-     *
-     * @return     never
      */
     public static function wpfaker(?string $args): never;
 }

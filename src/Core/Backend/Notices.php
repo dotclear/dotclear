@@ -67,7 +67,7 @@ class Notices
             # --BEHAVIOR-- adminPageNotificationError -- dcCore, Error
             $notice_error = App::behavior()->callBehavior('adminPageNotificationError', dcCore::app(), App::error());
 
-            if (!empty($notice_error)) {
+            if ($notice_error !== '') {
                 $res .= $notice_error;
             } else {
                 $errors = [];
@@ -128,7 +128,7 @@ class Notices
                     # --BEHAVIOR-- adminPageNotification -- dcCore, array<string,string>
                     $notice = App::behavior()->callBehavior('adminPageNotification', dcCore::app(), $notification);
 
-                    $res .= (!empty($notice) ? $notice : self::getNotification($notification));
+                    $res .= ($notice === '' ? $notice : self::getNotification($notification));
                 }
             }
         } while (--$step);
@@ -150,7 +150,7 @@ class Notices
     {
         $cur = App::notice()->openNoticeCursor();
 
-        $now = function () {
+        $now = function (): string {
             Date::setTZ(App::auth()->getInfo('user_tz') ?? 'UTC');    // Set user TZ
             $dt = date('Y-m-d H:i:s');
             Date::setTZ('UTC');                                               // Back to default TZ
@@ -264,8 +264,6 @@ class Notices
      * @param      bool         $div        Inside a div?
      * @param      bool         $echo       Display the message?
      * @param      null|string  $class      The class of block (div/p)
-     *
-     * @return     string
      */
     public static function message(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true, ?string $class = null): string
     {
@@ -317,8 +315,6 @@ class Notices
      * @param      bool    $timestamp  With the timestamp
      * @param      bool    $div        Inside a div (else in a p)
      * @param      bool    $echo       Display the message?
-     *
-     * @return     string
      */
     public static function success(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
@@ -332,8 +328,6 @@ class Notices
      * @param      bool    $timestamp  With the timestamp
      * @param      bool    $div        Inside a div (else in a p)
      * @param      bool    $echo       Display the message?
-     *
-     * @return     string
      */
     public static function warning(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {
@@ -347,8 +341,6 @@ class Notices
      * @param      bool    $timestamp  With the timestamp
      * @param      bool    $div        Inside a div (else in a p)
      * @param      bool    $echo       Display the message?
-     *
-     * @return     string
      */
     public static function error(string $msg, bool $timestamp = true, bool $div = false, bool $echo = true): string
     {

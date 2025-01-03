@@ -63,15 +63,11 @@ class ModulesList
 {
     /**
      * Store instance
-     *
-     * @var Store
      */
     public readonly Store $store;
 
     /**
      * Work with multiple root directories
-     *
-     * @var        bool
      */
     public static bool $allow_multi_install = false;
 
@@ -86,8 +82,6 @@ class ModulesList
 
     /**
      * Current list ID
-     *
-     * @var        string
      */
     protected string $list_id = 'unknown';
 
@@ -100,71 +94,49 @@ class ModulesList
 
     /**
      * Module define to configure
-     *
-     * @var        ModuleDefine
      */
     protected ModuleDefine $config_define;
     /**
      * Module class to configure
-     *
-     * @var        string
      */
     protected string $config_class = '';
     /**
      * Module path to configure
-     *
-     * @var        string
      */
     protected string $config_file = '';
     /**
      * Module configuration page content
-     *
-     * @var        string
      */
     protected string $config_content = '';
 
     /**
      * Modules root directories
-     *
-     * @var        string|null
      */
     protected ?string $path;
     /**
      * Indicate if modules root directory is writable
-     *
-     * @var        bool
      */
     protected bool $path_writable = false;
     /**
      * Directory pattern to work on
-     *
-     * @var        string
      */
     protected string $path_pattern = '';
 
     /**
      * Page URL
-     *
-     * @var        string
      */
     protected string $page_url = '';
     /**
      * Page tab
-     *
-     * @var        string
      */
     protected string $page_tab = '';
     /**
      * Page redirection
-     *
-     * @var        string
      */
     protected string $page_redir = '';
 
     /**
      * Index list
-     *
-     * @var        string
      */
     public static string $nav_indexes = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -176,21 +148,15 @@ class ModulesList
     protected array $nav_list = [];
     /**
      * Text for other special index
-     *
-     * @var        string
      */
     protected string $nav_special = 'other';
 
     /**
      * Field used to sort modules
-     *
-     * @var        string
      */
     protected string $sort_field = 'sname';
     /**
      * Ascendant sort order?
-     *
-     * @var        bool
      */
     protected bool $sort_asc = true;
 
@@ -239,8 +205,6 @@ class ModulesList
 
     /**
      * Get list ID.
-     *
-     * @return     string
      */
     public function getList(): string
     {
@@ -264,7 +228,7 @@ class ModulesList
         unset($paths);
 
         $this->path = $path;
-        if (is_dir($path) && is_writeable($path)) {
+        if (is_dir($path) && is_writable($path)) {
             $this->path_writable = true;
             $this->path_pattern  = preg_quote($path, '!');
         }
@@ -344,7 +308,7 @@ class ModulesList
         }
 
         $tab = '';
-        if ($with_tab && (!empty($this->page_tab) || !empty($force_tab))) {
+        if ($with_tab && ($this->page_tab !== '' || $force_tab !== null && $force_tab !== '')) {
             // Cope with tab (as hash in URL)
             $tab = '#' . ($force_tab ?: $this->page_tab);
         }
@@ -397,7 +361,7 @@ class ModulesList
      */
     public function getRedir(): string
     {
-        return empty($this->page_redir) ? $this->getURL() : $this->page_redir;
+        return $this->page_redir === '' ? $this->getURL() : $this->page_redir;
     }
 
     //@}
@@ -407,12 +371,10 @@ class ModulesList
 
     /**
      * Get search query.
-     *
-     * @return  mixed  Search query
      */
-    public function getSearch()
+    public function getSearch(): ?string
     {
-        $query = !empty($_REQUEST['m_search']) ? trim((string) $_REQUEST['m_search']) : null;
+        $query = empty($_REQUEST['m_search']) ? null : trim((string) $_REQUEST['m_search']);
 
         return strlen((string) $query) >= 2 ? $query : null;
     }
@@ -426,7 +388,7 @@ class ModulesList
     {
         $query = $this->getSearch();
 
-        if (empty($this->defines) && $query === null) {
+        if ($this->defines === [] && $query === null) {
             return $this;
         }
 
@@ -505,7 +467,7 @@ class ModulesList
      */
     public function displayIndex(): ModulesList
     {
-        if (empty($this->defines) || $this->getSearch() !== null) {
+        if ($this->defines === [] || $this->getSearch() !== null) {
             return $this;
         }
 
@@ -537,7 +499,7 @@ class ModulesList
                     ]);
             }
             # Letter having modules
-            elseif (!empty($indexes[$char])) {
+            elseif (isset($indexes[$char]) && $indexes[$char] !== 0) {
                 $title     = sprintf(__('%d result', '%d results', $indexes[$char]), $indexes[$char]);
                 $buttons[] = (new Li())
                     ->class('btn')
@@ -600,7 +562,7 @@ class ModulesList
      */
     public function getSort(): string
     {
-        return (string) (!empty($_REQUEST['m_sort']) ? $_REQUEST['m_sort'] : $this->sort_field);
+        return (string) (empty($_REQUEST['m_sort']) ? $this->sort_field : $_REQUEST['m_sort']);
     }
 
     /**
@@ -888,7 +850,7 @@ class ModulesList
             }
         }
 
-        if (!empty($actions) && App::auth()->isSuperAdmin()) {
+        if ($actions !== [] && App::auth()->isSuperAdmin()) {
             $headers[] = (new Th())
                 ->class(['nowrap', 'minimal'])
                 ->text(__('Action'));
@@ -900,7 +862,7 @@ class ModulesList
 
         # Sort modules by $sort_field (default sname)
         if ($this->getSearch() === null) {
-            uasort($this->defines, fn ($a, $b) => $a->get($sort_field) <=> $b->get($sort_field));
+            uasort($this->defines, fn ($a, $b): int => $a->get($sort_field) <=> $b->get($sort_field));
         }
 
         $count = 0;
@@ -914,7 +876,7 @@ class ModulesList
                 if (!in_array($char, $this->nav_list)) {
                     $char = $this->nav_special;
                 }
-                if ($this->getIndex() != $char) {
+                if ($this->getIndex() !== $char) {
                     continue;
                 }
             }
@@ -1006,7 +968,7 @@ class ModulesList
                         ->items([
                             (new Text('span', sprintf(
                                 __('This module cannot be disabled nor deleted, since the following modules are also enabled : %s'),
-                                join(', ', $define->getUsing())
+                                implode(', ', $define->getUsing())
                             )))->class('info'),
                         ]);
                 }
@@ -1037,7 +999,7 @@ class ModulesList
                 $tds++;
                 $data[] = (new Td())
                     ->class(['module-repository', 'nowrap', 'count'])
-                    ->text(!empty($define->get('repository')) ? __('Third-party repository') : __('Official repository'));
+                    ->text(empty($define->get('repository')) ? __('Official repository') : __('Third-party repository'));
             }
 
             if (in_array('distrib', $cols)) {
@@ -1051,7 +1013,7 @@ class ModulesList
                     ]);
             }
 
-            if (!empty($actions) && App::auth()->isSuperAdmin()) {
+            if ($actions !== [] && App::auth()->isSuperAdmin()) {
                 $buttons = $this->getActions($define, $actions);
 
                 $tds++;
@@ -1121,7 +1083,7 @@ class ModulesList
                     $lines = [];
 
                     $settings = static::getSettingsUrls($id);
-                    if (!empty($settings) && $define->get('state') == ModuleDefine::STATE_ENABLED) {
+                    if ($settings !== [] && $define->get('state') == ModuleDefine::STATE_ENABLED) {
                         $lines[] = (new Li())
                             ->text(implode(' - ', $settings));
                     }
@@ -1169,10 +1131,10 @@ class ModulesList
             $bottom[] = (new Note())
                 ->class('message')
                 ->text(__('No plugins matched your search.'));
-        } elseif ((in_array('checkbox', $cols) || $count > 1) && !empty($actions) && App::auth()->isSuperAdmin()) {
+        } elseif ((in_array('checkbox', $cols) || $count > 1) && $actions !== [] && App::auth()->isSuperAdmin()) {
             $buttons = $this->getGlobalActions($actions, in_array('checkbox', $cols));
 
-            if (!empty($buttons)) {
+            if ($buttons !== []) {
                 if (in_array('checkbox', $cols)) {
                     $bottom[] = (new Para())->class('checkboxes-helpers');
                 }
@@ -1221,24 +1183,20 @@ class ModulesList
         $index  = static::hasFileOrClass($id, App::plugins()::MODULE_CLASS_MANAGE, App::plugins()::MODULE_FILE_MANAGE);
 
         $settings = App::plugins()->moduleInfo($id, 'settings');
-        if ($self) {
-            if (isset($settings['self']) && $settings['self'] === false) {
-                $self = false;
-            }
+        if ($self && (isset($settings['self']) && $settings['self'] === false)) {
+            $self = false;
         }
         if ($config || $index || !empty($settings)) {
-            if ($config) {
-                if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
-                    $params = ['module' => $id, 'conf' => '1'];
-                    if (!App::plugins()->moduleInfo($id, 'standalone_config') && !$self) {
-                        $params['redir'] = App::backend()->url()->get('admin.plugin.' . $id);
-                    }
-                    $settings_urls[] = (new Link())
-                        ->href(App::backend()->url()->get('admin.plugins', $params))
-                        ->class('module-config')
-                        ->text(__('Configure plugin'))
-                    ->render();
+            if ($config && (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id()))) {
+                $params = ['module' => $id, 'conf' => '1'];
+                if (!App::plugins()->moduleInfo($id, 'standalone_config') && !$self) {
+                    $params['redir'] = App::backend()->url()->get('admin.plugin.' . $id);
                 }
+                $settings_urls[] = (new Link())
+                    ->href(App::backend()->url()->get('admin.plugins', $params))
+                    ->class('module-config')
+                    ->text(__('Configure plugin'))
+                ->render();
             }
             if (is_array($settings)) {
                 foreach ($settings as $sk => $sv) {
@@ -1295,14 +1253,12 @@ class ModulesList
                     }
                 }
             }
-            if ($index && $self) {
-                if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
-                    $settings_urls[] = (new Link())
-                        ->href(App::backend()->url()->get('admin.plugin.' . $id))
-                        ->class('module-config')
-                        ->text(__('Plugin main page'))
-                    ->render();
-                }
+            if ($index && $self && (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id()))) {
+                $settings_urls[] = (new Link())
+                    ->href(App::backend()->url()->get('admin.plugin.' . $id))
+                    ->class('module-config')
+                    ->text(__('Plugin main page'))
+                ->render();
             }
         }
 
@@ -1331,20 +1287,20 @@ class ModulesList
         # Use loop to keep requested order
         foreach ($actions as $action) {
             switch ($action) {
-                # Deactivate
+                # Activate
                 case 'activate':
                     // do not allow activation of duplicate modules already activated
-                    $multi = !self::$allow_multi_install && count($this->modules->getDefines(['id' => $id, 'state' => ModuleDefine::STATE_ENABLED])) > 0;
-                    if (App::auth()->isSuperAdmin() && $define->get('root_writable') && empty($define->getMissing()) && !$multi) {
+                    $multi = !self::$allow_multi_install && $this->modules->getDefines(['id' => $id, 'state' => ModuleDefine::STATE_ENABLED]) !== [];
+                    if (App::auth()->isSuperAdmin() && $define->get('root_writable') && $define->getMissing() === [] && !$multi) {
                         $submits[] = (new Submit(['activate[' . Html::escapeHTML($id) . ']'], __('Activate')))
                         ->render();
                     }
 
                     break;
 
-                    # Activate
+                    # Dectivate
                 case 'deactivate':
-                    if (App::auth()->isSuperAdmin() && $define->get('root_writable') && empty($define->getUsing())) {
+                    if (App::auth()->isSuperAdmin() && $define->get('root_writable') && $define->getUsing() === []) {
                         $submits[] = (new Submit(['deactivate[' . Html::escapeHTML($id) . ']'], __('Deactivate')))
                             ->class('reset')
                         ->render();
@@ -1354,7 +1310,7 @@ class ModulesList
 
                     # Delete
                 case 'delete':
-                    if (App::auth()->isSuperAdmin() && !$define->distributed && $this->isDeletablePath($define->get('root')) && empty($define->getUsing())) {
+                    if (App::auth()->isSuperAdmin() && !$define->distributed && $this->isDeletablePath($define->get('root')) && $define->getUsing() === []) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', (string) $define->get('root')) && App::config()->devMode() ? ' debug' : '';
                         $submits[] = (new Submit(['delete[' . Html::escapeHTML($id) . ']'], __('Delete')))
                             ->class(array_filter(['delete', $dev]))
@@ -1397,7 +1353,7 @@ class ModulesList
                     # --BEHAVIOR-- adminModulesListGetActions -- ModulesList, ModuleDefine
                     $tmp = App::behavior()->callBehavior('adminModulesListGetActionsV2', $this, $define);
 
-                    if (!empty($tmp)) {
+                    if ($tmp !== '') {
                         $submits[] = $tmp;
                     }
 
@@ -1462,7 +1418,7 @@ class ModulesList
                     # --BEHAVIOR-- adminModulesListGetGlobalActions -- ModulesList, bool
                     $tmp = App::behavior()->callBehavior('adminModulesListGetGlobalActions', $this, $with_selection);
 
-                    if (!empty($tmp)) {
+                    if ($tmp !== '') {
                         $submits[] = $tmp;
                     }
 
@@ -1482,7 +1438,7 @@ class ModulesList
      */
     public function doActions(): void
     {
-        if (empty($_POST) || !empty($_REQUEST['conf'])
+        if ($_POST === [] || !empty($_REQUEST['conf'])
                           || !$this->isWritablePath()) {
             return;
         }
@@ -1554,7 +1510,7 @@ class ModulesList
                 $count++;
             }
 
-            if (!$count) {
+            if ($count === 0) {
                 throw new Exception(__('No such plugin.'));
             }
 
@@ -1585,7 +1541,7 @@ class ModulesList
                 $count++;
             }
 
-            if (!$count) {
+            if ($count === 0) {
                 throw new Exception(__('No such plugin.'));
             }
 
@@ -1623,7 +1579,7 @@ class ModulesList
                 $count++;
             }
 
-            if (!$count) {
+            if ($count === 0) {
                 throw new Exception(__('No such plugin.'));
             }
 
@@ -1674,13 +1630,13 @@ class ModulesList
                 $count++;
             }
 
-            $tab = $count == count($defines) ? 'plugins' : 'update';
+            $tab = $count === count($defines) ? 'plugins' : 'update';
 
-            if ($count) {
+            if ($count !== 0) {
                 Notices::addSuccessNotice(
                     __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
                 );
-            } elseif (!empty($locked)) {
+            } elseif ($locked !== []) {
                 Notices::addWarningNotice(
                     sprintf(__('Following plugins updates are locked: %s'), implode(', ', $locked))
                 );
@@ -1732,13 +1688,11 @@ class ModulesList
 
     /**
      * Display tab for manual installation.
-     *
-     * @return    mixed self instance or null
      */
-    public function displayManualForm()
+    public function displayManualForm(): ?self
     {
         if (!App::auth()->isSuperAdmin() || !$this->isWritablePath()) {
-            return;
+            return null;
         }
 
         // 'Upload module' form
@@ -1869,7 +1823,7 @@ class ModulesList
             return false;
         }
 
-        if (!empty($_REQUEST['module']) && empty($id)) {
+        if (!empty($_REQUEST['module']) && ($id === null || $id === '')) {
             $id = $_REQUEST['module'];
         }
 
@@ -1885,7 +1839,7 @@ class ModulesList
         $class = is_subclass_of($class, Process::class) ? $class : '';
         $file  = (string) Path::real($define->get('root') . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_CONFIG);
 
-        if (empty($class) && empty($file)) {
+        if ($class === '' && $file === '') {
             App::error()->add(__('This plugin has no configuration file.'));
 
             return false;
@@ -1910,22 +1864,20 @@ class ModulesList
     }
 
     /**
-     * Get path of module configuration file.
+     * Get full path of module configuration file.
      *
      * @note Required previously set file info
-     *
-     * @return mixed    Full path of config file or null
      */
-    public function includeConfiguration()
+    public function includeConfiguration(): ?string
     {
-        if (empty($this->config_class) && empty($this->config_file)) {
-            return;
+        if ($this->config_class === '' && $this->config_file === '') {
+            return null;
         }
         $this->setRedir($this->getURL('', true, 'plugins'));
 
         ob_start();
 
-        if (!empty($this->config_class)) {
+        if ($this->config_class !== '') {
             if ($this->config_class::init() && $this->config_class::process()) {
                 $this->config_class::render();
             }
@@ -1945,14 +1897,14 @@ class ModulesList
      */
     public function getConfiguration(): bool
     {
-        if (!empty($this->config_class) || !empty($this->config_file)) {
+        if ($this->config_class !== '' || $this->config_file !== '') {
             $content              = ob_get_contents();
             $this->config_content = $content === false ? '' : $content;
         }
 
         ob_end_clean();
 
-        return !empty($this->config_content);
+        return $this->config_content !== '';
     }
 
     /**
@@ -1965,7 +1917,7 @@ class ModulesList
     public function displayConfiguration(): ModulesList
     {
         /* @phpstan-ignore-next-line */
-        if (($this->config_define instanceof ModuleDefine) && (!empty($this->config_class) || !empty($this->config_file))) {
+        if (($this->config_define instanceof ModuleDefine) && ($this->config_class !== '' || $this->config_file !== '')) {
             $items = [];
 
             if (!$this->config_define->get('standalone_config')) {
@@ -2037,8 +1989,6 @@ class ModulesList
      * @param   string  $id     The module identifier
      * @param   string  $class  The module class name
      * @param   string  $file   The module file name
-     *
-     * @return  bool    True if one exists
      */
     protected static function hasFileOrClass(string $id, string $class, string $file): bool
     {

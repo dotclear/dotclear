@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -98,8 +99,6 @@ class ActionsPosts extends Actions
 
     /**
      * Cope with error
-     *
-     * @param      Exception  $e
      */
     public function error(Exception $e): void
     {

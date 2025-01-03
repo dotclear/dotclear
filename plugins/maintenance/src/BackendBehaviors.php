@@ -129,7 +129,7 @@ class BackendBehaviors
             }
         }
 
-        if (!$count) {
+        if ($count === 0) {
             return;
         }
 
@@ -139,8 +139,6 @@ class BackendBehaviors
 
     /**
      * Dashboard header behavior
-     *
-     * @return     string
      */
     public static function adminDashboardHeaders(): string
     {
@@ -179,7 +177,7 @@ class BackendBehaviors
                 ->text($t->task());
         }
 
-        if (empty($lines)) {
+        if ($lines === []) {
             return;
         }
 
@@ -281,7 +279,7 @@ class BackendBehaviors
                                 ]);
                         }
                     }
-                    if (!empty($tasks)) {
+                    if ($tasks !== []) {
                         $desc = $group_obj->description ?: $group_obj->summary; // @phpstan-ignore-line
 
                         $groups[] = (new Set())
@@ -292,7 +290,7 @@ class BackendBehaviors
                             ]);
                     }
                 }
-                if (!empty($groups)) {
+                if ($groups !== []) {
                     $desc = $tab_obj->description ?: $tab_obj->summary; // @phpstan-ignore-line
 
                     $contents[] = (new Set())
@@ -303,7 +301,7 @@ class BackendBehaviors
                         ]);
                 }
             }
-            if (!empty($contents)) {
+            if ($contents !== []) {
                 $res          = new AdminPageHelpBlockContent();
                 $res->content = (new Set())->items($contents)->render();
                 $blocks->append($res);

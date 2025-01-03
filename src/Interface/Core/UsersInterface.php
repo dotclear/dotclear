@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -57,8 +58,6 @@ interface UsersInterface
      * @param      Cursor     $cur    The user Cursor
      *
      * @throws     BadRequestException|UnauthorizedException
-     *
-     * @return     string
      */
     public function addUser(Cursor $cur): string;
 
@@ -69,8 +68,6 @@ interface UsersInterface
      * @param      Cursor     $cur    The Cursor
      *
      * @throws     UnauthorizedException
-     *
-     * @return     string
      */
     public function updUser(string $id, Cursor $cur): string;
 
@@ -172,8 +169,6 @@ interface UsersInterface
      * @param   string  $user_name          The user name
      * @param   string  $user_firstname     The user firstname
      * @param   string  $user_displayname   The user displayname
-     *
-     * @return  string  The user cn.
      */
     public function getUserCN(string $user_id, ?string $user_name, ?string $user_firstname, ?string $user_displayname): string;
 }

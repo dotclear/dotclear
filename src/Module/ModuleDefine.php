@@ -297,8 +297,6 @@ class ModuleDefine
      *
      * @param   string  $identifier     The identifier
      * @param   mixed   $value          The value
-     *
-     * @return  ModuleDefine
      */
     public function set(string $identifier, $value = null): ModuleDefine
     {
@@ -326,8 +324,6 @@ class ModuleDefine
      * This returns null if property does not exists
      *
      * @param   string  $identifier     The identifier
-     *
-     * @return  mixed
      */
     public function get(string $identifier): mixed
     {
@@ -342,8 +338,6 @@ class ModuleDefine
      * Gets the specified property value (null if does not exist).
      *
      * @param   string  $identifier     The identifier
-     *
-     * @return  mixed
      */
     public function __get(string $identifier): mixed
     {
@@ -354,8 +348,6 @@ class ModuleDefine
      * Test if a property exists.
      *
      * @param   string  $identifier     The identifier
-     *
-     * @return  bool
      */
     public function __isset(string $identifier): bool
     {
