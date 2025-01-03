@@ -740,7 +740,10 @@ class Blog implements BlogInterface
             )
             ->where('C.blog_id = ' . $sql->quote($this->id));
 
-        if (!$this->auth->userID()) {
+        if (isset($params['post_status'])) {
+            $sql->and('P.post_status = ' . $sql->quote($params['post_status']));
+        } elseif (!$this->auth->userID() || App::task()->checkContext('FRONTEND')) {
+            // 2.33 backward compatibility for public session, default to post published
             $sql->and('P.post_status = ' . self::POST_PUBLISHED);
         }
 
