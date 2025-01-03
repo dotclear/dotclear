@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -22,64 +23,46 @@ class SpamFilter
 {
     /**
      * Filter id.
-     *
-     * @var     string  $id
      */
     public string $id;
 
     /**
      * Filter name.
-     *
-     * @var     string  $name
      */
     public string $name;
 
     /**
      * Filter description.
-     *
-     * @var     string  $description
      */
     public string $description;
 
     /**
      * Is filter active.
-     *
-     * @var     bool    $active
      */
     public bool $active = true;
 
     /**
      * Filter order.
-     *
-     * @var     int     $order
      */
     public int $order = 100;
 
     /**
      * Filter auto-delete spam?
-     *
-     * @var     bool    $auto_delete
      */
     public bool $auto_delete = false;
 
     /**
      * Filter help ID.
-     *
-     * @var     null|string     $help
      */
     public ?string $help = null;
 
     /**
      * Filter has settings GUI?
-     *
-     * @var     bool    $has_gui
      */
     protected bool $has_gui = false;
 
     /**
      * Filter settings GUI URL.
-     *
-     * @var     null|string     $gui_url
      */
     protected ?string $gui_url = null;
 
@@ -90,10 +73,12 @@ class SpamFilter
     {
         $this->setInfo();
 
-        $path     = explode('\\', static::class);
-        $this->id = (string) array_pop($path);
+        $path = explode('\\', static::class);
 
-        $this->name ??= (string) $this->id;
+        $id       = array_pop($path);
+        $this->id = $id;
+
+        $this->name ??= $this->id;
 
         if (App::task()->checkContext('BACKEND') && !App::task()->checkContext('INSTALL')) {
             $this->gui_url = App::backend()->url()->get('admin.plugin.antispam', ['f' => $this->id], '&');
@@ -194,32 +179,24 @@ class SpamFilter
             return false;
         }
 
-        if (!$this->has_gui) {
-            return false;
-        }
-
-        return true;
+        return $this->has_gui;
     }
 
     /**
      * Get the filter settings GUI URL.
-     *
-     * @return  false|string
      */
-    public function guiURL()
+    public function guiURL(): false|string
     {
         if (!$this->hasGui()) {
             return false;
         }
 
-        return !is_null($this->gui_url) ? $this->gui_url : false;
+        return is_null($this->gui_url) ? false : $this->gui_url;
     }
 
     /**
      * Returns a link to filter GUI if exists
      * or only filter name if has_gui property is false.
-     *
-     * @return  string
      */
     public function guiLink(): string
     {

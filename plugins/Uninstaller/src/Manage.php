@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -51,7 +52,7 @@ class Manage extends Process
         }
 
         // load Themes if required
-        if (self::getType() == 'theme' && App::themes()->isEmpty()) {
+        if (self::getType() === 'theme' && App::themes()->isEmpty()) {
             App::themes()->loadModules(App::blog()->themesPath());
         }
 
@@ -65,13 +66,13 @@ class Manage extends Process
         // load uninstaller for selected module and check if it has action
         $uninstaller = Uninstaller::instance()->loadModules([$define]);
         $actions     = $uninstaller->getUserActions($define->getId());
-        if (!count($actions)) {
+        if (count($actions) === 0) {
             App::error()->add(__('There are no uninstall actions for this module'));
             self::doRedirect();
         }
 
         // nothing to do
-        if (empty($_POST)) {
+        if ($_POST === []) {
             return true;
         }
 
@@ -90,7 +91,7 @@ class Manage extends Process
                 }
             }
             // list success actions
-            if (!empty($done)) {
+            if ($done !== []) {
                 array_unshift($done, __('Uninstall action successfuly excecuted'));
                 Notices::addSuccessNotice(implode('<br>', $done));
             } else {
@@ -171,7 +172,7 @@ class Manage extends Process
 
         (new Div())
             ->items([
-                (new Text('h3', sprintf((self::getType() == 'theme' ? __('Uninstall theme "%s"') : __('Uninstall plugin "%s"')), __($define->get('name'))))),
+                (new Text('h3', sprintf((self::getType() === 'theme' ? __('Uninstall theme "%s"') : __('Uninstall plugin "%s"')), __($define->get('name'))))),
                 (new Text('p', sprintf(__('The module "%s %s" offers advanced unsintall process:'), $define->getId(), $define->get('version')))),
                 (new Form('uninstall-form'))
                     ->method('post')
@@ -190,7 +191,7 @@ class Manage extends Process
 
     private static function getRedir(): string
     {
-        return self::getType() == 'theme' ? 'admin.blog.theme' : 'admin.plugins';
+        return self::getType() === 'theme' ? 'admin.blog.theme' : 'admin.plugins';
     }
 
     private static function getRedirect(): string

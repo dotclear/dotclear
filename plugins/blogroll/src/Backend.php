@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -22,7 +23,8 @@ class Backend extends Process
     public static function init(): bool
     {
         // Dead but useful code (for l10n)
-        __('Blogroll') . __('Manage your blogroll');
+        __('Blogroll');
+        __('Manage your blogroll');
 
         return self::status(My::checkContext(My::BACKEND));
     }
@@ -36,7 +38,7 @@ class Backend extends Process
         App::auth()->setPermissionType(Blogroll::PERMISSION_BLOGROLL, __('manage blogroll'));
 
         App::behavior()->addBehaviors([
-            'adminDashboardFavoritesV2' => function (Favorites $favs) {
+            'adminDashboardFavoritesV2' => function (Favorites $favs): string {
                 $favs->register(My::id(), [
                     'title'       => My::name(),
                     'url'         => My::manageUrl(),
@@ -48,8 +50,10 @@ class Backend extends Process
                         App::auth()::PERMISSION_CONTENT_ADMIN,
                     ]),
                 ]);
+
+                return '';
             },
-            'adminUsersActionsHeaders' => fn () => My::jsLoad('_users_actions'),
+            'adminUsersActionsHeaders' => fn (): string => My::jsLoad('_users_actions'),
 
             'initWidgets'        => Widgets::initWidgets(...),
             'initDefaultWidgets' => Widgets::initDefaultWidgets(...),

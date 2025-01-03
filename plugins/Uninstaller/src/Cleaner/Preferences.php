@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -153,7 +154,7 @@ class Preferences extends CleanerParent
     {
         $sql = new DeleteStatement();
 
-        if ($action == 'delete_global' && self::checkNs($ns)) {
+        if ($action === 'delete_global' && $this->checkNs($ns)) {
             $sql->from(App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
                 ->where('user_id IS NULL')
                 ->and('pref_ws = ' . $sql->quote($ns))
@@ -161,7 +162,7 @@ class Preferences extends CleanerParent
 
             return true;
         }
-        if ($action == 'delete_local' && self::checkNs($ns)) {
+        if ($action === 'delete_local' && $this->checkNs($ns)) {
             $sql->from(App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
                 ->where('user_id = ' . $sql->quote(App::blog()->id()))
                 ->and('pref_ws = ' . $sql->quote($ns))
@@ -169,7 +170,7 @@ class Preferences extends CleanerParent
 
             return true;
         }
-        if ($action == 'delete_all' && self::checkNs($ns)) {
+        if ($action === 'delete_all' && $this->checkNs($ns)) {
             $sql->from(App::con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
                 ->where('pref_ws = ' . $sql->quote($ns))
                 ->and($sql->orGroup(['user_id IS NULL', 'user_id IS NOT NULL']))
@@ -177,7 +178,7 @@ class Preferences extends CleanerParent
 
             return true;
         }
-        if ($action == 'delete_related') {
+        if ($action === 'delete_related') {
             // check ns match ws:id;
             $reg_ws = substr(App::userWorkspace()::WS_NAME_SCHEMA, 2, -2);
             $reg_id = substr(App::userWorkspace()::WS_ID_SCHEMA, 2, -2);
@@ -190,7 +191,7 @@ class Preferences extends CleanerParent
             foreach ($matches[2] as $key => $name) {
                 $or[] = $sql->andGroup(['pref_ws = ' . $sql->quote($name), 'pref_id = ' . $sql->quote($matches[3][$key])]);
             }
-            if (empty($or)) {
+            if ($or === []) {
                 return false;
             }
 
@@ -212,7 +213,7 @@ class Preferences extends CleanerParent
      *
      * @return  bool    True on well formed
      */
-    private static function checkNs(string $ns): bool
+    private function checkNs(string $ns): bool
     {
         return (bool) preg_match(App::userWorkspace()::WS_NAME_SCHEMA, $ns);
     }

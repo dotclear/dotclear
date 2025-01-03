@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -27,13 +28,11 @@ class BackendBehaviors
      * @param   string          $context    The page context (post,page,comment,event,...)
      * @param   array<string>   $tags       The array of ids to inject editor
      * @param   string          $syntax     The wanted syntax (wiki,markdown,...)
-     *
-     * @return  mixed
      */
-    public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = '')
+    public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = ''): string
     {
         if (empty($editor) || $editor != 'dcLegacyEditor') {
-            return;
+            return '';
         }
 
         $alt_tags = new ArrayObject($tags);
@@ -56,13 +55,11 @@ class BackendBehaviors
      * Add media popup JS if necessary
      *
      * @param      string  $editor  The editor
-     *
-     * @return     mixed
      */
-    public static function adminPopupMedia($editor = '')
+    public static function adminPopupMedia($editor = ''): string
     {
         if (empty($editor) || $editor != 'dcLegacyEditor') {
-            return;
+            return '';
         }
 
         return My::jsLoad('jsToolBar/popup_media');
@@ -72,13 +69,11 @@ class BackendBehaviors
      * Add link popup JS if necessary
      *
      * @param      string  $editor  The editor
-     *
-     * @return     mixed
      */
-    public static function adminPopupLink($editor = '')
+    public static function adminPopupLink($editor = ''): string
     {
         if (empty($editor) || $editor != 'dcLegacyEditor') {
-            return;
+            return '';
         }
 
         return My::jsLoad('jsToolBar/popup_link');
@@ -88,13 +83,11 @@ class BackendBehaviors
      * Add posts popup JS if necessary
      *
      * @param      string  $editor  The editor
-     *
-     * @return     mixed
      */
-    public static function adminPopupPosts($editor = '')
+    public static function adminPopupPosts($editor = ''): string
     {
         if (empty($editor) || $editor != 'dcLegacyEditor') {
-            return;
+            return '';
         }
 
         return My::jsLoad('jsToolBar/popup_posts');
@@ -102,8 +95,6 @@ class BackendBehaviors
 
     /**
      * Add JS toolbar
-     *
-     * @return     string
      */
     protected static function jsToolBar(): string
     {
@@ -172,7 +163,7 @@ class BackendBehaviors
             'img_link_title' => __('Open the media'),
         ];
 
-        $rtl              = L10n::getLanguageTextDirection(App::lang()->getLang()) == 'rtl' ? 'direction: rtl;' : '';
+        $rtl              = L10n::getLanguageTextDirection(App::lang()->getLang()) === 'rtl' ? 'direction: rtl;' : '';
         $js['iframe_css'] = self::css($rtl);
         // End of tricky code
 
@@ -191,10 +182,7 @@ class BackendBehaviors
             $res .= My::jsLoad('jsToolBar/jsToolBar.wysiwyg');
         }
 
-        $res .= My::jsLoad('jsToolBar/jsToolBar.dotclear') .
-        My::jsLoad('jsToolBar/jsToolBar.config');
-
-        return $res;
+        return $res . (My::jsLoad('jsToolBar/jsToolBar.dotclear') . My::jsLoad('jsToolBar/jsToolBar.config'));
     }
 
     private static function css(string $rtl): string

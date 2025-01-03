@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -26,17 +27,15 @@ class BackendBehaviors
      * @param   string          $context    The page context (post,page,comment,event,...)
      * @param   array<string>   $tags       The array of ids to inject editor
      * @param   string          $syntax     The wanted syntax (wiki,markdown,...)
-     *
-     * @return  string
      */
     public static function adminPostEditor(string $editor = '', string $context = '', array $tags = [], string $syntax = 'xhtml'): string
     {
-        if (empty($editor) || $editor !== 'dcCKEditor' || $syntax !== 'xhtml') {
+        if ($editor !== 'dcCKEditor' || $syntax !== 'xhtml') {
             return '';
         }
 
         $config_js = ['config' => '1'];
-        if (!empty($context)) {
+        if ($context !== '') {
             $config_js['context'] = $context;
         }
 
@@ -75,12 +74,10 @@ class BackendBehaviors
      * Load additional script for media insertion popup.
      *
      * @param   string  $editor     The editor
-     *
-     * @return  string
      */
     public static function adminPopupMedia(string $editor = ''): string
     {
-        if (empty($editor) || $editor !== 'dcCKEditor') {
+        if ($editor !== 'dcCKEditor') {
             return '';
         }
 
@@ -98,12 +95,10 @@ class BackendBehaviors
      * Load additional script for link insertion popup.
      *
      * @param   string  $editor     The editor
-     *
-     * @return  string
      */
     public static function adminPopupLink(string $editor = ''): string
     {
-        if (empty($editor) || $editor !== 'dcCKEditor') {
+        if ($editor !== 'dcCKEditor') {
             return '';
         }
 
@@ -114,12 +109,10 @@ class BackendBehaviors
      * Load additional script for entry link insertion popup.
      *
      * @param   string  $editor     The editor
-     *
-     * @return  string
      */
     public static function adminPopupPosts(string $editor = ''): string
     {
-        if (empty($editor) || $editor !== 'dcCKEditor') {
+        if ($editor !== 'dcCKEditor') {
             return '';
         }
 

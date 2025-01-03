@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -69,7 +70,7 @@ class Vars extends CleanerParent
 
     public function execute(string $action, string $ns): bool
     {
-        if ($action == 'delete') {
+        if ($action === 'delete') {
             self::delDir(App::config()->varRoot(), $ns, true);
 
             return true;

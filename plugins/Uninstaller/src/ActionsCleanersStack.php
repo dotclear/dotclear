@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -32,10 +33,7 @@ class ActionsCleanersStack implements Countable, Iterator
         return isset($this->stack[$offset]);
     }
 
-    /**
-     * @return  null|ActionDescriptor
-     */
-    public function get(int $offset): null|ActionDescriptor
+    public function get(int $offset): ?ActionDescriptor
     {
         return $this->stack[$offset] ?? null;
     }
@@ -55,20 +53,14 @@ class ActionsCleanersStack implements Countable, Iterator
         reset($this->stack);
     }
 
-    /**
-     * @return  false|ActionDescriptor
-     */
     #[\ReturnTypeWillChange]
     public function current(): false|ActionDescriptor
     {
         return current($this->stack);
     }
 
-    /**
-     * @return  null|int
-     */
     #[\ReturnTypeWillChange]
-    public function key(): null|int
+    public function key(): ?int
     {
         return key($this->stack);
     }

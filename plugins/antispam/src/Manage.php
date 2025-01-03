@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -245,13 +246,13 @@ class Manage extends Process
                                 (new Link())
                                     ->href(App::backend()->url()->get('admin.comments', ['status' => '-2']))
                                     ->text(__('Junk comments:')),
-                                (new Text('strong', ' ' . (string) $spam_count)),
+                                (new Text('strong', ' ' . $spam_count)),
                             ]),
                             (new Li())->class('hamcount')->items([
                                 (new Link())
                                     ->href(App::backend()->url()->get('admin.comments', ['status' => '1']))
                                     ->text(__('Published comments:')),
-                                (new Text(null, ' ' . (string) $published_count)),
+                                (new Text(null, ' ' . $published_count)),
                             ]),
                         ]),
                     ...$action,
@@ -356,7 +357,7 @@ class Manage extends Process
             ->render();
 
             // Syndication
-            if (App::config()->adminUrl()) {
+            if (App::config()->adminUrl() !== '') {
                 $ham_feed = App::blog()->url() . App::url()->getURLFor(
                     'hamfeed',
                     Antispam::getUserCode()

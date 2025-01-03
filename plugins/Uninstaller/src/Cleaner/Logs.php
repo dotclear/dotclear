@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -90,7 +91,7 @@ class Logs extends CleanerParent
 
     public function execute(string $action, string $ns): bool
     {
-        if ($action == 'delete_all') {
+        if ($action === 'delete_all') {
             $sql = new DeleteStatement();
             $sql->from(App::con()->prefix() . App::log()::LOG_TABLE_NAME)
                 ->where('log_table = ' . $sql->quote($ns))

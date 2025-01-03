@@ -42,12 +42,10 @@ class ManagePostConfig
 
     /**
      * Return direct JS part
-     *
-     * @return     string
      */
     protected static function jsDirect(): string
     {
-        $js = <<<JS
+        return <<<JS
             (() => {
               \$.toolbarPopup = function toolbarPopup(url) {
                 if (dotclear.admin_base_url != '') {
@@ -94,34 +92,31 @@ class ManagePostConfig
               });
             })();
             JS;
-
-        return $js;
     }
 
     /**
      * Return jQuery ready part
      *
      * @param      array<int, mixed>   $extraPlugins  The extra plugins
-     *
-     * @return     string
      */
     protected static function jsReady(array $extraPlugins): string
     {
         // Init variables
-        $disableNativeSpellChecker = !isset(App::backend()->editor_cke_disable_native_spellchecker) || App::backend()->editor_cke_disable_native_spellchecker ? 'true' : 'false';
+        $disableNativeSpellChecker = (bool) App::backend()->editor_cke_disable_native_spellchecker ? 'true' : 'false';
 
-        $height = (string) (App::auth()->getOption('edit_size') * 14) . 'px';
+        $height = App::auth()->getOption('edit_size') * 14 . 'px';
 
-        $editor_cke_cancollapse_button = !empty(App::backend()->editor_cke_cancollapse_button) ? 'true' : 'false';
+        $editor_cke_cancollapse_button = empty(App::backend()->editor_cke_cancollapse_button) ? 'false' : 'true';
 
-        $colorButton_enableMore   = !empty(App::backend()->editor_cke_textcolor_button) || !empty(App::backend()->editor_cke_background_textcolor_button) ? 'true' : 'false';
-        $colorButton_colors       = !empty(App::backend()->editor_cke_custom_color_list) ? App::backend()->editor_cke_custom_color_list : '';
+        $colorButton_enableMore = !empty(App::backend()->editor_cke_textcolor_button) || !empty(App::backend()->editor_cke_background_textcolor_button) ? 'true' : 'false';
+
+        $colorButton_colors       = empty(App::backend()->editor_cke_custom_color_list) ? '' : App::backend()->editor_cke_custom_color_list;
         $colorButton_colorsPerRow = App::backend()->editor_cke_colors_per_row ?: 6;
 
         $addExternal        = '';
         $defautExtraPlugins = 'entrylink,dclink,media,justify,colorbutton,format,img,footnotes';
         $extraPlugins_str   = '';
-        if (!empty($extraPlugins)) {
+        if ($extraPlugins !== []) {
             $extraPlugins_str = "{\nname: 'extra',\n items: [%s]},\n";
             $extra_icons      = '';
             foreach ($extraPlugins as $plugin) {
@@ -132,7 +127,7 @@ class ManagePostConfig
             $extraPlugins_str = sprintf($extraPlugins_str, $extra_icons);
         }
 
-        $format_tags  = !empty(App::backend()->editor_cke_format_tags) ? App::backend()->editor_cke_format_tags : 'p;h1;h2;h3;h4;h5;h6;pre;address';
+        $format_tags  = empty(App::backend()->editor_cke_format_tags) ? 'p;h1;h2;h3;h4;h5;h6;pre;address' : App::backend()->editor_cke_format_tags;
         $format_specs = <<<FMTSPECS
             format_p: { element: 'p' },
             format_h1: { element: 'h1' },
@@ -144,12 +139,12 @@ class ManagePostConfig
             format_pre: { element: 'pre' },
             format_address: { element: 'address' },
             FMTSPECS;
-        $format = !empty(App::backend()->editor_cke_format_select) ? "format_tags: '" . $format_tags . "'," . "\n" . $format_specs : '';
+        $format = empty(App::backend()->editor_cke_format_select) ? '' : "format_tags: '" . $format_tags . "'," . "\n" . $format_specs;
 
-        $format_select               = !empty(App::backend()->editor_cke_format_select) ? "'Format'," : '';
-        $list_buttons                = !empty(App::backend()->editor_cke_list_buttons) ? "'NumberedList','BulletedList'," : '';
-        $textcolor_button            = !empty(App::backend()->editor_cke_textcolor_button) ? "'TextColor'," : '';
-        $background_textcolor_button = !empty(App::backend()->editor_cke_background_textcolor_button) ? "'BGColor'," : '';
+        $format_select               = empty(App::backend()->editor_cke_format_select) ? '' : "'Format',";
+        $list_buttons                = empty(App::backend()->editor_cke_list_buttons) ? '' : "'NumberedList','BulletedList',";
+        $textcolor_button            = empty(App::backend()->editor_cke_textcolor_button) ? '' : "'TextColor',";
+        $background_textcolor_button = empty(App::backend()->editor_cke_background_textcolor_button) ? '' : "'BGColor',";
 
         $clipboard_btn = <<<CLIPBOARDBTN
             {
@@ -157,7 +152,7 @@ class ManagePostConfig
               items: ['Cut','Copy','Paste','PasteText','PasteFromWord']
             },
             CLIPBOARDBTN;
-        $clipboard_buttons = !empty(App::backend()->editor_cke_clipboard_buttons) ? $clipboard_btn : '';
+        $clipboard_buttons = empty(App::backend()->editor_cke_clipboard_buttons) ? '' : $clipboard_btn;
 
         $action_btn = <<<ACTIONBTN
             {
@@ -165,7 +160,7 @@ class ManagePostConfig
               items: ['Undo','Redo']
             },
             ACTIONBTN;
-        $action_buttons = !empty(App::backend()->editor_cke_action_buttons) ? $action_btn : '';
+        $action_buttons = empty(App::backend()->editor_cke_action_buttons) ? '' : $action_btn;
 
         $alignment_btn = <<<ALIGNMENTBTN
             {
@@ -173,7 +168,7 @@ class ManagePostConfig
               items: ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock']
             },
             ALIGNMENTBTN;
-        $alignment_buttons = !empty(App::backend()->editor_cke_alignment_buttons) ? $alignment_btn : '';
+        $alignment_buttons = empty(App::backend()->editor_cke_alignment_buttons) ? '' : $alignment_btn;
 
         $table_btn = <<<TABLEBTN
             {
@@ -181,7 +176,7 @@ class ManagePostConfig
               items: ['Table']
             },
             TABLEBTN;
-        $table_button = !empty(App::backend()->editor_cke_table_button) ? $table_btn : '';
+        $table_button = empty(App::backend()->editor_cke_table_button) ? '' : $table_btn;
 
         // footnotes related
         $tag = match (App::blog()->settings()->system->note_title_tag) {
@@ -192,7 +187,7 @@ class ManagePostConfig
         $notes_tag   = sprintf("['<%s>', '</%s>']", $tag, $tag);
         $notes_title = sprintf('"%s"', __('Note(s)'));
 
-        $js = <<<JS
+        return <<<JS
             \$(() => {
               /* By default CKEditor load related resources with a timestamp to avoid cache problem when upgrading itself
                * Dotclear loading resource system does not allow other param that file to load (pf param), so remove timestamp
@@ -323,7 +318,5 @@ class ManagePostConfig
               }
             });
             JS;
-
-        return $js;
     }
 }

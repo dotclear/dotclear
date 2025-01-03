@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -25,7 +26,8 @@ class Backend extends Process
         self::status(My::checkContext(My::BACKEND));
 
         // Dead but useful code (for l10n)
-        __('Antispam') . __('Generic antispam plugin for Dotclear');
+        __('Antispam');
+        __('Generic antispam plugin for Dotclear');
 
         if (!defined('DC_ANTISPAM_CONF_SUPER')) {
             define('DC_ANTISPAM_CONF_SUPER', false);
@@ -46,7 +48,7 @@ class Backend extends Process
             'coreAfterCommentUpdate'    => Antispam::trainFilters(...),
             'adminAfterCommentDesc'     => Antispam::statusMessage(...),
             'adminDashboardHeaders'     => Antispam::dashboardHeaders(...),
-            'adminDashboardFavoritesV2' => function (Favorites $favs) {
+            'adminDashboardFavoritesV2' => function (Favorites $favs): string {
                 $favs->register(
                     My::id(),
                     [
@@ -58,8 +60,10 @@ class Backend extends Process
                             App::auth()::PERMISSION_ADMIN,
                         ]), ]
                 );
+
+                return '';
             },
-            'adminDashboardFavsIconV2' => function (string $name, ArrayObject $icon) {
+            'adminDashboardFavsIconV2' => function (string $name, ArrayObject $icon): string {
                 // Check if it is comments favs
                 if ($name === 'comments') {
                     // Hack comments title if there is at least one spam
@@ -68,6 +72,8 @@ class Backend extends Process
                         $icon[0] .= $str;
                     }
                 }
+
+                return '';
             },
         ]);
 

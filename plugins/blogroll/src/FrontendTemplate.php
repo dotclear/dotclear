@@ -33,10 +33,8 @@ class FrontendTemplate
      *      - item        string      Item pattern (default to \<li%2$s>%1$s\</li>)
      *
      * @param   ArrayObject<string, mixed>     $attr   The attributes
-     *
-     * @return  string
      */
-    public static function blogroll(ArrayObject $attr)
+    public static function blogroll(ArrayObject $attr): string
     {
         $category = '<h3>%s</h3>';
         $block    = '<ul>%s</ul>';
@@ -71,10 +69,8 @@ class FrontendTemplate
      *      - any filters     See self::getFilters()
      *
      * @param   ArrayObject<string, mixed>     $attr   The attributes
-     *
-     * @return  string
      */
-    public static function blogrollXbelLink(ArrayObject $attr)
+    public static function blogrollXbelLink(ArrayObject $attr): string
     {
         return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), 'App::blog()->url().App::url()->getURLFor("xbel")') . ' ?>';
     }
@@ -157,14 +153,14 @@ class FrontendTemplate
             $xfn   = $link['link_xfn'];
 
             $link = '<a href="' . Html::escapeHTML($href) . '"' .
-            ((!$lang) ? '' : ' hreflang="' . Html::escapeHTML($lang) . '"') .
-            ((!$desc) ? '' : ' title="' . Html::escapeHTML($desc) . '"') .
-            ((!$xfn) ? '' : ' rel="' . Html::escapeHTML($xfn) . '"') .
+            (($lang) ? ' hreflang="' . Html::escapeHTML($lang) . '"' : '') .
+            (($desc) ? ' title="' . Html::escapeHTML($desc) . '"' : '') .
+            (($xfn) ? ' rel="' . Html::escapeHTML($xfn) . '"' : '') .
             '>' .
             Html::escapeHTML($title) .
                 '</a>';
 
-            $current_class = $current == $link_id ? ' class="active"' : '';
+            $current_class = $current === $link_id ? ' class="active"' : '';
 
             $list .= sprintf($item, $link, $current_class) . "\n";
         }
@@ -176,8 +172,6 @@ class FrontendTemplate
      * Widget public rendering helper.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function linksWidget(WidgetsElement $widget): string
     {
@@ -191,7 +185,7 @@ class FrontendTemplate
 
         $links = self::getList($widget->renderSubtitle('', false), '<ul>%s</ul>', '<li%2$s>%1$s</li>', $widget->get('category'));
 
-        if (empty($links)) {
+        if ($links === '') {
             return '';
         }
 

@@ -63,6 +63,7 @@ class Manage extends Process
                 App::backend()->link_desc   = '';
                 App::backend()->link_lang   = '';
                 App::backend()->cat_title   = '';
+                App::backend()->imported    = null;
             }
         }
 
@@ -100,8 +101,8 @@ class Manage extends Process
                     throw $e;
                 }
 
-                if (empty(App::backend()->imported)) {
-                    unset(App::backend()->imported);
+                if (App::backend()->imported === [] || App::backend()->imported === false) {
+                    App::backend()->imported = null;
 
                     throw new Exception(__('Nothing to import'));
                 }
@@ -201,11 +202,11 @@ class Manage extends Process
             $order = explode(',', (string) $_POST['links_order']);
         }
 
-        if (!empty($_POST['saveorder']) && !empty($order)) {
+        if (!empty($_POST['saveorder']) && $order !== []) {
             // Order links
 
             foreach ($order as $pos => $l) {
-                $pos = ((int) $pos) + 1;
+                $pos += 1;
 
                 try {
                     App::backend()->blogroll->updateOrder($l, (string) $pos);
@@ -507,7 +508,7 @@ class Manage extends Process
 
         // Tab: Import links
 
-        if (!isset(App::backend()->imported)) {
+        if (App::backend()->imported === null) {
             $form = (new Form('import-links-form'))
                 ->method('post')
                 ->action(App::backend()->getPageURL())
@@ -560,12 +561,12 @@ class Manage extends Process
                             ]),
                             (new Td())->items([
                                 (new Link())->href($url)->text($title),
-                                (new Hidden(['url[' . (string) $i . ']'], $url)),
-                                (new Hidden(['title[' . (string) $i . ']'], $title)),
+                                (new Hidden(['url[' . $i . ']'], $url)),
+                                (new Hidden(['title[' . $i . ']'], $title)),
                             ]),
                             (new Td())->items([
                                 (new Text(null, $desc)),
-                                (new Hidden(['desc[' . (string) $i . ']'], $desc)),
+                                (new Hidden(['desc[' . $i . ']'], $desc)),
                             ]),
                         ]);
                     $i++;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -15,6 +16,7 @@ use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -77,7 +79,7 @@ class ManageEdit extends Process
 
     public static function process(): bool
     {
-        if (isset(App::backend()->rs) && !App::backend()->rs->is_cat && !empty($_POST['edit_link'])) {
+        if (App::backend()->rs instanceof MetaRecord && !App::backend()->rs->is_cat && !empty($_POST['edit_link'])) {
             // Update a link
 
             App::backend()->link_title = Html::escapeHTML($_POST['link_title']);
@@ -129,7 +131,7 @@ class ManageEdit extends Process
             }
         }
 
-        if (isset(App::backend()->rs) && App::backend()->rs->is_cat && !empty($_POST['edit_cat'])) {
+        if (App::backend()->rs instanceof MetaRecord && App::backend()->rs->is_cat && !empty($_POST['edit_cat'])) {
             // Update a category
 
             App::backend()->link_desc = Html::escapeHTML($_POST['link_desc']);
@@ -175,7 +177,7 @@ class ManageEdit extends Process
             ])
         ->render();
 
-        if (isset(App::backend()->rs)) {
+        if (App::backend()->rs instanceof MetaRecord) {
             if (App::backend()->rs->is_cat) {
                 echo (new Form('blogroll_cat'))
                     ->class('fieldset')

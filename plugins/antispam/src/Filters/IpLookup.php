@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -31,36 +32,26 @@ class IpLookup extends SpamFilter
 {
     /**
      * Filter id.
-     *
-     * @var     string  $id
      */
     public string $id = 'dcFilterIpLookup';
 
     /**
      * Filter name.
-     *
-     * @var     string  $name
      */
     public string $name = 'IP Lookup';
 
     /**
      * Filter has settings GUI?
-     *
-     * @var     bool    $has_gui
      */
     public bool $has_gui = true;
 
     /**
      * Filter help ID.
-     *
-     * @var     null|string     $help
      */
     public ?string $help = 'iplookup-filter';
 
     /**
      * DNS blacklist lookup default domains.
-     *
-     * @var     string  $default_bls
      */
     private string $default_bls = 'sbl-xbl.spamhaus.org , bsb.spamlookup.net';
 
@@ -111,22 +102,20 @@ class IpLookup extends SpamFilter
      * @param   string  $content    The comment content
      * @param   int     $post_id    The comment post_id
      * @param   string  $status     The comment status
-     *
-     * @return  mixed
      */
-    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status)
+    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status): ?bool
     {
         if (!$ip) {
             // No IP given
-            return;
+            return null;
         }
 
         if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_NO_PRIV_RANGE) && !filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 | FILTER_FLAG_NO_PRIV_RANGE)) {
             // Not an IPv4 IP (excludind private range) not an IPv6 IP (excludind private range)
-            return;
+            return null;
         }
 
-        $bls = array_map(fn ($v) => trim($v), explode(',', $this->getServers()));
+        $bls = array_map(fn ($v): string => trim($v), explode(',', $this->getServers()));
 
         foreach ($bls as $bl) {
             if ($this->dnsblLookup($ip, $bl)) {
@@ -136,14 +125,14 @@ class IpLookup extends SpamFilter
                 return true;
             }
         }
+
+        return null;
     }
 
     /**
      * Filter settings.
      *
      * @param   string  $url    The GUI URL
-     *
-     * @return  string
      */
     public function gui(string $url): string
     {
@@ -188,8 +177,6 @@ class IpLookup extends SpamFilter
 
     /**
      * Gets the servers.
-     *
-     * @return  string  The servers.
      */
     private function getServers(): string
     {
@@ -208,18 +195,13 @@ class IpLookup extends SpamFilter
      *
      * @param   string  $ip     The IP
      * @param   string  $bl     The list of servers
-     *
-     * @return  bool
      */
     private function dnsblLookup(string $ip, string $bl): bool
     {
         $revIp = implode('.', array_reverse(explode('.', $ip)));
 
         $host = $revIp . '.' . $bl . '.';
-        if (gethostbyname($host) != $host) {
-            return true;
-        }
 
-        return false;
+        return gethostbyname($host) !== $host;
     }
 }

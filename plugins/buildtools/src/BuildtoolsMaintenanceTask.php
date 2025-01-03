@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -20,15 +21,11 @@ class BuildtoolsMaintenanceTask extends MaintenanceTask
 {
     /**
      * Maintenance Tab name.
-     *
-     * @var     string  $tab
      */
     protected string $tab = 'dev';
 
     /**
      * Maintenance group name.
-     *
-     * @var     string  $group
      */
     protected string $group = 'l10n';
 
@@ -45,8 +42,6 @@ class BuildtoolsMaintenanceTask extends MaintenanceTask
 
     /**
      * Execute the task.
-     *
-     * @return  bool
      */
     public function execute(): bool
     {

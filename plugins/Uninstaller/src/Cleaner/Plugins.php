@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -68,7 +69,7 @@ class Plugins extends CleanerParent
 
     public function execute(string $action, string $ns): bool
     {
-        if ($action == 'delete') {
+        if ($action === 'delete') {
             self::delDir(App::config()->pluginsRoot(), $ns, true);
 
             return true;

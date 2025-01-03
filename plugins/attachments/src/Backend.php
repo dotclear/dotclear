@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -21,7 +22,8 @@ class Backend extends Process
     public static function init(): bool
     {
         // Dead but useful code (for l10n)
-        __('attachments') . __('Manage post attachments');
+        __('attachments');
+        __('Manage post attachments');
 
         return self::status(My::checkContext(My::BACKEND));
     }
@@ -35,10 +37,10 @@ class Backend extends Process
         App::behavior()->addBehaviors([
             'adminPostFormItems' => BackendBehaviors::adminPostFormItems(...),
             'adminPostAfterForm' => BackendBehaviors::adminPostAfterForm(...),
-            'adminPostHeaders'   => fn () => My::jsLoad('post'),
+            'adminPostHeaders'   => fn (): string => My::jsLoad('post'),
             'adminPageFormItems' => BackendBehaviors::adminPostFormItems(...),
             'adminPageAfterForm' => BackendBehaviors::adminPostAfterForm(...),
-            'adminPageHeaders'   => fn () => My::jsLoad('post'),
+            'adminPageHeaders'   => fn (): string => My::jsLoad('post'),
             'adminPageHelpBlock' => BackendBehaviors::adminPageHelpBlock(...),
         ]);
 

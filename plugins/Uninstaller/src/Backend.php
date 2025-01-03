@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -41,7 +42,7 @@ class Backend extends Process
                     return '';
                 }
 
-                return !count(Uninstaller::instance()->loadModules([$define])->getUserActions($define->getId())) ? '' :
+                return count(Uninstaller::instance()->loadModules([$define])->getUserActions($define->getId())) === 0 ? '' :
                     sprintf(
                         ' <a href="%s" class="button delete uninstall_module_button">' . __('Uninstall') . '</a>',
                         My::manageUrl(['type' => $define->get('type'), 'id' => $define->getId()])
@@ -100,7 +101,7 @@ class Backend extends Process
             }
 
             // If direct actions are made, do not execute dotclear delete action.
-            if (!empty($done)) {
+            if ($done !== []) {
                 array_unshift($done, __('Plugin has been successfully uninstalled.'));
                 Notices::addSuccessNotice(implode('<br>', $done));
                 if ($define->get('type') == 'theme') {

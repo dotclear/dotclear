@@ -47,8 +47,6 @@ class Manage extends Process
 {
     /**
      * Initializes the page.
-     *
-     * @return     bool
      */
     public static function init(): bool
     {
@@ -61,8 +59,6 @@ class Manage extends Process
 
     /**
      * Processes the request(s).
-     *
-     * @return     bool
      */
     public static function process(): bool
     {
@@ -214,9 +210,9 @@ class Manage extends Process
         $elements = [];
 
         ksort($settings, SORT_FLAG_CASE | SORT_STRING);
-        if (count($settings)) {
+        if ($settings !== []) {
             $ns_combo = [];
-            foreach ($settings as $ns => $s) {
+            foreach (array_keys($settings) as $ns) {
                 $ns_combo[$ns] = $prefix_id . $ns;
             }
 
@@ -308,8 +304,6 @@ class Manage extends Process
      * @param      string                   $ns            The namespace
      * @param      string                   $field_name    The field name
      * @param      bool                     $strong_label  The strong label
-     *
-     * @return     Tr
      */
     protected static function settingLine(string $id, array $s, string $ns, string $field_name, bool $strong_label): Tr
     {

@@ -84,21 +84,21 @@ class Manage extends Process
 
         if (!empty($_POST['saveconfig'])) {
             try {
-                App::backend()->editor_cke_active = (empty($_POST['dcckeditor_active'])) ? false : true;
+                App::backend()->editor_cke_active = !empty($_POST['dcckeditor_active']);
                 My::settings()->put('active', App::backend()->editor_cke_active, 'boolean');
 
                 // change other settings only if they were in HTML page
                 if (App::backend()->editor_cke_was_actived) {
-                    App::backend()->editor_cke_alignement_buttons = (empty($_POST['dcckeditor_alignment_buttons'])) ? false : true;
+                    App::backend()->editor_cke_alignement_buttons = !empty($_POST['dcckeditor_alignment_buttons']);
                     My::settings()->put('alignment_buttons', App::backend()->editor_cke_alignement_buttons, 'boolean');
 
-                    App::backend()->editor_cke_list_buttons = (empty($_POST['dcckeditor_list_buttons'])) ? false : true;
+                    App::backend()->editor_cke_list_buttons = !empty($_POST['dcckeditor_list_buttons']);
                     My::settings()->put('list_buttons', App::backend()->editor_cke_list_buttons, 'boolean');
 
-                    App::backend()->editor_cke_textcolor_button = (empty($_POST['dcckeditor_textcolor_button'])) ? false : true;
+                    App::backend()->editor_cke_textcolor_button = !empty($_POST['dcckeditor_textcolor_button']);
                     My::settings()->put('textcolor_button', App::backend()->editor_cke_textcolor_button, 'boolean');
 
-                    App::backend()->editor_cke_background_textcolor_button = (empty($_POST['dcckeditor_background_textcolor_button'])) ? false : true;
+                    App::backend()->editor_cke_background_textcolor_button = !empty($_POST['dcckeditor_background_textcolor_button']);
                     My::settings()->put('background_textcolor_button', App::backend()->editor_cke_background_textcolor_button, 'boolean');
 
                     App::backend()->editor_cke_custom_color_list = str_replace(['#', ' '], '', $_POST['dcckeditor_custom_color_list']);
@@ -107,10 +107,10 @@ class Manage extends Process
                     App::backend()->editor_cke_colors_per_row = abs((int) $_POST['dcckeditor_colors_per_row']);
                     My::settings()->put('colors_per_row', App::backend()->editor_cke_colors_per_row);
 
-                    App::backend()->editor_cke_cancollapse_button = (empty($_POST['dcckeditor_cancollapse_button'])) ? false : true;
+                    App::backend()->editor_cke_cancollapse_button = !empty($_POST['dcckeditor_cancollapse_button']);
                     My::settings()->put('cancollapse_button', App::backend()->editor_cke_cancollapse_button, 'boolean');
 
-                    App::backend()->editor_cke_format_select = (empty($_POST['dcckeditor_format_select'])) ? false : true;
+                    App::backend()->editor_cke_format_select = !empty($_POST['dcckeditor_format_select']);
                     My::settings()->put('format_select', App::backend()->editor_cke_format_select, 'boolean');
 
                     // default tags : p;h1;h2;h3;h4;h5;h6;pre;address
@@ -133,16 +133,16 @@ class Manage extends Process
                     }
                     My::settings()->put('format_tags', App::backend()->editor_cke_format_tags, 'string');
 
-                    App::backend()->editor_cke_table_button = (empty($_POST['dcckeditor_table_button'])) ? false : true;
+                    App::backend()->editor_cke_table_button = !empty($_POST['dcckeditor_table_button']);
                     My::settings()->put('table_button', App::backend()->editor_cke_table_button, 'boolean');
 
-                    App::backend()->editor_cke_clipboard_buttons = (empty($_POST['dcckeditor_clipboard_buttons'])) ? false : true;
+                    App::backend()->editor_cke_clipboard_buttons = !empty($_POST['dcckeditor_clipboard_buttons']);
                     My::settings()->put('clipboard_buttons', App::backend()->editor_cke_clipboard_buttons, 'boolean');
 
-                    App::backend()->editor_cke_action_buttons = (empty($_POST['dcckeditor_action_buttons'])) ? false : true;
+                    App::backend()->editor_cke_action_buttons = !empty($_POST['dcckeditor_action_buttons']);
                     My::settings()->put('action_buttons', App::backend()->editor_cke_action_buttons, 'boolean');
 
-                    App::backend()->editor_cke_disable_native_spellchecker = (empty($_POST['dcckeditor_disable_native_spellchecker'])) ? false : true;
+                    App::backend()->editor_cke_disable_native_spellchecker = !empty($_POST['dcckeditor_disable_native_spellchecker']);
                     My::settings()->put('disable_native_spellchecker', App::backend()->editor_cke_disable_native_spellchecker, 'boolean');
                 }
 

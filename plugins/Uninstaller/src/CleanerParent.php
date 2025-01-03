@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -20,22 +21,16 @@ abstract class CleanerParent
 {
     /**
      * The cleaner Id.
-     *
-     * @var     string  $id
      */
     public readonly string $id;
 
     /**
      * The cleaner name.
-     *
-     * @var     string  $name
      */
     public readonly string $name;
 
     /**
      * The cleaner description.
-     *
-     * @var     string  $desc
      */
     public readonly string $desc;
 

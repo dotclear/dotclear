@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -38,7 +39,7 @@ class CleanerDescriptor
     ) {
         $valid = [];
         foreach ($actions as $action) {
-            if (is_a($action, ActionDescriptor::class) && $action->id != 'undefined') {
+            if ($action instanceof ActionDescriptor && $action->id !== 'undefined') {   // @phpstan-ignore-line (conflict with PHPDoc)
                 $valid[$action->id] = $action;
             }
         }

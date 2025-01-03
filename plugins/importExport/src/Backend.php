@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -23,7 +24,8 @@ class Backend extends Process
     public static function init(): bool
     {
         // Dead but useful code (for l10n)
-        __('Import / Export') . __('Import and Export your blog');
+        __('Import / Export');
+        __('Import and Export your blog');
 
         return self::status(My::checkContext(My::BACKEND));
     }
@@ -37,7 +39,7 @@ class Backend extends Process
         My::addBackendMenuItem();
 
         App::behavior()->addBehaviors([
-            'adminDashboardFavoritesV2' => function (Favorites $favs) {
+            'adminDashboardFavoritesV2' => function (Favorites $favs): string {
                 $favs->register(My::id(), [
                     'title'       => My::name(),
                     'url'         => My::manageUrl(),
@@ -47,13 +49,17 @@ class Backend extends Process
                         App::auth()::PERMISSION_ADMIN,
                     ]),
                 ]);
+
+                return '';
             },
             'importExportModulesV2' => BackendBehaviors::registerIeModules(...),
-            'dcMaintenanceInit'     => function (Maintenance $maintenance) {
+            'dcMaintenanceInit'     => function (Maintenance $maintenance): string {
                 $maintenance
                     ->addTask(ExportBlogMaintenanceTask::class)
                     ->addTask(ExportFullMaintenanceTask::class)
                 ;
+
+                return '';
             },
         ]);
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -60,13 +61,13 @@ class FrontendUrl extends Url
         $title   = App::blog()->name() . ' - ' . __('Spam moderation') . ' - ';
         $params  = [];
         $end_url = '';
-        if ($type == 'spam') {
+        if ($type === 'spam') {
             $title .= __('Spam');
             $params['comment_status'] = App::blog()::COMMENT_JUNK;
-            $end_url                  = '&status=' . (string) App::blog()::COMMENT_PUBLISHED;
+            $end_url                  = '&status=' . App::blog()::COMMENT_PUBLISHED;
         } else {
             $title .= __('Ham');
-            $params['sql'] = ' AND comment_status IN (' . (string) App::blog()::COMMENT_PUBLISHED . ',' . (string) App::blog()::COMMENT_PENDING . ') ';
+            $params['sql'] = ' AND comment_status IN (' . App::blog()::COMMENT_PUBLISHED . ',' . App::blog()::COMMENT_PENDING . ') ';
         }
 
         echo
@@ -76,7 +77,7 @@ class FrontendUrl extends Url
         'xmlns:content="http://purl.org/rss/1.0/modules/content/">' . "\n" .
         '<channel>' . "\n" .
         '<title>' . Html::escapeHTML($title) . '</title>' . "\n" .
-        '<link>' . (App::config()->adminUrl() ? App::config()->adminUrl() . 'index.php?process=Comments' . $end_url : 'about:blank') . '</link>' . "\n" .
+        '<link>' . (App::config()->adminUrl() !== '' ? App::config()->adminUrl() . 'index.php?process=Comments' . $end_url : 'about:blank') . '</link>' . "\n" .
         '<description></description>' . "\n";
 
         $rs       = App::blog()->getComments($params);
@@ -85,16 +86,16 @@ class FrontendUrl extends Url
 
         while ($rs->fetch() && ($nbitems < $maxitems)) {
             $nbitems++;
-            $uri    = App::config()->adminUrl() ? App::config()->adminUrl() . 'index.php?process=Comment&id=' . $rs->comment_id : 'about:blank';
+            $uri    = App::config()->adminUrl() !== '' ? App::config()->adminUrl() . 'index.php?process=Comment&id=' . $rs->comment_id : 'about:blank';
             $author = $rs->comment_author;
             $title  = $rs->post_title . ' - ' . $author;
-            if ($type == 'spam') {
+            if ($type === 'spam') {
                 $title .= '(' . $rs->comment_spam_filter . ')';
             }
             $id = $rs->getFeedID();
 
             $content = '';
-            if (trim((string) $rs->comment_site)) {
+            if (trim((string) $rs->comment_site) !== '') {
                 $content .= '<p>URL: <a href="' . $rs->comment_site . '">' . $rs->comment_site . '</a></p><hr>' . "\n";
             }
             $content .= $rs->comment_content;

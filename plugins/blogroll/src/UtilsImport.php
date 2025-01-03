@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -23,20 +24,18 @@ class UtilsImport
      *
      * @param   string  $file   The file
      *
-     * @return  array<int,stdClass>|bool
+     * @return  array<int,stdClass>|false
      */
-    public static function loadFile(string $file)
+    public static function loadFile(string $file): false|array
     {
-        if (file_exists($file) && is_readable($file)) {
-            if ($data = file_get_contents($file)) {
-                if (preg_match('!<xbel(\s+version)?!', $data)) {
-                    return self::parseXBEL($data);
-                } elseif (preg_match('!<opml(\s+version)?!', $data)) {
-                    return self::parseOPML($data);
-                }
-
-                throw new Exception(__('You need to provide a XBEL or OPML file.'));
+        if (file_exists($file) && is_readable($file) && ($data = file_get_contents($file))) {
+            if (preg_match('!<xbel(\s+version)?!', $data)) {
+                return self::parseXBEL($data);
+            } elseif (preg_match('!<opml(\s+version)?!', $data)) {
+                return self::parseOPML($data);
             }
+
+            throw new Exception(__('You need to provide a XBEL or OPML file.'));
         }
 
         return false;
@@ -71,11 +70,11 @@ class UtilsImport
             $entry = new stdClass();
 
             $entry->link  = $link;
-            $entry->title = (!empty($outline['title'])) ? $outline['title'] : '';
-            $entry->desc  = (!empty($outline['description'])) ? $outline['description'] : '';
+            $entry->title = empty($outline['title']) ? '' : $outline['title'];
+            $entry->desc  = empty($outline['description']) ? '' : $outline['description'];
 
             if (empty($entry->title)) {
-                $entry->title = (!empty($outline['text'])) ? $outline['text'] : $entry->link;
+                $entry->title = empty($outline['text']) ? $entry->link : $outline['text'];
             }
 
             $list[] = $entry;
@@ -109,8 +108,8 @@ class UtilsImport
             $entry = new stdClass();
 
             $entry->link  = $outline['href'];
-            $entry->title = (!empty($outline->title)) ? $outline->title : '';
-            $entry->desc  = (!empty($outline->desc)) ? $outline->desc : '';
+            $entry->title = empty($outline->title) ? '' : $outline->title;
+            $entry->desc  = empty($outline->desc) ? '' : $outline->desc;
 
             if (empty($entry->title)) {
                 $entry->title = $entry->link;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -158,7 +159,7 @@ class Settings extends CleanerParent
     {
         $sql = new DeleteStatement();
 
-        if ($action == 'delete_global' && self::checkNs($ns)) {
+        if ($action === 'delete_global' && $this->checkNs($ns)) {
             $sql->from(App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
                 ->where('blog_id IS NULL')
                 ->and('setting_ns = ' . $sql->quote($ns))
@@ -166,7 +167,7 @@ class Settings extends CleanerParent
 
             return true;
         }
-        if ($action == 'delete_local' && self::checkNs($ns)) {
+        if ($action === 'delete_local' && $this->checkNs($ns)) {
             $sql->from(App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote(App::blog()->id()))
                 ->and('setting_ns = ' . $sql->quote($ns))
@@ -174,7 +175,7 @@ class Settings extends CleanerParent
 
             return true;
         }
-        if ($action == 'delete_all' && self::checkNs($ns)) {
+        if ($action === 'delete_all' && $this->checkNs($ns)) {
             $sql->from(App::con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
                 ->where('setting_ns = ' . $sql->quote($ns))
                 ->and($sql->orGroup(['blog_id IS NULL', 'blog_id IS NOT NULL']))
@@ -182,7 +183,7 @@ class Settings extends CleanerParent
 
             return true;
         }
-        if ($action == 'delete_related') {
+        if ($action === 'delete_related') {
             // check ns match ns:id;
             $reg_ws = substr(App::blogWorkspace()::NS_NAME_SCHEMA, 2, -2);
             $reg_id = substr(App::blogWorkspace()::NS_ID_SCHEMA, 2, -2);
@@ -195,7 +196,7 @@ class Settings extends CleanerParent
             foreach ($matches[2] as $key => $name) {
                 $or[] = $sql->andGroup(['setting_ns = ' . $sql->quote($name), 'setting_id = ' . $sql->quote($matches[3][$key])]);
             }
-            if (empty($or)) {
+            if ($or === []) {
                 return false;
             }
 
@@ -217,7 +218,7 @@ class Settings extends CleanerParent
      *
      * @return  bool    True on well formed
      */
-    private static function checkNs(string $ns): bool
+    private function checkNs(string $ns): bool
     {
         return (bool) preg_match(App::blogWorkspace()::NS_NAME_SCHEMA, $ns);
     }

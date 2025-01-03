@@ -41,36 +41,26 @@ class Ip extends SpamFilter
 {
     /**
      * Filter id.
-     *
-     * @var     string  $id
      */
     public string $id = 'dcFilterIP';
 
     /**
      * Filter name.
-     *
-     * @var     string  $name
      */
     public string $name = 'IP Filter';
 
     /**
      * Filter has settings GUI?
-     *
-     * @var     bool    $has_gui
      */
     public bool $has_gui = true;
 
     /**
      * Filter help ID.
-     *
-     * @var     null|string     $help
      */
     public ?string $help = 'ip-filter';
 
     /**
      * Table name.
-     *
-     * @var     string  $table
      */
     private readonly string $table;
 
@@ -118,13 +108,11 @@ class Ip extends SpamFilter
      * @param   string  $content    The comment content
      * @param   int     $post_id    The comment post_id
      * @param   string  $status     The comment status
-     *
-     * @return  mixed
      */
-    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status)
+    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status): ?bool
     {
         if (!$ip) {
-            return;
+            return null;
         }
 
         # White list check
@@ -134,18 +122,18 @@ class Ip extends SpamFilter
 
         # Black list check
         if (($s = $this->checkIP($ip, 'black')) !== false) {
-            $status = (string) $s;
+            $status = $s;
 
             return true;
         }
+
+        return null;
     }
 
     /**
      * Filter settings.
      *
      * @param   string  $url    The GUI URL
-     *
-     * @return  string
      */
     public function gui(string $url): string
     {
@@ -192,8 +180,6 @@ class Ip extends SpamFilter
      * @param   string  $url    The url
      * @param   string  $type   The type
      * @param   string  $title  The title
-     *
-     * @return  string
      */
     private function displayForms(string $url, string $type, string $title): string
     {
@@ -226,7 +212,7 @@ class Ip extends SpamFilter
             }
 
             $local = $global = [];
-            if (count($rules_local)) {
+            if ($rules_local !== []) {
                 $local = [
                     (new Fieldset())
                         ->legend((new Legend(__('Local IPs (used only for this blog)'))))
@@ -234,7 +220,7 @@ class Ip extends SpamFilter
                         ->items($rules_local),
                 ];
             }
-            if (count($rules_global)) {
+            if ($rules_global !== []) {
                 $global = [
                     (new Fieldset())
                         ->legend((new Legend(__('Global IPs (used for all blogs)'))))
@@ -355,26 +341,21 @@ class Ip extends SpamFilter
                 ->column($sql->max('rule_id'))
                 ->from($this->table)
                 ->select();
-            $max = $run ? $run->f(0) : 0;
+            $max = $run instanceof MetaRecord ? $run->f(0) : 0;
 
             $cur->rule_id      = $max + 1;
-            $cur->rule_type    = (string) $type;
-            $cur->rule_content = (string) $content;
-
-            if ($global && App::auth()->isSuperAdmin()) {
-                $cur->blog_id = null;
-            } else {
-                $cur->blog_id = App::blog()->id();
-            }
+            $cur->rule_type    = $type;
+            $cur->rule_content = $content;
+            $cur->blog_id      = $global && App::auth()->isSuperAdmin() ? null : App::blog()->id();
 
             $cur->insert();
         } else {
-            $cur->rule_type    = (string) $type;
-            $cur->rule_content = (string) $content;
+            $cur->rule_type    = $type;
+            $cur->rule_content = $content;
 
             $sql = new UpdateStatement();
             $sql
-                ->where('rule_id = ' . (string) $old->rule_id)
+                ->where('rule_id = ' . $old->rule_id)
                 ->update($cur);
         }
     }
@@ -383,8 +364,6 @@ class Ip extends SpamFilter
      * Gets the rules.
      *
      * @param   string  $type   The type
-     *
-     * @return  MetaRecord  The rules.
      */
     private function getRules(string $type = 'all'): MetaRecord
     {
@@ -417,8 +396,6 @@ class Ip extends SpamFilter
      * @param   bool    $global     The global
      * @param   mixed   $ip         The IP
      * @param   mixed   $mask       The mask
-     *
-     * @return  MetaRecord  The rules.
      */
     private function getRuleCIDR(string $type, bool $global, $ip, $mask): MetaRecord
     {
@@ -438,10 +415,8 @@ class Ip extends SpamFilter
      *
      * @param   string  $cip    The IP
      * @param   string  $type   The type
-     *
-     * @return  bool|string
      */
-    private function checkIP(string $cip, string $type)
+    private function checkIP(string $cip, string $type): false|string
     {
         $sql = new SelectStatement();
         $rs  = $sql
@@ -456,10 +431,10 @@ class Ip extends SpamFilter
             ->order('rule_content ASC')
             ->select();
 
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 [$pattern, $ip, $mask] = explode(':', $rs->rule_content);
-                if ((ip2long($cip) & (int) $mask) == ((int) $ip & (int) $mask)) {
+                if ((ip2long($cip) & (int) $mask) === ((int) $ip & (int) $mask)) {
                     return $pattern;
                 }
             }

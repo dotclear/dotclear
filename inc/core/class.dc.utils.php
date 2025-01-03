@@ -47,8 +47,6 @@ class dcUtils
      *
      * @param   array<string>   $elements   The elements
      * @param   string          $separator  The separator
-     *
-     * @return  string
      */
     public static function path(array $elements, string $separator = DIRECTORY_SEPARATOR): string
     {
@@ -66,8 +64,6 @@ class dcUtils
      * @param   string  $user_name          The user name
      * @param   string  $user_firstname     The user firstname
      * @param   string  $user_displayname   The user displayname
-     *
-     * @return  string  The user cn.
      */
     public static function getUserCN(string $user_id, ?string $user_name, ?string $user_firstname, ?string $user_displayname): string
     {
@@ -101,8 +97,6 @@ class dcUtils
      * @param   string  $required_version   Required version
      * @param   string  $operator           Comparison operand
      * @param   bool    $strict             Use full version
-     *
-     * @return  bool    True if comparison success
      */
     public static function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool
     {
@@ -119,8 +113,6 @@ class dcUtils
      * @param   string  $src        The source
      * @param   string  $media      The media
      * @param   string  $version    The version
-     *
-     * @return  string
      */
     public static function cssLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
@@ -135,8 +127,6 @@ class dcUtils
      * @param   string  $src        The source
      * @param   string  $media      The media
      * @param   string  $version    The version
-     *
-     * @return  string
      */
     public static function cssModuleLoad(string $src, string $media = 'screen', ?string $version = null): string
     {
@@ -153,8 +143,6 @@ class dcUtils
      * @param   string  $src        The source
      * @param   string  $version    The version
      * @param   bool    $module     Load source as JS module
-     *
-     * @return  string
      */
     public static function jsLoad(string $src, ?string $version = null, bool $module = false): string
     {
@@ -169,8 +157,6 @@ class dcUtils
      * @param   string  $src        The source
      * @param   string  $version    The version
      * @param   bool    $module     Load source as JS module
-     *
-     * @return  string
      */
     public static function jsModuleLoad(string $src, ?string $version = null, bool $module = false): string
     {
@@ -196,9 +182,8 @@ class dcUtils
         foreach ($vars as $var => $value) {
             $ret .= 'var ' . $var . ' = ' . (is_string($value) ? '"' . Html::escapeJS($value) . '"' : $value) . ';' . "\n";
         }
-        $ret .= "</script>\n";
 
-        return $ret;
+        return $ret . "</script>\n";
     }
 
     /**
@@ -208,8 +193,6 @@ class dcUtils
      *
      * @param   string  $name   variable name
      * @param   mixed   $value  value
-     *
-     * @return  string  javascript code
      */
     public static function jsVar(string $name, $value): string
     {
@@ -225,8 +208,6 @@ class dcUtils
      *
      * @param   string  $id     The identifier
      * @param   mixed   $vars   The variables
-     *
-     * @return  string
      */
     public static function jsJson(string $id, $vars): string
     {
@@ -243,8 +224,6 @@ class dcUtils
      * @param   array<string>   $arr        single array of strings
      * @param   string          $namespace  admin/public/lang
      * @param   string          $lang       language to be used if $ns = 'lang'
-     *
-     * @return  bool
      */
     public static function lexicalSort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
@@ -261,8 +240,6 @@ class dcUtils
      * @param   array<string, string>   $arr        single array of strings
      * @param   string                  $namespace  admin/public/lang
      * @param   string                  $lang       language to be used if $ns = 'lang'
-     *
-     * @return  bool
      */
     public static function lexicalArraySort(array &$arr, string $namespace = '', string $lang = 'en_US'): bool
     {
@@ -279,8 +256,6 @@ class dcUtils
      * @param   array<string>   $arr        single array of strings
      * @param   string          $namespace  admin/public/lang
      * @param   string          $lang       language to be used if $ns = 'lang'
-     *
-     * @return  bool
      *
      * @phpstan-param-out array<string, mixed> $arr
      */
@@ -317,8 +292,6 @@ class dcUtils
      * @deprecated  since 2.26, use Text::removeDiacritics() instead
      *
      * @param   string  $str    The string
-     *
-     * @return  string
      */
     public static function removeDiacritics(string $str): string
     {

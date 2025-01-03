@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -84,7 +85,7 @@ class Versions extends CleanerParent
 
     public function execute(string $action, string $ns): bool
     {
-        if ($action == 'delete') {
+        if ($action === 'delete') {
             $sql = new DeleteStatement();
             $sql
                 ->from(App::con()->prefix() . App::version()::VERSION_TABLE_NAME)

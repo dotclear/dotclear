@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -22,7 +23,8 @@ class Prepend extends Process
     public static function init(): bool
     {
         // Dead but useful code (for l10n)
-        __('Fair Trackbacks') . __('Trackback validity check');
+        __('Fair Trackbacks');
+        __('Trackback validity check');
 
         if (!defined('DC_FAIRTRACKBACKS_FORCE')) {
             define('DC_FAIRTRACKBACKS_FORCE', false);
@@ -38,8 +40,10 @@ class Prepend extends Process
         }
 
         if (defined('DC_FAIRTRACKBACKS_FORCE') && !constant('DC_FAIRTRACKBACKS_FORCE')) {
-            App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack) {
+            App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack): string {
                 $stack->append(AntispamFilterFairTrackbacks::class);
+
+                return '';
             });
         }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -97,7 +98,7 @@ class FlatExport
 
         $tables = [];
         foreach ($db_tables as $t) {
-            if ($this->prefix) {
+            if ($this->prefix !== '') {
                 if (str_starts_with($t, $this->prefix)) {
                     $tables[] = $t;
                 }

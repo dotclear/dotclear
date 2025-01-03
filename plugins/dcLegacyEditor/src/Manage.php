@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -46,10 +47,10 @@ class Manage extends Process
 
         if (!empty($_POST['saveconfig'])) {
             try {
-                App::backend()->editor_std_active = (empty($_POST['dclegacyeditor_active'])) ? false : true;
+                App::backend()->editor_std_active = !empty($_POST['dclegacyeditor_active']);
                 My::settings()->put('active', App::backend()->editor_std_active, 'boolean');
 
-                App::backend()->editor_std_dynamic = (empty($_POST['dclegacyeditor_dynamic'])) ? false : true;
+                App::backend()->editor_std_dynamic = !empty($_POST['dclegacyeditor_dynamic']);
                 My::settings()->put('dynamic', App::backend()->editor_std_dynamic, 'boolean');
 
                 Notices::addSuccessNotice(__('The configuration has been updated.'));

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -10,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcLegacyEditor;
 
 use Dotclear\App;
+use Dotclear\Helper\Html\WikiToHtml;
 
 /**
  * @brief   The module backend REST service.
@@ -31,7 +33,7 @@ class Rest
         $ret  = false;
         $html = '';
         if ($wiki !== '') {
-            if (!App::filter()->wiki()) {
+            if (!App::filter()->wiki() instanceof WikiToHtml) {
                 App::filter()->initWikiPost();
             }
             $html = App::formater()->callEditorFormater(My::id(), 'wiki', $wiki);
@@ -39,7 +41,7 @@ class Rest
 
             if ($ret) {
                 $media_root = App::blog()->host();
-                $html       = preg_replace_callback('/src="([^\"]*)"/', function ($matches) use ($media_root) {
+                $html       = preg_replace_callback('/src="([^\"]*)"/', function (array $matches) use ($media_root): string {
                     if (!preg_match('/^http(s)?:\/\//', $matches[1])) {
                         // Relative URL, convert to absolute
                         return 'src="' . $media_root . $matches[1] . '"';

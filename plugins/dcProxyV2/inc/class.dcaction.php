@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -17,7 +18,7 @@ use Dotclear\Core\Backend\Action\ActionsPosts;
  */
 abstract class dcActionsPage extends Actions
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
+    public function __construct(dcCore $core, ?string $uri, array $redirect_args = [])    // @phpstan-ignore-line
     {
         parent::__construct($uri, $redirect_args);
     }
@@ -25,7 +26,7 @@ abstract class dcActionsPage extends Actions
 
 class dcPostsActionsPage extends ActionsPosts
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
+    public function __construct(dcCore $core, ?string $uri, array $redirect_args = [])    // @phpstan-ignore-line
     {
         parent::__construct($uri, $redirect_args);
     }
@@ -33,7 +34,7 @@ class dcPostsActionsPage extends ActionsPosts
 
 class dcCommentsActionsPage extends ActionsComments
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
+    public function __construct(dcCore $core, ?string $uri, array $redirect_args = [])    // @phpstan-ignore-line
     {
         parent::__construct($uri, $redirect_args);
     }
@@ -41,7 +42,7 @@ class dcCommentsActionsPage extends ActionsComments
 
 class dcBlogsActionsPage extends ActionsBlogs
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
+    public function __construct(dcCore $core, ?string $uri, array $redirect_args = [])    // @phpstan-ignore-line
     {
         parent::__construct($uri, $redirect_args);
     }
@@ -49,7 +50,7 @@ class dcBlogsActionsPage extends ActionsBlogs
 
 class dcPagesActionsPage extends Dotclear\Plugin\pages\BackendActions // dcPagesActions
 {
-    public function __construct(dcCore $core, $uri, $redirect_args = [])    // @phpstan-ignore-line
+    public function __construct(dcCore $core, ?string $uri, array $redirect_args = [])    // @phpstan-ignore-line
     {
         parent::__construct($uri, $redirect_args);
     }

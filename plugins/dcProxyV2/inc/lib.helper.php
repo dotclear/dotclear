@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin dcProxyV2 functions aliases
@@ -29,8 +30,6 @@ function dc_load_locales(): void
  * @deprecated  since 2.21
  *
  * @param   string  $img    The image
- *
- * @return  string
  */
 function dc_admin_icon_url(string $img): string
 {
@@ -46,8 +45,6 @@ function dc_admin_icon_url(string $img): string
  * @param   bool    $fallback   use fallback image if none given
  * @param   string  $alt        alt attribute
  * @param   string  $title      title attribute
- *
- * @return  string
  */
 function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', string $title = '', string $class = ''): string
 {

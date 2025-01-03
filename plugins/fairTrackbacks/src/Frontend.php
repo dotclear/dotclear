@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -31,8 +32,10 @@ class Frontend extends Process
         }
 
         if (defined('DC_FAIRTRACKBACKS_FORCE') && constant('DC_FAIRTRACKBACKS_FORCE')) {
-            App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack) {
+            App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack): string {
                 $stack->append(AntispamFilterFairTrackbacks::class);
+
+                return '';
             });
         }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -26,8 +27,6 @@ class FrontendTemplate
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
      * @param   string                      $content    The content
-     *
-     * @return  string
      */
     public static function Attachments(ArrayObject $attr, string $content): string
     {
@@ -52,8 +51,6 @@ class FrontendTemplate
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
      * @param   string                      $content    The content
-     *
-     * @return  string
      */
     public static function AttachmentsHeader(ArrayObject $attr, string $content): string
     {
@@ -68,8 +65,6 @@ class FrontendTemplate
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
      * @param   string                      $content    The content
-     *
-     * @return  string
      */
     public static function AttachmentsFooter(ArrayObject $attr, string $content): string
     {
@@ -93,8 +88,6 @@ class FrontendTemplate
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
      * @param   string                      $content    The content
-     *
-     * @return  string
      */
     public static function AttachmentIf(ArrayObject $attr, string $content): string
     {
@@ -131,7 +124,7 @@ class FrontendTemplate
             // Since 2.15 .flv media are no more considered as video (Flash is obsolete)
             $sign = (bool) $attr['is_video'] ? '==' : '!=';
             $test = '$attach_f->type_prefix ' . $sign . ' "video"';
-            if ($sign == '==') {
+            if ($sign === '==') {
                 $test .= ' && $attach_f->type != "video/x-flv"';
             } else {
                 $test .= ' || $attach_f->type == "video/x-flv"';
@@ -139,7 +132,7 @@ class FrontendTemplate
             $if[] = $test;
         }
 
-        if (count($if)) {
+        if ($if !== []) {
             return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
@@ -154,8 +147,6 @@ class FrontendTemplate
      *      - any filters     See Tpl::getFilters()
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function AttachmentMimeType(ArrayObject $attr): string
     {
@@ -170,8 +161,6 @@ class FrontendTemplate
      *      - any filters     See Tpl::getFilters()
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function AttachmentType(ArrayObject $attr): string
     {
@@ -186,8 +175,6 @@ class FrontendTemplate
      *      - any filters     See Tpl::getFilters()
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function AttachmentFileName(ArrayObject $attr): string
     {
@@ -203,8 +190,6 @@ class FrontendTemplate
      *      - any filters     See Tpl::getFilters()
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function AttachmentSize(ArrayObject $attr): string
     {
@@ -224,8 +209,6 @@ class FrontendTemplate
      *      - any filters     See Tpl::getFilters()
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function AttachmentTitle(ArrayObject $attr): string
     {
@@ -240,8 +223,6 @@ class FrontendTemplate
      *      - any filters     See Tpl::getFilters()
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function AttachmentThumbnailURL(ArrayObject $attr): string
     {
@@ -265,8 +246,6 @@ class FrontendTemplate
      *      - any filters     See Tpl::getFilters()
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function AttachmentURL(ArrayObject $attr): string
     {
@@ -288,8 +267,6 @@ class FrontendTemplate
      *      - any filters     See Tpl::getFilters()
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function MediaURL(ArrayObject $attr): string
     {
@@ -317,8 +294,6 @@ class FrontendTemplate
      *      1) %s will be replaced by the number of attachments
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function EntryAttachmentCount(ArrayObject $attr): string
     {

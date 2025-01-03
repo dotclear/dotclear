@@ -54,11 +54,11 @@ class Antispam
      */
     public static function initFilters(): void
     {
-        if (!empty(self::$spamfilters)) {
+        if (self::$spamfilters !== []) {
             return;
         }
 
-        // deprecated since 2.28, use App::behavior->addBehavior('AntispamInitFilters', ...) instaed
+        // deprecated since 2.28, use App::behavior->addBehavior('AntispamInitFilters', ...) instead
         if (!empty(dcCore::app()->spamfilters)) {
             foreach (dcCore::app()->spamfilters as $spamfilter) {
                 if (is_subclass_of($spamfilter, SpamFilter::class)) {
@@ -72,9 +72,7 @@ class Antispam
         App::behavior()->callBehavior('AntispamInitFilters', $spamfilters);
 
         foreach ($spamfilters as $spamfilter) {
-            if (is_subclass_of($spamfilter, SpamFilter::class)) {   // @phpstan-ignore-line
-                self::$spamfilters[] = $spamfilter;
-            }
+            self::$spamfilters[] = $spamfilter;
         }
 
         self::$filters = new SpamFilters();
@@ -127,8 +125,6 @@ class Antispam
      * Get filter status message.
      *
      * @param   MetaRecord  $rs     The comment record
-     *
-     * @return  string
      */
     public static function statusMessage(MetaRecord $rs): string
     {
@@ -152,8 +148,6 @@ class Antispam
 
     /**
      * Return additional information about existing spams.
-     *
-     * @return  string
      */
     public static function dashboardIconTitle(): string
     {
@@ -169,8 +163,6 @@ class Antispam
 
     /**
      * Load antispam dashboard script.
-     *
-     * @return  string
      */
     public static function dashboardHeaders(): string
     {
@@ -179,8 +171,6 @@ class Antispam
 
     /**
      * Counts the number of spam.
-     *
-     * @return  int     Number of spam.
      */
     public static function countSpam(): int
     {
@@ -189,8 +179,6 @@ class Antispam
 
     /**
      * Counts the number of published comments.
-     *
-     * @return  int     Number of published comments.
      */
     public static function countPublishedComments(): int
     {
@@ -215,20 +203,21 @@ class Antispam
                     ->statement()
             )
             ->where('blog_id = ' . $sql->quote(App::blog()->id()))
-            ->and('comment_status = ' . (string) App::blog()::COMMENT_JUNK);
+            ->and('comment_status = ' . App::blog()::COMMENT_JUNK);
 
         if ($beforeDate) {
             $sql->and('comment_dt < \'' . $beforeDate . '\' ');
         }
 
-        $r = [];
-        if ($rs = $sql->select()) {
+        $r  = [];
+        $rs = $sql->select();
+        if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $r[] = (int) $rs->comment_id;
             }
         }
 
-        if (empty($r)) {
+        if ($r === []) {
             return;
         }
 
@@ -241,8 +230,6 @@ class Antispam
 
     /**
      * Gets the user code (used for antispam feeds URL).
-     *
-     * @return  string  The user code.
      */
     public static function getUserCode(): string
     {
@@ -263,7 +250,7 @@ class Antispam
     {
         $code = pack('H*', $code);
 
-        $user_id = trim((string) @pack('a32', substr($code, 0, 32)));
+        $user_id = trim(@pack('a32', substr($code, 0, 32)));
         $pwd     = substr($code, 32);
 
         if ($user_id === '' || $pwd === '') {
@@ -280,11 +267,11 @@ class Antispam
             ->where('user_id = ' . $sql->quote($user_id))
             ->select();
 
-        if (!$rs || $rs->isEmpty()) {
+        if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
             return false;
         }
 
-        if (hash(App::config()->cryptAlgo(), App::auth()->cryptLegacy($rs->user_pwd)) != $pwd) {
+        if (hash(App::config()->cryptAlgo(), App::auth()->cryptLegacy($rs->user_pwd)) !== $pwd) {
             return false;
         }
 

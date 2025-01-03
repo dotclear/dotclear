@@ -41,36 +41,26 @@ class Words extends SpamFilter
 {
     /**
      * Filter id.
-     *
-     * @var     string  $id
      */
     public string $id = 'dcFilterWords';
 
     /**
      * Filter name.
-     *
-     * @var     string  $name
      */
     public string $name = 'Bad Words';
 
     /**
      * Filter has settings GUI?
-     *
-     * @var     bool    $has_gui
      */
     public bool $has_gui = true;
 
     /**
      * Filter help ID.
-     *
-     * @var     null|string     $help
      */
     public ?string $help = 'words-filter';
 
     /**
      * Table name.
-     *
-     * @var     string  $table
      */
     private readonly string $table;
 
@@ -118,10 +108,8 @@ class Words extends SpamFilter
      * @param   string  $content    The comment content
      * @param   int     $post_id    The comment post_id
      * @param   string  $status     The comment status
-     *
-     * @return  mixed
      */
-    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status)
+    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status): ?bool
     {
         $str = $author . ' ' . $email . ' ' . $site . ' ' . $content;
 
@@ -143,14 +131,14 @@ class Words extends SpamFilter
                 return true;
             }
         }
+
+        return null;
     }
 
     /**
      * Filter settings.
      *
      * @param   string  $url    The GUI URL
-     *
-     * @return  string
      */
     public function gui(string $url): string
     {
@@ -198,8 +186,6 @@ class Words extends SpamFilter
      * Return word list form.
      *
      * @param   string  $url    The url
-     *
-     * @return  string
      */
     private function displayForms(string $url): string
     {
@@ -231,7 +217,7 @@ class Words extends SpamFilter
             }
 
             $local = $global = [];
-            if (count($rules_local)) {
+            if ($rules_local !== []) {
                 $local = [
                     (new Fieldset())
                         ->legend((new Legend(__('Local words (used only for this blog)'))))
@@ -239,7 +225,7 @@ class Words extends SpamFilter
                         ->items($rules_local),
                 ];
             }
-            if (count($rules_global)) {
+            if ($rules_global !== []) {
                 $global = [
                     (new Fieldset())
                         ->legend((new Legend(__('Global words (used for all blogs)'))))
@@ -363,24 +349,19 @@ class Words extends SpamFilter
             ->and('rule_content = ' . $sql->quote($content))
             ->select();
 
-        if ($rs && !$rs->isEmpty() && !$general) {
+        if ($rs instanceof MetaRecord && !$rs->isEmpty() && !$general) {
             throw new Exception(__('This word exists'));
         }
 
         $cur               = App::con()->openCursor($this->table);
         $cur->rule_type    = 'word';
-        $cur->rule_content = (string) $content;
+        $cur->rule_content = $content;
+        $cur->blog_id      = $general && App::auth()->isSuperAdmin() ? null : App::blog()->id();
 
-        if ($general && App::auth()->isSuperAdmin()) {
-            $cur->blog_id = null;
-        } else {
-            $cur->blog_id = App::blog()->id();
-        }
-
-        if ($rs && !$rs->isEmpty() && $general) {
+        if ($rs instanceof MetaRecord && !$rs->isEmpty() && $general) {
             $sql = new UpdateStatement();
             $sql
-                ->where('rule_id = ' . (string) $rs->rule_id)
+                ->where('rule_id = ' . $rs->rule_id)
                 ->update($cur);
         } else {
             $sql = new SelectStatement();
@@ -388,7 +369,7 @@ class Words extends SpamFilter
                 ->column($sql->max('rule_id'))
                 ->from($this->table)
                 ->select();
-            $max = $run ? $run->f(0) : 0;
+            $max = $run instanceof MetaRecord ? $run->f(0) : 0;
 
             $cur->rule_id = $max + 1;
             $cur->insert();

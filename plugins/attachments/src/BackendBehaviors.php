@@ -52,7 +52,7 @@ class BackendBehaviors
      */
     public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
     {
-        if ($post !== null) {
+        if ($post instanceof MetaRecord) {
             // Entry saved at least once
             $post_media = App::media()->getPostMedia((int) $post->post_id, null, 'attachment');
             $nb_media   = count($post_media);
@@ -100,7 +100,7 @@ class BackendBehaviors
                 ]);
             }
 
-            if (empty($rows)) {
+            if ($rows === []) {
                 $rows = [
                     (new Para())->class(['form-note', 's-attachments'])->items([
                         (new Text(null, __('No attachment.'))),
@@ -108,7 +108,7 @@ class BackendBehaviors
                 ];
             }
 
-            $title = !$nb_media ? __('Attachments') : sprintf(__('Attachments (%d)'), $nb_media);
+            $title = $nb_media === 0 ? __('Attachments') : sprintf(__('Attachments (%d)'), $nb_media);
 
             $item = (new Set())->items([
                 (new Text('h5', $title))->class(['clear', 's-attachments']),
@@ -141,7 +141,7 @@ class BackendBehaviors
      */
     public static function adminPostAfterForm(?MetaRecord $post): void
     {
-        if ($post !== null) {
+        if ($post instanceof MetaRecord) {
             echo (new Form('attachment-remove-hide'))
                 ->action(App::backend()->url()->get('admin.post.media'))
                 ->method('post')

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -83,12 +84,12 @@ class Caches extends CleanerParent
 
     public function execute(string $action, string $ns): bool
     {
-        if ($action == 'empty') {
+        if ($action === 'empty') {
             self::delDir(App::config()->cacheRoot(), $ns, false);
 
             return true;
         }
-        if ($action == 'delete') {
+        if ($action === 'delete') {
             self::delDir(App::config()->cacheRoot(), $ns, true);
 
             return true;

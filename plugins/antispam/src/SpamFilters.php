@@ -61,7 +61,7 @@ class SpamFilters
 
         $this->setFilterOpts();
         if (!empty($this->filters_opt)) {
-            uasort($this->filters, fn ($a, $b) => $a->order <=> $b->order);
+            uasort($this->filters, fn ($a, $b): int => $a->order <=> $b->order);
         }
     }
 
@@ -148,8 +148,6 @@ class SpamFilters
      *
      * @param   MetaRecord  $rs             The comment record
      * @param   string      $filter_name    The filter name
-     *
-     * @return  string
      */
     public function statusMessage(MetaRecord $rs, string $filter_name): string
     {

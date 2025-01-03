@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -31,7 +32,7 @@ class FrontendBehaviors
      */
     public static function tplIfConditions(string $tag, ArrayObject $attr, string $content, ArrayObject $if): void
     {
-        if ($tag == 'EntryIf' && isset($attr['has_attachment'])) {
+        if ($tag === 'EntryIf' && isset($attr['has_attachment'])) {
             $sign = (bool) $attr['has_attachment'] ? '' : '!';
             $if->append($sign . 'App::frontend()->context()->posts->countMedia(\'attachment\')');
         }

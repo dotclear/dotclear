@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -18,14 +19,11 @@ class adminGenericList extends Listing
     /**
      * Constructs a new instance.
      *
-     * @param   Dotclear\Database\Record|Dotclear\Database\StaticRecord|Dotclear\Database\MetaRecord    $rs         The record
-     * @param   mixed                                                                                   $rs_count   The rs count
+     * @param   Dotclear\Database\MetaRecord    $rs         The record
+     * @param   mixed                           $rs_count   The rs count
      */
-    public function __construct(dcCore $core, $rs, $rs_count)   // @phpstan-ignore-line
+    public function __construct(dcCore $core, MetaRecord $rs, $rs_count)   // @phpstan-ignore-line
     {
-        if (!($rs instanceof MetaRecord)) {
-            $rs = new MetaRecord($rs);
-        }
         parent::__construct($rs, $rs_count);
     }
 }

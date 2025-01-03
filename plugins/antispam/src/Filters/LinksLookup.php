@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -19,36 +20,26 @@ class LinksLookup extends SpamFilter
 {
     /**
      * Filter id.
-     *
-     * @var     string  $id
      */
     public string $id = 'dcFilterLinksLookup';
 
     /**
      * Filter name.
-     *
-     * @var     string  $name
      */
     public string $name = 'Links Lookup';
 
     /**
      * Filter has settings GUI?
-     *
-     * @var     bool    $has_gui
      */
     public bool $has_gui = false;
 
     /**
      * Filter help ID.
-     *
-     * @var     null|string     $help
      */
     public ?string $help = '';
 
     /**
      * subrl org URL.
-     *
-     * @var     string  $server
      */
     private string $server = 'multi.surbl.org';
 
@@ -87,13 +78,11 @@ class LinksLookup extends SpamFilter
      * @param   string  $content    The comment content
      * @param   int     $post_id    The comment post_id
      * @param   string  $status     The comment status
-     *
-     * @return  mixed
      */
-    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status)
+    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status): ?bool
     {
-        if (!$ip || long2ip((int) ip2long($ip)) != $ip) {
-            return;
+        if (!$ip || long2ip((int) ip2long($ip)) !== $ip) {
+            return null;
         }
 
         $urls = $this->getLinks((string) $content);
@@ -114,7 +103,7 @@ class LinksLookup extends SpamFilter
             $i = count($domain_elem) - 1;
             if ($i == 0) {
                 // "domain" is 1 word long, don't check it
-                return;
+                return null;
             }
             $host = $domain_elem[$i];
             do {
@@ -128,6 +117,8 @@ class LinksLookup extends SpamFilter
                 }
             } while ($i > 0);
         }
+
+        return null;
     }
 
     /**

@@ -32,15 +32,11 @@ class Uninstaller
 
     /**
      * The cleaners stack.
-     *
-     * @var     CleanersStack   $cleaners
      */
     public readonly CleanersStack $cleaners;
 
     /**
      * Current module.
-     *
-     * @var     null|ModuleDefine   $module
      */
     private ?ModuleDefine $module = null;
 
@@ -74,10 +70,8 @@ class Uninstaller
 
     /**
      * Uninstaller instance.
-     *
-     * @var     Uninstaller     $uninstaller
      */
-    private static $uninstaller;
+    private static ?Uninstaller $uninstaller = null;
 
     /**
      * Constructor load cleaners.
@@ -94,7 +88,7 @@ class Uninstaller
      */
     public static function instance(): Uninstaller
     {
-        if (!is_a(self::$uninstaller, Uninstaller::class)) {
+        if (!self::$uninstaller instanceof Uninstaller) {
             self::$uninstaller = new Uninstaller();
         }
 
@@ -124,7 +118,7 @@ class Uninstaller
                 continue;
             }
             $class = $module->get('namespace') . '\\' . self::UNINSTALL_CLASS_NAME;
-            if ($module->getId() != My::id() && is_a($class, Process::class, true)) {
+            if ($module->getId() !== My::id() && is_a($class, Process::class, true)) {
                 $this->modules[$module->getId()] = $this->module = $module;
                 // check class prerequiretics
                 if ($class::init()) {
@@ -139,7 +133,7 @@ class Uninstaller
         }
         uasort(
             $this->modules,
-            fn ($a, $b) => Text::removeDiacritics(mb_strtolower(is_string($a->get('name')) ? $a->get('name') : $a->getId())) <=> Text::removeDiacritics(mb_strtolower(is_string($b->get('name')) ? $b->get('name') : $b->getId()))
+            fn ($a, $b): int => Text::removeDiacritics(mb_strtolower(is_string($a->get('name')) ? $a->get('name') : $a->getId())) <=> Text::removeDiacritics(mb_strtolower(is_string($b->get('name')) ? $b->get('name') : $b->getId()))
         );
 
         return $this;
@@ -174,7 +168,7 @@ class Uninstaller
      */
     public function addUserAction(string $cleaner, string $action, string $ns, ?bool $default = null): Uninstaller
     {
-        if (null !== $this->module && null !== ($res = $this->addAction($cleaner, $action, $ns, $default))) {
+        if ($this->module instanceof ModuleDefine && ($res = $this->addAction($cleaner, $action, $ns, $default)) instanceof ActionDescriptor) {
             if (!isset($this->user_actions[$this->module->getId()])) {
                 $this->user_actions[$this->module->getId()] = new ActionsStack();
             }
@@ -200,7 +194,7 @@ class Uninstaller
      */
     public function addDirectAction(string $cleaner, string $action, string $ns): Uninstaller
     {
-        if (null !== $this->module && null !== ($res = $this->addAction($cleaner, $action, $ns, true))) {
+        if ($this->module instanceof ModuleDefine && ($res = $this->addAction($cleaner, $action, $ns, true)) instanceof ActionDescriptor) {
             if (!isset($this->direct_actions[$this->module->getId()])) {
                 $this->direct_actions[$this->module->getId()] = new ActionsStack();
             }
@@ -274,7 +268,7 @@ class Uninstaller
     public function execute(string $cleaner, string $action, string $ns): bool
     {
         // unknown cleaner/action or no ns
-        if (!isset($this->cleaners->get($cleaner)->actions[$action]) || empty($ns)) {
+        if (!isset($this->cleaners->get($cleaner)->actions[$action]) || $ns === '') {
             return false;
         }
 
@@ -290,15 +284,13 @@ class Uninstaller
      * @param   string      $action     The action ID
      * @param   string      $ns         Name of setting related to module
      * @param   null|bool   $default    The default state of form field (checked)
-     *
-     * @return  null|ActionDescriptor   The action description
      */
-    private function addAction(string $cleaner, string $action, string $ns, ?bool $default)
+    private function addAction(string $cleaner, string $action, string $ns, ?bool $default): ?ActionDescriptor
     {
         // no current module or no cleaner id or no ns or unknown cleaner action
-        if (null === $this->module
-            || empty($cleaner)
-            || empty($ns)
+        if (!$this->module instanceof ModuleDefine
+            || $cleaner === ''
+            || $ns      === ''
             || !isset($this->cleaners->get($cleaner)->actions[$action])
         ) {
             return null;

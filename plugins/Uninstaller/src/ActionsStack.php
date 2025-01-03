@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -65,11 +66,8 @@ class ActionsStack implements Countable, Iterator
         return current($this->stack);
     }
 
-    /**
-     * @return  null|string
-     */
     #[\ReturnTypeWillChange]
-    public function key(): null|string
+    public function key(): ?string
     {
         return key($this->stack);
     }

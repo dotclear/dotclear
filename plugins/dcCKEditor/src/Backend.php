@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -21,7 +22,8 @@ class Backend extends Process
     public static function init(): bool
     {
         // Dead but useful code (for l10n)
-        __('dcCKEditor') . __('dotclear CKEditor integration');
+        __('dcCKEditor');
+        __('dotclear CKEditor integration');
 
         return self::status(My::checkContext(My::BACKEND));
     }

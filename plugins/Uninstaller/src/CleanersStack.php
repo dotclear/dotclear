@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -45,9 +46,6 @@ class CleanersStack implements Countable, Iterator
         return isset($this->stack[$offset]);
     }
 
-    /**
-     * @return  null|CleanerParent
-     */
     public function get(string $offset): ?CleanerParent
     {
         return $this->stack[$offset] ?? null;
@@ -72,18 +70,12 @@ class CleanersStack implements Countable, Iterator
         reset($this->stack);
     }
 
-    /**
-     * @return  false|CleanerParent
-     */
     #[\ReturnTypeWillChange]
     public function current(): false|CleanerParent
     {
         return current($this->stack);
     }
 
-    /**
-     * @return  null|string
-     */
     #[\ReturnTypeWillChange]
     public function key(): ?string
     {

@@ -23,36 +23,26 @@ class AntispamFilterFairTrackbacks extends SpamFilter
 {
     /**
      * Filter id.
-     *
-     * @var     string  $id
      */
     public string $id = 'dcFilterFairTrackbacks';
 
     /**
      * Filter name.
-     *
-     * @var     string  $name
      */
     public string $name = 'Fair Trackbacks';
 
     /**
      * Has GUI settings.
-     *
-     * @var     bool    $has_gui
      */
     public bool $has_gui = false;
 
     /**
      * Filter active?
-     *
-     * @var     bool    $active
      */
     public bool $active = true;
 
     /**
      * Filter order.
-     *
-     * @var     int     $order
      */
     public int $order = -10;
 
@@ -81,7 +71,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
      */
     public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status): void
     {
-        if ($type != 'trackback') {
+        if ($type !== 'trackback') {
             return;
         }
 
@@ -90,10 +80,8 @@ class AntispamFilterFairTrackbacks extends SpamFilter
 
             // Check source site URL
             $site_parts = $default_parse;
-            if ($site) {
-                if ($temp_parse = parse_url($site)) {
-                    $site_parts = array_merge($default_parse, $temp_parse);
-                }
+            if ($site && ($temp_parse = parse_url($site))) {
+                $site_parts = array_merge($default_parse, $temp_parse);
             }
 
             if (($site_parts['scheme'] !== 'http' && $site_parts['scheme'] !== 'https') || !$site_parts['host'] || !$site_parts['path']) {
@@ -104,10 +92,8 @@ class AntispamFilterFairTrackbacks extends SpamFilter
             $post       = App::blog()->getPosts(['post_id' => $post_id]);
             $post_url   = $post->getURL();
             $post_parts = $default_parse;
-            if ($post_url) {
-                if ($temp_parts = parse_url($post_url)) {
-                    $post_parts = array_merge($default_parse, $temp_parts);
-                }
+            if ($post_url && ($temp_parts = parse_url($post_url))) {
+                $post_parts = array_merge($default_parse, $temp_parts);
             }
 
             if ($post_url === $site) {

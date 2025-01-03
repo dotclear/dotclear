@@ -118,7 +118,7 @@ trait DirTrait
                 $stack[] = $file;
                 $stack   = self::scanDir($path . DIRECTORY_SEPARATOR . $file, $dir . DIRECTORY_SEPARATOR . $file, $stack);
             } else {
-                $stack[] = empty($dir) ? $file : $dir . DIRECTORY_SEPARATOR . $file;
+                $stack[] = $dir === '' ? $file : $dir . DIRECTORY_SEPARATOR . $file;
             }
         }
 
@@ -138,7 +138,7 @@ trait DirTrait
         if (!is_dir($path) || !is_readable($path)) {
             return false;
         }
-        if (substr($path, -1) != DIRECTORY_SEPARATOR) {
+        if (substr($path, -1) !== DIRECTORY_SEPARATOR) {
             $path .= DIRECTORY_SEPARATOR;
         }
         if (($d = @dir($path)) === false) {
@@ -150,10 +150,8 @@ trait DirTrait
                     if (!self::delTree($path . DIRECTORY_SEPARATOR . $entryname)) {
                         return false;
                     }
-                } else {
-                    if (!@unlink($path . DIRECTORY_SEPARATOR . $entryname)) {
-                        return false;
-                    }
+                } elseif (!@unlink($path . DIRECTORY_SEPARATOR . $entryname)) {
+                    return false;
                 }
             }
         }

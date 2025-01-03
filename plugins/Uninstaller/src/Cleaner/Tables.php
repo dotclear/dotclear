@@ -92,7 +92,7 @@ class Tables extends CleanerParent
         $stack = [];
         foreach ($tables as $k => $v) {
             // get only tables with dotclear prefix
-            if ('' != App::con()->prefix()) {
+            if (App::con()->prefix() !== '') {
                 if (!preg_match('/^' . preg_quote(App::con()->prefix()) . '(.*?)$/', $v, $m)) { // @phpstan-ignore-line
                     continue;
                 }

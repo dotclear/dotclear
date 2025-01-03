@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -30,17 +31,21 @@ class Prepend extends Process
             return false;
         }
 
-        App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack) {
+        App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack): string {
             $stack->append(Filters\Ip::class);
             $stack->append(Filters\IpLookup::class);
             $stack->append(Filters\Words::class);
             $stack->append(Filters\LinksLookup::class);
+
+            return '';
         });
 
         // IP v6 filter depends on some math libraries, so enable it only if one of them is available
         if (function_exists('gmp_init') || function_exists('bcadd')) {
-            App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack) {
+            App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack): string {
                 $stack->append(Filters\IpV6::class);
+
+                return '';
             });
         }
 

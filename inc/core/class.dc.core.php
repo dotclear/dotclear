@@ -20,6 +20,7 @@ use Dotclear\Core\Session;
 use Dotclear\Core\Version;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Helper\TraitDynamicProperties;
 use Dotclear\Interface\Core\AuthInterface;
@@ -70,8 +71,6 @@ final class dcCore
 
     /**
      * dcCore singleton instance
-     *
-     * @var dcCore
      */
     private static dcCore $instance;
 
@@ -79,8 +78,6 @@ final class dcCore
      * Database connection
      *
      * @deprecated since 2.28, use App::con() instead
-     *
-     * @var ConnectionInterface
      */
     public readonly ConnectionInterface $con;
 
@@ -88,8 +85,6 @@ final class dcCore
      * Database tables prefix
      *
      * @deprecated since 2.28, use App::con()->prefix() instead
-     *
-     * @var string
      */
     public readonly string $prefix;
 
@@ -97,8 +92,6 @@ final class dcCore
      * Blog instance
      *
      * @deprecated since 2.28, use App::blog() instead
-     *
-     * @var BlogInterface|null
      */
     public ?BlogInterface $blog = null;
 
@@ -106,8 +99,6 @@ final class dcCore
      * Auth instance
      *
      * @deprecated since 2.28, use App::auth() instead
-     *
-     * @var AuthInterface
      */
     public readonly AuthInterface $auth;
 
@@ -115,8 +106,6 @@ final class dcCore
      * Session in database instance
      *
      * @deprecated since 2.28, use App::session() instead
-     *
-     * @var SessionInterface
      */
     public readonly SessionInterface $session;
 
@@ -124,8 +113,6 @@ final class dcCore
      * Url instance
      *
      * @deprecated since 2.28, use App::url() instead
-     *
-     * @var UrlInterface
      */
     public readonly UrlInterface $url;
 
@@ -133,8 +120,6 @@ final class dcCore
      * Rest instance
      *
      * @deprecated since 2.28, use App::rest() instead
-     *
-     * @var RestInterface
      */
     public readonly RestInterface $rest;
 
@@ -160,8 +145,6 @@ final class dcCore
      * Plugins
      *
      * @deprecated since 2.28, use App::plugins() instead
-     *
-     * @var ModulesInterface
      */
     public readonly ModulesInterface $plugins;
 
@@ -196,8 +179,6 @@ final class dcCore
      * Meta instance
      *
      * @deprecated since 2.28, use App::meta() instead
-     *
-     * @var MetaInterface
      */
     public readonly MetaInterface $meta;
 
@@ -205,8 +186,6 @@ final class dcCore
      * Error instance
      *
      * @deprecated since 2.28, use App::error() instead
-     *
-     * @var ErrorInterface
      */
     public readonly ErrorInterface $error;
 
@@ -214,8 +193,6 @@ final class dcCore
      * Notice instance
      *
      * @deprecated since 2.28, use App::notice() instead
-     *
-     * @var NoticeInterface
      */
     public readonly NoticeInterface $notices;
 
@@ -223,8 +200,6 @@ final class dcCore
      * Log instance
      *
      * @deprecated since 2.28, use App::log() instead
-     *
-     * @var LogInterface
      */
     public readonly LogInterface $log;
 
@@ -252,8 +227,6 @@ final class dcCore
      * Backend Utility instance
      *
      * @deprecated since 2.28, use App::backend() instead
-     *
-     * @var \Dotclear\Core\Backend\Utility
      */
     public Backend $admin;
 
@@ -261,8 +234,6 @@ final class dcCore
      * Backend Url instance.
      *
      * @deprecated since 2.28, use App::backend()->url() instead
-     *
-     * @var \Dotclear\Core\Backend\Url
      */
     public \Dotclear\Core\Backend\Url $adminurl;
 
@@ -270,8 +241,6 @@ final class dcCore
      * Bakcend Favorites instance.
      *
      * @deprecated since 2.28, use App::backend()->favorites() instead
-     *
-     * @var \Dotclear\Core\Backend\Favorites
      */
     public \Dotclear\Core\Backend\Favorites $favs;
 
@@ -279,8 +248,6 @@ final class dcCore
      * Backend Menus instance.
      *
      * @deprecated since 2.28, use App::backend()->menus() instead
-     *
-     * @var \Dotclear\Core\Backend\Menus
      */
     public \Dotclear\Core\Backend\Menus $menu;
 
@@ -299,8 +266,6 @@ final class dcCore
      * Frontend Utility instance
      *
      * @deprecated since 2.28, use App::frontend() instead
-     *
-     * @var \Dotclear\Core\Frontend\Utility
      */
     public Frontend $public;
 
@@ -308,8 +273,6 @@ final class dcCore
      * Tpl instance
      *
      * @deprecated since 2.28, use App::frontend()->template() instead
-     *
-     * @var Tpl
      */
     public Tpl $tpl;
 
@@ -317,8 +280,6 @@ final class dcCore
      * context instance
      *
      * @deprecated since 2.28, use App::frontend()->context() instead
-     *
-     * @var Ctx
      */
     public Ctx $ctx;
 
@@ -392,8 +353,6 @@ final class dcCore
      * Get dcCore singleton instance
      *
      * @deprecated since 2.28, nothing to use instead
-     *
-     * @return     dcCore
      */
     public static function app(): dcCore
     {
@@ -419,7 +378,7 @@ final class dcCore
      *
      * @param      string  $id     The blog ID
      */
-    public function setBlog($id): void
+    public function setBlog(string $id): void
     {
         App::blog()->loadFromBlog($id);
     }
@@ -455,8 +414,6 @@ final class dcCore
      * @deprecated since 2.28, use App::blogs()->getBlogStatus() instead
      *
      * @param      int      $s      Status code
-     *
-     * @return     string
      */
     public function getBlogStatus(int $s): string
     {
@@ -470,8 +427,6 @@ final class dcCore
      * Gets the nonce.
      *
      * @deprecated since 2.28, use App::nonce()->getNonce() instead
-     *
-     * @return     string
      */
     public function getNonce(): string
     {
@@ -484,8 +439,6 @@ final class dcCore
      * @deprecated since 2.28, use App::nonce()->checkNonce() instead
      *
      * @param      string  $secret  The nonce
-     *
-     * @return     bool
      */
     public function checkNonce(string $secret): bool
     {
@@ -498,10 +451,8 @@ final class dcCore
      * @deprecated since 2.28, use App::nonce()->formNonce() or App::nonce()->getFormNonce()instead
      *
      * @param      bool     $render     Should render element?
-     *
-     * @return     mixed
      */
-    public function formNonce(bool $render = true)
+    public function formNonce(bool $render = true): string|Hidden
     {
         return $render ? App::nonce()->getFormNonce() : App::nonce()->formNonce();
     }
@@ -531,7 +482,7 @@ final class dcCore
      * @param      string    $name       The formater name
      * @param      callable  $func       The function to use, must be a valid and callable callback
      */
-    public function addFormater(string $name, $func): void
+    public function addFormater(string $name, ?callable $func): void
     {
         App::formater()->addEditorFormater('dcLegacyEditor', $name, $func);
     }
@@ -555,8 +506,6 @@ final class dcCore
      * @deprecated since 2.28, use App::formater()->getFormaterName() instead
      *
      * @param      string  $format  The format
-     *
-     * @return     string
      */
     public function getFormaterName(string $format): string
     {
@@ -586,7 +535,7 @@ final class dcCore
      */
     public function getFormaters(string $editor_id = ''): array
     {
-        return empty($editor_id) ? App::formater()->getFormaters() : App::formater()->getFormater($editor_id);
+        return $editor_id === '' ? App::formater()->getFormaters() : App::formater()->getFormater($editor_id);
     }
 
     /**
@@ -597,8 +546,6 @@ final class dcCore
      * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
      * @param      string  $name       The formater name
      * @param      string  $str        The string to transform
-     *
-     * @return     string
      */
     public function callEditorFormater(string $editor_id, string $name, string $str): string
     {
@@ -612,8 +559,6 @@ final class dcCore
      *
      * @param      string  $name   The name
      * @param      string  $str    The string
-     *
-     * @return     string
      */
     public function callFormater(string $name, string $str): string
     {
@@ -679,8 +624,6 @@ final class dcCore
      * @deprecated since 2.28, use App::behavior()->hasBehavior() instead
      *
      * @param      string  $behavior  The behavior
-     *
-     * @return     bool
      */
     public function hasBehavior(string $behavior): bool
     {
@@ -693,8 +636,6 @@ final class dcCore
      * @deprecated since 2.28, use App::behavior()->hasBehavior() instead
      *
      * @param      string  $behaviour  The behavior
-     *
-     * @return     bool
      */
     public function hasBehaviour(string $behaviour): bool
     {
@@ -707,12 +648,10 @@ final class dcCore
      * @deprecated since 2.28, use App::behavior()->getBehaviors() or App::behavior()->getBehavior()instead
      *
      * @param      string  $behavior  The behavior
-     *
-     * @return     mixed
      */
-    public function getBehaviors(string $behavior = '')
+    public function getBehaviors(string $behavior = ''): array  // @phpstan-ignore-line
     {
-        return empty($behavior) ? App::behavior()->getBehaviors() : App::behavior()->getBehavior($behavior);
+        return $behavior === '' ? App::behavior()->getBehaviors() : App::behavior()->getBehavior($behavior);
     }
 
     /**
@@ -721,12 +660,10 @@ final class dcCore
      * @deprecated since 2.28, use App::behavior()->getBehaviors() or App::behavior()->getBehavior() instead
      *
      * @param      string  $behaviour  The behaviour
-     *
-     * @return     mixed
      */
-    public function getBehaviours(string $behaviour = '')
+    public function getBehaviours(string $behaviour = ''): array  // @phpstan-ignore-line
     {
-        return empty($behaviour) ? App::behavior()->getBehaviors() : App::behavior()->getBehavior($behaviour);
+        return $behaviour === '' ? App::behavior()->getBehaviors() : App::behavior()->getBehavior($behaviour);
     }
 
     /**
@@ -737,10 +674,8 @@ final class dcCore
      *
      * @param      string  $behavior  The behavior
      * @param      mixed   ...$args   The arguments
-     *
-     * @return     mixed
      */
-    public function callBehavior(string $behavior, ...$args)
+    public function callBehavior(string $behavior, ...$args): string
     {
         return App::behavior()->callBehavior($behavior, ...$args);
     }
@@ -752,10 +687,8 @@ final class dcCore
      *
      * @param      string  $behaviour  The behaviour
      * @param      mixed   ...$args    The arguments
-     *
-     * @return     mixed
      */
-    public function callBehaviour(string $behaviour, ...$args)
+    public function callBehaviour(string $behaviour, ...$args): string
     {
         return App::behavior()->callBehavior($behaviour, ...$args);
     }
@@ -773,8 +706,6 @@ final class dcCore
      * @param      int|string           $post_id  The post identifier
      * @param      bool                 $escaped  Escape the URL
      * @param      array<string,mixed>  $params   The query string parameters (associative array)
-     *
-     * @return     string    The post admin url.
      */
     public function getPostAdminURL(string $type, int|string $post_id, bool $escaped = true, array $params = []): string
     {
@@ -789,8 +720,6 @@ final class dcCore
      * @param      string  $type      The type
      * @param      string  $post_url  The post url
      * @param      bool    $escaped   Escape the URL
-     *
-     * @return     string    The post public url.
      */
     public function getPostPublicURL(string $type, string $post_url, bool $escaped = true): string
     {
@@ -833,8 +762,6 @@ final class dcCore
      * @deprecated since 2.28, use App::version()->getVersion() instead
      *
      * @param      string  $module  The module
-     *
-     * @return     null|string
      */
     public function getVersion(string $module = 'core'): ?string
     {
@@ -876,8 +803,6 @@ final class dcCore
      *
      * @param      string  $module   The module
      * @param      string  $version  The version
-     *
-     * @return     int
      */
     public function testVersion(string $module, string $version): int
     {
@@ -891,8 +816,6 @@ final class dcCore
      *
      * @param      string  $module   The module
      * @param      string  $version  The version
-     *
-     * @return     bool
      */
     public function newVersion(string $module, string $version): bool
     {
@@ -920,8 +843,6 @@ final class dcCore
      * @deprecated since 2.28, use App::users()->getUser() instead
      *
      * @param      string  $id     The identifier
-     *
-     * @return     MetaRecord
      */
     public function getUser(string $id): MetaRecord
     {
@@ -935,10 +856,8 @@ final class dcCore
      *
      * @param      array<string, mixed>|ArrayObject<string, mixed>      $params      The parameters
      * @param      bool                                                 $count_only  Count only results
-     *
-     * @return     MetaRecord
      */
-    public function getUsers($params = [], bool $count_only = false): MetaRecord
+    public function getUsers(array|ArrayObject $params = [], bool $count_only = false): MetaRecord
     {
         return App::users()->getUsers($params, $count_only);
     }
@@ -951,8 +870,6 @@ final class dcCore
      * @param      Cursor     $cur    The user Cursor
      *
      * @throws     Exception
-     *
-     * @return     string
      */
     public function addUser(Cursor $cur): string
     {
@@ -968,8 +885,6 @@ final class dcCore
      * @param      Cursor     $cur    The Cursor
      *
      * @throws     Exception
-     *
-     * @return     string
      */
     public function updUser(string $id, Cursor $cur): string
     {
@@ -996,8 +911,6 @@ final class dcCore
      * @deprecated since 2.28, use App::users()->userExists() instead
      *
      * @param      string  $id     The identifier
-     *
-     * @return      bool
      */
     public function userExists(string $id): bool
     {
@@ -1112,10 +1025,8 @@ final class dcCore
      * @deprecated since 2.28, use App::blogs()->getBlogPermissions() instead
      *
      * @param      string  $id     The blog identifier
-     *
-     * @return     MetaRecord
      */
-    public function getBlog(string $id)
+    public function getBlog(string $id): MetaRecord
     {
         return App::blogs()->getBlog($id);
     }
@@ -1127,10 +1038,8 @@ final class dcCore
      *
      * @param      array<string, mixed>|ArrayObject<string, mixed>      $params      The parameters
      * @param      bool                                                 $count_only  Count only results
-     *
-     * @return     MetaRecord
      */
-    public function getBlogs($params = [], bool $count_only = false): MetaRecord
+    public function getBlogs(array|ArrayObject $params = [], bool $count_only = false): MetaRecord
     {
         return App::blogs()->getBlogs($params, $count_only);
     }
@@ -1182,8 +1091,6 @@ final class dcCore
      * @deprecated since 2.28, use App::blogs()->blogExists() instead
      *
      * @param      string  $id     The blog identifier
-     *
-     * @return     bool
      */
     public function blogExists(string $id): bool
     {
@@ -1197,10 +1104,8 @@ final class dcCore
      *
      * @param      string        $id     The blog identifier
      * @param      null|string   $type   The post type
-     *
-     * @return     int
      */
-    public function countBlogPosts(string $id, $type = null): int
+    public function countBlogPosts(string $id, ?string $type = null): int
     {
         return App::blogs()->countBlogPosts($id, $type);
     }
@@ -1214,8 +1119,6 @@ final class dcCore
      * @deprecated since 2.28, use App::filter()->HTMLfilter() instead
      *
      * @param      string  $str    The string
-     *
-     * @return     string
      */
     public function HTMLfilter(string $str): string
     {
@@ -1231,8 +1134,6 @@ final class dcCore
      * @deprecated since 2.28, use App::filter()->wikiTransform() instead
      *
      * @param      string  $str    The string
-     *
-     * @return     string
      */
     public function wikiTransform(string $str): string
     {
@@ -1303,11 +1204,8 @@ final class dcCore
      * Recreates entries search engine index.
      *
      * @deprecated since 2.28, permanently moved to plugin maintenance
-     *
-     * @param      mixed   $start  The start entry index
-     * @param      mixed   $limit  The limit of entry to index
      */
-    public function indexAllPosts($start = null, $limit = null): void
+    public function indexAllPosts(): void
     {
     }
 
@@ -1315,11 +1213,8 @@ final class dcCore
      * Recreates comments search engine index.
      *
      * @deprecated since 2.28, permanently moved to plugin maintenance
-     *
-     * @param      int   $start  The start comment index
-     * @param      int   $limit  The limit of comment to index
      */
-    public function indexAllComments(?int $start = null, ?int $limit = null): void
+    public function indexAllComments(): void
     {
     }
 
@@ -1360,8 +1255,6 @@ final class dcCore
      * Check if we need to serve REST requests.
      *
      * @deprecated since 2.28, use App::rest()->serveRestRequests() instead
-     *
-     * @return     bool
      */
     public function serveRestRequests(): bool
     {

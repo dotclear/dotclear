@@ -23,10 +23,8 @@ class l10nFaker
      * Get a fake l10n.
      *
      * @param   string  $str    The string
-     *
-     * @return  string
      */
-    protected function fake_l10n(string $str)
+    protected function fake_l10n(string $str): string
     {
         return sprintf('__("%s");' . "\n", str_replace('"', '\\"', $str));
     }

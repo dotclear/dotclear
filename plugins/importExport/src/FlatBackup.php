@@ -85,13 +85,14 @@ class FlatBackup
                 return false;
             }
 
-            if (count($this->line_cols) != count($line)) {
+            if (count($this->line_cols) !== count($line)) {
                 throw new Exception(sprintf('Invalid row count at line %s', $this->line_num));
             }
 
             $res = [];
 
-            for ($i = 0; $i < count($line); $i++) {
+            $counter = count($line);
+            for ($i = 0; $i < $counter; $i++) {
                 $res[$this->line_cols[$i]] = preg_replace(array_keys($this->replacement), array_values($this->replacement), $line[$i]); // @phpstan-ignore-line
             }
 
@@ -116,6 +117,6 @@ class FlatBackup
         $line = fgets($this->fp);
         $line = trim((string) $line);
 
-        return empty($line) ? $this->nextLine() : $line;
+        return $line === '' ? $this->nextLine() : $line;
     }
 }

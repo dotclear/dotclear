@@ -36,36 +36,26 @@ class AntispamFilterAkismet extends SpamFilter
 {
     /**
      * Filter id.
-     *
-     * @var     string  $id
      */
     public string $id = 'dcFilterAkismet';
 
     /**
      * Filter name.
-     *
-     * @var     string  $name
      */
     public string $name = 'Akismet';
 
     /**
      * Has GUI settings.
-     *
-     * @var     bool    $has_gui
      */
     public bool $has_gui = true;
 
     /**
      * Is filter active.
-     *
-     * @var     bool    $active
      */
     public bool $active = false;
 
     /**
      * Filter help resource ID.
-     *
-     * @var     string  $help
      */
     public ?string $help = 'akismet-filter';
 
@@ -104,10 +94,8 @@ class AntispamFilterAkismet extends SpamFilter
 
     /**
      * Return a new akismet instance of false if API key not defined.
-     *
-     * @return  Akismet|false
      */
-    private function akInit()
+    private function akInit(): false|Akismet
     {
         if (!My::settings()->ak_key) {
             return false;
@@ -131,13 +119,11 @@ class AntispamFilterAkismet extends SpamFilter
      * @param   string  $content    The comment content
      * @param   int     $post_id    The comment post_id
      * @param   string  $status     The comment status
-     *
-     * @return  mixed
      */
-    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status)
+    public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status): ?bool
     {
         if (($ak = $this->akInit()) === false) {
-            return;
+            return null;
         }
 
         try {
@@ -162,6 +148,8 @@ class AntispamFilterAkismet extends SpamFilter
         } catch (Exception) {
             // If http or akismet is dead, we don't need to know it
         }
+
+        return null;
     }
 
     /**
@@ -203,8 +191,6 @@ class AntispamFilterAkismet extends SpamFilter
      * Filter settings.
      *
      * @param   string  $url    The GUI URL
-     *
-     * @return  string
      */
     public function gui($url): string
     {
@@ -246,7 +232,7 @@ class AntispamFilterAkismet extends SpamFilter
             }
         }
 
-        $res .= (new Form('akismet_form'))
+        return $res . (new Form('akismet_form'))
             ->action(Html::escapeURL($url))
             ->method('post')
             ->fields([
@@ -282,7 +268,5 @@ class AntispamFilterAkismet extends SpamFilter
                 ]),
             ])
         ->render();
-
-        return $res;
     }
 }

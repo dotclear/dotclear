@@ -22,15 +22,13 @@ use Dotclear\Helper\L10n;
 class FrontendTemplate
 {
     /**
-     * tpl:Breadcrumb [attributes] : Displays the blogroll (tpl value).
+     * tpl:Breadcrumb [attributes] : Displays the breadcrumb (tpl value).
      *
      * attributes:
      *
      *      - separator   string      Breadcrumb element separator
      *
      * @param   ArrayObject<string, mixed>     $attr   The attributes
-     *
-     * @return  string
      */
     public static function breadcrumb(ArrayObject $attr): string
     {
@@ -43,8 +41,6 @@ class FrontendTemplate
      * Return the breadcrumb.
      *
      * @param   string  $separator  The separator
-     *
-     * @return  string
      */
     public static function displayBreadcrumb(string $separator = ''): string
     {
@@ -68,7 +64,7 @@ class FrontendTemplate
 
         // Test if complete breadcrumb will be provided
         # --BEHAVIOR-- publicBreadcrumbExtended -- string
-        if (App::behavior()->callBehavior('publicBreadcrumbExtended', App::url()->getType())) {
+        if (App::behavior()->callBehavior('publicBreadcrumbExtended', App::url()->getType()) !== '') {
             # --BEHAVIOR-- publicBreadcrumb -- string, string
             $special = App::behavior()->callBehavior('publicBreadcrumb', App::url()->getType(), $separator);
 
@@ -102,11 +98,9 @@ class FrontendTemplate
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . __('Home') . '</a>';
                     if (App::blog()->settings()->system->static_home) {
                         $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('posts') . '">' . __('Blog') . '</a>';
-                    } else {
-                        if (App::frontend()->context()->cur_lang) {
-                            $langs = L10n::getISOCodes();
-                            $breadcrumb .= $separator . ($langs[App::frontend()->context()->cur_lang] ?? App::frontend()->context()->cur_lang);
-                        }
+                    } elseif (App::frontend()->context()->cur_lang) {
+                        $langs = L10n::getISOCodes();
+                        $breadcrumb .= $separator . ($langs[App::frontend()->context()->cur_lang] ?? App::frontend()->context()->cur_lang);
                     }
                     $breadcrumb .= $separator . sprintf(__('page %d'), $page);
 
@@ -218,7 +212,7 @@ class FrontendTemplate
                     # --BEHAVIOR-- publicBreadcrumb -- string, string
                     # Should specific breadcrumb if any, will be added after home page url
                     $special = App::behavior()->callBehavior('publicBreadcrumb', App::url()->getType(), $separator);
-                    if ($special) {
+                    if ($special !== '') {
                         $breadcrumb .= $separator . $special;
                     }
 

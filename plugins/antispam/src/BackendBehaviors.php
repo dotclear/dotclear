@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -41,8 +42,6 @@ class BackendBehaviors
 
     /**
      * Display information about spam deletion.
-     *
-     * @return  string
      */
     public static function adminCommentsSpamForm(): string
     {

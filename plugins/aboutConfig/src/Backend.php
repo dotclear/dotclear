@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -21,7 +22,8 @@ class Backend extends Process
     public static function init(): bool
     {
         // Dead but useful code (for l10n)
-        __('about:config') . __('Manage every blog configuration directive');
+        __('about:config');
+        __('Manage every blog configuration directive');
 
         return self::status(My::checkContext(My::BACKEND));
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -22,31 +23,23 @@ class Akismet extends HttpClient
 {
     /**
      * Akismet domain.
-     *
-     * @var     string  $base_host
      */
-    protected $base_host = 'rest.akismet.com';
+    protected string $base_host = 'rest.akismet.com';
 
     /**
      * Akismet URL host, composed with API key.
-     *
-     * @var     string  $ak_host
      */
-    protected $ak_host = '';
+    protected string $ak_host = '';
 
     /**
      * Akismet API version.
-     *
-     * @var     string  $ak_version
      */
-    protected $ak_version = '1.1';
+    protected string $ak_version = '1.1';
 
     /**
      * Akismet path pattern.
-     *
-     * @var     string  $ak_path
      */
-    protected $ak_path = '/%s/%s';
+    protected string $ak_path = '/%s/%s';
 
     /**
      * Constructs a new instance.

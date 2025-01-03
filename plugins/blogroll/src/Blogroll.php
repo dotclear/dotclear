@@ -43,8 +43,6 @@ class Blogroll
 
     /**
      * Table name.
-     *
-     * @var     string  $table
      */
     private readonly string $table;
 
@@ -88,7 +86,7 @@ class Blogroll
         }
 
         $rs = $sql->select();
-        if ($rs) {
+        if ($rs instanceof MetaRecord) {
             $rs = $rs->toStatic();
 
             $this->setLinksData($rs);
@@ -161,11 +159,11 @@ class Blogroll
         $cur->link_lang  = $lang;
         $cur->link_xfn   = $xfn;
 
-        if ($cur->link_title == '') {
+        if ($cur->link_title === '') {
             throw new Exception(__('You must provide a link title'));
         }
 
-        if ($cur->link_href == '') {
+        if ($cur->link_href === '') {
             throw new Exception(__('You must provide a link URL'));
         }
 
@@ -174,7 +172,7 @@ class Blogroll
             ->column($sql->max('link_id'))
             ->from($this->table)
             ->select();
-        $max = $run ? $run->f(0) : 0;
+        $max = $run instanceof MetaRecord ? $run->f(0) : 0;
 
         $cur->link_id = $max + 1;
 
@@ -198,17 +196,17 @@ class Blogroll
     {
         $cur = App::con()->openCursor($this->table);
 
-        $cur->link_title = (string) $title;
-        $cur->link_href  = (string) $href;
-        $cur->link_desc  = (string) $desc;
-        $cur->link_lang  = (string) $lang;
-        $cur->link_xfn   = (string) $xfn;
+        $cur->link_title = $title;
+        $cur->link_href  = $href;
+        $cur->link_desc  = $desc;
+        $cur->link_lang  = $lang;
+        $cur->link_xfn   = $xfn;
 
-        if ($cur->link_title == '') {
+        if ($cur->link_title === '') {
             throw new Exception(__('You must provide a link title'));
         }
 
-        if ($cur->link_href == '') {
+        if ($cur->link_href === '') {
             throw new Exception(__('You must provide a link URL'));
         }
 
@@ -254,7 +252,7 @@ class Blogroll
         $cur->link_href  = '';
         $cur->link_title = '';
 
-        if ($cur->link_desc == '') {
+        if ($cur->link_desc === '') {
             throw new Exception(__('You must provide a category title'));
         }
 
@@ -263,7 +261,7 @@ class Blogroll
             ->column($sql->max('link_id'))
             ->from($this->table)
             ->select();
-        $max = $run ? $run->f(0) : 0;
+        $max = $run instanceof MetaRecord ? $run->f(0) : 0;
 
         $cur->link_id = (int) $max + 1;
 
@@ -286,7 +284,7 @@ class Blogroll
         $sql
             ->from($this->table)
             ->where('blog_id = ' . $sql->quote($this->blog->id()))
-            ->and('link_id = ' . (string) $id)
+            ->and('link_id = ' . $id)
             ->delete();
 
         $this->blog->triggerBlog();
@@ -317,7 +315,7 @@ class Blogroll
         $sql = new UpdateStatement();
         $sql
             ->where('blog_id = ' . $sql->quote($this->blog->id()))
-            ->and('link_id = ' . (string) (int) $id)
+            ->and('link_id = ' . (int) $id)
             ->update($cur);
 
         $this->blog->triggerBlog();

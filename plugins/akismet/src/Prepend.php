@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -22,9 +23,10 @@ class Prepend extends Process
     public static function init(): bool
     {
         // Dead but useful code (for l10n)
-        __('Akismet') . __('Akismet interface for Dotclear');
+        __('Akismet');
+        __('Akismet interface for Dotclear');
 
-        return self::status(App::config()->configPath() != '');
+        return self::status(App::config()->configPath() !== '');
     }
 
     public static function process(): bool
@@ -33,8 +35,10 @@ class Prepend extends Process
             return false;
         }
 
-        App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack) {
+        App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack): string {
             $stack->append(AntispamFilterAkismet::class);
+
+            return '';
         });
 
         return true;
