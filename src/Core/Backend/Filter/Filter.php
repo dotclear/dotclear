@@ -18,6 +18,7 @@ namespace Dotclear\Core\Backend\Filter;
 use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Html;
 use Exception;
 
 /**
@@ -262,7 +263,7 @@ class Filter
             }
             # HTML field
             $select = (new Select($this->id))
-                ->default($this->value)
+                ->default(Html::escapeHTML($this->value))
                 ->items($this->options);
 
             $label = (new Label($this->title, 2, $this->id))
@@ -280,7 +281,7 @@ class Filter
             $input = (new Input($this->id))
                 ->size(20)
                 ->maxlength(255)
-                ->value($this->value);
+                ->value(Html::escapeHTML($this->value));
 
             $label = (new Label($this->title, 2, $this->id))
                 ->class('ib');
