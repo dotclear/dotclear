@@ -35,8 +35,6 @@ class FrontendTemplate
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
      * @param   string                      $content    The content
-     *
-     * @return  string
      */
     public static function Tags(ArrayObject $attr, string $content): string
     {
@@ -74,8 +72,6 @@ class FrontendTemplate
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
      * @param   string                      $content    The content
-     *
-     * @return  string
      */
     public static function TagsHeader(ArrayObject $attr, string $content): string
     {
@@ -90,8 +86,6 @@ class FrontendTemplate
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
      * @param   string                      $content    The content
-     *
-     * @return  string
      */
     public static function TagsFooter(ArrayObject $attr, string $content): string
     {
@@ -112,8 +106,6 @@ class FrontendTemplate
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
      * @param   string                      $content    The content
-     *
-     * @return  string
      */
     public static function EntryTags(ArrayObject $attr, string $content): string
     {
@@ -140,10 +132,7 @@ class FrontendTemplate
         '}' .
         '?>';
 
-        $res .= '<?php while (App::frontend()->context()->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
-        'App::frontend()->context()->meta = null; ?>';
-
-        return $res;
+        return $res . '<?php while (App::frontend()->context()->meta->fetch()) : ?>' . $content . '<?php endwhile; ' . 'App::frontend()->context()->meta = null; ?>';
     }
 
     /**
@@ -160,8 +149,6 @@ class FrontendTemplate
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
      * @param   string                      $content    The content
-     *
-     * @return  string
      */
     public static function TagIf(ArrayObject $attr, string $content): string
     {
@@ -173,7 +160,7 @@ class FrontendTemplate
             $if[] = $sign . 'App::frontend()->context()->meta->count';
         }
 
-        if (!empty($if)) {
+        if ($if !== []) {
             return '<?php if(' . implode(' ' . $operateur . ' ', $if) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
@@ -188,8 +175,6 @@ class FrontendTemplate
      *      - any filters                 See self::getFilters()
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function TagID(ArrayObject $attr): string
     {
@@ -200,8 +185,6 @@ class FrontendTemplate
 
     /**
      * tpl:TagCount : Tag count (tpl value).
-     *
-     * @return  string
      */
     public static function TagCount(): string
     {
@@ -210,8 +193,6 @@ class FrontendTemplate
 
     /**
      * tpl:TagPercent : Tag percentage usage (tpl value).
-     *
-     * @return  string
      */
     public static function TagPercent(): string
     {
@@ -220,8 +201,6 @@ class FrontendTemplate
 
     /**
      * tpl:TagRoundPercent : Tag rounded percentage usage (tpl value).
-     *
-     * @return  string
      */
     public static function TagRoundPercent(): string
     {
@@ -236,8 +215,6 @@ class FrontendTemplate
      *      - any filters                 See self::getFilters()
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function TagURL(ArrayObject $attr): string
     {
@@ -255,8 +232,6 @@ class FrontendTemplate
      *      - any filters                 See self::getFilters()
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function TagCloudURL(ArrayObject $attr): string
     {
@@ -274,12 +249,10 @@ class FrontendTemplate
      *      - any filters                 See self::getFilters()
      *
      * @param   ArrayObject<string, mixed>  $attr       The attributes
-     *
-     * @return  string
      */
     public static function TagFeedURL(ArrayObject $attr): string
     {
-        $type = !empty($attr['type']) ? (string) $attr['type'] : 'rss2';
+        $type = empty($attr['type']) ? 'rss2' : (string) $attr['type'];
 
         if (!preg_match('#^(rss2|atom)$#', $type)) {
             $type = 'rss2';
@@ -295,8 +268,6 @@ class FrontendTemplate
      * Widget public rendering helper.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function tagsWidget(WidgetsElement $widget): string
     {
@@ -347,12 +318,12 @@ class FrontendTemplate
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
             '<ul>';
 
-        if (App::url()->getType() == 'post' && App::frontend()->context()->posts instanceof MetaRecord) {
+        if (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord) {
             App::frontend()->context()->meta = App::meta()->getMetaRecordset(App::frontend()->context()->posts->post_meta, 'tag');
         }
         while ($rs->fetch()) {
             $class = '';
-            if (App::url()->getType() == 'post' && App::frontend()->context()->posts instanceof MetaRecord) {
+            if (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord) {
                 while (App::frontend()->context()->meta->fetch()) {
                     if (App::frontend()->context()->meta->meta_id == $rs->meta_id) {
                         $class = ' class="tag-current"';

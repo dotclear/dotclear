@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -35,12 +36,10 @@ class FrontendBehaviors
      *
      * @param   string                      $block  The block
      * @param   ArrayObject<string, mixed>  $attr   The attribute
-     *
-     * @return  string
      */
     public static function templateBeforeBlock(string $block, ArrayObject $attr): string
     {
-        if (($block == 'Entries' || $block == 'Comments') && isset($attr['tag'])) {
+        if (($block === 'Entries' || $block === 'Comments') && isset($attr['tag'])) {
             return
             "<?php\n" .
             "if (!isset(\$params)) { \$params = []; }\n" .
@@ -51,7 +50,7 @@ class FrontendBehaviors
             "\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n" .
             "\$params['sql'] .= \"AND META.meta_id = '" . App::con()->escapeStr($attr['tag']) . "' \";\n" .
                 "?>\n";
-        } elseif (empty($attr['no_context']) && ($block == 'Entries' || $block == 'Comments')) {
+        } elseif (empty($attr['no_context']) && ($block === 'Entries' || $block === 'Comments')) {
             return
                 '<?php if (App::frontend()->context()->exists("meta") && App::frontend()->context()->meta->rows() && (App::frontend()->context()->meta->meta_type == "tag")) { ' .
                 "if (!isset(\$params)) { \$params = []; }\n" .

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -19,8 +20,6 @@ class BackendActionsComments extends ActionsComments
 {
     /**
      * Use render method.
-     *
-     * @var     bool    $use_render
      */
     protected bool $use_render = true;
 }

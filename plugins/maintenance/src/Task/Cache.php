@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -21,15 +22,11 @@ class Cache extends MaintenanceTask
 {
     /**
      * Task ID (class name).
-     *
-     * @var     null|string     $id
      */
     protected ?string $id = 'dcMaintenanceCache';
 
     /**
      * Task group container.
-     *
-     * @var     string  $group
      */
     protected string $group = 'purge';
 
@@ -45,7 +42,7 @@ class Cache extends MaintenanceTask
         $this->description = sprintf(__("It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."), DIRECTORY_SEPARATOR . Template::CACHE_FOLDER . DIRECTORY_SEPARATOR);
     }
 
-    public function execute()
+    public function execute(): bool|int
     {
         App::cache()->emptyTemplatesCache();
 

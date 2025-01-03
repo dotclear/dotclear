@@ -50,7 +50,7 @@ class ListingMedia extends Listing
      * @param   bool            $query          The query
      * @param   string          $page_adminurl  The page adminurl
      */
-    public function display(FilterMedia $filters, string $enclose_block = '', $query = false, $page_adminurl = 'admin.media'): void
+    public function display(FilterMedia $filters, string $enclose_block = '', $query = false, string $page_adminurl = 'admin.media'): void
     {
         $nb_items   = $this->rs_count - ($filters->d ? 1 : 0);
         $nb_folders = $filters->d ? -1 : 0;
@@ -137,12 +137,12 @@ class ListingMedia extends Listing
                 ->class('media-items-bloc')
                 ->items($files)
             ->render();
-            if ($enclose_block) {
+            if ($enclose_block !== '') {
                 $buffer_files = sprintf($enclose_block, $buffer_files, '');
             }
             $buffer = (new Set())
                 ->items([
-                    empty($dirs) ?
+                    $dirs === [] ?
                         (new None()) :
                         (new Div())
                             ->class('folders-group')
@@ -170,8 +170,6 @@ class ListingMedia extends Listing
      * @param   int                         $index          Current index in page
      * @param   bool                        $query          The query
      * @param   string                      $page_adminurl  The page adminurl
-     *
-     * @return  Tr|Div
      */
     private static function mediaItem(
         FilterMedia $filters,
@@ -419,7 +417,7 @@ class ListingMedia extends Listing
                         ->text(__('open')),
                 ]);
         }
-        if (count($actions)) {
+        if ($actions !== []) {
             $list[] = (new Li())
                 ->class('media-action')
                 ->items($actions);
@@ -461,8 +459,6 @@ class ListingMedia extends Listing
      * @param   int                         $index          Current index in page
      * @param   bool                        $query          The query
      * @param   string                      $page_adminurl  The page adminurl
-     *
-     * @return  string
      */
     public static function mediaLine(FilterMedia $filters, $file, int $index, bool $query = false, string $page_adminurl = 'admin.media'): string
     {

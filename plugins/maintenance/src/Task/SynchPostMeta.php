@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -10,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance\Task;
 
 use Dotclear\App;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
@@ -22,36 +24,26 @@ class SynchPostsMeta extends MaintenanceTask
 {
     /**
      * Task ID (class name).
-     *
-     * @var     null|string     $id
      */
     protected ?string $id = 'dcMaintenanceSynchpostsmeta';
 
     /**
      * Task use AJAX.
-     *
-     * @var     bool    $ajax
      */
     protected bool $ajax = true;
 
     /**
      * Task group container.
-     *
-     * @var     string  $group
      */
     protected string $group = 'index';
 
     /**
      * Number of comments to process by step.
-     *
-     * @var     int     $limit
      */
     protected int $limit = 100;
 
     /**
      * Next step label.
-     *
-     * @var     string  $step_task
      */
     protected string $step_task;
 
@@ -70,7 +62,7 @@ class SynchPostsMeta extends MaintenanceTask
         $this->description = __('Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables.');
     }
 
-    public function execute()
+    public function execute(): bool|int
     {
         $this->code = $this->synchronizeAllPostsmeta($this->code, $this->limit);
 
@@ -82,7 +74,7 @@ class SynchPostsMeta extends MaintenanceTask
         return $this->code ? $this->step_task : $this->task;
     }
 
-    public function step()
+    public function step(): ?string
     {
         return $this->code ? sprintf($this->step ?? '', $this->code - $this->limit, $this->code) : null;
     }
@@ -108,7 +100,7 @@ class SynchPostsMeta extends MaintenanceTask
             ->column($sql->count('post_id'))
             ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
             ->select();
-        $count = $run ? $run->f(0) : 0;
+        $count = $run instanceof MetaRecord ? $run->f(0) : 0;
 
         // Get posts ids to update
         $sql = new SelectStatement();
@@ -120,7 +112,8 @@ class SynchPostsMeta extends MaintenanceTask
         }
 
         // Update posts meta
-        if ($rs = $sql->select()) {
+        $rs = $sql->select();
+        if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $sql_meta = new SelectStatement();
                 $rs_meta  = $sql_meta
@@ -133,7 +126,7 @@ class SynchPostsMeta extends MaintenanceTask
                     ->select();
 
                 $meta = [];
-                if ($rs_meta) {
+                if ($rs_meta instanceof MetaRecord) {
                     while ($rs_meta->fetch()) {
                         $meta[$rs_meta->meta_type][] = $rs_meta->meta_id;
                     }
@@ -144,7 +137,7 @@ class SynchPostsMeta extends MaintenanceTask
 
                 $sql_upd = new UpdateStatement();
                 $sql_upd
-                    ->where('post_id = ' . (string) $rs->post_id)
+                    ->where('post_id = ' . $rs->post_id)
                     ->update($cur);
             }
         }

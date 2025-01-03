@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -22,36 +23,26 @@ class ZipTheme extends MaintenanceTask
 {
     /**
      * Task ID (class name).
-     *
-     * @var     null|string     $id
      */
     protected ?string $id = 'dcMaintenanceZiptheme';
 
     /**
      * Task permissions.
-     *
-     * @var     null|string     $perm
      */
     protected ?string $perm = 'admin';
 
     /**
      * Task limited to current blog.
-     *
-     * @var     bool    $blog
      */
     protected bool $blog = true;
 
     /**
      * Task tab container.
-     *
-     * @var     string  $tab
      */
     protected string $tab = 'backup';
 
     /**
      * Task group container.
-     *
-     * @var     string  $group
      */
     protected string $group = 'zipblog';
 
@@ -65,13 +56,13 @@ class ZipTheme extends MaintenanceTask
         $this->description = __('It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file.');
     }
 
-    public function execute()
+    public function execute(): bool|int
     {
         // Get theme path
         $path  = App::blog()->themesPath();
         $theme = App::blog()->settings()->system->theme;
         $dir   = Path::real($path . '/' . $theme);
-        if (empty($path) || empty($theme) || $dir === false || !is_dir($dir)) {
+        if ($path === '' || empty($theme) || $dir === false || !is_dir($dir)) {
             return false;
         }
 

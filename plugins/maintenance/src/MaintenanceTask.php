@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -21,8 +22,6 @@ class MaintenanceTask
 {
     /**
      * Task code.
-     *
-     * @var     int|null   $code
      */
     protected ?int $code = null;
 
@@ -42,85 +41,61 @@ class MaintenanceTask
 
     /**
      * Task use AJAX.
-     *
-     * @var     bool    $ajax
      */
     protected bool $ajax = false;
 
     /**
      * Task limited to current blog.
-     *
-     * @var     bool    $blog
      */
     protected bool $blog = false;
 
     /**
      * Task permissions.
-     *
-     * @var     null|string     $perm
      */
     protected ?string $perm = null;
 
     /**
      * Task ID (class name).
-     *
-     * @var     null|string     $id
      */
     protected ?string $id = null;
 
     /**
      * Task name.
-     *
-     * @var     string  $name
      */
     protected string $name = '';
 
     /**
      * Task description.
-     *
-     * @var     string  $description
      */
     protected string $description = '';
 
     /**
      * Task tab container.
-     *
-     * @var     string  $tab
      */
     protected string $tab = 'maintenance';
 
     /**
      * Task group container.
-     *
-     * @var     string  $group
      */
     protected string $group = 'other';
 
     /**
      * Task message.
-     *
-     * @var     string  $task
      */
     protected string $task = '';
 
     /**
      * Task step.
-     *
-     * @var     null|string     $step
      */
     protected ?string $step = null;
 
     /**
      * Task error message.
-     *
-     * @var     string  $error
      */
     protected string $error = '';
 
     /**
      * Task success message.
-     *
-     * @var     string  $success
      */
     protected string $success = '';
 
@@ -137,7 +112,7 @@ class MaintenanceTask
     ) {
         $this->init();
 
-        if (!preg_match('/^[a-zA-Z0-9_]+$/', (string) $this->id)) {
+        if (!preg_match('/^\w+$/', (string) $this->id)) {
             // Set id if not yet defined
             $path     = explode('\\', static::class);
             $this->id = array_pop($path);
@@ -148,13 +123,13 @@ class MaintenanceTask
             return;
         }
 
-        if (empty($this->name)) {
+        if ($this->name === '') {
             $this->name = (string) $this->id;
         }
-        if (empty($this->error)) {
+        if ($this->error === '') {
             $this->error = __('Failed to execute task.');
         }
-        if (empty($this->success)) {
+        if ($this->success === '') {
             $this->success = __('Task successfully executed.');
         }
 
@@ -211,7 +186,7 @@ class MaintenanceTask
      *
      * @return  false|int   Timestamp
      */
-    public function ts()
+    public function ts(): int|false
     {
         return $this->ts === false ? false : abs((int) $this->ts);
     }
@@ -326,10 +301,8 @@ class MaintenanceTask
      * Get step message.
      *
      * This message is displayed during task step execution.
-     *
-     * @return  mixed   Message or null
      */
-    public function step()
+    public function step(): ?string
     {
         return $this->step;
     }
@@ -390,7 +363,7 @@ class MaintenanceTask
      *    - TRUE if task is finished
      *    - INT if task required a next step
      */
-    public function execute()
+    public function execute(): bool|int
     {
         return true;
     }

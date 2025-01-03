@@ -125,7 +125,7 @@ class BackendList extends Listing
             $count++;
         }
 
-        $fmt = fn ($title, $image, $class) => sprintf(
+        $fmt = fn ($title, $image, $class): string => sprintf(
             (new Img('images/%2$s'))
                     ->alt('%1$s')
                     ->class(['mark', 'mark-%3$s'])
@@ -169,7 +169,7 @@ class BackendList extends Listing
                     ]),
             ])
         ->render();
-        if ($enclose_block) {
+        if ($enclose_block !== '') {
             $buffer = sprintf($enclose_block, $buffer);
         }
 
@@ -181,8 +181,6 @@ class BackendList extends Listing
      *
      * @param   int     $count      The count
      * @param   bool    $checked    The checked
-     *
-     * @return  Tr
      */
     private function postLine(int $count, bool $checked): Tr
     {
@@ -299,7 +297,7 @@ class BackendList extends Listing
         $this->userColumns('pages', $cols);
 
         return (new Tr())
-            ->id('p' . (string) $this->rs->post_id)
+            ->id('p' . $this->rs->post_id)
             ->class($post_classes)
             ->items([
                 (new Text(null, implode('', iterator_to_array($cols)))),

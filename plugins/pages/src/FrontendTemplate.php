@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -24,10 +25,8 @@ class FrontendTemplate
      * Widget public rendering helper.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
-    public static function pagesWidget(WidgetsElement $widget)
+    public static function pagesWidget(WidgetsElement $widget): string
     {
         $params = [];
         if ($widget->offline) {

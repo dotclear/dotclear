@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -48,7 +49,7 @@ class ManagePosts extends Process
 
         App::backend()->tag = $_REQUEST['tag'] ?? '';
 
-        App::backend()->page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
+        App::backend()->page        = empty($_GET['page']) ? 1 : max(1, (int) $_GET['page']);
         App::backend()->nb_per_page = 30;
 
         // Get posts

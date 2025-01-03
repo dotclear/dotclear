@@ -34,25 +34,19 @@ class BackendBehaviors
      * Add an editor button (if possible).
      *
      * @param   string  $id     The identifier
-     *
-     * @return  string
      */
     public static function adminCurrentThemeDetails(string $id): string
     {
-        if (App::auth()->isSuperAdmin()) {
-            // Check if it's not an officially distributed theme
-            if (App::blog()->settings()->system->themes_path !== App::blog()->settings()->system->getGlobal('themes_path')
-                || !App::themes()->getDefine($id)->get('distributed')
-            ) {
-                return (new Para())
-                    ->items([
-                        (new Link())
-                            ->href(My::manageUrl())
-                            ->class('button')
-                            ->text(__('Edit theme files')),
-                    ])
-                ->render();
-            }
+        // Check if it's not an officially distributed theme
+        if (App::auth()->isSuperAdmin() && (App::blog()->settings()->system->themes_path !== App::blog()->settings()->system->getGlobal('themes_path') || !App::themes()->getDefine($id)->get('distributed'))) {
+            return (new Para())
+                ->items([
+                    (new Link())
+                        ->href(My::manageUrl())
+                        ->class('button')
+                        ->text(__('Edit theme files')),
+                ])
+            ->render();
         }
 
         return '';
@@ -68,7 +62,7 @@ class BackendBehaviors
             App::auth()->prefs()->interface->put('colorsyntax', !empty($_POST['colorsyntax']), 'boolean');
             App::auth()->prefs()->interface->put(
                 'colorsyntax_theme',
-                (!empty($_POST['colorsyntax_theme']) ? $_POST['colorsyntax_theme'] : '')
+                (empty($_POST['colorsyntax_theme']) ? '' : $_POST['colorsyntax_theme'])
             );
         } catch (Exception $e) {
             App::error()->add($e->getMessage());

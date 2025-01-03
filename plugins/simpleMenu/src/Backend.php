@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -22,7 +23,8 @@ class Backend extends Process
     public static function init(): bool
     {
         // Dead but useful code (for l10n)
-        __('Simple menu') . __('Simple menu for Dotclear');
+        __('Simple menu');
+        __('Simple menu for Dotclear');
 
         return self::status(My::checkContext(My::BACKEND));
     }
@@ -34,7 +36,7 @@ class Backend extends Process
         }
 
         App::behavior()->addBehaviors([
-            'adminDashboardFavoritesV2' => function (Favorites $favs) {
+            'adminDashboardFavoritesV2' => function (Favorites $favs): string {
                 $favs->register(My::id(), [
                     'title'       => My::name(),
                     'url'         => My::manageUrl(),
@@ -44,6 +46,8 @@ class Backend extends Process
                         App::auth()::PERMISSION_ADMIN,
                     ]),
                 ]);
+
+                return '';
             },
             'initWidgets' => Widgets::initWidgets(...),
         ]);

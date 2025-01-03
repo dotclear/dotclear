@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -24,7 +25,8 @@ class Backend extends Process
     public static function init(): bool
     {
         // Dead but useful code (for l10n)
-        __('Pages') . __('Serve entries as simple web pages');
+        __('Pages');
+        __('Serve entries as simple web pages');
 
         return self::status(My::checkContext(My::BACKEND));
     }
@@ -47,15 +49,17 @@ class Backend extends Process
         My::addBackendMenuItem(App::backend()->menus()::MENU_BLOG);
 
         App::behavior()->addBehaviors([
-            'adminColumnsListsV2' => function (ArrayObject $cols) {
+            'adminColumnsListsV2' => function (ArrayObject $cols): string {
                 $cols['pages'] = [My::name(), [
                     'date'       => [true, __('Date')],
                     'author'     => [true, __('Author')],
                     'comments'   => [true, __('Comments')],
                     'trackbacks' => [true, __('Trackbacks')],
                 ]];
+
+                return '';
             },
-            'adminFiltersListsV2' => function (ArrayObject $sorts) {
+            'adminFiltersListsV2' => function (ArrayObject $sorts): string {
                 $sorts['pages'] = [
                     My::name(),
                     null,
@@ -63,8 +67,10 @@ class Backend extends Process
                     null,
                     [__('entries per page'), 30],
                 ];
+
+                return '';
             },
-            'adminDashboardFavoritesV2' => function (Favorites $favs) {
+            'adminDashboardFavoritesV2' => function (Favorites $favs): string {
                 $favs->register(My::id(), [
                     'title'       => My::name(),
                     'url'         => My::manageUrl(),
@@ -74,7 +80,7 @@ class Backend extends Process
                         App::auth()::PERMISSION_CONTENT_ADMIN,
                         Pages::PERMISSION_PAGES,
                     ]),
-                    'dashboard_cb' => function (ArrayObject $icon) {
+                    'dashboard_cb' => function (ArrayObject $icon): void {
                         /**
                          * @var        ArrayObject<string, mixed>
                          */
@@ -99,8 +105,10 @@ class Backend extends Process
                     ]),
                     'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] === My::id() && isset($params['act']) && $params['act'] == 'page' && !isset($params['id']),
                 ]);
+
+                return '';
             },
-            'adminUsersActionsHeaders' => fn () => My::jsLoad('_users_actions'),
+            'adminUsersActionsHeaders' => fn (): string => My::jsLoad('_users_actions'),
             'initWidgets'              => Widgets::initWidgets(...),
             'initDefaultWidgets'       => Widgets::initDefaultWidgets(...),
         ]);

@@ -122,7 +122,7 @@ class ListingBlogs extends Listing
             $lines[] = $this->blogLine(isset($blogs[$this->rs->blog_id]));
         }
 
-        $fmt = fn ($title, $image, $class) => (new Img('images/' . $image))
+        $fmt = fn ($title, $image, $class): string => (new Img('images/' . $image))
             ->class(['mark', 'mark-' . $class])
             ->alt($title)
         ->render() . ' ' . $title;
@@ -146,7 +146,7 @@ class ListingBlogs extends Listing
                     ]),
             ])
         ->render();
-        if ($enclose_block) {
+        if ($enclose_block !== '') {
             $buffer = sprintf($enclose_block, $buffer);
         }
 
@@ -157,8 +157,6 @@ class ListingBlogs extends Listing
      * Get a blog line.
      *
      * @param   bool    $checked    The checked flag
-     *
-     * @return  Tr
      */
     private function blogLine(bool $checked = false): Tr
     {

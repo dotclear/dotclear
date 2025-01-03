@@ -84,11 +84,11 @@ class FlatImportV2 extends FlatBackup
     /**
      * Constructs a new instance.
      *
-     * @param      mixed     $file   The file
+     * @param      string     $file   The file
      *
      * @throws     Exception
      */
-    public function __construct($file)
+    public function __construct(string $file)
     {
         parent::__construct($file);
 
@@ -109,8 +109,8 @@ class FlatImportV2 extends FlatBackup
             $this->dc_version = $l[1];
         }
 
-        $this->mode = isset($l[2]) ? strtolower(trim((string) $l[2])) : 'single';
-        if ($this->mode != 'full' && $this->mode != 'single') {
+        $this->mode = isset($l[2]) ? strtolower(trim($l[2])) : 'single';
+        if ($this->mode !== 'full' && $this->mode !== 'single') {
             $this->mode = 'single';
         }
 
@@ -173,7 +173,7 @@ class FlatImportV2 extends FlatBackup
 
     public function importSingle(): void
     {
-        if ($this->mode != 'single') {
+        if ($this->mode !== 'single') {
             throw new Exception(__('File is not a single blog export.'));
         }
 
@@ -236,22 +236,22 @@ class FlatImportV2 extends FlatBackup
                 if ($last_line_name != $line->__name) {
                     if (in_array($last_line_name, $constrained)) {
                         # UNDEFER
-                        if ($this->con->syntax() == 'mysql') {
+                        if ($this->con->syntax() === 'mysql') {
                             $this->con->execute('SET foreign_key_checks = 1');
                         }
 
-                        if ($this->con->syntax() == 'postgresql') {
+                        if ($this->con->syntax() === 'postgresql') {
                             $this->con->execute('SET CONSTRAINTS ALL DEFERRED');
                         }
                     }
 
                     if (in_array($line->__name, $constrained)) {
                         # DEFER
-                        if ($this->con->syntax() == 'mysql') {
+                        if ($this->con->syntax() === 'mysql') {
                             $this->con->execute('SET foreign_key_checks = 0');
                         }
 
-                        if ($this->con->syntax() == 'postgresql') {
+                        if ($this->con->syntax() === 'postgresql') {
                             $this->con->execute('SET CONSTRAINTS ALL IMMEDIATE');
                         }
                     }
@@ -277,18 +277,18 @@ class FlatImportV2 extends FlatBackup
                 App::behavior()->callBehavior('importSingleV2', $line, $this);
             }
 
-            if ($this->con->syntax() == 'mysql') {
+            if ($this->con->syntax() === 'mysql') {
                 $this->con->execute('SET foreign_key_checks = 1');
             }
 
-            if ($this->con->syntax() == 'postgresql') {
+            if ($this->con->syntax() === 'postgresql') {
                 $this->con->execute('SET CONSTRAINTS ALL DEFERRED');
             }
         } catch (Exception $e) {
             @fclose($this->fp);
             $this->con->rollback();
 
-            throw new Exception($e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line?->__line)); // @phpstan-ignore-line
+            throw new Exception($e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line?->__line), (int) $e->getCode(), $e); // @phpstan-ignore-line
         }
         @fclose($this->fp);
         $this->con->commit();
@@ -296,7 +296,7 @@ class FlatImportV2 extends FlatBackup
 
     public function importFull(): void
     {
-        if ($this->mode != 'full') {
+        if ($this->mode !== 'full') {
             throw new Exception(__('File is not a full export.'));
         }
 
@@ -342,7 +342,7 @@ class FlatImportV2 extends FlatBackup
             @fclose($this->fp);
             $this->con->rollback();
 
-            throw new Exception($e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line?->__line)); // @phpstan-ignore-line
+            throw new Exception($e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line?->__line), (int) $e->getCode(), $e); // @phpstan-ignore-line
         }
         @fclose($this->fp);
         $this->con->commit();
@@ -410,7 +410,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_setting->clean();
 
         $this->cur_setting->setting_id    = (string) $setting->setting_id;
-        $this->cur_setting->blog_id       = !$setting->blog_id ? null : (string) $setting->blog_id;
+        $this->cur_setting->blog_id       = $setting->blog_id ? (string) $setting->blog_id : null;
         $this->cur_setting->setting_ns    = (string) $setting->setting_ns;
         $this->cur_setting->setting_value = (string) $setting->setting_value;
         $this->cur_setting->setting_type  = (string) $setting->setting_type;
@@ -428,7 +428,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_pref->clean();
 
         $this->cur_pref->pref_id    = (string) $pref->pref_id;
-        $this->cur_pref->user_id    = !$pref->user_id ? null : (string) $pref->user_id;
+        $this->cur_pref->user_id    = $pref->user_id ? (string) $pref->user_id : null;
         $this->cur_pref->pref_ws    = (string) $pref->pref_ws;
         $this->cur_pref->pref_value = (string) $pref->pref_value;
         $this->cur_pref->pref_type  = (string) $pref->pref_type;
@@ -454,7 +454,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_user->user_displayname  = (string) $user->user_displayname;
         $this->cur_user->user_email        = (string) $user->user_email;
         $this->cur_user->user_url          = (string) $user->user_url;
-        $this->cur_user->user_default_blog = !$user->user_default_blog ? null : (string) $user->user_default_blog;
+        $this->cur_user->user_default_blog = $user->user_default_blog ? (string) $user->user_default_blog : null;
         $this->cur_user->user_lang         = (string) $user->user_lang;
         $this->cur_user->user_tz           = (string) $user->user_tz;
         $this->cur_user->user_post_status  = (int) $user->user_post_status;
@@ -486,7 +486,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_post->clean();
 
         $cat_id = (int) $post->cat_id;
-        if (!$cat_id) {
+        if ($cat_id === 0) {
             $cat_id = null;
         }
 
@@ -623,7 +623,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_spamrule->clean();
 
         $this->cur_spamrule->rule_id      = (int) $spamrule->rule_id;
-        $this->cur_spamrule->blog_id      = !$spamrule->blog_id ? null : (string) $spamrule->blog_id;
+        $this->cur_spamrule->blog_id      = $spamrule->blog_id ? (string) $spamrule->blog_id : null;
         $this->cur_spamrule->rule_type    = (string) $spamrule->rule_type;
         $this->cur_spamrule->rule_content = (string) $spamrule->rule_content;
 
@@ -682,7 +682,7 @@ class FlatImportV2 extends FlatBackup
             $this->insertPost($post);
             $this->stack['post_id']++;
         } else {
-            self::throwIdError($post->__name, $post->__line, 'category');
+            $this->throwIdError($post->__name, $post->__line, 'category');
         }
     }
 
@@ -692,7 +692,7 @@ class FlatImportV2 extends FlatBackup
             $meta->post_id = $this->old_ids['post'][(int) $meta->post_id];
             $this->insertMeta($meta);
         } else {
-            self::throwIdError($meta->__name, $meta->__line, 'post');
+            $this->throwIdError($meta->__name, $meta->__line, 'post');
         }
     }
 
@@ -718,9 +718,9 @@ class FlatImportV2 extends FlatBackup
 
             $this->insertPostMedia($post_media);
         } elseif (!isset($this->old_ids['media'][(int) $post_media->media_id])) {
-            self::throwIdError($post_media->__name, $post_media->__line, 'media');
+            $this->throwIdError($post_media->__name, $post_media->__line, 'media');
         } else {
-            self::throwIdError($post_media->__name, $post_media->__line, 'post');
+            $this->throwIdError($post_media->__name, $post_media->__line, 'post');
         }
     }
 
@@ -731,7 +731,7 @@ class FlatImportV2 extends FlatBackup
 
             $this->insertPing($ping);
         } else {
-            self::throwIdError($ping->__name, $ping->__line, 'post');
+            $this->throwIdError($ping->__name, $ping->__line, 'post');
         }
     }
 
@@ -746,11 +746,11 @@ class FlatImportV2 extends FlatBackup
             $this->insertComment($comment);
             $this->stack['comment_id']++;
         } else {
-            self::throwIdError($comment->__name, $comment->__line, 'post');
+            $this->throwIdError($comment->__name, $comment->__line, 'post');
         }
     }
 
-    private static function throwIdError(string $name, string $line, string $related): mixed
+    private function throwIdError(string $name, string $line, string $related): mixed
     {
         throw new Exception(sprintf(
             __('ID of "%3$s" does not match on record "%1$s" at line %2$s of backup file.'),
@@ -782,7 +782,7 @@ class FlatImportV2 extends FlatBackup
                 # We change user_id, we need to check again
                 if (!$this->userExists($user_id)) {
                     $this->cur_user->clean();
-                    $this->cur_user->user_id  = (string) $user_id;
+                    $this->cur_user->user_id  = $user_id;
                     $this->cur_user->user_pwd = md5(uniqid());
 
                     App::users()->addUser($this->cur_user);
@@ -873,11 +873,10 @@ class FlatImportV2 extends FlatBackup
                 $line->post_content_xhtml = $line->post_content;
                 $line->post_excerpt_xhtml = $line->post_chapo;
 
-                if ($line->post_format == 'wiki') {
+                if ($line->post_format === 'wiki') {
                     $line->post_content = $line->post_content_wiki;
                     $line->post_excerpt = $line->post_chapo_wiki;
                 } else {
-                    $line->post_content = $line->post_content;
                     $line->post_excerpt = $line->post_chapo;
                 }
 

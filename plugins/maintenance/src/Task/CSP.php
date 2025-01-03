@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -21,15 +22,11 @@ class CSP extends MaintenanceTask
 {
     /**
      * Task ID (class name).
-     *
-     * @var     null|string     $id
      */
     protected ?string $id = 'dcMaintenanceCSP';
 
     /**
      * Task group container.
-     *
-     * @var     string  $group
      */
     protected string $group = 'purge';
 
@@ -45,7 +42,7 @@ class CSP extends MaintenanceTask
         $this->description = __('Remove the Content-Security-Policy report file.');
     }
 
-    public function execute()
+    public function execute(): bool|int
     {
         $csp_file = Path::real(App::config()->varRoot()) . '/csp/csp_report.json';
         if (file_exists($csp_file)) {

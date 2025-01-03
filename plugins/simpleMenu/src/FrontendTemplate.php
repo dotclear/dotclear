@@ -36,8 +36,6 @@ class FrontendTemplate
      *  1). The link description (used as menuitem label) may be put as title of the link element, inside a span or both
      *
      * @param   ArrayObject<string, mixed>     $attr   The attributes
-     *
-     * @return  string
      */
     public static function simpleMenu(ArrayObject $attr): string
     {
@@ -64,8 +62,6 @@ class FrontendTemplate
      * Widget rendering function.
      *
      * @param   WidgetsElement  $widget     The widget
-     *
-     * @return  string
      */
     public static function simpleMenuWidget(WidgetsElement $widget): string
     {
@@ -88,7 +84,7 @@ class FrontendTemplate
             $description = $descr_type[$widget->get('description')];
         }
         $menu = self::displayMenu('', '', $description);
-        if ($menu == '') {
+        if ($menu === '') {
             return '';
         }
 
@@ -106,8 +102,6 @@ class FrontendTemplate
      * @param   string  $class          The class
      * @param   string  $id             The identifier
      * @param   string  $description    The description (see above)
-     *
-     * @return  string
      */
     public static function displayMenu(string $class = '', string $id = '', string $description = ''): string
     {
@@ -126,8 +120,8 @@ class FrontendTemplate
             // Home recognition var
             $home_url       = Html::stripHostURL(App::blog()->url());
             $home_directory = dirname($home_url);
-            if ($home_directory != '/') {
-                $home_directory = $home_directory . '/';
+            if ($home_directory !== '/') {
+                $home_directory .= '/';
             }
 
             // Menu items loop
@@ -138,36 +132,36 @@ class FrontendTemplate
 
                 # Cope with request only URL (ie ?query_part)
                 $href_part = '';
-                if ($href != '' && str_starts_with($href, '?')) {
+                if ($href !== '' && str_starts_with($href, '?')) {
                     $href_part = substr($href, 1);
                 }
 
-                $targetBlank = ((isset($m['targetBlank'])) && ($m['targetBlank'])) ? true : false;
+                $targetBlank = (isset($m['targetBlank'])) && ($m['targetBlank']);
 
                 # Active item test
                 $active = false;
-                if (($url == $href) || ($abs_url == $href) || ($_SERVER['URL_REQUEST_PART'] == $href) || (($href_part != '') && ($_SERVER['URL_REQUEST_PART'] == $href_part)) || (($_SERVER['URL_REQUEST_PART'] == '') && (($href == $home_url) || ($href == $home_directory)))) {
+                if (($url == $href) || ($abs_url === $href) || ($_SERVER['URL_REQUEST_PART'] == $href) || (($href_part !== '') && ($_SERVER['URL_REQUEST_PART'] == $href_part)) || (($_SERVER['URL_REQUEST_PART'] == '') && (($href === $home_url) || ($href === $home_directory)))) {
                     $active = true;
                 }
                 $title = $span = '';
 
                 if ($m['descr']) {
-                    if (($description == 'title' || $description == 'both') && $targetBlank) {
+                    if (($description === 'title' || $description === 'both') && $targetBlank) {
                         $title = Html::escapeHTML($m['descr']) . ' (' .
                         __('new window') . ')';
-                    } elseif ($description == 'title' || $description == 'both') {
+                    } elseif ($description === 'title' || $description === 'both') {
                         $title = Html::escapeHTML($m['descr']);
                     }
-                    if ($description == 'span' || $description == 'both') {
+                    if ($description === 'span' || $description === 'both') {
                         $span = ' <span class="simple-menu-descr">' . Html::escapeHTML($m['descr']) . '</span>';
                     }
                 }
 
-                if (empty($title) && $targetBlank) {
+                if ($title === '' && $targetBlank) {
                     $title = __('new window');
                 }
                 if ($active && !$targetBlank) {
-                    $title = (empty($title) ? __('Active page') : $title . ' (' . __('active page') . ')');
+                    $title = ($title === '' ? __('Active page') : $title . ' (' . __('active page') . ')');
                 }
 
                 $label = Html::escapeHTML($m['label']);
@@ -192,7 +186,7 @@ class FrontendTemplate
                     '">' .
 
                     '<a href="' . $item['url'] . '"' .
-                    (!empty($item['title']) ? ' title="' . $item['label'] . ' - ' . $item['title'] . '"' : '') .
+                    (empty($item['title']) ? '' : ' title="' . $item['label'] . ' - ' . $item['title'] . '"') .
                     (($targetBlank) ? ' target="_blank" rel="noopener noreferrer"' : '') . '>' .
 
                     '<span class="simple-menu-label">' . $item['label'] . '</span>' . $item['span'] .
@@ -202,8 +196,8 @@ class FrontendTemplate
                     '</li>';
             }
             // Final rendering
-            if ($ret) {
-                $ret = '<nav role="navigation"><ul ' . ($id ? 'id="' . $id . '"' : '') . ' class="simple-menu' . ($class ? ' ' . $class : '') . '">' . "\n" . $ret . "\n" . '</ul></nav>';
+            if ($ret !== '') {
+                $ret = '<nav role="navigation"><ul ' . ($id !== '' ? 'id="' . $id . '"' : '') . ' class="simple-menu' . ($class !== '' ? ' ' . $class : '') . '">' . "\n" . $ret . "\n" . '</ul></nav>';
             }
         }
 

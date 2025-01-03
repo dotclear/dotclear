@@ -325,11 +325,9 @@ class ModuleImportFlat extends Module
             while (($entry = $dir->read()) !== false) {
                 $entry_path = $dir->path . '/' . $entry;
 
-                if (is_file($entry_path) && is_readable($entry_path)) {
-                    // Do not test each zip file content here, its too long
-                    if ((str_ends_with($entry_path, '.zip')) || (self::checkFileContent($entry_path))) {
-                        $public_files[$entry] = $entry_path;
-                    }
+                // Do not test each zip file content here, its too long
+                if (is_file($entry_path) && is_readable($entry_path) && (str_ends_with($entry_path, '.zip') || self::checkFileContent($entry_path))) {
+                    $public_files[$entry] = $entry_path;
                 }
             }
         }
@@ -341,8 +339,6 @@ class ModuleImportFlat extends Module
      * Check if the file is in flat export format.
      *
      * @param   string  $entry_path     The entry path
-     *
-     * @return  bool
      */
     protected static function checkFileContent(string $entry_path): bool
     {
@@ -366,7 +362,7 @@ class ModuleImportFlat extends Module
      *
      * @return  false|string
      */
-    private function unzip(string $file)
+    private function unzip(string $file): false|string
     {
         $zip = new Unzip($file);
 

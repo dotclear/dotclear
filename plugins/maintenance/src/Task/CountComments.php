@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -22,15 +23,11 @@ class CountComments extends MaintenanceTask
 {
     /**
      * Task ID (class name).
-     *
-     * @var     null|string     $id
      */
     protected ?string $id = 'dcMaintenanceCountcomments';
 
     /**
      * Task group container.
-     *
-     * @var     string  $group
      */
     protected string $group = 'index';
 
@@ -46,7 +43,7 @@ class CountComments extends MaintenanceTask
         $this->description = __('Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2).');
     }
 
-    public function execute()
+    public function execute(): bool|int
     {
         $this->countAllComments();
 
@@ -69,7 +66,7 @@ class CountComments extends MaintenanceTask
             ->field($sql_count_com->count('C.comment_id'))
             ->from($sql_count_com->alias(App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME, 'C'))
             ->where('C.post_id = P.post_id')
-            ->and('C.comment_status = ' . (string) App::blog()::COMMENT_PUBLISHED);
+            ->and('C.comment_status = ' . App::blog()::COMMENT_PUBLISHED);
 
         $sql_count_tb = clone $sql_count_com;
 

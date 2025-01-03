@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -21,22 +22,16 @@ class Logs extends MaintenanceTask
 {
     /**
      * Task ID (class name).
-     *
-     * @var     null|string     $id
      */
     protected ?string $id = 'dcMaintenanceLogs';
 
     /**
      * Keep maintenance logs?
-     *
-     * @var     bool    $keep_maintenance_logs
      */
     public static bool $keep_maintenance_logs = true;
 
     /**
      * Task group container.
-     *
-     * @var     string  $group
      */
     protected string $group = 'purge';
 
@@ -52,7 +47,7 @@ class Logs extends MaintenanceTask
         $this->description = __('Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time.');
     }
 
-    public function execute()
+    public function execute(): bool|int
     {
         if (static::$keep_maintenance_logs) {
             $sql = new DeleteStatement();

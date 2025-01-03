@@ -198,7 +198,7 @@ class ModuleImportWp extends Module
                 break;
             case 'step5':
                 $this->step        = 5;
-                $this->post_offset = !empty($_REQUEST['offset']) ? abs((int) $_REQUEST['offset']) : 0;
+                $this->post_offset = empty($_REQUEST['offset']) ? 0 : abs((int) $_REQUEST['offset']);
                 $percent           = 0;
                 if ($this->importPosts($percent) === -1) {
                     Http::redirect($this->getURL() . '&do=ok');
@@ -421,10 +421,8 @@ class ModuleImportWp extends Module
      * @param   int     $step           The step
      * @param   string  $legend         The legend
      * @param   string  $submit_value   The submit value
-     *
-     * @return  string
      */
-    protected function imForm(int $step, string $legend, ?string $submit_value = null)
+    protected function imForm(int $step, string $legend, ?string $submit_value = null): string
     {
         if (!$submit_value) {
             $submit_value = __('next step') . ' >';
@@ -437,7 +435,7 @@ class ModuleImportWp extends Module
                 (new Text('h3', $legend))->class('vertical-separator'),
                 ...My::hiddenFields(),
                 (new Div())->items([
-                    (new Hidden(['do'], 'step' . (string) $step)),
+                    (new Hidden(['do'], 'step' . $step)),
                     (new Text(null, '%s')),
                 ]),
                 (new Para())->class('vertical-separator')->items([
@@ -545,7 +543,7 @@ class ModuleImportWp extends Module
                                     break;
                                 case 'rich_editing':
                                     $cur->user_options = new ArrayObject([
-                                        'enable_wysiwyg' => $rs_meta->meta_value == 'true' ? true : false,
+                                        'enable_wysiwyg' => $rs_meta->meta_value == 'true',
                                     ]);
 
                                     break;
@@ -695,10 +693,8 @@ class ModuleImportWp extends Module
      * Entries import.
      *
      * @param   int     $percent    The percent
-     *
-     * @return  mixed
      */
-    protected function importPosts(&$percent)
+    protected function importPosts(&$percent): ?int
     {
         $db        = $this->db();
         $wp_prefix = $this->vars['db_prefix'];
@@ -742,11 +738,9 @@ class ModuleImportWp extends Module
         }
         $this->post_offset += $this->post_limit;
 
-        if ($this->post_offset > $this->post_count) {
-            $percent = 100;
-        } else {
-            $percent = (int) ($this->post_offset * 100 / $this->post_count);
-        }
+        $percent = $this->post_offset > $this->post_count ? 100 : (int) ($this->post_offset * 100 / $this->post_count);
+
+        return null;
     }
 
     /**
@@ -757,7 +751,7 @@ class ModuleImportWp extends Module
      */
     protected function importPost($rs, $db): void
     {
-        $post_date = !@strtotime($rs->post_date) ? '1970-01-01 00:00' : $rs->post_date;
+        $post_date = @strtotime($rs->post_date) ? $rs->post_date : '1970-01-01 00:00';
         if (!isset($this->vars['user_ids'][$rs->post_author])) {
             $user_id = App::auth()->userID();
         } else {
@@ -772,7 +766,7 @@ class ModuleImportWp extends Module
         $cur->post_upddt  = $rs->post_modified;
         $cur->post_title  = Txt::cleanStr($rs->post_title);
 
-        if (!$cur->post_title) {
+        if ($cur->post_title === '') {
             $cur->post_title = 'No title';
         }
 
@@ -812,7 +806,7 @@ class ModuleImportWp extends Module
         );
         $cur->post_url = substr($cur->post_url, 0, 255);
 
-        if (!$cur->post_url) {
+        if ($cur->post_url === '') {
             $cur->post_url = $rs->ID;
         }
 
@@ -821,10 +815,10 @@ class ModuleImportWp extends Module
         if (count($_post_content) == 1) {
             $cur->post_excerpt       = null;
             $cur->post_excerpt_xhtml = null;
-            $cur->post_content       = Txt::cleanStr((string) array_shift($_post_content));
+            $cur->post_content       = Txt::cleanStr($_post_content[0]);
         } else {
-            $cur->post_excerpt = Txt::cleanStr((string) array_shift($_post_content));
-            $cur->post_content = Txt::cleanStr((string) array_shift($_post_content));
+            $cur->post_excerpt = Txt::cleanStr($_post_content[0]);
+            $cur->post_content = Txt::cleanStr($_post_content[1]);
         }
 
         $cur->post_content_xhtml = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_content);
@@ -888,7 +882,7 @@ class ModuleImportWp extends Module
 
         while ($rs->fetch()) {
             $cur                    = App::blog()->openCommentCursor();
-            $cur->post_id           = (int) $new_post_id;
+            $cur->post_id           = $new_post_id;
             $cur->comment_author    = Txt::cleanStr($rs->comment_author);
             $cur->comment_status    = (int) $rs->comment_approved;
             $cur->comment_dt        = $rs->comment_date;
@@ -897,7 +891,7 @@ class ModuleImportWp extends Module
             $cur->comment_ip        = $rs->comment_author_IP;
             $cur->comment_trackback = $rs->comment_type == 'trackback' ? 1 : 0;
             $cur->comment_site      = substr(Txt::cleanStr($rs->comment_author_url), 0, 255);
-            if ($cur->comment_site == '') {
+            if ($cur->comment_site === '') {
                 $cur->comment_site = null;
             }
 
@@ -913,8 +907,8 @@ class ModuleImportWp extends Module
 
             $cur->insert();
 
-            if ($cur->comment_status == App::blog()::COMMENT_PUBLISHED) {
-                if ($cur->comment_trackback) {
+            if ($cur->comment_status === App::blog()::COMMENT_PUBLISHED) {
+                if ($cur->comment_trackback !== 0) {
                     $count_t++;
                 } else {
                     $count_c++;

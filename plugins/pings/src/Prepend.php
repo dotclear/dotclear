@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -31,17 +32,17 @@ class Prepend extends Process
             return false;
         }
 
-        App::behavior()->addBehavior('coreFirstPublicationEntries', function (BlogInterface $blog) {
+        App::behavior()->addBehavior('coreFirstPublicationEntries', function (BlogInterface $blog): string {
             if (!$blog->settings()->pings->pings_active) {
-                return;
+                return '';
             }
             if (!$blog->settings()->pings->pings_auto) {
-                return;
+                return'';
             }
 
             $pings_uris = $blog->settings()->pings->pings_uris;
             if (empty($pings_uris) || !is_array($pings_uris)) {
-                return;
+                return'';
             }
 
             foreach ($pings_uris as $uri) {
@@ -50,6 +51,8 @@ class Prepend extends Process
                 } catch (Exception) {
                 }
             }
+
+            return '';
         });
 
         return true;

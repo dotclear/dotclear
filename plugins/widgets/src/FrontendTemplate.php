@@ -28,10 +28,8 @@ class FrontendTemplate
      *      - disable             Comma separated list of widget to disable, default to empty
      *
      * @param   ArrayObject<string, mixed>     $attr   The attributes
-     *
-     * @return  string
      */
-    public static function tplWidgets($attr)
+    public static function tplWidgets($attr): string
     {
         $type = $attr['type'] ?? '';
 
@@ -57,13 +55,9 @@ class FrontendTemplate
         $wtype   = 'widgets_' . $type;
         $widgets = My::settings()->get($wtype);
 
-        if (!is_array($widgets)) {
-            // If widgets value is empty, get defaults
-            $widgets = self::Widgets($type);
-        } else {
-            // Otherwise, load widgets
-            $widgets = WidgetsStack::load($widgets);
-        }
+        // If widgets value is empty, get defaults
+        // Otherwise, load widgets
+        $widgets = is_array($widgets) ? WidgetsStack::load($widgets) : self::Widgets($type);
 
         if ($widgets->isEmpty()) {
             // Widgets are empty, don't show anything
@@ -93,8 +87,6 @@ class FrontendTemplate
      *
      * @param   ArrayObject<string, mixed>      $attr       The attributes
      * @param   string                          $content    The content
-     *
-     * @return  string
      */
     public static function tplIfWidgets(ArrayObject $attr, string $content): string
     {
@@ -121,21 +113,15 @@ class FrontendTemplate
      * tplIfWidgets helper.
      *
      * @param   string  $type   The type
-     *
-     * @return  bool
      */
     public static function ifWidgetsHandler(string $type): bool
     {
         $wtype   = 'widgets_' . $type;
         $widgets = My::settings()->get($wtype);
 
-        if (!is_array($widgets)) {
-            // If widgets value is empty, get defaults
-            $widgets = self::Widgets($type);
-        } else {
-            // Otherwise, load widgets
-            $widgets = WidgetsStack::load($widgets);
-        }
+        // If widgets value is empty, get defaults
+        // Otherwise, load widgets
+        $widgets = is_array($widgets) ? WidgetsStack::load($widgets) : self::Widgets($type);
 
         return !$widgets->isEmpty();
     }
@@ -144,8 +130,6 @@ class FrontendTemplate
      * Get default widgets list helper.
      *
      * @param   string  $type    The type
-     *
-     * @return  WidgetsStack
      */
     private static function Widgets(string $type): WidgetsStack
     {
@@ -161,8 +145,6 @@ class FrontendTemplate
      *
      * @param   ArrayObject<string, mixed>      $attr       The attributes
      * @param   string                          $content    The content (widget optional settings)
-     *
-     * @return  string
      */
     public static function tplWidget(ArrayObject $attr, string $content): string
     {
@@ -208,13 +190,9 @@ class FrontendTemplate
                     continue;
                 }
 
-                $setting = (string) $e['name'];
-                if ($e->count() > 0) {
-                    $text = preg_replace('#^<setting[^>]*>(.*)</setting>$#msu', '\1', (string) $e->asXML());
-                } else {
-                    $text = $e;
-                }
-                $widget->{$setting} = preg_replace_callback('/\{tpl:lang (.*?)\}/msu', fn ($m) => __($m[1]), (string) $text);
+                $setting            = (string) $e['name'];
+                $text               = $e->count() > 0 ? preg_replace('#^<setting[^>]*>(.*)</setting>$#msu', '\1', (string) $e->asXML()) : $e;
+                $widget->{$setting} = preg_replace_callback('/\{tpl:lang (.*?)\}/msu', fn ($m): string => __($m[1]), (string) $text);
             }
         }
 

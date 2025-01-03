@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -23,7 +24,8 @@ class Backend extends Process
     public static function init(): bool
     {
         // Dead but useful code (for l10n)
-        __('Pings') . __('Ping services');
+        __('Pings');
+        __('Ping services');
 
         return self::status(My::checkContext(My::BACKEND));
     }
@@ -37,23 +39,27 @@ class Backend extends Process
         My::addBackendMenuItem(App::backend()->menus()::MENU_BLOG, [], '');
 
         App::behavior()->addBehaviors([
-            'adminPostHeaders'     => fn () => My::jsLoad('post') . My::cssLoad('style'),
+            'adminPostHeaders'     => fn (): string => My::jsLoad('post') . My::cssLoad('style'),
             'adminPostFormItems'   => BackendBehaviors::pingsFormItems(...),
             'adminAfterPostCreate' => BackendBehaviors::doPings(...),
             'adminAfterPostUpdate' => BackendBehaviors::doPings(...),
 
-            'adminDashboardFavoritesV2' => function (Favorites $favs) {
+            'adminDashboardFavoritesV2' => function (Favorites $favs): string {
                 $favs->register(My::id(), [
                     'title'      => My::name(),
                     'url'        => My::manageUrl(),
                     'small-icon' => My::icons(),
                     'large-icon' => My::icons(),
                 ]);
+
+                return '';
             },
-            'adminPageHelpBlock' => function (ArrayObject $blocks) {
+            'adminPageHelpBlock' => function (ArrayObject $blocks): string {
                 if (in_array('core_post', $blocks->getArrayCopy(), true)) {
                     $blocks->append('pings_post');
                 }
+
+                return '';
             },
         ]);
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -10,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\maintenance\Task;
 
 use Dotclear\App;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Text;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
@@ -22,36 +24,26 @@ class IndexPosts extends MaintenanceTask
 {
     /**
      * Task ID (class name).
-     *
-     * @var     null|string     $id
      */
     protected ?string $id = 'dcMaintenanceIndexposts';
 
     /**
      * Task use AJAX.
-     *
-     * @var     bool    $ajax
      */
     protected bool $ajax = true;
 
     /**
      * Task group container.
-     *
-     * @var     string  $group
      */
     protected string $group = 'index';
 
     /**
      * Number of comments to process by step.
-     *
-     * @var     int     $limit
      */
     protected int $limit = 500;
 
     /**
      * Next step label.
-     *
-     * @var     string  $step_task
      */
     protected string $step_task;
 
@@ -70,7 +62,7 @@ class IndexPosts extends MaintenanceTask
         $this->description = __('Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages.');
     }
 
-    public function execute()
+    public function execute(): bool|int
     {
         $this->code = $this->indexAllPosts((int) $this->code, $this->limit);
 
@@ -82,7 +74,7 @@ class IndexPosts extends MaintenanceTask
         return $this->code ? $this->step_task : $this->task;
     }
 
-    public function step()
+    public function step(): ?string
     {
         return $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code) : null;
     }
@@ -107,7 +99,7 @@ class IndexPosts extends MaintenanceTask
             ->column($sql->count('post_id'))
             ->from(App::con()->prefix() . App::blog()::POST_TABLE_NAME)
             ->select();
-        $count = $run ? $run->f(0) : 0;
+        $count = $run instanceof MetaRecord ? $run->f(0) : 0;
 
         $sql = new SelectStatement();
         $sql
@@ -123,7 +115,8 @@ class IndexPosts extends MaintenanceTask
             $sql->limit([$start, $limit]);
         }
 
-        if ($rs = $sql->select()) {
+        $rs = $sql->select();
+        if ($rs instanceof MetaRecord) {
             $cur = App::blog()->openPostCursor();
 
             while ($rs->fetch()) {

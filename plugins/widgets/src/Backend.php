@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -23,7 +24,8 @@ class Backend extends Process
     public static function init(): bool
     {
         // Dead but useful code (for l10n)
-        __('Widgets') . __('Widgets for your blog sidebars');
+        __('Widgets');
+        __('Widgets for your blog sidebars');
 
         return self::status(My::checkContext(My::BACKEND));
     }
@@ -35,16 +37,20 @@ class Backend extends Process
         }
 
         App::behavior()->addBehaviors([
-            'adminDashboardFavoritesV2' => function (Favorites $favs) {
+            'adminDashboardFavoritesV2' => function (Favorites $favs): string {
                 $favs->register(My::id(), [
                     'title'      => My::name(),
                     'url'        => My::manageUrl(),
                     'small-icon' => My::icons(),
                     'large-icon' => My::icons(),
                 ]);
+
+                return '';
             },
-            'adminRteFlagsV2' => function (ArrayObject $rte) {
+            'adminRteFlagsV2' => function (ArrayObject $rte): string {
                 $rte['widgets_text'] = [true, __('Widget\'s textareas')];
+
+                return '';
             },
         ]);
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -90,13 +91,13 @@ class Manage extends Process
 
             # Append 1 widget
             $wid = false;
-            if (gettype($_POST['append']) == 'array' && count($_POST['append']) == 1) {
+            if (gettype($_POST['append']) === 'array' && count($_POST['append']) === 1) {
                 $wid = array_keys($_POST['append']);
                 $wid = $wid[0];
             }
 
             # Append widgets
-            if (!empty($addw)) {
+            if ($addw !== []) {
                 if (!(App::backend()->widgets_nav instanceof WidgetsStack)) {
                     App::backend()->widgets_nav = new WidgetsStack();
                 }
@@ -135,8 +136,8 @@ class Manage extends Process
         # Removing ?
         $removing = false;
         if (isset($_POST['w']) && is_array($_POST['w'])) {
-            foreach ($_POST['w'] as $nsid => $nsw) {
-                foreach ($nsw as $i => $v) {
+            foreach ($_POST['w'] as $nsw) {
+                foreach ($nsw as $v) {
                     if (!empty($v['_rem'])) {
                         $removing = true;
 
@@ -383,9 +384,9 @@ class Manage extends Process
                         (new Submit(['wup'], __('Update sidebars'))),
                         (new Button(['_back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
                         (new Submit(['wreset'], __('Reset sidebars')))->class('reset'),
-                        !$user_dm_nodragdrop ?
-                            (new Button(null, __('Temporarily display the action buttons for each widget')))->id('switch-dragndrop') :
-                            (new None()),
+                        $user_dm_nodragdrop ?
+                            new None() :
+                            (new Button(null, __('Temporarily display the action buttons for each widget')))->id('switch-dragndrop'),
                     ]),
             ])
         ->render();
@@ -405,7 +406,7 @@ class Manage extends Process
 
                             break;
                         case 'combo':
-                            $s['options'] = array_map(fn ($v) => ($v == '' ? '&lt;' . __('empty string') . '&gt;' : $v), $s['options']);
+                            $s['options'] = array_map(fn ($v): mixed => ($v == '' ? '&lt;' . __('empty string') . '&gt;' : $v), $s['options']);
                             $s_type       = __('listitem') . ', ' . __('possible values:') . ' <code>' . implode('</code>, <code>', $s['options']) . '</code>';
 
                             break;
@@ -460,10 +461,8 @@ class Manage extends Process
      * @param      string           $pr               The widget group id
      * @param      WidgetsStack     $default_widgets  The default widgets
      * @param      int              $j                Current widget counter
-     *
-     * @return     Set
      */
-    protected static function sidebarWidgets(string $id, string $title, ?WidgetsStack $widgets, string $pr, WidgetsStack $default_widgets, &$j): Set
+    protected static function sidebarWidgets(string $id, string $title, ?WidgetsStack $widgets, string $pr, WidgetsStack $default_widgets, int &$j): Set
     {
         if (!($widgets instanceof WidgetsStack)) {
             $widgets = $default_widgets;
@@ -531,7 +530,7 @@ class Manage extends Process
                     ->items([
                         (new Li())
                             ->class('empty-widgets')
-                            ->extra(!$widgets->isEmpty() ? 'style="display: none;"' : '')
+                            ->extra($widgets->isEmpty() ? '' : 'style="display: none;"')
                             ->text(__('No widget as far.')),
                         ...$lines,
                     ]),

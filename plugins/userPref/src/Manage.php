@@ -47,8 +47,6 @@ class Manage extends Process
 {
     /**
      * Initializes the page.
-     *
-     * @return     bool
      */
     public static function init(): bool
     {
@@ -61,8 +59,6 @@ class Manage extends Process
 
     /**
      * Processes the request(s).
-     *
-     * @return     bool
      */
     public static function process(): bool
     {
@@ -212,9 +208,9 @@ class Manage extends Process
         $elements = [];
 
         ksort($prefs, SORT_FLAG_CASE | SORT_STRING);
-        if (count($prefs)) {
+        if ($prefs !== []) {
             $ws_combo = [];
-            foreach ($prefs as $ws => $s) {
+            foreach (array_keys($prefs) as $ws) {
                 $ws_combo[$ws] = $prefix_id . $ws;
             }
 
@@ -306,8 +302,6 @@ class Manage extends Process
      * @param   string                  $ws             The workspace
      * @param   string                  $field_name     The field name
      * @param   bool                    $strong_label   The strong label
-     *
-     * @return     Tr
      */
     protected static function prefLine(string $id, array $s, string $ws, string $field_name, bool $strong_label): Tr
     {

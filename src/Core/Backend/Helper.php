@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -25,8 +26,6 @@ class Helper
      * @param string    $alt        alt attribute
      * @param string    $title      title attribute
      * @param string    $class      class attribute
-     *
-     * @return string
      */
     public static function adminIcon($img, bool $fallback = true, string $alt = '', string $title = '', string $class = ''): string
     {
@@ -52,14 +51,14 @@ class Helper
             $icons[0] = (new Img($light_img))
                 ->class(array_filter([$dark_img !== '' ? 'light-only' : '', $class]))
                 ->alt($alt);
-            if ($title) {
+            if ($title !== '') {
                 $icons[0]->title($title);
             }
             if ($dark_img !== '') {
                 $icons[1] = (new Img($dark_img))
                     ->class(array_filter(['dark-only', $class]))
                     ->alt($alt);
-                if ($title) {
+                if ($title !== '') {
                     $icons[1]->title($title);
                 }
             }
@@ -77,7 +76,7 @@ class Helper
     {
         App::lang()->setLang((string) App::auth()->getInfo('user_lang'));
 
-        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() != 'en') {
+        if (L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
             L10n::set(App::config()->l10nRoot() . '/en/date');
         }
         L10n::set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/main');

@@ -59,7 +59,7 @@ class Manage extends Process
         if (!empty($_REQUEST['task'])) {
             App::backend()->task = App::backend()->maintenance->getTask($_REQUEST['task']);
 
-            if (App::backend()->task === null) {
+            if (!App::backend()->task instanceof MaintenanceTask) {
                 App::error()->add('Unknown task ID');
             }
 
@@ -308,14 +308,14 @@ class Manage extends Process
                             ]);
                     }
 
-                    if (!empty($tasks)) {
+                    if ($tasks !== []) {
                         $groups[] = (new Fieldset())
                             ->legend(new Legend($group_obj->name(), $group_obj->id()))
                             ->fields($tasks);
                     }
                 }
 
-                if (!empty($groups)) {
+                if ($groups !== []) {
                     echo (new Div($tab_obj->id()))
                         ->class('multi-part')
                         ->title($tab_obj->name())

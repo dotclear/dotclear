@@ -210,18 +210,7 @@ class Manage extends Process
         if (App::blog()->settings()->system->themes_path !== App::blog()->settings()->system->getGlobal('themes_path')
             || !App::themes()->getDefine(App::blog()->settings()->system->theme)->get('distributed')
         ) {
-            $editorMode = '';
-            if (App::backend()->user_ui_colorsyntax) {
-                $editorMode = (!empty($_REQUEST['css']) ?
-                    'css' :
-                    (!empty($_REQUEST['js']) ?
-                        'javascript' :
-                        (!empty($_REQUEST['po']) ?
-                            'text/plain' :
-                            (!empty($_REQUEST['php']) ?
-                                'php' :
-                                'text/html'))));
-            }
+            $editorMode = App::backend()->user_ui_colorsyntax ? self::getEditorMode() : '';
 
             if (App::backend()->file['c'] === null) {
                 $items = [
@@ -320,5 +309,23 @@ class Manage extends Process
         }
 
         Page::closeModule();
+    }
+
+    private static function getEditorMode(): string
+    {
+        $modes = [
+            'css' => 'css',
+            'js'  => 'javascript',
+            'po'  => 'text/plain',
+            'php' => 'php',
+        ];
+
+        foreach ($modes as $request => $mode) {
+            if (isset($_REQUEST[$request]) && !empty($_REQUEST[$request])) {
+                return $mode;
+            }
+        }
+
+        return 'text/html';
     }
 }

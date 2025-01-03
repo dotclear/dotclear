@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -38,7 +39,7 @@ class Rest
         }
 
         $maintenance = new Maintenance();
-        if (($task = $maintenance->getTask($post['task'])) === null) {
+        if (!($task = $maintenance->getTask($post['task'])) instanceof MaintenanceTask) {
             throw new Exception('Unknown task ID');
         }
 
@@ -72,7 +73,7 @@ class Rest
 
         return [
             'ret' => true,
-            'msg' => ($count ? sprintf(__('One task to execute', '%s tasks to execute', $count), $count) : ''),
+            'msg' => ($count !== 0 ? sprintf(__('One task to execute', '%s tasks to execute', $count), $count) : ''),
             'nb'  => $count,
         ];
     }

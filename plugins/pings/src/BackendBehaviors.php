@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -42,11 +43,7 @@ class BackendBehaviors
             return;
         }
 
-        if (!empty($_POST['pings_do']) && is_array($_POST['pings_do'])) {
-            $pings_do = $_POST['pings_do'];
-        } else {
-            $pings_do = [];
-        }
+        $pings_do = !empty($_POST['pings_do']) && is_array($_POST['pings_do']) ? $_POST['pings_do'] : [];
 
         $index    = 0;
         $services = [];

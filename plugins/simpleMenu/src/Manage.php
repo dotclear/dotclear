@@ -150,7 +150,7 @@ class Manage extends Process
         if (count(App::backend()->langs_combo) > 1) {
             $items['lang'] = new ArrayObject([__('Language'), true]);   // @phpstan-ignore-line
         }
-        if (count(App::backend()->categories_combo)) {
+        if (App::backend()->categories_combo !== []) {
             $items['category'] = new ArrayObject([__('Category'), true]);   // @phpstan-ignore-line
         }
         if (count(App::backend()->months_combo) > 1) {
@@ -203,7 +203,7 @@ class Manage extends Process
         App::backend()->step = self::STEP_LIST;
         if (!empty($_POST['saveconfig'])) {
             try {
-                App::backend()->menu_active = (empty($_POST['active'])) ? false : true;
+                App::backend()->menu_active = !empty($_POST['active']);
                 App::blog()->settings()->system->put('simpleMenu_active', App::backend()->menu_active, 'boolean');
                 App::blog()->triggerBlog();
 
@@ -220,9 +220,9 @@ class Manage extends Process
             App::backend()->item_label  = $_POST['item_label']  ?? '';
             App::backend()->item_descr  = $_POST['item_descr']  ?? '';
             App::backend()->item_url    = $_POST['item_url']    ?? '';
-            $item_targetBlank           = isset($_POST['item_targetBlank']) ? (empty($_POST['item_targetBlank']) ? false : true) : false;
+            $item_targetBlank           = isset($_POST['item_targetBlank']) && !empty($_POST['item_targetBlank']);
             # Traitement
-            App::backend()->step = (!empty($_GET['add']) ? (int) $_GET['add'] : self::STEP_LIST);
+            App::backend()->step = (empty($_GET['add']) ? self::STEP_LIST : (int) $_GET['add']);
             if ((App::backend()->step > self::STEP_ADD) || (App::backend()->step < self::STEP_LIST)) {
                 App::backend()->step = self::STEP_LIST;
             }
@@ -382,11 +382,11 @@ class Manage extends Process
                 if (!empty($_POST['removeaction'])) {
                     try {
                         if (!empty($_POST['items_selected'])) {
-                            foreach ($_POST['items_selected'] as $k => $v) {
+                            foreach ($_POST['items_selected'] as $v) {
                                 $menu[$v]['label'] = '';
                             }
                             $newmenu = [];
-                            foreach ($menu as $k => $v) {
+                            foreach ($menu as $v) {
                                 if ($v['label']) {
                                     $newmenu[] = [
                                         'label'       => $v['label'],
@@ -431,7 +431,7 @@ class Manage extends Process
                                 'label'       => $_POST['items_label'][$i],
                                 'descr'       => $_POST['items_descr'][$i],
                                 'url'         => $_POST['items_url'][$i],
-                                'targetBlank' => (empty($_POST['items_targetBlank' . $i])) ? false : true,
+                                'targetBlank' => !empty($_POST['items_targetBlank' . $i]),
                             ];
                         }
                         $menu = $newmenu;
@@ -450,9 +450,9 @@ class Manage extends Process
                                 }
                                 $order = explode(',', (string) $order);
                             }
-                            if (!empty($order)) {
+                            if ($order !== []) {
                                 $newmenu = [];
-                                foreach ($order as $i => $k) {
+                                foreach ($order as $k) {
                                     $newmenu[] = [
                                         'label' => $menu[$k]['label'],
                                         'descr' => $menu[$k]['descr'],
@@ -513,11 +513,7 @@ class Manage extends Process
                         break;
                     }
                 case self::STEP_ATTRIBUTES:
-                    if (App::backend()->items[App::backend()->item_type][1]) {
-                        $step_label = __('Step #3');
-                    } else {
-                        $step_label = __('Step #2');
-                    }
+                    $step_label = App::backend()->items[App::backend()->item_type][1] ? __('Step #3') : __('Step #2');
 
                     break;
             }
@@ -781,7 +777,7 @@ class Manage extends Process
             ->render();
         }
 
-        if (count(App::backend()->current_menu)) {
+        if (count(App::backend()->current_menu) > 0) {
             // Prepare list
 
             // Entête table
@@ -860,7 +856,7 @@ class Manage extends Process
                         (new Td())
                             ->class('nowrap')
                             ->items([
-                                (new Checkbox('items_targetBlank' . (string) $i, $targetBlank))
+                                (new Checkbox('items_targetBlank' . $i, $targetBlank))
                                     ->value('blank'),
                             ]),
                     ];
@@ -882,7 +878,7 @@ class Manage extends Process
                 }
 
                 $rows[] = (new Tr())
-                    ->id('l_' . (string) $i)
+                    ->id('l_' . $i)
                     ->class('line')
                     ->cols($cols);
             }

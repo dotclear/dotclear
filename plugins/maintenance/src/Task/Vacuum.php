@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -20,15 +21,11 @@ class Vacuum extends MaintenanceTask
 {
     /**
      * Task ID (class name).
-     *
-     * @var     null|string     $id
      */
     protected ?string $id = 'dcMaintenanceVacuum';
 
     /**
      * Task group container.
-     *
-     * @var     string  $group
      */
     protected string $group = 'optimize';
 
@@ -45,7 +42,7 @@ class Vacuum extends MaintenanceTask
         $this->description = __("After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export.");
     }
 
-    public function execute()
+    public function execute(): bool|int
     {
         $schema = App::con()->schema();
 

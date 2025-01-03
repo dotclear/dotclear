@@ -76,11 +76,7 @@ class FrontendUrl extends Url
                     # Get passwords cookie
                     if (isset($_COOKIE['dc_passwd'])) {
                         $pwd_cookie = json_decode((string) $_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
-                        if ($pwd_cookie === null) {
-                            $pwd_cookie = [];
-                        } else {
-                            $pwd_cookie = (array) $pwd_cookie;
-                        }
+                        $pwd_cookie = $pwd_cookie === null ? [] : (array) $pwd_cookie;
                     } else {
                         $pwd_cookie = [];
                     }
@@ -121,7 +117,7 @@ class FrontendUrl extends Url
                     if ($content != '') {
                         # --BEHAVIOR-- publicBeforeCommentTransform -- string
                         $buffer = App::behavior()->callBehavior('publicBeforeCommentTransform', $content);
-                        if ($buffer != '') {
+                        if ($buffer !== '') {
                             $content = $buffer;
                         } else {
                             if (App::blog()->settings()->system->wiki_comments) {
@@ -174,11 +170,7 @@ class FrontendUrl extends Url
                                 App::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
-                            if ($cur->comment_status == App::blog()::COMMENT_PUBLISHED) {
-                                $redir_arg = 'pub=1';
-                            } else {
-                                $redir_arg = 'pub=0';
-                            }
+                            $redir_arg = $cur->comment_status === App::blog()::COMMENT_PUBLISHED ? 'pub=1' : 'pub=0';
 
                             header('Location: ' . $redir . $redir_arg);
                         } catch (Exception $e) {
@@ -225,7 +217,7 @@ class FrontendUrl extends Url
                 self::p404();
             } else {
                 App::frontend()->context()->preview = true;
-                if (App::config()->adminUrl() != '') {
+                if (App::config()->adminUrl() !== '') {
                     App::frontend()->context()->xframeoption = App::config()->adminUrl();
                 }
 

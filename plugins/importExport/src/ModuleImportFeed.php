@@ -92,10 +92,8 @@ class ModuleImportFeed extends Module
                     $dns = [...$dns4, ...$dns6];
                 }
             }
-        } else {
-            if ($dns6 !== false) {
-                $dns = $dns6;
-            }
+        } elseif ($dns6 !== false) {
+            $dns = $dns6;
         }
         $ip6 = [];
         $ip4 = [];
@@ -107,9 +105,9 @@ class ModuleImportFeed extends Module
                 $ip6[] = $record['ipv6'];
             }
         }
-        if (!count($ip6)) {
+        if ($ip6 === []) {
             if ($try_a) {
-                if (!count($ip4)) {
+                if ($ip4 === []) {
                     return false;
                 }
 
@@ -151,7 +149,7 @@ class ModuleImportFeed extends Module
                 throw new Exception(__('Cannot retrieve feed URL.'));
             }
             $ip = gethostbyname($bits['host']);
-            if ($ip == $bits['host']) {
+            if ($ip === $bits['host']) {
                 $ip = $this->gethostbyname6($bits['host']);
                 if (!$ip) {
                     throw new Exception(__('Cannot retrieve feed URL.'));
@@ -166,16 +164,12 @@ class ModuleImportFeed extends Module
                 throw new Exception(__('Cannot retrieve feed URL.'));
             }
             // IP control (white list regexp)
-            if (App::blog()->settings()->system->import_feed_ip_regexp != '') {
-                if (!preg_match(App::blog()->settings()->system->import_feed_ip_regexp, $ip)) {
-                    throw new Exception(__('Cannot retrieve feed URL.'));
-                }
+            if (App::blog()->settings()->system->import_feed_ip_regexp != '' && !preg_match(App::blog()->settings()->system->import_feed_ip_regexp, $ip)) {
+                throw new Exception(__('Cannot retrieve feed URL.'));
             }
             // Port control (white list regexp)
-            if (App::blog()->settings()->system->import_feed_port_regexp != '' && isset($bits['port'])) {
-                if (!preg_match(App::blog()->settings()->system->import_feed_port_regexp, (string) $bits['port'])) {
-                    throw new Exception(__('Cannot retrieve feed URL.'));
-                }
+            if (App::blog()->settings()->system->import_feed_port_regexp != '' && isset($bits['port']) && !preg_match(App::blog()->settings()->system->import_feed_port_regexp, (string) $bits['port'])) {
+                throw new Exception(__('Cannot retrieve feed URL.'));
             }
         }
 

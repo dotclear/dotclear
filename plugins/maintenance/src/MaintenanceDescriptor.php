@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -82,8 +83,6 @@ class MaintenanceDescriptor
      * Test if an option exists.
      *
      * @param   string  $key    The key
-     *
-     * @return  bool
      */
     public function __isset(string $key): bool
     {

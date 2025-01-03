@@ -164,7 +164,7 @@ class ModuleImportDc1 extends Module
                 break;
             case 'step5':
                 $this->step        = 5;
-                $this->post_offset = !empty($_REQUEST['offset']) ? abs((int) $_REQUEST['offset']) : 0;
+                $this->post_offset = empty($_REQUEST['offset']) ? 0 : abs((int) $_REQUEST['offset']);
                 $percent           = 0;
                 if ($this->importPosts($percent) === -1) {
                     Http::redirect($this->getURL() . '&do=ok');
@@ -342,8 +342,6 @@ class ModuleImportDc1 extends Module
      * @param   int     $step           The step
      * @param   string  $legend         The legend
      * @param   string  $submit_value   The submit value
-     *
-     * @return  string
      */
     protected function imForm(int $step, string $legend, ?string $submit_value = null): string
     {
@@ -358,7 +356,7 @@ class ModuleImportDc1 extends Module
                 (new Text('h3', $legend))->class('vertical-separator'),
                 ...My::hiddenFields(),
                 (new Div())->items([
-                    (new Hidden(['do'], 'step' . (string) $step)),
+                    (new Hidden(['do'], 'step' . $step)),
                     (new Text(null, '%s')),
                 ]),
                 (new Para())->class('vertical-separator')->items([
@@ -573,10 +571,8 @@ class ModuleImportDc1 extends Module
      * Entries import.
      *
      * @param   int     $percent    The progress (in %)
-     *
-     * @return  mixed
      */
-    protected function importPosts(&$percent)
+    protected function importPosts(&$percent): ?int
     {
         $db         = $this->db();
         $dc1_prefix = $this->vars['db_prefix'];
@@ -610,11 +606,9 @@ class ModuleImportDc1 extends Module
         }
         $this->post_offset += $this->post_limit;
 
-        if ($this->post_offset > $this->post_count) {
-            $percent = 100;
-        } else {
-            $percent = (int) ($this->post_offset * 100 / $this->post_count);
-        }
+        $percent = $this->post_offset > $this->post_count ? 100 : (int) ($this->post_offset * 100 / $this->post_count);
+
+        return null;
     }
 
     /**
@@ -641,7 +635,7 @@ class ModuleImportDc1 extends Module
         $cur->post_content_xhtml = Txt::cleanStr($rs->post_content);
         $cur->post_excerpt_xhtml = Txt::cleanStr($rs->post_chapo);
 
-        if ($cur->post_format == 'wiki') {
+        if ($cur->post_format === 'wiki') {
             $cur->post_content = Txt::cleanStr($rs->post_content_wiki);
             $cur->post_excerpt = Txt::cleanStr($rs->post_chapo_wiki);
         } else {
@@ -705,7 +699,7 @@ class ModuleImportDc1 extends Module
             $cur->comment_trackback = (int) $rs->comment_trackback;
 
             $cur->comment_site = Txt::cleanStr($rs->comment_site);
-            if ($cur->comment_site != '' && !preg_match('!^http(s)?://.*$!', $cur->comment_site)) {
+            if ($cur->comment_site !== '' && !preg_match('!^http(s)?://.*$!', $cur->comment_site)) {
                 $cur->comment_site = substr('http://' . $cur->comment_site, 0, 255);
             }
 
@@ -721,8 +715,8 @@ class ModuleImportDc1 extends Module
 
             $cur->insert();
 
-            if ($cur->comment_status == App::blog()::COMMENT_PUBLISHED) {
-                if ($cur->comment_trackback) {
+            if ($cur->comment_status === App::blog()::COMMENT_PUBLISHED) {
+                if ($cur->comment_trackback !== 0) {
                     $count_t++;
                 } else {
                     $count_c++;
@@ -735,7 +729,7 @@ class ModuleImportDc1 extends Module
                 'UPDATE ' . $this->prefix . App::blog()::POST_TABLE_NAME . ' SET ' .
                 'nb_comment = ' . $count_c . ', ' .
                 'nb_trackback = ' . $count_t . ' ' .
-                'WHERE post_id = ' . (int) $new_post_id . ' '
+                'WHERE post_id = ' . $new_post_id . ' '
             );
         }
     }
@@ -763,7 +757,7 @@ class ModuleImportDc1 extends Module
             }
 
             $cur           = App::trackback()->openTrackbackCursor();
-            $cur->post_id  = (int) $new_post_id;
+            $cur->post_id  = $new_post_id;
             $cur->ping_url = $url;
             $cur->ping_dt  = $rs->ping_dt;
             $cur->insert();

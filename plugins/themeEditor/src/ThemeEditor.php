@@ -33,10 +33,8 @@ class ThemeEditor
 {
     /**
      * Current theme.
-     *
-     * @var     string  $user_theme
      */
-    protected $user_theme;
+    protected string $user_theme;
 
     /**
      * Parent theme if any.
@@ -47,10 +45,8 @@ class ThemeEditor
 
     /**
      * Theme template set.
-     *
-     * @var     string  $tplset_theme
      */
-    protected $tplset_theme;
+    protected string $tplset_theme;
 
     /**
      * Parent theme name if any.
@@ -61,10 +57,8 @@ class ThemeEditor
 
     /**
      * Theme template set name.
-     *
-     * @var     string  $tplset_name
      */
-    protected $tplset_name;
+    protected string $tplset_name;
 
     /**
      * List of file from parent theme if any and from theme template set.
@@ -140,14 +134,12 @@ class ThemeEditor
      *
      * @param   string  $type   The type of file
      * @param   string  $item   The item pattern
-     *
-     * @return  string
      */
     public function filesList(string $type, string  $item = '%1$s'): string
     {
         $files = $this->getFilesFromType($type);
 
-        if (empty($files)) {
+        if ($files === []) {
             return (new Note())
                 ->text(__('No file'))
             ->render();
@@ -172,14 +164,14 @@ class ThemeEditor
         }
 
         $groups = [];
-        if (count($tpl_theme)) {
+        if ($tpl_theme !== []) {
             $groups[] = (new Li())->class('group-file')
                 ->text(__('From theme:'))
                 ->items([
                     (new Ul())->items($tpl_theme),
                 ]);
         }
-        if (count($tpl_parent)) {
+        if ($tpl_parent !== []) {
             $name     = (new Text('strong', $this->parent_name))->render();
             $groups[] = (new Details())
                 ->summary(new Summary(__('From parent:') . ' ' . $name))
@@ -189,7 +181,7 @@ class ThemeEditor
                     ]),
                 ]);
         }
-        if (count($tpl_template)) {
+        if ($tpl_template !== []) {
             $name     = (new Text('strong', $this->tplset_name))->render();
             $groups[] = (new Details())
                 ->summary(new Summary(__('From template set:') . ' ' . $name))
@@ -281,7 +273,7 @@ class ThemeEditor
 
             if ($type === 'po') {
                 // Build PHP file from PO
-                L10n::generatePhpFileFromPo(dirname($dest) . '/' . basename($dest, '.po'), self::license_block());
+                L10n::generatePhpFileFromPo(dirname($dest) . '/' . basename($dest, '.po'), $this->license_block());
             }
 
             // Updating inner files list
@@ -296,8 +288,6 @@ class ThemeEditor
      *
      * @param   string  $type   The type
      * @param   string  $f      The file ID
-     *
-     * @return  bool
      */
     public function deletableFile(string $type, string $f): bool
     {
@@ -309,13 +299,9 @@ class ThemeEditor
         $files = $this->getFilesFromType($type);
         if (isset($files[$f])) {
             $dest = $this->getDestinationFile($type, $f);
-            if ($dest) {
-                if (file_exists($dest) && is_writable($dest)) {
-                    // Is there a model (parent theme or template set) ?
-                    if (isset($this->tpl_model[$f])) {
-                        return true;
-                    }
-                }
+            // Is there a model (parent theme or template set) ?
+            if ($dest && (file_exists($dest) && is_writable($dest)) && isset($this->tpl_model[$f])) {
+                return true;
             }
         }
 
@@ -361,10 +347,8 @@ class ThemeEditor
      *
      * @param   string  $type   The type
      * @param   string  $f      The file ID
-     *
-     * @return  false|string     The destination file.
      */
-    protected function getDestinationFile(string $type, string $f)
+    protected function getDestinationFile(string $type, string $f): false|string
     {
         if ($type === 'tpl') {
             $dest = $this->user_theme . '/tpl/' . $f;
@@ -378,16 +362,12 @@ class ThemeEditor
             return $dest;
         }
 
-        if ($type === 'tpl' && !is_dir(dirname($dest))) {
-            if (is_writable($this->user_theme)) {
-                return $dest;
-            }
+        if ($type === 'tpl' && !is_dir(dirname($dest)) && is_writable($this->user_theme)) {
+            return $dest;
         }
 
-        if ($type === 'po' && !is_dir(dirname($dest))) {
-            if (is_writable($this->user_theme)) {
-                return $dest;
-            }
+        if ($type === 'po' && !is_dir(dirname($dest)) && is_writable($this->user_theme)) {
+            return $dest;
         }
 
         if (is_writable(dirname($dest))) {
@@ -533,8 +513,6 @@ class ThemeEditor
      *
      * @param   string  $a  1st file
      * @param   string  $b  2nd file
-     *
-     * @return  int
      */
     protected function sortFilesHelper(string $a, string $b): int
     {
@@ -568,10 +546,8 @@ class ThemeEditor
         if ($d !== false) {
             while (($f = $d->read()) !== false) {
                 /* @phpstan-ignore-next-line */
-                if (is_file($dir . '/' . $f) && !preg_match('/^\./', $f) && (!$ext || preg_match('/\.' . preg_quote($ext) . '$/i', $f))) {
-                    if (!$model || preg_match('/^' . preg_quote($model) . '$/i', $f)) { // @phpstan-ignore-line
-                        $res[$prefix . $f] = $dir . '/' . $f;
-                    }
+                if (is_file($dir . '/' . $f) && !preg_match('/^\./', $f) && (!$ext || preg_match('/\.' . preg_quote($ext) . '$/i', $f)) && (!$model || preg_match('/^' . preg_quote($model) . '$/i', $f))) {
+                    $res[$prefix . $f] = $dir . '/' . $f;
                 }
             }
         }
@@ -579,7 +555,7 @@ class ThemeEditor
         return $res;
     }
 
-    private static function license_block(): string
+    private function license_block(): string
     {
         // Tricky code to avoid xgettext bug on indented end heredoc identifier (see https://savannah.gnu.org/bugs/?62158)
         // Warning: don't use <<< if there is some __() l10n calls after as xgettext will not find them

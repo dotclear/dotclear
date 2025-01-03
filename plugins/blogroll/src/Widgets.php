@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -34,7 +35,7 @@ class Widgets
         $hierarchy_cat    = array_keys($hierarchy);
         $categories_combo = [__('All categories') => ''];
         foreach ($hierarchy_cat as $category) {
-            if ($category) {
+            if ($category !== '') {
                 $categories_combo[$category] = $category;
             }
         }

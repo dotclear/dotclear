@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -26,8 +27,6 @@ class PingsAPI extends Client
      * @param   null|string     $site_url   The site url
      *
      * @throws  Exception
-     *
-     * @return  bool
      */
     public static function doPings(string $srv_uri, ?string $site_name, ?string $site_url): bool
     {

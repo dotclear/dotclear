@@ -30,50 +30,36 @@ abstract class Module
 {
     /**
      * Module type.
-     *
-     * @var     string  $type
      */
     public string $type;
 
     /**
      * Module ID (class name).
-     *
-     * @var     string  $id
      */
     public string $id;
 
     /**
      * Module name.
-     *
-     * @var     string  $name
      */
     public string $name;
 
     /**
      * Module description.
-     *
-     * @var     string  $description
      */
     public string $description;
 
     /**
      * Import URL.
-     *
-     * @var     string  $import_url
      */
     protected string $import_url;
 
     /**
      * Export URL.
-     *
-     * @var     string  $export_url
      */
     protected string $export_url;
 
     /**
      * Module URL.
-     *
-     * @var     string  $url
      */
     protected string $url;
 
@@ -90,7 +76,7 @@ abstract class Module
             throw new Exception(sprintf('Unknown type for module %s', static::class));
         }
 
-        if (!$this->name) {
+        if ($this->name === '') {
             $this->name = static::class;
         }
 
@@ -114,8 +100,6 @@ abstract class Module
      * Gets the module URL.
      *
      * @param   bool    $escape     The escape
-     *
-     * @return  string  The url.
      */
     final public function getURL(bool $escape = false): string
     {
@@ -138,8 +122,6 @@ abstract class Module
      * Return a progress bar.
      *
      * @param   float   $percent    The percent
-     *
-     * @return  string
      */
     protected function progressBar(float $percent): string
     {
@@ -159,8 +141,6 @@ abstract class Module
 
     /**
      * Return a hidden autosubmit input field.
-     *
-     * @return  string
      */
     protected function autoSubmit(): string
     {
@@ -169,10 +149,8 @@ abstract class Module
 
     /**
      * Return a congratulation message.
-     *
-     * @return  string
      */
-    protected function congratMessage()
+    protected function congratMessage(): string
     {
         return (new Set())->items([
             (new Text('h3', __('Congratulation!'))),

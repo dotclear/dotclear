@@ -45,8 +45,6 @@ class BackendBehaviors
      *
      * @param   string  $editor     The editor
      * @param   string  $context    The context
-     *
-     * @return  string
      */
     public static function adminPostEditor(string $editor = '', string $context = ''): string
     {
@@ -181,7 +179,7 @@ class BackendBehaviors
         if (!empty($_POST['post_tags'])) {
             $value = $_POST['post_tags'];
         } else {
-            $value = ($post) ? $meta->getMetaStr($post->post_meta, 'tag') : '';
+            $value = $post instanceof MetaRecord ? $meta->getMetaStr($post->post_meta, 'tag') : '';
         }
 
         $sidebar['metas-box']['items']['post_tags'] = (new Para(null, 'h5'))
@@ -383,7 +381,7 @@ class BackendBehaviors
                     }
                 }
             }
-            if (empty($tags)) {
+            if ($tags === []) {
                 throw new Exception(__('No tags for selected entries'));
             }
             $ap->beginPage(
@@ -463,8 +461,6 @@ class BackendBehaviors
 
     /**
      * Admin user preferences tags fieldset.
-     *
-     * @return  string
      */
     public static function adminUserForm(): string
     {
@@ -499,8 +495,6 @@ class BackendBehaviors
      *
      * @param   Cursor          $cur        The current
      * @param   null|string     $user_id    The user identifier
-     *
-     * @return  string
      */
     public static function setTagListFormat(Cursor $cur, ?string $user_id = null): string
     {
