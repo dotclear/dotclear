@@ -11,8 +11,10 @@
  * @copyright   AGPL-3.0
  */
 
-use Dotclear\Core\Backend\Helper;
 use Dotclear\App;
+use Dotclear\Core\Backend\Helper;
+use Dotclear\Exception\AppException;
+use Dotclear\Fault;
 
 /**
  * Load locales.
@@ -67,4 +69,18 @@ function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', stri
 function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false): void
 {
     App::backend()->menus()->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict);
+}
+
+/**
+ * @brief   Error handling function.
+ *
+ * @deprecated  since 2.27, use class Dotclear\Fault instead
+ *
+ * @param   string  $summary    The summary
+ * @param   string  $message    The message
+ * @param   int     $code   The code
+ */
+function __error(string $summary, string $message, int $code = 0): void
+{
+    new Fault(new AppException($summary, $code, new AppException($message, $code)));
 }
