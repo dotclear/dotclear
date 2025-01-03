@@ -583,7 +583,7 @@ class Url extends UrlHandler implements UrlInterface
                         // Post the comment
                         $cur = App::blog()->openCommentCursor();
 
-                        $cur->comment_author  = $name;
+                        $cur->comment_author  = Html::clean($name);
                         $cur->comment_site    = Html::clean($site);
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
