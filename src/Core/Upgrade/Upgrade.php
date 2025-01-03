@@ -30,10 +30,8 @@ class Upgrade
      * Do Dotclear upgrade if necessary.
      *
      * @throws  Exception
-     *
-     * @return  bool|int
      */
-    public static function dotclearUpgrade()
+    public static function dotclearUpgrade(): false|int
     {
         $version = App::version()->getVersion('core');
 

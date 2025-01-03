@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin dcProxyV2 plugin importExport aliases
@@ -18,7 +19,7 @@ class flatImport extends flatImportV2
     /**
      * Constructs a new instance.
      */
-    public function __construct(dcCore $core, $file)    // @phpstan-ignore-line
+    public function __construct(dcCore $core, string $file)    // @phpstan-ignore-line
     {
         parent::__construct($file);
     }

@@ -30,7 +30,7 @@ class DeleteStatement extends SqlStatement
         App::behavior()->callBehavior('coreBeforeDeleteStatement', $this);
 
         // Check if source given
-        if (!count($this->from)) {
+        if ($this->from === []) {
             trigger_error(__('SQL DELETE requires a FROM source'), E_USER_WARNING);
         }
 
@@ -41,13 +41,13 @@ class DeleteStatement extends SqlStatement
         $query .= 'FROM ' . $this->from[0] . ' ';
 
         // Where clause(s)
-        if (count($this->where)) {
+        if ($this->where !== []) {
             $query .= 'WHERE ' . implode(' AND ', $this->where) . ' ';
         }
 
         // Direct where clause(s)
-        if (count($this->cond)) {
-            if (!count($this->where)) {
+        if ($this->cond !== []) {
+            if ($this->where === []) {
                 // Hack to cope with the operator included in top of each condition
                 $query .= 'WHERE ' . ($this->syntax === 'sqlite' ? '1' : 'TRUE') . ' ';
             }
@@ -55,7 +55,7 @@ class DeleteStatement extends SqlStatement
         }
 
         // Generic clause(s)
-        if (count($this->sql)) {
+        if ($this->sql !== []) {
             $query .= implode(' ', $this->sql) . ' ';
         }
 

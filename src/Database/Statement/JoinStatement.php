@@ -89,7 +89,7 @@ class JoinStatement extends SqlStatement
         App::behavior()->callBehavior('coreBeforeJoinStatement', $this);
 
         // Check if source given
-        if (!count($this->from)) {
+        if ($this->from === []) {
             trigger_error(__('SQL JOIN requires a FROM source'), E_USER_WARNING);
         }
 
@@ -105,17 +105,17 @@ class JoinStatement extends SqlStatement
         $query .= $this->from[0] . ' ';
 
         // Where clause(s)
-        if (count($this->where)) {
+        if ($this->where !== []) {
             $query .= 'ON ' . implode(' AND ', $this->where) . ' ';
         }
 
         // Direct where clause(s)
-        if (count($this->cond)) {
+        if ($this->cond !== []) {
             $query .= implode(' ', $this->cond) . ' ';
         }
 
         // Generic clause(s)
-        if (count($this->sql)) {
+        if ($this->sql !== []) {
             $query .= implode(' ', $this->sql) . ' ';
         }
 

@@ -510,10 +510,8 @@ class MetaRecord implements Iterator, Countable
      *
      * @param string|int    $n            Field name|position
      * @param mixed         $v            Field value
-     *
-     * @return mixed
      */
-    public function set($n, $v)
+    public function set($n, $v): ?bool
     {
         if ($this->static instanceof StaticRecord) {
             return $this->static->set($n, $v);

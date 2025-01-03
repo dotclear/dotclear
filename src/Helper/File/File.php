@@ -181,7 +181,7 @@ class File
         $stat = stat($file);
         $path = Path::info($file);
 
-        $rel = (string) preg_replace('/^' . preg_quote((string) $root, '/') . '\/?/', '', (string) $file);
+        $rel = (string) preg_replace('/^' . preg_quote((string) $root, '/') . '\/?/', '', $file);
 
         // Properties
         $this->file     = $file;

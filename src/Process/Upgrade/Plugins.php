@@ -270,7 +270,7 @@ class Plugins extends Process
             $search  = self::$plugins_list->getSearch();
             $defines = $search ? self::$plugins_list->store->searchDefines($search) : self::$plugins_list->store->getDefines();
 
-            if (!empty($search) || $defines !== []) {
+            if ($search !== null && $search !== '' || $defines !== []) {
                 echo
                 '<div class="multi-part" id="new" title="' . __('Add plugins') . '">' .
                 '<h3>' . __('Add plugins from repository') . '</h3>';

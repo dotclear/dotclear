@@ -30,7 +30,7 @@ class DropStatement extends SqlStatement
         App::behavior()->callBehavior('coreBeforeDropStatement', $this);
 
         // Check if source given
-        if (!count($this->from)) {
+        if ($this->from === []) {
             trigger_error(__('SQL DROP TABLE requires a FROM source'), E_USER_WARNING);
         }
 

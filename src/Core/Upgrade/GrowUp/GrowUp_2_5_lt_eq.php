@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -32,7 +33,7 @@ class GrowUp_2_5_lt_eq
             if (($p = @dir($root)) === false) {
                 continue;
             }
-            if (Path::real($root) == $default) {
+            if (Path::real($root) === $default) {
                 continue;
             }
             if (($d = @dir($root . 'daInstaller')) === false) {
