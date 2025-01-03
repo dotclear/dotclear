@@ -35,8 +35,6 @@ use Throwable;
  * Sends and receives trackbacks/pingbacks.
  * Also handles trackbacks/pingbacks auto discovery.
  *
- * @todo    Use SqlStatement in Trackaback class
- *
  * @since   2.28, container services have been added to constructor
  */
 class Trackback implements TrackbackInterface

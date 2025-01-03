@@ -1950,8 +1950,6 @@ class Blog implements BlogInterface
     /**
      * Get a category filter SQL clause
      *
-     * @todo    Use sqlStatement in getPostsCategoryFilter
-     *
      * @param  array<string>    $arr        filters
      */
     private function getPostsCategoryFilter($arr, string $field = 'cat_id'): string

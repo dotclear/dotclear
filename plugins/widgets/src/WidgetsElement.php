@@ -227,7 +227,7 @@ class WidgetsElement
         if (empty($wtscheme)) {
             $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
             /**
-             * @todo should be reviewed as the default tpl set may change in future
+             * @todo should be reviewed as the default tpl set (mustek) may change in future
              *
              * Use H2 for mustek based themes and H3 for dotty based themes
              */
@@ -254,8 +254,8 @@ class WidgetsElement
         $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgetsubtitleformat');
         if (empty($wtscheme)) {
             $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-            /*
-             * @todo should be reviewed as the default tpl set may change in future
+            /**
+             * @todo should be reviewed as the default tpl set (mustek) may change in future
              *
              * Use H3 for mustek based themes and H4 for dotty based themes
              */

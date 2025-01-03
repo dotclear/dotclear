@@ -22,8 +22,6 @@ use Dotclear\Interface\Core\BlogInterface;
 /**
  * @brief   The module blogroll handler.
  * @ingroup blogroll
- *
- * @todo    Use sqlStatement in plugin blogroll handler
  */
 class Blogroll
 {
