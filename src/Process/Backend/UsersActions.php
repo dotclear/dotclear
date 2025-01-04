@@ -11,9 +11,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Html;
@@ -24,7 +24,8 @@ use form;
 /**
  * @since   2.27 Before as admin/users_actions.php
  *
- * @todo    Move UsersActions to backend Actions
+ * @todo switch Helper/Html/Form/...
+ * @todo Move UsersActions to backend Actions
  */
 class UsersActions extends Process
 {

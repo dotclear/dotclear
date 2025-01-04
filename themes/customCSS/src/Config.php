@@ -9,8 +9,8 @@
 
 namespace Dotclear\Theme\customCSS;
 
-use Dotclear\Core\Backend\Notices;
 use Dotclear\App;
+use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\File\Path;
@@ -21,6 +21,8 @@ use form;
 /**
  * @brief   The module configuration.
  * @ingroup customCSS
+ *
+ * @todo switch Helper/Html/Form/...
  */
 class Config extends Process
 {

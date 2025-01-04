@@ -23,6 +23,8 @@ use form;
 /**
  * @brief   The module configuration process.
  * @ingroup blowup
+ *
+ * @todo switch Helper/Html/Form/...
  */
 class Config extends Process
 {

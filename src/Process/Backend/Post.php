@@ -28,6 +28,8 @@ use form;
 
 /**
  * @since 2.27 Before as admin/post.php
+ *
+ * @todo switch Helper/Html/Form/...
  */
 class Post extends Process
 {

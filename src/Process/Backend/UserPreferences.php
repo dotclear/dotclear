@@ -27,6 +27,8 @@ use form;
 
 /**
  * @since 2.27 Before as admin/preferences.php
+ *
+ * @todo switch Helper/Html/Form/...
  */
 class UserPreferences extends Process
 {

@@ -22,6 +22,8 @@ use form;
 
 /**
  * @brief   Installation wizard process.
+ *
+ * @todo switch Helper/Html/Form/...
  */
 class Wizard extends Process
 {

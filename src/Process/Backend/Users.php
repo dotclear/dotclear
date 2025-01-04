@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -20,6 +21,7 @@ use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Submit;
@@ -115,7 +117,15 @@ class Users extends Process
                 Notices::message(__('The permissions have been successfully updated.'));
             }
 
-            echo '<p class="top-add"><a class="button add" href="' . App::backend()->url()->get('admin.user') . '">' . __('New user') . '</a></p>';
+            echo (new Para())
+                ->class('top-add')
+                ->items([
+                    (new Link())
+                        ->class(['button', 'add'])
+                        ->href(App::backend()->url()->get('admin.user'))
+                        ->text(__('New user')),
+                ])
+            ->render();
 
             App::backend()->user_filter->display('admin.users');
 

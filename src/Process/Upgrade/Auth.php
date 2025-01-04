@@ -25,6 +25,8 @@ use form;
  * @brief   Upgrade process authentication page
  *
  * @since   2.29
+ *
+ * @todo switch Helper/Html/Form/...
  */
 class Auth extends Process
 {

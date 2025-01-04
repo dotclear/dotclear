@@ -26,6 +26,8 @@ use SimpleXMLElement;
 
 /**
  * @since 2.27 Before as admin/media_item.php
+ *
+ * @todo switch Helper/Html/Form/...
  */
 class MediaItem extends Process
 {
