@@ -26,7 +26,6 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Interface\Core\AuthInterface;
 
 /**
  * @brief   Users list pager form helper.
@@ -133,7 +132,8 @@ class ListingUsers extends Listing
                     ->items([
                         (new Text(null, __('Legend: '))),
                         (new Text(null, $fmt(__('admin'), 'admin.svg') . ' - ')),
-                        (new Text(null, $fmt(__('superadmin'), 'superadmin.svg'))),
+                        (new Text(null, $fmt(__('superadmin'), 'superadmin.svg') . ' - ')),
+                        (new Text(null, $fmt(__('disabled'), 'check-off.svg'))),
                     ]),
                 (new Note())
                     ->class('warning')
@@ -158,10 +158,13 @@ class ListingUsers extends Listing
             ->render();
 
         $img_status = match ($this->rs->admin()) {
-            AuthInterface::PERMISSION_SUPERADMIN => sprintf($img, __('superadmin'), 'superadmin.svg'),
-            AuthInterface::PERMISSION_ADMIN      => sprintf($img, __('admin'), 'admin.svg'),
-            default                              => '',
+            App::auth()::PERMISSION_SUPERADMIN => sprintf($img, __('superadmin'), 'superadmin.svg'),
+            App::auth()::PERMISSION_ADMIN      => sprintf($img, __('admin'), 'admin.svg'),
+            default                            => '',
         };
+        if (App::status()->user()->id((int) $this->rs->user_status) == 'disabled') {
+            $img_status .= ' ' . sprintf($img, __('disabled'), 'check-off.svg');
+        }
 
         $cols = [
             'check' => (new Td())

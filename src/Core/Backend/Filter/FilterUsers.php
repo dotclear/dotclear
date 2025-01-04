@@ -26,6 +26,7 @@ class FilterUsers extends Filters
         $filters = new ArrayObject([
             FiltersLibrary::getPageFilter(),
             FiltersLibrary::getSearchFilter(),
+            App::status()->user()->filter(),
         ]);
 
         # --BEHAVIOR-- adminUserFilter -- ArrayObject

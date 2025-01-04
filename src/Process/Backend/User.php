@@ -37,6 +37,7 @@ class User extends Process
 
         App::backend()->user_id          = '';
         App::backend()->user_super       = '';
+        App::backend()->user_status      = '';
         App::backend()->user_change_pwd  = '';
         App::backend()->user_name        = '';
         App::backend()->user_firstname   = '';
@@ -67,6 +68,7 @@ class User extends Process
 
                 App::backend()->user_id          = App::backend()->rs->user_id;
                 App::backend()->user_super       = App::backend()->rs->user_super;
+                App::backend()->user_status      = App::backend()->rs->user_status;
                 App::backend()->user_change_pwd  = App::backend()->rs->user_change_pwd;
                 App::backend()->user_name        = App::backend()->rs->user_name;
                 App::backend()->user_firstname   = App::backend()->rs->user_firstname;
@@ -107,6 +109,7 @@ class User extends Process
 
                 $cur->user_id          = $_POST['user_id'];
                 $cur->user_super       = App::backend()->user_super = empty($_POST['user_super']) ? 0 : 1;
+                $cur->user_status      = App::backend()->user_status = App::status()->user()->level(empty($_POST['user_status']) ? 'disabled' : 'enabled');
                 $cur->user_name        = App::backend()->user_name = Html::escapeHTML($_POST['user_name']);
                 $cur->user_firstname   = App::backend()->user_firstname = Html::escapeHTML($_POST['user_firstname']);
                 $cur->user_displayname = App::backend()->user_displayname = Html::escapeHTML($_POST['user_displayname']);
@@ -119,6 +122,10 @@ class User extends Process
                 if (App::backend()->user_id && $cur->user_id == App::auth()->userID() && App::auth()->isSuperAdmin()) {
                     // force super_user to true if current user
                     $cur->user_super = App::backend()->user_super = true;
+                }
+                if (App::backend()->user_id && $cur->user_id == App::auth()->userID()) {
+                    // force user_status to 1 if current user
+                    $cur->user_status = App::backend()->user_status = true;
                 }
                 if (App::auth()->allowPassChange()) {
                     $cur->user_change_pwd = empty($_POST['user_change_pwd']) ? 0 : 1;
@@ -207,6 +214,9 @@ class User extends Process
 
                     if (!$cur->user_super) {
                         Notices::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
+                    }
+                    if (App::status()->user()->id('disabled') <= (int) $cur->user_status) {
+                        Notices::addWarningNotice(__('User is disabled, he will not be able to login yet.'));
                     }
                     if (!empty($_POST['saveplus'])) {
                         App::backend()->url()->redirect('admin.user');
@@ -313,7 +323,8 @@ class User extends Process
             __('Password change required to connect') . '</label></p>';
         }
 
-        $super_disabled = App::backend()->user_super && App::backend()->user_id == App::auth()->userID();
+        $super_disabled  = App::backend()->user_super && App::backend()->user_id == App::auth()->userID();
+        $status_disabled = App::backend()->user_id == App::auth()->userID();
 
         echo
         '<p><label for="user_super" class="classic">' .
@@ -327,6 +338,18 @@ class User extends Process
         ) .
         ' ' . __('Super administrator') . '</label></p>' .
         ($super_disabled ? form::hidden(['user_super'], App::backend()->user_super) : '') .
+
+        '<p><label for="user_status" class="classic">' .
+        form::checkbox(
+            ($status_disabled ? 'user_super_off' : 'user_status'),
+            '1',
+            [
+                'checked'  => App::backend()->user_status,
+                'disabled' => $status_disabled,
+            ]
+        ) .
+        ' ' . __('Enabled user') . '</label></p>' .
+        ($status_disabled ? form::hidden(['user_status'], App::backend()->user_status) : '') .
 
         '<p><label for="user_name">' . __('Last Name:') . '</label> ' .
         form::field('user_name', 20, 255, [

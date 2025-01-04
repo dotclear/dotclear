@@ -150,7 +150,7 @@ class Utils
         $_s->user
             ->field('user_id', 'varchar', 32, false)
             ->field('user_super', 'smallint', 0, true)
-            ->field('user_status', 'smallint', 0, false, 1)
+            ->field('user_status', 'smallint', 0, false, App::status()->user()->level('enabled'))
             ->field('user_pwd', 'varchar', 255, false)
             ->field('user_change_pwd', 'smallint', 0, false, 0)
             ->field('user_recover_key', 'varchar', 32, true, null)

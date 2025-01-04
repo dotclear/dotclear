@@ -163,6 +163,7 @@ class Auth implements AuthInterface
             ->columns([
                 'user_id',
                 'user_super',
+                'user_status',
                 'user_pwd',
                 'user_change_pwd',
                 'user_name',
@@ -247,6 +248,7 @@ class Auth implements AuthInterface
         $this->user_change_pwd = (bool) $rs->user_change_pwd;
         $this->user_admin      = (bool) $rs->user_super;
 
+        $this->user_info['user_status']       = $rs->user_status;
         $this->user_info['user_pwd']          = $rs->user_pwd;
         $this->user_info['user_name']         = $rs->user_name;
         $this->user_info['user_firstname']    = $rs->user_firstname;
