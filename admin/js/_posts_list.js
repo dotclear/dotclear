@@ -11,7 +11,7 @@ dotclear.viewPostContent = (line, _action = 'toggle', e = null) => {
 
   if (tr) {
     tr.style.display = tr.style.display === 'none' ? '' : 'none';
-    target.classList.toggleClass('expand');
+    target.classList.toggle('expand');
   } else {
     // Get post content if possible
     dotclear.getEntryContent(
