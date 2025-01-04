@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Filter;
 
 use Dotclear\App;
+use Dotclear\Helper\Stack\Filter;
 
 /**
  * @brief   Admin list generic filters library.

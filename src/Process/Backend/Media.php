@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
-use Dotclear\Core\Backend\Filter\Filter;
 use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Core\Backend\MediaPage;
 use Dotclear\Core\Backend\Notices;
@@ -23,6 +22,7 @@ use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Zip;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Stack\Filter;
 use Exception;
 use form;
 

@@ -14,6 +14,7 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Stack\Filter;
 use Exception;
 
 /**

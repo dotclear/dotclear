@@ -12,6 +12,7 @@ namespace Dotclear\Core\Backend\Filter;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Combos;
+use Dotclear\Helper\Stack\Filter;
 
 /**
  * @brief   Blogs list filters form helper.

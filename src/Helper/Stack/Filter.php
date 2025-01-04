@@ -1,19 +1,13 @@
 <?php
 
-/**
- * @package     Dotclear
- *
- * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   AGPL-3.0
- */
 declare(strict_types=1);
 
 /**
- * @namespace   Dotclear.Core.Backend.Filter
- * @brief       Backend list filters helpers.
+ * @namespace   Dotclear.Helper.Stack
+ * @brief       List filters helpers.
  */
 
-namespace Dotclear\Core\Backend\Filter;
+namespace Dotclear\Helper\Stack;
 
 use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
@@ -22,9 +16,12 @@ use Dotclear\Helper\Html\Html;
 use Exception;
 
 /**
- * @brief   Generic class for admin list filters form.
+ * @brief       Generic class for admin list filters form.
  *
- * @since   2.20
+ * @since       2.20
+ * @package     Dotclear
+ * @copyright   Olivier Meunier & Association Dotclear
+ * @copyright   AGPL-3.0
  */
 class Filter
 {

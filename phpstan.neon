@@ -52,7 +52,6 @@ parameters:
 
   # List of classes with dynamic properties not fully defined in their PHPDoc
   universalObjectCratesClasses:
-    - Dotclear\Core\Backend\Filter\Filter
     - Dotclear\Core\Backend\Filter\FilterBlogs
     - Dotclear\Core\Backend\Filter\FilterComments
     - Dotclear\Core\Backend\Filter\FilterPosts
@@ -67,6 +66,7 @@ parameters:
     - Dotclear\Database\Structure
     - Dotclear\Helper\File\File
     - Dotclear\Helper\Html\XmlTag
+    - Dotclear\Helper\Stack\Filter
     - Dotclear\Interface\Core\BlogSettingsInterface
     - Dotclear\Interface\Core\BlogWorkspaceInterface
     - Dotclear\Interface\Core\UrlInterface

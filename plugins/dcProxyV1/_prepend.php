@@ -249,7 +249,7 @@ dcProxyV1::classAliases([
     'dcAdmin'              => \Dotclear\Core\Backend\Utility::class,
     'dcAdminBlogPref'      => \Dotclear\Core\Backend\BlogPref::class,
     'dcAdminCombos'        => \Dotclear\Core\Backend\Combos::class,
-    'dcAdminFilter'        => \Dotclear\Core\Backend\Filter\Filter::class,
+    'dcAdminFilter'        => \Dotclear\Helper\Stack\Filter::class, // 2.33
     'dcAdminFilters'       => \Dotclear\Core\Backend\Filter\FiltersLibrary::class,
     'dcAdminHelper'        => \Dotclear\Core\Backend\Helper::class,
     'dcAdminNotices'       => \Dotclear\Core\Backend\Notices::class,
