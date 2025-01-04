@@ -326,24 +326,24 @@ p {
   }
 }
 :is(
-    .mark-generic,
-    .mark-locked,
-    .mark-scheduled,
-    .mark-published,
-    .mark-check-on,
-    .mark-unpublished,
-    .mark-check-off,
-    .mark-pending,
-    .mark-check-wrn,
-    .mark-attach,
-    .mark-selected,
-    .mark-spam,
-    .mark-junk,
-    .mark-hidden,
-    .mark-edit,
-    .mark-admin,
-    .mark-fav
-  ) {
+  .mark-generic,
+  .mark-locked,
+  .mark-scheduled,
+  .mark-published,
+  .mark-check-on,
+  .mark-unpublished,
+  .mark-check-off,
+  .mark-pending,
+  .mark-check-wrn,
+  .mark-attach,
+  .mark-selected,
+  .mark-spam,
+  .mark-junk,
+  .mark-hidden,
+  .mark-edit,
+  .mark-admin,
+  .mark-fav
+) {
   width: 1.4em;
 }
 .mark-attach {
@@ -489,17 +489,41 @@ ul.from-left {
   width: 1px !important;
   overflow: hidden;
 }
+@media not (scripting: none) {
+  // = with JS
+  .out-of-screen-if-js {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+  }
+}
 
 /* caché si js est inactif */
 
 .no-js .hidden-if-no-js {
   display: none;
 }
+@media (scripting: none) {
+  // = without JS
+  .hidden-if-no-js {
+    display: none;
+  }
+}
 
 /* caché si js est actif */
 
 .with-js .hidden-if-js {
   display: none;
+}
+@media not (scripting: none) {
+  // = with JS
+  .hidden-if-js {
+    display: none;
+  }
 }
 
 /* Tailles des icônes SVG */

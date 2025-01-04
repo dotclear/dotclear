@@ -162,6 +162,12 @@
     border-top-left-radius: 1em;
   }
 }
+@media (scripting: none) {
+  // = without JS
+  #help-button {
+    top: 1em;
+  }
+}
 
 .help-box {
   display: none;

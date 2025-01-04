@@ -1276,6 +1276,7 @@ dotclear.ready(() => {
   }
 
   // Remove class no-js from html tag; cf style/default.css for examples
+  // To be removed when @media (scripting: …) will be supported everywhere
   body.classList.remove('no-js');
   body.classList.add('with-js');
 

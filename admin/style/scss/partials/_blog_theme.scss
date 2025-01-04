@@ -109,6 +109,12 @@ On adapte largeur et hauteur en fonction
 .with-js .module-sshot:hover {
   cursor: pointer;
 }
+@media not (scripting: none) {
+  // = with JS
+  .module-sshot:hover {
+    cursor: pointer;
+  }
+}
 
 /* mise en forme pour la boîte du thème courant */
 

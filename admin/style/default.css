@@ -3035,6 +3035,11 @@ h1 a:link {
   border-top-left-radius: 1em;
 }
 
+@media (scripting: none) {
+  #help-button {
+    top: 1em;
+  }
+}
 .help-box {
   display: none;
 }
@@ -3601,6 +3606,11 @@ span.ibw {
   display: none;
 }
 
+@media (scripting: none) {
+  .outgoing img {
+    display: none;
+  }
+}
 .dc-box {
   background: url(dc_logos/dotclear-leaf.svg) no-repeat top right;
   background-size: 2em;
@@ -3625,6 +3635,9 @@ span.ibw {
 .no-js #dragndrop {
   display: none;
 }
+.no-js #dragndrop + label {
+  display: none;
+}
 #dragndrop + label {
   position: absolute;
   right: 1em;
@@ -3641,6 +3654,14 @@ span.ibw {
   background-color: var(--body-background);
 }
 
+@media (scripting: none) {
+  #dragndrop {
+    display: none;
+  }
+  #dragndrop + label {
+    display: none;
+  }
+}
 :root .upgrade-mode {
   --header-background: var(--upgrade-mode);
   --header-background-alt: var(--upgrade-mode);
@@ -3888,6 +3909,11 @@ On adapte largeur et hauteur en fonction
   cursor: pointer;
 }
 
+@media not (scripting: none) {
+  .module-sshot:hover {
+    cursor: pointer;
+  }
+}
 /* mise en forme pour la boîte du thème courant */
 .box.current-theme {
   /* Thème courant */
@@ -5107,16 +5133,37 @@ ul.from-left ul {
   overflow: hidden;
 }
 
+@media not (scripting: none) {
+  .out-of-screen-if-js {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+  }
+}
 /* caché si js est inactif */
 .no-js .hidden-if-no-js {
   display: none;
 }
 
+@media (scripting: none) {
+  .hidden-if-no-js {
+    display: none;
+  }
+}
 /* caché si js est actif */
 .with-js .hidden-if-js {
   display: none;
 }
 
+@media not (scripting: none) {
+  .hidden-if-js {
+    display: none;
+  }
+}
 /* Tailles des icônes SVG */
 :is(.icon-small, .icon-mini) {
   width: 1em;

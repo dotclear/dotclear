@@ -149,6 +149,12 @@
 .no-js .outgoing img {
   display: none;
 }
+@media (scripting: none) {
+  // = without JS
+  .outgoing img {
+    display: none;
+  }
+}
 
 .dc-box {
   background: url(dc_logos/dotclear-leaf.svg) no-repeat top right;
@@ -179,6 +185,10 @@
 
   .no-js & {
     display: none;
+
+    & + label {
+      display: none;
+    }
   }
 
   & + label {
@@ -197,6 +207,16 @@
   &:checked + label .dragndrop-svg {
     fill: var(--drag-n-drop-on);
     background-color: var(--body-background);
+  }
+}
+@media (scripting: none) {
+  // = without JS
+  #dragndrop {
+    display: none;
+
+    & + label {
+      display: none;
+    }
   }
 }
 
