@@ -441,7 +441,7 @@ class ModuleImportDc1 extends Module
                     $cur->user_email       = $rs->user_email;
                     $cur->user_lang        = $rs->user_lang;
                     $cur->user_tz          = App::blog()->settings()->system->blog_timezone;
-                    $cur->user_post_status = $rs->user_post_pub ? App::blog()::POST_PUBLISHED : App::blog()::POST_PENDING;
+                    $cur->user_post_status = App::status()->post()->level($rs->user_post_pub ? 'published' : 'pending');
                     $cur->user_options     = new ArrayObject([
                         'edit_size'   => (int) $rs->user_edit_size,
                         'post_format' => $rs->user_post_format,

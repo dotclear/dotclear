@@ -164,7 +164,7 @@ class Utils
             ->field('user_options', 'text', 0, true)
             ->field('user_lang', 'varchar', 5, true, null)
             ->field('user_tz', 'varchar', 128, false, "'UTC'")
-            ->field('user_post_status', 'smallint', 0, false, App::blog()::POST_PENDING)
+            ->field('user_post_status', 'smallint', 0, false, App::status()->post()->level('pending'))
             ->field('user_creadt', 'timestamp', 0, false, 'now()')
             ->field('user_upddt', 'timestamp', 0, false, 'now()')
 
@@ -201,7 +201,7 @@ class Utils
             ->field('post_notes', 'text', 0, true, null)
             ->field('post_meta', 'text', 0, true, null)
             ->field('post_words', 'text', 0, true, null)
-            ->field('post_status', 'smallint', 0, false, App::blog()::POST_UNPUBLISHED)
+            ->field('post_status', 'smallint', 0, false, App::status()->post()->level('unpublished'))
             ->field('post_firstpub', 'smallint', 0, false, 0)
             ->field('post_selected', 'smallint', 0, false, 0)
             ->field('post_position', 'integer', 0, false, 0)

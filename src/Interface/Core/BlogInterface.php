@@ -85,12 +85,16 @@ interface BlogInterface
     /**
      * Post statuses : post pending.
      *
+     * @deprecated since 2.33, use App::status()->post()->level('pending') instead
+     *
      * @var    int     POST_PENDING
      */
     public const POST_PENDING = -2;
 
     /**
      * Post statuses : post scheduled.
+     *
+     * @deprecated since 2.33, use App::status()->post()->level('scheduled') instead
      *
      * @var    int     POST_SCHEDULED
      */
@@ -99,12 +103,16 @@ interface BlogInterface
     /**
      * Post statuses : post unpublished.
      *
+     * @deprecated since 2.33, use App::status()->post()->level('unpublished') instead
+     *
      * @var    int     POST_UNPUBLISHED
      */
     public const POST_UNPUBLISHED = 0;
 
     /**
      * Post statuses : post published.
+     *
+     * @deprecated since 2.33, use App::status()->post()->level('published') instead
      *
      * @var    int     POST_PUBLISHED
      */
@@ -293,8 +301,7 @@ interface BlogInterface
     /**
      * Returns an entry status name given to a code.
      *
-     * Status are translated, never
-     * use it for tests. If status code does not exist, returns <i>unpublished</i>.
+     * @deprecated since 2.33, use App::status()->post()->name($status) instead
      *
      * @param   int     $status     The status code
      */
@@ -302,6 +309,8 @@ interface BlogInterface
 
     /**
      * Returns an array of available entry status codes and names.
+     *
+     * @deprecated since 2.33, use App::status()->post()->statuses() instead
      *
      * @return  array<int, string>   Simple array with int codes in keys and string names in value.
      */

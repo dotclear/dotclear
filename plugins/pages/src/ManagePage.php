@@ -126,11 +126,11 @@ class ManagePage extends Process
 
         // If user can't publish
         if (!App::backend()->can_publish) {
-            App::backend()->post_status = App::blog()::POST_PENDING;
+            App::backend()->post_status = App::status()->post()->level('pending');
         }
 
         // Status combo
-        App::backend()->status_combo = Combos::getPostStatusesCombo();
+        App::backend()->status_combo = App::status()->post()->combo();
 
         // Formaters combo
         $core_formaters    = App::formater()->getFormaters();
@@ -482,10 +482,10 @@ class ManagePage extends Process
         if (App::backend()->post_id) {
             try {
                 $img_status = match ((int) App::backend()->post_status) {
-                    App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
-                    App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
-                    App::blog()::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
-                    App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending'),
+                    App::status()->post()->level('published')   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
+                    App::status()->post()->level('unpublished') => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
+                    App::status()->post()->level('scheduled')   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
+                    App::status()->post()->level('pending')     => sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending'),
                 };
             } catch (UnhandledMatchError) {
             }
@@ -520,7 +520,7 @@ class ManagePage extends Process
             Notices::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
         }
 
-        if (App::backend()->post_id && (int) App::backend()->post->post_status === App::blog()::POST_PUBLISHED) {
+        if (App::backend()->post_id && (int) App::backend()->post->post_status >= App::status()->post()->level('published')) {
             echo (new Para())
                 ->items([
                     (new Link())

@@ -189,7 +189,7 @@ class ModuleImportFeed extends Module
             $cur->post_content = $item->content ?: $item->description;
             $cur->post_title   = $item->title ?: Txt::cutString(Html::clean($cur->post_content), 60);
             $cur->post_format  = 'xhtml';
-            $cur->post_status  = App::blog()::POST_PENDING;
+            $cur->post_status  = App::status()->post()->level('pending');
             $cur->post_dt      = Date::strftime('%Y-%m-%d %H:%M:%S', $item->TS);
 
             try {

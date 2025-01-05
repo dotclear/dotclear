@@ -144,10 +144,10 @@ class ListingPosts extends Listing
                 $this->rs_count
             );
         } else {
-            $nb_published   = (int) App::blog()->getPosts(['post_status' => App::blog()::POST_PUBLISHED], true)->f(0);
-            $nb_pending     = (int) App::blog()->getPosts(['post_status' => App::blog()::POST_PENDING], true)->f(0);
-            $nb_scheduled   = (int) App::blog()->getPosts(['post_status' => App::blog()::POST_SCHEDULED], true)->f(0);
-            $nb_unpublished = (int) App::blog()->getPosts(['post_status' => App::blog()::POST_UNPUBLISHED], true)->f(0);
+            $nb_published   = (int) App::blog()->getPosts(['post_status' => App::status()->post()->level('published')], true)->f(0);
+            $nb_pending     = (int) App::blog()->getPosts(['post_status' => App::status()->post()->level('pending')], true)->f(0);
+            $nb_scheduled   = (int) App::blog()->getPosts(['post_status' => App::status()->post()->level('scheduled')], true)->f(0);
+            $nb_unpublished = (int) App::blog()->getPosts(['post_status' => App::status()->post()->level('unpublished')], true)->f(0);
             $stats          = [
                 (new Text(null, sprintf(__('List of entries (%s)'), $this->rs_count))),
             ];
@@ -156,7 +156,7 @@ class ListingPosts extends Listing
                     ->separator(' ')
                     ->items([
                         (new Link())
-                            ->href(App::backend()->url()->get('admin.posts', ['status' => App::blog()::POST_PUBLISHED]))
+                            ->href(App::backend()->url()->get('admin.posts', ['status' => App::status()->post()->level('published')]))
                             ->text(__('published (1)', 'published (> 1)', $nb_published)),
                         (new Text(null, sprintf('(%d)', $nb_published))),
                     ]);
@@ -166,7 +166,7 @@ class ListingPosts extends Listing
                     ->separator(' ')
                     ->items([
                         (new Link())
-                            ->href(App::backend()->url()->get('admin.posts', ['status' => App::blog()::POST_PENDING]))
+                            ->href(App::backend()->url()->get('admin.posts', ['status' => App::status()->post()->level('pending')]))
                             ->text(__('pending (1)', 'pending (> 1)', $nb_published)),
                         (new Text(null, sprintf('(%d)', $nb_pending))),
                     ]);
@@ -176,7 +176,7 @@ class ListingPosts extends Listing
                     ->separator(' ')
                     ->items([
                         (new Link())
-                            ->href(App::backend()->url()->get('admin.posts', ['status' => App::blog()::POST_SCHEDULED]))
+                            ->href(App::backend()->url()->get('admin.posts', ['status' => App::status()->post()->level('scheduled')]))
                             ->text(__('scheduled (1)', 'scheduled (> 1)', $nb_scheduled)),
                         (new Text(null, sprintf('(%d)', $nb_scheduled))),
                     ]);
@@ -186,7 +186,7 @@ class ListingPosts extends Listing
                     ->separator(' ')
                     ->items([
                         (new Link())
-                            ->href(App::backend()->url()->get('admin.posts', ['status' => App::blog()::POST_UNPUBLISHED]))
+                            ->href(App::backend()->url()->get('admin.posts', ['status' => App::status()->post()->level('unpublished')]))
                             ->text(__('unpublished (1)', 'unpublished (> 1)', $nb_unpublished)),
                         (new Text(null, sprintf('(%d)', $nb_unpublished))),
                     ]);
@@ -251,27 +251,27 @@ class ListingPosts extends Listing
             ->class(['mark', 'mark-%3$s'])
             ->render();
         $post_classes = ['line'];
-        if ((int) $this->rs->post_status !== App::blog()::POST_PUBLISHED) {
+        if ((int) $this->rs->post_status <= App::status()->post()->level('unpublished')) {
             $post_classes[] = 'offline';
         }
         $img_status = '';
-        switch ($this->rs->post_status) {
-            case App::blog()::POST_PUBLISHED:
+        switch ((int) $this->rs->post_status) {
+            case App::status()->post()->level('published'):
                 $img_status     = sprintf($img, __('Published'), 'published.svg', 'published');
                 $post_classes[] = 'sts-online';
 
                 break;
-            case App::blog()::POST_UNPUBLISHED:
+            case App::status()->post()->level('unpublished'):
                 $img_status     = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
                 $post_classes[] = 'sts-offline';
 
                 break;
-            case App::blog()::POST_SCHEDULED:
+            case App::status()->post()->level('scheduled'):
                 $img_status     = sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled');
                 $post_classes[] = 'sts-scheduled';
 
                 break;
-            case App::blog()::POST_PENDING:
+            case App::status()->post()->level('pending'):
                 $img_status     = sprintf($img, __('Pending'), 'pending.svg', 'pending');
                 $post_classes[] = 'sts-pending';
 

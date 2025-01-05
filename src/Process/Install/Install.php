@@ -315,7 +315,7 @@ class Install extends Process
                 $cur->post_content = '<p>' . __('This is your first entry. When you\'re ready ' .
                     'to blog, log in to edit or delete it.') . '</p>';
                 $cur->post_content_xhtml = $cur->post_content;
-                $cur->post_status        = App::blog()::POST_PUBLISHED;
+                $cur->post_status        = App::status()->post()->level('published');
                 $cur->post_open_comment  = 1;
                 $cur->post_open_tb       = 0;
                 $post_id                 = App::blog()->addPost($cur);

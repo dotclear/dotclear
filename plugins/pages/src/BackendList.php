@@ -189,27 +189,27 @@ class BackendList extends Listing
             ->class(['mark', 'mark-%3$s'])
             ->render();
         $post_classes = ['line'];
-        if ((int) $this->rs->post_status !== App::blog()::POST_PUBLISHED) {
+        if ((int) $this->rs->post_status <= App::status()->post()->level('unpublished')) {
             $post_classes[] = 'offline';
         }
         $img_status = '';
-        switch ($this->rs->post_status) {
-            case App::blog()::POST_PUBLISHED:
+        switch ((int) $this->rs->post_status) {
+            case App::status()->post()->level('published'):
                 $img_status     = sprintf($img, __('Published'), 'published.svg', 'published');
                 $post_classes[] = 'sts-online';
 
                 break;
-            case App::blog()::POST_UNPUBLISHED:
+            case App::status()->post()->level('unpublished'):
                 $img_status     = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
                 $post_classes[] = 'sts-offline';
 
                 break;
-            case App::blog()::POST_SCHEDULED:
+            case App::status()->post()->level('scheduled'):
                 $img_status     = sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled');
                 $post_classes[] = 'sts-scheduled';
 
                 break;
-            case App::blog()::POST_PENDING:
+            case App::status()->post()->level('pending'):
                 $img_status     = sprintf($img, __('Pending'), 'pending.svg', 'pending');
                 $post_classes[] = 'sts-pending';
 

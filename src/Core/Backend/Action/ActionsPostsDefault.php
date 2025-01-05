@@ -118,10 +118,10 @@ class ActionsPostsDefault
     public static function doChangePostStatus(ActionsPosts $ap): void
     {
         $status = match ($ap->getAction()) {
-            'unpublish' => App::blog()::POST_UNPUBLISHED,
-            'schedule'  => App::blog()::POST_SCHEDULED,
-            'pending'   => App::blog()::POST_PENDING,
-            default     => App::blog()::POST_PUBLISHED,
+            'unpublish' => App::status()->post()->level('unpublished'),
+            'schedule'  => App::status()->post()->level('scheduled'),
+            'pending'   => App::status()->post()->level('pending'),
+            default     => App::status()->post()->level('published'),
         };
 
         $ids = $ap->getIDs();
@@ -130,12 +130,12 @@ class ActionsPostsDefault
         }
 
         // Do not switch to scheduled already published entries
-        if ($status === App::blog()::POST_SCHEDULED) {
+        if ($status === App::status()->post()->level('scheduled')) {
             $rs           = $ap->getRS();
             $excluded_ids = [];
             if ($rs->rows()) {
                 while ($rs->fetch()) {
-                    if ((int) $rs->post_status === App::blog()::POST_PUBLISHED) {
+                    if ((int) $rs->post_status >= App::status()->post()->level('published')) {
                         $excluded_ids[] = (int) $rs->post_id;
                     }
                 }
@@ -159,7 +159,7 @@ class ActionsPostsDefault
                     count($ids)
                 ),
                 count($ids),
-                App::blog()->getPostStatus($status)
+                App::status()->post()->name($status)
             )
         );
         $ap->redirect(true);

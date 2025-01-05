@@ -59,16 +59,13 @@ class Combos
     /**
      * Returns available post status combo.
      *
+     * @deprecated  since 2.33, use App::status()->post()->combo() instead
+     *
      * @return     array<string, string>  The post statuses combo.
      */
     public static function getPostStatusesCombo(): array
     {
-        $status_combo = [];
-        foreach (App::blog()->getAllPostStatus() as $k => $v) {
-            $status_combo[$v] = (string) $k;
-        }
-
-        return $status_combo;
+        return App::status()->post()->combo();
     }
 
     /**

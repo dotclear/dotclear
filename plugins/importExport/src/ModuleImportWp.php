@@ -827,10 +827,9 @@ class ModuleImportWp extends Module
         }
 
         $cur->post_status = match ($rs->post_status) {
-            'publish' => App::blog()::POST_PUBLISHED,
-            'draft'   => App::blog()::POST_UNPUBLISHED,
-            'pending' => App::blog()::POST_PENDING,
-            default   => App::blog()::POST_PENDING,
+            'publish' => App::status()->post()->level('published'),
+            'draft'   => App::status()->post()->level('unpublished'),
+            default   => App::status()->post()->level('pending'),
         };
         $cur->post_type         = $rs->post_type;
         $cur->post_password     = $rs->post_password ?: null;

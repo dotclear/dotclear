@@ -92,7 +92,7 @@ class Statuses
      *
      * Search by (int) level.
      *
-     * @return  string  The status id or empty string.
+     * @return  string  The status id or id of level 0.
      */
     public function id(int $needle): string
     {
@@ -102,7 +102,7 @@ class Statuses
             }
         }
 
-        return '';
+        return $this->id(0);
     }
 
     /**
@@ -110,7 +110,7 @@ class Statuses
      *
      * Search by (string) id or (int) level.
      *
-     * @return  string  The status name or empty string.
+     * @return  string  The status name or name of level 0.
      */
     public function name(int|string $needle): string
     {
@@ -122,7 +122,7 @@ class Statuses
             }
         }
 
-        return '';
+        return $this->name(0);
     }
 
     /**

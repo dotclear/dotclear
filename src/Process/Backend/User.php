@@ -46,7 +46,7 @@ class User extends Process
         App::backend()->user_url         = '';
         App::backend()->user_lang        = App::auth()->getInfo('user_lang');
         App::backend()->user_tz          = App::auth()->getInfo('user_tz');
-        App::backend()->user_post_status = App::blog()::POST_PENDING; // Pending
+        App::backend()->user_post_status = App::status()->post()->level('pending');
 
         App::backend()->user_options = App::users()->userDefaults();
 
@@ -56,7 +56,7 @@ class User extends Process
         # Formaters combo
         App::backend()->formaters_combo = Combos::getFormatersCombo();
 
-        App::backend()->status_combo = Combos::getPostStatusesCombo();
+        App::backend()->status_combo = App::status()->post()->combo();
 
         # Language codes
         App::backend()->lang_combo = Combos::getAdminLangsCombo();

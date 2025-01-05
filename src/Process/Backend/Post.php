@@ -93,7 +93,7 @@ class Post extends Process
 
         # If user can't publish
         if (!App::backend()->can_publish) {
-            App::backend()->post_status = App::blog()::POST_PENDING;
+            App::backend()->post_status = App::status()->post()->level('pending');
         }
 
         # Getting categories
@@ -101,7 +101,7 @@ class Post extends Process
             App::blog()->getCategories()
         );
 
-        App::backend()->status_combo = Combos::getPostStatusesCombo();
+        App::backend()->status_combo = App::status()->post()->combo();
 
         // Formats combo
         $core_formaters    = App::formater()->getFormaters();
@@ -232,7 +232,7 @@ class Post extends Process
         if (!empty($_POST['ping'])) {
             // Ping blogs
 
-            if (!empty($_POST['tb_urls']) && App::backend()->post_id && App::backend()->post_status == App::blog()::POST_PUBLISHED && App::backend()->can_edit_post) {
+            if (!empty($_POST['tb_urls']) && App::backend()->post_id && App::backend()->post_status >= App::status()->post()->level('published') && App::backend()->can_edit_post) {
                 App::backend()->tb_urls = $_POST['tb_urls'];
                 App::backend()->tb_urls = (string) str_replace("\r", '', App::backend()->tb_urls);  // @phpstan-ignore-line
 
@@ -473,11 +473,11 @@ class Post extends Process
             $img_status_pattern = '<img class="mark mark-%3$s" alt="%1$s" src="images/%2$s">';
 
             $img_status = match ((int) App::backend()->post_status) {
-                App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
-                App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
-                App::blog()::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
-                App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending'),
-                default                       => '',
+                App::status()->post()->level('published')   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
+                App::status()->post()->level('unpublished') => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
+                App::status()->post()->level('scheduled')   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
+                App::status()->post()->level('pending')     => sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending'),
+                default                                     => '',
             };
 
             $edit_entry_str  = __('&ldquo;%s&rdquo;');
@@ -577,7 +577,7 @@ class Post extends Process
             Notices::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
         }
 
-        if (App::backend()->post_id && App::backend()->post->post_status == App::blog()::POST_PUBLISHED) {
+        if (App::backend()->post_id && App::backend()->post->post_status >= App::status()->post()->level('published')) {
             echo
             '<p><a class="onblog_link outgoing" href="' . App::backend()->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(App::backend()->post_title))) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt=""></a></p>';
         }
@@ -922,7 +922,7 @@ class Post extends Process
             '</div>'; #comments
         }
 
-        if (App::backend()->post_id && App::backend()->post_status == App::blog()::POST_PUBLISHED) {
+        if (App::backend()->post_id && App::backend()->post_status >= App::status()->post()->level('published')) {
             // Trackbacks
 
             $params     = ['post_id' => App::backend()->post_id, 'order' => 'comment_dt ASC'];

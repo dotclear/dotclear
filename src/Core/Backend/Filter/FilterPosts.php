@@ -43,7 +43,7 @@ class FilterPosts extends Filters
             FiltersLibrary::getCurrentBlogFilter(),
             $this->getPostUserFilter(),
             $this->getPostCategoriesFilter(),
-            $this->getPostStatusFilter(),
+            App::status()->post()->filter(),
             $this->getPostFormatFilter(),
             $this->getPostPasswordFilter(),
             $this->getPostSelectedFilter(),
@@ -136,15 +136,13 @@ class FilterPosts extends Filters
     /**
      * Posts status select.
      *
+     * @deprecated  since 2.33, use App::status()->post()->filter() instead
+     *
      * @return  Filter  The post status Filter instance.
      */
     public function getPostStatusFilter(): Filter
     {
-        return (new Filter('status'))
-            ->param('post_status')
-            ->title(__('Status:'))
-            ->options(['-' => '', ...Combos::getPostStatusesCombo()])
-            ->prime(true);
+        return App::status()->post()->filter();
     }
 
     /**

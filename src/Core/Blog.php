@@ -37,6 +37,7 @@ use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
@@ -148,13 +149,6 @@ class Blog implements BlogInterface
     public string $public_path;
 
     /**
-     * Stack of entries statuses.
-     *
-     * @var     array<int, string>   $post_status
-     */
-    private array $post_status = [];
-
-    /**
      * Stack of comment statuses.
      *
      * @var     array<int, string>   $comment_status
@@ -190,6 +184,7 @@ class Blog implements BlogInterface
         protected FilterInterface $filter,
         protected FormaterInterface $formater,
         protected PostMediaInterface $postmedia,
+        protected DeprecatedInterface $deprecated,
         string $blog_id = ''
     ) {
         $this->prefix = $this->con->prefix();
@@ -239,11 +234,6 @@ class Blog implements BlogInterface
 
                 $themes_path = Path::fullFromRoot($this->settings->system->themes_path, $this->config->dotclearRoot());
                 $public_path = Path::fullFromRoot($this->settings->system->public_path, $this->config->dotclearRoot());
-
-                $this->post_status[self::POST_PENDING]     = __('Pending');
-                $this->post_status[self::POST_SCHEDULED]   = __('Scheduled');
-                $this->post_status[self::POST_UNPUBLISHED] = __('Unpublished');
-                $this->post_status[self::POST_PUBLISHED]   = __('Published');
 
                 $this->comment_status[self::COMMENT_JUNK]        = __('Junk');
                 $this->comment_status[self::COMMENT_PENDING]     = __('Pending');
@@ -455,12 +445,16 @@ class Blog implements BlogInterface
 
     public function getPostStatus(int $status): string
     {
-        return $this->post_status[$status] ?? $this->post_status[self::POST_UNPUBLISHED];
+        $this->deprecated->set('App::status()->post()->name($status)', '2.33');
+
+        return App::status()->post()->name($status); // default to unpublished
     }
 
     public function getAllPostStatus(): array
     {
-        return $this->post_status;
+        $this->deprecated->set('App::status()->post()->statuses()', '2.33');
+
+        return App::status()->post()->statuses();
     }
 
     public function getAllCommentStatus(): array
@@ -744,7 +738,7 @@ class Blog implements BlogInterface
             $sql->and('P.post_status = ' . $sql->quote($params['post_status']));
         } elseif (!$this->auth->userID() || App::task()->checkContext('FRONTEND')) {
             // 2.33 backward compatibility for public session, default to post published
-            $sql->and('P.post_status = ' . self::POST_PUBLISHED);
+            $sql->and('P.post_status >= ' . (string) App::status()->post()->level('published'));
         }
 
         if (!empty($params['post_type'])) {
@@ -1103,15 +1097,15 @@ class Blog implements BlogInterface
 
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id)) {
+        ]), $this->id) || App::task()->checkContext('FRONTEND')) {
             $user_id = $this->auth->userID();
 
-            $and = ['post_status = ' . self::POST_PUBLISHED];
+            $and = ['post_status >= ' . (string) App::status()->post()->level('published')];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
             $or = [$sql->andGroup($and)];
-            if ($user_id) {
+            if ($user_id && !App::task()->checkContext('FRONTEND')) {
                 $or[] = 'P.user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($or));
@@ -1336,13 +1330,13 @@ class Blog implements BlogInterface
 
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id)) {
-            $and = ['post_status = ' . self::POST_PUBLISHED];
+        ]), $this->id) || App::task()->checkContext('FRONTEND')) {
+            $and = ['post_status >= ' . (string) App::status()->post()->level('published')];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
             $or = [$sql->andGroup($and)];
-            if ($this->auth->userID()) {
+            if ($this->auth->userID() && !App::task()->checkContext('FRONTEND')) {
                 $or[] = 'user_id = ' . $sql->quote($this->auth->userID());
             }
             $sql->and($sql->orGroup($or));
@@ -1420,13 +1414,13 @@ class Blog implements BlogInterface
 
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id)) {
-            $and = ['post_status = ' . self::POST_PUBLISHED];
+        ]), $this->id) || App::task()->checkContext('FRONTEND')) {
+            $and = ['post_status >= ' . (string) App::status()->post()->level('published')];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
             $or = [$sql->andGroup($and)];
-            if ($this->auth->userID()) {
+            if ($this->auth->userID() && !App::task()->checkContext('FRONTEND')) {
                 $or[] = 'P.user_id = ' . $sql->quote($this->auth->userID());
             }
             $sql->and($sql->orGroup($or));
@@ -1518,7 +1512,7 @@ class Blog implements BlogInterface
                 $this->auth::PERMISSION_PUBLISH,
                 $this->auth::PERMISSION_CONTENT_ADMIN,
             ]), $this->id)) {
-                $cur->post_status = self::POST_PENDING;
+                $cur->post_status = App::status()->post()->level('pending');
             }
 
             # --BEHAVIOR-- coreBeforePostCreate -- BlogInterface, Cursor
@@ -1839,7 +1833,7 @@ class Blog implements BlogInterface
                 'post_tz',
             ])
             ->from($this->prefix . self::POST_TABLE_NAME)
-            ->where('post_status = ' . self::POST_SCHEDULED)
+            ->where('post_status = ' . (string) App::status()->post()->level('scheduled'))
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $rs = $sql->select();
@@ -1873,7 +1867,7 @@ class Blog implements BlogInterface
             $sql = new UpdateStatement();
             $sql
                 ->ref($this->prefix . self::POST_TABLE_NAME)
-                ->set('post_status = ' . self::POST_PUBLISHED)
+                ->set('post_status = ' . (string) App::status()->post()->level('published'))
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and('post_id' . $sql->in([...$to_change]));
 
@@ -1891,7 +1885,7 @@ class Blog implements BlogInterface
     {
         $posts = $this->getPosts([
             'post_id'       => $this->cleanIds($ids),
-            'post_status'   => self::POST_PUBLISHED,
+            'post_status'   => App::status()->post()->level('published'),
             'post_firstpub' => 0,
         ]);
 
@@ -2309,12 +2303,12 @@ class Blog implements BlogInterface
 
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id)) {
+        ]), $this->id) || App::task()->checkContext('FRONTEND')) {
             $user_id = $this->auth->userID();
 
             $and = [
                 'comment_status = ' . self::COMMENT_PUBLISHED,
-                'P.post_status = ' . self::POST_PUBLISHED,
+                'P.post_status >= ' . (string) App::status()->post()->level('published'),
             ];
 
             if ($this->without_password) {
@@ -2322,7 +2316,7 @@ class Blog implements BlogInterface
             }
 
             $or = [$sql->andGroup($and)];
-            if ($user_id) {
+            if ($user_id && !App::task()->checkContext('FRONTEND')) {
                 $or[] = 'P.user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($or));
