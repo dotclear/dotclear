@@ -19,6 +19,11 @@ class Statuses
 	 */
 	protected array $stack = [];
 
+    /**
+     * Create status instance.
+     *
+     * @param   array<int, Status>  $descriptors    The statuses descriptors stack
+     */
     public function __construct(protected string $column, array $descriptors)
     {
         foreach($descriptors as $descriptor) {
@@ -143,7 +148,7 @@ class Statuses
     /**
      * Gets statuses.
      *
-     * @return  array<int, string> The statuses by level/name.
+     * @return  array<int, string>  The statuses by level/name.
      */
     public function statuses(): array
     {
