@@ -19,7 +19,8 @@ class Status
 	public function __construct(
 		protected int $level,
 		protected string $id,
-		protected string $name
+		protected string $name,
+		protected string $icon
 	) {
 	}
 
@@ -45,5 +46,13 @@ class Status
 	public function name(): string
 	{
 		return $this->name;
+	}
+
+	/**
+	 * Gets status icon URI.
+	 */
+	public function icon(): string
+	{
+		return $this->icon;
 	}
 }
