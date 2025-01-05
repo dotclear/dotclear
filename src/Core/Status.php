@@ -33,29 +33,29 @@ class Status implements StatusInterface
 	public function __construct()
 	{
         $this->blog = new Statuses('blog_status', [
-            (new Descriptor(App::blog()::BLOG_ONLINE , 'online', __('online'))),
-            (new Descriptor(App::blog()::BLOG_OFFLINE, 'offline', __('offline'))),
-            (new Descriptor(App::blog()::BLOG_REMOVED, 'removed', __('removed'))),
-            (new Descriptor(App::blog()::BLOG_UNDEFINED, 'undefined', __('removed'))),
+            (new Descriptor(1 , 'online', __('online'))),
+            (new Descriptor(0, 'offline', __('offline'))),
+            (new Descriptor(-1, 'removed', __('removed'))),
+            (new Descriptor(-2, 'undefined', __('undefined'))),
         ]);
 
         $this->post = new Statuses('post_status', [
-            (new Descriptor(App::blog()::POST_PENDING , 'pending', __('Pending'))),
-            (new Descriptor(App::blog()::POST_SCHEDULED, 'scheduled', __('Scheduled'))),
-            (new Descriptor(App::blog()::POST_UNPUBLISHED, 'unpublished', __('Unpublished'))),
-            (new Descriptor(App::blog()::POST_PUBLISHED, 'pusblished', __('Published'))),
+            (new Descriptor(1, 'pusblished', __('Published'))),
+            (new Descriptor(0, 'unpublished', __('Unpublished'))),
+            (new Descriptor(-1, 'scheduled', __('Scheduled'))),
+            (new Descriptor(-2, 'pending', __('Pending'))),
         ]);
 
         $this->comment = new Statuses('comment_status', [
-            (new Descriptor(App::blog()::COMMENT_JUNK , 'junk', __('Junk'))),
-            (new Descriptor(App::blog()::COMMENT_PENDING, 'pending', __('Pending'))),
-            (new Descriptor(App::blog()::COMMENT_UNPUBLISHED, 'unpublished', __('Unpublished'))),
-            (new Descriptor(App::blog()::COMMENT_PUBLISHED, 'pusblished', __('Published'))),
+            (new Descriptor(1, 'pusblished', __('Published'))),
+            (new Descriptor(0, 'unpublished', __('Unpublished'))),
+            (new Descriptor(-1, 'pending', __('Pending'))),
+            (new Descriptor(-2, 'junk', __('Junk'))),
         ]);
 
         $this->user = new Statuses('user_status', [
-            (new Descriptor(0, 'disabled', __('disabled'))),
             (new Descriptor(1, 'enabled', __('enabled'))),
+            (new Descriptor(0, 'disabled', __('disabled'))),
         ]);
 	}
 
