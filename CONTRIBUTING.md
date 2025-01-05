@@ -111,7 +111,11 @@ jsPrettier configuration:
 }
 ```
 
-## CODE TESTING
+## CODE ANALYSIS AND TESTING
+
+Run `composer install` if necessary, from root directory
+
+Then:
 
 ### PHP code analysis
 
@@ -121,17 +125,19 @@ For PHP static analysis, run:
 bin/phpstan analyse --memory-limit=-1
 ```
 
+And :
+
+```sh
+bin/rector process --dry-run --verbose --memory-limit=8G
+```
+
 And also:
 
 ```sh
 bin/psalm
 ```
 
-### PHP Unit tests
-
-Run `composer install` if necessary, from root directory
-
-Then:
+### PHP code unit testing
 
 ```sh
 bin/atoum

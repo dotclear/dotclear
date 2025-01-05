@@ -17,7 +17,8 @@
     "atoum/atoum": "4.2.0",
     "atoum/reports-extension": "4.0.0",
     "fakerphp/faker": "1.21.0",
-    "vimeo/psalm": "6.x-dev"
+    "vimeo/psalm": "6.x-dev",
+    "rector/rector": "^2.0"
   },
   "config": {
     "bin-dir": "bin/"
