@@ -284,9 +284,17 @@ class UsersActions extends Process
 
                 if ($rs instanceof MetaRecord) {
                     while ($rs->fetch()) {
-                        $img_status = $rs->blog_status == App::blog()::BLOG_ONLINE ? 'published.svg' : ($rs->blog_status == App::blog()::BLOG_OFFLINE ? 'unpublished.svg' : 'pending.svg');
-                        $txt_status = App::blogs()->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : App::blog()::BLOG_ONLINE);
-                        $img_class  = $rs->blog_status == App::blog()::BLOG_ONLINE ? 'published' : ($rs->blog_status == App::blog()::BLOG_OFFLINE ? 'unpublished' : 'pending');
+                        $img_status = match((int) $rs->blog_status) {
+                            App::status()->blog()->level('online')  => 'published.svg',
+                            App::status()->blog()->level('offline') => 'unpublished.svg',
+                            default                                  => 'pending.svg',
+                        };
+                        $img_class  = match((int) $rs->blog_status) {
+                            App::status()->blog()->level('online')  => 'published',
+                            App::status()->blog()->level('offline') => 'unpublished',
+                            default                                  => 'pending',
+                        };
+                        $txt_status = App::status()->blog()->name(is_numeric($rs->blog_status) ? (int) $rs->blog_status : 'online');
                         $img_status = sprintf('<img src="images/%1$s" class="mark mark-%3$s" alt="%2$s">', $img_status, $txt_status, $img_class);
 
                         echo

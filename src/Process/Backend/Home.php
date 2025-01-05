@@ -237,9 +237,9 @@ class Home extends Process
             ->render();
         }
 
-        if (App::blog()->status() === App::blog()::BLOG_OFFLINE) {
+        if (App::blog()->status() === App::status()->blog()->level('offline')) {
             Notices::message(__('This blog is offline'), false);
-        } elseif (App::blog()->status() === App::blog()::BLOG_REMOVED) {
+        } elseif (App::blog()->status() === App::status()->blog()->level('removed')) {
             Notices::message(__('This blog is removed'), false);
         }
 

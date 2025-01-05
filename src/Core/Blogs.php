@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -21,6 +22,7 @@ use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogsInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DeprecatedInterface;
 
 /**
  * @brief   Blogs handler.
@@ -32,29 +34,35 @@ class Blogs implements BlogsInterface
     /**
      * Constructor.
      *
-     * @param   BlogInterface           $blog   The blog instance
-     * @param   ConnectionInterface     $con    The database connection instance
+     * @param   BlogInterface           $blog           The blog instance
+     * @param   ConnectionInterface     $con            The database connection instance
+     * @param   DeprecatedInterface     $deprecated     The database connection instance
      */
     public function __construct(
         protected BlogInterface $blog,
-        protected ConnectionInterface $con
+        protected ConnectionInterface $con,
+        protected DeprecatedInterface $deprecated
     ) {
     }
 
+    /**
+     * @deprecated  since 2.33, use App::status()->blog()->statuses() instead
+     */
     public function getAllBlogStatus(): array
     {
-        return [
-            $this->blog::BLOG_ONLINE  => __('online'),
-            $this->blog::BLOG_OFFLINE => __('offline'),
-            $this->blog::BLOG_REMOVED => __('removed'),
-        ];
+        $this->deprecated->set('App::status()->blog()->statuses()', '2.33');
+
+        return App::status()->blog()->statuses();
     }
 
+    /**
+     * @deprecated  since 2.33, use App::status()->blog()->name($s) instead
+     */
     public function getBlogStatus(int $s): string
     {
-        $r = $this->getAllBlogStatus();
+        $this->deprecated->set('App::status()->blog()->status($s)', '2.33');
 
-        return $r[$s] ?? $r[0];
+        return App::status()->blog()->name($s);
     }
 
     /**
@@ -180,10 +188,10 @@ class Blogs implements BlogsInterface
                     $sql->like('permissions', '%|' . $this->blog->auth()::PERMISSION_ADMIN . '|%'),
                     $sql->like('permissions', '%|' . $this->blog->auth()::PERMISSION_CONTENT_ADMIN . '|%'),
                 ]))
-                ->and('blog_status' . $sql->in([(string) $this->blog::BLOG_ONLINE, (string) $this->blog::BLOG_OFFLINE]))
+                ->and('blog_status >= ' . (string) App::status()->blog()->level('offline'))
             ;
         } elseif (!$this->blog->auth()->userID()) {
-            $sql->and('blog_status' . $sql->in([(string) $this->blog::BLOG_ONLINE, (string) $this->blog::BLOG_OFFLINE]));
+            $sql->and('blog_status >= ' . (string) App::status()->blog()->level('offline'));
         }
 
         if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->blog->auth()->isSuperAdmin()) {

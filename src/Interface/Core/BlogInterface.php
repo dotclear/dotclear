@@ -49,12 +49,16 @@ interface BlogInterface
     /**
      * Blog statuses : blog online.
      *
+     * @deprecated since 2.33, use App::status()->blog()->level('online') instead
+     *
      * @var    int  BLOG_ONLINE
      */
     public const BLOG_ONLINE = 1;
 
     /**
      * Blog statuses : blog offline.
+     *
+     * @deprecated since 2.33, use App::status()->blog()->level('offline') instead
      *
      * @var    int  BLOG_OFFLINE
      */
@@ -63,6 +67,8 @@ interface BlogInterface
     /**
      * Blog statuses : blog removed.
      *
+     * @deprecated since 2.33, use App::status()->blog()->level('removed') instead
+     *
      * @var    int     BLOG_REMOVED
      */
     public const BLOG_REMOVED = -1;
@@ -70,7 +76,9 @@ interface BlogInterface
     /**
      * Blog statuses : blog removed.
      *
-     * @var    int     BLOG_REMOVED
+     * @deprecated since 2.33, use App::status()->blog()->level('undefined') instead
+     *
+     * @var    int     BLOG_UNDEFINED
      */
     public const BLOG_UNDEFINED = -2;
 

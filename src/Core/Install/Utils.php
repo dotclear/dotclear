@@ -107,7 +107,7 @@ class Utils
             ->field('blog_url', 'varchar', 255, false)
             ->field('blog_name', 'varchar', 255, false)
             ->field('blog_desc', 'text', 0, true)
-            ->field('blog_status', 'smallint', 0, false, App::blog()::BLOG_ONLINE) // 2.24+ transition ', update)
+            ->field('blog_status', 'smallint', 0, false, App::status()->blog()->level('online')) // 2.24+ transition ', update)
 
             ->primary('pk_blog', 'blog_id')
         ;

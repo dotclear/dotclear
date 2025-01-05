@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
@@ -469,7 +470,7 @@ class Auth implements AuthInterface
                 return $blog_id;
             }
             $rs = $this->blogs->getBlog($blog_id);
-            if ($rs->count() && $rs->blog_status !== $this->blog::BLOG_REMOVED) {
+            if ($rs->count() && (int) $rs->blog_status >= App::status()->blog()->level('offline')) {
                 return $blog_id;
             }
         }
@@ -493,7 +494,7 @@ class Auth implements AuthInterface
                 ->and('P.blog_id = B.blog_id')
                 // from 2.33 each Utility or Process must check user permissions (with Auth::check(), Page::check(), ...)
                 ->and($sql->isNotNull('permissions'))
-                ->and('blog_status >= ' . $this->blog::BLOG_OFFLINE)
+                ->and('blog_status >= ' . App::status()->blog()->level('offline'))
                 ->order('P.blog_id ASC')
                 ->limit(1);
         }

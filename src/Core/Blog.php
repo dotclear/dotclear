@@ -218,7 +218,7 @@ class Blog implements BlogInterface
         $host        = '';
         $creadt      = 0;
         $upddt       = 0;
-        $status      = self::BLOG_UNDEFINED;
+        $status      = App::status()->blog()->level('undefined');
         $themes_path = '';
         $public_path = '';
 
@@ -312,10 +312,10 @@ class Blog implements BlogInterface
                     $sql->like('permissions', '%|' . $this->auth::PERMISSION_ADMIN . '|%'),
                     $sql->like('permissions', '%|' . $this->auth::PERMISSION_CONTENT_ADMIN . '|%'),
                 ]))
-                ->and('blog_status' . $sql->in([(string) self::BLOG_ONLINE, (string) self::BLOG_OFFLINE]))
+                ->and('blog_status >= ' . (string) App::status()->blog()->level('offline'))
             ;
         } elseif (!$this->auth->userID()) {
-            $sql->and('blog_status' . $sql->in([(string) self::BLOG_ONLINE, (string) self::BLOG_OFFLINE]));
+            $sql->and('blog_status >= ' . (string) App::status()->blog()->level('offline'));
         }
 
         return $sql->select() ?? MetaRecord::newFromArray([]);
@@ -341,7 +341,7 @@ class Blog implements BlogInterface
 
     public function isDefined(): bool
     {
-        return $this->status !== self::BLOG_UNDEFINED;
+        return $this->status !== App::status()->blog()->level('undefined');
     }
 
     //@}

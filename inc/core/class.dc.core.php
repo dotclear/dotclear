@@ -399,25 +399,25 @@ final class dcCore
     /**
      * Gets all blog status.
      *
-     * @deprecated since 2.28, use App::blogs()->getAllBlogStatus() instead
+     * @deprecated since 2.28, use App::status()->blog()->statuses() instead
      *
      * @return     array<int, string>
      */
     public function getAllBlogStatus(): array
     {
-        return App::blogs()->getAllBlogStatus();
+        return App::status()->blog()->statuses();
     }
 
     /**
      * Returns a blog status name given to a code.
      *
-     * @deprecated since 2.28, use App::blogs()->getBlogStatus() instead
+     * @deprecated since 2.28, use App::status()->blog()->name($s) instead
      *
      * @param      int      $s      Status code
      */
     public function getBlogStatus(int $s): string
     {
-        return App::blogs()->getBlogStatus($s);
+        return App::status()->blog()->name($s);
     }
     //@}
 

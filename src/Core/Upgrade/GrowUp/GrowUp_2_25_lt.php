@@ -26,7 +26,7 @@ class GrowUp_2_25_lt
         $ids = [];
         $rs  = (new SelectStatement())
             ->from(App::con()->prefix() . App::blog()::BLOG_TABLE_NAME)
-            ->where('blog_status = ' . App::blog()::BLOG_REMOVED)
+            ->where('blog_status = ' . (string) App::status()->blog()->level('removed'))
             ->select();
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {

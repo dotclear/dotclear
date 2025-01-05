@@ -163,9 +163,9 @@ class ListingBlogs extends Listing
         $blog_id          = Html::escapeHTML($this->rs->blog_id);
         $blog_status      = (int) $this->rs->blog_status;
         $blog_status_case = match ($blog_status) {
-            App::blog()::BLOG_ONLINE  => 'published',
-            App::blog()::BLOG_OFFLINE => 'unpublished',
-            default                   => 'pending',
+            App::status()->blog()->level('online')  => 'published',
+            App::status()->blog()->level('offline') => 'unpublished',
+            default                                 => 'pending',
         };
 
         $cols = [
@@ -242,7 +242,7 @@ class ListingBlogs extends Listing
                 ->items([
                     (new Img('images/' . $blog_status_case . '.svg'))
                         ->class(['mark', 'mark-' . $blog_status_case])
-                        ->alt(App::blogs()->getBlogStatus($blog_status)),
+                        ->alt(App::status()->blog()->name($blog_status)),
                 ])
             ->render(),
         ];

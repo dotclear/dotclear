@@ -88,7 +88,7 @@ class BlogPref extends Process
             Page::checkSuper();
 
             $data->blog_id       = false;
-            $data->blog_status   = App::blog()::BLOG_OFFLINE;
+            $data->blog_status   = App::status()->blog()->level('offline');
             $data->blog_name     = '';
             $data->blog_desc     = '';
             $data->blog_settings = null;
@@ -122,7 +122,7 @@ class BlogPref extends Process
         $data->lang_combo = Combos::getAdminLangsCombo();
 
         // Status combo
-        $data->status_combo = Combos::getBlogStatusesCombo();
+        $data->status_combo = App::status()->blog()->combo();
 
         // Date format combo
         $data->now = time();
@@ -347,7 +347,7 @@ class BlogPref extends Process
 
                 App::blogs()->updBlog($data->blog_id, $cur);
 
-                if (App::auth()->isSuperAdmin() && $cur->blog_status === App::blog()::BLOG_REMOVED) {
+                if (App::auth()->isSuperAdmin() && $cur->blog_status === App::status()->blog()->level('offline')) {
                     // Remove this blog from user default blog
                     App::users()->removeUsersDefaultBlogs([$cur->blog_id]);
                 }
