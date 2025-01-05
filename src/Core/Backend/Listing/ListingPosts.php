@@ -128,15 +128,10 @@ class ListingPosts extends Listing
             $lines[] = $this->postLine(isset($entries[$this->rs->post_id]));
         }
 
-        $fmt = fn ($title, $image, $class): string => sprintf(
-            (new Img('images/%2$s'))
-                    ->alt('%1$s')
-                    ->class(['mark', 'mark-%3$s'])
-                    ->render() . ' %1$s',
-            $title,
-            $image,
-            $class
-        );
+        $fmt = fn ($title, $image, $class): Text => (new Text(null, (new Img('images/' . $image))
+            ->alt($title)
+            ->class(['mark', 'mark-' . $class])
+            ->render() . ' ' . $title));
 
         if ($filter) {
             $caption = sprintf(
@@ -144,52 +139,21 @@ class ListingPosts extends Listing
                 $this->rs_count
             );
         } else {
-            $nb_published   = (int) App::blog()->getPosts(['post_status' => App::status()->post()->level('published')], true)->f(0);
-            $nb_pending     = (int) App::blog()->getPosts(['post_status' => App::status()->post()->level('pending')], true)->f(0);
-            $nb_scheduled   = (int) App::blog()->getPosts(['post_status' => App::status()->post()->level('scheduled')], true)->f(0);
-            $nb_unpublished = (int) App::blog()->getPosts(['post_status' => App::status()->post()->level('unpublished')], true)->f(0);
-            $stats          = [
+            $stats = [
                 (new Text(null, sprintf(__('List of entries (%s)'), $this->rs_count))),
             ];
-            if ($nb_published !== 0) {
-                $stats[] = (new Set())
-                    ->separator(' ')
-                    ->items([
-                        (new Link())
-                            ->href(App::backend()->url()->get('admin.posts', ['status' => App::status()->post()->level('published')]))
-                            ->text(__('published (1)', 'published (> 1)', $nb_published)),
-                        (new Text(null, sprintf('(%d)', $nb_published))),
-                    ]);
-            }
-            if ($nb_pending !== 0) {
-                $stats[] = (new Set())
-                    ->separator(' ')
-                    ->items([
-                        (new Link())
-                            ->href(App::backend()->url()->get('admin.posts', ['status' => App::status()->post()->level('pending')]))
-                            ->text(__('pending (1)', 'pending (> 1)', $nb_published)),
-                        (new Text(null, sprintf('(%d)', $nb_pending))),
-                    ]);
-            }
-            if ($nb_scheduled !== 0) {
-                $stats[] = (new Set())
-                    ->separator(' ')
-                    ->items([
-                        (new Link())
-                            ->href(App::backend()->url()->get('admin.posts', ['status' => App::status()->post()->level('scheduled')]))
-                            ->text(__('scheduled (1)', 'scheduled (> 1)', $nb_scheduled)),
-                        (new Text(null, sprintf('(%d)', $nb_scheduled))),
-                    ]);
-            }
-            if ($nb_unpublished !== 0) {
-                $stats[] = (new Set())
-                    ->separator(' ')
-                    ->items([
-                        (new Link())
-                            ->href(App::backend()->url()->get('admin.posts', ['status' => App::status()->post()->level('unpublished')]))
-                            ->text(__('unpublished (1)', 'unpublished (> 1)', $nb_unpublished)),
-                        (new Text(null, sprintf('(%d)', $nb_unpublished))),
-                    ]);
+            foreach(App::status()->post()->dump() as $status) {
+                $nb = (int) App::blog()->getPosts(['post_status' => $status->level()], true)->f(0);
+                if ($nb !== 0) {
+                    $stats[] = (new Set())
+                        ->separator(' ')
+                        ->items([
+                            (new Link())
+                                ->href(App::backend()->url()->get('admin.posts', ['status' => $status->level()]))
+                                ->text(__($status->id() . ' (1)', $status->id() . ' (> 1)', $nb)),
+                            (new Text(null, sprintf('(%d)', $nb))),
+                        ]);
+                }
             }
             $caption = (new Set())
                 ->separator(', ')
@@ -218,16 +182,15 @@ class ListingPosts extends Listing
                 (new Para())
                     ->class('info')
                     ->items([
-                        (new Text(
-                            null,
-                            __('Legend: ') .
-                            $fmt(__('Published'), 'published.svg', 'published') . ' - ' .
-                            $fmt(__('Unpublished'), 'unpublished.svg', 'unpublished') . ' - ' .
-                            $fmt(__('Scheduled'), 'scheduled.svg', 'scheduled') . ' - ' .
-                            $fmt(__('Pending'), 'pending.svg', 'pending') . ' - ' .
-                            $fmt(__('Protected'), 'locker.svg', 'locked') . ' - ' .
-                            $fmt(__('Selected'), 'selected.svg', 'selected') . ' - ' .
-                            $fmt(__('Attachments'), 'attach.svg', 'attach')
+                        (new Text(null, __('Legend: ') . (new Set())
+                            ->separator(' - ')
+                            ->items([
+                                ... array_map(fn ($k): Img|Text => App::status()->post()->image($k->id(), true), App::status()->post()->dump()),
+                                $fmt(__('Protected'), 'locker.svg', 'locked'),
+                                $fmt(__('Selected'), 'selected.svg', 'selected'),
+                                $fmt(__('Attachments'), 'attach.svg', 'attach'),
+                            ])
+                            ->render(),
                         )),
                     ]),
             ])
@@ -246,58 +209,27 @@ class ListingPosts extends Listing
      */
     private function postLine(bool $checked): Tr
     {
-        $img = (new Img('images/%2$s'))
-            ->alt('%1$s')
-            ->class(['mark', 'mark-%3$s'])
-            ->render();
+        $img = fn ($title, $image, $class): Img => (new Img('images/' . $image))
+            ->alt($title)
+            ->class(['mark', 'mark-' . $class]);
+
         $post_classes = ['line'];
-        if ((int) $this->rs->post_status <= App::status()->post()->level('unpublished')) {
+        if (App::status()->post()->isLimited((int) $this->rs->post_status)) {
             $post_classes[] = 'offline';
         }
-        $img_status = '';
-        switch ((int) $this->rs->post_status) {
-            case App::status()->post()->level('published'):
-                $img_status     = sprintf($img, __('Published'), 'published.svg', 'published');
-                $post_classes[] = 'sts-online';
+        $post_classes[] = 'sts-' . App::status()->post()->id((int) $this->rs->post_status); // used ?
 
-                break;
-            case App::status()->post()->level('unpublished'):
-                $img_status     = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
-                $post_classes[] = 'sts-offline';
-
-                break;
-            case App::status()->post()->level('scheduled'):
-                $img_status     = sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled');
-                $post_classes[] = 'sts-scheduled';
-
-                break;
-            case App::status()->post()->level('pending'):
-                $img_status     = sprintf($img, __('Pending'), 'pending.svg', 'pending');
-                $post_classes[] = 'sts-pending';
-
-                break;
-        }
-
-        $protected = '';
+        $status = [];
         if ($this->rs->post_password) {
-            $protected = sprintf($img, __('Protected'), 'locker.svg', 'locked');
+            $status[] = $img(__('Protected'), 'locker.svg', 'locked');
         }
-
-        $selected = '';
         if ($this->rs->post_selected) {
-            $selected = sprintf($img, __('Selected'), 'selected.svg', 'selected');
+            $status[] = $img(__('Selected'), 'selected.svg', 'selected');
         }
-
-        $attach   = '';
         $nb_media = $this->rs->countMedia();
         if ($nb_media > 0) {
             $attach_str = $nb_media == 1 ? __('%d attachment') : __('%d attachments');
-            $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.svg', 'attach');
-        }
-
-        $pos_classes = ['nowrap', 'minimal'];
-        if (!App::auth()->prefs()->accessibility->nodragdrop) {
-            $pos_classes[] = 'handle';
+            $status[]     = $img(sprintf($attach_str, $nb_media), 'attach.svg', 'attach');
         }
 
         if ($this->rs->cat_title) {
@@ -359,7 +291,11 @@ class ListingPosts extends Listing
             ->render(),
             'status' => (new Td())
                 ->class(['nowrap', 'count'])
-                ->text($img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach)
+                ->separator(' ')
+                ->items([
+                    App::status()->post()->image((int) $this->rs->post_status),
+                    ... $status,
+                ])
             ->render(),
         ];
 
