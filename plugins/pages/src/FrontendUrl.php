@@ -150,7 +150,7 @@ class FrontendUrl extends Url
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = App::frontend()->context()->posts->post_id;
-                        $cur->comment_status  = App::blog()->settings()->system->comments_pub ? App::blog()::COMMENT_PUBLISHED : App::blog()::COMMENT_PENDING;
+                        $cur->comment_status  = App::status()->comment()->level(App::blog()->settings()->system->comments_pub ? 'published' : 'pending');
                         $cur->comment_ip      = Http::realIP();
 
                         $redir = App::frontend()->context()->posts->getURL();
@@ -170,7 +170,7 @@ class FrontendUrl extends Url
                                 App::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
-                            $redir_arg = $cur->comment_status === App::blog()::COMMENT_PUBLISHED ? 'pub=1' : 'pub=0';
+                            $redir_arg = $cur->comment_status === App::status()->comment()->level('published') ? 'pub=1' : 'pub=0';
 
                             header('Location: ' . $redir . $redir_arg);
                         } catch (Exception $e) {

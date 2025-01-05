@@ -86,10 +86,10 @@ class ListingComments extends Listing
                 $this->rs_count
             ), $this->rs_count);
         } else {
-            $nb_published   = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_PUBLISHED], true)->f(0);
-            $nb_spam        = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_JUNK], true)->f(0);
-            $nb_pending     = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_PENDING], true)->f(0);
-            $nb_unpublished = (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_UNPUBLISHED], true)->f(0);
+            $nb_published   = (int) App::blog()->getComments(['comment_status' => App::status()->comment()->level('published')], true)->f(0);
+            $nb_spam        = (int) App::blog()->getComments(['comment_status' => App::status()->comment()->level('junk')], true)->f(0);
+            $nb_pending     = (int) App::blog()->getComments(['comment_status' => App::status()->comment()->level('pending')], true)->f(0);
+            $nb_unpublished = (int) App::blog()->getComments(['comment_status' => App::status()->comment()->level('unpublished')], true)->f(0);
 
             $caption = (new Set())
                 ->separator(', ')
@@ -99,7 +99,7 @@ class ListingComments extends Listing
                         (new Set())
                             ->items([
                                 (new Link())
-                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_PUBLISHED]))
+                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::status()->comment()->level('published')]))
                                     ->text(__('published (1)', 'published (> 1)', $nb_published)),
                                 (new Text(null, sprintf(' (%d)', $nb_published))),
                             ]) :
@@ -108,7 +108,7 @@ class ListingComments extends Listing
                         (new Set())
                             ->items([
                                 (new Link())
-                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_JUNK]))
+                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::status()->comment()->level('junk')]))
                                     ->text(__('spam (1)', 'spam (> 1)', $nb_spam)),
                                 (new Text(null, sprintf(' (%d)', $nb_spam))),
                             ]) :
@@ -117,7 +117,7 @@ class ListingComments extends Listing
                         (new Set())
                             ->items([
                                 (new Link())
-                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_PENDING]))
+                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::status()->comment()->level('pending')]))
                                     ->text(__('pending (1)', 'pending (> 1)', $nb_pending)),
                                 (new Text(null, sprintf(' (%d)', $nb_pending))),
                             ]) :
@@ -126,7 +126,7 @@ class ListingComments extends Listing
                         (new Set())
                             ->items([
                                 (new Link())
-                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::blog()::COMMENT_UNPUBLISHED]))
+                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::status()->comment()->level('unpublished')]))
                                     ->text(__('unpublished (1)', 'unpublished (> 1)', $nb_unpublished)),
                                 (new Text(null, sprintf(' (%d)', $nb_unpublished))),
                             ]) :
@@ -245,25 +245,25 @@ class ListingComments extends Listing
             $img_status_dark,
             $sts_class
         ] = match ((int) $this->rs->comment_status) {
-            App::blog()::COMMENT_PUBLISHED => [
+            App::status()->comment()->level('published') => [
                 __('Published'),
                 'published',
                 false,
                 'sts-online',
             ],
-            App::blog()::COMMENT_UNPUBLISHED => [
+            App::status()->comment()->level('unpublished') => [
                 __('Unpublished'),
                 'unpublished',
                 false,
                 'sts-offline',
             ],
-            App::blog()::COMMENT_PENDING => [
+            App::status()->comment()->level('pending') => [
                 __('Pending'),
                 'pending',
                 false,
                 'sts-pending',
             ],
-            App::blog()::COMMENT_JUNK => [
+            App::status()->comment()->level('junk') => [
                 __('Junk'),
                 'junk',
                 true,
@@ -396,7 +396,7 @@ class ListingComments extends Listing
             ->id('c' . $this->rs->comment_id)
             ->class(array_filter([
                 'line',
-                $this->rs->comment_status != App::blog()::COMMENT_PUBLISHED ? 'offline' : '',
+                $this->rs->comment_status <= App::status()->comment()->level('unpublished') ? 'offline' : '',
                 $sts_class,
             ]))
             ->items([

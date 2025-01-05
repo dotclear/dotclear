@@ -225,7 +225,7 @@ class Combos
     /**
      * Gets the blog statuses combo.
      *
-     * @deprecated  since 2.33, use App::status()->blog()->combo()  instead
+     * @deprecated  since 2.33, use App::status()->blog()->combo() instead
      *
      * @return     array<string, string>  The blog statuses combo.
      */
@@ -237,16 +237,13 @@ class Combos
     /**
      * Gets the comment statuses combo.
      *
+     * @deprecated  since 2.33, use App::status()->comment()->combo() instead
+     *
      * @return     array<string, string>  The comment statuses combo.
      */
     public static function getCommentStatusesCombo(): array
     {
-        $status_combo = [];
-        foreach (App::blog()->getAllCommentStatus() as $k => $v) {
-            $status_combo[$v] = (string) $k;
-        }
-
-        return $status_combo;
+        return App::status()->comment()->combo();
     }
 
     /**

@@ -1077,23 +1077,23 @@ class Post extends Process
             $img        = '<img alt="%1$s" class="mark mark-%3$s" src="images/%2$s">';
             $img_status = '';
             $sts_class  = '';
-            switch ($rs->comment_status) {
-                case App::blog()::COMMENT_PUBLISHED:
+            switch ((int) $rs->comment_status) {
+                case App::status()->comment()->level('published'):
                     $img_status = sprintf($img, __('Published'), 'published.svg', 'published');
                     $sts_class  = 'sts-online';
 
                     break;
-                case App::blog()::COMMENT_UNPUBLISHED:
+                case App::status()->comment()->level('unpublished'):
                     $img_status = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
                     $sts_class  = 'sts-offline';
 
                     break;
-                case App::blog()::COMMENT_PENDING:
+                case App::status()->comment()->level('pending'):
                     $img_status = sprintf($img, __('Pending'), 'pending.svg', 'pending');
                     $sts_class  = 'sts-pending';
 
                     break;
-                case App::blog()::COMMENT_JUNK:
+                case App::status()->comment()->level('junk'):
                     $img_status = sprintf($img, __('Junk'), 'junk.svg', 'junk light-only') . sprintf($img, __('Junk'), 'junk-dark.svg', 'junk dark-only');
                     $sts_class  = 'sts-junk';
 
@@ -1101,7 +1101,7 @@ class Post extends Process
             }
 
             echo
-            '<tr class="line ' . ($rs->comment_status != App::blog()::COMMENT_PUBLISHED ? ' offline ' : '') . $sts_class . '"' .
+            '<tr class="line ' . ($rs->comment_status <= App::status()->comment()->level('unpublished') ? ' offline ' : '') . $sts_class . '"' .
             ' id="c' . $rs->comment_id . '">';
 
             echo

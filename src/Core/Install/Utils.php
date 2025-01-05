@@ -278,7 +278,7 @@ class Utils
             ->field('comment_content', 'text', 0, true)
             ->field('comment_words', 'text', 0, true, null)
             ->field('comment_ip', 'varchar', 39, true, null)
-            ->field('comment_status', 'smallint', 0, true, App::blog()::COMMENT_UNPUBLISHED)
+            ->field('comment_status', 'smallint', 0, true, App::status()->comment()->level('unpublished'))
             ->field('comment_spam_status', 'varchar', 128, true, 0)
             ->field('comment_spam_filter', 'varchar', 32, true, null)
             ->field('comment_trackback', 'smallint', 0, false, 0)

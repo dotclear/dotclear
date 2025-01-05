@@ -63,11 +63,11 @@ class FrontendUrl extends Url
         $end_url = '';
         if ($type === 'spam') {
             $title .= __('Spam');
-            $params['comment_status'] = App::blog()::COMMENT_JUNK;
-            $end_url                  = '&status=' . App::blog()::COMMENT_PUBLISHED;
+            $params['comment_status'] = App::status()->comment()->level('junk');
+            $end_url                  = '&status=' . App::status()->comment()->level('published');
         } else {
             $title .= __('Ham');
-            $params['sql'] = ' AND comment_status IN (' . App::blog()::COMMENT_PUBLISHED . ',' . App::blog()::COMMENT_PENDING . ') ';
+            $params['sql'] = ' AND comment_status IN (' . App::status()->comment()->level('published') . ',' . App::status()->comment()->level('pending') . ') ';
         }
 
         echo

@@ -121,12 +121,16 @@ interface BlogInterface
     /**
      * Comment statuses : comment junk.
      *
+     * @deprecated since 2.33, use App::status()->comment()->level('junk') instead
+     *
      * @var    int     COMMENT_JUNK
      */
     public const COMMENT_JUNK = -2;
 
     /**
      * Comment statuses : comment pending.
+     *
+     * @deprecated since 2.33, use App::status()->comment()->level('pending') instead
      *
      * @var    int     COMMENT_PENDING
      */
@@ -135,12 +139,16 @@ interface BlogInterface
     /**
      * Comment statuses : comment unpublished.
      *
+     * @deprecated since 2.33, use App::status()->comment()->level('unpublished') instead
+     *
      * @var    int     COMMENT_UNPUBLISHED
      */
     public const COMMENT_UNPUBLISHED = 0;
 
     /**
      * Comment statuses : comment published.
+     *
+     * @deprecated since 2.33, use App::status()->comment()->level('published') instead
      *
      * @var    int     COMMENT_PUBLISHED */
     public const COMMENT_PUBLISHED = 1;
@@ -318,6 +326,8 @@ interface BlogInterface
 
     /**
      * Returns an array of available comment status codes and names.
+     *
+     * @deprecated since 2.33, use App::status()->comment()->statuses() instead
      *
      * @return  array<int, string>   Simple array with int codes in keys and string names in value
      */

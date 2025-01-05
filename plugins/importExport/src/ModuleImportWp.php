@@ -895,7 +895,7 @@ class ModuleImportWp extends Module
             }
 
             if ($rs->comment_approved == 'spam') {
-                $cur->comment_status = App::blog()::COMMENT_JUNK;
+                $cur->comment_status = App::status()->comment()->level('junk');
             }
 
             $cur->comment_words = implode(' ', Txt::splitWords($cur->comment_content));
@@ -906,7 +906,7 @@ class ModuleImportWp extends Module
 
             $cur->insert();
 
-            if ($cur->comment_status === App::blog()::COMMENT_PUBLISHED) {
+            if ($cur->comment_status === App::status()->comment()->level('published')) {
                 if ($cur->comment_trackback !== 0) {
                     $count_t++;
                 } else {

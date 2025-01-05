@@ -1107,23 +1107,23 @@ class ManagePage extends Process
             $comment_url = App::backend()->url()->get('admin.comment', ['id' => $rs->comment_id]);
 
             $sts_class = '';
-            switch ($rs->comment_status) {
-                case 1:
+            switch ((int) $rs->comment_status) {
+                case App::status()->comment()->level('published'):
                     $img_status = sprintf($img_status_pattern, __('Published'), 'published.svg', 'published');
                     $sts_class  = 'sts-online';
 
                     break;
-                case 0:
+                case App::status()->comment()->level('unpublished'):
                     $img_status = sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished');
                     $sts_class  = 'sts-offline';
 
                     break;
-                case -1:
+                case App::status()->comment()->level('pending'):
                     $img_status = sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending');
                     $sts_class  = 'sts-pending';
 
                     break;
-                case -2:
+                case App::status()->comment()->level('junk'):
                     $img_status = sprintf($img_status_pattern, __('Junk'), 'junk.svg', 'junk light-only') . sprintf($img_status_pattern, __('Junk'), 'junk-dark.svg', 'junk dark-only');
                     $sts_class  = 'sts-junk';
 
@@ -1180,7 +1180,7 @@ class ManagePage extends Process
                 ]);
 
             $rows[] = (new Tr())
-                ->class(array_filter(['line', $rs->comment_status != App::blog()::COMMENT_PUBLISHED ? 'offline ' : '', $sts_class]))
+                ->class(array_filter(['line', $rs->comment_status <= App::status()->comment()->level('unpublished') ? 'offline ' : '', $sts_class]))
                 ->id('c' . $rs->comment_id)
                 ->cols($cols);
         }

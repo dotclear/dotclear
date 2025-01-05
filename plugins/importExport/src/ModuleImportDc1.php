@@ -703,8 +703,8 @@ class ModuleImportDc1 extends Module
                 $cur->comment_site = substr('http://' . $cur->comment_site, 0, 255);
             }
 
-            if ($rs->exists('spam') && $rs->spam && $rs->comment_status == App::blog()::COMMENT_UNPUBLISHED) {
-                $cur->comment_status = App::blog()::COMMENT_JUNK;
+            if ($rs->exists('spam') && $rs->spam && $rs->comment_status == App::status()->comment()->level('unpublished')) {
+                $cur->comment_status = App::status()->comment()->level('junk');
             }
 
             $cur->comment_words = implode(' ', Txt::splitWords($cur->comment_content));
@@ -715,7 +715,7 @@ class ModuleImportDc1 extends Module
 
             $cur->insert();
 
-            if ($cur->comment_status === App::blog()::COMMENT_PUBLISHED) {
+            if ($cur->comment_status === App::status()->comment()->level('published')) {
                 if ($cur->comment_trackback !== 0) {
                     $count_t++;
                 } else {

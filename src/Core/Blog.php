@@ -149,13 +149,6 @@ class Blog implements BlogInterface
     public string $public_path;
 
     /**
-     * Stack of comment statuses.
-     *
-     * @var     array<int, string>   $comment_status
-     */
-    private array $comment_status = [];
-
-    /**
      * Disallow entries password protection.
      *
      * @deprecated since 2.28, use App::blog()->withoutPassword() instead
@@ -234,11 +227,6 @@ class Blog implements BlogInterface
 
                 $themes_path = Path::fullFromRoot($this->settings->system->themes_path, $this->config->dotclearRoot());
                 $public_path = Path::fullFromRoot($this->settings->system->public_path, $this->config->dotclearRoot());
-
-                $this->comment_status[self::COMMENT_JUNK]        = __('Junk');
-                $this->comment_status[self::COMMENT_PENDING]     = __('Pending');
-                $this->comment_status[self::COMMENT_UNPUBLISHED] = __('Unpublished');
-                $this->comment_status[self::COMMENT_PUBLISHED]   = __('Published');
             }
         }
 
@@ -459,7 +447,9 @@ class Blog implements BlogInterface
 
     public function getAllCommentStatus(): array
     {
-        return $this->comment_status;
+        $this->deprecated->set('App::status()->comment()->statuses()', '2.33');
+
+        return App::status()->comment()->statuses();
     }
 
     public function withoutPassword(?bool $value = null): bool
@@ -527,7 +517,7 @@ class Blog implements BlogInterface
                 'comment_trackback',
             ])
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
-            ->where('comment_status = ' . self::COMMENT_PUBLISHED)
+            ->where('comment_status >= ' . (string) App::status()->comment()->level('published'))
             ->and('post_id' . $sql->in($affected_posts))
             ->group([
                 'post_id',
@@ -2307,7 +2297,7 @@ class Blog implements BlogInterface
             $user_id = $this->auth->userID();
 
             $and = [
-                'comment_status = ' . self::COMMENT_PUBLISHED,
+                'comment_status >= ' . (string) App::status()->comment()->level('published'),
                 'P.post_status >= ' . (string) App::status()->post()->level('published'),
             ];
 
@@ -2469,7 +2459,7 @@ class Blog implements BlogInterface
         $this->behavior->callBehavior('coreAfterCommentCreate', $this, $cur);
 
         $this->triggerComment($cur->comment_id);
-        if ($cur->comment_status != self::COMMENT_JUNK) {
+        if ($cur->comment_status != App::status()->comment()->level('junk')) {
             $this->triggerBlog();
         }
 
@@ -2642,7 +2632,7 @@ class Blog implements BlogInterface
         $sql = new DeleteStatement();
         $sql
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
-            ->where('comment_status = ' . self::COMMENT_JUNK);
+            ->where('comment_status = ' . App::status()->comment()->level('junk'));
 
         $sqlIn = new SelectStatement();
         $sqlIn
@@ -2691,7 +2681,7 @@ class Blog implements BlogInterface
         }
 
         if ($cur->comment_status === null) {
-            $cur->comment_status = $this->settings->system->comments_pub ? self::COMMENT_PUBLISHED : self::COMMENT_UNPUBLISHED;
+            $cur->comment_status = App::status()->comment()->level($this->settings->system->comments_pub ? 'published' : 'unpublished');
         }
 
         # Words list
