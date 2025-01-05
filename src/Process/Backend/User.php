@@ -215,7 +215,7 @@ class User extends Process
                     if (!$cur->user_super) {
                         Notices::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
                     }
-                    if (App::status()->user()->level('disabled') <= (int) $cur->user_status) {
+                    if (App::status()->user()->isLimited((int) $cur->user_status)) {
                         Notices::addWarningNotice(__('User is disabled, he will not be able to login yet.'));
                     }
                     if (!empty($_POST['saveplus'])) {

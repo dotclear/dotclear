@@ -26,16 +26,12 @@ class Statuses
     /**
      * Create status instance.
      *
-     * Levels are compared like that:
-     * - needle <= defaul level = stated as not OK
-     * - needle > defaut level = stated as OK
-     *
      * @param   array<int, Status>  $descriptors    The statuses descriptors stack
      */
     public function __construct(
         protected string $column,
         array $descriptors,
-        protected int $default = 0
+        protected int $limit = 0
     ) {
         foreach($descriptors as $descriptor) {
             if ($descriptor instanceof Status) {
@@ -79,15 +75,38 @@ class Statuses
     }
 
     /**
-     * Gets status default level.
-     * 
-     * Return last status level if default level status does not exists.
+     * Checks if a status level is restricted.
+     *
+     * Search by (string) id or (int) level.
+     *
+     * Levels are compared like that:
+     * - needle <= defaul level = restricted
+     * - needle > defaut level = not restricted
      */
-    public function default(): int
+    public function isLimited(int|string $needle): bool
     {
         foreach($this->stack as $descriptor) {
-            if ($descriptor->level() === $this->default) {
-                return $this->default;
+            if (is_int($needle) && $descriptor->level() === $needle
+                || is_string($needle) && $descriptor->id() === $needle
+            ) {
+                return $descriptor->level() <= $this->limit;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Gets status limit level.
+     * 
+     * Default level is the last non OK level before OK levels.
+     * Returns last status level if limit level status does not exists.
+     */
+    public function limit(): int
+    {
+        foreach($this->stack as $descriptor) {
+            if ($descriptor->level() === $this->limit) {
+                return $this->limit;
             }
         }
 
@@ -100,7 +119,7 @@ class Statuses
      * Gets a status level.
      *
      * Search by (string) id.
-     * Returns default level if status does not exists.
+     * Returns limit level if status does not exists.
      */
     public function level(string $needle): int
     {
@@ -110,14 +129,14 @@ class Statuses
             }
         }
 
-        return $this->default();
+        return $this->limit();
     }
 
     /**
      * Gets a status id.
      *
      * Search by (int) level.
-     * Returns default id if status does not exists.
+     * Returns limit level id if status does not exists.
      */
     public function id(int $needle): string
     {
@@ -127,14 +146,14 @@ class Statuses
             }
         }
 
-        return $this->id($this->default());
+        return $this->id($this->limit());
     }
 
     /**
      * Gets a status name.
      *
      * Search by (string) id or (int) level.
-     * Returns default name if status does not exists.
+     * Returns limit level name if status does not exists.
      */
     public function name(int|string $needle): string
     {
@@ -146,14 +165,14 @@ class Statuses
             }
         }
 
-        return $this->name($this->default());
+        return $this->name($this->limit());
     }
 
     /**
      * Gets a status icon URI.
      *
      * Search by (string) id or (int) level.
-     * Returns default icon if status does not exists.
+     * Returns limit level icon if status does not exists.
      */
     public function icon(int|string $needle): string
     {
@@ -165,7 +184,7 @@ class Statuses
             }
         }
 
-        return $this->icon($this->default());
+        return $this->icon($this->limit());
     }
 
     /**

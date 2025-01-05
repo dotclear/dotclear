@@ -189,7 +189,7 @@ class BackendList extends Listing
             ->class(['mark', 'mark-%3$s'])
             ->render();
         $post_classes = ['line'];
-        if ((int) $this->rs->post_status <= App::status()->post()->level('unpublished')) {
+        if (App::status()->post()->isLimited((int) $this->rs->post_status)) {
             $post_classes[] = 'offline';
         }
         $img_status = '';

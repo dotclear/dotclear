@@ -70,7 +70,7 @@ class GrowUp_2_11_lt
         # Update first publication on published posts
         $strReq = 'UPDATE ' . App::con()->prefix() . App::blog()::POST_TABLE_NAME .
             ' SET post_firstpub = 1' .
-            ' WHERE post_status = ' . (string) App::status()->post()->level('published');
+            ' WHERE post_status = ' . App::status()->post()->level('published');
         App::con()->execute($strReq);
 
         // A bit of housecleaning for no longer needed folders

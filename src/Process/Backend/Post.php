@@ -232,7 +232,7 @@ class Post extends Process
         if (!empty($_POST['ping'])) {
             // Ping blogs
 
-            if (!empty($_POST['tb_urls']) && App::backend()->post_id && App::backend()->post_status >= App::status()->post()->level('published') && App::backend()->can_edit_post) {
+            if (!empty($_POST['tb_urls']) && App::backend()->post_id && !App::status()->post()->isLimited((int) App::backend()->post_status) && App::backend()->can_edit_post) {
                 App::backend()->tb_urls = $_POST['tb_urls'];
                 App::backend()->tb_urls = (string) str_replace("\r", '', App::backend()->tb_urls);  // @phpstan-ignore-line
 
@@ -577,7 +577,7 @@ class Post extends Process
             Notices::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
         }
 
-        if (App::backend()->post_id && App::backend()->post->post_status >= App::status()->post()->level('published')) {
+        if (App::backend()->post_id && !App::status()->post()->isLimited((int) App::backend()->post->post_status)) {
             echo
             '<p><a class="onblog_link outgoing" href="' . App::backend()->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(App::backend()->post_title))) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt=""></a></p>';
         }
@@ -922,7 +922,7 @@ class Post extends Process
             '</div>'; #comments
         }
 
-        if (App::backend()->post_id && App::backend()->post_status >= App::status()->post()->level('published')) {
+        if (App::backend()->post_id && !App::status()->post()->isLimited((int) App::backend()->post_status)) {
             // Trackbacks
 
             $params     = ['post_id' => App::backend()->post_id, 'order' => 'comment_dt ASC'];
@@ -1101,7 +1101,7 @@ class Post extends Process
             }
 
             echo
-            '<tr class="line ' . ($rs->comment_status <= App::status()->comment()->level('unpublished') ? ' offline ' : '') . $sts_class . '"' .
+            '<tr class="line ' . (App::status()->comment()->isLimited((int) $rs->comment_status) ? ' offline ' : '') . $sts_class . '"' .
             ' id="c' . $rs->comment_id . '">';
 
             echo

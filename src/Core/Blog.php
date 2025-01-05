@@ -290,10 +290,10 @@ class Blog implements BlogInterface
                     $sql->like('permissions', '%|' . $this->auth::PERMISSION_ADMIN . '|%'),
                     $sql->like('permissions', '%|' . $this->auth::PERMISSION_CONTENT_ADMIN . '|%'),
                 ]))
-                ->and('blog_status >= ' . (string) App::status()->blog()->level('offline'))
+                ->and('blog_status > ' . App::status()->blog()->level('removed'))
             ;
         } elseif (!$this->auth->userID()) {
-            $sql->and('blog_status >= ' . (string) App::status()->blog()->level('offline'));
+            $sql->and('blog_status > ' . App::status()->blog()->level('removed'));
         }
 
         return $sql->select() ?? MetaRecord::newFromArray([]);
@@ -517,7 +517,7 @@ class Blog implements BlogInterface
                 'comment_trackback',
             ])
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
-            ->where('comment_status >= ' . (string) App::status()->comment()->level('published'))
+            ->where('comment_status > ' . App::status()->comment()->limit())
             ->and('post_id' . $sql->in($affected_posts))
             ->group([
                 'post_id',
@@ -728,7 +728,7 @@ class Blog implements BlogInterface
             $sql->and('P.post_status = ' . $sql->quote($params['post_status']));
         } elseif (!$this->auth->userID() || App::task()->checkContext('FRONTEND')) {
             // 2.33 backward compatibility for public session, default to post published
-            $sql->and('P.post_status >= ' . (string) App::status()->post()->level('published'));
+            $sql->and('P.post_status > ' . App::status()->post()->limit());
         }
 
         if (!empty($params['post_type'])) {
@@ -1090,7 +1090,7 @@ class Blog implements BlogInterface
         ]), $this->id) || App::task()->checkContext('FRONTEND')) {
             $user_id = $this->auth->userID();
 
-            $and = ['post_status >= ' . (string) App::status()->post()->level('published')];
+            $and = ['post_status > ' . App::status()->post()->limit()];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1321,7 +1321,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id) || App::task()->checkContext('FRONTEND')) {
-            $and = ['post_status >= ' . (string) App::status()->post()->level('published')];
+            $and = ['post_status > ' . App::status()->post()->limit()];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1405,7 +1405,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id) || App::task()->checkContext('FRONTEND')) {
-            $and = ['post_status >= ' . (string) App::status()->post()->level('published')];
+            $and = ['post_status > ' . App::status()->post()->limit()];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1823,7 +1823,7 @@ class Blog implements BlogInterface
                 'post_tz',
             ])
             ->from($this->prefix . self::POST_TABLE_NAME)
-            ->where('post_status = ' . (string) App::status()->post()->level('scheduled'))
+            ->where('post_status = ' . App::status()->post()->level('scheduled'))
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $rs = $sql->select();
@@ -1857,7 +1857,7 @@ class Blog implements BlogInterface
             $sql = new UpdateStatement();
             $sql
                 ->ref($this->prefix . self::POST_TABLE_NAME)
-                ->set('post_status = ' . (string) App::status()->post()->level('published'))
+                ->set('post_status = ' . App::status()->post()->level('published'))
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and('post_id' . $sql->in([...$to_change]));
 
@@ -2297,8 +2297,8 @@ class Blog implements BlogInterface
             $user_id = $this->auth->userID();
 
             $and = [
-                'comment_status >= ' . (string) App::status()->comment()->level('published'),
-                'P.post_status >= ' . (string) App::status()->post()->level('published'),
+                'comment_status > ' . App::status()->comment()->limit(),
+                'P.post_status > ' . App::status()->post()->limit(),
             ];
 
             if ($this->without_password) {

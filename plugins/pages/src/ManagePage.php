@@ -520,7 +520,7 @@ class ManagePage extends Process
             Notices::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
         }
 
-        if (App::backend()->post_id && (int) App::backend()->post->post_status >= App::status()->post()->level('published')) {
+        if (App::backend()->post_id && !App::status()->post()->isLimited((int) App::backend()->post->post_status)) {
             echo (new Para())
                 ->items([
                     (new Link())
@@ -1180,7 +1180,7 @@ class ManagePage extends Process
                 ]);
 
             $rows[] = (new Tr())
-                ->class(array_filter(['line', $rs->comment_status <= App::status()->comment()->level('unpublished') ? 'offline ' : '', $sts_class]))
+                ->class(array_filter(['line', App::status()->comment($rs->comment_statu) ? '' : 'offline ', $sts_class]))
                 ->id('c' . $rs->comment_id)
                 ->cols($cols);
         }

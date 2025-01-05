@@ -470,7 +470,7 @@ class Auth implements AuthInterface
                 return $blog_id;
             }
             $rs = $this->blogs->getBlog($blog_id);
-            if ($rs->count() && (int) $rs->blog_status >= App::status()->blog()->level('offline')) {
+            if ($rs->count() && !App::status()->blog()->isLimited((int) $rs->blog_status)) {
                 return $blog_id;
             }
         }

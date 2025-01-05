@@ -188,10 +188,10 @@ class Blogs implements BlogsInterface
                     $sql->like('permissions', '%|' . $this->blog->auth()::PERMISSION_ADMIN . '|%'),
                     $sql->like('permissions', '%|' . $this->blog->auth()::PERMISSION_CONTENT_ADMIN . '|%'),
                 ]))
-                ->and('blog_status >= ' . (string) App::status()->blog()->level('offline'))
+                ->and('blog_status >= ' . App::status()->blog()->limit())
             ;
         } elseif (!$this->blog->auth()->userID()) {
-            $sql->and('blog_status >= ' . (string) App::status()->blog()->level('offline'));
+            $sql->and('blog_status >= ' . App::status()->blog()->limit());
         }
 
         if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->blog->auth()->isSuperAdmin()) {
