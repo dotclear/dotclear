@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -313,7 +314,7 @@ class Meta implements MetaInterface
 
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->blog->id())) {
+        ]), $this->blog->id()) || App::task()->checkContext('FRONTEND')) {
             $user_id = $this->auth->userID();
 
             $and = ['post_status = ' . $this->blog::POST_PUBLISHED];
@@ -322,7 +323,7 @@ class Meta implements MetaInterface
             }
 
             $or = [$sql->andGroup($and)];
-            if ($user_id) {
+            if ($user_id && !App::task()->checkContext('FRONTEND')) {
                 $or[] = 'P.user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($or));

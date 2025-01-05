@@ -1103,7 +1103,7 @@ class Blog implements BlogInterface
 
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id)) {
+        ]), $this->id) || App::task()->checkContext('FRONTEND')) {
             $user_id = $this->auth->userID();
 
             $and = ['post_status = ' . self::POST_PUBLISHED];
@@ -1111,7 +1111,7 @@ class Blog implements BlogInterface
                 $and[] = 'post_password IS NULL';
             }
             $or = [$sql->andGroup($and)];
-            if ($user_id) {
+            if ($user_id && !App::task()->checkContext('FRONTEND')) {
                 $or[] = 'P.user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($or));
@@ -1336,13 +1336,13 @@ class Blog implements BlogInterface
 
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id)) {
+        ]), $this->id) || App::task()->checkContext('FRONTEND')) {
             $and = ['post_status = ' . self::POST_PUBLISHED];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
             $or = [$sql->andGroup($and)];
-            if ($this->auth->userID()) {
+            if ($this->auth->userID() && !App::task()->checkContext('FRONTEND')) {
                 $or[] = 'user_id = ' . $sql->quote($this->auth->userID());
             }
             $sql->and($sql->orGroup($or));
@@ -1420,13 +1420,13 @@ class Blog implements BlogInterface
 
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id)) {
+        ]), $this->id) || App::task()->checkContext('FRONTEND')) {
             $and = ['post_status = ' . self::POST_PUBLISHED];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
             $or = [$sql->andGroup($and)];
-            if ($this->auth->userID()) {
+            if ($this->auth->userID() && !App::task()->checkContext('FRONTEND')) {
                 $or[] = 'P.user_id = ' . $sql->quote($this->auth->userID());
             }
             $sql->and($sql->orGroup($or));
@@ -2309,7 +2309,7 @@ class Blog implements BlogInterface
 
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id)) {
+        ]), $this->id) || App::task()->checkContext('FRONTEND')) {
             $user_id = $this->auth->userID();
 
             $and = [
@@ -2322,7 +2322,7 @@ class Blog implements BlogInterface
             }
 
             $or = [$sql->andGroup($and)];
-            if ($user_id) {
+            if ($user_id && !App::task()->checkContext('FRONTEND')) {
                 $or[] = 'P.user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($or));
