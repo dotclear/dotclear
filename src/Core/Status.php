@@ -40,14 +40,14 @@ class Status implements StatusInterface
         ]);
 
         $this->post = new Statuses('post_status', [
-            (new Descriptor(1, 'pusblished', __('Published'))),
+            (new Descriptor(1, 'published', __('Published'))),
             (new Descriptor(0, 'unpublished', __('Unpublished'))),
             (new Descriptor(-1, 'scheduled', __('Scheduled'))),
             (new Descriptor(-2, 'pending', __('Pending'))),
         ]);
 
         $this->comment = new Statuses('comment_status', [
-            (new Descriptor(1, 'pusblished', __('Published'))),
+            (new Descriptor(1, 'published', __('Published'))),
             (new Descriptor(0, 'unpublished', __('Unpublished'))),
             (new Descriptor(-1, 'pending', __('Pending'))),
             (new Descriptor(-2, 'junk', __('Junk'))),
