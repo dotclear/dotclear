@@ -150,45 +150,40 @@ class ImageMeta
      */
     protected function readXMP(string $filename): void
     {
-        if (($fp = @fopen($filename, 'rb')) === false) {
-            throw new Exception('Unable to open image file');
-        }
+        $start_tag  = '<x:xmpmeta';
+        $end_tag    = '</x:xmpmeta>';
+        $xmp        = '';
+        $has_xmp    = false;
+        $chunk_size = 4096;     // Number of bytes read each time
 
-        $inside = false;
-        $done   = false;
-        $xmp    = null;
-
-        while (!feof($fp)) {
-            $buffer = fgets($fp, 4096);
-            if ($buffer !== false) {
-                $xmp_start = strpos($buffer, '<x:xmpmeta');
-
-                if ($xmp_start !== false) {
-                    $buffer = substr($buffer, $xmp_start);
-                    $inside = true;
-                }
-
-                if ($inside) {
-                    $xmp_end = strpos($buffer, '</x:xmpmeta>');
-                    if ($xmp_end !== false) {
-                        $buffer = substr($buffer, $xmp_end, 12);
-                        $inside = false;
-                        $done   = true;
-                    }
-
-                    $xmp .= $buffer;
-                }
-
-                if ($done) {
+        $file_pointer = fopen($filename, 'r');
+        if ($file_pointer !== false) {
+            while (($chunk = fread($file_pointer, $chunk_size)) !== false) {
+                if ($chunk === '') {
                     break;
                 }
-            } else {
-                break;
-            }
-        }
-        fclose($fp);
 
-        if (!$xmp) {
+                $xmp .= $chunk;
+
+                $start_position = strpos($xmp, $start_tag);
+                $end_position   = strpos($xmp, $end_tag);
+
+                if ($start_position !== false && $end_position !== false) {
+                    $xmp     = substr($xmp, $start_position, $end_position - $start_position + 12);
+                    $has_xmp = true;
+
+                    break;
+                } elseif ($start_position !== false) {
+                    $xmp     = substr($xmp, $start_position);
+                    $has_xmp = true;
+                } elseif (strlen($xmp) > (strlen($start_tag) * 2)) {
+                    $xmp = substr($xmp, strlen($start_tag));
+                }
+            }
+            fclose($file_pointer);
+        }
+
+        if (!$has_xmp) {
             return;
         }
 
