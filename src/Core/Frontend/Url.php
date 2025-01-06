@@ -608,7 +608,7 @@ class Url extends UrlHandler implements UrlInterface
                                 App::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
-                            $redir_arg = App::status()->comment()->isLimited($cur->comment_status) ? 'pub=0' : 'pub=1';
+                            $redir_arg = App::status()->comment()->isRestricted($cur->comment_status) ? 'pub=0' : 'pub=1';
 
                             # --BEHAVIOR-- publicBeforeCommentRedir -- Cursor
                             $redir_arg .= filter_var(App::behavior()->callBehavior('publicBeforeCommentRedir', $cur), FILTER_SANITIZE_URL);

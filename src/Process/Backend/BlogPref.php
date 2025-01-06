@@ -347,7 +347,7 @@ class BlogPref extends Process
 
                 App::blogs()->updBlog($data->blog_id, $cur);
 
-                if (App::auth()->isSuperAdmin() && App::status()->blog()->isLimited((int) $cur->blog_status)) {
+                if (App::auth()->isSuperAdmin() && App::status()->blog()->isRestricted((int) $cur->blog_status)) {
                     // Remove this blog from user default blog
                     App::users()->removeUsersDefaultBlogs([$cur->blog_id]);
                 }

@@ -214,7 +214,7 @@ class ListingPosts extends Listing
             ->class(['mark', 'mark-' . $class]);
 
         $post_classes = ['line'];
-        if (App::status()->post()->isLimited((int) $this->rs->post_status)) {
+        if (App::status()->post()->isRestricted((int) $this->rs->post_status)) {
             $post_classes[] = 'offline';
         }
         $post_classes[] = 'sts-' . App::status()->post()->id((int) $this->rs->post_status); // used ?

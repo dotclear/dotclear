@@ -125,7 +125,7 @@ class ListingPostsMini extends Listing
             ->class(['mark', 'mark-%3$s'])
             ->render();
         $post_classes = ['line'];
-        if (App::status()->post()->isLimited((int) $this->rs->post_status)) {
+        if (App::status()->post()->isRestricted((int) $this->rs->post_status)) {
             $post_classes[] = 'offline';
         }
         $img_status = '';

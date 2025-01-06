@@ -517,7 +517,7 @@ class Blog implements BlogInterface
                 'comment_trackback',
             ])
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
-            ->where('comment_status > ' . App::status()->comment()->limit())
+            ->where('comment_status > ' . App::status()->comment()->threshold())
             ->and('post_id' . $sql->in($affected_posts))
             ->group([
                 'post_id',
@@ -728,7 +728,7 @@ class Blog implements BlogInterface
             $sql->and('P.post_status = ' . $sql->quote($params['post_status']));
         } elseif (!$this->auth->userID() || App::task()->checkContext('FRONTEND')) {
             // 2.33 backward compatibility for public session, default to post published
-            $sql->and('P.post_status > ' . App::status()->post()->limit());
+            $sql->and('P.post_status > ' . App::status()->post()->threshold());
         }
 
         if (!empty($params['post_type'])) {
@@ -1090,7 +1090,7 @@ class Blog implements BlogInterface
         ]), $this->id) || App::task()->checkContext('FRONTEND')) {
             $user_id = $this->auth->userID();
 
-            $and = ['post_status > ' . App::status()->post()->limit()];
+            $and = ['post_status > ' . App::status()->post()->threshold()];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1321,7 +1321,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id) || App::task()->checkContext('FRONTEND')) {
-            $and = ['post_status > ' . App::status()->post()->limit()];
+            $and = ['post_status > ' . App::status()->post()->threshold()];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1405,7 +1405,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id) || App::task()->checkContext('FRONTEND')) {
-            $and = ['post_status > ' . App::status()->post()->limit()];
+            $and = ['post_status > ' . App::status()->post()->threshold()];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -2297,8 +2297,8 @@ class Blog implements BlogInterface
             $user_id = $this->auth->userID();
 
             $and = [
-                'comment_status > ' . App::status()->comment()->limit(),
-                'P.post_status > ' . App::status()->post()->limit(),
+                'comment_status > ' . App::status()->comment()->threshold(),
+                'P.post_status > ' . App::status()->post()->threshold(),
             ];
 
             if ($this->without_password) {

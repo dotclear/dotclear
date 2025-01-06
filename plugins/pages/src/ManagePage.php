@@ -520,7 +520,7 @@ class ManagePage extends Process
             Notices::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
         }
 
-        if (App::backend()->post_id && !App::status()->post()->isLimited((int) App::backend()->post->post_status)) {
+        if (App::backend()->post_id && !App::status()->post()->isRestricted((int) App::backend()->post->post_status)) {
             echo (new Para())
                 ->items([
                     (new Link())

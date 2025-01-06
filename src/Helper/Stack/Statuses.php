@@ -19,23 +19,23 @@ use Dotclear\Helper\Html\Html;
 class Statuses
 {
 	/**
-	 * @var    array<int, Status>  $stack
+	 * @var    array<int, Status>  $statuses
 	 */
-	protected array $stack = [];
+	protected array $statuses = [];
 
     /**
      * Create status instance.
      *
-     * @param   array<int, Status>  $descriptors    The statuses descriptors stack
+     * @param   array<int, Status>  $descriptors    The status stack
      */
     public function __construct(
         protected string $column,
-        array $descriptors,
-        protected int $limit = 0
+        array $statuses = [],
+        protected int $threshold = 0
     ) {
-        foreach($descriptors as $descriptor) {
-            if ($descriptor instanceof Status) {
-                $this->set($descriptor);
+        foreach($statuses as $status) {
+            if ($status instanceof Status) {
+                $this->set($status);
             }
         }
     }
@@ -45,13 +45,13 @@ class Statuses
      *
      * Returns false if status already exists.
      */
-    public function set(Status $descriptor): bool
+    public function set(Status $status): bool
     {
-        if ($this->has($descriptor->level()) || $this->has($descriptor->id())) {
+        if ($this->has($status->level()) || $this->has($status->id())) {
             return false;
         }
 
-        $this->stack[] = $descriptor;
+        $this->statuses[] = $status;
 
         return true;
     }
@@ -63,9 +63,9 @@ class Statuses
      */
     public function has(int|string $needle): bool
     {
-        foreach($this->stack as $descriptor) {
-            if (is_int($needle) && $descriptor->level() === $needle
-                || is_string($needle) && $descriptor->id() === $needle
+        foreach($this->statuses as $status) {
+            if (is_int($needle) && $status->level() === $needle
+                || is_string($needle) && $status->id() === $needle
             ) {
                 return true;
             }
@@ -83,13 +83,13 @@ class Statuses
      * - needle <= defaul level = restricted
      * - needle > defaut level = not restricted
      */
-    public function isLimited(int|string $needle): bool
+    public function isRestricted(int|string $needle): bool
     {
-        foreach($this->stack as $descriptor) {
-            if (is_int($needle) && $descriptor->level() === $needle
-                || is_string($needle) && $descriptor->id() === $needle
+        foreach($this->statuses as $status) {
+            if (is_int($needle) && $status->level() === $needle
+                || is_string($needle) && $status->id() === $needle
             ) {
-                return $descriptor->level() <= $this->limit;
+                return $status->level() <= $this->threshold;
             }
         }
 
@@ -97,21 +97,21 @@ class Statuses
     }
 
     /**
-     * Gets status limit level.
+     * Gets status threshold level.
      * 
      * Default level is the last non OK level before OK levels.
-     * Returns last status level if limit level status does not exists.
+     * Returns last status level if threshold level status does not exists.
      */
-    public function limit(): int
+    public function threshold(): int
     {
-        foreach($this->stack as $descriptor) {
-            if ($descriptor->level() === $this->limit) {
-                return $this->limit;
+        foreach($this->statuses as $status) {
+            if ($status->level() === $this->threshold) {
+                return $this->threshold;
             }
         }
 
         // at least, returns last status
-        $last = end($this->stack);
+        $last = end($this->statuses);
         return $last ? $last->level() : 0;
     }
 
@@ -119,72 +119,72 @@ class Statuses
      * Gets a status level.
      *
      * Search by (string) id.
-     * Returns limit level if status does not exists.
+     * Returns threshold level if status does not exists.
      */
     public function level(string $needle): int
     {
-        foreach($this->stack as $descriptor) {
-            if ($descriptor->id() === $needle) {
-                return $descriptor->level();
+        foreach($this->statuses as $status) {
+            if ($status->id() === $needle) {
+                return $status->level();
             }
         }
 
-        return $this->limit();
+        return $this->threshold();
     }
 
     /**
      * Gets a status id.
      *
      * Search by (int) level.
-     * Returns limit level id if status does not exists.
+     * Returns threshold level id if status does not exists.
      */
     public function id(int $needle): string
     {
-        foreach($this->stack as $descriptor) {
-            if ($descriptor->level() === $needle) {
-                return $descriptor->id();
+        foreach($this->statuses as $status) {
+            if ($status->level() === $needle) {
+                return $status->id();
             }
         }
 
-        return $this->id($this->limit());
+        return $this->id($this->threshold());
     }
 
     /**
      * Gets a status name.
      *
      * Search by (string) id or (int) level.
-     * Returns limit level name if status does not exists.
+     * Returns threshold level name if status does not exists.
      */
     public function name(int|string $needle): string
     {
-        foreach($this->stack as $descriptor) {
-            if (is_int($needle) && $descriptor->level() === $needle
-                || is_string($needle) && $descriptor->id() === $needle
+        foreach($this->statuses as $status) {
+            if (is_int($needle) && $status->level() === $needle
+                || is_string($needle) && $status->id() === $needle
             ) {
-                return $descriptor->name();
+                return $status->name();
             }
         }
 
-        return $this->name($this->limit());
+        return $this->name($this->threshold());
     }
 
     /**
      * Gets a status icon URI.
      *
      * Search by (string) id or (int) level.
-     * Returns limit level icon if status does not exists.
+     * Returns threshold level icon if status does not exists.
      */
     public function icon(int|string $needle): string
     {
-        foreach($this->stack as $descriptor) {
-            if (is_int($needle) && $descriptor->level() === $needle
-                || is_string($needle) && $descriptor->id() === $needle
+        foreach($this->statuses as $status) {
+            if (is_int($needle) && $status->level() === $needle
+                || is_string($needle) && $status->id() === $needle
             ) {
-                return $descriptor->icon();
+                return $status->icon();
             }
         }
 
-        return $this->icon($this->limit());
+        return $this->icon($this->threshold());
     }
 
     /**
@@ -194,16 +194,16 @@ class Statuses
      */
     public function image(int|string $needle, bool $with_text = false): Text|Img
     {
-        foreach($this->stack as $descriptor) {
-            if (is_int($needle) && $descriptor->level() === $needle
-                || is_string($needle) && $descriptor->id() === $needle
+        foreach($this->statuses as $status) {
+            if (is_int($needle) && $status->level() === $needle
+                || is_string($needle) && $status->id() === $needle
             ) {
-                $img = (new Img($descriptor->icon()))
-                    ->alt(Html::escapeHTML($descriptor->name()))
-                    ->class(['mark', 'mark-' . $descriptor->id()]);
+                $img = (new Img($status->icon()))
+                    ->alt(Html::escapeHTML($status->name()))
+                    ->class(['mark', 'mark-' . $status->id()]);
 
                 return $with_text ?
-                    (new Text(null, $img->render() . Html::escapeHTML($descriptor->name()))) :
+                    (new Text(null, $img->render() . Html::escapeHTML($status->name()))) :
                     $img;
             }
         }
@@ -226,7 +226,7 @@ class Statuses
      */
     public function dump(): array
     {
-        return $this->stack;
+        return $this->statuses;
     }
 
     /**
@@ -237,8 +237,8 @@ class Statuses
     public function statuses(): array
     {
         $combo = [];
-        foreach ($this->stack as $descriptor) {
-            $combo[$descriptor->level()] = $descriptor->name();
+        foreach ($this->statuses as $status) {
+            $combo[$status->level()] = $status->name();
         }
 
         return $combo;
@@ -254,8 +254,8 @@ class Statuses
     public function combo(): array
     {
         $combo = [];
-        foreach ($this->stack as $descriptor) {
-            $combo[$descriptor->name()] = (string) $descriptor->level();
+        foreach ($this->statuses as $status) {
+            $combo[$status->name()] = (string) $status->level();
         }
 
         return $combo;

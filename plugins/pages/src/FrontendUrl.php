@@ -170,7 +170,7 @@ class FrontendUrl extends Url
                                 App::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
-                            $redir_arg = App::status()->comment()->isLimited($cur->comment_status) ? 'pub=0' : 'pub=1';
+                            $redir_arg = App::status()->comment()->isRestricted($cur->comment_status) ? 'pub=0' : 'pub=1';
 
                             header('Location: ' . $redir . $redir_arg);
                         } catch (Exception $e) {
