@@ -94,6 +94,8 @@ class Utils
      * Fill database structure.
      *
      * @param   Structure   $_s     The database structure handler instance
+     *
+     * @todo    Move this method to a new file /src/Schema/Schema.php
      */
     public static function dbSchema(Structure $_s): void
     {
@@ -382,6 +384,8 @@ class Utils
      * Optionnal parameter <var>defaults</var> replaces default params while needed.
      *
      * @param   null|array<array{0:string, 1:string, 2:mixed, 3:string}>  $defaults   The defaults settings
+     *
+     * @todo    Move this method to Core/Blogs, as there is a similar method for user exists in Core/Users->userDefaults()
      */
     public static function blogDefaults(?array $defaults = null): void
     {
