@@ -13,6 +13,7 @@ namespace Dotclear\Helper\File\Image;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Text;
 use Exception;
+use SimpleXMLElement;
 
 /**
  * @class ImageMeta
@@ -43,6 +44,13 @@ class ImageMeta
      * @var     array<string, mixed>
      */
     protected $exif = [];
+
+    /**
+     * Internal XML array
+     *
+     * @var     array<string, mixed>
+     */
+    protected $xml = [];
 
     /**
      * array $properties Final properties array
@@ -108,6 +116,8 @@ class ImageMeta
                 $this->properties[$k] = $this->iptc[$k];
             } elseif (!empty($this->exif[$k])) {
                 $this->properties[$k] = $this->exif[$k];
+            } elseif (!empty($this->xml[$k])) {
+                $this->properties[$k] = $this->xml[$k];
             }
         }
 
@@ -119,6 +129,8 @@ class ImageMeta
                 (string) $this->properties['DateTimeOriginal']
             );
         }
+
+        ptrace(__CLASS__, __METHOD__, __LINE__, $this->properties);
 
         return $this->properties;
     }
@@ -139,6 +151,7 @@ class ImageMeta
         $this->readXMP($filename);
         $this->readIPTC($filename);
         $this->readExif($filename);
+        $this->readXML($filename);
     }
 
     /**
@@ -271,6 +284,43 @@ class ImageMeta
             }
         }
     }
+
+    /**
+     * Read XML (usually from SVG)
+     *
+     * Reads XML metadata and assigns values to {@link $xml}.
+     *
+     * @param string    $filename        Image file path
+     */
+    protected function readXML(string $filename): void
+    {
+        $data = file_get_contents($filename);
+        if ($data === false) {
+            return;
+        }
+
+        $xml = @simplexml_load_string($data);
+
+        if (!$xml instanceof SimpleXMLElement) {
+            return;
+        }
+
+        foreach ($this->xml_to_property as $k => $v) {
+            if ($xml?->{$k}) {
+                $this->xml[$v] = Html::decodeEntities(Text::toUTF8((string) $xml->{$k}));
+            }
+        }
+    }
+
+    /**
+     * XML references to properties
+     *
+     * @var        array<string, string>
+     */
+    protected $xml_to_property = [
+        'title' => 'Title',
+        'desc'  => 'Description',
+    ];
 
     /**
      * XMP properties

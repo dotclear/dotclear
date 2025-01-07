@@ -231,6 +231,7 @@ class Media extends Manager implements MediaInterface
 
         $this->addFileHandler('image/jpeg', 'create', $this->imageMetaCreate(...));
         $this->addFileHandler('image/webp', 'create', $this->imageMetaCreate(...));
+        $this->addFileHandler('image/svg+xml', 'create', $this->imageMetaCreate(...));
 
         $this->addFileHandler('image/jpeg', 'recreate', $this->imageThumbCreate(...));
         $this->addFileHandler('image/png', 'recreate', $this->imageThumbCreate(...));
