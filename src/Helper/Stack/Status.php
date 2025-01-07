@@ -21,7 +21,8 @@ class Status
 		protected int $level,
 		protected string $id,
 		protected string $name,
-		protected string $icon
+		protected string $icon,
+		protected bool $hidden = false
 	) {
 	}
 
@@ -55,5 +56,13 @@ class Status
 	public function icon(): string
 	{
 		return $this->icon;
+	}
+
+	/**
+	 * Check if status is hidden from some actions.
+	 */
+	public function hidden(): bool
+	{
+		return $this->hidden;
 	}
 }

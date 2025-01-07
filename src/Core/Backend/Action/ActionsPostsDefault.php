@@ -47,7 +47,7 @@ class ActionsPostsDefault
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
             $actions = [];
-            foreach(App::status()->post()->dump() as $status) {
+            foreach(App::status()->post()->dump(false) as $status) {
                 $actions[$status->name()] = $status->id();
             }
             $ap->addAction(

@@ -136,7 +136,7 @@ class ListingUsers extends Listing
                             ->items([
                                 self::getRowImage(__('admin'), 'images/admin.svg', 'admin', true),
                                 self::getRowImage(__('superadmin'), 'images/superadmin.svg', 'admin', true),
-                                ... array_map(fn ($k): Img|Text => App::status()->user()->image($k->id(), true), App::status()->user()->dump()),
+                                ... array_map(fn ($k): Img|Text => App::status()->user()->image($k->id(), true), App::status()->user()->dump(false)),
                             ])
                             ->render(),
                         )),

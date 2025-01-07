@@ -137,7 +137,7 @@ class ListingPosts extends Listing
             $stats = [
                 (new Text(null, sprintf(__('List of entries (%s)'), $this->rs_count))),
             ];
-            foreach(App::status()->post()->dump() as $status) {
+            foreach(App::status()->post()->dump(false) as $status) {
                 $nb = (int) App::blog()->getPosts(['post_status' => $status->level()], true)->f(0);
                 if ($nb !== 0) {
                     $stats[] = (new Set())
@@ -180,7 +180,7 @@ class ListingPosts extends Listing
                         (new Text(null, __('Legend: ') . (new Set())
                             ->separator(' - ')
                             ->items([
-                                ... array_map(fn ($k): Img|Text => App::status()->post()->image($k->id(), true), App::status()->post()->dump()),
+                                ... array_map(fn ($k): Img|Text => App::status()->post()->image($k->id(), true), App::status()->post()->dump(false)),
                                 self::getRowImage(__('Protected'), 'images/locker.svg', 'locked', true),
                                 self::getRowImage(__('Selected'), 'images/selected.svg', 'selected', true),
                                 self::getRowImage(__('Attachments'), 'images/attach.svg', 'attach', true),

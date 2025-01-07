@@ -227,9 +227,19 @@ class Statuses
      *
      * @return  array<int, Status>  The descriptors.
      */
-    public function dump(): array
+    public function dump(bool $with_hidden = true): array
     {
-        return $this->statuses;
+        if ($with_hidden) {
+            return $this->statuses;
+        }
+
+        $statuses = [];
+        foreach($this->statuses as $status) {
+            if (!$status->hidden()) {
+                $statuses[] = $status;
+            }
+        }
+        return $statuses;
     }
 
     /**

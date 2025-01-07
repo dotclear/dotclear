@@ -33,7 +33,7 @@ class ActionsCommentsDefault
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
             $actions = [];
-            foreach(App::status()->comment()->dump() as $status) {
+            foreach(App::status()->comment()->dump(false) as $status) {
                 $actions[$status->name()] = $status->id();
             }
             $ap->addAction(
