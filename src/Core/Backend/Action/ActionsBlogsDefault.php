@@ -31,12 +31,12 @@ class ActionsBlogsDefault
             return;
         }
 
+        $actions = [];
+        foreach(App::status()->post()->dump() as $status) {
+            $actions[$status->name()] = $status->id();
+        }
         $ap->addAction(
-            [__('Status') => [
-                __('Set online')     => 'online',
-                __('Set offline')    => 'offline',
-                __('Set as removed') => 'remove',
-            ]],
+            [__('Status') => $actions],
             self::doChangeBlogStatus(...)
         );
         $ap->addAction(
@@ -64,11 +64,10 @@ class ActionsBlogsDefault
             throw new Exception(__('No blog selected'));
         }
 
-        $status = match ($ap->getAction()) {
-            'offline' => App::status()->blog()::OFFLINE,
-            'remove'  => App::status()->blog()::REMOVED,
-            default   => App::status()->blog()::ONLINE,
-        };
+        // unknown to online
+        $status = App::status()->blog()->has((string)$ap->getAction()) ? 
+            App::status()->blog()->level((string)$ap->getAction()) : 
+            App::status()->blog()::ONLINE;
 
         $cur              = App::blog()->openBlogCursor();
         $cur->blog_status = $status;

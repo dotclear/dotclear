@@ -46,13 +46,12 @@ class ActionsPostsDefault
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
+            $actions = [];
+            foreach(App::status()->post()->dump() as $status) {
+                $actions[$status->name()] = $status->id();
+            }
             $ap->addAction(
-                [__('Status') => [
-                    __('Publish')         => 'publish',
-                    __('Unpublish')       => 'unpublish',
-                    __('Schedule')        => 'schedule',
-                    __('Mark as pending') => 'pending',
-                ]],
+                [__('Status') => $actions],
                 self::doChangePostStatus(...)
             );
         }
@@ -117,12 +116,10 @@ class ActionsPostsDefault
      */
     public static function doChangePostStatus(ActionsPosts $ap): void
     {
-        $status = match ($ap->getAction()) {
-            'unpublish' => App::status()->post()::UNPUBLISHED,
-            'schedule'  => App::status()->post()::SCHEDULED,
-            'pending'   => App::status()->post()::PENDING,
-            default     => App::status()->post()::PUBLISHED,
-        };
+        // unknown to published
+        $status = App::status()->post()->has((string) $ap->getAction()) ? 
+            App::status()->post()->level((string) $ap->getAction()) : 
+            App::status()->post()::PUBLISHED;
 
         $ids = $ap->getIDs();
         if ($ids === []) {
