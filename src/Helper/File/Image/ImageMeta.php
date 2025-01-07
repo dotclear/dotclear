@@ -130,8 +130,6 @@ class ImageMeta
             );
         }
 
-        ptrace(__CLASS__, __METHOD__, __LINE__, $this->properties);
-
         return $this->properties;
     }
 
@@ -306,7 +304,7 @@ class ImageMeta
         }
 
         foreach ($this->xml_to_property as $k => $v) {
-            if ($xml?->{$k}) {
+            if ($xml->{$k}) {
                 $this->xml[$v] = Html::decodeEntities(Text::toUTF8((string) $xml->{$k}));
             }
         }
