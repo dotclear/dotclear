@@ -4975,23 +4975,7 @@ p img.mark {
   vertical-align: text-bottom;
 }
 
-:is(.mark-generic,
-.mark-locked,
-.mark-scheduled,
-.mark-published,
-.mark-check-on,
-.mark-unpublished,
-.mark-check-off,
-.mark-pending,
-.mark-check-wrn,
-.mark-attach,
-.mark-selected,
-.mark-spam,
-.mark-junk,
-.mark-hidden,
-.mark-edit,
-.mark-admin,
-.mark-fav) {
+:is([class^=mark-], [class*=" mark-"]) {
   width: 1.4em;
 }
 
