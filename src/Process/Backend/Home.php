@@ -180,8 +180,8 @@ class Home extends Process
                 }
             }
             $quickentry = Page::jsJson('dotclear_quickentry', [
-                'post_published' => App::status()->post()->level('published'),
-                'post_pending'   => App::status()->post()->level('pending'),
+                'post_published' => App::status()->post()::PUBLISHED,
+                'post_pending'   => App::status()->post()::PENDING,
             ]);
         }
 
@@ -237,9 +237,9 @@ class Home extends Process
             ->render();
         }
 
-        if (App::blog()->status() === App::status()->blog()->level('offline')) {
+        if (App::blog()->status() === App::status()->blog()::OFFLINE) {
             Notices::message(__('This blog is offline'), false);
-        } elseif (App::blog()->status() === App::status()->blog()->level('removed')) {
+        } elseif (App::blog()->status() === App::status()->blog()::REMOVED) {
             Notices::message(__('This blog is removed'), false);
         }
 
@@ -583,7 +583,7 @@ class Home extends Process
                                     (new Hidden('save-publish', __('Save and publish'))) :
                                     (new None()),
                                 App::nonce()->formNonce(),
-                                (new Hidden('post_status', (string) App::status()->post()->level('pending'))),
+                                (new Hidden('post_status', (string) App::status()->post()::PENDING)),
                                 (new Hidden('post_format', (string) App::auth()->getOption('post_format'))),
                                 (new Hidden('post_excerpt', '')),
                                 (new Hidden('post_lang', (string) App::auth()->getInfo('user_lang'))),

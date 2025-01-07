@@ -163,9 +163,9 @@ class ListingBlogs extends Listing
         $blog_id          = Html::escapeHTML($this->rs->blog_id);
         $blog_status      = (int) $this->rs->blog_status;
         $blog_status_case = match ($blog_status) {
-            App::status()->blog()->level('online')  => 'published',
-            App::status()->blog()->level('offline') => 'unpublished',
-            default                                 => 'pending',
+            App::status()->blog()::ONLINE  => 'published',
+            App::status()->blog()::OFFLINE => 'unpublished',
+            default                        => 'pending',
         };
 
         $cols = [

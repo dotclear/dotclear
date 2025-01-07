@@ -130,22 +130,22 @@ class ListingPostsMini extends Listing
         }
         $img_status = '';
         switch ((int) $this->rs->post_status) {
-            case App::status()->post()->level('published'):
+            case App::status()->post()::PUBLISHED:
                 $img_status     = sprintf($img, __('Published'), 'published.svg', 'published');
                 $post_classes[] = 'sts-online';
 
                 break;
-            case App::status()->post()->level('unpublished'):
+            case App::status()->post()::UNPUBLISHED:
                 $img_status     = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
                 $post_classes[] = 'sts-offline';
 
                 break;
-            case App::status()->post()->level('scheduled'):
+            case App::status()->post()::SCHEDULED:
                 $img_status     = sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled');
                 $post_classes[] = 'sts-scheduled';
 
                 break;
-            case App::status()->post()->level('pending'):
+            case App::status()->post()::PENDING:
                 $img_status     = sprintf($img, __('Pending'), 'pending.svg', 'pending');
                 $post_classes[] = 'sts-pending';
 

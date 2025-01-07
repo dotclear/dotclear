@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright AGPL-3.0
+ */
 declare(strict_types=1);
 
 namespace Dotclear\Helper\Stack;
@@ -7,12 +13,7 @@ namespace Dotclear\Helper\Stack;
 /**
  * @brief   	Status descriptor.
  *
- * @todo 		Add image and class properties
- *
  * @since       2.33
- * @package     Dotclear
- * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   AGPL-3.0
  */
 class Status
 {

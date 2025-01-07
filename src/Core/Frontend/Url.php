@@ -588,7 +588,7 @@ class Url extends UrlHandler implements UrlInterface
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = App::frontend()->context()->posts->post_id;
-                        $cur->comment_status  = App::status()->comment()->level(App::blog()->settings()->system->comments_pub ? 'published' : 'unpublished');
+                        $cur->comment_status  = App::blog()->settings()->system->comments_pub ? App::status()->comment()::PUBLISHED : App::status()->comment()::UNPUBLISHED;
                         $cur->comment_ip      = Http::realIP();
 
                         $redir = App::frontend()->context()->posts->getURL();

@@ -49,7 +49,7 @@ interface BlogInterface
     /**
      * Blog statuses : blog online.
      *
-     * @deprecated since 2.33, use App::status()->blog()->level('online') instead
+     * @deprecated since 2.33, use App::status()->blog()::ONLINE instead
      *
      * @var    int  BLOG_ONLINE
      */
@@ -58,7 +58,7 @@ interface BlogInterface
     /**
      * Blog statuses : blog offline.
      *
-     * @deprecated since 2.33, use App::status()->blog()->level('offline') instead
+     * @deprecated since 2.33, use App::status()->blog()::OFFLINE instead
      *
      * @var    int  BLOG_OFFLINE
      */
@@ -67,7 +67,7 @@ interface BlogInterface
     /**
      * Blog statuses : blog removed.
      *
-     * @deprecated since 2.33, use App::status()->blog()->level('removed') instead
+     * @deprecated since 2.33, use App::status()->blog()::REMOVED instead
      *
      * @var    int     BLOG_REMOVED
      */
@@ -76,7 +76,7 @@ interface BlogInterface
     /**
      * Blog statuses : blog removed.
      *
-     * @deprecated since 2.33, use App::status()->blog()->level('undefined') instead
+     * @deprecated since 2.33, use App::status()->blog()::UNDEFINED instead
      *
      * @var    int     BLOG_UNDEFINED
      */
@@ -85,7 +85,7 @@ interface BlogInterface
     /**
      * Post statuses : post pending.
      *
-     * @deprecated since 2.33, use App::status()->post()->level('pending') instead
+     * @deprecated since 2.33, use App::status()->post()::PENDING instead
      *
      * @var    int     POST_PENDING
      */
@@ -94,7 +94,7 @@ interface BlogInterface
     /**
      * Post statuses : post scheduled.
      *
-     * @deprecated since 2.33, use App::status()->post()->level('scheduled') instead
+     * @deprecated since 2.33, use App::status()->post()::SCHEDULED instead
      *
      * @var    int     POST_SCHEDULED
      */
@@ -103,7 +103,7 @@ interface BlogInterface
     /**
      * Post statuses : post unpublished.
      *
-     * @deprecated since 2.33, use App::status()->post()->level('unpublished') instead
+     * @deprecated since 2.33, use App::status()->post()::UNPUBLISHED instead
      *
      * @var    int     POST_UNPUBLISHED
      */
@@ -112,7 +112,7 @@ interface BlogInterface
     /**
      * Post statuses : post published.
      *
-     * @deprecated since 2.33, use App::status()->post()->level('published') instead
+     * @deprecated since 2.33, use App::status()->post()::PUBLISHED instead
      *
      * @var    int     POST_PUBLISHED
      */
@@ -121,7 +121,7 @@ interface BlogInterface
     /**
      * Comment statuses : comment junk.
      *
-     * @deprecated since 2.33, use App::status()->comment()->level('junk') instead
+     * @deprecated since 2.33, use App::status()->comment()::JUNK instead
      *
      * @var    int     COMMENT_JUNK
      */
@@ -130,7 +130,7 @@ interface BlogInterface
     /**
      * Comment statuses : comment pending.
      *
-     * @deprecated since 2.33, use App::status()->comment()->level('pending') instead
+     * @deprecated since 2.33, use App::status()->comment()::PENDING instead
      *
      * @var    int     COMMENT_PENDING
      */
@@ -139,7 +139,7 @@ interface BlogInterface
     /**
      * Comment statuses : comment unpublished.
      *
-     * @deprecated since 2.33, use App::status()->comment()->level('unpublished') instead
+     * @deprecated since 2.33, use App::status()->comment()::UNPUBLISHED instead
      *
      * @var    int     COMMENT_UNPUBLISHED
      */
@@ -148,7 +148,7 @@ interface BlogInterface
     /**
      * Comment statuses : comment published.
      *
-     * @deprecated since 2.33, use App::status()->comment()->level('published') instead
+     * @deprecated since 2.33, use App::status()->comment()::PUBLISHED instead
      *
      * @var    int     COMMENT_PUBLISHED */
     public const COMMENT_PUBLISHED = 1;

@@ -18,13 +18,10 @@ use Dotclear\Helper\Stack\Statuses;
  * @brief       User statuses handler.
  *
  * @since       2.33
- * @package     Dotclear
- * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   AGPL-3.0
  */
 class User extends Statuses
 {
-	public const ENABLED = 1;
+	public const ENABLED  = 1;
 	public const DISABLED = 0;
 
 	public function __construct()

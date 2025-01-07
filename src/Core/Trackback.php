@@ -501,7 +501,7 @@ class Trackback implements TrackbackInterface
         $cur->comment_content   = $comment;
         $cur->post_id           = $post_id;
         $cur->comment_trackback = 1;
-        $cur->comment_status    = App::status()->comment()->level($this->blog->settings()->system->trackbacks_pub ? 'published' : 'pending');
+        $cur->comment_status    = $this->blog->settings()->system->trackbacks_pub ? App::status()->comment()::PUBLISHED : App::status()->comment()::PENDING;
         $cur->comment_ip        = Http::realIP();
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor

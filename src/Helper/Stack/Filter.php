@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright AGPL-3.0
+ */
 declare(strict_types=1);
 
 /**
@@ -19,9 +25,6 @@ use Exception;
  * @brief       Generic class for admin list filters form.
  *
  * @since       2.20
- * @package     Dotclear
- * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   AGPL-3.0
  */
 class Filter
 {

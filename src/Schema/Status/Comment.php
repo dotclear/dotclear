@@ -18,16 +18,13 @@ use Dotclear\Helper\Stack\Statuses;
  * @brief       Comment statuses handler.
  *
  * @since       2.33
- * @package     Dotclear
- * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   AGPL-3.0
  */
 class Comment extends Statuses
 {
-	public const PUBLISHED = 1;
+	public const PUBLISHED 	 = 1;
 	public const UNPUBLISHED = 0;
-	public const PENDING = -1;
-	public const JUNK = -2;
+	public const PENDING 	 = -1;
+	public const JUNK 		 = -2;
 
 	public function __construct()
 	{

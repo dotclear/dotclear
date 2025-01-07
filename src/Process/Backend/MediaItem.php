@@ -980,10 +980,10 @@ class MediaItem extends Process
                 while ($rs->fetch()) {
                     $img        = '<img alt="%1$s" class="mark mark-%3$s" src="images/%2$s">';
                     $img_status = match ((int) $rs->post_status) {
-                        App::status()->post()->level('published')   => sprintf($img, __('Published'), 'published.svg', 'published'),
-                        App::status()->post()->level('unpublished') => sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished'),
-                        App::status()->post()->level('scheduled')   => sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled'),
-                        App::status()->post()->level('pending')     => sprintf($img, __('Pending'), 'pending.svg', 'pending'),
+                        App::status()->post()::PUBLISHED   => sprintf($img, __('Published'), 'published.svg', 'published'),
+                        App::status()->post()::UNPUBLISHED => sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished'),
+                        App::status()->post()::SCHEDULED   => sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled'),
+                        App::status()->post()::PENDING     => sprintf($img, __('Pending'), 'pending.svg', 'pending'),
                         default                                     => '',
                     };
 

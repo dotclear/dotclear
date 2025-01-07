@@ -827,9 +827,9 @@ class ModuleImportWp extends Module
         }
 
         $cur->post_status = match ($rs->post_status) {
-            'publish' => App::status()->post()->level('published'),
-            'draft'   => App::status()->post()->level('unpublished'),
-            default   => App::status()->post()->level('pending'),
+            'publish' => App::status()->post()::PUBLISHED,
+            'draft'   => App::status()->post()::UNPUBLISHED,
+            default   => App::status()->post()::PENDING,
         };
         $cur->post_type         = $rs->post_type;
         $cur->post_password     = $rs->post_password ?: null;
@@ -895,7 +895,7 @@ class ModuleImportWp extends Module
             }
 
             if ($rs->comment_approved == 'spam') {
-                $cur->comment_status = App::status()->comment()->level('junk');
+                $cur->comment_status = App::status()->comment()::JUNK;
             }
 
             $cur->comment_words = implode(' ', Txt::splitWords($cur->comment_content));
@@ -906,7 +906,7 @@ class ModuleImportWp extends Module
 
             $cur->insert();
 
-            if ($cur->comment_status === App::status()->comment()->level('published')) {
+            if ($cur->comment_status === App::status()->comment()::PUBLISHED) {
                 if ($cur->comment_trackback !== 0) {
                     $count_t++;
                 } else {

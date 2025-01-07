@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright AGPL-3.0
+ */
 declare(strict_types=1);
 
 /**
  * @namespace   Dotclear.Schema.Status
  * @brief       Status helpers.
  */
-
 
 namespace Dotclear\Schema\Status;
 
@@ -18,15 +23,12 @@ use Dotclear\Helper\Stack\Statuses;
  * @brief       Blog statuses handler.
  *
  * @since       2.33
- * @package     Dotclear
- * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   AGPL-3.0
  */
 class Blog extends Statuses
 {
-	public const ONLINE = 1;
-	public const OFFLINE = 0;
-	public const REMOVED = -1;
+	public const ONLINE    = 1;
+	public const OFFLINE   = 0;
+	public const REMOVED   = -1;
 	public const UNDEFINED = -2;
 
 	public function __construct()

@@ -92,7 +92,7 @@ class UsersActions extends Process
                         App::behavior()->callBehavior('adminBeforeUserEnable', $u);
 
                         $cur = App::auth()->openUserCursor();
-                        $cur->user_status = App::status()->user()->level('enabled');
+                        $cur->user_status = App::status()->user()::ENABLED;
                         App::users()->updUser($u, $cur);
                     } catch (Exception $e) {
                         App::error()->add($e->getMessage());
@@ -116,7 +116,7 @@ class UsersActions extends Process
                         App::behavior()->callBehavior('adminBeforeUserDisable', $u);
 
                         $cur = App::auth()->openUserCursor();
-                        $cur->user_status = App::status()->user()->level('disabled');
+                        $cur->user_status = App::status()->user()::DISABLED;
                         App::users()->updUser($u, $cur);
                     } catch (Exception $e) {
                         App::error()->add($e->getMessage());
@@ -285,14 +285,14 @@ class UsersActions extends Process
                 if ($rs instanceof MetaRecord) {
                     while ($rs->fetch()) {
                         $img_status = match((int) $rs->blog_status) {
-                            App::status()->blog()->level('online')  => 'published.svg',
-                            App::status()->blog()->level('offline') => 'unpublished.svg',
-                            default                                  => 'pending.svg',
+                            App::status()->blog()::ONLINE  => 'published.svg',
+                            App::status()->blog()::OFFLINE => 'unpublished.svg',
+                            default                        => 'pending.svg',
                         };
                         $img_class  = match((int) $rs->blog_status) {
-                            App::status()->blog()->level('online')  => 'published',
-                            App::status()->blog()->level('offline') => 'unpublished',
-                            default                                  => 'pending',
+                            App::status()->blog()::ONLINE  => 'published',
+                            App::status()->blog()::OFFLINE => 'unpublished',
+                            default                        => 'pending',
                         };
                         $txt_status = App::status()->blog()->name(is_numeric($rs->blog_status) ? (int) $rs->blog_status : 'online');
                         $img_status = sprintf('<img src="images/%1$s" class="mark mark-%3$s" alt="%2$s">', $img_status, $txt_status, $img_class);

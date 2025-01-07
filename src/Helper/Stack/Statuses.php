@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @package Dotclear
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright AGPL-3.0
+ */
 declare(strict_types=1);
 
 namespace Dotclear\Helper\Stack;
@@ -12,9 +18,6 @@ use Dotclear\Helper\Html\Html;
  * @brief       Statuses handler.
  *
  * @since       2.33
- * @package     Dotclear
- * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   AGPL-3.0
  */
 class Statuses
 {
@@ -26,7 +29,7 @@ class Statuses
     /**
      * Create status instance.
      *
-     * @param   array<int, Status>  $descriptors    The status stack
+     * @param   array<int, Status>  $statuses    The status stack
      */
     public function __construct(
         protected string $column,

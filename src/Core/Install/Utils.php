@@ -107,7 +107,7 @@ class Utils
             ->field('blog_url', 'varchar', 255, false)
             ->field('blog_name', 'varchar', 255, false)
             ->field('blog_desc', 'text', 0, true)
-            ->field('blog_status', 'smallint', 0, false, App::status()->blog()->level('online')) // 2.24+ transition ', update)
+            ->field('blog_status', 'smallint', 0, false, App::status()->blog()::ONLINE) // 2.24+ transition ', update)
 
             ->primary('pk_blog', 'blog_id')
         ;
@@ -150,7 +150,7 @@ class Utils
         $_s->user
             ->field('user_id', 'varchar', 32, false)
             ->field('user_super', 'smallint', 0, true)
-            ->field('user_status', 'smallint', 0, false, App::status()->user()->level('enabled'))
+            ->field('user_status', 'smallint', 0, false, App::status()->user()::ENABLED)
             ->field('user_pwd', 'varchar', 255, false)
             ->field('user_change_pwd', 'smallint', 0, false, 0)
             ->field('user_recover_key', 'varchar', 32, true, null)
@@ -164,7 +164,7 @@ class Utils
             ->field('user_options', 'text', 0, true)
             ->field('user_lang', 'varchar', 5, true, null)
             ->field('user_tz', 'varchar', 128, false, "'UTC'")
-            ->field('user_post_status', 'smallint', 0, false, App::status()->post()->level('pending'))
+            ->field('user_post_status', 'smallint', 0, false, App::status()->post()::PENDING)
             ->field('user_creadt', 'timestamp', 0, false, 'now()')
             ->field('user_upddt', 'timestamp', 0, false, 'now()')
 
@@ -201,7 +201,7 @@ class Utils
             ->field('post_notes', 'text', 0, true, null)
             ->field('post_meta', 'text', 0, true, null)
             ->field('post_words', 'text', 0, true, null)
-            ->field('post_status', 'smallint', 0, false, App::status()->post()->level('unpublished'))
+            ->field('post_status', 'smallint', 0, false, App::status()->post()::UNPUBLISHED)
             ->field('post_firstpub', 'smallint', 0, false, 0)
             ->field('post_selected', 'smallint', 0, false, 0)
             ->field('post_position', 'integer', 0, false, 0)
@@ -278,7 +278,7 @@ class Utils
             ->field('comment_content', 'text', 0, true)
             ->field('comment_words', 'text', 0, true, null)
             ->field('comment_ip', 'varchar', 39, true, null)
-            ->field('comment_status', 'smallint', 0, true, App::status()->comment()->level('unpublished'))
+            ->field('comment_status', 'smallint', 0, true, App::status()->comment()::UNPUBLISHED)
             ->field('comment_spam_status', 'varchar', 128, true, 0)
             ->field('comment_spam_filter', 'varchar', 32, true, null)
             ->field('comment_trackback', 'smallint', 0, false, 0)

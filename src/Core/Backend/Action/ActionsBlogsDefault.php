@@ -65,9 +65,9 @@ class ActionsBlogsDefault
         }
 
         $status = match ($ap->getAction()) {
-            'offline' => App::status()->blog()->level('offline'),
-            'remove'  => App::status()->blog()->level('removed'),
-            default   => App::status()->blog()->level('online'),
+            'offline' => App::status()->blog()::OFFLINE,
+            'remove'  => App::status()->blog()::REMOVED,
+            default   => App::status()->blog()::ONLINE,
         };
 
         $cur              = App::blog()->openBlogCursor();
@@ -78,7 +78,7 @@ class ActionsBlogsDefault
             ->where('blog_id ' . $sql->in($ids))
             ->update($cur);
 
-        if ($status === App::status()->blog()->level('removed')) {
+        if ($status === App::status()->blog()::REMOVED) {
             // Remove these blogs from user default blog
             App::users()->removeUsersDefaultBlogs($ids);
         }

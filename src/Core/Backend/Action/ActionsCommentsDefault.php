@@ -91,10 +91,10 @@ class ActionsCommentsDefault
         }
 
         $status = match ($ap->getAction()) {
-            'unpublish' => App::status()->comment()->level('unpublished'),
-            'pending'   => App::status()->comment()->level('pending'),
-            'junk'      => App::status()->comment()->level('junk'),
-            default     => App::status()->comment()->level('published'),
+            'unpublish' => App::status()->comment()::UNPUBLISHED,
+            'pending'   => App::status()->comment()::PENDING,
+            'junk'      => App::status()->comment()::JUNK,
+            default     => App::status()->comment()::PUBLISHED,
         };
 
         App::blog()->updCommentsStatus($ids, $status);

@@ -494,7 +494,7 @@ class Auth implements AuthInterface
                 ->and('P.blog_id = B.blog_id')
                 // from 2.33 each Utility or Process must check user permissions (with Auth::check(), Page::check(), ...)
                 ->and($sql->isNotNull('permissions'))
-                ->and('blog_status >= ' . App::status()->blog()->level('offline'))
+                ->and('blog_status >= ' . App::status()->blog()::OFFLINE)
                 ->order('P.blog_id ASC')
                 ->limit(1);
         }

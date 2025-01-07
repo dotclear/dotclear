@@ -18,9 +18,6 @@ use Dotclear\Helper\Stack\Statuses;
  * @brief       Post statuses handler.
  *
  * @since       2.33
- * @package     Dotclear
- * @copyright   Olivier Meunier & Association Dotclear
- * @copyright   AGPL-3.0
  */
 class Post extends Statuses
 {

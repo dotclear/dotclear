@@ -206,7 +206,7 @@ class Blog implements BlogInterface
         $host        = '';
         $creadt      = 0;
         $upddt       = 0;
-        $status      = App::status()->blog()->level('undefined');
+        $status      = App::status()->blog()::UNDEFINED;
         $themes_path = '';
         $public_path = '';
 
@@ -290,10 +290,10 @@ class Blog implements BlogInterface
                     $sql->like('permissions', '%|' . $this->auth::PERMISSION_ADMIN . '|%'),
                     $sql->like('permissions', '%|' . $this->auth::PERMISSION_CONTENT_ADMIN . '|%'),
                 ]))
-                ->and('blog_status > ' . App::status()->blog()->level('removed'))
+                ->and('blog_status > ' . App::status()->blog()::REMOVED)
             ;
         } elseif (!$this->auth->userID()) {
-            $sql->and('blog_status > ' . App::status()->blog()->level('removed'));
+            $sql->and('blog_status > ' . App::status()->blog()::REMOVED);
         }
 
         return $sql->select() ?? MetaRecord::newFromArray([]);
@@ -319,7 +319,7 @@ class Blog implements BlogInterface
 
     public function isDefined(): bool
     {
-        return $this->status !== App::status()->blog()->level('undefined');
+        return $this->status !== App::status()->blog()::UNDEFINED;
     }
 
     //@}
@@ -1502,7 +1502,7 @@ class Blog implements BlogInterface
                 $this->auth::PERMISSION_PUBLISH,
                 $this->auth::PERMISSION_CONTENT_ADMIN,
             ]), $this->id)) {
-                $cur->post_status = App::status()->post()->level('pending');
+                $cur->post_status = App::status()->post()::PENDING;
             }
 
             # --BEHAVIOR-- coreBeforePostCreate -- BlogInterface, Cursor
@@ -1823,7 +1823,7 @@ class Blog implements BlogInterface
                 'post_tz',
             ])
             ->from($this->prefix . self::POST_TABLE_NAME)
-            ->where('post_status = ' . App::status()->post()->level('scheduled'))
+            ->where('post_status = ' . App::status()->post()::SCHEDULED)
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $rs = $sql->select();
@@ -1857,7 +1857,7 @@ class Blog implements BlogInterface
             $sql = new UpdateStatement();
             $sql
                 ->ref($this->prefix . self::POST_TABLE_NAME)
-                ->set('post_status = ' . App::status()->post()->level('published'))
+                ->set('post_status = ' . App::status()->post()::PUBLISHED)
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and('post_id' . $sql->in([...$to_change]));
 
@@ -1875,7 +1875,7 @@ class Blog implements BlogInterface
     {
         $posts = $this->getPosts([
             'post_id'       => $this->cleanIds($ids),
-            'post_status'   => App::status()->post()->level('published'),
+            'post_status'   => App::status()->post()::PUBLISHED,
             'post_firstpub' => 0,
         ]);
 
@@ -2459,7 +2459,7 @@ class Blog implements BlogInterface
         $this->behavior->callBehavior('coreAfterCommentCreate', $this, $cur);
 
         $this->triggerComment($cur->comment_id);
-        if ($cur->comment_status != App::status()->comment()->level('junk')) {
+        if ($cur->comment_status != App::status()->comment()::JUNK) {
             $this->triggerBlog();
         }
 
@@ -2632,7 +2632,7 @@ class Blog implements BlogInterface
         $sql = new DeleteStatement();
         $sql
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
-            ->where('comment_status = ' . App::status()->comment()->level('junk'));
+            ->where('comment_status = ' . App::status()->comment()::JUNK);
 
         $sqlIn = new SelectStatement();
         $sqlIn
@@ -2681,7 +2681,7 @@ class Blog implements BlogInterface
         }
 
         if ($cur->comment_status === null) {
-            $cur->comment_status = App::status()->comment()->level($this->settings->system->comments_pub ? 'published' : 'unpublished');
+            $cur->comment_status = $this->settings->system->comments_pub ? App::status()->comment()::PUBLISHED : App::status()->comment()::UNPUBLISHED;
         }
 
         # Words list

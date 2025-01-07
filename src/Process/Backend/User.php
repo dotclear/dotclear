@@ -46,7 +46,7 @@ class User extends Process
         App::backend()->user_url         = '';
         App::backend()->user_lang        = App::auth()->getInfo('user_lang');
         App::backend()->user_tz          = App::auth()->getInfo('user_tz');
-        App::backend()->user_post_status = App::status()->post()->level('pending');
+        App::backend()->user_post_status = App::status()->post()::PENDING;
 
         App::backend()->user_options = App::users()->userDefaults();
 
@@ -109,7 +109,7 @@ class User extends Process
 
                 $cur->user_id          = $_POST['user_id'];
                 $cur->user_super       = App::backend()->user_super = empty($_POST['user_super']) ? 0 : 1;
-                $cur->user_status      = App::backend()->user_status = App::status()->user()->level(empty($_POST['user_status']) ? 'disabled' : 'enabled');
+                $cur->user_status      = App::backend()->user_status = empty($_POST['user_status']) ? App::status()->user()::DISABLED : App::status()->user()::ENABLED;
                 $cur->user_name        = App::backend()->user_name = Html::escapeHTML($_POST['user_name']);
                 $cur->user_firstname   = App::backend()->user_firstname = Html::escapeHTML($_POST['user_firstname']);
                 $cur->user_displayname = App::backend()->user_displayname = Html::escapeHTML($_POST['user_displayname']);

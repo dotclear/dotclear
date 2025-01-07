@@ -88,7 +88,7 @@ class BlogPref extends Process
             Page::checkSuper();
 
             $data->blog_id       = false;
-            $data->blog_status   = App::status()->blog()->level('offline');
+            $data->blog_status   = App::status()->blog()::OFFLINE;
             $data->blog_name     = '';
             $data->blog_desc     = '';
             $data->blog_settings = null;

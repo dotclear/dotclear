@@ -126,7 +126,7 @@ class ManagePage extends Process
 
         // If user can't publish
         if (!App::backend()->can_publish) {
-            App::backend()->post_status = App::status()->post()->level('pending');
+            App::backend()->post_status = App::status()->post()::PENDING;
         }
 
         // Status combo
@@ -482,10 +482,10 @@ class ManagePage extends Process
         if (App::backend()->post_id) {
             try {
                 $img_status = match ((int) App::backend()->post_status) {
-                    App::status()->post()->level('published')   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
-                    App::status()->post()->level('unpublished') => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
-                    App::status()->post()->level('scheduled')   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
-                    App::status()->post()->level('pending')     => sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending'),
+                    App::status()->post()::PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
+                    App::status()->post()::UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
+                    App::status()->post()::SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
+                    App::status()->post()::PENDING     => sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending'),
                 };
             } catch (UnhandledMatchError) {
             }
@@ -1108,22 +1108,22 @@ class ManagePage extends Process
 
             $sts_class = '';
             switch ((int) $rs->comment_status) {
-                case App::status()->comment()->level('published'):
+                case App::status()->comment()::PUBLISHED:
                     $img_status = sprintf($img_status_pattern, __('Published'), 'published.svg', 'published');
                     $sts_class  = 'sts-online';
 
                     break;
-                case App::status()->comment()->level('unpublished'):
+                case App::status()->comment()::UNPUBLISHED:
                     $img_status = sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished');
                     $sts_class  = 'sts-offline';
 
                     break;
-                case App::status()->comment()->level('pending'):
+                case App::status()->comment()::PENDING:
                     $img_status = sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending');
                     $sts_class  = 'sts-pending';
 
                     break;
-                case App::status()->comment()->level('junk'):
+                case App::status()->comment()::JUNK:
                     $img_status = sprintf($img_status_pattern, __('Junk'), 'junk.svg', 'junk light-only') . sprintf($img_status_pattern, __('Junk'), 'junk-dark.svg', 'junk dark-only');
                     $sts_class  = 'sts-junk';
 
@@ -1180,7 +1180,7 @@ class ManagePage extends Process
                 ]);
 
             $rows[] = (new Tr())
-                ->class(array_filter(['line', App::status()->comment($rs->comment_statu) ? '' : 'offline ', $sts_class]))
+                ->class(array_filter(['line', App::status()->comment()->isRestricted($rs->comment_status) ? '' : 'offline ', $sts_class]))
                 ->id('c' . $rs->comment_id)
                 ->cols($cols);
         }

@@ -19,42 +19,34 @@ use Dotclear\Schema\Status\Post;
 use Dotclear\Schema\Status\User;
 
 /**
- * @brief   List statuses handler.
+ * @brief   Dotclear lists statuses handler.
  *
  * @since   2.33
  */
 class Status implements StatusInterface
 {
-	protected Statuses $blog;
-	protected Statuses $comment;
-	protected Statuses $post;
-	protected Statuses $user;
+	protected Blog $blog;
+	protected Comment $comment;
+	protected Post $post;
+	protected User $user;
 
-	public function __construct()
+	public function blog(): Blog
 	{
-        $this->blog    = new Blog();
-        $this->post    = new Post();
-        $this->comment = new Comment();
-        $this->user    = new User();
+		return $this->blog ?? $this->blog = new Blog();
 	}
 
-	public function blog(): Statuses
+	public function comment(): Comment
 	{
-		return $this->blog;
+		return $this->comment ?? $this->comment = new Comment();
 	}
 
-	public function comment(): Statuses
+	public function post(): Post
 	{
-		return $this->comment;
+		return $this->post ?? $this->post = new Post();
 	}
 
-	public function post(): Statuses
+	public function user(): User
 	{
-		return $this->post;
-	}
-
-	public function user(): Statuses
-	{
-		return $this->user;
+		return $this->user ?? $this->user = new User();
 	}
 }
