@@ -68,6 +68,7 @@ class UserPref
                     'last_name'    => [true, __('Last Name')],
                     'display_name' => [true, __('Display name')],
                     'entries'      => [true, __('Entries (all types)')],
+                    'status'       => [true,  __('Status')],
                 ],
             ];
             $cols['blogs'] = [

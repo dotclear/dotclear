@@ -120,53 +120,22 @@ class ListingPostsMini extends Listing
      */
     private function postLine(): Tr
     {
-        $img = (new Img('images/%2$s'))
-            ->alt('%1$s')
-            ->class(['mark', 'mark-%3$s'])
-            ->render();
         $post_classes = ['line'];
         if (App::status()->post()->isRestricted((int) $this->rs->post_status)) {
             $post_classes[] = 'offline';
         }
-        $img_status = '';
-        switch ((int) $this->rs->post_status) {
-            case App::status()->post()::PUBLISHED:
-                $img_status     = sprintf($img, __('Published'), 'published.svg', 'published');
-                $post_classes[] = 'sts-online';
+        $post_classes[] = 'sts-' . App::status()->post()->id((int) $this->rs->post_status); // used ?
 
-                break;
-            case App::status()->post()::UNPUBLISHED:
-                $img_status     = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
-                $post_classes[] = 'sts-offline';
-
-                break;
-            case App::status()->post()::SCHEDULED:
-                $img_status     = sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled');
-                $post_classes[] = 'sts-scheduled';
-
-                break;
-            case App::status()->post()::PENDING:
-                $img_status     = sprintf($img, __('Pending'), 'pending.svg', 'pending');
-                $post_classes[] = 'sts-pending';
-
-                break;
-        }
-
-        $protected = '';
+        $status = [];
         if ($this->rs->post_password) {
-            $protected = sprintf($img, __('Protected'), 'locker.svg', 'locked');
+            $status[] = self::getRowImage(__('Protected'), 'locker.svg', 'locked');
         }
-
-        $selected = '';
         if ($this->rs->post_selected) {
-            $selected = sprintf($img, __('Selected'), 'selected.svg', 'selected');
+            $status[] = self::getRowImage(__('Selected'), 'selected.svg', 'selected');
         }
-
-        $attach   = '';
         $nb_media = $this->rs->countMedia();
         if ($nb_media > 0) {
-            $attach_str = $nb_media == 1 ? __('%d attachment') : __('%d attachments');
-            $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.svg', 'attach');
+            $status[]   = self::getRowImage(sprintf($nb_media == 1 ? __('%d attachment') : __('%d attachments'), $nb_media), 'attach.svg', 'attach');
         }
 
         $cols = [
@@ -191,8 +160,12 @@ class ListingPostsMini extends Listing
                 ->text($this->rs->user_id)
             ->render(),
             'status' => (new Td())
-                ->class(['nowrap', 'count'])
-                ->text($img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach)
+                ->class(['nowrap', 'status', 'count'])
+                ->separator(' ')
+                ->items([
+                    App::status()->post()->image((int) $this->rs->post_status),
+                    ... $status
+                ])
             ->render(),
         ];
 

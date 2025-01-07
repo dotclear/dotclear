@@ -40,7 +40,7 @@ class Blog extends Statuses
 	            (new Status(self::ONLINE , 'online', __('online'), 'images/published.svg')),
 	            (new Status(self::OFFLINE, 'offline', __('offline'), 'images/unpublished.svg')),
 	            (new Status(self::REMOVED, 'removed', __('removed'), 'images/trash.svg')),
-	            (new Status(self::UNDEFINED, 'undefined', __('undefined'), 'images/trash.svg')),
+	            (new Status(self::UNDEFINED, 'undefined', __('undefined'), 'images/check-wrn.svg')),
 	        ]
 	    );
 	}

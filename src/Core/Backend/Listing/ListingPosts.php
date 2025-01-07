@@ -128,11 +128,6 @@ class ListingPosts extends Listing
             $lines[] = $this->postLine(isset($entries[$this->rs->post_id]));
         }
 
-        $fmt = fn ($title, $image, $class): Text => (new Text(null, (new Img('images/' . $image))
-            ->alt($title)
-            ->class(['mark', 'mark-' . $class])
-            ->render() . ' ' . $title));
-
         if ($filter) {
             $caption = sprintf(
                 __('List of %s entry matching the filter.', 'List of %s entries matching the filter.', $this->rs_count),
@@ -186,9 +181,9 @@ class ListingPosts extends Listing
                             ->separator(' - ')
                             ->items([
                                 ... array_map(fn ($k): Img|Text => App::status()->post()->image($k->id(), true), App::status()->post()->dump()),
-                                $fmt(__('Protected'), 'locker.svg', 'locked'),
-                                $fmt(__('Selected'), 'selected.svg', 'selected'),
-                                $fmt(__('Attachments'), 'attach.svg', 'attach'),
+                                self::getRowImage(__('Protected'), 'images/locker.svg', 'locked', true),
+                                self::getRowImage(__('Selected'), 'images/selected.svg', 'selected', true),
+                                self::getRowImage(__('Attachments'), 'images/attach.svg', 'attach', true),
                             ])
                             ->render(),
                         )),
@@ -209,10 +204,6 @@ class ListingPosts extends Listing
      */
     private function postLine(bool $checked): Tr
     {
-        $img = fn ($title, $image, $class): Img => (new Img('images/' . $image))
-            ->alt($title)
-            ->class(['mark', 'mark-' . $class]);
-
         $post_classes = ['line'];
         if (App::status()->post()->isRestricted((int) $this->rs->post_status)) {
             $post_classes[] = 'offline';
@@ -221,15 +212,14 @@ class ListingPosts extends Listing
 
         $status = [];
         if ($this->rs->post_password) {
-            $status[] = $img(__('Protected'), 'locker.svg', 'locked');
+            $status[] = self::getRowImage(__('Protected'), 'images/locker.svg', 'locked');
         }
         if ($this->rs->post_selected) {
-            $status[] = $img(__('Selected'), 'selected.svg', 'selected');
+            $status[] = self::getRowImage(__('Selected'), 'images/selected.svg', 'selected');
         }
         $nb_media = $this->rs->countMedia();
         if ($nb_media > 0) {
-            $attach_str = $nb_media == 1 ? __('%d attachment') : __('%d attachments');
-            $status[]     = $img(sprintf($attach_str, $nb_media), 'attach.svg', 'attach');
+            $status[] = self::getRowImage(sprintf($nb_media == 1 ? __('%d attachment') : __('%d attachments'), $nb_media), 'images/attach.svg', 'attach');
         }
 
         if ($this->rs->cat_title) {
@@ -290,7 +280,7 @@ class ListingPosts extends Listing
                 ->text($this->rs->nb_trackback)
             ->render(),
             'status' => (new Td())
-                ->class(['nowrap', 'count'])
+                ->class(['nowrap', 'status', 'count'])
                 ->separator(' ')
                 ->items([
                     App::status()->post()->image((int) $this->rs->post_status),

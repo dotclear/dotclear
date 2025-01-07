@@ -19,6 +19,7 @@ use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
@@ -122,11 +123,6 @@ class ListingBlogs extends Listing
             $lines[] = $this->blogLine(isset($blogs[$this->rs->blog_id]));
         }
 
-        $fmt = fn ($title, $image, $class): string => (new Img('images/' . $image))
-            ->class(['mark', 'mark-' . $class])
-            ->alt($title)
-        ->render() . ' ' . $title;
-
         $buffer = (new Div())
             ->class('table-outer')
             ->items([
@@ -139,10 +135,11 @@ class ListingBlogs extends Listing
                 (new Para())
                     ->class('info')
                     ->items([
-                        (new Text(null, __('Legend: '))),
-                        (new Text(null, $fmt(__('online'), 'published.svg', 'published') . ' - ')),
-                        (new Text(null, $fmt(__('offline'), 'unpublished.svg', 'unpublished') . ' - ')),
-                        (new Text(null, $fmt(__('removed'), 'pending.svg', 'pending'))),
+                        (new Text(null, __('Legend: ') . (new Set())
+                            ->separator(' - ')
+                            ->items(array_map(fn ($k): Img|Text => App::status()->blog()->image($k->id(), true), App::status()->blog()->dump()))
+                            ->render(),
+                        )),
                     ]),
             ])
         ->render();
@@ -160,13 +157,7 @@ class ListingBlogs extends Listing
      */
     private function blogLine(bool $checked = false): Tr
     {
-        $blog_id          = Html::escapeHTML($this->rs->blog_id);
-        $blog_status      = (int) $this->rs->blog_status;
-        $blog_status_case = match ($blog_status) {
-            App::status()->blog()::ONLINE  => 'published',
-            App::status()->blog()::OFFLINE => 'unpublished',
-            default                        => 'pending',
-        };
+        $blog_id = Html::escapeHTML($this->rs->blog_id);
 
         $cols = [
             'check' => App::auth()->isSuperAdmin() ?
@@ -238,12 +229,8 @@ class ListingBlogs extends Listing
             ->render(),
 
             'status' => (new Td())
-                ->class(['nowrap', 'status', 'txt-center'])
-                ->items([
-                    (new Img('images/' . $blog_status_case . '.svg'))
-                        ->class(['mark', 'mark-' . $blog_status_case])
-                        ->alt(App::status()->blog()->name($blog_status)),
-                ])
+                ->class(['nowrap', 'status'])
+                ->items([App::status()->blog()->image((int) $this->rs->blog_status)])
             ->render(),
         ];
 
