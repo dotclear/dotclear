@@ -18,7 +18,6 @@ use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Link;
-use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Table;
@@ -86,52 +85,25 @@ class ListingComments extends Listing
                 $this->rs_count
             ), $this->rs_count);
         } else {
-            $nb_published   = (int) App::blog()->getComments(['comment_status' => App::status()->comment()::PUBLISHED], true)->f(0);
-            $nb_spam        = (int) App::blog()->getComments(['comment_status' => App::status()->comment()::JUNK], true)->f(0);
-            $nb_pending     = (int) App::blog()->getComments(['comment_status' => App::status()->comment()::PENDING], true)->f(0);
-            $nb_unpublished = (int) App::blog()->getComments(['comment_status' => App::status()->comment()::UNPUBLISHED], true)->f(0);
-
+            $stats = [
+                (new Text(null, sprintf(__('List of comments and trackbacks (%s)'), $this->rs_count))),
+            ];
+            foreach (App::status()->comment()->dump(false) as $status) {
+                $nb = (int) App::blog()->getComments(['comment_status' => $status->level()], true)->f(0);
+                if ($nb !== 0) {
+                    $stats[] = (new Set())
+                        ->separator(' ')
+                        ->items([
+                            (new Link())
+                                ->href(App::backend()->url()->get('admin.comments', ['status' => $status->level()]))
+                                ->text(__($status->name(), $status->pluralName(), $nb)),
+                            (new Text(null, sprintf('(%d)', $nb))),
+                        ]);
+                }
+            }
             $caption = (new Set())
                 ->separator(', ')
-                ->items([
-                    (new Text(null, sprintf(__('List of comments and trackbacks (%s)'), $this->rs_count))),
-                    $nb_published > 0 ?
-                        (new Set())
-                            ->items([
-                                (new Link())
-                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::status()->comment()::PUBLISHED]))
-                                    ->text(__('published (1)', 'published (> 1)', $nb_published)),
-                                (new Text(null, sprintf(' (%d)', $nb_published))),
-                            ]) :
-                        (new None()),
-                    $nb_spam > 0 ?
-                        (new Set())
-                            ->items([
-                                (new Link())
-                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::status()->comment()::JUNK]))
-                                    ->text(__('spam (1)', 'spam (> 1)', $nb_spam)),
-                                (new Text(null, sprintf(' (%d)', $nb_spam))),
-                            ]) :
-                        (new None()),
-                    $nb_pending > 0 ?
-                        (new Set())
-                            ->items([
-                                (new Link())
-                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::status()->comment()::PENDING]))
-                                    ->text(__('pending (1)', 'pending (> 1)', $nb_pending)),
-                                (new Text(null, sprintf(' (%d)', $nb_pending))),
-                            ]) :
-                        (new None()),
-                    $nb_unpublished > 0 ?
-                        (new Set())
-                            ->items([
-                                (new Link())
-                                    ->href(App::backend()->url()->get('admin.comments', ['status' => App::status()->comment()::UNPUBLISHED]))
-                                    ->text(__('unpublished (1)', 'unpublished (> 1)', $nb_unpublished)),
-                                (new Text(null, sprintf(' (%d)', $nb_unpublished))),
-                            ]) :
-                        (new None()),
-                ])
+                ->items($stats)
             ->render();
         }
 

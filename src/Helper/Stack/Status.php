@@ -21,6 +21,7 @@ class Status
         protected int $level,
         protected string $id,
         protected string $name,
+        protected string $plural_name,
         protected string $icon,
         protected bool $hidden = false
     ) {
@@ -43,11 +44,19 @@ class Status
     }
 
     /**
-     * Gets status name.
+     * Gets status name (translated).
      */
     public function name(): string
     {
         return $this->name;
+    }
+
+    /**
+     * Gets status plural name (translated).
+     */
+    public function pluralName(): string
+    {
+        return $this->plural_name;
     }
 
     /**

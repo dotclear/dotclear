@@ -31,10 +31,10 @@ class Post extends Statuses
             column: 'post_status',
             threshold: self::UNPUBLISHED,
             statuses: [
-                (new Status(self::PUBLISHED, 'published', __('Published'), 'images/published.svg')),
-                (new Status(self::UNPUBLISHED, 'unpublished', __('Unpublished'), 'images/unpublished.svg')),
-                (new Status(self::SCHEDULED, 'scheduled', __('Scheduled'), 'images/scheduled.svg')),
-                (new Status(self::PENDING, 'pending', __('Pending'), 'images/pending.svg')),
+                (new Status(self::PUBLISHED, 'published', __('Published'), __('Published (>1)'), 'images/published.svg')),
+                (new Status(self::UNPUBLISHED, 'unpublished', __('Unpublished'), __('Unpublished (>1)'), 'images/unpublished.svg')),
+                (new Status(self::SCHEDULED, 'scheduled', __('Scheduled'), __('Scheduled (>1)'), 'images/scheduled.svg')),
+                (new Status(self::PENDING, 'pending', __('Pending'), __('Pending (>1)'), 'images/pending.svg')),
             ]
         );
     }

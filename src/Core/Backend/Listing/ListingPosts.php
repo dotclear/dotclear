@@ -145,7 +145,7 @@ class ListingPosts extends Listing
                         ->items([
                             (new Link())
                                 ->href(App::backend()->url()->get('admin.posts', ['status' => $status->level()]))
-                                ->text(__($status->id() . ' (1)', $status->id() . ' (> 1)', $nb)),
+                                ->text(__($status->name(), $status->pluralName(), $nb)),
                             (new Text(null, sprintf('(%d)', $nb))),
                         ]);
                 }

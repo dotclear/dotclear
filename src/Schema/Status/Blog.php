@@ -36,10 +36,10 @@ class Blog extends Statuses
             column: 'blog_status',
             threshold: self::OFFLINE,
             statuses: [
-                (new Status(self::ONLINE, 'online', __('Online'), 'images/published.svg')),
-                (new Status(self::OFFLINE, 'offline', __('Offline'), 'images/unpublished.svg')),
-                (new Status(self::REMOVED, 'removed', __('Removed'), 'images/pending.svg')),
-                (new Status(self::UNDEFINED, 'undefined', __('Undefined'), 'images/check-off.svg', true)),
+                (new Status(self::ONLINE, 'online', __('Online'), __('Online (>1)'), 'images/published.svg')),
+                (new Status(self::OFFLINE, 'offline', __('Offline'), __('Offline (>1)'), 'images/unpublished.svg')),
+                (new Status(self::REMOVED, 'removed', __('Removed'), __('Removed (>1)'), 'images/pending.svg')),
+                (new Status(self::UNDEFINED, 'undefined', __('Undefined'), __('Undefined (>1)'), 'images/check-off.svg', true)),
             ]
         );
     }

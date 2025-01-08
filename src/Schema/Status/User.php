@@ -29,8 +29,8 @@ class User extends Statuses
             column: 'user_status',
             threshold: self::DISABLED,
             statuses: [
-                (new Status(self::ENABLED, 'enabled', __('Enabled'), 'images/published.svg')),
-                (new Status(self::DISABLED, 'disabled', __('Disabled'), 'images/unpublished.svg')),
+                (new Status(self::ENABLED, 'enabled', __('Enabled'), __('Enabled (>1)'), 'images/published.svg')),
+                (new Status(self::DISABLED, 'disabled', __('Disabled'), __('Disabled (>1)'), 'images/unpublished.svg')),
             ]
         );
     }
