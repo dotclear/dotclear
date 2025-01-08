@@ -270,9 +270,7 @@ class Statuses
     {
         $combo = [];
         foreach ($this->statuses as $status) {
-            if (!$status->hidden()) {
-                $combo[__($status->name())] = (string) $status->level();
-            }
+            $combo[__($status->name())] = (string) $status->level();
         }
 
         return $combo;
