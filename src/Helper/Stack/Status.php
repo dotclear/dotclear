@@ -44,7 +44,7 @@ class Status
     }
 
     /**
-     * Gets status name (translated).
+     * Gets status name (English, not translated).
      */
     public function name(): string
     {
@@ -52,7 +52,7 @@ class Status
     }
 
     /**
-     * Gets status plural name (translated).
+     * Gets status plural name (English, not translated).
      */
     public function pluralName(): string
     {

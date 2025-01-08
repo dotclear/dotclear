@@ -33,7 +33,7 @@ class ActionsBlogsDefault
 
         $actions = [];
         foreach (App::status()->blog()->dump(false) as $status) {
-            $actions[$status->name()] = $status->id();
+            $actions[__($status->name())] = $status->id();
         }
         $ap->addAction(
             [__('Status') => $actions],

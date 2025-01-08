@@ -154,7 +154,7 @@ class Statuses
     }
 
     /**
-     * Gets a status name.
+     * Gets a status name (translated).
      *
      * Search by (string) id or (int) level.
      * Returns threshold level name if status does not exists.
@@ -165,7 +165,7 @@ class Statuses
             if (is_int($needle)       && $status->level() === $needle
                 || is_string($needle) && $status->id()    === $needle
             ) {
-                return $status->name();
+                return __($status->name());
             }
         }
 
@@ -203,11 +203,11 @@ class Statuses
                 || is_string($needle) && $status->id()    === $needle
             ) {
                 $img = (new Img($status->icon()))
-                    ->alt(Html::escapeHTML($status->name()))
+                    ->alt(Html::escapeHTML(__($status->name())))
                     ->class(['mark', 'mark-' . $status->id()]);
 
                 return $with_text ?
-                    (new Text(null, $img->render() . Html::escapeHTML($status->name()))) :
+                    (new Text(null, $img->render() . Html::escapeHTML(__($status->name())))) :
                     $img;
             }
         }
@@ -253,7 +253,7 @@ class Statuses
     {
         $combo = [];
         foreach ($this->statuses as $status) {
-            $combo[$status->level()] = $status->name();
+            $combo[$status->level()] = __($status->name());
         }
 
         return $combo;
@@ -271,7 +271,7 @@ class Statuses
         $combo = [];
         foreach ($this->statuses as $status) {
             if (!$status->hidden()) {
-                $combo[$status->name()] = (string) $status->level();
+                $combo[__($status->name())] = (string) $status->level();
             }
         }
 

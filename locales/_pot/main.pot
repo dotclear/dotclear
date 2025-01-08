@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-08 10:44+0100\n"
+"POT-Creation-Date: 2025-01-08 12:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -904,32 +904,40 @@ msgstr ""
 #: src/Core/Backend/Listing/ListingComments.php:187
 #: src/Core/Backend/Listing/ListingComments.php:221
 #: src/Process/Backend/MediaItem.php:983 src/Process/Backend/Post.php:476
-#: src/Process/Backend/Post.php:1082 src/Schema/Status/Comment.php:34
-#: src/Schema/Status/Post.php:34
+#: src/Process/Backend/Post.php:1082 src/Schema/Status/Comment.php:31
+#: src/Schema/Status/Post.php:31
 msgid "Published"
-msgstr ""
+msgid_plural "Published (>1)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Core/Backend/Listing/ListingComments.php:188
 #: src/Core/Backend/Listing/ListingComments.php:227
 #: src/Process/Backend/MediaItem.php:984 src/Process/Backend/Post.php:477
-#: src/Process/Backend/Post.php:1087 src/Schema/Status/Comment.php:35
-#: src/Schema/Status/Post.php:35
+#: src/Process/Backend/Post.php:1087 src/Schema/Status/Comment.php:32
+#: src/Schema/Status/Post.php:32
 msgid "Unpublished"
-msgstr ""
+msgid_plural "Unpublished (>1)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Core/Backend/Listing/ListingComments.php:189
 #: src/Core/Backend/Listing/ListingComments.php:233
 #: src/Process/Backend/MediaItem.php:986 src/Process/Backend/Post.php:479
-#: src/Process/Backend/Post.php:1092 src/Schema/Status/Comment.php:36
-#: src/Schema/Status/Post.php:37
+#: src/Process/Backend/Post.php:1092 src/Schema/Status/Comment.php:33
+#: src/Schema/Status/Post.php:34
 msgid "Pending"
-msgstr ""
+msgid_plural "Pending (>1)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Core/Backend/Listing/ListingComments.php:190
 #: src/Core/Backend/Listing/ListingComments.php:239
-#: src/Process/Backend/Post.php:1097 src/Schema/Status/Comment.php:37
+#: src/Process/Backend/Post.php:1097 src/Schema/Status/Comment.php:34
 msgid "Junk"
-msgstr ""
+msgid_plural "Junk (>1)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Core/Backend/Listing/ListingComments.php:245
 msgid "Unknown"
@@ -4745,9 +4753,11 @@ msgid "No entry seems contain this media."
 msgstr ""
 
 #: src/Process/Backend/MediaItem.php:985 src/Process/Backend/Post.php:478
-#: src/Schema/Status/Post.php:36
+#: src/Schema/Status/Post.php:33
 msgid "Scheduled"
-msgstr ""
+msgid_plural "Scheduled (>1)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Process/Backend/MediaItem.php:1003
 #: src/Process/Backend/MediaItem.php:1017
@@ -6388,70 +6398,38 @@ msgstr ""
 msgid "Read"
 msgstr ""
 
-#: src/Schema/Status/Blog.php:39
+#: src/Schema/Status/Blog.php:36
 msgid "Online"
-msgstr ""
+msgid_plural "Online (>1)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Schema/Status/Blog.php:37
+msgid "Offline"
+msgid_plural "Offline (>1)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Schema/Status/Blog.php:38
+msgid "Removed"
+msgid_plural "Removed (>1)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Schema/Status/Blog.php:39
-msgid "Online (>1)"
-msgstr ""
-
-#: src/Schema/Status/Blog.php:40
-msgid "Offline"
-msgstr ""
-
-#: src/Schema/Status/Blog.php:40
-msgid "Offline (>1)"
-msgstr ""
-
-#: src/Schema/Status/Blog.php:41
-msgid "Removed"
-msgstr ""
-
-#: src/Schema/Status/Blog.php:41
-msgid "Removed (>1)"
-msgstr ""
-
-#: src/Schema/Status/Blog.php:42
 msgid "Undefined"
-msgstr ""
+msgid_plural "Undefined (>1)"
+msgstr[0] ""
+msgstr[1] ""
 
-#: src/Schema/Status/Blog.php:42
-msgid "Undefined (>1)"
-msgstr ""
-
-#: src/Schema/Status/Comment.php:34 src/Schema/Status/Post.php:34
-msgid "Published (>1)"
-msgstr ""
-
-#: src/Schema/Status/Comment.php:35 src/Schema/Status/Post.php:35
-msgid "Unpublished (>1)"
-msgstr ""
-
-#: src/Schema/Status/Comment.php:36 src/Schema/Status/Post.php:37
-msgid "Pending (>1)"
-msgstr ""
-
-#: src/Schema/Status/Comment.php:37
-msgid "Junk (>1)"
-msgstr ""
-
-#: src/Schema/Status/Post.php:36
-msgid "Scheduled (>1)"
-msgstr ""
-
-#: src/Schema/Status/User.php:32
+#: src/Schema/Status/User.php:29
 msgid "Enabled"
-msgstr ""
+msgid_plural "Enabled (>1)"
+msgstr[0] ""
+msgstr[1] ""
 
-#: src/Schema/Status/User.php:32
-msgid "Enabled (>1)"
-msgstr ""
-
-#: src/Schema/Status/User.php:33
+#: src/Schema/Status/User.php:30
 msgid "Disabled"
-msgstr ""
-
-#: src/Schema/Status/User.php:33
-msgid "Disabled (>1)"
-msgstr ""
+msgid_plural "Disabled (>1)"
+msgstr[0] ""
+msgstr[1] ""

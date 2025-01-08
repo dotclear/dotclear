@@ -34,7 +34,7 @@ class ActionsCommentsDefault
         ]), App::blog()->id())) {
             $actions = [];
             foreach (App::status()->comment()->dump(false) as $status) {
-                $actions[$status->name()] = $status->id();
+                $actions[__($status->name())] = $status->id();
             }
             $ap->addAction(
                 [__('Status') => $actions],
