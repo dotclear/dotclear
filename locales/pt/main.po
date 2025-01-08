@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-08 12:57+0100\n"
-"PO-Revision-Date: 2025-01-08 12:08\n"
+"PO-Revision-Date: 2025-01-08 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -928,7 +928,7 @@ msgstr[1] "Não publicado"
 #: src/Schema/Status/Post.php:34
 msgid "Pending"
 msgid_plural "Pending (>1)"
-msgstr[0] "PENDENTE"
+msgstr[0] "Pendente"
 msgstr[1] "Pendente"
 
 #: src/Core/Backend/Listing/ListingComments.php:190
@@ -6405,30 +6405,30 @@ msgstr[1] "Em linha"
 #: src/Schema/Status/Blog.php:37
 msgid "Offline"
 msgid_plural "Offline (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Desconectado"
+msgstr[1] "Fora de linha"
 
 #: src/Schema/Status/Blog.php:38
 msgid "Removed"
 msgid_plural "Removed (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Removido"
+msgstr[1] "Removido"
 
 #: src/Schema/Status/Blog.php:39
 msgid "Undefined"
 msgid_plural "Undefined (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Indefinido"
+msgstr[1] "Indefinido"
 
 #: src/Schema/Status/User.php:29
 msgid "Enabled"
 msgid_plural "Enabled (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ativado"
+msgstr[1] "Ativado"
 
 #: src/Schema/Status/User.php:30
 msgid "Disabled"
 msgid_plural "Disabled (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Desativado"
+msgstr[1] "Desativado"
 
