@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-08 12:57+0100\n"
-"PO-Revision-Date: 2025-01-08 12:07\n"
+"PO-Revision-Date: 2025-01-08 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -936,8 +936,8 @@ msgstr[1] "Pendiente"
 #: src/Process/Backend/Post.php:1097 src/Schema/Status/Comment.php:34
 msgid "Junk"
 msgid_plural "Junk (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Basura"
+msgstr[1] "Basura"
 
 #: src/Core/Backend/Listing/ListingComments.php:245
 msgid "Unknown"
@@ -4754,8 +4754,8 @@ msgstr "No parece que haya ninguna entrada que contenga este elemento multimedia
 #: src/Schema/Status/Post.php:33
 msgid "Scheduled"
 msgid_plural "Scheduled (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Programado"
+msgstr[1] "Programado"
 
 #: src/Process/Backend/MediaItem.php:1003
 #: src/Process/Backend/MediaItem.php:1017
@@ -6399,36 +6399,36 @@ msgstr "Leer"
 #: src/Schema/Status/Blog.php:36
 msgid "Online"
 msgid_plural "Online (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "En línea"
+msgstr[1] "En línea"
 
 #: src/Schema/Status/Blog.php:37
 msgid "Offline"
 msgid_plural "Offline (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Fuera de línea"
+msgstr[1] "Fuera de línea"
 
 #: src/Schema/Status/Blog.php:38
 msgid "Removed"
 msgid_plural "Removed (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eliminado"
+msgstr[1] "Eliminado"
 
 #: src/Schema/Status/Blog.php:39
 msgid "Undefined"
 msgid_plural "Undefined (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sin definir"
+msgstr[1] "Indefinido"
 
 #: src/Schema/Status/User.php:29
 msgid "Enabled"
 msgid_plural "Enabled (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Activado"
+msgstr[1] "Activado"
 
 #: src/Schema/Status/User.php:30
 msgid "Disabled"
 msgid_plural "Disabled (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Discapacitados"
+msgstr[1] "Desactivado"
 
