@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2024-07-08 13:01\n"
+"PO-Revision-Date: 2025-01-08 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "MIME-Version: 1.0\n"
@@ -21,40 +21,40 @@ msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
 msgid "_Jan"
-msgstr "_Jan"
+msgstr "Jan"
 
 msgid "_Feb"
-msgstr "_Feb"
+msgstr "Feb"
 
 msgid "_Mar"
-msgstr "_Mar"
+msgstr "Mar"
 
 msgid "_Apr"
-msgstr "_apr"
+msgstr "Apr"
 
 msgid "_May"
-msgstr "_Smieť"
+msgstr "Smieť"
 
 msgid "_Jun"
-msgstr "_jún"
+msgstr "Jún"
 
 msgid "_Jul"
-msgstr "_Júl"
+msgstr "Júl"
 
 msgid "_Aug"
-msgstr "_Aug"
+msgstr "Aug"
 
 msgid "_Sep"
-msgstr "_Sept"
+msgstr "Sept"
 
 msgid "_Oct"
-msgstr "_Okt"
+msgstr "Okt"
 
 msgid "_Nov"
-msgstr "_nov"
+msgstr "Nov"
 
 msgid "_Dec"
-msgstr "_dec"
+msgstr "Dec"
 
 msgid "January"
 msgstr "januára"
@@ -93,25 +93,25 @@ msgid "December"
 msgstr "December"
 
 msgid "_Mon"
-msgstr "_Po"
+msgstr "Po"
 
 msgid "_Tue"
-msgstr "_ut"
+msgstr "Ut"
 
 msgid "_Wed"
-msgstr "_Str"
+msgstr "Str"
 
 msgid "_Thu"
-msgstr "_Št"
+msgstr "Št"
 
 msgid "_Fri"
-msgstr "_Pia"
+msgstr "Pia"
 
 msgid "_Sat"
-msgstr "_So"
+msgstr "So"
 
 msgid "_Sun"
-msgstr "_Slnko"
+msgstr "Slnko"
 
 msgid "Monday"
 msgstr "pondelok"

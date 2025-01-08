@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2024-07-08 13:01\n"
+"PO-Revision-Date: 2025-01-08 12:43\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "MIME-Version: 1.0\n"
@@ -21,40 +21,40 @@ msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
 msgid "_Jan"
-msgstr "_jan"
+msgstr "jan"
 
 msgid "_Feb"
-msgstr "_feb"
+msgstr "feb"
 
 msgid "_Mar"
-msgstr "_mar"
+msgstr "mar"
 
 msgid "_Apr"
-msgstr "_apr"
+msgstr "apr"
 
 msgid "_May"
-msgstr "_maj"
+msgstr "maj"
 
 msgid "_Jun"
-msgstr "_Jun"
+msgstr "jun"
 
 msgid "_Jul"
-msgstr "_jul"
+msgstr "jul"
 
 msgid "_Aug"
-msgstr "_avg"
+msgstr "avg"
 
 msgid "_Sep"
-msgstr "_ sep"
+msgstr "sep"
 
 msgid "_Oct"
-msgstr "_okt"
+msgstr "okt"
 
 msgid "_Nov"
-msgstr "_ nov"
+msgstr "nov"
 
 msgid "_Dec"
-msgstr "_dec"
+msgstr "dec"
 
 msgid "January"
 msgstr "januarja"
@@ -93,25 +93,25 @@ msgid "December"
 msgstr "decembra"
 
 msgid "_Mon"
-msgstr "_pon"
+msgstr "pon"
 
 msgid "_Tue"
-msgstr "_tor"
+msgstr "tor"
 
 msgid "_Wed"
-msgstr "_sre"
+msgstr "sre"
 
 msgid "_Thu"
-msgstr "_čet"
+msgstr "čet"
 
 msgid "_Fri"
-msgstr "_pet"
+msgstr "pet"
 
 msgid "_Sat"
-msgstr "_sob"
+msgstr "sob"
 
 msgid "_Sun"
-msgstr "_Sonce"
+msgstr "sonce"
 
 msgid "Monday"
 msgstr "ponedeljek"
