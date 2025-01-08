@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-08 10:11+0100\n"
-"PO-Revision-Date: 2025-01-08 09:16\n"
+"POT-Creation-Date: 2025-01-08 10:44+0100\n"
+"PO-Revision-Date: 2025-01-08 09:48\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -136,7 +136,7 @@ msgstr "Blognomo"
 #: src/Core/Backend/Combos.php:274 src/Core/Backend/Combos.php:297
 #: src/Core/Backend/Combos.php:329
 #: src/Core/Backend/Listing/ListingBlogs.php:103
-#: src/Core/Backend/Listing/ListingComments.php:158
+#: src/Core/Backend/Listing/ListingComments.php:130
 #: src/Core/Backend/Listing/ListingPosts.php:114
 #: src/Core/Backend/Listing/ListingPostsMini.php:72
 #: src/Core/Backend/Listing/ListingUsers.php:90
@@ -215,7 +215,7 @@ msgstr "Komentoj agoj"
 
 #: src/Core/Backend/Action/ActionsComments.php:156
 #: src/Core/Backend/Combos.php:273 src/Core/Backend/Combos.php:296
-#: src/Core/Backend/Listing/ListingComments.php:148
+#: src/Core/Backend/Listing/ListingComments.php:120
 #: src/Core/Backend/Listing/ListingPosts.php:84
 #: src/Core/Backend/Listing/ListingPostsMini.php:68
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
@@ -473,7 +473,7 @@ msgid "Ascending"
 msgstr "Ascendenta"
 
 #: src/Core/Backend/Combos.php:270 src/Core/Backend/Combos.php:293
-#: src/Core/Backend/Listing/ListingComments.php:153
+#: src/Core/Backend/Listing/ListingComments.php:125
 #: src/Core/Backend/Listing/ListingMedia.php:125
 #: src/Core/Backend/Listing/ListingPosts.php:76
 #: src/Core/Backend/Listing/ListingPostsMini.php:64
@@ -511,13 +511,13 @@ msgid "Entry date"
 msgstr "Dato de eniro"
 
 #: src/Core/Backend/Combos.php:298
-#: src/Core/Backend/Listing/ListingComments.php:171
+#: src/Core/Backend/Listing/ListingComments.php:143
 #: src/Core/Backend/UserPref.php:57
 msgid "Spam filter"
 msgstr "Spamfiltrilo"
 
 #: src/Core/Backend/Combos.php:309
-#: src/Core/Backend/Listing/ListingComments.php:165
+#: src/Core/Backend/Listing/ListingComments.php:137
 #: src/Core/Backend/UserPref.php:56
 msgid "IP"
 msgstr "IP"
@@ -850,7 +850,7 @@ msgid "Blogs list"
 msgstr "Listo de blogoj"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:140
-#: src/Core/Backend/Listing/ListingComments.php:214
+#: src/Core/Backend/Listing/ListingComments.php:186
 #: src/Core/Backend/Listing/ListingPosts.php:182
 #: src/Core/Backend/Listing/ListingUsers.php:131
 msgid "Legend: "
@@ -871,111 +871,87 @@ msgstr "Redaktu blogajn agordojn"
 msgid "Switch to blog %s"
 msgstr "Ŝanĝu al blogo %s"
 
-#: src/Core/Backend/Listing/ListingComments.php:54
+#: src/Core/Backend/Listing/ListingComments.php:53
 #: src/Process/Backend/Comment.php:151 src/Process/Backend/Post.php:862
 msgid "No comments"
 msgstr "Sen komentoj"
 
-#: src/Core/Backend/Listing/ListingComments.php:54
+#: src/Core/Backend/Listing/ListingComments.php:53
 msgid "No comments or trackbacks matches the filter"
 msgstr "Neniuj komentoj aŭ spuroj kongruas kun la filtrilo"
 
-#: src/Core/Backend/Listing/ListingComments.php:84
+#: src/Core/Backend/Listing/ListingComments.php:83
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] "Komentu aŭ spuron kongruas kun la filtrilo."
 msgstr[1] "Listo de %s komentoj aŭ spuroj kongruaj kun la filtrilo."
 
-#: src/Core/Backend/Listing/ListingComments.php:97
+#: src/Core/Backend/Listing/ListingComments.php:89
 #, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr "Listo de komentoj kaj spuroj (%s)"
 
-#: src/Core/Backend/Listing/ListingComments.php:103
-msgid "published (1)"
-msgid_plural "published (> 1)"
-msgstr[0] "eldonita"
-msgstr[1] "eldonita"
-
-#: src/Core/Backend/Listing/ListingComments.php:112
-msgid "spam (1)"
-msgid_plural "spam (> 1)"
-msgstr[0] "spamo"
-msgstr[1] "spamoj"
-
-#: src/Core/Backend/Listing/ListingComments.php:121
-msgid "pending (1)"
-msgid_plural "pending (> 1)"
-msgstr[0] "decidota"
-msgstr[1] "decidota"
-
-#: src/Core/Backend/Listing/ListingComments.php:130
-msgid "unpublished (1)"
-msgid_plural "unpublished (> 1)"
-msgstr[0] "neeldonita"
-msgstr[1] "neeldonita"
-
-#: src/Core/Backend/Listing/ListingComments.php:143
+#: src/Core/Backend/Listing/ListingComments.php:115
 msgid "Type"
 msgstr "Tajpu"
 
-#: src/Core/Backend/Listing/ListingComments.php:176
+#: src/Core/Backend/Listing/ListingComments.php:148
 #: src/Core/Backend/UserPref.php:58
 msgid "Entry"
 msgstr "Eniro"
 
-#: src/Core/Backend/Listing/ListingComments.php:215
-#: src/Core/Backend/Listing/ListingComments.php:249
+#: src/Core/Backend/Listing/ListingComments.php:187
+#: src/Core/Backend/Listing/ListingComments.php:221
 #: src/Process/Backend/MediaItem.php:983 src/Process/Backend/Post.php:476
 #: src/Process/Backend/Post.php:1082 src/Schema/Status/Comment.php:34
 #: src/Schema/Status/Post.php:34
 msgid "Published"
 msgstr "Eldonita"
 
-#: src/Core/Backend/Listing/ListingComments.php:216
-#: src/Core/Backend/Listing/ListingComments.php:255
+#: src/Core/Backend/Listing/ListingComments.php:188
+#: src/Core/Backend/Listing/ListingComments.php:227
 #: src/Process/Backend/MediaItem.php:984 src/Process/Backend/Post.php:477
 #: src/Process/Backend/Post.php:1087 src/Schema/Status/Comment.php:35
 #: src/Schema/Status/Post.php:35
 msgid "Unpublished"
 msgstr "Neeldonita"
 
-#: src/Core/Backend/Listing/ListingComments.php:217
-#: src/Core/Backend/Listing/ListingComments.php:261
+#: src/Core/Backend/Listing/ListingComments.php:189
+#: src/Core/Backend/Listing/ListingComments.php:233
 #: src/Process/Backend/MediaItem.php:986 src/Process/Backend/Post.php:479
 #: src/Process/Backend/Post.php:1092 src/Schema/Status/Comment.php:36
 #: src/Schema/Status/Post.php:37
 msgid "Pending"
 msgstr "Decidota"
 
-#: src/Core/Backend/Listing/ListingComments.php:218
-#: src/Core/Backend/Listing/ListingComments.php:267
+#: src/Core/Backend/Listing/ListingComments.php:190
+#: src/Core/Backend/Listing/ListingComments.php:239
 #: src/Process/Backend/Post.php:1097 src/Schema/Status/Comment.php:37
 msgid "Junk"
 msgstr "Rubaĵo"
 
-#: src/Core/Backend/Listing/ListingComments.php:273
+#: src/Core/Backend/Listing/ListingComments.php:245
 msgid "Unknown"
 msgstr "Nekonata"
 
-#: src/Core/Backend/Listing/ListingComments.php:297
+#: src/Core/Backend/Listing/ListingComments.php:269
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr "Redaktu la %1$s el %2$s"
 
-#: src/Core/Backend/Listing/ListingComments.php:298
-#: src/Core/Backend/Listing/ListingComments.php:324
+#: src/Core/Backend/Listing/ListingComments.php:270
+#: src/Core/Backend/Listing/ListingComments.php:296
 msgid "comment"
 msgstr "komento"
 
-#: src/Core/Backend/Listing/ListingComments.php:298
-#: src/Core/Backend/Listing/ListingComments.php:324
+#: src/Core/Backend/Listing/ListingComments.php:270
+#: src/Core/Backend/Listing/ListingComments.php:296
 msgid "trackback"
 msgstr "spuro"
 
-#: src/Core/Backend/Listing/ListingComments.php:320
-#: src/Core/Backend/Listing/ListingComments.php:323
+#: src/Core/Backend/Listing/ListingComments.php:292
+#: src/Core/Backend/Listing/ListingComments.php:295
 #: src/Process/Backend/Post.php:1064 src/Process/Backend/Post.php:1137
 msgid "Edit"
 msgstr "Redakti"
@@ -1070,12 +1046,6 @@ msgstr[1] "Listo de %s enskriboj kongruaj kun la filtrilo."
 #, php-format
 msgid "List of entries (%s)"
 msgstr "Listo de enskriboj (%s)"
-
-#: src/Core/Backend/Listing/ListingPosts.php:148
-msgid " (1)"
-msgid_plural " (> 1)"
-msgstr[0] ""
-msgstr[1] ""
 
 #: src/Core/Backend/Listing/ListingPosts.php:186
 #: src/Core/Backend/Listing/ListingPosts.php:217
@@ -6420,23 +6390,67 @@ msgstr "Legi"
 msgid "Online"
 msgstr ""
 
+#: src/Schema/Status/Blog.php:39
+msgid "Online (>1)"
+msgstr ""
+
 #: src/Schema/Status/Blog.php:40
 msgid "Offline"
 msgstr "Senrete"
 
+#: src/Schema/Status/Blog.php:40
+msgid "Offline (>1)"
+msgstr ""
+
 #: src/Schema/Status/Blog.php:41
 msgid "Removed"
+msgstr ""
+
+#: src/Schema/Status/Blog.php:41
+msgid "Removed (>1)"
 msgstr ""
 
 #: src/Schema/Status/Blog.php:42
 msgid "Undefined"
 msgstr ""
 
+#: src/Schema/Status/Blog.php:42
+msgid "Undefined (>1)"
+msgstr ""
+
+#: src/Schema/Status/Comment.php:34 src/Schema/Status/Post.php:34
+msgid "Published (>1)"
+msgstr ""
+
+#: src/Schema/Status/Comment.php:35 src/Schema/Status/Post.php:35
+msgid "Unpublished (>1)"
+msgstr ""
+
+#: src/Schema/Status/Comment.php:36 src/Schema/Status/Post.php:37
+msgid "Pending (>1)"
+msgstr ""
+
+#: src/Schema/Status/Comment.php:37
+msgid "Junk (>1)"
+msgstr ""
+
+#: src/Schema/Status/Post.php:36
+msgid "Scheduled (>1)"
+msgstr ""
+
 #: src/Schema/Status/User.php:32
 msgid "Enabled"
 msgstr ""
 
+#: src/Schema/Status/User.php:32
+msgid "Enabled (>1)"
+msgstr ""
+
 #: src/Schema/Status/User.php:33
 msgid "Disabled"
+msgstr ""
+
+#: src/Schema/Status/User.php:33
+msgid "Disabled (>1)"
 msgstr ""
 
