@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-24 09:22+0100\n"
-"PO-Revision-Date: 2024-12-24 08:27\n"
+"POT-Creation-Date: 2025-01-08 10:11+0100\n"
+"PO-Revision-Date: 2025-01-08 09:17\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -17,257 +17,257 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
 
-#: plugins/Uninstaller/src/Backend.php:46
+#: plugins/Uninstaller/src/Backend.php:47
 msgid "Uninstall"
 msgstr "Copot pemasangan"
 
-#: plugins/Uninstaller/src/Backend.php:104
+#: plugins/Uninstaller/src/Backend.php:105
 msgid "Plugin has been successfully uninstalled."
 msgstr "Plugin telah berhasil dihapus."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:37
+#: plugins/Uninstaller/src/Cleaner/Caches.php:38
 msgid "Folders from cache directory"
 msgstr "Folder dari direktori cache"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:42
+#: plugins/Uninstaller/src/Cleaner/Caches.php:43
 msgid "delete selected cache directories"
 msgstr "menghapus direktori cache yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:43
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "delete \"%s\" cache directory"
 msgstr "hapus \"%s\" direktori cache"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "\"%s\" cache directory deleted"
 msgstr "\"%s\" direktori cache dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
 msgstr "Gagal menghapus direktori cache \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:51
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
 msgid "empty selected cache directories"
 msgstr "mengosongkan direktori cache yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:52
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "empty \"%s\" cache directory"
 msgstr "kosong \"%s\" direktori cache"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "\"%s\" cache directory emptied"
 msgstr "\"%s\" direktori cache dikosongkan"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
 msgstr "Gagal mengosongkan direktori cache \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:37
+#: plugins/Uninstaller/src/Cleaner/Logs.php:38
 msgid "Logs"
 msgstr "Log"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:38
+#: plugins/Uninstaller/src/Cleaner/Logs.php:39
 msgid "Logs in Dotclear logs table"
 msgstr "Masuk ke tabel log Dotclear"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:43
+#: plugins/Uninstaller/src/Cleaner/Logs.php:44
 msgid "delete selected logs tables"
 msgstr "menghapus tabel log yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:44
+#: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "delete \"%s\" logs table"
 msgstr "hapus \"%s\" tabel log"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:45
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
 msgid "\"%s\" logs table deleted"
 msgstr "\"%s\" tabel log dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:46
+#: plugins/Uninstaller/src/Cleaner/Logs.php:47
 #, php-format
 msgid "Failed to delete \"%s\" logs table"
 msgstr "Gagal menghapus tabel log \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:36
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:37
 msgid "Folders from plugins directories"
 msgstr "Folder dari direktori plugin"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:41
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
 msgid "delete selected plugins files and directories"
 msgstr "menghapus file dan direktori plugin yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "delete \"%s\" plugin files and directories"
 msgstr "hapus file dan direktori plugin \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
 msgid "\"%s\" plugin files and directories deleted"
 msgstr "\"%s\" file dan direktori plugin dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 #, php-format
 msgid "Failed to delete \"%s\" plugin files and directories"
 msgstr "Gagal menghapus file dan direktori plugin \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:37
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:38
 msgid "Preferences"
 msgstr "Preferensi"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:38
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:39
 msgid "Users preferences workspaces"
 msgstr "Ruang kerja preferensi pengguna"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:43
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:44
 msgid "delete selected global preferences workspaces"
 msgstr "menghapus ruang kerja preferensi global yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:44
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "delete \"%s\" global preferences workspace"
 msgstr "hapus \"%s\" ruang kerja preferensi global"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
 msgid "\"%s\" global preferences workspace deleted"
 msgstr "\"%s\" ruang kerja preferensi global dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 #, php-format
 msgid "Failed to delete \"%s\" global preferences workspace"
 msgstr "Gagal menghapus ruang kerja preferensi global \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:52
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
 msgid "delete selected users preferences workspaces"
 msgstr "menghapus ruang kerja preferensi pengguna yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
 msgid "delete \"%s\" users preferences workspace"
 msgstr "hapus \"%s\" ruang kerja preferensi pengguna"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
 msgid "\"%s\" users preferences workspace deleted"
 msgstr "\"%s\"ruang kerja preferensi pengguna dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 #, php-format
 msgid "Failed to delete \"%s\" users preferences workspace"
 msgstr "Gagal menghapus ruang kerja preferensi pengguna \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:61
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
 msgid "delete selected preferences workspaces"
 msgstr "menghapus ruang kerja preferensi yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
 msgid "delete \"%s\" preferences workspace"
 msgstr "hapus \"%s\" ruang kerja preferensi"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
 msgid "\"%s\" preferences workspace deleted"
 msgstr "\"%s\" preferensi ruang kerja dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 #, php-format
 msgid "Failed to delete \"%s\" preferences workspace"
 msgstr "Gagal menghapus ruang kerja preferensi \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:70
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:71
 msgid "delete related preferences"
 msgstr "menghapus preferensi terkait"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:71
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
 msgid "related preferences deleted"
 msgstr "preferensi terkait dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:73
 msgid "Failed to delete related preferences"
 msgstr "Gagal menghapus preferensi terkait"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:37
+#: plugins/Uninstaller/src/Cleaner/Settings.php:38
 msgid "Settings"
 msgstr "Pengaturan"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:38
+#: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
 msgstr "Ruang nama yang terdaftar di dcSettings"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:43
+#: plugins/Uninstaller/src/Cleaner/Settings.php:44
 msgid "delete selected global settings namespaces"
 msgstr "menghapus ruang nama pengaturan global yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:44
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "delete \"%s\" global settings namespace"
 msgstr "hapus \"%s\" ruang nama pengaturan global"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:45
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
 msgid "\"%s\" global settings namespace deleted"
 msgstr "\"%s\" ruang nama pengaturan global dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:46
+#: plugins/Uninstaller/src/Cleaner/Settings.php:47
 #, php-format
 msgid "Failed to delete \"%s\" global settings namespace"
 msgstr "Gagal menghapus ruang nama pengaturan global \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:52
+#: plugins/Uninstaller/src/Cleaner/Settings.php:53
 msgid "delete selected blog settings namespaces"
 msgstr "menghapus ruang nama pengaturan blog yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:53
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
 msgid "delete \"%s\" blog settings namespace"
 msgstr "hapus \"%s\" ruang nama pengaturan blog"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:54
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
 msgid "\"%s\" blog settings namespace deleted"
 msgstr "\"%s\"Pengaturan blog ruang nama dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:55
+#: plugins/Uninstaller/src/Cleaner/Settings.php:56
 #, php-format
 msgid "Failed to delete \"%s\" blog settings namespace"
 msgstr "Gagal menghapus ruang nama pengaturan blog \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:61
+#: plugins/Uninstaller/src/Cleaner/Settings.php:62
 msgid "delete selected settings namespaces"
 msgstr "menghapus ruang nama pengaturan yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:62
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
 msgid "delete \"%s\" settings namespace"
 msgstr "hapus \"%s\" pengaturan ruang nama"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:63
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
 msgid "\"%s\" settings namespace deleted"
 msgstr "\"%s\" pengaturan ruang nama dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:64
+#: plugins/Uninstaller/src/Cleaner/Settings.php:65
 #, php-format
 msgid "Failed to delete \"%s\" settings namespace"
 msgstr "Gagal menghapus ruang nama pengaturan \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:70
+#: plugins/Uninstaller/src/Cleaner/Settings.php:71
 msgid "delete related settings"
 msgstr "menghapus pengaturan terkait"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:71
+#: plugins/Uninstaller/src/Cleaner/Settings.php:72
 msgid "related settings deleted"
 msgstr "pengaturan terkait dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:72
+#: plugins/Uninstaller/src/Cleaner/Settings.php:73
 msgid "Failed to delete related settings"
 msgstr "Gagal menghapus pengaturan terkait"
 
@@ -317,131 +317,131 @@ msgstr "\"%s\" tabel dikosongkan"
 msgid "Failed to empty \"%s\" table"
 msgstr "Gagal mengosongkan tabel \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:35
+#: plugins/Uninstaller/src/Cleaner/Themes.php:36
 msgid "Themes"
 msgstr "Tema"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:36
+#: plugins/Uninstaller/src/Cleaner/Themes.php:37
 msgid "Folders from blog themes directory"
 msgstr "Folder dari direktori tema blog"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:41
+#: plugins/Uninstaller/src/Cleaner/Themes.php:42
 msgid "delete selected themes files and directories"
 msgstr "menghapus file dan direktori tema yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:42
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "delete \"%s\" theme files and directories"
 msgstr "hapus file dan direktori tema \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:43
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
 msgid "\"%s\" theme files and directories deleted"
 msgstr "\"%s\" file tema dan direktori dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:44
+#: plugins/Uninstaller/src/Cleaner/Themes.php:45
 #, php-format
 msgid "Failed to delete \"%s\" theme files and directories"
 msgstr "Gagal menghapus file dan direktori tema \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:36
+#: plugins/Uninstaller/src/Cleaner/Vars.php:37
 msgid "Var"
 msgstr "Var"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:37
+#: plugins/Uninstaller/src/Cleaner/Vars.php:38
 msgid "Folders from Dotclear VAR directory"
 msgstr "Folder dari direktori Dotclear VAR"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:42
+#: plugins/Uninstaller/src/Cleaner/Vars.php:43
 msgid "delete selected var directories"
 msgstr "menghapus direktori var yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:43
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "delete \"%s\" var directory"
 msgstr "hapus \"%s\" direktori var"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:44
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
 msgid "\"%s\" var directory deleted"
 msgstr "\"%s\" direktori var dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:45
+#: plugins/Uninstaller/src/Cleaner/Vars.php:46
 #, php-format
 msgid "Failed to delete \"%s\" var directory"
 msgstr "Gagal menghapus direktori var \"%s\""
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:35
+#: plugins/Uninstaller/src/Cleaner/Versions.php:36
 msgid "Versions"
 msgstr "Versi"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:36
+#: plugins/Uninstaller/src/Cleaner/Versions.php:37
 msgid "Versions registered in table \"version\" of Dotclear"
 msgstr "Versi yang terdaftar di tabel \"versi\" dari Dotclear"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:41
+#: plugins/Uninstaller/src/Cleaner/Versions.php:42
 msgid "delete selected versions numbers"
 msgstr "menghapus nomor versi yang dipilih"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:42
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "delete \"%s\" version number"
 msgstr "hapus \"%s\" nomor versi"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:43
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
 msgid "\"%s\" version number deleted"
 msgstr "\"%s\" nomor versi dihapus"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:44
+#: plugins/Uninstaller/src/Cleaner/Versions.php:45
 #, php-format
 msgid "Failed to delete \"%s\" version number"
 msgstr "Gagal menghapus nomor versi \"%s\""
 
-#: plugins/Uninstaller/src/CleanersStack.php:120
+#: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
 msgid "Unknown cleaner \"%s\""
 msgstr "Pembersih tidak dikenal \"%s\""
 
-#: plugins/Uninstaller/src/CleanersStack.php:123
+#: plugins/Uninstaller/src/CleanersStack.php:115
 msgid "Unsintaller can't remove itself"
 msgstr "Unsintaller tidak dapat menghapus dirinya sendiri"
 
-#: plugins/Uninstaller/src/Manage.php:61
+#: plugins/Uninstaller/src/Manage.php:62
 msgid "Unknown module id to uninstall"
 msgstr "Id modul yang tidak diketahui untuk dihapus instalasinya"
 
-#: plugins/Uninstaller/src/Manage.php:69
+#: plugins/Uninstaller/src/Manage.php:70
 msgid "There are no uninstall actions for this module"
 msgstr "Tidak ada tindakan menghapus instalasi untuk modul ini"
 
-#: plugins/Uninstaller/src/Manage.php:94
+#: plugins/Uninstaller/src/Manage.php:95
 msgid "Uninstall action successfuly excecuted"
 msgstr "Tindakan pencopotan pemasangan berhasil dijalankan"
 
-#: plugins/Uninstaller/src/Manage.php:97
+#: plugins/Uninstaller/src/Manage.php:98
 msgid "No uninstall action done"
 msgstr "Tidak ada tindakan penghapusan instalasi yang dilakukan"
 
-#: plugins/Uninstaller/src/Manage.php:143
+#: plugins/Uninstaller/src/Manage.php:144
 msgid "Perform selected actions"
 msgstr "Melakukan tindakan yang dipilih"
 
-#: plugins/Uninstaller/src/Manage.php:158
+#: plugins/Uninstaller/src/Manage.php:159
 msgid "Are you sure you perform these ations?"
 msgstr "Apakah Anda yakin Anda melakukan hal ini?"
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:175
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "Copot pemasangan plugin \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:175
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "Copot pemasangan tema \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:175
+#: plugins/Uninstaller/src/Manage.php:176
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
 msgstr "Modul \"%s %s\" menawarkan proses unsintall tingkat lanjut:"
@@ -450,30 +450,30 @@ msgstr "Modul \"%s %s\" menawarkan proses unsintall tingkat lanjut:"
 msgid "Cope with old core classes (< 2.26)"
 msgstr "Mengatasi kelas inti yang lama (< 2,26)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:30
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Plugin antispam generik untuk Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:27
 msgid "Akismet interface for Dotclear"
 msgstr "Antarmuka Akismet untuk Dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:9
-#: plugins/fairTrackbacks/src/Prepend.php:25
+#: plugins/fairTrackbacks/src/Prepend.php:27
 msgid "Trackback validity check"
 msgstr "Pemeriksaan validitas pelacakan kembali"
 
 #: plugins/_fake_plugin/_fake_l10n.php:10
-#: plugins/attachments/src/Backend.php:24
+#: plugins/attachments/src/Backend.php:26
 msgid "Manage post attachments"
 msgstr "Mengelola lampiran postingan"
 
-#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:29
 msgid "Serve entries as simple web pages"
 msgstr "Menyajikan entri sebagai halaman web sederhana"
 
 #: plugins/_fake_plugin/_fake_l10n.php:12
-#: plugins/aboutConfig/src/Backend.php:24
+#: plugins/aboutConfig/src/Backend.php:26
 msgid "Manage every blog configuration directive"
 msgstr "Kelola setiap arahan konfigurasi blog"
 
@@ -482,54 +482,54 @@ msgid "Uninstall cleanly plugins and themes"
 msgstr "Copot pemasangan plugin dan tema dengan bersih"
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
-#: plugins/dcLegacyEditor/src/Backend.php:25
+#: plugins/dcLegacyEditor/src/Backend.php:27
 msgid "dotclear legacy editor"
 msgstr "editor warisan dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
-#: plugins/themeEditor/src/Backend.php:24
+#: plugins/themeEditor/src/Backend.php:26
 msgid "Theme Editor"
 msgstr "Editor Tema"
 
-#: plugins/_fake_plugin/_fake_l10n.php:16 plugins/simpleMenu/src/Backend.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:16 plugins/simpleMenu/src/Backend.php:27
 msgid "Simple menu for Dotclear"
 msgstr "Menu sederhana untuk Dotclear"
 
 #: plugins/_fake_plugin/_fake_l10n.php:17
-#: plugins/importExport/src/Backend.php:26
+#: plugins/importExport/src/Backend.php:28
 msgid "Import and Export your blog"
 msgstr "Impor dan Ekspor blog Anda"
 
-#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/userPref/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/userPref/src/Backend.php:26
 msgid "Manage every user preference directive"
 msgstr "Mengelola setiap arahan preferensi pengguna"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/dcCKEditor/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/dcCKEditor/src/Backend.php:26
 msgid "dotclear CKEditor integration"
 msgstr "Integrasi dotclear CKEditor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:20
-#: plugins/maintenance/src/Backend.php:24
+#: plugins/maintenance/src/Backend.php:26
 msgid "Maintain your installation"
 msgstr "Menjaga instalasi Anda"
 
-#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/breadcrumb/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/breadcrumb/src/Backend.php:26
 msgid "Breadcrumb for Dotclear"
 msgstr "Remah roti untuk Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/blogroll/src/Backend.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/blogroll/src/Backend.php:27
 msgid "Manage your blogroll"
 msgstr "Kelola daftar blog Anda"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/pings/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/pings/src/Backend.php:28
 msgid "Ping services"
 msgstr "Layanan ping"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/tags/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/tags/src/Backend.php:26
 msgid "Tags for posts"
 msgstr "Tag untuk posting"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/widgets/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/widgets/src/Backend.php:28
 msgid "Widgets for your blog sidebars"
 msgstr "Widget untuk bilah sisi blog Anda"
 
@@ -553,7 +553,7 @@ msgstr "Daftar entri yang dipilih"
 msgid "List of available languages"
 msgstr "Daftar bahasa yang tersedia"
 
-#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:122
+#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:121
 msgid "List of categories"
 msgstr "Daftar kategori"
 
@@ -593,388 +593,388 @@ msgstr "Daftar blogroll"
 msgid "Tags cloud"
 msgstr "Tag awan"
 
-#: plugins/aboutConfig/src/Backend.php:24
+#: plugins/aboutConfig/src/Backend.php:25
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:93 plugins/aboutConfig/src/Manage.php:113
+#: plugins/aboutConfig/src/Manage.php:90 plugins/aboutConfig/src/Manage.php:110
 msgid "Configuration successfully updated"
 msgstr "Konfigurasi berhasil diperbarui"
 
-#: plugins/aboutConfig/src/Manage.php:153
-#: plugins/aboutConfig/src/Manage.php:155
+#: plugins/aboutConfig/src/Manage.php:150
+#: plugins/aboutConfig/src/Manage.php:152
 #, php-format
 msgid "Settings for %s"
 msgstr "Pengaturan untuk %s"
 
-#: plugins/aboutConfig/src/Manage.php:163
-#: plugins/aboutConfig/src/Manage.php:165
+#: plugins/aboutConfig/src/Manage.php:160
+#: plugins/aboutConfig/src/Manage.php:162
 msgid "Global settings"
 msgstr "Pengaturan global"
 
-#: plugins/aboutConfig/src/Manage.php:231 plugins/userPref/src/Manage.php:229
+#: plugins/aboutConfig/src/Manage.php:228 plugins/userPref/src/Manage.php:226
 msgid "Goto:"
 msgstr "Goto:"
 
-#: plugins/aboutConfig/src/Manage.php:258 plugins/userPref/src/Manage.php:256
+#: plugins/aboutConfig/src/Manage.php:255 plugins/userPref/src/Manage.php:253
 msgid "Setting ID"
 msgstr "Mengatur ID"
 
-#: plugins/aboutConfig/src/Manage.php:259 plugins/userPref/src/Manage.php:257
+#: plugins/aboutConfig/src/Manage.php:256 plugins/userPref/src/Manage.php:254
 msgid "Value"
 msgstr "Nilai"
 
-#: plugins/aboutConfig/src/Manage.php:321 plugins/userPref/src/Manage.php:319
+#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
 msgid "no"
 msgstr "tidak"
 
-#: plugins/aboutConfig/src/Manage.php:321 plugins/userPref/src/Manage.php:319
+#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
 msgid "yes"
 msgstr "Ya."
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:88
+#: plugins/akismet/src/AntispamFilterAkismet.php:79
 msgid "Akismet spam filter"
 msgstr "Filter spam Akismet"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:101
+#: plugins/akismet/src/AntispamFilterAkismet.php:92
 #, php-format
 msgid "Filtered by %s."
 msgstr "Disaring oleh %s."
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:219
+#: plugins/akismet/src/AntispamFilterAkismet.php:206
 msgid "Filter configuration have been successfully saved."
 msgstr "Konfigurasi filter telah berhasil disimpan."
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:241
+#: plugins/akismet/src/AntispamFilterAkismet.php:228
 msgid "API key verified"
 msgstr "Kunci API diverifikasi"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:244
+#: plugins/akismet/src/AntispamFilterAkismet.php:231
 msgid "API key not verified"
 msgstr "Kunci API tidak diverifikasi"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:262
+#: plugins/akismet/src/AntispamFilterAkismet.php:249
 msgid "Akismet API key"
 msgstr "Kunci API Akismet"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:265
+#: plugins/akismet/src/AntispamFilterAkismet.php:252
 msgid "Akismet API key:"
 msgstr "Kunci API Akismet:"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:275
+#: plugins/akismet/src/AntispamFilterAkismet.php:262
 msgid "Get your own API key"
 msgstr "Dapatkan kunci API Anda sendiri"
 
-#: plugins/akismet/src/Prepend.php:25
+#: plugins/akismet/src/Prepend.php:26
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:146
+#: plugins/antispam/src/Antispam.php:143
 msgid "This comment is a spam:"
 msgstr "Komentar ini adalah spam:"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(termasuk komentar spam %d)"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(termasuk komentar spam %d)"
 
-#: plugins/antispam/src/Backend.php:28
+#: plugins/antispam/src/Backend.php:29
 msgid "Antispam"
 msgstr "Antispam"
 
-#: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:222
+#: plugins/antispam/src/BackendBehaviors.php:55
+#: plugins/antispam/src/Manage.php:223
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Semua komentar spam yang berusia lebih dari %s hari akan dihapus secara otomatis."
 
-#: plugins/antispam/src/BackendBehaviors.php:59
+#: plugins/antispam/src/BackendBehaviors.php:58
 #, php-format
 msgid "You can modify this duration in the %s."
 msgstr "Anda dapat memodifikasi durasi ini di %s."
 
-#: plugins/antispam/src/BackendBehaviors.php:86
+#: plugins/antispam/src/BackendBehaviors.php:85
 msgid "Delete junk comments older than"
 msgstr "Menghapus komentar sampah yang lebih lama dari"
 
-#: plugins/antispam/src/BackendBehaviors.php:90
+#: plugins/antispam/src/BackendBehaviors.php:89
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
 msgstr "Tetapkan -1 untuk menonaktifkan fitur ini; penundaan yang disarankan adalah 7 hari."
 
-#: plugins/antispam/src/BackendBehaviors.php:94
+#: plugins/antispam/src/BackendBehaviors.php:93
 msgid "Set spam filters."
 msgstr "Mengatur filter spam."
 
-#: plugins/antispam/src/Filters/Ip.php:91
+#: plugins/antispam/src/Filters/Ip.php:81
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "Filter Daftar Blokir / Daftar Izin IP"
 
-#: plugins/antispam/src/Filters/Ip.php:104
-#: plugins/antispam/src/Filters/IpV6.php:104
+#: plugins/antispam/src/Filters/Ip.php:94
+#: plugins/antispam/src/Filters/IpV6.php:94
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
 msgstr "Difilter oleh %1$s dengan aturan %2$s."
 
-#: plugins/antispam/src/Filters/Ip.php:165
-#: plugins/antispam/src/Filters/IpV6.php:165
+#: plugins/antispam/src/Filters/Ip.php:153
+#: plugins/antispam/src/Filters/IpV6.php:153
 msgid "IP address has been successfully added."
 msgstr "Alamat IP telah berhasil ditambahkan."
 
-#: plugins/antispam/src/Filters/Ip.php:176
-#: plugins/antispam/src/Filters/IpV6.php:176
+#: plugins/antispam/src/Filters/Ip.php:164
+#: plugins/antispam/src/Filters/IpV6.php:164
 msgid "IP addresses have been successfully removed."
 msgstr "Alamat IP telah berhasil dihapus."
 
-#: plugins/antispam/src/Filters/Ip.php:185
-#: plugins/antispam/src/Filters/IpV6.php:185
+#: plugins/antispam/src/Filters/Ip.php:173
+#: plugins/antispam/src/Filters/IpV6.php:173
 msgid "Blocklist"
 msgstr "Daftar Blokir"
 
-#: plugins/antispam/src/Filters/Ip.php:186
-#: plugins/antispam/src/Filters/IpV6.php:186
+#: plugins/antispam/src/Filters/Ip.php:174
+#: plugins/antispam/src/Filters/IpV6.php:174
 msgid "Allowlist"
 msgstr "Daftar yang diizinkan"
 
-#: plugins/antispam/src/Filters/Ip.php:203
-#: plugins/antispam/src/Filters/IpV6.php:203
+#: plugins/antispam/src/Filters/Ip.php:189
+#: plugins/antispam/src/Filters/IpV6.php:189
 msgid "No IP address in list."
 msgstr "Tidak ada alamat IP dalam daftar."
 
-#: plugins/antispam/src/Filters/Ip.php:232
-#: plugins/antispam/src/Filters/IpV6.php:231
+#: plugins/antispam/src/Filters/Ip.php:218
+#: plugins/antispam/src/Filters/IpV6.php:217
 msgid "Local IPs (used only for this blog)"
 msgstr "IP lokal (hanya digunakan untuk blog ini)"
 
-#: plugins/antispam/src/Filters/Ip.php:240
-#: plugins/antispam/src/Filters/IpV6.php:239
+#: plugins/antispam/src/Filters/Ip.php:226
+#: plugins/antispam/src/Filters/IpV6.php:225
 msgid "Global IPs (used for all blogs)"
 msgstr "IP Global (digunakan untuk semua blog)"
 
-#: plugins/antispam/src/Filters/Ip.php:251
-#: plugins/antispam/src/Filters/IpV6.php:250
+#: plugins/antispam/src/Filters/Ip.php:237
+#: plugins/antispam/src/Filters/IpV6.php:236
 msgid "IP list"
 msgstr "Daftar IP"
 
-#: plugins/antispam/src/Filters/Ip.php:267
-#: plugins/antispam/src/Filters/IpV6.php:266
+#: plugins/antispam/src/Filters/Ip.php:253
+#: plugins/antispam/src/Filters/IpV6.php:252
 msgid "Global IP (used for all blogs)"
 msgstr "IP Global (digunakan untuk semua blog)"
 
-#: plugins/antispam/src/Filters/Ip.php:284
-#: plugins/antispam/src/Filters/IpV6.php:283
+#: plugins/antispam/src/Filters/Ip.php:270
+#: plugins/antispam/src/Filters/IpV6.php:269
 msgid "Add an IP address:"
 msgstr "Menambahkan alamat IP:"
 
-#: plugins/antispam/src/Filters/Ip.php:288
-#: plugins/antispam/src/Filters/IpV6.php:287
-#: plugins/antispam/src/Filters/Words.php:304
-#: plugins/widgets/src/Manage.php:319
+#: plugins/antispam/src/Filters/Ip.php:274
+#: plugins/antispam/src/Filters/IpV6.php:273
+#: plugins/antispam/src/Filters/Words.php:291
+#: plugins/widgets/src/Manage.php:320
 msgid "Add"
 msgstr "Menambahkan"
 
-#: plugins/antispam/src/Filters/IpLookup.php:84
+#: plugins/antispam/src/Filters/IpLookup.php:75
 msgid "Checks sender IP address against DNSBL servers"
 msgstr "Memeriksa alamat IP pengirim terhadap server DNSBL"
 
-#: plugins/antispam/src/Filters/IpLookup.php:97
-#: plugins/antispam/src/Filters/LinksLookup.php:73
+#: plugins/antispam/src/Filters/IpLookup.php:88
+#: plugins/antispam/src/Filters/LinksLookup.php:64
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
 msgstr "Dityaring oleh %1$s dengan server %2$s."
 
-#: plugins/antispam/src/Filters/IpLookup.php:155
+#: plugins/antispam/src/Filters/IpLookup.php:144
 msgid "The list of DNSBL servers has been succesfully updated."
 msgstr "Daftar server DNSBL telah berhasil diperbarui."
 
-#: plugins/antispam/src/Filters/IpLookup.php:168
+#: plugins/antispam/src/Filters/IpLookup.php:157
 msgid "IP Lookup servers"
 msgstr "Server Pencarian IP"
 
-#: plugins/antispam/src/Filters/IpLookup.php:173
+#: plugins/antispam/src/Filters/IpLookup.php:162
 msgid "Add here a coma separated list of servers."
 msgstr "Tambahkan di sini daftar server yang dipisahkan dengan koma."
 
-#: plugins/antispam/src/Filters/IpV6.php:91
+#: plugins/antispam/src/Filters/IpV6.php:81
 msgid "IP v6 Blocklist / Allowlist Filter"
 msgstr "Filter Daftar Blokir / Daftar Izin IP v6"
 
-#: plugins/antispam/src/Filters/LinksLookup.php:60
+#: plugins/antispam/src/Filters/LinksLookup.php:51
 msgid "Checks links in comments against surbl.org"
 msgstr "Memeriksa tautan dalam komentar terhadap surbl.org"
 
-#: plugins/antispam/src/Filters/Words.php:90
+#: plugins/antispam/src/Filters/Words.php:81
 msgid "Words Blocklist"
 msgstr "Daftar Blokir Kata"
 
-#: plugins/antispam/src/Filters/Words.php:103
+#: plugins/antispam/src/Filters/Words.php:94
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
 msgstr "Difilter oleh %1$s dengan kata %2$s."
 
-#: plugins/antispam/src/Filters/Words.php:160
+#: plugins/antispam/src/Filters/Words.php:149
 msgid "Words have been successfully added."
 msgstr "Kata telah berhasil ditambahkan."
 
-#: plugins/antispam/src/Filters/Words.php:173
+#: plugins/antispam/src/Filters/Words.php:162
 msgid "Word has been successfully added."
 msgstr "Kata telah berhasil ditambahkan."
 
-#: plugins/antispam/src/Filters/Words.php:184
+#: plugins/antispam/src/Filters/Words.php:173
 msgid "Words have been successfully removed."
 msgstr "Kata-kata telah berhasil dihapus."
 
-#: plugins/antispam/src/Filters/Words.php:208
+#: plugins/antispam/src/Filters/Words.php:195
 msgid "No word in list."
 msgstr "Tidak ada kata dalam daftar."
 
-#: plugins/antispam/src/Filters/Words.php:236
+#: plugins/antispam/src/Filters/Words.php:223
 msgid "Local words (used only for this blog)"
 msgstr "Kata-kata lokal (hanya digunakan untuk blog ini)"
 
-#: plugins/antispam/src/Filters/Words.php:244
+#: plugins/antispam/src/Filters/Words.php:231
 msgid "Global words (used for all blogs)"
 msgstr "Kata-kata global (digunakan untuk semua blog)"
 
-#: plugins/antispam/src/Filters/Words.php:255
+#: plugins/antispam/src/Filters/Words.php:242
 msgid "List of bad words"
 msgstr "Daftar kata-kata buruk"
 
-#: plugins/antispam/src/Filters/Words.php:260
+#: plugins/antispam/src/Filters/Words.php:247
 msgid "Delete selected words"
 msgstr "Menghapus kata yang dipilih"
 
-#: plugins/antispam/src/Filters/Words.php:270
+#: plugins/antispam/src/Filters/Words.php:257
 msgid "Global word (used for all blogs)"
 msgstr "Kata global (digunakan untuk semua blog)"
 
-#: plugins/antispam/src/Filters/Words.php:280
+#: plugins/antispam/src/Filters/Words.php:267
 msgid "Create default wordlist"
 msgstr "Membuat daftar kata default"
 
-#: plugins/antispam/src/Filters/Words.php:301
+#: plugins/antispam/src/Filters/Words.php:288
 msgid "Add a word:"
 msgstr "Tambahkan kata:"
 
-#: plugins/antispam/src/Filters/Words.php:366
+#: plugins/antispam/src/Filters/Words.php:353
 msgid "This word exists"
 msgstr "Kata ini ada"
 
-#: plugins/antispam/src/FrontendUrl.php:60
+#: plugins/antispam/src/FrontendUrl.php:61
 msgid "Spam moderation"
 msgstr "Moderasi spam"
 
-#: plugins/antispam/src/FrontendUrl.php:64
+#: plugins/antispam/src/FrontendUrl.php:65
 msgid "Spam"
 msgstr "Spam"
 
-#: plugins/antispam/src/FrontendUrl.php:68
+#: plugins/antispam/src/FrontendUrl.php:69
 msgid "Ham"
 msgstr "Ham"
 
-#: plugins/antispam/src/Manage.php:70
+#: plugins/antispam/src/Manage.php:71
 msgid "Filter does not exist."
 msgstr "Filter tidak ada."
 
-#: plugins/antispam/src/Manage.php:74
+#: plugins/antispam/src/Manage.php:75
 msgid "Filter has no user interface."
 msgstr "Filter tidak memiliki antarmuka pengguna."
 
-#: plugins/antispam/src/Manage.php:135 plugins/antispam/src/Manage.php:268
+#: plugins/antispam/src/Manage.php:136 plugins/antispam/src/Manage.php:269
 msgid "Filters configuration has been successfully saved."
 msgstr "Konfigurasi filter telah berhasil disimpan."
 
-#: plugins/antispam/src/Manage.php:152
+#: plugins/antispam/src/Manage.php:153
 #, php-format
 msgid "%s configuration"
 msgstr "%s konfigurasi"
 
-#: plugins/antispam/src/Manage.php:173
+#: plugins/antispam/src/Manage.php:174
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s konfigurasi filter"
 
-#: plugins/antispam/src/Manage.php:180
+#: plugins/antispam/src/Manage.php:181
 msgid "Back to filters list"
 msgstr "Kembali ke daftar filter"
 
-#: plugins/antispam/src/Manage.php:227
+#: plugins/antispam/src/Manage.php:228
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Anda dapat mengubah durasi ini di %s"
 
-#: plugins/antispam/src/Manage.php:236
+#: plugins/antispam/src/Manage.php:237
 msgid "Information"
 msgstr "Informasi"
 
-#: plugins/antispam/src/Manage.php:247
+#: plugins/antispam/src/Manage.php:248
 msgid "Junk comments:"
 msgstr "Komentar sampah:"
 
-#: plugins/antispam/src/Manage.php:253
+#: plugins/antispam/src/Manage.php:254
 msgid "Published comments:"
 msgstr "Komentar yang dipublikasikan:"
 
-#: plugins/antispam/src/Manage.php:277 plugins/antispam/src/Manage.php:280
-#: plugins/antispam/src/Manage.php:284
+#: plugins/antispam/src/Manage.php:278 plugins/antispam/src/Manage.php:281
+#: plugins/antispam/src/Manage.php:285
 msgid "Filter configuration"
 msgstr "Konfigurasi filter"
 
-#: plugins/antispam/src/Manage.php:300 plugins/blogroll/src/Manage.php:283
+#: plugins/antispam/src/Manage.php:301 plugins/blogroll/src/Manage.php:285
 msgid "position"
 msgstr "posisi"
 
-#: plugins/antispam/src/Manage.php:307 plugins/antispam/src/Manage.php:341
+#: plugins/antispam/src/Manage.php:308 plugins/antispam/src/Manage.php:342
 msgid "Active"
 msgstr "Aktif"
 
-#: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:315 plugins/antispam/src/Manage.php:343
 msgid "Auto Del."
 msgstr "Auto Del."
 
-#: plugins/antispam/src/Manage.php:335
+#: plugins/antispam/src/Manage.php:336
 msgid "Available spam filters"
 msgstr "Filter spam yang tersedia"
 
-#: plugins/antispam/src/Manage.php:340
+#: plugins/antispam/src/Manage.php:341
 #: plugins/pages/src/BackendDefaultActions.php:78
 msgid "Order"
 msgstr "Pesan"
 
-#: plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:344
 msgid "Filter name"
 msgstr "Nama filter"
 
-#: plugins/antispam/src/Manage.php:370
+#: plugins/antispam/src/Manage.php:371
 msgid "Syndication"
 msgstr "Sindikasi"
 
-#: plugins/antispam/src/Manage.php:373
+#: plugins/antispam/src/Manage.php:374
 msgid "Junk comments RSS feed"
 msgstr "Umpan RSS komentar sampah"
 
-#: plugins/antispam/src/Manage.php:376
+#: plugins/antispam/src/Manage.php:377
 msgid "Published comments RSS feed"
 msgstr "Umpan RSS komentar yang dipublikasikan"
 
-#: plugins/antispam/src/SpamFilter.php:108
+#: plugins/antispam/src/SpamFilter.php:93
 msgid "No description"
 msgstr "Tidak ada deskripsi"
 
-#: plugins/antispam/src/SpamFilter.php:167
+#: plugins/antispam/src/SpamFilter.php:152
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Disaring oleh %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:159
+#: plugins/antispam/src/SpamFilters.php:157
 msgid "Unknown filter."
 msgstr "Filter tidak dikenal."
 
-#: plugins/attachments/src/Backend.php:24
+#: plugins/attachments/src/Backend.php:25
 msgid "attachments"
 msgstr "lampiran"
 
@@ -999,230 +999,230 @@ msgstr "Tambahkan file ke entri ini"
 msgid "You must save the entry before adding an attachment."
 msgstr "Anda harus menyimpan entri sebelum menambahkan lampiran."
 
-#: plugins/blogroll/src/Backend.php:25
+#: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
 msgstr "Blogroll"
 
-#: plugins/blogroll/src/Backend.php:36
+#: plugins/blogroll/src/Backend.php:38
 msgid "manage blogroll"
 msgstr "mengelola daftar blog"
 
-#: plugins/blogroll/src/Blogroll.php:164 plugins/blogroll/src/Blogroll.php:207
+#: plugins/blogroll/src/Blogroll.php:161 plugins/blogroll/src/Blogroll.php:204
 msgid "You must provide a link title"
 msgstr "Anda harus memberikan judul tautan"
 
-#: plugins/blogroll/src/Blogroll.php:168 plugins/blogroll/src/Blogroll.php:211
+#: plugins/blogroll/src/Blogroll.php:165 plugins/blogroll/src/Blogroll.php:208
 msgid "You must provide a link URL"
 msgstr "Anda harus memberikan URL tautan"
 
-#: plugins/blogroll/src/Manage.php:105 plugins/blogroll/src/Manage.php:544
+#: plugins/blogroll/src/Manage.php:107 plugins/blogroll/src/Manage.php:546
 msgid "Nothing to import"
 msgstr "Tidak ada yang perlu diimpor"
 
-#: plugins/blogroll/src/Manage.php:128
+#: plugins/blogroll/src/Manage.php:130
 msgid "links have been successfully imported."
 msgstr "telah berhasil diimpor."
 
-#: plugins/blogroll/src/Manage.php:135
+#: plugins/blogroll/src/Manage.php:137
 msgid "Import operation cancelled."
 msgstr "Operasi impor dibatalkan."
 
-#: plugins/blogroll/src/Manage.php:150
+#: plugins/blogroll/src/Manage.php:152
 msgid "Link has been successfully created."
 msgstr "Tautan telah berhasil dibuat."
 
-#: plugins/blogroll/src/Manage.php:165
+#: plugins/blogroll/src/Manage.php:167
 msgid "category has been successfully created."
 msgstr "kategori telah berhasil dibuat."
 
-#: plugins/blogroll/src/Manage.php:187
+#: plugins/blogroll/src/Manage.php:189
 msgid "Items have been successfully removed."
 msgstr "Item telah berhasil dihapus."
 
-#: plugins/blogroll/src/Manage.php:217
+#: plugins/blogroll/src/Manage.php:219
 msgid "Items order has been successfully updated"
 msgstr "Pesanan barang telah berhasil diperbarui"
 
-#: plugins/blogroll/src/Manage.php:257
+#: plugins/blogroll/src/Manage.php:259
 msgid "Are you sure you want to delete selected links?"
 msgstr "Apakah Anda yakin ingin menghapus tautan yang dipilih?"
 
-#: plugins/blogroll/src/Manage.php:290
+#: plugins/blogroll/src/Manage.php:292
 msgid "select this link"
 msgstr "pilih tautan ini"
 
-#: plugins/blogroll/src/Manage.php:337
+#: plugins/blogroll/src/Manage.php:339
 msgid "Lang"
 msgstr "Lang"
 
-#: plugins/blogroll/src/Manage.php:362
+#: plugins/blogroll/src/Manage.php:364
 msgid "Delete selected links"
 msgstr "Menghapus tautan yang dipilih"
 
-#: plugins/blogroll/src/Manage.php:380
+#: plugins/blogroll/src/Manage.php:382
 msgid "The link list is empty"
 msgstr "Daftar tautan kosong"
 
-#: plugins/blogroll/src/Manage.php:403
+#: plugins/blogroll/src/Manage.php:405
 msgid "Add a new link"
 msgstr "Menambahkan tautan baru"
 
-#: plugins/blogroll/src/Manage.php:467
+#: plugins/blogroll/src/Manage.php:469
 msgid "Add a category"
 msgstr "Menambahkan kategori"
 
-#: plugins/blogroll/src/Manage.php:515 plugins/blogroll/src/Manage.php:607
-#: plugins/blogroll/src/Manage.php:614
+#: plugins/blogroll/src/Manage.php:517 plugins/blogroll/src/Manage.php:609
+#: plugins/blogroll/src/Manage.php:616
 msgid "Import links"
 msgstr "Tautan impor"
 
-#: plugins/blogroll/src/Manage.php:524
+#: plugins/blogroll/src/Manage.php:526
 msgid "OPML or XBEL File:"
 msgstr "File OPML atau XBEL:"
 
-#: plugins/blogroll/src/Manage.php:534 plugins/blogroll/src/Manage.php:599
+#: plugins/blogroll/src/Manage.php:536 plugins/blogroll/src/Manage.php:601
 #: plugins/importExport/src/Manage.php:130
-#: plugins/importExport/src/ModuleImportFeed.php:244
-#: plugins/importExport/src/ModuleImportFlat.php:244
-#: plugins/importExport/src/ModuleImportFlat.php:306
+#: plugins/importExport/src/ModuleImportFeed.php:239
+#: plugins/importExport/src/ModuleImportFlat.php:245
+#: plugins/importExport/src/ModuleImportFlat.php:307
 msgid "Import"
 msgstr "Impor"
 
-#: plugins/blogroll/src/ManageEdit.php:65
+#: plugins/blogroll/src/ManageEdit.php:67
 msgid "No such link or title"
 msgstr "Tidak ada tautan atau judul seperti itu"
 
-#: plugins/blogroll/src/ManageEdit.php:122
+#: plugins/blogroll/src/ManageEdit.php:124
 msgid "Link has been successfully updated"
 msgstr "Tautan telah berhasil diperbarui"
 
-#: plugins/blogroll/src/ManageEdit.php:139
+#: plugins/blogroll/src/ManageEdit.php:141
 msgid "Category has been successfully updated"
 msgstr "Kategori telah berhasil diperbarui"
 
-#: plugins/blogroll/src/ManageEdit.php:167
-#: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:145
+#: plugins/blogroll/src/ManageEdit.php:169
+#: plugins/dcCKEditor/src/BackendBehaviors.php:62
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
 msgid "Link"
 msgstr "Tautan"
 
-#: plugins/blogroll/src/ManageEdit.php:174
+#: plugins/blogroll/src/ManageEdit.php:176
 msgid "Return to blogroll"
 msgstr "Kembali ke daftar blog"
 
-#: plugins/blogroll/src/ManageEdit.php:185
+#: plugins/blogroll/src/ManageEdit.php:187
 msgid "Edit category"
 msgstr "Edit kategori"
 
-#: plugins/blogroll/src/ManageEdit.php:223
+#: plugins/blogroll/src/ManageEdit.php:225
 msgid "Edit link"
 msgstr "Sunting tautan"
 
-#: plugins/blogroll/src/ManageEdit.php:276
+#: plugins/blogroll/src/ManageEdit.php:278
 msgid "XFN information"
 msgstr "Informasi XFN"
 
-#: plugins/blogroll/src/ManageEdit.php:279
+#: plugins/blogroll/src/ManageEdit.php:281
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr "Informasi lebih lanjut di <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> situs web"
 
-#: plugins/blogroll/src/ManageEdit.php:283
+#: plugins/blogroll/src/ManageEdit.php:285
 msgid "_xfn_Me"
 msgstr "_xfn_Me"
 
-#: plugins/blogroll/src/ManageEdit.php:287
+#: plugins/blogroll/src/ManageEdit.php:289
 msgid "_xfn_Another link for myself"
 msgstr "_xfn_Tautan lain untuk saya sendiri"
 
-#: plugins/blogroll/src/ManageEdit.php:291
+#: plugins/blogroll/src/ManageEdit.php:293
 msgid "_xfn_Friendship"
 msgstr "_xfn_Persahabatan"
 
-#: plugins/blogroll/src/ManageEdit.php:295
+#: plugins/blogroll/src/ManageEdit.php:297
 msgid "_xfn_Contact"
 msgstr "_xfn_Contact"
 
-#: plugins/blogroll/src/ManageEdit.php:298
+#: plugins/blogroll/src/ManageEdit.php:300
 msgid "_xfn_Acquaintance"
 msgstr "_xfn_Kenalan"
 
-#: plugins/blogroll/src/ManageEdit.php:301
+#: plugins/blogroll/src/ManageEdit.php:303
 msgid "_xfn_Friend"
 msgstr "_xfn_Teman"
 
-#: plugins/blogroll/src/ManageEdit.php:311
+#: plugins/blogroll/src/ManageEdit.php:313
 msgid "_xfn_Physical"
 msgstr "_xfn_Fisik"
 
-#: plugins/blogroll/src/ManageEdit.php:315
+#: plugins/blogroll/src/ManageEdit.php:317
 msgid "_xfn_Met"
 msgstr "_xfn_Met"
 
-#: plugins/blogroll/src/ManageEdit.php:319
+#: plugins/blogroll/src/ManageEdit.php:321
 msgid "_xfn_Professional"
 msgstr "_xfn_Profesional"
 
-#: plugins/blogroll/src/ManageEdit.php:323
+#: plugins/blogroll/src/ManageEdit.php:325
 msgid "_xfn_Co-worker"
 msgstr "_xfn_Co-pekerja"
 
-#: plugins/blogroll/src/ManageEdit.php:326
+#: plugins/blogroll/src/ManageEdit.php:328
 msgid "_xfn_Colleague"
 msgstr "_xfn_Colleague"
 
-#: plugins/blogroll/src/ManageEdit.php:330
+#: plugins/blogroll/src/ManageEdit.php:332
 msgid "_xfn_Geographical"
 msgstr "_xfn_Geografis"
 
-#: plugins/blogroll/src/ManageEdit.php:334
+#: plugins/blogroll/src/ManageEdit.php:336
 msgid "_xfn_Co-resident"
 msgstr "_xfn_Co-resident"
 
-#: plugins/blogroll/src/ManageEdit.php:337
+#: plugins/blogroll/src/ManageEdit.php:339
 msgid "_xfn_Neighbor"
 msgstr "_xfn_Tetangga"
 
-#: plugins/blogroll/src/ManageEdit.php:347
+#: plugins/blogroll/src/ManageEdit.php:349
 msgid "_xfn_Family"
 msgstr "_xfn_Keluarga"
 
-#: plugins/blogroll/src/ManageEdit.php:351
+#: plugins/blogroll/src/ManageEdit.php:353
 msgid "_xfn_Child"
 msgstr "_xfn_Child"
 
-#: plugins/blogroll/src/ManageEdit.php:354
+#: plugins/blogroll/src/ManageEdit.php:356
 msgid "_xfn_Parent"
 msgstr "_xfn_Orangtua"
 
-#: plugins/blogroll/src/ManageEdit.php:357
+#: plugins/blogroll/src/ManageEdit.php:359
 msgid "_xfn_Sibling"
 msgstr "_xfn_Sibling"
 
-#: plugins/blogroll/src/ManageEdit.php:360
+#: plugins/blogroll/src/ManageEdit.php:362
 msgid "_xfn_Spouse"
 msgstr "_xfn_Pasangan"
 
-#: plugins/blogroll/src/ManageEdit.php:363
+#: plugins/blogroll/src/ManageEdit.php:365
 msgid "_xfn_Kin"
 msgstr "_xfn_Kin"
 
-#: plugins/blogroll/src/ManageEdit.php:373
+#: plugins/blogroll/src/ManageEdit.php:375
 msgid "_xfn_Romantic"
 msgstr "_xfn_Romantis"
 
-#: plugins/blogroll/src/ManageEdit.php:377
+#: plugins/blogroll/src/ManageEdit.php:379
 msgid "_xfn_Muse"
 msgstr "_xfn_Muse"
 
-#: plugins/blogroll/src/ManageEdit.php:380
+#: plugins/blogroll/src/ManageEdit.php:382
 msgid "_xfn_Crush"
 msgstr "_xfn_Crush"
 
-#: plugins/blogroll/src/ManageEdit.php:383
+#: plugins/blogroll/src/ManageEdit.php:385
 msgid "_xfn_Date"
 msgstr "_xfn_Date"
 
-#: plugins/blogroll/src/ManageEdit.php:386
+#: plugins/blogroll/src/ManageEdit.php:388
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Sweetheart"
 
@@ -1230,20 +1230,20 @@ msgstr "_xfn_Sweetheart"
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Anda harus menyediakan file XBEL atau OPML."
 
-#: plugins/blogroll/src/UtilsImport.php:56
-#: plugins/blogroll/src/UtilsImport.php:98
+#: plugins/blogroll/src/UtilsImport.php:55
+#: plugins/blogroll/src/UtilsImport.php:97
 msgid "File is not in XML format."
 msgstr "File tidak dalam format XML."
 
-#: plugins/blogroll/src/Widgets.php:35
+#: plugins/blogroll/src/Widgets.php:36
 msgid "All categories"
 msgstr "Semua kategori"
 
-#: plugins/blogroll/src/Widgets.php:44
+#: plugins/blogroll/src/Widgets.php:45
 msgid "Links"
 msgstr "Tautan"
 
-#: plugins/breadcrumb/src/Backend.php:24
+#: plugins/breadcrumb/src/Backend.php:25
 msgid "Breadcrumb"
 msgstr "Remah roti"
 
@@ -1259,363 +1259,363 @@ msgstr "Tag {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} harus ada (atau di
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr "Jangan merangkum remah roti dalam tag &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; ."
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:74
-#: plugins/breadcrumb/src/FrontendTemplate.php:79
-#: plugins/breadcrumb/src/FrontendTemplate.php:86
-#: plugins/breadcrumb/src/FrontendTemplate.php:90
-#: plugins/breadcrumb/src/FrontendTemplate.php:101
-#: plugins/breadcrumb/src/FrontendTemplate.php:116
-#: plugins/breadcrumb/src/FrontendTemplate.php:132
-#: plugins/breadcrumb/src/FrontendTemplate.php:149
-#: plugins/breadcrumb/src/FrontendTemplate.php:157
-#: plugins/breadcrumb/src/FrontendTemplate.php:171
-#: plugins/breadcrumb/src/FrontendTemplate.php:178
-#: plugins/breadcrumb/src/FrontendTemplate.php:185
-#: plugins/breadcrumb/src/FrontendTemplate.php:198
-#: plugins/breadcrumb/src/FrontendTemplate.php:210
-#: plugins/breadcrumb/src/FrontendTemplate.php:216
+#: plugins/breadcrumb/src/FrontendTemplate.php:71
+#: plugins/breadcrumb/src/FrontendTemplate.php:76
+#: plugins/breadcrumb/src/FrontendTemplate.php:83
+#: plugins/breadcrumb/src/FrontendTemplate.php:87
+#: plugins/breadcrumb/src/FrontendTemplate.php:98
+#: plugins/breadcrumb/src/FrontendTemplate.php:111
+#: plugins/breadcrumb/src/FrontendTemplate.php:127
+#: plugins/breadcrumb/src/FrontendTemplate.php:144
+#: plugins/breadcrumb/src/FrontendTemplate.php:152
+#: plugins/breadcrumb/src/FrontendTemplate.php:166
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
+#: plugins/breadcrumb/src/FrontendTemplate.php:193
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
+#: plugins/breadcrumb/src/FrontendTemplate.php:211
 #: plugins/simpleMenu/src/Manage.php:144 plugins/simpleMenu/src/Manage.php:255
-#: plugins/widgets/src/Widgets.php:271
+#: plugins/widgets/src/Widgets.php:266
 msgid "Home"
 msgstr "Beranda"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:110
-#: plugins/breadcrumb/src/FrontendTemplate.php:125
-#: plugins/breadcrumb/src/FrontendTemplate.php:191
-#: plugins/breadcrumb/src/FrontendTemplate.php:203
+#: plugins/breadcrumb/src/FrontendTemplate.php:105
+#: plugins/breadcrumb/src/FrontendTemplate.php:120
+#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/breadcrumb/src/FrontendTemplate.php:198
 #, php-format
 msgid "page %d"
 msgstr "halaman %d"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:160
-#: plugins/breadcrumb/src/FrontendTemplate.php:163
-#: plugins/simpleMenu/src/Manage.php:282 plugins/widgets/src/Widgets.php:288
+#: plugins/breadcrumb/src/FrontendTemplate.php:155
+#: plugins/breadcrumb/src/FrontendTemplate.php:158
+#: plugins/simpleMenu/src/Manage.php:282 plugins/widgets/src/Widgets.php:280
 msgid "Archives"
 msgstr "Arsip"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:179
-#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/breadcrumb/src/FrontendTemplate.php:174
+#: plugins/breadcrumb/src/FrontendTemplate.php:181
 #: plugins/simpleMenu/src/Manage.php:128 plugins/simpleMenu/src/Manage.php:302
 #: plugins/tags/src/Widgets.php:56
 msgid "All tags"
 msgstr "Semua tag"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/breadcrumb/src/FrontendTemplate.php:206
 msgid "404"
 msgstr "404"
 
-#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:37
 msgid "Generate fake l10n"
 msgstr "Menghasilkan l10n palsu"
 
-#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:41
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:38
 msgid "fake l10n file generated."
 msgstr "file l10n palsu yang dihasilkan."
 
-#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:42
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:39
 msgid "Failed to generate fake l10n file."
 msgstr "Gagal menghasilkan file l10n palsu."
 
-#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:43
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "Buat file php yang berisi string untuk diterjemahkan yang tidak dapat dilakukan dengan alat inti."
 
-#: plugins/dcCKEditor/src/Backend.php:24 plugins/dcCKEditor/src/Manage.php:169
+#: plugins/dcCKEditor/src/Backend.php:25 plugins/dcCKEditor/src/Manage.php:170
 msgid "dcCKEditor"
 msgstr "dcCKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:39
-#: plugins/dcLegacyEditor/src/Backend.php:44
+#: plugins/dcCKEditor/src/Backend.php:41
+#: plugins/dcLegacyEditor/src/Backend.php:46
 msgid "HTML"
 msgstr "HTML"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:157
+#: plugins/dcCKEditor/src/BackendBehaviors.php:59
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Media chooser"
 msgstr "Pemilih media"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+#: plugins/dcCKEditor/src/BackendBehaviors.php:60
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "m"
 msgstr "m"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:161
+#: plugins/dcCKEditor/src/BackendBehaviors.php:61
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Link to an entry"
 msgstr "Tautan ke entri"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
+#: plugins/dcCKEditor/src/BackendBehaviors.php:63
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:137
 msgid "l"
 msgstr "l"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:65
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+#: plugins/dcCKEditor/src/BackendBehaviors.php:64
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "External image"
 msgstr "Gambar eksternal"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:66
+#: plugins/dcCKEditor/src/BackendBehaviors.php:65
 msgid "URL field cannot be empty."
 msgstr "Bidang URL tidak boleh kosong."
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:92
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:172
+#: plugins/dcCKEditor/src/BackendBehaviors.php:89
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
 msgid "Open the media"
 msgstr "Buka media"
 
-#: plugins/dcCKEditor/src/Manage.php:148
-#: plugins/dcLegacyEditor/src/Manage.php:55
+#: plugins/dcCKEditor/src/Manage.php:149
+#: plugins/dcLegacyEditor/src/Manage.php:56
 msgid "The configuration has been updated."
 msgstr "Konfigurasi telah diperbarui."
 
-#: plugins/dcCKEditor/src/Manage.php:178
-#: plugins/dcLegacyEditor/src/Manage.php:81
+#: plugins/dcCKEditor/src/Manage.php:179
+#: plugins/dcLegacyEditor/src/Manage.php:82
 msgid "Plugin activation"
 msgstr "Aktivasi plugin"
 
-#: plugins/dcCKEditor/src/Manage.php:184
+#: plugins/dcCKEditor/src/Manage.php:185
 msgid "Enable dcCKEditor plugin"
 msgstr "Aktifkan plugin dcCKEditor"
 
-#: plugins/dcCKEditor/src/Manage.php:197
+#: plugins/dcCKEditor/src/Manage.php:198
 msgid "Add alignment buttons"
 msgstr "Menambahkan tombol perataan"
 
-#: plugins/dcCKEditor/src/Manage.php:203
+#: plugins/dcCKEditor/src/Manage.php:204
 msgid "Add lists buttons"
 msgstr "Tombol tambah daftar"
 
-#: plugins/dcCKEditor/src/Manage.php:209
+#: plugins/dcCKEditor/src/Manage.php:210
 msgid "Add text color button"
 msgstr "Tambahkan tombol warna teks"
 
-#: plugins/dcCKEditor/src/Manage.php:215
+#: plugins/dcCKEditor/src/Manage.php:216
 msgid "Add background text color button"
 msgstr "Tambahkan tombol warna teks latar belakang"
 
-#: plugins/dcCKEditor/src/Manage.php:218
+#: plugins/dcCKEditor/src/Manage.php:219
 msgid "Custom colors list:"
 msgstr "Daftar warna khusus:"
 
-#: plugins/dcCKEditor/src/Manage.php:232
+#: plugins/dcCKEditor/src/Manage.php:233
 msgid "Add colors without # separated by a comma."
 msgstr "Tambahkan warna tanpa # yang dipisahkan oleh koma."
 
-#: plugins/dcCKEditor/src/Manage.php:237
+#: plugins/dcCKEditor/src/Manage.php:238
 msgid "Leave empty to use the default palette:"
 msgstr "Biarkan kosong untuk menggunakan palet default:"
 
-#: plugins/dcCKEditor/src/Manage.php:243
+#: plugins/dcCKEditor/src/Manage.php:244
 msgid "Example of custom color list:"
 msgstr "Contoh daftar warna khusus:"
 
-#: plugins/dcCKEditor/src/Manage.php:251
+#: plugins/dcCKEditor/src/Manage.php:252
 msgid "Colors per row in palette:"
 msgstr "Warna per baris dalam palet:"
 
-#: plugins/dcCKEditor/src/Manage.php:255
+#: plugins/dcCKEditor/src/Manage.php:256
 msgid "Valid range: 4 to 16"
 msgstr "Rentang yang valid: 4 hingga 16"
 
-#: plugins/dcCKEditor/src/Manage.php:260
+#: plugins/dcCKEditor/src/Manage.php:261
 msgid "Add collapse button"
 msgstr "Tambahkan tombol tutup"
 
-#: plugins/dcCKEditor/src/Manage.php:266
+#: plugins/dcCKEditor/src/Manage.php:267
 msgid "Add format selection"
 msgstr "Menambahkan pilihan format"
 
-#: plugins/dcCKEditor/src/Manage.php:269
+#: plugins/dcCKEditor/src/Manage.php:270
 msgid "Custom formats"
 msgstr "Format khusus"
 
-#: plugins/dcCKEditor/src/Manage.php:283
+#: plugins/dcCKEditor/src/Manage.php:284
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
 msgstr "Format defaultnya adalah p; h1; h2; h3; h4; h5; h6; pre; alamat"
 
-#: plugins/dcCKEditor/src/Manage.php:289
+#: plugins/dcCKEditor/src/Manage.php:290
 msgid "Add table button"
 msgstr "Tombol Tambahkan tabel"
 
-#: plugins/dcCKEditor/src/Manage.php:295
+#: plugins/dcCKEditor/src/Manage.php:296
 msgid "Add clipboard buttons"
 msgstr "Menambahkan tombol papan klip"
 
-#: plugins/dcCKEditor/src/Manage.php:299
+#: plugins/dcCKEditor/src/Manage.php:300
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Menyalin, Menempel, Menempel Teks, Menempel dari Word"
 
-#: plugins/dcCKEditor/src/Manage.php:304
+#: plugins/dcCKEditor/src/Manage.php:305
 msgid "Add undo/redo buttons"
 msgstr "Menambahkan tombol batalkan/ulang"
 
-#: plugins/dcCKEditor/src/Manage.php:310
+#: plugins/dcCKEditor/src/Manage.php:311
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Menonaktifkan pemeriksa ejaan bawaan jika browser menyediakannya"
 
-#: plugins/dcCKEditor/src/Manage.php:320
-#: plugins/dcLegacyEditor/src/Manage.php:110
-#: plugins/simpleMenu/src/Manage.php:760
+#: plugins/dcCKEditor/src/Manage.php:321
+#: plugins/dcLegacyEditor/src/Manage.php:111
+#: plugins/simpleMenu/src/Manage.php:756
 msgid "Save configuration"
 msgstr "Menyimpan konfigurasi"
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:193
+#: plugins/dcCKEditor/src/ManagePostConfig.php:188
 msgid "Note(s)"
 msgstr "Catatan"
 
-#: plugins/dcLegacyEditor/src/Backend.php:25
-#: plugins/dcLegacyEditor/src/Manage.php:72
+#: plugins/dcLegacyEditor/src/Backend.php:26
+#: plugins/dcLegacyEditor/src/Manage.php:73
 msgid "dcLegacyEditor"
 msgstr "dcLegacyEditor"
 
-#: plugins/dcLegacyEditor/src/Backend.php:48
+#: plugins/dcLegacyEditor/src/Backend.php:50
 msgid "Dotclear wiki"
 msgstr "Wiki Dotclear"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
 msgid "visual"
 msgstr "visual"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
 msgid "source"
 msgstr "sumber"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:106
 msgid "You can use the following shortcuts to format your text."
 msgstr "Anda dapat menggunakan pintasan berikut ini untuk memformat teks Anda."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
 msgid "Block format"
 msgstr "Format blok"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:120
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
 msgid "-- none --"
 msgstr "-- Tidak ada."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:112
 msgid "-- block format --"
 msgstr "-- format blok - - format blok"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
 msgid "Paragraph"
 msgstr "Paragraf"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "Level 1 header"
 msgstr "Tajuk level 1"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "Level 2 header"
 msgstr "Tajuk level 2"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
 msgid "Level 3 header"
 msgstr "Tajuk level 3"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:117
 msgid "Level 4 header"
 msgstr "Tajuk level 4"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
 msgid "Level 5 header"
 msgstr "Tajuk level 5"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
 msgid "Level 6 header"
 msgstr "Tajuk level 6"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
 msgid "Strong emphasis"
 msgstr "Penekanan yang kuat"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Emphasis"
 msgstr "Penekanan"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
 msgid "Inserted"
 msgstr "Disisipkan"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:134
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "Deleted"
 msgstr "Dihapus"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:135
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "Inline quote"
 msgstr "Kutipan sebaris"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
 msgid "Code"
 msgstr "Kode"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
 msgid "Line break"
 msgstr "Jeda baris"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
 msgid "Blockquote"
 msgstr "Kutipan blok"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
 msgid "Preformated text"
 msgstr "Teks yang telah dibentuk sebelumnya"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
 msgid "Unordered list"
 msgstr "Daftar yang tidak diurutkan"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Ordered list"
 msgstr "Daftar pesanan"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
 msgid "Language?"
 msgstr "Bahasa?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:162
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Remove text formating"
 msgstr "Menghapus pemformatan teks"
 
-#: plugins/dcLegacyEditor/src/Manage.php:87
+#: plugins/dcLegacyEditor/src/Manage.php:88
 msgid "Enable standard editor plugin"
 msgstr "Mengaktifkan plugin editor standar"
 
-#: plugins/dcLegacyEditor/src/Manage.php:100
+#: plugins/dcLegacyEditor/src/Manage.php:101
 msgid "Adjust height of input area during editing"
 msgstr "Menyesuaikan ketinggian area input selama pengeditan"
 
-#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:63
+#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:54
 msgid "Checks trackback source for a link to the post"
 msgstr "Memeriksa sumber pelacakan untuk tautan ke pos"
 
-#: plugins/fairTrackbacks/src/Prepend.php:25
+#: plugins/fairTrackbacks/src/Prepend.php:26
 msgid "Fair Trackbacks"
 msgstr "Umpan Balik yang Adil"
 
-#: plugins/importExport/src/Backend.php:26
+#: plugins/importExport/src/Backend.php:27
 msgid "Import / Export"
 msgstr "Impor / Ekspor"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:42
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:41
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:43
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:42
 msgid "Database export"
 msgstr "Ekspor basis data"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:43
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:44
 msgid "Download database of current blog"
 msgstr "Unduh basis data blog saat ini"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:104
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:103
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:108
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:107
 msgid "Compress file"
 msgstr "Kompres file"
 
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:42
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:43
 msgid "Download database of all blogs"
 msgstr "Unduh basis data semua blog"
 
@@ -1623,33 +1623,33 @@ msgstr "Unduh basis data semua blog"
 msgid "No file to read."
 msgstr "Tidak ada file untuk dibaca."
 
-#: plugins/importExport/src/FlatExport.php:47
+#: plugins/importExport/src/FlatExport.php:48
 msgid "Unable to create output file."
 msgstr "Tidak dapat membuat file keluaran."
 
-#: plugins/importExport/src/FlatImportV2.php:96
+#: plugins/importExport/src/FlatImportV2.php:97
 msgid "Unable to read the DotClear backup file."
 msgstr "Tidak dapat membaca file cadangan DotClear."
 
-#: plugins/importExport/src/FlatImportV2.php:100
+#: plugins/importExport/src/FlatImportV2.php:101
 msgid "File is not a DotClear backup."
 msgstr "File bukan merupakan cadangan DotClear."
 
-#: plugins/importExport/src/FlatImportV2.php:176
+#: plugins/importExport/src/FlatImportV2.php:177
 msgid "File is not a single blog export."
 msgstr "File bukan merupakan ekspor blog tunggal."
 
-#: plugins/importExport/src/FlatImportV2.php:290
-#: plugins/importExport/src/FlatImportV2.php:344
+#: plugins/importExport/src/FlatImportV2.php:291
+#: plugins/importExport/src/FlatImportV2.php:345
 #, php-format
 msgid "Error raised at line %s"
 msgstr "Kesalahan muncul di baris %s"
 
-#: plugins/importExport/src/FlatImportV2.php:299
+#: plugins/importExport/src/FlatImportV2.php:300
 msgid "File is not a full export."
 msgstr "File bukan merupakan ekspor penuh."
 
-#: plugins/importExport/src/FlatImportV2.php:755
+#: plugins/importExport/src/FlatImportV2.php:756
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID \"%3$s\" tidak cocok dengan catatan \"%1$s\" pada baris %2$s file cadangan."
@@ -1669,40 +1669,40 @@ msgid "Export functions are in the page %s."
 msgstr "Fungsi ekspor ada di halaman %s."
 
 #: plugins/importExport/src/Manage.php:144
-#: plugins/maintenance/src/Backend.php:24
-#: plugins/maintenance/src/BackendBehaviors.php:190
+#: plugins/maintenance/src/Backend.php:25
+#: plugins/maintenance/src/BackendBehaviors.php:188
 msgid "Maintenance"
 msgstr "Pemeliharaan"
 
-#: plugins/importExport/src/Module.php:177
+#: plugins/importExport/src/Module.php:156
 msgid "Congratulation!"
 msgstr "Selamat!"
 
-#: plugins/importExport/src/Module.php:181
+#: plugins/importExport/src/Module.php:160
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
 msgstr "Blog Anda telah berhasil diimpor. Selamat datang di Dotclear 2!"
 
-#: plugins/importExport/src/Module.php:188
+#: plugins/importExport/src/Module.php:167
 msgid "Why don't you blog this now?"
 msgstr "Mengapa Anda tidak menulis blog ini sekarang?"
 
-#: plugins/importExport/src/Module.php:196
+#: plugins/importExport/src/Module.php:175
 msgid "visit your dashboard"
 msgstr "kunjungi dasbor Anda"
 
-#: plugins/importExport/src/ModuleExportFlat.php:27
+#: plugins/importExport/src/ModuleExportFlat.php:28
 msgid "Flat file export"
 msgstr "Ekspor file datar"
 
-#: plugins/importExport/src/ModuleExportFlat.php:28
+#: plugins/importExport/src/ModuleExportFlat.php:29
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Mengekspor blog atau instalasi Dotclear lengkap ke file datar."
 
-#: plugins/importExport/src/ModuleExportFlat.php:153
+#: plugins/importExport/src/ModuleExportFlat.php:154
 msgid "Export file not found."
 msgstr "File ekspor tidak ditemukan."
 
-#: plugins/importExport/src/ModuleExportFlat.php:192
+#: plugins/importExport/src/ModuleExportFlat.php:193
 msgid "Failed to compress export file."
 msgstr "Gagal mengompres file ekspor."
 
@@ -1788,114 +1788,114 @@ msgstr "Setiap pengguna yang baru diimpor akan menerima kata sandi acak dan perl
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Harap diperhatikan bahwa Dotclear 2 memiliki tata letak URL yang baru. Anda dapat menghindari tautan yang rusak dengan menginstal plugin <a href=\"%s\">DC1 redirect</a> dan mengaktifkannya dalam konfigurasi blog Anda."
 
-#: plugins/importExport/src/ModuleImportDc1.php:351
-#: plugins/importExport/src/ModuleImportWp.php:430
+#: plugins/importExport/src/ModuleImportDc1.php:349
+#: plugins/importExport/src/ModuleImportWp.php:428
 msgid "next step"
 msgstr "langkah selanjutnya"
 
-#: plugins/importExport/src/ModuleImportDc1.php:369
-#: plugins/importExport/src/ModuleImportWp.php:448
+#: plugins/importExport/src/ModuleImportDc1.php:367
+#: plugins/importExport/src/ModuleImportWp.php:446
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Tergantung pada ukuran blog Anda, ini bisa memakan waktu beberapa menit."
 
-#: plugins/importExport/src/ModuleImportDc1.php:397
+#: plugins/importExport/src/ModuleImportDc1.php:395
 msgid "Dotclear tables not found"
 msgstr "Tabel dotclear tidak ditemukan"
 
-#: plugins/importExport/src/ModuleImportFeed.php:127
+#: plugins/importExport/src/ModuleImportFeed.php:126
 msgid "RSS or Atom feed import"
 msgstr "Impor umpan RSS atau Atom"
 
-#: plugins/importExport/src/ModuleImportFeed.php:128
+#: plugins/importExport/src/ModuleImportFeed.php:127
 msgid "Add a feed content to the blog."
 msgstr "Menambahkan konten feed ke blog."
 
-#: plugins/importExport/src/ModuleImportFeed.php:150
-#: plugins/importExport/src/ModuleImportFeed.php:156
-#: plugins/importExport/src/ModuleImportFeed.php:165
-#: plugins/importExport/src/ModuleImportFeed.php:170
-#: plugins/importExport/src/ModuleImportFeed.php:176
-#: plugins/importExport/src/ModuleImportFeed.php:183
+#: plugins/importExport/src/ModuleImportFeed.php:149
+#: plugins/importExport/src/ModuleImportFeed.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:164
+#: plugins/importExport/src/ModuleImportFeed.php:168
+#: plugins/importExport/src/ModuleImportFeed.php:172
+#: plugins/importExport/src/ModuleImportFeed.php:178
 msgid "Cannot retrieve feed URL."
 msgstr "Tidak dapat mengambil URL feed."
 
-#: plugins/importExport/src/ModuleImportFeed.php:186
+#: plugins/importExport/src/ModuleImportFeed.php:181
 msgid "No items in feed."
 msgstr "Tidak ada item dalam umpan."
 
-#: plugins/importExport/src/ModuleImportFeed.php:220
-#: plugins/importExport/src/ModuleImportFlat.php:189
+#: plugins/importExport/src/ModuleImportFeed.php:215
+#: plugins/importExport/src/ModuleImportFlat.php:190
 msgid "Content successfully imported."
 msgstr "Konten berhasil diimpor."
 
-#: plugins/importExport/src/ModuleImportFeed.php:229
+#: plugins/importExport/src/ModuleImportFeed.php:224
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Menambahkan konten feed ke blog saat ini: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFeed.php:237
-#: plugins/widgets/src/Widgets.php:144
+#: plugins/importExport/src/ModuleImportFeed.php:232
+#: plugins/widgets/src/Widgets.php:143
 msgid "Feed URL:"
 msgstr "URL umpan:"
 
-#: plugins/importExport/src/ModuleImportFlat.php:51
+#: plugins/importExport/src/ModuleImportFlat.php:52
 msgid "Flat file import"
 msgstr "Impor file datar"
 
-#: plugins/importExport/src/ModuleImportFlat.php:52
+#: plugins/importExport/src/ModuleImportFlat.php:53
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Mengimpor blog atau instalasi Dotclear lengkap dari file datar."
 
-#: plugins/importExport/src/ModuleImportFlat.php:184
+#: plugins/importExport/src/ModuleImportFlat.php:185
 msgid "Single blog successfully imported."
 msgstr "Satu blog berhasil diimpor."
 
-#: plugins/importExport/src/ModuleImportFlat.php:200
+#: plugins/importExport/src/ModuleImportFlat.php:201
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Apakah Anda yakin ingin mengimpor file cadangan lengkap?"
 
-#: plugins/importExport/src/ModuleImportFlat.php:210
+#: plugins/importExport/src/ModuleImportFlat.php:211
 msgid "Single blog"
 msgstr "Blog tunggal"
 
-#: plugins/importExport/src/ModuleImportFlat.php:215
+#: plugins/importExport/src/ModuleImportFlat.php:216
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Ini akan mengimpor satu cadangan blog sebagai konten baru di blog saat ini: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFlat.php:222
-#: plugins/importExport/src/ModuleImportFlat.php:269
+#: plugins/importExport/src/ModuleImportFlat.php:223
+#: plugins/importExport/src/ModuleImportFlat.php:270
 msgid "Upload a backup file"
 msgstr "Unggah file cadangan"
 
-#: plugins/importExport/src/ModuleImportFlat.php:223
-#: plugins/importExport/src/ModuleImportFlat.php:270
+#: plugins/importExport/src/ModuleImportFlat.php:224
+#: plugins/importExport/src/ModuleImportFlat.php:271
 #, php-format
 msgid "maximum size %s"
 msgstr "ukuran maksimum %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:235
-#: plugins/importExport/src/ModuleImportFlat.php:282
+#: plugins/importExport/src/ModuleImportFlat.php:236
+#: plugins/importExport/src/ModuleImportFlat.php:283
 msgid "or pick up a local file in your public directory"
 msgstr "atau mengambil file lokal di direktori publik Anda"
 
-#: plugins/importExport/src/ModuleImportFlat.php:257
+#: plugins/importExport/src/ModuleImportFlat.php:258
 msgid "Multiple blogs"
 msgstr "Beberapa blog"
 
-#: plugins/importExport/src/ModuleImportFlat.php:264
+#: plugins/importExport/src/ModuleImportFlat.php:265
 msgid "This will reset all the content of your database, except users."
 msgstr "Ini akan mengatur ulang semua konten basis data Anda, kecuali pengguna."
 
-#: plugins/importExport/src/ModuleImportFlat.php:399
+#: plugins/importExport/src/ModuleImportFlat.php:396
 msgid "Another file with same name exists."
 msgstr "Ada file lain dengan nama yang sama."
 
-#: plugins/importExport/src/ModuleImportFlat.php:407
+#: plugins/importExport/src/ModuleImportFlat.php:404
 msgid "Failed to extract backup file."
 msgstr "Gagal mengekstrak file cadangan."
 
-#: plugins/importExport/src/ModuleImportFlat.php:419
+#: plugins/importExport/src/ModuleImportFlat.php:416
 msgid "No backup in compressed file."
 msgstr "Tidak ada cadangan dalam file terkompresi."
 
@@ -1956,7 +1956,7 @@ msgstr "Pemformat konten pos:"
 msgid "Comment content formatter:"
 msgstr "Pemformat konten komentar:"
 
-#: plugins/importExport/src/ModuleImportWp.php:476
+#: plugins/importExport/src/ModuleImportWp.php:474
 msgid "WordPress tables not found"
 msgstr "Tabel WordPress tidak ditemukan"
 
@@ -2013,46 +2013,46 @@ msgid "Translations"
 msgstr "Terjemahan"
 
 #: plugins/maintenance/src/BackendBehaviors.php:136
-#: plugins/maintenance/src/Rest.php:75
+#: plugins/maintenance/src/Rest.php:76
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] "%s tugas yang harus dilaksanakan"
 
-#: plugins/maintenance/src/BackendBehaviors.php:172
+#: plugins/maintenance/src/BackendBehaviors.php:170
 #: plugins/maintenance/src/Manage.php:292
 msgid "This task has never been executed."
 msgstr "Tugas ini belum pernah dilaksanakan."
 
-#: plugins/maintenance/src/BackendBehaviors.php:175
+#: plugins/maintenance/src/BackendBehaviors.php:173
 #: plugins/maintenance/src/Manage.php:295
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Eksekusi terakhir dari tugas ini adalah di %s."
 
-#: plugins/maintenance/src/BackendBehaviors.php:193
+#: plugins/maintenance/src/BackendBehaviors.php:191
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "Ada %s tugas yang harus dilakukan."
 
-#: plugins/maintenance/src/BackendBehaviors.php:200
+#: plugins/maintenance/src/BackendBehaviors.php:198
 msgid "Manage tasks"
 msgstr "Mengelola tugas"
 
-#: plugins/maintenance/src/BackendBehaviors.php:222
+#: plugins/maintenance/src/BackendBehaviors.php:220
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Menampilkan penghitung tugas yang sudah lewat waktu pada ikon dasbor pemeliharaan"
 
-#: plugins/maintenance/src/BackendBehaviors.php:228
+#: plugins/maintenance/src/BackendBehaviors.php:226
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Menampilkan daftar tugas yang sudah lewat jatuh tempo pada item dasbor"
 
-#: plugins/maintenance/src/MaintenanceTask.php:155
+#: plugins/maintenance/src/MaintenanceTask.php:130
 msgid "Failed to execute task."
 msgstr "Gagal menjalankan tugas."
 
-#: plugins/maintenance/src/MaintenanceTask.php:158
+#: plugins/maintenance/src/MaintenanceTask.php:133
 msgid "Task successfully executed."
 msgstr "Tugas berhasil dijalankan."
 
@@ -2160,218 +2160,234 @@ msgstr "Mengaktifkan laporan Kebijakan Keamanan Konten hanya secara default"
 msgid "Also apply these settings to all blogs"
 msgstr "Terapkan juga pengaturan ini ke semua blog"
 
-#: plugins/maintenance/src/Task/CSP.php:41
+#: plugins/maintenance/src/Task/CSP.php:38
 msgid "Delete the Content-Security-Policy report file"
 msgstr "Menghapus file laporan Kebijakan-Keamanan Konten"
 
-#: plugins/maintenance/src/Task/CSP.php:42
+#: plugins/maintenance/src/Task/CSP.php:39
 msgid "Content-Security-Policy report file has been deleted."
 msgstr "File laporan Kebijakan-Keamanan-Konten telah dihapus."
 
-#: plugins/maintenance/src/Task/CSP.php:43
+#: plugins/maintenance/src/Task/CSP.php:40
 msgid "Failed to delete the Content-Security-Policy report file."
 msgstr "Gagal menghapus file laporan Kebijakan-Keamanan-Konten."
 
-#: plugins/maintenance/src/Task/CSP.php:45
+#: plugins/maintenance/src/Task/CSP.php:42
 msgid "Remove the Content-Security-Policy report file."
 msgstr "Hapus file laporan Kebijakan-Keamanan Konten."
 
-#: plugins/maintenance/src/Task/Cache.php:43
+#: plugins/maintenance/src/Task/Cache.php:40
 msgid "Failed to empty templates cache directory."
 msgstr "Gagal mengosongkan direktori cache template."
 
-#: plugins/maintenance/src/Task/Cache.php:45
+#: plugins/maintenance/src/Task/Cache.php:42
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "Mungkin berguna untuk mengosongkan cache ini ketika memodifikasi file .html atau .css tema (atau ketika memperbarui tema atau plugin). Perhatikan: pada beberapa hoster, cache templat tidak dapat dikosongkan dengan plugin ini. Anda mungkin harus menghapus direktori <strong>%s</strong> secara langsung di server dengan perangkat lunak FTP Anda."
 
-#: plugins/maintenance/src/Task/CountComments.php:42
+#: plugins/maintenance/src/Task/CountComments.php:39
 msgid "Count again comments and trackbacks"
 msgstr "Hitung lagi komentar dan jejak balik"
 
-#: plugins/maintenance/src/Task/CountComments.php:43
+#: plugins/maintenance/src/Task/CountComments.php:40
 msgid "Comments and trackback counted."
 msgstr "Komentar dan lacak balik dihitung."
 
-#: plugins/maintenance/src/Task/CountComments.php:44
+#: plugins/maintenance/src/Task/CountComments.php:41
 msgid "Failed to count comments and trackbacks."
 msgstr "Gagal menghitung komentar dan trackback."
 
-#: plugins/maintenance/src/Task/CountComments.php:46
+#: plugins/maintenance/src/Task/CountComments.php:43
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Hitung lagi komentar dan trackback memungkinkan untuk memeriksa jumlah pastinya. Operasi ini dapat berguna ketika mengimpor dari platform blog lain (atau ketika bermigrasi dari dotclear 1 ke dotclear 2)."
 
-#: plugins/maintenance/src/Task/IndexComments.php:63
-#: plugins/maintenance/src/Task/IndexPosts.php:63
+#: plugins/maintenance/src/Task/IndexComments.php:55
+#: plugins/maintenance/src/Task/IndexPosts.php:55
 msgid "Search engine index"
 msgstr "Indeks mesin pencari"
 
-#: plugins/maintenance/src/Task/IndexComments.php:64
+#: plugins/maintenance/src/Task/IndexComments.php:56
 msgid "Index all comments for search engine"
 msgstr "Mengindeks semua komentar untuk mesin pencari"
 
-#: plugins/maintenance/src/Task/IndexComments.php:65
-#: plugins/maintenance/src/Task/IndexPosts.php:65
-#: plugins/maintenance/src/Task/SynchPostMeta.php:65
+#: plugins/maintenance/src/Task/IndexComments.php:57
+#: plugins/maintenance/src/Task/IndexPosts.php:57
+#: plugins/maintenance/src/Task/SynchPostMeta.php:57
 msgid "Next"
 msgstr "Berikutnya"
 
-#: plugins/maintenance/src/Task/IndexComments.php:66
+#: plugins/maintenance/src/Task/IndexComments.php:58
 #, php-format
 msgid "Indexing comment %d to %d."
 msgstr "Mengindeks komentar %d ke %d."
 
-#: plugins/maintenance/src/Task/IndexComments.php:67
+#: plugins/maintenance/src/Task/IndexComments.php:59
 msgid "Comments index done."
 msgstr "Indeks komentar selesai."
 
-#: plugins/maintenance/src/Task/IndexComments.php:68
+#: plugins/maintenance/src/Task/IndexComments.php:60
 msgid "Failed to index comments."
 msgstr "Gagal mengindeks komentar."
 
-#: plugins/maintenance/src/Task/IndexComments.php:70
+#: plugins/maintenance/src/Task/IndexComments.php:62
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Mengindeks semua komentar dan trackback dalam indeks mesin pencari. Operasi ini diperlukan, setelah mengimpor konten di blog Anda, untuk menggunakan mesin pencari internal, pada halaman publik dan pribadi."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:64
+#: plugins/maintenance/src/Task/IndexPosts.php:56
 msgid "Index all entries for search engine"
 msgstr "Mengindeks semua entri untuk mesin pencari"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:66
+#: plugins/maintenance/src/Task/IndexPosts.php:58
 #, php-format
 msgid "Indexing entry %d to %d."
 msgstr "Mengindeks entri %d ke %d."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:67
+#: plugins/maintenance/src/Task/IndexPosts.php:59
 msgid "Entries index done."
 msgstr "Indeks entri selesai."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:68
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Failed to index entries."
 msgstr "Gagal mengindeks entri."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:70
+#: plugins/maintenance/src/Task/IndexPosts.php:62
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Mengindeks semua entri dalam indeks mesin pencari. Operasi ini diperlukan, setelah mengimpor konten di blog Anda, untuk menggunakan mesin pencari internal, pada halaman publik dan pribadi."
 
-#: plugins/maintenance/src/Task/Logs.php:48
+#: plugins/maintenance/src/Task/Logs.php:43
 msgid "Delete all logs"
 msgstr "Menghapus semua log"
 
-#: plugins/maintenance/src/Task/Logs.php:49
+#: plugins/maintenance/src/Task/Logs.php:44
 msgid "Logs deleted."
 msgstr "Log dihapus."
 
-#: plugins/maintenance/src/Task/Logs.php:50
+#: plugins/maintenance/src/Task/Logs.php:45
 msgid "Failed to delete logs."
 msgstr "Gagal menghapus log."
 
-#: plugins/maintenance/src/Task/Logs.php:52
+#: plugins/maintenance/src/Task/Logs.php:47
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "Log mencatat semua aktivitas dan koneksi ke riwayat blog Anda. Kecuali jika Anda perlu menyimpan riwayat ini, pertimbangkan untuk menghapus log ini dari waktu ke waktu."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:63
+#: plugins/maintenance/src/Task/SynchPostMeta.php:55
 msgid "Entries metadata"
 msgstr "Metadata entri"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:64
+#: plugins/maintenance/src/Task/SynchPostMeta.php:56
 msgid "Synchronize entries metadata"
 msgstr "Menyinkronkan metadata entri"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:66
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
 #, php-format
 msgid "Synchronize entry %d to %d."
 msgstr "Sinkronisasi entri %d ke %d."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:67
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
 msgid "Entries metadata synchronize done."
 msgstr "Sinkronisasi metadata entri telah selesai."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:68
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Failed to synchronize entries metadata."
 msgstr "Gagal menyinkronkan metadata entri."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:70
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "Sinkronisasi semua metadata entri dapat berguna setelah mengimpor konten di blog Anda atau melakukan operasi yang tidak baik pada tabel database."
 
-#: plugins/maintenance/src/Task/Vacuum.php:40
+#: plugins/maintenance/src/Task/Vacuum.php:37
 msgid "Optimise database"
 msgstr "Mengoptimalkan basis data"
 
-#: plugins/maintenance/src/Task/Vacuum.php:41
+#: plugins/maintenance/src/Task/Vacuum.php:38
 msgid "optimize tables"
 msgstr "mengoptimalkan tabel"
 
-#: plugins/maintenance/src/Task/Vacuum.php:42
+#: plugins/maintenance/src/Task/Vacuum.php:39
 msgid "Optimization successful."
 msgstr "Pengoptimalan berhasil."
 
-#: plugins/maintenance/src/Task/Vacuum.php:43
+#: plugins/maintenance/src/Task/Vacuum.php:40
 msgid "Failed to optimize tables."
 msgstr "Gagal mengoptimalkan tabel."
 
-#: plugins/maintenance/src/Task/Vacuum.php:45
+#: plugins/maintenance/src/Task/Vacuum.php:42
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
 msgstr "Setelah banyak operasi hapus atau perbarui pada basis data Dotclear, basis data ini akan terfragmentasi. Mengoptimalkan akan memungkinkan untuk mendefragnya. Hal ini tidak mempengaruhi integritas data Anda. Disarankan untuk mengoptimalkan sebelum ekspor blog."
 
-#: plugins/maintenance/src/Task/ZipMedia.php:62
+#: plugins/maintenance/src/Task/ZipMedia.php:53
 msgid "Download media folder of current blog"
 msgstr "Unduh folder media dari blog saat ini"
 
-#: plugins/maintenance/src/Task/ZipMedia.php:64
+#: plugins/maintenance/src/Task/ZipMedia.php:55
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
 msgstr "Mungkin berguna untuk membuat cadangan folder media Anda. Plugin ini akan memampatkan semua konten folder media ke dalam satu file zip. Perhatikan: pada beberapa hos, folder media tidak dapat dikompresi dengan plugin ini jika ukurannya terlalu besar."
 
-#: plugins/maintenance/src/Task/ZipTheme.php:63
+#: plugins/maintenance/src/Task/ZipTheme.php:54
 msgid "Download active theme of current blog"
 msgstr "Unduh tema aktif dari blog saat ini"
 
-#: plugins/maintenance/src/Task/ZipTheme.php:65
+#: plugins/maintenance/src/Task/ZipTheme.php:56
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Mungkin berguna untuk membuat cadangan tema yang aktif sebelum melakukan perubahan atau pembaruan. Ini memampatkan folder tema menjadi satu file zip."
 
-#: plugins/pages/src/Backend.php:38
+#: plugins/pages/src/Backend.php:40
 msgid "manage pages"
 msgstr "mengelola halaman"
 
-#: plugins/pages/src/Backend.php:85
+#: plugins/pages/src/Backend.php:91
 #, php-format
 msgid "%d page"
 msgstr "%d halaman"
 
-#: plugins/pages/src/Backend.php:85
+#: plugins/pages/src/Backend.php:91
 #, php-format
 msgid "%d pages"
 msgstr "%d halaman"
 
-#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:147
-#: plugins/pages/src/ManagePage.php:105 plugins/pages/src/ManagePage.php:839
+#: plugins/pages/src/Backend.php:98 plugins/pages/src/Manage.php:148
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:841
 msgid "New page"
 msgstr "Halaman baru"
 
-#: plugins/pages/src/BackendActions.php:55
+#: plugins/pages/src/BackendActions.php:54
 msgid "Pages actions"
 msgstr "Tindakan halaman"
 
-#: plugins/pages/src/BackendActions.php:77
+#: plugins/pages/src/BackendActions.php:76
 msgid "Back to pages list"
 msgstr "Kembali ke daftar halaman"
 
+#: plugins/pages/src/BackendDefaultActions.php:38
+msgid "Publish"
+msgstr "Menerbitkan"
+
+#: plugins/pages/src/BackendDefaultActions.php:39
+msgid "Unpublish"
+msgstr "Batalkan penerbitan"
+
+#: plugins/pages/src/BackendDefaultActions.php:40
+msgid "Schedule"
+msgstr "Jadwal"
+
+#: plugins/pages/src/BackendDefaultActions.php:41
+msgid "Mark as pending"
+msgstr "Tandai sebagai tertunda"
+
 #: plugins/pages/src/BackendDefaultActions.php:123
-#: plugins/pages/src/Manage.php:138
+#: plugins/pages/src/Manage.php:139
 msgid "Selected pages have been successfully reordered."
 msgstr "Halaman yang dipilih telah berhasil disusun ulang."
 
-#: plugins/pages/src/BackendList.php:50
+#: plugins/pages/src/BackendList.php:51
 msgid "No page"
 msgstr "Tidak ada halaman"
 
-#: plugins/pages/src/BackendList.php:165 plugins/pages/src/BackendList.php:227
+#: plugins/pages/src/BackendList.php:166 plugins/pages/src/BackendList.php:226
 msgid "Hidden"
 msgstr "Tersembunyi"
 
-#: plugins/pages/src/BackendList.php:257
+#: plugins/pages/src/BackendList.php:256
 msgid "Select this page"
 msgstr "Pilih halaman ini"
 
@@ -2383,96 +2399,96 @@ msgstr "Diterbitkan pada"
 msgid "This page's comments feed"
 msgstr "Umpan komentar halaman ini"
 
-#: plugins/pages/src/Install.php:48
+#: plugins/pages/src/Install.php:49
 msgid "My first page"
 msgstr "Halaman pertama saya"
 
-#: plugins/pages/src/Install.php:49
+#: plugins/pages/src/Install.php:50
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "Ini adalah halaman pertama Anda. Setelah Anda siap membuat blog, masuklah untuk mengedit atau menghapusnya."
 
-#: plugins/pages/src/Manage.php:120
+#: plugins/pages/src/Manage.php:121
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Apakah Anda yakin ingin menghapus halaman yang dipilih?"
 
-#: plugins/pages/src/Manage.php:134
+#: plugins/pages/src/Manage.php:135
 msgid "Selected pages have been successfully updated."
 msgstr "Halaman yang dipilih telah berhasil diperbarui."
 
-#: plugins/pages/src/Manage.php:136
+#: plugins/pages/src/Manage.php:137
 msgid "Selected pages have been successfully deleted."
 msgstr "Halaman yang dipilih telah berhasil dihapus."
 
-#: plugins/pages/src/Manage.php:170
+#: plugins/pages/src/Manage.php:171
 msgid "Selected pages action:"
 msgstr "Tindakan halaman yang dipilih:"
 
-#: plugins/pages/src/Manage.php:176
+#: plugins/pages/src/Manage.php:177
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "Untuk mengatur ulang urutan halaman, ubah nomor di awal baris, lalu klik tombol \"Simpan urutan halaman\"."
 
-#: plugins/pages/src/Manage.php:179
+#: plugins/pages/src/Manage.php:180
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "Untuk mengatur ulang urutan halaman, pindahkan item dengan menyeret dan melepas, lalu klik tombol \"Simpan urutan halaman\"."
 
-#: plugins/pages/src/Manage.php:186
+#: plugins/pages/src/Manage.php:187
 msgid "Save pages order"
 msgstr "Simpan urutan halaman"
 
-#: plugins/pages/src/ManagePage.php:162
+#: plugins/pages/src/ManagePage.php:164
 msgid "This page does not exist."
 msgstr "Halaman ini tidak ada."
 
-#: plugins/pages/src/ManagePage.php:183 plugins/pages/src/ManagePage.php:839
-#: plugins/pages/src/ManagePage.php:860
+#: plugins/pages/src/ManagePage.php:185 plugins/pages/src/ManagePage.php:841
+#: plugins/pages/src/ManagePage.php:862
 msgid "Edit page"
 msgstr "Halaman edit"
 
-#: plugins/pages/src/ManagePage.php:463
+#: plugins/pages/src/ManagePage.php:465
 msgid "Are you sure you want to delete this page?"
 msgstr "Apakah Anda yakin ingin menghapus halaman ini?"
 
-#: plugins/pages/src/ManagePage.php:503
+#: plugins/pages/src/ManagePage.php:505
 msgid "Page has been successfully updated."
 msgstr "Halaman telah berhasil diperbarui."
 
-#: plugins/pages/src/ManagePage.php:505
+#: plugins/pages/src/ManagePage.php:507
 msgid "Page has been successfully created."
 msgstr "Halaman telah berhasil dibuat."
 
-#: plugins/pages/src/ManagePage.php:518
+#: plugins/pages/src/ManagePage.php:520
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Jangan lupa untuk memvalidasi konversi HTML Anda dengan menyimpan postingan Anda."
 
-#: plugins/pages/src/ManagePage.php:528
+#: plugins/pages/src/ManagePage.php:530
 msgid "Go to this page on the site"
 msgstr "Buka halaman ini di situs"
 
-#: plugins/pages/src/ManagePage.php:570
+#: plugins/pages/src/ManagePage.php:572
 msgid "Page status"
 msgstr "Status halaman"
 
-#: plugins/pages/src/ManagePage.php:586
+#: plugins/pages/src/ManagePage.php:588
 msgid "Page language"
 msgstr "Bahasa halaman"
 
-#: plugins/pages/src/ManagePage.php:613 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:615 plugins/pages/src/Widgets.php:40
 msgid "Page position"
 msgstr "Posisi halaman"
 
-#: plugins/pages/src/ManagePage.php:664
+#: plugins/pages/src/ManagePage.php:666
 msgid "Hide in widget Pages"
 msgstr "Menyembunyikan di halaman widget"
 
-#: plugins/pages/src/ManagePage.php:688
+#: plugins/pages/src/ManagePage.php:690
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Peringatan: Jika Anda mengatur URL secara manual, URL tersebut mungkin bertentangan dengan halaman lain."
 
-#: plugins/pages/src/ManagePage.php:727
+#: plugins/pages/src/ManagePage.php:729
 msgid "Introduction to the page."
 msgstr "Pengantar ke halaman."
 
-#: plugins/pages/src/ManagePage.php:1145
+#: plugins/pages/src/ManagePage.php:1143
 msgid "Select this comment"
 msgstr "Pilih komentar ini"
 
@@ -2484,7 +2500,7 @@ msgstr "Judul halaman"
 msgid "Publication date"
 msgstr "Tanggal publikasi"
 
-#: plugins/pings/src/Backend.php:26 plugins/pings/src/BackendBehaviors.php:67
+#: plugins/pings/src/Backend.php:27 plugins/pings/src/BackendBehaviors.php:64
 msgid "Pings"
 msgstr "Pings"
 
@@ -2520,16 +2536,16 @@ msgstr "Ping otomatis ke semua layanan pada publikasi entri pertama (hanya blog 
 msgid "Test ping services"
 msgstr "Uji layanan ping"
 
-#: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:71
+#: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:71
 #: plugins/simpleMenu/src/Widgets.php:28
 msgid "Simple menu"
 msgstr "Menu sederhana"
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:170
+#: plugins/simpleMenu/src/FrontendTemplate.php:164
 msgid "Active page"
 msgstr "Halaman aktif"
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:170
+#: plugins/simpleMenu/src/FrontendTemplate.php:164
 msgid "active page"
 msgstr "halaman aktif"
 
@@ -2545,7 +2561,7 @@ msgstr "Arsip"
 msgid "Page"
 msgstr "Halaman"
 
-#: plugins/simpleMenu/src/Manage.php:163 plugins/tags/src/Backend.php:24
+#: plugins/simpleMenu/src/Manage.php:163 plugins/tags/src/Backend.php:25
 #: plugins/tags/src/Widgets.php:32
 msgid "Tags"
 msgstr "Tags"
@@ -2558,8 +2574,8 @@ msgstr "Ditentukan oleh pengguna"
 msgid "Configuration successfully updated."
 msgstr "Konfigurasi berhasil diperbarui."
 
-#: plugins/simpleMenu/src/Manage.php:250 plugins/simpleMenu/src/Manage.php:676
-#: plugins/simpleMenu/src/Manage.php:796
+#: plugins/simpleMenu/src/Manage.php:250 plugins/simpleMenu/src/Manage.php:672
+#: plugins/simpleMenu/src/Manage.php:792
 msgid "Label"
 msgstr "Label"
 
@@ -2568,7 +2584,7 @@ msgid "Home page"
 msgstr "Halaman beranda"
 
 #: plugins/simpleMenu/src/Manage.php:256 plugins/simpleMenu/src/Manage.php:261
-#: plugins/widgets/src/Widgets.php:275 plugins/widgets/src/Widgets.php:282
+#: plugins/widgets/src/Widgets.php:270 plugins/widgets/src/Widgets.php:275
 msgid "Recent posts"
 msgstr "Posting terbaru"
 
@@ -2627,91 +2643,91 @@ msgstr "Apakah Anda yakin ingin menghapus item menu yang dipilih?"
 msgid "Step #1"
 msgstr "Langkah # 1"
 
-#: plugins/simpleMenu/src/Manage.php:511 plugins/simpleMenu/src/Manage.php:519
+#: plugins/simpleMenu/src/Manage.php:511 plugins/simpleMenu/src/Manage.php:516
 msgid "Step #2"
 msgstr "Langkah # 2"
 
-#: plugins/simpleMenu/src/Manage.php:517
+#: plugins/simpleMenu/src/Manage.php:516
 msgid "Step #3"
 msgstr "Langkah #3"
 
-#: plugins/simpleMenu/src/Manage.php:529
+#: plugins/simpleMenu/src/Manage.php:525
 msgid "Add item"
 msgstr "Tambahkan item"
 
-#: plugins/simpleMenu/src/Manage.php:560
+#: plugins/simpleMenu/src/Manage.php:556
 msgid "Select type"
 msgstr "Pilih jenis"
 
-#: plugins/simpleMenu/src/Manage.php:567
+#: plugins/simpleMenu/src/Manage.php:563
 msgid "Type of item menu:"
 msgstr "Jenis menu item:"
 
-#: plugins/simpleMenu/src/Manage.php:573 plugins/simpleMenu/src/Manage.php:640
+#: plugins/simpleMenu/src/Manage.php:569 plugins/simpleMenu/src/Manage.php:636
 msgid "Continue..."
 msgstr "Lanjutkan..."
 
-#: plugins/simpleMenu/src/Manage.php:596
+#: plugins/simpleMenu/src/Manage.php:592
 msgid "Select language:"
 msgstr "Pilih bahasa:"
 
-#: plugins/simpleMenu/src/Manage.php:602
+#: plugins/simpleMenu/src/Manage.php:598
 msgid "Select category:"
 msgstr "Pilih kategori:"
 
-#: plugins/simpleMenu/src/Manage.php:608
+#: plugins/simpleMenu/src/Manage.php:604
 msgid "Select month (if necessary):"
 msgstr "Pilih bulan (jika perlu):"
 
-#: plugins/simpleMenu/src/Manage.php:614
+#: plugins/simpleMenu/src/Manage.php:610
 msgid "Select page:"
 msgstr "Pilih halaman:"
 
-#: plugins/simpleMenu/src/Manage.php:620
+#: plugins/simpleMenu/src/Manage.php:616
 msgid "Select tag (if necessary):"
 msgstr "Pilih tag (jika perlu):"
 
-#: plugins/simpleMenu/src/Manage.php:681
+#: plugins/simpleMenu/src/Manage.php:677
 msgid "Label of item menu:"
 msgstr "Label menu item:"
 
-#: plugins/simpleMenu/src/Manage.php:695
+#: plugins/simpleMenu/src/Manage.php:691
 msgid "Description of item menu:"
 msgstr "Deskripsi menu item:"
 
-#: plugins/simpleMenu/src/Manage.php:710
+#: plugins/simpleMenu/src/Manage.php:706
 msgid "URL of item menu:"
 msgstr "URL menu item:"
 
-#: plugins/simpleMenu/src/Manage.php:720 plugins/simpleMenu/src/Manage.php:799
+#: plugins/simpleMenu/src/Manage.php:716 plugins/simpleMenu/src/Manage.php:795
 msgid "Open URL on a new tab"
 msgstr "Buka URL di tab baru"
 
-#: plugins/simpleMenu/src/Manage.php:728
+#: plugins/simpleMenu/src/Manage.php:724
 msgid "Add this item"
 msgstr "Tambahkan item ini"
 
-#: plugins/simpleMenu/src/Manage.php:754
+#: plugins/simpleMenu/src/Manage.php:750
 msgid "Enable simple menu for this blog"
 msgstr "Aktifkan menu sederhana untuk blog ini"
 
-#: plugins/simpleMenu/src/Manage.php:777
+#: plugins/simpleMenu/src/Manage.php:773
 msgid "Add an item"
 msgstr "Menambahkan item"
 
-#: plugins/simpleMenu/src/Manage.php:895
+#: plugins/simpleMenu/src/Manage.php:891
 msgid "Menu items list"
 msgstr "Daftar item menu"
 
-#: plugins/simpleMenu/src/Manage.php:922
+#: plugins/simpleMenu/src/Manage.php:918
 msgid "Delete selected menu items"
 msgstr "Menghapus item menu yang dipilih"
 
-#: plugins/simpleMenu/src/Manage.php:931
+#: plugins/simpleMenu/src/Manage.php:927
 msgid "Update menu"
 msgstr "Memperbarui menu"
 
-#: plugins/simpleMenu/src/Manage.php:941
+#: plugins/simpleMenu/src/Manage.php:937
 msgid "No menu items so far."
 msgstr "Sejauh ini tidak ada item menu."
 
@@ -2735,92 +2751,92 @@ msgstr "Ditampilkan dalam tautan dan digunakan sebagai judul"
 msgid "Not displayed nor used"
 msgstr "Tidak ditampilkan atau digunakan"
 
-#: plugins/tags/src/BackendBehaviors.php:64
-#: plugins/tags/src/BackendBehaviors.php:75
-#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
+#: plugins/tags/src/BackendBehaviors.php:62
+#: plugins/tags/src/BackendBehaviors.php:73
+#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
 msgid "Tag"
 msgstr "Tag"
 
-#: plugins/tags/src/BackendBehaviors.php:238
+#: plugins/tags/src/BackendBehaviors.php:236
 msgid "Add tags"
 msgstr "Tambahkan tag"
 
-#: plugins/tags/src/BackendBehaviors.php:247
+#: plugins/tags/src/BackendBehaviors.php:245
 msgid "Remove tags"
 msgstr "Menghapus tag"
 
-#: plugins/tags/src/BackendBehaviors.php:282
+#: plugins/tags/src/BackendBehaviors.php:280
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Tag telah berhasil ditambahkan ke entri yang dipilih"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:293
+#: plugins/tags/src/BackendBehaviors.php:448
 msgid "Are you sure you want to remove this tag?"
 msgstr "Apakah Anda yakin ingin menghapus tag ini?"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:449
 msgid "Add a tag to this entry"
 msgstr "Tambahkan tag ke entri ini"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Choose from list"
 msgstr "Pilih dari daftar"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "all"
 msgstr "semua"
 
-#: plugins/tags/src/BackendBehaviors.php:299
-#: plugins/tags/src/BackendBehaviors.php:454
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Enter tags separated by comma"
 msgstr "Masukkan tag yang dipisahkan dengan koma"
 
-#: plugins/tags/src/BackendBehaviors.php:307
+#: plugins/tags/src/BackendBehaviors.php:305
 msgid "Add tags to this selection"
 msgstr "Menambahkan tag ke pilihan ini"
 
-#: plugins/tags/src/BackendBehaviors.php:325
+#: plugins/tags/src/BackendBehaviors.php:323
 msgid "Tags to add:"
 msgstr "Tag untuk ditambahkan:"
 
-#: plugins/tags/src/BackendBehaviors.php:364
+#: plugins/tags/src/BackendBehaviors.php:362
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Tag telah berhasil dihapus dari entri yang dipilih"
 
-#: plugins/tags/src/BackendBehaviors.php:387
+#: plugins/tags/src/BackendBehaviors.php:385
 msgid "No tags for selected entries"
 msgstr "Tidak ada tag untuk entri yang dipilih"
 
-#: plugins/tags/src/BackendBehaviors.php:394
+#: plugins/tags/src/BackendBehaviors.php:392
 msgid "Remove selected tags from this selection"
 msgstr "Menghapus tag yang dipilih dari pilihan ini"
 
-#: plugins/tags/src/BackendBehaviors.php:421
+#: plugins/tags/src/BackendBehaviors.php:419
 msgid "Following tags have been found in selected entries:"
 msgstr "Tag berikut ini telah ditemukan dalam entri yang dipilih:"
 
-#: plugins/tags/src/BackendBehaviors.php:474
+#: plugins/tags/src/BackendBehaviors.php:470
 msgid "Short"
 msgstr "Pendek"
 
-#: plugins/tags/src/BackendBehaviors.php:475
+#: plugins/tags/src/BackendBehaviors.php:471
 msgid "Extended"
 msgstr "Diperpanjang"
 
-#: plugins/tags/src/BackendBehaviors.php:487
+#: plugins/tags/src/BackendBehaviors.php:483
 msgid "Tags list format:"
 msgstr "Format daftar tag:"
 
-#: plugins/tags/src/FrontendBehaviors.php:29
+#: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's comments Atom feed"
 msgstr "Komentar tag ini Umpan atom Umpan atom"
 
-#: plugins/tags/src/FrontendBehaviors.php:30
+#: plugins/tags/src/FrontendBehaviors.php:31
 msgid "This tag's entries Atom feed"
 msgstr "Entri tag ini Umpan atom"
 
@@ -2836,32 +2852,32 @@ msgstr "entri"
 msgid "No tags on this blog."
 msgstr "Tidak ada tag di blog ini."
 
-#: plugins/tags/src/ManagePosts.php:93
+#: plugins/tags/src/ManagePosts.php:94
 msgid "Tag has been successfully renamed"
 msgstr "Tag telah berhasil diganti namanya"
 
-#: plugins/tags/src/ManagePosts.php:112
+#: plugins/tags/src/ManagePosts.php:113
 msgid "Tag has been successfully removed"
 msgstr "Tag telah berhasil dihapus"
 
-#: plugins/tags/src/ManagePosts.php:143
+#: plugins/tags/src/ManagePosts.php:144
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Apakah Anda yakin ingin menghapus tag: \"%s\"?"
 
-#: plugins/tags/src/ManagePosts.php:158
+#: plugins/tags/src/ManagePosts.php:159
 msgid "Back to tags list"
 msgstr "Kembali ke daftar tag"
 
-#: plugins/tags/src/ManagePosts.php:173
+#: plugins/tags/src/ManagePosts.php:174
 msgid "Delete this tag"
 msgstr "Menghapus tag ini"
 
-#: plugins/tags/src/ManagePosts.php:195
+#: plugins/tags/src/ManagePosts.php:196
 msgid "Rename:"
 msgstr "Ganti nama:"
 
-#: plugins/tags/src/ManagePosts.php:206
+#: plugins/tags/src/ManagePosts.php:207
 msgid "List of entries with this tag"
 msgstr "Daftar entri dengan tag ini"
 
@@ -2889,21 +2905,21 @@ msgstr "Entri tertua"
 msgid "Link to all tags:"
 msgstr "Tautan ke semua tag:"
 
-#: plugins/themeEditor/src/Backend.php:24
+#: plugins/themeEditor/src/Backend.php:25
 msgid "themeEditor"
 msgstr "themeEditor"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:52
+#: plugins/themeEditor/src/BackendBehaviors.php:47
 #: plugins/themeEditor/src/Manage.php:189
 #: plugins/themeEditor/src/Manage.php:196
 msgid "Edit theme files"
 msgstr "Mengedit file tema"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:113
+#: plugins/themeEditor/src/BackendBehaviors.php:107
 msgid "Syntax highlighting"
 msgstr "Penyorotan sintaksis"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:125
+#: plugins/themeEditor/src/BackendBehaviors.php:119
 msgid "Syntax highlighting in theme editor"
 msgstr "Penyorotan sintaksis di editor tema"
 
@@ -2952,109 +2968,109 @@ msgstr "Apakah Anda yakin ingin mengatur ulang file ini?"
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Tema Anda saat ini di blog ini adalah \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:228
+#: plugins/themeEditor/src/Manage.php:217
 msgid "Please select a file to edit."
 msgstr "Pilih file yang akan diedit."
 
-#: plugins/themeEditor/src/Manage.php:238
+#: plugins/themeEditor/src/Manage.php:227
 msgid "File editor"
 msgstr "Editor file"
 
-#: plugins/themeEditor/src/Manage.php:247
+#: plugins/themeEditor/src/Manage.php:236
 #, php-format
 msgid "Editing file %s"
 msgstr "Mengedit file %s"
 
-#: plugins/themeEditor/src/Manage.php:257
+#: plugins/themeEditor/src/Manage.php:246
 msgid "Reset"
 msgstr "Atur ulang"
 
-#: plugins/themeEditor/src/Manage.php:264
+#: plugins/themeEditor/src/Manage.php:253
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "File ini tidak dapat ditulis. Silakan periksa izin file tema Anda."
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:272
 msgid "Templates files"
 msgstr "File templat"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:277
 msgid "CSS files"
 msgstr "File CSS"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:282
 msgid "JavaScript files"
 msgstr "File JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:287
 msgid "Locales files"
 msgstr "File lokal"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:292
 msgid "PHP files"
 msgstr "File PHP"
 
-#: plugins/themeEditor/src/Manage.php:317
+#: plugins/themeEditor/src/Manage.php:306
 msgid "You can't edit a distributed theme."
 msgstr "Anda tidak dapat mengedit tema yang didistribusikan."
 
-#: plugins/themeEditor/src/ThemeEditor.php:152
+#: plugins/themeEditor/src/ThemeEditor.php:144
 msgid "No file"
 msgstr "Tidak ada file"
 
-#: plugins/themeEditor/src/ThemeEditor.php:177
+#: plugins/themeEditor/src/ThemeEditor.php:169
 msgid "From theme:"
 msgstr "Dari tema:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:185
+#: plugins/themeEditor/src/ThemeEditor.php:177
 msgid "From parent:"
 msgstr "Dari orang tua:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:195
+#: plugins/themeEditor/src/ThemeEditor.php:187
 msgid "From template set:"
 msgstr "Dari set template:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:223
-#: plugins/themeEditor/src/ThemeEditor.php:253
-#: plugins/themeEditor/src/ThemeEditor.php:342
+#: plugins/themeEditor/src/ThemeEditor.php:215
+#: plugins/themeEditor/src/ThemeEditor.php:245
+#: plugins/themeEditor/src/ThemeEditor.php:328
 msgid "File does not exist."
 msgstr "File tidak ada."
 
-#: plugins/themeEditor/src/ThemeEditor.php:228
+#: plugins/themeEditor/src/ThemeEditor.php:220
 #, php-format
 msgid "File %s is not readable"
 msgstr "File %s tidak dapat dibaca"
 
-#: plugins/themeEditor/src/ThemeEditor.php:290
+#: plugins/themeEditor/src/ThemeEditor.php:282
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Tidak dapat menulis file %s. Periksa izin file dan folder tema Anda."
 
-#: plugins/themeEditor/src/ThemeEditor.php:355
+#: plugins/themeEditor/src/ThemeEditor.php:341
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Tidak dapat menghapus file %s. Periksa izin file dan folder tema Anda."
 
-#: plugins/userPref/src/Backend.php:24
+#: plugins/userPref/src/Backend.php:25
 msgid "user:preferences"
 msgstr "user:preferensi"
 
-#: plugins/userPref/src/Manage.php:92 plugins/userPref/src/Manage.php:111
+#: plugins/userPref/src/Manage.php:89 plugins/userPref/src/Manage.php:108
 msgid "Preferences successfully updated"
 msgstr "Preferensi berhasil diperbarui"
 
-#: plugins/userPref/src/Manage.php:151 plugins/userPref/src/Manage.php:153
+#: plugins/userPref/src/Manage.php:148 plugins/userPref/src/Manage.php:150
 msgid "User preferences"
 msgstr "Preferensi pengguna"
 
-#: plugins/userPref/src/Manage.php:161 plugins/userPref/src/Manage.php:163
+#: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"
 msgstr "Preferensi global"
 
-#: plugins/widgets/src/Backend.php:26
+#: plugins/widgets/src/Backend.php:27
 msgid "Widgets"
 msgstr "Widget"
 
-#: plugins/widgets/src/Backend.php:47
+#: plugins/widgets/src/Backend.php:51
 msgid "Widget's textareas"
 msgstr "Area teks widget"
 
@@ -3062,261 +3078,257 @@ msgstr "Area teks widget"
 msgid "Unable to initialize default widgets."
 msgstr "Tidak dapat menginisialisasi widget default."
 
-#: plugins/widgets/src/Manage.php:76
+#: plugins/widgets/src/Manage.php:77
 msgid "navigation"
 msgstr "navigasi"
 
-#: plugins/widgets/src/Manage.php:77
+#: plugins/widgets/src/Manage.php:78
 msgid "extra"
 msgstr "ekstra"
 
-#: plugins/widgets/src/Manage.php:78
+#: plugins/widgets/src/Manage.php:79
 msgid "custom"
 msgstr "adat"
 
-#: plugins/widgets/src/Manage.php:214
+#: plugins/widgets/src/Manage.php:215
 msgid "Sidebars and their widgets have been saved."
 msgstr "Bilah samping dan widgetnya telah disimpan."
 
-#: plugins/widgets/src/Manage.php:228
+#: plugins/widgets/src/Manage.php:229
 msgid "Sidebars have been resetting."
 msgstr "Bilah samping telah diatur ulang."
 
-#: plugins/widgets/src/Manage.php:257
+#: plugins/widgets/src/Manage.php:258
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Apakah Anda yakin ingin mengatur ulang bilah sisi?"
 
-#: plugins/widgets/src/Manage.php:258 plugins/widgets/src/Manage.php:387
+#: plugins/widgets/src/Manage.php:259 plugins/widgets/src/Manage.php:389
 msgid "Temporarily display the action buttons for each widget"
 msgstr "Menampilkan sementara tombol aksi untuk setiap widget"
 
-#: plugins/widgets/src/Manage.php:259
+#: plugins/widgets/src/Manage.php:260
 msgid "Hide the action buttons for each widget"
 msgstr "Menyembunyikan tombol aksi untuk setiap widget"
 
-#: plugins/widgets/src/Manage.php:306 plugins/widgets/src/Manage.php:489
+#: plugins/widgets/src/Manage.php:307 plugins/widgets/src/Manage.php:488
 msgid "order"
 msgstr "pesanan"
 
-#: plugins/widgets/src/Manage.php:318
+#: plugins/widgets/src/Manage.php:319
 msgid "Append to:"
 msgstr "Tambahkan ke:"
 
-#: plugins/widgets/src/Manage.php:337
+#: plugins/widgets/src/Manage.php:338
 msgid "Available widgets"
 msgstr "Widget yang tersedia"
 
-#: plugins/widgets/src/Manage.php:339
+#: plugins/widgets/src/Manage.php:340
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Seret widget dari daftar ini ke salah satu bilah sisi, untuk ditambahkan."
 
-#: plugins/widgets/src/Manage.php:347
+#: plugins/widgets/src/Manage.php:348
 msgid "Add widgets to sidebars"
 msgstr "Menambahkan widget ke bilah sisi"
 
-#: plugins/widgets/src/Manage.php:362
+#: plugins/widgets/src/Manage.php:363
 msgid "Navigation sidebar"
 msgstr "Bilah samping navigasi"
 
-#: plugins/widgets/src/Manage.php:369
+#: plugins/widgets/src/Manage.php:370
 msgid "Extra sidebar"
 msgstr "Bilah samping ekstra"
 
-#: plugins/widgets/src/Manage.php:376
+#: plugins/widgets/src/Manage.php:377
 msgid "Custom sidebar"
 msgstr "Bilah samping khusus"
 
-#: plugins/widgets/src/Manage.php:383
+#: plugins/widgets/src/Manage.php:384
 msgid "Update sidebars"
 msgstr "Perbarui bilah sisi"
 
-#: plugins/widgets/src/Manage.php:385
+#: plugins/widgets/src/Manage.php:386
 msgid "Reset sidebars"
 msgstr "Mengatur ulang bilah sisi"
 
-#: plugins/widgets/src/Manage.php:398
+#: plugins/widgets/src/Manage.php:399
 msgid "No setting for this widget"
 msgstr "Tidak ada pengaturan untuk widget ini"
 
-#: plugins/widgets/src/Manage.php:404
+#: plugins/widgets/src/Manage.php:405
 msgid "boolean"
 msgstr "boolean"
 
-#: plugins/widgets/src/Manage.php:404 plugins/widgets/src/Manage.php:409
+#: plugins/widgets/src/Manage.php:405 plugins/widgets/src/Manage.php:410
 msgid "possible values:"
 msgstr "nilai yang mungkin:"
 
-#: plugins/widgets/src/Manage.php:408
+#: plugins/widgets/src/Manage.php:409
 msgid "empty string"
 msgstr "string kosong"
 
-#: plugins/widgets/src/Manage.php:409
+#: plugins/widgets/src/Manage.php:410
 msgid "listitem"
 msgstr "listitem"
 
-#: plugins/widgets/src/Manage.php:415
+#: plugins/widgets/src/Manage.php:416
 msgid "string"
 msgstr "string"
 
-#: plugins/widgets/src/Manage.php:435
+#: plugins/widgets/src/Manage.php:436
 msgid "Widget ID:"
 msgstr "ID Widget:"
 
-#: plugins/widgets/src/Manage.php:501 plugins/widgets/src/Manage.php:502
+#: plugins/widgets/src/Manage.php:500 plugins/widgets/src/Manage.php:501
 msgid "Up the widget"
 msgstr "Naikkan widget"
 
-#: plugins/widgets/src/Manage.php:506 plugins/widgets/src/Manage.php:507
+#: plugins/widgets/src/Manage.php:505 plugins/widgets/src/Manage.php:506
 msgid "Down the widget"
 msgstr "Menurunkan widget"
 
-#: plugins/widgets/src/Manage.php:510 plugins/widgets/src/Manage.php:511
+#: plugins/widgets/src/Manage.php:509 plugins/widgets/src/Manage.php:510
 msgid "Remove the widget"
 msgstr "Menghapus widget"
 
-#: plugins/widgets/src/Manage.php:535
+#: plugins/widgets/src/Manage.php:534
 msgid "No widget as far."
 msgstr "Sejauh ini tidak ada widget."
 
-#: plugins/widgets/src/Manage.php:544
+#: plugins/widgets/src/Manage.php:543
 msgid "Drag widgets here to remove."
 msgstr "Seret widget ke sini untuk menghapusnya."
 
-#: plugins/widgets/src/Widgets.php:88
+#: plugins/widgets/src/Widgets.php:87
 msgid "Search engine"
 msgstr "Mesin pencari"
 
-#: plugins/widgets/src/Widgets.php:90
+#: plugins/widgets/src/Widgets.php:89
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Placeholder (hanya HTML5, opsional):"
 
-#: plugins/widgets/src/Widgets.php:97
+#: plugins/widgets/src/Widgets.php:96
 msgid "Navigation links"
 msgstr "Tautan navigasi"
 
-#: plugins/widgets/src/Widgets.php:105
+#: plugins/widgets/src/Widgets.php:104
 msgid "Selected entries"
 msgstr "Entri yang dipilih"
 
-#: plugins/widgets/src/Widgets.php:106
+#: plugins/widgets/src/Widgets.php:105
 msgid "Best of me"
 msgstr "Yang terbaik dari saya"
 
-#: plugins/widgets/src/Widgets.php:114
+#: plugins/widgets/src/Widgets.php:113
 msgid "Blog languages"
 msgstr "Bahasa blog"
 
-#: plugins/widgets/src/Widgets.php:124
+#: plugins/widgets/src/Widgets.php:123
 msgid "With entries counts"
 msgstr "Dengan jumlah entri"
 
-#: plugins/widgets/src/Widgets.php:125
+#: plugins/widgets/src/Widgets.php:124
 msgid "Include sub cats in count"
 msgstr "Sertakan sub kucing dalam hitungan"
 
-#: plugins/widgets/src/Widgets.php:126
+#: plugins/widgets/src/Widgets.php:125
 msgid "Include empty categories"
 msgstr "Menyertakan kategori kosong"
 
-#: plugins/widgets/src/Widgets.php:133
+#: plugins/widgets/src/Widgets.php:132
 msgid "Subscribe links"
 msgstr "Tautan berlangganan"
 
-#: plugins/widgets/src/Widgets.php:134
+#: plugins/widgets/src/Widgets.php:133
 msgid "Subscribe"
 msgstr "Berlangganan"
 
-#: plugins/widgets/src/Widgets.php:135
+#: plugins/widgets/src/Widgets.php:134
 msgid "Feeds type:"
 msgstr "Jenis umpan:"
 
-#: plugins/widgets/src/Widgets.php:142
+#: plugins/widgets/src/Widgets.php:141
 msgid "Feed reader"
 msgstr "Pembaca umpan"
 
-#: plugins/widgets/src/Widgets.php:143
+#: plugins/widgets/src/Widgets.php:142
 msgid "Somewhere else"
 msgstr "Di tempat lain"
 
-#: plugins/widgets/src/Widgets.php:145 plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:144 plugins/widgets/src/Widgets.php:172
 msgid "Entries limit:"
 msgstr "Batas entri:"
 
-#: plugins/widgets/src/Widgets.php:152
+#: plugins/widgets/src/Widgets.php:151
 msgid "Text"
 msgstr "Teks"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:153
 msgid "Text:"
 msgstr "Teks:"
 
-#: plugins/widgets/src/Widgets.php:161
+#: plugins/widgets/src/Widgets.php:160
 msgid "Uncategorized"
 msgstr "Uncategorized"
 
-#: plugins/widgets/src/Widgets.php:165 plugins/widgets/src/Widgets.php:167
+#: plugins/widgets/src/Widgets.php:164 plugins/widgets/src/Widgets.php:166
 msgid "Last entries"
 msgstr "Entri terakhir"
 
-#: plugins/widgets/src/Widgets.php:170
+#: plugins/widgets/src/Widgets.php:169
 msgid "Tag:"
 msgstr "Tag:"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:181
 msgid "Last comments"
 msgstr "Komentar terakhir"
 
-#: plugins/widgets/src/Widgets.php:183
+#: plugins/widgets/src/Widgets.php:182
 msgid "Comments limit:"
 msgstr "Batas komentar:"
 
-#: plugins/widgets/src/Widgets.php:465
+#: plugins/widgets/src/Widgets.php:449
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Entri blog ini %s feed"
 
-#: plugins/widgets/src/Widgets.php:466
+#: plugins/widgets/src/Widgets.php:450
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Komentar blog ini %s feed"
 
-#: plugins/widgets/src/Widgets.php:474
+#: plugins/widgets/src/Widgets.php:458
 msgid "Entries feed"
 msgstr "Memasukkan umpan"
 
-#: plugins/widgets/src/Widgets.php:480
+#: plugins/widgets/src/Widgets.php:464
 msgid "Comments feed"
 msgstr "Umpan komentar"
 
-#: plugins/widgets/src/WidgetsElement.php:557
+#: plugins/widgets/src/WidgetsElement.php:537
 msgid "Title (optional)"
 msgstr "Judul (opsional)"
 
-#: plugins/widgets/src/WidgetsElement.php:570
+#: plugins/widgets/src/WidgetsElement.php:548
 msgid "All pages"
 msgstr "Semua halaman"
 
-#: plugins/widgets/src/WidgetsElement.php:571
+#: plugins/widgets/src/WidgetsElement.php:549
 msgid "Home page only"
 msgstr "Halaman beranda saja"
 
-#: plugins/widgets/src/WidgetsElement.php:572
+#: plugins/widgets/src/WidgetsElement.php:550
 msgid "Except on home page"
 msgstr "Kecuali di halaman beranda"
 
-#: plugins/widgets/src/WidgetsElement.php:580
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "Display on:"
 msgstr "Layar menyala:"
 
-#: plugins/widgets/src/WidgetsElement.php:616
+#: plugins/widgets/src/WidgetsElement.php:584
 msgid "Content only"
 msgstr "Hanya konten"
 
-#: plugins/widgets/src/WidgetsElement.php:628
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "CSS class:"
 msgstr "Kelas CSS:"
-
-#: plugins/widgets/src/WidgetsElement.php:640
-msgid "Offline"
-msgstr "Offline"
 
