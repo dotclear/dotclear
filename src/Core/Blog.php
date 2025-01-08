@@ -1103,7 +1103,8 @@ class Blog implements BlogInterface
 
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id) || App::task()->checkContext('FRONTEND')) {
+        ]), $this->id) || // Check if in frontend context, excluding preview in backend
+            (App::task()->checkContext('FRONTEND') && !App::frontend()->context()->preview)) {
             $user_id = $this->auth->userID();
 
             $and = ['post_status = ' . self::POST_PUBLISHED];
