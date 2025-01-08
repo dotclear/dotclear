@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-08 12:57+0100\n"
-"PO-Revision-Date: 2025-01-08 12:08\n"
+"PO-Revision-Date: 2025-01-08 12:44\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -6405,14 +6405,14 @@ msgstr[1] "Online"
 #: src/Schema/Status/Blog.php:37
 msgid "Offline"
 msgid_plural "Offline (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Offline"
+msgstr[1] "Offline"
 
 #: src/Schema/Status/Blog.php:38
 msgid "Removed"
 msgid_plural "Removed (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eemaldatud"
+msgstr[1] "Eemaldatud"
 
 #: src/Schema/Status/Blog.php:39
 msgid "Undefined"
@@ -6423,12 +6423,12 @@ msgstr[1] "Määratlemata"
 #: src/Schema/Status/User.php:29
 msgid "Enabled"
 msgid_plural "Enabled (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lubatud"
+msgstr[1] "Lubatud"
 
 #: src/Schema/Status/User.php:30
 msgid "Disabled"
 msgid_plural "Disabled (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Puudega inimesed"
+msgstr[1] "Puudega"
 
