@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-08 12:57+0100\n"
-"PO-Revision-Date: 2025-01-08 12:09\n"
+"PO-Revision-Date: 2025-01-08 12:44\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -6405,14 +6405,14 @@ msgstr[1] "ఆన్‌లైన్"
 #: src/Schema/Status/Blog.php:37
 msgid "Offline"
 msgid_plural "Offline (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ఆఫ్లైన్"
+msgstr[1] "ఆఫ్‌లైన్"
 
 #: src/Schema/Status/Blog.php:38
 msgid "Removed"
 msgid_plural "Removed (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "తీసివేయబడింది"
+msgstr[1] "తీసివేయబడింది"
 
 #: src/Schema/Status/Blog.php:39
 msgid "Undefined"
@@ -6429,6 +6429,6 @@ msgstr[1] "ప్రారంభించబడింది"
 #: src/Schema/Status/User.php:30
 msgid "Disabled"
 msgid_plural "Disabled (>1)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "వికలాంగుడు"
+msgstr[1] "వికలాంగుడు"
 
