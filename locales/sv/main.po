@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-08 10:44+0100\n"
-"PO-Revision-Date: 2025-01-08 09:48\n"
+"POT-Creation-Date: 2025-01-08 12:57+0100\n"
+"PO-Revision-Date: 2025-01-08 12:08\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -904,32 +904,40 @@ msgstr "Inlägg"
 #: src/Core/Backend/Listing/ListingComments.php:187
 #: src/Core/Backend/Listing/ListingComments.php:221
 #: src/Process/Backend/MediaItem.php:983 src/Process/Backend/Post.php:476
-#: src/Process/Backend/Post.php:1082 src/Schema/Status/Comment.php:34
-#: src/Schema/Status/Post.php:34
+#: src/Process/Backend/Post.php:1082 src/Schema/Status/Comment.php:31
+#: src/Schema/Status/Post.php:31
 msgid "Published"
-msgstr "Publicerad"
+msgid_plural "Published (>1)"
+msgstr[0] "Publicerad"
+msgstr[1] "Publicerad"
 
 #: src/Core/Backend/Listing/ListingComments.php:188
 #: src/Core/Backend/Listing/ListingComments.php:227
 #: src/Process/Backend/MediaItem.php:984 src/Process/Backend/Post.php:477
-#: src/Process/Backend/Post.php:1087 src/Schema/Status/Comment.php:35
-#: src/Schema/Status/Post.php:35
+#: src/Process/Backend/Post.php:1087 src/Schema/Status/Comment.php:32
+#: src/Schema/Status/Post.php:32
 msgid "Unpublished"
-msgstr "Opublicerad"
+msgid_plural "Unpublished (>1)"
+msgstr[0] "Opublicerad"
+msgstr[1] "Opublicerad"
 
 #: src/Core/Backend/Listing/ListingComments.php:189
 #: src/Core/Backend/Listing/ListingComments.php:233
 #: src/Process/Backend/MediaItem.php:986 src/Process/Backend/Post.php:479
-#: src/Process/Backend/Post.php:1092 src/Schema/Status/Comment.php:36
-#: src/Schema/Status/Post.php:37
+#: src/Process/Backend/Post.php:1092 src/Schema/Status/Comment.php:33
+#: src/Schema/Status/Post.php:34
 msgid "Pending"
-msgstr "Väntande"
+msgid_plural "Pending (>1)"
+msgstr[0] "Väntande"
+msgstr[1] "Avvaktande"
 
 #: src/Core/Backend/Listing/ListingComments.php:190
 #: src/Core/Backend/Listing/ListingComments.php:239
-#: src/Process/Backend/Post.php:1097 src/Schema/Status/Comment.php:37
+#: src/Process/Backend/Post.php:1097 src/Schema/Status/Comment.php:34
 msgid "Junk"
-msgstr "Skräp"
+msgid_plural "Junk (>1)"
+msgstr[0] "Skräp"
+msgstr[1] "Skräp"
 
 #: src/Core/Backend/Listing/ListingComments.php:245
 msgid "Unknown"
@@ -4743,9 +4751,11 @@ msgid "No entry seems contain this media."
 msgstr "Ingen post verkar innehålla detta media."
 
 #: src/Process/Backend/MediaItem.php:985 src/Process/Backend/Post.php:478
-#: src/Schema/Status/Post.php:36
+#: src/Schema/Status/Post.php:33
 msgid "Scheduled"
-msgstr "Schemalagda"
+msgid_plural "Scheduled (>1)"
+msgstr[0] "Schemalagda"
+msgstr[1] "Schemalagd"
 
 #: src/Process/Backend/MediaItem.php:1003
 #: src/Process/Backend/MediaItem.php:1017
@@ -5253,7 +5263,7 @@ msgstr "Användaren har ingen behörighet, han kommer inte att kunna logga in ä
 
 #: src/Process/Backend/User.php:219
 msgid "User is disabled, he will not be able to login yet."
-msgstr ""
+msgstr "Användaren är inaktiverad, han kan inte logga in ännu."
 
 #: src/Process/Backend/User.php:271
 msgid "User profile"
@@ -5281,7 +5291,7 @@ msgstr "Lösenordsändring krävs för att ansluta"
 
 #: src/Process/Backend/User.php:351
 msgid "Enabled user"
-msgstr ""
+msgstr "Aktiverad användare"
 
 #: src/Process/Backend/User.php:354 src/Process/Backend/UserPreferences.php:519
 #: src/Process/Install/Install.php:438
@@ -5714,11 +5724,11 @@ msgstr "Ställ in behörigheter"
 
 #: src/Process/Backend/Users.php:44
 msgid "Enable"
-msgstr ""
+msgstr "Aktivera"
 
 #: src/Process/Backend/Users.php:45
 msgid "Disable"
-msgstr ""
+msgstr "Avaktivera"
 
 #: src/Process/Backend/Users.php:116
 msgid "User has been successfully removed."
@@ -5738,11 +5748,11 @@ msgstr "Ingen blogg eller användare angiven."
 
 #: src/Process/Backend/UsersActions.php:102
 msgid "User has been successfully enabled."
-msgstr ""
+msgstr "Användaren har aktiverats framgångsrikt."
 
 #: src/Process/Backend/UsersActions.php:112
 msgid "You cannot disable yourself."
-msgstr ""
+msgstr "Du kan inte inaktivera dig själv."
 
 #: src/Process/Backend/UsersActions.php:126
 #: src/Process/Backend/UsersActions.php:148
@@ -6386,71 +6396,39 @@ msgstr "okänd"
 msgid "Read"
 msgstr "Läs"
 
-#: src/Schema/Status/Blog.php:39
+#: src/Schema/Status/Blog.php:36
 msgid "Online"
-msgstr ""
+msgid_plural "Online (>1)"
+msgstr[0] "På nätet"
+msgstr[1] "Online"
+
+#: src/Schema/Status/Blog.php:37
+msgid "Offline"
+msgid_plural "Offline (>1)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Schema/Status/Blog.php:38
+msgid "Removed"
+msgid_plural "Removed (>1)"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Schema/Status/Blog.php:39
-msgid "Online (>1)"
-msgstr ""
-
-#: src/Schema/Status/Blog.php:40
-msgid "Offline"
-msgstr "Offline"
-
-#: src/Schema/Status/Blog.php:40
-msgid "Offline (>1)"
-msgstr ""
-
-#: src/Schema/Status/Blog.php:41
-msgid "Removed"
-msgstr ""
-
-#: src/Schema/Status/Blog.php:41
-msgid "Removed (>1)"
-msgstr ""
-
-#: src/Schema/Status/Blog.php:42
 msgid "Undefined"
-msgstr ""
+msgid_plural "Undefined (>1)"
+msgstr[0] ""
+msgstr[1] ""
 
-#: src/Schema/Status/Blog.php:42
-msgid "Undefined (>1)"
-msgstr ""
-
-#: src/Schema/Status/Comment.php:34 src/Schema/Status/Post.php:34
-msgid "Published (>1)"
-msgstr ""
-
-#: src/Schema/Status/Comment.php:35 src/Schema/Status/Post.php:35
-msgid "Unpublished (>1)"
-msgstr ""
-
-#: src/Schema/Status/Comment.php:36 src/Schema/Status/Post.php:37
-msgid "Pending (>1)"
-msgstr ""
-
-#: src/Schema/Status/Comment.php:37
-msgid "Junk (>1)"
-msgstr ""
-
-#: src/Schema/Status/Post.php:36
-msgid "Scheduled (>1)"
-msgstr ""
-
-#: src/Schema/Status/User.php:32
+#: src/Schema/Status/User.php:29
 msgid "Enabled"
-msgstr ""
+msgid_plural "Enabled (>1)"
+msgstr[0] ""
+msgstr[1] ""
 
-#: src/Schema/Status/User.php:32
-msgid "Enabled (>1)"
-msgstr ""
-
-#: src/Schema/Status/User.php:33
+#: src/Schema/Status/User.php:30
 msgid "Disabled"
-msgstr ""
-
-#: src/Schema/Status/User.php:33
-msgid "Disabled (>1)"
-msgstr ""
+msgid_plural "Disabled (>1)"
+msgstr[0] ""
+msgstr[1] ""
 
