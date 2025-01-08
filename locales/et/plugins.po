@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-24 09:22+0100\n"
-"PO-Revision-Date: 2024-12-24 08:27\n"
+"POT-Creation-Date: 2025-01-08 10:11+0100\n"
+"PO-Revision-Date: 2025-01-08 09:17\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -17,257 +17,257 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
 
-#: plugins/Uninstaller/src/Backend.php:46
+#: plugins/Uninstaller/src/Backend.php:47
 msgid "Uninstall"
 msgstr "Eemaldage"
 
-#: plugins/Uninstaller/src/Backend.php:104
+#: plugins/Uninstaller/src/Backend.php:105
 msgid "Plugin has been successfully uninstalled."
 msgstr "Plugin on edukalt eemaldatud."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:37
+#: plugins/Uninstaller/src/Cleaner/Caches.php:38
 msgid "Folders from cache directory"
 msgstr "Kaustad vahemälu kataloogist"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:42
+#: plugins/Uninstaller/src/Cleaner/Caches.php:43
 msgid "delete selected cache directories"
 msgstr "kustutada valitud vahemälu kataloogid"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:43
+#: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "delete \"%s\" cache directory"
 msgstr "delete \"%s\" cache directory"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:44
+#: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "\"%s\" cache directory deleted"
 msgstr "\"%s\" cache kataloog kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:45
+#: plugins/Uninstaller/src/Cleaner/Caches.php:46
 #, php-format
 msgid "Failed to delete \"%s\" cache directory"
 msgstr "Ei õnnestunud kustutada \"%s\" vahemälu kataloogi \" \" cache directory"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:51
+#: plugins/Uninstaller/src/Cleaner/Caches.php:52
 msgid "empty selected cache directories"
 msgstr "tühjendada valitud vahemälu kataloogid"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:52
+#: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "empty \"%s\" cache directory"
 msgstr "tühi \"%s\" vahemälu kataloog"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:53
+#: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "\"%s\" cache directory emptied"
 msgstr "\"%s\" cache directory tühjendatud"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:54
+#: plugins/Uninstaller/src/Cleaner/Caches.php:55
 #, php-format
 msgid "Failed to empty \"%s\" cache directory"
 msgstr "Ei õnnestunud tühjendada \"%s\" vahemälu kataloogi"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:37
+#: plugins/Uninstaller/src/Cleaner/Logs.php:38
 msgid "Logs"
 msgstr "Logid"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:38
+#: plugins/Uninstaller/src/Cleaner/Logs.php:39
 msgid "Logs in Dotclear logs table"
 msgstr "Logid Dotcleari logide tabelis"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:43
+#: plugins/Uninstaller/src/Cleaner/Logs.php:44
 msgid "delete selected logs tables"
 msgstr "kustutada valitud logide tabelid"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:44
+#: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "delete \"%s\" logs table"
 msgstr "delete \"%s\" logide tabel"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:45
+#: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
 msgid "\"%s\" logs table deleted"
 msgstr "\"%s\" logide tabel kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:46
+#: plugins/Uninstaller/src/Cleaner/Logs.php:47
 #, php-format
 msgid "Failed to delete \"%s\" logs table"
 msgstr "Ei õnnestunud kustutada \"%s\" logide tabelit."
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:36
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:37
 msgid "Folders from plugins directories"
 msgstr "Kaustad pluginate kataloogidest"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:41
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
 msgid "delete selected plugins files and directories"
 msgstr "kustutada valitud pluginate failid ja kataloogid"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "delete \"%s\" plugin files and directories"
 msgstr "delete \"%s\" plugin failid ja kataloogid"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
 msgid "\"%s\" plugin files and directories deleted"
 msgstr "\"%s\" plugin failid ja kataloogid kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
+#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 #, php-format
 msgid "Failed to delete \"%s\" plugin files and directories"
 msgstr "Ei õnnestunud kustutada \"%s\" plugin failid ja kataloogid"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:37
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:38
 msgid "Preferences"
 msgstr "Eelistused"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:38
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:39
 msgid "Users preferences workspaces"
 msgstr "Kasutajate eelistused tööruumid"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:43
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:44
 msgid "delete selected global preferences workspaces"
 msgstr "valitud globaalsete eelistuste tööruumide kustutamine"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:44
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "delete \"%s\" global preferences workspace"
 msgstr "delete \"%s\" globaalsete eelistuste tööruumi kustutamine"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
 msgid "\"%s\" global preferences workspace deleted"
 msgstr "\"%s\" globaalsete eelistuste tööruum kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 #, php-format
 msgid "Failed to delete \"%s\" global preferences workspace"
 msgstr "Ei õnnestunud kustutada \"%s\" globaalsete eelistuste tööruumi."
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:52
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
 msgid "delete selected users preferences workspaces"
 msgstr "kustutada valitud kasutajate eelistuste tööruumid"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
 msgid "delete \"%s\" users preferences workspace"
 msgstr "delete \"%s\" users preferences workspace (kasutajate eelistused)"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
 msgid "\"%s\" users preferences workspace deleted"
 msgstr "\"%s\" kasutajate eelistused tööruumi kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 #, php-format
 msgid "Failed to delete \"%s\" users preferences workspace"
 msgstr "Ei õnnestunud kustutada \"%s\" kasutajate eelistuste tööruumi"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:61
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
 msgid "delete selected preferences workspaces"
 msgstr "valitud eelistuste tööruumide kustutamine"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
 msgid "delete \"%s\" preferences workspace"
 msgstr "delete \"%s\" preferences workspace"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
 msgid "\"%s\" preferences workspace deleted"
 msgstr "\"%s\" eelistused tööruumi kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 #, php-format
 msgid "Failed to delete \"%s\" preferences workspace"
 msgstr "Ei õnnestunud kustutada \"%s\" eelistuste tööruumi"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:70
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:71
 msgid "delete related preferences"
 msgstr "kustutada seotud eelistused"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:71
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
 msgid "related preferences deleted"
 msgstr "seotud eelistused kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
+#: plugins/Uninstaller/src/Cleaner/Preferences.php:73
 msgid "Failed to delete related preferences"
 msgstr "Seotud eelistuste kustutamine ebaõnnestus"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:37
+#: plugins/Uninstaller/src/Cleaner/Settings.php:38
 msgid "Settings"
 msgstr "Seaded"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:38
+#: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
 msgstr "dcSettings'is registreeritud nimeruumid"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:43
+#: plugins/Uninstaller/src/Cleaner/Settings.php:44
 msgid "delete selected global settings namespaces"
 msgstr "kustutada valitud globaalsete seadete nimeruumid"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:44
+#: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "delete \"%s\" global settings namespace"
 msgstr "delete \"%s\" globaalsete seadete nimeruum"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:45
+#: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
 msgid "\"%s\" global settings namespace deleted"
 msgstr "\"%s\" globaalsete seadete nimeruum kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:46
+#: plugins/Uninstaller/src/Cleaner/Settings.php:47
 #, php-format
 msgid "Failed to delete \"%s\" global settings namespace"
 msgstr "Ei õnnestunud kustutada \"%s\" globaalsete seadete nimeruumi"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:52
+#: plugins/Uninstaller/src/Cleaner/Settings.php:53
 msgid "delete selected blog settings namespaces"
 msgstr "kustutada valitud blogi seadete nimeruumid"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:53
+#: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
 msgid "delete \"%s\" blog settings namespace"
 msgstr "delete \"%s\" blogi seadete nimeruum"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:54
+#: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
 msgid "\"%s\" blog settings namespace deleted"
 msgstr "\"%s\" blogi seaded nimeruum kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:55
+#: plugins/Uninstaller/src/Cleaner/Settings.php:56
 #, php-format
 msgid "Failed to delete \"%s\" blog settings namespace"
 msgstr "Ei õnnestunud kustutada \"%s\" blogi seadete nimeruumi"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:61
+#: plugins/Uninstaller/src/Cleaner/Settings.php:62
 msgid "delete selected settings namespaces"
 msgstr "valitud seadete nimeruumide kustutamine"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:62
+#: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
 msgid "delete \"%s\" settings namespace"
 msgstr "delete \"%s\" settings namespace"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:63
+#: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
 msgid "\"%s\" settings namespace deleted"
 msgstr "\"%s\" seadete nimeruum kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:64
+#: plugins/Uninstaller/src/Cleaner/Settings.php:65
 #, php-format
 msgid "Failed to delete \"%s\" settings namespace"
 msgstr "Ei õnnestunud kustutada nimeruumi \"%s\" settings namespace"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:70
+#: plugins/Uninstaller/src/Cleaner/Settings.php:71
 msgid "delete related settings"
 msgstr "kustutada seotud seaded"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:71
+#: plugins/Uninstaller/src/Cleaner/Settings.php:72
 msgid "related settings deleted"
 msgstr "seotud seaded kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:72
+#: plugins/Uninstaller/src/Cleaner/Settings.php:73
 msgid "Failed to delete related settings"
 msgstr "Seotud seadete kustutamine ebaõnnestus"
 
@@ -317,131 +317,131 @@ msgstr "\"%s\" tabel tühjendatud"
 msgid "Failed to empty \"%s\" table"
 msgstr "Tabelit \"%s\" ei õnnestunud tühjendada."
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:35
+#: plugins/Uninstaller/src/Cleaner/Themes.php:36
 msgid "Themes"
 msgstr "Teemad"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:36
+#: plugins/Uninstaller/src/Cleaner/Themes.php:37
 msgid "Folders from blog themes directory"
 msgstr "Kaustad blogi teemade kataloogist"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:41
+#: plugins/Uninstaller/src/Cleaner/Themes.php:42
 msgid "delete selected themes files and directories"
 msgstr "valitud teemade failide ja kataloogide kustutamine"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:42
+#: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "delete \"%s\" theme files and directories"
 msgstr "kustutada \"%s\" teema failid ja kataloogid"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:43
+#: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
 msgid "\"%s\" theme files and directories deleted"
 msgstr "\"%s\" teema failid ja kataloogid kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:44
+#: plugins/Uninstaller/src/Cleaner/Themes.php:45
 #, php-format
 msgid "Failed to delete \"%s\" theme files and directories"
 msgstr "Ei õnnestunud kustutada \"%s\" teema faile ja katalooge"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:36
+#: plugins/Uninstaller/src/Cleaner/Vars.php:37
 msgid "Var"
 msgstr "Var"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:37
+#: plugins/Uninstaller/src/Cleaner/Vars.php:38
 msgid "Folders from Dotclear VAR directory"
 msgstr "Dotcleari VAR-i kataloogi kaustad"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:42
+#: plugins/Uninstaller/src/Cleaner/Vars.php:43
 msgid "delete selected var directories"
 msgstr "kustutada valitud var kataloogid"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:43
+#: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "delete \"%s\" var directory"
 msgstr "delete \"%s\" var directory"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:44
+#: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
 msgid "\"%s\" var directory deleted"
 msgstr "\"%s\" var kataloog kustutatud"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:45
+#: plugins/Uninstaller/src/Cleaner/Vars.php:46
 #, php-format
 msgid "Failed to delete \"%s\" var directory"
 msgstr "Ei õnnestunud kustutada \"%s\" var kataloogi"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:35
+#: plugins/Uninstaller/src/Cleaner/Versions.php:36
 msgid "Versions"
 msgstr "Versioonid"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:36
+#: plugins/Uninstaller/src/Cleaner/Versions.php:37
 msgid "Versions registered in table \"version\" of Dotclear"
 msgstr "Dotcleari tabelis \"version\" registreeritud versioonid"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:41
+#: plugins/Uninstaller/src/Cleaner/Versions.php:42
 msgid "delete selected versions numbers"
 msgstr "valitud versioonide numbrite kustutamine"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:42
+#: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "delete \"%s\" version number"
 msgstr "delete \"%s\" version number"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:43
+#: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
 msgid "\"%s\" version number deleted"
 msgstr "\"%s\" versiooninumber välja jäetud"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:44
+#: plugins/Uninstaller/src/Cleaner/Versions.php:45
 #, php-format
 msgid "Failed to delete \"%s\" version number"
 msgstr "Ei õnnestunud kustutada \"%s\" versiooni number"
 
-#: plugins/Uninstaller/src/CleanersStack.php:120
+#: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
 msgid "Unknown cleaner \"%s\""
 msgstr "Tundmatu puhastusvahend \"%s\""
 
-#: plugins/Uninstaller/src/CleanersStack.php:123
+#: plugins/Uninstaller/src/CleanersStack.php:115
 msgid "Unsintaller can't remove itself"
 msgstr "Unsintaller ei saa ennast eemaldada"
 
-#: plugins/Uninstaller/src/Manage.php:61
+#: plugins/Uninstaller/src/Manage.php:62
 msgid "Unknown module id to uninstall"
 msgstr "Tundmatu mooduli id deinstallimiseks"
 
-#: plugins/Uninstaller/src/Manage.php:69
+#: plugins/Uninstaller/src/Manage.php:70
 msgid "There are no uninstall actions for this module"
 msgstr "Selle mooduli jaoks ei ole eemaldamistoiminguid"
 
-#: plugins/Uninstaller/src/Manage.php:94
+#: plugins/Uninstaller/src/Manage.php:95
 msgid "Uninstall action successfuly excecuted"
 msgstr "Eemaldamine edukalt teostatud"
 
-#: plugins/Uninstaller/src/Manage.php:97
+#: plugins/Uninstaller/src/Manage.php:98
 msgid "No uninstall action done"
 msgstr "Eemaldamistoimingut ei ole tehtud"
 
-#: plugins/Uninstaller/src/Manage.php:143
+#: plugins/Uninstaller/src/Manage.php:144
 msgid "Perform selected actions"
 msgstr "Valitud tegevuste sooritamine"
 
-#: plugins/Uninstaller/src/Manage.php:158
+#: plugins/Uninstaller/src/Manage.php:159
 msgid "Are you sure you perform these ations?"
 msgstr "Kas te olete kindel, et te täidate neid tegevusi?"
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:175
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "Uninstall plugin \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:174
+#: plugins/Uninstaller/src/Manage.php:175
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "Eemalda teema \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:175
+#: plugins/Uninstaller/src/Manage.php:176
 #, php-format
 msgid "The module \"%s %s\" offers advanced unsintall process:"
 msgstr "Moodul \"%s %s\" pakub täiustatud unsintall protsessi:"
@@ -450,30 +450,30 @@ msgstr "Moodul \"%s %s\" pakub täiustatud unsintall protsessi:"
 msgid "Cope with old core classes (< 2.26)"
 msgstr "Toimetulek vanade põhiklassidega (< 2.26)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:7 plugins/antispam/src/Backend.php:30
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Üldine antispam plugin Dotcleari jaoks"
 
-#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/akismet/src/Prepend.php:27
 msgid "Akismet interface for Dotclear"
 msgstr "Akismeti liides Dotcleari jaoks"
 
 #: plugins/_fake_plugin/_fake_l10n.php:9
-#: plugins/fairTrackbacks/src/Prepend.php:25
+#: plugins/fairTrackbacks/src/Prepend.php:27
 msgid "Trackback validity check"
 msgstr "Trackback kehtivuse kontroll"
 
 #: plugins/_fake_plugin/_fake_l10n.php:10
-#: plugins/attachments/src/Backend.php:24
+#: plugins/attachments/src/Backend.php:26
 msgid "Manage post attachments"
 msgstr "Halda postituse manuseid"
 
-#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:29
 msgid "Serve entries as simple web pages"
 msgstr "Serveerida sissekandeid lihtsate veebilehtedena"
 
 #: plugins/_fake_plugin/_fake_l10n.php:12
-#: plugins/aboutConfig/src/Backend.php:24
+#: plugins/aboutConfig/src/Backend.php:26
 msgid "Manage every blog configuration directive"
 msgstr "Halda iga blogi konfiguratsiooni direktiivi"
 
@@ -482,54 +482,54 @@ msgid "Uninstall cleanly plugins and themes"
 msgstr "Uninstallige puhtalt pluginad ja teemad"
 
 #: plugins/_fake_plugin/_fake_l10n.php:14
-#: plugins/dcLegacyEditor/src/Backend.php:25
+#: plugins/dcLegacyEditor/src/Backend.php:27
 msgid "dotclear legacy editor"
 msgstr "dotclear legacy editor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:15
-#: plugins/themeEditor/src/Backend.php:24
+#: plugins/themeEditor/src/Backend.php:26
 msgid "Theme Editor"
 msgstr "Teema toimetaja"
 
-#: plugins/_fake_plugin/_fake_l10n.php:16 plugins/simpleMenu/src/Backend.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:16 plugins/simpleMenu/src/Backend.php:27
 msgid "Simple menu for Dotclear"
 msgstr "Dotcleari lihtne menüü"
 
 #: plugins/_fake_plugin/_fake_l10n.php:17
-#: plugins/importExport/src/Backend.php:26
+#: plugins/importExport/src/Backend.php:28
 msgid "Import and Export your blog"
 msgstr "Import ja eksport oma blogi"
 
-#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/userPref/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:18 plugins/userPref/src/Backend.php:26
 msgid "Manage every user preference directive"
 msgstr "Halda iga kasutaja eelistuste direktiivi"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/dcCKEditor/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/dcCKEditor/src/Backend.php:26
 msgid "dotclear CKEditor integration"
 msgstr "dotclear CKEditor integratsioon"
 
 #: plugins/_fake_plugin/_fake_l10n.php:20
-#: plugins/maintenance/src/Backend.php:24
+#: plugins/maintenance/src/Backend.php:26
 msgid "Maintain your installation"
 msgstr "Hooldage oma paigaldust"
 
-#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/breadcrumb/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/breadcrumb/src/Backend.php:26
 msgid "Breadcrumb for Dotclear"
 msgstr "Dotcleari leivakriips"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/blogroll/src/Backend.php:25
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/blogroll/src/Backend.php:27
 msgid "Manage your blogroll"
 msgstr "Halda oma blogirulli"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/pings/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/pings/src/Backend.php:28
 msgid "Ping services"
 msgstr "Pingi teenused"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/tags/src/Backend.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/tags/src/Backend.php:26
 msgid "Tags for posts"
 msgstr "Postituste märksõnad"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/widgets/src/Backend.php:26
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/widgets/src/Backend.php:28
 msgid "Widgets for your blog sidebars"
 msgstr "Vidinad oma blogi külgribade jaoks"
 
@@ -553,7 +553,7 @@ msgstr "Valitud kirjete loetelu"
 msgid "List of available languages"
 msgstr "Olemasolevate keelte nimekiri"
 
-#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:122
+#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:121
 msgid "List of categories"
 msgstr "Kategooriate loetelu"
 
@@ -593,388 +593,388 @@ msgstr "Blogroll nimekiri"
 msgid "Tags cloud"
 msgstr "Sildid pilv"
 
-#: plugins/aboutConfig/src/Backend.php:24
+#: plugins/aboutConfig/src/Backend.php:25
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:93 plugins/aboutConfig/src/Manage.php:113
+#: plugins/aboutConfig/src/Manage.php:90 plugins/aboutConfig/src/Manage.php:110
 msgid "Configuration successfully updated"
 msgstr "Konfiguratsioon edukalt uuendatud"
 
-#: plugins/aboutConfig/src/Manage.php:153
-#: plugins/aboutConfig/src/Manage.php:155
+#: plugins/aboutConfig/src/Manage.php:150
+#: plugins/aboutConfig/src/Manage.php:152
 #, php-format
 msgid "Settings for %s"
 msgstr "Seadistused %s"
 
-#: plugins/aboutConfig/src/Manage.php:163
-#: plugins/aboutConfig/src/Manage.php:165
+#: plugins/aboutConfig/src/Manage.php:160
+#: plugins/aboutConfig/src/Manage.php:162
 msgid "Global settings"
 msgstr "Üldised seaded"
 
-#: plugins/aboutConfig/src/Manage.php:231 plugins/userPref/src/Manage.php:229
+#: plugins/aboutConfig/src/Manage.php:228 plugins/userPref/src/Manage.php:226
 msgid "Goto:"
 msgstr "Goto:"
 
-#: plugins/aboutConfig/src/Manage.php:258 plugins/userPref/src/Manage.php:256
+#: plugins/aboutConfig/src/Manage.php:255 plugins/userPref/src/Manage.php:253
 msgid "Setting ID"
 msgstr "Seadistamise ID"
 
-#: plugins/aboutConfig/src/Manage.php:259 plugins/userPref/src/Manage.php:257
+#: plugins/aboutConfig/src/Manage.php:256 plugins/userPref/src/Manage.php:254
 msgid "Value"
 msgstr "Väärtus"
 
-#: plugins/aboutConfig/src/Manage.php:321 plugins/userPref/src/Manage.php:319
+#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
 msgid "no"
 msgstr "ei"
 
-#: plugins/aboutConfig/src/Manage.php:321 plugins/userPref/src/Manage.php:319
+#: plugins/aboutConfig/src/Manage.php:316 plugins/userPref/src/Manage.php:314
 msgid "yes"
 msgstr "jah"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:88
+#: plugins/akismet/src/AntispamFilterAkismet.php:79
 msgid "Akismet spam filter"
 msgstr "Akismet rämpsposti filter"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:101
+#: plugins/akismet/src/AntispamFilterAkismet.php:92
 #, php-format
 msgid "Filtered by %s."
 msgstr "Filtreeritud %s."
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:219
+#: plugins/akismet/src/AntispamFilterAkismet.php:206
 msgid "Filter configuration have been successfully saved."
 msgstr "Filtri konfiguratsioon on edukalt salvestatud."
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:241
+#: plugins/akismet/src/AntispamFilterAkismet.php:228
 msgid "API key verified"
 msgstr "API võti kontrollitud"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:244
+#: plugins/akismet/src/AntispamFilterAkismet.php:231
 msgid "API key not verified"
 msgstr "API võti ei ole kontrollitud"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:262
+#: plugins/akismet/src/AntispamFilterAkismet.php:249
 msgid "Akismet API key"
 msgstr "Akismeti API võti"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:265
+#: plugins/akismet/src/AntispamFilterAkismet.php:252
 msgid "Akismet API key:"
 msgstr "Akismeti API võti:"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:275
+#: plugins/akismet/src/AntispamFilterAkismet.php:262
 msgid "Get your own API key"
 msgstr "Hankige oma API võti"
 
-#: plugins/akismet/src/Prepend.php:25
+#: plugins/akismet/src/Prepend.php:26
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:146
+#: plugins/antispam/src/Antispam.php:143
 msgid "This comment is a spam:"
 msgstr "See kommentaar on rämpspost:"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(sealhulgas %d rämpsposti kommentaar)"
 
-#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(sealhulgas %d rämpsposti kommentaarid)"
 
-#: plugins/antispam/src/Backend.php:28
+#: plugins/antispam/src/Backend.php:29
 msgid "Antispam"
 msgstr "Antispam"
 
-#: plugins/antispam/src/BackendBehaviors.php:56
-#: plugins/antispam/src/Manage.php:222
+#: plugins/antispam/src/BackendBehaviors.php:55
+#: plugins/antispam/src/Manage.php:223
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Kõik rämpsposti kommentaarid, mis on vanemad kui %s päev(ad), kustutatakse automaatselt."
 
-#: plugins/antispam/src/BackendBehaviors.php:59
+#: plugins/antispam/src/BackendBehaviors.php:58
 #, php-format
 msgid "You can modify this duration in the %s."
 msgstr "Seda kestust saab muuta aadressil %s."
 
-#: plugins/antispam/src/BackendBehaviors.php:86
+#: plugins/antispam/src/BackendBehaviors.php:85
 msgid "Delete junk comments older than"
 msgstr "Kustuta rämpskommentaarid, mis on vanemad kui"
 
-#: plugins/antispam/src/BackendBehaviors.php:90
+#: plugins/antispam/src/BackendBehaviors.php:89
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
 msgstr "Selle funktsiooni väljalülitamiseks seadke -1 ; soovitatav viivitus on 7 päeva."
 
-#: plugins/antispam/src/BackendBehaviors.php:94
+#: plugins/antispam/src/BackendBehaviors.php:93
 msgid "Set spam filters."
 msgstr "Rämpspostifiltrite seadistamine."
 
-#: plugins/antispam/src/Filters/Ip.php:91
+#: plugins/antispam/src/Filters/Ip.php:81
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "IP blokeerimisnimekirja / lubamisnimekirja filter"
 
-#: plugins/antispam/src/Filters/Ip.php:104
-#: plugins/antispam/src/Filters/IpV6.php:104
+#: plugins/antispam/src/Filters/Ip.php:94
+#: plugins/antispam/src/Filters/IpV6.php:94
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
 msgstr "Filtreeritud %1$s reegliga %2$s."
 
-#: plugins/antispam/src/Filters/Ip.php:165
-#: plugins/antispam/src/Filters/IpV6.php:165
+#: plugins/antispam/src/Filters/Ip.php:153
+#: plugins/antispam/src/Filters/IpV6.php:153
 msgid "IP address has been successfully added."
 msgstr "IP-aadress on edukalt lisatud."
 
-#: plugins/antispam/src/Filters/Ip.php:176
-#: plugins/antispam/src/Filters/IpV6.php:176
+#: plugins/antispam/src/Filters/Ip.php:164
+#: plugins/antispam/src/Filters/IpV6.php:164
 msgid "IP addresses have been successfully removed."
 msgstr "IP-aadressid on edukalt eemaldatud."
 
-#: plugins/antispam/src/Filters/Ip.php:185
-#: plugins/antispam/src/Filters/IpV6.php:185
+#: plugins/antispam/src/Filters/Ip.php:173
+#: plugins/antispam/src/Filters/IpV6.php:173
 msgid "Blocklist"
 msgstr "Blokeerimisnimekiri"
 
-#: plugins/antispam/src/Filters/Ip.php:186
-#: plugins/antispam/src/Filters/IpV6.php:186
+#: plugins/antispam/src/Filters/Ip.php:174
+#: plugins/antispam/src/Filters/IpV6.php:174
 msgid "Allowlist"
 msgstr "Allowlist"
 
-#: plugins/antispam/src/Filters/Ip.php:203
-#: plugins/antispam/src/Filters/IpV6.php:203
+#: plugins/antispam/src/Filters/Ip.php:189
+#: plugins/antispam/src/Filters/IpV6.php:189
 msgid "No IP address in list."
 msgstr "Loetelus puudub IP-aadress."
 
-#: plugins/antispam/src/Filters/Ip.php:232
-#: plugins/antispam/src/Filters/IpV6.php:231
+#: plugins/antispam/src/Filters/Ip.php:218
+#: plugins/antispam/src/Filters/IpV6.php:217
 msgid "Local IPs (used only for this blog)"
 msgstr "Kohalikud IP-d (kasutatakse ainult selle blogi jaoks)"
 
-#: plugins/antispam/src/Filters/Ip.php:240
-#: plugins/antispam/src/Filters/IpV6.php:239
+#: plugins/antispam/src/Filters/Ip.php:226
+#: plugins/antispam/src/Filters/IpV6.php:225
 msgid "Global IPs (used for all blogs)"
 msgstr "Globaalsed IP-d (kasutatakse kõigi blogide jaoks)"
 
-#: plugins/antispam/src/Filters/Ip.php:251
-#: plugins/antispam/src/Filters/IpV6.php:250
+#: plugins/antispam/src/Filters/Ip.php:237
+#: plugins/antispam/src/Filters/IpV6.php:236
 msgid "IP list"
 msgstr "IP-loetelu"
 
-#: plugins/antispam/src/Filters/Ip.php:267
-#: plugins/antispam/src/Filters/IpV6.php:266
+#: plugins/antispam/src/Filters/Ip.php:253
+#: plugins/antispam/src/Filters/IpV6.php:252
 msgid "Global IP (used for all blogs)"
 msgstr "Globaalne IP (kasutatakse kõigi blogide jaoks)"
 
-#: plugins/antispam/src/Filters/Ip.php:284
-#: plugins/antispam/src/Filters/IpV6.php:283
+#: plugins/antispam/src/Filters/Ip.php:270
+#: plugins/antispam/src/Filters/IpV6.php:269
 msgid "Add an IP address:"
 msgstr "Lisage IP-aadress:"
 
-#: plugins/antispam/src/Filters/Ip.php:288
-#: plugins/antispam/src/Filters/IpV6.php:287
-#: plugins/antispam/src/Filters/Words.php:304
-#: plugins/widgets/src/Manage.php:319
+#: plugins/antispam/src/Filters/Ip.php:274
+#: plugins/antispam/src/Filters/IpV6.php:273
+#: plugins/antispam/src/Filters/Words.php:291
+#: plugins/widgets/src/Manage.php:320
 msgid "Add"
 msgstr "Lisa"
 
-#: plugins/antispam/src/Filters/IpLookup.php:84
+#: plugins/antispam/src/Filters/IpLookup.php:75
 msgid "Checks sender IP address against DNSBL servers"
 msgstr "Kontrollib saatja IP-aadressi DNSBL serverite suhtes"
 
-#: plugins/antispam/src/Filters/IpLookup.php:97
-#: plugins/antispam/src/Filters/LinksLookup.php:73
+#: plugins/antispam/src/Filters/IpLookup.php:88
+#: plugins/antispam/src/Filters/LinksLookup.php:64
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
 msgstr "Filtreeritud %1$s koos serveriga %2$s."
 
-#: plugins/antispam/src/Filters/IpLookup.php:155
+#: plugins/antispam/src/Filters/IpLookup.php:144
 msgid "The list of DNSBL servers has been succesfully updated."
 msgstr "DNSBL serverite nimekiri on edukalt uuendatud."
 
-#: plugins/antispam/src/Filters/IpLookup.php:168
+#: plugins/antispam/src/Filters/IpLookup.php:157
 msgid "IP Lookup servers"
 msgstr "IP Lookup serverid"
 
-#: plugins/antispam/src/Filters/IpLookup.php:173
+#: plugins/antispam/src/Filters/IpLookup.php:162
 msgid "Add here a coma separated list of servers."
 msgstr "Lisage siia serverite koomaga eraldatud loetelu."
 
-#: plugins/antispam/src/Filters/IpV6.php:91
+#: plugins/antispam/src/Filters/IpV6.php:81
 msgid "IP v6 Blocklist / Allowlist Filter"
 msgstr "IP v6 blokeerimisnimekiri / lubamisnimekirja filter"
 
-#: plugins/antispam/src/Filters/LinksLookup.php:60
+#: plugins/antispam/src/Filters/LinksLookup.php:51
 msgid "Checks links in comments against surbl.org"
 msgstr "Kontrollib kommentaarides olevaid linke surbl.org-i suhtes."
 
-#: plugins/antispam/src/Filters/Words.php:90
+#: plugins/antispam/src/Filters/Words.php:81
 msgid "Words Blocklist"
 msgstr "Sõnade blokeerimisnimekiri"
 
-#: plugins/antispam/src/Filters/Words.php:103
+#: plugins/antispam/src/Filters/Words.php:94
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
 msgstr "Filtreeritud %1$s sõnaga %2$s."
 
-#: plugins/antispam/src/Filters/Words.php:160
+#: plugins/antispam/src/Filters/Words.php:149
 msgid "Words have been successfully added."
 msgstr "Sõnad on edukalt lisatud."
 
-#: plugins/antispam/src/Filters/Words.php:173
+#: plugins/antispam/src/Filters/Words.php:162
 msgid "Word has been successfully added."
 msgstr "Sõna on edukalt lisatud."
 
-#: plugins/antispam/src/Filters/Words.php:184
+#: plugins/antispam/src/Filters/Words.php:173
 msgid "Words have been successfully removed."
 msgstr "Sõnad on edukalt eemaldatud."
 
-#: plugins/antispam/src/Filters/Words.php:208
+#: plugins/antispam/src/Filters/Words.php:195
 msgid "No word in list."
 msgstr "Nimekirjas ei ole ühtegi sõna."
 
-#: plugins/antispam/src/Filters/Words.php:236
+#: plugins/antispam/src/Filters/Words.php:223
 msgid "Local words (used only for this blog)"
 msgstr "Kohalikud sõnad (kasutatakse ainult selles blogis)"
 
-#: plugins/antispam/src/Filters/Words.php:244
+#: plugins/antispam/src/Filters/Words.php:231
 msgid "Global words (used for all blogs)"
 msgstr "Globaalsed sõnad (kasutatakse kõigi blogide puhul)"
 
-#: plugins/antispam/src/Filters/Words.php:255
+#: plugins/antispam/src/Filters/Words.php:242
 msgid "List of bad words"
 msgstr "Halbade sõnade loetelu"
 
-#: plugins/antispam/src/Filters/Words.php:260
+#: plugins/antispam/src/Filters/Words.php:247
 msgid "Delete selected words"
 msgstr "Valitud sõnade kustutamine"
 
-#: plugins/antispam/src/Filters/Words.php:270
+#: plugins/antispam/src/Filters/Words.php:257
 msgid "Global word (used for all blogs)"
 msgstr "Globaalne sõna (kasutatakse kõigi blogide puhul)"
 
-#: plugins/antispam/src/Filters/Words.php:280
+#: plugins/antispam/src/Filters/Words.php:267
 msgid "Create default wordlist"
 msgstr "Luua vaikimisi sõnaloend"
 
-#: plugins/antispam/src/Filters/Words.php:301
+#: plugins/antispam/src/Filters/Words.php:288
 msgid "Add a word:"
 msgstr "Lisage sõna:"
 
-#: plugins/antispam/src/Filters/Words.php:366
+#: plugins/antispam/src/Filters/Words.php:353
 msgid "This word exists"
 msgstr "See sõna on olemas"
 
-#: plugins/antispam/src/FrontendUrl.php:60
+#: plugins/antispam/src/FrontendUrl.php:61
 msgid "Spam moderation"
 msgstr "Spami modereerimine"
 
-#: plugins/antispam/src/FrontendUrl.php:64
+#: plugins/antispam/src/FrontendUrl.php:65
 msgid "Spam"
 msgstr "Spam"
 
-#: plugins/antispam/src/FrontendUrl.php:68
+#: plugins/antispam/src/FrontendUrl.php:69
 msgid "Ham"
 msgstr "Ham"
 
-#: plugins/antispam/src/Manage.php:70
+#: plugins/antispam/src/Manage.php:71
 msgid "Filter does not exist."
 msgstr "Filtrit ei ole olemas."
 
-#: plugins/antispam/src/Manage.php:74
+#: plugins/antispam/src/Manage.php:75
 msgid "Filter has no user interface."
 msgstr "Filtril puudub kasutajaliides."
 
-#: plugins/antispam/src/Manage.php:135 plugins/antispam/src/Manage.php:268
+#: plugins/antispam/src/Manage.php:136 plugins/antispam/src/Manage.php:269
 msgid "Filters configuration has been successfully saved."
 msgstr "Filtrite konfiguratsioon on edukalt salvestatud."
 
-#: plugins/antispam/src/Manage.php:152
+#: plugins/antispam/src/Manage.php:153
 #, php-format
 msgid "%s configuration"
 msgstr "%s konfiguratsioon"
 
-#: plugins/antispam/src/Manage.php:173
+#: plugins/antispam/src/Manage.php:174
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s filtri konfiguratsioon"
 
-#: plugins/antispam/src/Manage.php:180
+#: plugins/antispam/src/Manage.php:181
 msgid "Back to filters list"
 msgstr "Tagasi filtrite nimekirja"
 
-#: plugins/antispam/src/Manage.php:227
+#: plugins/antispam/src/Manage.php:228
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "Seda kestust saab muuta aadressil %s."
 
-#: plugins/antispam/src/Manage.php:236
+#: plugins/antispam/src/Manage.php:237
 msgid "Information"
 msgstr "Teave"
 
-#: plugins/antispam/src/Manage.php:247
+#: plugins/antispam/src/Manage.php:248
 msgid "Junk comments:"
 msgstr "Junk kommentaarid:"
 
-#: plugins/antispam/src/Manage.php:253
+#: plugins/antispam/src/Manage.php:254
 msgid "Published comments:"
 msgstr "Avaldatud kommentaarid:"
 
-#: plugins/antispam/src/Manage.php:277 plugins/antispam/src/Manage.php:280
-#: plugins/antispam/src/Manage.php:284
+#: plugins/antispam/src/Manage.php:278 plugins/antispam/src/Manage.php:281
+#: plugins/antispam/src/Manage.php:285
 msgid "Filter configuration"
 msgstr "Filtri konfiguratsioon"
 
-#: plugins/antispam/src/Manage.php:300 plugins/blogroll/src/Manage.php:283
+#: plugins/antispam/src/Manage.php:301 plugins/blogroll/src/Manage.php:285
 msgid "position"
 msgstr "positsioon"
 
-#: plugins/antispam/src/Manage.php:307 plugins/antispam/src/Manage.php:341
+#: plugins/antispam/src/Manage.php:308 plugins/antispam/src/Manage.php:342
 msgid "Active"
 msgstr "Aktiivne"
 
-#: plugins/antispam/src/Manage.php:314 plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:315 plugins/antispam/src/Manage.php:343
 msgid "Auto Del."
 msgstr "Auto Del."
 
-#: plugins/antispam/src/Manage.php:335
+#: plugins/antispam/src/Manage.php:336
 msgid "Available spam filters"
 msgstr "Saadaolevad rämpsposti filtrid"
 
-#: plugins/antispam/src/Manage.php:340
+#: plugins/antispam/src/Manage.php:341
 #: plugins/pages/src/BackendDefaultActions.php:78
 msgid "Order"
 msgstr "Tellige"
 
-#: plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:344
 msgid "Filter name"
 msgstr "Filtri nimi"
 
-#: plugins/antispam/src/Manage.php:370
+#: plugins/antispam/src/Manage.php:371
 msgid "Syndication"
 msgstr "Sünkroniseerimine"
 
-#: plugins/antispam/src/Manage.php:373
+#: plugins/antispam/src/Manage.php:374
 msgid "Junk comments RSS feed"
 msgstr "Junk kommentaarid RSS feed"
 
-#: plugins/antispam/src/Manage.php:376
+#: plugins/antispam/src/Manage.php:377
 msgid "Published comments RSS feed"
 msgstr "Avaldatud kommentaarid RSS feed"
 
-#: plugins/antispam/src/SpamFilter.php:108
+#: plugins/antispam/src/SpamFilter.php:93
 msgid "No description"
 msgstr "Kirjeldus puudub"
 
-#: plugins/antispam/src/SpamFilter.php:167
+#: plugins/antispam/src/SpamFilter.php:152
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Filtreeritud %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:159
+#: plugins/antispam/src/SpamFilters.php:157
 msgid "Unknown filter."
 msgstr "Tundmatu filter."
 
-#: plugins/attachments/src/Backend.php:24
+#: plugins/attachments/src/Backend.php:25
 msgid "attachments"
 msgstr "manused"
 
@@ -999,230 +999,230 @@ msgstr "Lisage sellele kirjele faile"
 msgid "You must save the entry before adding an attachment."
 msgstr "Enne manuse lisamist tuleb kanne salvestada."
 
-#: plugins/blogroll/src/Backend.php:25
+#: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
 msgstr "Blogroll"
 
-#: plugins/blogroll/src/Backend.php:36
+#: plugins/blogroll/src/Backend.php:38
 msgid "manage blogroll"
 msgstr "hallata blogirulli"
 
-#: plugins/blogroll/src/Blogroll.php:164 plugins/blogroll/src/Blogroll.php:207
+#: plugins/blogroll/src/Blogroll.php:161 plugins/blogroll/src/Blogroll.php:204
 msgid "You must provide a link title"
 msgstr "Te peate esitama lingi pealkirja"
 
-#: plugins/blogroll/src/Blogroll.php:168 plugins/blogroll/src/Blogroll.php:211
+#: plugins/blogroll/src/Blogroll.php:165 plugins/blogroll/src/Blogroll.php:208
 msgid "You must provide a link URL"
 msgstr "Te peate esitama lingi URL-i"
 
-#: plugins/blogroll/src/Manage.php:105 plugins/blogroll/src/Manage.php:544
+#: plugins/blogroll/src/Manage.php:107 plugins/blogroll/src/Manage.php:546
 msgid "Nothing to import"
 msgstr "Midagi importida ei ole vaja"
 
-#: plugins/blogroll/src/Manage.php:128
+#: plugins/blogroll/src/Manage.php:130
 msgid "links have been successfully imported."
 msgstr "lingid on edukalt imporditud."
 
-#: plugins/blogroll/src/Manage.php:135
+#: plugins/blogroll/src/Manage.php:137
 msgid "Import operation cancelled."
 msgstr "Imporditoiming on tühistatud."
 
-#: plugins/blogroll/src/Manage.php:150
+#: plugins/blogroll/src/Manage.php:152
 msgid "Link has been successfully created."
 msgstr "Link on edukalt loodud."
 
-#: plugins/blogroll/src/Manage.php:165
+#: plugins/blogroll/src/Manage.php:167
 msgid "category has been successfully created."
 msgstr "kategooria on edukalt loodud."
 
-#: plugins/blogroll/src/Manage.php:187
+#: plugins/blogroll/src/Manage.php:189
 msgid "Items have been successfully removed."
 msgstr "Objektid on edukalt eemaldatud."
 
-#: plugins/blogroll/src/Manage.php:217
+#: plugins/blogroll/src/Manage.php:219
 msgid "Items order has been successfully updated"
 msgstr "Artiklite tellimus on edukalt uuendatud"
 
-#: plugins/blogroll/src/Manage.php:257
+#: plugins/blogroll/src/Manage.php:259
 msgid "Are you sure you want to delete selected links?"
 msgstr "Kas olete kindel, et soovite valitud lingid kustutada?"
 
-#: plugins/blogroll/src/Manage.php:290
+#: plugins/blogroll/src/Manage.php:292
 msgid "select this link"
 msgstr "valige see link"
 
-#: plugins/blogroll/src/Manage.php:337
+#: plugins/blogroll/src/Manage.php:339
 msgid "Lang"
 msgstr "Lang"
 
-#: plugins/blogroll/src/Manage.php:362
+#: plugins/blogroll/src/Manage.php:364
 msgid "Delete selected links"
 msgstr "Valitud linkide kustutamine"
 
-#: plugins/blogroll/src/Manage.php:380
+#: plugins/blogroll/src/Manage.php:382
 msgid "The link list is empty"
 msgstr "Linkide nimekiri on tühi"
 
-#: plugins/blogroll/src/Manage.php:403
+#: plugins/blogroll/src/Manage.php:405
 msgid "Add a new link"
 msgstr "Lisa uus link"
 
-#: plugins/blogroll/src/Manage.php:467
+#: plugins/blogroll/src/Manage.php:469
 msgid "Add a category"
 msgstr "Lisage kategooria"
 
-#: plugins/blogroll/src/Manage.php:515 plugins/blogroll/src/Manage.php:607
-#: plugins/blogroll/src/Manage.php:614
+#: plugins/blogroll/src/Manage.php:517 plugins/blogroll/src/Manage.php:609
+#: plugins/blogroll/src/Manage.php:616
 msgid "Import links"
 msgstr "Impordi lingid"
 
-#: plugins/blogroll/src/Manage.php:524
+#: plugins/blogroll/src/Manage.php:526
 msgid "OPML or XBEL File:"
 msgstr "OPML- või XBEL-faili:"
 
-#: plugins/blogroll/src/Manage.php:534 plugins/blogroll/src/Manage.php:599
+#: plugins/blogroll/src/Manage.php:536 plugins/blogroll/src/Manage.php:601
 #: plugins/importExport/src/Manage.php:130
-#: plugins/importExport/src/ModuleImportFeed.php:244
-#: plugins/importExport/src/ModuleImportFlat.php:244
-#: plugins/importExport/src/ModuleImportFlat.php:306
+#: plugins/importExport/src/ModuleImportFeed.php:239
+#: plugins/importExport/src/ModuleImportFlat.php:245
+#: plugins/importExport/src/ModuleImportFlat.php:307
 msgid "Import"
 msgstr "Import"
 
-#: plugins/blogroll/src/ManageEdit.php:65
+#: plugins/blogroll/src/ManageEdit.php:67
 msgid "No such link or title"
 msgstr "Sellist linki või pealkirja ei ole"
 
-#: plugins/blogroll/src/ManageEdit.php:122
+#: plugins/blogroll/src/ManageEdit.php:124
 msgid "Link has been successfully updated"
 msgstr "Link on edukalt uuendatud"
 
-#: plugins/blogroll/src/ManageEdit.php:139
+#: plugins/blogroll/src/ManageEdit.php:141
 msgid "Category has been successfully updated"
 msgstr "Kategooria on edukalt uuendatud"
 
-#: plugins/blogroll/src/ManageEdit.php:167
-#: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:145
+#: plugins/blogroll/src/ManageEdit.php:169
+#: plugins/dcCKEditor/src/BackendBehaviors.php:62
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
 msgid "Link"
 msgstr "Link"
 
-#: plugins/blogroll/src/ManageEdit.php:174
+#: plugins/blogroll/src/ManageEdit.php:176
 msgid "Return to blogroll"
 msgstr "Tagasi blogirulli juurde"
 
-#: plugins/blogroll/src/ManageEdit.php:185
+#: plugins/blogroll/src/ManageEdit.php:187
 msgid "Edit category"
 msgstr "Muuda kategooriat"
 
-#: plugins/blogroll/src/ManageEdit.php:223
+#: plugins/blogroll/src/ManageEdit.php:225
 msgid "Edit link"
 msgstr "Linki muutmine"
 
-#: plugins/blogroll/src/ManageEdit.php:276
+#: plugins/blogroll/src/ManageEdit.php:278
 msgid "XFN information"
 msgstr "XFN teave"
 
-#: plugins/blogroll/src/ManageEdit.php:279
+#: plugins/blogroll/src/ManageEdit.php:281
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr "Lisateave <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Vikipeedia</a> veebisaidil"
 
-#: plugins/blogroll/src/ManageEdit.php:283
+#: plugins/blogroll/src/ManageEdit.php:285
 msgid "_xfn_Me"
 msgstr "_xfn_Me"
 
-#: plugins/blogroll/src/ManageEdit.php:287
+#: plugins/blogroll/src/ManageEdit.php:289
 msgid "_xfn_Another link for myself"
 msgstr "_xfn_Kas veel üks link minu jaoks"
 
-#: plugins/blogroll/src/ManageEdit.php:291
+#: plugins/blogroll/src/ManageEdit.php:293
 msgid "_xfn_Friendship"
 msgstr "_xfn_Friendship"
 
-#: plugins/blogroll/src/ManageEdit.php:295
+#: plugins/blogroll/src/ManageEdit.php:297
 msgid "_xfn_Contact"
 msgstr "_xfn_Contact"
 
-#: plugins/blogroll/src/ManageEdit.php:298
+#: plugins/blogroll/src/ManageEdit.php:300
 msgid "_xfn_Acquaintance"
 msgstr "_xfn_Tuttav"
 
-#: plugins/blogroll/src/ManageEdit.php:301
+#: plugins/blogroll/src/ManageEdit.php:303
 msgid "_xfn_Friend"
 msgstr "_xfn_Sõber"
 
-#: plugins/blogroll/src/ManageEdit.php:311
+#: plugins/blogroll/src/ManageEdit.php:313
 msgid "_xfn_Physical"
 msgstr "_xfn_Füüsiline"
 
-#: plugins/blogroll/src/ManageEdit.php:315
+#: plugins/blogroll/src/ManageEdit.php:317
 msgid "_xfn_Met"
 msgstr "_xfn_Met"
 
-#: plugins/blogroll/src/ManageEdit.php:319
+#: plugins/blogroll/src/ManageEdit.php:321
 msgid "_xfn_Professional"
 msgstr "_xfn_Professionaalne"
 
-#: plugins/blogroll/src/ManageEdit.php:323
+#: plugins/blogroll/src/ManageEdit.php:325
 msgid "_xfn_Co-worker"
 msgstr "_xfn_Co-töötaja"
 
-#: plugins/blogroll/src/ManageEdit.php:326
+#: plugins/blogroll/src/ManageEdit.php:328
 msgid "_xfn_Colleague"
 msgstr "_xfn_Colleague"
 
-#: plugins/blogroll/src/ManageEdit.php:330
+#: plugins/blogroll/src/ManageEdit.php:332
 msgid "_xfn_Geographical"
 msgstr "_xfn_Geograafiline"
 
-#: plugins/blogroll/src/ManageEdit.php:334
+#: plugins/blogroll/src/ManageEdit.php:336
 msgid "_xfn_Co-resident"
 msgstr "_xfn_Co-resident"
 
-#: plugins/blogroll/src/ManageEdit.php:337
+#: plugins/blogroll/src/ManageEdit.php:339
 msgid "_xfn_Neighbor"
 msgstr "_xfn_Neaber"
 
-#: plugins/blogroll/src/ManageEdit.php:347
+#: plugins/blogroll/src/ManageEdit.php:349
 msgid "_xfn_Family"
 msgstr "_xfn_Family"
 
-#: plugins/blogroll/src/ManageEdit.php:351
+#: plugins/blogroll/src/ManageEdit.php:353
 msgid "_xfn_Child"
 msgstr "_xfn_Child"
 
-#: plugins/blogroll/src/ManageEdit.php:354
+#: plugins/blogroll/src/ManageEdit.php:356
 msgid "_xfn_Parent"
 msgstr "_xfn_Parent"
 
-#: plugins/blogroll/src/ManageEdit.php:357
+#: plugins/blogroll/src/ManageEdit.php:359
 msgid "_xfn_Sibling"
 msgstr "_xfn_Sibling"
 
-#: plugins/blogroll/src/ManageEdit.php:360
+#: plugins/blogroll/src/ManageEdit.php:362
 msgid "_xfn_Spouse"
 msgstr "_xfn_Spouse"
 
-#: plugins/blogroll/src/ManageEdit.php:363
+#: plugins/blogroll/src/ManageEdit.php:365
 msgid "_xfn_Kin"
 msgstr "_xfn_Kin"
 
-#: plugins/blogroll/src/ManageEdit.php:373
+#: plugins/blogroll/src/ManageEdit.php:375
 msgid "_xfn_Romantic"
 msgstr "_xfn_Romantiline"
 
-#: plugins/blogroll/src/ManageEdit.php:377
+#: plugins/blogroll/src/ManageEdit.php:379
 msgid "_xfn_Muse"
 msgstr "_xfn_Muse"
 
-#: plugins/blogroll/src/ManageEdit.php:380
+#: plugins/blogroll/src/ManageEdit.php:382
 msgid "_xfn_Crush"
 msgstr "_xfn_Crush"
 
-#: plugins/blogroll/src/ManageEdit.php:383
+#: plugins/blogroll/src/ManageEdit.php:385
 msgid "_xfn_Date"
 msgstr "_xfn_Date"
 
-#: plugins/blogroll/src/ManageEdit.php:386
+#: plugins/blogroll/src/ManageEdit.php:388
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_Sweetheart"
 
@@ -1230,20 +1230,20 @@ msgstr "_xfn_Sweetheart"
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Te peate esitama XBEL- või OPML-faili."
 
-#: plugins/blogroll/src/UtilsImport.php:56
-#: plugins/blogroll/src/UtilsImport.php:98
+#: plugins/blogroll/src/UtilsImport.php:55
+#: plugins/blogroll/src/UtilsImport.php:97
 msgid "File is not in XML format."
 msgstr "Fail ei ole XML-vormingus."
 
-#: plugins/blogroll/src/Widgets.php:35
+#: plugins/blogroll/src/Widgets.php:36
 msgid "All categories"
 msgstr "Kõik kategooriad"
 
-#: plugins/blogroll/src/Widgets.php:44
+#: plugins/blogroll/src/Widgets.php:45
 msgid "Links"
 msgstr "Lingid"
 
-#: plugins/breadcrumb/src/Backend.php:24
+#: plugins/breadcrumb/src/Backend.php:25
 msgid "Breadcrumb"
 msgstr "Breadcrumb"
 
@@ -1259,363 +1259,363 @@ msgstr "{{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} silt peaks olema malli
 msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 msgstr "Ärge kapseldage leivakriipsu &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:74
-#: plugins/breadcrumb/src/FrontendTemplate.php:79
-#: plugins/breadcrumb/src/FrontendTemplate.php:86
-#: plugins/breadcrumb/src/FrontendTemplate.php:90
-#: plugins/breadcrumb/src/FrontendTemplate.php:101
-#: plugins/breadcrumb/src/FrontendTemplate.php:116
-#: plugins/breadcrumb/src/FrontendTemplate.php:132
-#: plugins/breadcrumb/src/FrontendTemplate.php:149
-#: plugins/breadcrumb/src/FrontendTemplate.php:157
-#: plugins/breadcrumb/src/FrontendTemplate.php:171
-#: plugins/breadcrumb/src/FrontendTemplate.php:178
-#: plugins/breadcrumb/src/FrontendTemplate.php:185
-#: plugins/breadcrumb/src/FrontendTemplate.php:198
-#: plugins/breadcrumb/src/FrontendTemplate.php:210
-#: plugins/breadcrumb/src/FrontendTemplate.php:216
+#: plugins/breadcrumb/src/FrontendTemplate.php:71
+#: plugins/breadcrumb/src/FrontendTemplate.php:76
+#: plugins/breadcrumb/src/FrontendTemplate.php:83
+#: plugins/breadcrumb/src/FrontendTemplate.php:87
+#: plugins/breadcrumb/src/FrontendTemplate.php:98
+#: plugins/breadcrumb/src/FrontendTemplate.php:111
+#: plugins/breadcrumb/src/FrontendTemplate.php:127
+#: plugins/breadcrumb/src/FrontendTemplate.php:144
+#: plugins/breadcrumb/src/FrontendTemplate.php:152
+#: plugins/breadcrumb/src/FrontendTemplate.php:166
+#: plugins/breadcrumb/src/FrontendTemplate.php:173
+#: plugins/breadcrumb/src/FrontendTemplate.php:180
+#: plugins/breadcrumb/src/FrontendTemplate.php:193
+#: plugins/breadcrumb/src/FrontendTemplate.php:205
+#: plugins/breadcrumb/src/FrontendTemplate.php:211
 #: plugins/simpleMenu/src/Manage.php:144 plugins/simpleMenu/src/Manage.php:255
-#: plugins/widgets/src/Widgets.php:271
+#: plugins/widgets/src/Widgets.php:266
 msgid "Home"
 msgstr "Kodu"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:110
-#: plugins/breadcrumb/src/FrontendTemplate.php:125
-#: plugins/breadcrumb/src/FrontendTemplate.php:191
-#: plugins/breadcrumb/src/FrontendTemplate.php:203
+#: plugins/breadcrumb/src/FrontendTemplate.php:105
+#: plugins/breadcrumb/src/FrontendTemplate.php:120
+#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/breadcrumb/src/FrontendTemplate.php:198
 #, php-format
 msgid "page %d"
 msgstr "lehekülg %d"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:160
-#: plugins/breadcrumb/src/FrontendTemplate.php:163
-#: plugins/simpleMenu/src/Manage.php:282 plugins/widgets/src/Widgets.php:288
+#: plugins/breadcrumb/src/FrontendTemplate.php:155
+#: plugins/breadcrumb/src/FrontendTemplate.php:158
+#: plugins/simpleMenu/src/Manage.php:282 plugins/widgets/src/Widgets.php:280
 msgid "Archives"
 msgstr "Arhiiv"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:179
-#: plugins/breadcrumb/src/FrontendTemplate.php:186
+#: plugins/breadcrumb/src/FrontendTemplate.php:174
+#: plugins/breadcrumb/src/FrontendTemplate.php:181
 #: plugins/simpleMenu/src/Manage.php:128 plugins/simpleMenu/src/Manage.php:302
 #: plugins/tags/src/Widgets.php:56
 msgid "All tags"
 msgstr "Kõik märgid"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:211
+#: plugins/breadcrumb/src/FrontendTemplate.php:206
 msgid "404"
 msgstr "404"
 
-#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:37
 msgid "Generate fake l10n"
 msgstr "Loo võltsitud l10n"
 
-#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:41
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:38
 msgid "fake l10n file generated."
 msgstr "loodud võltsitud l10n fail."
 
-#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:42
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:39
 msgid "Failed to generate fake l10n file."
 msgstr "Võltsitud l10n faili genereerimine ebaõnnestus."
 
-#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:43
+#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "Loo php faili, mis sisaldab stringid tõlkida, et ei ole teha core tööriistad."
 
-#: plugins/dcCKEditor/src/Backend.php:24 plugins/dcCKEditor/src/Manage.php:169
+#: plugins/dcCKEditor/src/Backend.php:25 plugins/dcCKEditor/src/Manage.php:170
 msgid "dcCKEditor"
 msgstr "dcCKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:39
-#: plugins/dcLegacyEditor/src/Backend.php:44
+#: plugins/dcCKEditor/src/Backend.php:41
+#: plugins/dcLegacyEditor/src/Backend.php:46
 msgid "HTML"
 msgstr "HTML"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:157
+#: plugins/dcCKEditor/src/BackendBehaviors.php:59
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "Media chooser"
 msgstr "Meedia valija"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:158
+#: plugins/dcCKEditor/src/BackendBehaviors.php:60
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "m"
 msgstr "m"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:161
+#: plugins/dcCKEditor/src/BackendBehaviors.php:61
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Link to an entry"
 msgstr "Link sissekandele"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:64
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:146
+#: plugins/dcCKEditor/src/BackendBehaviors.php:63
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:137
 msgid "l"
 msgstr "l"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:65
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
+#: plugins/dcCKEditor/src/BackendBehaviors.php:64
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:143
 msgid "External image"
 msgstr "Väline pilt"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:66
+#: plugins/dcCKEditor/src/BackendBehaviors.php:65
 msgid "URL field cannot be empty."
 msgstr "URL-väli ei saa olla tühi."
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:92
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:172
+#: plugins/dcCKEditor/src/BackendBehaviors.php:89
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:163
 msgid "Open the media"
 msgstr "Avage meedia"
 
-#: plugins/dcCKEditor/src/Manage.php:148
-#: plugins/dcLegacyEditor/src/Manage.php:55
+#: plugins/dcCKEditor/src/Manage.php:149
+#: plugins/dcLegacyEditor/src/Manage.php:56
 msgid "The configuration has been updated."
 msgstr "Konfiguratsiooni on ajakohastatud."
 
-#: plugins/dcCKEditor/src/Manage.php:178
-#: plugins/dcLegacyEditor/src/Manage.php:81
+#: plugins/dcCKEditor/src/Manage.php:179
+#: plugins/dcLegacyEditor/src/Manage.php:82
 msgid "Plugin activation"
 msgstr "Plugini aktiveerimine"
 
-#: plugins/dcCKEditor/src/Manage.php:184
+#: plugins/dcCKEditor/src/Manage.php:185
 msgid "Enable dcCKEditor plugin"
 msgstr "Lubage dcCKEditor plugin"
 
-#: plugins/dcCKEditor/src/Manage.php:197
+#: plugins/dcCKEditor/src/Manage.php:198
 msgid "Add alignment buttons"
 msgstr "Lisage joondusnupud"
 
-#: plugins/dcCKEditor/src/Manage.php:203
+#: plugins/dcCKEditor/src/Manage.php:204
 msgid "Add lists buttons"
 msgstr "Nimekirjade lisamise nupud"
 
-#: plugins/dcCKEditor/src/Manage.php:209
+#: plugins/dcCKEditor/src/Manage.php:210
 msgid "Add text color button"
 msgstr "Teksti värvi nupu lisamine"
 
-#: plugins/dcCKEditor/src/Manage.php:215
+#: plugins/dcCKEditor/src/Manage.php:216
 msgid "Add background text color button"
 msgstr "Lisa taustatekstivärvi nuppu"
 
-#: plugins/dcCKEditor/src/Manage.php:218
+#: plugins/dcCKEditor/src/Manage.php:219
 msgid "Custom colors list:"
 msgstr "Kohandatud värvide nimekiri:"
 
-#: plugins/dcCKEditor/src/Manage.php:232
+#: plugins/dcCKEditor/src/Manage.php:233
 msgid "Add colors without # separated by a comma."
 msgstr "Lisage värvid ilma komaga eraldatud #-värvita."
 
-#: plugins/dcCKEditor/src/Manage.php:237
+#: plugins/dcCKEditor/src/Manage.php:238
 msgid "Leave empty to use the default palette:"
 msgstr "Jäta tühjaks, et kasutada vaikimisi paletti:"
 
-#: plugins/dcCKEditor/src/Manage.php:243
+#: plugins/dcCKEditor/src/Manage.php:244
 msgid "Example of custom color list:"
 msgstr "Näide kohandatud värvide nimekirjast:"
 
-#: plugins/dcCKEditor/src/Manage.php:251
+#: plugins/dcCKEditor/src/Manage.php:252
 msgid "Colors per row in palette:"
 msgstr "Värvid paleti rea kohta:"
 
-#: plugins/dcCKEditor/src/Manage.php:255
+#: plugins/dcCKEditor/src/Manage.php:256
 msgid "Valid range: 4 to 16"
 msgstr "Kehtiv vahemik: 4 kuni 16"
 
-#: plugins/dcCKEditor/src/Manage.php:260
+#: plugins/dcCKEditor/src/Manage.php:261
 msgid "Add collapse button"
 msgstr "Lisa kokkuvarisemise nupp"
 
-#: plugins/dcCKEditor/src/Manage.php:266
+#: plugins/dcCKEditor/src/Manage.php:267
 msgid "Add format selection"
 msgstr "Lisa formaadi valik"
 
-#: plugins/dcCKEditor/src/Manage.php:269
+#: plugins/dcCKEditor/src/Manage.php:270
 msgid "Custom formats"
 msgstr "Kohandatud vormingud"
 
-#: plugins/dcCKEditor/src/Manage.php:283
+#: plugins/dcCKEditor/src/Manage.php:284
 msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
 msgstr "Vaikimisi formaadid on p;h1;h2;h3;h4;h5;h6;pre;aadress"
 
-#: plugins/dcCKEditor/src/Manage.php:289
+#: plugins/dcCKEditor/src/Manage.php:290
 msgid "Add table button"
 msgstr "Tabeli lisamise nupp"
 
-#: plugins/dcCKEditor/src/Manage.php:295
+#: plugins/dcCKEditor/src/Manage.php:296
 msgid "Add clipboard buttons"
 msgstr "Lisage lõikelaua nupud"
 
-#: plugins/dcCKEditor/src/Manage.php:299
+#: plugins/dcCKEditor/src/Manage.php:300
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Kopeerimine, kleepimine, teksti kleepimine, kleepimine Wordist"
 
-#: plugins/dcCKEditor/src/Manage.php:304
+#: plugins/dcCKEditor/src/Manage.php:305
 msgid "Add undo/redo buttons"
 msgstr "Tagasivõtmise/tagasi tegemise nuppude lisamine"
 
-#: plugins/dcCKEditor/src/Manage.php:310
+#: plugins/dcCKEditor/src/Manage.php:311
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Lülitab sisseehitatud õigekirjakontrolli välja, kui brauser seda pakub."
 
-#: plugins/dcCKEditor/src/Manage.php:320
-#: plugins/dcLegacyEditor/src/Manage.php:110
-#: plugins/simpleMenu/src/Manage.php:760
+#: plugins/dcCKEditor/src/Manage.php:321
+#: plugins/dcLegacyEditor/src/Manage.php:111
+#: plugins/simpleMenu/src/Manage.php:756
 msgid "Save configuration"
 msgstr "Konfigureerimise salvestamine"
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:193
+#: plugins/dcCKEditor/src/ManagePostConfig.php:188
 msgid "Note(s)"
 msgstr "Märkus(ed)"
 
-#: plugins/dcLegacyEditor/src/Backend.php:25
-#: plugins/dcLegacyEditor/src/Manage.php:72
+#: plugins/dcLegacyEditor/src/Backend.php:26
+#: plugins/dcLegacyEditor/src/Manage.php:73
 msgid "dcLegacyEditor"
 msgstr "dcLegacyEditor"
 
-#: plugins/dcLegacyEditor/src/Backend.php:48
+#: plugins/dcLegacyEditor/src/Backend.php:50
 msgid "Dotclear wiki"
 msgstr "Dotclear wiki"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:104
 msgid "visual"
 msgstr "visuaalne"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:105
 msgid "source"
 msgstr "allikas"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:106
 msgid "You can use the following shortcuts to format your text."
 msgstr "Teksti vormindamiseks saate kasutada järgmisi otseteid."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:109
 msgid "Block format"
 msgstr "Plokkide formaat"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:120
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:111
 msgid "-- none --"
 msgstr "-- ükski --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:121
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:112
 msgid "-- block format --"
 msgstr "-- plokkide formaat --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:113
 msgid "Paragraph"
 msgstr "Paragrahv"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:114
 msgid "Level 1 header"
 msgstr "Tase 1 pealkiri"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:115
 msgid "Level 2 header"
 msgstr "2. taseme päis"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:116
 msgid "Level 3 header"
 msgstr "3. taseme päis"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:117
 msgid "Level 4 header"
 msgstr "4. taseme päis"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:118
 msgid "Level 5 header"
 msgstr "5. taseme päis"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:128
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:119
 msgid "Level 6 header"
 msgstr "6. taseme päis"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:122
 msgid "Strong emphasis"
 msgstr "Suur rõhuasetus"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:123
 msgid "Emphasis"
 msgstr "Rõhk"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:124
 msgid "Inserted"
 msgstr "Sisestatud"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:134
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:125
 msgid "Deleted"
 msgstr "Kustutatud"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:135
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:126
 msgid "Inline quote"
 msgstr "Inline tsitaat"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:127
 msgid "Code"
 msgstr "Kood"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:129
 msgid "Line break"
 msgstr "Rida ümberlülitus"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:130
 msgid "Blockquote"
 msgstr "Blockquote"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:131
 msgid "Preformated text"
 msgstr "Eelvormitud tekst"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:132
 msgid "Unordered list"
 msgstr "Korrastamata nimekiri"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:133
 msgid "Ordered list"
 msgstr "Tellitud nimekiri"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:138
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:144
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:139
 msgid "Language?"
 msgstr "Keel?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:162
+#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Remove text formating"
 msgstr "Eemaldage teksti vormistamine"
 
-#: plugins/dcLegacyEditor/src/Manage.php:87
+#: plugins/dcLegacyEditor/src/Manage.php:88
 msgid "Enable standard editor plugin"
 msgstr "Lubage standardne redaktori plugin"
 
-#: plugins/dcLegacyEditor/src/Manage.php:100
+#: plugins/dcLegacyEditor/src/Manage.php:101
 msgid "Adjust height of input area during editing"
 msgstr "Sisendala kõrguse reguleerimine redigeerimise ajal"
 
-#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:63
+#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:54
 msgid "Checks trackback source for a link to the post"
 msgstr "Kontrollib tagasiside allikat, et leida link postitusele"
 
-#: plugins/fairTrackbacks/src/Prepend.php:25
+#: plugins/fairTrackbacks/src/Prepend.php:26
 msgid "Fair Trackbacks"
 msgstr "Õiglane Trackbacks"
 
-#: plugins/importExport/src/Backend.php:26
+#: plugins/importExport/src/Backend.php:27
 msgid "Import / Export"
 msgstr "Import / eksport"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:42
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:41
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:43
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:42
 msgid "Database export"
 msgstr "Andmebaasi eksport"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:43
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:44
 msgid "Download database of current blog"
 msgstr "Praeguse blogi andmebaasi allalaadimine"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:104
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:103
+#: plugins/importExport/src/ExportBlogMaintenanceTask.php:108
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:107
 msgid "Compress file"
 msgstr "Faili tihendamine"
 
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:42
+#: plugins/importExport/src/ExportFullMaintenanceTask.php:43
 msgid "Download database of all blogs"
 msgstr "Lae alla kõigi blogide andmebaas"
 
@@ -1623,33 +1623,33 @@ msgstr "Lae alla kõigi blogide andmebaas"
 msgid "No file to read."
 msgstr "Ei ole faili, mida lugeda."
 
-#: plugins/importExport/src/FlatExport.php:47
+#: plugins/importExport/src/FlatExport.php:48
 msgid "Unable to create output file."
 msgstr "Väljundfaili ei ole võimalik luua."
 
-#: plugins/importExport/src/FlatImportV2.php:96
+#: plugins/importExport/src/FlatImportV2.php:97
 msgid "Unable to read the DotClear backup file."
 msgstr "DotCleari varundust ei ole võimalik lugeda."
 
-#: plugins/importExport/src/FlatImportV2.php:100
+#: plugins/importExport/src/FlatImportV2.php:101
 msgid "File is not a DotClear backup."
 msgstr "Fail ei ole DotClear varukoopia."
 
-#: plugins/importExport/src/FlatImportV2.php:176
+#: plugins/importExport/src/FlatImportV2.php:177
 msgid "File is not a single blog export."
 msgstr "Fail ei ole üks blogi eksport."
 
-#: plugins/importExport/src/FlatImportV2.php:290
-#: plugins/importExport/src/FlatImportV2.php:344
+#: plugins/importExport/src/FlatImportV2.php:291
+#: plugins/importExport/src/FlatImportV2.php:345
 #, php-format
 msgid "Error raised at line %s"
 msgstr "Rida %stõstatatud viga"
 
-#: plugins/importExport/src/FlatImportV2.php:299
+#: plugins/importExport/src/FlatImportV2.php:300
 msgid "File is not a full export."
 msgstr "Fail ei ole täielik eksport."
 
-#: plugins/importExport/src/FlatImportV2.php:755
+#: plugins/importExport/src/FlatImportV2.php:756
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID \"%3$s\" ei vasta kirje \"%1$s\" reale %2$s varundusfailis."
@@ -1669,40 +1669,40 @@ msgid "Export functions are in the page %s."
 msgstr "Ekspordifunktsioonid on lehel %s."
 
 #: plugins/importExport/src/Manage.php:144
-#: plugins/maintenance/src/Backend.php:24
-#: plugins/maintenance/src/BackendBehaviors.php:190
+#: plugins/maintenance/src/Backend.php:25
+#: plugins/maintenance/src/BackendBehaviors.php:188
 msgid "Maintenance"
 msgstr "Hooldus"
 
-#: plugins/importExport/src/Module.php:177
+#: plugins/importExport/src/Module.php:156
 msgid "Congratulation!"
 msgstr "Palju õnne!"
 
-#: plugins/importExport/src/Module.php:181
+#: plugins/importExport/src/Module.php:160
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
 msgstr "Teie blogi on edukalt imporditud. Tere tulemast Dotclear 2-sse!"
 
-#: plugins/importExport/src/Module.php:188
+#: plugins/importExport/src/Module.php:167
 msgid "Why don't you blog this now?"
 msgstr "Miks sa seda nüüd blogi ei kirjuta?"
 
-#: plugins/importExport/src/Module.php:196
+#: plugins/importExport/src/Module.php:175
 msgid "visit your dashboard"
 msgstr "külastage oma armatuurlauda"
 
-#: plugins/importExport/src/ModuleExportFlat.php:27
+#: plugins/importExport/src/ModuleExportFlat.php:28
 msgid "Flat file export"
 msgstr "Lühifaili eksport"
 
-#: plugins/importExport/src/ModuleExportFlat.php:28
+#: plugins/importExport/src/ModuleExportFlat.php:29
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Ekspordib blogi või täieliku Dotcleari paigalduse lamefaili."
 
-#: plugins/importExport/src/ModuleExportFlat.php:153
+#: plugins/importExport/src/ModuleExportFlat.php:154
 msgid "Export file not found."
 msgstr "Ekspordifaili ei leitud."
 
-#: plugins/importExport/src/ModuleExportFlat.php:192
+#: plugins/importExport/src/ModuleExportFlat.php:193
 msgid "Failed to compress export file."
 msgstr "Ekspordifaili pakkimine ebaõnnestus."
 
@@ -1788,114 +1788,114 @@ msgstr "Iga äsja imporditud kasutaja on saanud juhusliku salasõna ja peab küs
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Pange tähele, et Dotclear 2-l on uus URL-i paigutus. Saate vältida katkiseid linke, kui paigaldate <a href=\"%s\">DC1 redirect</a> plugin ja aktiveerite selle oma blogi konfiguratsioonis."
 
-#: plugins/importExport/src/ModuleImportDc1.php:351
-#: plugins/importExport/src/ModuleImportWp.php:430
+#: plugins/importExport/src/ModuleImportDc1.php:349
+#: plugins/importExport/src/ModuleImportWp.php:428
 msgid "next step"
 msgstr "järgmine samm"
 
-#: plugins/importExport/src/ModuleImportDc1.php:369
-#: plugins/importExport/src/ModuleImportWp.php:448
+#: plugins/importExport/src/ModuleImportDc1.php:367
+#: plugins/importExport/src/ModuleImportWp.php:446
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Sõltuvalt teie blogi suurusest võib see võtta paar minutit."
 
-#: plugins/importExport/src/ModuleImportDc1.php:397
+#: plugins/importExport/src/ModuleImportDc1.php:395
 msgid "Dotclear tables not found"
 msgstr "Dotcleari tabeleid ei leitud"
 
-#: plugins/importExport/src/ModuleImportFeed.php:127
+#: plugins/importExport/src/ModuleImportFeed.php:126
 msgid "RSS or Atom feed import"
 msgstr "RSS- või Atom-voo importimine"
 
-#: plugins/importExport/src/ModuleImportFeed.php:128
+#: plugins/importExport/src/ModuleImportFeed.php:127
 msgid "Add a feed content to the blog."
 msgstr "Lisage blogile sööda sisu."
 
-#: plugins/importExport/src/ModuleImportFeed.php:150
-#: plugins/importExport/src/ModuleImportFeed.php:156
-#: plugins/importExport/src/ModuleImportFeed.php:165
-#: plugins/importExport/src/ModuleImportFeed.php:170
-#: plugins/importExport/src/ModuleImportFeed.php:176
-#: plugins/importExport/src/ModuleImportFeed.php:183
+#: plugins/importExport/src/ModuleImportFeed.php:149
+#: plugins/importExport/src/ModuleImportFeed.php:155
+#: plugins/importExport/src/ModuleImportFeed.php:164
+#: plugins/importExport/src/ModuleImportFeed.php:168
+#: plugins/importExport/src/ModuleImportFeed.php:172
+#: plugins/importExport/src/ModuleImportFeed.php:178
 msgid "Cannot retrieve feed URL."
 msgstr "Sööda URL-i ei saa kätte."
 
-#: plugins/importExport/src/ModuleImportFeed.php:186
+#: plugins/importExport/src/ModuleImportFeed.php:181
 msgid "No items in feed."
 msgstr "Söödas ei ole esemeid."
 
-#: plugins/importExport/src/ModuleImportFeed.php:220
-#: plugins/importExport/src/ModuleImportFlat.php:189
+#: plugins/importExport/src/ModuleImportFeed.php:215
+#: plugins/importExport/src/ModuleImportFlat.php:190
 msgid "Content successfully imported."
 msgstr "Sisu edukalt imporditud."
 
-#: plugins/importExport/src/ModuleImportFeed.php:229
+#: plugins/importExport/src/ModuleImportFeed.php:224
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Lisage praegusele blogile sööda sisu: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFeed.php:237
-#: plugins/widgets/src/Widgets.php:144
+#: plugins/importExport/src/ModuleImportFeed.php:232
+#: plugins/widgets/src/Widgets.php:143
 msgid "Feed URL:"
 msgstr "Sööda URL:"
 
-#: plugins/importExport/src/ModuleImportFlat.php:51
+#: plugins/importExport/src/ModuleImportFlat.php:52
 msgid "Flat file import"
 msgstr "Korterfaili import"
 
-#: plugins/importExport/src/ModuleImportFlat.php:52
+#: plugins/importExport/src/ModuleImportFlat.php:53
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Impordib blogi või täieliku Dotcleari paigalduse lamefailist."
 
-#: plugins/importExport/src/ModuleImportFlat.php:184
+#: plugins/importExport/src/ModuleImportFlat.php:185
 msgid "Single blog successfully imported."
 msgstr "Üks blogi edukalt imporditud."
 
-#: plugins/importExport/src/ModuleImportFlat.php:200
+#: plugins/importExport/src/ModuleImportFlat.php:201
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Kas olete kindel, et soovite importida täieliku varukoopia faili?"
 
-#: plugins/importExport/src/ModuleImportFlat.php:210
+#: plugins/importExport/src/ModuleImportFlat.php:211
 msgid "Single blog"
 msgstr "Ühtne blogi"
 
-#: plugins/importExport/src/ModuleImportFlat.php:215
+#: plugins/importExport/src/ModuleImportFlat.php:216
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "See impordib ühe blogi varukoopia uue sisuna praegusesse blogisse: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFlat.php:222
-#: plugins/importExport/src/ModuleImportFlat.php:269
+#: plugins/importExport/src/ModuleImportFlat.php:223
+#: plugins/importExport/src/ModuleImportFlat.php:270
 msgid "Upload a backup file"
 msgstr "Laadige üles varukoopia fail"
 
-#: plugins/importExport/src/ModuleImportFlat.php:223
-#: plugins/importExport/src/ModuleImportFlat.php:270
+#: plugins/importExport/src/ModuleImportFlat.php:224
+#: plugins/importExport/src/ModuleImportFlat.php:271
 #, php-format
 msgid "maximum size %s"
 msgstr "maksimaalne suurus %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:235
-#: plugins/importExport/src/ModuleImportFlat.php:282
+#: plugins/importExport/src/ModuleImportFlat.php:236
+#: plugins/importExport/src/ModuleImportFlat.php:283
 msgid "or pick up a local file in your public directory"
 msgstr "või võta kohalik fail oma avalikus kataloogis üles"
 
-#: plugins/importExport/src/ModuleImportFlat.php:257
+#: plugins/importExport/src/ModuleImportFlat.php:258
 msgid "Multiple blogs"
 msgstr "Mitu blogi"
 
-#: plugins/importExport/src/ModuleImportFlat.php:264
+#: plugins/importExport/src/ModuleImportFlat.php:265
 msgid "This will reset all the content of your database, except users."
 msgstr "See nullib kogu andmebaasi sisu, välja arvatud kasutajad."
 
-#: plugins/importExport/src/ModuleImportFlat.php:399
+#: plugins/importExport/src/ModuleImportFlat.php:396
 msgid "Another file with same name exists."
 msgstr "Teine sama nimega fail on olemas."
 
-#: plugins/importExport/src/ModuleImportFlat.php:407
+#: plugins/importExport/src/ModuleImportFlat.php:404
 msgid "Failed to extract backup file."
 msgstr "Varukoopia faili väljavõtmine ebaõnnestus."
 
-#: plugins/importExport/src/ModuleImportFlat.php:419
+#: plugins/importExport/src/ModuleImportFlat.php:416
 msgid "No backup in compressed file."
 msgstr "Pakitud failis ei ole varukoopiaid."
 
@@ -1956,7 +1956,7 @@ msgstr "Postituse sisu vormindaja:"
 msgid "Comment content formatter:"
 msgstr "Kommentaaride sisu vormindaja:"
 
-#: plugins/importExport/src/ModuleImportWp.php:476
+#: plugins/importExport/src/ModuleImportWp.php:474
 msgid "WordPress tables not found"
 msgstr "WordPressi tabeleid ei leitud"
 
@@ -2013,48 +2013,48 @@ msgid "Translations"
 msgstr "Tõlked"
 
 #: plugins/maintenance/src/BackendBehaviors.php:136
-#: plugins/maintenance/src/Rest.php:75
+#: plugins/maintenance/src/Rest.php:76
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] "Üks ülesanne, mida tuleb täita"
 msgstr[1] "%s täidetavad ülesanded"
 
-#: plugins/maintenance/src/BackendBehaviors.php:172
+#: plugins/maintenance/src/BackendBehaviors.php:170
 #: plugins/maintenance/src/Manage.php:292
 msgid "This task has never been executed."
 msgstr "Seda ülesannet ei ole kunagi täidetud."
 
-#: plugins/maintenance/src/BackendBehaviors.php:175
+#: plugins/maintenance/src/BackendBehaviors.php:173
 #: plugins/maintenance/src/Manage.php:295
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "Viimati täideti seda ülesannet aadressil %s."
 
-#: plugins/maintenance/src/BackendBehaviors.php:193
+#: plugins/maintenance/src/BackendBehaviors.php:191
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "On olemas ülesanne, mida tuleb täita."
 msgstr[1] "On olemas %s ülesanded, mida tuleb täita."
 
-#: plugins/maintenance/src/BackendBehaviors.php:200
+#: plugins/maintenance/src/BackendBehaviors.php:198
 msgid "Manage tasks"
 msgstr "Ülesannete haldamine"
 
-#: plugins/maintenance/src/BackendBehaviors.php:222
+#: plugins/maintenance/src/BackendBehaviors.php:220
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Näita viivisülesannete loendurit hoolduse armatuurlaual ikoonil"
 
-#: plugins/maintenance/src/BackendBehaviors.php:228
+#: plugins/maintenance/src/BackendBehaviors.php:226
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Näita armatuurlaual üle tähtaja ületanud ülesannete nimekirja elementide kohta"
 
-#: plugins/maintenance/src/MaintenanceTask.php:155
+#: plugins/maintenance/src/MaintenanceTask.php:130
 msgid "Failed to execute task."
 msgstr "Ülesande täitmine ebaõnnestus."
 
-#: plugins/maintenance/src/MaintenanceTask.php:158
+#: plugins/maintenance/src/MaintenanceTask.php:133
 msgid "Task successfully executed."
 msgstr "Ülesanne edukalt täidetud."
 
@@ -2162,218 +2162,234 @@ msgstr "Sisu-turvalisuse poliitika aruande lubamine ainult vaikimisi"
 msgid "Also apply these settings to all blogs"
 msgstr "Rakendage neid seadeid ka kõigile blogidele"
 
-#: plugins/maintenance/src/Task/CSP.php:41
+#: plugins/maintenance/src/Task/CSP.php:38
 msgid "Delete the Content-Security-Policy report file"
 msgstr "Kustutage faili Content-Security-Policy Report (Sisu-turvalisuse poliitika)"
 
-#: plugins/maintenance/src/Task/CSP.php:42
+#: plugins/maintenance/src/Task/CSP.php:39
 msgid "Content-Security-Policy report file has been deleted."
 msgstr "Content-Security-Policy aruande fail on kustutatud."
 
-#: plugins/maintenance/src/Task/CSP.php:43
+#: plugins/maintenance/src/Task/CSP.php:40
 msgid "Failed to delete the Content-Security-Policy report file."
 msgstr "Content-Security-Policy aruande faili kustutamine ebaõnnestus."
 
-#: plugins/maintenance/src/Task/CSP.php:45
+#: plugins/maintenance/src/Task/CSP.php:42
 msgid "Remove the Content-Security-Policy report file."
 msgstr "Eemaldage Content-Security-Policy aruande fail."
 
-#: plugins/maintenance/src/Task/Cache.php:43
+#: plugins/maintenance/src/Task/Cache.php:40
 msgid "Failed to empty templates cache directory."
 msgstr "Ebaõnnestus mallide vahemälu kataloogi tühjendamine."
 
-#: plugins/maintenance/src/Task/Cache.php:45
+#: plugins/maintenance/src/Task/Cache.php:42
 #, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "Selle vahemälu tühjendamine võib olla kasulik teema .html- või .css-failide muutmisel (või teema või pluginate uuendamisel). Märkus : mõnede veebimajutajate puhul ei saa selle pluginaga mallide vahemälu tühjendada. Te peate siis võib-olla kustutama kataloogi <strong>%s</strong> otse serveris oma FTP-tarkvara abil."
 
-#: plugins/maintenance/src/Task/CountComments.php:42
+#: plugins/maintenance/src/Task/CountComments.php:39
 msgid "Count again comments and trackbacks"
 msgstr "Loe uuesti kommentaare ja tagasisideid"
 
-#: plugins/maintenance/src/Task/CountComments.php:43
+#: plugins/maintenance/src/Task/CountComments.php:40
 msgid "Comments and trackback counted."
 msgstr "Kommentaarid ja tagasiside loetud."
 
-#: plugins/maintenance/src/Task/CountComments.php:44
+#: plugins/maintenance/src/Task/CountComments.php:41
 msgid "Failed to count comments and trackbacks."
 msgstr "Ebaõnnestus kommentaaride ja tagasiside lugemine."
 
-#: plugins/maintenance/src/Task/CountComments.php:46
+#: plugins/maintenance/src/Task/CountComments.php:43
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Lugege uuesti kommentaare ja tagasisideid võimaldab kontrollida nende täpseid numbreid. See toiming võib olla kasulik importimisel teisest blogiplatvormist (või üleminekul dotclear 1-st dotclear 2-sse)."
 
-#: plugins/maintenance/src/Task/IndexComments.php:63
-#: plugins/maintenance/src/Task/IndexPosts.php:63
+#: plugins/maintenance/src/Task/IndexComments.php:55
+#: plugins/maintenance/src/Task/IndexPosts.php:55
 msgid "Search engine index"
 msgstr "Otsingumootori indeks"
 
-#: plugins/maintenance/src/Task/IndexComments.php:64
+#: plugins/maintenance/src/Task/IndexComments.php:56
 msgid "Index all comments for search engine"
 msgstr "Indekseeri kõik kommentaarid otsingumootori jaoks"
 
-#: plugins/maintenance/src/Task/IndexComments.php:65
-#: plugins/maintenance/src/Task/IndexPosts.php:65
-#: plugins/maintenance/src/Task/SynchPostMeta.php:65
+#: plugins/maintenance/src/Task/IndexComments.php:57
+#: plugins/maintenance/src/Task/IndexPosts.php:57
+#: plugins/maintenance/src/Task/SynchPostMeta.php:57
 msgid "Next"
 msgstr "Järgmine"
 
-#: plugins/maintenance/src/Task/IndexComments.php:66
+#: plugins/maintenance/src/Task/IndexComments.php:58
 #, php-format
 msgid "Indexing comment %d to %d."
 msgstr "Indekseerimiskommentaar %d aadressil %d."
 
-#: plugins/maintenance/src/Task/IndexComments.php:67
+#: plugins/maintenance/src/Task/IndexComments.php:59
 msgid "Comments index done."
 msgstr "Kommentaarid indeks tehtud."
 
-#: plugins/maintenance/src/Task/IndexComments.php:68
+#: plugins/maintenance/src/Task/IndexComments.php:60
 msgid "Failed to index comments."
 msgstr "Kommentaaride indekseerimine ebaõnnestus."
 
-#: plugins/maintenance/src/Task/IndexComments.php:70
+#: plugins/maintenance/src/Task/IndexComments.php:62
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indekseeri kõik kommentaarid ja tagasiside otsingumootori indeksis. See toiming on vajalik pärast sisu importimist teie blogi, et kasutada sisemist otsingumootorit, avalikel ja privaatsetel lehekülgedel."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:64
+#: plugins/maintenance/src/Task/IndexPosts.php:56
 msgid "Index all entries for search engine"
 msgstr "Indekseeri kõik kirjed otsingumootori jaoks"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:66
+#: plugins/maintenance/src/Task/IndexPosts.php:58
 #, php-format
 msgid "Indexing entry %d to %d."
 msgstr "Indekseerimiskanne %d kuni %d."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:67
+#: plugins/maintenance/src/Task/IndexPosts.php:59
 msgid "Entries index done."
 msgstr "Kirjete indeks valmis."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:68
+#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Failed to index entries."
 msgstr "Kirjete indekseerimine ebaõnnestus."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:70
+#: plugins/maintenance/src/Task/IndexPosts.php:62
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indekseeri kõik kirjed otsingumootori indeksis. See toiming on vajalik pärast sisu importimist teie blogi, et kasutada sisemist otsingumootorit, avalikel ja privaatsetel lehekülgedel."
 
-#: plugins/maintenance/src/Task/Logs.php:48
+#: plugins/maintenance/src/Task/Logs.php:43
 msgid "Delete all logs"
 msgstr "Kustuta kõik logid"
 
-#: plugins/maintenance/src/Task/Logs.php:49
+#: plugins/maintenance/src/Task/Logs.php:44
 msgid "Logs deleted."
 msgstr "Logid kustutatud."
 
-#: plugins/maintenance/src/Task/Logs.php:50
+#: plugins/maintenance/src/Task/Logs.php:45
 msgid "Failed to delete logs."
 msgstr "Logide kustutamine ebaõnnestus."
 
-#: plugins/maintenance/src/Task/Logs.php:52
+#: plugins/maintenance/src/Task/Logs.php:47
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "Logid salvestavad kogu tegevuse ja ühenduse oma blogi ajalooga. Kui teil ei ole vaja seda ajalugu säilitada, kaaluge aeg-ajalt nende logide kustutamist."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:63
+#: plugins/maintenance/src/Task/SynchPostMeta.php:55
 msgid "Entries metadata"
 msgstr "Kirjed metaandmed"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:64
+#: plugins/maintenance/src/Task/SynchPostMeta.php:56
 msgid "Synchronize entries metadata"
 msgstr "Kirjete metaandmete sünkroniseerimine"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:66
+#: plugins/maintenance/src/Task/SynchPostMeta.php:58
 #, php-format
 msgid "Synchronize entry %d to %d."
 msgstr "Sünkroniseeri kanne %d aadressile %d."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:67
+#: plugins/maintenance/src/Task/SynchPostMeta.php:59
 msgid "Entries metadata synchronize done."
 msgstr "Kirjed metaandmete sünkroniseerimine tehtud."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:68
+#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Failed to synchronize entries metadata."
 msgstr "Kirjete metaandmete sünkroniseerimine ebaõnnestus."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:70
+#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "Sünkroniseerida kõik kirjed metaandmed võiks olla kasulik pärast importiva sisu oma blogi või teha halb operatsiooni andmebaasi tabelid."
 
-#: plugins/maintenance/src/Task/Vacuum.php:40
+#: plugins/maintenance/src/Task/Vacuum.php:37
 msgid "Optimise database"
 msgstr "Andmebaasi optimeerimine"
 
-#: plugins/maintenance/src/Task/Vacuum.php:41
+#: plugins/maintenance/src/Task/Vacuum.php:38
 msgid "optimize tables"
 msgstr "tabelite optimeerimine"
 
-#: plugins/maintenance/src/Task/Vacuum.php:42
+#: plugins/maintenance/src/Task/Vacuum.php:39
 msgid "Optimization successful."
 msgstr "Optimeerimine edukas."
 
-#: plugins/maintenance/src/Task/Vacuum.php:43
+#: plugins/maintenance/src/Task/Vacuum.php:40
 msgid "Failed to optimize tables."
 msgstr "Tabelite optimeerimine ebaõnnestus."
 
-#: plugins/maintenance/src/Task/Vacuum.php:45
+#: plugins/maintenance/src/Task/Vacuum.php:42
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
 msgstr "Pärast arvukaid kustutus- või uuendamisoperatsioone Dotcleari andmebaasis muutub see killustatuks. Optimeerimine võimaldab seda defragmenteerida. See ei mõjuta teie andmete terviklikkust. Soovitatav on optimeerida enne blogi eksportimist."
 
-#: plugins/maintenance/src/Task/ZipMedia.php:62
+#: plugins/maintenance/src/Task/ZipMedia.php:53
 msgid "Download media folder of current blog"
 msgstr "Praeguse blogi meediakausta allalaadimine"
 
-#: plugins/maintenance/src/Task/ZipMedia.php:64
+#: plugins/maintenance/src/Task/ZipMedia.php:55
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
 msgstr "Võib olla kasulik varundada oma meediakausta. See pakib kogu meediakausta sisu ühte zip-faili. Märkus : Mõne hosteri puhul ei saa meediakausta selle pluginaga kokku suruda, kui see on liiga suur."
 
-#: plugins/maintenance/src/Task/ZipTheme.php:63
+#: plugins/maintenance/src/Task/ZipTheme.php:54
 msgid "Download active theme of current blog"
 msgstr "Praeguse blogi aktiivse teema allalaadimine"
 
-#: plugins/maintenance/src/Task/ZipTheme.php:65
+#: plugins/maintenance/src/Task/ZipTheme.php:56
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Enne mis tahes muudatuste või uuenduste tegemist võib olla kasulik teha varukoopia aktiivsest teemast. See tihendab teema kausta ühte zip-faili."
 
-#: plugins/pages/src/Backend.php:38
+#: plugins/pages/src/Backend.php:40
 msgid "manage pages"
 msgstr "hallata lehekülgi"
 
-#: plugins/pages/src/Backend.php:85
+#: plugins/pages/src/Backend.php:91
 #, php-format
 msgid "%d page"
 msgstr "%d lehekülg"
 
-#: plugins/pages/src/Backend.php:85
+#: plugins/pages/src/Backend.php:91
 #, php-format
 msgid "%d pages"
 msgstr "%d leheküljed"
 
-#: plugins/pages/src/Backend.php:92 plugins/pages/src/Manage.php:147
-#: plugins/pages/src/ManagePage.php:105 plugins/pages/src/ManagePage.php:839
+#: plugins/pages/src/Backend.php:98 plugins/pages/src/Manage.php:148
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:841
 msgid "New page"
 msgstr "Uus lehekülg"
 
-#: plugins/pages/src/BackendActions.php:55
+#: plugins/pages/src/BackendActions.php:54
 msgid "Pages actions"
 msgstr "Lehekülgede tegevused"
 
-#: plugins/pages/src/BackendActions.php:77
+#: plugins/pages/src/BackendActions.php:76
 msgid "Back to pages list"
 msgstr "Tagasi lehekülgede nimekirja"
 
+#: plugins/pages/src/BackendDefaultActions.php:38
+msgid "Publish"
+msgstr "Avalda"
+
+#: plugins/pages/src/BackendDefaultActions.php:39
+msgid "Unpublish"
+msgstr "Avalda"
+
+#: plugins/pages/src/BackendDefaultActions.php:40
+msgid "Schedule"
+msgstr "Ajakava"
+
+#: plugins/pages/src/BackendDefaultActions.php:41
+msgid "Mark as pending"
+msgstr "Märgista kui menetluses olev"
+
 #: plugins/pages/src/BackendDefaultActions.php:123
-#: plugins/pages/src/Manage.php:138
+#: plugins/pages/src/Manage.php:139
 msgid "Selected pages have been successfully reordered."
 msgstr "Valitud leheküljed on edukalt ümber järjestatud."
 
-#: plugins/pages/src/BackendList.php:50
+#: plugins/pages/src/BackendList.php:51
 msgid "No page"
 msgstr "Ei ole lehekülge"
 
-#: plugins/pages/src/BackendList.php:165 plugins/pages/src/BackendList.php:227
+#: plugins/pages/src/BackendList.php:166 plugins/pages/src/BackendList.php:226
 msgid "Hidden"
 msgstr "Peidetud"
 
-#: plugins/pages/src/BackendList.php:257
+#: plugins/pages/src/BackendList.php:256
 msgid "Select this page"
 msgstr "Valige see lehekülg"
 
@@ -2385,96 +2401,96 @@ msgstr "Avaldatud aadressil"
 msgid "This page's comments feed"
 msgstr "Selle lehekülje kommentaaride voog"
 
-#: plugins/pages/src/Install.php:48
+#: plugins/pages/src/Install.php:49
 msgid "My first page"
 msgstr "Minu esimene lehekülg"
 
-#: plugins/pages/src/Install.php:49
+#: plugins/pages/src/Install.php:50
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "See on teie esimene lehekülg. Kui olete valmis blogi pidama, logige sisse, et seda muuta või kustutada."
 
-#: plugins/pages/src/Manage.php:120
+#: plugins/pages/src/Manage.php:121
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Kas olete kindel, et soovite valitud lehekülgi kustutada?"
 
-#: plugins/pages/src/Manage.php:134
+#: plugins/pages/src/Manage.php:135
 msgid "Selected pages have been successfully updated."
 msgstr "Valitud leheküljed on edukalt uuendatud."
 
-#: plugins/pages/src/Manage.php:136
+#: plugins/pages/src/Manage.php:137
 msgid "Selected pages have been successfully deleted."
 msgstr "Valitud leheküljed on edukalt kustutatud."
 
-#: plugins/pages/src/Manage.php:170
+#: plugins/pages/src/Manage.php:171
 msgid "Selected pages action:"
 msgstr "Valitud lehekülgede tegevus:"
 
-#: plugins/pages/src/Manage.php:176
+#: plugins/pages/src/Manage.php:177
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "Lehekülgede järjekorra muutmiseks muutke numbrit rea alguses, seejärel klõpsake nuppu \"Save pages order\"."
 
-#: plugins/pages/src/Manage.php:179
+#: plugins/pages/src/Manage.php:180
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "Lehekülgede järjekorra muutmiseks liigutage elemente lohistades ja seejärel klõpsake nuppu \"Save pages order\" (Salvesta lehekülgede järjekord)."
 
-#: plugins/pages/src/Manage.php:186
+#: plugins/pages/src/Manage.php:187
 msgid "Save pages order"
 msgstr "Salvesta lehekülgede tellimus"
 
-#: plugins/pages/src/ManagePage.php:162
+#: plugins/pages/src/ManagePage.php:164
 msgid "This page does not exist."
 msgstr "Seda lehekülge ei ole olemas."
 
-#: plugins/pages/src/ManagePage.php:183 plugins/pages/src/ManagePage.php:839
-#: plugins/pages/src/ManagePage.php:860
+#: plugins/pages/src/ManagePage.php:185 plugins/pages/src/ManagePage.php:841
+#: plugins/pages/src/ManagePage.php:862
 msgid "Edit page"
 msgstr "Lehekülje muutmine"
 
-#: plugins/pages/src/ManagePage.php:463
+#: plugins/pages/src/ManagePage.php:465
 msgid "Are you sure you want to delete this page?"
 msgstr "Kas olete kindel, et soovite selle lehekülje kustutada?"
 
-#: plugins/pages/src/ManagePage.php:503
+#: plugins/pages/src/ManagePage.php:505
 msgid "Page has been successfully updated."
 msgstr "Leht on edukalt uuendatud."
 
-#: plugins/pages/src/ManagePage.php:505
+#: plugins/pages/src/ManagePage.php:507
 msgid "Page has been successfully created."
 msgstr "Lehekülg on edukalt loodud."
 
-#: plugins/pages/src/ManagePage.php:518
+#: plugins/pages/src/ManagePage.php:520
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Ärge unustage oma HTML-konversiooni kinnitamist, salvestades oma postituse."
 
-#: plugins/pages/src/ManagePage.php:528
+#: plugins/pages/src/ManagePage.php:530
 msgid "Go to this page on the site"
 msgstr "Mine sellele leheküljele saidil"
 
-#: plugins/pages/src/ManagePage.php:570
+#: plugins/pages/src/ManagePage.php:572
 msgid "Page status"
 msgstr "Lehekülje staatus"
 
-#: plugins/pages/src/ManagePage.php:586
+#: plugins/pages/src/ManagePage.php:588
 msgid "Page language"
 msgstr "Lehekülje keel"
 
-#: plugins/pages/src/ManagePage.php:613 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:615 plugins/pages/src/Widgets.php:40
 msgid "Page position"
 msgstr "Lehekülje asend"
 
-#: plugins/pages/src/ManagePage.php:664
+#: plugins/pages/src/ManagePage.php:666
 msgid "Hide in widget Pages"
 msgstr "Peida vidinaid lehekülgedel"
 
-#: plugins/pages/src/ManagePage.php:688
+#: plugins/pages/src/ManagePage.php:690
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Hoiatus: Kui määrate URL-i käsitsi, võib see sattuda konflikti mõne teise lehega."
 
-#: plugins/pages/src/ManagePage.php:727
+#: plugins/pages/src/ManagePage.php:729
 msgid "Introduction to the page."
 msgstr "Sissejuhatus leheküljele."
 
-#: plugins/pages/src/ManagePage.php:1145
+#: plugins/pages/src/ManagePage.php:1143
 msgid "Select this comment"
 msgstr "Valige see kommentaar"
 
@@ -2486,7 +2502,7 @@ msgstr "Lehekülje pealkiri"
 msgid "Publication date"
 msgstr "Avaldamise kuupäev"
 
-#: plugins/pings/src/Backend.php:26 plugins/pings/src/BackendBehaviors.php:67
+#: plugins/pings/src/Backend.php:27 plugins/pings/src/BackendBehaviors.php:64
 msgid "Pings"
 msgstr "Pings"
 
@@ -2522,16 +2538,16 @@ msgstr "Automaatne pings kõik teenused esimese avaldamise kanne (ainult praegun
 msgid "Test ping services"
 msgstr "Testi pingi teenused"
 
-#: plugins/simpleMenu/src/Backend.php:25 plugins/simpleMenu/src/Manage.php:71
+#: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:71
 #: plugins/simpleMenu/src/Widgets.php:28
 msgid "Simple menu"
 msgstr "Lihtne menüü"
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:170
+#: plugins/simpleMenu/src/FrontendTemplate.php:164
 msgid "Active page"
 msgstr "Aktiivne lehekülg"
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:170
+#: plugins/simpleMenu/src/FrontendTemplate.php:164
 msgid "active page"
 msgstr "aktiivne lehekülg"
 
@@ -2547,7 +2563,7 @@ msgstr "Arhiiv"
 msgid "Page"
 msgstr "Lehekülg"
 
-#: plugins/simpleMenu/src/Manage.php:163 plugins/tags/src/Backend.php:24
+#: plugins/simpleMenu/src/Manage.php:163 plugins/tags/src/Backend.php:25
 #: plugins/tags/src/Widgets.php:32
 msgid "Tags"
 msgstr "Sildid"
@@ -2560,8 +2576,8 @@ msgstr "Kasutaja määratletud"
 msgid "Configuration successfully updated."
 msgstr "Konfiguratsioon on edukalt uuendatud."
 
-#: plugins/simpleMenu/src/Manage.php:250 plugins/simpleMenu/src/Manage.php:676
-#: plugins/simpleMenu/src/Manage.php:796
+#: plugins/simpleMenu/src/Manage.php:250 plugins/simpleMenu/src/Manage.php:672
+#: plugins/simpleMenu/src/Manage.php:792
 msgid "Label"
 msgstr "Silt"
 
@@ -2570,7 +2586,7 @@ msgid "Home page"
 msgstr "Koduleht"
 
 #: plugins/simpleMenu/src/Manage.php:256 plugins/simpleMenu/src/Manage.php:261
-#: plugins/widgets/src/Widgets.php:275 plugins/widgets/src/Widgets.php:282
+#: plugins/widgets/src/Widgets.php:270 plugins/widgets/src/Widgets.php:275
 msgid "Recent posts"
 msgstr "Viimased postitused"
 
@@ -2629,91 +2645,91 @@ msgstr "Kas olete kindel, et soovite valitud menüüpunktid eemaldada?"
 msgid "Step #1"
 msgstr "Samm nr 1"
 
-#: plugins/simpleMenu/src/Manage.php:511 plugins/simpleMenu/src/Manage.php:519
+#: plugins/simpleMenu/src/Manage.php:511 plugins/simpleMenu/src/Manage.php:516
 msgid "Step #2"
 msgstr "Etapp #2"
 
-#: plugins/simpleMenu/src/Manage.php:517
+#: plugins/simpleMenu/src/Manage.php:516
 msgid "Step #3"
 msgstr "Etapp nr 3"
 
-#: plugins/simpleMenu/src/Manage.php:529
+#: plugins/simpleMenu/src/Manage.php:525
 msgid "Add item"
 msgstr "Lisa toode"
 
-#: plugins/simpleMenu/src/Manage.php:560
+#: plugins/simpleMenu/src/Manage.php:556
 msgid "Select type"
 msgstr "Valige tüüp"
 
-#: plugins/simpleMenu/src/Manage.php:567
+#: plugins/simpleMenu/src/Manage.php:563
 msgid "Type of item menu:"
 msgstr "Elementide menüü tüüp:"
 
-#: plugins/simpleMenu/src/Manage.php:573 plugins/simpleMenu/src/Manage.php:640
+#: plugins/simpleMenu/src/Manage.php:569 plugins/simpleMenu/src/Manage.php:636
 msgid "Continue..."
 msgstr "Jätka..."
 
-#: plugins/simpleMenu/src/Manage.php:596
+#: plugins/simpleMenu/src/Manage.php:592
 msgid "Select language:"
 msgstr "Valige keel:"
 
-#: plugins/simpleMenu/src/Manage.php:602
+#: plugins/simpleMenu/src/Manage.php:598
 msgid "Select category:"
 msgstr "Valige kategooria:"
 
-#: plugins/simpleMenu/src/Manage.php:608
+#: plugins/simpleMenu/src/Manage.php:604
 msgid "Select month (if necessary):"
 msgstr "Valige kuu (vajaduse korral):"
 
-#: plugins/simpleMenu/src/Manage.php:614
+#: plugins/simpleMenu/src/Manage.php:610
 msgid "Select page:"
 msgstr "Valige lehekülg:"
 
-#: plugins/simpleMenu/src/Manage.php:620
+#: plugins/simpleMenu/src/Manage.php:616
 msgid "Select tag (if necessary):"
 msgstr "Valige silt (vajaduse korral):"
 
-#: plugins/simpleMenu/src/Manage.php:681
+#: plugins/simpleMenu/src/Manage.php:677
 msgid "Label of item menu:"
 msgstr "Elemendi menüü silt:"
 
-#: plugins/simpleMenu/src/Manage.php:695
+#: plugins/simpleMenu/src/Manage.php:691
 msgid "Description of item menu:"
 msgstr "Kirjeldus menüüst:"
 
-#: plugins/simpleMenu/src/Manage.php:710
+#: plugins/simpleMenu/src/Manage.php:706
 msgid "URL of item menu:"
 msgstr "Elemendi menüü URL:"
 
-#: plugins/simpleMenu/src/Manage.php:720 plugins/simpleMenu/src/Manage.php:799
+#: plugins/simpleMenu/src/Manage.php:716 plugins/simpleMenu/src/Manage.php:795
 msgid "Open URL on a new tab"
 msgstr "Ava URL uues vahekaardis"
 
-#: plugins/simpleMenu/src/Manage.php:728
+#: plugins/simpleMenu/src/Manage.php:724
 msgid "Add this item"
 msgstr "Lisa see toode"
 
-#: plugins/simpleMenu/src/Manage.php:754
+#: plugins/simpleMenu/src/Manage.php:750
 msgid "Enable simple menu for this blog"
 msgstr "Võimaldage selle blogi jaoks lihtne menüü"
 
-#: plugins/simpleMenu/src/Manage.php:777
+#: plugins/simpleMenu/src/Manage.php:773
 msgid "Add an item"
 msgstr "Lisa objekt"
 
-#: plugins/simpleMenu/src/Manage.php:895
+#: plugins/simpleMenu/src/Manage.php:891
 msgid "Menu items list"
 msgstr "Menüüpunktide nimekiri"
 
-#: plugins/simpleMenu/src/Manage.php:922
+#: plugins/simpleMenu/src/Manage.php:918
 msgid "Delete selected menu items"
 msgstr "Valitud menüüpunktide kustutamine"
 
-#: plugins/simpleMenu/src/Manage.php:931
+#: plugins/simpleMenu/src/Manage.php:927
 msgid "Update menu"
 msgstr "Menüü uuendamine"
 
-#: plugins/simpleMenu/src/Manage.php:941
+#: plugins/simpleMenu/src/Manage.php:937
 msgid "No menu items so far."
 msgstr "Seni ei ole menüüst ühtegi toodet."
 
@@ -2737,94 +2753,94 @@ msgstr "Kuvatakse lingis ja kasutatakse pealkirjana"
 msgid "Not displayed nor used"
 msgstr "Ei kuvata ega kasutata"
 
-#: plugins/tags/src/BackendBehaviors.php:64
-#: plugins/tags/src/BackendBehaviors.php:75
-#: plugins/tags/src/FrontendUrl.php:104 plugins/tags/src/ManagePosts.php:154
+#: plugins/tags/src/BackendBehaviors.php:62
+#: plugins/tags/src/BackendBehaviors.php:73
+#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
 msgid "Tag"
 msgstr "Silt"
 
-#: plugins/tags/src/BackendBehaviors.php:238
+#: plugins/tags/src/BackendBehaviors.php:236
 msgid "Add tags"
 msgstr "Lisa sildid"
 
-#: plugins/tags/src/BackendBehaviors.php:247
+#: plugins/tags/src/BackendBehaviors.php:245
 msgid "Remove tags"
 msgstr "Eemalda sildid"
 
-#: plugins/tags/src/BackendBehaviors.php:282
+#: plugins/tags/src/BackendBehaviors.php:280
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Silt on edukalt lisatud valitud kirjetele"
 msgstr[1] "Tagid on edukalt lisatud valitud kirjetele"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:293
+#: plugins/tags/src/BackendBehaviors.php:448
 msgid "Are you sure you want to remove this tag?"
 msgstr "Kas olete kindel, et soovite selle sildi eemaldada?"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:449
 msgid "Add a tag to this entry"
 msgstr "Lisage sellele kirjele silt"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Choose from list"
 msgstr "Valige nimekirjast"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "all"
 msgstr "kõik"
 
-#: plugins/tags/src/BackendBehaviors.php:299
-#: plugins/tags/src/BackendBehaviors.php:454
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Enter tags separated by comma"
 msgstr "Sisestage sildid komaga eraldatuna"
 
-#: plugins/tags/src/BackendBehaviors.php:307
+#: plugins/tags/src/BackendBehaviors.php:305
 msgid "Add tags to this selection"
 msgstr "Lisage sellele valikule sildid"
 
-#: plugins/tags/src/BackendBehaviors.php:325
+#: plugins/tags/src/BackendBehaviors.php:323
 msgid "Tags to add:"
 msgstr "Sildid lisada:"
 
-#: plugins/tags/src/BackendBehaviors.php:364
+#: plugins/tags/src/BackendBehaviors.php:362
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Silt on valitud kirjetest edukalt eemaldatud"
 msgstr[1] "Tagid on valitud kirjetest edukalt eemaldatud"
 
-#: plugins/tags/src/BackendBehaviors.php:387
+#: plugins/tags/src/BackendBehaviors.php:385
 msgid "No tags for selected entries"
 msgstr "Valitud kirjete jaoks puuduvad märgised"
 
-#: plugins/tags/src/BackendBehaviors.php:394
+#: plugins/tags/src/BackendBehaviors.php:392
 msgid "Remove selected tags from this selection"
 msgstr "Eemaldage valitud sildid sellest valikust"
 
-#: plugins/tags/src/BackendBehaviors.php:421
+#: plugins/tags/src/BackendBehaviors.php:419
 msgid "Following tags have been found in selected entries:"
 msgstr "Valitud kirjetes on leitud järgmised sildid:"
 
-#: plugins/tags/src/BackendBehaviors.php:474
+#: plugins/tags/src/BackendBehaviors.php:470
 msgid "Short"
 msgstr "Lühike"
 
-#: plugins/tags/src/BackendBehaviors.php:475
+#: plugins/tags/src/BackendBehaviors.php:471
 msgid "Extended"
 msgstr "Laiendatud"
 
-#: plugins/tags/src/BackendBehaviors.php:487
+#: plugins/tags/src/BackendBehaviors.php:483
 msgid "Tags list format:"
 msgstr "Märksõnade loetelu formaat:"
 
-#: plugins/tags/src/FrontendBehaviors.php:29
+#: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's comments Atom feed"
 msgstr "Selle sildi kommentaarid Atom feed"
 
-#: plugins/tags/src/FrontendBehaviors.php:30
+#: plugins/tags/src/FrontendBehaviors.php:31
 msgid "This tag's entries Atom feed"
 msgstr "Selle sildi kirjed Atom feed"
 
@@ -2840,32 +2856,32 @@ msgstr "sisenemine"
 msgid "No tags on this blog."
 msgstr "Selles blogis ei ole silte."
 
-#: plugins/tags/src/ManagePosts.php:93
+#: plugins/tags/src/ManagePosts.php:94
 msgid "Tag has been successfully renamed"
 msgstr "Silt on edukalt ümber nimetatud"
 
-#: plugins/tags/src/ManagePosts.php:112
+#: plugins/tags/src/ManagePosts.php:113
 msgid "Tag has been successfully removed"
 msgstr "Silt on edukalt eemaldatud"
 
-#: plugins/tags/src/ManagePosts.php:143
+#: plugins/tags/src/ManagePosts.php:144
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Kas olete kindel, et soovite sildi eemaldada: \"%s\"?"
 
-#: plugins/tags/src/ManagePosts.php:158
+#: plugins/tags/src/ManagePosts.php:159
 msgid "Back to tags list"
 msgstr "Tagasi siltide nimekirja"
 
-#: plugins/tags/src/ManagePosts.php:173
+#: plugins/tags/src/ManagePosts.php:174
 msgid "Delete this tag"
 msgstr "Kustuta see silt"
 
-#: plugins/tags/src/ManagePosts.php:195
+#: plugins/tags/src/ManagePosts.php:196
 msgid "Rename:"
 msgstr "Nimetage ümber:"
 
-#: plugins/tags/src/ManagePosts.php:206
+#: plugins/tags/src/ManagePosts.php:207
 msgid "List of entries with this tag"
 msgstr "Selle sildiga kirjete loetelu"
 
@@ -2893,21 +2909,21 @@ msgstr "Vanim kanne"
 msgid "Link to all tags:"
 msgstr "Link kõigile siltidele:"
 
-#: plugins/themeEditor/src/Backend.php:24
+#: plugins/themeEditor/src/Backend.php:25
 msgid "themeEditor"
 msgstr "themeEditor"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:52
+#: plugins/themeEditor/src/BackendBehaviors.php:47
 #: plugins/themeEditor/src/Manage.php:189
 #: plugins/themeEditor/src/Manage.php:196
 msgid "Edit theme files"
 msgstr "Teemafailide redigeerimine"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:113
+#: plugins/themeEditor/src/BackendBehaviors.php:107
 msgid "Syntax highlighting"
 msgstr "Süntaksi esiletõstmine"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:125
+#: plugins/themeEditor/src/BackendBehaviors.php:119
 msgid "Syntax highlighting in theme editor"
 msgstr "Süntaksi esiletõstmine teema redaktoris"
 
@@ -2956,109 +2972,109 @@ msgstr "Kas olete kindel, et soovite seda faili lähtestada?"
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Teie praegune teema selles blogis on \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:228
+#: plugins/themeEditor/src/Manage.php:217
 msgid "Please select a file to edit."
 msgstr "Palun valige fail, mida soovite muuta."
 
-#: plugins/themeEditor/src/Manage.php:238
+#: plugins/themeEditor/src/Manage.php:227
 msgid "File editor"
 msgstr "Faili redaktor"
 
-#: plugins/themeEditor/src/Manage.php:247
+#: plugins/themeEditor/src/Manage.php:236
 #, php-format
 msgid "Editing file %s"
 msgstr "Faili redigeerimine %s"
 
-#: plugins/themeEditor/src/Manage.php:257
+#: plugins/themeEditor/src/Manage.php:246
 msgid "Reset"
 msgstr "Reset"
 
-#: plugins/themeEditor/src/Manage.php:264
+#: plugins/themeEditor/src/Manage.php:253
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "See fail ei ole kirjutatav. Palun kontrollige oma teema failide õigusi."
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:272
 msgid "Templates files"
 msgstr "Mallide failid"
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:277
 msgid "CSS files"
 msgstr "CSS-failid"
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:282
 msgid "JavaScript files"
 msgstr "JavaScript failid"
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:287
 msgid "Locales files"
 msgstr "Locales failid"
 
-#: plugins/themeEditor/src/Manage.php:303
+#: plugins/themeEditor/src/Manage.php:292
 msgid "PHP files"
 msgstr "PHP failid"
 
-#: plugins/themeEditor/src/Manage.php:317
+#: plugins/themeEditor/src/Manage.php:306
 msgid "You can't edit a distributed theme."
 msgstr "Te ei saa jaotatud teemat redigeerida."
 
-#: plugins/themeEditor/src/ThemeEditor.php:152
+#: plugins/themeEditor/src/ThemeEditor.php:144
 msgid "No file"
 msgstr "Ei ole faili"
 
-#: plugins/themeEditor/src/ThemeEditor.php:177
+#: plugins/themeEditor/src/ThemeEditor.php:169
 msgid "From theme:"
 msgstr "Teemast:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:185
+#: plugins/themeEditor/src/ThemeEditor.php:177
 msgid "From parent:"
 msgstr "Lapsevanema poolt:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:195
+#: plugins/themeEditor/src/ThemeEditor.php:187
 msgid "From template set:"
 msgstr "Mudelikomplektist:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:223
-#: plugins/themeEditor/src/ThemeEditor.php:253
-#: plugins/themeEditor/src/ThemeEditor.php:342
+#: plugins/themeEditor/src/ThemeEditor.php:215
+#: plugins/themeEditor/src/ThemeEditor.php:245
+#: plugins/themeEditor/src/ThemeEditor.php:328
 msgid "File does not exist."
 msgstr "Faili ei ole olemas."
 
-#: plugins/themeEditor/src/ThemeEditor.php:228
+#: plugins/themeEditor/src/ThemeEditor.php:220
 #, php-format
 msgid "File %s is not readable"
 msgstr "Faili %s ei saa lugeda"
 
-#: plugins/themeEditor/src/ThemeEditor.php:290
+#: plugins/themeEditor/src/ThemeEditor.php:282
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Ei saa kirjutada faili %s. Palun kontrollige oma teema failide ja kaustade õigusi."
 
-#: plugins/themeEditor/src/ThemeEditor.php:355
+#: plugins/themeEditor/src/ThemeEditor.php:341
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Ei saa kustutada faili %s. Palun kontrollige oma teema failide ja kaustade õigusi."
 
-#: plugins/userPref/src/Backend.php:24
+#: plugins/userPref/src/Backend.php:25
 msgid "user:preferences"
 msgstr "user:preferences"
 
-#: plugins/userPref/src/Manage.php:92 plugins/userPref/src/Manage.php:111
+#: plugins/userPref/src/Manage.php:89 plugins/userPref/src/Manage.php:108
 msgid "Preferences successfully updated"
 msgstr "Eelistused edukalt uuendatud"
 
-#: plugins/userPref/src/Manage.php:151 plugins/userPref/src/Manage.php:153
+#: plugins/userPref/src/Manage.php:148 plugins/userPref/src/Manage.php:150
 msgid "User preferences"
 msgstr "Kasutaja eelistused"
 
-#: plugins/userPref/src/Manage.php:161 plugins/userPref/src/Manage.php:163
+#: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"
 msgstr "Globaalsed eelistused"
 
-#: plugins/widgets/src/Backend.php:26
+#: plugins/widgets/src/Backend.php:27
 msgid "Widgets"
 msgstr "Vidinad"
 
-#: plugins/widgets/src/Backend.php:47
+#: plugins/widgets/src/Backend.php:51
 msgid "Widget's textareas"
 msgstr "Vidinate tekstialad"
 
@@ -3066,261 +3082,257 @@ msgstr "Vidinate tekstialad"
 msgid "Unable to initialize default widgets."
 msgstr "Ei ole võimalik vaikimisi vidinaid initsialiseerida."
 
-#: plugins/widgets/src/Manage.php:76
+#: plugins/widgets/src/Manage.php:77
 msgid "navigation"
 msgstr "navigatsioon"
 
-#: plugins/widgets/src/Manage.php:77
+#: plugins/widgets/src/Manage.php:78
 msgid "extra"
 msgstr "extra"
 
-#: plugins/widgets/src/Manage.php:78
+#: plugins/widgets/src/Manage.php:79
 msgid "custom"
 msgstr "kohandatud"
 
-#: plugins/widgets/src/Manage.php:214
+#: plugins/widgets/src/Manage.php:215
 msgid "Sidebars and their widgets have been saved."
 msgstr "Külgribad ja nende vidinad on salvestatud."
 
-#: plugins/widgets/src/Manage.php:228
+#: plugins/widgets/src/Manage.php:229
 msgid "Sidebars have been resetting."
 msgstr "Külgribad on nullistunud."
 
-#: plugins/widgets/src/Manage.php:257
+#: plugins/widgets/src/Manage.php:258
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Kas olete kindel, et soovite küljepalkide lähtestamist?"
 
-#: plugins/widgets/src/Manage.php:258 plugins/widgets/src/Manage.php:387
+#: plugins/widgets/src/Manage.php:259 plugins/widgets/src/Manage.php:389
 msgid "Temporarily display the action buttons for each widget"
 msgstr "Ajutiselt kuvada iga vidina tegevusnupud"
 
-#: plugins/widgets/src/Manage.php:259
+#: plugins/widgets/src/Manage.php:260
 msgid "Hide the action buttons for each widget"
 msgstr "Peida iga vidina tegevusnupud ära"
 
-#: plugins/widgets/src/Manage.php:306 plugins/widgets/src/Manage.php:489
+#: plugins/widgets/src/Manage.php:307 plugins/widgets/src/Manage.php:488
 msgid "order"
 msgstr "tellimus"
 
-#: plugins/widgets/src/Manage.php:318
+#: plugins/widgets/src/Manage.php:319
 msgid "Append to:"
 msgstr "Lisada:"
 
-#: plugins/widgets/src/Manage.php:337
+#: plugins/widgets/src/Manage.php:338
 msgid "Available widgets"
 msgstr "Saadaolevad vidinad"
 
-#: plugins/widgets/src/Manage.php:339
+#: plugins/widgets/src/Manage.php:340
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Lohistage vidinaid sellest nimekirjast ühte külgribadest, et lisada."
 
-#: plugins/widgets/src/Manage.php:347
+#: plugins/widgets/src/Manage.php:348
 msgid "Add widgets to sidebars"
 msgstr "Vidinate lisamine külgribadele"
 
-#: plugins/widgets/src/Manage.php:362
+#: plugins/widgets/src/Manage.php:363
 msgid "Navigation sidebar"
 msgstr "Navigatsiooni külgriba"
 
-#: plugins/widgets/src/Manage.php:369
+#: plugins/widgets/src/Manage.php:370
 msgid "Extra sidebar"
 msgstr "Täiendav külgriba"
 
-#: plugins/widgets/src/Manage.php:376
+#: plugins/widgets/src/Manage.php:377
 msgid "Custom sidebar"
 msgstr "Kohandatud külgriba"
 
-#: plugins/widgets/src/Manage.php:383
+#: plugins/widgets/src/Manage.php:384
 msgid "Update sidebars"
 msgstr "Uuendage külgribasid"
 
-#: plugins/widgets/src/Manage.php:385
+#: plugins/widgets/src/Manage.php:386
 msgid "Reset sidebars"
 msgstr "Külgmiste ridade lähtestamine"
 
-#: plugins/widgets/src/Manage.php:398
+#: plugins/widgets/src/Manage.php:399
 msgid "No setting for this widget"
 msgstr "Selle vidina jaoks puudub seadistus"
 
-#: plugins/widgets/src/Manage.php:404
+#: plugins/widgets/src/Manage.php:405
 msgid "boolean"
 msgstr "boolean"
 
-#: plugins/widgets/src/Manage.php:404 plugins/widgets/src/Manage.php:409
+#: plugins/widgets/src/Manage.php:405 plugins/widgets/src/Manage.php:410
 msgid "possible values:"
 msgstr "võimalikud väärtused:"
 
-#: plugins/widgets/src/Manage.php:408
+#: plugins/widgets/src/Manage.php:409
 msgid "empty string"
 msgstr "tühi string"
 
-#: plugins/widgets/src/Manage.php:409
+#: plugins/widgets/src/Manage.php:410
 msgid "listitem"
 msgstr "listitem"
 
-#: plugins/widgets/src/Manage.php:415
+#: plugins/widgets/src/Manage.php:416
 msgid "string"
 msgstr "string"
 
-#: plugins/widgets/src/Manage.php:435
+#: plugins/widgets/src/Manage.php:436
 msgid "Widget ID:"
 msgstr "Vidina ID:"
 
-#: plugins/widgets/src/Manage.php:501 plugins/widgets/src/Manage.php:502
+#: plugins/widgets/src/Manage.php:500 plugins/widgets/src/Manage.php:501
 msgid "Up the widget"
 msgstr "Üles vidin"
 
-#: plugins/widgets/src/Manage.php:506 plugins/widgets/src/Manage.php:507
+#: plugins/widgets/src/Manage.php:505 plugins/widgets/src/Manage.php:506
 msgid "Down the widget"
 msgstr "Alla vidina"
 
-#: plugins/widgets/src/Manage.php:510 plugins/widgets/src/Manage.php:511
+#: plugins/widgets/src/Manage.php:509 plugins/widgets/src/Manage.php:510
 msgid "Remove the widget"
 msgstr "Eemaldage vidin"
 
-#: plugins/widgets/src/Manage.php:535
+#: plugins/widgets/src/Manage.php:534
 msgid "No widget as far."
 msgstr "Seni ei ole vidinat."
 
-#: plugins/widgets/src/Manage.php:544
+#: plugins/widgets/src/Manage.php:543
 msgid "Drag widgets here to remove."
 msgstr "Eemaldamiseks lohistage vidinaid siia."
 
-#: plugins/widgets/src/Widgets.php:88
+#: plugins/widgets/src/Widgets.php:87
 msgid "Search engine"
 msgstr "Otsingumootor"
 
-#: plugins/widgets/src/Widgets.php:90
+#: plugins/widgets/src/Widgets.php:89
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Asendaja (ainult HTML5, valikuline):"
 
-#: plugins/widgets/src/Widgets.php:97
+#: plugins/widgets/src/Widgets.php:96
 msgid "Navigation links"
 msgstr "Navigatsioonilinkid"
 
-#: plugins/widgets/src/Widgets.php:105
+#: plugins/widgets/src/Widgets.php:104
 msgid "Selected entries"
 msgstr "Valitud kirjed"
 
-#: plugins/widgets/src/Widgets.php:106
+#: plugins/widgets/src/Widgets.php:105
 msgid "Best of me"
 msgstr "Parim minust"
 
-#: plugins/widgets/src/Widgets.php:114
+#: plugins/widgets/src/Widgets.php:113
 msgid "Blog languages"
 msgstr "Blogi keeled"
 
-#: plugins/widgets/src/Widgets.php:124
+#: plugins/widgets/src/Widgets.php:123
 msgid "With entries counts"
 msgstr "Kirjete arvuga loeb"
 
-#: plugins/widgets/src/Widgets.php:125
+#: plugins/widgets/src/Widgets.php:124
 msgid "Include sub cats in count"
 msgstr "Kaasa arvatud alamkassid loendisse"
 
-#: plugins/widgets/src/Widgets.php:126
+#: plugins/widgets/src/Widgets.php:125
 msgid "Include empty categories"
 msgstr "Sisaldab tühje kategooriaid"
 
-#: plugins/widgets/src/Widgets.php:133
+#: plugins/widgets/src/Widgets.php:132
 msgid "Subscribe links"
 msgstr "Telli lingid"
 
-#: plugins/widgets/src/Widgets.php:134
+#: plugins/widgets/src/Widgets.php:133
 msgid "Subscribe"
 msgstr "Telli"
 
-#: plugins/widgets/src/Widgets.php:135
+#: plugins/widgets/src/Widgets.php:134
 msgid "Feeds type:"
 msgstr "Söötade tüüp:"
 
-#: plugins/widgets/src/Widgets.php:142
+#: plugins/widgets/src/Widgets.php:141
 msgid "Feed reader"
 msgstr "Söötmise lugeja"
 
-#: plugins/widgets/src/Widgets.php:143
+#: plugins/widgets/src/Widgets.php:142
 msgid "Somewhere else"
 msgstr "Kusagil mujal"
 
-#: plugins/widgets/src/Widgets.php:145 plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:144 plugins/widgets/src/Widgets.php:172
 msgid "Entries limit:"
 msgstr "Piirangud:"
 
-#: plugins/widgets/src/Widgets.php:152
+#: plugins/widgets/src/Widgets.php:151
 msgid "Text"
 msgstr "Tekst"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:153
 msgid "Text:"
 msgstr "Tekst:"
 
-#: plugins/widgets/src/Widgets.php:161
+#: plugins/widgets/src/Widgets.php:160
 msgid "Uncategorized"
 msgstr "Mittekategoriseeritud"
 
-#: plugins/widgets/src/Widgets.php:165 plugins/widgets/src/Widgets.php:167
+#: plugins/widgets/src/Widgets.php:164 plugins/widgets/src/Widgets.php:166
 msgid "Last entries"
 msgstr "Viimased kanded"
 
-#: plugins/widgets/src/Widgets.php:170
+#: plugins/widgets/src/Widgets.php:169
 msgid "Tag:"
 msgstr "Silt:"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:181
 msgid "Last comments"
 msgstr "Viimased kommentaarid"
 
-#: plugins/widgets/src/Widgets.php:183
+#: plugins/widgets/src/Widgets.php:182
 msgid "Comments limit:"
 msgstr "Kommentaaride piir:"
 
-#: plugins/widgets/src/Widgets.php:465
+#: plugins/widgets/src/Widgets.php:449
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Selle blogi sissekanded %s feed"
 
-#: plugins/widgets/src/Widgets.php:466
+#: plugins/widgets/src/Widgets.php:450
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Selle blogi kommentaarid %s feed"
 
-#: plugins/widgets/src/Widgets.php:474
+#: plugins/widgets/src/Widgets.php:458
 msgid "Entries feed"
 msgstr "Sissetulekute söötmine"
 
-#: plugins/widgets/src/Widgets.php:480
+#: plugins/widgets/src/Widgets.php:464
 msgid "Comments feed"
 msgstr "Kommentaarid feed"
 
-#: plugins/widgets/src/WidgetsElement.php:557
+#: plugins/widgets/src/WidgetsElement.php:537
 msgid "Title (optional)"
 msgstr "Pealkiri (vabatahtlik)"
 
-#: plugins/widgets/src/WidgetsElement.php:570
+#: plugins/widgets/src/WidgetsElement.php:548
 msgid "All pages"
 msgstr "Kõik leheküljed"
 
-#: plugins/widgets/src/WidgetsElement.php:571
+#: plugins/widgets/src/WidgetsElement.php:549
 msgid "Home page only"
 msgstr "Ainult koduleht"
 
-#: plugins/widgets/src/WidgetsElement.php:572
+#: plugins/widgets/src/WidgetsElement.php:550
 msgid "Except on home page"
 msgstr "Välja arvatud avalehel"
 
-#: plugins/widgets/src/WidgetsElement.php:580
+#: plugins/widgets/src/WidgetsElement.php:558
 msgid "Display on:"
 msgstr "Näidata:"
 
-#: plugins/widgets/src/WidgetsElement.php:616
+#: plugins/widgets/src/WidgetsElement.php:584
 msgid "Content only"
 msgstr "Ainult sisu"
 
-#: plugins/widgets/src/WidgetsElement.php:628
+#: plugins/widgets/src/WidgetsElement.php:594
 msgid "CSS class:"
 msgstr "CSS klass:"
-
-#: plugins/widgets/src/WidgetsElement.php:640
-msgid "Offline"
-msgstr "Offline"
 
