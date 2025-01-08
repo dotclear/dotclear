@@ -146,10 +146,13 @@ class ImageMeta
             throw new Exception('Unable to read file');
         }
 
-        $this->readXMP($filename);
-        $this->readIPTC($filename);
-        $this->readExif($filename);
-        $this->readXML($filename);
+        if ($this->isXML($filename)) {
+            $this->readXML($filename);
+        } else {
+            $this->readXMP($filename);
+            $this->readIPTC($filename);
+            $this->readExif($filename);
+        }
     }
 
     /**
@@ -161,60 +164,63 @@ class ImageMeta
      */
     protected function readXMP(string $filename): void
     {
-        $start_tag  = '<x:xmpmeta';
-        $end_tag    = '</x:xmpmeta>';
-        $xmp        = '';
-        $has_xmp    = false;
-        $chunk_size = 4096;     // Number of bytes read each time
+        try {
+            $start_tag  = '<x:xmpmeta';
+            $end_tag    = '</x:xmpmeta>';
+            $xmp        = '';
+            $has_xmp    = false;
+            $chunk_size = 4096;     // Number of bytes read each time
 
-        $file_pointer = fopen($filename, 'r');
-        if ($file_pointer !== false) {
-            while (($chunk = fread($file_pointer, $chunk_size)) !== false) {
-                if ($chunk === '') {
-                    break;
+            $file_pointer = fopen($filename, 'r');
+            if ($file_pointer !== false) {
+                while (($chunk = fread($file_pointer, $chunk_size)) !== false) {
+                    if ($chunk === '') {
+                        break;
+                    }
+
+                    $xmp .= $chunk;
+
+                    $start_position = strpos($xmp, $start_tag);
+                    $end_position   = strpos($xmp, $end_tag);
+
+                    if ($start_position !== false && $end_position !== false) {
+                        $xmp     = substr($xmp, $start_position, $end_position - $start_position + 12);
+                        $has_xmp = true;
+
+                        break;
+                    } elseif ($start_position !== false) {
+                        $xmp     = substr($xmp, $start_position);
+                        $has_xmp = true;
+                    } elseif (strlen($xmp) > (strlen($start_tag) * 2)) {
+                        $xmp = substr($xmp, strlen($start_tag));
+                    }
                 }
+                fclose($file_pointer);
+            }
 
-                $xmp .= $chunk;
+            if (!$has_xmp) {
+                return;
+            }
 
-                $start_position = strpos($xmp, $start_tag);
-                $end_position   = strpos($xmp, $end_tag);
+            foreach ($this->xmp_reg as $code => $patterns) {
+                foreach ($patterns as $p) {
+                    if (preg_match($p, $xmp, $matches)) {
+                        $this->xmp[$code] = $matches[1];
 
-                if ($start_position !== false && $end_position !== false) {
-                    $xmp     = substr($xmp, $start_position, $end_position - $start_position + 12);
-                    $has_xmp = true;
-
-                    break;
-                } elseif ($start_position !== false) {
-                    $xmp     = substr($xmp, $start_position);
-                    $has_xmp = true;
-                } elseif (strlen($xmp) > (strlen($start_tag) * 2)) {
-                    $xmp = substr($xmp, strlen($start_tag));
+                        break;
+                    }
                 }
             }
-            fclose($file_pointer);
-        }
 
-        if (!$has_xmp) {
-            return;
-        }
-
-        foreach ($this->xmp_reg as $code => $patterns) {
-            foreach ($patterns as $p) {
-                if (preg_match($p, $xmp, $matches)) {
-                    $this->xmp[$code] = $matches[1];
-
-                    break;
-                }
+            if (preg_match('%<dc:subject>\s*<rdf:Bag>(.+?)</rdf:Bag%msu', $xmp, $rdf_bag)
+                && preg_match_all('%<rdf:li>(.+?)</rdf:li>%msu', $rdf_bag[1], $rdf_bag_li)) {
+                $this->xmp['Keywords'] = implode(',', $rdf_bag_li[1]);
             }
-        }
 
-        if (preg_match('%<dc:subject>\s*<rdf:Bag>(.+?)</rdf:Bag%msu', $xmp, $rdf_bag)
-            && preg_match_all('%<rdf:li>(.+?)</rdf:li>%msu', $rdf_bag[1], $rdf_bag_li)) {
-            $this->xmp['Keywords'] = implode(',', $rdf_bag_li[1]);
-        }
-
-        foreach ($this->xmp as $k => $v) {
-            $this->xmp[$k] = Html::decodeEntities(Text::toUTF8($v));
+            foreach ($this->xmp as $k => $v) {
+                $this->xmp[$k] = Html::decodeEntities(Text::toUTF8($v));
+            }
+        } catch (Exception) {
         }
     }
 
@@ -227,27 +233,30 @@ class ImageMeta
      */
     protected function readIPTC(string $filename): void
     {
-        if (!function_exists('iptcparse')) {
-            return;
-        }
-
-        $imageinfo = null;
-        @getimagesize($filename, $imageinfo);
-
-        if (!is_array($imageinfo) || !isset($imageinfo['APP13'])) {
-            return;
-        }
-
-        $iptc = @iptcparse($imageinfo['APP13']);
-
-        if (!is_array($iptc)) {
-            return;
-        }
-
-        foreach ($this->iptc_ref as $k => $v) {
-            if (isset($iptc[$k]) && isset($this->iptc_to_property[$v])) {
-                $this->iptc[$this->iptc_to_property[$v]] = Text::toUTF8(trim(implode(',', $iptc[$k])));
+        try {
+            if (!function_exists('iptcparse')) {
+                return;
             }
+
+            $imageinfo = null;
+            @getimagesize($filename, $imageinfo);
+
+            if (!is_array($imageinfo) || !isset($imageinfo['APP13'])) {
+                return;
+            }
+
+            $iptc = @iptcparse($imageinfo['APP13']);
+
+            if (!is_array($iptc)) {
+                return;
+            }
+
+            foreach ($this->iptc_ref as $k => $v) {
+                if (isset($iptc[$k]) && isset($this->iptc_to_property[$v])) {
+                    $this->iptc[$this->iptc_to_property[$v]] = Text::toUTF8(trim(implode(',', $iptc[$k])));
+                }
+            }
+        } catch (Exception) {
         }
     }
 
@@ -260,26 +269,29 @@ class ImageMeta
      */
     protected function readEXIF(string $filename): void
     {
-        if (!function_exists('exif_read_data')) {
-            return;
-        }
+        try {
+            if (!function_exists('exif_read_data')) {
+                return;
+            }
 
-        $data = @exif_read_data($filename, 'ANY_TAG');
+            $data = @exif_read_data($filename, 'ANY_TAG');
 
-        if (!is_array($data)) {
-            return;
-        }
+            if (!is_array($data)) {
+                return;
+            }
 
-        foreach ($this->exif_to_property as $k => $v) {
-            if (isset($data[$k])) {
-                if (is_array($data[$k])) {
-                    foreach ($data[$k] as $kk => $vv) {
-                        $this->exif[$v . '.' . $kk] = is_string($vv) ? Text::toUTF8($vv) : $vv;
+            foreach ($this->exif_to_property as $k => $v) {
+                if (isset($data[$k])) {
+                    if (is_array($data[$k])) {
+                        foreach ($data[$k] as $kk => $vv) {
+                            $this->exif[$v . '.' . $kk] = is_string($vv) ? Text::toUTF8($vv) : $vv;
+                        }
+                    } else {
+                        $this->exif[$v] = is_string($data[$k]) ? Text::toUTF8($data[$k]) : $data[$k];
                     }
-                } else {
-                    $this->exif[$v] = is_string($data[$k]) ? Text::toUTF8($data[$k]) : $data[$k];
                 }
             }
+        } catch (Exception) {
         }
     }
 
@@ -292,22 +304,52 @@ class ImageMeta
      */
     protected function readXML(string $filename): void
     {
-        $data = file_get_contents($filename);
-        if ($data === false) {
-            return;
-        }
-
-        $xml = @simplexml_load_string($data);
-
-        if (!$xml instanceof SimpleXMLElement) {
-            return;
-        }
-
-        foreach ($this->xml_to_property as $k => $v) {
-            if ($xml->{$k}) {
-                $this->xml[$v] = Html::decodeEntities(Text::toUTF8((string) $xml->{$k}));
+        try {
+            $data = file_get_contents($filename);
+            if ($data === false) {
+                return;
             }
+
+            $xml = @simplexml_load_string($data);
+            if (!$xml instanceof SimpleXMLElement) {
+                return;
+            }
+
+            foreach ($this->xml_to_property as $k => $v) {
+                if ($xml->{$k}) {
+                    $this->xml[$v] = Html::decodeEntities(Text::toUTF8((string) $xml->{$k}));
+                }
+            }
+        } catch (Exception) {
         }
+    }
+
+    /**
+     * Determines whether the specified filename is xml (looks like).
+     *
+     * @param      string  $filename  The filename
+     *
+     * @return     bool    True if the specified filename is xml, False otherwise.
+     */
+    protected function isXML(string $filename): bool
+    {
+        $is_xml = false;
+
+        try {
+            // Check (basically) is the file looks like XML
+            $file_pointer = fopen($filename, 'r');
+            if ($file_pointer !== false) {
+                if (($chunk = fread($file_pointer, 16)) !== false) {
+                    if (str_starts_with((string) $chunk, '<')) {
+                        $is_xml = true;
+                    }
+                }
+                fclose($file_pointer);
+            }
+        } catch (Exception) {
+        }
+
+        return $is_xml;
     }
 
     /**
