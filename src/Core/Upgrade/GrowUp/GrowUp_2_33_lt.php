@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -9,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Upgrade\GrowUp;
 
-use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
 
 /**

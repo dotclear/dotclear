@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\App;
 use Dotclear\Helper\Stack\Statuses;
 use Dotclear\Interface\Core\StatusInterface;
 use Dotclear\Schema\Status\Blog;
@@ -25,28 +24,28 @@ use Dotclear\Schema\Status\User;
  */
 class Status implements StatusInterface
 {
-	protected Blog $blog;
-	protected Comment $comment;
-	protected Post $post;
-	protected User $user;
+    protected Blog $blog;
+    protected Comment $comment;
+    protected Post $post;
+    protected User $user;
 
-	public function blog(): Blog
-	{
-		return $this->blog ?? $this->blog = new Blog();
-	}
+    public function blog(): Blog
+    {
+        return $this->blog ?? $this->blog = new Blog();
+    }
 
-	public function comment(): Comment
-	{
-		return $this->comment ?? $this->comment = new Comment();
-	}
+    public function comment(): Comment
+    {
+        return $this->comment ?? $this->comment = new Comment();
+    }
 
-	public function post(): Post
-	{
-		return $this->post ?? $this->post = new Post();
-	}
+    public function post(): Post
+    {
+        return $this->post ?? $this->post = new Post();
+    }
 
-	public function user(): User
-	{
-		return $this->user ?? $this->user = new User();
-	}
+    public function user(): User
+    {
+        return $this->user ?? $this->user = new User();
+    }
 }

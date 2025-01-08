@@ -82,5 +82,5 @@ class Listing
         return $with_text ?
             (new Text(null, $img->render() . Html::escapeHTML($title))) :
             $img;
-        }
+    }
 }

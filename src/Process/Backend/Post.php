@@ -477,7 +477,7 @@ class Post extends Process
                 App::status()->post()::UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
                 App::status()->post()::SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
                 App::status()->post()::PENDING     => sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending'),
-                default                                     => '',
+                default                            => '',
             };
 
             $edit_entry_str  = __('&ldquo;%s&rdquo;');

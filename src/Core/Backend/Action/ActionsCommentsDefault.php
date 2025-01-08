@@ -33,7 +33,7 @@ class ActionsCommentsDefault
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
             $actions = [];
-            foreach(App::status()->comment()->dump(false) as $status) {
+            foreach (App::status()->comment()->dump(false) as $status) {
                 $actions[$status->name()] = $status->id();
             }
             $ap->addAction(
@@ -90,8 +90,8 @@ class ActionsCommentsDefault
         }
 
         // unknown to published
-        $status = App::status()->comment()->has((string)$ap->getAction()) ? 
-            App::status()->comment()->level((string)$ap->getAction()) : 
+        $status = App::status()->comment()->has((string) $ap->getAction()) ?
+            App::status()->comment()->level((string) $ap->getAction()) :
             App::status()->comment()::PUBLISHED;
 
         App::blog()->updCommentsStatus($ids, $status);

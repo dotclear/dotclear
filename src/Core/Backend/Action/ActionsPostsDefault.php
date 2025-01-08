@@ -47,7 +47,7 @@ class ActionsPostsDefault
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
             $actions = [];
-            foreach(App::status()->post()->dump(false) as $status) {
+            foreach (App::status()->post()->dump(false) as $status) {
                 $actions[$status->name()] = $status->id();
             }
             $ap->addAction(
@@ -117,8 +117,8 @@ class ActionsPostsDefault
     public static function doChangePostStatus(ActionsPosts $ap): void
     {
         // unknown to published
-        $status = App::status()->post()->has((string) $ap->getAction()) ? 
-            App::status()->post()->level((string) $ap->getAction()) : 
+        $status = App::status()->post()->has((string) $ap->getAction()) ?
+            App::status()->post()->level((string) $ap->getAction()) :
             App::status()->post()::PUBLISHED;
 
         $ids = $ap->getIDs();

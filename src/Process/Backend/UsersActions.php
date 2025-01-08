@@ -91,7 +91,7 @@ class UsersActions extends Process
                         # --BEHAVIOR-- adminBeforeUserEnable -- string
                         App::behavior()->callBehavior('adminBeforeUserEnable', $u);
 
-                        $cur = App::auth()->openUserCursor();
+                        $cur              = App::auth()->openUserCursor();
                         $cur->user_status = App::status()->user()::ENABLED;
                         App::users()->updUser($u, $cur);
                     } catch (Exception $e) {
@@ -115,7 +115,7 @@ class UsersActions extends Process
                         # --BEHAVIOR-- adminBeforeUserDisable -- string
                         App::behavior()->callBehavior('adminBeforeUserDisable', $u);
 
-                        $cur = App::auth()->openUserCursor();
+                        $cur              = App::auth()->openUserCursor();
                         $cur->user_status = App::status()->user()::DISABLED;
                         App::users()->updUser($u, $cur);
                     } catch (Exception $e) {
@@ -284,12 +284,12 @@ class UsersActions extends Process
 
                 if ($rs instanceof MetaRecord) {
                     while ($rs->fetch()) {
-                        $img_status = match((int) $rs->blog_status) {
+                        $img_status = match ((int) $rs->blog_status) {
                             App::status()->blog()::ONLINE  => 'published.svg',
                             App::status()->blog()::OFFLINE => 'unpublished.svg',
                             default                        => 'pending.svg',
                         };
-                        $img_class  = match((int) $rs->blog_status) {
+                        $img_class = match ((int) $rs->blog_status) {
                             App::status()->blog()::ONLINE  => 'published',
                             App::status()->blog()::OFFLINE => 'unpublished',
                             default                        => 'pending',

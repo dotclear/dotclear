@@ -21,10 +21,10 @@ use Dotclear\Helper\Html\Html;
  */
 class Statuses
 {
-	/**
-	 * @var    array<int, Status>  $statuses
-	 */
-	protected array $statuses = [];
+    /**
+     * @var    array<int, Status>  $statuses
+     */
+    protected array $statuses = [];
 
     /**
      * Create status instance.
@@ -36,8 +36,8 @@ class Statuses
         array $statuses = [],
         protected int $threshold = 0
     ) {
-        foreach($statuses as $status) {
-            if ($status instanceof Status) {
+        foreach ($statuses as $status) {
+            if ($status instanceof Status) {    // @phpstan-ignore-line (false positive from PHPDoc for $statuses)
                 $this->set($status);
             }
         }
@@ -66,9 +66,9 @@ class Statuses
      */
     public function has(int|string $needle): bool
     {
-        foreach($this->statuses as $status) {
-            if (is_int($needle) && $status->level() === $needle
-                || is_string($needle) && $status->id() === $needle
+        foreach ($this->statuses as $status) {
+            if (is_int($needle)       && $status->level() === $needle
+                || is_string($needle) && $status->id()    === $needle
             ) {
                 return true;
             }
@@ -88,9 +88,9 @@ class Statuses
      */
     public function isRestricted(int|string $needle): bool
     {
-        foreach($this->statuses as $status) {
-            if (is_int($needle) && $status->level() === $needle
-                || is_string($needle) && $status->id() === $needle
+        foreach ($this->statuses as $status) {
+            if (is_int($needle)       && $status->level() === $needle
+                || is_string($needle) && $status->id()    === $needle
             ) {
                 return $status->level() <= $this->threshold;
             }
@@ -101,13 +101,13 @@ class Statuses
 
     /**
      * Gets status threshold level.
-     * 
+     *
      * Default level is the last non OK level before OK levels.
      * Returns last status level if threshold level status does not exists.
      */
     public function threshold(): int
     {
-        foreach($this->statuses as $status) {
+        foreach ($this->statuses as $status) {
             if ($status->level() === $this->threshold) {
                 return $this->threshold;
             }
@@ -115,6 +115,7 @@ class Statuses
 
         // at least, returns last status
         $last = end($this->statuses);
+
         return $last ? $last->level() : 0;
     }
 
@@ -126,7 +127,7 @@ class Statuses
      */
     public function level(string $needle): int
     {
-        foreach($this->statuses as $status) {
+        foreach ($this->statuses as $status) {
             if ($status->id() === $needle) {
                 return $status->level();
             }
@@ -143,7 +144,7 @@ class Statuses
      */
     public function id(int $needle): string
     {
-        foreach($this->statuses as $status) {
+        foreach ($this->statuses as $status) {
             if ($status->level() === $needle) {
                 return $status->id();
             }
@@ -160,9 +161,9 @@ class Statuses
      */
     public function name(int|string $needle): string
     {
-        foreach($this->statuses as $status) {
-            if (is_int($needle) && $status->level() === $needle
-                || is_string($needle) && $status->id() === $needle
+        foreach ($this->statuses as $status) {
+            if (is_int($needle)       && $status->level() === $needle
+                || is_string($needle) && $status->id()    === $needle
             ) {
                 return $status->name();
             }
@@ -179,9 +180,9 @@ class Statuses
      */
     public function icon(int|string $needle): string
     {
-        foreach($this->statuses as $status) {
-            if (is_int($needle) && $status->level() === $needle
-                || is_string($needle) && $status->id() === $needle
+        foreach ($this->statuses as $status) {
+            if (is_int($needle)       && $status->level() === $needle
+                || is_string($needle) && $status->id()    === $needle
             ) {
                 return $status->icon();
             }
@@ -197,9 +198,9 @@ class Statuses
      */
     public function image(int|string $needle, bool $with_text = false): Text|Img
     {
-        foreach($this->statuses as $status) {
-            if (is_int($needle) && $status->level() === $needle
-                || is_string($needle) && $status->id() === $needle
+        foreach ($this->statuses as $status) {
+            if (is_int($needle)       && $status->level() === $needle
+                || is_string($needle) && $status->id()    === $needle
             ) {
                 $img = (new Img($status->icon()))
                     ->alt(Html::escapeHTML($status->name()))
@@ -234,11 +235,12 @@ class Statuses
         }
 
         $statuses = [];
-        foreach($this->statuses as $status) {
+        foreach ($this->statuses as $status) {
             if (!$status->hidden()) {
                 $statuses[] = $status;
             }
         }
+
         return $statuses;
     }
 
@@ -268,7 +270,9 @@ class Statuses
     {
         $combo = [];
         foreach ($this->statuses as $status) {
-            $combo[$status->name()] = (string) $status->level();
+            if (!$status->hidden()) {
+                $combo[$status->name()] = (string) $status->level();
+            }
         }
 
         return $combo;

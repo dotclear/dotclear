@@ -99,11 +99,6 @@ class ListingUsers extends Listing
         // Cope with optional columns
         $this->userColumns('users', $cols);
 
-        $fmt = fn ($title, $image, $class): Text => (new Text(null, (new Img($image))
-            ->alt($title)
-            ->class(['mark', 'mark-' . $class])
-            ->render() . ' ' . $title));
-
         // Prepare listing
         $lines = [
             (new Tr())
@@ -131,7 +126,9 @@ class ListingUsers extends Listing
                 (new Para())
                     ->class('info')
                     ->items([
-                        (new Text(null, __('Legend: ') . (new Set())
+                        (new Text(
+                            null,
+                            __('Legend: ') . (new Set())
                             ->separator(' - ')
                             ->items([
                                 self::getRowImage(__('admin'), 'images/admin.svg', 'admin', true),

@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Interface\Core;
 
-use Dotclear\Helper\Stack\Statuses;
 use Dotclear\Schema\Status\Blog;
 use Dotclear\Schema\Status\Comment;
 use Dotclear\Schema\Status\Post;
@@ -23,23 +22,23 @@ use Dotclear\Schema\Status\User;
  */
 interface StatusInterface
 {
-	/**
-	 * Blog statuses handler.
-	 */
-	public function blog(): Blog;
+    /**
+     * Blog statuses handler.
+     */
+    public function blog(): Blog;
 
-	/**
-	 * Comment statuses handler.
-	 */
-	public function comment(): Comment;
+    /**
+     * Comment statuses handler.
+     */
+    public function comment(): Comment;
 
-	/**
-	 * Post statuses handler.
-	 */
-	public function post(): Post;
+    /**
+     * Post statuses handler.
+     */
+    public function post(): Post;
 
-	/**
-	 * User statuses handler.
-	 */
-	public function user(): User;
+    /**
+     * User statuses handler.
+     */
+    public function user(): User;
 }

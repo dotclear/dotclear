@@ -324,7 +324,7 @@ class User extends Process
         }
 
         $super_disabled  = App::backend()->user_super && App::backend()->user_id == App::auth()->userID();
-        $status_disabled = App::backend()->user_id == App::auth()->userID();
+        $status_disabled = App::backend()->user_id                               == App::auth()->userID();
 
         echo
         '<p><label for="user_super" class="classic">' .

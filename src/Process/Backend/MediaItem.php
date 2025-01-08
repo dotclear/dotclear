@@ -984,7 +984,7 @@ class MediaItem extends Process
                         App::status()->post()::UNPUBLISHED => sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished'),
                         App::status()->post()::SCHEDULED   => sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled'),
                         App::status()->post()::PENDING     => sprintf($img, __('Pending'), 'pending.svg', 'pending'),
-                        default                                     => '',
+                        default                            => '',
                     };
 
                     echo

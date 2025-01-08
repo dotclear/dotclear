@@ -32,7 +32,7 @@ class ActionsBlogsDefault
         }
 
         $actions = [];
-        foreach(App::status()->post()->dump(false) as $status) {
+        foreach (App::status()->blog()->dump(false) as $status) {
             $actions[$status->name()] = $status->id();
         }
         $ap->addAction(
@@ -65,8 +65,8 @@ class ActionsBlogsDefault
         }
 
         // unknown to online
-        $status = App::status()->blog()->has((string)$ap->getAction()) ? 
-            App::status()->blog()->level((string)$ap->getAction()) : 
+        $status = App::status()->blog()->has((string) $ap->getAction()) ?
+            App::status()->blog()->level((string) $ap->getAction()) :
             App::status()->blog()::ONLINE;
 
         $cur              = App::blog()->openBlogCursor();

@@ -15,7 +15,6 @@ use Dotclear\App;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Div;
-use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Table;
@@ -135,7 +134,7 @@ class ListingPostsMini extends Listing
         }
         $nb_media = $this->rs->countMedia();
         if ($nb_media > 0) {
-            $status[]   = self::getRowImage(sprintf($nb_media == 1 ? __('%d attachment') : __('%d attachments'), $nb_media), 'attach.svg', 'attach');
+            $status[] = self::getRowImage(sprintf($nb_media == 1 ? __('%d attachment') : __('%d attachments'), $nb_media), 'attach.svg', 'attach');
         }
 
         $cols = [
@@ -164,7 +163,7 @@ class ListingPostsMini extends Listing
                 ->separator(' ')
                 ->items([
                     App::status()->post()->image((int) $this->rs->post_status),
-                    ... $status
+                    ... $status,
                 ])
             ->render(),
         ];

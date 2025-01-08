@@ -135,7 +135,9 @@ class ListingBlogs extends Listing
                 (new Para())
                     ->class('info')
                     ->items([
-                        (new Text(null, __('Legend: ') . (new Set())
+                        (new Text(
+                            null,
+                            __('Legend: ') . (new Set())
                             ->separator(' - ')
                             ->items(array_map(fn ($k): Img|Text => App::status()->blog()->image($k->id(), true), App::status()->blog()->dump(false)))
                             ->render(),
