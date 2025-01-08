@@ -24,7 +24,7 @@ interface BlogsInterface
     /**
      * Gets all blog status.
      *
-     * This SHOULD use blog status from Blog constante
+     * @deprecated  since 2.33, use App::status()->blog()->statuses()  instead
      *
      * @return     array<int,string>    An array of available blog status codes and names.
      */
@@ -33,9 +33,7 @@ interface BlogsInterface
     /**
      * Returns a blog status name given to a code.
      *
-     * This is intended to be human-readable
-     * and will be translated, so never use it for tests.
-     * If status code does not exist, returns <i>offline</i>.
+     * @deprecated  since 2.33, use App::status()->blog()->name($s)  instead
      *
      * @param      int      $s      Status code
      *

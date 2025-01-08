@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
@@ -500,7 +501,7 @@ class Trackback implements TrackbackInterface
         $cur->comment_content   = $comment;
         $cur->post_id           = $post_id;
         $cur->comment_trackback = 1;
-        $cur->comment_status    = $this->blog->settings()->system->trackbacks_pub ? $this->blog::COMMENT_PUBLISHED : $this->blog::COMMENT_PENDING;
+        $cur->comment_status    = $this->blog->settings()->system->trackbacks_pub ? App::status()->comment()::PUBLISHED : App::status()->comment()::PENDING;
         $cur->comment_ip        = Http::realIP();
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor

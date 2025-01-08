@@ -101,14 +101,17 @@ class Antispam
      */
     public static function trainFilters(BlogInterface $blog, Cursor $cur, MetaRecord $rs): void
     {
-        $status = null;
+        $status    = null;
+        $junk      = App::status()->comment()::JUNK;
+        $published = App::status()->comment()::PUBLISHED;
+
         // From ham to spam
-        if ($rs->comment_status != $blog::COMMENT_JUNK && $cur->comment_status == $blog::COMMENT_JUNK) {
+        if ($rs->comment_status != $junk && $cur->comment_status == $junk) {
             $status = 'spam';
         }
 
         // From spam to ham
-        if ($rs->comment_status == $blog::COMMENT_JUNK && $cur->comment_status == $blog::COMMENT_PUBLISHED) {
+        if ($rs->comment_status == $junk && $cur->comment_status == $published) {
             $status = 'ham';
         }
 
@@ -128,7 +131,7 @@ class Antispam
      */
     public static function statusMessage(MetaRecord $rs): string
     {
-        if ($rs->exists('comment_status') && $rs->comment_status == App::blog()::COMMENT_JUNK) {
+        if ($rs->exists('comment_status') && $rs->comment_status == App::status()->comment()::JUNK) {
             $filter_name = $rs->exists('comment_spam_filter') ? $rs->comment_spam_filter : '';
 
             self::initFilters();
@@ -174,7 +177,7 @@ class Antispam
      */
     public static function countSpam(): int
     {
-        return (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_JUNK], true)->f(0);
+        return (int) App::blog()->getComments(['comment_status' => App::status()->comment()::JUNK], true)->f(0);
     }
 
     /**
@@ -182,7 +185,7 @@ class Antispam
      */
     public static function countPublishedComments(): int
     {
-        return (int) App::blog()->getComments(['comment_status' => App::blog()::COMMENT_PUBLISHED], true)->f(0);
+        return (int) App::blog()->getComments(['comment_status' => App::status()->comment()::PUBLISHED], true)->f(0);
     }
 
     /**
@@ -203,7 +206,7 @@ class Antispam
                     ->statement()
             )
             ->where('blog_id = ' . $sql->quote(App::blog()->id()))
-            ->and('comment_status = ' . App::blog()::COMMENT_JUNK);
+            ->and('comment_status = ' . App::status()->comment()::JUNK);
 
         if ($beforeDate) {
             $sql->and('comment_dt < \'' . $beforeDate . '\' ');

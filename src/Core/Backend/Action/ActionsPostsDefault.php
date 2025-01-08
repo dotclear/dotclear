@@ -46,13 +46,12 @@ class ActionsPostsDefault
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
+            $actions = [];
+            foreach(App::status()->post()->dump(false) as $status) {
+                $actions[$status->name()] = $status->id();
+            }
             $ap->addAction(
-                [__('Status') => [
-                    __('Publish')         => 'publish',
-                    __('Unpublish')       => 'unpublish',
-                    __('Schedule')        => 'schedule',
-                    __('Mark as pending') => 'pending',
-                ]],
+                [__('Status') => $actions],
                 self::doChangePostStatus(...)
             );
         }
@@ -117,12 +116,10 @@ class ActionsPostsDefault
      */
     public static function doChangePostStatus(ActionsPosts $ap): void
     {
-        $status = match ($ap->getAction()) {
-            'unpublish' => App::blog()::POST_UNPUBLISHED,
-            'schedule'  => App::blog()::POST_SCHEDULED,
-            'pending'   => App::blog()::POST_PENDING,
-            default     => App::blog()::POST_PUBLISHED,
-        };
+        // unknown to published
+        $status = App::status()->post()->has((string) $ap->getAction()) ? 
+            App::status()->post()->level((string) $ap->getAction()) : 
+            App::status()->post()::PUBLISHED;
 
         $ids = $ap->getIDs();
         if ($ids === []) {
@@ -130,12 +127,12 @@ class ActionsPostsDefault
         }
 
         // Do not switch to scheduled already published entries
-        if ($status === App::blog()::POST_SCHEDULED) {
+        if ($status === App::status()->post()::SCHEDULED) {
             $rs           = $ap->getRS();
             $excluded_ids = [];
             if ($rs->rows()) {
                 while ($rs->fetch()) {
-                    if ((int) $rs->post_status === App::blog()::POST_PUBLISHED) {
+                    if ((int) $rs->post_status >= App::status()->post()::PUBLISHED) {
                         $excluded_ids[] = (int) $rs->post_id;
                     }
                 }
@@ -159,7 +156,7 @@ class ActionsPostsDefault
                     count($ids)
                 ),
                 count($ids),
-                App::blog()->getPostStatus($status)
+                App::status()->post()->name($status)
             )
         );
         $ap->redirect(true);

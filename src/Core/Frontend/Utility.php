@@ -137,7 +137,7 @@ class Utility extends Process
             throw new BlogException(__('Blog is not defined.'), 404);
         }
 
-        if (App::blog()->status() !== App::blog()::BLOG_ONLINE) {
+        if (App::status()->comment()->isRestricted(App::blog()->status())) {
             App::blog()->loadFromBlog('');
 
             throw new BlogException(__('This blog is offline. Please try again later.'), 404);

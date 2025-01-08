@@ -104,7 +104,7 @@ class UserPreferences extends Process
         App::backend()->user_options      = $user_options;
         App::backend()->format_by_editors = $format_by_editors;
         App::backend()->available_formats = $available_formats;
-        App::backend()->status_combo      = Combos::getPostStatusescombo();
+        App::backend()->status_combo      = App::status()->post()->combo();
 
         // Themes
         App::backend()->theme_combo = [

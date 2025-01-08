@@ -13,6 +13,7 @@ namespace Dotclear\Core\Backend\Filter;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Stack\Filter;
 
 /**
  * @brief   Media list filters form helper.

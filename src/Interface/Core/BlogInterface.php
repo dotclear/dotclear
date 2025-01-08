@@ -49,12 +49,16 @@ interface BlogInterface
     /**
      * Blog statuses : blog online.
      *
+     * @deprecated since 2.33, use App::status()->blog()::ONLINE instead
+     *
      * @var    int  BLOG_ONLINE
      */
     public const BLOG_ONLINE = 1;
 
     /**
      * Blog statuses : blog offline.
+     *
+     * @deprecated since 2.33, use App::status()->blog()::OFFLINE instead
      *
      * @var    int  BLOG_OFFLINE
      */
@@ -63,6 +67,8 @@ interface BlogInterface
     /**
      * Blog statuses : blog removed.
      *
+     * @deprecated since 2.33, use App::status()->blog()::REMOVED instead
+     *
      * @var    int     BLOG_REMOVED
      */
     public const BLOG_REMOVED = -1;
@@ -70,12 +76,16 @@ interface BlogInterface
     /**
      * Blog statuses : blog removed.
      *
-     * @var    int     BLOG_REMOVED
+     * @deprecated since 2.33, use App::status()->blog()::UNDEFINED instead
+     *
+     * @var    int     BLOG_UNDEFINED
      */
     public const BLOG_UNDEFINED = -2;
 
     /**
      * Post statuses : post pending.
+     *
+     * @deprecated since 2.33, use App::status()->post()::PENDING instead
      *
      * @var    int     POST_PENDING
      */
@@ -84,12 +94,16 @@ interface BlogInterface
     /**
      * Post statuses : post scheduled.
      *
+     * @deprecated since 2.33, use App::status()->post()::SCHEDULED instead
+     *
      * @var    int     POST_SCHEDULED
      */
     public const POST_SCHEDULED = -1;
 
     /**
      * Post statuses : post unpublished.
+     *
+     * @deprecated since 2.33, use App::status()->post()::UNPUBLISHED instead
      *
      * @var    int     POST_UNPUBLISHED
      */
@@ -98,12 +112,16 @@ interface BlogInterface
     /**
      * Post statuses : post published.
      *
+     * @deprecated since 2.33, use App::status()->post()::PUBLISHED instead
+     *
      * @var    int     POST_PUBLISHED
      */
     public const POST_PUBLISHED = 1;
 
     /**
      * Comment statuses : comment junk.
+     *
+     * @deprecated since 2.33, use App::status()->comment()::JUNK instead
      *
      * @var    int     COMMENT_JUNK
      */
@@ -112,6 +130,8 @@ interface BlogInterface
     /**
      * Comment statuses : comment pending.
      *
+     * @deprecated since 2.33, use App::status()->comment()::PENDING instead
+     *
      * @var    int     COMMENT_PENDING
      */
     public const COMMENT_PENDING = -1;
@@ -119,12 +139,16 @@ interface BlogInterface
     /**
      * Comment statuses : comment unpublished.
      *
+     * @deprecated since 2.33, use App::status()->comment()::UNPUBLISHED instead
+     *
      * @var    int     COMMENT_UNPUBLISHED
      */
     public const COMMENT_UNPUBLISHED = 0;
 
     /**
      * Comment statuses : comment published.
+     *
+     * @deprecated since 2.33, use App::status()->comment()::PUBLISHED instead
      *
      * @var    int     COMMENT_PUBLISHED */
     public const COMMENT_PUBLISHED = 1;
@@ -285,8 +309,7 @@ interface BlogInterface
     /**
      * Returns an entry status name given to a code.
      *
-     * Status are translated, never
-     * use it for tests. If status code does not exist, returns <i>unpublished</i>.
+     * @deprecated since 2.33, use App::status()->post()->name($status) instead
      *
      * @param   int     $status     The status code
      */
@@ -295,12 +318,16 @@ interface BlogInterface
     /**
      * Returns an array of available entry status codes and names.
      *
+     * @deprecated since 2.33, use App::status()->post()->statuses() instead
+     *
      * @return  array<int, string>   Simple array with int codes in keys and string names in value.
      */
     public function getAllPostStatus(): array;
 
     /**
      * Returns an array of available comment status codes and names.
+     *
+     * @deprecated since 2.33, use App::status()->comment()->statuses() instead
      *
      * @return  array<int, string>   Simple array with int codes in keys and string names in value
      */

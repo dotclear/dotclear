@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\SelectStatement;
@@ -163,6 +164,7 @@ class Auth implements AuthInterface
             ->columns([
                 'user_id',
                 'user_super',
+                'user_status',
                 'user_pwd',
                 'user_change_pwd',
                 'user_name',
@@ -247,6 +249,7 @@ class Auth implements AuthInterface
         $this->user_change_pwd = (bool) $rs->user_change_pwd;
         $this->user_admin      = (bool) $rs->user_super;
 
+        $this->user_info['user_status']       = $rs->user_status;
         $this->user_info['user_pwd']          = $rs->user_pwd;
         $this->user_info['user_name']         = $rs->user_name;
         $this->user_info['user_firstname']    = $rs->user_firstname;
@@ -467,7 +470,7 @@ class Auth implements AuthInterface
                 return $blog_id;
             }
             $rs = $this->blogs->getBlog($blog_id);
-            if ($rs->count() && $rs->blog_status !== $this->blog::BLOG_REMOVED) {
+            if ($rs->count() && !App::status()->blog()->isRestricted((int) $rs->blog_status)) {
                 return $blog_id;
             }
         }
@@ -491,7 +494,7 @@ class Auth implements AuthInterface
                 ->and('P.blog_id = B.blog_id')
                 // from 2.33 each Utility or Process must check user permissions (with Auth::check(), Page::check(), ...)
                 ->and($sql->isNotNull('permissions'))
-                ->and('blog_status >= ' . $this->blog::BLOG_OFFLINE)
+                ->and('blog_status >= ' . App::status()->blog()::OFFLINE)
                 ->order('P.blog_id ASC')
                 ->limit(1);
         }

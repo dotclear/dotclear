@@ -37,6 +37,7 @@ use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 use Dotclear\Interface\Core\CategoriesInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
+use Dotclear\Interface\Core\DeprecatedInterface;
 use Dotclear\Interface\Core\FilterInterface;
 use Dotclear\Interface\Core\FormaterInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
@@ -148,20 +149,6 @@ class Blog implements BlogInterface
     public string $public_path;
 
     /**
-     * Stack of entries statuses.
-     *
-     * @var     array<int, string>   $post_status
-     */
-    private array $post_status = [];
-
-    /**
-     * Stack of comment statuses.
-     *
-     * @var     array<int, string>   $comment_status
-     */
-    private array $comment_status = [];
-
-    /**
      * Disallow entries password protection.
      *
      * @deprecated since 2.28, use App::blog()->withoutPassword() instead
@@ -190,6 +177,7 @@ class Blog implements BlogInterface
         protected FilterInterface $filter,
         protected FormaterInterface $formater,
         protected PostMediaInterface $postmedia,
+        protected DeprecatedInterface $deprecated,
         string $blog_id = ''
     ) {
         $this->prefix = $this->con->prefix();
@@ -218,7 +206,7 @@ class Blog implements BlogInterface
         $host        = '';
         $creadt      = 0;
         $upddt       = 0;
-        $status      = self::BLOG_UNDEFINED;
+        $status      = App::status()->blog()::UNDEFINED;
         $themes_path = '';
         $public_path = '';
 
@@ -239,16 +227,6 @@ class Blog implements BlogInterface
 
                 $themes_path = Path::fullFromRoot($this->settings->system->themes_path, $this->config->dotclearRoot());
                 $public_path = Path::fullFromRoot($this->settings->system->public_path, $this->config->dotclearRoot());
-
-                $this->post_status[self::POST_PENDING]     = __('Pending');
-                $this->post_status[self::POST_SCHEDULED]   = __('Scheduled');
-                $this->post_status[self::POST_UNPUBLISHED] = __('Unpublished');
-                $this->post_status[self::POST_PUBLISHED]   = __('Published');
-
-                $this->comment_status[self::COMMENT_JUNK]        = __('Junk');
-                $this->comment_status[self::COMMENT_PENDING]     = __('Pending');
-                $this->comment_status[self::COMMENT_UNPUBLISHED] = __('Unpublished');
-                $this->comment_status[self::COMMENT_PUBLISHED]   = __('Published');
             }
         }
 
@@ -312,10 +290,10 @@ class Blog implements BlogInterface
                     $sql->like('permissions', '%|' . $this->auth::PERMISSION_ADMIN . '|%'),
                     $sql->like('permissions', '%|' . $this->auth::PERMISSION_CONTENT_ADMIN . '|%'),
                 ]))
-                ->and('blog_status' . $sql->in([(string) self::BLOG_ONLINE, (string) self::BLOG_OFFLINE]))
+                ->and('blog_status > ' . App::status()->blog()::REMOVED)
             ;
         } elseif (!$this->auth->userID()) {
-            $sql->and('blog_status' . $sql->in([(string) self::BLOG_ONLINE, (string) self::BLOG_OFFLINE]));
+            $sql->and('blog_status > ' . App::status()->blog()::REMOVED);
         }
 
         return $sql->select() ?? MetaRecord::newFromArray([]);
@@ -341,7 +319,7 @@ class Blog implements BlogInterface
 
     public function isDefined(): bool
     {
-        return $this->status !== self::BLOG_UNDEFINED;
+        return $this->status !== App::status()->blog()::UNDEFINED;
     }
 
     //@}
@@ -455,17 +433,23 @@ class Blog implements BlogInterface
 
     public function getPostStatus(int $status): string
     {
-        return $this->post_status[$status] ?? $this->post_status[self::POST_UNPUBLISHED];
+        $this->deprecated->set('App::status()->post()->name($status)', '2.33');
+
+        return App::status()->post()->name($status); // default to unpublished
     }
 
     public function getAllPostStatus(): array
     {
-        return $this->post_status;
+        $this->deprecated->set('App::status()->post()->statuses()', '2.33');
+
+        return App::status()->post()->statuses();
     }
 
     public function getAllCommentStatus(): array
     {
-        return $this->comment_status;
+        $this->deprecated->set('App::status()->comment()->statuses()', '2.33');
+
+        return App::status()->comment()->statuses();
     }
 
     public function withoutPassword(?bool $value = null): bool
@@ -533,7 +517,7 @@ class Blog implements BlogInterface
                 'comment_trackback',
             ])
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
-            ->where('comment_status = ' . self::COMMENT_PUBLISHED)
+            ->where('comment_status > ' . App::status()->comment()->threshold())
             ->and('post_id' . $sql->in($affected_posts))
             ->group([
                 'post_id',
@@ -744,7 +728,7 @@ class Blog implements BlogInterface
             $sql->and('P.post_status = ' . $sql->quote($params['post_status']));
         } elseif (!$this->auth->userID() || App::task()->checkContext('FRONTEND')) {
             // 2.33 backward compatibility for public session, default to post published
-            $sql->and('P.post_status = ' . self::POST_PUBLISHED);
+            $sql->and('P.post_status > ' . App::status()->post()->threshold());
         }
 
         if (!empty($params['post_type'])) {
@@ -1107,7 +1091,7 @@ class Blog implements BlogInterface
             (App::task()->checkContext('FRONTEND') && !App::frontend()->context()->preview)) {
             $user_id = $this->auth->userID();
 
-            $and = ['post_status = ' . self::POST_PUBLISHED];
+            $and = ['post_status > ' . App::status()->post()->threshold()];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1338,7 +1322,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id) || App::task()->checkContext('FRONTEND')) {
-            $and = ['post_status = ' . self::POST_PUBLISHED];
+            $and = ['post_status > ' . App::status()->post()->threshold()];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1422,7 +1406,7 @@ class Blog implements BlogInterface
         if (!$this->auth->check($this->auth->makePermissions([
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id) || App::task()->checkContext('FRONTEND')) {
-            $and = ['post_status = ' . self::POST_PUBLISHED];
+            $and = ['post_status > ' . App::status()->post()->threshold()];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1519,7 +1503,7 @@ class Blog implements BlogInterface
                 $this->auth::PERMISSION_PUBLISH,
                 $this->auth::PERMISSION_CONTENT_ADMIN,
             ]), $this->id)) {
-                $cur->post_status = self::POST_PENDING;
+                $cur->post_status = App::status()->post()::PENDING;
             }
 
             # --BEHAVIOR-- coreBeforePostCreate -- BlogInterface, Cursor
@@ -1840,7 +1824,7 @@ class Blog implements BlogInterface
                 'post_tz',
             ])
             ->from($this->prefix . self::POST_TABLE_NAME)
-            ->where('post_status = ' . self::POST_SCHEDULED)
+            ->where('post_status = ' . App::status()->post()::SCHEDULED)
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $rs = $sql->select();
@@ -1874,7 +1858,7 @@ class Blog implements BlogInterface
             $sql = new UpdateStatement();
             $sql
                 ->ref($this->prefix . self::POST_TABLE_NAME)
-                ->set('post_status = ' . self::POST_PUBLISHED)
+                ->set('post_status = ' . App::status()->post()::PUBLISHED)
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and('post_id' . $sql->in([...$to_change]));
 
@@ -1892,7 +1876,7 @@ class Blog implements BlogInterface
     {
         $posts = $this->getPosts([
             'post_id'       => $this->cleanIds($ids),
-            'post_status'   => self::POST_PUBLISHED,
+            'post_status'   => App::status()->post()::PUBLISHED,
             'post_firstpub' => 0,
         ]);
 
@@ -2314,8 +2298,8 @@ class Blog implements BlogInterface
             $user_id = $this->auth->userID();
 
             $and = [
-                'comment_status = ' . self::COMMENT_PUBLISHED,
-                'P.post_status = ' . self::POST_PUBLISHED,
+                'comment_status > ' . App::status()->comment()->threshold(),
+                'P.post_status > ' . App::status()->post()->threshold(),
             ];
 
             if ($this->without_password) {
@@ -2476,7 +2460,7 @@ class Blog implements BlogInterface
         $this->behavior->callBehavior('coreAfterCommentCreate', $this, $cur);
 
         $this->triggerComment($cur->comment_id);
-        if ($cur->comment_status != self::COMMENT_JUNK) {
+        if ($cur->comment_status != App::status()->comment()::JUNK) {
             $this->triggerBlog();
         }
 
@@ -2649,7 +2633,7 @@ class Blog implements BlogInterface
         $sql = new DeleteStatement();
         $sql
             ->from($this->prefix . self::COMMENT_TABLE_NAME)
-            ->where('comment_status = ' . self::COMMENT_JUNK);
+            ->where('comment_status = ' . App::status()->comment()::JUNK);
 
         $sqlIn = new SelectStatement();
         $sqlIn
@@ -2698,7 +2682,7 @@ class Blog implements BlogInterface
         }
 
         if ($cur->comment_status === null) {
-            $cur->comment_status = $this->settings->system->comments_pub ? self::COMMENT_PUBLISHED : self::COMMENT_UNPUBLISHED;
+            $cur->comment_status = $this->settings->system->comments_pub ? App::status()->comment()::PUBLISHED : App::status()->comment()::UNPUBLISHED;
         }
 
         # Words list

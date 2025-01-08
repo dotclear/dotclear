@@ -78,7 +78,7 @@ class Comments extends Process
 
         // default filter ? do not display spam
         if (!App::backend()->comment_filter->show() && App::backend()->comment_filter->status == '') {
-            $params['comment_status_not'] = App::blog()::COMMENT_JUNK;
+            $params['comment_status_not'] = App::status()->comment()::JUNK;
         }
         $params['no_content'] = true;
 
@@ -146,7 +146,7 @@ class Comments extends Process
                 unset($_SESSION['comments_del_spam']);
             }
 
-            $spam_count = App::blog()->getComments(['comment_status' => App::blog()::COMMENT_JUNK], true)->f(0);
+            $spam_count = App::blog()->getComments(['comment_status' => App::status()->comment()::JUNK], true)->f(0);
             if ($spam_count > 0) {
                 if (!App::backend()->comment_filter->show() || (App::backend()->comment_filter->status != -2)) {
                     if ($spam_count == 1) {

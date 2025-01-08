@@ -317,7 +317,7 @@ class Meta implements MetaInterface
         ]), $this->blog->id()) || App::task()->checkContext('FRONTEND')) {
             $user_id = $this->auth->userID();
 
-            $and = ['post_status = ' . $this->blog::POST_PUBLISHED];
+            $and = ['post_status > ' . App::status()->post()->threshold()];
             if ($this->blog->withoutPassword()) {
                 $and[] = 'post_password IS NULL';
             }

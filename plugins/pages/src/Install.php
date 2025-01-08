@@ -50,7 +50,7 @@ class Install extends Process
                 $cur->post_content_xhtml = $cur->post_content;
                 $cur->post_excerpt       = '';
                 $cur->post_excerpt_xhtml = $cur->post_excerpt;
-                $cur->post_status        = App::blog()::POST_PENDING; // Pending status
+                $cur->post_status        = App::status()->post()::PENDING;
                 $cur->post_open_comment  = 0;
                 $cur->post_open_tb       = 0;
                 App::blog()->addPost($cur);

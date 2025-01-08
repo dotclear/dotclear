@@ -104,7 +104,7 @@ class SpamFilters
                 if ($f->auto_delete) {
                     $cur->clean();
                 } else {
-                    $cur->comment_status      = App::blog()::COMMENT_JUNK;
+                    $cur->comment_status      = App::status()->comment()::JUNK;
                     $cur->comment_spam_status = $status;
                     $cur->comment_spam_filter = $fid;
                 }

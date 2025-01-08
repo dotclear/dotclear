@@ -126,11 +126,11 @@ class ManagePage extends Process
 
         // If user can't publish
         if (!App::backend()->can_publish) {
-            App::backend()->post_status = App::blog()::POST_PENDING;
+            App::backend()->post_status = App::status()->post()::PENDING;
         }
 
         // Status combo
-        App::backend()->status_combo = Combos::getPostStatusesCombo();
+        App::backend()->status_combo = App::status()->post()->combo();
 
         // Formaters combo
         $core_formaters    = App::formater()->getFormaters();
@@ -482,10 +482,10 @@ class ManagePage extends Process
         if (App::backend()->post_id) {
             try {
                 $img_status = match ((int) App::backend()->post_status) {
-                    App::blog()::POST_PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
-                    App::blog()::POST_UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
-                    App::blog()::POST_SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
-                    App::blog()::POST_PENDING     => sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending'),
+                    App::status()->post()::PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
+                    App::status()->post()::UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
+                    App::status()->post()::SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
+                    App::status()->post()::PENDING     => sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending'),
                 };
             } catch (UnhandledMatchError) {
             }
@@ -520,7 +520,7 @@ class ManagePage extends Process
             Notices::message(__('Don\'t forget to validate your HTML conversion by saving your post.'));
         }
 
-        if (App::backend()->post_id && (int) App::backend()->post->post_status === App::blog()::POST_PUBLISHED) {
+        if (App::backend()->post_id && !App::status()->post()->isRestricted((int) App::backend()->post->post_status)) {
             echo (new Para())
                 ->items([
                     (new Link())
@@ -1107,23 +1107,23 @@ class ManagePage extends Process
             $comment_url = App::backend()->url()->get('admin.comment', ['id' => $rs->comment_id]);
 
             $sts_class = '';
-            switch ($rs->comment_status) {
-                case 1:
+            switch ((int) $rs->comment_status) {
+                case App::status()->comment()::PUBLISHED:
                     $img_status = sprintf($img_status_pattern, __('Published'), 'published.svg', 'published');
                     $sts_class  = 'sts-online';
 
                     break;
-                case 0:
+                case App::status()->comment()::UNPUBLISHED:
                     $img_status = sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished');
                     $sts_class  = 'sts-offline';
 
                     break;
-                case -1:
+                case App::status()->comment()::PENDING:
                     $img_status = sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending');
                     $sts_class  = 'sts-pending';
 
                     break;
-                case -2:
+                case App::status()->comment()::JUNK:
                     $img_status = sprintf($img_status_pattern, __('Junk'), 'junk.svg', 'junk light-only') . sprintf($img_status_pattern, __('Junk'), 'junk-dark.svg', 'junk dark-only');
                     $sts_class  = 'sts-junk';
 
@@ -1180,7 +1180,7 @@ class ManagePage extends Process
                 ]);
 
             $rows[] = (new Tr())
-                ->class(array_filter(['line', $rs->comment_status != App::blog()::COMMENT_PUBLISHED ? 'offline ' : '', $sts_class]))
+                ->class(array_filter(['line', App::status()->comment()->isRestricted($rs->comment_status) ? '' : 'offline ', $sts_class]))
                 ->id('c' . $rs->comment_id)
                 ->cols($cols);
         }

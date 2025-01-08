@@ -66,7 +66,7 @@ class CountComments extends MaintenanceTask
             ->field($sql_count_com->count('C.comment_id'))
             ->from($sql_count_com->alias(App::con()->prefix() . App::blog()::COMMENT_TABLE_NAME, 'C'))
             ->where('C.post_id = P.post_id')
-            ->and('C.comment_status = ' . App::blog()::COMMENT_PUBLISHED);
+            ->and('C.comment_status > ' . App::status()->comment()->threshold());
 
         $sql_count_tb = clone $sql_count_com;
 

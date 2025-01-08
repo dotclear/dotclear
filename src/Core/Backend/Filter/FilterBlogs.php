@@ -11,7 +11,7 @@ namespace Dotclear\Core\Backend\Filter;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
+use Dotclear\Helper\Stack\Filter;
 
 /**
  * @brief   Blogs list filters form helper.
@@ -27,7 +27,7 @@ class FilterBlogs extends Filters
         $filters = new ArrayObject([
             FiltersLibrary::getPageFilter(),
             FiltersLibrary::getSearchFilter(),
-            $this->getBlogStatusFilter(),
+            App::status()->blog()->filter(),
         ]);
 
         # --BEHAVIOR-- adminBlogFilter -- ArrayObject
@@ -41,14 +41,12 @@ class FilterBlogs extends Filters
     /**
      * Blog status select.
      *
+     * @deprecated  since 2.33, use App::status()->blog()->filter()  instead
+     *
      * @return  Filter  The blog status Filter instance.
      */
     public function getBlogStatusFilter(): Filter
     {
-        return (new Filter('status'))
-            ->param('blog_status')
-            ->title(__('Status:'))
-            ->options(['-' => '', ...Combos::getBlogStatusesCombo()])
-            ->prime(true);
+        return App::status()->blog()->filter();
     }
 }

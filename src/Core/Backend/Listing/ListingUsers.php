@@ -20,13 +20,13 @@ use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Interface\Core\AuthInterface;
 
 /**
  * @brief   Users list pager form helper.
@@ -85,6 +85,10 @@ class ListingUsers extends Listing
                 ->class('nowrap')
                 ->text(__('No. of entries'))
             ->render(),
+            'status' => (new Th())
+                ->scope('col')
+                ->text(__('Status'))
+            ->render(),
         ];
 
         $cols = new ArrayObject($cols);
@@ -95,14 +99,10 @@ class ListingUsers extends Listing
         // Cope with optional columns
         $this->userColumns('users', $cols);
 
-        $fmt = fn ($title, $image): string => sprintf(
-            (new Img('images/%2$s'))
-                    ->alt('%1$s')
-                    ->class(['mark', 'mark-admin'])
-                    ->render() . ' %1$s',
-            $title,
-            $image
-        );
+        $fmt = fn ($title, $image, $class): Text => (new Text(null, (new Img($image))
+            ->alt($title)
+            ->class(['mark', 'mark-' . $class])
+            ->render() . ' ' . $title));
 
         // Prepare listing
         $lines = [
@@ -131,9 +131,15 @@ class ListingUsers extends Listing
                 (new Para())
                     ->class('info')
                     ->items([
-                        (new Text(null, __('Legend: '))),
-                        (new Text(null, $fmt(__('admin'), 'admin.svg') . ' - ')),
-                        (new Text(null, $fmt(__('superadmin'), 'superadmin.svg'))),
+                        (new Text(null, __('Legend: ') . (new Set())
+                            ->separator(' - ')
+                            ->items([
+                                self::getRowImage(__('admin'), 'images/admin.svg', 'admin', true),
+                                self::getRowImage(__('superadmin'), 'images/superadmin.svg', 'admin', true),
+                                ... array_map(fn ($k): Img|Text => App::status()->user()->image($k->id(), true), App::status()->user()->dump(false)),
+                            ])
+                            ->render(),
+                        )),
                     ]),
                 (new Note())
                     ->class('warning')
@@ -152,16 +158,11 @@ class ListingUsers extends Listing
      */
     private function userLine(): Tr
     {
-        $img = (new Img('images/%2$s'))
-            ->alt('%1$s')
-            ->class(['mark', 'mark-admin'])
-            ->render();
-
-        $img_status = match ($this->rs->admin()) {
-            AuthInterface::PERMISSION_SUPERADMIN => sprintf($img, __('superadmin'), 'superadmin.svg'),
-            AuthInterface::PERMISSION_ADMIN      => sprintf($img, __('admin'), 'admin.svg'),
-            default                              => '',
-        };
+        $status = [match ($this->rs->admin()) {
+            App::auth()::PERMISSION_SUPERADMIN => self::getRowImage(__('superadmin'), 'images/superadmin.svg', 'admin'),
+            App::auth()::PERMISSION_ADMIN      => self::getRowImage(__('admin'), 'images/admin.svg', 'admin'),
+            default                            => (new Set()),
+        }];
 
         $cols = [
             'check' => (new Td())
@@ -179,7 +180,6 @@ class ListingUsers extends Listing
                     (new Link())
                         ->href(App::backend()->url()->get('admin.user', ['id' => $this->rs->user_id]))
                         ->text(Html::escapeHTML($this->rs->user_id)),
-                    (new Text(null, $img_status)),
                 ])
             ->render(),
 
@@ -204,6 +204,14 @@ class ListingUsers extends Listing
                     (new Link())
                         ->href(App::backend()->url()->get('admin.posts', ['user_id' => $this->rs->user_id]))
                         ->text((string) $this->rs->nb_post),
+                ])
+            ->render(),
+            'status' => (new Td())
+                ->class(['nowrap', 'status', 'count'])
+                ->separator(' ')
+                ->items([
+                    App::status()->user()->image((int) $this->rs->user_status),
+                    ... $status,
                 ])
             ->render(),
         ];

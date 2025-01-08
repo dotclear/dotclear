@@ -588,7 +588,7 @@ class Url extends UrlHandler implements UrlInterface
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = App::frontend()->context()->posts->post_id;
-                        $cur->comment_status  = App::blog()->settings()->system->comments_pub ? App::blog()::COMMENT_PUBLISHED : App::blog()::COMMENT_PENDING;
+                        $cur->comment_status  = App::blog()->settings()->system->comments_pub ? App::status()->comment()::PUBLISHED : App::status()->comment()::UNPUBLISHED;
                         $cur->comment_ip      = Http::realIP();
 
                         $redir = App::frontend()->context()->posts->getURL();
@@ -608,7 +608,7 @@ class Url extends UrlHandler implements UrlInterface
                                 App::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
-                            $redir_arg = $cur->comment_status === App::blog()::COMMENT_PUBLISHED ? 'pub=1' : 'pub=0';
+                            $redir_arg = App::status()->comment()->isRestricted($cur->comment_status) ? 'pub=0' : 'pub=1';
 
                             # --BEHAVIOR-- publicBeforeCommentRedir -- Cursor
                             $redir_arg .= filter_var(App::behavior()->callBehavior('publicBeforeCommentRedir', $cur), FILTER_SANITIZE_URL);

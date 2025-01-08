@@ -138,7 +138,9 @@ class Utility extends Process
             }
 
             // Fake process to logout (kill session) and return to auth page.
-            if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Logout') {
+            if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Logout'
+                || !App::auth()->isSuperAdmin() && App::status()->user()->isRestricted((int) App::auth()->getInfo('user_status'))
+            ) {
                 // Enable REST service if disabled, for next requests
                 if (!App::rest()->serveRestRequests()) {
                     App::rest()->enableRestServer(true);

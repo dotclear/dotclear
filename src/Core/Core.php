@@ -55,6 +55,7 @@ use Dotclear\Interface\Core\PostMediaInterface;
 use Dotclear\Interface\Core\PostTypesInterface;
 use Dotclear\Interface\Core\RestInterface;
 use Dotclear\Interface\Core\SessionInterface;
+use Dotclear\Interface\Core\StatusInterface;
 use Dotclear\Interface\Core\TaskInterface;
 use Dotclear\Interface\Core\ThemesInterface;
 use Dotclear\Interface\Core\TrackbackInterface;
@@ -174,6 +175,7 @@ class Core extends Container
             PostTypesInterface::class       => PostTypes::class,
             RestInterface::class            => Rest::class,
             SessionInterface::class         => Session::class,
+            StatusInterface::class          => Status::class,
             TaskInterface::class            => Task::class,
             ThemesInterface::class          => Themes::class,
             TrackbackInterface::class       => Trackback::class,
@@ -523,6 +525,17 @@ class Core extends Container
     public static function session(): SessionInterface
     {
         return self::$instance->get(SessionInterface::class);
+    }
+
+    /**
+     * List status interface.
+     *
+     * @see     Calls core container service Dotclear.Interface.Core.StatusInterface
+     * @see     Uses default core service Dotclear.Core.Status
+     */
+    public static function status(): StatusInterface
+    {
+        return self::$instance->get(StatusInterface::class);
     }
 
     /**

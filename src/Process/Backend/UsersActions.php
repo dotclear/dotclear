@@ -69,6 +69,7 @@ class UsersActions extends Process
             } else {
                 App::backend()->redir = App::backend()->url()->get('admin.users', [
                     'q'      => $_POST['q']      ?? '',
+                    'status' => $_POST['status'] ?? '',
                     'sortby' => $_POST['sortby'] ?? '',
                     'order'  => $_POST['order']  ?? '',
                     'page'   => $_POST['page']   ?? '',
@@ -82,6 +83,50 @@ class UsersActions extends Process
 
             # --BEHAVIOR-- adminUsersActions -- array<int,string>, array<int,string>, string, string
             App::behavior()->callBehavior('adminUsersActions', App::backend()->users, App::backend()->blogs, App::backend()->action, App::backend()->redir);
+
+            if (App::backend()->action == 'enableuser' && !empty(App::backend()->users)) {
+                // Enable users
+                foreach (App::backend()->users as $u) {
+                    try {
+                        # --BEHAVIOR-- adminBeforeUserEnable -- string
+                        App::behavior()->callBehavior('adminBeforeUserEnable', $u);
+
+                        $cur = App::auth()->openUserCursor();
+                        $cur->user_status = App::status()->user()::ENABLED;
+                        App::users()->updUser($u, $cur);
+                    } catch (Exception $e) {
+                        App::error()->add($e->getMessage());
+                    }
+                }
+                if (!App::error()->flag()) {
+                    Notices::addSuccessNotice(__('User has been successfully enabled.'));
+                    Http::redirect(App::backend()->redir);
+                }
+            }
+
+            if (App::backend()->action == 'disableuser' && !empty(App::backend()->users)) {
+                // Disable users
+                foreach (App::backend()->users as $u) {
+                    try {
+                        if ($u == App::auth()->userID()) {
+                            throw new Exception(__('You cannot disable yourself.'));
+                        }
+
+                        # --BEHAVIOR-- adminBeforeUserDisable -- string
+                        App::behavior()->callBehavior('adminBeforeUserDisable', $u);
+
+                        $cur = App::auth()->openUserCursor();
+                        $cur->user_status = App::status()->user()::DISABLED;
+                        App::users()->updUser($u, $cur);
+                    } catch (Exception $e) {
+                        App::error()->add($e->getMessage());
+                    }
+                }
+                if (!App::error()->flag()) {
+                    Notices::addSuccessNotice(__('User has been successfully deleted.'));
+                    Http::redirect(App::backend()->redir);
+                }
+            }
 
             if (App::backend()->action == 'deleteuser' && !empty(App::backend()->users)) {
                 // Delete users
@@ -239,9 +284,17 @@ class UsersActions extends Process
 
                 if ($rs instanceof MetaRecord) {
                     while ($rs->fetch()) {
-                        $img_status = $rs->blog_status == App::blog()::BLOG_ONLINE ? 'published.svg' : ($rs->blog_status == App::blog()::BLOG_OFFLINE ? 'unpublished.svg' : 'pending.svg');
-                        $txt_status = App::blogs()->getBlogStatus(is_numeric($rs->blog_status) ? (int) $rs->blog_status : App::blog()::BLOG_ONLINE);
-                        $img_class  = $rs->blog_status == App::blog()::BLOG_ONLINE ? 'published' : ($rs->blog_status == App::blog()::BLOG_OFFLINE ? 'unpublished' : 'pending');
+                        $img_status = match((int) $rs->blog_status) {
+                            App::status()->blog()::ONLINE  => 'published.svg',
+                            App::status()->blog()::OFFLINE => 'unpublished.svg',
+                            default                        => 'pending.svg',
+                        };
+                        $img_class  = match((int) $rs->blog_status) {
+                            App::status()->blog()::ONLINE  => 'published',
+                            App::status()->blog()::OFFLINE => 'unpublished',
+                            default                        => 'pending',
+                        };
+                        $txt_status = App::status()->blog()->name(is_numeric($rs->blog_status) ? (int) $rs->blog_status : 'online');
                         $img_status = sprintf('<img src="images/%1$s" class="mark mark-%3$s" alt="%2$s">', $img_status, $txt_status, $img_class);
 
                         echo

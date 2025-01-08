@@ -27,6 +27,7 @@ use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Stack\Filter;
 
 /**
  * @brief   Generic class for admin list filters form.

@@ -111,6 +111,10 @@ class Users implements UsersInterface
             $sql->and('U.user_id = ' . $sql->quote($params['user_id']));
         }
 
+        if (isset($params['user_status'])) {
+            $sql->and('U.user_status ' . $sql->in($params['user_status']));
+        }
+
         if (!$count_only) {
             $sql->group([
                 'U.user_id',

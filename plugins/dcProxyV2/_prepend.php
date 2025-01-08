@@ -55,10 +55,11 @@ dcProxyV2::classAliases([
     // alias → real name (including namespace if necessary, for both)
 
     // Deprecated since 2.25
-    'dcPagesActions' => Dotclear\Plugin\pages\BackendActions::class,
-    'defaultWidgets' => Dotclear\Plugin\widgets\Widgets::class,
-    'dcWidgets'      => Dotclear\Plugin\widgets\WidgetsStack::class,
-    'dcWidget'       => Dotclear\Plugin\widgets\WidgetsElement::class,
+    'dcPagesActions'                      => Dotclear\Plugin\pages\BackendActions::class,
+    'defaultWidgets'                      => Dotclear\Plugin\widgets\Widgets::class,
+    'dcWidgets'                           => Dotclear\Plugin\widgets\WidgetsStack::class,
+    'dcWidget'                            => Dotclear\Plugin\widgets\WidgetsElement::class,
+    'Dotclear\Core\Backend\Filter\Filter' => Dotclear\Helper\Stack\Filter::class, // 2.33
 ]);
 
 // Core and public behaviors

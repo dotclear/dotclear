@@ -32,13 +32,12 @@ class ActionsCommentsDefault
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
+            $actions = [];
+            foreach(App::status()->comment()->dump(false) as $status) {
+                $actions[$status->name()] = $status->id();
+            }
             $ap->addAction(
-                [__('Status') => [
-                    __('Publish')         => 'publish',
-                    __('Unpublish')       => 'unpublish',
-                    __('Mark as pending') => 'pending',
-                    __('Mark as junk')    => 'junk',
-                ]],
+                [__('Status') => $actions],
                 self::doChangeCommentStatus(...)
             );
         }
@@ -90,12 +89,10 @@ class ActionsCommentsDefault
             throw new Exception(__('No comment selected'));
         }
 
-        $status = match ($ap->getAction()) {
-            'unpublish' => App::blog()::COMMENT_UNPUBLISHED,
-            'pending'   => App::blog()::COMMENT_PENDING,
-            'junk'      => App::blog()::COMMENT_JUNK,
-            default     => App::blog()::COMMENT_PUBLISHED,
-        };
+        // unknown to published
+        $status = App::status()->comment()->has((string)$ap->getAction()) ? 
+            App::status()->comment()->level((string)$ap->getAction()) : 
+            App::status()->comment()::PUBLISHED;
 
         App::blog()->updCommentsStatus($ids, $status);
 

@@ -41,6 +41,8 @@ class Users extends Process
         // Actions
         $combo_action = [
             __('Set permissions') => 'blogs',
+            __('Enable')          => 'enableuser',
+            __('Disable')         => 'disableuser',
             __('Delete')          => 'deleteuser',
         ];
 

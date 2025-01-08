@@ -12,7 +12,7 @@ namespace Dotclear\Core\Backend\Filter;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Combos;
+use Dotclear\Helper\Stack\Filter;
 
 /**
  * @brief   Comments list filters form helper
@@ -30,7 +30,7 @@ class FilterComments extends Filters
             FiltersLibrary::getCurrentBlogFilter(),
             $this->getCommentAuthorFilter(),
             $this->getCommentTypeFilter(),
-            $this->getCommentStatusFilter(),
+            App::status()->comment()->filter(),
             $this->getCommentIpFilter(),
             FiltersLibrary::getInputFilter('email', __('Email:'), 'comment_email'),
             FiltersLibrary::getInputFilter('site', __('Web site:'), 'comment_site'),
@@ -78,15 +78,13 @@ class FilterComments extends Filters
     /**
      * Comment status select.
      *
+     * @deprecated  since 2.33, use App::status()->comment()->filter() instead
+     *
      * @return  Filter  The comment status Filter instance.
      */
     public function getCommentStatusFilter(): Filter
     {
-        return (new Filter('status'))
-            ->param('comment_status')
-            ->title(__('Status:'))
-            ->options(['-' => '', ...Combos::getCommentStatusesCombo()])
-            ->prime(true);
+        return App::status()->comment()->filter();
     }
 
     /**

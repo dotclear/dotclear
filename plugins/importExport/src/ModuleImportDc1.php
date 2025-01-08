@@ -441,7 +441,7 @@ class ModuleImportDc1 extends Module
                     $cur->user_email       = $rs->user_email;
                     $cur->user_lang        = $rs->user_lang;
                     $cur->user_tz          = App::blog()->settings()->system->blog_timezone;
-                    $cur->user_post_status = $rs->user_post_pub ? App::blog()::POST_PUBLISHED : App::blog()::POST_PENDING;
+                    $cur->user_post_status = $rs->user_post_pub ? App::status()->post()::PUBLISHED : App::status()->post()::PENDING;
                     $cur->user_options     = new ArrayObject([
                         'edit_size'   => (int) $rs->user_edit_size,
                         'post_format' => $rs->user_post_format,
@@ -703,8 +703,8 @@ class ModuleImportDc1 extends Module
                 $cur->comment_site = substr('http://' . $cur->comment_site, 0, 255);
             }
 
-            if ($rs->exists('spam') && $rs->spam && $rs->comment_status == App::blog()::COMMENT_UNPUBLISHED) {
-                $cur->comment_status = App::blog()::COMMENT_JUNK;
+            if ($rs->exists('spam') && $rs->spam && $rs->comment_status == App::status()->comment()::UNPUBLISHED) {
+                $cur->comment_status = App::status()->comment()::JUNK;
             }
 
             $cur->comment_words = implode(' ', Txt::splitWords($cur->comment_content));
@@ -715,7 +715,7 @@ class ModuleImportDc1 extends Module
 
             $cur->insert();
 
-            if ($cur->comment_status === App::blog()::COMMENT_PUBLISHED) {
+            if ($cur->comment_status === App::status()->comment()::PUBLISHED) {
                 if ($cur->comment_trackback !== 0) {
                     $count_t++;
                 } else {

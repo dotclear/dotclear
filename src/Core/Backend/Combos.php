@@ -59,16 +59,13 @@ class Combos
     /**
      * Returns available post status combo.
      *
+     * @deprecated  since 2.33, use App::status()->post()->combo() instead
+     *
      * @return     array<string, string>  The post statuses combo.
      */
     public static function getPostStatusesCombo(): array
     {
-        $status_combo = [];
-        foreach (App::blog()->getAllPostStatus() as $k => $v) {
-            $status_combo[$v] = (string) $k;
-        }
-
-        return $status_combo;
+        return App::status()->post()->combo();
     }
 
     /**
@@ -228,31 +225,25 @@ class Combos
     /**
      * Gets the blog statuses combo.
      *
+     * @deprecated  since 2.33, use App::status()->blog()->combo() instead
+     *
      * @return     array<string, string>  The blog statuses combo.
      */
     public static function getBlogStatusesCombo(): array
     {
-        $status_combo = [];
-        foreach (App::blogs()->getAllBlogStatus() as $k => $v) {
-            $status_combo[$v] = (string) $k;
-        }
-
-        return $status_combo;
+        return App::status()->blog()->combo();
     }
 
     /**
      * Gets the comment statuses combo.
      *
+     * @deprecated  since 2.33, use App::status()->comment()->combo() instead
+     *
      * @return     array<string, string>  The comment statuses combo.
      */
     public static function getCommentStatusesCombo(): array
     {
-        $status_combo = [];
-        foreach (App::blog()->getAllCommentStatus() as $k => $v) {
-            $status_combo[$v] = (string) $k;
-        }
-
-        return $status_combo;
+        return App::status()->comment()->combo();
     }
 
     /**

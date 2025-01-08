@@ -360,7 +360,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_blog->blog_name   = (string) $blog->blog_name;
         $this->cur_blog->blog_desc   = (string) $blog->blog_desc;
 
-        $this->cur_blog->blog_status = $blog->exists('blog_status') ? (int) $blog->blog_status : App::blog()::BLOG_ONLINE;
+        $this->cur_blog->blog_status = $blog->exists('blog_status') ? (int) $blog->blog_status : App::status()->blog()::ONLINE;
 
         $this->cur_blog->insert();
     }
