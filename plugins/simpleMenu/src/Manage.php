@@ -85,7 +85,9 @@ class Manage extends Process
 
         # Liste des langues utilisées
         App::backend()->langs_combo = Combos::getLangscombo(
-            App::blog()->getLangs(['order' => 'asc'])
+            App::blog()->getLangs([
+                'order' => 'asc',
+            ])
         );
 
         # Liste des mois d'archive

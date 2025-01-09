@@ -395,7 +395,9 @@ class Widgets
             return '';
         }
 
-        $rs = App::blog()->getLangs();
+        $rs = App::blog()->getLangs([
+            'order' => 'asc',
+        ]);
 
         if ($rs->count() <= 1) {
             return '';

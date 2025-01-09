@@ -115,7 +115,10 @@ class Post extends Process
 
         // Languages combo
         App::backend()->lang_combo = Combos::getLangsCombo(
-            App::blog()->getLangs(['order' => 'asc']),
+            App::blog()->getLangs([
+                'order_by' => 'nb_post',
+                'order'    => 'desc',
+            ]),
             true
         );
 

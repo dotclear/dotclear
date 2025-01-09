@@ -1351,7 +1351,11 @@ class Blog implements BlogInterface
         if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', (string) $params['order'])) {
             $order = $params['order'];
         }
-        $sql->order('post_lang ' . $order);
+        $order_by = 'post_lang';
+        if (!empty($params['order_by']) && in_array($params['order_by'], ['nb_post', 'post_lang'])) {
+            $order_by = $params['order_by'];
+        }
+        $sql->order($order_by . ' ' . $order);
 
         return $sql->select() ?? MetaRecord::newFromArray([]);
     }

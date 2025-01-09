@@ -260,7 +260,10 @@ class FilterPosts extends Filters
         $langs = null;
 
         try {
-            $langs = App::blog()->getLangs(['post_type' => $this->post_type]);
+            $langs = App::blog()->getLangs([
+                'post_type' => $this->post_type,
+                'order'     => 'asc',
+            ]);
             if ($langs->isEmpty()) {
                 return null;
             }

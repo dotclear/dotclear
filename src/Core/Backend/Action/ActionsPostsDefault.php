@@ -554,20 +554,14 @@ class ActionsPostsDefault
                     ]
                 )
             );
-            # lang list
-            # Languages combo
-            $rs         = App::blog()->getLangs(['order' => 'asc']);
-            $all_langs  = L10n::getISOcodes(false, true);
-            $lang_combo = ['' => '', __('Most used') => [], __('Available') => L10n::getISOcodes(true, true)];
-            while ($rs->fetch()) {
-                if (isset($all_langs[$rs->post_lang])) {
-                    $lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;  // @phpstan-ignore-line
-                    unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
-                } else {
-                    $lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
-                }
-            }
-            unset($all_langs, $rs);
+            // Prepare languages combo
+            $lang_combo = Combos::getLangsCombo(
+                App::blog()->getLangs([
+                    'order_by' => 'nb_post',
+                    'order'    => 'desc',
+                ]),
+                true    // Also show never used languages
+            );
 
             echo (new Form('dochangepostlang'))
                 ->method('post')

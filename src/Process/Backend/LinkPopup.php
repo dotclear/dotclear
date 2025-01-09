@@ -51,8 +51,13 @@ class LinkPopup extends Process
         }
 
         // Languages combo
-        $rs                        = App::blog()->getLangs(['order' => 'asc']);
-        App::backend()->lang_combo = Combos::getLangsCombo($rs, true);
+        App::backend()->lang_combo = Combos::getLangsCombo(
+            App::blog()->getLangs([
+                'order_by' => 'nb_post',
+                'order'    => 'desc',
+            ]),
+            true
+        );
 
         return self::status(true);
     }
