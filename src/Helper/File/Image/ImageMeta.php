@@ -339,10 +339,8 @@ class ImageMeta
             // Check (basically) is the file looks like XML
             $file_pointer = fopen($filename, 'r');
             if ($file_pointer !== false) {
-                if (($chunk = fread($file_pointer, 16)) !== false) {
-                    if (str_starts_with((string) $chunk, '<')) {
-                        $is_xml = true;
-                    }
+                if (($chunk = fread($file_pointer, 16)) !== false && str_starts_with($chunk, '<')) {
+                    $is_xml = true;
                 }
                 fclose($file_pointer);
             }
