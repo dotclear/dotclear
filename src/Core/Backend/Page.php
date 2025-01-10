@@ -1215,7 +1215,7 @@ class Page
         if (App::auth()->prefs()->toggles->prefExists('unfolded_sections')) {
             $unfolded_sections = explode(',', (string) App::auth()->prefs()->toggles->unfolded_sections);
             foreach ($unfolded_sections as $section => $v) {
-                if (!empty($v)) {
+                if ($v !== '') {
                     $js[$unfolded_sections[$section]] = true;
                 }
             }
