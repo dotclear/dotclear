@@ -578,6 +578,7 @@ class Tpl extends Template
      *      - no_context     (1|0)                   Override context information
      *      - order          (asc|desc)              Sort asc or desc
      *      - post_type      type                    Get dates of given type of entries, default to "post"
+     *      - post_status    int (level)             Get dates of given status (level) of entries, default to published entires
      *      - post_lang      lang                    Filter on the given language
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
@@ -595,6 +596,9 @@ class Tpl extends Template
         }
         if (isset($attr['post_type'])) {
             $params .= "\$params['post_type'] = '" . addslashes((string) $attr['post_type']) . "';\n";
+        }
+        if (isset($attr['post_status'])) {
+            $params .= "\$params['post_status'] = '" . addslashes((string) $attr['post_status']) . "';\n";
         }
         if (isset($attr['post_lang'])) {
             $params .= "\$params['post_lang'] = '" . addslashes((string) $attr['post_lang']) . "';\n";
@@ -716,6 +720,7 @@ class Tpl extends Template
      *
      *      - type           (day|month|year)        Get days, months or years, default to "month"
      *      - post_type      type                    Get dates of given type of entries, default to "post"
+     *      - post_status    int (level)             Get dates of given status (level) of entries, default to published entires
      *      - post_lang      lang                    Filter on the given language
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
@@ -731,6 +736,10 @@ class Tpl extends Template
 
         if (isset($attr['post_type'])) {
             $params .= "\$params['post_type'] = '" . addslashes((string) $attr['post_type']) . "';\n";
+        }
+
+        if (isset($attr['post_status'])) {
+            $params .= "\$params['post_status'] = '" . addslashes((string) $attr['post_status']) . "';\n";
         }
 
         if (isset($attr['post_lang'])) {
@@ -761,6 +770,7 @@ class Tpl extends Template
      *
      *      - type           (day|month|year)        Get days, months or years, default to "month"
      *      - post_type      type                    Get dates of given type of entries, default to "post"
+     *      - post_status    int (level)             Get dates of given status (level) of entries, default to published entires
      *      - post_lang      lang                    Filter on the given language
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
@@ -776,6 +786,10 @@ class Tpl extends Template
 
         if (isset($attr['post_type'])) {
             $params .= "\$params['post_type'] = '" . addslashes((string) $attr['post_type']) . "';\n";
+        }
+
+        if (isset($attr['post_status'])) {
+            $params .= "\$params['post_status'] = '" . addslashes((string) $attr['post_status']) . "';\n";
         }
 
         if (isset($attr['post_lang'])) {
@@ -1227,6 +1241,7 @@ class Tpl extends Template
      *
      *      - cat_url                     Restrict to a category URL
      *      - post_type   (post|page|…)   Restrict to categories containing this type of entries
+     *      - post_status int (level)     Restrict to categories containing entries with this status level
      *      - level       int             Restrict to categories of this level (>= 1)
      *      - with_empty  (0|1)           Include empty categories
      *
@@ -1241,6 +1256,9 @@ class Tpl extends Template
         }
         if (!empty($attr['post_type'])) {
             $params .= "\$params['post_type'] = '" . addslashes((string) $attr['post_type']) . "';\n";
+        }
+        if (!empty($attr['post_status'])) {
+            $params .= "\$params['post_status'] = '" . addslashes((string) $attr['post_status']) . "';\n";
         }
         if (!empty($attr['level'])) {
             $params .= "\$params['level'] = " . (int) $attr['level'] . ";\n";
@@ -1543,6 +1561,7 @@ class Tpl extends Template
      *      - selected            (0|1)       Retrieve posts marked as selected only (if 1) or not selected only (if 0)
      *      - url                 string      Retrieve post by its url
      *      - type                (post|page|…)   Restrict to entries with this type (comma separated types)
+     *      - status              int (level) Restrict to entries with this status level (comma separated types)
      *      - age                 string      Retrieve posts by maximum age, see note 3
      *      - ignore_pagination   (0|1)       Ignore page number provided in URL, see note 4
      *
@@ -1615,6 +1634,9 @@ class Tpl extends Template
 
         if (!empty($attr['type'])) {
             $params .= "\$params['post_type'] = preg_split('/\s*,\s*/','" . addslashes((string) $attr['type']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
+        }
+        if (!empty($attr['status'])) {
+            $params .= "\$params['post_status'] = preg_split('/\s*,\s*/','" . addslashes((string) $attr['post_status']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
         }
 
         if (!empty($attr['url'])) {
