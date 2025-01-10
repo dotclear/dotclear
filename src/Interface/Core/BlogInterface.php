@@ -779,6 +779,18 @@ interface BlogInterface
      * @return  string  The post url.
      */
     public function getPostURL($url, $post_dt, $post_title, $post_id): string;
+
+    /**
+     * Parse entries queries adding parameters.
+     *
+     * Parse and add context post_status and post_type and comment_status
+     * to queries linked to post table.
+     *
+     * @param   ArrayObject<string, mixed>  $params         Parameters
+     * @param   SelectStatement             $sql            SelectStatement instance
+     * @param   bool                        $with_comment   Limit also comment status
+     */
+    public function getPostsAddingParameters(ArrayObject $params, SelectStatement $sql, bool $with_comment = false): void;
     //@}
 
     /// @name Comments management methods

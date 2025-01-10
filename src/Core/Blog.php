@@ -708,7 +708,8 @@ class Blog implements BlogInterface
      */
     private function getCategoriesCounter(array|ArrayObject $params = []): array
     {
-        $sql = new SelectStatement();
+        $params = new ArrayObject($params);
+        $sql    = new SelectStatement();
         $sql
             ->columns([
                 'C.cat_id',
@@ -724,16 +725,7 @@ class Blog implements BlogInterface
             )
             ->where('C.blog_id = ' . $sql->quote($this->id));
 
-        if (isset($params['post_status'])) {
-            $sql->and('P.post_status = ' . $sql->quote($params['post_status']));
-        } elseif (!$this->auth->userID() || App::task()->checkContext('FRONTEND')) {
-            // 2.33 backward compatibility for public session, default to post published
-            $sql->and('P.post_status > ' . App::status()->post()->threshold());
-        }
-
-        if (!empty($params['post_type'])) {
-            $sql->and('P.post_type' . $sql->in($params['post_type']));
-        }
+        $this->getPostsAddingParameters($params, $sql);
 
         $sql->group('C.cat_id');
 
@@ -1085,31 +1077,9 @@ class Blog implements BlogInterface
             $sql->where('P.blog_id = ' . $sql->quote($this->id));
         }
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id) || // Check if in frontend context, excluding preview in backend
-            (App::task()->checkContext('FRONTEND') && !App::frontend()->context()->preview)) {
-            $user_id = $this->auth->userID();
-
-            $and = ['post_status > ' . App::status()->post()->threshold()];
-            if ($this->without_password) {
-                $and[] = 'post_password IS NULL';
-            }
-            $or = [$sql->andGroup($and)];
-            if ($user_id && !App::task()->checkContext('FRONTEND')) {
-                $or[] = 'P.user_id = ' . $sql->quote($user_id);
-            }
-            $sql->and($sql->orGroup($or));
-        }
+        $this->getPostsAddingParameters($params, $sql);
 
         #Adding parameters
-        if (isset($params['post_type'])) {
-            if (is_array($params['post_type']) || $params['post_type'] != '') {
-                $sql->and('post_type' . $sql->in($params['post_type']));
-            }
-        } else {
-            $sql->and('post_type = ' . $sql->quote('post'));
-        }
 
         if (isset($params['post_id']) && $params['post_id'] !== '') {
             if (is_array($params['post_id'])) {
@@ -1170,10 +1140,6 @@ class Blog implements BlogInterface
         }
 
         /* Other filters */
-        if (isset($params['post_status'])) {
-            $sql->and('post_status = ' . (int) $params['post_status']);
-        }
-
         if (isset($params['post_firstpub'])) {
             $sql->and('post_firstpub = ' . (int) $params['post_firstpub']);
         }
@@ -1308,7 +1274,8 @@ class Blog implements BlogInterface
 
     public function getLangs($params = []): MetaRecord
     {
-        $sql = new SelectStatement();
+        $params = new ArrayObject($params);
+        $sql    = new SelectStatement();
         $sql
             ->columns([
                 $sql->count('post_id', 'nb_post'),
@@ -1319,27 +1286,7 @@ class Blog implements BlogInterface
             ->and('post_lang <> ' . $sql->quote(''))
             ->and('post_lang IS NOT NULL');
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id) || App::task()->checkContext('FRONTEND')) {
-            $and = ['post_status > ' . App::status()->post()->threshold()];
-            if ($this->without_password) {
-                $and[] = 'post_password IS NULL';
-            }
-            $or = [$sql->andGroup($and)];
-            if ($this->auth->userID() && !App::task()->checkContext('FRONTEND')) {
-                $or[] = 'user_id = ' . $sql->quote($this->auth->userID());
-            }
-            $sql->and($sql->orGroup($or));
-        }
-
-        if (isset($params['post_type'])) {
-            if ($params['post_type'] != '') {
-                $sql->and('post_type = ' . $sql->quote($params['post_type']));
-            }
-        } else {
-            $sql->and('post_type = ' . $sql->quote('post'));
-        }
+        $this->getPostsAddingParameters($params, $sql);
 
         if (isset($params['lang'])) {
             $sql->and('post_lang = ' . $sql->quote($params['lang']));
@@ -1376,7 +1323,8 @@ class Blog implements BlogInterface
         $dt_f  .= ' 00:00:00';
         $dt_fc .= '000000';
 
-        $sql = new SelectStatement();
+        $params = new ArrayObject($params);
+        $sql    = new SelectStatement();
         $sql
             ->distinct()
             ->columns([
@@ -1394,6 +1342,8 @@ class Blog implements BlogInterface
             ->where('P.blog_id = ' . $sql->quote($this->id))
             ->group('dt');
 
+        $this->getPostsAddingParameters($params, $sql);
+
         if (isset($params['cat_id']) && $params['cat_id'] !== '') {
             $sql->and('P.cat_id = ' . (int) $params['cat_id']);
             $sql->column('C.cat_url');
@@ -1405,26 +1355,6 @@ class Blog implements BlogInterface
         }
         if (!empty($params['post_lang'])) {
             $sql->and('P.post_lang = ' . $sql->quote($params['post_lang']));
-        }
-
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id) || App::task()->checkContext('FRONTEND')) {
-            $and = ['post_status > ' . App::status()->post()->threshold()];
-            if ($this->without_password) {
-                $and[] = 'post_password IS NULL';
-            }
-            $or = [$sql->andGroup($and)];
-            if ($this->auth->userID() && !App::task()->checkContext('FRONTEND')) {
-                $or[] = 'P.user_id = ' . $sql->quote($this->auth->userID());
-            }
-            $sql->and($sql->orGroup($or));
-        }
-
-        if (!empty($params['post_type'])) {
-            $sql->and('post_type' . $sql->in($params['post_type']));
-        } else {
-            $sql->and('post_type = ' . $sql->quote('post'));
         }
 
         if (!empty($params['year'])) {
@@ -2223,6 +2153,67 @@ class Blog implements BlogInterface
 
         return $url;
     }
+
+    public function getPostsAddingParameters(ArrayObject $params, SelectStatement $sql, bool $with_comment = false): void
+    {
+        $copy = clone $params;
+
+        # --BEHAVIOR-- coreBlogBeforeGetPostsAddingParameters -- ArrayObject
+        $this->behavior->callBehavior('coreBlogBeforeGetPostsAddingParameters', $copy);
+
+        # Allowed changes to limited fields.
+        foreach(['post_type', 'post_status', 'comment_status'] as $type) {
+            if (isset($copy[$type])) {
+                $params[$type] = $copy[$type];
+            }
+        }
+
+        if (isset($params['post_type'])) {
+            if (is_array($params['post_type']) || $params['post_type'] != '') {
+                $sql->and('post_type' . $sql->in($params['post_type']));
+            }
+        } else {
+            $sql->and('post_type = ' . $sql->quote('post'));
+        }
+
+        if (isset($params['post_status']) && $params['post_status'] !== '') {
+            if (is_array($params['post_status'])) {
+                array_walk($params['post_status'], function (&$v): void {
+                    if ($v !== null) {
+                        $v = (int) $v;
+                    }
+                });
+            } else {
+                $params['post_status'] = [(int) $params['post_status']];
+            }
+        }
+
+        if (!$this->auth->check($this->auth->makePermissions([
+            $this->auth::PERMISSION_CONTENT_ADMIN,
+        ]), $this->id) || // Check if in frontend context, excluding preview in backend
+            (App::task()->checkContext('FRONTEND') && !App::frontend()->context()->preview)) {
+
+            $and = [];
+            if ($with_comment) {
+                $and[] = 'comment_status > ' . App::status()->comment()->threshold();
+            }
+            $or = ['post_status > ' . App::status()->post()->threshold()];
+            if (!empty($params['post_status'])) {
+                $or[] = 'post_status ' . $sql->in($params['post_status']); 
+            }
+            $and[] = $sql->orGroup($or);
+            if ($this->without_password) {
+                $and[] = 'post_password IS NULL';
+            }
+            $or = [$sql->andGroup($and)];
+            if ($this->auth->userID() && !App::task()->checkContext('FRONTEND')) {
+                $or[] = 'P.user_id = ' . $sql->quote($this->auth->userID());
+            }
+            $sql->and($sql->orGroup($or));
+        } elseif (!empty($params['post_status'])) {
+            $sql->and('post_status ' . $sql->in($params['post_status']));
+        }
+    }
     //@}
 
     /// @name Comments management methods
@@ -2230,7 +2221,8 @@ class Blog implements BlogInterface
 
     public function getComments($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
-        $sql = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
+        $params = new ArrayObject($params);
+        $sql    = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
 
         if ($count_only) {
             $sql->column($sql->count('comment_id'));
@@ -2296,30 +2288,7 @@ class Blog implements BlogInterface
             $sql->where('P.blog_id = ' . $sql->quote($this->id));
         }
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id) || App::task()->checkContext('FRONTEND')) {
-            $user_id = $this->auth->userID();
-
-            $and = [
-                'comment_status > ' . App::status()->comment()->threshold(),
-                'P.post_status > ' . App::status()->post()->threshold(),
-            ];
-
-            if ($this->without_password) {
-                $and[] = 'post_password IS NULL';
-            }
-
-            $or = [$sql->andGroup($and)];
-            if ($user_id && !App::task()->checkContext('FRONTEND')) {
-                $or[] = 'P.user_id = ' . $sql->quote($user_id);
-            }
-            $sql->and($sql->orGroup($or));
-        }
-
-        if (!empty($params['post_type'])) {
-            $sql->and('post_type' . $sql->in($params['post_type']));
-        }
+        $this->getPostsAddingParameters($params, $sql, true);
 
         if (isset($params['post_id']) && $params['post_id'] !== '') {
             $sql->and('P.post_id = ' . (int) $params['post_id']);
