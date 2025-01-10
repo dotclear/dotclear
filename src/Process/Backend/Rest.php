@@ -789,6 +789,11 @@ class Rest extends Process
             // false == unfold section ==> add it to unfolded list
             $toggles[] = $section;
         }
+        // Remove empty values if any
+        $toggles = array_filter($toggles);
+        // Sort in alphabetic order
+        sort($toggles);
+        // Store resulting list
         App::auth()->prefs()->toggles->put('unfolded_sections', implode(',', $toggles));
 
         return true;
