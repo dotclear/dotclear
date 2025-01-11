@@ -60,15 +60,33 @@ class Statuses
     }
 
     /**
+     * Gets a status (full object).
+     *
+     * Search by (int) level or (string) id.
+     */
+    public function get(int|string $needle): Status
+    {
+        foreach ($this->statuses as $status) {
+            if (is_int($needle) && $status->level() === (int) $needle
+                || $status->id() === $needle
+            ) {
+                return $status;
+            }
+        }
+
+        return $this->get($this->threshold());
+    }
+
+    /**
      * Checks if a status exists.
      *
-     * Search by (string) id or (int) level.
+     * Search by (int) level or (string) id.
      */
     public function has(int|string $needle): bool
     {
         foreach ($this->statuses as $status) {
-            if (is_int($needle)       && $status->level() === $needle
-                || is_string($needle) && $status->id()    === $needle
+            if (is_int($needle) && $status->level() === (int) $needle
+                || $status->id() === $needle
             ) {
                 return true;
             }
@@ -80,7 +98,7 @@ class Statuses
     /**
      * Checks if a status level is restricted.
      *
-     * Search by (string) id or (int) level.
+     * Search by (int) level or (string) id.
      *
      * Levels are compared like that:
      * - needle <= defaul level = restricted
@@ -88,15 +106,7 @@ class Statuses
      */
     public function isRestricted(int|string $needle): bool
     {
-        foreach ($this->statuses as $status) {
-            if (is_int($needle)       && $status->level() === $needle
-                || is_string($needle) && $status->id()    === $needle
-            ) {
-                return $status->level() <= $this->threshold;
-            }
-        }
-
-        return true;
+        return $this->has($needle) ? $this->get($needle)->level() <= $this->threshold() : true;
     }
 
     /**
@@ -122,94 +132,63 @@ class Statuses
     /**
      * Gets a status level.
      *
-     * Search by (string) id.
+     * Search by (int) level or (string) id.
      * Returns threshold level if status does not exists.
      */
-    public function level(string $needle): int
+    public function level(int|string $needle): int
     {
-        foreach ($this->statuses as $status) {
-            if ($status->id() === $needle) {
-                return $status->level();
-            }
-        }
-
-        return $this->threshold();
+        return $this->get($needle)->level();
     }
 
     /**
      * Gets a status id.
      *
-     * Search by (int) level.
+     * Search by (int) level or (string) id.
      * Returns threshold level id if status does not exists.
      */
-    public function id(int $needle): string
+    public function id(int|string $needle): string
     {
-        foreach ($this->statuses as $status) {
-            if ($status->level() === $needle) {
-                return $status->id();
-            }
-        }
-
-        return $this->id($this->threshold());
+        return $this->get($needle)->id();
     }
 
     /**
      * Gets a status name (translated).
      *
-     * Search by (string) id or (int) level.
+     * Search by (int) level or (string) id.
      * Returns threshold level name if status does not exists.
      */
     public function name(int|string $needle): string
     {
-        foreach ($this->statuses as $status) {
-            if (is_int($needle)       && $status->level() === $needle
-                || is_string($needle) && $status->id()    === $needle
-            ) {
-                return __($status->name());
-            }
-        }
-
-        return $this->name($this->threshold());
+        return __($this->get($needle)->name());
     }
 
     /**
      * Gets a status icon URI.
      *
-     * Search by (string) id or (int) level.
+     * Search by (int) level or (string) id.
      * Returns threshold level icon if status does not exists.
      */
     public function icon(int|string $needle): string
     {
-        foreach ($this->statuses as $status) {
-            if (is_int($needle)       && $status->level() === $needle
-                || is_string($needle) && $status->id()    === $needle
-            ) {
-                return $status->icon();
-            }
-        }
-
-        return $this->icon($this->threshold());
+        return $this->get($needle)->icon();
     }
 
     /**
      * Get status admin image.
      *
-     * Search by (string) id or (int) level.
+     * Search by (int) level or (string) id.
      */
     public function image(int|string $needle, bool $with_text = false): Text|Img
     {
-        foreach ($this->statuses as $status) {
-            if (is_int($needle)       && $status->level() === $needle
-                || is_string($needle) && $status->id()    === $needle
-            ) {
-                $img = (new Img($status->icon()))
-                    ->alt(Html::escapeHTML(__($status->name())))
-                    ->class(['mark', 'mark-' . $status->id()]);
+        if ($this->has($needle)) {
+            $status = $this->get($needle);
+            $img = (new Img($status->icon()))
+                ->alt(Html::escapeHTML(__($status->name())))
+                ->class(['mark', 'mark-' . $status->id()]);
 
-                return $with_text ?
-                    (new Text(null, $img->render() . Html::escapeHTML(__($status->name())))) :
-                    $img;
-            }
+            return $with_text ?
+                (new Text(null, $img->render() . Html::escapeHTML(__($status->name())))) :
+                $img;
         }
 
         return $with_text ? (new Text(null, '')) : (new Img(''));
