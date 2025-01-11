@@ -211,7 +211,7 @@ class Blog implements BlogInterface
         $public_path = '';
 
         if ($id !== '') {
-            $blog = $this->getBlog($id);
+            $blog = App::blogs()->getBlog($id);
             if ($blog->count() > 0) {
                 $uid    = (string) $blog->blog_uid;
                 $name   = (string) $blog->blog_name;
@@ -254,49 +254,6 @@ class Blog implements BlogInterface
         dcCore::app()->blog = $uid === '' ? null : $this;
 
         return $this;
-    }
-
-    private function getBlog(string $blog_id): MetaRecord
-    {
-        $sql = new SelectStatement();
-        $sql
-            ->columns([
-                'B.blog_id',
-                'blog_uid',
-                'blog_url',
-                'blog_name',
-                'blog_desc',
-                'blog_creadt',
-                'blog_upddt',
-                'blog_status',
-            ])
-            ->from($sql->as($this->con->prefix() . self::BLOG_TABLE_NAME, 'B'))
-            ->where('B.blog_id' . $sql->in($blog_id))
-            ->order('B.blog_id ASC')
-        ;
-
-        if ($this->auth->userID() && !$this->auth->isSuperAdmin()) {
-            $sql
-                ->join(
-                    (new JoinStatement())
-                        ->inner()
-                        ->from($sql->as($this->con->prefix() . $this->auth::PERMISSIONS_TABLE_NAME, 'PE'))
-                        ->on('B.blog_id = PE.blog_id')
-                        ->statement()
-                )
-                ->and('PE.user_id = ' . $sql->quote($this->auth->userID()))
-                ->and($sql->orGroup([
-                    $sql->like('permissions', '%|' . $this->auth::PERMISSION_USAGE . '|%'),
-                    $sql->like('permissions', '%|' . $this->auth::PERMISSION_ADMIN . '|%'),
-                    $sql->like('permissions', '%|' . $this->auth::PERMISSION_CONTENT_ADMIN . '|%'),
-                ]))
-                ->and('blog_status > ' . App::status()->blog()::REMOVED)
-            ;
-        } elseif (!$this->auth->userID()) {
-            $sql->and('blog_status > ' . App::status()->blog()::REMOVED);
-        }
-
-        return $sql->select() ?? MetaRecord::newFromArray([]);
     }
 
     /// @name Class public methods
