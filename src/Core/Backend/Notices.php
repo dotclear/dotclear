@@ -108,6 +108,7 @@ class Notices
             }
             if (App::notice()->getNotices($params, true)->f(0)) {
                 $lines = App::notice()->getNotices($params);
+
                 while ($lines->fetch()) {
                     if (isset(self::$notice_types[$lines->notice_type])) {
                         $class = self::$notice_types[$lines->notice_type];
@@ -128,7 +129,7 @@ class Notices
                     # --BEHAVIOR-- adminPageNotification -- dcCore, array<string,string>
                     $notice = App::behavior()->callBehavior('adminPageNotification', dcCore::app(), $notification);
 
-                    $res .= ($notice === '' ? $notice : self::getNotification($notification));
+                    $res .= ($notice !== '' ? $notice : self::getNotification($notification));
                 }
             }
         } while (--$step);
