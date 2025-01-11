@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use ArrayObject;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -275,6 +276,7 @@ class Meta implements MetaInterface
      */
     public function getMetadata(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
+        $params = new ArrayObject($params);
         $sql = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
 
         if ($count_only) {
@@ -312,22 +314,7 @@ class Meta implements MetaInterface
             $sql->and('P.post_id' . $sql->in($params['post_id']));
         }
 
-        if (!$this->auth->check($this->auth->makePermissions([
-            $this->auth::PERMISSION_CONTENT_ADMIN,
-        ]), $this->blog->id()) || App::task()->checkContext('FRONTEND')) {
-            $user_id = $this->auth->userID();
-
-            $and = ['post_status > ' . App::status()->post()->threshold()];
-            if ($this->blog->withoutPassword()) {
-                $and[] = 'post_password IS NULL';
-            }
-
-            $or = [$sql->andGroup($and)];
-            if ($user_id && !App::task()->checkContext('FRONTEND')) {
-                $or[] = 'P.user_id = ' . $sql->quote($user_id);
-            }
-            $sql->and($sql->orGroup($or));
-        }
+        App::blog()->getPostsAddingParameters($params, $sql);
 
         if (!$count_only) {
             if (!isset($params['order'])) {

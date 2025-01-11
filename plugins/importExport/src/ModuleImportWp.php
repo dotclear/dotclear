@@ -550,7 +550,7 @@ class ModuleImportWp extends Module
                                 case 'wp_user_level':
                                     switch ($rs_meta->meta_value) {
                                         case '0': # Subscriber
-                                            $cur->user_status = 0;
+                                            $cur->user_status = App::status()->user()::DISABLED;
 
                                             break;
                                         case '1': # Contributor

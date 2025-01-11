@@ -1077,32 +1077,6 @@ class Post extends Process
         while ($rs->fetch()) {
             $comment_url = App::backend()->url()->get('admin.comment', ['id' => $rs->comment_id]);
 
-            $img        = '<img alt="%1$s" class="mark mark-%3$s" src="images/%2$s">';
-            $img_status = '';
-            $sts_class  = '';
-            switch ((int) $rs->comment_status) {
-                case App::status()->comment()::PUBLISHED:
-                    $img_status = sprintf($img, __('Published'), 'published.svg', 'published');
-                    $sts_class  = 'sts-online';
-
-                    break;
-                case App::status()->comment()::UNPUBLISHED:
-                    $img_status = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
-                    $sts_class  = 'sts-offline';
-
-                    break;
-                case App::status()->comment()::PENDING:
-                    $img_status = sprintf($img, __('Pending'), 'pending.svg', 'pending');
-                    $sts_class  = 'sts-pending';
-
-                    break;
-                case App::status()->comment()::JUNK:
-                    $img_status = sprintf($img, __('Junk'), 'junk.svg', 'junk light-only') . sprintf($img, __('Junk'), 'junk-dark.svg', 'junk dark-only');
-                    $sts_class  = 'sts-junk';
-
-                    break;
-            }
-
             echo
             '<tr class="line ' . (App::status()->comment()->isRestricted((int) $rs->comment_status) ? ' offline ' : '') . $sts_class . '"' .
             ' id="c' . $rs->comment_id . '">';
@@ -1133,7 +1107,7 @@ class Post extends Process
                 '<td class="nowrap"><a href="' . App::backend()->url()->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>';
             }
             echo
-            '<td class="nowrap status">' . $img_status . '</td>' .
+            '<td class="nowrap status">' . App::status()->post()->image((int) $rs->comment_status)->render() . '</td>' .
             '<td class="nowrap status"><a href="' . $comment_url . '" title="' . __('Edit this comment') . '">' .
             '<img class="mark mark-edit light-only" src="images/edit.svg" alt="">' .
             '<img class="mark mark-edit dark-only" src="images/edit-dark.svg" alt="">' .

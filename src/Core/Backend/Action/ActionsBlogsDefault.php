@@ -31,12 +31,8 @@ class ActionsBlogsDefault
             return;
         }
 
-        $actions = [];
-        foreach (App::status()->blog()->dump(false) as $status) {
-            $actions[__($status->name())] = $status->id();
-        }
         $ap->addAction(
-            [__('Status') => $actions],
+            [__('Status') => App::status()->blog()->action()],
             self::doChangeBlogStatus(...)
         );
         $ap->addAction(

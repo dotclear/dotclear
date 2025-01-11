@@ -56,6 +56,7 @@ class User extends Process
         # Formaters combo
         App::backend()->formaters_combo = Combos::getFormatersCombo();
 
+        # Posts status combo !
         App::backend()->status_combo = App::status()->post()->combo();
 
         # Language codes
@@ -109,7 +110,7 @@ class User extends Process
 
                 $cur->user_id          = $_POST['user_id'];
                 $cur->user_super       = App::backend()->user_super = empty($_POST['user_super']) ? 0 : 1;
-                $cur->user_status      = App::backend()->user_status = empty($_POST['user_status']) ? App::status()->user()::DISABLED : App::status()->user()::ENABLED;
+                $cur->user_status      = App::backend()->user_status = App::status()->user()->level((int) $_POST['user_status']);
                 $cur->user_name        = App::backend()->user_name = Html::escapeHTML($_POST['user_name']);
                 $cur->user_firstname   = App::backend()->user_firstname = Html::escapeHTML($_POST['user_firstname']);
                 $cur->user_displayname = App::backend()->user_displayname = Html::escapeHTML($_POST['user_displayname']);
@@ -339,17 +340,12 @@ class User extends Process
         ' ' . __('Super administrator') . '</label></p>' .
         ($super_disabled ? form::hidden(['user_super'], App::backend()->user_super) : '') .
 
-        '<p><label for="user_status" class="classic">' .
-        form::checkbox(
-            ($status_disabled ? 'user_super_off' : 'user_status'),
-            '1',
-            [
-                'checked'  => App::backend()->user_status,
-                'disabled' => $status_disabled,
-            ]
+        (App::backend()->user_id != App::auth()->userID() ?
+            '<p><label for="user_status">' . __('Status:') . '</label> ' .
+            form::combo('user_status', App::status()->user()->combo(), App::backend()->user_status) .
+            '</p>' :
+            form::hidden(['user_status'], App::backend()->user_status)
         ) .
-        ' ' . __('Enabled user') . '</label></p>' .
-        ($status_disabled ? form::hidden(['user_status'], App::backend()->user_status) : '') .
 
         '<p><label for="user_name">' . __('Last Name:') . '</label> ' .
         form::field('user_name', 20, 255, [

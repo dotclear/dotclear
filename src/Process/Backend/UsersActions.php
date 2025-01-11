@@ -284,19 +284,6 @@ class UsersActions extends Process
 
                 if ($rs instanceof MetaRecord) {
                     while ($rs->fetch()) {
-                        $img_status = match ((int) $rs->blog_status) {
-                            App::status()->blog()::ONLINE  => 'published.svg',
-                            App::status()->blog()::OFFLINE => 'unpublished.svg',
-                            default                        => 'pending.svg',
-                        };
-                        $img_class = match ((int) $rs->blog_status) {
-                            App::status()->blog()::ONLINE  => 'published',
-                            App::status()->blog()::OFFLINE => 'unpublished',
-                            default                        => 'pending',
-                        };
-                        $txt_status = App::status()->blog()->name(is_numeric($rs->blog_status) ? (int) $rs->blog_status : 'online');
-                        $img_status = sprintf('<img src="images/%1$s" class="mark mark-%3$s" alt="%2$s">', $img_status, $txt_status, $img_class);
-
                         echo
                         '<tr class="line">' .
                         '<td class="nowrap">' .
@@ -313,7 +300,7 @@ class UsersActions extends Process
                         '<td class="nowrap"><a class="outgoing" href="' . Html::escapeHTML($rs->blog_url) . '">' . Html::escapeHTML($rs->blog_url) .
                         ' <img src="images/outgoing-link.svg" alt=""></a></td>' .
                         '<td class="nowrap">' . App::blogs()->countBlogPosts($rs->blog_id) . '</td>' .
-                        '<td class="status">' . $img_status . '</td>' .
+                        '<td class="status">' . App::status()->blog()->image((int) $rs->blog_status)->render() . '</td>' .
                         '</tr>';
                     }
                 }
