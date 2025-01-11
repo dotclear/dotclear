@@ -80,7 +80,7 @@ class Listing
             ->class(['mark', 'mark-' . $class]);
 
         return $with_text ?
-            (new Text(null, $img->render() . Html::escapeHTML($title))) :
+            (new Text(null, $img->render() . ' ' . Html::escapeHTML($title))) :
             $img;
     }
 }

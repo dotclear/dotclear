@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Helper\Stack;
 
 use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 
@@ -68,7 +69,7 @@ class Statuses
     {
         foreach ($this->statuses as $status) {
             if (is_int($needle) && $status->level() === $needle
-                || $status->id() === $needle
+                || $status->id()                    === $needle
             ) {
                 return $status;
             }
@@ -86,7 +87,7 @@ class Statuses
     {
         foreach ($this->statuses as $status) {
             if (is_int($needle) && $status->level() === $needle
-                || $status->id() === $needle
+                || $status->id()                    === $needle
             ) {
                 return true;
             }
@@ -174,20 +175,50 @@ class Statuses
     }
 
     /**
+     * Gets a status dark icon URI.
+     *
+     * Search by (int) level or (string) id.
+     * Returns threshold level icon if status does not exists.
+     */
+    public function iconDark(int|string $needle): string
+    {
+        return $this->get($needle)->iconDark();
+    }
+
+    /**
      * Get status admin image.
      *
      * Search by (int) level or (string) id.
      */
-    public function image(int|string $needle, bool $with_text = false): Text|Img
+    public function image(int|string $needle, bool $with_text = false): Text|Img|Set
     {
         if ($this->has($needle)) {
-            $status = $this->get($needle);
-            $img = (new Img($status->icon()))
+            $status    = $this->get($needle);
+            $icon      = $status->icon();
+            $icon_dark = $status->iconDark();
+            if ($icon_dark !== '') {
+                // Two icons, one for each mode (light and dark)
+                $imgs = (new Set())
+                    ->items([
+                        (new Img($icon))
+                            ->alt(Html::escapeHTML(__($status->name())))
+                            ->class(['mark', 'mark-' . $status->id(), 'light-only']),
+                        (new Img($icon_dark))
+                            ->alt(Html::escapeHTML(__($status->name())))
+                            ->class(['mark', 'mark-' . $status->id(), 'dark-only']),
+                    ]);
+
+                return $with_text ?
+                    (new Text(null, $imgs->render() . ' ' . Html::escapeHTML(__($status->name())))) :
+                    $imgs;
+            }
+            // Only one icon for both mode (light and dark)
+            $img = (new Img($icon))
                 ->alt(Html::escapeHTML(__($status->name())))
                 ->class(['mark', 'mark-' . $status->id()]);
 
             return $with_text ?
-                (new Text(null, $img->render() . Html::escapeHTML(__($status->name())))) :
+                (new Text(null, $img->render() . ' ' . Html::escapeHTML(__($status->name())))) :
                 $img;
         }
 

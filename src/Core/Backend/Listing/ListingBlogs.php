@@ -139,7 +139,7 @@ class ListingBlogs extends Listing
                             null,
                             __('Legend: ') . (new Set())
                             ->separator(' - ')
-                            ->items(array_map(fn ($k): Img|Text => App::status()->blog()->image($k->id(), true), App::status()->blog()->dump()))
+                            ->items(array_map(fn ($k): Img|Set|Text => App::status()->blog()->image($k->id(), true), App::status()->blog()->dump()))
                             ->render(),
                         )),
                     ]),

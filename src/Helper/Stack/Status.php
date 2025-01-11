@@ -23,6 +23,7 @@ class Status
         protected string $name,
         protected string $plural_name,
         protected string $icon,
+        protected string $icon_dark = '',
         protected bool $hidden = false
     ) {
     }
@@ -65,6 +66,14 @@ class Status
     public function icon(): string
     {
         return $this->icon;
+    }
+
+    /**
+     * Gets status dark icon URI.
+     */
+    public function iconDark(): string
+    {
+        return $this->icon_dark;
     }
 
     /**

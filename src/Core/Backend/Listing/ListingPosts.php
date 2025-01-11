@@ -182,7 +182,7 @@ class ListingPosts extends Listing
                             __('Legend: ') . (new Set())
                             ->separator(' - ')
                             ->items([
-                                ... array_map(fn ($k): Img|Text => App::status()->post()->image($k->id(), true), App::status()->post()->dump(false)),
+                                ... array_map(fn ($k): Img|Set|Text => App::status()->post()->image($k->id(), true), App::status()->post()->dump(false)),
                                 self::getRowImage(__('Protected'), 'images/locker.svg', 'locked', true),
                                 self::getRowImage(__('Selected'), 'images/selected.svg', 'selected', true),
                                 self::getRowImage(__('Attachments'), 'images/attach.svg', 'attach', true),
@@ -210,7 +210,7 @@ class ListingPosts extends Listing
         if (App::status()->post()->isRestricted((int) $this->rs->post_status)) {
             $post_classes[] = 'offline';
         }
-        $post_classes[] = 'sts-' . App::status()->post()->id((int) $this->rs->post_status); // used ?
+        $post_classes[] = 'sts-' . App::status()->post()->id((int) $this->rs->post_status);
 
         $status = [];
         if ($this->rs->post_password) {

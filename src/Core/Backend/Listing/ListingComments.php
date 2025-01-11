@@ -166,14 +166,6 @@ class ListingComments extends Listing
             $lines[] = $this->commentLine(isset($comments[$this->rs->comment_id]), $spam, $filters, $show_ip);
         }
 
-        $fmt = fn ($title, $image, $class, $dark = false): string => (new Img('images/' . $image . '.svg'))
-            ->class(array_filter(['mark', 'mark-' . $class, $dark ? 'light-only' : '']))
-            ->alt($title)
-        ->render() . ($dark ? (new Img('images/' . $image . '-dark.svg'))
-            ->class(['mark', 'mark-' . $class, 'dark-only'])
-            ->alt($title)
-        ->render() : '') . ' ' . $title;
-
         $buffer = (new Div())
             ->class('table-outer')
             ->items([
@@ -183,11 +175,15 @@ class ListingComments extends Listing
                 (new Para())
                     ->class('info')
                     ->items([
-                        (new Text(null, __('Legend: '))),
-                        (new Text(null, $fmt(__('Published'), 'published', 'published') . ' - ')),
-                        (new Text(null, $fmt(__('Unpublished'), 'unpublished', 'unpublished') . ' - ')),
-                        (new Text(null, $fmt(__('Pending'), 'pending', 'pending') . ' - ')),
-                        (new Text(null, $fmt(__('Junk'), 'junk', 'junk', true))),
+                        (new Text(
+                            null,
+                            __('Legend: ') . (new Set())
+                            ->separator(' - ')
+                            ->items([
+                                ... array_map(fn ($k): Img|Set|Text => App::status()->comment()->image($k->id(), true), App::status()->comment()->dump(false)),
+                            ])
+                            ->render(),
+                        )),
                     ]),
             ])
         ->render();
@@ -210,56 +206,6 @@ class ListingComments extends Listing
         $author_url  = App::backend()->url()->get('admin.comments', ['author' => $this->rs->comment_author]);
         $post_url    = App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id);
         $comment_url = App::backend()->url()->get('admin.comment', ['id' => $this->rs->comment_id]);
-
-        [
-            $img_status_alt,
-            $img_status_case,
-            $img_status_dark,
-            $sts_class
-        ] = match ((int) $this->rs->comment_status) {
-            App::status()->comment()::PUBLISHED => [
-                __('Published'),
-                'published',
-                false,
-                'sts-online',
-            ],
-            App::status()->comment()::UNPUBLISHED => [
-                __('Unpublished'),
-                'unpublished',
-                false,
-                'sts-offline',
-            ],
-            App::status()->comment()::PENDING => [
-                __('Pending'),
-                'pending',
-                false,
-                'sts-pending',
-            ],
-            App::status()->comment()::JUNK => [
-                __('Junk'),
-                'junk',
-                true,
-                'sts-junk',
-            ],
-            default => [
-                __('Unknown'),
-                'unknown',
-                false,
-                'sts-unknown',
-            ]
-        };
-
-        $img_status = [
-            (new Img('images/' . $img_status_case . '.svg'))
-                ->class(array_filter(['mark', 'mark-' . $img_status_case, $img_status_dark ? 'light-only' : '']))
-                ->alt($img_status_alt),
-        ];
-        if ($img_status_dark) {
-            $img_status[] = (new Img('images/' . $img_status_case . '-dark.svg'))
-                    ->class(['mark', 'mark-' . $img_status_case, 'dark-only'])
-                    ->alt($img_status_alt)
-            ;
-        }
 
         $post_title = Html::escapeHTML(trim(Html::clean($this->rs->post_title)));
         if (mb_strlen($post_title) > 70) {
@@ -317,7 +263,9 @@ class ListingComments extends Listing
 
             'status' => (new Td())
                 ->class(['nowrap', 'status', 'txt-center'])
-                ->items($img_status)
+                ->items([
+                    App::status()->post()->image((int) $this->rs->comment_status),
+                ])
             ->render(),
         ];
 
@@ -369,7 +317,7 @@ class ListingComments extends Listing
             ->class(array_filter([
                 'line',
                 App::status()->comment()->isRestricted((int) $this->rs->comment_status) ? 'offline' : '',
-                $sts_class,
+                'sts-' . App::status()->post()->id((int) $this->rs->comment_status),
             ]))
             ->items([
                 (new Text(null, implode('', iterator_to_array($cols)))),
