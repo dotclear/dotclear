@@ -256,6 +256,25 @@ class Statuses
     }
 
     /**
+     * Gets statuses action combo.
+     *
+     * Hidden status are not returned.
+     *
+     * @return  array<string, string>   The statuses by name/id .
+     */
+    public function action(): array
+    {
+        $combo = [];
+        foreach ($this->statuses as $status) {
+            if (!$status->hidden()) {
+                $combo[__($status->name())] = $status->id();
+            }
+        }
+
+        return $combo;
+    }
+
+    /**
      * Gets status form filter.
      */
     public function filter(): Filter

@@ -32,12 +32,8 @@ class ActionsCommentsDefault
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
-            $actions = [];
-            foreach (App::status()->comment()->dump(false) as $status) {
-                $actions[__($status->name())] = $status->id();
-            }
             $ap->addAction(
-                [__('Status') => $actions],
+                [__('Status') => App::status()->comment()->action()],
                 self::doChangeCommentStatus(...)
             );
         }
