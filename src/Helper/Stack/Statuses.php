@@ -67,7 +67,7 @@ class Statuses
     public function get(int|string $needle): Status
     {
         foreach ($this->statuses as $status) {
-            if (is_int($needle) && $status->level() === (int) $needle
+            if (is_int($needle) && $status->level() === $needle
                 || $status->id() === $needle
             ) {
                 return $status;
@@ -85,7 +85,7 @@ class Statuses
     public function has(int|string $needle): bool
     {
         foreach ($this->statuses as $status) {
-            if (is_int($needle) && $status->level() === (int) $needle
+            if (is_int($needle) && $status->level() === $needle
                 || $status->id() === $needle
             ) {
                 return true;

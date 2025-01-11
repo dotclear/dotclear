@@ -708,7 +708,7 @@ class Blog implements BlogInterface
      */
     private function getCategoriesCounter(array|ArrayObject $params = []): array
     {
-        $params = new ArrayObject($params);
+        $params = $params instanceof ArrayObject ? $params : new ArrayObject($params);
         $sql    = new SelectStatement();
         $sql
             ->columns([
@@ -988,7 +988,7 @@ class Blog implements BlogInterface
     public function getPosts($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
         # --BEHAVIOR-- coreBlogBeforeGetPosts
-        $params = new ArrayObject($params);
+        $params = $params instanceof ArrayObject ? $params : new ArrayObject($params);
         # --BEHAVIOR-- coreBlogBeforeGetPosts -- ArrayObject
         $this->behavior->callBehavior('coreBlogBeforeGetPosts', $params);
 
@@ -1274,7 +1274,7 @@ class Blog implements BlogInterface
 
     public function getLangs($params = []): MetaRecord
     {
-        $params = new ArrayObject($params);
+        $params = $params instanceof ArrayObject ? $params : new ArrayObject($params);
         $sql    = new SelectStatement();
         $sql
             ->columns([
@@ -1323,7 +1323,7 @@ class Blog implements BlogInterface
         $dt_f  .= ' 00:00:00';
         $dt_fc .= '000000';
 
-        $params = new ArrayObject($params);
+        $params = $params instanceof ArrayObject ? $params : new ArrayObject($params);
         $sql    = new SelectStatement();
         $sql
             ->distinct()
@@ -2219,7 +2219,7 @@ class Blog implements BlogInterface
 
     public function getComments($params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
-        $params = new ArrayObject($params);
+        $params = $params instanceof ArrayObject ? $params : new ArrayObject($params);
         $sql    = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
 
         if ($count_only) {
