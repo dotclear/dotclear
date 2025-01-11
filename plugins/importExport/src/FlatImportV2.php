@@ -463,7 +463,7 @@ class FlatImportV2 extends FlatBackup
 
         $this->cur_user->user_desc    = $user->exists('user_desc') ? (string) $user->user_desc : null;
         $this->cur_user->user_options = $user->exists('user_options') ? (string) $user->user_options : null;
-        $this->cur_user->user_status  = $user->exists('user_status') ? (int) $user->user_status : 1;
+        $this->cur_user->user_status  = $user->exists('user_status') ? (int) $user->user_status : App::status()->user()::ENABLED;
 
         $this->cur_user->insert();
 

@@ -450,7 +450,7 @@ class ModuleImportDc1 extends Module
                     $permissions = [];
                     switch ($rs->user_level) {
                         case '0':
-                            $cur->user_status = 0;
+                            $cur->user_status = App::status()->user()::DISABLED;
 
                             break;
                         case '1': # editor
