@@ -286,7 +286,7 @@ class Tpl extends Template
     public function compileBlockNode(string $tag, $attr, string $content): string
     {
         $this->current_tag = $tag;
-        $attr              = new ArrayObject($attr);
+        $attr              = $attr instanceof ArrayObject ? $attr : new ArrayObject($attr);
 
         # --BEHAVIOR-- templateBeforeBlock -- string, ArrayObject
         $res = App::behavior()->callBehavior('templateBeforeBlockV2', $this->current_tag, $attr);
@@ -312,7 +312,7 @@ class Tpl extends Template
     public function compileValueNode(string $tag, $attr, string $str_attr): string
     {
         $this->current_tag = $tag;
-        $attr              = new ArrayObject($attr);
+        $attr              = $attr instanceof ArrayObject ? $attr : new ArrayObject($attr);
 
         # --BEHAVIOR-- templateBeforeValue -- string, ArrayObject
         $res = App::behavior()->callBehavior('templateBeforeValueV2', $this->current_tag, $attr);

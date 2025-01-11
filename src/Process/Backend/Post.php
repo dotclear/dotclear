@@ -1076,6 +1076,7 @@ class Post extends Process
 
         while ($rs->fetch()) {
             $comment_url = App::backend()->url()->get('admin.comment', ['id' => $rs->comment_id]);
+            $sts_class   = App::status()->comment()->id((int) $rs->comment_status);
 
             echo
             '<tr class="line ' . (App::status()->comment()->isRestricted((int) $rs->comment_status) ? ' offline ' : '') . $sts_class . '"' .

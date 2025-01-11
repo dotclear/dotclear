@@ -334,7 +334,7 @@ class Favorites
     {
         foreach ($this->user_favorites as $icon_id => $icon_data) {
             if (isset($icon_data['dashboard_cb']) && is_callable($icon_data['dashboard_cb'])) {
-                $icon_data = new ArrayObject($icon_data);
+                $icon_data = $icon_data instanceof ArrayObject ? $icon_data : new ArrayObject($icon_data);
                 call_user_func($icon_data['dashboard_cb'], $icon_data);
             }
             $icons[$icon_id] = new ArrayObject([$icon_data['title'], $icon_data['url'], $icon_data['large-icon']]);

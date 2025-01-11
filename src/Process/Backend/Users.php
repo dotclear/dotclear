@@ -40,10 +40,9 @@ class Users extends Process
 
         // Actions
         $combo_action = [
-            __('Permissions') => [
-                __('Set permissions') => 'blogs',
-            ],
-            __('Status') => App::status()->user()->action(),
+            __('Permissions') => [__('Set permissions') => 'blogs'],
+            __('Status')      => App::status()->user()->action(),
+            __('Delete')      => [__('Delete') => 'deleteuser'],
         ];
 
         # --BEHAVIOR-- adminUsersActionsCombo -- array<int,array<string,string>>
