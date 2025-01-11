@@ -2197,11 +2197,9 @@ class Blog implements BlogInterface
             if ($with_comment) {
                 $and[] = 'comment_status > ' . App::status()->comment()->threshold();
             }
-            $or = ['post_status > ' . App::status()->post()->threshold()];
-            if (!empty($params['post_status'])) {
-                $or[] = 'post_status ' . $sql->in($params['post_status']); 
-            }
-            $and[] = $sql->orGroup($or);
+            # limit to PUBLISHED by default
+            $params['post_status'][] = App::status()->post()::PUBLISHED;
+            $and[] = 'post_status ' . $sql->in($params['post_status']);
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
