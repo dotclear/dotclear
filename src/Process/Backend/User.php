@@ -324,8 +324,7 @@ class User extends Process
             __('Password change required to connect') . '</label></p>';
         }
 
-        $super_disabled  = App::backend()->user_super && App::backend()->user_id == App::auth()->userID();
-        $status_disabled = App::backend()->user_id                               == App::auth()->userID();
+        $super_disabled = App::backend()->user_super && App::backend()->user_id == App::auth()->userID();
 
         echo
         '<p><label for="user_super" class="classic">' .
@@ -340,7 +339,8 @@ class User extends Process
         ' ' . __('Super administrator') . '</label></p>' .
         ($super_disabled ? form::hidden(['user_super'], App::backend()->user_super) : '') .
 
-        (App::backend()->user_id != App::auth()->userID() ?
+        (
+            App::backend()->user_id != App::auth()->userID() ?
             '<p><label for="user_status">' . __('Status:') . '</label> ' .
             form::combo('user_status', App::status()->user()->combo(), App::backend()->user_status) .
             '</p>' :
