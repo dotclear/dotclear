@@ -166,25 +166,29 @@ class Config extends Process
             'search'       => null,
         ];
 
-        App::backend()->ductile_user = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_style');
-        App::backend()->ductile_user = @unserialize(App::backend()->ductile_user);
-        if (!is_array(App::backend()->ductile_user)) {
-            App::backend()->ductile_user = [];
-        }
+        $getSetting = function (string $name, array $default): array {
+            // Get current setting
+            $setting = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_' . $name);
+            if (is_null($setting)) {
+                // No setting in DB, return default
+                return $default;
+            }
+            $setting = @unserialize($setting);
+            if (!is_array($setting)) {
+                // Setting is not an array, return default
+                return $default;
+            }
+
+            return $setting;
+        };
+
+        App::backend()->ductile_user = $getSetting('style', []);
         App::backend()->ductile_user = [...$ductile_base, ...App::backend()->ductile_user];
 
-        App::backend()->ductile_lists = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_lists');
-        App::backend()->ductile_lists = @unserialize(App::backend()->ductile_lists);
-        if (!is_array(App::backend()->ductile_lists)) {
-            App::backend()->ductile_lists = $ductile_lists_base;
-        }
+        App::backend()->ductile_lists = $getSetting('entries_lists', $ductile_lists_base);
         App::backend()->ductile_lists = [...$ductile_lists_base, ...App::backend()->ductile_lists];
 
-        App::backend()->ductile_counts = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_entries_counts');
-        App::backend()->ductile_counts = @unserialize(App::backend()->ductile_counts);
-        if (!is_array(App::backend()->ductile_counts)) {
-            App::backend()->ductile_counts = App::backend()->ductile_counts_base;
-        }
+        App::backend()->ductile_counts = $getSetting('entries_counts', App::backend()->ductile_counts_base);
         App::backend()->ductile_counts = [...App::backend()->ductile_counts_base, ...App::backend()->ductile_counts];
 
         $ductile_stickers = App::blog()->settings()->themes->get(App::blog()->settings()->system->theme . '_stickers');
