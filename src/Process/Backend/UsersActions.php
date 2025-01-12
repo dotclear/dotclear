@@ -84,47 +84,51 @@ class UsersActions extends Process
             # --BEHAVIOR-- adminUsersActions -- array<int,string>, array<int,string>, string, string
             App::behavior()->callBehavior('adminUsersActions', App::backend()->users, App::backend()->blogs, App::backend()->action, App::backend()->redir);
 
-            if (App::backend()->action == 'enableuser' && !empty(App::backend()->users)) {
-                // Enable users
-                foreach (App::backend()->users as $u) {
-                    try {
-                        # --BEHAVIOR-- adminBeforeUserEnable -- string
-                        App::behavior()->callBehavior('adminBeforeUserEnable', $u);
+            if (App::status()->user()->has(App::backend()->action) && !empty(App::backend()->users)) {
+                switch (App::status()->user()->level(App::backend()->action)) {
+                    // Enable users
+                    case App::status()->user()::ENABLED :
+                        foreach (App::backend()->users as $u) {
+                            try {
+                                # --BEHAVIOR-- adminBeforeUserEnable -- string
+                                App::behavior()->callBehavior('adminBeforeUserEnable', $u);
 
-                        $cur              = App::auth()->openUserCursor();
-                        $cur->user_status = App::status()->user()::ENABLED;
-                        App::users()->updUser($u, $cur);
-                    } catch (Exception $e) {
-                        App::error()->add($e->getMessage());
-                    }
-                }
-                if (!App::error()->flag()) {
-                    Notices::addSuccessNotice(__('User has been successfully enabled.'));
-                    Http::redirect(App::backend()->redir);
-                }
-            }
-
-            if (App::backend()->action == 'disableuser' && !empty(App::backend()->users)) {
-                // Disable users
-                foreach (App::backend()->users as $u) {
-                    try {
-                        if ($u == App::auth()->userID()) {
-                            throw new Exception(__('You cannot disable yourself.'));
+                                $cur              = App::auth()->openUserCursor();
+                                $cur->user_status = App::status()->user()::ENABLED;
+                                App::users()->updUser($u, $cur);
+                            } catch (Exception $e) {
+                                App::error()->add($e->getMessage());
+                            }
                         }
+                        if (!App::error()->flag()) {
+                            Notices::addSuccessNotice(__('User has been successfully enabled.'));
+                            Http::redirect(App::backend()->redir);
+                        }
+                        break;
 
-                        # --BEHAVIOR-- adminBeforeUserDisable -- string
-                        App::behavior()->callBehavior('adminBeforeUserDisable', $u);
+                    // Disable users
+                    case App::status()->user()::DISABLED :
+                        foreach (App::backend()->users as $u) {
+                            try {
+                                if ($u == App::auth()->userID()) {
+                                    throw new Exception(__('You cannot disable yourself.'));
+                                }
 
-                        $cur              = App::auth()->openUserCursor();
-                        $cur->user_status = App::status()->user()::DISABLED;
-                        App::users()->updUser($u, $cur);
-                    } catch (Exception $e) {
-                        App::error()->add($e->getMessage());
-                    }
-                }
-                if (!App::error()->flag()) {
-                    Notices::addSuccessNotice(__('User has been successfully deleted.'));
-                    Http::redirect(App::backend()->redir);
+                                # --BEHAVIOR-- adminBeforeUserDisable -- string
+                                App::behavior()->callBehavior('adminBeforeUserDisable', $u);
+
+                                $cur              = App::auth()->openUserCursor();
+                                $cur->user_status = App::status()->user()::DISABLED;
+                                App::users()->updUser($u, $cur);
+                            } catch (Exception $e) {
+                                App::error()->add($e->getMessage());
+                            }
+                        }
+                        if (!App::error()->flag()) {
+                            Notices::addSuccessNotice(__('User has been successfully deleted.'));
+                            Http::redirect(App::backend()->redir);
+                        }
+                        break;
                 }
             }
 
