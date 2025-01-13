@@ -127,6 +127,7 @@ On adapte largeur et hauteur en fonction
   border: 1px solid var(--theme-current-border);
   min-height: 326px;
   position: relative;
+  flex-basis: 100%;
   .module-sshot:hover {
     cursor: auto;
   }
