@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -38,6 +39,34 @@ class Option extends atoum
             ->match('/<option.*?>(?:.*?\n*)?<\/option>/')
             ->contains('value="value"')
             ->contains('></option>')
+        ;
+    }
+
+    public function testWithSelected()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Option('text', 'value');
+        $component->selected(true);
+
+        $this
+            ->string($component->render())
+            ->match('/<option.*?>(?:.*?\n*)?<\/option>/')
+            ->contains('value="value"')
+            ->contains('selected')
+            ->contains('>text</option>')
+        ;
+    }
+
+    public function testWithNotSelected()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Option('text', 'value');
+        $component->selected(false);
+
+        $this
+            ->string($component->render())
+            ->match('/<option.*?>(?:.*?\n*)?<\/option>/')
+            ->contains('value="value"')
+            ->notcontains('selected')
+            ->contains('>text</option>')
         ;
     }
 

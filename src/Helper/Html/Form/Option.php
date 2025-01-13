@@ -15,8 +15,10 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms option creation helpers
  *
  * @method      $this text(string $text)
+ * @method      $this selected(bool $selected)
  *
  * @property    string $text
+ * @property    bool   $selected
  */
 class Option extends Component
 {
@@ -45,7 +47,7 @@ class Option extends Component
     public function render(?string $default = null): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
-            ($this->value === $default ? ' selected' : '') .
+            ($this->value === $default || $this->selected ? ' selected' : '') .
             $this->renderCommonAttributes() . '>';
 
         if ($this->text !== null) {
