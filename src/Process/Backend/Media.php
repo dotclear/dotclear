@@ -293,6 +293,7 @@ class Media extends Process
     public static function render(): void
     {
         // Recent media folders
+        $recent_folders      = new None();
         $recent_folders_list = [];
         if (App::backend()->page->showLast()) {
             $fav_url      = '';
@@ -365,8 +366,6 @@ class Media extends Process
                                     ->class(['mark', 'mark-fav', 'dark-only']),
                             ]),
                     ]);
-            } else {
-                $recent_folders = new None();
             }
         }
 
@@ -544,12 +543,12 @@ class Media extends Process
                     (new Para())
                         ->class('form-buttons')
                         ->items([
-                            true || App::backend()->page->select > 1 ?
+                            App::backend()->page->select > 1 ?
                                 (new Submit('select_medias', __('Choose selected medias')))->class('select') :
                                 (new None()),
-                            !App::backend()->page->popup ?
-                                (new Submit('delete_medias', __('Remove selected medias')))->class('delete') :
-                                (new None()),
+                            App::backend()->page->popup ?
+                                (new None()) :
+                                (new Submit('delete_medias', __('Remove selected medias')))->class('delete'),
                         ]),
                 ]);
         }
@@ -643,7 +642,7 @@ class Media extends Process
                                     ->items([
                                         App::nonce()->formNonce(),
                                         (new Submit('rebuild-submit', __('Build'))),
-                                        ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->page->values(), ['complete' => 1]),
+                                        ... App::backend()->url()->hiddenFormFields('admin.media', array_merge(App::backend()->page->values(), ['complete' => 1])),
                                     ]),
                             ]),
                     ]);
