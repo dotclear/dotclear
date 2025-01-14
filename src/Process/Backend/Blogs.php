@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -11,11 +12,11 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsBlogs;
 use Dotclear\Core\Backend\Filter\FilterBlogs;
 use Dotclear\Core\Backend\Listing\ListingBlogs;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;

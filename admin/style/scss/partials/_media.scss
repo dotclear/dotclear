@@ -188,6 +188,10 @@ tr.media-folder {
 
 :is(.medias-delete, .medias-select) {
   text-align: right;
+
+  .form-buttons:not(:is(.checkboxes-helpers)) {
+    justify-content: flex-end;
+  }
 }
 
 .media-recent {

@@ -2212,6 +2212,9 @@ span:is(.form-note, .form-stats) {
 .form-buttons.txt-center {
   justify-content: center;
 }
+.form-buttons.is-a-phrase {
+  align-items: normal;
+}
 
 .focus {
   background-color: inherit;
@@ -4184,6 +4187,9 @@ tr.media-folder .media-link {
 
 :is(.medias-delete, .medias-select) {
   text-align: right;
+}
+:is(.medias-delete, .medias-select) .form-buttons:not(:is(.checkboxes-helpers)) {
+  justify-content: flex-end;
 }
 
 .media-recent {

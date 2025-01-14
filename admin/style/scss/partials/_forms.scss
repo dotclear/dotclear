@@ -323,6 +323,9 @@ span:is(.form-note, .form-stats) {
   &.txt-center {
     justify-content: center;
   }
+  &.is-a-phrase {
+    align-items: normal;
+  }
 }
 
 .focus {

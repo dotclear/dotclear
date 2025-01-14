@@ -21,10 +21,31 @@ use Dotclear\Core\Process;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\File\Zip\Zip;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Capture;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\File;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Option;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Stack\Filter;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/media.php
@@ -154,7 +175,7 @@ class Media extends Process
                 $f_title   = (isset($_POST['upfiletitle']) ? Html::escapeHTML($_POST['upfiletitle']) : '');
                 $f_private = ($_POST['upfilepriv'] ?? false);
 
-                App::media()->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, $f_private);
+                App::media()->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, (bool) $f_private);
 
                 Notices::addSuccessNotice(__('Files have been successfully uploaded.'));
                 App::backend()->url()->redirect('admin.media', App::backend()->page->values());
@@ -244,18 +265,23 @@ class Media extends Process
         if (App::backend()->page->getDirs() && !empty($_GET['remove']) && empty($_GET['noconfirm'])) {
             App::backend()->page->openPage(App::backend()->page->breadcrumb([__('confirm removal') => '']));
 
-            echo
-            '<form action="' . Html::escapeURL(App::backend()->url()->get('admin.media')) . '" method="post">' .
-            '<p>' . sprintf(
-                __('Are you sure you want to remove %s?'),
-                Html::escapeHTML($_GET['remove'])
-            ) . '</p>' .
-            '<p><input type="submit" value="' . __('Cancel') . '"> ' .
-            ' &nbsp; <input type="submit" name="rmyes" value="' . __('Yes') . '">' .
-            App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->page->values()) .
-            App::nonce()->getFormNonce() .
-            form::hidden('remove', Html::escapeHTML($_GET['remove'])) . '</p>' .
-            '</form>';
+            echo (new Form('frm-remove'))
+                ->method('post')
+                ->action(Html::escapeURL(App::backend()->url()->get('admin.media')))
+                ->fields([
+                    (new Note())
+                        ->text(sprintf(__('Are you sure you want to remove %s?'), Html::escapeHTML($_GET['remove']))),
+                    (new Para())
+                        ->class('form-buttons')
+                        ->items([
+                            (new Submit('cancel', __('Cancel'))),
+                            (new Submit('rmyes', __('Yes'))),
+                            ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->page->values()),
+                            App::nonce()->formNonce(),
+                            (new Hidden('remove', Html::escapeHTML($_GET['remove']))),
+                        ]),
+                ])
+            ->render();
 
             App::backend()->page->closePage();
             exit;
@@ -267,24 +293,23 @@ class Media extends Process
     public static function render(): void
     {
         // Recent media folders
-        $last_folders = '';
+        $recent_folders_list = [];
         if (App::backend()->page->showLast()) {
-            $last_folders_item = '';
-            $fav_url           = '';
-            $fav_img           = '';
-            $fav_img_dark      = '';
-            $fav_alt           = '';
+            $fav_url      = '';
+            $fav_img      = '';
+            $fav_img_dark = '';
+            $fav_alt      = '';
             // Favorites directories
             $fav_dirs = App::backend()->page->getFav();
             foreach ($fav_dirs as $ld) {
                 // Add favorites dirs on top of combo
-                $ld_params      = App::backend()->page->values();
-                $ld_params['d'] = $ld;
-                $ld_params['q'] = ''; // Reset search
-                $last_folders_item .= '<option value="' . urldecode(App::backend()->url()->get('admin.media', $ld_params)) . '"' .
-            ($ld == rtrim((string) App::backend()->page->d, '/') ? ' selected="selected"' : '') . '>' .
-            '/' . $ld . '</option>' . "\n";
-                if ($ld == rtrim((string) App::backend()->page->d, '/')) {
+                $ld_params             = App::backend()->page->values();
+                $ld_params['d']        = $ld;
+                $ld_params['q']        = ''; // Reset search
+                $is_current            = ($ld === rtrim((string) App::backend()->page->d, '/'));
+                $recent_folders_list[] = (new Option('/' . $ld, urldecode(App::backend()->url()->get('admin.media', $ld_params))))
+                    ->selected($is_current);
+                if ($is_current) {
                     // Current directory is a favorite → button will un-fav
                     $ld_params['fav'] = 'n';
                     $fav_url          = urldecode(App::backend()->url()->get('admin.media', $ld_params));
@@ -294,21 +319,22 @@ class Media extends Process
                     $fav_alt      = __('Remove this folder from your favorites');
                 }
             }
-            if ($last_folders_item !== '') {
+            if ($recent_folders_list !== []) {
                 // add a separator between favorite dirs and recent dirs
-                $last_folders_item .= '<option disabled>_________</option>';
+                $recent_folders_list[] = (new Option('_________', ''))
+                    ->disabled(true);
             }
             // Recent directories
             $last_dirs = App::backend()->page->getlast();
             foreach ($last_dirs as $ld) {
                 if (!in_array($ld, $fav_dirs)) {
-                    $ld_params      = App::backend()->page->values();
-                    $ld_params['d'] = $ld;
-                    $ld_params['q'] = ''; // Reset search
-                    $last_folders_item .= '<option value="' . urldecode(App::backend()->url()->get('admin.media', $ld_params)) . '"' .
-                ($ld == rtrim((string) App::backend()->page->d, '/') ? ' selected="selected"' : '') . '>' .
-                '/' . $ld . '</option>' . "\n";
-                    if ($ld == rtrim((string) App::backend()->page->d, '/')) {
+                    $ld_params             = App::backend()->page->values();
+                    $ld_params['d']        = $ld;
+                    $ld_params['q']        = ''; // Reset search
+                    $is_current            = ($ld === rtrim((string) App::backend()->page->d, '/'));
+                    $recent_folders_list[] = (new Option('/' . $ld, urldecode(App::backend()->url()->get('admin.media', $ld_params))))
+                        ->selected($is_current);
+                    if ($is_current) {
                         // Current directory is not a favorite → button will fav
                         $ld_params['fav'] = 'y';
                         $fav_url          = urldecode(App::backend()->url()->get('admin.media', $ld_params));
@@ -319,17 +345,28 @@ class Media extends Process
                     }
                 }
             }
-            if ($last_folders_item !== '') {
-                $last_folders = '<p class="media-recent hidden-if-no-js">' .
-                    '<label class="classic" for="switchfolder">' . __('Goto recent folder:') . '</label> ' .
-                    '<select name="switchfolder" id="switchfolder">' .
-                    $last_folders_item .
-                    '</select>' .
-                    ' <a id="media-fav-dir" href="' . $fav_url . '" title="' . $fav_alt . '">' .
-                    '<img class="mark mark-fav light-only" src="' . $fav_img . '" alt="' . $fav_alt . '">' .
-                    '<img class="mark mark-fav dark-only" src="' . $fav_img_dark . '" alt="' . $fav_alt . '">' .
-                    '</a>' .
-                    '</p>';
+            if ($recent_folders_list !== []) {
+                $recent_folders = (new Para())
+                    ->class(['media-recent', 'form-buttons', 'hidden-if-no-js'])
+                    ->items([
+                        (new Select('switchfolder'))
+                            ->items($recent_folders_list)
+                            ->default(rtrim((string) App::backend()->page->d, '/'))
+                            ->label(new Label(__('Goto recent folder:'), Label::OL_TF)),
+                        (new Link('media-fav-dir'))
+                            ->href($fav_url)
+                            ->title($fav_alt)
+                            ->items([
+                                (new Img($fav_img))
+                                    ->alt($fav_alt)
+                                    ->class(['mark', 'mark-fav', 'light-only']),
+                                (new Img($fav_img_dark))
+                                    ->alt($fav_alt)
+                                    ->class(['mark', 'mark-fav', 'dark-only']),
+                            ]),
+                    ]);
+            } else {
+                $recent_folders = new None();
             }
         }
 
@@ -364,47 +401,97 @@ class Media extends Process
 
         if (App::backend()->page->select) {
             // Select mode (popup or not)
-            echo
-            '<div class="' . (App::backend()->page->popup ? 'form-note ' : '') . 'info attach-media"><p>';
-            if (App::backend()->page->select == 1) {
-                echo
-                sprintf(__('Select a file by clicking on %s'), '<img src="images/plus.svg" alt="' . __('Select this file') . '">');
-            } else {
-                echo
-                sprintf(__('Select files and click on <strong>%s</strong> button'), __('Choose selected medias'));
-            }
-            if (App::backend()->page->mediaWritable()) {
-                echo
-                ' ' . __('or') . ' ' . sprintf('<a href="#fileupload">%s</a>', __('upload a new file'));
-            }
-            echo '</p></div>';
+            echo (new Div())
+                ->class([App::backend()->page->popup ? 'form-note' : '', 'info', 'attach-media'])
+                ->items([
+                    (new Para())
+                        ->class(['form-buttons', 'is-a-phrase'])
+                        ->items([
+                            (new Text(
+                                null,
+                                App::backend()->page->select == 1 ?
+                                sprintf(
+                                    __('Select a file by clicking on %s'),
+                                    (new Img('images/plus.svg'))->alt(__('Select this file'))->render()
+                                ) :
+                                sprintf(
+                                    __('Select files and click on <strong>%s</strong> button'),
+                                    __('Choose selected medias')
+                                )
+                            )),
+                            (App::backend()->page->mediaWritable() ?
+                                (new Set())
+                                    ->items([
+                                        (new Text(null, __('or'))),
+                                        (new Link())
+                                            ->href('#fileupload')
+                                            ->text(__('upload a new file')),
+                                    ]) :
+                                (new None())),
+                        ]),
+                ])
+            ->render();
         } else {
             if (App::backend()->page->post_id) {
-                echo
-                '<div class="form-note info attach-media"><p>' . sprintf(
-                    __('Choose a file to attach to entry %s by clicking on %s'),
-                    '<a href="' . App::postTypes()->get(App::backend()->page->getPostType())->adminUrl(App::backend()->page->post_id) . '">' . Html::escapeHTML(App::backend()->page->getPostTitle()) . '</a>',
-                    '<img src="images/plus.svg" alt="' . __('Attach this file to entry') . '">'
-                );
-                if (App::backend()->page->mediaWritable()) {
-                    echo
-                    ' ' . __('or') . ' ' . sprintf('<a href="#fileupload">%s</a>', __('upload a new file'));
-                }
-                echo
-                '</p></div>';
+                $post_link = (new Link())
+                    ->href(App::postTypes()->get(App::backend()->page->getPostType())->adminUrl(App::backend()->page->post_id))
+                    ->text(Html::escapeHTML(App::backend()->page->getPostTitle()))
+                ->render();
+                echo (new Div())
+                    ->class(['form-note', 'info', 'attach-media'])
+                    ->items([
+                        (new Note())
+                            ->text('<!-- ' . __LINE__ . ' -->'),
+                        (new Para())
+                            ->class(['form-buttons', 'is-a-phrase'])
+                            ->items([
+                                (new Text(
+                                    null,
+                                    sprintf(
+                                        __('Choose a file to attach to entry %s by clicking on %s'),
+                                        $post_link,
+                                        (new Img('images/plus.svg'))->alt(__('Attach this file to entry'))->render()
+                                    )
+                                )),
+                                (App::backend()->page->mediaWritable() ?
+                                    (new Set())
+                                        ->items([
+                                            (new Text(null, __('or'))),
+                                            (new Link())
+                                                ->href('#fileupload')
+                                                ->text(__('upload a new file')),
+                                        ]) :
+                                    (new None())),
+                            ]),
+                    ])
+                ->render();
             }
             if (App::backend()->page->popup) {
-                echo
-                '<div class="info attach-media"><p>' . sprintf(
-                    __('Choose a file to insert into entry by clicking on %s'),
-                    '<img src="images/plus.svg" alt="' . __('Attach this file to entry') . '">'
-                );
-                if (App::backend()->page->mediaWritable()) {
-                    echo
-                    ' ' . __('or') . ' ' . sprintf('<a href="#fileupload">%s</a>', __('upload a new file'));
-                }
-                echo
-                '</p></div>';
+                echo (new Div())
+                    ->class(['form-note', 'info', 'attach-media'])
+                    ->items([
+                        (new Para())
+                            ->class(['form-buttons', 'is-a-phrase'])
+                            ->items([
+                                (new Text(
+                                    null,
+                                    sprintf(
+                                        __('Choose a file to insert into entry by clicking on %s'),
+                                        (new Img('images/plus.svg'))->alt(__('Insert this file into entry'))->render()
+                                    )
+                                )),
+                                (App::backend()->page->mediaWritable() ?
+                                    (new Set())
+                                        ->items([
+                                            (new Text(null, __('or'))),
+                                            (new Link())
+                                                ->href('#fileupload')
+                                                ->text(__('upload a new file')),
+                                        ]) :
+                                    (new None())),
+                            ]),
+                    ])
+                ->render();
             }
         }
 
@@ -412,44 +499,79 @@ class Media extends Process
         $media_list = new ListingMedia($rs, $rs->count());
 
         // add file mode into the filter box
-        App::backend()->page->add((new Filter('file_mode'))->value(App::backend()->page->file_mode)->html(
-            '<p><span class="media-file-mode">' .
-            '<a href="' . App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => FilterMedia::MODE_GRID])) . '" title="' . __('Grid display mode') . '">' .
-            '<img class="light-only' . (App::backend()->page->file_mode === FilterMedia::MODE_GRID ? '' : ' disabled') . '" src="images/grid.svg" alt="' . __('Grid display mode') . '">' .
-            '<img class="dark-only' . (App::backend()->page->file_mode === FilterMedia::MODE_GRID ? '' : ' disabled') . '" src="images/grid-dark.svg" alt="' . __('Grid display mode') . '">' .
-            '</a>' .
-            '<a href="' . App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => FilterMedia::MODE_LIST])) . '" title="' . __('List display mode') . '">' .
-            '<img class="light-only' . (App::backend()->page->file_mode === FilterMedia::MODE_LIST ? '' : ' disabled') . '" src="images/list.svg" alt="' . __('List display mode') . '">' .
-            '<img class="dark-only' . (App::backend()->page->file_mode === FilterMedia::MODE_LIST ? '' : ' disabled') . '" src="images/list-dark.svg" alt="' . __('List display mode') . '">' .
-            '</a>' .
-            '</span></p>',
-            false
-        ));
+        $filter = (new Para())
+            ->items([
+                (new Div(null, 'span'))
+                    ->class('media-file-mode')
+                    ->items([
+                        (new Link())
+                            ->href(App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => FilterMedia::MODE_GRID])))
+                            ->title(__('Grid display mode'))
+                            ->items([
+                                (new Img('images/grid.svg'))
+                                    ->class(['light-only', (App::backend()->page->file_mode === FilterMedia::MODE_GRID ? '' : ' disabled')])
+                                    ->alt(__('Grid display mode')),
+                                (new Img('images/grid-dark.svg'))
+                                    ->class(['dark-only', (App::backend()->page->file_mode === FilterMedia::MODE_GRID ? '' : ' disabled')])
+                                    ->alt(__('Grid display mode')),
+                            ]),
+                        (new Link())
+                            ->href(App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['file_mode' => FilterMedia::MODE_LIST])))
+                            ->title(__('List display mode'))
+                            ->items([
+                                (new Img('images/list.svg'))
+                                    ->class(['light-only', (App::backend()->page->file_mode === FilterMedia::MODE_LIST ? '' : ' disabled')])
+                                    ->alt(__('List display mode')),
+                                (new Img('images/list-dark.svg'))
+                                    ->class(['dark-only', (App::backend()->page->file_mode === FilterMedia::MODE_LIST ? '' : ' disabled')])
+                                    ->alt(__('List display mode')),
+                            ]),
+                    ]),
+            ])
+        ->render();
+        App::backend()->page->add((new Filter('file_mode'))->value(App::backend()->page->file_mode)->html($filter, false));
 
-        $fmt_form_media = '<form action="' . App::backend()->url()->get('admin.media') . '" method="post" id="form-medias">' .
-            '<div class="files-group">%s</div>' .
-            '<p class="hidden">' .
-            App::nonce()->getFormNonce() .
-            App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->page->values()) .
-            '</p>';
-
+        $actions = (new None());
         if (!App::backend()->page->popup || App::backend()->page->select > 1) {
             // Checkboxes and action
-            $fmt_form_media .= '<div class="' . (App::backend()->page->popup ? '' : 'medias-delete') . ' ' . (App::backend()->page->select > 1 ? 'medias-select' : '') . '">' .
-                '<p class="checkboxes-helpers"></p>' .
-                '<p>';
-            if (App::backend()->page->select > 1) {
-                $fmt_form_media .= '<input type="submit" class="select" id="select_medias" name="select_medias" value="' . __('Choose selected medias') . '"> ';
-            }
-            if (!App::backend()->page->popup) {
-                $fmt_form_media .= '<input type="submit" class="delete" id="delete_medias" name="delete_medias" value="' . __('Remove selected medias') . '">';
-            }
-            $fmt_form_media .= '</p></div>';
+            $actions = (new Div())
+                ->class([
+                    App::backend()->page->popup ? '' : 'medias-delete',
+                    App::backend()->page->select > 1 ? 'medias-select' : '',
+                ])
+                ->items([
+                    (new Para())->class('checkboxes-helpers'),
+                    (new Para())
+                        ->class('form-buttons')
+                        ->items([
+                            true || App::backend()->page->select > 1 ?
+                                (new Submit('select_medias', __('Choose selected medias')))->class('select') :
+                                (new None()),
+                            !App::backend()->page->popup ?
+                                (new Submit('delete_medias', __('Remove selected medias')))->class('delete') :
+                                (new None()),
+                        ]),
+                ]);
         }
-        $fmt_form_media .= '</form>';
 
-        echo
-        '<div class="media-list">' . $last_folders;
+        $form = (new Form('form-medias'))
+            ->method('post')
+            ->action(App::backend()->url()->get('admin.media'))
+            ->fields([
+                (new Div())
+                    ->class('files-group')
+                    ->items([
+                        (new Text(null, '%s')),
+                    ]),
+                (new Para())
+                    ->class('hidden')
+                    ->items([
+                        App::nonce()->formNonce(),
+                        ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->page->values()),
+                    ]),
+                $actions,
+            ])
+        ->render();
 
         // remove form filters from hidden fields
         $form_filters_hidden_fields = array_diff_key(
@@ -457,147 +579,248 @@ class Media extends Process
             ['nb' => '', 'order' => '', 'sortby' => '', 'q' => '', 'file_type' => '']
         );
 
-        // display filter
-        App::backend()->page->display('admin.media', App::backend()->url()->getHiddenFormFields('admin.media', $form_filters_hidden_fields));
+        // Display recent folders, filter and media list
+        echo (new Div())
+            ->class('media-list')
+            ->items([
+                $recent_folders,
+                (new Capture(
+                    // display filter
+                    App::backend()->page->display(...),
+                    ['admin.media', App::backend()->url()->getHiddenFormFields('admin.media', $form_filters_hidden_fields)]
+                )),
+                (new Capture(
+                    // display list
+                    $media_list->display(...),
+                    [App::backend()->page, $form, App::backend()->page->hasQuery()]
+                )),
+            ])
+        ->render();
 
-        // display list
-        $media_list->display(App::backend()->page, $fmt_form_media, App::backend()->page->hasQuery());
-
-        echo
-        '</div>';
+        // Other tools
+        $tools = [];
 
         if ((!App::backend()->page->hasQuery()) && (App::backend()->page->mediaWritable() || App::backend()->page->mediaArchivable())) {
-            echo
-            '<div class="vertical-separator">' .
-            '<h3 class="out-of-screen-if-js">' . sprintf(__('In %s:'), (App::backend()->page->d == '' ? '“' . __('Media manager') . '”' : '“' . App::backend()->page->d . '”')) . '</h3>';
-        }
-
-        if ((!App::backend()->page->hasQuery()) && (App::backend()->page->mediaWritable() || App::backend()->page->mediaArchivable())) {
-            echo
-            '<div class="two-boxes odd">';
+            $dirtools = [];
 
             // Create directory
             if (App::backend()->page->mediaWritable()) {
-                echo
-                '<form action="' . App::backend()->url()->getBase('admin.media') . '" method="post" class="fieldset">' .
-                '<div id="new-dir-f">' .
-                '<h4 class="pretty-title">' . __('Create new directory') . '</h4>' .
-                App::nonce()->getFormNonce() .
-                '<p><label for="newdir">' . __('Directory Name:') . '</label>' .
-                form::field('newdir', 35, 255) . '</p>' .
-                '<p><input type="submit" value="' . __('Create') . '">' .
-                App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->page->values()) .
-                '</p>' .
-                '</div>' .
-                '</form>';
+                $dirtools[] = (new Form('newdir-form'))
+                    ->method('post')
+                    ->action(App::backend()->url()->getBase('admin.media'))
+                    ->fields([
+                        (new Fieldset())
+                            ->legend(new Legend(__('Create new directory')))
+                            ->fields([
+                                (new Para())
+                                    ->items([
+                                        (new Input('newdir'))
+                                            ->size(35)
+                                            ->maxlength(255)
+                                            ->label((new Label(__('Directory Name:'), Label::OL_TF))),
+                                    ]),
+                                (new Para())
+                                    ->class('form-buttons')
+                                    ->items([
+                                        App::nonce()->formNonce(),
+                                        (new Submit('newdir-submit', __('Create'))),
+                                        ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->page->values()),
+                                    ]),
+                            ]),
+                    ]);
             }
 
             // Rebuild directory
             if (App::auth()->isSuperAdmin() && !App::backend()->page->popup && App::backend()->page->mediaWritable()) {
-                echo
-                '<form action="' . App::backend()->url()->getBase('admin.media') . '" method="post" class="fieldset">' .
-                '<h4 class="pretty-title">' . __('Build missing thumbnails in directory') . '</h4>' .
-                App::nonce()->getFormNonce() .
-                '<p><input type="submit" value="' . __('Build') . '">' .
-                App::backend()->url()->getHiddenFormFields('admin.media', array_merge(App::backend()->page->values(), ['complete' => 1])) .
-                '</p>' .
-                '</form>';
+                $dirtools[] = (new Form('rebuild-form'))
+                    ->method('post')
+                    ->action(App::backend()->url()->getBase('admin.media'))
+                    ->fields([
+                        (new Fieldset())
+                            ->legend(new Legend(__('Build missing thumbnails in directory')))
+                            ->fields([
+                                (new Para())
+                                    ->items([
+                                        App::nonce()->formNonce(),
+                                        (new Submit('rebuild-submit', __('Build'))),
+                                        ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->page->values(), ['complete' => 1]),
+                                    ]),
+                            ]),
+                    ]);
             }
 
             // Get zip directory
             if (App::backend()->page->mediaArchivable() && !App::backend()->page->popup) {
-                echo
-                '<div class="fieldset">' .
-                '<h4 class="pretty-title">' . sprintf(__('Backup content of %s'), (App::backend()->page->d == '' ? '“' . __('Media manager') . '”' : '“' . App::backend()->page->d . '”')) . '</h4>' .
-                '<p><a class="button submit" href="' . App::backend()->url()->get(
-                    'admin.media',
-                    array_merge(App::backend()->page->values(), ['zipdl' => 1])
-                ) . '">' . __('Download zip file') . '</a></p>' .
-                '</div>';
+                $dirtools[] = (new Fieldset())
+                    ->legend(new Legend(sprintf(__('Backup content of %s'), (App::backend()->page->d == '' ? '“' . __('Media manager') . '”' : '“' . App::backend()->page->d . '”'))))
+                    ->fields([
+                        (new Para())
+                            ->items([
+                                (new Link('zip-submit'))
+                                    ->class(['button', 'submit'])
+                                    ->href(App::backend()->url()->get('admin.media', array_merge(App::backend()->page->values(), ['zipdl' => 1])))
+                                    ->text(__('Download zip file')),
+                            ]),
+                    ]);
             }
 
-            echo
-            '</div>';
+            if ($dirtools !== []) {
+                $tools[] = (new Div())
+                    ->class(['two-boxes', 'odd'])
+                    ->items($dirtools);
+            }
         }
 
         if (!App::backend()->page->hasQuery() && App::backend()->page->mediaWritable()) {
-            echo
-            '<div class="two-boxes fieldset even">';
-            if (App::backend()->page->showUploader()) {
-                echo
-                '<div class="enhanced_uploader">';
-            } else {
-                echo
-                '<div>';
-            }
-
-            echo
-            '<h4>' . __('Add files') . '</h4>' .
-            '<p class="more-info">' . __('Please take care to publish media that you own and that are not protected by copyright.') . '</p>' .
-            '<form id="fileupload" action="' . Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())) . '" method="post" enctype="multipart/form-data" aria-disabled="false">' .
-            '<p>' . form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) .
-            App::nonce()->getFormNonce() . '</p>' .
-                '<div class="fileupload-ctrl"><p class="queue-message"></p><ul class="files"></ul></div>' .
-
-            '<div class="fileupload-buttonbar clear">' .
-
-            '<p><label for="upfile">' . '<span class="add-label one-file">' . __('Choose file') . '</span>' . '</label>' .
-            '<button class="button choose_files">' . __('Choose files') . '</button>' .
-            '<input type="file" id="upfile" name="upfile[]"' . (App::backend()->page->showUploader() ? ' multiple="mutiple"' : '') . ' data-url="' . Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())) . '"></p>' .
-
-            '<p class="max-sizer form-note">&nbsp;' . __('Maximum file size allowed:') . ' ' . Files::size(App::config()->maxUploadSize()) . '</p>' .
-
-            '<p class="one-file"><label for="upfiletitle">' . __('Title:') . '</label>' . form::field('upfiletitle', 35, 255) . '</p>' .
-            '<p class="one-file"><label for="upfilepriv" class="classic">' . __('Private') . '</label> ' .
-            form::checkbox('upfilepriv', 1) . '</p>';
-
-            if (!App::backend()->page->showUploader()) {
-                echo
-                '<p class="one-file form-help info">' . __('To send several files at the same time, you can activate the enhanced uploader in') .
-                ' <a href="' . App::backend()->url()->get('admin.user.preferences', ['tab' => 'user-options']) . '">' . __('My preferences') . '</a></p>';
-            }
-
-            echo
-            '<p class="clear form-buttons"><button class="button clean">' . __('Refresh') . '</button>' .
-            '<input class="button cancel one-file" type="reset" value="' . __('Clear all') . '">' .
-            '<input class="button start" type="submit" value="' . __('Upload') . '"></p>' .
-            '</div>';
-
-            echo
-            '<p style="clear:both;">' .
-            App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->page->values()) .
-            '</p>' .
-            '</form>' .
-            '</div>' .
-            '</div>';
+            $tools[] = (new Div())
+                ->class(['two-boxes', 'event', 'fieldset'])
+                ->items([
+                    (new Div())
+                        ->class(App::backend()->page->showUploader() ? 'enhanced_uploader' : '')
+                        ->items([
+                            (new Text('h4', __('Add files'))),
+                            (new Note())
+                                ->class('more-info')
+                                ->text(__('Please take care to publish media that you own and that are not protected by copyright.')),
+                            (new Form('fileupload'))
+                                ->method('post')
+                                ->action(Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())))
+                                ->enctype('multipart/form-data')
+                                ->extra('aria-disabled="false"')
+                                ->fields([
+                                    (new Div())
+                                        ->class('fileupload-ctrl')
+                                        ->items([
+                                            (new Para())
+                                                ->class('queue-message'),
+                                            (new Ul())
+                                                ->class('files'),
+                                        ]),
+                                    (new Div())
+                                        ->class(['fileupload-buttonbar', 'clear'])
+                                        ->items([
+                                            (new Para())
+                                                ->items([
+                                                    (new Label(
+                                                        (new Text('span', __('Choose file')))
+                                                            ->class(['add-label', 'one-file'])
+                                                        ->render(),
+                                                        Label::OL_TF
+                                                    ))
+                                                    ->for('upfile'),
+                                                    (new Button('choose_button', __('Choose files')))
+                                                        ->class(['button', 'choose_files']),
+                                                    (new File(['upfile[]', 'upfile']))
+                                                        ->extra([
+                                                            App::backend()->page->showUploader() ? ' multiple="mutiple"' : '',
+                                                            'data-url="' . Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())) . '"',
+                                                        ]),
+                                                ]),
+                                            (new Note())
+                                                ->class(['max-sizer', 'form-note'])
+                                                ->text(__('Maximum file size allowed:') . ' ' . Files::size(App::config()->maxUploadSize())),
+                                            (new Para())
+                                                ->class('one-file')
+                                                ->items([
+                                                    (new Input('upfiletitle'))
+                                                        ->size(35)
+                                                        ->maxlength(255)
+                                                        ->label(new Label(__('Title:'), Label::OL_TF)),
+                                                ]),
+                                            (new Para())
+                                                ->class('one-file')
+                                                ->items([
+                                                    (new Checkbox('upfilepriv'))
+                                                        ->value(1)
+                                                        ->label(new Label(__('Private'), Label::IL_FT)),
+                                                ]),
+                                            (
+                                                App::backend()->page->showUploader() ?
+                                                (new None()) :
+                                                (new Para())
+                                                    ->class(['one-file', 'form-help', 'info'])
+                                                    ->separator(' ')
+                                                    ->items([
+                                                        (new Text(null, __('To send several files at the same time, you can activate the enhanced uploader in'))),
+                                                        (new Link())
+                                                            ->href(App::backend()->url()->get('admin.user.preferences', ['tab' => 'user-options']))
+                                                            ->text(__('My preferences')),
+                                                    ])
+                                            ),
+                                            (new Para())
+                                                ->class(['form-buttons', 'clear'])
+                                                ->items([
+                                                    (new Button('upclean', __('Refresh')))
+                                                        ->class(['button', 'clean']),
+                                                    (new Input('upclear'))
+                                                        ->value(__('Clear all'))
+                                                        ->type('reset')
+                                                        ->class(['button', 'cancel', 'one-file']),
+                                                    (new Input('upstart', __('Upload')))
+                                                        ->type('submit')
+                                                        ->class(['button', 'start']),
+                                                ]),
+                                        ]),
+                                    (new Para())
+                                        ->class(['form-buttons', 'clear'])
+                                        ->items([
+                                            (new Hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize())),
+                                            App::nonce()->formNonce(),
+                                            ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->page->values()),
+                                        ]),
+                                ]),
+                        ]),
+                ]);
         }
 
-        # Empty remove form (for javascript actions)
-        echo
-        '<form id="media-remove-hide" action="' . Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())) . '" method="post" class="hidden">' .
-        '<div>' .
-        form::hidden('rmyes', 1) .
-        App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->page->values()) .
-        form::hidden('remove', '') .
-        App::nonce()->getFormNonce() .
-        '</div>' .
-        '</form>';
-
-        if ((!App::backend()->page->hasQuery()) && (App::backend()->page->mediaWritable() || App::backend()->page->mediaArchivable())) {
-            echo
-            '</div>';
+        if ($tools !== []) {
+            echo (new Div())
+                ->class('vertical-separator')
+                ->items([
+                    (new Text('h3', sprintf(__('In %s:'), (App::backend()->page->d == '' ? '“' . __('Media manager') . '”' : '“' . App::backend()->page->d . '”'))))
+                        ->class('out-of-screen-if-js'),
+                    ... $tools,
+                ])
+            ->render();
         }
+
+        // Empty remove form (for javascript actions)
+        echo (new Form('media-remove-hide'))
+            ->method('post')
+            ->action(Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())))
+            ->class('hidden')
+            ->fields([
+                (new Div())
+                    ->items([
+                        (new Hidden('rmyes', '1')),
+                        (new Hidden('remove', '')),
+                        ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->page->values()),
+                        App::nonce()->formNonce(),
+                    ]),
+            ])
+        ->render();
 
         if (!App::backend()->page->popup) {
-            echo
-            '<p class="info">' . sprintf(
-                __('Current settings for medias and images are defined in %s'),
-                '<a href="' . App::backend()->url()->get('admin.blog.pref') . '#medias-settings">' . __('Blog parameters') . '</a>'
-            ) . '</p>';
+            echo (new Note())
+                ->class('info')
+                ->text(sprintf(
+                    __('Current settings for medias and images are defined in %s'),
+                    (new Link())
+                        ->href(App::backend()->url()->get('admin.blog.pref') . '#medias-settings')
+                        ->text(__('Blog parameters'))
+                    ->render()
+                ))
+            ->render();
 
             // Go back button
-            echo
-            '<p><input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js"></p>';
+            echo (new Para())
+                ->class('form-buttons')
+                ->items([
+                    (new Button('back'))
+                        ->class(['go-back', 'reset', 'hidden-if-no-js'])
+                        ->value(__('Back')),
+                ])
+            ->render();
         }
 
         App::backend()->page->closePage();
