@@ -387,15 +387,16 @@ class Auth implements AuthInterface
         if ($this->isSuperAdmin()) {
             $res = $fn(...$args);
         } else {
+            // Pretends to be a super admin
             $this->user_admin = true;
 
             try {
-                $res              = $fn(...$args);
-                $this->user_admin = false;
+                $res = $fn(...$args);
             } catch (Throwable $e) {
-                $this->user_admin = false;
-
                 throw $e;
+            } finally {
+                // Back to normal user behavior
+                $this->user_admin = false;
             }
         }
 
