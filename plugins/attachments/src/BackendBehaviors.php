@@ -67,6 +67,7 @@ class BackendBehaviors
                     (new Link())
                         ->href(App::backend()->url()->get('admin.media.item', ['id' => $file->media_id]))
                         ->title($file->basename)
+                        ->class('media-icon')
                         ->items([
                             (new Img($file->media_icon)),
                         ]),

@@ -57,6 +57,10 @@
   input#post_position {
     width: 4em;
   }
+
+  .media-item a.media-icon img {
+    max-width: 4em;
+  }
 }
 
 #post_notes {
