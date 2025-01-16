@@ -11,17 +11,18 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Single;
 use Dotclear\Helper\Network\Http;
 use Exception;
 
 /**
  * @since 2.27 Before as admin/plugin.php
- *
- * @todo switch Helper/Html/Form/...
  */
 class Plugin extends Process
 {
@@ -123,7 +124,15 @@ class Plugin extends Process
                 // Add direct links to plugin settings if any
                 $settings = ModulesList::getSettingsUrls((string) $plugin, true, false);
                 if ($settings !== []) {
-                    echo '<hr class="clear"><p class="right modules">' . implode(' - ', $settings) . '</p>';
+                    echo (new Set())
+                        ->items([
+                            (new Single('hr'))
+                                ->class('clear'),
+                            (new Note())
+                                ->class(['right', 'modules'])
+                                ->text(implode(' - ', $settings)),
+                        ])
+                    ->render();
                 }
             }
             $close_function();
@@ -139,7 +148,9 @@ class Plugin extends Process
                     ]
                 )
             );
-            echo '<p>' . __('The plugin you reached does not exist or does not have an admin page.') . '</p>';
+            echo (new Note())
+                ->text(__('The plugin you reached does not exist or does not have an admin page.'))
+            ->render();
             $close_function();
         }
     }
