@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -34,12 +35,7 @@ class BackendDefaultActions
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
             $ap->addAction(
-                [__('Status') => [
-                    __('Publish')         => 'publish',
-                    __('Unpublish')       => 'unpublish',
-                    __('Schedule')        => 'schedule',
-                    __('Mark as pending') => 'pending',
-                ]],
+                [__('Status') => App::status()->post()->action()],
                 ActionsPostsDefault::doChangePostStatus(...)
             );
         }
