@@ -274,6 +274,8 @@ class Auth implements AuthInterface
 
         $this->user_prefs = $this->user_prefs->createFromUser($this->userID());
 
+        $this->user_blogs = [];
+
         # Get permissions on blogs
         return !($check_blog && $this->findUserBlog() === false);
     }
