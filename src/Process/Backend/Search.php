@@ -19,10 +19,21 @@ use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/search.php
@@ -148,19 +159,41 @@ class Search extends Process
             )
         );
 
-        echo
-        '<form action="' . App::backend()->url()->get('admin.search') . '" method="get" role="search">' .
-        '<div class="fieldset"><h3>' . __('Search options') . '</h3>' .
-        '<p><label for="q">' . __('Query:') . ' </label>' .
-        form::field('q', 30, 255, Html::escapeHTML(App::backend()->q)) . '</p>' .
-        '<p><label for="qtype">' . __('In:') . '</label> ' .
-        form::combo('qtype', App::backend()->qtype_combo, App::backend()->qtype) . '</p>' .
-        '<p class="form-buttons"><input type="submit" value="' . __('Search') . '">' .
-        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-        form::hidden('process', 'Search') .
-        '</p>' .
-        '</div>' .
-        '</form>';
+        echo (new Form('search-frm'))
+            ->method('get')
+            ->action(App::backend()->url()->get('admin.search'))
+            ->role('search')
+            ->fields([
+                (new Fieldset())
+                    ->legend(new Legend(__('Search options')))
+                    ->fields([
+                        (new Para())
+                            ->items([
+                                (new Input('q'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->q))
+                                    ->label(new Label(__('Query:'), Label::OL_TF)),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Select('qtype'))
+                                    ->items(App::backend()->qtype_combo)
+                                    ->default(App::backend()->qtype)
+                                    ->label(new Label(__('In:'), Label::OL_TF)),
+                            ]),
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                (new Submit('search-submit', __('Search'))),
+                                (new Button('back'))
+                                    ->class(['go-back', 'reset', 'hidden-if-no-js'])
+                                    ->value(__('Back')),
+                                (new Hidden('process', 'Search')),
+                            ]),
+                    ]),
+            ])
+        ->render();
 
         if (App::backend()->q && !App::error()->flag()) {
             ob_start();
@@ -250,27 +283,44 @@ class Search extends Process
         }
 
         if (self::$count > 0) {
-            printf('<h3>' . __('one entry found', '%d entries found', self::$count) . '</h3>', self::$count);
+            echo (new Text('h3', sprintf(__('one entry found', '%d entries found', self::$count), self::$count)))
+            ->render();
         }
 
         if (self::$actions && self::$list) {
+            $combo = self::$actions->getCombo();
+            if (is_array($combo)) {
+                $block = (new Form('form-entries'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.search'))
+                    ->fields([
+                        (new Text(null, '%s')), // Here will go the posts list
+                        (new Div())
+                            ->class('two-cols')
+                            ->items([
+                                (new Para())->class(['col', 'checkboxes-helpers']),
+                                (new Para())
+                                    ->class(['col', 'right', 'form-buttons'])
+                                    ->items([
+                                        (new Select('action'))
+                                            ->items($combo)
+                                            ->label(new Label(__('Selected entries action:'), Label::IL_TF)),
+                                        (new Submit('do-action', __('ok'))),
+                                        App::nonce()->formNonce(),
+                                        ... self::$actions->hiddenFields(),
+                                    ]),
+                            ]),
+                    ])
+                ->render();
+            } else {
+                $block = (new Text(null, '%s'))
+                ->render();
+            }
+
             self::$list->display(
                 (int) $args['page'],
                 (int) $args['nb'],
-                '<form action="' . App::backend()->url()->get('admin.search') . '" method="post" id="form-entries">' .
-
-                '%s' .
-
-                '<div class="two-cols">' .
-                '<p class="col checkboxes-helpers"></p>' .
-
-                '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
-                form::combo('action', self::$actions->getCombo()) .
-                '<input id="do-action" type="submit" value="' . __('ok') . '"></p>' .
-                App::nonce()->getFormNonce() .
-                str_replace('%', '%%', self::$actions->getHiddenFields()) .
-                '</div>' .
-                '</form>'
+                $block
             );
         }
 
@@ -321,7 +371,8 @@ class Search extends Process
         }
 
         if (self::$count > 0) {
-            printf('<h3>' . __('one comment found', '%d comments found', self::$count) . '</h3>', self::$count);
+            echo (new Text('h3', sprintf(__('one comment found', '%d comments found', self::$count), self::$count)))
+            ->render();
         }
 
         // IP are available only for super-admin and admin
@@ -333,23 +384,39 @@ class Search extends Process
         );
 
         if (self::$actions && self::$list) {
+            $combo = self::$actions->getCombo();
+            if (is_array($combo)) {
+                $block = (new Form('form-comments'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.search'))
+                    ->fields([
+                        (new Text(null, '%s')), // Here will go the comments list
+                        (new Div())
+                            ->class('two-cols')
+                            ->items([
+                                (new Para())->class(['col', 'checkboxes-helpers']),
+                                (new Para())
+                                    ->class(['col', 'right', 'form-buttons'])
+                                    ->items([
+                                        (new Select('action'))
+                                            ->items($combo)
+                                            ->label(new Label(__('Selected comments action:'), Label::IL_TF)),
+                                        (new Submit('do-action', __('ok'))),
+                                        App::nonce()->formNonce(),
+                                        ... self::$actions->hiddenFields(),
+                                    ]),
+                            ]),
+                    ])
+                ->render();
+            } else {
+                $block = (new Text(null, '%s'))
+                ->render();
+            }
+
             self::$list->display(
                 (int) $args['page'],
                 (int) $args['nb'],
-                '<form action="' . App::backend()->url()->get('admin.search') . '" method="post" id="form-comments">' .
-
-                '%s' .
-
-                '<div class="two-cols">' .
-                '<p class="col checkboxes-helpers"></p>' .
-
-                '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
-                form::combo('action', self::$actions->getCombo()) .
-                '<input id="do-action" type="submit" value="' . __('ok') . '"></p>' .
-                App::nonce()->getFormNonce() .
-                str_replace('%', '%%', self::$actions->getHiddenFields()) .
-                '</div>' .
-                '</form>',
+                $block,
                 false,
                 false,
                 $show_ip
