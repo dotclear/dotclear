@@ -37,8 +37,6 @@ use Exception;
 
 /**
  * @since 2.27 Before as admin/search.php
- *
- * @todo switch Helper/Html/Form/...
  */
 class Search extends Process
 {
