@@ -124,7 +124,7 @@ class ModuleDefine
         'information_config' => false,
         'requires'           => [],
         'settings'           => [],
-        'date'               => '',
+        'date'               => '', // release date format must be iso8601
 
         // optionnal++
         'label'      => '',

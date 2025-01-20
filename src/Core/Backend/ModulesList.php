@@ -1046,9 +1046,10 @@ class ModulesList
                     if (!empty($define->get('date'))) {
                         $lines[] = (new Li())
                             ->class('module-date')
-                            ->text(__('Release date:') . ' ' . Html::escapeHTML(Date::str(
+                            ->text(__('Release date:') . ' ' . Html::escapeHTML(Date::dt2str(
                                 App::blog()->settings()->get('system')->get('date_format'),
-                                strtotime($define->get('date'))
+                                $define->get('date'),
+                                App::auth()->getInfo('user_tz')
                             )));
                     }
 

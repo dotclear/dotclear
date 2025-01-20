@@ -183,9 +183,10 @@ class ThemesList extends ModulesList
                     ->class('module-version');
             }
             if (in_array('date', $cols) && !empty($define->get('date'))) {
-                $infos[] = (new Text('span', sprintf(__('released on %s'), Html::escapeHTML(Date::str(
+                $infos[] = (new Text('span', sprintf(__('released on %s'), Html::escapeHTML(Date::dt2str(
                                 App::blog()->settings()->get('system')->get('date_format'),
-                                strtotime($define->get('date'))
+                                $define->get('date'),
+                                App::auth()->getInfo('user_tz')
                             )))))
                     ->class('module-date');
             }
