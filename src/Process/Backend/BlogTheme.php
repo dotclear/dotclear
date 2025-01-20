@@ -192,7 +192,7 @@ class BlogTheme extends Process
                 ->setDefines($defines)
                 ->displayModules(
                     // cols
-                    ['sshot', 'distrib', 'name', 'config', 'desc', 'author', 'version', 'parent'],
+                    ['sshot', 'distrib', 'name', 'config', 'desc', 'author', 'version', 'date', 'parent'],
                     // actions
                     ['select', 'behavior', 'deactivate', 'clone', 'delete', 'try']
                 );

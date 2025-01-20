@@ -92,6 +92,7 @@ class StoreParser
                 $define->set('version', (string) $i->version);
                 $define->set('author', (string) $i->author);
                 $define->set('desc', (string) $i->desc);
+                $define->set('date', (string) $i->date);
 
                 # DA specific markers
                 if ($children = $i->children(self::$bloc)) {
