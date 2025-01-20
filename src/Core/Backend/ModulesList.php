@@ -14,6 +14,7 @@ namespace Dotclear\Core\Backend;
 use Autoloader;
 use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Date;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Caption;
@@ -1033,13 +1034,22 @@ class ModulesList
             if (in_array('expander', $cols)) {
                 $items = [];
 
-                if (!empty($define->get('author')) || !empty($define->get('details')) || !empty($define->get('support'))) {
+                if (!empty($define->get('author')) || !empty($define->get('date')) || !empty($define->get('details')) || !empty($define->get('support'))) {
                     $lines = [];
 
                     if (!empty($define->get('author'))) {
                         $lines[] = (new Li())
                             ->class('module-author')
                             ->text(__('Author:') . ' ' . Html::escapeHTML($define->get('author')));
+                    }
+
+                    if (!empty($define->get('date'))) {
+                        $lines[] = (new Li())
+                            ->class('module-date')
+                            ->text(__('Release date:') . ' ' . Html::escapeHTML(Date::str(
+                                App::blog()->settings()->get('system')->get('date_format'),
+                                strtotime($define->get('date'))
+                            )));
                     }
 
                     $links = [];

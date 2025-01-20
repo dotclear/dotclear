@@ -13,6 +13,7 @@ namespace Dotclear\Core\Backend;
 
 use Autoloader;
 use Dotclear\App;
+use Dotclear\Helper\Date;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -180,6 +181,13 @@ class ThemesList extends ModulesList
             if (in_array('version', $cols)) {
                 $infos[] = (new Text('span', sprintf(__('version %s'), Html::escapeHTML($define->get('version')))))
                     ->class('module-version');
+            }
+            if (in_array('date', $cols) && !empty($define->get('date'))) {
+                $infos[] = (new Text('span', sprintf(__('released on %s'), Html::escapeHTML(Date::str(
+                                App::blog()->settings()->get('system')->get('date_format'),
+                                strtotime($define->get('date'))
+                            )))))
+                    ->class('module-date');
             }
             if (in_array('current_version', $cols)) {
                 $infos[] = (new Text('span', sprintf(__('(current version %s)'), Html::escapeHTML($define->get('current_version')))))

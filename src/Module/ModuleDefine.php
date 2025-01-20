@@ -124,6 +124,7 @@ class ModuleDefine
         'information_config' => false,
         'requires'           => [],
         'settings'           => [],
+        'date'               => '',
 
         // optionnal++
         'label'      => '',
