@@ -18,14 +18,19 @@ use Dotclear\Core\Backend\Listing\ListingPosts;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/posts.php
- *
- * @todo switch Helper/Html/Form/...
  */
 class Posts extends Process
 {
@@ -100,30 +105,54 @@ class Posts extends Process
             Notices::success(__('Selected entries have been successfully deleted.'));
         }
         if (!App::error()->flag()) {
-            echo
-            '<p class="top-add"><a class="button add" href="' . App::backend()->url()->get('admin.post') . '">' . __('New post') . '</a></p>';
+            echo (new Para())
+                ->class('top-add')
+                ->items([
+                    (new Link())
+                        ->href(App::backend()->url()->get('admin.post'))
+                        ->class(['button', 'add'])
+                        ->text(__('New post')),
+                ])
+            ->render();
 
             # filters
             App::backend()->post_filter->display('admin.posts');
 
             # Show posts
+            $combo = App::backend()->posts_actions_page->getCombo();
+            if (is_array($combo)) {
+                $block = (new Form('form-entries'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.posts'))
+                    ->fields([
+                        (new Text(null, '%s')), // Here will go the posts list
+                        (new Div())
+                            ->class('two-cols')
+                            ->items([
+                                (new Para())->class(['col', 'checkboxes-helpers']),
+                                (new Para())
+                                    ->class(['col', 'right', 'form-buttons'])
+                                    ->items([
+                                        (new Select('action'))
+                                            ->items($combo)
+                                            ->label(new Label(__('Selected entries action:'), Label::IL_TF)),
+                                        (new Submit('do-action', __('ok')))
+                                            ->disabled(true),
+                                        App::nonce()->formNonce(),
+                                        ... App::backend()->url()->hiddenFormFields('admin.posts', App::backend()->post_filter->values()),
+                                    ]),
+                            ]),
+                    ])
+                ->render();
+            } else {
+                $block = (new Text(null, '%s'))
+                ->render();
+            }
+
             App::backend()->post_list->display(
                 App::backend()->post_filter->page,
                 App::backend()->post_filter->nb,
-                '<form action="' . App::backend()->url()->get('admin.posts') . '" method="post" id="form-entries">' .
-                // List
-                '%s' .
-
-                '<div class="two-cols">' .
-                '<p class="col checkboxes-helpers"></p>' .
-                // Actions
-                '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
-                form::combo('action', App::backend()->posts_actions_page->getCombo()) .
-                '<input id="do-action" type="submit" value="' . __('ok') . '" disabled></p>' .
-                App::backend()->url()->getHiddenFormFields('admin.posts', App::backend()->post_filter->values()) .
-                App::nonce()->getFormNonce() .
-                '</div>' .
-                '</form>',
+                $block,
                 App::backend()->post_filter->show()
             );
         }
