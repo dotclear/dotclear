@@ -284,7 +284,7 @@ class BackendList extends Listing
                 ->text($this->rs->nb_trackback)
             ->render(),
             'status' => (new Td())
-                ->class(['nowrap', 'count'])
+                ->class(['nowrap', 'status'])
                 ->text($img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach)
             ->render(),
         ];

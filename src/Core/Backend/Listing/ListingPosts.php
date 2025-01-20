@@ -282,7 +282,7 @@ class ListingPosts extends Listing
                 ->text($this->rs->nb_trackback)
             ->render(),
             'status' => (new Td())
-                ->class(['nowrap', 'status', 'count'])
+                ->class(['nowrap', 'status'])
                 ->separator(' ')
                 ->items([
                     App::status()->post()->image((int) $this->rs->post_status),

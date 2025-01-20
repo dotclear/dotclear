@@ -128,7 +128,6 @@ class ListingComments extends Listing
             'status' => (new Th())
                 ->scope('col')
                 ->text(__('Status'))
-                ->class('txt-center')
             ->render(),
         ];
         if ($show_ip) {
@@ -262,7 +261,7 @@ class ListingComments extends Listing
             ->render(),
 
             'status' => (new Td())
-                ->class(['nowrap', 'status', 'txt-center'])
+                ->class(['nowrap', 'status'])
                 ->items([
                     App::status()->post()->image((int) $this->rs->comment_status),
                 ])

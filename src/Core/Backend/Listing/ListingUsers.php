@@ -204,7 +204,7 @@ class ListingUsers extends Listing
                 ])
             ->render(),
             'status' => (new Td())
-                ->class(['nowrap', 'status', 'count'])
+                ->class(['nowrap', 'status'])
                 ->separator(' ')
                 ->items([
                     App::status()->user()->image((int) $this->rs->user_status),

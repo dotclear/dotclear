@@ -159,7 +159,7 @@ class ListingPostsMini extends Listing
                 ->text($this->rs->user_id)
             ->render(),
             'status' => (new Td())
-                ->class(['nowrap', 'status', 'count'])
+                ->class(['nowrap', 'status'])
                 ->separator(' ')
                 ->items([
                     App::status()->post()->image((int) $this->rs->post_status),

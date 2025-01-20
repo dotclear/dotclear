@@ -99,7 +99,6 @@ class ListingBlogs extends Listing
 
             'status' => (new Th())
                 ->scope('col')
-                ->class('txt-center')
                 ->text(__('Status'))
             ->render(),
         ];
