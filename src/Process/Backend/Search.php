@@ -61,6 +61,11 @@ class Search extends Process
      */
     protected static $actions;
 
+    /**
+     * Action performed?
+     */
+    protected static ?bool $performed;
+
     public static function init(): bool
     {
         Page::check(App::auth()->makePermissions([
@@ -144,6 +149,9 @@ class Search extends Process
         if (App::backend()->q) {
             # --BEHAVIOR-- adminSearchPageProcess -- array<string,string>
             App::behavior()->callBehavior('adminSearchPageProcessV2', $args);
+            if (self::$performed) {
+                return;
+            }
         }
 
         Page::open(
@@ -258,10 +266,10 @@ class Search extends Process
         ];
 
         try {
-            self::$count   = (int) App::blog()->getPosts($params, true)->f(0);
-            self::$list    = new ListingPosts(App::blog()->getPosts($params), self::$count);
-            self::$actions = new ActionsPosts(App::backend()->url()->get('admin.search'), $args);
-            self::$actions->process();
+            self::$count     = (int) App::blog()->getPosts($params, true)->f(0);
+            self::$list      = new ListingPosts(App::blog()->getPosts($params), self::$count);
+            self::$actions   = new ActionsPosts(App::backend()->url()->get('admin.search'), $args);
+            self::$performed = self::$actions->process();
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
@@ -344,12 +352,10 @@ class Search extends Process
         ];
 
         try {
-            self::$count   = (int) App::blog()->getComments($params, true)->f(0);
-            self::$list    = new ListingComments(App::blog()->getComments($params), self::$count);
-            self::$actions = new ActionsComments(App::backend()->url()->get('admin.search'), $args);
-            if (self::$actions->process()) {
-                return '';
-            }
+            self::$count     = (int) App::blog()->getComments($params, true)->f(0);
+            self::$list      = new ListingComments(App::blog()->getComments($params), self::$count);
+            self::$actions   = new ActionsComments(App::backend()->url()->get('admin.search'), $args);
+            self::$performed = self::$actions->process();
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
