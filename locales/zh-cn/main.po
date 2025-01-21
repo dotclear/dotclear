@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-08 12:57+0100\n"
-"PO-Revision-Date: 2025-01-08 12:44\n"
+"POT-Creation-Date: 2025-01-21 09:33+0100\n"
+"PO-Revision-Date: 2025-01-21 08:38\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:242 src/Process/Backend/UserPreferences.php:494
+#: src/Process/Backend/User.php:243 src/Process/Backend/UserPreferences.php:494
 #: src/Process/Install/Install.php:396
 msgid "medium"
 msgstr "介质"
@@ -40,8 +40,8 @@ msgstr "正方形"
 #: src/Core/Backend/Action/ActionsPosts.php:72
 #: src/Core/Backend/Favorites.php:421 src/Core/Backend/Menus.php:167
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
-#: src/Process/Backend/Post.php:529 src/Process/Backend/Post.php:543
-#: src/Process/Backend/Posts.php:88 src/Process/Backend/Posts.php:93
+#: src/Process/Backend/Post.php:532 src/Process/Backend/Post.php:546
+#: src/Process/Backend/Posts.php:93 src/Process/Backend/Posts.php:98
 msgid "Posts"
 msgstr "岗位"
 
@@ -81,11 +81,11 @@ msgstr "管理全部媒体条目"
 msgid "manage their own media items"
 msgstr "管理他们自己的媒体条目"
 
-#: src/Core/Auth.php:579
+#: src/Core/Auth.php:582
 msgid "That user does not exist in the database."
 msgstr "用户在数据库中不存在。"
 
-#: src/Core/Auth.php:606
+#: src/Core/Auth.php:609
 msgid "That key does not exist in the database."
 msgstr "该键在数据库中不存在。"
 
@@ -94,7 +94,7 @@ msgstr "该键在数据库中不存在。"
 #: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:72
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:526
-#: src/Process/Backend/MediaItem.php:1003 src/Process/Backend/Post.php:710
+#: src/Process/Backend/MediaItem.php:1003 src/Process/Backend/Post.php:713
 msgid "Title"
 msgstr "标题"
 
@@ -126,65 +126,66 @@ msgstr "博客ID"
 #: src/Core/Backend/Listing/ListingBlogs.php:79
 #: src/Core/Backend/UserPref.php:77 src/Process/Backend/Blog.php:142
 #: src/Process/Backend/BlogPref.php:552
-#: src/Process/Backend/UsersActions.php:279
+#: src/Process/Backend/UsersActions.php:283
 msgid "Blog name"
 msgstr "博客名称"
 
-#: src/Core/Backend/Action/ActionsBlogsDefault.php:39
-#: src/Core/Backend/Action/ActionsCommentsDefault.php:40
-#: src/Core/Backend/Action/ActionsPostsDefault.php:54
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:35
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:36
+#: src/Core/Backend/Action/ActionsPostsDefault.php:50
 #: src/Core/Backend/Combos.php:274 src/Core/Backend/Combos.php:297
 #: src/Core/Backend/Combos.php:329
-#: src/Core/Backend/Listing/ListingBlogs.php:103
+#: src/Core/Backend/Listing/ListingBlogs.php:102
 #: src/Core/Backend/Listing/ListingComments.php:130
 #: src/Core/Backend/Listing/ListingPosts.php:114
 #: src/Core/Backend/Listing/ListingPostsMini.php:72
 #: src/Core/Backend/Listing/ListingUsers.php:90
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
-#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:615
-#: src/Process/Backend/Post.php:1063 src/Process/Backend/UsersActions.php:282
+#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:618
+#: src/Process/Backend/Post.php:1066 src/Process/Backend/Users.php:44
+#: src/Process/Backend/UsersActions.php:286
 msgid "Status"
 msgstr "状态"
 
-#: src/Core/Backend/Action/ActionsBlogsDefault.php:43
-#: src/Core/Backend/Action/ActionsBlogsDefault.php:44
-#: src/Core/Backend/Action/ActionsCommentsDefault.php:50
-#: src/Core/Backend/Action/ActionsCommentsDefault.php:51
-#: src/Core/Backend/Action/ActionsPostsDefault.php:103
-#: src/Core/Backend/Action/ActionsPostsDefault.php:104
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:39
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:40
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:46
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:47
+#: src/Core/Backend/Action/ActionsPostsDefault.php:99
+#: src/Core/Backend/Action/ActionsPostsDefault.php:100
 #: src/Core/Backend/Listing/ListingMedia.php:324
 #: src/Core/Backend/Listing/ListingMedia.php:327
-#: src/Core/Backend/ModulesList.php:1315 src/Core/Upgrade/PluginsList.php:123
+#: src/Core/Backend/ModulesList.php:1326 src/Core/Upgrade/PluginsList.php:123
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:228
-#: src/Process/Backend/Post.php:799 src/Process/Backend/Users.php:46
+#: src/Process/Backend/Post.php:802 src/Process/Backend/Users.php:45
 #: src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "删除"
 
-#: src/Core/Backend/Action/ActionsBlogsDefault.php:64
-#: src/Core/Backend/Action/ActionsBlogsDefault.php:104
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:60
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:100
 msgid "No blog selected"
 msgstr "没有选择博客"
 
-#: src/Core/Backend/Action/ActionsBlogsDefault.php:85
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:81
 msgid "Selected blogs have been successfully updated."
 msgstr "部分博客已成功更新。"
 
-#: src/Core/Backend/Action/ActionsBlogsDefault.php:108
-#: src/Core/Backend/ModulesList.php:1653 src/Core/Backend/ThemesList.php:733
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:104
+#: src/Core/Backend/ModulesList.php:1664 src/Core/Backend/ThemesList.php:742
 #: src/Core/Upgrade/PluginsList.php:396 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:112 src/Process/Backend/Langs.php:157
-#: src/Process/Backend/User.php:105 src/Process/Backend/UsersActions.php:157
+#: src/Process/Backend/User.php:106 src/Process/Backend/UsersActions.php:161
 #: src/Process/Upgrade/Langs.php:162 src/Process/Upgrade/Langs.php:207
 msgid "Password verification failed"
 msgstr "密码验证失败"
 
-#: src/Core/Backend/Action/ActionsBlogsDefault.php:114
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:110
 #: src/Process/Backend/BlogPref.php:1194
 msgid "The current blog cannot be deleted."
 msgstr "当前的博客不能被删除。"
 
-#: src/Core/Backend/Action/ActionsBlogsDefault.php:131
+#: src/Core/Backend/Action/ActionsBlogsDefault.php:127
 #, php-format
 msgid "%d blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
@@ -199,8 +200,8 @@ msgstr[0] "%d 博客已被成功删除"
 #: src/Core/Backend/Listing/ListingPosts.php:94
 #: src/Core/Backend/Listing/ListingPosts.php:95 src/Core/Backend/Menus.php:154
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
-#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:848
-#: src/Process/Backend/Post.php:857
+#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:851
+#: src/Process/Backend/Post.php:860
 msgid "Comments"
 msgstr "评论"
 
@@ -218,41 +219,41 @@ msgstr "评论行动"
 #: src/Core/Backend/Listing/ListingPosts.php:84
 #: src/Core/Backend/Listing/ListingPostsMini.php:68
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
-#: src/Process/Backend/Comment.php:295 src/Process/Backend/Post.php:892
-#: src/Process/Backend/Post.php:1060
+#: src/Process/Backend/Comment.php:295 src/Process/Backend/Post.php:895
+#: src/Process/Backend/Post.php:1063
 msgid "Author"
 msgstr "作者"
 
-#: src/Core/Backend/Action/ActionsCommentsDefault.php:66
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:62
 msgid "Blocklist IP"
 msgstr "封锁名单IP"
 
-#: src/Core/Backend/Action/ActionsCommentsDefault.php:68
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:64
 msgid "Blocklist IP (global)"
 msgstr "封锁名单IP（全球）"
 
-#: src/Core/Backend/Action/ActionsCommentsDefault.php:72
-#: src/Process/Backend/Post.php:1062
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:68
+#: src/Process/Backend/Post.php:1065
 msgid "IP address"
 msgstr "IP 地址"
 
-#: src/Core/Backend/Action/ActionsCommentsDefault.php:89
-#: src/Core/Backend/Action/ActionsCommentsDefault.php:114
-#: src/Core/Backend/Action/ActionsCommentsDefault.php:142
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:85
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:110
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:138
 msgid "No comment selected"
 msgstr "没有选择评论"
 
-#: src/Core/Backend/Action/ActionsCommentsDefault.php:99
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:95
 #: src/Process/Backend/Comments.php:138
 msgid "Selected comments have been successfully updated."
 msgstr "选定的评论已经成功更新。"
 
-#: src/Core/Backend/Action/ActionsCommentsDefault.php:127
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:123
 #: src/Process/Backend/Comments.php:140
 msgid "Selected comments have been successfully deleted."
 msgstr "选定的评论已被成功删除。"
 
-#: src/Core/Backend/Action/ActionsCommentsDefault.php:174
+#: src/Core/Backend/Action/ActionsCommentsDefault.php:170
 msgid "IP addresses for selected comments have been blocklisted."
 msgstr "所选评论的IP地址已被列入封锁名单。"
 
@@ -264,192 +265,187 @@ msgstr "回到条目列表"
 msgid "Posts actions"
 msgstr "岗位行动"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:63
+#: src/Core/Backend/Action/ActionsPostsDefault.php:59
 msgid "First publication"
 msgstr "首次出版"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:64
-#: src/Core/Backend/Action/ActionsPostsDefault.php:197
+#: src/Core/Backend/Action/ActionsPostsDefault.php:60
+#: src/Core/Backend/Action/ActionsPostsDefault.php:193
 msgid "Never published"
 msgstr "从未出版"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:65
-#: src/Core/Backend/Action/ActionsPostsDefault.php:197
+#: src/Core/Backend/Action/ActionsPostsDefault.php:61
+#: src/Core/Backend/Action/ActionsPostsDefault.php:193
 msgid "Already published"
 msgstr "已经出版"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:71
+#: src/Core/Backend/Action/ActionsPostsDefault.php:67
 msgid "Mark"
 msgstr "标记"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:72
+#: src/Core/Backend/Action/ActionsPostsDefault.php:68
 msgid "Mark as selected"
 msgstr "标记为精选的"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:73
+#: src/Core/Backend/Action/ActionsPostsDefault.php:69
 msgid "Mark as unselected"
 msgstr "标记为非精选的"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:78
-#: src/Core/Backend/Action/ActionsPostsDefault.php:84
-#: src/Core/Backend/Action/ActionsPostsDefault.php:93
+#: src/Core/Backend/Action/ActionsPostsDefault.php:74
+#: src/Core/Backend/Action/ActionsPostsDefault.php:80
+#: src/Core/Backend/Action/ActionsPostsDefault.php:89
 msgid "Change"
 msgstr "改变"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:79
+#: src/Core/Backend/Action/ActionsPostsDefault.php:75
 msgid "Change category"
 msgstr "改变分类目录"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:85
+#: src/Core/Backend/Action/ActionsPostsDefault.php:81
 msgid "Change language"
 msgstr "改变语言"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:94
+#: src/Core/Backend/Action/ActionsPostsDefault.php:90
 msgid "Change author"
 msgstr "改变作者"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:126
-#: src/Core/Backend/Action/ActionsPostsDefault.php:183
-#: src/Core/Backend/Action/ActionsPostsDefault.php:215
-#: src/Core/Backend/Action/ActionsPostsDefault.php:257
-#: src/Core/Backend/Action/ActionsPostsDefault.php:296
-#: src/Core/Backend/Action/ActionsPostsDefault.php:425
-#: src/Core/Backend/Action/ActionsPostsDefault.php:523
+#: src/Core/Backend/Action/ActionsPostsDefault.php:122
+#: src/Core/Backend/Action/ActionsPostsDefault.php:179
+#: src/Core/Backend/Action/ActionsPostsDefault.php:211
+#: src/Core/Backend/Action/ActionsPostsDefault.php:253
+#: src/Core/Backend/Action/ActionsPostsDefault.php:292
+#: src/Core/Backend/Action/ActionsPostsDefault.php:421
+#: src/Core/Backend/Action/ActionsPostsDefault.php:519
 msgid "No entry selected"
 msgstr "没有选择条目"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:145
+#: src/Core/Backend/Action/ActionsPostsDefault.php:141
 msgid "Published entries cannot be set to scheduled"
 msgstr "发布的条目不能被设置为预定的"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:154
+#: src/Core/Backend/Action/ActionsPostsDefault.php:150
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
 msgstr[0] "%d 条目已成功更新为状态：\"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:192
+#: src/Core/Backend/Action/ActionsPostsDefault.php:188
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\""
 msgid_plural "%d entries have been successfully updated as: \"%s\""
 msgstr[0] "%d 条目已被成功更新为：\"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:224
+#: src/Core/Backend/Action/ActionsPostsDefault.php:220
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
 msgstr[0] "%d 条目已被成功标记为选中"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:235
+#: src/Core/Backend/Action/ActionsPostsDefault.php:231
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
 msgstr[0] "%d 条目已被成功标记为未被选中"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:272
+#: src/Core/Backend/Action/ActionsPostsDefault.php:268
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "%d 条目已被成功删除"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:318
+#: src/Core/Backend/Action/ActionsPostsDefault.php:314
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:120
 #: src/Core/Backend/Listing/ListingPosts.php:238
 msgid "(No cat)"
 msgstr "(没有猫)"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:325
+#: src/Core/Backend/Action/ActionsPostsDefault.php:321
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
 msgstr[0] "%d 条目已成功转移到类别 \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:341
+#: src/Core/Backend/Action/ActionsPostsDefault.php:337
 msgid "Change category for this selection"
 msgstr "改变文章的分类目录"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:355
+#: src/Core/Backend/Action/ActionsPostsDefault.php:351
 #: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:552
-#: src/Process/Backend/Post.php:650
+#: src/Process/Backend/Post.php:653
 msgid "Category:"
 msgstr "分类目录："
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:368
+#: src/Core/Backend/Action/ActionsPostsDefault.php:364
 msgid "Create a new category for the post(s)"
 msgstr "为帖子创建一个新的类别"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:372
+#: src/Core/Backend/Action/ActionsPostsDefault.php:368
 #: src/Process/Backend/Home.php:530 src/Process/Backend/Home.php:564
-#: src/Process/Backend/Media.php:550 src/Process/Backend/MediaItem.php:1072
-#: src/Process/Backend/Post.php:658 src/Process/Backend/Post.php:706
+#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1072
+#: src/Process/Backend/Post.php:661 src/Process/Backend/Post.php:709
 msgid "Title:"
 msgstr "标题："
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:381
+#: src/Core/Backend/Action/ActionsPostsDefault.php:377
 #: src/Process/Backend/Category.php:267 src/Process/Backend/Category.php:325
-#: src/Process/Backend/Home.php:571 src/Process/Backend/Post.php:660
+#: src/Process/Backend/Home.php:571 src/Process/Backend/Post.php:663
 msgid "Parent:"
 msgstr "上层目录："
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:396
-#: src/Core/Backend/Action/ActionsPostsDefault.php:501
-#: src/Core/Backend/Action/ActionsPostsDefault.php:591
-#: src/Core/Backend/ModulesList.php:1944 src/Process/Backend/BlogPref.php:1169
+#: src/Core/Backend/Action/ActionsPostsDefault.php:392
+#: src/Core/Backend/Action/ActionsPostsDefault.php:497
+#: src/Core/Backend/Action/ActionsPostsDefault.php:581
+#: src/Core/Backend/ModulesList.php:1955 src/Process/Backend/BlogPref.php:1169
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:350
 #: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1117
-#: src/Process/Backend/Post.php:777 src/Process/Backend/Post.php:917
-#: src/Process/Backend/User.php:451 src/Process/Backend/UsersActions.php:414
+#: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:920
+#: src/Process/Backend/User.php:447 src/Process/Backend/UsersActions.php:405
 #: src/Process/Install/Install.php:478
 msgid "Save"
 msgstr "保存"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:428
+#: src/Core/Backend/Action/ActionsPostsDefault.php:424
 msgid "This user does not exist"
 msgstr "用户不存在"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:442
+#: src/Core/Backend/Action/ActionsPostsDefault.php:438
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
 msgstr[0] "%d 条目已成功设置为用户 \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:475
+#: src/Core/Backend/Action/ActionsPostsDefault.php:471
 msgid "Change author for this selection"
 msgstr "改变文章的作者"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:488
+#: src/Core/Backend/Action/ActionsPostsDefault.php:484
 msgid "New author (author ID):"
 msgstr "新作者（作者ID）："
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:538
+#: src/Core/Backend/Action/ActionsPostsDefault.php:534
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
 msgstr[0] "%d 条目已被成功设置为语言 \"%s\""
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:553
+#: src/Core/Backend/Action/ActionsPostsDefault.php:549
 msgid "Change language for this selection"
 msgstr "改变该选择的语言"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:561
-#: src/Core/Backend/Action/ActionsPostsDefault.php:565
-#: src/Core/Backend/Combos.php:134 src/Core/Backend/Combos.php:139
-#: src/Core/Backend/Combos.php:180
-msgid "Available"
-msgstr "可用"
+#: src/Core/Backend/Action/ActionsPostsDefault.php:569
+msgid "Entry language:"
+msgstr "入境语言："
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:561
-#: src/Core/Backend/Action/ActionsPostsDefault.php:564
-#: src/Core/Backend/Action/ActionsPostsDefault.php:567
 #: src/Core/Backend/Combos.php:133 src/Core/Backend/Combos.php:138
 #: src/Core/Backend/Combos.php:141
 msgid "Most used"
 msgstr "最多使用"
 
-#: src/Core/Backend/Action/ActionsPostsDefault.php:579
-msgid "Entry language:"
-msgstr "入境语言："
+#: src/Core/Backend/Combos.php:134 src/Core/Backend/Combos.php:139
+#: src/Core/Backend/Combos.php:180
+msgid "Available"
+msgstr "可用"
 
 #: src/Core/Backend/Combos.php:180
 msgid "Other"
@@ -469,12 +465,12 @@ msgstr "升序"
 #: src/Core/Backend/Listing/ListingPosts.php:76
 #: src/Core/Backend/Listing/ListingPostsMini.php:64
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
-#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1061
+#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1064
 msgid "Date"
 msgstr "日期"
 
 #: src/Core/Backend/Combos.php:272 src/Core/Backend/Listing/ListingPosts.php:80
-#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:649
+#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:652
 msgid "Category"
 msgstr "分类目录"
 
@@ -502,13 +498,13 @@ msgid "Entry date"
 msgstr "进入日期"
 
 #: src/Core/Backend/Combos.php:298
-#: src/Core/Backend/Listing/ListingComments.php:143
+#: src/Core/Backend/Listing/ListingComments.php:142
 #: src/Core/Backend/UserPref.php:57
 msgid "Spam filter"
 msgstr "垃圾邮件过滤器"
 
 #: src/Core/Backend/Combos.php:309
-#: src/Core/Backend/Listing/ListingComments.php:137
+#: src/Core/Backend/Listing/ListingComments.php:136
 #: src/Core/Backend/UserPref.php:56
 msgid "IP"
 msgstr "IP"
@@ -520,7 +516,7 @@ msgstr "最后更新"
 
 #: src/Core/Backend/Combos.php:328 src/Process/Backend/Blog.php:123
 #: src/Process/Backend/BlogPref.php:1027
-#: src/Process/Backend/UsersActions.php:278
+#: src/Process/Backend/UsersActions.php:282
 msgid "Blog ID"
 msgstr "博客 ID"
 
@@ -554,14 +550,14 @@ msgid "My favorites"
 msgstr "我的最爱"
 
 #: src/Core/Backend/Favorites.php:404 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:380 src/Process/Backend/Media.php:557
+#: src/Core/Backend/Page.php:380 src/Process/Backend/Media.php:744
 #: src/Process/Backend/UserPreferences.php:42
 msgid "My preferences"
 msgstr "我的偏好"
 
 #: src/Core/Backend/Favorites.php:410 src/Core/Backend/Menus.php:180
 #: src/Process/Backend/Home.php:515 src/Process/Backend/Post.php:73
-#: src/Process/Backend/Post.php:759 src/Process/Backend/Posts.php:104
+#: src/Process/Backend/Post.php:762 src/Process/Backend/Posts.php:114
 msgid "New post"
 msgstr "新文章"
 
@@ -579,8 +575,8 @@ msgstr[0] "%d 个评论"
 
 #: src/Core/Backend/Favorites.php:451 src/Core/Backend/Menus.php:141
 #: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:101
-#: src/Process/Backend/Search.php:141 src/Process/Backend/Search.php:146
-#: src/Process/Backend/Search.php:158
+#: src/Process/Backend/Search.php:150 src/Process/Backend/Search.php:155
+#: src/Process/Backend/Search.php:186
 msgid "Search"
 msgstr "搜索"
 
@@ -593,7 +589,7 @@ msgstr "分类目录"
 #: src/Core/Backend/Favorites.php:470 src/Core/Backend/MediaPage.php:353
 #: src/Core/Backend/MediaPage.php:355 src/Core/Backend/MediaPage.php:405
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:472 src/Process/Backend/Media.php:511
+#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:777
 #: src/Process/Backend/MediaItem.php:451 src/Process/Backend/MediaItem.php:457
 msgid "Media manager"
 msgstr "媒体管理中心"
@@ -612,11 +608,11 @@ msgstr "博客外观"
 
 #: src/Core/Backend/Favorites.php:508 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
-#: src/Process/Backend/BlogPref.php:1359 src/Process/Backend/User.php:252
-#: src/Process/Backend/Users.php:104 src/Process/Backend/Users.php:109
-#: src/Process/Backend/UsersActions.php:199
-#: src/Process/Backend/UsersActions.php:207
-#: src/Process/Backend/UsersActions.php:214
+#: src/Process/Backend/BlogPref.php:1359 src/Process/Backend/User.php:253
+#: src/Process/Backend/Users.php:103 src/Process/Backend/Users.php:108
+#: src/Process/Backend/UsersActions.php:203
+#: src/Process/Backend/UsersActions.php:211
+#: src/Process/Backend/UsersActions.php:218
 msgid "Users"
 msgstr "用户"
 
@@ -640,20 +636,20 @@ msgstr "全球帮助"
 
 #: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1255
 #: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1339
-#: src/Process/Backend/Comment.php:307 src/Process/Backend/Post.php:896
-#: src/Process/Backend/User.php:375 src/Process/Backend/UserPreferences.php:540
+#: src/Process/Backend/Comment.php:307 src/Process/Backend/Post.php:899
+#: src/Process/Backend/User.php:371 src/Process/Backend/UserPreferences.php:540
 #: src/Process/Install/Install.php:444
 msgid "Email:"
 msgstr "邮箱："
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1254
-#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:900
+#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:903
 msgid "Web site:"
 msgstr "网站："
 
 #: src/Core/Backend/Filter/FilterComments.php:57
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:1042 src/Core/Backend/Page.php:1296
+#: src/Core/Backend/ModulesList.php:1043 src/Core/Backend/Page.php:1296
 #: src/Process/Backend/Comment.php:297
 msgid "Author:"
 msgstr "作者："
@@ -663,7 +659,7 @@ msgid "Type:"
 msgstr "类型："
 
 #: src/Core/Backend/Filter/FilterComments.php:72
-#: src/Process/Backend/Post.php:910
+#: src/Process/Backend/Post.php:913
 msgid "Comment"
 msgstr "评论"
 
@@ -701,7 +697,7 @@ msgid "Format:"
 msgstr "格式："
 
 #: src/Core/Backend/Filter/FilterPosts.php:179 src/Process/Backend/Auth.php:155
-#: src/Process/Backend/Auth.php:511 src/Process/Backend/User.php:294
+#: src/Process/Backend/Auth.php:511 src/Process/Backend/User.php:295
 #: src/Process/Install/Install.php:508 src/Process/Upgrade/Auth.php:222
 msgid "Password:"
 msgstr "密码："
@@ -738,25 +734,25 @@ msgstr "无附件"
 msgid "Month:"
 msgstr "月份："
 
-#: src/Core/Backend/Filter/FilterPosts.php:275
+#: src/Core/Backend/Filter/FilterPosts.php:278
 msgid "Lang:"
 msgstr "语言："
 
-#: src/Core/Backend/Filter/FilterPosts.php:288
+#: src/Core/Backend/Filter/FilterPosts.php:291
 msgid "Comments:"
 msgstr "评论:"
 
-#: src/Core/Backend/Filter/FilterPosts.php:291
-#: src/Core/Backend/Filter/FilterPosts.php:308
+#: src/Core/Backend/Filter/FilterPosts.php:294
+#: src/Core/Backend/Filter/FilterPosts.php:311
 msgid "Opened"
 msgstr "已开放"
 
-#: src/Core/Backend/Filter/FilterPosts.php:292
-#: src/Core/Backend/Filter/FilterPosts.php:309
+#: src/Core/Backend/Filter/FilterPosts.php:295
+#: src/Core/Backend/Filter/FilterPosts.php:312
 msgid "Closed"
 msgstr "关闭"
 
-#: src/Core/Backend/Filter/FilterPosts.php:305
+#: src/Core/Backend/Filter/FilterPosts.php:308
 msgid "Trackbacks:"
 msgstr "个 trackback:"
 
@@ -807,7 +803,7 @@ msgid "next &#187;"
 msgstr "下一页 &#187;"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:50
-#: src/Process/Backend/UsersActions.php:272
+#: src/Process/Backend/UsersActions.php:276
 msgid "No blog"
 msgstr "没有博客"
 
@@ -816,9 +812,9 @@ msgid "No blog matches the filter"
 msgstr "没有符合过滤器的博客"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:85
-#: src/Core/Backend/ModulesList.php:1765 src/Core/Backend/UserPref.php:78
-#: src/Process/Backend/LinkPopup.php:84
-#: src/Process/Backend/UsersActions.php:280
+#: src/Core/Backend/ModulesList.php:1776 src/Core/Backend/UserPref.php:78
+#: src/Process/Backend/LinkPopup.php:89
+#: src/Process/Backend/UsersActions.php:284
 msgid "URL"
 msgstr "URL"
 
@@ -827,40 +823,40 @@ msgstr "URL"
 msgid "Entries (all types)"
 msgstr "参赛作品（所有类型）"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:131
+#: src/Core/Backend/Listing/ListingBlogs.php:130
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
 msgstr[0] "%d 博客与过滤器相匹配。"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:132
+#: src/Core/Backend/Listing/ListingBlogs.php:131
 msgid "Blogs list"
 msgstr "博客列表"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:140
-#: src/Core/Backend/Listing/ListingComments.php:186
+#: src/Core/Backend/Listing/ListingBlogs.php:139
+#: src/Core/Backend/Listing/ListingComments.php:179
 #: src/Core/Backend/Listing/ListingPosts.php:182
 #: src/Core/Backend/Listing/ListingUsers.php:131
 msgid "Legend: "
 msgstr "传说： "
 
-#: src/Core/Backend/Listing/ListingBlogs.php:181
+#: src/Core/Backend/Listing/ListingBlogs.php:180
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr "编辑博客设置， %s"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:185
-#: src/Core/Backend/Listing/ListingBlogs.php:188
+#: src/Core/Backend/Listing/ListingBlogs.php:184
+#: src/Core/Backend/Listing/ListingBlogs.php:187
 msgid "Edit blog settings"
 msgstr "编辑博客设置"
 
-#: src/Core/Backend/Listing/ListingBlogs.php:200
+#: src/Core/Backend/Listing/ListingBlogs.php:199
 #, php-format
 msgid "Switch to blog %s"
 msgstr "切换到博客 %s"
 
 #: src/Core/Backend/Listing/ListingComments.php:53
-#: src/Process/Backend/Comment.php:151 src/Process/Backend/Post.php:862
+#: src/Process/Backend/Comment.php:151 src/Process/Backend/Post.php:865
 msgid "No comments"
 msgstr "没有评论"
 
@@ -883,67 +879,29 @@ msgstr "评论和回帖列表 (%s)"
 msgid "Type"
 msgstr "类型"
 
-#: src/Core/Backend/Listing/ListingComments.php:148
+#: src/Core/Backend/Listing/ListingComments.php:147
 #: src/Core/Backend/UserPref.php:58
 msgid "Entry"
 msgstr "入职"
 
-#: src/Core/Backend/Listing/ListingComments.php:187
-#: src/Core/Backend/Listing/ListingComments.php:221
-#: src/Process/Backend/MediaItem.php:983 src/Process/Backend/Post.php:476
-#: src/Process/Backend/Post.php:1082 src/Schema/Status/Comment.php:31
-#: src/Schema/Status/Post.php:31
-msgid "Published"
-msgid_plural "Published (>1)"
-msgstr[0] "已发表"
-
-#: src/Core/Backend/Listing/ListingComments.php:188
-#: src/Core/Backend/Listing/ListingComments.php:227
-#: src/Process/Backend/MediaItem.php:984 src/Process/Backend/Post.php:477
-#: src/Process/Backend/Post.php:1087 src/Schema/Status/Comment.php:32
-#: src/Schema/Status/Post.php:32
-msgid "Unpublished"
-msgid_plural "Unpublished (>1)"
-msgstr[0] "未发表"
-
-#: src/Core/Backend/Listing/ListingComments.php:189
-#: src/Core/Backend/Listing/ListingComments.php:233
-#: src/Process/Backend/MediaItem.php:986 src/Process/Backend/Post.php:479
-#: src/Process/Backend/Post.php:1092 src/Schema/Status/Comment.php:33
-#: src/Schema/Status/Post.php:34
-msgid "Pending"
-msgid_plural "Pending (>1)"
-msgstr[0] "待定"
-
-#: src/Core/Backend/Listing/ListingComments.php:190
-#: src/Core/Backend/Listing/ListingComments.php:239
-#: src/Process/Backend/Post.php:1097 src/Schema/Status/Comment.php:34
-msgid "Junk"
-msgid_plural "Junk (>1)"
-msgstr[0] "垃圾"
-
-#: src/Core/Backend/Listing/ListingComments.php:245
-msgid "Unknown"
-msgstr "未知的"
-
-#: src/Core/Backend/Listing/ListingComments.php:269
+#: src/Core/Backend/Listing/ListingComments.php:214
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr "编辑 %1$s ，从 %2$s"
 
-#: src/Core/Backend/Listing/ListingComments.php:270
-#: src/Core/Backend/Listing/ListingComments.php:296
+#: src/Core/Backend/Listing/ListingComments.php:215
+#: src/Core/Backend/Listing/ListingComments.php:241
 msgid "comment"
 msgstr "评论"
 
-#: src/Core/Backend/Listing/ListingComments.php:270
-#: src/Core/Backend/Listing/ListingComments.php:296
+#: src/Core/Backend/Listing/ListingComments.php:215
+#: src/Core/Backend/Listing/ListingComments.php:241
 msgid "trackback"
 msgstr "回轨"
 
-#: src/Core/Backend/Listing/ListingComments.php:292
-#: src/Core/Backend/Listing/ListingComments.php:295
-#: src/Process/Backend/Post.php:1064 src/Process/Backend/Post.php:1137
+#: src/Core/Backend/Listing/ListingComments.php:237
+#: src/Core/Backend/Listing/ListingComments.php:240
+#: src/Process/Backend/Post.php:1067 src/Process/Backend/Post.php:1115
 msgid "Edit"
 msgstr "编辑"
 
@@ -972,7 +930,7 @@ msgid "Nb of items: %d"
 msgstr "项目的数量： %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:122
-#: src/Core/Backend/ModulesList.php:806 src/Core/Backend/UserPref.php:202
+#: src/Core/Backend/ModulesList.php:807 src/Core/Backend/UserPref.php:202
 #: src/Process/Backend/Category.php:255 src/Process/Upgrade/Plugins.php:449
 msgid "Name"
 msgstr "命名"
@@ -984,18 +942,19 @@ msgstr "尺寸"
 
 #: src/Core/Backend/Listing/ListingMedia.php:260
 #: src/Core/Backend/Listing/ListingMedia.php:263
-#: src/Process/Backend/Media.php:371
+#: src/Process/Backend/Media.php:412
 msgid "Select this file"
 msgstr "选择该文件"
 
 #: src/Core/Backend/Listing/ListingMedia.php:286
 #: src/Core/Backend/Listing/ListingMedia.php:289
-#: src/Process/Backend/Media.php:387 src/Process/Backend/Media.php:400
+#: src/Process/Backend/Media.php:450
 msgid "Attach this file to entry"
 msgstr "附加这个文件到文章"
 
 #: src/Core/Backend/Listing/ListingMedia.php:297
 #: src/Core/Backend/Listing/ListingMedia.php:300
+#: src/Process/Backend/Media.php:477
 msgid "Insert this file into entry"
 msgstr "插入这个文件到文章中"
 
@@ -1021,7 +980,7 @@ msgstr "没有符合过滤器的条目"
 #: src/Core/Backend/Listing/ListingPosts.php:104
 #: src/Core/Backend/Listing/ListingPosts.php:107
 #: src/Core/Backend/Listing/ListingPosts.php:108
-#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:940
+#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:943
 msgid "Trackbacks"
 msgstr "个 trackback"
 
@@ -1127,10 +1086,10 @@ msgid "Direct access page:"
 msgstr "直接访问页面："
 
 #: src/Core/Backend/Listing/Pager.php:183 src/Core/Backend/Page.php:168
-#: src/Process/Backend/Blogs.php:149 src/Process/Backend/Comments.php:218
-#: src/Process/Backend/Post.php:875 src/Process/Backend/Post.php:968
-#: src/Process/Backend/Posts.php:122 src/Process/Backend/Search.php:269
-#: src/Process/Backend/Search.php:348 src/Process/Backend/Users.php:161
+#: src/Process/Backend/Blogs.php:150 src/Process/Backend/Comments.php:218
+#: src/Process/Backend/Post.php:878 src/Process/Backend/Post.php:971
+#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:306
+#: src/Process/Backend/Search.php:402 src/Process/Backend/Users.php:160
 msgid "ok"
 msgstr "确定"
 
@@ -1152,344 +1111,348 @@ msgstr "系统设置"
 msgid "Plugins"
 msgstr "插件"
 
-#: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1344
+#: src/Core/Backend/Menus.php:204 src/Core/Backend/ModulesList.php:1355
 #: src/Core/Upgrade/PluginsList.php:142 src/Core/Upgrade/Utility.php:264
 #: src/Process/Upgrade/Upgrade.php:56 src/Process/Upgrade/Upgrade.php:80
 #: src/Process/Upgrade/Upgrade.php:293
 msgid "Update"
 msgstr "更新"
 
-#: src/Core/Backend/ModulesList.php:187 src/Core/Upgrade/PluginsList.php:59
+#: src/Core/Backend/ModulesList.php:188 src/Core/Upgrade/PluginsList.php:59
 msgid "other"
 msgstr "其他"
 
-#: src/Core/Backend/ModulesList.php:409
+#: src/Core/Backend/ModulesList.php:410
 msgid "Search in repository:"
 msgstr "在存储库中搜索："
 
-#: src/Core/Backend/ModulesList.php:410 src/Core/Backend/Page.php:486
+#: src/Core/Backend/ModulesList.php:411 src/Core/Backend/Page.php:486
 msgid "OK"
 msgstr "认可"
 
-#: src/Core/Backend/ModulesList.php:412
+#: src/Core/Backend/ModulesList.php:413
 msgid "Reset search"
 msgstr "重置搜索"
 
-#: src/Core/Backend/ModulesList.php:416
+#: src/Core/Backend/ModulesList.php:417
 msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
 msgstr "允许对超过2个字符的多个术语进行搜索，术语之间必须用空格分隔。"
 
-#: src/Core/Backend/ModulesList.php:422
+#: src/Core/Backend/ModulesList.php:423
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
 msgstr[0] "找到 %d 搜索结果 \"%s\"："
 
-#: src/Core/Backend/ModulesList.php:496
+#: src/Core/Backend/ModulesList.php:497
 msgid "current selection"
 msgstr "当前选择"
 
-#: src/Core/Backend/ModulesList.php:503
+#: src/Core/Backend/ModulesList.php:504
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
 msgstr[0] "%d 结果"
 
-#: src/Core/Backend/ModulesList.php:518
+#: src/Core/Backend/ModulesList.php:519
 msgid "no results"
 msgstr "没有结果"
 
-#: src/Core/Backend/ModulesList.php:528
+#: src/Core/Backend/ModulesList.php:529
 msgid "Browse index:"
 msgstr "浏览索引："
 
-#: src/Core/Backend/ModulesList.php:815
+#: src/Core/Backend/ModulesList.php:816
 msgid "Score"
 msgstr "分数"
 
-#: src/Core/Backend/ModulesList.php:822
+#: src/Core/Backend/ModulesList.php:823
 msgid "Version"
 msgstr "版本"
 
-#: src/Core/Backend/ModulesList.php:829 src/Process/Upgrade/Plugins.php:453
+#: src/Core/Backend/ModulesList.php:830 src/Process/Upgrade/Plugins.php:453
 msgid "Current version"
 msgstr "当前版本"
 
-#: src/Core/Backend/ModulesList.php:836 src/Core/Backend/ModulesList.php:1050
-#: src/Core/Backend/Page.php:1297 src/Core/Backend/ThemesList.php:214
-#: src/Core/Backend/ThemesList.php:300
+#: src/Core/Backend/ModulesList.php:837 src/Core/Backend/ModulesList.php:1061
+#: src/Core/Backend/Page.php:1297 src/Core/Backend/ThemesList.php:223
+#: src/Core/Backend/ThemesList.php:309
 msgid "Details"
 msgstr "详情"
 
-#: src/Core/Backend/ModulesList.php:843 src/Process/Upgrade/Plugins.php:465
+#: src/Core/Backend/ModulesList.php:844 src/Process/Upgrade/Plugins.php:465
 msgid "Repository"
 msgstr "存储库"
 
-#: src/Core/Backend/ModulesList.php:856 src/Process/Backend/Langs.php:284
+#: src/Core/Backend/ModulesList.php:857 src/Process/Backend/Langs.php:284
 #: src/Process/Upgrade/Langs.php:336
 msgid "Action"
 msgstr "动作"
 
-#: src/Core/Backend/ModulesList.php:923 src/Process/Upgrade/Plugins.php:403
+#: src/Core/Backend/ModulesList.php:924 src/Process/Upgrade/Plugins.php:403
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
 
-#: src/Core/Backend/ModulesList.php:970
+#: src/Core/Backend/ModulesList.php:971
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
 msgstr "该模块不能被禁用，也不能被删除，因为以下模块也被启用： %s"
 
-#: src/Core/Backend/ModulesList.php:982
+#: src/Core/Backend/ModulesList.php:983
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "由于以下原因，该模块不能被启用："
 
-#: src/Core/Backend/ModulesList.php:1002 src/Core/Backend/ThemesList.php:198
+#: src/Core/Backend/ModulesList.php:1003 src/Core/Backend/ThemesList.php:207
 #: src/Process/Upgrade/Plugins.php:419
 msgid "Official repository"
 msgstr "官方储存库"
 
-#: src/Core/Backend/ModulesList.php:1002 src/Core/Backend/ModulesList.php:1095
-#: src/Core/Backend/ThemesList.php:198 src/Process/Upgrade/Plugins.php:419
+#: src/Core/Backend/ModulesList.php:1003 src/Core/Backend/ModulesList.php:1106
+#: src/Core/Backend/ThemesList.php:207 src/Process/Upgrade/Plugins.php:419
 msgid "Third-party repository"
 msgstr "第三方资源库"
 
-#: src/Core/Backend/ModulesList.php:1011
+#: src/Core/Backend/ModulesList.php:1012
 msgid "Plugin from official distribution"
 msgstr "来自官方发布的插件"
 
-#: src/Core/Backend/ModulesList.php:1012
+#: src/Core/Backend/ModulesList.php:1013
 msgid "Plugin in development"
 msgstr "开发中的插件"
 
-#: src/Core/Backend/ModulesList.php:1057 src/Core/Backend/Page.php:1298
-#: src/Core/Backend/ThemesList.php:221
+#: src/Core/Backend/ModulesList.php:1049
+msgid "Release date:"
+msgstr ""
+
+#: src/Core/Backend/ModulesList.php:1068 src/Core/Backend/Page.php:1298
+#: src/Core/Backend/ThemesList.php:230
 msgid "Support"
 msgstr "支持"
 
-#: src/Core/Backend/ModulesList.php:1061 src/Core/Backend/ThemesList.php:202
+#: src/Core/Backend/ModulesList.php:1072 src/Core/Backend/ThemesList.php:211
 msgid "update locked"
 msgstr "更新锁定"
 
-#: src/Core/Backend/ModulesList.php:1102 src/Core/Backend/Page.php:1300
+#: src/Core/Backend/ModulesList.php:1113 src/Core/Backend/Page.php:1300
 msgid "Section:"
 msgstr "节："
 
-#: src/Core/Backend/ModulesList.php:1108 src/Core/Backend/Page.php:1301
+#: src/Core/Backend/ModulesList.php:1119 src/Core/Backend/Page.php:1301
 msgid "Tags:"
 msgstr "标签:"
 
-#: src/Core/Backend/ModulesList.php:1133
+#: src/Core/Backend/ModulesList.php:1144
 msgid "No plugins matched your search."
 msgstr "没有符合您搜索的插件。"
 
-#: src/Core/Backend/ModulesList.php:1156
+#: src/Core/Backend/ModulesList.php:1167
 msgid "Plugins list"
 msgstr "插件列表"
 
-#: src/Core/Backend/ModulesList.php:1198
+#: src/Core/Backend/ModulesList.php:1209
 msgid "Configure plugin"
 msgstr "配置插件"
 
-#: src/Core/Backend/ModulesList.php:1211
+#: src/Core/Backend/ModulesList.php:1222
 msgid "Plugin settings (in blog parameters)"
 msgstr "插件设置（在博客参数中）"
 
-#: src/Core/Backend/ModulesList.php:1224
+#: src/Core/Backend/ModulesList.php:1235
 msgid "Plugin settings (in user preferences)"
 msgstr "插件设置（在用户首选项中）"
 
-#: src/Core/Backend/ModulesList.php:1235 src/Core/Backend/ModulesList.php:1248
+#: src/Core/Backend/ModulesList.php:1246 src/Core/Backend/ModulesList.php:1259
 msgid "Plugin settings"
 msgstr "插件设置"
 
-#: src/Core/Backend/ModulesList.php:1260
+#: src/Core/Backend/ModulesList.php:1271
 msgid "Plugin main page"
 msgstr "插件主页面"
 
-#: src/Core/Backend/ModulesList.php:1295 src/Core/Upgrade/PluginsList.php:103
+#: src/Core/Backend/ModulesList.php:1306 src/Core/Upgrade/PluginsList.php:103
 msgid "Activate"
 msgstr "激活"
 
-#: src/Core/Backend/ModulesList.php:1304 src/Core/Upgrade/PluginsList.php:112
+#: src/Core/Backend/ModulesList.php:1315 src/Core/Upgrade/PluginsList.php:112
 msgid "Deactivate"
 msgstr "禁用"
 
-#: src/Core/Backend/ModulesList.php:1325
+#: src/Core/Backend/ModulesList.php:1336
 msgid "Clone"
 msgstr "克隆"
 
-#: src/Core/Backend/ModulesList.php:1335 src/Core/Upgrade/PluginsList.php:133
+#: src/Core/Backend/ModulesList.php:1346 src/Core/Upgrade/PluginsList.php:133
 msgid "Install"
 msgstr "安装"
 
-#: src/Core/Backend/ModulesList.php:1386 src/Core/Upgrade/PluginsList.php:172
+#: src/Core/Backend/ModulesList.php:1397 src/Core/Upgrade/PluginsList.php:172
 msgid "Activate selected plugins"
 msgstr "激活选定的插件"
 
-#: src/Core/Backend/ModulesList.php:1387 src/Core/Upgrade/PluginsList.php:173
+#: src/Core/Backend/ModulesList.php:1398 src/Core/Upgrade/PluginsList.php:173
 msgid "Activate all plugins from this list"
 msgstr "激活此列表中的所有插件"
 
-#: src/Core/Backend/ModulesList.php:1397 src/Core/Upgrade/PluginsList.php:183
+#: src/Core/Backend/ModulesList.php:1408 src/Core/Upgrade/PluginsList.php:183
 msgid "Deactivate selected plugins"
 msgstr "停用选定的插件"
 
-#: src/Core/Backend/ModulesList.php:1398 src/Core/Upgrade/PluginsList.php:184
+#: src/Core/Backend/ModulesList.php:1409 src/Core/Upgrade/PluginsList.php:184
 msgid "Deactivate all plugins from this list"
 msgstr "停用此列表中的所有插件"
 
-#: src/Core/Backend/ModulesList.php:1408 src/Core/Upgrade/PluginsList.php:194
+#: src/Core/Backend/ModulesList.php:1419 src/Core/Upgrade/PluginsList.php:194
 msgid "Update selected plugins"
 msgstr "更新选定的插件"
 
-#: src/Core/Backend/ModulesList.php:1409 src/Core/Upgrade/PluginsList.php:195
+#: src/Core/Backend/ModulesList.php:1420 src/Core/Upgrade/PluginsList.php:195
 msgid "Update all plugins from this list"
 msgstr "更新此列表中的所有插件"
 
-#: src/Core/Backend/ModulesList.php:1460 src/Core/Backend/ModulesList.php:1514
-#: src/Core/Backend/ModulesList.php:1545 src/Core/Backend/ModulesList.php:1583
-#: src/Core/Backend/ModulesList.php:1644 src/Core/Upgrade/PluginsList.php:234
+#: src/Core/Backend/ModulesList.php:1471 src/Core/Backend/ModulesList.php:1525
+#: src/Core/Backend/ModulesList.php:1556 src/Core/Backend/ModulesList.php:1594
+#: src/Core/Backend/ModulesList.php:1655 src/Core/Upgrade/PluginsList.php:234
 #: src/Core/Upgrade/PluginsList.php:276 src/Core/Upgrade/PluginsList.php:301
 #: src/Core/Upgrade/PluginsList.php:333 src/Core/Upgrade/PluginsList.php:387
 msgid "No such plugin."
 msgstr "没有这样的插件。"
 
-#: src/Core/Backend/ModulesList.php:1480 src/Core/Upgrade/PluginsList.php:248
+#: src/Core/Backend/ModulesList.php:1491 src/Core/Upgrade/PluginsList.php:248
 msgid "You don't have permissions to delete this plugin."
 msgstr "您没有删除这个插件的权限。"
 
-#: src/Core/Backend/ModulesList.php:1482 src/Core/Upgrade/PluginsList.php:250
+#: src/Core/Backend/ModulesList.php:1493 src/Core/Upgrade/PluginsList.php:250
 msgid "Some plugins have not been delete."
 msgstr "一些插件还没有被删除。"
 
-#: src/Core/Backend/ModulesList.php:1485 src/Core/Upgrade/PluginsList.php:253
+#: src/Core/Backend/ModulesList.php:1496 src/Core/Upgrade/PluginsList.php:253
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "插件已被成功删除。"
 
-#: src/Core/Backend/ModulesList.php:1518 src/Core/Upgrade/PluginsList.php:280
+#: src/Core/Backend/ModulesList.php:1529 src/Core/Upgrade/PluginsList.php:280
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "插件已成功安装。"
 
-#: src/Core/Backend/ModulesList.php:1549 src/Core/Upgrade/PluginsList.php:305
+#: src/Core/Backend/ModulesList.php:1560 src/Core/Upgrade/PluginsList.php:305
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "插件已被成功激活。"
 
-#: src/Core/Backend/ModulesList.php:1587 src/Core/Upgrade/PluginsList.php:337
+#: src/Core/Backend/ModulesList.php:1598 src/Core/Upgrade/PluginsList.php:337
 msgid "Some plugins have not been deactivated."
 msgstr "一些插件还没有被停用。"
 
-#: src/Core/Backend/ModulesList.php:1590 src/Core/Upgrade/PluginsList.php:340
+#: src/Core/Backend/ModulesList.php:1601 src/Core/Upgrade/PluginsList.php:340
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "插件已被成功地停用。"
 
-#: src/Core/Backend/ModulesList.php:1637 src/Core/Upgrade/PluginsList.php:380
+#: src/Core/Backend/ModulesList.php:1648 src/Core/Upgrade/PluginsList.php:380
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "插件已成功更新。"
 
-#: src/Core/Backend/ModulesList.php:1641 src/Core/Upgrade/PluginsList.php:384
+#: src/Core/Backend/ModulesList.php:1652 src/Core/Upgrade/PluginsList.php:384
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "以下插件的更新被锁定: %s"
 
-#: src/Core/Backend/ModulesList.php:1661 src/Core/Backend/ThemesList.php:741
+#: src/Core/Backend/ModulesList.php:1672 src/Core/Backend/ThemesList.php:750
 #: src/Core/Upgrade/PluginsList.php:404 src/Process/Backend/Langs.php:163
 #: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
 msgstr "无法移动上传的文件。"
 
-#: src/Core/Backend/ModulesList.php:1679 src/Core/Upgrade/PluginsList.php:416
+#: src/Core/Backend/ModulesList.php:1690 src/Core/Upgrade/PluginsList.php:416
 msgid "The plugin has been successfully updated."
 msgstr "该插件已被成功更新。"
 
-#: src/Core/Backend/ModulesList.php:1680 src/Core/Upgrade/PluginsList.php:417
+#: src/Core/Backend/ModulesList.php:1691 src/Core/Upgrade/PluginsList.php:417
 msgid "The plugin has been successfully installed."
 msgstr "该插件已成功安装。"
 
-#: src/Core/Backend/ModulesList.php:1706 src/Process/Backend/Langs.php:366
+#: src/Core/Backend/ModulesList.php:1717 src/Process/Backend/Langs.php:366
 msgid "Upload a zip file"
 msgstr "上传一个 zip 文件"
 
-#: src/Core/Backend/ModulesList.php:1710 src/Core/Backend/ModulesList.php:1757
+#: src/Core/Backend/ModulesList.php:1721 src/Core/Backend/ModulesList.php:1768
 #: src/Process/Backend/Blog.php:116 src/Process/Backend/BlogPref.php:544
 #: src/Process/Backend/BlogPref.php:1019 src/Process/Backend/Category.php:247
 #: src/Process/Backend/Comment.php:287 src/Process/Backend/Home.php:518
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:369
-#: src/Process/Backend/LinkPopup.php:77 src/Process/Backend/Post.php:765
-#: src/Process/Backend/Post.php:885 src/Process/Backend/User.php:272
-#: src/Process/Backend/UsersActions.php:403 src/Process/Install/Install.php:454
+#: src/Process/Backend/LinkPopup.php:82 src/Process/Backend/Post.php:768
+#: src/Process/Backend/Post.php:888 src/Process/Backend/User.php:273
+#: src/Process/Backend/UsersActions.php:394 src/Process/Install/Install.php:454
 #: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:403
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "%s 前面的字段为必填字段。"
 
-#: src/Core/Backend/ModulesList.php:1717
+#: src/Core/Backend/ModulesList.php:1728
 msgid "Zip file path:"
 msgstr "Zip文件路径："
 
-#: src/Core/Backend/ModulesList.php:1728 src/Core/Backend/ModulesList.php:1778
+#: src/Core/Backend/ModulesList.php:1739 src/Core/Backend/ModulesList.php:1789
 #: src/Process/Backend/Langs.php:341 src/Process/Backend/Langs.php:390
-#: src/Process/Backend/Post.php:689 src/Process/Backend/User.php:301
-#: src/Process/Backend/User.php:314 src/Process/Backend/User.php:447
-#: src/Process/Backend/UsersActions.php:410 src/Process/Install/Install.php:466
+#: src/Process/Backend/Post.php:692 src/Process/Backend/User.php:302
+#: src/Process/Backend/User.php:315 src/Process/Backend/User.php:443
+#: src/Process/Backend/UsersActions.php:401 src/Process/Install/Install.php:466
 #: src/Process/Install/Install.php:472 src/Process/Upgrade/Langs.php:426
 msgid "Password"
 msgstr "密码"
 
-#: src/Core/Backend/ModulesList.php:1731 src/Core/Backend/ModulesList.php:1781
+#: src/Core/Backend/ModulesList.php:1742 src/Core/Backend/ModulesList.php:1792
 #: src/Process/Backend/BlogDel.php:125 src/Process/Backend/Langs.php:344
-#: src/Process/Backend/Langs.php:393 src/Process/Backend/User.php:441
-#: src/Process/Backend/UsersActions.php:404 src/Process/Upgrade/Langs.php:376
+#: src/Process/Backend/Langs.php:393 src/Process/Backend/User.php:437
+#: src/Process/Backend/UsersActions.php:395 src/Process/Upgrade/Langs.php:376
 #: src/Process/Upgrade/Langs.php:382 src/Process/Upgrade/Langs.php:430
 msgid "Your password:"
 msgstr "您的密码："
 
-#: src/Core/Backend/ModulesList.php:1739 src/Core/Backend/Page.php:1418
-#: src/Process/Backend/Media.php:563
+#: src/Core/Backend/ModulesList.php:1750 src/Core/Backend/Page.php:1418
+#: src/Process/Backend/Media.php:756
 msgid "Upload"
 msgstr "上传"
 
-#: src/Core/Backend/ModulesList.php:1753
+#: src/Core/Backend/ModulesList.php:1764
 msgid "Download a zip file"
 msgstr "下载一个 zip 文件"
 
-#: src/Core/Backend/ModulesList.php:1767
+#: src/Core/Backend/ModulesList.php:1778
 msgid "Zip file URL:"
 msgstr "Zip文件的URL："
 
-#: src/Core/Backend/ModulesList.php:1789
+#: src/Core/Backend/ModulesList.php:1800
 msgid "Download"
 msgstr "下载"
 
-#: src/Core/Backend/ModulesList.php:1832
+#: src/Core/Backend/ModulesList.php:1843
 msgid "Unknown plugin ID"
 msgstr "未知的插件ID"
 
-#: src/Core/Backend/ModulesList.php:1843
+#: src/Core/Backend/ModulesList.php:1854
 msgid "This plugin has no configuration file."
 msgstr "这个插件没有配置文件。"
 
-#: src/Core/Backend/ModulesList.php:1851 src/Process/Backend/Auth.php:292
+#: src/Core/Backend/ModulesList.php:1862 src/Process/Backend/Auth.php:292
 #: src/Process/Upgrade/Auth.php:136
 msgid "Insufficient permissions"
 msgstr "许可证不充分"
 
-#: src/Core/Backend/ModulesList.php:1925
+#: src/Core/Backend/ModulesList.php:1936
 #, php-format
 msgid "Configure \"%s\""
 msgstr "配置 \"%s\""
 
-#: src/Core/Backend/ModulesList.php:1931 src/Process/Backend/Blog.php:194
+#: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:600 src/Process/Backend/MediaItem.php:1158
-#: src/Process/Backend/Post.php:793 src/Process/Backend/Search.php:159
-#: src/Process/Backend/User.php:454 src/Process/Backend/UserPreferences.php:613
+#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1158
+#: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:189
+#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
 #: src/Process/Backend/UserPreferences.php:980
 msgid "Back"
@@ -1507,12 +1470,12 @@ msgstr "错误："
 msgid "Errors:"
 msgstr "错误："
 
-#: src/Core/Backend/Notices.php:242 src/Core/Backend/Notices.php:278
+#: src/Core/Backend/Notices.php:243 src/Core/Backend/Notices.php:279
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
-#: src/Core/Backend/Page.php:146 src/Process/Backend/User.php:487
-#: src/Process/Backend/UsersActions.php:360
+#: src/Core/Backend/Page.php:146 src/Process/Backend/User.php:483
+#: src/Process/Backend/UsersActions.php:351
 msgid "Blog:"
 msgstr "博客："
 
@@ -1637,8 +1600,8 @@ msgstr "选择所有"
 msgid "Invert selection"
 msgstr "反选"
 
-#: src/Core/Backend/Page.php:1258 src/Process/Backend/Post.php:441
-#: src/Process/Backend/Post.php:557
+#: src/Core/Backend/Page.php:1258 src/Process/Backend/Post.php:444
+#: src/Process/Backend/Post.php:560
 msgid "Entry has been successfully created."
 msgstr "成功创建文章。"
 
@@ -1855,17 +1818,17 @@ msgstr "已取消。"
 msgid "HTTP Error:"
 msgstr "HTTP 错误："
 
-#: src/Core/Backend/Page.php:1414 src/Process/Backend/Media.php:544
+#: src/Core/Backend/Page.php:1414 src/Process/Backend/Media.php:702
 msgid "Choose file"
 msgstr "选择文件"
 
-#: src/Core/Backend/Page.php:1415 src/Process/Backend/Media.php:545
+#: src/Core/Backend/Page.php:1415 src/Process/Backend/Media.php:708
 msgid "Choose files"
 msgstr "选择文件"
 
-#: src/Core/Backend/Page.php:1416 src/Process/Backend/LinkPopup.php:105
-#: src/Process/Backend/Media.php:253 src/Process/Backend/MediaItem.php:553
-#: src/Process/Backend/MediaItem.php:770 src/Process/Backend/Post.php:796
+#: src/Core/Backend/Page.php:1416 src/Process/Backend/LinkPopup.php:110
+#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:553
+#: src/Process/Backend/MediaItem.php:770 src/Process/Backend/Post.php:799
 #: src/Process/Backend/PostMedia.php:111
 msgid "Cancel"
 msgstr "取消"
@@ -1950,133 +1913,138 @@ msgstr "写入文件时出现错误。"
 msgid "Uploaded image is not %s pixels wide."
 msgstr "上传的图片没有 %s 像素宽。"
 
-#: src/Core/Backend/ThemesList.php:126
+#: src/Core/Backend/ThemesList.php:127
 #, php-format
 msgid "Score: %s"
 msgstr "分数： %s"
 
-#: src/Core/Backend/ThemesList.php:148
+#: src/Core/Backend/ThemesList.php:149
 #, php-format
 msgid "%s screenshot."
 msgstr "%s 屏幕截图。"
 
-#: src/Core/Backend/ThemesList.php:177
+#: src/Core/Backend/ThemesList.php:178
 #, php-format
 msgid "by %s"
 msgstr "作者为 %s"
 
-#: src/Core/Backend/ThemesList.php:181
+#: src/Core/Backend/ThemesList.php:182
 #, php-format
 msgid "version %s"
 msgstr "版本 %s"
 
-#: src/Core/Backend/ThemesList.php:185
+#: src/Core/Backend/ThemesList.php:186
+#, php-format
+msgid "released on %s"
+msgstr ""
+
+#: src/Core/Backend/ThemesList.php:194
 #, php-format
 msgid "(current version %s)"
 msgstr "(当前版本 %s)"
 
-#: src/Core/Backend/ThemesList.php:190
+#: src/Core/Backend/ThemesList.php:199
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(在“%s”生成)"
 
-#: src/Core/Backend/ThemesList.php:193
+#: src/Core/Backend/ThemesList.php:202
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(需要“%s”)"
 
-#: src/Core/Backend/ThemesList.php:249
+#: src/Core/Backend/ThemesList.php:258
 msgid "View stylesheet"
 msgstr "查看样式表"
 
-#: src/Core/Backend/ThemesList.php:274
+#: src/Core/Backend/ThemesList.php:283
 msgid "Configure theme"
 msgstr "配置主题"
 
-#: src/Core/Backend/ThemesList.php:328
+#: src/Core/Backend/ThemesList.php:337
 msgid "No themes matched your search."
 msgstr "没有符合您搜索的主题。"
 
-#: src/Core/Backend/ThemesList.php:378
+#: src/Core/Backend/ThemesList.php:387
 msgid "Use this one"
 msgstr "使用这个"
 
-#: src/Core/Backend/ThemesList.php:395 src/Process/Backend/Post.php:792
+#: src/Core/Backend/ThemesList.php:404 src/Process/Backend/Post.php:795
 msgid "Preview"
 msgstr "预览"
 
-#: src/Core/Backend/ThemesList.php:441
+#: src/Core/Backend/ThemesList.php:450
 msgid "Update selected themes"
 msgstr "更新选定的主题"
 
-#: src/Core/Backend/ThemesList.php:442
+#: src/Core/Backend/ThemesList.php:451
 msgid "Update all themes from this list"
 msgstr "更新此列表中的所有主题"
 
-#: src/Core/Backend/ThemesList.php:486 src/Core/Backend/ThemesList.php:527
-#: src/Core/Backend/ThemesList.php:565 src/Core/Backend/ThemesList.php:600
-#: src/Core/Backend/ThemesList.php:640 src/Core/Backend/ThemesList.php:674
-#: src/Core/Backend/ThemesList.php:724
+#: src/Core/Backend/ThemesList.php:495 src/Core/Backend/ThemesList.php:536
+#: src/Core/Backend/ThemesList.php:574 src/Core/Backend/ThemesList.php:609
+#: src/Core/Backend/ThemesList.php:649 src/Core/Backend/ThemesList.php:683
+#: src/Core/Backend/ThemesList.php:733
 msgid "No such theme."
 msgstr "没有这样的主题。"
 
-#: src/Core/Backend/ThemesList.php:495
+#: src/Core/Backend/ThemesList.php:504
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "主题 %s ，已成功选择。"
 
-#: src/Core/Backend/ThemesList.php:531
+#: src/Core/Backend/ThemesList.php:540
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "主题已被成功激活。"
 
-#: src/Core/Backend/ThemesList.php:569
+#: src/Core/Backend/ThemesList.php:578
 msgid "Some themes have not been deactivated."
 msgstr "有些主题还没有被停用。"
 
-#: src/Core/Backend/ThemesList.php:572
+#: src/Core/Backend/ThemesList.php:581
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "主题已被成功地停用。"
 
-#: src/Core/Backend/ThemesList.php:604
+#: src/Core/Backend/ThemesList.php:613
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "主题已经被成功地克隆了。"
 
-#: src/Core/Backend/ThemesList.php:638
+#: src/Core/Backend/ThemesList.php:647
 msgid "You don't have permissions to delete this theme."
 msgstr "你没有权限删除这个主题。"
 
-#: src/Core/Backend/ThemesList.php:642
+#: src/Core/Backend/ThemesList.php:651
 msgid "Some themes have not been delete."
 msgstr "有些主题还没有被删除。"
 
-#: src/Core/Backend/ThemesList.php:645
+#: src/Core/Backend/ThemesList.php:654
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "主题已被成功删除。"
 
-#: src/Core/Backend/ThemesList.php:678
+#: src/Core/Backend/ThemesList.php:687
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "主题已经成功安装。"
 
-#: src/Core/Backend/ThemesList.php:717
+#: src/Core/Backend/ThemesList.php:726
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "主题已被成功更新。"
 
-#: src/Core/Backend/ThemesList.php:721
+#: src/Core/Backend/ThemesList.php:730
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "以下主题更新被锁定: %s"
 
-#: src/Core/Backend/ThemesList.php:759
+#: src/Core/Backend/ThemesList.php:768
 msgid "The theme has been successfully updated."
 msgstr "该主题已成功更新。"
 
-#: src/Core/Backend/ThemesList.php:760
+#: src/Core/Backend/ThemesList.php:769
 msgid "The theme has been successfully installed."
 msgstr "该主题已成功安装。"
 
@@ -2108,120 +2076,120 @@ msgstr "每页的结果"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "你的数据库中似乎没有会话表。Dotclear是否已经完全安装？"
 
-#: src/Core/Blog.php:756
+#: src/Core/Blog.php:705
 msgid "You are not allowed to add categories"
 msgstr "您不被允许添加分类目录"
 
-#: src/Core/Blog.php:800
+#: src/Core/Blog.php:749
 msgid "You are not allowed to update categories"
 msgstr "您不被允许更新分类目录"
 
-#: src/Core/Blog.php:857
+#: src/Core/Blog.php:806
 msgid "You are not allowed to delete categories"
 msgstr "您不被允许删除分类目录"
 
-#: src/Core/Blog.php:870
+#: src/Core/Blog.php:819
 msgid "This category is not empty."
 msgstr "这个分类目录非空。"
 
-#: src/Core/Blog.php:883
+#: src/Core/Blog.php:832
 msgid "You are not allowed to reset categories order"
 msgstr "你不允许重新设置类别订单"
 
-#: src/Core/Blog.php:952
+#: src/Core/Blog.php:901
 msgid "Empty category URL"
 msgstr "空的类别URL"
 
-#: src/Core/Blog.php:969
+#: src/Core/Blog.php:918
 msgid "You must provide a category title"
 msgstr "您必须提供一个分类目录标题"
 
-#: src/Core/Blog.php:979
+#: src/Core/Blog.php:928
 msgid "You must provide a category URL"
 msgstr "您必须提供一个分类目录 URL"
 
-#: src/Core/Blog.php:1476
+#: src/Core/Blog.php:1367
 msgid "You are not allowed to create an entry"
 msgstr "您不被允许创建一篇文章"
 
-#: src/Core/Blog.php:1536
+#: src/Core/Blog.php:1427
 msgid "You are not allowed to update entries"
 msgstr "您不被允许更新文章"
 
-#: src/Core/Blog.php:1542 src/Core/Blog.php:1797
+#: src/Core/Blog.php:1433 src/Core/Blog.php:1688
 msgid "No such entry ID"
 msgstr "没有这样的文章 ID"
 
-#: src/Core/Blog.php:1576
+#: src/Core/Blog.php:1467
 msgid "You are not allowed to edit this entry"
 msgstr "您不被允许编辑这篇文章"
 
-#: src/Core/Blog.php:1604 src/Core/Blog.php:1639 src/Core/Meta.php:143
-#: src/Core/Meta.php:160
+#: src/Core/Blog.php:1495 src/Core/Blog.php:1530 src/Core/Meta.php:144
+#: src/Core/Meta.php:161
 msgid "You are not allowed to change this entry status"
 msgstr "您不被允许更改这篇文章的状态"
 
-#: src/Core/Blog.php:1684 src/Core/Blog.php:1722
+#: src/Core/Blog.php:1575 src/Core/Blog.php:1613
 msgid "You are not allowed to change this entry category"
 msgstr "您不被允许更改这篇文章的分类目录"
 
-#: src/Core/Blog.php:1755
+#: src/Core/Blog.php:1646
 msgid "You are not allowed to change entries category"
 msgstr "你不允许更改参赛项目类别"
 
-#: src/Core/Blog.php:1791
+#: src/Core/Blog.php:1682
 msgid "You are not allowed to delete entries"
 msgstr "您不被允许删除文章"
 
-#: src/Core/Blog.php:2028
+#: src/Core/Blog.php:1919
 msgid "No entry title"
 msgstr "没有文章标题"
 
-#: src/Core/Blog.php:2032 src/Core/Blog.php:2046
+#: src/Core/Blog.php:1923 src/Core/Blog.php:1937
 msgid "No entry content"
 msgstr "没有文章内容"
 
-#: src/Core/Blog.php:2112
+#: src/Core/Blog.php:2003
 msgid "Notes"
 msgstr "笔记"
 
-#: src/Core/Blog.php:2114
+#: src/Core/Blog.php:2005
 msgid "Note"
 msgstr "注意事项"
 
-#: src/Core/Blog.php:2217
+#: src/Core/Blog.php:2108
 msgid "Empty entry URL"
 msgstr "空的文章 URL"
 
-#: src/Core/Blog.php:2476
+#: src/Core/Blog.php:2404
 msgid "You are not allowed to update comments"
 msgstr "您不被允许更新评论"
 
-#: src/Core/Blog.php:2482 src/Core/Blog.php:2488 src/Core/Blog.php:2582
+#: src/Core/Blog.php:2410 src/Core/Blog.php:2416 src/Core/Blog.php:2510
 msgid "No such comment ID"
 msgstr "没有这样的评论 ID"
 
-#: src/Core/Blog.php:2495
+#: src/Core/Blog.php:2423
 msgid "You are not allowed to update this comment"
 msgstr "您不被允许更新这个评论"
 
-#: src/Core/Blog.php:2535
+#: src/Core/Blog.php:2463
 msgid "You are not allowed to change this comment's status"
 msgstr "您不被允许更改这个评论的状态"
 
-#: src/Core/Blog.php:2576 src/Core/Blog.php:2630
+#: src/Core/Blog.php:2504 src/Core/Blog.php:2558
 msgid "You are not allowed to delete comments"
 msgstr "您不被允许删除评论"
 
-#: src/Core/Blog.php:2665
+#: src/Core/Blog.php:2593
 msgid "You must provide a comment"
 msgstr "您必须提供一个评论"
 
-#: src/Core/Blog.php:2669
+#: src/Core/Blog.php:2597
 msgid "You must provide an author name"
 msgstr "您必需提供一个作者姓名"
 
-#: src/Core/Blog.php:2673
+#: src/Core/Blog.php:2601
 msgid "Email address is not valid."
 msgstr "邮箱地址无效。"
 
@@ -2467,11 +2435,11 @@ msgstr "LOL!"
 
 #: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:98
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:458
-#: src/Process/Backend/Blogs.php:100 src/Process/Backend/Langs.php:244
-#: src/Process/Backend/Plugin.php:137 src/Process/Backend/Plugins.php:108
-#: src/Process/Backend/User.php:251 src/Process/Backend/Users.php:108
-#: src/Process/Backend/UsersActions.php:198
-#: src/Process/Backend/UsersActions.php:206 src/Process/Upgrade/Home.php:159
+#: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:244
+#: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:108
+#: src/Process/Backend/User.php:252 src/Process/Backend/Users.php:107
+#: src/Process/Backend/UsersActions.php:202
+#: src/Process/Backend/UsersActions.php:210 src/Process/Upgrade/Home.php:159
 msgid "System"
 msgstr "系统"
 
@@ -2622,7 +2590,7 @@ msgstr "没有指定密码"
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "用户 ID 必须包含至少 2 个字符，使用字母、数字或者符号。"
 
-#: src/Core/Users.php:403 src/Process/Backend/User.php:305
+#: src/Core/Users.php:403 src/Process/Backend/User.php:306
 #: src/Process/Install/Install.php:172
 msgid "Password must contain at least 6 characters."
 msgstr "密码必须包含不少于 6 个字符。"
@@ -2868,7 +2836,8 @@ msgstr "发现意外的关闭标签 </tpl:%s>。"
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "警告：在解析模板文件时发现以下错误："
 
-#: src/Helper/Stack/Statuses.php:288 src/Process/Backend/Comment.php:331
+#: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
+#: src/Process/Backend/User.php:344
 msgid "Status:"
 msgstr "状态："
 
@@ -3016,7 +2985,7 @@ msgstr "您的新密码"
 msgid "Your new password is in your mailbox."
 msgstr "您的新密码在您的邮箱里。"
 
-#: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:136
+#: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:137
 #: src/Process/Backend/UserPreferences.php:200
 #: src/Process/Install/Install.php:169
 msgid "Passwords don't match"
@@ -3047,8 +3016,8 @@ msgid "Wrong username or password"
 msgstr "错误的用户名或密码"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:241
-#: src/Process/Backend/User.php:242 src/Process/Backend/User.php:243
+#: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:242
+#: src/Process/Backend/User.php:243 src/Process/Backend/User.php:244
 #: src/Process/Backend/UserPreferences.php:493
 #: src/Process/Backend/UserPreferences.php:494
 #: src/Process/Backend/UserPreferences.php:495
@@ -3058,13 +3027,13 @@ msgstr "错误的用户名或密码"
 msgid "Password strength: %s"
 msgstr "密码强度: %s"
 
-#: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:241
+#: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:242
 #: src/Process/Backend/UserPreferences.php:493
 #: src/Process/Install/Install.php:395
 msgid "weak"
 msgstr "软弱"
 
-#: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:243
+#: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:244
 #: src/Process/Backend/UserPreferences.php:495
 #: src/Process/Install/Install.php:397
 msgid "strong"
@@ -3090,13 +3059,13 @@ msgstr "其他选项"
 msgid "Change your password"
 msgstr "改变您的密码"
 
-#: src/Process/Backend/Auth.php:451 src/Process/Backend/User.php:294
+#: src/Process/Backend/Auth.php:451 src/Process/Backend/User.php:295
 #: src/Process/Backend/UserPreferences.php:578
 #: src/Process/Install/Install.php:463
 msgid "New password:"
 msgstr "新密码："
 
-#: src/Process/Backend/Auth.php:460 src/Process/Backend/User.php:308
+#: src/Process/Backend/Auth.php:460 src/Process/Backend/User.php:309
 #: src/Process/Install/Install.php:470
 msgid "Confirm password:"
 msgstr "确认密码："
@@ -3159,7 +3128,7 @@ msgid "Blog ID:"
 msgstr "博客 ID："
 
 #: src/Process/Backend/Blog.php:134 src/Process/Backend/BlogPref.php:1034
-#: src/Process/Backend/User.php:281
+#: src/Process/Backend/User.php:282
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "至少 2 个字符，使用字母、数字或符号。"
 
@@ -3179,7 +3148,7 @@ msgstr "博客 URL："
 msgid "Blog description:"
 msgstr "博客描述："
 
-#: src/Process/Backend/Blog.php:192 src/Process/Backend/Media.php:488
+#: src/Process/Backend/Blog.php:192 src/Process/Backend/Media.php:623
 msgid "Create"
 msgstr "创建"
 
@@ -3416,7 +3385,7 @@ msgstr "版权声明："
 msgid "Comments and trackbacks"
 msgstr "评论和 trackbacks"
 
-#: src/Process/Backend/BlogPref.php:623 src/Process/Backend/Post.php:675
+#: src/Process/Backend/BlogPref.php:623 src/Process/Backend/Post.php:678
 msgid "Accept comments"
 msgstr "接受评论"
 
@@ -3444,7 +3413,7 @@ msgstr "对评论使用Wiki语法"
 msgid "Preview of comment before submit is not mandatory"
 msgstr "提交前的评论预览不是强制性的"
 
-#: src/Process/Backend/BlogPref.php:662 src/Process/Backend/Post.php:683
+#: src/Process/Backend/BlogPref.php:662 src/Process/Backend/Post.php:686
 msgid "Accept trackbacks"
 msgstr "接受 trackbacks"
 
@@ -3621,7 +3590,7 @@ msgstr "插入一个原始图片的链接"
 msgid "Image legend and alternate text:"
 msgstr "图像图例和备用文本："
 
-#: src/Process/Backend/BlogPref.php:966 src/Process/Backend/Media.php:595
+#: src/Process/Backend/BlogPref.php:966 src/Process/Backend/Media.php:807
 msgid "Blog parameters"
 msgstr "博客参数"
 
@@ -3725,12 +3694,12 @@ msgid "All rights on this blog."
 msgstr "本博客的所有权利。"
 
 #: src/Process/Backend/BlogPref.php:1300
-#: src/Process/Backend/UsersActions.php:394
+#: src/Process/Backend/UsersActions.php:385
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (未提及的许可)"
 
-#: src/Process/Backend/BlogPref.php:1319 src/Process/Backend/User.php:501
+#: src/Process/Backend/BlogPref.php:1319 src/Process/Backend/User.php:497
 msgid "Change permissions"
 msgstr "改变权限"
 
@@ -3841,24 +3810,24 @@ msgstr "您可以通过上传或下载 zip 文件安装主题。"
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "有些功能是禁用的，请给你的主题目录写入权限以启用它们。"
 
-#: src/Process/Backend/Blogs.php:96 src/Process/Backend/Blogs.php:101
+#: src/Process/Backend/Blogs.php:97 src/Process/Backend/Blogs.php:102
 msgid "List of blogs"
 msgstr "博客列表"
 
-#: src/Process/Backend/Blogs.php:115
+#: src/Process/Backend/Blogs.php:116
 msgid "Create a new blog"
 msgstr "创建一个新博客"
 
-#: src/Process/Backend/Blogs.php:138 src/Process/Backend/Comments.php:215
-#: src/Process/Backend/Users.php:150 src/Process/Backend/UsersActions.php:208
+#: src/Process/Backend/Blogs.php:139 src/Process/Backend/Comments.php:215
+#: src/Process/Backend/Users.php:149 src/Process/Backend/UsersActions.php:212
 msgid "Actions"
 msgstr "行动"
 
-#: src/Process/Backend/Blogs.php:141
+#: src/Process/Backend/Blogs.php:142
 msgid "Selected blogs action:"
 msgstr "选定的博客行动："
 
-#: src/Process/Backend/Blogs.php:159
+#: src/Process/Backend/Blogs.php:160
 msgid "Please give your password to confirm blog(s) deletion:"
 msgstr "请给出你的密码以确认博客的删除："
 
@@ -3932,7 +3901,7 @@ msgid "total:"
 msgstr "总共："
 
 #: src/Process/Backend/Categories.php:325 src/Process/Backend/Category.php:278
-#: src/Process/Backend/User.php:391 src/Process/Backend/UserPreferences.php:554
+#: src/Process/Backend/User.php:387 src/Process/Backend/UserPreferences.php:554
 msgid "URL:"
 msgstr "URL："
 
@@ -3973,7 +3942,7 @@ msgstr "成功更新分类目录。"
 msgid "Category information"
 msgstr "分类目录信息"
 
-#: src/Process/Backend/Category.php:258 src/Process/Backend/Post.php:889
+#: src/Process/Backend/Category.php:258 src/Process/Backend/Post.php:892
 msgid "Name:"
 msgstr "名字："
 
@@ -4017,7 +3986,7 @@ msgstr "移动这个分类目录"
 msgid "Entry does not exist."
 msgstr "文章不存在。"
 
-#: src/Process/Backend/Comment.php:108 src/Process/Backend/Post.php:565
+#: src/Process/Backend/Comment.php:108 src/Process/Backend/Post.php:568
 msgid "Comment has been successfully created."
 msgstr "成功创建评论。"
 
@@ -4067,7 +4036,7 @@ msgstr "您在我的博客 %s 上的评论"
 msgid "Send an e-mail"
 msgstr "发送一封邮件"
 
-#: src/Process/Backend/Comment.php:343 src/Process/Backend/Post.php:905
+#: src/Process/Backend/Comment.php:343 src/Process/Backend/Post.php:908
 msgid "Comment:"
 msgstr "评论："
 
@@ -4096,8 +4065,8 @@ msgstr "显示它们。"
 msgid "Delete all spams"
 msgstr "删除所有垃圾邮件"
 
-#: src/Process/Backend/Comments.php:216 src/Process/Backend/Post.php:870
-#: src/Process/Backend/Search.php:346
+#: src/Process/Backend/Comments.php:216 src/Process/Backend/Post.php:873
+#: src/Process/Backend/Search.php:401
 msgid "Selected comments action:"
 msgstr "选择的评论动作："
 
@@ -4175,15 +4144,15 @@ msgstr "以下插件出现了错误："
 msgid "Quick post"
 msgstr "快速书写文章"
 
-#: src/Process/Backend/Home.php:539 src/Process/Backend/Post.php:728
+#: src/Process/Backend/Home.php:539 src/Process/Backend/Post.php:731
 msgid "Content:"
 msgstr "内容："
 
-#: src/Process/Backend/Home.php:545 src/Process/Backend/Post.php:735
+#: src/Process/Backend/Home.php:545 src/Process/Backend/Post.php:738
 msgid "Content"
 msgstr "内容"
 
-#: src/Process/Backend/Home.php:556 src/Process/Backend/Post.php:657
+#: src/Process/Backend/Home.php:556 src/Process/Backend/Post.php:660
 msgid "Add a new category"
 msgstr "添加一个新的分类目录"
 
@@ -4308,7 +4277,7 @@ msgstr "可用的语言包"
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
 msgstr "您可以直接从 Dotclear.net 下载并安装一个额外的语言包。建议的语言包基于您的版本：%s。"
 
-#: src/Process/Backend/Langs.php:329 src/Process/Backend/User.php:411
+#: src/Process/Backend/Langs.php:329 src/Process/Backend/User.php:407
 #: src/Process/Upgrade/Langs.php:366
 msgid "Language:"
 msgstr "语言："
@@ -4341,199 +4310,199 @@ msgstr "这个 zip 文件似乎不是可用的 Dotclear 语言包。"
 msgid "An error occurred during language upgrade."
 msgstr "语言包升级时出现错误。"
 
-#: src/Process/Backend/LinkPopup.php:64 src/Process/Backend/LinkPopup.php:70
+#: src/Process/Backend/LinkPopup.php:69 src/Process/Backend/LinkPopup.php:75
 msgid "Add a link"
 msgstr "添加一个链接"
 
-#: src/Process/Backend/LinkPopup.php:85
+#: src/Process/Backend/LinkPopup.php:90
 msgid "Link URL:"
 msgstr "链接 URL："
 
-#: src/Process/Backend/LinkPopup.php:93
+#: src/Process/Backend/LinkPopup.php:98
 msgid "Link title:"
 msgstr "链接标题："
 
-#: src/Process/Backend/LinkPopup.php:100
+#: src/Process/Backend/LinkPopup.php:105
 msgid "Link language:"
 msgstr "链接语言："
 
-#: src/Process/Backend/LinkPopup.php:107 src/Process/Backend/MediaItem.php:769
+#: src/Process/Backend/LinkPopup.php:112 src/Process/Backend/MediaItem.php:769
 msgid "Insert"
 msgstr "插入"
 
-#: src/Process/Backend/Media.php:78
+#: src/Process/Backend/Media.php:97
 msgid "Not a valid directory"
 msgstr "不是一个有效的目录"
 
-#: src/Process/Backend/Media.php:98
+#: src/Process/Backend/Media.php:117
 #, php-format
 msgid "Directory or file \"%s\" already exists."
 msgstr "目录或文件 \"%s\" 已经存在。"
 
-#: src/Process/Backend/Media.php:105
+#: src/Process/Backend/Media.php:124
 #, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "目录 \"%s\" 已经成功创建。"
 
-#: src/Process/Backend/Media.php:159
+#: src/Process/Backend/Media.php:178
 msgid "Files have been successfully uploaded."
 msgstr "成功上传文件。"
 
-#: src/Process/Backend/Media.php:188
+#: src/Process/Backend/Media.php:207
 #, php-format
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
 msgstr[0] "成功地删除了 %d medias。"
 
-#: src/Process/Backend/Media.php:208
+#: src/Process/Backend/Media.php:227
 msgid "Directory has been successfully removed."
 msgstr "成功移除目录。"
 
-#: src/Process/Backend/Media.php:212
+#: src/Process/Backend/Media.php:231
 msgid "File has been successfully removed."
 msgstr "成功移除文件。"
 
-#: src/Process/Backend/Media.php:233
+#: src/Process/Backend/Media.php:252
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "目录 \"%s\" 已成功完成。"
 
-#: src/Process/Backend/Media.php:245 src/Process/Backend/PostMedia.php:97
+#: src/Process/Backend/Media.php:264 src/Process/Backend/PostMedia.php:97
 msgid "confirm removal"
 msgstr "确认清除"
 
-#: src/Process/Backend/Media.php:250
+#: src/Process/Backend/Media.php:271
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "您确定要移除 %s 吗？"
 
-#: src/Process/Backend/Media.php:254 src/Process/Backend/PostMedia.php:112
+#: src/Process/Backend/Media.php:276 src/Process/Backend/PostMedia.php:112
 msgid "Yes"
 msgstr "是"
 
-#: src/Process/Backend/Media.php:294
+#: src/Process/Backend/Media.php:318
 msgid "Remove this folder from your favorites"
 msgstr "从你的收藏夹中删除这个文件夹"
 
-#: src/Process/Backend/Media.php:318
+#: src/Process/Backend/Media.php:343
 msgid "Add this folder to your favorites"
 msgstr "将此文件夹添加到您的收藏夹"
 
-#: src/Process/Backend/Media.php:324
+#: src/Process/Backend/Media.php:354
 msgid "Goto recent folder:"
 msgstr "转到最近的文件夹："
 
-#: src/Process/Backend/Media.php:357
+#: src/Process/Backend/Media.php:391
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "你没有足够的权限写到这个文件夹。"
 
-#: src/Process/Backend/Media.php:371
+#: src/Process/Backend/Media.php:411
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "通过点击 %s，选择一个文件"
 
-#: src/Process/Backend/Media.php:374 src/Process/Backend/Media.php:442
-msgid "Choose selected medias"
-msgstr "选择选定的媒体"
-
-#: src/Process/Backend/Media.php:374
+#: src/Process/Backend/Media.php:415
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "选择文件并点击 <strong>%s</strong> 按钮"
 
-#: src/Process/Backend/Media.php:378 src/Process/Backend/Media.php:391
-#: src/Process/Backend/Media.php:404 src/Process/Backend/MediaItem.php:785
+#: src/Process/Backend/Media.php:416 src/Process/Backend/Media.php:545
+msgid "Choose selected medias"
+msgstr "选择选定的媒体"
+
+#: src/Process/Backend/Media.php:422 src/Process/Backend/Media.php:456
+#: src/Process/Backend/Media.php:483 src/Process/Backend/MediaItem.php:785
 msgid "or"
 msgstr "或"
 
-#: src/Process/Backend/Media.php:378 src/Process/Backend/Media.php:391
-#: src/Process/Backend/Media.php:404
+#: src/Process/Backend/Media.php:425 src/Process/Backend/Media.php:459
+#: src/Process/Backend/Media.php:486
 msgid "upload a new file"
 msgstr "上传一个新文件"
 
-#: src/Process/Backend/Media.php:385
+#: src/Process/Backend/Media.php:448
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "点击 %s，选择一个文件附加到条目 %s 。"
 
-#: src/Process/Backend/Media.php:399
+#: src/Process/Backend/Media.php:476
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "通过点击 %s，选择一个文件插入条目中。"
 
-#: src/Process/Backend/Media.php:417 src/Process/Backend/Media.php:418
-#: src/Process/Backend/Media.php:419
+#: src/Process/Backend/Media.php:506 src/Process/Backend/Media.php:510
+#: src/Process/Backend/Media.php:513
 msgid "Grid display mode"
 msgstr "网格显示模式"
 
-#: src/Process/Backend/Media.php:421 src/Process/Backend/Media.php:422
-#: src/Process/Backend/Media.php:423
+#: src/Process/Backend/Media.php:517 src/Process/Backend/Media.php:521
+#: src/Process/Backend/Media.php:524
 msgid "List display mode"
 msgstr "列表显示模式"
 
-#: src/Process/Backend/Media.php:445
+#: src/Process/Backend/Media.php:549
 msgid "Remove selected medias"
 msgstr "删除选定的媒体"
 
-#: src/Process/Backend/Media.php:472
-#, php-format
-msgid "In %s:"
-msgstr "在 %s："
-
-#: src/Process/Backend/Media.php:484
+#: src/Process/Backend/Media.php:610
 msgid "Create new directory"
 msgstr "创建新目录"
 
-#: src/Process/Backend/Media.php:486
+#: src/Process/Backend/Media.php:617
 msgid "Directory Name:"
 msgstr "目录名称："
 
-#: src/Process/Backend/Media.php:499
+#: src/Process/Backend/Media.php:637
 msgid "Build missing thumbnails in directory"
 msgstr "在目录中建立缺失的缩略图"
 
-#: src/Process/Backend/Media.php:501
+#: src/Process/Backend/Media.php:642
 msgid "Build"
 msgstr "构建"
 
-#: src/Process/Backend/Media.php:511
+#: src/Process/Backend/Media.php:652
 #, php-format
 msgid "Backup content of %s"
 msgstr "%s的备份内容"
 
-#: src/Process/Backend/Media.php:515
+#: src/Process/Backend/Media.php:659
 msgid "Download zip file"
 msgstr "下载压缩文件"
 
-#: src/Process/Backend/Media.php:535
+#: src/Process/Backend/Media.php:678
 msgid "Add files"
 msgstr "添加文件"
 
-#: src/Process/Backend/Media.php:536
+#: src/Process/Backend/Media.php:681
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "请小心发布您拥有的媒体文件，这不受到版权的保护。"
 
-#: src/Process/Backend/Media.php:548
+#: src/Process/Backend/Media.php:718
 msgid "Maximum file size allowed:"
 msgstr "允许的文件最大大小："
 
-#: src/Process/Backend/Media.php:551 src/Process/Backend/MediaItem.php:1114
+#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1114
 msgid "Private"
 msgstr "私有的"
 
-#: src/Process/Backend/Media.php:556
+#: src/Process/Backend/Media.php:741
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "要想同时发送几个文件，你可以在以下文件中激活增强型上传器"
 
-#: src/Process/Backend/Media.php:561
+#: src/Process/Backend/Media.php:750
 msgid "Refresh"
 msgstr "刷新"
 
-#: src/Process/Backend/Media.php:562
+#: src/Process/Backend/Media.php:753
 msgid "Clear all"
 msgstr "清除所有"
 
-#: src/Process/Backend/Media.php:594
+#: src/Process/Backend/Media.php:777
+#, php-format
+msgid "In %s:"
+msgstr "在 %s："
+
+#: src/Process/Backend/Media.php:804
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "目前对媒体和图像的设置定义在 %s。"
@@ -4715,11 +4684,29 @@ msgstr "包含这个媒体的文章"
 msgid "No entry seems contain this media."
 msgstr "似乎没有文章包含这个媒体。"
 
-#: src/Process/Backend/MediaItem.php:985 src/Process/Backend/Post.php:478
+#: src/Process/Backend/MediaItem.php:983 src/Process/Backend/Post.php:479
+#: src/Schema/Status/Comment.php:31 src/Schema/Status/Post.php:31
+msgid "Published"
+msgid_plural "Published (>1)"
+msgstr[0] "已发表"
+
+#: src/Process/Backend/MediaItem.php:984 src/Process/Backend/Post.php:480
+#: src/Schema/Status/Comment.php:32 src/Schema/Status/Post.php:32
+msgid "Unpublished"
+msgid_plural "Unpublished (>1)"
+msgstr[0] "未发表"
+
+#: src/Process/Backend/MediaItem.php:985 src/Process/Backend/Post.php:481
 #: src/Schema/Status/Post.php:33
 msgid "Scheduled"
 msgid_plural "Scheduled (>1)"
 msgstr[0] "预定"
+
+#: src/Process/Backend/MediaItem.php:986 src/Process/Backend/Post.php:482
+#: src/Schema/Status/Comment.php:33 src/Schema/Status/Post.php:34
+msgid "Pending"
+msgid_plural "Pending (>1)"
+msgstr[0] "待定"
 
 #: src/Process/Backend/MediaItem.php:1003
 #: src/Process/Backend/MediaItem.php:1017
@@ -4806,15 +4793,15 @@ msgstr "最大大小 %s"
 msgid "Delete this media"
 msgstr "删除该媒体"
 
-#: src/Process/Backend/Plugin.php:83
+#: src/Process/Backend/Plugin.php:84
 msgid "No content found on this plugin."
 msgstr "这个插件中没有找到内容。"
 
-#: src/Process/Backend/Plugin.php:133 src/Process/Backend/Plugin.php:138
+#: src/Process/Backend/Plugin.php:142 src/Process/Backend/Plugin.php:147
 msgid "Plugin not found"
 msgstr "未找到插件"
 
-#: src/Process/Backend/Plugin.php:142
+#: src/Process/Backend/Plugin.php:152
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "您到达的插件不存在或者没有管理页面。"
 
@@ -4886,178 +4873,178 @@ msgstr "有些功能是禁用的，请给你的插件目录写入权限以启用
 msgid "Plugin configuration"
 msgstr "插件配置"
 
-#: src/Process/Backend/Post.php:134 src/Process/Backend/Post.php:759
-#: src/Process/Backend/Post.php:764
+#: src/Process/Backend/Post.php:137 src/Process/Backend/Post.php:762
+#: src/Process/Backend/Post.php:767
 msgid "Edit post"
 msgstr "编辑帖子"
 
-#: src/Process/Backend/Post.php:174
+#: src/Process/Backend/Post.php:177
 msgid "Next entry"
 msgstr "下一条"
 
-#: src/Process/Backend/Post.php:190
+#: src/Process/Backend/Post.php:193
 msgid "Previous entry"
 msgstr "上一条"
 
-#: src/Process/Backend/Post.php:267 src/Process/Backend/Post.php:568
+#: src/Process/Backend/Post.php:270 src/Process/Backend/Post.php:571
 msgid "All pings sent."
 msgstr "所有的 ping 已发送。"
 
-#: src/Process/Backend/Post.php:297
+#: src/Process/Backend/Post.php:300
 msgid "Invalid publication date"
 msgstr "无效的出版日期"
 
-#: src/Process/Backend/Post.php:421
+#: src/Process/Backend/Post.php:424
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
 msgstr "帖子 \"%s\" 已经成功更新。"
 
-#: src/Process/Backend/Post.php:483
+#: src/Process/Backend/Post.php:486
 #, php-format
 msgid "&ldquo;%s&rdquo;"
 msgstr "&ldquo;%s&rdquo;"
 
-#: src/Process/Backend/Post.php:555
+#: src/Process/Backend/Post.php:558
 msgid "Entry has been successfully updated."
 msgstr "成功更新文章。"
 
-#: src/Process/Backend/Post.php:559
+#: src/Process/Backend/Post.php:562
 msgid "File has been successfully attached."
 msgstr "成功附加文件。"
 
-#: src/Process/Backend/Post.php:561 src/Process/Backend/PostMedia.php:88
+#: src/Process/Backend/Post.php:564 src/Process/Backend/PostMedia.php:88
 msgid "Attachment has been successfully removed."
 msgstr "成功移除附件。"
 
-#: src/Process/Backend/Post.php:577
+#: src/Process/Backend/Post.php:580
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "不要忘记通过保存你的帖子来验证你的XHTML转换。"
 
-#: src/Process/Backend/Post.php:582
+#: src/Process/Backend/Post.php:585
 msgid "Go to this entry on the site"
 msgstr "转到网站上的这个条目"
 
-#: src/Process/Backend/Post.php:617
+#: src/Process/Backend/Post.php:620
 msgid "Entry status"
 msgstr "进入状态"
 
-#: src/Process/Backend/Post.php:624
+#: src/Process/Backend/Post.php:627
 msgid "Publication date and hour"
 msgstr "出版日期和时间"
 
-#: src/Process/Backend/Post.php:630
+#: src/Process/Backend/Post.php:633
 msgid "Entry language"
 msgstr "入境语言"
 
-#: src/Process/Backend/Post.php:633
+#: src/Process/Backend/Post.php:636
 msgid "Text formatting"
 msgstr "文本格式化"
 
-#: src/Process/Backend/Post.php:639
+#: src/Process/Backend/Post.php:642
 msgid "Convert to HTML"
 msgstr "转换到 HTML"
 
-#: src/Process/Backend/Post.php:643
+#: src/Process/Backend/Post.php:646
 msgid "Filing"
 msgstr "归档"
 
-#: src/Process/Backend/Post.php:647
+#: src/Process/Backend/Post.php:650
 msgid "Selected entry"
 msgstr "精选文章"
 
-#: src/Process/Backend/Post.php:669 src/Process/Backend/User.php:409
+#: src/Process/Backend/Post.php:672 src/Process/Backend/User.php:405
 msgid "Options"
 msgstr "选择"
 
-#: src/Process/Backend/Post.php:672
+#: src/Process/Backend/Post.php:675
 msgid "Comments and trackbacks list"
 msgstr "评论和跟踪列表"
 
-#: src/Process/Backend/Post.php:678
+#: src/Process/Backend/Post.php:681
 msgid "Warning: Comments are not more accepted for this entry."
 msgstr "警告：此条目不接受评论。"
 
-#: src/Process/Backend/Post.php:680
+#: src/Process/Backend/Post.php:683
 msgid "Comments are not accepted on this blog so far."
 msgstr "到目前为止，这个博客还不接受评论。"
 
-#: src/Process/Backend/Post.php:686
+#: src/Process/Backend/Post.php:689
 msgid "Warning: Trackbacks are not more accepted for this entry."
 msgstr "警告：此条目不接受回溯。"
 
-#: src/Process/Backend/Post.php:687
+#: src/Process/Backend/Post.php:690
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "到目前为止，这个博客还不接受回溯。"
 
-#: src/Process/Backend/Post.php:693
+#: src/Process/Backend/Post.php:696
 msgid "Edit basename"
 msgstr "编辑基名"
 
-#: src/Process/Backend/Post.php:697
+#: src/Process/Backend/Post.php:700
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "警告：如果您手动设置 URL，它可能与其他文章冲突。"
 
-#: src/Process/Backend/Post.php:714
+#: src/Process/Backend/Post.php:717
 msgid "Excerpt:"
 msgstr "摘录："
 
-#: src/Process/Backend/Post.php:715
+#: src/Process/Backend/Post.php:718
 msgid "Introduction to the post."
 msgstr "职位介绍。"
 
-#: src/Process/Backend/Post.php:740
+#: src/Process/Backend/Post.php:743
 msgid "Personal notes:"
 msgstr "个人说明："
 
-#: src/Process/Backend/Post.php:741
+#: src/Process/Backend/Post.php:744
 msgid "Unpublished notes."
 msgstr "未发表的笔记。"
 
-#: src/Process/Backend/Post.php:849 src/Process/Backend/Post.php:884
+#: src/Process/Backend/Post.php:852 src/Process/Backend/Post.php:887
 msgid "Add a comment"
 msgstr "添加一个评论"
 
-#: src/Process/Backend/Post.php:949
+#: src/Process/Backend/Post.php:952
 msgid "Trackbacks received"
 msgstr "收到的回溯信息"
 
-#: src/Process/Backend/Post.php:955
+#: src/Process/Backend/Post.php:958
 msgid "No trackback"
 msgstr "没有 trackback"
 
-#: src/Process/Backend/Post.php:963
+#: src/Process/Backend/Post.php:966
 msgid "Selected trackbacks action:"
 msgstr "选定的跟踪行动："
 
-#: src/Process/Backend/Post.php:980 src/Process/Backend/Post.php:991
+#: src/Process/Backend/Post.php:983 src/Process/Backend/Post.php:994
 msgid "Ping blogs"
 msgstr "Ping 博客"
 
-#: src/Process/Backend/Post.php:982
+#: src/Process/Backend/Post.php:985
 msgid "URLs to ping:"
 msgstr "ping 的 URL："
 
-#: src/Process/Backend/Post.php:986
+#: src/Process/Backend/Post.php:989
 msgid "Excerpt to send:"
 msgstr "摘录发送："
 
-#: src/Process/Backend/Post.php:992
+#: src/Process/Backend/Post.php:995
 msgid "Auto discover ping URLs"
 msgstr "自动发现 ping URL。"
 
-#: src/Process/Backend/Post.php:1000
+#: src/Process/Backend/Post.php:1003
 msgid "Previously sent pings"
 msgstr "之前发送的 ping"
 
-#: src/Process/Backend/Post.php:1115
+#: src/Process/Backend/Post.php:1093
 msgid "select this comment"
 msgstr "选择此评论"
 
-#: src/Process/Backend/Post.php:1115
+#: src/Process/Backend/Post.php:1093
 msgid "select this trackback"
 msgstr "选择此回帖"
 
-#: src/Process/Backend/Post.php:1134
+#: src/Process/Backend/Post.php:1112
 msgid "Edit this comment"
 msgstr "编辑这个评论"
 
@@ -5077,15 +5064,15 @@ msgstr "附件"
 msgid "Are you sure you want to remove this attachment?"
 msgstr "您确定要移除这个附件吗？"
 
-#: src/Process/Backend/Posts.php:98
+#: src/Process/Backend/Posts.php:103
 msgid "Selected entries have been successfully updated."
 msgstr "所选条目已成功更新。"
 
-#: src/Process/Backend/Posts.php:100
+#: src/Process/Backend/Posts.php:105
 msgid "Selected entries have been successfully deleted."
 msgstr "选定的条目已被成功删除。"
 
-#: src/Process/Backend/Posts.php:120 src/Process/Backend/Search.php:267
+#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:305
 msgid "Selected entries action:"
 msgstr "已选择的文章的动作："
 
@@ -5159,188 +5146,185 @@ msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] "%s 可进行更新。"
 
-#: src/Process/Backend/Rest.php:865
+#: src/Process/Backend/Rest.php:870
 msgid "List options saved"
 msgstr "保存的清单选项"
 
-#: src/Process/Backend/Search.php:153
+#: src/Process/Backend/Search.php:166
 msgid "Search options"
 msgstr "搜索选项"
 
-#: src/Process/Backend/Search.php:154
+#: src/Process/Backend/Search.php:174
 msgid "Query:"
 msgstr "查询："
 
-#: src/Process/Backend/Search.php:156
+#: src/Process/Backend/Search.php:181
 msgid "In:"
 msgstr "在："
 
-#: src/Process/Backend/Search.php:173
+#: src/Process/Backend/Search.php:204
 msgid "No results found"
 msgstr "没有发现结果"
 
-#: src/Process/Backend/Search.php:191
+#: src/Process/Backend/Search.php:222
 msgid "Search in entries"
 msgstr "在条目中搜索"
 
-#: src/Process/Backend/Search.php:192
+#: src/Process/Backend/Search.php:223
 msgid "Search in comments"
 msgstr "在评论中搜索"
 
-#: src/Process/Backend/Search.php:253
+#: src/Process/Backend/Search.php:284
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
 msgstr[0] "%d 找到的条目"
 
-#: src/Process/Backend/Search.php:324
+#: src/Process/Backend/Search.php:372
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"
 msgstr[0] "%d 发现的评论"
 
-#: src/Process/Backend/User.php:36 src/Process/Backend/Users.php:128
+#: src/Process/Backend/User.php:36 src/Process/Backend/Users.php:127
 msgid "New user"
 msgstr "新用户"
 
-#: src/Process/Backend/User.php:183 src/Process/Backend/User.php:259
-#: src/Process/Backend/UsersActions.php:184
+#: src/Process/Backend/User.php:184 src/Process/Backend/User.php:260
+#: src/Process/Backend/UsersActions.php:188
 msgid "User has been successfully updated."
 msgstr "成功更新用户。"
 
-#: src/Process/Backend/User.php:189
+#: src/Process/Backend/User.php:190
 #, php-format
 msgid "User \"%s\" already exists."
 msgstr "用户“%s”已经存在。"
 
-#: src/Process/Backend/User.php:213 src/Process/Backend/User.php:263
+#: src/Process/Backend/User.php:214 src/Process/Backend/User.php:264
 msgid "User has been successfully created."
 msgstr "成功创建用户。"
 
-#: src/Process/Backend/User.php:216
+#: src/Process/Backend/User.php:217
 msgid "User has no permission, he will not be able to login yet. See below to add some."
 msgstr "用户没有权限，他还不能登录。请看下面添加一些。"
 
-#: src/Process/Backend/User.php:219
+#: src/Process/Backend/User.php:220
 msgid "User is disabled, he will not be able to login yet."
 msgstr "用户已禁用，暂时无法登录。"
 
-#: src/Process/Backend/User.php:271
+#: src/Process/Backend/User.php:272
 msgid "User profile"
 msgstr "用户资料"
 
-#: src/Process/Backend/User.php:274
+#: src/Process/Backend/User.php:275
 msgid "User ID:"
 msgstr "用户ID："
 
-#: src/Process/Backend/User.php:277
+#: src/Process/Backend/User.php:278
 msgid "Login"
 msgstr "登录"
 
-#: src/Process/Backend/User.php:285
+#: src/Process/Backend/User.php:286
 msgid "Warning:"
 msgstr "警告："
 
-#: src/Process/Backend/User.php:286
+#: src/Process/Backend/User.php:287
 msgid "If you change your username, you will have to log in again."
 msgstr "如果您改变用户名，您必须重新登录。"
 
-#: src/Process/Backend/User.php:323
+#: src/Process/Backend/User.php:324
 msgid "Password change required to connect"
 msgstr "需要修改密码才能连接"
 
-#: src/Process/Backend/User.php:351
-msgid "Enabled user"
-msgstr "启用用户"
-
-#: src/Process/Backend/User.php:354 src/Process/Backend/UserPreferences.php:519
+#: src/Process/Backend/User.php:350 src/Process/Backend/UserPreferences.php:519
 #: src/Process/Install/Install.php:438
 msgid "Last Name:"
 msgstr "姓："
 
-#: src/Process/Backend/User.php:361 src/Process/Backend/UserPreferences.php:526
+#: src/Process/Backend/User.php:357 src/Process/Backend/UserPreferences.php:526
 #: src/Process/Install/Install.php:432
 msgid "First Name:"
 msgstr "名："
 
-#: src/Process/Backend/User.php:368 src/Process/Backend/UserPreferences.php:533
+#: src/Process/Backend/User.php:364 src/Process/Backend/UserPreferences.php:533
 msgid "Display name:"
 msgstr "显示的名字："
 
-#: src/Process/Backend/User.php:382
+#: src/Process/Backend/User.php:378
 msgid "Mandatory for password recovering procedure."
 msgstr "密码恢复程序是必须的。"
 
-#: src/Process/Backend/User.php:384 src/Process/Backend/UserPreferences.php:547
+#: src/Process/Backend/User.php:380 src/Process/Backend/UserPreferences.php:547
 msgid "Alternate emails (comma separated list):"
 msgstr "备用电子邮件（以逗号分隔的列表）："
 
-#: src/Process/Backend/User.php:389 src/Process/Backend/UserPreferences.php:552
+#: src/Process/Backend/User.php:385 src/Process/Backend/UserPreferences.php:552
 msgid "Invalid emails will be automatically removed from list."
 msgstr "无效的电子邮件将被自动从列表中删除。"
 
-#: src/Process/Backend/User.php:399 src/Process/Backend/UserPreferences.php:562
+#: src/Process/Backend/User.php:395 src/Process/Backend/UserPreferences.php:562
 msgid "Alternate URLs (comma separated list):"
 msgstr "替代的URLs（逗号分隔的列表）："
 
-#: src/Process/Backend/User.php:404 src/Process/Backend/UserPreferences.php:567
+#: src/Process/Backend/User.php:400 src/Process/Backend/UserPreferences.php:567
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "无效的URL将被自动从列表中删除。"
 
-#: src/Process/Backend/User.php:410 src/Process/Backend/UserPreferences.php:626
+#: src/Process/Backend/User.php:406 src/Process/Backend/UserPreferences.php:626
 msgid "Interface"
 msgstr "介面"
 
-#: src/Process/Backend/User.php:415
+#: src/Process/Backend/User.php:411
 msgid "Timezone:"
 msgstr "时区："
 
-#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:742
+#: src/Process/Backend/User.php:415 src/Process/Backend/UserPreferences.php:742
 msgid "Edition"
 msgstr "版本"
 
-#: src/Process/Backend/User.php:420 src/Process/Backend/UserPreferences.php:756
+#: src/Process/Backend/User.php:416 src/Process/Backend/UserPreferences.php:756
 msgid "Preferred format:"
 msgstr "喜好的格式："
 
-#: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:759
+#: src/Process/Backend/User.php:420 src/Process/Backend/UserPreferences.php:759
 msgid "Default entry status:"
 msgstr "默认的文章状态："
 
-#: src/Process/Backend/User.php:428 src/Process/Backend/UserPreferences.php:762
+#: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:762
 msgid "Entry edit field height:"
 msgstr "文章编辑区域高度："
 
-#: src/Process/Backend/User.php:452
+#: src/Process/Backend/User.php:448
 msgid "Save and create another"
 msgstr "保存并创建另一个"
 
-#: src/Process/Backend/User.php:463 src/Process/Backend/UsersActions.php:200
+#: src/Process/Backend/User.php:459 src/Process/Backend/Users.php:43
+#: src/Process/Backend/UsersActions.php:204
 msgid "Permissions"
 msgstr "权限"
 
-#: src/Process/Backend/User.php:468
+#: src/Process/Backend/User.php:464
 msgid "Add new permissions"
 msgstr "添加新权限"
 
-#: src/Process/Backend/User.php:481
+#: src/Process/Backend/User.php:477
 msgid "No permissions so far."
 msgstr "到目前为止，没有任何权限。"
 
-#: src/Process/Backend/User.php:514
+#: src/Process/Backend/User.php:510
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s 是超级管理员（所有博客的所有权利）。"
 
-#: src/Process/Backend/User.php:522
+#: src/Process/Backend/User.php:518
 msgid "Direct links"
 msgstr "直接链接"
 
-#: src/Process/Backend/User.php:526
+#: src/Process/Backend/User.php:522
 msgid "List of posts"
 msgstr "职位列表"
 
-#: src/Process/Backend/User.php:536
+#: src/Process/Backend/User.php:532
 msgid "List of comments"
 msgstr "意见清单"
 
@@ -5678,27 +5662,19 @@ msgstr "仪表板项目顺序"
 msgid "Reset dashboard items order"
 msgstr "重置仪表盘上的项目顺序"
 
-#: src/Process/Backend/Users.php:43 src/Process/Backend/UsersActions.php:324
+#: src/Process/Backend/Users.php:43 src/Process/Backend/UsersActions.php:315
 msgid "Set permissions"
 msgstr "设置权限"
 
-#: src/Process/Backend/Users.php:44
-msgid "Enable"
-msgstr "启用"
-
-#: src/Process/Backend/Users.php:45
-msgid "Disable"
-msgstr "禁用"
-
-#: src/Process/Backend/Users.php:116
+#: src/Process/Backend/Users.php:115
 msgid "User has been successfully removed."
 msgstr "成功移除用户。"
 
-#: src/Process/Backend/Users.php:119
+#: src/Process/Backend/Users.php:118
 msgid "The permissions have been successfully updated."
 msgstr "成功更新权限。"
 
-#: src/Process/Backend/Users.php:153
+#: src/Process/Backend/Users.php:152
 msgid "Selected users action:"
 msgstr "选择的用户的动作："
 
@@ -5706,46 +5682,46 @@ msgstr "选择的用户的动作："
 msgid "No blog or user given."
 msgstr "没有指定博客或用户。"
 
-#: src/Process/Backend/UsersActions.php:102
+#: src/Process/Backend/UsersActions.php:104
 msgid "User has been successfully enabled."
 msgstr "用户已成功启用。"
 
-#: src/Process/Backend/UsersActions.php:112
+#: src/Process/Backend/UsersActions.php:114
 msgid "You cannot disable yourself."
 msgstr "你不能让自己丧失能力。"
 
-#: src/Process/Backend/UsersActions.php:126
-#: src/Process/Backend/UsersActions.php:148
+#: src/Process/Backend/UsersActions.php:128
+#: src/Process/Backend/UsersActions.php:152
 msgid "User has been successfully deleted."
 msgstr "用户已被成功删除。"
 
-#: src/Process/Backend/UsersActions.php:136
+#: src/Process/Backend/UsersActions.php:140
 msgid "You cannot delete yourself."
 msgstr "你不能删除你自己。"
 
-#: src/Process/Backend/UsersActions.php:242
+#: src/Process/Backend/UsersActions.php:246
 msgid "Back to user profile"
 msgstr "返回到用户资料"
 
-#: src/Process/Backend/UsersActions.php:267
+#: src/Process/Backend/UsersActions.php:271
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "选择一个或者多个您想要赋予用户 %s 权限的博客。"
 
-#: src/Process/Backend/UsersActions.php:281
+#: src/Process/Backend/UsersActions.php:285
 msgid "Entries"
 msgstr "文章"
 
-#: src/Process/Backend/UsersActions.php:307
+#: src/Process/Backend/UsersActions.php:298
 msgid "select"
 msgstr "选择"
 
-#: src/Process/Backend/UsersActions.php:353
+#: src/Process/Backend/UsersActions.php:344
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "您将为用户 %s 改变在下列博客的权限。"
 
-#: src/Process/Backend/UsersActions.php:402
+#: src/Process/Backend/UsersActions.php:393
 msgid "Validate permissions"
 msgstr "验证权限"
 
@@ -6375,6 +6351,11 @@ msgstr[0] "已删除"
 msgid "Undefined"
 msgid_plural "Undefined (>1)"
 msgstr[0] "未定义"
+
+#: src/Schema/Status/Comment.php:34
+msgid "Junk"
+msgid_plural "Junk (>1)"
+msgstr[0] "垃圾"
 
 #: src/Schema/Status/User.php:29
 msgid "Enabled"
