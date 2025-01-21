@@ -425,7 +425,7 @@ class BackendBehaviors
                             ...$ap->hiddenFields(),
                             App::nonce()->formNonce(),
                             (new Hidden('action', 'tags_remove')),
-                            (new Submit(['rem_tags'], __('ok'))),
+                            (new Submit(['rem_tags'], __('Remove'))),
                         ]),
                 ])
             ->render();
