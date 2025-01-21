@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-08 10:11+0100\n"
-"PO-Revision-Date: 2025-01-08 09:17\n"
+"POT-Creation-Date: 2025-01-21 09:33+0100\n"
+"PO-Revision-Date: 2025-01-21 08:39\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "Language: oc_FR\n"
@@ -941,7 +941,7 @@ msgid "Available spam filters"
 msgstr "Filtres de spam disponibles"
 
 #: plugins/antispam/src/Manage.php:341
-#: plugins/pages/src/BackendDefaultActions.php:78
+#: plugins/pages/src/BackendDefaultActions.php:74
 msgid "Order"
 msgstr "Òrdre"
 
@@ -978,24 +978,24 @@ msgstr "Filtre desconegut."
 msgid "attachments"
 msgstr "adjunts"
 
-#: plugins/attachments/src/BackendBehaviors.php:96
+#: plugins/attachments/src/BackendBehaviors.php:97
 msgid "remove"
 msgstr "levar"
 
-#: plugins/attachments/src/BackendBehaviors.php:106
+#: plugins/attachments/src/BackendBehaviors.php:107
 msgid "No attachment."
 msgstr "Pas de piège."
 
-#: plugins/attachments/src/BackendBehaviors.php:111
+#: plugins/attachments/src/BackendBehaviors.php:112
 #, php-format
 msgid "Attachments (%d)"
 msgstr "Adjuntas (%d)"
 
-#: plugins/attachments/src/BackendBehaviors.php:120
+#: plugins/attachments/src/BackendBehaviors.php:121
 msgid "Add files to this entry"
 msgstr "Apondre de fichièrs a ​​aquesta entrada"
 
-#: plugins/attachments/src/BackendBehaviors.php:129
+#: plugins/attachments/src/BackendBehaviors.php:130
 msgid "You must save the entry before adding an attachment."
 msgstr "Vos cal enregistrar l'entrada abans d'apondre un joint."
 
@@ -1274,7 +1274,7 @@ msgstr "Encapsulatz pas de pan dins un &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; 
 #: plugins/breadcrumb/src/FrontendTemplate.php:193
 #: plugins/breadcrumb/src/FrontendTemplate.php:205
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
-#: plugins/simpleMenu/src/Manage.php:144 plugins/simpleMenu/src/Manage.php:255
+#: plugins/simpleMenu/src/Manage.php:146 plugins/simpleMenu/src/Manage.php:257
 #: plugins/widgets/src/Widgets.php:266
 msgid "Home"
 msgstr "Ostal"
@@ -1289,13 +1289,13 @@ msgstr "pagina %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:155
 #: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:282 plugins/widgets/src/Widgets.php:280
+#: plugins/simpleMenu/src/Manage.php:284 plugins/widgets/src/Widgets.php:280
 msgid "Archives"
 msgstr "Archius"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
-#: plugins/simpleMenu/src/Manage.php:128 plugins/simpleMenu/src/Manage.php:302
+#: plugins/simpleMenu/src/Manage.php:130 plugins/simpleMenu/src/Manage.php:304
 #: plugins/tags/src/Widgets.php:56
 msgid "All tags"
 msgstr "Totas las etiquetas"
@@ -1455,7 +1455,7 @@ msgstr "Desactiva lo verificador ortografic incorporat se lo navigador ne proves
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:756
+#: plugins/simpleMenu/src/Manage.php:758
 msgid "Save configuration"
 msgstr "Enregistrar la configuracion"
 
@@ -2348,7 +2348,7 @@ msgid "%d pages"
 msgstr "%d paginas"
 
 #: plugins/pages/src/Backend.php:98 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:841
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:844
 msgid "New page"
 msgstr "Pagina novèla"
 
@@ -2360,23 +2360,7 @@ msgstr "Paginas accions"
 msgid "Back to pages list"
 msgstr "Tornar a la lista de paginas"
 
-#: plugins/pages/src/BackendDefaultActions.php:38
-msgid "Publish"
-msgstr "Publicar"
-
-#: plugins/pages/src/BackendDefaultActions.php:39
-msgid "Unpublish"
-msgstr "Des-publicar"
-
-#: plugins/pages/src/BackendDefaultActions.php:40
-msgid "Schedule"
-msgstr "Planificacion"
-
-#: plugins/pages/src/BackendDefaultActions.php:41
-msgid "Mark as pending"
-msgstr "Marcar coma pendent"
-
-#: plugins/pages/src/BackendDefaultActions.php:123
+#: plugins/pages/src/BackendDefaultActions.php:119
 #: plugins/pages/src/Manage.php:139
 msgid "Selected pages have been successfully reordered."
 msgstr "Las paginas seleccionadas son estadas reordenadas amb succès."
@@ -2437,60 +2421,60 @@ msgstr "Per reorganizar l'òrdre de las paginas, desplaçatz los elements en arr
 msgid "Save pages order"
 msgstr "Enregistrar las paginas òrdre"
 
-#: plugins/pages/src/ManagePage.php:164
+#: plugins/pages/src/ManagePage.php:167
 msgid "This page does not exist."
 msgstr "Aquesta pagina existís pas."
 
-#: plugins/pages/src/ManagePage.php:185 plugins/pages/src/ManagePage.php:841
-#: plugins/pages/src/ManagePage.php:862
+#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:844
+#: plugins/pages/src/ManagePage.php:865
 msgid "Edit page"
 msgstr "Modificar la pagina"
 
-#: plugins/pages/src/ManagePage.php:465
+#: plugins/pages/src/ManagePage.php:468
 msgid "Are you sure you want to delete this page?"
 msgstr "Sètz segur que volètz suprimir aquesta pagina?"
 
-#: plugins/pages/src/ManagePage.php:505
+#: plugins/pages/src/ManagePage.php:508
 msgid "Page has been successfully updated."
 msgstr "La pagina es estada mesa a jorn amb succès."
 
-#: plugins/pages/src/ManagePage.php:507
+#: plugins/pages/src/ManagePage.php:510
 msgid "Page has been successfully created."
 msgstr "La pagina es estada creada amb succès."
 
-#: plugins/pages/src/ManagePage.php:520
+#: plugins/pages/src/ManagePage.php:523
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Oblidetz pas de validar vòstra conversion HTML en enregistrant vòstre article."
 
-#: plugins/pages/src/ManagePage.php:530
+#: plugins/pages/src/ManagePage.php:533
 msgid "Go to this page on the site"
 msgstr "Anatz sus aquesta pagina sul sit"
 
-#: plugins/pages/src/ManagePage.php:572
+#: plugins/pages/src/ManagePage.php:575
 msgid "Page status"
 msgstr "Estat de la pagina"
 
-#: plugins/pages/src/ManagePage.php:588
+#: plugins/pages/src/ManagePage.php:591
 msgid "Page language"
 msgstr "Lenga de la pagina"
 
-#: plugins/pages/src/ManagePage.php:615 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:618 plugins/pages/src/Widgets.php:40
 msgid "Page position"
 msgstr "Posicion de la pagina"
 
-#: plugins/pages/src/ManagePage.php:666
+#: plugins/pages/src/ManagePage.php:669
 msgid "Hide in widget Pages"
 msgstr "Amagar dins las paginas del widget"
 
-#: plugins/pages/src/ManagePage.php:690
+#: plugins/pages/src/ManagePage.php:693
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Atencion: se definissètz l'URL manualament, pòt èsser en conflicte amb una autra pagina."
 
-#: plugins/pages/src/ManagePage.php:729
+#: plugins/pages/src/ManagePage.php:732
 msgid "Introduction to the page."
 msgstr "Introduccion a la pagina."
 
-#: plugins/pages/src/ManagePage.php:1143
+#: plugins/pages/src/ManagePage.php:1146
 msgid "Select this comment"
 msgstr "Seleccionatz aqueste comentari"
 
@@ -2551,185 +2535,185 @@ msgstr "Pagina activa"
 msgid "active page"
 msgstr "pagina activa"
 
-#: plugins/simpleMenu/src/Manage.php:94
+#: plugins/simpleMenu/src/Manage.php:96
 msgid "All months"
 msgstr "Totes los meses"
 
-#: plugins/simpleMenu/src/Manage.php:157
+#: plugins/simpleMenu/src/Manage.php:159
 msgid "Archive"
 msgstr "Archiu"
 
-#: plugins/simpleMenu/src/Manage.php:160
+#: plugins/simpleMenu/src/Manage.php:162
 msgid "Page"
 msgstr "Pagina"
 
-#: plugins/simpleMenu/src/Manage.php:163 plugins/tags/src/Backend.php:25
+#: plugins/simpleMenu/src/Manage.php:165 plugins/tags/src/Backend.php:25
 #: plugins/tags/src/Widgets.php:32
 msgid "Tags"
 msgstr "Etiquetas"
 
-#: plugins/simpleMenu/src/Manage.php:170
+#: plugins/simpleMenu/src/Manage.php:172
 msgid "User defined"
 msgstr "Definit per l'utilizaire"
 
-#: plugins/simpleMenu/src/Manage.php:211
+#: plugins/simpleMenu/src/Manage.php:213
 msgid "Configuration successfully updated."
 msgstr "La configuracion mesa a jorn amb succès."
 
-#: plugins/simpleMenu/src/Manage.php:250 plugins/simpleMenu/src/Manage.php:672
-#: plugins/simpleMenu/src/Manage.php:792
+#: plugins/simpleMenu/src/Manage.php:252 plugins/simpleMenu/src/Manage.php:674
+#: plugins/simpleMenu/src/Manage.php:794
 msgid "Label"
 msgstr "Etiqueta"
 
-#: plugins/simpleMenu/src/Manage.php:256
+#: plugins/simpleMenu/src/Manage.php:258
 msgid "Home page"
 msgstr "Pagina d'accueil"
 
-#: plugins/simpleMenu/src/Manage.php:256 plugins/simpleMenu/src/Manage.php:261
+#: plugins/simpleMenu/src/Manage.php:258 plugins/simpleMenu/src/Manage.php:263
 #: plugins/widgets/src/Widgets.php:270 plugins/widgets/src/Widgets.php:275
 msgid "Recent posts"
 msgstr "Articles recents"
 
-#: plugins/simpleMenu/src/Manage.php:268
+#: plugins/simpleMenu/src/Manage.php:270
 #, php-format
 msgid "Switch to %s language"
 msgstr "Passar a %s lenga"
 
-#: plugins/simpleMenu/src/Manage.php:275
+#: plugins/simpleMenu/src/Manage.php:277
 msgid "Recent Posts from this category"
 msgstr "Articles recents d'aquesta categoria"
 
-#: plugins/simpleMenu/src/Manage.php:287
+#: plugins/simpleMenu/src/Manage.php:289
 #, php-format
 msgid "Posts from %s"
 msgstr "Articles dempuèi %s"
 
-#: plugins/simpleMenu/src/Manage.php:307
+#: plugins/simpleMenu/src/Manage.php:309
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Articles recents per l'etiqueta %s"
 
-#: plugins/simpleMenu/src/Manage.php:367
+#: plugins/simpleMenu/src/Manage.php:369
 msgid "Menu item has been successfully added."
 msgstr "L'element de menut es estat apondut amb succès."
 
-#: plugins/simpleMenu/src/Manage.php:372
+#: plugins/simpleMenu/src/Manage.php:374
 msgid "Label and URL of menu item are mandatory."
 msgstr "L'etiqueta e l'URL de l'element de menú son obligatòris."
 
-#: plugins/simpleMenu/src/Manage.php:405
+#: plugins/simpleMenu/src/Manage.php:407
 msgid "Menu items have been successfully removed."
 msgstr "Los elements del menut son estats suprimits amb succès."
 
-#: plugins/simpleMenu/src/Manage.php:408
+#: plugins/simpleMenu/src/Manage.php:410
 msgid "No menu items selected."
 msgstr "Cap d'element de menú seleccionat."
 
-#: plugins/simpleMenu/src/Manage.php:420
+#: plugins/simpleMenu/src/Manage.php:422
 msgid "Label is mandatory."
 msgstr "L'etiqueta es obligatòria."
 
-#: plugins/simpleMenu/src/Manage.php:425
+#: plugins/simpleMenu/src/Manage.php:427
 msgid "URL is mandatory."
 msgstr "L'URL es obligatòri."
 
-#: plugins/simpleMenu/src/Manage.php:470
+#: plugins/simpleMenu/src/Manage.php:472
 msgid "Menu items have been successfully updated."
 msgstr "Los elements del menut son estats mes a jorn amb succès."
 
-#: plugins/simpleMenu/src/Manage.php:497
+#: plugins/simpleMenu/src/Manage.php:499
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Sètz segur que volètz suprimir los elements del menú seleccionats?"
 
-#: plugins/simpleMenu/src/Manage.php:506
+#: plugins/simpleMenu/src/Manage.php:508
 msgid "Step #1"
 msgstr "Etapa #1"
 
-#: plugins/simpleMenu/src/Manage.php:511 plugins/simpleMenu/src/Manage.php:516
+#: plugins/simpleMenu/src/Manage.php:513 plugins/simpleMenu/src/Manage.php:518
 msgid "Step #2"
 msgstr "Etapa #2"
 
-#: plugins/simpleMenu/src/Manage.php:516
+#: plugins/simpleMenu/src/Manage.php:518
 msgid "Step #3"
 msgstr "Etapa #3"
 
-#: plugins/simpleMenu/src/Manage.php:525
+#: plugins/simpleMenu/src/Manage.php:527
 msgid "Add item"
 msgstr "Apondre l'element"
 
-#: plugins/simpleMenu/src/Manage.php:556
+#: plugins/simpleMenu/src/Manage.php:558
 msgid "Select type"
 msgstr "Seleccionatz lo tipe"
 
-#: plugins/simpleMenu/src/Manage.php:563
+#: plugins/simpleMenu/src/Manage.php:565
 msgid "Type of item menu:"
 msgstr "Tipe de menú d'element:"
 
-#: plugins/simpleMenu/src/Manage.php:569 plugins/simpleMenu/src/Manage.php:636
+#: plugins/simpleMenu/src/Manage.php:571 plugins/simpleMenu/src/Manage.php:638
 msgid "Continue..."
 msgstr "Contunhar..."
 
-#: plugins/simpleMenu/src/Manage.php:592
+#: plugins/simpleMenu/src/Manage.php:594
 msgid "Select language:"
 msgstr "Seleccionatz la lenga:"
 
-#: plugins/simpleMenu/src/Manage.php:598
+#: plugins/simpleMenu/src/Manage.php:600
 msgid "Select category:"
 msgstr "Seleccionatz la categoria:"
 
-#: plugins/simpleMenu/src/Manage.php:604
+#: plugins/simpleMenu/src/Manage.php:606
 msgid "Select month (if necessary):"
 msgstr "Seleccionatz lo mes (se necessari):"
 
-#: plugins/simpleMenu/src/Manage.php:610
+#: plugins/simpleMenu/src/Manage.php:612
 msgid "Select page:"
 msgstr "Seleccionatz la pagina:"
 
-#: plugins/simpleMenu/src/Manage.php:616
+#: plugins/simpleMenu/src/Manage.php:618
 msgid "Select tag (if necessary):"
 msgstr "Seleccionatz l'etiqueta (se necessari):"
 
-#: plugins/simpleMenu/src/Manage.php:677
+#: plugins/simpleMenu/src/Manage.php:679
 msgid "Label of item menu:"
 msgstr "Etiqueta del menut d'element:"
 
-#: plugins/simpleMenu/src/Manage.php:691
+#: plugins/simpleMenu/src/Manage.php:693
 msgid "Description of item menu:"
 msgstr "Descripcion del menú d'element:"
 
-#: plugins/simpleMenu/src/Manage.php:706
+#: plugins/simpleMenu/src/Manage.php:708
 msgid "URL of item menu:"
 msgstr "URL del menú d'element:"
 
-#: plugins/simpleMenu/src/Manage.php:716 plugins/simpleMenu/src/Manage.php:795
+#: plugins/simpleMenu/src/Manage.php:718 plugins/simpleMenu/src/Manage.php:797
 msgid "Open URL on a new tab"
 msgstr "Dobrir l'URL sus un onglet novèl"
 
-#: plugins/simpleMenu/src/Manage.php:724
+#: plugins/simpleMenu/src/Manage.php:726
 msgid "Add this item"
 msgstr "Apondre aqueste element"
 
-#: plugins/simpleMenu/src/Manage.php:750
+#: plugins/simpleMenu/src/Manage.php:752
 msgid "Enable simple menu for this blog"
 msgstr "Activar lo menú simple per aqueste blòg"
 
-#: plugins/simpleMenu/src/Manage.php:773
+#: plugins/simpleMenu/src/Manage.php:775
 msgid "Add an item"
 msgstr "Apondre un element"
 
-#: plugins/simpleMenu/src/Manage.php:891
+#: plugins/simpleMenu/src/Manage.php:893
 msgid "Menu items list"
 msgstr "Lista dels elements del menut"
 
-#: plugins/simpleMenu/src/Manage.php:918
+#: plugins/simpleMenu/src/Manage.php:920
 msgid "Delete selected menu items"
 msgstr "Suprimir los elements del menú seleccionats"
 
-#: plugins/simpleMenu/src/Manage.php:927
+#: plugins/simpleMenu/src/Manage.php:929
 msgid "Update menu"
 msgstr "Menú de mesa a jorn"
 
-#: plugins/simpleMenu/src/Manage.php:937
+#: plugins/simpleMenu/src/Manage.php:939
 msgid "No menu items so far."
 msgstr "Cap d'element de menut fins ara."
 
@@ -3290,21 +3274,21 @@ msgstr "Darrièrs comentaris"
 msgid "Comments limit:"
 msgstr "Limit dels comentaris:"
 
-#: plugins/widgets/src/Widgets.php:449
+#: plugins/widgets/src/Widgets.php:451
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Las dintradas d'aqueste blòg %s flux"
 
-#: plugins/widgets/src/Widgets.php:450
+#: plugins/widgets/src/Widgets.php:452
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Flux %s dels comentaris d'aqueste blòg"
 
-#: plugins/widgets/src/Widgets.php:458
+#: plugins/widgets/src/Widgets.php:460
 msgid "Entries feed"
 msgstr "Flux de las entradas"
 
-#: plugins/widgets/src/Widgets.php:464
+#: plugins/widgets/src/Widgets.php:466
 msgid "Comments feed"
 msgstr "Flux dels comentaris"
 
