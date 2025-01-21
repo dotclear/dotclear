@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-21 09:33+0100\n"
-"PO-Revision-Date: 2025-01-21 08:38\n"
+"PO-Revision-Date: 2025-01-21 09:08\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -1241,7 +1241,7 @@ msgstr "উন্নয়নের প্লাগ-ইন"
 
 #: src/Core/Backend/ModulesList.php:1049
 msgid "Release date:"
-msgstr ""
+msgstr "মুক্তির তারিখ:"
 
 #: src/Core/Backend/ModulesList.php:1068 src/Core/Backend/Page.php:1298
 #: src/Core/Backend/ThemesList.php:230
@@ -1959,7 +1959,7 @@ msgstr "সংস্করণ %s"
 #: src/Core/Backend/ThemesList.php:186
 #, php-format
 msgid "released on %s"
-msgstr ""
+msgstr "%s তারিখে মুক্তি পেয়েছে"
 
 #: src/Core/Backend/ThemesList.php:194
 #, php-format
