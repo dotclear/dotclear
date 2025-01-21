@@ -133,7 +133,7 @@ class ThemesList extends ModulesList
                     $sshot = $define->get('sshot');
                 }
                 // Screenshot from installed module
-                elseif (file_exists(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . 'screenshot.jpg')) {
+                elseif (file_exists(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_SCREENSHOT)) {
                     $sshot = $this->getURL('shot=' . rawurlencode($id));
                 }
                 // Default screenshot

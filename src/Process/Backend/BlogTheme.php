@@ -134,7 +134,7 @@ class BlogTheme extends Process
             // Get a theme screenshot
             $filename = (string) Path::real(
                 empty($_GET['src']) ?
-                App::blog()->themesPath() . '/' . $_GET['shot'] . '/screenshot.jpg' :
+                App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . App::themes()::MODULE_FILE_SCREENSHOT :
                 App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src'])
             );
 
