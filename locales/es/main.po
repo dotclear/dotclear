@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 09:33+0100\n"
-"PO-Revision-Date: 2025-01-21 09:07\n"
+"POT-Creation-Date: 2025-01-22 10:14+0100\n"
+"PO-Revision-Date: 2025-01-22 09:17\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -586,8 +586,8 @@ msgstr[1] "%d comentarios"
 
 #: src/Core/Backend/Favorites.php:451 src/Core/Backend/Menus.php:141
 #: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:101
-#: src/Process/Backend/Search.php:150 src/Process/Backend/Search.php:155
-#: src/Process/Backend/Search.php:186
+#: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
+#: src/Process/Backend/Search.php:194
 msgid "Search"
 msgstr "Buscar"
 
@@ -1103,8 +1103,8 @@ msgstr "Página de acceso directo:"
 #: src/Core/Backend/Listing/Pager.php:183 src/Core/Backend/Page.php:168
 #: src/Process/Backend/Blogs.php:150 src/Process/Backend/Comments.php:218
 #: src/Process/Backend/Post.php:878 src/Process/Backend/Post.php:971
-#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:306
-#: src/Process/Backend/Search.php:402 src/Process/Backend/Users.php:160
+#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:314
+#: src/Process/Backend/Search.php:408 src/Process/Backend/Users.php:160
 msgid "ok"
 msgstr "aceptar"
 
@@ -1474,7 +1474,7 @@ msgstr "Configurar \"%s\""
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1158
-#: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:189
+#: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
 #: src/Process/Backend/UserPreferences.php:980
@@ -4096,7 +4096,7 @@ msgid "Delete all spams"
 msgstr "Eliminar todos los spams"
 
 #: src/Process/Backend/Comments.php:216 src/Process/Backend/Post.php:873
-#: src/Process/Backend/Search.php:401
+#: src/Process/Backend/Search.php:407
 msgid "Selected comments action:"
 msgstr "Acción sobre los comentarios seleccionados:"
 
@@ -4997,16 +4997,16 @@ msgid "Comments and trackbacks list"
 msgstr "Lista de comentarios y trackbacks"
 
 #: src/Process/Backend/Post.php:681
-msgid "Warning: Comments are not more accepted for this entry."
-msgstr "Advertencia: No se aceptan más comentarios para esta entrada."
+msgid "Warning: Comments are no longer accepted for this entry."
+msgstr ""
 
 #: src/Process/Backend/Post.php:683
 msgid "Comments are not accepted on this blog so far."
 msgstr "Hasta ahora no se aceptan comentarios en este blog."
 
 #: src/Process/Backend/Post.php:689
-msgid "Warning: Trackbacks are not more accepted for this entry."
-msgstr "Advertencia: No se aceptan más trackbacks para esta entrada."
+msgid "Warning: Trackbacks are no longer accepted for this entry."
+msgstr ""
 
 #: src/Process/Backend/Post.php:690
 msgid "Trackbacks are not accepted on this blog so far."
@@ -5108,7 +5108,7 @@ msgstr "Las entradas seleccionadas se han actualizado correctamente."
 msgid "Selected entries have been successfully deleted."
 msgstr "Las entradas seleccionadas se han eliminado correctamente."
 
-#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:305
+#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:313
 msgid "Selected entries action:"
 msgstr "Acción sobre las entradas seleccionadas:"
 
@@ -5187,38 +5187,38 @@ msgstr[1] "%s actualizaciones disponibles."
 msgid "List options saved"
 msgstr "Lista de opciones guardadas"
 
-#: src/Process/Backend/Search.php:166
+#: src/Process/Backend/Search.php:174
 msgid "Search options"
 msgstr "Opciones de búsqueda"
 
-#: src/Process/Backend/Search.php:174
+#: src/Process/Backend/Search.php:182
 msgid "Query:"
 msgstr "Consulta:"
 
-#: src/Process/Backend/Search.php:181
+#: src/Process/Backend/Search.php:189
 msgid "In:"
 msgstr "En:"
 
-#: src/Process/Backend/Search.php:204
+#: src/Process/Backend/Search.php:212
 msgid "No results found"
 msgstr "No se han encontrado resultados"
 
-#: src/Process/Backend/Search.php:222
+#: src/Process/Backend/Search.php:230
 msgid "Search in entries"
 msgstr "Buscar en entradas"
 
-#: src/Process/Backend/Search.php:223
+#: src/Process/Backend/Search.php:231
 msgid "Search in comments"
 msgstr "Buscar en comentarios"
 
-#: src/Process/Backend/Search.php:284
+#: src/Process/Backend/Search.php:292
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
 msgstr[0] "una entrada encontrada"
 msgstr[1] "%d entradas encontradas"
 
-#: src/Process/Backend/Search.php:372
+#: src/Process/Backend/Search.php:378
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"
