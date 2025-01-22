@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:17\n"
+"PO-Revision-Date: 2025-01-22 09:46\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -4962,7 +4962,7 @@ msgstr "댓글 및 트랙백 목록"
 
 #: src/Process/Backend/Post.php:681
 msgid "Warning: Comments are no longer accepted for this entry."
-msgstr ""
+msgstr "경고: 이 항목에 대한 댓글은 더 이상 허용되지 않습니다."
 
 #: src/Process/Backend/Post.php:683
 msgid "Comments are not accepted on this blog so far."
@@ -4970,7 +4970,7 @@ msgstr "현재 이 블로그에는 댓글이 허용되지 않습니다."
 
 #: src/Process/Backend/Post.php:689
 msgid "Warning: Trackbacks are no longer accepted for this entry."
-msgstr ""
+msgstr "경고: 이 항목에는 더 이상 트랙백이 허용되지 않습니다."
 
 #: src/Process/Backend/Post.php:690
 msgid "Trackbacks are not accepted on this blog so far."
