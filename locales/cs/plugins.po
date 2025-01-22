@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:18\n"
+"PO-Revision-Date: 2025-01-22 09:46\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -2818,7 +2818,7 @@ msgstr "Následující štítky byly nalezeny ve vybraných článcích:"
 
 #: plugins/tags/src/BackendBehaviors.php:428
 msgid "Remove"
-msgstr ""
+msgstr "Odebrat"
 
 #: plugins/tags/src/BackendBehaviors.php:470
 msgid "Short"
