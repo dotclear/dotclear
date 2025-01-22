@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:17\n"
+"PO-Revision-Date: 2025-01-22 09:45\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -5070,7 +5070,7 @@ msgstr "Seznam komentářů a trackbacků"
 
 #: src/Process/Backend/Post.php:681
 msgid "Warning: Comments are no longer accepted for this entry."
-msgstr ""
+msgstr "Varování: Komentáře k tomuto záznamu již nejsou přijímány."
 
 #: src/Process/Backend/Post.php:683
 msgid "Comments are not accepted on this blog so far."
@@ -5078,7 +5078,7 @@ msgstr "Komentáře nejsou na tomto blogu dosud přijaty."
 
 #: src/Process/Backend/Post.php:689
 msgid "Warning: Trackbacks are no longer accepted for this entry."
-msgstr ""
+msgstr "Varování: Upozornění: zpětné odkazy již nejsou pro tento záznam přijímány."
 
 #: src/Process/Backend/Post.php:690
 msgid "Trackbacks are not accepted on this blog so far."
