@@ -64,7 +64,7 @@ class Search extends Process
     /**
      * Action performed?
      */
-    protected static ?bool $performed;
+    protected static ?bool $performed = null;
 
     public static function init(): bool
     {
