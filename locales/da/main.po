@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:17\n"
+"PO-Revision-Date: 2025-01-22 09:45\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -4998,7 +4998,7 @@ msgstr "Kommentarer og trackbacks liste"
 
 #: src/Process/Backend/Post.php:681
 msgid "Warning: Comments are no longer accepted for this entry."
-msgstr ""
+msgstr "Advarsel: Kommentarer accepteres ikke længere til dette indlæg."
 
 #: src/Process/Backend/Post.php:683
 msgid "Comments are not accepted on this blog so far."
@@ -5006,7 +5006,7 @@ msgstr "Kommentarer er ikke accepteret på denne blog indtil videre."
 
 #: src/Process/Backend/Post.php:689
 msgid "Warning: Trackbacks are no longer accepted for this entry."
-msgstr ""
+msgstr "Advarsel: Trackbacks accepteres ikke længere for dette indlæg."
 
 #: src/Process/Backend/Post.php:690
 msgid "Trackbacks are not accepted on this blog so far."
