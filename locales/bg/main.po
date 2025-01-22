@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:17\n"
+"PO-Revision-Date: 2025-01-22 09:45\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -4998,7 +4998,7 @@ msgstr "Списък с коментари и проследявания"
 
 #: src/Process/Backend/Post.php:681
 msgid "Warning: Comments are no longer accepted for this entry."
-msgstr ""
+msgstr "Предупреждение: Коментари за този запис вече не се приемат."
 
 #: src/Process/Backend/Post.php:683
 msgid "Comments are not accepted on this blog so far."
@@ -5006,7 +5006,7 @@ msgstr "Коментарите не се приемат в този блог д�
 
 #: src/Process/Backend/Post.php:689
 msgid "Warning: Trackbacks are no longer accepted for this entry."
-msgstr ""
+msgstr "Предупреждение: Trackbacks вече не се приемат за този запис."
 
 #: src/Process/Backend/Post.php:690
 msgid "Trackbacks are not accepted on this blog so far."
