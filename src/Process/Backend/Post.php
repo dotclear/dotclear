@@ -678,7 +678,7 @@ class Post extends Process
                         __('Accept comments') . '</label></p>' .
                         (App::blog()->settings()->system->allow_comments ?
                             (self::isContributionAllowed(App::backend()->post_id, strtotime(App::backend()->post_dt), true) ? '' : '<p class="form-note warn">' .
-                            __('Warning: Comments are not more accepted for this entry.') . '</p>') :
+                            __('Warning: Comments are no longer accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' .
                             __('Comments are not accepted on this blog so far.') . '</p>') .
                         '<p><label for="post_open_tb" class="classic">' .
@@ -686,7 +686,7 @@ class Post extends Process
                         __('Accept trackbacks') . '</label></p>' .
                         (App::blog()->settings()->system->allow_trackbacks ?
                             (self::isContributionAllowed(App::backend()->post_id, strtotime(App::backend()->post_dt), false) ? '' : '<p class="form-note warn">' .
-                            __('Warning: Trackbacks are not more accepted for this entry.') . '</p>') :
+                            __('Warning: Trackbacks are no longer accepted for this entry.') . '</p>') :
                             '<p class="form-note warn">' . __('Trackbacks are not accepted on this blog so far.') . '</p>') .
                         '</div>',
                         'post_password' => '<p><label for="post_password">' . __('Password') . '</label>' .

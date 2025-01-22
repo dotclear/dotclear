@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 09:33+0100\n"
+"POT-Creation-Date: 2025-01-22 10:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2806,6 +2806,10 @@ msgstr ""
 
 #: plugins/tags/src/BackendBehaviors.php:419
 msgid "Following tags have been found in selected entries:"
+msgstr ""
+
+#: plugins/tags/src/BackendBehaviors.php:428
+msgid "Remove"
 msgstr ""
 
 #: plugins/tags/src/BackendBehaviors.php:470

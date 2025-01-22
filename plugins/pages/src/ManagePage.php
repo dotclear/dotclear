@@ -638,7 +638,7 @@ class ManagePage extends Process
                                     :
                                     (new Note())
                                         ->class(['form-note', 'warn'])
-                                        ->text(__('Warning: Comments are not more accepted for this entry.'))
+                                        ->text(__('Warning: Comments are no longer accepted for this entry.'))
                                 ) :
                                 (new Note())
                                     ->class(['form-note', 'warn'])
@@ -655,7 +655,7 @@ class ManagePage extends Process
                                     :
                                     (new Note())
                                         ->class(['form-note', 'warn'])
-                                        ->text(__('Warning: Trackbacks are not more accepted for this entry.'))
+                                        ->text(__('Warning: Trackbacks are no longer accepted for this entry.'))
                                 ) :
                                 (new Note())
                                     ->class(['form-note', 'warn'])
