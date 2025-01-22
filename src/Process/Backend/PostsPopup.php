@@ -33,8 +33,6 @@ use Exception;
 
 /**
  * @since 2.27 Before as admin/popup_posts.php
- *
- * @todo switch Helper/Html/Form/...
  */
 class PostsPopup extends Process
 {
