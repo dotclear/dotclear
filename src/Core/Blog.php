@@ -2243,6 +2243,10 @@ class Blog implements BlogInterface
             $sql->where('P.blog_id = ' . $sql->quote($this->id));
         }
 
+        if (!isset($params['post_type'])) {
+            $params['post_type'] = '';
+        }
+
         $this->getPostsAddingParameters($params, $sql, true);
 
         if (isset($params['post_id']) && $params['post_id'] !== '') {
