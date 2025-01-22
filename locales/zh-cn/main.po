@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 09:33+0100\n"
-"PO-Revision-Date: 2025-01-21 09:08\n"
+"POT-Creation-Date: 2025-01-22 10:14+0100\n"
+"PO-Revision-Date: 2025-01-22 09:46\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -575,8 +575,8 @@ msgstr[0] "%d 个评论"
 
 #: src/Core/Backend/Favorites.php:451 src/Core/Backend/Menus.php:141
 #: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:101
-#: src/Process/Backend/Search.php:150 src/Process/Backend/Search.php:155
-#: src/Process/Backend/Search.php:186
+#: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
+#: src/Process/Backend/Search.php:194
 msgid "Search"
 msgstr "搜索"
 
@@ -1088,8 +1088,8 @@ msgstr "直接访问页面："
 #: src/Core/Backend/Listing/Pager.php:183 src/Core/Backend/Page.php:168
 #: src/Process/Backend/Blogs.php:150 src/Process/Backend/Comments.php:218
 #: src/Process/Backend/Post.php:878 src/Process/Backend/Post.php:971
-#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:306
-#: src/Process/Backend/Search.php:402 src/Process/Backend/Users.php:160
+#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:314
+#: src/Process/Backend/Search.php:408 src/Process/Backend/Users.php:160
 msgid "ok"
 msgstr "确定"
 
@@ -1451,7 +1451,7 @@ msgstr "配置 \"%s\""
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1158
-#: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:189
+#: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
 #: src/Process/Backend/UserPreferences.php:980
@@ -4066,7 +4066,7 @@ msgid "Delete all spams"
 msgstr "删除所有垃圾邮件"
 
 #: src/Process/Backend/Comments.php:216 src/Process/Backend/Post.php:873
-#: src/Process/Backend/Search.php:401
+#: src/Process/Backend/Search.php:407
 msgid "Selected comments action:"
 msgstr "选择的评论动作："
 
@@ -4961,16 +4961,16 @@ msgid "Comments and trackbacks list"
 msgstr "评论和跟踪列表"
 
 #: src/Process/Backend/Post.php:681
-msgid "Warning: Comments are not more accepted for this entry."
-msgstr "警告：此条目不接受评论。"
+msgid "Warning: Comments are no longer accepted for this entry."
+msgstr "警告：本条目不再接受评论。"
 
 #: src/Process/Backend/Post.php:683
 msgid "Comments are not accepted on this blog so far."
 msgstr "到目前为止，这个博客还不接受评论。"
 
 #: src/Process/Backend/Post.php:689
-msgid "Warning: Trackbacks are not more accepted for this entry."
-msgstr "警告：此条目不接受回溯。"
+msgid "Warning: Trackbacks are no longer accepted for this entry."
+msgstr "警告：本条目不再接受回溯。"
 
 #: src/Process/Backend/Post.php:690
 msgid "Trackbacks are not accepted on this blog so far."
@@ -5072,7 +5072,7 @@ msgstr "所选条目已成功更新。"
 msgid "Selected entries have been successfully deleted."
 msgstr "选定的条目已被成功删除。"
 
-#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:305
+#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:313
 msgid "Selected entries action:"
 msgstr "已选择的文章的动作："
 
@@ -5150,37 +5150,37 @@ msgstr[0] "%s 可进行更新。"
 msgid "List options saved"
 msgstr "保存的清单选项"
 
-#: src/Process/Backend/Search.php:166
+#: src/Process/Backend/Search.php:174
 msgid "Search options"
 msgstr "搜索选项"
 
-#: src/Process/Backend/Search.php:174
+#: src/Process/Backend/Search.php:182
 msgid "Query:"
 msgstr "查询："
 
-#: src/Process/Backend/Search.php:181
+#: src/Process/Backend/Search.php:189
 msgid "In:"
 msgstr "在："
 
-#: src/Process/Backend/Search.php:204
+#: src/Process/Backend/Search.php:212
 msgid "No results found"
 msgstr "没有发现结果"
 
-#: src/Process/Backend/Search.php:222
+#: src/Process/Backend/Search.php:230
 msgid "Search in entries"
 msgstr "在条目中搜索"
 
-#: src/Process/Backend/Search.php:223
+#: src/Process/Backend/Search.php:231
 msgid "Search in comments"
 msgstr "在评论中搜索"
 
-#: src/Process/Backend/Search.php:284
+#: src/Process/Backend/Search.php:292
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
 msgstr[0] "%d 找到的条目"
 
-#: src/Process/Backend/Search.php:372
+#: src/Process/Backend/Search.php:378
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"

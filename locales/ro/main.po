@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 09:33+0100\n"
-"PO-Revision-Date: 2025-01-21 09:07\n"
+"POT-Creation-Date: 2025-01-22 10:14+0100\n"
+"PO-Revision-Date: 2025-01-22 09:45\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -597,8 +597,8 @@ msgstr[2] "%d comentarii"
 
 #: src/Core/Backend/Favorites.php:451 src/Core/Backend/Menus.php:141
 #: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:101
-#: src/Process/Backend/Search.php:150 src/Process/Backend/Search.php:155
-#: src/Process/Backend/Search.php:186
+#: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
+#: src/Process/Backend/Search.php:194
 msgid "Search"
 msgstr "Caută"
 
@@ -1118,8 +1118,8 @@ msgstr "Pagina de acces direct:"
 #: src/Core/Backend/Listing/Pager.php:183 src/Core/Backend/Page.php:168
 #: src/Process/Backend/Blogs.php:150 src/Process/Backend/Comments.php:218
 #: src/Process/Backend/Post.php:878 src/Process/Backend/Post.php:971
-#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:306
-#: src/Process/Backend/Search.php:402 src/Process/Backend/Users.php:160
+#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:314
+#: src/Process/Backend/Search.php:408 src/Process/Backend/Users.php:160
 msgid "ok"
 msgstr "ok"
 
@@ -1497,7 +1497,7 @@ msgstr "Configurare \"%s\""
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1158
-#: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:189
+#: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
 #: src/Process/Backend/UserPreferences.php:980
@@ -4126,7 +4126,7 @@ msgid "Delete all spams"
 msgstr "Şterge toate spam-urile"
 
 #: src/Process/Backend/Comments.php:216 src/Process/Backend/Post.php:873
-#: src/Process/Backend/Search.php:401
+#: src/Process/Backend/Search.php:407
 msgid "Selected comments action:"
 msgstr "Acțiune comentarii selectate:"
 
@@ -5033,16 +5033,16 @@ msgid "Comments and trackbacks list"
 msgstr "Comentarii și lista de trackback-uri"
 
 #: src/Process/Backend/Post.php:681
-msgid "Warning: Comments are not more accepted for this entry."
-msgstr "Atenție: Comentariile nu sunt mai mult acceptate pentru această intrare."
+msgid "Warning: Comments are no longer accepted for this entry."
+msgstr "Atenție: Comentariile nu mai sunt acceptate pentru această intrare."
 
 #: src/Process/Backend/Post.php:683
 msgid "Comments are not accepted on this blog so far."
 msgstr "Comentariile nu sunt acceptate pe acest blog până acum."
 
 #: src/Process/Backend/Post.php:689
-msgid "Warning: Trackbacks are not more accepted for this entry."
-msgstr "Avertisment: Trackback-urile nu sunt mai acceptate pentru această intrare."
+msgid "Warning: Trackbacks are no longer accepted for this entry."
+msgstr "Atenție: Trackback-urile nu mai sunt acceptate pentru această intrare."
 
 #: src/Process/Backend/Post.php:690
 msgid "Trackbacks are not accepted on this blog so far."
@@ -5144,7 +5144,7 @@ msgstr "Intrările selectate au fost actualizate cu succes."
 msgid "Selected entries have been successfully deleted."
 msgstr "Intrările selectate au fost șterse cu succes."
 
-#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:305
+#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:313
 msgid "Selected entries action:"
 msgstr "Acțiune de intrări selectate:"
 
@@ -5224,31 +5224,31 @@ msgstr[2] "%s actualizări sunt disponibile."
 msgid "List options saved"
 msgstr "Opțiuni listă salvate"
 
-#: src/Process/Backend/Search.php:166
+#: src/Process/Backend/Search.php:174
 msgid "Search options"
 msgstr "Opțiuni căutare"
 
-#: src/Process/Backend/Search.php:174
+#: src/Process/Backend/Search.php:182
 msgid "Query:"
 msgstr "Interogare:"
 
-#: src/Process/Backend/Search.php:181
+#: src/Process/Backend/Search.php:189
 msgid "In:"
 msgstr "În:"
 
-#: src/Process/Backend/Search.php:204
+#: src/Process/Backend/Search.php:212
 msgid "No results found"
 msgstr "Nici un rezultat găsit"
 
-#: src/Process/Backend/Search.php:222
+#: src/Process/Backend/Search.php:230
 msgid "Search in entries"
 msgstr "Căutare în intrări"
 
-#: src/Process/Backend/Search.php:223
+#: src/Process/Backend/Search.php:231
 msgid "Search in comments"
 msgstr "Caută în comentarii"
 
-#: src/Process/Backend/Search.php:284
+#: src/Process/Backend/Search.php:292
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
@@ -5256,7 +5256,7 @@ msgstr[0] "o intrare găsită"
 msgstr[1] "%d intrări găsite"
 msgstr[2] "%d intrări găsite"
 
-#: src/Process/Backend/Search.php:372
+#: src/Process/Backend/Search.php:378
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"

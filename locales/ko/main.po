@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 09:33+0100\n"
-"PO-Revision-Date: 2025-01-21 09:07\n"
+"POT-Creation-Date: 2025-01-22 10:14+0100\n"
+"PO-Revision-Date: 2025-01-22 09:46\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -575,8 +575,8 @@ msgstr[0] "%d 댓글"
 
 #: src/Core/Backend/Favorites.php:451 src/Core/Backend/Menus.php:141
 #: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:101
-#: src/Process/Backend/Search.php:150 src/Process/Backend/Search.php:155
-#: src/Process/Backend/Search.php:186
+#: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
+#: src/Process/Backend/Search.php:194
 msgid "Search"
 msgstr "찾기"
 
@@ -1088,8 +1088,8 @@ msgstr "직접 액세스 페이지:"
 #: src/Core/Backend/Listing/Pager.php:183 src/Core/Backend/Page.php:168
 #: src/Process/Backend/Blogs.php:150 src/Process/Backend/Comments.php:218
 #: src/Process/Backend/Post.php:878 src/Process/Backend/Post.php:971
-#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:306
-#: src/Process/Backend/Search.php:402 src/Process/Backend/Users.php:160
+#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:314
+#: src/Process/Backend/Search.php:408 src/Process/Backend/Users.php:160
 msgid "ok"
 msgstr "실행"
 
@@ -1451,7 +1451,7 @@ msgstr "구성 \"%s\""
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1158
-#: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:189
+#: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
 #: src/Process/Backend/UserPreferences.php:980
@@ -4066,7 +4066,7 @@ msgid "Delete all spams"
 msgstr "모든 스팸 삭제"
 
 #: src/Process/Backend/Comments.php:216 src/Process/Backend/Post.php:873
-#: src/Process/Backend/Search.php:401
+#: src/Process/Backend/Search.php:407
 msgid "Selected comments action:"
 msgstr "선택된 댓글에 대한 작업 :"
 
@@ -4961,15 +4961,15 @@ msgid "Comments and trackbacks list"
 msgstr "댓글 및 트랙백 목록"
 
 #: src/Process/Backend/Post.php:681
-msgid "Warning: Comments are not more accepted for this entry."
-msgstr "경고: 이 항목에는 더 이상 댓글이 허용되지 않습니다."
+msgid "Warning: Comments are no longer accepted for this entry."
+msgstr "경고: 이 항목에 대한 댓글은 더 이상 허용되지 않습니다."
 
 #: src/Process/Backend/Post.php:683
 msgid "Comments are not accepted on this blog so far."
 msgstr "현재 이 블로그에는 댓글이 허용되지 않습니다."
 
 #: src/Process/Backend/Post.php:689
-msgid "Warning: Trackbacks are not more accepted for this entry."
+msgid "Warning: Trackbacks are no longer accepted for this entry."
 msgstr "경고: 이 항목에는 더 이상 트랙백이 허용되지 않습니다."
 
 #: src/Process/Backend/Post.php:690
@@ -5072,7 +5072,7 @@ msgstr "선택한 항목이 성공적으로 업데이트되었습니다."
 msgid "Selected entries have been successfully deleted."
 msgstr "선택한 항목이 성공적으로 삭제되었습니다."
 
-#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:305
+#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:313
 msgid "Selected entries action:"
 msgstr "선택된 글꼭지들에 대한 작업 :"
 
@@ -5150,37 +5150,37 @@ msgstr[0] "%s 업데이트를 사용할 수 있습니다."
 msgid "List options saved"
 msgstr "목록 옵션 저장"
 
-#: src/Process/Backend/Search.php:166
+#: src/Process/Backend/Search.php:174
 msgid "Search options"
 msgstr "찾을 내용 지정"
 
-#: src/Process/Backend/Search.php:174
+#: src/Process/Backend/Search.php:182
 msgid "Query:"
 msgstr "열쇳말 :"
 
-#: src/Process/Backend/Search.php:181
+#: src/Process/Backend/Search.php:189
 msgid "In:"
 msgstr "In:"
 
-#: src/Process/Backend/Search.php:204
+#: src/Process/Backend/Search.php:212
 msgid "No results found"
 msgstr "결과를 찾을 수 없습니다."
 
-#: src/Process/Backend/Search.php:222
+#: src/Process/Backend/Search.php:230
 msgid "Search in entries"
 msgstr "항목에서 검색"
 
-#: src/Process/Backend/Search.php:223
+#: src/Process/Backend/Search.php:231
 msgid "Search in comments"
 msgstr "댓글로 검색"
 
-#: src/Process/Backend/Search.php:284
+#: src/Process/Backend/Search.php:292
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
 msgstr[0] "%d 항목이 발견됨"
 
-#: src/Process/Backend/Search.php:372
+#: src/Process/Backend/Search.php:378
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"

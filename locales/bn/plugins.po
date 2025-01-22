@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 09:33+0100\n"
-"PO-Revision-Date: 2025-01-21 08:39\n"
+"POT-Creation-Date: 2025-01-22 10:14+0100\n"
+"PO-Revision-Date: 2025-01-22 09:47\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -2807,6 +2807,10 @@ msgstr "এই নির্বাচন থেকে নির্বাচিত
 #: plugins/tags/src/BackendBehaviors.php:419
 msgid "Following tags have been found in selected entries:"
 msgstr "নির্বাচিত এন্ট্রির মধ্যে ট্যাগ অনুসরণ করা হয়েছে:"
+
+#: plugins/tags/src/BackendBehaviors.php:428
+msgid "Remove"
+msgstr "অপসারণ"
 
 #: plugins/tags/src/BackendBehaviors.php:470
 msgid "Short"

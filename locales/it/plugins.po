@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 09:33+0100\n"
-"PO-Revision-Date: 2025-01-21 08:39\n"
+"POT-Creation-Date: 2025-01-22 10:14+0100\n"
+"PO-Revision-Date: 2025-01-22 09:47\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -2807,6 +2807,10 @@ msgstr "Rimuovi i tag selezionati da questa selezione"
 #: plugins/tags/src/BackendBehaviors.php:419
 msgid "Following tags have been found in selected entries:"
 msgstr "I seguenti tag sono stati trovati nelle voci selezionate:"
+
+#: plugins/tags/src/BackendBehaviors.php:428
+msgid "Remove"
+msgstr "Rimuovere"
 
 #: plugins/tags/src/BackendBehaviors.php:470
 msgid "Short"
