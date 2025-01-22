@@ -15,9 +15,21 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Listing\ListingPostsMini;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Capture;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/popup_posts.php
@@ -75,36 +87,6 @@ class PostsPopup extends Process
 
     public static function render(): void
     {
-        Page::openPopup(
-            __('Add a link to an entry'),
-            Page::jsLoad('js/_posts_list.js') .
-            Page::jsLoad('js/_popup_posts.js') .
-            App::behavior()->callBehavior('adminPopupPosts', App::backend()->plugin_id)
-        );
-
-        echo
-        '<h2 class="page-title">' . __('Add a link to an entry') . '</h2>';
-
-        echo
-        '<form action="' . App::backend()->url()->get('admin.posts.popup') . '" method="get">' .
-        '<p><label for="type" class="classic">' . __('Entry type:') . '</label> ' . form::combo('type', App::backend()->type_combo, App::backend()->type) . '' .
-        '<noscript><div><input type="submit" value="' . __('Ok') . '"></div></noscript>' .
-        form::hidden('plugin_id', Html::escapeHTML(App::backend()->plugin_id)) .
-        form::hidden('popup', 1) .
-        form::hidden('process', 'PostsPopup') .
-        '</p>' .
-        '</form>';
-
-        echo
-        '<form action="' . App::backend()->url()->get('admin.posts.popup') . '" method="get">' .
-        '<p><label for="q" class="classic">' . __('Search entry:') . '</label> ' . form::field('q', 30, 255, Html::escapeHTML(App::backend()->q)) .
-        ' <input type="submit" value="' . __('Search') . '">' .
-        form::hidden('plugin_id', Html::escapeHTML(App::backend()->plugin_id)) .
-        form::hidden('type', Html::escapeHTML(App::backend()->type)) .
-        form::hidden('popup', 1) .
-        form::hidden('process', 'PostsPopup') .
-        '</p></form>';
-
         $post_list = null;
 
         try {
@@ -115,13 +97,66 @@ class PostsPopup extends Process
             App::error()->add($e->getMessage());
         }
 
-        echo '<div id="form-entries">'; // I know it's not a form but we just need the ID
-        if ($post_list instanceof ListingPostsMini) {
-            $post_list->display(App::backend()->page, App::backend()->nb_per_page);
-        }
-        echo '</div>';
+        Page::openPopup(
+            __('Add a link to an entry'),
+            Page::jsLoad('js/_posts_list.js') .
+            Page::jsLoad('js/_popup_posts.js') .
+            App::behavior()->callBehavior('adminPopupPosts', App::backend()->plugin_id)
+        );
 
-        echo '<p><button type="button" id="link-insert-cancel">' . __('cancel') . '</button></p>';
+        echo
+        (new Set())
+            ->items([
+                (new Text('h2', __('Add a link to an entry')))
+                    ->class('page-title'),
+                (new Form('entry-type-form'))
+                    ->method('get')
+                    ->action(App::backend()->url()->get('admin.posts.popup'))
+                    ->fields([
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                (new Select('type'))
+                                    ->items(App::backend()->type_combo)
+                                    ->default(App::backend()->type)
+                                    ->label(new Label(__('Entry type:'), Label::IL_TF)),
+                                (new Submit('type-submit', __('Ok'))),
+                                (new Hidden('plugin_id', Html::escapeHTML(App::backend()->plugin_id))),
+                                (new Hidden('popup', '1')),
+                                (new Hidden('process', 'PostsPopup')),
+                            ]),
+                    ]),
+                (new Form('entry-search-form'))
+                    ->method('get')
+                    ->action(App::backend()->url()->get('admin.posts.popup'))
+                    ->fields([
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                (new Input('q'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->q))
+                                    ->label(new Label(__('Search entry:'), Label::IL_TF)),
+                                (new Submit('search-submit', __('Search'))),
+                                (new Hidden('plugin_id', Html::escapeHTML(App::backend()->plugin_id))),
+                                (new Hidden('popup', '1')),
+                                (new Hidden('process', 'PostsPopup')),
+                                (new Hidden('type', App::backend()->type)),
+                            ]),
+                    ]),
+                (new Div('form-entries'))   // I know it's not a form but we just need the ID
+                    ->items([
+                        $post_list instanceof ListingPostsMini ?
+                        (new Capture($post_list->display(...), [App::backend()->page, App::backend()->nb_per_page])) :
+                        (new None()),
+                    ]),
+                (new Para())
+                    ->items([
+                        (new Button('link-insert-cancel', __('cancel'))),
+                    ]),
+            ])
+        ->render();
 
         Page::closePopup();
     }

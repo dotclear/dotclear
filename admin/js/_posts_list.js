@@ -55,11 +55,4 @@ dotclear.ready(() => {
   dotclear.condSubmit('#form-entries td input[type=checkbox]', '#form-entries #do-action');
   dotclear.postsActionsHelper();
   dotclear.responsiveCellHeaders(document.querySelector('#form-entries table'), '#form-entries table', 1, true);
-
-  // Type switcher (on entry list selector)
-  const switcher = document.getElementById('type');
-  if (switcher)
-    switcher.addEventListener('change', (event) => {
-      event.currentTarget.form.submit();
-    });
 });

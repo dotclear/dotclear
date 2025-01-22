@@ -127,14 +127,14 @@ class ListingPostsMini extends Listing
 
         $status = [];
         if ($this->rs->post_password) {
-            $status[] = self::getRowImage(__('Protected'), 'locker.svg', 'locked');
+            $status[] = self::getRowImage(__('Protected'), 'images/locker.svg', 'locked');
         }
         if ($this->rs->post_selected) {
-            $status[] = self::getRowImage(__('Selected'), 'selected.svg', 'selected');
+            $status[] = self::getRowImage(__('Selected'), 'images/selected.svg', 'selected');
         }
         $nb_media = $this->rs->countMedia();
         if ($nb_media > 0) {
-            $status[] = self::getRowImage(sprintf($nb_media == 1 ? __('%d attachment') : __('%d attachments'), $nb_media), 'attach.svg', 'attach');
+            $status[] = self::getRowImage(sprintf($nb_media == 1 ? __('%d attachment') : __('%d attachments'), $nb_media), 'images/attach.svg', 'attach');
         }
 
         $cols = [
