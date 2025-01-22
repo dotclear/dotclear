@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:17\n"
+"PO-Revision-Date: 2025-01-22 09:45\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -4998,7 +4998,7 @@ msgstr "Liste des commentaires et des rétroliens"
 
 #: src/Process/Backend/Post.php:681
 msgid "Warning: Comments are no longer accepted for this entry."
-msgstr ""
+msgstr "Attention : les commentaires ne sont plus acceptés pour cette entrée."
 
 #: src/Process/Backend/Post.php:683
 msgid "Comments are not accepted on this blog so far."
@@ -5006,7 +5006,7 @@ msgstr "Les commentaires ne sont pas acceptés sur ce blog pour le moment."
 
 #: src/Process/Backend/Post.php:689
 msgid "Warning: Trackbacks are no longer accepted for this entry."
-msgstr ""
+msgstr "Attention : les rétroliens ne sont plus acceptés pour cette entrée."
 
 #: src/Process/Backend/Post.php:690
 msgid "Trackbacks are not accepted on this blog so far."
