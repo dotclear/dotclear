@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 09:33+0100\n"
-"PO-Revision-Date: 2025-01-21 09:08\n"
+"POT-Creation-Date: 2025-01-22 10:14+0100\n"
+"PO-Revision-Date: 2025-01-22 09:17\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -586,8 +586,8 @@ msgstr[1] "%d kommentarer"
 
 #: src/Core/Backend/Favorites.php:451 src/Core/Backend/Menus.php:141
 #: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:101
-#: src/Process/Backend/Search.php:150 src/Process/Backend/Search.php:155
-#: src/Process/Backend/Search.php:186
+#: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
+#: src/Process/Backend/Search.php:194
 msgid "Search"
 msgstr "Sök"
 
@@ -1103,8 +1103,8 @@ msgstr "Sida med direktåtkomst:"
 #: src/Core/Backend/Listing/Pager.php:183 src/Core/Backend/Page.php:168
 #: src/Process/Backend/Blogs.php:150 src/Process/Backend/Comments.php:218
 #: src/Process/Backend/Post.php:878 src/Process/Backend/Post.php:971
-#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:306
-#: src/Process/Backend/Search.php:402 src/Process/Backend/Users.php:160
+#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:314
+#: src/Process/Backend/Search.php:408 src/Process/Backend/Users.php:160
 msgid "ok"
 msgstr "Ok"
 
@@ -1474,7 +1474,7 @@ msgstr "Konfigurera \"%s\""
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1158
-#: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:189
+#: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
 #: src/Process/Backend/UserPreferences.php:980
@@ -4096,7 +4096,7 @@ msgid "Delete all spams"
 msgstr "Ta bort alla spammar"
 
 #: src/Process/Backend/Comments.php:216 src/Process/Backend/Post.php:873
-#: src/Process/Backend/Search.php:401
+#: src/Process/Backend/Search.php:407
 msgid "Selected comments action:"
 msgstr "Valda kommentarer:"
 
@@ -4997,16 +4997,16 @@ msgid "Comments and trackbacks list"
 msgstr "Lista med kommentarer och trackbacks"
 
 #: src/Process/Backend/Post.php:681
-msgid "Warning: Comments are not more accepted for this entry."
-msgstr "Varning: Kommentarer är inte mer accepterade för denna post."
+msgid "Warning: Comments are no longer accepted for this entry."
+msgstr ""
 
 #: src/Process/Backend/Post.php:683
 msgid "Comments are not accepted on this blog so far."
 msgstr "Kommentarer accepteras inte på den här bloggen hittills."
 
 #: src/Process/Backend/Post.php:689
-msgid "Warning: Trackbacks are not more accepted for this entry."
-msgstr "Varning: Trackbacks är inte mer accepterat för denna post."
+msgid "Warning: Trackbacks are no longer accepted for this entry."
+msgstr ""
 
 #: src/Process/Backend/Post.php:690
 msgid "Trackbacks are not accepted on this blog so far."
@@ -5108,7 +5108,7 @@ msgstr "Valda poster har uppdaterats."
 msgid "Selected entries have been successfully deleted."
 msgstr "Valda poster har tagits bort."
 
-#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:305
+#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:313
 msgid "Selected entries action:"
 msgstr "Åtgärd för valda poster:"
 
@@ -5187,38 +5187,38 @@ msgstr[1] "%s uppdateringar är tillgängliga."
 msgid "List options saved"
 msgstr "Listalternativ sparade"
 
-#: src/Process/Backend/Search.php:166
+#: src/Process/Backend/Search.php:174
 msgid "Search options"
 msgstr "Sök alternativ"
 
-#: src/Process/Backend/Search.php:174
+#: src/Process/Backend/Search.php:182
 msgid "Query:"
 msgstr "Fråga:"
 
-#: src/Process/Backend/Search.php:181
+#: src/Process/Backend/Search.php:189
 msgid "In:"
 msgstr "I:"
 
-#: src/Process/Backend/Search.php:204
+#: src/Process/Backend/Search.php:212
 msgid "No results found"
 msgstr "Inga resultat hittades"
 
-#: src/Process/Backend/Search.php:222
+#: src/Process/Backend/Search.php:230
 msgid "Search in entries"
 msgstr "Sök i poster"
 
-#: src/Process/Backend/Search.php:223
+#: src/Process/Backend/Search.php:231
 msgid "Search in comments"
 msgstr "Sök i kommentarer"
 
-#: src/Process/Backend/Search.php:284
+#: src/Process/Backend/Search.php:292
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
 msgstr[0] "en post hittad"
 msgstr[1] "%d poster hittade"
 
-#: src/Process/Backend/Search.php:372
+#: src/Process/Backend/Search.php:378
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"
