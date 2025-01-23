@@ -197,11 +197,12 @@ class Media extends Manager implements MediaInterface
         $this->addExclusion($this->config->configPath());
         $this->addExclusion(__DIR__ . '/../');
 
-        $this->exclude_pattern = $this->blog->settings()->system->media_exclusion;
+        $this->addExcludePattern($this->blog->settings()->system->media_exclusion);
+        $this->addExcludePattern('/(\.\w*){2,}$/'); // Disallow double (or more) extensions
 
         if (((string) $this->blog->settings()->system->media_thumbnail_prefix !== '') && ((string) $this->blog->settings()->system->media_thumbnail_prefix !== $this->thumbnail_prefix)) {
             $this->thumbnail_prefix = (string) $this->blog->settings()->system->media_thumbnail_prefix;
-            $this->setExcludePattern(sprintf('/^%s(.*)/', preg_quote($this->thumbnail_prefix, '/')));
+            $this->addExcludePattern(sprintf('/^%s(.*)/', preg_quote($this->thumbnail_prefix, '/')));
         }
 
         // Ensure correct pattern values for deprecated properties

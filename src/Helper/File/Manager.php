@@ -45,7 +45,7 @@ class Manager
     protected $pwd;
 
     /**
-     * Array of regexps defining excluded items
+     * Array of excluded items (path beginning with)
      *
      * @var        array<string>
      */
@@ -57,6 +57,13 @@ class Manager
      * @var        string
      */
     protected $exclude_pattern = '';
+
+    /**
+     * Files exclusion regexp pattern list
+     *
+     * @var        array<string>
+     */
+    protected $exclude_pattern_list = [];
 
     /**
      * Current directory content array
@@ -204,13 +211,25 @@ class Manager
     }
 
     /**
-     * Sets the exclude pattern.
+     * Add an exclude pattern.
      *
      * @param      string  $pattern  The regexp pattern
      */
+    public function addExcludePattern(string $pattern): void
+    {
+        $this->exclude_pattern_list[] = $pattern;
+    }
+
+    /**
+     * Set an exclude pattern.
+     *
+     * @param      string  $pattern  The regexp pattern
+     *
+     * @deprecated use addExcludePattern() instead
+     */
     public function setExcludePattern(string $pattern): void
     {
-        $this->exclude_pattern = $pattern;
+        $this->addExcludePattern($pattern);
     }
 
     /**
@@ -225,11 +244,21 @@ class Manager
      */
     protected function isFileExclude(string $file): bool
     {
-        if ($this->exclude_pattern === '') {
+        if ($this->exclude_pattern === '' && $this->exclude_pattern_list === []) {
             return false;
         }
 
-        return (bool) preg_match($this->exclude_pattern, $file);
+        if ($this->exclude_pattern !== '' && (bool) preg_match($this->exclude_pattern, $file)) {
+            return true;
+        }
+
+        foreach ($this->exclude_pattern_list as $pattern) {
+            if ((bool) preg_match($pattern, $file)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
