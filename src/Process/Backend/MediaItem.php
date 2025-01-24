@@ -51,8 +51,6 @@ use SimpleXMLElement;
 
 /**
  * @since 2.27 Before as admin/media_item.php
- *
- * @todo switch Helper/Html/Form/...
  */
 class MediaItem extends Process
 {
@@ -468,7 +466,7 @@ class MediaItem extends Process
         $temp_params['d'] = '%s';
         $breadcrumb       = App::media()->breadCrumb(App::backend()->url()->get('admin.media', $temp_params, '&amp;', true)) . (App::backend()->file === null ?
             '' :
-            '<span class="page-title">' . App::backend()->file->basename . '</span>');
+            (new Text('span', App::backend()->file->basename))->class('page-title')->render());
         $temp_params['d'] = '';
         $home_url         = App::backend()->url()->get('admin.media', $temp_params);
         call_user_func(
