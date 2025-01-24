@@ -24,6 +24,7 @@ class GrowUp_2_33_lt
             // Files
             [
                 'src/Core/Backend/Filter/Filter.php',
+                'src/Exception/UnautorizedException',
             ],
             // Folders
             [
