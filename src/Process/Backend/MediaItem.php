@@ -11,17 +11,42 @@ declare(strict_types=1);
 
 namespace Dotclear\Process\Backend;
 
+use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
+use Dotclear\Helper\Html\Form\Btn;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Capture;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Datetime;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\File as FormFile;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Radio;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Single;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Textarea;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 use SimpleXMLElement;
 
 /**
@@ -487,6 +512,10 @@ class MediaItem extends Process
         // Get major file type (first part of mime type)
         App::backend()->file_type = explode('/', App::backend()->file->type);
 
+        $parts = [];
+
+        // Insertion/Selection part
+
         if (App::backend()->select === 1) {
             // Selection mode
 
@@ -509,11 +538,7 @@ class MediaItem extends Process
 
             $defaults = $getImageDefaults(App::backend()->file);
 
-            echo
-            '<div id="media-select" class="multi-part" title="' . __('Select media item') . '">' .
-            '<h3>' . __('Select media item') . '</h3>' .
-            '<form id="media-select-form" action="" method="get">';
-
+            $part_image_size = (new None());
             if (App::backend()->file->media_type == 'image') {
                 $media_type = 'image';
                 $media_alt  = $getImageAlt(App::backend()->file);
@@ -521,24 +546,25 @@ class MediaItem extends Process
                     $media_alt = '';
                 }
 
-                echo
-                '<h3>' . __('Image size:') . '</h3> ';
-
-                $s_checked = false;
-                echo
-                '<p>';
-                foreach (array_reverse(App::backend()->file->media_thumb) as $s => $v) {
-                    $s_checked = ($s == $defaults['size']);
-                    echo
-                    '<label class="classic">' .
-                    form::radio(['src'], Html::escapeHTML($v), $s_checked) . ' ' .
-                    App::media()->getThumbSizes()[$s][2] . '</label><br> ';
-                }
-                $s_checked = (!isset(App::backend()->file->media_thumb[$defaults['size']]));
-                echo
-                '<label class="classic">' .
-                form::radio(['src'], App::backend()->file->file_url, $s_checked) . ' ' . __('original') . '</label><br> ' .
-                '</p>';
+                // Image sizes
+                $image_sizes = function () use ($defaults) {
+                    foreach (array_reverse(App::backend()->file->media_thumb) as $key => $value) {
+                        yield (new Radio(['src'], $defaults['size'] === $key))
+                            ->value(Html::escapeHTML($value))
+                            ->label(new Label(App::media()->getThumbSizes()[$key][2], Label::IL_FT));
+                    }
+                };
+                $part_image_size = (new Set())
+                    ->items([
+                        (new Text('h3', __('Image size:'))),
+                        (new Para())
+                            ->items([
+                                ... $image_sizes(),
+                                (new Radio(['src'], !isset(App::backend()->file->media_thumb[$defaults['size']])))
+                                    ->value(App::backend()->file->file_url)
+                                    ->label(new Label(__('original'), Label::IL_FT)),
+                            ]),
+                    ]);
             } elseif (App::backend()->file_type[0] === 'audio') {
                 $media_type = 'mp3';
             } elseif (App::backend()->file_type[0] === 'video') {
@@ -547,18 +573,29 @@ class MediaItem extends Process
                 $media_type = 'default';
             }
 
-            echo
-            '<p>' .
-            '<button type="button" id="media-select-ok" class="submit">' . __('Select') . '</button> ' .
-            '<button type="button" id="media-select-cancel">' . __('Cancel') . '</button>' .
-            form::hidden(['type'], Html::escapeHTML($media_type)) .
-            form::hidden(['title'], Html::escapeHTML($media_alt)) .
-            form::hidden(['description'], Html::escapeHTML($media_legend)) .
-            form::hidden(['url'], App::backend()->file->file_url) .
-            '</p>' .
-
-            '</form>' .
-            '</div>';
+            $parts[] = (new Div('media-select'))
+                ->class('multi-part')
+                ->title(__('Select media item'))
+                ->items([
+                    (new Text('h3', __('Select media item'))),
+                    (new Form('media-select-form'))
+                        ->method('get')
+                        ->action('')
+                        ->fields([
+                            $part_image_size,
+                            (new Para())
+                                ->class('form-buttons')
+                                ->items([
+                                    (new Btn('media-select-ok', __('Select')))
+                                        ->class('submit'),
+                                    (new Btn('media-select-cancel', __('Cancel'))),
+                                    (new Hidden(['type'], Html::escapeHTML($media_type))),
+                                    (new Hidden(['title'], Html::escapeHTML($media_alt))),
+                                    (new Hidden(['description'], Html::escapeHTML($media_legend))),
+                                    (new Hidden(['url'], App::backend()->file->file_url)),
+                                ]),
+                        ]),
+                ]);
         }
 
         if (App::backend()->popup && (App::backend()->select === 0)) {
@@ -583,11 +620,22 @@ class MediaItem extends Process
 
             $defaults = $getImageDefaults(App::backend()->file);
 
-            echo
-            '<div id="media-insert" class="multi-part" title="' . __('Insert media item') . '">' .
-            '<h3>' . __('Insert media item') . '</h3>' .
-            '<form id="media-insert-form" action="" method="get">';
+            // Image alignments
+            $i_align = [
+                'none'   => [__('None'), $defaults['alignment'] === 'none'],
+                'left'   => [__('Left'), $defaults['alignment'] === 'left'],
+                'right'  => [__('Right'), $defaults['alignment'] === 'right'],
+                'center' => [__('Center'), $defaults['alignment'] === 'center'],
+            ];
+            $image_alignments = function () use ($i_align) {
+                foreach ($i_align as $key => $value) {
+                    yield (new Radio(['alignment'], $value[1]))
+                        ->value($key)
+                        ->label(new Label($value[0], Label::IL_FT));
+                }
+            };
 
+            $media_insert_options = (new None());
             if (App::backend()->file->media_type == 'image') {
                 $media_type = 'image';
                 $media_alt  = $getImageAlt(App::backend()->file);
@@ -595,235 +643,234 @@ class MediaItem extends Process
                     $media_alt = '';
                 }
 
-                echo
-                '<div class="two-boxes">' .
-                '<h3>' . __('Image size:') . '</h3> ';
-                $s_checked = false;
-                echo
-                '<p>';
-                foreach (array_reverse(App::backend()->file->media_thumb) as $s => $v) {
-                    $s_checked = ($s == $defaults['size']);
-                    echo
-                    '<label class="classic">' .
-                    form::radio(['src'], Html::escapeHTML($v), $s_checked) . ' ' .
-                    App::media()->getThumbSizes()[$s][2] . '</label><br> ';
-                }
-                $s_checked = (!isset(App::backend()->file->media_thumb[$defaults['size']]));
-                echo
-                '<label class="classic">' .
-                form::radio(['src'], App::backend()->file->file_url, $s_checked) . ' ' . __('original') . '</label><br> ' .
-                '</p>' .
-                '</div>' .
+                // Image sizes
+                $image_sizes = function () use ($defaults) {
+                    foreach (array_reverse(App::backend()->file->media_thumb) as $key => $value) {
+                        yield (new Radio(['src'], $defaults['size'] === $key))
+                            ->value(Html::escapeHTML($value))
+                            ->label(new Label(App::media()->getThumbSizes()[$key][2], Label::IL_FT));
+                    }
+                };
 
-                '<div class="two-boxes">' .
-                '<h3>' . __('Image legend and alternate text') . '</h3>' .
-                '<p>' .
-                '<label for="legend1" class="classic">' . form::radio(
-                    ['legend', 'legend1'],
-                    'legend',
-                    ($defaults['legend'] === 'legend' && $media_alt !== '' && $media_legend !== ''),
-                    '',
-                    '',
-                    $media_alt !== '' && $media_legend !== '' ? false : true
-                ) .
-                __('Legend and alternate text') . '</label><br>' .
-                '<label for="legend2" class="classic">' . form::radio(
-                    ['legend', 'legend2'],
-                    'title',
-                    ($defaults['legend'] === 'title' && $media_alt !== ''),
-                    '',
-                    '',
-                    $media_alt === ''
-                ) .
-                __('Alternate text') . '</label><br>' .
-                '<label for="legend3" class="classic">' . form::radio(
-                    ['legend', 'legend3'],
-                    'none',
-                    ($defaults['legend'] === 'none' || $media_alt === '')
-                ) .
-                __('None') . '</label>' .
-                '</p>' .
-                '<p id="media-attribute">' .
-                __('Alternate text:') . ' ' . ($media_alt !== '' ? '<span class="media-title">' . $media_alt . '</span>' : __('(none)')) .
-                '<br>' .
-                __('Legend:') . ' ' . ($media_legend !== '' ? ' <span class="media-desc">' . $media_legend . '</span>' : __('(none)')) .
-                '</p>' .
-                '</div>' .
-
-                '<div class="two-boxes">' .
-                '<h3>' . __('Image alignment') . '</h3>';
-                $i_align = [
-                    'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
-                    'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
-                    'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
-                    'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)],
-                ];
-
-                echo
-                '<p>';
-                foreach ($i_align as $k => $v) {
-                    echo
-                    '<label class="classic">' .
-                    form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br> ';
-                }
-                echo
-                '</p>' .
-                '</div>' .
-
-                '<div class="two-boxes">' .
-                '<h3>' . __('Image insertion') . '</h3>' .
-                '<p>' .
-                '<label for="insert1" class="classic">' . form::radio(['insertion', 'insert1'], 'simple', !$defaults['link'] || $media_alt === '') .
-                __('As a single image') . '</label><br>' .
-                '<label for="insert2" class="classic">' . form::radio(['insertion', 'insert2'], 'link', $defaults['link'] && $media_alt !== '', '', '', $media_alt === '') .
-                __('As a link to the original image') . '</label>' .
-                '</p>' .
-                '</div>';
+                $media_insert_options = (new Set())
+                    ->items([
+                        (new Div())
+                            ->class('two-boxes')
+                            ->items([
+                                (new Text('h3', __('Image size:'))),
+                                (new Para())
+                                    ->items([
+                                        ... $image_sizes(),
+                                        (new Radio(['src'], !isset(App::backend()->file->media_thumb[$defaults['size']])))
+                                            ->value(App::backend()->file->file_url)
+                                            ->label(new Label(__('original'), Label::IL_FT)),
+                                    ]),
+                            ]),
+                        (new Div())
+                            ->class('two-boxes')
+                            ->items([
+                                (new Text('h3', __('Image legend and alternate text'))),
+                                (new Para())
+                                    ->items([
+                                        (new Radio(['legend', 'legend1'], $defaults['legend'] === 'legend' && $media_alt !== '' && $media_legend !== ''))
+                                            ->value('legend')
+                                            ->disabled($media_alt !== '' && $media_legend !== '' ? false : true)
+                                            ->label(new Label(__('Legend and alternate text'), Label::IL_FT)),
+                                        (new Radio(['legend', 'legend2'], $defaults['legend'] === 'title' && $media_alt !== ''))
+                                            ->value('title')
+                                            ->disabled($media_alt === '')
+                                            ->label(new Label(__('Alternate text'), Label::IL_FT)),
+                                        (new Radio(['legend', 'legend3'], $defaults['legend'] === 'none' || $media_alt === ''))
+                                            ->value('none')
+                                            ->label(new Label(__('None'), Label::IL_FT)),
+                                    ]),
+                                (new Para('media-attribute'))
+                                    ->items([
+                                        (new Text(null, __('Alternate text:') . ' ' . ($media_alt !== '' ?
+                                            (new Text('span', $media_alt))
+                                                ->class('media-title') :
+                                            (new Text(null, __('(none)'))))->render())),
+                                        (new Single('br')),
+                                        (new Text(null, __('Legend:') . ' ' . ($media_legend !== '' ?
+                                            (new Text('span', $media_legend))
+                                                ->class('media-desc') :
+                                            (new Text(null, __('(none)'))))->render())),
+                                    ]),
+                            ]),
+                        (new Div())
+                            ->class('two-boxes')
+                            ->items([
+                                (new Text('h3', __('Image alignment'))),
+                                (new Para())
+                                    ->items($image_alignments()),
+                            ]),
+                        (new Div())
+                            ->class('two-boxes')
+                            ->items([
+                                (new Text('h3', __('Image insertion'))),
+                                (new Para())
+                                    ->items([
+                                        (new Radio(['insertion', 'insert1'], !$defaults['link'] || $media_alt === ''))
+                                            ->value('simple')
+                                            ->label(new Label(__('As a single image'), Label::IL_FT)),
+                                        (new Radio(['insertion', 'insert2'], $defaults['link'] && $media_alt !== ''))
+                                            ->value('link')
+                                            ->label(new Label(__('As a link to the original image'), Label::IL_FT))
+                                            ->disabled($media_alt === ''),
+                                    ]),
+                            ]),
+                    ]);
             } elseif (App::backend()->file_type[0] === 'audio') {
                 $media_type = 'mp3';
 
-                echo
-                '<div class="two-boxes">' .
-                '<h3>' . __('MP3 disposition') . '</h3>';
-
-                if (App::backend()->plugin_id === 'dcLegacyEditor') {
-                    Notices::message(__('Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode.'), false);
-                }
-
-                $i_align = [
-                    'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
-                    'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
-                    'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
-                    'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)],
-                ];
-
-                echo '<p>';
-                foreach ($i_align as $k => $v) {
-                    echo
-                    '<label class="classic">' .
-                    form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br> ';
-                }
-
                 $url = App::backend()->file->file_url;
                 if (str_starts_with($url, App::blog()->host())) {
                     $url = substr($url, strlen(App::blog()->host()));
                 }
-                echo
-                form::hidden('blog_host', Html::escapeHTML(App::blog()->host())) .
-                form::hidden('public_player', Html::escapeHTML(App::media()::audioPlayer(App::backend()->file->type, $url))) .
-                '</p>' .
-                '</div>';
+
+                $media_insert_options = (new Set())
+                    ->items([
+                        (new Div())
+                            ->items([
+                                (new Text('h3', __('MP3 disposition'))),
+                                (new Para())
+                                    ->items([
+                                        ... $image_alignments(),
+                                        (new Hidden('blog_host', Html::escapeHTML(App::blog()->host()))),
+                                        (new Hidden('public_player', Html::escapeHTML(App::media()::audioPlayer(App::backend()->file->type, $url)))),
+                                    ]),
+                                (new Note())
+                                    ->class('warning')
+                                    ->text(__('Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode.')),
+                            ]),
+                    ]);
             } elseif (App::backend()->file_type[0] === 'video') {
                 $media_type = 'flv';
 
-                if (App::backend()->plugin_id === 'dcLegacyEditor') {
-                    Notices::message(__('Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode.'), false);
-                }
-
-                echo
-                '<div class="two-boxes">' .
-                '<h3>' . __('Video size') . '</h3>' .
-                '<p><label for="video_w" class="classic">' . __('Width:') . '</label> ' .
-                form::number('video_w', 0, 9999, (string) App::blog()->settings()->system->media_video_width) . '  ' .
-                '<label for="video_h" class="classic">' . __('Height:') . '</label> ' .
-                form::number('video_h', 0, 9999, (string) App::blog()->settings()->system->media_video_height) .
-                '</p>' .
-                '</div>';
-
-                echo
-                '<div class="two-boxes">' .
-                '<h3>' . __('Video disposition') . '</h3>';
-
-                $i_align = [
-                    'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
-                    'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
-                    'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
-                    'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)],
-                ];
-
-                echo '<p>';
-                foreach ($i_align as $k => $v) {
-                    echo
-                    '<label class="classic">' .
-                    form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br> ';
-                }
-
                 $url = App::backend()->file->file_url;
                 if (str_starts_with($url, App::blog()->host())) {
                     $url = substr($url, strlen(App::blog()->host()));
                 }
-                echo
-                form::hidden('blog_host', Html::escapeHTML(App::blog()->host())) .
-                form::hidden('public_player', Html::escapeHTML(App::media()::videoPlayer(App::backend()->file->type, $url))) .
-                '</p>' .
-                '</div>';
+
+                $media_insert_options = (new Set())
+                    ->items([
+                        (new Div())
+                            ->class('two-boxes')
+                            ->items([
+                                (new Text('h3', __('Video size'))),
+                                (new Para())
+                                    ->items([
+                                        (new Number('video_w', 0, 9999, (int) App::blog()->settings()->system->media_video_width))
+                                            ->label(new Label(__('Width:'), Label::IL_TF)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Number('video_h', 0, 9999, (int) App::blog()->settings()->system->media_video_height))
+                                            ->label(new Label(__('Height:'), Label::IL_TF)),
+                                    ]),
+                            ]),
+                        (new Div())
+                            ->class('two-boxes')
+                            ->items([
+                                (new Text('h3', __('Video disposition'))),
+                                (new Para())
+                                    ->items([
+                                        ... $image_alignments(),
+                                        (new Hidden('blog_host', Html::escapeHTML(App::blog()->host()))),
+                                        (new Hidden('public_player', Html::escapeHTML(App::media()::videoPlayer(App::backend()->file->type, $url)))),
+                                    ]),
+                            ]),
+                        (new Note())
+                            ->class('warning')
+                            ->text(__('Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode.')),
+                    ]);
             } else {
                 $media_type = 'default';
                 $media_alt  = App::backend()->file->media_title;
-                echo
-                '<p>' . __('Media item will be inserted as a link.') . '</p>';
+
+                $media_insert_options = (new Note())
+                    ->text(__('Media item will be inserted as a link.'))
+                    ->class('info');
             }
 
-            echo
-            '<p class="form-buttons">' .
-            '<button type="button" id="media-insert-ok" class="submit">' . __('Insert') . '</button> ' .
-            '<button type="button" id="media-insert-cancel">' . __('Cancel') . '</button>' .
-            form::hidden(['type'], Html::escapeHTML($media_type)) .
-            form::hidden(['title'], Html::escapeHTML($media_alt)) .
-            form::hidden(['description'], Html::escapeHTML($media_legend)) .
-            form::hidden(['url'], App::backend()->file->file_url) .
-            '</p>';
-
-            echo
-            '</form>';
-
+            $save_settings = (new None());
             if ($media_type !== 'default') {
-                echo
-                '<div class="border-top">' .
-                '<form id="save_settings" action="' . App::backend()->url()->getBase('admin.media.item') . '" method="post">' .
-                '<p>' . __('Make current settings as default') . ' ' .
-                '<input class="reset" type="submit" name="save_blog_prefs" value="' . __('For the blog') . '"> ' . __('or') . ' ' .
-                '<input class="reset" type="submit" name="save_folder_prefs" value="' . __('For this folder only') . '">';
-
                 $local = App::media()->getRoot() . '/' . dirname(App::backend()->file->relname) . '/' . '.mediadef';
                 if (!file_exists($local)) {
                     $local .= '.json';
                 }
-                if (file_exists($local)) {
-                    echo
-                    '</p>' .
-                    '<p>' . __('Settings exist for this folder:') . ' ' .
-                    '<input class="delete" type="submit" name="remove_folder_prefs" value="' . __('Remove them') . '"> ';
-                }
 
-                echo
-                form::hidden(['pref_src'], '') .
-                form::hidden(['pref_alignment'], '') .
-                form::hidden(['pref_insertion'], '') .
-                form::hidden(['pref_legend'], '') .
-                App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
-                App::nonce()->getFormNonce() . '</p>' .
-                '</form></div>';
+                $save_settings = (new Div())
+                    ->class('border-top')
+                    ->items([
+                        (new Form('save_settings'))
+                            ->method('post')
+                            ->action(App::backend()->url()->getBase('admin.media.item'))
+                            ->fields([
+                                (new Para())
+                                    ->class('form-buttons')
+                                    ->items([
+                                        (new Text(null, __('Make current settings as default'))),
+                                        (new Submit('save_blog_prefs', __('For the blog')))
+                                            ->class('reset'),
+                                        (new Submit('save_folder_prefs', __('For this folder only')))
+                                            ->class('reset'),
+                                        (new Hidden(['pref_src'], '')),
+                                        (new Hidden(['pref_alignment'], '')),
+                                        (new Hidden(['pref_insertion'], '')),
+                                        (new Hidden(['pref_legend'], '')),
+                                        ... App::backend()->url()->hiddenFormFields('admin.media.item', App::backend()->page_url_params),
+                                        App::nonce()->formNonce(),
+                                    ]),
+                                (file_exists($local)) ? (new Para())
+                                    ->class('form-buttons')
+                                    ->items([
+                                        (new Text(null, __('Settings exist for this folder:'))),
+                                        (new Submit('remove_folder_prefs', __('Remove them')))
+                                            ->class('delete'),
+                                    ])
+                                : (new None()),
+                            ]),
+                    ]);
             }
 
-            echo
-            '</div>';
+            $parts[] = (new Div('media-insert'))
+                ->class('multi-part')
+                ->title(__('Insert media item'))
+                ->items([
+                    (new Text('h3', __('Insert media item'))),
+                    (new Form('media-insert-form'))
+                        ->method('get')
+                        ->action('')
+                        ->fields([
+                            $media_insert_options,
+                            (new Para())
+                                ->class('form-buttons')
+                                ->items([
+                                    (new Btn('media-insert-ok', __('Insert')))
+                                        ->class('submit'),
+                                    (new Btn('media-insert-cancel', __('Cancel'))),
+                                    (new Hidden(['type'], Html::escapeHTML($media_type))),
+                                    (new Hidden(['title'], Html::escapeHTML($media_alt))),
+                                    (new Hidden(['description'], Html::escapeHTML($media_legend))),
+                                    (new Hidden(['url'], App::backend()->file->file_url)),
+                                ]),
+                        ]),
+                    $save_settings,
+                ]);
         }
 
-        if (App::backend()->popup && (App::backend()->select === 0) || (App::backend()->select === 1)) {
-            echo
-            '<div class="multi-part" title="' . __('Media details') . '" id="media-details-tab">';
-        } else {
-            echo
-            '<h3 class="out-of-screen-if-js">' . __('Media details') . '</h3>';
-        }
+        // Details part
 
-        echo
-        '<p id="media-icon"><img class="media-icon-square' . (App::backend()->file->media_preview ? ' media-icon-preview' : '') . '" src="' . App::backend()->file->media_icon . '?' . time() * random_int(0, mt_getrandmax()) . '" alt=""></p>' .
+        $media_details = [];
 
-        '<div id="media-details">' .
-        '<div class="near-icon">';
+        $media_details[] = (new Para('media-icon'))
+            ->items([
+                (new Img(App::backend()->file->media_icon . '?' . time() * random_int(0, mt_getrandmax())))
+                    ->class(App::backend()->file->media_preview ? 'media-icon-square' : ''),
+            ]);
 
+        $media_details_display = (new None());
         if (App::backend()->file->media_image) {
             $thumb_size = empty($_GET['size']) ? 's' : (string) $_GET['size'];
 
@@ -831,35 +878,59 @@ class MediaItem extends Process
                 $thumb_size = 's';
             }
 
+            $image_infos = [];
+
             if (isset(App::backend()->file->media_thumb[$thumb_size])) {
-                $url = App::backend()->file->file_url;    // @phpstan-ignore-line
-                echo
-                '<p><a class="modal-image" href="' . $url . '">' .
-                '<img src="' . App::backend()->file->media_thumb[$thumb_size] . '?' . time() * random_int(0, mt_getrandmax()) . '" alt="">' .
-                '</a></p>';
+                $image_infos[] = (new Para())
+                    ->items([
+                        (new Link())
+                            ->href(App::backend()->file->file_url)  // @phpstan-ignore-line (undefined property object::$file_url)
+                            ->class('modal-image')
+                            ->items([
+                                (new Img(App::backend()->file->media_thumb[$thumb_size] . '?' . time() * random_int(0, mt_getrandmax())))
+                                    ->alt(''),
+                            ]),
+                    ]);
             } elseif ($thumb_size === 'o') {
                 $image_size = getimagesize(App::backend()->file->file);
-                $class      = !$image_size || ($image_size[1] > 500) ? ' class="overheight"' : '';
-                echo
-                '<p id="media-original-image"' . $class . '><a class="modal-image" href="' . App::backend()->file->file_url . '">' .
-                '<img src="' . App::backend()->file->file_url . '?' . time() * random_int(0, mt_getrandmax()) . '" alt="">' .
-                '</a></p>';
+
+                $image_infos[] = (new Para('media-original-image'))
+                    ->class(!$image_size || ($image_size[1] > 500) ? 'overheight' : '')
+                    ->items([
+                        (new Link())
+                            ->href(App::backend()->file->file_url)
+                            ->class('modal-image')
+                            ->items([
+                                (new Img(App::backend()->file->file_url . '?' . time() * random_int(0, mt_getrandmax())))
+                                    ->alt(''),
+                            ]),
+                    ]);
             }
 
-            echo
-            '<p>' . __('Available sizes:') . ' ';
-            foreach (array_keys(array_reverse(App::backend()->file->media_thumb)) as $s) {
-                $strong_link = ($s === $thumb_size) ? '<strong>%s</strong>' : '%s';
-                echo
-                sprintf($strong_link, '<a href="' . App::backend()->url()->get('admin.media.item', array_merge(
-                    App::backend()->page_url_params,
-                    ['size' => $s, 'tab' => 'media-details-tab']
-                )) . '">' . App::media()->getThumbSizes()[$s][2] . '</a> | ');
-            }
-
-            echo
-            '<a href="' . App::backend()->url()->get('admin.media.item', array_merge(App::backend()->page_url_params, ['size' => 'o', 'tab' => 'media-details-tab'])) . '">' . __('original') . '</a>' .
-            '</p>';
+            $available_sizes = function () use ($thumb_size) {
+                foreach (array_keys(array_reverse(App::backend()->file->media_thumb)) as $key) {
+                    yield (new Text(
+                        $key === $thumb_size ? 'strong' : null,
+                        (new Link())
+                            ->href(App::backend()->url()->get('admin.media.item', array_merge(App::backend()->page_url_params, ['size' => $key, 'tab' => 'media-details-tab'])))
+                            ->text(App::media()->getThumbSizes()[$key][2])
+                        ->render()
+                    ));
+                }
+            };
+            $image_infos[] = (new Para())
+                ->separator(' ')
+                ->items([
+                    (new Text(null, __('Available sizes:'))),
+                    (new Set())
+                        ->separator(' | ')
+                        ->items([
+                            ... $available_sizes(),
+                            (new Link())
+                                ->href(App::backend()->url()->get('admin.media.item', array_merge(App::backend()->page_url_params, ['size' => 'o', 'tab' => 'media-details-tab'])))
+                                ->text(__('original')),
+                        ]),
+                ]);
 
             if ($thumb_size !== 'o' && isset(App::backend()->file->media_thumb[$thumb_size])) {
                 $path_info  = Path::info(App::backend()->file->file);   // @phpstan-ignore-line
@@ -867,39 +938,77 @@ class MediaItem extends Process
                 $thumb      = sprintf($thumb_tp, $path_info['dirname'], $path_info['base'], '%s');
                 $thumb_file = sprintf($thumb, $thumb_size);
                 $stats      = stat($thumb_file);
-                echo
-                '<h3>' . __('Thumbnail details') . '</h3>' .
-                '<ul>';
+
+                $infos_list = [];
+
                 $image_size = getimagesize($thumb_file);
                 if ($image_size !== false) {
-                    echo
-                    '<li><strong>' . __('Image width:') . '</strong> ' . $image_size[0] . ' px</li>' .
-                    '<li><strong>' . __('Image height:') . '</strong> ' . $image_size[1] . ' px</li>';
+                    $infos_list[] = (new Li())
+                        ->separator(' ')
+                        ->items([
+                            (new Text('strong', __('Image width:'))),
+                            (new Text(null, $image_size[0] . 'px')),
+                        ]);
+                    $infos_list[] = (new Li())
+                        ->separator(' ')
+                        ->items([
+                            (new Text('strong', __('Image height:'))),
+                            (new Text(null, $image_size[1] . 'px')),
+                        ]);
                 }
                 if ($stats) {
-                    echo
-                    '<li><strong>' . __('File size:') . '</strong> ' . Files::size($stats[7]) . '</li>';
+                    $infos_list[] = (new Li())
+                        ->separator(' ')
+                        ->items([
+                            (new Text('strong', __('File size:'))),
+                            (new Text(null, Files::size($stats[7]))),
+                        ]);
                 }
-                echo
-                '<li><strong>' . __('File URL:') . '</strong> <a href="' . App::backend()->file->media_thumb[$thumb_size] . '">' .
-                App::backend()->file->media_thumb[$thumb_size] . '</a></li>' .
-                '</ul>';
+
+                $infos_list[] = (new Li())
+                    ->separator(' ')
+                    ->items([
+                        (new Text('strong', __('File URL:'))),
+                        (new Link())
+                            ->href(App::backend()->file->media_thumb[$thumb_size])
+                            ->text(App::backend()->file->media_thumb[$thumb_size]),
+                    ]);
+
+                $image_infos[] = (new Set())
+                    ->items([
+                        (new Text('h3', __('Thumbnail details'))),
+                        (new Ul())
+                            ->items($infos_list),
+                    ]);
             }
+
+            $media_details_display = (new Set())
+                ->items($image_infos);
         }
 
         // Show player if relevant
         if (App::backend()->file_type[0] === 'audio') {
-            echo App::media()::audioPlayer(App::backend()->file->type, App::backend()->file->file_url);
+            $media_details_display = (new Text(null, App::media()::audioPlayer(App::backend()->file->type, App::backend()->file->file_url)));
         }
         if (App::backend()->file_type[0] === 'video') {
-            echo App::media()::videoPlayer(App::backend()->file->type, App::backend()->file->file_url);
+            $media_details_display = (new Text(null, App::media()::videoPlayer(App::backend()->file->type, App::backend()->file->file_url)));
         }
 
-        echo
-        '<h3>' . __('Media details') . '</h3>' .
-        '<ul>' .
-        '<li><strong>' . __('File owner:') . '</strong> ' . App::backend()->file->media_user . '</li>' .
-        '<li><strong>' . __('File type:') . '</strong> ' . App::backend()->file->type . '</li>';
+        $infos_list = [];
+
+        $infos_list[] = (new Li())
+            ->separator(' ')
+            ->items([
+                (new Text('strong', __('File owner:'))),
+                (new Text(null, App::backend()->file->media_user)),
+            ]);
+        $infos_list[] = (new Li())
+            ->separator(' ')
+            ->items([
+                (new Text('strong', __('File type:'))),
+                (new Text(null, App::backend()->file->type)),
+            ]);
+
         if (App::backend()->file->media_image) {
             if (App::backend()->file->type === 'image/svg+xml') {
                 if (($xmlget = simplexml_load_file(App::backend()->file->file)) !== false && $xmlattributes = $xmlget->attributes()) {
@@ -908,35 +1017,64 @@ class MediaItem extends Process
                         (string) $xmlattributes->height,
                     ];
                     if ($image_size[0] !== '') {
-                        echo
-                        '<li><strong>' . __('Image width:') . '</strong> ' . $image_size[0] . '</li>';
+                        $infos_list[] = (new Li())
+                            ->separator(' ')
+                            ->items([
+                                (new Text('strong', __('Image width:'))),
+                                (new Text(null, $image_size[0])),
+                            ]);
                     }
                     if ($image_size[1] !== '') {
-                        echo
-                        '<li><strong>' . __('Image height:') . '</strong> ' . $image_size[1] . '</li>';
+                        $infos_list[] = (new Li())
+                            ->separator(' ')
+                            ->items([
+                                (new Text('strong', __('Image width:'))),
+                                (new Text(null, $image_size[1])),
+                            ]);
                     }
                 }
             } else {
                 $image_size = getimagesize(App::backend()->file->file);
                 if (is_array($image_size)) {
-                    echo
-                    '<li><strong>' . __('Image width:') . '</strong> ' . $image_size[0] . ' px</li>' .
-                    '<li><strong>' . __('Image height:') . '</strong> ' . $image_size[1] . ' px</li>';
+                    $infos_list[] = (new Li())
+                        ->separator(' ')
+                        ->items([
+                            (new Text('strong', __('Image width:'))),
+                            (new Text(null, $image_size[0] . 'px')),
+                        ]);
+                    $infos_list[] = (new Li())
+                        ->separator(' ')
+                        ->items([
+                            (new Text('strong', __('Image height:'))),
+                            (new Text(null, $image_size[1] . 'px')),
+                        ]);
                 }
             }
         }
-        echo
-        '<li><strong>' . __('File size:') . '</strong> ' . Files::size(App::backend()->file->size) . '</li>' .
-        '<li><strong>' . __('File URL:') . '</strong> <a href="' . App::backend()->file->file_url . '">' . App::backend()->file->file_url . '</a></li>' .
-        '</ul>';
+
+        $infos_list[] = (new Li())
+            ->separator(' ')
+            ->items([
+                (new Text('strong', __('File size:'))),
+                (new Text(null, Files::size(App::backend()->file->size))),
+            ]);
+        $infos_list[] = (new Li())
+            ->separator(' ')
+            ->items([
+                (new Text('strong', __('File URL:'))),
+                (new Link())
+                    ->href(App::backend()->file->file_url)
+                    ->text(App::backend()->file->file_url),
+            ]);
 
         if (empty($_GET['find_posts'])) {
-            echo
-            '<p><a class="button" href="' . App::backend()->url()->get('admin.media.item', array_merge(App::backend()->page_url_params, ['find_posts' => 1, 'tab' => 'media-details-tab'])) . '">' .
-            __('Show entries containing this media') . '</a></p>';
+            $media_entries = (new Para())
+                ->items([
+                    (new Link())
+                        ->href(App::backend()->url()->get('admin.media.item', array_merge(App::backend()->page_url_params, ['find_posts' => 1, 'tab' => 'media-details-tab'])))
+                        ->text(__('Show entries containing this media')),
+                ]);
         } else {
-            echo
-            '<h3>' . __('Entries containing this media') . '</h3>';
             /**
              * @var        string
              */
@@ -957,13 +1095,13 @@ class MediaItem extends Process
                 } else {
                     $media_root = App::blog()->host() . Path::clean(App::blog()->settings()->system->public_url) . '/';
                 }
-                foreach (App::backend()->file->media_thumb as $v) {
+                foreach (App::backend()->file->media_thumb as $value) {
                     /**
                      * @var        string
                      */
-                    $v = App::con()->escapeStr((string) preg_replace('/^' . preg_quote($media_root, '/') . '/', '', $v)); // @phpstan-ignore-line
-                    $params['sql'] .= "OR post_content_xhtml LIKE '%" . $v . "%' ";
-                    $params['sql'] .= "OR post_excerpt_xhtml LIKE '%" . $v . "%' ";
+                    $value = App::con()->escapeStr((string) preg_replace('/^' . preg_quote($media_root, '/') . '/', '', $value)); // @phpstan-ignore-line
+                    $params['sql'] .= "OR post_content_xhtml LIKE '%" . $value . "%' ";
+                    $params['sql'] .= "OR post_excerpt_xhtml LIKE '%" . $value . "%' ";
                 }
             }
 
@@ -972,73 +1110,118 @@ class MediaItem extends Process
             $rs = App::blog()->getPosts($params);
 
             if ($rs->isEmpty()) {
-                echo
-                '<p>' . __('No entry seems contain this media.') . '</p>';
+                $entries = (new Note())
+                    ->text(__('No entry seems contain this media.'));
             } else {
-                echo
-                '<ul>';
+                $list = [];
                 while ($rs->fetch()) {
-                    $img        = '<img alt="%1$s" class="mark mark-%3$s" src="images/%2$s">';
-                    $img_status = match ((int) $rs->post_status) {
-                        App::status()->post()::PUBLISHED   => sprintf($img, __('Published'), 'published.svg', 'published'),
-                        App::status()->post()::UNPUBLISHED => sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished'),
-                        App::status()->post()::SCHEDULED   => sprintf($img, __('Scheduled'), 'scheduled.svg', 'scheduled'),
-                        App::status()->post()::PENDING     => sprintf($img, __('Pending'), 'pending.svg', 'pending'),
-                        default                            => '',
-                    };
-
-                    echo
-                    '<li>' . $img_status . ' ' . '<a href="' . App::postTypes()->get($rs->post_type)->adminUrl($rs->post_id) . '">' .
-                    $rs->post_title . '</a>' .
-                    ($rs->post_type != 'post' ? ' (' . Html::escapeHTML($rs->post_type) . ')' : '') .
-                    ' - ' . Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->post_dt) . '</li>';
+                    $list[] = (new Li())
+                        ->separator(' ')
+                        ->items([
+                            App::status()->post()->image((int) $rs->post_status),
+                            (new Link())
+                                ->href(App::postTypes()->get($rs->post_type)->adminUrl($rs->post_id))
+                                ->text($rs->post_title),
+                            ($rs->post_type !== 'post' ?
+                                (new Text(null, '(' . Html::escapeHTML($rs->post_type) . ')')) :
+                                (new None())),
+                            (new Text(null, '-')),
+                            (new Text(null, Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->post_dt))),
+                        ]);
                 }
-                echo
-                '</ul>';
+
+                $entries = (new Ul())
+                    ->items($list);
             }
+
+            $media_entries = (new Set())
+                ->items([
+                    (new Text('h3', __('Entries containing this media'))),
+                    $entries,
+                ]);
         }
 
-        $details = '';
+        $metadata = [];
         if (App::backend()->file->media_title !== '') {
-            $details .= '<li><strong>' . __('Title') . __(':') . '</strong> ' . Html::escapeHTML((string) App::backend()->file->media_title) . '</li>';
+            $metadata[] = (new Li())
+                ->separator(' ')
+                ->items([
+                    (new Text('strong', __('Title'))),
+                    (new Text(null, Html::escapeHTML((string) App::backend()->file->media_title))),
+                ]);
         }
         $alttext = $getImageAlt(App::backend()->file, false);
         if ($alttext !== '') {
-            $details .= '<li><strong>' . __('Alternate text:') . '</strong> ' . Html::escapeHTML($alttext) . '</li>';
+            $metadata[] = (new Li())
+                ->separator(' ')
+                ->items([
+                    (new Text('strong', __('Alternate text:'))),
+                    (new Text(null, Html::escapeHTML($alttext))),
+                ]);
         }
         if ((is_countable(App::backend()->file->media_meta) ? count(App::backend()->file->media_meta) : 0) > 0) {
-            foreach (App::backend()->file->media_meta as $k => $v) {
-                if ($k === 'Title' && App::backend()->file->media_title !== '' && (string) $v) {
+            foreach (App::backend()->file->media_meta as $k => $value) {
+                if ($k === 'Title' && App::backend()->file->media_title !== '' && (string) $value) {
                     // Title already displayed
                     continue;
                 }
 
-                if ($k !== 'AltText' && (string) $v) {
-                    $details .= '<li><strong>' . $k . __(':') . '</strong> ' . Html::escapeHTML((string) $v) . '</li>';
+                if ($k !== 'AltText' && (string) $value) {
+                    $metadata[] = (new Li())
+                        ->separator(' ')
+                        ->items([
+                            (new Text('strong', $k . __(':'))),
+                            (new Text(null, Html::escapeHTML((string) $value))),
+                        ]);
                 }
             }
         }
-        if ($details !== '') {
-            echo
-            '<h3>' . __('Metadata') . '</h3>' .
-            '<ul>' . $details . '</ul>';
+        $media_metadata = (new None());
+        if ($metadata !== []) {
+            $media_metadata = (new Set())
+                ->items([
+                    (new Text('h3', __('Metadata'))),
+                    (new Ul())
+                        ->items($metadata),
+                ]);
         }
 
-        echo
-        '</div>' .
+        $media_details[] = (new Div('media_details'))
+            ->items([
+                (new Div())
+                    ->class('near-icon')
+                    ->items([
+                        $media_details_display,
+                        (new Text('h3', __('Media details'))),
+                        (new Ul())
+                            ->items($infos_list),
+                        $media_entries,
+                        $media_metadata,
+                    ]),
+            ]);
 
-        '<h3>' . __('Updates and modifications') . '</h3>';
+        // Media actions
+        $actions = [];
 
         if (App::backend()->file->editable && App::backend()->is_media_writable) {
             if (App::backend()->file->media_type == 'image') {
-                echo
-                '<form class="clear fieldset" action="' . App::backend()->url()->get('admin.media.item') . '" method="post">' .
-                '<h4>' . __('Update thumbnails') . '</h4>' .
-                '<p class="more-info">' . __('This will create or update thumbnails for this image.') . '</p>' .
-                '<p><input type="submit" name="thumbs" value="' . __('Update thumbnails') . '">' .
-                App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
-                App::nonce()->getFormNonce() . '</p>' .
-                '</form>';
+                $actions[] = (new Form('update-thumbnails-form'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.media.item'))
+                    ->class(['clear', 'fieldset'])
+                    ->fields([
+                        (new Text('h4', __('Update thumbnails'))),
+                        (new Note())
+                            ->text(__('This will create or update thumbnails for this image.'))
+                            ->class('more-info'),
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                (new Submit('thumbs', __('Update thumbnails'))),
+                                ... App::backend()->url()->hiddenFormFields('admin.media.item', App::backend()->page_url_params),
+                                App::nonce()->formNonce(),
+                            ]),
+                    ]);
             }
 
             if (App::backend()->file->type == 'application/zip') {
@@ -1047,116 +1230,196 @@ class MediaItem extends Process
                     __('Extract in current directory') => 'current',
                 ];
 
-                echo
-                '<form class="clear fieldset" id="file-unzip" action="' . App::backend()->url()->get('admin.media.item') . '" method="post">' .
-                '<h4>' . __('Extract archive') . '</h4>' .
-                '<ul>' .
-                '<li><strong>' . __('Extract in a new directory') . '</strong> : ' .
-                __('This will extract archive in a new directory that should not exist yet.') . '</li>' .
-                '<li><strong>' . __('Extract in current directory') . '</strong> : ' .
-                __('This will extract archive in current directory and will overwrite existing files or directory.') . '</li>' .
-                '</ul>' .
-                '<p><label for="inflate_mode" class="classic">' . __('Extract mode:') . '</label> ' .
-                form::combo('inflate_mode', $inflate_combo, 'new') .
-                '<input type="submit" name="unzip" value="' . __('Extract') . '">' .
-                App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
-                App::nonce()->getFormNonce() . '</p>' .
-                '</form>';
+                $actions[] = (new Form('file-unzip'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.media.item'))
+                    ->class(['clear', 'fieldset'])
+                    ->fields([
+                        (new Text('h4', __('Extract archive'))),
+                        (new Ul())
+                            ->items([
+                                (new Li())
+                                    ->separator(' : ')
+                                    ->items([
+                                        (new Text('strong', __('Extract in a new directory'))),
+                                        (new Text(null, __('This will extract archive in a new directory that should not exist yet.'))),
+                                    ]),
+                                (new Li())
+                                    ->separator(' : ')
+                                    ->items([
+                                        (new Text('strong', __('Extract in current directory'))),
+                                        (new Text(null, __('This will extract archive in current directory and will overwrite existing files or directory.'))),
+                                    ]),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Select('inflate_mode'))
+                                    ->items($inflate_combo)
+                                    ->default('new')
+                                    ->label(new Label(__('Extract mode:'), Label::IL_TF)),
+                                (new Submit('unzip', __('Extract'))),
+                                ... App::backend()->url()->hiddenFormFields('admin.media.item', App::backend()->page_url_params),
+                                App::nonce()->formNonce(),
+                            ]),
+                    ]);
             }
 
-            echo
-            '<form class="clear fieldset" action="' . App::backend()->url()->get('admin.media.item') . '" method="post">' .
-            '<h4>' . __('Change media properties') . '</h4>' .
-            '<p><label for="media_file">' . __('File name:') . '</label>' .
-            form::field('media_file', 30, 255, Html::escapeHTML(App::backend()->file->basename)) . '</p>' .
-            '<p><label for="media_title">' . __('Title:') . '</label>' .
-            form::field(
-                'media_title',
-                80,
-                255,
-                [
-                    'default'    => Html::escapeHTML(App::backend()->file->media_title),
-                    'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                ]
-            ) . '</p>';
+            $actions[] = (new Form('change-properties-form'))
+                ->method('post')
+                ->action(App::backend()->url()->get('admin.media.item'))
+                ->class(['clear', 'fieldset'])
+                ->fields([
+                    (new Text('h4', __('Change media properties'))),
+                    (new Para())
+                        ->items([
+                            (new Para())
+                                ->items([
+                                    (new Input('media_file'))
+                                        ->size(30)
+                                        ->maxlength(255)
+                                        ->value(Html::escapeHTML(App::backend()->file->basename))
+                                        ->label(new Label(__('File name:'), Label::OL_TF)),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Input('media_title'))
+                                        ->size(80)
+                                        ->maxlength(255)
+                                        ->value(Html::escapeHTML(App::backend()->file->media_title))
+                                        ->label(new Label(__('Title:'), Label::OL_TF))
+                                        ->lang(App::auth()->getInfo('user_lang'))
+                                        ->spellcheck(true),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Textarea('media_alt', Html::escapeHTML($getImageAlt(App::backend()->file, false))))
+                                        ->cols(80)
+                                        ->rows(5)
+                                        ->label(new Label(__('Alternate text:'), Label::OL_TF))
+                                        ->lang(App::auth()->getInfo('user_lang'))
+                                        ->spellcheck(true),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Textarea('media_desc', Html::escapeHTML($getImageLegend(App::backend()->file, 'Description'))))
+                                        ->cols(80)
+                                        ->rows(5)
+                                        ->label(new Label(__('Description:'), Label::OL_TF))
+                                        ->lang(App::auth()->getInfo('user_lang'))
+                                        ->spellcheck(true),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Datetime('media_dt', Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', App::backend()->file->media_dt))))
+                                        ->label(new Label(__('File date:'), Label::OL_TF)),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Checkbox('media_private', App::backend()->file->media_priv))
+                                        ->value('1')
+                                        ->label(new Label(__('Private'), Label::IL_FT)),
+                                ]),
+                            (new Para())
+                                ->items([
+                                    (new Select('media_path'))
+                                        ->items(App::backend()->dirs_combo)
+                                        ->default(dirname(App::backend()->file->relname))
+                                        ->label(new Label(__('New directory:'), Label::OL_TF)),
+                                ]),
+                            (new Submit('change-properties-submit', __('Save')))
+                                ->accesskey('s'),
+                            ... App::backend()->url()->hiddenFormFields('admin.media.item', App::backend()->page_url_params),
+                            App::nonce()->formNonce(),
+                        ]),
+                ]);
 
-            //            if (App::backend()->file->media_image) {
-            echo
-            '<p><label for="media_alt">' . __('Alternate text:') . '</label>' .
-            form::textArea(
-                'media_alt',
-                80,
-                5,
-                [
-                    'default'    => Html::escapeHTML($getImageAlt(App::backend()->file, false)),
-                    'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                ]
-            ) . '</p>';
-
-            echo
-            '<p><label for="media_desc">' . __('Description:') . '</label>' .
-            form::textArea(
-                'media_desc',
-                80,
-                10,
-                [
-                    'default'    => Html::escapeHTML($getImageLegend(App::backend()->file, 'Description')),
-                    'extra_html' => 'lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"',
-                ]
-            ) . '</p>';
-            //            }
-
-            echo
-            '<p><label for="media_dt">' . __('File date:') . '</label>' .
-            form::datetime('media_dt', ['default' => Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', App::backend()->file->media_dt))]) .
-            '</p>' .
-            '<p><label for="media_private" class="classic">' . form::checkbox('media_private', 1, App::backend()->file->media_priv) . ' ' .
-            __('Private') . '</label></p>' .
-            '<p><label for="media_path">' . __('New directory:') . '</label>' .
-            form::combo('media_path', App::backend()->dirs_combo, dirname(App::backend()->file->relname)) . '</p>' .
-            '<p><input type="submit" accesskey="s" value="' . __('Save') . '">' .
-            App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
-            App::nonce()->getFormNonce() . '</p>' .
-            '</form>' .
-
-            '<form class="clear fieldset" action="' . App::backend()->url()->get('admin.media.item') . '" method="post" enctype="multipart/form-data">' .
-            '<h4>' . __('Change file') . '</h4>' .
-            '<div>' . form::hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize()) . '</div>' .
-            '<p><label for="upfile">' . __('Choose a file:') .
-            ' (' . sprintf(__('Maximum size %s'), Files::size(App::config()->maxUploadSize())) . ') ' .
-            '<input type="file" id="upfile" name="upfile" size="35">' .
-            '</label></p>' .
-            '<p><input type="submit" value="' . __('Send') . '">' .
-            App::backend()->url()->getHiddenFormFields('admin.media.item', App::backend()->page_url_params) .
-            App::nonce()->getFormNonce() . '</p>' .
-            '</form>';
+            $actions[] = (new Form('change-file-form'))
+                ->method('post')
+                ->action(App::backend()->url()->get('admin.media.item'))
+                ->enctype('multipart/form-data')
+                ->class(['clear', 'fieldset'])
+                ->fields([
+                    (new Text('h4', __('Change file'))),
+                    (new Div())
+                        ->items([
+                            (new Hidden(['MAX_FILE_SIZE'], (string) App::config()->maxUploadSize())),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new FormFile('upfile'))
+                                ->size(35)
+                                ->label(new Label(__('Choose a file:') . ' (' . sprintf(__('Maximum size %s'), Files::size(App::config()->maxUploadSize())) . ')', Label::IL_TF)),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Submit('change-file-submit')),
+                            ... App::backend()->url()->hiddenFormFields('admin.media.item', App::backend()->page_url_params),
+                            App::nonce()->formNonce(),
+                        ]),
+                ]);
 
             if (App::backend()->file->del) {
-                echo
-                '<form id="delete-form" method="post" action="' . App::backend()->url()->get('admin.media') . '">' .
-                '<p><input name="delete" type="submit" class="delete" value="' . __('Delete this media') . '">' .
-                form::hidden('remove', rawurlencode(App::backend()->file->basename)) .
-                form::hidden('rmyes', 1) .
-                App::backend()->url()->getHiddenFormFields('admin.media', App::backend()->media_page_url_params) .
-                App::nonce()->getFormNonce() . '</p>' .
-                '</form>';
+                $actions[] = (new Form('delete-form'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.media'))
+                    ->fields([
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                (new Submit('delete', __('Delete this media')))
+                                    ->class('delete'),
+                                (new Hidden('remove', rawurlencode(App::backend()->file->basename))),
+                                (new Hidden('rmyes', '1')),
+                                ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->media_page_url_params),
+                                App::nonce()->formNonce(),
+                            ]),
+                    ]);
             }
 
-            # --BEHAVIOR-- adminMediaItemForm -- File
-            App::behavior()->callBehavior('adminMediaItemForm', App::backend()->file);
+            $actions[] = (new Capture(
+                # --BEHAVIOR-- adminMediaItemForm -- File
+                App::behavior()->callBehavior(...),
+                ['adminMediaItemForm', App::backend()->file]
+            ));
         }
 
-        echo
-        '</div>';
+        $media_action = (new Div())
+            ->items([
+                (new Text('h3', __('Updates and modifications'))),
+                ... $actions,
+            ]);
 
         if (App::backend()->popup && (App::backend()->select === 0) || (App::backend()->select === 1)) {
-            echo
-            '</div>';
+            $parts[] = (new Set())
+                ->items([
+                    (new Div('media-details-tab'))
+                        ->class('multi-part')
+                        ->title(__('Media details'))
+                        ->items([
+                            ... $media_details,
+                            $media_action,
+                        ]),
+                ]);
         } else {
-            // Go back button
-            echo
-            '<p><input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js"></p>';
+            $parts[] = (new Set())
+                ->items([
+                    (new Text('h3', __('Media details')))
+                        ->class('out-of-screen-if-js'),
+                    ... $media_details,
+                    $media_action,
+                    (new Para())
+                        ->items([
+                            // Go back button
+                            (new Button('back'))
+                                ->class(['go-back', 'reset', 'hidden-if-no-js'])
+                                ->value(__('Back')),
+                        ]),
+                ]);
         }
+
+        echo (new Set())
+            ->items($parts)
+        ->render();
 
         call_user_func(App::backend()->close_function);
     }

@@ -329,9 +329,8 @@ class ListingMedia extends Listing
             }
         }
 
-        $file_type     = explode('/', (string) $file->type);
-        $class_open    = 'modal-' . $file_type[0];
-        $class_preview = !$file->d && $file->media_preview ? 'media-icon-preview' : '';
+        $file_type  = explode('/', (string) $file->type);
+        $class_open = 'modal-' . $file_type[0];
 
         if ($mode === FilterMedia::MODE_LIST) {
             return (new Tr())
@@ -348,7 +347,7 @@ class ListingMedia extends Listing
                                 ->href(rawurldecode($link))
                                 ->items([
                                     (new Img($file->media_icon))
-                                        ->class(array_filter(['media-icon-square', $class_preview]))
+                                        ->class('media-icon-square')
                                         ->alt(''),
                                     (new Text(null, $query ? $filename : $display_name)),
                                 ]),
@@ -439,7 +438,7 @@ class ListingMedia extends Listing
                             ->href(rawurldecode($link))
                             ->items([
                                 (new Img($file->media_icon))
-                                    ->class(array_filter(['media-icon-square', $class_preview]))
+                                    ->class('media-icon-square')
                                     ->alt(''),
                                 (new Text(null, $query ? $filename : $display_name)),
                             ]),
