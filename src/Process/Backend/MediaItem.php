@@ -15,6 +15,7 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
 use Dotclear\Helper\File\Files;
@@ -1077,12 +1078,12 @@ class MediaItem extends Process
              * @var        string
              */
             $relname = App::con()->escape(App::backend()->file->relname);
-            $params  = [
+
+            // 1st, look inside entries content
+            $params = [
                 'post_type' => '',
-                'join'      => 'LEFT OUTER JOIN ' . App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' PM ON P.post_id = PM.post_id ',
                 'sql'       => 'AND (' .
-                'PM.media_id = ' . (int) App::backend()->id . ' ' .
-                "OR post_content_xhtml LIKE '%" . $relname . "%' " .
+                "post_content_xhtml LIKE '%" . $relname . "%' " .
                 "OR post_excerpt_xhtml LIKE '%" . $relname . "%' ",
             ];
 
@@ -1105,31 +1106,61 @@ class MediaItem extends Process
 
             $params['sql'] .= ') ';
 
-            $rs = App::blog()->getPosts($params);
+            $rsInside = App::blog()->getPosts($params);
 
-            if ($rs->isEmpty()) {
+            // 2nd, look inside entries attachments (any kind)
+            $params = [];
+            $params = [
+                'post_type' => '',
+                'join'      => 'LEFT OUTER JOIN ' . App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' PM ON P.post_id = PM.post_id ',
+                'sql'       => 'AND (PM.media_id = ' . (int) App::backend()->id . ')',
+            ];
+
+            $rsLinked = App::blog()->getPosts($params);
+
+            if ($rsInside->isEmpty() && $rsLinked->isEmpty()) {
                 $entries = (new Note())
                     ->text(__('No entry seems contain this media.'));
             } else {
-                $list = [];
-                while ($rs->fetch()) {
-                    $list[] = (new Li())
-                        ->separator(' ')
-                        ->items([
-                            App::status()->post()->image((int) $rs->post_status),
-                            (new Link())
-                                ->href(App::postTypes()->get($rs->post_type)->adminUrl($rs->post_id))
-                                ->text($rs->post_title),
-                            ($rs->post_type !== 'post' ?
-                                (new Text(null, '(' . Html::escapeHTML($rs->post_type) . ')')) :
-                                (new None())),
-                            (new Text(null, '-')),
-                            (new Text(null, Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->post_dt))),
-                        ]);
-                }
+                $entriesList = function (MetaRecord $rs): Ul {
+                    $list = [];
+                    while ($rs->fetch()) {
+                        $list[] = (new Li())
+                            ->separator(' ')
+                            ->items([
+                                App::status()->post()->image((int) $rs->post_status),
+                                (new Link())
+                                    ->href(App::postTypes()->get($rs->post_type)->adminUrl($rs->post_id))
+                                    ->text($rs->post_title),
+                                ($rs->post_type !== 'post' ?
+                                    (new Text(null, '(' . Html::escapeHTML($rs->post_type) . ')')) :
+                                    (new None())),
+                                (new Text(null, '-')),
+                                (new Text(null, Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->post_dt))),
+                            ]);
+                    }
+
+                    return (new Ul())
+                        ->items($list);
+                };
 
                 $entries = (new Ul())
-                    ->items($list);
+                    ->items([
+                        $rsInside->isEmpty() ?
+                        (new None()) :
+                        (new Li())
+                            ->items([
+                                (new Text(null, __('Inside the entry'))),
+                                $entriesList($rsInside),
+                            ]),
+                        $rsLinked->isEmpty() ?
+                        (new None()) :
+                        (new Li())
+                            ->items([
+                                (new Text(null, __('Linked to entry'))),
+                                $entriesList($rsLinked),
+                            ]),
+                    ]);
             }
 
             $media_entries = (new Set())
