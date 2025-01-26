@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 10:47+0100\n"
-"PO-Revision-Date: 2025-01-26 09:49\n"
+"PO-Revision-Date: 2025-01-26 10:13\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -4674,11 +4674,11 @@ msgstr "似乎没有文章包含这个媒体。"
 
 #: src/Process/Backend/MediaItem.php:1153
 msgid "Inside the entry"
-msgstr ""
+msgstr "入口内部"
 
 #: src/Process/Backend/MediaItem.php:1160
 msgid "Linked to entry"
-msgstr ""
+msgstr "与条目相关联"
 
 #: src/Process/Backend/MediaItem.php:1168
 msgid "Entries containing this media"
