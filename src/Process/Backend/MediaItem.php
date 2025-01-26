@@ -1109,7 +1109,6 @@ class MediaItem extends Process
             $rsInside = App::blog()->getPosts($params);
 
             // 2nd, look inside entries attachments (any kind)
-            $params = [];
             $params = [
                 'post_type' => '',
                 'join'      => 'LEFT OUTER JOIN ' . App::con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME . ' PM ON P.post_id = PM.post_id ',

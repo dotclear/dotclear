@@ -200,7 +200,7 @@ class Media extends Manager implements MediaInterface
         $this->addExcludePattern($this->blog->settings()->system->media_exclusion);
 
         // Disallow double (or more) extensions if the 1st one will allow a potential RCE (remote code execution)
-        $this->addExcludePattern('/\.(phps?|pht(ml)?|phl|phar|.?html?|inc|xml|js)[0-9]*(\.\w*)+$/');
+        $this->addExcludePattern('/\.(phps?|pht(ml)?|phl|phar|.?html?|inc|xml|js)\d*(\.\w*)+$/');
 
         if (((string) $this->blog->settings()->system->media_thumbnail_prefix !== '') && ((string) $this->blog->settings()->system->media_thumbnail_prefix !== $this->thumbnail_prefix)) {
             $this->thumbnail_prefix = (string) $this->blog->settings()->system->media_thumbnail_prefix;
