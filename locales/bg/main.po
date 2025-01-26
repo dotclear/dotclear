@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:45\n"
+"POT-Creation-Date: 2025-01-26 10:47+0100\n"
+"PO-Revision-Date: 2025-01-26 10:13\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -94,7 +94,7 @@ msgstr "Този ключ не съществува в базата данни."
 #: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:72
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:526
-#: src/Process/Backend/MediaItem.php:1003 src/Process/Backend/Post.php:713
+#: src/Process/Backend/MediaItem.php:1178 src/Process/Backend/Post.php:713
 msgid "Title"
 msgstr "Заглавие"
 
@@ -388,7 +388,7 @@ msgstr "Създаване на нова категория за публика�
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:368
 #: src/Process/Backend/Home.php:530 src/Process/Backend/Home.php:564
-#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1072
+#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1318
 #: src/Process/Backend/Post.php:661 src/Process/Backend/Post.php:709
 msgid "Title:"
 msgstr "Заглавие:"
@@ -405,7 +405,7 @@ msgstr "Родител:"
 #: src/Core/Backend/ModulesList.php:1955 src/Process/Backend/BlogPref.php:1169
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1117
+#: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1358
 #: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:920
 #: src/Process/Backend/User.php:447 src/Process/Backend/UsersActions.php:405
 #: src/Process/Install/Install.php:478
@@ -585,7 +585,7 @@ msgstr[0] "%d коментар"
 msgstr[1] "%d коментари"
 
 #: src/Core/Backend/Favorites.php:451 src/Core/Backend/Menus.php:141
-#: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:101
+#: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:139
 #: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
 #: src/Process/Backend/Search.php:194
 msgid "Search"
@@ -601,7 +601,7 @@ msgstr "Категории"
 #: src/Core/Backend/MediaPage.php:355 src/Core/Backend/MediaPage.php:405
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:777
-#: src/Process/Backend/MediaItem.php:451 src/Process/Backend/MediaItem.php:457
+#: src/Process/Backend/MediaItem.php:475 src/Process/Backend/MediaItem.php:481
 msgid "Media manager"
 msgstr "Мениджър на медиите"
 
@@ -972,13 +972,13 @@ msgstr "Приложете този файл към записа"
 msgid "Insert this file into entry"
 msgstr "Вмъкнете този файл във вписването"
 
-#: src/Core/Backend/Listing/ListingMedia.php:365
-#: src/Core/Backend/Listing/ListingMedia.php:404
+#: src/Core/Backend/Listing/ListingMedia.php:364
+#: src/Core/Backend/Listing/ListingMedia.php:403
 msgid "private media"
 msgstr "частни медии"
 
-#: src/Core/Backend/Listing/ListingMedia.php:391
-#: src/Core/Backend/Listing/ListingMedia.php:417
+#: src/Core/Backend/Listing/ListingMedia.php:390
+#: src/Core/Backend/Listing/ListingMedia.php:416
 msgid "open"
 msgstr "отворен"
 
@@ -1473,7 +1473,7 @@ msgstr "Конфигуриране \"%s\""
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1158
+#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1444
 #: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -1850,8 +1850,8 @@ msgid "Choose files"
 msgstr "Изберете файлове"
 
 #: src/Core/Backend/Page.php:1416 src/Process/Backend/LinkPopup.php:110
-#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:553
-#: src/Process/Backend/MediaItem.php:770 src/Process/Backend/Post.php:799
+#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:590
+#: src/Process/Backend/MediaItem.php:851 src/Process/Backend/Post.php:799
 #: src/Process/Backend/PostMedia.php:111
 msgid "Cancel"
 msgstr "Отмяна на"
@@ -1860,7 +1860,7 @@ msgstr "Отмяна на"
 msgid "Clean"
 msgstr "Clean"
 
-#: src/Core/Backend/Page.php:1419 src/Process/Backend/MediaItem.php:1129
+#: src/Core/Backend/Page.php:1419
 msgid "Send"
 msgstr "Изпрати"
 
@@ -1926,8 +1926,8 @@ msgstr "Не можете да създадете изображения."
 msgid "Invalid file type."
 msgstr "Невалиден тип файл."
 
-#: src/Core/Backend/ThemeConfig.php:451 src/Helper/File/Manager.php:401
-#: src/Helper/File/Manager.php:441
+#: src/Core/Backend/ThemeConfig.php:451 src/Helper/File/Manager.php:430
+#: src/Helper/File/Manager.php:470
 msgid "An error occurred while writing the file."
 msgstr "При записването на файла е възникнала грешка."
 
@@ -2190,35 +2190,35 @@ msgstr "Забележка"
 msgid "Empty entry URL"
 msgstr "Празен URL адрес на вписване"
 
-#: src/Core/Blog.php:2404
+#: src/Core/Blog.php:2408
 msgid "You are not allowed to update comments"
 msgstr "Нямате право да актуализирате коментари"
 
-#: src/Core/Blog.php:2410 src/Core/Blog.php:2416 src/Core/Blog.php:2510
+#: src/Core/Blog.php:2414 src/Core/Blog.php:2420 src/Core/Blog.php:2514
 msgid "No such comment ID"
 msgstr "Няма такъв идентификатор на коментар"
 
-#: src/Core/Blog.php:2423
+#: src/Core/Blog.php:2427
 msgid "You are not allowed to update this comment"
 msgstr "Нямате право да актуализирате този коментар"
 
-#: src/Core/Blog.php:2463
+#: src/Core/Blog.php:2467
 msgid "You are not allowed to change this comment's status"
 msgstr "Нямате право да променяте статуса на този коментар"
 
-#: src/Core/Blog.php:2504 src/Core/Blog.php:2558
+#: src/Core/Blog.php:2508 src/Core/Blog.php:2562
 msgid "You are not allowed to delete comments"
 msgstr "Нямате право да изтривате коментари"
 
-#: src/Core/Blog.php:2593
+#: src/Core/Blog.php:2597
 msgid "You must provide a comment"
 msgstr "Трябва да предоставите коментар"
 
-#: src/Core/Blog.php:2597
+#: src/Core/Blog.php:2601
 msgid "You must provide an author name"
 msgstr "Трябва да посочите името на автора."
 
-#: src/Core/Blog.php:2601
+#: src/Core/Blog.php:2605
 msgid "Email address is not valid."
 msgstr "Имейл адресът не е валиден."
 
@@ -2355,32 +2355,32 @@ msgstr "Няма съобщение в дневника"
 msgid "No blog defined."
 msgstr "Не е дефиниран блог."
 
-#: src/Core/Media.php:962 src/Core/Media.php:993
+#: src/Core/Media.php:965 src/Core/Media.php:996
 msgid "You are not a super administrator."
 msgstr "Вие не сте супер администратор."
 
-#: src/Core/Media.php:1096 src/Core/Media.php:1190 src/Core/Media.php:1271
-#: src/Core/Media.php:1293 src/Core/Media.php:1315
+#: src/Core/Media.php:1099 src/Core/Media.php:1193 src/Core/Media.php:1274
+#: src/Core/Media.php:1296 src/Core/Media.php:1318
 msgid "Permission denied."
 msgstr "Разрешението е отказано."
 
-#: src/Core/Media.php:1203
+#: src/Core/Media.php:1206
 msgid "You are not the file owner."
 msgstr "Вие не сте собственик на файла."
 
-#: src/Core/Media.php:1218
+#: src/Core/Media.php:1221
 msgid "This file is not allowed."
 msgstr "Този файл не е разрешен."
 
-#: src/Core/Media.php:1222
+#: src/Core/Media.php:1225
 msgid "New file already exists."
 msgstr "Новият файл вече съществува."
 
-#: src/Core/Media.php:1335
+#: src/Core/Media.php:1338
 msgid "File does not exist in the database."
 msgstr "Файлът не съществува в базата данни."
 
-#: src/Core/Media.php:1384
+#: src/Core/Media.php:1387
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Директорията на дестинацията за екстракция %s вече съществува."
@@ -2758,8 +2758,8 @@ msgstr "Не мога да отворя файл"
 msgid "Can't lock file"
 msgstr "Не мога да заключа файла"
 
-#: src/Helper/File/Files.php:635 src/Helper/File/Manager.php:532
-#: src/Helper/File/Manager.php:536
+#: src/Helper/File/Files.php:635 src/Helper/File/Manager.php:561
+#: src/Helper/File/Manager.php:565
 msgid "File cannot be removed."
 msgstr "Файлът не може да бъде премахнат."
 
@@ -2767,44 +2767,44 @@ msgstr "Файлът не може да бъде премахнат."
 msgid "Not enough memory to open image."
 msgstr "Няма достатъчно памет за отваряне на изображението."
 
-#: src/Helper/File/Manager.php:385 src/Helper/File/Manager.php:428
+#: src/Helper/File/Manager.php:414 src/Helper/File/Manager.php:457
 msgid "Uploading this file is not allowed."
 msgstr "Качването на този файл не е разрешено."
 
-#: src/Helper/File/Manager.php:389 src/Helper/File/Manager.php:432
+#: src/Helper/File/Manager.php:418 src/Helper/File/Manager.php:461
 msgid "Destination directory is not in jail."
 msgstr "Директорията на местоназначението не е в затвора."
 
-#: src/Helper/File/Manager.php:393
+#: src/Helper/File/Manager.php:422
 msgid "File already exists."
 msgstr "Файлът вече съществува."
 
-#: src/Helper/File/Manager.php:397 src/Helper/File/Manager.php:436
+#: src/Helper/File/Manager.php:426 src/Helper/File/Manager.php:465
 msgid "Cannot write in this directory."
 msgstr "Не може да се записва в тази директория."
 
-#: src/Helper/File/Manager.php:477
+#: src/Helper/File/Manager.php:506
 msgid "Source file does not exist."
 msgstr "Изходният файл не съществува."
 
-#: src/Helper/File/Manager.php:483 src/Helper/File/Manager.php:486
-#: src/Helper/File/Manager.php:528
+#: src/Helper/File/Manager.php:512 src/Helper/File/Manager.php:515
+#: src/Helper/File/Manager.php:557
 msgid "File is not in jail."
 msgstr "Файлът не е в затвора."
 
-#: src/Helper/File/Manager.php:490
+#: src/Helper/File/Manager.php:519
 msgid "Destination directory is not writable."
 msgstr "Директорията на местоназначението не може да се записва."
 
-#: src/Helper/File/Manager.php:494
+#: src/Helper/File/Manager.php:523
 msgid "Unable to rename file."
 msgstr "Невъзможност за преименуване на файла."
 
-#: src/Helper/File/Manager.php:552
+#: src/Helper/File/Manager.php:581
 msgid "Directory is not in jail."
 msgstr "Директорията не е в затвора."
 
-#: src/Helper/File/Manager.php:556 src/Helper/File/Manager.php:560
+#: src/Helper/File/Manager.php:585 src/Helper/File/Manager.php:589
 msgid "Directory cannot be removed."
 msgstr "Директорията не може да бъде премахната."
 
@@ -3256,7 +3256,7 @@ msgid "P"
 msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:173 src/Process/Backend/BlogPref.php:1253
-#: src/Process/Backend/MediaItem.php:647 src/Process/Backend/MediaItem.php:649
+#: src/Process/Backend/MediaItem.php:691 src/Process/Backend/MediaItem.php:696
 msgid "(none)"
 msgstr "(няма)"
 
@@ -3276,37 +3276,33 @@ msgstr "Описание, държава, дата"
 msgid "Description, City, Country, Date"
 msgstr "Описание, Град, Държава, Дата"
 
-#: src/Process/Backend/BlogPref.php:207 src/Process/Backend/MediaItem.php:540
-#: src/Process/Backend/MediaItem.php:614 src/Process/Backend/MediaItem.php:861
+#: src/Process/Backend/BlogPref.php:207 src/Process/Backend/MediaItem.php:564
+#: src/Process/Backend/MediaItem.php:665 src/Process/Backend/MediaItem.php:930
 msgid "original"
 msgstr "оригинал"
 
 #: src/Process/Backend/BlogPref.php:218 src/Process/Backend/BlogPref.php:228
-#: src/Process/Backend/MediaItem.php:644 src/Process/Backend/MediaItem.php:656
-#: src/Process/Backend/MediaItem.php:694 src/Process/Backend/MediaItem.php:738
+#: src/Process/Backend/MediaItem.php:624 src/Process/Backend/MediaItem.php:684
 msgid "None"
 msgstr "Няма"
 
-#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:657
-#: src/Process/Backend/MediaItem.php:695 src/Process/Backend/MediaItem.php:739
+#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:625
 msgid "Left"
 msgstr "Вляво"
 
-#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:658
-#: src/Process/Backend/MediaItem.php:696 src/Process/Backend/MediaItem.php:740
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:626
 msgid "Right"
 msgstr "Вдясно"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:659
-#: src/Process/Backend/MediaItem.php:697 src/Process/Backend/MediaItem.php:741
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:627
 msgid "Center"
 msgstr "Център"
 
-#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:629
+#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:677
 msgid "Legend and alternate text"
 msgstr "Легенда и алтернативен текст"
 
-#: src/Process/Backend/BlogPref.php:227 src/Process/Backend/MediaItem.php:638
+#: src/Process/Backend/BlogPref.php:227 src/Process/Backend/MediaItem.php:681
 msgid "Alternate text"
 msgstr "Алтернативен текст"
 
@@ -3939,7 +3935,8 @@ msgstr "URL:"
 msgid "Move entries to"
 msgstr "Преместване на записи в"
 
-#: src/Process/Backend/Categories.php:340 src/Process/Backend/PostsPopup.php:91
+#: src/Process/Backend/Categories.php:340
+#: src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "Добре"
 
@@ -3980,7 +3977,7 @@ msgstr "Име:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Предупреждение: Ако зададете URL адреса ръчно, той може да влезе в конфликт с друга категория."
 
-#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1097
+#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1336
 msgid "Description:"
 msgstr "Описание:"
 
@@ -4356,7 +4353,7 @@ msgstr "Заглавие на връзката:"
 msgid "Link language:"
 msgstr "Език на връзката:"
 
-#: src/Process/Backend/LinkPopup.php:112 src/Process/Backend/MediaItem.php:769
+#: src/Process/Backend/LinkPopup.php:112 src/Process/Backend/MediaItem.php:849
 msgid "Insert"
 msgstr "Вмъкване на"
 
@@ -4442,7 +4439,7 @@ msgid "Choose selected medias"
 msgstr "Изберете избрани медии"
 
 #: src/Process/Backend/Media.php:422 src/Process/Backend/Media.php:456
-#: src/Process/Backend/Media.php:483 src/Process/Backend/MediaItem.php:785
+#: src/Process/Backend/Media.php:483
 msgid "or"
 msgstr "или"
 
@@ -4512,7 +4509,7 @@ msgstr "Моля, внимавайте да публикувате медии, �
 msgid "Maximum file size allowed:"
 msgstr "Максимален разрешен размер на файла:"
 
-#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1114
+#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1349
 msgid "Private"
 msgstr "Частна"
 
@@ -4538,295 +4535,275 @@ msgstr "В %s:"
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Текущите настройки за носители и изображения са определени в %s"
 
-#: src/Process/Backend/MediaItem.php:115
+#: src/Process/Backend/MediaItem.php:139
 msgid "Not a valid file"
 msgstr "Не е валиден файл"
 
-#: src/Process/Backend/MediaItem.php:153 src/Process/Backend/MediaItem.php:215
-#: src/Process/Backend/MediaItem.php:478
+#: src/Process/Backend/MediaItem.php:177 src/Process/Backend/MediaItem.php:239
+#: src/Process/Backend/MediaItem.php:502
 msgid "File has been successfully updated."
 msgstr "Файлът е успешно актуализиран."
 
-#: src/Process/Backend/MediaItem.php:232 src/Process/Backend/MediaItem.php:481
+#: src/Process/Backend/MediaItem.php:256 src/Process/Backend/MediaItem.php:505
 msgid "Thumbnails have been successfully updated."
 msgstr "Миниатюрите бяха успешно актуализирани."
 
-#: src/Process/Backend/MediaItem.php:249
+#: src/Process/Backend/MediaItem.php:273
 msgid "Zip file has been successfully extracted."
 msgstr "Zip-файлът е успешно разархивиран."
 
-#: src/Process/Backend/MediaItem.php:279 src/Process/Backend/MediaItem.php:484
+#: src/Process/Backend/MediaItem.php:303 src/Process/Backend/MediaItem.php:508
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Настройките по подразбиране за вмъкване на медия бяха успешно актуализирани."
 
-#: src/Process/Backend/MediaItem.php:305
+#: src/Process/Backend/MediaItem.php:329
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "Настройките за вмъкване на медия са регистрирани успешно за тази папка."
 
-#: src/Process/Backend/MediaItem.php:316
+#: src/Process/Backend/MediaItem.php:340
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Настройките за вмъкване на медия бяха успешно премахнати за тази папка."
 
-#: src/Process/Backend/MediaItem.php:513 src/Process/Backend/MediaItem.php:514
-msgid "Select media item"
-msgstr "Изберете медиен елемент"
-
-#: src/Process/Backend/MediaItem.php:525 src/Process/Backend/MediaItem.php:600
+#: src/Process/Backend/MediaItem.php:558 src/Process/Backend/MediaItem.php:659
 msgid "Image size:"
 msgstr "Размер на изображението:"
 
-#: src/Process/Backend/MediaItem.php:552 src/Process/Upgrade/Attic.php:297
+#: src/Process/Backend/MediaItem.php:577 src/Process/Backend/MediaItem.php:579
+msgid "Select media item"
+msgstr "Изберете медиен елемент"
+
+#: src/Process/Backend/MediaItem.php:588 src/Process/Upgrade/Attic.php:297
 msgid "Select"
 msgstr "Изберете"
 
-#: src/Process/Backend/MediaItem.php:587 src/Process/Backend/MediaItem.php:588
-msgid "Insert media item"
-msgstr "Вмъкване на медиен елемент"
-
-#: src/Process/Backend/MediaItem.php:619
+#: src/Process/Backend/MediaItem.php:671
 msgid "Image legend and alternate text"
 msgstr "Легенда на изображението и алтернативен текст"
 
-#: src/Process/Backend/MediaItem.php:647 src/Process/Backend/MediaItem.php:1007
-#: src/Process/Backend/MediaItem.php:1085
+#: src/Process/Backend/MediaItem.php:688 src/Process/Backend/MediaItem.php:1187
+#: src/Process/Backend/MediaItem.php:1327
 msgid "Alternate text:"
 msgstr "Алтернативен текст:"
 
-#: src/Process/Backend/MediaItem.php:649
+#: src/Process/Backend/MediaItem.php:693
 msgid "Legend:"
 msgstr "Легенда:"
 
-#: src/Process/Backend/MediaItem.php:654
+#: src/Process/Backend/MediaItem.php:702
 msgid "Image alignment"
 msgstr "Подравняване на изображенията"
 
-#: src/Process/Backend/MediaItem.php:674
+#: src/Process/Backend/MediaItem.php:709
 msgid "Image insertion"
 msgstr "Вмъкване на изображение"
 
-#: src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/MediaItem.php:714
 msgid "As a single image"
 msgstr "Като единично изображение"
 
-#: src/Process/Backend/MediaItem.php:679
+#: src/Process/Backend/MediaItem.php:717
 msgid "As a link to the original image"
 msgstr "Връзка към оригиналното изображение"
 
-#: src/Process/Backend/MediaItem.php:687
+#: src/Process/Backend/MediaItem.php:734
 msgid "MP3 disposition"
 msgstr "Разпореждане с MP3"
 
-#: src/Process/Backend/MediaItem.php:690
+#: src/Process/Backend/MediaItem.php:743
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Моля, имайте предвид, че не можете да вмъквате mp3 файлове със стандартен редактор в режим WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:720
-msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
-msgstr "Моля, имайте предвид, че не можете да вмъквате видеофайлове със стандартен редактор в режим WYSIWYG HTML."
-
-#: src/Process/Backend/MediaItem.php:725
+#: src/Process/Backend/MediaItem.php:759
 msgid "Video size"
 msgstr "Размер на видеото"
 
-#: src/Process/Backend/MediaItem.php:726
+#: src/Process/Backend/MediaItem.php:763
 msgid "Width:"
 msgstr "Широчина:"
 
-#: src/Process/Backend/MediaItem.php:728
+#: src/Process/Backend/MediaItem.php:768
 msgid "Height:"
 msgstr "Височина:"
 
-#: src/Process/Backend/MediaItem.php:735
+#: src/Process/Backend/MediaItem.php:774
 msgid "Video disposition"
 msgstr "Разположение на видеото"
 
-#: src/Process/Backend/MediaItem.php:764
+#: src/Process/Backend/MediaItem.php:784
+msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
+msgstr "Моля, имайте предвид, че не можете да вмъквате видеофайлове със стандартен редактор в режим WYSIWYG HTML."
+
+#: src/Process/Backend/MediaItem.php:791
 msgid "Media item will be inserted as a link."
 msgstr "Медийният елемент ще бъде вмъкнат като връзка."
 
-#: src/Process/Backend/MediaItem.php:784
+#: src/Process/Backend/MediaItem.php:812
 msgid "Make current settings as default"
 msgstr "Направете текущите настройки по подразбиране"
 
-#: src/Process/Backend/MediaItem.php:785
+#: src/Process/Backend/MediaItem.php:813
 msgid "For the blog"
 msgstr "За блога"
 
-#: src/Process/Backend/MediaItem.php:786
+#: src/Process/Backend/MediaItem.php:815
 msgid "For this folder only"
 msgstr "Само за тази папка"
 
-#: src/Process/Backend/MediaItem.php:795
+#: src/Process/Backend/MediaItem.php:827
 msgid "Settings exist for this folder:"
 msgstr "За тази папка съществуват настройки:"
 
-#: src/Process/Backend/MediaItem.php:796
+#: src/Process/Backend/MediaItem.php:828
 msgid "Remove them"
 msgstr "Премахнете ги"
 
-#: src/Process/Backend/MediaItem.php:815 src/Process/Backend/MediaItem.php:818
-#: src/Process/Backend/MediaItem.php:899
-msgid "Media details"
-msgstr "Подробности за медиите"
+#: src/Process/Backend/MediaItem.php:838 src/Process/Backend/MediaItem.php:840
+msgid "Insert media item"
+msgstr "Вмъкване на медиен елемент"
 
-#: src/Process/Backend/MediaItem.php:850
+#: src/Process/Backend/MediaItem.php:923
 msgid "Available sizes:"
 msgstr "Налични размери:"
 
-#: src/Process/Backend/MediaItem.php:871
-msgid "Thumbnail details"
-msgstr "Подробности за миниатюрите"
-
-#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:912
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:948 src/Process/Backend/MediaItem.php:1022
+#: src/Process/Backend/MediaItem.php:1030
+#: src/Process/Backend/MediaItem.php:1041
 msgid "Image width:"
 msgstr "Ширина на изображението:"
 
-#: src/Process/Backend/MediaItem.php:877 src/Process/Backend/MediaItem.php:916
-#: src/Process/Backend/MediaItem.php:924
+#: src/Process/Backend/MediaItem.php:954 src/Process/Backend/MediaItem.php:1047
 msgid "Image height:"
 msgstr "Височина на изображението:"
 
-#: src/Process/Backend/MediaItem.php:881 src/Process/Backend/MediaItem.php:929
+#: src/Process/Backend/MediaItem.php:962 src/Process/Backend/MediaItem.php:1057
 msgid "File size:"
 msgstr "Размер на файла:"
 
-#: src/Process/Backend/MediaItem.php:884 src/Process/Backend/MediaItem.php:930
+#: src/Process/Backend/MediaItem.php:970 src/Process/Backend/MediaItem.php:1063
 msgid "File URL:"
 msgstr "Адрес на файла:"
 
-#: src/Process/Backend/MediaItem.php:901
+#: src/Process/Backend/MediaItem.php:978
+msgid "Thumbnail details"
+msgstr "Подробности за миниатюрите"
+
+#: src/Process/Backend/MediaItem.php:1001
 msgid "File owner:"
 msgstr "Собственик на файла:"
 
-#: src/Process/Backend/MediaItem.php:902
+#: src/Process/Backend/MediaItem.php:1007
 msgid "File type:"
 msgstr "Тип на файла:"
 
-#: src/Process/Backend/MediaItem.php:936
+#: src/Process/Backend/MediaItem.php:1074
 msgid "Show entries containing this media"
 msgstr "Показване на записи, съдържащи тази медия"
 
-#: src/Process/Backend/MediaItem.php:939
-msgid "Entries containing this media"
-msgstr "Записи, съдържащи тази медия"
-
-#: src/Process/Backend/MediaItem.php:976
+#: src/Process/Backend/MediaItem.php:1123
 msgid "No entry seems contain this media."
 msgstr "Изглежда, че нито един запис не съдържа тази медия."
 
-#: src/Process/Backend/MediaItem.php:983 src/Process/Backend/Post.php:479
-#: src/Schema/Status/Comment.php:31 src/Schema/Status/Post.php:31
-msgid "Published"
-msgid_plural "Published (>1)"
-msgstr[0] "Публикувано на"
-msgstr[1] "Публикувани"
+#: src/Process/Backend/MediaItem.php:1153
+msgid "Inside the entry"
+msgstr "Вътре във входа"
 
-#: src/Process/Backend/MediaItem.php:984 src/Process/Backend/Post.php:480
-#: src/Schema/Status/Comment.php:32 src/Schema/Status/Post.php:32
-msgid "Unpublished"
-msgid_plural "Unpublished (>1)"
-msgstr[0] "Непубликувано"
-msgstr[1] "Непубликувани"
+#: src/Process/Backend/MediaItem.php:1160
+msgid "Linked to entry"
+msgstr "Свързани с вписването"
 
-#: src/Process/Backend/MediaItem.php:985 src/Process/Backend/Post.php:481
-#: src/Schema/Status/Post.php:33
-msgid "Scheduled"
-msgid_plural "Scheduled (>1)"
-msgstr[0] "Планирано"
-msgstr[1] "Планирани"
+#: src/Process/Backend/MediaItem.php:1168
+msgid "Entries containing this media"
+msgstr "Записи, съдържащи тази медия"
 
-#: src/Process/Backend/MediaItem.php:986 src/Process/Backend/Post.php:482
-#: src/Schema/Status/Comment.php:33 src/Schema/Status/Post.php:34
-msgid "Pending"
-msgid_plural "Pending (>1)"
-msgstr[0] "В очакване"
-msgstr[1] "В процес на разглеждане"
-
-#: src/Process/Backend/MediaItem.php:1003
-#: src/Process/Backend/MediaItem.php:1017
+#: src/Process/Backend/MediaItem.php:1202
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1212
 msgid "Metadata"
 msgstr "Метаданни"
 
-#: src/Process/Backend/MediaItem.php:1030
-msgid "Updates and modifications"
-msgstr "Актуализации и промени"
+#: src/Process/Backend/MediaItem.php:1224
+#: src/Process/Backend/MediaItem.php:1426
+#: src/Process/Backend/MediaItem.php:1435
+msgid "Media details"
+msgstr "Подробности за медиите"
 
-#: src/Process/Backend/MediaItem.php:1036
-#: src/Process/Backend/MediaItem.php:1038
+#: src/Process/Backend/MediaItem.php:1242
+#: src/Process/Backend/MediaItem.php:1249
 msgid "Update thumbnails"
 msgstr "Актуализиране на миниатюри"
 
-#: src/Process/Backend/MediaItem.php:1037
+#: src/Process/Backend/MediaItem.php:1244
 msgid "This will create or update thumbnails for this image."
 msgstr "Това ще създаде или актуализира миниатюри за това изображение."
 
-#: src/Process/Backend/MediaItem.php:1046
-#: src/Process/Backend/MediaItem.php:1054
+#: src/Process/Backend/MediaItem.php:1258
+#: src/Process/Backend/MediaItem.php:1273
 msgid "Extract in a new directory"
 msgstr "Извличане в нова директория"
 
-#: src/Process/Backend/MediaItem.php:1047
-#: src/Process/Backend/MediaItem.php:1056
+#: src/Process/Backend/MediaItem.php:1259
+#: src/Process/Backend/MediaItem.php:1279
 msgid "Extract in current directory"
 msgstr "Извличане в текущата директория"
 
-#: src/Process/Backend/MediaItem.php:1052
+#: src/Process/Backend/MediaItem.php:1267
 msgid "Extract archive"
 msgstr "Извлечете архива"
 
-#: src/Process/Backend/MediaItem.php:1055
+#: src/Process/Backend/MediaItem.php:1274
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Това ще извлече архива в нова директория, която все още не трябва да съществува."
 
-#: src/Process/Backend/MediaItem.php:1057
+#: src/Process/Backend/MediaItem.php:1280
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Това ще екстрахира архива в текущата директория и ще презапише съществуващите файлове или директория."
 
-#: src/Process/Backend/MediaItem.php:1059
+#: src/Process/Backend/MediaItem.php:1288
 msgid "Extract mode:"
 msgstr "Режим на извличане:"
 
-#: src/Process/Backend/MediaItem.php:1061
+#: src/Process/Backend/MediaItem.php:1289
 msgid "Extract"
 msgstr "Извлечение"
 
-#: src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/MediaItem.php:1301
 msgid "Change media properties"
 msgstr "Промяна на свойствата на медиите"
 
-#: src/Process/Backend/MediaItem.php:1070
+#: src/Process/Backend/MediaItem.php:1310
 msgid "File name:"
 msgstr "Име на файла:"
 
-#: src/Process/Backend/MediaItem.php:1110
+#: src/Process/Backend/MediaItem.php:1343
 msgid "File date:"
 msgstr "Дата на файла:"
 
-#: src/Process/Backend/MediaItem.php:1115
+#: src/Process/Backend/MediaItem.php:1356
 msgid "New directory:"
 msgstr "Нова директория:"
 
-#: src/Process/Backend/MediaItem.php:1123
+#: src/Process/Backend/MediaItem.php:1371
 msgid "Change file"
 msgstr "Промяна на файла"
 
-#: src/Process/Backend/MediaItem.php:1125
+#: src/Process/Backend/MediaItem.php:1380
 msgid "Choose a file:"
 msgstr "Изберете файл:"
 
-#: src/Process/Backend/MediaItem.php:1126
+#: src/Process/Backend/MediaItem.php:1380
 #, php-format
 msgid "Maximum size %s"
 msgstr "Максимален размер %s"
 
-#: src/Process/Backend/MediaItem.php:1137
+#: src/Process/Backend/MediaItem.php:1398
 msgid "Delete this media"
 msgstr "Изтрийте тази медия"
+
+#: src/Process/Backend/MediaItem.php:1417
+msgid "Updates and modifications"
+msgstr "Актуализации и промени"
 
 #: src/Process/Backend/Plugin.php:84
 msgid "No content found on this plugin."
@@ -4934,6 +4911,33 @@ msgstr "Невалидна дата на публикуване"
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
 msgstr "Публикацията \"%s\" е успешно актуализирана"
+
+#: src/Process/Backend/Post.php:479 src/Schema/Status/Comment.php:31
+#: src/Schema/Status/Post.php:31
+msgid "Published"
+msgid_plural "Published (>1)"
+msgstr[0] "Публикувано на"
+msgstr[1] "Публикувани"
+
+#: src/Process/Backend/Post.php:480 src/Schema/Status/Comment.php:32
+#: src/Schema/Status/Post.php:32
+msgid "Unpublished"
+msgid_plural "Unpublished (>1)"
+msgstr[0] "Непубликувано"
+msgstr[1] "Непубликувани"
+
+#: src/Process/Backend/Post.php:481 src/Schema/Status/Post.php:33
+msgid "Scheduled"
+msgid_plural "Scheduled (>1)"
+msgstr[0] "Планирано"
+msgstr[1] "Планирани"
+
+#: src/Process/Backend/Post.php:482 src/Schema/Status/Comment.php:33
+#: src/Schema/Status/Post.php:34
+msgid "Pending"
+msgid_plural "Pending (>1)"
+msgstr[0] "В очакване"
+msgstr[1] "В процес на разглеждане"
 
 #: src/Process/Backend/Post.php:486
 #, php-format
@@ -5112,19 +5116,19 @@ msgstr "Избраните записи са успешно изтрити."
 msgid "Selected entries action:"
 msgstr "Действие на избраните вписвания:"
 
-#: src/Process/Backend/PostsPopup.php:79 src/Process/Backend/PostsPopup.php:86
+#: src/Process/Backend/PostsPopup.php:99 src/Process/Backend/PostsPopup.php:108
 msgid "Add a link to an entry"
 msgstr "Добавяне на връзка към даден запис"
 
-#: src/Process/Backend/PostsPopup.php:90
+#: src/Process/Backend/PostsPopup.php:120
 msgid "Entry type:"
 msgstr "Вид на вписването:"
 
-#: src/Process/Backend/PostsPopup.php:100
+#: src/Process/Backend/PostsPopup.php:138
 msgid "Search entry:"
 msgstr "Вход за търсене:"
 
-#: src/Process/Backend/PostsPopup.php:124
+#: src/Process/Backend/PostsPopup.php:154
 msgid "cancel"
 msgstr "отмяна на"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:45\n"
+"POT-Creation-Date: 2025-01-26 10:47+0100\n"
+"PO-Revision-Date: 2025-01-26 10:13\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -94,7 +94,7 @@ msgstr "Tento klíč v databázi neexistuje"
 #: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:72
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:526
-#: src/Process/Backend/MediaItem.php:1003 src/Process/Backend/Post.php:713
+#: src/Process/Backend/MediaItem.php:1178 src/Process/Backend/Post.php:713
 msgid "Title"
 msgstr "Název"
 
@@ -402,7 +402,7 @@ msgstr "Vytvořit novou kategorii pro příspěvek"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:368
 #: src/Process/Backend/Home.php:530 src/Process/Backend/Home.php:564
-#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1072
+#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1318
 #: src/Process/Backend/Post.php:661 src/Process/Backend/Post.php:709
 msgid "Title:"
 msgstr "Název:"
@@ -419,7 +419,7 @@ msgstr "Rodič:"
 #: src/Core/Backend/ModulesList.php:1955 src/Process/Backend/BlogPref.php:1169
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1117
+#: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1358
 #: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:920
 #: src/Process/Backend/User.php:447 src/Process/Backend/UsersActions.php:405
 #: src/Process/Install/Install.php:478
@@ -607,7 +607,7 @@ msgstr[2] "%d komentářů"
 msgstr[3] "%d komentářů"
 
 #: src/Core/Backend/Favorites.php:451 src/Core/Backend/Menus.php:141
-#: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:101
+#: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:139
 #: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
 #: src/Process/Backend/Search.php:194
 msgid "Search"
@@ -623,7 +623,7 @@ msgstr "Kategorie"
 #: src/Core/Backend/MediaPage.php:355 src/Core/Backend/MediaPage.php:405
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:777
-#: src/Process/Backend/MediaItem.php:451 src/Process/Backend/MediaItem.php:457
+#: src/Process/Backend/MediaItem.php:475 src/Process/Backend/MediaItem.php:481
 msgid "Media manager"
 msgstr "Média"
 
@@ -1000,13 +1000,13 @@ msgstr "Připojit tento soubor k článku"
 msgid "Insert this file into entry"
 msgstr "Vložit tento soubor do článku"
 
-#: src/Core/Backend/Listing/ListingMedia.php:365
-#: src/Core/Backend/Listing/ListingMedia.php:404
+#: src/Core/Backend/Listing/ListingMedia.php:364
+#: src/Core/Backend/Listing/ListingMedia.php:403
 msgid "private media"
 msgstr "soukromá média"
 
-#: src/Core/Backend/Listing/ListingMedia.php:391
-#: src/Core/Backend/Listing/ListingMedia.php:417
+#: src/Core/Backend/Listing/ListingMedia.php:390
+#: src/Core/Backend/Listing/ListingMedia.php:416
 msgid "open"
 msgstr "otevřít"
 
@@ -1519,7 +1519,7 @@ msgstr "Konfigurovat \"%s\""
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1158
+#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1444
 #: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -1896,8 +1896,8 @@ msgid "Choose files"
 msgstr "vybrat soubory"
 
 #: src/Core/Backend/Page.php:1416 src/Process/Backend/LinkPopup.php:110
-#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:553
-#: src/Process/Backend/MediaItem.php:770 src/Process/Backend/Post.php:799
+#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:590
+#: src/Process/Backend/MediaItem.php:851 src/Process/Backend/Post.php:799
 #: src/Process/Backend/PostMedia.php:111
 msgid "Cancel"
 msgstr "zrušit"
@@ -1906,7 +1906,7 @@ msgstr "zrušit"
 msgid "Clean"
 msgstr "vyčistit"
 
-#: src/Core/Backend/Page.php:1419 src/Process/Backend/MediaItem.php:1129
+#: src/Core/Backend/Page.php:1419
 msgid "Send"
 msgstr "Poslat"
 
@@ -1972,8 +1972,8 @@ msgstr "Nelze vytvořit obrázky."
 msgid "Invalid file type."
 msgstr "Neplatný typ souboru."
 
-#: src/Core/Backend/ThemeConfig.php:451 src/Helper/File/Manager.php:401
-#: src/Helper/File/Manager.php:441
+#: src/Core/Backend/ThemeConfig.php:451 src/Helper/File/Manager.php:430
+#: src/Helper/File/Manager.php:470
 msgid "An error occurred while writing the file."
 msgstr "Během zípisu do souboru nastala chyba."
 
@@ -2248,35 +2248,35 @@ msgstr "Poznámka"
 msgid "Empty entry URL"
 msgstr "Prázdné URL článku"
 
-#: src/Core/Blog.php:2404
+#: src/Core/Blog.php:2408
 msgid "You are not allowed to update comments"
 msgstr "Nemáte práva upravovat komentáře"
 
-#: src/Core/Blog.php:2410 src/Core/Blog.php:2416 src/Core/Blog.php:2510
+#: src/Core/Blog.php:2414 src/Core/Blog.php:2420 src/Core/Blog.php:2514
 msgid "No such comment ID"
 msgstr "Žádné takové ID komentáře"
 
-#: src/Core/Blog.php:2423
+#: src/Core/Blog.php:2427
 msgid "You are not allowed to update this comment"
 msgstr "Nemáte práva upravit tento komentář"
 
-#: src/Core/Blog.php:2463
+#: src/Core/Blog.php:2467
 msgid "You are not allowed to change this comment's status"
 msgstr "Nemáte práva změnit stav tohoto komentáře"
 
-#: src/Core/Blog.php:2504 src/Core/Blog.php:2558
+#: src/Core/Blog.php:2508 src/Core/Blog.php:2562
 msgid "You are not allowed to delete comments"
 msgstr "Nemáte práva mazat komentáře"
 
-#: src/Core/Blog.php:2593
+#: src/Core/Blog.php:2597
 msgid "You must provide a comment"
 msgstr "Musíte napsat komentář"
 
-#: src/Core/Blog.php:2597
+#: src/Core/Blog.php:2601
 msgid "You must provide an author name"
 msgstr "Musíte vložit své jméno"
 
-#: src/Core/Blog.php:2601
+#: src/Core/Blog.php:2605
 msgid "Email address is not valid."
 msgstr "E-mailová adresa není ve správném tvaru."
 
@@ -2413,32 +2413,32 @@ msgstr "Žádná log zpráva"
 msgid "No blog defined."
 msgstr "Žádný blog není definován"
 
-#: src/Core/Media.php:962 src/Core/Media.php:993
+#: src/Core/Media.php:965 src/Core/Media.php:996
 msgid "You are not a super administrator."
 msgstr "Nejste super administrátor."
 
-#: src/Core/Media.php:1096 src/Core/Media.php:1190 src/Core/Media.php:1271
-#: src/Core/Media.php:1293 src/Core/Media.php:1315
+#: src/Core/Media.php:1099 src/Core/Media.php:1193 src/Core/Media.php:1274
+#: src/Core/Media.php:1296 src/Core/Media.php:1318
 msgid "Permission denied."
 msgstr "Povolení zamítnuto."
 
-#: src/Core/Media.php:1203
+#: src/Core/Media.php:1206
 msgid "You are not the file owner."
 msgstr "Nejste vlastníkem souboru."
 
-#: src/Core/Media.php:1218
+#: src/Core/Media.php:1221
 msgid "This file is not allowed."
 msgstr "Tento soubor není povolen."
 
-#: src/Core/Media.php:1222
+#: src/Core/Media.php:1225
 msgid "New file already exists."
 msgstr "Nový soubor již existuje."
 
-#: src/Core/Media.php:1335
+#: src/Core/Media.php:1338
 msgid "File does not exist in the database."
 msgstr "Soubor neexistuje v databázi."
 
-#: src/Core/Media.php:1384
+#: src/Core/Media.php:1387
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Cílový adresář rozbalení %s již existuje."
@@ -2816,8 +2816,8 @@ msgstr "Soubor nelze otevřít"
 msgid "Can't lock file"
 msgstr "Soubor nelze uzamknout"
 
-#: src/Helper/File/Files.php:635 src/Helper/File/Manager.php:532
-#: src/Helper/File/Manager.php:536
+#: src/Helper/File/Files.php:635 src/Helper/File/Manager.php:561
+#: src/Helper/File/Manager.php:565
 msgid "File cannot be removed."
 msgstr "Soubor nelze odstranit."
 
@@ -2825,44 +2825,44 @@ msgstr "Soubor nelze odstranit."
 msgid "Not enough memory to open image."
 msgstr "Nedostatek paměti prootevření obrázku."
 
-#: src/Helper/File/Manager.php:385 src/Helper/File/Manager.php:428
+#: src/Helper/File/Manager.php:414 src/Helper/File/Manager.php:457
 msgid "Uploading this file is not allowed."
 msgstr "Tento typ souboru není pro nahrávání povolen."
 
-#: src/Helper/File/Manager.php:389 src/Helper/File/Manager.php:432
+#: src/Helper/File/Manager.php:418 src/Helper/File/Manager.php:461
 msgid "Destination directory is not in jail."
 msgstr "Cílový adresář není ve vězení."
 
-#: src/Helper/File/Manager.php:393
+#: src/Helper/File/Manager.php:422
 msgid "File already exists."
 msgstr "Soubor již existuje."
 
-#: src/Helper/File/Manager.php:397 src/Helper/File/Manager.php:436
+#: src/Helper/File/Manager.php:426 src/Helper/File/Manager.php:465
 msgid "Cannot write in this directory."
 msgstr "Nelze zapisovat do tohoto adresáře."
 
-#: src/Helper/File/Manager.php:477
+#: src/Helper/File/Manager.php:506
 msgid "Source file does not exist."
 msgstr "Zdrojový soubor neexistuje"
 
-#: src/Helper/File/Manager.php:483 src/Helper/File/Manager.php:486
-#: src/Helper/File/Manager.php:528
+#: src/Helper/File/Manager.php:512 src/Helper/File/Manager.php:515
+#: src/Helper/File/Manager.php:557
 msgid "File is not in jail."
 msgstr "Soubor není ve vězení."
 
-#: src/Helper/File/Manager.php:490
+#: src/Helper/File/Manager.php:519
 msgid "Destination directory is not writable."
 msgstr "Cílový adresář není zapisovatelný."
 
-#: src/Helper/File/Manager.php:494
+#: src/Helper/File/Manager.php:523
 msgid "Unable to rename file."
 msgstr "Nelze přejmenovat soubor."
 
-#: src/Helper/File/Manager.php:552
+#: src/Helper/File/Manager.php:581
 msgid "Directory is not in jail."
 msgstr "Adresář není ve vězení."
 
-#: src/Helper/File/Manager.php:556 src/Helper/File/Manager.php:560
+#: src/Helper/File/Manager.php:585 src/Helper/File/Manager.php:589
 msgid "Directory cannot be removed."
 msgstr "Adresář nelze přesunout."
 
@@ -3314,7 +3314,7 @@ msgid "P"
 msgstr "PR"
 
 #: src/Process/Backend/BlogPref.php:173 src/Process/Backend/BlogPref.php:1253
-#: src/Process/Backend/MediaItem.php:647 src/Process/Backend/MediaItem.php:649
+#: src/Process/Backend/MediaItem.php:691 src/Process/Backend/MediaItem.php:696
 msgid "(none)"
 msgstr "(žádný)"
 
@@ -3334,37 +3334,33 @@ msgstr "Popis, země, datum"
 msgid "Description, City, Country, Date"
 msgstr "Popis, město, země, datum"
 
-#: src/Process/Backend/BlogPref.php:207 src/Process/Backend/MediaItem.php:540
-#: src/Process/Backend/MediaItem.php:614 src/Process/Backend/MediaItem.php:861
+#: src/Process/Backend/BlogPref.php:207 src/Process/Backend/MediaItem.php:564
+#: src/Process/Backend/MediaItem.php:665 src/Process/Backend/MediaItem.php:930
 msgid "original"
 msgstr "originál"
 
 #: src/Process/Backend/BlogPref.php:218 src/Process/Backend/BlogPref.php:228
-#: src/Process/Backend/MediaItem.php:644 src/Process/Backend/MediaItem.php:656
-#: src/Process/Backend/MediaItem.php:694 src/Process/Backend/MediaItem.php:738
+#: src/Process/Backend/MediaItem.php:624 src/Process/Backend/MediaItem.php:684
 msgid "None"
 msgstr "Žádná"
 
-#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:657
-#: src/Process/Backend/MediaItem.php:695 src/Process/Backend/MediaItem.php:739
+#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:625
 msgid "Left"
 msgstr "Vlevo"
 
-#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:658
-#: src/Process/Backend/MediaItem.php:696 src/Process/Backend/MediaItem.php:740
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:626
 msgid "Right"
 msgstr "Vpravo"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:659
-#: src/Process/Backend/MediaItem.php:697 src/Process/Backend/MediaItem.php:741
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:627
 msgid "Center"
 msgstr "Na střed"
 
-#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:629
+#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:677
 msgid "Legend and alternate text"
 msgstr "Legenda a alternativní text"
 
-#: src/Process/Backend/BlogPref.php:227 src/Process/Backend/MediaItem.php:638
+#: src/Process/Backend/BlogPref.php:227 src/Process/Backend/MediaItem.php:681
 msgid "Alternate text"
 msgstr "Alternativní text"
 
@@ -3999,7 +3995,8 @@ msgstr "URL:"
 msgid "Move entries to"
 msgstr "Přesunout položky do"
 
-#: src/Process/Backend/Categories.php:340 src/Process/Backend/PostsPopup.php:91
+#: src/Process/Backend/Categories.php:340
+#: src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "Ok"
 
@@ -4040,7 +4037,7 @@ msgstr "Jméno:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Varování: Pokud nastavíte URL ručně, může nastat konflikt s jinou kategorií."
 
-#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1097
+#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1336
 msgid "Description:"
 msgstr "Popis:"
 
@@ -4416,7 +4413,7 @@ msgstr "Název odkazu:"
 msgid "Link language:"
 msgstr "Odkaz na jazyk:"
 
-#: src/Process/Backend/LinkPopup.php:112 src/Process/Backend/MediaItem.php:769
+#: src/Process/Backend/LinkPopup.php:112 src/Process/Backend/MediaItem.php:849
 msgid "Insert"
 msgstr "Vložit"
 
@@ -4504,7 +4501,7 @@ msgid "Choose selected medias"
 msgstr "Vybrat vybraná média"
 
 #: src/Process/Backend/Media.php:422 src/Process/Backend/Media.php:456
-#: src/Process/Backend/Media.php:483 src/Process/Backend/MediaItem.php:785
+#: src/Process/Backend/Media.php:483
 msgid "or"
 msgstr "nebo"
 
@@ -4574,7 +4571,7 @@ msgstr "Prosím, buďte opatrní při zveřejňování obsahu, který vlastníte
 msgid "Maximum file size allowed:"
 msgstr "Maximální velikost souboru:"
 
-#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1114
+#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1349
 msgid "Private"
 msgstr "Soukromý"
 
@@ -4600,303 +4597,275 @@ msgstr "V %s:"
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Aktuální nastavení pro média a obrázky jsou definovány v %s"
 
-#: src/Process/Backend/MediaItem.php:115
+#: src/Process/Backend/MediaItem.php:139
 msgid "Not a valid file"
 msgstr "Neplatný soubor"
 
-#: src/Process/Backend/MediaItem.php:153 src/Process/Backend/MediaItem.php:215
-#: src/Process/Backend/MediaItem.php:478
+#: src/Process/Backend/MediaItem.php:177 src/Process/Backend/MediaItem.php:239
+#: src/Process/Backend/MediaItem.php:502
 msgid "File has been successfully updated."
 msgstr "Soubor byl úspěšně aktualizován."
 
-#: src/Process/Backend/MediaItem.php:232 src/Process/Backend/MediaItem.php:481
+#: src/Process/Backend/MediaItem.php:256 src/Process/Backend/MediaItem.php:505
 msgid "Thumbnails have been successfully updated."
 msgstr "Náhledy byly úspěšně aktualizovány."
 
-#: src/Process/Backend/MediaItem.php:249
+#: src/Process/Backend/MediaItem.php:273
 msgid "Zip file has been successfully extracted."
 msgstr "Zip archív byl úspěšně rozbalen."
 
-#: src/Process/Backend/MediaItem.php:279 src/Process/Backend/MediaItem.php:484
+#: src/Process/Backend/MediaItem.php:303 src/Process/Backend/MediaItem.php:508
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Výchozí nastavení vložení média bylo úspěšně aktualizováno."
 
-#: src/Process/Backend/MediaItem.php:305
+#: src/Process/Backend/MediaItem.php:329
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "Nastavení vložení médií bylo úspěšně zaregistrováno pro tuto složku."
 
-#: src/Process/Backend/MediaItem.php:316
+#: src/Process/Backend/MediaItem.php:340
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Nastavení vložení média bylo úspěšně odstraněno pro tuto složku."
 
-#: src/Process/Backend/MediaItem.php:513 src/Process/Backend/MediaItem.php:514
-msgid "Select media item"
-msgstr "Vyberte mediální položku"
-
-#: src/Process/Backend/MediaItem.php:525 src/Process/Backend/MediaItem.php:600
+#: src/Process/Backend/MediaItem.php:558 src/Process/Backend/MediaItem.php:659
 msgid "Image size:"
 msgstr "Velikost obrázku:"
 
-#: src/Process/Backend/MediaItem.php:552 src/Process/Upgrade/Attic.php:297
+#: src/Process/Backend/MediaItem.php:577 src/Process/Backend/MediaItem.php:579
+msgid "Select media item"
+msgstr "Vyberte mediální položku"
+
+#: src/Process/Backend/MediaItem.php:588 src/Process/Upgrade/Attic.php:297
 msgid "Select"
 msgstr "Vybrat"
 
-#: src/Process/Backend/MediaItem.php:587 src/Process/Backend/MediaItem.php:588
-msgid "Insert media item"
-msgstr "Vložit multimediální soubor"
-
-#: src/Process/Backend/MediaItem.php:619
+#: src/Process/Backend/MediaItem.php:671
 msgid "Image legend and alternate text"
 msgstr "Legenda obrázku a alternativní text"
 
-#: src/Process/Backend/MediaItem.php:647 src/Process/Backend/MediaItem.php:1007
-#: src/Process/Backend/MediaItem.php:1085
+#: src/Process/Backend/MediaItem.php:688 src/Process/Backend/MediaItem.php:1187
+#: src/Process/Backend/MediaItem.php:1327
 msgid "Alternate text:"
 msgstr "Alternativní text:"
 
-#: src/Process/Backend/MediaItem.php:649
+#: src/Process/Backend/MediaItem.php:693
 msgid "Legend:"
 msgstr "Legenda:"
 
-#: src/Process/Backend/MediaItem.php:654
+#: src/Process/Backend/MediaItem.php:702
 msgid "Image alignment"
 msgstr "Zarovnání obrázku"
 
-#: src/Process/Backend/MediaItem.php:674
+#: src/Process/Backend/MediaItem.php:709
 msgid "Image insertion"
 msgstr "Vložení obrázku"
 
-#: src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/MediaItem.php:714
 msgid "As a single image"
 msgstr "Jako samotný obrázek"
 
-#: src/Process/Backend/MediaItem.php:679
+#: src/Process/Backend/MediaItem.php:717
 msgid "As a link to the original image"
 msgstr "Jako odkaz na původní obrázek"
 
-#: src/Process/Backend/MediaItem.php:687
+#: src/Process/Backend/MediaItem.php:734
 msgid "MP3 disposition"
 msgstr "Vlastnosti MP3"
 
-#: src/Process/Backend/MediaItem.php:690
+#: src/Process/Backend/MediaItem.php:743
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Upozorňujeme, že soubory mp3 nelze vkládat pomocí standardního editoru v režimu WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:720
-msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
-msgstr "Vezměte prosím na vědomí, že video soubory nelze vkládat pomocí standardního editoru v režimu WYSIWYG HTML."
-
-#: src/Process/Backend/MediaItem.php:725
+#: src/Process/Backend/MediaItem.php:759
 msgid "Video size"
 msgstr "Velikost videa"
 
-#: src/Process/Backend/MediaItem.php:726
+#: src/Process/Backend/MediaItem.php:763
 msgid "Width:"
 msgstr "Šířka:"
 
-#: src/Process/Backend/MediaItem.php:728
+#: src/Process/Backend/MediaItem.php:768
 msgid "Height:"
 msgstr "Výška:"
 
-#: src/Process/Backend/MediaItem.php:735
+#: src/Process/Backend/MediaItem.php:774
 msgid "Video disposition"
 msgstr "Vlastnosti videa"
 
-#: src/Process/Backend/MediaItem.php:764
+#: src/Process/Backend/MediaItem.php:784
+msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
+msgstr "Vezměte prosím na vědomí, že video soubory nelze vkládat pomocí standardního editoru v režimu WYSIWYG HTML."
+
+#: src/Process/Backend/MediaItem.php:791
 msgid "Media item will be inserted as a link."
 msgstr "Soubor bude vložen jako odkaz."
 
-#: src/Process/Backend/MediaItem.php:784
+#: src/Process/Backend/MediaItem.php:812
 msgid "Make current settings as default"
 msgstr "Nastavit aktuální nastavení jako výchozí"
 
-#: src/Process/Backend/MediaItem.php:785
+#: src/Process/Backend/MediaItem.php:813
 msgid "For the blog"
 msgstr "Pro blog"
 
-#: src/Process/Backend/MediaItem.php:786
+#: src/Process/Backend/MediaItem.php:815
 msgid "For this folder only"
 msgstr "Pouze pro tuto složku"
 
-#: src/Process/Backend/MediaItem.php:795
+#: src/Process/Backend/MediaItem.php:827
 msgid "Settings exist for this folder:"
 msgstr "Nastavení pro tuto složku:"
 
-#: src/Process/Backend/MediaItem.php:796
+#: src/Process/Backend/MediaItem.php:828
 msgid "Remove them"
 msgstr "Odstranit je"
 
-#: src/Process/Backend/MediaItem.php:815 src/Process/Backend/MediaItem.php:818
-#: src/Process/Backend/MediaItem.php:899
-msgid "Media details"
-msgstr "Detaily média"
+#: src/Process/Backend/MediaItem.php:838 src/Process/Backend/MediaItem.php:840
+msgid "Insert media item"
+msgstr "Vložit multimediální soubor"
 
-#: src/Process/Backend/MediaItem.php:850
+#: src/Process/Backend/MediaItem.php:923
 msgid "Available sizes:"
 msgstr "Dostupná velikost:"
 
-#: src/Process/Backend/MediaItem.php:871
-msgid "Thumbnail details"
-msgstr "Thumbnail details"
-
-#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:912
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:948 src/Process/Backend/MediaItem.php:1022
+#: src/Process/Backend/MediaItem.php:1030
+#: src/Process/Backend/MediaItem.php:1041
 msgid "Image width:"
 msgstr "Šířka obrázku:"
 
-#: src/Process/Backend/MediaItem.php:877 src/Process/Backend/MediaItem.php:916
-#: src/Process/Backend/MediaItem.php:924
+#: src/Process/Backend/MediaItem.php:954 src/Process/Backend/MediaItem.php:1047
 msgid "Image height:"
 msgstr "Výška obrázku:"
 
-#: src/Process/Backend/MediaItem.php:881 src/Process/Backend/MediaItem.php:929
+#: src/Process/Backend/MediaItem.php:962 src/Process/Backend/MediaItem.php:1057
 msgid "File size:"
 msgstr "Velikost souboru:"
 
-#: src/Process/Backend/MediaItem.php:884 src/Process/Backend/MediaItem.php:930
+#: src/Process/Backend/MediaItem.php:970 src/Process/Backend/MediaItem.php:1063
 msgid "File URL:"
 msgstr "URL souboru:"
 
-#: src/Process/Backend/MediaItem.php:901
+#: src/Process/Backend/MediaItem.php:978
+msgid "Thumbnail details"
+msgstr "Thumbnail details"
+
+#: src/Process/Backend/MediaItem.php:1001
 msgid "File owner:"
 msgstr "Vlasník:"
 
-#: src/Process/Backend/MediaItem.php:902
+#: src/Process/Backend/MediaItem.php:1007
 msgid "File type:"
 msgstr "Typ souboru:"
 
-#: src/Process/Backend/MediaItem.php:936
+#: src/Process/Backend/MediaItem.php:1074
 msgid "Show entries containing this media"
 msgstr "Zobrazit články, které obsahují tento soubor"
 
-#: src/Process/Backend/MediaItem.php:939
-msgid "Entries containing this media"
-msgstr "Články obsahující tento soubor"
-
-#: src/Process/Backend/MediaItem.php:976
+#: src/Process/Backend/MediaItem.php:1123
 msgid "No entry seems contain this media."
 msgstr "Zdá se, že žádné články neobsahují tento soubor."
 
-#: src/Process/Backend/MediaItem.php:983 src/Process/Backend/Post.php:479
-#: src/Schema/Status/Comment.php:31 src/Schema/Status/Post.php:31
-msgid "Published"
-msgid_plural "Published (>1)"
-msgstr[0] "Publikováno"
-msgstr[1] "Zveřejněno"
-msgstr[2] "Zveřejněno"
-msgstr[3] "Zveřejněno"
+#: src/Process/Backend/MediaItem.php:1153
+msgid "Inside the entry"
+msgstr "Uvnitř vchodu"
 
-#: src/Process/Backend/MediaItem.php:984 src/Process/Backend/Post.php:480
-#: src/Schema/Status/Comment.php:32 src/Schema/Status/Post.php:32
-msgid "Unpublished"
-msgid_plural "Unpublished (>1)"
-msgstr[0] "Zneveřejněno"
-msgstr[1] "Nepublikované"
-msgstr[2] "Nepublikované"
-msgstr[3] "Nepublikované"
+#: src/Process/Backend/MediaItem.php:1160
+msgid "Linked to entry"
+msgstr "Souvisí se vstupem"
 
-#: src/Process/Backend/MediaItem.php:985 src/Process/Backend/Post.php:481
-#: src/Schema/Status/Post.php:33
-msgid "Scheduled"
-msgid_plural "Scheduled (>1)"
-msgstr[0] "Naplánováno"
-msgstr[1] "Plánované"
-msgstr[2] "Plánované"
-msgstr[3] "Plánované"
+#: src/Process/Backend/MediaItem.php:1168
+msgid "Entries containing this media"
+msgstr "Články obsahující tento soubor"
 
-#: src/Process/Backend/MediaItem.php:986 src/Process/Backend/Post.php:482
-#: src/Schema/Status/Comment.php:33 src/Schema/Status/Post.php:34
-msgid "Pending"
-msgid_plural "Pending (>1)"
-msgstr[0] "Nevyřízeno"
-msgstr[1] "Čeká na vyřízení"
-msgstr[2] "Čeká na vyřízení"
-msgstr[3] "Čeká na vyřízení"
-
-#: src/Process/Backend/MediaItem.php:1003
-#: src/Process/Backend/MediaItem.php:1017
+#: src/Process/Backend/MediaItem.php:1202
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1212
 msgid "Metadata"
 msgstr "Metadata"
 
-#: src/Process/Backend/MediaItem.php:1030
-msgid "Updates and modifications"
-msgstr "Aktualizace a úpravy"
+#: src/Process/Backend/MediaItem.php:1224
+#: src/Process/Backend/MediaItem.php:1426
+#: src/Process/Backend/MediaItem.php:1435
+msgid "Media details"
+msgstr "Detaily média"
 
-#: src/Process/Backend/MediaItem.php:1036
-#: src/Process/Backend/MediaItem.php:1038
+#: src/Process/Backend/MediaItem.php:1242
+#: src/Process/Backend/MediaItem.php:1249
 msgid "Update thumbnails"
 msgstr "Aktualizovat náhledy"
 
-#: src/Process/Backend/MediaItem.php:1037
+#: src/Process/Backend/MediaItem.php:1244
 msgid "This will create or update thumbnails for this image."
 msgstr "Tímto vytvoříte nebo aktualizujete náhledy pro tento obrázek."
 
-#: src/Process/Backend/MediaItem.php:1046
-#: src/Process/Backend/MediaItem.php:1054
+#: src/Process/Backend/MediaItem.php:1258
+#: src/Process/Backend/MediaItem.php:1273
 msgid "Extract in a new directory"
 msgstr "Rozbalit v nonvém adresáři"
 
-#: src/Process/Backend/MediaItem.php:1047
-#: src/Process/Backend/MediaItem.php:1056
+#: src/Process/Backend/MediaItem.php:1259
+#: src/Process/Backend/MediaItem.php:1279
 msgid "Extract in current directory"
 msgstr "Rozbalit v aktuálním adresáři"
 
-#: src/Process/Backend/MediaItem.php:1052
+#: src/Process/Backend/MediaItem.php:1267
 msgid "Extract archive"
 msgstr "Rozbalit archiv"
 
-#: src/Process/Backend/MediaItem.php:1055
+#: src/Process/Backend/MediaItem.php:1274
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Rozbalit archí do nového adresáře, který nemusí zatím existovat."
 
-#: src/Process/Backend/MediaItem.php:1057
+#: src/Process/Backend/MediaItem.php:1280
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Tímto rozbalíte archív v aktuálním adresáři, může dojít k přepsání již existujícíh souborů nebo adresářů."
 
-#: src/Process/Backend/MediaItem.php:1059
+#: src/Process/Backend/MediaItem.php:1288
 msgid "Extract mode:"
 msgstr "Mod rozbalení:"
 
-#: src/Process/Backend/MediaItem.php:1061
+#: src/Process/Backend/MediaItem.php:1289
 msgid "Extract"
 msgstr "Extrakt"
 
-#: src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/MediaItem.php:1301
 msgid "Change media properties"
 msgstr "Změnit vlatnosti média"
 
-#: src/Process/Backend/MediaItem.php:1070
+#: src/Process/Backend/MediaItem.php:1310
 msgid "File name:"
 msgstr "Jméno souboru:"
 
-#: src/Process/Backend/MediaItem.php:1110
+#: src/Process/Backend/MediaItem.php:1343
 msgid "File date:"
 msgstr "Datum souboru:"
 
-#: src/Process/Backend/MediaItem.php:1115
+#: src/Process/Backend/MediaItem.php:1356
 msgid "New directory:"
 msgstr "V adresáři:"
 
-#: src/Process/Backend/MediaItem.php:1123
+#: src/Process/Backend/MediaItem.php:1371
 msgid "Change file"
 msgstr "Změnit soubor"
 
-#: src/Process/Backend/MediaItem.php:1125
+#: src/Process/Backend/MediaItem.php:1380
 msgid "Choose a file:"
 msgstr "Vybrat soubor:"
 
-#: src/Process/Backend/MediaItem.php:1126
+#: src/Process/Backend/MediaItem.php:1380
 #, php-format
 msgid "Maximum size %s"
 msgstr "Maximální velikost %s"
 
-#: src/Process/Backend/MediaItem.php:1137
+#: src/Process/Backend/MediaItem.php:1398
 msgid "Delete this media"
 msgstr "Odstranit toto médium"
+
+#: src/Process/Backend/MediaItem.php:1417
+msgid "Updates and modifications"
+msgstr "Aktualizace a úpravy"
 
 #: src/Process/Backend/Plugin.php:84
 msgid "No content found on this plugin."
@@ -5006,6 +4975,41 @@ msgstr "Neplatné datum publikace"
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
 msgstr "Příspěvek \"%s\" byl úspěšně aktualizován"
+
+#: src/Process/Backend/Post.php:479 src/Schema/Status/Comment.php:31
+#: src/Schema/Status/Post.php:31
+msgid "Published"
+msgid_plural "Published (>1)"
+msgstr[0] "Publikováno"
+msgstr[1] "Zveřejněno"
+msgstr[2] "Zveřejněno"
+msgstr[3] "Zveřejněno"
+
+#: src/Process/Backend/Post.php:480 src/Schema/Status/Comment.php:32
+#: src/Schema/Status/Post.php:32
+msgid "Unpublished"
+msgid_plural "Unpublished (>1)"
+msgstr[0] "Zneveřejněno"
+msgstr[1] "Nepublikované"
+msgstr[2] "Nepublikované"
+msgstr[3] "Nepublikované"
+
+#: src/Process/Backend/Post.php:481 src/Schema/Status/Post.php:33
+msgid "Scheduled"
+msgid_plural "Scheduled (>1)"
+msgstr[0] "Naplánováno"
+msgstr[1] "Plánované"
+msgstr[2] "Plánované"
+msgstr[3] "Plánované"
+
+#: src/Process/Backend/Post.php:482 src/Schema/Status/Comment.php:33
+#: src/Schema/Status/Post.php:34
+msgid "Pending"
+msgid_plural "Pending (>1)"
+msgstr[0] "Nevyřízeno"
+msgstr[1] "Čeká na vyřízení"
+msgstr[2] "Čeká na vyřízení"
+msgstr[3] "Čeká na vyřízení"
 
 #: src/Process/Backend/Post.php:486
 #, php-format
@@ -5184,19 +5188,19 @@ msgstr "Vybrané položky byly úspěšně odstraněny."
 msgid "Selected entries action:"
 msgstr "Vybrané články:"
 
-#: src/Process/Backend/PostsPopup.php:79 src/Process/Backend/PostsPopup.php:86
+#: src/Process/Backend/PostsPopup.php:99 src/Process/Backend/PostsPopup.php:108
 msgid "Add a link to an entry"
 msgstr "Přidat odkaz na článek"
 
-#: src/Process/Backend/PostsPopup.php:90
+#: src/Process/Backend/PostsPopup.php:120
 msgid "Entry type:"
 msgstr "Typ záznamu:"
 
-#: src/Process/Backend/PostsPopup.php:100
+#: src/Process/Backend/PostsPopup.php:138
 msgid "Search entry:"
 msgstr "Vyhledat článek:"
 
-#: src/Process/Backend/PostsPopup.php:124
+#: src/Process/Backend/PostsPopup.php:154
 msgid "cancel"
 msgstr "zrušit"
 
