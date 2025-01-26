@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:46\n"
+"POT-Creation-Date: 2025-01-26 10:47+0100\n"
+"PO-Revision-Date: 2025-01-26 09:49\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -94,7 +94,7 @@ msgstr "Šī atslēga neeksistē datu bāzē."
 #: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:72
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:526
-#: src/Process/Backend/MediaItem.php:1003 src/Process/Backend/Post.php:713
+#: src/Process/Backend/MediaItem.php:1178 src/Process/Backend/Post.php:713
 msgid "Title"
 msgstr "Nosaukums"
 
@@ -395,7 +395,7 @@ msgstr "Izveidot jaunu kategoriju amatam(-iem)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:368
 #: src/Process/Backend/Home.php:530 src/Process/Backend/Home.php:564
-#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1072
+#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1318
 #: src/Process/Backend/Post.php:661 src/Process/Backend/Post.php:709
 msgid "Title:"
 msgstr "Nosaukums:"
@@ -412,7 +412,7 @@ msgstr "Vecāks:"
 #: src/Core/Backend/ModulesList.php:1955 src/Process/Backend/BlogPref.php:1169
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1117
+#: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1358
 #: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:920
 #: src/Process/Backend/User.php:447 src/Process/Backend/UsersActions.php:405
 #: src/Process/Install/Install.php:478
@@ -596,7 +596,7 @@ msgstr[1] "%d komentārs"
 msgstr[2] "%d komentāri"
 
 #: src/Core/Backend/Favorites.php:451 src/Core/Backend/Menus.php:141
-#: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:101
+#: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:139
 #: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
 #: src/Process/Backend/Search.php:194
 msgid "Search"
@@ -612,7 +612,7 @@ msgstr "Kategorijas"
 #: src/Core/Backend/MediaPage.php:355 src/Core/Backend/MediaPage.php:405
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:777
-#: src/Process/Backend/MediaItem.php:451 src/Process/Backend/MediaItem.php:457
+#: src/Process/Backend/MediaItem.php:475 src/Process/Backend/MediaItem.php:481
 msgid "Media manager"
 msgstr "Mediju vadītājs"
 
@@ -986,13 +986,13 @@ msgstr "Pievienojiet šo failu ierakstam"
 msgid "Insert this file into entry"
 msgstr "Ievietojiet šo failu ierakstā"
 
-#: src/Core/Backend/Listing/ListingMedia.php:365
-#: src/Core/Backend/Listing/ListingMedia.php:404
+#: src/Core/Backend/Listing/ListingMedia.php:364
+#: src/Core/Backend/Listing/ListingMedia.php:403
 msgid "private media"
 msgstr "privātie mediji"
 
-#: src/Core/Backend/Listing/ListingMedia.php:391
-#: src/Core/Backend/Listing/ListingMedia.php:417
+#: src/Core/Backend/Listing/ListingMedia.php:390
+#: src/Core/Backend/Listing/ListingMedia.php:416
 msgid "open"
 msgstr "atvērts"
 
@@ -1496,7 +1496,7 @@ msgstr "Konfigurēt \"%s\""
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1158
+#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1444
 #: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -1873,8 +1873,8 @@ msgid "Choose files"
 msgstr "Izvēlieties failus"
 
 #: src/Core/Backend/Page.php:1416 src/Process/Backend/LinkPopup.php:110
-#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:553
-#: src/Process/Backend/MediaItem.php:770 src/Process/Backend/Post.php:799
+#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:590
+#: src/Process/Backend/MediaItem.php:851 src/Process/Backend/Post.php:799
 #: src/Process/Backend/PostMedia.php:111
 msgid "Cancel"
 msgstr "Atcelt"
@@ -1883,7 +1883,7 @@ msgstr "Atcelt"
 msgid "Clean"
 msgstr "Tīrs"
 
-#: src/Core/Backend/Page.php:1419 src/Process/Backend/MediaItem.php:1129
+#: src/Core/Backend/Page.php:1419
 msgid "Send"
 msgstr "Sūtīt"
 
@@ -1949,8 +1949,8 @@ msgstr "Nevar izveidot attēlus."
 msgid "Invalid file type."
 msgstr "Nederīgs faila tips."
 
-#: src/Core/Backend/ThemeConfig.php:451 src/Helper/File/Manager.php:401
-#: src/Helper/File/Manager.php:441
+#: src/Core/Backend/ThemeConfig.php:451 src/Helper/File/Manager.php:430
+#: src/Helper/File/Manager.php:470
 msgid "An error occurred while writing the file."
 msgstr "Rakstot failu, radās kļūda."
 
@@ -2219,35 +2219,35 @@ msgstr "Piezīme"
 msgid "Empty entry URL"
 msgstr "Tukšs ievades URL"
 
-#: src/Core/Blog.php:2404
+#: src/Core/Blog.php:2408
 msgid "You are not allowed to update comments"
 msgstr "Jums nav atļauts atjaunināt komentārus"
 
-#: src/Core/Blog.php:2410 src/Core/Blog.php:2416 src/Core/Blog.php:2510
+#: src/Core/Blog.php:2414 src/Core/Blog.php:2420 src/Core/Blog.php:2514
 msgid "No such comment ID"
 msgstr "Nav šāda komentāra ID"
 
-#: src/Core/Blog.php:2423
+#: src/Core/Blog.php:2427
 msgid "You are not allowed to update this comment"
 msgstr "Jums nav atļauts atjaunināt šo komentāru"
 
-#: src/Core/Blog.php:2463
+#: src/Core/Blog.php:2467
 msgid "You are not allowed to change this comment's status"
 msgstr "Jums nav atļauts mainīt šī komentāra statusu"
 
-#: src/Core/Blog.php:2504 src/Core/Blog.php:2558
+#: src/Core/Blog.php:2508 src/Core/Blog.php:2562
 msgid "You are not allowed to delete comments"
 msgstr "Jums nav atļauts dzēst komentārus"
 
-#: src/Core/Blog.php:2593
+#: src/Core/Blog.php:2597
 msgid "You must provide a comment"
 msgstr "Jums ir jāsniedz komentārs"
 
-#: src/Core/Blog.php:2597
+#: src/Core/Blog.php:2601
 msgid "You must provide an author name"
 msgstr "Jānorāda autora vārds"
 
-#: src/Core/Blog.php:2601
+#: src/Core/Blog.php:2605
 msgid "Email address is not valid."
 msgstr "E-pasta adrese nav derīga."
 
@@ -2384,32 +2384,32 @@ msgstr "Nav žurnāla ziņojuma"
 msgid "No blog defined."
 msgstr "Nav definēts neviens emuārs."
 
-#: src/Core/Media.php:962 src/Core/Media.php:993
+#: src/Core/Media.php:965 src/Core/Media.php:996
 msgid "You are not a super administrator."
 msgstr "Jūs neesat superadministrators."
 
-#: src/Core/Media.php:1096 src/Core/Media.php:1190 src/Core/Media.php:1271
-#: src/Core/Media.php:1293 src/Core/Media.php:1315
+#: src/Core/Media.php:1099 src/Core/Media.php:1193 src/Core/Media.php:1274
+#: src/Core/Media.php:1296 src/Core/Media.php:1318
 msgid "Permission denied."
 msgstr "Atļauja liegta."
 
-#: src/Core/Media.php:1203
+#: src/Core/Media.php:1206
 msgid "You are not the file owner."
 msgstr "Jūs neesat faila īpašnieks."
 
-#: src/Core/Media.php:1218
+#: src/Core/Media.php:1221
 msgid "This file is not allowed."
 msgstr "Šis fails nav atļauts."
 
-#: src/Core/Media.php:1222
+#: src/Core/Media.php:1225
 msgid "New file already exists."
 msgstr "Jauns fails jau pastāv."
 
-#: src/Core/Media.php:1335
+#: src/Core/Media.php:1338
 msgid "File does not exist in the database."
 msgstr "Fails datu bāzē neeksistē."
 
-#: src/Core/Media.php:1384
+#: src/Core/Media.php:1387
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Ekstrakts galamērķa direktorijs %s jau pastāv."
@@ -2787,8 +2787,8 @@ msgstr "Nevar atvērt failu"
 msgid "Can't lock file"
 msgstr "Nevar bloķēt failu"
 
-#: src/Helper/File/Files.php:635 src/Helper/File/Manager.php:532
-#: src/Helper/File/Manager.php:536
+#: src/Helper/File/Files.php:635 src/Helper/File/Manager.php:561
+#: src/Helper/File/Manager.php:565
 msgid "File cannot be removed."
 msgstr "Failu nevar noņemt."
 
@@ -2796,44 +2796,44 @@ msgstr "Failu nevar noņemt."
 msgid "Not enough memory to open image."
 msgstr "Nav pietiekami daudz atmiņas, lai atvērtu attēlu."
 
-#: src/Helper/File/Manager.php:385 src/Helper/File/Manager.php:428
+#: src/Helper/File/Manager.php:414 src/Helper/File/Manager.php:457
 msgid "Uploading this file is not allowed."
 msgstr "Šī faila augšupielāde nav atļauta."
 
-#: src/Helper/File/Manager.php:389 src/Helper/File/Manager.php:432
+#: src/Helper/File/Manager.php:418 src/Helper/File/Manager.php:461
 msgid "Destination directory is not in jail."
 msgstr "Galamērķa direktorijs neatrodas cietumā."
 
-#: src/Helper/File/Manager.php:393
+#: src/Helper/File/Manager.php:422
 msgid "File already exists."
 msgstr "Fails jau pastāv."
 
-#: src/Helper/File/Manager.php:397 src/Helper/File/Manager.php:436
+#: src/Helper/File/Manager.php:426 src/Helper/File/Manager.php:465
 msgid "Cannot write in this directory."
 msgstr "Nevar rakstīt šajā direktorijā."
 
-#: src/Helper/File/Manager.php:477
+#: src/Helper/File/Manager.php:506
 msgid "Source file does not exist."
 msgstr "Avota fails neeksistē."
 
-#: src/Helper/File/Manager.php:483 src/Helper/File/Manager.php:486
-#: src/Helper/File/Manager.php:528
+#: src/Helper/File/Manager.php:512 src/Helper/File/Manager.php:515
+#: src/Helper/File/Manager.php:557
 msgid "File is not in jail."
 msgstr "Fails neatrodas cietumā."
 
-#: src/Helper/File/Manager.php:490
+#: src/Helper/File/Manager.php:519
 msgid "Destination directory is not writable."
 msgstr "Galamērķa direktorijs nav rakstāms."
 
-#: src/Helper/File/Manager.php:494
+#: src/Helper/File/Manager.php:523
 msgid "Unable to rename file."
 msgstr "Nevar pārdēvēt failu."
 
-#: src/Helper/File/Manager.php:552
+#: src/Helper/File/Manager.php:581
 msgid "Directory is not in jail."
 msgstr "Direktorija neatrodas cietumā."
 
-#: src/Helper/File/Manager.php:556 src/Helper/File/Manager.php:560
+#: src/Helper/File/Manager.php:585 src/Helper/File/Manager.php:589
 msgid "Directory cannot be removed."
 msgstr "Direktoriju nevar noņemt."
 
@@ -3285,7 +3285,7 @@ msgid "P"
 msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:173 src/Process/Backend/BlogPref.php:1253
-#: src/Process/Backend/MediaItem.php:647 src/Process/Backend/MediaItem.php:649
+#: src/Process/Backend/MediaItem.php:691 src/Process/Backend/MediaItem.php:696
 msgid "(none)"
 msgstr "(nav)"
 
@@ -3305,37 +3305,33 @@ msgstr "Apraksts, valsts, datums"
 msgid "Description, City, Country, Date"
 msgstr "Apraksts, pilsēta, valsts, datums"
 
-#: src/Process/Backend/BlogPref.php:207 src/Process/Backend/MediaItem.php:540
-#: src/Process/Backend/MediaItem.php:614 src/Process/Backend/MediaItem.php:861
+#: src/Process/Backend/BlogPref.php:207 src/Process/Backend/MediaItem.php:564
+#: src/Process/Backend/MediaItem.php:665 src/Process/Backend/MediaItem.php:930
 msgid "original"
 msgstr "oriģināls"
 
 #: src/Process/Backend/BlogPref.php:218 src/Process/Backend/BlogPref.php:228
-#: src/Process/Backend/MediaItem.php:644 src/Process/Backend/MediaItem.php:656
-#: src/Process/Backend/MediaItem.php:694 src/Process/Backend/MediaItem.php:738
+#: src/Process/Backend/MediaItem.php:624 src/Process/Backend/MediaItem.php:684
 msgid "None"
 msgstr "Nav"
 
-#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:657
-#: src/Process/Backend/MediaItem.php:695 src/Process/Backend/MediaItem.php:739
+#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:625
 msgid "Left"
 msgstr "Pa kreisi"
 
-#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:658
-#: src/Process/Backend/MediaItem.php:696 src/Process/Backend/MediaItem.php:740
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:626
 msgid "Right"
 msgstr "Pa labi"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:659
-#: src/Process/Backend/MediaItem.php:697 src/Process/Backend/MediaItem.php:741
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:627
 msgid "Center"
 msgstr "Centrs"
 
-#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:629
+#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:677
 msgid "Legend and alternate text"
 msgstr "Leģenda un alternatīvais teksts"
 
-#: src/Process/Backend/BlogPref.php:227 src/Process/Backend/MediaItem.php:638
+#: src/Process/Backend/BlogPref.php:227 src/Process/Backend/MediaItem.php:681
 msgid "Alternate text"
 msgstr "Alternatīvs teksts"
 
@@ -3969,7 +3965,8 @@ msgstr "URL:"
 msgid "Move entries to"
 msgstr "Pārvietot ierakstus uz"
 
-#: src/Process/Backend/Categories.php:340 src/Process/Backend/PostsPopup.php:91
+#: src/Process/Backend/Categories.php:340
+#: src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "Labi"
 
@@ -4010,7 +4007,7 @@ msgstr "Vārds:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Brīdinājums: ja URL iestatāt manuāli, tas var būt pretrunā ar citu kategoriju."
 
-#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1097
+#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1336
 msgid "Description:"
 msgstr "Apraksts:"
 
@@ -4386,7 +4383,7 @@ msgstr "Saites nosaukums:"
 msgid "Link language:"
 msgstr "Saites valoda:"
 
-#: src/Process/Backend/LinkPopup.php:112 src/Process/Backend/MediaItem.php:769
+#: src/Process/Backend/LinkPopup.php:112 src/Process/Backend/MediaItem.php:849
 msgid "Insert"
 msgstr "Ievietot"
 
@@ -4473,7 +4470,7 @@ msgid "Choose selected medias"
 msgstr "Izvēlieties atlasītos medijus"
 
 #: src/Process/Backend/Media.php:422 src/Process/Backend/Media.php:456
-#: src/Process/Backend/Media.php:483 src/Process/Backend/MediaItem.php:785
+#: src/Process/Backend/Media.php:483
 msgid "or"
 msgstr "vai"
 
@@ -4543,7 +4540,7 @@ msgstr "Lūdzu, publicējiet multividi, kas jums pieder un kuri nav aizsargāti 
 msgid "Maximum file size allowed:"
 msgstr "Maksimālais atļautais faila lielums:"
 
-#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1114
+#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1349
 msgid "Private"
 msgstr "Privāts"
 
@@ -4569,299 +4566,275 @@ msgstr "In %s:"
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Pašreizējie multivides un attēlu iestatījumi ir definēti %s"
 
-#: src/Process/Backend/MediaItem.php:115
+#: src/Process/Backend/MediaItem.php:139
 msgid "Not a valid file"
 msgstr "Nav derīgs fails"
 
-#: src/Process/Backend/MediaItem.php:153 src/Process/Backend/MediaItem.php:215
-#: src/Process/Backend/MediaItem.php:478
+#: src/Process/Backend/MediaItem.php:177 src/Process/Backend/MediaItem.php:239
+#: src/Process/Backend/MediaItem.php:502
 msgid "File has been successfully updated."
 msgstr "Fails ir veiksmīgi atjaunināts."
 
-#: src/Process/Backend/MediaItem.php:232 src/Process/Backend/MediaItem.php:481
+#: src/Process/Backend/MediaItem.php:256 src/Process/Backend/MediaItem.php:505
 msgid "Thumbnails have been successfully updated."
 msgstr "Sīktēli ir veiksmīgi atjaunināti."
 
-#: src/Process/Backend/MediaItem.php:249
+#: src/Process/Backend/MediaItem.php:273
 msgid "Zip file has been successfully extracted."
 msgstr "Zip fails ir veiksmīgi izvilkts."
 
-#: src/Process/Backend/MediaItem.php:279 src/Process/Backend/MediaItem.php:484
+#: src/Process/Backend/MediaItem.php:303 src/Process/Backend/MediaItem.php:508
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Noklusējuma multivides ievietošanas iestatījumi ir veiksmīgi atjaunināti."
 
-#: src/Process/Backend/MediaItem.php:305
+#: src/Process/Backend/MediaItem.php:329
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "Multivides ievietošanas iestatījumi šai mapei ir veiksmīgi reģistrēti."
 
-#: src/Process/Backend/MediaItem.php:316
+#: src/Process/Backend/MediaItem.php:340
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Multivides ievietošanas iestatījumi šai mapei ir veiksmīgi noņemti."
 
-#: src/Process/Backend/MediaItem.php:513 src/Process/Backend/MediaItem.php:514
-msgid "Select media item"
-msgstr "Izvēlieties multivides vienumu"
-
-#: src/Process/Backend/MediaItem.php:525 src/Process/Backend/MediaItem.php:600
+#: src/Process/Backend/MediaItem.php:558 src/Process/Backend/MediaItem.php:659
 msgid "Image size:"
 msgstr "Attēla izmērs:"
 
-#: src/Process/Backend/MediaItem.php:552 src/Process/Upgrade/Attic.php:297
+#: src/Process/Backend/MediaItem.php:577 src/Process/Backend/MediaItem.php:579
+msgid "Select media item"
+msgstr "Izvēlieties multivides vienumu"
+
+#: src/Process/Backend/MediaItem.php:588 src/Process/Upgrade/Attic.php:297
 msgid "Select"
 msgstr "Izvēlieties"
 
-#: src/Process/Backend/MediaItem.php:587 src/Process/Backend/MediaItem.php:588
-msgid "Insert media item"
-msgstr "Ievietojiet multivides vienumu"
-
-#: src/Process/Backend/MediaItem.php:619
+#: src/Process/Backend/MediaItem.php:671
 msgid "Image legend and alternate text"
 msgstr "Attēla leģenda un alternatīvais teksts"
 
-#: src/Process/Backend/MediaItem.php:647 src/Process/Backend/MediaItem.php:1007
-#: src/Process/Backend/MediaItem.php:1085
+#: src/Process/Backend/MediaItem.php:688 src/Process/Backend/MediaItem.php:1187
+#: src/Process/Backend/MediaItem.php:1327
 msgid "Alternate text:"
 msgstr "Alternatīvs teksts:"
 
-#: src/Process/Backend/MediaItem.php:649
+#: src/Process/Backend/MediaItem.php:693
 msgid "Legend:"
 msgstr "Leģenda:"
 
-#: src/Process/Backend/MediaItem.php:654
+#: src/Process/Backend/MediaItem.php:702
 msgid "Image alignment"
 msgstr "Attēla izlīdzināšana"
 
-#: src/Process/Backend/MediaItem.php:674
+#: src/Process/Backend/MediaItem.php:709
 msgid "Image insertion"
 msgstr "Attēla ievietošana"
 
-#: src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/MediaItem.php:714
 msgid "As a single image"
 msgstr "Kā viens attēls"
 
-#: src/Process/Backend/MediaItem.php:679
+#: src/Process/Backend/MediaItem.php:717
 msgid "As a link to the original image"
 msgstr "Kā saite uz sākotnējo attēlu"
 
-#: src/Process/Backend/MediaItem.php:687
+#: src/Process/Backend/MediaItem.php:734
 msgid "MP3 disposition"
 msgstr "MP3 izvietojums"
 
-#: src/Process/Backend/MediaItem.php:690
+#: src/Process/Backend/MediaItem.php:743
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Lūdzu, ņemiet vērā, ka WYSIWYG HTML režīmā nevar ievietot mp3 failus ar standarta redaktoru."
 
-#: src/Process/Backend/MediaItem.php:720
-msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
-msgstr "Lūdzu, ņemiet vērā, ka nevar ievietot video failus ar standarta redaktoru WYSIWYG HTML režīmā."
-
-#: src/Process/Backend/MediaItem.php:725
+#: src/Process/Backend/MediaItem.php:759
 msgid "Video size"
 msgstr "Video izmērs"
 
-#: src/Process/Backend/MediaItem.php:726
+#: src/Process/Backend/MediaItem.php:763
 msgid "Width:"
 msgstr "Platums:"
 
-#: src/Process/Backend/MediaItem.php:728
+#: src/Process/Backend/MediaItem.php:768
 msgid "Height:"
 msgstr "Augstums:"
 
-#: src/Process/Backend/MediaItem.php:735
+#: src/Process/Backend/MediaItem.php:774
 msgid "Video disposition"
 msgstr "Video izvietojums"
 
-#: src/Process/Backend/MediaItem.php:764
+#: src/Process/Backend/MediaItem.php:784
+msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
+msgstr "Lūdzu, ņemiet vērā, ka nevar ievietot video failus ar standarta redaktoru WYSIWYG HTML režīmā."
+
+#: src/Process/Backend/MediaItem.php:791
 msgid "Media item will be inserted as a link."
 msgstr "Multivides vienums tiks ievietots kā saite."
 
-#: src/Process/Backend/MediaItem.php:784
+#: src/Process/Backend/MediaItem.php:812
 msgid "Make current settings as default"
 msgstr "Iestatiet pašreizējos iestatījumus kā noklusējuma iestatījumus"
 
-#: src/Process/Backend/MediaItem.php:785
+#: src/Process/Backend/MediaItem.php:813
 msgid "For the blog"
 msgstr "Par emuāru"
 
-#: src/Process/Backend/MediaItem.php:786
+#: src/Process/Backend/MediaItem.php:815
 msgid "For this folder only"
 msgstr "Tikai šai mapei"
 
-#: src/Process/Backend/MediaItem.php:795
+#: src/Process/Backend/MediaItem.php:827
 msgid "Settings exist for this folder:"
 msgstr "Šai mapei pastāv iestatījumi:"
 
-#: src/Process/Backend/MediaItem.php:796
+#: src/Process/Backend/MediaItem.php:828
 msgid "Remove them"
 msgstr "Noņemiet tos"
 
-#: src/Process/Backend/MediaItem.php:815 src/Process/Backend/MediaItem.php:818
-#: src/Process/Backend/MediaItem.php:899
-msgid "Media details"
-msgstr "Plašsaziņas līdzekļu informācija"
+#: src/Process/Backend/MediaItem.php:838 src/Process/Backend/MediaItem.php:840
+msgid "Insert media item"
+msgstr "Ievietojiet multivides vienumu"
 
-#: src/Process/Backend/MediaItem.php:850
+#: src/Process/Backend/MediaItem.php:923
 msgid "Available sizes:"
 msgstr "Pieejamie izmēri:"
 
-#: src/Process/Backend/MediaItem.php:871
-msgid "Thumbnail details"
-msgstr "Sīktēlu informācija"
-
-#: src/Process/Backend/MediaItem.php:876 src/Process/Backend/MediaItem.php:912
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:948 src/Process/Backend/MediaItem.php:1022
+#: src/Process/Backend/MediaItem.php:1030
+#: src/Process/Backend/MediaItem.php:1041
 msgid "Image width:"
 msgstr "Attēla platums:"
 
-#: src/Process/Backend/MediaItem.php:877 src/Process/Backend/MediaItem.php:916
-#: src/Process/Backend/MediaItem.php:924
+#: src/Process/Backend/MediaItem.php:954 src/Process/Backend/MediaItem.php:1047
 msgid "Image height:"
 msgstr "Attēla augstums:"
 
-#: src/Process/Backend/MediaItem.php:881 src/Process/Backend/MediaItem.php:929
+#: src/Process/Backend/MediaItem.php:962 src/Process/Backend/MediaItem.php:1057
 msgid "File size:"
 msgstr "Faila lielums:"
 
-#: src/Process/Backend/MediaItem.php:884 src/Process/Backend/MediaItem.php:930
+#: src/Process/Backend/MediaItem.php:970 src/Process/Backend/MediaItem.php:1063
 msgid "File URL:"
 msgstr "Faila URL:"
 
-#: src/Process/Backend/MediaItem.php:901
+#: src/Process/Backend/MediaItem.php:978
+msgid "Thumbnail details"
+msgstr "Sīktēlu informācija"
+
+#: src/Process/Backend/MediaItem.php:1001
 msgid "File owner:"
 msgstr "Faila īpašnieks:"
 
-#: src/Process/Backend/MediaItem.php:902
+#: src/Process/Backend/MediaItem.php:1007
 msgid "File type:"
 msgstr "Faila tips:"
 
-#: src/Process/Backend/MediaItem.php:936
+#: src/Process/Backend/MediaItem.php:1074
 msgid "Show entries containing this media"
 msgstr "Rādīt ierakstus, kas satur šo multividi"
 
-#: src/Process/Backend/MediaItem.php:939
-msgid "Entries containing this media"
-msgstr "Ieraksti, kas satur šo datu nesēju"
-
-#: src/Process/Backend/MediaItem.php:976
+#: src/Process/Backend/MediaItem.php:1123
 msgid "No entry seems contain this media."
 msgstr "Šķiet, ka neviens ieraksts nesatur šo mediju."
 
-#: src/Process/Backend/MediaItem.php:983 src/Process/Backend/Post.php:479
-#: src/Schema/Status/Comment.php:31 src/Schema/Status/Post.php:31
-msgid "Published"
-msgid_plural "Published (>1)"
-msgstr[0] "Publicēts"
-msgstr[1] "Publicēts"
-msgstr[2] "Publicēts"
+#: src/Process/Backend/MediaItem.php:1153
+msgid "Inside the entry"
+msgstr ""
 
-#: src/Process/Backend/MediaItem.php:984 src/Process/Backend/Post.php:480
-#: src/Schema/Status/Comment.php:32 src/Schema/Status/Post.php:32
-msgid "Unpublished"
-msgid_plural "Unpublished (>1)"
-msgstr[0] "Nepublicēts"
-msgstr[1] "Nepublicēts"
-msgstr[2] "Nepublicēts"
+#: src/Process/Backend/MediaItem.php:1160
+msgid "Linked to entry"
+msgstr ""
 
-#: src/Process/Backend/MediaItem.php:985 src/Process/Backend/Post.php:481
-#: src/Schema/Status/Post.php:33
-msgid "Scheduled"
-msgid_plural "Scheduled (>1)"
-msgstr[0] "Plānots"
-msgstr[1] "Plānots"
-msgstr[2] "Plānots"
+#: src/Process/Backend/MediaItem.php:1168
+msgid "Entries containing this media"
+msgstr "Ieraksti, kas satur šo datu nesēju"
 
-#: src/Process/Backend/MediaItem.php:986 src/Process/Backend/Post.php:482
-#: src/Schema/Status/Comment.php:33 src/Schema/Status/Post.php:34
-msgid "Pending"
-msgid_plural "Pending (>1)"
-msgstr[0] "Nepabeigts"
-msgstr[1] "Gaida"
-msgstr[2] "Nepabeigts"
-
-#: src/Process/Backend/MediaItem.php:1003
-#: src/Process/Backend/MediaItem.php:1017
+#: src/Process/Backend/MediaItem.php:1202
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1023
+#: src/Process/Backend/MediaItem.php:1212
 msgid "Metadata"
 msgstr "Metadati"
 
-#: src/Process/Backend/MediaItem.php:1030
-msgid "Updates and modifications"
-msgstr "Atjauninājumi un modifikācijas"
+#: src/Process/Backend/MediaItem.php:1224
+#: src/Process/Backend/MediaItem.php:1426
+#: src/Process/Backend/MediaItem.php:1435
+msgid "Media details"
+msgstr "Plašsaziņas līdzekļu informācija"
 
-#: src/Process/Backend/MediaItem.php:1036
-#: src/Process/Backend/MediaItem.php:1038
+#: src/Process/Backend/MediaItem.php:1242
+#: src/Process/Backend/MediaItem.php:1249
 msgid "Update thumbnails"
 msgstr "Atjaunināt sīktēlus"
 
-#: src/Process/Backend/MediaItem.php:1037
+#: src/Process/Backend/MediaItem.php:1244
 msgid "This will create or update thumbnails for this image."
 msgstr "Tādējādi šim attēlam tiks izveidoti vai atjaunināti sīktēli."
 
-#: src/Process/Backend/MediaItem.php:1046
-#: src/Process/Backend/MediaItem.php:1054
+#: src/Process/Backend/MediaItem.php:1258
+#: src/Process/Backend/MediaItem.php:1273
 msgid "Extract in a new directory"
 msgstr "Izvilkt jaunā direktorijā"
 
-#: src/Process/Backend/MediaItem.php:1047
-#: src/Process/Backend/MediaItem.php:1056
+#: src/Process/Backend/MediaItem.php:1259
+#: src/Process/Backend/MediaItem.php:1279
 msgid "Extract in current directory"
 msgstr "Izvilkt pašreizējā direktorijā"
 
-#: src/Process/Backend/MediaItem.php:1052
+#: src/Process/Backend/MediaItem.php:1267
 msgid "Extract archive"
 msgstr "Izvilkt arhīvu"
 
-#: src/Process/Backend/MediaItem.php:1055
+#: src/Process/Backend/MediaItem.php:1274
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Tādējādi arhīvs tiks izvilkts jaunā direktorijā, kuram vēl nevajadzētu pastāvēt."
 
-#: src/Process/Backend/MediaItem.php:1057
+#: src/Process/Backend/MediaItem.php:1280
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Tas izvilks arhīvu pašreizējā direktorijā un pārrakstīs esošos failus vai direktoriju."
 
-#: src/Process/Backend/MediaItem.php:1059
+#: src/Process/Backend/MediaItem.php:1288
 msgid "Extract mode:"
 msgstr "Izvilkšanas režīms:"
 
-#: src/Process/Backend/MediaItem.php:1061
+#: src/Process/Backend/MediaItem.php:1289
 msgid "Extract"
 msgstr "Ekstrakts"
 
-#: src/Process/Backend/MediaItem.php:1069
+#: src/Process/Backend/MediaItem.php:1301
 msgid "Change media properties"
 msgstr "Mainiet multivides rekvizītus"
 
-#: src/Process/Backend/MediaItem.php:1070
+#: src/Process/Backend/MediaItem.php:1310
 msgid "File name:"
 msgstr "Faila nosaukums:"
 
-#: src/Process/Backend/MediaItem.php:1110
+#: src/Process/Backend/MediaItem.php:1343
 msgid "File date:"
 msgstr "Faila datums:"
 
-#: src/Process/Backend/MediaItem.php:1115
+#: src/Process/Backend/MediaItem.php:1356
 msgid "New directory:"
 msgstr "Jauns direktorijs:"
 
-#: src/Process/Backend/MediaItem.php:1123
+#: src/Process/Backend/MediaItem.php:1371
 msgid "Change file"
 msgstr "Mainīt failu"
 
-#: src/Process/Backend/MediaItem.php:1125
+#: src/Process/Backend/MediaItem.php:1380
 msgid "Choose a file:"
 msgstr "Izvēlieties failu:"
 
-#: src/Process/Backend/MediaItem.php:1126
+#: src/Process/Backend/MediaItem.php:1380
 #, php-format
 msgid "Maximum size %s"
 msgstr "Maksimālais izmērs %s"
 
-#: src/Process/Backend/MediaItem.php:1137
+#: src/Process/Backend/MediaItem.php:1398
 msgid "Delete this media"
 msgstr "Dzēst šo multividi"
+
+#: src/Process/Backend/MediaItem.php:1417
+msgid "Updates and modifications"
+msgstr "Atjauninājumi un modifikācijas"
 
 #: src/Process/Backend/Plugin.php:84
 msgid "No content found on this plugin."
@@ -4970,6 +4943,37 @@ msgstr "Nederīgs publicēšanas datums"
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
 msgstr "Ziņa \"%s\" ir veiksmīgi atjaunināta"
+
+#: src/Process/Backend/Post.php:479 src/Schema/Status/Comment.php:31
+#: src/Schema/Status/Post.php:31
+msgid "Published"
+msgid_plural "Published (>1)"
+msgstr[0] "Publicēts"
+msgstr[1] "Publicēts"
+msgstr[2] "Publicēts"
+
+#: src/Process/Backend/Post.php:480 src/Schema/Status/Comment.php:32
+#: src/Schema/Status/Post.php:32
+msgid "Unpublished"
+msgid_plural "Unpublished (>1)"
+msgstr[0] "Nepublicēts"
+msgstr[1] "Nepublicēts"
+msgstr[2] "Nepublicēts"
+
+#: src/Process/Backend/Post.php:481 src/Schema/Status/Post.php:33
+msgid "Scheduled"
+msgid_plural "Scheduled (>1)"
+msgstr[0] "Plānots"
+msgstr[1] "Plānots"
+msgstr[2] "Plānots"
+
+#: src/Process/Backend/Post.php:482 src/Schema/Status/Comment.php:33
+#: src/Schema/Status/Post.php:34
+msgid "Pending"
+msgid_plural "Pending (>1)"
+msgstr[0] "Nepabeigts"
+msgstr[1] "Gaida"
+msgstr[2] "Nepabeigts"
 
 #: src/Process/Backend/Post.php:486
 #, php-format
@@ -5148,19 +5152,19 @@ msgstr "Atlasītie ieraksti ir veiksmīgi izdzēsti."
 msgid "Selected entries action:"
 msgstr "Atlasīto ierakstu darbība:"
 
-#: src/Process/Backend/PostsPopup.php:79 src/Process/Backend/PostsPopup.php:86
+#: src/Process/Backend/PostsPopup.php:99 src/Process/Backend/PostsPopup.php:108
 msgid "Add a link to an entry"
 msgstr "Pievienojiet saiti ierakstam"
 
-#: src/Process/Backend/PostsPopup.php:90
+#: src/Process/Backend/PostsPopup.php:120
 msgid "Entry type:"
 msgstr "Ieejas veids:"
 
-#: src/Process/Backend/PostsPopup.php:100
+#: src/Process/Backend/PostsPopup.php:138
 msgid "Search entry:"
 msgstr "Meklēšanas ieraksts:"
 
-#: src/Process/Backend/PostsPopup.php:124
+#: src/Process/Backend/PostsPopup.php:154
 msgid "cancel"
 msgstr "atcelt"
 
