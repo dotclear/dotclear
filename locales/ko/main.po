@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 10:47+0100\n"
-"PO-Revision-Date: 2025-01-26 09:49\n"
+"PO-Revision-Date: 2025-01-26 10:13\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -4674,11 +4674,11 @@ msgstr "이 미디어를 포함한 글꼭지를 못 찾았습니다."
 
 #: src/Process/Backend/MediaItem.php:1153
 msgid "Inside the entry"
-msgstr ""
+msgstr "항목 내부"
 
 #: src/Process/Backend/MediaItem.php:1160
 msgid "Linked to entry"
-msgstr ""
+msgstr "항목에 연결"
 
 #: src/Process/Backend/MediaItem.php:1168
 msgid "Entries containing this media"
