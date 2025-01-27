@@ -173,7 +173,7 @@ class ListingMedia extends Listing
      */
     private static function mediaItem(
         FilterMedia $filters,
-        $file,
+        File|array $file,
         int $index,
         bool $query = false,
         string $page_adminurl = 'admin.media'
@@ -184,27 +184,6 @@ class ListingMedia extends Listing
         }
 
         $mode = $filters->file_mode === FilterMedia::MODE_LIST ? FilterMedia::MODE_LIST : FilterMedia::MODE_GRID;
-
-        // Function to get image alternate text
-        $getImageAlt = function ($file): string {
-            if (!$file) {
-                return '';
-            }
-
-            if ((string) $file->media_title !== '') {
-                return $file->media_title;
-            }
-
-            if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
-                foreach ($file->media_meta as $k => $v) {
-                    if ((string) $v && ($k == 'AltText')) {
-                        return (string) $v;
-                    }
-                }
-            }
-
-            return '';
-        };
 
         $display_name = (string) $file->basename;
         $filename     = $query ? $file->relname : $file->basename;
@@ -363,7 +342,7 @@ class ListingMedia extends Listing
                                                         ->class(['media-private', 'mark', 'mark-locked'])
                                                         ->alt(__('private media')) :
                                                     (new None()),
-                                                (new Text(null, $getImageAlt($file))),
+                                                (new Text(null, App::media()->getMediaTitle($file))),
                                             ]),
                                 ]),
                         ]),
@@ -402,7 +381,7 @@ class ListingMedia extends Listing
                             ->class(['media-private', 'mark', 'mark-locked'])
                             ->alt(__('private media')) :
                         (new None()),
-                    (new Text(null, $getImageAlt($file))),
+                    (new Text(null, App::media()->getMediaTitle($file))),
                 ]);
             $list[] = (new Li())
                 ->separator(' - ')
@@ -459,7 +438,7 @@ class ListingMedia extends Listing
      * @param   bool                        $query          The query
      * @param   string                      $page_adminurl  The page adminurl
      */
-    public static function mediaLine(FilterMedia $filters, $file, int $index, bool $query = false, string $page_adminurl = 'admin.media'): string
+    public static function mediaLine(FilterMedia $filters, File|array $file, int $index, bool $query = false, string $page_adminurl = 'admin.media'): string
     {
         return self::mediaItem($filters, $file, $index, $query, $page_adminurl)->render();
     }

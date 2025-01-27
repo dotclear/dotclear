@@ -39,6 +39,7 @@ use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Interface\Core\ConnectionInterface;
 use Dotclear\Interface\Core\MediaInterface;
 use Dotclear\Interface\Core\PostMediaInterface;
+use stdClass;
 use Throwable;
 
 /**
@@ -953,6 +954,132 @@ class Media extends Manager implements MediaInterface
         }
 
         return $res;
+    }
+
+    /**
+     * Return media title.
+     *
+     * @param   File|stdClass      $file           Media file instance (or object like)
+     * @param   bool               $fallback       Fallback to media alternate text if no title
+     * @param   bool               $no_filename    Consider filename in title as empty string
+     */
+    public function getMediaTitle(File|stdClass $file, bool $fallback = true, bool $no_filename = true): string
+    {
+        if ((string) $file->media_title !== '') {
+            if (($no_filename) && $file->media_title != $file->basename && Files::tidyFileName($file->media_title) != $file->basename) {
+                return $file->media_title;
+            }
+
+            return $file->media_title;
+        }
+
+        // Use metadata AltText if present
+        if ($fallback && is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
+            foreach ($file->media_meta as $k => $v) {
+                if ((string) $v && ($k == 'AltText')) {
+                    return (string) $v;
+                }
+            }
+        }
+
+        return '';
+    }
+
+    /**
+     * Return media alternate text.
+     *
+     * @param   File|stdClass      $file           Media file instance (or object like)
+     * @param   bool               $fallback       Fallback to media title if no alternate text
+     * @param   bool               $no_filename    Consider filename in title as empty string
+     */
+    public function getMediaAlt(File|stdClass $file, bool $fallback = true, bool $no_filename = true): string
+    {
+        // Use metadata AltText if present
+        if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
+            foreach ($file->media_meta as $k => $v) {
+                if ((string) $v && ($k == 'AltText')) {
+                    return (string) $v;
+                }
+            }
+        }
+
+        // Fallback to title if present
+        if ($fallback && $file->media_title !== '') {
+            if (($no_filename) && ($file->media_title == $file->basename || Files::tidyFileName($file->media_title) == $file->basename)) {
+                // Do not use media filename as title
+                return '';
+            }
+
+            return $file->media_title;
+        }
+
+        return '';
+    }
+
+    /**
+     * Returns media legend.
+     *
+     * @param   File|stdClass   $file           Media file instance (or object like)
+     * @param   null|string     $pattern        Pattern to use to compose legend (null = get from blog settings), default to 'Description'
+     * @param   bool            $dto_first      Use original date-time (from meta) rather than media one
+     * @param   bool            $no_date_alone  Don't return date only if there is available legend
+     */
+    public function getMediaLegend(File|stdClass $file, ?string $pattern = null, bool $dto_first = false, bool $no_date_alone = false): string
+    {
+        $res   = [];
+        $sep   = ', ';
+        $dates = 0;
+        $items = 0;
+
+        if (is_null($pattern)) {
+            // Récupération réglage blog
+            $pattern = App::blog()->settings()->system->media_img_title_pattern;
+        }
+        if ((string) $pattern === '') {
+            $pattern = 'Description';
+        }
+
+        $pattern = preg_split('/\s*;;\s*/', (string) $pattern);
+
+        if ($pattern) {
+            foreach ($pattern as $v) {
+                if ($v === 'Title' || $v === 'Description') { // Keep Title for compatibility purpose (since 2.29)
+                    if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
+                        foreach ($file->media_meta as $k => $v) {
+                            if ((string) $v && ($k == 'Description')) {
+                                $res[] = $v;
+                                $items++;
+
+                                break;
+                            }
+                        }
+                    }
+                } elseif ($file->media_meta->{$v}) {
+                    $res[] = (string) $file->media_meta->{$v};
+                    $items++;
+                } elseif (preg_match('/^Date\((.+?)\)$/u', $v, $m)) {
+                    if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
+                        $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
+                    } else {
+                        $res[] = Date::str($m[1], $file->media_dt);
+                    }
+                    $items++;
+                    $dates++;
+                } elseif (preg_match('/^DateTimeOriginal\((.+?)\)$/u', $v, $m) && $file->media_meta->DateTimeOriginal) {
+                    $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
+                    $items++;
+                    $dates++;
+                } elseif (preg_match('/^separator\((.*?)\)$/u', $v, $m)) {
+                    $sep = $m[1];
+                }
+            }
+        }
+        if ($no_date_alone && $dates === count($res) && $dates < $items) {
+            // On ne laisse pas les dates seules, sauf si ce sont les seuls items du pattern (hors séparateur)
+            return '';
+        }
+
+        return implode($sep, $res);
     }
 
     public function rebuild(string $pwd = '', bool $recursive = false): void

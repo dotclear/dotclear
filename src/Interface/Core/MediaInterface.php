@@ -14,6 +14,7 @@ use Dotclear\Database\Cursor;
 use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Helper\File\File;
+use stdClass;
 
 /**
  * @brief   Media manager interface.
@@ -261,6 +262,34 @@ interface MediaInterface
      * @return  array<int,File>     Array of Files.
      */
     public function getPostMedia(int $post_id, $media_id = null, $link_type = null): array;
+
+    /**
+     * Return media title.
+     *
+     * @param   File|stdClass      $file           Media file instance (or object like)
+     * @param   bool               $fallback       Fallback to media alternate text if no title
+     * @param   bool               $no_filename    Consider filename in title as empty string
+     */
+    public function getMediaTitle(File|stdClass $file, bool $fallback = true, bool $no_filename = true): string;
+
+    /**
+     * Return media alternate text.
+     *
+     * @param   File|stdClass      $file           Media file instance (or object like)
+     * @param   bool               $fallback       Fallback to media title if no alternate text
+     * @param   bool               $no_filename    Consider filename in title as empty string
+     */
+    public function getMediaAlt(File|stdClass $file, bool $fallback = true, bool $no_filename = true): string;
+
+    /**
+     * Returns media legend.
+     *
+     * @param   File|stdClass      $file           Media file instance (or object like)
+     * @param   null|string        $pattern        Pattern to use to compose legend (null = get from blog settings), default to 'Description'
+     * @param   bool               $dto_first      Use original date-time (from meta) rather than media one
+     * @param   bool               $no_date_alone  Don't return date only if there is available legend
+     */
+    public function getMediaLegend(File|stdClass $file, ?string $pattern = null, bool $dto_first = false, bool $no_date_alone = false): string;
 
     /**
      * Rebuilds database items collection.

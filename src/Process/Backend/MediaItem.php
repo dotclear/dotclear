@@ -349,82 +349,6 @@ class MediaItem extends Process
     {
         // Display helpers
 
-        // Function to get image alternate text
-        $getImageAlt = function (?File $file, bool $fallback = true): string {
-            if (!$file instanceof File) {
-                return '';
-            }
-
-            // Use metadata AltText if present
-            if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
-                foreach ($file->media_meta as $k => $v) {
-                    if ((string) $v && ($k == 'AltText')) {
-                        return (string) $v;
-                    }
-                }
-            }
-
-            // Fallback to title if present
-            if ($fallback && $file->media_title !== '') {
-                return $file->media_title;
-            }
-
-            return '';
-        };
-
-        // Function to get image legend
-        $getImageLegend = function (?File $file, $pattern, bool $dto_first = false, bool $no_date_alone = false): string {
-            if (!$file instanceof File) {
-                return '';
-            }
-
-            $res     = [];
-            $pattern = preg_split('/\s*;;\s*/', (string) $pattern);
-            $sep     = ', ';
-            $dates   = 0;
-            $items   = 0;
-
-            if ($pattern) {
-                foreach ($pattern as $v) {
-                    if ($v === 'Title' || $v === 'Description') { // Keep Title for compatibility purpose (since 2.29)
-                        if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
-                            foreach ($file->media_meta as $k => $v) {
-                                if ((string) $v && ($k == 'Description')) {
-                                    $res[] = $v;
-                                    $items++;
-
-                                    break;
-                                }
-                            }
-                        }
-                    } elseif ($file->media_meta->{$v}) {
-                        $res[] = (string) $file->media_meta->{$v};
-                        $items++;
-                    } elseif (preg_match('/^Date\((.+?)\)$/u', $v, $m)) {
-                        if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
-                            $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
-                        } else {
-                            $res[] = Date::str($m[1], $file->media_dt);
-                        }
-                        $items++;
-                        $dates++;
-                    } elseif (preg_match('/^DateTimeOriginal\((.+?)\)$/u', $v, $m) && $file->media_meta->DateTimeOriginal) {
-                        $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
-                        $items++;
-                        $dates++;
-                    } elseif (preg_match('/^separator\((.*?)\)$/u', $v, $m)) {
-                        $sep = $m[1];
-                    }
-                }
-            }
-            if ($no_date_alone && $dates === count($res) && $dates < $items) {
-                // On ne laisse pas les dates seules, sauf si ce sont les seuls items du pattern (hors séparateur)
-                return '';
-            }
-
-            return implode($sep, $res);
-        };
-
         $getImageDefaults = function (?File $file): array {
             $defaults = [
                 'size'      => App::blog()->settings()->system->media_img_default_size ?: 'm',
@@ -519,13 +443,10 @@ class MediaItem extends Process
             // Selection mode
 
             // Get alternate text
-            $media_alt = $getImageAlt(App::backend()->file);
-            if ($media_alt == App::backend()->file->basename || Files::tidyFileName($media_alt) == App::backend()->file->basename) {
-                $media_alt = '';
-            }
+            $media_alt = App::media()->getMediaAlt(App::backend()->file);
 
             // Get legend
-            $media_legend = $getImageLegend(
+            $media_legend = App::media()->getMediaLegend(
                 App::backend()->file,
                 App::blog()->settings()->system->media_img_title_pattern,
                 (bool) App::blog()->settings()->system->media_img_use_dto_first,
@@ -540,10 +461,6 @@ class MediaItem extends Process
             $part_image_size = (new None());
             if (App::backend()->file->media_type == 'image') {
                 $media_type = 'image';
-                $media_alt  = $getImageAlt(App::backend()->file);
-                if ($media_alt == App::backend()->file->basename || Files::tidyFileName($media_alt) == App::backend()->file->basename) {
-                    $media_alt = '';
-                }
 
                 // Image sizes
                 $image_sizes = function () use ($defaults) {
@@ -601,13 +518,10 @@ class MediaItem extends Process
             // Insertion popup
 
             // Get alternate text
-            $media_alt = $getImageAlt(App::backend()->file);
-            if ($media_alt == App::backend()->file->basename || Files::tidyFileName($media_alt) == App::backend()->file->basename) {
-                $media_alt = '';
-            }
+            $media_alt = App::media()->getMediaAlt(App::backend()->file);
 
             // Get legend
-            $media_legend = $getImageLegend(
+            $media_legend = App::media()->getMediaLegend(
                 App::backend()->file,
                 App::blog()->settings()->system->media_img_title_pattern,
                 (bool) App::blog()->settings()->system->media_img_use_dto_first,
@@ -637,10 +551,6 @@ class MediaItem extends Process
             $media_insert_options = (new None());
             if (App::backend()->file->media_type == 'image') {
                 $media_type = 'image';
-                $media_alt  = $getImageAlt(App::backend()->file);
-                if ($media_alt == App::backend()->file->basename || Files::tidyFileName($media_alt) == App::backend()->file->basename) {
-                    $media_alt = '';
-                }
 
                 // Image sizes
                 $image_sizes = function () use ($defaults) {
@@ -785,7 +695,6 @@ class MediaItem extends Process
                     ]);
             } else {
                 $media_type = 'default';
-                $media_alt  = App::backend()->file->media_title;
 
                 $media_insert_options = (new Note())
                     ->text(__('Media item will be inserted as a link.'))
@@ -1178,7 +1087,7 @@ class MediaItem extends Process
                     (new Text(null, Html::escapeHTML((string) App::backend()->file->media_title))),
                 ]);
         }
-        $alttext = $getImageAlt(App::backend()->file, false);
+        $alttext = App::media()->getMediaAlt(App::backend()->file, false);
         if ($alttext !== '') {
             $metadata[] = (new Li())
                 ->separator(' ')
@@ -1320,7 +1229,7 @@ class MediaItem extends Process
                                 ]),
                             (new Para())
                                 ->items([
-                                    (new Textarea('media_alt', Html::escapeHTML($getImageAlt(App::backend()->file, false))))
+                                    (new Textarea('media_alt', Html::escapeHTML(App::media()->getMediaAlt(App::backend()->file, false))))
                                         ->cols(80)
                                         ->rows(5)
                                         ->label(new Label(__('Alternate text:'), Label::OL_TF))
@@ -1329,7 +1238,7 @@ class MediaItem extends Process
                                 ]),
                             (new Para())
                                 ->items([
-                                    (new Textarea('media_desc', Html::escapeHTML($getImageLegend(App::backend()->file, 'Description'))))
+                                    (new Textarea('media_desc', Html::escapeHTML(App::media()->getMediaLegend(App::backend()->file, 'Description'))))
                                         ->cols(80)
                                         ->rows(5)
                                         ->label(new Label(__('Description:'), Label::OL_TF))
