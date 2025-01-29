@@ -103,7 +103,7 @@ class BlogTheme extends Process
                         Html::escapeHTML(App::blog()->name()) => '',
                         __('Blog appearance')                 => App::backend()->list->getURL('', false),
                         // inactive link
-                        '<span class="page-title">' . __('Theme configuration') . '</span>' => '',
+                        (new Text('span', __('Theme configuration')))->class('page-title')->render() => '',
                     ]
                 )
             );
@@ -172,8 +172,8 @@ class BlogTheme extends Process
             App::behavior()->callBehavior('themesToolsHeadersV2', false),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name())                           => '',
-                    '<span class="page-title">' . __('Blog appearance') . '</span>' => '',
+                    Html::escapeHTML(App::blog()->name())                                    => '',
+                    (new Text('span', __('Blog appearance')))->class('page-title')->render() => '',
                 ]
             )
         );

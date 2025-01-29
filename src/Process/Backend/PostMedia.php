@@ -94,7 +94,8 @@ class PostMedia extends Process
             if (!empty($_GET['remove'])) {
                 Page::open(__('Remove attachment'));
 
-                echo '<h2>' . __('Attachment') . ' &rsaquo; <span class="page-title">' . __('confirm removal') . '</span></h2>';
+                echo (new Text('h2', ' &rsaquo; ' . (new Text('span', __('confirm removal')))->class('page-title')->render()))
+                ->render();
 
                 echo
                 (new Form())

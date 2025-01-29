@@ -16,6 +16,7 @@ use Dotclear\Core\Backend\Filter\FilterMedia;
 use Dotclear\Core\Backend\Listing\ListingMedia;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\File\File;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Exception;
 
@@ -391,8 +392,9 @@ class MediaPage extends FilterMedia
 
                 $element[__('Search:') . ' ' . $this->q . ' (' . sprintf(__('%s file found', '%s files found', $count), $count) . ')'] = '';
             } else {
-                $bc_url   = App::backend()->url()->get('admin.media', [...$this->values(), 'd' => '%s'], '&amp;', true);
-                $bc_media = App::media()->breadCrumb($bc_url, '<span class="page-title">%s</span>');
+                $bc_url            = App::backend()->url()->get('admin.media', [...$this->values(), 'd' => '%s'], '&amp;', true);
+                $last_item_pattern = (new Text('span', '%s'))->class('page-title')->render();
+                $bc_media          = App::media()->breadCrumb($bc_url, $last_item_pattern);
                 if ($bc_media !== '') {
                     $element[$bc_media] = '';
                     $option['hl']       = true;
