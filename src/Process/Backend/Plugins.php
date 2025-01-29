@@ -34,8 +34,6 @@ use Exception;
 
 /**
  * @since 2.27 Before as admin/plugins.php
- *
- * @todo switch Helper/Html/Form/...
  */
 class Plugins extends Process
 {
