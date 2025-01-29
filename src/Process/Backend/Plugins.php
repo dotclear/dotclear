@@ -17,10 +17,17 @@ use Dotclear\Core\Backend\ModulesList;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
+use Dotclear\Helper\Html\Form\Capture;
+use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Module\ModuleDefine;
 use Exception;
@@ -50,7 +57,9 @@ class Plugins extends Process
         if ($disabled !== []) {
             Notices::addWarningNotice(
                 __('The following plugins have been disabled :') .
-                '<ul><li>' . implode("</li>\n<li>", $disabled) . '</li></ul>',
+                (new Ul())
+                  ->items(array_map(fn ($elt) => ((new Li())->text($elt)), $disabled))
+                ->render(),
                 ['divtag' => true, 'with_ts' => false]
             );
 
@@ -120,7 +129,9 @@ class Plugins extends Process
             }
             Notices::success(
                 __('Following plugins have been installed:') .
-                '<ul><li>' . implode("</li>\n<li>", $success) . '</li></ul>',
+                (new Ul())
+                  ->items(array_map(fn ($elt) => ((new Li())->text($elt)), $success))
+                ->render(),
                 false,
                 true
             );
@@ -134,7 +145,9 @@ class Plugins extends Process
 
             Notices::error(
                 __('Following plugins have not been installed:') .
-                '<ul><li>' . implode("</li>\n<li>", $failure) . '</li></ul>',
+                (new Ul())
+                  ->items(array_map(fn ($elt) => ((new Li())->text($elt)), $failure))
+                ->render(),
                 false,
                 true
             );
@@ -142,56 +155,70 @@ class Plugins extends Process
         }
 
         // -- Display modules lists --
-        echo
-        '<div class="multi-part" id="plugins" title="' . __('Installed plugins') . '">';
+
+        $multi_parts = [];
+
+        $parts = [];
 
         # Activated modules
         $defines = App::backend()->list->modules->getDefines(
             ['state' => App::backend()->list->modules->safeMode() ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED]
         );
         if (!empty($defines)) {
-            echo
-            '<h3>' .
-            (App::auth()->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) .
-            (App::backend()->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '') .
-            '</h3>' .
-            '<p class="more-info">' . __('You can configure and manage installed plugins from this list.') . '</p>';
-
-            App::backend()->list
-                ->setList('plugin-activate')
-                ->setTab('plugins')
-                ->setDefines($defines)
-                ->displayModules(
-                    /* cols */
-                    ['expander', 'icon', 'name', 'version', 'desc', 'distrib', 'deps'],
-                    /* actions */
-                    ['deactivate', 'delete', 'behavior']
-                );
+            $parts[] = (new Set())
+                ->items([
+                    (new Text(
+                        'h3',
+                        (App::auth()->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) .
+                        (App::backend()->list->modules->safeMode() ? ' ' . __('(in normal mode)') : '')
+                    )),
+                    (new Note())
+                        ->class('more-info')
+                        ->text(__('You can configure and manage installed plugins from this list.')),
+                    (new Capture(App::backend()->list
+                        ->setList('plugin-activate')
+                        ->setTab('plugins')
+                        ->setDefines($defines)
+                        ->displayModules(...), [
+                            // cols
+                            ['expander', 'icon', 'name', 'version', 'desc', 'distrib', 'deps'],
+                            // actions
+                            ['deactivate', 'delete', 'behavior'],
+                        ])),
+                ]);
         }
 
         # Deactivated modules
         if (App::auth()->isSuperAdmin()) {
             $defines = App::backend()->list->modules->getDefines(['state' => ModuleDefine::STATE_HARD_DISABLED]);
             if (!empty($defines)) {
-                echo
-                '<h3>' . __('Deactivated plugins') . '</h3>' .
-                '<p class="more-info">' . __('Deactivated plugins are installed but not usable. You can activate them from here.') . '</p>';
-
-                App::backend()->list
-                    ->setList('plugin-deactivate')
-                    ->setTab('plugins')
-                    ->setDefines($defines)
-                    ->displayModules(
-                        /* cols */
-                        ['expander', 'icon', 'name', 'version', 'desc', 'distrib'],
-                        /* actions */
-                        ['activate', 'delete']
-                    );
+                $parts[] = (new Set())
+                    ->items([
+                        (new Text(
+                            'h3',
+                            __('Deactivated plugins')
+                        )),
+                        (new Note())
+                            ->class('more-info')
+                            ->text(__('Deactivated plugins are installed but not usable. You can activate them from here.')),
+                        (new Capture(App::backend()->list
+                            ->setList('plugin-deactivate')
+                            ->setTab('plugins')
+                            ->setDefines($defines)
+                            ->displayModules(...), [
+                                // cols
+                                ['expander', 'icon', 'name', 'version', 'desc', 'distrib'],
+                                // actions
+                                ['activate', 'delete'],
+                            ])),
+                    ]);
             }
         }
 
-        echo
-        '</div>';
+        $multi_parts[] = (new Div('plugins'))
+            ->title(__('Installed plugins'))
+            ->class('multi-part')
+            ->items($parts);
 
         // Updatable modules
         if (App::auth()->isSuperAdmin()) {
@@ -214,57 +241,48 @@ class Plugins extends Process
             $defines = $tmp->getArrayCopy();
             $updates = empty($defines) ? '' : sprintf(' (%s)', count($defines));
 
-            echo
-            '<div class="multi-part" id="update" title="' . Html::escapeHTML(__('Update plugins')) . $updates . '">' .
-            '<h3>' . Html::escapeHTML(__('Update plugins')) . '</h3>';
-
-            echo
-            (new Form('force-checking'))
-                ->action(App::backend()->list->getURL('', true, 'update'))
-                ->method('get')
-                ->fields([
-                    (new Para())
-                    ->items([
-                        (new Hidden('nocache', '1')),
-                        (new Hidden(['process'], 'Plugins')),
-                        (new Submit('force-checking-update', __('Force checking update of plugins'))),
-                    ]),
-                ])
-                ->render();
-
+            $parts = [];
             if (empty($defines)) {
-                echo
-                '<p>' . __('No updates available for plugins.') . '</p>';
+                $parts[] = (new Note())
+                    ->text(__('No updates available for plugins.'));
             } else {
-                echo
-                '<p>' . sprintf(
-                    __(
-                        'There is one plugin update available:',
-                        'There are %s plugin updates available:',
-                        count($defines)
-                    ),
-                    count($defines)
-                ) . '</p>';
+                $parts[] = (new Note())
+                    ->text(sprintf(__('There is one plugin update available:', 'There are %s plugin updates available:', count($defines)), count($defines)));
 
-                App::backend()->list
+                $parts[] = (new Capture(App::backend()->list
                     ->setList('plugin-update')
                     ->setTab('update')
                     ->setDefines($defines)
-                    ->displayModules(
-                        /* cols */
+                    ->displayModules(...), [
+                        // cols
                         ['checkbox', 'icon', 'name', 'version', 'repository', 'current_version', 'desc'],
-                        /* actions */
-                        ['update', 'behavior']
-                    );
+                        // actions
+                        ['update', 'behavior'],
+                    ]));
 
-                echo
-                '<p class="info vertical-separator">' . sprintf(
-                    __('Visit %s repository, the resources center for Dotclear.'),
-                    '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>'
-                ) .
-                '</p>';
+                $parts[] = (new Note())
+                    ->class(['info', 'vertical-separator'])
+                    ->text(sprintf(__('Visit %s repository, the resources center for Dotclear.'), '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>'));
             }
-            echo '</div>';
+
+            $multi_parts[] = (new Div('update'))
+                ->title(Html::escapeHTML(__('Update plugins')) . $updates)
+                ->class('multi-part')
+                ->items([
+                    (new Text('h3', __('Update plugins'))),
+                    (new Form('force-checking'))
+                        ->action(App::backend()->list->getURL('', true, 'update'))
+                        ->method('get')
+                        ->fields([
+                            (new Para())
+                            ->items([
+                                (new Hidden('nocache', '1')),
+                                (new Hidden(['process'], 'Plugins')),
+                                (new Submit('force-checking-update', __('Force checking update of plugins'))),
+                            ]),
+                        ]),
+                    ... $parts,
+                ]);
         }
 
         if (App::auth()->isSuperAdmin() && App::backend()->list->isWritablePath()) {
@@ -273,54 +291,61 @@ class Plugins extends Process
             $defines = $search ? App::backend()->list->store->searchDefines($search) : App::backend()->list->store->getDefines();
 
             if (!empty($search) || !empty($defines)) {
-                echo
-                '<div class="multi-part" id="new" title="' . __('Add plugins') . '">' .
-                '<h3>' . __('Add plugins from repository') . '</h3>';
-
                 App::backend()->list
                     ->setList('plugin-new')
                     ->setTab('new')
-                    ->setDefines($defines)
-                    ->displaySearch()
-                    ->displayIndex()
-                    ->displayModules(
-                        /* cols */
-                        ['expander', 'name', 'score', 'version', 'desc', 'deps'],
-                        /* actions */
-                        ['install'],
-                        /* nav limit */
-                        true
-                    );
+                    ->setDefines($defines);
 
-                echo
-                '<p class="info vertical-separator">' . sprintf(
-                    __('Visit %s repository, the resources center for Dotclear.'),
-                    '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>'
-                ) .
-                '</p>' .
-
-                '</div>';
+                $multi_parts[] = (new Div('new'))
+                    ->title(__('Add plugins'))
+                    ->class('multi-part')
+                    ->items([
+                        (new Text('h3', __('Add plugins from repository'))),
+                        (new Capture(App::backend()->list
+                            ->displaySearch(...))),
+                        (new Capture(App::backend()->list
+                            ->displayIndex(...))),
+                        (new Capture(App::backend()->list
+                            ->displayModules(...), [
+                                // cols
+                                ['expander', 'name', 'score', 'version', 'desc', 'deps'],
+                                // actions
+                                ['install'],
+                                // nav limit
+                                true,
+                            ])),
+                        (new Note())
+                            ->class(['info', 'vertical-separator'])
+                            ->text(sprintf(__('Visit %s repository, the resources center for Dotclear.'), '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>')),
+                    ]);
             }
 
             # Add a new plugin
-            echo
-            '<div class="multi-part" id="addplugin" title="' . __('Install or upgrade manually') . '">' .
-            '<h3>' . __('Add plugins from a package') . '</h3>' .
-            '<p class="more-info">' . __('You can install plugins by uploading or downloading zip files.') . '</p>';
-
-            App::backend()->list->displayManualForm();
-
-            echo
-            '</div>';
+            $multi_parts[] = (new Div('addplugin'))
+                ->title(__('Install or upgrade manually'))
+                ->class('multi-part')
+                ->items([
+                    (new Text('h3', __('Add plugins from a package'))),
+                    (new Note())
+                        ->class('more-info')
+                        ->text(__('You can install plugins by uploading or downloading zip files.')),
+                    (new Capture(App::backend()->list->displayManualForm(...))),
+                ]);
         }
 
         # --BEHAVIOR-- pluginsToolsTabs --
-        App::behavior()->callBehavior('pluginsToolsTabsV2');
+        $multi_parts[] = (new Capture(App::behavior()->callBehavior(...), ['pluginsToolsTabsV2']));
+
+        echo (new Set())
+            ->items($multi_parts)
+        ->render();
 
         # -- Notice for super admin --
         if (App::auth()->isSuperAdmin() && !App::backend()->list->isWritablePath()) {
-            echo
-            '<p class="warning">' . __('Some functions are disabled, please give write access to your plugins directory to enable them.') . '</p>';
+            echo (new Note())
+                ->class('warning')
+                ->text(__('Some functions are disabled, please give write access to your plugins directory to enable them.'))
+            ->render();
         }
 
         Page::helpBlock('core_plugins');
@@ -349,9 +374,9 @@ class Plugins extends Process
             App::behavior()->callBehavior('pluginsToolsHeadersV2', true),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name())                                => '',
-                    __('Plugins management')                                             => App::backend()->list->getURL('', false),
-                    '<span class="page-title">' . __('Plugin configuration') . '</span>' => '',
+                    Html::escapeHTML(App::blog()->name())                                         => '',
+                    __('Plugins management')                                                      => App::backend()->list->getURL('', false),
+                    (new Text('span', __('Plugin configuration')))->class('page-title')->render() => '',
                 ]
             )
         );
