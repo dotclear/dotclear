@@ -531,6 +531,9 @@ class MediaItem extends Process
                 $media_legend = '';
             }
 
+            // Get title
+            $media_title = App::media()->getMediaTitle(App::backend()->file, false);
+
             $defaults = $getImageDefaults(App::backend()->file);
 
             // Image alignments
@@ -646,7 +649,7 @@ class MediaItem extends Process
                                     ->items([
                                         ... $image_alignments(),
                                         (new Hidden('blog_host', Html::escapeHTML(App::blog()->host()))),
-                                        (new Hidden('public_player', Html::escapeHTML(App::media()::audioPlayer(App::backend()->file->type, $url)))),
+                                        (new Hidden('public_player', Html::escapeHTML(App::media()::audioPlayer(App::backend()->file->type, $url, alt: $media_alt, descr: $media_legend)))),
                                     ]),
                                 (new Note())
                                     ->class('warning')
@@ -686,7 +689,7 @@ class MediaItem extends Process
                                     ->items([
                                         ... $image_alignments(),
                                         (new Hidden('blog_host', Html::escapeHTML(App::blog()->host()))),
-                                        (new Hidden('public_player', Html::escapeHTML(App::media()::videoPlayer(App::backend()->file->type, $url)))),
+                                        (new Hidden('public_player', Html::escapeHTML(App::media()::videoPlayer(App::backend()->file->type, $url, alt: $media_alt, descr: $media_legend)))),
                                     ]),
                             ]),
                         (new Note())
@@ -759,6 +762,7 @@ class MediaItem extends Process
                                         ->class('submit'),
                                     (new Btn('media-insert-cancel', __('Cancel'))),
                                     (new Hidden(['type'], Html::escapeHTML($media_type))),
+                                    (new Hidden(['real_title'], Html::escapeHTML($media_title))),
                                     (new Hidden(['title'], Html::escapeHTML($media_alt))),
                                     (new Hidden(['description'], Html::escapeHTML($media_legend))),
                                     (new Hidden(['url'], App::backend()->file->file_url)),

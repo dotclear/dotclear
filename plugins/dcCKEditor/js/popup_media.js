@@ -25,8 +25,8 @@ dotclear.ready(() => {
       center: styles.center,
     };
 
-    if (type == 'image') {
-      if (editor.mode == 'wysiwyg') {
+    if (type === 'image') {
+      if (editor.mode === 'wysiwyg') {
         const align = $('input[name="alignment"]:checked', insert_form).val();
         const media_legend = $('input[name="legend"]:checked', insert_form).val();
         const description = $('input[name="description"]', insert_form).val();
@@ -37,7 +37,7 @@ dotclear.ready(() => {
         let template_image = '';
 
         const alt =
-          media_legend != 'none'
+          media_legend !== 'none'
             ? $('input[name="title"]', insert_form)
                 .val()
                 .replace('&', '&amp;')
@@ -46,7 +46,7 @@ dotclear.ready(() => {
                 .replace('"', '&quot;')
             : '';
         let legend =
-          media_legend == 'legend' && description !== '' && alt.length // No legend if no alt
+          media_legend === 'legend' && description !== '' && alt.length // No legend if no alt
             ? description.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')
             : false;
 
@@ -54,16 +54,16 @@ dotclear.ready(() => {
         if (alt === legend) legend = false;
 
         // Build template
-        if (align != '' && align != 'none') {
+        if (align !== '' && align !== 'none') {
           // Set alignment
           style = ' class="{figureStyle}"';
         }
 
-        if (media_legend == 'legend' && legend) {
+        if (media_legend === 'legend' && legend) {
           // With a legend
           template_figure[0] = `<figure${style}>`;
           style = ''; // Do not use style further
-          if (legend != '') {
+          if (legend !== '') {
             template_figure[1] = '<figcaption>{figCaption}</figcaption>';
           }
           template_figure[1] = `${template_figure[1]}</figure$>`;
@@ -71,7 +71,7 @@ dotclear.ready(() => {
 
         template_image = `<img class="media" src="{imgSrc}" alt="{imgAlt}"${style}>`;
 
-        if ($('input[name="insertion"]:checked', insert_form).val() == 'link' && alt.length) {
+        if ($('input[name="insertion"]:checked', insert_form).val() === 'link' && alt.length) {
           // Enclose image with link (only if non empty alt)
           template_link[0] = '<a class="media-link" href="{aHref}"';
           const ltitle = ` title="${styles.img_link_title
@@ -92,44 +92,48 @@ dotclear.ready(() => {
         // Set parameters for template
         params.imgAlt = window.opener.CKEDITOR.tools.htmlEncodeAttr(alt);
         params.imgSrc = window.opener.$.stripBaseURL($('input[name="src"]:checked', insert_form).val());
-        if (align != '' && align != 'none') {
+        if (align !== '' && align !== 'none') {
           params.figureStyle = alignments[align];
         }
         params.figCaption = window.opener.CKEDITOR.tools.htmlEncodeAttr(legend);
-        if ($('input[name="insertion"]:checked', insert_form).val() == 'link') {
+        if ($('input[name="insertion"]:checked', insert_form).val() === 'link') {
           params.aHref = window.opener.$.stripBaseURL($('input[name="url"]', insert_form).val());
         }
 
         // Insert element
         const figure = window.opener.CKEDITOR.dom.element.createFromHtml(block.output(params), editor.document);
-        if (align != '' && align != 'none') {
+        if (align !== '' && align !== 'none') {
           figure.addClass(alignments[align]);
         }
         editor.insertElement(figure);
       }
-    } else if (type == 'mp3') {
+    } else if (type === 'mp3') {
       // Audio media
       let player_audio = $('#public_player').val();
-      const title = insert_form.elements.title.value;
-      if (title) {
-        player_audio = `<figure><figcaption>${title}</figcaption>${player_audio}</figure>`;
-      }
 
       const align = $('input[name="alignment"]:checked', insert_form).val();
+      const alignment = align !== undefined && align !== 'none' ? ` class="${media_align_grid[align]}"` : '';
 
-      if (align != undefined && align != 'none') {
-        player_audio = `<div class="${alignments[align]}">${player_audio}</div>`;
+      const title = insert_form.elements.real_title.value;
+      if (title) {
+        player_audio = `<figure${alignment}><figcaption>${title}</figcaption>${player_audio}</figure>`;
       }
+
+      if (align !== undefined && align !== 'none') {
+        player_audio = `<div${alignment}>${player_audio}</div>`;
+      }
+
       const element = window.opener.CKEDITOR.dom.element.createFromHtml(player_audio);
-      if (align != '' && align != 'none') {
+      if (align !== '' && align !== 'none') {
         element.addClass(alignments[align]);
       }
       editor.insertElement(element);
-    } else if (type == 'flv') {
+    } else if (type === 'flv') {
       // Video media
       const oplayer = $(`<div>${$('#public_player').val()}</div>`);
 
       const align = $('input[name="alignment"]:checked', insert_form).val();
+      const alignment = align !== undefined && align !== 'none' ? ` class="${media_align_grid[align]}"` : '';
 
       const vw = $('#video_w').val();
       const vh = $('#video_h').val();
@@ -151,11 +155,16 @@ dotclear.ready(() => {
 
       let player_video = oplayer.html();
 
-      if (align != undefined && align != 'none') {
-        player_video = `<div class="${alignments[align]}">${player_video}</div>`;
+      const title = insert_form.elements.real_title.value;
+      if (title) {
+        player_video = `<figure${alignment}><figcaption>${title}</figcaption>${player_video}</figure>`;
+      }
+
+      if (align !== undefined && align !== 'none') {
+        player_video = `<div${alignment}>${player_video}</div>`;
       }
       const element = window.opener.CKEDITOR.dom.element.createFromHtml(player_video);
-      if (align != '' && align != 'none') {
+      if (align !== '' && align !== 'none') {
         element.addClass(alignments[align]);
       }
       editor.insertElement(element);

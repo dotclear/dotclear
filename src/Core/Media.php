@@ -32,6 +32,7 @@ use Dotclear\Exception\BadRequestException;
 use Dotclear\Exception\ConfigException;
 use Dotclear\Exception\ProcessException;
 use Dotclear\Exception\UnauthorizedException;
+use Dotclear\Helper\Html\Html;
 use Dotclear\Interface\ConfigInterface;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\BehaviorInterface;
@@ -1742,18 +1743,21 @@ class Media extends Manager implements MediaInterface
         return true;
     }
 
-    public static function audioPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string
+    public static function audioPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true, string $alt = '', string $descr = ''): string
     {
+        $aria_label  = $alt   !== '' ? ' aria-label="' . Html::escapeHTML($alt) . '"' : '';
+        $description = $descr !== '' ? '<p>' . $descr . '</p>' : '';
+
         return
-            '<audio controls preload="' . ($preload ? 'auto' : 'none') . '">' .
-            '<source src="' . $url . '">' .
-            '</audio>';
+        '<audio controls preload="' . ($preload ? 'auto' : 'none') . '"' . $aria_label . '>' .
+        '<source src="' . $url . '">' .
+        $description .
+        '</audio>';
     }
 
-    public static function videoPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string
+    public static function videoPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true, string $alt = '', string $descr = ''): string
     {
         $video = '';
-
         if ($type !== 'video/x-flv') {
             // Cope with width and height, if given
             $width  = 400;
@@ -1767,10 +1771,14 @@ class Media extends Manager implements MediaInterface
                 }
             }
 
+            $aria_label  = $alt   !== '' ? ' aria-label="' . Html::escapeHTML($alt) . '"' : '';
+            $description = $descr !== '' ? '<p>' . $descr . '</p>' : '';
+
             $video = '<video controls preload="' . ($preload ? 'auto' : 'none') . '"' .
                 ($width !== 0 ? ' width="' . $width . '"' : '') .
-                ($height !== 0 ? ' height="' . $height . '"' : '') . '>' .
+                ($height !== 0 ? ' height="' . $height . '"' : '') . $aria_label . '>' .
                 '<source src="' . $url . '">' .
+                $description .
                 '</video>';
         }
 

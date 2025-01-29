@@ -480,8 +480,10 @@ interface MediaInterface
      * @param   mixed   $args       The player arguments
      * @param   bool    $fallback   The fallback
      * @param   bool    $preload    Add preload="auto" attribute if true, else preload="none"
+     * @param   string  $alt        The alternate text
+     * @param   string  $descr      The description
      */
-    public static function audioPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string;
+    public static function audioPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true, string $alt = '', string $descr = ''): string;
 
     /**
      * Returns HTML code for video player (HTML5).
@@ -492,8 +494,10 @@ interface MediaInterface
      * @param   mixed   $args       The player arguments
      * @param   bool    $fallback   The fallback (not more used)
      * @param   bool    $preload    Add preload="auto" attribute if true, else preload="none"
+     * @param   string  $alt        The alternate text
+     * @param   string  $descr      The description
      */
-    public static function videoPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string;
+    public static function videoPlayer(string $type, string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true, string $alt = '', string $descr = ''): string;
 
     /**
      * Returns HTML code for MP3 player (HTML5).
