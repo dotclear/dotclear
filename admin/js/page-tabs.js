@@ -4,5 +4,5 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $.pageTabs(dotclear.getData('page_tabs').default);
+  dotclear.pageTabs(dotclear.getData('page_tabs').default);
 });

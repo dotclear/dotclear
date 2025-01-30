@@ -23,6 +23,7 @@ class GrowUp_2_33_lt
         Upgrade::houseCleaning(
             // Files
             [
+                'admin/js/jquery/jquery.pageTabs.js',
                 'src/Core/Backend/Filter/Filter.php',
                 'src/Exception/UnautorizedException',
             ],

@@ -1382,7 +1382,7 @@ class Page
 
         return
         static::jsJson('page_tabs', $js) .
-        static::jsLoad('js/jquery/jquery.pageTabs.js') .
+        static::jsLoad('js/page-tabs-helper.js') .
         static::jsLoad('js/page-tabs.js');
     }
 

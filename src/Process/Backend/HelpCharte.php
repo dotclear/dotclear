@@ -82,10 +82,10 @@ class HelpCharte extends Process
   <script src="js/jquery/jquery.js"></script>
   <script src="js/jquery/jquery-ui.custom.js"></script>
   <script src="js/jquery/jquery.ui.touch-punch.js"></script>
-  <script src="js/jquery/jquery.pageTabs.js"></script>
   <script src="js/prepend.js"></script>
   <script src="js/common.js"></script>
   <script src="js/prelude.js"></script>
+  <script src="js/page-tabs-helper.js"></script>
   <script src="js/_charte.js"></script>
 </head>
 
