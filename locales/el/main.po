@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-26 10:47+0100\n"
-"PO-Revision-Date: 2025-01-26 10:13\n"
+"POT-Creation-Date: 2025-01-31 18:39+0100\n"
+"PO-Revision-Date: 2025-01-31 17:41\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -94,7 +94,7 @@ msgstr "Αυτό το κλειδί δεν υπάρχει στη βάση δεδ�
 #: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:72
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:526
-#: src/Process/Backend/MediaItem.php:1178 src/Process/Backend/Post.php:713
+#: src/Process/Backend/MediaItem.php:1090 src/Process/Backend/Post.php:713
 msgid "Title"
 msgstr "Τίτλος"
 
@@ -153,8 +153,8 @@ msgstr "Κατάσταση"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:47
 #: src/Core/Backend/Action/ActionsPostsDefault.php:99
 #: src/Core/Backend/Action/ActionsPostsDefault.php:100
-#: src/Core/Backend/Listing/ListingMedia.php:324
-#: src/Core/Backend/Listing/ListingMedia.php:327
+#: src/Core/Backend/Listing/ListingMedia.php:303
+#: src/Core/Backend/Listing/ListingMedia.php:306
 #: src/Core/Backend/ModulesList.php:1326 src/Core/Upgrade/PluginsList.php:123
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:228
 #: src/Process/Backend/Post.php:802 src/Process/Backend/Users.php:45
@@ -388,7 +388,7 @@ msgstr "Δημιουργία νέας κατηγορίας για την(τις)
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:368
 #: src/Process/Backend/Home.php:530 src/Process/Backend/Home.php:564
-#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1318
+#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1230
 #: src/Process/Backend/Post.php:661 src/Process/Backend/Post.php:709
 msgid "Title:"
 msgstr "Τίτλος:"
@@ -405,7 +405,7 @@ msgstr "Γονικός:"
 #: src/Core/Backend/ModulesList.php:1955 src/Process/Backend/BlogPref.php:1169
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1358
+#: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1270
 #: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:920
 #: src/Process/Backend/User.php:447 src/Process/Backend/UsersActions.php:405
 #: src/Process/Install/Install.php:478
@@ -597,11 +597,11 @@ msgstr "Αναζήτηση"
 msgid "Categories"
 msgstr "Κατηγορίες"
 
-#: src/Core/Backend/Favorites.php:470 src/Core/Backend/MediaPage.php:353
-#: src/Core/Backend/MediaPage.php:355 src/Core/Backend/MediaPage.php:405
+#: src/Core/Backend/Favorites.php:470 src/Core/Backend/MediaPage.php:354
+#: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:777
-#: src/Process/Backend/MediaItem.php:475 src/Process/Backend/MediaItem.php:481
+#: src/Process/Backend/MediaItem.php:399 src/Process/Backend/MediaItem.php:405
 msgid "Media manager"
 msgstr "Διαχειριστής πολυμέσων"
 
@@ -628,8 +628,8 @@ msgid "Users"
 msgstr "Χρήστες"
 
 #: src/Core/Backend/Favorites.php:514 src/Core/Backend/Menus.php:224
-#: src/Process/Backend/Plugins.php:96 src/Process/Backend/Plugins.php:109
-#: src/Process/Backend/Plugins.php:346 src/Process/Backend/Plugins.php:353
+#: src/Process/Backend/Plugins.php:103 src/Process/Backend/Plugins.php:116
+#: src/Process/Backend/Plugins.php:369 src/Process/Backend/Plugins.php:376
 #: src/Process/Upgrade/Plugins.php:146 src/Process/Upgrade/Plugins.php:156
 msgid "Plugins management"
 msgstr "Διαχείριση προσθέτων"
@@ -801,7 +801,7 @@ msgid "Apply filters and display options"
 msgstr "Εφαρμογή επιλογών φίλτρων και προβολής"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:86
-#: src/Core/Backend/MediaPage.php:392 src/Core/Backend/Page.php:484
+#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:484
 msgid "Search:"
 msgstr "Αναζήτηση:"
 
@@ -954,31 +954,31 @@ msgstr "Όνομα"
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: src/Core/Backend/Listing/ListingMedia.php:260
-#: src/Core/Backend/Listing/ListingMedia.php:263
+#: src/Core/Backend/Listing/ListingMedia.php:239
+#: src/Core/Backend/Listing/ListingMedia.php:242
 #: src/Process/Backend/Media.php:412
 msgid "Select this file"
 msgstr "Επιλέξτε αυτό το αρχείο"
 
-#: src/Core/Backend/Listing/ListingMedia.php:286
-#: src/Core/Backend/Listing/ListingMedia.php:289
+#: src/Core/Backend/Listing/ListingMedia.php:265
+#: src/Core/Backend/Listing/ListingMedia.php:268
 #: src/Process/Backend/Media.php:450
 msgid "Attach this file to entry"
 msgstr "Επισύναψη αυτού του αρχείου στην καταχώρηση"
 
-#: src/Core/Backend/Listing/ListingMedia.php:297
-#: src/Core/Backend/Listing/ListingMedia.php:300
+#: src/Core/Backend/Listing/ListingMedia.php:276
+#: src/Core/Backend/Listing/ListingMedia.php:279
 #: src/Process/Backend/Media.php:477
 msgid "Insert this file into entry"
 msgstr "Εισάγετε αυτό το αρχείο στην καταχώρηση"
 
-#: src/Core/Backend/Listing/ListingMedia.php:364
-#: src/Core/Backend/Listing/ListingMedia.php:403
+#: src/Core/Backend/Listing/ListingMedia.php:343
+#: src/Core/Backend/Listing/ListingMedia.php:382
 msgid "private media"
 msgstr "ιδιωτικά πολυμέσα"
 
-#: src/Core/Backend/Listing/ListingMedia.php:390
-#: src/Core/Backend/Listing/ListingMedia.php:416
+#: src/Core/Backend/Listing/ListingMedia.php:369
+#: src/Core/Backend/Listing/ListingMedia.php:395
 msgid "open"
 msgstr "ανοιχτό"
 
@@ -1108,7 +1108,7 @@ msgstr "Σελίδα άμεσης πρόσβασης:"
 msgid "ok"
 msgstr "εντάξει"
 
-#: src/Core/Backend/MediaPage.php:392
+#: src/Core/Backend/MediaPage.php:393
 #, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
@@ -1473,7 +1473,7 @@ msgstr "Ρύθμιση παραμέτρων \"%s\""
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1444
+#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1356
 #: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -1850,9 +1850,9 @@ msgid "Choose files"
 msgstr "Επιλογή αρχείων"
 
 #: src/Core/Backend/Page.php:1416 src/Process/Backend/LinkPopup.php:110
-#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:590
-#: src/Process/Backend/MediaItem.php:851 src/Process/Backend/Post.php:799
-#: src/Process/Backend/PostMedia.php:111
+#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:507
+#: src/Process/Backend/MediaItem.php:763 src/Process/Backend/Post.php:799
+#: src/Process/Backend/PostMedia.php:112
 msgid "Cancel"
 msgstr "Ακύρωση"
 
@@ -2351,36 +2351,36 @@ msgstr "Η έκδοση της PostgreSQL είναι %s (%s ή παλαιότε�
 msgid "No log message"
 msgstr "Κανένα μήνυμα καταγραφής"
 
-#: src/Core/Media.php:173
+#: src/Core/Media.php:175
 msgid "No blog defined."
 msgstr "Δεν ορίστηκε ιστολόγιο."
 
-#: src/Core/Media.php:965 src/Core/Media.php:996
+#: src/Core/Media.php:1093 src/Core/Media.php:1124
 msgid "You are not a super administrator."
 msgstr "Δεν είστε σούπερ διαχειριστής."
 
-#: src/Core/Media.php:1099 src/Core/Media.php:1193 src/Core/Media.php:1274
-#: src/Core/Media.php:1296 src/Core/Media.php:1318
+#: src/Core/Media.php:1227 src/Core/Media.php:1321 src/Core/Media.php:1402
+#: src/Core/Media.php:1424 src/Core/Media.php:1446
 msgid "Permission denied."
 msgstr "Άρνηση άδειας."
 
-#: src/Core/Media.php:1206
+#: src/Core/Media.php:1334
 msgid "You are not the file owner."
 msgstr "Δεν είστε ο ιδιοκτήτης αρχείου."
 
-#: src/Core/Media.php:1221
+#: src/Core/Media.php:1349
 msgid "This file is not allowed."
 msgstr "Αυτό το αρχείο δεν επιτρέπεται."
 
-#: src/Core/Media.php:1225
+#: src/Core/Media.php:1353
 msgid "New file already exists."
 msgstr "Υπάρχει ήδη νέο αρχείο."
 
-#: src/Core/Media.php:1338
+#: src/Core/Media.php:1466
 msgid "File does not exist in the database."
 msgstr "Το αρχείο δεν υπάρχει στη βάση δεδομένων."
 
-#: src/Core/Media.php:1387
+#: src/Core/Media.php:1515
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Ο κατάλογος προορισμού εξαγωγής %s υπάρχει ήδη."
@@ -2465,7 +2465,7 @@ msgstr "LOL!"
 #: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:98
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:458
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:244
-#: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:108
+#: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:115
 #: src/Process/Backend/User.php:252 src/Process/Backend/Users.php:107
 #: src/Process/Backend/UsersActions.php:202
 #: src/Process/Backend/UsersActions.php:210 src/Process/Upgrade/Home.php:159
@@ -3256,7 +3256,7 @@ msgid "P"
 msgstr "Ρ"
 
 #: src/Process/Backend/BlogPref.php:173 src/Process/Backend/BlogPref.php:1253
-#: src/Process/Backend/MediaItem.php:691 src/Process/Backend/MediaItem.php:696
+#: src/Process/Backend/MediaItem.php:604 src/Process/Backend/MediaItem.php:609
 msgid "(none)"
 msgstr "(κανένα)"
 
@@ -3276,33 +3276,33 @@ msgstr "Περιγραφή, Χώρα, Ημερομηνία"
 msgid "Description, City, Country, Date"
 msgstr "Περιγραφή, Πόλη, Χώρα, Ημερομηνία"
 
-#: src/Process/Backend/BlogPref.php:207 src/Process/Backend/MediaItem.php:564
-#: src/Process/Backend/MediaItem.php:665 src/Process/Backend/MediaItem.php:930
+#: src/Process/Backend/BlogPref.php:207 src/Process/Backend/MediaItem.php:481
+#: src/Process/Backend/MediaItem.php:578 src/Process/Backend/MediaItem.php:843
 msgid "original"
 msgstr "πρωτότυπο"
 
 #: src/Process/Backend/BlogPref.php:218 src/Process/Backend/BlogPref.php:228
-#: src/Process/Backend/MediaItem.php:624 src/Process/Backend/MediaItem.php:684
+#: src/Process/Backend/MediaItem.php:541 src/Process/Backend/MediaItem.php:597
 msgid "None"
 msgstr "Κανένα"
 
-#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:625
+#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:542
 msgid "Left"
 msgstr "Αριστερά"
 
-#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:626
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:543
 msgid "Right"
 msgstr "Δεξιά"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:544
 msgid "Center"
 msgstr "Κέντρο"
 
-#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:590
 msgid "Legend and alternate text"
 msgstr "Υπόμνημα και εναλλακτικό κείμενο"
 
-#: src/Process/Backend/BlogPref.php:227 src/Process/Backend/MediaItem.php:681
+#: src/Process/Backend/BlogPref.php:227 src/Process/Backend/MediaItem.php:594
 msgid "Alternate text"
 msgstr "Εναλλακτικό κείμενο"
 
@@ -3462,13 +3462,17 @@ msgstr "Απενεργοποιήστε όλα τα σχόλια και τα trac
 msgid "Blog presentation"
 msgstr "Παρουσίαση blog"
 
-#: src/Process/Backend/BlogPref.php:716 src/Process/Backend/BlogPref.php:733
-msgid "Time format:"
-msgstr "Μορφή ώρας:"
+#: src/Process/Backend/BlogPref.php:716
+msgid "Date format:"
+msgstr "Μορφή ημερομηνίας:"
 
 #: src/Process/Backend/BlogPref.php:720
 msgid "Pattern of date"
 msgstr "Μοτίβο ημερομηνίας"
+
+#: src/Process/Backend/BlogPref.php:733
+msgid "Time format:"
+msgstr "Μορφή ώρας:"
 
 #: src/Process/Backend/BlogPref.php:737
 msgid "Pattern of time"
@@ -3756,7 +3760,7 @@ msgstr "Διαχείριση θεμάτων"
 msgid "Installed themes"
 msgstr "Εγκατεστημένα θέματα"
 
-#: src/Process/Backend/BlogTheme.php:204 src/Process/Backend/Plugins.php:156
+#: src/Process/Backend/BlogTheme.php:204 src/Process/Backend/Plugins.php:171
 #: src/Process/Upgrade/Plugins.php:171
 msgid "(in normal mode)"
 msgstr "(σε κανονική λειτουργία)"
@@ -3777,7 +3781,7 @@ msgstr "Απενεργοποιημένα θέματα"
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "Τα απενεργοποιημένα θέματα είναι εγκατεστημένα αλλά δεν μπορούν να χρησιμοποιηθούν. Μπορείτε να τα ενεργοποιήσετε από εδώ."
 
-#: src/Process/Backend/BlogTheme.php:243 src/Process/Backend/Plugins.php:199
+#: src/Process/Backend/BlogTheme.php:243 src/Process/Backend/Plugins.php:224
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "Το επίσημο αποθετήριο δεν μπορούσε να ενημερωθεί καθώς δεν έχει οριστεί URL στη ρύθμιση παραμέτρων."
 
@@ -3805,7 +3809,7 @@ msgstr[0] "Υπάρχει μια διαθέσιμη ενημέρωση θέμα�
 msgstr[1] "Υπάρχουν διαθέσιμες ενημερώσεις για το θέμα %s:"
 
 #: src/Process/Backend/BlogTheme.php:311 src/Process/Backend/BlogTheme.php:348
-#: src/Process/Backend/Plugins.php:262 src/Process/Backend/Plugins.php:297
+#: src/Process/Backend/Plugins.php:263 src/Process/Backend/Plugins.php:317
 #: src/Process/Upgrade/Plugins.php:258 src/Process/Upgrade/Plugins.php:297
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
@@ -3819,7 +3823,7 @@ msgstr "Προσθήκη θεμάτων"
 msgid "Add themes from repository"
 msgstr "Προσθήκη θεμάτων από το αποθετήριο"
 
-#: src/Process/Backend/BlogTheme.php:358 src/Process/Backend/Plugins.php:307
+#: src/Process/Backend/BlogTheme.php:358 src/Process/Backend/Plugins.php:323
 #: src/Process/Upgrade/Plugins.php:307
 msgid "Install or upgrade manually"
 msgstr "Χειροκίνητη εγκατάσταση ή αναβάθμιση"
@@ -3977,7 +3981,7 @@ msgstr "Όνομα:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Προειδοποίηση: Αν ορίσετε το URL χειροκίνητα, ενδέχεται να έρχεται σε σύγκρουση με μια άλλη κατηγορία."
 
-#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1336
+#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1248
 msgid "Description:"
 msgstr "Περιγραφή:"
 
@@ -4097,7 +4101,7 @@ msgstr "Διαγραφή όλων των ανεπιθύμητων μηνυμάτ
 msgid "Selected comments action:"
 msgstr "Επιλεγμένη ενέργεια σχολίων:"
 
-#: src/Process/Backend/Home.php:72 src/Process/Backend/Plugins.php:52
+#: src/Process/Backend/Home.php:72 src/Process/Backend/Plugins.php:57
 msgid "The following plugins have been disabled :"
 msgstr "Τα ακόλουθα πρόσθετα έχουν απενεργοποιηθεί :"
 
@@ -4153,12 +4157,12 @@ msgstr "Δεν υπάρχει εγγράψιμος κατάλογος /public/ �
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Δεν υπάρχει εγγράψιμος ριζικός κατάλογος για τον διαχειριστή πολυμέσων. Θα πρέπει να επικοινωνήσετε με το διαχειριστή."
 
-#: src/Process/Backend/Home.php:306 src/Process/Backend/Plugins.php:122
+#: src/Process/Backend/Home.php:306 src/Process/Backend/Plugins.php:129
 #: src/Process/Install/Install.php:484 src/Process/Upgrade/Plugins.php:114
 msgid "Following plugins have been installed:"
 msgstr "Τα ακόλουθα πρόσθετα έχουν εγκατασταθεί:"
 
-#: src/Process/Backend/Home.php:324 src/Process/Backend/Plugins.php:136
+#: src/Process/Backend/Home.php:324 src/Process/Backend/Plugins.php:145
 #: src/Process/Install/Install.php:491 src/Process/Upgrade/Plugins.php:126
 msgid "Following plugins have not been installed:"
 msgstr "Τα ακόλουθα πρόσθετα δεν έχουν εγκατασταθεί:"
@@ -4353,7 +4357,7 @@ msgstr "Τίτλος συνδέσμου:"
 msgid "Link language:"
 msgstr "Γλώσσα σύνδεσης:"
 
-#: src/Process/Backend/LinkPopup.php:112 src/Process/Backend/MediaItem.php:849
+#: src/Process/Backend/LinkPopup.php:112 src/Process/Backend/MediaItem.php:761
 msgid "Insert"
 msgstr "Insert"
 
@@ -4404,7 +4408,7 @@ msgstr "επιβεβαίωση αφαίρεσης"
 msgid "Are you sure you want to remove %s?"
 msgstr "Είστε βέβαιοι ότι θέλετε να αφαιρέσετε %s?"
 
-#: src/Process/Backend/Media.php:276 src/Process/Backend/PostMedia.php:112
+#: src/Process/Backend/Media.php:276 src/Process/Backend/PostMedia.php:113
 msgid "Yes"
 msgstr "Ναι"
 
@@ -4509,7 +4513,7 @@ msgstr "Παρακαλώ φροντίστε να δημοσιεύσετε τα �
 msgid "Maximum file size allowed:"
 msgstr "Μέγιστο επιτρεπόμενο μέγεθος αρχείου:"
 
-#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1349
+#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1261
 msgid "Private"
 msgstr "Ιδιωτικό"
 
@@ -4540,11 +4544,11 @@ msgid "Not a valid file"
 msgstr "Μη έγκυρο αρχείο"
 
 #: src/Process/Backend/MediaItem.php:177 src/Process/Backend/MediaItem.php:239
-#: src/Process/Backend/MediaItem.php:502
+#: src/Process/Backend/MediaItem.php:426
 msgid "File has been successfully updated."
 msgstr "Το αρχείο ενημερώθηκε με επιτυχία."
 
-#: src/Process/Backend/MediaItem.php:256 src/Process/Backend/MediaItem.php:505
+#: src/Process/Backend/MediaItem.php:256 src/Process/Backend/MediaItem.php:429
 msgid "Thumbnails have been successfully updated."
 msgstr "Οι μικρογραφίες ενημερώθηκαν επιτυχώς."
 
@@ -4552,7 +4556,7 @@ msgstr "Οι μικρογραφίες ενημερώθηκαν επιτυχώς.
 msgid "Zip file has been successfully extracted."
 msgstr "Το αρχείο zip έχει εξαχθεί επιτυχώς."
 
-#: src/Process/Backend/MediaItem.php:303 src/Process/Backend/MediaItem.php:508
+#: src/Process/Backend/MediaItem.php:303 src/Process/Backend/MediaItem.php:432
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Οι προεπιλεγμένες ρυθμίσεις εισαγωγής μέσων ενημερώθηκαν επιτυχώς."
 
@@ -4564,244 +4568,243 @@ msgstr "Οι ρυθμίσεις εισαγωγής πολυμέσων έχουν
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Οι ρυθμίσεις εισαγωγής πολυμέσων αφαιρέθηκαν με επιτυχία για αυτόν το φάκελο."
 
-#: src/Process/Backend/MediaItem.php:558 src/Process/Backend/MediaItem.php:659
+#: src/Process/Backend/MediaItem.php:475 src/Process/Backend/MediaItem.php:572
 msgid "Image size:"
 msgstr "Μέγεθος εικόνας:"
 
-#: src/Process/Backend/MediaItem.php:577 src/Process/Backend/MediaItem.php:579
+#: src/Process/Backend/MediaItem.php:494 src/Process/Backend/MediaItem.php:496
 msgid "Select media item"
 msgstr "Επιλέξτε στοιχείο πολυμέσων"
 
-#: src/Process/Backend/MediaItem.php:588 src/Process/Upgrade/Attic.php:297
+#: src/Process/Backend/MediaItem.php:505 src/Process/Upgrade/Attic.php:297
 msgid "Select"
 msgstr "Επιλογή"
 
-#: src/Process/Backend/MediaItem.php:671
+#: src/Process/Backend/MediaItem.php:584
 msgid "Image legend and alternate text"
 msgstr "Υπόμνημα εικόνας και εναλλακτικό κείμενο"
 
-#: src/Process/Backend/MediaItem.php:688 src/Process/Backend/MediaItem.php:1187
-#: src/Process/Backend/MediaItem.php:1327
+#: src/Process/Backend/MediaItem.php:601 src/Process/Backend/MediaItem.php:1099
+#: src/Process/Backend/MediaItem.php:1239
 msgid "Alternate text:"
 msgstr "Εναλλακτικό κείμενο:"
 
-#: src/Process/Backend/MediaItem.php:693
+#: src/Process/Backend/MediaItem.php:606
 msgid "Legend:"
 msgstr "Υπόμνημα:"
 
-#: src/Process/Backend/MediaItem.php:702
+#: src/Process/Backend/MediaItem.php:615
 msgid "Image alignment"
 msgstr "Στοίχιση εικόνας"
 
-#: src/Process/Backend/MediaItem.php:709
+#: src/Process/Backend/MediaItem.php:622
 msgid "Image insertion"
 msgstr "Εισαγωγή εικόνας"
 
-#: src/Process/Backend/MediaItem.php:714
+#: src/Process/Backend/MediaItem.php:627
 msgid "As a single image"
 msgstr "Ως ενιαία εικόνα"
 
-#: src/Process/Backend/MediaItem.php:717
+#: src/Process/Backend/MediaItem.php:630
 msgid "As a link to the original image"
 msgstr "Ως σύνδεσμος στην αρχική εικόνα"
 
-#: src/Process/Backend/MediaItem.php:734
+#: src/Process/Backend/MediaItem.php:647
 msgid "MP3 disposition"
 msgstr "Διάθεση MP3"
 
-#: src/Process/Backend/MediaItem.php:743
+#: src/Process/Backend/MediaItem.php:656
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Λάβετε υπόψη ότι δεν μπορείτε να εισάγετε αρχεία mp3 με τον τυπικό επεξεργαστή σε λειτουργία WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:759
+#: src/Process/Backend/MediaItem.php:672
 msgid "Video size"
 msgstr "Μέγεθος βίντεο"
 
-#: src/Process/Backend/MediaItem.php:763
+#: src/Process/Backend/MediaItem.php:676
 msgid "Width:"
 msgstr "Πλάτος:"
 
-#: src/Process/Backend/MediaItem.php:768
+#: src/Process/Backend/MediaItem.php:681
 msgid "Height:"
 msgstr "Ύψος:"
 
-#: src/Process/Backend/MediaItem.php:774
+#: src/Process/Backend/MediaItem.php:687
 msgid "Video disposition"
 msgstr "Διάθεση βίντεο"
 
-#: src/Process/Backend/MediaItem.php:784
+#: src/Process/Backend/MediaItem.php:697
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Λάβετε υπόψη ότι δεν μπορείτε να εισάγετε αρχεία βίντεο με τον τυπικό επεξεργαστή σε λειτουργία WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:791
+#: src/Process/Backend/MediaItem.php:703
 msgid "Media item will be inserted as a link."
 msgstr "Το στοιχείο πολυμέσων θα εισαχθεί ως σύνδεσμος."
 
-#: src/Process/Backend/MediaItem.php:812
+#: src/Process/Backend/MediaItem.php:724
 msgid "Make current settings as default"
 msgstr "Κάντε τις τρέχουσες ρυθμίσεις ως προκαθορισμένες"
 
-#: src/Process/Backend/MediaItem.php:813
+#: src/Process/Backend/MediaItem.php:725
 msgid "For the blog"
 msgstr "Για το blog"
 
-#: src/Process/Backend/MediaItem.php:815
+#: src/Process/Backend/MediaItem.php:727
 msgid "For this folder only"
 msgstr "Μόνο για αυτόν το φάκελο"
 
-#: src/Process/Backend/MediaItem.php:827
+#: src/Process/Backend/MediaItem.php:739
 msgid "Settings exist for this folder:"
 msgstr "Οι ρυθμίσεις υπάρχουν για αυτόν το φάκελο:"
 
-#: src/Process/Backend/MediaItem.php:828
+#: src/Process/Backend/MediaItem.php:740
 msgid "Remove them"
 msgstr "Αφαιρέστε τα"
 
-#: src/Process/Backend/MediaItem.php:838 src/Process/Backend/MediaItem.php:840
+#: src/Process/Backend/MediaItem.php:750 src/Process/Backend/MediaItem.php:752
 msgid "Insert media item"
 msgstr "Εισαγωγή στοιχείου πολυμέσων"
 
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:836
 msgid "Available sizes:"
 msgstr "Διαθέσιμα μεγέθη:"
 
-#: src/Process/Backend/MediaItem.php:948 src/Process/Backend/MediaItem.php:1022
-#: src/Process/Backend/MediaItem.php:1030
-#: src/Process/Backend/MediaItem.php:1041
+#: src/Process/Backend/MediaItem.php:861 src/Process/Backend/MediaItem.php:935
+#: src/Process/Backend/MediaItem.php:943 src/Process/Backend/MediaItem.php:954
 msgid "Image width:"
 msgstr "Πλάτος εικόνας:"
 
-#: src/Process/Backend/MediaItem.php:954 src/Process/Backend/MediaItem.php:1047
+#: src/Process/Backend/MediaItem.php:867 src/Process/Backend/MediaItem.php:960
 msgid "Image height:"
 msgstr "Ύψος εικόνας:"
 
-#: src/Process/Backend/MediaItem.php:962 src/Process/Backend/MediaItem.php:1057
+#: src/Process/Backend/MediaItem.php:875 src/Process/Backend/MediaItem.php:970
 msgid "File size:"
 msgstr "Μέγεθος αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:970 src/Process/Backend/MediaItem.php:1063
+#: src/Process/Backend/MediaItem.php:883 src/Process/Backend/MediaItem.php:976
 msgid "File URL:"
 msgstr "Url Αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:978
+#: src/Process/Backend/MediaItem.php:891
 msgid "Thumbnail details"
 msgstr "Thumbnail details"
 
-#: src/Process/Backend/MediaItem.php:1001
+#: src/Process/Backend/MediaItem.php:914
 msgid "File owner:"
 msgstr "Κάτοχος αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:1007
+#: src/Process/Backend/MediaItem.php:920
 msgid "File type:"
 msgstr "Τύπος αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:1074
+#: src/Process/Backend/MediaItem.php:987
 msgid "Show entries containing this media"
 msgstr "Εμφάνιση καταχωρήσεων που περιέχουν αυτό το μέσο"
 
-#: src/Process/Backend/MediaItem.php:1123
+#: src/Process/Backend/MediaItem.php:1035
 msgid "No entry seems contain this media."
 msgstr "Καμία καταχώρηση δεν φαίνεται να περιέχει αυτό το μέσο."
 
-#: src/Process/Backend/MediaItem.php:1153
+#: src/Process/Backend/MediaItem.php:1065
 msgid "Inside the entry"
 msgstr "Μέσα στην είσοδο"
 
-#: src/Process/Backend/MediaItem.php:1160
+#: src/Process/Backend/MediaItem.php:1072
 msgid "Linked to entry"
 msgstr "Συνδέεται με την καταχώρηση"
 
-#: src/Process/Backend/MediaItem.php:1168
+#: src/Process/Backend/MediaItem.php:1080
 msgid "Entries containing this media"
 msgstr "Καταχωρήσεις που περιέχουν αυτό το μέσο"
 
-#: src/Process/Backend/MediaItem.php:1202
+#: src/Process/Backend/MediaItem.php:1114
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1212
+#: src/Process/Backend/MediaItem.php:1124
 msgid "Metadata"
 msgstr "Μεταδεδομένα"
 
-#: src/Process/Backend/MediaItem.php:1224
-#: src/Process/Backend/MediaItem.php:1426
-#: src/Process/Backend/MediaItem.php:1435
+#: src/Process/Backend/MediaItem.php:1136
+#: src/Process/Backend/MediaItem.php:1338
+#: src/Process/Backend/MediaItem.php:1347
 msgid "Media details"
 msgstr "Λεπτομέρειες πολυμέσων"
 
-#: src/Process/Backend/MediaItem.php:1242
-#: src/Process/Backend/MediaItem.php:1249
+#: src/Process/Backend/MediaItem.php:1154
+#: src/Process/Backend/MediaItem.php:1161
 msgid "Update thumbnails"
 msgstr "Ενημέρωση μικρογραφιών"
 
-#: src/Process/Backend/MediaItem.php:1244
+#: src/Process/Backend/MediaItem.php:1156
 msgid "This will create or update thumbnails for this image."
 msgstr "Αυτό θα δημιουργήσει ή θα ενημερώσει τις μικρογραφίες για αυτήν την εικόνα."
 
-#: src/Process/Backend/MediaItem.php:1258
-#: src/Process/Backend/MediaItem.php:1273
+#: src/Process/Backend/MediaItem.php:1170
+#: src/Process/Backend/MediaItem.php:1185
 msgid "Extract in a new directory"
 msgstr "Εξαγωγή σε νέο κατάλογο"
 
-#: src/Process/Backend/MediaItem.php:1259
-#: src/Process/Backend/MediaItem.php:1279
+#: src/Process/Backend/MediaItem.php:1171
+#: src/Process/Backend/MediaItem.php:1191
 msgid "Extract in current directory"
 msgstr "Εξαγωγή στον τρέχοντα κατάλογο"
 
-#: src/Process/Backend/MediaItem.php:1267
+#: src/Process/Backend/MediaItem.php:1179
 msgid "Extract archive"
 msgstr "Εξαγωγή αρχειοθήκης"
 
-#: src/Process/Backend/MediaItem.php:1274
+#: src/Process/Backend/MediaItem.php:1186
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Αυτό θα εξαγάγει την αρχειοθήκη σε ένα νέο φάκελο που δεν θα πρέπει να υπάρχει ακόμα."
 
-#: src/Process/Backend/MediaItem.php:1280
+#: src/Process/Backend/MediaItem.php:1192
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Αυτό θα εξαγάγει την αρχειοθήκη στον τρέχοντα κατάλογο και θα αντικαταστήσει τα υπάρχοντα αρχεία ή κατάλογο."
 
-#: src/Process/Backend/MediaItem.php:1288
+#: src/Process/Backend/MediaItem.php:1200
 msgid "Extract mode:"
 msgstr "Λειτουργία εξαγωγής:"
 
-#: src/Process/Backend/MediaItem.php:1289
+#: src/Process/Backend/MediaItem.php:1201
 msgid "Extract"
 msgstr "Εξαγωγή"
 
-#: src/Process/Backend/MediaItem.php:1301
+#: src/Process/Backend/MediaItem.php:1213
 msgid "Change media properties"
 msgstr "Αλλαγή ιδιοτήτων πολυμέσων"
 
-#: src/Process/Backend/MediaItem.php:1310
+#: src/Process/Backend/MediaItem.php:1222
 msgid "File name:"
 msgstr "Όνομα αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:1343
+#: src/Process/Backend/MediaItem.php:1255
 msgid "File date:"
 msgstr "Ημερομηνία αρχείου:"
 
-#: src/Process/Backend/MediaItem.php:1356
+#: src/Process/Backend/MediaItem.php:1268
 msgid "New directory:"
 msgstr "Νέος κατάλογος:"
 
-#: src/Process/Backend/MediaItem.php:1371
+#: src/Process/Backend/MediaItem.php:1283
 msgid "Change file"
 msgstr "Αλλαγή αρχείου"
 
-#: src/Process/Backend/MediaItem.php:1380
+#: src/Process/Backend/MediaItem.php:1292
 msgid "Choose a file:"
 msgstr "Επιλέξτε ένα αρχείο:"
 
-#: src/Process/Backend/MediaItem.php:1380
+#: src/Process/Backend/MediaItem.php:1292
 #, php-format
 msgid "Maximum size %s"
 msgstr "Μέγιστο μέγεθος %s"
 
-#: src/Process/Backend/MediaItem.php:1398
+#: src/Process/Backend/MediaItem.php:1310
 msgid "Delete this media"
 msgstr "Διαγραφή αυτού του μέσου"
 
-#: src/Process/Backend/MediaItem.php:1417
+#: src/Process/Backend/MediaItem.php:1329
 msgid "Updates and modifications"
 msgstr "Ενημερώσεις και τροποποιήσεις"
 
@@ -4817,72 +4820,72 @@ msgstr "Το πρόσθετο δεν βρέθηκε"
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "Το πρόσθετο που φτάσατε δεν υπάρχει ή δεν έχει σελίδα διαχειριστή."
 
-#: src/Process/Backend/Plugins.php:146 src/Process/Backend/Plugins.php:155
+#: src/Process/Backend/Plugins.php:170 src/Process/Upgrade/Plugins.php:171
+msgid "Activated plugins"
+msgstr "Ενεργοποιημένες πρόσθετες λειτουργίες"
+
+#: src/Process/Backend/Plugins.php:170 src/Process/Backend/Plugins.php:217
 #: src/Process/Upgrade/Plugins.php:162
 msgid "Installed plugins"
 msgstr "Εγκατεστημένες πρόσθετες λειτουργίες"
 
-#: src/Process/Backend/Plugins.php:155 src/Process/Upgrade/Plugins.php:171
-msgid "Activated plugins"
-msgstr "Ενεργοποιημένες πρόσθετες λειτουργίες"
-
-#: src/Process/Backend/Plugins.php:158 src/Process/Upgrade/Plugins.php:173
+#: src/Process/Backend/Plugins.php:175 src/Process/Upgrade/Plugins.php:173
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Μπορείτε να ρυθμίσετε και να διαχειριστείτε εγκατεστημένα πρόσθετα από αυτήν τη λίστα."
 
-#: src/Process/Backend/Plugins.php:177 src/Process/Upgrade/Plugins.php:192
+#: src/Process/Backend/Plugins.php:197 src/Process/Upgrade/Plugins.php:192
 msgid "Deactivated plugins"
 msgstr "Απενεργοποιημένα πρόσθετα"
 
-#: src/Process/Backend/Plugins.php:178 src/Process/Upgrade/Plugins.php:193
+#: src/Process/Backend/Plugins.php:201 src/Process/Upgrade/Plugins.php:193
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "Τα απενεργοποιημένα πρόσθετα είναι εγκατεστημένα αλλά δεν μπορούν να χρησιμοποιηθούν. Μπορείτε να τα ενεργοποιήσετε από εδώ."
 
-#: src/Process/Backend/Plugins.php:203 src/Process/Upgrade/Plugins.php:136
+#: src/Process/Backend/Plugins.php:228 src/Process/Upgrade/Plugins.php:136
 msgid "Manual checking of plugins update done successfully."
 msgstr "Ο χειροκίνητος έλεγχος της ενημέρωσης των προσθέτων έγινε επιτυχώς."
 
-#: src/Process/Backend/Plugins.php:218 src/Process/Backend/Plugins.php:219
-#: src/Process/Upgrade/Plugins.php:214 src/Process/Upgrade/Plugins.php:215
-msgid "Update plugins"
-msgstr "Ενημέρωση προσθέτων"
-
-#: src/Process/Backend/Plugins.php:230 src/Process/Upgrade/Plugins.php:226
-msgid "Force checking update of plugins"
-msgstr "Εξαναγκασμός ελέγχου ενημέρωσης των πρόσθετων"
-
-#: src/Process/Backend/Plugins.php:237 src/Process/Upgrade/Plugins.php:233
+#: src/Process/Backend/Plugins.php:245 src/Process/Upgrade/Plugins.php:233
 msgid "No updates available for plugins."
 msgstr "Δεν υπάρχουν διαθέσιμες ενημερώσεις για πρόσθετα."
 
-#: src/Process/Backend/Plugins.php:242 src/Process/Upgrade/Plugins.php:238
+#: src/Process/Backend/Plugins.php:248 src/Process/Upgrade/Plugins.php:238
 #, php-format
 msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
 msgstr[0] "Υπάρχει μια διαθέσιμη ενημέρωση του πρόσθετου:"
 msgstr[1] "Υπάρχουν διαθέσιμες ενημερώσεις του πρόσθετου %s:"
 
-#: src/Process/Backend/Plugins.php:277 src/Process/Upgrade/Plugins.php:277
+#: src/Process/Backend/Plugins.php:267 src/Process/Backend/Plugins.php:270
+#: src/Process/Upgrade/Plugins.php:214 src/Process/Upgrade/Plugins.php:215
+msgid "Update plugins"
+msgstr "Ενημέρωση προσθέτων"
+
+#: src/Process/Backend/Plugins.php:279 src/Process/Upgrade/Plugins.php:226
+msgid "Force checking update of plugins"
+msgstr "Εξαναγκασμός ελέγχου ενημέρωσης των πρόσθετων"
+
+#: src/Process/Backend/Plugins.php:298 src/Process/Upgrade/Plugins.php:277
 msgid "Add plugins"
 msgstr "Προσθήκη προσθέτων"
 
-#: src/Process/Backend/Plugins.php:278 src/Process/Upgrade/Plugins.php:278
+#: src/Process/Backend/Plugins.php:301 src/Process/Upgrade/Plugins.php:278
 msgid "Add plugins from repository"
 msgstr "Προσθήκη προσθέτων από το αποθετήριο"
 
-#: src/Process/Backend/Plugins.php:308 src/Process/Upgrade/Plugins.php:308
+#: src/Process/Backend/Plugins.php:326 src/Process/Upgrade/Plugins.php:308
 msgid "Add plugins from a package"
 msgstr "Προσθήκη προσθέτων από ένα πακέτο"
 
-#: src/Process/Backend/Plugins.php:309 src/Process/Upgrade/Plugins.php:309
+#: src/Process/Backend/Plugins.php:329 src/Process/Upgrade/Plugins.php:309
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Μπορείτε να εγκαταστήσετε plugins με το ανέβασμα ή τη λήψη αρχείων zip."
 
-#: src/Process/Backend/Plugins.php:323 src/Process/Upgrade/Plugins.php:320
+#: src/Process/Backend/Plugins.php:345 src/Process/Upgrade/Plugins.php:320
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Ορισμένες λειτουργίες είναι απενεργοποιημένες, παρακαλώ δώστε εγγραφή πρόσβαση στον κατάλογο προσθέτων σας για να τις ενεργοποιήσετε."
 
-#: src/Process/Backend/Plugins.php:354
+#: src/Process/Backend/Plugins.php:377
 msgid "Plugin configuration"
 msgstr "Ρύθμιση παραμέτρων πρόσθετου"
 
@@ -5096,11 +5099,7 @@ msgstr "Αυτό το συνημμένο δεν υπάρχει"
 msgid "Remove attachment"
 msgstr "Αφαίρεση συνημμένου"
 
-#: src/Process/Backend/PostMedia.php:97
-msgid "Attachment"
-msgstr "Συνημμένο"
-
-#: src/Process/Backend/PostMedia.php:106
+#: src/Process/Backend/PostMedia.php:107
 msgid "Are you sure you want to remove this attachment?"
 msgstr "Είστε βέβαιοι ότι θέλετε να καταργήσετε αυτό το συνημμένο?"
 
