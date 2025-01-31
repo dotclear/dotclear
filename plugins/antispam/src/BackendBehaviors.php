@@ -57,7 +57,7 @@ class BackendBehaviors
                         ) . ' ' . sprintf(
                             __('You can modify this duration in the %s.'),
                             (new Link())
-                                ->href(App::backend()->url()->get('admin.blog.pref') . '#antispam_moderation_ttl')
+                                ->href(App::backend()->url()->get('admin.blog.pref') . '#params.antispam_moderation_ttl')
                                 ->text(__('Blog settings'))
                             ->render()
                         )
