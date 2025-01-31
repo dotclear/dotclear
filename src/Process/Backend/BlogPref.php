@@ -713,7 +713,7 @@ class BlogPref extends Process
                                                 ->size(30)
                                                 ->maxlength(255)
                                                 ->value($data->blog_settings->system->date_format)
-                                                ->label(new Label(__('Time format:'), Label::OL_TF))
+                                                ->label(new Label(__('Date format:'), Label::OL_TF))
                                                 ->extra('aria-describedby="date_format_help"'),
                                             (new Select('date_format_select'))
                                                 ->items($data->date_formats_combo)
