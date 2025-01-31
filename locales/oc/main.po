@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-26 10:47+0100\n"
-"PO-Revision-Date: 2025-01-26 10:13\n"
+"POT-Creation-Date: 2025-01-31 18:39+0100\n"
+"PO-Revision-Date: 2025-01-31 17:42\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "Language: oc_FR\n"
@@ -94,7 +94,7 @@ msgstr "Gako hori ez datu-basean."
 #: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:72
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
 #: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:526
-#: src/Process/Backend/MediaItem.php:1178 src/Process/Backend/Post.php:713
+#: src/Process/Backend/MediaItem.php:1090 src/Process/Backend/Post.php:713
 msgid "Title"
 msgstr "Títol"
 
@@ -153,8 +153,8 @@ msgstr "Estatut"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:47
 #: src/Core/Backend/Action/ActionsPostsDefault.php:99
 #: src/Core/Backend/Action/ActionsPostsDefault.php:100
-#: src/Core/Backend/Listing/ListingMedia.php:324
-#: src/Core/Backend/Listing/ListingMedia.php:327
+#: src/Core/Backend/Listing/ListingMedia.php:303
+#: src/Core/Backend/Listing/ListingMedia.php:306
 #: src/Core/Backend/ModulesList.php:1326 src/Core/Upgrade/PluginsList.php:123
 #: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:228
 #: src/Process/Backend/Post.php:802 src/Process/Backend/Users.php:45
@@ -388,7 +388,7 @@ msgstr "Crear una novèla categoria pel(s) messatge(s)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:368
 #: src/Process/Backend/Home.php:530 src/Process/Backend/Home.php:564
-#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1318
+#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1230
 #: src/Process/Backend/Post.php:661 src/Process/Backend/Post.php:709
 msgid "Title:"
 msgstr "Títol :"
@@ -405,7 +405,7 @@ msgstr "Parent :"
 #: src/Core/Backend/ModulesList.php:1955 src/Process/Backend/BlogPref.php:1169
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1358
+#: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1270
 #: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:920
 #: src/Process/Backend/User.php:447 src/Process/Backend/UsersActions.php:405
 #: src/Process/Install/Install.php:478
@@ -597,11 +597,11 @@ msgstr "Recercar"
 msgid "Categories"
 msgstr "Categorias"
 
-#: src/Core/Backend/Favorites.php:470 src/Core/Backend/MediaPage.php:353
-#: src/Core/Backend/MediaPage.php:355 src/Core/Backend/MediaPage.php:405
+#: src/Core/Backend/Favorites.php:470 src/Core/Backend/MediaPage.php:354
+#: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:777
-#: src/Process/Backend/MediaItem.php:475 src/Process/Backend/MediaItem.php:481
+#: src/Process/Backend/MediaItem.php:399 src/Process/Backend/MediaItem.php:405
 msgid "Media manager"
 msgstr "Gestionari de mèdias"
 
@@ -628,8 +628,8 @@ msgid "Users"
 msgstr "Utilizaires"
 
 #: src/Core/Backend/Favorites.php:514 src/Core/Backend/Menus.php:224
-#: src/Process/Backend/Plugins.php:96 src/Process/Backend/Plugins.php:109
-#: src/Process/Backend/Plugins.php:346 src/Process/Backend/Plugins.php:353
+#: src/Process/Backend/Plugins.php:103 src/Process/Backend/Plugins.php:116
+#: src/Process/Backend/Plugins.php:369 src/Process/Backend/Plugins.php:376
 #: src/Process/Upgrade/Plugins.php:146 src/Process/Upgrade/Plugins.php:156
 msgid "Plugins management"
 msgstr "Gestion dels ensambladors"
@@ -801,7 +801,7 @@ msgid "Apply filters and display options"
 msgstr "Aplicar de filtres e d'opcions d'afichatge"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:86
-#: src/Core/Backend/MediaPage.php:392 src/Core/Backend/Page.php:484
+#: src/Core/Backend/MediaPage.php:393 src/Core/Backend/Page.php:484
 msgid "Search:"
 msgstr "Recercar :"
 
@@ -954,31 +954,31 @@ msgstr "Nom"
 msgid "Size"
 msgstr "Talha"
 
-#: src/Core/Backend/Listing/ListingMedia.php:260
-#: src/Core/Backend/Listing/ListingMedia.php:263
+#: src/Core/Backend/Listing/ListingMedia.php:239
+#: src/Core/Backend/Listing/ListingMedia.php:242
 #: src/Process/Backend/Media.php:412
 msgid "Select this file"
 msgstr "Seleccionatz aqueste fichièr"
 
-#: src/Core/Backend/Listing/ListingMedia.php:286
-#: src/Core/Backend/Listing/ListingMedia.php:289
+#: src/Core/Backend/Listing/ListingMedia.php:265
+#: src/Core/Backend/Listing/ListingMedia.php:268
 #: src/Process/Backend/Media.php:450
 msgid "Attach this file to entry"
 msgstr "Juntatz aqueste fichièr a l'entrada"
 
-#: src/Core/Backend/Listing/ListingMedia.php:297
-#: src/Core/Backend/Listing/ListingMedia.php:300
+#: src/Core/Backend/Listing/ListingMedia.php:276
+#: src/Core/Backend/Listing/ListingMedia.php:279
 #: src/Process/Backend/Media.php:477
 msgid "Insert this file into entry"
 msgstr "Inserissètz aqueste fichièr dins l'entrada"
 
-#: src/Core/Backend/Listing/ListingMedia.php:364
-#: src/Core/Backend/Listing/ListingMedia.php:403
+#: src/Core/Backend/Listing/ListingMedia.php:343
+#: src/Core/Backend/Listing/ListingMedia.php:382
 msgid "private media"
 msgstr "mèdia privat"
 
-#: src/Core/Backend/Listing/ListingMedia.php:390
-#: src/Core/Backend/Listing/ListingMedia.php:416
+#: src/Core/Backend/Listing/ListingMedia.php:369
+#: src/Core/Backend/Listing/ListingMedia.php:395
 msgid "open"
 msgstr "dobrir"
 
@@ -1108,7 +1108,7 @@ msgstr "Pagina d'accès dirècte :"
 msgid "ok"
 msgstr "d’acòrdi"
 
-#: src/Core/Backend/MediaPage.php:392
+#: src/Core/Backend/MediaPage.php:393
 #, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
@@ -1473,7 +1473,7 @@ msgstr "Configuratz « %s »"
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1171
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:352
-#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1444
+#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1356
 #: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -1850,9 +1850,9 @@ msgid "Choose files"
 msgstr "Causir de fichièrs"
 
 #: src/Core/Backend/Page.php:1416 src/Process/Backend/LinkPopup.php:110
-#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:590
-#: src/Process/Backend/MediaItem.php:851 src/Process/Backend/Post.php:799
-#: src/Process/Backend/PostMedia.php:111
+#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:507
+#: src/Process/Backend/MediaItem.php:763 src/Process/Backend/Post.php:799
+#: src/Process/Backend/PostMedia.php:112
 msgid "Cancel"
 msgstr "Anullar"
 
@@ -2351,36 +2351,36 @@ msgstr "La version PostgreSQL es %s (%s o mai anciana necessària)."
 msgid "No log message"
 msgstr "Pas de messatge de jornal"
 
-#: src/Core/Media.php:173
+#: src/Core/Media.php:175
 msgid "No blog defined."
 msgstr "Cap de blòg definit."
 
-#: src/Core/Media.php:965 src/Core/Media.php:996
+#: src/Core/Media.php:1093 src/Core/Media.php:1124
 msgid "You are not a super administrator."
 msgstr "Sètz pas un super administrator."
 
-#: src/Core/Media.php:1099 src/Core/Media.php:1193 src/Core/Media.php:1274
-#: src/Core/Media.php:1296 src/Core/Media.php:1318
+#: src/Core/Media.php:1227 src/Core/Media.php:1321 src/Core/Media.php:1402
+#: src/Core/Media.php:1424 src/Core/Media.php:1446
 msgid "Permission denied."
 msgstr "Permission refusada."
 
-#: src/Core/Media.php:1206
+#: src/Core/Media.php:1334
 msgid "You are not the file owner."
 msgstr "Sètz pas lo proprietari del fichièr."
 
-#: src/Core/Media.php:1221
+#: src/Core/Media.php:1349
 msgid "This file is not allowed."
 msgstr "Aqueste fichièr es pas autorizat."
 
-#: src/Core/Media.php:1225
+#: src/Core/Media.php:1353
 msgid "New file already exists."
 msgstr "Un fichièr novèl existís ja."
 
-#: src/Core/Media.php:1338
+#: src/Core/Media.php:1466
 msgid "File does not exist in the database."
 msgstr "Lo fichièr existís pas dins la basa de donadas."
 
-#: src/Core/Media.php:1387
+#: src/Core/Media.php:1515
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Extraire lo repertòri de destinacion %s existís ja."
@@ -2465,7 +2465,7 @@ msgstr "ESPETAT DE RIRE!"
 #: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:98
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:458
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:244
-#: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:108
+#: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:115
 #: src/Process/Backend/User.php:252 src/Process/Backend/Users.php:107
 #: src/Process/Backend/UsersActions.php:202
 #: src/Process/Backend/UsersActions.php:210 src/Process/Upgrade/Home.php:159
@@ -3256,7 +3256,7 @@ msgid "P"
 msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:173 src/Process/Backend/BlogPref.php:1253
-#: src/Process/Backend/MediaItem.php:691 src/Process/Backend/MediaItem.php:696
+#: src/Process/Backend/MediaItem.php:604 src/Process/Backend/MediaItem.php:609
 msgid "(none)"
 msgstr "(cap)"
 
@@ -3276,33 +3276,33 @@ msgstr "Descripcion, País, Data"
 msgid "Description, City, Country, Date"
 msgstr "Descripcion, Ciutat, País, Data"
 
-#: src/Process/Backend/BlogPref.php:207 src/Process/Backend/MediaItem.php:564
-#: src/Process/Backend/MediaItem.php:665 src/Process/Backend/MediaItem.php:930
+#: src/Process/Backend/BlogPref.php:207 src/Process/Backend/MediaItem.php:481
+#: src/Process/Backend/MediaItem.php:578 src/Process/Backend/MediaItem.php:843
 msgid "original"
 msgstr "original"
 
 #: src/Process/Backend/BlogPref.php:218 src/Process/Backend/BlogPref.php:228
-#: src/Process/Backend/MediaItem.php:624 src/Process/Backend/MediaItem.php:684
+#: src/Process/Backend/MediaItem.php:541 src/Process/Backend/MediaItem.php:597
 msgid "None"
 msgstr "Cap"
 
-#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:625
+#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:542
 msgid "Left"
 msgstr "Esquèrra"
 
-#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:626
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:543
 msgid "Right"
 msgstr "Drecha"
 
-#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:627
+#: src/Process/Backend/BlogPref.php:221 src/Process/Backend/MediaItem.php:544
 msgid "Center"
 msgstr "Centre"
 
-#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:677
+#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:590
 msgid "Legend and alternate text"
 msgstr "Legenda e tèxte alternatiu"
 
-#: src/Process/Backend/BlogPref.php:227 src/Process/Backend/MediaItem.php:681
+#: src/Process/Backend/BlogPref.php:227 src/Process/Backend/MediaItem.php:594
 msgid "Alternate text"
 msgstr "Tèxte alternatiu"
 
@@ -3462,13 +3462,17 @@ msgstr "Desactivatz totes los comentaris e los trackbacks sul blòg après un pe
 msgid "Blog presentation"
 msgstr "Presentacion del bòg"
 
-#: src/Process/Backend/BlogPref.php:716 src/Process/Backend/BlogPref.php:733
-msgid "Time format:"
-msgstr "Format orari :"
+#: src/Process/Backend/BlogPref.php:716
+msgid "Date format:"
+msgstr "Format de la data :"
 
 #: src/Process/Backend/BlogPref.php:720
 msgid "Pattern of date"
 msgstr "Modèl de data"
+
+#: src/Process/Backend/BlogPref.php:733
+msgid "Time format:"
+msgstr "Format orari :"
 
 #: src/Process/Backend/BlogPref.php:737
 msgid "Pattern of time"
@@ -3756,7 +3760,7 @@ msgstr "Gestion dels tèmas"
 msgid "Installed themes"
 msgstr "Tèmas installats"
 
-#: src/Process/Backend/BlogTheme.php:204 src/Process/Backend/Plugins.php:156
+#: src/Process/Backend/BlogTheme.php:204 src/Process/Backend/Plugins.php:171
 #: src/Process/Upgrade/Plugins.php:171
 msgid "(in normal mode)"
 msgstr "(en mòde normal)"
@@ -3777,7 +3781,7 @@ msgstr "Tèmas desactivats"
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "Los tèmas desactivats son installats mas pas utilizables. Los podètz activar dempuèi aicí."
 
-#: src/Process/Backend/BlogTheme.php:243 src/Process/Backend/Plugins.php:199
+#: src/Process/Backend/BlogTheme.php:243 src/Process/Backend/Plugins.php:224
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "Lo depaus oficial a pas pogut èsser mes a jorn perque i a pas cap d'URL definit en configuracion."
 
@@ -3805,7 +3809,7 @@ msgstr[0] "I a una mesa a jorn del tèma disponibla:"
 msgstr[1] "I a %s mesas a jorn del tèma disponibles:"
 
 #: src/Process/Backend/BlogTheme.php:311 src/Process/Backend/BlogTheme.php:348
-#: src/Process/Backend/Plugins.php:262 src/Process/Backend/Plugins.php:297
+#: src/Process/Backend/Plugins.php:263 src/Process/Backend/Plugins.php:317
 #: src/Process/Upgrade/Plugins.php:258 src/Process/Upgrade/Plugins.php:297
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
@@ -3819,7 +3823,7 @@ msgstr "Ajustar de tèmas"
 msgid "Add themes from repository"
 msgstr "Ajustar de tèmas d’un repertòri"
 
-#: src/Process/Backend/BlogTheme.php:358 src/Process/Backend/Plugins.php:307
+#: src/Process/Backend/BlogTheme.php:358 src/Process/Backend/Plugins.php:323
 #: src/Process/Upgrade/Plugins.php:307
 msgid "Install or upgrade manually"
 msgstr "Installar o metre a nivèl manualament"
@@ -3977,7 +3981,7 @@ msgstr "Nom :"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Atencion: se definissètz l'URL manualament, pòt èsser en conflicte amb una autra categoria."
 
-#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1336
+#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1248
 msgid "Description:"
 msgstr "Descripcion :"
 
@@ -4097,7 +4101,7 @@ msgstr "Suprimir totes los corrièrs indesirables"
 msgid "Selected comments action:"
 msgstr "Accion de comentaris seleccionadas:"
 
-#: src/Process/Backend/Home.php:72 src/Process/Backend/Plugins.php:52
+#: src/Process/Backend/Home.php:72 src/Process/Backend/Plugins.php:57
 msgid "The following plugins have been disabled :"
 msgstr "Los ensambladors seguents son estats desactivats:"
 
@@ -4153,12 +4157,12 @@ msgstr "I a pas cap de repertòri d'escritura /public/ a l'emplaçament definit 
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "I a pas de repertòri raiç escrible pel gestionari de mèdias. Vos caldriá contactar vòstre administrator."
 
-#: src/Process/Backend/Home.php:306 src/Process/Backend/Plugins.php:122
+#: src/Process/Backend/Home.php:306 src/Process/Backend/Plugins.php:129
 #: src/Process/Install/Install.php:484 src/Process/Upgrade/Plugins.php:114
 msgid "Following plugins have been installed:"
 msgstr "Los ensambladors seguents son estats installats:"
 
-#: src/Process/Backend/Home.php:324 src/Process/Backend/Plugins.php:136
+#: src/Process/Backend/Home.php:324 src/Process/Backend/Plugins.php:145
 #: src/Process/Install/Install.php:491 src/Process/Upgrade/Plugins.php:126
 msgid "Following plugins have not been installed:"
 msgstr "Los ensambladors seguents son pas estats installats:"
@@ -4353,7 +4357,7 @@ msgstr "Títol del ligam :"
 msgid "Link language:"
 msgstr "Lenga de ligam:"
 
-#: src/Process/Backend/LinkPopup.php:112 src/Process/Backend/MediaItem.php:849
+#: src/Process/Backend/LinkPopup.php:112 src/Process/Backend/MediaItem.php:761
 msgid "Insert"
 msgstr "Inserir"
 
@@ -4404,7 +4408,7 @@ msgstr "confirmar la supression"
 msgid "Are you sure you want to remove %s?"
 msgstr "Sètz segur que volètz suprimir %s ?"
 
-#: src/Process/Backend/Media.php:276 src/Process/Backend/PostMedia.php:112
+#: src/Process/Backend/Media.php:276 src/Process/Backend/PostMedia.php:113
 msgid "Yes"
 msgstr "Òc"
 
@@ -4509,7 +4513,7 @@ msgstr "Mercés de prene en carga de publicar de mèdias que possedissètz e que
 msgid "Maximum file size allowed:"
 msgstr "Talha maximala de fichièr autorizada:"
 
-#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1349
+#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1261
 msgid "Private"
 msgstr "Privat"
 
@@ -4540,11 +4544,11 @@ msgid "Not a valid file"
 msgstr "Es pas un fichièr valid"
 
 #: src/Process/Backend/MediaItem.php:177 src/Process/Backend/MediaItem.php:239
-#: src/Process/Backend/MediaItem.php:502
+#: src/Process/Backend/MediaItem.php:426
 msgid "File has been successfully updated."
 msgstr "Lo fichièr es estat mes a jorn amb succès."
 
-#: src/Process/Backend/MediaItem.php:256 src/Process/Backend/MediaItem.php:505
+#: src/Process/Backend/MediaItem.php:256 src/Process/Backend/MediaItem.php:429
 msgid "Thumbnails have been successfully updated."
 msgstr "Las miniaturas son estadas mesas a jorn amb succès."
 
@@ -4552,7 +4556,7 @@ msgstr "Las miniaturas son estadas mesas a jorn amb succès."
 msgid "Zip file has been successfully extracted."
 msgstr "Lo fichièr zip es estat extrach amb succès."
 
-#: src/Process/Backend/MediaItem.php:303 src/Process/Backend/MediaItem.php:508
+#: src/Process/Backend/MediaItem.php:303 src/Process/Backend/MediaItem.php:432
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Los paramètres d'insercion dels mèdias per defaut son estats mes a jorn amb succès."
 
@@ -4564,244 +4568,243 @@ msgstr "Los paramètres d'insercion dels mèdias son estats enregistrats amb suc
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Los paramètres d'insercion dels mèdias son estats suprimits amb succès per aqueste dorsièr."
 
-#: src/Process/Backend/MediaItem.php:558 src/Process/Backend/MediaItem.php:659
+#: src/Process/Backend/MediaItem.php:475 src/Process/Backend/MediaItem.php:572
 msgid "Image size:"
 msgstr "Talha de l'imatge:"
 
-#: src/Process/Backend/MediaItem.php:577 src/Process/Backend/MediaItem.php:579
+#: src/Process/Backend/MediaItem.php:494 src/Process/Backend/MediaItem.php:496
 msgid "Select media item"
 msgstr "Seleccionatz l'element mèdia"
 
-#: src/Process/Backend/MediaItem.php:588 src/Process/Upgrade/Attic.php:297
+#: src/Process/Backend/MediaItem.php:505 src/Process/Upgrade/Attic.php:297
 msgid "Select"
 msgstr "Seleccionar"
 
-#: src/Process/Backend/MediaItem.php:671
+#: src/Process/Backend/MediaItem.php:584
 msgid "Image legend and alternate text"
 msgstr "Legenda d'imatge e tèxte alternatiu"
 
-#: src/Process/Backend/MediaItem.php:688 src/Process/Backend/MediaItem.php:1187
-#: src/Process/Backend/MediaItem.php:1327
+#: src/Process/Backend/MediaItem.php:601 src/Process/Backend/MediaItem.php:1099
+#: src/Process/Backend/MediaItem.php:1239
 msgid "Alternate text:"
 msgstr "Tèxte alternatiu:"
 
-#: src/Process/Backend/MediaItem.php:693
+#: src/Process/Backend/MediaItem.php:606
 msgid "Legend:"
 msgstr "Legenda:"
 
-#: src/Process/Backend/MediaItem.php:702
+#: src/Process/Backend/MediaItem.php:615
 msgid "Image alignment"
 msgstr "Alinhament de l'imatge"
 
-#: src/Process/Backend/MediaItem.php:709
+#: src/Process/Backend/MediaItem.php:622
 msgid "Image insertion"
 msgstr "Insercion d'imatge"
 
-#: src/Process/Backend/MediaItem.php:714
+#: src/Process/Backend/MediaItem.php:627
 msgid "As a single image"
 msgstr "Coma una sola imatge"
 
-#: src/Process/Backend/MediaItem.php:717
+#: src/Process/Backend/MediaItem.php:630
 msgid "As a link to the original image"
 msgstr "Coma ligam cap a l'imatge original"
 
-#: src/Process/Backend/MediaItem.php:734
+#: src/Process/Backend/MediaItem.php:647
 msgid "MP3 disposition"
 msgstr "Disposicion MP3"
 
-#: src/Process/Backend/MediaItem.php:743
+#: src/Process/Backend/MediaItem.php:656
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Notatz que podètz pas inserir de fichièrs mp3 amb l'editor estandard en mòde HTML WYSIWYG."
 
-#: src/Process/Backend/MediaItem.php:759
+#: src/Process/Backend/MediaItem.php:672
 msgid "Video size"
 msgstr "Talha de la vidèo"
 
-#: src/Process/Backend/MediaItem.php:763
+#: src/Process/Backend/MediaItem.php:676
 msgid "Width:"
 msgstr "Largor :"
 
-#: src/Process/Backend/MediaItem.php:768
+#: src/Process/Backend/MediaItem.php:681
 msgid "Height:"
 msgstr "_Nautor :"
 
-#: src/Process/Backend/MediaItem.php:774
+#: src/Process/Backend/MediaItem.php:687
 msgid "Video disposition"
 msgstr "Disposicion vidèo"
 
-#: src/Process/Backend/MediaItem.php:784
+#: src/Process/Backend/MediaItem.php:697
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Notatz que podètz pas inserir de fichièrs vidèo amb l'editor estandard en mòde HTML WYSIWYG."
 
-#: src/Process/Backend/MediaItem.php:791
+#: src/Process/Backend/MediaItem.php:703
 msgid "Media item will be inserted as a link."
 msgstr "L'element mèdia serà inserit coma un ligam."
 
-#: src/Process/Backend/MediaItem.php:812
+#: src/Process/Backend/MediaItem.php:724
 msgid "Make current settings as default"
 msgstr "Rendre los paramètres actuals coma per defaut"
 
-#: src/Process/Backend/MediaItem.php:813
+#: src/Process/Backend/MediaItem.php:725
 msgid "For the blog"
 msgstr "Per lo blòg"
 
-#: src/Process/Backend/MediaItem.php:815
+#: src/Process/Backend/MediaItem.php:727
 msgid "For this folder only"
 msgstr "Per aqueste dorsièr solament"
 
-#: src/Process/Backend/MediaItem.php:827
+#: src/Process/Backend/MediaItem.php:739
 msgid "Settings exist for this folder:"
 msgstr "Los paramètres existisson per aqueste dorsièr:"
 
-#: src/Process/Backend/MediaItem.php:828
+#: src/Process/Backend/MediaItem.php:740
 msgid "Remove them"
 msgstr "Levatz-los"
 
-#: src/Process/Backend/MediaItem.php:838 src/Process/Backend/MediaItem.php:840
+#: src/Process/Backend/MediaItem.php:750 src/Process/Backend/MediaItem.php:752
 msgid "Insert media item"
 msgstr "Inserir l'element mèdia"
 
-#: src/Process/Backend/MediaItem.php:923
+#: src/Process/Backend/MediaItem.php:836
 msgid "Available sizes:"
 msgstr "Talhas disponiblas:"
 
-#: src/Process/Backend/MediaItem.php:948 src/Process/Backend/MediaItem.php:1022
-#: src/Process/Backend/MediaItem.php:1030
-#: src/Process/Backend/MediaItem.php:1041
+#: src/Process/Backend/MediaItem.php:861 src/Process/Backend/MediaItem.php:935
+#: src/Process/Backend/MediaItem.php:943 src/Process/Backend/MediaItem.php:954
 msgid "Image width:"
 msgstr "Largor de l'imatge:"
 
-#: src/Process/Backend/MediaItem.php:954 src/Process/Backend/MediaItem.php:1047
+#: src/Process/Backend/MediaItem.php:867 src/Process/Backend/MediaItem.php:960
 msgid "Image height:"
 msgstr "Nautor d'imatge :"
 
-#: src/Process/Backend/MediaItem.php:962 src/Process/Backend/MediaItem.php:1057
+#: src/Process/Backend/MediaItem.php:875 src/Process/Backend/MediaItem.php:970
 msgid "File size:"
 msgstr "Talha del fichièr :"
 
-#: src/Process/Backend/MediaItem.php:970 src/Process/Backend/MediaItem.php:1063
+#: src/Process/Backend/MediaItem.php:883 src/Process/Backend/MediaItem.php:976
 msgid "File URL:"
 msgstr "URL del fichièr:"
 
-#: src/Process/Backend/MediaItem.php:978
+#: src/Process/Backend/MediaItem.php:891
 msgid "Thumbnail details"
 msgstr "Detalhs de la miniatura"
 
-#: src/Process/Backend/MediaItem.php:1001
+#: src/Process/Backend/MediaItem.php:914
 msgid "File owner:"
 msgstr "Proprietari del fichièr:"
 
-#: src/Process/Backend/MediaItem.php:1007
+#: src/Process/Backend/MediaItem.php:920
 msgid "File type:"
 msgstr "Tipe de fichièr:"
 
-#: src/Process/Backend/MediaItem.php:1074
+#: src/Process/Backend/MediaItem.php:987
 msgid "Show entries containing this media"
 msgstr "Mostrar las entradas que contenon aqueste mèdia"
 
-#: src/Process/Backend/MediaItem.php:1123
+#: src/Process/Backend/MediaItem.php:1035
 msgid "No entry seems contain this media."
 msgstr "Cap d'entrada sembla pas conténer aqueste mèdia."
 
-#: src/Process/Backend/MediaItem.php:1153
+#: src/Process/Backend/MediaItem.php:1065
 msgid "Inside the entry"
 msgstr "Dins l'intrada"
 
-#: src/Process/Backend/MediaItem.php:1160
+#: src/Process/Backend/MediaItem.php:1072
 msgid "Linked to entry"
 msgstr "Ligat a l'entrada"
 
-#: src/Process/Backend/MediaItem.php:1168
+#: src/Process/Backend/MediaItem.php:1080
 msgid "Entries containing this media"
 msgstr "Entradas que contenon aqueste mèdia"
 
-#: src/Process/Backend/MediaItem.php:1202
+#: src/Process/Backend/MediaItem.php:1114
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1212
+#: src/Process/Backend/MediaItem.php:1124
 msgid "Metadata"
 msgstr "Metadanadas"
 
-#: src/Process/Backend/MediaItem.php:1224
-#: src/Process/Backend/MediaItem.php:1426
-#: src/Process/Backend/MediaItem.php:1435
+#: src/Process/Backend/MediaItem.php:1136
+#: src/Process/Backend/MediaItem.php:1338
+#: src/Process/Backend/MediaItem.php:1347
 msgid "Media details"
 msgstr "Detalhs dels mèdias"
 
-#: src/Process/Backend/MediaItem.php:1242
-#: src/Process/Backend/MediaItem.php:1249
+#: src/Process/Backend/MediaItem.php:1154
+#: src/Process/Backend/MediaItem.php:1161
 msgid "Update thumbnails"
 msgstr "Metre a jorn las miniaturas"
 
-#: src/Process/Backend/MediaItem.php:1244
+#: src/Process/Backend/MediaItem.php:1156
 msgid "This will create or update thumbnails for this image."
 msgstr "Aquò crearà o metrà a jorn de miniaturas per aqueste imatge."
 
-#: src/Process/Backend/MediaItem.php:1258
-#: src/Process/Backend/MediaItem.php:1273
+#: src/Process/Backend/MediaItem.php:1170
+#: src/Process/Backend/MediaItem.php:1185
 msgid "Extract in a new directory"
 msgstr "Extraire dins un repertòri novèl"
 
-#: src/Process/Backend/MediaItem.php:1259
-#: src/Process/Backend/MediaItem.php:1279
+#: src/Process/Backend/MediaItem.php:1171
+#: src/Process/Backend/MediaItem.php:1191
 msgid "Extract in current directory"
 msgstr "Extraire dins lo repertòri actual"
 
-#: src/Process/Backend/MediaItem.php:1267
+#: src/Process/Backend/MediaItem.php:1179
 msgid "Extract archive"
 msgstr "Traire l'archiu"
 
-#: src/Process/Backend/MediaItem.php:1274
+#: src/Process/Backend/MediaItem.php:1186
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Aquò extrairà l'archiu dins un repertòri novèl que deuriá pas existir encara."
 
-#: src/Process/Backend/MediaItem.php:1280
+#: src/Process/Backend/MediaItem.php:1192
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Aquò extrairà l'archiu dins lo repertòri actual e subrescriurà los fichièrs o lo repertòri existents."
 
-#: src/Process/Backend/MediaItem.php:1288
+#: src/Process/Backend/MediaItem.php:1200
 msgid "Extract mode:"
 msgstr "Mòde d'extraccion:"
 
-#: src/Process/Backend/MediaItem.php:1289
+#: src/Process/Backend/MediaItem.php:1201
 msgid "Extract"
 msgstr "Traire"
 
-#: src/Process/Backend/MediaItem.php:1301
+#: src/Process/Backend/MediaItem.php:1213
 msgid "Change media properties"
 msgstr "Cambiar las proprietats del mèdia"
 
-#: src/Process/Backend/MediaItem.php:1310
+#: src/Process/Backend/MediaItem.php:1222
 msgid "File name:"
 msgstr "Nom de fichièrs :"
 
-#: src/Process/Backend/MediaItem.php:1343
+#: src/Process/Backend/MediaItem.php:1255
 msgid "File date:"
 msgstr "Data del fichièr:"
 
-#: src/Process/Backend/MediaItem.php:1356
+#: src/Process/Backend/MediaItem.php:1268
 msgid "New directory:"
 msgstr "Novèl repertòri:"
 
-#: src/Process/Backend/MediaItem.php:1371
+#: src/Process/Backend/MediaItem.php:1283
 msgid "Change file"
 msgstr "Cambiar lo fichièr"
 
-#: src/Process/Backend/MediaItem.php:1380
+#: src/Process/Backend/MediaItem.php:1292
 msgid "Choose a file:"
 msgstr "Causissètz un fichièr:"
 
-#: src/Process/Backend/MediaItem.php:1380
+#: src/Process/Backend/MediaItem.php:1292
 #, php-format
 msgid "Maximum size %s"
 msgstr "Talha maximala %s"
 
-#: src/Process/Backend/MediaItem.php:1398
+#: src/Process/Backend/MediaItem.php:1310
 msgid "Delete this media"
 msgstr "Suprimir aqueste mèdia"
 
-#: src/Process/Backend/MediaItem.php:1417
+#: src/Process/Backend/MediaItem.php:1329
 msgid "Updates and modifications"
 msgstr "Mesas a jorn e modificacions"
 
@@ -4817,72 +4820,72 @@ msgstr "Lo plugin pas trobat"
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "L'ensamblador qu'avètz atench existís pas o a pas una pagina d'administracion."
 
-#: src/Process/Backend/Plugins.php:146 src/Process/Backend/Plugins.php:155
+#: src/Process/Backend/Plugins.php:170 src/Process/Upgrade/Plugins.php:171
+msgid "Activated plugins"
+msgstr "Ensambladors activats"
+
+#: src/Process/Backend/Plugins.php:170 src/Process/Backend/Plugins.php:217
 #: src/Process/Upgrade/Plugins.php:162
 msgid "Installed plugins"
 msgstr "Empeutons installats"
 
-#: src/Process/Backend/Plugins.php:155 src/Process/Upgrade/Plugins.php:171
-msgid "Activated plugins"
-msgstr "Ensambladors activats"
-
-#: src/Process/Backend/Plugins.php:158 src/Process/Upgrade/Plugins.php:173
+#: src/Process/Backend/Plugins.php:175 src/Process/Upgrade/Plugins.php:173
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Podètz configurar e gerir los ensambladors installats a partir d'aquesta lista."
 
-#: src/Process/Backend/Plugins.php:177 src/Process/Upgrade/Plugins.php:192
+#: src/Process/Backend/Plugins.php:197 src/Process/Upgrade/Plugins.php:192
 msgid "Deactivated plugins"
 msgstr "Ensambladors desactivats"
 
-#: src/Process/Backend/Plugins.php:178 src/Process/Upgrade/Plugins.php:193
+#: src/Process/Backend/Plugins.php:201 src/Process/Upgrade/Plugins.php:193
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "Los ensambladors desactivats son installats mas pas utilizables. Los podètz activar dempuèi aicí."
 
-#: src/Process/Backend/Plugins.php:203 src/Process/Upgrade/Plugins.php:136
+#: src/Process/Backend/Plugins.php:228 src/Process/Upgrade/Plugins.php:136
 msgid "Manual checking of plugins update done successfully."
 msgstr "Verificacion manuala de la mesa a jorn dels ensambladors facha amb succès."
 
-#: src/Process/Backend/Plugins.php:218 src/Process/Backend/Plugins.php:219
-#: src/Process/Upgrade/Plugins.php:214 src/Process/Upgrade/Plugins.php:215
-msgid "Update plugins"
-msgstr "Metre a jorn los ensambladors"
-
-#: src/Process/Backend/Plugins.php:230 src/Process/Upgrade/Plugins.php:226
-msgid "Force checking update of plugins"
-msgstr "Forçar la mesa a jorn de verificacion dels ensambladors"
-
-#: src/Process/Backend/Plugins.php:237 src/Process/Upgrade/Plugins.php:233
+#: src/Process/Backend/Plugins.php:245 src/Process/Upgrade/Plugins.php:233
 msgid "No updates available for plugins."
 msgstr "Cap de mesa a jorn disponibla pels ensambladors."
 
-#: src/Process/Backend/Plugins.php:242 src/Process/Upgrade/Plugins.php:238
+#: src/Process/Backend/Plugins.php:248 src/Process/Upgrade/Plugins.php:238
 #, php-format
 msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
 msgstr[0] "I a una mesa a jorn de plugin disponibla:"
 msgstr[1] "I a de mesas a jorn de %s ensambladors disponiblas:"
 
-#: src/Process/Backend/Plugins.php:277 src/Process/Upgrade/Plugins.php:277
+#: src/Process/Backend/Plugins.php:267 src/Process/Backend/Plugins.php:270
+#: src/Process/Upgrade/Plugins.php:214 src/Process/Upgrade/Plugins.php:215
+msgid "Update plugins"
+msgstr "Metre a jorn los ensambladors"
+
+#: src/Process/Backend/Plugins.php:279 src/Process/Upgrade/Plugins.php:226
+msgid "Force checking update of plugins"
+msgstr "Forçar la mesa a jorn de verificacion dels ensambladors"
+
+#: src/Process/Backend/Plugins.php:298 src/Process/Upgrade/Plugins.php:277
 msgid "Add plugins"
 msgstr "Apondre un lempeuton"
 
-#: src/Process/Backend/Plugins.php:278 src/Process/Upgrade/Plugins.php:278
+#: src/Process/Backend/Plugins.php:301 src/Process/Upgrade/Plugins.php:278
 msgid "Add plugins from repository"
 msgstr "Apondre d'ensambladors dempuèi lo depaus"
 
-#: src/Process/Backend/Plugins.php:308 src/Process/Upgrade/Plugins.php:308
+#: src/Process/Backend/Plugins.php:326 src/Process/Upgrade/Plugins.php:308
 msgid "Add plugins from a package"
 msgstr "Apondre d'ensambladors dempuèi un paquet"
 
-#: src/Process/Backend/Plugins.php:309 src/Process/Upgrade/Plugins.php:309
+#: src/Process/Backend/Plugins.php:329 src/Process/Upgrade/Plugins.php:309
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Podètz installar d'ensambladors en cargant o en telecargant de fichièrs zip."
 
-#: src/Process/Backend/Plugins.php:323 src/Process/Upgrade/Plugins.php:320
+#: src/Process/Backend/Plugins.php:345 src/Process/Upgrade/Plugins.php:320
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Qualques foncions son desactivadas, donatz un accès d'escritura a vòstre repertòri d'ensambladors per los activar."
 
-#: src/Process/Backend/Plugins.php:354
+#: src/Process/Backend/Plugins.php:377
 msgid "Plugin configuration"
 msgstr "Configuracion del plugin"
 
@@ -5096,11 +5099,7 @@ msgstr "Aquesta junta existís pas"
 msgid "Remove attachment"
 msgstr "Suprimir l'adjunta"
 
-#: src/Process/Backend/PostMedia.php:97
-msgid "Attachment"
-msgstr "Pèça junta"
-
-#: src/Process/Backend/PostMedia.php:106
+#: src/Process/Backend/PostMedia.php:107
 msgid "Are you sure you want to remove this attachment?"
 msgstr "Sètz segur que volètz suprimir aqueste joint?"
 
