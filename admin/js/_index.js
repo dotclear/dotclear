@@ -226,10 +226,10 @@ dotclear.ready(() => {
         set_positions(sel, id);
       },
       start() {
-        sel.classList.add('sortable-area');
+        document.getElementById(sel)?.classList.add('sortable-area');
       },
       stop() {
-        sel.classList.remove('sortable-area');
+        document.getElementById(sel)?.classList.remove('sortable-area');
       },
     });
   };
