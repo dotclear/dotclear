@@ -1080,7 +1080,7 @@ class Media extends Manager implements MediaInterface
             return '';
         }
 
-        return implode($sep, $res);
+        return implode($sep, array_filter($res, fn ($item): bool => (bool) trim((string) $item)));
     }
 
     public function rebuild(string $pwd = '', bool $recursive = false): void
