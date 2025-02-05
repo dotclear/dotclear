@@ -100,6 +100,8 @@ class Utils
      */
     public static function dbSchema(Structure $_s): void
     {
+        App::deprecated()->set('Utils::dbSchema()', '2.33');
+
         Schema::fillStructure($_s);
     }
 
