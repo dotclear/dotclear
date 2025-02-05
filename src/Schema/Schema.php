@@ -14,6 +14,8 @@ use Dotclear\Database\Structure;
 
 /**
  * @brief   Installation helpers
+ *
+ * @since 2.33
  */
 class Schema
 {
