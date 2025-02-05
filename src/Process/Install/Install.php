@@ -19,6 +19,7 @@ use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Text;
+use Dotclear\Schema\Schema;
 use Exception;
 use form;
 
@@ -193,7 +194,7 @@ class Install extends Process
                 $_s = new Structure(App::con(), App::con()->prefix());
 
                 # Fill database structrue
-                Utils::dbSchema($_s);
+                Schema::fillStructure($_s);
 
                 $si = new Structure(App::con(), App::con()->prefix());
                 $si->synchronize($_s);

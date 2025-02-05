@@ -12,10 +12,11 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade;
 
 use Dotclear\App;
+use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Session;
 use Dotclear\Database\Structure;
 use Dotclear\Helper\File\Files;
-use Dotclear\Core\Install\Utils;
+use Dotclear\Schema\Schema;
 use Exception;
 
 /**
@@ -48,7 +49,7 @@ class Upgrade
                     $_s = new Structure(App::con(), App::con()->prefix());
 
                     # Fill database structrue
-                    Utils::dbSchema($_s);
+                    Schema::fillStructure($_s);
 
                     $si      = new Structure(App::con(), App::con()->prefix());
                     $changes = $si->synchronize($_s);
