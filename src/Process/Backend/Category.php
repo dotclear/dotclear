@@ -101,7 +101,7 @@ class Category extends Process
                 if (!isset($parents[$rs->cat_id])) {
                     $stack[] = new Option(
                         str_repeat('&nbsp;&nbsp;', (int) $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . Html::escapeHTML($rs->cat_title),
-                        $rs->cat_id
+                        (string) $rs->cat_id
                     );
                 }
             }
