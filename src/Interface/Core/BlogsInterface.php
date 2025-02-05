@@ -135,4 +135,13 @@ interface BlogsInterface
      * @return  int     Number of blog posts.
      */
     public function countBlogPosts(string $id, ?string $type = null): int;
+
+    /**
+     * Creates default settings for active blog.
+     *
+     * Optionnal parameter <var>defaults</var> replaces default params while needed.
+     *
+     * @param   null|array<array{0:string, 1:string, 2:mixed, 3:string}>  $defaults   The defaults settings
+     */
+    public function blogDefaults(?array $defaults = null): void;
 }

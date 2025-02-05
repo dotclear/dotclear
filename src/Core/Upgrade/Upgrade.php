@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade;
 
 use Dotclear\App;
-use Dotclear\Core\Install\Utils;
 use Dotclear\Core\Session;
 use Dotclear\Database\Structure;
 use Dotclear\Helper\File\Files;
@@ -114,7 +113,7 @@ class Upgrade
 
         // Set dc version
         App::version()->setVersion('core', App::config()->dotclearVersion());
-        Utils::blogDefaults();
+        App::blogs()->blogDefaults();
 
         return $cleanup_sessions;
     }

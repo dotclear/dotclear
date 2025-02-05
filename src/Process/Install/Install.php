@@ -227,7 +227,7 @@ class Install extends Process
                 App::blogs()->addBlog($cur);
 
                 # Create global blog settings
-                Utils::blogDefaults();
+                App::blogs()->blogDefaults();
 
                 $blog_settings = App::blogSettings()->createFromBlog('default');
                 $blog_settings->system->put('blog_timezone', $default_tz);

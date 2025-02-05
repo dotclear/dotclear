@@ -14,7 +14,6 @@ use Dotclear\Core\Backend\Utility as Backend;
 use Dotclear\Core\Frontend\Ctx;
 use Dotclear\Core\Frontend\Tpl;
 use Dotclear\Core\Frontend\Utility as Frontend;
-use Dotclear\Core\Install\Utils;
 use Dotclear\Core\PostType;
 use Dotclear\Core\Session;
 use Dotclear\Core\Version;
@@ -1191,13 +1190,13 @@ final class dcCore
     /**
      * Creates default settings for active blog.
      *
-     * @deprecated since 2.28, use Dotclear\Core\Install\Utils::blogDefault() instead
+     * @deprecated since 2.28, use App::blogs()->blogDefault() instead
      *
      * @param   null|array<array{0:string, 1:string, 2:mixed, 3:string}>  $defaults   The defaults settings
      */
     public function blogDefaults(?array $defaults = null): void
     {
-        Utils::blogDefaults($defaults);
+        App::blogs()->blogDefaults($defaults);
     }
 
     /**
