@@ -4,7 +4,7 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('#media-insert').on('onetabload', () => {
+  document.getElementById('media-insert')?.addEventListener('onetabload', () => {
     $('#media-insert-cancel').on('click', () => {
       window.close();
     });

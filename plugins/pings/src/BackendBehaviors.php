@@ -27,7 +27,7 @@ use Exception;
 class BackendBehaviors
 {
     /**
-     * Add attachment fieldset in entry sidebar.
+     * Add pings fieldset in entry sidebar.
      *
      * @param   ArrayObject<string, mixed>     $main       The main part of the entry form
      * @param   ArrayObject<string, mixed>     $sidebar    The sidebar part of the entry form

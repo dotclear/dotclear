@@ -4,7 +4,7 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('#edit-entry').on('onetabload', () => {
+  document.getElementById('edit-entry')?.addEventListener('onetabload', () => {
     const tags_edit = $('#tags-edit');
     let post_id = $('#id');
     let meta_field = null;

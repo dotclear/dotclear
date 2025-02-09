@@ -1,4 +1,4 @@
-/*global $, dotclear */
+/*global dotclear */
 'use strict';
 
 dotclear.ready(() => {
@@ -7,7 +7,7 @@ dotclear.ready(() => {
   // Update page/post deletion message
   Object.assign(dotclear.msg, dotclear.getData('pages_page'));
 
-  $('#comments').on('onetabload', () => {
+  document.getElementById('comments')?.addEventListener('onetabload', () => {
     dotclear.expandContent({
       line: document.querySelector('#part-comments .comments-list tr:not(.line)'),
       lines: document.querySelectorAll('#part-comments .comments-list tr.line'),

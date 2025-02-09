@@ -7,7 +7,7 @@ Object.assign(dotclear, dotclear.getData('legacy_editor_ctx'));
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  if ($('#edit-entry').length == 0) {
+  if ($('#edit-entry').length === 0) {
     return;
   }
 
@@ -31,7 +31,7 @@ dotclear.ready(() => {
     formatField = $('#post_format').get(0);
     let last_post_format = $(formatField).val();
     $(formatField).on('change', function () {
-      if (this.value != 'dcLegacyEditor') {
+      if (this.value !== 'dcLegacyEditor') {
         return;
       }
 
@@ -76,18 +76,18 @@ dotclear.ready(() => {
     dotclear.commentTb.draw('xhtml');
   }
 
-  $('#comments').on('onetabload', () => {
+  document.getElementById('comments')?.addEventListener('onetabload', () => {
     // Remove required attribut from #comment_content as textarea might be not more focusable
     if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#comment_content')) {
       $('#comment_content')[0].removeAttribute('required');
     }
   });
 
-  $('#edit-entry').on('onetabload', () => {
+  document.getElementById('edit-entry')?.addEventListener('onetabload', () => {
     // Remove required attribut from #post_content in HTML mode as textarea is not more focusable
     if (
       formatField !== undefined &&
-      formatField.value == 'xhtml' &&
+      formatField.value === 'xhtml' &&
       dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_content')
     ) {
       $('#post_content')[0].removeAttribute('required');
@@ -105,7 +105,7 @@ dotclear.ready(() => {
     const excerpt = $('#post_excerpt').val();
     const content = $('#post_content').val();
     $('#convert-xhtml').on('click', () => {
-      if (excerpt != $('#post_excerpt').val() || content != $('#post_content').val()) {
+      if (excerpt !== $('#post_excerpt').val() || content !== $('#post_content').val()) {
         return window.confirm(dotclear.msg.confirm_change_post_format);
       }
     });

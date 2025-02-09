@@ -112,7 +112,7 @@ dotclear.ready(() => {
   });
 
   // Tabs events
-  $('#edit-entry').on('onetabload', () => {
+  document.getElementById('edit-entry')?.addEventListener('onetabload', () => {
     dotclear.hideLockable();
 
     // Confirm post deletion
@@ -184,7 +184,7 @@ dotclear.ready(() => {
     });
   });
 
-  $('#comments').on('onetabload', () => {
+  document.getElementById('comments')?.addEventListener('onetabload', () => {
     dotclear.expandContent({
       line: document.querySelector('#form-comments .comments-list tr:not(.line)'),
       lines: document.querySelectorAll('#form-comments .comments-list tr.line'),
@@ -197,7 +197,7 @@ dotclear.ready(() => {
     dotclear.commentsActionsHelper();
   });
 
-  $('#trackbacks').on('onetabload', () => {
+  document.getElementById('trackbacks')?.addEventListener('onetabload', () => {
     dotclear.expandContent({
       line: document.querySelector('#form-trackbacks .comments-list tr:not(.line)'),
       lines: document.querySelectorAll('#form-trackbacks .comments-list tr.line'),
@@ -210,7 +210,7 @@ dotclear.ready(() => {
     dotclear.commentsActionsHelper();
   });
 
-  $('#add-comment').on('onetabload', () => {
+  document.getElementById('add-comment')?.addEventListener('onetabload', () => {
     dotclear.commentTb.draw('xhtml');
   });
 });
