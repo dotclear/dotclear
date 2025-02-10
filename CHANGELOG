@@ -1,3 +1,45 @@
+Dotclear 2.33 - 2025-02-13
+===========================================================
+* 🐘 PHP 8.1+ is required, PHP 8.2, 8.3 and 8.4 compliance
+* Core: Get title and description from SVG if exist
+* Core: Add optional release date to modules and display them if present
+* UX/UI: Add left/right arrow key navigation from post to post (or page to page)
+* UX/UI: Adjust (small) image size in some popup display
+* UX/UI: Add media title to metadata list
+* UX/UI: Add direct submit on quick menu selection (search field)
+* UX/UI: Add a required attribute to password of the chosen action is delete on blogs page management
+* UX/UI: Add count of available updates for plugins and themes in tab title
+* UX/UI: Review "Lock theme update" note, thanks Gérard Barré for this suggestion
+* UX/UI: Adjust size and positions of sub/sup texts
+* UX/UI: Add media title as ordering criteria
+* UX/UI: Apply a lexical sort for names and titles of media
+* UX/UI: During meta (tags) search, add a second loop looking after the beginning (those results will be displayed at the end of the list)
+* UX/UI: Remove stats (no of entries, usage frequency) on autocomplete list (tags)
+* UX/UI: Classic editor: Set some CSS attributes to avoid dynamic inline style insertion during copy'n'paste
+* UX/UI: Switch from : to ▶ character for current/active menu-item indicator (with a fallback to :)
+* UX/UI: Remove metadata frequency information (not useful in backend)
+* UX/UI: Cope with large SVG icon in sidebar of entry edition page
+* UX/UI: Media item page: on display list of entries using the media, display now two lists (inside entry/entry attachments).
+* UX/UI: Cope with alternate text and description of video and audio media during insertion
+* Fix: Lock/unlock button (on input/textarea) was not accessible
+* Fix: Don't display a warning about missing permission for super-admin newly created users
+* Fix: SQL error on changing existing user id, the prefs were created from the old id, not the new one
+* Fix: On some servers, OPCache API might be restricted. Try to detect this.
+* Fix: Don't display twice the media title in media metadata list
+* Fix: In en empty media folder, uploaded files using the enhanced uploader were not displayed
+* Fix: Ensure there is at least one available language to download before showing the according form
+* Fix: XMP metadata were badly read from image file
+* Fix: Cope with non existing settings in Ductile configuration
+* Fix: Boxes alignment on blog appearance page
+* Fix: Date format label in blog parameters
+* Fix: Sortable blocks system on dashboard
+* 🛡 Security: Fix potential XSS, thanks Ratnesh Kumar for reporting this issue
+* 🛡 Security: Escape HTML content in filters' input fields
+* 🛡 Security: Disallow double (or more) extensions on media upload file, fix a potential RCE reported by Ratnesh Kumar.
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
+
 Dotclear 2.32.1 - 2024-11-27
 ===========================================================
 * Fix: A category could not be renamed
