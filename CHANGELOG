@@ -3,6 +3,8 @@ Dotclear 2.33 - 2025-02-13
 * 🐘 PHP 8.1+ is required, PHP 8.2, 8.3 and 8.4 compliance
 * Core: Get title and description from SVG if exist
 * Core: Add optional release date to modules and display them if present
+* Core: Status management revamped (entries, comments, users, blogs, ...)
+* Core: New behavior coreBlogBeforeGetPostsAddingParameters (used for some db requests)
 * UX/UI: Add left/right arrow key navigation from post to post (or page to page)
 * UX/UI: Adjust (small) image size in some popup display
 * UX/UI: Add media title to metadata list
