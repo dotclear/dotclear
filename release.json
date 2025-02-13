@@ -2,8 +2,8 @@
   "about": "Dotclear default release configuration",
   "note": "This file is required by Dotclear application. Do not edit nor delete it.",
 
-  "release_version": "2.33-dev",
-  "release_name": "Still moving",
+  "release_version": "2.33",
+  "release_name": "Revolutions per minute",
   "release_update_url": "https://download.dotclear.org/versions.xml",
   "release_update_canal": "stable",
   "release_previous_versions": "https://download.dotclear.org/releases.xml",
