@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-31 18:39+0100\n"
-"PO-Revision-Date: 2025-01-31 17:41\n"
+"POT-Creation-Date: 2025-02-13 11:40+0100\n"
+"PO-Revision-Date: 2025-02-13 10:57\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
 #: src/Process/Backend/User.php:243 src/Process/Backend/UserPreferences.php:494
-#: src/Process/Install/Install.php:396
+#: src/Process/Install/Install.php:397
 msgid "medium"
 msgstr "Médio"
 
@@ -172,7 +172,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Os blogs selecionados foram atualizados com sucesso."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1664 src/Core/Backend/ThemesList.php:742
+#: src/Core/Backend/ModulesList.php:1664 src/Core/Backend/ThemesList.php:749
 #: src/Core/Upgrade/PluginsList.php:396 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:112 src/Process/Backend/Langs.php:157
 #: src/Process/Backend/User.php:106 src/Process/Backend/UsersActions.php:161
@@ -408,7 +408,7 @@ msgstr "Pai:"
 #: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1270
 #: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:920
 #: src/Process/Backend/User.php:447 src/Process/Backend/UsersActions.php:405
-#: src/Process/Install/Install.php:478
+#: src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "Salvar"
 
@@ -530,7 +530,7 @@ msgid "Blog ID"
 msgstr "ID do blog"
 
 #: src/Core/Backend/Combos.php:347 src/Core/Backend/Listing/ListingUsers.php:65
-#: src/Process/Install/Install.php:458
+#: src/Process/Install/Install.php:459
 msgid "Username"
 msgstr "Nome de usuário"
 
@@ -649,7 +649,7 @@ msgstr "Ajuda global"
 #: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1339
 #: src/Process/Backend/Comment.php:307 src/Process/Backend/Post.php:899
 #: src/Process/Backend/User.php:371 src/Process/Backend/UserPreferences.php:540
-#: src/Process/Install/Install.php:444
+#: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "Email:"
 
@@ -709,7 +709,7 @@ msgstr "Formato:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:179 src/Process/Backend/Auth.php:155
 #: src/Process/Backend/Auth.php:511 src/Process/Backend/User.php:295
-#: src/Process/Install/Install.php:508 src/Process/Upgrade/Auth.php:222
+#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:222
 msgid "Password:"
 msgstr "Senha:"
 
@@ -1193,8 +1193,8 @@ msgid "Current version"
 msgstr "Versão atual"
 
 #: src/Core/Backend/ModulesList.php:837 src/Core/Backend/ModulesList.php:1061
-#: src/Core/Backend/Page.php:1297 src/Core/Backend/ThemesList.php:223
-#: src/Core/Backend/ThemesList.php:309
+#: src/Core/Backend/Page.php:1297 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/ThemesList.php:316
 msgid "Details"
 msgstr "detalhes"
 
@@ -1221,13 +1221,13 @@ msgstr "Este módulo não pode ser desativado ou excluído, uma vez que os segui
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Este módulo não pode ser ativado por causa dos seguintes motivos:"
 
-#: src/Core/Backend/ModulesList.php:1003 src/Core/Backend/ThemesList.php:207
+#: src/Core/Backend/ModulesList.php:1003 src/Core/Backend/ThemesList.php:214
 #: src/Process/Upgrade/Plugins.php:419
 msgid "Official repository"
 msgstr "Repositório oficial"
 
 #: src/Core/Backend/ModulesList.php:1003 src/Core/Backend/ModulesList.php:1106
-#: src/Core/Backend/ThemesList.php:207 src/Process/Upgrade/Plugins.php:419
+#: src/Core/Backend/ThemesList.php:214 src/Process/Upgrade/Plugins.php:419
 msgid "Third-party repository"
 msgstr "Repositório de terceiros"
 
@@ -1244,11 +1244,11 @@ msgid "Release date:"
 msgstr "Data de lançamento:"
 
 #: src/Core/Backend/ModulesList.php:1068 src/Core/Backend/Page.php:1298
-#: src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/ThemesList.php:237
 msgid "Support"
 msgstr "SUPORTE"
 
-#: src/Core/Backend/ModulesList.php:1072 src/Core/Backend/ThemesList.php:211
+#: src/Core/Backend/ModulesList.php:1072 src/Core/Backend/ThemesList.php:218
 msgid "update locked"
 msgstr "atualização bloqueada"
 
@@ -1383,7 +1383,7 @@ msgstr[1] "Plugins foram atualizados com sucesso."
 msgid "Following plugins updates are locked: %s"
 msgstr "As atualizações dos seguintes plugins estão bloqueadas: %s"
 
-#: src/Core/Backend/ModulesList.php:1672 src/Core/Backend/ThemesList.php:750
+#: src/Core/Backend/ModulesList.php:1672 src/Core/Backend/ThemesList.php:757
 #: src/Core/Upgrade/PluginsList.php:404 src/Process/Backend/Langs.php:163
 #: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
@@ -1408,7 +1408,7 @@ msgstr "Enviar um arquivo zip"
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:369
 #: src/Process/Backend/LinkPopup.php:82 src/Process/Backend/Post.php:768
 #: src/Process/Backend/Post.php:888 src/Process/Backend/User.php:273
-#: src/Process/Backend/UsersActions.php:394 src/Process/Install/Install.php:454
+#: src/Process/Backend/UsersActions.php:394 src/Process/Install/Install.php:455
 #: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:403
 #, php-format
 msgid "Fields preceded by %s are mandatory."
@@ -1422,8 +1422,8 @@ msgstr "Caminho do arquivo zip:"
 #: src/Process/Backend/Langs.php:341 src/Process/Backend/Langs.php:390
 #: src/Process/Backend/Post.php:692 src/Process/Backend/User.php:302
 #: src/Process/Backend/User.php:315 src/Process/Backend/User.php:443
-#: src/Process/Backend/UsersActions.php:401 src/Process/Install/Install.php:466
-#: src/Process/Install/Install.php:472 src/Process/Upgrade/Langs.php:426
+#: src/Process/Backend/UsersActions.php:401 src/Process/Install/Install.php:467
+#: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:426
 msgid "Password"
 msgstr "Senha"
 
@@ -1488,7 +1488,7 @@ msgid "Error:"
 msgstr "Erro:"
 
 #: src/Core/Backend/Notices.php:82 src/Core/Upgrade/Notices.php:46
-#: src/Process/Install/Install.php:417 src/Process/Install/Install.php:526
+#: src/Process/Install/Install.php:418 src/Process/Install/Install.php:527
 #: src/Process/Install/Wizard.php:247
 msgid "Errors:"
 msgstr "Erros:"
@@ -1946,134 +1946,139 @@ msgstr "Pontuação: %s"
 msgid "%s screenshot."
 msgstr "Captura de tela %s."
 
-#: src/Core/Backend/ThemesList.php:178
+#: src/Core/Backend/ThemesList.php:180
+#, php-format
+msgid "(%s template set)"
+msgstr "(conjunto de modelos %s)"
+
+#: src/Core/Backend/ThemesList.php:185
 #, php-format
 msgid "by %s"
 msgstr "por %s"
 
-#: src/Core/Backend/ThemesList.php:182
+#: src/Core/Backend/ThemesList.php:189
 #, php-format
 msgid "version %s"
 msgstr "versão %s"
 
-#: src/Core/Backend/ThemesList.php:186
+#: src/Core/Backend/ThemesList.php:193
 #, php-format
 msgid "released on %s"
 msgstr "lançado em %s"
 
-#: src/Core/Backend/ThemesList.php:194
+#: src/Core/Backend/ThemesList.php:201
 #, php-format
 msgid "(current version %s)"
 msgstr "(versão atual %s)"
 
-#: src/Core/Backend/ThemesList.php:199
+#: src/Core/Backend/ThemesList.php:206
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(construída em \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:202
+#: src/Core/Backend/ThemesList.php:209
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(requer \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:258
+#: src/Core/Backend/ThemesList.php:265
 msgid "View stylesheet"
 msgstr "Visualizar folha de estilos"
 
-#: src/Core/Backend/ThemesList.php:283
+#: src/Core/Backend/ThemesList.php:290
 msgid "Configure theme"
 msgstr "Configurar tema"
 
-#: src/Core/Backend/ThemesList.php:337
+#: src/Core/Backend/ThemesList.php:344
 msgid "No themes matched your search."
 msgstr "Nenhum tema corresponde à sua pesquisa."
 
-#: src/Core/Backend/ThemesList.php:387
+#: src/Core/Backend/ThemesList.php:394
 msgid "Use this one"
 msgstr "Use este"
 
-#: src/Core/Backend/ThemesList.php:404 src/Process/Backend/Post.php:795
+#: src/Core/Backend/ThemesList.php:411 src/Process/Backend/Post.php:795
 msgid "Preview"
 msgstr "Pré-visualizar"
 
-#: src/Core/Backend/ThemesList.php:450
+#: src/Core/Backend/ThemesList.php:457
 msgid "Update selected themes"
 msgstr "Atualizar os temas selecionados"
 
-#: src/Core/Backend/ThemesList.php:451
+#: src/Core/Backend/ThemesList.php:458
 msgid "Update all themes from this list"
 msgstr "Atualizar todos os temas desta lista"
 
-#: src/Core/Backend/ThemesList.php:495 src/Core/Backend/ThemesList.php:536
-#: src/Core/Backend/ThemesList.php:574 src/Core/Backend/ThemesList.php:609
-#: src/Core/Backend/ThemesList.php:649 src/Core/Backend/ThemesList.php:683
-#: src/Core/Backend/ThemesList.php:733
+#: src/Core/Backend/ThemesList.php:502 src/Core/Backend/ThemesList.php:543
+#: src/Core/Backend/ThemesList.php:581 src/Core/Backend/ThemesList.php:616
+#: src/Core/Backend/ThemesList.php:656 src/Core/Backend/ThemesList.php:690
+#: src/Core/Backend/ThemesList.php:740
 msgid "No such theme."
 msgstr "Tema inexistente."
 
-#: src/Core/Backend/ThemesList.php:504
+#: src/Core/Backend/ThemesList.php:511
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Tema %s foi selecionado com sucesso."
 
-#: src/Core/Backend/ThemesList.php:540
+#: src/Core/Backend/ThemesList.php:547
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "O tema foi ativado com sucesso."
 msgstr[1] "Os temas foram ativados com sucesso."
 
-#: src/Core/Backend/ThemesList.php:578
+#: src/Core/Backend/ThemesList.php:585
 msgid "Some themes have not been deactivated."
 msgstr "Alguns temas não foram ativados."
 
-#: src/Core/Backend/ThemesList.php:581
+#: src/Core/Backend/ThemesList.php:588
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "O tema foi desativado com sucesso."
 msgstr[1] "Os temas foram desativados com sucesso."
 
-#: src/Core/Backend/ThemesList.php:613
+#: src/Core/Backend/ThemesList.php:620
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "O tema foi clonado com sucesso."
 msgstr[1] "Temas foram clonados com sucesso."
 
-#: src/Core/Backend/ThemesList.php:647
+#: src/Core/Backend/ThemesList.php:654
 msgid "You don't have permissions to delete this theme."
 msgstr "Você não tem permissão para excluir este tema."
 
-#: src/Core/Backend/ThemesList.php:651
+#: src/Core/Backend/ThemesList.php:658
 msgid "Some themes have not been delete."
 msgstr "Alguns temas não foram excluídos."
 
-#: src/Core/Backend/ThemesList.php:654
+#: src/Core/Backend/ThemesList.php:661
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "O tema foi excluído com sucesso."
 msgstr[1] "Temas foram excluídos com sucesso."
 
-#: src/Core/Backend/ThemesList.php:687
+#: src/Core/Backend/ThemesList.php:694
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "O tema foi instalado com sucesso."
 msgstr[1] "Os temas foram instalados com sucesso."
 
-#: src/Core/Backend/ThemesList.php:726
+#: src/Core/Backend/ThemesList.php:733
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "O tema foi atualizado com sucesso."
 msgstr[1] "Os temas foram atualizados com sucesso."
 
-#: src/Core/Backend/ThemesList.php:730
+#: src/Core/Backend/ThemesList.php:737
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "As atualizações dos seguintes temas estão bloqueadas: %s"
 
-#: src/Core/Backend/ThemesList.php:768
+#: src/Core/Backend/ThemesList.php:775
 msgid "The theme has been successfully updated."
 msgstr "O tema foi atualizado com sucesso."
 
-#: src/Core/Backend/ThemesList.php:769
+#: src/Core/Backend/ThemesList.php:776
 msgid "The theme has been successfully installed."
 msgstr "O tema foi instalado com sucesso."
 
@@ -2300,49 +2305,49 @@ msgstr "Algo correu mal ao carregar o ficheiro do modelo do seu blogue."
 msgid "Can't create template files."
 msgstr "Não é possível criar ficheiros de modelos."
 
-#: src/Core/Install/Utils.php:34 src/Process/Upgrade/Upgrade.php:251
+#: src/Core/Install/Utils.php:35 src/Process/Upgrade/Upgrade.php:251
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "PHP versão é %s (%s ou mais cedo)."
 
-#: src/Core/Install/Utils.php:38
+#: src/Core/Install/Utils.php:39
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "O suporte das seqüências multibytes (mbstring) não está disponível."
 
-#: src/Core/Install/Utils.php:42
+#: src/Core/Install/Utils.php:43
 msgid "Iconv module is not available."
 msgstr "O módulo iconv não está disponível."
 
-#: src/Core/Install/Utils.php:46
+#: src/Core/Install/Utils.php:47
 msgid "Output control functions are not available."
 msgstr "As funções de control de saída não estão disponíveis."
 
-#: src/Core/Install/Utils.php:50
+#: src/Core/Install/Utils.php:51
 msgid "SimpleXML module is not available."
 msgstr "O módulo SimpleXML não está disponível."
 
-#: src/Core/Install/Utils.php:54
+#: src/Core/Install/Utils.php:55
 msgid "DOM XML module is not available."
 msgstr "O módulo DOM XML não está disponível."
 
-#: src/Core/Install/Utils.php:59
+#: src/Core/Install/Utils.php:60
 msgid "PCRE engine does not support UTF-8 strings."
 msgstr "O mecanismo de expressões racionais PCRE não gerencia as seqüências UTF-8."
 
-#: src/Core/Install/Utils.php:63
+#: src/Core/Install/Utils.php:64
 msgid "SPL module is not available."
 msgstr "O módulo SPL não está disponível."
 
-#: src/Core/Install/Utils.php:68
+#: src/Core/Install/Utils.php:69
 #, php-format
 msgid "MySQL version is %s (%s or earlier needed)."
 msgstr "A versão do MySQL é %s (é necessário%s ou anterior)."
 
-#: src/Core/Install/Utils.php:81
+#: src/Core/Install/Utils.php:82
 msgid "MySQL InnoDB engine is not available."
 msgstr "O gerenciador de armazenamento InnoDB de MySQL não está disponível."
 
-#: src/Core/Install/Utils.php:86
+#: src/Core/Install/Utils.php:87
 #, php-format
 msgid "PostgreSQL version is %s (%s or earlier needed)."
 msgstr "A versão do PostgreSQL é %s (é necessário%s ou anterior)."
@@ -2607,20 +2612,20 @@ msgstr "%s não é um pref válido"
 msgid "No workspace specified"
 msgstr "Nenhum projeto especificado"
 
-#: src/Core/Users.php:170 src/Process/Install/Install.php:156
+#: src/Core/Users.php:170 src/Process/Install/Install.php:157
 msgid "No user ID given"
 msgstr "Nenhum ID de usuário especificado"
 
-#: src/Core/Users.php:174 src/Process/Install/Install.php:166
+#: src/Core/Users.php:174 src/Process/Install/Install.php:167
 msgid "No password given"
 msgstr "Nenhuma senha especificada"
 
-#: src/Core/Users.php:394 src/Process/Install/Install.php:159
+#: src/Core/Users.php:394 src/Process/Install/Install.php:160
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "O ID de usuário tem de ter pelo menos 2 caracteres utilizando letras, números ou símbolos."
 
 #: src/Core/Users.php:403 src/Process/Backend/User.php:306
-#: src/Process/Install/Install.php:172
+#: src/Process/Install/Install.php:173
 msgid "Password must contain at least 6 characters."
 msgstr "A senha tem de ter pelo menos 6 caracteres."
 
@@ -2996,7 +3001,7 @@ msgstr "Para reinicializar a sua senha visite o endereço seguinte, senão simpl
 
 #: src/Process/Backend/Auth.php:138 src/Process/Backend/Auth.php:155
 #: src/Process/Backend/Auth.php:410 src/Process/Backend/Auth.php:502
-#: src/Process/Install/Install.php:455 src/Process/Install/Install.php:507
+#: src/Process/Install/Install.php:456 src/Process/Install/Install.php:508
 #: src/Process/Upgrade/Auth.php:211
 msgid "Username:"
 msgstr "Nome de usuário:"
@@ -3016,7 +3021,7 @@ msgstr "A sua nova senha está no seu mailbox."
 
 #: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:137
 #: src/Process/Backend/UserPreferences.php:200
-#: src/Process/Install/Install.php:169
+#: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "As senhas não correspondem"
 
@@ -3050,21 +3055,21 @@ msgstr "Nome de usuário incorrecto ou senha incorrecta"
 #: src/Process/Backend/UserPreferences.php:493
 #: src/Process/Backend/UserPreferences.php:494
 #: src/Process/Backend/UserPreferences.php:495
-#: src/Process/Install/Install.php:395 src/Process/Install/Install.php:396
-#: src/Process/Install/Install.php:397
+#: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
+#: src/Process/Install/Install.php:398
 #, php-format
 msgid "Password strength: %s"
 msgstr "Força da senha: %s"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:242
 #: src/Process/Backend/UserPreferences.php:493
-#: src/Process/Install/Install.php:395
+#: src/Process/Install/Install.php:396
 msgid "weak"
 msgstr "fraco"
 
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:244
 #: src/Process/Backend/UserPreferences.php:495
-#: src/Process/Install/Install.php:397
+#: src/Process/Install/Install.php:398
 msgid "strong"
 msgstr "forte"
 
@@ -3090,12 +3095,12 @@ msgstr "Mudar a sua senha"
 
 #: src/Process/Backend/Auth.php:451 src/Process/Backend/User.php:295
 #: src/Process/Backend/UserPreferences.php:578
-#: src/Process/Install/Install.php:463
+#: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "Nova senha:"
 
 #: src/Process/Backend/Auth.php:460 src/Process/Backend/User.php:309
-#: src/Process/Install/Install.php:470
+#: src/Process/Install/Install.php:471
 msgid "Confirm password:"
 msgstr "Confirmar a senha:"
 
@@ -4158,12 +4163,12 @@ msgid "There is no writable root directory for the media manager. You should con
 msgstr "Não há nenhuma pasta raiz gravável para o gerenciador de mídia. Você deve entrar em contato com o administrador."
 
 #: src/Process/Backend/Home.php:306 src/Process/Backend/Plugins.php:129
-#: src/Process/Install/Install.php:484 src/Process/Upgrade/Plugins.php:114
+#: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:114
 msgid "Following plugins have been installed:"
 msgstr "Os plugins seguintes foram instalados:"
 
 #: src/Process/Backend/Home.php:324 src/Process/Backend/Plugins.php:145
-#: src/Process/Install/Install.php:491 src/Process/Upgrade/Plugins.php:126
+#: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:126
 msgid "Following plugins have not been installed:"
 msgstr "Os plugins seguintes não foram installados:"
 
@@ -5279,12 +5284,12 @@ msgid "Password change required to connect"
 msgstr "Alteração de senha necessária para conectar"
 
 #: src/Process/Backend/User.php:350 src/Process/Backend/UserPreferences.php:519
-#: src/Process/Install/Install.php:438
+#: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "Último Nome:"
 
 #: src/Process/Backend/User.php:357 src/Process/Backend/UserPreferences.php:526
-#: src/Process/Install/Install.php:432
+#: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "Primeiro nome:"
 
@@ -5767,114 +5772,114 @@ msgstr "Você vai mudar as permissões dos usuários %s para os blogs seguintes.
 msgid "Validate permissions"
 msgstr "Validar permissões"
 
-#: src/Process/Install/Install.php:119
+#: src/Process/Install/Install.php:120
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Por favor indique uma chave de referência (DC_MASTER_KEY) no arquivo de configuração."
 
-#: src/Process/Install/Install.php:126 src/Process/Install/Wizard.php:142
+#: src/Process/Install/Install.php:127 src/Process/Install/Wizard.php:142
 msgid "Dotclear is already installed."
 msgstr "Dotclear já está instalado."
 
-#: src/Process/Install/Install.php:133 src/Process/Install/Wizard.php:136
+#: src/Process/Install/Install.php:134 src/Process/Install/Wizard.php:136
 msgid "Dotclear cannot be installed."
 msgstr "O Dotclear não pôde ser instalado."
 
-#: src/Process/Install/Install.php:162
+#: src/Process/Install/Install.php:163
 msgid "Invalid email address"
 msgstr "Endereço de email incorrecto"
 
-#: src/Process/Install/Install.php:225
+#: src/Process/Install/Install.php:226
 msgid "My first blog"
 msgstr "Meu primeiro blog"
 
-#: src/Process/Install/Install.php:238
+#: src/Process/Install/Install.php:239
 msgid "%A, %B %e %Y"
 msgstr "%A, %B %e %Y"
 
-#: src/Process/Install/Install.php:314
+#: src/Process/Install/Install.php:315
 msgid "Welcome to Dotclear!"
 msgstr "Bem vindo ao Dotclear!"
 
-#: src/Process/Install/Install.php:315
+#: src/Process/Install/Install.php:316
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "Esta é a sua primeira entrada. Quando você estiver pronto para blog, faça login para editá-la ou excluí-la."
 
-#: src/Process/Install/Install.php:327
+#: src/Process/Install/Install.php:328
 msgid "Dotclear Team"
 msgstr "Equipe Dotclear"
 
-#: src/Process/Install/Install.php:330
+#: src/Process/Install/Install.php:331
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>Este é um comentário.</p>\n"
 "<p>Para excluí-lo, faça login e visualize os comentários do seu blog. Então você pode removê-lo ou editá-lo.</p>"
 
-#: src/Process/Install/Install.php:387
+#: src/Process/Install/Install.php:388
 msgid "Dotclear Install"
 msgstr "Instalação Dotclear"
 
-#: src/Process/Install/Install.php:401
+#: src/Process/Install/Install.php:402
 msgid "show"
 msgstr "mostrar"
 
-#: src/Process/Install/Install.php:409
+#: src/Process/Install/Install.php:410
 msgid "Dotclear installation"
 msgstr "Instalação de Dotclear"
 
-#: src/Process/Install/Install.php:413
+#: src/Process/Install/Install.php:414
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "O diretório de cache %s não está acessível em escritura."
 
-#: src/Process/Install/Install.php:421
+#: src/Process/Install/Install.php:422
 msgid "Configuration file has been successfully created."
 msgstr "O arquivo de configuração foi criado com sucesso."
 
-#: src/Process/Install/Install.php:426 src/Process/Install/Install.php:431
+#: src/Process/Install/Install.php:427 src/Process/Install/Install.php:432
 msgid "User information"
 msgstr "Informações do usuário"
 
-#: src/Process/Install/Install.php:428
+#: src/Process/Install/Install.php:429
 msgid "Please provide the following information needed to create the first user."
 msgstr "Por favor indique as informações seguintes para criar o primeiro usuário."
 
-#: src/Process/Install/Install.php:453
+#: src/Process/Install/Install.php:454
 msgid "Username and password"
 msgstr "Usuário e senha"
 
-#: src/Process/Install/Install.php:499
+#: src/Process/Install/Install.php:500
 msgid "All done!"
 msgstr "Terminado!"
 
-#: src/Process/Install/Install.php:503
+#: src/Process/Install/Install.php:504
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "O Dotclear foi instalado com sucesso. Aqui estão algumas informações úteis que você deve manter."
 
-#: src/Process/Install/Install.php:505
+#: src/Process/Install/Install.php:506
 msgid "Your account"
 msgstr "Sua conta"
 
-#: src/Process/Install/Install.php:511
+#: src/Process/Install/Install.php:512
 msgid "Your blog"
 msgstr "Seu blog"
 
-#: src/Process/Install/Install.php:513
+#: src/Process/Install/Install.php:514
 msgid "Blog address:"
 msgstr "Endereço do blog:"
 
-#: src/Process/Install/Install.php:514
+#: src/Process/Install/Install.php:515
 msgid "Administration interface:"
 msgstr "Interface da administração:"
 
-#: src/Process/Install/Install.php:518
+#: src/Process/Install/Install.php:519
 msgid "Manage your blog now"
 msgstr "Gerencie seu blog agora"
 
-#: src/Process/Install/Install.php:525
+#: src/Process/Install/Install.php:526
 msgid "Installation can not be completed"
 msgstr "Instalação não pode ser concluída"
 
-#: src/Process/Install/Install.php:527
+#: src/Process/Install/Install.php:528
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "Pelos motivos mencionados, Dotclear não pode ser instalado. Consulte <a href=\"https://dotclear.org/documentation/2.0/admin/install\">a documentação</a> para aprender a corrigir o problema."
 

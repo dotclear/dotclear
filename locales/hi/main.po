@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-31 18:39+0100\n"
-"PO-Revision-Date: 2025-01-31 17:42\n"
+"POT-Creation-Date: 2025-02-13 11:40+0100\n"
+"PO-Revision-Date: 2025-02-13 10:57\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
 #: src/Process/Backend/User.php:243 src/Process/Backend/UserPreferences.php:494
-#: src/Process/Install/Install.php:396
+#: src/Process/Install/Install.php:397
 msgid "medium"
 msgstr "माध्यम"
 
@@ -172,7 +172,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "चुने गए ब्लॉग को सफलतापूर्वक अद्यतन किया गया है."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1664 src/Core/Backend/ThemesList.php:742
+#: src/Core/Backend/ModulesList.php:1664 src/Core/Backend/ThemesList.php:749
 #: src/Core/Upgrade/PluginsList.php:396 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:112 src/Process/Backend/Langs.php:157
 #: src/Process/Backend/User.php:106 src/Process/Backend/UsersActions.php:161
@@ -408,7 +408,7 @@ msgstr "जनक:"
 #: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1270
 #: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:920
 #: src/Process/Backend/User.php:447 src/Process/Backend/UsersActions.php:405
-#: src/Process/Install/Install.php:478
+#: src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "सहेजें"
 
@@ -530,7 +530,7 @@ msgid "Blog ID"
 msgstr "ब्लॉग आईडी"
 
 #: src/Core/Backend/Combos.php:347 src/Core/Backend/Listing/ListingUsers.php:65
-#: src/Process/Install/Install.php:458
+#: src/Process/Install/Install.php:459
 msgid "Username"
 msgstr "उपयोक्ता नाम"
 
@@ -649,7 +649,7 @@ msgstr "वैश्विक मदद"
 #: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1339
 #: src/Process/Backend/Comment.php:307 src/Process/Backend/Post.php:899
 #: src/Process/Backend/User.php:371 src/Process/Backend/UserPreferences.php:540
-#: src/Process/Install/Install.php:444
+#: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "ईमेलः"
 
@@ -709,7 +709,7 @@ msgstr "प्रारूपः"
 
 #: src/Core/Backend/Filter/FilterPosts.php:179 src/Process/Backend/Auth.php:155
 #: src/Process/Backend/Auth.php:511 src/Process/Backend/User.php:295
-#: src/Process/Install/Install.php:508 src/Process/Upgrade/Auth.php:222
+#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:222
 msgid "Password:"
 msgstr "पासवर्ड:"
 
@@ -1193,8 +1193,8 @@ msgid "Current version"
 msgstr "वर्तमान संस्करण"
 
 #: src/Core/Backend/ModulesList.php:837 src/Core/Backend/ModulesList.php:1061
-#: src/Core/Backend/Page.php:1297 src/Core/Backend/ThemesList.php:223
-#: src/Core/Backend/ThemesList.php:309
+#: src/Core/Backend/Page.php:1297 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/ThemesList.php:316
 msgid "Details"
 msgstr "विवरण"
 
@@ -1221,13 +1221,13 @@ msgstr "इस मॉड्यूल को न तो अक्षम किय
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "इस मॉड्यूल को सक्षम नहीं किया जा सकता है, क्योंकि निम्नलिखित कारणों से:"
 
-#: src/Core/Backend/ModulesList.php:1003 src/Core/Backend/ThemesList.php:207
+#: src/Core/Backend/ModulesList.php:1003 src/Core/Backend/ThemesList.php:214
 #: src/Process/Upgrade/Plugins.php:419
 msgid "Official repository"
 msgstr "आधिकारिक भंडार"
 
 #: src/Core/Backend/ModulesList.php:1003 src/Core/Backend/ModulesList.php:1106
-#: src/Core/Backend/ThemesList.php:207 src/Process/Upgrade/Plugins.php:419
+#: src/Core/Backend/ThemesList.php:214 src/Process/Upgrade/Plugins.php:419
 msgid "Third-party repository"
 msgstr "तृतीय-पक्ष कोष"
 
@@ -1244,11 +1244,11 @@ msgid "Release date:"
 msgstr "रिलीज़ की तारीख:"
 
 #: src/Core/Backend/ModulesList.php:1068 src/Core/Backend/Page.php:1298
-#: src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/ThemesList.php:237
 msgid "Support"
 msgstr "समर्थन"
 
-#: src/Core/Backend/ModulesList.php:1072 src/Core/Backend/ThemesList.php:211
+#: src/Core/Backend/ModulesList.php:1072 src/Core/Backend/ThemesList.php:218
 msgid "update locked"
 msgstr "अद्यतन बंद"
 
@@ -1383,7 +1383,7 @@ msgstr[1] "प्लगइन को सफलतापूर्वक अद्
 msgid "Following plugins updates are locked: %s"
 msgstr "निम्नलिखित प्लगइन अपडेट लॉक हैं: %s"
 
-#: src/Core/Backend/ModulesList.php:1672 src/Core/Backend/ThemesList.php:750
+#: src/Core/Backend/ModulesList.php:1672 src/Core/Backend/ThemesList.php:757
 #: src/Core/Upgrade/PluginsList.php:404 src/Process/Backend/Langs.php:163
 #: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
@@ -1408,7 +1408,7 @@ msgstr "एक ज़िप फ़ाइल अपलोड करें"
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:369
 #: src/Process/Backend/LinkPopup.php:82 src/Process/Backend/Post.php:768
 #: src/Process/Backend/Post.php:888 src/Process/Backend/User.php:273
-#: src/Process/Backend/UsersActions.php:394 src/Process/Install/Install.php:454
+#: src/Process/Backend/UsersActions.php:394 src/Process/Install/Install.php:455
 #: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:403
 #, php-format
 msgid "Fields preceded by %s are mandatory."
@@ -1422,8 +1422,8 @@ msgstr "ज़िप फ़ाइल पथ:"
 #: src/Process/Backend/Langs.php:341 src/Process/Backend/Langs.php:390
 #: src/Process/Backend/Post.php:692 src/Process/Backend/User.php:302
 #: src/Process/Backend/User.php:315 src/Process/Backend/User.php:443
-#: src/Process/Backend/UsersActions.php:401 src/Process/Install/Install.php:466
-#: src/Process/Install/Install.php:472 src/Process/Upgrade/Langs.php:426
+#: src/Process/Backend/UsersActions.php:401 src/Process/Install/Install.php:467
+#: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:426
 msgid "Password"
 msgstr "पासवर्ड"
 
@@ -1488,7 +1488,7 @@ msgid "Error:"
 msgstr "त्रुटि:"
 
 #: src/Core/Backend/Notices.php:82 src/Core/Upgrade/Notices.php:46
-#: src/Process/Install/Install.php:417 src/Process/Install/Install.php:526
+#: src/Process/Install/Install.php:418 src/Process/Install/Install.php:527
 #: src/Process/Install/Wizard.php:247
 msgid "Errors:"
 msgstr "त्रुटियाँ:"
@@ -1946,134 +1946,139 @@ msgstr "स्कोर: %s"
 msgid "%s screenshot."
 msgstr "%s स्क्रीनशॉट."
 
-#: src/Core/Backend/ThemesList.php:178
+#: src/Core/Backend/ThemesList.php:180
+#, php-format
+msgid "(%s template set)"
+msgstr "(%s टेम्पलेट सेट)"
+
+#: src/Core/Backend/ThemesList.php:185
 #, php-format
 msgid "by %s"
 msgstr "%s द्वारा"
 
-#: src/Core/Backend/ThemesList.php:182
+#: src/Core/Backend/ThemesList.php:189
 #, php-format
 msgid "version %s"
 msgstr "संस्करण %s"
 
-#: src/Core/Backend/ThemesList.php:186
+#: src/Core/Backend/ThemesList.php:193
 #, php-format
 msgid "released on %s"
 msgstr "%s पर जारी किया गया"
 
-#: src/Core/Backend/ThemesList.php:194
+#: src/Core/Backend/ThemesList.php:201
 #, php-format
 msgid "(current version %s)"
 msgstr "(वर्तमान संस्करण %s)"
 
-#: src/Core/Backend/ThemesList.php:199
+#: src/Core/Backend/ThemesList.php:206
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(\"%s\" पर निर्मित)"
 
-#: src/Core/Backend/ThemesList.php:202
+#: src/Core/Backend/ThemesList.php:209
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(आवश्यक \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:258
+#: src/Core/Backend/ThemesList.php:265
 msgid "View stylesheet"
 msgstr "स्टाइलशीट देखें"
 
-#: src/Core/Backend/ThemesList.php:283
+#: src/Core/Backend/ThemesList.php:290
 msgid "Configure theme"
 msgstr "प्रसंग कॉन्फ़िगर करें"
 
-#: src/Core/Backend/ThemesList.php:337
+#: src/Core/Backend/ThemesList.php:344
 msgid "No themes matched your search."
 msgstr "कोई प्रसंग आपकी खोज से मेल नहीं खाते."
 
-#: src/Core/Backend/ThemesList.php:387
+#: src/Core/Backend/ThemesList.php:394
 msgid "Use this one"
 msgstr "इस एक का उपयोग करें"
 
-#: src/Core/Backend/ThemesList.php:404 src/Process/Backend/Post.php:795
+#: src/Core/Backend/ThemesList.php:411 src/Process/Backend/Post.php:795
 msgid "Preview"
 msgstr "पूर्वावलोकन"
 
-#: src/Core/Backend/ThemesList.php:450
+#: src/Core/Backend/ThemesList.php:457
 msgid "Update selected themes"
 msgstr "चयनित प्रसंग अद्यतन करें"
 
-#: src/Core/Backend/ThemesList.php:451
+#: src/Core/Backend/ThemesList.php:458
 msgid "Update all themes from this list"
 msgstr "इस सूची से सभी प्रसंग अद्यतन करें"
 
-#: src/Core/Backend/ThemesList.php:495 src/Core/Backend/ThemesList.php:536
-#: src/Core/Backend/ThemesList.php:574 src/Core/Backend/ThemesList.php:609
-#: src/Core/Backend/ThemesList.php:649 src/Core/Backend/ThemesList.php:683
-#: src/Core/Backend/ThemesList.php:733
+#: src/Core/Backend/ThemesList.php:502 src/Core/Backend/ThemesList.php:543
+#: src/Core/Backend/ThemesList.php:581 src/Core/Backend/ThemesList.php:616
+#: src/Core/Backend/ThemesList.php:656 src/Core/Backend/ThemesList.php:690
+#: src/Core/Backend/ThemesList.php:740
 msgid "No such theme."
 msgstr "ऐसा कोई प्रसंग नहीं है."
 
-#: src/Core/Backend/ThemesList.php:504
+#: src/Core/Backend/ThemesList.php:511
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "थीम %s का सफलतापूर्वक चयन कर लिया गया है."
 
-#: src/Core/Backend/ThemesList.php:540
+#: src/Core/Backend/ThemesList.php:547
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "प्रसंग सफलतापूर्वक सक्रिय किया गया है."
 msgstr[1] "थीम संक्षिप्त रूप से सक्रिय कर दिया गया है."
 
-#: src/Core/Backend/ThemesList.php:578
+#: src/Core/Backend/ThemesList.php:585
 msgid "Some themes have not been deactivated."
 msgstr "कुछ विषयों को निष्क्रिय नहीं किया गया है."
 
-#: src/Core/Backend/ThemesList.php:581
+#: src/Core/Backend/ThemesList.php:588
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "प्रसंग को सफलतापूर्वक निष्क्रिय कर दिया गया है."
 msgstr[1] "थीम संक्षिप्त रूप से निष्क्रिय कर दिया गया है."
 
-#: src/Core/Backend/ThemesList.php:613
+#: src/Core/Backend/ThemesList.php:620
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "प्रसंग को सफलतापूर्वक क्लोन किया गया है."
 msgstr[1] "थीम संक्षिप्त रूप से क्लोन किया गया है."
 
-#: src/Core/Backend/ThemesList.php:647
+#: src/Core/Backend/ThemesList.php:654
 msgid "You don't have permissions to delete this theme."
 msgstr "आपके पास इस प्रसंग को मिटाने के लिए अनुमतियाँ नहीं हैं."
 
-#: src/Core/Backend/ThemesList.php:651
+#: src/Core/Backend/ThemesList.php:658
 msgid "Some themes have not been delete."
 msgstr "कुछ विषयों को हटा नहीं दिया गया है."
 
-#: src/Core/Backend/ThemesList.php:654
+#: src/Core/Backend/ThemesList.php:661
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "प्रसंग सफलतापूर्वक मिटा दिया गया है."
 msgstr[1] "प्रसंग संक्षिप्त रूप से नष्ट कर दिया गया है."
 
-#: src/Core/Backend/ThemesList.php:687
+#: src/Core/Backend/ThemesList.php:694
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "प्रसंग सफलतापूर्वक स्थापित किया गया है."
 msgstr[1] "थीम सफलतापूर्वक स्थापित किया गया है."
 
-#: src/Core/Backend/ThemesList.php:726
+#: src/Core/Backend/ThemesList.php:733
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "प्रसंग सफलतापूर्वक अद्यतन किया गया है."
 msgstr[1] "थीम सफलतापूर्वक अद्यतन किया गया है."
 
-#: src/Core/Backend/ThemesList.php:730
+#: src/Core/Backend/ThemesList.php:737
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "निम्नलिखित थीम अपडेट लॉक हैं: %s"
 
-#: src/Core/Backend/ThemesList.php:768
+#: src/Core/Backend/ThemesList.php:775
 msgid "The theme has been successfully updated."
 msgstr "प्रसंग सफलतापूर्वक अद्यतन किया गया है."
 
-#: src/Core/Backend/ThemesList.php:769
+#: src/Core/Backend/ThemesList.php:776
 msgid "The theme has been successfully installed."
 msgstr "प्रसंग सफलतापूर्वक स्थापित किया गया है."
 
@@ -2300,49 +2305,49 @@ msgstr "अपने ब्लॉग के लिए टेम्पलेट �
 msgid "Can't create template files."
 msgstr "टेम्पलेट फ़ाइल बना नहीं कर सकते हैं."
 
-#: src/Core/Install/Utils.php:34 src/Process/Upgrade/Upgrade.php:251
+#: src/Core/Install/Utils.php:35 src/Process/Upgrade/Upgrade.php:251
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "PHP संस्करण %s है (%s या पहले का संस्करण आवश्यक है)."
 
-#: src/Core/Install/Utils.php:38
+#: src/Core/Install/Utils.php:39
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "बहुबाइट स्ट्रिंग मॉड्यूल (एमबीस्ट्रिंग) उपलब्ध नहीं है."
 
-#: src/Core/Install/Utils.php:42
+#: src/Core/Install/Utils.php:43
 msgid "Iconv module is not available."
 msgstr "Iconv मॉड्यूल उपलब्ध नहीं है."
 
-#: src/Core/Install/Utils.php:46
+#: src/Core/Install/Utils.php:47
 msgid "Output control functions are not available."
 msgstr "आउटपुट नियंत्रण कार्य उपलब्ध नहीं है."
 
-#: src/Core/Install/Utils.php:50
+#: src/Core/Install/Utils.php:51
 msgid "SimpleXML module is not available."
 msgstr "सिम्प्लिएक्सएमएल मॉड्यूल उपलब्ध नहीं है."
 
-#: src/Core/Install/Utils.php:54
+#: src/Core/Install/Utils.php:55
 msgid "DOM XML module is not available."
 msgstr "DOM XML मॉड्यूल उपलब्ध नहीं है."
 
-#: src/Core/Install/Utils.php:59
+#: src/Core/Install/Utils.php:60
 msgid "PCRE engine does not support UTF-8 strings."
 msgstr "पीसीआरई इंजन UTF-8 स्ट्रिंग का समर्थन नहीं करता है."
 
-#: src/Core/Install/Utils.php:63
+#: src/Core/Install/Utils.php:64
 msgid "SPL module is not available."
 msgstr "एसपीएल मॉड्यूल उपलब्ध नहीं है."
 
-#: src/Core/Install/Utils.php:68
+#: src/Core/Install/Utils.php:69
 #, php-format
 msgid "MySQL version is %s (%s or earlier needed)."
 msgstr "MySQL संस्करण %s है (%s या पहले का संस्करण आवश्यक है)."
 
-#: src/Core/Install/Utils.php:81
+#: src/Core/Install/Utils.php:82
 msgid "MySQL InnoDB engine is not available."
 msgstr "MySQL BIBDB इंजन उपलब्ध नहीं है."
 
-#: src/Core/Install/Utils.php:86
+#: src/Core/Install/Utils.php:87
 #, php-format
 msgid "PostgreSQL version is %s (%s or earlier needed)."
 msgstr "PostgreSQL संस्करण %s है (%s या पहले का संस्करण आवश्यक है)."
@@ -2607,20 +2612,20 @@ msgstr "%s वैध प्रीफ़ आईडी नहीं है"
 msgid "No workspace specified"
 msgstr "कोई कार्यस्थान निर्दिष्ट नहीं"
 
-#: src/Core/Users.php:170 src/Process/Install/Install.php:156
+#: src/Core/Users.php:170 src/Process/Install/Install.php:157
 msgid "No user ID given"
 msgstr "कोई उपयोक्ता आईडी नहीं दिया गया"
 
-#: src/Core/Users.php:174 src/Process/Install/Install.php:166
+#: src/Core/Users.php:174 src/Process/Install/Install.php:167
 msgid "No password given"
 msgstr "कोई पासवर्ड नहीं दिया गया"
 
-#: src/Core/Users.php:394 src/Process/Install/Install.php:159
+#: src/Core/Users.php:394 src/Process/Install/Install.php:160
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "उपयोगकर्ता आईडी में कम से कम 2 अक्षर होना चाहिए पत्र, संख्या या प्रतीकों का उपयोग करना."
 
 #: src/Core/Users.php:403 src/Process/Backend/User.php:306
-#: src/Process/Install/Install.php:172
+#: src/Process/Install/Install.php:173
 msgid "Password must contain at least 6 characters."
 msgstr "पासवर्ड में कम से कम 6 अक्षर होना चाहिए."
 
@@ -2996,7 +3001,7 @@ msgstr "अपने पासवर्ड को रीसेट करने �
 
 #: src/Process/Backend/Auth.php:138 src/Process/Backend/Auth.php:155
 #: src/Process/Backend/Auth.php:410 src/Process/Backend/Auth.php:502
-#: src/Process/Install/Install.php:455 src/Process/Install/Install.php:507
+#: src/Process/Install/Install.php:456 src/Process/Install/Install.php:508
 #: src/Process/Upgrade/Auth.php:211
 msgid "Username:"
 msgstr "उपयोगकर्ता नाम:"
@@ -3016,7 +3021,7 @@ msgstr "आपका नया पासवर्ड आपके मेलब�
 
 #: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:137
 #: src/Process/Backend/UserPreferences.php:200
-#: src/Process/Install/Install.php:169
+#: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "कूटशब्द मेल नहीं खाता है"
 
@@ -3050,21 +3055,21 @@ msgstr "गलत उपयोगकर्ता नाम या कूटश�
 #: src/Process/Backend/UserPreferences.php:493
 #: src/Process/Backend/UserPreferences.php:494
 #: src/Process/Backend/UserPreferences.php:495
-#: src/Process/Install/Install.php:395 src/Process/Install/Install.php:396
-#: src/Process/Install/Install.php:397
+#: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
+#: src/Process/Install/Install.php:398
 #, php-format
 msgid "Password strength: %s"
 msgstr "पासवर्ड सामर्थ्य: %s"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:242
 #: src/Process/Backend/UserPreferences.php:493
-#: src/Process/Install/Install.php:395
+#: src/Process/Install/Install.php:396
 msgid "weak"
 msgstr "निर्बल"
 
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:244
 #: src/Process/Backend/UserPreferences.php:495
-#: src/Process/Install/Install.php:397
+#: src/Process/Install/Install.php:398
 msgid "strong"
 msgstr "बलवान"
 
@@ -3090,12 +3095,12 @@ msgstr "अपना पासवर्ड बदलें"
 
 #: src/Process/Backend/Auth.php:451 src/Process/Backend/User.php:295
 #: src/Process/Backend/UserPreferences.php:578
-#: src/Process/Install/Install.php:463
+#: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "नया पासवर्ड:"
 
 #: src/Process/Backend/Auth.php:460 src/Process/Backend/User.php:309
-#: src/Process/Install/Install.php:470
+#: src/Process/Install/Install.php:471
 msgid "Confirm password:"
 msgstr "पासवर्ड की पुष्टि करें:"
 
@@ -4158,12 +4163,12 @@ msgid "There is no writable root directory for the media manager. You should con
 msgstr "मीडिया प्रबंधक के लिए कोई लिखने योग्य रूट निर्देशिका नहीं है. आप अपने व्यवस्थापक से संपर्क करना चाहिए."
 
 #: src/Process/Backend/Home.php:306 src/Process/Backend/Plugins.php:129
-#: src/Process/Install/Install.php:484 src/Process/Upgrade/Plugins.php:114
+#: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:114
 msgid "Following plugins have been installed:"
 msgstr "निम्न प्लगिन संस्थापित किया गया है:"
 
 #: src/Process/Backend/Home.php:324 src/Process/Backend/Plugins.php:145
-#: src/Process/Install/Install.php:491 src/Process/Upgrade/Plugins.php:126
+#: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:126
 msgid "Following plugins have not been installed:"
 msgstr "निम्न प्लगिन संस्थापित नहीं किया गया है:"
 
@@ -5279,12 +5284,12 @@ msgid "Password change required to connect"
 msgstr "कनेक्ट करने के लिए पासवर्ड परिवर्तन जरूरी"
 
 #: src/Process/Backend/User.php:350 src/Process/Backend/UserPreferences.php:519
-#: src/Process/Install/Install.php:438
+#: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "अंतिम नाम:"
 
 #: src/Process/Backend/User.php:357 src/Process/Backend/UserPreferences.php:526
-#: src/Process/Install/Install.php:432
+#: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "पहला नाम:"
 
@@ -5767,114 +5772,114 @@ msgstr "आप उपयोगकर्ताओं %s के लिए नि�
 msgid "Validate permissions"
 msgstr "अनुमतियाँ वेलिडेट करें"
 
-#: src/Process/Install/Install.php:119
+#: src/Process/Install/Install.php:120
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "कृपया विन्यास फ़ाइल में एक मास्टर कुंजी (dc_keyram_key) सेट करें."
 
-#: src/Process/Install/Install.php:126 src/Process/Install/Wizard.php:142
+#: src/Process/Install/Install.php:127 src/Process/Install/Wizard.php:142
 msgid "Dotclear is already installed."
 msgstr "डॉटकॉम साफ पहले से ही स्थापित है."
 
-#: src/Process/Install/Install.php:133 src/Process/Install/Wizard.php:136
+#: src/Process/Install/Install.php:134 src/Process/Install/Wizard.php:136
 msgid "Dotclear cannot be installed."
 msgstr "डॉटफोन को स्थापित नहीं किया जा सकता."
 
-#: src/Process/Install/Install.php:162
+#: src/Process/Install/Install.php:163
 msgid "Invalid email address"
 msgstr "अवैध ईमेल पता"
 
-#: src/Process/Install/Install.php:225
+#: src/Process/Install/Install.php:226
 msgid "My first blog"
 msgstr "मेरा पहला ब्लॉग"
 
-#: src/Process/Install/Install.php:238
+#: src/Process/Install/Install.php:239
 msgid "%A, %B %e %Y"
 msgstr "%A, %B %e %Y"
 
-#: src/Process/Install/Install.php:314
+#: src/Process/Install/Install.php:315
 msgid "Welcome to Dotclear!"
 msgstr "Dottसाफ़ में आपका स्वागत है!"
 
-#: src/Process/Install/Install.php:315
+#: src/Process/Install/Install.php:316
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "यह आपकी पहली प्रविष्टि है. जब आप ब्लॉग करने के लिए तैयार हैं, संपादित करने के लिए लॉग इन करें या इसे हटा दें."
 
-#: src/Process/Install/Install.php:327
+#: src/Process/Install/Install.php:328
 msgid "Dotclear Team"
 msgstr "पूर्व-स्पष्ट टीम"
 
-#: src/Process/Install/Install.php:330
+#: src/Process/Install/Install.php:331
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>यह एक टिप्पणी है।</p>\n"
 "<p>इसे हटाने के लिए, लॉग इन करें और अपने ब्लॉग की टिप्पणियां देखें। फिर आप उसे निकाल या संपादित कर सकते हैं.</p>"
 
-#: src/Process/Install/Install.php:387
+#: src/Process/Install/Install.php:388
 msgid "Dotclear Install"
 msgstr "डॉटकॉम साफ इंस्टॉल करें"
 
-#: src/Process/Install/Install.php:401
+#: src/Process/Install/Install.php:402
 msgid "show"
 msgstr "दिखलाना"
 
-#: src/Process/Install/Install.php:409
+#: src/Process/Install/Install.php:410
 msgid "Dotclear installation"
 msgstr "डॉटकॉम साफ संस्थापन"
 
-#: src/Process/Install/Install.php:413
+#: src/Process/Install/Install.php:414
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "कैश निर्देशिका %s लिखने योग्य नहीं है."
 
-#: src/Process/Install/Install.php:421
+#: src/Process/Install/Install.php:422
 msgid "Configuration file has been successfully created."
 msgstr "कॉन्फ़िगरेशन फ़ाइल सफलतापूर्वक निर्मित किया गया है."
 
-#: src/Process/Install/Install.php:426 src/Process/Install/Install.php:431
+#: src/Process/Install/Install.php:427 src/Process/Install/Install.php:432
 msgid "User information"
 msgstr "उपयोक्ता सूचना"
 
-#: src/Process/Install/Install.php:428
+#: src/Process/Install/Install.php:429
 msgid "Please provide the following information needed to create the first user."
 msgstr "कृपया पहला उपयोगकर्ता बनाने के लिए निम्नलिखित जानकारी प्रदान करें."
 
-#: src/Process/Install/Install.php:453
+#: src/Process/Install/Install.php:454
 msgid "Username and password"
 msgstr "उपयोगकर्ता नाम और पासवर्ड"
 
-#: src/Process/Install/Install.php:499
+#: src/Process/Install/Install.php:500
 msgid "All done!"
 msgstr "सब किया!"
 
-#: src/Process/Install/Install.php:503
+#: src/Process/Install/Install.php:504
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "डॉटकॉम को सफलतापूर्वक संस्थापित किया जा चुका है. यहाँ कुछ उपयोगी जानकारी है जिसे आप रखना चाहिए."
 
-#: src/Process/Install/Install.php:505
+#: src/Process/Install/Install.php:506
 msgid "Your account"
 msgstr "आपका खाता"
 
-#: src/Process/Install/Install.php:511
+#: src/Process/Install/Install.php:512
 msgid "Your blog"
 msgstr "आपका ब्लॉग"
 
-#: src/Process/Install/Install.php:513
+#: src/Process/Install/Install.php:514
 msgid "Blog address:"
 msgstr "ब्लॉग पता:"
 
-#: src/Process/Install/Install.php:514
+#: src/Process/Install/Install.php:515
 msgid "Administration interface:"
 msgstr "प्रशासन अंतरालः"
 
-#: src/Process/Install/Install.php:518
+#: src/Process/Install/Install.php:519
 msgid "Manage your blog now"
 msgstr "अब अपने ब्लॉग का प्रबंधन करें"
 
-#: src/Process/Install/Install.php:525
+#: src/Process/Install/Install.php:526
 msgid "Installation can not be completed"
 msgstr "संस्थापन पूरा नहीं हो सकता है"
 
-#: src/Process/Install/Install.php:527
+#: src/Process/Install/Install.php:528
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "उक्त कारणों से, डॉटक्लेयर स्थापित नहीं किया जा सकता है। समस्या को ठीक करने का तरीका जानने के लिए कृपया <a href=\"https://dotclear.org/documentation/2.0/admin/install\">दस्तावेज़ देखें</a>।"
 

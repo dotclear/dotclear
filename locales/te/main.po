@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-31 18:39+0100\n"
-"PO-Revision-Date: 2025-01-31 17:42\n"
+"POT-Creation-Date: 2025-02-13 11:40+0100\n"
+"PO-Revision-Date: 2025-02-13 10:57\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
 #: src/Process/Backend/User.php:243 src/Process/Backend/UserPreferences.php:494
-#: src/Process/Install/Install.php:396
+#: src/Process/Install/Install.php:397
 msgid "medium"
 msgstr "మాధ్యమం"
 
@@ -172,7 +172,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "ఎంపిక చేసిన బ్లాగులు విజయవంతమయ్యాయి."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1664 src/Core/Backend/ThemesList.php:742
+#: src/Core/Backend/ModulesList.php:1664 src/Core/Backend/ThemesList.php:749
 #: src/Core/Upgrade/PluginsList.php:396 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:112 src/Process/Backend/Langs.php:157
 #: src/Process/Backend/User.php:106 src/Process/Backend/UsersActions.php:161
@@ -408,7 +408,7 @@ msgstr "పాయింట్:"
 #: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1270
 #: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:920
 #: src/Process/Backend/User.php:447 src/Process/Backend/UsersActions.php:405
-#: src/Process/Install/Install.php:478
+#: src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "భద్రపరచు"
 
@@ -530,7 +530,7 @@ msgid "Blog ID"
 msgstr "బ్లాగు ఐడీ"
 
 #: src/Core/Backend/Combos.php:347 src/Core/Backend/Listing/ListingUsers.php:65
-#: src/Process/Install/Install.php:458
+#: src/Process/Install/Install.php:459
 msgid "Username"
 msgstr "Username"
 
@@ -649,7 +649,7 @@ msgstr "గ్లోబల్ సహాయము"
 #: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1339
 #: src/Process/Backend/Comment.php:307 src/Process/Backend/Post.php:899
 #: src/Process/Backend/User.php:371 src/Process/Backend/UserPreferences.php:540
-#: src/Process/Install/Install.php:444
+#: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "ఈమెయిల్:"
 
@@ -709,7 +709,7 @@ msgstr "ఫార్మేట్:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:179 src/Process/Backend/Auth.php:155
 #: src/Process/Backend/Auth.php:511 src/Process/Backend/User.php:295
-#: src/Process/Install/Install.php:508 src/Process/Upgrade/Auth.php:222
+#: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:222
 msgid "Password:"
 msgstr "సంకేతపదం:"
 
@@ -1193,8 +1193,8 @@ msgid "Current version"
 msgstr "ప్రస్తుత వెర్షన్"
 
 #: src/Core/Backend/ModulesList.php:837 src/Core/Backend/ModulesList.php:1061
-#: src/Core/Backend/Page.php:1297 src/Core/Backend/ThemesList.php:223
-#: src/Core/Backend/ThemesList.php:309
+#: src/Core/Backend/Page.php:1297 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/ThemesList.php:316
 msgid "Details"
 msgstr "వివరాలు"
 
@@ -1221,13 +1221,13 @@ msgstr "ఈ మాడ్యూల్ను అచేతనము చేయలే
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "ఈ మాడ్యూల్ చేతనము చేయలేము, క్రింది కారణాల వలన:"
 
-#: src/Core/Backend/ModulesList.php:1003 src/Core/Backend/ThemesList.php:207
+#: src/Core/Backend/ModulesList.php:1003 src/Core/Backend/ThemesList.php:214
 #: src/Process/Upgrade/Plugins.php:419
 msgid "Official repository"
 msgstr "అధికారిక రిపోసిటరీ"
 
 #: src/Core/Backend/ModulesList.php:1003 src/Core/Backend/ModulesList.php:1106
-#: src/Core/Backend/ThemesList.php:207 src/Process/Upgrade/Plugins.php:419
+#: src/Core/Backend/ThemesList.php:214 src/Process/Upgrade/Plugins.php:419
 msgid "Third-party repository"
 msgstr "మూడవ-పార్టీ రిపోసిటరీ"
 
@@ -1244,11 +1244,11 @@ msgid "Release date:"
 msgstr "విడుదల తేదీ:"
 
 #: src/Core/Backend/ModulesList.php:1068 src/Core/Backend/Page.php:1298
-#: src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/ThemesList.php:237
 msgid "Support"
 msgstr "@ title: window"
 
-#: src/Core/Backend/ModulesList.php:1072 src/Core/Backend/ThemesList.php:211
+#: src/Core/Backend/ModulesList.php:1072 src/Core/Backend/ThemesList.php:218
 msgid "update locked"
 msgstr "నలుపు నలుపు"
 
@@ -1383,7 +1383,7 @@ msgstr[1] "ప్లగిన్లు విజయవంతమయ్యాయ�
 msgid "Following plugins updates are locked: %s"
 msgstr "అనుసరించి ప్లగిన్స్ అప్లిప్స్ లాక్ చేయబడినది: %s"
 
-#: src/Core/Backend/ModulesList.php:1672 src/Core/Backend/ThemesList.php:750
+#: src/Core/Backend/ModulesList.php:1672 src/Core/Backend/ThemesList.php:757
 #: src/Core/Upgrade/PluginsList.php:404 src/Process/Backend/Langs.php:163
 #: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
@@ -1408,7 +1408,7 @@ msgstr "జిప్ ఫైలును అప్లోడ్ చేయుము
 #: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:369
 #: src/Process/Backend/LinkPopup.php:82 src/Process/Backend/Post.php:768
 #: src/Process/Backend/Post.php:888 src/Process/Backend/User.php:273
-#: src/Process/Backend/UsersActions.php:394 src/Process/Install/Install.php:454
+#: src/Process/Backend/UsersActions.php:394 src/Process/Install/Install.php:455
 #: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:403
 #, php-format
 msgid "Fields preceded by %s are mandatory."
@@ -1422,8 +1422,8 @@ msgstr "జిప్ ఫైల్ దారి:"
 #: src/Process/Backend/Langs.php:341 src/Process/Backend/Langs.php:390
 #: src/Process/Backend/Post.php:692 src/Process/Backend/User.php:302
 #: src/Process/Backend/User.php:315 src/Process/Backend/User.php:443
-#: src/Process/Backend/UsersActions.php:401 src/Process/Install/Install.php:466
-#: src/Process/Install/Install.php:472 src/Process/Upgrade/Langs.php:426
+#: src/Process/Backend/UsersActions.php:401 src/Process/Install/Install.php:467
+#: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:426
 msgid "Password"
 msgstr "సంకేతపదము"
 
@@ -1488,7 +1488,7 @@ msgid "Error:"
 msgstr "పొరపాటు:"
 
 #: src/Core/Backend/Notices.php:82 src/Core/Upgrade/Notices.php:46
-#: src/Process/Install/Install.php:417 src/Process/Install/Install.php:526
+#: src/Process/Install/Install.php:418 src/Process/Install/Install.php:527
 #: src/Process/Install/Wizard.php:247
 msgid "Errors:"
 msgstr "పొరపాట్లు:"
@@ -1946,134 +1946,139 @@ msgstr "స్కోరు: %s"
 msgid "%s screenshot."
 msgstr "%s స్క్రీన్షోట్."
 
-#: src/Core/Backend/ThemesList.php:178
+#: src/Core/Backend/ThemesList.php:180
+#, php-format
+msgid "(%s template set)"
+msgstr "(%s టెంప్లేట్ సెట్)"
+
+#: src/Core/Backend/ThemesList.php:185
 #, php-format
 msgid "by %s"
 msgstr "%s చే"
 
-#: src/Core/Backend/ThemesList.php:182
+#: src/Core/Backend/ThemesList.php:189
 #, php-format
 msgid "version %s"
 msgstr "వెర్షన్ %s"
 
-#: src/Core/Backend/ThemesList.php:186
+#: src/Core/Backend/ThemesList.php:193
 #, php-format
 msgid "released on %s"
 msgstr "%sన విడుదలైంది"
 
-#: src/Core/Backend/ThemesList.php:194
+#: src/Core/Backend/ThemesList.php:201
 #, php-format
 msgid "(current version %s)"
 msgstr "(ప్రస్తుత వెర్షన్ %s)"
 
-#: src/Core/Backend/ThemesList.php:199
+#: src/Core/Backend/ThemesList.php:206
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(నిర్మించబడిన)%s\")"
 
-#: src/Core/Backend/ThemesList.php:202
+#: src/Core/Backend/ThemesList.php:209
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(అవసరం \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:258
+#: src/Core/Backend/ThemesList.php:265
 msgid "View stylesheet"
 msgstr "స్టైల్షీట్ను చూడుము"
 
-#: src/Core/Backend/ThemesList.php:283
+#: src/Core/Backend/ThemesList.php:290
 msgid "Configure theme"
 msgstr "థీమ్ ఆకృతీకరించు"
 
-#: src/Core/Backend/ThemesList.php:337
+#: src/Core/Backend/ThemesList.php:344
 msgid "No themes matched your search."
 msgstr "ఏ థీమ్స్ మీ సెర్చ్ సరిపోలేదు."
 
-#: src/Core/Backend/ThemesList.php:387
+#: src/Core/Backend/ThemesList.php:394
 msgid "Use this one"
 msgstr "దీనిని వుపయోగించుము"
 
-#: src/Core/Backend/ThemesList.php:404 src/Process/Backend/Post.php:795
+#: src/Core/Backend/ThemesList.php:411 src/Process/Backend/Post.php:795
 msgid "Preview"
 msgstr "వీక్షణం"
 
-#: src/Core/Backend/ThemesList.php:450
+#: src/Core/Backend/ThemesList.php:457
 msgid "Update selected themes"
 msgstr "ఎంపికచేసిన థీమ్లను నవీ"
 
-#: src/Core/Backend/ThemesList.php:451
+#: src/Core/Backend/ThemesList.php:458
 msgid "Update all themes from this list"
 msgstr "ఈ జాబితా నుండి అన్ని థీమ్లను నవీకరణ చేయుము"
 
-#: src/Core/Backend/ThemesList.php:495 src/Core/Backend/ThemesList.php:536
-#: src/Core/Backend/ThemesList.php:574 src/Core/Backend/ThemesList.php:609
-#: src/Core/Backend/ThemesList.php:649 src/Core/Backend/ThemesList.php:683
-#: src/Core/Backend/ThemesList.php:733
+#: src/Core/Backend/ThemesList.php:502 src/Core/Backend/ThemesList.php:543
+#: src/Core/Backend/ThemesList.php:581 src/Core/Backend/ThemesList.php:616
+#: src/Core/Backend/ThemesList.php:656 src/Core/Backend/ThemesList.php:690
+#: src/Core/Backend/ThemesList.php:740
 msgid "No such theme."
 msgstr "ఇలాంటి థీమ్ లేదు."
 
-#: src/Core/Backend/ThemesList.php:504
+#: src/Core/Backend/ThemesList.php:511
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "థీమ్ %s విజయవంతంగా ఎంపిక చేయబడింది."
 
-#: src/Core/Backend/ThemesList.php:540
+#: src/Core/Backend/ThemesList.php:547
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "థీమ్ సమర్ధవంతంగా క్రియాశీలమైంది."
 msgstr[1] "థీమ్స్ ను successuflly క్రియాశీలంగా చేశారు."
 
-#: src/Core/Backend/ThemesList.php:578
+#: src/Core/Backend/ThemesList.php:585
 msgid "Some themes have not been deactivated."
 msgstr "కొన్ని థీమ్స్ క్రియాశీలము చేయబడలేదు."
 
-#: src/Core/Backend/ThemesList.php:581
+#: src/Core/Backend/ThemesList.php:588
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "థీమ్ సమర్ధవంతంగా క్రియాశీలము చేయబడింది."
 msgstr[1] "థీమ్స్ ను successuflly deక్రియాశీలంగా చేశారు."
 
-#: src/Core/Backend/ThemesList.php:613
+#: src/Core/Backend/ThemesList.php:620
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "థీమ్ సమర్ధవంతంగా క్లిన్ చేయబడింది."
 msgstr[1] "థీమ్స్ ను successuflly cloned చేశారు."
 
-#: src/Core/Backend/ThemesList.php:647
+#: src/Core/Backend/ThemesList.php:654
 msgid "You don't have permissions to delete this theme."
 msgstr "మీరు ఈ థీమ్ను తొలగించుటకు అనుమతి లేదు."
 
-#: src/Core/Backend/ThemesList.php:651
+#: src/Core/Backend/ThemesList.php:658
 msgid "Some themes have not been delete."
 msgstr "కొన్ని థీమ్స్ తొలగించబడలేదు."
 
-#: src/Core/Backend/ThemesList.php:654
+#: src/Core/Backend/ThemesList.php:661
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "థీమ్ సమర్ధవంతంగా తొలగించబడింది."
 msgstr[1] "థీమ్స్ సులువుగా తొలగించబడింది."
 
-#: src/Core/Backend/ThemesList.php:687
+#: src/Core/Backend/ThemesList.php:694
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "థీమ్ సమర్ధవంతంగా స్థాపించబడింది."
 msgstr[1] "థీమ్స్ విజయవంతంగా స్థాపించబడింది."
 
-#: src/Core/Backend/ThemesList.php:726
+#: src/Core/Backend/ThemesList.php:733
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "థీమ్ సమర్ధవంతంగా నవీకరిస్తోంది."
 msgstr[1] "థీమ్స్ సమర్ధవంతంగా నవీకరిస్తోంది."
 
-#: src/Core/Backend/ThemesList.php:730
+#: src/Core/Backend/ThemesList.php:737
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "థీమ్స్ నివేదికలను మూసివేసారు: %s"
 
-#: src/Core/Backend/ThemesList.php:768
+#: src/Core/Backend/ThemesList.php:775
 msgid "The theme has been successfully updated."
 msgstr "థీమ్ సమర్ధవంతంగా నవీకరిస్తోంది."
 
-#: src/Core/Backend/ThemesList.php:769
+#: src/Core/Backend/ThemesList.php:776
 msgid "The theme has been successfully installed."
 msgstr "థీమ్ సమర్ధవంతంగా స్థాపించబడింది."
 
@@ -2300,49 +2305,49 @@ msgstr "మీ బ్లాగు కోసం టెంట్మెంట్న
 msgid "Can't create template files."
 msgstr "టెముకల్ ఫైళ్ళను సృష్టించలేము."
 
-#: src/Core/Install/Utils.php:34 src/Process/Upgrade/Upgrade.php:251
+#: src/Core/Install/Utils.php:35 src/Process/Upgrade/Upgrade.php:251
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "PHP వెర్షన్ %s (%s లేదా ముందుగా అవసరమైంది)."
 
-#: src/Core/Install/Utils.php:38
+#: src/Core/Install/Utils.php:39
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "మల్టీబైట్ స్ట్రింగ్ మాడ్యూల్ (mbstring) అందుబాటు లేదు."
 
-#: src/Core/Install/Utils.php:42
+#: src/Core/Install/Utils.php:43
 msgid "Iconv module is not available."
 msgstr "ఐకన్వ్ మాడ్యూల్ అందుబాటలో లేదు."
 
-#: src/Core/Install/Utils.php:46
+#: src/Core/Install/Utils.php:47
 msgid "Output control functions are not available."
 msgstr "అవుట్పుట్ నియంత్రణ పనులు అందుబాటలో లేదు."
 
-#: src/Core/Install/Utils.php:50
+#: src/Core/Install/Utils.php:51
 msgid "SimpleXML module is not available."
 msgstr "సిమప్లెక్స్ మాడ్యూల్ అందుబాటుంది."
 
-#: src/Core/Install/Utils.php:54
+#: src/Core/Install/Utils.php:55
 msgid "DOM XML module is not available."
 msgstr "DOM XML మాడ్యూల్ అందుబాటలేదు."
 
-#: src/Core/Install/Utils.php:59
+#: src/Core/Install/Utils.php:60
 msgid "PCRE engine does not support UTF-8 strings."
 msgstr "PCRE ఇంజిన్ UTF-8 స్ట్రాన్స్ను మద్దతిస్తుంది."
 
-#: src/Core/Install/Utils.php:63
+#: src/Core/Install/Utils.php:64
 msgid "SPL module is not available."
 msgstr "SPL మాడ్యూల్ అందుబాటలేదు."
 
-#: src/Core/Install/Utils.php:68
+#: src/Core/Install/Utils.php:69
 #, php-format
 msgid "MySQL version is %s (%s or earlier needed)."
 msgstr "MySQL వెర్షన్ %s (%s లేదా ముందుగా అవసరమైంది)."
 
-#: src/Core/Install/Utils.php:81
+#: src/Core/Install/Utils.php:82
 msgid "MySQL InnoDB engine is not available."
 msgstr "MySQL InnoDB ఇంజిన్ అందుబాటలో లేదు."
 
-#: src/Core/Install/Utils.php:86
+#: src/Core/Install/Utils.php:87
 #, php-format
 msgid "PostgreSQL version is %s (%s or earlier needed)."
 msgstr "PostgreSQL వెర్షన్ %s (%s లేదా ముందుగా అవసరమైంది)."
@@ -2607,20 +2612,20 @@ msgstr "%s సరైన pref id కాదు"
 msgid "No workspace specified"
 msgstr "ఏ పనిప్రదేశం తెలుపబడిలేదు"
 
-#: src/Core/Users.php:170 src/Process/Install/Install.php:156
+#: src/Core/Users.php:170 src/Process/Install/Install.php:157
 msgid "No user ID given"
 msgstr "ఏ యూజర్ ID ఇవ్వలేదు"
 
-#: src/Core/Users.php:174 src/Process/Install/Install.php:166
+#: src/Core/Users.php:174 src/Process/Install/Install.php:167
 msgid "No password given"
 msgstr "సంకేతపదం ఇవ్వలేదు."
 
-#: src/Core/Users.php:394 src/Process/Install/Install.php:159
+#: src/Core/Users.php:394 src/Process/Install/Install.php:160
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "యూజర్ ID అక్షరాలు, సంఖ్యలు లేదా చిహ్నాలను ఉపయోగించి కనీసం 2 అక్షరాలను కలిగిఉండాలి."
 
 #: src/Core/Users.php:403 src/Process/Backend/User.php:306
-#: src/Process/Install/Install.php:172
+#: src/Process/Install/Install.php:173
 msgid "Password must contain at least 6 characters."
 msgstr "సంకేతపదం కనీసం 6 అక్షరాల పొడవుండాలి."
 
@@ -2996,7 +3001,7 @@ msgstr "మీ సంకేతపదము సందర్శించడాన�
 
 #: src/Process/Backend/Auth.php:138 src/Process/Backend/Auth.php:155
 #: src/Process/Backend/Auth.php:410 src/Process/Backend/Auth.php:502
-#: src/Process/Install/Install.php:455 src/Process/Install/Install.php:507
+#: src/Process/Install/Install.php:456 src/Process/Install/Install.php:508
 #: src/Process/Upgrade/Auth.php:211
 msgid "Username:"
 msgstr "వాడుకరిపేరు:"
@@ -3016,7 +3021,7 @@ msgstr "మీ కొత్త సంకేతపదాన్ని మీ ఈ�
 
 #: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:137
 #: src/Process/Backend/UserPreferences.php:200
-#: src/Process/Install/Install.php:169
+#: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "సంకేతపదాలు సరిపోలలేదు"
 
@@ -3050,21 +3055,21 @@ msgstr "తప్పుడు వాడుకరిపేరు లేదా స
 #: src/Process/Backend/UserPreferences.php:493
 #: src/Process/Backend/UserPreferences.php:494
 #: src/Process/Backend/UserPreferences.php:495
-#: src/Process/Install/Install.php:395 src/Process/Install/Install.php:396
-#: src/Process/Install/Install.php:397
+#: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
+#: src/Process/Install/Install.php:398
 #, php-format
 msgid "Password strength: %s"
 msgstr "పాస్ వర్డ్ బలం: %s"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:242
 #: src/Process/Backend/UserPreferences.php:493
-#: src/Process/Install/Install.php:395
+#: src/Process/Install/Install.php:396
 msgid "weak"
 msgstr "బలహీనత"
 
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:244
 #: src/Process/Backend/UserPreferences.php:495
-#: src/Process/Install/Install.php:397
+#: src/Process/Install/Install.php:398
 msgid "strong"
 msgstr "బలవంతము"
 
@@ -3090,12 +3095,12 @@ msgstr "మీ సంకేతపదాన్ని మార్చండి"
 
 #: src/Process/Backend/Auth.php:451 src/Process/Backend/User.php:295
 #: src/Process/Backend/UserPreferences.php:578
-#: src/Process/Install/Install.php:463
+#: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "కొత్త సంకేతపదం:"
 
 #: src/Process/Backend/Auth.php:460 src/Process/Backend/User.php:309
-#: src/Process/Install/Install.php:470
+#: src/Process/Install/Install.php:471
 msgid "Confirm password:"
 msgstr "సంకేతపదాన్ని నిర్ధారించండి:"
 
@@ -4158,12 +4163,12 @@ msgid "There is no writable root directory for the media manager. You should con
 msgstr "మీడియా నిర్వాహకులకు వ్రాయదగిన మూల డైరెక్టరీ లేదు. మీరు మీ పరిపాలనతో సంప్రదించాలి."
 
 #: src/Process/Backend/Home.php:306 src/Process/Backend/Plugins.php:129
-#: src/Process/Install/Install.php:484 src/Process/Upgrade/Plugins.php:114
+#: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:114
 msgid "Following plugins have been installed:"
 msgstr "ప్లగిన్లను అనుసరించి వ్యవస్థాపించబడింది:"
 
 #: src/Process/Backend/Home.php:324 src/Process/Backend/Plugins.php:145
-#: src/Process/Install/Install.php:491 src/Process/Upgrade/Plugins.php:126
+#: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:126
 msgid "Following plugins have not been installed:"
 msgstr "తరువాతి ప్లగిన్లు స్థాపించబడలేదు:"
 
@@ -5279,12 +5284,12 @@ msgid "Password change required to connect"
 msgstr "అనుసంధానించవలసిన పాస్ వర్డ్ మార్పు"
 
 #: src/Process/Backend/User.php:350 src/Process/Backend/UserPreferences.php:519
-#: src/Process/Install/Install.php:438
+#: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "చివరి పేరు:"
 
 #: src/Process/Backend/User.php:357 src/Process/Backend/UserPreferences.php:526
-#: src/Process/Install/Install.php:432
+#: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "మొదటి పేరు:"
 
@@ -5767,114 +5772,114 @@ msgstr "వినియోగదారుల కొరకు ఈ క్రిం
 msgid "Validate permissions"
 msgstr "అనుమతులను అనుమతిస్తుంది"
 
-#: src/Process/Install/Install.php:119
+#: src/Process/Install/Install.php:120
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "దయచేసి ఒక మాస్టర్ కీ (DC_MASTER_KEY) ఆకృతీకరణలో అమర్చు."
 
-#: src/Process/Install/Install.php:126 src/Process/Install/Wizard.php:142
+#: src/Process/Install/Install.php:127 src/Process/Install/Wizard.php:142
 msgid "Dotclear is already installed."
 msgstr "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
 
-#: src/Process/Install/Install.php:133 src/Process/Install/Wizard.php:136
+#: src/Process/Install/Install.php:134 src/Process/Install/Wizard.php:136
 msgid "Dotclear cannot be installed."
 msgstr "డాట్‌క్లియర్‌ని స్థాపించలేం."
 
-#: src/Process/Install/Install.php:162
+#: src/Process/Install/Install.php:163
 msgid "Invalid email address"
 msgstr "తప్పుడు ఈమెయిల్ చిరునామా"
 
-#: src/Process/Install/Install.php:225
+#: src/Process/Install/Install.php:226
 msgid "My first blog"
 msgstr "నా మొదటి బ్లాగు"
 
-#: src/Process/Install/Install.php:238
+#: src/Process/Install/Install.php:239
 msgid "%A, %B %e %Y"
 msgstr "%A, %B %e %Y"
 
-#: src/Process/Install/Install.php:314
+#: src/Process/Install/Install.php:315
 msgid "Welcome to Dotclear!"
 msgstr "డాట్‌క్లియర్‌కి స్వాగతం!"
 
-#: src/Process/Install/Install.php:315
+#: src/Process/Install/Install.php:316
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "ఇది మీ మొదటి టపా. మీరు బ్లాగడానికి సిద్ధంకాగానే, లోనికి ప్రవేశించి దీన్ని మార్చుకోండి లేదా తొలగించండి."
 
-#: src/Process/Install/Install.php:327
+#: src/Process/Install/Install.php:328
 msgid "Dotclear Team"
 msgstr "డాట్‌క్లియర్ జట్టు"
 
-#: src/Process/Install/Install.php:330
+#: src/Process/Install/Install.php:331
 msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>ఇది ఒక వ్యాఖ్య.</p>\n"
 "<p>దీన్ని తొలగించడానికి, లోనికి ప్రవేశింటి మీ బ్లాగు యొక్క వ్యాఖ్యలు చూడండి. అక్కడ దీన్ని తొలగించవచ్చు లేదా మార్చవచ్చు.</p>"
 
-#: src/Process/Install/Install.php:387
+#: src/Process/Install/Install.php:388
 msgid "Dotclear Install"
 msgstr "Dotclear Install"
 
-#: src/Process/Install/Install.php:401
+#: src/Process/Install/Install.php:402
 msgid "show"
 msgstr "ప్రదర్శన"
 
-#: src/Process/Install/Install.php:409
+#: src/Process/Install/Install.php:410
 msgid "Dotclear installation"
 msgstr "డాట్‌క్లియర్ స్థాపన"
 
-#: src/Process/Install/Install.php:413
+#: src/Process/Install/Install.php:414
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "క్యాచీ డైరెక్టరీ %s వ్రాయలేడు."
 
-#: src/Process/Install/Install.php:421
+#: src/Process/Install/Install.php:422
 msgid "Configuration file has been successfully created."
 msgstr "ఆకృతీకరణ దస్త్రం సమర్ధవంతంగా సృష్టించబడింది."
 
-#: src/Process/Install/Install.php:426 src/Process/Install/Install.php:431
+#: src/Process/Install/Install.php:427 src/Process/Install/Install.php:432
 msgid "User information"
 msgstr "వాడుకరి సమాచారం"
 
-#: src/Process/Install/Install.php:428
+#: src/Process/Install/Install.php:429
 msgid "Please provide the following information needed to create the first user."
 msgstr "మొదటి వినియోగదారు సృష్టించుటకు అవసరమైన క్రింది సమాచారమును దయచేసి దయచేయుము."
 
-#: src/Process/Install/Install.php:453
+#: src/Process/Install/Install.php:454
 msgid "Username and password"
 msgstr "Username and password"
 
-#: src/Process/Install/Install.php:499
+#: src/Process/Install/Install.php:500
 msgid "All done!"
 msgstr "అంతా పూర్తయ్యింది!"
 
-#: src/Process/Install/Install.php:503
+#: src/Process/Install/Install.php:504
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "Dotclear సమర్ధవంతంగా స్థాపించబడింది. ఇక్కడ కొన్ని ఉపయోగకరమైన సమాచారం మీరు ఉంచుకోవాలి."
 
-#: src/Process/Install/Install.php:505
+#: src/Process/Install/Install.php:506
 msgid "Your account"
 msgstr "మీ ఖాతా"
 
-#: src/Process/Install/Install.php:511
+#: src/Process/Install/Install.php:512
 msgid "Your blog"
 msgstr "మీ బ్లాగు"
 
-#: src/Process/Install/Install.php:513
+#: src/Process/Install/Install.php:514
 msgid "Blog address:"
 msgstr "బ్లాగు చిరునామా:"
 
-#: src/Process/Install/Install.php:514
+#: src/Process/Install/Install.php:515
 msgid "Administration interface:"
 msgstr "నిర్వహణ అంతరవర్తి:"
 
-#: src/Process/Install/Install.php:518
+#: src/Process/Install/Install.php:519
 msgid "Manage your blog now"
 msgstr "ఇప్పుడే మీ బ్లాగుని నిర్వహించండి"
 
-#: src/Process/Install/Install.php:525
+#: src/Process/Install/Install.php:526
 msgid "Installation can not be completed"
 msgstr "@ info: status"
 
-#: src/Process/Install/Install.php:527
+#: src/Process/Install/Install.php:528
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "చెప్పిన కారణాల కోసం, Dotclear స్థాపన చేయలేకపోవచ్చు. దయచేసి <a href=\"https://dotclear.org/documentation/2.0/admin/install\">డాక్యుమెంట్మెంటు</a> ఈ సమస్యను ఎలా సరిచేయాలో తెలుసుకోవాలి."
 
