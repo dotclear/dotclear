@@ -2563,7 +2563,7 @@ a:is(.checkbox-helper, .metaGetList, .metaGetMore):hover {
 
 .dc-update {
   padding: 1em 0.5em 0.5em 4em;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   border-radius: 3px;
   color: var(--dc-update-color);
   background: url(msg-info.svg) no-repeat 0.75em 0.75em;
