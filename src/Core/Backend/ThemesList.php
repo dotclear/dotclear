@@ -174,6 +174,13 @@ class ThemesList extends ModulesList
                 $infos[] = (new Text('span', Html::escapeHTML(__($define->get('desc')))))
                     ->class('module-desc');
             }
+            if (in_array('tplset', $cols)) {
+                $tplset = Html::escapeHTML((string) $define->get('tplset'));
+                if ($tplset !== '') {
+                    $infos[] = (new Text('span', sprintf(__('(%s template set)'), $tplset)))
+                        ->class(['module-tplset', 'tplset-' . $tplset]);
+                }
+            }
             if (in_array('author', $cols)) {
                 $infos[] = (new Text('span', sprintf(__('by %s'), Html::escapeHTML($define->get('author')))))
                     ->class('module-author');
@@ -184,10 +191,10 @@ class ThemesList extends ModulesList
             }
             if (in_array('date', $cols) && !empty($define->get('date'))) {
                 $infos[] = (new Text('span', sprintf(__('released on %s'), Html::escapeHTML(Date::dt2str(
-                                App::blog()->settings()->get('system')->get('date_format'),
-                                $define->get('date'),
-                                App::auth()->getInfo('user_tz')
-                            )))))
+                    App::blog()->settings()->get('system')->get('date_format'),
+                    $define->get('date'),
+                    App::auth()->getInfo('user_tz')
+                )))))
                     ->class('module-date');
             }
             if (in_array('current_version', $cols)) {

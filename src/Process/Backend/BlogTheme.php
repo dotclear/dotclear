@@ -192,7 +192,7 @@ class BlogTheme extends Process
                 ->setDefines($defines)
                 ->displayModules(
                     // cols
-                    ['sshot', 'distrib', 'name', 'config', 'desc', 'author', 'version', 'date', 'parent'],
+                    ['sshot', 'distrib', 'name', 'config', 'desc', 'tplset', 'author', 'version', 'date', 'parent'],
                     // actions
                     ['select', 'behavior', 'deactivate', 'clone', 'delete', 'try']
                 );
@@ -218,7 +218,7 @@ class BlogTheme extends Process
                 ->setDefines($defines)
                 ->displayModules(
                     // cols
-                    ['sshot', 'name', 'distrib', 'desc', 'author', 'version'],
+                    ['sshot', 'name', 'distrib', 'desc', 'tplset', 'author', 'version'],
                     // actions
                     ['activate', 'delete', 'try']
                 );
@@ -268,7 +268,7 @@ class BlogTheme extends Process
                 ->setDefines($defines)
                 ->displayModules(
                     // cols
-                    ['checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'repository', 'parent'],
+                    ['checkbox', 'name', 'sshot', 'desc', 'tplset', 'author', 'version', 'current_version', 'repository', 'parent'],
                     // actions
                     ['update', 'delete']
                 );
@@ -329,7 +329,7 @@ class BlogTheme extends Process
                     ->displayIndex()
                     ->displayModules(
                         // cols
-                        ['expander', 'sshot', 'name', 'score', 'config', 'desc', 'author', 'version', 'parent', 'details', 'support'],
+                        ['expander', 'sshot', 'name', 'score', 'config', 'desc', 'tplset', 'author', 'version', 'parent', 'details', 'support'],
                         // actions
                         ['install'],
                         // nav limit
