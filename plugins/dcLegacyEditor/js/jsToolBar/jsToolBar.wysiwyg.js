@@ -532,7 +532,7 @@ jsToolBar.prototype.simpleCleanRegex = new Array(
   [/<(br|BR)>/g, '<br>'],
   [/<(hr|HR)>/g, '<hr>'],
   /* br intempestifs de fin de block */
-  [/<br \/>\s*<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote|div)/gi, '</$1'],
+  [/<br\s*\/?>\s*<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote|div)/gi, '</$1'],
   [/<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote)>([^\n\u000B\r\f])/gi, '</$1>\n$2'],
   [/<hr style="width: 100%; height: 2px;" \/>/g, '<hr>'],
 );
