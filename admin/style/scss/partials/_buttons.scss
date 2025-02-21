@@ -109,6 +109,7 @@ a.button.clone {
 
 p.top-add {
   text-align: right;
+  justify-content: right; // Useful when top-add is used in combination with form-buttons
   margin: 0;
 }
 

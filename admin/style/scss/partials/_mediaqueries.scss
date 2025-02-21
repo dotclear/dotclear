@@ -94,6 +94,7 @@
 
   p.top-add {
     text-align: center;
+    justify-content: left; // Useful when top-add is used in combination with form-buttons
   }
 
   .multi-part {

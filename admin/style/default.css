@@ -2349,6 +2349,7 @@ a.button.clone:is(:hover, :active, :focus) {
 /* paragraphe pour bouton Nouveau bidule */
 p.top-add {
   text-align: right;
+  justify-content: right;
   margin: 0;
 }
 
@@ -5365,6 +5366,7 @@ tr.ui-sortable-handle:hover {
   }
   p.top-add {
     text-align: center;
+    justify-content: left;
   }
   .multi-part {
     padding-left: 0;
