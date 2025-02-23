@@ -18,6 +18,7 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Interface\Core\BlogInterface;
@@ -157,8 +158,13 @@ class Antispam
         if (($count = self::countSpam()) > 0) {
             $str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
 
-            return '</span></a> <a href="' . App::backend()->url()->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
-            sprintf($str, $count);
+            return (new Link())
+                ->href(App::backend()->url()->get('admin.comments', ['status' => (string) App::status()->comment()::JUNK]))
+                ->items([
+                    (new Text('span', sprintf($str, $count)))
+                        ->class('db-icon-title-spam'),
+                ])
+            ->render();
         }
 
         return '';

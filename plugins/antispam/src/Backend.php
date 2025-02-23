@@ -66,10 +66,10 @@ class Backend extends Process
             'adminDashboardFavsIconV2' => function (string $name, ArrayObject $icon): string {
                 // Check if it is comments favs
                 if ($name === 'comments') {
-                    // Hack comments title if there is at least one spam
+                    // Add information in icon legend if there is at least one spam
                     $str = Antispam::dashboardIconTitle();
                     if ($str !== '') {
-                        $icon[0] .= $str;
+                        $icon[3] = $str;
                     }
                 }
 

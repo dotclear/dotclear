@@ -326,7 +326,7 @@ class Favorites
 
     /**
      * Adds favorites icons to index page
-     * shall not be called outside admin/index.php...
+     * shall not be called outside Home.php...
      *
      * @param array<string, mixed>|ArrayObject<string, mixed>  $icons   dashboard icon list to enrich
      */
@@ -337,6 +337,13 @@ class Favorites
                 $icon_data = $icon_data instanceof ArrayObject ? $icon_data : new ArrayObject($icon_data);
                 call_user_func($icon_data['dashboard_cb'], $icon_data);
             }
+            /*
+             * $icons items structure:
+             * [0] = title
+             * [1] = url
+             * [2] = icons (usually array (light/dark))
+             * [3] = additional informations (usually set by 3rd party plugins)
+             */
             $icons[$icon_id] = new ArrayObject([$icon_data['title'], $icon_data['url'], $icon_data['large-icon']]);
             # --BEHAVIOR-- adminDashboardFavsIconV2 -- string, ArrayObject
             App::behavior()->callBehavior('adminDashboardFavsIconV2', $icon_id, $icons[$icon_id]);

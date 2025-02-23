@@ -137,6 +137,12 @@ class Home extends Process
         /**
          * List of dashboard icons (user favorites)
          *
+         * items structure:
+         * [0] = title
+         * [1] = url
+         * [2] = icons (usually array (light/dark))
+         * [3] = additional informations (usually set by 3rd party plugins)
+         *
          * @var        ArrayObject<string, ArrayObject<int, mixed>>
          */
         $__dashboard_icons = new ArrayObject();
@@ -452,7 +458,14 @@ class Home extends Process
             $dashboardIcons = (new Div('icons'))
                 ->items(
                     array_map(
-                        fn ($id, $info) => (new Para())
+                        fn (string $id, ArrayObject $info) => (new Para())
+                            /*
+                             * $info item structure:
+                             * [0] = title
+                             * [1] = url
+                             * [2] = icons (usually array (light/dark))
+                             * [3] = additional informations (usually set by 3rd party plugins on adminDashboardFavsIconV2 behaviour)
+                             */
                             ->items([
                                 (new Link('icon-process-' . $id . '-fav'))
                                     ->href($info[1])
@@ -461,6 +474,9 @@ class Home extends Process
                                         (new Single('br')),
                                         (new Text('span', $info[0]))
                                             ->class('db-icon-title'),
+                                        isset($info[3]) ?
+                                        (new Text(null, $info[3])) :
+                                        (new None()),
                                     ]),
                             ]),
                         array_keys($__dashboard_icons->getArrayCopy()),
