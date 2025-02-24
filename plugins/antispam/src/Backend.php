@@ -69,7 +69,7 @@ class Backend extends Process
                     // Add information in icon legend if there is at least one spam
                     $str = Antispam::dashboardIconTitle();
                     if ($str !== '') {
-                        $icon[3] = $str;
+                        $icon[3] = ($icon[3] ?? '') . $str;
                     }
                 }
 
