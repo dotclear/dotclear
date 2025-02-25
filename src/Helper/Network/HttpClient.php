@@ -315,6 +315,13 @@ class HttpClient extends Socket
     protected $output_h;
 
     /**
+     * Verify peer flag
+     *
+     * @var bool
+     */
+    protected $verify_peer = true;
+
+    /**
      * Constructor.
      *
      * Takes the web server host, an optional port and timeout.
@@ -326,6 +333,10 @@ class HttpClient extends Socket
      */
     public function __construct($host, int $port = 80, ?int $timeout = null, ?int $stream_timeout = null)
     {
+        if (defined('SOCKET_VERIFY_PEER')) {
+            $this->verifyPeer(constant('SOCKET_VERIFY_PEER'));
+        }
+
         $this->accept = implode(',', $this->mime_types);
 
         $this->setHost($host, $port);

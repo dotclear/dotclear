@@ -42,6 +42,7 @@ use Dotclear\Interface\Core\ConnectionInterface;
  * * DC_AKISMET_SUPER (plugin)
  * * HTTP_PROXY_HOST (Helper)
  * * HTTP_PROXY_PORT (Helper)
+ * * SOCKET_VERIFY_PEER (Helper)
  *
  * @since   2.28
  */

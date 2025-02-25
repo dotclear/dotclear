@@ -55,6 +55,13 @@ class Socket
     protected $_stream_timeout;
 
     /**
+     * Verify peer
+     *
+     * @var bool|null
+     */
+    protected $_verify_peer;
+
+    /**
      * Class constructor
      *
      * @param string      $_host       Server host
@@ -165,6 +172,24 @@ class Socket
     }
 
     /**
+     * Get / Set peer verification
+     *
+     * @param null|bool    $verify            Verify peer flag
+     *
+     * @return null|bool
+     */
+    public function verifyPeer(?bool $verify = null): ?bool
+    {
+        if (!is_null($verify)) {
+            $this->_verify_peer = $verify;
+
+            return true;
+        }
+
+        return $this->_verify_peer;
+    }
+
+    /**
      * Sets blocking or non-blocking mode on the socket.
      */
     public function setBlocking(bool $block): bool
@@ -186,8 +211,20 @@ class Socket
      */
     public function open(): false|Iterator
     {
-        $errno  = $errstr = null;
-        $handle = @fsockopen($this->_transport . $this->_host, $this->_port, $errno, $errstr, (float) $this->_timeout);
+        $errno = $errstr = null;
+
+        if (!is_null($this->_verify_peer) && !$this->_verify_peer) {
+            $context = stream_context_create([
+                'ssl' => [
+                    'verify_peer'      => false,
+                    'verify_peer_name' => false,
+                ],
+            ]);
+            $url    = $this->_transport . $this->_host . ':' . $this->_port;
+            $handle = @stream_socket_client($url, $errno, $errstr, (float) $this->_timeout, STREAM_CLIENT_CONNECT, $context);
+        } else {
+            $handle = @fsockopen($this->_transport . $this->_host, $this->_port, $errno, $errstr, (float) $this->_timeout);
+        }
         if (!$handle) {
             throw new Exception('Socket error: ' . $errstr . ' (' . $errno . ')' . $this->_transport . $this->_host);
         }
