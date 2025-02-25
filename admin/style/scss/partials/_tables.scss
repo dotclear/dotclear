@@ -187,6 +187,8 @@ td.expand {
     td::before {
       display: inline;
       font-weight: bold;
+      text-align: left;
+      padding-inline-start: 0.25em;
     }
 
     td {
