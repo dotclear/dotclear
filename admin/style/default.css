@@ -551,6 +551,7 @@ h6 {
   --rch-table-1st-color: rgb(201.1, 201.1, 201.1);
   --rch-table-1st-background: #595959;
   --rch-table-1st-border: rgb(235.75, 235.75, 235.75);
+  --rch-table-1st-link: #bee74b;
   --rch-table-expand-color: var(--body-color);
   --rch-table-expand-background: var(--body-background);
   --rch-table-expand-border: rgb(235.75, 235.75, 235.75);
@@ -800,6 +801,7 @@ h6 {
   --rch-table-1st-color: rgb(201.1, 203.2, 206.7);
   --rch-table-1st-background: rgb(86.0136986301, 89.7534246575, 95.9863013699);
   --rch-table-1st-border-top: rgb(235.75, 236.5, 237.75);
+  --rch-table-1st-link: #bee74b;
   --rch-table-expand-color: var(--body-color);
   --rch-table-expand-background: var(--body-background);
   --rch-table-expand-border-top: rgb(235.75, 236.5, 237.75);
@@ -1050,6 +1052,7 @@ h6 {
     --rch-table-1st-color: rgb(201.1, 203.2, 206.7);
     --rch-table-1st-background: rgb(86.0136986301, 89.7534246575, 95.9863013699);
     --rch-table-1st-border-top: rgb(235.75, 236.5, 237.75);
+    --rch-table-1st-link: #bee74b;
     --rch-table-expand-color: var(--body-color);
     --rch-table-expand-background: var(--body-background);
     --rch-table-expand-border-top: rgb(235.75, 236.5, 237.75);
@@ -3266,6 +3269,9 @@ body.dark-mode .handler {
     border-top: 1px solid var(--rch-table-1st-border);
     color: var(--rch-table-1st-color);
     background: var(--rch-table-1st-background);
+  }
+  table.rch td:first-of-type a {
+    color: var(--rch-table-1st-link);
   }
   table.rch td::before {
     display: inline;
