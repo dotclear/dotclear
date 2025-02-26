@@ -127,7 +127,7 @@ class Attic extends Process
             self::$zip_file = self::$updater->selectVersion($_REQUEST['version']);
         }
 
-        if (!self::$updater->getVersion() || empty(self::$step)) {
+        if (!self::$updater->getVersion() || self::$step === '') {
             self::$step     = '';
             self::$releases = self::$updater->getReleases(App::config()->dotclearVersion());
 

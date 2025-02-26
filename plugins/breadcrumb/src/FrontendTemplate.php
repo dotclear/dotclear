@@ -182,7 +182,7 @@ class FrontendTemplate
                     if ($page == 0) {
                         $breadcrumb .= $separator . App::frontend()->context()->meta->meta_id;
                     } else {
-                        $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('tag', rawurlencode(App::frontend()->context()->meta->meta_id)) . '">' . App::frontend()->context()->meta->meta_id . '</a>';
+                        $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('tag', rawurlencode((string) App::frontend()->context()->meta->meta_id)) . '">' . App::frontend()->context()->meta->meta_id . '</a>';
                         $breadcrumb .= $separator . sprintf(__('page %d'), $page);
                     }
 

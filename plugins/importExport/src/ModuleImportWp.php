@@ -704,7 +704,7 @@ class ModuleImportWp extends Module
             "WHERE option_name = 'permalink_structure'"
         )->option_value;
         if ($plink) {
-            $this->vars['permalink_template'] = substr($plink, 1);
+            $this->vars['permalink_template'] = substr((string) $plink, 1);
         }
 
         $rs = $db->select(
@@ -751,7 +751,7 @@ class ModuleImportWp extends Module
      */
     protected function importPost($rs, $db): void
     {
-        $post_date = @strtotime($rs->post_date) ? $rs->post_date : '1970-01-01 00:00';
+        $post_date = @strtotime((string) $rs->post_date) ? $rs->post_date : '1970-01-01 00:00';
         if (!isset($this->vars['user_ids'][$rs->post_author])) {
             $user_id = App::auth()->userID();
         } else {
@@ -788,12 +788,12 @@ class ModuleImportWp extends Module
         }
 
         $permalink_infos = [
-            date('Y', (int) strtotime($cur->post_dt)),
-            date('m', (int) strtotime($cur->post_dt)),
-            date('d', (int) strtotime($cur->post_dt)),
-            date('H', (int) strtotime($cur->post_dt)),
-            date('i', (int) strtotime($cur->post_dt)),
-            date('s', (int) strtotime($cur->post_dt)),
+            date('Y', (int) strtotime((string) $cur->post_dt)),
+            date('m', (int) strtotime((string) $cur->post_dt)),
+            date('d', (int) strtotime((string) $cur->post_dt)),
+            date('H', (int) strtotime((string) $cur->post_dt)),
+            date('i', (int) strtotime((string) $cur->post_dt)),
+            date('s', (int) strtotime((string) $cur->post_dt)),
             $rs->post_name,
             $rs->ID,
             $cur->cat_id,
@@ -811,7 +811,7 @@ class ModuleImportWp extends Module
         }
 
         $cur->post_format = $this->vars['post_formater'];
-        $_post_content    = explode('<!--more-->', $rs->post_content, 2);
+        $_post_content    = explode('<!--more-->', (string) $rs->post_content, 2);
         if (count($_post_content) == 1) {
             $cur->post_excerpt       = null;
             $cur->post_excerpt_xhtml = null;
@@ -941,7 +941,7 @@ class ModuleImportWp extends Module
             'SELECT pinged FROM ' . $this->vars['db_prefix'] . 'posts ' .
             'WHERE ID = ' . (int) $post_id
         );
-        $pings = explode("\n", $rs->pinged);
+        $pings = explode("\n", (string) $rs->pinged);
         unset($pings[0]);
 
         foreach ($pings as $ping_url) {

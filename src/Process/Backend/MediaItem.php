@@ -324,7 +324,7 @@ class MediaItem extends Process
                 $prefs['legend'] = $_POST['pref_legend'];
             }
 
-            $local = App::media()->getRoot() . '/' . dirname(App::backend()->file->relname) . '/' . '.mediadef.json';
+            $local = App::media()->getRoot() . '/' . dirname((string) App::backend()->file->relname) . '/' . '.mediadef.json';
             if (file_put_contents($local, json_encode($prefs, JSON_PRETTY_PRINT))) {
                 Notices::addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
             }
@@ -334,7 +334,7 @@ class MediaItem extends Process
         if (!empty($_POST['remove_folder_prefs'])) {
             // Delete media insertion settings for the folder (.mediadef and .mediadef.json)
 
-            $local      = App::media()->getRoot() . '/' . dirname(App::backend()->file->relname) . '/' . '.mediadef';
+            $local      = App::media()->getRoot() . '/' . dirname((string) App::backend()->file->relname) . '/' . '.mediadef';
             $local_json = $local . '.json';
             if ((file_exists($local) && unlink($local)) || (file_exists($local_json) && unlink($local_json))) {
                 Notices::addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
@@ -433,7 +433,7 @@ class MediaItem extends Process
         }
 
         // Get major file type (first part of mime type)
-        App::backend()->file_type = explode('/', App::backend()->file->type);
+        App::backend()->file_type = explode('/', (string) App::backend()->file->type);
 
         $parts = [];
 
@@ -636,8 +636,8 @@ class MediaItem extends Process
                 $media_type = 'mp3';
 
                 $url = App::backend()->file->file_url;
-                if (str_starts_with($url, App::blog()->host())) {
-                    $url = substr($url, strlen(App::blog()->host()));
+                if (str_starts_with((string) $url, App::blog()->host())) {
+                    $url = substr((string) $url, strlen(App::blog()->host()));
                 }
 
                 $media_insert_options = (new Set())
@@ -660,8 +660,8 @@ class MediaItem extends Process
                 $media_type = 'flv';
 
                 $url = App::backend()->file->file_url;
-                if (str_starts_with($url, App::blog()->host())) {
-                    $url = substr($url, strlen(App::blog()->host()));
+                if (str_starts_with((string) $url, App::blog()->host())) {
+                    $url = substr((string) $url, strlen(App::blog()->host()));
                 }
 
                 $media_insert_options = (new Set())
@@ -706,7 +706,7 @@ class MediaItem extends Process
 
             $save_settings = (new None());
             if ($media_type !== 'default') {
-                $local = App::media()->getRoot() . '/' . dirname(App::backend()->file->relname) . '/' . '.mediadef';
+                $local = App::media()->getRoot() . '/' . dirname((string) App::backend()->file->relname) . '/' . '.mediadef';
                 if (!file_exists($local)) {
                     $local .= '.json';
                 }
@@ -1011,7 +1011,7 @@ class MediaItem extends Process
                     /**
                      * @var        string
                      */
-                    $value = App::con()->escapeStr((string) preg_replace('/^' . preg_quote($media_root, '/') . '/', '', $value)); // @phpstan-ignore-line
+                    $value = App::con()->escapeStr((string) preg_replace('/^' . preg_quote((string) $media_root, '/') . '/', '', (string) $value));
                     $params['sql'] .= "OR post_content_xhtml LIKE '%" . $value . "%' ";
                     $params['sql'] .= "OR post_excerpt_xhtml LIKE '%" . $value . "%' ";
                 }
@@ -1264,7 +1264,7 @@ class MediaItem extends Process
                                 ->items([
                                     (new Select('media_path'))
                                         ->items(App::backend()->dirs_combo)
-                                        ->default(dirname(App::backend()->file->relname))
+                                        ->default(dirname((string) App::backend()->file->relname))
                                         ->label(new Label(__('New directory:'), Label::OL_TF)),
                                 ]),
                             (new Submit('change-properties-submit', __('Save')))
@@ -1309,7 +1309,7 @@ class MediaItem extends Process
                             ->items([
                                 (new Submit('delete', __('Delete this media')))
                                     ->class('delete'),
-                                (new Hidden('remove', rawurlencode(App::backend()->file->basename))),
+                                (new Hidden('remove', rawurlencode((string) App::backend()->file->basename))),
                                 (new Hidden('rmyes', '1')),
                                 ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->media_page_url_params),
                                 App::nonce()->formNonce(),

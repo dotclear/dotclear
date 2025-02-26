@@ -715,7 +715,7 @@ class Ctx
             $p_site = (string) preg_replace('#^(.+?//.+?)/(.*)$#', '$1', App::blog()->url());
             $p_root = App::blog()->publicPath();
 
-            $pattern = '(?:' . preg_quote($p_site, '/') . ')?' . preg_quote($p_url, '/');
+            $pattern = '(?:' . preg_quote($p_site, '/') . ')?' . preg_quote((string) $p_url, '/');
             $pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png|svg|webp|avif))"[^>]+/msui', $pattern);
 
             $src = '';

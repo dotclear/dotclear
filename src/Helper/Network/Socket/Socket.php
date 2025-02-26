@@ -175,8 +175,6 @@ class Socket
      * Get / Set peer verification
      *
      * @param null|bool    $verify            Verify peer flag
-     *
-     * @return null|bool
      */
     public function verifyPeer(?bool $verify = null): ?bool
     {

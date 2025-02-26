@@ -48,12 +48,8 @@ class Menu
      * @param      string  $id         The menu identifier
      * @param      string  $title      The menu title
      */
-    public function __construct(
-        private string $id,
-        public string $title
-    ) {
-        $this->id    = $id;
-        $this->title = $title;
+    public function __construct(private readonly string $id, public string $title)
+    {
     }
 
     /**

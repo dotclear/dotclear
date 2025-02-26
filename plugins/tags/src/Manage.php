@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -85,7 +86,7 @@ class Manage extends Process
         $colonnes       = [[], []];
         $colonne        = 0;
         while (App::backend()->tags->fetch()) {
-            $letter = mb_strtoupper(mb_substr(App::backend()->tags->meta_id_lower, 0, 1));
+            $letter = mb_strtoupper(mb_substr((string) App::backend()->tags->meta_id_lower, 0, 1));
             if ($current_letter !== $letter) {
                 if (App::backend()->tags->index() >= round(App::backend()->tags->count() / 2)) {
                     $colonne = 1;
@@ -106,7 +107,7 @@ class Manage extends Process
                     ->class('maximal')
                     ->items([
                         (new Link())
-                            ->href(App::backend()->getPageURL() . '&m=tag_posts&tag=' . rawurlencode(App::backend()->tags->meta_id))->text(App::backend()->tags->meta_id),
+                            ->href(App::backend()->getPageURL() . '&m=tag_posts&tag=' . rawurlencode((string) App::backend()->tags->meta_id))->text(App::backend()->tags->meta_id),
                     ]),
                 (new Td())
                     ->class(['nowrap', 'count'])

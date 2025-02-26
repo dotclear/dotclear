@@ -60,8 +60,8 @@ class BackendBehaviors
             $rows = [];
             foreach ($post_media as $file) {
                 $ftitle = $file->media_title;
-                if (strlen($ftitle) > 18) {
-                    $ftitle = substr($ftitle, 0, 16) . '...';
+                if (strlen((string) $ftitle) > 18) {
+                    $ftitle = substr((string) $ftitle, 0, 16) . '...';
                 }
                 $rows[] = (new Div())->class(['media-item', 's-attachments'])->items([
                     (new Link())

@@ -179,7 +179,7 @@ class Media extends Manager implements MediaInterface
         $root        = $this->blog->publicPath();
 
         if (preg_match('#^http(s)?://#', (string) $this->blog->settings()->system->public_url)) {
-            $root_url = rawurldecode($this->blog->settings()->system->public_url);
+            $root_url = rawurldecode((string) $this->blog->settings()->system->public_url);
         } else {
             $root_url = rawurldecode($this->blog->host() . Path::clean($this->blog->settings()->system->public_url));
         }

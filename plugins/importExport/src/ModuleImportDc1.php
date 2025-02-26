@@ -507,7 +507,7 @@ class ModuleImportDc1 extends Module
             while ($rs->fetch()) {
                 $cur            = App::blog()->categories()->openCategoryCursor();
                 $cur->blog_id   = $this->blog_id;
-                $cur->cat_title = Txt::cleanStr(htmlspecialchars_decode($rs->cat_libelle));
+                $cur->cat_title = Txt::cleanStr(htmlspecialchars_decode((string) $rs->cat_libelle));
                 $cur->cat_desc  = Txt::cleanStr($rs->cat_desc);
                 $cur->cat_url   = Txt::cleanStr($rs->cat_libelle_url);
                 $cur->cat_lft   = $ord++;
@@ -628,7 +628,7 @@ class ModuleImportDc1 extends Module
         $cur->post_upddt  = $rs->post_upddt;
         $cur->post_title  = Html::decodeEntities(Txt::cleanStr($rs->post_titre));
 
-        $cur->post_url = date('Y/m/d/', (int) strtotime($cur->post_dt)) . $rs->post_id . '-' . $rs->post_titre_url;
+        $cur->post_url = date('Y/m/d/', (int) strtotime((string) $cur->post_dt)) . $rs->post_id . '-' . $rs->post_titre_url;
         $cur->post_url = substr($cur->post_url, 0, 255);
 
         $cur->post_format        = $rs->post_content_wiki == '' ? 'xhtml' : 'wiki';

@@ -284,10 +284,10 @@ class Comment
     {
         $user_prefs         = App::userPreferences()->createFromUser((string) $rs->user_id, 'profile');
         $user_profile_mails = $user_prefs->profile->mails ?
-            array_map('trim', explode(',', $user_prefs->profile->mails)) :
+            array_map('trim', explode(',', (string) $user_prefs->profile->mails)) :
             [];
         $user_profile_urls = $user_prefs->profile->urls ?
-            array_map('trim', explode(',', $user_prefs->profile->urls)) :
+            array_map('trim', explode(',', (string) $user_prefs->profile->urls)) :
             [];
 
         return

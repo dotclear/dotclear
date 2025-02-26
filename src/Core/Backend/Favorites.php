@@ -62,15 +62,12 @@ class Favorites
         $this->workspace = App::auth()->prefs()->dashboard;
 
         if ($this->workspace->prefExists('favorites')) {
-            $this->local_favorites_ids  = $this->workspace->getLocal('favorites');
-            $this->global_favorites_ids = $this->workspace->getGlobal('favorites');
+            $local_favs  = $this->workspace->getLocal('favorites');
+            $global_favs = $this->workspace->getGlobal('favorites');
+
             // Since we never know what user puts through user:preferences ...
-            if (!is_array($this->local_favorites_ids)) {
-                $this->local_favorites_ids = [];
-            }
-            if (!is_array($this->global_favorites_ids)) {
-                $this->global_favorites_ids = [];
-            }
+            $this->local_favorites_ids  = is_array($local_favs) ? $local_favs : [];
+            $this->global_favorites_ids = is_array($global_favs) ? $global_favs : [];
         } else {
             // No favorite defined ? Huhu, let's go for a migration
             $this->migrateFavorites();

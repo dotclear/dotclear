@@ -358,19 +358,19 @@ class Home extends Process
 
         // Get current main orders
         $main_order = App::auth()->prefs()->dashboard->main_order;
-        $main_order = ($main_order != '' ? explode(',', $main_order) : []);
+        $main_order = ($main_order != '' ? explode(',', (string) $main_order) : []);
 
         // Get current boxes orders
         $boxes_order = App::auth()->prefs()->dashboard->boxes_order;
-        $boxes_order = ($boxes_order != '' ? explode(',', $boxes_order) : []);
+        $boxes_order = ($boxes_order != '' ? explode(',', (string) $boxes_order) : []);
 
         // Get current boxes items orders
         $boxes_items_order = App::auth()->prefs()->dashboard->boxes_items_order;
-        $boxes_items_order = ($boxes_items_order != '' ? explode(',', $boxes_items_order) : []);
+        $boxes_items_order = ($boxes_items_order != '' ? explode(',', (string) $boxes_items_order) : []);
 
         // Get current boxes contents orders
         $boxes_contents_order = App::auth()->prefs()->dashboard->boxes_contents_order;
-        $boxes_contents_order = ($boxes_contents_order != '' ? explode(',', $boxes_contents_order) : []);
+        $boxes_contents_order = ($boxes_contents_order != '' ? explode(',', (string) $boxes_contents_order) : []);
 
         $composeItems = function ($list, $blocks, $flat = false): string {
             $ret   = [];

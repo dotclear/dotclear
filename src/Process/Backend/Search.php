@@ -101,7 +101,7 @@ class Search extends Process
         if (strlen((string) App::backend()->q) !== 0) {
             // Cope with search beginning with : (quick menu access)
             $prefix = App::auth()->prefs()->interface->quickmenuprefix ?: ':';
-            if (str_starts_with((string) App::backend()->q, $prefix)) {
+            if (str_starts_with((string) App::backend()->q, (string) $prefix)) {
                 if (strlen((string) App::backend()->q) > 1) {
                     // Look for a quick menu access
                     $term = Html::escapeHTML(substr((string) App::backend()->q, 1));

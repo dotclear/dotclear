@@ -171,7 +171,7 @@ class MediaPage extends FilterMedia
             // Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
             if (!App::config()->showHiddenDirs()) {
                 for ($i = (is_countable($dir['dirs']) ? count($dir['dirs']) : 0) - 1; $i >= 0; $i--) {
-                    if ($dir['dirs'][$i]->d && str_starts_with($dir['dirs'][$i]->basename, '.')) {
+                    if ($dir['dirs'][$i]->d && str_starts_with((string) $dir['dirs'][$i]->basename, '.')) {
                         unset($dir['dirs'][$i]);
                     }
                 }

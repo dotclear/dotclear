@@ -552,7 +552,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_media->media_upddt   = (string) $media->media_upddt;
         $this->cur_media->media_private = (int) $media->media_private;
 
-        $this->cur_media->media_dir = $media->exists('media_dir') ? (string) $media->media_dir : dirname($media->media_file);
+        $this->cur_media->media_dir = $media->exists('media_dir') ? (string) $media->media_dir : dirname((string) $media->media_file);
 
         if (!$this->mediaExists()) {
             $this->cur_media->insert();
@@ -867,7 +867,7 @@ class FlatImportV2 extends FlatBackup
             case 'post':
                 $line->substitute('post_titre', 'post_title');
                 $line->post_title         = Html::decodeEntities($line->post_title);
-                $line->post_url           = date('Y/m/d/', (int) strtotime($line->post_dt)) . $line->post_id . '-' . $line->post_titre_url;
+                $line->post_url           = date('Y/m/d/', (int) strtotime((string) $line->post_dt)) . $line->post_id . '-' . $line->post_titre_url;
                 $line->post_url           = substr($line->post_url, 0, 255);
                 $line->post_format        = $line->post_content_wiki == '' ? 'xhtml' : 'wiki';
                 $line->post_content_xhtml = $line->post_content;

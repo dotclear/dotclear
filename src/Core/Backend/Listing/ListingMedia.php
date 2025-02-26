@@ -243,7 +243,7 @@ class ListingMedia extends Listing
                         ]);
                 } else {
                     // Multiple media selection checkbox
-                    $actions[] = (new Checkbox(['medias[]', 'media_' . rawurlencode($filename)]))
+                    $actions[] = (new Checkbox(['medias[]', 'media_' . rawurlencode((string) $filename)]))
                         ->value($filename);
                 }
             } else {
@@ -286,7 +286,7 @@ class ListingMedia extends Listing
             if (!$filters->popup && !$file->d) {
                 if ($filters->select < 2) {
                     // Already set for multiple media selection
-                    $actions[] = (new Checkbox(['medias[]', 'media_' . rawurlencode($filename)]))
+                    $actions[] = (new Checkbox(['medias[]', 'media_' . rawurlencode((string) $filename)]))
                         ->value($filename);
                 }
             } else {
@@ -294,7 +294,7 @@ class ListingMedia extends Listing
                     $page_adminurl,
                     [
                         ...$filters->values(),
-                        'remove' => rawurlencode($filename),
+                        'remove' => rawurlencode((string) $filename),
                     ]
                 );
                 $actions[] = (new Link())
