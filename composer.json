@@ -13,12 +13,12 @@
     "php": ">=8.1.0"
   },
   "require-dev": {
-    "phpstan/phpstan": "2.0.x-dev",
+    "phpstan/phpstan": "2.1.x-dev",
     "atoum/atoum": "4.2.0",
     "atoum/reports-extension": "4.0.0",
     "fakerphp/faker": "1.21.0",
     "vimeo/psalm": "6.x-dev",
-    "rector/rector": "^2.0"
+    "rector/rector": "dev-main"
   },
   "config": {
     "bin-dir": "bin/"

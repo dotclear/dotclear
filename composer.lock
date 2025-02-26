@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e24785d2c69da511ef6c166b6fcd4731",
+    "content-hash": "158ff6fd3f3ed306cea3c4b982550a2e",
     "packages": [],
     "packages-dev": [
         {
@@ -1466,16 +1466,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.0.x-dev",
+            "version": "2.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "46b4d3529b12178112d9008337beda0cc2a1a6b4"
+                "reference": "292e04d3349c24439a6f22e050993f7dec09e78e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/46b4d3529b12178112d9008337beda0cc2a1a6b4",
-                "reference": "46b4d3529b12178112d9008337beda0cc2a1a6b4",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/292e04d3349c24439a6f22e050993f7dec09e78e",
+                "reference": "292e04d3349c24439a6f22e050993f7dec09e78e",
                 "shasum": ""
             },
             "require": {
@@ -1521,7 +1521,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-11-28T22:19:37+00:00"
+            "time": "2025-02-26T13:44:36+00:00"
         },
         {
             "name": "psr/container",
@@ -1630,21 +1630,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "2.0.4",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "df5de7b80deced1ea7f719a0b4d02e4aee87dd21"
+                "reference": "38b7d8f7c1f20452ebf69581be1c2c4014445b3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/df5de7b80deced1ea7f719a0b4d02e4aee87dd21",
-                "reference": "df5de7b80deced1ea7f719a0b4d02e4aee87dd21",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/38b7d8f7c1f20452ebf69581be1c2c4014445b3f",
+                "reference": "38b7d8f7c1f20452ebf69581be1c2c4014445b3f",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.0.4"
+                "phpstan/phpstan": "^2.1.6"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -1655,6 +1655,7 @@
             "suggest": {
                 "ext-dom": "To manipulate phpunit.xml via the custom-rule command"
             },
+            "default-branch": true,
             "bin": [
                 "bin/rector"
             ],
@@ -1677,7 +1678,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.0.4"
+                "source": "https://github.com/rectorphp/rector/tree/main"
             },
             "funding": [
                 {
@@ -1685,7 +1686,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-12-26T23:06:19+00:00"
+            "time": "2025-02-25T11:44:42+00:00"
         },
         {
             "name": "revolt/event-loop",
@@ -3029,6 +3030,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "phpstan/phpstan": 20,
+        "rector/rector": 20,
         "vimeo/psalm": 20
     },
     "prefer-stable": false,
