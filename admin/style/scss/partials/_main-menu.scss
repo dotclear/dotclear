@@ -61,11 +61,14 @@
     a {
       border-bottom: none;
       color: var(--main-menu-active-color);
+      padding-inline-end: 0.875em;
       position: relative;
+
       &::after {
-        content: '\25B6' / ':';
+        content: ':';
         position: absolute;
         right: 0;
+        bottom: 0;
       }
     }
   }

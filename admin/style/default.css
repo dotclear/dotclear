@@ -2861,12 +2861,14 @@ h1 a:link {
 #main-menu .active a {
   border-bottom: none;
   color: var(--main-menu-active-color);
+  padding-inline-end: 0.875em;
   position: relative;
 }
 #main-menu .active a::after {
-  content: "▶"/":";
+  content: ":";
   position: absolute;
   right: 0;
+  bottom: 0;
 }
 
 :is(#favorites-menu, #blog-menu, #system-menu, #plugins-menu) {
