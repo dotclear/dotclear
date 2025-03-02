@@ -1238,7 +1238,7 @@ class Blog implements BlogInterface
                 $sql->count('post_id', 'nb_post'),
                 'post_lang',
             ])
-            ->from($this->prefix . self::POST_TABLE_NAME)
+            ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'))
             ->where('blog_id = ' . $sql->quote($this->id))
             ->and('post_lang <> ' . $sql->quote(''))
             ->and('post_lang IS NOT NULL');
@@ -2119,7 +2119,7 @@ class Blog implements BlogInterface
         $this->behavior->callBehavior('coreBlogBeforeGetPostsAddingParameters', $copy);
 
         # Allowed changes to limited fields.
-        foreach(['post_type', 'post_status', 'comment_status'] as $type) {
+        foreach (['post_type', 'post_status', 'comment_status'] as $type) {
             if (isset($copy[$type])) {
                 $params[$type] = $copy[$type];
             }
@@ -2149,14 +2149,13 @@ class Blog implements BlogInterface
             $this->auth::PERMISSION_CONTENT_ADMIN,
         ]), $this->id) || // Check if in frontend context, excluding preview in backend
             (App::task()->checkContext('FRONTEND') && !App::frontend()->context()->preview)) {
-
             $and = [];
             if ($with_comment) {
                 $and[] = 'comment_status > ' . App::status()->comment()->threshold();
             }
             # limit to PUBLISHED by default
             $params['post_status'][] = App::status()->post()::PUBLISHED;
-            $and[] = 'post_status ' . $sql->in($params['post_status']);
+            $and[]                   = 'post_status ' . $sql->in($params['post_status']);
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
