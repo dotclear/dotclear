@@ -30,16 +30,18 @@ class PostType implements PostTypeInterface
     /**
      * Constructor sets post type properties.
      *
-     * @param   string  $type           The post type
-     * @param   string  $admin_url      The backend URL representation
-     * @param   string  $public_url     The frontend URL representation
-     * @param   string  $label          The post type name (untranslated)
+     * @param   string  $type               The post type
+     * @param   string  $admin_url          The backend URL representation
+     * @param   string  $public_url         The frontend URL representation
+     * @param   string  $label              The post type name (untranslated)
+     * @param   string  $list_admin_url     The backend URL representation for list of posts
      */
     public function __construct(
         public readonly string $type,
         public readonly string $admin_url,
         public readonly string $public_url,
-        string $label = ''
+        string $label = '',
+        public readonly string $list_admin_url = '',
     ) {
         $this->label = $label !== '' ? $label : $type;
     }
@@ -54,6 +56,17 @@ class PostType implements PostTypeInterface
         $url = sprintf($this->admin_url, $post_id);
 
         if ($params !== []) {
+            $url .= (str_contains($url, '?') ? '&' : '?') . http_build_query($params, '', '&');
+        }
+
+        return $escaped ? Html::escapeURL($url) : $url;
+    }
+
+    public function listAdminUrl(bool $escaped = true, array $params = []): string
+    {
+        $url = $this->list_admin_url;
+
+        if ($url !== '' && $params !== []) {
             $url .= (str_contains($url, '?') ? '&' : '?') . http_build_query($params, '', '&');
         }
 

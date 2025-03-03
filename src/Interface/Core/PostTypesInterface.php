@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -94,12 +95,13 @@ interface PostTypesInterface
     /**
      * Sets the post type, the old way.
      *
-     * @param   string  $type           The type
-     * @param   string  $admin_url      The admin URL
-     * @param   string  $public_url     The public URL
-     * @param   string  $label          The label
+     * @param   string  $type               The type
+     * @param   string  $admin_url          The admin URL
+     * @param   string  $public_url         The public URL
+     * @param   string  $label              The label
+     * @param   string  $list_admin_url     The admin URL
      */
-    public function setPostType(string $type, string $admin_url, string $public_url, string $label = ''): void;
+    public function setPostType(string $type, string $admin_url, string $public_url, string $label = '', string $list_admin_url = ''): void;
 
     /**
      * Gets the post types, the old way.

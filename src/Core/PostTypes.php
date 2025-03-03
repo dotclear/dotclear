@@ -69,14 +69,9 @@ class PostTypes implements PostTypesInterface
         return $this->get($type)->publicUrl($post_url, $escaped);
     }
 
-    public function setPostType(string $type, string $admin_url, string $public_url, string $label = ''): void
+    public function setPostType(string $type, string $admin_url, string $public_url, string $label = '', string $list_admin_url = ''): void
     {
-        $this->set(new PostType(
-            type:       $type,
-            admin_url:  $admin_url,
-            public_url: $public_url,
-            label:      $label,
-        ));
+        $this->set(new PostType($type, $admin_url, $public_url, $label, $list_admin_url));
     }
 
     public function getPostTypes(): array

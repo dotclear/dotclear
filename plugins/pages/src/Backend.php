@@ -43,7 +43,8 @@ class Backend extends Process
             'page',
             urldecode(My::manageUrl(['p' => 'pages', 'act' => 'page', 'id' => '%d'], '&')),
             App::url()->getURLFor('pages', '%s'),
-            'Pages'
+            'Pages',
+            urldecode(My::manageUrl(['p' => 'pages', 'act' => 'list'], '&')),   // Admin URL for list of pages
         ));
 
         My::addBackendMenuItem(App::backend()->menus()::MENU_BLOG);

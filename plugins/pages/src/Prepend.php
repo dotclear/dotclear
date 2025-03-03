@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -33,7 +34,7 @@ class Prepend extends Process
         App::url()->register('pages', 'pages', '^pages/(.+)$', FrontendUrl::pages(...));
         App::url()->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', FrontendUrl::pagespreview(...));
 
-        App::postTypes()->set(new PostType('page', '', App::url()->getURLFor('pages', '%s'), 'Pages'));
+        App::postTypes()->set(new PostType('page', '', App::url()->getURLFor('pages', '%s'), 'Pages', ''));
 
         return true;
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -35,6 +36,16 @@ interface PostTypeInterface
      * @return  string  The post admin url.
      */
     public function adminUrl(int|string $post_id, bool $escaped = true, array $params = []): string;
+
+    /**
+     * Gets the list of posts admin url.
+     *
+     * @param   bool                    $escaped    Escape the URL
+     * @param   array<string,mixed>     $params     The query string parameters (associative array)
+     *
+     * @return  string  The list of posts admin url.
+     */
+    public function listAdminUrl(bool $escaped = true, array $params = []): string;
 
     /**
      * Gets the post public url.

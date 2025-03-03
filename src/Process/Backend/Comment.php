@@ -235,7 +235,7 @@ class Comment extends Process
         ];
 
         if (App::postTypes()->exists(App::backend()->post_type)) {
-            $breadcrumb[Html::escapeHTML(__(App::postTypes()->get(App::backend()->post_type)->get('label')))] = '';
+            $breadcrumb[Html::escapeHTML(__(App::postTypes()->get(App::backend()->post_type)->get('label')))] = App::postTypes()->get(App::backend()->post_type)->listAdminUrl();
         }
         $breadcrumb[Html::escapeHTML(App::backend()->post_title)] = App::postTypes()->get(App::backend()->post_type)->adminUrl(App::backend()->post_id);
         $breadcrumb[__('Edit comment')]                           = '';

@@ -223,7 +223,13 @@ class Utility extends Process
         App::backend()->url()->setDefaultURLs();
 
         // (re)set post type with real backend URL (as admin URL handler is known yet)
-        App::postTypes()->set(new PostType('post', urldecode(App::backend()->url()->get('admin.post', ['id' => '%d'], '&')), App::url()->getURLFor('post', '%s'), 'Posts'));
+        App::postTypes()->set(new PostType(
+            'post',
+            urldecode(App::backend()->url()->get('admin.post', ['id' => '%d'], '&')),
+            App::url()->getURLFor('post', '%s'),
+            'Posts',
+            urldecode(App::backend()->url()->get('admin.posts'))    // Admin URL for list of posts
+        ));
 
         // No user nor blog, do not load more stuff
         if (!(App::auth()->userID() && App::blog()->isDefined())) {
