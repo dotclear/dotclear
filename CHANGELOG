@@ -1,8 +1,8 @@
 Dotclear 2.33.1 - 2025-03-02
 ===========================================================
-Fix: Remove improper <br> before end of paragraph (</p>) in legacyEditor if any
-Fix: Link color in table item headers on small devices
-Fix: Non admin users cannot create a new post
+* Fix: Remove improper <br> before end of paragraph (</p>) in legacyEditor if any
+* Fix: Link color in table item headers on small devices
+* Fix: Non admin users cannot create a new post
 
 Dotclear 2.33 - 2025-02-13
 ===========================================================
