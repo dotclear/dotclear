@@ -237,12 +237,8 @@ class Comment extends Process
         if (App::postTypes()->exists(App::backend()->post_type)) {
             $breadcrumb[Html::escapeHTML(__(App::postTypes()->get(App::backend()->post_type)->get('label')))] = '';
         }
-        if (App::backend()->comment_id) {
-            $breadcrumb[Html::escapeHTML(App::backend()->post_title)] = App::postTypes()->get(App::backend()->post_type)->adminUrl(App::backend()->post_id) . '&amp;co=1#c' . App::backend()->comment_id;
-        } else {
-            $breadcrumb[Html::escapeHTML(App::backend()->post_title)] = App::postTypes()->get(App::backend()->post_type)->adminUrl(App::backend()->post_id);
-        }
-        $breadcrumb[__('Edit comment')] = '';
+        $breadcrumb[Html::escapeHTML(App::backend()->post_title)] = App::postTypes()->get(App::backend()->post_type)->adminUrl(App::backend()->post_id);
+        $breadcrumb[__('Edit comment')]                           = '';
 
         Page::open(
             __('Edit comment'),
