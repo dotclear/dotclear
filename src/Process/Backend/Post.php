@@ -12,19 +12,50 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsComments;
 use Dotclear\Core\Backend\Combos;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Capture;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Datetime;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Email;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Textarea;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
+use Dotclear\Helper\Html\Form\Ul;
+use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
-use Dotclear\Helper\Text;
+use Dotclear\Helper\Text as Txt;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/post.php
@@ -42,14 +73,6 @@ class Post extends Process
         ]));
 
         Date::setTZ(App::auth()->getInfo('user_tz') ?? 'UTC');
-
-        // IP are available only for super-admin and admin
-        App::backend()->show_ip = App::auth()->check(
-            App::auth()->makePermissions([
-                App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]),
-            App::blog()->id()
-        );
 
         App::backend()->post_id            = '';
         App::backend()->cat_id             = '';
@@ -207,7 +230,7 @@ class Post extends Process
                 $buffer = preg_replace(
                     '/\s+/ms',
                     ' ',
-                    Text::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean($buffer))), 255)
+                    Txt::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean($buffer))), 255)
                 );
                 App::backend()->tb_excerpt = $buffer;
             }
@@ -472,24 +495,6 @@ class Post extends Process
             App::backend()->default_tab = 'trackbacks';
         }
 
-        if (App::backend()->post_id) {
-            $img_status_pattern = '<img class="mark mark-%3$s" alt="%1$s" src="images/%2$s">';
-
-            $img_status = match ((int) App::backend()->post_status) {
-                App::status()->post()::PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
-                App::status()->post()::UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
-                App::status()->post()::SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
-                App::status()->post()::PENDING     => sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending'),
-                default                            => '',
-            };
-
-            $edit_entry_str  = __('&ldquo;%s&rdquo;');
-            $page_title_edit = sprintf($edit_entry_str, Html::escapeHTML(trim(Html::clean(App::backend()->post_title)))) . ' ' . $img_status;
-        } else {
-            $img_status      = '';
-            $page_title_edit = '';
-        }
-
         $admin_post_behavior = '';
         if (App::backend()->post_editor) {
             $p_edit = $c_edit = '';
@@ -528,6 +533,14 @@ class Post extends Process
             }
         }
 
+        if (App::backend()->post_id) {
+            $img_status       = App::status()->post()->image((int) App::backend()->post_status)->render();
+            $edit_entry_title = '&ldquo;' . Html::escapeHTML(trim(Html::clean(App::backend()->post_title))) . '&rdquo;' . ' ' . $img_status;
+        } else {
+            $img_status       = '';
+            $edit_entry_title = App::backend()->page_title;
+        }
+
         Page::open(
             App::backend()->page_title . ' - ' . __('Posts'),
             Page::jsModal() .
@@ -544,9 +557,7 @@ class Post extends Process
                 [
                     Html::escapeHTML(App::blog()->name()) => '',
                     __('Posts')                           => App::backend()->url()->get('admin.posts'),
-                    (App::backend()->post_id ?
-                        $page_title_edit :
-                        App::backend()->page_title) => '',
+                    $edit_entry_title                     => '',
                 ]
             ),
             [
@@ -571,7 +582,7 @@ class Post extends Process
             Notices::success(__('All pings sent.'));
         }
 
-        // XHTML conversion
+        // HTML conversion
         if (!empty($_GET['xconv'])) {
             App::backend()->post_excerpt = App::backend()->post_excerpt_xhtml;
             App::backend()->post_content = App::backend()->post_content_xhtml;
@@ -581,26 +592,33 @@ class Post extends Process
         }
 
         if (App::backend()->post_id && !App::status()->post()->isRestricted((int) App::backend()->post->post_status)) {
-            echo
-            '<p><a class="onblog_link outgoing" href="' . App::backend()->post->getURL() . '" title="' . Html::escapeHTML(trim(Html::clean(App::backend()->post_title))) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt=""></a></p>';
+            echo (new Para())
+                ->items([
+                    (new Link())
+                        ->class(['onblog_link', 'outgoing'])
+                        ->href(App::backend()->post->getURL())
+                        ->title(Html::escapeHTML(trim(Html::clean(App::backend()->post_title))))
+                        ->text(__('Go to this entry on the site') . ' ' . (new Img('images/outgoing-link.svg'))->render()),
+                ])
+            ->render();
         }
+
         if (App::backend()->post_id) {
-            echo
-            '<p class="nav_prevnext">';
+            $items = [];
             if (App::backend()->prev_link) {
-                echo
-                App::backend()->prev_link;
+                $items[] = new Text(null, App::backend()->prev_link);
             }
             if (App::backend()->next_link) {
-                echo
-                App::backend()->next_link;
+                $items[] = new Text(null, App::backend()->next_link);
             }
 
-            # --BEHAVIOR-- adminPostNavLinks -- MetaRecord|null, string
-            App::behavior()->callBehavior('adminPostNavLinks', App::backend()->post ?? null, 'post');
+            # --BEHAVIOR-- adminPageNavLinks -- MetaRecord|null
+            $items[] = new Capture(App::behavior()->callBehavior(...), ['adminPosNavLinks', App::backend()->post ?? null, 'post']);
 
-            echo
-            '</p>';
+            echo (new Para())
+                ->class('nav_prevnext')
+                ->items($items)
+            ->render();
         }
 
         // Exit if we cannot view page
@@ -617,224 +635,360 @@ class Post extends Process
                 'status-box' => [
                     'title' => __('Status'),
                     'items' => [
-                        'post_status' => '<p class="entry-status"><label for="post_status">' . __('Entry status') . ' ' . $img_status . '</label>' .
-                        form::combo(
-                            'post_status',
-                            App::backend()->status_combo,
-                            ['default' => App::backend()->post_status, 'class' => 'maximal', 'disabled' => !App::backend()->can_publish]
-                        ) .
-                        '</p>',
-                        'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
-                        form::datetime('post_dt', [
-                            'default' => Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', strtotime(App::backend()->post_dt))),
-                            'class'   => (App::backend()->bad_dt ? 'invalid' : ''),
-                        ]) .
-                        '</p>',
-                        'post_lang' => '<p><label for="post_lang">' . __('Entry language') . '</label>' .
-                        form::combo('post_lang', App::backend()->lang_combo, App::backend()->post_lang) .
-                        '</p>',
-                        'post_format' => '<p><label for="post_format" class="classic" id="label_format">' . __('Text formatting') . '</label>' .
-                        form::combo('post_format', App::backend()->available_formats, App::backend()->post_format, 'maximal') .
-                        '<span class="format_control control_no_xhtml">' .
-                        '<a id="convert-xhtml" class="button' . (App::backend()->post_id && App::backend()->post_format != 'wiki' ? ' hide' : '') . '" href="' .
-                        App::backend()->url()->get('admin.post', ['id' => App::backend()->post_id, 'xconv' => '1']) .
-                        '">' .
-                        __('Convert to HTML') . '</a></span></p>',
+                        'post_status' => (new Para())->class('entry-status')->items([
+                            (new Select('post_status'))
+                                ->items(App::backend()->status_combo)
+                                ->default(App::backend()->post_status)
+                                ->disabled(!App::backend()->can_publish)
+                                ->label(new Label(__('Entry status') . ' ' . $img_status, Label::OUTSIDE_LABEL_BEFORE)),
+                        ])
+                        ->render(),
+
+                        'post_dt' => (new Para())->items([
+                            (new Datetime('post_dt'))
+                                ->value(Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', strtotime(App::backend()->post_dt))))
+                                ->class(App::backend()->bad_dt ? 'invalid' : [])
+                                ->label(new Label(__('Publication date and hour'), Label::OUTSIDE_LABEL_BEFORE)),
+                        ])
+                        ->render(),
+
+                        'post_lang' => (new Para())->items([
+                            (new Select('post_lang'))
+                                ->items(App::backend()->lang_combo)
+                                ->default(App::backend()->post_lang)
+                                ->label(new Label(__('Entry language'), Label::OUTSIDE_LABEL_BEFORE)),
+                        ])
+                        ->render(),
+
+                        'post_format' => (new Para())->items([
+                            (new Select('post_format'))
+                                ->items(App::backend()->available_formats)
+                                ->default(App::backend()->post_format)
+                                ->label((new Label(__('Text formatting'), Label::OUTSIDE_LABEL_BEFORE))->id('label_format')),
+                            (new Div(null, 'span'))->class(['format_control', 'control_no_xhtml'])->items([
+                                (new Link('convert-xhtml'))
+                                    ->class(['button', App::backend()->post_id && App::backend()->post_format != 'wiki' ? ' hide' : ''])
+                                    ->href(App::backend()->url()->get('admin.post', ['id' => App::backend()->post_id, 'xconv' => '1']))
+                                    ->text(__('Convert to HTML')),
+                            ]),
+                        ])
+                        ->render(),
                     ],
                 ],
+
                 'metas-box' => [
                     'title' => __('Filing'),
                     'items' => [
-                        'post_selected' => '<p><label for="post_selected" class="classic">' .
-                        form::checkbox('post_selected', 1, App::backend()->post_selected) . ' ' .
-                        __('Selected entry') . '</label></p>',
-                        'cat_id' => '<div>' .
-                        '<h5 id="label_cat_id">' . __('Category') . '</h5>' .
-                        '<p><label for="cat_id">' . __('Category:') . '</label>' .
-                        form::combo('cat_id', App::backend()->categories_combo, App::backend()->cat_id, 'maximal') .
-                        '</p>' .
-                        (App::auth()->check(App::auth()->makePermissions([
-                            App::auth()::PERMISSION_CATEGORIES,
-                        ]), App::blog()->id()) ?
-                            '<div>' .
-                            '<h5 id="create_cat">' . __('Add a new category') . '</h5>' .
-                            '<p><label for="new_cat_title">' . __('Title:') . ' ' .
-                            form::field('new_cat_title', 30, 255, ['class' => 'maximal']) . '</label></p>' .
-                            '<p><label for="new_cat_parent">' . __('Parent:') . ' ' .
-                            form::combo('new_cat_parent', App::backend()->categories_combo, '', 'maximal') .
-                            '</label></p>' .
-                            '</div>' :
-                            '') .
-                        '</div>',
+                        'post_selected' => (new Para())->items([
+                            (new Checkbox('post_selected', App::backend()->post_selected))
+                                ->value(1)
+                                ->label(new Label(__('Selected entry'), Label::IL_FT)),
+                        ])
+                        ->render(),
+
+                        'cat_id' => (new Div())->items([
+                            (new Text('h5', __('Category')))
+                                ->id('label_cat_id'),
+                            (new Para())
+                                ->items([
+                                    (new Select('cat_id'))
+                                        ->items(App::backend()->categories_combo)
+                                        ->default(App::backend()->cat_id)
+                                        ->class('maximal')
+                                        ->label(new Label(__('Category:'), Label::OL_TF)),
+                                ]),
+                            App::auth()->check(App::auth()->makePermissions([App::auth()::PERMISSION_CATEGORIES]), App::blog()->id()) ?
+                            (new Div())
+                                ->items([
+                                    (new Text('h5', __('Add a new category')))
+                                        ->id('create_cat'),
+                                    (new Para())
+                                        ->items([
+                                            (new Input('new_cat_title'))
+                                                ->size(30)
+                                                ->maxlength(255)
+                                                ->class('maximal')
+                                                ->label(new Label(__('Title:'), Label::OL_TF)),
+                                        ]),
+                                    (new Para())
+                                        ->items([
+                                            (new Select('new_cat_parent'))
+                                                ->items(App::backend()->categories_combo)
+                                                ->class('maximal')
+                                                ->label(new Label(__('Parent:'), Label::OL_TF)),
+                                        ]),
+                                ]) :
+                            (new None()),
+                        ])
+                        ->render(),
                     ],
                 ],
+
                 'options-box' => [
                     'title' => __('Options'),
                     'items' => [
-                        'post_open_comment_tb' => '<div>' .
-                        '<h5 id="label_comment_tb">' . __('Comments and trackbacks list') . '</h5>' .
-                        '<p><label for="post_open_comment" class="classic">' .
-                        form::checkbox('post_open_comment', 1, App::backend()->post_open_comment) . ' ' .
-                        __('Accept comments') . '</label></p>' .
-                        (App::blog()->settings()->system->allow_comments ?
-                            (self::isContributionAllowed(App::backend()->post_id, strtotime(App::backend()->post_dt), true) ? '' : '<p class="form-note warn">' .
-                            __('Warning: Comments are no longer accepted for this entry.') . '</p>') :
-                            '<p class="form-note warn">' .
-                            __('Comments are not accepted on this blog so far.') . '</p>') .
-                        '<p><label for="post_open_tb" class="classic">' .
-                        form::checkbox('post_open_tb', 1, App::backend()->post_open_tb) . ' ' .
-                        __('Accept trackbacks') . '</label></p>' .
-                        (App::blog()->settings()->system->allow_trackbacks ?
-                            (self::isContributionAllowed(App::backend()->post_id, strtotime(App::backend()->post_dt), false) ? '' : '<p class="form-note warn">' .
-                            __('Warning: Trackbacks are no longer accepted for this entry.') . '</p>') :
-                            '<p class="form-note warn">' . __('Trackbacks are not accepted on this blog so far.') . '</p>') .
-                        '</div>',
-                        'post_password' => '<p><label for="post_password">' . __('Password') . '</label>' .
-                        form::field('post_password', 10, 32, Html::escapeHTML(App::backend()->post_password), 'maximal') .
-                        '</p>',
-                        'post_url' => '<div class="lockable">' .
-                        '<p><label for="post_url">' . __('Edit basename') . '</label>' .
-                        form::field('post_url', 10, 255, Html::escapeHTML(App::backend()->post_url), 'maximal') .
-                        '</p>' .
-                        '<p class="form-note warn">' .
-                        __('Warning: If you set the URL manually, it may conflict with another entry.') .
-                        '</p></div>',
+                        'post_open_comment_tb' => (new Div())->items([
+                            (new Text('h5'))->id('label_comment_tb')->text(__('Comments and trackbacks list')),
+                            (new Para())->items([
+                                (new Checkbox('post_open_comment', App::backend()->post_open_comment))
+                                    ->value(1)
+                                    ->label((new Label(__('Accept comments'), Label::INSIDE_TEXT_AFTER))),
+                            ]),
+                            App::blog()->settings()->system->allow_comments ?
+                                (
+                                    self::isContributionAllowed(App::backend()->post_id, strtotime(App::backend()->post_dt), true) ?
+                                    (new None())
+                                    :
+                                    (new Note())
+                                        ->class(['form-note', 'warn'])
+                                        ->text(__('Warning: Comments are no longer accepted for this entry.'))
+                                ) :
+                                (new Note())
+                                    ->class(['form-note', 'warn'])
+                                    ->text(__('Comments are not accepted on this blog so far.')),
+                            (new Para())->items([
+                                (new Checkbox('post_open_tb', App::backend()->post_open_tb))
+                                    ->value(1)
+                                    ->label((new Label(__('Accept trackbacks'), Label::INSIDE_TEXT_AFTER))),
+                            ]),
+                            App::blog()->settings()->system->allow_trackbacks ?
+                                (
+                                    self::isContributionAllowed(App::backend()->post_id, strtotime(App::backend()->post_dt), true) ?
+                                    (new None())
+                                    :
+                                    (new Note())
+                                        ->class(['form-note', 'warn'])
+                                        ->text(__('Warning: Trackbacks are no longer accepted for this entry.'))
+                                ) :
+                                (new Note())
+                                    ->class(['form-note', 'warn'])
+                                    ->text(__('Trackbacks are not accepted on this blog so far.')),
+                        ])
+                        ->render(),
+
+                        'post_password' => (new Para())->items([
+                            (new Password('post_password'))
+                                ->class('maximal')
+                                ->size(10)
+                                ->maxlength(32)
+                                ->label((new Label(__('Password'), Label::OUTSIDE_TEXT_BEFORE))),
+                        ])
+                        ->render(),
+
+                        'post_url' => (new Div())->class('lockable')->items([
+                            (new Para())->items([
+                                (new Input('post_url'))
+                                    ->class('maximal')
+                                    ->value(Html::escapeHTML(App::backend()->post_url))
+                                    ->size(10)
+                                    ->maxlength(255)
+                                    ->label((new Label(__('Edit basename'), Label::OUTSIDE_TEXT_BEFORE))),
+                            ]),
+                            (new Note())
+                                ->class(['form-note', 'warn'])
+                                ->text(__('Warning: If you set the URL manually, it may conflict with another entry.')),
+                        ])
+                        ->render(),
                     ],
                 ],
             ]);
 
             $main_items = new ArrayObject(
                 [
-                    'post_title' => '<p class="col">' .
-                    '<label class="required no-margin bold" for="post_title"><span>*</span> ' . __('Title:') . '</label>' .
-                    form::field('post_title', 20, 255, [
-                        'default'    => Html::escapeHTML(App::backend()->post_title),
-                        'class'      => 'maximal',
-                        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . App::backend()->post_lang . '" spellcheck="true"',
-                    ]) .
-                    '</p>',
+                    'post_title' => (new Para())->items([
+                        (new Input('post_title'))
+                            ->value(Html::escapeHTML(App::backend()->post_title))
+                            ->size(20)
+                            ->maxlength(255)
+                            ->required(true)
+                            ->class('maximal')
+                            ->placeholder(__('Title'))
+                            ->lang(App::backend()->post_lang)
+                            ->spellcheck(true)
+                            ->label(
+                                (new Label(
+                                    (new Text('span', '*'))->render() . __('Title:'),
+                                    Label::OUTSIDE_TEXT_BEFORE
+                                ))
+                                ->class(['required', 'no-margin', 'bold'])
+                            )
+                            ->title(__('Required field')),
+                    ])
+                    ->render(),
 
-                    'post_excerpt' => '<p class="area" id="excerpt-area"><label for="post_excerpt" class="bold">' . __('Excerpt:') . ' <span class="form-note">' .
-                    __('Introduction to the post.') . '</span></label> ' .
-                    form::textarea(
-                        'post_excerpt',
-                        50,
-                        5,
-                        [
-                            'default'    => Html::escapeHTML(App::backend()->post_excerpt),
-                            'extra_html' => 'lang="' . App::backend()->post_lang . '" spellcheck="true"',
-                        ]
-                    ) .
-                    '</p>',
+                    'post_excerpt' => (new Para())->class('area')->id('excerpt-area')->items([
+                        (new Textarea('post_excerpt'))
+                            ->value(Html::escapeHTML(App::backend()->post_excerpt))
+                            ->cols(50)
+                            ->rows(5)
+                            ->lang(App::backend()->post_lang)
+                            ->spellcheck(true)
+                            ->label(
+                                (new Label(
+                                    __('Excerpt:') . ' ' . (new Text('span', __('Introduction to the post.')))->class('form-note')->render(),
+                                    Label::OUTSIDE_TEXT_BEFORE
+                                ))
+                                ->class('bold')
+                            ),
+                    ])
+                    ->render(),
 
-                    'post_content' => '<p class="area" id="content-area"><label class="required bold" ' .
-                    'for="post_content"><span>*</span> ' . __('Content:') . '</label> ' .
-                    form::textarea(
-                        'post_content',
-                        50,
-                        App::auth()->getOption('edit_size'),
-                        [
-                            'default'    => Html::escapeHTML(App::backend()->post_content),
-                            'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . App::backend()->post_lang . '" spellcheck="true"',
-                        ]
-                    ) .
-                    '</p>',
+                    'post_content' => (new Para())->class('area')->id('content-area')->items([
+                        (new Textarea('post_content'))
+                            ->value(Html::escapeHTML(App::backend()->post_content))
+                            ->cols(50)
+                            ->rows(App::auth()->getOption('edit_size'))
+                            ->required(true)
+                            ->lang(App::backend()->post_lang)
+                            ->spellcheck(true)
+                            ->placeholder(__('Content'))
+                            ->label(
+                                (new Label(
+                                    (new Text('span', '*'))->render() . __('Content:'),
+                                    Label::OUTSIDE_TEXT_BEFORE
+                                ))
+                                ->class(['required', 'bold'])
+                            ),
+                    ])
+                    ->render(),
 
-                    'post_notes' => '<p class="area" id="notes-area"><label for="post_notes" class="bold">' . __('Personal notes:') . ' <span class="form-note">' .
-                    __('Unpublished notes.') . '</span></label>' .
-                    form::textarea(
-                        'post_notes',
-                        50,
-                        5,
-                        [
-                            'default'    => Html::escapeHTML(App::backend()->post_notes),
-                            'extra_html' => 'lang="' . App::backend()->post_lang . '" spellcheck="true"',
-                        ]
-                    ) .
-                    '</p>',
+                    'post_notes' => (new Para())->class('area')->id('notes-area')->items([
+                        (new Textarea('post_notes'))
+                            ->value(Html::escapeHTML(App::backend()->post_notes))
+                            ->cols(50)
+                            ->rows(5)
+                            ->lang(App::backend()->post_lang)
+                            ->spellcheck(true)
+                            ->label(
+                                (new Label(
+                                    __('Personal notes:') . ' ' . (new Text('span', __('Unpublished notes.')))->class('form-note')->render(),
+                                    Label::OUTSIDE_TEXT_BEFORE
+                                ))
+                                ->class('bold')
+                            ),
+                    ])
+                    ->render(),
                 ]
             );
 
             # --BEHAVIOR-- adminPostFormItems -- ArrayObject, ArrayObject, MetaRecord|null, string
             App::behavior()->callBehavior('adminPostFormItems', $main_items, $sidebar_items, App::backend()->post ?? null, 'post');
 
-            echo
-            '<div class="multi-part" title="' . (App::backend()->post_id ? __('Edit post') : __('New post')) .
-            sprintf('<span> &rsaquo; %s</span>', App::formater()->getFormaterName(App::backend()->post_format)) . '" id="edit-entry">' .
-            '<form action="' . App::backend()->url()->get('admin.post') . '" method="post" id="entry-form">' .
-            '<div id="entry-wrapper">' .
-            '<div id="entry-content"><div class="constrained">' .
-            '<h3 class="out-of-screen-if-js">' . __('Edit post') . '</h3>' .
-            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>';
-
-            foreach ($main_items as $id => $item) {
-                echo $item;
+            // Prepare main and side parts
+            $side_part_items = [];
+            foreach ($sidebar_items as $id => $c) {
+                $side_part_items[] = (new Div())
+                    ->id($id)
+                    ->class('sb-box')
+                    ->items([
+                        (new Text('h4', $c['title'])),
+                        (new Text('', implode('', $c['items']))),
+                    ])
+                    ->render();
             }
+            $side_part = implode('', $side_part_items);
+            $main_part = implode('', iterator_to_array($main_items));
 
-            # --BEHAVIOR-- adminPostForm (may be deprecated) -- MetaRecord|null, string
-            App::behavior()->callBehavior('adminPostForm', App::backend()->post ?? null, 'post');
-
-            echo
-            '<p class="border-top form-buttons">' .
-            (App::backend()->post_id ? form::hidden('id', App::backend()->post_id) : '') .
-            '<input type="submit" value="' . __('Save') . ' (s)" ' .
-            'accesskey="s" name="save"> ';
-
+            // Prepare buttons
+            $buttons   = [];
+            $buttons[] = (new Submit(['save'], __('Save') . ' (s)'))
+                ->accesskey('s');
             if (App::backend()->post_id) {
-                $preview_url = App::blog()->url() . App::url()->getURLFor('preview', App::auth()->userID() . '/' . Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy((string) App::auth()->userID())) . '/' . App::backend()->post->post_url);
+                $preview_url = App::blog()->url() .
+                    App::url()->getURLFor(
+                        'pagespreview',
+                        App::auth()->userID() . '/' .
+                        Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy((string) App::auth()->userID())) .
+                        '/' . App::backend()->post->post_url
+                    );
 
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
 
                 $blank_preview = App::auth()->prefs()->interface->blank_preview;
 
-                $preview_class  = $blank_preview ? '' : ' modal';
-                $preview_target = $blank_preview ? '' : ' target="_blank"';
+                $preview_class  = $blank_preview ? '' : 'modal';
+                $preview_target = $blank_preview ? '' : 'target="_blank"';
 
-                echo
-                '<a id="post-preview" href="' . $preview_url . '" class="button' . $preview_class . '" accesskey="p"' . $preview_target . '>' . __('Preview') . ' (p)' . '</a>' .
-                ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">';
+                $buttons[] = (new Link('post-preview'))
+                    ->href($preview_url)
+                    ->extra($preview_target)
+                    ->class(['button', $preview_class])
+                    ->accesskey('p')
+                    ->text(__('Preview') . ' (p)');
+                $buttons[] = (new Button(['back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']);
             } else {
-                echo
-                '<a id="post-cancel" href="' . App::backend()->url()->get('admin.posts') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
+                $buttons[] = (new Link('post-cancel'))
+                    ->href(App::backend()->url()->get('admin.posts'))
+                    ->class('button')
+                    ->accesskey('c')
+                    ->text(__('Cancel') . ' (c)');
             }
 
-            echo(App::backend()->can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete">' : '') .
-            App::nonce()->getFormNonce() .
-            '</p>';
-
-            # --BEHAVIOR-- adminPostAfterButtons -- MetaRecord|null, string
-            App::behavior()->callBehavior('adminPostAfterButtons', App::backend()->post ?? null, 'post');
-
-            echo
-            '</div></div>' . // End #entry-content
-            '</div>' .       // End #entry-wrapper
-
-            '<div id="entry-sidebar" role="complementary">';
-
-            foreach ($sidebar_items as $id => $c) {
-                echo
-                '<div id="' . $id . '" class="sb-box">' .
-                '<h4>' . $c['title'] . '</h4>';
-                foreach ($c['items'] as $e_content) {
-                    echo $e_content;
-                }
-                echo
-                '</div>';
+            if (App::backend()->can_delete) {
+                $buttons[] = (new Submit(['delete'], __('Delete')))
+                    ->class('delete');
+            }
+            if (App::backend()->post_id) {
+                $buttons[] = (new Hidden('id', (string) App::backend()->post_id));
             }
 
-            # --BEHAVIOR-- adminPostFormSidebar (may be deprecated) -- MetaRecord|null, string
-            App::behavior()->callBehavior('adminPostFormSidebar', App::backend()->post ?? null, 'post');
+            $format = (new Text(
+                'span',
+                ' &rsaquo; ' . App::formater()->getFormaterName(App::backend()->post_format) . ''
+            ));
+            $title = (App::backend()->post_id ? __('Edit post') : __('New post')) . $format->render();
 
-            echo
-            '</div>' . // End #entry-sidebar
-            '</form>';
-
-            # --BEHAVIOR-- adminPostAfterForm -- MetaRecord|null, string
-            App::behavior()->callBehavior('adminPostAfterForm', App::backend()->post ?? null, 'post');
-
-            echo
-            '</div>';
+            // Everything is ready, time to display this form
+            echo (new Div())
+                ->class('multi-part')
+                ->title($title)
+                ->id('edit-entry')
+                ->items([
+                    (new Form('entry-form'))
+                        ->method('post')
+                        ->action(App::backend()->url()->get('admin.post'))
+                        ->fields([
+                            (new Div())
+                                ->id('entry-wrapper')
+                                ->items([
+                                    (new Div())
+                                        ->id('entry-content')
+                                        ->items([
+                                            (new Div())
+                                                ->class('constrained')
+                                                ->items([
+                                                    (new Text('h3', __('Edit post')))
+                                                        ->class('out-of-screen-if-js'),
+                                                    (new Note())
+                                                        ->class('form-note')
+                                                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                                                    (new Text(null, $main_part)),
+                                                    (new Capture(App::behavior()->callBehavior(...), ['adminPostForm', App::backend()->post ?? null, 'post'])),
+                                                    (new Para())
+                                                        ->class(['border-top', 'form-buttons'])
+                                                        ->items([
+                                                            App::backend()->post_id ?
+                                                            (new Hidden('id', (string) App::backend()->post_id)) :
+                                                            (new None()),
+                                                            App::nonce()->formNonce(),
+                                                            ...$buttons,
+                                                        ]),
+                                                    (new Capture(App::behavior()->callBehavior(...), ['adminPostAfterButtons', App::backend()->post ?? null])),
+                                                ]),
+                                        ]),
+                                ]),
+                            (new Div())
+                                ->id('entry-sidebar')
+                                ->extra('role="complementary"')
+                                ->items([
+                                    (new Text(null, $side_part)),
+                                    (new Capture(App::behavior()->callBehavior(...), ['adminPostFormSidebar', App::backend()->post ?? null])),
+                                ]),
+                        ]),
+                    (new Capture(App::behavior()->callBehavior(...), ['adminPostAfterForm', App::backend()->post ?? null, 'post'])),
+                ])
+            ->render();
         }
 
         if (App::backend()->post_id) {
@@ -844,85 +998,126 @@ class Post extends Process
 
             $comments = App::blog()->getComments([...$params, 'comment_trackback' => 0]);
 
+            # Actions combo box
             $combo_action = App::backend()->comments_actions_page->getCombo();
             $has_action   = !empty($combo_action) && !$comments->isEmpty();
 
-            echo
-            '<div id="comments" class="clear multi-part" title="' . __('Comments') . '">' .
-            '<p class="top-add"><a class="button add" href="#comment-form">' . __('Add a comment') . '</a></p>';
+            // Prepare form
+            $fields = [];
 
-            if ($has_action) {
-                echo
-                '<form action="' . App::backend()->url()->get('admin.post') . '" id="form-comments" method="post">';
-            }
-
-            echo
-            '<h3>' . __('Comments') . '</h3>';
+            $fields[] = (new Text('h3', __('Comments')));
             if (!$comments->isEmpty()) {
-                self::showComments($comments, $has_action, false, App::backend()->show_ip);
+                $fields[] = (new Text(null, self::showComments($comments, $has_action, false)));
             } else {
-                echo
-                '<p>' . __('No comments') . '</p>';
+                $fields[] = (new Note())->text(__('No comments'));
             }
 
             if ($has_action) {
-                echo
-                '<div class="two-cols">' .
-                '<p class="col checkboxes-helpers"></p>' .
-
-                '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
-                form::combo('action', $combo_action) .
-                form::hidden(['section'], 'comments') .
-                form::hidden(['id'], App::backend()->post_id) .
-                App::nonce()->getFormNonce() .
-                '<input type="submit" value="' . __('ok') . '"></p>' .
-                '</div>' .
-                '</form>';
+                $fields[] = (new Div())
+                    ->class('two-cols')
+                    ->items([
+                        (new Para())->class(['col', 'checkboxes-helpers']),
+                        (new Para())->class(['col', 'right', 'form-buttons'])->items([
+                            (new Select('action'))
+                                ->items($combo_action)
+                                ->label(new Label(__('Selected comments action:'), Label::OL_TF)),
+                            (new Hidden('section', 'comments')),
+                            (new Hidden('id', App::backend()->post_id)),
+                            App::nonce()->formNonce(),
+                            (new Submit('do-action-comm', __('Ok'))),
+                        ]),
+                    ]);
             }
 
-            // Add a comment
-
-            echo
-            '<div class="fieldset clear">' .
-            '<h3>' . __('Add a comment') . '</h3>' .
-            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-
-            '<form action="' . App::backend()->url()->get('admin.comment') . '" method="post" id="comment-form">' .
-            '<div class="constrained">' .
-            '<p><label for="comment_author" class="required"><span>*</span> ' . __('Name:') . '</label>' .
-            form::field('comment_author', 30, 255, [
-                'default'    => Html::escapeHTML(App::auth()->getInfo('user_cn')),
-                'extra_html' => 'required placeholder="' . __('Author') . '"',
-            ]) .
-            '</p>' .
-
-            '<p><label for="comment_email">' . __('Email:') . '</label>' .
-            form::email('comment_email', 30, 255, Html::escapeHTML(App::auth()->getInfo('user_email'))) .
-            '</p>' .
-
-            '<p><label for="comment_site">' . __('Web site:') . '</label>' .
-            form::url('comment_site', 30, 255, Html::escapeHTML(App::auth()->getInfo('user_url'))) .
-            '</p>' .
-
-            '<p class="area"><label for="comment_content" class="required"><span>*</span> ' .
-            __('Comment:') . '</label> ' .
-            form::textarea(
-                'comment_content',
-                50,
-                8,
-                ['extra_html' => 'required placeholder="' . __('Comment') . '" lang="' . App::auth()->getInfo('user_lang') . '" spellcheck="true"']
-            ) .
-            '</p>' .
-
-            '<p>' .
-            form::hidden('post_id', App::backend()->post_id) .
-            App::nonce()->getFormNonce() .
-            '<input type="submit" name="add" value="' . __('Save') . '"></p>' .
-            '</div>' . #constrained
-
-            '</form>' .
-            '</div>' . #add comment
-            '</div>'; #comments
+            echo (new Div())
+                ->id('comments')
+                ->class('multi-part')
+                ->title(__('Comments'))
+                ->items([
+                    (new Para())
+                        ->class('top-add')
+                        ->items([
+                            (new Link())->class(['button', 'add'])->href('#comment-form')->text(__('Add a comment')),
+                        ]),
+                    $has_action ?
+                    (new Form('form-comments'))
+                        ->method('post')
+                        ->action(App::backend()->url()->get('admin.post'))
+                        ->fields($fields) :
+                    (new Set())
+                        ->items($fields),
+                    //Add a comment
+                    (new Form('comment-form'))
+                        ->method('post')
+                        ->action(App::backend()->url()->get('admin.comment'))
+                        ->fields([
+                            (new Fieldset())
+                                ->legend(new Legend(__('Add a comment')))
+                                ->fields([
+                                    (new Note())
+                                        ->class('form-note')
+                                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                                    (new Div())
+                                        ->class('constrained')
+                                        ->items([
+                                            (new Para())
+                                                ->items([
+                                                    (new Input('comment_author'))
+                                                        ->size(30)
+                                                        ->maxlength(255)
+                                                        ->value(Html::escapeHTML(App::auth()->getInfo('user_cn')))
+                                                        ->required(true)
+                                                        ->placeholder(__('Author'))
+                                                        ->label((new Label(
+                                                            (new Text('span', '*'))->render() . __('Name:'),
+                                                            Label::OUTSIDE_TEXT_BEFORE
+                                                        ))->class('required')),
+                                                ]),
+                                            (new Para())
+                                                ->items([
+                                                    (new Email('comment_email'))
+                                                        ->size(30)
+                                                        ->maxlength(255)
+                                                        ->value(Html::escapeHTML(App::auth()->getInfo('user_email')))
+                                                        ->autocomplete('email')
+                                                        ->label(new Label(__('Email:'), Label::OUTSIDE_TEXT_BEFORE)),
+                                                ]),
+                                            (new Para())
+                                                ->items([
+                                                    (new Url('comment_site'))
+                                                        ->size(30)
+                                                        ->maxlength(255)
+                                                        ->value(Html::escapeHTML(App::auth()->getInfo('user_url')))
+                                                        ->autocomplete('url')
+                                                        ->label(new Label(__('Web site:'), Label::OUTSIDE_TEXT_BEFORE)),
+                                                ]),
+                                            (new Para())
+                                                ->class('area')
+                                                ->items([
+                                                    (new Textarea('comment_content'))
+                                                        ->cols(50)
+                                                        ->rows(8)
+                                                        ->lang(App::auth()->getInfo('user_lang'))
+                                                        ->spellcheck(true)
+                                                        ->placeholder(__('Comment'))
+                                                        ->required(true)
+                                                        ->label((new Label(
+                                                            (new Text('span', '*'))->render() . __('Comment'),
+                                                            Label::OUTSIDE_TEXT_BEFORE
+                                                        ))->class('required')),
+                                                ]),
+                                            (new Para())
+                                                ->class('form-buttons')
+                                                ->items([
+                                                    App::nonce()->formNonce(),
+                                                    (new Hidden('post_id', (string) App::backend()->post_id)),
+                                                    (new Submit(['add'], __('Save'))),
+                                                ]),
+                                        ]),
+                                ]),
+                        ]),
+                ])
+            ->render();
         }
 
         if (App::backend()->post_id && !App::status()->post()->isRestricted((int) App::backend()->post_status)) {
@@ -939,83 +1134,118 @@ class Post extends Process
                 App::backend()->tb_urls = implode("\n", App::backend()->tb->discover(App::backend()->post_excerpt_xhtml . ' ' . App::backend()->post_content_xhtml));
             }
 
-            echo
-            '<div id="trackbacks" class="clear multi-part" title="' . __('Trackbacks') . '">';
+            // Prepare form
+            $fields = [];
 
-            if ($has_action) {
-                // tracbacks actions
-                echo
-                '<form action="' . App::backend()->url()->get('admin.post') . '" id="form-trackbacks" method="post">';
-            }
-
-            echo
-            '<h3>' . __('Trackbacks received') . '</h3>';
-
+            $fields[] = (new Text('h3', __('Trackbacks')));
             if (!$trackbacks->isEmpty()) {
-                self::showComments($trackbacks, $has_action, true, App::backend()->show_ip);
+                $fields[] = (new Text(null, self::showComments($trackbacks, $has_action, true)));
             } else {
-                echo
-                '<p>' . __('No trackback') . '</p>';
+                $fields[] = (new Note())->text(__('No trackback'));
             }
 
             if ($has_action) {
-                echo
-                '<div class="two-cols">' .
-                '<p class="col checkboxes-helpers"></p>' .
-
-                '<p class="col right"><label for="action" class="classic">' . __('Selected trackbacks action:') . '</label> ' .
-                form::combo('action', $combo_action) .
-                form::hidden('id', App::backend()->post_id) .
-                form::hidden(['section'], 'trackbacks') .
-                App::nonce()->getFormNonce() .
-                '<input type="submit" value="' . __('ok') . '"></p>' .
-                '</div>' .
-                '</form>';
+                $fields[] = (new Div())
+                    ->class('two-cols')
+                    ->items([
+                        (new Para())->class(['col', 'checkboxes-helpers']),
+                        (new Para())->class(['col', 'right', 'form-buttons'])->items([
+                            (new Select('action'))
+                                ->items($combo_action)
+                                ->label(new Label(__('Selected trackbacks action:'), Label::OL_TF)),
+                            (new Hidden('section', 'trackbacks')),
+                            (new Hidden('id', App::backend()->post_id)),
+                            App::nonce()->formNonce(),
+                            (new Submit('do-action-comm', __('Ok'))),
+                        ]),
+                    ]);
             }
 
-            if (App::backend()->can_edit_post) {
-                // Add trackbacks
-
-                echo
-                '<div class="fieldset clear">';
-
-                echo
-                '<h3>' . __('Ping blogs') . '</h3>' .
-                '<form action="' . App::backend()->url()->get('admin.post', ['id' => App::backend()->post_id]) . '" id="trackback-form" method="post">' .
-                '<p><label for="tb_urls" class="area">' . __('URLs to ping:') . '</label>' .
-                form::textarea('tb_urls', 60, 5, App::backend()->tb_urls) .
-                '</p>' .
-
-                '<p><label for="tb_excerpt" class="area">' . __('Excerpt to send:') . '</label>' .
-                form::textarea('tb_excerpt', 60, 5, App::backend()->tb_excerpt) . '</p>' .
-
-                '<p>' .
-                App::nonce()->getFormNonce() .
-                '<input type="submit" name="ping" value="' . __('Ping blogs') . '">' .
-                (empty($_GET['tb_auto']) ? '&nbsp;&nbsp;<a class="button" href="' . App::backend()->url()->get('admin.post', ['id' => App::backend()->post_id, 'tb_auto' => 1, 'tb' => 1]) . '">' . __('Auto discover ping URLs') . '</a>' :
-                    '') .
-                '</p>' .
-                '</form>';
-
+            $pingsSent = function (): Set|None {
                 $pings = App::backend()->tb->getPostPings((int) App::backend()->post_id);
-                if (!$pings->isEmpty()) {
-                    echo
-                    '<h3>' . __('Previously sent pings') . '</h3>' .
-                    '<ul class="nice">';
-                    while ($pings->fetch()) {
-                        echo
-                        '<li>' . Date::dt2str(__('%Y-%m-%d %H:%M'), $pings->ping_dt) . ' - ' . $pings->ping_url . '</li>';
-                    }
-                    echo
-                    '</ul>';
+                if ($pings->isEmpty()) {
+                    return (new None());
                 }
 
-                echo
-                '</div>';
-            }
+                $list = [];
+                while ($pings->fetch()) {
+                    $list[] = (new Li())
+                        ->text(Date::dt2str(__('%Y-%m-%d %H:%M'), $pings->ping_dt) . ' - ' . $pings->ping_url);
+                }
 
-            echo
-            '</div>'; // Trackbacks
+                return (new Set())
+                    ->items([
+                        (new Text('h3', __('Previously sent pings'))),
+                        (new Ul())
+                            ->class('nice')
+                            ->items($list),
+                    ]);
+            };
+
+            echo (new Div())
+                ->id('trackbacks')
+                ->class('multi-part')
+                ->title(__('Trackbacks'))
+                ->items([
+                    (new Para())
+                        ->class('top-add')
+                        ->items([
+                            (new Link())->class(['button', 'add'])->href('#comment-form')->text(__('Add a comment')),
+                        ]),
+                    $has_action ?
+                    (new Form('form-trackbacks'))
+                        ->method('post')
+                        ->action(App::backend()->url()->get('admin.post'))
+                        ->fields($fields) :
+                    (new Set())
+                        ->items($fields),
+                    App::backend()->can_edit_post ?
+                        //Add a trackback
+                        (new Form('trackback-form'))
+                            ->method('post')
+                            ->action(App::backend()->url()->get('admin.comment', ['id' => App::backend()->post_id]))
+                            ->fields([
+                                (new Fieldset())
+                                    ->legend(new Legend(__('Ping blogs')))
+                                    ->fields([
+                                        (new Para())
+                                            ->items([
+                                                (new Textarea('tb_urls'))
+                                                    ->cols(60)
+                                                    ->rows(5)
+                                                    ->default(App::backend()->tb_urls)
+                                                    ->label(new Label(__('URLs to ping:'), Label::OL_TF)),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Textarea('tb_excerpt'))
+                                                    ->cols(60)
+                                                    ->rows(5)
+                                                    ->default(App::backend()->tb_excerpt)
+                                                    ->label(new Label(__('Excerpt to send:'), Label::OL_TF)),
+                                            ]),
+                                        (new Para())
+                                            ->class('form-buttons')
+                                            ->items([
+                                                App::nonce()->formNonce(),
+                                                (new Submit('ping', __('Ping blogs'))),
+                                                empty($_GET['tb_auto']) ?
+                                                (new Link())
+                                                    ->href(App::backend()->url()->get('admin.post', [
+                                                        'id'      => App::backend()->post_id,
+                                                        'tb_auto' => 1,
+                                                        'tb'      => 1,
+                                                    ]))
+                                                    ->text(__('Auto discover ping URLs'))
+                                                    ->class('button') :
+                                                (new None()),
+                                            ]),
+                                        $pingsSent(),
+                                    ]),
+                            ]) :
+                        (new None()),
+                ])
+            ->render();
         }
 
         Page::helpBlock('core_post', 'core_trackbacks', 'core_wiki');
@@ -1050,73 +1280,98 @@ class Post extends Process
     /**
      * Shows the comments or trackbacks.
      *
-     * @param      MetaRecord   $rs          The recordset
-     * @param      bool         $has_action  Indicates if action is possible
-     * @param      bool         $tb          Is trackbacks?
-     * @param      bool         $show_ip     Show ip?
+     * @param       Metarecord  $rs             Recordset
+     * @param       bool        $has_action     Indicates if action is available
+     * @param       bool        $tb             Is trackbacks?
      */
-    protected static function showComments(MetaRecord $rs, bool $has_action, bool $tb = false, bool $show_ip = true): void
+    protected static function showComments(MetaRecord $rs, bool $has_action, bool $tb = false): string
     {
-        echo
-            '<div class="table-outer">' .
-            '<table class="comments-list"><tr>' .
-            '<th colspan="2" class="first">' . __('Author') . '</th>' .
-            '<th>' . __('Date') . '</th>' .
-            (App::backend()->show_ip ? '<th class="nowrap">' . __('IP address') . '</th>' : '') .
-            '<th>' . __('Status') . '</th>' .
-            '<th>' . __('Edit') . '</th>' .
-            '</tr>';
+        // IP are available only for super-admin and admin
+        $show_ip = App::auth()->check(
+            App::auth()->makePermissions([
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]),
+            App::blog()->id()
+        );
 
-        $comments = [];
-        if (isset($_REQUEST['comments'])) {
-            foreach ($_REQUEST['comments'] as $v) {
-                $comments[(int) $v] = true;
-            }
-        }
-
+        $rows = [];
         while ($rs->fetch()) {
+            $cols        = [];
             $comment_url = App::backend()->url()->get('admin.comment', ['id' => $rs->comment_id]);
             $sts_class   = App::status()->comment()->id((int) $rs->comment_status);
 
-            echo
-            '<tr class="line ' . (App::status()->comment()->isRestricted((int) $rs->comment_status) ? ' offline ' : '') . $sts_class . '"' .
-            ' id="c' . $rs->comment_id . '">';
+            $cols[] = (new Td())
+                ->class('nowrap')
+                ->items([
+                    $has_action ?
+                    (new Checkbox(['comments[]']))
+                        ->value($rs->comment_id)
+                        ->title($tb ? __('select this trackback') : __('select this comment')) :
+                    (new None()),
+                ]);
 
-            echo
-            '<td class="nowrap">';
-            if ($has_action) {
-                echo form::checkbox(
-                    ['comments[]'],
-                    $rs->comment_id,
-                    [
-                        'checked'    => isset($comments[$rs->comment_id]),
-                        'extra_html' => 'title="' . ($tb ? __('select this trackback') : __('select this comment')) . '"',
-                    ]
-                );
-            }
-            echo
-            '</td>' .
-            '<td class="maximal">' . Html::escapeHTML($rs->comment_author) . '</td>' .
-            '<td class="nowrap">' .
-                '<time datetime="' . Date::iso8601((int) strtotime($rs->comment_dt), App::auth()->getInfo('user_tz')) . '">' .
-                Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) .
-                '</time>' .
-            '</td>';
+            $cols[] = (new Td())
+                ->class('maximal')
+                ->text($rs->comment_author);
+
+            $cols[] = (new Td())
+                ->class('nowrap')
+                ->text(Date::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt));
 
             if ($show_ip) {
-                echo
-                '<td class="nowrap"><a href="' . App::backend()->url()->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>';
+                $cols[] = (new Td())
+                    ->class('nowrap')
+                    ->items([
+                        (new Link())
+                            ->href(App::backend()->url()->get('admin.comment', ['ip' => $rs->comment_ip]))
+                            ->text($rs->comment_ip),
+                    ]);
             }
-            echo
-            '<td class="nowrap status">' . App::status()->post()->image((int) $rs->comment_status)->render() . '</td>' .
-            '<td class="nowrap status"><a href="' . $comment_url . '" title="' . __('Edit this comment') . '">' .
-            '<img class="mark mark-edit light-only" src="images/edit.svg" alt="">' .
-            '<img class="mark mark-edit dark-only" src="images/edit-dark.svg" alt="">' .
-            ' ' . __('Edit') . '</a></td>' .
-            '</tr>';
+
+            $cols[] = (new Td())
+                ->class(['nowrap', 'status'])
+                ->text(App::status()->comment()->image((int) $rs->comment_status)->render());
+
+            $cols[] = (new Td())
+                ->class(['nowrap', 'status'])
+                ->items([
+                    (new Link())
+                        ->href($comment_url)
+                        ->title($tb ? __('Edit this trackback') : __('Edit this comment'))
+                        ->items([
+                            (new Img('images/edit.svg'))->class(['mark', 'mark-edit', 'light-only'])->alt(''),
+                            (new Img('images/edit-dark.svg'))->class(['mark', 'mark-edit', 'dark-only'])->alt(''),
+                            (new Text(null, ' ' . __('Edit'))),
+                        ]),
+                ]);
+
+            $rows[] = (new Tr())
+                ->class(array_filter(['line', App::status()->comment()->isRestricted($rs->comment_status) ? '' : 'offline ', $sts_class]))
+                ->id('c' . $rs->comment_id)
+                ->cols($cols);
         }
 
-        echo
-        '</table></div>';
+        $cols   = [];
+        $cols[] = (new Th())
+            ->class(['nowrap', 'first'])
+            ->colspan(2)
+            ->text(__('Author'));
+        $cols[] = (new Th())
+            ->text(__('Date'));
+        if ($show_ip) {
+            $cols[] = (new Th())
+                ->class('nowrap')
+                ->text(__('IP address'));
+        }
+        $cols[] = (new Th())
+            ->text(__('Status'));
+        $cols[] = (new Th())
+            ->text(__('Edit'));
+
+        return (new Table())
+            ->class('comments-list')
+            ->thead((new Thead())->rows([(new Tr())->cols($cols)]))
+            ->tbody((new Tbody())->rows($rows))
+        ->render();
     }
 }
