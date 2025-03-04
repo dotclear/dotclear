@@ -163,3 +163,9 @@ On adapte largeur et hauteur en fonction
   overflow: hidden;
   padding-top: 2em;
 }
+
+// Différenciation dotty/mustek
+
+.box:has(.tplset-dotty) {
+  border-color: var(--header-border);
+}

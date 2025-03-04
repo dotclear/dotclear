@@ -3975,6 +3975,10 @@ On adapte largeur et hauteur en fonction
   padding-top: 2em;
 }
 
+.box:has(.tplset-dotty) {
+  border-color: var(--header-border);
+}
+
 #categories {
   margin: 1em 0;
 }
