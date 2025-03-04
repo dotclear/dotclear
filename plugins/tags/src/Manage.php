@@ -114,7 +114,7 @@ class Manage extends Process
                     ->separator(' ')
                     ->items([
                         (new Text('strong', App::backend()->tags->count)),
-                        (new Text(null, App::backend()->tags->count === 1 ? __('entry') : __('entries'))),
+                        (new Text(null, (int) App::backend()->tags->count === 1 ? __('entry') : __('entries'))),
                     ]),
             ]);
 
