@@ -391,7 +391,7 @@ class Post
      */
     public static function getTrackbackLink(MetaRecord $rs): string
     {
-        return App::blog()->url() . App::url()->getURLFor('trackback', $rs->post_id);
+        return App::blog()->url() . App::url()->getURLFor('trackback', (string) $rs->post_id);
     }
 
     /**
