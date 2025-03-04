@@ -67,13 +67,13 @@ class Select extends Component
                 }
                 if ($value instanceof Option || $value instanceof Optgroup) {
                     /* @phpstan-ignore-next-line */
-                    $buffer .= $value->render($this->default ?? $default ?? null);
+                    $buffer .= $value->render($this->default ?? (string) $default ?? null);
                 } elseif (is_array($value)) {
                     /* @phpstan-ignore-next-line */
-                    $buffer .= (new Optgroup((string) $item))->items($value)->render($this->default ?? $default ?? null);
+                    $buffer .= (new Optgroup((string) $item))->items($value)->render($this->default ?? (string) $default ?? null);
                 } else {
                     /* @phpstan-ignore-next-line */
-                    $buffer .= (new Option((string) $item, (string) $value))->render($this->default ?? $default ?? null);
+                    $buffer .= (new Option((string) $item, (string) $value))->render($this->default ?? (string) $default ?? null);
                 }
             }
         }
