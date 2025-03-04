@@ -758,7 +758,7 @@ class ManagePage extends Process
 
                     'post_notes' => (new Para())->class('area')->id('notes-area')->items([
                         (new Textarea('post_notes'))
-                            ->value(Html::escapeHTML(App::backend()->post_excerpt))
+                            ->value(Html::escapeHTML(App::backend()->post_notes))
                             ->cols(50)
                             ->rows(5)
                             ->lang(App::backend()->post_lang)
