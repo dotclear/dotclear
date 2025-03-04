@@ -65,15 +65,21 @@ class Select extends Component
                 if ($value instanceof None) {
                     continue;
                 }
+
+                $current = $this->default ?? $default ?? null;
+                if ($current !== null) {
+                    $current = (string) $current;
+                }
+
                 if ($value instanceof Option || $value instanceof Optgroup) {
                     /* @phpstan-ignore-next-line */
-                    $buffer .= $value->render($this->default ?? (string) $default ?? null);
+                    $buffer .= $value->render($current);
                 } elseif (is_array($value)) {
                     /* @phpstan-ignore-next-line */
-                    $buffer .= (new Optgroup((string) $item))->items($value)->render($this->default ?? (string) $default ?? null);
+                    $buffer .= (new Optgroup((string) $item))->items($value)->render($current);
                 } else {
                     /* @phpstan-ignore-next-line */
-                    $buffer .= (new Option((string) $item, (string) $value))->render($this->default ?? (string) $default ?? null);
+                    $buffer .= (new Option((string) $item, (string) $value))->render($current);
                 }
             }
         }
