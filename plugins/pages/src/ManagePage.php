@@ -52,7 +52,6 @@ use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
-use UnhandledMatchError;
 
 /**
  * @brief   The module backend manage page process.
@@ -476,26 +475,14 @@ class ManagePage extends Process
             App::backend()->next_headlink . "\n" . App::backend()->prev_headlink
         );
 
-        $img_status         = '';
-        $img_status_pattern = (new Img('images/%2$s'))
-            ->alt('%1$s')
-            ->class(['mark', 'mark-%3$s'])
-            ->render();
-
         if (App::backend()->post_id) {
-            try {
-                $img_status = match ((int) App::backend()->post_status) {
-                    App::status()->post()::PUBLISHED   => sprintf($img_status_pattern, __('Published'), 'published.svg', 'published'),
-                    App::status()->post()::UNPUBLISHED => sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished'),
-                    App::status()->post()::SCHEDULED   => sprintf($img_status_pattern, __('Scheduled'), 'scheduled.svg', 'scheduled'),
-                    App::status()->post()::PENDING     => sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending'),
-                };
-            } catch (UnhandledMatchError) {
-            }
+            $img_status       = App::status()->post()->image((int) App::backend()->post_status)->render();
             $edit_entry_title = '&ldquo;' . Html::escapeHTML(trim(Html::clean(App::backend()->post_title))) . '&rdquo;' . ' ' . $img_status;
         } else {
+            $img_status       = '';
             $edit_entry_title = App::backend()->page_title;
         }
+
         echo Page::breadcrumb(
             [
                 Html::escapeHTML(App::blog()->name()) => '',
@@ -1086,10 +1073,10 @@ class ManagePage extends Process
     /**
      * Shows the comments or trackbacks.
      *
-     * @param   mixed   $rs             Recordset
-     * @param   bool    $has_action     Indicates if action is available
+     * @param   Metarecord  $rs             Recordset
+     * @param   bool        $has_action     Indicates if action is available
      */
-    protected static function showComments($rs, bool $has_action): string
+    protected static function showComments(MetaRecord $rs, bool $has_action): string
     {
         // IP are available only for super-admin and admin
         $show_ip = App::auth()->check(
@@ -1099,43 +1086,11 @@ class ManagePage extends Process
             App::blog()->id()
         );
 
-        $img_status_pattern = (new Img('images/%2$s'))
-            ->alt('%1$s')
-            ->class(['mark', 'mark-%3$s'])
-            ->render();
-
         $rows = [];
         while ($rs->fetch()) {
             $cols        = [];
             $comment_url = App::backend()->url()->get('admin.comment', ['id' => $rs->comment_id]);
-
-            $sts_class = '';
-            switch ((int) $rs->comment_status) {
-                case App::status()->comment()::PUBLISHED:
-                    $img_status = sprintf($img_status_pattern, __('Published'), 'published.svg', 'published');
-                    $sts_class  = 'sts-online';
-
-                    break;
-                case App::status()->comment()::UNPUBLISHED:
-                    $img_status = sprintf($img_status_pattern, __('Unpublished'), 'unpublished.svg', 'unpublished');
-                    $sts_class  = 'sts-offline';
-
-                    break;
-                case App::status()->comment()::PENDING:
-                    $img_status = sprintf($img_status_pattern, __('Pending'), 'pending.svg', 'pending');
-                    $sts_class  = 'sts-pending';
-
-                    break;
-                case App::status()->comment()::JUNK:
-                    $img_status = sprintf($img_status_pattern, __('Junk'), 'junk.svg', 'junk light-only') . sprintf($img_status_pattern, __('Junk'), 'junk-dark.svg', 'junk dark-only');
-                    $sts_class  = 'sts-junk';
-
-                    break;
-                default:
-                    $img_status = '';
-
-                    break;
-            }
+            $sts_class   = App::status()->comment()->id((int) $rs->comment_status);
 
             $cols[] = (new Td())
                 ->class('nowrap')
@@ -1167,7 +1122,7 @@ class ManagePage extends Process
 
             $cols[] = (new Td())
                 ->class(['nowrap', 'status'])
-                ->text($img_status);
+                ->text(App::status()->comment()->image((int) $rs->comment_status)->render());
 
             $cols[] = (new Td())
                 ->class(['nowrap', 'status'])
