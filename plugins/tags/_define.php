@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin tags definition
@@ -20,7 +21,7 @@ $this->registerModule(
     '2.0',             // Version
     [
         'permissions' => 'My',
-        'priority'    => 1001, // Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
+        'priority'    => 1010, // Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
         'type'        => 'plugin',
         'settings'    => [
             'pref' => '#user-options.tags_prefs',
