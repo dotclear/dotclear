@@ -896,7 +896,7 @@ class Post extends Process
             if (App::backend()->post_id) {
                 $preview_url = App::blog()->url() .
                     App::url()->getURLFor(
-                        'pagespreview',
+                        'preview',
                         App::auth()->userID() . '/' .
                         Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy((string) App::auth()->userID())) .
                         '/' . App::backend()->post->post_url
@@ -968,9 +968,6 @@ class Post extends Process
                                                     (new Para())
                                                         ->class(['border-top', 'form-buttons'])
                                                         ->items([
-                                                            App::backend()->post_id ?
-                                                            (new Hidden('id', (string) App::backend()->post_id)) :
-                                                            (new None()),
                                                             App::nonce()->formNonce(),
                                                             ...$buttons,
                                                         ]),
@@ -1187,11 +1184,6 @@ class Post extends Process
                 ->class('multi-part')
                 ->title(__('Trackbacks'))
                 ->items([
-                    (new Para())
-                        ->class('top-add')
-                        ->items([
-                            (new Link())->class(['button', 'add'])->href('#comment-form')->text(__('Add a comment')),
-                        ]),
                     $has_action ?
                     (new Form('form-trackbacks'))
                         ->method('post')
@@ -1203,7 +1195,7 @@ class Post extends Process
                         //Add a trackback
                         (new Form('trackback-form'))
                             ->method('post')
-                            ->action(App::backend()->url()->get('admin.comment', ['id' => App::backend()->post_id]))
+                            ->action(App::backend()->url()->get('admin.post', ['id' => App::backend()->post_id]))
                             ->fields([
                                 (new Fieldset())
                                     ->legend(new Legend(__('Ping blogs')))
