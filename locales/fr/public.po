@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-02-21 06:10\n"
+"PO-Revision-Date: 2025-03-05 13:53\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -110,7 +110,7 @@ msgid "Email address is not valid"
 msgstr "Adresse email incorrecte"
 
 msgid "Entries feed"
-msgstr "Fil des billets"
+msgstr "Fil des entrées"
 
 #: __html_tpl_dummy.php:22
 msgid "Explore archives"
@@ -157,7 +157,7 @@ msgstr "Nom ou pseudo"
 
 #: __html_tpl_dummy.php:30
 msgid "Next entry:"
-msgstr "Billet suivant :"
+msgstr "Entrée suivante :"
 
 #: __html_tpl_dummy.php:31
 msgid "On"
@@ -189,7 +189,7 @@ msgstr "Prévisualiser"
 
 #: __html_tpl_dummy.php:39
 msgid "Previous entry:"
-msgstr "Billet précédent :"
+msgstr "Entrée précédente :"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Un fil RSS recueille les informations de mise à jour d'un site. Il fournit le contenu des billets ou des commentaires ou un extrait de ceux-ci, ainsi qu'un lien vers les versions complètes et quelques autres informations. Ce fil a pour vocation d'être lu par un <a href=\"http://fr.wikipedia.org/wiki/Agr%C3%A9gateur\">agrégateur</a> RSS."
@@ -248,7 +248,7 @@ msgstr "Fil Atom des commentaires de cette catégorie"
 
 #: __html_tpl_dummy.php:51
 msgid "This category's entries Atom feed"
-msgstr "Fil Atom des billets de cette catégorie"
+msgstr "Fil Atom des entrées de cette catégorie"
 
 #: __html_tpl_dummy.php:52
 msgid "This post's comments Atom feed"
@@ -336,7 +336,7 @@ msgstr "dans"
 
 #: __html_tpl_dummy.php:68
 msgid "next entries"
-msgstr "billets suivants"
+msgstr "entrées suivantes"
 
 msgid "no attachments"
 msgstr "aucune annexe"
@@ -384,7 +384,7 @@ msgstr "prévisualiser"
 
 #: __html_tpl_dummy.php:74
 msgid "previous entries"
-msgstr "billets précédents"
+msgstr "entrées précédentes"
 
 msgid "reactions"
 msgstr "réactions"

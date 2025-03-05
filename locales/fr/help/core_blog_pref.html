@@ -84,14 +84,14 @@
     <dt>Format des heures</dt>
     <dd>Indique le format de l'heure d'un billet sur le blog. Voir la section
   "Formatage des dates et des heures" pour plus détails.</dd>
-    <dt>Afficher des émoticônes dans les billets et commentaires</dt>
+    <dt>Afficher des émoticônes dans les entrées et commentaires</dt>
     <dd>Remplacer certaines suites de caractères comme :-) ou ;-) par des images.</dd>
-    <dt>Afficher <em>x</em> billets par page</dt>
-    <dd>Le nombre donné sera utilisé comme limite d'affichage des billets sur la
-  page d'accueil et la première page de chaque catégorie.</dd>
-    <dt>Afficher <em>x</em> billets par flux de syndication</dt>
-    <dd>Le nombre donné sera utilisé comme limite d'affichage des billets dans
-  les flux de syndication.</dd>
+    <dt>Afficher <em>x</em> entrées par page</dt>
+    <dd>Le nombre donné sera utilisé comme limite d'affichage des entrées sur la
+ page d'accueil et la première page de chaque catégorie.</dd>
+    <dt>Afficher <em>x</em> entrées par flux de syndication</dt>
+    <dd>Le nombre donné sera utilisé comme limite d'affichage des entrées dans
+ les flux de syndication.</dd>
     <dt>Afficher <em>x</em> commentaires par flux de syndication</dt>
     <dd>Le nombre donné sera utilisé comme limite d'affichage des commentaires dans
   les flux de syndication.</dd>
@@ -139,23 +139,23 @@ indésirables soient automatiquement supprimés. Laisser ce champ de saisie vide
     <li><strong>%B</strong>&nbsp;: nom complet du mois (local),</li>
     <li><strong>%c</strong>&nbsp;: représentation préférée pour les dates et
   heures, en local,</li>
-    <li><strong>%C</strong>&nbsp;: numéro de siècle (l'année, divisée par 100 et arrondie entre 00 et 99),</li>
+    <li><strong>%C</strong> : numéro de siècle (l'année, divisée par 100 et arrondie entre 00 et 99)</li>
     <li><strong>%d</strong>&nbsp;: jour du mois en numérique (intervalle 01 à
   31),</li>
     <li><strong>%D</strong>&nbsp;: identique à %m/%d/%y,</li>
     <li><strong>%e</strong>&nbsp;: numéro du jour du mois. Les chiffres sont
   précédés d'un espace (de ' 1' à '31'),</li>
     <li><strong>%g</strong>&nbsp;: identique à %G, sur 2 chiffres,</li>
-    <li><strong>%G</strong>&nbsp;: L'année sur 4 chiffres correspondant au numéro de semaine (voir %V). Même format et valeur que %Y, excepté que si le numéro de la semaine appartient à l'année précédente ou suivante, l'année courante sera utilisé à la place,.</li>
+    <li><strong>%G</strong> : L'année sur 4 chiffres correspondant au numéro de semaine (voir %V). Même format et valeur que %Y, excepté que si le numéro de la semaine appartient à l'année précédente ou suivante, l'année courante sera utilisé à la place,.</li>
     <li><strong>%h</strong>&nbsp;: identique à %b,</li>
-    <li><strong>%H</strong>&nbsp;: heure de la journée en numérique, et sur 24-heures (intervalle de 00 à 23),</li>
-    <li><strong>%I</strong>&nbsp;: heure de la journée en numérique, et sur 12- heures (intervalle 01 à 12),</li>
+    <li><strong>%H</strong> : heure de la journée en numérique, et sur 24 heures (intervalle de 00 à 23),</li>
+    <li><strong>%I</strong> : heure de la journée en numérique, et sur 12 heures (intervalle 01 à 12),</li>
     <li><strong>%j</strong>&nbsp;: jour de l'année, en numérique (intervalle 001 à
   366),</li>
     <li><strong>%m</strong>&nbsp;: mois en numérique (intervalle 1 à 12),</li>
     <li><strong>%M</strong>&nbsp;: minute en numérique,</li>
     <li><strong>%n</strong>&nbsp;: newline character,</li>
-    <li><strong>%p</strong>&nbsp;: soit `am' ou `pm' en fonction de l'heure absolue, ou en fonction des valeurs enregistrées en local,.</li>
+    <li><strong>%p</strong> : soit `am' ou `pm' en fonction de l'heure absolue, ou en fonction des valeurs enregistrées en local,.</li>
     <li><strong>%r</strong>&nbsp;: l'heure au format a.m. et p.m.,</li>
     <li><strong>%R</strong>&nbsp;: l'heure au format 24h,</li>
     <li><strong>%S</strong>&nbsp;: secondes en numérique,</li>
@@ -163,9 +163,9 @@ indésirables soient automatiquement supprimés. Laisser ce champ de saisie vide
     <li><strong>%T</strong>&nbsp;: l'heure actuelle (égal à %H:%M:%S),</li>
     <li><strong>%u</strong>&nbsp;: le numéro de jour dans la semaine, de 1 à 7. (1
   représente Lundi),</li>
-    <li><strong>%U</strong>&nbsp;: numéro de semaine dans l'année, en considérant le premier dimanche de l'année comme le premier jour de la première semaine.</li>
-    <li><strong>%V</strong>&nbsp;: le numéro de semaine comme défini dans l'ISO 8601:1988, sous forme décimale, de 01 à 53. La semaine 1 est la première semaine qui a plus de 4 jours dans l'année courante, et dont Lundi est le premier jour (utilisez %G ou %g pour les éléments de l'année qui correspondent au numéro de la semaine pour le timestamp donné),</li>
-    <li><strong>%W</strong>&nbsp;: numéro de semaine dans l'année, en considérant le premier lundi de l'année comme le premier jour de la première semaine,</li>
+    <li><strong>%U</strong> : numéro de semaine dans l'année, en considérant le premier dimanche de l'année comme le premier jour de la première semaine.</li>
+    <li><strong>%V</strong> : le numéro de semaine comme défini dans l'ISO 8601:1988, sous forme décimale, de 01 à 53. La semaine 1 est la première semaine qui a plus de 4 jours dans l'année courante, et dont Lundi est le premier jour (utilisez %G ou %g pour les éléments de l'année qui correspondent au numéro de la semaine pour le timestamp donné),</li>
+    <li><strong>%W</strong> : numéro de semaine dans l'année, en considérant le premier lundi de l'année comme le premier jour de la première semaine,</li>
     <li><strong>%w</strong>&nbsp;: jour de la semaine, numérique, avec dimanche = 0</li>
     <li><strong>%x</strong>&nbsp;: format préféré de représentation de la date sans l'heure,</li>
     <li><strong>%X</strong>&nbsp;: format préféré de représentation de l'heure sans la date</li>

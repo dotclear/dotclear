@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-13 11:40+0100\n"
-"PO-Revision-Date: 2025-03-05 09:30\n"
+"PO-Revision-Date: 2025-03-05 13:51\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -55,19 +55,19 @@ msgstr "administrateur·rice"
 
 #: src/Core/Auth.php:134
 msgid "manage all entries and comments"
-msgstr "gérer tous les billets et commentaires"
+msgstr "gérer toutes les entrées et commentaires"
 
 #: src/Core/Auth.php:135
 msgid "manage their own entries and comments"
-msgstr "gérer ses propres billets et commentaires"
+msgstr "gérer ses propres entrées et commentaires"
 
 #: src/Core/Auth.php:136
 msgid "publish entries and comments"
-msgstr "publier des billets et des commentaires"
+msgstr "publier des entrées et des commentaires"
 
 #: src/Core/Auth.php:137
 msgid "delete entries and comments"
-msgstr "supprimer des billets et des commentaires"
+msgstr "supprimer des entrées et des commentaires"
 
 #: src/Core/Auth.php:138
 msgid "manage categories"
@@ -260,7 +260,7 @@ msgstr "Les adresses IP des commentaires sélectionnés ont été ajoutées en l
 
 #: src/Core/Backend/Action/ActionsPosts.php:83
 msgid "Back to entries list"
-msgstr "Retour à la liste des billets"
+msgstr "Retour à la liste des entrées"
 
 #: src/Core/Backend/Action/ActionsPosts.php:111
 msgid "Posts actions"
@@ -328,8 +328,8 @@ msgstr "Les entrées publiées ne peuvent être positionnées au statut programm
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
-msgstr[0] "%d billet a été positionné au statut \"%s\""
-msgstr[1] "%d billets ont été positionnés au statut \"%s\""
+msgstr[0] "%d entrée a été positionnée au statut \"%s\""
+msgstr[1] "%d entrées ont été positionnées au statut \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:188
 #, php-format
@@ -342,22 +342,22 @@ msgstr[1] "%d entrées ont été positionnées au statut \"%s\""
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
-msgstr[0] "%d billet a été marqué sélectionné"
-msgstr[1] "%d billets ont été marqués sélectionnés"
+msgstr[0] "%d entrée a été marquée sélectionnée"
+msgstr[1] "%d entrées ont été marquées sélectionnées"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:231
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
-msgstr[0] "%d billet a été marqué désélectionné"
-msgstr[1] "%d billets ont été marqués désélectionnés"
+msgstr[0] "%d entrée a été marquée désélectionnée"
+msgstr[1] "%d entrées ont été marquées désélectionnées"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:268
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
-msgstr[0] "%d publication a été supprimée"
-msgstr[1] "%d publications ont été supprimées"
+msgstr[0] "%d entrée a été supprimée"
+msgstr[1] "%d entrées ont été supprimées"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:314
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:120
@@ -369,8 +369,8 @@ msgstr "(aucune)"
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
-msgstr[0] "%d billet a été déplacé dans la catégorie \"%s\""
-msgstr[1] "%d billets ont été déplacés dans la catégorie \"%s\"."
+msgstr[0] "%d entrée a été déplacée dans la catégorie \"%s\""
+msgstr[1] "%d entrées ont été déplacées dans la catégorie \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:337
 msgid "Change category for this selection"
@@ -420,8 +420,8 @@ msgstr "Cet·te utilisateur·rice n'existe pas"
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
-msgstr[0] "%d billet a été affecté à l'utilisateur·rice \"%s\"."
-msgstr[1] "%d billets ont été affectés à l'utilisateur·rice \"%s\"."
+msgstr[0] "%d entrée a été affectée à l'utilisateur·rice \"%s\""
+msgstr[1] "%d entrées ont été affectées à l'utilisateur·rice \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:471
 msgid "Change author for this selection"
@@ -435,8 +435,8 @@ msgstr "Nouvel auteur·rice (identifiant utilisateur·rice) :"
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
-msgstr[0] "%d billet mis à jour avec la langue \"%s\"."
-msgstr[1] "%d billets mis à jour avec la langue \"%s\"."
+msgstr[0] "%d entrée mise à jour avec la langue \"%s\""
+msgstr[1] "%d entrées mises à jour avec la langue \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:549
 msgid "Change language for this selection"
@@ -444,7 +444,7 @@ msgstr "Changer la langue de cette sélection"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:569
 msgid "Entry language:"
-msgstr "Langue du billet :"
+msgstr "Langue de l'entrée :"
 
 #: src/Core/Backend/Combos.php:133 src/Core/Backend/Combos.php:138
 #: src/Core/Backend/Combos.php:141
@@ -500,11 +500,11 @@ msgstr "Nombre de rétroliens"
 
 #: src/Core/Backend/Combos.php:294
 msgid "Entry title"
-msgstr "Titre de la publication"
+msgstr "Titre de l'entrée"
 
 #: src/Core/Backend/Combos.php:295
 msgid "Entry date"
-msgstr "Date de la publication"
+msgstr "Date de l'entrée"
 
 #: src/Core/Backend/Combos.php:298
 #: src/Core/Backend/Listing/ListingComments.php:142
@@ -551,7 +551,7 @@ msgstr "Pseudonyme"
 
 #: src/Core/Backend/Combos.php:351
 msgid "Number of entries"
-msgstr "Nombre de publications"
+msgstr "Nombre d'entrées"
 
 #: src/Core/Backend/Favorites.php:302
 #: src/Process/Backend/UserPreferences.php:807
@@ -895,7 +895,7 @@ msgstr "Type"
 #: src/Core/Backend/Listing/ListingComments.php:147
 #: src/Core/Backend/UserPref.php:58
 msgid "Entry"
-msgstr "Billet"
+msgstr "Entrée"
 
 #: src/Core/Backend/Listing/ListingComments.php:214
 #, php-format
@@ -964,13 +964,13 @@ msgstr "Sélectionner ce fichier"
 #: src/Core/Backend/Listing/ListingMedia.php:268
 #: src/Process/Backend/Media.php:450
 msgid "Attach this file to entry"
-msgstr "Attacher ce fichier au billet"
+msgstr "Attacher ce fichier à l'entrée"
 
 #: src/Core/Backend/Listing/ListingMedia.php:276
 #: src/Core/Backend/Listing/ListingMedia.php:279
 #: src/Process/Backend/Media.php:477
 msgid "Insert this file into entry"
-msgstr "Insérer ce fichier dans le billet"
+msgstr "Insérer ce fichier dans l'entrée"
 
 #: src/Core/Backend/Listing/ListingMedia.php:343
 #: src/Core/Backend/Listing/ListingMedia.php:382
@@ -1003,12 +1003,12 @@ msgstr "Rétroliens"
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
 msgstr[0] "Liste de l'entrée correspondant au filtre."
-msgstr[1] "Liste des %s billets correspondant au filtre"
+msgstr[1] "Liste des %s entrées correspondant au filtre."
 
 #: src/Core/Backend/Listing/ListingPosts.php:138
 #, php-format
 msgid "List of entries (%s)"
-msgstr "Liste des billets (%s)"
+msgstr "Liste des entrées (%s)"
 
 #: src/Core/Backend/Listing/ListingPosts.php:186
 #: src/Core/Backend/Listing/ListingPosts.php:217
@@ -1038,7 +1038,7 @@ msgstr "Sélectionner ce billet"
 
 #: src/Core/Backend/Listing/ListingPostsMini.php:94
 msgid "Entries list"
-msgstr "Liste des publications"
+msgstr "Liste des entrées"
 
 #: src/Core/Backend/Listing/ListingUsers.php:51
 msgid "No user"
@@ -1626,20 +1626,20 @@ msgstr "Inverser la sélection"
 #: src/Core/Backend/Page.php:1258 src/Process/Backend/Post.php:444
 #: src/Process/Backend/Post.php:560
 msgid "Entry has been successfully created."
-msgstr "Le billet a été créé."
+msgstr "L'entrée a été créée."
 
 #: src/Core/Backend/Page.php:1259
 msgid "Edit entry"
-msgstr "Éditer la publication"
+msgstr "Éditer l'entrée"
 
 #: src/Core/Backend/Page.php:1260
 msgid "view entry"
-msgstr "Voir la publication"
+msgstr "voir l'entrée"
 
 #: src/Core/Backend/Page.php:1261
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer les publications sélectionnées (%s) ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les entrées sélectionnées (%s) ?"
 
 #: src/Core/Backend/Page.php:1262
 #, php-format
@@ -1653,7 +1653,7 @@ msgstr "Êtes-vous sûr·e de vouloir supprimer les catégories sélectionnées 
 
 #: src/Core/Backend/Page.php:1264
 msgid "Are you sure you want to delete this entry?"
-msgstr "Êtes-vous certain·e de vouloir supprimer cette publication ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer cette entrée ?"
 
 #: src/Core/Backend/Page.php:1265
 msgid "Click here to unlock the field"
@@ -2088,7 +2088,7 @@ msgstr "utilisateur·rice·s par page"
 
 #: src/Core/Backend/UserPref.php:182 src/Process/Backend/BlogPref.php:778
 msgid "entries per page"
-msgstr "billets par page"
+msgstr "entrées par page"
 
 #: src/Core/Backend/UserPref.php:189
 msgid "comments per page"
@@ -2144,44 +2144,44 @@ msgstr "Vous devez indiquer une URL de catégorie"
 
 #: src/Core/Blog.php:1367
 msgid "You are not allowed to create an entry"
-msgstr "Vous n'êtes pas autorisé·e à créer des billets"
+msgstr "Vous n'êtes pas autorisé·e à créer des entrées"
 
 #: src/Core/Blog.php:1427
 msgid "You are not allowed to update entries"
-msgstr "Vous n'êtes pas autorisé·e à modifier les billets"
+msgstr "Vous n'êtes pas autorisé·e à modifier les entrées"
 
 #: src/Core/Blog.php:1433 src/Core/Blog.php:1688
 msgid "No such entry ID"
-msgstr "Identifiant de billet inconnu"
+msgstr "Identifiant d'entrée inconnu"
 
 #: src/Core/Blog.php:1467
 msgid "You are not allowed to edit this entry"
-msgstr "Vous n'êtes pas autorisé·e à modifier ce billet"
+msgstr "Vous n'êtes pas autorisé·e à modifier cette entrée"
 
 #: src/Core/Blog.php:1495 src/Core/Blog.php:1530 src/Core/Meta.php:144
 #: src/Core/Meta.php:161
 msgid "You are not allowed to change this entry status"
-msgstr "Vous n'êtes pas autorisé·e à modifier l'état de ce billet"
+msgstr "Vous n'êtes pas autorisé·e à modifier l'état de cette entrée"
 
 #: src/Core/Blog.php:1575 src/Core/Blog.php:1613
 msgid "You are not allowed to change this entry category"
-msgstr "Vous n'êtes pas autorisé·e à modifier la catégorie de ce billet"
+msgstr "Vous n'êtes pas autorisé·e à modifier la catégorie de cette entrée"
 
 #: src/Core/Blog.php:1646
 msgid "You are not allowed to change entries category"
-msgstr "Vous n'êtes pas autorisé·e à modifier la catégorie des billets"
+msgstr "Vous n'êtes pas autorisé·e à modifier la catégorie des entrées"
 
 #: src/Core/Blog.php:1682
 msgid "You are not allowed to delete entries"
-msgstr "Vous n'êtes pas autorisé·e à supprimer des billets"
+msgstr "Vous n'êtes pas autorisé·e à supprimer des entrées"
 
 #: src/Core/Blog.php:1919
 msgid "No entry title"
-msgstr "Pas de titre de billet"
+msgstr "Pas de titre d'entrée"
 
 #: src/Core/Blog.php:1923 src/Core/Blog.php:1937
 msgid "No entry content"
-msgstr "Pas de contenu de billet"
+msgstr "Pas de contenu d'entrée"
 
 #: src/Core/Blog.php:2003
 msgid "Notes"
@@ -2193,7 +2193,7 @@ msgstr "Note"
 
 #: src/Core/Blog.php:2108
 msgid "Empty entry URL"
-msgstr "URL du billet vide"
+msgstr "URL de l'entrée vide"
 
 #: src/Core/Blog.php:2408
 msgid "You are not allowed to update comments"
@@ -2449,7 +2449,7 @@ msgstr "Oops, non trouvé. Vérifiez à nouveau l'URL cible."
 
 #: src/Core/Trackback.php:620
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
-msgstr "Désolé, cette publication n'accepte pas les pingback pour le moment."
+msgstr "Désolé, cette entrée n'accepte pas les pingbacks pour le moment."
 
 #: src/Core/Trackback.php:655
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
@@ -3206,7 +3206,7 @@ msgstr "Attention"
 #: src/Process/Backend/BlogDel.php:101
 #, php-format
 msgid "You are about to delete the blog %s. Every entry, comment and category will be deleted."
-msgstr "Vous êtes sur le point de supprimer le blog %s. Tous ses billets, pages, commentaires et catégories seront supprimés."
+msgstr "Vous êtes sur le point de supprimer le blog %s. Toutes ses entrées, commentaires et catégories seront supprimées."
 
 #: src/Process/Backend/BlogDel.php:110
 msgid "Please give your password to confirm the blog deletion."
@@ -3489,7 +3489,7 @@ msgstr "Ne pas charger la feuille de style standard (utilisée pour l'alignement
 
 #: src/Process/Backend/BlogPref.php:753
 msgid "Display smilies on entries and comments"
-msgstr "Afficher des émoticônes dans les billets, pages et commentaires"
+msgstr "Afficher des émoticônes dans les entrées et commentaires"
 
 #: src/Process/Backend/BlogPref.php:759
 msgid "Disable internal search system"
@@ -3522,15 +3522,15 @@ msgstr "Inclure les sous-catégories dans la page des catégories et dans les fl
 
 #: src/Process/Backend/BlogPref.php:817
 msgid "Display an entry as static home page"
-msgstr "Afficher une publication comme page d'accueil statique"
+msgstr "Afficher une entrée comme page d'accueil statique"
 
 #: src/Process/Backend/BlogPref.php:826
 msgid "Entry URL (its content will be used for the static home page):"
-msgstr "URL de la publication (son contenu sera utilisé pour la page d'accueil statique) :"
+msgstr "URL de l'entrée (son contenu sera utilisé pour la page d'accueil statique) :"
 
 #: src/Process/Backend/BlogPref.php:828
 msgid "Choose an entry"
-msgstr "Sélectionner une publication"
+msgstr "Sélectionner une entrée"
 
 #: src/Process/Backend/BlogPref.php:832
 msgid "Leave empty to use the default presentation."
@@ -3882,7 +3882,7 @@ msgstr "La catégorie où les publications seront déplacées n'existe pas."
 #: src/Process/Backend/Categories.php:102
 #, php-format
 msgid "The entries have been successfully moved to category \"%s\""
-msgstr "Les billets ont été déplacés dans la catégorie \"%s\"."
+msgstr "Les entrées ont été déplacés dans la catégorie \"%s\"."
 
 #: src/Process/Backend/Categories.php:119
 #: src/Process/Backend/Categories.php:170
@@ -3899,7 +3899,7 @@ msgstr "La catégorie a été supprimée."
 
 #: src/Process/Backend/Categories.php:173
 msgid "Entries have been successfully moved to the category you choose."
-msgstr "Les publications ont été déplacés dans la catégorie choisie."
+msgstr "Les entrées ont été déplacées dans la catégorie choisie."
 
 #: src/Process/Backend/Categories.php:184 src/Process/Backend/Category.php:207
 msgid "New category"
@@ -3924,12 +3924,12 @@ msgstr "Replacer toutes les catégories au premier niveau"
 #: src/Process/Backend/Categories.php:319
 #, php-format
 msgid "%d entries"
-msgstr "%d publications"
+msgstr "%d entrées"
 
 #: src/Process/Backend/Categories.php:319
 #, php-format
 msgid "%d entry"
-msgstr "%d publication"
+msgstr "%d entrée"
 
 #: src/Process/Backend/Categories.php:320
 msgid "total:"
@@ -3942,7 +3942,7 @@ msgstr "URL :"
 
 #: src/Process/Backend/Categories.php:339
 msgid "Move entries to"
-msgstr "Déplacer les publications vers"
+msgstr "Déplacer les entrées vers"
 
 #: src/Process/Backend/Categories.php:340
 #: src/Process/Backend/PostsPopup.php:121
@@ -4020,7 +4020,7 @@ msgstr "Déplacer cette catégorie"
 
 #: src/Process/Backend/Comment.php:89
 msgid "Entry does not exist."
-msgstr "Cette publication n'existe pas."
+msgstr "Cette entrée n'existe pas."
 
 #: src/Process/Backend/Comment.php:108 src/Process/Backend/Post.php:568
 msgid "Comment has been successfully created."
@@ -4460,12 +4460,12 @@ msgstr "envoyez un nouveau fichier"
 #: src/Process/Backend/Media.php:448
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
-msgstr "Choisissez un fichier à attacher au billet %s en cliquant sur %s"
+msgstr "Choisissez un fichier à attacher à l'entrée %s en cliquant sur %s"
 
 #: src/Process/Backend/Media.php:476
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
-msgstr "Choisissez un fichier à insérer dans le billet en cliquant sur %s"
+msgstr "Choisissez un fichier à insérer dans l'entrée en cliquant sur %s"
 
 #: src/Process/Backend/Media.php:506 src/Process/Backend/Media.php:510
 #: src/Process/Backend/Media.php:513
@@ -4705,23 +4705,23 @@ msgstr "Type de fichier :"
 
 #: src/Process/Backend/MediaItem.php:987
 msgid "Show entries containing this media"
-msgstr "Afficher les publications contenant ce média"
+msgstr "Afficher les entrées contenant ce média"
 
 #: src/Process/Backend/MediaItem.php:1035
 msgid "No entry seems contain this media."
-msgstr "Aucune publication ne semble contenir ce média."
+msgstr "Aucune entrée ne semble contenir ce média."
 
 #: src/Process/Backend/MediaItem.php:1065
 msgid "Inside the entry"
-msgstr "A l'intérieur de la publication"
+msgstr "A l'intérieur du contenu de l'entrée"
 
 #: src/Process/Backend/MediaItem.php:1072
 msgid "Linked to entry"
-msgstr "Lié à la publication"
+msgstr "Attaché à l'entrée"
 
 #: src/Process/Backend/MediaItem.php:1080
 msgid "Entries containing this media"
-msgstr "Publications contenant ce média"
+msgstr "Entrées contenant ce média"
 
 #: src/Process/Backend/MediaItem.php:1114
 msgid ":"
@@ -4901,11 +4901,11 @@ msgstr "Modifier le billet"
 
 #: src/Process/Backend/Post.php:177
 msgid "Next entry"
-msgstr "Billet suivant"
+msgstr "Entrée suivante"
 
 #: src/Process/Backend/Post.php:193
 msgid "Previous entry"
-msgstr "Billet précédent"
+msgstr "Entrée précédente"
 
 #: src/Process/Backend/Post.php:270 src/Process/Backend/Post.php:571
 msgid "All pings sent."
@@ -4954,7 +4954,7 @@ msgstr "&ldquo;%s&rdquo;"
 
 #: src/Process/Backend/Post.php:558
 msgid "Entry has been successfully updated."
-msgstr "Le billet a été mis à jour."
+msgstr "L'entrée a été mise à jour."
 
 #: src/Process/Backend/Post.php:562
 msgid "File has been successfully attached."
@@ -4970,11 +4970,11 @@ msgstr "Enregistrez votre billet pour valider la transformation en HTML."
 
 #: src/Process/Backend/Post.php:585
 msgid "Go to this entry on the site"
-msgstr "Voir ce billet sur le site"
+msgstr "Voir cette entrée sur le site"
 
 #: src/Process/Backend/Post.php:620
 msgid "Entry status"
-msgstr "État du billet"
+msgstr "État de l'entrée"
 
 #: src/Process/Backend/Post.php:627
 msgid "Publication date and hour"
@@ -4982,7 +4982,7 @@ msgstr "Date et heure de publication"
 
 #: src/Process/Backend/Post.php:633
 msgid "Entry language"
-msgstr "Langue du billet"
+msgstr "Langue de l'entrée"
 
 #: src/Process/Backend/Post.php:636
 msgid "Text formatting"
@@ -4998,7 +4998,7 @@ msgstr "Classement"
 
 #: src/Process/Backend/Post.php:650
 msgid "Selected entry"
-msgstr "Billet sélectionné"
+msgstr "Entrée sélectionnée"
 
 #: src/Process/Backend/Post.php:672 src/Process/Backend/User.php:405
 msgid "Options"
@@ -5030,7 +5030,7 @@ msgstr "URL spécifique"
 
 #: src/Process/Backend/Post.php:700
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
-msgstr "Attention : si vous indiquez l'URL manuellement, celle-ci peut entrer en conflit avec un autre billet."
+msgstr "Attention : si vous indiquez l'URL manuellement, celle-ci peut entrer en conflit avec une autre entrée."
 
 #: src/Process/Backend/Post.php:717
 msgid "Excerpt:"
@@ -5110,27 +5110,27 @@ msgstr "Êtes-vous certain·e de vouloir supprimer cette annexe ?"
 
 #: src/Process/Backend/Posts.php:103
 msgid "Selected entries have been successfully updated."
-msgstr "Les publications sélectionnées ont été modifiées."
+msgstr "Les entrées sélectionnées ont été modifiées."
 
 #: src/Process/Backend/Posts.php:105
 msgid "Selected entries have been successfully deleted."
-msgstr "Les publications sélectionnées ont été supprimées."
+msgstr "Les entrées sélectionnées ont été supprimées."
 
 #: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:313
 msgid "Selected entries action:"
-msgstr "Action sur les billets sélectionnés :"
+msgstr "Action sur les entrées sélectionnées :"
 
 #: src/Process/Backend/PostsPopup.php:99 src/Process/Backend/PostsPopup.php:108
 msgid "Add a link to an entry"
-msgstr "Ajouter un lien vers une publication"
+msgstr "Ajouter un lien vers une entrée"
 
 #: src/Process/Backend/PostsPopup.php:120
 msgid "Entry type:"
-msgstr "Type de publications :"
+msgstr "Type d'entrée :"
 
 #: src/Process/Backend/PostsPopup.php:138
 msgid "Search entry:"
-msgstr "Rechercher une publication :"
+msgstr "Rechercher une entrée :"
 
 #: src/Process/Backend/PostsPopup.php:154
 msgid "cancel"
@@ -5213,7 +5213,7 @@ msgstr "Pas de résultats"
 
 #: src/Process/Backend/Search.php:230
 msgid "Search in entries"
-msgstr "Rechercher dans les billets"
+msgstr "Rechercher dans les entrées"
 
 #: src/Process/Backend/Search.php:231
 msgid "Search in comments"
@@ -5335,7 +5335,7 @@ msgstr "Format d'édition préféré :"
 
 #: src/Process/Backend/User.php:420 src/Process/Backend/UserPreferences.php:759
 msgid "Default entry status:"
-msgstr "État des billets par défaut :"
+msgstr "État des entrées par défaut :"
 
 #: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:762
 msgid "Entry edit field height:"
@@ -5691,7 +5691,7 @@ msgstr "Afficher les nouvelles de Dotclear"
 
 #: src/Process/Backend/UserPreferences.php:960
 msgid "Display quick entry form"
-msgstr "Afficher le formulaire de billet rapide"
+msgstr "Afficher le formulaire d'entrée rapide"
 
 #: src/Process/Backend/UserPreferences.php:966
 msgid "Do not display Dotclear updates"
@@ -5757,7 +5757,7 @@ msgstr "Choisissez un ou plusieurs blogs pour lesquels les utilisateur·rice·s 
 
 #: src/Process/Backend/UsersActions.php:285
 msgid "Entries"
-msgstr "Publications"
+msgstr "Entrées"
 
 #: src/Process/Backend/UsersActions.php:298
 msgid "select"
@@ -5802,7 +5802,7 @@ msgstr "Bienvenue sur Dotclear !"
 
 #: src/Process/Install/Install.php:316
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
-msgstr "Ceci est votre premier billet. Quand vous serez prêt à bloguer, connectez-vous pour le modifier ou le supprimer."
+msgstr "Ceci est votre première entrée. Quand vous serez prêt à bloguer, connectez-vous pour la modifier ou la supprimer."
 
 #: src/Process/Install/Install.php:328
 msgid "Dotclear Team"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:46\n"
+"PO-Revision-Date: 2025-03-05 13:52\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -470,7 +470,7 @@ msgstr "Gestion des fichiers attachés"
 
 #: plugins/_fake_plugin/_fake_l10n.php:11 plugins/pages/src/Backend.php:29
 msgid "Serve entries as simple web pages"
-msgstr "Publie des billets comme de simples pages web"
+msgstr "Publie des entrées comme de simples pages web"
 
 #: plugins/_fake_plugin/_fake_l10n.php:12
 #: plugins/aboutConfig/src/Backend.php:26
@@ -547,7 +547,7 @@ msgstr "Liste des liens de navigation"
 
 #: plugins/_fake_plugin/_fake_l10n.php:32
 msgid "List of selected entries"
-msgstr "Liste des billets sélectionnés"
+msgstr "Liste des entrées sélectionnées"
 
 #: plugins/_fake_plugin/_fake_l10n.php:33
 msgid "List of available languages"
@@ -563,7 +563,7 @@ msgstr "Liens de souscription aux flux (RSS ou Atom)"
 
 #: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "List of last entries from feed (RSS or Atom)"
-msgstr "Liste des derniers billets d'un flux (RSS ou Atom)"
+msgstr "Liste des dernières entrées d'un flux (RSS ou Atom)"
 
 #: plugins/_fake_plugin/_fake_l10n.php:37
 msgid "Simple text"
@@ -571,7 +571,7 @@ msgstr "Texte simple"
 
 #: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "List of last entries published"
-msgstr "Liste des derniers billets publiés"
+msgstr "Liste des dernières entrées publiées"
 
 #: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of last comments published"
@@ -993,7 +993,7 @@ msgstr "Annexes (%d)"
 
 #: plugins/attachments/src/BackendBehaviors.php:121
 msgid "Add files to this entry"
-msgstr "Ajouter des fichiers à la page"
+msgstr "Ajouter des fichiers à l'entrée"
 
 #: plugins/attachments/src/BackendBehaviors.php:130
 msgid "You must save the entry before adding an attachment."
@@ -1342,7 +1342,7 @@ msgstr "m"
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Link to an entry"
-msgstr "Lien vers une publication"
+msgstr "Lien vers une entrée"
 
 #: plugins/dcCKEditor/src/BackendBehaviors.php:63
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:137
@@ -1722,7 +1722,7 @@ msgstr "Importer le contenu d'un blog Dotclear 1.2 comme nouveau contenu dans le
 #: plugins/importExport/src/ModuleImportDc1.php:212
 #: plugins/importExport/src/ModuleImportWp.php:241
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
-msgstr "Notez que cela supprimera les catégories, liste de liens, billets et commentaires actuels du blog courant. "
+msgstr "Notez que cela supprimera les catégories, liste de liens, entrées et commentaires actuels du blog courant."
 
 #: plugins/importExport/src/ModuleImportDc1.php:219
 msgid "We first need some information about your old Dotclear 1.2 installation."
@@ -1735,7 +1735,7 @@ msgstr "Moteur de la base de données :"
 #: plugins/importExport/src/ModuleImportDc1.php:268
 #: plugins/importExport/src/ModuleImportWp.php:290
 msgid "Entries import options"
-msgstr "Options d'importation des billets"
+msgstr "Options d'importation des entrées"
 
 #: plugins/importExport/src/ModuleImportDc1.php:273
 #: plugins/importExport/src/ModuleImportWp.php:335
@@ -2237,24 +2237,24 @@ msgstr "Indexer tous les commentaires et rétroliens dans le moteur de recherche
 
 #: plugins/maintenance/src/Task/IndexPosts.php:56
 msgid "Index all entries for search engine"
-msgstr "Indexer tous les billets pour le moteur de recherche"
+msgstr "Indexer toutes les entrées pour le moteur de recherche"
 
 #: plugins/maintenance/src/Task/IndexPosts.php:58
 #, php-format
 msgid "Indexing entry %d to %d."
-msgstr "Indexation des billets %d à %d."
+msgstr "Indexation des entrées %d à %d."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:59
 msgid "Entries index done."
-msgstr "L'indexation des billets a été effectuée."
+msgstr "L'indexation des entrées a été effectuée."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Failed to index entries."
-msgstr "Impossible d'indexer les billets."
+msgstr "Impossible d'indexer les entrées."
 
 #: plugins/maintenance/src/Task/IndexPosts.php:62
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
-msgstr "Indexer tous les billets dans le moteur de recherche. Cette opération s'effectue généralement suite à un import afin d'obtenir des résultats lors des recherches, aussi bien depuis l'administration du blog qu'en partie publique."
+msgstr "Indexer toutes les entrées dans le moteur de recherche. Cette opération s'effectue généralement suite à un import afin d'obtenir des résultats lors des recherches, aussi bien depuis l'administration du blog qu'en partie publique."
 
 #: plugins/maintenance/src/Task/Logs.php:43
 msgid "Delete all logs"
@@ -2274,28 +2274,28 @@ msgstr "Sauf si vous avez un besoin précis de conservation des activités de co
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:55
 msgid "Entries metadata"
-msgstr "Métadonnées des billets"
+msgstr "Métadonnées des entrées"
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:56
 msgid "Synchronize entries metadata"
-msgstr "Synchroniser les métadonnées des billets"
+msgstr "Synchroniser les métadonnées des entrées"
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:58
 #, php-format
 msgid "Synchronize entry %d to %d."
-msgstr "Synchronisation des billets %d à %d."
+msgstr "Synchronisation des entrées %d à %d."
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:59
 msgid "Entries metadata synchronize done."
-msgstr "La synchronisation des métadonnées des billets a été effectuée."
+msgstr "La synchronisation des métadonnées des entrées a été effectuée."
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Failed to synchronize entries metadata."
-msgstr "Impossible de synchroniser les métadonnées des billets."
+msgstr "Impossible de synchroniser les métadonnées des entrées."
 
 #: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
-msgstr "La synchronisation des métadonnées des billets peut être utile après l'import de contenu dans votre blog ou après une mauvaise opération sur la base de données."
+msgstr "La synchronisation des métadonnées des entrées peut être utile après l'import de contenu dans votre blog ou après une mauvaise opération sur la base de données."
 
 #: plugins/maintenance/src/Task/Vacuum.php:37
 msgid "Optimise database"
@@ -2516,7 +2516,7 @@ msgstr "Activer le plugin de signalement"
 
 #: plugins/pings/src/Manage.php:186
 msgid "Auto pings all services on first publication of entry (current blog only)"
-msgstr "Signaler automatiquement à tous ces services la première publication des publications (blog courant seulement)"
+msgstr "Signaler automatiquement à tous ces services la première publication de l'entrée (blog courant seulement)"
 
 #: plugins/pings/src/Manage.php:193
 msgid "Test ping services"
@@ -2754,8 +2754,8 @@ msgstr "Retirer des mots-clés"
 #: plugins/tags/src/BackendBehaviors.php:280
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
-msgstr[0] "Le mot-clé a été ajouté aux publications sélectionnées"
-msgstr[1] "Les mot-clés ont été ajoutés aux publications sélectionnées"
+msgstr[0] "Le mot-clé a été ajouté aux entrées sélectionnées"
+msgstr[1] "Les mot-clés ont été ajoutés aux entrées sélectionnées"
 
 #: plugins/tags/src/BackendBehaviors.php:293
 #: plugins/tags/src/BackendBehaviors.php:448
@@ -2765,7 +2765,7 @@ msgstr "Êtes-vous sûr·e de vouloir supprimer ce mot-clé ?"
 #: plugins/tags/src/BackendBehaviors.php:294
 #: plugins/tags/src/BackendBehaviors.php:449
 msgid "Add a tag to this entry"
-msgstr "Ajouter un mot-clé à ce billet"
+msgstr "Ajouter un mot-clé à cette entrée"
 
 #: plugins/tags/src/BackendBehaviors.php:295
 #: plugins/tags/src/BackendBehaviors.php:450
@@ -2793,12 +2793,12 @@ msgstr "Mots-clés à ajouter :"
 #: plugins/tags/src/BackendBehaviors.php:362
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
-msgstr[0] "Le mot-clé a été retiré des publications sélectionnées"
+msgstr[0] "Le mot-clé a été retiré des entrées sélectionnées"
 msgstr[1] "Les mot-clés ont été retirés des publications sélectionnées"
 
 #: plugins/tags/src/BackendBehaviors.php:385
 msgid "No tags for selected entries"
-msgstr "Aucun mot-clé pour les billets sélectionnés"
+msgstr "Aucun mot-clé pour les entrées sélectionnées"
 
 #: plugins/tags/src/BackendBehaviors.php:392
 msgid "Remove selected tags from this selection"
@@ -2806,7 +2806,7 @@ msgstr "Retirer les mots-clés de cette sélection"
 
 #: plugins/tags/src/BackendBehaviors.php:419
 msgid "Following tags have been found in selected entries:"
-msgstr "Les mots-clés suivants ont été trouvés pour les billets sélectionnés :"
+msgstr "Les mots-clés suivants ont été trouvés pour les entrées sélectionnées :"
 
 #: plugins/tags/src/BackendBehaviors.php:428
 msgid "Remove"
@@ -2830,15 +2830,15 @@ msgstr "Flux Atom des commentaires associés à ce mot-clé"
 
 #: plugins/tags/src/FrontendBehaviors.php:31
 msgid "This tag's entries Atom feed"
-msgstr "Flux Atom des billets associés à ce mot-clé"
+msgstr "Flux Atom des entrées associés à ce mot-clé"
 
 #: plugins/tags/src/Manage.php:116
 msgid "entries"
-msgstr "billets"
+msgstr "entrées"
 
 #: plugins/tags/src/Manage.php:116
 msgid "entry"
-msgstr "billet"
+msgstr "entrée"
 
 #: plugins/tags/src/Manage.php:147
 msgid "No tags on this blog."
@@ -2871,7 +2871,7 @@ msgstr "Renommer :"
 
 #: plugins/tags/src/ManagePosts.php:207
 msgid "List of entries with this tag"
-msgstr "Liste des billets avec ce mot-clé"
+msgstr "Liste des entrées avec ce mot-clé"
 
 #: plugins/tags/src/Widgets.php:33
 msgid "Limit (empty means no limit):"
@@ -2883,15 +2883,15 @@ msgstr "Nom du mot-clé"
 
 #: plugins/tags/src/Widgets.php:41
 msgid "Entries count"
-msgstr "Nombre de billets"
+msgstr "Nombre d'entrées"
 
 #: plugins/tags/src/Widgets.php:42
 msgid "Newest entry"
-msgstr "Billet le plus récent"
+msgstr "Entrée la plus récente"
 
 #: plugins/tags/src/Widgets.php:43
 msgid "Oldest entry"
-msgstr "Billet le plus ancien"
+msgstr "Entrée la plus ancienne"
 
 #: plugins/tags/src/Widgets.php:56
 msgid "Link to all tags:"
@@ -3204,7 +3204,7 @@ msgstr "Liens de navigation"
 
 #: plugins/widgets/src/Widgets.php:104
 msgid "Selected entries"
-msgstr "Billets sélectionnés"
+msgstr "Entrées sélectionnées"
 
 #: plugins/widgets/src/Widgets.php:105
 msgid "Best of me"
@@ -3216,7 +3216,7 @@ msgstr "Langues du blog"
 
 #: plugins/widgets/src/Widgets.php:123
 msgid "With entries counts"
-msgstr "Avec le nombre de billets"
+msgstr "Avec le nombre d'entrées"
 
 #: plugins/widgets/src/Widgets.php:124
 msgid "Include sub cats in count"
@@ -3248,7 +3248,7 @@ msgstr "Autre part"
 
 #: plugins/widgets/src/Widgets.php:144 plugins/widgets/src/Widgets.php:172
 msgid "Entries limit:"
-msgstr "Limite du nombre de billets :"
+msgstr "Limite du nombre d'entrées :"
 
 #: plugins/widgets/src/Widgets.php:151
 msgid "Text"
@@ -3264,7 +3264,7 @@ msgstr "Sans catégorie"
 
 #: plugins/widgets/src/Widgets.php:164 plugins/widgets/src/Widgets.php:166
 msgid "Last entries"
-msgstr "Derniers billets"
+msgstr "Dernières entrées"
 
 #: plugins/widgets/src/Widgets.php:169
 msgid "Tag:"
@@ -3281,7 +3281,7 @@ msgstr "Limite du nombre de commentaires :"
 #: plugins/widgets/src/Widgets.php:451
 #, php-format
 msgid "This blog's entries %s feed"
-msgstr "Flux %s des billets de ce blog"
+msgstr "Flux %s des entrées de ce blog"
 
 #: plugins/widgets/src/Widgets.php:452
 #, php-format
@@ -3290,7 +3290,7 @@ msgstr "Flux %s des commentaires de ce blog"
 
 #: plugins/widgets/src/Widgets.php:460
 msgid "Entries feed"
-msgstr "Fil des billets"
+msgstr "Fil des entrées"
 
 #: plugins/widgets/src/Widgets.php:466
 msgid "Comments feed"
