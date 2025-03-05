@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-13 11:40+0100\n"
-"PO-Revision-Date: 2025-02-13 10:56\n"
+"PO-Revision-Date: 2025-03-05 09:30\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -322,7 +322,7 @@ msgstr "Aucune publication sélectionnée"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:141
 msgid "Published entries cannot be set to scheduled"
-msgstr "Les billets publiés ne peuvent être positionnés au statut programmé"
+msgstr "Les entrées publiées ne peuvent être positionnées au statut programmé"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:150
 #, php-format
@@ -335,8 +335,8 @@ msgstr[1] "%d billets ont été positionnés au statut \"%s\""
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\""
 msgid_plural "%d entries have been successfully updated as: \"%s\""
-msgstr[0] "%d billet a été positionné au statut \"%s\""
-msgstr[1] "%d billets ont été positionnés au statut \"%s\""
+msgstr[0] "%d entrée a été positionnée au statut \"%s\""
+msgstr[1] "%d entrées ont été positionnées au statut \"%s\""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:220
 #, php-format
@@ -4859,7 +4859,7 @@ msgstr "Aucune mise à jour n'est disponible pour les plugins."
 msgid "There is one plugin update available:"
 msgid_plural "There are %s plugin updates available:"
 msgstr[0] "Une mise à jour de plugin est disponible :"
-msgstr[1] "Il y a des %s mises à jour de plugin disponibles :"
+msgstr[1] "Il y a %s mises à jour de plugin disponibles :"
 
 #: src/Process/Backend/Plugins.php:267 src/Process/Backend/Plugins.php:270
 #: src/Process/Upgrade/Plugins.php:214 src/Process/Upgrade/Plugins.php:215
@@ -5223,8 +5223,8 @@ msgstr "Rechercher dans les commentaires"
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
-msgstr[0] "un billet trouvé"
-msgstr[1] "%d billets trouvés"
+msgstr[0] "une entrée trouvée"
+msgstr[1] "%d entrées trouvées"
 
 #: src/Process/Backend/Search.php:378
 #, php-format
