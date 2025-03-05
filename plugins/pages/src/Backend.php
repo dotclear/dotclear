@@ -37,6 +37,13 @@ class Backend extends Process
             return false;
         }
 
+        $icon  = $icon_dark = '';
+        $icons = My::icons('np');
+        if ($icons !== []) {
+            $icon      = $icons[0];
+            $icon_dark = $icons[1] ?? $icons[0];
+        }
+
         App::auth()->setPermissionType(Pages::PERMISSION_PAGES, __('manage pages'));
 
         App::postTypes()->set(new PostType(
@@ -45,6 +52,8 @@ class Backend extends Process
             App::url()->getURLFor('pages', '%s'),
             'Pages',
             urldecode(My::manageUrl(['p' => 'pages', 'act' => 'list'], '&')),   // Admin URL for list of pages
+            $icon,
+            $icon_dark,
         ));
 
         My::addBackendMenuItem(App::backend()->menus()::MENU_BLOG);

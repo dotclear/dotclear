@@ -42,6 +42,8 @@ class PostType implements PostTypeInterface
         public readonly string $public_url,
         string $label = '',
         public readonly string $list_admin_url = '',
+        protected readonly string $icon = '',
+        protected readonly string $icon_dark = '',
     ) {
         $this->label = $label !== '' ? $label : $type;
     }
@@ -71,6 +73,22 @@ class PostType implements PostTypeInterface
         }
 
         return $escaped ? Html::escapeURL($url) : $url;
+    }
+
+    /**
+     * Gets post type icon URI.
+     */
+    public function icon(): string
+    {
+        return $this->icon;
+    }
+
+    /**
+     * Gets post type dark icon URI.
+     */
+    public function iconDark(): string
+    {
+        return $this->icon_dark;
     }
 
     public function publicUrl(string $post_url, bool $escaped = true): string

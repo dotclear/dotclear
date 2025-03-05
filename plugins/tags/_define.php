@@ -18,7 +18,7 @@ $this->registerModule(
     'Tags',            // Name
     'Tags for posts',  // Description
     'Olivier Meunier', // Author
-    '2.0',             // Version
+    '2.1',             // Version
     [
         'permissions' => 'My',
         'priority'    => 1010, // Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)

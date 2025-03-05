@@ -74,7 +74,7 @@ class ManagePosts extends Process
 
         App::backend()->posts_actions_page = new BackendActions(
             App::backend()->url()->get('admin.plugin'),
-            ['p' => My::id(), 'm' => 'tag_posts', 'tag' => App::backend()->tag]
+            ['p' => My::id(), 'm' => 'tag_posts', 'tag' => App::backend()->tag, 'post_type' => '']
         );
 
         App::backend()->posts_actions_page_rendered = null;
@@ -239,7 +239,9 @@ class ManagePosts extends Process
                 App::backend()->post_list->display(
                     App::backend()->page,
                     App::backend()->nb_per_page,
-                    $form
+                    $form,
+                    false,
+                    true    // Display post type column
                 );
             }
         }

@@ -228,7 +228,9 @@ class Utility extends Process
             urldecode(App::backend()->url()->get('admin.post', ['id' => '%d'], '&')),
             App::url()->getURLFor('post', '%s'),
             'Posts',
-            urldecode(App::backend()->url()->get('admin.posts'))    // Admin URL for list of posts
+            urldecode(App::backend()->url()->get('admin.posts')),    // Admin URL for list of posts
+            'images/menu/edit.svg',
+            'images/menu/edit-dark.svg',
         ));
 
         // No user nor blog, do not load more stuff

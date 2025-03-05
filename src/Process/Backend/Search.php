@@ -263,6 +263,7 @@ class Search extends Process
             'limit'      => [(((int) $args['page'] - 1) * (int) $args['nb']), (int) $args['nb']],
             'no_content' => true,
             'order'      => 'post_dt DESC',
+            'post_type'  => '',
         ];
 
         try {
@@ -326,7 +327,9 @@ class Search extends Process
             self::$list->display(
                 (int) $args['page'],
                 (int) $args['nb'],
-                $block
+                $block,
+                false,
+                true
             );
         }
 

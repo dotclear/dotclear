@@ -42,8 +42,9 @@ class BackendList extends Listing
      * @param   int     $page           The page
      * @param   int     $nb_per_page    The number of per page
      * @param   string  $enclose_block  The enclose block
+     * @param   bool    $include_type   Include the post type column
      */
-    public function display(int $page, int $nb_per_page, string $enclose_block = ''): void
+    public function display(int $page, int $nb_per_page, string $enclose_block = '', bool $include_type = false): void
     {
         if ($this->rs->isEmpty()) {
             echo (new Para())
@@ -110,6 +111,15 @@ class BackendList extends Listing
             ->render(),
         ];
 
+        if ($include_type) {
+            $cols = array_merge($cols, [
+                'type' => (new Th())
+                    ->scope('col')
+                    ->text(__('Type'))
+                ->render(),
+            ]);
+        }
+
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminPagesListHeaderV2 -- MetaRecord, ArrayObject
         App::behavior()->callBehavior('adminPagesListHeaderV2', $this->rs, $cols);
@@ -121,7 +131,7 @@ class BackendList extends Listing
         $lines = [];
         $count = 0;
         while ($this->rs->fetch()) {
-            $lines[] = $this->postLine($count, isset($entries[$this->rs->post_id]));
+            $lines[] = $this->postLine($count, isset($entries[$this->rs->post_id]), $include_type);
             $count++;
         }
 
@@ -179,10 +189,11 @@ class BackendList extends Listing
     /**
      * Return a page line.
      *
-     * @param   int     $count      The count
-     * @param   bool    $checked    The checked
+     * @param   int     $count          The count
+     * @param   bool    $checked        The checked
+     * @param   bool    $include_type   Include the post type column
      */
-    private function postLine(int $count, bool $checked): Tr
+    private function postLine(int $count, bool $checked, bool $include_type): Tr
     {
         $img = (new Img('images/%2$s'))
             ->alt('%1$s')
@@ -288,6 +299,18 @@ class BackendList extends Listing
                 ->text($img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach)
             ->render(),
         ];
+
+        if ($include_type) {
+            $cols = array_merge($cols, [
+                'type' => (new Td())
+                    ->class(['nowrap', 'status'])
+                    ->separator(' ')
+                    ->items([
+                        App::postTypes()->image($this->rs->post_type),
+                    ])
+                ->render(),
+            ]);
+        }
 
         $cols = new ArrayObject($cols);
         # --BEHAVIOR-- adminPagesListValueV2 -- MetaRecord, ArrayObject

@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use Dotclear\Helper\Stack\Statuses;
 use Dotclear\Interface\Core\StatusInterface;
 use Dotclear\Schema\Status\Blog;
 use Dotclear\Schema\Status\Comment;

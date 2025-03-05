@@ -11,6 +11,9 @@ declare(strict_types=1);
 namespace Dotclear\Interface\Core;
 
 use Dotclear\Core\PostType;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Text;
 
 /**
  * @brief   Post types handler interface.
@@ -82,6 +85,21 @@ interface PostTypesInterface
     public function getPostAdminURL(string $type, int|string $post_id, bool $escaped = true, array $params = []): string;
 
     /**
+     * Gets a post type icon URI.
+     */
+    public function icon(string $type): string;
+
+    /**
+     * Gets a post type dark icon URI.
+     */
+    public function iconDark(string $type): string;
+
+    /**
+     * Get post type admin image.
+     */
+    public function image(string $type, bool $with_text = false): Text|Img|Set;
+
+    /**
      * Gets the post public URL, the old way.
      *
      * @param   string  $type   The type
@@ -100,8 +118,18 @@ interface PostTypesInterface
      * @param   string  $public_url         The public URL
      * @param   string  $label              The label
      * @param   string  $list_admin_url     The admin URL
+     * @param   string  $icon               The post type icon URI
+     * @param   string  $icon_dark          The post type dark icon URI
      */
-    public function setPostType(string $type, string $admin_url, string $public_url, string $label = '', string $list_admin_url = ''): void;
+    public function setPostType(
+        string $type,
+        string $admin_url,
+        string $public_url,
+        string $label = '',
+        string $list_admin_url = '',
+        string $icon = '',
+        string $icon_dark = '',
+    ): void;
 
     /**
      * Gets the post types, the old way.
