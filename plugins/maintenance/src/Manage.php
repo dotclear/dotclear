@@ -463,7 +463,7 @@ class Manage extends Process
 
             // System tab
             if (App::auth()->isSuperAdmin()) {
-                echo (new Div())
+                echo (new Div('system'))
                     ->class('multi-part')
                     ->title(__('System'))
                     ->items([
