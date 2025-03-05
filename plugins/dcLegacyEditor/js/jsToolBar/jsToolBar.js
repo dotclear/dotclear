@@ -143,6 +143,7 @@ class jsToolBar {
     let b;
     let tool;
     let newTool;
+    let previous = 'space';
 
     for (const i in this.elements) {
       b = this.elements[i];
@@ -155,7 +156,13 @@ class jsToolBar {
 
       if (!disabled && typeof this[b.type] == 'function') {
         tool = this[b.type](i);
-        if (tool) newTool = tool.draw();
+        if (tool) {
+          // Don't display first space in toolbar or if another space following a first one
+          if (b.type !== 'space' || b.type !== previous) {
+            newTool = tool.draw();
+            previous = b.type;
+          }
+        }
         if (newTool) {
           this.toolNodes[i] = newTool; //mémorise l'accès DOM pour usage éventuel ultérieur
           this.toolbar.appendChild(newTool);
