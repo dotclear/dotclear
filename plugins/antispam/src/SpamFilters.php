@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\antispam;
 
-use dcCore;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;

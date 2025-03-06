@@ -1205,7 +1205,7 @@ class Post extends Process
                                                 (new Textarea('tb_urls'))
                                                     ->cols(60)
                                                     ->rows(5)
-                                                    ->default(App::backend()->tb_urls)
+                                                    ->value(App::backend()->tb_urls)
                                                     ->label(new Label(__('URLs to ping:'), Label::OL_TF)),
                                             ]),
                                         (new Para())
@@ -1213,7 +1213,7 @@ class Post extends Process
                                                 (new Textarea('tb_excerpt'))
                                                     ->cols(60)
                                                     ->rows(5)
-                                                    ->default(App::backend()->tb_excerpt)
+                                                    ->value(App::backend()->tb_excerpt)
                                                     ->label(new Label(__('Excerpt to send:'), Label::OL_TF)),
                                             ]),
                                         (new Para())
@@ -1221,7 +1221,6 @@ class Post extends Process
                                             ->items([
                                                 App::nonce()->formNonce(),
                                                 (new Submit('ping', __('Ping blogs'))),
-                                                empty($_GET['tb_auto']) ?
                                                 (new Link())
                                                     ->href(App::backend()->url()->get('admin.post', [
                                                         'id'      => App::backend()->post_id,
@@ -1229,8 +1228,7 @@ class Post extends Process
                                                         'tb'      => 1,
                                                     ]))
                                                     ->text(__('Auto discover ping URLs'))
-                                                    ->class('button') :
-                                                (new None()),
+                                                    ->class('button'),
                                             ]),
                                         $pingsSent(),
                                     ]),
