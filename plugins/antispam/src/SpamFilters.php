@@ -37,8 +37,6 @@ class SpamFilters
     /**
      * Initializes the given filters.
      *
-     * @todo    Remove old dcCore from SpamFilters::init new filter parameters
-     *
      * @param   array<mixed>   $filters    The filters
      */
     public function init(array $filters): void
