@@ -203,7 +203,8 @@ class ManagePostConfig
               CKEDITOR.config.toolbarCanCollapse = $editor_cke_cancollapse_button;
 
               CKEDITOR.config.colorButton_enableMore = $colorButton_enableMore;
-              CKEDITOR.config.colorButton_colors = '$colorButton_colors';
+              if ('$colorButton_colors' !== '')
+                CKEDITOR.config.colorButton_colors = '$colorButton_colors';
               CKEDITOR.config.colorButton_colorsPerRow = $colorButton_colorsPerRow;
 
               CKEDITOR.config.defaultLanguage = dotclear.user_language;
