@@ -211,6 +211,7 @@ class Langs extends Process
                     (new Td())
                         ->class(['maximal', 'nowrap'])
                         ->lang($lang_code)
+                        ->translate(false)
                         ->text('(' . $lang_code . ') ' . (new Text('strong', Html::escapeHTML(App::backend()->iso_codes[$lang_code])))->render()),
                     (new Td())
                         ->class(['action', 'nowrap'])

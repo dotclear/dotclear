@@ -656,6 +656,7 @@ class Post extends Process
                             (new Select('post_lang'))
                                 ->items(App::backend()->lang_combo)
                                 ->default(App::backend()->post_lang)
+                                ->translate(false)
                                 ->label(new Label(__('Entry language'), Label::OUTSIDE_LABEL_BEFORE)),
                         ])
                         ->render(),

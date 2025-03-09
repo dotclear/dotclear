@@ -575,6 +575,7 @@ class ManagePage extends Process
                             (new Select('post_lang'))
                                 ->items(App::backend()->lang_combo)
                                 ->default(App::backend()->post_lang)
+                                ->translate(false)
                                 ->label(new Label(__('Page language'), Label::OUTSIDE_LABEL_BEFORE)),
                         ])
                         ->render(),

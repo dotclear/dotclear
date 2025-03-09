@@ -567,7 +567,7 @@ class UserPreferences extends Process
         '<p class="form-note info" id="sanitize_urls">' . __('Invalid URLs will be automatically removed from list.') . '</p>' .
 
         '<p><label for="user_lang">' . __('Language for my interface:') . '</label>' .
-        form::combo('user_lang', App::backend()->lang_combo, App::backend()->user_lang) . '</p>' .
+        form::combo('user_lang', App::backend()->lang_combo, App::backend()->user_lang, extra_html: 'translate="no"') . '</p>' .
 
         '<p><label for="user_tz">' . __('My timezone:') . '</label>' .
         form::combo('user_tz', Date::getZones(true, true), App::backend()->user_tz) . '</p>';

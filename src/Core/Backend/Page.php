@@ -483,7 +483,8 @@ class Page
                             ->extra('list=menulist')
                             ->label((new Label(__('Search:'), Label::OL_TF))->class('hidden')),
                         (new Hidden(['process'], 'Search')),
-                        (new Submit(['search-ok'], __('OK'))),
+                        (new Submit(['search-ok'], __('OK')))
+                            ->translate(false),
                     ]),
                 (new Text(null, $datalist)),
             ]);

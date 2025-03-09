@@ -585,6 +585,7 @@ class BlogPref extends Process
                             (new Select('lang'))
                                 ->items($data->lang_combo)
                                 ->default((string) $data->blog_settings->system->lang)
+                                ->translate(false)
                                 ->label(new Label(__('Default language:'), Label::IL_TF)),
                         ]),
                     (new Para())

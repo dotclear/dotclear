@@ -52,6 +52,7 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this step(string $step)
  * @method      $this tabindex(int $tabindex)
  * @method      $this title(string $title)
+ * @method      $this translate(bool $translate)
  * @method      $this type(string $type)
  * @method      $this value(string|int|float $value)
  *
@@ -91,6 +92,7 @@ namespace Dotclear\Helper\Html\Form;
  * @property    string $step
  * @property    int $tabindex
  * @property    string $title
+ * @property    bool $translate
  * @property    string $type
  * @property    string|int|float $value
  */
@@ -384,6 +386,7 @@ abstract class Component
      *          step            => string step.
      *          tabindex        => int tabindex.
      *          title           => string title.
+     *          translate       => no if false, yes if true
      *
      *          data            => array data.
      *              [
@@ -478,6 +481,8 @@ abstract class Component
                 ' tabindex="' . strval((int) $this->tabindex) . '"' : '') .
             ($this->title !== null ?
                 ' title="' . $this->title . '"' : '') .
+            ($this->translate !== null ?
+                ' translate="' . ($this->translate ? 'yes' : 'no') . '"' : '') .
 
         '';
 
