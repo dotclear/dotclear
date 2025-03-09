@@ -660,6 +660,7 @@ class ManagePage extends Process
                         'post_password' => (new Para())->items([
                             (new Password('post_password'))
                                 ->class('maximal')
+                                ->value(Html::escapeHTML(App::backend()->post_password))
                                 ->size(10)
                                 ->maxlength(32)
                                 ->label((new Label(__('Password'), Label::OUTSIDE_TEXT_BEFORE))),
