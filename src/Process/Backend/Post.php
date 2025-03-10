@@ -38,7 +38,6 @@ use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
-use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Submit;
@@ -768,7 +767,7 @@ class Post extends Process
                         ->render(),
 
                         'post_password' => (new Para())->items([
-                            (new Password('post_password'))
+                            (new Input('post_password'))
                                 ->class('maximal')
                                 ->value(Html::escapeHTML(App::backend()->post_password))
                                 ->size(10)
