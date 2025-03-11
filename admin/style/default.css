@@ -2868,7 +2868,6 @@ h1 a:link {
   content: ":";
   position: absolute;
   right: 0;
-  bottom: 0;
 }
 
 :is(#favorites-menu, #blog-menu, #system-menu, #plugins-menu) {
