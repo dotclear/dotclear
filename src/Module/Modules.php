@@ -224,7 +224,7 @@ class Modules implements ModulesInterface
             'php'  => phpversion(),
         ];
 
-        $optionnals = [];
+        $optionals = [];
 
         // module has required modules
         if (!empty($module->requires)) {
@@ -236,17 +236,17 @@ class Modules implements ModulesInterface
                 // optionnal minimum dependancy
                 if (str_ends_with((string) $dep[0], '?')) {
                     $dep[0]                                = substr((string) $dep[0], 0, -1);
-                    $optionnals[$module->getId()][$dep[0]] = true;
+                    $optionals[$module->getId()][$dep[0]] = true;
                 }
                 // search required module
                 $found = $this->getDefine($dep[0]);
 
                 // grab missing dependencies
-                if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionnals[$module->getId()][$dep[0]])) {
+                if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionals[$module->getId()][$dep[0]])) {
                     // module not present, nor php or core, nor optionnal
                     $msg = sprintf(__('Requires %s module which is not installed'), $dep[0]);
-                } elseif (($found->isDefined() || isset($special[$dep[0]])) && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->get('version')), $dep[1]) == -1) {
-                    // module present or php or core, but version missing
+                } elseif (($found->isDefined() && $found->get('state') == ModuleDefine::STATE_ENABLED || isset($special[$dep[0]])) && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->get('version')), $dep[1]) == -1) {
+                    // module present and enabled, or php or core, but version missing
                     if ($dep[0] == 'php') {
                         $dep[0] = 'PHP';
                         $dep_v  = $special['php'];
@@ -262,8 +262,8 @@ class Modules implements ModulesInterface
                         $dep[1],
                         $dep_v
                     );
-                } elseif ($found->isDefined() && !isset($special[$dep[0]]) && $found->get('state') != ModuleDefine::STATE_ENABLED) {
-                    // module disabled
+                } elseif ($found->isDefined() && !isset($special[$dep[0]]) && $found->get('state') != ModuleDefine::STATE_ENABLED && !isset($optionals[$module->getId()][$dep[0]])) {
+                    // module not enabled, not php or core, not optionnal
                     $msg = sprintf(__('Requires %s module which is disabled'), $dep[0]);
                 }
                 if ($msg !== '') {
