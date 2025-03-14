@@ -385,7 +385,7 @@ class Config implements ConfigInterface
         }
 
         if (!defined('DC_BACKUP_PATH')) {
-            define('DC_BACKUP_PATH', $this->dotclearRoot());
+            define('DC_BACKUP_PATH', DC_VAR);
         }
 
         if (!defined('DC_START_TIME')) {
