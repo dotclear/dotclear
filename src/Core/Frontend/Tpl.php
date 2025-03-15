@@ -326,14 +326,22 @@ class Tpl extends Template
     }
 
     /**
-     * Return the PHP code to filter a given value.
+     * Gets the current tag.
+     */
+    public function getCurrentTag(): string
+    {
+        return (string) $this->current_tag;
+    }
+
+    /**
+     * Get the filters parameters to use in PHP code.
      *
      * @param      array<string, mixed>|ArrayObject<string, mixed>   $attr     The attributes
      * @param      array<string, mixed>|ArrayObject<string, mixed>   $default  The default filters
      *
-     * @return     string  The filters.
+     * @return     array<int|string, mixed>  The filters' parameters.
      */
-    public function getFilters($attr, $default = []): string
+    public function getFiltersParams($attr, $default = []): array
     {
         $def    = $default instanceof ArrayObject ? $default->getArrayCopy() : $default;
         $params = array_merge(
@@ -361,7 +369,22 @@ class Tpl extends Template
             }
         }
 
-        return Ctx::class . '::global_filters(%s,' . var_export($params, true) . ",'" . addslashes((string) $this->current_tag) . "')";
+        return $params;
+    }
+
+    /**
+     * Return the PHP code to filter a given value.
+     *
+     * @param      array<string, mixed>|ArrayObject<string, mixed>   $attr     The attributes
+     * @param      array<string, mixed>|ArrayObject<string, mixed>   $default  The default filters
+     *
+     * @return     string  The filters.
+     */
+    public function getFilters($attr, $default = []): string
+    {
+        $params = $this->getFiltersParams($attr, $default);
+
+        return Ctx::class . '::global_filters(%s,' . var_export($params, true) . ",'" . addslashes($this->getCurrentTag()) . "')";
     }
 
     /**
