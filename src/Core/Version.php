@@ -57,14 +57,26 @@ class Version implements VersionInterface
 
     public function getVersion(string $module = 'core'): string
     {
-        $this->loadVersions();
-
-        return $this->stack[$module] ?? '';
+        return $this->getVersions()[$module] ?? '';
     }
 
     public function getVersions(): array
     {
-        $this->loadVersions();
+        if (!isset($this->stack)) {
+            $rs = (new SelectStatement())
+                ->columns([
+                    'module',
+                    'version',
+                ])
+                ->from($this->table)
+                ->select();
+
+            if ($rs instanceof MetaRecord) {
+                while ($rs->fetch()) {
+                    $this->stack[(string) $rs->f('module')] = (string) $rs->f('version');
+                }
+            }
+        }
 
         return $this->stack;
     }
@@ -100,37 +112,11 @@ class Version implements VersionInterface
 
     public function compareVersion(string $module, string $version): int
     {
-        $this->loadVersions();
-
         return version_compare($version, $this->getVersion($module));
     }
 
     public function newerVersion(string $module, string $version): bool
     {
-        $this->loadVersions();
-
         return $this->compareVersion($module, $version) === 1;
-    }
-
-    /**
-     * Load versions from database.
-     */
-    private function loadVersions(): void
-    {
-        if (!isset($this->stack)) {
-            $rs = (new SelectStatement())
-                ->columns([
-                    'module',
-                    'version',
-                ])
-                ->from($this->table)
-                ->select();
-
-            if ($rs instanceof MetaRecord) {
-                while ($rs->fetch()) {
-                    $this->stack[(string) $rs->f('module')] = (string) $rs->f('version');
-                }
-            }
-        }
     }
 }
