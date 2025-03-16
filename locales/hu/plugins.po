@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:47\n"
+"POT-Creation-Date: 2025-03-16 11:17+0100\n"
+"PO-Revision-Date: 2025-03-16 10:23\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -669,16 +669,16 @@ msgstr "Szerezd meg a saját API kulcsodat"
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:143
+#: plugins/antispam/src/Antispam.php:144
 msgid "This comment is a spam:"
 msgstr "Ez a megjegyzés egy spam."
 
-#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(%d spam megjegyzést hozzászámolva)"
 
-#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(%d spam megjegyzést hozzászámolva)"
@@ -970,7 +970,7 @@ msgstr "Nincs megnevezés"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "%1$s szűrte (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:157
+#: plugins/antispam/src/SpamFilters.php:153
 msgid "Unknown filter."
 msgstr "Ismeretlen szűrő."
 
@@ -2333,22 +2333,22 @@ msgstr "Az aktuális blog aktív témájának letöltése"
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Hasznos lehet az aktív téma biztonsági mentése minden változtatás vagy frissítés előtt. Ez a téma mappát egyetlen zip-fájlba tömöríti."
 
-#: plugins/pages/src/Backend.php:40
+#: plugins/pages/src/Backend.php:47
 msgid "manage pages"
 msgstr "oldalak kezelése"
 
-#: plugins/pages/src/Backend.php:91
+#: plugins/pages/src/Backend.php:101
 #, php-format
 msgid "%d page"
 msgstr "%d oldal"
 
-#: plugins/pages/src/Backend.php:91
+#: plugins/pages/src/Backend.php:101
 #, php-format
 msgid "%d pages"
 msgstr "%d oldalak"
 
-#: plugins/pages/src/Backend.php:98 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:844
+#: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
+#: plugins/pages/src/ManagePage.php:106 plugins/pages/src/ManagePage.php:834
 msgid "New page"
 msgstr "Új oldal"
 
@@ -2365,15 +2365,15 @@ msgstr "Vissza az oldalak listájához"
 msgid "Selected pages have been successfully reordered."
 msgstr "A kiválasztott oldalakat sikeresen átrendeztük."
 
-#: plugins/pages/src/BackendList.php:51
+#: plugins/pages/src/BackendList.php:52
 msgid "No page"
 msgstr "Nincs oldal"
 
-#: plugins/pages/src/BackendList.php:166 plugins/pages/src/BackendList.php:226
+#: plugins/pages/src/BackendList.php:176 plugins/pages/src/BackendList.php:237
 msgid "Hidden"
 msgstr "Rejtett"
 
-#: plugins/pages/src/BackendList.php:256
+#: plugins/pages/src/BackendList.php:267
 msgid "Select this page"
 msgstr "Válassza ki ezt az oldalt"
 
@@ -2421,60 +2421,60 @@ msgstr "Az oldalak sorrendjének átrendezéséhez mozgassa az elemeket húzáss
 msgid "Save pages order"
 msgstr "Oldalak mentése sorrendben"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:166
 msgid "This page does not exist."
 msgstr "Ez a lap nem létezik."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:844
-#: plugins/pages/src/ManagePage.php:865
+#: plugins/pages/src/ManagePage.php:187 plugins/pages/src/ManagePage.php:834
+#: plugins/pages/src/ManagePage.php:855
 msgid "Edit page"
 msgstr "Oldal szerkesztése"
 
-#: plugins/pages/src/ManagePage.php:468
+#: plugins/pages/src/ManagePage.php:467
 msgid "Are you sure you want to delete this page?"
 msgstr "Biztosan törölni szeretnéd ezt az oldalt?"
 
-#: plugins/pages/src/ManagePage.php:508
+#: plugins/pages/src/ManagePage.php:495
 msgid "Page has been successfully updated."
 msgstr "Az oldalt sikeresen frissítettem."
 
-#: plugins/pages/src/ManagePage.php:510
+#: plugins/pages/src/ManagePage.php:497
 msgid "Page has been successfully created."
 msgstr "Az oldalt sikeresen létrehoztam."
 
-#: plugins/pages/src/ManagePage.php:523
+#: plugins/pages/src/ManagePage.php:510
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Ne felejtse el érvényesíteni a HTML konverziót a hozzászólás mentésével."
 
-#: plugins/pages/src/ManagePage.php:533
+#: plugins/pages/src/ManagePage.php:520
 msgid "Go to this page on the site"
 msgstr "Látogasson el erre az oldalra a honlapon"
 
-#: plugins/pages/src/ManagePage.php:575
+#: plugins/pages/src/ManagePage.php:562
 msgid "Page status"
 msgstr "Oldal állapota:"
 
-#: plugins/pages/src/ManagePage.php:591
+#: plugins/pages/src/ManagePage.php:579
 msgid "Page language"
 msgstr "Oldal nyelve"
 
-#: plugins/pages/src/ManagePage.php:618 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:606 plugins/pages/src/Widgets.php:40
 msgid "Page position"
 msgstr "Oldal elhelyzekdése"
 
-#: plugins/pages/src/ManagePage.php:669
+#: plugins/pages/src/ManagePage.php:657
 msgid "Hide in widget Pages"
 msgstr "Elrejtés widget oldalakon"
 
-#: plugins/pages/src/ManagePage.php:693
+#: plugins/pages/src/ManagePage.php:683
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "FIGYELEM: ha az URL-t manuálisan állítod át, ütközhet egy másik lappal!"
 
-#: plugins/pages/src/ManagePage.php:732
+#: plugins/pages/src/ManagePage.php:722
 msgid "Introduction to the page."
 msgstr "Bevezetés az oldalhoz."
 
-#: plugins/pages/src/ManagePage.php:1146
+#: plugins/pages/src/ManagePage.php:1104
 msgid "Select this comment"
 msgstr "Válassza ki ezt a megjegyzést"
 
@@ -2832,15 +2832,15 @@ msgstr "A címke megjegyzéseinek Atom feed-je"
 msgid "This tag's entries Atom feed"
 msgstr "A címke bejegyzéseinek Atom feed-je"
 
-#: plugins/tags/src/Manage.php:116
+#: plugins/tags/src/Manage.php:117
 msgid "entries"
 msgstr "bejegyzés"
 
-#: plugins/tags/src/Manage.php:116
+#: plugins/tags/src/Manage.php:117
 msgid "entry"
 msgstr "belépés"
 
-#: plugins/tags/src/Manage.php:147
+#: plugins/tags/src/Manage.php:148
 msgid "No tags on this blog."
 msgstr "Nincs címke ezen a blogon"
 
