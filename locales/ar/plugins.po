@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:18\n"
+"POT-Creation-Date: 2025-03-16 11:17+0100\n"
+"PO-Revision-Date: 2025-03-16 10:22\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -669,16 +669,16 @@ msgstr "احصل على مفتاح API الخاص بك"
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:143
+#: plugins/antispam/src/Antispam.php:144
 msgid "This comment is a spam:"
 msgstr "هذا التعليق غير مرغوب فيه:"
 
-#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(بما في ذلك %d تعليق غير مرغوب فيه)"
 
-#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(بما في ذلك %d تعليق غير مرغوب فيه)"
@@ -970,7 +970,7 @@ msgstr "لا يوجد وصف"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "تصفية بواسطة %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:157
+#: plugins/antispam/src/SpamFilters.php:153
 msgid "Unknown filter."
 msgstr "فلتر غير معروف."
 
@@ -2341,22 +2341,22 @@ msgstr "تحميل الموضوع النشط للمدونة الحالية"
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "قد يكون من المفيد النسخ الاحتياطي للموضوع النشط قبل أي تغيير أو تحديث. هذا يضغط على مجلد الموضوع إلى ملف مضغوط واحد."
 
-#: plugins/pages/src/Backend.php:40
+#: plugins/pages/src/Backend.php:47
 msgid "manage pages"
 msgstr "إدارة الصفحات"
 
-#: plugins/pages/src/Backend.php:91
+#: plugins/pages/src/Backend.php:101
 #, php-format
 msgid "%d page"
 msgstr "%d صفحة"
 
-#: plugins/pages/src/Backend.php:91
+#: plugins/pages/src/Backend.php:101
 #, php-format
 msgid "%d pages"
 msgstr "%d صفحات"
 
-#: plugins/pages/src/Backend.php:98 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:844
+#: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
+#: plugins/pages/src/ManagePage.php:106 plugins/pages/src/ManagePage.php:834
 msgid "New page"
 msgstr "صفحة جديدة"
 
@@ -2373,15 +2373,15 @@ msgstr "العودة إلى قائمة الصفحات"
 msgid "Selected pages have been successfully reordered."
 msgstr "تم إعادة ترتيب الصفحات المختارة بنجاح."
 
-#: plugins/pages/src/BackendList.php:51
+#: plugins/pages/src/BackendList.php:52
 msgid "No page"
 msgstr "لا توجد صفحة"
 
-#: plugins/pages/src/BackendList.php:166 plugins/pages/src/BackendList.php:226
+#: plugins/pages/src/BackendList.php:176 plugins/pages/src/BackendList.php:237
 msgid "Hidden"
 msgstr "Hidden"
 
-#: plugins/pages/src/BackendList.php:256
+#: plugins/pages/src/BackendList.php:267
 msgid "Select this page"
 msgstr "حدد هذه الصفحة"
 
@@ -2429,60 +2429,60 @@ msgstr "لإعادة ترتيب ترتيب الصفحات، حرك العناص�
 msgid "Save pages order"
 msgstr "حفظ طلب الصفحات"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:166
 msgid "This page does not exist."
 msgstr "هذه الصفحة غير موجودة."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:844
-#: plugins/pages/src/ManagePage.php:865
+#: plugins/pages/src/ManagePage.php:187 plugins/pages/src/ManagePage.php:834
+#: plugins/pages/src/ManagePage.php:855
 msgid "Edit page"
 msgstr "تحرير الصفحة"
 
-#: plugins/pages/src/ManagePage.php:468
+#: plugins/pages/src/ManagePage.php:467
 msgid "Are you sure you want to delete this page?"
 msgstr "هل أنت متأكد من أنك تريد حذف هذه الصفحة؟"
 
-#: plugins/pages/src/ManagePage.php:508
+#: plugins/pages/src/ManagePage.php:495
 msgid "Page has been successfully updated."
 msgstr "تم تحديث الصفحة بنجاح."
 
-#: plugins/pages/src/ManagePage.php:510
+#: plugins/pages/src/ManagePage.php:497
 msgid "Page has been successfully created."
 msgstr "تم إنشاء الصفحة بنجاح."
 
-#: plugins/pages/src/ManagePage.php:523
+#: plugins/pages/src/ManagePage.php:510
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "لا تنس التحقق من تحويل HTML الخاص بك عن طريق حفظ مشاركتك."
 
-#: plugins/pages/src/ManagePage.php:533
+#: plugins/pages/src/ManagePage.php:520
 msgid "Go to this page on the site"
 msgstr "الذهاب إلى هذه الصفحة على الموقع"
 
-#: plugins/pages/src/ManagePage.php:575
+#: plugins/pages/src/ManagePage.php:562
 msgid "Page status"
 msgstr "حالة الصفحة"
 
-#: plugins/pages/src/ManagePage.php:591
+#: plugins/pages/src/ManagePage.php:579
 msgid "Page language"
 msgstr "لغة الصفحة"
 
-#: plugins/pages/src/ManagePage.php:618 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:606 plugins/pages/src/Widgets.php:40
 msgid "Page position"
 msgstr "موضع الصفحة"
 
-#: plugins/pages/src/ManagePage.php:669
+#: plugins/pages/src/ManagePage.php:657
 msgid "Hide in widget Pages"
 msgstr "إخفاء في صفحات الويدجت"
 
-#: plugins/pages/src/ManagePage.php:693
+#: plugins/pages/src/ManagePage.php:683
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "تحذير: إذا قمت بتعيين عنوان URL يدوياً، قد يتعارض مع صفحة أخرى."
 
-#: plugins/pages/src/ManagePage.php:732
+#: plugins/pages/src/ManagePage.php:722
 msgid "Introduction to the page."
 msgstr "مقدمة للصفحة."
 
-#: plugins/pages/src/ManagePage.php:1146
+#: plugins/pages/src/ManagePage.php:1104
 msgid "Select this comment"
 msgstr "حدد هذا التعليق"
 
@@ -2848,15 +2848,15 @@ msgstr "تعليقات هذه العلامة على تغذية Atom"
 msgid "This tag's entries Atom feed"
 msgstr "إدخالات هذه العلامة إيتوم"
 
-#: plugins/tags/src/Manage.php:116
+#: plugins/tags/src/Manage.php:117
 msgid "entries"
 msgstr "إدخالات"
 
-#: plugins/tags/src/Manage.php:116
+#: plugins/tags/src/Manage.php:117
 msgid "entry"
 msgstr "إدخال"
 
-#: plugins/tags/src/Manage.php:147
+#: plugins/tags/src/Manage.php:148
 msgid "No tags on this blog."
 msgstr "لا توجد علامات في هذه المدونة."
 
