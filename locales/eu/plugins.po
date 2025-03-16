@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:47\n"
+"POT-Creation-Date: 2025-03-16 11:17+0100\n"
+"PO-Revision-Date: 2025-03-16 10:23\n"
 "Last-Translator: \n"
 "Language-Team: Basque\n"
 "Language: eu_ES\n"
@@ -669,16 +669,16 @@ msgstr "Lortu zure API gakoa"
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:143
+#: plugins/antispam/src/Antispam.php:144
 msgid "This comment is a spam:"
 msgstr "Iruzkin hau spam bat da:"
 
-#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "( %d spam iruzkinak barne)"
 
-#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "( %d spam iruzkinak barne)"
@@ -970,7 +970,7 @@ msgstr "Ez dago deskribapenik"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "%1$s (%2$s) arabera iragazita"
 
-#: plugins/antispam/src/SpamFilters.php:157
+#: plugins/antispam/src/SpamFilters.php:153
 msgid "Unknown filter."
 msgstr "Iragazki ezezaguna."
 
@@ -2333,22 +2333,22 @@ msgstr "Deskargatu uneko blogaren gai aktiboa"
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Baliagarria izan daiteke gai aktiboaren babeskopia egitea edozein aldaketa edo eguneratze aurretik. Gaien karpeta hau konprimitu zip fitxategi bakar batean."
 
-#: plugins/pages/src/Backend.php:40
+#: plugins/pages/src/Backend.php:47
 msgid "manage pages"
 msgstr "orriak kudeatu"
 
-#: plugins/pages/src/Backend.php:91
+#: plugins/pages/src/Backend.php:101
 #, php-format
 msgid "%d page"
 msgstr "%d orrialdea"
 
-#: plugins/pages/src/Backend.php:91
+#: plugins/pages/src/Backend.php:101
 #, php-format
 msgid "%d pages"
 msgstr "%d orrialdeak"
 
-#: plugins/pages/src/Backend.php:98 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:844
+#: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
+#: plugins/pages/src/ManagePage.php:106 plugins/pages/src/ManagePage.php:834
 msgid "New page"
 msgstr "Orrialde berria"
 
@@ -2365,15 +2365,15 @@ msgstr "Itzuli orrien zerrendara"
 msgid "Selected pages have been successfully reordered."
 msgstr "Hautatutako orriak behar bezala berrantolatu dira."
 
-#: plugins/pages/src/BackendList.php:51
+#: plugins/pages/src/BackendList.php:52
 msgid "No page"
 msgstr "Orririk ez"
 
-#: plugins/pages/src/BackendList.php:166 plugins/pages/src/BackendList.php:226
+#: plugins/pages/src/BackendList.php:176 plugins/pages/src/BackendList.php:237
 msgid "Hidden"
 msgstr "Ezkutuan"
 
-#: plugins/pages/src/BackendList.php:256
+#: plugins/pages/src/BackendList.php:267
 msgid "Select this page"
 msgstr "Hautatu orrialde hau"
 
@@ -2421,60 +2421,60 @@ msgstr "Orrialdeen ordena berrantolatzeko, mugitu elementuak arrastatu eta jareg
 msgid "Save pages order"
 msgstr "Gorde orrien ordena"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:166
 msgid "This page does not exist."
 msgstr "Orrialde hau ez da existitzen."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:844
-#: plugins/pages/src/ManagePage.php:865
+#: plugins/pages/src/ManagePage.php:187 plugins/pages/src/ManagePage.php:834
+#: plugins/pages/src/ManagePage.php:855
 msgid "Edit page"
 msgstr "Editatu orria"
 
-#: plugins/pages/src/ManagePage.php:468
+#: plugins/pages/src/ManagePage.php:467
 msgid "Are you sure you want to delete this page?"
 msgstr "Ziur orrialde hau ezabatu nahi duzula?"
 
-#: plugins/pages/src/ManagePage.php:508
+#: plugins/pages/src/ManagePage.php:495
 msgid "Page has been successfully updated."
 msgstr "Orria behar bezala eguneratu da."
 
-#: plugins/pages/src/ManagePage.php:510
+#: plugins/pages/src/ManagePage.php:497
 msgid "Page has been successfully created."
 msgstr "Orria behar bezala sortu da."
 
-#: plugins/pages/src/ManagePage.php:523
+#: plugins/pages/src/ManagePage.php:510
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Ez ahaztu zure HTML bihurketa baliozkotzea zure mezua gordez."
 
-#: plugins/pages/src/ManagePage.php:533
+#: plugins/pages/src/ManagePage.php:520
 msgid "Go to this page on the site"
 msgstr "Joan webguneko orrialde honetara"
 
-#: plugins/pages/src/ManagePage.php:575
+#: plugins/pages/src/ManagePage.php:562
 msgid "Page status"
 msgstr "Orriaren egoera"
 
-#: plugins/pages/src/ManagePage.php:591
+#: plugins/pages/src/ManagePage.php:579
 msgid "Page language"
 msgstr "Orriaren hizkuntza"
 
-#: plugins/pages/src/ManagePage.php:618 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:606 plugins/pages/src/Widgets.php:40
 msgid "Page position"
 msgstr "Orriaren kokapena"
 
-#: plugins/pages/src/ManagePage.php:669
+#: plugins/pages/src/ManagePage.php:657
 msgid "Hide in widget Pages"
 msgstr "Ezkutatu widget orrietan"
 
-#: plugins/pages/src/ManagePage.php:693
+#: plugins/pages/src/ManagePage.php:683
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Abisua: URLa eskuz ezartzen baduzu, baliteke beste orri batekin gatazka izatea."
 
-#: plugins/pages/src/ManagePage.php:732
+#: plugins/pages/src/ManagePage.php:722
 msgid "Introduction to the page."
 msgstr "Orrialdearen aurkezpena."
 
-#: plugins/pages/src/ManagePage.php:1146
+#: plugins/pages/src/ManagePage.php:1104
 msgid "Select this comment"
 msgstr "Hautatu iruzkin hau"
 
@@ -2832,15 +2832,15 @@ msgstr "Etiketa honen iruzkinak Atom jarioa"
 msgid "This tag's entries Atom feed"
 msgstr "Etiketa honen sarrerak Atom jarioa"
 
-#: plugins/tags/src/Manage.php:116
+#: plugins/tags/src/Manage.php:117
 msgid "entries"
 msgstr "sarrerak"
 
-#: plugins/tags/src/Manage.php:116
+#: plugins/tags/src/Manage.php:117
 msgid "entry"
 msgstr "sarrera"
 
-#: plugins/tags/src/Manage.php:147
+#: plugins/tags/src/Manage.php:148
 msgid "No tags on this blog."
 msgstr "Ez dago etiketarik blog honetan."
 
