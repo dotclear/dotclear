@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-16 11:12+0100\n"
-"PO-Revision-Date: 2025-03-16 10:22\n"
+"PO-Revision-Date: 2025-03-16 22:20\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -4902,11 +4902,11 @@ msgstr "Rediger indlæg"
 
 #: src/Process/Backend/Post.php:200
 msgid "Next post"
-msgstr ""
+msgstr "Næste indlæg"
 
 #: src/Process/Backend/Post.php:216
 msgid "Previous post"
-msgstr ""
+msgstr "Tidligere indlæg"
 
 #: src/Process/Backend/Post.php:293 src/Process/Backend/Post.php:582
 msgid "All pings sent."
@@ -5063,7 +5063,7 @@ msgstr "Rediger denne kommentar"
 
 #: src/Process/Backend/Post.php:1333
 msgid "Edit this trackback"
-msgstr ""
+msgstr "Rediger dette trackback"
 
 #: src/Process/Backend/PostMedia.php:75
 msgid "This attachment does not exist"
