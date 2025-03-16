@@ -197,7 +197,7 @@ class Post extends Process
                         $next_rs->post_id,
                         'next',
                         Html::escapeHTML(trim(Html::clean($next_rs->post_title))),
-                        __('Next entry') . '&nbsp;&#187;'
+                        __('Next post') . '&nbsp;&#187;'
                     );
                     App::backend()->next_headlink = sprintf(
                         $post_headlink,
@@ -213,7 +213,7 @@ class Post extends Process
                         $prev_rs->post_id,
                         'prev',
                         Html::escapeHTML(trim(Html::clean($prev_rs->post_title))),
-                        '&#171;&nbsp;' . __('Previous entry')
+                        '&#171;&nbsp;' . __('Previous post')
                     );
                     App::backend()->prev_headlink = sprintf(
                         $post_headlink,
