@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:47\n"
+"POT-Creation-Date: 2025-03-16 11:17+0100\n"
+"PO-Revision-Date: 2025-03-16 10:24\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -669,16 +669,16 @@ msgstr "আপনার এপিআই কী (API) নাও"
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:143
+#: plugins/antispam/src/Antispam.php:144
 msgid "This comment is a spam:"
 msgstr "এই মন্তব্যটি একটি স্প্যাম:"
 
-#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(%dটি স্প্যাম মন্তব্য সহ)"
 
-#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(%dটি স্প্যাম মন্তব্য সহ)"
@@ -970,7 +970,7 @@ msgstr "কোনো বর্ণনা নেই"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Filtered by %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:157
+#: plugins/antispam/src/SpamFilters.php:153
 msgid "Unknown filter."
 msgstr "অজানা ফিল্টার."
 
@@ -2333,22 +2333,22 @@ msgstr "বর্তমান ব্লগের সক্রিয় থিম �
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "কোন পরিবর্তন বা আপডেট করার আগে সক্রিয় থিম ব্যাক করার জন্য এটি উপযোগী হতে পারে. এই কম্প্রেস থীম ফোল্ডার একক জিপ ফাইলে."
 
-#: plugins/pages/src/Backend.php:40
+#: plugins/pages/src/Backend.php:47
 msgid "manage pages"
 msgstr "পৃষ্ঠা পরিচালনা করুন"
 
-#: plugins/pages/src/Backend.php:91
+#: plugins/pages/src/Backend.php:101
 #, php-format
 msgid "%d page"
 msgstr "%dটি পৃষ্ঠা"
 
-#: plugins/pages/src/Backend.php:91
+#: plugins/pages/src/Backend.php:101
 #, php-format
 msgid "%d pages"
 msgstr "%d পৃষ্ঠা"
 
-#: plugins/pages/src/Backend.php:98 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:844
+#: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
+#: plugins/pages/src/ManagePage.php:106 plugins/pages/src/ManagePage.php:834
 msgid "New page"
 msgstr "নতুন পৃষ্ঠা"
 
@@ -2365,15 +2365,15 @@ msgstr "পৃষ্ঠা তালিকায় ফিরে যাও"
 msgid "Selected pages have been successfully reordered."
 msgstr "নির্বাচিত পাতাগুলো সফলভাবে পুনরায় অর্ডার করা হয়েছে."
 
-#: plugins/pages/src/BackendList.php:51
+#: plugins/pages/src/BackendList.php:52
 msgid "No page"
 msgstr "কোনো পৃষ্ঠা নেই"
 
-#: plugins/pages/src/BackendList.php:166 plugins/pages/src/BackendList.php:226
+#: plugins/pages/src/BackendList.php:176 plugins/pages/src/BackendList.php:237
 msgid "Hidden"
 msgstr "লুকানো"
 
-#: plugins/pages/src/BackendList.php:256
+#: plugins/pages/src/BackendList.php:267
 msgid "Select this page"
 msgstr "এই পৃষ্ঠা বেছে নিন"
 
@@ -2421,60 +2421,60 @@ msgstr "পৃষ্ঠার শৃঙ্খলা পুনঃবিন্য�
 msgid "Save pages order"
 msgstr "পৃষ্ঠার ক্রম সংরক্ষণ করুন"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:166
 msgid "This page does not exist."
 msgstr "এই পৃষ্ঠাটি বিদ্যমান নেই."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:844
-#: plugins/pages/src/ManagePage.php:865
+#: plugins/pages/src/ManagePage.php:187 plugins/pages/src/ManagePage.php:834
+#: plugins/pages/src/ManagePage.php:855
 msgid "Edit page"
 msgstr "পৃষ্ঠা সম্পাদন করুন"
 
-#: plugins/pages/src/ManagePage.php:468
+#: plugins/pages/src/ManagePage.php:467
 msgid "Are you sure you want to delete this page?"
 msgstr "আপনি কি এই পৃষ্ঠা মুছে ফেলতে চান?"
 
-#: plugins/pages/src/ManagePage.php:508
+#: plugins/pages/src/ManagePage.php:495
 msgid "Page has been successfully updated."
 msgstr "পৃষ্ঠা সফলভাবে হালনাগাদ করা হয়েছে."
 
-#: plugins/pages/src/ManagePage.php:510
+#: plugins/pages/src/ManagePage.php:497
 msgid "Page has been successfully created."
 msgstr "পৃষ্ঠা সফলভাবে তৈরি করা হয়েছে."
 
-#: plugins/pages/src/ManagePage.php:523
+#: plugins/pages/src/ManagePage.php:510
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "আপনার পোস্ট সংরক্ষণ করে আপনার এইচটিএমএল রূপান্তর বৈধতা দিতে ভুলবেন না."
 
-#: plugins/pages/src/ManagePage.php:533
+#: plugins/pages/src/ManagePage.php:520
 msgid "Go to this page on the site"
 msgstr "এই সাইটে এই পৃষ্ঠায় যান"
 
-#: plugins/pages/src/ManagePage.php:575
+#: plugins/pages/src/ManagePage.php:562
 msgid "Page status"
 msgstr "পৃষ্ঠার অবস্থা"
 
-#: plugins/pages/src/ManagePage.php:591
+#: plugins/pages/src/ManagePage.php:579
 msgid "Page language"
 msgstr "পৃষ্ঠা ভাষা"
 
-#: plugins/pages/src/ManagePage.php:618 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:606 plugins/pages/src/Widgets.php:40
 msgid "Page position"
 msgstr "পৃষ্ঠার অবস্থান"
 
-#: plugins/pages/src/ManagePage.php:669
+#: plugins/pages/src/ManagePage.php:657
 msgid "Hide in widget Pages"
 msgstr "উইজেট পেজে আড়াল করো"
 
-#: plugins/pages/src/ManagePage.php:693
+#: plugins/pages/src/ManagePage.php:683
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "সতর্কবাণী: আপনি যদি ইউআরএল আস্তে আস্তে সেট করেন, তবে এটি অন্য পাতার সাথে দ্বন্দ্ব হতে পারে."
 
-#: plugins/pages/src/ManagePage.php:732
+#: plugins/pages/src/ManagePage.php:722
 msgid "Introduction to the page."
 msgstr "পৃষ্ঠার ভূমিকা."
 
-#: plugins/pages/src/ManagePage.php:1146
+#: plugins/pages/src/ManagePage.php:1104
 msgid "Select this comment"
 msgstr "এই মন্তব্যটি বেছে নিন"
 
@@ -2832,15 +2832,15 @@ msgstr "এই ট্যাগের মন্তব্যের এটম ফ�
 msgid "This tag's entries Atom feed"
 msgstr "এই ট্যাগের এন্ট্রি এটম ফিড"
 
-#: plugins/tags/src/Manage.php:116
+#: plugins/tags/src/Manage.php:117
 msgid "entries"
 msgstr "এন্ট্রি"
 
-#: plugins/tags/src/Manage.php:116
+#: plugins/tags/src/Manage.php:117
 msgid "entry"
 msgstr "এন্ট্রি"
 
-#: plugins/tags/src/Manage.php:147
+#: plugins/tags/src/Manage.php:148
 msgid "No tags on this blog."
 msgstr "এই ব্লগে কোন ট্যাগ নেই."
 
