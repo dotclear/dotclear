@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:47\n"
+"POT-Creation-Date: 2025-03-16 11:17+0100\n"
+"PO-Revision-Date: 2025-03-16 10:24\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -669,16 +669,16 @@ msgstr "Dapatkan kunci API Anda sendiri"
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:143
+#: plugins/antispam/src/Antispam.php:144
 msgid "This comment is a spam:"
 msgstr "Komentar ini adalah spam:"
 
-#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(termasuk komentar spam %d)"
 
-#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(termasuk komentar spam %d)"
@@ -970,7 +970,7 @@ msgstr "Tidak ada deskripsi"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Disaring oleh %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:157
+#: plugins/antispam/src/SpamFilters.php:153
 msgid "Unknown filter."
 msgstr "Filter tidak dikenal."
 
@@ -2331,22 +2331,22 @@ msgstr "Unduh tema aktif dari blog saat ini"
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Mungkin berguna untuk membuat cadangan tema yang aktif sebelum melakukan perubahan atau pembaruan. Ini memampatkan folder tema menjadi satu file zip."
 
-#: plugins/pages/src/Backend.php:40
+#: plugins/pages/src/Backend.php:47
 msgid "manage pages"
 msgstr "mengelola halaman"
 
-#: plugins/pages/src/Backend.php:91
+#: plugins/pages/src/Backend.php:101
 #, php-format
 msgid "%d page"
 msgstr "%d halaman"
 
-#: plugins/pages/src/Backend.php:91
+#: plugins/pages/src/Backend.php:101
 #, php-format
 msgid "%d pages"
 msgstr "%d halaman"
 
-#: plugins/pages/src/Backend.php:98 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:844
+#: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
+#: plugins/pages/src/ManagePage.php:106 plugins/pages/src/ManagePage.php:834
 msgid "New page"
 msgstr "Halaman baru"
 
@@ -2363,15 +2363,15 @@ msgstr "Kembali ke daftar halaman"
 msgid "Selected pages have been successfully reordered."
 msgstr "Halaman yang dipilih telah berhasil disusun ulang."
 
-#: plugins/pages/src/BackendList.php:51
+#: plugins/pages/src/BackendList.php:52
 msgid "No page"
 msgstr "Tidak ada halaman"
 
-#: plugins/pages/src/BackendList.php:166 plugins/pages/src/BackendList.php:226
+#: plugins/pages/src/BackendList.php:176 plugins/pages/src/BackendList.php:237
 msgid "Hidden"
 msgstr "Tersembunyi"
 
-#: plugins/pages/src/BackendList.php:256
+#: plugins/pages/src/BackendList.php:267
 msgid "Select this page"
 msgstr "Pilih halaman ini"
 
@@ -2419,60 +2419,60 @@ msgstr "Untuk mengatur ulang urutan halaman, pindahkan item dengan menyeret dan 
 msgid "Save pages order"
 msgstr "Simpan urutan halaman"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:166
 msgid "This page does not exist."
 msgstr "Halaman ini tidak ada."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:844
-#: plugins/pages/src/ManagePage.php:865
+#: plugins/pages/src/ManagePage.php:187 plugins/pages/src/ManagePage.php:834
+#: plugins/pages/src/ManagePage.php:855
 msgid "Edit page"
 msgstr "Halaman edit"
 
-#: plugins/pages/src/ManagePage.php:468
+#: plugins/pages/src/ManagePage.php:467
 msgid "Are you sure you want to delete this page?"
 msgstr "Apakah Anda yakin ingin menghapus halaman ini?"
 
-#: plugins/pages/src/ManagePage.php:508
+#: plugins/pages/src/ManagePage.php:495
 msgid "Page has been successfully updated."
 msgstr "Halaman telah berhasil diperbarui."
 
-#: plugins/pages/src/ManagePage.php:510
+#: plugins/pages/src/ManagePage.php:497
 msgid "Page has been successfully created."
 msgstr "Halaman telah berhasil dibuat."
 
-#: plugins/pages/src/ManagePage.php:523
+#: plugins/pages/src/ManagePage.php:510
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Jangan lupa untuk memvalidasi konversi HTML Anda dengan menyimpan postingan Anda."
 
-#: plugins/pages/src/ManagePage.php:533
+#: plugins/pages/src/ManagePage.php:520
 msgid "Go to this page on the site"
 msgstr "Buka halaman ini di situs"
 
-#: plugins/pages/src/ManagePage.php:575
+#: plugins/pages/src/ManagePage.php:562
 msgid "Page status"
 msgstr "Status halaman"
 
-#: plugins/pages/src/ManagePage.php:591
+#: plugins/pages/src/ManagePage.php:579
 msgid "Page language"
 msgstr "Bahasa halaman"
 
-#: plugins/pages/src/ManagePage.php:618 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:606 plugins/pages/src/Widgets.php:40
 msgid "Page position"
 msgstr "Posisi halaman"
 
-#: plugins/pages/src/ManagePage.php:669
+#: plugins/pages/src/ManagePage.php:657
 msgid "Hide in widget Pages"
 msgstr "Menyembunyikan di halaman widget"
 
-#: plugins/pages/src/ManagePage.php:693
+#: plugins/pages/src/ManagePage.php:683
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Peringatan: Jika Anda mengatur URL secara manual, URL tersebut mungkin bertentangan dengan halaman lain."
 
-#: plugins/pages/src/ManagePage.php:732
+#: plugins/pages/src/ManagePage.php:722
 msgid "Introduction to the page."
 msgstr "Pengantar ke halaman."
 
-#: plugins/pages/src/ManagePage.php:1146
+#: plugins/pages/src/ManagePage.php:1104
 msgid "Select this comment"
 msgstr "Pilih komentar ini"
 
@@ -2828,15 +2828,15 @@ msgstr "Komentar tag ini Umpan atom Umpan atom"
 msgid "This tag's entries Atom feed"
 msgstr "Entri tag ini Umpan atom"
 
-#: plugins/tags/src/Manage.php:116
+#: plugins/tags/src/Manage.php:117
 msgid "entries"
 msgstr "entri"
 
-#: plugins/tags/src/Manage.php:116
+#: plugins/tags/src/Manage.php:117
 msgid "entry"
 msgstr "entri"
 
-#: plugins/tags/src/Manage.php:147
+#: plugins/tags/src/Manage.php:148
 msgid "No tags on this blog."
 msgstr "Tidak ada tag di blog ini."
 
