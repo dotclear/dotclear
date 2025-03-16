@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-13 11:40+0100\n"
-"PO-Revision-Date: 2025-02-13 10:56\n"
+"POT-Creation-Date: 2025-03-16 11:12+0100\n"
+"PO-Revision-Date: 2025-03-16 10:22\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
@@ -38,9 +38,9 @@ msgstr "quadrat"
 #: inc/core/_fake_l10n.php:13 src/Core/Backend/Action/Actions.php:139
 #: src/Core/Backend/Action/ActionsPosts.php:65
 #: src/Core/Backend/Action/ActionsPosts.php:72
-#: src/Core/Backend/Favorites.php:421 src/Core/Backend/Menus.php:167
+#: src/Core/Backend/Favorites.php:425 src/Core/Backend/Menus.php:167
 #: src/Core/Backend/UserPref.php:41 src/Core/Backend/UserPref.php:178
-#: src/Process/Backend/Post.php:532 src/Process/Backend/Post.php:546
+#: src/Process/Backend/Post.php:545 src/Process/Backend/Post.php:559
 #: src/Process/Backend/Posts.php:93 src/Process/Backend/Posts.php:98
 msgid "Posts"
 msgstr "Publicacions"
@@ -91,10 +91,10 @@ msgstr "Aquesta clau no existeix en la base de dades."
 
 #: src/Core/Backend/Action/Actions.php:138
 #: src/Core/Backend/Action/ActionsComments.php:158
-#: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:72
+#: src/Core/Backend/Combos.php:271 src/Core/Backend/Listing/ListingPosts.php:73
 #: src/Core/Backend/Listing/ListingPostsMini.php:60
-#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:526
-#: src/Process/Backend/MediaItem.php:1090 src/Process/Backend/Post.php:713
+#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Home.php:542
+#: src/Process/Backend/MediaItem.php:1090 src/Process/Backend/Post.php:808
 msgid "Title"
 msgstr "Títol"
 
@@ -102,7 +102,7 @@ msgstr "Títol"
 #: src/Core/Backend/Action/ActionsBlogs.php:72
 #: src/Core/Backend/Action/ActionsBlogs.php:79
 #: src/Core/Backend/Action/ActionsBlogs.php:117
-#: src/Core/Backend/Favorites.php:498 src/Core/Backend/Menus.php:244
+#: src/Core/Backend/Favorites.php:502 src/Core/Backend/Menus.php:244
 #: src/Core/Backend/UserPref.php:75 src/Core/Backend/UserPref.php:192
 #: src/Process/Backend/Blog.php:99 src/Process/Backend/BlogDel.php:93
 #: src/Process/Backend/BlogPref.php:459
@@ -137,12 +137,12 @@ msgstr "Nom del blog"
 #: src/Core/Backend/Combos.php:329
 #: src/Core/Backend/Listing/ListingBlogs.php:102
 #: src/Core/Backend/Listing/ListingComments.php:130
-#: src/Core/Backend/Listing/ListingPosts.php:114
+#: src/Core/Backend/Listing/ListingPosts.php:115
 #: src/Core/Backend/Listing/ListingPostsMini.php:72
 #: src/Core/Backend/Listing/ListingUsers.php:90
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
-#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:618
-#: src/Process/Backend/Post.php:1066 src/Process/Backend/Users.php:44
+#: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:636
+#: src/Process/Backend/Post.php:1360 src/Process/Backend/Users.php:44
 #: src/Process/Backend/UsersActions.php:286
 msgid "Status"
 msgstr "Estat"
@@ -156,8 +156,8 @@ msgstr "Estat"
 #: src/Core/Backend/Listing/ListingMedia.php:303
 #: src/Core/Backend/Listing/ListingMedia.php:306
 #: src/Core/Backend/ModulesList.php:1326 src/Core/Upgrade/PluginsList.php:123
-#: src/Process/Backend/Comment.php:355 src/Process/Backend/Langs.php:228
-#: src/Process/Backend/Post.php:802 src/Process/Backend/Users.php:45
+#: src/Process/Backend/Comment.php:351 src/Process/Backend/Langs.php:229
+#: src/Process/Backend/Post.php:932 src/Process/Backend/Users.php:45
 #: src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "Suprimir"
@@ -181,7 +181,7 @@ msgid "Password verification failed"
 msgstr "La verificació de la contrasenya ha fallat"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:110
-#: src/Process/Backend/BlogPref.php:1194
+#: src/Process/Backend/BlogPref.php:1195
 msgid "The current blog cannot be deleted."
 msgstr "El bloc actual no es pot suprimir."
 
@@ -196,13 +196,13 @@ msgstr[1] "%d blocs s'han suprimit correctament"
 #: src/Core/Backend/Action/ActionsComments.php:72
 #: src/Core/Backend/Action/ActionsComments.php:79
 #: src/Core/Backend/Action/ActionsComments.php:117
-#: src/Core/Backend/Favorites.php:436
-#: src/Core/Backend/Listing/ListingPosts.php:91
-#: src/Core/Backend/Listing/ListingPosts.php:94
-#: src/Core/Backend/Listing/ListingPosts.php:95 src/Core/Backend/Menus.php:154
+#: src/Core/Backend/Favorites.php:440
+#: src/Core/Backend/Listing/ListingPosts.php:92
+#: src/Core/Backend/Listing/ListingPosts.php:95
+#: src/Core/Backend/Listing/ListingPosts.php:96 src/Core/Backend/Menus.php:154
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
-#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:851
-#: src/Process/Backend/Post.php:860
+#: src/Core/Backend/UserPref.php:185 src/Process/Backend/Post.php:1008
+#: src/Process/Backend/Post.php:1035
 msgid "Comments"
 msgstr "Comentaris"
 
@@ -217,11 +217,11 @@ msgstr "Comenta accions"
 #: src/Core/Backend/Action/ActionsComments.php:156
 #: src/Core/Backend/Combos.php:273 src/Core/Backend/Combos.php:296
 #: src/Core/Backend/Listing/ListingComments.php:120
-#: src/Core/Backend/Listing/ListingPosts.php:84
+#: src/Core/Backend/Listing/ListingPosts.php:85
 #: src/Core/Backend/Listing/ListingPostsMini.php:68
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
-#: src/Process/Backend/Comment.php:295 src/Process/Backend/Post.php:895
-#: src/Process/Backend/Post.php:1063
+#: src/Process/Backend/Comment.php:291 src/Process/Backend/Post.php:1070
+#: src/Process/Backend/Post.php:1351
 msgid "Author"
 msgstr "Autor"
 
@@ -234,7 +234,7 @@ msgid "Blocklist IP (global)"
 msgstr "IP de llista de bloqueig (global)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:68
-#: src/Process/Backend/Post.php:1065
+#: src/Process/Backend/Post.php:1357
 msgid "IP address"
 msgstr "Adreça IP"
 
@@ -361,7 +361,7 @@ msgstr[1] "%d entrades s'han suprimit correctament"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:314
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:120
-#: src/Core/Backend/Listing/ListingPosts.php:238
+#: src/Core/Backend/Listing/ListingPosts.php:249
 msgid "(No cat)"
 msgstr "(Sense gat)"
 
@@ -377,8 +377,8 @@ msgid "Change category for this selection"
 msgstr "Canviar la categoria per les entrades"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:351
-#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:552
-#: src/Process/Backend/Post.php:653
+#: src/Core/Backend/Filter/FilterPosts.php:131 src/Process/Backend/Home.php:568
+#: src/Process/Backend/Post.php:699
 msgid "Category:"
 msgstr "Categoria:"
 
@@ -387,26 +387,26 @@ msgid "Create a new category for the post(s)"
 msgstr "Crea una categoria nova per a les publicacions"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:368
-#: src/Process/Backend/Home.php:530 src/Process/Backend/Home.php:564
+#: src/Process/Backend/Home.php:546 src/Process/Backend/Home.php:580
 #: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1230
-#: src/Process/Backend/Post.php:661 src/Process/Backend/Post.php:709
+#: src/Process/Backend/Post.php:712 src/Process/Backend/Post.php:813
 msgid "Title:"
 msgstr "Títol:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:377
 #: src/Process/Backend/Category.php:267 src/Process/Backend/Category.php:325
-#: src/Process/Backend/Home.php:571 src/Process/Backend/Post.php:663
+#: src/Process/Backend/Home.php:587 src/Process/Backend/Post.php:719
 msgid "Parent:"
 msgstr "Pare:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:392
 #: src/Core/Backend/Action/ActionsPostsDefault.php:497
 #: src/Core/Backend/Action/ActionsPostsDefault.php:581
-#: src/Core/Backend/ModulesList.php:1955 src/Process/Backend/BlogPref.php:1169
+#: src/Core/Backend/ModulesList.php:1955 src/Process/Backend/BlogPref.php:1170
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
-#: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:350
-#: src/Process/Backend/Home.php:581 src/Process/Backend/MediaItem.php:1270
-#: src/Process/Backend/Post.php:780 src/Process/Backend/Post.php:920
+#: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:346
+#: src/Process/Backend/Home.php:597 src/Process/Backend/MediaItem.php:1270
+#: src/Process/Backend/Post.php:897 src/Process/Backend/Post.php:1114
 #: src/Process/Backend/User.php:447 src/Process/Backend/UsersActions.php:405
 #: src/Process/Install/Install.php:479
 msgid "Save"
@@ -471,21 +471,21 @@ msgstr "Ascendent"
 #: src/Core/Backend/Combos.php:270 src/Core/Backend/Combos.php:293
 #: src/Core/Backend/Listing/ListingComments.php:125
 #: src/Core/Backend/Listing/ListingMedia.php:125
-#: src/Core/Backend/Listing/ListingPosts.php:76
+#: src/Core/Backend/Listing/ListingPosts.php:77
 #: src/Core/Backend/Listing/ListingPostsMini.php:64
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
-#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1064
+#: src/Core/Backend/UserPref.php:203 src/Process/Backend/Post.php:1353
 msgid "Date"
 msgstr "Data"
 
-#: src/Core/Backend/Combos.php:272 src/Core/Backend/Listing/ListingPosts.php:80
-#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:652
+#: src/Core/Backend/Combos.php:272 src/Core/Backend/Listing/ListingPosts.php:81
+#: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:691
 msgid "Category"
 msgstr "Categoria"
 
 #: src/Core/Backend/Combos.php:275 src/Core/Backend/Filter/FilterPosts.php:200
-#: src/Core/Backend/Listing/ListingPosts.php:187
-#: src/Core/Backend/Listing/ListingPosts.php:220
+#: src/Core/Backend/Listing/ListingPosts.php:197
+#: src/Core/Backend/Listing/ListingPosts.php:231
 #: src/Core/Backend/Listing/ListingPostsMini.php:133
 msgid "Selected"
 msgstr "Seleccionat"
@@ -524,7 +524,7 @@ msgid "Last update"
 msgstr "Última actualització"
 
 #: src/Core/Backend/Combos.php:328 src/Process/Backend/Blog.php:123
-#: src/Process/Backend/BlogPref.php:1027
+#: src/Process/Backend/BlogPref.php:1028
 #: src/Process/Backend/UsersActions.php:282
 msgid "Blog ID"
 msgstr "Identificador del blog"
@@ -553,51 +553,51 @@ msgstr "Pseudònim"
 msgid "Number of entries"
 msgstr "Nombre d'entrades"
 
-#: src/Core/Backend/Favorites.php:302
+#: src/Core/Backend/Favorites.php:299
 #: src/Process/Backend/UserPreferences.php:807
 msgid "My favorites"
 msgstr "Els meus favorits"
 
-#: src/Core/Backend/Favorites.php:404 src/Core/Backend/Menus.php:194
+#: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:194
 #: src/Core/Backend/Page.php:380 src/Process/Backend/Media.php:744
 #: src/Process/Backend/UserPreferences.php:42
 msgid "My preferences"
 msgstr "Les meves preferències"
 
-#: src/Core/Backend/Favorites.php:410 src/Core/Backend/Menus.php:180
-#: src/Process/Backend/Home.php:515 src/Process/Backend/Post.php:73
-#: src/Process/Backend/Post.php:762 src/Process/Backend/Posts.php:114
+#: src/Core/Backend/Favorites.php:414 src/Core/Backend/Menus.php:180
+#: src/Process/Backend/Home.php:531 src/Process/Backend/Post.php:96
+#: src/Process/Backend/Post.php:943 src/Process/Backend/Posts.php:114
 msgid "New post"
 msgstr "Nova entrada"
 
-#: src/Core/Backend/Favorites.php:431 src/Process/Backend/Rest.php:79
+#: src/Core/Backend/Favorites.php:435 src/Process/Backend/Rest.php:79
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
 msgstr[0] "%d publicació"
 msgstr[1] "%d publicacions"
 
-#: src/Core/Backend/Favorites.php:446 src/Process/Backend/Rest.php:93
+#: src/Core/Backend/Favorites.php:450 src/Process/Backend/Rest.php:93
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d comentari"
 msgstr[1] "%d comentaris"
 
-#: src/Core/Backend/Favorites.php:451 src/Core/Backend/Menus.php:141
+#: src/Core/Backend/Favorites.php:455 src/Core/Backend/Menus.php:141
 #: src/Core/Backend/UserPref.php:212 src/Process/Backend/PostsPopup.php:139
 #: src/Process/Backend/Search.php:158 src/Process/Backend/Search.php:163
 #: src/Process/Backend/Search.php:194
 msgid "Search"
 msgstr "Cerca"
 
-#: src/Core/Backend/Favorites.php:461 src/Core/Backend/Menus.php:129
+#: src/Core/Backend/Favorites.php:465 src/Core/Backend/Menus.php:129
 #: src/Process/Backend/Categories.php:156
 #: src/Process/Backend/Categories.php:161 src/Process/Backend/Category.php:211
 msgid "Categories"
 msgstr "Categories"
 
-#: src/Core/Backend/Favorites.php:470 src/Core/Backend/MediaPage.php:354
+#: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
 #: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:777
@@ -605,21 +605,21 @@ msgstr "Categories"
 msgid "Media manager"
 msgstr "Gestor de media"
 
-#: src/Core/Backend/Favorites.php:480 src/Core/Backend/Menus.php:104
+#: src/Core/Backend/Favorites.php:484 src/Core/Backend/Menus.php:104
 #: src/Process/Backend/BlogPref.php:452 src/Process/Backend/BlogPref.php:460
 #: src/Process/Backend/BlogPref.php:473
 msgid "Blog settings"
 msgstr "Paràmetres del blog"
 
-#: src/Core/Backend/Favorites.php:489 src/Core/Backend/Menus.php:92
+#: src/Core/Backend/Favorites.php:493 src/Core/Backend/Menus.php:92
 #: src/Process/Backend/BlogTheme.php:95 src/Process/Backend/BlogTheme.php:104
 #: src/Process/Backend/BlogTheme.php:176
 msgid "Blog appearance"
 msgstr "Aparició al bloc"
 
-#: src/Core/Backend/Favorites.php:508 src/Core/Backend/Menus.php:234
+#: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
-#: src/Process/Backend/BlogPref.php:1359 src/Process/Backend/User.php:253
+#: src/Process/Backend/BlogPref.php:1360 src/Process/Backend/User.php:253
 #: src/Process/Backend/Users.php:103 src/Process/Backend/Users.php:108
 #: src/Process/Backend/UsersActions.php:203
 #: src/Process/Backend/UsersActions.php:211
@@ -627,41 +627,41 @@ msgstr "Aparició al bloc"
 msgid "Users"
 msgstr "Usuaris"
 
-#: src/Core/Backend/Favorites.php:514 src/Core/Backend/Menus.php:224
+#: src/Core/Backend/Favorites.php:518 src/Core/Backend/Menus.php:224
 #: src/Process/Backend/Plugins.php:103 src/Process/Backend/Plugins.php:116
 #: src/Process/Backend/Plugins.php:369 src/Process/Backend/Plugins.php:376
 #: src/Process/Upgrade/Plugins.php:146 src/Process/Upgrade/Plugins.php:156
 msgid "Plugins management"
 msgstr "Gestió de les extensions"
 
-#: src/Core/Backend/Favorites.php:520 src/Core/Backend/Menus.php:214
+#: src/Core/Backend/Favorites.php:524 src/Core/Backend/Menus.php:214
 #: src/Core/Upgrade/Utility.php:291
 msgid "Languages"
 msgstr "Idiomes"
 
-#: src/Core/Backend/Favorites.php:526 src/Core/Backend/Page.php:456
+#: src/Core/Backend/Favorites.php:530 src/Core/Backend/Page.php:456
 #: src/Core/Backend/Page.php:457 src/Process/Backend/Help.php:108
 #: src/Process/Backend/Help.php:115 src/Process/Backend/Help.php:121
 msgid "Global help"
 msgstr "Ajuda global"
 
-#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1255
-#: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1339
-#: src/Process/Backend/Comment.php:307 src/Process/Backend/Post.php:899
+#: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1256
+#: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1340
+#: src/Process/Backend/Comment.php:303 src/Process/Backend/Post.php:1083
 #: src/Process/Backend/User.php:371 src/Process/Backend/UserPreferences.php:540
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "Correu electrònic:"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1254
-#: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:903
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1255
+#: src/Process/Backend/Comment.php:318 src/Process/Backend/Post.php:1092
 msgid "Web site:"
 msgstr "Lloc Web :"
 
 #: src/Core/Backend/Filter/FilterComments.php:57
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:1043 src/Core/Backend/Page.php:1296
-#: src/Process/Backend/Comment.php:297
+#: src/Core/Backend/ModulesList.php:1043 src/Core/Backend/Page.php:1297
+#: src/Process/Backend/Comment.php:293
 msgid "Author:"
 msgstr "Autor :"
 
@@ -670,7 +670,7 @@ msgid "Type:"
 msgstr "Tipus:"
 
 #: src/Core/Backend/Filter/FilterComments.php:72
-#: src/Process/Backend/Post.php:913
+#: src/Process/Backend/Post.php:1102 src/Process/Backend/Post.php:1105
 msgid "Comment"
 msgstr "Comenta"
 
@@ -679,7 +679,7 @@ msgid "Trackback"
 msgstr "Trackback"
 
 #: src/Core/Backend/Filter/FilterComments.php:106
-#: src/Core/Backend/Page.php:1256 src/Process/Backend/Comment.php:273
+#: src/Core/Backend/Page.php:1257 src/Process/Backend/Comment.php:269
 msgid "IP address:"
 msgstr "Adreça IP :"
 
@@ -792,7 +792,7 @@ msgstr "Desa les opcions actuals"
 msgid "Display options"
 msgstr "Opcions de visualització"
 
-#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1462
+#: src/Core/Backend/Filter/Filters.php:422 src/Core/Backend/Page.php:1463
 msgid "Show filters and display options"
 msgstr "Mostra filtres i opcions de visualització"
 
@@ -847,7 +847,7 @@ msgstr "Llista de blocs"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:139
 #: src/Core/Backend/Listing/ListingComments.php:179
-#: src/Core/Backend/Listing/ListingPosts.php:182
+#: src/Core/Backend/Listing/ListingPosts.php:192
 #: src/Core/Backend/Listing/ListingUsers.php:131
 msgid "Legend: "
 msgstr "Llegenda: "
@@ -868,7 +868,7 @@ msgid "Switch to blog %s"
 msgstr "Passar al blog %s"
 
 #: src/Core/Backend/Listing/ListingComments.php:53
-#: src/Process/Backend/Comment.php:151 src/Process/Backend/Post.php:865
+#: src/Process/Backend/Comment.php:151 src/Process/Backend/Post.php:1012
 msgid "No comments"
 msgstr "Sense comentaris"
 
@@ -889,6 +889,7 @@ msgid "List of comments and trackbacks (%s)"
 msgstr "Llista de comentaris i trackbacks (%s)"
 
 #: src/Core/Backend/Listing/ListingComments.php:115
+#: src/Core/Backend/Listing/ListingPosts.php:123
 msgid "Type"
 msgstr "Tipus"
 
@@ -914,7 +915,7 @@ msgstr "resposta"
 
 #: src/Core/Backend/Listing/ListingComments.php:237
 #: src/Core/Backend/Listing/ListingComments.php:240
-#: src/Process/Backend/Post.php:1067 src/Process/Backend/Post.php:1115
+#: src/Process/Backend/Post.php:1337 src/Process/Backend/Post.php:1362
 msgid "Edit"
 msgstr "Edita"
 
@@ -982,57 +983,58 @@ msgstr "mitjans privats"
 msgid "open"
 msgstr "Obrir"
 
-#: src/Core/Backend/Listing/ListingPosts.php:52
+#: src/Core/Backend/Listing/ListingPosts.php:53
 #: src/Core/Backend/Listing/ListingPostsMini.php:48
 msgid "No entry"
 msgstr "Cap entrada"
 
-#: src/Core/Backend/Listing/ListingPosts.php:52
+#: src/Core/Backend/Listing/ListingPosts.php:53
 msgid "No entry matches the filter"
 msgstr "Cap entrada coincideix amb el filtre"
 
-#: src/Core/Backend/Listing/ListingPosts.php:104
-#: src/Core/Backend/Listing/ListingPosts.php:107
+#: src/Core/Backend/Listing/ListingPosts.php:105
 #: src/Core/Backend/Listing/ListingPosts.php:108
-#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:943
+#: src/Core/Backend/Listing/ListingPosts.php:109
+#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1140
+#: src/Process/Backend/Post.php:1188
 msgid "Trackbacks"
 msgstr "Respostes"
 
-#: src/Core/Backend/Listing/ListingPosts.php:133
+#: src/Core/Backend/Listing/ListingPosts.php:143
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
 msgstr[0] "Llista de %s entrada que coincideix amb el filtre."
 msgstr[1] "Llista de %s entrades que coincideixen amb el filtre."
 
-#: src/Core/Backend/Listing/ListingPosts.php:138
+#: src/Core/Backend/Listing/ListingPosts.php:148
 #, php-format
 msgid "List of entries (%s)"
 msgstr "Llista d'entrades (%s)"
 
-#: src/Core/Backend/Listing/ListingPosts.php:186
-#: src/Core/Backend/Listing/ListingPosts.php:217
+#: src/Core/Backend/Listing/ListingPosts.php:196
+#: src/Core/Backend/Listing/ListingPosts.php:228
 #: src/Core/Backend/Listing/ListingPostsMini.php:130
 msgid "Protected"
 msgstr "Protegit"
 
-#: src/Core/Backend/Listing/ListingPosts.php:188
+#: src/Core/Backend/Listing/ListingPosts.php:198
 msgid "Attachments"
 msgstr "Adjunts"
 
-#: src/Core/Backend/Listing/ListingPosts.php:224
+#: src/Core/Backend/Listing/ListingPosts.php:235
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 #, php-format
 msgid "%d attachment"
 msgstr "%d annex"
 
-#: src/Core/Backend/Listing/ListingPosts.php:224
+#: src/Core/Backend/Listing/ListingPosts.php:235
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 #, php-format
 msgid "%d attachments"
 msgstr "%d annexos"
 
-#: src/Core/Backend/Listing/ListingPosts.php:248
+#: src/Core/Backend/Listing/ListingPosts.php:259
 msgid "Select this post"
 msgstr "Selecciona aquesta publicació"
 
@@ -1102,9 +1104,8 @@ msgstr "Pàgina d'accés directe:"
 
 #: src/Core/Backend/Listing/Pager.php:183 src/Core/Backend/Page.php:168
 #: src/Process/Backend/Blogs.php:150 src/Process/Backend/Comments.php:218
-#: src/Process/Backend/Post.php:878 src/Process/Backend/Post.php:971
-#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:314
-#: src/Process/Backend/Search.php:408 src/Process/Backend/Users.php:160
+#: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:315
+#: src/Process/Backend/Search.php:411 src/Process/Backend/Users.php:160
 msgid "ok"
 msgstr "D'acord"
 
@@ -1193,7 +1194,7 @@ msgid "Current version"
 msgstr "Versió actual"
 
 #: src/Core/Backend/ModulesList.php:837 src/Core/Backend/ModulesList.php:1061
-#: src/Core/Backend/Page.php:1297 src/Core/Backend/ThemesList.php:230
+#: src/Core/Backend/Page.php:1298 src/Core/Backend/ThemesList.php:230
 #: src/Core/Backend/ThemesList.php:316
 msgid "Details"
 msgstr "Detalls"
@@ -1202,7 +1203,7 @@ msgstr "Detalls"
 msgid "Repository"
 msgstr "Repositori"
 
-#: src/Core/Backend/ModulesList.php:857 src/Process/Backend/Langs.php:284
+#: src/Core/Backend/ModulesList.php:857 src/Process/Backend/Langs.php:285
 #: src/Process/Upgrade/Langs.php:336
 msgid "Action"
 msgstr "Acció"
@@ -1243,7 +1244,7 @@ msgstr "Connector en desenvolupament"
 msgid "Release date:"
 msgstr "Data de llançament:"
 
-#: src/Core/Backend/ModulesList.php:1068 src/Core/Backend/Page.php:1298
+#: src/Core/Backend/ModulesList.php:1068 src/Core/Backend/Page.php:1299
 #: src/Core/Backend/ThemesList.php:237
 msgid "Support"
 msgstr "Suport"
@@ -1252,11 +1253,11 @@ msgstr "Suport"
 msgid "update locked"
 msgstr "actualització bloquejada"
 
-#: src/Core/Backend/ModulesList.php:1113 src/Core/Backend/Page.php:1300
+#: src/Core/Backend/ModulesList.php:1113 src/Core/Backend/Page.php:1301
 msgid "Section:"
 msgstr "Secció:"
 
-#: src/Core/Backend/ModulesList.php:1119 src/Core/Backend/Page.php:1301
+#: src/Core/Backend/ModulesList.php:1119 src/Core/Backend/Page.php:1302
 msgid "Tags:"
 msgstr "Etiquetes:"
 
@@ -1397,17 +1398,17 @@ msgstr "El connector s'ha actualitzat correctament."
 msgid "The plugin has been successfully installed."
 msgstr "El connector s'ha instal·lat correctament."
 
-#: src/Core/Backend/ModulesList.php:1717 src/Process/Backend/Langs.php:366
+#: src/Core/Backend/ModulesList.php:1717 src/Process/Backend/Langs.php:367
 msgid "Upload a zip file"
 msgstr "Carregueu un fitxer zip"
 
 #: src/Core/Backend/ModulesList.php:1721 src/Core/Backend/ModulesList.php:1768
 #: src/Process/Backend/Blog.php:116 src/Process/Backend/BlogPref.php:544
-#: src/Process/Backend/BlogPref.php:1019 src/Process/Backend/Category.php:247
-#: src/Process/Backend/Comment.php:287 src/Process/Backend/Home.php:518
-#: src/Process/Backend/Langs.php:319 src/Process/Backend/Langs.php:369
-#: src/Process/Backend/LinkPopup.php:82 src/Process/Backend/Post.php:768
-#: src/Process/Backend/Post.php:888 src/Process/Backend/User.php:273
+#: src/Process/Backend/BlogPref.php:1020 src/Process/Backend/Category.php:247
+#: src/Process/Backend/Comment.php:283 src/Process/Backend/Home.php:534
+#: src/Process/Backend/Langs.php:320 src/Process/Backend/Langs.php:370
+#: src/Process/Backend/LinkPopup.php:82 src/Process/Backend/Post.php:968
+#: src/Process/Backend/Post.php:1059 src/Process/Backend/User.php:273
 #: src/Process/Backend/UsersActions.php:394 src/Process/Install/Install.php:455
 #: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:403
 #, php-format
@@ -1419,8 +1420,8 @@ msgid "Zip file path:"
 msgstr "Camí del fitxer zip:"
 
 #: src/Core/Backend/ModulesList.php:1739 src/Core/Backend/ModulesList.php:1789
-#: src/Process/Backend/Langs.php:341 src/Process/Backend/Langs.php:390
-#: src/Process/Backend/Post.php:692 src/Process/Backend/User.php:302
+#: src/Process/Backend/Langs.php:342 src/Process/Backend/Langs.php:391
+#: src/Process/Backend/Post.php:777 src/Process/Backend/User.php:302
 #: src/Process/Backend/User.php:315 src/Process/Backend/User.php:443
 #: src/Process/Backend/UsersActions.php:401 src/Process/Install/Install.php:467
 #: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:426
@@ -1428,14 +1429,14 @@ msgid "Password"
 msgstr "Contrasenya"
 
 #: src/Core/Backend/ModulesList.php:1742 src/Core/Backend/ModulesList.php:1792
-#: src/Process/Backend/BlogDel.php:125 src/Process/Backend/Langs.php:344
-#: src/Process/Backend/Langs.php:393 src/Process/Backend/User.php:437
+#: src/Process/Backend/BlogDel.php:125 src/Process/Backend/Langs.php:345
+#: src/Process/Backend/Langs.php:394 src/Process/Backend/User.php:437
 #: src/Process/Backend/UsersActions.php:395 src/Process/Upgrade/Langs.php:376
 #: src/Process/Upgrade/Langs.php:382 src/Process/Upgrade/Langs.php:430
 msgid "Your password:"
 msgstr "La seva contrasenya:"
 
-#: src/Core/Backend/ModulesList.php:1750 src/Core/Backend/Page.php:1418
+#: src/Core/Backend/ModulesList.php:1750 src/Core/Backend/Page.php:1419
 #: src/Process/Backend/Media.php:756
 msgid "Upload"
 msgstr "Carrega"
@@ -1471,19 +1472,19 @@ msgid "Configure \"%s\""
 msgstr "Configura \"%s\""
 
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
-#: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1171
-#: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:352
+#: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1172
+#: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:348
 #: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1356
-#: src/Process/Backend/Post.php:796 src/Process/Backend/Search.php:197
+#: src/Process/Backend/Post.php:922 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
 #: src/Process/Backend/UserPreferences.php:980
 msgid "Back"
 msgstr "esquena"
 
-#: src/Core/Backend/Notices.php:82 src/Core/Backend/Page.php:1257
-#: src/Core/Backend/Page.php:1413 src/Core/Upgrade/Notices.php:46
-#: src/Process/Backend/Home.php:285
+#: src/Core/Backend/Notices.php:82 src/Core/Backend/Page.php:1258
+#: src/Core/Backend/Page.php:1414 src/Core/Upgrade/Notices.php:46
+#: src/Process/Backend/Home.php:291
 msgid "Error:"
 msgstr "Error:"
 
@@ -1553,339 +1554,339 @@ msgstr "Mode segur"
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Esteu en mode segur. Tots els connectors s'han desactivat temporalment. Recordeu que heu de tancar la sessió i tornar a iniciar sessió normalment per recuperar totes les funcionalitats"
 
-#: src/Core/Backend/Page.php:503 src/Core/Upgrade/Page.php:259
+#: src/Core/Backend/Page.php:504 src/Core/Upgrade/Page.php:259
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Gràcies per utilitzar %s."
 
-#: src/Core/Backend/Page.php:519 src/Core/Backend/Page.php:521
-#: src/Core/Backend/Page.php:663 src/Core/Backend/Page.php:665
+#: src/Core/Backend/Page.php:520 src/Core/Backend/Page.php:522
+#: src/Core/Backend/Page.php:664 src/Core/Backend/Page.php:666
 #: src/Core/Upgrade/Page.php:269 src/Core/Upgrade/Page.php:271
 msgid "Page top"
 msgstr "Part superior de la pàgina"
 
-#: src/Core/Backend/Page.php:541 src/Core/Backend/Page.php:544
+#: src/Core/Backend/Page.php:542 src/Core/Backend/Page.php:545
 #: src/Core/Upgrade/Page.php:291 src/Core/Upgrade/Page.php:294
 msgid "Dotclear logo"
 msgstr "Logotip de Dotclear"
 
-#: src/Core/Backend/Page.php:870 src/Core/Backend/Page.php:873
+#: src/Core/Backend/Page.php:871 src/Core/Backend/Page.php:874
 #: src/Core/Upgrade/Page.php:333 src/Core/Upgrade/Page.php:336
 msgid "Go to dashboard"
 msgstr "Vés al tauler de control"
 
-#: src/Core/Backend/Page.php:1106 src/Core/Upgrade/Page.php:445
+#: src/Core/Backend/Page.php:1107 src/Core/Upgrade/Page.php:445
 msgid "Help about this page"
 msgstr "Ajuda sobre aquesta pàgina"
 
-#: src/Core/Backend/Page.php:1115 src/Core/Upgrade/Page.php:454
+#: src/Core/Backend/Page.php:1116 src/Core/Upgrade/Page.php:454
 #, php-format
 msgid "See also %s"
 msgstr "Vegeu també %s"
 
-#: src/Core/Backend/Page.php:1118 src/Core/Upgrade/Page.php:457
+#: src/Core/Backend/Page.php:1119 src/Core/Upgrade/Page.php:457
 msgid "the global help"
 msgstr "l'ajuda global"
 
-#: src/Core/Backend/Page.php:1239
+#: src/Core/Backend/Page.php:1240
 msgid "uncover"
 msgstr "destapar"
 
-#: src/Core/Backend/Page.php:1243
+#: src/Core/Backend/Page.php:1244
 msgid "hide"
 msgstr "amagar"
 
-#: src/Core/Backend/Page.php:1247
+#: src/Core/Backend/Page.php:1248
 msgid "Need help?"
 msgstr "Necessitar ajuda?"
 
-#: src/Core/Backend/Page.php:1248
+#: src/Core/Backend/Page.php:1249
 msgid "new window"
 msgstr "finestra nova"
 
-#: src/Core/Backend/Page.php:1249
+#: src/Core/Backend/Page.php:1250
 msgid "Hide"
 msgstr "Amaga"
 
-#: src/Core/Backend/Page.php:1250
+#: src/Core/Backend/Page.php:1251
 msgid "Select:"
 msgstr "Seleccioneu:"
 
-#: src/Core/Backend/Page.php:1251
+#: src/Core/Backend/Page.php:1252
 msgid "No selection"
 msgstr "Sense selecció"
 
-#: src/Core/Backend/Page.php:1252
+#: src/Core/Backend/Page.php:1253
 msgid "Select all"
 msgstr "Seleccionar tot"
 
-#: src/Core/Backend/Page.php:1253
+#: src/Core/Backend/Page.php:1254
 msgid "Invert selection"
 msgstr "invertir la selecció"
 
-#: src/Core/Backend/Page.php:1258 src/Process/Backend/Post.php:444
-#: src/Process/Backend/Post.php:560
+#: src/Core/Backend/Page.php:1259 src/Process/Backend/Post.php:467
+#: src/Process/Backend/Post.php:571
 msgid "Entry has been successfully created."
 msgstr "L'entrada s'ha creat amb èxit."
 
-#: src/Core/Backend/Page.php:1259
+#: src/Core/Backend/Page.php:1260
 msgid "Edit entry"
 msgstr "Edita l'entrada"
 
-#: src/Core/Backend/Page.php:1260
+#: src/Core/Backend/Page.php:1261
 msgid "view entry"
 msgstr "Veure l'entrada"
 
-#: src/Core/Backend/Page.php:1261
+#: src/Core/Backend/Page.php:1262
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Esteu segur que voleu suprimir les entrades seleccionades (%s)?"
 
-#: src/Core/Backend/Page.php:1262
+#: src/Core/Backend/Page.php:1263
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Esteu segur que voleu suprimir els mitjans seleccionats (%d)?"
 
-#: src/Core/Backend/Page.php:1263
+#: src/Core/Backend/Page.php:1264
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Esteu segur que voleu suprimir les categories seleccionades (%s)?"
 
-#: src/Core/Backend/Page.php:1264
+#: src/Core/Backend/Page.php:1265
 msgid "Are you sure you want to delete this entry?"
 msgstr "Està segur que vol suprimir aquesta entrada?"
 
-#: src/Core/Backend/Page.php:1265
+#: src/Core/Backend/Page.php:1266
 msgid "Click here to unlock the field"
 msgstr "Feu clic aquí per desbloquejar el camp"
 
-#: src/Core/Backend/Page.php:1266
+#: src/Core/Backend/Page.php:1267
 msgid "Are you sure you want to delete all spams?"
 msgstr "Esteu segur que voleu suprimir tots els correus brossa?"
 
-#: src/Core/Backend/Page.php:1267
+#: src/Core/Backend/Page.php:1268
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Esteu segur que voleu suprimir els comentaris seleccionats (%s)?"
 
-#: src/Core/Backend/Page.php:1268
+#: src/Core/Backend/Page.php:1269
 msgid "Are you sure you want to delete this comment?"
 msgstr "Està segur que vol suprimir aquest comentari?"
 
-#: src/Core/Backend/Page.php:1269
+#: src/Core/Backend/Page.php:1270
 msgid "Users with posts cannot be deleted."
 msgstr "Els usuaris amb publicacions no es poden suprimir."
 
-#: src/Core/Backend/Page.php:1270
+#: src/Core/Backend/Page.php:1271
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Esteu segur que voleu suprimir els usuaris seleccionats (%s)?"
 
-#: src/Core/Backend/Page.php:1271
+#: src/Core/Backend/Page.php:1272
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Esteu segur que voleu suprimir els blocs seleccionats (%s)?"
 
-#: src/Core/Backend/Page.php:1272
+#: src/Core/Backend/Page.php:1273
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Esteu segur que voleu suprimir la categoria \"%s\"?"
 
-#: src/Core/Backend/Page.php:1273
+#: src/Core/Backend/Page.php:1274
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Esteu segur que voleu tornar a ordenar totes les categories?"
 
-#: src/Core/Backend/Page.php:1274
+#: src/Core/Backend/Page.php:1275
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Esteu segur que voleu eliminar el contingut multimèdia \"%s\"?"
 
-#: src/Core/Backend/Page.php:1275
+#: src/Core/Backend/Page.php:1276
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Esteu segur que voleu eliminar el directori \"%s\"?"
 
-#: src/Core/Backend/Page.php:1276
+#: src/Core/Backend/Page.php:1277
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Esteu segur que voleu extreure l'arxiu al directori actual?"
 
-#: src/Core/Backend/Page.php:1277
+#: src/Core/Backend/Page.php:1278
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Esteu segur que voleu eliminar el fitxer adjunt \"%s\"?"
 
-#: src/Core/Backend/Page.php:1278
+#: src/Core/Backend/Page.php:1279
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Esteu segur que voleu suprimir l'idioma \"%s\"?"
 
-#: src/Core/Backend/Page.php:1279
+#: src/Core/Backend/Page.php:1280
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Esteu segur que voleu suprimir el connector \"%s\"?"
 
-#: src/Core/Backend/Page.php:1280
+#: src/Core/Backend/Page.php:1281
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Esteu segur que voleu suprimir els connectors seleccionats?"
 
-#: src/Core/Backend/Page.php:1281
+#: src/Core/Backend/Page.php:1282
 msgid "Use this theme"
 msgstr "Utilitzeu aquest tema"
 
-#: src/Core/Backend/Page.php:1282
+#: src/Core/Backend/Page.php:1283
 msgid "Remove this theme"
 msgstr "Elimina aquest tema"
 
-#: src/Core/Backend/Page.php:1283
+#: src/Core/Backend/Page.php:1284
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Esteu segur que voleu suprimir el tema \"%s\"?"
 
-#: src/Core/Backend/Page.php:1284
+#: src/Core/Backend/Page.php:1285
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Esteu segur que voleu suprimir els temes seleccionats?"
 
-#: src/Core/Backend/Page.php:1285
+#: src/Core/Backend/Page.php:1286
 msgid "Are you sure you want to delete this backup?"
 msgstr "Esteu segur que voleu suprimir aquesta còpia de seguretat?"
 
-#: src/Core/Backend/Page.php:1286
+#: src/Core/Backend/Page.php:1287
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Esteu segur que voleu tornar a aquesta còpia de seguretat?"
 
-#: src/Core/Backend/Page.php:1287
+#: src/Core/Backend/Page.php:1288
 msgid "Zip file content"
 msgstr "Contingut del fitxer zip"
 
-#: src/Core/Backend/Page.php:1288
+#: src/Core/Backend/Page.php:1289
 msgid "HTML markup validator"
 msgstr "Validador de marques HTML"
 
-#: src/Core/Backend/Page.php:1289
+#: src/Core/Backend/Page.php:1290
 msgid "HTML content is valid."
 msgstr "El contingut HTML és vàlid."
 
-#: src/Core/Backend/Page.php:1290
+#: src/Core/Backend/Page.php:1291
 msgid "There are HTML markup errors."
 msgstr "Hi ha errors de marcatge HTML."
 
-#: src/Core/Backend/Page.php:1291
+#: src/Core/Backend/Page.php:1292
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Atenció: una auditoria d'un contingut encara no registrat."
 
-#: src/Core/Backend/Page.php:1292
+#: src/Core/Backend/Page.php:1293
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Tens canvis no desats. Canvia el format de publicació perdrà aquests canvis. Continueu igualment?"
 
-#: src/Core/Backend/Page.php:1293
+#: src/Core/Backend/Page.php:1294
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Avís: el canvi de format de publicació no convertirà el contingut existent. Haureu d'aplicar el nou format per vosaltres mateixos. Continueu igualment?"
 
-#: src/Core/Backend/Page.php:1294
+#: src/Core/Backend/Page.php:1295
 msgid "Loading enhanced uploader, please wait."
 msgstr "S'està carregant el carregador millorat, espereu."
 
-#: src/Core/Backend/Page.php:1299
+#: src/Core/Backend/Page.php:1300
 msgid "Help:"
 msgstr "Ajuda:"
 
-#: src/Core/Backend/Page.php:1303
+#: src/Core/Backend/Page.php:1304
 msgid "Hide this notice"
 msgstr "Amaga aquest avís"
 
-#: src/Core/Backend/Page.php:1305
+#: src/Core/Backend/Page.php:1306
 msgid "Show password"
 msgstr "Ensenya la contrasenya"
 
-#: src/Core/Backend/Page.php:1306
+#: src/Core/Backend/Page.php:1307
 msgid "Hide password"
 msgstr "Amaga la contrasenya"
 
-#: src/Core/Backend/Page.php:1308
+#: src/Core/Backend/Page.php:1309
 msgid "Reset to now"
 msgstr "Restableix a ara"
 
-#: src/Core/Backend/Page.php:1310
+#: src/Core/Backend/Page.php:1311
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "S'ha detectat un bloquejador d'anuncis en aquest tauler de control de Dotclear (Ghostery, Adblock plus, uBlock origin, …) i pot interferir amb algunes funcions. En aquest cas, hauríeu de desactivar-lo. Tingueu en compte que aquesta detecció pot estar desactivada a les vostres preferències."
 
-#: src/Core/Backend/Page.php:1362
+#: src/Core/Backend/Page.php:1363
 msgid "You have unsaved changes."
 msgstr "No ha guardat els canvis."
 
-#: src/Core/Backend/Page.php:1363
+#: src/Core/Backend/Page.php:1364
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "la càrrega de la bateria sembla baixa (%d%) i tens canvis no desats, hauries de desar-los."
 
-#: src/Core/Backend/Page.php:1404
+#: src/Core/Backend/Page.php:1405
 msgid "Temporarily activate enhanced uploader"
 msgstr "Activa temporalment el carregador millorat"
 
-#: src/Core/Backend/Page.php:1405
+#: src/Core/Backend/Page.php:1406
 msgid "Temporarily disable enhanced uploader"
 msgstr "Desactiva temporalment el carregador millorat"
 
-#: src/Core/Backend/Page.php:1409
+#: src/Core/Backend/Page.php:1410
 msgid "Limit exceeded."
 msgstr "S'ha superat el límit."
 
-#: src/Core/Backend/Page.php:1410
+#: src/Core/Backend/Page.php:1411
 msgid "File size exceeds allowed limit."
 msgstr "La mida del fitxer supera el límit permès."
 
-#: src/Core/Backend/Page.php:1411
+#: src/Core/Backend/Page.php:1412
 msgid "Canceled."
 msgstr "Cancel·lat."
 
-#: src/Core/Backend/Page.php:1412
+#: src/Core/Backend/Page.php:1413
 msgid "HTTP Error:"
 msgstr "Error HTTP:"
 
-#: src/Core/Backend/Page.php:1414 src/Process/Backend/Media.php:702
+#: src/Core/Backend/Page.php:1415 src/Process/Backend/Media.php:702
 msgid "Choose file"
 msgstr "Trieu l'arxiu"
 
-#: src/Core/Backend/Page.php:1415 src/Process/Backend/Media.php:708
+#: src/Core/Backend/Page.php:1416 src/Process/Backend/Media.php:708
 msgid "Choose files"
 msgstr "Trieu fitxers"
 
-#: src/Core/Backend/Page.php:1416 src/Process/Backend/LinkPopup.php:110
+#: src/Core/Backend/Page.php:1417 src/Process/Backend/LinkPopup.php:110
 #: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:507
-#: src/Process/Backend/MediaItem.php:763 src/Process/Backend/Post.php:799
+#: src/Process/Backend/MediaItem.php:763 src/Process/Backend/Post.php:928
 #: src/Process/Backend/PostMedia.php:112
 msgid "Cancel"
 msgstr "Anul·lar"
 
-#: src/Core/Backend/Page.php:1417
+#: src/Core/Backend/Page.php:1418
 msgid "Clean"
 msgstr "Neteja"
 
-#: src/Core/Backend/Page.php:1419
+#: src/Core/Backend/Page.php:1420
 msgid "Send"
 msgstr "Enviar"
 
-#: src/Core/Backend/Page.php:1420
+#: src/Core/Backend/Page.php:1421
 msgid "File successfully uploaded."
 msgstr "El fitxer s'ha penjat correctament."
 
-#: src/Core/Backend/Page.php:1421
+#: src/Core/Backend/Page.php:1422
 msgid "No file in queue."
 msgstr "No hi ha cap fitxer a la cua."
 
-#: src/Core/Backend/Page.php:1422
+#: src/Core/Backend/Page.php:1423
 msgid "1 file in queue."
 msgstr "1 fitxer a la cua."
 
-#: src/Core/Backend/Page.php:1423
+#: src/Core/Backend/Page.php:1424
 #, php-format
 msgid "%d files in queue."
 msgstr "%d fitxers a la cua."
 
-#: src/Core/Backend/Page.php:1424
+#: src/Core/Backend/Page.php:1425
 msgid "Queue error:"
 msgstr "Error de cua:"
 
-#: src/Core/Backend/Page.php:1463
+#: src/Core/Backend/Page.php:1464
 msgid "Cancel filters and display options"
 msgstr "Cancel·la els filtres i les opcions de visualització"
 
@@ -1997,7 +1998,7 @@ msgstr "No hi ha cap tema que coincideixi amb la teva cerca."
 msgid "Use this one"
 msgstr "Fes servir aquest"
 
-#: src/Core/Backend/ThemesList.php:411 src/Process/Backend/Post.php:795
+#: src/Core/Backend/ThemesList.php:411 src/Process/Backend/Post.php:921
 msgid "Preview"
 msgstr "Vista prèvia"
 
@@ -2086,7 +2087,7 @@ msgstr "El tema s'ha instal·lat correctament."
 msgid "users per page"
 msgstr "usuaris per pàgina"
 
-#: src/Core/Backend/UserPref.php:182 src/Process/Backend/BlogPref.php:778
+#: src/Core/Backend/UserPref.php:182 src/Process/Backend/BlogPref.php:779
 msgid "entries per page"
 msgstr "entrades per pàgina"
 
@@ -2195,35 +2196,35 @@ msgstr "Nota"
 msgid "Empty entry URL"
 msgstr "URL d'entrada buida"
 
-#: src/Core/Blog.php:2408
+#: src/Core/Blog.php:2407
 msgid "You are not allowed to update comments"
 msgstr "Vostè no està autoritzat per actualitzar comentaris."
 
-#: src/Core/Blog.php:2414 src/Core/Blog.php:2420 src/Core/Blog.php:2514
+#: src/Core/Blog.php:2413 src/Core/Blog.php:2419 src/Core/Blog.php:2513
 msgid "No such comment ID"
 msgstr "Cap comentari amb aquest ID"
 
-#: src/Core/Blog.php:2427
+#: src/Core/Blog.php:2426
 msgid "You are not allowed to update this comment"
 msgstr "Vostè no està autoritzat per sactualitzar aquest comentari"
 
-#: src/Core/Blog.php:2467
+#: src/Core/Blog.php:2466
 msgid "You are not allowed to change this comment's status"
 msgstr "Vostè no està autoritzat per canviar l'estatus d'aquest comentari"
 
-#: src/Core/Blog.php:2508 src/Core/Blog.php:2562
+#: src/Core/Blog.php:2507 src/Core/Blog.php:2561
 msgid "You are not allowed to delete comments"
 msgstr "Vostè no està autoritzat per suprimir comentaris"
 
-#: src/Core/Blog.php:2597
+#: src/Core/Blog.php:2596
 msgid "You must provide a comment"
 msgstr "Ha de proporcionar un comentari"
 
-#: src/Core/Blog.php:2601
+#: src/Core/Blog.php:2600
 msgid "You must provide an author name"
 msgstr "Ha de proporcionar un nom d'autor"
 
-#: src/Core/Blog.php:2605
+#: src/Core/Blog.php:2604
 msgid "Email address is not valid."
 msgstr "L'adreça de correu elect`ronic no és vàlida."
 
@@ -2469,7 +2470,7 @@ msgstr "LOL!"
 
 #: src/Core/Upgrade/Menus.php:89 src/Process/Backend/Blog.php:98
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:458
-#: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:244
+#: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:245
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:115
 #: src/Process/Backend/User.php:252 src/Process/Backend/Users.php:107
 #: src/Process/Backend/UsersActions.php:202
@@ -2550,7 +2551,7 @@ msgstr "Còpies de seguretat"
 msgid "On this page you can revert your previous installation or delete theses files."
 msgstr "En aquesta pàgina podeu revertir la vostra instal·lació anterior o eliminar aquests fitxers."
 
-#: src/Core/Upgrade/Utility.php:297 src/Process/Backend/Langs.php:255
+#: src/Core/Upgrade/Utility.php:297 src/Process/Backend/Langs.php:256
 #: src/Process/Upgrade/Langs.php:449
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "Aquí podeu instal·lar, actualitzar o eliminar idiomes per a la vostra instal·lació de Dotclear."
@@ -2870,7 +2871,7 @@ msgstr "S'ha trobat una etiqueta de tancament inesperada </tpl:%s> ."
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "ADVERTÈNCIA: s'han trobat els errors següents en analitzar el fitxer de plantilla:"
 
-#: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:331
+#: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:327
 #: src/Process/Backend/User.php:344
 msgid "Status:"
 msgstr "Estat :"
@@ -3157,11 +3158,11 @@ msgstr "El bloc \"%s\" s'ha creat correctament"
 msgid "New blog"
 msgstr "Blog nou"
 
-#: src/Process/Backend/Blog.php:126 src/Process/Backend/BlogPref.php:1029
+#: src/Process/Backend/Blog.php:126 src/Process/Backend/BlogPref.php:1030
 msgid "Blog ID:"
 msgstr "Identificador del blog :"
 
-#: src/Process/Backend/Blog.php:134 src/Process/Backend/BlogPref.php:1034
+#: src/Process/Backend/Blog.php:134 src/Process/Backend/BlogPref.php:1035
 #: src/Process/Backend/User.php:282
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Com a mínim 2 caràcters han de ser lletres, números o símbols."
@@ -3170,11 +3171,11 @@ msgstr "Com a mínim 2 caràcters han de ser lletres, números o símbols."
 msgid "Blog name:"
 msgstr "Nom del blog :"
 
-#: src/Process/Backend/Blog.php:160 src/Process/Backend/BlogPref.php:1047
+#: src/Process/Backend/Blog.php:160 src/Process/Backend/BlogPref.php:1048
 msgid "Blog URL"
 msgstr "URL del blog"
 
-#: src/Process/Backend/Blog.php:163 src/Process/Backend/BlogPref.php:1049
+#: src/Process/Backend/Blog.php:163 src/Process/Backend/BlogPref.php:1050
 msgid "Blog URL:"
 msgstr "URL del blog :"
 
@@ -3212,7 +3213,7 @@ msgstr "Està a punt de suprimir el blog %s. Se suprimiran totes les entrades, c
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Si us plau, introdueixi la seva contrasenya per tal de confirmar la supressió del blog."
 
-#: src/Process/Backend/BlogDel.php:134 src/Process/Backend/BlogPref.php:1185
+#: src/Process/Backend/BlogDel.php:134 src/Process/Backend/BlogPref.php:1186
 msgid "Delete this blog"
 msgstr "Suprimir aquest blog"
 
@@ -3260,7 +3261,7 @@ msgstr "H3"
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:173 src/Process/Backend/BlogPref.php:1253
+#: src/Process/Backend/BlogPref.php:173 src/Process/Backend/BlogPref.php:1254
 #: src/Process/Backend/MediaItem.php:604 src/Process/Backend/MediaItem.php:609
 msgid "(none)"
 msgstr "(cap)"
@@ -3368,8 +3369,8 @@ msgstr "Avís: excepte per a configuracions especials, generalment es recomana t
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Avís: tret de configuracions especials, generalment es recomana tenir un \"?\" a l'URL del vostre bloc en mode QUERY_STRING."
 
-#: src/Process/Backend/BlogPref.php:487 src/Process/Backend/BlogPref.php:724
-#: src/Process/Backend/BlogPref.php:741 src/Process/Backend/BlogPref.php:1079
+#: src/Process/Backend/BlogPref.php:487 src/Process/Backend/BlogPref.php:725
+#: src/Process/Backend/BlogPref.php:742 src/Process/Backend/BlogPref.php:1080
 msgid "Sample:"
 msgstr "Mostra:"
 
@@ -3381,16 +3382,16 @@ msgstr "El blog s'ha creat amb èxit."
 msgid "Blog status:"
 msgstr "Estat del blog"
 
-#: src/Process/Backend/BlogPref.php:540 src/Process/Backend/BlogPref.php:1015
+#: src/Process/Backend/BlogPref.php:540 src/Process/Backend/BlogPref.php:1016
 msgid "Blog details"
 msgstr "Detalls del blog"
 
-#: src/Process/Backend/BlogPref.php:553 src/Process/Backend/BlogPref.php:1028
-#: src/Process/Backend/BlogPref.php:1048
+#: src/Process/Backend/BlogPref.php:553 src/Process/Backend/BlogPref.php:1029
+#: src/Process/Backend/BlogPref.php:1049 src/Process/Backend/Post.php:818
 msgid "Required field"
 msgstr "Camp necessari"
 
-#: src/Process/Backend/BlogPref.php:573 src/Process/Backend/BlogPref.php:1065
+#: src/Process/Backend/BlogPref.php:573 src/Process/Backend/BlogPref.php:1066
 msgid "Blog configuration"
 msgstr "Configuració del blog"
 
@@ -3398,354 +3399,354 @@ msgstr "Configuració del blog"
 msgid "Blog editor name:"
 msgstr "Nom de l'editor del blog :"
 
-#: src/Process/Backend/BlogPref.php:588
+#: src/Process/Backend/BlogPref.php:589
 msgid "Default language:"
 msgstr "Llengua per defecte :"
 
-#: src/Process/Backend/BlogPref.php:595
+#: src/Process/Backend/BlogPref.php:596
 msgid "Blog timezone:"
 msgstr "Zona horaria del blog:"
 
-#: src/Process/Backend/BlogPref.php:605
+#: src/Process/Backend/BlogPref.php:606
 msgid "Copyright notice:"
 msgstr "Nota de copyright:"
 
-#: src/Process/Backend/BlogPref.php:611 src/Process/Backend/Comments.php:128
+#: src/Process/Backend/BlogPref.php:612 src/Process/Backend/Comments.php:128
 #: src/Process/Backend/Comments.php:133
 msgid "Comments and trackbacks"
 msgstr "Comentaris i trackbacks"
 
-#: src/Process/Backend/BlogPref.php:623 src/Process/Backend/Post.php:678
+#: src/Process/Backend/BlogPref.php:624 src/Process/Backend/Post.php:736
 msgid "Accept comments"
 msgstr "Acceptar els comentaris"
 
-#: src/Process/Backend/BlogPref.php:629
+#: src/Process/Backend/BlogPref.php:630
 msgid "Moderate comments"
 msgstr "Modera els comentaris"
 
-#: src/Process/Backend/BlogPref.php:634
+#: src/Process/Backend/BlogPref.php:635
 msgid "Leave comments open for"
 msgstr "Deixa els comentaris oberts per"
 
-#: src/Process/Backend/BlogPref.php:635 src/Process/Backend/BlogPref.php:674
+#: src/Process/Backend/BlogPref.php:636 src/Process/Backend/BlogPref.php:675
 msgid "days"
 msgstr "dies"
 
-#: src/Process/Backend/BlogPref.php:640 src/Process/Backend/BlogPref.php:679
+#: src/Process/Backend/BlogPref.php:641 src/Process/Backend/BlogPref.php:680
 msgid "No limit: leave blank."
 msgstr "Sense límit: deixar en blanc."
 
-#: src/Process/Backend/BlogPref.php:646
+#: src/Process/Backend/BlogPref.php:647
 msgid "Wiki syntax for comments"
 msgstr "Sintaxi Wiki pels comentaris"
 
-#: src/Process/Backend/BlogPref.php:652
+#: src/Process/Backend/BlogPref.php:653
 msgid "Preview of comment before submit is not mandatory"
 msgstr "La previsualització del comentari abans de l'enviament no és obligatòria"
 
-#: src/Process/Backend/BlogPref.php:662 src/Process/Backend/Post.php:686
+#: src/Process/Backend/BlogPref.php:663 src/Process/Backend/Post.php:753
 msgid "Accept trackbacks"
 msgstr "Acceptar les respostes"
 
-#: src/Process/Backend/BlogPref.php:668
+#: src/Process/Backend/BlogPref.php:669
 msgid "Moderate trackbacks"
 msgstr "Trackbacks moderats"
 
-#: src/Process/Backend/BlogPref.php:673
+#: src/Process/Backend/BlogPref.php:674
 msgid "Leave trackbacks open for"
 msgstr "Deixa els trackbacks oberts per"
 
-#: src/Process/Backend/BlogPref.php:685
+#: src/Process/Backend/BlogPref.php:686
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Afegir \"nofollow\" la relació en els comentaris i en els enllaços de respostes"
 
-#: src/Process/Backend/BlogPref.php:694
+#: src/Process/Backend/BlogPref.php:695
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr "Desactiveu tots els comentaris i trackbacks al bloc després d'un període de temps sense publicacions noves:"
 
-#: src/Process/Backend/BlogPref.php:701
+#: src/Process/Backend/BlogPref.php:702
 msgid "Blog presentation"
 msgstr "Presentació del Blog"
 
-#: src/Process/Backend/BlogPref.php:716
+#: src/Process/Backend/BlogPref.php:717
 msgid "Date format:"
 msgstr "Format de la data:"
 
-#: src/Process/Backend/BlogPref.php:720
+#: src/Process/Backend/BlogPref.php:721
 msgid "Pattern of date"
 msgstr "Patró de data"
 
-#: src/Process/Backend/BlogPref.php:733
+#: src/Process/Backend/BlogPref.php:734
 msgid "Time format:"
 msgstr "Format de les hores:"
 
-#: src/Process/Backend/BlogPref.php:737
+#: src/Process/Backend/BlogPref.php:738
 msgid "Pattern of time"
 msgstr "Patró del temps"
 
-#: src/Process/Backend/BlogPref.php:747
+#: src/Process/Backend/BlogPref.php:748
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr "No carregueu el full d'estil estàndard (utilitzat per a l'alineació dels mitjans)"
 
-#: src/Process/Backend/BlogPref.php:753
+#: src/Process/Backend/BlogPref.php:754
 msgid "Display smilies on entries and comments"
 msgstr "Mostrar emoticons en entrades i comentaris"
 
-#: src/Process/Backend/BlogPref.php:759
+#: src/Process/Backend/BlogPref.php:760
 msgid "Disable internal search system"
 msgstr "Desactiva el sistema de cerca intern"
 
-#: src/Process/Backend/BlogPref.php:769 src/Process/Backend/BlogPref.php:777
-#: src/Process/Backend/BlogPref.php:785 src/Process/Backend/BlogPref.php:793
+#: src/Process/Backend/BlogPref.php:770 src/Process/Backend/BlogPref.php:778
+#: src/Process/Backend/BlogPref.php:786 src/Process/Backend/BlogPref.php:794
 msgid "Display"
 msgstr "Mostra"
 
-#: src/Process/Backend/BlogPref.php:770
+#: src/Process/Backend/BlogPref.php:771
 msgid "entries on first page"
 msgstr "entrades a la primera pàgina"
 
-#: src/Process/Backend/BlogPref.php:786
+#: src/Process/Backend/BlogPref.php:787
 msgid "entries per feed"
 msgstr "entrades per canal"
 
-#: src/Process/Backend/BlogPref.php:794
+#: src/Process/Backend/BlogPref.php:795
 msgid "comments per feed"
 msgstr "comentaris per canal"
 
-#: src/Process/Backend/BlogPref.php:801
+#: src/Process/Backend/BlogPref.php:802
 msgid "Truncate feeds"
 msgstr "Registres truncats"
 
-#: src/Process/Backend/BlogPref.php:807
+#: src/Process/Backend/BlogPref.php:808
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "Inclou subcategories a la pàgina de categoria i al feed de publicacions de categoria"
 
-#: src/Process/Backend/BlogPref.php:817
+#: src/Process/Backend/BlogPref.php:818
 msgid "Display an entry as static home page"
 msgstr "Mostra una entrada com a pàgina d'inici estàtica"
 
-#: src/Process/Backend/BlogPref.php:826
+#: src/Process/Backend/BlogPref.php:827
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "URL d'entrada (el seu contingut s'utilitzarà per a la pàgina d'inici estàtica):"
 
-#: src/Process/Backend/BlogPref.php:828
+#: src/Process/Backend/BlogPref.php:829
 msgid "Choose an entry"
 msgstr "Trieu una entrada"
 
-#: src/Process/Backend/BlogPref.php:832
+#: src/Process/Backend/BlogPref.php:833
 msgid "Leave empty to use the default presentation."
 msgstr "Deixeu-lo en blanc per utilitzar la presentació predeterminada."
 
-#: src/Process/Backend/BlogPref.php:838
+#: src/Process/Backend/BlogPref.php:839
 msgid "Media and images"
 msgstr "Mitjans i imatges"
 
-#: src/Process/Backend/BlogPref.php:848
+#: src/Process/Backend/BlogPref.php:849
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Mides d'imatge generades (dimensió màxima en píxels)"
 
-#: src/Process/Backend/BlogPref.php:851
+#: src/Process/Backend/BlogPref.php:852
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Aneu amb compte si ho compartiu amb altres blocs de la vostra instal·lació."
 
-#: src/Process/Backend/BlogPref.php:851
+#: src/Process/Backend/BlogPref.php:852
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr "Tingueu en compte que si canvieu la configuració actual a continuació, ara s'aplicaran a totes les imatges noves del gestor de mitjans."
 
-#: src/Process/Backend/BlogPref.php:851
+#: src/Process/Backend/BlogPref.php:852
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "Establiu -1 per utilitzar la mida predeterminada, establiu 0 per ignorar aquesta mida de miniatura (només imatges)."
 
-#: src/Process/Backend/BlogPref.php:856
+#: src/Process/Backend/BlogPref.php:857
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: src/Process/Backend/BlogPref.php:862
+#: src/Process/Backend/BlogPref.php:863
 msgid "Small"
 msgstr "Petit"
 
-#: src/Process/Backend/BlogPref.php:868
+#: src/Process/Backend/BlogPref.php:869
 msgid "Medium"
 msgstr "Mitjana"
 
-#: src/Process/Backend/BlogPref.php:877
+#: src/Process/Backend/BlogPref.php:878
 msgid "Thumbnail character prefix:"
 msgstr "Prefix de caràcters en miniatura:"
 
-#: src/Process/Backend/BlogPref.php:881
+#: src/Process/Backend/BlogPref.php:882
 msgid "Leave empty to use the default one (.)"
 msgstr "Deixeu-lo en blanc per utilitzar el predeterminat (.)"
 
-#: src/Process/Backend/BlogPref.php:885
+#: src/Process/Backend/BlogPref.php:886
 msgid "Default size of the inserted video (in pixels)"
 msgstr "Mida predeterminada del vídeo inserit (en píxels)"
 
-#: src/Process/Backend/BlogPref.php:890
+#: src/Process/Backend/BlogPref.php:891
 msgid "Width"
 msgstr "Amplada"
 
-#: src/Process/Backend/BlogPref.php:896
+#: src/Process/Backend/BlogPref.php:897
 msgid "Height"
 msgstr "Alçada"
 
-#: src/Process/Backend/BlogPref.php:905
+#: src/Process/Backend/BlogPref.php:906
 msgid "Default image insertion attributes"
 msgstr "Atributs d'inserció d'imatges per defecte"
 
-#: src/Process/Backend/BlogPref.php:911
+#: src/Process/Backend/BlogPref.php:912
 msgid "Inserted image legend:"
 msgstr "Llegenda de la imatge inserida:"
 
-#: src/Process/Backend/BlogPref.php:917
+#: src/Process/Backend/BlogPref.php:918
 msgid "Use original media date if possible"
 msgstr "Si és possible, utilitzeu la data original dels mitjans"
 
-#: src/Process/Backend/BlogPref.php:923
+#: src/Process/Backend/BlogPref.php:924
 msgid "Do not display date if alone in title"
 msgstr "No mostri la data si està sol al títol"
 
-#: src/Process/Backend/BlogPref.php:928
+#: src/Process/Backend/BlogPref.php:929
 msgid "It is retrieved from the picture's metadata."
 msgstr "Es recupera de les metadades de la imatge."
 
-#: src/Process/Backend/BlogPref.php:936
+#: src/Process/Backend/BlogPref.php:937
 msgid "Size of inserted image:"
 msgstr "Mida de la imatge inserida:"
 
-#: src/Process/Backend/BlogPref.php:944
+#: src/Process/Backend/BlogPref.php:945
 msgid "Image alignment:"
 msgstr "Alineació de la imatge:"
 
-#: src/Process/Backend/BlogPref.php:950
+#: src/Process/Backend/BlogPref.php:951
 msgid "Insert a link to the original image"
 msgstr "Insereix un enllaç a la imatge original"
 
-#: src/Process/Backend/BlogPref.php:957
+#: src/Process/Backend/BlogPref.php:958
 msgid "Image legend and alternate text:"
 msgstr "Llegenda de la imatge i text alternatiu:"
 
-#: src/Process/Backend/BlogPref.php:966 src/Process/Backend/Media.php:807
+#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:807
 msgid "Blog parameters"
 msgstr "Paràmetres del bloc"
 
-#: src/Process/Backend/BlogPref.php:997
+#: src/Process/Backend/BlogPref.php:998
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr "És possible que l'URL del bloc o el mètode d'exploració d'URL no estiguin ben definits (<code>%s</code> retorna un estat <strong>%s</strong> )."
 
-#: src/Process/Backend/BlogPref.php:1006
+#: src/Process/Backend/BlogPref.php:1007
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "És possible que l'URL del bloc o el mètode d'exploració d'URL no estiguin ben definits (<code>%s</code> no retorna cap canal ATOM)."
 
-#: src/Process/Backend/BlogPref.php:1038
+#: src/Process/Backend/BlogPref.php:1039
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "Tingueu en compte que canviar l'identificador del vostre bloc pot requerir canvis al vostre fitxer index.php públic."
 
-#: src/Process/Backend/BlogPref.php:1057
+#: src/Process/Backend/BlogPref.php:1058
 msgid "URL scan method:"
 msgstr "Mètode de lectura de l'URL"
 
-#: src/Process/Backend/BlogPref.php:1072
+#: src/Process/Backend/BlogPref.php:1073
 msgid "New post URL format:"
 msgstr "Nou format d'URL de publicació:"
 
-#: src/Process/Backend/BlogPref.php:1079
+#: src/Process/Backend/BlogPref.php:1080
 msgid "Dotclear"
 msgstr "Dotclear"
 
-#: src/Process/Backend/BlogPref.php:1086
+#: src/Process/Backend/BlogPref.php:1087
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "Etiqueta HTML per al títol de les notes al bloc:"
 
-#: src/Process/Backend/BlogPref.php:1103
+#: src/Process/Backend/BlogPref.php:1104
 msgid "Search engines robots policy"
 msgstr "Política de robots de motors de cerca"
 
-#: src/Process/Backend/BlogPref.php:1108
+#: src/Process/Backend/BlogPref.php:1109
 msgid "Legacy javascript library"
 msgstr "Biblioteca javascript heretada"
 
-#: src/Process/Backend/BlogPref.php:1114
+#: src/Process/Backend/BlogPref.php:1115
 msgid "Load the Legacy JS library"
 msgstr "Carregueu la biblioteca Legacy JS"
 
-#: src/Process/Backend/BlogPref.php:1120
+#: src/Process/Backend/BlogPref.php:1121
 msgid "jQuery javascript library"
 msgstr "Biblioteca javascript jQuery"
 
-#: src/Process/Backend/BlogPref.php:1126
+#: src/Process/Backend/BlogPref.php:1127
 msgid "Load the jQuery library"
 msgstr "Carregueu la biblioteca jQuery"
 
-#: src/Process/Backend/BlogPref.php:1133
+#: src/Process/Backend/BlogPref.php:1134
 msgid "jQuery version to be loaded for this blog:"
 msgstr "La versió de jQuery que es carregarà per a aquest bloc:"
 
-#: src/Process/Backend/BlogPref.php:1139
+#: src/Process/Backend/BlogPref.php:1140
 msgid "Blog security"
 msgstr "Seguretat del bloc"
 
-#: src/Process/Backend/BlogPref.php:1145
+#: src/Process/Backend/BlogPref.php:1146
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Protegiu el bloc del clic (vegeu <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Viquipèdia</a>)"
 
-#: src/Process/Backend/BlogPref.php:1151
+#: src/Process/Backend/BlogPref.php:1152
 msgid "Advanced parameters"
 msgstr "Paràmetres avançats"
 
-#: src/Process/Backend/BlogPref.php:1158
+#: src/Process/Backend/BlogPref.php:1159
 msgid "Plugins parameters"
 msgstr "Paràmetres dels connectors"
 
-#: src/Process/Backend/BlogPref.php:1198
+#: src/Process/Backend/BlogPref.php:1199
 msgid "Only superadmin can delete a blog."
 msgstr "Només el superadministrador pot suprimir un bloc."
 
-#: src/Process/Backend/BlogPref.php:1202
+#: src/Process/Backend/BlogPref.php:1203
 msgid "Parameters"
 msgstr "Paràmetres"
 
-#: src/Process/Backend/BlogPref.php:1221
+#: src/Process/Backend/BlogPref.php:1222
 msgid "No users"
 msgstr "Cap usuari"
 
-#: src/Process/Backend/BlogPref.php:1263
+#: src/Process/Backend/BlogPref.php:1264
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1272 src/Process/Backend/User.php:339
+#: src/Process/Backend/BlogPref.php:1273 src/Process/Backend/User.php:339
 msgid "Super administrator"
 msgstr "Super administrador"
 
-#: src/Process/Backend/BlogPref.php:1274
+#: src/Process/Backend/BlogPref.php:1275
 msgid "All rights on all blogs."
 msgstr "Tots els drets a tots els blocs."
 
-#: src/Process/Backend/BlogPref.php:1284
+#: src/Process/Backend/BlogPref.php:1285
 msgid "All rights on this blog."
 msgstr "Tots els drets en aquest bloc."
 
-#: src/Process/Backend/BlogPref.php:1300
+#: src/Process/Backend/BlogPref.php:1301
 #: src/Process/Backend/UsersActions.php:385
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (permís sense referència)"
 
-#: src/Process/Backend/BlogPref.php:1319 src/Process/Backend/User.php:497
+#: src/Process/Backend/BlogPref.php:1320 src/Process/Backend/User.php:497
 msgid "Change permissions"
 msgstr "Canviar permisos"
 
-#: src/Process/Backend/BlogPref.php:1342
+#: src/Process/Backend/BlogPref.php:1343
 msgid "Publications on this blog:"
 msgstr "Publicacions en aquest bloc:"
 
-#: src/Process/Backend/BlogPref.php:1345
+#: src/Process/Backend/BlogPref.php:1346
 msgid "Permissions:"
 msgstr "Permisos:"
 
-#: src/Process/Backend/BlogPref.php:1362
+#: src/Process/Backend/BlogPref.php:1363
 msgid "Users on this blog"
 msgstr "Usuaris en aquest blog"
 
@@ -3944,8 +3945,8 @@ msgstr "URL:"
 msgid "Move entries to"
 msgstr "Mou les entrades a"
 
-#: src/Process/Backend/Categories.php:340
-#: src/Process/Backend/PostsPopup.php:121
+#: src/Process/Backend/Categories.php:340 src/Process/Backend/Post.php:1027
+#: src/Process/Backend/Post.php:1159 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "D'acord"
 
@@ -3978,7 +3979,7 @@ msgstr "La categoria s'ha actualitzat amb èxit."
 msgid "Category information"
 msgstr "Informació de la categoria"
 
-#: src/Process/Backend/Category.php:258 src/Process/Backend/Post.php:892
+#: src/Process/Backend/Category.php:258 src/Process/Backend/Post.php:1072
 msgid "Name:"
 msgstr "Cognom:"
 
@@ -4022,11 +4023,11 @@ msgstr "Mou aquesta categoria"
 msgid "Entry does not exist."
 msgstr "L'entrada no existeix."
 
-#: src/Process/Backend/Comment.php:108 src/Process/Backend/Post.php:568
+#: src/Process/Backend/Comment.php:108 src/Process/Backend/Post.php:579
 msgid "Comment has been successfully created."
 msgstr "El comentari s'ha creat correctament."
 
-#: src/Process/Backend/Comment.php:200 src/Process/Backend/Comment.php:260
+#: src/Process/Backend/Comment.php:200 src/Process/Backend/Comment.php:256
 msgid "Comment has been successfully updated."
 msgstr "El comentari s'ha actualitzat correctament."
 
@@ -4038,23 +4039,23 @@ msgstr "El comentari s'ha suprimit correctament."
 msgid "You can't edit this comment."
 msgstr "Vostè no pot editar aquest comentari."
 
-#: src/Process/Backend/Comment.php:245 src/Process/Backend/Comment.php:248
+#: src/Process/Backend/Comment.php:241 src/Process/Backend/Comment.php:244
 msgid "Edit comment"
 msgstr "Editar comentari"
 
-#: src/Process/Backend/Comment.php:268
+#: src/Process/Backend/Comment.php:264
 msgid "Information collected"
 msgstr "Informació recollida"
 
-#: src/Process/Backend/Comment.php:281
+#: src/Process/Backend/Comment.php:277
 msgid "Date:"
 msgstr "Data :"
 
-#: src/Process/Backend/Comment.php:284
+#: src/Process/Backend/Comment.php:280
 msgid "Comment submitted"
 msgstr "Comentari enviat"
 
-#: src/Process/Backend/Comment.php:310
+#: src/Process/Backend/Comment.php:306
 #, php-format
 msgid "Hi!\n\n"
 "You wrote a comment on:\n"
@@ -4063,16 +4064,16 @@ msgstr "hola!\n\n"
 "Has escrit un comentari a:\n"
 "%s\n\n\n"
 
-#: src/Process/Backend/Comment.php:310
+#: src/Process/Backend/Comment.php:306
 #, php-format
 msgid "Your comment on my blog %s"
 msgstr "El teu comentari al meu bloc %s"
 
-#: src/Process/Backend/Comment.php:311
+#: src/Process/Backend/Comment.php:307
 msgid "Send an e-mail"
 msgstr "Enviar un correu electrònic"
 
-#: src/Process/Backend/Comment.php:343 src/Process/Backend/Post.php:908
+#: src/Process/Backend/Comment.php:339
 msgid "Comment:"
 msgstr "Comentari :"
 
@@ -4101,8 +4102,8 @@ msgstr "Mostra'ls."
 msgid "Delete all spams"
 msgstr "Suprimeix tots els correus brossa"
 
-#: src/Process/Backend/Comments.php:216 src/Process/Backend/Post.php:873
-#: src/Process/Backend/Search.php:407
+#: src/Process/Backend/Comments.php:216 src/Process/Backend/Post.php:1023
+#: src/Process/Backend/Search.php:410
 msgid "Selected comments action:"
 msgstr "Acció de comentaris seleccionada :"
 
@@ -4110,129 +4111,129 @@ msgstr "Acció de comentaris seleccionada :"
 msgid "The following plugins have been disabled :"
 msgstr "S'han desactivat els connectors següents:"
 
-#: src/Process/Backend/Home.php:193
+#: src/Process/Backend/Home.php:199
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "L'arrossegar i deixar anar l'àrea del tauler està desactivat"
 
-#: src/Process/Backend/Home.php:194
+#: src/Process/Backend/Home.php:200
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "L'arrossegar i deixar anar l'àrea del tauler està habilitat"
 
-#: src/Process/Backend/Home.php:210 src/Process/Backend/Home.php:223
+#: src/Process/Backend/Home.php:216 src/Process/Backend/Home.php:229
 #: src/Process/Upgrade/Home.php:133
 msgid "Dashboard"
 msgstr "Quadre de comandament"
 
-#: src/Process/Backend/Home.php:235
+#: src/Process/Backend/Home.php:241
 msgid "Make this blog my default blog"
 msgstr "Definir aquest blog com el meu blog per defecte"
 
-#: src/Process/Backend/Home.php:241
+#: src/Process/Backend/Home.php:247
 msgid "This blog is offline"
 msgstr "Aquest blog no està en línia"
 
-#: src/Process/Backend/Home.php:243
+#: src/Process/Backend/Home.php:249
 msgid "This blog is removed"
 msgstr "Aquest blog s'ha suprimit"
 
-#: src/Process/Backend/Home.php:248 src/Process/Backend/Home.php:256
+#: src/Process/Backend/Home.php:254 src/Process/Backend/Home.php:262
 #: src/Process/Upgrade/Home.php:58 src/Process/Upgrade/Home.php:63
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s no està definit, hauríeu d'editar el fitxer de configuració."
 
-#: src/Process/Backend/Home.php:249 src/Process/Backend/Home.php:257
+#: src/Process/Backend/Home.php:255 src/Process/Backend/Home.php:263
 #: src/Process/Upgrade/Home.php:59 src/Process/Upgrade/Home.php:64
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "Consulteu la documentació <a href=\"https://dotclear.org/documentation/2.0/admin/config\"></a> per obtenir més informació."
 
-#: src/Process/Backend/Home.php:267 src/Process/Upgrade/Home.php:68
+#: src/Process/Backend/Home.php:273 src/Process/Upgrade/Home.php:68
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "El directori de memòria cau no existeix o no es pot escriure. Heu de crear aquest directori amb els drets suficients i afectar aquesta ubicació a \"DC_TPL_CACHE\" al fitxer inc/config.php."
 
-#: src/Process/Backend/Home.php:270
+#: src/Process/Backend/Home.php:276
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "El directori de memòria cau no existeix o no es pot escriure. Hauríeu de contactar amb el vostre administrador."
 
-#: src/Process/Backend/Home.php:276
+#: src/Process/Backend/Home.php:282
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "No hi ha cap directori que es pugui escriure /public/ a la ubicació establerta a about:config \"public_path\". Heu de crear aquest directori amb els drets suficients (o canviar aquesta configuració)."
 
-#: src/Process/Backend/Home.php:279
+#: src/Process/Backend/Home.php:285
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "No hi ha cap directori arrel que es pugui escriure per al gestor de mitjans. Hauríeu de contactar amb el vostre administrador."
 
-#: src/Process/Backend/Home.php:306 src/Process/Backend/Plugins.php:129
+#: src/Process/Backend/Home.php:312 src/Process/Backend/Plugins.php:129
 #: src/Process/Install/Install.php:485 src/Process/Upgrade/Plugins.php:114
 msgid "Following plugins have been installed:"
 msgstr "S'han instal·lat els connectors següents:"
 
-#: src/Process/Backend/Home.php:324 src/Process/Backend/Plugins.php:145
+#: src/Process/Backend/Home.php:330 src/Process/Backend/Plugins.php:145
 #: src/Process/Install/Install.php:492 src/Process/Upgrade/Plugins.php:126
 msgid "Following plugins have not been installed:"
 msgstr "Els connectors següents no s'han instal·lat:"
 
-#: src/Process/Backend/Home.php:341
+#: src/Process/Backend/Home.php:347
 msgid "Errors have occured with following plugins:"
 msgstr "S'han produït errors amb els connectors següents:"
 
-#: src/Process/Backend/Home.php:509
+#: src/Process/Backend/Home.php:525
 msgid "Quick post"
 msgstr "Publicació ràpida"
 
-#: src/Process/Backend/Home.php:539 src/Process/Backend/Post.php:731
+#: src/Process/Backend/Home.php:555 src/Process/Backend/Post.php:850
 msgid "Content:"
 msgstr "Contingut:"
 
-#: src/Process/Backend/Home.php:545 src/Process/Backend/Post.php:738
+#: src/Process/Backend/Home.php:561 src/Process/Backend/Post.php:847
 msgid "Content"
 msgstr "Contingut"
 
-#: src/Process/Backend/Home.php:556 src/Process/Backend/Post.php:660
+#: src/Process/Backend/Home.php:572 src/Process/Backend/Post.php:704
 msgid "Add a new category"
 msgstr "Afegeix una categoria nova"
 
-#: src/Process/Backend/Home.php:575
+#: src/Process/Backend/Home.php:591
 msgid "This category will be created when you will save your post."
 msgstr "Aquesta categoria es crearà quan deseu la vostra publicació."
 
-#: src/Process/Backend/Home.php:583
+#: src/Process/Backend/Home.php:599
 msgid "Save and publish"
 msgstr "Guarda i publica"
 
-#: src/Process/Backend/Home.php:605
+#: src/Process/Backend/Home.php:621
 msgid "Donate to Dotclear"
 msgstr "Dona a Dotclear"
 
-#: src/Process/Backend/Home.php:607
+#: src/Process/Backend/Home.php:623
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear no és un projecte comercial; utilitzar Dotclear és <strong>gratuït</strong> i <strong>sempre</strong> ho serà. Si ho voleu, podeu contribuir a Dotclear per ajudar-nos a cobrir les despeses relacionades amb el projecte."
 
-#: src/Process/Backend/Home.php:609
+#: src/Process/Backend/Home.php:625
 msgid "The collected funds will be spent as follows:"
 msgstr "Els fons recaptats es gastaran de la següent manera:"
 
-#: src/Process/Backend/Home.php:613
+#: src/Process/Backend/Home.php:629
 msgid "Paying for the website hosting and translations"
 msgstr "Pagar l'allotjament i les traduccions del lloc web"
 
-#: src/Process/Backend/Home.php:615
+#: src/Process/Backend/Home.php:631
 msgid "Paying for the domain names"
 msgstr "Pagar pels noms de domini"
 
-#: src/Process/Backend/Home.php:617
+#: src/Process/Backend/Home.php:633
 msgid "Supporting related projects such as Dotaddict.org"
 msgstr "Donar suport a projectes relacionats com Dotaddict.org"
 
-#: src/Process/Backend/Home.php:619
+#: src/Process/Backend/Home.php:635
 msgid "Cover the costs of events set up by Dotclear"
 msgstr "Cobrir els costos dels esdeveniments organitzats per Dotclear"
 
-#: src/Process/Backend/Home.php:622
+#: src/Process/Backend/Home.php:638
 msgid "See <a href=\"https://dotclear.org/donate\">this page</a> for more information and donation"
 msgstr "Consulteu <a href=\"https://dotclear.org/donate\">aquesta pàgina</a> per obtenir més informació i donacions"
 
-#: src/Process/Backend/Home.php:637
+#: src/Process/Backend/Home.php:653
 msgid "Documentation and support"
 msgstr "Documentació i suport"
 
@@ -4273,76 +4274,76 @@ msgstr "L'idioma s'ha actualitzat correctament"
 msgid "Language has been successfully installed."
 msgstr "L'idioma s'ha instal·lat correctament."
 
-#: src/Process/Backend/Langs.php:240 src/Process/Backend/Langs.php:245
+#: src/Process/Backend/Langs.php:241 src/Process/Backend/Langs.php:246
 #: src/Process/Upgrade/Langs.php:259 src/Process/Upgrade/Langs.php:264
 msgid "Languages management"
 msgstr "Gestió de llengües"
 
-#: src/Process/Backend/Langs.php:258
+#: src/Process/Backend/Langs.php:259
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
 msgstr "Pots canviar l'idioma de l'usuari a les teves preferències <a href=\"%1$s\"></a> o canviar l'idioma principal del teu bloc a la configuració del teu <a href=\"%2$s\"></a>."
 
-#: src/Process/Backend/Langs.php:262 src/Process/Upgrade/Langs.php:323
+#: src/Process/Backend/Langs.php:263 src/Process/Upgrade/Langs.php:323
 msgid "Installed languages"
 msgstr "Idiomes instal·lats"
 
-#: src/Process/Backend/Langs.php:268
+#: src/Process/Backend/Langs.php:269
 msgid "No additional language is installed."
 msgstr "No hi ha cap idioma addicional instal·lat."
 
-#: src/Process/Backend/Langs.php:281 src/Process/Upgrade/Langs.php:333
+#: src/Process/Backend/Langs.php:282 src/Process/Upgrade/Langs.php:333
 msgid "Language"
 msgstr "Llenguatge"
 
-#: src/Process/Backend/Langs.php:292
+#: src/Process/Backend/Langs.php:293
 msgid "Install or upgrade languages"
 msgstr "Instal·leu o actualitzeu idiomes"
 
-#: src/Process/Backend/Langs.php:296 src/Process/Upgrade/Langs.php:246
+#: src/Process/Backend/Langs.php:297 src/Process/Upgrade/Langs.php:246
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
 msgstr "Podeu instal·lar o eliminar un idioma afegint o eliminant el directori corresponent a la vostra carpeta %s ."
 
-#: src/Process/Backend/Langs.php:316
+#: src/Process/Backend/Langs.php:317
 msgid "Available languages"
 msgstr "Idiomes disponibles"
 
-#: src/Process/Backend/Langs.php:321 src/Process/Upgrade/Langs.php:360
+#: src/Process/Backend/Langs.php:322 src/Process/Upgrade/Langs.php:360
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
 msgstr "Podeu descarregar i instal·lar un idioma addicional directament des de Dotclear.net. Els idiomes proposats es basen en la vostra versió: %s."
 
-#: src/Process/Backend/Langs.php:329 src/Process/Backend/User.php:407
+#: src/Process/Backend/Langs.php:330 src/Process/Backend/User.php:407
 #: src/Process/Upgrade/Langs.php:366
 msgid "Language:"
 msgstr "Llenguatge:"
 
-#: src/Process/Backend/Langs.php:351 src/Process/Upgrade/Langs.php:387
+#: src/Process/Backend/Langs.php:352 src/Process/Upgrade/Langs.php:387
 msgid "Install language"
 msgstr "Instal·leu l'idioma"
 
-#: src/Process/Backend/Langs.php:371 src/Process/Upgrade/Langs.php:404
+#: src/Process/Backend/Langs.php:372 src/Process/Upgrade/Langs.php:404
 msgid "You can install languages by uploading zip files."
 msgstr "Podeu instal·lar idiomes penjant fitxers zip."
 
-#: src/Process/Backend/Langs.php:378 src/Process/Upgrade/Langs.php:413
+#: src/Process/Backend/Langs.php:379 src/Process/Upgrade/Langs.php:413
 msgid "Language zip file:"
 msgstr "Fitxer zip d'idioma:"
 
-#: src/Process/Backend/Langs.php:400 src/Process/Upgrade/Langs.php:440
+#: src/Process/Backend/Langs.php:401 src/Process/Upgrade/Langs.php:440
 msgid "Upload language"
 msgstr "Carrega l'idioma"
 
-#: src/Process/Backend/Langs.php:430 src/Process/Upgrade/Langs.php:112
+#: src/Process/Backend/Langs.php:431 src/Process/Upgrade/Langs.php:112
 msgid "Invalid language zip file."
 msgstr "Fitxer zip d'idioma no vàlid."
 
-#: src/Process/Backend/Langs.php:434 src/Process/Upgrade/Langs.php:116
+#: src/Process/Backend/Langs.php:435 src/Process/Upgrade/Langs.php:116
 msgid "The zip file does not appear to be a valid Dotclear language pack."
 msgstr "Sembla que el fitxer zip no és un paquet d'idioma Dotclear vàlid."
 
-#: src/Process/Backend/Langs.php:443 src/Process/Upgrade/Langs.php:125
+#: src/Process/Backend/Langs.php:444 src/Process/Upgrade/Langs.php:125
 msgid "An error occurred during language upgrade."
 msgstr "S'ha produït un error durant l'actualització d'idioma."
 
@@ -4894,207 +4895,175 @@ msgstr "Algunes funcions estan desactivades, si us plau, doneu accés d'escriptu
 msgid "Plugin configuration"
 msgstr "Configuració del connector"
 
-#: src/Process/Backend/Post.php:137 src/Process/Backend/Post.php:762
-#: src/Process/Backend/Post.php:767
+#: src/Process/Backend/Post.php:160 src/Process/Backend/Post.php:943
+#: src/Process/Backend/Post.php:964
 msgid "Edit post"
 msgstr "Edita la publicació"
 
-#: src/Process/Backend/Post.php:177
-msgid "Next entry"
-msgstr "Següent entrada"
+#: src/Process/Backend/Post.php:200
+msgid "Next post"
+msgstr ""
 
-#: src/Process/Backend/Post.php:193
-msgid "Previous entry"
-msgstr "Entrada anterior"
+#: src/Process/Backend/Post.php:216
+msgid "Previous post"
+msgstr ""
 
-#: src/Process/Backend/Post.php:270 src/Process/Backend/Post.php:571
+#: src/Process/Backend/Post.php:293 src/Process/Backend/Post.php:582
 msgid "All pings sent."
 msgstr "Tots els pings s'han enviat."
 
-#: src/Process/Backend/Post.php:300
+#: src/Process/Backend/Post.php:323
 msgid "Invalid publication date"
 msgstr "Data de publicació no vàlida"
 
-#: src/Process/Backend/Post.php:424
+#: src/Process/Backend/Post.php:447
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
 msgstr "La publicació \"%s\" s'ha actualitzat correctament"
 
-#: src/Process/Backend/Post.php:479 src/Schema/Status/Comment.php:31
-#: src/Schema/Status/Post.php:31
-msgid "Published"
-msgid_plural "Published (>1)"
-msgstr[0] "Publicat"
-msgstr[1] "Publicat"
-
-#: src/Process/Backend/Post.php:480 src/Schema/Status/Comment.php:32
-#: src/Schema/Status/Post.php:32
-msgid "Unpublished"
-msgid_plural "Unpublished (>1)"
-msgstr[0] "Inèdit"
-msgstr[1] "Inèdit"
-
-#: src/Process/Backend/Post.php:481 src/Schema/Status/Post.php:33
-msgid "Scheduled"
-msgid_plural "Scheduled (>1)"
-msgstr[0] "Programat"
-msgstr[1] "Programat"
-
-#: src/Process/Backend/Post.php:482 src/Schema/Status/Comment.php:33
-#: src/Schema/Status/Post.php:34
-msgid "Pending"
-msgid_plural "Pending (>1)"
-msgstr[0] "Pendents"
-msgstr[1] "Pendent"
-
-#: src/Process/Backend/Post.php:486
-#, php-format
-msgid "&ldquo;%s&rdquo;"
-msgstr "&ldquo;%s&rdquo;"
-
-#: src/Process/Backend/Post.php:558
+#: src/Process/Backend/Post.php:569
 msgid "Entry has been successfully updated."
 msgstr "L'entrada s'ha actualitzat amb èxit."
 
-#: src/Process/Backend/Post.php:562
+#: src/Process/Backend/Post.php:573
 msgid "File has been successfully attached."
 msgstr "El fitxer s'ha adjuntat amb èxit."
 
-#: src/Process/Backend/Post.php:564 src/Process/Backend/PostMedia.php:88
+#: src/Process/Backend/Post.php:575 src/Process/Backend/PostMedia.php:88
 msgid "Attachment has been successfully removed."
 msgstr "L'annex s'ha suprimit amb èxit."
 
-#: src/Process/Backend/Post.php:580
+#: src/Process/Backend/Post.php:591
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "No oblideu validar la vostra conversió XHTML desant la publicació."
 
-#: src/Process/Backend/Post.php:585
+#: src/Process/Backend/Post.php:601
 msgid "Go to this entry on the site"
 msgstr "Aneu a aquesta entrada del lloc"
 
-#: src/Process/Backend/Post.php:620
+#: src/Process/Backend/Post.php:643
 msgid "Entry status"
 msgstr "Estat d'entrada"
 
-#: src/Process/Backend/Post.php:627
+#: src/Process/Backend/Post.php:651
 msgid "Publication date and hour"
 msgstr "Data i hora de publicació"
 
-#: src/Process/Backend/Post.php:633
+#: src/Process/Backend/Post.php:660
 msgid "Entry language"
 msgstr "Idioma d'entrada"
 
-#: src/Process/Backend/Post.php:636
+#: src/Process/Backend/Post.php:668
 msgid "Text formatting"
 msgstr "Format del text"
 
-#: src/Process/Backend/Post.php:642
+#: src/Process/Backend/Post.php:673
 msgid "Convert to HTML"
 msgstr "Converteix a HTML"
 
-#: src/Process/Backend/Post.php:646
+#: src/Process/Backend/Post.php:681
 msgid "Filing"
 msgstr "Arxivament"
 
-#: src/Process/Backend/Post.php:650
+#: src/Process/Backend/Post.php:686
 msgid "Selected entry"
 msgstr "Entrada seleccionada:"
 
-#: src/Process/Backend/Post.php:672 src/Process/Backend/User.php:405
+#: src/Process/Backend/Post.php:729 src/Process/Backend/User.php:405
 msgid "Options"
 msgstr "Opcions"
 
-#: src/Process/Backend/Post.php:675
+#: src/Process/Backend/Post.php:732
 msgid "Comments and trackbacks list"
 msgstr "Llista de comentaris i trackbacks"
 
-#: src/Process/Backend/Post.php:681
+#: src/Process/Backend/Post.php:745
 msgid "Warning: Comments are no longer accepted for this entry."
 msgstr "Avís: ja no s'accepten comentaris per a aquesta entrada."
 
-#: src/Process/Backend/Post.php:683
+#: src/Process/Backend/Post.php:749
 msgid "Comments are not accepted on this blog so far."
 msgstr "Fins ara no s'accepten comentaris en aquest bloc."
 
-#: src/Process/Backend/Post.php:689
+#: src/Process/Backend/Post.php:762
 msgid "Warning: Trackbacks are no longer accepted for this entry."
 msgstr "Avís: ja no s'accepten trackbacks per a aquesta entrada."
 
-#: src/Process/Backend/Post.php:690
+#: src/Process/Backend/Post.php:766
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "Fins ara no s'accepten trackbacks en aquest bloc."
 
-#: src/Process/Backend/Post.php:696
+#: src/Process/Backend/Post.php:788
 msgid "Edit basename"
 msgstr "Edita el nom base"
 
-#: src/Process/Backend/Post.php:700
+#: src/Process/Backend/Post.php:792
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Atenció: si indica la URL manualment, podria causar conflictes amb una altra entrada."
 
-#: src/Process/Backend/Post.php:717
+#: src/Process/Backend/Post.php:831
 msgid "Excerpt:"
 msgstr "Extracte:"
 
-#: src/Process/Backend/Post.php:718
+#: src/Process/Backend/Post.php:831
 msgid "Introduction to the post."
 msgstr "Introducció al post."
 
-#: src/Process/Backend/Post.php:743
+#: src/Process/Backend/Post.php:867
 msgid "Personal notes:"
 msgstr "Notes personals:"
 
-#: src/Process/Backend/Post.php:744
+#: src/Process/Backend/Post.php:867
 msgid "Unpublished notes."
 msgstr "Notes inèdites."
 
-#: src/Process/Backend/Post.php:852 src/Process/Backend/Post.php:887
+#: src/Process/Backend/Post.php:1040 src/Process/Backend/Post.php:1055
 msgid "Add a comment"
 msgstr "Afegir un comentari"
 
-#: src/Process/Backend/Post.php:952
-msgid "Trackbacks received"
-msgstr "Trackbacks rebuts"
-
-#: src/Process/Backend/Post.php:958
+#: src/Process/Backend/Post.php:1144
 msgid "No trackback"
 msgstr "Cap resposta"
 
-#: src/Process/Backend/Post.php:966
+#: src/Process/Backend/Post.php:1155
 msgid "Selected trackbacks action:"
 msgstr "Acció de trackback seleccionada:"
 
-#: src/Process/Backend/Post.php:983 src/Process/Backend/Post.php:994
-msgid "Ping blogs"
-msgstr "Ping blocs"
-
-#: src/Process/Backend/Post.php:985
-msgid "URLs to ping:"
-msgstr "URLs a ping:"
-
-#: src/Process/Backend/Post.php:989
-msgid "Excerpt to send:"
-msgstr "Extracte per enviar:"
-
-#: src/Process/Backend/Post.php:995
-msgid "Auto discover ping URLs"
-msgstr "Descobriment automàtic de les ping URLs"
-
-#: src/Process/Backend/Post.php:1003
+#: src/Process/Backend/Post.php:1178
 msgid "Previously sent pings"
 msgstr "Pings ja enviats"
 
-#: src/Process/Backend/Post.php:1093
+#: src/Process/Backend/Post.php:1204 src/Process/Backend/Post.php:1226
+msgid "Ping blogs"
+msgstr "Ping blocs"
+
+#: src/Process/Backend/Post.php:1212
+msgid "URLs to ping:"
+msgstr "URLs a ping:"
+
+#: src/Process/Backend/Post.php:1220
+msgid "Excerpt to send:"
+msgstr "Extracte per enviar:"
+
+#: src/Process/Backend/Post.php:1233
+msgid "Auto discover ping URLs"
+msgstr "Descobriment automàtic de les ping URLs"
+
+#: src/Process/Backend/Post.php:1302
 msgid "select this comment"
 msgstr "selecciona aquest comentari"
 
-#: src/Process/Backend/Post.php:1093
+#: src/Process/Backend/Post.php:1302
 msgid "select this trackback"
 msgstr "seleccioneu aquest trackback"
 
-#: src/Process/Backend/Post.php:1112
+#: src/Process/Backend/Post.php:1333
 msgid "Edit this comment"
 msgstr "Editar aquest comentari"
+
+#: src/Process/Backend/Post.php:1333
+msgid "Edit this trackback"
+msgstr ""
 
 #: src/Process/Backend/PostMedia.php:75
 msgid "This attachment does not exist"
@@ -5116,7 +5085,7 @@ msgstr "Les entrades seleccionades s'han actualitzat correctament."
 msgid "Selected entries have been successfully deleted."
 msgstr "Les entrades seleccionades s'han suprimit correctament."
 
-#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:313
+#: src/Process/Backend/Posts.php:138 src/Process/Backend/Search.php:314
 msgid "Selected entries action:"
 msgstr "Acció en les entrades seleccionades:"
 
@@ -5219,14 +5188,14 @@ msgstr "Cerca a les entrades"
 msgid "Search in comments"
 msgstr "Cerca als comentaris"
 
-#: src/Process/Backend/Search.php:292
+#: src/Process/Backend/Search.php:293
 #, php-format
 msgid "one entry found"
 msgid_plural "%d entries found"
 msgstr[0] "s'ha trobat una entrada"
 msgstr[1] "S'han trobat %d entrades"
 
-#: src/Process/Backend/Search.php:378
+#: src/Process/Backend/Search.php:381
 #, php-format
 msgid "one comment found"
 msgid_plural "%d comments found"
@@ -6403,11 +6372,35 @@ msgid_plural "Undefined (>1)"
 msgstr[0] "Sense definir"
 msgstr[1] "Sense definir"
 
+#: src/Schema/Status/Comment.php:31 src/Schema/Status/Post.php:31
+msgid "Published"
+msgid_plural "Published (>1)"
+msgstr[0] "Publicat"
+msgstr[1] "Publicat"
+
+#: src/Schema/Status/Comment.php:32 src/Schema/Status/Post.php:32
+msgid "Unpublished"
+msgid_plural "Unpublished (>1)"
+msgstr[0] "Inèdit"
+msgstr[1] "Inèdit"
+
+#: src/Schema/Status/Comment.php:33 src/Schema/Status/Post.php:34
+msgid "Pending"
+msgid_plural "Pending (>1)"
+msgstr[0] "Pendents"
+msgstr[1] "Pendent"
+
 #: src/Schema/Status/Comment.php:34
 msgid "Junk"
 msgid_plural "Junk (>1)"
 msgstr[0] "Escombraries"
 msgstr[1] "Escombraries"
+
+#: src/Schema/Status/Post.php:33
+msgid "Scheduled"
+msgid_plural "Scheduled (>1)"
+msgstr[0] "Programat"
+msgstr[1] "Programat"
 
 #: src/Schema/Status/User.php:29
 msgid "Enabled"
