@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 10:14+0100\n"
-"PO-Revision-Date: 2025-01-22 09:46\n"
+"POT-Creation-Date: 2025-03-16 11:17+0100\n"
+"PO-Revision-Date: 2025-03-16 10:23\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -669,16 +669,16 @@ msgstr "Αποκτήστε το δικό σας κλειδί API"
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:143
+#: plugins/antispam/src/Antispam.php:144
 msgid "This comment is a spam:"
 msgstr "Αυτό το σχόλιο είναι ένα spam:"
 
-#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(συμπεριλαμβανομένου %d σχολιασμού spam)"
 
-#: plugins/antispam/src/Antispam.php:158 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(συμπεριλαμβανομένων %d spam σχολίων)"
@@ -970,7 +970,7 @@ msgstr "Χωρίς περιγραφή"
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Φιλτραρισμένο από %1$s (%2$s)"
 
-#: plugins/antispam/src/SpamFilters.php:157
+#: plugins/antispam/src/SpamFilters.php:153
 msgid "Unknown filter."
 msgstr "Άγνωστο φίλτρο."
 
@@ -2333,22 +2333,22 @@ msgstr "Λήψη του ενεργού θέματος του τρέχοντος 
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Μπορεί να είναι χρήσιμο να δημιουργήσετε αντίγραφα ασφαλείας του ενεργού θέματος πριν από οποιαδήποτε αλλαγή ή ενημέρωση. Αυτή η συμπίεση του φακέλου θέματος σε ένα μόνο αρχείο zip."
 
-#: plugins/pages/src/Backend.php:40
+#: plugins/pages/src/Backend.php:47
 msgid "manage pages"
 msgstr "διαχείριση σελίδων"
 
-#: plugins/pages/src/Backend.php:91
+#: plugins/pages/src/Backend.php:101
 #, php-format
 msgid "%d page"
 msgstr "%d σελίδα"
 
-#: plugins/pages/src/Backend.php:91
+#: plugins/pages/src/Backend.php:101
 #, php-format
 msgid "%d pages"
 msgstr "%d σελίδες"
 
-#: plugins/pages/src/Backend.php:98 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:844
+#: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
+#: plugins/pages/src/ManagePage.php:106 plugins/pages/src/ManagePage.php:834
 msgid "New page"
 msgstr "Νέα σελίδα"
 
@@ -2365,15 +2365,15 @@ msgstr "Πίσω στη λίστα σελίδων"
 msgid "Selected pages have been successfully reordered."
 msgstr "Οι επιλεγμένες σελίδες αναδιατάχθηκαν επιτυχώς."
 
-#: plugins/pages/src/BackendList.php:51
+#: plugins/pages/src/BackendList.php:52
 msgid "No page"
 msgstr "Καμία σελίδα"
 
-#: plugins/pages/src/BackendList.php:166 plugins/pages/src/BackendList.php:226
+#: plugins/pages/src/BackendList.php:176 plugins/pages/src/BackendList.php:237
 msgid "Hidden"
 msgstr "Hidden"
 
-#: plugins/pages/src/BackendList.php:256
+#: plugins/pages/src/BackendList.php:267
 msgid "Select this page"
 msgstr "Επιλέξτε αυτή τη σελίδα"
 
@@ -2421,60 +2421,60 @@ msgstr "Για να αλλάξετε τη σειρά των σελίδων, με
 msgid "Save pages order"
 msgstr "Αποθήκευση παραγγελίας σελίδων"
 
-#: plugins/pages/src/ManagePage.php:167
+#: plugins/pages/src/ManagePage.php:166
 msgid "This page does not exist."
 msgstr "Αυτή η σελίδα δεν υπάρχει."
 
-#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:844
-#: plugins/pages/src/ManagePage.php:865
+#: plugins/pages/src/ManagePage.php:187 plugins/pages/src/ManagePage.php:834
+#: plugins/pages/src/ManagePage.php:855
 msgid "Edit page"
 msgstr "Επεξεργασία σελίδας"
 
-#: plugins/pages/src/ManagePage.php:468
+#: plugins/pages/src/ManagePage.php:467
 msgid "Are you sure you want to delete this page?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή τη σελίδα?"
 
-#: plugins/pages/src/ManagePage.php:508
+#: plugins/pages/src/ManagePage.php:495
 msgid "Page has been successfully updated."
 msgstr "Η σελίδα έχει ενημερωθεί με επιτυχία."
 
-#: plugins/pages/src/ManagePage.php:510
+#: plugins/pages/src/ManagePage.php:497
 msgid "Page has been successfully created."
 msgstr "Η σελίδα έχει δημιουργηθεί με επιτυχία."
 
-#: plugins/pages/src/ManagePage.php:523
+#: plugins/pages/src/ManagePage.php:510
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Μην ξεχάσετε να επικυρώσετε τη μετατροπή σας σε HTML αποθηκεύοντας την ανάρτησή σας."
 
-#: plugins/pages/src/ManagePage.php:533
+#: plugins/pages/src/ManagePage.php:520
 msgid "Go to this page on the site"
 msgstr "Μεταβείτε σε αυτή τη σελίδα στην ιστοσελίδα"
 
-#: plugins/pages/src/ManagePage.php:575
+#: plugins/pages/src/ManagePage.php:562
 msgid "Page status"
 msgstr "Κατάσταση σελίδας"
 
-#: plugins/pages/src/ManagePage.php:591
+#: plugins/pages/src/ManagePage.php:579
 msgid "Page language"
 msgstr "Γλώσσα σελίδας"
 
-#: plugins/pages/src/ManagePage.php:618 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:606 plugins/pages/src/Widgets.php:40
 msgid "Page position"
 msgstr "Θέση σελίδας"
 
-#: plugins/pages/src/ManagePage.php:669
+#: plugins/pages/src/ManagePage.php:657
 msgid "Hide in widget Pages"
 msgstr "Απόκρυψη σε σελίδες widget"
 
-#: plugins/pages/src/ManagePage.php:693
+#: plugins/pages/src/ManagePage.php:683
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Προειδοποίηση: Αν ορίσετε το URL χειροκίνητα, ενδέχεται να έρθει σε σύγκρουση με άλλη σελίδα."
 
-#: plugins/pages/src/ManagePage.php:732
+#: plugins/pages/src/ManagePage.php:722
 msgid "Introduction to the page."
 msgstr "Εισαγωγή στη σελίδα."
 
-#: plugins/pages/src/ManagePage.php:1146
+#: plugins/pages/src/ManagePage.php:1104
 msgid "Select this comment"
 msgstr "Επιλέξτε αυτό το σχόλιο"
 
@@ -2832,15 +2832,15 @@ msgstr "Σχόλια αυτής της ετικέτας"
 msgid "This tag's entries Atom feed"
 msgstr "Αυτή η ετικέτα καταχωρήσεις Atom feed"
 
-#: plugins/tags/src/Manage.php:116
+#: plugins/tags/src/Manage.php:117
 msgid "entries"
 msgstr "καταχωρήσεις"
 
-#: plugins/tags/src/Manage.php:116
+#: plugins/tags/src/Manage.php:117
 msgid "entry"
 msgstr "εγγραφή"
 
-#: plugins/tags/src/Manage.php:147
+#: plugins/tags/src/Manage.php:148
 msgid "No tags on this blog."
 msgstr "Δεν υπάρχουν ετικέτες σε αυτό το blog."
 
