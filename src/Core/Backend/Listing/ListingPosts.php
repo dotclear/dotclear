@@ -134,8 +134,12 @@ class ListingPosts extends Listing
 
         // Prepare listing
         $lines = [];
+        $types = [];
         while ($this->rs->fetch()) {
             $lines[] = $this->postLine(isset($entries[$this->rs->post_id]), $include_type);
+            if (!in_array($this->rs->post_type, $types)) {
+                $types[] = $this->rs->post_type;
+            }
         }
 
         if ($filter) {
@@ -144,26 +148,31 @@ class ListingPosts extends Listing
                 $this->rs_count
             );
         } else {
-            $stats = [
-                (new Text(null, sprintf(__('List of entries (%s)'), $this->rs_count))),
-            ];
-            foreach (App::status()->post()->dump(false) as $status) {
-                $nb = (int) App::blog()->getPosts(['post_status' => $status->level()], true)->f(0);
-                if ($nb !== 0) {
-                    $stats[] = (new Set())
-                        ->separator(' ')
-                        ->items([
-                            (new Link())
-                                ->href(App::backend()->url()->get('admin.posts', ['status' => $status->level()]))
-                                ->text(__($status->name(), $status->pluralName(), $nb)),
-                            (new Text(null, sprintf('(%d)', $nb))),
-                        ]);
+            if (count($types) === 1) {
+                $stats = [
+                    (new Text(null, sprintf('%s (%s)', __(App::postTypes()->get($types[0])->get('label')), $this->rs_count))),
+                ];
+                foreach (App::status()->post()->dump(false) as $status) {
+                    $nb = (int) App::blog()->getPosts(['post_status' => $status->level()], true)->f(0);
+                    if ($nb !== 0) {
+                        $stats[] = (new Set())
+                            ->separator(' ')
+                            ->items([
+                                (new Link())
+                                    ->href(App::PostTypes()->get($types[0])->listAdminUrl(true, ['status' => $status->level()]))
+                                    ->text(__($status->name(), $status->pluralName(), $nb)),
+                                (new Text(null, sprintf('(%d)', $nb))),
+                            ]);
+                    }
                 }
+                $caption = (new Set())
+                    ->separator(', ')
+                    ->items($stats)
+                ->render();
+            } else {
+                // Different types of entries
+                $caption = sprintf(__('List of entries (%s)'), $this->rs_count);
             }
-            $caption = (new Set())
-                ->separator(', ')
-                ->items($stats)
-            ->render();
         }
 
         $buffer = (new Div())
