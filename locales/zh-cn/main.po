@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-16 11:12+0100\n"
-"PO-Revision-Date: 2025-03-16 10:23\n"
+"PO-Revision-Date: 2025-03-16 22:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -4870,11 +4870,11 @@ msgstr "编辑帖子"
 
 #: src/Process/Backend/Post.php:200
 msgid "Next post"
-msgstr ""
+msgstr "下一篇"
 
 #: src/Process/Backend/Post.php:216
 msgid "Previous post"
-msgstr ""
+msgstr "上一篇文章"
 
 #: src/Process/Backend/Post.php:293 src/Process/Backend/Post.php:582
 msgid "All pings sent."
@@ -5031,7 +5031,7 @@ msgstr "编辑这个评论"
 
 #: src/Process/Backend/Post.php:1333
 msgid "Edit this trackback"
-msgstr ""
+msgstr "编辑此回溯"
 
 #: src/Process/Backend/PostMedia.php:75
 msgid "This attachment does not exist"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-16 11:12+0100\n"
-"PO-Revision-Date: 2025-03-16 10:22\n"
+"PO-Revision-Date: 2025-03-16 22:19\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -4934,11 +4934,11 @@ msgstr "Editează postarea"
 
 #: src/Process/Backend/Post.php:200
 msgid "Next post"
-msgstr ""
+msgstr "Următoarea postare"
 
 #: src/Process/Backend/Post.php:216
 msgid "Previous post"
-msgstr ""
+msgstr "Postare anterioară"
 
 #: src/Process/Backend/Post.php:293 src/Process/Backend/Post.php:582
 msgid "All pings sent."
@@ -5095,7 +5095,7 @@ msgstr "Editează acest comentariu"
 
 #: src/Process/Backend/Post.php:1333
 msgid "Edit this trackback"
-msgstr ""
+msgstr "Editează acest trackback"
 
 #: src/Process/Backend/PostMedia.php:75
 msgid "This attachment does not exist"
