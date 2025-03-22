@@ -256,8 +256,8 @@ class Pager
             $url .= '?' . $this->var_page . '=%1$d';
         }
 
-        # Cope with uri fragment (limit to HTML id attribute)
-        if (preg_match('/^[A-Za-z0-9-_]+$/', $this->fragment)) {
+        # Cope with uri fragment (limit to HTML id attribute and sub-fragment/sub-hash used by page-tabs.js)
+        if (preg_match('/^[A-Za-z0-9-_]+(?:\.[A-Za-z0-9-_]+)?$/', $this->fragment)) {
             $url .= '#' . $this->fragment;
         }
 
