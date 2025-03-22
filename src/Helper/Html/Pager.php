@@ -82,6 +82,11 @@ class Pager
     public ?string $base_url = null;
 
     /**
+     * URI fragment
+     */
+    public string $fragment = '';
+
+    /**
      * GET param name for current page
      */
     public string $var_page = 'page';
@@ -249,6 +254,11 @@ class Pager
             $url .= '&' . $this->var_page . '=%1$d';
         } else {
             $url .= '?' . $this->var_page . '=%1$d';
+        }
+
+        # Cope with uri fragment (limit to HTML id attribute)
+        if (preg_match('/^[A-Za-z0-9-_]+$/', $this->fragment)) {
+            $url .= '#' . $this->fragment;
         }
 
         $this->page_url = $url;
