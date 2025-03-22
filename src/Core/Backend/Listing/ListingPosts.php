@@ -147,32 +147,30 @@ class ListingPosts extends Listing
                 __('List of %s entry matching the filter.', 'List of %s entries matching the filter.', $this->rs_count),
                 $this->rs_count
             );
-        } else {
-            if (count($types) === 1) {
-                $stats = [
-                    (new Text(null, sprintf('%s (%s)', __(App::postTypes()->get($types[0])->get('label')), $this->rs_count))),
-                ];
-                foreach (App::status()->post()->dump(false) as $status) {
-                    $nb = (int) App::blog()->getPosts(['post_status' => $status->level()], true)->f(0);
-                    if ($nb !== 0) {
-                        $stats[] = (new Set())
-                            ->separator(' ')
-                            ->items([
-                                (new Link())
-                                    ->href(App::PostTypes()->get($types[0])->listAdminUrl(true, ['status' => $status->level()]))
-                                    ->text(__($status->name(), $status->pluralName(), $nb)),
-                                (new Text(null, sprintf('(%d)', $nb))),
-                            ]);
-                    }
+        } elseif (count($types) === 1) {
+            $stats = [
+                (new Text(null, sprintf('%s (%s)', __(App::postTypes()->get($types[0])->get('label')), $this->rs_count))),
+            ];
+            foreach (App::status()->post()->dump(false) as $status) {
+                $nb = (int) App::blog()->getPosts(['post_status' => $status->level()], true)->f(0);
+                if ($nb !== 0) {
+                    $stats[] = (new Set())
+                        ->separator(' ')
+                        ->items([
+                            (new Link())
+                                ->href(App::PostTypes()->get($types[0])->listAdminUrl(true, ['status' => $status->level()]))
+                                ->text(__($status->name(), $status->pluralName(), $nb)),
+                            (new Text(null, sprintf('(%d)', $nb))),
+                        ]);
                 }
-                $caption = (new Set())
-                    ->separator(', ')
-                    ->items($stats)
-                ->render();
-            } else {
-                // Different types of entries
-                $caption = sprintf(__('List of entries (%s)'), $this->rs_count);
             }
+            $caption = (new Set())
+                ->separator(', ')
+                ->items($stats)
+            ->render();
+        } else {
+            // Different types of entries
+            $caption = sprintf(__('List of entries (%s)'), $this->rs_count);
         }
 
         $buffer = (new Div())
