@@ -71,6 +71,10 @@ body.rtl .jstEditor iframe {
   margin-inline-start: 0.25em;
   border-inline-start: 1px solid var(--entry-sb-spacer);
 }
+.jstElements > .jstSpacer:first-child,
+.jstElements > .jstSpacer:last-child {
+  display: none;
+}
 .jstSwitcher {
   display: flex;
   list-style: none;
