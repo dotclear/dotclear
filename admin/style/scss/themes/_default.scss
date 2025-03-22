@@ -377,8 +377,9 @@
   // - Entry
 
   --entry-sb-title-border: #{$gray-dark};
-  --entry-sb-background: #{$gray-very-light};
+  --entry-sb-background: #{$white};
   --entry-sb-focus-background: #{color.scale($white, $lightness: -7%)};
+  --entry-sb-spacer: #{color.scale($gray-very-light, $lightness: -10%)};
 
   // - Preferences
 

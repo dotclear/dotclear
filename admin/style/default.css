@@ -512,8 +512,9 @@ h6 {
   --modules-background: rgb(243.45, 243.45, 243.45);
   --modules-border: #a2cbe9;
   --entry-sb-title-border: #676e78;
-  --entry-sb-background: rgb(243.45, 243.45, 243.45);
+  --entry-sb-background: #fff;
   --entry-sb-focus-background: rgb(237.15, 237.15, 237.15);
+  --entry-sb-spacer: rgb(219.105, 219.105, 219.105);
   --fav-list-border: rgb(235.75, 235.75, 235.75);
   --fav-list-border-alt: rgb(219.105, 219.105, 219.105);
   --my-favs-border: #9ac123;
@@ -764,6 +765,7 @@ h6 {
   --entry-sb-title-border: #fff;
   --entry-sb-background: rgb(73.1116438356, 76.2904109589, 81.5883561644);
   --entry-sb-focus-background: rgb(86.0136986301, 89.7534246575, 95.9863013699);
+  --entry-sb-spacer: rgb(243.45, 243.9, 244.65);
   --fav-list-border: rgb(235.75, 236.5, 237.75);
   --fav-list-border-alt: rgb(217.707739726, 219.1606849315, 221.582260274);
   --my-favs-border: #9ac123;
@@ -1015,6 +1017,7 @@ h6 {
     --entry-sb-title-border: #fff;
     --entry-sb-background: rgb(73.1116438356, 76.2904109589, 81.5883561644);
     --entry-sb-focus-background: rgb(86.0136986301, 89.7534246575, 95.9863013699);
+    --entry-sb-spacer: rgb(243.45, 243.9, 244.65);
     --fav-list-border: rgb(235.75, 236.5, 237.75);
     --fav-list-border-alt: rgb(217.707739726, 219.1606849315, 221.582260274);
     --my-favs-border: #9ac123;
