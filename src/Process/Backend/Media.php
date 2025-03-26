@@ -753,7 +753,8 @@ class Media extends Process
                                                         ->value(__('Clear all'))
                                                         ->type('reset')
                                                         ->class(['button', 'cancel', 'one-file']),
-                                                    (new Input('upstart', __('Upload')))
+                                                    (new Input('upstart'))
+                                                        ->value(__('Upload'))
                                                         ->type('submit')
                                                         ->class(['button', 'start']),
                                                 ]),
