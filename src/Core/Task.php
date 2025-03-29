@@ -175,7 +175,7 @@ class Task implements TaskInterface
 
             $this->url->registerError(Url::default404(...));
 
-            $this->url->register('lang', '', '^(a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
+            $this->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', Url::lang(...));
             $this->url->register('posts', 'posts', '^posts(/.+)?$', Url::home(...));
             $this->url->register('post', 'post', '^post/(.+)$', Url::post(...));
             $this->url->register('preview', 'preview', '^preview/(.+)$', Url::preview(...));
