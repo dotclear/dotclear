@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 11:12+0100\n"
-"PO-Revision-Date: 2025-03-16 22:20\n"
+"POT-Creation-Date: 2025-03-29 16:53+0100\n"
+"PO-Revision-Date: 2025-03-31 14:59\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -361,7 +361,7 @@ msgstr[1] "%dটি এন্ট্রি সফলভাবে মোছা হ
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:314
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:120
-#: src/Core/Backend/Listing/ListingPosts.php:249
+#: src/Core/Backend/Listing/ListingPosts.php:256
 msgid "(No cat)"
 msgstr "(বিড়াল না)"
 
@@ -484,8 +484,8 @@ msgid "Category"
 msgstr "ক্যাটাগরি"
 
 #: src/Core/Backend/Combos.php:275 src/Core/Backend/Filter/FilterPosts.php:200
-#: src/Core/Backend/Listing/ListingPosts.php:197
-#: src/Core/Backend/Listing/ListingPosts.php:231
+#: src/Core/Backend/Listing/ListingPosts.php:204
+#: src/Core/Backend/Listing/ListingPosts.php:238
 #: src/Core/Backend/Listing/ListingPostsMini.php:133
 msgid "Selected"
 msgstr "নির্বাচিত"
@@ -600,7 +600,7 @@ msgstr "ক্যাটাগরিসমূহ"
 #: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:777
+#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:778
 #: src/Process/Backend/MediaItem.php:399 src/Process/Backend/MediaItem.php:405
 msgid "Media manager"
 msgstr "মিডিয়া ম্যানেজার"
@@ -847,7 +847,7 @@ msgstr "ব্লগের তালিকা"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:139
 #: src/Core/Backend/Listing/ListingComments.php:179
-#: src/Core/Backend/Listing/ListingPosts.php:192
+#: src/Core/Backend/Listing/ListingPosts.php:199
 #: src/Core/Backend/Listing/ListingUsers.php:131
 msgid "Legend: "
 msgstr "লেজেন্ড: "
@@ -1000,41 +1000,41 @@ msgstr "কোন এন্ট্রি ফিল্টার নয়"
 msgid "Trackbacks"
 msgstr "ট্র্যাকব্যাক"
 
-#: src/Core/Backend/Listing/ListingPosts.php:143
+#: src/Core/Backend/Listing/ListingPosts.php:147
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
 msgstr[0] "ফিল্টারের সাথে মিলে যাওয়া %s এন্ট্রির তালিকা।"
 msgstr[1] "ফিল্টারের সাথে মিলছে এমন %s এন্ট্রির তালিকা।"
 
-#: src/Core/Backend/Listing/ListingPosts.php:148
+#: src/Core/Backend/Listing/ListingPosts.php:173
 #, php-format
 msgid "List of entries (%s)"
 msgstr "এন্ট্রির তালিকা (%s)"
 
-#: src/Core/Backend/Listing/ListingPosts.php:196
-#: src/Core/Backend/Listing/ListingPosts.php:228
+#: src/Core/Backend/Listing/ListingPosts.php:203
+#: src/Core/Backend/Listing/ListingPosts.php:235
 #: src/Core/Backend/Listing/ListingPostsMini.php:130
 msgid "Protected"
 msgstr "সুরক্ষিত"
 
-#: src/Core/Backend/Listing/ListingPosts.php:198
+#: src/Core/Backend/Listing/ListingPosts.php:205
 msgid "Attachments"
 msgstr "অ্যাটাচমেন্ট"
 
-#: src/Core/Backend/Listing/ListingPosts.php:235
+#: src/Core/Backend/Listing/ListingPosts.php:242
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 #, php-format
 msgid "%d attachment"
 msgstr "%d সংযুক্তি"
 
-#: src/Core/Backend/Listing/ListingPosts.php:235
+#: src/Core/Backend/Listing/ListingPosts.php:242
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 #, php-format
 msgid "%d attachments"
 msgstr "%dটি সংযুক্তি"
 
-#: src/Core/Backend/Listing/ListingPosts.php:259
+#: src/Core/Backend/Listing/ListingPosts.php:266
 msgid "Select this post"
 msgstr "এই পোস্ট নির্বাচন করুন"
 
@@ -1437,7 +1437,7 @@ msgid "Your password:"
 msgstr "আপনার পাসওয়ার্ড:"
 
 #: src/Core/Backend/ModulesList.php:1750 src/Core/Backend/Page.php:1419
-#: src/Process/Backend/Media.php:756
+#: src/Process/Backend/Media.php:757
 msgid "Upload"
 msgstr "আপলোড"
 
@@ -1474,7 +1474,7 @@ msgstr "\"%s\" কনফিগার করুন"
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1172
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:348
-#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1356
+#: src/Process/Backend/Media.php:819 src/Process/Backend/MediaItem.php:1356
 #: src/Process/Backend/Post.php:922 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -2087,9 +2087,9 @@ msgstr "থিম সফলভাবে ইনস্টল করা হয়ে�
 msgid "users per page"
 msgstr "ব্যবহারকারী প্রতি পৃষ্ঠায়"
 
-#: src/Core/Backend/UserPref.php:182 src/Process/Backend/BlogPref.php:779
-msgid "entries per page"
-msgstr "প্রতি পৃষ্ঠার এন্ট্রি"
+#: src/Core/Backend/UserPref.php:182
+msgid "posts per page"
+msgstr ""
 
 #: src/Core/Backend/UserPref.php:189
 msgid "comments per page"
@@ -3505,6 +3505,10 @@ msgstr "প্রদর্শন"
 msgid "entries on first page"
 msgstr "প্রথম পৃষ্ঠায় এন্ট্রি"
 
+#: src/Process/Backend/BlogPref.php:779
+msgid "entries per page"
+msgstr "প্রতি পৃষ্ঠার এন্ট্রি"
+
 #: src/Process/Backend/BlogPref.php:787
 msgid "entries per feed"
 msgstr "ফিড প্রতি এন্ট্রি"
@@ -3625,7 +3629,7 @@ msgstr "মূল ছবির একটি লিংক ঢোকাও"
 msgid "Image legend and alternate text:"
 msgstr "চিত্র কিংবদন্তি এবং বিকল্প পাঠ্য:"
 
-#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:807
+#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:808
 msgid "Blog parameters"
 msgstr "ব্লগ প্যারামিটার"
 
@@ -4535,12 +4539,12 @@ msgstr "রিফ্রেশ"
 msgid "Clear all"
 msgstr "সব ফাঁকা করো"
 
-#: src/Process/Backend/Media.php:777
+#: src/Process/Backend/Media.php:778
 #, php-format
 msgid "In %s:"
 msgstr "%s-এ:"
 
-#: src/Process/Backend/Media.php:804
+#: src/Process/Backend/Media.php:805
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "মিডিয়া এবং চিত্রগুলির জন্য বর্তমান সেটিংস %s-এ সংজ্ঞায়িত করা হয়েছে"
