@@ -179,7 +179,7 @@ class UserPref
                 Combos::getPostsSortbyCombo(),
                 'post_dt',
                 'desc',
-                [__('entries per page'), $nb_per_page(App::auth()->prefs()->interface->nb_posts_per_page)],
+                [__('posts per page'), $nb_per_page(App::auth()->prefs()->interface->nb_posts_per_page)],
             ],
             'comments' => [
                 __('Comments'),

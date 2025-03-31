@@ -75,7 +75,7 @@ class Backend extends Process
                     null,
                     null,
                     null,
-                    [__('entries per page'), 30],
+                    [__('pages per page'), 30],
                 ];
 
                 return '';
