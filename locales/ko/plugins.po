@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-31 16:54+0200\n"
-"PO-Revision-Date: 2025-03-31 15:00\n"
+"PO-Revision-Date: 2025-03-31 15:31\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -2337,7 +2337,7 @@ msgstr "페이지 관리"
 
 #: plugins/pages/src/Backend.php:78
 msgid "pages per page"
-msgstr ""
+msgstr "페이지당 페이지 수"
 
 #: plugins/pages/src/Backend.php:101
 #, php-format
