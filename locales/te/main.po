@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 11:12+0100\n"
-"PO-Revision-Date: 2025-03-16 22:20\n"
+"POT-Creation-Date: 2025-03-29 16:53+0100\n"
+"PO-Revision-Date: 2025-03-31 14:59\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -361,7 +361,7 @@ msgstr[1] "%d ఎంట్రీలను విజయవంతంగా తొ�
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:314
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:120
-#: src/Core/Backend/Listing/ListingPosts.php:249
+#: src/Core/Backend/Listing/ListingPosts.php:256
 msgid "(No cat)"
 msgstr "(ఏ పిల్లవాడు)"
 
@@ -484,8 +484,8 @@ msgid "Category"
 msgstr "వర్గం"
 
 #: src/Core/Backend/Combos.php:275 src/Core/Backend/Filter/FilterPosts.php:200
-#: src/Core/Backend/Listing/ListingPosts.php:197
-#: src/Core/Backend/Listing/ListingPosts.php:231
+#: src/Core/Backend/Listing/ListingPosts.php:204
+#: src/Core/Backend/Listing/ListingPosts.php:238
 #: src/Core/Backend/Listing/ListingPostsMini.php:133
 msgid "Selected"
 msgstr "ఎంపికచేసిన"
@@ -600,7 +600,7 @@ msgstr "వర్గాలు"
 #: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:777
+#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:778
 #: src/Process/Backend/MediaItem.php:399 src/Process/Backend/MediaItem.php:405
 msgid "Media manager"
 msgstr "మాధ్యమాల నిర్వహణ"
@@ -847,7 +847,7 @@ msgstr "బ్లాగుల జాబితా"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:139
 #: src/Core/Backend/Listing/ListingComments.php:179
-#: src/Core/Backend/Listing/ListingPosts.php:192
+#: src/Core/Backend/Listing/ListingPosts.php:199
 #: src/Core/Backend/Listing/ListingUsers.php:131
 msgid "Legend: "
 msgstr "లెజెండ్: "
@@ -1000,41 +1000,41 @@ msgstr "ఎంట్రీ ఫిల్టర్ సరిపోలేదు"
 msgid "Trackbacks"
 msgstr "ట్రాకుబ్యాకులు"
 
-#: src/Core/Backend/Listing/ListingPosts.php:143
+#: src/Core/Backend/Listing/ListingPosts.php:147
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
 msgstr[0] "ఫిల్టర్‌తో సరిపోలే %s ఎంట్రీ జాబితా."
 msgstr[1] "ఫిల్టర్ సరిపోలిన %s ఎంట్రీల జాబితా."
 
-#: src/Core/Backend/Listing/ListingPosts.php:148
+#: src/Core/Backend/Listing/ListingPosts.php:173
 #, php-format
 msgid "List of entries (%s)"
 msgstr "ఎంట్రీల జాబితా (%s)"
 
-#: src/Core/Backend/Listing/ListingPosts.php:196
-#: src/Core/Backend/Listing/ListingPosts.php:228
+#: src/Core/Backend/Listing/ListingPosts.php:203
+#: src/Core/Backend/Listing/ListingPosts.php:235
 #: src/Core/Backend/Listing/ListingPostsMini.php:130
 msgid "Protected"
 msgstr "రక్షిత"
 
-#: src/Core/Backend/Listing/ListingPosts.php:198
+#: src/Core/Backend/Listing/ListingPosts.php:205
 msgid "Attachments"
 msgstr "ఆటంకములు"
 
-#: src/Core/Backend/Listing/ListingPosts.php:235
+#: src/Core/Backend/Listing/ListingPosts.php:242
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 #, php-format
 msgid "%d attachment"
 msgstr "%d జోడింపు"
 
-#: src/Core/Backend/Listing/ListingPosts.php:235
+#: src/Core/Backend/Listing/ListingPosts.php:242
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 #, php-format
 msgid "%d attachments"
 msgstr "%d జోడింపులు"
 
-#: src/Core/Backend/Listing/ListingPosts.php:259
+#: src/Core/Backend/Listing/ListingPosts.php:266
 msgid "Select this post"
 msgstr "ఈ పోస్ట్‌ని ఎంచుకోండి"
 
@@ -1437,7 +1437,7 @@ msgid "Your password:"
 msgstr "మీ సంకేతపదం:"
 
 #: src/Core/Backend/ModulesList.php:1750 src/Core/Backend/Page.php:1419
-#: src/Process/Backend/Media.php:756
+#: src/Process/Backend/Media.php:757
 msgid "Upload"
 msgstr "ఎగుమతి చెయ్యండి"
 
@@ -1474,7 +1474,7 @@ msgstr "ఆకృతీకరించు \"%s\""
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1172
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:348
-#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1356
+#: src/Process/Backend/Media.php:819 src/Process/Backend/MediaItem.php:1356
 #: src/Process/Backend/Post.php:922 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -2087,9 +2087,9 @@ msgstr "థీమ్ సమర్ధవంతంగా స్థాపించ�
 msgid "users per page"
 msgstr "పేజీ వినియోగదారులు"
 
-#: src/Core/Backend/UserPref.php:182 src/Process/Backend/BlogPref.php:779
-msgid "entries per page"
-msgstr "పేజీ ఎంట్రీలు"
+#: src/Core/Backend/UserPref.php:182
+msgid "posts per page"
+msgstr ""
 
 #: src/Core/Backend/UserPref.php:189
 msgid "comments per page"
@@ -3505,6 +3505,10 @@ msgstr "ప్రదర్శించు"
 msgid "entries on first page"
 msgstr "మొదటి పేజీలో ఎంట్రీలు"
 
+#: src/Process/Backend/BlogPref.php:779
+msgid "entries per page"
+msgstr "పేజీ ఎంట్రీలు"
+
 #: src/Process/Backend/BlogPref.php:787
 msgid "entries per feed"
 msgstr "ఒక్కో ఫీడ్‌కి ఎంట్రీలు"
@@ -3625,7 +3629,7 @@ msgstr "అసలు ప్రతిబింబమునకు లింకు�
 msgid "Image legend and alternate text:"
 msgstr "ప్రతిబింబము మరియు వచన వచనము:"
 
-#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:807
+#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:808
 msgid "Blog parameters"
 msgstr "బ్లాగు పదాలు"
 
@@ -4535,12 +4539,12 @@ msgstr "పునర్వొచ్చు"
 msgid "Clear all"
 msgstr "శుభ్రముచేయి"
 
-#: src/Process/Backend/Media.php:777
+#: src/Process/Backend/Media.php:778
 #, php-format
 msgid "In %s:"
 msgstr "%s:"
 
-#: src/Process/Backend/Media.php:804
+#: src/Process/Backend/Media.php:805
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "మాధ్యమం మరియు చిత్రాలు కోసం ప్రస్తుత అమరికలను %s లో నిర్వహిస్తారు."
