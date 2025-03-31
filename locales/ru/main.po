@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 11:12+0100\n"
-"PO-Revision-Date: 2025-03-16 22:20\n"
+"POT-Creation-Date: 2025-03-29 16:53+0100\n"
+"PO-Revision-Date: 2025-03-31 14:59\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -373,7 +373,7 @@ msgstr[3] "%d записей успешно удалено"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:314
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:120
-#: src/Core/Backend/Listing/ListingPosts.php:249
+#: src/Core/Backend/Listing/ListingPosts.php:256
 msgid "(No cat)"
 msgstr "(Без кошки)"
 
@@ -502,8 +502,8 @@ msgid "Category"
 msgstr "Категория"
 
 #: src/Core/Backend/Combos.php:275 src/Core/Backend/Filter/FilterPosts.php:200
-#: src/Core/Backend/Listing/ListingPosts.php:197
-#: src/Core/Backend/Listing/ListingPosts.php:231
+#: src/Core/Backend/Listing/ListingPosts.php:204
+#: src/Core/Backend/Listing/ListingPosts.php:238
 #: src/Core/Backend/Listing/ListingPostsMini.php:133
 msgid "Selected"
 msgstr "Выбранный"
@@ -622,7 +622,7 @@ msgstr "Категории"
 #: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:777
+#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:778
 #: src/Process/Backend/MediaItem.php:399 src/Process/Backend/MediaItem.php:405
 msgid "Media manager"
 msgstr "Медиа менеджер"
@@ -871,7 +871,7 @@ msgstr "Список блогов"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:139
 #: src/Core/Backend/Listing/ListingComments.php:179
-#: src/Core/Backend/Listing/ListingPosts.php:192
+#: src/Core/Backend/Listing/ListingPosts.php:199
 #: src/Core/Backend/Listing/ListingUsers.php:131
 msgid "Legend: "
 msgstr "Легенда: "
@@ -1028,7 +1028,7 @@ msgstr "Нет записей, соответствующих фильтру"
 msgid "Trackbacks"
 msgstr "Пинги"
 
-#: src/Core/Backend/Listing/ListingPosts.php:143
+#: src/Core/Backend/Listing/ListingPosts.php:147
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
@@ -1037,34 +1037,34 @@ msgstr[1] "Список %s записей, соответствующих фил
 msgstr[2] "Список %s записей, соответствующих фильтру."
 msgstr[3] "Список %s записей, соответствующих фильтру."
 
-#: src/Core/Backend/Listing/ListingPosts.php:148
+#: src/Core/Backend/Listing/ListingPosts.php:173
 #, php-format
 msgid "List of entries (%s)"
 msgstr "Список записей (%s)"
 
-#: src/Core/Backend/Listing/ListingPosts.php:196
-#: src/Core/Backend/Listing/ListingPosts.php:228
+#: src/Core/Backend/Listing/ListingPosts.php:203
+#: src/Core/Backend/Listing/ListingPosts.php:235
 #: src/Core/Backend/Listing/ListingPostsMini.php:130
 msgid "Protected"
 msgstr "Защищено"
 
-#: src/Core/Backend/Listing/ListingPosts.php:198
+#: src/Core/Backend/Listing/ListingPosts.php:205
 msgid "Attachments"
 msgstr "Вложения"
 
-#: src/Core/Backend/Listing/ListingPosts.php:235
+#: src/Core/Backend/Listing/ListingPosts.php:242
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 #, php-format
 msgid "%d attachment"
 msgstr "%d приложение"
 
-#: src/Core/Backend/Listing/ListingPosts.php:235
+#: src/Core/Backend/Listing/ListingPosts.php:242
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 #, php-format
 msgid "%d attachments"
 msgstr "приложений: %d"
 
-#: src/Core/Backend/Listing/ListingPosts.php:259
+#: src/Core/Backend/Listing/ListingPosts.php:266
 msgid "Select this post"
 msgstr "Выберите этот пост"
 
@@ -1483,7 +1483,7 @@ msgid "Your password:"
 msgstr "Ваш пароль :"
 
 #: src/Core/Backend/ModulesList.php:1750 src/Core/Backend/Page.php:1419
-#: src/Process/Backend/Media.php:756
+#: src/Process/Backend/Media.php:757
 msgid "Upload"
 msgstr "Загрузить"
 
@@ -1520,7 +1520,7 @@ msgstr "Настройка \"%s\""
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1172
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:348
-#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1356
+#: src/Process/Backend/Media.php:819 src/Process/Backend/MediaItem.php:1356
 #: src/Process/Backend/Post.php:922 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -2145,9 +2145,9 @@ msgstr "Тема успешно установлена."
 msgid "users per page"
 msgstr "пользователей на странице"
 
-#: src/Core/Backend/UserPref.php:182 src/Process/Backend/BlogPref.php:779
-msgid "entries per page"
-msgstr "записей на странице"
+#: src/Core/Backend/UserPref.php:182
+msgid "posts per page"
+msgstr ""
 
 #: src/Core/Backend/UserPref.php:189
 msgid "comments per page"
@@ -3563,6 +3563,10 @@ msgstr "Дисплей"
 msgid "entries on first page"
 msgstr "записи на первой странице"
 
+#: src/Process/Backend/BlogPref.php:779
+msgid "entries per page"
+msgstr "записей на странице"
+
 #: src/Process/Backend/BlogPref.php:787
 msgid "entries per feed"
 msgstr "записи на корм"
@@ -3683,7 +3687,7 @@ msgstr "Вставить ссылку на исходное изображени
 msgid "Image legend and alternate text:"
 msgstr "Легенда изображения и альтернативный текст:"
 
-#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:807
+#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:808
 msgid "Blog parameters"
 msgstr "Параметры блога"
 
@@ -4597,12 +4601,12 @@ msgstr "Обновить"
 msgid "Clear all"
 msgstr "Очистить все"
 
-#: src/Process/Backend/Media.php:777
+#: src/Process/Backend/Media.php:778
 #, php-format
 msgid "In %s:"
 msgstr "В %s:"
 
-#: src/Process/Backend/Media.php:804
+#: src/Process/Backend/Media.php:805
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Текущие настройки для носителей и изображений определены в %s"
