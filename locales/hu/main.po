@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 11:12+0100\n"
-"PO-Revision-Date: 2025-03-16 22:20\n"
+"POT-Creation-Date: 2025-03-29 16:53+0100\n"
+"PO-Revision-Date: 2025-03-31 15:30\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -361,7 +361,7 @@ msgstr[1] "%d a bejegyzéseket sikeresen törölték"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:314
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:120
-#: src/Core/Backend/Listing/ListingPosts.php:249
+#: src/Core/Backend/Listing/ListingPosts.php:256
 msgid "(No cat)"
 msgstr "(Nincs macska)"
 
@@ -484,8 +484,8 @@ msgid "Category"
 msgstr "Kategória"
 
 #: src/Core/Backend/Combos.php:275 src/Core/Backend/Filter/FilterPosts.php:200
-#: src/Core/Backend/Listing/ListingPosts.php:197
-#: src/Core/Backend/Listing/ListingPosts.php:231
+#: src/Core/Backend/Listing/ListingPosts.php:204
+#: src/Core/Backend/Listing/ListingPosts.php:238
 #: src/Core/Backend/Listing/ListingPostsMini.php:133
 msgid "Selected"
 msgstr "Kiválasztott"
@@ -600,7 +600,7 @@ msgstr "Kategóriák"
 #: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:777
+#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:778
 #: src/Process/Backend/MediaItem.php:399 src/Process/Backend/MediaItem.php:405
 msgid "Media manager"
 msgstr "Médiakezelő"
@@ -847,7 +847,7 @@ msgstr "Blogok listája"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:139
 #: src/Core/Backend/Listing/ListingComments.php:179
-#: src/Core/Backend/Listing/ListingPosts.php:192
+#: src/Core/Backend/Listing/ListingPosts.php:199
 #: src/Core/Backend/Listing/ListingUsers.php:131
 msgid "Legend: "
 msgstr "Legenda: "
@@ -1000,41 +1000,41 @@ msgstr "Egyetlen bejegyzés sem felel meg a szűrőnek"
 msgid "Trackbacks"
 msgstr "Trackbackek"
 
-#: src/Core/Backend/Listing/ListingPosts.php:143
+#: src/Core/Backend/Listing/ListingPosts.php:147
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
 msgstr[0] "A szűrőnek megfelelő %s bejegyzések listája."
 msgstr[1] "A szűrőnek megfelelő %s bejegyzések listája."
 
-#: src/Core/Backend/Listing/ListingPosts.php:148
+#: src/Core/Backend/Listing/ListingPosts.php:173
 #, php-format
 msgid "List of entries (%s)"
 msgstr "A bejegyzések listája (%s)"
 
-#: src/Core/Backend/Listing/ListingPosts.php:196
-#: src/Core/Backend/Listing/ListingPosts.php:228
+#: src/Core/Backend/Listing/ListingPosts.php:203
+#: src/Core/Backend/Listing/ListingPosts.php:235
 #: src/Core/Backend/Listing/ListingPostsMini.php:130
 msgid "Protected"
 msgstr "Védett"
 
-#: src/Core/Backend/Listing/ListingPosts.php:198
+#: src/Core/Backend/Listing/ListingPosts.php:205
 msgid "Attachments"
 msgstr "Mellékletek"
 
-#: src/Core/Backend/Listing/ListingPosts.php:235
+#: src/Core/Backend/Listing/ListingPosts.php:242
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 #, php-format
 msgid "%d attachment"
 msgstr "%d csatolt fájl"
 
-#: src/Core/Backend/Listing/ListingPosts.php:235
+#: src/Core/Backend/Listing/ListingPosts.php:242
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 #, php-format
 msgid "%d attachments"
 msgstr "%d csatolt fájl"
 
-#: src/Core/Backend/Listing/ListingPosts.php:259
+#: src/Core/Backend/Listing/ListingPosts.php:266
 msgid "Select this post"
 msgstr "Válassza ki ezt a posztot"
 
@@ -1437,7 +1437,7 @@ msgid "Your password:"
 msgstr "Jelszó:"
 
 #: src/Core/Backend/ModulesList.php:1750 src/Core/Backend/Page.php:1419
-#: src/Process/Backend/Media.php:756
+#: src/Process/Backend/Media.php:757
 msgid "Upload"
 msgstr "Feltölt"
 
@@ -1474,7 +1474,7 @@ msgstr "Konfiguráció \"%s\""
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1172
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:348
-#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1356
+#: src/Process/Backend/Media.php:819 src/Process/Backend/MediaItem.php:1356
 #: src/Process/Backend/Post.php:922 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -2087,9 +2087,9 @@ msgstr "A téma sikeresen telepítve."
 msgid "users per page"
 msgstr "felhasználók oldalanként"
 
-#: src/Core/Backend/UserPref.php:182 src/Process/Backend/BlogPref.php:779
-msgid "entries per page"
-msgstr "bejegyzések oldalanként"
+#: src/Core/Backend/UserPref.php:182
+msgid "posts per page"
+msgstr "hozzászólások oldalanként"
 
 #: src/Core/Backend/UserPref.php:189
 msgid "comments per page"
@@ -3505,6 +3505,10 @@ msgstr "Megjelenítés"
 msgid "entries on first page"
 msgstr "bejegyzések az első oldalon"
 
+#: src/Process/Backend/BlogPref.php:779
+msgid "entries per page"
+msgstr "bejegyzések oldalanként"
+
 #: src/Process/Backend/BlogPref.php:787
 msgid "entries per feed"
 msgstr "bejegyzések takarmányonként"
@@ -3625,7 +3629,7 @@ msgstr "Az eredeti képre mutató link beillesztése"
 msgid "Image legend and alternate text:"
 msgstr "Képmagyarázat és alternatív szöveg:"
 
-#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:807
+#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:808
 msgid "Blog parameters"
 msgstr "Blog paraméterek"
 
@@ -4535,12 +4539,12 @@ msgstr "Frissítés"
 msgid "Clear all"
 msgstr "Mindent törölni"
 
-#: src/Process/Backend/Media.php:777
+#: src/Process/Backend/Media.php:778
 #, php-format
 msgid "In %s:"
 msgstr "A %soldalon:"
 
-#: src/Process/Backend/Media.php:804
+#: src/Process/Backend/Media.php:805
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "A médiumok és képek aktuális beállításai a %soldalon találhatók."

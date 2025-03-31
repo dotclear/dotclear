@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 11:12+0100\n"
-"PO-Revision-Date: 2025-03-16 22:20\n"
+"POT-Creation-Date: 2025-03-29 16:53+0100\n"
+"PO-Revision-Date: 2025-03-31 15:30\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -355,7 +355,7 @@ msgstr[0] "%d 項目が正常に削除されました"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:314
 #: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:120
-#: src/Core/Backend/Listing/ListingPosts.php:249
+#: src/Core/Backend/Listing/ListingPosts.php:256
 msgid "(No cat)"
 msgstr "(猫なし)"
 
@@ -475,8 +475,8 @@ msgid "Category"
 msgstr "カテゴリ"
 
 #: src/Core/Backend/Combos.php:275 src/Core/Backend/Filter/FilterPosts.php:200
-#: src/Core/Backend/Listing/ListingPosts.php:197
-#: src/Core/Backend/Listing/ListingPosts.php:231
+#: src/Core/Backend/Listing/ListingPosts.php:204
+#: src/Core/Backend/Listing/ListingPosts.php:238
 #: src/Core/Backend/Listing/ListingPostsMini.php:133
 msgid "Selected"
 msgstr "イチ押し"
@@ -589,7 +589,7 @@ msgstr "カテゴリ"
 #: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:777
+#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:778
 #: src/Process/Backend/MediaItem.php:399 src/Process/Backend/MediaItem.php:405
 msgid "Media manager"
 msgstr "メディアマネージャ"
@@ -835,7 +835,7 @@ msgstr "ブログリスト"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:139
 #: src/Core/Backend/Listing/ListingComments.php:179
-#: src/Core/Backend/Listing/ListingPosts.php:192
+#: src/Core/Backend/Listing/ListingPosts.php:199
 #: src/Core/Backend/Listing/ListingUsers.php:131
 msgid "Legend: "
 msgstr "凡例: "
@@ -986,40 +986,40 @@ msgstr "フィルタに一致するエントリがありません"
 msgid "Trackbacks"
 msgstr "トラックバック"
 
-#: src/Core/Backend/Listing/ListingPosts.php:143
+#: src/Core/Backend/Listing/ListingPosts.php:147
 #, php-format
 msgid "List of %s entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
 msgstr[0] "フィルタに一致する %s 件のエントリのリスト。"
 
-#: src/Core/Backend/Listing/ListingPosts.php:148
+#: src/Core/Backend/Listing/ListingPosts.php:173
 #, php-format
 msgid "List of entries (%s)"
 msgstr "List of entries (%s)"
 
-#: src/Core/Backend/Listing/ListingPosts.php:196
-#: src/Core/Backend/Listing/ListingPosts.php:228
+#: src/Core/Backend/Listing/ListingPosts.php:203
+#: src/Core/Backend/Listing/ListingPosts.php:235
 #: src/Core/Backend/Listing/ListingPostsMini.php:130
 msgid "Protected"
 msgstr "保護"
 
-#: src/Core/Backend/Listing/ListingPosts.php:198
+#: src/Core/Backend/Listing/ListingPosts.php:205
 msgid "Attachments"
 msgstr "添付ファイル"
 
-#: src/Core/Backend/Listing/ListingPosts.php:235
+#: src/Core/Backend/Listing/ListingPosts.php:242
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 #, php-format
 msgid "%d attachment"
 msgstr "添付(%d)"
 
-#: src/Core/Backend/Listing/ListingPosts.php:235
+#: src/Core/Backend/Listing/ListingPosts.php:242
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 #, php-format
 msgid "%d attachments"
 msgstr "添付(%d)"
 
-#: src/Core/Backend/Listing/ListingPosts.php:259
+#: src/Core/Backend/Listing/ListingPosts.php:266
 msgid "Select this post"
 msgstr "このポストを選択"
 
@@ -1414,7 +1414,7 @@ msgid "Your password:"
 msgstr "あなたのパスワード："
 
 #: src/Core/Backend/ModulesList.php:1750 src/Core/Backend/Page.php:1419
-#: src/Process/Backend/Media.php:756
+#: src/Process/Backend/Media.php:757
 msgid "Upload"
 msgstr "アップロード"
 
@@ -1451,7 +1451,7 @@ msgstr "設定 \"%s\""
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1172
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:348
-#: src/Process/Backend/Media.php:818 src/Process/Backend/MediaItem.php:1356
+#: src/Process/Backend/Media.php:819 src/Process/Backend/MediaItem.php:1356
 #: src/Process/Backend/Post.php:922 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -2058,9 +2058,9 @@ msgstr "テーマは正常にインストールされました。"
 msgid "users per page"
 msgstr "ユーザ/ページ"
 
-#: src/Core/Backend/UserPref.php:182 src/Process/Backend/BlogPref.php:779
-msgid "entries per page"
-msgstr "ページあたりのエントリ"
+#: src/Core/Backend/UserPref.php:182
+msgid "posts per page"
+msgstr "ページあたりの投稿数"
 
 #: src/Core/Backend/UserPref.php:189
 msgid "comments per page"
@@ -3477,6 +3477,10 @@ msgstr "ディスプレイ"
 msgid "entries on first page"
 msgstr "最初のページの項目"
 
+#: src/Process/Backend/BlogPref.php:779
+msgid "entries per page"
+msgstr "ページあたりのエントリ"
+
 #: src/Process/Backend/BlogPref.php:787
 msgid "entries per feed"
 msgstr "フィードごとのエントリー"
@@ -3597,7 +3601,7 @@ msgstr "元の画像へのリンクを挿入"
 msgid "Image legend and alternate text:"
 msgstr "画像の凡例と代替テキスト："
 
-#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:807
+#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:808
 msgid "Blog parameters"
 msgstr "ブログパラメータ"
 
@@ -4505,12 +4509,12 @@ msgstr "更新"
 msgid "Clear all"
 msgstr "すべてクリア"
 
-#: src/Process/Backend/Media.php:777
+#: src/Process/Backend/Media.php:778
 #, php-format
 msgid "In %s:"
 msgstr "%s :"
 
-#: src/Process/Backend/Media.php:804
+#: src/Process/Backend/Media.php:805
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "現在のメディアと画像の設定は %s で定義されています"

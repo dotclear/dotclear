@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 11:17+0100\n"
-"PO-Revision-Date: 2025-03-16 10:23\n"
+"POT-Creation-Date: 2025-03-31 16:54+0200\n"
+"PO-Revision-Date: 2025-03-31 15:31\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -2336,6 +2336,10 @@ msgstr "Potrebbe essere utile eseguire il backup del tema attivo prima di qualsi
 #: plugins/pages/src/Backend.php:47
 msgid "manage pages"
 msgstr "gestisci pagine"
+
+#: plugins/pages/src/Backend.php:78
+msgid "pages per page"
+msgstr "pagine per pagina"
 
 #: plugins/pages/src/Backend.php:101
 #, php-format
