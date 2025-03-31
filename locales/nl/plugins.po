@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-16 11:17+0100\n"
-"PO-Revision-Date: 2025-03-16 10:24\n"
+"POT-Creation-Date: 2025-03-31 16:54+0200\n"
+"PO-Revision-Date: 2025-03-31 15:00\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -2336,6 +2336,10 @@ msgstr "Het kan handig zijn om een back-up te maken van het actieve thema voorda
 #: plugins/pages/src/Backend.php:47
 msgid "manage pages"
 msgstr "pagina's beheren"
+
+#: plugins/pages/src/Backend.php:78
+msgid "pages per page"
+msgstr ""
 
 #: plugins/pages/src/Backend.php:101
 #, php-format
