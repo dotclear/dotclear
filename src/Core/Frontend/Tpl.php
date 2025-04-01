@@ -327,6 +327,8 @@ class Tpl extends Template
 
     /**
      * Gets the current tag.
+     *
+     * @since 2.34
      */
     public function getCurrentTag(): string
     {
@@ -335,6 +337,8 @@ class Tpl extends Template
 
     /**
      * Get the filters parameters to use in PHP code.
+     *
+     * @since 2.34
      *
      * @param      array<string, mixed>|ArrayObject<string, mixed>   $attr     The attributes
      * @param      array<string, mixed>|ArrayObject<string, mixed>   $default  The default filters
