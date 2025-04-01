@@ -228,9 +228,11 @@ interface MediaInterface
     /**
      * Gets current working directory content.
      *
-     * @param   null|string     $type   The media type filter
+     * @param   bool            $sort_dirs   Sort sub-directories
+     * @param   bool            $sort_files  Sort files
+     * @param   null|string     $type        The media type filter
      */
-    public function getDir(?string $type = null): void;
+    public function getDir(bool $sort_dirs = true, bool $sort_files = true, ?string $type = null): void;
 
     /**
      * Gets file by its id. Returns a filteItem object.

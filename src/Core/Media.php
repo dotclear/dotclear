@@ -627,7 +627,7 @@ class Media extends Manager implements MediaInterface
         return null;
     }
 
-    public function setFileSort(string $type = 'name'): void
+    public function setFileSort(string $type = 'name-asc'): void
     {
         if (in_array($type, [
             'size-asc',
@@ -677,7 +677,7 @@ class Media extends Manager implements MediaInterface
         parent::getDir();
     }
 
-    public function getDir($type = null): void
+    public function getDir(bool $sort_dirs = true, bool $sort_files = true, $type = null): void
     {
         if ($this->root_missing) {
             return;
@@ -752,7 +752,8 @@ class Media extends Manager implements MediaInterface
             }
         }
 
-        parent::getDir();
+        // Get directory content but whitout sorting files as it will be done after (see below)
+        parent::getDir(true, false);
 
         $f_res = [];
         $p_dir = $this->dir;
@@ -825,10 +826,13 @@ class Media extends Manager implements MediaInterface
             }
         }
 
-        try {
-            usort($this->dir['files'], $this->sortFileHandler(...));
-        } catch (Throwable) {
-            // Ignore exceptions
+        // Finally sort final list of files (not sorted before, see above parent::getDir(...))
+        if ($sort_files && $this->file_sort !== '') {
+            try {
+                usort($this->dir['files'], $this->sortFileHandler(...));
+            } catch (Throwable) {
+                // Ignore exceptions
+            }
         }
     }
 
@@ -923,10 +927,12 @@ class Media extends Manager implements MediaInterface
         }
         $this->dir['files'] = $f_res;
 
-        try {
-            usort($this->dir['files'], $this->sortFileHandler(...));
-        } catch (Throwable) {
-            // Ignore exceptions
+        if ($this->file_sort !== '') {
+            try {
+                usort($this->dir['files'], $this->sortFileHandler(...));
+            } catch (Throwable) {
+                // Ignore exceptions
+            }
         }
 
         return ((bool) count($f_res));

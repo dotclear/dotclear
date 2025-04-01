@@ -324,7 +324,7 @@ class Manager
      *
      * @uses sortHandler(), File
      */
-    public function getDir(): void
+    public function getDir(bool $sort_dirs = true, bool $sort_files = true): void
     {
         $dir = Path::clean($this->pwd);
 
@@ -359,8 +359,12 @@ class Manager
             'files' => $files,
         ];
 
-        usort($this->dir['dirs'], $this->sortHandler(...));
-        usort($this->dir['files'], $this->sortHandler(...));
+        if ($sort_dirs) {
+            usort($this->dir['dirs'], $this->sortHandler(...));
+        }
+        if ($sort_files) {
+            usort($this->dir['files'], $this->sortHandler(...));
+        }
     }
 
     /**
