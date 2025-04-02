@@ -411,6 +411,10 @@ abstract class Actions
             try {
                 foreach ($this->actions as $action => $callback) {
                     if ($this->from['action'] == $action) {
+
+                        # --BEHAVIOR-- adminBeforeProcessAction -- Actions, string, callable
+                        App::behavior()->callBehavior('adminBeforeProcessAction', $this, $this->from);
+
                         $performed = true;
                         call_user_func($callback, $this, $this->from);
                     }
