@@ -389,14 +389,16 @@ class HelpCharte extends Process
         <h3 id="pseudo-tabs">Pseudo-onglets </h3>
         <p>Les pseudo-onglets permettent d'ajouter des sous-pages qui sont des liens vers d'autres pages, par opposition aux onglets qui sont des sections internes à la page.</p>
         <p>Les pseudo-onglets sont à positionner immédiatement après le breadcrumb (ici un hr simule le trait sous le breadcrumb).</p>
-        <p>Ces pseudo-onglets doivent être définis avec un <code>&lt;ul class="pseudo-tabs"&gt;</code> et des <code>&lt;li&gt;</code>.</p>
+        <p>Ces pseudo-onglets doivent être définis dans une <code>&lt;div class="pseudo-tabs"&gt;</code> et avec un <code>&lt;ul&gt;</code> des <code>&lt;li&gt;</code>.</p>
         <hr style="margin-bottom: .75em;">
-        <ul class="pseudo-tabs">
+        <div class="pseudo-tabs">
+        <ul>
           <li><a href="#">Page 1</a></li>
           <li><a href="#">Autre faux onglet</a></li>
-          <li><a href="#" class="active">Onglet actif</a></li>
+          <li class="active"><a href="#">Onglet actif</a></li>
           <li><a href="#">Liste 4</a></li>
         </ul>
+        </div>
         <h2 id="common">Tableaux</h2>
         <p>Il existe deux mises en forme type de tableaux selon que l'on cherche à faire un tableau ordinaire
           ou un tableau dont on peut déplacer les lignes par glisser déposer (voir plus bas). Cependant certaines règles

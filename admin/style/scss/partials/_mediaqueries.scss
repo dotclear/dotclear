@@ -70,16 +70,6 @@
     border: none;
     padding: 1em;
   }
-
-  .pseudo-tabs li {
-    border-top: 1px solid var(--tabs-border);
-    padding: 0.25em;
-
-    &:first-child,
-    &:nth-of-type(2) {
-      border-top: none;
-    }
-  }
 }
 
 @media screen and (width <= config.$mobile-screen) {
@@ -101,7 +91,8 @@
     padding-left: 0;
   }
 
-  .part-tabs ul {
+  .part-tabs ul,
+  .pseudo-tabs ul {
     padding: 0 0.5em;
   }
 
@@ -115,13 +106,5 @@
 
   :is(th, td) {
     padding: 0.3em 1em 0.3em 0;
-  }
-
-  .pseudo-tabs li {
-    border-top: 1px solid var(--tabs-border) !important;
-  }
-
-  .pseudo-tabs li:first-child {
-    border-top: none;
   }
 }

@@ -519,12 +519,6 @@ body.dark-mode.upgrade-mode {
     display: inline-block;
     vertical-align: bottom;
   }
-
-  .pseudo-tabs li {
-    display: block;
-    float: left;
-    width: 50%;
-  }
 }
 
 @media screen and (width <= config.$mobile-screen) {
@@ -556,11 +550,13 @@ body.dark-mode.upgrade-mode {
     margin-bottom: 0.5em;
   }
 
-  .part-tabs ul {
+  .part-tabs ul,
+  .pseudo-tabs ul {
     margin: 1em 0;
   }
 
-  .part-tabs li a {
+  .part-tabs li a,
+  .pseudo-tabs li a {
     display: block;
     width: 100%;
   }
@@ -597,11 +593,5 @@ body.dark-mode.upgrade-mode {
 
   table .maximal {
     min-width: 14em;
-  }
-
-  .pseudo-tabs li {
-    display: block;
-    width: 100%;
-    float: none;
   }
 }

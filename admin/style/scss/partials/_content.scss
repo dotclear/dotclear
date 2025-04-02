@@ -1,4 +1,5 @@
-.part-tabs {
+.part-tabs,
+.pseudo-tabs {
   ul {
     padding: 0.5em 0 0 1em;
     border-bottom: 1px solid var(--tabs-border);
@@ -44,7 +45,8 @@
       }
     }
 
-    &.part-tabs-active a {
+    &.part-tabs-active a,
+    &.active a {
       color: var(--tabs-active-color);
       background: var(--tabs-active-background);
       font-weight: bold;
@@ -55,43 +57,6 @@
 
 .multi-part {
   padding-left: 1em;
-}
-
-.pseudo-tabs {
-  margin: -0.75em 0 2em 0;
-  border-bottom: 1px solid var(--tabs-border);
-  display: table;
-  width: 100%;
-  padding: 0;
-  line-height: 24px;
-  border-collapse: collapse;
-
-  li {
-    display: table-cell;
-    border-width: 0 1px;
-    border-style: solid;
-    border-color: var(--tabs-border);
-    padding: 0;
-    margin: 0;
-    text-align: center;
-  }
-
-  a {
-    display: block;
-    font-weight: bold;
-    padding: 0 24px;
-    border-bottom: none;
-
-    &:is(:hover, :focus) {
-      background-color: var(--tabs-background);
-      color: var(--tabs-color);
-    }
-
-    &.active {
-      background-color: var(--tabs-active-background);
-      color: var(--tabs-active-color);
-    }
-  }
 }
 
 /* contextual help */
