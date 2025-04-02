@@ -411,12 +411,14 @@ abstract class Actions
             try {
                 foreach ($this->actions as $action => $callback) {
                     if ($this->from['action'] == $action) {
-
-                        # --BEHAVIOR-- adminBeforeProcessAction -- Actions, string, callable
+                        # --BEHAVIOR-- adminBeforeProcessAction -- Actions, ArrayObject
                         App::behavior()->callBehavior('adminBeforeProcessAction', $this, $this->from);
 
                         $performed = true;
                         call_user_func($callback, $this, $this->from);
+
+                        # --BEHAVIOR-- adminAfterProcessAction -- Actions, ArrayObject
+                        App::behavior()->callBehavior('adminAfterProcessAction', $this, $this->from);
                     }
                 }
             } catch (Exception $e) {
