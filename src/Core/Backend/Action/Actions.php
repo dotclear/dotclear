@@ -416,9 +416,6 @@ abstract class Actions
 
                         $performed = true;
                         call_user_func($callback, $this, $this->from);
-
-                        # --BEHAVIOR-- adminAfterProcessAction -- Actions, ArrayObject
-                        App::behavior()->callBehavior('adminAfterProcessAction', $this, $this->from);
                     }
                 }
             } catch (Exception $e) {
