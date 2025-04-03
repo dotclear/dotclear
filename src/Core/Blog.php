@@ -933,7 +933,7 @@ class Blog implements BlogInterface
         $cur->cat_url = $this->checkCategory($cur->cat_url, $id);
 
         $title = $cur->cat_title;
-        # --BEHAVIOR-- coreContentFilter -- string, array<int, array<string, string>> -- since 2.34
+        # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
         $this->behavior->callBehavior('coreContentFilter', 'category', [
             [&$title, 'text'],
         ]);
@@ -941,7 +941,7 @@ class Blog implements BlogInterface
 
         if ($cur->cat_desc !== null) {
             $description = $this->filter->HTMLfilter($cur->cat_desc);
-            # --BEHAVIOR-- coreContentFilter -- string, array<int, array<string, string>> -- since 2.34
+            # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
             $this->behavior->callBehavior('coreContentFilter', 'category', [
                 [&$description, 'html'],
             ]);
@@ -2043,7 +2043,7 @@ class Blog implements BlogInterface
             'content_xhtml' => &$content_xhtml,
         ]);
 
-        # --BEHAVIOR-- coreContentFilter -- string, array<int, array<string, string>> -- since 2.34
+        # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
         $this->behavior->callBehavior('coreContentFilter', 'post', [
             [&$excerpt, $format],
             [&$content, $format],
@@ -2400,7 +2400,7 @@ class Blog implements BlogInterface
             $this->behavior->callBehavior('coreBeforeCommentCreate', $this, $cur);
 
             $content = $cur->comment_content;
-            # --BEHAVIOR-- coreContentFilter -- string, array<int, array<string, string>> -- since 2.34
+            # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
             $this->behavior->callBehavior(
                 'coreContentFilter',
                 (bool) $cur->comment_trackback ? 'trackback' : 'comment',
@@ -2472,7 +2472,7 @@ class Blog implements BlogInterface
         $this->behavior->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
 
         $content = $cur->comment_content;
-        # --BEHAVIOR-- coreContentFilter -- string, array<int, array<string, string>> -- since 2.34
+        # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
         $this->behavior->callBehavior(
             'coreContentFilter',
             (bool) $cur->comment_trackback ? 'trackback' : 'comment',

@@ -579,7 +579,7 @@ class Url extends UrlHandler implements UrlInterface
                         App::behavior()->callBehavior('publicBeforeCommentPreview', App::frontend()->context()->comment_preview);
 
                         $content = (string) $content;
-                        # --BEHAVIOR-- coreContentFilter -- string, array<int, array<string, string>> -- since 2.34
+                        # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
                         App::behavior()->callBehavior(
                             'coreContentFilter',
                             'comment',
@@ -587,7 +587,7 @@ class Url extends UrlHandler implements UrlInterface
                                 [&$content, 'html'],
                             ]
                         );
-                        App::frontend()->context()->comment_preview['content'] = (string) $content;
+                        App::frontend()->context()->comment_preview['content'] = $content;
 
                         App::frontend()->context()->comment_preview['preview'] = true;
                     } else {
