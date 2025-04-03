@@ -140,6 +140,16 @@ class FrontendUrl extends Url
                         # --BEHAVIOR-- publicBeforeCommentPreview -- ArrayObject
                         App::behavior()->callBehavior('publicBeforeCommentPreview', App::frontend()->context()->comment_preview);
 
+                        # --BEHAVIOR-- coreContentFilter -- string, array<int, array<string, string>> -- since 2.34
+                        App::behavior()->callBehavior(
+                            'coreContentFilter',
+                            'comment',
+                            [
+                                [&$content, 'html'],
+                            ]
+                        );
+                        App::frontend()->context()->comment_preview['content'] = (string) $content;
+
                         App::frontend()->context()->comment_preview['preview'] = true;
                     } else {
                         # Post the comment

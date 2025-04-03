@@ -932,8 +932,20 @@ class Blog implements BlogInterface
         # Check if url is unique
         $cur->cat_url = $this->checkCategory($cur->cat_url, $id);
 
+        $title = $cur->cat_title;
+        # --BEHAVIOR-- coreContentFilter -- string, array<int, array<string, string>> -- since 2.34
+        $this->behavior->callBehavior('coreContentFilter', 'category', [
+            [&$title, 'text'],
+        ]);
+        $cur->cat_title = $title;
+
         if ($cur->cat_desc !== null) {
-            $cur->cat_desc = $this->filter->HTMLfilter($cur->cat_desc);
+            $description = $this->filter->HTMLfilter($cur->cat_desc);
+            # --BEHAVIOR-- coreContentFilter -- string, array<int, array<string, string>> -- since 2.34
+            $this->behavior->callBehavior('coreContentFilter', 'category', [
+                [&$description, 'html'],
+            ]);
+            $cur->cat_desc = $description;
         }
     }
 
@@ -2023,12 +2035,20 @@ class Blog implements BlogInterface
             $content_xhtml = '';
         }
 
-        # --BEHAVIOR-- coreAfterPostContentFormat -- arra<string,string>
+        # --BEHAVIOR-- coreAfterPostContentFormat -- arra<string,string> -- deprecated since 2.34
         $this->behavior->callBehavior('coreAfterPostContentFormat', [
             'excerpt'       => &$excerpt,
             'content'       => &$content,
             'excerpt_xhtml' => &$excerpt_xhtml,
             'content_xhtml' => &$content_xhtml,
+        ]);
+
+        # --BEHAVIOR-- coreContentFilter -- string, array<int, array<string, string>> -- since 2.34
+        $this->behavior->callBehavior('coreContentFilter', 'post', [
+            [&$excerpt, $format],
+            [&$content, $format],
+            [&$excerpt_xhtml, 'html'],
+            [&$content_xhtml, 'html'],
         ]);
     }
 
@@ -2379,6 +2399,17 @@ class Blog implements BlogInterface
             # --BEHAVIOR-- coreBeforeCommentCreate -- BlogInterface, Cursor
             $this->behavior->callBehavior('coreBeforeCommentCreate', $this, $cur);
 
+            $content = $cur->comment_content;
+            # --BEHAVIOR-- coreContentFilter -- string, array<int, array<string, string>> -- since 2.34
+            $this->behavior->callBehavior(
+                'coreContentFilter',
+                (bool) $cur->comment_trackback ? 'trackback' : 'comment',
+                [
+                    [&$content, 'html'],
+                ]
+            );
+            $cur->comment_content = $content;
+
             $cur->insert();
             $this->con->unlock();
         } catch (Throwable $e) {
@@ -2439,6 +2470,17 @@ class Blog implements BlogInterface
 
         # --BEHAVIOR-- coreBeforeCommentUpdate -- BlogInterface, Cursor, MetaRecord
         $this->behavior->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
+
+        $content = $cur->comment_content;
+        # --BEHAVIOR-- coreContentFilter -- string, array<int, array<string, string>> -- since 2.34
+        $this->behavior->callBehavior(
+            'coreContentFilter',
+            (bool) $cur->comment_trackback ? 'trackback' : 'comment',
+            [
+                [&$content, 'html'],
+            ]
+        );
+        $cur->comment_content = $content;
 
         $sql = new UpdateStatement();
         $sql->where('comment_id = ' . $id);
