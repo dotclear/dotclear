@@ -11,11 +11,11 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use ArrayObject;
+use Dotclear\App;
 use Dotclear\Core\Backend\Action\ActionsPosts;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
-use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -32,6 +32,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\WikiToHtml;
+use Dotclear\Schema\Extension\User;
 use Exception;
 
 /**
@@ -462,32 +463,39 @@ class BackendBehaviors
     /**
      * Admin user preferences tags fieldset.
      */
-    public static function adminUserForm(): string
+    public static function adminPreferenceForm(): void
     {
-        $opts = App::auth()->getOptions();
-
-        $combo = [
-            __('Short')    => 'more',
-            __('Extended') => 'all',
-        ];
-
-        $value = array_key_exists('tag_list_format', $opts) ? $opts['tag_list_format'] : 'more';
-
-        echo
-        (new Fieldset('tags_prefs'))
-            ->legend((new Legend(My::name())))
+        echo (new Fieldset())
+            ->id('tags_prefs')
+            ->legend(new Legend(My::name()))
             ->fields([
-                (new Para())
-                    ->items([
-                        (new Select('user_tag_list_format'))
-                            ->label(new Label(__('Tags list format:'), Label::INSIDE_LABEL_BEFORE))
-                            ->default($value)
-                            ->items($combo),
-                    ]),
-            ])
-        ->render();
+                self::userForm(App::auth()->getOption('tag_list_format')),
+            ])->render();
+    }
 
-        return '';
+    /**
+     * Admin user preferences tags fieldset.
+     */
+    public static function adminUserForm(?MetaRecord $rs): void
+    {
+        echo self::userForm(is_null($rs) || $rs->isEmpty() ? null : User::option($rs, 'tag_list_format'))->render();
+    }
+
+    /**
+     * Admin user preferences tags fieldset.
+     */
+    protected static function userForm(?string $option): Para
+    {
+        return (new Para())
+            ->items([
+                (new Select('user_tag_list_format'))
+                    ->label(new Label(__('Tags list format:'), Label::OL_TF))
+                    ->default($option ?? 'more')
+                    ->items([
+                        __('Short')    => 'more',
+                        __('Extended') => 'all',
+                    ]),
+            ]);
     }
 
     /**
