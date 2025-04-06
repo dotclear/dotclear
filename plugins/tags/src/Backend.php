@@ -46,7 +46,7 @@ class Backend extends Process
 
             'adminPostsActions' => BackendBehaviors::adminPostsActions(...),
 
-            'adminPreferencesFormV2'       => BackendBehaviors::adminUserForm(...),
+            'adminPreferencesFormV2'       => BackendBehaviors::adminPreferenceForm(...),
             'adminBeforeUserOptionsUpdate' => BackendBehaviors::setTagListFormat(...),
 
             'adminUserForm'         => BackendBehaviors::adminUserForm(...),
