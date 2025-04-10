@@ -2463,6 +2463,10 @@ a:is(.checkbox-helper, .metaGetList, .metaGetMore):hover {
   background: var(--addmeta-focus-background);
 }
 
+p.addMeta {
+  text-wrap: stable;
+}
+
 :is(.warn, .warning, .info) {
   font-style: normal;
   padding: 0.4em 0.66em 0.4em;

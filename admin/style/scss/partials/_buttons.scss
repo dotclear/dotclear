@@ -232,3 +232,6 @@ a:is(.checkbox-helper, .metaGetList, .metaGetMore) {
     background: var(--addmeta-focus-background);
   }
 }
+p.addMeta {
+  text-wrap: stable;
+}
