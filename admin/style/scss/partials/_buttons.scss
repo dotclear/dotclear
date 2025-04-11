@@ -117,7 +117,8 @@ p.top-add {
 
 input,
 html input,
-button {
+button,
+textarea {
   &.disabled,
   &[disabled],
   &[aria-disabled='true'] {

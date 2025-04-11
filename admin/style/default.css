@@ -2358,7 +2358,10 @@ html input[disabled],
 html input[aria-disabled=true],
 button.disabled,
 button[disabled],
-button[aria-disabled=true] {
+button[aria-disabled=true],
+textarea.disabled,
+textarea[disabled],
+textarea[aria-disabled=true] {
   color: var(--button-disabled-color);
   background: var(--button-disabled-background);
   border: 1px solid var(--button-disabled-border);
