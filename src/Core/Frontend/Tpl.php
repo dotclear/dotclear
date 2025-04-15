@@ -123,6 +123,7 @@ class Tpl extends Template
         $this->addValue('CommentIfEven', $this->CommentIfEven(...));
         $this->addValue('CommentIfFirst', $this->CommentIfFirst(...));
         $this->addValue('CommentIfMe', $this->CommentIfMe(...));
+        $this->addValue('CommentIfUs', $this->CommentIfUs(...));
         $this->addValue('CommentIfOdd', $this->CommentIfOdd(...));
         $this->addValue('CommentIP', $this->CommentIP(...));
         $this->addValue('CommentOrderNumber', $this->CommentOrderNumber(...));
@@ -3261,6 +3262,23 @@ class Tpl extends Template
         $ret = Html::escapeHTML($ret);
 
         return '<?php if (App::frontend()->context()->comments->isMe()) { echo \'' . addslashes($ret) . "'; } ?>";
+    }
+
+    /**
+     * tpl:CommentIfUs [attributes] : Displays value if comment is from one of the blog authors (tpl value)
+     *
+     * attributes:
+     *
+     *      - return      string      Value to display if it is the case (default: me)
+     *
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     */
+    public function CommentIfUs(ArrayObject $attr): string
+    {
+        $ret = $attr['return'] ?? 'us';
+        $ret = Html::escapeHTML($ret);
+
+        return '<?php if (App::frontend()->context()->comments->isUs()) { echo \'' . addslashes($ret) . "'; } ?>";
     }
 
     /**

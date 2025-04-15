@@ -13,8 +13,11 @@ namespace Dotclear\Schema\Extension;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Exception\AppException;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Schema\Status\User;
 
 /**
  * @brief Dotclear comment record helpers
@@ -292,5 +295,55 @@ class Comment
 
         return
             ($rs->comment_email && $rs->comment_site) && ($rs->comment_email == $rs->user_email || in_array($rs->comment_email, $user_profile_mails)) && ($rs->comment_site == $rs->user_url || in_array($rs->comment_site, $user_profile_urls));
+    }
+
+    /**
+     * Determines whether the specified comment is from one of the blog authors.
+     *
+     * @param      MetaRecord  $rs     Invisible parameter
+     */
+    public static function isUs(MetaRecord $rs): bool
+    {
+        try {
+            // Get users with permissions on current blog
+            $blogUsers = array_keys(App::blogs()->getBlogPermissions(App::blog()->id()));
+
+            $sql = new SelectStatement();
+            $sql
+                ->columns([
+                    'user_id',
+                    'user_email',
+                    'user_url',
+                ])
+                ->from(App::con()->prefix() . App::auth()::USER_TABLE_NAME)
+                ->where('user_status = ' . User::ENABLED)
+                ->and('user_id ' . $sql->in($blogUsers));
+
+            $rsAll = $sql->select() ?? MetaRecord::newFromArray([]);
+
+            while ($rsAll->fetch()) {
+                // 1st check on main email/site
+                if ($rs->comment_email == $rsAll->user_email && $rs->comment_site == $rsAll->user_url) {
+                    return true;
+                }
+
+                // 2nd check on secondary emails/sites
+                $user_prefs         = App::userPreferences()->createFromUser((string) $rsAll->user_id, 'profile');
+                $user_profile_mails = $user_prefs->profile->mails ?
+                    array_map('trim', explode(',', (string) $user_prefs->profile->mails)) :
+                    [];
+                $user_profile_urls = $user_prefs->profile->urls ?
+                    array_map('trim', explode(',', (string) $user_prefs->profile->urls)) :
+                    [];
+
+                if (($rs->comment_email == $rsAll->user_email || in_array($rs->comment_email, $user_profile_mails)) && ($rs->comment_site == $rsAll->user_url || in_array($rs->comment_site, $user_profile_urls))) {
+                    return true;
+                }
+            }
+        } catch (AppException) {
+            return false;
+        }
+
+        return false;
     }
 }
