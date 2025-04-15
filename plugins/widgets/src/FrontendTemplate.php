@@ -152,11 +152,8 @@ class FrontendTemplate
             return '';
         }
 
-        # We change tpl:lang syntax, we need it
-        $content = (string) preg_replace('/\{\{tpl:lang\s+(.*?)\}\}/msu', '{tpl:lang $1}', $content);
-
-        # We remove every {{tpl:
-        $content = (string) preg_replace('/\{\{tpl:.*?\}\}/msu', '', $content);
+        // We remove every {{tpl:…}} but keeping {{tpl:lang …}}
+        $content = (string) preg_replace('/\{\{tpl:(?!lang).*?\}\}/msu', '', $content);
 
         return
         '<?php ' . self::class . "::widgetHandler('" . addslashes((string) $attr['id']) . "','" . str_replace("'", "\\'", $content) . "'); ?>";
@@ -173,6 +170,9 @@ class FrontendTemplate
         if (!(Widgets::$widgets->{$id} instanceof WidgetsElement)) {
             return;
         }
+
+        // Check if there is some PHP __(…) content, if so replace them by their localized content
+        $xml = preg_replace_callback('/<(?:\?=|\?php\s+echo)\s*__\(\'(.*?)\'\);*\s*\?>/msu', fn ($m): string => __($m[1]), (string) $xml);
 
         $xml = '<?xml version="1.0" encoding="utf-8" ?><widget>' . $xml . '</widget>';
         $xml = @simplexml_load_string($xml);
@@ -192,7 +192,7 @@ class FrontendTemplate
 
                 $setting            = (string) $e['name'];
                 $text               = $e->count() > 0 ? preg_replace('#^<setting[^>]*>(.*)</setting>$#msu', '\1', (string) $e->asXML()) : $e;
-                $widget->{$setting} = preg_replace_callback('/\{tpl:lang (.*?)\}/msu', fn ($m): string => __($m[1]), (string) $text);
+                $widget->{$setting} = preg_replace_callback('/\{{1,2}tpl:lang (.*?)\}{1,2}/msu', fn ($m): string => __($m[1]), (string) $text);
             }
         }
 
