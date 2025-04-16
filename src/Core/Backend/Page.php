@@ -477,7 +477,7 @@ class Page
             ->fields([
                 (new Para())
                     ->items([
-                        (new Input('qx'))
+                        (new Input('qx', 'search'))
                             ->size(30)
                             ->maxlength(255)
                             ->extra('list=menulist')

@@ -2901,7 +2901,7 @@ h1 a:link {
   width: 75%;
   background: url(search.svg) no-repeat 0 center;
   background-color: field;
-  text-indent: 20px;
+  padding-left: 20px;
 }
 
 .part-tabs ul,

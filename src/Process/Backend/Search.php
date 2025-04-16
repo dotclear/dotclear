@@ -175,7 +175,7 @@ class Search extends Process
                     ->fields([
                         (new Para())
                             ->items([
-                                (new Input('q'))
+                                (new Input('q', 'search'))
                                     ->size(30)
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML(App::backend()->q))
