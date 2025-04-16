@@ -1913,6 +1913,7 @@ a.outgoing img,
 }
 
 input:is([type=text],
+[type=search],
 [type=color],
 [type=email],
 [type=url],
@@ -1981,6 +1982,7 @@ fieldset legend {
 }
 
 input:is([type=text],
+[type=search],
 [type=color],
 [type=email],
 [type=url],
@@ -2004,6 +2006,7 @@ label .maximal,
 }
 
 input:is([type=text],
+[type=search],
 [type=password],
 [type=color],
 [type=email],
@@ -2056,6 +2059,7 @@ textarea.maximal {
 }
 
 input:is([type=text],
+[type=search],
 [type=color],
 [type=email],
 [type=url],
