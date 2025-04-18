@@ -820,13 +820,14 @@ class Media extends Manager implements MediaInterface
         ]), $this->blog->id())) {
             $count = 0;
             foreach ($p_dir['files'] as $f) {
-                // Warning a file may exist in DB but in private mode for the user, so we don't have to recreate it
-                if (!isset($f_reg[$f->relname]) && !in_array($f->relname, $privates) && ($id = $this->createFile($f->basename, null, false, null, false)) !== false && $gf = $this->getFile($id)) {
-                    $this->dir['files'][] = $gf;
-                }
                 if (++$count >= App::config()->mediaUpdateDBLimit()) {
                     // Limit reached, keep the remaining ones for the next pass
                     break;
+                }
+
+                // Warning a file may exist in DB but in private mode for the user, so we don't have to recreate it
+                if (!isset($f_reg[$f->relname]) && !in_array($f->relname, $privates) && ($id = $this->createFile($f->basename, null, false, null, false)) !== false && $gf = $this->getFile($id)) {
+                    $this->dir['files'][] = $gf;
                 }
             }
         }
