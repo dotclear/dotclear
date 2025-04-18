@@ -508,7 +508,7 @@ class Files
             ];
         }
 
-        $exclude_list = ['.', '..', '.svn', '.git', '.hg'];
+        $exclude_list = ['.svn', '.git', '.hg'];
 
         $directory = (string) preg_replace('|/$|', '', $directory);
         if (!is_dir($directory)) {
