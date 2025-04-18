@@ -59,15 +59,7 @@ class Files extends atoum
         if (!is_dir($this->testDirectory)) {
             mkdir($this->testDirectory);
         }
-        if (is_dir($this->testDirectory)) {
-            // Copy files in it
-            touch(implode(DIRECTORY_SEPARATOR, [$this->testDirectory, '02-two.txt']));
-            touch(implode(DIRECTORY_SEPARATOR, [$this->testDirectory, '1-one.txt']));
-            touch(implode(DIRECTORY_SEPARATOR, [$this->testDirectory, '30-three.txt']));
-
-            sleep(1);
-            clearstatcache(true, $this->testDirectory);
-        } else {
+        if (!is_dir($this->testDirectory)) {
             throw new Exception(sprintf('Unable to create %s temporary directory', $this->testDirectory));
             exit;
         }
@@ -285,9 +277,6 @@ class Files extends atoum
         $dirname = $dir . DIRECTORY_SEPARATOR . 'testDirIsDeletable';
         mkdir($dirname, self::READ_WRITE_EXECUTE_USER_GROUP);
 
-        sleep(2);
-        clearstatcache(true, $dirname);
-
         $ret = \Dotclear\Helper\File\Files::isDeletable($dirname);
 
         //        $dirname   = 'testDirIsDeletable';
@@ -335,9 +324,6 @@ class Files extends atoum
         touch($dirstructure . DIRECTORY_SEPARATOR . 'file.txt');
         $del = \Dotclear\Helper\File\Files::deltree(join(DIRECTORY_SEPARATOR, [$dir, 'testDeltree']));
 
-        sleep(1);
-        clearstatcache(true, $dirstructure);
-
         $this
             ->boolean($del)
             ->isTrue()
@@ -360,12 +346,12 @@ class Files extends atoum
         $fts       = filemtime($file_name);
 
         // Must keep at least one second of difference
-        sleep(3);
+        sleep(1);
         clearstatcache(true, $file_name);
 
         \Dotclear\Helper\File\Files::touch($file_name);
 
-        sleep(2);
+        sleep(1);
         clearstatcache();
 
         $sts = filemtime($file_name);
@@ -389,18 +375,12 @@ class Files extends atoum
         $dirPath = $dir . DIRECTORY_SEPARATOR . 'testMakeDir';
         \Dotclear\Helper\File\Files::makeDir($dirPath);
 
-        sleep(2);
-        clearstatcache(true, $dirPath);
-
         $this
             ->boolean(is_dir($dirPath))
             ->isTrue()
         ;
 
         \Dotclear\Helper\File\Files::deltree($dirPath);
-
-        sleep(2);
-        clearstatcache(true, $dirPath);
 
         // Test with void name
         $this
@@ -427,9 +407,6 @@ class Files extends atoum
         // Test multitple parent
         $dirPath = $dir . DIRECTORY_SEPARATOR . 'testMakeDirWithParent/is/a/test/directory/';
         \Dotclear\Helper\File\Files::makeDir($dirPath, true);
-
-        sleep(2);
-        clearstatcache(true, $dirPath);
 
         $path = '';
         foreach ([$dir . DIRECTORY_SEPARATOR . 'testMakeDirWithParent', 'is', 'a', 'test', 'directory'] as $p) {
@@ -513,9 +490,6 @@ class Files extends atoum
         $filename = $dir . DIRECTORY_SEPARATOR . 'testPutContent.txt';
         \Dotclear\Helper\File\Files::putContent($filename, $content);
 
-        sleep(2);
-        clearstatcache(true, $filename);
-
         $this
             ->string(file_get_contents($filename))
             ->isEqualTo($content)
@@ -534,9 +508,6 @@ class Files extends atoum
         @unlink($filename);
         \Dotclear\Helper\File\Files::putContent($filename, $content);
 
-        sleep(2);
-        clearstatcache(true, $filename);
-
         $this
             ->exception(function () use ($filename) {
                 chmod($filename, self::READ_ONLY); // Read only
@@ -550,7 +521,6 @@ class Files extends atoum
         ;
 
         chmod($filename, self::READ_WRITE_EXECUTE);
-        unlink($filename);
 
         $this->delTempDir($dir);
     }
