@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\File;
 
+use DirectoryIterator;
 use Exception;
 
 /**
@@ -326,33 +327,34 @@ class Manager
      */
     public function getDir(bool $sort_dirs = true, bool $sort_files = true): void
     {
-        $dir = Path::clean($this->pwd);
+        $dir         = Path::clean($this->pwd);
+        $directories = [];
+        $files       = [];
 
-        $handle = @opendir($dir);
-        if ($handle === false) {
-            throw new Exception('Unable to read directory.');
-        }
-
-        $directories = $files = [];
-
-        while (($file = readdir($handle)) !== false) {
-            $filename = $dir . '/' . $file;
-
-            if ($this->inJail($filename) && !$this->isExclude($filename)) {
-                if (is_dir($filename) && $file !== '.') {
-                    $directory = new File($filename, $this->root, $this->root_url);
-                    if ($file === '..') {
-                        $directory->parent = true;
+        try {
+            $dirfiles = new DirectoryIterator($dir);
+            foreach ($dirfiles as $file) {
+                $fullname = $file->getPathname();
+                if ($this->inJail($fullname) && !$this->isExclude($fullname)) {
+                    $filename = $file->getFilename();
+                    if ($file->isDir()) {
+                        if ($filename !== '.') {
+                            $directory = new File($fullname, $this->root, $this->root_url);
+                            if ($filename === '..') {
+                                $directory->parent = true;
+                            }
+                            $directories[] = $directory;
+                        }
+                    } else {
+                        if (!str_starts_with($filename, '.') && !$this->isFileExclude($filename)) {
+                            $files[] = new File($fullname, $this->root, $this->root_url);
+                        }
                     }
-                    $directories[] = $directory;
-                }
-
-                if (is_file($filename) && !str_starts_with($file, '.') && !$this->isFileExclude($file)) {
-                    $files[] = new File($filename, $this->root, $this->root_url);
                 }
             }
+        } catch (Exception) {
+            throw new Exception('Unable to read directory.');
         }
-        closedir($handle);
 
         $this->dir = [
             'dirs'  => $directories,

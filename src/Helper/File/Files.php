@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper\File;
 
+use DirectoryIterator;
 use Dotclear\Helper\Text;
 use Exception;
 
@@ -272,23 +273,27 @@ class Files
      */
     public static function deltree(string $directory): bool
     {
-        $current_dir = opendir($directory);
-        if ($current_dir !== false) {
-            while ($filename = readdir($current_dir)) {
-                if (is_dir($directory . '/' . $filename) && ($filename !== '.' && $filename !== '..')) {
-                    if (!static::deltree($directory . '/' . $filename)) {
+        try {
+            $dirfiles = new DirectoryIterator($directory);
+            foreach ($dirfiles as $file) {
+                if ($file->isDot()) {
+                    continue;
+                }
+                if ($file->isDir()) {
+                    if (!static::deltree($file->getPathname())) {
                         return false;
                     }
-                } elseif ($filename !== '.' && $filename !== '..') {
-                    if (!@unlink($directory . '/' . $filename)) {
+                } else {
+                    if (!unlink($file->getPathname())) {
                         return false;
                     }
                 }
             }
-            closedir($current_dir);
-        }
 
-        return @rmdir($directory);
+            return rmdir($directory);
+        } catch (Exception) {
+            return false;
+        }
     }
 
     /**
