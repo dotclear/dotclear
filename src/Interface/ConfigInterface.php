@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -648,4 +649,12 @@ interface ConfigInterface
      * @return  bool    True for check
      */
     public function dotclearMigrate(): bool;
+
+    /**
+     * Maximum number of media to add in DB in not in it.
+     * Used when getting directory contents in media manager.
+     *
+     * @return     int   Maximum number of media to add in DB in not in it
+     */
+    public function mediaUpdateDBLimit(): int;
 }

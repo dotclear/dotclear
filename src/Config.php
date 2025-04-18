@@ -134,6 +134,7 @@ class Config implements ConfigInterface
     private readonly string $csp_report_file;
     private readonly bool $has_config;
     private readonly bool $dotclear_migrate;
+    private readonly int $media_update_db_limit;
 
     /**
      * Constructor.
@@ -400,46 +401,51 @@ class Config implements ConfigInterface
             define('DC_MIGRATE', $this->release('dotclear_migrate'));
         }
 
-        $this->debug_mode           = DC_DEBUG;
-        $this->dev_mode             = DC_DEV;
-        $this->error_file           = (string) DC_ERRORFILE;
-        $this->master_key           = (string) DC_MASTER_KEY;
-        $this->next_required_php    = (string) DC_NEXT_REQUIRED_PHP;
-        $this->vendor_name          = (string) DC_VENDOR_NAME;
-        $this->session_ttl          = (string) (DC_SESSION_TTL ?? '-120 minutes');
-        $this->session_name         = (string) DC_SESSION_NAME;
-        $this->admin_ssl            = DC_ADMIN_SSL;
-        $this->admin_url            = (string) DC_ADMIN_URL;
-        $this->admin_mailfrom       = (string) DC_ADMIN_MAILFROM;
-        $this->db_driver            = (string) DC_DBDRIVER;
-        $this->db_host              = (string) DC_DBHOST;
-        $this->db_user              = (string) DC_DBUSER;
-        $this->db_password          = (string) DC_DBPASSWORD;
-        $this->db_name              = (string) DC_DBNAME;
-        $this->db_prefix            = (string) DC_DBPREFIX;
-        $this->db_persist           = DC_DBPERSIST;
-        $this->plugins_root         = (string) DC_PLUGINS_ROOT;
-        $this->core_attic_url       = (string) DC_ATTIC_URL;
-        $this->core_update_url      = (string) DC_UPDATE_URL;
-        $this->core_update_canal    = (string) DC_UPDATE_VERSION;
-        $this->core_not_update      = (bool) DC_NOT_UPDATE;
-        $this->allow_multi_modules  = (bool) DC_ALLOW_MULTI_MODULES;
-        $this->store_not_update     = (bool) DC_STORE_NOT_UPDATE;
-        $this->allow_rest_services  = DC_REST_SERVICES;
-        $this->allow_repositories   = DC_ALLOW_REPOSITORIES;
-        $this->query_timeout        = DC_QUERY_TIMEOUT;
-        $this->query_stream_timeout = DC_QUERY_STREAM_TIMEOUT ?? null;
-        $this->show_hidden_dirs     = DC_SHOW_HIDDEN_DIRS;
-        $this->crypt_algo           = (string) DC_CRYPT_ALGO;
-        $this->cache_root           = DC_TPL_CACHE;
-        $this->var_root             = DC_VAR;
-        $this->backup_root          = (string) DC_BACKUP_PATH;
-        $this->core_upgrade         = (string) DC_UPGRADE;
-        $this->start_time           = DC_START_TIME;
-        $this->http_scheme_443      = (bool) DC_FORCE_SCHEME_443;
-        $this->http_revers_proxy    = (bool) DC_REVERSE_PROXY;
-        $this->check_ads_blocker    = (bool) DC_ADBLOCKER_CHECK;
-        $this->dotclear_migrate     = (bool) DC_MIGRATE;
+        if (!defined('DC_MEDIA_UPDATE_DB_LIMIT')) {
+            define('DC_MEDIA_UPDATE_DB_LIMIT', 1000);
+        }
+
+        $this->debug_mode            = DC_DEBUG;
+        $this->dev_mode              = DC_DEV;
+        $this->error_file            = (string) DC_ERRORFILE;
+        $this->master_key            = (string) DC_MASTER_KEY;
+        $this->next_required_php     = (string) DC_NEXT_REQUIRED_PHP;
+        $this->vendor_name           = (string) DC_VENDOR_NAME;
+        $this->session_ttl           = (string) (DC_SESSION_TTL ?? '-120 minutes');
+        $this->session_name          = (string) DC_SESSION_NAME;
+        $this->admin_ssl             = DC_ADMIN_SSL;
+        $this->admin_url             = (string) DC_ADMIN_URL;
+        $this->admin_mailfrom        = (string) DC_ADMIN_MAILFROM;
+        $this->db_driver             = (string) DC_DBDRIVER;
+        $this->db_host               = (string) DC_DBHOST;
+        $this->db_user               = (string) DC_DBUSER;
+        $this->db_password           = (string) DC_DBPASSWORD;
+        $this->db_name               = (string) DC_DBNAME;
+        $this->db_prefix             = (string) DC_DBPREFIX;
+        $this->db_persist            = DC_DBPERSIST;
+        $this->plugins_root          = (string) DC_PLUGINS_ROOT;
+        $this->core_attic_url        = (string) DC_ATTIC_URL;
+        $this->core_update_url       = (string) DC_UPDATE_URL;
+        $this->core_update_canal     = (string) DC_UPDATE_VERSION;
+        $this->core_not_update       = (bool) DC_NOT_UPDATE;
+        $this->allow_multi_modules   = (bool) DC_ALLOW_MULTI_MODULES;
+        $this->store_not_update      = (bool) DC_STORE_NOT_UPDATE;
+        $this->allow_rest_services   = DC_REST_SERVICES;
+        $this->allow_repositories    = DC_ALLOW_REPOSITORIES;
+        $this->query_timeout         = DC_QUERY_TIMEOUT;
+        $this->query_stream_timeout  = DC_QUERY_STREAM_TIMEOUT ?? null;
+        $this->show_hidden_dirs      = DC_SHOW_HIDDEN_DIRS;
+        $this->crypt_algo            = (string) DC_CRYPT_ALGO;
+        $this->cache_root            = DC_TPL_CACHE;
+        $this->var_root              = DC_VAR;
+        $this->backup_root           = (string) DC_BACKUP_PATH;
+        $this->core_upgrade          = (string) DC_UPGRADE;
+        $this->start_time            = DC_START_TIME;
+        $this->http_scheme_443       = (bool) DC_FORCE_SCHEME_443;
+        $this->http_revers_proxy     = (bool) DC_REVERSE_PROXY;
+        $this->check_ads_blocker     = (bool) DC_ADBLOCKER_CHECK;
+        $this->dotclear_migrate      = (bool) DC_MIGRATE;
+        $this->media_update_db_limit = (int) DC_MEDIA_UPDATE_DB_LIMIT;
 
         // Various
         if (!defined('DC_CSP_LOGFILE')) {
@@ -814,5 +820,10 @@ class Config implements ConfigInterface
     public function dotclearMigrate(): bool
     {
         return $this->dotclear_migrate;
+    }
+
+    public function mediaUpdateDBLimit(): int
+    {
+        return $this->media_update_db_limit;
     }
 }
