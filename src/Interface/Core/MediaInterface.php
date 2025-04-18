@@ -221,9 +221,12 @@ interface MediaInterface
      *
      * (returned type not set for backward compatibility with Helper\File\Manager)
      *
+     * @param   bool            $sort_dirs   Sort sub-directories
+     * @param   bool            $sort_files  Sort files
+     *
      * @return void
      */
-    public function getFSDir();
+    public function getFSDir(bool $sort_dirs = true, bool $sort_files = true);
 
     /**
      * Gets current working directory content.

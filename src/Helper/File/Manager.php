@@ -345,10 +345,8 @@ class Manager
                             }
                             $directories[] = $directory;
                         }
-                    } else {
-                        if (!str_starts_with($filename, '.') && !$this->isFileExclude($filename)) {
-                            $files[] = new File($fullname, $this->root, $this->root_url);
-                        }
+                    } elseif (!str_starts_with($filename, '.') && !$this->isFileExclude($filename)) {
+                        $files[] = new File($fullname, $this->root, $this->root_url);
                     }
                 }
             }

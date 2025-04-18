@@ -176,17 +176,16 @@ class Files
      */
     public static function scandir(string $directory, bool $order = true): array
     {
-        $res    = [];
-        $handle = @opendir($directory);
+        $res = [];
 
-        if ($handle === false) {
-            throw new Exception(__('Unable to open directory.'));
+        try {
+            $dirfiles = new DirectoryIterator($directory);
+            foreach ($dirfiles as $file) {
+                $res[] = $file->getFilename();
+            }
+        } catch (Exception) {
+            throw new Exception('Unable to read directory.');
         }
-
-        while (($file = readdir($handle)) !== false) {
-            $res[] = $file;
-        }
-        closedir($handle);
 
         if ($order) {
             sort($res);
@@ -283,10 +282,8 @@ class Files
                     if (!static::deltree($file->getPathname())) {
                         return false;
                     }
-                } else {
-                    if (!unlink($file->getPathname())) {
-                        return false;
-                    }
+                } elseif (!unlink($file->getPathname())) {
+                    return false;
                 }
             }
 
@@ -520,21 +517,21 @@ class Files
 
         $list['dirs'][] = $directory;
 
-        $handle = @dir($directory);
-        if ($handle === false) {
-            throw new Exception(__('Unable to open directory.'));
-        }
-
-        while ($file = $handle->read()) {
-            if (!in_array($file, $exclude_list)) {
-                if (is_dir($directory . '/' . $file)) {
-                    static::getDirList($directory . '/' . $file, $list);
-                } else {
-                    $list['files'][] = $directory . '/' . $file;
+        try {
+            $dirfiles = new DirectoryIterator($directory);
+            foreach ($dirfiles as $file) {
+                $filename = $file->getFilename();
+                if (!$file->isDot() && !in_array($filename, $exclude_list)) {
+                    if ($file->isDir()) {
+                        static::getDirList($file->getPathname(), $list);
+                    } else {
+                        $list['files'][] = $file->getPathname();
+                    }
                 }
             }
+        } catch (Exception) {
+            throw new Exception('Unable to open directory.');
         }
-        $handle->close();
 
         return $list;
     }
