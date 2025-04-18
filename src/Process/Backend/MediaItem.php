@@ -147,7 +147,7 @@ class MediaItem extends Process
                 $dirs_combo['/' . $v] = $v;
             }
             # Add parent and direct childs directories if any
-            App::media()->getFSDir();
+            App::media()->getFSDir(false, false);   // No need to sort dirs/files, it will be done in combo later
             foreach (App::media()->getDirs() as $v) {
                 $dirs_combo['/' . $v->relname] = $v->relname;
             }

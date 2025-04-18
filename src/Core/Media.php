@@ -668,13 +668,13 @@ class Media extends Manager implements MediaInterface
         };
     }
 
-    public function getFSDir(): void
+    public function getFSDir(bool $sort_dirs = true, bool $sort_files = true): void
     {
         if ($this->root_missing) {
             return;
         }
 
-        parent::getDir();
+        parent::getDir($sort_dirs, $sort_files);
     }
 
     public function getDir(bool $sort_dirs = true, bool $sort_files = true, $type = null): void
@@ -1100,7 +1100,7 @@ class Media extends Manager implements MediaInterface
         }
 
         $this->chdir($pwd);
-        parent::getDir();
+        parent::getDir(false, false);
 
         $dir = $this->dir;
 
