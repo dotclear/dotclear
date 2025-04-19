@@ -804,7 +804,7 @@ class Media extends Process
                 ->text(sprintf(
                     __('Current settings for medias and images are defined in %s'),
                     (new Link())
-                        ->href(App::backend()->url()->get('admin.blog.pref') . '#medias-settings')
+                        ->href(App::backend()->url()->get('admin.blog.pref') . '#params.medias-settings')
                         ->text(__('Blog parameters'))
                     ->render()
                 ))
