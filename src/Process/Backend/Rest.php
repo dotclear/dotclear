@@ -18,10 +18,21 @@ use Dotclear\Core\Process;
 use Dotclear\Core\Upgrade\Update;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\File\File;
+use Dotclear\Helper\Html\Form\Dd;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Dl;
+use Dotclear\Helper\Html\Form\Dt;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Network\Feed\Reader;
-use Dotclear\Helper\Text;
+use Dotclear\Helper\Text as TextHelper;
 use Dotclear\Module\Store;
 use Dotclear\Plugin\antispam\Antispam;
 use Exception;
@@ -121,20 +132,53 @@ class Rest extends Process
                 $feed_reader->setUserAgent('Dotclear - https://dotclear.org/');
                 $feed = $feed_reader->parse($rss_news);
                 if ($feed) {
-                    $ret = '<div class="box medium dc-box" id="ajax-news"><h3>' . __('Dotclear news') . '</h3><dl id="news">';
-                    $i   = 1;
-                    foreach ($feed->items as $item) {
-                        $dt = isset($item->link) ? '<a href="' . $item->link . '" class="outgoing" title="' . $item->title . '">' .
-                        $item->title . ' <img src="images/outgoing-link.svg" alt=""></a>' : $item->title;
-                        $ret .= '<dt>' . $dt . '</dt>' .
-                        '<dd><p><strong>' . Date::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris') . '</strong> ' .
-                        '<em>' . Text::cutString(Html::clean($item->content), 120) . '...</em></p></dd>';
-                        $i++;
-                        if ($i > 2) {
-                            break;
+                    $news = function () use ($feed) {
+                        $i = 1;
+                        foreach ($feed->items as $item) {
+                            yield (new Set())
+                                ->items([
+                                    (new Dt())
+                                        ->items([
+                                            isset($item->link) ?
+                                            (new Link())
+                                                ->separator(' ')
+                                                ->class('outgoing')
+                                                ->title($item->title)
+                                                ->href($item->link)
+                                                ->items([
+                                                    (new Text(null, $item->title)),
+                                                    (new Img('images/outgoing-link.svg'))
+                                                        ->alt(''),
+                                                ]) :
+                                            (new Text(null, $item->title)),
+                                        ]),
+                                    (new Dd())
+                                        ->items([
+                                            (new Para())
+                                                ->separator(' ')
+                                                ->items([
+                                                    (new Text('strong', Date::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris'))),
+                                                    (new Text('em', TextHelper::cutString(Html::clean($item->content), 120) . '...')),
+                                                ]),
+                                        ]),
+                                ]);
+                            $i++;
+                            if ($i > 2) {
+                                break;
+                            }
                         }
-                    }
-                    $ret .= '</dl></div>';
+                    };
+                    $ret = (new Div('ajax-news'))
+                        ->class(['box', 'medium', 'dc-box'])
+                        ->items([
+                            (new Text('h3', __('Dotclear news'))),
+                            (new Dl('news'))
+                                ->items([
+                                    ... $news(),
+                                ]),
+                        ])
+                    ->render();
+
                     $data = [
                         'check' => true,
                         'ret'   => $ret,
@@ -170,20 +214,42 @@ class Rest extends Process
             if ($updater->getNotify() && $new_v) {
                 // Check PHP version required
                 if (version_compare(phpversion(), (string) $updater->getPHPVersion()) >= 0) {
-                    $ret = '<div class="dc-update" id="ajax-update"><h3>' . sprintf(__('Dotclear %s is available!'), $new_v) . '</h3> ' .
-                    '<p class="form-buttons"><a class="button submit" href="' . App::backend()->url()->get('upgrade.upgrade') . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
-                    '<a class="button" href="' . App::backend()->url()->get('upgrade.upgrade', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
-                        ($version_info ? ' </p>' .
-                        '<p class="updt-info"><a href="' . $version_info . '">' . __('Information about this version') . '</a>' : '') . '</p>' .
-                        '</div>';
+                    $ret = (new Div('ajax-update'))
+                        ->class('dc-update')
+                        ->items([
+                            (new Text('h3', sprintf(__('Dotclear %s is available!'), $new_v))),
+                            (new Para())
+                                ->class('form-buttons')
+                                ->items([
+                                    (new Link())
+                                        ->class(['button', 'submit'])
+                                        ->href(App::backend()->url()->get('upgrade.upgrade'))
+                                        ->text(__('Upgrade now')),
+                                    (new Link())
+                                        ->class('button')
+                                        ->href(App::backend()->url()->get('upgrade.upgrade', ['hide_msg' => 1]))
+                                        ->text(__('Remind me later')),
+                                ]),
+                            $version_info !== '' ?
+                                (new Para())
+                                    ->class('updt-info')
+                                    ->items([
+                                        (new Link())
+                                            ->href($version_info)
+                                            ->text(__('Information about this version')),
+                                    ]) :
+                                (new None()),
+                        ])
+                    ->render();
                 } else {
-                    $ret = '<p class="info">' .
-                    sprintf(
-                        __('A new version of Dotclear is available but needs PHP version ≥ %s, your\'s is currently %s'),
-                        $updater->getPHPVersion(),
-                        phpversion()
-                    ) .
-                        '</p>';
+                    $ret = (new Note())
+                        ->class('info')
+                        ->text(sprintf(
+                            __('A new version of Dotclear is available but needs PHP version ≥ %s, your\'s is currently %s'),
+                            $updater->getPHPVersion(),
+                            phpversion()
+                        ))
+                    ->render();
                 }
                 $data = [
                     'check' => true,
@@ -191,13 +257,14 @@ class Rest extends Process
                 ];
             } elseif (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
                 if (!App::auth()->prefs()->interface->hidemoreinfo) {
-                    $ret = '<p class="info">' .
-                    sprintf(
-                        __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
-                        App::config()->nextRequiredPhp(),
-                        phpversion()
-                    ) .
-                    '</p>';
+                    $ret = (new Note())
+                        ->class('info')
+                        ->text(sprintf(
+                            __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
+                            App::config()->nextRequiredPhp(),
+                            phpversion()
+                        ))
+                    ->render();
                     $data = [
                         'check' => true,
                         'ret'   => $ret,
