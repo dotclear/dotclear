@@ -82,10 +82,10 @@ class ManageEdit extends Process
         if (App::backend()->rs instanceof MetaRecord && !App::backend()->rs->is_cat && !empty($_POST['edit_link'])) {
             // Update a link
 
-            App::backend()->link_title = Html::escapeHTML($_POST['link_title']);
-            App::backend()->link_href  = Html::escapeHTML($_POST['link_href']);
-            App::backend()->link_desc  = Html::escapeHTML($_POST['link_desc']);
-            App::backend()->link_lang  = Html::escapeHTML($_POST['link_lang']);
+            App::backend()->link_title = $_POST['link_title'];
+            App::backend()->link_href  = $_POST['link_href'];
+            App::backend()->link_desc  = $_POST['link_desc'];
+            App::backend()->link_lang  = $_POST['link_lang'];
 
             App::backend()->link_xfn = '';
 
@@ -134,7 +134,7 @@ class ManageEdit extends Process
         if (App::backend()->rs instanceof MetaRecord && App::backend()->rs->is_cat && !empty($_POST['edit_cat'])) {
             // Update a category
 
-            App::backend()->link_desc = Html::escapeHTML($_POST['link_desc']);
+            App::backend()->link_desc = $_POST['link_desc'];
 
             try {
                 App::backend()->blogroll->updateCategory(App::backend()->id, App::backend()->link_desc);

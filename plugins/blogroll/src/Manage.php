@@ -115,9 +115,9 @@ class Manage extends Process
             // Import links - import entries
 
             foreach ($_POST['entries'] as $idx) {
-                App::backend()->link_title = Html::escapeHTML($_POST['title'][$idx]);
-                App::backend()->link_href  = Html::escapeHTML($_POST['url'][$idx]);
-                App::backend()->link_desc  = Html::escapeHTML($_POST['desc'][$idx]);
+                App::backend()->link_title = $_POST['title'][$idx];
+                App::backend()->link_href  = $_POST['url'][$idx];
+                App::backend()->link_desc  = $_POST['desc'][$idx];
 
                 try {
                     App::backend()->blogroll->addLink(App::backend()->link_title, App::backend()->link_href, App::backend()->link_desc, '');
@@ -141,10 +141,10 @@ class Manage extends Process
         if (!empty($_POST['add_link'])) {
             // Add link
 
-            App::backend()->link_title = Html::escapeHTML($_POST['link_title']);
-            App::backend()->link_href  = Html::escapeHTML($_POST['link_href']);
-            App::backend()->link_desc  = Html::escapeHTML($_POST['link_desc']);
-            App::backend()->link_lang  = Html::escapeHTML($_POST['link_lang']);
+            App::backend()->link_title = $_POST['link_title'];
+            App::backend()->link_href  = $_POST['link_href'];
+            App::backend()->link_desc  = $_POST['link_desc'];
+            App::backend()->link_lang  = $_POST['link_lang'];
 
             try {
                 App::backend()->blogroll->addLink(App::backend()->link_title, App::backend()->link_href, App::backend()->link_desc, App::backend()->link_lang);
@@ -160,7 +160,7 @@ class Manage extends Process
         if (!empty($_POST['add_cat'])) {
             // Add category
 
-            App::backend()->cat_title = Html::escapeHTML($_POST['cat_title']);
+            App::backend()->cat_title = $_POST['cat_title'];
 
             try {
                 App::backend()->blogroll->addCategory(App::backend()->cat_title);
