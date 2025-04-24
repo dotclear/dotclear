@@ -548,7 +548,7 @@ class User extends Process
                         ->text(__('No permissions so far.'));
                 } else {
                     $permissions_list_items = [];
-                    $index                  = 1;
+                    $index                  = 1;    // Used for field/form IDs
                     foreach ($permissions as $k => $v) {
                         if ((is_countable($v['p']) ? count($v['p']) : 0) > 0) {
                             $permissions_types = function (array $p) use ($perm_types) {
@@ -582,7 +582,7 @@ class User extends Process
                                     (new Para())
                                         ->class('add-perm')
                                         ->items([
-                                            (new Submit('change-perm' . $index, __('Change permissions')))
+                                            (new Submit('change-perm-' . $index, __('Change permissions')))
                                                 ->class('reset'),
                                             (new Hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id]))),
                                             (new Hidden(['action'], 'perms')),
@@ -595,6 +595,7 @@ class User extends Process
                     }
                     $permissions_list = (new Set())
                         ->items($permissions_list_items);
+                    $index++;
                 }
             }
 
