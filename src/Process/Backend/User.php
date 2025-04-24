@@ -18,9 +18,30 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Capture;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Email;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
+use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/user.php
@@ -264,276 +285,373 @@ class User extends Process
             Notices::success(__('User has been successfully created.'));
         }
 
-        echo
-        '<form action="' . App::backend()->url()->get('admin.user') . '" method="post" id="user-form">' .
-        '<div class="two-cols">' .
+        $super_disabled = App::backend()->user_super && App::backend()->user_id === App::auth()->userID();
 
-        '<div class="col">' .
-        '<h3>' . __('User profile') . '</h3>' .
-        '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-
-        '<p><label for="user_id" class="required"><span>*</span> ' . __('User ID:') . '</label> ' .
-        form::field('user_id', 20, 255, [
-            'default'      => Html::escapeHTML(App::backend()->user_id),
-            'extra_html'   => 'required placeholder="' . __('Login') . '" aria-describedby="user_id_help user_id_warning"',
-            'autocomplete' => 'username',
-        ]) .
-        '</p>' .
-        '<p class="form-note info" id="user_id_help">' . __('At least 2 characters using letters, numbers or symbols.') . '</p>';
-
-        if (App::backend()->user_id == App::auth()->userID()) {
-            echo
-            '<p class="warning" id="user_id_warning">' . __('Warning:') . ' ' .
-            __('If you change your username, you will have to log in again.') . '</p>';
-        }
-
-        echo
-        '<p>' .
-        '<label for="new_pwd" ' .
-        (App::backend()->user_id != '' ? '' : 'class="required"') . '>' .
-        (App::backend()->user_id != '' ? '' : '<span>*</span> ') .
-        (App::backend()->user_id != '' ? __('New password:') : __('Password:')) . '</label>' .
-        form::password(
-            'new_pwd',
-            20,
-            255,
-            [
-                'class'        => 'pw-strength',
-                'extra_html'   => (App::backend()->user_id != '' ? '' : 'aria-describedby="new_pwd_help" required placeholder="' . __('Password') . '"'),
-                'autocomplete' => 'new-password', ]
-        ) .
-        '</p>' .
-        '<p class="form-note info" id="new_pwd_help">' . __('Password must contain at least 6 characters.') . '</p>' .
-
-        '<p><label for="new_pwd_c" ' . (App::backend()->user_id != '' ? '' : 'class="required"') . '>' .
-        (App::backend()->user_id != '' ? '' : '<span>*</span> ') . __('Confirm password:') . '</label> ' .
-        form::password(
-            'new_pwd_c',
-            20,
-            255,
-            [
-                'extra_html'   => (App::backend()->user_id != '' ? '' : 'required placeholder="' . __('Password') . '"'),
-                'autocomplete' => 'new-password', ]
-        ) .
-        '</p>';
-
-        if (App::auth()->allowPassChange()) {
-            echo
-            '<p><label for="user_change_pwd" class="classic">' .
-            form::checkbox('user_change_pwd', '1', App::backend()->user_change_pwd) . ' ' .
-            __('Password change required to connect') . '</label></p>';
-        }
-
-        $super_disabled = App::backend()->user_super && App::backend()->user_id == App::auth()->userID();
-
-        echo
-        '<p><label for="user_super" class="classic">' .
-        form::checkbox(
-            ($super_disabled ? 'user_super_off' : 'user_super'),
-            '1',
-            [
-                'checked'  => App::backend()->user_super,
-                'disabled' => $super_disabled,
-            ]
-        ) .
-        ' ' . __('Super administrator') . '</label></p>' .
-        ($super_disabled ? form::hidden(['user_super'], App::backend()->user_super) : '') .
-
-        (
-            App::backend()->user_id != App::auth()->userID() ?
-            '<p><label for="user_status">' . __('Status:') . '</label> ' .
-            form::combo('user_status', App::status()->user()->combo(), App::backend()->user_status) .
-            '</p>' :
-            form::hidden(['user_status'], App::backend()->user_status)
-        ) .
-
-        '<p><label for="user_name">' . __('Last Name:') . '</label> ' .
-        form::field('user_name', 20, 255, [
-            'default'      => Html::escapeHTML(App::backend()->user_name),
-            'autocomplete' => 'family-name',
-        ]) .
-        '</p>' .
-
-        '<p><label for="user_firstname">' . __('First Name:') . '</label> ' .
-        form::field('user_firstname', 20, 255, [
-            'default'      => Html::escapeHTML(App::backend()->user_firstname),
-            'autocomplete' => 'given-name',
-        ]) .
-        '</p>' .
-
-        '<p><label for="user_displayname">' . __('Display name:') . '</label> ' .
-        form::field('user_displayname', 20, 255, [
-            'default'      => Html::escapeHTML(App::backend()->user_displayname),
-            'autocomplete' => 'nickname',
-        ]) .
-        '</p>' .
-
-        '<p><label for="user_email">' . __('Email:') . '</label> ' .
-        form::email('user_email', [
-            'default'      => Html::escapeHTML(App::backend()->user_email),
-            'extra_html'   => 'aria-describedby="user_email_help"',
-            'autocomplete' => 'email',
-        ]) .
-        '</p>' .
-        '<p class="form-note" id="user_email_help">' . __('Mandatory for password recovering procedure.') . '</p>' .
-
-        '<p><label for="user_profile_mails">' . __('Alternate emails (comma separated list):') . '</label>' .
-        form::field('user_profile_mails', 50, 255, [
-            'default' => Html::escapeHTML(App::backend()->user_profile_mails),
-        ]) .
-        '</p>' .
-        '<p class="form-note info" id="sanitize_emails">' . __('Invalid emails will be automatically removed from list.') . '</p>' .
-
-        '<p><label for="user_url">' . __('URL:') . '</label> ' .
-        form::url('user_url', [
-            'size'         => 30,
-            'default'      => Html::escapeHTML(App::backend()->user_url),
-            'autocomplete' => 'url',
-        ]) .
-        '</p>' .
-
-        '<p><label for="user_profile_urls">' . __('Alternate URLs (comma separated list):') . '</label>' .
-        form::field('user_profile_urls', 50, 255, [
-            'default' => Html::escapeHTML(App::backend()->user_profile_urls),
-        ]) .
-        '</p>' .
-        '<p class="form-note info" id="sanitize_urls">' . __('Invalid URLs will be automatically removed from list.') . '</p>' .
-
-        '</div>' .
-
-        '<div class="col">' .
-        '<h3>' . __('Options') . '</h3>' .
-        '<h4>' . __('Interface') . '</h4>' .
-        '<p><label for="user_lang">' . __('Language:') . '</label> ' .
-        form::combo('user_lang', App::backend()->lang_combo, App::backend()->user_lang) .
-        '</p>' .
-
-        '<p><label for="user_tz">' . __('Timezone:') . '</label> ' .
-        form::combo('user_tz', Date::getZones(true, true), App::backend()->user_tz) .
-        '</p>' .
-
-        '<h4>' . __('Edition') . '</h4>' .
-        '<p><label for="user_post_format">' . __('Preferred format:') . '</label> ' .
-        form::combo('user_post_format', App::backend()->formaters_combo, App::backend()->user_options['post_format']) .
-        '</p>' .
-
-        '<p><label for="user_post_status">' . __('Default entry status:') . '</label> ' .
-        form::combo('user_post_status', App::backend()->status_combo, App::backend()->user_post_status) .
-        '</p>' .
-
-        '<p><label for="user_edit_size">' . __('Entry edit field height:') . '</label> ' .
-        form::number('user_edit_size', 10, 999, (string) App::backend()->user_options['edit_size']) .
-        '</p>';
-
-        # --BEHAVIOR-- adminUserForm -- MetaRecord|null
-        App::behavior()->callBehavior('adminUserForm', App::backend()->rs ?? null);
-
-        echo
-        '</div>' .
-        '</div>';
-
-        echo
-        '<p class="clear vertical-separator"><label for="your_pwd" class="required">' .
-        '<span>*</span> ' . __('Your password:') . '</label>' .
-        form::password(
-            'your_pwd',
-            20,
-            255,
-            [
-                'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                'autocomplete' => 'current-password',
-            ]
-        ) . '</p>' .
-        '<p class="form-buttons clear"><input type="submit" name="save" accesskey="s" value="' . __('Save') . '">' .
-        (App::backend()->user_id != '' ? '' : ' <input type="submit" name="saveplus" value="' . __('Save and create another') . '">') .
-        (App::backend()->user_id != '' ? form::hidden('id', App::backend()->user_id) : '') .
-        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-        App::nonce()->getFormNonce() .
-        '</p>' .
-
-        '</form>';
+        echo (new Form('user-form'))
+            ->method('post')
+            ->action(App::backend()->url()->get('admin.user'))
+            ->fields([
+                (new Div())
+                    ->class('two-cols')
+                    ->items([
+                        (new Div())
+                            ->class('col')
+                            ->items([
+                                (new Text('h3', __('User profile'))),
+                                (new Note())
+                                    ->class('form-note')
+                                    ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                                (new Para())
+                                    ->items([
+                                        (new Input('user_id'))
+                                            ->size(20)
+                                            ->maxlength(255)
+                                            ->value(Html::escapeHTML(App::backend()->user_id))
+                                            ->required(true)
+                                            ->placeholder(__('Login'))
+                                            ->autocomplete('username')
+                                            ->extra('aria-describedby="user_id_help user_id_warning"')
+                                            ->label((new Label((new Text('span', '*'))->render() . __('User ID:'), Label::OL_TF))->class('required')),
+                                    ]),
+                                (new Note('user_id_help'))
+                                    ->class(['form-note', 'info'])
+                                    ->text(__('At least 2 characters using letters, numbers or symbols.')),
+                                App::backend()->user_id === App::auth()->userID() ?
+                                    (new Note('user_id_warning'))
+                                        ->class('warning')
+                                        ->text(__('Warning:') . ' ' . __('If you change your username, you will have to log in again.')) :
+                                    (new None()),
+                                (new Para())
+                                    ->items([
+                                        App::backend()->user_id ?
+                                            (new Password('new_pwd'))
+                                                ->size(20)
+                                                ->maxlength(255)
+                                                ->class('pw-strength')
+                                                ->autocomplete('new-password')
+                                                ->label((new Label(__('New password:'), Label::OL_TF))) :
+                                            (new Password('new_pwd'))
+                                                ->size(20)
+                                                ->maxlength(255)
+                                                ->class('pw-strength')
+                                                ->required(true)
+                                                ->placeholder(__('Password'))
+                                                ->autocomplete('new-password')
+                                                ->extra('aria-describedby="new_pwd_help"')
+                                                ->label((new Label((new Text('span', '*'))->render() . __('Password:'), Label::OL_TF))->class('required')),
+                                    ]),
+                                (new Note('new_pwd_help'))
+                                    ->class(['form-note', 'info'])
+                                    ->text(__('Password must contain at least 6 characters.')),
+                                (new Para())
+                                    ->items([
+                                        App::backend()->user_id ?
+                                            (new Password('new_pwd_c'))
+                                                ->size(20)
+                                                ->maxlength(255)
+                                                ->class('pw-strength')
+                                                ->autocomplete('new-password')
+                                                ->label((new Label(__('Confirm password:'), Label::OL_TF))) :
+                                            (new Password('new_pwd_c'))
+                                                ->size(20)
+                                                ->maxlength(255)
+                                                ->class('pw-strength')
+                                                ->required(true)
+                                                ->placeholder(__('Password'))
+                                                ->autocomplete('new-password')
+                                                ->label((new Label((new Text('span', '*'))->render() . __('Confirm password:'), Label::OL_TF))->class('required')),
+                                    ]),
+                                App::auth()->allowPassChange() ?
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('user_change_pwd', (bool) App::backend()->user_change_pwd))
+                                                ->value('1')
+                                                ->label((new Label(__('Password change required to connect'), Label::IL_FT))),
+                                        ]) :
+                                    (new None()),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox($super_disabled ? 'user_super_off' : 'user_super', (bool) App::backend()->user_super))
+                                            ->value('1')
+                                            ->disabled($super_disabled)
+                                            ->label((new Label(__('Super administrator'), Label::IL_FT))),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        App::backend()->user_id !== App::auth()->userID() ?
+                                        (new Select('user_status'))
+                                            ->items(App::status()->user()->combo())
+                                            ->default(App::backend()->user_status)
+                                            ->label((new Label(__('Status:'), Label::OL_TF))) :
+                                        (new Hidden(['user_status', App::backend()->user_status])),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Input('user_name'))
+                                            ->size(20)
+                                            ->maxlength(255)
+                                            ->value(Html::escapeHTML(App::backend()->user_name))
+                                            ->autocomplete('family-name')
+                                            ->label((new Label(__('Last Name:'), Label::OL_TF))),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Input('user_firstname'))
+                                            ->size(20)
+                                            ->maxlength(255)
+                                            ->value(Html::escapeHTML(App::backend()->user_firstname))
+                                            ->autocomplete('given-name')
+                                            ->label((new Label(__('First Name:'), Label::OL_TF))),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Input('user_displayname'))
+                                            ->size(20)
+                                            ->maxlength(255)
+                                            ->value(Html::escapeHTML(App::backend()->user_displayname))
+                                            ->autocomplete('nickname')
+                                            ->label((new Label(__('Display name:'), Label::OL_TF))),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Email('user_email'))
+                                            ->size(20)
+                                            ->maxlength(255)
+                                            ->value(Html::escapeHTML(App::backend()->user_email))
+                                            ->autocomplete('email')
+                                            ->extra('aria-describedby="user_email_help"')
+                                            ->label((new Label(__('Email:'), Label::OL_TF))),
+                                    ]),
+                                (new Note('user_email_help'))
+                                    ->class('form-note')
+                                    ->text(__('Mandatory for password recovering procedure.')),
+                                (new Para())
+                                    ->items([
+                                        (new Input('user_profile_mails'))
+                                            ->size(50)
+                                            ->maxlength(255)
+                                            ->value(Html::escapeHTML(App::backend()->user_profile_mails))
+                                            ->label((new Label(__('Alternate emails (comma separated list):'), Label::OL_TF))),
+                                    ]),
+                                (new Note('sanitize_emails'))
+                                    ->class(['form-note', 'info'])
+                                    ->text(__('Invalid emails will be automatically removed from list.')),
+                                (new Para())
+                                    ->items([
+                                        (new Url('user_url'))
+                                            ->size(30)
+                                            ->maxlength(255)
+                                            ->value(Html::escapeHTML(App::backend()->user_url))
+                                            ->autocomplete('url')
+                                            ->label((new Label(__('URL:'), Label::OL_TF))),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Input('user_profile_urls'))
+                                            ->size(50)
+                                            ->maxlength(255)
+                                            ->value(Html::escapeHTML(App::backend()->user_profile_urls))
+                                            ->label((new Label(__('Alternate URLs (comma separated list):'), Label::OL_TF))),
+                                    ]),
+                                (new Note('sanitize_urls'))
+                                    ->class(['form-note', 'info'])
+                                    ->text(__('Invalid URLs will be automatically removed from list.')),
+                            ]),
+                        (new Div())
+                            ->class('col')
+                            ->items([
+                                (new Text('h3', __('Options'))),
+                                (new Text('h4', __('Interface'))),
+                                (new Para())
+                                    ->items([
+                                        (new Select('user_lang'))
+                                            ->items(App::backend()->lang_combo)
+                                            ->default(App::backend()->user_lang)
+                                            ->label((new Label(__('Language:'), Label::OL_TF))),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Select('user_tz'))
+                                            ->items(Date::getZones(true, true))
+                                            ->default(App::backend()->user_tz)
+                                            ->label((new Label(__('Timezone:'), Label::OL_TF))),
+                                    ]),
+                                (new Text('h4', __('Edition'))),
+                                (new Para())
+                                    ->items([
+                                        (new Select('user_post_format'))
+                                            ->items(App::backend()->formaters_combo)
+                                            ->default(App::backend()->user_options['post_format'])
+                                            ->label((new Label(__('Preferred format:'), Label::OL_TF))),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Select('user_post_status'))
+                                            ->items(App::backend()->status_combo)
+                                            ->default(App::backend()->user_post_status)
+                                            ->label((new Label(__('Default entry status:'), Label::OL_TF))),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Number('user_edit_size', 10, 999, (int) App::backend()->user_options['edit_size']))
+                                            ->label((new Label(__('Entry edit field height:'), Label::OL_TF))),
+                                    ]),
+                                (new Text('h4', __('Miscellaneous'))),
+                                (new Capture(
+                                    App::behavior()->callBehavior(...),
+                                    [
+                                        'adminUserForm',
+                                        App::backend()->rs ?? null,
+                                    ]
+                                )),
+                            ]),
+                    ]),
+                (new Para())
+                    ->class(['clear', 'vertical-separator'])
+                    ->items([
+                        (new Password('your_pwd'))
+                            ->size(20)
+                            ->maxlength(255)
+                            ->required(true)
+                            ->placeholder(__('Password'))
+                            ->autocomplete('current-password')
+                            ->label((new Label((new Text('span', '*'))->render() . __('Your password:'), Label::OL_TF))->class('required')),
+                    ]),
+                (new Para())
+                    ->class(['clear', 'form-buttons'])
+                    ->items([
+                        (new Submit('save', __('Save')))
+                            ->accesskey('s'),
+                        App::backend()->user_id ?
+                            (new None()) :
+                            (new Submit('saveplus', __('Save and create another'))),
+                        App::backend()->user_id ?
+                            (new Hidden('id', App::backend()->user_id)) :
+                            (new None()),
+                        $super_disabled ?
+                            (new Hidden(['user_super'], App::backend()->user_super)) :
+                            (new None()),
+                        (new Button('go-back', __('Back')))
+                            ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                        App::nonce()->formNonce(),
+                    ]),
+            ])
+        ->render();
 
         if (App::backend()->user_id) {
-            echo
-            '<div class="clear fieldset">' .
-            '<h3>' . __('Permissions') . '</h3>';
-
+            $permissions_list = (new None());
             if (!App::backend()->user_super) {
-                echo
-                '<form action="' . App::backend()->url()->get('admin.user.actions') . '" method="post">' .
-                '<p><input type="submit" value="' . __('Add new permissions') . '">' .
-                form::hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id])) .
-                form::hidden(['action'], 'blogs') .
-                form::hidden(['users[]'], App::backend()->user_id) .
-                App::nonce()->getFormNonce() .
-                '</p>' .
-                '</form>';
-
                 $permissions = App::users()->getUserPermissions(App::backend()->user_id);
                 $perm_types  = App::auth()->getPermissionsTypes();
-
                 if ($permissions === []) {
-                    echo
-                    '<p>' . __('No permissions so far.') . '</p>';
+                    $permissions_list = (new Note())
+                        ->text(__('No permissions so far.'));
                 } else {
+                    $permissions_list_items = [];
+                    $index                  = 1;
                     foreach ($permissions as $k => $v) {
                         if ((is_countable($v['p']) ? count($v['p']) : 0) > 0) {
-                            echo
-                            '<form action="' . App::backend()->url()->get('admin.user.actions') . '" method="post" class="perm-block">' .
-                            '<p class="blog-perm">' . __('Blog:') . ' <a href="' .
-                            App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($k)]) . '">' .
-                            Html::escapeHTML($v['name']) . '</a> (' . Html::escapeHTML($k) . ')</p>';   // @phpstan-ignore-line
-
-                            echo
-                            '<ul class="ul-perm">';
-                            foreach ($v['p'] as $p => $V) { // @phpstan-ignore-line
-                                if (isset($perm_types[$p])) {
-                                    echo
-                                    '<li>' . __($perm_types[$p]) . '</li>';
+                            $permissions_types = function (array $p) use ($perm_types) {
+                                foreach (array_keys($p) as $v) {
+                                    if (isset($perm_types[$v])) {
+                                        yield (new Li())
+                                            ->text(__($perm_types[$v]));
+                                    }
                                 }
-                            }
-                            echo
-                            '</ul>' .
-                            '<p class="add-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '">' .
-                            form::hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id])) .
-                            form::hidden(['action'], 'perms') .
-                            form::hidden(['users[]'], App::backend()->user_id) .
-                            form::hidden(['blogs[]'], $k) .
-                            App::nonce()->getFormNonce() .
-                            '</p>' .
-                            '</form>';
+                            };
+                            $permissions_list_items[] = (new Form('perm-block-' . $index))
+                                ->method('post')
+                                ->action(App::backend()->url()->get('admin.user.actions'))
+                                ->class('perm-block')
+                                ->fields([
+                                    (new Para())
+                                        ->separator(' ')
+                                        ->class('blog-perm')
+                                        ->items([
+                                            (new Text(null, __('Blog:'))),
+                                            (new Link())
+                                                ->href(App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($k)]))
+                                                ->text(Html::escapeHTML($v['name'])),
+                                            (new Text(null, '(' . Html::escapeHTML($k) . ')')),
+                                        ]),
+                                    (new Ul())
+                                        ->class('ul-perm')
+                                        ->items([
+                                            ... $permissions_types($v['p']),
+                                        ]),
+                                    (new Para())
+                                        ->class('add-perm')
+                                        ->items([
+                                            (new Submit('change-perm' . $index, __('Change permissions')))
+                                                ->class('reset'),
+                                            (new Hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id]))),
+                                            (new Hidden(['action'], 'perms')),
+                                            (new Hidden(['users[]'], App::backend()->user_id)),
+                                            (new Hidden(['blogs[]'], $k)),
+                                            App::nonce()->formNonce(),
+                                        ]),
+                                ]);
                         }
                     }
+                    $permissions_list = (new Set())
+                        ->items($permissions_list_items);
                 }
-            } else {
-                echo
-                '<p>' . sprintf(__('%s is super admin (all rights on all blogs).'), '<strong>' . App::backend()->user_id . '</strong>') . '</p>';
-            }
-            echo
-            '</div>';
-
-            // Informations (direct links)
-            echo
-            '<div class="clear fieldset">' .
-            '<h3>' . __('Direct links') . '</h3>' .
-            '<p><a href="' . App::backend()->url()->get(
-                'admin.posts',
-                ['user_id' => App::backend()->user_id]
-            ) . '">' . __('List of posts') . '</a></p>';
-
-            if (App::backend()->user_email || App::backend()->user_url) {
-                echo
-                '<p><a href="' . App::backend()->url()->get(
-                    'admin.comments',
-                    [
-                        'email' => App::backend()->user_email,
-                        'site'  => App::backend()->user_url,
-                    ]
-                ) . '">' . __('List of comments') . '</a></p>';
             }
 
-            echo
-            '</div>';
+            echo (new Set())
+                ->items([
+                    (new Div())
+                        ->class(['clear', 'fieldset'])
+                        ->items([
+                            (new Text('h3', __('Permissions'))),
+                            !App::backend()->user_super ?
+                                (new Set())
+                                    ->items([
+                                        (new Form('user_permissions'))
+                                            ->method('post')
+                                            ->action(App::backend()->url()->get('admin.user.actions'))
+                                            ->fields([
+                                                (new Submit('add_perm', __('Add new permissions'))),
+                                                (new Hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id]))),
+                                                (new Hidden(['action'], 'blogs')),
+                                                (new Hidden(['users[]'], App::backend()->user_id)),
+                                                App::nonce()->formNonce(),
+                                            ]),
+                                        $permissions_list,
+                                    ]) :
+                                (new Note())
+                                    ->text(sprintf(
+                                        __('%s is super admin (all rights on all blogs).'),
+                                        (new Text('strong', App::backend()->user_id))->render()
+                                    )),
+                        ]),
+                    (new Div())
+                        ->class(['clear', 'fieldset'])
+                        ->items([
+                            (new Text('h3', __('Direct links'))),
+                            (new Para())
+                                ->items([
+                                    (new Link())
+                                        ->href(App::backend()->url()->get('admin.posts', ['user_id' => App::backend()->user_id]))
+                                        ->text(__('List of posts')),
+                                ]),
+                            App::backend()->user_email || App::backend()->user_url ?
+                            (new Para())
+                                ->items([
+                                    (new Link())
+                                        ->href(App::backend()->url()->get(
+                                            'admin.comments',
+                                            [
+                                                'email' => App::backend()->user_email,
+                                                'site'  => App::backend()->user_url,
+                                            ]
+                                        ))
+                                        ->text(__('List of comments')),
+                                ]) :
+                            (new None()),
+                        ]),
+                ])
+            ->render();
         }
 
         Page::helpBlock('core_user');
