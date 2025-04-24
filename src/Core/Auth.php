@@ -534,6 +534,13 @@ class Auth implements AuthInterface
     /// @name Permissions
     //@{
 
+    /**
+     * Parse user permissions
+     *
+     * @param      null|string  $level  The level
+     *
+     * @return     array<string, bool>
+     */
     public function parsePermissions($level): array
     {
         $level = (string) preg_replace('/^\|/', '', (string) $level);

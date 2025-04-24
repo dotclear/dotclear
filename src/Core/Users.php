@@ -270,6 +270,13 @@ class Users implements UsersInterface
         return !$rs instanceof MetaRecord || !$rs->isEmpty();
     }
 
+    /**
+     * Gets the user permissions.
+     *
+     * @param      string  $id     The identifier
+     *
+     * @return     array<string, array{name: mixed, url: mixed, p: array<string, bool>}>   The user permissions.
+     */
     public function getUserPermissions(string $id): array
     {
         $sql = new SelectStatement();

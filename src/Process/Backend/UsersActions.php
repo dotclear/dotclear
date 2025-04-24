@@ -87,7 +87,7 @@ class UsersActions extends Process
             if (App::status()->user()->has(App::backend()->action) && !empty(App::backend()->users)) {
                 switch (App::status()->user()->level(App::backend()->action)) {
                     // Enable users
-                    case App::status()->user()::ENABLED :
+                    case App::status()->user()::ENABLED:
                         foreach (App::backend()->users as $u) {
                             try {
                                 # --BEHAVIOR-- adminBeforeUserEnable -- string
@@ -104,10 +104,11 @@ class UsersActions extends Process
                             Notices::addSuccessNotice(__('User has been successfully enabled.'));
                             Http::redirect(App::backend()->redir);
                         }
+
                         break;
 
-                    // Disable users
-                    case App::status()->user()::DISABLED :
+                        // Disable users
+                    case App::status()->user()::DISABLED:
                         foreach (App::backend()->users as $u) {
                             try {
                                 if ($u == App::auth()->userID()) {
@@ -128,6 +129,7 @@ class UsersActions extends Process
                             Notices::addSuccessNotice(__('User has been successfully deleted.'));
                             Http::redirect(App::backend()->redir);
                         }
+
                         break;
                 }
             }
@@ -322,7 +324,7 @@ class UsersActions extends Process
             // Permissions list for each selected blogs
 
             /**
-             * @var        array<string,mixed>
+             * @var        array<string, array{name: mixed, url: mixed, p: array<string, bool>}>
              */
             $user_perm = [];
             if ((is_countable(App::backend()->users) ? count(App::backend()->users) : 0) == 1) {

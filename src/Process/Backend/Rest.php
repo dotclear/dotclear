@@ -230,7 +230,7 @@ class Rest extends Process
                                         ->href(App::backend()->url()->get('upgrade.upgrade', ['hide_msg' => 1]))
                                         ->text(__('Remind me later')),
                                 ]),
-                            $version_info !== '' ?
+                            $version_info ?
                                 (new Para())
                                     ->class('updt-info')
                                     ->items([

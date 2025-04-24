@@ -293,7 +293,7 @@ interface AuthInterface
      *
      * @param   string  $level  Permissions string
      *
-     * @return  array<string, mixed>
+     * @return  array<string, bool>
      */
     public function parsePermissions($level): array;
 

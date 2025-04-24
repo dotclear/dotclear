@@ -102,7 +102,7 @@ interface UsersInterface
      *
      * @param      string  $id     The user identifier
      *
-     * @return     array<string,array<string,string|array<string,bool>>>   The user permissions.
+     * @return     array<string, array{name: mixed, url: mixed, p: array<string, bool>}>   The user permissions.
      */
     public function getUserPermissions(string $id): array;
 

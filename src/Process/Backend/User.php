@@ -550,49 +550,47 @@ class User extends Process
                     $permissions_list_items = [];
                     $index                  = 1;    // Used for field/form IDs
                     foreach ($permissions as $k => $v) {
-                        if ((is_countable($v['p']) ? count($v['p']) : 0) > 0) {
-                            $permissions_types = function (array $p) use ($perm_types) {
-                                foreach (array_keys($p) as $v) {
-                                    if (isset($perm_types[$v])) {
-                                        yield (new Li())
-                                            ->text(__($perm_types[$v]));
-                                    }
+                        $permissions_types = function (array $p) use ($perm_types) {
+                            foreach (array_keys($p) as $v) {
+                                if (isset($perm_types[$v])) {
+                                    yield (new Li())
+                                        ->text(__($perm_types[$v]));
                                 }
-                            };
-                            $permissions_list_items[] = (new Form('perm-block-' . $index))
-                                ->method('post')
-                                ->action(App::backend()->url()->get('admin.user.actions'))
-                                ->class('perm-block')
-                                ->fields([
-                                    (new Para())
-                                        ->separator(' ')
-                                        ->class('blog-perm')
-                                        ->items([
-                                            (new Text(null, __('Blog:'))),
-                                            (new Link())
-                                                ->href(App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($k)]))
-                                                ->text(Html::escapeHTML($v['name'])),
-                                            (new Text(null, '(' . Html::escapeHTML($k) . ')')),
-                                        ]),
-                                    (new Ul())
-                                        ->class('ul-perm')
-                                        ->items([
-                                            ... $permissions_types($v['p']),
-                                        ]),
-                                    (new Para())
-                                        ->class('add-perm')
-                                        ->items([
-                                            (new Submit('change-perm-' . $index, __('Change permissions')))
-                                                ->class('reset'),
-                                            (new Hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id]))),
-                                            (new Hidden(['action'], 'perms')),
-                                            (new Hidden(['users[]'], App::backend()->user_id)),
-                                            (new Hidden(['blogs[]'], $k)),
-                                            App::nonce()->formNonce(),
-                                        ]),
-                                ]);
-                            $index++;
-                        }
+                            }
+                        };
+                        $permissions_list_items[] = (new Form('perm-block-' . $index))
+                            ->method('post')
+                            ->action(App::backend()->url()->get('admin.user.actions'))
+                            ->class('perm-block')
+                            ->fields([
+                                (new Para())
+                                    ->separator(' ')
+                                    ->class('blog-perm')
+                                    ->items([
+                                        (new Text(null, __('Blog:'))),
+                                        (new Link())
+                                            ->href(App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($k)]))
+                                            ->text(Html::escapeHTML($v['name'])), // @phpstan-ignore-line
+                                        (new Text(null, '(' . Html::escapeHTML($k) . ')')),
+                                    ]),
+                                (new Ul())
+                                    ->class('ul-perm')
+                                    ->items([
+                                        ... $permissions_types($v['p']),
+                                    ]),
+                                (new Para())
+                                    ->class('add-perm')
+                                    ->items([
+                                        (new Submit('change-perm-' . $index, __('Change permissions')))
+                                            ->class('reset'),
+                                        (new Hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id]))),
+                                        (new Hidden(['action'], 'perms')),
+                                        (new Hidden(['users[]'], App::backend()->user_id)),
+                                        (new Hidden(['blogs[]'], $k)),
+                                        App::nonce()->formNonce(),
+                                    ]),
+                            ]);
+                        $index++;
                     }
                     $permissions_list = (new Set())
                         ->items($permissions_list_items);
@@ -605,7 +603,12 @@ class User extends Process
                         ->class(['clear', 'fieldset'])
                         ->items([
                             (new Text('h3', __('Permissions'))),
-                            !App::backend()->user_super ?
+                            App::backend()->user_super ?
+                                (new Note())
+                                    ->text(sprintf(
+                                        __('%s is super admin (all rights on all blogs).'),
+                                        (new Text('strong', App::backend()->user_id))->render()
+                                    )) :
                                 (new Set())
                                     ->items([
                                         (new Form('user_permissions'))
@@ -619,12 +622,8 @@ class User extends Process
                                                 App::nonce()->formNonce(),
                                             ]),
                                         $permissions_list,
-                                    ]) :
-                                (new Note())
-                                    ->text(sprintf(
-                                        __('%s is super admin (all rights on all blogs).'),
-                                        (new Text('strong', App::backend()->user_id))->render()
-                                    )),
+                                    ]),
+
                         ]),
                     (new Div())
                         ->class(['clear', 'fieldset'])

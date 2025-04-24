@@ -71,7 +71,7 @@ class Blogs implements BlogsInterface
      * @param      string  $id          The identifier
      * @param      bool    $with_super  The with super
      *
-     * @return     array<int|string, array<string, mixed>>   The blog permissions.
+     * @return     array<string, array{name: mixed, firstname: mixed, displayname: mixed, email: mixed, super: bool, p: array<string, bool>}>
      */
     public function getBlogPermissions(string $id, bool $with_super = true): array
     {
