@@ -591,11 +591,11 @@ class User extends Process
                                             App::nonce()->formNonce(),
                                         ]),
                                 ]);
+                            $index++;
                         }
                     }
                     $permissions_list = (new Set())
                         ->items($permissions_list_items);
-                    $index++;
                 }
             }
 
