@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-07-05 10:41\n"
+"POT-Creation-Date: 2025-04-26 19:27+0200\n"
+"PO-Revision-Date: 2025-04-26 17:30\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -63,7 +63,7 @@ msgstr "Информация за блога"
 msgid "Blog menu"
 msgstr "Меню на блога"
 
-#: __html_tpl_dummy.php:13
+#: __html_tpl_dummy.php:14
 msgid "By"
 msgstr "От"
 
@@ -94,15 +94,15 @@ msgstr "Коментарите могат да се форматират с по
 msgid "Comments feed"
 msgstr "Коментари"
 
-#: __html_tpl_dummy.php:17
+#: __html_tpl_dummy.php:18
 msgid "Continue reading"
 msgstr "Продължи да четеш"
 
-#: __html_tpl_dummy.php:18
+#: __html_tpl_dummy.php:19
 msgid "Document not found"
 msgstr "Документът не е намерен"
 
-#: __html_tpl_dummy.php:19
+#: __html_tpl_dummy.php:20
 msgid "Email address"
 msgstr "Имейл адрес"
 
@@ -112,27 +112,27 @@ msgstr "Имейл адресът не е валиден"
 msgid "Entries feed"
 msgstr "Подаване на записи"
 
-#: __html_tpl_dummy.php:22
+#: __html_tpl_dummy.php:23
 msgid "Explore archives"
 msgstr "Разгледайте архивите"
 
-#: __html_tpl_dummy.php:23
+#: __html_tpl_dummy.php:24
 msgid "Extra menu"
 msgstr "Допълнително меню"
 
-#: __html_tpl_dummy.php:24
+#: __html_tpl_dummy.php:25
 msgid "Fields followed by * are mandatory"
 msgstr "Полетата, следвани от *, са задължителни"
 
-#: __html_tpl_dummy.php:25
+#: __html_tpl_dummy.php:26
 msgid "From"
 msgstr "От"
 
-#: __html_tpl_dummy.php:26
+#: __html_tpl_dummy.php:27
 msgid "FromDay"
 msgstr "ОтДен"
 
-#: __html_tpl_dummy.php:27
+#: __html_tpl_dummy.php:28
 msgid "Go to homepage"
 msgstr "Отидете на началната страница"
 
@@ -151,33 +151,33 @@ msgstr "Езици"
 msgid "Links"
 msgstr "Връзки"
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:31
 msgid "Name or nickname"
 msgstr "Име или прякор"
 
-#: __html_tpl_dummy.php:30
+#: __html_tpl_dummy.php:33
 msgid "Next entry:"
 msgstr "Следваща публикация:"
 
-#: __html_tpl_dummy.php:31
+#: __html_tpl_dummy.php:36
 msgid "On"
 msgstr "На"
 
 msgid "Page top"
 msgstr "Начало на страницата"
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:41
 msgid "Pagination"
 msgstr "Страница"
 
-#: __html_tpl_dummy.php:35
+#: __html_tpl_dummy.php:42
 msgid "Password needed"
 msgstr "Необходима е парола"
 
 msgid "Password:"
 msgstr "Парола:"
 
-#: __html_tpl_dummy.php:37
+#: __html_tpl_dummy.php:44
 msgid "Permalink"
 msgstr "Permalink"
 
@@ -187,7 +187,7 @@ msgstr "Осъществено от %s"
 msgid "Preview"
 msgstr "Преглед"
 
-#: __html_tpl_dummy.php:39
+#: __html_tpl_dummy.php:48
 msgid "Previous entry:"
 msgstr "Предишен запис:"
 
@@ -197,7 +197,7 @@ msgstr "RSS емисията е безплатно резюме на блога.
 msgid "Read"
 msgstr "Прочетете"
 
-#: __html_tpl_dummy.php:41
+#: __html_tpl_dummy.php:50
 msgid "Remember me on this blog"
 msgstr "Запомнете ме в този блог"
 
@@ -213,7 +213,7 @@ msgstr "Изпрати"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Просто копирайте следния URL адрес във вашия агрегатор:"
 
-#: __html_tpl_dummy.php:45
+#: __html_tpl_dummy.php:55
 msgid "Subcategories"
 msgstr "Подкатегории"
 
@@ -223,73 +223,73 @@ msgstr "Абонирайте се за"
 msgid "Subscribe to"
 msgstr "Абонирайте се за"
 
-#: __html_tpl_dummy.php:46
+#: __html_tpl_dummy.php:56
 msgid "Suggestions:"
 msgstr "Предложения:"
 
-#: __html_tpl_dummy.php:47
+#: __html_tpl_dummy.php:57
 msgid "The document you are looking for does not exist."
 msgstr "Търсеният от вас документ не съществува."
 
-#: __html_tpl_dummy.php:48
+#: __html_tpl_dummy.php:58
 msgid "The list of recents posts is available"
 msgstr "Списъкът с последните публикации е достъпен"
 
-#: __html_tpl_dummy.php:49
+#: __html_tpl_dummy.php:59
 msgid "They posted on the same topic"
 msgstr "Те са публикували по същата тема"
 
 msgid "This blog's comments Atom feed"
 msgstr "Коментарите на този блог се предават чрез Atom"
 
-#: __html_tpl_dummy.php:50
+#: __html_tpl_dummy.php:60
 msgid "This category's comments Atom feed"
 msgstr "Коментари на тази категория Atom feed"
 
-#: __html_tpl_dummy.php:51
+#: __html_tpl_dummy.php:61
 msgid "This category's entries Atom feed"
 msgstr "Записи от тази категория Атомна емисия"
 
-#: __html_tpl_dummy.php:52
+#: __html_tpl_dummy.php:62
 msgid "This post's comments Atom feed"
 msgstr "Коментари на тази публикация Atom feed"
 
-#: __html_tpl_dummy.php:53
+#: __html_tpl_dummy.php:63
 msgid "This post's comments feed"
 msgstr "Коментарите на тази публикация"
 
-#: __html_tpl_dummy.php:54
+#: __html_tpl_dummy.php:64
 msgid "To content"
 msgstr "Към съдържанието"
 
-#: __html_tpl_dummy.php:55
+#: __html_tpl_dummy.php:65
 msgid "To menu"
 msgstr "Към менюто"
 
-#: __html_tpl_dummy.php:56
+#: __html_tpl_dummy.php:66
 msgid "To search"
 msgstr "За търсене"
 
-#: __html_tpl_dummy.php:57
+#: __html_tpl_dummy.php:68
 msgid "Trackback URL"
 msgstr "URL за проследяване"
 
-#: __html_tpl_dummy.php:58
+#: __html_tpl_dummy.php:69
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "URL адресът, който сте опитали, е с правописни грешки или страницата е била изтрита или преместена."
 
-#: __html_tpl_dummy.php:59
+#: __html_tpl_dummy.php:70
 msgid "Use search form"
 msgstr "Използване на формата за търсене"
 
-#: __html_tpl_dummy.php:60
+#: __html_tpl_dummy.php:71
 msgid "Website"
 msgstr "Уебсайт"
 
 msgid "What is an RSS feed?"
 msgstr "Какво представлява RSS каналът?"
 
-#: __html_tpl_dummy.php:62
+#: __html_tpl_dummy.php:73
 msgid "You must give a password to access this area."
 msgstr "За да получите достъп до тази област, трябва да посочите парола."
 
@@ -302,15 +302,15 @@ msgstr "Трябва да посочите валиден имейл адрес.
 msgid "You must provide an author name"
 msgstr "Трябва да посочите името на автора."
 
-#: __html_tpl_dummy.php:65
+#: __html_tpl_dummy.php:76
 msgid "Your comment"
 msgstr "Вашият коментар"
 
-#: __html_tpl_dummy.php:63
+#: __html_tpl_dummy.php:74
 msgid "Your comment has been published."
 msgstr "Вашият коментар е публикуван."
 
-#: __html_tpl_dummy.php:64
+#: __html_tpl_dummy.php:75
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Вашият коментар е изпратен и ще бъде разгледан за публикуване."
 
@@ -323,18 +323,18 @@ msgstr "Търсенето на <em>%1$s</em> върна <strong>%2$s</strong> �
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "Търсенето на <em>%1$s</em> не е дало резултат."
 
-#: __html_tpl_dummy.php:66
+#: __html_tpl_dummy.php:13
 msgid "by"
 msgstr "от"
 
-#: __html_tpl_dummy.php:67
+#: __html_tpl_dummy.php:29
 msgid "here"
 msgstr "тук"
 
 msgid "in"
 msgstr "в"
 
-#: __html_tpl_dummy.php:68
+#: __html_tpl_dummy.php:32
 msgid "next entries"
 msgstr "следващи вписвания"
 
@@ -350,11 +350,11 @@ msgstr "няма реакции"
 msgid "no trackbacks"
 msgstr "няма Trackbacks"
 
-#: __html_tpl_dummy.php:69
+#: __html_tpl_dummy.php:34
 msgid "of"
 msgstr "на"
 
-#: __html_tpl_dummy.php:70
+#: __html_tpl_dummy.php:35
 msgid "on"
 msgstr "на"
 
@@ -370,30 +370,30 @@ msgstr "една реакция"
 msgid "one trackback"
 msgstr "един Trackback"
 
-#: __html_tpl_dummy.php:71
+#: __html_tpl_dummy.php:37
 msgid "optional"
 msgstr "по избор"
 
-#: __html_tpl_dummy.php:72
+#: __html_tpl_dummy.php:39
 msgid "page"
 msgstr "страница"
 
-#: __html_tpl_dummy.php:73
+#: __html_tpl_dummy.php:45
 msgid "preview"
 msgstr "преглед"
 
-#: __html_tpl_dummy.php:74
+#: __html_tpl_dummy.php:47
 msgid "previous entries"
 msgstr "предишни вписвания"
 
 msgid "reactions"
 msgstr "реакции"
 
-#: __html_tpl_dummy.php:75
+#: __html_tpl_dummy.php:52
 msgid "send"
 msgstr "изпращане на"
 
-#: __html_tpl_dummy.php:76
+#: __html_tpl_dummy.php:67
 msgid "toDay"
 msgstr "ден"
 
