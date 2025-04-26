@@ -244,7 +244,7 @@ class Modules implements ModulesInterface
                 // grab missing dependencies
                 if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionals[$module->getId()][$dep[0]])) {
                     // module not present, nor php or core, nor optionnal
-                    $msg = sprintf(__('Requires %s module which is not installed'), $dep[0]);
+                    $msg = sprintf(__('Module "%s" requires module "%s" which is not installed'), $module->getId(), $dep[0]);
                 } elseif (($found->isDefined() && $found->get('state') == ModuleDefine::STATE_ENABLED || isset($special[$dep[0]])) && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->get('version')), $dep[1]) == -1) {
                     // module present and enabled, or php or core, but version missing
                     if ($dep[0] == 'php') {
@@ -257,14 +257,15 @@ class Modules implements ModulesInterface
                         $dep_v = $found->get('version');
                     }
                     $msg = sprintf(
-                        __('Requires %s version %s, but version %s is installed'),
+                        __('Module "%s" requires %s version %s, but version %s is installed'),
+                        $module->getId(),
                         $dep[0],
                         $dep[1],
                         $dep_v
                     );
                 } elseif ($found->isDefined() && !isset($special[$dep[0]]) && $found->get('state') != ModuleDefine::STATE_ENABLED && !isset($optionals[$module->getId()][$dep[0]])) {
                     // module not enabled, not php or core, not optionnal
-                    $msg = sprintf(__('Requires %s module which is disabled'), $dep[0]);
+                    $msg = sprintf(__('Module "%s" requires module "%s" which is disabled'), $module->getId(), $dep[0]);
                 }
                 if ($msg !== '') {
                     $module->addMissing($dep[0], $msg);
@@ -756,6 +757,7 @@ class Modules implements ModulesInterface
 
                 $sandbox->resetModulesList();
                 $sandbox->requireDefine($target, basename($destination));
+                $modules->resetErrors(); // do not take care of previous errors
                 $modules->checkDependencies($sandbox->getDefine(basename($destination)), true);
                 if ($zip->hasFile($init)) {
                     unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
@@ -763,7 +765,7 @@ class Modules implements ModulesInterface
 
                 unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
-                $new_errors = $modules->getErrors();
+                $new_errors = array_merge($sandbox->getErrors(), $modules->getErrors());
                 if ($new_errors !== []) {
                     $new_errors = implode(" \n", $new_errors);
 
@@ -792,6 +794,7 @@ class Modules implements ModulesInterface
 
             $sandbox->resetModulesList();
             $sandbox->requireDefine($target, basename($destination));
+            $modules->resetErrors(); // do not take care of previous errors
             $modules->checkDependencies($sandbox->getDefine(basename($destination)), true);
             if ($zip->hasFile($init)) {
                 unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
@@ -799,7 +802,7 @@ class Modules implements ModulesInterface
 
             unlink($target . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
 
-            $new_errors = $modules->getErrors();
+            $new_errors = array_merge($sandbox->getErrors(), $modules->getErrors());
             if ($new_errors !== []) {
                 $new_errors = implode(" \n", $new_errors);
 
@@ -1254,6 +1257,11 @@ class Modules implements ModulesInterface
     public function getErrors(): array
     {
         return $this->errors;
+    }
+
+    public function resetErrors(): void
+    {
+        $this->errors = [];
     }
 
     /**
