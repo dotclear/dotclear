@@ -844,7 +844,7 @@ class Modules implements ModulesInterface
         unlink($zip_file);
 
         // Restore hard disabled status if necessary
-        if ($module_disabled && !@file_put_contents($destination . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
+        if ($module_disabled && false === @file_put_contents($destination . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
             throw new Exception(__('Cannot deactivate plugin.'));
         }
 
@@ -965,7 +965,7 @@ class Modules implements ModulesInterface
             throw new Exception(__('Cannot deactivate plugin.'));
         }
 
-        if (@file_put_contents($module->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
+        if (false === @file_put_contents($module->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
             throw new Exception(__('Cannot deactivate plugin.'));
         }
     }
