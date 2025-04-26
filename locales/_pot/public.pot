@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-31 16:55+0200\n"
+"POT-Creation-Date: 2025-04-26 19:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Blog menu"
 msgstr ""
 
-#: __html_tpl_dummy.php:13
+#: __html_tpl_dummy.php:14
 msgid "By"
 msgstr ""
 
@@ -93,15 +93,15 @@ msgstr ""
 msgid "Comments feed"
 msgstr ""
 
-#: __html_tpl_dummy.php:17
+#: __html_tpl_dummy.php:18
 msgid "Continue reading"
 msgstr ""
 
-#: __html_tpl_dummy.php:18
+#: __html_tpl_dummy.php:19
 msgid "Document not found"
 msgstr ""
 
-#: __html_tpl_dummy.php:19
+#: __html_tpl_dummy.php:20
 msgid "Email address"
 msgstr ""
 
@@ -111,27 +111,27 @@ msgstr ""
 msgid "Entries feed"
 msgstr ""
 
-#: __html_tpl_dummy.php:22
+#: __html_tpl_dummy.php:23
 msgid "Explore archives"
 msgstr ""
 
-#: __html_tpl_dummy.php:23
+#: __html_tpl_dummy.php:24
 msgid "Extra menu"
 msgstr ""
 
-#: __html_tpl_dummy.php:24
+#: __html_tpl_dummy.php:25
 msgid "Fields followed by * are mandatory"
 msgstr ""
 
-#: __html_tpl_dummy.php:25
+#: __html_tpl_dummy.php:26
 msgid "From"
 msgstr ""
 
-#: __html_tpl_dummy.php:26
+#: __html_tpl_dummy.php:27
 msgid "FromDay"
 msgstr ""
 
-#: __html_tpl_dummy.php:27
+#: __html_tpl_dummy.php:28
 msgid "Go to homepage"
 msgstr ""
 
@@ -150,33 +150,33 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:31
 msgid "Name or nickname"
 msgstr ""
 
-#: __html_tpl_dummy.php:30
+#: __html_tpl_dummy.php:33
 msgid "Next entry:"
 msgstr ""
 
-#: __html_tpl_dummy.php:31
+#: __html_tpl_dummy.php:36
 msgid "On"
 msgstr ""
 
 msgid "Page top"
 msgstr ""
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:41
 msgid "Pagination"
 msgstr ""
 
-#: __html_tpl_dummy.php:35
+#: __html_tpl_dummy.php:42
 msgid "Password needed"
 msgstr ""
 
 msgid "Password:"
 msgstr ""
 
-#: __html_tpl_dummy.php:37
+#: __html_tpl_dummy.php:44
 msgid "Permalink"
 msgstr ""
 
@@ -186,7 +186,7 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
-#: __html_tpl_dummy.php:39
+#: __html_tpl_dummy.php:48
 msgid "Previous entry:"
 msgstr ""
 
@@ -196,7 +196,7 @@ msgstr ""
 msgid "Read"
 msgstr ""
 
-#: __html_tpl_dummy.php:41
+#: __html_tpl_dummy.php:50
 msgid "Remember me on this blog"
 msgstr ""
 
@@ -212,7 +212,7 @@ msgstr ""
 msgid "Simply copy the following URL into your aggregator:"
 msgstr ""
 
-#: __html_tpl_dummy.php:45
+#: __html_tpl_dummy.php:55
 msgid "Subcategories"
 msgstr ""
 
@@ -222,73 +222,73 @@ msgstr ""
 msgid "Subscribe to"
 msgstr ""
 
-#: __html_tpl_dummy.php:46
+#: __html_tpl_dummy.php:56
 msgid "Suggestions:"
 msgstr ""
 
-#: __html_tpl_dummy.php:47
+#: __html_tpl_dummy.php:57
 msgid "The document you are looking for does not exist."
 msgstr ""
 
-#: __html_tpl_dummy.php:48
+#: __html_tpl_dummy.php:58
 msgid "The list of recents posts is available"
 msgstr ""
 
-#: __html_tpl_dummy.php:49
+#: __html_tpl_dummy.php:59
 msgid "They posted on the same topic"
 msgstr ""
 
 msgid "This blog's comments Atom feed"
 msgstr ""
 
-#: __html_tpl_dummy.php:50
+#: __html_tpl_dummy.php:60
 msgid "This category's comments Atom feed"
 msgstr ""
 
-#: __html_tpl_dummy.php:51
+#: __html_tpl_dummy.php:61
 msgid "This category's entries Atom feed"
 msgstr ""
 
-#: __html_tpl_dummy.php:52
+#: __html_tpl_dummy.php:62
 msgid "This post's comments Atom feed"
 msgstr ""
 
-#: __html_tpl_dummy.php:53
+#: __html_tpl_dummy.php:63
 msgid "This post's comments feed"
 msgstr ""
 
-#: __html_tpl_dummy.php:54
+#: __html_tpl_dummy.php:64
 msgid "To content"
 msgstr ""
 
-#: __html_tpl_dummy.php:55
+#: __html_tpl_dummy.php:65
 msgid "To menu"
 msgstr ""
 
-#: __html_tpl_dummy.php:56
+#: __html_tpl_dummy.php:66
 msgid "To search"
 msgstr ""
 
-#: __html_tpl_dummy.php:57
+#: __html_tpl_dummy.php:68
 msgid "Trackback URL"
 msgstr ""
 
-#: __html_tpl_dummy.php:58
+#: __html_tpl_dummy.php:69
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr ""
 
-#: __html_tpl_dummy.php:59
+#: __html_tpl_dummy.php:70
 msgid "Use search form"
 msgstr ""
 
-#: __html_tpl_dummy.php:60
+#: __html_tpl_dummy.php:71
 msgid "Website"
 msgstr ""
 
 msgid "What is an RSS feed?"
 msgstr ""
 
-#: __html_tpl_dummy.php:62
+#: __html_tpl_dummy.php:73
 msgid "You must give a password to access this area."
 msgstr ""
 
@@ -301,15 +301,15 @@ msgstr ""
 msgid "You must provide an author name"
 msgstr ""
 
-#: __html_tpl_dummy.php:65
+#: __html_tpl_dummy.php:76
 msgid "Your comment"
 msgstr ""
 
-#: __html_tpl_dummy.php:63
+#: __html_tpl_dummy.php:74
 msgid "Your comment has been published."
 msgstr ""
 
-#: __html_tpl_dummy.php:64
+#: __html_tpl_dummy.php:75
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr ""
 
@@ -322,18 +322,18 @@ msgstr ""
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr ""
 
-#: __html_tpl_dummy.php:66
+#: __html_tpl_dummy.php:13
 msgid "by"
 msgstr ""
 
-#: __html_tpl_dummy.php:67
+#: __html_tpl_dummy.php:29
 msgid "here"
 msgstr ""
 
 msgid "in"
 msgstr ""
 
-#: __html_tpl_dummy.php:68
+#: __html_tpl_dummy.php:32
 msgid "next entries"
 msgstr ""
 
@@ -349,11 +349,11 @@ msgstr ""
 msgid "no trackbacks"
 msgstr ""
 
-#: __html_tpl_dummy.php:69
+#: __html_tpl_dummy.php:34
 msgid "of"
 msgstr ""
 
-#: __html_tpl_dummy.php:70
+#: __html_tpl_dummy.php:35
 msgid "on"
 msgstr ""
 
@@ -369,29 +369,29 @@ msgstr ""
 msgid "one trackback"
 msgstr ""
 
-#: __html_tpl_dummy.php:71
+#: __html_tpl_dummy.php:37
 msgid "optional"
 msgstr ""
 
-#: __html_tpl_dummy.php:72
+#: __html_tpl_dummy.php:39
 msgid "page"
 msgstr ""
 
-#: __html_tpl_dummy.php:73
+#: __html_tpl_dummy.php:45
 msgid "preview"
 msgstr ""
 
-#: __html_tpl_dummy.php:74
+#: __html_tpl_dummy.php:47
 msgid "previous entries"
 msgstr ""
 
 msgid "reactions"
 msgstr ""
 
-#: __html_tpl_dummy.php:75
+#: __html_tpl_dummy.php:52
 msgid "send"
 msgstr ""
 
-#: __html_tpl_dummy.php:76
+#: __html_tpl_dummy.php:67
 msgid "toDay"
 msgstr ""
