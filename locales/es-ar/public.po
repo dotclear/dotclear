@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-16 10:38+0100\n"
-"PO-Revision-Date: 2024-01-16 10:08\n"
+"POT-Creation-Date: 2025-04-26 19:27+0200\n"
+"PO-Revision-Date: 2025-04-26 17:31\n"
 "Last-Translator: \n"
 "Language-Team: Spanish, Argentina\n"
 "Language: es_AR\n"
@@ -63,7 +63,7 @@ msgstr "Información del blog"
 msgid "Blog menu"
 msgstr "Menú del blog"
 
-#: __html_tpl_dummy.php:13
+#: __html_tpl_dummy.php:14
 msgid "By"
 msgstr "Por"
 
@@ -94,15 +94,15 @@ msgstr "Los comentarios pueden formatearse utilizando una sencilla sintaxis wiki
 msgid "Comments feed"
 msgstr "Redifusión de comentarios (feeds)"
 
-#: __html_tpl_dummy.php:17
+#: __html_tpl_dummy.php:18
 msgid "Continue reading"
 msgstr "Continuar leyendo"
 
-#: __html_tpl_dummy.php:18
+#: __html_tpl_dummy.php:19
 msgid "Document not found"
 msgstr "Documento no encontrado"
 
-#: __html_tpl_dummy.php:19
+#: __html_tpl_dummy.php:20
 msgid "Email address"
 msgstr "Dirección de e-mail"
 
@@ -112,27 +112,27 @@ msgstr "Dirección de e-mail no válida"
 msgid "Entries feed"
 msgstr "Redifusión de entradas (feeds)"
 
-#: __html_tpl_dummy.php:22
+#: __html_tpl_dummy.php:23
 msgid "Explore archives"
 msgstr "Explorar los archivos"
 
-#: __html_tpl_dummy.php:23
+#: __html_tpl_dummy.php:24
 msgid "Extra menu"
 msgstr "Menú extra"
 
-#: __html_tpl_dummy.php:24
+#: __html_tpl_dummy.php:25
 msgid "Fields followed by * are mandatory"
 msgstr "Los campos seguidos de * son obligatorios"
 
-#: __html_tpl_dummy.php:25
+#: __html_tpl_dummy.php:26
 msgid "From"
 msgstr "Por"
 
-#: __html_tpl_dummy.php:26
+#: __html_tpl_dummy.php:27
 msgid "FromDay"
 msgstr "Del"
 
-#: __html_tpl_dummy.php:27
+#: __html_tpl_dummy.php:28
 msgid "Go to homepage"
 msgstr "Regresar al inicio"
 
@@ -151,33 +151,33 @@ msgstr "Idiomas"
 msgid "Links"
 msgstr "Enlaces"
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:31
 msgid "Name or nickname"
 msgstr "Nombre o alias"
 
-#: __html_tpl_dummy.php:30
+#: __html_tpl_dummy.php:33
 msgid "Next entry:"
 msgstr "Entrada siguiente:"
 
-#: __html_tpl_dummy.php:31
+#: __html_tpl_dummy.php:36
 msgid "On"
 msgstr "El"
 
 msgid "Page top"
 msgstr "Principio de página"
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:41
 msgid "Pagination"
 msgstr "Paginación"
 
-#: __html_tpl_dummy.php:35
+#: __html_tpl_dummy.php:42
 msgid "Password needed"
 msgstr "Es necesaria la contraseña"
 
 msgid "Password:"
 msgstr "Contraseña:"
 
-#: __html_tpl_dummy.php:37
+#: __html_tpl_dummy.php:44
 msgid "Permalink"
 msgstr "Enlace permanente"
 
@@ -187,7 +187,7 @@ msgstr "Impulsado por %s"
 msgid "Preview"
 msgstr "Vista previa"
 
-#: __html_tpl_dummy.php:39
+#: __html_tpl_dummy.php:48
 msgid "Previous entry:"
 msgstr "Entrada anterior:"
 
@@ -197,7 +197,7 @@ msgstr "Una redifusión web o feed (RSS/Atom) es un resumen de contenido de un s
 msgid "Read"
 msgstr "Leer"
 
-#: __html_tpl_dummy.php:41
+#: __html_tpl_dummy.php:50
 msgid "Remember me on this blog"
 msgstr "Recordarme en este blog"
 
@@ -213,7 +213,7 @@ msgstr "Enviar"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Simplemente, copia la dirección URL siguiente en tu agregador:"
 
-#: __html_tpl_dummy.php:45
+#: __html_tpl_dummy.php:55
 msgid "Subcategories"
 msgstr "Subcategorías"
 
@@ -223,73 +223,73 @@ msgstr "Suscribirse"
 msgid "Subscribe to"
 msgstr "Suscribirse a"
 
-#: __html_tpl_dummy.php:46
+#: __html_tpl_dummy.php:56
 msgid "Suggestions:"
 msgstr "Sugerencias:"
 
-#: __html_tpl_dummy.php:47
+#: __html_tpl_dummy.php:57
 msgid "The document you are looking for does not exist."
 msgstr "El documento que buscas no existe"
 
-#: __html_tpl_dummy.php:48
+#: __html_tpl_dummy.php:58
 msgid "The list of recents posts is available"
 msgstr "La lista de entradas recientes está disponible"
 
-#: __html_tpl_dummy.php:49
+#: __html_tpl_dummy.php:59
 msgid "They posted on the same topic"
 msgstr "Incluidas en el mismo tema"
 
 msgid "This blog's comments Atom feed"
 msgstr "Redifusión Atom de comentarios de este blog"
 
-#: __html_tpl_dummy.php:50
+#: __html_tpl_dummy.php:60
 msgid "This category's comments Atom feed"
 msgstr "Redifusión Atom de comentarios de esta categoría"
 
-#: __html_tpl_dummy.php:51
+#: __html_tpl_dummy.php:61
 msgid "This category's entries Atom feed"
 msgstr "Redifusión Atom de entradas de esta categoría"
 
-#: __html_tpl_dummy.php:52
+#: __html_tpl_dummy.php:62
 msgid "This post's comments Atom feed"
 msgstr "Redifusión Atom de comentarios de esta entrada"
 
-#: __html_tpl_dummy.php:53
+#: __html_tpl_dummy.php:63
 msgid "This post's comments feed"
 msgstr "Redifusión de comentarios de esta entrada"
 
-#: __html_tpl_dummy.php:54
+#: __html_tpl_dummy.php:64
 msgid "To content"
 msgstr "Ir al contenido"
 
-#: __html_tpl_dummy.php:55
+#: __html_tpl_dummy.php:65
 msgid "To menu"
 msgstr "Ir al menú"
 
-#: __html_tpl_dummy.php:56
+#: __html_tpl_dummy.php:66
 msgid "To search"
 msgstr "Ir al buscador"
 
-#: __html_tpl_dummy.php:57
+#: __html_tpl_dummy.php:68
 msgid "Trackback URL"
 msgstr "URL de enlace inverso"
 
-#: __html_tpl_dummy.php:58
+#: __html_tpl_dummy.php:69
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "Su URL está equivocada o la página fue borrada o desplazada."
 
-#: __html_tpl_dummy.php:59
+#: __html_tpl_dummy.php:70
 msgid "Use search form"
 msgstr "Buscar"
 
-#: __html_tpl_dummy.php:60
+#: __html_tpl_dummy.php:71
 msgid "Website"
 msgstr "Sitio web"
 
 msgid "What is an RSS feed?"
 msgstr "¿Qué es una redifusión web (RSS/Atom)?"
 
-#: __html_tpl_dummy.php:62
+#: __html_tpl_dummy.php:73
 msgid "You must give a password to access this area."
 msgstr "Necesitas una contraseña para acceder a este área."
 
@@ -302,15 +302,15 @@ msgstr "Debes indicar una dirección de e-mail válida."
 msgid "You must provide an author name"
 msgstr "Debes indicar un nombre del autor"
 
-#: __html_tpl_dummy.php:65
+#: __html_tpl_dummy.php:76
 msgid "Your comment"
 msgstr "Su comentario"
 
-#: __html_tpl_dummy.php:63
+#: __html_tpl_dummy.php:74
 msgid "Your comment has been published."
 msgstr "Su comentario ha sido publicado"
 
-#: __html_tpl_dummy.php:64
+#: __html_tpl_dummy.php:75
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Su comentario ha sido enviado y sera revisado para su publicación."
 
@@ -323,18 +323,18 @@ msgstr "Su búsqueda de <em>%1$s</em> ha devuelto <strong>%2$s</strong> resultad
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "Su búsqueda de <em>%1$s</em> no ha devuelto resultados."
 
-#: __html_tpl_dummy.php:66
+#: __html_tpl_dummy.php:13
 msgid "by"
 msgstr "por"
 
-#: __html_tpl_dummy.php:67
+#: __html_tpl_dummy.php:29
 msgid "here"
 msgstr "aquí"
 
 msgid "in"
 msgstr "en"
 
-#: __html_tpl_dummy.php:68
+#: __html_tpl_dummy.php:32
 msgid "next entries"
 msgstr "entradas siguientes"
 
@@ -350,11 +350,11 @@ msgstr "no reacciones"
 msgid "no trackbacks"
 msgstr "sin enlaces inversos"
 
-#: __html_tpl_dummy.php:69
+#: __html_tpl_dummy.php:34
 msgid "of"
 msgstr "de"
 
-#: __html_tpl_dummy.php:70
+#: __html_tpl_dummy.php:35
 msgid "on"
 msgstr "el"
 
@@ -370,30 +370,30 @@ msgstr "una reaccion"
 msgid "one trackback"
 msgstr "un enlace inverso"
 
-#: __html_tpl_dummy.php:71
+#: __html_tpl_dummy.php:37
 msgid "optional"
 msgstr "opcional"
 
-#: __html_tpl_dummy.php:72
+#: __html_tpl_dummy.php:39
 msgid "page"
 msgstr "página"
 
-#: __html_tpl_dummy.php:73
+#: __html_tpl_dummy.php:45
 msgid "preview"
 msgstr "vista previa"
 
-#: __html_tpl_dummy.php:74
+#: __html_tpl_dummy.php:47
 msgid "previous entries"
 msgstr "entradas anteriores"
 
 msgid "reactions"
 msgstr "reacciones"
 
-#: __html_tpl_dummy.php:75
+#: __html_tpl_dummy.php:52
 msgid "send"
 msgstr "enviar"
 
-#: __html_tpl_dummy.php:76
+#: __html_tpl_dummy.php:67
 msgid "toDay"
 msgstr "al"
 
