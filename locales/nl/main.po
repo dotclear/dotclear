@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-29 16:53+0100\n"
-"PO-Revision-Date: 2025-03-31 15:30\n"
+"POT-Creation-Date: 2025-04-26 14:09+0200\n"
+"PO-Revision-Date: 2025-04-26 17:29\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:243 src/Process/Backend/UserPreferences.php:494
+#: src/Process/Backend/User.php:264 src/Process/Backend/UserPreferences.php:494
 #: src/Process/Install/Install.php:397
 msgid "medium"
 msgstr "medium"
@@ -81,11 +81,11 @@ msgstr "alle media-items beheren"
 msgid "manage their own media items"
 msgstr "hun eigen media-items beheren"
 
-#: src/Core/Auth.php:582
+#: src/Core/Auth.php:589
 msgid "That user does not exist in the database."
 msgstr "Die gebruiker bestaat niet in de database."
 
-#: src/Core/Auth.php:609
+#: src/Core/Auth.php:616
 msgid "That key does not exist in the database."
 msgstr "Die sleutel bestaat niet in de database."
 
@@ -126,7 +126,7 @@ msgstr "Blog id"
 #: src/Core/Backend/Listing/ListingBlogs.php:79
 #: src/Core/Backend/UserPref.php:77 src/Process/Backend/Blog.php:142
 #: src/Process/Backend/BlogPref.php:552
-#: src/Process/Backend/UsersActions.php:283
+#: src/Process/Backend/UsersActions.php:285
 msgid "Blog name"
 msgstr "Blog naam"
 
@@ -143,7 +143,7 @@ msgstr "Blog naam"
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
 #: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:636
 #: src/Process/Backend/Post.php:1360 src/Process/Backend/Users.php:44
-#: src/Process/Backend/UsersActions.php:286
+#: src/Process/Backend/UsersActions.php:288
 msgid "Status"
 msgstr "Status"
 
@@ -175,7 +175,7 @@ msgstr "Geselecteerde blogs zijn succesvol bijgewerkt."
 #: src/Core/Backend/ModulesList.php:1664 src/Core/Backend/ThemesList.php:749
 #: src/Core/Upgrade/PluginsList.php:396 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:112 src/Process/Backend/Langs.php:157
-#: src/Process/Backend/User.php:106 src/Process/Backend/UsersActions.php:161
+#: src/Process/Backend/User.php:127 src/Process/Backend/UsersActions.php:163
 #: src/Process/Upgrade/Langs.php:162 src/Process/Upgrade/Langs.php:207
 msgid "Password verification failed"
 msgstr "Wachtwoordverificatie mislukt"
@@ -407,7 +407,7 @@ msgstr "Ouder:"
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:346
 #: src/Process/Backend/Home.php:597 src/Process/Backend/MediaItem.php:1270
 #: src/Process/Backend/Post.php:897 src/Process/Backend/Post.php:1114
-#: src/Process/Backend/User.php:447 src/Process/Backend/UsersActions.php:405
+#: src/Process/Backend/User.php:523 src/Process/Backend/UsersActions.php:407
 #: src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "Sla"
@@ -525,7 +525,7 @@ msgstr "Laatste update"
 
 #: src/Core/Backend/Combos.php:328 src/Process/Backend/Blog.php:123
 #: src/Process/Backend/BlogPref.php:1028
-#: src/Process/Backend/UsersActions.php:282
+#: src/Process/Backend/UsersActions.php:284
 msgid "Blog ID"
 msgstr "Blog ID"
 
@@ -570,14 +570,14 @@ msgstr "Mijn voorkeuren"
 msgid "New post"
 msgstr "Nieuw bericht"
 
-#: src/Core/Backend/Favorites.php:435 src/Process/Backend/Rest.php:79
+#: src/Core/Backend/Favorites.php:435 src/Process/Backend/Rest.php:90
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
 msgstr[0] "%d post"
 msgstr[1] "%d berichten"
 
-#: src/Core/Backend/Favorites.php:450 src/Process/Backend/Rest.php:93
+#: src/Core/Backend/Favorites.php:450 src/Process/Backend/Rest.php:104
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
@@ -619,11 +619,11 @@ msgstr "Blog verschijning"
 
 #: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
-#: src/Process/Backend/BlogPref.php:1360 src/Process/Backend/User.php:253
+#: src/Process/Backend/BlogPref.php:1360 src/Process/Backend/User.php:274
 #: src/Process/Backend/Users.php:103 src/Process/Backend/Users.php:108
-#: src/Process/Backend/UsersActions.php:203
-#: src/Process/Backend/UsersActions.php:211
-#: src/Process/Backend/UsersActions.php:218
+#: src/Process/Backend/UsersActions.php:205
+#: src/Process/Backend/UsersActions.php:213
+#: src/Process/Backend/UsersActions.php:220
 msgid "Users"
 msgstr "Gebruikers"
 
@@ -648,7 +648,7 @@ msgstr "Wereldwijde hulp"
 #: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1256
 #: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1340
 #: src/Process/Backend/Comment.php:303 src/Process/Backend/Post.php:1083
-#: src/Process/Backend/User.php:371 src/Process/Backend/UserPreferences.php:540
+#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:540
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "E-mail:"
@@ -708,7 +708,7 @@ msgid "Format:"
 msgstr "Formaat:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:179 src/Process/Backend/Auth.php:155
-#: src/Process/Backend/Auth.php:511 src/Process/Backend/User.php:295
+#: src/Process/Backend/Auth.php:511 src/Process/Backend/User.php:341
 #: src/Process/Install/Install.php:509 src/Process/Upgrade/Auth.php:222
 msgid "Password:"
 msgstr "Wachtwoord:"
@@ -814,7 +814,7 @@ msgid "next &#187;"
 msgstr "volgende &#187;"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:50
-#: src/Process/Backend/UsersActions.php:276
+#: src/Process/Backend/UsersActions.php:278
 msgid "No blog"
 msgstr "Geen blog"
 
@@ -825,7 +825,7 @@ msgstr "Geen blog komt overeen met het filter"
 #: src/Core/Backend/Listing/ListingBlogs.php:85
 #: src/Core/Backend/ModulesList.php:1776 src/Core/Backend/UserPref.php:78
 #: src/Process/Backend/LinkPopup.php:89
-#: src/Process/Backend/UsersActions.php:284
+#: src/Process/Backend/UsersActions.php:286
 msgid "URL"
 msgstr "URL"
 
@@ -1408,8 +1408,8 @@ msgstr "Een zip-bestand uploaden"
 #: src/Process/Backend/Comment.php:283 src/Process/Backend/Home.php:534
 #: src/Process/Backend/Langs.php:320 src/Process/Backend/Langs.php:370
 #: src/Process/Backend/LinkPopup.php:82 src/Process/Backend/Post.php:968
-#: src/Process/Backend/Post.php:1059 src/Process/Backend/User.php:273
-#: src/Process/Backend/UsersActions.php:394 src/Process/Install/Install.php:455
+#: src/Process/Backend/Post.php:1059 src/Process/Backend/User.php:303
+#: src/Process/Backend/UsersActions.php:396 src/Process/Install/Install.php:455
 #: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:403
 #, php-format
 msgid "Fields preceded by %s are mandatory."
@@ -1421,17 +1421,17 @@ msgstr "Pad naar zip-bestand:"
 
 #: src/Core/Backend/ModulesList.php:1739 src/Core/Backend/ModulesList.php:1789
 #: src/Process/Backend/Langs.php:342 src/Process/Backend/Langs.php:391
-#: src/Process/Backend/Post.php:777 src/Process/Backend/User.php:302
-#: src/Process/Backend/User.php:315 src/Process/Backend/User.php:443
-#: src/Process/Backend/UsersActions.php:401 src/Process/Install/Install.php:467
+#: src/Process/Backend/Post.php:777 src/Process/Backend/User.php:338
+#: src/Process/Backend/User.php:360 src/Process/Backend/User.php:516
+#: src/Process/Backend/UsersActions.php:403 src/Process/Install/Install.php:467
 #: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:426
 msgid "Password"
 msgstr "Wachtwoord"
 
 #: src/Core/Backend/ModulesList.php:1742 src/Core/Backend/ModulesList.php:1792
 #: src/Process/Backend/BlogDel.php:125 src/Process/Backend/Langs.php:345
-#: src/Process/Backend/Langs.php:394 src/Process/Backend/User.php:437
-#: src/Process/Backend/UsersActions.php:395 src/Process/Upgrade/Langs.php:376
+#: src/Process/Backend/Langs.php:394 src/Process/Backend/User.php:518
+#: src/Process/Backend/UsersActions.php:397 src/Process/Upgrade/Langs.php:376
 #: src/Process/Upgrade/Langs.php:382 src/Process/Upgrade/Langs.php:430
 msgid "Your password:"
 msgstr "Je wachtwoord:"
@@ -1476,7 +1476,7 @@ msgstr "Configureren \"%s\""
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:348
 #: src/Process/Backend/Media.php:819 src/Process/Backend/MediaItem.php:1356
 #: src/Process/Backend/Post.php:922 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:613
+#: src/Process/Backend/User.php:534 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
 #: src/Process/Backend/UserPreferences.php:980
 msgid "Back"
@@ -1498,8 +1498,8 @@ msgstr "Fouten:"
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
-#: src/Core/Backend/Page.php:146 src/Process/Backend/User.php:483
-#: src/Process/Backend/UsersActions.php:351
+#: src/Core/Backend/Page.php:146 src/Process/Backend/User.php:570
+#: src/Process/Backend/UsersActions.php:353
 msgid "Blog:"
 msgstr "Blog:"
 
@@ -1927,8 +1927,8 @@ msgstr "Kan geen afbeeldingen maken."
 msgid "Invalid file type."
 msgstr "Ongeldig bestandstype."
 
-#: src/Core/Backend/ThemeConfig.php:451 src/Helper/File/Manager.php:430
-#: src/Helper/File/Manager.php:470
+#: src/Core/Backend/ThemeConfig.php:451 src/Helper/File/Manager.php:434
+#: src/Helper/File/Manager.php:474
 msgid "An error occurred while writing the file."
 msgstr "Er is een fout opgetreden tijdens het schrijven van het bestand."
 
@@ -2143,88 +2143,88 @@ msgstr "Je moet een categorietitel opgeven"
 msgid "You must provide a category URL"
 msgstr "Je moet een categorie-URL opgeven"
 
-#: src/Core/Blog.php:1367
+#: src/Core/Blog.php:1379
 msgid "You are not allowed to create an entry"
 msgstr "U mag geen invoer aanmaken"
 
-#: src/Core/Blog.php:1427
+#: src/Core/Blog.php:1439
 msgid "You are not allowed to update entries"
 msgstr "Het is niet toegestaan om items bij te werken"
 
-#: src/Core/Blog.php:1433 src/Core/Blog.php:1688
+#: src/Core/Blog.php:1445 src/Core/Blog.php:1700
 msgid "No such entry ID"
 msgstr "Geen dergelijke invoer-ID"
 
-#: src/Core/Blog.php:1467
+#: src/Core/Blog.php:1479
 msgid "You are not allowed to edit this entry"
 msgstr "Je mag dit bericht niet bewerken"
 
-#: src/Core/Blog.php:1495 src/Core/Blog.php:1530 src/Core/Meta.php:144
+#: src/Core/Blog.php:1507 src/Core/Blog.php:1542 src/Core/Meta.php:144
 #: src/Core/Meta.php:161
 msgid "You are not allowed to change this entry status"
 msgstr "Je mag deze toegangsstatus niet wijzigen"
 
-#: src/Core/Blog.php:1575 src/Core/Blog.php:1613
+#: src/Core/Blog.php:1587 src/Core/Blog.php:1625
 msgid "You are not allowed to change this entry category"
 msgstr "Het is niet toegestaan om deze categorie te wijzigen"
 
-#: src/Core/Blog.php:1646
+#: src/Core/Blog.php:1658
 msgid "You are not allowed to change entries category"
 msgstr "Het is niet toegestaan om van categorie te veranderen"
 
-#: src/Core/Blog.php:1682
+#: src/Core/Blog.php:1694
 msgid "You are not allowed to delete entries"
 msgstr "U mag geen items verwijderen"
 
-#: src/Core/Blog.php:1919
+#: src/Core/Blog.php:1931
 msgid "No entry title"
 msgstr "Geen titel"
 
-#: src/Core/Blog.php:1923 src/Core/Blog.php:1937
+#: src/Core/Blog.php:1935 src/Core/Blog.php:1949
 msgid "No entry content"
 msgstr "Geen inhoud"
 
-#: src/Core/Blog.php:2003
+#: src/Core/Blog.php:2015
 msgid "Notes"
 msgstr "Opmerkingen"
 
-#: src/Core/Blog.php:2005
+#: src/Core/Blog.php:2017
 msgid "Note"
 msgstr "Opmerking"
 
-#: src/Core/Blog.php:2108
+#: src/Core/Blog.php:2128
 msgid "Empty entry URL"
 msgstr "URL voor lege invoer"
 
-#: src/Core/Blog.php:2407
+#: src/Core/Blog.php:2438
 msgid "You are not allowed to update comments"
 msgstr "Het is niet toegestaan om reacties bij te werken"
 
-#: src/Core/Blog.php:2413 src/Core/Blog.php:2419 src/Core/Blog.php:2513
+#: src/Core/Blog.php:2444 src/Core/Blog.php:2450 src/Core/Blog.php:2555
 msgid "No such comment ID"
 msgstr "Geen commentaar-ID"
 
-#: src/Core/Blog.php:2426
+#: src/Core/Blog.php:2457
 msgid "You are not allowed to update this comment"
 msgstr "Je mag deze opmerking niet bijwerken"
 
-#: src/Core/Blog.php:2466
+#: src/Core/Blog.php:2508
 msgid "You are not allowed to change this comment's status"
 msgstr "Je mag de status van deze opmerking niet wijzigen"
 
-#: src/Core/Blog.php:2507 src/Core/Blog.php:2561
+#: src/Core/Blog.php:2549 src/Core/Blog.php:2603
 msgid "You are not allowed to delete comments"
 msgstr "Je mag geen reacties verwijderen"
 
-#: src/Core/Blog.php:2596
+#: src/Core/Blog.php:2638
 msgid "You must provide a comment"
 msgstr "Je moet een opmerking geven"
 
-#: src/Core/Blog.php:2600
+#: src/Core/Blog.php:2642
 msgid "You must provide an author name"
 msgstr "Je moet een auteursnaam opgeven"
 
-#: src/Core/Blog.php:2604
+#: src/Core/Blog.php:2646
 msgid "Email address is not valid."
 msgstr "E-mailadres is ongeldig."
 
@@ -2257,8 +2257,8 @@ msgid "No namespace specified"
 msgstr "Geen naamruimte gespecificeerd"
 
 #: src/Core/Blogs.php:220 src/Core/Blogs.php:267 src/Core/Users.php:166
-#: src/Core/Users.php:196 src/Core/Users.php:236 src/Core/Users.php:313
-#: src/Core/Users.php:331
+#: src/Core/Users.php:196 src/Core/Users.php:236 src/Core/Users.php:320
+#: src/Core/Users.php:338
 msgid "You are not an administrator"
 msgstr "Je bent geen beheerder"
 
@@ -2274,7 +2274,7 @@ msgstr "Geen blognaam"
 msgid "No blog URL"
 msgstr "Geen blog URL"
 
-#: src/Core/Frontend/Url.php:599
+#: src/Core/Frontend/Url.php:610
 msgid "You must provide a valid email address."
 msgstr "Je moet een geldig e-mailadres opgeven."
 
@@ -2361,32 +2361,32 @@ msgstr "Geen logbericht"
 msgid "No blog defined."
 msgstr "Geen blog gedefinieerd."
 
-#: src/Core/Media.php:1093 src/Core/Media.php:1124
+#: src/Core/Media.php:1105 src/Core/Media.php:1136
 msgid "You are not a super administrator."
 msgstr "Je bent geen superbeheerder."
 
-#: src/Core/Media.php:1227 src/Core/Media.php:1321 src/Core/Media.php:1402
-#: src/Core/Media.php:1424 src/Core/Media.php:1446
+#: src/Core/Media.php:1239 src/Core/Media.php:1333 src/Core/Media.php:1414
+#: src/Core/Media.php:1436 src/Core/Media.php:1458
 msgid "Permission denied."
 msgstr "Toestemming geweigerd."
 
-#: src/Core/Media.php:1334
+#: src/Core/Media.php:1346
 msgid "You are not the file owner."
 msgstr "U bent niet de eigenaar van het bestand."
 
-#: src/Core/Media.php:1349
+#: src/Core/Media.php:1361
 msgid "This file is not allowed."
 msgstr "Dit bestand is niet toegestaan."
 
-#: src/Core/Media.php:1353
+#: src/Core/Media.php:1365
 msgid "New file already exists."
 msgstr "Nieuw bestand bestaat al."
 
-#: src/Core/Media.php:1466
+#: src/Core/Media.php:1478
 msgid "File does not exist in the database."
 msgstr "Bestand bestaat niet in de database."
 
-#: src/Core/Media.php:1515
+#: src/Core/Media.php:1527
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Bestemmingsmap %s bestaat al."
@@ -2472,9 +2472,9 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:458
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:245
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:115
-#: src/Process/Backend/User.php:252 src/Process/Backend/Users.php:107
-#: src/Process/Backend/UsersActions.php:202
-#: src/Process/Backend/UsersActions.php:210 src/Process/Upgrade/Home.php:159
+#: src/Process/Backend/User.php:273 src/Process/Backend/Users.php:107
+#: src/Process/Backend/UsersActions.php:204
+#: src/Process/Backend/UsersActions.php:212 src/Process/Upgrade/Home.php:159
 msgid "System"
 msgstr "Systeem"
 
@@ -2621,16 +2621,16 @@ msgstr "Geen gebruikers-ID gegeven"
 msgid "No password given"
 msgstr "Geen wachtwoord gegeven"
 
-#: src/Core/Users.php:394 src/Process/Install/Install.php:160
+#: src/Core/Users.php:401 src/Process/Install/Install.php:160
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "De gebruikers-ID moet uit minstens 2 tekens bestaan, met letters, cijfers of symbolen."
 
-#: src/Core/Users.php:403 src/Process/Backend/User.php:306
+#: src/Core/Users.php:410 src/Process/Backend/User.php:345
 #: src/Process/Install/Install.php:173
 msgid "Password must contain at least 6 characters."
 msgstr "Het wachtwoord moet minstens 6 tekens bevatten."
 
-#: src/Core/Users.php:409
+#: src/Core/Users.php:416
 msgid "Invalid user language code"
 msgstr "Ongeldige taalcode gebruiker"
 
@@ -2691,81 +2691,77 @@ msgstr "Slechte context (in verwijdering)"
 msgid "Invalid diff format"
 msgstr "Ongeldig diff-formaat"
 
-#: src/Helper/File/Files.php:182 src/Helper/File/Files.php:520
-msgid "Unable to open directory."
-msgstr "Kan directory niet openen."
-
-#: src/Helper/File/Files.php:348
+#: src/Helper/File/Files.php:350
 msgid "Unable to create directory."
 msgstr "Kan geen map aanmaken."
 
-#: src/Helper/File/Files.php:391
+#: src/Helper/File/Files.php:393
 msgid "File is not writable."
 msgstr "Bestand is niet beschrijfbaar."
 
-#: src/Helper/File/Files.php:397
+#: src/Helper/File/Files.php:399
 msgid "Unable to open file."
 msgstr "Kan bestand niet openen."
 
-#: src/Helper/File/Files.php:463
+#: src/Helper/File/Files.php:465
 msgid "Not an uploaded file."
 msgstr "Geen geüpload bestand."
 
-#: src/Helper/File/Files.php:472
+#: src/Helper/File/Files.php:474
 msgid "The uploaded file exceeds the maximum file size allowed."
 msgstr "Het geüploade bestand overschrijdt de maximaal toegestane bestandsgrootte."
 
-#: src/Helper/File/Files.php:474
+#: src/Helper/File/Files.php:476
 msgid "The uploaded file was only partially uploaded."
 msgstr "Het geüploade bestand is slechts gedeeltelijk geüpload."
 
-#: src/Helper/File/Files.php:476
+#: src/Helper/File/Files.php:478
 msgid "No file was uploaded."
 msgstr "Er is geen bestand geüpload."
 
-#: src/Helper/File/Files.php:478
+#: src/Helper/File/Files.php:480
 msgid "Missing a temporary folder."
 msgstr "Er ontbreekt een tijdelijke map."
 
-#: src/Helper/File/Files.php:480
+#: src/Helper/File/Files.php:482
 msgid "Failed to write file to disk."
 msgstr "Faalde om bestand naar schijf te schrijven."
 
-#: src/Helper/File/Files.php:482
+#: src/Helper/File/Files.php:484
 msgid "A PHP extension stopped the file upload."
 msgstr "Een PHP-extensie stopte de bestandsupload."
 
-#: src/Helper/File/Files.php:513
+#: src/Helper/File/Files.php:515
 #, php-format
 msgid "%s is not a directory."
 msgstr "%s is geen map."
 
-#: src/Helper/File/Files.php:564
+#: src/Helper/File/Files.php:566
 msgid "Can't get file path"
 msgstr "Kan geen bestandspad krijgen"
 
-#: src/Helper/File/Files.php:571
+#: src/Helper/File/Files.php:573
 msgid "Can't lock a directory"
 msgstr "Kan een map niet vergrendelen"
 
-#: src/Helper/File/Files.php:583
+#: src/Helper/File/Files.php:585
 msgid "Can't call php function named flock"
 msgstr "Kan php-functie met de naam kudde niet aanroepen"
 
-#: src/Helper/File/Files.php:597
+#: src/Helper/File/Files.php:599
 msgid "Can't create file"
 msgstr "Kan geen bestand maken"
 
-#: src/Helper/File/Files.php:606
+#: src/Helper/File/Files.php:608
 msgid "Can't open file"
 msgstr "Kan bestand niet openen"
 
-#: src/Helper/File/Files.php:614
+#: src/Helper/File/Files.php:616
 msgid "Can't lock file"
 msgstr "Kan bestand niet vergrendelen"
 
-#: src/Helper/File/Files.php:635 src/Helper/File/Manager.php:561
-#: src/Helper/File/Manager.php:565
+#: src/Helper/File/Files.php:637 src/Helper/File/Manager.php:565
+#: src/Helper/File/Manager.php:569
 msgid "File cannot be removed."
 msgstr "Bestand kan niet worden verwijderd."
 
@@ -2773,44 +2769,44 @@ msgstr "Bestand kan niet worden verwijderd."
 msgid "Not enough memory to open image."
 msgstr "Niet genoeg geheugen om afbeelding te openen."
 
-#: src/Helper/File/Manager.php:414 src/Helper/File/Manager.php:457
+#: src/Helper/File/Manager.php:418 src/Helper/File/Manager.php:461
 msgid "Uploading this file is not allowed."
 msgstr "Het uploaden van dit bestand is niet toegestaan."
 
-#: src/Helper/File/Manager.php:418 src/Helper/File/Manager.php:461
+#: src/Helper/File/Manager.php:422 src/Helper/File/Manager.php:465
 msgid "Destination directory is not in jail."
 msgstr "De bestemmingsmap zit niet in de gevangenis."
 
-#: src/Helper/File/Manager.php:422
+#: src/Helper/File/Manager.php:426
 msgid "File already exists."
 msgstr "Bestand bestaat al."
 
-#: src/Helper/File/Manager.php:426 src/Helper/File/Manager.php:465
+#: src/Helper/File/Manager.php:430 src/Helper/File/Manager.php:469
 msgid "Cannot write in this directory."
 msgstr "Kan niet schrijven in deze map."
 
-#: src/Helper/File/Manager.php:506
+#: src/Helper/File/Manager.php:510
 msgid "Source file does not exist."
 msgstr "Bronbestand bestaat niet."
 
-#: src/Helper/File/Manager.php:512 src/Helper/File/Manager.php:515
-#: src/Helper/File/Manager.php:557
+#: src/Helper/File/Manager.php:516 src/Helper/File/Manager.php:519
+#: src/Helper/File/Manager.php:561
 msgid "File is not in jail."
 msgstr "Dossier zit niet in de gevangenis."
 
-#: src/Helper/File/Manager.php:519
+#: src/Helper/File/Manager.php:523
 msgid "Destination directory is not writable."
 msgstr "Bestemmingsdirectory is niet beschrijfbaar."
 
-#: src/Helper/File/Manager.php:523
+#: src/Helper/File/Manager.php:527
 msgid "Unable to rename file."
 msgstr "Kan bestand niet hernoemen."
 
-#: src/Helper/File/Manager.php:581
+#: src/Helper/File/Manager.php:585
 msgid "Directory is not in jail."
 msgstr "Directory zit niet in de gevangenis."
 
-#: src/Helper/File/Manager.php:585 src/Helper/File/Manager.php:589
+#: src/Helper/File/Manager.php:589 src/Helper/File/Manager.php:593
 msgid "Directory cannot be removed."
 msgstr "Directory kan niet worden verwijderd."
 
@@ -2872,82 +2868,82 @@ msgid "WARNING: the following errors have been found while parsing template file
 msgstr "WAARSCHUWING: de volgende fouten zijn gevonden tijdens het parsen van het sjabloonbestand :"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:327
-#: src/Process/Backend/User.php:344
+#: src/Process/Backend/User.php:385
 msgid "Status:"
 msgstr "Status:"
 
 #: src/Module/Modules.php:247
 #, php-format
-msgid "Requires %s module which is not installed"
-msgstr "Vereist module %s die niet is geïnstalleerd"
+msgid "Module \"%s\" requires module \"%s\" which is not installed"
+msgstr ""
 
 #: src/Module/Modules.php:260
 #, php-format
-msgid "Requires %s version %s, but version %s is installed"
-msgstr "Vereist %s versie %s, maar versie %s is geïnstalleerd"
+msgid "Module \"%s\" requires %s version %s, but version %s is installed"
+msgstr ""
 
-#: src/Module/Modules.php:267
+#: src/Module/Modules.php:268
 #, php-format
-msgid "Requires %s module which is disabled"
-msgstr "Vereist module %s die is uitgeschakeld"
+msgid "Module \"%s\" requires module \"%s\" which is disabled"
+msgstr ""
 
-#: src/Module/Modules.php:629
+#: src/Module/Modules.php:630
 #, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr "Module \"%s\" heeft type \"%s\" dat niet overeenkomt met het vereiste moduletype \"%s\"."
 
-#: src/Module/Modules.php:655
+#: src/Module/Modules.php:656
 #, php-format
 msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
 msgstr "Module \"%s\" is twee keer geïnstalleerd in \"%s\" en \"%s\"."
 
-#: src/Module/Modules.php:729
+#: src/Module/Modules.php:730
 msgid "Empty module zip file."
 msgstr "Leeg module zip-bestand."
 
-#: src/Module/Modules.php:736
+#: src/Module/Modules.php:737
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "Het zip-bestand lijkt geen geldige Dotclear module te zijn."
 
-#: src/Module/Modules.php:770 src/Module/Modules.php:806
+#: src/Module/Modules.php:772 src/Module/Modules.php:809
 #, php-format
 msgid "Module is not installed: %s"
 msgstr "Module is niet geïnstalleerd: %s"
 
-#: src/Module/Modules.php:821
+#: src/Module/Modules.php:824
 #, php-format
 msgid "Unable to upgrade \"%s\". (update locked)"
 msgstr "Kan \"%s\" niet upgraden (update vergrendeld)"
 
-#: src/Module/Modules.php:825
+#: src/Module/Modules.php:828
 msgid "An error occurred during module deletion."
 msgstr "Er is een fout opgetreden tijdens het verwijderen van de module."
 
-#: src/Module/Modules.php:833
+#: src/Module/Modules.php:836
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Kan \"%s\" niet upgraden (oudere of dezelfde versie)"
 
-#: src/Module/Modules.php:839
+#: src/Module/Modules.php:842
 #, php-format
 msgid "Unable to read new %s file"
 msgstr "Kan nieuw %s bestand niet lezen"
 
-#: src/Module/Modules.php:848 src/Module/Modules.php:965
-#: src/Module/Modules.php:969
+#: src/Module/Modules.php:851 src/Module/Modules.php:968
+#: src/Module/Modules.php:972
 msgid "Cannot deactivate plugin."
 msgstr "Kan plugin niet deactiveren."
 
-#: src/Module/Modules.php:941 src/Module/Modules.php:961
-#: src/Module/Modules.php:985
+#: src/Module/Modules.php:944 src/Module/Modules.php:964
+#: src/Module/Modules.php:988
 msgid "No such module."
 msgstr "Geen dergelijke module."
 
-#: src/Module/Modules.php:945
+#: src/Module/Modules.php:948
 msgid "Cannot remove module files"
 msgstr "Kan modulebestanden niet verwijderen"
 
-#: src/Module/Modules.php:989 src/Module/Modules.php:993
+#: src/Module/Modules.php:992 src/Module/Modules.php:996
 msgid "Cannot activate plugin."
 msgstr "Kan plugin niet activeren."
 
@@ -3020,7 +3016,7 @@ msgstr "Uw nieuwe wachtwoord"
 msgid "Your new password is in your mailbox."
 msgstr "Je nieuwe wachtwoord zit in je mailbox."
 
-#: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:137
+#: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:158
 #: src/Process/Backend/UserPreferences.php:200
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
@@ -3051,8 +3047,8 @@ msgid "Wrong username or password"
 msgstr "Verkeerde gebruikersnaam of wachtwoord"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:242
-#: src/Process/Backend/User.php:243 src/Process/Backend/User.php:244
+#: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:263
+#: src/Process/Backend/User.php:264 src/Process/Backend/User.php:265
 #: src/Process/Backend/UserPreferences.php:493
 #: src/Process/Backend/UserPreferences.php:494
 #: src/Process/Backend/UserPreferences.php:495
@@ -3062,13 +3058,13 @@ msgstr "Verkeerde gebruikersnaam of wachtwoord"
 msgid "Password strength: %s"
 msgstr "Wachtwoordsterkte: %s"
 
-#: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:242
+#: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:263
 #: src/Process/Backend/UserPreferences.php:493
 #: src/Process/Install/Install.php:396
 msgid "weak"
 msgstr "zwak"
 
-#: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:244
+#: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:265
 #: src/Process/Backend/UserPreferences.php:495
 #: src/Process/Install/Install.php:398
 msgid "strong"
@@ -3094,14 +3090,14 @@ msgstr "Andere optie"
 msgid "Change your password"
 msgstr "Wijzig je wachtwoord"
 
-#: src/Process/Backend/Auth.php:451 src/Process/Backend/User.php:295
+#: src/Process/Backend/Auth.php:451 src/Process/Backend/User.php:332
 #: src/Process/Backend/UserPreferences.php:578
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "Nieuw wachtwoord:"
 
-#: src/Process/Backend/Auth.php:460 src/Process/Backend/User.php:309
-#: src/Process/Install/Install.php:471
+#: src/Process/Backend/Auth.php:460 src/Process/Backend/User.php:354
+#: src/Process/Backend/User.php:362 src/Process/Install/Install.php:471
 msgid "Confirm password:"
 msgstr "Wachtwoord bevestigen:"
 
@@ -3163,7 +3159,7 @@ msgid "Blog ID:"
 msgstr "Blog ID:"
 
 #: src/Process/Backend/Blog.php:134 src/Process/Backend/BlogPref.php:1035
-#: src/Process/Backend/User.php:282
+#: src/Process/Backend/User.php:318
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Ten minste 2 tekens met letters, cijfers of symbolen."
 
@@ -3720,7 +3716,7 @@ msgstr "Geen gebruikers"
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1273 src/Process/Backend/User.php:339
+#: src/Process/Backend/BlogPref.php:1273 src/Process/Backend/User.php:377
 msgid "Super administrator"
 msgstr "Super beheerder"
 
@@ -3733,12 +3729,12 @@ msgid "All rights on this blog."
 msgstr "Alle rechten op deze blog."
 
 #: src/Process/Backend/BlogPref.php:1301
-#: src/Process/Backend/UsersActions.php:385
+#: src/Process/Backend/UsersActions.php:387
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (toestemming zonder referentie)"
 
-#: src/Process/Backend/BlogPref.php:1320 src/Process/Backend/User.php:497
+#: src/Process/Backend/BlogPref.php:1320 src/Process/Backend/User.php:584
 msgid "Change permissions"
 msgstr "Rechten wijzigen"
 
@@ -3859,7 +3855,7 @@ msgid "Create a new blog"
 msgstr "Een nieuwe blog maken"
 
 #: src/Process/Backend/Blogs.php:139 src/Process/Backend/Comments.php:215
-#: src/Process/Backend/Users.php:149 src/Process/Backend/UsersActions.php:212
+#: src/Process/Backend/Users.php:149 src/Process/Backend/UsersActions.php:214
 msgid "Actions"
 msgstr "Acties"
 
@@ -3941,7 +3937,7 @@ msgid "total:"
 msgstr "totaal:"
 
 #: src/Process/Backend/Categories.php:325 src/Process/Backend/Category.php:278
-#: src/Process/Backend/User.php:387 src/Process/Backend/UserPreferences.php:554
+#: src/Process/Backend/User.php:446 src/Process/Backend/UserPreferences.php:554
 msgid "URL:"
 msgstr "URL:"
 
@@ -4318,7 +4314,7 @@ msgstr "Beschikbare talen"
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
 msgstr "U kunt een extra taal direct downloaden en installeren vanaf Dotclear.net. Voorgestelde talen zijn gebaseerd op uw versie: %s."
 
-#: src/Process/Backend/Langs.php:330 src/Process/Backend/User.php:407
+#: src/Process/Backend/Langs.php:330 src/Process/Backend/User.php:470
 #: src/Process/Upgrade/Langs.php:366
 msgid "Language:"
 msgstr "Taal:"
@@ -4973,7 +4969,7 @@ msgstr "indienen"
 msgid "Selected entry"
 msgstr "Geselecteerde invoer"
 
-#: src/Process/Backend/Post.php:729 src/Process/Backend/User.php:405
+#: src/Process/Backend/Post.php:729 src/Process/Backend/User.php:463
 msgid "Options"
 msgstr "Opties"
 
@@ -5109,62 +5105,62 @@ msgstr "Zoeken:"
 msgid "cancel"
 msgstr "annuleren"
 
-#: src/Process/Backend/Rest.php:110
+#: src/Process/Backend/Rest.php:121
 msgid "Dotclear news not available"
 msgstr "Dotclear nieuws niet beschikbaar"
 
-#: src/Process/Backend/Rest.php:124
-msgid "Dotclear news"
-msgstr "Dotclear nieuws"
-
-#: src/Process/Backend/Rest.php:130
+#: src/Process/Backend/Rest.php:160
 msgid "%d %B %Y:"
 msgstr "%d %B %Y:"
 
-#: src/Process/Backend/Rest.php:162
+#: src/Process/Backend/Rest.php:174
+msgid "Dotclear news"
+msgstr "Dotclear nieuws"
+
+#: src/Process/Backend/Rest.php:206
 msgid "Dotclear update not available"
 msgstr "Dotclear update niet beschikbaar"
 
-#: src/Process/Backend/Rest.php:173
+#: src/Process/Backend/Rest.php:220
 #, php-format
 msgid "Dotclear %s is available!"
 msgstr "Dotclear %s is beschikbaar!"
 
-#: src/Process/Backend/Rest.php:174
+#: src/Process/Backend/Rest.php:227
 msgid "Upgrade now"
 msgstr "Nu upgraden"
 
-#: src/Process/Backend/Rest.php:175
+#: src/Process/Backend/Rest.php:231
 msgid "Remind me later"
 msgstr "Herinner me later"
 
-#: src/Process/Backend/Rest.php:177 src/Process/Upgrade/Upgrade.php:245
+#: src/Process/Backend/Rest.php:239 src/Process/Upgrade/Upgrade.php:245
 #: src/Process/Upgrade/Upgrade.php:246
 msgid "Information about this version"
 msgstr "Informatie over deze versie"
 
-#: src/Process/Backend/Rest.php:182
+#: src/Process/Backend/Rest.php:248
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "Een nieuwe versie van Dotclear is beschikbaar maar heeft PHP versie ≥ %snodig, die van jou is momenteel %s."
 
-#: src/Process/Backend/Rest.php:196 src/Process/Upgrade/Upgrade.php:211
+#: src/Process/Backend/Rest.php:263 src/Process/Upgrade/Upgrade.php:211
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr "De volgende versies van Dotclear zullen geen PHP versie < %sondersteunen, uw versie is momenteel %s."
 
-#: src/Process/Backend/Rest.php:227
+#: src/Process/Backend/Rest.php:294
 msgid "No updates are available"
 msgstr "Er zijn geen updates beschikbaar"
 
-#: src/Process/Backend/Rest.php:274
+#: src/Process/Backend/Rest.php:341
 #, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] "Er is een update beschikbaar"
 msgstr[1] "%s updates beschikbaar zijn."
 
-#: src/Process/Backend/Rest.php:870
+#: src/Process/Backend/Rest.php:937
 msgid "List options saved"
 msgstr "Lijst met opgeslagen opties"
 
@@ -5206,145 +5202,149 @@ msgid_plural "%d comments found"
 msgstr[0] "één commentaar gevonden"
 msgstr[1] "%d opmerkingen gevonden"
 
-#: src/Process/Backend/User.php:36 src/Process/Backend/Users.php:127
+#: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:127
 msgid "New user"
 msgstr "Nieuwe gebruiker"
 
-#: src/Process/Backend/User.php:184 src/Process/Backend/User.php:260
-#: src/Process/Backend/UsersActions.php:188
+#: src/Process/Backend/User.php:205 src/Process/Backend/User.php:281
+#: src/Process/Backend/UsersActions.php:190
 msgid "User has been successfully updated."
 msgstr "Gebruiker is succesvol bijgewerkt."
 
-#: src/Process/Backend/User.php:190
+#: src/Process/Backend/User.php:211
 #, php-format
 msgid "User \"%s\" already exists."
 msgstr "Gebruiker \"%s\" bestaat al."
 
-#: src/Process/Backend/User.php:214 src/Process/Backend/User.php:264
+#: src/Process/Backend/User.php:235 src/Process/Backend/User.php:285
 msgid "User has been successfully created."
 msgstr "Gebruiker is succesvol aangemaakt."
 
-#: src/Process/Backend/User.php:217
+#: src/Process/Backend/User.php:238
 msgid "User has no permission, he will not be able to login yet. See below to add some."
 msgstr "Gebruiker heeft geen rechten, hij zal nog niet kunnen inloggen. Zie hieronder om er een aantal toe te voegen."
 
-#: src/Process/Backend/User.php:220
+#: src/Process/Backend/User.php:241
 msgid "User is disabled, he will not be able to login yet."
 msgstr "Gebruiker is uitgeschakeld, hij kan nog niet inloggen."
 
-#: src/Process/Backend/User.php:272
+#: src/Process/Backend/User.php:300
 msgid "User profile"
 msgstr "Gebruikersprofiel"
 
-#: src/Process/Backend/User.php:275
-msgid "User ID:"
-msgstr "Gebruikers-ID:"
-
-#: src/Process/Backend/User.php:278
+#: src/Process/Backend/User.php:311
 msgid "Login"
 msgstr "Inloggen"
 
-#: src/Process/Backend/User.php:286
-msgid "Warning:"
-msgstr "Waarschuwing:"
+#: src/Process/Backend/User.php:314
+msgid "User ID:"
+msgstr "Gebruikers-ID:"
 
-#: src/Process/Backend/User.php:287
+#: src/Process/Backend/User.php:322
 msgid "If you change your username, you will have to log in again."
 msgstr "Als je je gebruikersnaam wijzigt, moet je je opnieuw aanmelden."
 
-#: src/Process/Backend/User.php:324
+#: src/Process/Backend/User.php:322
+msgid "Warning:"
+msgstr "Waarschuwing:"
+
+#: src/Process/Backend/User.php:369
 msgid "Password change required to connect"
 msgstr "Wachtwoordwijziging vereist om verbinding te maken"
 
-#: src/Process/Backend/User.php:350 src/Process/Backend/UserPreferences.php:519
+#: src/Process/Backend/User.php:395 src/Process/Backend/UserPreferences.php:519
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "Achternaam:"
 
-#: src/Process/Backend/User.php:357 src/Process/Backend/UserPreferences.php:526
+#: src/Process/Backend/User.php:404 src/Process/Backend/UserPreferences.php:526
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "Voornaam:"
 
-#: src/Process/Backend/User.php:364 src/Process/Backend/UserPreferences.php:533
+#: src/Process/Backend/User.php:413 src/Process/Backend/UserPreferences.php:533
 msgid "Display name:"
 msgstr "Naam weergeven:"
 
-#: src/Process/Backend/User.php:378
+#: src/Process/Backend/User.php:427
 msgid "Mandatory for password recovering procedure."
 msgstr "Verplicht voor het herstellen van wachtwoorden."
 
-#: src/Process/Backend/User.php:380 src/Process/Backend/UserPreferences.php:547
+#: src/Process/Backend/User.php:434 src/Process/Backend/UserPreferences.php:547
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternatieve e-mails (lijst met komma's):"
 
-#: src/Process/Backend/User.php:385 src/Process/Backend/UserPreferences.php:552
+#: src/Process/Backend/User.php:438 src/Process/Backend/UserPreferences.php:552
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Ongeldige e-mails worden automatisch uit de lijst verwijderd."
 
-#: src/Process/Backend/User.php:395 src/Process/Backend/UserPreferences.php:562
+#: src/Process/Backend/User.php:454 src/Process/Backend/UserPreferences.php:562
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternatieve URL's (door komma's gescheiden lijst):"
 
-#: src/Process/Backend/User.php:400 src/Process/Backend/UserPreferences.php:567
+#: src/Process/Backend/User.php:458 src/Process/Backend/UserPreferences.php:567
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Ongeldige URL's worden automatisch verwijderd uit de lijst."
 
-#: src/Process/Backend/User.php:406 src/Process/Backend/UserPreferences.php:626
+#: src/Process/Backend/User.php:464 src/Process/Backend/UserPreferences.php:626
 msgid "Interface"
 msgstr "Interface"
 
-#: src/Process/Backend/User.php:411
+#: src/Process/Backend/User.php:477
 msgid "Timezone:"
 msgstr "Tijdzone:"
 
-#: src/Process/Backend/User.php:415 src/Process/Backend/UserPreferences.php:742
+#: src/Process/Backend/User.php:479 src/Process/Backend/UserPreferences.php:742
 msgid "Edition"
 msgstr "Editie"
 
-#: src/Process/Backend/User.php:416 src/Process/Backend/UserPreferences.php:756
+#: src/Process/Backend/User.php:485 src/Process/Backend/UserPreferences.php:756
 msgid "Preferred format:"
 msgstr "Aanbevolen formaat:"
 
-#: src/Process/Backend/User.php:420 src/Process/Backend/UserPreferences.php:759
+#: src/Process/Backend/User.php:492 src/Process/Backend/UserPreferences.php:759
 msgid "Default entry status:"
 msgstr "Standaard ingangsstatus:"
 
-#: src/Process/Backend/User.php:424 src/Process/Backend/UserPreferences.php:762
+#: src/Process/Backend/User.php:497 src/Process/Backend/UserPreferences.php:762
 msgid "Entry edit field height:"
 msgstr "Hoogte invoerveld bewerken:"
 
-#: src/Process/Backend/User.php:448
+#: src/Process/Backend/User.php:499
+msgid "Miscellaneous"
+msgstr ""
+
+#: src/Process/Backend/User.php:527
 msgid "Save and create another"
 msgstr "Opslaan en nog een"
 
-#: src/Process/Backend/User.php:459 src/Process/Backend/Users.php:43
-#: src/Process/Backend/UsersActions.php:204
-msgid "Permissions"
-msgstr "Rechten"
-
-#: src/Process/Backend/User.php:464
-msgid "Add new permissions"
-msgstr "Nieuwe machtigingen toevoegen"
-
-#: src/Process/Backend/User.php:477
+#: src/Process/Backend/User.php:548
 msgid "No permissions so far."
 msgstr "Tot nu toe geen toestemming."
 
-#: src/Process/Backend/User.php:510
+#: src/Process/Backend/User.php:605 src/Process/Backend/Users.php:43
+#: src/Process/Backend/UsersActions.php:206
+msgid "Permissions"
+msgstr "Rechten"
+
+#: src/Process/Backend/User.php:609
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s is superbeheerder (alle rechten op alle blogs)."
 
-#: src/Process/Backend/User.php:518
+#: src/Process/Backend/User.php:618
+msgid "Add new permissions"
+msgstr "Nieuwe machtigingen toevoegen"
+
+#: src/Process/Backend/User.php:631
 msgid "Direct links"
 msgstr "Directe koppelingen"
 
-#: src/Process/Backend/User.php:522
+#: src/Process/Backend/User.php:636
 msgid "List of posts"
 msgstr "Lijst met berichten"
 
-#: src/Process/Backend/User.php:532
+#: src/Process/Backend/User.php:649
 msgid "List of comments"
 msgstr "Lijst met opmerkingen"
 
@@ -5682,7 +5682,7 @@ msgstr "Volgorde dashboarditems"
 msgid "Reset dashboard items order"
 msgstr "De volgorde van dashboardonderdelen opnieuw instellen"
 
-#: src/Process/Backend/Users.php:43 src/Process/Backend/UsersActions.php:315
+#: src/Process/Backend/Users.php:43 src/Process/Backend/UsersActions.php:317
 msgid "Set permissions"
 msgstr "Machtigingen instellen"
 
@@ -5706,42 +5706,42 @@ msgstr "Geen blog of gebruiker opgegeven."
 msgid "User has been successfully enabled."
 msgstr "Gebruiker is succesvol ingeschakeld."
 
-#: src/Process/Backend/UsersActions.php:114
+#: src/Process/Backend/UsersActions.php:115
 msgid "You cannot disable yourself."
 msgstr "Je kunt jezelf niet uitschakelen."
 
-#: src/Process/Backend/UsersActions.php:128
-#: src/Process/Backend/UsersActions.php:152
+#: src/Process/Backend/UsersActions.php:129
+#: src/Process/Backend/UsersActions.php:154
 msgid "User has been successfully deleted."
 msgstr "Gebruiker is succesvol verwijderd."
 
-#: src/Process/Backend/UsersActions.php:140
+#: src/Process/Backend/UsersActions.php:142
 msgid "You cannot delete yourself."
 msgstr "Je kunt jezelf niet verwijderen."
 
-#: src/Process/Backend/UsersActions.php:246
+#: src/Process/Backend/UsersActions.php:248
 msgid "Back to user profile"
 msgstr "Terug naar gebruikersprofiel"
 
-#: src/Process/Backend/UsersActions.php:271
+#: src/Process/Backend/UsersActions.php:273
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Kies een of meer blogs waaraan je gebruikers rechten wilt geven %s."
 
-#: src/Process/Backend/UsersActions.php:285
+#: src/Process/Backend/UsersActions.php:287
 msgid "Entries"
 msgstr "Inzendingen"
 
-#: src/Process/Backend/UsersActions.php:298
+#: src/Process/Backend/UsersActions.php:300
 msgid "select"
 msgstr "selecteer"
 
-#: src/Process/Backend/UsersActions.php:344
+#: src/Process/Backend/UsersActions.php:346
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "Je staat op het punt om rechten te wijzigen op de volgende blogs voor gebruikers %s."
 
-#: src/Process/Backend/UsersActions.php:393
+#: src/Process/Backend/UsersActions.php:395
 msgid "Validate permissions"
 msgstr "Machtigingen valideren"
 
