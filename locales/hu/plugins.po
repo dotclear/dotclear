@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-31 16:54+0200\n"
-"PO-Revision-Date: 2025-03-31 15:31\n"
+"POT-Creation-Date: 2025-04-26 19:26+0200\n"
+"PO-Revision-Date: 2025-04-26 17:29\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -2741,92 +2741,92 @@ msgstr "Megjelenik a hivatkozásban és címként használatos"
 msgid "Not displayed nor used"
 msgstr "Nem jelenik meg és nem is használják"
 
-#: plugins/tags/src/BackendBehaviors.php:62
-#: plugins/tags/src/BackendBehaviors.php:73
+#: plugins/tags/src/BackendBehaviors.php:63
+#: plugins/tags/src/BackendBehaviors.php:74
 #: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
 msgid "Tag"
 msgstr "Címke:"
 
-#: plugins/tags/src/BackendBehaviors.php:236
+#: plugins/tags/src/BackendBehaviors.php:237
 msgid "Add tags"
 msgstr "Címkék hozzáadása"
 
-#: plugins/tags/src/BackendBehaviors.php:245
+#: plugins/tags/src/BackendBehaviors.php:246
 msgid "Remove tags"
 msgstr "Címkék eltávolítása"
 
-#: plugins/tags/src/BackendBehaviors.php:280
+#: plugins/tags/src/BackendBehaviors.php:281
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "A címke sikeresen hozzá lett adva a kiválasztott bejegyzésekhez"
 msgstr[1] "A címkék sikeresen hozzá lettek adva a kiválasztott bejegyzésekhez"
 
-#: plugins/tags/src/BackendBehaviors.php:293
-#: plugins/tags/src/BackendBehaviors.php:448
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:449
 msgid "Are you sure you want to remove this tag?"
 msgstr "Biztos, hogy el akarja távolítani ezt a címkét?"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:449
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Add a tag to this entry"
 msgstr "Címke hozzáadása ehhez a bejegyzéshez"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Choose from list"
 msgstr "Kiválasztom a listáról"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "all"
 msgstr "mind"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "Enter tags separated by comma"
 msgstr "Adja meg a címkéket vesszővel elválasztva"
 
-#: plugins/tags/src/BackendBehaviors.php:305
+#: plugins/tags/src/BackendBehaviors.php:306
 msgid "Add tags to this selection"
 msgstr "Címkék hozzáadása ehhez a kiválasztáshoz"
 
-#: plugins/tags/src/BackendBehaviors.php:323
+#: plugins/tags/src/BackendBehaviors.php:324
 msgid "Tags to add:"
 msgstr "Hozzáadandó címkék:"
 
-#: plugins/tags/src/BackendBehaviors.php:362
+#: plugins/tags/src/BackendBehaviors.php:363
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "A címke sikeresen eltávolításra került a kiválasztott bejegyzésekből"
 msgstr[1] "A címkék sikeresen eltávolításra kerültek a kiválasztott bejegyzésekből"
 
-#: plugins/tags/src/BackendBehaviors.php:385
+#: plugins/tags/src/BackendBehaviors.php:386
 msgid "No tags for selected entries"
 msgstr "Nincs címke a kiválasztott bejegyzéshez"
 
-#: plugins/tags/src/BackendBehaviors.php:392
+#: plugins/tags/src/BackendBehaviors.php:393
 msgid "Remove selected tags from this selection"
 msgstr "A kijelölt címkék eltávolítása ebből a kiválasztásból"
 
-#: plugins/tags/src/BackendBehaviors.php:419
+#: plugins/tags/src/BackendBehaviors.php:420
 msgid "Following tags have been found in selected entries:"
 msgstr "A következp címkéket találtam a kiválastott bejegyzésekhez:"
 
-#: plugins/tags/src/BackendBehaviors.php:428
+#: plugins/tags/src/BackendBehaviors.php:429
 msgid "Remove"
 msgstr "Távolítsa el a"
 
-#: plugins/tags/src/BackendBehaviors.php:470
+#: plugins/tags/src/BackendBehaviors.php:492
+msgid "Tags list format:"
+msgstr "Címkék lista formátumban:"
+
+#: plugins/tags/src/BackendBehaviors.php:495
 msgid "Short"
 msgstr "Rövid"
 
-#: plugins/tags/src/BackendBehaviors.php:471
+#: plugins/tags/src/BackendBehaviors.php:496
 msgid "Extended"
 msgstr "Bővített"
-
-#: plugins/tags/src/BackendBehaviors.php:483
-msgid "Tags list format:"
-msgstr "Címkék lista formátumban:"
 
 #: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's comments Atom feed"
