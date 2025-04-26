@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-31 16:54+0200\n"
-"PO-Revision-Date: 2025-03-31 15:31\n"
+"POT-Creation-Date: 2025-04-26 19:26+0200\n"
+"PO-Revision-Date: 2025-04-26 17:29\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -2741,92 +2741,92 @@ msgstr "Se muestra en el enlace y se utiliza como título"
 msgid "Not displayed nor used"
 msgstr "No se muestra ni se utiliza"
 
-#: plugins/tags/src/BackendBehaviors.php:62
-#: plugins/tags/src/BackendBehaviors.php:73
+#: plugins/tags/src/BackendBehaviors.php:63
+#: plugins/tags/src/BackendBehaviors.php:74
 #: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
 msgid "Tag"
 msgstr "Etiqueta"
 
-#: plugins/tags/src/BackendBehaviors.php:236
+#: plugins/tags/src/BackendBehaviors.php:237
 msgid "Add tags"
 msgstr "Añadir etiquetas"
 
-#: plugins/tags/src/BackendBehaviors.php:245
+#: plugins/tags/src/BackendBehaviors.php:246
 msgid "Remove tags"
 msgstr "Eliminar etiquetas"
 
-#: plugins/tags/src/BackendBehaviors.php:280
+#: plugins/tags/src/BackendBehaviors.php:281
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "La etiqueta se ha añadido correctamente a las entradas seleccionadas"
 msgstr[1] "Las etiquetas se han añadido correctamente a las entradas seleccionadas"
 
-#: plugins/tags/src/BackendBehaviors.php:293
-#: plugins/tags/src/BackendBehaviors.php:448
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:449
 msgid "Are you sure you want to remove this tag?"
 msgstr "¿Está seguro de que desea eliminar esta etiqueta?"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:449
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Add a tag to this entry"
 msgstr "Añadir una etiqueta a esta entrada"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Choose from list"
 msgstr "Elegir desde la lista"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "all"
 msgstr "todas"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "Enter tags separated by comma"
 msgstr "Introduzca las etiquetas separadas por comas"
 
-#: plugins/tags/src/BackendBehaviors.php:305
+#: plugins/tags/src/BackendBehaviors.php:306
 msgid "Add tags to this selection"
 msgstr "Añadir etiquetas a esta selección"
 
-#: plugins/tags/src/BackendBehaviors.php:323
+#: plugins/tags/src/BackendBehaviors.php:324
 msgid "Tags to add:"
 msgstr "Etiquetas a añadir:"
 
-#: plugins/tags/src/BackendBehaviors.php:362
+#: plugins/tags/src/BackendBehaviors.php:363
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "La etiqueta se ha eliminado correctamente de las entradas seleccionadas"
 msgstr[1] "Se han eliminado correctamente las etiquetas de las entradas seleccionadas"
 
-#: plugins/tags/src/BackendBehaviors.php:385
+#: plugins/tags/src/BackendBehaviors.php:386
 msgid "No tags for selected entries"
 msgstr "Ninguna etiqueta para las entradas seleccionadas"
 
-#: plugins/tags/src/BackendBehaviors.php:392
+#: plugins/tags/src/BackendBehaviors.php:393
 msgid "Remove selected tags from this selection"
 msgstr "Eliminar las etiquetas seleccionadas de esta selección"
 
-#: plugins/tags/src/BackendBehaviors.php:419
+#: plugins/tags/src/BackendBehaviors.php:420
 msgid "Following tags have been found in selected entries:"
 msgstr "Se han encontrado las siguientes etiquetas en las entradas seleccionadas:"
 
-#: plugins/tags/src/BackendBehaviors.php:428
+#: plugins/tags/src/BackendBehaviors.php:429
 msgid "Remove"
 msgstr "Eliminar"
 
-#: plugins/tags/src/BackendBehaviors.php:470
+#: plugins/tags/src/BackendBehaviors.php:492
+msgid "Tags list format:"
+msgstr "Formato de la lista de etiquetas:"
+
+#: plugins/tags/src/BackendBehaviors.php:495
 msgid "Short"
 msgstr "Corto"
 
-#: plugins/tags/src/BackendBehaviors.php:471
+#: plugins/tags/src/BackendBehaviors.php:496
 msgid "Extended"
 msgstr "Ampliado"
-
-#: plugins/tags/src/BackendBehaviors.php:483
-msgid "Tags list format:"
-msgstr "Formato de la lista de etiquetas:"
 
 #: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's comments Atom feed"
