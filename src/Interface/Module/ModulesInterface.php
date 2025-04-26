@@ -496,6 +496,11 @@ interface ModulesInterface
     public function getErrors(): array;
 
     /**
+     * Resets the errors.
+     */
+    public function resetErrors(): void;
+
+    /**
      * Compare two versions with option of using only main numbers.
      *
      * @param   string  $current_version    Current version
