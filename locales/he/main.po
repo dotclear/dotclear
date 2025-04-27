@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-26 14:09+0200\n"
-"PO-Revision-Date: 2025-04-26 17:29\n"
+"PO-Revision-Date: 2025-04-27 08:29\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -2933,17 +2933,17 @@ msgstr "ε÷ß:"
 #: src/Module/Modules.php:247
 #, php-format
 msgid "Module \"%s\" requires module \"%s\" which is not installed"
-msgstr ""
+msgstr "המודול \"%s\" דורש את המודול \"%s\" שאינו מותקן"
 
 #: src/Module/Modules.php:260
 #, php-format
 msgid "Module \"%s\" requires %s version %s, but version %s is installed"
-msgstr ""
+msgstr "מודול \"%s\" דורש %s גרסה %s, אך גרסה %s מותקנת"
 
 #: src/Module/Modules.php:268
 #, php-format
 msgid "Module \"%s\" requires module \"%s\" which is disabled"
-msgstr ""
+msgstr "מודול \"%s\" דורש מודול \"%s\" אשר מושבת"
 
 #: src/Module/Modules.php:630
 #, php-format
@@ -5382,7 +5382,7 @@ msgstr "ערך שדה עריכה של הרשומה:"
 
 #: src/Process/Backend/User.php:499
 msgid "Miscellaneous"
-msgstr ""
+msgstr "שונות"
 
 #: src/Process/Backend/User.php:527
 msgid "Save and create another"
