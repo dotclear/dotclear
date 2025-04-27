@@ -309,7 +309,7 @@ class User extends Process
                                             ->value(Html::escapeHTML(App::backend()->user_id))
                                             ->required(true)
                                             ->placeholder(__('Login'))
-                                            ->autocomplete('username')
+                                            ->autocomplete(App::backend()->user_id ? 'username' : 'off')
                                             ->extra('aria-describedby="user_id_help user_id_warning"')
                                             ->label((new Label((new Text('span', '*'))->render() . __('User ID:'), Label::OL_TF))->class('required')),
                                     ]),
@@ -515,7 +515,7 @@ class User extends Process
                             ->required(true)
                             ->placeholder(__('Password'))
                             ->autocomplete('current-password')
-                            ->label((new Label((new Text('span', '*'))->render() . __('Your password:'), Label::OL_TF))->class('required')),
+                            ->label((new Label((new Text('span', '*'))->render() . __('Your administrator password:'), Label::OL_TF))->class('required')),
                     ]),
                 (new Para())
                     ->class(['clear', 'form-buttons'])
