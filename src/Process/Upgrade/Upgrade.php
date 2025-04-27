@@ -208,7 +208,7 @@ class Upgrade extends Process
             // Warning about PHP version if necessary
             if (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
                 $items[] = (new Text('p', sprintf(
-                    __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
+                    __('The next versions of Dotclear will not support PHP version < %1$s, your\'s is currently %2$s'),
                     App::config()->nextRequiredPhp(),
                     phpversion()
                 )))
@@ -248,7 +248,7 @@ class Upgrade extends Process
                     ]);
 
                 if (version_compare(phpversion(), (string) self::$updater->getPHPVersion()) < 0) {
-                    $items[] = (new Text('p', sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), self::$updater->getPHPVersion())))
+                    $items[] = (new Text('p', sprintf(__('PHP version is %1$s (%2$s or earlier needed).'), phpversion(), self::$updater->getPHPVersion())))
                         ->class('warning-msg');
                 } else {
                     $items[] = (new Form('updcheck'))

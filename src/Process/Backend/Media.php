@@ -445,7 +445,7 @@ class Media extends Process
                                 (new Text(
                                     null,
                                     sprintf(
-                                        __('Choose a file to attach to entry %s by clicking on %s'),
+                                        __('Choose a file to attach to entry %1$s by clicking on %2$s'),
                                         $post_link,
                                         (new Img('images/plus.svg'))->alt(__('Attach this file to entry'))->render()
                                     )

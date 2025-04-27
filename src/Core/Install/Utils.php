@@ -66,7 +66,7 @@ class Utils
 
         if ($con->syntax() === 'mysql') {
             if (version_compare($con->version(), App::config()->minRequiredMysql(), '<')) {
-                $err[] = sprintf(__('MySQL version is %s (%s or earlier needed).'), $con->version(), App::config()->minRequiredMysql());
+                $err[] = sprintf(__('MySQL version is %1$s (%2$s or earlier needed).'), $con->version(), App::config()->minRequiredMysql());
             } else {
                 $rs     = $con->select('SHOW ENGINES');
                 $innodb = false;

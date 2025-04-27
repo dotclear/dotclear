@@ -54,7 +54,7 @@ class Config extends Process
             if (!is_file(App::backend()->css_file) && !is_writable(dirname(App::backend()->css_file))) {
                 throw new Exception(
                     sprintf(
-                        __('File %s does not exist and directory %s is not writable.'),
+                        __('File %1$s does not exist and directory %2$s is not writable.'),
                         App::backend()->css_file,
                         dirname(App::backend()->css_file)
                     )

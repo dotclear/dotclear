@@ -245,7 +245,7 @@ class Rest extends Process
                     $ret = (new Note())
                         ->class('info')
                         ->text(sprintf(
-                            __('A new version of Dotclear is available but needs PHP version ≥ %s, your\'s is currently %s'),
+                            __('A new version of Dotclear is available but needs PHP version ≥ %1$s, your\'s is currently %2$s'),
                             $updater->getPHPVersion(),
                             phpversion()
                         ))
@@ -260,7 +260,7 @@ class Rest extends Process
                     $ret = (new Note())
                         ->class('info')
                         ->text(sprintf(
-                            __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
+                            __('The next versions of Dotclear will not support PHP version < %1$s, your\'s is currently %2$s'),
                             App::config()->nextRequiredPhp(),
                             phpversion()
                         ))

@@ -235,7 +235,7 @@ class Modules implements ModulesInterface
                 }
                 // optionnal minimum dependancy
                 if (str_ends_with((string) $dep[0], '?')) {
-                    $dep[0]                                = substr((string) $dep[0], 0, -1);
+                    $dep[0]                               = substr((string) $dep[0], 0, -1);
                     $optionals[$module->getId()][$dep[0]] = true;
                 }
                 // search required module
@@ -244,7 +244,7 @@ class Modules implements ModulesInterface
                 // grab missing dependencies
                 if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionals[$module->getId()][$dep[0]])) {
                     // module not present, nor php or core, nor optionnal
-                    $msg = sprintf(__('Module "%s" requires module "%s" which is not installed'), $module->getId(), $dep[0]);
+                    $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is not installed'), $module->getId(), $dep[0]);
                 } elseif (($found->isDefined() && $found->get('state') == ModuleDefine::STATE_ENABLED || isset($special[$dep[0]])) && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->get('version')), $dep[1]) == -1) {
                     // module present and enabled, or php or core, but version missing
                     if ($dep[0] == 'php') {
@@ -257,7 +257,7 @@ class Modules implements ModulesInterface
                         $dep_v = $found->get('version');
                     }
                     $msg = sprintf(
-                        __('Module "%s" requires %s version %s, but version %s is installed'),
+                        __('Module "%1$s" requires "%2$s" version %3$s, but version %4$s is installed'),
                         $module->getId(),
                         $dep[0],
                         $dep[1],
@@ -265,7 +265,7 @@ class Modules implements ModulesInterface
                     );
                 } elseif ($found->isDefined() && !isset($special[$dep[0]]) && $found->get('state') != ModuleDefine::STATE_ENABLED && !isset($optionals[$module->getId()][$dep[0]])) {
                     // module not enabled, not php or core, not optionnal
-                    $msg = sprintf(__('Module "%s" requires module "%s" which is disabled'), $module->getId(), $dep[0]);
+                    $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is disabled'), $module->getId(), $dep[0]);
                 }
                 if ($msg !== '') {
                     $module->addMissing($dep[0], $msg);
@@ -627,7 +627,7 @@ class Modules implements ModulesInterface
             // Check module type
             if ($this->type !== null && $this->define->get('type') !== $this->type) {
                 $this->errors[] = sprintf(
-                    __('Module "%s" has type "%s" that mismatch required module type "%s".'),
+                    __('Module "%1$s" has type "%2$s" that mismatch required module type "%3$s".'),
                     '<strong>' . Html::escapeHTML($this->define->get('name')) . '</strong>',
                     '<em>' . Html::escapeHTML($this->define->get('type')) . '</em>',
                     '<em>' . Html::escapeHTML($this->type) . '</em>'
@@ -653,7 +653,7 @@ class Modules implements ModulesInterface
                 $path2 = Path::real($this->mroot ?? '');
 
                 $this->errors[] = sprintf(
-                    __('Module "%s" is installed twice in "%s" and "%s".'),
+                    __('Module "%1$s" is installed twice in "%2$s" and "%3$s".'),
                     '<strong>' . $this->define->get('name') . '</strong>',
                     '<em>' . $path1 . '</em>',
                     '<em>' . $path2 . '</em>'

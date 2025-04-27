@@ -171,7 +171,7 @@ class Pager extends HelperPager
         $htmlCurrent = (new Li())
             ->class('active')
             ->items([
-                (new Text('strong', sprintf(__('Page %s / %s'), $this->env, $this->nb_pages))),
+                (new Text('strong', sprintf(__('Page %1$s / %2$s'), $this->env, $this->nb_pages))),
             ]);
 
         $htmlDirect = $this->nb_pages > 1 ?

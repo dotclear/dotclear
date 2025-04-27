@@ -995,7 +995,7 @@ class BlogPref extends Process
                         $message = (new Note())
                             ->class(['form-note', 'warn'])
                             ->text(sprintf(
-                                __('The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status).'),
+                                __('The URL of blog or the URL scan method might not be well set (<code>%1$s</code> return a <strong>%2$s</strong> status).'),
                                 Html::escapeHTML($file),
                                 (string) $status
                             ));
