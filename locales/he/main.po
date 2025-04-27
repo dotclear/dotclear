@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-27 15:48+0200\n"
-"PO-Revision-Date: 2025-04-27 14:30\n"
+"PO-Revision-Date: 2025-04-27 15:28\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -1126,7 +1126,7 @@ msgstr "הדף האחרון"
 #: src/Core/Backend/Listing/Pager.php:174
 #, php-format
 msgid "Page %1$s / %2$s"
-msgstr ""
+msgstr "עמוד %1$s / %2$s"
 
 #: src/Core/Backend/Listing/Pager.php:182
 msgid "Direct access page:"
@@ -2400,7 +2400,7 @@ msgstr "מודול SPL אינו זמין."
 #: src/Core/Install/Utils.php:69
 #, php-format
 msgid "MySQL version is %1$s (%2$s or earlier needed)."
-msgstr ""
+msgstr "גרסת MySQL היא %1$s (%2$s או מוקדם יותר)."
 
 #: src/Core/Install/Utils.php:82
 msgid "MySQL InnoDB engine is not available."
@@ -2933,27 +2933,27 @@ msgstr "ε÷ß:"
 #: src/Module/Modules.php:247
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed"
-msgstr ""
+msgstr "המודול \"%1$s\" דורש את המודול \"%2$s\" שאינו מותקן"
 
 #: src/Module/Modules.php:260
 #, php-format
 msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed"
-msgstr ""
+msgstr "המודול \"%1$s\" דורש את גרסה %3$s של \"%2$s\", אך גרסה %4$s מותקנת"
 
 #: src/Module/Modules.php:268
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
-msgstr ""
+msgstr "מודול \"%1$s\" דורש מודול \"%2$s\" אשר מושבת"
 
 #: src/Module/Modules.php:630
 #, php-format
 msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
-msgstr ""
+msgstr "מודול \"%1$s\" סוג \"%2$s\" סוג מודול זה לא מתאים \"%3$s\"."
 
 #: src/Module/Modules.php:656
 #, php-format
 msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
-msgstr ""
+msgstr "מודול \"%1$s\" מותקן פעמיים ב - \"%2$s\" ו \"%3$s\"."
 
 #: src/Module/Modules.php:730
 msgid "Empty module zip file."
@@ -3690,7 +3690,7 @@ msgstr "פרמטרים של בלוג"
 #: src/Process/Backend/BlogPref.php:998
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%1$s</code> return a <strong>%2$s</strong> status)."
-msgstr ""
+msgstr "כתובת ה-URL של הבלוג או מתודת סריקת ה-URL אינה מוגדרת כהלכה (<code>%1$s</code> להחזיר <strong>%2$s</strong> מצב)."
 
 #: src/Process/Backend/BlogPref.php:1007
 #, php-format
@@ -4523,7 +4523,7 @@ msgstr "טעינת קובץ חדש:"
 #: src/Process/Backend/Media.php:448
 #, php-format
 msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
-msgstr ""
+msgstr "בחרו קובץ לצירוף לרישום %1$s על-ידי לחיצה על %2$s"
 
 #: src/Process/Backend/Media.php:476
 #, php-format
@@ -5206,12 +5206,12 @@ msgstr "מידע על גרסה זו"
 #: src/Process/Backend/Rest.php:248
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s"
-msgstr ""
+msgstr "גרסה חדשה של Dotclear היא זמינה אבל צריכה PHP גרסה %1$s, שלכם הוא כרגע %2$s"
 
 #: src/Process/Backend/Rest.php:263 src/Process/Upgrade/Upgrade.php:211
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s"
-msgstr ""
+msgstr "הגרסאות הבאות של Dotclear לא יתמכו בגירסת PHP < %1$s, שלכם הוא %2$s"
 
 #: src/Process/Backend/Rest.php:294
 msgid "No updates are available"
@@ -6413,7 +6413,7 @@ msgstr "Dotclear %s זמין."
 #: src/Process/Upgrade/Upgrade.php:251
 #, php-format
 msgid "PHP version is %1$s (%2$s or earlier needed)."
-msgstr ""
+msgstr "גרסת PHP היא %1$s (%2$s או מוקדם יותר)."
 
 #: src/Process/Upgrade/Upgrade.php:259
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
