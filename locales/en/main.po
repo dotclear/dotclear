@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-27 10:42+0200\n"
-"PO-Revision-Date: 2025-04-27 09:03\n"
+"POT-Creation-Date: 2025-04-27 15:48+0200\n"
+"PO-Revision-Date: 2025-04-27 14:31\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -1095,7 +1095,7 @@ msgstr ""
 
 #: src/Core/Backend/Listing/Pager.php:174
 #, php-format
-msgid "Page %s / %s"
+msgid "Page %1$s / %2$s"
 msgstr ""
 
 #: src/Core/Backend/Listing/Pager.php:182
@@ -2306,7 +2306,7 @@ msgstr ""
 msgid "Can't create template files."
 msgstr ""
 
-#: src/Core/Install/Utils.php:35 src/Process/Upgrade/Upgrade.php:251
+#: src/Core/Install/Utils.php:35
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr ""
@@ -2341,7 +2341,7 @@ msgstr ""
 
 #: src/Core/Install/Utils.php:69
 #, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
+msgid "MySQL version is %1$s (%2$s or earlier needed)."
 msgstr ""
 
 #: src/Core/Install/Utils.php:82
@@ -2874,27 +2874,27 @@ msgstr ""
 
 #: src/Module/Modules.php:247
 #, php-format
-msgid "Module \"%s\" requires module \"%s\" which is not installed"
+msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed"
 msgstr ""
 
 #: src/Module/Modules.php:260
 #, php-format
-msgid "Module \"%s\" requires %s version %s, but version %s is installed"
+msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed"
 msgstr ""
 
 #: src/Module/Modules.php:268
 #, php-format
-msgid "Module \"%s\" requires module \"%s\" which is disabled"
+msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
 msgstr ""
 
 #: src/Module/Modules.php:630
 #, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
 msgstr ""
 
 #: src/Module/Modules.php:656
 #, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
+msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
 msgstr ""
 
 #: src/Module/Modules.php:730
@@ -3631,7 +3631,7 @@ msgstr ""
 
 #: src/Process/Backend/BlogPref.php:998
 #, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
+msgid "The URL of blog or the URL scan method might not be well set (<code>%1$s</code> return a <strong>%2$s</strong> status)."
 msgstr ""
 
 #: src/Process/Backend/BlogPref.php:1007
@@ -4458,7 +4458,7 @@ msgstr ""
 
 #: src/Process/Backend/Media.php:448
 #, php-format
-msgid "Choose a file to attach to entry %s by clicking on %s"
+msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
 msgstr ""
 
 #: src/Process/Backend/Media.php:476
@@ -5139,12 +5139,12 @@ msgstr ""
 
 #: src/Process/Backend/Rest.php:248
 #, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s"
 msgstr ""
 
 #: src/Process/Backend/Rest.php:263 src/Process/Upgrade/Upgrade.php:211
 #, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s"
 msgstr ""
 
 #: src/Process/Backend/Rest.php:294
@@ -6335,6 +6335,11 @@ msgstr ""
 #: src/Process/Upgrade/Upgrade.php:241
 #, php-format
 msgid "Dotclear %s is available."
+msgstr ""
+
+#: src/Process/Upgrade/Upgrade.php:251
+#, php-format
+msgid "PHP version is %1$s (%2$s or earlier needed)."
 msgstr ""
 
 #: src/Process/Upgrade/Upgrade.php:259
