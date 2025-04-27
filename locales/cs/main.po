@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-26 14:09+0200\n"
-"PO-Revision-Date: 2025-04-26 17:28\n"
+"PO-Revision-Date: 2025-04-27 08:29\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -2933,17 +2933,17 @@ msgstr "Stav:"
 #: src/Module/Modules.php:247
 #, php-format
 msgid "Module \"%s\" requires module \"%s\" which is not installed"
-msgstr ""
+msgstr "Modul \"%s\" vyžaduje modul \"%s\", který není nainstalován"
 
 #: src/Module/Modules.php:260
 #, php-format
 msgid "Module \"%s\" requires %s version %s, but version %s is installed"
-msgstr ""
+msgstr "Modul \"%s\" vyžaduje %s verzi %s, ale verze %s je nainstalována"
 
 #: src/Module/Modules.php:268
 #, php-format
 msgid "Module \"%s\" requires module \"%s\" which is disabled"
-msgstr ""
+msgstr "Modul \"%s\" vyžaduje modul \"%s\", který je vypnut"
 
 #: src/Module/Modules.php:630
 #, php-format
@@ -5382,7 +5382,7 @@ msgstr "Upravit výšku pole:"
 
 #: src/Process/Backend/User.php:499
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Různé"
 
 #: src/Process/Backend/User.php:527
 msgid "Save and create another"
