@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-26 14:09+0200\n"
-"PO-Revision-Date: 2025-04-26 17:28\n"
+"PO-Revision-Date: 2025-04-27 08:10\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -2991,17 +2991,17 @@ msgstr "الحالة:"
 #: src/Module/Modules.php:247
 #, php-format
 msgid "Module \"%s\" requires module \"%s\" which is not installed"
-msgstr ""
+msgstr "الوحدة النمطية \"%s\" تتطلب الوحدة النمطية \"%s\" غير المثبتة"
 
 #: src/Module/Modules.php:260
 #, php-format
 msgid "Module \"%s\" requires %s version %s, but version %s is installed"
-msgstr ""
+msgstr "تتطلب الوحدة النمطية \"%s\" الإصدار %s %s، ولكن تم تثبيت الإصدار %s"
 
 #: src/Module/Modules.php:268
 #, php-format
 msgid "Module \"%s\" requires module \"%s\" which is disabled"
-msgstr ""
+msgstr "الوحدة النمطية \"%s\" تتطلب الوحدة النمطية \"%s\" التي تم تعطيلها"
 
 #: src/Module/Modules.php:630
 #, php-format
@@ -5452,7 +5452,7 @@ msgstr "تعديل ارتفاع حقل الإدخال:"
 
 #: src/Process/Backend/User.php:499
 msgid "Miscellaneous"
-msgstr ""
+msgstr "متفرقات"
 
 #: src/Process/Backend/User.php:527
 msgid "Save and create another"
