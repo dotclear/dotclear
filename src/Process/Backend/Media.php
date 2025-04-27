@@ -670,7 +670,7 @@ class Media extends Process
 
         if (!App::backend()->page->hasQuery() && App::backend()->page->mediaWritable()) {
             $tools[] = (new Div())
-                ->class(['two-boxes', 'event', 'fieldset'])
+                ->class(['two-boxes', 'even', 'fieldset'])
                 ->items([
                     (new Div())
                         ->class(App::backend()->page->showUploader() ? 'enhanced_uploader' : '')
