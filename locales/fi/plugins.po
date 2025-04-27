@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-31 16:54+0200\n"
-"PO-Revision-Date: 2025-03-31 15:31\n"
+"POT-Creation-Date: 2025-04-26 19:26+0200\n"
+"PO-Revision-Date: 2025-04-26 17:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -2741,92 +2741,92 @@ msgstr "Näytetään linkissä ja käytetään linkin otsikkona"
 msgid "Not displayed nor used"
 msgstr "Ei näytetä eikä käytetä"
 
-#: plugins/tags/src/BackendBehaviors.php:62
-#: plugins/tags/src/BackendBehaviors.php:73
+#: plugins/tags/src/BackendBehaviors.php:63
+#: plugins/tags/src/BackendBehaviors.php:74
 #: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
 msgid "Tag"
 msgstr "Avainsana"
 
-#: plugins/tags/src/BackendBehaviors.php:236
+#: plugins/tags/src/BackendBehaviors.php:237
 msgid "Add tags"
 msgstr "Lisää avainsanoja"
 
-#: plugins/tags/src/BackendBehaviors.php:245
+#: plugins/tags/src/BackendBehaviors.php:246
 msgid "Remove tags"
 msgstr "Poista avainsanoja"
 
-#: plugins/tags/src/BackendBehaviors.php:280
+#: plugins/tags/src/BackendBehaviors.php:281
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Avainsana on lisätty valittuihin blogimerkintöihin"
 msgstr[1] "Avainsanat on lisätty valittuihin blogimerkintöihin"
 
-#: plugins/tags/src/BackendBehaviors.php:293
-#: plugins/tags/src/BackendBehaviors.php:448
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:449
 msgid "Are you sure you want to remove this tag?"
 msgstr "Oletko varma, että haluat poistaa tämän avainsanan?"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:449
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Add a tag to this entry"
 msgstr "Lisää avainsana tähän blogimerkintään"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Choose from list"
 msgstr "Valitse luettelosta"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "all"
 msgstr "kaikki"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "Enter tags separated by comma"
 msgstr "Syötä avainsanat pilkulla eroteltuina"
 
-#: plugins/tags/src/BackendBehaviors.php:305
+#: plugins/tags/src/BackendBehaviors.php:306
 msgid "Add tags to this selection"
 msgstr "Lisää avainsanat tähän valintaan"
 
-#: plugins/tags/src/BackendBehaviors.php:323
+#: plugins/tags/src/BackendBehaviors.php:324
 msgid "Tags to add:"
 msgstr "Lisättäviä avainsanoja:"
 
-#: plugins/tags/src/BackendBehaviors.php:362
+#: plugins/tags/src/BackendBehaviors.php:363
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Avainsana on poistettu valituista blogimerkinnöistä"
 msgstr[1] "Avainsanat on poistettu valituista blogimerkinnöistä"
 
-#: plugins/tags/src/BackendBehaviors.php:385
+#: plugins/tags/src/BackendBehaviors.php:386
 msgid "No tags for selected entries"
 msgstr "Ei avainsanoja valituissa blogimerkinnöissä"
 
-#: plugins/tags/src/BackendBehaviors.php:392
+#: plugins/tags/src/BackendBehaviors.php:393
 msgid "Remove selected tags from this selection"
 msgstr "Poista valitut avainsanat valinnasta"
 
-#: plugins/tags/src/BackendBehaviors.php:419
+#: plugins/tags/src/BackendBehaviors.php:420
 msgid "Following tags have been found in selected entries:"
 msgstr "Seuraavat avainsanat ovat löytyneet valituista blogimerkinnöistä:"
 
-#: plugins/tags/src/BackendBehaviors.php:428
+#: plugins/tags/src/BackendBehaviors.php:429
 msgid "Remove"
 msgstr "Poista"
 
-#: plugins/tags/src/BackendBehaviors.php:470
+#: plugins/tags/src/BackendBehaviors.php:492
+msgid "Tags list format:"
+msgstr "Avainsanaluettelon muoto:"
+
+#: plugins/tags/src/BackendBehaviors.php:495
 msgid "Short"
 msgstr "Lyhyt"
 
-#: plugins/tags/src/BackendBehaviors.php:471
+#: plugins/tags/src/BackendBehaviors.php:496
 msgid "Extended"
 msgstr "Laajempi"
-
-#: plugins/tags/src/BackendBehaviors.php:483
-msgid "Tags list format:"
-msgstr "Avainsanaluettelon muoto:"
 
 #: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's comments Atom feed"

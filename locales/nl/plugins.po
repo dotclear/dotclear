@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-31 16:54+0200\n"
-"PO-Revision-Date: 2025-03-31 15:31\n"
+"POT-Creation-Date: 2025-04-26 19:26+0200\n"
+"PO-Revision-Date: 2025-04-26 17:30\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -2741,92 +2741,92 @@ msgstr "Weergegeven in link en gebruikt als titel"
 msgid "Not displayed nor used"
 msgstr "Niet weergegeven of gebruikt"
 
-#: plugins/tags/src/BackendBehaviors.php:62
-#: plugins/tags/src/BackendBehaviors.php:73
+#: plugins/tags/src/BackendBehaviors.php:63
+#: plugins/tags/src/BackendBehaviors.php:74
 #: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:155
 msgid "Tag"
 msgstr "Label"
 
-#: plugins/tags/src/BackendBehaviors.php:236
+#: plugins/tags/src/BackendBehaviors.php:237
 msgid "Add tags"
 msgstr "Labels toevoegen"
 
-#: plugins/tags/src/BackendBehaviors.php:245
+#: plugins/tags/src/BackendBehaviors.php:246
 msgid "Remove tags"
 msgstr "Tags verwijderen"
 
-#: plugins/tags/src/BackendBehaviors.php:280
+#: plugins/tags/src/BackendBehaviors.php:281
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Tag is succesvol toegevoegd aan geselecteerde items"
 msgstr[1] "Tags zijn succesvol toegevoegd aan geselecteerde items"
 
-#: plugins/tags/src/BackendBehaviors.php:293
-#: plugins/tags/src/BackendBehaviors.php:448
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:449
 msgid "Are you sure you want to remove this tag?"
 msgstr "Weet je zeker dat je deze tag wilt verwijderen?"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:449
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:450
 msgid "Add a tag to this entry"
 msgstr "Een tag aan dit item toevoegen"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:451
 msgid "Choose from list"
 msgstr "Kies uit de lijst"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "all"
 msgstr "alle"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:298
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "Enter tags separated by comma"
 msgstr "Voer tags in, gescheiden door een komma"
 
-#: plugins/tags/src/BackendBehaviors.php:305
+#: plugins/tags/src/BackendBehaviors.php:306
 msgid "Add tags to this selection"
 msgstr "Tags toevoegen aan deze selectie"
 
-#: plugins/tags/src/BackendBehaviors.php:323
+#: plugins/tags/src/BackendBehaviors.php:324
 msgid "Tags to add:"
 msgstr "Tags toevoegen:"
 
-#: plugins/tags/src/BackendBehaviors.php:362
+#: plugins/tags/src/BackendBehaviors.php:363
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Tag is succesvol verwijderd uit geselecteerde items"
 msgstr[1] "Tags zijn succesvol verwijderd van geselecteerde items"
 
-#: plugins/tags/src/BackendBehaviors.php:385
+#: plugins/tags/src/BackendBehaviors.php:386
 msgid "No tags for selected entries"
 msgstr "Geen tags voor geselecteerde items"
 
-#: plugins/tags/src/BackendBehaviors.php:392
+#: plugins/tags/src/BackendBehaviors.php:393
 msgid "Remove selected tags from this selection"
 msgstr "Verwijder geselecteerde tags uit deze selectie"
 
-#: plugins/tags/src/BackendBehaviors.php:419
+#: plugins/tags/src/BackendBehaviors.php:420
 msgid "Following tags have been found in selected entries:"
 msgstr "De volgende tags zijn gevonden in geselecteerde items:"
 
-#: plugins/tags/src/BackendBehaviors.php:428
+#: plugins/tags/src/BackendBehaviors.php:429
 msgid "Remove"
 msgstr "Verwijder"
 
-#: plugins/tags/src/BackendBehaviors.php:470
+#: plugins/tags/src/BackendBehaviors.php:492
+msgid "Tags list format:"
+msgstr "Opmaak lijst tags:"
+
+#: plugins/tags/src/BackendBehaviors.php:495
 msgid "Short"
 msgstr "Kort"
 
-#: plugins/tags/src/BackendBehaviors.php:471
+#: plugins/tags/src/BackendBehaviors.php:496
 msgid "Extended"
 msgstr "Uitgebreide"
-
-#: plugins/tags/src/BackendBehaviors.php:483
-msgid "Tags list format:"
-msgstr "Opmaak lijst tags:"
 
 #: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's comments Atom feed"
