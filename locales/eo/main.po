@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-26 14:09+0200\n"
-"PO-Revision-Date: 2025-04-26 17:29\n"
+"PO-Revision-Date: 2025-04-27 08:29\n"
 "Last-Translator: \n"
 "Language-Team: Esperanto\n"
 "Language: eo_UY\n"
@@ -2875,17 +2875,17 @@ msgstr "Statuso:"
 #: src/Module/Modules.php:247
 #, php-format
 msgid "Module \"%s\" requires module \"%s\" which is not installed"
-msgstr ""
+msgstr "Modulo \"%s\" postulas modulon \"%s\", kiu ne estas instalita"
 
 #: src/Module/Modules.php:260
 #, php-format
 msgid "Module \"%s\" requires %s version %s, but version %s is installed"
-msgstr ""
+msgstr "Modulo \"%s\" postulas %s version %s, sed versio %s estas instalita"
 
 #: src/Module/Modules.php:268
 #, php-format
 msgid "Module \"%s\" requires module \"%s\" which is disabled"
-msgstr ""
+msgstr "Modulo \"%s\" postulas modulon \"%s\", kiu estas malŝaltita"
 
 #: src/Module/Modules.php:630
 #, php-format
@@ -5312,7 +5312,7 @@ msgstr "Eniga redakta kampo alteco:"
 
 #: src/Process/Backend/User.php:499
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Miksita"
 
 #: src/Process/Backend/User.php:527
 msgid "Save and create another"
