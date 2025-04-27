@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-26 14:09+0200\n"
-"PO-Revision-Date: 2025-04-26 17:29\n"
+"PO-Revision-Date: 2025-04-27 08:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -2875,17 +2875,17 @@ msgstr "Tila:"
 #: src/Module/Modules.php:247
 #, php-format
 msgid "Module \"%s\" requires module \"%s\" which is not installed"
-msgstr ""
+msgstr "Moduuli \"%s\" vaatii moduulin \"%s\", jota ei ole asennettu"
 
 #: src/Module/Modules.php:260
 #, php-format
 msgid "Module \"%s\" requires %s version %s, but version %s is installed"
-msgstr ""
+msgstr "Moduuli \"%s\" vaatii %s version %s, mutta versio %s on asennettu"
 
 #: src/Module/Modules.php:268
 #, php-format
 msgid "Module \"%s\" requires module \"%s\" which is disabled"
-msgstr ""
+msgstr "Moduuli \"%s\" vaatii moduulin \"%s\", joka on poistettu käytöstä"
 
 #: src/Module/Modules.php:630
 #, php-format
@@ -5312,7 +5312,7 @@ msgstr "Merkinnän muokkauskentän korkeus:"
 
 #: src/Process/Backend/User.php:499
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Sekalaiset"
 
 #: src/Process/Backend/User.php:527
 msgid "Save and create another"
