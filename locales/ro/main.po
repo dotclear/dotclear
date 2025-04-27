@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-26 14:09+0200\n"
-"PO-Revision-Date: 2025-04-26 17:28\n"
+"PO-Revision-Date: 2025-04-27 08:28\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -2904,17 +2904,17 @@ msgstr "Stare:"
 #: src/Module/Modules.php:247
 #, php-format
 msgid "Module \"%s\" requires module \"%s\" which is not installed"
-msgstr ""
+msgstr "Modulul \"%s\" necesită modulul \"%s\" care nu este instalat"
 
 #: src/Module/Modules.php:260
 #, php-format
 msgid "Module \"%s\" requires %s version %s, but version %s is installed"
-msgstr ""
+msgstr "Modulul \"%s\" necesită %s versiunea %s, dar versiunea %s este instalată"
 
 #: src/Module/Modules.php:268
 #, php-format
 msgid "Module \"%s\" requires module \"%s\" which is disabled"
-msgstr ""
+msgstr "Modulul \"%s\" necesită modulul \"%s\" care este dezactivat"
 
 #: src/Module/Modules.php:630
 #, php-format
@@ -5347,7 +5347,7 @@ msgstr "Înălţime câmp editare intrare:"
 
 #: src/Process/Backend/User.php:499
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Diverse"
 
 #: src/Process/Backend/User.php:527
 msgid "Save and create another"
