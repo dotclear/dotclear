@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-27 10:42+0200\n"
-"PO-Revision-Date: 2025-04-27 09:32\n"
+"POT-Creation-Date: 2025-04-27 15:48+0200\n"
+"PO-Revision-Date: 2025-04-27 15:29\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -1125,8 +1125,8 @@ msgstr "Остання сторінка"
 
 #: src/Core/Backend/Listing/Pager.php:174
 #, php-format
-msgid "Page %s / %s"
-msgstr "Сторінка %s / %s"
+msgid "Page %1$s / %2$s"
+msgstr "Сторінка %1$s / %2$s"
 
 #: src/Core/Backend/Listing/Pager.php:182
 msgid "Direct access page:"
@@ -2364,7 +2364,7 @@ msgstr "Щось пішло не так під час завантаження �
 msgid "Can't create template files."
 msgstr "Не вдається створити файли шаблонів."
 
-#: src/Core/Install/Utils.php:35 src/Process/Upgrade/Upgrade.php:251
+#: src/Core/Install/Utils.php:35
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "Версія PHP: %s (потрібна версія%s або більш рання)."
@@ -2399,8 +2399,8 @@ msgstr "Модуль SPL недоступний."
 
 #: src/Core/Install/Utils.php:69
 #, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr "Версія MySQL: %s (потрібна версія%s або більш рання)."
+msgid "MySQL version is %1$s (%2$s or earlier needed)."
+msgstr "Версія MySQL: %1$s (потрібна версія%2$s або більш рання)."
 
 #: src/Core/Install/Utils.php:82
 msgid "MySQL InnoDB engine is not available."
@@ -2932,28 +2932,28 @@ msgstr "Статус:"
 
 #: src/Module/Modules.php:247
 #, php-format
-msgid "Module \"%s\" requires module \"%s\" which is not installed"
-msgstr "Модуль \"%s\" вимагає модуль \"%s\", який не встановлено"
+msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed"
+msgstr "Модуль \"%1$s\" вимагає модуль \"%2$s\", який не встановлено"
 
 #: src/Module/Modules.php:260
 #, php-format
-msgid "Module \"%s\" requires %s version %s, but version %s is installed"
-msgstr "Модуль \"%s\" вимагає %s версії %s, але встановлена версія %s"
+msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed"
+msgstr "Модуль \"%1$s\" вимагає \"%2$s\" версії %3$s, але встановлена версія %4$s"
 
 #: src/Module/Modules.php:268
 #, php-format
-msgid "Module \"%s\" requires module \"%s\" which is disabled"
-msgstr "Модуль \"%s\" вимагає модуль \"%s\", який відключено"
+msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
+msgstr "Модуль \"%1$s\" вимагає модуль \"%2$s\", який відключено"
 
 #: src/Module/Modules.php:630
 #, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr "Модуль \"%s\" має тип \"%s\", що не відповідає необхідному типу модуля \"%s\"."
+msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
+msgstr "Модуль \"%1$s\" має тип \"%2$s\", що не відповідає необхідному типу модуля \"%3$s\"."
 
 #: src/Module/Modules.php:656
 #, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr "Модуль \"%s\" встановлюється двічі в \"%s\" та \"%s\"."
+msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
+msgstr "Модуль \"%1$s\" встановлюється двічі в \"%2$s\" та \"%3$s\"."
 
 #: src/Module/Modules.php:730
 msgid "Empty module zip file."
@@ -3689,8 +3689,8 @@ msgstr "Параметри блогу"
 
 #: src/Process/Backend/BlogPref.php:998
 #, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr "Можливо, неправильно вказано URL-адресу блогу або метод сканування URL-адреси (<code>%s</code> повертає статус <strong>%s</strong>)."
+msgid "The URL of blog or the URL scan method might not be well set (<code>%1$s</code> return a <strong>%2$s</strong> status)."
+msgstr "Можливо, неправильно вказано URL-адресу блогу або метод сканування URL-адреси (<code>%1$s</code> повертає статус <strong>%2$s</strong>)."
 
 #: src/Process/Backend/BlogPref.php:1007
 #, php-format
@@ -4522,8 +4522,8 @@ msgstr "завантажити новий файл"
 
 #: src/Process/Backend/Media.php:448
 #, php-format
-msgid "Choose a file to attach to entry %s by clicking on %s"
-msgstr "Виберіть файл, який потрібно прикріпити до заявки %s , натиснувши на %s"
+msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
+msgstr "Виберіть файл, який потрібно прикріпити до заявки %1$s , натиснувши на %2$s\n"
 
 #: src/Process/Backend/Media.php:476
 #, php-format
@@ -5205,13 +5205,13 @@ msgstr "Інформація про цю версію"
 
 #: src/Process/Backend/Rest.php:248
 #, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr "Нова версія Dotclear доступна, але потребує версії PHP ≥ %s, ваша версія наразі %s."
+msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s"
+msgstr "Нова версія Dotclear доступна, але потребує версії PHP ≥ %1$s, ваша версія наразі %2$s."
 
 #: src/Process/Backend/Rest.php:263 src/Process/Upgrade/Upgrade.php:211
 #, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr "Наступні версії Dotclear не підтримуватимуть версію PHP < %s, ваша версія наразі %s."
+msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s"
+msgstr "Наступні версії Dotclear не підтримуватимуть версію PHP < %1$s, ваша версія наразі %2$s."
 
 #: src/Process/Backend/Rest.php:294
 msgid "No updates are available"
@@ -6409,6 +6409,11 @@ msgstr "Відтворення версії, нижчої за останню, �
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s доступний."
+
+#: src/Process/Upgrade/Upgrade.php:251
+#, php-format
+msgid "PHP version is %1$s (%2$s or earlier needed)."
+msgstr "Версія PHP: %1$s (потрібна версія%2$s або більш рання)."
 
 #: src/Process/Upgrade/Upgrade.php:259
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."

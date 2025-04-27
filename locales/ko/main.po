@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-27 10:42+0200\n"
-"PO-Revision-Date: 2025-04-27 09:32\n"
+"POT-Creation-Date: 2025-04-27 15:48+0200\n"
+"PO-Revision-Date: 2025-04-27 15:29\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -1080,8 +1080,8 @@ msgstr "마지막 페이지"
 
 #: src/Core/Backend/Listing/Pager.php:174
 #, php-format
-msgid "Page %s / %s"
-msgstr "페이지 %s / %s"
+msgid "Page %1$s / %2$s"
+msgstr "페이지 %1$s / %2$s"
 
 #: src/Core/Backend/Listing/Pager.php:182
 msgid "Direct access page:"
@@ -2277,7 +2277,7 @@ msgstr "블로그용 템플릿 파일을 로드하는 동안 문제가 발생했
 msgid "Can't create template files."
 msgstr "템플릿 파일을 만들 수 없습니다."
 
-#: src/Core/Install/Utils.php:35 src/Process/Upgrade/Upgrade.php:251
+#: src/Core/Install/Utils.php:35
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "PHP 버전은 %s (%s 또는 이전 버전 필요)입니다."
@@ -2312,8 +2312,8 @@ msgstr "SPL 모듈을 사용할 수 없습니다."
 
 #: src/Core/Install/Utils.php:69
 #, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr "MySQL 버전은 %s (%s 또는 이전 버전 필요)입니다."
+msgid "MySQL version is %1$s (%2$s or earlier needed)."
+msgstr "MySQL 버전은 %1$s (%2$s 또는 이전 버전 필요)입니다."
 
 #: src/Core/Install/Utils.php:82
 msgid "MySQL InnoDB engine is not available."
@@ -2845,28 +2845,28 @@ msgstr "공개상태 :"
 
 #: src/Module/Modules.php:247
 #, php-format
-msgid "Module \"%s\" requires module \"%s\" which is not installed"
-msgstr "모듈 \"%s\"에 설치되지 않은 모듈 \"%s\"이 필요합니다."
+msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed"
+msgstr "모듈 \"%1$s\"에 설치되지 않은 모듈 \"%2$s\"이 필요합니다."
 
 #: src/Module/Modules.php:260
 #, php-format
-msgid "Module \"%s\" requires %s version %s, but version %s is installed"
-msgstr "모듈 \"%s\"에는 %s 버전 %s이 필요하지만 버전 %s 이 설치되어 있습니다."
+msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed"
+msgstr "모듈 \"%1$s\"에는 \"%2$s\" 버전 %3$s이 필요하지만 버전 %4$s 이 설치되어 있습니다."
 
 #: src/Module/Modules.php:268
 #, php-format
-msgid "Module \"%s\" requires module \"%s\" which is disabled"
-msgstr "모듈 \"%s\" 비활성화된 모듈 \"%s\" 필요"
+msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
+msgstr "모듈 \"%1$s\" 비활성화된 모듈 \"%2$s\" 필요"
 
 #: src/Module/Modules.php:630
 #, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr "모듈 \"%s\"의 유형 \"%s\"이 필수 모듈 유형 \"%s\"과 불일치합니다."
+msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
+msgstr "모듈 \"%1$s\"의 유형 \"%2$s\"이 필수 모듈 유형 \"%3$s\"과 불일치합니다."
 
 #: src/Module/Modules.php:656
 #, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr "모듈 \"%s\"는 \"%s\" 및 \"%s\"에 두 번 설치됩니다."
+msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
+msgstr "모듈 \"%1$s\"는 \"%2$s\" 및 \"%3$s\"에 두 번 설치됩니다."
 
 #: src/Module/Modules.php:730
 msgid "Empty module zip file."
@@ -3602,8 +3602,8 @@ msgstr "블로그 매개 변수"
 
 #: src/Process/Backend/BlogPref.php:998
 #, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr "블로그의 URL 또는 URL 스캔 방법이 제대로 설정되지 않았을 수 있습니다(<code>%s</code> <strong>%s</strong> 상태 반환)."
+msgid "The URL of blog or the URL scan method might not be well set (<code>%1$s</code> return a <strong>%2$s</strong> status)."
+msgstr "블로그의 URL 또는 URL 스캔 방법이 제대로 설정되지 않았을 수 있습니다(<code>%1$s</code> <strong>%2$s</strong> 상태 반환)."
 
 #: src/Process/Backend/BlogPref.php:1007
 #, php-format
@@ -4429,8 +4429,8 @@ msgstr "새 파일 업로드"
 
 #: src/Process/Backend/Media.php:448
 #, php-format
-msgid "Choose a file to attach to entry %s by clicking on %s"
-msgstr "%s을 클릭하여 %s 항목에 첨부할 파일을 선택합니다."
+msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
+msgstr "%1$s을 클릭하여 %2$s 항목에 첨부할 파일을 선택합니다."
 
 #: src/Process/Backend/Media.php:476
 #, php-format
@@ -5109,13 +5109,13 @@ msgstr "이 버전에 대한 정보"
 
 #: src/Process/Backend/Rest.php:248
 #, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr "새 버전의 닷클리어를 사용할 수 있지만 PHP 버전이 %s이상이어야 하며, 현재 사용 중인 버전은 %s입니다."
+msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s"
+msgstr "새 버전의 닷클리어를 사용할 수 있지만 PHP 버전이 %1$s이상이어야 하며, 현재 사용 중인 버전은 %2$s입니다."
 
 #: src/Process/Backend/Rest.php:263 src/Process/Upgrade/Upgrade.php:211
 #, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr "다음 버전의 닷클리어는 PHP 버전< %s, 현재 사용 중인 버전은 %s>을 지원하지 않습니다."
+msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s"
+msgstr "다음 버전의 닷클리어는 PHP 버전< %1$s, 현재 사용 중인 버전은 %2$s>을 지원하지 않습니다."
 
 #: src/Process/Backend/Rest.php:294
 msgid "No updates are available"
@@ -6304,6 +6304,11 @@ msgstr "마지막 버전보다 낮은 버전으로 재생하면 설치가 중단
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s 버전이 출시되었습니다."
+
+#: src/Process/Upgrade/Upgrade.php:251
+#, php-format
+msgid "PHP version is %1$s (%2$s or earlier needed)."
+msgstr "PHP 버전은 %1$s (%2$s 또는 이전 버전 필요)입니다."
 
 #: src/Process/Upgrade/Upgrade.php:259
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."

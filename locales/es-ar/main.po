@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-27 10:42+0200\n"
-"PO-Revision-Date: 2025-04-27 09:32\n"
+"POT-Creation-Date: 2025-04-27 15:48+0200\n"
+"PO-Revision-Date: 2025-04-27 15:29\n"
 "Last-Translator: \n"
 "Language-Team: Spanish, Argentina\n"
 "Language: es_AR\n"
@@ -1095,8 +1095,8 @@ msgstr "Última página"
 
 #: src/Core/Backend/Listing/Pager.php:174
 #, php-format
-msgid "Page %s / %s"
-msgstr "Página %s / %s"
+msgid "Page %1$s / %2$s"
+msgstr "Página %1$s / %2$s"
 
 #: src/Core/Backend/Listing/Pager.php:182
 msgid "Direct access page:"
@@ -2306,7 +2306,7 @@ msgstr "Algo ha ido mal al cargar el archivo de plantilla de su blog."
 msgid "Can't create template files."
 msgstr "No se pueden crear archivos de plantilla."
 
-#: src/Core/Install/Utils.php:35 src/Process/Upgrade/Upgrade.php:251
+#: src/Core/Install/Utils.php:35
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "La versión de PHP es %s ( se necesita%s o anterior)."
@@ -2341,8 +2341,8 @@ msgstr "El módulo SPL no está disponible."
 
 #: src/Core/Install/Utils.php:69
 #, php-format
-msgid "MySQL version is %s (%s or earlier needed)."
-msgstr "La versión de MySQL es %s ( se necesita%s o anterior)."
+msgid "MySQL version is %1$s (%2$s or earlier needed)."
+msgstr "La versión de MySQL es %1$s ( se necesita%2$s o anterior)."
 
 #: src/Core/Install/Utils.php:82
 msgid "MySQL InnoDB engine is not available."
@@ -2874,28 +2874,28 @@ msgstr "Estado:"
 
 #: src/Module/Modules.php:247
 #, php-format
-msgid "Module \"%s\" requires module \"%s\" which is not installed"
-msgstr "El módulo \"%s\" requiere el módulo \"%s\" que no está instalado"
+msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed"
+msgstr "El módulo \"%1$s\" requiere el módulo \"%2$s\" que no está instalado"
 
 #: src/Module/Modules.php:260
 #, php-format
-msgid "Module \"%s\" requires %s version %s, but version %s is installed"
-msgstr "El módulo \"%s\" requiere %s versión %s, pero la versión %s está instalada"
+msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed"
+msgstr "El módulo \"%1$s\" requiere \"%2$s\" versión %3$s, pero la versión %4$s está instalada"
 
 #: src/Module/Modules.php:268
 #, php-format
-msgid "Module \"%s\" requires module \"%s\" which is disabled"
-msgstr "El módulo \"%s\" requiere el módulo \"%s\", que está desactivado"
+msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled"
+msgstr "El módulo \"%1$s\" requiere el módulo \"%2$s\", que está desactivado"
 
 #: src/Module/Modules.php:630
 #, php-format
-msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr "El módulo \"%s\" tiene el tipo \"%s\" que no coincide con el tipo de módulo requerido \"%s\"."
+msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
+msgstr "El módulo \"%1$s\" tiene el tipo \"%2$s\" que no coincide con el tipo de módulo requerido \"%3$s\"."
 
 #: src/Module/Modules.php:656
 #, php-format
-msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr "El módulo \"%s\" se instala dos veces en \"%s\" y \"%s\"."
+msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
+msgstr "El módulo \"%1$s\" se instala dos veces en \"%2$s\" y \"%3$s\"."
 
 #: src/Module/Modules.php:730
 msgid "Empty module zip file."
@@ -3631,8 +3631,8 @@ msgstr "Parámetros del blog"
 
 #: src/Process/Backend/BlogPref.php:998
 #, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr "Es posible que la URL del blog o el método de exploración de URL no estén bien configurados (<code>%s</code> devuelve un estado <strong>%s</strong>)."
+msgid "The URL of blog or the URL scan method might not be well set (<code>%1$s</code> return a <strong>%2$s</strong> status)."
+msgstr "Es posible que la URL del blog o el método de exploración de URL no estén bien configurados (<code>%1$s</code> devuelve un estado <strong>%2$s</strong>)."
 
 #: src/Process/Backend/BlogPref.php:1007
 #, php-format
@@ -4460,8 +4460,8 @@ msgstr "cargar un nuevo archivo"
 
 #: src/Process/Backend/Media.php:448
 #, php-format
-msgid "Choose a file to attach to entry %s by clicking on %s"
-msgstr "Elija un archivo para adjuntar a la entrada %s haciendo clic en %s"
+msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
+msgstr "Elija un archivo para adjuntar a la entrada %1$s haciendo clic en %2$s"
 
 #: src/Process/Backend/Media.php:476
 #, php-format
@@ -5141,13 +5141,13 @@ msgstr "Información sobre esta versión"
 
 #: src/Process/Backend/Rest.php:248
 #, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr "Una nueva versión de Dotclear está disponible pero necesita la versión PHP ≥ %s, la suya es actualmente %s"
+msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s"
+msgstr "Una nueva versión de Dotclear está disponible pero necesita la versión PHP ≥ %1$s, la suya es actualmente %2$s"
 
 #: src/Process/Backend/Rest.php:263 src/Process/Upgrade/Upgrade.php:211
 #, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr "Las próximas versiones de Dotclear no soportarán la versión PHP < %s, la suya es actualmente %s"
+msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s"
+msgstr "Las próximas versiones de Dotclear no soportarán la versión PHP < %1$s, la suya es actualmente %2$s"
 
 #: src/Process/Backend/Rest.php:294
 msgid "No updates are available"
@@ -6339,6 +6339,11 @@ msgstr "Reproducir una versión inferior a la última puede romper su instalaci�
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s está disponible."
+
+#: src/Process/Upgrade/Upgrade.php:251
+#, php-format
+msgid "PHP version is %1$s (%2$s or earlier needed)."
+msgstr "La versión de PHP es %1$s ( se necesita%2$s o anterior)."
 
 #: src/Process/Upgrade/Upgrade.php:259
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."

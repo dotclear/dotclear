@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-26 19:26+0200\n"
-"PO-Revision-Date: 2025-04-26 17:29\n"
+"POT-Creation-Date: 2025-04-27 16:27+0200\n"
+"PO-Revision-Date: 2025-04-27 15:29\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -443,8 +443,8 @@ msgstr "Απεγκατάσταση θέματος \"%s\""
 
 #: plugins/Uninstaller/src/Manage.php:176
 #, php-format
-msgid "The module \"%s %s\" offers advanced unsintall process:"
-msgstr "Η ενότητα \"%s %s\" προσφέρει προηγμένη διαδικασία unsintall:"
+msgid "The module \"%1$s\" version %2$s offers advanced unsintall process:"
+msgstr "Η ενότητα \"%1$s\" έκδοση %2$s προσφέρει προηγμένη διαδικασία unsintall:"
 
 #: plugins/_fake_plugin/_fake_l10n.php:6
 msgid "Cope with old core classes (< 2.26)"
