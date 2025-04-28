@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-27 15:48+0200\n"
-"PO-Revision-Date: 2025-04-27 15:29\n"
+"POT-Creation-Date: 2025-04-28 09:26+0200\n"
+"PO-Revision-Date: 2025-04-28 07:29\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -126,7 +126,7 @@ msgstr "Ідентифікатор блогу"
 #: src/Core/Backend/Listing/ListingBlogs.php:79
 #: src/Core/Backend/UserPref.php:77 src/Process/Backend/Blog.php:142
 #: src/Process/Backend/BlogPref.php:552
-#: src/Process/Backend/UsersActions.php:285
+#: src/Process/Backend/UsersActions.php:287
 msgid "Blog name"
 msgstr "Назва блогу"
 
@@ -142,8 +142,8 @@ msgstr "Назва блогу"
 #: src/Core/Backend/Listing/ListingUsers.php:90
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
 #: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:636
-#: src/Process/Backend/Post.php:1360 src/Process/Backend/Users.php:44
-#: src/Process/Backend/UsersActions.php:288
+#: src/Process/Backend/Post.php:1360 src/Process/Backend/Users.php:45
+#: src/Process/Backend/UsersActions.php:290
 msgid "Status"
 msgstr "Статус"
 
@@ -157,7 +157,7 @@ msgstr "Статус"
 #: src/Core/Backend/Listing/ListingMedia.php:306
 #: src/Core/Backend/ModulesList.php:1326 src/Core/Upgrade/PluginsList.php:123
 #: src/Process/Backend/Comment.php:351 src/Process/Backend/Langs.php:229
-#: src/Process/Backend/Post.php:932 src/Process/Backend/Users.php:45
+#: src/Process/Backend/Post.php:932 src/Process/Backend/Users.php:46
 #: src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "Видалити"
@@ -421,7 +421,7 @@ msgstr "Батько:"
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:346
 #: src/Process/Backend/Home.php:597 src/Process/Backend/MediaItem.php:1270
 #: src/Process/Backend/Post.php:897 src/Process/Backend/Post.php:1114
-#: src/Process/Backend/User.php:523 src/Process/Backend/UsersActions.php:407
+#: src/Process/Backend/User.php:523 src/Process/Backend/UsersActions.php:409
 #: src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "Зберегти"
@@ -543,7 +543,7 @@ msgstr "Останнє оновлення"
 
 #: src/Core/Backend/Combos.php:328 src/Process/Backend/Blog.php:123
 #: src/Process/Backend/BlogPref.php:1028
-#: src/Process/Backend/UsersActions.php:284
+#: src/Process/Backend/UsersActions.php:286
 msgid "Blog ID"
 msgstr "Ідентифікатор блогу"
 
@@ -641,8 +641,8 @@ msgstr "Зовнішній вигляд блогу"
 
 #: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
-#: src/Process/Backend/BlogPref.php:1360 src/Process/Backend/User.php:274
-#: src/Process/Backend/Users.php:103 src/Process/Backend/Users.php:108
+#: src/Process/Backend/BlogPref.php:1361 src/Process/Backend/User.php:274
+#: src/Process/Backend/Users.php:104 src/Process/Backend/Users.php:109
 #: src/Process/Backend/UsersActions.php:205
 #: src/Process/Backend/UsersActions.php:213
 #: src/Process/Backend/UsersActions.php:220
@@ -668,7 +668,7 @@ msgid "Global help"
 msgstr "Глобальна допомога"
 
 #: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1256
-#: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1340
+#: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1341
 #: src/Process/Backend/Comment.php:303 src/Process/Backend/Post.php:1083
 #: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:540
 #: src/Process/Install/Install.php:445
@@ -836,7 +836,7 @@ msgid "next &#187;"
 msgstr "наступний &#187;"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:50
-#: src/Process/Backend/UsersActions.php:278
+#: src/Process/Backend/UsersActions.php:280
 msgid "No blog"
 msgstr "Немає блогу"
 
@@ -847,7 +847,7 @@ msgstr "Жоден блог не відповідає фільтру"
 #: src/Core/Backend/Listing/ListingBlogs.php:85
 #: src/Core/Backend/ModulesList.php:1776 src/Core/Backend/UserPref.php:78
 #: src/Process/Backend/LinkPopup.php:89
-#: src/Process/Backend/UsersActions.php:286
+#: src/Process/Backend/UsersActions.php:288
 msgid "URL"
 msgstr "URL"
 
@@ -1135,7 +1135,7 @@ msgstr "Сторінка прямого доступу:"
 #: src/Core/Backend/Listing/Pager.php:183 src/Core/Backend/Page.php:168
 #: src/Process/Backend/Blogs.php:150 src/Process/Backend/Comments.php:218
 #: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:315
-#: src/Process/Backend/Search.php:411 src/Process/Backend/Users.php:160
+#: src/Process/Backend/Search.php:411 src/Process/Backend/Users.php:161
 msgid "ok"
 msgstr "Гаразд."
 
@@ -1455,7 +1455,7 @@ msgstr "Завантажте zip-файл"
 #: src/Process/Backend/Langs.php:320 src/Process/Backend/Langs.php:370
 #: src/Process/Backend/LinkPopup.php:82 src/Process/Backend/Post.php:968
 #: src/Process/Backend/Post.php:1059 src/Process/Backend/User.php:303
-#: src/Process/Backend/UsersActions.php:396 src/Process/Install/Install.php:455
+#: src/Process/Backend/UsersActions.php:398 src/Process/Install/Install.php:455
 #: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:403
 #, php-format
 msgid "Fields preceded by %s are mandatory."
@@ -1469,16 +1469,15 @@ msgstr "Шлях до архіву:"
 #: src/Process/Backend/Langs.php:342 src/Process/Backend/Langs.php:391
 #: src/Process/Backend/Post.php:777 src/Process/Backend/User.php:338
 #: src/Process/Backend/User.php:360 src/Process/Backend/User.php:516
-#: src/Process/Backend/UsersActions.php:403 src/Process/Install/Install.php:467
+#: src/Process/Backend/UsersActions.php:405 src/Process/Install/Install.php:467
 #: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:426
 msgid "Password"
 msgstr "Пароль"
 
 #: src/Core/Backend/ModulesList.php:1742 src/Core/Backend/ModulesList.php:1792
 #: src/Process/Backend/BlogDel.php:125 src/Process/Backend/Langs.php:345
-#: src/Process/Backend/Langs.php:394 src/Process/Backend/UsersActions.php:397
-#: src/Process/Upgrade/Langs.php:376 src/Process/Upgrade/Langs.php:382
-#: src/Process/Upgrade/Langs.php:430
+#: src/Process/Backend/Langs.php:394 src/Process/Upgrade/Langs.php:376
+#: src/Process/Upgrade/Langs.php:382 src/Process/Upgrade/Langs.php:430
 msgid "Your password:"
 msgstr "Ваш пароль:"
 
@@ -1545,7 +1544,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Page.php:146 src/Process/Backend/User.php:570
-#: src/Process/Backend/UsersActions.php:353
+#: src/Process/Backend/UsersActions.php:355
 msgid "Blog:"
 msgstr "Блог:"
 
@@ -2530,7 +2529,7 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:458
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:245
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:115
-#: src/Process/Backend/User.php:273 src/Process/Backend/Users.php:107
+#: src/Process/Backend/User.php:273 src/Process/Backend/Users.php:108
 #: src/Process/Backend/UsersActions.php:204
 #: src/Process/Backend/UsersActions.php:212 src/Process/Upgrade/Home.php:159
 msgid "System"
@@ -3787,7 +3786,7 @@ msgid "All rights on this blog."
 msgstr "Всі права на цей блог належать мені."
 
 #: src/Process/Backend/BlogPref.php:1301
-#: src/Process/Backend/UsersActions.php:387
+#: src/Process/Backend/UsersActions.php:389
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (дозвіл без посилання)"
@@ -3796,15 +3795,19 @@ msgstr "[%s] (дозвіл без посилання)"
 msgid "Change permissions"
 msgstr "Дозволи на зміну"
 
-#: src/Process/Backend/BlogPref.php:1343
+#: src/Process/Backend/BlogPref.php:1322
+msgid "Back to user card"
+msgstr ""
+
+#: src/Process/Backend/BlogPref.php:1344
 msgid "Publications on this blog:"
 msgstr "Публікації в цьому блозі:"
 
-#: src/Process/Backend/BlogPref.php:1346
+#: src/Process/Backend/BlogPref.php:1347
 msgid "Permissions:"
 msgstr "Дозвольте:"
 
-#: src/Process/Backend/BlogPref.php:1363
+#: src/Process/Backend/BlogPref.php:1364
 msgid "Users on this blog"
 msgstr "Користувачі цього блогу"
 
@@ -3915,7 +3918,7 @@ msgid "Create a new blog"
 msgstr "Створіть новий блог"
 
 #: src/Process/Backend/Blogs.php:139 src/Process/Backend/Comments.php:215
-#: src/Process/Backend/Users.php:149 src/Process/Backend/UsersActions.php:214
+#: src/Process/Backend/Users.php:150 src/Process/Backend/UsersActions.php:214
 msgid "Actions"
 msgstr "Дії"
 
@@ -5272,7 +5275,7 @@ msgstr[1] "%d знайдено коментарів"
 msgstr[2] "%d знайдено коментарів"
 msgstr[3] "%d знайдено коментарів"
 
-#: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:127
+#: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
 msgstr "Новий користувач"
 
@@ -5384,7 +5387,7 @@ msgstr "Введіть висоту поля для редагування:"
 msgid "Miscellaneous"
 msgstr "Різне"
 
-#: src/Process/Backend/User.php:518
+#: src/Process/Backend/User.php:518 src/Process/Backend/UsersActions.php:399
 msgid "Your administrator password:"
 msgstr "Ваш пароль адміністратора:"
 
@@ -5396,7 +5399,7 @@ msgstr "Збережіть і створіть ще один"
 msgid "No permissions so far."
 msgstr "Дозволів поки що немає."
 
-#: src/Process/Backend/User.php:605 src/Process/Backend/Users.php:43
+#: src/Process/Backend/User.php:605 src/Process/Backend/Users.php:44
 #: src/Process/Backend/UsersActions.php:206
 msgid "Permissions"
 msgstr "Дозволи"
@@ -5410,15 +5413,19 @@ msgstr "%s є супер-адміном (всі права на всі блог�
 msgid "Add new permissions"
 msgstr "Додавання нових дозволів"
 
-#: src/Process/Backend/User.php:631
+#: src/Process/Backend/User.php:620 src/Process/Backend/UsersActions.php:247
+msgid "Back to user profile"
+msgstr "Повернутися до профілю користувача"
+
+#: src/Process/Backend/User.php:632
 msgid "Direct links"
 msgstr "Прямі посилання"
 
-#: src/Process/Backend/User.php:636
+#: src/Process/Backend/User.php:637
 msgid "List of posts"
 msgstr "Перелік посад"
 
-#: src/Process/Backend/User.php:649
+#: src/Process/Backend/User.php:650
 msgid "List of comments"
 msgstr "Перелік коментарів"
 
@@ -5756,21 +5763,25 @@ msgstr "Порядок елементів інформаційної панел�
 msgid "Reset dashboard items order"
 msgstr "Скинути порядок елементів інформаційної панелі"
 
-#: src/Process/Backend/Users.php:43 src/Process/Backend/UsersActions.php:317
+#: src/Process/Backend/Users.php:44 src/Process/Backend/UsersActions.php:319
 msgid "Set permissions"
 msgstr "Встановіть дозволи"
 
-#: src/Process/Backend/Users.php:115
+#: src/Process/Backend/Users.php:116
 msgid "User has been successfully removed."
 msgstr "Користувача успішно видалено."
 
-#: src/Process/Backend/Users.php:118
+#: src/Process/Backend/Users.php:119
 msgid "The permissions have been successfully updated."
 msgstr "Дозволи успішно оновлено."
 
-#: src/Process/Backend/Users.php:152
+#: src/Process/Backend/Users.php:153
 msgid "Selected users action:"
 msgstr "Дії вибраних користувачів:"
+
+#: src/Process/Backend/Users.php:163
+msgid "Back to users list"
+msgstr ""
 
 #: src/Process/Backend/UsersActions.php:81
 msgid "No blog or user given."
@@ -5793,29 +5804,25 @@ msgstr "Користувача успішно видалено."
 msgid "You cannot delete yourself."
 msgstr "Ви не можете видалити себе."
 
-#: src/Process/Backend/UsersActions.php:248
-msgid "Back to user profile"
-msgstr "Повернутися до профілю користувача"
-
-#: src/Process/Backend/UsersActions.php:273
+#: src/Process/Backend/UsersActions.php:275
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Виберіть один або кілька блогів, до яких ви хочете надати дозволи користувачам %s."
 
-#: src/Process/Backend/UsersActions.php:287
+#: src/Process/Backend/UsersActions.php:289
 msgid "Entries"
 msgstr "Записи на участь у конкурсі"
 
-#: src/Process/Backend/UsersActions.php:300
+#: src/Process/Backend/UsersActions.php:302
 msgid "select"
 msgstr "вибрати"
 
-#: src/Process/Backend/UsersActions.php:346
+#: src/Process/Backend/UsersActions.php:348
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "Ви збираєтеся змінити права доступу до наступних блогів для користувачів %s."
 
-#: src/Process/Backend/UsersActions.php:395
+#: src/Process/Backend/UsersActions.php:397
 msgid "Validate permissions"
 msgstr "Перевірка дозволів"
 
