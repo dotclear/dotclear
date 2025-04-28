@@ -65,7 +65,7 @@ abstract class MyTheme extends MyModule
         }
 
         $base = preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->themes_url) ?
-            Http::concatURL(App::blog()->settings()->system->themes_url, '/' . self::id()) :
+            Http::concatURL(App::blog()->settings()->system->themes_url, self::id()) :
             Http::concatURL(App::blog()->url(), App::blog()->settings()->system->themes_url . '/' . self::id());
 
         return  $base . $resource;

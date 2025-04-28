@@ -255,7 +255,7 @@ class ThemesList extends ModulesList
                 // _GET actions
                 if (file_exists(Path::real(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id) . DIRECTORY_SEPARATOR . 'style.css')) {
                     $theme_url = preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->themes_url) ?
-                    Http::concatURL(App::blog()->settings()->system->themes_url, '/' . $id) :
+                    Http::concatURL(App::blog()->settings()->system->themes_url, $id) :
                     Http::concatURL(App::blog()->url(), App::blog()->settings()->system->themes_url . '/' . $id);
 
                     $module_actions[] = (new Para())

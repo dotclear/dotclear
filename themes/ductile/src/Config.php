@@ -39,7 +39,7 @@ class Config extends Process
         My::l10n('admin');
 
         if (preg_match('#^http(s)?://#', (string) App::blog()->settings()->system->themes_url)) {
-            App::backend()->img_url = Http::concatURL(App::blog()->settings()->system->themes_url, '/' . App::blog()->settings()->system->theme . '/img/');
+            App::backend()->img_url = Http::concatURL(App::blog()->settings()->system->themes_url, App::blog()->settings()->system->theme . '/img/');
         } else {
             App::backend()->img_url = Http::concatURL(App::blog()->url(), App::blog()->settings()->system->themes_url . '/' . App::blog()->settings()->system->theme . '/img/');
         }
