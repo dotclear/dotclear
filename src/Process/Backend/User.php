@@ -617,6 +617,7 @@ class User extends Process
                                             ->fields([
                                                 (new Submit('add_perm', __('Add new permissions'))),
                                                 (new Hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => App::backend()->user_id]))),
+                                                (new Hidden(['redir_label'], __('Back to user profile'))),
                                                 (new Hidden(['action'], 'blogs')),
                                                 (new Hidden(['users[]'], App::backend()->user_id)),
                                                 App::nonce()->formNonce(),

@@ -1318,7 +1318,8 @@ class BlogPref extends Process
                                             (new Submit('submit-user-perm'))
                                                 ->class('reset')
                                                 ->value(__('Change permissions')),
-                                            (new Hidden(['redir'], App::backend()->url()->get('admin.blog.pref', ['id' => $k], '&'))),
+                                            (new Hidden(['redir'], App::backend()->url()->get('admin.blog.pref', ['id' => $k], '&') . '#users')),
+                                            (new Hidden(['redir_label'], __('Back to user card'))),
                                             (new Hidden(['action'], 'perms')),
                                             (new Hidden(['users[]'], $k)),
                                             (new Hidden(['blogs[]'], $data->blog_id)),

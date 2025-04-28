@@ -20,6 +20,7 @@ use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
@@ -159,6 +160,8 @@ class Users extends Process
                                      (new Submit('do-action'))
                                          ->value(__('ok')),
                                      ...App::backend()->url()->hiddenFormFields('admin.user.actions', App::backend()->user_filter->values(true)),
+                                     (new Hidden(['redir_label'], __('Back to users list'))),
+
                                  ]),
                              ]),
                     ])

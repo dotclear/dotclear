@@ -244,8 +244,10 @@ class UsersActions extends Process
                 form::hidden(['nb'], $_POST['nb'] ?? '');
         }
 
+        $label = $_POST['redir_label'] ?? __('Back to user profile');
+
         echo
-        '<p><a class="back" href="' . Html::escapeURL(App::backend()->redir) . '">' . __('Back to user profile') . '</a></p>';
+        '<p><a class="back" href="' . Html::escapeURL(App::backend()->redir) . '">' . $label . '</a></p>';
 
         # --BEHAVIOR-- adminUsersActionsContent -- string, string
         App::behavior()->callBehavior('adminUsersActionsContentV2', App::backend()->action, $hidden_fields);
@@ -394,7 +396,7 @@ class UsersActions extends Process
             '<div class="fieldset">' .
             '<h3>' . __('Validate permissions') . '</h3>' .
             '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-            '<p><label for="your_pwd" class="required"><span>*</span> ' . __('Your password:') . '</label>' .
+            '<p><label for="your_pwd" class="required"><span>*</span> ' . __('Your administrator password:') . '</label>' .
             form::password(
                 'your_pwd',
                 20,
