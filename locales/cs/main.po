@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-27 15:48+0200\n"
-"PO-Revision-Date: 2025-04-27 15:28\n"
+"POT-Creation-Date: 2025-04-28 09:26+0200\n"
+"PO-Revision-Date: 2025-04-28 08:14\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -126,7 +126,7 @@ msgstr "ID blogu"
 #: src/Core/Backend/Listing/ListingBlogs.php:79
 #: src/Core/Backend/UserPref.php:77 src/Process/Backend/Blog.php:142
 #: src/Process/Backend/BlogPref.php:552
-#: src/Process/Backend/UsersActions.php:285
+#: src/Process/Backend/UsersActions.php:287
 msgid "Blog name"
 msgstr "Jméno blogu"
 
@@ -142,8 +142,8 @@ msgstr "Jméno blogu"
 #: src/Core/Backend/Listing/ListingUsers.php:90
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
 #: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:636
-#: src/Process/Backend/Post.php:1360 src/Process/Backend/Users.php:44
-#: src/Process/Backend/UsersActions.php:288
+#: src/Process/Backend/Post.php:1360 src/Process/Backend/Users.php:45
+#: src/Process/Backend/UsersActions.php:290
 msgid "Status"
 msgstr "Stav"
 
@@ -157,7 +157,7 @@ msgstr "Stav"
 #: src/Core/Backend/Listing/ListingMedia.php:306
 #: src/Core/Backend/ModulesList.php:1326 src/Core/Upgrade/PluginsList.php:123
 #: src/Process/Backend/Comment.php:351 src/Process/Backend/Langs.php:229
-#: src/Process/Backend/Post.php:932 src/Process/Backend/Users.php:45
+#: src/Process/Backend/Post.php:932 src/Process/Backend/Users.php:46
 #: src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "Smazat"
@@ -421,7 +421,7 @@ msgstr "Rodič:"
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:346
 #: src/Process/Backend/Home.php:597 src/Process/Backend/MediaItem.php:1270
 #: src/Process/Backend/Post.php:897 src/Process/Backend/Post.php:1114
-#: src/Process/Backend/User.php:523 src/Process/Backend/UsersActions.php:407
+#: src/Process/Backend/User.php:523 src/Process/Backend/UsersActions.php:409
 #: src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "Uložit"
@@ -543,7 +543,7 @@ msgstr "Poslední aktualizace"
 
 #: src/Core/Backend/Combos.php:328 src/Process/Backend/Blog.php:123
 #: src/Process/Backend/BlogPref.php:1028
-#: src/Process/Backend/UsersActions.php:284
+#: src/Process/Backend/UsersActions.php:286
 msgid "Blog ID"
 msgstr "ID blogu"
 
@@ -641,8 +641,8 @@ msgstr "Nastavení vzhledu"
 
 #: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
-#: src/Process/Backend/BlogPref.php:1360 src/Process/Backend/User.php:274
-#: src/Process/Backend/Users.php:103 src/Process/Backend/Users.php:108
+#: src/Process/Backend/BlogPref.php:1361 src/Process/Backend/User.php:274
+#: src/Process/Backend/Users.php:104 src/Process/Backend/Users.php:109
 #: src/Process/Backend/UsersActions.php:205
 #: src/Process/Backend/UsersActions.php:213
 #: src/Process/Backend/UsersActions.php:220
@@ -668,7 +668,7 @@ msgid "Global help"
 msgstr "Globální nápověda"
 
 #: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1256
-#: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1340
+#: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1341
 #: src/Process/Backend/Comment.php:303 src/Process/Backend/Post.php:1083
 #: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:540
 #: src/Process/Install/Install.php:445
@@ -836,7 +836,7 @@ msgid "next &#187;"
 msgstr "další &#187;"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:50
-#: src/Process/Backend/UsersActions.php:278
+#: src/Process/Backend/UsersActions.php:280
 msgid "No blog"
 msgstr "Žádný blog"
 
@@ -847,7 +847,7 @@ msgstr "Žádný blog neodpovídá filtru"
 #: src/Core/Backend/Listing/ListingBlogs.php:85
 #: src/Core/Backend/ModulesList.php:1776 src/Core/Backend/UserPref.php:78
 #: src/Process/Backend/LinkPopup.php:89
-#: src/Process/Backend/UsersActions.php:286
+#: src/Process/Backend/UsersActions.php:288
 msgid "URL"
 msgstr "URL"
 
@@ -1135,7 +1135,7 @@ msgstr "Stránka s přímým přístupem:"
 #: src/Core/Backend/Listing/Pager.php:183 src/Core/Backend/Page.php:168
 #: src/Process/Backend/Blogs.php:150 src/Process/Backend/Comments.php:218
 #: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:315
-#: src/Process/Backend/Search.php:411 src/Process/Backend/Users.php:160
+#: src/Process/Backend/Search.php:411 src/Process/Backend/Users.php:161
 msgid "ok"
 msgstr "Ook"
 
@@ -1455,7 +1455,7 @@ msgstr "Nahrát zip soubor"
 #: src/Process/Backend/Langs.php:320 src/Process/Backend/Langs.php:370
 #: src/Process/Backend/LinkPopup.php:82 src/Process/Backend/Post.php:968
 #: src/Process/Backend/Post.php:1059 src/Process/Backend/User.php:303
-#: src/Process/Backend/UsersActions.php:396 src/Process/Install/Install.php:455
+#: src/Process/Backend/UsersActions.php:398 src/Process/Install/Install.php:455
 #: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:403
 #, php-format
 msgid "Fields preceded by %s are mandatory."
@@ -1469,16 +1469,15 @@ msgstr "Cesta k souboru ZIP:"
 #: src/Process/Backend/Langs.php:342 src/Process/Backend/Langs.php:391
 #: src/Process/Backend/Post.php:777 src/Process/Backend/User.php:338
 #: src/Process/Backend/User.php:360 src/Process/Backend/User.php:516
-#: src/Process/Backend/UsersActions.php:403 src/Process/Install/Install.php:467
+#: src/Process/Backend/UsersActions.php:405 src/Process/Install/Install.php:467
 #: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:426
 msgid "Password"
 msgstr "Heslo"
 
 #: src/Core/Backend/ModulesList.php:1742 src/Core/Backend/ModulesList.php:1792
 #: src/Process/Backend/BlogDel.php:125 src/Process/Backend/Langs.php:345
-#: src/Process/Backend/Langs.php:394 src/Process/Backend/UsersActions.php:397
-#: src/Process/Upgrade/Langs.php:376 src/Process/Upgrade/Langs.php:382
-#: src/Process/Upgrade/Langs.php:430
+#: src/Process/Backend/Langs.php:394 src/Process/Upgrade/Langs.php:376
+#: src/Process/Upgrade/Langs.php:382 src/Process/Upgrade/Langs.php:430
 msgid "Your password:"
 msgstr "Vaše heslo:"
 
@@ -1545,7 +1544,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Page.php:146 src/Process/Backend/User.php:570
-#: src/Process/Backend/UsersActions.php:353
+#: src/Process/Backend/UsersActions.php:355
 msgid "Blog:"
 msgstr "Blog:"
 
@@ -2530,7 +2529,7 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:458
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:245
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:115
-#: src/Process/Backend/User.php:273 src/Process/Backend/Users.php:107
+#: src/Process/Backend/User.php:273 src/Process/Backend/Users.php:108
 #: src/Process/Backend/UsersActions.php:204
 #: src/Process/Backend/UsersActions.php:212 src/Process/Upgrade/Home.php:159
 msgid "System"
@@ -3787,7 +3786,7 @@ msgid "All rights on this blog."
 msgstr "Všechna práva na tomto blogu."
 
 #: src/Process/Backend/BlogPref.php:1301
-#: src/Process/Backend/UsersActions.php:387
+#: src/Process/Backend/UsersActions.php:389
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (neodkazované oprávnění)"
@@ -3796,15 +3795,19 @@ msgstr "[%s] (neodkazované oprávnění)"
 msgid "Change permissions"
 msgstr "změnit práva"
 
-#: src/Process/Backend/BlogPref.php:1343
+#: src/Process/Backend/BlogPref.php:1322
+msgid "Back to user card"
+msgstr "Zpět na kartu uživatele"
+
+#: src/Process/Backend/BlogPref.php:1344
 msgid "Publications on this blog:"
 msgstr "Publikace na tomto blogu:"
 
-#: src/Process/Backend/BlogPref.php:1346
+#: src/Process/Backend/BlogPref.php:1347
 msgid "Permissions:"
 msgstr "Oprávnění"
 
-#: src/Process/Backend/BlogPref.php:1363
+#: src/Process/Backend/BlogPref.php:1364
 msgid "Users on this blog"
 msgstr "Uživatelé tohoto blogu"
 
@@ -3915,7 +3918,7 @@ msgid "Create a new blog"
 msgstr "Vytvořit nový blog"
 
 #: src/Process/Backend/Blogs.php:139 src/Process/Backend/Comments.php:215
-#: src/Process/Backend/Users.php:149 src/Process/Backend/UsersActions.php:214
+#: src/Process/Backend/Users.php:150 src/Process/Backend/UsersActions.php:214
 msgid "Actions"
 msgstr "Akce"
 
@@ -5272,7 +5275,7 @@ msgstr[1] "%d komentářů nalezeno"
 msgstr[2] "%d komentářů nalezeno"
 msgstr[3] "%d komentářů nalezeno"
 
-#: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:127
+#: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
 msgstr "Nový uživatel"
 
@@ -5384,7 +5387,7 @@ msgstr "Upravit výšku pole:"
 msgid "Miscellaneous"
 msgstr "Různé"
 
-#: src/Process/Backend/User.php:518
+#: src/Process/Backend/User.php:518 src/Process/Backend/UsersActions.php:399
 msgid "Your administrator password:"
 msgstr "Heslo správce:"
 
@@ -5396,7 +5399,7 @@ msgstr "Uložit a vytvořit další"
 msgid "No permissions so far."
 msgstr "Zatím žádná oprávnění."
 
-#: src/Process/Backend/User.php:605 src/Process/Backend/Users.php:43
+#: src/Process/Backend/User.php:605 src/Process/Backend/Users.php:44
 #: src/Process/Backend/UsersActions.php:206
 msgid "Permissions"
 msgstr "Oprávnění"
@@ -5410,15 +5413,19 @@ msgstr "%s je super admin (všechna práva na všech blogech)."
 msgid "Add new permissions"
 msgstr "Přidat oprávnění"
 
-#: src/Process/Backend/User.php:631
+#: src/Process/Backend/User.php:620 src/Process/Backend/UsersActions.php:247
+msgid "Back to user profile"
+msgstr "Zpět na profil uživatele"
+
+#: src/Process/Backend/User.php:632
 msgid "Direct links"
 msgstr "Přímé odkazy"
 
-#: src/Process/Backend/User.php:636
+#: src/Process/Backend/User.php:637
 msgid "List of posts"
 msgstr "Seznam příspěvků"
 
-#: src/Process/Backend/User.php:649
+#: src/Process/Backend/User.php:650
 msgid "List of comments"
 msgstr "Seznam komentářů"
 
@@ -5756,21 +5763,25 @@ msgstr "Objednávka položek hlavního panelu"
 msgid "Reset dashboard items order"
 msgstr "Obnovit pořadí položek hlavního panelu"
 
-#: src/Process/Backend/Users.php:43 src/Process/Backend/UsersActions.php:317
+#: src/Process/Backend/Users.php:44 src/Process/Backend/UsersActions.php:319
 msgid "Set permissions"
 msgstr "Nastavit oprávnění"
 
-#: src/Process/Backend/Users.php:115
+#: src/Process/Backend/Users.php:116
 msgid "User has been successfully removed."
 msgstr "Uživatel byl úspěšně smazán."
 
-#: src/Process/Backend/Users.php:118
+#: src/Process/Backend/Users.php:119
 msgid "The permissions have been successfully updated."
 msgstr "Oprávění byla v pořádku nastavena."
 
-#: src/Process/Backend/Users.php:152
+#: src/Process/Backend/Users.php:153
 msgid "Selected users action:"
 msgstr "S vybranými uživateli provést:"
+
+#: src/Process/Backend/Users.php:163
+msgid "Back to users list"
+msgstr "Zpět na seznam uživatelů"
 
 #: src/Process/Backend/UsersActions.php:81
 msgid "No blog or user given."
@@ -5793,29 +5804,25 @@ msgstr "Uživatel byl úspěšně smazán."
 msgid "You cannot delete yourself."
 msgstr "Nemůžete smazat sami sebe."
 
-#: src/Process/Backend/UsersActions.php:248
-msgid "Back to user profile"
-msgstr "Zpět na profil uživatele"
-
-#: src/Process/Backend/UsersActions.php:273
+#: src/Process/Backend/UsersActions.php:275
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Vyberte jeden nebo více blogů, ke kterým chcete uživateli %s dát oprávnění."
 
-#: src/Process/Backend/UsersActions.php:287
+#: src/Process/Backend/UsersActions.php:289
 msgid "Entries"
 msgstr "Články"
 
-#: src/Process/Backend/UsersActions.php:300
+#: src/Process/Backend/UsersActions.php:302
 msgid "select"
 msgstr "vybrat"
 
-#: src/Process/Backend/UsersActions.php:346
+#: src/Process/Backend/UsersActions.php:348
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "Nastavte uživateli %s k blogům následující práva."
 
-#: src/Process/Backend/UsersActions.php:395
+#: src/Process/Backend/UsersActions.php:397
 msgid "Validate permissions"
 msgstr "Ověřit oprávnění"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-27 15:48+0200\n"
-"PO-Revision-Date: 2025-04-27 15:29\n"
+"POT-Creation-Date: 2025-04-28 09:26+0200\n"
+"PO-Revision-Date: 2025-04-28 08:15\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -126,7 +126,7 @@ msgstr "博客ID"
 #: src/Core/Backend/Listing/ListingBlogs.php:79
 #: src/Core/Backend/UserPref.php:77 src/Process/Backend/Blog.php:142
 #: src/Process/Backend/BlogPref.php:552
-#: src/Process/Backend/UsersActions.php:285
+#: src/Process/Backend/UsersActions.php:287
 msgid "Blog name"
 msgstr "博客名称"
 
@@ -142,8 +142,8 @@ msgstr "博客名称"
 #: src/Core/Backend/Listing/ListingUsers.php:90
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
 #: src/Core/Backend/UserPref.php:81 src/Process/Backend/Post.php:636
-#: src/Process/Backend/Post.php:1360 src/Process/Backend/Users.php:44
-#: src/Process/Backend/UsersActions.php:288
+#: src/Process/Backend/Post.php:1360 src/Process/Backend/Users.php:45
+#: src/Process/Backend/UsersActions.php:290
 msgid "Status"
 msgstr "状态"
 
@@ -157,7 +157,7 @@ msgstr "状态"
 #: src/Core/Backend/Listing/ListingMedia.php:306
 #: src/Core/Backend/ModulesList.php:1326 src/Core/Upgrade/PluginsList.php:123
 #: src/Process/Backend/Comment.php:351 src/Process/Backend/Langs.php:229
-#: src/Process/Backend/Post.php:932 src/Process/Backend/Users.php:45
+#: src/Process/Backend/Post.php:932 src/Process/Backend/Users.php:46
 #: src/Process/Upgrade/Langs.php:297
 msgid "Delete"
 msgstr "删除"
@@ -400,7 +400,7 @@ msgstr "上层目录："
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:346
 #: src/Process/Backend/Home.php:597 src/Process/Backend/MediaItem.php:1270
 #: src/Process/Backend/Post.php:897 src/Process/Backend/Post.php:1114
-#: src/Process/Backend/User.php:523 src/Process/Backend/UsersActions.php:407
+#: src/Process/Backend/User.php:523 src/Process/Backend/UsersActions.php:409
 #: src/Process/Install/Install.php:479
 msgid "Save"
 msgstr "保存"
@@ -516,7 +516,7 @@ msgstr "最后更新"
 
 #: src/Core/Backend/Combos.php:328 src/Process/Backend/Blog.php:123
 #: src/Process/Backend/BlogPref.php:1028
-#: src/Process/Backend/UsersActions.php:284
+#: src/Process/Backend/UsersActions.php:286
 msgid "Blog ID"
 msgstr "博客 ID"
 
@@ -608,8 +608,8 @@ msgstr "博客外观"
 
 #: src/Core/Backend/Favorites.php:512 src/Core/Backend/Menus.php:234
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:168
-#: src/Process/Backend/BlogPref.php:1360 src/Process/Backend/User.php:274
-#: src/Process/Backend/Users.php:103 src/Process/Backend/Users.php:108
+#: src/Process/Backend/BlogPref.php:1361 src/Process/Backend/User.php:274
+#: src/Process/Backend/Users.php:104 src/Process/Backend/Users.php:109
 #: src/Process/Backend/UsersActions.php:205
 #: src/Process/Backend/UsersActions.php:213
 #: src/Process/Backend/UsersActions.php:220
@@ -635,7 +635,7 @@ msgid "Global help"
 msgstr "全球帮助"
 
 #: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1256
-#: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1340
+#: src/Process/Backend/Auth.php:419 src/Process/Backend/BlogPref.php:1341
 #: src/Process/Backend/Comment.php:303 src/Process/Backend/Post.php:1083
 #: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:540
 #: src/Process/Install/Install.php:445
@@ -803,7 +803,7 @@ msgid "next &#187;"
 msgstr "下一页 &#187;"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:50
-#: src/Process/Backend/UsersActions.php:278
+#: src/Process/Backend/UsersActions.php:280
 msgid "No blog"
 msgstr "没有博客"
 
@@ -814,7 +814,7 @@ msgstr "没有符合过滤器的博客"
 #: src/Core/Backend/Listing/ListingBlogs.php:85
 #: src/Core/Backend/ModulesList.php:1776 src/Core/Backend/UserPref.php:78
 #: src/Process/Backend/LinkPopup.php:89
-#: src/Process/Backend/UsersActions.php:286
+#: src/Process/Backend/UsersActions.php:288
 msgid "URL"
 msgstr "URL"
 
@@ -1090,7 +1090,7 @@ msgstr "直接访问页面："
 #: src/Core/Backend/Listing/Pager.php:183 src/Core/Backend/Page.php:168
 #: src/Process/Backend/Blogs.php:150 src/Process/Backend/Comments.php:218
 #: src/Process/Backend/Posts.php:139 src/Process/Backend/Search.php:315
-#: src/Process/Backend/Search.php:411 src/Process/Backend/Users.php:160
+#: src/Process/Backend/Search.php:411 src/Process/Backend/Users.php:161
 msgid "ok"
 msgstr "确定"
 
@@ -1386,7 +1386,7 @@ msgstr "上传一个 zip 文件"
 #: src/Process/Backend/Langs.php:320 src/Process/Backend/Langs.php:370
 #: src/Process/Backend/LinkPopup.php:82 src/Process/Backend/Post.php:968
 #: src/Process/Backend/Post.php:1059 src/Process/Backend/User.php:303
-#: src/Process/Backend/UsersActions.php:396 src/Process/Install/Install.php:455
+#: src/Process/Backend/UsersActions.php:398 src/Process/Install/Install.php:455
 #: src/Process/Install/Wizard.php:266 src/Process/Upgrade/Langs.php:403
 #, php-format
 msgid "Fields preceded by %s are mandatory."
@@ -1400,16 +1400,15 @@ msgstr "Zip文件路径："
 #: src/Process/Backend/Langs.php:342 src/Process/Backend/Langs.php:391
 #: src/Process/Backend/Post.php:777 src/Process/Backend/User.php:338
 #: src/Process/Backend/User.php:360 src/Process/Backend/User.php:516
-#: src/Process/Backend/UsersActions.php:403 src/Process/Install/Install.php:467
+#: src/Process/Backend/UsersActions.php:405 src/Process/Install/Install.php:467
 #: src/Process/Install/Install.php:473 src/Process/Upgrade/Langs.php:426
 msgid "Password"
 msgstr "密码"
 
 #: src/Core/Backend/ModulesList.php:1742 src/Core/Backend/ModulesList.php:1792
 #: src/Process/Backend/BlogDel.php:125 src/Process/Backend/Langs.php:345
-#: src/Process/Backend/Langs.php:394 src/Process/Backend/UsersActions.php:397
-#: src/Process/Upgrade/Langs.php:376 src/Process/Upgrade/Langs.php:382
-#: src/Process/Upgrade/Langs.php:430
+#: src/Process/Backend/Langs.php:394 src/Process/Upgrade/Langs.php:376
+#: src/Process/Upgrade/Langs.php:382 src/Process/Upgrade/Langs.php:430
 msgid "Your password:"
 msgstr "您的密码："
 
@@ -1476,7 +1475,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Page.php:146 src/Process/Backend/User.php:570
-#: src/Process/Backend/UsersActions.php:353
+#: src/Process/Backend/UsersActions.php:355
 msgid "Blog:"
 msgstr "博客："
 
@@ -2443,7 +2442,7 @@ msgstr "LOL!"
 #: src/Process/Backend/BlogDel.php:92 src/Process/Backend/BlogPref.php:458
 #: src/Process/Backend/Blogs.php:101 src/Process/Backend/Langs.php:245
 #: src/Process/Backend/Plugin.php:146 src/Process/Backend/Plugins.php:115
-#: src/Process/Backend/User.php:273 src/Process/Backend/Users.php:107
+#: src/Process/Backend/User.php:273 src/Process/Backend/Users.php:108
 #: src/Process/Backend/UsersActions.php:204
 #: src/Process/Backend/UsersActions.php:212 src/Process/Upgrade/Home.php:159
 msgid "System"
@@ -3700,7 +3699,7 @@ msgid "All rights on this blog."
 msgstr "本博客的所有权利。"
 
 #: src/Process/Backend/BlogPref.php:1301
-#: src/Process/Backend/UsersActions.php:387
+#: src/Process/Backend/UsersActions.php:389
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (未提及的许可)"
@@ -3709,15 +3708,19 @@ msgstr "[%s] (未提及的许可)"
 msgid "Change permissions"
 msgstr "改变权限"
 
-#: src/Process/Backend/BlogPref.php:1343
+#: src/Process/Backend/BlogPref.php:1322
+msgid "Back to user card"
+msgstr "返回用户卡"
+
+#: src/Process/Backend/BlogPref.php:1344
 msgid "Publications on this blog:"
 msgstr "本博客上的出版物："
 
-#: src/Process/Backend/BlogPref.php:1346
+#: src/Process/Backend/BlogPref.php:1347
 msgid "Permissions:"
 msgstr "权限:"
 
-#: src/Process/Backend/BlogPref.php:1363
+#: src/Process/Backend/BlogPref.php:1364
 msgid "Users on this blog"
 msgstr "这个博客上的用户"
 
@@ -3825,7 +3828,7 @@ msgid "Create a new blog"
 msgstr "创建一个新博客"
 
 #: src/Process/Backend/Blogs.php:139 src/Process/Backend/Comments.php:215
-#: src/Process/Backend/Users.php:149 src/Process/Backend/UsersActions.php:214
+#: src/Process/Backend/Users.php:150 src/Process/Backend/UsersActions.php:214
 msgid "Actions"
 msgstr "行动"
 
@@ -5167,7 +5170,7 @@ msgid "one comment found"
 msgid_plural "%d comments found"
 msgstr[0] "%d 发现的评论"
 
-#: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:127
+#: src/Process/Backend/User.php:57 src/Process/Backend/Users.php:128
 msgid "New user"
 msgstr "新用户"
 
@@ -5279,7 +5282,7 @@ msgstr "文章编辑区域高度："
 msgid "Miscellaneous"
 msgstr "杂项"
 
-#: src/Process/Backend/User.php:518
+#: src/Process/Backend/User.php:518 src/Process/Backend/UsersActions.php:399
 msgid "Your administrator password:"
 msgstr "您的管理员密码："
 
@@ -5291,7 +5294,7 @@ msgstr "保存并创建另一个"
 msgid "No permissions so far."
 msgstr "到目前为止，没有任何权限。"
 
-#: src/Process/Backend/User.php:605 src/Process/Backend/Users.php:43
+#: src/Process/Backend/User.php:605 src/Process/Backend/Users.php:44
 #: src/Process/Backend/UsersActions.php:206
 msgid "Permissions"
 msgstr "权限"
@@ -5305,15 +5308,19 @@ msgstr "%s 是超级管理员（所有博客的所有权利）。"
 msgid "Add new permissions"
 msgstr "添加新权限"
 
-#: src/Process/Backend/User.php:631
+#: src/Process/Backend/User.php:620 src/Process/Backend/UsersActions.php:247
+msgid "Back to user profile"
+msgstr "返回到用户资料"
+
+#: src/Process/Backend/User.php:632
 msgid "Direct links"
 msgstr "直接链接"
 
-#: src/Process/Backend/User.php:636
+#: src/Process/Backend/User.php:637
 msgid "List of posts"
 msgstr "职位列表"
 
-#: src/Process/Backend/User.php:649
+#: src/Process/Backend/User.php:650
 msgid "List of comments"
 msgstr "意见清单"
 
@@ -5651,21 +5658,25 @@ msgstr "仪表板项目顺序"
 msgid "Reset dashboard items order"
 msgstr "重置仪表盘上的项目顺序"
 
-#: src/Process/Backend/Users.php:43 src/Process/Backend/UsersActions.php:317
+#: src/Process/Backend/Users.php:44 src/Process/Backend/UsersActions.php:319
 msgid "Set permissions"
 msgstr "设置权限"
 
-#: src/Process/Backend/Users.php:115
+#: src/Process/Backend/Users.php:116
 msgid "User has been successfully removed."
 msgstr "成功移除用户。"
 
-#: src/Process/Backend/Users.php:118
+#: src/Process/Backend/Users.php:119
 msgid "The permissions have been successfully updated."
 msgstr "成功更新权限。"
 
-#: src/Process/Backend/Users.php:152
+#: src/Process/Backend/Users.php:153
 msgid "Selected users action:"
 msgstr "选择的用户的动作："
+
+#: src/Process/Backend/Users.php:163
+msgid "Back to users list"
+msgstr "返回用户列表"
 
 #: src/Process/Backend/UsersActions.php:81
 msgid "No blog or user given."
@@ -5688,29 +5699,25 @@ msgstr "用户已被成功删除。"
 msgid "You cannot delete yourself."
 msgstr "你不能删除你自己。"
 
-#: src/Process/Backend/UsersActions.php:248
-msgid "Back to user profile"
-msgstr "返回到用户资料"
-
-#: src/Process/Backend/UsersActions.php:273
+#: src/Process/Backend/UsersActions.php:275
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "选择一个或者多个您想要赋予用户 %s 权限的博客。"
 
-#: src/Process/Backend/UsersActions.php:287
+#: src/Process/Backend/UsersActions.php:289
 msgid "Entries"
 msgstr "文章"
 
-#: src/Process/Backend/UsersActions.php:300
+#: src/Process/Backend/UsersActions.php:302
 msgid "select"
 msgstr "选择"
 
-#: src/Process/Backend/UsersActions.php:346
+#: src/Process/Backend/UsersActions.php:348
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "您将为用户 %s 改变在下列博客的权限。"
 
-#: src/Process/Backend/UsersActions.php:395
+#: src/Process/Backend/UsersActions.php:397
 msgid "Validate permissions"
 msgstr "验证权限"
 

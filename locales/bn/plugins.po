@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-27 16:27+0200\n"
-"PO-Revision-Date: 2025-04-27 15:30\n"
+"POT-Creation-Date: 2025-04-28 09:26+0200\n"
+"PO-Revision-Date: 2025-04-28 08:16\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -404,8 +404,8 @@ msgid "Unknown cleaner \"%s\""
 msgstr "অজানা ক্লিনার \"%s\""
 
 #: plugins/Uninstaller/src/CleanersStack.php:115
-msgid "Unsintaller can't remove itself"
-msgstr "Unsintaller নিজেকে অপসারণ করতে পারেনা"
+msgid "Uninstaller can't remove itself"
+msgstr "আনইনস্টলার নিজেকে সরাতে পারছে না"
 
 #: plugins/Uninstaller/src/Manage.php:62
 msgid "Unknown module id to uninstall"
@@ -443,8 +443,8 @@ msgstr "থিম \"%s\" আনইনস্টল করুন"
 
 #: plugins/Uninstaller/src/Manage.php:176
 #, php-format
-msgid "The module \"%1$s\" version %2$s offers advanced unsintall process:"
-msgstr "\"%1$s\" সংস্করণ %2$s মডিউলটি উন্নত আনসিনটল প্রক্রিয়া প্রদান করে:"
+msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
+msgstr "\"%1$s\" সংস্করণ %2$s মডিউলটি উন্নত আনইনস্টল প্রক্রিয়া প্রদান করে:"
 
 #: plugins/_fake_plugin/_fake_l10n.php:6
 msgid "Cope with old core classes (< 2.26)"
