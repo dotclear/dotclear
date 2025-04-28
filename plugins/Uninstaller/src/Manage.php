@@ -173,7 +173,7 @@ class Manage extends Process
         (new Div())
             ->items([
                 (new Text('h3', sprintf((self::getType() === 'theme' ? __('Uninstall theme "%s"') : __('Uninstall plugin "%s"')), __($define->get('name'))))),
-                (new Text('p', sprintf(__('The module "%1$s" version %2$s offers advanced unsintall process:'), $define->getId(), $define->get('version')))),
+                (new Text('p', sprintf(__('The module "%1$s" version %2$s offers advanced uninstall process:'), $define->getId(), $define->get('version')))),
                 (new Form('uninstall-form'))
                     ->method('post')
                     ->action(My::manageUrl())

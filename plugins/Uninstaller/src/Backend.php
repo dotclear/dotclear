@@ -37,7 +37,7 @@ class Backend extends Process
         App::behavior()->addBehaviors([
             // add "unsinstall" button to modules list
             'adminModulesListGetActionsV2' => function (ModulesList $list, ModuleDefine $define): string {
-                // do not unsintall current theme
+                // do not uninstall current theme
                 if ($define->get('type') == 'theme' && $define->getId() == App::blog()->settings()->get('system')->get('theme')) {
                     return '';
                 }

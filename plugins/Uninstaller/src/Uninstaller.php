@@ -106,7 +106,7 @@ class Uninstaller
      */
     public function loadModules(array $modules): Uninstaller
     {
-        // reset unsintaller
+        // reset uninstaller
         $this->module         = null;
         $this->modules        = [];
         $this->renders        = [];
@@ -152,7 +152,7 @@ class Uninstaller
     }
 
     /**
-     * Add a predefined action to user unsintall features.
+     * Add a predefined action to user uninstall features.
      *
      * This method should be called from module Uninstall::proces() method.
      * User will be prompted before doing these actions.
@@ -278,7 +278,7 @@ class Uninstaller
     }
 
     /**
-     * Add a predefined action to unsintall features.
+     * Add a predefined action to uninstall features.
      *
      * @param   string      $cleaner    The cleaner ID
      * @param   string      $action     The action ID

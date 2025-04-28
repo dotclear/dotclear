@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-28 09:22+0200\n"
+"POT-Creation-Date: 2025-04-28 09:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -404,7 +404,7 @@ msgid "Unknown cleaner \"%s\""
 msgstr ""
 
 #: plugins/Uninstaller/src/CleanersStack.php:115
-msgid "Unsintaller can't remove itself"
+msgid "Uninstaller can't remove itself"
 msgstr ""
 
 #: plugins/Uninstaller/src/Manage.php:62
@@ -443,7 +443,7 @@ msgstr ""
 
 #: plugins/Uninstaller/src/Manage.php:176
 #, php-format
-msgid "The module \"%1$s\" version %2$s offers advanced unsintall process:"
+msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:6
