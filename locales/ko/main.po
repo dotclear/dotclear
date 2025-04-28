@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-28 09:26+0200\n"
-"PO-Revision-Date: 2025-04-28 07:29\n"
+"PO-Revision-Date: 2025-04-28 08:15\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -3710,7 +3710,7 @@ msgstr "권한 변경"
 
 #: src/Process/Backend/BlogPref.php:1322
 msgid "Back to user card"
-msgstr ""
+msgstr "사용자 카드로 돌아가기"
 
 #: src/Process/Backend/BlogPref.php:1344
 msgid "Publications on this blog:"
@@ -5676,7 +5676,7 @@ msgstr "선택된 사용자들에 대한 작업 :"
 
 #: src/Process/Backend/Users.php:163
 msgid "Back to users list"
-msgstr ""
+msgstr "사용자 목록으로 돌아가기"
 
 #: src/Process/Backend/UsersActions.php:81
 msgid "No blog or user given."
