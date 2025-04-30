@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-28 09:26+0200\n"
-"PO-Revision-Date: 2025-04-28 08:15\n"
+"POT-Creation-Date: 2025-04-30 06:54+0200\n"
+"PO-Revision-Date: 2025-04-30 05:35\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Language: te_IN\n"
@@ -388,7 +388,7 @@ msgstr "(s) కు కొత్త వర్గము సృష్టించ�
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:368
 #: src/Process/Backend/Home.php:546 src/Process/Backend/Home.php:580
-#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1230
+#: src/Process/Backend/Media.php:760 src/Process/Backend/MediaItem.php:1230
 #: src/Process/Backend/Post.php:712 src/Process/Backend/Post.php:813
 msgid "Title:"
 msgstr "శీర్షిక:"
@@ -559,7 +559,7 @@ msgid "My favorites"
 msgstr "నా అభిప్రాయాలు"
 
 #: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:380 src/Process/Backend/Media.php:744
+#: src/Core/Backend/Page.php:380 src/Process/Backend/Media.php:779
 #: src/Process/Backend/UserPreferences.php:42
 msgid "My preferences"
 msgstr "నా ప్రాధాన్యం"
@@ -600,7 +600,7 @@ msgstr "వర్గాలు"
 #: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:778
+#: src/Process/Backend/Media.php:687 src/Process/Backend/Media.php:813
 #: src/Process/Backend/MediaItem.php:399 src/Process/Backend/MediaItem.php:405
 msgid "Media manager"
 msgstr "మాధ్యమాల నిర్వహణ"
@@ -957,19 +957,19 @@ msgstr "పరిమాణము"
 
 #: src/Core/Backend/Listing/ListingMedia.php:239
 #: src/Core/Backend/Listing/ListingMedia.php:242
-#: src/Process/Backend/Media.php:412
+#: src/Process/Backend/Media.php:429
 msgid "Select this file"
 msgstr "ఈ దస్త్రమును యెంపికచేయుము"
 
 #: src/Core/Backend/Listing/ListingMedia.php:265
 #: src/Core/Backend/Listing/ListingMedia.php:268
-#: src/Process/Backend/Media.php:450
+#: src/Process/Backend/Media.php:467
 msgid "Attach this file to entry"
 msgstr "ఈ దస్త్రమును ప్రవేశపెట్టు"
 
 #: src/Core/Backend/Listing/ListingMedia.php:276
 #: src/Core/Backend/Listing/ListingMedia.php:279
-#: src/Process/Backend/Media.php:477
+#: src/Process/Backend/Media.php:494
 msgid "Insert this file into entry"
 msgstr "ఈ దస్త్రమును ప్రవేశమునకు చేర్చుము"
 
@@ -1436,7 +1436,7 @@ msgid "Your password:"
 msgstr "మీ సంకేతపదం:"
 
 #: src/Core/Backend/ModulesList.php:1750 src/Core/Backend/Page.php:1419
-#: src/Process/Backend/Media.php:757
+#: src/Process/Backend/Media.php:792
 msgid "Upload"
 msgstr "ఎగుమతి చెయ్యండి"
 
@@ -1473,7 +1473,7 @@ msgstr "ఆకృతీకరించు \"%s\""
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1172
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:348
-#: src/Process/Backend/Media.php:819 src/Process/Backend/MediaItem.php:1356
+#: src/Process/Backend/Media.php:854 src/Process/Backend/MediaItem.php:1356
 #: src/Process/Backend/Post.php:922 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:534 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -1841,16 +1841,16 @@ msgstr "రద్దుచేసాం."
 msgid "HTTP Error:"
 msgstr "HTTP పొరపాటు:"
 
-#: src/Core/Backend/Page.php:1415 src/Process/Backend/Media.php:702
+#: src/Core/Backend/Page.php:1415 src/Process/Backend/Media.php:737
 msgid "Choose file"
 msgstr "దస్త్రం యెంచుకొనుము"
 
-#: src/Core/Backend/Page.php:1416 src/Process/Backend/Media.php:708
+#: src/Core/Backend/Page.php:1416 src/Process/Backend/Media.php:743
 msgid "Choose files"
 msgstr "ఫైళ్ళను యెంచుకొనుము"
 
 #: src/Core/Backend/Page.php:1417 src/Process/Backend/LinkPopup.php:110
-#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:507
+#: src/Process/Backend/Media.php:292 src/Process/Backend/MediaItem.php:507
 #: src/Process/Backend/MediaItem.php:763 src/Process/Backend/Post.php:928
 #: src/Process/Backend/PostMedia.php:112
 msgid "Cancel"
@@ -3178,7 +3178,7 @@ msgstr "బ్లాగు URL:"
 msgid "Blog description:"
 msgstr "బ్లాగు వివరణ:"
 
-#: src/Process/Backend/Blog.php:192 src/Process/Backend/Media.php:623
+#: src/Process/Backend/Blog.php:192 src/Process/Backend/Media.php:640
 msgid "Create"
 msgstr "సృష్టించు"
 
@@ -3624,7 +3624,7 @@ msgstr "అసలు ప్రతిబింబమునకు లింకు�
 msgid "Image legend and alternate text:"
 msgstr "ప్రతిబింబము మరియు వచన వచనము:"
 
-#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:808
+#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:843
 msgid "Blog parameters"
 msgstr "బ్లాగు పదాలు"
 
@@ -4408,142 +4408,159 @@ msgstr "దస్త్రం సమర్ధవంతంగా తొలగి�
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "డైరెక్టరీ \"%s\" విజయవంతంగా పూర్తిచేశారు."
 
-#: src/Process/Backend/Media.php:264 src/Process/Backend/PostMedia.php:97
+#: src/Process/Backend/Media.php:269
+#, php-format
+msgid "Directory \"%s\" has been successfully rebuild."
+msgstr "\"%s\" డైరెక్టరీ విజయవంతంగా పునర్నిర్మించబడింది."
+
+#: src/Process/Backend/Media.php:281 src/Process/Backend/PostMedia.php:97
 msgid "confirm removal"
 msgstr "తొలగింపుని నిర్ధారించండి"
 
-#: src/Process/Backend/Media.php:271
+#: src/Process/Backend/Media.php:288
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "%sని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
 
-#: src/Process/Backend/Media.php:276 src/Process/Backend/PostMedia.php:113
+#: src/Process/Backend/Media.php:293 src/Process/Backend/PostMedia.php:113
 msgid "Yes"
 msgstr "అవును"
 
-#: src/Process/Backend/Media.php:318
+#: src/Process/Backend/Media.php:335
 msgid "Remove this folder from your favorites"
 msgstr "మీ అభిప్రాయాల నుండి ఈ ఫోల్డర్ను తీసివేయుము"
 
-#: src/Process/Backend/Media.php:343
+#: src/Process/Backend/Media.php:360
 msgid "Add this folder to your favorites"
 msgstr "ఈ ఫోల్డర్ను మీ అభిప్రాయములకు జతచేయుము"
 
-#: src/Process/Backend/Media.php:354
+#: src/Process/Backend/Media.php:371
 msgid "Goto recent folder:"
 msgstr "ఇటీవలి ఫోల్డర్:"
 
-#: src/Process/Backend/Media.php:391
+#: src/Process/Backend/Media.php:408
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "మీరు ఈ ఫోల్డర్కు వ్రాయుటకు తగిన అనుమతి లేదు."
 
-#: src/Process/Backend/Media.php:411
+#: src/Process/Backend/Media.php:428
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "%s న క్లిక్ ద్వారా ఒక ఫైలు యెంపికచేయుము"
 
-#: src/Process/Backend/Media.php:415
+#: src/Process/Backend/Media.php:432
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "ఫైళ్ళను యెంపికచేయుము మరియు <strong>%s</strong> బటన్ నొక్కండి"
 
-#: src/Process/Backend/Media.php:416 src/Process/Backend/Media.php:545
+#: src/Process/Backend/Media.php:433 src/Process/Backend/Media.php:562
 msgid "Choose selected medias"
 msgstr "ఎంపికచేసిన మధ్యవర్గాన్ని ఎన్నుకోండి"
 
-#: src/Process/Backend/Media.php:422 src/Process/Backend/Media.php:456
-#: src/Process/Backend/Media.php:483
+#: src/Process/Backend/Media.php:439 src/Process/Backend/Media.php:473
+#: src/Process/Backend/Media.php:500
 msgid "or"
 msgstr "లేదా"
 
-#: src/Process/Backend/Media.php:425 src/Process/Backend/Media.php:459
-#: src/Process/Backend/Media.php:486
+#: src/Process/Backend/Media.php:442 src/Process/Backend/Media.php:476
+#: src/Process/Backend/Media.php:503
 msgid "upload a new file"
 msgstr "కొత్త ఫైలును అప్లోడ్ చేయుము"
 
-#: src/Process/Backend/Media.php:448
+#: src/Process/Backend/Media.php:465
 #, php-format
 msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
 msgstr "%2$s పై క్లిక్ చేయడం ద్వారా ఎంట్రీ %1$s కు అటాచ్ చేయడానికి ఫైల్‌ను ఎంచుకోండి."
 
-#: src/Process/Backend/Media.php:476
+#: src/Process/Backend/Media.php:493
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "%s పై నొక్కిన ప్రవేశమును ప్రవేశపెట్టటానికి ఒక ఫైలు ఎంచుకోండి"
 
-#: src/Process/Backend/Media.php:506 src/Process/Backend/Media.php:510
-#: src/Process/Backend/Media.php:513
+#: src/Process/Backend/Media.php:523 src/Process/Backend/Media.php:527
+#: src/Process/Backend/Media.php:530
 msgid "Grid display mode"
 msgstr "గ్రిడ్ ప్రదర్శన రీతి"
 
-#: src/Process/Backend/Media.php:517 src/Process/Backend/Media.php:521
-#: src/Process/Backend/Media.php:524
+#: src/Process/Backend/Media.php:534 src/Process/Backend/Media.php:538
+#: src/Process/Backend/Media.php:541
 msgid "List display mode"
 msgstr "జాబితా ప్రదర్శన రీతి"
 
-#: src/Process/Backend/Media.php:549
+#: src/Process/Backend/Media.php:566
 msgid "Remove selected medias"
 msgstr "ఎంపికచేసిన మాధ్యమాలను తీసివేయుము"
 
-#: src/Process/Backend/Media.php:610
+#: src/Process/Backend/Media.php:627
 msgid "Create new directory"
 msgstr "కొత్త డైరెక్టరీ సృష్టించుము"
 
-#: src/Process/Backend/Media.php:617
+#: src/Process/Backend/Media.php:634
 msgid "Directory Name:"
 msgstr "డైరెక్టరీ పేరు:"
 
-#: src/Process/Backend/Media.php:637
+#: src/Process/Backend/Media.php:654
 msgid "Build missing thumbnails in directory"
 msgstr "డైరెక్టరీలో థంబ్నెయిల్స్ ను బదిచేయి"
 
-#: src/Process/Backend/Media.php:642
+#: src/Process/Backend/Media.php:659
 msgid "Build"
 msgstr "@ title: Build"
 
-#: src/Process/Backend/Media.php:652
+#: src/Process/Backend/Media.php:669
+msgid "Force rebuild all thumbnails in directory"
+msgstr "డైరెక్టరీలోని అన్ని థంబ్‌నెయిల్‌లను బలవంతంగా పునర్నిర్మించండి"
+
+#: src/Process/Backend/Media.php:674
+msgid "Force rebuild"
+msgstr "బలవంతంగా పునర్నిర్మించండి"
+
+#: src/Process/Backend/Media.php:679
+msgid "Use with caution especially if there is a large numbers of media if this directory."
+msgstr "ఈ డైరెక్టరీలో పెద్ద సంఖ్యలో మీడియా ఉంటే జాగ్రత్తగా ఉపయోగించండి."
+
+#: src/Process/Backend/Media.php:687
 #, php-format
 msgid "Backup content of %s"
 msgstr "%s యొక్క బ్యాక్ అప్ విషయం"
 
-#: src/Process/Backend/Media.php:659
+#: src/Process/Backend/Media.php:694
 msgid "Download zip file"
 msgstr "జిప్ ఫైలును డౌన్లోడ్ చేయుము"
 
-#: src/Process/Backend/Media.php:678
+#: src/Process/Backend/Media.php:713
 msgid "Add files"
 msgstr "ఫైళ్ళను చేర్చండి"
 
-#: src/Process/Backend/Media.php:681
+#: src/Process/Backend/Media.php:716
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "మీరు సొంత మరియు కాపీరైట్ ద్వారా రక్షించబడని మీడియా ప్రచురించడానికి పట్టించుకోండి."
 
-#: src/Process/Backend/Media.php:718
+#: src/Process/Backend/Media.php:753
 msgid "Maximum file size allowed:"
 msgstr "గరిష్ఠ ఫైలు పరిమాణం:"
 
-#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1261
+#: src/Process/Backend/Media.php:767 src/Process/Backend/MediaItem.php:1261
 msgid "Private"
 msgstr "అంతరంగికం"
 
-#: src/Process/Backend/Media.php:741
+#: src/Process/Backend/Media.php:776
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "ఒకే సమయంలో అనేక ఫైళ్ళను పంపడానికి, మీరు పెంచబడిన అప్లోడర్ ను క్రియాశీల చేయవచ్చు."
 
-#: src/Process/Backend/Media.php:750
+#: src/Process/Backend/Media.php:785
 msgid "Refresh"
 msgstr "పునర్వొచ్చు"
 
-#: src/Process/Backend/Media.php:753
+#: src/Process/Backend/Media.php:788
 msgid "Clear all"
 msgstr "శుభ్రముచేయి"
 
-#: src/Process/Backend/Media.php:778
+#: src/Process/Backend/Media.php:813
 #, php-format
 msgid "In %s:"
 msgstr "%s:"
 
-#: src/Process/Backend/Media.php:805
+#: src/Process/Backend/Media.php:840
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "మాధ్యమం మరియు చిత్రాలు కోసం ప్రస్తుత అమరికలను %s లో నిర్వహిస్తారు."

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-28 09:26+0200\n"
-"PO-Revision-Date: 2025-04-28 08:15\n"
+"POT-Creation-Date: 2025-04-30 06:54+0200\n"
+"PO-Revision-Date: 2025-04-30 05:34\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -388,7 +388,7 @@ msgstr "পোস্টের জন্য একটি নতুন বিভ�
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:368
 #: src/Process/Backend/Home.php:546 src/Process/Backend/Home.php:580
-#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1230
+#: src/Process/Backend/Media.php:760 src/Process/Backend/MediaItem.php:1230
 #: src/Process/Backend/Post.php:712 src/Process/Backend/Post.php:813
 msgid "Title:"
 msgstr "টাইটেল:"
@@ -559,7 +559,7 @@ msgid "My favorites"
 msgstr "আমার পছন্দের"
 
 #: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:380 src/Process/Backend/Media.php:744
+#: src/Core/Backend/Page.php:380 src/Process/Backend/Media.php:779
 #: src/Process/Backend/UserPreferences.php:42
 msgid "My preferences"
 msgstr "আমার পছন্দসমূহ"
@@ -600,7 +600,7 @@ msgstr "ক্যাটাগরিসমূহ"
 #: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:778
+#: src/Process/Backend/Media.php:687 src/Process/Backend/Media.php:813
 #: src/Process/Backend/MediaItem.php:399 src/Process/Backend/MediaItem.php:405
 msgid "Media manager"
 msgstr "মিডিয়া ম্যানেজার"
@@ -957,19 +957,19 @@ msgstr "মাপ"
 
 #: src/Core/Backend/Listing/ListingMedia.php:239
 #: src/Core/Backend/Listing/ListingMedia.php:242
-#: src/Process/Backend/Media.php:412
+#: src/Process/Backend/Media.php:429
 msgid "Select this file"
 msgstr "এই ফাইলটি নির্বাচন করুন"
 
 #: src/Core/Backend/Listing/ListingMedia.php:265
 #: src/Core/Backend/Listing/ListingMedia.php:268
-#: src/Process/Backend/Media.php:450
+#: src/Process/Backend/Media.php:467
 msgid "Attach this file to entry"
 msgstr "এন্ট্রির সাথে এই ফাইলটি সংযুক্ত করুন"
 
 #: src/Core/Backend/Listing/ListingMedia.php:276
 #: src/Core/Backend/Listing/ListingMedia.php:279
-#: src/Process/Backend/Media.php:477
+#: src/Process/Backend/Media.php:494
 msgid "Insert this file into entry"
 msgstr "এন্ট্রিতে এই ফাইলটি লাগাও"
 
@@ -1436,7 +1436,7 @@ msgid "Your password:"
 msgstr "আপনার পাসওয়ার্ড:"
 
 #: src/Core/Backend/ModulesList.php:1750 src/Core/Backend/Page.php:1419
-#: src/Process/Backend/Media.php:757
+#: src/Process/Backend/Media.php:792
 msgid "Upload"
 msgstr "আপলোড"
 
@@ -1473,7 +1473,7 @@ msgstr "\"%s\" কনফিগার করুন"
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1172
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:348
-#: src/Process/Backend/Media.php:819 src/Process/Backend/MediaItem.php:1356
+#: src/Process/Backend/Media.php:854 src/Process/Backend/MediaItem.php:1356
 #: src/Process/Backend/Post.php:922 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:534 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -1841,16 +1841,16 @@ msgstr "বাতিল করা হয়েছে."
 msgid "HTTP Error:"
 msgstr "HTTP ত্রুটি:"
 
-#: src/Core/Backend/Page.php:1415 src/Process/Backend/Media.php:702
+#: src/Core/Backend/Page.php:1415 src/Process/Backend/Media.php:737
 msgid "Choose file"
 msgstr "ফাইল নির্বাচন করুন"
 
-#: src/Core/Backend/Page.php:1416 src/Process/Backend/Media.php:708
+#: src/Core/Backend/Page.php:1416 src/Process/Backend/Media.php:743
 msgid "Choose files"
 msgstr "ফাইল নির্বাচন করুন"
 
 #: src/Core/Backend/Page.php:1417 src/Process/Backend/LinkPopup.php:110
-#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:507
+#: src/Process/Backend/Media.php:292 src/Process/Backend/MediaItem.php:507
 #: src/Process/Backend/MediaItem.php:763 src/Process/Backend/Post.php:928
 #: src/Process/Backend/PostMedia.php:112
 msgid "Cancel"
@@ -3178,7 +3178,7 @@ msgstr "ব্লগ URL:"
 msgid "Blog description:"
 msgstr "ব্লগের বিবরণ:"
 
-#: src/Process/Backend/Blog.php:192 src/Process/Backend/Media.php:623
+#: src/Process/Backend/Blog.php:192 src/Process/Backend/Media.php:640
 msgid "Create"
 msgstr "তৈরি করো"
 
@@ -3624,7 +3624,7 @@ msgstr "মূল ছবির একটি লিংক ঢোকাও"
 msgid "Image legend and alternate text:"
 msgstr "চিত্র কিংবদন্তি এবং বিকল্প পাঠ্য:"
 
-#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:808
+#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:843
 msgid "Blog parameters"
 msgstr "ব্লগ প্যারামিটার"
 
@@ -4408,142 +4408,159 @@ msgstr "ফাইলগুলো সফলভাবে মুছে ফেলা
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "\"%s\" নির্দেশিকা সফলভাবে সম্পন্ন হয়েছে।"
 
-#: src/Process/Backend/Media.php:264 src/Process/Backend/PostMedia.php:97
+#: src/Process/Backend/Media.php:269
+#, php-format
+msgid "Directory \"%s\" has been successfully rebuild."
+msgstr "\"%s\" ডিরেক্টরিটি সফলভাবে পুনর্নির্মাণ করা হয়েছে।"
+
+#: src/Process/Backend/Media.php:281 src/Process/Backend/PostMedia.php:97
 msgid "confirm removal"
 msgstr "অপসারণ নিশ্চিত করুন"
 
-#: src/Process/Backend/Media.php:271
+#: src/Process/Backend/Media.php:288
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "আপনি কি আসলেই %s মুছে ফেলতে চান?"
 
-#: src/Process/Backend/Media.php:276 src/Process/Backend/PostMedia.php:113
+#: src/Process/Backend/Media.php:293 src/Process/Backend/PostMedia.php:113
 msgid "Yes"
 msgstr "হ্যাঁ"
 
-#: src/Process/Backend/Media.php:318
+#: src/Process/Backend/Media.php:335
 msgid "Remove this folder from your favorites"
 msgstr "এই ফোল্ডারটি আপনার পছন্দসই থেকে সরিয়ে ফেলো"
 
-#: src/Process/Backend/Media.php:343
+#: src/Process/Backend/Media.php:360
 msgid "Add this folder to your favorites"
 msgstr "এই ফোল্ডারটি আপনার পছন্দসই যোগ করুন"
 
-#: src/Process/Backend/Media.php:354
+#: src/Process/Backend/Media.php:371
 msgid "Goto recent folder:"
 msgstr "সাম্প্রতিক ফোল্ডার:"
 
-#: src/Process/Backend/Media.php:391
+#: src/Process/Backend/Media.php:408
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "এই ফোল্ডারে লেখার জন্য আপনার পর্যাপ্ত অনুমতি নেই."
 
-#: src/Process/Backend/Media.php:411
+#: src/Process/Backend/Media.php:428
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "%s-এ ক্লিক করে একটি ফাইল নির্বাচন করুন"
 
-#: src/Process/Backend/Media.php:415
+#: src/Process/Backend/Media.php:432
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "ফাইল নির্বাচন করুন এবং <strong>%s</strong> বাটন ক্লিক করুন"
 
-#: src/Process/Backend/Media.php:416 src/Process/Backend/Media.php:545
+#: src/Process/Backend/Media.php:433 src/Process/Backend/Media.php:562
 msgid "Choose selected medias"
 msgstr "নির্বাচিত মিডিয়া বেছে নিন"
 
-#: src/Process/Backend/Media.php:422 src/Process/Backend/Media.php:456
-#: src/Process/Backend/Media.php:483
+#: src/Process/Backend/Media.php:439 src/Process/Backend/Media.php:473
+#: src/Process/Backend/Media.php:500
 msgid "or"
 msgstr "অথবা"
 
-#: src/Process/Backend/Media.php:425 src/Process/Backend/Media.php:459
-#: src/Process/Backend/Media.php:486
+#: src/Process/Backend/Media.php:442 src/Process/Backend/Media.php:476
+#: src/Process/Backend/Media.php:503
 msgid "upload a new file"
 msgstr "নতুন ফাইল আপলোড করো"
 
-#: src/Process/Backend/Media.php:448
+#: src/Process/Backend/Media.php:465
 #, php-format
 msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
 msgstr "%1$s-এ ক্লিক করে %2$s এন্ট্রিতে সংযুক্ত করতে একটি ফাইল চয়ন করুন"
 
-#: src/Process/Backend/Media.php:476
+#: src/Process/Backend/Media.php:493
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "%s-এ ক্লিক করে এন্ট্রিতে সন্নিবেশ করতে একটি ফাইল চয়ন করুন"
 
-#: src/Process/Backend/Media.php:506 src/Process/Backend/Media.php:510
-#: src/Process/Backend/Media.php:513
+#: src/Process/Backend/Media.php:523 src/Process/Backend/Media.php:527
+#: src/Process/Backend/Media.php:530
 msgid "Grid display mode"
 msgstr "গ্রিড ডিসপ্লে মোড"
 
-#: src/Process/Backend/Media.php:517 src/Process/Backend/Media.php:521
-#: src/Process/Backend/Media.php:524
+#: src/Process/Backend/Media.php:534 src/Process/Backend/Media.php:538
+#: src/Process/Backend/Media.php:541
 msgid "List display mode"
 msgstr "তালিকা ডিসপ্লে মোড"
 
-#: src/Process/Backend/Media.php:549
+#: src/Process/Backend/Media.php:566
 msgid "Remove selected medias"
 msgstr "নির্বাচিত মিডিয়া অপসারণ করো"
 
-#: src/Process/Backend/Media.php:610
+#: src/Process/Backend/Media.php:627
 msgid "Create new directory"
 msgstr "নতুন ডিরেক্টরি তৈরি করো"
 
-#: src/Process/Backend/Media.php:617
+#: src/Process/Backend/Media.php:634
 msgid "Directory Name:"
 msgstr "ডিরেক্টরির নাম:"
 
-#: src/Process/Backend/Media.php:637
+#: src/Process/Backend/Media.php:654
 msgid "Build missing thumbnails in directory"
 msgstr "ডিরেক্টরিতে নিখোঁজ থাম্বনেইল তৈরি করা হবে"
 
-#: src/Process/Backend/Media.php:642
+#: src/Process/Backend/Media.php:659
 msgid "Build"
 msgstr "বিল্ড"
 
-#: src/Process/Backend/Media.php:652
+#: src/Process/Backend/Media.php:669
+msgid "Force rebuild all thumbnails in directory"
+msgstr "ডিরেক্টরিতে সকল থাম্বনেইল জোর করে পুনর্নির্মাণ করুন"
+
+#: src/Process/Backend/Media.php:674
+msgid "Force rebuild"
+msgstr "জোর করে পুনর্নির্মাণ করুন"
+
+#: src/Process/Backend/Media.php:679
+msgid "Use with caution especially if there is a large numbers of media if this directory."
+msgstr "সাবধানতার সাথে ব্যবহার করুন, বিশেষ করে যদি এই ডিরেক্টরিতে প্রচুর পরিমাণে মিডিয়া থাকে।"
+
+#: src/Process/Backend/Media.php:687
 #, php-format
 msgid "Backup content of %s"
 msgstr "%s-এর ব্যাকআপ সামগ্রী"
 
-#: src/Process/Backend/Media.php:659
+#: src/Process/Backend/Media.php:694
 msgid "Download zip file"
 msgstr "জিপ ফাইল ডাউনলোড করুন"
 
-#: src/Process/Backend/Media.php:678
+#: src/Process/Backend/Media.php:713
 msgid "Add files"
 msgstr "ফাইল যোগ করো"
 
-#: src/Process/Backend/Media.php:681
+#: src/Process/Backend/Media.php:716
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "অনুগ্রহ করে প্রচার মাধ্যমকে প্রকাশ করার জন্য যত্ন নেবেন যে আপনি নিজেই এবং যা কপিরাইট দ্বারা সুরক্ষিত নয়."
 
-#: src/Process/Backend/Media.php:718
+#: src/Process/Backend/Media.php:753
 msgid "Maximum file size allowed:"
 msgstr "সর্বোচ্চ ফাইল মাপ অনুমোদিত:"
 
-#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1261
+#: src/Process/Backend/Media.php:767 src/Process/Backend/MediaItem.php:1261
 msgid "Private"
 msgstr "প্রাইভেট"
 
-#: src/Process/Backend/Media.php:741
+#: src/Process/Backend/Media.php:776
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "একই সময়ে বেশ কিছু ফাইল পাঠানোর জন্য, আপনি বর্ধিত আপলোডার সক্রিয় করতে পারেন"
 
-#: src/Process/Backend/Media.php:750
+#: src/Process/Backend/Media.php:785
 msgid "Refresh"
 msgstr "রিফ্রেশ"
 
-#: src/Process/Backend/Media.php:753
+#: src/Process/Backend/Media.php:788
 msgid "Clear all"
 msgstr "সব ফাঁকা করো"
 
-#: src/Process/Backend/Media.php:778
+#: src/Process/Backend/Media.php:813
 #, php-format
 msgid "In %s:"
 msgstr "%s-এ:"
 
-#: src/Process/Backend/Media.php:805
+#: src/Process/Backend/Media.php:840
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "মিডিয়া এবং চিত্রগুলির জন্য বর্তমান সেটিংস %s-এ সংজ্ঞায়িত করা হয়েছে"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-28 09:26+0200\n"
-"PO-Revision-Date: 2025-04-28 08:14\n"
+"POT-Creation-Date: 2025-04-30 06:54+0200\n"
+"PO-Revision-Date: 2025-04-30 05:34\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -402,7 +402,7 @@ msgstr "יצירת סיווג חדש עבור הפרסום."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:368
 #: src/Process/Backend/Home.php:546 src/Process/Backend/Home.php:580
-#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1230
+#: src/Process/Backend/Media.php:760 src/Process/Backend/MediaItem.php:1230
 #: src/Process/Backend/Post.php:712 src/Process/Backend/Post.php:813
 msgid "Title:"
 msgstr "כותרת:"
@@ -577,7 +577,7 @@ msgid "My favorites"
 msgstr "המועדפים שלי"
 
 #: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:380 src/Process/Backend/Media.php:744
+#: src/Core/Backend/Page.php:380 src/Process/Backend/Media.php:779
 #: src/Process/Backend/UserPreferences.php:42
 msgid "My preferences"
 msgstr "ההעדפות שלי"
@@ -622,7 +622,7 @@ msgstr "קטגוריות"
 #: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:778
+#: src/Process/Backend/Media.php:687 src/Process/Backend/Media.php:813
 #: src/Process/Backend/MediaItem.php:399 src/Process/Backend/MediaItem.php:405
 msgid "Media manager"
 msgstr "מנהל מדיה"
@@ -985,19 +985,19 @@ msgstr "גודל"
 
 #: src/Core/Backend/Listing/ListingMedia.php:239
 #: src/Core/Backend/Listing/ListingMedia.php:242
-#: src/Process/Backend/Media.php:412
+#: src/Process/Backend/Media.php:429
 msgid "Select this file"
 msgstr "בחירת קובץ זה"
 
 #: src/Core/Backend/Listing/ListingMedia.php:265
 #: src/Core/Backend/Listing/ListingMedia.php:268
-#: src/Process/Backend/Media.php:450
+#: src/Process/Backend/Media.php:467
 msgid "Attach this file to entry"
 msgstr "צירוף קובץ זה לרישום"
 
 #: src/Core/Backend/Listing/ListingMedia.php:276
 #: src/Core/Backend/Listing/ListingMedia.php:279
-#: src/Process/Backend/Media.php:477
+#: src/Process/Backend/Media.php:494
 msgid "Insert this file into entry"
 msgstr "הוספת קובץ זה לרשומה"
 
@@ -1482,7 +1482,7 @@ msgid "Your password:"
 msgstr "הסיסמה שלכם:"
 
 #: src/Core/Backend/ModulesList.php:1750 src/Core/Backend/Page.php:1419
-#: src/Process/Backend/Media.php:757
+#: src/Process/Backend/Media.php:792
 msgid "Upload"
 msgstr "טעינה"
 
@@ -1519,7 +1519,7 @@ msgstr "קביעת תצורה \"%s\""
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1172
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:348
-#: src/Process/Backend/Media.php:819 src/Process/Backend/MediaItem.php:1356
+#: src/Process/Backend/Media.php:854 src/Process/Backend/MediaItem.php:1356
 #: src/Process/Backend/Post.php:922 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:534 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -1887,16 +1887,16 @@ msgstr "בוטל."
 msgid "HTTP Error:"
 msgstr "שגיאת HTTP:"
 
-#: src/Core/Backend/Page.php:1415 src/Process/Backend/Media.php:702
+#: src/Core/Backend/Page.php:1415 src/Process/Backend/Media.php:737
 msgid "Choose file"
 msgstr "בחירת קובץ"
 
-#: src/Core/Backend/Page.php:1416 src/Process/Backend/Media.php:708
+#: src/Core/Backend/Page.php:1416 src/Process/Backend/Media.php:743
 msgid "Choose files"
 msgstr "בחירת קבצים"
 
 #: src/Core/Backend/Page.php:1417 src/Process/Backend/LinkPopup.php:110
-#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:507
+#: src/Process/Backend/Media.php:292 src/Process/Backend/MediaItem.php:507
 #: src/Process/Backend/MediaItem.php:763 src/Process/Backend/Post.php:928
 #: src/Process/Backend/PostMedia.php:112
 msgid "Cancel"
@@ -3236,7 +3236,7 @@ msgstr "URL של בלוג:"
 msgid "Blog description:"
 msgstr "תיאור בלוג:"
 
-#: src/Process/Backend/Blog.php:192 src/Process/Backend/Media.php:623
+#: src/Process/Backend/Blog.php:192 src/Process/Backend/Media.php:640
 msgid "Create"
 msgstr "יצירה"
 
@@ -3682,7 +3682,7 @@ msgstr "הוספת קישור לתמונה המקורית."
 msgid "Image legend and alternate text:"
 msgstr "מקרא תמונה ותמליל חלופי:"
 
-#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:808
+#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:843
 msgid "Blog parameters"
 msgstr "פרמטרים של בלוג"
 
@@ -4470,142 +4470,159 @@ msgstr "הקובץ סולק בהצלחה."
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "מדריך \"%s\" הושלם בהצלחה."
 
-#: src/Process/Backend/Media.php:264 src/Process/Backend/PostMedia.php:97
+#: src/Process/Backend/Media.php:269
+#, php-format
+msgid "Directory \"%s\" has been successfully rebuild."
+msgstr "הספרייה \"%s\" נבנתה בהצלחה."
+
+#: src/Process/Backend/Media.php:281 src/Process/Backend/PostMedia.php:97
 msgid "confirm removal"
 msgstr "אישור הסרה"
 
-#: src/Process/Backend/Media.php:271
+#: src/Process/Backend/Media.php:288
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "אתם בטוחים שברצונכם לסלק %s?"
 
-#: src/Process/Backend/Media.php:276 src/Process/Backend/PostMedia.php:113
+#: src/Process/Backend/Media.php:293 src/Process/Backend/PostMedia.php:113
 msgid "Yes"
 msgstr "כן"
 
-#: src/Process/Backend/Media.php:318
+#: src/Process/Backend/Media.php:335
 msgid "Remove this folder from your favorites"
 msgstr "סילוק תיקיה זו מהמועדפים שלכם."
 
-#: src/Process/Backend/Media.php:343
+#: src/Process/Backend/Media.php:360
 msgid "Add this folder to your favorites"
 msgstr "הוספת תיקיה זו למועדפים שלכם."
 
-#: src/Process/Backend/Media.php:354
+#: src/Process/Backend/Media.php:371
 msgid "Goto recent folder:"
 msgstr "תיקיה עדכנית:"
 
-#: src/Process/Backend/Media.php:391
+#: src/Process/Backend/Media.php:408
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "אין לכם הרשאות מספיקות כדי לכתוב לתיקיה זו."
 
-#: src/Process/Backend/Media.php:411
+#: src/Process/Backend/Media.php:428
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "נא לבחור קובץ בלחיצה על %s"
 
-#: src/Process/Backend/Media.php:415
+#: src/Process/Backend/Media.php:432
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "בחרו קבצים ולחצו על <strong>%sלחצן</strong>"
 
-#: src/Process/Backend/Media.php:416 src/Process/Backend/Media.php:545
+#: src/Process/Backend/Media.php:433 src/Process/Backend/Media.php:562
 msgid "Choose selected medias"
 msgstr "בחירת תיווך נבחר"
 
-#: src/Process/Backend/Media.php:422 src/Process/Backend/Media.php:456
-#: src/Process/Backend/Media.php:483
+#: src/Process/Backend/Media.php:439 src/Process/Backend/Media.php:473
+#: src/Process/Backend/Media.php:500
 msgid "or"
 msgstr "או"
 
-#: src/Process/Backend/Media.php:425 src/Process/Backend/Media.php:459
-#: src/Process/Backend/Media.php:486
+#: src/Process/Backend/Media.php:442 src/Process/Backend/Media.php:476
+#: src/Process/Backend/Media.php:503
 msgid "upload a new file"
 msgstr "טעינת קובץ חדש:"
 
-#: src/Process/Backend/Media.php:448
+#: src/Process/Backend/Media.php:465
 #, php-format
 msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
 msgstr "בחרו קובץ לצירוף לרישום %1$s על-ידי לחיצה על %2$s"
 
-#: src/Process/Backend/Media.php:476
+#: src/Process/Backend/Media.php:493
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "בחרו קובץ להוספה בלחיצה על %s"
 
-#: src/Process/Backend/Media.php:506 src/Process/Backend/Media.php:510
-#: src/Process/Backend/Media.php:513
+#: src/Process/Backend/Media.php:523 src/Process/Backend/Media.php:527
+#: src/Process/Backend/Media.php:530
 msgid "Grid display mode"
 msgstr "מצב התצוגה ' סריג '"
 
-#: src/Process/Backend/Media.php:517 src/Process/Backend/Media.php:521
-#: src/Process/Backend/Media.php:524
+#: src/Process/Backend/Media.php:534 src/Process/Backend/Media.php:538
+#: src/Process/Backend/Media.php:541
 msgid "List display mode"
 msgstr "מצב התצוגה ' רשימה '"
 
-#: src/Process/Backend/Media.php:549
+#: src/Process/Backend/Media.php:566
 msgid "Remove selected medias"
 msgstr "סילוק המדיאס נבחר"
 
-#: src/Process/Backend/Media.php:610
+#: src/Process/Backend/Media.php:627
 msgid "Create new directory"
 msgstr "יצירת מדריך חדש"
 
-#: src/Process/Backend/Media.php:617
+#: src/Process/Backend/Media.php:634
 msgid "Directory Name:"
 msgstr "שם מדריך:"
 
-#: src/Process/Backend/Media.php:637
+#: src/Process/Backend/Media.php:654
 msgid "Build missing thumbnails in directory"
 msgstr "בניית תמונות ממוזערות חסרות במדריך"
 
-#: src/Process/Backend/Media.php:642
+#: src/Process/Backend/Media.php:659
 msgid "Build"
 msgstr "בנייה"
 
-#: src/Process/Backend/Media.php:652
+#: src/Process/Backend/Media.php:669
+msgid "Force rebuild all thumbnails in directory"
+msgstr "כפה בנייה מחדש של כל התמונות הממוזערות בספרייה"
+
+#: src/Process/Backend/Media.php:674
+msgid "Force rebuild"
+msgstr "כוח לבנות מחדש"
+
+#: src/Process/Backend/Media.php:679
+msgid "Use with caution especially if there is a large numbers of media if this directory."
+msgstr "יש להשתמש בזהירות, במיוחד אם יש מספר רב של מדיה בספרייה זו."
+
+#: src/Process/Backend/Media.php:687
 #, php-format
 msgid "Backup content of %s"
 msgstr "תוכן גיבוי של %s"
 
-#: src/Process/Backend/Media.php:659
+#: src/Process/Backend/Media.php:694
 msgid "Download zip file"
 msgstr "הורדת קובץ zip"
 
-#: src/Process/Backend/Media.php:678
+#: src/Process/Backend/Media.php:713
 msgid "Add files"
 msgstr "הוספת קבצים"
 
-#: src/Process/Backend/Media.php:681
+#: src/Process/Backend/Media.php:716
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "אנא דאגו לפרסם מדיה בבעלותכם וכי אינם מוגנים על ידי זכויות יוצרים."
 
-#: src/Process/Backend/Media.php:718
+#: src/Process/Backend/Media.php:753
 msgid "Maximum file size allowed:"
 msgstr "גודל קובץ מרבי מותר:"
 
-#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1261
+#: src/Process/Backend/Media.php:767 src/Process/Backend/MediaItem.php:1261
 msgid "Private"
 msgstr "פרטי"
 
-#: src/Process/Backend/Media.php:741
+#: src/Process/Backend/Media.php:776
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "כדי לשלוח כמה קבצים באותו הזמן, תוכלו להפעיל את המתועב המשופר ב -"
 
-#: src/Process/Backend/Media.php:750
+#: src/Process/Backend/Media.php:785
 msgid "Refresh"
 msgstr "רענון"
 
-#: src/Process/Backend/Media.php:753
+#: src/Process/Backend/Media.php:788
 msgid "Clear all"
 msgstr "ניקוי הכל"
 
-#: src/Process/Backend/Media.php:778
+#: src/Process/Backend/Media.php:813
 #, php-format
 msgid "In %s:"
 msgstr "בשנת %s:"
 
-#: src/Process/Backend/Media.php:805
+#: src/Process/Backend/Media.php:840
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "הגדרות נוכחיות עבור תיווך ותמונות מוגדרים ב- %s"
