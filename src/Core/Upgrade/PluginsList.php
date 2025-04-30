@@ -279,7 +279,7 @@ class PluginsList extends ModulesList
             Notices::addSuccessNotice(
                 __('Plugin has been successfully installed.', 'Plugins have been successfully installed.', $count)
             );
-            Http::redirect($this->getURL());
+            Http::redirect($this->getURL('do_install', parametric: false));
         } elseif (!empty($_POST['activate'])) {
             if (is_array($_POST['activate'])) {
                 $modules = array_keys($_POST['activate']);
@@ -386,7 +386,7 @@ class PluginsList extends ModulesList
             } else {
                 throw new Exception(__('No such plugin.'));
             }
-            Http::redirect($this->getURL('', true, $tab));
+            Http::redirect($this->getURL('do_install', true, $tab, parametric: false));
         }
 
         # Manual actions
@@ -416,7 +416,7 @@ class PluginsList extends ModulesList
                 __('The plugin has been successfully updated.') :
                 __('The plugin has been successfully installed.')
             );
-            Http::redirect($this->getURL('', true, 'plugins'));
+            Http::redirect($this->getURL('do_install', true, 'plugins', parametric: false));
         }
     }
 

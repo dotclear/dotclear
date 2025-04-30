@@ -100,34 +100,41 @@ class Plugins extends Process
         // Plugins install
         self::$plugins_install = null;
         if (!App::error()->flag()) {
+            $do_install = isset($_REQUEST['do_install']);
+            if ($do_install) {
+                // Add BACKEND context to run plugins installation if necessary
+                App::task()->addContext('BACKEND');
+            }
             self::$plugins_install = App::plugins()->installModules();
+            if (!$do_install) {
+                // Messages, only if not already done by installModules() above
+                if (!empty(self::$plugins_install['success'])) {
+                    $success = [];
+                    foreach (array_keys(self::$plugins_install['success']) as $k) {
+                        $info      = implode(' - ', self::$plugins_list->getSettingsUrls($k, true));
+                        $success[] = $k . ($info !== '' ? ' → ' . $info : '');
+                    }
+                    Notices::AddSuccessNotice(
+                        __('Following plugins have been installed:') .
+                        '<ul><li>' . implode("</li>\n<li>", $success) . '</li></ul>'
+                    );
+                    unset($success);
+                }
+                if (!empty(self::$plugins_install['failure'])) {
+                    $failure = [];
+                    foreach (self::$plugins_install['failure'] as $k => $v) {
+                        $failure[] = $k . ' (' . $v . ')';
+                    }
+
+                    Notices::AddErrorNotice(
+                        __('Following plugins have not been installed:') .
+                        '<ul><li>' . implode("</li>\n<li>", $failure) . '</li></ul>'
+                    );
+                    unset($failure);
+                }
+            }
         }
 
-        // Messages
-        if (!empty(self::$plugins_install['success'])) {
-            $success = [];
-            foreach (array_keys(self::$plugins_install['success']) as $k) {
-                $info      = implode(' - ', self::$plugins_list->getSettingsUrls($k, true));
-                $success[] = $k . ($info !== '' ? ' → ' . $info : '');
-            }
-            Notices::AddSuccessNotice(
-                __('Following plugins have been installed:') .
-                '<ul><li>' . implode("</li>\n<li>", $success) . '</li></ul>'
-            );
-            unset($success);
-        }
-        if (!empty(self::$plugins_install['failure'])) {
-            $failure = [];
-            foreach (self::$plugins_install['failure'] as $k => $v) {
-                $failure[] = $k . ' (' . $v . ')';
-            }
-
-            Notices::AddErrorNotice(
-                __('Following plugins have not been installed:') .
-                '<ul><li>' . implode("</li>\n<li>", $failure) . '</li></ul>'
-            );
-            unset($failure);
-        }
         if (null == App::blog()->settings()->system->store_plugin_url) {
             Notices::AddMessageNotice(__('Official plugins repository could not be updated as there is no URL set in configuration.'));
         }

@@ -296,16 +296,17 @@ class ModulesList
      * @param    string|array<mixed>    $queries    Additionnal query string
      * @param    bool                   $with_tab   Add current tab to URL end
      * @param    string|null            $force_tab  Tab to use in URL instead of $this->page_tab
+     * @param    bool                   $parametric Use &amp; to separate queries' items if true, else use &
      *
      * @return   string Clean page URL
      */
-    public function getURL($queries = '', bool $with_tab = true, ?string $force_tab = null): string
+    public function getURL($queries = '', bool $with_tab = true, ?string $force_tab = null, bool $parametric = true): string
     {
         $query = '';
         if (!empty($queries)) {
             // Cope with queries
-            $query = str_contains($this->page_url, '?') ? '&amp;' : '?';
-            $query .= is_array($queries) ? http_build_query($queries) : $queries;
+            $query = str_contains($this->page_url, '?') ? ($parametric ? '&amp;' : '&') : '?';
+            $query .= is_array($queries) ? http_build_query($queries, '', ($parametric ? null : '&')) : $queries;
         }
 
         $tab = '';
