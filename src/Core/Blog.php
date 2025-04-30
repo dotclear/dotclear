@@ -511,6 +511,9 @@ class Blog implements BlogInterface
 
             $sql->update($cur);
         }
+
+        # --BEHAVIOR-- coreBlogAfterTriggerComments -- Array, Array
+        $this->behavior->callBehavior('coreBlogAfterTriggerComments', $comments_ids, $affected_posts);
     }
     //@}
 
