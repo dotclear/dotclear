@@ -259,6 +259,23 @@ class Media extends Process
             }
         }
 
+        # Rebuild all directory thumbnails
+        if (App::backend()->page->getDirs() && App::auth()->isSuperAdmin() && !empty($_POST['rebuild'])) {
+            try {
+                App::media()->rebuildThumbnails(App::backend()->page->d, false, true);
+
+                Notices::addSuccessNotice(
+                    sprintf(
+                        __('Directory "%s" has been successfully rebuild.'),
+                        Html::escapeHTML(App::backend()->page->d)
+                    )
+                );
+                App::backend()->url()->redirect('admin.media', App::backend()->page->values());
+            } catch (Exception $e) {
+                App::error()->add($e->getMessage());
+            }
+        }
+
         # DISPLAY confirm page for rmdir & rmfile
         if (App::backend()->page->getDirs() && !empty($_GET['remove']) && empty($_GET['noconfirm'])) {
             App::backend()->page->openPage(App::backend()->page->breadcrumb([__('confirm removal') => '']));
@@ -627,7 +644,7 @@ class Media extends Process
                     ]);
             }
 
-            // Rebuild directory
+            // Rebuild directory (complete / force)
             if (App::auth()->isSuperAdmin() && !App::backend()->page->popup && App::backend()->page->mediaWritable()) {
                 $dirtools[] = (new Form('rebuild-form'))
                     ->method('post')
@@ -642,6 +659,24 @@ class Media extends Process
                                         (new Submit('rebuild-submit', __('Build'))),
                                         ... App::backend()->url()->hiddenFormFields('admin.media', array_merge(App::backend()->page->values(), ['complete' => 1])),
                                     ]),
+                            ]),
+                    ]);
+                $dirtools[] = (new Form('force-rebuild-form'))
+                    ->method('post')
+                    ->action(App::backend()->url()->getBase('admin.media'))
+                    ->fields([
+                        (new Fieldset())
+                            ->legend(new Legend(__('Force rebuild all thumbnails in directory')))
+                            ->fields([
+                                (new Para())
+                                    ->items([
+                                        App::nonce()->formNonce(),
+                                        (new Submit('force-rebuild-submit', __('Force rebuild'))),
+                                        ... App::backend()->url()->hiddenFormFields('admin.media', array_merge(App::backend()->page->values(), ['rebuild' => 1])),
+                                    ]),
+                                (new Note())
+                                    ->class(['warning', 'form-note'])
+                                    ->text(__('Use with caution especially if there is a large numbers of media if this directory.')),
                             ]),
                     ]);
             }
