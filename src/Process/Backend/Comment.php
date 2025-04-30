@@ -289,6 +289,7 @@ class Comment extends Process
                                 ->default(Html::escapeHTML(App::backend()->comment_author))
                                 ->required(true)
                                 ->placeholder(__('Author'))
+                                ->translate(false)
                                 ->label((new Label(
                                     (new Text('span', '*'))->render() . __('Author:'),
                                     Label::OL_TF
@@ -299,6 +300,7 @@ class Comment extends Process
                             (new Email('comment_email', Html::escapeHTML(App::backend()->comment_email)))
                                 ->size(30)
                                 ->maxlength(255)
+                                ->translate(false)
                                 ->label(
                                     (new Label(__('Email:'), Label::OL_TF))
                                     ->suffix(App::backend()->comment_email ?
@@ -315,6 +317,7 @@ class Comment extends Process
                             (new Url('comment_site', Html::escapeHTML(App::backend()->comment_site)))
                                 ->size(30)
                                 ->maxlength(255)
+                                ->translate(false)
                                 ->label(new Label(__('Web site:'), Label::OL_TF)),
 
                         ]),

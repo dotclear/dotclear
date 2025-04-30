@@ -310,6 +310,7 @@ class User extends Process
                                             ->required(true)
                                             ->placeholder(__('Login'))
                                             ->autocomplete(App::backend()->user_id ? 'username' : 'off')
+                                            ->translate(false)
                                             ->extra('aria-describedby="user_id_help user_id_warning"')
                                             ->label((new Label((new Text('span', '*'))->render() . __('User ID:'), Label::OL_TF))->class('required')),
                                     ]),
@@ -329,6 +330,7 @@ class User extends Process
                                                 ->maxlength(255)
                                                 ->class('pw-strength')
                                                 ->autocomplete('new-password')
+                                                ->translate(false)
                                                 ->label((new Label(__('New password:'), Label::OL_TF))) :
                                             (new Password('new_pwd'))
                                                 ->size(20)
@@ -337,6 +339,7 @@ class User extends Process
                                                 ->required(true)
                                                 ->placeholder(__('Password'))
                                                 ->autocomplete('new-password')
+                                                ->translate(false)
                                                 ->extra('aria-describedby="new_pwd_help"')
                                                 ->label((new Label((new Text('span', '*'))->render() . __('Password:'), Label::OL_TF))->class('required')),
                                     ]),
@@ -351,6 +354,7 @@ class User extends Process
                                                 ->maxlength(255)
                                                 ->class('pw-strength')
                                                 ->autocomplete('new-password')
+                                                ->translate(false)
                                                 ->label((new Label(__('Confirm password:'), Label::OL_TF))) :
                                             (new Password('new_pwd_c'))
                                                 ->size(20)
@@ -359,6 +363,7 @@ class User extends Process
                                                 ->required(true)
                                                 ->placeholder(__('Password'))
                                                 ->autocomplete('new-password')
+                                                ->translate(false)
                                                 ->label((new Label((new Text('span', '*'))->render() . __('Confirm password:'), Label::OL_TF))->class('required')),
                                     ]),
                                 App::auth()->allowPassChange() ?
@@ -392,6 +397,7 @@ class User extends Process
                                             ->maxlength(255)
                                             ->value(Html::escapeHTML(App::backend()->user_name))
                                             ->autocomplete('family-name')
+                                            ->translate(false)
                                             ->label((new Label(__('Last Name:'), Label::OL_TF))),
                                     ]),
                                 (new Para())
@@ -401,6 +407,7 @@ class User extends Process
                                             ->maxlength(255)
                                             ->value(Html::escapeHTML(App::backend()->user_firstname))
                                             ->autocomplete('given-name')
+                                            ->translate(false)
                                             ->label((new Label(__('First Name:'), Label::OL_TF))),
                                     ]),
                                 (new Para())
@@ -410,6 +417,7 @@ class User extends Process
                                             ->maxlength(255)
                                             ->value(Html::escapeHTML(App::backend()->user_displayname))
                                             ->autocomplete('nickname')
+                                            ->translate(false)
                                             ->label((new Label(__('Display name:'), Label::OL_TF))),
                                     ]),
                                 (new Para())
@@ -420,6 +428,7 @@ class User extends Process
                                             ->value(Html::escapeHTML(App::backend()->user_email))
                                             ->autocomplete('email')
                                             ->extra('aria-describedby="user_email_help"')
+                                            ->translate(false)
                                             ->label((new Label(__('Email:'), Label::OL_TF))),
                                     ]),
                                 (new Note('user_email_help'))
@@ -431,6 +440,7 @@ class User extends Process
                                             ->size(50)
                                             ->maxlength(255)
                                             ->value(Html::escapeHTML(App::backend()->user_profile_mails))
+                                            ->translate(false)
                                             ->label((new Label(__('Alternate emails (comma separated list):'), Label::OL_TF))),
                                     ]),
                                 (new Note('sanitize_emails'))
@@ -443,6 +453,7 @@ class User extends Process
                                             ->maxlength(255)
                                             ->value(Html::escapeHTML(App::backend()->user_url))
                                             ->autocomplete('url')
+                                            ->translate(false)
                                             ->label((new Label(__('URL:'), Label::OL_TF))),
                                     ]),
                                 (new Para())
@@ -451,6 +462,7 @@ class User extends Process
                                             ->size(50)
                                             ->maxlength(255)
                                             ->value(Html::escapeHTML(App::backend()->user_profile_urls))
+                                            ->translate(false)
                                             ->label((new Label(__('Alternate URLs (comma separated list):'), Label::OL_TF))),
                                     ]),
                                 (new Note('sanitize_urls'))
@@ -467,6 +479,7 @@ class User extends Process
                                         (new Select('user_lang'))
                                             ->items(App::backend()->lang_combo)
                                             ->default(App::backend()->user_lang)
+                                            ->translate(false)
                                             ->label((new Label(__('Language:'), Label::OL_TF))),
                                     ]),
                                 (new Para())

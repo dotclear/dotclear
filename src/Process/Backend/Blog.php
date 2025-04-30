@@ -121,6 +121,7 @@ class Blog extends Process
                                 ->maxlength(32)
                                 ->required(true)
                                 ->placeholder(__('Blog ID'))
+                                ->translate(false)
                                 ->label(
                                     (new Label(
                                         '<span>*</span> ' . __('Blog ID:'),
@@ -158,6 +159,7 @@ class Blog extends Process
                                 ->maxlength(255)
                                 ->required(true)
                                 ->placeholder(__('Blog URL'))
+                                ->translate(false)
                                 ->label(
                                     (new Label(
                                         '<span>*</span> ' . __('Blog URL:'),

@@ -155,6 +155,7 @@ class Blogs extends Process
                                     ->size(20)
                                     ->maxlength(255)
                                     ->autocomplete('current-password')
+                                    ->translate(false)
                                     ->label(
                                         (new Label(
                                             __('Please give your password to confirm blog(s) deletion:'),

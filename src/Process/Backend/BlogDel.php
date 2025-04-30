@@ -121,6 +121,7 @@ class BlogDel extends Process
                             ->size(20)
                             ->maxlength(255)
                             ->autocomplete('current-password')
+                            ->translate(false)
                             ->label((new Label(
                                 __('Your password:'),
                                 Label::OUTSIDE_LABEL_BEFORE

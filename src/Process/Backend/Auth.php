@@ -411,6 +411,7 @@ class Auth extends Process
                                         ->size(20)
                                         ->maxlength(32)
                                         ->default(Html::escapeHTML(App::backend()->user_id))
+                                        ->translate(false)
                                         ->autocomplete('username'),
                                 ]),
                             (new Para())
@@ -420,6 +421,7 @@ class Auth extends Process
                                         ->size(20)
                                         ->maxlength(255)
                                         ->default(Html::escapeHTML(App::backend()->user_email))
+                                        ->translate(false)
                                         ->autocomplete('email'),
                                 ]),
                             (new Para())
@@ -452,6 +454,7 @@ class Auth extends Process
                                 ->size(20)
                                 ->maxlength(255)
                                 ->autocomplete('new-password')
+                                ->translate(false)
                                 ->class('pw-strength'),
                         ]),
                     (new Para())
@@ -460,6 +463,7 @@ class Auth extends Process
                                 ->label((new Label(__('Confirm password:'), Label::IL_TF)))
                                 ->size(20)
                                 ->maxlength(255)
+                                ->translate(false)
                                 ->autocomplete('new-password'),
                         ]),
                     (new Para())
@@ -503,6 +507,7 @@ class Auth extends Process
                                     ->size(20)
                                     ->maxlength(32)
                                     ->default(Html::escapeHTML(App::backend()->user_id))
+                                    ->translate(false)
                                     ->autocomplete('username'),
                             ]),
                         (new Para())
@@ -511,6 +516,7 @@ class Auth extends Process
                                     ->label((new Label(__('Password:'), Label::IL_TF)))
                                     ->size(20)
                                     ->maxlength(255)
+                                    ->translate(false)
                                     ->autocomplete('current-password'),
                             ]),
                         (new Para())

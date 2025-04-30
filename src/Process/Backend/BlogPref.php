@@ -715,9 +715,11 @@ class BlogPref extends Process
                                                 ->maxlength(255)
                                                 ->value($data->blog_settings->system->date_format)
                                                 ->label(new Label(__('Date format:'), Label::OL_TF))
+                                                ->translate(false)
                                                 ->extra('aria-describedby="date_format_help"'),
                                             (new Select('date_format_select'))
                                                 ->items($data->date_formats_combo)
+                                                ->translate(false)
                                                 ->title(__('Pattern of date')),
                                         ]),
                                     (new Note())
@@ -732,9 +734,11 @@ class BlogPref extends Process
                                                 ->maxlength(255)
                                                 ->value($data->blog_settings->system->time_format)
                                                 ->label(new Label(__('Time format:'), Label::OL_TF))
+                                                ->translate(false)
                                                 ->extra('aria-describedby="time_format_help"'),
                                             (new Select('time_format_select'))
                                                 ->items($data->time_formats_combo)
+                                                ->translate(false)
                                                 ->title(__('Pattern of time')),
                                         ]),
                                     (new Note())
@@ -825,6 +829,7 @@ class BlogPref extends Process
                                 ->maxlength(255)
                                 ->value(Html::escapeHTML($data->blog_settings->system->static_home_url))
                                 ->label(new Label(__('Entry URL (its content will be used for the static home page):'), Label::IL_TF))
+                                ->translate(false)
                                 ->extra('aria-describedby="static_home_url_help"'),
                             (new Button('static_home_url_selector', __('Choose an entry'))),
                         ]),
@@ -875,6 +880,7 @@ class BlogPref extends Process
                                                         ->size(1)
                                                         ->maxlength(1)
                                                         ->value((string) $data->blog_settings->system->media_thumbnail_prefix)
+                                                        ->translate(false)
                                                         ->label(new Label(__('Thumbnail character prefix:'), Label::OL_TF)),
                                                 ]),
                                             (new Note())
@@ -1027,6 +1033,7 @@ class BlogPref extends Process
                                     ->required(true)
                                     ->placeholder(__('Blog ID'))
                                     ->title(__('Required field'))
+                                    ->translate(false)
                                     ->label(new Label((new Text('span', '*'))->render() . __('Blog ID:'), Label::IL_TF))
                                     ->class('required'),
                             ]),
@@ -1047,6 +1054,7 @@ class BlogPref extends Process
                                     ->required(true)
                                     ->placeholder(__('Blog URL'))
                                     ->title(__('Required field'))
+                                    ->translate(false)
                                     ->label(new Label((new Text('span', '*'))->render() . __('Blog URL:'), Label::IL_TF))
                                     ->class('required'),
                             ]),
@@ -1070,6 +1078,7 @@ class BlogPref extends Process
                             (new Select('post_url_format'))
                                 ->items($data->post_url_combo)
                                 ->default(Html::escapeHTML($data->blog_settings->system->post_url_format))
+                                ->translate(false)
                                 ->label(new Label(__('New post URL format:'), Label::IL_TF))
                                 ->extra('aria-describedby="post_url_format_help"'),
                         ]),

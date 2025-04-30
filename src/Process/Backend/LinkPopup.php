@@ -87,6 +87,7 @@ class LinkPopup extends Process
                                     ->maxlength(512)
                                     ->required(true)
                                     ->placeholder(__('URL'))
+                                    ->translate(false)
                                     ->label((new Label((new Text('span', '*'))->render() . __('Link URL:'), Label::OL_TF))->class('required')),
                             ]),
                         (new Para())
@@ -102,6 +103,7 @@ class LinkPopup extends Process
                                 (new Select('hreflang'))
                                     ->items(App::backend()->lang_combo)
                                     ->value(App::backend()->hreflang)
+                                    ->translate(false)
                                     ->label((new Label(__('Link language:'), Label::OL_TF))),
                             ]),
                         (new Para())

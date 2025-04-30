@@ -520,6 +520,7 @@ class UserPreferences extends Process
         form::field('user_name', 20, 255, [
             'default'      => Html::escapeHTML(App::backend()->user_name),
             'autocomplete' => 'family-name',
+            'translate'    => 'no',
         ]) .
         '</p>' .
 
@@ -527,6 +528,7 @@ class UserPreferences extends Process
         form::field('user_firstname', 20, 255, [
             'default'      => Html::escapeHTML(App::backend()->user_firstname),
             'autocomplete' => 'given-name',
+            'translate'    => 'no',
         ]) .
         '</p>' .
 
@@ -534,6 +536,7 @@ class UserPreferences extends Process
         form::field('user_displayname', 20, 255, [
             'default'      => Html::escapeHTML(App::backend()->user_displayname),
             'autocomplete' => 'nickname',
+            'translate'    => 'no',
         ]) .
         '</p>' .
 
@@ -541,12 +544,14 @@ class UserPreferences extends Process
         form::email('user_email', [
             'default'      => Html::escapeHTML(App::backend()->user_email),
             'autocomplete' => 'email',
+            'translate'    => 'no',
         ]) .
         '</p>' .
 
         '<p><label for="user_profile_mails">' . __('Alternate emails (comma separated list):') . '</label>' .
         form::field('user_profile_mails', 50, 255, [
-            'default' => Html::escapeHTML(App::backend()->user_profile_mails),
+            'default'   => Html::escapeHTML(App::backend()->user_profile_mails),
+            'translate' => 'no',
         ]) .
         '</p>' .
         '<p class="form-note info" id="sanitize_emails">' . __('Invalid emails will be automatically removed from list.') . '</p>' .
@@ -556,12 +561,14 @@ class UserPreferences extends Process
             'size'         => 30,
             'default'      => Html::escapeHTML(App::backend()->user_url),
             'autocomplete' => 'url',
+            'translate'    => 'no',
         ]) .
         '</p>' .
 
         '<p><label for="user_profile_urls">' . __('Alternate URLs (comma separated list):') . '</label>' .
         form::field('user_profile_urls', 50, 255, [
-            'default' => Html::escapeHTML(App::backend()->user_profile_urls),
+            'default'   => Html::escapeHTML(App::backend()->user_profile_urls),
+            'translate' => 'no',
         ]) .
         '</p>' .
         '<p class="form-note info" id="sanitize_urls">' . __('Invalid URLs will be automatically removed from list.') . '</p>' .
@@ -582,7 +589,9 @@ class UserPreferences extends Process
                 255,
                 [
                     'class'        => 'pw-strength',
-                    'autocomplete' => 'new-password', ]
+                    'autocomplete' => 'new-password',
+                    'translate'    => 'no',
+                ]
             ) . '</p>' .
             '<p><label for="new_pwd_c">' . __('Confirm new password:') . '</label>' .
             form::password(
@@ -590,7 +599,9 @@ class UserPreferences extends Process
                 20,
                 255,
                 [
-                    'autocomplete' => 'new-password', ]
+                    'autocomplete' => 'new-password',
+                    'translate'    => 'no',
+                ]
             ) . '</p>' .
             '<p><label for="cur_pwd">' . __('Your current password:') . '</label>' .
             form::password(
@@ -600,6 +611,7 @@ class UserPreferences extends Process
                 [
                     'autocomplete' => 'current-password',
                     'extra_html'   => 'aria-describedby="cur_pwd_help"',
+                    'translate'    => 'no',
                 ]
             ) . '</p>' .
             '<p class="form-note warn" id="cur_pwd_help">' .

@@ -390,6 +390,7 @@ class Langs extends Process
                                 ->required(true)
                                 ->placeholder(__('Password'))
                                 ->autocomplete('current-password')
+                                ->translate(false)
                                 ->label((new Label(
                                     (new Text('span', '*'))->render() . __('Your password:'),
                                     Label::OL_TF

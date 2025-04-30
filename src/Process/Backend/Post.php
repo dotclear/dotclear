@@ -774,6 +774,7 @@ class Post extends Process
                                 ->value(Html::escapeHTML(App::backend()->post_password))
                                 ->size(10)
                                 ->maxlength(32)
+                                ->translate(false)
                                 ->label((new Label(__('Password'), Label::OUTSIDE_TEXT_BEFORE))),
                         ])
                         ->render(),
@@ -785,6 +786,7 @@ class Post extends Process
                                     ->value(Html::escapeHTML(App::backend()->post_url))
                                     ->size(10)
                                     ->maxlength(255)
+                                    ->translate(false)
                                     ->label((new Label(__('Edit basename'), Label::OUTSIDE_TEXT_BEFORE))),
                             ]),
                             (new Note())
