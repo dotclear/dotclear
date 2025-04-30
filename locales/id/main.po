@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-30 06:54+0200\n"
-"PO-Revision-Date: 2025-04-30 05:06\n"
+"PO-Revision-Date: 2025-04-30 05:34\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -4380,7 +4380,7 @@ msgstr "Direktori \"%s\" telah berhasil diselesaikan."
 #: src/Process/Backend/Media.php:269
 #, php-format
 msgid "Directory \"%s\" has been successfully rebuild."
-msgstr ""
+msgstr "Direktori \"%s\" telah berhasil dibangun kembali."
 
 #: src/Process/Backend/Media.php:281 src/Process/Backend/PostMedia.php:97
 msgid "confirm removal"
@@ -4477,15 +4477,15 @@ msgstr "Membangun"
 
 #: src/Process/Backend/Media.php:669
 msgid "Force rebuild all thumbnails in directory"
-msgstr ""
+msgstr "Paksa bangun ulang semua gambar mini dalam direktori"
 
 #: src/Process/Backend/Media.php:674
 msgid "Force rebuild"
-msgstr ""
+msgstr "Membangun kembali kekuatan"
 
 #: src/Process/Backend/Media.php:679
 msgid "Use with caution especially if there is a large numbers of media if this directory."
-msgstr ""
+msgstr "Gunakan dengan hati-hati, terutama jika terdapat sejumlah besar media jika direktori ini."
 
 #: src/Process/Backend/Media.php:687
 #, php-format
