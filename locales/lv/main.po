@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-28 09:26+0200\n"
-"PO-Revision-Date: 2025-04-28 08:15\n"
+"POT-Creation-Date: 2025-04-30 06:54+0200\n"
+"PO-Revision-Date: 2025-04-30 05:06\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -395,7 +395,7 @@ msgstr "Izveidot jaunu kategoriju amatam(-iem)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:368
 #: src/Process/Backend/Home.php:546 src/Process/Backend/Home.php:580
-#: src/Process/Backend/Media.php:725 src/Process/Backend/MediaItem.php:1230
+#: src/Process/Backend/Media.php:760 src/Process/Backend/MediaItem.php:1230
 #: src/Process/Backend/Post.php:712 src/Process/Backend/Post.php:813
 msgid "Title:"
 msgstr "Nosaukums:"
@@ -568,7 +568,7 @@ msgid "My favorites"
 msgstr "Mani favorīti"
 
 #: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:194
-#: src/Core/Backend/Page.php:380 src/Process/Backend/Media.php:744
+#: src/Core/Backend/Page.php:380 src/Process/Backend/Media.php:779
 #: src/Process/Backend/UserPreferences.php:42
 msgid "My preferences"
 msgstr "Manas vēlmes"
@@ -611,7 +611,7 @@ msgstr "Kategorijas"
 #: src/Core/Backend/Favorites.php:474 src/Core/Backend/MediaPage.php:354
 #: src/Core/Backend/MediaPage.php:356 src/Core/Backend/MediaPage.php:407
 #: src/Core/Backend/Menus.php:116 src/Core/Backend/UserPref.php:200
-#: src/Process/Backend/Media.php:652 src/Process/Backend/Media.php:778
+#: src/Process/Backend/Media.php:687 src/Process/Backend/Media.php:813
 #: src/Process/Backend/MediaItem.php:399 src/Process/Backend/MediaItem.php:405
 msgid "Media manager"
 msgstr "Mediju vadītājs"
@@ -971,19 +971,19 @@ msgstr "Izmērs"
 
 #: src/Core/Backend/Listing/ListingMedia.php:239
 #: src/Core/Backend/Listing/ListingMedia.php:242
-#: src/Process/Backend/Media.php:412
+#: src/Process/Backend/Media.php:429
 msgid "Select this file"
 msgstr "Atlasiet šo failu"
 
 #: src/Core/Backend/Listing/ListingMedia.php:265
 #: src/Core/Backend/Listing/ListingMedia.php:268
-#: src/Process/Backend/Media.php:450
+#: src/Process/Backend/Media.php:467
 msgid "Attach this file to entry"
 msgstr "Pievienojiet šo failu ierakstam"
 
 #: src/Core/Backend/Listing/ListingMedia.php:276
 #: src/Core/Backend/Listing/ListingMedia.php:279
-#: src/Process/Backend/Media.php:477
+#: src/Process/Backend/Media.php:494
 msgid "Insert this file into entry"
 msgstr "Ievietojiet šo failu ierakstā"
 
@@ -1459,7 +1459,7 @@ msgid "Your password:"
 msgstr "Tava parole:"
 
 #: src/Core/Backend/ModulesList.php:1750 src/Core/Backend/Page.php:1419
-#: src/Process/Backend/Media.php:757
+#: src/Process/Backend/Media.php:792
 msgid "Upload"
 msgstr "Augšupielādēt"
 
@@ -1496,7 +1496,7 @@ msgstr "Konfigurēt \"%s\""
 #: src/Core/Backend/ModulesList.php:1942 src/Process/Backend/Blog.php:194
 #: src/Process/Backend/BlogDel.php:137 src/Process/Backend/BlogPref.php:1172
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:348
-#: src/Process/Backend/Media.php:819 src/Process/Backend/MediaItem.php:1356
+#: src/Process/Backend/Media.php:854 src/Process/Backend/MediaItem.php:1356
 #: src/Process/Backend/Post.php:922 src/Process/Backend/Search.php:197
 #: src/Process/Backend/User.php:534 src/Process/Backend/UserPreferences.php:613
 #: src/Process/Backend/UserPreferences.php:796
@@ -1864,16 +1864,16 @@ msgstr "Atcelts."
 msgid "HTTP Error:"
 msgstr "HTTP kļūda:"
 
-#: src/Core/Backend/Page.php:1415 src/Process/Backend/Media.php:702
+#: src/Core/Backend/Page.php:1415 src/Process/Backend/Media.php:737
 msgid "Choose file"
 msgstr "Izvēlēties failu"
 
-#: src/Core/Backend/Page.php:1416 src/Process/Backend/Media.php:708
+#: src/Core/Backend/Page.php:1416 src/Process/Backend/Media.php:743
 msgid "Choose files"
 msgstr "Izvēlieties failus"
 
 #: src/Core/Backend/Page.php:1417 src/Process/Backend/LinkPopup.php:110
-#: src/Process/Backend/Media.php:275 src/Process/Backend/MediaItem.php:507
+#: src/Process/Backend/Media.php:292 src/Process/Backend/MediaItem.php:507
 #: src/Process/Backend/MediaItem.php:763 src/Process/Backend/Post.php:928
 #: src/Process/Backend/PostMedia.php:112
 msgid "Cancel"
@@ -3207,7 +3207,7 @@ msgstr "Emuāra URL:"
 msgid "Blog description:"
 msgstr "Emuāra apraksts:"
 
-#: src/Process/Backend/Blog.php:192 src/Process/Backend/Media.php:623
+#: src/Process/Backend/Blog.php:192 src/Process/Backend/Media.php:640
 msgid "Create"
 msgstr "Izveidot"
 
@@ -3653,7 +3653,7 @@ msgstr "Ievietojiet saiti uz sākotnējo attēlu"
 msgid "Image legend and alternate text:"
 msgstr "Attēla leģenda un alternatīvais teksts:"
 
-#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:808
+#: src/Process/Backend/BlogPref.php:967 src/Process/Backend/Media.php:843
 msgid "Blog parameters"
 msgstr "Emuāra parametri"
 
@@ -4439,142 +4439,159 @@ msgstr "Fails ir veiksmīgi noņemts."
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "Katalogs \"%s\" ir veiksmīgi pabeigts."
 
-#: src/Process/Backend/Media.php:264 src/Process/Backend/PostMedia.php:97
+#: src/Process/Backend/Media.php:269
+#, php-format
+msgid "Directory \"%s\" has been successfully rebuild."
+msgstr ""
+
+#: src/Process/Backend/Media.php:281 src/Process/Backend/PostMedia.php:97
 msgid "confirm removal"
 msgstr "apstipriniet noņemšanu"
 
-#: src/Process/Backend/Media.php:271
+#: src/Process/Backend/Media.php:288
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "Vai tiešām vēlaties noņemt %s?"
 
-#: src/Process/Backend/Media.php:276 src/Process/Backend/PostMedia.php:113
+#: src/Process/Backend/Media.php:293 src/Process/Backend/PostMedia.php:113
 msgid "Yes"
 msgstr "Jā"
 
-#: src/Process/Backend/Media.php:318
+#: src/Process/Backend/Media.php:335
 msgid "Remove this folder from your favorites"
 msgstr "Noņemiet šo mapi no izlases"
 
-#: src/Process/Backend/Media.php:343
+#: src/Process/Backend/Media.php:360
 msgid "Add this folder to your favorites"
 msgstr "Pievienojiet šo mapi savai izlasei"
 
-#: src/Process/Backend/Media.php:354
+#: src/Process/Backend/Media.php:371
 msgid "Goto recent folder:"
 msgstr "Pāriet uz neseno mapi:"
 
-#: src/Process/Backend/Media.php:391
+#: src/Process/Backend/Media.php:408
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Jums nav pietiekamu atļauju, lai rakstītu šajā mapē."
 
-#: src/Process/Backend/Media.php:411
+#: src/Process/Backend/Media.php:428
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "Atlasiet failu, noklikšķinot uz %s"
 
-#: src/Process/Backend/Media.php:415
+#: src/Process/Backend/Media.php:432
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Atlasiet failus un noklikšķiniet uz pogas <strong>%s</strong>"
 
-#: src/Process/Backend/Media.php:416 src/Process/Backend/Media.php:545
+#: src/Process/Backend/Media.php:433 src/Process/Backend/Media.php:562
 msgid "Choose selected medias"
 msgstr "Izvēlieties atlasītos medijus"
 
-#: src/Process/Backend/Media.php:422 src/Process/Backend/Media.php:456
-#: src/Process/Backend/Media.php:483
+#: src/Process/Backend/Media.php:439 src/Process/Backend/Media.php:473
+#: src/Process/Backend/Media.php:500
 msgid "or"
 msgstr "vai"
 
-#: src/Process/Backend/Media.php:425 src/Process/Backend/Media.php:459
-#: src/Process/Backend/Media.php:486
+#: src/Process/Backend/Media.php:442 src/Process/Backend/Media.php:476
+#: src/Process/Backend/Media.php:503
 msgid "upload a new file"
 msgstr "augšupielādēt jaunu failu"
 
-#: src/Process/Backend/Media.php:448
+#: src/Process/Backend/Media.php:465
 #, php-format
 msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
 msgstr "Izvēlieties failu, ko pievienot ierakstam %1$s , noklikšķinot uz %2$s"
 
-#: src/Process/Backend/Media.php:476
+#: src/Process/Backend/Media.php:493
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Izvēlieties failu, ko ievietot ierakstā, noklikšķinot uz %s"
 
-#: src/Process/Backend/Media.php:506 src/Process/Backend/Media.php:510
-#: src/Process/Backend/Media.php:513
+#: src/Process/Backend/Media.php:523 src/Process/Backend/Media.php:527
+#: src/Process/Backend/Media.php:530
 msgid "Grid display mode"
 msgstr "Režģa displeja režīms"
 
-#: src/Process/Backend/Media.php:517 src/Process/Backend/Media.php:521
-#: src/Process/Backend/Media.php:524
+#: src/Process/Backend/Media.php:534 src/Process/Backend/Media.php:538
+#: src/Process/Backend/Media.php:541
 msgid "List display mode"
 msgstr "Saraksta displeja režīms"
 
-#: src/Process/Backend/Media.php:549
+#: src/Process/Backend/Media.php:566
 msgid "Remove selected medias"
 msgstr "Noņemiet atlasītos multivides failus"
 
-#: src/Process/Backend/Media.php:610
+#: src/Process/Backend/Media.php:627
 msgid "Create new directory"
 msgstr "Izveidojiet jaunu direktoriju"
 
-#: src/Process/Backend/Media.php:617
+#: src/Process/Backend/Media.php:634
 msgid "Directory Name:"
 msgstr "Direktorija nosaukums:"
 
-#: src/Process/Backend/Media.php:637
+#: src/Process/Backend/Media.php:654
 msgid "Build missing thumbnails in directory"
 msgstr "Izveidojiet direktorijā trūkstošos sīktēlus"
 
-#: src/Process/Backend/Media.php:642
+#: src/Process/Backend/Media.php:659
 msgid "Build"
 msgstr "Būvēt"
 
-#: src/Process/Backend/Media.php:652
+#: src/Process/Backend/Media.php:669
+msgid "Force rebuild all thumbnails in directory"
+msgstr ""
+
+#: src/Process/Backend/Media.php:674
+msgid "Force rebuild"
+msgstr ""
+
+#: src/Process/Backend/Media.php:679
+msgid "Use with caution especially if there is a large numbers of media if this directory."
+msgstr ""
+
+#: src/Process/Backend/Media.php:687
 #, php-format
 msgid "Backup content of %s"
 msgstr "%sdublējuma saturs"
 
-#: src/Process/Backend/Media.php:659
+#: src/Process/Backend/Media.php:694
 msgid "Download zip file"
 msgstr "Lejupielādēt zip failu"
 
-#: src/Process/Backend/Media.php:678
+#: src/Process/Backend/Media.php:713
 msgid "Add files"
 msgstr "Pievieno failus"
 
-#: src/Process/Backend/Media.php:681
+#: src/Process/Backend/Media.php:716
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "Lūdzu, publicējiet multividi, kas jums pieder un kuri nav aizsargāti ar autortiesībām."
 
-#: src/Process/Backend/Media.php:718
+#: src/Process/Backend/Media.php:753
 msgid "Maximum file size allowed:"
 msgstr "Maksimālais atļautais faila lielums:"
 
-#: src/Process/Backend/Media.php:732 src/Process/Backend/MediaItem.php:1261
+#: src/Process/Backend/Media.php:767 src/Process/Backend/MediaItem.php:1261
 msgid "Private"
 msgstr "Privāts"
 
-#: src/Process/Backend/Media.php:741
+#: src/Process/Backend/Media.php:776
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "Lai vienlaikus nosūtītu vairākus failus, varat aktivizēt uzlaboto augšupielādētāju"
 
-#: src/Process/Backend/Media.php:750
+#: src/Process/Backend/Media.php:785
 msgid "Refresh"
 msgstr "atjaunot"
 
-#: src/Process/Backend/Media.php:753
+#: src/Process/Backend/Media.php:788
 msgid "Clear all"
 msgstr "Iztīrīt visu"
 
-#: src/Process/Backend/Media.php:778
+#: src/Process/Backend/Media.php:813
 #, php-format
 msgid "In %s:"
 msgstr "In %s:"
 
-#: src/Process/Backend/Media.php:805
+#: src/Process/Backend/Media.php:840
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Pašreizējie multivides un attēlu iestatījumi ir definēti %s"
