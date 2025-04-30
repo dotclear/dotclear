@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-30 06:54+0200\n"
-"PO-Revision-Date: 2025-04-30 05:06\n"
+"PO-Revision-Date: 2025-04-30 05:34\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -4442,7 +4442,7 @@ msgstr "Katalogs \"%s\" ir veiksmīgi pabeigts."
 #: src/Process/Backend/Media.php:269
 #, php-format
 msgid "Directory \"%s\" has been successfully rebuild."
-msgstr ""
+msgstr "Katalogs \"%s\" ir veiksmīgi atjaunots."
 
 #: src/Process/Backend/Media.php:281 src/Process/Backend/PostMedia.php:97
 msgid "confirm removal"
@@ -4539,15 +4539,15 @@ msgstr "Būvēt"
 
 #: src/Process/Backend/Media.php:669
 msgid "Force rebuild all thumbnails in directory"
-msgstr ""
+msgstr "Piespiedu pārbūvēt visas sīktēlus direktorijā"
 
 #: src/Process/Backend/Media.php:674
 msgid "Force rebuild"
-msgstr ""
+msgstr "Spēka pārbūve"
 
 #: src/Process/Backend/Media.php:679
 msgid "Use with caution especially if there is a large numbers of media if this directory."
-msgstr ""
+msgstr "Izmantojiet piesardzīgi, īpaši, ja šajā direktorijā ir liels skaits multivides līdzekļu."
 
 #: src/Process/Backend/Media.php:687
 #, php-format
