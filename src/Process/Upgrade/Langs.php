@@ -60,7 +60,7 @@ class Langs extends Process
     private static array $iso_codes = [];
 
     /**
-     * @var     array<int, stdClass>     $dc_langs
+     * @var     bool|array<int, stdClass>     $dc_langs
      */
     private static bool|array $dc_langs = false;
 

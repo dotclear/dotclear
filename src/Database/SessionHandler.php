@@ -69,15 +69,15 @@ class SessionHandler implements SessionHandlerInterface
     /**
      * Session handler callback called on session read
      *
-     * @param      string  $ses_id  The session identifier
+     * @param      string  $id  The session identifier
      */
-    public function read(string $ses_id): string
+    public function read(string $id): string
     {
         $sql = new SelectStatement($this->con, $this->con->syntax());
         $sql
             ->field('ses_value')
             ->from($this->table)
-            ->where('ses_id = ' . $sql->quote($this->checkID($ses_id)))
+            ->where('ses_id = ' . $sql->quote($this->checkID($id)))
         ;
 
         $rs = $sql->select();
@@ -91,16 +91,16 @@ class SessionHandler implements SessionHandlerInterface
     /**
      * Session handler callback called on session write
      *
-     * @param      string  $ses_id  The session identifier
+     * @param      string  $id      The session identifier
      * @param      string  $data    The data
      */
-    public function write(string $ses_id, string $data): bool
+    public function write(string $id, string $data): bool
     {
         $sql = new SelectStatement($this->con, $this->con->syntax());
         $sql
             ->field('ses_id')
             ->from($this->table)
-            ->where('ses_id = ' . $sql->quote($this->checkID($ses_id)))
+            ->where('ses_id = ' . $sql->quote($this->checkID($id)))
         ;
 
         $rs = $sql->select();
@@ -112,11 +112,11 @@ class SessionHandler implements SessionHandlerInterface
             if (!$rs->isEmpty()) {
                 $sqlUpdate = new UpdateStatement($this->con, $this->con->syntax());
                 $sqlUpdate
-                    ->where('ses_id = ' . $sqlUpdate->quote($this->checkID($ses_id)))
+                    ->where('ses_id = ' . $sqlUpdate->quote($this->checkID($id)))
                     ->update($cur)
                 ;
             } else {
-                $cur->ses_id    = $this->checkID($ses_id);
+                $cur->ses_id    = $this->checkID($id);
                 $cur->ses_start = (string) time();
 
                 $cur->insert();
@@ -131,14 +131,14 @@ class SessionHandler implements SessionHandlerInterface
     /**
      * Session handler callback called on session destroy
      *
-     * @param      string  $ses_id  The session identifier
+     * @param      string  $id  The session identifier
      */
-    public function destroy(string $ses_id): bool
+    public function destroy(string $id): bool
     {
         $sql = new DeleteStatement($this->con, $this->con->syntax());
         $sql
             ->from($this->table)
-            ->where('ses_id = ' . $sql->quote($this->checkID($ses_id)))
+            ->where('ses_id = ' . $sql->quote($this->checkID($id)))
         ;
         $sql->delete();
 

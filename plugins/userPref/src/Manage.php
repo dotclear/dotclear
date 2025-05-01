@@ -325,8 +325,7 @@ class Manage extends Process
             App::userWorkspace()::WS_FLOAT => (new Decimal($nid, null, null, (float) $s['value'])),
 
             // String, Text
-            App::userWorkspace()::WS_STRING,
-            App::userWorkspace()::WS_TEXT => (new Input($nid))
+            App::userWorkspace()::WS_STRING => (new Input($nid))
                 ->value(Html::escapeHTML((string) $s['value']))
                 ->size(40),
 

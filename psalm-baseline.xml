@@ -1,62 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.x-dev@13ea0c241dd01a951a977336e3d3afb6366b29d1">
+<files psalm-version="dev-master@986ef8dcd78884e7625f07eef32a9db1c739b961">
   <file src="plugins/antispam/src/Backend.php">
-    <TypeDoesNotContainType>
-      <code>!DC_ANTISPAM_CONF_SUPER</code>
-    </TypeDoesNotContainType>
-  </file>
-  <file src="plugins/antispam/src/Filters/Ip.php">
-    <RedundantCast>
-      <code>(string) $content</code>
-      <code>(string) $content</code>
-      <code>(string) $type</code>
-      <code>(string) $type</code>
-    </RedundantCast>
-  </file>
-  <file src="plugins/antispam/src/Filters/IpV6.php">
-    <RedundantCast>
-      <code>(string) $pattern</code>
-      <code>(string) $pattern</code>
-      <code>(string) $type</code>
-      <code>(string) $type</code>
-    </RedundantCast>
-  </file>
-  <file src="plugins/antispam/src/Filters/Words.php">
-    <RedundantCast>
-      <code>(string) $content</code>
-    </RedundantCast>
+    <TypeDoesNotContainType/>
   </file>
   <file src="plugins/antispam/src/Manage.php">
     <InvalidArgument>
-      <code>$filters_opt</code>
+      <code><![CDATA[$filters_opt]]></code>
     </InvalidArgument>
-  </file>
-  <file src="plugins/attachments/src/BackendBehaviors.php">
-    <RedundantCondition>
-      <code>is_countable($post_media)</code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code>0</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="plugins/attachments/src/FrontendTemplate.php">
     <RedundantCast>
-      <code>(array) $if</code>
-    </RedundantCast>
-  </file>
-  <file src="plugins/blogroll/src/Blogroll.php">
-    <RedundantCast>
-      <code>(string) $desc</code>
-      <code>(string) $href</code>
-      <code>(string) $lang</code>
-      <code>(string) $title</code>
-      <code>(string) $title</code>
-      <code>(string) $xfn</code>
-    </RedundantCast>
-  </file>
-  <file src="plugins/blogroll/src/Manage.php">
-    <RedundantCast>
-      <code>(int) $pos</code>
+      <code><![CDATA[(array) $if]]></code>
     </RedundantCast>
   </file>
   <file src="plugins/blogroll/src/ManageEdit.php">
@@ -66,84 +20,39 @@
     </InvalidArgument>
   </file>
   <file src="plugins/fairTrackbacks/src/Frontend.php">
-    <RedundantCondition>
-      <code>DC_FAIRTRACKBACKS_FORCE</code>
-    </RedundantCondition>
+    <RedundantCondition/>
   </file>
   <file src="plugins/fairTrackbacks/src/Prepend.php">
-    <TypeDoesNotContainType>
-      <code>!DC_FAIRTRACKBACKS_FORCE</code>
-    </TypeDoesNotContainType>
+    <TypeDoesNotContainType/>
   </file>
   <file src="plugins/importExport/src/FlatImportV2.php">
     <InvalidPropertyFetch/>
-    <RedundantCast>
-      <code>(string) $user_id</code>
-    </RedundantCast>
-  </file>
-  <file src="plugins/importExport/src/Manage.php">
-    <UndefinedClass>
-      <code>new $module(dcCore::app())</code>
-    </UndefinedClass>
-  </file>
-  <file src="plugins/importExport/src/ModuleImportDc1.php">
-    <RedundantCast>
-      <code>(int) $new_post_id</code>
-      <code>(int) $new_post_id</code>
-    </RedundantCast>
+    <RedundantCast/>
   </file>
   <file src="plugins/importExport/src/ModuleImportFlat.php">
     <ForbiddenCode>
-      <code>var_dump($_POST)</code>
+      <code><![CDATA[var_dump($_POST)]]></code>
     </ForbiddenCode>
-  </file>
-  <file src="plugins/importExport/src/ModuleImportWp.php">
-    <RedundantCast>
-      <code>(int) $new_post_id</code>
-    </RedundantCast>
   </file>
   <file src="plugins/maintenance/src/Manage.php">
     <InvalidArrayOffset>
       <code><![CDATA[$_POST['settings_ts_' . $t->id()]]]></code>
     </InvalidArrayOffset>
   </file>
-  <file src="plugins/simpleMenu/src/FrontendTemplate.php">
-    <InvalidOperand>
-      <code>$i</code>
-    </InvalidOperand>
-  </file>
-  <file src="plugins/tags/src/BackendBehaviors.php">
-    <RedundantCondition>
-      <code>is_countable($tags)</code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code>0</code>
-    </TypeDoesNotContainType>
-  </file>
   <file src="plugins/tags/src/FrontendUrl.php">
     <RedundantCast>
-      <code>(string) $m[1]</code>
-      <code>(string) $m[2]</code>
+      <code><![CDATA[(string) $m[2]]]></code>
     </RedundantCast>
   </file>
   <file src="plugins/widgets/src/Manage.php">
-    <EmptyArrayAccess>
-      <code><![CDATA[$_POST['w'][$nsid]]]></code>
-    </EmptyArrayAccess>
     <InvalidArrayOffset>
       <code><![CDATA[$_POST['w'][$nsid][$i]]]></code>
       <code><![CDATA[$_POST['w'][$nsid][$i]]]></code>
-      <code><![CDATA[$_POST['w'][Widgets::WIDGETS_CUSTOM]]]></code>
-      <code><![CDATA[$_POST['w'][Widgets::WIDGETS_EXTRA]]]></code>
     </InvalidArrayOffset>
-    <RedundantCondition>
-      <code><![CDATA[!is_array($_POST['w'])]]></code>
-      <code><![CDATA[!isset($_POST['w']) || !is_array($_POST['w'])]]></code>
-    </RedundantCondition>
   </file>
   <file src="src/Autoloader.php">
     <RedundantPropertyInitializationCheck>
-      <code>isset(self::$instance)</code>
+      <code><![CDATA[isset(self::$instance)]]></code>
     </RedundantPropertyInitializationCheck>
   </file>
   <file src="src/Core/Backend/Favorites.php">
@@ -152,10 +61,6 @@
     </RedundantCast>
   </file>
   <file src="src/Core/Backend/MediaPage.php">
-    <RedundantCondition>
-      <code>is_countable($rs)</code>
-      <code>is_countable($rs)</code>
-    </RedundantCondition>
     <UndefinedThisPropertyAssignment>
       <code><![CDATA[$this->d]]></code>
       <code><![CDATA[$this->d]]></code>
@@ -172,22 +77,8 @@
   </file>
   <file src="src/Core/Backend/Page.php">
     <RedundantCast>
-      <code>(bool) $show</code>
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
     </RedundantCast>
-  </file>
-  <file src="src/Core/Backend/ThemeConfig.php">
-    <RedundantCondition>
-      <code><![CDATA[$background !== '']]></code>
-      <code><![CDATA[$color !== '']]></code>
-      <code><![CDATA[$size !== '']]></code>
-    </RedundantCondition>
-  </file>
-  <file src="src/Core/Backend/Url.php">
-    <RedundantCondition>
-      <code>strval($value) !== false</code>
-      <code>strval($value) !== false</code>
-    </RedundantCondition>
   </file>
   <file src="src/Core/Backend/Utility.php">
     <RedundantCast>
@@ -212,13 +103,6 @@
       <code><![CDATA[$v['collate']]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="src/Database/Driver/Mysqli/Schema.php">
-    <RedundantCast>
-      <code>(string) $m[1]</code>
-      <code>(string) $m[1]</code>
-      <code>(string) $match[5][$i]</code>
-    </RedundantCast>
-  </file>
   <file src="src/Database/Driver/Mysqlimb4/Handler.php">
     <RedundantCondition>
       <code><![CDATA['']]></code>
@@ -229,18 +113,13 @@
     </TypeDoesNotContainType>
   </file>
   <file src="src/Database/Driver/Pgsql/Handler.php">
-    <RedundantCast>
-      <code>(int) $row</code>
-    </RedundantCast>
+    <RedundantCast/>
     <TypeDoesNotContainType>
       <code><![CDATA[$v['collate']]]></code>
       <code><![CDATA[$v['collate']]]></code>
     </TypeDoesNotContainType>
   </file>
   <file src="src/Database/Driver/Sqlite/Handler.php">
-    <ImplementedReturnTypeMismatch>
-      <code>bool|string</code>
-    </ImplementedReturnTypeMismatch>
     <TypeDoesNotContainType>
       <code><![CDATA[$v['collate']]]></code>
       <code><![CDATA[$v['collate']]]></code>
@@ -248,28 +127,17 @@
   </file>
   <file src="src/Database/Record.php">
     <InvalidArrayOffset>
-      <code>$r[$k]</code>
+      <code><![CDATA[$r[$k]]]></code>
       <code><![CDATA[$this->__row[$k]]]></code>
     </InvalidArrayOffset>
-    <RedundantCast>
-      <code>(int) $row</code>
-      <code>(int) $row</code>
-    </RedundantCast>
-  </file>
-  <file src="src/Database/Session.php">
-    <RedundantCast>
-      <code><![CDATA[(bool) $this->cookie_secure]]></code>
-      <code>(string) $data</code>
-      <code><![CDATA[(string) $this->cookie_path]]></code>
-    </RedundantCast>
   </file>
   <file src="src/Database/Statement/SqlStatement.php">
     <ForbiddenCode>
-      <code>var_dump($external)</code>
-      <code>var_dump($str)</code>
+      <code><![CDATA[var_dump($external)]]></code>
+      <code><![CDATA[var_dump($str)]]></code>
     </ForbiddenCode>
     <TypeDoesNotContainType>
-      <code>self::VERBOSE_SQL_ALIAS</code>
+      <code><![CDATA[self::VERBOSE_SQL_ALIAS]]></code>
     </TypeDoesNotContainType>
   </file>
   <file src="src/Database/Structure.php">
@@ -277,62 +145,32 @@
       <code><![CDATA[$this->tables[$tname]]]></code>
     </EmptyArrayAccess>
   </file>
-  <file src="src/Database/Table.php">
-    <RedundantCast>
-      <code>(bool) $null</code>
-    </RedundantCast>
-  </file>
   <file src="src/Helper/Date.php">
     <InvalidArgument/>
     <TooManyArguments>
-      <code>$replace($timestamp, $pattern)</code>
+      <code><![CDATA[$replace($timestamp, $pattern)]]></code>
     </TooManyArguments>
     <UndefinedMethod>
-      <code>setGregorianChange</code>
+      <code><![CDATA[setGregorianChange]]></code>
     </UndefinedMethod>
   </file>
   <file src="src/Helper/Diff/Diff.php">
     <InvalidOperand>
-      <code>$m[1]</code>
-      <code>$m[3]</code>
+      <code><![CDATA[$m[1]]]></code>
+      <code><![CDATA[$m[3]]]></code>
     </InvalidOperand>
-  </file>
-  <file src="src/Helper/File/File.php">
-    <RedundantCast>
-      <code>(string) $file</code>
-    </RedundantCast>
-  </file>
-  <file src="src/Helper/File/Files.php">
-    <RedundantCast>
-      <code>(bool) @chmod($file, self::$dir_mode)</code>
-    </RedundantCast>
   </file>
   <file src="src/Helper/File/Image/ImageMeta.php">
     <TypeDoesNotContainType>
-      <code>!is_array($imageinfo)</code>
+      <code><![CDATA[!is_array($imageinfo)]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="src/Helper/File/Image/ImageTools.php">
-    <RedundantCast>
-      <code>(string) $mem_limit</code>
-    </RedundantCast>
-  </file>
-  <file src="src/Helper/File/Zip/Unzip.php">
-    <RedundantCast>
-      <code>(string) $mem_limit</code>
-    </RedundantCast>
-  </file>
   <file src="src/Helper/File/Zip/Zip.php">
-    <RedundantCast>
-      <code>(string) $mem_limit</code>
-    </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[substr($dir, -1 - 1) != '/']]></code>
-    </RedundantCondition>
+    <RedundantCondition/>
   </file>
   <file src="src/Helper/Html/HtmlFilter.php">
     <InvalidCast>
-      <code>$tidy</code>
+      <code><![CDATA[$tidy]]></code>
     </InvalidCast>
   </file>
   <file src="src/Helper/Html/Pager.php">
@@ -342,41 +180,16 @@
   </file>
   <file src="src/Helper/Html/Template/Template.php">
     <InvalidGlobal>
-      <code>global ${self::$_n};</code>
+      <code><![CDATA[global ${self::$_n};]]></code>
     </InvalidGlobal>
-    <RedundantCast>
-      <code>(string) $str_attr</code>
-    </RedundantCast>
   </file>
   <file src="src/Helper/Html/WikiToHtml.php">
     <NoValue>
       <code><![CDATA[$this->foot_notes]]></code>
     </NoValue>
-    <RedundantCast>
-      <code>(string) $cap[1]</code>
-      <code>(string) $cap[1]</code>
-      <code>(string) $cap[1]</code>
-      <code>(string) $cap[2]</code>
-      <code>(string) $cap[2]</code>
-      <code>(string) $cap[2]</code>
-      <code>(string) $cap[2]</code>
-      <code>(string) $cap[3]</code>
-      <code>(string) $v</code>
-    </RedundantCast>
-  </file>
-  <file src="src/Helper/L10n.php">
-    <RedundantCast>
-      <code>(string) $headers[$h_key]</code>
-      <code>(string) $lines[$i + 1]</code>
-      <code>(string) $lines[$i + 2]</code>
-      <code>(string) $lines[$i]</code>
-    </RedundantCast>
   </file>
   <file src="src/Helper/Network/Feed/Parser.php">
     <RedundantCast>
-      <code>(string) $data</code>
-      <code>(string) $data</code>
-      <code>(string) $data</code>
       <code><![CDATA[(string) $item->link]]></code>
       <code><![CDATA[(string) $item->link]]></code>
     </RedundantCast>
@@ -385,14 +198,6 @@
     <RedundantCast>
       <code><![CDATA[(string) $_SERVER['HTTP_IF_MODIFIED_SINCE']]]></code>
     </RedundantCast>
-    <RedundantCondition>
-      <code>is_countable($matches[1])</code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code>!is_array($mod_files)</code>
-      <code>0</code>
-      <code>empty($mod_files) || !is_array($mod_files)</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Helper/Network/HttpClient.php">
     <InvalidPropertyAssignmentValue>
@@ -400,15 +205,6 @@
     </InvalidPropertyAssignmentValue>
     <RedundantCast>
       <code><![CDATA[(int) ($bits['port'] ?? 0)]]></code>
-      <code>(string) $m[1]</code>
-      <code>(string) $m[2]</code>
-    </RedundantCast>
-  </file>
-  <file src="src/Helper/Network/Mail/MailSocket.php">
-    <RedundantCast>
-      <code>(string) $m[1]</code>
-      <code>(string) $m[1]</code>
-      <code>(string) $m[1]</code>
     </RedundantCast>
   </file>
   <file src="src/Helper/Network/Socket/Socket.php">
@@ -417,9 +213,7 @@
     </InvalidPropertyAssignmentValue>
   </file>
   <file src="src/Helper/Network/UrlHandler.php">
-    <RedundantCast>
-      <code>(string) $part</code>
-    </RedundantCast>
+    <RedundantCast/>
   </file>
   <file src="src/Helper/Network/XmlRpc/Message.php">
     <RedundantCast>
@@ -431,15 +225,10 @@
       <code><![CDATA[(string) $_SERVER['REQUEST_URI']]]></code>
     </RedundantCast>
   </file>
-  <file src="src/Process/Backend/BlogPref.php">
-    <RedundantCondition>
-      <code><![CDATA[$status != '200']]></code>
-    </RedundantCondition>
-  </file>
   <file src="src/Process/Backend/Media.php">
     <RedundantCondition>
-      <code>0</code>
-      <code>0</code>
+      <code><![CDATA[0]]></code>
+      <code><![CDATA[0]]></code>
     </RedundantCondition>
     <TypeDoesNotContainType>
       <code><![CDATA[is_array($_FILES['upfile']['error'])]]></code>
@@ -447,49 +236,23 @@
     </TypeDoesNotContainType>
   </file>
   <file src="src/Process/Backend/MediaItem.php">
-    <RedundantCast>
-      <code>(string) $default</code>
-      <code>(string) $default</code>
-    </RedundantCast>
     <RedundantCondition>
-      <code>file_get_contents($local)</code>
+      <code><![CDATA[file_get_contents($local)]]></code>
     </RedundantCondition>
     <TypeDoesNotContainNull>
       <code><![CDATA['']]></code>
     </TypeDoesNotContainNull>
-    <UndefinedPropertyFetch>
-      <code><![CDATA[$file->media_dt]]></code>
-      <code><![CDATA[$file->media_meta]]></code>
-      <code><![CDATA[$file->media_meta]]></code>
-    </UndefinedPropertyFetch>
   </file>
   <file src="src/Process/Backend/Rest.php">
-    <RedundantCast>
-      <code>(int) $id</code>
-    </RedundantCast>
     <UndefinedPropertyFetch>
       <code><![CDATA[$file->editable]]></code>
     </UndefinedPropertyFetch>
   </file>
-  <file src="src/Process/Backend/User.php">
-    <RedundantCondition>
-      <code>is_countable($permissions)</code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code>0</code>
-    </TypeDoesNotContainType>
-  </file>
   <file src="src/Process/Backend/UserPreferences.php">
     <InvalidArrayOffset>
       <code><![CDATA[$_POST['cols_' . $col_type]]]></code>
-      <code>$ct[$col_name]</code>
+      <code><![CDATA[$ct[$col_name]]]></code>
     </InvalidArrayOffset>
-    <RedundantCondition>
-      <code>is_countable($user_fav)</code>
-    </RedundantCondition>
-    <TypeDoesNotContainType>
-      <code>0</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Process/Install/Install.php">
     <RedundantCast>
@@ -504,18 +267,18 @@
   </file>
   <file src="themes/blowup/src/Blowup.php">
     <InvalidScalarArgument>
-      <code>$body_color[0]</code>
-      <code>$body_color[1]</code>
-      <code>$body_color[2]</code>
-      <code>$comment_color[0]</code>
-      <code>$comment_color[0]</code>
-      <code>$comment_color[1]</code>
-      <code>$comment_color[1]</code>
-      <code>$comment_color[2]</code>
-      <code>$comment_color[2]</code>
-      <code>$prelude_color[0]</code>
-      <code>$prelude_color[1]</code>
-      <code>$prelude_color[2]</code>
+      <code><![CDATA[$body_color[0]]]></code>
+      <code><![CDATA[$body_color[1]]]></code>
+      <code><![CDATA[$body_color[2]]]></code>
+      <code><![CDATA[$comment_color[0]]]></code>
+      <code><![CDATA[$comment_color[0]]]></code>
+      <code><![CDATA[$comment_color[1]]]></code>
+      <code><![CDATA[$comment_color[1]]]></code>
+      <code><![CDATA[$comment_color[2]]]></code>
+      <code><![CDATA[$comment_color[2]]]></code>
+      <code><![CDATA[$prelude_color[0]]]></code>
+      <code><![CDATA[$prelude_color[1]]]></code>
+      <code><![CDATA[$prelude_color[2]]]></code>
     </InvalidScalarArgument>
   </file>
 </files>
