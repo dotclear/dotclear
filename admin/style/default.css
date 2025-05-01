@@ -1098,6 +1098,7 @@ body {
   font-size: var(--body-font-size);
   line-height: 1.5;
   font-family: var(--sans-serif);
+  scroll-behavior: smooth;
 }
 
 :is(h2, h3, h4, h5, h6),
