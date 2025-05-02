@@ -29,7 +29,7 @@ dotclear.ready(() => {
         const href = next === -1 ? title : title.substring(next + 1);
 
         // Set new URL
-        main.document.getElementById('static_home_url').setAttribute('value', href);
+        main.document.getElementById(dotclear.sibling).setAttribute('value', href);
       }
 
       window.close();
