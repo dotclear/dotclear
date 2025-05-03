@@ -62,6 +62,7 @@ Dotclear 2.34 - 2025-05-13
 * Fix: Do not remove path part of themes_url when composing resource's URL, only if themes_url begins with http(s)://
 * Fix: Do plugins installation (Install.php / _install.php) if necessary (on upload, download, install and update) on upgrade dashboard
 * Fix: Empty/Delete uninstall Cleaner use a non prefixed table name as input.
+* Fix: CKEditor loading of media CSS alignment
 * Tests: Remove unnecessary sleep() in Files unit tests
 * 🐛 → Various bugs, a11y concerns and typos fixed
 * 🌼 → Some locales and cosmetic adjustments
