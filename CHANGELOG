@@ -1,4 +1,4 @@
-Dotclear 2.34 - 2025-08-13
+Dotclear 2.34 - 2025-05-13
 ===========================================================
 * 🐘 PHP 8.1+ is required, PHP 8.2, 8.3 and 8.4 compliance
 * Breaking change: No longer argument dcCore::app() given in SpamFilter::__construct()
