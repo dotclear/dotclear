@@ -1,3 +1,71 @@
+Dotclear 2.34 - 2025-08-13
+===========================================================
+* 🐘 PHP 8.1+ is required, PHP 8.2, 8.3 and 8.4 compliance
+* Breaking change: No longer argument dcCore::app() given in SpamFilter::__construct()
+* Breaking change: Use standard pagination template on search result pages in dotty template set
+* Breaking change: use input type search for search widget, may have impact on theme's CSS
+* Core: Add a flag — SOCKET_VERIFY_PEER, to be defined to false in inc/config.php — to ignore peer verification (host and certificate) on socket connection (use with caution)
+* Core: Add an optional parameter for postType to specify the admin URL of list of it's entries
+* Core: Plugins adding buttons on legacyEditor/CKEditor should have at least 1010 priority, 1005 is reserved for additional syntaxes to legacyEditor (as legacyMarkdown)
+* Core: Move default location of upgrade backups from root to var folder, also move old backup files in this new location if they still are in root folder
+* Core: Add two helper methods to Tpl class, getCurrentTag() and getFiltersParams(), useful to when using Ctx::global_filters()
+* Core: Core version code review
+* Core: Complete actions behaviors (new behaviour adminAfterProcessAction)
+* Core: Add a new behavior 'coreContentFilter' to replace too restrictive old 'coreAfterPostContentFormat' (used in post content/excerpt, comment content, category description)
+* Core: Add a template value tpl:CommentIfUs similar to tpl:CommentIfMe but for all blog's active users (use with caution, especially on large number of users)
+* Core: Use DirectoryIterator rather than opendir/readdir/closedir
+* Core: Add a Dotclear constant to limit DB update with new media (default = 1000). May be set in inc/config.php (DC_MEDIA_UPDATE_DB_LIMIT)
+* Core: Check limit before doing something to allow setting DC_MEDIA_UPDATE_DB_LIMIT to 0 to never add missing media in DB
+* Core: Cope with unattended request on CSP report URL
+* Core: Add a force rebuild thumbnails in current directory. To be use with caution with large number of media in it as it is not asynchronous yet.
+* Core: Allow reusable core script (JS) for entry selection
+* UX/UI: Add template set information in theme details
+* UX/UI: Review left header positioning in tables on small devices
+* UX/UI: No longer use ▶ as main menu active item indicator (confusing with fold-able stuff), back to : character
+* UX/UI: Differenciate dotty/mustek template-set based themes in blog appearance page
+* UX/UI: Display entry types in list (search, tags)
+* UX/UI: Add generic translate attribute management and use it to avoid browser translation of some languages information (list, codes, …)
+* UX/UI: Remove light gray background on editor's toolbar. Add a visible separator between groups of tools on legacyEditor toolbar.
+* UX/UI: Adjust color/background for disabled textarea
+* UX/UI: Use type search for back-end search inputs
+* UX/UI: Precise which password is required (admin one) on user page validation
+* UX/UI: Add translate="no" to several fields (id, names, urls, emails, langs, …)
+* UX/UI: Stick main menu to the top
+* UX/UI: Add a scroll-behavior: smooth for body
+* Fix: Review management of favorites icon's legends
+* Fix: In Blog::getLangs() set a table alias P for post table in SQL statement as it may be used in some cases
+* Fix: Fix breadcrumb for comment
+* Fix: Rollback jQuery UI from 1.14.2 to 1.12.1 as 1.13.* and 1.14.* cause problems with nested drag'n'drop jQuery plugin (categories)
+* Fix: legacyEditor: Don't put a space at the beginning of the toolbar, don't repeat spaces
+* Fix: legacyEditor: Do not display spacers if they are in first or last position in toolbar
+* Fix: Missing tab id for system settings of maintenance plugin
+* Fix: Display of founded trackbacks links and proposed trackback excerpt (on auto discover action)
+* Fix: Default color palette for CKEditor
+* Fix: Switch back some password fields to input fields as browsers try to do more than required (especially on Windows), even if autocomplete="…" is not defined!
+* Fix: Optional disabled modules management
+* Fix: Labels for next/previous post buttons
+* Fix: Avoid ambiguity in statistics displayed above list of entries. The links to various entry status list are displayed only if only one post type in list.
+* Fix: Use fully qualified class for MailSocket() method in config.php.in template
+* Fix: URL regexp for lang scheme
+* Fix: Labels for items pagination (aka no of item per page in admin lists)
+* Fix: Don't sort twice files in media directory
+* Fix: Tags user option display
+* Fix: Cope with {{tpl:lang…}} or {tpl:lang…} or already compiled <?= __(…) ?> or <?php echo __(…); ?> in widget settings
+* Fix: Avoid sorting dirs/files if not necessary
+* Fix: Media settings URL (in blog parameters) in footer on media page
+* Fix: Don't escape twice link properties
+* Fix: Disabled module update
+* Fix: Module install
+* Fix: Do not use autocomplete for login in new user page
+* Fix: Use positioning in sprintf formats as some languages may use another order in sentences than English.
+* Fix: Return button (label and URL) on user permission page (user action)
+* Fix: Do not remove path part of themes_url when composing resource's URL, only if themes_url begins with http(s)://
+* Fix: Do plugins installation (Install.php / _install.php) if necessary (on upload, download, install and update) on upgrade dashboard
+* Fix: Empty/Delete uninstall Cleaner use a non prefixed table name as input.
+* Tests: Remove unnecessary sleep() in Files unit tests
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.33.1 - 2025-03-02
 ===========================================================
 * Fix: Remove improper <br> before end of paragraph (</p>) in legacyEditor if any
