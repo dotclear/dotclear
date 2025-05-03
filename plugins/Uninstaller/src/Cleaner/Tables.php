@@ -115,8 +115,8 @@ class Tables extends CleanerParent
     {
         $struct = new Structure(App::con(), App::con()->prefix());
         $struct->reverse();
-        $struct->getTables();
-        if ($struct->tableExists($ns)) {
+
+        if ($struct->tableExists(App::con()->prefix() . $ns)) {
             if (in_array($action, ['empty', 'delete'])) {
                 $sql = new DeleteStatement();
                 $sql->from(App::con()->prefix() . $ns)
