@@ -75,7 +75,7 @@ class Notices
                     $errors[] = (new Text(null, self::error($msg, true, false, false)));
                 }
                 $res .= (new Div())
-                    ->extra('role="alert"')
+                    ->role('alert')
                     ->items([
                         (new Para())
                             ->items([
@@ -234,7 +234,7 @@ class Notices
         }
         $container
             ->class($notice['class'])
-            ->extra('role="alert"');
+            ->role('alert');
 
         if (!isset($notice['with_ts']) || ($notice['with_ts'])) {
             $timestamp = (new Div(null, 'span'))

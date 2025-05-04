@@ -982,7 +982,7 @@ class Post extends Process
                                 ]),
                             (new Div())
                                 ->id('entry-sidebar')
-                                ->extra('role="complementary"')
+                                ->role('complementary')
                                 ->items([
                                     (new Text(null, $side_part)),
                                     (new Capture(App::behavior()->callBehavior(...), ['adminPostFormSidebar', App::backend()->post ?? null])),

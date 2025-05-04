@@ -340,7 +340,7 @@ class Page
         // Header
         echo (new Div(null, 'header'))
             ->id('header')
-            ->extra('role="banner"')
+            ->role('banner')
             ->items([
                 (new Text('h1', (new Link())
                         ->href(App::backend()->url()->get('admin.home'))
@@ -428,7 +428,7 @@ class Page
             echo
             (new Div())
                 ->class('warning')
-                ->extra('role="alert"')
+                ->role('alert')
                 ->items([
                     (new Text('h3', __('Safe mode'))),
                     (new Note())
@@ -473,14 +473,14 @@ class Page
             ->method('get')
             ->action(App::backend()->url()->get('admin.search'))
             ->id('search-menu')
-            ->extra('role="search"')
+            ->role('search')
             ->fields([
                 (new Para())
                     ->items([
                         (new Input('qx', 'search'))
                             ->size(30)
                             ->maxlength(255)
-                            ->extra('list=menulist')
+                            ->list('menulist')
                             ->label((new Label(__('Search:'), Label::OL_TF))->class('hidden')),
                         (new Hidden(['process'], 'Search')),
                         (new Submit(['search-ok'], __('OK')))
@@ -913,7 +913,7 @@ class Page
 
         // Home and other items are separated by :
         $breadcrumb = (new Div(null, 'h2'))
-            ->extra('role="navigation"')
+            ->role('navigation')
             ->separator(' : ')
             ->items([
                 $home,

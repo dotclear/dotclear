@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  * @subpackage  Upgrade
@@ -39,7 +40,7 @@ class Notices extends BackendNotices
                 $errors[] = (new Text(null, self::message($msg, true, false, false, self::NOTICE_ERROR)));
             }
             $res .= (new Div())
-                ->extra('role="alert"')
+                ->role('alert')
                 ->items([
                     (new Para())
                         ->items([

@@ -871,7 +871,7 @@ class ManagePage extends Process
                                 ]),
                             (new Div())
                                 ->id('entry-sidebar')
-                                ->extra('role="complementary"')
+                                ->role('complementary')
                                 ->items([
                                     (new Text(null, $side_part)),
                                     (new Capture(App::behavior()->callBehavior(...), ['adminPageFormSidebar', App::backend()->post ?? null])),

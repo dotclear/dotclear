@@ -166,7 +166,7 @@ class Page extends BackendPage
         // Header
         echo (new Div(null, 'header'))
             ->id('header')
-            ->extra('role="banner"')
+            ->role('banner')
             ->items([
                 (new Text('h1', (new Link())
                         ->href(App::upgrade()->url()->get('upgrade.home'))
@@ -375,7 +375,7 @@ class Page extends BackendPage
 
         // Home and other items are separated by :
         $breadcrumb = (new Div(null, 'h2'))
-            ->extra('role="navigation"')
+            ->role('navigation')
             ->separator(' : ')
             ->items([
                 $home,
