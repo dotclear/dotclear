@@ -19,6 +19,7 @@ use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Timestamp;
 
 /**
  * Backend notices handling facilities
@@ -240,8 +241,8 @@ class Notices
             $timestamp = (new Div(null, 'span'))
                 ->class('notice-ts')
                 ->items([
-                    (new Text('time', Date::dt2str(__('%H:%M:%S'), $notice['ts'], App::auth()->getInfo('user_tz'))))
-                        ->extra('datetime="' . Date::iso8601((int) strtotime((string) $notice['ts']), App::auth()->getInfo('user_tz')) . '"'),
+                    (new Timestamp(Date::dt2str(__('%H:%M:%S'), $notice['ts'], App::auth()->getInfo('user_tz'))))
+                        ->datetime(Date::iso8601((int) strtotime((string) $notice['ts']), App::auth()->getInfo('user_tz'))),
                 ]);
         } else {
             $timestamp = (new None());
@@ -276,8 +277,8 @@ class Notices
                 $timestamp = (new Div(null, 'span'))
                     ->class('notice-ts')
                     ->items([
-                        (new Text('time', Date::str(__('%H:%M:%S'), null, App::auth()->getInfo('user_tz'))))
-                            ->extra('datetime="' . Date::iso8601(time(), App::auth()->getInfo('user_tz')) . '"'),
+                        (new Timestamp(Date::str(__('%H:%M:%S'), null, App::auth()->getInfo('user_tz'))))
+                            ->datetime(Date::iso8601(time(), App::auth()->getInfo('user_tz'))),
                     ]);
             }
             $container = $div ?

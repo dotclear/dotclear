@@ -31,6 +31,7 @@ use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Timestamp;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
@@ -351,8 +352,8 @@ class ListingMedia extends Listing
                         ->items([
                             $file->d ?
                                 (new None()) :
-                                (new Text('time', $file->media_dtstr))
-                                    ->extra('datetime="' . Date::iso8601((int) strtotime((string) $file->media_dtstr), App::auth()->getInfo('user_tz')) . '"'),
+                                (new Timestamp($file->media_dtstr))
+                                    ->datetime(Date::iso8601((int) strtotime((string) $file->media_dtstr), App::auth()->getInfo('user_tz'))),
                         ]),
                     (new Td())
                         ->class(['nowrap', 'count'])
@@ -386,8 +387,8 @@ class ListingMedia extends Listing
             $list[] = (new Li())
                 ->separator(' - ')
                 ->items([
-                    (new Text('time', $file->media_dtstr))
-                        ->extra('datetime="' . Date::iso8601((int) strtotime((string) $file->media_dtstr), App::auth()->getInfo('user_tz')) . '"'),
+                    (new Timestamp($file->media_dtstr))
+                        ->datetime(Date::iso8601((int) strtotime((string) $file->media_dtstr), App::auth()->getInfo('user_tz'))),
                     (new Text(null, Files::size((int) $file->size))),
                     (new Link())
                         ->class($class_open)

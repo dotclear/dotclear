@@ -24,6 +24,7 @@ use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Timestamp;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 
@@ -224,8 +225,8 @@ class ListingBlogs extends Listing
             'upddt' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
-                    (new Text('time', Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + Date::getTimeOffset(App::auth()->getInfo('user_tz')))))
-                        ->extra('datetime="' . Date::iso8601((int) strtotime($this->rs->blog_upddt), App::auth()->getInfo('user_tz')) . '"'),
+                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + Date::getTimeOffset(App::auth()->getInfo('user_tz')))))
+                        ->datetime(Date::iso8601((int) strtotime($this->rs->blog_upddt), App::auth()->getInfo('user_tz'))),
                 ])
             ->render(),
 
