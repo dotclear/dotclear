@@ -743,9 +743,11 @@ class Media extends Process
                                                     (new Button('choose_button', __('Choose files')))
                                                         ->class(['button', 'choose_files']),
                                                     (new File(['upfile[]', 'upfile']))
+                                                        ->data([
+                                                            'url' => Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())),
+                                                        ])
                                                         ->extra([
                                                             App::backend()->page->showUploader() ? ' multiple="mutiple"' : '',
-                                                            'data-url="' . Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->page->values())) . '"',
                                                         ]),
                                                 ]),
                                             (new Note())
