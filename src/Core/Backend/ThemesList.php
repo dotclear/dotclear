@@ -28,6 +28,7 @@ use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Summary;
 use Dotclear\Helper\Html\Form\Text;
@@ -171,26 +172,26 @@ class ThemesList extends ModulesList
 
             $infos = [];
             if (in_array('desc', $cols)) {
-                $infos[] = (new Text('span', Html::escapeHTML(__($define->get('desc')))))
+                $infos[] = (new Span(Html::escapeHTML(__($define->get('desc')))))
                     ->class('module-desc');
             }
             if (in_array('tplset', $cols)) {
                 $tplset = Html::escapeHTML((string) $define->get('tplset'));
                 if ($tplset !== '') {
-                    $infos[] = (new Text('span', sprintf(__('(%s template set)'), $tplset)))
+                    $infos[] = (new Span(sprintf(__('(%s template set)'), $tplset)))
                         ->class(['module-tplset', 'tplset-' . $tplset]);
                 }
             }
             if (in_array('author', $cols)) {
-                $infos[] = (new Text('span', sprintf(__('by %s'), Html::escapeHTML($define->get('author')))))
+                $infos[] = (new Span(sprintf(__('by %s'), Html::escapeHTML($define->get('author')))))
                     ->class('module-author');
             }
             if (in_array('version', $cols)) {
-                $infos[] = (new Text('span', sprintf(__('version %s'), Html::escapeHTML($define->get('version')))))
+                $infos[] = (new Span(sprintf(__('version %s'), Html::escapeHTML($define->get('version')))))
                     ->class('module-version');
             }
             if (in_array('date', $cols) && !empty($define->get('date'))) {
-                $infos[] = (new Text('span', sprintf(__('released on %s'), Html::escapeHTML(Date::dt2str(
+                $infos[] = (new Span(sprintf(__('released on %s'), Html::escapeHTML(Date::dt2str(
                     App::blog()->settings()->get('system')->get('date_format'),
                     $define->get('date'),
                     App::auth()->getInfo('user_tz')
@@ -198,24 +199,24 @@ class ThemesList extends ModulesList
                     ->class('module-date');
             }
             if (in_array('current_version', $cols)) {
-                $infos[] = (new Text('span', sprintf(__('(current version %s)'), Html::escapeHTML($define->get('current_version')))))
+                $infos[] = (new Span(sprintf(__('(current version %s)'), Html::escapeHTML($define->get('current_version')))))
                     ->class('module-current-version');
             }
             if (in_array('parent', $cols) && !empty($define->get('parent'))) {
                 if ($this->modules->moduleExists($define->get('parent'))) {
-                    $infos[] = (new Text('span', sprintf(__('(built on "%s")'), Html::escapeHTML($define->get('parent')))))
+                    $infos[] = (new Span(sprintf(__('(built on "%s")'), Html::escapeHTML($define->get('parent')))))
                         ->class('module-parent-ok');
                 } else {
-                    $infos[] = (new Text('span', sprintf(__('(requires "%s")'), Html::escapeHTML($define->get('parent')))))
+                    $infos[] = (new Span(sprintf(__('(requires "%s")'), Html::escapeHTML($define->get('parent')))))
                         ->class('module-parent-missing');
                 }
             }
             if (in_array('repository', $cols) && App::config()->allowRepositories()) {
-                $infos[] = (new Text('span', empty($define->get('repository')) ? __('Official repository') : __('Third-party repository')))
+                $infos[] = (new Span(empty($define->get('repository')) ? __('Official repository') : __('Third-party repository')))
                     ->class('module-repository');
             }
             if ($define->updLocked()) {
-                $infos[] = (new Text('span', __('update locked')))
+                $infos[] = (new Span(__('update locked')))
                     ->class('module-locked');
             }
             $has_details = in_array('details', $cols) && !empty($define->get('details'));

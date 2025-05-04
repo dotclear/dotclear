@@ -25,6 +25,7 @@ use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
@@ -372,9 +373,9 @@ class Plugins extends Process
             App::behavior()->callBehavior('pluginsToolsHeadersV2', true),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name())                                         => '',
-                    __('Plugins management')                                                      => App::backend()->list->getURL('', false),
-                    (new Text('span', __('Plugin configuration')))->class('page-title')->render() => '',
+                    Html::escapeHTML(App::blog()->name())                                 => '',
+                    __('Plugins management')                                              => App::backend()->list->getURL('', false),
+                    (new Span(__('Plugin configuration')))->class('page-title')->render() => '',
                 ]
             )
         );

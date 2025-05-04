@@ -23,6 +23,7 @@ use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Single;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
@@ -172,7 +173,7 @@ class Page extends BackendPage
                         ->href(App::upgrade()->url()->get('upgrade.home'))
                         ->title(__('My dashboard'))
                         ->items([
-                            (new Text('span', App::config()->vendorName()))->class('hidden'),
+                            (new Span(App::config()->vendorName()))->class('hidden'),
                         ])
                     ->render())),
                 (new Div())
@@ -199,7 +200,7 @@ class Page extends BackendPage
                                     ->class('logout')
                                     ->href(App::upgrade()->url()->get('upgrade.logout'))
                                     ->items([
-                                        (new Text('span', sprintf(__('Logout %s'), App::auth()->userID())))
+                                        (new Span(sprintf(__('Logout %s'), App::auth()->userID())))
                                             ->class('nomobile'),
                                         (new Img('images/logout.svg'))
                                             ->alt(''),
@@ -268,7 +269,7 @@ class Page extends BackendPage
                         (new Img('images/up.svg'))
                             ->alt(__('Page top'))
                             ->extra('aria-hidden="true"'),
-                        (new Text('span', __('Page top')))
+                        (new Span(__('Page top')))
                             ->class('visually-hidden'),
                     ]),
             ]);
@@ -352,7 +353,7 @@ class Page extends BackendPage
         }
         foreach ((array) $elements as $element => $url) {
             if ($hl && $index === $hl_pos) {
-                $label = (new Text('span', (string) $element))
+                $label = (new Span((string) $element))
                     ->class('page-title')
                     ->extra('aria-current="location"');
             } else {

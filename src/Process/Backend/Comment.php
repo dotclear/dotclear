@@ -31,6 +31,7 @@ use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
@@ -280,7 +281,7 @@ class Comment extends Process
                     (new Text('h3', __('Comment submitted'))),
                     (new Note())
                         ->class('form-note')
-                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                     (new Para())
                         ->items([
                             (new Input('comment_author'))
@@ -291,7 +292,7 @@ class Comment extends Process
                                 ->placeholder(__('Author'))
                                 ->translate(false)
                                 ->label((new Label(
-                                    (new Text('span', '*'))->render() . __('Author:'),
+                                    (new Span('*'))->render() . __('Author:'),
                                     Label::OL_TF
                                 ))),
                         ]),

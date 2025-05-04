@@ -19,6 +19,7 @@ use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
@@ -70,7 +71,7 @@ class Pager extends HelperPager
                             (new Img($img_src))
                                 ->alt($img_alt),
                         ]),
-                    (new Text('span', $img_alt))
+                    (new Span($img_alt))
                         ->class('hidden'),
                 ]);
         }

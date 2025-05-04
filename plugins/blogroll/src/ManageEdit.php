@@ -28,6 +28,7 @@ use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Radio;
 use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Td;
@@ -187,7 +188,7 @@ class ManageEdit extends Process
                         (new Text('h3', __('Edit category'))),
                         (new Note())
                             ->class('form-note')
-                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                         (new Para())->items([
                             (new Input('link_desc'))
                                 ->size(30)
@@ -199,7 +200,7 @@ class ManageEdit extends Process
                                 ->spellcheck(true)
                                 ->label(
                                     (new Label(
-                                        (new Text('span', '*'))->render() . __('Title:'),
+                                        (new Span('*'))->render() . __('Title:'),
                                         Label::INSIDE_TEXT_BEFORE
                                     ))
                                 )
@@ -225,11 +226,11 @@ class ManageEdit extends Process
                         (new Text('h3', __('Edit link'))),
                         (new Note())
                             ->class('form-note')
-                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                         (new Div())->class('two-cols')->items([
                             (new Div())->class('col30')->items([
                                 (new Para())->items([
-                                    (new Label((new Text('span', '*'))->render() . __('Title:')))
+                                    (new Label((new Span('*'))->render() . __('Title:')))
                                         ->class('required')
                                         ->for('link_title'),
                                     (new Input('link_title'))
@@ -243,7 +244,7 @@ class ManageEdit extends Process
                                         ->title(__('Required field')),
                                 ]),
                                 (new Para())->items([
-                                    (new Label((new Text('span', '*'))->render() . __('URL:')))
+                                    (new Label((new Span('*'))->render() . __('URL:')))
                                         ->class('required')
                                         ->for('link_href'),
                                     (new Url('link_href'))

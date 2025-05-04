@@ -18,6 +18,7 @@ use Dotclear\Core\Process;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Network\Http;
@@ -94,7 +95,7 @@ class PostMedia extends Process
             if (!empty($_GET['remove'])) {
                 Page::open(__('Remove attachment'));
 
-                echo (new Text('h2', ' &rsaquo; ' . (new Text('span', __('confirm removal')))->class('page-title')->render()))
+                echo (new Text('h2', ' &rsaquo; ' . (new Span(__('confirm removal')))->class('page-title')->render()))
                 ->render();
 
                 echo

@@ -27,8 +27,8 @@ use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
-use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
@@ -259,7 +259,7 @@ class ModuleImportFlat extends Module
                         ->fields([
                             (new Note())
                                 ->class('form-note')
-                                ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                                ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                             (new Note())
                                 ->class('warning')
                                 ->text(__('This will reset all the content of your database, except users.')),
@@ -292,7 +292,7 @@ class ModuleImportFlat extends Module
                                     ->autocomplete('current-password')
                                     ->label(
                                         (new Label(
-                                            (new Text('span', '*'))->render() . __('Your password:'),
+                                            (new Span('*'))->render() . __('Your password:'),
                                             Label::OUTSIDE_TEXT_BEFORE
                                         ))->class('required')
                                     )

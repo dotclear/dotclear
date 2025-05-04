@@ -36,6 +36,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
@@ -300,7 +301,7 @@ class User extends Process
                                 (new Text('h3', __('User profile'))),
                                 (new Note())
                                     ->class('form-note')
-                                    ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                                    ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                                 (new Para())
                                     ->items([
                                         (new Input('user_id'))
@@ -312,7 +313,7 @@ class User extends Process
                                             ->autocomplete(App::backend()->user_id ? 'username' : 'off')
                                             ->translate(false)
                                             ->extra('aria-describedby="user_id_help user_id_warning"')
-                                            ->label((new Label((new Text('span', '*'))->render() . __('User ID:'), Label::OL_TF))->class('required')),
+                                            ->label((new Label((new Span('*'))->render() . __('User ID:'), Label::OL_TF))->class('required')),
                                     ]),
                                 (new Note('user_id_help'))
                                     ->class(['form-note', 'info'])
@@ -341,7 +342,7 @@ class User extends Process
                                                 ->autocomplete('new-password')
                                                 ->translate(false)
                                                 ->extra('aria-describedby="new_pwd_help"')
-                                                ->label((new Label((new Text('span', '*'))->render() . __('Password:'), Label::OL_TF))->class('required')),
+                                                ->label((new Label((new Span('*'))->render() . __('Password:'), Label::OL_TF))->class('required')),
                                     ]),
                                 (new Note('new_pwd_help'))
                                     ->class(['form-note', 'info'])
@@ -364,7 +365,7 @@ class User extends Process
                                                 ->placeholder(__('Password'))
                                                 ->autocomplete('new-password')
                                                 ->translate(false)
-                                                ->label((new Label((new Text('span', '*'))->render() . __('Confirm password:'), Label::OL_TF))->class('required')),
+                                                ->label((new Label((new Span('*'))->render() . __('Confirm password:'), Label::OL_TF))->class('required')),
                                     ]),
                                 App::auth()->allowPassChange() ?
                                     (new Para())
@@ -528,7 +529,7 @@ class User extends Process
                             ->required(true)
                             ->placeholder(__('Password'))
                             ->autocomplete('current-password')
-                            ->label((new Label((new Text('span', '*'))->render() . __('Your administrator password:'), Label::OL_TF))->class('required')),
+                            ->label((new Label((new Span('*'))->render() . __('Your administrator password:'), Label::OL_TF))->class('required')),
                     ]),
                 (new Para())
                     ->class(['clear', 'form-buttons'])

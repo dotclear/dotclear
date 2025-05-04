@@ -20,6 +20,7 @@ use Dotclear\Database\Statement\JoinStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Interface\Core\BlogInterface;
 
@@ -161,7 +162,7 @@ class Antispam
             return (new Link())
                 ->href(App::backend()->url()->get('admin.comments', ['status' => (string) App::status()->comment()::JUNK]))
                 ->items([
-                    (new Text('span', sprintf($str, $count)))
+                    (new Span(sprintf($str, $count)))
                         ->class('db-icon-title-spam'),
                 ])
             ->render();

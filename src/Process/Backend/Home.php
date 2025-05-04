@@ -33,6 +33,7 @@ use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Single;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Summary;
 use Dotclear\Helper\Html\Form\Text;
@@ -201,7 +202,7 @@ class Home extends Process
             ];
             $dragndrop_head = Page::jsJson('dotclear_dragndrop', $dragndrop_msg);
             $dragndrop_icon = '<svg aria-hidden="true" focusable="false" class="dragndrop-svg"><use xlink:href="images/dragndrop.svg#mask"></use></svg>' .
-                (new Text('span', $dragndrop_msg['dragndrop_off']))
+                (new Span($dragndrop_msg['dragndrop_off']))
                     ->id('dragndrop-label')
                     ->class('sr-only')
                 ->render();
@@ -472,7 +473,7 @@ class Home extends Process
                                     ->items([
                                         (new Text(null, Helper::adminIcon($info[2]))),
                                         (new Single('br')),
-                                        (new Text('span', $info[0]))
+                                        (new Span($info[0]))
                                             ->class('db-icon-title'),
                                         isset($info[3]) ?
                                         (new Text(null, $info[3])) :
@@ -531,7 +532,7 @@ class Home extends Process
                         (new Text('h4', __('New post'))),
                         (new Note())
                             ->class('form-note')
-                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                         (new Para())
                             ->class('col')
                             ->items([
@@ -543,7 +544,7 @@ class Home extends Process
                                     ->required(true)
                                     ->label(
                                         (new Label(
-                                            (new Text('span', '*'))->render() . __('Title:'),
+                                            (new Span('*'))->render() . __('Title:'),
                                             Label::IL_TF
                                         ))
                                         ->class('required')
@@ -552,7 +553,7 @@ class Home extends Process
                         (new Para())
                             ->class('area')
                             ->items([
-                                (new Label((new Text('span', '*'))->render() . __('Content:'), Label::OL_TF))
+                                (new Label((new Span('*'))->render() . __('Content:'), Label::OL_TF))
                                     ->for('post_content')
                                     ->class('required'),
                                 (new Textarea('post_content'))

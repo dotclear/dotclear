@@ -36,6 +36,7 @@ use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Summary;
 use Dotclear\Helper\Html\Form\Table;
@@ -944,7 +945,7 @@ class ModulesList
                 $data[] = (new Td())
                     ->class(['module-version', 'nowrap', 'count'])
                     ->items([
-                        (new Text('span', (string) $define->get('score')))->class('debug'),
+                        (new Span((string) $define->get('score')))->class('debug'),
                     ]);
             }
 
@@ -968,7 +969,7 @@ class ModulesList
                 if (!empty($define->getUsing()) && $define->get('state') == ModuleDefine::STATE_ENABLED) {
                     $infos[] = (new Para())
                         ->items([
-                            (new Text('span', sprintf(
+                            (new Span(sprintf(
                                 __('This module cannot be disabled nor deleted, since the following modules are also enabled : %s'),
                                 implode(', ', $define->getUsing())
                             )))->class('info'),
@@ -981,7 +982,7 @@ class ModulesList
                     }
                     $infos[] = (new Para())
                         ->items([
-                            (new Text('span', __('This module cannot be enabled, because of the following reasons :')))->class('info'),
+                            (new Span(__('This module cannot be enabled, because of the following reasons :')))->class('info'),
                             (new Ul())->items($reasons),
                         ]);
                 }
@@ -1070,7 +1071,7 @@ class ModulesList
                     }
 
                     if ($define->updLocked()) {
-                        $links[] = (new Text('span', __('update locked')))
+                        $links[] = (new Span(__('update locked')))
                             ->class('module-locked');
                     }
 
@@ -1719,14 +1720,14 @@ class ModulesList
                     ->items([
                         (new Note())
                             ->class('form-note')
-                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                         (new Para())
                             ->class('field')
                             ->items([
                                 (new File('pkg_file'))
                                     ->required(true)
                                     ->label(
-                                        (new Label((new Text('span', '*'))->render() . __('Zip file path:'), Label::OL_TF))
+                                        (new Label((new Span('*'))->render() . __('Zip file path:'), Label::OL_TF))
                                             ->class('required')
                                     ),
                             ]),
@@ -1740,7 +1741,7 @@ class ModulesList
                                     ->placeholder(__('Password'))
                                     ->autocomplete('current-password')
                                     ->label(
-                                        (new Label((new Text('span', '*'))->render() . __('Your password:'), Label::OL_TF))
+                                        (new Label((new Span('*'))->render() . __('Your password:'), Label::OL_TF))
                                             ->class('required')
                                     ),
                             ]),
@@ -1766,7 +1767,7 @@ class ModulesList
                     ->items([
                         (new Note())
                             ->class('form-note')
-                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                         (new Para())
                             ->class('field')
                             ->items([
@@ -1776,7 +1777,7 @@ class ModulesList
                                     ->required(true)
                                     ->placeholder(__('URL'))
                                     ->label(
-                                        (new Label((new Text('span', '*'))->render() . __('Zip file URL:'), Label::OL_TF))
+                                        (new Label((new Span('*'))->render() . __('Zip file URL:'), Label::OL_TF))
                                             ->class('required')
                                     ),
                             ]),
@@ -1790,7 +1791,7 @@ class ModulesList
                                     ->placeholder(__('Password'))
                                     ->autocomplete('current-password')
                                     ->label(
-                                        (new Label((new Text('span', '*'))->render() . __('Your password:'), Label::OL_TF))
+                                        (new Label((new Span('*'))->render() . __('Your password:'), Label::OL_TF))
                                             ->class('required')
                                     ),
                             ]),

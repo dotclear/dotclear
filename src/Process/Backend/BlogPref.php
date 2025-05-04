@@ -37,6 +37,7 @@ use Dotclear\Helper\Html\Form\Radio;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Single;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
@@ -541,7 +542,7 @@ class BlogPref extends Process
                 ->fields([
                     (new Note())
                         ->class('form-note')
-                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                     (new Para())
                         ->items([
                             (new Input('blog_name'))
@@ -553,7 +554,7 @@ class BlogPref extends Process
                                 ->title(__('Required field'))
                                 ->lang($data->blog_settings->system->lang)
                                 ->spellcheck(true)
-                                ->label(new Label((new Text('span', '*'))->render() . __('Blog name:'), Label::IL_TF))
+                                ->label(new Label((new Span('*'))->render() . __('Blog name:'), Label::IL_TF))
                                 ->class('required'),
                         ]),
                     (new Para())
@@ -1023,7 +1024,7 @@ class BlogPref extends Process
                     ->fields([
                         (new Note())
                             ->class('form-note')
-                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                         (new Para())
                             ->items([
                                 (new Input('blog_id'))
@@ -1034,7 +1035,7 @@ class BlogPref extends Process
                                     ->placeholder(__('Blog ID'))
                                     ->title(__('Required field'))
                                     ->translate(false)
-                                    ->label(new Label((new Text('span', '*'))->render() . __('Blog ID:'), Label::IL_TF))
+                                    ->label(new Label((new Span('*'))->render() . __('Blog ID:'), Label::IL_TF))
                                     ->class('required'),
                             ]),
                         (new Note())
@@ -1055,7 +1056,7 @@ class BlogPref extends Process
                                     ->placeholder(__('Blog URL'))
                                     ->title(__('Required field'))
                                     ->translate(false)
-                                    ->label(new Label((new Text('span', '*'))->render() . __('Blog URL:'), Label::IL_TF))
+                                    ->label(new Label((new Span('*'))->render() . __('Blog URL:'), Label::IL_TF))
                                     ->class('required'),
                             ]),
                         (new Para())
@@ -1281,7 +1282,7 @@ class BlogPref extends Process
                                 ->items([
                                     (new Text(null, __('Super administrator'))),
                                     (new Single('br')),
-                                    (new Text('span', __('All rights on all blogs.')))
+                                    (new Span(__('All rights on all blogs.')))
                                         ->class('form-note'),
                                 ]);
                         } else {
@@ -1291,7 +1292,7 @@ class BlogPref extends Process
                                     $super = (new Set())
                                         ->items([
                                             (new Single('br')),
-                                            (new Text('span', __('All rights on this blog.')))
+                                            (new Span(__('All rights on this blog.')))
                                                 ->class('form-note'),
                                         ]);
                                 } else {

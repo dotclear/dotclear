@@ -28,6 +28,7 @@ use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
@@ -103,7 +104,7 @@ class BlogTheme extends Process
                         Html::escapeHTML(App::blog()->name()) => '',
                         __('Blog appearance')                 => App::backend()->list->getURL('', false),
                         // inactive link
-                        (new Text('span', __('Theme configuration')))->class('page-title')->render() => '',
+                        (new Span(__('Theme configuration')))->class('page-title')->render() => '',
                     ]
                 )
             );
@@ -172,8 +173,8 @@ class BlogTheme extends Process
             App::behavior()->callBehavior('themesToolsHeadersV2', false),
             Page::breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name())                                    => '',
-                    (new Text('span', __('Blog appearance')))->class('page-title')->render() => '',
+                    Html::escapeHTML(App::blog()->name())                            => '',
+                    (new Span(__('Blog appearance')))->class('page-title')->render() => '',
                 ]
             )
         );

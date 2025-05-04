@@ -42,6 +42,7 @@ use Dotclear\Helper\Html\Form\Radio;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Single;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
@@ -391,7 +392,7 @@ class MediaItem extends Process
         $temp_params['d'] = '%s';
         $breadcrumb       = App::media()->breadCrumb(App::backend()->url()->get('admin.media', $temp_params, '&amp;', true)) . (App::backend()->file === null ?
             '' :
-            (new Text('span', App::backend()->file->basename))->class('page-title')->render());
+            (new Span(App::backend()->file->basename))->class('page-title')->render());
         $temp_params['d'] = '';
         $home_url         = App::backend()->url()->get('admin.media', $temp_params);
         call_user_func(
@@ -599,12 +600,12 @@ class MediaItem extends Process
                                 (new Para('media-attribute'))
                                     ->items([
                                         (new Text(null, __('Alternate text:') . ' ' . ($media_alt !== '' ?
-                                            (new Text('span', $media_alt))
+                                            (new Span($media_alt))
                                                 ->class('media-title') :
                                             (new Text(null, __('(none)'))))->render())),
                                         (new Single('br')),
                                         (new Text(null, __('Legend:') . ' ' . ($media_legend !== '' ?
-                                            (new Text('span', $media_legend))
+                                            (new Span($media_legend))
                                                 ->class('media-desc') :
                                             (new Text(null, __('(none)'))))->render())),
                                     ]),

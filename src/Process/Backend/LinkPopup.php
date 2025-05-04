@@ -23,6 +23,7 @@ use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Url;
@@ -79,7 +80,7 @@ class LinkPopup extends Process
                     ->fields([
                         (new Note())
                             ->class('form-note')
-                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                         (new Para())
                             ->items([
                                 (new Url('href', Html::escapeHTML(App::backend()->href)))
@@ -88,7 +89,7 @@ class LinkPopup extends Process
                                     ->required(true)
                                     ->placeholder(__('URL'))
                                     ->translate(false)
-                                    ->label((new Label((new Text('span', '*'))->render() . __('Link URL:'), Label::OL_TF))->class('required')),
+                                    ->label((new Label((new Span('*'))->render() . __('Link URL:'), Label::OL_TF))->class('required')),
                             ]),
                         (new Para())
                             ->items([

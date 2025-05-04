@@ -30,6 +30,7 @@ use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
@@ -307,7 +308,7 @@ class Manage extends Process
                                 ->title(__('order')),
                             (new Text(null, $w->name())),
                             ($w->desc() !== '' ?
-                                (new Text('span', __($w->desc())))
+                                (new Span(__($w->desc())))
                                     ->class('form-note') :
                                 (new None())),
                         ]),
@@ -488,7 +489,7 @@ class Manage extends Process
                                 ->title(__('order')),
                             (new Text(null, $w->name())),
                             ($w->desc() !== '' ?
-                                (new Text('span', __($w->desc())))
+                                (new Span(__($w->desc())))
                                     ->class('form-note') :
                                 (new None())),
                             (new Para(null, 'span'))

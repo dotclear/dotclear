@@ -30,6 +30,7 @@ use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
@@ -405,9 +406,9 @@ class Manage extends Process
                         (new Text('h3', __('Add a new link'))),
                         (new Note())
                             ->class('form-note')
-                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                         (new Para())->items([
-                            (new Label((new Text('span', '*'))->render() . __('Title:')))
+                            (new Label((new Span('*'))->render() . __('Title:')))
                                 ->class('required')
                                 ->for('link_title'),
                             (new Input('link_title'))
@@ -421,7 +422,7 @@ class Manage extends Process
                                 ->title(__('Required field')),
                         ]),
                         (new Para())->items([
-                            (new Label((new Text('span', '*'))->render() . __('URL:')))
+                            (new Label((new Span('*'))->render() . __('URL:')))
                                 ->class('required')
                                 ->for('link_href'),
                             (new Url('link_href'))
@@ -475,7 +476,7 @@ class Manage extends Process
                         (new Text('h3', __('Add a new category'))),
                         (new Note())
                             ->class('form-note')
-                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                         (new Para())->items([
                             (new Input('cat_title'))
                                 ->size(30)
@@ -487,7 +488,7 @@ class Manage extends Process
                                 ->spellcheck(true)
                                 ->label(
                                     (new Label(
-                                        (new Text('span', '*'))->render() . __('Title:'),
+                                        (new Span('*'))->render() . __('Title:'),
                                         Label::INSIDE_TEXT_BEFORE
                                     ))
                                 )
@@ -517,13 +518,13 @@ class Manage extends Process
                     (new Text('h3', __('Import links'))),
                     (new Note())
                         ->class('form-note')
-                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                     (new Para())->items([
                         (new File('links_file'))
                             ->required(true)
                             ->label(
                                 (new Label(
-                                    (new Text('span', '*'))->render() . __('OPML or XBEL File:'),
+                                    (new Span('*'))->render() . __('OPML or XBEL File:'),
                                     Label::INSIDE_TEXT_BEFORE
                                 ))
                             )

@@ -20,6 +20,7 @@ use Dotclear\Helper\Html\Form\{
     Li,
     Link,
     Para,
+    Span,
     Text,
     Ul
 };
@@ -115,9 +116,9 @@ class Home extends Process
                                 (new Img((string) $icon->dark))
                                     ->alt((string) $icon->id)
                                     ->class('dark-only'),
-                                (new Text('span', (string) $icon->name))
+                                (new Span((string) $icon->name))
                                     ->class('db-icon-title'),
-                                (new Text('span', (string) $icon->descr))
+                                (new Span((string) $icon->descr))
                                     ->class('db-icon-descr'),
                             ]),
                     ]);

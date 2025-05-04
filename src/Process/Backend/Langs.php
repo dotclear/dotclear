@@ -28,6 +28,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
@@ -317,7 +318,7 @@ class Langs extends Process
                         (new Text('h4', __('Available languages'))),
                         (new Note())
                             ->class('form-note')
-                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                         (new Note())
                             ->text(sprintf(__('You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s.'), '<strong>' . App::config()->dotclearVersion() . '</strong>')),
                         (new Para())
@@ -327,7 +328,7 @@ class Langs extends Process
                                     ->items($dc_langs_combo)
                                     ->required(true)
                                     ->label((new Label(
-                                        (new Text('span', '*'))->render() . __('Language:'),
+                                        (new Span('*'))->render() . __('Language:'),
                                         Label::OL_TF
                                     ))
                                         ->class('required')),
@@ -342,7 +343,7 @@ class Langs extends Process
                                         ->placeholder(__('Password'))
                                         ->autocomplete('current-password')
                                         ->label((new Label(
-                                            (new Text('span', '*'))->render() . __('Your password:'),
+                                            (new Span('*'))->render() . __('Your password:'),
                                             Label::OL_TF
                                         ))
                                             ->class('required')),
@@ -367,7 +368,7 @@ class Langs extends Process
                     (new Text('h4', __('Upload a zip file'))),
                     (new Note())
                         ->class('form-note')
-                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                     (new Note())
                         ->text(__('You can install languages by uploading zip files.')),
                     (new Para())
@@ -376,7 +377,7 @@ class Langs extends Process
                             (new File('pkg_file'))
                                 ->required(true)
                                 ->label((new Label(
-                                    (new Text('span', '*'))->render() . __('Language zip file:'),
+                                    (new Span('*'))->render() . __('Language zip file:'),
                                     Label::OL_TF
                                 ))
                                     ->class('required')),
@@ -392,7 +393,7 @@ class Langs extends Process
                                 ->autocomplete('current-password')
                                 ->translate(false)
                                 ->label((new Label(
-                                    (new Text('span', '*'))->render() . __('Your password:'),
+                                    (new Span('*'))->render() . __('Your password:'),
                                     Label::OL_TF
                                 ))
                                     ->class('required')),

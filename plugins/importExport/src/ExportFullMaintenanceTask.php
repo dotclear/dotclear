@@ -18,7 +18,7 @@ use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Set;
-use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Plugin\maintenance\MaintenanceTask;
 
@@ -87,7 +87,7 @@ class ExportFullMaintenanceTask extends MaintenanceTask
         return (new Set())->items([
             (new Note())
                 ->class('form-note')
-                ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
             (new Para())->items([
                 (new Input('file_name'))
                     ->size(50)
@@ -96,7 +96,7 @@ class ExportFullMaintenanceTask extends MaintenanceTask
                     ->required(true)
                     ->label(
                         (new Label(
-                            (new Text('span', '*'))->render() . __('File name:'),
+                            (new Span('*'))->render() . __('File name:'),
                             Label::INSIDE_TEXT_BEFORE
                         ))
                     )
@@ -115,7 +115,7 @@ class ExportFullMaintenanceTask extends MaintenanceTask
                 ->autocomplete('current-password')
                 ->label(
                     (new Label(
-                        (new Text('span', '*'))->render() . __('Your password:'),
+                        (new Span('*'))->render() . __('Your password:'),
                         Label::INSIDE_TEXT_BEFORE
                     ))
                 )

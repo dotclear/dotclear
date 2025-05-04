@@ -32,6 +32,7 @@ use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
@@ -662,7 +663,7 @@ class Manage extends Process
                                 ->fields([
                                     (new Note())
                                         ->class('form-note')
-                                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                                     (new Para())
                                         ->class('field')
                                         ->items([
@@ -676,7 +677,7 @@ class Manage extends Process
                                                 ->spellcheck(true)
                                                 ->label(
                                                     (new Label(
-                                                        (new Text('span', '*'))->render() . __('Label of item menu:'),
+                                                        (new Span('*'))->render() . __('Label of item menu:'),
                                                         Label::OL_TF
                                                     ))->class('required')
                                                 ),
@@ -705,7 +706,7 @@ class Manage extends Process
                                                 ->spellcheck(true)
                                                 ->label(
                                                     (new Label(
-                                                        (new Text('span', '*'))->render() . __('URL of item menu:'),
+                                                        (new Span('*'))->render() . __('URL of item menu:'),
                                                         Label::OL_TF
                                                     ))->class('required')
                                                 ),

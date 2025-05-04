@@ -20,6 +20,7 @@ use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
 use Dotclear\Helper\Html\Form\Td;
@@ -94,7 +95,7 @@ class ListingPosts extends Listing
                     (new Img('images/comments-dark.svg'))
                         ->class('dark-only')
                         ->alt(__('Comments')),
-                    (new Text('span', __('Comments')))
+                    (new Span(__('Comments')))
                         ->class('hidden'),
                 ])
             ->render(),
@@ -107,7 +108,7 @@ class ListingPosts extends Listing
                     (new Img('images/trackbacks-dark.svg'))
                         ->class('dark-only')
                         ->alt(__('Trackbacks')),
-                    (new Text('span', __('Trackbacks')))
+                    (new Span(__('Trackbacks')))
                         ->class('hidden'),
                 ])
             ->render(),

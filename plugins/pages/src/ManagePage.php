@@ -39,6 +39,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
@@ -701,7 +702,7 @@ class ManagePage extends Process
                             ->spellcheck(true)
                             ->label(
                                 (new Label(
-                                    (new Text('span', '*'))->render() . __('Title:'),
+                                    (new Span('*'))->render() . __('Title:'),
                                     Label::OUTSIDE_TEXT_BEFORE
                                 ))
                                 ->class(['required', 'no-margin', 'bold'])
@@ -719,7 +720,7 @@ class ManagePage extends Process
                             ->spellcheck(true)
                             ->label(
                                 (new Label(
-                                    __('Excerpt:') . ' ' . (new Text('span', __('Introduction to the page.')))->class('form-note')->render(),
+                                    __('Excerpt:') . ' ' . (new Span(__('Introduction to the page.')))->class('form-note')->render(),
                                     Label::OUTSIDE_TEXT_BEFORE
                                 ))
                                 ->class('bold')
@@ -738,7 +739,7 @@ class ManagePage extends Process
                             ->placeholder(__('Content'))
                             ->label(
                                 (new Label(
-                                    (new Text('span', '*'))->render() . __('Content:'),
+                                    (new Span('*'))->render() . __('Content:'),
                                     Label::OUTSIDE_TEXT_BEFORE
                                 ))
                                 ->class(['required', 'bold'])
@@ -755,7 +756,7 @@ class ManagePage extends Process
                             ->spellcheck(true)
                             ->label(
                                 (new Label(
-                                    __('Personal notes:') . ' ' . (new Text('span', __('Unpublished notes.')))->class('form-note')->render(),
+                                    __('Personal notes:') . ' ' . (new Span(__('Unpublished notes.')))->class('form-note')->render(),
                                     Label::OUTSIDE_TEXT_BEFORE
                                 ))
                                 ->class('bold')
@@ -856,7 +857,7 @@ class ManagePage extends Process
                                                         ->class('out-of-screen-if-js'),
                                                     (new Note())
                                                         ->class('form-note')
-                                                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                                                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                                                     (new Text(null, $main_part)),
                                                     (new Capture(App::behavior()->callBehavior(...), ['adminPageForm', App::backend()->post ?? null])),
                                                     (new Para())
@@ -977,7 +978,7 @@ class ManagePage extends Process
                                 ->fields([
                                     (new Note())
                                         ->class('form-note')
-                                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                                     (new Div())
                                         ->class('constrained')
                                         ->items([
@@ -990,7 +991,7 @@ class ManagePage extends Process
                                                         ->required(true)
                                                         ->placeholder(__('Author'))
                                                         ->label((new Label(
-                                                            (new Text('span', '*'))->render() . __('Name:'),
+                                                            (new Span('*'))->render() . __('Name:'),
                                                             Label::OUTSIDE_TEXT_BEFORE
                                                         ))->class('required')),
                                                 ]),
@@ -1023,7 +1024,7 @@ class ManagePage extends Process
                                                         ->placeholder(__('Comment'))
                                                         ->required(true)
                                                         ->label((new Label(
-                                                            (new Text('span', '*'))->render() . __('Comment'),
+                                                            (new Span('*'))->render() . __('Comment'),
                                                             Label::OUTSIDE_TEXT_BEFORE
                                                         ))->class('required')),
                                                 ]),

@@ -40,6 +40,7 @@ use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
@@ -734,7 +735,7 @@ class Media extends Process
                                             (new Para())
                                                 ->items([
                                                     (new Label(
-                                                        (new Text('span', __('Choose file')))
+                                                        (new Span(__('Choose file')))
                                                             ->class(['add-label', 'one-file'])
                                                         ->render(),
                                                         Label::OL_TF

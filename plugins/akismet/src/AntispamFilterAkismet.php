@@ -21,6 +21,7 @@ use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
@@ -239,7 +240,7 @@ class AntispamFilterAkismet extends SpamFilter
                 (new Fieldset())->items([
                     (new Note())
                         ->class('form-note')
-                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Text('span', '*'))->class('required')->render())),
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                     (new Para())->items([
                         (new Input('ak_key'))
                             ->size(20)
@@ -249,7 +250,7 @@ class AntispamFilterAkismet extends SpamFilter
                             ->placeholder(__('Akismet API key'))
                             ->label(
                                 (new Label(
-                                    (new Text('span', '*'))->render() . __('Akismet API key:'),
+                                    (new Span('*'))->render() . __('Akismet API key:'),
                                     Label::INSIDE_TEXT_BEFORE
                                 ))
                             )
