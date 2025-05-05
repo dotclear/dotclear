@@ -28,6 +28,7 @@ use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\XmlTag;
@@ -157,7 +158,7 @@ class Rest extends Process
                                             (new Para())
                                                 ->separator(' ')
                                                 ->items([
-                                                    (new Text('strong', Date::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris'))),
+                                                    (new Strong(Date::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris'))),
                                                     (new Text('em', TextHelper::cutString(Html::clean($item->content), 120) . '...')),
                                                 ]),
                                         ]),

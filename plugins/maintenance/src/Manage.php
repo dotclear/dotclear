@@ -29,6 +29,7 @@ use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Radio;
 use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
@@ -424,7 +425,7 @@ class Manage extends Process
                                     (new Radio(['settings_recall_type', 'settings_recall_all']))
                                         ->value('all')
                                         ->label((new Label(
-                                            (new Text('strong', __('Use one recall time for all tasks')))->render(),
+                                            (new Strong(__('Use one recall time for all tasks')))->render(),
                                             Label::INSIDE_TEXT_AFTER
                                         ))),
                                 ]),
@@ -443,7 +444,7 @@ class Manage extends Process
                                     (new Radio(['settings_recall_type', 'settings_recall_separate']))
                                         ->value('separate')
                                         ->label((new Label(
-                                            (new Text('strong', __('Use one recall time per task')))->render(),
+                                            (new Strong(__('Use one recall time per task')))->render(),
                                             Label::INSIDE_TEXT_AFTER
                                         ))),
                                 ]),

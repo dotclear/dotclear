@@ -37,6 +37,7 @@ use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
@@ -621,7 +622,7 @@ class User extends Process
                                 (new Note())
                                     ->text(sprintf(
                                         __('%s is super admin (all rights on all blogs).'),
-                                        (new Text('strong', App::backend()->user_id))->render()
+                                        (new Strong(App::backend()->user_id))->render()
                                     )) :
                                 (new Set())
                                     ->items([

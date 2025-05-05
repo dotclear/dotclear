@@ -28,6 +28,7 @@ use Dotclear\Helper\Html\Form\{
     Para,
     Password,
     Select,
+    Strong,
     Submit,
     Table,
     Td,
@@ -309,7 +310,7 @@ class Langs extends Process
                             ->separator(' ')
                             ->items([
                                 (new Text('', '(' . $lang_code . ')')),
-                                (new Text('strong', Html::escapeHTML(self::$iso_codes[$lang_code]))),
+                                (new Strong(Html::escapeHTML(self::$iso_codes[$lang_code]))),
                             ]),
                         (new Td())
                             ->class('action nowrap')

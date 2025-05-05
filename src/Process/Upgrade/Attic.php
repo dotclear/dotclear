@@ -24,6 +24,7 @@ use Dotclear\Helper\Html\Form\{
     Note,
     Para,
     Radio,
+    Strong,
     Submit,
     Table,
     Td,
@@ -226,7 +227,7 @@ class Attic extends Process
             if (self::$releases === []) {
                 $items[] = (new Para())
                     ->items([
-                        (new Text('strong', __('No newer Dotclear version available.'))),
+                        (new Strong(__('No newer Dotclear version available.'))),
                     ]);
 
                 if (App::error()->flag() || empty($_GET['nocache'])) {

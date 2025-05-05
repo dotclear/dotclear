@@ -20,8 +20,8 @@ use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
-use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\Pager as HelperPager;
@@ -172,7 +172,7 @@ class Pager extends HelperPager
         $htmlCurrent = (new Li())
             ->class('active')
             ->items([
-                (new Text('strong', sprintf(__('Page %1$s / %2$s'), $this->env, $this->nb_pages))),
+                (new Strong(sprintf(__('Page %1$s / %2$s'), $this->env, $this->nb_pages))),
             ]);
 
         $htmlDirect = $this->nb_pages > 1 ?

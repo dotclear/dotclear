@@ -18,6 +18,7 @@ use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
@@ -161,7 +162,7 @@ abstract class Module
                 ]),
             (new Ul())->items([
                 (new Li())->items([
-                    (new Text('strong', (new Link())
+                    (new Strong((new Link())
                         ->href(App::backend()
                         ->url()->get('admin.post'))
                         ->text(__('Why don\'t you blog this now?'))

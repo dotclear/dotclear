@@ -17,8 +17,8 @@ use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Details;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Summary;
-use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
@@ -172,7 +172,7 @@ class ThemeEditor
                 ]);
         }
         if ($tpl_parent !== []) {
-            $name     = (new Text('strong', $this->parent_name))->render();
+            $name     = (new Strong($this->parent_name))->render();
             $groups[] = (new Details())
                 ->summary(new Summary(__('From parent:') . ' ' . $name))
                 ->items([
@@ -182,7 +182,7 @@ class ThemeEditor
                 ]);
         }
         if ($tpl_template !== []) {
-            $name     = (new Text('strong', $this->tplset_name))->render();
+            $name     = (new Strong($this->tplset_name))->render();
             $groups[] = (new Details())
                 ->summary(new Summary(__('From template set:') . ' ' . $name))
                 ->items([

@@ -21,6 +21,7 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Interface\Core\BlogInterface;
 
@@ -142,7 +143,7 @@ class Antispam
             (new Para())->items([
                 (new Text(
                     null,
-                    (new Text('strong', __('This comment is a spam:')))->render() . self::$filters->statusMessage($rs, $filter_name)
+                    (new Strong(__('This comment is a spam:')))->render() . self::$filters->statusMessage($rs, $filter_name)
                 )),
             ])
             ->render();

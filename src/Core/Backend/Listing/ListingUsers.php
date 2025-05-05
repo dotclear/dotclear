@@ -21,6 +21,7 @@ use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
@@ -48,7 +49,7 @@ class ListingUsers extends Listing
         if ($this->rs->isEmpty()) {
             echo (new Para())
                 ->items([
-                    (new Text('strong', $filter ? __('No user matches the filter') : __('No user'))),
+                    (new Strong($filter ? __('No user matches the filter') : __('No user'))),
                 ])
             ->render();
 

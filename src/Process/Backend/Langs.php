@@ -29,6 +29,7 @@ use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
@@ -213,7 +214,7 @@ class Langs extends Process
                         ->class(['maximal', 'nowrap'])
                         ->lang($lang_code)
                         ->translate(false)
-                        ->text('(' . $lang_code . ') ' . (new Text('strong', Html::escapeHTML(App::backend()->iso_codes[$lang_code])))->render()),
+                        ->text('(' . $lang_code . ') ' . (new Strong(Html::escapeHTML(App::backend()->iso_codes[$lang_code])))->render()),
                     (new Td())
                         ->class(['action', 'nowrap'])
                         ->items([
@@ -267,7 +268,7 @@ class Langs extends Process
         if ($langs_list === []) {
             $parts[] = (new Para())
                 ->items([
-                    (new Text('strong', __('No additional language is installed.'))),
+                    (new Strong(__('No additional language is installed.'))),
                 ]);
         } else {
             $parts[] = (new Div())

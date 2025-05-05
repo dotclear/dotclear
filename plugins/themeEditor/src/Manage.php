@@ -26,6 +26,7 @@ use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
@@ -202,7 +203,7 @@ class Manage extends Process
             ->items([
                 (new Text(null, sprintf(
                     __('Your current theme on this blog is "%s".'),
-                    (new Text('strong', Html::escapeHTML(App::backend()->theme->get('name'))))->render()
+                    (new Strong(Html::escapeHTML(App::backend()->theme->get('name'))))->render()
                 ))),
             ])
         ->render();
@@ -234,7 +235,7 @@ class Manage extends Process
                                         ->disabled(!App::backend()->file['w'])
                                         ->label((new Label(sprintf(
                                             __('Editing file %s'),
-                                            (new Text('strong', App::backend()->file['f']))->render()
+                                            (new Strong(App::backend()->file['f']))->render()
                                         ), Label::OL_TF))),
                                 ]),
                             (new Para())

@@ -43,6 +43,7 @@ use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Single;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
@@ -859,13 +860,13 @@ class MediaItem extends Process
                     $infos_list[] = (new Li())
                         ->separator(' ')
                         ->items([
-                            (new Text('strong', __('Image width:'))),
+                            (new Strong(__('Image width:'))),
                             (new Text(null, $image_size[0] . 'px')),
                         ]);
                     $infos_list[] = (new Li())
                         ->separator(' ')
                         ->items([
-                            (new Text('strong', __('Image height:'))),
+                            (new Strong(__('Image height:'))),
                             (new Text(null, $image_size[1] . 'px')),
                         ]);
                 }
@@ -873,7 +874,7 @@ class MediaItem extends Process
                     $infos_list[] = (new Li())
                         ->separator(' ')
                         ->items([
-                            (new Text('strong', __('File size:'))),
+                            (new Strong(__('File size:'))),
                             (new Text(null, Files::size($stats[7]))),
                         ]);
                 }
@@ -881,7 +882,7 @@ class MediaItem extends Process
                 $infos_list[] = (new Li())
                     ->separator(' ')
                     ->items([
-                        (new Text('strong', __('File URL:'))),
+                        (new Strong(__('File URL:'))),
                         (new Link())
                             ->href(App::backend()->file->media_thumb[$thumb_size])
                             ->text(App::backend()->file->media_thumb[$thumb_size]),
@@ -912,13 +913,13 @@ class MediaItem extends Process
         $infos_list[] = (new Li())
             ->separator(' ')
             ->items([
-                (new Text('strong', __('File owner:'))),
+                (new Strong(__('File owner:'))),
                 (new Text(null, App::backend()->file->media_user)),
             ]);
         $infos_list[] = (new Li())
             ->separator(' ')
             ->items([
-                (new Text('strong', __('File type:'))),
+                (new Strong(__('File type:'))),
                 (new Text(null, App::backend()->file->type)),
             ]);
 
@@ -933,7 +934,7 @@ class MediaItem extends Process
                         $infos_list[] = (new Li())
                             ->separator(' ')
                             ->items([
-                                (new Text('strong', __('Image width:'))),
+                                (new Strong(__('Image width:'))),
                                 (new Text(null, $image_size[0])),
                             ]);
                     }
@@ -941,7 +942,7 @@ class MediaItem extends Process
                         $infos_list[] = (new Li())
                             ->separator(' ')
                             ->items([
-                                (new Text('strong', __('Image width:'))),
+                                (new Strong(__('Image width:'))),
                                 (new Text(null, $image_size[1])),
                             ]);
                     }
@@ -952,13 +953,13 @@ class MediaItem extends Process
                     $infos_list[] = (new Li())
                         ->separator(' ')
                         ->items([
-                            (new Text('strong', __('Image width:'))),
+                            (new Strong(__('Image width:'))),
                             (new Text(null, $image_size[0] . 'px')),
                         ]);
                     $infos_list[] = (new Li())
                         ->separator(' ')
                         ->items([
-                            (new Text('strong', __('Image height:'))),
+                            (new Strong(__('Image height:'))),
                             (new Text(null, $image_size[1] . 'px')),
                         ]);
                 }
@@ -968,13 +969,13 @@ class MediaItem extends Process
         $infos_list[] = (new Li())
             ->separator(' ')
             ->items([
-                (new Text('strong', __('File size:'))),
+                (new Strong(__('File size:'))),
                 (new Text(null, Files::size(App::backend()->file->size))),
             ]);
         $infos_list[] = (new Li())
             ->separator(' ')
             ->items([
-                (new Text('strong', __('File URL:'))),
+                (new Strong(__('File URL:'))),
                 (new Link())
                     ->href(App::backend()->file->file_url)
                     ->text(App::backend()->file->file_url),
@@ -1088,7 +1089,7 @@ class MediaItem extends Process
             $metadata[] = (new Li())
                 ->separator(' ')
                 ->items([
-                    (new Text('strong', __('Title'))),
+                    (new Strong(__('Title'))),
                     (new Text(null, Html::escapeHTML((string) App::backend()->file->media_title))),
                 ]);
         }
@@ -1097,7 +1098,7 @@ class MediaItem extends Process
             $metadata[] = (new Li())
                 ->separator(' ')
                 ->items([
-                    (new Text('strong', __('Alternate text:'))),
+                    (new Strong(__('Alternate text:'))),
                     (new Text(null, Html::escapeHTML($alttext))),
                 ]);
         }
@@ -1112,7 +1113,7 @@ class MediaItem extends Process
                     $metadata[] = (new Li())
                         ->separator(' ')
                         ->items([
-                            (new Text('strong', $k . __(':'))),
+                            (new Strong($k . __(':'))),
                             (new Text(null, Html::escapeHTML((string) $value))),
                         ]);
                 }
@@ -1183,13 +1184,13 @@ class MediaItem extends Process
                                 (new Li())
                                     ->separator(' : ')
                                     ->items([
-                                        (new Text('strong', __('Extract in a new directory'))),
+                                        (new Strong(__('Extract in a new directory'))),
                                         (new Text(null, __('This will extract archive in a new directory that should not exist yet.'))),
                                     ]),
                                 (new Li())
                                     ->separator(' : ')
                                     ->items([
-                                        (new Text('strong', __('Extract in current directory'))),
+                                        (new Strong(__('Extract in current directory'))),
                                         (new Text(null, __('This will extract archive in current directory and will overwrite existing files or directory.'))),
                                     ]),
                             ]),

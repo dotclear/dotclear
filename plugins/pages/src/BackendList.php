@@ -22,6 +22,7 @@ use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
 use Dotclear\Helper\Html\Form\Td;
@@ -51,7 +52,7 @@ class BackendList extends Listing
         if ($this->rs->isEmpty()) {
             echo (new Para())
                 ->items([
-                    (new Text('strong', __('No page'))),
+                    (new Strong(__('No page'))),
                 ])
             ->render();
 

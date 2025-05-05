@@ -17,6 +17,7 @@ use Dotclear\Helper\Html\Form\Caption;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
 use Dotclear\Helper\Html\Form\Td;
@@ -46,7 +47,7 @@ class ListingPostsMini extends Listing
         if ($this->rs->isEmpty()) {
             echo (new Para())
                 ->items([
-                    (new Text('strong', __('No entry'))),
+                    (new Strong(__('No entry'))),
                 ])
             ->render();
 

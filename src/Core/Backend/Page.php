@@ -32,6 +32,7 @@ use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Single;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
@@ -145,7 +146,7 @@ class Page
                 ->separator(' ')
                 ->items([
                     (new Text(null, __('Blog:'))),
-                    (new Text('strong', Html::escapeHTML(App::blog()->name())))->title(Html::escapeHTML(App::blog()->url())),
+                    (new Strong(Html::escapeHTML(App::blog()->name())))->title(Html::escapeHTML(App::blog()->url())),
                     App::auth()->getBlogCount() > $maxblogs ?
                         (new Link())
                             ->href(App::backend()->url()->get('admin.blogs'))
@@ -977,16 +978,16 @@ class Page
         $items[] = (new Para())
             ->items([
                 (new Text(null, 'Memory: usage = ')),
-                (new Text('strong', Files::size(memory_get_usage()))),
+                (new Strong(Files::size(memory_get_usage()))),
                 (new Text(null, '- peak = ')),
-                (new Text('strong', Files::size(memory_get_peak_usage()))),
+                (new Strong(Files::size(memory_get_peak_usage()))),
             ]);
 
         if (self::isXdebugStackAvailable()) {
             $items[] = (new Para())
                 ->items([
                     (new Text(null, 'Elapsed time = ')),
-                    (new Text('strong', (string) xdebug_time_index())),
+                    (new Strong((string) xdebug_time_index())),
                     (new Text(null, ' seconds')),
                 ]);
 
@@ -1016,7 +1017,7 @@ class Page
             $items[] = (new Para())
                 ->items([
                     (new Text(null, 'Page construction time (without asynchronous/secondary HTTP requests) = ')),
-                    (new Text('strong', sprintf('%d ms', $duration))),
+                    (new Strong(sprintf('%d ms', $duration))),
                 ]);
         }
 
@@ -1032,9 +1033,9 @@ class Page
         $items[] = (new Para())
             ->items([
                 (new Text(null, 'Autoloader: requests = ')),
-                (new Text('strong', (string) Autoloader::me()->getRequestsCount())),
+                (new Strong((string) Autoloader::me()->getRequestsCount())),
                 (new Text(null, '- loads = ')),
-                (new Text('strong', (string) Autoloader::me()->getLoadsCount())),
+                (new Strong((string) Autoloader::me()->getLoadsCount())),
             ]);
 
         return (new Div())

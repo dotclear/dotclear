@@ -24,6 +24,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Single;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
@@ -181,7 +182,7 @@ class Page extends BackendPage
                     ->items([
                         (new Para())
                             ->items([
-                                (new Text('strong', __("Dotclear's update dashboard"))),
+                                (new Strong(__("Dotclear's update dashboard"))),
                             ]),
                     ]),
                 (new Ul())

@@ -27,6 +27,7 @@ use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
@@ -246,7 +247,7 @@ class Manage extends Process
                                 (new Link())
                                     ->href(App::backend()->url()->get('admin.comments', ['status' => '-2']))
                                     ->text(__('Junk comments:')),
-                                (new Text('strong', ' ' . $spam_count)),
+                                (new Strong(' ' . $spam_count)),
                             ]),
                             (new Li())->class('hamcount')->items([
                                 (new Link())

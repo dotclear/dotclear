@@ -18,6 +18,7 @@ use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Timestamp;
 
@@ -80,7 +81,7 @@ class Notices
                     ->items([
                         (new Para())
                             ->items([
-                                (new Text('strong', App::error()->count() > 1 ? __('Errors:') : __('Error:'))),
+                                (new Strong(App::error()->count() > 1 ? __('Errors:') : __('Error:'))),
                             ]),
                         ...$errors,
                     ])

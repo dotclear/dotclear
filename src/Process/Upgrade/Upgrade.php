@@ -22,6 +22,7 @@ use Dotclear\Helper\Html\Form\{
     Link,
     Note,
     Para,
+    Strong,
     Submit,
     Text
 };
@@ -217,7 +218,7 @@ class Upgrade extends Process
             if (self::$new_ver === false || self::$new_ver === '') {
                 $items[] = (new Para())
                     ->items([
-                        (new Text('strong', __('No newer Dotclear version available.'))),
+                        (new Strong(__('No newer Dotclear version available.'))),
                     ]);
 
                 if (App::error()->flag() || empty($_GET['nocache'])) {

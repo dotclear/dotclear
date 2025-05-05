@@ -25,6 +25,7 @@ use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
@@ -192,7 +193,7 @@ class Words extends SpamFilter
         $rs = $this->getRules();
         if ($rs->isEmpty()) {
             $rules_form = (new Para())->items([
-                (new Text('strong', __('No word in list.'))),
+                (new Strong(__('No word in list.'))),
             ]);
         } else {
             $rules_local  = [];

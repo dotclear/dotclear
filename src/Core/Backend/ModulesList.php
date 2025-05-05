@@ -37,6 +37,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Summary;
 use Dotclear\Helper\Html\Form\Table;
@@ -498,7 +499,7 @@ class ModulesList
                     ->class('active')
                     ->title(__('current selection'))
                     ->items([
-                        (new Text('strong', $char)),
+                        (new Strong($char)),
                     ]);
             }
             # Letter having modules

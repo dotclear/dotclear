@@ -25,8 +25,8 @@ use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
-use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\Antispam;
@@ -186,7 +186,7 @@ class IpV6 extends SpamFilter
         $rs = $this->getRules($type);
         if ($rs->isEmpty()) {
             $rules_form = (new Para())->items([
-                (new Text('strong', __('No IP address in list.'))),
+                (new Strong(__('No IP address in list.'))),
             ]);
         } else {
             $rules_local  = [];

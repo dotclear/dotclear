@@ -24,6 +24,7 @@ use Dotclear\Helper\Html\Form\{
     Note,
     Para,
     Radio,
+    Strong,
     Submit,
     Table,
     Td,
@@ -193,7 +194,7 @@ class Backup extends Process
                         ->class('warning')
                         ->separator(' ')
                         ->items([
-                            (new Text('strong', __('Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version.'))),
+                            (new Strong(__('Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version.'))),
                             (new Text('', sprintf(__('You should not revert to version prior to last one (%s).'), end($archives)))),
                         ]),
                     (new Para())

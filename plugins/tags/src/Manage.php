@@ -19,6 +19,7 @@ use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
@@ -114,7 +115,7 @@ class Manage extends Process
                     ->class(['nowrap', 'count'])
                     ->separator(' ')
                     ->items([
-                        (new Text('strong', App::backend()->tags->count)),
+                        (new Strong(App::backend()->tags->count)),
                         (new Text(null, (int) App::backend()->tags->count === 1 ? __('entry') : __('entries'))),
                     ]),
             ]);

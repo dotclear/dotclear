@@ -15,6 +15,7 @@ use Dotclear\App;
 use Dotclear\Core\Backend\Notices as BackendNotices;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Text;
 
 /**
@@ -44,7 +45,7 @@ class Notices extends BackendNotices
                 ->items([
                     (new Para())
                         ->items([
-                            (new Text('strong', App::error()->count() > 1 ? __('Errors:') : __('Error:'))),
+                            (new Strong(App::error()->count() > 1 ? __('Errors:') : __('Error:'))),
                         ]),
                     ...$errors,
                 ])

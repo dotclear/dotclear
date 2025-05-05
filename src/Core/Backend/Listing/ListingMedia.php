@@ -27,6 +27,7 @@ use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Single;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
@@ -59,13 +60,13 @@ class ListingMedia extends Listing
         if ($filters->q && !$query) {
             echo (new Para())
                 ->items([
-                    (new Text('strong', __('No file matches the filter'))),
+                    (new Strong(__('No file matches the filter'))),
                 ])
             ->render();
         } elseif ($nb_items < 1) {
             echo (new Para())
                 ->items([
-                    (new Text('strong', __('No file.'))),
+                    (new Strong(__('No file.'))),
                 ])
             ->render();
         }

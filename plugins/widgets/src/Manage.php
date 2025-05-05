@@ -31,6 +31,7 @@ use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
@@ -422,7 +423,7 @@ class Manage extends Process
                     $attributes[] = (new Li())
                         ->separator(' ')
                         ->items([
-                            (new Text('strong', Html::escapeHTML($n))),
+                            (new Strong(Html::escapeHTML($n))),
                             (new Text(null, '(' . $s_type . ')')),
                         ]);
                 }
@@ -433,7 +434,7 @@ class Manage extends Process
                 (new Dt())
                     ->separator(' ')
                     ->items([
-                        (new Text('strong', Html::escapeHTML($w->name()))),
+                        (new Strong(Html::escapeHTML($w->name()))),
                         (new Text(null, '(' . __('Widget ID:') . ' <code>' . Html::escapeHTML($w->id()) . '</code>)')),
                     ]),
                 (new Dd())

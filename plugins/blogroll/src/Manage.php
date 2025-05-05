@@ -31,6 +31,7 @@ use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
@@ -297,11 +298,11 @@ class Manage extends Process
                     $cols[] = (new Td())
                         ->colspan(5)
                         ->items([
-                            (new Para(null, 'strong'))->items([
-                                (new Link())
-                                    ->href(App::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id)
-                                    ->text(Html::escapeHTML($rs->link_desc)),
-                            ]),
+                            (new Link())
+                                ->href(App::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id)
+                                ->items([
+                                    (new Strong(Html::escapeHTML($rs->link_desc))),
+                                ]),
                         ]);
                 } else {
                     $cols[] = (new Td())

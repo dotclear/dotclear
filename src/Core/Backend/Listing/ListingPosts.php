@@ -21,6 +21,7 @@ use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Table;
 use Dotclear\Helper\Html\Form\Tbody;
 use Dotclear\Helper\Html\Form\Td;
@@ -52,7 +53,7 @@ class ListingPosts extends Listing
         if ($this->rs->isEmpty()) {
             echo (new Para())
                 ->items([
-                    (new Text('strong', $filter ? __('No entry matches the filter') : __('No entry'))),
+                    (new Strong($filter ? __('No entry matches the filter') : __('No entry'))),
                 ])
             ->render();
 
