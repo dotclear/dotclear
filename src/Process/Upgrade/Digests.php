@@ -22,12 +22,14 @@ use Dotclear\Helper\Html\Form\{
     Form,
     Hidden,
     Label,
+    Li,
     Link,
     None,
     Note,
     Para,
     Submit,
-    Text
+    Text,
+    Ul
 };
 use Dotclear\Helper\L10n;
 use Exception;
@@ -182,7 +184,8 @@ class Digests extends Process
                 echo (new Div())
                     ->class('fieldset')
                     ->items([
-                        (new Text('p', __('Digests file is up to date.'))),
+                        (new Note())
+                            ->text(__('Digests file is up to date.')),
                         (new Link())
                             ->class('button submit')
                             ->href(App::upgrade()->url()->get('upgrade.upgrade'))
@@ -194,7 +197,7 @@ class Digests extends Process
                 $block_changed = '';
                 if (count(self::$changes['changed']) != 0) {
                     foreach (self::$changes['changed'] as $k => $v) {
-                        $changed[] = (new Text('li', sprintf('%s [old:%s, new:%s]', $k, $v['old'], $v['new'])));
+                        $changed[] = (new Li())->text(sprintf('%s [old:%s, new:%s]', $k, $v['old'], $v['new']));
                     }
                     $block_changed = (new Div())
                         ->items([
@@ -202,7 +205,7 @@ class Digests extends Process
                                 ->items([
                                     (new Text(null, __('The following files will have their checksum faked:'))),
                                 ]),
-                            (new Para(null, 'ul'))
+                            (new Ul())
                                 ->items($changed),
                         ])
                         ->render();
@@ -211,7 +214,7 @@ class Digests extends Process
                 $block_removed = '';
                 if (count(self::$changes['removed']) != 0) {
                     foreach (self::$changes['removed'] as $k => $v) {
-                        $removed[] = (new Text('li', (string) $k));
+                        $removed[] = (new Li())->text((string) $k);
                     }
                     $block_removed = (new Div())
                         ->items([
@@ -219,7 +222,7 @@ class Digests extends Process
                                 ->items([
                                     (new Text(null, __('The following files digests will have their checksum cleaned:'))),
                                 ]),
-                            (new Para(null, 'ul'))
+                            (new Ul())
                                 ->items($removed),
                         ])
                         ->render();

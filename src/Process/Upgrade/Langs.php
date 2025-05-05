@@ -28,6 +28,7 @@ use Dotclear\Helper\Html\Form\{
     Para,
     Password,
     Select,
+    Span,
     Strong,
     Submit,
     Table,
@@ -309,7 +310,7 @@ class Langs extends Process
                             ->lang($lang_code)
                             ->separator(' ')
                             ->items([
-                                (new Text('', '(' . $lang_code . ')')),
+                                (new Text(null, '(' . $lang_code . ')')),
                                 (new Strong(Html::escapeHTML(self::$iso_codes[$lang_code]))),
                             ]),
                         (new Td())
@@ -357,10 +358,11 @@ class Langs extends Process
                 ->enctype('multipart/form-data')
                 ->fields([
                     (new Text('h4', __('Install or upgrade languages from available languages'))),
-                    (new Text('p', sprintf(
-                        __('You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s.'),
-                        '<strong>' . App::config()->dotclearVersion() . '</strong>'
-                    ))),
+                    (new Note())
+                        ->text(sprintf(
+                            __('You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s.'),
+                            (new Strong(App::config()->dotclearVersion()))->render()
+                        )),
                     (new Para())
                         ->class('field')
                         ->items([
@@ -401,8 +403,9 @@ class Langs extends Process
                     (new Text('h4', __('Install or upgrade languages from an upload a zip file'))),
                     (new Note())
                         ->class('form-note')
-                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>')),
-                    (new Text('p', __('You can install languages by uploading zip files.'))),
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
+                    (new Note())
+                        ->text(__('You can install languages by uploading zip files.')),
                     (new Para())
                         ->class('field')
                         ->items([

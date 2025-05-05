@@ -83,7 +83,8 @@ class Attic extends Process
             echo (new Para())
                 ->items([
                     (new Text('h3', __('Precheck update error'))),
-                    (new Text('p', __('It seems that backup directory does not exist, upgrade can not be performed.'))),
+                    (new Note())
+                        ->text(__('It seems that backup directory does not exist, upgrade can not be performed.')),
                 ])
                 ->render();
 
@@ -107,7 +108,8 @@ class Attic extends Process
             echo (new Para())
                 ->items([
                     (new Text('h3', __('Precheck update error'))),
-                    (new Text('p', __('It seems that there are no "digests" file on your system, upgrade can not be performed.'))),
+                    (new Note())
+                        ->text(__('It seems that there are no "digests" file on your system, upgrade can not be performed.')),
                 ])
                 ->render();
 
@@ -266,7 +268,7 @@ class Attic extends Process
                             (new Td())
                                 ->class('nowrap')
                                 ->items([
-                                    (new Text('', sprintf(__('Required PHP version %s or higher'), $release['php']))),
+                                    (new Text(null, sprintf(__('Required PHP version %s or higher'), $release['php']))),
                                 ]),
                             (new Td())
                                 ->class('maximal')
@@ -284,7 +286,8 @@ class Attic extends Process
                     ->method('post')
                     ->action(App::upgrade()->url()->get('upgrade.attic'))
                     ->fields([
-                        (new Text('p', __('Select intermediate stable release to update to:'))),
+                        (new Note())
+                            ->text(__('Select intermediate stable release to update to:')),
                         (new Div())
                             ->class('table-outer')
                             ->items([
@@ -297,7 +300,8 @@ class Attic extends Process
                                 App::nonce()->formNonce(),
                                 (new Submit(['submit'], __('Select'))),
                             ]),
-                        (new Text('p', __('There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear\'s blog.')))
+                        (new Note())
+                            ->text(__('There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear\'s blog.'))
                             ->class('warning'),
                     ]);
             }
@@ -307,7 +311,7 @@ class Attic extends Process
                 ->method('post')
                 ->action(App::upgrade()->url()->get('upgrade.attic'))
                 ->fields([
-                    (new Text('p', sprintf(__('Are you sure to update to version %s?'), Html::escapeHTML((string) self::$updater->getVersion())))),
+                    (new Note())->text(sprintf(__('Are you sure to update to version %s?'), Html::escapeHTML((string) self::$updater->getVersion()))),
                     (new Para())
                         ->items([
                             (new Hidden(['version'], Html::escapeHTML((string) self::$updater->getVersion()))),
@@ -320,7 +324,8 @@ class Attic extends Process
             $items[] = (new Div())
                 ->class('fieldset')
                 ->items([
-                    (new Text('p', __("Congratulations, you're one click away from the end of the update."))),
+                    (new Note())
+                        ->text(__("Congratulations, you're one click away from the end of the update.")),
                     (new Para())
                         ->items([
                             (new Link())

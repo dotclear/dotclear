@@ -62,7 +62,8 @@ class Upgrade extends Process
             echo (new Para())
                 ->items([
                     (new Text('h3', __('Precheck update error'))),
-                    (new Text('p', __('It seems that backup directory does not exist, upgrade can not be performed.'))),
+                    (new Note())
+                        ->text(__('It seems that backup directory does not exist, upgrade can not be performed.')),
                 ])
                 ->render();
 
@@ -86,7 +87,8 @@ class Upgrade extends Process
             echo (new Para())
                 ->items([
                     (new Text('h3', __('Precheck update error'))),
-                    (new Text('p', __('It seems that there are no "digests" file on your system, upgrade can not be performed.'))),
+                    (new Note())
+                        ->text(__('It seems that there are no "digests" file on your system, upgrade can not be performed.')),
                 ])
                 ->render();
 
@@ -208,11 +210,12 @@ class Upgrade extends Process
         if (self::$step === '') {
             // Warning about PHP version if necessary
             if (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
-                $items[] = (new Text('p', sprintf(
-                    __('The next versions of Dotclear will not support PHP version < %1$s, your\'s is currently %2$s'),
-                    App::config()->nextRequiredPhp(),
-                    phpversion()
-                )))
+                $items[] = (new Note())
+                    ->text(sprintf(
+                        __('The next versions of Dotclear will not support PHP version < %1$s, your\'s is currently %2$s'),
+                        App::config()->nextRequiredPhp(),
+                        phpversion()
+                    ))
                     ->class('info more-info');
             }
             if (self::$new_ver === false || self::$new_ver === '') {
@@ -239,7 +242,7 @@ class Upgrade extends Process
                     ->class('static-msg dc-update updt-info')
                     ->separator(' ')
                     ->items([
-                        (new Text('', sprintf(__('Dotclear %s is available.'), self::$new_ver))),
+                        (new Text(null, sprintf(__('Dotclear %s is available.'), self::$new_ver))),
                         self::$version_info !== '' ?
                             (new Link())
                                 ->href(self::$version_info)
@@ -249,7 +252,8 @@ class Upgrade extends Process
                     ]);
 
                 if (version_compare(phpversion(), (string) self::$updater->getPHPVersion()) < 0) {
-                    $items[] = (new Text('p', sprintf(__('PHP version is %1$s (%2$s or earlier needed).'), phpversion(), self::$updater->getPHPVersion())))
+                    $items[] = (new Note())
+                        ->text(sprintf(__('PHP version is %1$s (%2$s or earlier needed).'), phpversion(), self::$updater->getPHPVersion()))
                         ->class('warning-msg');
                 } else {
                     $items[] = (new Form('updcheck'))
@@ -257,7 +261,8 @@ class Upgrade extends Process
                         ->method('get')
                         ->action(App::upgrade()->url()->get('upgrade.upgrade'))
                         ->fields([
-                            (new Text('p', __('To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory.'))),
+                            (new Note())
+                                ->text(__('To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory.')),
                             (new Para())
                                 ->items([
                                     (new Hidden(['step'], 'check')),
@@ -265,7 +270,8 @@ class Upgrade extends Process
                                     (new Submit(['submit'], __('Update Dotclear'))),
                                 ]),
                             self::$update_warning ?
-                                (new Text('p', __('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).')))
+                                (new Note())
+                                    ->text(__('This update may potentially require some precautions, you should carefully read the information post associated with this release (see above).'))
                                     ->class('warning') : (new Text()),
                         ]);
                 }
@@ -274,7 +280,8 @@ class Upgrade extends Process
             $items[] = (new Div())
                 ->class('fieldset')
                 ->items([
-                    (new Text('p', __("Congratulations, you're one click away from the end of the update."))),
+                    (new Note())
+                        ->text(__("Congratulations, you're one click away from the end of the update.")),
                     (new Para())
                         ->items([
                             (new Link())

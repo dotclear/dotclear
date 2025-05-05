@@ -19,6 +19,7 @@ use Dotclear\Helper\Html\Form\{
     Img,
     Li,
     Link,
+    Note,
     Para,
     Span,
     Text,
@@ -154,7 +155,8 @@ class Home extends Process
                                     ->class('box medium')
                                     ->items([
                                         (new Text('h3', __('Warning'))),
-                                        (new Text('p', __('Before performing update you should take into account some informations listed bellow:'))),
+                                        (new Note())
+                                            ->text(__('Before performing update you should take into account some informations listed bellow:')),
                                         (new Ul())
                                             ->items($helps),
                                         (new Text('h3', __('System'))),

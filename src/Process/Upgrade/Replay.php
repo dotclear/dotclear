@@ -23,8 +23,7 @@ use Dotclear\Helper\Html\Form\{
     Note,
     Para,
     Select,
-    Submit,
-    Text
+    Submit
 };
 use Exception;
 
@@ -104,7 +103,8 @@ class Replay extends Process
                                     ->default(''),
                                 (new Submit(['submit'], __('Replay'))),
                             ]),
-                        (new Text('p', __('Replay version lower than the last one can break your installation, do it at your own risk.')))
+                        (new Note())
+                            ->text(__('Replay version lower than the last one can break your installation, do it at your own risk.'))
                             ->class('warning'),
                     ]),
             ])

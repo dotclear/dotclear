@@ -21,6 +21,7 @@ use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Form\Url;
@@ -113,7 +114,7 @@ class Blog extends Process
                     // Blog ID
                     (new Note())
                         ->class('form-note')
-                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>')),
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                     (new Para())
                         ->items([
                             (new Input('blog_id'))

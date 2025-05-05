@@ -23,6 +23,7 @@ use Dotclear\Helper\Html\Form\{
     Form,
     Hidden,
     Img,
+    Note,
     Para,
     Submit,
     Table,
@@ -346,7 +347,8 @@ class Plugins extends Process
 
         $items = [];
         if ($list === []) {
-            $items[] = (new Text('p', __('There is no module to check')))
+            $items[] = (new Note())
+                ->text(__('There is no module to check'))
                 ->class('info');
         } elseif (isset(self::$next_store)) {
             $items[] = self::displayNextStoreList($list, self::$next_store);
@@ -367,7 +369,8 @@ class Plugins extends Process
                                 (new Submit(['nextstorecheck'], __('Check lastest stores versions'))),
                             ]),
                     ]),
-                (new Text('p', sprintf(__('You can check repositories for modules written explicitly for Dotclear release greater than %s.'), App::config()->dotclearVersion())))
+                (new Note())
+                    ->text(sprintf(__('You can check repositories for modules written explicitly for Dotclear release greater than %s.'), App::config()->dotclearVersion()))
                     ->class('more-info'),
                 ...$items,
             ])

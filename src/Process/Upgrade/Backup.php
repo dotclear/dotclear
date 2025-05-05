@@ -68,7 +68,8 @@ class Backup extends Process
             echo (new Para())
                 ->items([
                     (new Text('h3', __('Precheck update error'))),
-                    (new Text('p', __('It seems that backup directory does not exist, upgrade can not be performed.'))),
+                    (new Note())
+                        ->text(__('It seems that backup directory does not exist, upgrade can not be performed.')),
                 ])
                 ->render();
 
@@ -143,7 +144,8 @@ class Backup extends Process
     public static function render(): void
     {
         if (self::$archives === []) {
-            $items[] = (new Text('p', __('There are no backups available.')))
+            $items[] = (new Note())
+                ->text(__('There are no backups available.'))
                 ->class('message');
         } else {
             $archives = self::$archives;
@@ -195,7 +197,7 @@ class Backup extends Process
                         ->separator(' ')
                         ->items([
                             (new Strong(__('Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version.'))),
-                            (new Text('', sprintf(__('You should not revert to version prior to last one (%s).'), end($archives)))),
+                            (new Text(null, sprintf(__('You should not revert to version prior to last one (%s).'), end($archives)))),
                         ]),
                     (new Para())
                         ->items([

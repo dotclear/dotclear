@@ -21,8 +21,8 @@ use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
-use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Html;
@@ -361,7 +361,8 @@ class ActionsPostsDefault
             ]), App::blog()->id())) {
                 $items[] = (new Div())
                     ->items([
-                        (new Text('p', __('Create a new category for the post(s)')))
+                        (new Note())
+                            ->text(__('Create a new category for the post(s)'))
                             ->id('new_cat'),
                         (new Para())
                             ->items([

@@ -890,7 +890,7 @@ class Post extends Process
                     ->class('sb-box')
                     ->items([
                         (new Text('h4', $c['title'])),
-                        (new Text('', implode('', $c['items']))),
+                        (new Text(null, implode('', $c['items']))),
                     ])
                     ->render();
             }

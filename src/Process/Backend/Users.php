@@ -139,7 +139,7 @@ class Users extends Process
                     ->action(App::backend()->url()->get('admin.user.actions'))
                     ->method('post')
                     ->fields([
-                        new Text('', '%s'),
+                        (new Text(null, '%s')),
                         (new Div())
                             ->class('two-cols')
                              ->items([
