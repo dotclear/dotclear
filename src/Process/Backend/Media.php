@@ -516,7 +516,7 @@ class Media extends Process
         // add file mode into the filter box
         $filter = (new Para())
             ->items([
-                (new Div(null, 'span'))
+                (new Span())
                     ->class('media-file-mode')
                     ->items([
                         (new Link())

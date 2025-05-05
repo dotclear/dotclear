@@ -830,11 +830,8 @@ class ManagePage extends Process
                 $buttons[] = (new Hidden('id', (string) App::backend()->post_id));
             }
 
-            $format = (new Text(
-                'span',
-                ' &rsaquo; ' . App::formater()->getFormaterName(App::backend()->post_format) . ''
-            ));
-            $title = (App::backend()->post_id ? __('Edit page') : __('New page')) . $format->render();
+            $format = (new Span(' &rsaquo; ' . App::formater()->getFormaterName(App::backend()->post_format)));
+            $title  = (App::backend()->post_id ? __('Edit page') : __('New page')) . $format->render();
 
             // Everything is ready, time to display this form
             echo (new Div())

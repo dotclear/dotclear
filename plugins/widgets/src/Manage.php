@@ -493,7 +493,7 @@ class Manage extends Process
                                 (new Span(__($w->desc())))
                                     ->class('form-note') :
                                 (new None())),
-                            (new Para(null, 'span'))
+                            (new Span())
                                 ->class(['toolsWidget', 'hidden-if-drag'])
                                 ->items([
                                     (new Image('images/' . ($upDisabled ? 'disabled_' : '') . 'up.svg', [$iname . '[_up]']))

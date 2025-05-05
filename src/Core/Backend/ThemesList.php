@@ -239,7 +239,7 @@ class ThemesList extends ModulesList
                 }
 
                 if (count($links)) {
-                    $infos[] = (new Div(null, 'span'))
+                    $infos[] = (new Span())
                         ->class('mod-more')
                         ->separator(' - ')
                         ->items($links);

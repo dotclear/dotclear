@@ -24,7 +24,7 @@ class Span extends atoum
 
         $this
             ->string($component->render())
-            ->isEqualTo('<span>TEXT</span>' . "\n")
+            ->isEqualTo('<span>TEXT</span>');
         ;
     }
 
@@ -35,6 +35,23 @@ class Span extends atoum
         $this
             ->string($component->getElement())
             ->isEqualTo('span')
+        ;
+    }
+
+    public function testWithItems()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Span();
+
+        $component
+            ->separator(' - ')
+            ->items([
+                (new \Dotclear\Helper\Html\Form\Link())->href('#')->text('FIRST'),
+                (new \Dotclear\Helper\Html\Form\Link())->href('#')->text('SECOND'),
+            ]);
+
+        $this
+            ->string($component->render())
+            ->isEqualTo('<span><a href="#">FIRST</a> - <a href="#">SECOND</a></span>');
         ;
     }
 }

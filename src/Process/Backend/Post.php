@@ -941,11 +941,8 @@ class Post extends Process
                 $buttons[] = (new Hidden('id', (string) App::backend()->post_id));
             }
 
-            $format = (new Text(
-                'span',
-                ' &rsaquo; ' . App::formater()->getFormaterName(App::backend()->post_format) . ''
-            ));
-            $title = (App::backend()->post_id ? __('Edit post') : __('New post')) . $format->render();
+            $format = (new Span(' &rsaquo; ' . App::formater()->getFormaterName(App::backend()->post_format)));
+            $title  = (App::backend()->post_id ? __('Edit post') : __('New post')) . $format->render();
 
             // Everything is ready, time to display this form
             echo (new Div())

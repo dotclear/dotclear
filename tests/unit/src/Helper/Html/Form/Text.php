@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -77,6 +78,40 @@ class Text extends atoum
         $this
             ->string($component->getElement())
             ->isEqualTo('span')
+        ;
+    }
+
+    public function testWithItems()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Text(null, 'TEXT');
+
+        $component
+            ->separator(' - ')
+            ->items([
+                (new \Dotclear\Helper\Html\Form\Span('FIRST')),
+                (new \Dotclear\Helper\Html\Form\Span('SECOND')),
+            ]);
+
+        $this
+            ->string($component->render())
+            ->isEqualTo('TEXT<span>FIRST</span> - <span>SECOND</span>')
+        ;
+    }
+
+    public function testWithItemsAndOtherElement()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Text('var', 'TEXT');
+
+        $component
+            ->separator(' - ')
+            ->items([
+                (new \Dotclear\Helper\Html\Form\Span('FIRST')),
+                (new \Dotclear\Helper\Html\Form\Span('SECOND')),
+            ]);
+
+        $this
+            ->string($component->render())
+            ->isEqualTo('<var>TEXT<span>FIRST</span> - <span>SECOND</span></var>');
         ;
     }
 }

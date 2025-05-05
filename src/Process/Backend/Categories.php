@@ -28,6 +28,7 @@ use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
@@ -212,7 +213,7 @@ class Categories extends Process
 
                 $actions[] = (new Set())
                     ->items([
-                        (new Para(null, 'span'))
+                        (new Span())
                             ->class('hidden-if-no-js')
                             ->items([
                                 (new Hidden('categories_order', '')),

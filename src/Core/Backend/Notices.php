@@ -18,6 +18,7 @@ use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Timestamp;
@@ -239,7 +240,7 @@ class Notices
             ->role('alert');
 
         if (!isset($notice['with_ts']) || ($notice['with_ts'])) {
-            $timestamp = (new Div(null, 'span'))
+            $timestamp = (new Span())
                 ->class('notice-ts')
                 ->items([
                     (new Timestamp(Date::dt2str(__('%H:%M:%S'), $notice['ts'], App::auth()->getInfo('user_tz'))))
@@ -275,7 +276,7 @@ class Notices
         if ($msg !== '') {
             $ts = (new None());
             if ($timestamp) {
-                $timestamp = (new Div(null, 'span'))
+                $timestamp = (new Span())
                     ->class('notice-ts')
                     ->items([
                         (new Timestamp(Date::str(__('%H:%M:%S'), null, App::auth()->getInfo('user_tz'))))

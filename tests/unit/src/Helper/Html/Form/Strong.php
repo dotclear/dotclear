@@ -24,7 +24,7 @@ class Strong extends atoum
 
         $this
             ->string($component->render())
-            ->isEqualTo('<strong>TEXT</strong>' . "\n")
+            ->isEqualTo('<strong>TEXT</strong>');
         ;
     }
 
@@ -35,6 +35,23 @@ class Strong extends atoum
         $this
             ->string($component->getElement())
             ->isEqualTo('strong')
+        ;
+    }
+
+    public function testWithItems()
+    {
+        $component = new \Dotclear\Helper\Html\Form\Strong();
+
+        $component
+            ->separator(' - ')
+            ->items([
+                (new \Dotclear\Helper\Html\Form\Link())->href('#')->text('FIRST'),
+                (new \Dotclear\Helper\Html\Form\Link())->href('#')->text('SECOND'),
+            ]);
+
+        $this
+            ->string($component->render())
+            ->isEqualTo('<strong><a href="#">FIRST</a> - <a href="#">SECOND</a></strong>');
         ;
     }
 }

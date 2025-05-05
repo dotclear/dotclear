@@ -44,8 +44,10 @@ class Text extends Component
 
     /**
      * Renders the HTML component.
+     *
+     * @param   string  $format     sprintf() format applied for each items/fields ('%s' by default)
      */
-    public function render(): string
+    public function render(?string $format = null): string
     {
         $render_ca = $this->renderCommonAttributes();
 
@@ -64,8 +66,25 @@ class Text extends Component
             $buffer .= $this->text;
         }
 
+        // Cope with items
+        if ($this->items !== null) {
+            $first = true;
+            $format ??= ($this->format ?? '%s');
+
+            foreach ($this->items as $item) {
+                if ($item instanceof None) {
+                    continue;
+                }
+                if (!$first && $this->separator) {
+                    $buffer .= (string) $this->separator;
+                }
+                $buffer .= sprintf($format, rtrim($item->render(), "\n"));  // Keep items "inline"
+                $first = false;
+            }
+        }
+
         if ($element) {
-            $buffer .= '</' . $element . '>' . "\n";
+            $buffer .= '</' . $element . '>';
         }
 
         return $buffer;
