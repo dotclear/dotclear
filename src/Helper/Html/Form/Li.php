@@ -57,11 +57,11 @@ class Li extends Component
             $buffer .= $this->text;
         }
 
-        $first = true;
-        $format ??= ($this->format ?? '%s');
-
         // Cope with items
         if ($this->items !== null) {
+            $first = true;
+            $format ??= ($this->format ?? '%s');
+
             foreach ($this->items as $item) {
                 if ($item instanceof None) {
                     continue;

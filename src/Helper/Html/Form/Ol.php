@@ -57,12 +57,11 @@ class Ol extends Component
             ($this->type !== null ? ' type="' . $this->type . '"' : '') .
             $this->renderCommonAttributes() . '>' . "\n";
 
-        $first = true;
-        $format ??= ($this->format ?? '%s');
-
         // Cope with items
         if ($this->items !== null) {
             $first = true;
+            $format ??= ($this->format ?? '%s');
+
             foreach ($this->items as $item) {
                 if ($item instanceof None) {
                     continue;

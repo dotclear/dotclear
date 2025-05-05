@@ -14,8 +14,14 @@ namespace Dotclear\Helper\Html\Form;
  * @class Text
  * @brief HTML Forms text creation helpers
  *
+ * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
+ * @method      $this format(string $format)
+ * @method      $this separator(string $separator)
  * @method      $this text(string $text)
  *
+ * @property    array<int|string, Component>|Iterable<int|string, Component> $items
+ * @property    string $format
+ * @property    string $separator
  * @property    string $text
  */
 class Text extends Component
