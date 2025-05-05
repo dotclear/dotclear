@@ -19,6 +19,7 @@ Dotclear 2.34 - 2025-05-13
 * Core: Cope with unattended request on CSP report URL
 * Core: Add a force rebuild thumbnails in current directory. To be use with caution with large number of media in it as it is not asynchronous yet.
 * Core: Allow reusable core script (JS) for entry selection
+* Core: Add Span and Strong as child of Html/Form/Text class, add items/separator/format management to Text
 * UX/UI: Add template set information in theme details
 * UX/UI: Review left header positioning in tables on small devices
 * UX/UI: No longer use ▶ as main menu active item indicator (confusing with fold-able stuff), back to : character
