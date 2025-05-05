@@ -667,12 +667,14 @@ class Post extends Process
                                 ->items(App::backend()->available_formats)
                                 ->default(App::backend()->post_format)
                                 ->label((new Label(__('Text formatting'), Label::OUTSIDE_LABEL_BEFORE))->id('label_format')),
-                            (new Div(null, 'span'))->class(['format_control', 'control_no_xhtml'])->items([
-                                (new Link('convert-xhtml'))
-                                    ->class(['button', App::backend()->post_id && App::backend()->post_format != 'wiki' ? ' hide' : ''])
-                                    ->href(App::backend()->url()->get('admin.post', ['id' => App::backend()->post_id, 'xconv' => '1']))
-                                    ->text(__('Convert to HTML')),
-                            ]),
+                            (new Div())
+                                ->class(['format_control', 'control_no_xhtml'])
+                                ->items([
+                                    (new Link('convert-xhtml'))
+                                        ->class(['button', App::backend()->post_id && App::backend()->post_format != 'wiki' ? ' hide' : ''])
+                                        ->href(App::backend()->url()->get('admin.post', ['id' => App::backend()->post_id, 'xconv' => '1']))
+                                        ->text(__('Convert to HTML')),
+                                ]),
                         ])
                         ->render(),
                     ],
