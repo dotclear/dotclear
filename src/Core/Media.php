@@ -1735,7 +1735,7 @@ class Media extends Manager implements MediaInterface
             $c->media_title = $meta['Title'];
         }
 
-        if ($meta['DateTimeOriginal'] && $cur->media_dt === '') {
+        if ($meta['DateTimeOriginal'] && (is_null($cur->media_dt) || $cur->media_dt === '')) {
             # We set picture time to user timezone
             $media_ts = strtotime((string) $meta['DateTimeOriginal']);
             if ($media_ts !== false) {
