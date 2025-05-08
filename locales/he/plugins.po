@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-28 09:26+0200\n"
-"PO-Revision-Date: 2025-04-28 08:15\n"
+"POT-Creation-Date: 2025-05-08 09:36+0200\n"
+"PO-Revision-Date: 2025-05-08 07:40\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -407,41 +407,41 @@ msgstr "ניקוי לא ידוע \"%s\""
 msgid "Uninstaller can't remove itself"
 msgstr "תוכנת הסרת ההתקנה לא יכולה להסיר את עצמה"
 
-#: plugins/Uninstaller/src/Manage.php:62
+#: plugins/Uninstaller/src/Manage.php:63
 msgid "Unknown module id to uninstall"
 msgstr "זיהוי מודול לא ידוע להסרה"
 
-#: plugins/Uninstaller/src/Manage.php:70
+#: plugins/Uninstaller/src/Manage.php:71
 msgid "There are no uninstall actions for this module"
 msgstr "אין פעולות הסרת התקנה עבור מודול זה."
 
-#: plugins/Uninstaller/src/Manage.php:95
+#: plugins/Uninstaller/src/Manage.php:96
 msgid "Uninstall action successfuly excecuted"
 msgstr "פעולת הסרת התקנה הושלמה בהצלחה."
 
-#: plugins/Uninstaller/src/Manage.php:98
+#: plugins/Uninstaller/src/Manage.php:99
 msgid "No uninstall action done"
 msgstr "לא בוצעה פעולת הסרת התקנה"
 
-#: plugins/Uninstaller/src/Manage.php:144
+#: plugins/Uninstaller/src/Manage.php:145
 msgid "Perform selected actions"
 msgstr "ביצוע פעולות נבחרות"
 
-#: plugins/Uninstaller/src/Manage.php:159
+#: plugins/Uninstaller/src/Manage.php:160
 msgid "Are you sure you perform these ations?"
 msgstr "אתם בטוחים שאתם מבצעים את זה?"
 
-#: plugins/Uninstaller/src/Manage.php:175
+#: plugins/Uninstaller/src/Manage.php:176
 #, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "הסרת תוסף ההתקנה \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:175
+#: plugins/Uninstaller/src/Manage.php:176
 #, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "הסרת ערכת התקנה \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:176
+#: plugins/Uninstaller/src/Manage.php:177
 #, php-format
 msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
 msgstr "המודול \"%1$s\" גרסה %2$s מציע תהליך הסרה מתקדם:"
@@ -632,36 +632,36 @@ msgstr "לא"
 msgid "yes"
 msgstr "כן"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:79
+#: plugins/akismet/src/AntispamFilterAkismet.php:80
 msgid "Akismet spam filter"
 msgstr "מסנן דואר זבל של Akismet"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:92
+#: plugins/akismet/src/AntispamFilterAkismet.php:93
 #, php-format
 msgid "Filtered by %s."
 msgstr "מסונן על ידי %s."
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:206
+#: plugins/akismet/src/AntispamFilterAkismet.php:207
 msgid "Filter configuration have been successfully saved."
 msgstr "תצורת מסנן נשמרה בהצלחה."
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:228
+#: plugins/akismet/src/AntispamFilterAkismet.php:229
 msgid "API key verified"
 msgstr "מפתח API אומת"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:231
+#: plugins/akismet/src/AntispamFilterAkismet.php:232
 msgid "API key not verified"
 msgstr "מפתח ה-API לא אומת"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:249
+#: plugins/akismet/src/AntispamFilterAkismet.php:250
 msgid "Akismet API key"
 msgstr "מפתח API של Akismet"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:252
+#: plugins/akismet/src/AntispamFilterAkismet.php:253
 msgid "Akismet API key:"
 msgstr "מפתח API של Akisפגש:"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:262
+#: plugins/akismet/src/AntispamFilterAkismet.php:263
 msgid "Get your own API key"
 msgstr "קבלת מפתח API משלכם"
 
@@ -669,16 +669,16 @@ msgstr "קבלת מפתח API משלכם"
 msgid "Akismet"
 msgstr "עקיפה"
 
-#: plugins/antispam/src/Antispam.php:144
+#: plugins/antispam/src/Antispam.php:146
 msgid "This comment is a spam:"
 msgstr "הערה זו היא דואר זבל:"
 
-#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:161 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(כולל %d הערת spam)"
 
-#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:161 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(כולל %d הערות spam)"
@@ -688,7 +688,7 @@ msgid "Antispam"
 msgstr "אנטיספאם"
 
 #: plugins/antispam/src/BackendBehaviors.php:55
-#: plugins/antispam/src/Manage.php:223
+#: plugins/antispam/src/Manage.php:224
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "כל הערות spam ישנות מ- %s יום יימחקו אוטומטית."
@@ -772,8 +772,8 @@ msgstr "הוסף כתובת IP:"
 
 #: plugins/antispam/src/Filters/Ip.php:274
 #: plugins/antispam/src/Filters/IpV6.php:273
-#: plugins/antispam/src/Filters/Words.php:291
-#: plugins/widgets/src/Manage.php:320
+#: plugins/antispam/src/Filters/Words.php:292
+#: plugins/widgets/src/Manage.php:322
 msgid "Add"
 msgstr "הוספה"
 
@@ -807,60 +807,60 @@ msgstr "מסנן Blocklist של IP v6/מסנן רשימה"
 msgid "Checks links in comments against surbl.org"
 msgstr "בדיקת קישורים בהערות מול surbl.org"
 
-#: plugins/antispam/src/Filters/Words.php:81
+#: plugins/antispam/src/Filters/Words.php:82
 msgid "Words Blocklist"
 msgstr "רשימת מילים"
 
-#: plugins/antispam/src/Filters/Words.php:94
+#: plugins/antispam/src/Filters/Words.php:95
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
 msgstr "מסונן על ידי %1$s עם המילה %2$s."
 
-#: plugins/antispam/src/Filters/Words.php:149
+#: plugins/antispam/src/Filters/Words.php:150
 msgid "Words have been successfully added."
 msgstr "מילים נוספו בהצלחה."
 
-#: plugins/antispam/src/Filters/Words.php:162
+#: plugins/antispam/src/Filters/Words.php:163
 msgid "Word has been successfully added."
 msgstr "המילה נוספה בהצלחה."
 
-#: plugins/antispam/src/Filters/Words.php:173
+#: plugins/antispam/src/Filters/Words.php:174
 msgid "Words have been successfully removed."
 msgstr "מילים סולקו בהצלחה."
 
-#: plugins/antispam/src/Filters/Words.php:195
+#: plugins/antispam/src/Filters/Words.php:196
 msgid "No word in list."
 msgstr "אין מילה ברשימה."
 
-#: plugins/antispam/src/Filters/Words.php:223
+#: plugins/antispam/src/Filters/Words.php:224
 msgid "Local words (used only for this blog)"
 msgstr "מילים מקומיות (בשימוש רק עבור בלוג זה)"
 
-#: plugins/antispam/src/Filters/Words.php:231
+#: plugins/antispam/src/Filters/Words.php:232
 msgid "Global words (used for all blogs)"
 msgstr "מילים גלובליות (משמש עבור כל הבלוגים)"
 
-#: plugins/antispam/src/Filters/Words.php:242
+#: plugins/antispam/src/Filters/Words.php:243
 msgid "List of bad words"
 msgstr "רשימה של מילים רעות"
 
-#: plugins/antispam/src/Filters/Words.php:247
+#: plugins/antispam/src/Filters/Words.php:248
 msgid "Delete selected words"
 msgstr "מחיקת המילים הנבחרות"
 
-#: plugins/antispam/src/Filters/Words.php:257
+#: plugins/antispam/src/Filters/Words.php:258
 msgid "Global word (used for all blogs)"
 msgstr "מילה גלובלית (משמש עבור כל הבלוגים)"
 
-#: plugins/antispam/src/Filters/Words.php:267
+#: plugins/antispam/src/Filters/Words.php:268
 msgid "Create default wordlist"
 msgstr "יצירת רשימת מילים המוגדרת כברירת מחדל"
 
-#: plugins/antispam/src/Filters/Words.php:288
+#: plugins/antispam/src/Filters/Words.php:289
 msgid "Add a word:"
 msgstr "הוסף מילה:"
 
-#: plugins/antispam/src/Filters/Words.php:353
+#: plugins/antispam/src/Filters/Words.php:354
 msgid "This word exists"
 msgstr "מילה זו קיימת"
 
@@ -876,88 +876,88 @@ msgstr "דואר זבל"
 msgid "Ham"
 msgstr "Ham"
 
-#: plugins/antispam/src/Manage.php:71
+#: plugins/antispam/src/Manage.php:72
 msgid "Filter does not exist."
 msgstr "המסנן אינו קיים."
 
-#: plugins/antispam/src/Manage.php:75
+#: plugins/antispam/src/Manage.php:76
 msgid "Filter has no user interface."
 msgstr "לסנן אין ממשק משתמש."
 
-#: plugins/antispam/src/Manage.php:136 plugins/antispam/src/Manage.php:269
+#: plugins/antispam/src/Manage.php:137 plugins/antispam/src/Manage.php:270
 msgid "Filters configuration has been successfully saved."
 msgstr "תצורת המסננים נשמרה בהצלחה."
 
-#: plugins/antispam/src/Manage.php:153
+#: plugins/antispam/src/Manage.php:154
 #, php-format
 msgid "%s configuration"
 msgstr "%s תצורה"
 
-#: plugins/antispam/src/Manage.php:174
+#: plugins/antispam/src/Manage.php:175
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s תצורת מסנן"
 
-#: plugins/antispam/src/Manage.php:181
+#: plugins/antispam/src/Manage.php:182
 msgid "Back to filters list"
 msgstr "בחזרה לרשימת המסננים"
 
-#: plugins/antispam/src/Manage.php:228
+#: plugins/antispam/src/Manage.php:229
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr "ניתן לשנות משך זה ב- %s"
 
-#: plugins/antispam/src/Manage.php:237
+#: plugins/antispam/src/Manage.php:238
 msgid "Information"
 msgstr "מידע"
 
-#: plugins/antispam/src/Manage.php:248
+#: plugins/antispam/src/Manage.php:249
 msgid "Junk comments:"
 msgstr "הערות זבל:"
 
-#: plugins/antispam/src/Manage.php:254
+#: plugins/antispam/src/Manage.php:255
 msgid "Published comments:"
 msgstr "הערות שפורסמו:"
 
-#: plugins/antispam/src/Manage.php:278 plugins/antispam/src/Manage.php:281
-#: plugins/antispam/src/Manage.php:285
+#: plugins/antispam/src/Manage.php:279 plugins/antispam/src/Manage.php:282
+#: plugins/antispam/src/Manage.php:286
 msgid "Filter configuration"
 msgstr "תצורת מסנן"
 
-#: plugins/antispam/src/Manage.php:301 plugins/blogroll/src/Manage.php:285
+#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:287
 msgid "position"
 msgstr "תפקיד"
 
-#: plugins/antispam/src/Manage.php:308 plugins/antispam/src/Manage.php:342
+#: plugins/antispam/src/Manage.php:309 plugins/antispam/src/Manage.php:343
 msgid "Active"
 msgstr "פעיל"
 
-#: plugins/antispam/src/Manage.php:315 plugins/antispam/src/Manage.php:343
+#: plugins/antispam/src/Manage.php:316 plugins/antispam/src/Manage.php:344
 msgid "Auto Del."
 msgstr "דלק אוטומטי."
 
-#: plugins/antispam/src/Manage.php:336
+#: plugins/antispam/src/Manage.php:337
 msgid "Available spam filters"
 msgstr "מסנני דואר זבל זמינים"
 
-#: plugins/antispam/src/Manage.php:341
+#: plugins/antispam/src/Manage.php:342
 #: plugins/pages/src/BackendDefaultActions.php:74
 msgid "Order"
 msgstr "הזמנה"
 
-#: plugins/antispam/src/Manage.php:344
+#: plugins/antispam/src/Manage.php:345
 msgid "Filter name"
 msgstr "שם מסנן"
 
-#: plugins/antispam/src/Manage.php:371
+#: plugins/antispam/src/Manage.php:372
 msgid "Syndication"
 msgstr "סינדיקציה"
 
-#: plugins/antispam/src/Manage.php:374
+#: plugins/antispam/src/Manage.php:375
 msgid "Junk comments RSS feed"
 msgstr "ערוץ RSS של הערות זבל"
 
-#: plugins/antispam/src/Manage.php:377
+#: plugins/antispam/src/Manage.php:378
 msgid "Published comments RSS feed"
 msgstr "ערוץ RSS של הערות שפורסמו"
 
@@ -1015,72 +1015,72 @@ msgstr "עליכם לספק כותרת קישור."
 msgid "You must provide a link URL"
 msgstr "עליכם לספק URL של קישור"
 
-#: plugins/blogroll/src/Manage.php:107 plugins/blogroll/src/Manage.php:546
+#: plugins/blogroll/src/Manage.php:109 plugins/blogroll/src/Manage.php:548
 msgid "Nothing to import"
 msgstr "אין דבר לייבוא"
 
-#: plugins/blogroll/src/Manage.php:130
+#: plugins/blogroll/src/Manage.php:132
 msgid "links have been successfully imported."
 msgstr "קישורים יובאו בהצלחה."
 
-#: plugins/blogroll/src/Manage.php:137
+#: plugins/blogroll/src/Manage.php:139
 msgid "Import operation cancelled."
 msgstr "פעולת יבוא בוטלה."
 
-#: plugins/blogroll/src/Manage.php:152
+#: plugins/blogroll/src/Manage.php:154
 msgid "Link has been successfully created."
 msgstr "הקישור נוצר בהצלחה."
 
-#: plugins/blogroll/src/Manage.php:167
+#: plugins/blogroll/src/Manage.php:169
 msgid "category has been successfully created."
 msgstr "הסיווג נוצר בהצלחה."
 
-#: plugins/blogroll/src/Manage.php:189
+#: plugins/blogroll/src/Manage.php:191
 msgid "Items have been successfully removed."
 msgstr "הפריטים סולקו בהצלחה."
 
-#: plugins/blogroll/src/Manage.php:219
+#: plugins/blogroll/src/Manage.php:221
 msgid "Items order has been successfully updated"
 msgstr "סדר הפריטים עודכן בהצלחה"
 
-#: plugins/blogroll/src/Manage.php:259
+#: plugins/blogroll/src/Manage.php:261
 msgid "Are you sure you want to delete selected links?"
 msgstr "אתם בטוחים שברצונכם למחוק את הקישורים שנבחרו?"
 
-#: plugins/blogroll/src/Manage.php:292
+#: plugins/blogroll/src/Manage.php:294
 msgid "select this link"
 msgstr "בחירת קישור זה."
 
-#: plugins/blogroll/src/Manage.php:339
+#: plugins/blogroll/src/Manage.php:341
 msgid "Lang"
 msgstr "לאנג"
 
-#: plugins/blogroll/src/Manage.php:364
+#: plugins/blogroll/src/Manage.php:366
 msgid "Delete selected links"
 msgstr "מחיקת הקישורים שנבחרו"
 
-#: plugins/blogroll/src/Manage.php:382
+#: plugins/blogroll/src/Manage.php:384
 msgid "The link list is empty"
 msgstr "רשימת הקישורים ריקה"
 
-#: plugins/blogroll/src/Manage.php:405
+#: plugins/blogroll/src/Manage.php:407
 msgid "Add a new link"
 msgstr "הוספת קישור חדש"
 
-#: plugins/blogroll/src/Manage.php:469
+#: plugins/blogroll/src/Manage.php:471
 msgid "Add a category"
 msgstr "הוספת סיווג"
 
-#: plugins/blogroll/src/Manage.php:517 plugins/blogroll/src/Manage.php:609
-#: plugins/blogroll/src/Manage.php:616
+#: plugins/blogroll/src/Manage.php:519 plugins/blogroll/src/Manage.php:611
+#: plugins/blogroll/src/Manage.php:618
 msgid "Import links"
 msgstr "קישורי יבוא"
 
-#: plugins/blogroll/src/Manage.php:526
+#: plugins/blogroll/src/Manage.php:528
 msgid "OPML or XBEL File:"
 msgstr "OPML או קובץ XBEL:"
 
-#: plugins/blogroll/src/Manage.php:536 plugins/blogroll/src/Manage.php:601
+#: plugins/blogroll/src/Manage.php:538 plugins/blogroll/src/Manage.php:603
 #: plugins/importExport/src/Manage.php:130
 #: plugins/importExport/src/ModuleImportFeed.php:239
 #: plugins/importExport/src/ModuleImportFlat.php:245
@@ -1088,141 +1088,141 @@ msgstr "OPML או קובץ XBEL:"
 msgid "Import"
 msgstr "יבוא"
 
-#: plugins/blogroll/src/ManageEdit.php:67
+#: plugins/blogroll/src/ManageEdit.php:68
 msgid "No such link or title"
 msgstr "אין קישור או כותרת כאלה."
 
-#: plugins/blogroll/src/ManageEdit.php:124
+#: plugins/blogroll/src/ManageEdit.php:125
 msgid "Link has been successfully updated"
 msgstr "הקישור עודכן בהצלחה"
 
-#: plugins/blogroll/src/ManageEdit.php:141
+#: plugins/blogroll/src/ManageEdit.php:142
 msgid "Category has been successfully updated"
 msgstr "הסיווג עודכן בהצלחה."
 
-#: plugins/blogroll/src/ManageEdit.php:169
+#: plugins/blogroll/src/ManageEdit.php:170
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
 msgid "Link"
 msgstr "קישור"
 
-#: plugins/blogroll/src/ManageEdit.php:176
+#: plugins/blogroll/src/ManageEdit.php:177
 msgid "Return to blogroll"
 msgstr "חזרה אל blogroll"
 
-#: plugins/blogroll/src/ManageEdit.php:187
+#: plugins/blogroll/src/ManageEdit.php:188
 msgid "Edit category"
 msgstr "עריכת סיווג"
 
-#: plugins/blogroll/src/ManageEdit.php:225
+#: plugins/blogroll/src/ManageEdit.php:226
 msgid "Edit link"
 msgstr "קישור ' עריכה '"
 
-#: plugins/blogroll/src/ManageEdit.php:278
+#: plugins/blogroll/src/ManageEdit.php:279
 msgid "XFN information"
 msgstr "מידע XFN"
 
-#: plugins/blogroll/src/ManageEdit.php:281
+#: plugins/blogroll/src/ManageEdit.php:282
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr "מידע נוסף על <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">ויקיפדיה</a> אתר"
 
-#: plugins/blogroll/src/ManageEdit.php:285
+#: plugins/blogroll/src/ManageEdit.php:286
 msgid "_xfn_Me"
 msgstr "_xfn_Me"
 
-#: plugins/blogroll/src/ManageEdit.php:289
+#: plugins/blogroll/src/ManageEdit.php:290
 msgid "_xfn_Another link for myself"
 msgstr "_xfn_האחר קישור עבור עצמי"
 
-#: plugins/blogroll/src/ManageEdit.php:293
+#: plugins/blogroll/src/ManageEdit.php:294
 msgid "_xfn_Friendship"
 msgstr "_xfn_ידידות"
 
-#: plugins/blogroll/src/ManageEdit.php:297
+#: plugins/blogroll/src/ManageEdit.php:298
 msgid "_xfn_Contact"
 msgstr "_xfn_צרו קשר"
 
-#: plugins/blogroll/src/ManageEdit.php:300
+#: plugins/blogroll/src/ManageEdit.php:301
 msgid "_xfn_Acquaintance"
 msgstr "_xfn_Acquainהכנסות"
 
-#: plugins/blogroll/src/ManageEdit.php:303
+#: plugins/blogroll/src/ManageEdit.php:304
 msgid "_xfn_Friend"
 msgstr "_xfn_ידיד"
 
-#: plugins/blogroll/src/ManageEdit.php:313
+#: plugins/blogroll/src/ManageEdit.php:314
 msgid "_xfn_Physical"
 msgstr "_xfn_הפיזי"
 
-#: plugins/blogroll/src/ManageEdit.php:317
+#: plugins/blogroll/src/ManageEdit.php:318
 msgid "_xfn_Met"
 msgstr "_xfn_פגשתי"
 
-#: plugins/blogroll/src/ManageEdit.php:321
+#: plugins/blogroll/src/ManageEdit.php:322
 msgid "_xfn_Professional"
 msgstr "_xfn_מקצוע"
 
-#: plugins/blogroll/src/ManageEdit.php:325
+#: plugins/blogroll/src/ManageEdit.php:326
 msgid "_xfn_Co-worker"
 msgstr "_xfn_Co - עובד"
 
-#: plugins/blogroll/src/ManageEdit.php:328
+#: plugins/blogroll/src/ManageEdit.php:329
 msgid "_xfn_Colleague"
 msgstr "_xfn_עמיתים"
 
-#: plugins/blogroll/src/ManageEdit.php:332
+#: plugins/blogroll/src/ManageEdit.php:333
 msgid "_xfn_Geographical"
 msgstr "_xfn_Geoגרפיות"
 
-#: plugins/blogroll/src/ManageEdit.php:336
+#: plugins/blogroll/src/ManageEdit.php:337
 msgid "_xfn_Co-resident"
 msgstr "_xfn_Co - תושב"
 
-#: plugins/blogroll/src/ManageEdit.php:339
+#: plugins/blogroll/src/ManageEdit.php:340
 msgid "_xfn_Neighbor"
 msgstr "_xfn_שכנים"
 
-#: plugins/blogroll/src/ManageEdit.php:349
+#: plugins/blogroll/src/ManageEdit.php:350
 msgid "_xfn_Family"
 msgstr "_xfn_משפחה"
 
-#: plugins/blogroll/src/ManageEdit.php:353
+#: plugins/blogroll/src/ManageEdit.php:354
 msgid "_xfn_Child"
 msgstr "_xfn_Child"
 
-#: plugins/blogroll/src/ManageEdit.php:356
+#: plugins/blogroll/src/ManageEdit.php:357
 msgid "_xfn_Parent"
 msgstr "_xfn_הורה"
 
-#: plugins/blogroll/src/ManageEdit.php:359
+#: plugins/blogroll/src/ManageEdit.php:360
 msgid "_xfn_Sibling"
 msgstr "_xfn_Sibling"
 
-#: plugins/blogroll/src/ManageEdit.php:362
+#: plugins/blogroll/src/ManageEdit.php:363
 msgid "_xfn_Spouse"
 msgstr "_xfn_Spouse"
 
-#: plugins/blogroll/src/ManageEdit.php:365
+#: plugins/blogroll/src/ManageEdit.php:366
 msgid "_xfn_Kin"
 msgstr "_xfn_Kin"
 
-#: plugins/blogroll/src/ManageEdit.php:375
+#: plugins/blogroll/src/ManageEdit.php:376
 msgid "_xfn_Romantic"
 msgstr "_xfn_רומנטית"
 
-#: plugins/blogroll/src/ManageEdit.php:379
+#: plugins/blogroll/src/ManageEdit.php:380
 msgid "_xfn_Muse"
 msgstr "_xfn_Muse"
 
-#: plugins/blogroll/src/ManageEdit.php:382
+#: plugins/blogroll/src/ManageEdit.php:383
 msgid "_xfn_Crush"
 msgstr "_xfn_Cהגיוס"
 
-#: plugins/blogroll/src/ManageEdit.php:385
+#: plugins/blogroll/src/ManageEdit.php:386
 msgid "_xfn_Date"
 msgstr "_xfn_Date"
 
-#: plugins/blogroll/src/ManageEdit.php:388
+#: plugins/blogroll/src/ManageEdit.php:389
 msgid "_xfn_Sweetheart"
 msgstr "_xfn_המתוק"
 
@@ -1274,7 +1274,7 @@ msgstr "אל תקפיצו את סימן הדרך &lt;p id=\"breadcrumb\"&gt;...&
 #: plugins/breadcrumb/src/FrontendTemplate.php:193
 #: plugins/breadcrumb/src/FrontendTemplate.php:205
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
-#: plugins/simpleMenu/src/Manage.php:146 plugins/simpleMenu/src/Manage.php:257
+#: plugins/simpleMenu/src/Manage.php:147 plugins/simpleMenu/src/Manage.php:258
 #: plugins/widgets/src/Widgets.php:266
 msgid "Home"
 msgstr "בית"
@@ -1289,13 +1289,13 @@ msgstr "עמוד %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:155
 #: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:284 plugins/widgets/src/Widgets.php:280
+#: plugins/simpleMenu/src/Manage.php:285 plugins/widgets/src/Widgets.php:280
 msgid "Archives"
 msgstr "ארכיונים"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:174
 #: plugins/breadcrumb/src/FrontendTemplate.php:181
-#: plugins/simpleMenu/src/Manage.php:130 plugins/simpleMenu/src/Manage.php:304
+#: plugins/simpleMenu/src/Manage.php:131 plugins/simpleMenu/src/Manage.php:305
 #: plugins/tags/src/Widgets.php:56
 msgid "All tags"
 msgstr "כל התגים"
@@ -1455,7 +1455,7 @@ msgstr "השבתת בודק האיות המובנה אם הדפדפן מספק �
 
 #: plugins/dcCKEditor/src/Manage.php:321
 #: plugins/dcLegacyEditor/src/Manage.php:111
-#: plugins/simpleMenu/src/Manage.php:758
+#: plugins/simpleMenu/src/Manage.php:759
 msgid "Save configuration"
 msgstr "שמירת תצורה"
 
@@ -1655,7 +1655,7 @@ msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup f
 msgstr "זיהוי של \"%3$s\" אינו תואם לרשומה \"%1$s\" בקו %2$s של קובץ גיבוי."
 
 #: plugins/importExport/src/Manage.php:90
-#: plugins/maintenance/src/Manage.php:187
+#: plugins/maintenance/src/Manage.php:188
 msgid "Please wait..."
 msgstr "נא להמתין ..."
 
@@ -1674,19 +1674,19 @@ msgstr "פונקציות יצוא הן בעמוד %s."
 msgid "Maintenance"
 msgstr "תחזוקה"
 
-#: plugins/importExport/src/Module.php:156
+#: plugins/importExport/src/Module.php:157
 msgid "Congratulation!"
 msgstr "ברכות!"
 
-#: plugins/importExport/src/Module.php:160
+#: plugins/importExport/src/Module.php:161
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
 msgstr "הבלוג שלכם יובא בהצלחה. ברוכים הבאים על Dotנקו 2!"
 
-#: plugins/importExport/src/Module.php:167
+#: plugins/importExport/src/Module.php:168
 msgid "Why don't you blog this now?"
 msgstr "למה שלא תפרסם את זה עכשיו?"
 
-#: plugins/importExport/src/Module.php:175
+#: plugins/importExport/src/Module.php:176
 msgid "visit your dashboard"
 msgstr "בקרו בלוח המחוונים שלכם"
 
@@ -2023,12 +2023,12 @@ msgstr[2] "%s משימות לביצוע"
 msgstr[3] "%s משימות לביצוע"
 
 #: plugins/maintenance/src/BackendBehaviors.php:170
-#: plugins/maintenance/src/Manage.php:292
+#: plugins/maintenance/src/Manage.php:293
 msgid "This task has never been executed."
 msgstr "משימה זו מעולם לא בוצעה."
 
 #: plugins/maintenance/src/BackendBehaviors.php:173
-#: plugins/maintenance/src/Manage.php:295
+#: plugins/maintenance/src/Manage.php:296
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "ביצוע אחרון של משימה זו היה על %s."
@@ -2062,107 +2062,107 @@ msgstr "ביצוע המשימה נכשל."
 msgid "Task successfully executed."
 msgstr "המשימה בוצעה בהצלחה."
 
-#: plugins/maintenance/src/Manage.php:130
+#: plugins/maintenance/src/Manage.php:131
 msgid "Maintenance plugin has been successfully configured."
 msgstr "תוסף התחזוקה הוגדר בהצלחה."
 
-#: plugins/maintenance/src/Manage.php:148
+#: plugins/maintenance/src/Manage.php:149
 msgid "System settings have been saved."
 msgstr "הגדרות המערכת נשמרו."
 
-#: plugins/maintenance/src/Manage.php:153
+#: plugins/maintenance/src/Manage.php:154
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "כל הגדרות מדיניות האבטחה של הבלוג אופסו לברירת המחדל."
 
-#: plugins/maintenance/src/Manage.php:175
+#: plugins/maintenance/src/Manage.php:176
 msgid "Every week"
 msgstr "כל שבוע"
 
-#: plugins/maintenance/src/Manage.php:176
+#: plugins/maintenance/src/Manage.php:177
 msgid "Every two weeks"
 msgstr "מדי שבועיים"
 
-#: plugins/maintenance/src/Manage.php:177
+#: plugins/maintenance/src/Manage.php:178
 msgid "Every month"
 msgstr "מדי חודש"
 
-#: plugins/maintenance/src/Manage.php:178
+#: plugins/maintenance/src/Manage.php:179
 msgid "Every two months"
 msgstr "מדי חודשיים"
 
-#: plugins/maintenance/src/Manage.php:204
+#: plugins/maintenance/src/Manage.php:205
 msgid "You have not sufficient permissions to view this page."
 msgstr "אין לכם הרשאות מספיקות להצגת דף זה."
 
-#: plugins/maintenance/src/Manage.php:292
-#: plugins/maintenance/src/Manage.php:298
+#: plugins/maintenance/src/Manage.php:293
+#: plugins/maintenance/src/Manage.php:299
 msgid "You should execute it now."
 msgstr "אתה צריך לבצע את זה עכשיו."
 
-#: plugins/maintenance/src/Manage.php:334
-#: plugins/maintenance/src/Manage.php:368
+#: plugins/maintenance/src/Manage.php:335
+#: plugins/maintenance/src/Manage.php:369
 msgid "Execute task"
 msgstr "ביצוע משימה"
 
-#: plugins/maintenance/src/Manage.php:339
+#: plugins/maintenance/src/Manage.php:340
 msgid "This may take a very long time."
 msgstr "פעולה זו עשויה להימשך זמן רב."
 
-#: plugins/maintenance/src/Manage.php:399
-#: plugins/maintenance/src/Manage.php:401
+#: plugins/maintenance/src/Manage.php:400
+#: plugins/maintenance/src/Manage.php:402
 msgid "Alert settings"
 msgstr "הגדרות התרעה"
 
-#: plugins/maintenance/src/Manage.php:403
+#: plugins/maintenance/src/Manage.php:404
 msgid "Activation"
 msgstr "הפעלה"
 
-#: plugins/maintenance/src/Manage.php:409
+#: plugins/maintenance/src/Manage.php:410
 msgid "Display alert messages on late tasks"
 msgstr "הצגת הודעות התרעה במשימות אחרות"
 
-#: plugins/maintenance/src/Manage.php:414
+#: plugins/maintenance/src/Manage.php:415
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "תוכלו להציב רשימה של משימות מאוחרות ב- %s."
 
-#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:420
 msgid "Frequency"
 msgstr "תדירות"
 
-#: plugins/maintenance/src/Manage.php:427
+#: plugins/maintenance/src/Manage.php:428
 msgid "Use one recall time for all tasks"
 msgstr "שימוש בזמן החזרה אחד עבור כל המשימות"
 
-#: plugins/maintenance/src/Manage.php:437
+#: plugins/maintenance/src/Manage.php:438
 msgid "Recall time for all tasks:"
 msgstr "זמן החזרות עבור כל המשימות:"
 
-#: plugins/maintenance/src/Manage.php:446
+#: plugins/maintenance/src/Manage.php:447
 msgid "Use one recall time per task"
 msgstr "שימוש בזמן החזרה אחד לכל משימה"
 
-#: plugins/maintenance/src/Manage.php:476
+#: plugins/maintenance/src/Manage.php:477
 msgid "Content-Security-Policy"
 msgstr "תוכן-אבטחה-מדיניות"
 
-#: plugins/maintenance/src/Manage.php:488
+#: plugins/maintenance/src/Manage.php:489
 msgid "Enable Content-Security-Policy system"
 msgstr "הפעלת תוכן-אבטחה-מערכת מדיניות"
 
-#: plugins/maintenance/src/Manage.php:494
+#: plugins/maintenance/src/Manage.php:495
 msgid "Enable Content-Security-Policy report only"
 msgstr "הפעלת תוכן-אבטחה-דוח מדיניות בלבד"
 
-#: plugins/maintenance/src/Manage.php:504
+#: plugins/maintenance/src/Manage.php:505
 msgid "Enable Content-Security-Policy system by default"
 msgstr "הפעלת תוכן-אבטחה-מערכת מדיניות כברירת מחדל"
 
-#: plugins/maintenance/src/Manage.php:510
+#: plugins/maintenance/src/Manage.php:511
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "הפעלת תוכן-אבטחה-דוח מדיניות רק כברירת מחדל"
 
-#: plugins/maintenance/src/Manage.php:516
+#: plugins/maintenance/src/Manage.php:517
 msgid "Also apply these settings to all blogs"
 msgstr "גם להחיל הגדרות אלה על כל הבלוגים."
 
@@ -2356,7 +2356,7 @@ msgid "%d pages"
 msgstr "%d עמודים"
 
 #: plugins/pages/src/Backend.php:108 plugins/pages/src/Manage.php:148
-#: plugins/pages/src/ManagePage.php:106 plugins/pages/src/ManagePage.php:834
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:834
 msgid "New page"
 msgstr "דף חדש"
 
@@ -2373,15 +2373,15 @@ msgstr "חזרה לרשימת הדפים"
 msgid "Selected pages have been successfully reordered."
 msgstr "הדפים שנבחרו הוזמנו מחדש בהצלחה."
 
-#: plugins/pages/src/BackendList.php:52
+#: plugins/pages/src/BackendList.php:55
 msgid "No page"
 msgstr "אין דף"
 
-#: plugins/pages/src/BackendList.php:176 plugins/pages/src/BackendList.php:237
+#: plugins/pages/src/BackendList.php:179 plugins/pages/src/BackendList.php:240
 msgid "Hidden"
 msgstr "מוסתר"
 
-#: plugins/pages/src/BackendList.php:267
+#: plugins/pages/src/BackendList.php:270
 msgid "Select this page"
 msgstr "בחירת דף זה."
 
@@ -2429,56 +2429,56 @@ msgstr "כדי לסדר מחדש את סדר הדפים, העבירו פריטי
 msgid "Save pages order"
 msgstr "שמירת סדר דפים"
 
-#: plugins/pages/src/ManagePage.php:166
+#: plugins/pages/src/ManagePage.php:167
 msgid "This page does not exist."
 msgstr "דף זה אינו קיים."
 
-#: plugins/pages/src/ManagePage.php:187 plugins/pages/src/ManagePage.php:834
+#: plugins/pages/src/ManagePage.php:188 plugins/pages/src/ManagePage.php:834
 #: plugins/pages/src/ManagePage.php:855
 msgid "Edit page"
 msgstr "עריכת דף"
 
-#: plugins/pages/src/ManagePage.php:467
+#: plugins/pages/src/ManagePage.php:468
 msgid "Are you sure you want to delete this page?"
 msgstr "אתם בטוחים שברצונכם למחוק דף זה?"
 
-#: plugins/pages/src/ManagePage.php:495
+#: plugins/pages/src/ManagePage.php:496
 msgid "Page has been successfully updated."
 msgstr "הדף עודכן בהצלחה."
 
-#: plugins/pages/src/ManagePage.php:497
+#: plugins/pages/src/ManagePage.php:498
 msgid "Page has been successfully created."
 msgstr "הדף נוצר בהצלחה."
 
-#: plugins/pages/src/ManagePage.php:510
+#: plugins/pages/src/ManagePage.php:511
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "אל תשכחו לאמת את המרת ה-HTML שלכם באמצעות שמירת הפרסום."
 
-#: plugins/pages/src/ManagePage.php:520
+#: plugins/pages/src/ManagePage.php:521
 msgid "Go to this page on the site"
 msgstr "מעבר לדף זה באתר"
 
-#: plugins/pages/src/ManagePage.php:562
+#: plugins/pages/src/ManagePage.php:563
 msgid "Page status"
 msgstr "מצב עמוד"
 
-#: plugins/pages/src/ManagePage.php:579
+#: plugins/pages/src/ManagePage.php:580
 msgid "Page language"
 msgstr "שפת דף"
 
-#: plugins/pages/src/ManagePage.php:606 plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/ManagePage.php:609 plugins/pages/src/Widgets.php:40
 msgid "Page position"
 msgstr "מיקום עמוד"
 
-#: plugins/pages/src/ManagePage.php:657
+#: plugins/pages/src/ManagePage.php:660
 msgid "Hide in widget Pages"
 msgstr "הסתרה בדפי פקדים"
 
-#: plugins/pages/src/ManagePage.php:683
+#: plugins/pages/src/ManagePage.php:686
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "אזהרה: אם תגדירו את ה-URL באופן ידני, הוא עלול להתנגש עם דף אחר."
 
-#: plugins/pages/src/ManagePage.php:722
+#: plugins/pages/src/ManagePage.php:725
 msgid "Introduction to the page."
 msgstr "מבוא לדף."
 
@@ -2530,7 +2530,7 @@ msgstr "ביטול אוטומטי של כל השירותים בפרסום הרא
 msgid "Test ping services"
 msgstr "בדיקת שירותי פינג"
 
-#: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:71
+#: plugins/simpleMenu/src/Backend.php:26 plugins/simpleMenu/src/Manage.php:72
 #: plugins/simpleMenu/src/Widgets.php:28
 msgid "Simple menu"
 msgstr "תפריט פשוט"
@@ -2543,185 +2543,185 @@ msgstr "דף פעיל"
 msgid "active page"
 msgstr "דף פעיל"
 
-#: plugins/simpleMenu/src/Manage.php:96
+#: plugins/simpleMenu/src/Manage.php:97
 msgid "All months"
 msgstr "כל החודשים"
 
-#: plugins/simpleMenu/src/Manage.php:159
+#: plugins/simpleMenu/src/Manage.php:160
 msgid "Archive"
 msgstr "ארכיב"
 
-#: plugins/simpleMenu/src/Manage.php:162
+#: plugins/simpleMenu/src/Manage.php:163
 msgid "Page"
 msgstr "עמוד"
 
-#: plugins/simpleMenu/src/Manage.php:165 plugins/tags/src/Backend.php:25
+#: plugins/simpleMenu/src/Manage.php:166 plugins/tags/src/Backend.php:25
 #: plugins/tags/src/Widgets.php:32
 msgid "Tags"
 msgstr "תגים"
 
-#: plugins/simpleMenu/src/Manage.php:172
+#: plugins/simpleMenu/src/Manage.php:173
 msgid "User defined"
 msgstr "משתמש הוגדר"
 
-#: plugins/simpleMenu/src/Manage.php:213
+#: plugins/simpleMenu/src/Manage.php:214
 msgid "Configuration successfully updated."
 msgstr "התצורה עודכנה בהצלחה."
 
-#: plugins/simpleMenu/src/Manage.php:252 plugins/simpleMenu/src/Manage.php:674
-#: plugins/simpleMenu/src/Manage.php:794
+#: plugins/simpleMenu/src/Manage.php:253 plugins/simpleMenu/src/Manage.php:675
+#: plugins/simpleMenu/src/Manage.php:795
 msgid "Label"
 msgstr "תווית"
 
-#: plugins/simpleMenu/src/Manage.php:258
+#: plugins/simpleMenu/src/Manage.php:259
 msgid "Home page"
 msgstr "דף הבית"
 
-#: plugins/simpleMenu/src/Manage.php:258 plugins/simpleMenu/src/Manage.php:263
+#: plugins/simpleMenu/src/Manage.php:259 plugins/simpleMenu/src/Manage.php:264
 #: plugins/widgets/src/Widgets.php:270 plugins/widgets/src/Widgets.php:275
 msgid "Recent posts"
 msgstr "פרסומים אחרונים"
 
-#: plugins/simpleMenu/src/Manage.php:270
+#: plugins/simpleMenu/src/Manage.php:271
 #, php-format
 msgid "Switch to %s language"
 msgstr "מעבר ל- %s שפה"
 
-#: plugins/simpleMenu/src/Manage.php:277
+#: plugins/simpleMenu/src/Manage.php:278
 msgid "Recent Posts from this category"
 msgstr "פרסומים אחרונים מסיווג זה"
 
-#: plugins/simpleMenu/src/Manage.php:289
+#: plugins/simpleMenu/src/Manage.php:290
 #, php-format
 msgid "Posts from %s"
 msgstr "פרסומים מ- %s"
 
-#: plugins/simpleMenu/src/Manage.php:309
+#: plugins/simpleMenu/src/Manage.php:310
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "פרסומים אחרונים עבור תג %s"
 
-#: plugins/simpleMenu/src/Manage.php:369
+#: plugins/simpleMenu/src/Manage.php:370
 msgid "Menu item has been successfully added."
 msgstr "פריט התפריט נוסף בהצלחה."
 
-#: plugins/simpleMenu/src/Manage.php:374
+#: plugins/simpleMenu/src/Manage.php:375
 msgid "Label and URL of menu item are mandatory."
 msgstr "תווית וURL של פריט תפריט הם שדות חובה."
 
-#: plugins/simpleMenu/src/Manage.php:407
+#: plugins/simpleMenu/src/Manage.php:408
 msgid "Menu items have been successfully removed."
 msgstr "פריטי תפריט סולקו בהצלחה."
 
-#: plugins/simpleMenu/src/Manage.php:410
+#: plugins/simpleMenu/src/Manage.php:411
 msgid "No menu items selected."
 msgstr "לא נבחרו פריטי תפריט."
 
-#: plugins/simpleMenu/src/Manage.php:422
+#: plugins/simpleMenu/src/Manage.php:423
 msgid "Label is mandatory."
 msgstr "התווית היא הכרחית."
 
-#: plugins/simpleMenu/src/Manage.php:427
+#: plugins/simpleMenu/src/Manage.php:428
 msgid "URL is mandatory."
 msgstr "ה-URL הוא חובה."
 
-#: plugins/simpleMenu/src/Manage.php:472
+#: plugins/simpleMenu/src/Manage.php:473
 msgid "Menu items have been successfully updated."
 msgstr "פריטי תפריט עודכנו בהצלחה."
 
-#: plugins/simpleMenu/src/Manage.php:499
+#: plugins/simpleMenu/src/Manage.php:500
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "אתם בטוחים שברצונכם לסלק את פריטי התפריט שנבחרו?"
 
-#: plugins/simpleMenu/src/Manage.php:508
+#: plugins/simpleMenu/src/Manage.php:509
 msgid "Step #1"
 msgstr "שלב #1"
 
-#: plugins/simpleMenu/src/Manage.php:513 plugins/simpleMenu/src/Manage.php:518
+#: plugins/simpleMenu/src/Manage.php:514 plugins/simpleMenu/src/Manage.php:519
 msgid "Step #2"
 msgstr "שלב #2"
 
-#: plugins/simpleMenu/src/Manage.php:518
+#: plugins/simpleMenu/src/Manage.php:519
 msgid "Step #3"
 msgstr "שלב #3"
 
-#: plugins/simpleMenu/src/Manage.php:527
+#: plugins/simpleMenu/src/Manage.php:528
 msgid "Add item"
 msgstr "הוספת פריט"
 
-#: plugins/simpleMenu/src/Manage.php:558
+#: plugins/simpleMenu/src/Manage.php:559
 msgid "Select type"
 msgstr "בחירת סוג"
 
-#: plugins/simpleMenu/src/Manage.php:565
+#: plugins/simpleMenu/src/Manage.php:566
 msgid "Type of item menu:"
 msgstr "סוג תפריט פריט:"
 
-#: plugins/simpleMenu/src/Manage.php:571 plugins/simpleMenu/src/Manage.php:638
+#: plugins/simpleMenu/src/Manage.php:572 plugins/simpleMenu/src/Manage.php:639
 msgid "Continue..."
 msgstr "המשך ..."
 
-#: plugins/simpleMenu/src/Manage.php:594
+#: plugins/simpleMenu/src/Manage.php:595
 msgid "Select language:"
 msgstr "בחירת שפה:"
 
-#: plugins/simpleMenu/src/Manage.php:600
+#: plugins/simpleMenu/src/Manage.php:601
 msgid "Select category:"
 msgstr "בחירת סיווג:"
 
-#: plugins/simpleMenu/src/Manage.php:606
+#: plugins/simpleMenu/src/Manage.php:607
 msgid "Select month (if necessary):"
 msgstr "בחירת חודש (במידת הצורך):"
 
-#: plugins/simpleMenu/src/Manage.php:612
+#: plugins/simpleMenu/src/Manage.php:613
 msgid "Select page:"
 msgstr "בחירת דף:"
 
-#: plugins/simpleMenu/src/Manage.php:618
+#: plugins/simpleMenu/src/Manage.php:619
 msgid "Select tag (if necessary):"
 msgstr "בחרו תג (במקרה הצורך):"
 
-#: plugins/simpleMenu/src/Manage.php:679
+#: plugins/simpleMenu/src/Manage.php:680
 msgid "Label of item menu:"
 msgstr "תווית של תפריט פריט:"
 
-#: plugins/simpleMenu/src/Manage.php:693
+#: plugins/simpleMenu/src/Manage.php:694
 msgid "Description of item menu:"
 msgstr "תיאור של תפריט פריט:"
 
-#: plugins/simpleMenu/src/Manage.php:708
+#: plugins/simpleMenu/src/Manage.php:709
 msgid "URL of item menu:"
 msgstr "URL של תפריט פריט:"
 
-#: plugins/simpleMenu/src/Manage.php:718 plugins/simpleMenu/src/Manage.php:797
+#: plugins/simpleMenu/src/Manage.php:719 plugins/simpleMenu/src/Manage.php:798
 msgid "Open URL on a new tab"
 msgstr "פתיחת URL בלשונית חדשה"
 
-#: plugins/simpleMenu/src/Manage.php:726
+#: plugins/simpleMenu/src/Manage.php:727
 msgid "Add this item"
 msgstr "הוספת פריט זה:"
 
-#: plugins/simpleMenu/src/Manage.php:752
+#: plugins/simpleMenu/src/Manage.php:753
 msgid "Enable simple menu for this blog"
 msgstr "הפעלת תפריט פשוט עבור בלוג זה."
 
-#: plugins/simpleMenu/src/Manage.php:775
+#: plugins/simpleMenu/src/Manage.php:776
 msgid "Add an item"
 msgstr "הוספת פריט."
 
-#: plugins/simpleMenu/src/Manage.php:893
+#: plugins/simpleMenu/src/Manage.php:894
 msgid "Menu items list"
 msgstr "רשימת פריטי תפריט"
 
-#: plugins/simpleMenu/src/Manage.php:920
+#: plugins/simpleMenu/src/Manage.php:921
 msgid "Delete selected menu items"
 msgstr "מחיקת פריטי תפריט נבחרים."
 
-#: plugins/simpleMenu/src/Manage.php:929
+#: plugins/simpleMenu/src/Manage.php:930
 msgid "Update menu"
 msgstr "תפריט עדכון"
 
-#: plugins/simpleMenu/src/Manage.php:939
+#: plugins/simpleMenu/src/Manage.php:940
 msgid "No menu items so far."
 msgstr "אין פריטי תפריט עד כה."
 
@@ -2844,15 +2844,15 @@ msgstr "תווית זו של הערות Atom"
 msgid "This tag's entries Atom feed"
 msgstr "תג זה של רשומות Atom"
 
-#: plugins/tags/src/Manage.php:117
+#: plugins/tags/src/Manage.php:119
 msgid "entries"
 msgstr "רשומות"
 
-#: plugins/tags/src/Manage.php:117
+#: plugins/tags/src/Manage.php:119
 msgid "entry"
 msgstr "כניסה"
 
-#: plugins/tags/src/Manage.php:148
+#: plugins/tags/src/Manage.php:150
 msgid "No tags on this blog."
 msgstr "אין תגים בבלוג זה."
 
@@ -2914,8 +2914,8 @@ msgid "themeEditor"
 msgstr "עורך themeEditor"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:47
-#: plugins/themeEditor/src/Manage.php:189
-#: plugins/themeEditor/src/Manage.php:196
+#: plugins/themeEditor/src/Manage.php:190
+#: plugins/themeEditor/src/Manage.php:197
 msgid "Edit theme files"
 msgstr "עריכת קובצי הערכה"
 
@@ -2927,93 +2927,93 @@ msgstr "הבלטת תחביר"
 msgid "Syntax highlighting in theme editor"
 msgstr "הבלטת תחביר בעורך ערכות נושא"
 
-#: plugins/themeEditor/src/Manage.php:98
+#: plugins/themeEditor/src/Manage.php:99
 msgid "The theme update has been locked."
 msgstr "עדכון הערכה ננעל."
 
-#: plugins/themeEditor/src/Manage.php:106
+#: plugins/themeEditor/src/Manage.php:107
 msgid "The theme update has been unocked."
 msgstr "עדכון הערכה סולק."
 
-#: plugins/themeEditor/src/Manage.php:129
+#: plugins/themeEditor/src/Manage.php:130
 msgid "The file has been reset."
 msgstr "הקובץ אופס."
 
-#: plugins/themeEditor/src/Manage.php:162
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Lock update"
 msgstr "עדכון נעילה"
 
-#: plugins/themeEditor/src/Manage.php:162
+#: plugins/themeEditor/src/Manage.php:163
 msgid "Unlock update"
 msgstr "ביטול נעילה"
 
-#: plugins/themeEditor/src/Manage.php:167
+#: plugins/themeEditor/src/Manage.php:168
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "נעילת עדכון נושא משבית את עדכון ערכת הנושא, אך מאפשרת לשנות קבצי ערכת נושא."
 
-#: plugins/themeEditor/src/Manage.php:177
+#: plugins/themeEditor/src/Manage.php:178
 msgid "Saving document..."
 msgstr "המסמך נשמר כעת ..."
 
-#: plugins/themeEditor/src/Manage.php:178
+#: plugins/themeEditor/src/Manage.php:179
 msgid "Document saved"
 msgstr "המסמך נשמר"
 
-#: plugins/themeEditor/src/Manage.php:179
+#: plugins/themeEditor/src/Manage.php:180
 msgid "An error occurred:"
 msgstr "אירעה שגיאה:"
 
-#: plugins/themeEditor/src/Manage.php:180
+#: plugins/themeEditor/src/Manage.php:181
 msgid "Are you sure you want to reset this file?"
 msgstr "אתם בטוחים שברצונכם לאפס קובץ זה?"
 
-#: plugins/themeEditor/src/Manage.php:204
+#: plugins/themeEditor/src/Manage.php:205
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "הנושא הנוכחי שלכם בבלוג זה הוא \"%s."
 
-#: plugins/themeEditor/src/Manage.php:217
+#: plugins/themeEditor/src/Manage.php:218
 msgid "Please select a file to edit."
 msgstr "נא לבחור קובץ לעריכה."
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:228
 msgid "File editor"
 msgstr "עורך קבצים"
 
-#: plugins/themeEditor/src/Manage.php:236
+#: plugins/themeEditor/src/Manage.php:237
 #, php-format
 msgid "Editing file %s"
 msgstr "עריכת קובץ %s"
 
-#: plugins/themeEditor/src/Manage.php:246
+#: plugins/themeEditor/src/Manage.php:247
 msgid "Reset"
 msgstr "איפוס"
 
-#: plugins/themeEditor/src/Manage.php:253
+#: plugins/themeEditor/src/Manage.php:254
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "קובץ זה אינו מאפשר כתיבה. בדקו את הרשאות קובצי הערכה שלכם."
 
-#: plugins/themeEditor/src/Manage.php:272
+#: plugins/themeEditor/src/Manage.php:273
 msgid "Templates files"
 msgstr "קובצי תבניות"
 
-#: plugins/themeEditor/src/Manage.php:277
+#: plugins/themeEditor/src/Manage.php:278
 msgid "CSS files"
 msgstr "קובצי CSS"
 
-#: plugins/themeEditor/src/Manage.php:282
+#: plugins/themeEditor/src/Manage.php:283
 msgid "JavaScript files"
 msgstr "קובצי JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:287
+#: plugins/themeEditor/src/Manage.php:288
 msgid "Locales files"
 msgstr "קובצי Locales"
 
-#: plugins/themeEditor/src/Manage.php:292
+#: plugins/themeEditor/src/Manage.php:293
 msgid "PHP files"
 msgstr "קבצי PHP"
 
-#: plugins/themeEditor/src/Manage.php:306
+#: plugins/themeEditor/src/Manage.php:307
 msgid "You can't edit a distributed theme."
 msgstr "אינכם יכולים לערוך ערכה מבוזרת."
 
@@ -3082,123 +3082,123 @@ msgstr "Textareas של הפקד"
 msgid "Unable to initialize default widgets."
 msgstr "לא ניתן לאתחל פקדי ברירת מחדל."
 
-#: plugins/widgets/src/Manage.php:77
+#: plugins/widgets/src/Manage.php:79
 msgid "navigation"
 msgstr "ניווט"
 
-#: plugins/widgets/src/Manage.php:78
+#: plugins/widgets/src/Manage.php:80
 msgid "extra"
 msgstr "תוספת"
 
-#: plugins/widgets/src/Manage.php:79
+#: plugins/widgets/src/Manage.php:81
 msgid "custom"
 msgstr "מותאם אישית"
 
-#: plugins/widgets/src/Manage.php:215
+#: plugins/widgets/src/Manage.php:217
 msgid "Sidebars and their widgets have been saved."
 msgstr "סרגל הצד והרכיבים הגרפיים שלהם נשמרו."
 
-#: plugins/widgets/src/Manage.php:229
+#: plugins/widgets/src/Manage.php:231
 msgid "Sidebars have been resetting."
 msgstr "סרגל הצד כבר הגדרה מחדש."
 
-#: plugins/widgets/src/Manage.php:258
+#: plugins/widgets/src/Manage.php:260
 msgid "Are you sure you want to reset sidebars?"
 msgstr "אתם בטוחים שברצונכם לאפס את סרגל הצד?"
 
-#: plugins/widgets/src/Manage.php:259 plugins/widgets/src/Manage.php:389
+#: plugins/widgets/src/Manage.php:261 plugins/widgets/src/Manage.php:391
 msgid "Temporarily display the action buttons for each widget"
 msgstr "הצג באופן זמני את לחצני הפעולה עבור כל ווידג'ט"
 
-#: plugins/widgets/src/Manage.php:260
+#: plugins/widgets/src/Manage.php:262
 msgid "Hide the action buttons for each widget"
 msgstr "הסתר את לחצני הפעולה עבור כל ווידג'ט"
 
-#: plugins/widgets/src/Manage.php:307 plugins/widgets/src/Manage.php:488
+#: plugins/widgets/src/Manage.php:309 plugins/widgets/src/Manage.php:490
 msgid "order"
 msgstr "הזמנה"
 
-#: plugins/widgets/src/Manage.php:319
+#: plugins/widgets/src/Manage.php:321
 msgid "Append to:"
 msgstr "חל על:"
 
-#: plugins/widgets/src/Manage.php:338
+#: plugins/widgets/src/Manage.php:340
 msgid "Available widgets"
 msgstr "פקדים זמינים"
 
-#: plugins/widgets/src/Manage.php:340
+#: plugins/widgets/src/Manage.php:342
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "גררו רכיבים גרפיים מרשימה זו אל אחד מסרגלי הצד, להוספה."
 
-#: plugins/widgets/src/Manage.php:348
+#: plugins/widgets/src/Manage.php:350
 msgid "Add widgets to sidebars"
 msgstr "הוספת פקדים לסרגלי צד"
 
-#: plugins/widgets/src/Manage.php:363
+#: plugins/widgets/src/Manage.php:365
 msgid "Navigation sidebar"
 msgstr "סרגל צד ניווט"
 
-#: plugins/widgets/src/Manage.php:370
+#: plugins/widgets/src/Manage.php:372
 msgid "Extra sidebar"
 msgstr "סרגל צד נוסף"
 
-#: plugins/widgets/src/Manage.php:377
+#: plugins/widgets/src/Manage.php:379
 msgid "Custom sidebar"
 msgstr "סרגל צד מותאם"
 
-#: plugins/widgets/src/Manage.php:384
+#: plugins/widgets/src/Manage.php:386
 msgid "Update sidebars"
 msgstr "עדכון צדדי"
 
-#: plugins/widgets/src/Manage.php:386
+#: plugins/widgets/src/Manage.php:388
 msgid "Reset sidebars"
 msgstr "איפוס סרגל צד"
 
-#: plugins/widgets/src/Manage.php:399
+#: plugins/widgets/src/Manage.php:401
 msgid "No setting for this widget"
 msgstr "אין הגדרה עבור פקד זה."
 
-#: plugins/widgets/src/Manage.php:405
+#: plugins/widgets/src/Manage.php:407
 msgid "boolean"
 msgstr "בוליאני"
 
-#: plugins/widgets/src/Manage.php:405 plugins/widgets/src/Manage.php:410
+#: plugins/widgets/src/Manage.php:407 plugins/widgets/src/Manage.php:412
 msgid "possible values:"
 msgstr "ערכים אפשריים:"
 
-#: plugins/widgets/src/Manage.php:409
+#: plugins/widgets/src/Manage.php:411
 msgid "empty string"
 msgstr "מחרוזת ריקה"
 
-#: plugins/widgets/src/Manage.php:410
+#: plugins/widgets/src/Manage.php:412
 msgid "listitem"
 msgstr "ליסטיקה"
 
-#: plugins/widgets/src/Manage.php:416
+#: plugins/widgets/src/Manage.php:418
 msgid "string"
 msgstr "מחרוזת"
 
-#: plugins/widgets/src/Manage.php:436
+#: plugins/widgets/src/Manage.php:438
 msgid "Widget ID:"
 msgstr "זיהוי פקד:"
 
-#: plugins/widgets/src/Manage.php:500 plugins/widgets/src/Manage.php:501
+#: plugins/widgets/src/Manage.php:502 plugins/widgets/src/Manage.php:503
 msgid "Up the widget"
 msgstr "למעלה הפקד"
 
-#: plugins/widgets/src/Manage.php:505 plugins/widgets/src/Manage.php:506
+#: plugins/widgets/src/Manage.php:507 plugins/widgets/src/Manage.php:508
 msgid "Down the widget"
 msgstr "למטה הפקד"
 
-#: plugins/widgets/src/Manage.php:509 plugins/widgets/src/Manage.php:510
+#: plugins/widgets/src/Manage.php:511 plugins/widgets/src/Manage.php:512
 msgid "Remove the widget"
 msgstr "סילוק הפקד"
 
-#: plugins/widgets/src/Manage.php:534
+#: plugins/widgets/src/Manage.php:536
 msgid "No widget as far."
 msgstr "אין פקד עד כה."
 
-#: plugins/widgets/src/Manage.php:543
+#: plugins/widgets/src/Manage.php:545
 msgid "Drag widgets here to remove."
 msgstr "גררו רכיבים גרפיים כאן לסילוק."
 
