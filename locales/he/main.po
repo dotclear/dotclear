@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-08 09:36+0200\n"
-"PO-Revision-Date: 2025-05-08 07:39\n"
+"PO-Revision-Date: 2025-05-08 08:08\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -5636,7 +5636,7 @@ msgstr "השאר ריק כדי להשתמש בתו ברירת המחדל <kbd>:<
 
 #: src/Process/Backend/UserPreferences.php:705
 msgid "Keep the main menu at the top of the page as much as possible"
-msgstr ""
+msgstr "שמור על התפריט הראשי בחלק העליון של הדף ככל האפשר"
 
 #: src/Process/Backend/UserPreferences.php:712
 msgid "Optional columns displayed in lists"
