@@ -33,6 +33,7 @@ Dotclear 2.34 - 2025-05-13
 * UX/UI: Add translate="no" to several fields (id, names, urls, emails, langs, …)
 * UX/UI: Stick main menu to the top
 * UX/UI: Add a scroll-behavior: smooth for body
+* UX/UI: Add a user option to sitck main menu on top othe page as far as possible
 * Fix: Review management of favorites icon's legends
 * Fix: In Blog::getLangs() set a table alias P for post table in SQL statement as it may be used in some cases
 * Fix: Fix breadcrumb for comment
