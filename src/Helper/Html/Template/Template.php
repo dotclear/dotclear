@@ -278,12 +278,12 @@ class Template
      * @see        self::addBlock()
      *
      *
-     * @param      array<string, callable>  $values      The blocks
+     * @param      array<string, callable>  $blocks      The blocks
      */
     public function addBlocks(array $blocks): void
     {
-        foreach($blocks as $name => $callback) {
-            if (is_string($name)) {
+        foreach ($blocks as $name => $callback) {
+            if (is_string($name)) { // @phpstan-ignore-line (PHPDoc only)
                 $this->addBlock($name, $callback);
             }
         }
@@ -317,8 +317,8 @@ class Template
      */
     public function addValues(array $values): void
     {
-        foreach($values as $name => $callback) {
-            if (is_string($name)) {
+        foreach ($values as $name => $callback) {
+            if (is_string($name)) { // @phpstan-ignore-line (PHPDoc only)
                 $this->addValue($name, $callback);
             }
         }
