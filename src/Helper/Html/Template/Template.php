@@ -273,6 +273,23 @@ class Template
     }
 
     /**
+     * Adds node blocks callbacks.
+     *
+     * @see        self::addBlock()
+     *
+     *
+     * @param      array<string, callable>  $values      The blocks
+     */
+    public function addBlocks(array $blocks): void
+    {
+        foreach($blocks as $name => $callback) {
+            if (is_string($name)) {
+                $this->addBlock($name, $callback);
+            }
+        }
+    }
+
+    /**
      * Adds a node block callback.
      *
      * The callback signature must be: callback(array $attr, string &$content)
@@ -289,6 +306,22 @@ class Template
         }
 
         $this->blocks[$name] = $callback;
+    }
+
+    /**
+     * Adds node values callbacks.
+     *
+     * @see        self::addValue()
+     *
+     * @param      array<string, callable>  $values      The values
+     */
+    public function addValues(array $values): void
+    {
+        foreach($values as $name => $callback) {
+            if (is_string($name)) {
+                $this->addValue($name, $callback);
+            }
+        }
     }
 
     /**
