@@ -77,8 +77,11 @@ h1,
   padding-top: 0.5em;
   padding-bottom: 1em;
   overflow: hidden;
-  position: sticky;
-  top: 0;
+
+  &.sticky {
+    position: sticky;
+    top: 0;
+  }
 }
 
 #footer {

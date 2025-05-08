@@ -495,7 +495,7 @@ class Page
         "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
 
-        '<nav id="main-menu" role="navigation">' . "\n";
+        '<nav id="main-menu" role="navigation"' . ((bool) App::auth()->prefs()->interface->stickymenu ? ' class="sticky"' : '') . '>' . "\n";
 
         echo $search->render();
 

@@ -1252,6 +1252,8 @@ h1,
   padding-top: 0.5em;
   padding-bottom: 1em;
   overflow: hidden;
+}
+#main-menu.sticky {
   position: sticky;
   top: 0;
 }

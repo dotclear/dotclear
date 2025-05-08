@@ -85,6 +85,7 @@ class UserPreferences extends Process
         App::backend()->user_ui_media_nb_last_dirs = App::auth()->prefs()->interface->media_nb_last_dirs;
         App::backend()->user_ui_nocheckadblocker   = App::auth()->prefs()->interface->nocheckadblocker;
         App::backend()->user_ui_quickmenuprefix    = App::auth()->prefs()->interface->quickmenuprefix;
+        App::backend()->user_ui_stickymenu         = App::auth()->prefs()->interface->stickymenu;
 
         // Format by editors
         $formaters         = App::formater()->getFormaters();
@@ -285,6 +286,7 @@ class UserPreferences extends Process
                 App::auth()->prefs()->interface->put('media_fav_dirs', [], 'array', null, false);
                 App::auth()->prefs()->interface->put('nocheckadblocker', !empty($_POST['user_ui_nocheckadblocker']), 'boolean');
                 App::auth()->prefs()->interface->put('quickmenuprefix', $_POST['user_ui_quickmenuprefix'], 'string');
+                App::auth()->prefs()->interface->put('stickymenu', $_POST['user_ui_stickymenu'], 'string');
 
                 // Update user columns (lists)
                 $cu = [];
@@ -696,6 +698,12 @@ class UserPreferences extends Process
         '</p>' .
         '<p class="clear form-note" id="user_ui_quickmenuprefix_help">' . __('Leave empty to use the default character <kbd>:</kbd>') . '</p>'
         ;
+
+        echo
+        '<p><label for="user_ui_stickymenu" class="classic">' .
+        form::checkbox('user_ui_stickymenu', 1, App::backend()->user_ui_stickymenu) . ' ' .
+        __('Keep the main menu at the top of the page as much as possible') . '</label> ' .
+        '</p>';
 
         echo
         '</div>' .
