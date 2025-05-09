@@ -56,6 +56,15 @@
 }
 .blognav__widgets,
 .blogextra__widgets {
+  &:empty {
+    display: none;
+  }
+  &:has(h2:only-child) {
+    display: none;
+  }
+  h2:only-child {
+    display: none;
+  }
   ul {
     margin: 0;
   }
@@ -101,7 +110,7 @@
     float: left;
   }
 }
-@media screen and(min-width: $large-screen) and(max-width: $xlarge-screen) {
+@media screen and(min-width: $large-screen) and (max-width: $xlarge-screen) {
   .blognav__widgets .widget,
   .blogextra__widgets .widget {
     width: 33.33%;

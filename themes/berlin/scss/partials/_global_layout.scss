@@ -73,11 +73,26 @@ body {
   }
   #sidebar {
     @include zen-grid-item(4, 9);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5em;
   }
   #blognav,
   #blogextra {
-    width: 49%;
-    display: inline-block;
-    vertical-align: top;
+    margin-top: 0;
+    flex: 2 1 calc((100% - 4em) / 2);
+
+    &:empty {
+      display: none;
+    }
+    &:has(h2:only-child) {
+      display: none;
+    }
+    h2:only-child {
+      display: none;
+    }
   }
 }
