@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-08 09:36+0200\n"
-"PO-Revision-Date: 2025-05-08 08:08\n"
+"POT-Creation-Date: 2025-05-08 10:19+0200\n"
+"PO-Revision-Date: 2025-05-10 17:08\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -2851,18 +2851,18 @@ msgstr "Hakemistoa ei voi lukea"
 msgid "Unable to write ZIP archive"
 msgstr "ZIP-arkiston kirjoittaminen ei onnistu"
 
-#: src/Helper/Html/Template/Template.php:645
-#: src/Helper/Html/Template/Template.php:695
+#: src/Helper/Html/Template/Template.php:678
+#: src/Helper/Html/Template/Template.php:728
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr "Lohkon <tpl:%s>sulkutunnistetta ei löytynyt. Sisältö on jätetty huomiotta."
 
-#: src/Helper/Html/Template/Template.php:652
+#: src/Helper/Html/Template/Template.php:685
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "Odottamaton sulkutunniste </tpl:%s> löytyi."
 
-#: src/Helper/Html/Template/Template.php:702
+#: src/Helper/Html/Template/Template.php:735
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "VAROITUS: seuraavat virheet on havaittu mallitiedoston jäsentämisen aikana :"
 
