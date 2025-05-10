@@ -90,7 +90,8 @@
     border-bottom: none;
   }
 }
-#q {
+#q,
+input[type='search'] {
   width: 75%;
 }
 .category-current {
