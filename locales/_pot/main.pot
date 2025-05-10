@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-08 09:36+0200\n"
+"POT-Creation-Date: 2025-05-08 10:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2851,18 +2851,18 @@ msgstr ""
 msgid "Unable to write ZIP archive"
 msgstr ""
 
-#: src/Helper/Html/Template/Template.php:645
-#: src/Helper/Html/Template/Template.php:695
+#: src/Helper/Html/Template/Template.php:678
+#: src/Helper/Html/Template/Template.php:728
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr ""
 
-#: src/Helper/Html/Template/Template.php:652
+#: src/Helper/Html/Template/Template.php:685
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr ""
 
-#: src/Helper/Html/Template/Template.php:702
+#: src/Helper/Html/Template/Template.php:735
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
 
