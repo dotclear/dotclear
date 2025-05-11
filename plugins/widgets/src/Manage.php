@@ -383,9 +383,9 @@ class Manage extends Process
                     ->id('sidebarsControl')
                     ->items([
                         ...My::hiddenFields(),
-                        (new Submit(['wup'], __('Update sidebars'))),
-                        (new Button(['_back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
-                        (new Submit(['wreset'], __('Reset sidebars')))->class('reset'),
+                        (new Submit('wup', __('Update sidebars'))),
+                        (new Button('wback', __('Back')))->class(['go-back','reset','hidden-if-no-js']),
+                        (new Submit('wreset', __('Reset sidebars')))->class('reset'),
                         $user_dm_nodragdrop ?
                             new None() :
                             (new Button(null, __('Temporarily display the action buttons for each widget')))->id('switch-dragndrop'),

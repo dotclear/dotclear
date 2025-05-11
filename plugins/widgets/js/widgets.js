@@ -144,4 +144,7 @@ dotclear.ready(() => {
       tbWidgetText.draw('xhtml');
     });
   }
+
+  // Deal with enter key on sidebar widget form : every form element will be filtered but Back button
+  dotclear.enterKeyInForm('#sidebarsWidgets', '#wup', '#wback');
 });
