@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -49,7 +50,11 @@ class Socket extends atoum
             ->boolean($socket->isOpen())
             ->isFalse()
         ;
+        $socket->close();
 
+        // Next test with content
+
+        $socket = new \Dotclear\Helper\Network\Socket\Socket('example.org', 80);
         $socket->open();
 
         $this
@@ -61,29 +66,31 @@ class Socket extends atoum
             'GET / HTTP/1.0',
         ];
         $expected = [
-            'HTTP/1.0 404 Not Found' . "\r\n",
+            'HTTP/1.0 400 Bad Request' . "\r\n",
+            'Server: AkamaiGHost' . "\r\n",
+            'Mime-Version: 1.0' . "\r\n",
             'Content-Type: text/html' . "\r\n",
+            'Conten',
+            'Expire',
             'Date: ',
-            'Server: ',
-            'Content-Length: ',
             'Connection: close' . "\r\n",
             "\r\n",
-            '<?xml version="1.0" encoding="iso-8859-1"?>',
-            '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN',
-            '         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">',
-            '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">',
-            "\t" . '<head>',
-            "\t\t" . '<title>404 - Not Found</title>',
-            "\t" . '</head>',
-            "\t" . '<body>',
-            "\t\t" . '<h1>404 - Not Found</h1>',
-            "\t" . '</body>',
-            '</html>',
+            '<HTML><HEAD>' . "\n",
+            '<TITLE>Invalid URL</TITLE>' . "\n",
+            '</HEAD><BODY>' . "\n",
+            '<H1>Invalid URL</H1>' . "\n",
+            '*',
+            '*',
+            '*',
+            '</BODY></HTML>' . "\n",
         ];
         $line = 0;
         foreach ($socket->write($data) as $value) {
             if ($line < count($expected)) {
                 //$this->dump($value);
+                if ($expected[$line] === '*') {
+                    continue;
+                }
                 if (mb_substr($value, 0, mb_strlen($expected[$line])) !== $expected[$line]) {
                     $this->dump(json_encode(mb_substr($value, 0, mb_strlen($expected[$line]))));
                 }
@@ -102,7 +109,7 @@ class Socket extends atoum
             ;
         } else {
             $this
-                ->string($value)->startWith('</html>')
+                ->string($value)->startWith('</BODY></HTML>')
             ;
         }
 

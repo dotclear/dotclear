@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -222,7 +223,7 @@ class HttpClient extends atoum
             ->integer($client->getStatus())
             ->isEqualTo(400)
             ->string($client->getContent())
-            ->contains('400 - Bad Request')
+            ->contains('An error occurred while processing your request.')
             ->array($client->getCookies())
             ->isEqualTo([])
         ;
@@ -236,7 +237,7 @@ class HttpClient extends atoum
             ->boolean(in_array('content-type', array_keys($client->getHeaders())))
             ->isTrue()
             ->integer($client->getStatus())
-            ->isEqualTo(405)
+            ->isEqualTo(403)
             ->array($client->getCookies())
             ->isEqualTo([])
         ;
@@ -275,9 +276,9 @@ class HttpClient extends atoum
             ->boolean(in_array('content-type', array_keys($client->getHeaders())))
             ->isTrue()
             ->integer($client->getStatus())
-            ->isEqualTo(302)
+            ->isEqualTo(301)
             ->string($client->getContent())
-            ->contains('302 Found')
+            ->contains('301 Moved Permanently')
         ;
     }
 

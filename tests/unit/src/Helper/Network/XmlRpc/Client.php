@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -26,7 +27,7 @@ class Client extends atoum
 
         $this
             ->exception(fn () => $client->query('method1', 'hello', 'world'))
-            ->hasMessage('HTTP Error. 405 Method Not Allowed')
+            ->hasMessage('HTTP Error. 403 Forbidden')
         ;
     }
 }

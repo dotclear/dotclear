@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -28,7 +29,7 @@ class ClientMulticall extends atoum
             ->given($client->addCall('method1', 'hello', 'world'))
             ->and($client->addCall('method2', 'foo', 'bar'))
             ->exception(fn () => $client->query())
-            ->hasMessage('HTTP Error. 405 Method Not Allowed')
+            ->hasMessage('HTTP Error. 403 Forbidden')
         ;
     }
 }
