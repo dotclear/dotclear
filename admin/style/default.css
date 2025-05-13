@@ -1663,7 +1663,8 @@ body.dark-mode.upgrade-mode :is(.collapse-mm, .expand-mm) {
   #content.with-help #help {
     width: 28rem;
   }
-  p.top-add {
+  p.top-add,
+  p.new-stuff {
     margin-bottom: 0.5em;
   }
   .part-tabs ul,
@@ -2358,7 +2359,8 @@ a.button.clone:is(:hover, :active, :focus) {
 }
 
 /* paragraphe pour bouton Nouveau bidule */
-p.top-add {
+p.top-add,
+p.new-stuff {
   text-align: right;
   justify-content: right;
   margin: 0;
@@ -5362,7 +5364,8 @@ tr.ui-sortable-handle:hover {
   #content.with-help #help {
     font-size: 1.2rem;
   }
-  p.top-add {
+  p.top-add,
+  p.new-stuff {
     text-align: center;
     justify-content: left;
   }

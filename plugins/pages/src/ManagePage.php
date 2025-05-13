@@ -956,7 +956,7 @@ class ManagePage extends Process
                 ->title(__('Comments'))
                 ->items([
                     (new Para())
-                        ->class('top-add')
+                        ->class('new-stuff')
                         ->items([
                             (new Link())->class(['button', 'add'])->href('#comment-form')->text(__('Add a comment')),
                         ]),

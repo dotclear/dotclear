@@ -770,7 +770,7 @@ class Manage extends Process
                 ->action(App::backend()->getPageURL() . '&add=' . trim((string) self::STEP_TYPE))
                 ->fields([
                     (new Para())
-                        ->class('top-add')
+                        ->class('new-stuff')
                         ->items([
                             ...My::hiddenFields(),
                             (new Submit(['appendaction'], __('Add an item')))

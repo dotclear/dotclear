@@ -140,7 +140,7 @@ class Manage extends Process
         }
 
         echo (new Para())
-            ->class('top-add')
+            ->class('new-stuff')
             ->items([
                 (new Link())
                     ->class(['button', 'add'])

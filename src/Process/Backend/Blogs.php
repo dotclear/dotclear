@@ -108,7 +108,7 @@ class Blogs extends Process
             if (App::auth()->isSuperAdmin()) {
                 // Create blog button
                 echo (new Para())
-                    ->class('top-add')
+                    ->class('new-stuff')
                     ->items([
                         (new Link())
                             ->class(['button', 'add'])

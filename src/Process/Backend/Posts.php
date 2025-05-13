@@ -106,7 +106,7 @@ class Posts extends Process
         }
         if (!App::error()->flag()) {
             echo (new Para())
-                ->class('top-add')
+                ->class('new-stuff')
                 ->items([
                     (new Link())
                         ->href(App::backend()->url()->get('admin.post'))

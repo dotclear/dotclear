@@ -82,9 +82,10 @@
     font-size: 1.2rem; // 12px;
   }
 
-  p.top-add {
+  p.top-add,
+  p.new-stuff {
     text-align: center;
-    justify-content: left; // Useful when top-add is used in combination with form-buttons
+    justify-content: left; // Useful when top-add / new-stuff is used in combination with form-buttons
   }
 
   .multi-part {

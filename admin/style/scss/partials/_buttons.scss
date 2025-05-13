@@ -107,9 +107,10 @@ a.button.clone {
 
 /* paragraphe pour bouton Nouveau bidule */
 
-p.top-add {
+p.top-add,
+p.new-stuff {
   text-align: right;
-  justify-content: right; // Useful when top-add is used in combination with form-buttons
+  justify-content: right; // Useful when top-add or new-stuff is used in combination with form-buttons
   margin: 0;
 }
 

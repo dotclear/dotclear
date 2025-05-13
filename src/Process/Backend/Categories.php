@@ -177,7 +177,7 @@ class Categories extends Process
         App::backend()->categories_combo = Combos::getCategoriesCombo($rs);
 
         echo (new Para())
-            ->class('top-add')
+            ->class('new-stuff')
             ->items([
                 (new Link())
                     ->class(['button', 'add'])
