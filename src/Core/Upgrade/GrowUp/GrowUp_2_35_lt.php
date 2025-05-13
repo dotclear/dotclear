@@ -23,7 +23,9 @@ class GrowUp_2_35_lt
         Upgrade::houseCleaning(
             // Files
             [
-                'src/Exception/UnautorizedException.php',
+                'admin/images/trash.png',
+                'src/Exception/UnautorizedException.php',   // Already in 2.33 but with a typo :-p
+                'themes/ductile/ductile.js',
             ],
             // Folders
             [
