@@ -1222,6 +1222,10 @@ h1,
   gap: 0.25em;
 }
 
+#header a.logout img {
+  margin-inline-start: 0.25em;
+}
+
 #wrapper {
   background: var(--wrapper-background);
   position: relative;
@@ -1650,7 +1654,7 @@ body.dark-mode.upgrade-mode :is(.collapse-mm, .expand-mm) {
     max-width: 75%;
   }
   #header a.logout img {
-    padding-left: 0;
+    margin-inline-start: 0;
   }
   #content.with-help #help-button {
     top: 10em;
