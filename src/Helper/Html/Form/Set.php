@@ -16,11 +16,11 @@ namespace Dotclear\Helper\Html\Form;
  *
  * Warning: there is no attributes (id, …)
  *
- * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
+ * @method      $this items(Iterable<int|string, Component> $items)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
  *
- * @property    array<int|string, Component>|Iterable<int|string, Component> $items
+ * @property    Iterable<int|string, Component> $items
  * @property    string $format
  * @property    string $separator
  */
@@ -44,21 +44,7 @@ class Set extends Component
         $buffer = '';
 
         // Cope with items
-        if ($this->items !== null) {
-            $first = true;
-            $format ??= ($this->format ?? '%s');
-
-            foreach ($this->items as $item) {
-                if ($item instanceof None) {
-                    continue;
-                }
-                if (!$first && $this->separator) {
-                    $buffer .= (string) $this->separator;
-                }
-                $buffer .= sprintf($format, $item->render());
-                $first = false;
-            }
-        }
+        $buffer .= $this->renderItems($format);
 
         return $buffer;
     }

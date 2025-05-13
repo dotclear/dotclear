@@ -55,6 +55,11 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this translate(bool $translate)
  * @method      $this type(string $type)
  * @method      $this value(string|int|float $value)
+ * // Used only for components with childs (items and/or fields for form and fieldset):
+ * @method      $this fields(Iterable<int|string, Component> $fields)
+ * @method      $this items(Iterable<int|string, Component> $items)
+ * @method      $this format(string $format)
+ * @method      $this separator(string $separator)
  *
  * @property    string $accesskey
  * @property    string $autocapitalize
@@ -95,6 +100,11 @@ namespace Dotclear\Helper\Html\Form;
  * @property    bool $translate
  * @property    string $type
  * @property    string|int|float $value
+ * // Used only for components with childs (items and/or fields for form and fieldset):
+ * @property    Iterable<int|string, Component> $fields Form or Fieldset component only
+ * @property    Iterable<int|string, Component> $items
+ * @property    string $format
+ * @property    string $separator
  */
 abstract class Component
 {
@@ -499,6 +509,64 @@ abstract class Component
         }
 
         return $render;
+    }
+
+    /**
+     * Render childs of a Component
+     *
+     * @param      null|Iterable<int|string, Component>    $childs  Childs to render
+     * @param      null|string                             $format  The sprintf pattern to render item
+     * @param      null|string                             $ignore  The type of child to ignore if present
+     * @param      bool                                    $inline  Keep all items inline
+     */
+    protected function renderChilds(?iterable $childs, ?string $format, ?string $ignore = null, bool $inline = false): string
+    {
+        $buffer = '';
+
+        if ($childs !== null) {
+            $first = true;
+            $format ??= ($this->format ?? '%s');
+
+            foreach ($childs as $child) {
+                if ($child instanceof None) {
+                    continue;
+                }
+                if ($ignore !== null && $child->getDefaultElement() === $ignore) {
+                    continue;
+                }
+                if (!$first && $this->separator) {
+                    $buffer .= (string) $this->separator;
+                }
+                $buffer .= sprintf($format, $inline ? rtrim($child->render(), "\n") : $child->render());
+                $first = false;
+            }
+        }
+
+        return $buffer;
+    }
+
+    /**
+     * Render items of a Component
+     *
+     * @param      null|string  $format  The sprintf pattern to render item
+     * @param      null|string  $ignore  The type of item to ignore if present
+     * @param      bool         $inline  Keep all items inline (removing ending newline from each rendered items)
+     */
+    public function renderItems(?string $format = null, ?string $ignore = null, bool $inline = false): string
+    {
+        return $this->renderChilds($this->items, $format, $ignore, $inline);
+    }
+
+    /**
+     * Render items of a Component
+     *
+     * @param      null|string  $format  The sprintf pattern to render item
+     * @param      null|string  $ignore  The type of field to ignore if present
+     * @param      bool         $inline  Keep all items inline (removing ending newline from each rendered items)
+     */
+    public function renderFields(?string $format = null, ?string $ignore = null, bool $inline = false): string
+    {
+        return $this->renderChilds($this->fields, $format, $ignore, $inline);
     }
 
     // Abstract methods

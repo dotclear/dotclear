@@ -15,12 +15,12 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms Tr creation helpers
  *
  * @method      $this format(string $format)
- * @method      $this cols(array<int|string, Component>|Iterable<int|string, Component> $cols)
- * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
+ * @method      $this cols(Iterable<int|string, Component> $cols)
+ * @method      $this items(Iterable<int|string, Component> $items)
  *
  * @property    string $format
- * @property    array<int|string, Component>|Iterable<int|string, Component> $cols
- * @property    array<int|string, Component>|Iterable<int|string, Component> $items
+ * @property    Iterable<int|string, Component> $cols
+ * @property    Iterable<int|string, Component> $items
  */
 class Tr extends Component
 {

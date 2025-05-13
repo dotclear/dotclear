@@ -20,7 +20,7 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this text(string $text)
  * @method      $this separator(string $separator)
  * @method      $this format(string $format)
- * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
+ * @method      $this items(Iterable<int|string, Component> $items)
  *
  * @property    int $colspan
  * @property    int $rowspan
@@ -28,7 +28,7 @@ namespace Dotclear\Helper\Html\Form;
  * @property    string $text
  * @property    string $separator
  * @property    string $format
- * @property    array<int|string, Component>|Iterable<int|string, Component> $items
+ * @property    Iterable<int|string, Component> $items
  */
 class Td extends Component
 {
@@ -66,21 +66,7 @@ class Td extends Component
         }
 
         // Cope with items
-        if ($this->items !== null) {
-            $first = true;
-            $format ??= ($this->format ?? '%s');
-
-            foreach ($this->items as $item) {
-                if ($item instanceof None) {
-                    continue;
-                }
-                if (!$first && $this->separator) {
-                    $buffer .= (string) $this->separator;
-                }
-                $buffer .= sprintf($format, $item->render());
-                $first = false;
-            }
-        }
+        $buffer .= $this->renderItems($format);
 
         return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>';
     }

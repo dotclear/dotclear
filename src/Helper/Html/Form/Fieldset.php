@@ -15,16 +15,8 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms fieldset creation helpers
  *
  * @method      $this legend(Legend $legend)
- * @method      $this fields(array<int|string, Component>|Iterable<int|string, Component> $fields)
- * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
- * @method      $this format(string $format)
- * @method      $this separator(string $separator)
  *
  * @property    Legend $legend
- * @property    array<int|string, Component>|Iterable<int|string, Component> $fields
- * @property    array<int|string, Component>|Iterable<int|string, Component> $items
- * @property    string $format
- * @property    string $separator
  */
 class Fieldset extends Component
 {
@@ -81,44 +73,11 @@ class Fieldset extends Component
             $buffer .= $this->legend->render();
         }
 
-        $first = true;
-        $format ??= ($this->format ?? '%s');
-
-        // Cope with fields
-        if ($this->fields !== null) {
-            foreach ($this->fields as $field) {
-                if ($field instanceof None) {
-                    continue;
-                }
-                if ($this->legend !== null && $field->getDefaultElement() === 'legend') {
-                    // Do not put more than one legend in fieldset
-                    continue;
-                }
-                if (!$first && $this->separator) {
-                    $buffer .= (string) $this->separator;
-                }
-                $buffer .= sprintf($format, $field->render());
-                $first = false;
-            }
-        }
-
-        // Cope with items
-        if ($this->items !== null) {
-            foreach ($this->items as $item) {
-                if ($item instanceof None) {
-                    continue;
-                }
-                if ($this->legend !== null && $item->getDefaultElement() === 'legend') {
-                    // Do not put more than one legend in fieldset
-                    continue;
-                }
-                if (!$first && $this->separator) {
-                    $buffer .= (string) $this->separator;
-                }
-                $buffer .= sprintf($format, $item->render());
-                $first = false;
-            }
-        }
+        // Cope with fields and items
+        $buffer .= implode((string) $this->separator, array_filter([
+            $this->renderFields($format, $this->legend !== null ? 'legend' : null),
+            $this->renderItems($format, $this->legend !== null ? 'legend' : null),
+        ]));
 
         return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
     }

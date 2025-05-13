@@ -15,12 +15,12 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms Tfoot creation helpers
  *
  * @method      $this format(string $format)
- * @method      $this rows(array<int|string, Component>|Iterable<int|string, Component> $rows)
- * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
+ * @method      $this rows(Iterable<int|string, Component> $rows)
+ * @method      $this items(Iterable<int|string, Component> $items)
  *
  * @property    string $format
- * @property    array<int|string, Component>|Iterable<int|string, Component> $rows
- * @property    array<int|string, Component>|Iterable<int|string, Component> $items
+ * @property    Iterable<int|string, Component> $rows
+ * @property    Iterable<int|string, Component> $items
  */
 class Tfoot extends Component
 {

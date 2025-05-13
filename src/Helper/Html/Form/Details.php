@@ -15,13 +15,13 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms details creation helpers
  *
  * @method      $this summary(Summary $summary)
- * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
+ * @method      $this items(Iterable<int|string, Component> $items)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
  * @method      $this open(bool $open)
  *
  * @property    Summary $summary
- * @property    array<int|string, Component>|Iterable<int|string, Component> $items
+ * @property    Iterable<int|string, Component> $items
  * @property    string $format
  * @property    string $separator
  * @property    bool $open
@@ -83,26 +83,8 @@ class Details extends Component
             $buffer .= $this->summary->render();
         }
 
-        $first = true;
-        $format ??= ($this->format ?? '%s');
-
         // Cope with items
-        if ($this->items !== null) {
-            foreach ($this->items as $item) {
-                if ($item instanceof None) {
-                    continue;
-                }
-                if ($this->summary !== null && $item->getDefaultElement() === 'summary') {
-                    // Do not put more than one summary in fieldset
-                    continue;
-                }
-                if (!$first && $this->separator) {
-                    $buffer .= (string) $this->separator;
-                }
-                $buffer .= sprintf($format, $item->render());
-                $first = false;
-            }
-        }
+        $buffer .= $this->renderItems($format, $this->summary !== null ? 'summary' : null);
 
         return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
     }

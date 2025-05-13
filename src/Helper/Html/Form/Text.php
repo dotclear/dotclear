@@ -14,12 +14,12 @@ namespace Dotclear\Helper\Html\Form;
  * @class Text
  * @brief HTML Forms text creation helpers
  *
- * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
+ * @method      $this items(Iterable<int|string, Component> $items)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
  * @method      $this text(string $text)
  *
- * @property    array<int|string, Component>|Iterable<int|string, Component> $items
+ * @property    Iterable<int|string, Component> $items
  * @property    string $format
  * @property    string $separator
  * @property    string $text
@@ -67,21 +67,7 @@ class Text extends Component
         }
 
         // Cope with items
-        if ($this->items !== null) {
-            $first = true;
-            $format ??= ($this->format ?? '%s');
-
-            foreach ($this->items as $item) {
-                if ($item instanceof None) {
-                    continue;
-                }
-                if (!$first && $this->separator) {
-                    $buffer .= (string) $this->separator;
-                }
-                $buffer .= sprintf($format, rtrim($item->render(), "\n"));  // Keep items "inline"
-                $first = false;
-            }
-        }
+        $buffer .= $this->renderItems($format, inline: true);
 
         if ($element) {
             $buffer .= '</' . $element . '>';

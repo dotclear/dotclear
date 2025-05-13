@@ -16,12 +16,12 @@ namespace Dotclear\Helper\Html\Form;
  *
  * @method      $this text(string $text)
  * @method      $this separator(string $separator)
- * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
+ * @method      $this items(Iterable<int|string, Component> $items)
  * @method      $this format(string $format)
  *
  * @property    string $text
  * @property    string $separator
- * @property    array<int|string, Component>|Iterable<int|string, Component> $items
+ * @property    Iterable<int|string, Component> $items
  * @property    string $format
  */
 class Dt extends Component
@@ -58,21 +58,7 @@ class Dt extends Component
         }
 
         // Cope with items
-        if ($this->items !== null) {
-            $first = true;
-            $format ??= ($this->format ?? '%s');
-
-            foreach ($this->items as $item) {
-                if ($item instanceof None) {
-                    continue;
-                }
-                if (!$first && $this->separator) {
-                    $buffer .= (string) $this->separator;
-                }
-                $buffer .= sprintf($format, $item->render());
-                $first = false;
-            }
-        }
+        $buffer .= $this->renderItems($format);
 
         return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>';
     }

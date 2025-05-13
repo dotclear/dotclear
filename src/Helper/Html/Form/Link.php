@@ -18,13 +18,13 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this text(string $text)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
- * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
+ * @method      $this items(Iterable<int|string, Component> $items)
  *
  * @property    string $href
  * @property    string $text
  * @property    string $format
  * @property    string $separator
- * @property    array<int|string, Component>|Iterable<int|string, Component> $items
+ * @property    Iterable<int|string, Component> $items
  */
 class Link extends Component
 {
@@ -56,21 +56,7 @@ class Link extends Component
             $this->renderCommonAttributes() . '>';
 
         // Cope with items
-        if ($this->items !== null) {
-            $first = true;
-            $format ??= ($this->format ?? '%s');
-
-            foreach ($this->items as $item) {
-                if ($item instanceof None) {
-                    continue;
-                }
-                if (!$first && $this->separator) {
-                    $buffer .= (string) $this->separator;
-                }
-                $buffer .= sprintf($format, $item->render());
-                $first = false;
-            }
-        }
+        $buffer .= $this->renderItems($format);
 
         if ($this->text !== null) {
             $buffer .= $this->text;

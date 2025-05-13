@@ -18,15 +18,15 @@ use Dotclear\App;
  *
  * @method      $this action(null|string $action)
  * @method      $this method(string $action)
- * @method      $this fields(array<int|string, Component>|Iterable<int|string, Component> $fields)
- * @method      $this items(array<int|string, Component>|Iterable<int|string, Component> $items)
+ * @method      $this fields(Iterable<int|string, Component> $fields)
+ * @method      $this items(Iterable<int|string, Component> $items)
  * @method      $this separator(string $separator)
  * @method      $this enctype(string $enctype)
  *
  * @property    null|string $action
  * @property    string $method
- * @property    array<int|string, Component>|Iterable<int|string, Component> $fields
- * @property    array<int|string, Component>|Iterable<int|string, Component> $items
+ * @property    Iterable<int|string, Component> $fields
+ * @property    Iterable<int|string, Component> $items
  * @property    string $separator
  * @property    string $enctype
  */
@@ -69,37 +69,11 @@ class Form extends Component
             ($this->enctype !== null ? ' enctype="' . $this->enctype . '"' : '') .
             $this->renderCommonAttributes() . '>' . "\n";
 
-        $first = true;
-        $format ??= ($this->format ?? '%s');
-
-        // Cope with fields
-        if ($this->fields !== null) {
-            foreach ($this->fields as $field) {
-                if ($field instanceof None) {
-                    continue;
-                }
-                if (!$first && $this->separator) {
-                    $buffer .= (string) $this->separator;
-                }
-                $buffer .= sprintf($format, $field->render());
-                $first = false;
-            }
-        }
-
-        // Cope with items
-        if ($this->items !== null) {
-            $first = true;
-            foreach ($this->items as $item) {
-                if ($item instanceof None) {
-                    continue;
-                }
-                if (!$first && $this->separator) {
-                    $buffer .= (string) $this->separator;
-                }
-                $buffer .= sprintf($format, $item->render());
-                $first = false;
-            }
-        }
+        // Cope with fields and items
+        $buffer .= implode((string) $this->separator, array_filter([
+            $this->renderFields($format),
+            $this->renderItems($format),
+        ]));
 
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
