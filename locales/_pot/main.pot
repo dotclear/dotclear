@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-08 10:19+0200\n"
+"POT-Creation-Date: 2025-05-14 11:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3428,7 +3428,7 @@ msgid "days"
 msgstr ""
 
 #: src/Process/Backend/BlogPref.php:642 src/Process/Backend/BlogPref.php:681
-msgid "No limit: leave blank."
+msgid "No limit: set to 0 (zero)."
 msgstr ""
 
 #: src/Process/Backend/BlogPref.php:648

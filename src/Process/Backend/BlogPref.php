@@ -639,7 +639,7 @@ class BlogPref extends Process
                                         ]),
                                     (new Note())
                                         ->class('form-note')
-                                        ->text(__('No limit: leave blank.'))
+                                        ->text(__('No limit: set to 0 (zero).'))
                                         ->id('comments_ttl_help'),
                                     (new Para())
                                         ->items([
@@ -678,7 +678,7 @@ class BlogPref extends Process
                                         ]),
                                     (new Note())
                                         ->class('form-note')
-                                        ->text(__('No limit: leave blank.'))
+                                        ->text(__('No limit: set to 0 (zero).'))
                                         ->id('trackbacks_ttl_help'),
                                     (new Para())
                                         ->items([
