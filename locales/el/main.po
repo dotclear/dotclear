@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-14 11:28+0200\n"
-"PO-Revision-Date: 2025-05-14 10:15\n"
+"POT-Creation-Date: 2025-05-15 13:55+0200\n"
+"PO-Revision-Date: 2025-05-15 11:58\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:266 src/Process/Backend/UserPreferences.php:496
+#: src/Process/Backend/User.php:266 src/Process/Backend/UserPreferences.php:527
 #: src/Process/Install/Install.php:397
 msgid "medium"
 msgstr "μέτρια"
@@ -460,11 +460,11 @@ msgstr "Διαθέσιμο"
 msgid "Other"
 msgstr "Άλλο"
 
-#: src/Core/Backend/Combos.php:257 src/Process/Backend/UserPreferences.php:159
+#: src/Core/Backend/Combos.php:257 src/Process/Backend/UserPreferences.php:190
 msgid "Descending"
 msgstr "Φθίνουσα"
 
-#: src/Core/Backend/Combos.php:258 src/Process/Backend/UserPreferences.php:160
+#: src/Core/Backend/Combos.php:258 src/Process/Backend/UserPreferences.php:191
 msgid "Ascending"
 msgstr "Αύξουσα"
 
@@ -554,13 +554,13 @@ msgid "Number of entries"
 msgstr "Αριθμός καταχωρήσεων"
 
 #: src/Core/Backend/Favorites.php:299
-#: src/Process/Backend/UserPreferences.php:827
+#: src/Process/Backend/UserPreferences.php:1146
 msgid "My favorites"
 msgstr "Τα αγαπημένα μου"
 
 #: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:194
 #: src/Core/Backend/Page.php:382 src/Process/Backend/Media.php:782
-#: src/Process/Backend/UserPreferences.php:42
+#: src/Process/Backend/UserPreferences.php:73
 msgid "My preferences"
 msgstr "Οι προτιμήσεις μου"
 
@@ -648,7 +648,7 @@ msgstr "Παγκόσμια βοήθεια"
 #: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1258
 #: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1085
-#: src/Process/Backend/User.php:434 src/Process/Backend/UserPreferences.php:545
+#: src/Process/Backend/User.php:434 src/Process/Backend/UserPreferences.php:638
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "Email:"
@@ -780,7 +780,7 @@ msgid "Sort:"
 msgstr "Ταξινόμιση:"
 
 #: src/Core/Backend/Filter/Filters.php:390
-#: src/Process/Backend/UserPreferences.php:743
+#: src/Process/Backend/UserPreferences.php:771
 msgid "Show"
 msgstr "Εμφάνιση"
 
@@ -1475,9 +1475,9 @@ msgstr "Ρύθμιση παραμέτρων \"%s\""
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1358
 #: src/Process/Backend/Post.php:927 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:549 src/Process/Backend/UserPreferences.php:627
-#: src/Process/Backend/UserPreferences.php:816
-#: src/Process/Backend/UserPreferences.php:1000
+#: src/Process/Backend/User.php:549 src/Process/Backend/UserPreferences.php:699
+#: src/Process/Backend/UserPreferences.php:1001
+#: src/Process/Backend/UserPreferences.php:1227
 msgid "Back"
 msgstr "Πίσω"
 
@@ -1523,8 +1523,8 @@ msgid "Go to help"
 msgstr "Πηγαίνετε στη βοήθεια"
 
 #: src/Core/Backend/Page.php:349 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:822
-#: src/Process/Backend/UserPreferences.php:823
+#: src/Process/Backend/UserPreferences.php:1136
+#: src/Process/Backend/UserPreferences.php:1138
 msgid "My dashboard"
 msgstr "Το ταμπλό μου"
 
@@ -3016,7 +3016,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Ο νέος κωδικός πρόσβασης βρίσκεται στο γραμματοκιβώτιό σας."
 
 #: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:160
-#: src/Process/Backend/UserPreferences.php:201
+#: src/Process/Backend/UserPreferences.php:232
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "Οι κωδικοί πρόσβασης δεν ταιριάζουν"
@@ -3048,9 +3048,9 @@ msgstr "Λάθος όνομα χρήστη ή κωδικός πρόσβασης"
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:265
 #: src/Process/Backend/User.php:266 src/Process/Backend/User.php:267
-#: src/Process/Backend/UserPreferences.php:495
-#: src/Process/Backend/UserPreferences.php:496
-#: src/Process/Backend/UserPreferences.php:497
+#: src/Process/Backend/UserPreferences.php:526
+#: src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/UserPreferences.php:528
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
 #: src/Process/Install/Install.php:398
 #, php-format
@@ -3058,13 +3058,13 @@ msgid "Password strength: %s"
 msgstr "Δύναμη κωδικού πρόσβασης: %s"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:495
+#: src/Process/Backend/UserPreferences.php:526
 #: src/Process/Install/Install.php:396
 msgid "weak"
 msgstr "αδύναμο"
 
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:267
-#: src/Process/Backend/UserPreferences.php:497
+#: src/Process/Backend/UserPreferences.php:528
 #: src/Process/Install/Install.php:398
 msgid "strong"
 msgstr "ισχυρός"
@@ -3090,7 +3090,7 @@ msgid "Change your password"
 msgstr "Αλλάξτε τον κωδικό σας"
 
 #: src/Process/Backend/Auth.php:453 src/Process/Backend/User.php:336
-#: src/Process/Backend/UserPreferences.php:587
+#: src/Process/Backend/UserPreferences.php:564
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "Νέος κωδικός πρόσβασης:"
@@ -3320,7 +3320,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Θα ήθελα να αποτρέψω τις μηχανές αναζήτησης και τα αρχεία από την ευρετηρίαση ή την αρχειοθέτηση του περιεχομένου του ιστολογίου μου."
 
 #: src/Process/Backend/BlogPref.php:241
-#: src/Process/Backend/UserPreferences.php:121
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Default"
 msgstr "Προεπιλογή"
 
@@ -3940,7 +3940,7 @@ msgid "total:"
 msgstr "σύνολο:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:459 src/Process/Backend/UserPreferences.php:561
+#: src/Process/Backend/User.php:459 src/Process/Backend/UserPreferences.php:660
 msgid "URL:"
 msgstr "URL:"
 
@@ -5272,17 +5272,17 @@ msgstr "Προειδοποίηση:"
 msgid "Password change required to connect"
 msgstr "Απαιτείται αλλαγή κωδικού πρόσβασης για σύνδεση"
 
-#: src/Process/Backend/User.php:403 src/Process/Backend/UserPreferences.php:521
+#: src/Process/Backend/User.php:403 src/Process/Backend/UserPreferences.php:608
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "Επώνυμο:"
 
-#: src/Process/Backend/User.php:413 src/Process/Backend/UserPreferences.php:529
+#: src/Process/Backend/User.php:413 src/Process/Backend/UserPreferences.php:618
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "Όνομα:"
 
-#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:537
+#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:628
 msgid "Display name:"
 msgstr "Εμφάνιση ονόματος:"
 
@@ -5290,23 +5290,23 @@ msgstr "Εμφάνιση ονόματος:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Υποχρεωτικό για τη διαδικασία ανάκτησης κωδικού πρόσβασης."
 
-#: src/Process/Backend/User.php:446 src/Process/Backend/UserPreferences.php:553
+#: src/Process/Backend/User.php:446 src/Process/Backend/UserPreferences.php:647
 msgid "Alternate emails (comma separated list):"
 msgstr "Εναλλακτικά emails (λίστα χωρισμένη με κόμμα):"
 
-#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:559
+#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:651
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Μη έγκυρα emails θα διαγραφούν αυτόματα από τη λίστα."
 
-#: src/Process/Backend/User.php:468 src/Process/Backend/UserPreferences.php:570
+#: src/Process/Backend/User.php:468 src/Process/Backend/UserPreferences.php:669
 msgid "Alternate URLs (comma separated list):"
 msgstr "Εναλλακτικές διευθύνσεις URL (λίστα χωρισμένη με κόμμα):"
 
-#: src/Process/Backend/User.php:472 src/Process/Backend/UserPreferences.php:576
+#: src/Process/Backend/User.php:472 src/Process/Backend/UserPreferences.php:673
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Μη έγκυρες διευθύνσεις URL θα καταργηθούν αυτόματα από τη λίστα."
 
-#: src/Process/Backend/User.php:478 src/Process/Backend/UserPreferences.php:640
+#: src/Process/Backend/User.php:478 src/Process/Backend/UserPreferences.php:816
 msgid "Interface"
 msgstr "Διεπαφή"
 
@@ -5314,19 +5314,19 @@ msgstr "Διεπαφή"
 msgid "Timezone:"
 msgstr "Timezone:"
 
-#: src/Process/Backend/User.php:494 src/Process/Backend/UserPreferences.php:762
+#: src/Process/Backend/User.php:494 src/Process/Backend/UserPreferences.php:940
 msgid "Edition"
 msgstr "Έκδοση"
 
-#: src/Process/Backend/User.php:500 src/Process/Backend/UserPreferences.php:776
+#: src/Process/Backend/User.php:500 src/Process/Backend/UserPreferences.php:952
 msgid "Preferred format:"
 msgstr "Προτιμώμενη μορφή:"
 
-#: src/Process/Backend/User.php:507 src/Process/Backend/UserPreferences.php:779
+#: src/Process/Backend/User.php:507 src/Process/Backend/UserPreferences.php:960
 msgid "Default entry status:"
 msgstr "Προεπιλεγμένη κατάσταση εισόδου:"
 
-#: src/Process/Backend/User.php:512 src/Process/Backend/UserPreferences.php:782
+#: src/Process/Backend/User.php:512 src/Process/Backend/UserPreferences.php:966
 msgid "Entry edit field height:"
 msgstr "Ύψος πεδίου επεξεργασίας εισόδου:"
 
@@ -5376,341 +5376,341 @@ msgstr "Λίστα αναρτήσεων"
 msgid "List of comments"
 msgstr "Κατάλογος σχολίων"
 
-#: src/Process/Backend/UserPreferences.php:112
+#: src/Process/Backend/UserPreferences.php:143
 msgid "Light"
 msgstr "Φωτεινό"
 
-#: src/Process/Backend/UserPreferences.php:113
+#: src/Process/Backend/UserPreferences.php:144
 msgid "Dark"
 msgstr "Σκοτεινό"
 
-#: src/Process/Backend/UserPreferences.php:114
+#: src/Process/Backend/UserPreferences.php:145
 msgid "Automatic"
 msgstr "Αυτόματο"
 
-#: src/Process/Backend/UserPreferences.php:119
+#: src/Process/Backend/UserPreferences.php:150
 msgid "Smallest"
 msgstr "Μικρότερο"
 
-#: src/Process/Backend/UserPreferences.php:120
+#: src/Process/Backend/UserPreferences.php:151
 msgid "Smaller"
 msgstr "Μικρότερο"
 
-#: src/Process/Backend/UserPreferences.php:122
+#: src/Process/Backend/UserPreferences.php:153
 msgid "Larger"
 msgstr "Μεγαλύτερο"
 
-#: src/Process/Backend/UserPreferences.php:123
+#: src/Process/Backend/UserPreferences.php:154
 msgid "Largest"
 msgstr "Μεγαλύτερο"
 
-#: src/Process/Backend/UserPreferences.php:135
+#: src/Process/Backend/UserPreferences.php:166
 msgid "Blog description (in blog parameters)"
 msgstr "Περιγραφή ιστολογίου (σε παραμέτρους ιστολογίου)"
 
-#: src/Process/Backend/UserPreferences.php:136
+#: src/Process/Backend/UserPreferences.php:167
 msgid "Category description"
 msgstr "Περιγραφή κατηγορίας"
 
-#: src/Process/Backend/UserPreferences.php:180
-#: src/Process/Backend/UserPreferences.php:197
+#: src/Process/Backend/UserPreferences.php:211
+#: src/Process/Backend/UserPreferences.php:228
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Αν θέλετε να αλλάξετε το email ή τον κωδικό πρόσβασής σας, πρέπει να δώσετε τον τρέχοντα κωδικό πρόσβασής σας."
 
-#: src/Process/Backend/UserPreferences.php:228
+#: src/Process/Backend/UserPreferences.php:259
 msgid "Personal information has been successfully updated."
 msgstr "Τα προσωπικά στοιχεία ενημερώθηκαν επιτυχώς."
 
-#: src/Process/Backend/UserPreferences.php:346
+#: src/Process/Backend/UserPreferences.php:377
 msgid "Personal options has been successfully updated."
 msgstr "Οι προσωπικές επιλογές ενημερώθηκαν με επιτυχία."
 
-#: src/Process/Backend/UserPreferences.php:374
+#: src/Process/Backend/UserPreferences.php:405
 msgid "Dashboard options has been successfully updated."
 msgstr "Οι επιλογές του ταμπλό ενημερώθηκαν με επιτυχία."
 
-#: src/Process/Backend/UserPreferences.php:386
-#: src/Process/Backend/UserPreferences.php:410
+#: src/Process/Backend/UserPreferences.php:417
+#: src/Process/Backend/UserPreferences.php:441
 msgid "No favorite selected"
 msgstr "Δεν έχουν επιλεγεί αγαπημένα"
 
-#: src/Process/Backend/UserPreferences.php:397
+#: src/Process/Backend/UserPreferences.php:428
 msgid "Favorites have been successfully added."
 msgstr "Τα αγαπημένα προστέθηκαν με επιτυχία."
 
-#: src/Process/Backend/UserPreferences.php:423
+#: src/Process/Backend/UserPreferences.php:454
 msgid "Favorites have been successfully removed."
 msgstr "Τα αγαπημένα αφαιρέθηκαν επιτυχώς."
 
-#: src/Process/Backend/UserPreferences.php:453
+#: src/Process/Backend/UserPreferences.php:484
 msgid "Favorites have been successfully updated."
 msgstr "Τα αγαπημένα ενημερώθηκαν επιτυχώς."
 
-#: src/Process/Backend/UserPreferences.php:465
+#: src/Process/Backend/UserPreferences.php:496
 msgid "Default favorites have been successfully updated."
 msgstr "Τα προεπιλεγμένα αγαπημένα ενημερώθηκαν επιτυχώς."
 
-#: src/Process/Backend/UserPreferences.php:479
+#: src/Process/Backend/UserPreferences.php:510
 msgid "Dashboard items order have been successfully reset."
 msgstr "Η σειρά στοιχείων του ταμπλό έχει γίνει με επιτυχία."
 
-#: src/Process/Backend/UserPreferences.php:516
-#: src/Process/Backend/UserPreferences.php:518
-msgid "My profile"
-msgstr "Το προφίλ μου"
+#: src/Process/Backend/UserPreferences.php:532
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "Είστε βέβαιοι ότι θέλετε να καταργήσετε τα επιλεγμένα αγαπημένα?"
 
-#: src/Process/Backend/UserPreferences.php:578
-msgid "Language for my interface:"
-msgstr "Γλώσσα για τη διεπαφή μου:"
-
-#: src/Process/Backend/UserPreferences.php:581
-msgid "My timezone:"
-msgstr "Η ώρα μου:"
-
-#: src/Process/Backend/UserPreferences.php:586
+#: src/Process/Backend/UserPreferences.php:554
 msgid "Change my password"
 msgstr "Αλλαγή κωδικού πρόσβασης"
 
-#: src/Process/Backend/UserPreferences.php:598
+#: src/Process/Backend/UserPreferences.php:573
 msgid "Confirm new password:"
 msgstr "Επιβεβαίωση νέου κωδικού πρόσβασης:"
 
-#: src/Process/Backend/UserPreferences.php:608
+#: src/Process/Backend/UserPreferences.php:583
 msgid "Your current password:"
 msgstr "Ο τρέχων κωδικός πρόσβασης:"
 
-#: src/Process/Backend/UserPreferences.php:620
+#: src/Process/Backend/UserPreferences.php:587
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Εάν έχετε αλλάξει το email ή τον κωδικό πρόσβασής σας, πρέπει να δώσετε τον τρέχοντα κωδικό πρόσβασης για να αποθηκεύσετε αυτές τις τροποποιήσεις."
 
-#: src/Process/Backend/UserPreferences.php:626
+#: src/Process/Backend/UserPreferences.php:593
+#: src/Process/Backend/UserPreferences.php:595
+msgid "My profile"
+msgstr "Το προφίλ μου"
+
+#: src/Process/Backend/UserPreferences.php:680
+msgid "Language for my interface:"
+msgstr "Γλώσσα για τη διεπαφή μου:"
+
+#: src/Process/Backend/UserPreferences.php:688
+msgid "My timezone:"
+msgstr "Η ώρα μου:"
+
+#: src/Process/Backend/UserPreferences.php:697
 msgid "Update my profile"
 msgstr "Ενημέρωση του προφίλ μου"
 
-#: src/Process/Backend/UserPreferences.php:634
-#: src/Process/Backend/UserPreferences.php:637
-msgid "My options"
-msgstr "Οι επιλογές μου"
-
-#: src/Process/Backend/UserPreferences.php:642
-msgid "Theme:"
-msgstr "Θέμα:"
-
-#: src/Process/Backend/UserPreferences.php:647
-msgid "Activate enhanced uploader in media manager"
-msgstr "Ενεργοποίηση βελτιωμένου uploader στο πρόγραμμα διαχείρισης πολυμέσων"
-
-#: src/Process/Backend/UserPreferences.php:651
-msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
-msgstr "Προεπισκόπηση της καταχώρησης που επεξεργάζεται σε κενό παράθυρο ή καρτέλα (ανάλογα με τις ρυθμίσεις του προγράμματος περιήγησης)."
-
-#: src/Process/Backend/UserPreferences.php:655
-msgid "Disable javascript powered drag and drop for ordering items"
-msgstr "Απενεργοποίηση javascript powered drag and drop για την παραγγελία στοιχείων"
-
-#: src/Process/Backend/UserPreferences.php:656
-msgid "If checked, numeric fields will allow to type the elements' ordering number."
-msgstr "Αν ενεργοποιηθεί, τα αριθμητικά πεδία θα επιτρέπουν να πληκτρολογήσετε τον αριθμό παραγγελίας των στοιχείων."
-
-#: src/Process/Backend/UserPreferences.php:660
-msgid "Hide all secondary information and notes"
-msgstr "Απόκρυψη όλων των δευτερευουσών πληροφοριών και σημειώσεων"
-
-#: src/Process/Backend/UserPreferences.php:664
-msgid "Hide help button"
-msgstr "Απόκρυψη κουμπιού βοήθειας"
-
-#: src/Process/Backend/UserPreferences.php:666
-msgid "Font size:"
-msgstr "Μέγεθος γραμματοσειράς:"
-
-#: src/Process/Backend/UserPreferences.php:671
-msgid "Use operating system font"
-msgstr "Χρήση γραμματοσειράς λειτουργικού συστήματος"
-
-#: src/Process/Backend/UserPreferences.php:673
-msgid "Number of recent folders proposed in media manager:"
-msgstr "Αριθμός πρόσφατων φακέλων που προτείνονται στο διαχειριστή μέσων:"
-
-#: src/Process/Backend/UserPreferences.php:675
-msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
-msgstr "Αφήστε κενό για να αγνοήσετε, εμφανίζεται μόνο αν η Javascript είναι ενεργοποιημένη στο πρόγραμμα περιήγησής σας."
-
-#: src/Process/Backend/UserPreferences.php:681
-msgid "Do not use standard favicon"
-msgstr "Μην χρησιμοποιήσετε το τυπικό favicon"
-
-#: src/Process/Backend/UserPreferences.php:682
-msgid "This will be applied for all users"
-msgstr "Αυτό θα εφαρμοστεί για όλους τους χρήστες"
-
-#: src/Process/Backend/UserPreferences.php:689
-msgid "Disable Ad-blocker check"
-msgstr "Απενεργοποίηση ελέγχου αποκλεισμού διαφημίσεων"
-
-#: src/Process/Backend/UserPreferences.php:690
-msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
-msgstr "Μερικά ad-blockers (Φιλοξενία, Adblock plus, uBloc προέλευσης, …) μπορεί να παρεμβαίνει με κάποια δυνατότητα ως εισαγωγή συνδέσμου ή πολυμέσων σε καταχωρήσεις με CKEditor; σε αυτή την περίπτωση θα πρέπει να το απενεργοποιήσετε για αυτήν την εγκατάσταση Dotclear (backend μόνο). Σημειώστε ότι το Dotclear δεν προσθέτει διαφημίσεις ot trackers στο σύστημα υποστήριξης."
-
-#: src/Process/Backend/UserPreferences.php:691
-msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
-msgstr "Σημειώστε επίσης ότι η απενεργοποίηση αυτής της ανίχνευσης των αποκλειστών διαφημίσεων δεν θα απενεργοποιήσει τους εγκατεστημένους αποκλειστές διαφημίσεων. Η Dotclear δεν μπορεί να παρέμβει στη λειτουργία των επεκτάσεων του προγράμματος περιήγησης!"
-
-#: src/Process/Backend/UserPreferences.php:694
-msgid "Quick menu character:"
-msgstr "Χαρακτήρας γρήγορου μενού:"
-
-#: src/Process/Backend/UserPreferences.php:699
-msgid "Leave empty to use the default character <kbd>:</kbd>"
-msgstr "Αφήστε το κενό για να χρησιμοποιήσετε τον προεπιλεγμένο χαρακτήρα <kbd>:</kbd>"
-
-#: src/Process/Backend/UserPreferences.php:705
-msgid "Keep the main menu at the top of the page as much as possible"
-msgstr "Διατηρήστε το κύριο μενού στην κορυφή της σελίδας όσο το δυνατόν περισσότερο"
-
-#: src/Process/Backend/UserPreferences.php:712
-msgid "Optional columns displayed in lists"
-msgstr "Προαιρετικές στήλες που εμφανίζονται σε λίστες"
-
-#: src/Process/Backend/UserPreferences.php:731
-msgid "Options for lists"
-msgstr "Επιλογές για λίστες"
-
-#: src/Process/Backend/UserPreferences.php:734
-msgid "Apply filters on the fly"
-msgstr "Εφαρμογή φίλτρων στη μύγα"
-
-#: src/Process/Backend/UserPreferences.php:740
+#: src/Process/Backend/UserPreferences.php:765
 msgid "List"
 msgstr "Λίστα"
 
-#: src/Process/Backend/UserPreferences.php:741
+#: src/Process/Backend/UserPreferences.php:767
 msgid "Order by"
 msgstr "Ταξινόμηση κατά"
 
-#: src/Process/Backend/UserPreferences.php:742
+#: src/Process/Backend/UserPreferences.php:769
 msgid "Sort"
 msgstr "Ταξινόμηση"
 
-#: src/Process/Backend/UserPreferences.php:767
+#: src/Process/Backend/UserPreferences.php:782
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Προτιμώμενος επεξεργαστής για %s:"
 
-#: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:787
 msgid "Choose an editor"
 msgstr "Επιλέξτε έναν επεξεργαστή"
 
-#: src/Process/Backend/UserPreferences.php:787
+#: src/Process/Backend/UserPreferences.php:808
+#: src/Process/Backend/UserPreferences.php:814
+msgid "My options"
+msgstr "Οι επιλογές μου"
+
+#: src/Process/Backend/UserPreferences.php:823
+msgid "Theme:"
+msgstr "Θέμα:"
+
+#: src/Process/Backend/UserPreferences.php:829
+msgid "Activate enhanced uploader in media manager"
+msgstr "Ενεργοποίηση βελτιωμένου uploader στο πρόγραμμα διαχείρισης πολυμέσων"
+
+#: src/Process/Backend/UserPreferences.php:835
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr "Προεπισκόπηση της καταχώρησης που επεξεργάζεται σε κενό παράθυρο ή καρτέλα (ανάλογα με τις ρυθμίσεις του προγράμματος περιήγησης)."
+
+#: src/Process/Backend/UserPreferences.php:842
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr "Απενεργοποίηση javascript powered drag and drop για την παραγγελία στοιχείων"
+
+#: src/Process/Backend/UserPreferences.php:846
+msgid "If checked, numeric fields will allow to type the elements' ordering number."
+msgstr "Αν ενεργοποιηθεί, τα αριθμητικά πεδία θα επιτρέπουν να πληκτρολογήσετε τον αριθμό παραγγελίας των στοιχείων."
+
+#: src/Process/Backend/UserPreferences.php:851
+msgid "Hide all secondary information and notes"
+msgstr "Απόκρυψη όλων των δευτερευουσών πληροφοριών και σημειώσεων"
+
+#: src/Process/Backend/UserPreferences.php:857
+msgid "Hide help button"
+msgstr "Απόκρυψη κουμπιού βοήθειας"
+
+#: src/Process/Backend/UserPreferences.php:864
+msgid "Font size:"
+msgstr "Μέγεθος γραμματοσειράς:"
+
+#: src/Process/Backend/UserPreferences.php:870
+msgid "Use operating system font"
+msgstr "Χρήση γραμματοσειράς λειτουργικού συστήματος"
+
+#: src/Process/Backend/UserPreferences.php:876
+msgid "Number of recent folders proposed in media manager:"
+msgstr "Αριθμός πρόσφατων φακέλων που προτείνονται στο διαχειριστή μέσων:"
+
+#: src/Process/Backend/UserPreferences.php:880
+msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:887
+msgid "Do not use standard favicon"
+msgstr "Μην χρησιμοποιήσετε το τυπικό favicon"
+
+#: src/Process/Backend/UserPreferences.php:888
+msgid "This will be applied for all users"
+msgstr "Αυτό θα εφαρμοστεί για όλους τους χρήστες"
+
+#: src/Process/Backend/UserPreferences.php:898
+msgid "Disable Ad-blocker check"
+msgstr "Απενεργοποίηση ελέγχου αποκλεισμού διαφημίσεων"
+
+#: src/Process/Backend/UserPreferences.php:902
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
+msgstr "Μερικά ad-blockers (Φιλοξενία, Adblock plus, uBloc προέλευσης, …) μπορεί να παρεμβαίνει με κάποια δυνατότητα ως εισαγωγή συνδέσμου ή πολυμέσων σε καταχωρήσεις με CKEditor; σε αυτή την περίπτωση θα πρέπει να το απενεργοποιήσετε για αυτήν την εγκατάσταση Dotclear (backend μόνο). Σημειώστε ότι το Dotclear δεν προσθέτει διαφημίσεις ot trackers στο σύστημα υποστήριξης."
+
+#: src/Process/Backend/UserPreferences.php:905
+msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
+msgstr "Σημειώστε επίσης ότι η απενεργοποίηση αυτής της ανίχνευσης των αποκλειστών διαφημίσεων δεν θα απενεργοποιήσει τους εγκατεστημένους αποκλειστές διαφημίσεων. Η Dotclear δεν μπορεί να παρέμβει στη λειτουργία των επεκτάσεων του προγράμματος περιήγησης!"
+
+#: src/Process/Backend/UserPreferences.php:913
+msgid "Quick menu character:"
+msgstr "Χαρακτήρας γρήγορου μενού:"
+
+#: src/Process/Backend/UserPreferences.php:917
+msgid "Leave empty to use the default character <kbd>:</kbd>"
+msgstr "Αφήστε το κενό για να χρησιμοποιήσετε τον προεπιλεγμένο χαρακτήρα <kbd>:</kbd>"
+
+#: src/Process/Backend/UserPreferences.php:922
+msgid "Keep the main menu at the top of the page as much as possible"
+msgstr "Διατηρήστε το κύριο μενού στην κορυφή της σελίδας όσο το δυνατόν περισσότερο"
+
+#: src/Process/Backend/UserPreferences.php:926
+msgid "Optional columns displayed in lists"
+msgstr "Προαιρετικές στήλες που εμφανίζονται σε λίστες"
+
+#: src/Process/Backend/UserPreferences.php:929
+msgid "Options for lists"
+msgstr "Επιλογές για λίστες"
+
+#: src/Process/Backend/UserPreferences.php:935
+msgid "Apply filters on the fly"
+msgstr "Εφαρμογή φίλτρων στη μύγα"
+
+#: src/Process/Backend/UserPreferences.php:972
 msgid "Enable WYSIWYG mode"
 msgstr "Ενεργοποίηση λειτουργίας WYSIWYG"
 
-#: src/Process/Backend/UserPreferences.php:791
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Εμφάνιση γραμμής εργαλείων του επεξεργαστή στο κάτω μέρος του textarea (αν είναι δυνατόν)"
 
-#: src/Process/Backend/UserPreferences.php:797
+#: src/Process/Backend/UserPreferences.php:984
 msgid "Use HTML editor for:"
 msgstr "Χρήση επεξεργαστή HTML για:"
 
-#: src/Process/Backend/UserPreferences.php:807
+#: src/Process/Backend/UserPreferences.php:988
 msgid "Other options"
 msgstr "Άλλες επιλογές"
 
-#: src/Process/Backend/UserPreferences.php:815
+#: src/Process/Backend/UserPreferences.php:999
 msgid "Save my options"
 msgstr "Αποθήκευση των επιλογών μου"
 
-#: src/Process/Backend/UserPreferences.php:854
+#: src/Process/Backend/UserPreferences.php:1030
 #, php-format
 msgid "position of %s"
 msgstr "θέση του %s"
 
-#: src/Process/Backend/UserPreferences.php:871
+#: src/Process/Backend/UserPreferences.php:1053
 msgid "Save order"
 msgstr "Αποθήκευση παραγγελίας"
 
-#: src/Process/Backend/UserPreferences.php:874
+#: src/Process/Backend/UserPreferences.php:1054
 msgid "Delete selected favorites"
 msgstr "Διαγραφή επιλεγμένων αγαπημένων"
 
-#: src/Process/Backend/UserPreferences.php:876
-msgid "Are you sure you want to remove selected favorites?"
-msgstr "Είστε βέβαιοι ότι θέλετε να καταργήσετε τα επιλεγμένα αγαπημένα?"
-
-#: src/Process/Backend/UserPreferences.php:881
+#: src/Process/Backend/UserPreferences.php:1061
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Εάν είστε υπερδιαχειριστής, μπορείτε να ορίσετε αυτό το σύνολο αγαπημένων που θα χρησιμοποιηθεί από προεπιλογή σε όλα τα blogs αυτής της εγκατάστασης."
 
-#: src/Process/Backend/UserPreferences.php:882
+#: src/Process/Backend/UserPreferences.php:1064
 msgid "Define as default favorites"
 msgstr "Ορισμός ως προεπιλεγμένα αγαπημένα"
 
-#: src/Process/Backend/UserPreferences.php:889
+#: src/Process/Backend/UserPreferences.php:1073
 msgid "Currently no personal favorites."
 msgstr "Προς το παρόν δεν υπάρχουν προσωπικά αγαπημένα."
 
-#: src/Process/Backend/UserPreferences.php:903
-msgid "Other available favorites"
-msgstr "Άλλα διαθέσιμα αγαπημένα"
-
-#: src/Process/Backend/UserPreferences.php:931
+#: src/Process/Backend/UserPreferences.php:1112
 msgid "(default favorite)"
 msgstr "(προεπιλεγμένο favorite)"
 
-#: src/Process/Backend/UserPreferences.php:942
+#: src/Process/Backend/UserPreferences.php:1127
 msgid "Add to my favorites"
 msgstr "Προσθήκη στα αγαπημένα μου"
 
-#: src/Process/Backend/UserPreferences.php:951
+#: src/Process/Backend/UserPreferences.php:1151
+msgid "Other available favorites"
+msgstr "Άλλα διαθέσιμα αγαπημένα"
+
+#: src/Process/Backend/UserPreferences.php:1163
 msgid "Menu"
 msgstr "Μενού"
 
-#: src/Process/Backend/UserPreferences.php:954
+#: src/Process/Backend/UserPreferences.php:1169
 msgid "Display favorites at the top of the menu"
 msgstr "Εμφάνιση αγαπημένων στο πάνω μέρος του μενού"
 
-#: src/Process/Backend/UserPreferences.php:957
+#: src/Process/Backend/UserPreferences.php:1173
 msgid "Dashboard icons"
 msgstr "Εικονίδια ταμπλό"
 
-#: src/Process/Backend/UserPreferences.php:960
+#: src/Process/Backend/UserPreferences.php:1179
 msgid "Display dashboard icons"
 msgstr "Εμφάνιση εικονιδίων ταμπλό"
 
-#: src/Process/Backend/UserPreferences.php:964
+#: src/Process/Backend/UserPreferences.php:1183
 msgid "Dashboard modules"
 msgstr "Πρόσθετα ταμπλό"
 
-#: src/Process/Backend/UserPreferences.php:968
+#: src/Process/Backend/UserPreferences.php:1189
 msgid "Display documentation links"
 msgstr "Εμφάνιση συνδέσμων τεκμηρίωσης"
 
-#: src/Process/Backend/UserPreferences.php:972
+#: src/Process/Backend/UserPreferences.php:1195
 msgid "Display donate links"
 msgstr "Εμφάνιση συνδέσμων δωρεάς"
 
-#: src/Process/Backend/UserPreferences.php:976
+#: src/Process/Backend/UserPreferences.php:1201
 msgid "Display Dotclear news"
 msgstr "Εμφάνιση ειδήσεων Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:1207
 msgid "Display quick entry form"
 msgstr "Εμφάνιση φόρμας γρήγορης καταχώρησης"
 
-#: src/Process/Backend/UserPreferences.php:986
+#: src/Process/Backend/UserPreferences.php:1212
 msgid "Do not display Dotclear updates"
 msgstr "Να μην εμφανίζονται ενημερώσεις Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:999
+#: src/Process/Backend/UserPreferences.php:1225
 msgid "Save my dashboard options"
 msgstr "Αποθήκευση των επιλογών του ταμπλό μου"
 
-#: src/Process/Backend/UserPreferences.php:1006
+#: src/Process/Backend/UserPreferences.php:1238
 msgid "Dashboard items order"
 msgstr "Σειρά στοιχείων ταμπλό"
 
-#: src/Process/Backend/UserPreferences.php:1009
+#: src/Process/Backend/UserPreferences.php:1241
 msgid "Reset dashboard items order"
 msgstr "Επαναφορά παραγγελίας ταμπλό"
 
