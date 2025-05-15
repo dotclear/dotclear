@@ -578,7 +578,7 @@ class Url extends UrlHandler implements UrlInterface
                         # --BEHAVIOR-- publicBeforeCommentPreview -- ArrayObject
                         App::behavior()->callBehavior('publicBeforeCommentPreview', App::frontend()->context()->comment_preview);
 
-                        $content = (string) $content;
+                        $content = App::frontend()->context()->comment_preview['content'];
                         # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
                         App::behavior()->callBehavior(
                             'coreContentFilter',
