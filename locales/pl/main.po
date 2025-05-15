@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-15 13:55+0200\n"
-"PO-Revision-Date: 2025-05-15 11:58\n"
+"PO-Revision-Date: 2025-05-15 12:27\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -5629,7 +5629,7 @@ msgstr "Liczba ostatnio zaproponowanych folderów w menedżerze mediów:"
 
 #: src/Process/Backend/UserPreferences.php:880
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
-msgstr ""
+msgstr "Ustaw na 0 (zero), aby zignorować, wyświetlane tylko wtedy, gdy Javascript jest włączony w przeglądarce."
 
 #: src/Process/Backend/UserPreferences.php:887
 msgid "Do not use standard favicon"
