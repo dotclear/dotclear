@@ -571,7 +571,7 @@ class Ctx
         }
 
         // Use default set
-        $definition = __DIR__ . '/../smilies/smilies.txt';
+        $definition = __DIR__ . '/../../../inc/smilies/smilies.txt';
         $base_url   = App::blog()->getQmarkURL() . 'pf=';
 
         if (file_exists($definition)) {
