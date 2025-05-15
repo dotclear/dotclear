@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-14 11:28+0200\n"
-"PO-Revision-Date: 2025-05-14 10:15\n"
+"POT-Creation-Date: 2025-05-15 13:55+0200\n"
+"PO-Revision-Date: 2025-05-15 12:27\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:266 src/Process/Backend/UserPreferences.php:496
+#: src/Process/Backend/User.php:266 src/Process/Backend/UserPreferences.php:527
 #: src/Process/Install/Install.php:397
 msgid "medium"
 msgstr "közepes"
@@ -460,11 +460,11 @@ msgstr "Elérhető"
 msgid "Other"
 msgstr "Egyéb"
 
-#: src/Core/Backend/Combos.php:257 src/Process/Backend/UserPreferences.php:159
+#: src/Core/Backend/Combos.php:257 src/Process/Backend/UserPreferences.php:190
 msgid "Descending"
 msgstr "Csökkenő"
 
-#: src/Core/Backend/Combos.php:258 src/Process/Backend/UserPreferences.php:160
+#: src/Core/Backend/Combos.php:258 src/Process/Backend/UserPreferences.php:191
 msgid "Ascending"
 msgstr "Növekvő"
 
@@ -554,13 +554,13 @@ msgid "Number of entries"
 msgstr "Bejegyzések száma"
 
 #: src/Core/Backend/Favorites.php:299
-#: src/Process/Backend/UserPreferences.php:827
+#: src/Process/Backend/UserPreferences.php:1146
 msgid "My favorites"
 msgstr "A kedvenceim"
 
 #: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:194
 #: src/Core/Backend/Page.php:382 src/Process/Backend/Media.php:782
-#: src/Process/Backend/UserPreferences.php:42
+#: src/Process/Backend/UserPreferences.php:73
 msgid "My preferences"
 msgstr "Az én preferenciáim"
 
@@ -648,7 +648,7 @@ msgstr "Globális segítség"
 #: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1258
 #: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1085
-#: src/Process/Backend/User.php:434 src/Process/Backend/UserPreferences.php:545
+#: src/Process/Backend/User.php:434 src/Process/Backend/UserPreferences.php:638
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "E-mail:"
@@ -780,7 +780,7 @@ msgid "Sort:"
 msgstr "Rendezés:"
 
 #: src/Core/Backend/Filter/Filters.php:390
-#: src/Process/Backend/UserPreferences.php:743
+#: src/Process/Backend/UserPreferences.php:771
 msgid "Show"
 msgstr "Mutasd meg a"
 
@@ -1475,9 +1475,9 @@ msgstr "Konfiguráció \"%s\""
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1358
 #: src/Process/Backend/Post.php:927 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:549 src/Process/Backend/UserPreferences.php:627
-#: src/Process/Backend/UserPreferences.php:816
-#: src/Process/Backend/UserPreferences.php:1000
+#: src/Process/Backend/User.php:549 src/Process/Backend/UserPreferences.php:699
+#: src/Process/Backend/UserPreferences.php:1001
+#: src/Process/Backend/UserPreferences.php:1227
 msgid "Back"
 msgstr "Vissza"
 
@@ -1523,8 +1523,8 @@ msgid "Go to help"
 msgstr "Menj segítségért"
 
 #: src/Core/Backend/Page.php:349 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:822
-#: src/Process/Backend/UserPreferences.php:823
+#: src/Process/Backend/UserPreferences.php:1136
+#: src/Process/Backend/UserPreferences.php:1138
 msgid "My dashboard"
 msgstr "Az én műszerfalam"
 
@@ -3016,7 +3016,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Az új jelszavad a postaládádban pihen."
 
 #: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:160
-#: src/Process/Backend/UserPreferences.php:201
+#: src/Process/Backend/UserPreferences.php:232
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "A jelszavak nem egyeznek"
@@ -3048,9 +3048,9 @@ msgstr "Hibás felhasználónév vagy jelszó"
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:265
 #: src/Process/Backend/User.php:266 src/Process/Backend/User.php:267
-#: src/Process/Backend/UserPreferences.php:495
-#: src/Process/Backend/UserPreferences.php:496
-#: src/Process/Backend/UserPreferences.php:497
+#: src/Process/Backend/UserPreferences.php:526
+#: src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/UserPreferences.php:528
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
 #: src/Process/Install/Install.php:398
 #, php-format
@@ -3058,13 +3058,13 @@ msgid "Password strength: %s"
 msgstr "Jelszó erőssége: %s"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:495
+#: src/Process/Backend/UserPreferences.php:526
 #: src/Process/Install/Install.php:396
 msgid "weak"
 msgstr "gyenge"
 
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:267
-#: src/Process/Backend/UserPreferences.php:497
+#: src/Process/Backend/UserPreferences.php:528
 #: src/Process/Install/Install.php:398
 msgid "strong"
 msgstr "erős"
@@ -3090,7 +3090,7 @@ msgid "Change your password"
 msgstr "Jelszó lecserélése"
 
 #: src/Process/Backend/Auth.php:453 src/Process/Backend/User.php:336
-#: src/Process/Backend/UserPreferences.php:587
+#: src/Process/Backend/UserPreferences.php:564
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "Új jelszó:"
@@ -3320,7 +3320,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Szeretném megakadályozni, hogy a keresőmotorok és az archiválók indexeljék vagy archiválják a blogom tartalmát."
 
 #: src/Process/Backend/BlogPref.php:241
-#: src/Process/Backend/UserPreferences.php:121
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Default"
 msgstr "Alapértelmezett"
 
@@ -3940,7 +3940,7 @@ msgid "total:"
 msgstr "összes ::"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:459 src/Process/Backend/UserPreferences.php:561
+#: src/Process/Backend/User.php:459 src/Process/Backend/UserPreferences.php:660
 msgid "URL:"
 msgstr "URL ::"
 
@@ -5272,17 +5272,17 @@ msgstr "Figyelem:"
 msgid "Password change required to connect"
 msgstr "Jelszó módosítása szükséges a csatlakozáshoz"
 
-#: src/Process/Backend/User.php:403 src/Process/Backend/UserPreferences.php:521
+#: src/Process/Backend/User.php:403 src/Process/Backend/UserPreferences.php:608
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "Utónév:"
 
-#: src/Process/Backend/User.php:413 src/Process/Backend/UserPreferences.php:529
+#: src/Process/Backend/User.php:413 src/Process/Backend/UserPreferences.php:618
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "Keresztnév:"
 
-#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:537
+#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:628
 msgid "Display name:"
 msgstr "Név:"
 
@@ -5290,23 +5290,23 @@ msgstr "Név:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Kötelező a jelszó-visszaállítási eljáráshoz."
 
-#: src/Process/Backend/User.php:446 src/Process/Backend/UserPreferences.php:553
+#: src/Process/Backend/User.php:446 src/Process/Backend/UserPreferences.php:647
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternatív e-mail címek (vesszővel elválasztott lista):"
 
-#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:559
+#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:651
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Az érvénytelen e-maileket automatikusan eltávolítjuk a listáról."
 
-#: src/Process/Backend/User.php:468 src/Process/Backend/UserPreferences.php:570
+#: src/Process/Backend/User.php:468 src/Process/Backend/UserPreferences.php:669
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternatív URL-címek (vesszővel elválasztott lista):"
 
-#: src/Process/Backend/User.php:472 src/Process/Backend/UserPreferences.php:576
+#: src/Process/Backend/User.php:472 src/Process/Backend/UserPreferences.php:673
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Az érvénytelen URL-ek automatikusan eltávolításra kerülnek a listáról."
 
-#: src/Process/Backend/User.php:478 src/Process/Backend/UserPreferences.php:640
+#: src/Process/Backend/User.php:478 src/Process/Backend/UserPreferences.php:816
 msgid "Interface"
 msgstr "Interfész"
 
@@ -5314,19 +5314,19 @@ msgstr "Interfész"
 msgid "Timezone:"
 msgstr "Időzóna:"
 
-#: src/Process/Backend/User.php:494 src/Process/Backend/UserPreferences.php:762
+#: src/Process/Backend/User.php:494 src/Process/Backend/UserPreferences.php:940
 msgid "Edition"
 msgstr "Kiadás"
 
-#: src/Process/Backend/User.php:500 src/Process/Backend/UserPreferences.php:776
+#: src/Process/Backend/User.php:500 src/Process/Backend/UserPreferences.php:952
 msgid "Preferred format:"
 msgstr "Kedvelt forma:"
 
-#: src/Process/Backend/User.php:507 src/Process/Backend/UserPreferences.php:779
+#: src/Process/Backend/User.php:507 src/Process/Backend/UserPreferences.php:960
 msgid "Default entry status:"
 msgstr "Alapértelmezett bejegyzési státusz:"
 
-#: src/Process/Backend/User.php:512 src/Process/Backend/UserPreferences.php:782
+#: src/Process/Backend/User.php:512 src/Process/Backend/UserPreferences.php:966
 msgid "Entry edit field height:"
 msgstr "Szerkesztő magassága:"
 
@@ -5376,341 +5376,341 @@ msgstr "Hozzászólások listája"
 msgid "List of comments"
 msgstr "A megjegyzések listája"
 
-#: src/Process/Backend/UserPreferences.php:112
+#: src/Process/Backend/UserPreferences.php:143
 msgid "Light"
 msgstr "Fény"
 
-#: src/Process/Backend/UserPreferences.php:113
+#: src/Process/Backend/UserPreferences.php:144
 msgid "Dark"
 msgstr "Sötét"
 
-#: src/Process/Backend/UserPreferences.php:114
+#: src/Process/Backend/UserPreferences.php:145
 msgid "Automatic"
 msgstr "Automatikus"
 
-#: src/Process/Backend/UserPreferences.php:119
+#: src/Process/Backend/UserPreferences.php:150
 msgid "Smallest"
 msgstr "Legkisebb"
 
-#: src/Process/Backend/UserPreferences.php:120
+#: src/Process/Backend/UserPreferences.php:151
 msgid "Smaller"
 msgstr "Kisebb"
 
-#: src/Process/Backend/UserPreferences.php:122
+#: src/Process/Backend/UserPreferences.php:153
 msgid "Larger"
 msgstr "Nagyobb"
 
-#: src/Process/Backend/UserPreferences.php:123
+#: src/Process/Backend/UserPreferences.php:154
 msgid "Largest"
 msgstr "Legnagyobb"
 
-#: src/Process/Backend/UserPreferences.php:135
+#: src/Process/Backend/UserPreferences.php:166
 msgid "Blog description (in blog parameters)"
 msgstr "Blog leírás (a blog paramétereiben)"
 
-#: src/Process/Backend/UserPreferences.php:136
+#: src/Process/Backend/UserPreferences.php:167
 msgid "Category description"
 msgstr "Kategória leírása"
 
-#: src/Process/Backend/UserPreferences.php:180
-#: src/Process/Backend/UserPreferences.php:197
+#: src/Process/Backend/UserPreferences.php:211
+#: src/Process/Backend/UserPreferences.php:228
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Ha szeretnéd megváltoztatni az e-mail címedet vagy a jelszavadat, akkor add meg a régi jelszavadat!"
 
-#: src/Process/Backend/UserPreferences.php:228
+#: src/Process/Backend/UserPreferences.php:259
 msgid "Personal information has been successfully updated."
 msgstr "A személyes információk frissültek!"
 
-#: src/Process/Backend/UserPreferences.php:346
+#: src/Process/Backend/UserPreferences.php:377
 msgid "Personal options has been successfully updated."
 msgstr "A személyes beállítások sikeresen frissültek."
 
-#: src/Process/Backend/UserPreferences.php:374
+#: src/Process/Backend/UserPreferences.php:405
 msgid "Dashboard options has been successfully updated."
 msgstr "A műszerfal beállításai sikeresen frissültek."
 
-#: src/Process/Backend/UserPreferences.php:386
-#: src/Process/Backend/UserPreferences.php:410
+#: src/Process/Backend/UserPreferences.php:417
+#: src/Process/Backend/UserPreferences.php:441
 msgid "No favorite selected"
 msgstr "Nincs kedvenc kiválasztva"
 
-#: src/Process/Backend/UserPreferences.php:397
+#: src/Process/Backend/UserPreferences.php:428
 msgid "Favorites have been successfully added."
 msgstr "Sikeresen hozzáadtuk a kedvenceket."
 
-#: src/Process/Backend/UserPreferences.php:423
+#: src/Process/Backend/UserPreferences.php:454
 msgid "Favorites have been successfully removed."
 msgstr "A kedvencek sikeresen eltávolításra kerültek."
 
-#: src/Process/Backend/UserPreferences.php:453
+#: src/Process/Backend/UserPreferences.php:484
 msgid "Favorites have been successfully updated."
 msgstr "A kedvencek sikeresen frissültek."
 
-#: src/Process/Backend/UserPreferences.php:465
+#: src/Process/Backend/UserPreferences.php:496
 msgid "Default favorites have been successfully updated."
 msgstr "Az alapértelmezett kedvenceket sikeresen frissítettük."
 
-#: src/Process/Backend/UserPreferences.php:479
+#: src/Process/Backend/UserPreferences.php:510
 msgid "Dashboard items order have been successfully reset."
 msgstr "A műszerfal elemeinek sorrendje sikeresen visszaállt."
 
-#: src/Process/Backend/UserPreferences.php:516
-#: src/Process/Backend/UserPreferences.php:518
-msgid "My profile"
-msgstr "Profilom"
+#: src/Process/Backend/UserPreferences.php:532
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "Biztos, hogy el akarja távolítani a kiválasztott kedvenceket?"
 
-#: src/Process/Backend/UserPreferences.php:578
-msgid "Language for my interface:"
-msgstr "Nyelv az én felületemhez:"
-
-#: src/Process/Backend/UserPreferences.php:581
-msgid "My timezone:"
-msgstr "Az én időzónám:"
-
-#: src/Process/Backend/UserPreferences.php:586
+#: src/Process/Backend/UserPreferences.php:554
 msgid "Change my password"
 msgstr "Jelszó módosítása"
 
-#: src/Process/Backend/UserPreferences.php:598
+#: src/Process/Backend/UserPreferences.php:573
 msgid "Confirm new password:"
 msgstr "Új jelszó megerősítése:"
 
-#: src/Process/Backend/UserPreferences.php:608
+#: src/Process/Backend/UserPreferences.php:583
 msgid "Your current password:"
 msgstr "Az Ön jelenlegi jelszava:"
 
-#: src/Process/Backend/UserPreferences.php:620
+#: src/Process/Backend/UserPreferences.php:587
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Ha megváltoztatta az e-mail címét vagy jelszavát, akkor a módosítások mentéséhez meg kell adnia az aktuális jelszavát."
 
-#: src/Process/Backend/UserPreferences.php:626
+#: src/Process/Backend/UserPreferences.php:593
+#: src/Process/Backend/UserPreferences.php:595
+msgid "My profile"
+msgstr "Profilom"
+
+#: src/Process/Backend/UserPreferences.php:680
+msgid "Language for my interface:"
+msgstr "Nyelv az én felületemhez:"
+
+#: src/Process/Backend/UserPreferences.php:688
+msgid "My timezone:"
+msgstr "Az én időzónám:"
+
+#: src/Process/Backend/UserPreferences.php:697
 msgid "Update my profile"
 msgstr "Profilom frissítése"
 
-#: src/Process/Backend/UserPreferences.php:634
-#: src/Process/Backend/UserPreferences.php:637
-msgid "My options"
-msgstr "A lehetőségeim"
-
-#: src/Process/Backend/UserPreferences.php:642
-msgid "Theme:"
-msgstr "Téma:"
-
-#: src/Process/Backend/UserPreferences.php:647
-msgid "Activate enhanced uploader in media manager"
-msgstr "Fokozott feltöltő aktiválása a médiakezelőben"
-
-#: src/Process/Backend/UserPreferences.php:651
-msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
-msgstr "Tekintse elő a szerkesztett bejegyzést egy üres ablakban vagy lapon (a böngésző beállításaitól függően)."
-
-#: src/Process/Backend/UserPreferences.php:655
-msgid "Disable javascript powered drag and drop for ordering items"
-msgstr "A javascriptes drag and drop letiltása a tételek rendeléséhez"
-
-#: src/Process/Backend/UserPreferences.php:656
-msgid "If checked, numeric fields will allow to type the elements' ordering number."
-msgstr "Ha be van jelölve, a numerikus mezőkbe be lehet írni az elemek sorszámát."
-
-#: src/Process/Backend/UserPreferences.php:660
-msgid "Hide all secondary information and notes"
-msgstr "Minden másodlagos információ és jegyzet elrejtése"
-
-#: src/Process/Backend/UserPreferences.php:664
-msgid "Hide help button"
-msgstr "Súgó gomb elrejtése"
-
-#: src/Process/Backend/UserPreferences.php:666
-msgid "Font size:"
-msgstr "Betűméret:"
-
-#: src/Process/Backend/UserPreferences.php:671
-msgid "Use operating system font"
-msgstr "Az operációs rendszer betűtípusának használata"
-
-#: src/Process/Backend/UserPreferences.php:673
-msgid "Number of recent folders proposed in media manager:"
-msgstr "A médiakezelőben javasolt legutóbbi mappák száma:"
-
-#: src/Process/Backend/UserPreferences.php:675
-msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
-msgstr "Hagyja üresen a figyelmen kívül hagyáshoz, csak akkor jelenik meg, ha a böngészőben engedélyezve van a Javascript."
-
-#: src/Process/Backend/UserPreferences.php:681
-msgid "Do not use standard favicon"
-msgstr "Ne használjon szabványos favicont"
-
-#: src/Process/Backend/UserPreferences.php:682
-msgid "This will be applied for all users"
-msgstr "Ez minden felhasználóra vonatkozik"
-
-#: src/Process/Backend/UserPreferences.php:689
-msgid "Disable Ad-blocker check"
-msgstr "Ad-blokkoló ellenőrzés kikapcsolása"
-
-#: src/Process/Backend/UserPreferences.php:690
-msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
-msgstr "Egyes reklámblokkolók (Ghostery, Adblock plus, uBloc origin, …) zavarhatják bizonyos funkciókat, mint például a link vagy média beillesztése a CKEditor bejegyzésekbe; ebben az esetben ki kell kapcsolnia a Dotclear telepítéshez (csak a backendben). Vegye figyelembe, hogy a Dotclear nem ad hozzá hirdetéseket vagy nyomkövetőket a backendben."
-
-#: src/Process/Backend/UserPreferences.php:691
-msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
-msgstr "Vegye figyelembe azt is, hogy a hirdetésblokkolók észlelésének kikapcsolása nem kapcsolja ki a telepített hirdetésblokkolókat. A Dotclear nem tud beavatkozni a böngészőbővítmények működésébe!"
-
-#: src/Process/Backend/UserPreferences.php:694
-msgid "Quick menu character:"
-msgstr "Gyors menü karakter:"
-
-#: src/Process/Backend/UserPreferences.php:699
-msgid "Leave empty to use the default character <kbd>:</kbd>"
-msgstr "Hagyja üresen az alapértelmezett karakter használatához <kbd>:</kbd>"
-
-#: src/Process/Backend/UserPreferences.php:705
-msgid "Keep the main menu at the top of the page as much as possible"
-msgstr "Tartsa a főmenüt az oldal tetején, amennyire csak lehetséges"
-
-#: src/Process/Backend/UserPreferences.php:712
-msgid "Optional columns displayed in lists"
-msgstr "A listákban megjelenített választható oszlopok"
-
-#: src/Process/Backend/UserPreferences.php:731
-msgid "Options for lists"
-msgstr "Lehetőségek a listákhoz"
-
-#: src/Process/Backend/UserPreferences.php:734
-msgid "Apply filters on the fly"
-msgstr "Szűrők alkalmazása menet közben"
-
-#: src/Process/Backend/UserPreferences.php:740
+#: src/Process/Backend/UserPreferences.php:765
 msgid "List"
 msgstr "Lista"
 
-#: src/Process/Backend/UserPreferences.php:741
+#: src/Process/Backend/UserPreferences.php:767
 msgid "Order by"
 msgstr "Rendelés"
 
-#: src/Process/Backend/UserPreferences.php:742
+#: src/Process/Backend/UserPreferences.php:769
 msgid "Sort"
 msgstr "Rendezés"
 
-#: src/Process/Backend/UserPreferences.php:767
+#: src/Process/Backend/UserPreferences.php:782
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Előnyös szerkesztő a %s:"
 
-#: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:787
 msgid "Choose an editor"
 msgstr "Válasszon szerkesztőt"
 
-#: src/Process/Backend/UserPreferences.php:787
+#: src/Process/Backend/UserPreferences.php:808
+#: src/Process/Backend/UserPreferences.php:814
+msgid "My options"
+msgstr "A lehetőségeim"
+
+#: src/Process/Backend/UserPreferences.php:823
+msgid "Theme:"
+msgstr "Téma:"
+
+#: src/Process/Backend/UserPreferences.php:829
+msgid "Activate enhanced uploader in media manager"
+msgstr "Fokozott feltöltő aktiválása a médiakezelőben"
+
+#: src/Process/Backend/UserPreferences.php:835
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr "Tekintse elő a szerkesztett bejegyzést egy üres ablakban vagy lapon (a böngésző beállításaitól függően)."
+
+#: src/Process/Backend/UserPreferences.php:842
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr "A javascriptes drag and drop letiltása a tételek rendeléséhez"
+
+#: src/Process/Backend/UserPreferences.php:846
+msgid "If checked, numeric fields will allow to type the elements' ordering number."
+msgstr "Ha be van jelölve, a numerikus mezőkbe be lehet írni az elemek sorszámát."
+
+#: src/Process/Backend/UserPreferences.php:851
+msgid "Hide all secondary information and notes"
+msgstr "Minden másodlagos információ és jegyzet elrejtése"
+
+#: src/Process/Backend/UserPreferences.php:857
+msgid "Hide help button"
+msgstr "Súgó gomb elrejtése"
+
+#: src/Process/Backend/UserPreferences.php:864
+msgid "Font size:"
+msgstr "Betűméret:"
+
+#: src/Process/Backend/UserPreferences.php:870
+msgid "Use operating system font"
+msgstr "Az operációs rendszer betűtípusának használata"
+
+#: src/Process/Backend/UserPreferences.php:876
+msgid "Number of recent folders proposed in media manager:"
+msgstr "A médiakezelőben javasolt legutóbbi mappák száma:"
+
+#: src/Process/Backend/UserPreferences.php:880
+msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
+msgstr "0 (nulla) értékre állítva figyelmen kívül hagyja, csak akkor jelenik meg, ha a böngészőben engedélyezve van a Javascript."
+
+#: src/Process/Backend/UserPreferences.php:887
+msgid "Do not use standard favicon"
+msgstr "Ne használjon szabványos favicont"
+
+#: src/Process/Backend/UserPreferences.php:888
+msgid "This will be applied for all users"
+msgstr "Ez minden felhasználóra vonatkozik"
+
+#: src/Process/Backend/UserPreferences.php:898
+msgid "Disable Ad-blocker check"
+msgstr "Ad-blokkoló ellenőrzés kikapcsolása"
+
+#: src/Process/Backend/UserPreferences.php:902
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
+msgstr "Egyes reklámblokkolók (Ghostery, Adblock plus, uBloc origin, …) zavarhatják bizonyos funkciókat, mint például a link vagy média beillesztése a CKEditor bejegyzésekbe; ebben az esetben ki kell kapcsolnia a Dotclear telepítéshez (csak a backendben). Vegye figyelembe, hogy a Dotclear nem ad hozzá hirdetéseket vagy nyomkövetőket a backendben."
+
+#: src/Process/Backend/UserPreferences.php:905
+msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
+msgstr "Vegye figyelembe azt is, hogy a hirdetésblokkolók észlelésének kikapcsolása nem kapcsolja ki a telepített hirdetésblokkolókat. A Dotclear nem tud beavatkozni a böngészőbővítmények működésébe!"
+
+#: src/Process/Backend/UserPreferences.php:913
+msgid "Quick menu character:"
+msgstr "Gyors menü karakter:"
+
+#: src/Process/Backend/UserPreferences.php:917
+msgid "Leave empty to use the default character <kbd>:</kbd>"
+msgstr "Hagyja üresen az alapértelmezett karakter használatához <kbd>:</kbd>"
+
+#: src/Process/Backend/UserPreferences.php:922
+msgid "Keep the main menu at the top of the page as much as possible"
+msgstr "Tartsa a főmenüt az oldal tetején, amennyire csak lehetséges"
+
+#: src/Process/Backend/UserPreferences.php:926
+msgid "Optional columns displayed in lists"
+msgstr "A listákban megjelenített választható oszlopok"
+
+#: src/Process/Backend/UserPreferences.php:929
+msgid "Options for lists"
+msgstr "Lehetőségek a listákhoz"
+
+#: src/Process/Backend/UserPreferences.php:935
+msgid "Apply filters on the fly"
+msgstr "Szűrők alkalmazása menet közben"
+
+#: src/Process/Backend/UserPreferences.php:972
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG mód"
 
-#: src/Process/Backend/UserPreferences.php:791
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "A szerkesztő eszköztárának megjelenítése a szövegterület alján (ha lehetséges)"
 
-#: src/Process/Backend/UserPreferences.php:797
+#: src/Process/Backend/UserPreferences.php:984
 msgid "Use HTML editor for:"
 msgstr "HTML-szerkesztő használata:"
 
-#: src/Process/Backend/UserPreferences.php:807
+#: src/Process/Backend/UserPreferences.php:988
 msgid "Other options"
 msgstr "Egyéb lehetőségek"
 
-#: src/Process/Backend/UserPreferences.php:815
+#: src/Process/Backend/UserPreferences.php:999
 msgid "Save my options"
 msgstr "Mentsd el a lehetőségeimet"
 
-#: src/Process/Backend/UserPreferences.php:854
+#: src/Process/Backend/UserPreferences.php:1030
 #, php-format
 msgid "position of %s"
 msgstr "a %shelyzete"
 
-#: src/Process/Backend/UserPreferences.php:871
+#: src/Process/Backend/UserPreferences.php:1053
 msgid "Save order"
 msgstr "Rendelés mentése"
 
-#: src/Process/Backend/UserPreferences.php:874
+#: src/Process/Backend/UserPreferences.php:1054
 msgid "Delete selected favorites"
 msgstr "Kijelölt kedvencek törlése"
 
-#: src/Process/Backend/UserPreferences.php:876
-msgid "Are you sure you want to remove selected favorites?"
-msgstr "Biztos, hogy el akarja távolítani a kiválasztott kedvenceket?"
-
-#: src/Process/Backend/UserPreferences.php:881
+#: src/Process/Backend/UserPreferences.php:1061
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Ha Ön szuperadminisztrátor, akkor meghatározhatja, hogy a kedvencek ezen csoportját alapértelmezés szerint a telepítés összes blogján használni kelljen."
 
-#: src/Process/Backend/UserPreferences.php:882
+#: src/Process/Backend/UserPreferences.php:1064
 msgid "Define as default favorites"
 msgstr "Alapértelmezett kedvencekként definiálni"
 
-#: src/Process/Backend/UserPreferences.php:889
+#: src/Process/Backend/UserPreferences.php:1073
 msgid "Currently no personal favorites."
 msgstr "Jelenleg nincsenek személyes kedvenceim."
 
-#: src/Process/Backend/UserPreferences.php:903
-msgid "Other available favorites"
-msgstr "Egyéb elérhető kedvencek"
-
-#: src/Process/Backend/UserPreferences.php:931
+#: src/Process/Backend/UserPreferences.php:1112
 msgid "(default favorite)"
 msgstr "(alapértelmezett kedvenc)"
 
-#: src/Process/Backend/UserPreferences.php:942
+#: src/Process/Backend/UserPreferences.php:1127
 msgid "Add to my favorites"
 msgstr "Hozzáadás a kedvenceimhez"
 
-#: src/Process/Backend/UserPreferences.php:951
+#: src/Process/Backend/UserPreferences.php:1151
+msgid "Other available favorites"
+msgstr "Egyéb elérhető kedvencek"
+
+#: src/Process/Backend/UserPreferences.php:1163
 msgid "Menu"
 msgstr "Menü"
 
-#: src/Process/Backend/UserPreferences.php:954
+#: src/Process/Backend/UserPreferences.php:1169
 msgid "Display favorites at the top of the menu"
 msgstr "Kedvencek megjelenítése a menü tetején"
 
-#: src/Process/Backend/UserPreferences.php:957
+#: src/Process/Backend/UserPreferences.php:1173
 msgid "Dashboard icons"
 msgstr "Műszerfal ikonok"
 
-#: src/Process/Backend/UserPreferences.php:960
+#: src/Process/Backend/UserPreferences.php:1179
 msgid "Display dashboard icons"
 msgstr "Műszerfal ikonok megjelenítése"
 
-#: src/Process/Backend/UserPreferences.php:964
+#: src/Process/Backend/UserPreferences.php:1183
 msgid "Dashboard modules"
 msgstr "Műszerfal modulok"
 
-#: src/Process/Backend/UserPreferences.php:968
+#: src/Process/Backend/UserPreferences.php:1189
 msgid "Display documentation links"
 msgstr "Dokumentációs hivatkozások megjelenítése"
 
-#: src/Process/Backend/UserPreferences.php:972
+#: src/Process/Backend/UserPreferences.php:1195
 msgid "Display donate links"
 msgstr "Adományozás linkek megjelenítése"
 
-#: src/Process/Backend/UserPreferences.php:976
+#: src/Process/Backend/UserPreferences.php:1201
 msgid "Display Dotclear news"
 msgstr "Dotclear hírek megjelenítése"
 
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:1207
 msgid "Display quick entry form"
 msgstr "Gyorsbeviteli űrlap megjelenítése"
 
-#: src/Process/Backend/UserPreferences.php:986
+#: src/Process/Backend/UserPreferences.php:1212
 msgid "Do not display Dotclear updates"
 msgstr "Ne jelenítse meg a Dotclear frissítéseket"
 
-#: src/Process/Backend/UserPreferences.php:999
+#: src/Process/Backend/UserPreferences.php:1225
 msgid "Save my dashboard options"
 msgstr "Műszerfali beállítások mentése"
 
-#: src/Process/Backend/UserPreferences.php:1006
+#: src/Process/Backend/UserPreferences.php:1238
 msgid "Dashboard items order"
 msgstr "Műszerfal elemek sorrendje"
 
-#: src/Process/Backend/UserPreferences.php:1009
+#: src/Process/Backend/UserPreferences.php:1241
 msgid "Reset dashboard items order"
 msgstr "Műszerfal elemeinek sorrendjének visszaállítása"
 
