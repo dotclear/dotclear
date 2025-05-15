@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-15 13:55+0200\n"
-"PO-Revision-Date: 2025-05-15 11:58\n"
+"PO-Revision-Date: 2025-05-15 12:27\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -5524,7 +5524,7 @@ msgstr "在媒体管理器中提出的最近的文件夹的数量："
 
 #: src/Process/Backend/UserPreferences.php:880
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
-msgstr ""
+msgstr "设置为 0（零）可忽略，仅在浏览器启用 Javascript 后才会显示。"
 
 #: src/Process/Backend/UserPreferences.php:887
 msgid "Do not use standard favicon"
