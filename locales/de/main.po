@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-14 11:28+0200\n"
-"PO-Revision-Date: 2025-05-14 10:14\n"
+"POT-Creation-Date: 2025-05-15 13:55+0200\n"
+"PO-Revision-Date: 2025-05-15 11:58\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:6 src/Process/Backend/Auth.php:353
-#: src/Process/Backend/User.php:266 src/Process/Backend/UserPreferences.php:496
+#: src/Process/Backend/User.php:266 src/Process/Backend/UserPreferences.php:527
 #: src/Process/Install/Install.php:397
 msgid "medium"
 msgstr "mittel"
@@ -460,11 +460,11 @@ msgstr "Verfügbar"
 msgid "Other"
 msgstr "Andere"
 
-#: src/Core/Backend/Combos.php:257 src/Process/Backend/UserPreferences.php:159
+#: src/Core/Backend/Combos.php:257 src/Process/Backend/UserPreferences.php:190
 msgid "Descending"
 msgstr "Absteigend"
 
-#: src/Core/Backend/Combos.php:258 src/Process/Backend/UserPreferences.php:160
+#: src/Core/Backend/Combos.php:258 src/Process/Backend/UserPreferences.php:191
 msgid "Ascending"
 msgstr "Aufsteigend"
 
@@ -554,13 +554,13 @@ msgid "Number of entries"
 msgstr "Zahl der Einträge"
 
 #: src/Core/Backend/Favorites.php:299
-#: src/Process/Backend/UserPreferences.php:827
+#: src/Process/Backend/UserPreferences.php:1146
 msgid "My favorites"
 msgstr "Meine Favoriten"
 
 #: src/Core/Backend/Favorites.php:408 src/Core/Backend/Menus.php:194
 #: src/Core/Backend/Page.php:382 src/Process/Backend/Media.php:782
-#: src/Process/Backend/UserPreferences.php:42
+#: src/Process/Backend/UserPreferences.php:73
 msgid "My preferences"
 msgstr "Meine Einstellungen"
 
@@ -648,7 +648,7 @@ msgstr "Globale Hilfe"
 #: src/Core/Backend/Filter/FilterComments.php:35 src/Core/Backend/Page.php:1258
 #: src/Process/Backend/Auth.php:420 src/Process/Backend/BlogPref.php:1351
 #: src/Process/Backend/Comment.php:306 src/Process/Backend/Post.php:1085
-#: src/Process/Backend/User.php:434 src/Process/Backend/UserPreferences.php:545
+#: src/Process/Backend/User.php:434 src/Process/Backend/UserPreferences.php:638
 #: src/Process/Install/Install.php:445
 msgid "Email:"
 msgstr "E-Mail:"
@@ -780,7 +780,7 @@ msgid "Sort:"
 msgstr "Sortiere:"
 
 #: src/Core/Backend/Filter/Filters.php:390
-#: src/Process/Backend/UserPreferences.php:743
+#: src/Process/Backend/UserPreferences.php:771
 msgid "Show"
 msgstr "Anzeigen"
 
@@ -1475,9 +1475,9 @@ msgstr "Konfigurieren von \"%s*"
 #: src/Process/Backend/Category.php:301 src/Process/Backend/Comment.php:352
 #: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1358
 #: src/Process/Backend/Post.php:927 src/Process/Backend/Search.php:197
-#: src/Process/Backend/User.php:549 src/Process/Backend/UserPreferences.php:627
-#: src/Process/Backend/UserPreferences.php:816
-#: src/Process/Backend/UserPreferences.php:1000
+#: src/Process/Backend/User.php:549 src/Process/Backend/UserPreferences.php:699
+#: src/Process/Backend/UserPreferences.php:1001
+#: src/Process/Backend/UserPreferences.php:1227
 msgid "Back"
 msgstr "Zurück"
 
@@ -1523,8 +1523,8 @@ msgid "Go to help"
 msgstr "Zur Hilfe wechseln"
 
 #: src/Core/Backend/Page.php:349 src/Core/Upgrade/Page.php:175
-#: src/Process/Backend/UserPreferences.php:822
-#: src/Process/Backend/UserPreferences.php:823
+#: src/Process/Backend/UserPreferences.php:1136
+#: src/Process/Backend/UserPreferences.php:1138
 msgid "My dashboard"
 msgstr "Mein Dashboard"
 
@@ -3016,7 +3016,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Dein neues Passwort ist in deinem E-Mail-Postfach."
 
 #: src/Process/Backend/Auth.php:203 src/Process/Backend/User.php:160
-#: src/Process/Backend/UserPreferences.php:201
+#: src/Process/Backend/UserPreferences.php:232
 #: src/Process/Install/Install.php:170
 msgid "Passwords don't match"
 msgstr "Passwörter stimmen nicht überein"
@@ -3048,9 +3048,9 @@ msgstr "Falscher Benutzername oder Passwort"
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/Auth.php:353
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:265
 #: src/Process/Backend/User.php:266 src/Process/Backend/User.php:267
-#: src/Process/Backend/UserPreferences.php:495
-#: src/Process/Backend/UserPreferences.php:496
-#: src/Process/Backend/UserPreferences.php:497
+#: src/Process/Backend/UserPreferences.php:526
+#: src/Process/Backend/UserPreferences.php:527
+#: src/Process/Backend/UserPreferences.php:528
 #: src/Process/Install/Install.php:396 src/Process/Install/Install.php:397
 #: src/Process/Install/Install.php:398
 #, php-format
@@ -3058,13 +3058,13 @@ msgid "Password strength: %s"
 msgstr "Passwort Stärke: %s"
 
 #: src/Process/Backend/Auth.php:352 src/Process/Backend/User.php:265
-#: src/Process/Backend/UserPreferences.php:495
+#: src/Process/Backend/UserPreferences.php:526
 #: src/Process/Install/Install.php:396
 msgid "weak"
 msgstr "schwach"
 
 #: src/Process/Backend/Auth.php:354 src/Process/Backend/User.php:267
-#: src/Process/Backend/UserPreferences.php:497
+#: src/Process/Backend/UserPreferences.php:528
 #: src/Process/Install/Install.php:398
 msgid "strong"
 msgstr "stark"
@@ -3090,7 +3090,7 @@ msgid "Change your password"
 msgstr "Ändere dein Passwort"
 
 #: src/Process/Backend/Auth.php:453 src/Process/Backend/User.php:336
-#: src/Process/Backend/UserPreferences.php:587
+#: src/Process/Backend/UserPreferences.php:564
 #: src/Process/Install/Install.php:464
 msgid "New password:"
 msgstr "Neues Passwort:"
@@ -3320,7 +3320,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Erlaube Suchmaschinen weder das Durchsuchen und Archivieren des Inhaltes noch des Archivs dieses Blogs."
 
 #: src/Process/Backend/BlogPref.php:241
-#: src/Process/Backend/UserPreferences.php:121
+#: src/Process/Backend/UserPreferences.php:152
 msgid "Default"
 msgstr "Standard"
 
@@ -3940,7 +3940,7 @@ msgid "total:"
 msgstr "Gesamt:"
 
 #: src/Process/Backend/Categories.php:326 src/Process/Backend/Category.php:279
-#: src/Process/Backend/User.php:459 src/Process/Backend/UserPreferences.php:561
+#: src/Process/Backend/User.php:459 src/Process/Backend/UserPreferences.php:660
 msgid "URL:"
 msgstr "URL:"
 
@@ -5272,17 +5272,17 @@ msgstr "Achtung:"
 msgid "Password change required to connect"
 msgstr "Passwort muss geändert werden, um Zugang zu erhalten."
 
-#: src/Process/Backend/User.php:403 src/Process/Backend/UserPreferences.php:521
+#: src/Process/Backend/User.php:403 src/Process/Backend/UserPreferences.php:608
 #: src/Process/Install/Install.php:439
 msgid "Last Name:"
 msgstr "Nachname:"
 
-#: src/Process/Backend/User.php:413 src/Process/Backend/UserPreferences.php:529
+#: src/Process/Backend/User.php:413 src/Process/Backend/UserPreferences.php:618
 #: src/Process/Install/Install.php:433
 msgid "First Name:"
 msgstr "Vorname:"
 
-#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:537
+#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:628
 msgid "Display name:"
 msgstr "Angezeigter Name:"
 
@@ -5290,23 +5290,23 @@ msgstr "Angezeigter Name:"
 msgid "Mandatory for password recovering procedure."
 msgstr "Obligatorisch für Passwort-Wiederherstellung."
 
-#: src/Process/Backend/User.php:446 src/Process/Backend/UserPreferences.php:553
+#: src/Process/Backend/User.php:446 src/Process/Backend/UserPreferences.php:647
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternative E-Mail-Adressen (durch Komma getrennte Liste):"
 
-#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:559
+#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:651
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Ungültige E-Mails werden automatisch aus der Liste entfernt."
 
-#: src/Process/Backend/User.php:468 src/Process/Backend/UserPreferences.php:570
+#: src/Process/Backend/User.php:468 src/Process/Backend/UserPreferences.php:669
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternative URLs (kommagetrennte Liste):"
 
-#: src/Process/Backend/User.php:472 src/Process/Backend/UserPreferences.php:576
+#: src/Process/Backend/User.php:472 src/Process/Backend/UserPreferences.php:673
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Ungültige URLs werden automatisch aus der Liste entfernt."
 
-#: src/Process/Backend/User.php:478 src/Process/Backend/UserPreferences.php:640
+#: src/Process/Backend/User.php:478 src/Process/Backend/UserPreferences.php:816
 msgid "Interface"
 msgstr "Schnittstelle"
 
@@ -5314,19 +5314,19 @@ msgstr "Schnittstelle"
 msgid "Timezone:"
 msgstr "Zeitzone:"
 
-#: src/Process/Backend/User.php:494 src/Process/Backend/UserPreferences.php:762
+#: src/Process/Backend/User.php:494 src/Process/Backend/UserPreferences.php:940
 msgid "Edition"
 msgstr "Ausgabe"
 
-#: src/Process/Backend/User.php:500 src/Process/Backend/UserPreferences.php:776
+#: src/Process/Backend/User.php:500 src/Process/Backend/UserPreferences.php:952
 msgid "Preferred format:"
 msgstr "Bevorzugtes Format:"
 
-#: src/Process/Backend/User.php:507 src/Process/Backend/UserPreferences.php:779
+#: src/Process/Backend/User.php:507 src/Process/Backend/UserPreferences.php:960
 msgid "Default entry status:"
 msgstr "Vorgabe für den Eintrags-Status:"
 
-#: src/Process/Backend/User.php:512 src/Process/Backend/UserPreferences.php:782
+#: src/Process/Backend/User.php:512 src/Process/Backend/UserPreferences.php:966
 msgid "Entry edit field height:"
 msgstr "Höhe des Eingabefeldes:"
 
@@ -5376,341 +5376,341 @@ msgstr "Liste der Stellen"
 msgid "List of comments"
 msgstr "Liste der Kommentare"
 
-#: src/Process/Backend/UserPreferences.php:112
+#: src/Process/Backend/UserPreferences.php:143
 msgid "Light"
 msgstr "Licht"
 
-#: src/Process/Backend/UserPreferences.php:113
+#: src/Process/Backend/UserPreferences.php:144
 msgid "Dark"
 msgstr "Dunkelheit"
 
-#: src/Process/Backend/UserPreferences.php:114
+#: src/Process/Backend/UserPreferences.php:145
 msgid "Automatic"
 msgstr "Automatisch"
 
-#: src/Process/Backend/UserPreferences.php:119
+#: src/Process/Backend/UserPreferences.php:150
 msgid "Smallest"
 msgstr "Kleinste"
 
-#: src/Process/Backend/UserPreferences.php:120
+#: src/Process/Backend/UserPreferences.php:151
 msgid "Smaller"
 msgstr "Kleiner"
 
-#: src/Process/Backend/UserPreferences.php:122
+#: src/Process/Backend/UserPreferences.php:153
 msgid "Larger"
 msgstr "Grösser"
 
-#: src/Process/Backend/UserPreferences.php:123
+#: src/Process/Backend/UserPreferences.php:154
 msgid "Largest"
 msgstr "Am grössten"
 
-#: src/Process/Backend/UserPreferences.php:135
+#: src/Process/Backend/UserPreferences.php:166
 msgid "Blog description (in blog parameters)"
 msgstr "Blog-Beschreibung (in Blog-Parameter)"
 
-#: src/Process/Backend/UserPreferences.php:136
+#: src/Process/Backend/UserPreferences.php:167
 msgid "Category description"
 msgstr "Beschreibung der Kategorie"
 
-#: src/Process/Backend/UserPreferences.php:180
-#: src/Process/Backend/UserPreferences.php:197
+#: src/Process/Backend/UserPreferences.php:211
+#: src/Process/Backend/UserPreferences.php:228
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Wenn du deine E-Mail oder deine Passwort ändern willst, musst du dein aktuelles Passwort angeben."
 
-#: src/Process/Backend/UserPreferences.php:228
+#: src/Process/Backend/UserPreferences.php:259
 msgid "Personal information has been successfully updated."
 msgstr "Persönliche Informationen wurden erfolgreich geändert."
 
-#: src/Process/Backend/UserPreferences.php:346
+#: src/Process/Backend/UserPreferences.php:377
 msgid "Personal options has been successfully updated."
 msgstr "Persönliche Einstellungen wurden erfolgreich aktualisiert."
 
-#: src/Process/Backend/UserPreferences.php:374
+#: src/Process/Backend/UserPreferences.php:405
 msgid "Dashboard options has been successfully updated."
 msgstr "Dashboard Optionen wurde erfolgreich aktualisiert."
 
-#: src/Process/Backend/UserPreferences.php:386
-#: src/Process/Backend/UserPreferences.php:410
+#: src/Process/Backend/UserPreferences.php:417
+#: src/Process/Backend/UserPreferences.php:441
 msgid "No favorite selected"
 msgstr "Kein Favorit ausgewählt"
 
-#: src/Process/Backend/UserPreferences.php:397
+#: src/Process/Backend/UserPreferences.php:428
 msgid "Favorites have been successfully added."
 msgstr "Favoriten wurden erfolgreich hinzugefügt."
 
-#: src/Process/Backend/UserPreferences.php:423
+#: src/Process/Backend/UserPreferences.php:454
 msgid "Favorites have been successfully removed."
 msgstr "Favoriten wurden erfolgreich entfernt."
 
-#: src/Process/Backend/UserPreferences.php:453
+#: src/Process/Backend/UserPreferences.php:484
 msgid "Favorites have been successfully updated."
 msgstr "Favoriten wurden erfolgreich aktualisiert."
 
-#: src/Process/Backend/UserPreferences.php:465
+#: src/Process/Backend/UserPreferences.php:496
 msgid "Default favorites have been successfully updated."
 msgstr "Standard-Favoriten wurden erfolgreich aktualisiert."
 
-#: src/Process/Backend/UserPreferences.php:479
+#: src/Process/Backend/UserPreferences.php:510
 msgid "Dashboard items order have been successfully reset."
 msgstr "Die Reihenfolge der Dashboard-Elemente wurde erfolgreich zurückgesetzt."
 
-#: src/Process/Backend/UserPreferences.php:516
-#: src/Process/Backend/UserPreferences.php:518
-msgid "My profile"
-msgstr "Mein Profil"
+#: src/Process/Backend/UserPreferences.php:532
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "Ausgewählten Favoriten wirklich entfernen?"
 
-#: src/Process/Backend/UserPreferences.php:578
-msgid "Language for my interface:"
-msgstr "Meine Spracheinstellung:"
-
-#: src/Process/Backend/UserPreferences.php:581
-msgid "My timezone:"
-msgstr "Meine Zeitzone:"
-
-#: src/Process/Backend/UserPreferences.php:586
+#: src/Process/Backend/UserPreferences.php:554
 msgid "Change my password"
 msgstr "Mein Passwort ändern"
 
-#: src/Process/Backend/UserPreferences.php:598
+#: src/Process/Backend/UserPreferences.php:573
 msgid "Confirm new password:"
 msgstr "Neues Passwort bestätigen:"
 
-#: src/Process/Backend/UserPreferences.php:608
+#: src/Process/Backend/UserPreferences.php:583
 msgid "Your current password:"
 msgstr "Dein aktuelles Passwort:"
 
-#: src/Process/Backend/UserPreferences.php:620
+#: src/Process/Backend/UserPreferences.php:587
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Wenn du deine E-Mail oder deine Passwort ändern willst, musst du dein aktuelles Passwort angeben."
 
-#: src/Process/Backend/UserPreferences.php:626
+#: src/Process/Backend/UserPreferences.php:593
+#: src/Process/Backend/UserPreferences.php:595
+msgid "My profile"
+msgstr "Mein Profil"
+
+#: src/Process/Backend/UserPreferences.php:680
+msgid "Language for my interface:"
+msgstr "Meine Spracheinstellung:"
+
+#: src/Process/Backend/UserPreferences.php:688
+msgid "My timezone:"
+msgstr "Meine Zeitzone:"
+
+#: src/Process/Backend/UserPreferences.php:697
 msgid "Update my profile"
 msgstr "Mein Profil aktualisieren"
 
-#: src/Process/Backend/UserPreferences.php:634
-#: src/Process/Backend/UserPreferences.php:637
-msgid "My options"
-msgstr "Meine Optionen"
-
-#: src/Process/Backend/UserPreferences.php:642
-msgid "Theme:"
-msgstr "Thema:"
-
-#: src/Process/Backend/UserPreferences.php:647
-msgid "Activate enhanced uploader in media manager"
-msgstr "Erweiterte Uploader im Medienmanager aktivieren"
-
-#: src/Process/Backend/UserPreferences.php:651
-msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
-msgstr "Zeigen Sie eine Vorschau des zu bearbeitenden Eintrags in einem leeren Fenster oder einer leeren Registerkarte an (je nach den Einstellungen Ihres Browsers)."
-
-#: src/Process/Backend/UserPreferences.php:655
-msgid "Disable javascript powered drag and drop for ordering items"
-msgstr "JavaScript-Werkzeug zum Drag-and-Drop-Ordnen von Einträgen abschalten"
-
-#: src/Process/Backend/UserPreferences.php:656
-msgid "If checked, numeric fields will allow to type the elements' ordering number."
-msgstr "Wenn diese Option aktiviert ist, können Sie in numerischen Feldern die Bestellnummer der Elemente eingeben."
-
-#: src/Process/Backend/UserPreferences.php:660
-msgid "Hide all secondary information and notes"
-msgstr "Alle sekundären Informationen und Hinweise zu verbergen"
-
-#: src/Process/Backend/UserPreferences.php:664
-msgid "Hide help button"
-msgstr "Hilfe-Schaltfläche ausblenden"
-
-#: src/Process/Backend/UserPreferences.php:666
-msgid "Font size:"
-msgstr "Schriftgrösse:"
-
-#: src/Process/Backend/UserPreferences.php:671
-msgid "Use operating system font"
-msgstr "Schriftart des Betriebssystems verwenden"
-
-#: src/Process/Backend/UserPreferences.php:673
-msgid "Number of recent folders proposed in media manager:"
-msgstr "Anzahl der zuletzt im Medienmanager vorgeschlagenen Ordner:"
-
-#: src/Process/Backend/UserPreferences.php:675
-msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
-msgstr "Leer lassen, um zu ignorieren, wird nur angezeigt, wenn Javascript in Ihrem Browser aktiviert ist."
-
-#: src/Process/Backend/UserPreferences.php:681
-msgid "Do not use standard favicon"
-msgstr "Standard-Favicon nicht benützen"
-
-#: src/Process/Backend/UserPreferences.php:682
-msgid "This will be applied for all users"
-msgstr "Diese Einstellung wirkt sich auf alle Benutzer aus"
-
-#: src/Process/Backend/UserPreferences.php:689
-msgid "Disable Ad-blocker check"
-msgstr "Ad-Blocker-Prüfung deaktivieren"
-
-#: src/Process/Backend/UserPreferences.php:690
-msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
-msgstr "Einige Werbeblocker (Ghostery, Adblock plus, uBloc origin, …) können einige Funktionen wie das Einfügen von Links oder Medien in Einträge mit CKEditor beeinträchtigen; in diesem Fall sollten Sie sie für diese Dotclear-Installation deaktivieren (nur Backend). Beachten Sie, dass Dotclear keine Werbung oder Tracker im Backend hinzufügt."
-
-#: src/Process/Backend/UserPreferences.php:691
-msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
-msgstr "Beachten Sie auch, dass die Deaktivierung dieser Erkennung von Werbeblockern die installierten Werbeblocker nicht deaktiviert. Dotclear kann nicht in den Betrieb von Browsererweiterungen eingreifen!"
-
-#: src/Process/Backend/UserPreferences.php:694
-msgid "Quick menu character:"
-msgstr "Schnelles Menüzeichen:"
-
-#: src/Process/Backend/UserPreferences.php:699
-msgid "Leave empty to use the default character <kbd>:</kbd>"
-msgstr "Leer lassen, um das Standardzeichen zu verwenden <kbd>:</kbd>"
-
-#: src/Process/Backend/UserPreferences.php:705
-msgid "Keep the main menu at the top of the page as much as possible"
-msgstr "Behalten Sie das Hauptmenü so weit wie möglich oben auf der Seite"
-
-#: src/Process/Backend/UserPreferences.php:712
-msgid "Optional columns displayed in lists"
-msgstr "In Listen angezeigte optionale Spalten"
-
-#: src/Process/Backend/UserPreferences.php:731
-msgid "Options for lists"
-msgstr "Optionen für Listen"
-
-#: src/Process/Backend/UserPreferences.php:734
-msgid "Apply filters on the fly"
-msgstr "Sofortige Anwendung von Filtern"
-
-#: src/Process/Backend/UserPreferences.php:740
+#: src/Process/Backend/UserPreferences.php:765
 msgid "List"
 msgstr "Liste"
 
-#: src/Process/Backend/UserPreferences.php:741
+#: src/Process/Backend/UserPreferences.php:767
 msgid "Order by"
 msgstr "Bestellen bei"
 
-#: src/Process/Backend/UserPreferences.php:742
+#: src/Process/Backend/UserPreferences.php:769
 msgid "Sort"
 msgstr "Sortieren"
 
-#: src/Process/Backend/UserPreferences.php:767
+#: src/Process/Backend/UserPreferences.php:782
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Bevorzugter Editor für %s:"
 
-#: src/Process/Backend/UserPreferences.php:770
+#: src/Process/Backend/UserPreferences.php:787
 msgid "Choose an editor"
 msgstr "Wähle einen Editor"
 
-#: src/Process/Backend/UserPreferences.php:787
+#: src/Process/Backend/UserPreferences.php:808
+#: src/Process/Backend/UserPreferences.php:814
+msgid "My options"
+msgstr "Meine Optionen"
+
+#: src/Process/Backend/UserPreferences.php:823
+msgid "Theme:"
+msgstr "Thema:"
+
+#: src/Process/Backend/UserPreferences.php:829
+msgid "Activate enhanced uploader in media manager"
+msgstr "Erweiterte Uploader im Medienmanager aktivieren"
+
+#: src/Process/Backend/UserPreferences.php:835
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr "Zeigen Sie eine Vorschau des zu bearbeitenden Eintrags in einem leeren Fenster oder einer leeren Registerkarte an (je nach den Einstellungen Ihres Browsers)."
+
+#: src/Process/Backend/UserPreferences.php:842
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr "JavaScript-Werkzeug zum Drag-and-Drop-Ordnen von Einträgen abschalten"
+
+#: src/Process/Backend/UserPreferences.php:846
+msgid "If checked, numeric fields will allow to type the elements' ordering number."
+msgstr "Wenn diese Option aktiviert ist, können Sie in numerischen Feldern die Bestellnummer der Elemente eingeben."
+
+#: src/Process/Backend/UserPreferences.php:851
+msgid "Hide all secondary information and notes"
+msgstr "Alle sekundären Informationen und Hinweise zu verbergen"
+
+#: src/Process/Backend/UserPreferences.php:857
+msgid "Hide help button"
+msgstr "Hilfe-Schaltfläche ausblenden"
+
+#: src/Process/Backend/UserPreferences.php:864
+msgid "Font size:"
+msgstr "Schriftgrösse:"
+
+#: src/Process/Backend/UserPreferences.php:870
+msgid "Use operating system font"
+msgstr "Schriftart des Betriebssystems verwenden"
+
+#: src/Process/Backend/UserPreferences.php:876
+msgid "Number of recent folders proposed in media manager:"
+msgstr "Anzahl der zuletzt im Medienmanager vorgeschlagenen Ordner:"
+
+#: src/Process/Backend/UserPreferences.php:880
+msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:887
+msgid "Do not use standard favicon"
+msgstr "Standard-Favicon nicht benützen"
+
+#: src/Process/Backend/UserPreferences.php:888
+msgid "This will be applied for all users"
+msgstr "Diese Einstellung wirkt sich auf alle Benutzer aus"
+
+#: src/Process/Backend/UserPreferences.php:898
+msgid "Disable Ad-blocker check"
+msgstr "Ad-Blocker-Prüfung deaktivieren"
+
+#: src/Process/Backend/UserPreferences.php:902
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
+msgstr "Einige Werbeblocker (Ghostery, Adblock plus, uBloc origin, …) können einige Funktionen wie das Einfügen von Links oder Medien in Einträge mit CKEditor beeinträchtigen; in diesem Fall sollten Sie sie für diese Dotclear-Installation deaktivieren (nur Backend). Beachten Sie, dass Dotclear keine Werbung oder Tracker im Backend hinzufügt."
+
+#: src/Process/Backend/UserPreferences.php:905
+msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
+msgstr "Beachten Sie auch, dass die Deaktivierung dieser Erkennung von Werbeblockern die installierten Werbeblocker nicht deaktiviert. Dotclear kann nicht in den Betrieb von Browsererweiterungen eingreifen!"
+
+#: src/Process/Backend/UserPreferences.php:913
+msgid "Quick menu character:"
+msgstr "Schnelles Menüzeichen:"
+
+#: src/Process/Backend/UserPreferences.php:917
+msgid "Leave empty to use the default character <kbd>:</kbd>"
+msgstr "Leer lassen, um das Standardzeichen zu verwenden <kbd>:</kbd>"
+
+#: src/Process/Backend/UserPreferences.php:922
+msgid "Keep the main menu at the top of the page as much as possible"
+msgstr "Behalten Sie das Hauptmenü so weit wie möglich oben auf der Seite"
+
+#: src/Process/Backend/UserPreferences.php:926
+msgid "Optional columns displayed in lists"
+msgstr "In Listen angezeigte optionale Spalten"
+
+#: src/Process/Backend/UserPreferences.php:929
+msgid "Options for lists"
+msgstr "Optionen für Listen"
+
+#: src/Process/Backend/UserPreferences.php:935
+msgid "Apply filters on the fly"
+msgstr "Sofortige Anwendung von Filtern"
+
+#: src/Process/Backend/UserPreferences.php:972
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG benutzen"
 
-#: src/Process/Backend/UserPreferences.php:791
+#: src/Process/Backend/UserPreferences.php:978
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Anzeige der Symbolleiste des Editors am unteren Rand der Textarea (wenn möglich)"
 
-#: src/Process/Backend/UserPreferences.php:797
+#: src/Process/Backend/UserPreferences.php:984
 msgid "Use HTML editor for:"
 msgstr "HTML Editor verwenden für:"
 
-#: src/Process/Backend/UserPreferences.php:807
+#: src/Process/Backend/UserPreferences.php:988
 msgid "Other options"
 msgstr "Andere Optionen"
 
-#: src/Process/Backend/UserPreferences.php:815
+#: src/Process/Backend/UserPreferences.php:999
 msgid "Save my options"
 msgstr "Meine Optionen speichern"
 
-#: src/Process/Backend/UserPreferences.php:854
+#: src/Process/Backend/UserPreferences.php:1030
 #, php-format
 msgid "position of %s"
 msgstr "Position von %s"
 
-#: src/Process/Backend/UserPreferences.php:871
+#: src/Process/Backend/UserPreferences.php:1053
 msgid "Save order"
 msgstr "Reihenfolge speichern"
 
-#: src/Process/Backend/UserPreferences.php:874
+#: src/Process/Backend/UserPreferences.php:1054
 msgid "Delete selected favorites"
 msgstr "Ausgewählte Favoriten löschen"
 
-#: src/Process/Backend/UserPreferences.php:876
-msgid "Are you sure you want to remove selected favorites?"
-msgstr "Ausgewählten Favoriten wirklich entfernen?"
-
-#: src/Process/Backend/UserPreferences.php:881
+#: src/Process/Backend/UserPreferences.php:1061
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Wenn du Super-Administrator bist, kannst du dieses Set von Favoriten als Vorgabe für alle Blogs Installation festlegen:"
 
-#: src/Process/Backend/UserPreferences.php:882
+#: src/Process/Backend/UserPreferences.php:1064
 msgid "Define as default favorites"
 msgstr "Als Vorgabe für Favoriten festlegen"
 
-#: src/Process/Backend/UserPreferences.php:889
+#: src/Process/Backend/UserPreferences.php:1073
 msgid "Currently no personal favorites."
 msgstr "Zur Zeit sind keine persönlichen Favoriten festgelegt."
 
-#: src/Process/Backend/UserPreferences.php:903
-msgid "Other available favorites"
-msgstr "Andere verfügbaren Favoriten"
-
-#: src/Process/Backend/UserPreferences.php:931
+#: src/Process/Backend/UserPreferences.php:1112
 msgid "(default favorite)"
 msgstr "(Standard Favorit)"
 
-#: src/Process/Backend/UserPreferences.php:942
+#: src/Process/Backend/UserPreferences.php:1127
 msgid "Add to my favorites"
 msgstr "Zu 'Meine Favoriten' hinzufügen"
 
-#: src/Process/Backend/UserPreferences.php:951
+#: src/Process/Backend/UserPreferences.php:1151
+msgid "Other available favorites"
+msgstr "Andere verfügbaren Favoriten"
+
+#: src/Process/Backend/UserPreferences.php:1163
 msgid "Menu"
 msgstr "Menü"
 
-#: src/Process/Backend/UserPreferences.php:954
+#: src/Process/Backend/UserPreferences.php:1169
 msgid "Display favorites at the top of the menu"
 msgstr "Favoriten an der oben am Menüs anzeigen"
 
-#: src/Process/Backend/UserPreferences.php:957
+#: src/Process/Backend/UserPreferences.php:1173
 msgid "Dashboard icons"
 msgstr "Dashboard-Symbole"
 
-#: src/Process/Backend/UserPreferences.php:960
+#: src/Process/Backend/UserPreferences.php:1179
 msgid "Display dashboard icons"
 msgstr "Dashboard-Symbole anzeigen"
 
-#: src/Process/Backend/UserPreferences.php:964
+#: src/Process/Backend/UserPreferences.php:1183
 msgid "Dashboard modules"
 msgstr "Dashboard-Module"
 
-#: src/Process/Backend/UserPreferences.php:968
+#: src/Process/Backend/UserPreferences.php:1189
 msgid "Display documentation links"
 msgstr "Links zur Dokumentation anzeigen"
 
-#: src/Process/Backend/UserPreferences.php:972
+#: src/Process/Backend/UserPreferences.php:1195
 msgid "Display donate links"
 msgstr "Links zum Spenden anzeigen"
 
-#: src/Process/Backend/UserPreferences.php:976
+#: src/Process/Backend/UserPreferences.php:1201
 msgid "Display Dotclear news"
 msgstr "Dotclear-News anzeigen"
 
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:1207
 msgid "Display quick entry form"
 msgstr "Schnelleintragsmaske anzeigen"
 
-#: src/Process/Backend/UserPreferences.php:986
+#: src/Process/Backend/UserPreferences.php:1212
 msgid "Do not display Dotclear updates"
 msgstr "Dotclear Aktualisierungen nicht anzeigen"
 
-#: src/Process/Backend/UserPreferences.php:999
+#: src/Process/Backend/UserPreferences.php:1225
 msgid "Save my dashboard options"
 msgstr "Meine Dashboard-Optionen speichern"
 
-#: src/Process/Backend/UserPreferences.php:1006
+#: src/Process/Backend/UserPreferences.php:1238
 msgid "Dashboard items order"
 msgstr "Reihenfolge der Dashboard-Elemente"
 
-#: src/Process/Backend/UserPreferences.php:1009
+#: src/Process/Backend/UserPreferences.php:1241
 msgid "Reset dashboard items order"
 msgstr "Reihenfolge der Dashboard-Elemente zurücksetzen"
 
