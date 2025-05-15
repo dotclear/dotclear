@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-15 13:55+0200\n"
-"PO-Revision-Date: 2025-05-15 11:58\n"
+"PO-Revision-Date: 2025-05-15 12:27\n"
 "Last-Translator: \n"
 "Language-Team: Serbian\n"
 "Language: srp\n"
@@ -5594,7 +5594,7 @@ msgstr "Број недавних фасцикли предложених у м�
 
 #: src/Process/Backend/UserPreferences.php:880
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
-msgstr ""
+msgstr "Поставите на 0 (нула) да бисте игнорисали, приказује се само ако је Јаваскрипт омогућен у вашем прегледачу."
 
 #: src/Process/Backend/UserPreferences.php:887
 msgid "Do not use standard favicon"
