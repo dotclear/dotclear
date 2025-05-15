@@ -20,10 +20,41 @@ use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\Html\Form\Button;
+use Dotclear\Helper\Html\Form\Capture;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Email;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Input;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
+use Dotclear\Helper\Html\Form\Ul;
+use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Text;
+use Dotclear\Helper\Text as Txt;
 use Exception;
-use form;
 
 /**
  * @since 2.27 Before as admin/preferences.php
@@ -85,7 +116,7 @@ class UserPreferences extends Process
         App::backend()->user_ui_media_nb_last_dirs = App::auth()->prefs()->interface->media_nb_last_dirs;
         App::backend()->user_ui_nocheckadblocker   = App::auth()->prefs()->interface->nocheckadblocker;
         App::backend()->user_ui_quickmenuprefix    = App::auth()->prefs()->interface->quickmenuprefix;
-        App::backend()->user_ui_stickymenu         = App::auth()->prefs()->interface->stickymenu;
+        App::backend()->user_ui_stickymenu         = (bool) App::auth()->prefs()->interface->stickymenu;
 
         // Format by editors
         $formaters         = App::formater()->getFormaters();
@@ -286,7 +317,7 @@ class UserPreferences extends Process
                 App::auth()->prefs()->interface->put('media_fav_dirs', [], 'array', null, false);
                 App::auth()->prefs()->interface->put('nocheckadblocker', !empty($_POST['user_ui_nocheckadblocker']), 'boolean');
                 App::auth()->prefs()->interface->put('quickmenuprefix', $_POST['user_ui_quickmenuprefix'], 'string');
-                App::auth()->prefs()->interface->put('stickymenu', $_POST['user_ui_stickymenu'], 'string');
+                App::auth()->prefs()->interface->put('stickymenu', $_POST['user_ui_stickymenu'], 'boolean');
 
                 // Update user columns (lists)
                 $cu = [];
@@ -513,503 +544,703 @@ class UserPreferences extends Process
         );
 
         // User profile
-        echo '<div class="multi-part" id="user-profile" title="' . __('My profile') . '">' .
 
-        '<h3>' . __('My profile') . '</h3>' .
-        '<form action="' . App::backend()->url()->get('admin.user.preferences') . '" method="post" id="user-form">' .
-
-        '<p><label for="user_name">' . __('Last Name:') . '</label>' .
-        form::field('user_name', 20, 255, [
-            'default'      => Html::escapeHTML(App::backend()->user_name),
-            'autocomplete' => 'family-name',
-            'translate'    => 'no',
-        ]) .
-        '</p>' .
-
-        '<p><label for="user_firstname">' . __('First Name:') . '</label>' .
-        form::field('user_firstname', 20, 255, [
-            'default'      => Html::escapeHTML(App::backend()->user_firstname),
-            'autocomplete' => 'given-name',
-            'translate'    => 'no',
-        ]) .
-        '</p>' .
-
-        '<p><label for="user_displayname">' . __('Display name:') . '</label>' .
-        form::field('user_displayname', 20, 255, [
-            'default'      => Html::escapeHTML(App::backend()->user_displayname),
-            'autocomplete' => 'nickname',
-            'translate'    => 'no',
-        ]) .
-        '</p>' .
-
-        '<p><label for="user_email">' . __('Email:') . '</label>' .
-        form::email('user_email', [
-            'default'      => Html::escapeHTML(App::backend()->user_email),
-            'autocomplete' => 'email',
-            'translate'    => 'no',
-        ]) .
-        '</p>' .
-
-        '<p><label for="user_profile_mails">' . __('Alternate emails (comma separated list):') . '</label>' .
-        form::field('user_profile_mails', 50, 255, [
-            'default'   => Html::escapeHTML(App::backend()->user_profile_mails),
-            'translate' => 'no',
-        ]) .
-        '</p>' .
-        '<p class="form-note info" id="sanitize_emails">' . __('Invalid emails will be automatically removed from list.') . '</p>' .
-
-        '<p><label for="user_url">' . __('URL:') . '</label>' .
-        form::url('user_url', [
-            'size'         => 30,
-            'default'      => Html::escapeHTML(App::backend()->user_url),
-            'autocomplete' => 'url',
-            'translate'    => 'no',
-        ]) .
-        '</p>' .
-
-        '<p><label for="user_profile_urls">' . __('Alternate URLs (comma separated list):') . '</label>' .
-        form::field('user_profile_urls', 50, 255, [
-            'default'   => Html::escapeHTML(App::backend()->user_profile_urls),
-            'translate' => 'no',
-        ]) .
-        '</p>' .
-        '<p class="form-note info" id="sanitize_urls">' . __('Invalid URLs will be automatically removed from list.') . '</p>' .
-
-        '<p><label for="user_lang">' . __('Language for my interface:') . '</label>' .
-        form::combo('user_lang', App::backend()->lang_combo, App::backend()->user_lang, extra_html: 'translate="no"') . '</p>' .
-
-        '<p><label for="user_tz">' . __('My timezone:') . '</label>' .
-        form::combo('user_tz', Date::getZones(true, true), App::backend()->user_tz) . '</p>';
-
+        $pass_change = (new None());
         if (App::auth()->allowPassChange()) {
-            echo
-            '<h4 class="vertical-separator pretty-title">' . __('Change my password') . '</h4>' .
-            '<p><label for="new_pwd">' . __('New password:') . '</label>' .
-            form::password(
-                'new_pwd',
-                20,
-                255,
-                [
-                    'class'        => 'pw-strength',
-                    'autocomplete' => 'new-password',
-                    'translate'    => 'no',
-                ]
-            ) . '</p>' .
-            '<p><label for="new_pwd_c">' . __('Confirm new password:') . '</label>' .
-            form::password(
-                'new_pwd_c',
-                20,
-                255,
-                [
-                    'autocomplete' => 'new-password',
-                    'translate'    => 'no',
-                ]
-            ) . '</p>' .
-            '<p><label for="cur_pwd">' . __('Your current password:') . '</label>' .
-            form::password(
-                'cur_pwd',
-                20,
-                255,
-                [
-                    'autocomplete' => 'current-password',
-                    'extra_html'   => 'aria-describedby="cur_pwd_help"',
-                    'translate'    => 'no',
-                ]
-            ) . '</p>' .
-            '<p class="form-note warn" id="cur_pwd_help">' .
-            __('If you have changed your email or password you must provide your current password to save these modifications.') . '</p>';
+            $pass_change = (new Fieldset())
+                ->legend(new Legend(__('Change my password')))
+                ->items([
+                    (new Para())
+                        ->items([
+                            (new Password('new_pwd'))
+                                ->size(20)
+                                ->maxlength(255)
+                                ->class('pw-strength')
+                                ->autocomplete('new-password')
+                                ->translate(false)
+                                ->label((new Label(__('New password:'), Label::OL_TF))),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Password('new_pwd_c'))
+                                ->size(20)
+                                ->maxlength(255)
+                                ->autocomplete('new-password')
+                                ->translate(false)
+                                ->label((new Label(__('Confirm new password:'), Label::OL_TF))),
+                        ]),
+                    (new Para())
+                        ->items([
+                            (new Password('cur_pwd'))
+                                ->size(20)
+                                ->maxlength(255)
+                                ->autocomplete('current-password')
+                                ->translate(false)
+                                ->extra('aria-describedby="cur_pwd_help"')
+                                ->label((new Label(__('Your current password:'), Label::OL_TF))),
+                        ]),
+                    (new Note('cur_pwd_help'))
+                        ->class(['form-note', 'warn'])
+                        ->text(__('If you have changed your email or password you must provide your current password to save these modifications.')),
+                ]);
         }
 
-        echo
-        '<p class="clear vertical-separator form-buttons">' .
-        App::nonce()->getFormNonce() .
-        '<input type="submit" accesskey="s" value="' . __('Update my profile') . '">' .
-        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-        '</p>' .
-        '</form>' .
-        '</div>' .
+        echo (new Div('user-profile'))
+            ->class('multi-part')
+            ->title(__('My profile'))
+            ->items([
+                (new Text('h3', __('My profile'))),
+                (new Form('user-form'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.user.preferences'))
+                    ->fields([
+                        (new Para())
+                            ->items([
+                                (new Input('user_name'))
+                                    ->size(20)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_name))
+                                    ->autocomplete('family-name')
+                                    ->translate(false)
+                                    ->label((new Label(__('Last Name:'), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('user_firstname'))
+                                    ->size(20)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_firstname))
+                                    ->autocomplete('given-name')
+                                    ->translate(false)
+                                    ->label((new Label(__('First Name:'), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('user_displayname'))
+                                    ->size(20)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_displayname))
+                                    ->autocomplete('nickname')
+                                    ->translate(false)
+                                    ->label((new Label(__('Display name:'), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Email('user_email'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_email))
+                                    ->autocomplete('email')
+                                    ->translate(false)
+                                    ->label((new Label(__('Email:'), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('user_profile_mails'))
+                                    ->size(50)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_profile_mails))
+                                    ->translate(false)
+                                    ->label((new Label(__('Alternate emails (comma separated list):'), Label::OL_TF))),
+                            ]),
+                        (new Note('sanitize_emails'))
+                            ->class(['form-note', 'info'])
+                            ->text(__('Invalid emails will be automatically removed from list.')),
+                        (new Para())
+                            ->items([
+                                (new Url('user_url'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_url))
+                                    ->autocomplete('url')
+                                    ->translate(false)
+                                    ->label((new Label(__('URL:'), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Input('user_profile_urls'))
+                                    ->size(50)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML(App::backend()->user_profile_urls))
+                                    ->translate(false)
+                                    ->label((new Label(__('Alternate URLs (comma separated list):'), Label::OL_TF))),
+                            ]),
+                        (new Note('sanitize_urls'))
+                            ->class(['form-note', 'info'])
+                            ->text(__('Invalid URLs will be automatically removed from list.')),
+                        (new Para())
+                            ->items([
+                                (new Select('user_lang'))
+                                    ->items(App::backend()->lang_combo)
+                                    ->default(App::backend()->user_lang)
+                                    ->translate(false)
+                                    ->label((new Label(__('Language for my interface:'), Label::OL_TF))),
+                            ]),
+                        (new Para())
+                            ->items([
+                                (new Select('user_tz'))
+                                    ->items(Date::getZones(true, true))
+                                    ->default(App::backend()->user_tz)
+                                    ->translate(false)
+                                    ->label((new Label(__('My timezone:'), Label::OL_TF))),
+                            ]),
+
+                        $pass_change,
+
+                        (new Para())
+                            ->class(['clear', 'form-buttons'])
+                            ->items([
+                                App::nonce()->formNonce(),
+                                (new Submit('user-form-submit', __('Update my profile')))
+                                    ->accesskey('s'),
+                                (new Button('user-form-back', __('Back')))
+                                    ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                            ]),
+                    ]),
+            ])
+        ->render();
 
         // User options : some from actual user profile, dashboard modules, ...
 
-        '<div class="multi-part" id="user-options" title="' . __('My options') . '">' .
-
-        '<form action="' . App::backend()->url()->get('admin.user.preferences') . '#user-options" method="post" id="opts-forms">' .
-        '<h3>' . __('My options') . '</h3>' .
-
-        '<div class="fieldset">' .
-        '<h4 id="user_options_interface">' . __('Interface') . '</h4>' .
-
-        '<p><label for="user_ui_theme" class="classic">' . __('Theme:') . '</label>' . ' ' .
-        form::combo('user_ui_theme', App::backend()->theme_combo, App::backend()->user_ui_theme) . '</p>' .
-
-        '<p><label for="user_ui_enhanceduploader" class="classic">' .
-        form::checkbox('user_ui_enhanceduploader', 1, App::backend()->user_ui_enhanceduploader) . ' ' .
-        __('Activate enhanced uploader in media manager') . '</label></p>' .
-
-        '<p><label for="user_ui_blank_preview" class="classic">' .
-        form::checkbox('user_ui_blank_preview', 1, App::backend()->user_ui_blank_preview) . ' ' .
-        __('Preview the entry being edited in a blank window or tab (depending on your browser settings).') . '</label></p>' .
-
-        '<p><label for="user_acc_nodragdrop" class="classic">' .
-        form::checkbox('user_acc_nodragdrop', 1, App::backend()->user_acc_nodragdrop, '', '', false, 'aria-describedby="user_acc_nodragdrop_help"') . ' ' .
-        __('Disable javascript powered drag and drop for ordering items') . '</label></p>' .
-        '<p class="clear form-note" id="user_acc_nodragdrop_help">' . __('If checked, numeric fields will allow to type the elements\' ordering number.') . '</p>' .
-
-        '<p><label for="user_ui_hidemoreinfo" class="classic">' .
-        form::checkbox('user_ui_hidemoreinfo', 1, App::backend()->user_ui_hidemoreinfo) . ' ' .
-        __('Hide all secondary information and notes') . '</label></p>' .
-
-        '<p><label for="user_ui_hidehelpbutton" class="classic">' .
-        form::checkbox('user_ui_hidehelpbutton', 1, App::backend()->user_ui_hidehelpbutton) . ' ' .
-        __('Hide help button') . '</label></p>' .
-
-        '<p><label for="user_ui_htmlfontsize" class="classic">' . __('Font size:') . '</label>' . ' ' .
-        form::combo('user_ui_htmlfontsize', App::backend()->htmlfontsize_combo, App::backend()->user_ui_htmlfontsize) . '</p>' .
-
-        '<p><label for="user_ui_systemfont" class="classic">' .
-        form::checkbox('user_ui_systemfont', 1, App::backend()->user_ui_systemfont) . ' ' .
-        __('Use operating system font') . '</label></p>' .
-
-        '<p><label for="user_ui_media_nb_last_dirs" class="classic">' . __('Number of recent folders proposed in media manager:') . '</label> ' .
-        form::number('user_ui_media_nb_last_dirs', 0, 999, (string) App::backend()->user_ui_media_nb_last_dirs, '', '', false, 'aria-describedby="user_ui_media_nb_last_dirs_help"') . '</p>' .
-        '<p class="clear form-note" id="user_ui_media_nb_last_dirs_help">' . __('Leave empty to ignore, displayed only if Javascript is enabled in your browser.') . '</p>';
-
-        if (App::auth()->isSuperAdmin()) {
-            echo
-            '<p><label for="user_ui_hide_std_favicon" class="classic">' .
-            form::checkbox('user_ui_hide_std_favicon', 1, App::backend()->user_ui_hide_std_favicon, '', '', false, 'aria-describedby="user_ui_hide_std_favicon_help"') . ' ' .
-            __('Do not use standard favicon') . '</label> ' .
-            '<span class="clear form-note warn" id="user_ui_hide_std_favicon_help">' . __('This will be applied for all users') . '.</span>' .
-            '</p>';
-        }
-
-        echo
-        '<p><label for="user_ui_nocheckadblocker" class="classic">' .
-        form::checkbox('user_ui_nocheckadblocker', 1, App::backend()->user_ui_nocheckadblocker, '', '', false, 'aria-describedby="user_ui_nocheckadblocker_help"') . ' ' .
-        __('Disable Ad-blocker check') . '</label></p>' .
-        '<p class="clear form-note" id="user_ui_nocheckadblocker_help">' . __('Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend.') . '</p>' .
-        '<p class="clear form-note" id="user_ui_nocheckadblocker_more">' . __('Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!') . '</p>';
-
-        echo
-        '<p><label class="classic">' . __('Quick menu character:') . ' ' .
-        form::field('user_ui_quickmenuprefix', 1, 1, [
-            'default' => Html::escapeHTML(App::backend()->user_ui_quickmenuprefix),
-        ]) . '</label>' .
-        '</p>' .
-        '<p class="clear form-note" id="user_ui_quickmenuprefix_help">' . __('Leave empty to use the default character <kbd>:</kbd>') . '</p>'
-        ;
-
-        echo
-        '<p><label for="user_ui_stickymenu" class="classic">' .
-        form::checkbox('user_ui_stickymenu', 1, App::backend()->user_ui_stickymenu) . ' ' .
-        __('Keep the main menu at the top of the page as much as possible') . '</label> ' .
-        '</p>';
-
-        echo
-        '</div>' .
-
-        '<fieldset id="user_options_columns">' .
-        '<legend>' . __('Optional columns displayed in lists') . '</legend>';
-        $odd = true;
+        $odd     = true;
+        $columns = [];
         foreach (App::backend()->cols as $col_type => $col_list) {
-            echo
-            '<div class="two-boxes ' . ($odd ? 'odd' : 'even') . '">' .
-            '<h5>' . $col_list[0] . '</h5>';
+            $fields = [];
             foreach ($col_list[1] as $col_name => $col_data) {
-                echo
-                '<label>' .
-                form::checkbox(['cols_' . $col_type . '[]', 'cols_' . $col_type . '-' . $col_name], $col_name, $col_data[0]) . $col_data[1] . '</label>';
+                $fields[] = (new Checkbox(['cols_' . $col_type . '[]', 'cols_' . $col_type . '-' . $col_name], $col_data[0]))
+                    ->value($col_name)
+                    ->label(new Label($col_data[1], Label::IL_FT));
             }
-            echo
-            '</div>';
+            $columns[] = (new Div())
+                ->class(['two-boxes', $odd ? 'odd' : 'even'])
+                ->items([
+                    (new Text('h5', $col_list[0])),
+                    ...$fields,
+                ]);
             $odd = !$odd;
         }
-        echo
-        '</fieldset>' .
 
-        '<div class="fieldset" id="user_options_lists_container">' .
-        '<h4 id="user_options_lists">' . __('Options for lists') . '</h4>' .
-        '<p><label for="user_ui_auto_filter" class="classic">' .
-        form::checkbox('user_ui_auto_filter', 1, App::backend()->auto_filter) . ' ' .
-        __('Apply filters on the fly') . '</label></p>';
+        $sortingRows = function ($sorts) {
+            foreach ($sorts as $sort_type => $sort_data) {
+                yield (new Tr())
+                    ->cols([
+                        (new Td())
+                            ->text($sort_data[0]),
+                        (new Td())
+                            ->items([
+                                $sort_data[1] ?
+                                    (new Select('sorts_' . $sort_type . '_sortby'))
+                                        ->items($sort_data[1])
+                                        ->default($sort_data[2]) :
+                                    (new None()),
+                            ]),
+                        (new Td())
+                            ->items([
+                                $sort_data[3] ?
+                                    (new Select('sorts_' . $sort_type . '_order'))
+                                        ->items(App::backend()->order_combo)
+                                        ->default($sort_data[3]) :
+                                    (new None()),
+                            ]),
+                        (new Td())
+                            ->items([
+                                is_array($sort_data[4]) ?
+                                    (new Number('sorts_' . $sort_type . '_nb', 0, 999, (int) $sort_data[4][1]))
+                                        ->label(new Label($sort_data[4][0], Label::IL_FT)) :
+                                    (new None()),
+                            ]),
+                    ]);
+            }
+        };
+        $sorting = (new Table())
+            ->class('table-outer')
+            ->thead((new Thead())
+                ->rows([
+                    (new Tr())
+                        ->cols([
+                            (new Th())
+                                ->text(__('List')),
+                            (new Th())
+                                ->text(__('Order by')),
+                            (new Th())
+                                ->text(__('Sort')),
+                            (new Th())
+                                ->text(__('Show')),
+                        ]),
+                ]))
+            ->tbody((new Tbody())
+                ->rows([
+                    ... $sortingRows(App::backend()->sorts),
+                ]));
 
-        echo
-        '<table class="table-outer">' .
-        '<thead>' .
-        '<tr>' .
-        '<th>' . __('List') . '</th>' .
-        '<th>' . __('Order by') . '</th>' .
-        '<th>' . __('Sort') . '</th>' .
-        '<th>' . __('Show') . '</th>' .
-        '</tr>' .
-        '</thead>' .
-        '<tbody>';
-        foreach (App::backend()->sorts as $sort_type => $sort_data) {
-            echo '<tr>';
-            echo '<td>' . $sort_data[0] . '</td>';  // List name
-            echo '<td>' . ($sort_data[1] ? form::combo('sorts_' . $sort_type . '_sortby', $sort_data[1], $sort_data[2]) : '') . '</td>'; // Order by
-            echo '<td>' . ($sort_data[3] ? form::combo('sorts_' . $sort_type . '_order', App::backend()->order_combo, $sort_data[3]) : '') . '</td>'; // Sort by
-            echo '<td>' . (is_array($sort_data[4]) ? form::number('sorts_' . $sort_type . '_nb', 0, 999, (string) $sort_data[4][1]) . ' ' .
-                $sort_data[4][0] : '') . '</td>';
-            echo '</tr>';
-        }
-        echo
-        '</table>';
-        echo
-        '</div>' .
+        // List of choosen editor by syntax
+        $editorsByFormat = function ($list) {
+            foreach ($list as $format => $editors) {
+                $label = sprintf(__('Preferred editor for %s:'), (new Strong(App::formater()->getFormaterName($format)))->render());
+                yield (new Para())
+                    ->class('field')
+                    ->items([
+                        (new Select(['user_editor[' . $format . ']', 'user_editor_' . $format]))
+                            ->items(array_merge([__('Choose an editor') => ''], $editors))
+                            ->default(App::backend()->user_options['editor'][$format])
+                            ->label(new Label($label, Label::OL_TF)),
+                    ]);
+            }
+        };
 
-        '<div class="fieldset">' .
-        '<h4 id="user_options_edition">' . __('Edition') . '</h4>' .
+        // List of contexts (fields) where HTML editor should be use rather than pure text
+        $editInHtml = function ($list) {
+            foreach ($list as $rk => $rv) {
+                yield (new Para())
+                    ->items([
+                        (new Checkbox(['rte_flags[]', 'rte_' . $rk], (bool) $rv[0]))
+                            ->value($rk)
+                            ->label(new Label($rv[1], Label::IL_FT)),
+                    ]);
+            }
+        };
 
-        '<div class="two-boxes odd">';
-        foreach (App::backend()->format_by_editors as $format => $editors) {
-            echo
-            '<p class="field"><label for="user_editor_' . $format . '">' . sprintf(__('Preferred editor for %s:'), App::formater()->getFormaterName($format)) . '</label>' .
-            form::combo(
-                ['user_editor[' . $format . ']', 'user_editor_' . $format],
-                array_merge([__('Choose an editor') => ''], $editors),
-                App::backend()->user_options['editor'][$format]
-            ) .
-            '</p>';
-        }
-        echo
-        '<p class="field"><label for="user_post_format">' . __('Preferred format:') . '</label>' .
-        form::combo('user_post_format', App::backend()->available_formats, App::backend()->user_options['post_format']) . '</p>' .
-
-        '<p class="field"><label for="user_post_status">' . __('Default entry status:') . '</label>' .
-        form::combo('user_post_status', App::backend()->status_combo, App::backend()->user_post_status) . '</p>' .
-
-        '<p class="field"><label for="user_edit_size">' . __('Entry edit field height:') . '</label>' .
-        form::number('user_edit_size', 10, 999, (string) App::backend()->user_options['edit_size']) . '</p>' .
-
-        '<p><label for="user_wysiwyg" class="classic">' .
-        form::checkbox('user_wysiwyg', 1, App::backend()->user_options['enable_wysiwyg']) . ' ' .
-        __('Enable WYSIWYG mode') . '</label></p>' .
-
-        '<p><label for="user_toolbar_bottom" class="classic">' .
-        form::checkbox('user_toolbar_bottom', 1, App::backend()->user_options['toolbar_bottom']) . ' ' .
-        __('Display editor\'s toolbar at bottom of textarea (if possible)') . '</label></p>' .
-
-        '</div>';
-
-        echo
-        '<div class="two-boxes even">' .
-        '<h5>' . __('Use HTML editor for:') . '</h5>';
-        foreach (App::backend()->rte as $rk => $rv) {
-            echo
-            '<p><label for="rte_' . $rk . '" class="classic">' .
-            form::checkbox(['rte_flags[]', 'rte_' . $rk], $rk, $rv[0]) . $rv[1] . '</label>';
-        }
-        echo
-        '</div>' .
-        '</div>' . // fieldset
-
-        '<h4 class="pretty-title">' . __('Other options') . '</h4>';
-
-        # --BEHAVIOR-- adminPreferencesForm --
-        App::behavior()->callBehavior('adminPreferencesFormV2');
-
-        echo
-        '<p class="clear vertical-separator form-buttons">' .
-        App::nonce()->getFormNonce() .
-        '<input type="submit" name="user_options_submit" accesskey="s" value="' . __('Save my options') . '">' .
-        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-        '</p>' .
-        '</form>' .
-        '</div>' .
+        echo (new Div('user-options'))
+            ->class('multi-part')
+            ->title(__('My options'))
+            ->items([
+                (new Form('opts-forms'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.user.preferences') . '#user-options')
+                    ->fields([
+                        (new Text('h3', __('My options'))),
+                        (new Fieldset())
+                            ->legend((new Legend(__('Interface'), 'user_options_interface')))
+                            ->fields([
+                                (new Para())
+                                    ->items([
+                                        (new Select('user_ui_theme'))
+                                            ->items(App::backend()->theme_combo)
+                                            ->default(App::backend()->user_ui_theme)
+                                            ->label(new Label(__('Theme:'), Label::IL_TF)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_enhanceduploader', App::backend()->user_ui_enhanceduploader))
+                                            ->value(1)
+                                            ->label(new Label(__('Activate enhanced uploader in media manager'), Label::IL_FT)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_blank_preview', App::backend()->user_ui_blank_preview))
+                                            ->value(1)
+                                            ->label(new Label(__('Preview the entry being edited in a blank window or tab (depending on your browser settings).'), Label::IL_FT)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_acc_nodragdrop', App::backend()->user_acc_nodragdrop))
+                                            ->value(1)
+                                            ->extra('aria-describedby="user_acc_nodragdrop_help"')
+                                            ->label(new Label(__('Disable javascript powered drag and drop for ordering items'), Label::IL_FT)),
+                                    ]),
+                                (new Note('user_acc_nodragdrop_help'))
+                                    ->class(['form-note', 'clear'])
+                                    ->text(__('If checked, numeric fields will allow to type the elements\' ordering number.')),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_hidemoreinfo', App::backend()->user_ui_hidemoreinfo))
+                                            ->value(1)
+                                            ->label(new Label(__('Hide all secondary information and notes'), Label::IL_FT)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_hidehelpbutton', App::backend()->user_ui_hidehelpbutton))
+                                            ->value(1)
+                                            ->label(new Label(__('Hide help button'), Label::IL_FT)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Select('user_ui_htmlfontsize'))
+                                            ->items(App::backend()->htmlfontsize_combo)
+                                            ->default(App::backend()->user_ui_htmlfontsize)
+                                            ->label(new Label(__('Font size:'), Label::IL_TF)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_systemfont', App::backend()->user_ui_systemfont))
+                                            ->value(1)
+                                            ->label(new Label(__('Use operating system font'), Label::IL_FT)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Number('user_ui_media_nb_last_dirs', 0, 999, (int) App::backend()->user_ui_media_nb_last_dirs))
+                                            ->extra('aria-describedby="user_ui_media_nb_last_dirs_help"')
+                                            ->label(new Label(__('Number of recent folders proposed in media manager:'), Label::IL_TF)),
+                                    ]),
+                                (new Note('user_ui_media_nb_last_dirs_help'))
+                                    ->class(['form-note', 'clear'])
+                                    ->text(__('Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser.')),
+                                App::auth()->isSuperAdmin() ?
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('user_ui_hide_std_favicon', App::backend()->user_ui_hide_std_favicon))
+                                                ->value(1)
+                                                ->extra('aria-describedby="user_ui_hide_std_favicon_help"')
+                                                ->label((new Label(__('Do not use standard favicon'), Label::IL_FT))),
+                                            (new Span(__('This will be applied for all users')))
+                                                ->id('user_ui_hide_std_favicon_help')
+                                                ->class(['form-note', 'warn']),
+                                        ]) :
+                                    (new None()),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_nocheckadblocker', App::backend()->user_ui_nocheckadblocker))
+                                            ->value(1)
+                                            ->extra('aria-describedby="user_ui_nocheckadblocker_help"')
+                                            ->label(new Label(__('Disable Ad-blocker check'), Label::IL_FT)),
+                                    ]),
+                                (new Note('user_ui_nocheckadblocker_help'))
+                                    ->class(['form-note', 'clear'])
+                                    ->text(__('Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend.')),
+                                (new Note('user_ui_nocheckadblocker_more'))
+                                    ->class(['form-note', 'clear'])
+                                    ->text(__('Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!')),
+                                (new Para())
+                                    ->items([
+                                        (new Input('user_ui_quickmenuprefix'))
+                                            ->size(1)
+                                            ->maxlength(1)
+                                            ->value(Html::escapeHTML(App::backend()->user_ui_quickmenuprefix))
+                                            ->extra('aria-describedby="user_ui_quickmenuprefix_help')
+                                            ->label(new Label(__('Quick menu character:'), Label::IL_TF)),
+                                    ]),
+                                (new Note('user_ui_quickmenuprefix_help'))
+                                    ->class(['form-note', 'clear'])
+                                    ->text(__('Leave empty to use the default character <kbd>:</kbd>')),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_stickymenu', App::backend()->user_ui_stickymenu))
+                                            ->value(1)
+                                            ->label(new Label(__('Keep the main menu at the top of the page as much as possible'), Label::IL_FT)),
+                                    ]),
+                            ]),
+                        (new Fieldset())
+                            ->legend((new Legend(__('Optional columns displayed in lists'), 'user_options_columns')))
+                            ->fields($columns),
+                        (new Fieldset('user_options_lists_container'))
+                            ->legend((new Legend(__('Options for lists'), 'user_options_lists')))
+                            ->fields([
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_auto_filter', App::backend()->auto_filter))
+                                            ->value(1)
+                                            ->label(new Label(__('Apply filters on the fly'), Label::IL_FT)),
+                                        $sorting,
+                                    ]),
+                            ]),
+                        (new Fieldset())
+                            ->legend((new Legend(__('Edition'), 'user_options_edition')))
+                            ->fields([
+                                (new Div())
+                                    ->class(['two-boxes', 'odd'])
+                                    ->items([
+                                        ... $editorsByFormat(App::backend()->format_by_editors),
+                                        (new Para())
+                                            ->class('field')
+                                            ->items([
+                                                (new Select('user_post_format'))
+                                                    ->items(App::backend()->available_formats)
+                                                    ->default(App::backend()->user_options['post_format'])
+                                                    ->label(new Label(__('Preferred format:'), Label::OL_TF)),
+                                            ]),
+                                        (new Para())
+                                            ->class('field')
+                                            ->items([
+                                                (new Select('user_post_status'))
+                                                    ->items(App::backend()->status_combo)
+                                                    ->default(App::backend()->user_post_status)
+                                                    ->label(new Label(__('Default entry status:'), Label::OL_TF)),
+                                            ]),
+                                        (new Para())
+                                            ->class('field')
+                                            ->items([
+                                                (new Number('user_edit_size', 10, 999, (int) App::backend()->user_options['edit_size']))
+                                                    ->label(new Label(__('Entry edit field height:'), Label::OL_TF)),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_wysiwyg', App::backend()->user_options['enable_wysiwyg']))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Enable WYSIWYG mode'), Label::IL_FT)),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_toolbar_bottom', App::backend()->user_options['toolbar_bottom']))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Display editor\'s toolbar at bottom of textarea (if possible)'), Label::IL_FT)),
+                                            ]),
+                                    ]),
+                                (new Div())
+                                    ->class(['two-boxes', 'even'])
+                                    ->items([
+                                        (new Text('h5', __('Use HTML editor for:'))),
+                                        ... $editInHtml(App::backend()->rte),
+                                    ]),
+                            ]),
+                        (new Text('h4', __('Other options')))
+                            ->class('pretty-title'),
+                        (new Capture(
+                            # --BEHAVIOR-- adminPreferencesForm --
+                            App::behavior()->callBehavior(...),
+                            ['adminPreferencesFormV2']
+                        )),
+                        (new Para())
+                            ->class(['clear', 'form-buttons'])
+                            ->items([
+                                App::nonce()->formNonce(),
+                                (new Submit('user_options_submit', __('Save my options')))
+                                    ->accesskey('s'),
+                                (new Button('user_options_back', __('Back')))
+                                    ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                            ]),
+                    ]),
+            ])
+        ->render();
 
         // My dashboard
-        '<div class="multi-part" id="user-favorites" title="' . __('My dashboard') . '">' .
-        '<h3>' . __('My dashboard') . '</h3>' .
 
-        // Favorites
-        '<form action="' . App::backend()->url()->get('admin.user.preferences') . '" method="post" id="favs-form" class="two-boxes odd">' .
-        '<div id="my-favs" class="fieldset"><h4>' . __('My favorites') . '</h4>';
+        // Prepare user favorites
 
-        $count    = 0;
-        $user_fav = App::backend()->favorites()->getFavoriteIDs(false);
+        $user_favorites_items = [];
+        $count                = 0;
+        $user_fav             = App::backend()->favorites()->getFavoriteIDs(false);
         foreach ($user_fav as $id) {
             if ($fav = App::backend()->favorites()->getFavorite($id)) {
                 // User favorites only
-                if ($count == 0) {
-                    echo
-                    '<ul class="fav-list">';
-                }
-
                 $count++;
 
                 $icon = isset($fav['small-icon']) ? Helper::adminIcon($fav['small-icon']) : $id;
                 $zoom = isset($fav['large-icon']) ? Helper::adminIcon($fav['large-icon'], false) : '';
                 if ($zoom !== '') {
-                    $icon .= ' <span class="zoom">' . $zoom . '</span>';
+                    $icon .= ' ' . (new Span($zoom))->class('zoom')->render();
                 }
-                $title = $fav['title'] ?? $id;
-                echo
-                '<li id="fu-' . $id . '">' . '<label for="fuk-' . $id . '">' . $icon .
-                form::number(['order[' . $id . ']'], [
-                    'min'        => 1,
-                    'max'        => count($user_fav),
-                    'default'    => $count,
-                    'class'      => 'position',
-                    'extra_html' => 'title="' . sprintf(__('position of %s'), $title) . '"',
-                ]) .
-                form::hidden(['dynorder[]', 'dynorder-' . $id . ''], $id) .
-                form::checkbox(['remove[]', 'fuk-' . $id], $id) . __($title) . '</label>' .
-                '</li>';
+                $title                  = $fav['title'] ?? $id;
+                $user_favorites_items[] = (new Li('fu-' . $id))
+                    ->items([
+                        (new Number(['order[' . $id . ']'], 1, count($user_fav), $count))
+                            ->class('position')
+                            ->title(sprintf(__('position of %s'), $title)),
+                        (new Hidden(['dynorder[]', 'dynorder-' . $id . ''], $id)),
+                        (new Checkbox(['remove[]', 'fuk-' . $id]))
+                            ->value($id)
+                            ->label((new Label(__($title), Label::IL_FT))->prefix($icon)),
+                    ]);
             }
         }
-        if ($count > 0) {
-            echo
-            '</ul>';
-        }
 
         if ($count > 0) {
-            echo
-            '<div class="clear">' .
-            '<p class="form-buttons">' . form::hidden('favs_order', '') .
-            App::nonce()->getFormNonce() .
-            '<input type="submit" name="saveorder" value="' . __('Save order') . '"> ' .
-
-            '<input type="submit" class="delete" name="removeaction" ' .
-            'value="' . __('Delete selected favorites') . '" ' .
-            'onclick="return window.confirm(\'' . Html::escapeJS(
-                __('Are you sure you want to remove selected favorites?')
-            ) . '\');"></p>' .
-
-            (App::auth()->isSuperAdmin() ?
-                '<div class="info">' .
-                '<p>' . __('If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation.') . '</p>' .
-                '<p><input class="reset action" type="submit" name="replace" value="' . __('Define as default favorites') . '">' . '</p>' .
-                '</div>' :
-                '') .
-
-            '</div>';
+            $user_favorites = (new Set())
+                ->items([
+                    (new Ul())
+                        ->class('fav-list')
+                        ->items($user_favorites_items),
+                    (new Div())
+                        ->class('clear')
+                        ->items([
+                            (new Para())
+                                ->class('form-buttons')
+                                ->items([
+                                    App::nonce()->formNonce(),
+                                    (new Hidden('favs_order', '')),
+                                    (new Submit('saveorder', __('Save order'))),
+                                    (new Submit('removeaction', __('Delete selected favorites')))
+                                        ->extra('onclick="return window.confirm(\'' . Html::escapeJS(__('Are you sure you want to remove selected favorites?')) . '\');"'),
+                                ]),
+                            App::auth()->isSuperAdmin() ?
+                            (new Div())
+                                ->class('info')
+                                ->items([
+                                    (new Note())
+                                        ->text(__('If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation.')),
+                                    (new Para())
+                                        ->items([
+                                            (new Submit('replace', __('Define as default favorites')))
+                                                ->class(['reset', 'action']),
+                                        ]),
+                                ]) :
+                            (new None()),
+                        ]),
+                ]);
         } else {
-            echo
-            '<p>' . __('Currently no personal favorites.') . '</p>';
+            $user_favorites = (new Note())
+                ->text(__('Currently no personal favorites.'));
         }
+
+        // Prepare available favorites
 
         $avail_fav       = App::backend()->favorites()->getFavorites(App::backend()->favorites()->getAvailableFavoritesIDs());
         $default_fav_ids = [];
         foreach (App::backend()->favorites()->getFavoriteIDs(true) as $v) {
             $default_fav_ids[$v] = true;
         }
-        echo
-        '</div>'; // /box my-fav
-
-        echo '<div class="fieldset" id="available-favs">';
-        // Available favorites
-        echo
-        '<h5 class="pretty-title">' . __('Other available favorites') . '</h5>';
         $count = 0;
         uasort($avail_fav, fn ($a, $b): int => strcoll(
-            strtolower(Text::removeDiacritics($a['title'])),
-            strtolower(Text::removeDiacritics($b['title']))
+            strtolower(Txt::removeDiacritics($a['title'])),
+            strtolower(Txt::removeDiacritics($b['title']))
         ));
-
         foreach (array_keys($avail_fav) as $k) {
             if (in_array($k, $user_fav)) {
                 unset($avail_fav[$k]);
             }
         }
+        $other_favorites_items = [];
         foreach ($avail_fav as $k => $fav) {
-            if ($count === 0) {
-                echo
-                '<ul class="fav-list">';
-            }
-
             $count++;
             $icon = Helper::adminIcon($fav['small-icon']);
             $zoom = Helper::adminIcon($fav['large-icon'], false);
             if ($zoom !== '') {
-                $icon .= ' <span class="zoom">' . $zoom . '</span>';
+                $icon .= ' ' . (new Span($zoom))->class('zoom')->render();
             }
-            echo
-            '<li id="fa-' . $k . '">' . '<label for="fak-' . $k . '">' . $icon .
-            form::checkbox(['append[]', 'fak-' . $k], $k) .
-            $fav['title'] . '</label>' .
-            (isset($default_fav_ids[$k]) ? ' <span class="default-fav"><img class="mark mark-selected" src="images/selected.svg" alt="' . __('(default favorite)') . '"></span>' : '') .
-            '</li>';
+            $other_favorites_items[] = (new Li('fa-' . $k))
+                ->items([
+                    (new Checkbox(['append[]', 'fak-' . $k]))
+                        ->value($k)
+                        ->label((new Label($fav['title'], Label::IL_FT))->prefix($icon)),
+                    isset($default_fav_ids[$k]) ?
+                        (new Span())
+                            ->class('default-fav')
+                            ->items([
+                                (new Img('images/selected.svg'))
+                                    ->class(['mark', 'mark-selected'])
+                                    ->alt(__('(default favorite)')),
+                            ]) :
+                        (new None()),
+                ]);
         }
         if ($count > 0) {
-            echo
-            '</ul>';
+            $other_favorites = (new Set())
+                ->items([
+                    (new Ul())
+                        ->class('fav-list')
+                        ->items($other_favorites_items),
+                    (new Para())
+                        ->class('form-buttons')
+                        ->items([
+                            App::nonce()->formNonce(),
+                            (new Submit('appendaction', __('Add to my favorites'))),
+                        ]),
+                ]);
+        } else {
+            $other_favorites = (new None());
         }
 
-        echo
-        '<p>' .
-        App::nonce()->getFormNonce() .
-        '<input type="submit" name="appendaction" value="' . __('Add to my favorites') . '"></p>' .
-        '</div>' . // /available favorites
-
-        '</form>' .
-
-        // Dashboard items
-        '<form action="' . App::backend()->url()->get('admin.user.preferences') . '" method="post" id="db-forms" class="two-boxes even">' .
-
-        '<div class="fieldset">' .
-        '<h4>' . __('Menu') . '</h4>' .
-        '<p><label for="user_ui_nofavmenu" class="classic">' .
-        form::checkbox('user_ui_nofavmenu', 1, !App::backend()->user_ui_nofavmenu) . ' ' .
-        __('Display favorites at the top of the menu') . '</label></p></div>' .
-
-        '<div class="fieldset">' .
-        '<h4>' . __('Dashboard icons') . '</h4>' .
-        '<p><label for="user_dm_nofavicons" class="classic">' .
-        form::checkbox('user_dm_nofavicons', 1, !App::backend()->user_dm_nofavicons) . ' ' .
-        __('Display dashboard icons') . '</label></p>' .
-        '</div>' .
-
-        '<div class="fieldset">' .
-        '<h4>' . __('Dashboard modules') . '</h4>' .
-
-        '<p><label for="user_dm_doclinks" class="classic">' .
-        form::checkbox('user_dm_doclinks', 1, App::backend()->user_dm_doclinks) . ' ' .
-        __('Display documentation links') . '</label></p>' .
-
-        '<p><label for="user_dm_donate" class="classic">' .
-        form::checkbox('user_dm_donate', 1, App::backend()->user_dm_donate) . ' ' .
-        __('Display donate links') . '</label></p>' .
-
-        '<p><label for="user_dm_dcnews" class="classic">' .
-        form::checkbox('user_dm_dcnews', 1, App::backend()->user_dm_dcnews) . ' ' .
-        __('Display Dotclear news') . '</label></p>' .
-
-        '<p><label for="user_dm_quickentry" class="classic">' .
-        form::checkbox('user_dm_quickentry', 1, App::backend()->user_dm_quickentry) . ' ' .
-        __('Display quick entry form') . '</label></p>';
-
-        if (App::auth()->isSuperAdmin()) {
-            echo
-            '<p><label for="user_dm_nodcupdate" class="classic">' .
-            form::checkbox('user_dm_nodcupdate', 1, App::backend()->user_dm_nodcupdate) . ' ' .
-            __('Do not display Dotclear updates') . '</label></p>';
-        }
-
-        echo
-        '</div>';
-
-        # --BEHAVIOR-- adminDashboardOptionsForm --
-        App::behavior()->callBehavior('adminDashboardOptionsFormV2');
-
-        echo
-        '<p class="form-buttons">' .
-        form::hidden('db-options', '-') .
-        App::nonce()->getFormNonce() .
-        '<input type="submit" accesskey="s" value="' . __('Save my dashboard options') . '">' .
-        ' <input type="button" value="' . __('Back') . '" class="go-back reset hidden-if-no-js">' .
-        '</p>' .
-        '</form>' .
-
-        // Dashboard items order (reset)
-        '<form action="' . App::backend()->url()->get('admin.user.preferences') . '" method="post" id="order-reset" class="two-boxes even">' .
-        '<div class="fieldset"><h4>' . __('Dashboard items order') . '</h4>' .
-        '<p>' .
-        App::nonce()->getFormNonce() .
-        '<input type="submit" name="resetorder" value="' . __('Reset dashboard items order') . '"></p>' .
-        '</div>' .
-        '</form>' .
-        '</div>'; // /multipart-user-favorites
+        echo (new Div('user-favorites'))
+            ->class('multi-part')
+            ->title(__('My dashboard'))
+            ->items([
+                (new Text('h3', __('My dashboard'))),
+                // Favorites
+                (new Form('favs-form'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.user.preferences'))
+                    ->class(['two-boxes', 'odd'])
+                    ->fields([
+                        (new Fieldset('my-favs'))
+                            ->legend(new Legend(__('My favorites')))
+                            ->fields([
+                                $user_favorites,
+                            ]),
+                        (new Fieldset('available-favs'))
+                            ->legend(new Legend(__('Other available favorites')))
+                            ->fields([
+                                $other_favorites,
+                            ]),
+                    ]),
+                // Dashboard
+                (new Form('db-forms'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.user.preferences'))
+                    ->class(['two-boxes', 'even'])
+                    ->fields([
+                        (new Fieldset())
+                            ->legend(new Legend(__('Menu')))
+                            ->items([
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_nofavmenu', !App::backend()->user_ui_nofavmenu))
+                                            ->value(1)
+                                            ->label(new Label(__('Display favorites at the top of the menu'), Label::IL_FT)),
+                                    ]),
+                            ]),
+                        (new Fieldset())
+                            ->legend(new Legend(__('Dashboard icons')))
+                            ->items([
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_dm_nofavicons', !App::backend()->user_dm_nofavicons))
+                                            ->value(1)
+                                            ->label(new Label(__('Display dashboard icons'), Label::IL_FT)),
+                                    ]),
+                            ]),
+                        (new Fieldset())
+                            ->legend(new Legend(__('Dashboard modules')))
+                            ->items([
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_dm_doclinks', App::backend()->user_dm_doclinks))
+                                            ->value(1)
+                                            ->label(new Label(__('Display documentation links'), Label::IL_FT)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_dm_donate', App::backend()->user_dm_donate))
+                                            ->value(1)
+                                            ->label(new Label(__('Display donate links'), Label::IL_FT)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_dm_dcnews', App::backend()->user_dm_dcnews))
+                                            ->value(1)
+                                            ->label(new Label(__('Display Dotclear news'), Label::IL_FT)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_dm_quickentry', App::backend()->user_dm_quickentry))
+                                            ->value(1)
+                                            ->label(new Label(__('Display quick entry form'), Label::IL_FT)),
+                                    ]),
+                                App::auth()->isSuperAdmin() ?
+                                    (new Checkbox('user_dm_nodcupdate', App::backend()->user_dm_nodcupdate))
+                                            ->value(1)
+                                            ->label(new Label(__('Do not display Dotclear updates'), Label::IL_FT)) :
+                                    (new None()),
+                            ]),
+                        (new Capture(
+                            # --BEHAVIOR-- adminDashboardOptionsForm --
+                            App::behavior()->callBehavior(...),
+                            ['adminDashboardOptionsFormV2']
+                        )),
+                        (new Para())
+                            ->class('form-buttons')
+                            ->items([
+                                App::nonce()->formNonce(),
+                                (new Hidden('db-options', '-')),
+                                (new Submit('db-forms-submit', __('Save my dashboard options')))
+                                    ->accesskey('s'),
+                                (new Button('db-forms-back', __('Back')))
+                                    ->class(['go-back', 'reset', 'hidden-if-no-js']),
+                            ]),
+                    ]),
+                // Dashboard items order (reset)
+                (new Form('order-reset'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.user.preferences'))
+                    ->class(['two-boxes', 'even'])
+                    ->fields([
+                        (new Fieldset())
+                            ->legend(new Legend(__('Dashboard items order')))
+                            ->fields([
+                                App::nonce()->formNonce(),
+                                (new Submit('resetorder', __('Reset dashboard items order'))),
+                            ]),
+                    ]),
+            ])
+        ->render();
 
         Page::helpBlock('core_user_pref');
         Page::close();
