@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-15 13:55+0200\n"
-"PO-Revision-Date: 2025-05-15 11:58\n"
+"PO-Revision-Date: 2025-05-15 12:27\n"
 "Last-Translator: \n"
 "Language-Team: Basque\n"
 "Language: eu_ES\n"
@@ -5559,7 +5559,7 @@ msgstr "Multimedia-kudeatzailean proposatutako azken karpeta kopurua:"
 
 #: src/Process/Backend/UserPreferences.php:880
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
-msgstr ""
+msgstr "Ezarri 0 (zero) kontuan hartu gabe uzteko, zure arakatzailean Javascript gaituta badago bakarrik bistaratuko da."
 
 #: src/Process/Backend/UserPreferences.php:887
 msgid "Do not use standard favicon"
