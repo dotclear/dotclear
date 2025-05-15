@@ -19,6 +19,8 @@ dotclear.ready(() => {
     return false;
   };
 
+  const userprefsData = dotclear.getData('userprefs');
+
   emailField?.addEventListener('change', () => {
     if (needPassword()) currentPasswordField.setAttribute('required', 'true');
     else currentPasswordField.removeAttribute('required');
@@ -39,4 +41,8 @@ dotclear.ready(() => {
     0,
     true,
   );
+
+  // Confirm on fav removal
+  const remove = document.getElementById('removeaction');
+  remove?.addEventListener('click', (event) => dotclear.confirm(userprefsData.remove, event));
 });

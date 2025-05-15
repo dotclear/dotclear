@@ -528,6 +528,9 @@ class UserPreferences extends Process
                 'max' => sprintf(__('Password strength: %s'), __('strong')),
             ]) .
             Page::jsLoad('js/pwstrength.js') .
+            Page::jsJson('userprefs', [
+                'remove' => __('Are you sure you want to remove selected favorites?'),
+            ]) .
             Page::jsLoad('js/_preferences.js') .
             Page::jsPageTabs(App::backend()->tab) .
             Page::jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
@@ -1048,8 +1051,7 @@ class UserPreferences extends Process
                                     App::nonce()->formNonce(),
                                     (new Hidden('favs_order', '')),
                                     (new Submit('saveorder', __('Save order'))),
-                                    (new Submit('removeaction', __('Delete selected favorites')))
-                                        ->extra('onclick="return window.confirm(\'' . Html::escapeJS(__('Are you sure you want to remove selected favorites?')) . '\');"'),
+                                    (new Submit('removeaction', __('Delete selected favorites'))),
                                 ]),
                             App::auth()->isSuperAdmin() ?
                             (new Div())
