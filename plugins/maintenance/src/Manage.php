@@ -400,64 +400,69 @@ class Manage extends Process
                 ->title(__('Alert settings'))
                 ->items([
                     (new Text('h3', __('Alert settings'))),
-                    (new Fieldset())
-                        ->legend(new Legend(__('Activation')))
+                    (new Form('settings-form'))
+                        ->method('post')
+                        ->action(App::backend()->getPageURL())
                         ->fields([
-                            (new Para())
-                                ->items([
-                                    (new Checkbox('settings_plugin_message', My::settings()->plugin_message))
-                                        ->value(1)
-                                        ->label((new Label(__('Display alert messages on late tasks'), Label::INSIDE_LABEL_AFTER))),
+                            (new Fieldset())
+                                ->legend(new Legend(__('Activation')))
+                                ->fields([
+                                    (new Para())
+                                        ->items([
+                                            (new Checkbox('settings_plugin_message', My::settings()->plugin_message))
+                                                ->value(1)
+                                                ->label((new Label(__('Display alert messages on late tasks'), Label::INSIDE_LABEL_AFTER))),
+                                        ]),
+                                    (new Note())
+                                        ->class('info')
+                                        ->text(sprintf(
+                                            __('You can place list of late tasks on your %s.'),
+                                            '<a href="' . App::backend()->url()->get('admin.user.preferences') . '#user-favorites">' . __('Dashboard') . '</a>'
+                                        )),
                                 ]),
-                            (new Note())
-                                ->class('info')
-                                ->text(sprintf(
-                                    __('You can place list of late tasks on your %s.'),
-                                    '<a href="' . App::backend()->url()->get('admin.user.preferences') . '#user-favorites">' . __('Dashboard') . '</a>'
-                                )),
-                        ]),
-                    (new Fieldset())
-                        ->legend(new Legend(__('Frequency')))
-                        ->fields([
-                            // All
-                            (new Para())
-                                ->items([
-                                    (new Radio(['settings_recall_type', 'settings_recall_all']))
-                                        ->value('all')
-                                        ->label((new Label(
-                                            (new Strong(__('Use one recall time for all tasks')))->render(),
-                                            Label::INSIDE_TEXT_AFTER
-                                        ))),
+                            (new Fieldset())
+                                ->legend(new Legend(__('Frequency')))
+                                ->fields([
+                                    // All
+                                    (new Para())
+                                        ->items([
+                                            (new Radio(['settings_recall_type', 'settings_recall_all']))
+                                                ->value('all')
+                                                ->label((new Label(
+                                                    (new Strong(__('Use one recall time for all tasks')))->render(),
+                                                    Label::INSIDE_TEXT_AFTER
+                                                ))),
+                                        ]),
+                                    (new Para())
+                                        ->class(['field', 'wide'])
+                                        ->items([
+                                            (new Select('settings_recall_time'))
+                                                ->class('recall-for-all')
+                                                ->items($combo_ts)
+                                                ->label((new Label(__('Recall time for all tasks:'), Label::OUTSIDE_TEXT_BEFORE))),
+                                        ]),
+                                    // Separate
+                                    (new Para())
+                                        ->class('vertical-separator')
+                                        ->items([
+                                            (new Radio(['settings_recall_type', 'settings_recall_separate']))
+                                                ->value('separate')
+                                                ->label((new Label(
+                                                    (new Strong(__('Use one recall time per task')))->render(),
+                                                    Label::INSIDE_TEXT_AFTER
+                                                ))),
+                                        ]),
+                                    ...$tasks,
                                 ]),
                             (new Para())
-                                ->class(['field', 'wide'])
+                                ->class('form-buttons')
                                 ->items([
-                                    (new Select('settings_recall_time'))
-                                        ->class('recall-for-all')
-                                        ->items($combo_ts)
-                                        ->label((new Label(__('Recall time for all tasks:'), Label::OUTSIDE_TEXT_BEFORE))),
+                                    ...My::hiddenFields(),
+                                    (new Hidden(['tab'], 'settings')),
+                                    (new Hidden(['save_settings'], '1')),
+                                    (new Submit(['settings-submit'], __('Save'))),
+                                    (new Button(['settings-back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
                                 ]),
-                            // Separate
-                            (new Para())
-                                ->class('vertical-separator')
-                                ->items([
-                                    (new Radio(['settings_recall_type', 'settings_recall_separate']))
-                                        ->value('separate')
-                                        ->label((new Label(
-                                            (new Strong(__('Use one recall time per task')))->render(),
-                                            Label::INSIDE_TEXT_AFTER
-                                        ))),
-                                ]),
-                            ...$tasks,
-                        ]),
-                    (new Para())
-                        ->class('form-buttons')
-                        ->items([
-                            ...My::hiddenFields(),
-                            (new Hidden(['tab'], 'settings')),
-                            (new Hidden(['save_settings'], '1')),
-                            (new Submit(['settings-submit'], __('Save'))),
-                            (new Button(['settings-back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']),
                         ]),
                 ])
             ->render();
