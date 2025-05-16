@@ -916,7 +916,7 @@ class Post extends Process
                 $blank_preview = App::auth()->prefs()->interface->blank_preview;
 
                 $preview_class  = $blank_preview ? '' : 'modal';
-                $preview_target = $blank_preview ? '' : 'target="_blank"';
+                $preview_target = $blank_preview ? 'target="_blank"' : '';
 
                 $buttons[] = (new Link('post-preview'))
                     ->href($preview_url)

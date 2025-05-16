@@ -403,7 +403,7 @@ class ThemesList extends ModulesList
                 $blank_preview = App::auth()->prefs()->interface->blank_preview;
 
                 $preview_class  = $blank_preview ? '' : 'modal';
-                $preview_target = $blank_preview ? '' : 'target="_blank"';
+                $preview_target = $blank_preview ? 'target="_blank"' : '';
 
                 $submits[] = (new Link())
                     ->href($preview_url)
