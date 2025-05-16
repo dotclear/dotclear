@@ -13,7 +13,20 @@ namespace Dotclear\Plugin\widgets;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\L10n;
 use Dotclear\Helper\Network\Feed\Reader;
@@ -231,14 +244,27 @@ class Widgets
             'id="search"',
             ($widget->title ? $widget->renderTitle(
                 (new Label(Html::escapeHTML($widget->title), Label::OL_TF))->for('q')->render()
-                //'<label for="q">' . Html::escapeHTML($widget->title) . '</label>'
             ) : '') .
-            '<form action="' . App::blog()->url() . '" method="get" role="search">' .
-            '<p><input type="search" size="10" maxlength="255" id="q" name="q" value="' . $value . '" ' .
-            ($widget->get('placeholder') ? 'placeholder="' . Html::escapeHTML($widget->get('placeholder')) . '"' : '') .
-            ' aria-label="' . __('Search') . '"> ' .
-            '<input type="submit" class="submit" value="ok" title="' . __('Search') . '"></p>' .
-            '</form>'
+            (new Form('q-form'))
+                ->method('get')
+                ->action(App::blog()->url())
+                ->role('search')
+                ->fields([
+                    (new Para())
+                        ->separator(' ')
+                        ->items([
+                            (new Input('q', 'search'))
+                                ->size(10)
+                                ->maxlength(255)
+                                ->value($value)
+                                ->placeholder($widget->get('placeholder') ? Html::escapeHTML($widget->get('placeholder')) : '')
+                                ->extra('aria-label="' . __('Search') . '"'),
+                            (new Submit('q-submit', 'ok'))
+                                ->class('submit')
+                                ->title(__('Search')),
+                        ]),
+                ])
+            ->render()
         );
     }
 
@@ -257,30 +283,102 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
-            '<nav role="navigation"><ul>';
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
+        $links = [];
         if (!App::url()->isHome(App::url()->getType())) {
             // Not on home page (standard or static), add home link
-            $res .= '<li class="topnav-home">' .
-            '<a href="' . App::blog()->url() . '">' . __('Home') . '</a></li>';
+            $links[] = (new Li())
+                ->class('topnav-home')
+                ->items([
+                    (new Link())
+                        ->href(App::blog()->url())
+                        ->text(__('Home')),
+                ]);
             if (App::blog()->settings()->system->static_home) {
                 // Static mode: add recent posts link
-                $res .= '<li class="topnav-posts">' .
-                '<a href="' . App::blog()->url() . App::url()->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
+                $links[] = (new Li())
+                    ->class('topnav-posts')
+                    ->items([
+                        (new Link())
+                            ->href(App::blog()->url() . App::url()->getURLFor('posts'))
+                            ->text(__('Recent posts')),
+                    ]);
             }
         } elseif (App::blog()->settings()->system->static_home) {
             // Static mode: add recent posts link
-            $res .= '<li class="topnav-posts">' .
-            '<a href="' . App::blog()->url() . App::url()->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
+            $links[] = (new Li())
+                ->class('topnav-posts')
+                ->items([
+                    (new Link())
+                        ->href(App::blog()->url() . App::url()->getURLFor('posts'))
+                        ->text(__('Recent posts')),
+                ]);
         }
 
-        $res .= '<li class="topnav-arch">' .
-        '<a href="' . App::blog()->url() . App::url()->getURLFor('archive') . '">' .
-        __('Archives') . '</a></li>' .
-            '</ul></nav>';
+        $links[] = (new Li())
+            ->class('topnav-arch')
+            ->items([
+                (new Link())
+                    ->href(App::blog()->url() . App::url()->getURLFor('archive'))
+                    ->text(__('Archives')),
+            ]);
+
+        $res .= (new Div(null, 'navigation'))
+            ->items([
+                (new Ul())
+                    ->items($links),
+            ])
+        ->render();
 
         return $widget->renderDiv((bool) $widget->content_only, $widget->class, 'id="topnav"', $res);
+    }
+
+    /**
+     * Get list of categories and sub-categories at a specific level
+     *
+     * @param      int  $level   The current category level
+     *
+     * @return     array<int, Li>
+     */
+    protected static function categorySiblings(MetaRecord $rs, WidgetsElement $widget, int $level = 1): array
+    {
+        $list = [];
+        while ($rs->fetch()) {
+            $class = (App::url()->getType() === 'category' && App::frontend()->context()->categories instanceof MetaRecord && App::frontend()->context()->categories->cat_id == $rs->cat_id)
+                || (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $rs->cat_id) ? 'category-current' : '';
+
+            if ((int) $rs->level === $level) {
+                $list[] = (new Li())
+                    ->class($class)
+                    ->items([
+                        (new Set())
+                            ->separator(' ')
+                            ->items([
+                                (new Link())
+                                    ->href(App::blog()->url() . App::url()->getURLFor('category', $rs->cat_url))
+                                    ->text(Html::escapeHTML($rs->cat_title)),
+                                $widget->get('postcount') ?
+                                (new Span('(' . ($widget->get('subcatscount') ? $rs->nb_total : $rs->nb_post) . ')')) :
+                                (new None()),
+                            ]),
+                    ]);
+            } elseif ((int) $rs->level > $level) {
+                // It's a sub-category, get all of them
+                $sublevel = (int) $rs->level;
+                $rs->movePrev();
+
+                $list[] = (new Ul())
+                    ->items(static::categorySiblings($rs, $widget, $sublevel));
+            } else {
+                // Rewind one step for an upper level and it's finish for that level
+                $rs->movePrev();
+
+                break;
+            }
+        }
+
+        return $list;
     }
 
     /**
@@ -305,34 +403,9 @@ class Widgets
 
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
-        $ref_level = $level = $rs->level - 1;
-        while ($rs->fetch()) {
-            $class = '';
-            if ((App::url()->getType() === 'category' && App::frontend()->context()->categories instanceof MetaRecord && App::frontend()->context()->categories->cat_id == $rs->cat_id)
-                || (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $rs->cat_id)) {
-                $class = ' class="category-current"';
-            }
-
-            if ($rs->level > $level) {
-                $res .= str_repeat('<ul><li' . $class . '>', (int) ($rs->level - $level));
-            } elseif ($rs->level < $level) {
-                $res .= str_repeat('</li></ul>', (int) -($rs->level - $level));
-            }
-
-            if ($rs->level <= $level) {
-                $res .= '</li><li' . $class . '>';
-            }
-
-            $res .= '<a href="' . App::blog()->url() . App::url()->getURLFor('category', $rs->cat_url) . '">' .
-            Html::escapeHTML($rs->cat_title) . '</a>' .
-                ($widget->get('postcount') ? ' <span>(' . ($widget->get('subcatscount') ? $rs->nb_total : $rs->nb_post) . ')</span>' : '');
-
-            $level = $rs->level;
-        }
-
-        if ($ref_level - $level < 0) {
-            $res .= str_repeat('</li></ul>', (int) -($ref_level - $level));
-        }
+        $res .= (new Ul())
+            ->items(static::categorySiblings($rs, $widget))
+        ->render();
 
         return $widget->renderDiv((bool) $widget->content_only, 'categories ' . $widget->class, '', $res);
     }
@@ -364,18 +437,26 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
-            '<ul>';
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
-        while ($rs->fetch()) {
-            $class = '';
-            if (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
-                $class = ' class="post-current"';
+        $posts = function (MetaRecord $rs) {
+            $class = App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id ? 'post-current' : '';
+            while ($rs->fetch()) {
+                yield (new Li())
+                    ->class($class)
+                    ->items([
+                        (new Link())
+                            ->href($rs->getURL())
+                            ->text(Html::escapeHTML($rs->post_title)),
+                    ]);
             }
-            $res .= ' <li' . $class . '><a href="' . $rs->getURL() . '">' . Html::escapeHTML($rs->post_title) . '</a></li> ';
-        }
+        };
 
-        $res .= '</ul>';
+        $res .= (new Ul())
+            ->items([
+                ...$posts($rs),
+            ])
+        ->render();
 
         return $widget->renderDiv((bool) $widget->content_only, 'selected ' . $widget->class, '', $res);
     }
@@ -404,25 +485,32 @@ class Widgets
         }
 
         $langs = L10n::getISOcodes();
-        $res   = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
-            '<ul>';
+        $res   = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
-        while ($rs->fetch()) {
-            $l = (App::frontend()->context()->cur_lang == $rs->post_lang) ? '<strong>%s</strong>' : '%s';
+        $lis = function (MetaRecord $rs) use ($langs) {
+            while ($rs->fetch()) {
+                $link = (new Link())
+                    ->href(App::blog()->url() . App::url()->getURLFor('lang', $rs->post_lang))
+                    ->class('lang-' . $rs->post_lang)
+                    ->text($langs[$rs->post_lang] ?? $rs->post_lang);
 
-            $lang_name = $langs[$rs->post_lang] ?? $rs->post_lang;
+                yield (new Li())
+                    ->items([
+                        App::frontend()->context()->cur_lang == $rs->post_lang ?
+                        (new Strong())
+                            ->items([
+                                $link,
+                            ]) :
+                        $link,
+                    ]);
+            }
+        };
 
-            $res .= ' <li>' .
-            sprintf(
-                $l,
-                '<a href="' . App::blog()->url() . App::url()->getURLFor('lang', $rs->post_lang) . '" ' .
-                'class="lang-' . $rs->post_lang . '">' .
-                $lang_name . '</a>'
-            ) .
-                ' </li>';
-        }
-
-        $res .= '</ul>';
+        $res .= (new Ul())
+            ->items([
+                ...$lis($rs),
+            ])
+        ->render();
 
         return $widget->renderDiv((bool) $widget->content_only, 'langs ' . $widget->class, '', $res);
     }
@@ -451,22 +539,32 @@ class Widgets
         $p_title = __('This blog\'s entries %s feed');
         $c_title = __('This blog\'s comments %s feed');
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
-            '<ul>';
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
-        $res .= '<li><a type="' . $mime . '" ' .
-        'href="' . App::blog()->url() . App::url()->getURLFor('feed', $type) . '" ' .
-        'title="' . sprintf($p_title, ($type == 'atom' ? 'Atom' : 'RSS')) . '" class="feed">' .
-        __('Entries feed') . '</a></li>';
-
-        if (App::blog()->settings()->system->allow_comments || App::blog()->settings()->system->allow_trackbacks) {
-            $res .= '<li><a type="' . $mime . '" ' .
-            'href="' . App::blog()->url() . App::url()->getURLFor('feed', $type . '/comments') . '" ' .
-            'title="' . sprintf($c_title, ($type == 'atom' ? 'Atom' : 'RSS')) . '" class="feed">' .
-            __('Comments feed') . '</a></li>';
-        }
-
-        $res .= '</ul>';
+        $res .= (new Ul())
+            ->items([
+                (new Li())
+                    ->items([
+                        (new Link())
+                            ->type($mime)
+                            ->href(App::blog()->url() . App::url()->getURLFor('feed', $type))
+                            ->title(sprintf($p_title, ($type == 'atom' ? 'Atom' : 'RSS')))
+                            ->class('feed')
+                            ->text(__('Entries feed')),
+                    ]),
+                (App::blog()->settings()->system->allow_comments || App::blog()->settings()->system->allow_trackbacks) ?
+                    (new Li())
+                        ->items([
+                            (new Link())
+                                ->type($mime)
+                                ->href(App::blog()->url() . App::url()->getURLFor('feed', $type . '/comments'))
+                                ->title(sprintf($c_title, ($type == 'atom' ? 'Atom' : 'RSS')))
+                                ->class('feed')
+                                ->text(__('Comments feed')),
+                        ]) :
+                    (new None()),
+            ])
+        ->render();
 
         return $widget->renderDiv((bool) $widget->content_only, 'syndicate ' . $widget->class, '', $res);
     }
@@ -501,31 +599,43 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
-            '<ul>';
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
-        $i = 0;
-        foreach ($feed->items as $item) {
-            $title = isset($item->title) && strlen(trim((string) $item->title)) ? $item->title : '';
-            $link  = isset($item->link)  && strlen(trim((string) $item->link)) ? $item->link : '';
+        $news = function ($items) use ($limit) {
+            $i = 0;
+            foreach ($items as $item) {
+                $title = isset($item->title) && strlen(trim((string) $item->title)) ? $item->title : '';
+                $link  = isset($item->link)  && strlen(trim((string) $item->link)) ? $item->link : '';
 
-            if (!$link && !$title) {
-                continue;
+                if (!$link && !$title) {
+                    continue;
+                }
+
+                if (!$title) {
+                    $title = substr($link, 0, 25) . '...';
+                }
+
+                yield (new Li())
+                    ->items([
+                        $link ?
+                        (new Link())
+                            ->href(Html::escapeHTML($item->link))
+                            ->text($title) :
+                        (new Text($title)),
+                    ]);
+
+                $i++;
+                if ($i >= $limit) {
+                    break;
+                }
             }
+        };
 
-            if (!$title) {
-                $title = substr($link, 0, 25) . '...';
-            }
-
-            $li = $link ? '<a href="' . Html::escapeHTML($item->link) . '">' . $title . '</a>' : $title;
-            $res .= ' <li>' . $li . '</li> ';
-            $i++;
-            if ($i >= $limit) {
-                break;
-            }
-        }
-
-        $res .= '</ul>';
+        $res .= (new Ul())
+            ->items([
+                ...$news($feed->items),
+            ])
+        ->render();
 
         return $widget->renderDiv((bool) $widget->content_only, 'feed ' . $widget->class, '', $res);
     }
@@ -591,19 +701,26 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
-            '<ul>';
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
-        while ($rs->fetch()) {
-            $class = '';
-            if (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id) {
-                $class = ' class="post-current"';
+        $posts = function (MetaRecord $rs) {
+            $class = App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id ? 'post-current' : '';
+            while ($rs->fetch()) {
+                yield (new Li())
+                    ->class($class)
+                    ->items([
+                        (new Link())
+                            ->href($rs->getURL())
+                            ->text(Html::escapeHTML($rs->post_title)),
+                    ]);
             }
-            $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .
-            Html::escapeHTML($rs->post_title) . '</a></li>';
-        }
+        };
 
-        $res .= '</ul>';
+        $res .= (new Ul())
+            ->items([
+                ...$posts($rs),
+            ])
+        ->render();
 
         return $widget->renderDiv((bool) $widget->content_only, 'lastposts ' . $widget->class, '', $res);
     }
@@ -632,18 +749,25 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') . '<ul>';
+        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
-        while ($rs->fetch()) {
-            $res .= '<li class="' .
-            ((bool) $rs->comment_trackback ? 'last-tb' : 'last-comment') .
-            '"><a href="' . $rs->getPostURL() . '#c' . $rs->comment_id . '">' .
-            Html::escapeHTML($rs->post_title) . ' - ' .
-            Html::escapeHTML($rs->comment_author) .
-                '</a></li>';
-        }
+        $comments = function (MetaRecord $rs) {
+            while ($rs->fetch()) {
+                yield (new Li())
+                    ->class((bool) $rs->comment_trackback ? 'last-tb' : 'last-comment')
+                    ->items([
+                        (new Link())
+                            ->href($rs->getPostURL() . '#c' . $rs->comment_id)
+                            ->text(Html::escapeHTML($rs->post_title) . ' - ' . Html::escapeHTML($rs->comment_author)),
+                    ]);
+            }
+        };
 
-        $res .= '</ul>';
+        $res .= (new Ul())
+            ->items([
+                ...$comments($rs),
+            ])
+        ->render();
 
         return $widget->renderDiv((bool) $widget->content_only, 'lastcomments ' . $widget->class, '', $res);
     }
