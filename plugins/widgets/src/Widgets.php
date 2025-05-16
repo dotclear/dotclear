@@ -339,7 +339,7 @@ class Widgets
      *
      * @param      int  $level   The current category level
      *
-     * @return     array<int, Li>
+     * @return     array<int, Li|Ul>
      */
     protected static function categorySiblings(MetaRecord $rs, WidgetsElement $widget, int $level = 1): array
     {
@@ -349,28 +349,38 @@ class Widgets
                 || (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $rs->cat_id) ? 'category-current' : '';
 
             if ((int) $rs->level === $level) {
+                $category = (new Set())
+                    ->separator(' ')
+                    ->items([
+                        (new Link())
+                            ->href(App::blog()->url() . App::url()->getURLFor('category', $rs->cat_url))
+                            ->text(Html::escapeHTML($rs->cat_title)),
+                        $widget->get('postcount') ?
+                        (new Span('(' . ($widget->get('subcatscount') ? $rs->nb_total : $rs->nb_post) . ')')) :
+                        (new None()),
+                    ]);
+                // Check if this category has some sub-categories
+                $sublist = (new None());
+                if (!$rs->isEnd() && $rs->fetch()) {    // @phpstan-ignore-line — If condition is NOT always true
+                    if ((int) $rs->level > $level) {
+                        // There are some sub-categories, get them
+                        $sublevel = (int) $rs->level;
+                        $rs->movePrev();
+
+                        $sublist = (new Ul())
+                            ->items(static::categorySiblings($rs, $widget, $sublevel));
+                    } else {
+                        // Same level of upper
+                        $rs->movePrev();
+                    }
+                }
                 $list[] = (new Li())
                     ->class($class)
                     ->items([
-                        (new Set())
-                            ->separator(' ')
-                            ->items([
-                                (new Link())
-                                    ->href(App::blog()->url() . App::url()->getURLFor('category', $rs->cat_url))
-                                    ->text(Html::escapeHTML($rs->cat_title)),
-                                $widget->get('postcount') ?
-                                (new Span('(' . ($widget->get('subcatscount') ? $rs->nb_total : $rs->nb_post) . ')')) :
-                                (new None()),
-                            ]),
+                        $category,
+                        $sublist,
                     ]);
-            } elseif ((int) $rs->level > $level) {
-                // It's a sub-category, get all of them
-                $sublevel = (int) $rs->level;
-                $rs->movePrev();
-
-                $list[] = (new Ul())
-                    ->items(static::categorySiblings($rs, $widget, $sublevel));
-            } else {
+            } elseif ((int) $rs->level < $level) {
                 // Rewind one step for an upper level and it's finish for that level
                 $rs->movePrev();
 
