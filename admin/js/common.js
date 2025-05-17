@@ -1344,7 +1344,7 @@ dotclear.ready(() => {
 
   // Advanced users, hide secondary information
   if (dotclear.data.hideMoreInfo) {
-    for (const element of document.querySelectorAll('.more-info,.form-note:not(.warn,.warning,.info)'))
+    for (const element of document.querySelectorAll('.more-info,.form-note:not(.warn,.warning)'))
       element.classList.add('no-more-info');
   }
 
