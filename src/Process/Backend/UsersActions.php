@@ -16,16 +16,35 @@ use Dotclear\Core\Backend\Notices;
 use Dotclear\Core\Backend\Page;
 use Dotclear\Core\Process;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Helper\Html\Form\Checkbox;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Fieldset;
+use Dotclear\Helper\Html\Form\Form;
+use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
+use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Legend;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Password;
+use Dotclear\Helper\Html\Form\Set;
+use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Strong;
+use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Exception;
-use form;
 
 /**
  * @since   2.27 Before as admin/users_actions.php
- *
- * @todo switch Helper/Html/Form/...
- * @todo Move UsersActions to backend Actions
  */
 class UsersActions extends Process
 {
@@ -229,30 +248,36 @@ class UsersActions extends Process
             exit;
         }
 
-        $hidden_fields = '';
+        $hiddens = [];
         foreach (App::backend()->users as $u) {
-            $hidden_fields .= form::hidden(['users[]'], $u);
+            $hiddens[] = (new Hidden(['users[]'], $u));
         }
 
         if (isset($_POST['redir']) && !str_contains((string) $_POST['redir'], '://')) {
-            $hidden_fields .= form::hidden(['redir'], Html::escapeURL($_POST['redir']));
+            $hiddens[] = (new Hidden(['redir'], Html::escapeURL($_POST['redir'])));
         } else {
-            $hidden_fields .= form::hidden(['q'], Html::escapeHTML($_POST['q'] ?? '')) .
-                form::hidden(['sortby'], $_POST['sortby'] ?? '') .
-                form::hidden(['order'], $_POST['order'] ?? '') .
-                form::hidden(['page'], $_POST['page'] ?? '') .
-                form::hidden(['nb'], $_POST['nb'] ?? '');
+            $hiddens[] = (new Hidden(['q'], Html::escapeHTML($_POST['q'] ?? '')));
+            $hiddens[] = (new Hidden(['sortby'], $_POST['sortby'] ?? ''));
+            $hiddens[] = (new Hidden(['order'], $_POST['order'] ?? ''));
+            $hiddens[] = (new Hidden(['page'], $_POST['page'] ?? ''));
+            $hiddens[] = (new Hidden(['nb'], $_POST['nb'] ?? ''));
         }
 
         $label = $_POST['redir_label'] ?? __('Back to user profile');
 
-        echo
-        '<p><a class="back" href="' . Html::escapeURL(App::backend()->redir) . '">' . $label . '</a></p>';
+        echo (new Para())
+            ->items([
+                (new Link())
+                    ->href(Html::escapeURL(App::backend()->redir))
+                    ->text($label)
+                    ->class('back'),
+            ])
+        ->render();
 
-        # --BEHAVIOR-- adminUsersActionsContent -- string, string
-        App::behavior()->callBehavior('adminUsersActionsContentV2', App::backend()->action, $hidden_fields);
+        # --BEHAVIOR-- adminUsersActionsContent -- string, string, array<int, Hidden>
+        App::behavior()->callBehavior('adminUsersActionsContentV2', App::backend()->action, $hiddens);
 
-        if (!empty(App::backend()->users) && empty(App::backend()->blogs) && App::backend()->action == 'blogs') {
+        if (!empty(App::backend()->users) && empty(App::backend()->blogs) && App::backend()->action === 'blogs') {
             // Blog list where to set permissions
 
             $rs      = null;
@@ -265,71 +290,124 @@ class UsersActions extends Process
                 // Ignore exceptions
             }
 
-            $user_list = [];
+            $users = [];
             foreach (App::backend()->users as $u) {
-                $user_list[] = '<a href="' . App::backend()->url()->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
+                $users[] = (new Link())
+                    ->href(App::backend()->url()->get('admin.user', ['id' => $u]))
+                    ->text($u);
             }
 
-            echo
-            '<p>' . sprintf(
-                __('Choose one or more blogs to which you want to give permissions to users %s.'),
-                implode(', ', $user_list)
-            ) . '</p>';
+            echo (new Note())
+                ->text(sprintf(
+                    __('Choose one or more blogs to which you want to give permissions to users %s.'),
+                    implode(', ', array_map(fn ($user): string => $user->render(), $users))
+                ))
+            ->render();
 
-            if ($nb_blog == 0) {
-                echo '<p><strong>' . __('No blog') . '</strong></p>';
+            if ($nb_blog === 0 || !$rs instanceof MetaRecord) {
+                echo (new Para())
+                    ->items([
+                        (new Strong(__('No blog'))),
+                    ])
+                ->render();
             } else {
-                echo
-                '<form action="' . App::backend()->url()->get('admin.user.actions') . '" method="post" id="form-blogs">' .
-                '<div class="table-outer clear">' .
-                '<table><tr>' .
-                '<th class="nowrap" colspan="2">' . __('Blog ID') . '</th>' .
-                '<th class="nowrap">' . __('Blog name') . '</th>' .
-                '<th class="nowrap">' . __('URL') . '</th>' .
-                '<th class="nowrap">' . __('Entries') . '</th>' .
-                '<th class="nowrap">' . __('Status') . '</th>' .
-                '</tr>';
-
-                if ($rs instanceof MetaRecord) {
+                $lines = function (MetaRecord $rs) {
                     while ($rs->fetch()) {
-                        echo
-                        '<tr class="line">' .
-                        '<td class="nowrap">' .
-                        form::checkbox(
-                            ['blogs[]'],
-                            $rs->blog_id,
-                            [
-                                'extra_html' => 'title="' . __('select') . ' ' . $rs->blog_id . '"',
-                            ]
-                        ) .
-                        '</td>' .
-                        '<td class="nowrap">' . $rs->blog_id . '</td>' .
-                        '<td class="maximal">' . Html::escapeHTML($rs->blog_name) . '</td>' .
-                        '<td class="nowrap"><a class="outgoing" href="' . Html::escapeHTML($rs->blog_url) . '">' . Html::escapeHTML($rs->blog_url) .
-                        ' <img src="images/outgoing-link.svg" alt=""></a></td>' .
-                        '<td class="nowrap">' . App::blogs()->countBlogPosts($rs->blog_id) . '</td>' .
-                        '<td class="status">' . App::status()->blog()->image((int) $rs->blog_status)->render() . '</td>' .
-                        '</tr>';
+                        yield (new Tr())
+                            ->class('line')
+                            ->cols([
+                                (new Td())
+                                    ->class('nowrap')
+                                    ->items([
+                                        (new Checkbox(['blogs[]']))
+                                            ->value($rs->blog_id)
+                                            ->title(__('select') . ' ' . $rs->blog_id),
+                                    ]),
+                                (new Td())
+                                    ->class('nowrap')
+                                    ->text($rs->blog_id),
+                                (new Td())
+                                    ->class('maximal')
+                                    ->text(Html::escapeHTML($rs->blog_name)),
+                                (new Td())
+                                    ->class('nowrap')
+                                    ->items([
+                                        (new Link())
+                                            ->href(Html::escapeHTML($rs->blog_url))
+                                            ->class('outgoing')
+                                            ->separator(' ')
+                                            ->items([
+                                                (new Text(null, Html::escapeHTML($rs->blog_url))),
+                                                (new Img('images/outgoing-link.svg'))
+                                                    ->alt(''),
+                                            ]),
+                                    ]),
+                                (new Td())
+                                    ->class(['nowrap', 'count'])
+                                    ->text((string) App::blogs()->countBlogPosts($rs->blog_id)),
+                                (new Td())
+                                    ->class('status')
+                                    ->items([
+                                        App::status()->blog()->image((int) $rs->blog_status),
+                                    ]),
+                            ]);
                     }
-                }
+                };
 
-                echo
-                '</table></div>' .
-                '<p class="checkboxes-helpers"></p>' .
-                '<p><input id="do-action" type="submit" value="' . __('Set permissions') . '">' .
-                $hidden_fields .
-                form::hidden(['action'], 'perms') .
-                App::nonce()->getFormNonce() . '</p>' .
-                '</form>';
+                echo (new Form('form-blogs'))
+                    ->method('post')
+                    ->action(App::backend()->url()->get('admin.user.actions'))
+                    ->fields([
+                        (new Div())
+                            ->class(['table-outer', 'clear'])
+                            ->items([
+                                (new Table())
+                                    ->thead((new Thead())
+                                        ->rows([
+                                            (new Th())
+                                                ->class('nowrap')
+                                                ->colspan(2)
+                                                ->text(__('Blog ID')),
+                                            (new Th())
+                                                ->class('nowrap')
+                                                ->text(__('Blog name')),
+                                            (new Th())
+                                                ->class('nowrap')
+                                                ->text(__('URL')),
+                                            (new Th())
+                                                ->class(['nowrap', 'count'])
+                                                ->text(__('Entries')),
+                                            (new Th())
+                                                ->class('nowrap')
+                                                ->text(__('Status')),
+                                        ]))
+                                    ->tbody((new Tbody())
+                                        ->rows([
+                                            ... $lines($rs),
+                                        ])),
+                            ]),
+                        (new Para())
+                            ->class('checkboxes-helpers'),
+                        (new Para())
+                            ->class(['form-buttons'])
+                            ->items([
+                                App::nonce()->formNonce(),
+                                ...$hiddens,
+                                (new Hidden(['action'], 'perms')),
+                                (new Submit('do-action', __('Set permissions'))),
+                            ]),
+                    ])
+                ->render();
             }
-        } elseif (!empty(App::backend()->blogs) && !empty(App::backend()->users) && App::backend()->action == 'perms') {
+        } elseif (!empty(App::backend()->blogs) && !empty(App::backend()->users) && App::backend()->action === 'perms') {
             // Permissions list for each selected blogs
 
             /**
              * @var        array<string, array{name: mixed, url: mixed, p: array<string, bool>}>
              */
             $user_perm = [];
-            if ((is_countable(App::backend()->users) ? count(App::backend()->users) : 0) == 1) {
+            if (count(App::backend()->users) === 1) {
+                // Display actual permissions if there is only one user concerned
                 $user_perm = App::users()->getUserPermissions(App::backend()->users[0]);
             }
 
@@ -338,80 +416,114 @@ class UsersActions extends Process
              */
             $unknown_perms = [];
 
-            $user_list = [];
+            $users = [];
             foreach (App::backend()->users as $u) {
-                $user_list[] = '<a href="' . App::backend()->url()->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
+                $users[] = (new Link())
+                    ->href(App::backend()->url()->get('admin.user', ['id' => $u]))
+                    ->text($u);
             }
 
-            echo
-            '<p>' . sprintf(
-                __('You are about to change permissions on the following blogs for users %s.'),
-                implode(', ', $user_list)
-            ) . '</p>' .
-            '<form id="permissions-form" action="' . App::backend()->url()->get('admin.user.actions') . '" method="post">';
+            echo (new Note())
+                ->text(sprintf(
+                    __('You are about to change permissions on the following blogs for users %s.'),
+                    implode(', ', array_map(fn ($user): string => $user->render(), $users))
+                ))
+            ->render();
 
+            $blogs = [];
             foreach (App::backend()->blogs as $b) {
-                echo
-                '<h3>' . __('Blog:') . ' <a href="' . App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($b)]) . '">' . Html::escapeHTML($b) . '</a>' .
-                form::hidden(['blogs[]'], $b) . '</h3>';
-
                 $unknown_perms = $user_perm;
+                $permissions   = [];
+                $unknowns      = [];
                 foreach (App::auth()->getPermissionsTypes() as $perm_id => $perm) {
                     $checked = false;
-
-                    if ((is_countable(App::backend()->users) ? count(App::backend()->users) : 0) == 1) {
+                    if (count(App::backend()->users) === 1) {
+                        // Display actual permissions if there is only one user concerned
                         $checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
                     }
                     if (isset($unknown_perms[$b]['p'][$perm_id])) {
                         unset($unknown_perms[$b]['p'][$perm_id]);
                     }
 
-                    echo
-                    '<p><label for="perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id) . '" class="classic">' .
-                    form::checkbox(
-                        ['perm[' . Html::escapeHTML($b) . '][' . Html::escapeHTML($perm_id) . ']', 'perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id)],
-                        1,
-                        $checked
-                    ) . ' ' .
-                    __($perm) . '</label></p>';
+                    $permissions[] = (new Para())
+                        ->items([
+                            (new Checkbox(['perm[' . Html::escapeHTML($b) . '][' . Html::escapeHTML($perm_id) . ']', 'perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id)], $checked))
+                                ->value(1)
+                                ->label(new Label(__($perm), Label::IL_FT, 'perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id))),
+                        ]);
                 }
+
                 if (isset($unknown_perms[$b])) {
-                    foreach ($unknown_perms[$b]['p'] as $perm_id => $v) {
-                        $checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
-                        echo
-                        '<p><label for="perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id) . '" class="classic">' .
-                        form::checkbox(
-                            ['perm[' . Html::escapeHTML($b) . '][' . Html::escapeHTML($perm_id) . ']',
-                                'perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id), ],
-                            1,
-                            $checked
-                        ) . ' ' .
-                        sprintf(__('[%s] (unreferenced permission)'), $perm_id) . '</label></p>';
+                    foreach (array_keys($unknown_perms[$b]['p']) as $perm_id) {
+                        $checked = false;
+                        if (count(App::backend()->users) === 1) {
+                            // Display actual permissions if there is only one user concerned
+                            $checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
+                        }
+                        $unknowns[] = (new Para())
+                            ->items([
+                                (new Checkbox(['perm[' . Html::escapeHTML($b) . '][' . Html::escapeHTML($perm_id) . ']', 'perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id)], $checked))
+                                    ->value(1)
+                                    ->label(new Label(sprintf(__('[%s] (unreferenced permission)'), $perm_id), Label::IL_FT, 'perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id))),
+                            ]);
                     }
                 }
+
+                $blogs[] = (new Set())
+                    ->items([
+                        (new Text('h3'))
+                            ->separator(' ')
+                            ->items([
+                                (new Text(null, __('Blog:'))),
+                                (new Link())
+                                    ->href(App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($b)]))
+                                    ->text(Html::escapeHTML($b)),
+                                (new Hidden(['blogs[]'], $b)),
+                            ]),
+                        ... $permissions,
+                        ... $unknowns,
+                    ]);
             }
 
-            echo
-            '<p class="checkboxes-helpers"></p>' .
-            '<div class="fieldset">' .
-            '<h3>' . __('Validate permissions') . '</h3>' .
-            '<p class="form-note">' . sprintf(__('Fields preceded by %s are mandatory.'), '<span class="required">*</span>') . '</p>' .
-            '<p><label for="your_pwd" class="required"><span>*</span> ' . __('Your administrator password:') . '</label>' .
-            form::password(
-                'your_pwd',
-                20,
-                255,
-                [
-                    'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                    'autocomplete' => 'current-password',
-                ]
-            ) . '</p>' .
-            '<p><input type="submit" accesskey="s" value="' . __('Save') . '">' .
-            $hidden_fields .
-            form::hidden(['action'], 'updateperm') .
-            App::nonce()->getFormNonce() . '</p>' .
-            '</div>' .
-            '</form>';
+            echo (new Form('permissions-form'))
+                ->method('post')
+                ->action(App::backend()->url()->get('admin.user.actions'))
+                ->fields([
+                    ... $blogs,
+                    (new Para())
+                        ->class('checkboxes-helpers'),
+                    (new Fieldset())
+                        ->legend(new Legend(__('Validate permissions')))
+                        ->fields([
+                            (new Note())
+                                ->class('form-note')
+                                ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
+                            (new Para())
+                                ->items([
+                                    (new Password('your_pwd'))
+                                            ->size(20)
+                                            ->maxlength(255)
+                                            ->required(true)
+                                            ->placeholder(__('Password'))
+                                            ->autocomplete('current-password')
+                                            ->label((new Label(
+                                                (new Span('*'))->render() . __('Your administrator password:'),
+                                                Label::OL_TF
+                                            ))
+                                            ->class('required')),
+                                ]),
+                            (new Para())
+                                ->class(['form-buttons'])
+                                ->items([
+                                    App::nonce()->formNonce(),
+                                    ...$hiddens,
+                                    (new Hidden(['action'], 'updateperm')),
+                                    (new Submit('do-action', __('Save')))
+                                        ->accesskey('s'),
+                                ]),
+                        ]),
+                ])
+            ->render();
         }
 
         Page::helpBlock('core_users');
