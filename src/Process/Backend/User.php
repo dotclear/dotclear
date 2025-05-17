@@ -47,8 +47,6 @@ use Exception;
 
 /**
  * @since 2.27 Before as admin/user.php
- *
- * @todo switch Helper/Html/Form/...
  */
 class User extends Process
 {
