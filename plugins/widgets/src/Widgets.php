@@ -346,7 +346,7 @@ class Widgets
         $list = [];
         while ($rs->fetch()) {
             $class = (App::url()->getType() === 'category' && App::frontend()->context()->categories instanceof MetaRecord && App::frontend()->context()->categories->cat_id == $rs->cat_id)
-                || (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $rs->cat_id) ? 'category-current' : '';
+                || (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $rs->cat_id) ? 'category-current' : null;
 
             if ((int) $rs->level === $level) {
                 $category = (new Set())
@@ -450,7 +450,7 @@ class Widgets
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
         $posts = function (MetaRecord $rs) {
-            $class = App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id ? 'post-current' : '';
+            $class = App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id ? 'post-current' : null;
             while ($rs->fetch()) {
                 yield (new Li())
                     ->class($class)
@@ -714,7 +714,7 @@ class Widgets
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
         $posts = function (MetaRecord $rs) {
-            $class = App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id ? 'post-current' : '';
+            $class = App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id ? 'post-current' : null;
             while ($rs->fetch()) {
                 yield (new Li())
                     ->class($class)
