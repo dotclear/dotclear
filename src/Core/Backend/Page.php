@@ -979,7 +979,7 @@ class Page
             ->items([
                 (new Text(null, 'Memory: usage = ')),
                 (new Strong(Files::size(memory_get_usage()))),
-                (new Text(null, '- peak = ')),
+                (new Text(null, ' - peak = ')),
                 (new Strong(Files::size(memory_get_peak_usage()))),
             ]);
 
@@ -1024,17 +1024,18 @@ class Page
         $exclude     = ['_COOKIE', '_ENV', '_FILES', '_GET', '_POST', '_REQUEST', '_SERVER', '_SESSION'];
         $global_vars = array_diff(array_keys($GLOBALS), $exclude);
         sort($global_vars);
+        $vars = array_map(fn ($var): string => (new Strong((string) $var))->render(), $global_vars);
 
         $items[] = (new Para())
             ->items([
-                (new Text(null, 'Global vars (Dotclear only): ' . implode(', ', $global_vars))),
+                (new Text(null, 'Global vars (Dotclear only): ' . implode(', ', $vars))),
             ]);
 
         $items[] = (new Para())
             ->items([
                 (new Text(null, 'Autoloader: requests = ')),
                 (new Strong((string) Autoloader::me()->getRequestsCount())),
-                (new Text(null, '- loads = ')),
+                (new Text(null, ' - loads = ')),
                 (new Strong((string) Autoloader::me()->getLoadsCount())),
             ]);
 
