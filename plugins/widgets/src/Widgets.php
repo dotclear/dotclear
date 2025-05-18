@@ -386,6 +386,10 @@ class Widgets
 
                 break;
             }
+
+            if ($rs->isEnd()) {
+                break;
+            }
         }
 
         return $list;
