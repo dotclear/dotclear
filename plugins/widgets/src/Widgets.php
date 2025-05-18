@@ -411,6 +411,9 @@ class Widgets
             return '';
         }
 
+        // Static loading of all records, as we'll be navigating backwards and forwards each time we change category level.
+        $rs = $rs->toStatic();
+
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
         $res .= (new Ul())
