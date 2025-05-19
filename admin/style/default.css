@@ -3981,6 +3981,7 @@ On adapte largeur et hauteur en fonction
 }
 #categories ul ul {
   margin: 0 1em 0 2em;
+  flex-basis: 100%;
 }
 #categories .placeholder {
   outline: 1px dashed var(--cat-placeholder-outline);
