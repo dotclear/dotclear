@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Unit tests
  *
@@ -572,7 +573,7 @@ class Div extends atoum
             ->match('/<div.*?>\n<\/div>/')
             ->contains('name="my"')
             ->contains('id="my"')
-            ->contains('class=""')
+            ->notContains('class=""')
         ;
     }
 

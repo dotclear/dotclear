@@ -411,6 +411,21 @@ abstract class Component
      */
     public function renderCommonAttributes(bool $includeValue = true): string
     {
+        // Sanitize some attributes
+        $doUnsetEmpties = function (string $propertyName) {
+            if (is_array($this->{$propertyName})) {
+                // Remove empty items in array
+                $this->{$propertyName} = array_filter($this->{$propertyName});
+            }
+            if ($this->{$propertyName} === '' || $this->{$propertyName} === []) {
+                // Unset empty property
+                $this->{$propertyName} = null;
+            }
+        };
+        $doUnsetEmpties('class');
+        $doUnsetEmpties('extra');
+
+        //Render attributes
         $render = '' .
 
             // Type (used for input component)
@@ -444,7 +459,7 @@ abstract class Component
             ($this->autofocus !== null && $this->autofocus ?
                 ' autofocus' : '') .
             ($this->class !== null ?
-                ' class="' . (is_array($this->class) ? implode(' ', array_filter($this->class, fn ($class): bool => $class !== '')) : $this->class) . '"' : '') .
+                ' class="' . (is_array($this->class) ? implode(' ', $this->class) : $this->class) . '"' : '') .
             ($this->contenteditable !== null && $this->contenteditable ?
                 ' contenteditable' : '') .
             ($this->dir !== null ?
