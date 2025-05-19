@@ -201,8 +201,10 @@ class Upgrade extends Process
     {
         if (self::$step === 'unzip' && !App::error()->flag()) {
             // Update done, need to go back to authentication (see below), but we need
-            // to kill the admin session before sending any header
+            // to kill the admin session before
             App::upgrade()->killAdminSession();
+            // Redirect to authentication
+            App::Upgrade()->url()->redirect('upgrade.auth');
         }
 
         $items = [];
@@ -277,6 +279,7 @@ class Upgrade extends Process
                 }
             }
         } elseif (self::$step === 'unzip' && !App::error()->flag()) {
+            // We normally should not pass through these block, but who knows?
             $items[] = (new Div())
                 ->class('fieldset')
                 ->items([
