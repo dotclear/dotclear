@@ -334,65 +334,63 @@ class Widgets
         return $widget->renderDiv((bool) $widget->content_only, $widget->class, 'id="topnav"', $res);
     }
 
-    /**
-     * Get list of categories and sub-categories at a specific level
-     *
-     * @param      int  $level   The current category level
-     *
-     * @return     array<int, Li|Ul>
-     */
-    protected static function categorySiblings(MetaRecord $rs, WidgetsElement $widget, int $level = 1): array
+    public static function buildCategoryList(MetaRecord $rs, WidgetsElement $widget): Ul
     {
-        $list = [];
-        while ($rs->fetch()) {
-            $class = (App::url()->getType() === 'category' && App::frontend()->context()->categories instanceof MetaRecord && App::frontend()->context()->categories->cat_id == $rs->cat_id)
-                || (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $rs->cat_id) ? 'category-current' : '';
+        $root       = new Ul();
+        $stack      = [0 => $root];    // level => Ul
+        $last_child = [];              // level => last Li object at this level
 
-            if ((int) $rs->level === $level) {
-                $category = (new Set())
-                    ->separator(' ')
-                    ->items([
-                        (new Link())
-                            ->href(App::blog()->url() . App::url()->getURLFor('category', $rs->cat_url))
-                            ->text(Html::escapeHTML($rs->cat_title)),
-                        $widget->get('postcount') ?
-                        (new Span('(' . ($widget->get('subcatscount') ? $rs->nb_total : $rs->nb_post) . ')')) :
-                        (new None()),
-                    ]);
-                // Check if this category has some sub-categories
-                $sublist = (new None());
-                if (!$rs->isEnd() && $rs->fetch()) {    // @phpstan-ignore-line — If condition is NOT always true
-                    if ((int) $rs->level > $level) {
-                        // There are some sub-categories, get them
-                        $sublevel = (int) $rs->level;
-                        $rs->movePrev();
+        $categories = $rs->rows();
+        $count      = $rs->count();
 
-                        $sublist = (new Ul())
-                            ->items(static::categorySiblings($rs, $widget, $sublevel));
-                    } else {
-                        // Same level of upper
-                        $rs->movePrev();
-                    }
-                }
-                $list[] = (new Li())
-                    ->class([$class])
-                    ->items([
-                        $category,
-                        $sublist,
-                    ]);
-            } elseif ((int) $rs->level < $level) {
-                // Rewind one step for an upper level and it's finish for that level
-                $rs->movePrev();
+        for ($i = 0; $i < $count; $i++) {
+            $category = $categories[$i];
+            $level    = $category['level'];
 
-                break;
+            $class = (App::url()->getType() === 'category' && App::frontend()->context()->categories instanceof MetaRecord && App::frontend()->context()->categories->cat_id == $category['cat_id']) || (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $category['cat_id']) ? 'category-current' : '';
+
+            $li = (new Li())
+                ->class([$class])
+                ->items([
+                    (new Set())
+                        ->separator(' ')
+                        ->items([
+                            (new Link())
+                                ->href(App::blog()->url() . App::url()->getURLFor('category', $category['cat_url']))
+                                ->text(Html::escapeHTML($category['cat_title'])),
+                            $widget->get('postcount') ?
+                            (new Span('(' . ($widget->get('subcatscount') ? $category['nb_total'] : $category['nb_post']) . ')')) :
+                            (new None()),
+                        ]),
+                ]);
+
+            // Add Li to its parent Ul
+            $items                    = $stack[$level - 1]->items;
+            $items[]                  = $li;
+            $stack[$level - 1]->items = $items;
+            $last_child[$level]       = $li;
+
+            // Look ahead to see if this node will have children
+            $next_level = $categories[$i + 1]['level'] ?? 0;
+            if ($next_level > $level) {
+                $ul = new Ul();
+
+                $items   = $li->items;
+                $items[] = $ul;
+                $li->items($items);
+
+                $stack[$level] = $ul;
             }
 
-            if ($rs->isEnd()) {
-                break;
+            // Remove deeper levels from stack and lastLis
+            foreach (array_keys($stack) as $k) {
+                if ($k > $level) {
+                    unset($stack[$k], $last_child[$k]);
+                }
             }
         }
 
-        return $list;
+        return $root;
     }
 
     /**
@@ -420,9 +418,7 @@ class Widgets
 
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
-        $res .= (new Ul())
-            ->items(static::categorySiblings($rs, $widget))
-        ->render();
+        $res .= static::buildCategoryList($rs, $widget)->render();
 
         return $widget->renderDiv((bool) $widget->content_only, 'categories ' . $widget->class, '', $res);
     }
