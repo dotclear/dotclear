@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "158ff6fd3f3ed306cea3c4b982550a2e",
+    "content-hash": "a26a011c65a1c84349358bc7f1a83ab0",
     "packages": [],
     "packages-dev": [
         {
@@ -442,16 +442,16 @@
         },
         {
             "name": "atoum/atoum",
-            "version": "4.2.0",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/atoum/atoum.git",
-                "reference": "fd9a339de252ea774ab755b3fd25dd19be2dbefb"
+                "reference": "d0abc122b702b053082baa3913b0f88459457e1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atoum/atoum/zipball/fd9a339de252ea774ab755b3fd25dd19be2dbefb",
-                "reference": "fd9a339de252ea774ab755b3fd25dd19be2dbefb",
+                "url": "https://api.github.com/repos/atoum/atoum/zipball/d0abc122b702b053082baa3913b0f88459457e1d",
+                "reference": "d0abc122b702b053082baa3913b0f88459457e1d",
                 "shasum": ""
             },
             "require": {
@@ -523,9 +523,9 @@
             ],
             "support": {
                 "issues": "https://github.com/atoum/atoum/issues",
-                "source": "https://github.com/atoum/atoum/tree/4.2.0"
+                "source": "https://github.com/atoum/atoum/tree/4.3.0"
             },
-            "time": "2023-07-30T12:52:23+00:00"
+            "time": "2025-05-16T17:33:34+00:00"
         },
         {
             "name": "atoum/reports-extension",
@@ -901,16 +901,16 @@
         },
         {
             "name": "fakerphp/faker",
-            "version": "v1.21.0",
+            "version": "2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "92efad6a967f0b79c499705c69b662f738cc9e4d"
+                "reference": "c5c3935a6d764e8b94dafb8001ba9f814b159411"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/92efad6a967f0b79c499705c69b662f738cc9e4d",
-                "reference": "92efad6a967f0b79c499705c69b662f738cc9e4d",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/c5c3935a6d764e8b94dafb8001ba9f814b159411",
+                "reference": "c5c3935a6d764e8b94dafb8001ba9f814b159411",
                 "shasum": ""
             },
             "require": {
@@ -923,27 +923,30 @@
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4.1",
-                "doctrine/persistence": "^1.3 || ^2.0",
                 "ext-intl": "*",
                 "phpunit/phpunit": "^9.5.26",
                 "symfony/phpunit-bridge": "^5.4.16"
             },
             "suggest": {
-                "doctrine/orm": "Required to use Faker\\ORM\\Doctrine",
                 "ext-curl": "Required by Faker\\Provider\\Image to download images.",
                 "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
                 "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
                 "ext-mbstring": "Required for multibyte Unicode string functionality."
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": false
+                },
                 "branch-alias": {
                     "dev-main": "v1.21-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Faker\\": "src/Faker/"
+                    "Faker\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -963,9 +966,9 @@
             ],
             "support": {
                 "issues": "https://github.com/FakerPHP/Faker/issues",
-                "source": "https://github.com/FakerPHP/Faker/tree/v1.21.0"
+                "source": "https://github.com/FakerPHP/Faker/tree/2.0"
             },
-            "time": "2022-12-13T13:54:32+00:00"
+            "time": "2025-05-06T05:51:35+00:00"
         },
         {
             "name": "felixfbecker/advanced-json-rpc",
@@ -1470,12 +1473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "292e04d3349c24439a6f22e050993f7dec09e78e"
+                "reference": "8d3e66f15a8926648ee88581ead5c169d2ec6aaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/292e04d3349c24439a6f22e050993f7dec09e78e",
-                "reference": "292e04d3349c24439a6f22e050993f7dec09e78e",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/8d3e66f15a8926648ee88581ead5c169d2ec6aaa",
+                "reference": "8d3e66f15a8926648ee88581ead5c169d2ec6aaa",
                 "shasum": ""
             },
             "require": {
@@ -1521,7 +1524,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-02-26T13:44:36+00:00"
+            "time": "2025-05-20T14:57:01+00:00"
         },
         {
             "name": "psr/container",
@@ -1634,17 +1637,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "38b7d8f7c1f20452ebf69581be1c2c4014445b3f"
+                "reference": "2e75b3b3538294c30f42e1fb857fabb58ef67cb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/38b7d8f7c1f20452ebf69581be1c2c4014445b3f",
-                "reference": "38b7d8f7c1f20452ebf69581be1c2c4014445b3f",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/2e75b3b3538294c30f42e1fb857fabb58ef67cb6",
+                "reference": "2e75b3b3538294c30f42e1fb857fabb58ef67cb6",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.1.6"
+                "phpstan/phpstan": "^2.1.15"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -1686,7 +1689,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-02-25T11:44:42+00:00"
+            "time": "2025-05-20T15:41:57+00:00"
         },
         {
             "name": "revolt/event-loop",
@@ -3029,6 +3032,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "fakerphp/faker": 20,
         "phpstan/phpstan": 20,
         "rector/rector": 20,
         "vimeo/psalm": 20
