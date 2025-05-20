@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -32,7 +33,7 @@ class Install extends Process
 
         $schema = new Structure(App::con(), App::con()->prefix());
 
-        $schema->{Blogroll::LINK_TABLE_NAME}
+        $schema->{Blogroll::LINK_TABLE_NAME}    // @phpstan-ignore-line (weird usage of __call to set field in Table)
             ->link_id('bigint', 0, false)
             ->blog_id('varchar', 32, false)
             ->link_href('varchar', 255, false)

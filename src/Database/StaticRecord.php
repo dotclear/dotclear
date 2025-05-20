@@ -55,8 +55,6 @@ class StaticRecord extends Record
             parent::__construct($result, $info ?? []);
             $this->__data = parent::getData();
         }
-
-        unset($this->__link, $this->__result);
     }
 
     /**

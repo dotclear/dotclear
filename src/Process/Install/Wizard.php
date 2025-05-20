@@ -109,7 +109,7 @@ class Wizard extends Process
 
         if ($_POST !== [] || !empty($_SERVER['DC_DBDRIVER'])) {
             try {
-                if (self::$DBDRIVER == 'sqlite' && !str_contains((string) self::$DBNAME, '/')) {
+                if (self::$DBDRIVER === 'sqlite' && !str_contains(self::$DBNAME, '/')) {
                     $sqlite_db_directory = dirname(App::config()->configPath()) . '/../db/';
                     Files::makeDir($sqlite_db_directory, true);
 

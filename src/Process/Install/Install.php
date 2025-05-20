@@ -153,23 +153,23 @@ class Install extends Process
 
             try {
                 # Check user information
-                if (empty(self::$u_login)) {
+                if (!self::$u_login) {
                     throw new Exception(__('No user ID given'));
                 }
-                if (!preg_match('/^[A-Za-z0-9@._-]{2,}$/', (string) self::$u_login)) {
+                if (!preg_match('/^[A-Za-z0-9@._-]{2,}$/', self::$u_login)) {
                     throw new Exception(__('User ID must contain at least 2 characters using letters, numbers or symbols.'));
                 }
                 if (self::$u_email && !Text::isEmail(self::$u_email)) {
                     throw new Exception(__('Invalid email address'));
                 }
 
-                if (empty(self::$u_pwd)) {
+                if (!self::$u_pwd) {
                     throw new Exception(__('No password given'));
                 }
                 if (self::$u_pwd != self::$u_pwd2) {
                     throw new Exception(__("Passwords don't match"));
                 }
-                if (strlen((string) self::$u_pwd) < 6) {
+                if (strlen(self::$u_pwd) < 6) {
                     throw new Exception(__('Password must contain at least 6 characters.'));
                 }
 

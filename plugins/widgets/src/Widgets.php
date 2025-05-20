@@ -366,7 +366,7 @@ class Widgets
 
             // Add Li to its parent Ul
             $items                    = $stack[$level - 1]->items;
-            $items[]                  = $li;
+            $items[]                  = $li;    // @phpstan-ignore-line
             $stack[$level - 1]->items = $items;
             $last_child[$level]       = $li;
 
@@ -376,7 +376,7 @@ class Widgets
                 $ul = new Ul();
 
                 $items   = $li->items;
-                $items[] = $ul;
+                $items[] = $ul;     // @phpstan-ignore-line
                 $li->items($items);
 
                 $stack[$level] = $ul;

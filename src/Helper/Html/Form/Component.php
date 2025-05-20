@@ -412,12 +412,12 @@ abstract class Component
     public function renderCommonAttributes(bool $includeValue = true): string
     {
         // Sanitize some attributes
-        $doUnsetEmpties = function (string $propertyName) {
+        $doUnsetEmpties = function (string $propertyName): void {
             if (is_array($this->{$propertyName})) {
                 // Remove empty items in array
                 $this->{$propertyName} = array_filter($this->{$propertyName});
             }
-            if ($this->{$propertyName} === '' || $this->{$propertyName} === []) {
+            if ($this->{$propertyName} === '' || $this->{$propertyName} === []) {   // @phpstan-ignore-line
                 // Unset empty property
                 $this->{$propertyName} = null;
             }

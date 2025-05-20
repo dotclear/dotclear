@@ -104,7 +104,7 @@ class Parser
             $this->parseAtom03();
         }
 
-        unset($data, $this->xml);
+        unset($data);
     }
 
     /**

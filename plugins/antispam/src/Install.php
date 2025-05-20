@@ -35,7 +35,7 @@ class Install extends Process
         -------------------------------------------------------- */
         $schema = new Structure(App::con(), App::con()->prefix());
 
-        $schema->{Antispam::SPAMRULE_TABLE_NAME}
+        $schema->{Antispam::SPAMRULE_TABLE_NAME}    // @phpstan-ignore-line (weird usage of __call to set field in Table)
             ->rule_id('bigint', 0, false)
             ->blog_id('varchar', 32, true)
             ->rule_type('varchar', 16, false, "'word'")
