@@ -37,7 +37,13 @@ class Rest
                 App::filter()->initWikiPost();
             }
             $html = App::formater()->callEditorFormater(My::id(), 'wiki', $wiki);
-            $ret  = strlen($html) > 0;
+
+            # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
+            App::behavior()->callBehavior('coreContentFilter', 'post', [
+                [&$html, 'html'],
+            ]);
+
+            $ret = strlen($html) > 0;
 
             if ($ret) {
                 $media_root = App::blog()->host();
