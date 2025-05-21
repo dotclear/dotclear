@@ -3418,6 +3418,8 @@ span.ibw {
 }
 #login-screen h2 {
   padding: 0;
+  color: var(--title-alt-color);
+  text-align: end;
 }
 #login-screen fieldset {
   border: 1px solid var(--login-fieldset-border);

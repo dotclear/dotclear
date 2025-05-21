@@ -180,6 +180,12 @@ class Auth extends Process
         '  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen">' .
 
         Page::jsCommon() .
+        Page::jsJson('pwstrength', [
+            'min' => sprintf(__('Password strength: %s'), __('weak')),
+            'avg' => sprintf(__('Password strength: %s'), __('medium')),
+            'max' => sprintf(__('Password strength: %s'), __('strong')),
+        ]) .
+        Page::jsLoad('js/pwstrength.js') .
         Page::jsLoad('js/_auth.js') .
 
         '</head>' . "\n" .

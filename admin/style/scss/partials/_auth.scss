@@ -14,6 +14,8 @@
   }
   h2 {
     padding: 0;
+    color: var(--title-alt-color);
+    text-align: end;
   }
   fieldset {
     border: 1px solid var(--login-fieldset-border);
