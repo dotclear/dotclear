@@ -93,12 +93,8 @@ class Auth implements AuthInterface
 
     /**
      * Count of user blogs.
-     *
-     * @todo    Set Auth::$blog_count as a protected property
-     *
-     * @deprecated  since 2.??, use App::auth()->getBlogCount() instead
      */
-    public ?int $blog_count = null;
+    protected ?int $blog_count = null;
 
     /**
      * Permission types.
