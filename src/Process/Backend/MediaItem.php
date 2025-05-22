@@ -823,13 +823,14 @@ class MediaItem extends Process
 
             $available_sizes = function () use ($thumb_size) {
                 foreach (array_keys(array_reverse(App::backend()->file->media_thumb)) as $key) {
-                    yield (new Text(
-                        $key === $thumb_size ? 'strong' : null,
-                        (new Link())
-                            ->href(App::backend()->url()->get('admin.media.item', array_merge(App::backend()->page_url_params, ['size' => $key, 'tab' => 'media-details-tab'])))
-                            ->text(App::media()->getThumbSizes()[$key][2])
-                        ->render()
-                    ));
+                    $link = (new Link())
+                        ->href(App::backend()->url()->get('admin.media.item', array_merge(App::backend()->page_url_params, ['size' => $key, 'tab' => 'media-details-tab'])))
+                        ->text(App::media()->getThumbSizes()[$key][2]);
+                    if ($key === $thumb_size) {
+                        yield (new Strong())->items([$link]);
+                    } else {
+                        yield (new Text())->items([$link]);
+                    }
                 }
             };
             $image_infos[] = (new Para())

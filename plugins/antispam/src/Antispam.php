@@ -141,10 +141,12 @@ class Antispam
 
             return
             (new Para())->items([
-                (new Text(
-                    null,
-                    (new Strong(__('This comment is a spam:')))->render() . self::$filters->statusMessage($rs, $filter_name)
-                )),
+                (new Text())
+                    ->separator(' ')
+                    ->items([
+                        (new Strong(__('This comment is a spam:'))),
+                        (new Text(null, self::$filters->statusMessage($rs, $filter_name))),
+                    ]),
             ])
             ->render();
         }
