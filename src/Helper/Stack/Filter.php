@@ -31,7 +31,7 @@ class Filter
     /**
      * The filter properties.
      *
-     * @var     array<string, mixed>     $properties
+     * @var     array{'id': string, 'value': mixed, 'form': string, 'prime': bool, 'title': string, 'options': array<string, string>, 'html': string, 'params': array<array<int|string, mixed>>}     $properties
      */
     protected $properties = [
         'id'      => '',
@@ -39,9 +39,9 @@ class Filter
         'form'    => 'none',
         'prime'   => false,
         'title'   => '',
-        'options' => [],
+        'options' => [],    // select options
         'html'    => '',
-        'params'  => [],
+        'params'  => [],    // list query params (see param() method below)
     ];
 
     /**
@@ -252,7 +252,7 @@ class Filter
     public function parse(): void
     {
         # form select
-        if ($this->form == 'select') {
+        if ($this->form === 'select') {
             # _GET value
             if ($this->value === null) {
                 $get = $_GET[$this->id] ?? '';
@@ -272,7 +272,7 @@ class Filter
             $this->html($label->render($select->render()), false);
 
             # form input
-        } elseif ($this->form == 'input') {
+        } elseif ($this->form === 'input') {
             # _GET value
             if ($this->value === null) {
                 $this->value($_GET[$this->id] ?? '');
