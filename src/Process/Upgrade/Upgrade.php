@@ -19,12 +19,14 @@ use Dotclear\Helper\Html\Form\{
     Div,
     Form,
     Hidden,
+    Li,
     Link,
     Note,
     Para,
     Strong,
     Submit,
-    Text
+    Text,
+    Ul
 };
 use Exception;
 
@@ -140,8 +142,7 @@ class Upgrade extends Process
                                     'href="' . App::upgrade()->url()->get('upgrade.upgrade', ['step' => 'download']) . '"'
                                 ) .
                                 ' ' .
-                                __('If this problem persists try to ' .
-                                    '<a href="https://dotclear.org/download">update manually</a>.')
+                                __('If this problem persists try to <a href="https://dotclear.org/download">update manually</a>.')
                             );
                         }
                         App::upgrade()->url()->redirect('upgrade.upgrade', ['step' => 'backup']);
@@ -180,14 +181,22 @@ class Upgrade extends Process
                 } elseif ($e->getCode() == Update::ERR_FILES_UNREADABLE) {
                     $msg = sprintf(
                         __('The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually.'),
-                        '<strong>backup-' . App::config()->dotclearVersion() . '.zip</strong>'
+                        (new Strong('backup-' . App::config()->dotclearVersion() . '.zip'))->render()
                     );
                 } elseif ($e->getCode() == Update::ERR_FILES_UNWRITALBE) {
                     $msg = __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="https://dotclear.org/download">update manually</a>.');
                 }
 
                 if (($bad_files = self::$updater->getBadFiles()) !== []) {
-                    $msg .= '<ul><li><strong>' . implode('</strong></li><li><strong>', $bad_files) . '</strong></li></ul>';
+                    $msg .= (new Ul())
+                        ->items(array_map(
+                            fn (string $bad_file): Li => (new Li())
+                                ->items([
+                                    (new Strong($bad_file)),
+                                ]),
+                            $bad_files
+                        ))
+                    ->render();
                 }
 
                 App::error()->add($msg);
