@@ -56,8 +56,8 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this type(string $type)
  * @method      $this value(string|int|float $value)
  * // Used only for components with childs (items and/or fields for form and fieldset):
- * @method      $this fields(Iterable<int|string, Component> $fields)
- * @method      $this items(Iterable<int|string, Component> $items)
+ * @method      $this fields(Iterable<Component> $fields)
+ * @method      $this items(Iterable<Component> $items)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
  *
@@ -101,8 +101,8 @@ namespace Dotclear\Helper\Html\Form;
  * @property    string $type
  * @property    string|int|float $value
  * // Used only for components with childs (items and/or fields for form and fieldset):
- * @property    Iterable<int|string, Component> $fields Form or Fieldset component only
- * @property    Iterable<int|string, Component> $items
+ * @property    Iterable<Component> $fields Form or Fieldset component only
+ * @property    Iterable<Component> $items
  * @property    string $format
  * @property    string $separator
  */
@@ -116,8 +116,8 @@ abstract class Component
     /**
      * Constructs a new instance.
      *
-     * @param      null|string  $componentClass     The component class
-     * @param      null|string  $htmlElement        The html element (will be used to render component)
+     * @param      null|class-string    $componentClass     The component class
+     * @param      null|string          $htmlElement        The html element (will be used to render component)
      */
     public function __construct(
         private ?string $componentClass = null,
@@ -246,7 +246,7 @@ abstract class Component
     /**
      * Sets the type of component
      *
-     * @param      string  $type   The type
+     * @param      class-string  $type   The type (class name)
      *
      * @return static    self instance, enabling to chain calls
      */
@@ -329,7 +329,7 @@ abstract class Component
      *
      * @return static    self instance, enabling to chain calls
      */
-    public function setIdentifier($identifier): static
+    public function setIdentifier(string|array|null $identifier): static
     {
         if (is_array($identifier)) {
             $this->name = (string) $identifier[0];
@@ -337,8 +337,8 @@ abstract class Component
                 $this->id = $identifier[1];
             }
         } elseif (!is_null($identifier)) {
-            $this->name = (string) $identifier;
-            $this->id   = (string) $identifier;
+            $this->name = $identifier;
+            $this->id   = $identifier;
         }
 
         return $this;
@@ -529,10 +529,10 @@ abstract class Component
     /**
      * Render childs of a Component
      *
-     * @param      null|Iterable<int|string, Component>    $childs  Childs to render
-     * @param      null|string                             $format  The sprintf pattern to render item
-     * @param      null|string                             $ignore  The type of child to ignore if present
-     * @param      bool                                    $inline  Keep all items inline
+     * @param      null|Iterable<Component>     $childs  Childs to render
+     * @param      null|string                  $format  The sprintf pattern to render item
+     * @param      null|string                  $ignore  The type of child to ignore if present
+     * @param      bool                         $inline  Keep all items inline
      */
     protected function renderChilds(?iterable $childs, ?string $format, ?string $ignore = null, bool $inline = false): string
     {

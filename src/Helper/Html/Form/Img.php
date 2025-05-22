@@ -40,7 +40,7 @@ class Img extends Component
      * @param      string                                       $src      The mandatory img src
      * @param      string|array{0: string, 1?: string}|null     $id       The identifier
      */
-    public function __construct(string $src, $id = null)
+    public function __construct(string $src, string|array|null $id = null)
     {
         parent::__construct(self::class, self::DEFAULT_ELEMENT);
         $this->src($src);

@@ -32,7 +32,7 @@ class Select extends Component
      * @param      bool                                         $renderLabel    Render label if present
      */
     public function __construct(
-        $id = null,
+        string|array|null $id = null,
         ?string $element = null,
         private bool $renderLabel = true
     ) {

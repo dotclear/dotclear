@@ -34,7 +34,7 @@ class Input extends Component
      * @param      bool                                         $renderLabel    Render label if present
      */
     public function __construct(
-        $id = null,
+        string|array|null $id = null,
         string $type = 'text',
         private readonly bool $renderLabel = true
     ) {

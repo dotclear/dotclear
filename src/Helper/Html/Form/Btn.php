@@ -33,7 +33,7 @@ class Btn extends Component
      * @param      string                                       $value    The value
      * @param      string                                       $element  The element
      */
-    public function __construct($id = null, ?string $value = null, ?string $element = null)
+    public function __construct(string|array|null $id = null, ?string $value = null, ?string $element = null)
     {
         parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
         if ($id !== null) {

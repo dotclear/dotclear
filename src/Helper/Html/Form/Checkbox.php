@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -21,7 +22,7 @@ class Checkbox extends Input
      * @param      string|array{0: string, 1?: string}|null     $id       The identifier
      * @param      bool                                         $checked  Is checked
      */
-    public function __construct($id = null, ?bool $checked = null)
+    public function __construct(string|array|null $id = null, ?bool $checked = null)
     {
         parent::__construct($id, 'checkbox');
         if ($checked !== null) {

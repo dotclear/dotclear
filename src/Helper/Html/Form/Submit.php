@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -21,7 +22,7 @@ class Submit extends Input
      * @param      string|array{0: string, 1?: string}|null     $id       The identifier
      * @param      string                                       $value    The value
      */
-    public function __construct($id = null, ?string $value = null)
+    public function __construct(string|array|null $id = null, ?string $value = null)
     {
         parent::__construct($id, 'submit');
         if ($value !== null) {

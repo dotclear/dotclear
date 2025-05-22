@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  *
@@ -12,6 +13,8 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Decimal
  * @brief HTML Forms decimal number field creation helpers
+ *
+ * Use Number for integer values
  */
 class Decimal extends Input
 {
@@ -23,7 +26,7 @@ class Decimal extends Input
      * @param      float                                        $max      The maximum value
      * @param      float                                        $value    The value
      */
-    public function __construct($id = null, ?float $min = null, ?float $max = null, ?float $value = null)
+    public function __construct(string|array|null $id = null, ?float $min = null, ?float $max = null, ?float $value = null)
     {
         parent::__construct($id, 'number');
         $this

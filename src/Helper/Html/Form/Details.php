@@ -36,7 +36,7 @@ class Details extends Component
      * @param      string|array{0: string, 1?: string}|null     $id       The identifier
      * @param      string                                       $element  The element
      */
-    public function __construct($id = null, ?string $element = null)
+    public function __construct(string|array|null $id = null, ?string $element = null)
     {
         parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
         if ($id !== null) {
