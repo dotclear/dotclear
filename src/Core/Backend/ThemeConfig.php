@@ -193,7 +193,7 @@ class ThemeConfig
     /**
      * Check and clean CSS. (not implemented)
      *
-     * @todo    Implement ModulesList::displaySort method
+     * @todo    Implement ThemeConfig::cleanCSS method
      *
      * @param   string  $css    CSS to be checked
      *
