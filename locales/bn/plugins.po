@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-08 09:36+0200\n"
-"PO-Revision-Date: 2025-05-08 07:41\n"
+"POT-Creation-Date: 2025-05-24 18:38+0200\n"
+"PO-Revision-Date: 2025-05-24 16:42\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -553,7 +553,7 @@ msgstr "নির্বাচিত এন্ট্রির তালিকা"
 msgid "List of available languages"
 msgstr "বিদ্যমান ভাষার তালিকা"
 
-#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:121
+#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:134
 msgid "List of categories"
 msgstr "শ্রেণীবিভাগের তালিকা"
 
@@ -669,16 +669,16 @@ msgstr "আপনার এপিআই কী (API) নাও"
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:146
+#: plugins/antispam/src/Antispam.php:147
 msgid "This comment is a spam:"
 msgstr "এই মন্তব্যটি একটি স্প্যাম:"
 
-#: plugins/antispam/src/Antispam.php:161 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(%dটি স্প্যাম মন্তব্য সহ)"
 
-#: plugins/antispam/src/Antispam.php:161 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(%dটি স্প্যাম মন্তব্য সহ)"
@@ -1007,11 +1007,11 @@ msgstr "Blogroll"
 msgid "manage blogroll"
 msgstr "ব্লগলের ব্যবস্থাপনা"
 
-#: plugins/blogroll/src/Blogroll.php:161 plugins/blogroll/src/Blogroll.php:204
+#: plugins/blogroll/src/Blogroll.php:169 plugins/blogroll/src/Blogroll.php:213
 msgid "You must provide a link title"
 msgstr "আপনাকে অবশ্যই লিংকের শিরোনাম দিতে হবে"
 
-#: plugins/blogroll/src/Blogroll.php:165 plugins/blogroll/src/Blogroll.php:208
+#: plugins/blogroll/src/Blogroll.php:173 plugins/blogroll/src/Blogroll.php:217
 msgid "You must provide a link URL"
 msgstr "আপনাকে অবশ্যই লিংক URL দিতে হবে"
 
@@ -1088,141 +1088,146 @@ msgstr "OPML অথবা XBEL ফাইল:"
 msgid "Import"
 msgstr "ইম্পোর্ট"
 
-#: plugins/blogroll/src/ManageEdit.php:68
+#: plugins/blogroll/src/ManageEdit.php:71
 msgid "No such link or title"
 msgstr "কোন লিঙ্ক বা শিরোনাম নেই"
 
-#: plugins/blogroll/src/ManageEdit.php:125
+#: plugins/blogroll/src/ManageEdit.php:131
 msgid "Link has been successfully updated"
 msgstr "লিংক সফলভাবে হালনাগাদ করা হয়েছে"
 
-#: plugins/blogroll/src/ManageEdit.php:142
+#: plugins/blogroll/src/ManageEdit.php:148
 msgid "Category has been successfully updated"
 msgstr "শ্রেণীবিভাগ সফলভাবে হালনাগাদ করা হয়েছে"
 
-#: plugins/blogroll/src/ManageEdit.php:170
+#: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
 msgid "Link"
 msgstr "লিঙ্ক"
 
-#: plugins/blogroll/src/ManageEdit.php:177
+#: plugins/blogroll/src/ManageEdit.php:188
 msgid "Return to blogroll"
 msgstr "Blogroll ফিরে যাও"
 
-#: plugins/blogroll/src/ManageEdit.php:188
+#: plugins/blogroll/src/ManageEdit.php:199
 msgid "Edit category"
 msgstr "শ্রেণীবিভাগ"
 
-#: plugins/blogroll/src/ManageEdit.php:226
+#: plugins/blogroll/src/ManageEdit.php:224
+#: plugins/blogroll/src/ManageEdit.php:296
+msgid "Link status"
+msgstr "লিঙ্কের অবস্থা"
+
+#: plugins/blogroll/src/ManageEdit.php:243
 msgid "Edit link"
 msgstr "লিংক সম্পাদন করুন"
 
-#: plugins/blogroll/src/ManageEdit.php:279
+#: plugins/blogroll/src/ManageEdit.php:302
 msgid "XFN information"
 msgstr "XFN তথ্য"
 
-#: plugins/blogroll/src/ManageEdit.php:282
+#: plugins/blogroll/src/ManageEdit.php:305
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr "<a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">উইকিপিডিয়া ওয়েবসাইট সম্পর্কে আরও তথ্য</a>"
 
-#: plugins/blogroll/src/ManageEdit.php:286
+#: plugins/blogroll/src/ManageEdit.php:309
 msgid "_xfn_Me"
 msgstr "_xfn_মি"
 
-#: plugins/blogroll/src/ManageEdit.php:290
+#: plugins/blogroll/src/ManageEdit.php:313
 msgid "_xfn_Another link for myself"
 msgstr "নিজের জন্য xfn_আরেকটি লিঙ্ক (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:294
+#: plugins/blogroll/src/ManageEdit.php:317
 msgid "_xfn_Friendship"
 msgstr "_xfn_বন্ধুত্ব"
 
-#: plugins/blogroll/src/ManageEdit.php:298
+#: plugins/blogroll/src/ManageEdit.php:321
 msgid "_xfn_Contact"
 msgstr "এক্সএফএন_পরিচিতি (_C)"
 
-#: plugins/blogroll/src/ManageEdit.php:301
+#: plugins/blogroll/src/ManageEdit.php:324
 msgid "_xfn_Acquaintance"
 msgstr "_xfn_Acquaintance"
 
-#: plugins/blogroll/src/ManageEdit.php:304
+#: plugins/blogroll/src/ManageEdit.php:327
 msgid "_xfn_Friend"
 msgstr "Xfn_ফ্রেন্ড (_F)"
 
-#: plugins/blogroll/src/ManageEdit.php:314
+#: plugins/blogroll/src/ManageEdit.php:337
 msgid "_xfn_Physical"
 msgstr "_xfn_Physical"
 
-#: plugins/blogroll/src/ManageEdit.php:318
+#: plugins/blogroll/src/ManageEdit.php:341
 msgid "_xfn_Met"
 msgstr "Xfn_Met (_M)"
 
-#: plugins/blogroll/src/ManageEdit.php:322
+#: plugins/blogroll/src/ManageEdit.php:345
 msgid "_xfn_Professional"
 msgstr "_xfn_व्यवसायिक"
 
-#: plugins/blogroll/src/ManageEdit.php:326
+#: plugins/blogroll/src/ManageEdit.php:349
 msgid "_xfn_Co-worker"
 msgstr "Xfn_Co-কর্মী (_C)"
 
-#: plugins/blogroll/src/ManageEdit.php:329
+#: plugins/blogroll/src/ManageEdit.php:352
 msgid "_xfn_Colleague"
 msgstr "Xfn_Colleague (_C)"
 
-#: plugins/blogroll/src/ManageEdit.php:333
+#: plugins/blogroll/src/ManageEdit.php:356
 msgid "_xfn_Geographical"
 msgstr "_xfn_ভৌগোলিক"
 
-#: plugins/blogroll/src/ManageEdit.php:337
+#: plugins/blogroll/src/ManageEdit.php:360
 msgid "_xfn_Co-resident"
 msgstr "Xfn_Co-বাসিন্দা (_C)"
 
-#: plugins/blogroll/src/ManageEdit.php:340
+#: plugins/blogroll/src/ManageEdit.php:363
 msgid "_xfn_Neighbor"
 msgstr "_xfn_Neighbor"
 
-#: plugins/blogroll/src/ManageEdit.php:350
+#: plugins/blogroll/src/ManageEdit.php:373
 msgid "_xfn_Family"
 msgstr "_xfn_ফ্যামিলি"
 
-#: plugins/blogroll/src/ManageEdit.php:354
+#: plugins/blogroll/src/ManageEdit.php:377
 msgid "_xfn_Child"
 msgstr "_xfn_Child"
 
-#: plugins/blogroll/src/ManageEdit.php:357
+#: plugins/blogroll/src/ManageEdit.php:380
 msgid "_xfn_Parent"
 msgstr "_xfn_Parent"
 
-#: plugins/blogroll/src/ManageEdit.php:360
+#: plugins/blogroll/src/ManageEdit.php:383
 msgid "_xfn_Sibling"
 msgstr "Xfn_Sibling"
 
-#: plugins/blogroll/src/ManageEdit.php:363
+#: plugins/blogroll/src/ManageEdit.php:386
 msgid "_xfn_Spouse"
 msgstr "Xfn_Spouse (_S)"
 
-#: plugins/blogroll/src/ManageEdit.php:366
+#: plugins/blogroll/src/ManageEdit.php:389
 msgid "_xfn_Kin"
 msgstr "Xfn_Kin (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:376
+#: plugins/blogroll/src/ManageEdit.php:399
 msgid "_xfn_Romantic"
 msgstr "_xfn_রোমান্টিক"
 
-#: plugins/blogroll/src/ManageEdit.php:380
+#: plugins/blogroll/src/ManageEdit.php:403
 msgid "_xfn_Muse"
 msgstr "Xfn_Muse (_x)"
 
-#: plugins/blogroll/src/ManageEdit.php:383
+#: plugins/blogroll/src/ManageEdit.php:406
 msgid "_xfn_Crush"
 msgstr "Xfn_ক্রাশ (_C)"
 
-#: plugins/blogroll/src/ManageEdit.php:386
+#: plugins/blogroll/src/ManageEdit.php:409
 msgid "_xfn_Date"
 msgstr "Xfn_তারিখ (_D)"
 
-#: plugins/blogroll/src/ManageEdit.php:389
+#: plugins/blogroll/src/ManageEdit.php:412
 msgid "_xfn_Sweetheart"
 msgstr "Xfn_Sweetheart (_x)"
 
@@ -1235,11 +1240,11 @@ msgstr "আপনি একটি XBEL অথবা OPML ফাইল সরব�
 msgid "File is not in XML format."
 msgstr "ফাইলটি XML ফরম্যাটে নেই।"
 
-#: plugins/blogroll/src/Widgets.php:36
+#: plugins/blogroll/src/Widgets.php:39
 msgid "All categories"
 msgstr "সব ক্যাটাগরি"
 
-#: plugins/blogroll/src/Widgets.php:45
+#: plugins/blogroll/src/Widgets.php:48
 msgid "Links"
 msgstr "লিংকসমূহ"
 
@@ -1275,7 +1280,7 @@ msgstr "একটি &lt;p id=\"breadcrumb\"&gt; মধ্যে ব্রেড
 #: plugins/breadcrumb/src/FrontendTemplate.php:205
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
 #: plugins/simpleMenu/src/Manage.php:147 plugins/simpleMenu/src/Manage.php:258
-#: plugins/widgets/src/Widgets.php:266
+#: plugins/widgets/src/Widgets.php:296
 msgid "Home"
 msgstr "হোম"
 
@@ -1289,7 +1294,7 @@ msgstr "পৃষ্ঠা %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:155
 #: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:285 plugins/widgets/src/Widgets.php:280
+#: plugins/simpleMenu/src/Manage.php:285 plugins/widgets/src/Widgets.php:324
 msgid "Archives"
 msgstr "আর্কাইভ"
 
@@ -1834,7 +1839,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "বর্তমান ব্লগটিতে একটি ফিড কন্টেন্ট যোগ করুন: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:232
-#: plugins/widgets/src/Widgets.php:143
+#: plugins/widgets/src/Widgets.php:156
 msgid "Feed URL:"
 msgstr "ফিড ইউ-আর-এল:"
 
@@ -2109,56 +2114,56 @@ msgstr "এটি অনেক সময় লেগেই নিতে পা�
 msgid "Alert settings"
 msgstr "অ্যালার্ট সেটিংস"
 
-#: plugins/maintenance/src/Manage.php:404
+#: plugins/maintenance/src/Manage.php:408
 msgid "Activation"
 msgstr "সক্রিয়"
 
-#: plugins/maintenance/src/Manage.php:410
+#: plugins/maintenance/src/Manage.php:414
 msgid "Display alert messages on late tasks"
 msgstr "শেষের কাজগুলো সম্পর্কে সতর্ক বার্তা প্রদর্শন করা হবে"
 
-#: plugins/maintenance/src/Manage.php:415
+#: plugins/maintenance/src/Manage.php:419
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "আপনি আপনার %s-এ দেরী কাজগুলির তালিকা রাখতে পারেন।"
 
-#: plugins/maintenance/src/Manage.php:420
+#: plugins/maintenance/src/Manage.php:424
 msgid "Frequency"
 msgstr "Frequency"
 
-#: plugins/maintenance/src/Manage.php:428
+#: plugins/maintenance/src/Manage.php:432
 msgid "Use one recall time for all tasks"
 msgstr "সমস্ত কাজের জন্য একটি স্মরণ করার সময় ব্যবহার করুন"
 
-#: plugins/maintenance/src/Manage.php:438
+#: plugins/maintenance/src/Manage.php:442
 msgid "Recall time for all tasks:"
 msgstr "সকল কাজের জন্য সময় গ্রহণ করা হবে:"
 
-#: plugins/maintenance/src/Manage.php:447
+#: plugins/maintenance/src/Manage.php:451
 msgid "Use one recall time per task"
 msgstr "প্রতি কাজের সময় একটি স্মরণ করার সময় ব্যবহার করা হবে"
 
-#: plugins/maintenance/src/Manage.php:477
+#: plugins/maintenance/src/Manage.php:482
 msgid "Content-Security-Policy"
 msgstr "বিষয়বস্তু-নিরাপত্তা-নীতি"
 
-#: plugins/maintenance/src/Manage.php:489
+#: plugins/maintenance/src/Manage.php:494
 msgid "Enable Content-Security-Policy system"
 msgstr "বিষয়বস্তু-নিরাপত্তা-পলিসি ব্যবস্থা সক্রিয় করুন"
 
-#: plugins/maintenance/src/Manage.php:495
+#: plugins/maintenance/src/Manage.php:500
 msgid "Enable Content-Security-Policy report only"
 msgstr "বিষয়বস্তু-নিরাপত্তা-পলিসি প্রতিবেদন সক্রিয় করো"
 
-#: plugins/maintenance/src/Manage.php:505
+#: plugins/maintenance/src/Manage.php:510
 msgid "Enable Content-Security-Policy system by default"
 msgstr "ডিফল্ট দ্বারা বিষয়বস্তু-নিরাপত্তা-পলিসি ব্যবস্থা সক্রিয় করা হবে"
 
-#: plugins/maintenance/src/Manage.php:511
+#: plugins/maintenance/src/Manage.php:516
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "কনটেন্ট-সিকিউরিটি-পলিসি রিপোর্ট শুধুমাত্র ডিফল্ট দ্বারা সক্রিয় করা হবে"
 
-#: plugins/maintenance/src/Manage.php:517
+#: plugins/maintenance/src/Manage.php:522
 msgid "Also apply these settings to all blogs"
 msgstr "সব ব্লগের জন্য এই সেটিংস প্রয়োগ করা হবে"
 
@@ -2574,7 +2579,7 @@ msgid "Home page"
 msgstr "হোম পেজ"
 
 #: plugins/simpleMenu/src/Manage.php:259 plugins/simpleMenu/src/Manage.php:264
-#: plugins/widgets/src/Widgets.php:270 plugins/widgets/src/Widgets.php:275
+#: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
 msgid "Recent posts"
 msgstr "সাম্প্রতিক পোস্টগুলো"
 
@@ -3194,109 +3199,109 @@ msgstr "এখন পর্যন্ত কোন উইজেট নেই."
 msgid "Drag widgets here to remove."
 msgstr "মুছে ফেলার জন্য এখানে উইজেট আঁকা হবে."
 
-#: plugins/widgets/src/Widgets.php:87
+#: plugins/widgets/src/Widgets.php:100
 msgid "Search engine"
 msgstr "সার্চ ইঞ্জিন"
 
-#: plugins/widgets/src/Widgets.php:89
+#: plugins/widgets/src/Widgets.php:102
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Placeholder (HTML5 শুধুমাত্র, ঐচ্ছিক):"
 
-#: plugins/widgets/src/Widgets.php:96
+#: plugins/widgets/src/Widgets.php:109
 msgid "Navigation links"
 msgstr "ন্যাভিগেশন লিঙ্ক"
 
-#: plugins/widgets/src/Widgets.php:104
+#: plugins/widgets/src/Widgets.php:117
 msgid "Selected entries"
 msgstr "নির্বাচিত লেখা"
 
-#: plugins/widgets/src/Widgets.php:105
+#: plugins/widgets/src/Widgets.php:118
 msgid "Best of me"
 msgstr "আমার সেরা"
 
-#: plugins/widgets/src/Widgets.php:113
+#: plugins/widgets/src/Widgets.php:126
 msgid "Blog languages"
 msgstr "ব্লগ ভাষা"
 
-#: plugins/widgets/src/Widgets.php:123
+#: plugins/widgets/src/Widgets.php:136
 msgid "With entries counts"
 msgstr "এন্ট্রি কাউন্টের সাথে"
 
-#: plugins/widgets/src/Widgets.php:124
+#: plugins/widgets/src/Widgets.php:137
 msgid "Include sub cats in count"
 msgstr "গুনতে সাব বিড়াল অন্তর্ভুক্ত করো"
 
-#: plugins/widgets/src/Widgets.php:125
+#: plugins/widgets/src/Widgets.php:138
 msgid "Include empty categories"
 msgstr "ফাঁকা শ্রেণীবিভাগ অন্তর্ভুক্ত করো"
 
-#: plugins/widgets/src/Widgets.php:132
+#: plugins/widgets/src/Widgets.php:145
 msgid "Subscribe links"
 msgstr "সাবস্ক্রাইব লিঙ্ক"
 
-#: plugins/widgets/src/Widgets.php:133
+#: plugins/widgets/src/Widgets.php:146
 msgid "Subscribe"
 msgstr "সাবস্ক্রাইব"
 
-#: plugins/widgets/src/Widgets.php:134
+#: plugins/widgets/src/Widgets.php:147
 msgid "Feeds type:"
 msgstr "ফিড টাইপ:"
 
-#: plugins/widgets/src/Widgets.php:141
+#: plugins/widgets/src/Widgets.php:154
 msgid "Feed reader"
 msgstr "ফিড রিডার"
 
-#: plugins/widgets/src/Widgets.php:142
+#: plugins/widgets/src/Widgets.php:155
 msgid "Somewhere else"
 msgstr "অন্য কোথাও"
 
-#: plugins/widgets/src/Widgets.php:144 plugins/widgets/src/Widgets.php:172
+#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
 msgid "Entries limit:"
 msgstr "প্রচেষ্টা সীমা:"
 
-#: plugins/widgets/src/Widgets.php:151
+#: plugins/widgets/src/Widgets.php:164
 msgid "Text"
 msgstr "টেক্সট"
 
-#: plugins/widgets/src/Widgets.php:153
+#: plugins/widgets/src/Widgets.php:166
 msgid "Text:"
 msgstr "লেখা:"
 
-#: plugins/widgets/src/Widgets.php:160
+#: plugins/widgets/src/Widgets.php:173
 msgid "Uncategorized"
 msgstr "Uncategorized"
 
-#: plugins/widgets/src/Widgets.php:164 plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
 msgid "Last entries"
 msgstr "শেষ এন্ট্রি"
 
-#: plugins/widgets/src/Widgets.php:169
+#: plugins/widgets/src/Widgets.php:182
 msgid "Tag:"
 msgstr "ট্যাগ:"
 
-#: plugins/widgets/src/Widgets.php:181
+#: plugins/widgets/src/Widgets.php:194
 msgid "Last comments"
 msgstr "শেষ মন্তব্য"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:195
 msgid "Comments limit:"
 msgstr "মন্তব্য সীমা:"
 
-#: plugins/widgets/src/Widgets.php:451
+#: plugins/widgets/src/Widgets.php:552
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "এই ব্লগের এন্ট্রি %s ফিড"
 
-#: plugins/widgets/src/Widgets.php:452
+#: plugins/widgets/src/Widgets.php:553
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "এই ব্লগের মন্তব্য %s ফিড"
 
-#: plugins/widgets/src/Widgets.php:460
+#: plugins/widgets/src/Widgets.php:566
 msgid "Entries feed"
 msgstr "এন্ট্রি ফিড"
 
-#: plugins/widgets/src/Widgets.php:466
+#: plugins/widgets/src/Widgets.php:576
 msgid "Comments feed"
 msgstr "Comments ফিড"
 

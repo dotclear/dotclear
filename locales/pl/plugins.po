@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-08 09:36+0200\n"
-"PO-Revision-Date: 2025-05-08 07:41\n"
+"POT-Creation-Date: 2025-05-24 18:38+0200\n"
+"PO-Revision-Date: 2025-05-24 17:08\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -553,7 +553,7 @@ msgstr "Lista wybranych wpisów"
 msgid "List of available languages"
 msgstr "Lista dostępnych języków"
 
-#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:121
+#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:134
 msgid "List of categories"
 msgstr "Lista kategorii"
 
@@ -669,16 +669,16 @@ msgstr "Zdobądź swój własny klucz API"
 msgid "Akismet"
 msgstr "Akismet"
 
-#: plugins/antispam/src/Antispam.php:146
+#: plugins/antispam/src/Antispam.php:147
 msgid "This comment is a spam:"
 msgstr "Ten komentarz jest spamem:"
 
-#: plugins/antispam/src/Antispam.php:161 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(w tym %d niechciany komentarz)"
 
-#: plugins/antispam/src/Antispam.php:161 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(w tym %d niechcianych komentarzy)"
@@ -1007,11 +1007,11 @@ msgstr "Blogroll"
 msgid "manage blogroll"
 msgstr "zarządzaj polecanymi odnośnikami"
 
-#: plugins/blogroll/src/Blogroll.php:161 plugins/blogroll/src/Blogroll.php:204
+#: plugins/blogroll/src/Blogroll.php:169 plugins/blogroll/src/Blogroll.php:213
 msgid "You must provide a link title"
 msgstr "Musisz podać tytuł odnośnika"
 
-#: plugins/blogroll/src/Blogroll.php:165 plugins/blogroll/src/Blogroll.php:208
+#: plugins/blogroll/src/Blogroll.php:173 plugins/blogroll/src/Blogroll.php:217
 msgid "You must provide a link URL"
 msgstr "Musisz podać URL odnośnika"
 
@@ -1088,141 +1088,146 @@ msgstr "Plik w formacie OPML lub XBEL:"
 msgid "Import"
 msgstr "Importuj"
 
-#: plugins/blogroll/src/ManageEdit.php:68
+#: plugins/blogroll/src/ManageEdit.php:71
 msgid "No such link or title"
 msgstr "Brak takiego odnośnika lub tytułu"
 
-#: plugins/blogroll/src/ManageEdit.php:125
+#: plugins/blogroll/src/ManageEdit.php:131
 msgid "Link has been successfully updated"
 msgstr "Odnośnik został pomyślnie zaktualizowany"
 
-#: plugins/blogroll/src/ManageEdit.php:142
+#: plugins/blogroll/src/ManageEdit.php:148
 msgid "Category has been successfully updated"
 msgstr "Kategoria została pomyślnie zaktualizowana"
 
-#: plugins/blogroll/src/ManageEdit.php:170
+#: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
 msgid "Link"
 msgstr "Link"
 
-#: plugins/blogroll/src/ManageEdit.php:177
+#: plugins/blogroll/src/ManageEdit.php:188
 msgid "Return to blogroll"
 msgstr "Wróć do polecanych odnośników"
 
-#: plugins/blogroll/src/ManageEdit.php:188
+#: plugins/blogroll/src/ManageEdit.php:199
 msgid "Edit category"
 msgstr "Edytuj kategorię"
 
-#: plugins/blogroll/src/ManageEdit.php:226
+#: plugins/blogroll/src/ManageEdit.php:224
+#: plugins/blogroll/src/ManageEdit.php:296
+msgid "Link status"
+msgstr "Status linku"
+
+#: plugins/blogroll/src/ManageEdit.php:243
 msgid "Edit link"
 msgstr "Edytuj odnośnik"
 
-#: plugins/blogroll/src/ManageEdit.php:279
+#: plugins/blogroll/src/ManageEdit.php:302
 msgid "XFN information"
 msgstr "Informacje XFN"
 
-#: plugins/blogroll/src/ManageEdit.php:282
+#: plugins/blogroll/src/ManageEdit.php:305
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr "Więcej informacji na stronie <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a>"
 
-#: plugins/blogroll/src/ManageEdit.php:286
+#: plugins/blogroll/src/ManageEdit.php:309
 msgid "_xfn_Me"
 msgstr "Ja"
 
-#: plugins/blogroll/src/ManageEdit.php:290
+#: plugins/blogroll/src/ManageEdit.php:313
 msgid "_xfn_Another link for myself"
 msgstr "Mój inny adres strony WWW"
 
-#: plugins/blogroll/src/ManageEdit.php:294
+#: plugins/blogroll/src/ManageEdit.php:317
 msgid "_xfn_Friendship"
 msgstr "Przyjaźń"
 
-#: plugins/blogroll/src/ManageEdit.php:298
+#: plugins/blogroll/src/ManageEdit.php:321
 msgid "_xfn_Contact"
 msgstr "Kontakt"
 
-#: plugins/blogroll/src/ManageEdit.php:301
+#: plugins/blogroll/src/ManageEdit.php:324
 msgid "_xfn_Acquaintance"
 msgstr "Znajomy"
 
-#: plugins/blogroll/src/ManageEdit.php:304
+#: plugins/blogroll/src/ManageEdit.php:327
 msgid "_xfn_Friend"
 msgstr "Przyjaciel"
 
-#: plugins/blogroll/src/ManageEdit.php:314
+#: plugins/blogroll/src/ManageEdit.php:337
 msgid "_xfn_Physical"
 msgstr "Kontakt fizyczny"
 
-#: plugins/blogroll/src/ManageEdit.php:318
+#: plugins/blogroll/src/ManageEdit.php:341
 msgid "_xfn_Met"
 msgstr "Poznanie (kogoś)"
 
-#: plugins/blogroll/src/ManageEdit.php:322
+#: plugins/blogroll/src/ManageEdit.php:345
 msgid "_xfn_Professional"
 msgstr "Praca"
 
-#: plugins/blogroll/src/ManageEdit.php:326
+#: plugins/blogroll/src/ManageEdit.php:349
 msgid "_xfn_Co-worker"
 msgstr "Współpracownik"
 
-#: plugins/blogroll/src/ManageEdit.php:329
+#: plugins/blogroll/src/ManageEdit.php:352
 msgid "_xfn_Colleague"
 msgstr "Kolega"
 
-#: plugins/blogroll/src/ManageEdit.php:333
+#: plugins/blogroll/src/ManageEdit.php:356
 msgid "_xfn_Geographical"
 msgstr "Geograficzny"
 
-#: plugins/blogroll/src/ManageEdit.php:337
+#: plugins/blogroll/src/ManageEdit.php:360
 msgid "_xfn_Co-resident"
 msgstr "Rezydent"
 
-#: plugins/blogroll/src/ManageEdit.php:340
+#: plugins/blogroll/src/ManageEdit.php:363
 msgid "_xfn_Neighbor"
 msgstr "Sąsiad"
 
-#: plugins/blogroll/src/ManageEdit.php:350
+#: plugins/blogroll/src/ManageEdit.php:373
 msgid "_xfn_Family"
 msgstr "Rodzina"
 
-#: plugins/blogroll/src/ManageEdit.php:354
+#: plugins/blogroll/src/ManageEdit.php:377
 msgid "_xfn_Child"
 msgstr "Dziecko"
 
-#: plugins/blogroll/src/ManageEdit.php:357
+#: plugins/blogroll/src/ManageEdit.php:380
 msgid "_xfn_Parent"
 msgstr "Rodzic"
 
-#: plugins/blogroll/src/ManageEdit.php:360
+#: plugins/blogroll/src/ManageEdit.php:383
 msgid "_xfn_Sibling"
 msgstr "Rodzeństwo"
 
-#: plugins/blogroll/src/ManageEdit.php:363
+#: plugins/blogroll/src/ManageEdit.php:386
 msgid "_xfn_Spouse"
 msgstr "Małżonek"
 
-#: plugins/blogroll/src/ManageEdit.php:366
+#: plugins/blogroll/src/ManageEdit.php:389
 msgid "_xfn_Kin"
 msgstr "Krewny"
 
-#: plugins/blogroll/src/ManageEdit.php:376
+#: plugins/blogroll/src/ManageEdit.php:399
 msgid "_xfn_Romantic"
 msgstr "Romantycznność"
 
-#: plugins/blogroll/src/ManageEdit.php:380
+#: plugins/blogroll/src/ManageEdit.php:403
 msgid "_xfn_Muse"
 msgstr "Muza"
 
-#: plugins/blogroll/src/ManageEdit.php:383
+#: plugins/blogroll/src/ManageEdit.php:406
 msgid "_xfn_Crush"
 msgstr "Kochać się w kimś"
 
-#: plugins/blogroll/src/ManageEdit.php:386
+#: plugins/blogroll/src/ManageEdit.php:409
 msgid "_xfn_Date"
 msgstr "Randka"
 
-#: plugins/blogroll/src/ManageEdit.php:389
+#: plugins/blogroll/src/ManageEdit.php:412
 msgid "_xfn_Sweetheart"
 msgstr "Ukochany/a"
 
@@ -1235,11 +1240,11 @@ msgstr "Musisz dostarczyć plik XBEL lub OPML"
 msgid "File is not in XML format."
 msgstr "Plik nie jest poprawnym plikiem XML"
 
-#: plugins/blogroll/src/Widgets.php:36
+#: plugins/blogroll/src/Widgets.php:39
 msgid "All categories"
 msgstr "Wszystkie kategorie"
 
-#: plugins/blogroll/src/Widgets.php:45
+#: plugins/blogroll/src/Widgets.php:48
 msgid "Links"
 msgstr "Odnośniki"
 
@@ -1275,7 +1280,7 @@ msgstr "Nie kapsułkuj breadcrumb w tagu &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt
 #: plugins/breadcrumb/src/FrontendTemplate.php:205
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
 #: plugins/simpleMenu/src/Manage.php:147 plugins/simpleMenu/src/Manage.php:258
-#: plugins/widgets/src/Widgets.php:266
+#: plugins/widgets/src/Widgets.php:296
 msgid "Home"
 msgstr "Strona główna"
 
@@ -1289,7 +1294,7 @@ msgstr "strona %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:155
 #: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:285 plugins/widgets/src/Widgets.php:280
+#: plugins/simpleMenu/src/Manage.php:285 plugins/widgets/src/Widgets.php:324
 msgid "Archives"
 msgstr "Archiwum"
 
@@ -1834,7 +1839,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Dodaj zawartość kanału do bieżącego bloga: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:232
-#: plugins/widgets/src/Widgets.php:143
+#: plugins/widgets/src/Widgets.php:156
 msgid "Feed URL:"
 msgstr "Adres URL kanału:"
 
@@ -2113,56 +2118,56 @@ msgstr "Może to potrwać bardzo długo."
 msgid "Alert settings"
 msgstr "Ustawienia alarmu"
 
-#: plugins/maintenance/src/Manage.php:404
+#: plugins/maintenance/src/Manage.php:408
 msgid "Activation"
 msgstr "Aktywacja"
 
-#: plugins/maintenance/src/Manage.php:410
+#: plugins/maintenance/src/Manage.php:414
 msgid "Display alert messages on late tasks"
 msgstr "Wyświetlaj powiadomienia o opóźnionych zadaniach"
 
-#: plugins/maintenance/src/Manage.php:415
+#: plugins/maintenance/src/Manage.php:419
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Możesz umieścić listę opóźnionych zadań na swoim %s."
 
-#: plugins/maintenance/src/Manage.php:420
+#: plugins/maintenance/src/Manage.php:424
 msgid "Frequency"
 msgstr "Częstotliwość"
 
-#: plugins/maintenance/src/Manage.php:428
+#: plugins/maintenance/src/Manage.php:432
 msgid "Use one recall time for all tasks"
 msgstr "Użyj jednego czasu wycofania dla wszystkich zadań"
 
-#: plugins/maintenance/src/Manage.php:438
+#: plugins/maintenance/src/Manage.php:442
 msgid "Recall time for all tasks:"
 msgstr "Czas przypomnienia wszystkich zadań:"
 
-#: plugins/maintenance/src/Manage.php:447
+#: plugins/maintenance/src/Manage.php:451
 msgid "Use one recall time per task"
 msgstr "Użyj jednego czasu przypomnienia na zadanie"
 
-#: plugins/maintenance/src/Manage.php:477
+#: plugins/maintenance/src/Manage.php:482
 msgid "Content-Security-Policy"
 msgstr "Treść-Bezpieczeństwo"
 
-#: plugins/maintenance/src/Manage.php:489
+#: plugins/maintenance/src/Manage.php:494
 msgid "Enable Content-Security-Policy system"
 msgstr "Włącz system Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:495
+#: plugins/maintenance/src/Manage.php:500
 msgid "Enable Content-Security-Policy report only"
 msgstr "Włącz tylko raport Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:505
+#: plugins/maintenance/src/Manage.php:510
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Włącz domyślnie system Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:511
+#: plugins/maintenance/src/Manage.php:516
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Włącz domyślny raport Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:517
+#: plugins/maintenance/src/Manage.php:522
 msgid "Also apply these settings to all blogs"
 msgstr "Zastosuj te ustawienia do wszystkich blogów"
 
@@ -2578,7 +2583,7 @@ msgid "Home page"
 msgstr "Strona główna"
 
 #: plugins/simpleMenu/src/Manage.php:259 plugins/simpleMenu/src/Manage.php:264
-#: plugins/widgets/src/Widgets.php:270 plugins/widgets/src/Widgets.php:275
+#: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
 msgid "Recent posts"
 msgstr "Ostatnie posty"
 
@@ -3202,109 +3207,109 @@ msgstr "Brak widżetu na daleko."
 msgid "Drag widgets here to remove."
 msgstr "Przeciągnij widżety tutaj, aby usunąć."
 
-#: plugins/widgets/src/Widgets.php:87
+#: plugins/widgets/src/Widgets.php:100
 msgid "Search engine"
 msgstr "Wyszukiwarka"
 
-#: plugins/widgets/src/Widgets.php:89
+#: plugins/widgets/src/Widgets.php:102
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Miejsce (tylko HTML5, nieobowiązkowe):"
 
-#: plugins/widgets/src/Widgets.php:96
+#: plugins/widgets/src/Widgets.php:109
 msgid "Navigation links"
 msgstr "Nawigacja"
 
-#: plugins/widgets/src/Widgets.php:104
+#: plugins/widgets/src/Widgets.php:117
 msgid "Selected entries"
 msgstr "Wybrane wpisy"
 
-#: plugins/widgets/src/Widgets.php:105
+#: plugins/widgets/src/Widgets.php:118
 msgid "Best of me"
 msgstr "Najlepsze wpisy"
 
-#: plugins/widgets/src/Widgets.php:113
+#: plugins/widgets/src/Widgets.php:126
 msgid "Blog languages"
 msgstr "Języki bloga"
 
-#: plugins/widgets/src/Widgets.php:123
+#: plugins/widgets/src/Widgets.php:136
 msgid "With entries counts"
 msgstr "Z liczbą wpisów"
 
-#: plugins/widgets/src/Widgets.php:124
+#: plugins/widgets/src/Widgets.php:137
 msgid "Include sub cats in count"
 msgstr "Uwzględnij pod-koty w liczbie"
 
-#: plugins/widgets/src/Widgets.php:125
+#: plugins/widgets/src/Widgets.php:138
 msgid "Include empty categories"
 msgstr "Dołącz puste kategorie"
 
-#: plugins/widgets/src/Widgets.php:132
+#: plugins/widgets/src/Widgets.php:145
 msgid "Subscribe links"
 msgstr "Odnośniki subskrybcji"
 
-#: plugins/widgets/src/Widgets.php:133
+#: plugins/widgets/src/Widgets.php:146
 msgid "Subscribe"
 msgstr "Subskrybuj"
 
-#: plugins/widgets/src/Widgets.php:134
+#: plugins/widgets/src/Widgets.php:147
 msgid "Feeds type:"
 msgstr "Rodzaje kanałów:"
 
-#: plugins/widgets/src/Widgets.php:141
+#: plugins/widgets/src/Widgets.php:154
 msgid "Feed reader"
 msgstr "Czytnik kanałów"
 
-#: plugins/widgets/src/Widgets.php:142
+#: plugins/widgets/src/Widgets.php:155
 msgid "Somewhere else"
 msgstr "Gdzieś indziej"
 
-#: plugins/widgets/src/Widgets.php:144 plugins/widgets/src/Widgets.php:172
+#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
 msgid "Entries limit:"
 msgstr "Limit wpisów:"
 
-#: plugins/widgets/src/Widgets.php:151
+#: plugins/widgets/src/Widgets.php:164
 msgid "Text"
 msgstr "Tekst"
 
-#: plugins/widgets/src/Widgets.php:153
+#: plugins/widgets/src/Widgets.php:166
 msgid "Text:"
 msgstr "Tekst:"
 
-#: plugins/widgets/src/Widgets.php:160
+#: plugins/widgets/src/Widgets.php:173
 msgid "Uncategorized"
 msgstr "Bez kategorii"
 
-#: plugins/widgets/src/Widgets.php:164 plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
 msgid "Last entries"
 msgstr "Ostatnie wpisy"
 
-#: plugins/widgets/src/Widgets.php:169
+#: plugins/widgets/src/Widgets.php:182
 msgid "Tag:"
 msgstr "Tag:"
 
-#: plugins/widgets/src/Widgets.php:181
+#: plugins/widgets/src/Widgets.php:194
 msgid "Last comments"
 msgstr "Ostatnie komentarze"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:195
 msgid "Comments limit:"
 msgstr "Limit komentarzy:"
 
-#: plugins/widgets/src/Widgets.php:451
+#: plugins/widgets/src/Widgets.php:552
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Kanał %s dla wpisów z tego bloga"
 
-#: plugins/widgets/src/Widgets.php:452
+#: plugins/widgets/src/Widgets.php:553
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Kanał %s dla komentarzy z tego bloga"
 
-#: plugins/widgets/src/Widgets.php:460
+#: plugins/widgets/src/Widgets.php:566
 msgid "Entries feed"
 msgstr "Kanał wpisów"
 
-#: plugins/widgets/src/Widgets.php:466
+#: plugins/widgets/src/Widgets.php:576
 msgid "Comments feed"
 msgstr "Kanał komentarzy"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-08 09:36+0200\n"
-"PO-Revision-Date: 2025-05-08 07:41\n"
+"POT-Creation-Date: 2025-05-24 18:38+0200\n"
+"PO-Revision-Date: 2025-05-24 17:08\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -553,7 +553,7 @@ msgstr "선택한 항목 목록"
 msgid "List of available languages"
 msgstr "사용 가능한 언어 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:121
+#: plugins/_fake_plugin/_fake_l10n.php:34 plugins/widgets/src/Widgets.php:134
 msgid "List of categories"
 msgstr "카테고리 목록"
 
@@ -669,16 +669,16 @@ msgstr "당신의 관리키를 받으세요"
 msgid "Akismet"
 msgstr "아키스밋"
 
-#: plugins/antispam/src/Antispam.php:146
+#: plugins/antispam/src/Antispam.php:147
 msgid "This comment is a spam:"
 msgstr "이 댓글은 스팸입니다 :"
 
-#: plugins/antispam/src/Antispam.php:161 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comment)"
 msgstr "(스팸 댓글 %d 개 포함)"
 
-#: plugins/antispam/src/Antispam.php:161 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:163 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including %d spam comments)"
 msgstr "(스팸 댓글 %d 개 포함)"
@@ -1007,11 +1007,11 @@ msgstr "링크모음"
 msgid "manage blogroll"
 msgstr "링크모음 관리"
 
-#: plugins/blogroll/src/Blogroll.php:161 plugins/blogroll/src/Blogroll.php:204
+#: plugins/blogroll/src/Blogroll.php:169 plugins/blogroll/src/Blogroll.php:213
 msgid "You must provide a link title"
 msgstr "링크의 제목을 지정해야합니다."
 
-#: plugins/blogroll/src/Blogroll.php:165 plugins/blogroll/src/Blogroll.php:208
+#: plugins/blogroll/src/Blogroll.php:173 plugins/blogroll/src/Blogroll.php:217
 msgid "You must provide a link URL"
 msgstr "링크의 URL을 지정해야합니다."
 
@@ -1088,141 +1088,146 @@ msgstr "OPML 또는 XBEL 파일 :"
 msgid "Import"
 msgstr "블로그로 가져오기"
 
-#: plugins/blogroll/src/ManageEdit.php:68
+#: plugins/blogroll/src/ManageEdit.php:71
 msgid "No such link or title"
 msgstr "링크 또는 제목이 존재하지 않습니다."
 
-#: plugins/blogroll/src/ManageEdit.php:125
+#: plugins/blogroll/src/ManageEdit.php:131
 msgid "Link has been successfully updated"
 msgstr "링크가 성공적으로 갱신되었습니다."
 
-#: plugins/blogroll/src/ManageEdit.php:142
+#: plugins/blogroll/src/ManageEdit.php:148
 msgid "Category has been successfully updated"
 msgstr "링크분류가 성공적으로 갱신되었습니다"
 
-#: plugins/blogroll/src/ManageEdit.php:170
+#: plugins/blogroll/src/ManageEdit.php:181
 #: plugins/dcCKEditor/src/BackendBehaviors.php:62
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:136
 msgid "Link"
 msgstr "링크"
 
-#: plugins/blogroll/src/ManageEdit.php:177
+#: plugins/blogroll/src/ManageEdit.php:188
 msgid "Return to blogroll"
 msgstr "링크모음으로 돌아가기"
 
-#: plugins/blogroll/src/ManageEdit.php:188
+#: plugins/blogroll/src/ManageEdit.php:199
 msgid "Edit category"
 msgstr "링크분류 편집"
 
-#: plugins/blogroll/src/ManageEdit.php:226
+#: plugins/blogroll/src/ManageEdit.php:224
+#: plugins/blogroll/src/ManageEdit.php:296
+msgid "Link status"
+msgstr "링크 상태"
+
+#: plugins/blogroll/src/ManageEdit.php:243
 msgid "Edit link"
 msgstr "링크 편집"
 
-#: plugins/blogroll/src/ManageEdit.php:279
+#: plugins/blogroll/src/ManageEdit.php:302
 msgid "XFN information"
 msgstr "XFN 정보"
 
-#: plugins/blogroll/src/ManageEdit.php:282
+#: plugins/blogroll/src/ManageEdit.php:305
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr "자세한 정보는 <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">위키피디아</a> 웹사이트"
 
-#: plugins/blogroll/src/ManageEdit.php:286
+#: plugins/blogroll/src/ManageEdit.php:309
 msgid "_xfn_Me"
 msgstr "나"
 
-#: plugins/blogroll/src/ManageEdit.php:290
+#: plugins/blogroll/src/ManageEdit.php:313
 msgid "_xfn_Another link for myself"
 msgstr "나를 지시하는 또 다른 링크"
 
-#: plugins/blogroll/src/ManageEdit.php:294
+#: plugins/blogroll/src/ManageEdit.php:317
 msgid "_xfn_Friendship"
 msgstr "친구들"
 
-#: plugins/blogroll/src/ManageEdit.php:298
+#: plugins/blogroll/src/ManageEdit.php:321
 msgid "_xfn_Contact"
 msgstr "주소록"
 
-#: plugins/blogroll/src/ManageEdit.php:301
+#: plugins/blogroll/src/ManageEdit.php:324
 msgid "_xfn_Acquaintance"
 msgstr "아는 사람들"
 
-#: plugins/blogroll/src/ManageEdit.php:304
+#: plugins/blogroll/src/ManageEdit.php:327
 msgid "_xfn_Friend"
 msgstr "친구"
 
-#: plugins/blogroll/src/ManageEdit.php:314
+#: plugins/blogroll/src/ManageEdit.php:337
 msgid "_xfn_Physical"
 msgstr "외모"
 
-#: plugins/blogroll/src/ManageEdit.php:318
+#: plugins/blogroll/src/ManageEdit.php:341
 msgid "_xfn_Met"
 msgstr "만남"
 
-#: plugins/blogroll/src/ManageEdit.php:322
+#: plugins/blogroll/src/ManageEdit.php:345
 msgid "_xfn_Professional"
 msgstr "업무연관"
 
-#: plugins/blogroll/src/ManageEdit.php:326
+#: plugins/blogroll/src/ManageEdit.php:349
 msgid "_xfn_Co-worker"
 msgstr "함께 일하는 사람"
 
-#: plugins/blogroll/src/ManageEdit.php:329
+#: plugins/blogroll/src/ManageEdit.php:352
 msgid "_xfn_Colleague"
 msgstr "동료"
 
-#: plugins/blogroll/src/ManageEdit.php:333
+#: plugins/blogroll/src/ManageEdit.php:356
 msgid "_xfn_Geographical"
 msgstr "지역"
 
-#: plugins/blogroll/src/ManageEdit.php:337
+#: plugins/blogroll/src/ManageEdit.php:360
 msgid "_xfn_Co-resident"
 msgstr "함께 사는 사람"
 
-#: plugins/blogroll/src/ManageEdit.php:340
+#: plugins/blogroll/src/ManageEdit.php:363
 msgid "_xfn_Neighbor"
 msgstr "이웃"
 
-#: plugins/blogroll/src/ManageEdit.php:350
+#: plugins/blogroll/src/ManageEdit.php:373
 msgid "_xfn_Family"
 msgstr "가족"
 
-#: plugins/blogroll/src/ManageEdit.php:354
+#: plugins/blogroll/src/ManageEdit.php:377
 msgid "_xfn_Child"
 msgstr "자녀"
 
-#: plugins/blogroll/src/ManageEdit.php:357
+#: plugins/blogroll/src/ManageEdit.php:380
 msgid "_xfn_Parent"
 msgstr "부모"
 
-#: plugins/blogroll/src/ManageEdit.php:360
+#: plugins/blogroll/src/ManageEdit.php:383
 msgid "_xfn_Sibling"
 msgstr "형제자매"
 
-#: plugins/blogroll/src/ManageEdit.php:363
+#: plugins/blogroll/src/ManageEdit.php:386
 msgid "_xfn_Spouse"
 msgstr "배우자"
 
-#: plugins/blogroll/src/ManageEdit.php:366
+#: plugins/blogroll/src/ManageEdit.php:389
 msgid "_xfn_Kin"
 msgstr "친지"
 
-#: plugins/blogroll/src/ManageEdit.php:376
+#: plugins/blogroll/src/ManageEdit.php:399
 msgid "_xfn_Romantic"
 msgstr "로망스"
 
-#: plugins/blogroll/src/ManageEdit.php:380
+#: plugins/blogroll/src/ManageEdit.php:403
 msgid "_xfn_Muse"
 msgstr "즐김"
 
-#: plugins/blogroll/src/ManageEdit.php:383
+#: plugins/blogroll/src/ManageEdit.php:406
 msgid "_xfn_Crush"
 msgstr "가벼운관계"
 
-#: plugins/blogroll/src/ManageEdit.php:386
+#: plugins/blogroll/src/ManageEdit.php:409
 msgid "_xfn_Date"
 msgstr "데이트"
 
-#: plugins/blogroll/src/ManageEdit.php:389
+#: plugins/blogroll/src/ManageEdit.php:412
 msgid "_xfn_Sweetheart"
 msgstr "벗"
 
@@ -1235,11 +1240,11 @@ msgstr "XBEL 이나 OPML 파일을 지정해야합니다."
 msgid "File is not in XML format."
 msgstr "XML 파일이 아닙니다."
 
-#: plugins/blogroll/src/Widgets.php:36
+#: plugins/blogroll/src/Widgets.php:39
 msgid "All categories"
 msgstr "모든 링크분류 포함"
 
-#: plugins/blogroll/src/Widgets.php:45
+#: plugins/blogroll/src/Widgets.php:48
 msgid "Links"
 msgstr "링크모음"
 
@@ -1275,7 +1280,7 @@ msgstr "&lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; 태그에 이동 경로를 캡�
 #: plugins/breadcrumb/src/FrontendTemplate.php:205
 #: plugins/breadcrumb/src/FrontendTemplate.php:211
 #: plugins/simpleMenu/src/Manage.php:147 plugins/simpleMenu/src/Manage.php:258
-#: plugins/widgets/src/Widgets.php:266
+#: plugins/widgets/src/Widgets.php:296
 msgid "Home"
 msgstr "시작화면"
 
@@ -1289,7 +1294,7 @@ msgstr "페이지 %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:155
 #: plugins/breadcrumb/src/FrontendTemplate.php:158
-#: plugins/simpleMenu/src/Manage.php:285 plugins/widgets/src/Widgets.php:280
+#: plugins/simpleMenu/src/Manage.php:285 plugins/widgets/src/Widgets.php:324
 msgid "Archives"
 msgstr "글모둠"
 
@@ -1834,7 +1839,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "현재 블로그에 피드 콘텐츠를 추가합니다: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:232
-#: plugins/widgets/src/Widgets.php:143
+#: plugins/widgets/src/Widgets.php:156
 msgid "Feed URL:"
 msgstr "타래소식 주소 :"
 
@@ -2107,56 +2112,56 @@ msgstr "시간이 오래 걸릴 수 있습니다."
 msgid "Alert settings"
 msgstr "알림 설정"
 
-#: plugins/maintenance/src/Manage.php:404
+#: plugins/maintenance/src/Manage.php:408
 msgid "Activation"
 msgstr "활성화"
 
-#: plugins/maintenance/src/Manage.php:410
+#: plugins/maintenance/src/Manage.php:414
 msgid "Display alert messages on late tasks"
 msgstr "늦은 작업에 대한 경고 메시지 표시"
 
-#: plugins/maintenance/src/Manage.php:415
+#: plugins/maintenance/src/Manage.php:419
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "%s에 늦은 작업 목록을 배치할 수 있습니다."
 
-#: plugins/maintenance/src/Manage.php:420
+#: plugins/maintenance/src/Manage.php:424
 msgid "Frequency"
 msgstr "빈도"
 
-#: plugins/maintenance/src/Manage.php:428
+#: plugins/maintenance/src/Manage.php:432
 msgid "Use one recall time for all tasks"
 msgstr "모든 작업에 한 번의 리콜 시간 사용"
 
-#: plugins/maintenance/src/Manage.php:438
+#: plugins/maintenance/src/Manage.php:442
 msgid "Recall time for all tasks:"
 msgstr "모든 작업에 대한 리콜 시간:"
 
-#: plugins/maintenance/src/Manage.php:447
+#: plugins/maintenance/src/Manage.php:451
 msgid "Use one recall time per task"
 msgstr "작업당 한 번의 리콜 시간 사용"
 
-#: plugins/maintenance/src/Manage.php:477
+#: plugins/maintenance/src/Manage.php:482
 msgid "Content-Security-Policy"
 msgstr "콘텐츠 보안 정책"
 
-#: plugins/maintenance/src/Manage.php:489
+#: plugins/maintenance/src/Manage.php:494
 msgid "Enable Content-Security-Policy system"
 msgstr "콘텐츠 보안 정책 시스템 활성화"
 
-#: plugins/maintenance/src/Manage.php:495
+#: plugins/maintenance/src/Manage.php:500
 msgid "Enable Content-Security-Policy report only"
 msgstr "콘텐츠 보안 정책 보고서만 활성화"
 
-#: plugins/maintenance/src/Manage.php:505
+#: plugins/maintenance/src/Manage.php:510
 msgid "Enable Content-Security-Policy system by default"
 msgstr "기본적으로 콘텐츠 보안 정책 시스템 활성화"
 
-#: plugins/maintenance/src/Manage.php:511
+#: plugins/maintenance/src/Manage.php:516
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "기본적으로 콘텐츠 보안 정책 보고서만 사용 설정"
 
-#: plugins/maintenance/src/Manage.php:517
+#: plugins/maintenance/src/Manage.php:522
 msgid "Also apply these settings to all blogs"
 msgstr "또한 모든 블로그에 다음 설정을 적용합니다."
 
@@ -2572,7 +2577,7 @@ msgid "Home page"
 msgstr "홈 페이지"
 
 #: plugins/simpleMenu/src/Manage.php:259 plugins/simpleMenu/src/Manage.php:264
-#: plugins/widgets/src/Widgets.php:270 plugins/widgets/src/Widgets.php:275
+#: plugins/widgets/src/Widgets.php:305 plugins/widgets/src/Widgets.php:315
 msgid "Recent posts"
 msgstr "최근 게시물"
 
@@ -3190,109 +3195,109 @@ msgstr "아직 위젯이 없습니다."
 msgid "Drag widgets here to remove."
 msgstr "제거하려면 위젯을 여기로 끌어다 놓습니다."
 
-#: plugins/widgets/src/Widgets.php:87
+#: plugins/widgets/src/Widgets.php:100
 msgid "Search engine"
 msgstr "찾기 엔진"
 
-#: plugins/widgets/src/Widgets.php:89
+#: plugins/widgets/src/Widgets.php:102
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "플레이스홀더(HTML5 전용, 선택 사항):"
 
-#: plugins/widgets/src/Widgets.php:96
+#: plugins/widgets/src/Widgets.php:109
 msgid "Navigation links"
 msgstr "시작화면/글모둠 링크"
 
-#: plugins/widgets/src/Widgets.php:104
+#: plugins/widgets/src/Widgets.php:117
 msgid "Selected entries"
 msgstr "선별 글꼭지 목록"
 
-#: plugins/widgets/src/Widgets.php:105
+#: plugins/widgets/src/Widgets.php:118
 msgid "Best of me"
 msgstr "꼭 보세요"
 
-#: plugins/widgets/src/Widgets.php:113
+#: plugins/widgets/src/Widgets.php:126
 msgid "Blog languages"
 msgstr "언어설정"
 
-#: plugins/widgets/src/Widgets.php:123
+#: plugins/widgets/src/Widgets.php:136
 msgid "With entries counts"
 msgstr "글꼭지 수 표시"
 
-#: plugins/widgets/src/Widgets.php:124
+#: plugins/widgets/src/Widgets.php:137
 msgid "Include sub cats in count"
 msgstr "개수에 하위 고양이 포함"
 
-#: plugins/widgets/src/Widgets.php:125
+#: plugins/widgets/src/Widgets.php:138
 msgid "Include empty categories"
 msgstr "빈 카테고리 포함"
 
-#: plugins/widgets/src/Widgets.php:132
+#: plugins/widgets/src/Widgets.php:145
 msgid "Subscribe links"
 msgstr "구독용 링크"
 
-#: plugins/widgets/src/Widgets.php:133
+#: plugins/widgets/src/Widgets.php:146
 msgid "Subscribe"
 msgstr "구독"
 
-#: plugins/widgets/src/Widgets.php:134
+#: plugins/widgets/src/Widgets.php:147
 msgid "Feeds type:"
 msgstr "타래소식 종류 :"
 
-#: plugins/widgets/src/Widgets.php:141
+#: plugins/widgets/src/Widgets.php:154
 msgid "Feed reader"
 msgstr "타래소식 구독기 (RSS 리더)"
 
-#: plugins/widgets/src/Widgets.php:142
+#: plugins/widgets/src/Widgets.php:155
 msgid "Somewhere else"
 msgstr "다른 곳으로"
 
-#: plugins/widgets/src/Widgets.php:144 plugins/widgets/src/Widgets.php:172
+#: plugins/widgets/src/Widgets.php:157 plugins/widgets/src/Widgets.php:185
 msgid "Entries limit:"
 msgstr "최대 글꼭지 수 :"
 
-#: plugins/widgets/src/Widgets.php:151
+#: plugins/widgets/src/Widgets.php:164
 msgid "Text"
 msgstr "알림말"
 
-#: plugins/widgets/src/Widgets.php:153
+#: plugins/widgets/src/Widgets.php:166
 msgid "Text:"
 msgstr "알림말 :"
 
-#: plugins/widgets/src/Widgets.php:160
+#: plugins/widgets/src/Widgets.php:173
 msgid "Uncategorized"
 msgstr "분류 미정"
 
-#: plugins/widgets/src/Widgets.php:164 plugins/widgets/src/Widgets.php:166
+#: plugins/widgets/src/Widgets.php:177 plugins/widgets/src/Widgets.php:179
 msgid "Last entries"
 msgstr "최근 글꼭지"
 
-#: plugins/widgets/src/Widgets.php:169
+#: plugins/widgets/src/Widgets.php:182
 msgid "Tag:"
 msgstr "분류딱지 :"
 
-#: plugins/widgets/src/Widgets.php:181
+#: plugins/widgets/src/Widgets.php:194
 msgid "Last comments"
 msgstr "최근 댓글들"
 
-#: plugins/widgets/src/Widgets.php:182
+#: plugins/widgets/src/Widgets.php:195
 msgid "Comments limit:"
 msgstr "최대 댓글 수 :"
 
-#: plugins/widgets/src/Widgets.php:451
+#: plugins/widgets/src/Widgets.php:552
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "이 블로그의 %s 글꼭지 타래소식"
 
-#: plugins/widgets/src/Widgets.php:452
+#: plugins/widgets/src/Widgets.php:553
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "이 블로그의 %s 댓글 타래소식"
 
-#: plugins/widgets/src/Widgets.php:460
+#: plugins/widgets/src/Widgets.php:566
 msgid "Entries feed"
 msgstr "글꼭지 타래소식"
 
-#: plugins/widgets/src/Widgets.php:466
+#: plugins/widgets/src/Widgets.php:576
 msgid "Comments feed"
 msgstr "댓글 타래소식"
 
