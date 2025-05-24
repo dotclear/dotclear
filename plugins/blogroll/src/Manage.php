@@ -23,6 +23,7 @@ use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\File;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
+use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Link;
@@ -42,6 +43,7 @@ use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Plugin\blogroll\Status\Link as StatusLink;
 
 /**
  * @brief   The module manage blogrolls process.
@@ -55,6 +57,7 @@ class Manage extends Process
     {
         if (self::status(My::checkContext(My::MANAGE))) {
             App::backend()->blogroll = new Blogroll(App::blog());
+            App::backend()->statuses = new StatusLink();
 
             if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
                 self::$edit = ManageEdit::init();
@@ -65,6 +68,7 @@ class Manage extends Process
                 App::backend()->link_desc   = '';
                 App::backend()->link_lang   = '';
                 App::backend()->cat_title   = '';
+                App::backend()->link_status = StatusLink::ONLINE;
                 App::backend()->imported    = null;
             }
         }
@@ -143,13 +147,14 @@ class Manage extends Process
         if (!empty($_POST['add_link'])) {
             // Add link
 
-            App::backend()->link_title = $_POST['link_title'];
-            App::backend()->link_href  = $_POST['link_href'];
-            App::backend()->link_desc  = $_POST['link_desc'];
-            App::backend()->link_lang  = $_POST['link_lang'];
+            App::backend()->link_title  = $_POST['link_title'];
+            App::backend()->link_href   = $_POST['link_href'];
+            App::backend()->link_desc   = $_POST['link_desc'];
+            App::backend()->link_lang   = $_POST['link_lang'];
+            App::backend()->link_status = (int) $_POST['link_status'];
 
             try {
-                App::backend()->blogroll->addLink(App::backend()->link_title, App::backend()->link_href, App::backend()->link_desc, App::backend()->link_lang);
+                App::backend()->blogroll->addLink(App::backend()->link_title, App::backend()->link_href, App::backend()->link_desc, App::backend()->link_lang, '', App::backend()->link_status);
 
                 Notices::addSuccessNotice(__('Link has been successfully created.'));
                 My::redirect();
@@ -162,10 +167,11 @@ class Manage extends Process
         if (!empty($_POST['add_cat'])) {
             // Add category
 
-            App::backend()->cat_title = $_POST['cat_title'];
+            App::backend()->cat_title   = $_POST['cat_title'];
+            App::backend()->link_status = (int) $_POST['link_status'];
 
             try {
-                App::backend()->blogroll->addCategory(App::backend()->cat_title);
+                App::backend()->blogroll->addCategory(App::backend()->cat_title, App::backend()->link_status);
                 Notices::addSuccessNotice(__('category has been successfully created.'));
                 My::redirect();
             } catch (Exception $e) {
@@ -242,6 +248,9 @@ class Manage extends Process
         $links      = App::backend()->blogroll->getLangs(['order' => 'asc']);
         $lang_combo = Combos::getLangsCombo($links, true);
 
+        // Status combo
+        App::backend()->status_combo = App::backend()->statuses->combo();
+
         // Get links
         $rs = null;
 
@@ -272,6 +281,11 @@ class Manage extends Process
         ) .
         Notices::getNotices();
 
+        $img = (new Img('images/%2$s'))
+            ->alt('%1$s')
+            ->class(['mark', 'mark-%3$s'])
+            ->render();
+
         // Tab: Links list
         if (!$rs->isEmpty()) {
             $rows = [];
@@ -294,9 +308,19 @@ class Manage extends Process
                             ->title(__('select this link')),
                     ]);
 
+                $img_status = '';
+                switch ((int) $rs->link_status) {
+                    case App::status()->post()::PUBLISHED:
+                        $img_status = sprintf($img, __('Published'), 'published.svg', 'published');
+
+                        break;
+                    case App::status()->post()::UNPUBLISHED:
+                        $img_status = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
+                }
+
                 if ($rs->is_cat) {
                     $cols[] = (new Td())
-                        ->colspan(5)
+                        ->colspan(4)
                         ->items([
                             (new Link())
                                 ->href(App::backend()->getPageURL() . '&amp;edit=1&amp;id=' . $rs->link_id)
@@ -324,6 +348,9 @@ class Manage extends Process
                             (new Text(null, Html::escapeHTML($rs->link_lang))),
                         ]);
                 }
+                $cols[] = (new Td())
+                    ->class(['nowrap', 'status'])
+                    ->text($img_status);
 
                 $rows[] = (new Tr('l_' . $rs->link_id))
                     ->class('line')
@@ -339,12 +366,23 @@ class Manage extends Process
                             (new Th())->text(__('Description')),
                             (new Th())->text(__('URL')),
                             (new Th())->text(__('Lang')),
+                            (new Th())->text(__('Status')),
                         ]),
                     ]),
                     (new Tbody('links-list'))->rows(
                         $rows,
                     ),
                 ]);
+
+            $fmt = fn ($title, $image, $class): string => sprintf(
+                (new Img('images/%2$s'))
+                        ->alt('%1$s')
+                        ->class(['mark', 'mark-%3$s'])
+                        ->render() . ' %1$s',
+                $title,
+                $image,
+                $class
+            );
 
             $item = (new Form('links-form'))
                 ->method('post')
@@ -354,6 +392,16 @@ class Manage extends Process
                         ->class('table-outer')
                         ->items([
                             $table,
+                            (new Para())
+                                ->class('info')
+                                ->items([
+                                    (new Text(
+                                        null,
+                                        __('Legend: ') .
+                                        $fmt(__('Published'), 'published.svg', 'published') . ' - ' .
+                                        $fmt(__('Unpublished'), 'unpublished.svg', 'unpublished')
+                                    )),
+                                ]),
                         ]),
                     (new Div())
                         ->class('two-cols')
@@ -451,6 +499,12 @@ class Manage extends Process
                                 ->items($lang_combo)
                                 ->default(App::backend()->link_lang),
                         ]),
+                        (new Para())->class('link-status')->items([
+                            (new Select('link_status'))
+                                ->items(App::backend()->status_combo)
+                                ->default(StatusLink::ONLINE)
+                                ->label(new Label(__('Link status'), Label::OUTSIDE_LABEL_BEFORE)),
+                        ]),
                         (new Para())
                             ->class('form-buttons')
                             ->items([
@@ -494,6 +548,12 @@ class Manage extends Process
                                     ))
                                 )
                                 ->title(__('Required field')),
+                        ]),
+                        (new Para())->class('link-status')->items([
+                            (new Select('link_status'))
+                                ->items(App::backend()->status_combo)
+                                ->default(StatusLink::ONLINE)
+                                ->label(new Label(__('Link status'), Label::OUTSIDE_LABEL_BEFORE)),
                         ]),
                         (new Para())
                             ->class('form-buttons')

@@ -247,12 +247,13 @@ class Blogroll
      * Adds a category.
      *
      * @param   string  $title  The title
+     * @param   int     $status The status
      *
      * @throws  Exception
      *
      * @return  int     The category ID
      */
-    public function addCategory(string $title): int
+    public function addCategory(string $title, int $status = Link::ONLINE): int
     {
         $cur = App::con()->openCursor($this->table);
 
@@ -260,7 +261,7 @@ class Blogroll
         $cur->link_desc   = $title;
         $cur->link_href   = '';
         $cur->link_title  = '';
-        $cur->link_status = Link::ONLINE;
+        $cur->link_status = $status;
 
         if ($cur->link_desc === '') {
             throw new Exception(__('You must provide a category title'));
