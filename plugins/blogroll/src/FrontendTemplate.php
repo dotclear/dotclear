@@ -15,6 +15,7 @@ use Exception;
 use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Plugin\blogroll\Status\Link;
 use Dotclear\Plugin\widgets\WidgetsElement;
 
 /**
@@ -90,7 +91,9 @@ class FrontendTemplate
         $blogroll = new Blogroll(App::blog());
 
         try {
-            $links = $blogroll->getLinks();
+            $links = $blogroll->getLinks([
+                'link_status' => Link::ONLINE,
+            ]);
         } catch (Exception) {
             return '';
         }

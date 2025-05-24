@@ -37,6 +37,7 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Plugin\blogroll\Status\Link as StatusLink;
 
 /**
  * @brief   The module manage blogroll process.
@@ -50,8 +51,9 @@ class ManageEdit extends Process
 
         if (self::status()) {
             App::backend()->id = Html::escapeHTML($_REQUEST['id']);
-
             App::backend()->rs = null;
+
+            App::backend()->statuses = new StatusLink();
 
             try {
                 App::backend()->rs = App::backend()->blogroll->getLink(App::backend()->id);
@@ -60,18 +62,20 @@ class ManageEdit extends Process
             }
 
             if (!App::error()->flag() && App::backend()->rs->isEmpty()) {
-                App::backend()->link_title = '';
-                App::backend()->link_href  = '';
-                App::backend()->link_desc  = '';
-                App::backend()->link_lang  = '';
-                App::backend()->link_xfn   = '';
+                App::backend()->link_title  = '';
+                App::backend()->link_href   = '';
+                App::backend()->link_desc   = '';
+                App::backend()->link_lang   = '';
+                App::backend()->link_xfn    = '';
+                App::backend()->link_status = StatusLink::ONLINE;
                 App::error()->add(__('No such link or title'));
             } else {
-                App::backend()->link_title = App::backend()->rs->link_title;
-                App::backend()->link_href  = App::backend()->rs->link_href;
-                App::backend()->link_desc  = App::backend()->rs->link_desc;
-                App::backend()->link_lang  = App::backend()->rs->link_lang;
-                App::backend()->link_xfn   = App::backend()->rs->link_xfn;
+                App::backend()->link_title  = App::backend()->rs->link_title;
+                App::backend()->link_href   = App::backend()->rs->link_href;
+                App::backend()->link_desc   = App::backend()->rs->link_desc;
+                App::backend()->link_lang   = App::backend()->rs->link_lang;
+                App::backend()->link_xfn    = App::backend()->rs->link_xfn;
+                App::backend()->link_status = App::backend()->rs->link_status;
             }
         }
 
@@ -83,10 +87,11 @@ class ManageEdit extends Process
         if (App::backend()->rs instanceof MetaRecord && !App::backend()->rs->is_cat && !empty($_POST['edit_link'])) {
             // Update a link
 
-            App::backend()->link_title = $_POST['link_title'];
-            App::backend()->link_href  = $_POST['link_href'];
-            App::backend()->link_desc  = $_POST['link_desc'];
-            App::backend()->link_lang  = $_POST['link_lang'];
+            App::backend()->link_title  = $_POST['link_title'];
+            App::backend()->link_href   = $_POST['link_href'];
+            App::backend()->link_desc   = $_POST['link_desc'];
+            App::backend()->link_lang   = $_POST['link_lang'];
+            App::backend()->link_status = (int) $_POST['link_status'];
 
             App::backend()->link_xfn = '';
 
@@ -120,7 +125,8 @@ class ManageEdit extends Process
                     App::backend()->link_href,
                     App::backend()->link_desc,
                     App::backend()->link_lang,
-                    trim((string) App::backend()->link_xfn)
+                    trim((string) App::backend()->link_xfn),
+                    App::backend()->link_status,
                 );
                 Notices::addSuccessNotice(__('Link has been successfully updated'));
                 My::redirect([
@@ -159,6 +165,11 @@ class ManageEdit extends Process
         $lang_combo = Combos::getLangsCombo($links, true);
 
         $head = Page::jsConfirmClose('blogroll_cat', 'blogroll_link');
+
+        // Status combo
+        App::backend()->status_combo = App::backend()->statuses->combo();
+
+        $img_status = App::backend()->statuses->image((int) App::backend()->link_status)->render();
 
         Page::openModule(My::name(), $head);
 
@@ -205,6 +216,12 @@ class ManageEdit extends Process
                                     ))
                                 )
                                 ->title(__('Required field')),
+                        ]),
+                        (new Para())->class('link-status')->items([
+                            (new Select('link_status'))
+                                ->items(App::backend()->status_combo)
+                                ->default(App::backend()->link_status)
+                                ->label(new Label(__('Link status') . ' ' . $img_status, Label::OUTSIDE_LABEL_BEFORE)),
                         ]),
                         (new Para())->items([
                             ...My::hiddenFields(),
@@ -271,6 +288,12 @@ class ManageEdit extends Process
                                     (new Select('link_lang'))
                                         ->items($lang_combo)
                                         ->default(App::backend()->link_lang),
+                                ]),
+                                (new Para())->class('link-status')->items([
+                                    (new Select('link_status'))
+                                        ->items(App::backend()->status_combo)
+                                        ->default(App::backend()->link_status)
+                                        ->label(new Label(__('Link status') . ' ' . $img_status, Label::OUTSIDE_LABEL_BEFORE)),
                                 ]),
                             ]),
 

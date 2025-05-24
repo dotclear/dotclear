@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -14,6 +15,7 @@ use Dotclear\App;
 use Dotclear\Core\Frontend\Url;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
+use Dotclear\Plugin\blogroll\Status\Link;
 
 /**
  * @brief   The module frontent URL.
@@ -31,7 +33,9 @@ class FrontendUrl extends Url
         $blogroll = new Blogroll(App::blog());
 
         try {
-            $links = $blogroll->getLinks();
+            $links = $blogroll->getLinks([
+                'link_status' => Link::ONLINE,
+            ]);
         } catch (Exception) {
             self::p404();
         }

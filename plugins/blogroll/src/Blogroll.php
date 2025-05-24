@@ -18,6 +18,7 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Core\BlogInterface;
+use Dotclear\Plugin\blogroll\Status\Link;
 
 /**
  * @brief   The module blogroll handler.
@@ -74,6 +75,7 @@ class Blogroll
                 'link_lang',
                 'link_xfn',
                 'link_position',
+                'link_status',
             ])
             ->from($this->table)
             ->where('blog_id = ' . $sql->quote($this->blog->id()))
@@ -81,6 +83,10 @@ class Blogroll
 
         if (isset($params['link_id'])) {
             $sql->and('link_id = ' . (int) $params['link_id'] . ' ');
+        }
+
+        if (isset($params['link_status'])) {
+            $sql->and('link_status = ' . (int) $params['link_status'] . ' ');
         }
 
         $rs = $sql->select();
@@ -143,19 +149,21 @@ class Blogroll
      * @param   string  $desc   The description
      * @param   string  $lang   The language
      * @param   string  $xfn    The xfn
+     * @param   int     $status The status
      *
      * @throws  Exception
      */
-    public function addLink(string $title, string $href, string $desc = '', string $lang = '', string $xfn = ''): void
+    public function addLink(string $title, string $href, string $desc = '', string $lang = '', string $xfn = '', int $status = Link::ONLINE): void
     {
         $cur = App::con()->openCursor($this->table);
 
-        $cur->blog_id    = $this->blog->id();
-        $cur->link_title = $title;
-        $cur->link_href  = $href;
-        $cur->link_desc  = $desc;
-        $cur->link_lang  = $lang;
-        $cur->link_xfn   = $xfn;
+        $cur->blog_id     = $this->blog->id();
+        $cur->link_title  = $title;
+        $cur->link_href   = $href;
+        $cur->link_desc   = $desc;
+        $cur->link_lang   = $lang;
+        $cur->link_xfn    = $xfn;
+        $cur->link_status = $status;
 
         if ($cur->link_title === '') {
             throw new Exception(__('You must provide a link title'));
@@ -190,15 +198,16 @@ class Blogroll
      *
      * @throws  Exception
      */
-    public function updateLink(string $id, string $title, string $href, string $desc = '', string $lang = '', string $xfn = ''): void
+    public function updateLink(string $id, string $title, string $href, string $desc = '', string $lang = '', string $xfn = '', int $status = Link::ONLINE): void
     {
         $cur = App::con()->openCursor($this->table);
 
-        $cur->link_title = $title;
-        $cur->link_href  = $href;
-        $cur->link_desc  = $desc;
-        $cur->link_lang  = $lang;
-        $cur->link_xfn   = $xfn;
+        $cur->link_title  = $title;
+        $cur->link_href   = $href;
+        $cur->link_desc   = $desc;
+        $cur->link_lang   = $lang;
+        $cur->link_xfn    = $xfn;
+        $cur->link_status = $status;
 
         if ($cur->link_title === '') {
             throw new Exception(__('You must provide a link title'));
@@ -216,14 +225,16 @@ class Blogroll
      *
      * @param   string  $id     The identifier
      * @param   string  $desc   The description
+     * @param   int     $status The status
      *
      * @throws  Exception
      */
-    public function updateCategory(string $id, string $desc): void
+    public function updateCategory(string $id, string $desc, int $status = Link::ONLINE): void
     {
         $cur = App::con()->openCursor($this->table);
 
-        $cur->link_desc = $desc;
+        $cur->link_desc   = $desc;
+        $cur->link_status = $status;
 
         if ($cur->link_desc === '') {
             throw new Exception(__('You must provide a category title'));
@@ -245,10 +256,11 @@ class Blogroll
     {
         $cur = App::con()->openCursor($this->table);
 
-        $cur->blog_id    = $this->blog->id();
-        $cur->link_desc  = $title;
-        $cur->link_href  = '';
-        $cur->link_title = '';
+        $cur->blog_id     = $this->blog->id();
+        $cur->link_desc   = $title;
+        $cur->link_href   = '';
+        $cur->link_title  = '';
+        $cur->link_status = Link::ONLINE;
 
         if ($cur->link_desc === '') {
             throw new Exception(__('You must provide a category title'));

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin blogroll definition
@@ -17,7 +18,7 @@ $this->registerModule(
     'Blogroll',             // Name
     'Manage your blogroll', // Description
     'Olivier Meunier',      // Author
-    '2.0',                  // Version
+    '2.1',                  // Version
     [
         'permissions' => 'My',
         'type'        => 'plugin',

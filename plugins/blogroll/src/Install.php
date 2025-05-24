@@ -13,6 +13,7 @@ namespace Dotclear\Plugin\blogroll;
 use Dotclear\App;
 use Dotclear\Core\Process;
 use Dotclear\Database\Structure;
+use Dotclear\Plugin\blogroll\Status\Link;
 
 /**
  * @brief   The module install process.
@@ -42,6 +43,7 @@ class Install extends Process
             ->link_lang('varchar', 5, true)
             ->link_xfn('varchar', 255, true)
             ->link_position('integer', 0, false, 0)
+            ->link_status('smallint', 0, false, Link::ONLINE)
 
             ->primary('pk_link', 'link_id')
             ->index('idx_link_blog_id', 'btree', 'blog_id')

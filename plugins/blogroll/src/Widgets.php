@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\blogroll;
 
 use Dotclear\App;
+use Dotclear\Plugin\blogroll\Status\Link;
 use Dotclear\Plugin\widgets\WidgetsStack;
 use Dotclear\Plugin\widgets\Widgets as dcWidgets;
 
@@ -30,7 +31,9 @@ class Widgets
     public static function initWidgets(WidgetsStack $widgets): void
     {
         $blogroll  = new Blogroll(App::blog());
-        $hierarchy = $blogroll->getLinksHierarchy($blogroll->getLinks());
+        $hierarchy = $blogroll->getLinksHierarchy($blogroll->getLinks([
+            'link_status' => Link::ONLINE,
+        ]));
 
         $hierarchy_cat    = array_keys($hierarchy);
         $categories_combo = [__('All categories') => ''];
