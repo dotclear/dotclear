@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-25 13:29+0200\n"
-"PO-Revision-Date: 2025-05-25 11:34\n"
+"PO-Revision-Date: 2025-05-25 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -1007,29 +1007,29 @@ msgstr "Връзки"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:83
 msgid "Back to links list"
-msgstr ""
+msgstr "Обратно към списъка с връзки"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:111
 msgid "Links actions"
-msgstr ""
+msgstr "Действия с връзки"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:77
 #, php-format
 msgid "%d link has been successfully updated to status : \"%s\""
 msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Връзката беше успешно актуализирана до статус : \"%s\""
+msgstr[1] "%d Връзките бяха успешно актуализирани до статус : \"%s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:99
 msgid "No link selected"
-msgstr ""
+msgstr "Не е избрана връзка"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
 msgid "%d link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d връзката е успешно изтрита"
+msgstr[1] "%d връзките са успешно изтрити"
 
 #: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
@@ -1049,11 +1049,11 @@ msgstr "Трябва да посочите URL адрес на връзката"
 
 #: plugins/blogroll/src/Blogroll.php:413
 msgid "You are not allowed to change link status"
-msgstr ""
+msgstr "Нямате право да променяте статуса на връзката"
 
 #: plugins/blogroll/src/Blogroll.php:443
 msgid "You are not allowed to delete links"
-msgstr ""
+msgstr "Нямате право да изтривате връзки"
 
 #: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
@@ -1093,7 +1093,7 @@ msgstr "Lang"
 
 #: plugins/blogroll/src/Manage.php:414
 msgid "Selected links action:"
-msgstr ""
+msgstr "Избрани връзки действие:"
 
 #: plugins/blogroll/src/Manage.php:434
 msgid "The link list is empty"
