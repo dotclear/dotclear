@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-25 13:29+0200\n"
-"PO-Revision-Date: 2025-05-25 11:34\n"
+"PO-Revision-Date: 2025-05-25 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Basque\n"
 "Language: eu_ES\n"
@@ -1007,29 +1007,29 @@ msgstr "Estekak"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:83
 msgid "Back to links list"
-msgstr ""
+msgstr "Lotura zerrendara itzuli"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:111
 msgid "Links actions"
-msgstr ""
+msgstr "Esteken ekintzak"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:77
 #, php-format
 msgid "%d link has been successfully updated to status : \"%s\""
 msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d esteka behar bezala eguneratu da \"%s\" egoerara"
+msgstr[1] "%d esteka behar bezala eguneratu dira \"%s\" egoerara"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:99
 msgid "No link selected"
-msgstr ""
+msgstr "Ez da estekarik hautatu"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
 msgid "%d link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d esteka behar bezala ezabatu da"
+msgstr[1] "%d esteka behar bezala ezabatu dira"
 
 #: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
@@ -1049,11 +1049,11 @@ msgstr "Esteka URL bat eman behar duzu"
 
 #: plugins/blogroll/src/Blogroll.php:413
 msgid "You are not allowed to change link status"
-msgstr ""
+msgstr "Ez duzu baimenik estekaren egoera aldatzeko"
 
 #: plugins/blogroll/src/Blogroll.php:443
 msgid "You are not allowed to delete links"
-msgstr ""
+msgstr "Ez duzu baimenik estekak ezabatzeko"
 
 #: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
@@ -1093,7 +1093,7 @@ msgstr "Lang"
 
 #: plugins/blogroll/src/Manage.php:414
 msgid "Selected links action:"
-msgstr ""
+msgstr "Hautatutako esteken ekintza:"
 
 #: plugins/blogroll/src/Manage.php:434
 msgid "The link list is empty"
