@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-25 13:29+0200\n"
-"PO-Revision-Date: 2025-05-25 11:35\n"
+"PO-Revision-Date: 2025-05-25 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Language: bn_BD\n"
@@ -1007,29 +1007,29 @@ msgstr "লিংকসমূহ"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:83
 msgid "Back to links list"
-msgstr ""
+msgstr "লিঙ্ক তালিকায় ফিরে যান"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:111
 msgid "Links actions"
-msgstr ""
+msgstr "লিঙ্ক তালিকায় ফিরে যান"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:77
 #, php-format
 msgid "%d link has been successfully updated to status : \"%s\""
 msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d লিঙ্কটি সফলভাবে \"%s\" স্ট্যাটাসে আপডেট করা হয়েছে।"
+msgstr[1] "%dটি লিঙ্ক সফলভাবে \"%s\" স্ট্যাটাসে আপডেট করা হয়েছে।"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:99
 msgid "No link selected"
-msgstr ""
+msgstr "কোনও লিঙ্ক নির্বাচিত হয়নি"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
 msgid "%d link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%dটি লিঙ্ক সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[1] "%dটি লিঙ্ক সফলভাবে মুছে ফেলা হয়েছে।"
 
 #: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
@@ -1049,11 +1049,11 @@ msgstr "আপনাকে অবশ্যই লিংক URL দিতে হ�
 
 #: plugins/blogroll/src/Blogroll.php:413
 msgid "You are not allowed to change link status"
-msgstr ""
+msgstr "আপনার লিঙ্কের স্থিতি পরিবর্তন করার অনুমতি নেই।"
 
 #: plugins/blogroll/src/Blogroll.php:443
 msgid "You are not allowed to delete links"
-msgstr ""
+msgstr "আপনার লিঙ্ক মুছে ফেলার অনুমতি নেই।"
 
 #: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
@@ -1093,7 +1093,7 @@ msgstr "ল্যাংCity name (optional,"
 
 #: plugins/blogroll/src/Manage.php:414
 msgid "Selected links action:"
-msgstr ""
+msgstr "নির্বাচিত লিঙ্কগুলির ক্রিয়া:"
 
 #: plugins/blogroll/src/Manage.php:434
 msgid "The link list is empty"
