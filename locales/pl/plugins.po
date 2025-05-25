@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-25 13:29+0200\n"
-"PO-Revision-Date: 2025-05-25 11:35\n"
+"PO-Revision-Date: 2025-05-25 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -1007,33 +1007,33 @@ msgstr "Odnośniki"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:83
 msgid "Back to links list"
-msgstr ""
+msgstr "Powrót do listy linków"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:111
 msgid "Links actions"
-msgstr ""
+msgstr "Działania związane z linkami"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:77
 #, php-format
 msgid "%d link has been successfully updated to status : \"%s\""
 msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d Link został pomyślnie zaktualizowany do statusu: \"%s\""
+msgstr[1] "%d Link został pomyślnie zaktualizowany do statusu: \"%s\""
+msgstr[2] "%d Link został pomyślnie zaktualizowany do statusu: \"%s\""
+msgstr[3] "%d Linki zostały pomyślnie zaktualizowane do statusu: \"%s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:99
 msgid "No link selected"
-msgstr ""
+msgstr "Nie wybrano łącza"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
 msgid "%d link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d link został pomyślnie usunięty"
+msgstr[1] "%d link został pomyślnie usunięty"
+msgstr[2] "%d link został pomyślnie usunięty"
+msgstr[3] "%d linki zostały pomyślnie usunięte"
 
 #: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
@@ -1053,11 +1053,11 @@ msgstr "Musisz podać URL odnośnika"
 
 #: plugins/blogroll/src/Blogroll.php:413
 msgid "You are not allowed to change link status"
-msgstr ""
+msgstr "Nie możesz zmienić statusu linku"
 
 #: plugins/blogroll/src/Blogroll.php:443
 msgid "You are not allowed to delete links"
-msgstr ""
+msgstr "Nie możesz usuwać linków"
 
 #: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
@@ -1097,7 +1097,7 @@ msgstr "Język"
 
 #: plugins/blogroll/src/Manage.php:414
 msgid "Selected links action:"
-msgstr ""
+msgstr "Wybrane linki akcji:"
 
 #: plugins/blogroll/src/Manage.php:434
 msgid "The link list is empty"
