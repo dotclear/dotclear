@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-24 18:38+0200\n"
-"PO-Revision-Date: 2025-05-24 17:08\n"
+"POT-Creation-Date: 2025-05-25 13:29+0200\n"
+"PO-Revision-Date: 2025-05-25 11:35\n"
 "Last-Translator: \n"
 "Language-Team: Occitan\n"
 "Language: oc_FR\n"
@@ -924,7 +924,7 @@ msgstr "Comentaris publicats:"
 msgid "Filter configuration"
 msgstr "Configuracion del filtre"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:299
 msgid "position"
 msgstr "posicion"
 
@@ -999,6 +999,38 @@ msgstr "Apondre de fichièrs a ​​aquesta entrada"
 msgid "You must save the entry before adding an attachment."
 msgstr "Vos cal enregistrar l'entrada abans d'apondre un joint."
 
+#: plugins/blogroll/src/Action/ActionsLinks.php:67
+#: plugins/blogroll/src/Action/ActionsLinks.php:73
+#: plugins/blogroll/src/Widgets.php:48
+msgid "Links"
+msgstr "Ligams"
+
+#: plugins/blogroll/src/Action/ActionsLinks.php:83
+msgid "Back to links list"
+msgstr ""
+
+#: plugins/blogroll/src/Action/ActionsLinks.php:111
+msgid "Links actions"
+msgstr ""
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:77
+#, php-format
+msgid "%d link has been successfully updated to status : \"%s\""
+msgid_plural "%d links have been successfully updated to status : \"%s\""
+msgstr[0] ""
+msgstr[1] ""
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:99
+msgid "No link selected"
+msgstr ""
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
+#, php-format
+msgid "%d link has been successfully deleted"
+msgid_plural "%d links have been successfully deleted"
+msgstr[0] ""
+msgstr[1] ""
+
 #: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
 msgstr "Blogroll"
@@ -1007,80 +1039,90 @@ msgstr "Blogroll"
 msgid "manage blogroll"
 msgstr "gerir lo ròtle de blòg"
 
-#: plugins/blogroll/src/Blogroll.php:169 plugins/blogroll/src/Blogroll.php:213
+#: plugins/blogroll/src/Blogroll.php:176 plugins/blogroll/src/Blogroll.php:220
 msgid "You must provide a link title"
 msgstr "Vos cal provesir un títol de ligam"
 
-#: plugins/blogroll/src/Blogroll.php:173 plugins/blogroll/src/Blogroll.php:217
+#: plugins/blogroll/src/Blogroll.php:180 plugins/blogroll/src/Blogroll.php:224
 msgid "You must provide a link URL"
 msgstr "Vos cal provesir una URL de ligam"
 
-#: plugins/blogroll/src/Manage.php:109 plugins/blogroll/src/Manage.php:548
+#: plugins/blogroll/src/Blogroll.php:413
+msgid "You are not allowed to change link status"
+msgstr ""
+
+#: plugins/blogroll/src/Blogroll.php:443
+msgid "You are not allowed to delete links"
+msgstr ""
+
+#: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
 msgstr "Res d'importar"
 
-#: plugins/blogroll/src/Manage.php:132
+#: plugins/blogroll/src/Manage.php:144
 msgid "links have been successfully imported."
 msgstr "los ligams son estats importats amb succès."
 
-#: plugins/blogroll/src/Manage.php:139
+#: plugins/blogroll/src/Manage.php:151
 msgid "Import operation cancelled."
 msgstr "L'operacion d'importacion anullada."
 
-#: plugins/blogroll/src/Manage.php:154
+#: plugins/blogroll/src/Manage.php:167
 msgid "Link has been successfully created."
 msgstr "Lo ligam es estat creat amb succès."
 
-#: plugins/blogroll/src/Manage.php:169
+#: plugins/blogroll/src/Manage.php:183
 msgid "category has been successfully created."
 msgstr "la categoria es estada creada amb succès."
 
-#: plugins/blogroll/src/Manage.php:191
-msgid "Items have been successfully removed."
-msgstr "Los elements son estats suprimits amb succès."
-
-#: plugins/blogroll/src/Manage.php:221
+#: plugins/blogroll/src/Manage.php:216
 msgid "Items order has been successfully updated"
 msgstr "La comanda dels articles es estada mesa a jorn amb succès"
 
-#: plugins/blogroll/src/Manage.php:261
+#: plugins/blogroll/src/Manage.php:268
 msgid "Are you sure you want to delete selected links?"
 msgstr "Sètz segur que volètz suprimir los ligams seleccionats?"
 
-#: plugins/blogroll/src/Manage.php:294
+#: plugins/blogroll/src/Manage.php:306
 msgid "select this link"
 msgstr "seleccionatz aqueste ligam"
 
-#: plugins/blogroll/src/Manage.php:341
+#: plugins/blogroll/src/Manage.php:366
 msgid "Lang"
 msgstr "Lang"
 
-#: plugins/blogroll/src/Manage.php:366
-msgid "Delete selected links"
-msgstr "Suprimir los ligams seleccionats"
+#: plugins/blogroll/src/Manage.php:414
+msgid "Selected links action:"
+msgstr ""
 
-#: plugins/blogroll/src/Manage.php:384
+#: plugins/blogroll/src/Manage.php:434
 msgid "The link list is empty"
 msgstr "La lista de ligams es voida"
 
-#: plugins/blogroll/src/Manage.php:407
+#: plugins/blogroll/src/Manage.php:457
 msgid "Add a new link"
 msgstr "Apondre un ligam novèl"
 
-#: plugins/blogroll/src/Manage.php:471
+#: plugins/blogroll/src/Manage.php:508 plugins/blogroll/src/Manage.php:558
+#: plugins/blogroll/src/ManageEdit.php:224
+#: plugins/blogroll/src/ManageEdit.php:296
+msgid "Link status"
+msgstr "Estat del ligam"
+
+#: plugins/blogroll/src/Manage.php:527
 msgid "Add a category"
 msgstr "Apondre una categoria"
 
-#: plugins/blogroll/src/Manage.php:519 plugins/blogroll/src/Manage.php:611
-#: plugins/blogroll/src/Manage.php:618
+#: plugins/blogroll/src/Manage.php:581 plugins/blogroll/src/Manage.php:673
+#: plugins/blogroll/src/Manage.php:680
 msgid "Import links"
 msgstr "Ligams d'importacion"
 
-#: plugins/blogroll/src/Manage.php:528
+#: plugins/blogroll/src/Manage.php:590
 msgid "OPML or XBEL File:"
 msgstr "Fichièr OPML o XBEL:"
 
-#: plugins/blogroll/src/Manage.php:538 plugins/blogroll/src/Manage.php:603
+#: plugins/blogroll/src/Manage.php:600 plugins/blogroll/src/Manage.php:665
 #: plugins/importExport/src/Manage.php:130
 #: plugins/importExport/src/ModuleImportFeed.php:239
 #: plugins/importExport/src/ModuleImportFlat.php:245
@@ -1113,11 +1155,6 @@ msgstr "Tornar al blogroll"
 #: plugins/blogroll/src/ManageEdit.php:199
 msgid "Edit category"
 msgstr "Modificar la categoria"
-
-#: plugins/blogroll/src/ManageEdit.php:224
-#: plugins/blogroll/src/ManageEdit.php:296
-msgid "Link status"
-msgstr "Estat del ligam"
 
 #: plugins/blogroll/src/ManageEdit.php:243
 msgid "Edit link"
@@ -1243,10 +1280,6 @@ msgstr "Lo fichièr es pas en format XML."
 #: plugins/blogroll/src/Widgets.php:39
 msgid "All categories"
 msgstr "Totas las categorias"
-
-#: plugins/blogroll/src/Widgets.php:48
-msgid "Links"
-msgstr "Ligams"
 
 #: plugins/breadcrumb/src/Backend.php:25
 msgid "Breadcrumb"
