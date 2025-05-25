@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-24 18:38+0200\n"
-"PO-Revision-Date: 2025-05-24 17:08\n"
+"POT-Creation-Date: 2025-05-25 13:29+0200\n"
+"PO-Revision-Date: 2025-05-25 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Spanish, Argentina\n"
 "Language: es_AR\n"
@@ -924,7 +924,7 @@ msgstr "Comentarios publicados:"
 msgid "Filter configuration"
 msgstr "Configuración del filtro"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:299
 msgid "position"
 msgstr "posición"
 
@@ -999,6 +999,38 @@ msgstr "Añadir archivos a esta entrada"
 msgid "You must save the entry before adding an attachment."
 msgstr "Debe guardar la entrada antes de añadir un archivo adjunto."
 
+#: plugins/blogroll/src/Action/ActionsLinks.php:67
+#: plugins/blogroll/src/Action/ActionsLinks.php:73
+#: plugins/blogroll/src/Widgets.php:48
+msgid "Links"
+msgstr "Enlaces"
+
+#: plugins/blogroll/src/Action/ActionsLinks.php:83
+msgid "Back to links list"
+msgstr "Volver a la lista de enlaces"
+
+#: plugins/blogroll/src/Action/ActionsLinks.php:111
+msgid "Links actions"
+msgstr "Enlaces acciones"
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:77
+#, php-format
+msgid "%d link has been successfully updated to status : \"%s\""
+msgid_plural "%d links have been successfully updated to status : \"%s\""
+msgstr[0] "%d el enlace se ha actualizado correctamente al estado : \"%s\""
+msgstr[1] "%d los enlaces se han actualizado correctamente al estado : \"%s\""
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:99
+msgid "No link selected"
+msgstr "Ningún enlace seleccionado"
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
+#, php-format
+msgid "%d link has been successfully deleted"
+msgid_plural "%d links have been successfully deleted"
+msgstr[0] "%d el enlace se ha eliminado correctamente"
+msgstr[1] "%d los enlaces se han eliminado correctamente"
+
 #: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
 msgstr "Enlaces recomendados"
@@ -1007,80 +1039,90 @@ msgstr "Enlaces recomendados"
 msgid "manage blogroll"
 msgstr "Administrar enlaces recomendados"
 
-#: plugins/blogroll/src/Blogroll.php:169 plugins/blogroll/src/Blogroll.php:213
+#: plugins/blogroll/src/Blogroll.php:176 plugins/blogroll/src/Blogroll.php:220
 msgid "You must provide a link title"
 msgstr "Debe indicar un titulo de enlace"
 
-#: plugins/blogroll/src/Blogroll.php:173 plugins/blogroll/src/Blogroll.php:217
+#: plugins/blogroll/src/Blogroll.php:180 plugins/blogroll/src/Blogroll.php:224
 msgid "You must provide a link URL"
 msgstr "Debe indicar un URL de enlace"
 
-#: plugins/blogroll/src/Manage.php:109 plugins/blogroll/src/Manage.php:548
+#: plugins/blogroll/src/Blogroll.php:413
+msgid "You are not allowed to change link status"
+msgstr "No está permitido cambiar el estado del enlace"
+
+#: plugins/blogroll/src/Blogroll.php:443
+msgid "You are not allowed to delete links"
+msgstr "No está permitido borrar enlaces"
+
+#: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
 msgstr "Nada para importar"
 
-#: plugins/blogroll/src/Manage.php:132
+#: plugins/blogroll/src/Manage.php:144
 msgid "links have been successfully imported."
 msgstr "Enlaces importados con éxito."
 
-#: plugins/blogroll/src/Manage.php:139
+#: plugins/blogroll/src/Manage.php:151
 msgid "Import operation cancelled."
 msgstr "Importación cancelada."
 
-#: plugins/blogroll/src/Manage.php:154
+#: plugins/blogroll/src/Manage.php:167
 msgid "Link has been successfully created."
 msgstr "Enlace creado con éxito."
 
-#: plugins/blogroll/src/Manage.php:169
+#: plugins/blogroll/src/Manage.php:183
 msgid "category has been successfully created."
 msgstr "categoría creada con éxito."
 
-#: plugins/blogroll/src/Manage.php:191
-msgid "Items have been successfully removed."
-msgstr "Elementos eliminados con éxito."
-
-#: plugins/blogroll/src/Manage.php:221
+#: plugins/blogroll/src/Manage.php:216
 msgid "Items order has been successfully updated"
 msgstr "Orden de los elementos actualizados con éxito"
 
-#: plugins/blogroll/src/Manage.php:261
+#: plugins/blogroll/src/Manage.php:268
 msgid "Are you sure you want to delete selected links?"
 msgstr "¿Esta seguro que desea eliminar los enlaces seleccionados?"
 
-#: plugins/blogroll/src/Manage.php:294
+#: plugins/blogroll/src/Manage.php:306
 msgid "select this link"
 msgstr "seleccione este enlace"
 
-#: plugins/blogroll/src/Manage.php:341
+#: plugins/blogroll/src/Manage.php:366
 msgid "Lang"
 msgstr "Idioma"
 
-#: plugins/blogroll/src/Manage.php:366
-msgid "Delete selected links"
-msgstr "Eliminar enlaces seleccionados"
+#: plugins/blogroll/src/Manage.php:414
+msgid "Selected links action:"
+msgstr "Acción de enlaces seleccionados:"
 
-#: plugins/blogroll/src/Manage.php:384
+#: plugins/blogroll/src/Manage.php:434
 msgid "The link list is empty"
 msgstr "La lista de enlaces está vacía"
 
-#: plugins/blogroll/src/Manage.php:407
+#: plugins/blogroll/src/Manage.php:457
 msgid "Add a new link"
 msgstr "Agregar un enlace nuevo"
 
-#: plugins/blogroll/src/Manage.php:471
+#: plugins/blogroll/src/Manage.php:508 plugins/blogroll/src/Manage.php:558
+#: plugins/blogroll/src/ManageEdit.php:224
+#: plugins/blogroll/src/ManageEdit.php:296
+msgid "Link status"
+msgstr "Estado del enlace"
+
+#: plugins/blogroll/src/Manage.php:527
 msgid "Add a category"
 msgstr "Agregar una categoría"
 
-#: plugins/blogroll/src/Manage.php:519 plugins/blogroll/src/Manage.php:611
-#: plugins/blogroll/src/Manage.php:618
+#: plugins/blogroll/src/Manage.php:581 plugins/blogroll/src/Manage.php:673
+#: plugins/blogroll/src/Manage.php:680
 msgid "Import links"
 msgstr "Importar enlaces"
 
-#: plugins/blogroll/src/Manage.php:528
+#: plugins/blogroll/src/Manage.php:590
 msgid "OPML or XBEL File:"
 msgstr "Archivo OPML o XBEL:"
 
-#: plugins/blogroll/src/Manage.php:538 plugins/blogroll/src/Manage.php:603
+#: plugins/blogroll/src/Manage.php:600 plugins/blogroll/src/Manage.php:665
 #: plugins/importExport/src/Manage.php:130
 #: plugins/importExport/src/ModuleImportFeed.php:239
 #: plugins/importExport/src/ModuleImportFlat.php:245
@@ -1113,11 +1155,6 @@ msgstr "Regresar a enlaces recomendados"
 #: plugins/blogroll/src/ManageEdit.php:199
 msgid "Edit category"
 msgstr "Editar categoría."
-
-#: plugins/blogroll/src/ManageEdit.php:224
-#: plugins/blogroll/src/ManageEdit.php:296
-msgid "Link status"
-msgstr "Estado del enlace"
 
 #: plugins/blogroll/src/ManageEdit.php:243
 msgid "Edit link"
@@ -1243,10 +1280,6 @@ msgstr "El archivo no tiene formato XML."
 #: plugins/blogroll/src/Widgets.php:39
 msgid "All categories"
 msgstr "Todas las categorías"
-
-#: plugins/blogroll/src/Widgets.php:48
-msgid "Links"
-msgstr "Enlaces"
 
 #: plugins/breadcrumb/src/Backend.php:25
 msgid "Breadcrumb"

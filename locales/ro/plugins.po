@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-24 18:38+0200\n"
-"PO-Revision-Date: 2025-05-24 17:07\n"
+"POT-Creation-Date: 2025-05-25 13:29+0200\n"
+"PO-Revision-Date: 2025-05-25 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -924,7 +924,7 @@ msgstr "Comentarii publicate:"
 msgid "Filter configuration"
 msgstr "Configurare filtru"
 
-#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:302 plugins/blogroll/src/Manage.php:299
 msgid "position"
 msgstr "poziţie"
 
@@ -999,6 +999,40 @@ msgstr "Adaugă fișiere la această intrare"
 msgid "You must save the entry before adding an attachment."
 msgstr "Trebuie să salvați intrarea înainte de a adăuga un atașament."
 
+#: plugins/blogroll/src/Action/ActionsLinks.php:67
+#: plugins/blogroll/src/Action/ActionsLinks.php:73
+#: plugins/blogroll/src/Widgets.php:48
+msgid "Links"
+msgstr "Legături"
+
+#: plugins/blogroll/src/Action/ActionsLinks.php:83
+msgid "Back to links list"
+msgstr "Înapoi la lista de linkuri"
+
+#: plugins/blogroll/src/Action/ActionsLinks.php:111
+msgid "Links actions"
+msgstr "Legături acțiuni"
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:77
+#, php-format
+msgid "%d link has been successfully updated to status : \"%s\""
+msgid_plural "%d links have been successfully updated to status : \"%s\""
+msgstr[0] "%d link-ul a fost actualizat cu succes la starea : \"%s\""
+msgstr[1] "%d link-ul a fost actualizat cu succes la starea : \"%s\""
+msgstr[2] "%d link-urile au fost actualizate cu succes la starea : \"%s\""
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:99
+msgid "No link selected"
+msgstr "Nu este selectată nicio legătură"
+
+#: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
+#, php-format
+msgid "%d link has been successfully deleted"
+msgid_plural "%d links have been successfully deleted"
+msgstr[0] "%d link-ul a fost șters cu succes"
+msgstr[1] "%d link-ul a fost șters cu succes"
+msgstr[2] "%d legăturile au fost șterse cu succes"
+
 #: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
 msgstr "Îngheţare"
@@ -1007,80 +1041,90 @@ msgstr "Îngheţare"
 msgid "manage blogroll"
 msgstr "administrare blogroll"
 
-#: plugins/blogroll/src/Blogroll.php:169 plugins/blogroll/src/Blogroll.php:213
+#: plugins/blogroll/src/Blogroll.php:176 plugins/blogroll/src/Blogroll.php:220
 msgid "You must provide a link title"
 msgstr "Trebuie să inserezi un titlu al legăturii"
 
-#: plugins/blogroll/src/Blogroll.php:173 plugins/blogroll/src/Blogroll.php:217
+#: plugins/blogroll/src/Blogroll.php:180 plugins/blogroll/src/Blogroll.php:224
 msgid "You must provide a link URL"
 msgstr "Trebuie să inserezi o legătură web"
 
-#: plugins/blogroll/src/Manage.php:109 plugins/blogroll/src/Manage.php:548
+#: plugins/blogroll/src/Blogroll.php:413
+msgid "You are not allowed to change link status"
+msgstr "Nu vi se permite să modificați statutul linkului"
+
+#: plugins/blogroll/src/Blogroll.php:443
+msgid "You are not allowed to delete links"
+msgstr "Nu aveți voie să ștergeți linkuri"
+
+#: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
 msgstr "Nimic a se importa"
 
-#: plugins/blogroll/src/Manage.php:132
+#: plugins/blogroll/src/Manage.php:144
 msgid "links have been successfully imported."
 msgstr "legături au fost importate."
 
-#: plugins/blogroll/src/Manage.php:139
+#: plugins/blogroll/src/Manage.php:151
 msgid "Import operation cancelled."
 msgstr "Execuția de import a fost anulată."
 
-#: plugins/blogroll/src/Manage.php:154
+#: plugins/blogroll/src/Manage.php:167
 msgid "Link has been successfully created."
 msgstr "Legătura a fost creată."
 
-#: plugins/blogroll/src/Manage.php:169
+#: plugins/blogroll/src/Manage.php:183
 msgid "category has been successfully created."
 msgstr "categoria a fost creată."
 
-#: plugins/blogroll/src/Manage.php:191
-msgid "Items have been successfully removed."
-msgstr "Elementele au fost eliminate"
-
-#: plugins/blogroll/src/Manage.php:221
+#: plugins/blogroll/src/Manage.php:216
 msgid "Items order has been successfully updated"
 msgstr "Lista de elements a fost actualizată"
 
-#: plugins/blogroll/src/Manage.php:261
+#: plugins/blogroll/src/Manage.php:268
 msgid "Are you sure you want to delete selected links?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi link-urile selectate?"
 
-#: plugins/blogroll/src/Manage.php:294
+#: plugins/blogroll/src/Manage.php:306
 msgid "select this link"
 msgstr "selectează acest link"
 
-#: plugins/blogroll/src/Manage.php:341
+#: plugins/blogroll/src/Manage.php:366
 msgid "Lang"
 msgstr "Limbă"
 
-#: plugins/blogroll/src/Manage.php:366
-msgid "Delete selected links"
-msgstr "Șterge legăturile selectate"
+#: plugins/blogroll/src/Manage.php:414
+msgid "Selected links action:"
+msgstr "Link-uri selectate acțiune:"
 
-#: plugins/blogroll/src/Manage.php:384
+#: plugins/blogroll/src/Manage.php:434
 msgid "The link list is empty"
 msgstr "Lista de legături este goală"
 
-#: plugins/blogroll/src/Manage.php:407
+#: plugins/blogroll/src/Manage.php:457
 msgid "Add a new link"
 msgstr "Adaugă o nouă legătură"
 
-#: plugins/blogroll/src/Manage.php:471
+#: plugins/blogroll/src/Manage.php:508 plugins/blogroll/src/Manage.php:558
+#: plugins/blogroll/src/ManageEdit.php:224
+#: plugins/blogroll/src/ManageEdit.php:296
+msgid "Link status"
+msgstr "Starea legăturii"
+
+#: plugins/blogroll/src/Manage.php:527
 msgid "Add a category"
 msgstr "Adaugă o categorie"
 
-#: plugins/blogroll/src/Manage.php:519 plugins/blogroll/src/Manage.php:611
-#: plugins/blogroll/src/Manage.php:618
+#: plugins/blogroll/src/Manage.php:581 plugins/blogroll/src/Manage.php:673
+#: plugins/blogroll/src/Manage.php:680
 msgid "Import links"
 msgstr "Importă legături"
 
-#: plugins/blogroll/src/Manage.php:528
+#: plugins/blogroll/src/Manage.php:590
 msgid "OPML or XBEL File:"
 msgstr "Fișier OPML sau XBEL:"
 
-#: plugins/blogroll/src/Manage.php:538 plugins/blogroll/src/Manage.php:603
+#: plugins/blogroll/src/Manage.php:600 plugins/blogroll/src/Manage.php:665
 #: plugins/importExport/src/Manage.php:130
 #: plugins/importExport/src/ModuleImportFeed.php:239
 #: plugins/importExport/src/ModuleImportFlat.php:245
@@ -1113,11 +1157,6 @@ msgstr "Înapoi la blogroll"
 #: plugins/blogroll/src/ManageEdit.php:199
 msgid "Edit category"
 msgstr "Editează categoria"
-
-#: plugins/blogroll/src/ManageEdit.php:224
-#: plugins/blogroll/src/ManageEdit.php:296
-msgid "Link status"
-msgstr "Starea legăturii"
 
 #: plugins/blogroll/src/ManageEdit.php:243
 msgid "Edit link"
@@ -1243,10 +1282,6 @@ msgstr "Fișierul nu este XML."
 #: plugins/blogroll/src/Widgets.php:39
 msgid "All categories"
 msgstr "Toate categoriile"
-
-#: plugins/blogroll/src/Widgets.php:48
-msgid "Links"
-msgstr "Legături"
 
 #: plugins/breadcrumb/src/Backend.php:25
 msgid "Breadcrumb"
