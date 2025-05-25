@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-25 13:29+0200\n"
-"PO-Revision-Date: 2025-05-25 11:34\n"
+"PO-Revision-Date: 2025-05-25 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -1007,27 +1007,27 @@ msgstr "링크모음"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:83
 msgid "Back to links list"
-msgstr ""
+msgstr "링크 목록으로 돌아가기"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:111
 msgid "Links actions"
-msgstr ""
+msgstr "링크 작업"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:77
 #, php-format
 msgid "%d link has been successfully updated to status : \"%s\""
 msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] ""
+msgstr[0] "%d 링크가 성공적으로 상태로 업데이트되었습니다 : \"%s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:99
 msgid "No link selected"
-msgstr ""
+msgstr "선택한 링크 없음"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
 msgid "%d link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] ""
+msgstr[0] "%d 링크가 성공적으로 삭제되었습니다"
 
 #: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
@@ -1047,11 +1047,11 @@ msgstr "링크의 URL을 지정해야합니다."
 
 #: plugins/blogroll/src/Blogroll.php:413
 msgid "You are not allowed to change link status"
-msgstr ""
+msgstr "링크 상태는 변경할 수 없습니다"
 
 #: plugins/blogroll/src/Blogroll.php:443
 msgid "You are not allowed to delete links"
-msgstr ""
+msgstr "링크는 삭제할 수 없습니다"
 
 #: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
@@ -1091,7 +1091,7 @@ msgstr "언어"
 
 #: plugins/blogroll/src/Manage.php:414
 msgid "Selected links action:"
-msgstr ""
+msgstr "선택한 링크 동작:"
 
 #: plugins/blogroll/src/Manage.php:434
 msgid "The link list is empty"
