@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-25 13:29+0200\n"
-"PO-Revision-Date: 2025-05-25 11:34\n"
+"PO-Revision-Date: 2025-05-25 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -1007,31 +1007,31 @@ msgstr "Legături"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:83
 msgid "Back to links list"
-msgstr ""
+msgstr "Înapoi la lista de linkuri"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:111
 msgid "Links actions"
-msgstr ""
+msgstr "Legături acțiuni"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:77
 #, php-format
 msgid "%d link has been successfully updated to status : \"%s\""
 msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d link-ul a fost actualizat cu succes la starea : \"%s\""
+msgstr[1] "%d link-ul a fost actualizat cu succes la starea : \"%s\""
+msgstr[2] "%d link-urile au fost actualizate cu succes la starea : \"%s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:99
 msgid "No link selected"
-msgstr ""
+msgstr "Nu este selectată nicio legătură"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
 msgid "%d link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d link-ul a fost șters cu succes"
+msgstr[1] "%d link-ul a fost șters cu succes"
+msgstr[2] "%d legăturile au fost șterse cu succes"
 
 #: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
@@ -1051,11 +1051,11 @@ msgstr "Trebuie să inserezi o legătură web"
 
 #: plugins/blogroll/src/Blogroll.php:413
 msgid "You are not allowed to change link status"
-msgstr ""
+msgstr "Nu vi se permite să modificați statutul linkului"
 
 #: plugins/blogroll/src/Blogroll.php:443
 msgid "You are not allowed to delete links"
-msgstr ""
+msgstr "Nu aveți voie să ștergeți linkuri"
 
 #: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
@@ -1095,7 +1095,7 @@ msgstr "Limbă"
 
 #: plugins/blogroll/src/Manage.php:414
 msgid "Selected links action:"
-msgstr ""
+msgstr "Link-uri selectate acțiune:"
 
 #: plugins/blogroll/src/Manage.php:434
 msgid "The link list is empty"
