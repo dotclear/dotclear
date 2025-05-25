@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-25 13:29+0200\n"
-"PO-Revision-Date: 2025-05-25 11:35\n"
+"PO-Revision-Date: 2025-05-25 16:00\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -1007,29 +1007,29 @@ msgstr "लिंक्स"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:83
 msgid "Back to links list"
-msgstr ""
+msgstr "लिंक सूची पर वापस जाएं"
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:111
 msgid "Links actions"
-msgstr ""
+msgstr "लिंक क्रियाएँ"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:77
 #, php-format
 msgid "%d link has been successfully updated to status : \"%s\""
 msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d लिंक को सफलतापूर्वक स्थिति : \"%s\" पर अपडेट कर दिया गया है"
+msgstr[1] "%d लिंक सफलतापूर्वक स्थिति : \"%s\" पर अपडेट कर दिए गए हैं"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:99
 msgid "No link selected"
-msgstr ""
+msgstr "कोई लिंक चयनित नहीं"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
 msgid "%d link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d लिंक सफलतापूर्वक हटा दिया गया है"
+msgstr[1] "%d लिंक सफलतापूर्वक हटा दिए गए हैं"
 
 #: plugins/blogroll/src/Backend.php:26
 msgid "Blogroll"
@@ -1049,11 +1049,11 @@ msgstr "आपको एक लिंक URL प्रदान करना ह
 
 #: plugins/blogroll/src/Blogroll.php:413
 msgid "You are not allowed to change link status"
-msgstr ""
+msgstr "आपको लिंक की स्थिति बदलने की अनुमति नहीं है"
 
 #: plugins/blogroll/src/Blogroll.php:443
 msgid "You are not allowed to delete links"
-msgstr ""
+msgstr "आपको लिंक हटाने की अनुमति नहीं है"
 
 #: plugins/blogroll/src/Manage.php:121 plugins/blogroll/src/Manage.php:610
 msgid "Nothing to import"
@@ -1093,7 +1093,7 @@ msgstr "लैंग"
 
 #: plugins/blogroll/src/Manage.php:414
 msgid "Selected links action:"
-msgstr ""
+msgstr "चयनित लिंक क्रिया:"
 
 #: plugins/blogroll/src/Manage.php:434
 msgid "The link list is empty"
