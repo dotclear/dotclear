@@ -8,11 +8,6 @@
  */
 declare(strict_types=1);
 
-/**
- * @namespace   Dotclear.Schema.Status
- * @brief       Status helpers.
- */
-
 namespace Dotclear\Plugin\blogroll\Status;
 
 use Dotclear\Helper\Stack\Status;

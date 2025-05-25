@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\blogroll;
 
+use ArrayObject;
 use Exception;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
@@ -17,6 +18,8 @@ use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
+use Dotclear\Exception\BadRequestException;
+use Dotclear\Exception\UnauthorizedException;
 use Dotclear\Interface\Core\BlogInterface;
 use Dotclear\Plugin\blogroll\Status\Link;
 
@@ -87,6 +90,10 @@ class Blogroll
 
         if (isset($params['link_status'])) {
             $sql->and('link_status = ' . (int) $params['link_status'] . ' ');
+        }
+
+        if (isset($params['sql'])) {
+            $sql->sql($params['sql']);
         }
 
         $rs = $sql->select();
@@ -371,5 +378,85 @@ class Blogroll
         }
 
         return $res;    // @phpstan-ignore-line
+    }
+
+    public function cleanIds($ids): array
+    {
+        $clean_ids = [];
+
+        if (!is_array($ids) && !($ids instanceof ArrayObject)) {
+            $ids = [$ids];
+        }
+
+        foreach ($ids as $id) {
+            if (is_array($id) || ($id instanceof ArrayObject)) {
+                $clean_ids = [...$clean_ids, ...$this->cleanIds($id)];
+            } else {
+                $id = abs((int) $id);
+
+                if (!empty($id)) {
+                    $clean_ids[] = $id;
+                }
+            }
+        }
+
+        return $clean_ids;
+    }
+
+    public function updLinksStatus($ids, int $status): void
+    {
+        if (!App::auth()->check(App::auth()->makePermissions([
+            Blogroll::PERMISSION_BLOGROLL,
+            App::auth()::PERMISSION_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id())) {
+            throw new UnauthorizedException(__('You are not allowed to change link status'));
+        }
+
+        $posts_ids = $this->cleanIds($ids);
+
+        if ($posts_ids === []) {
+            throw new BadRequestException(__('No such entry ID'));
+        }
+
+        $sql = new UpdateStatement();
+        $sql
+            ->where('blog_id = ' . $sql->quote($this->blog->id()))
+            ->and('link_id' . $sql->in($posts_ids));
+
+        $cur = App::con()->openCursor($this->table);
+
+        $cur->link_status = $status;
+
+        $sql->update($cur);
+
+        $this->blog->triggerBlog();
+    }
+
+    public function delLinks($ids): void
+    {
+        if (!App::auth()->check(App::auth()->makePermissions([
+            Blogroll::PERMISSION_BLOGROLL,
+            App::auth()::PERMISSION_ADMIN,
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id())) {
+            throw new UnauthorizedException(__('You are not allowed to delete links'));
+        }
+
+        $posts_ids = $this->cleanIds($ids);
+
+        if ($posts_ids === []) {
+            throw new BadRequestException(__('No such entry ID'));
+        }
+
+        $sql = new DeleteStatement();
+        $sql
+            ->from($this->table)
+            ->where('blog_id = ' . $sql->quote($this->blog->id()))
+            ->and('link_id' . $sql->in($posts_ids));
+
+        $sql->delete();
+
+        $this->blog->triggerBlog();
     }
 }

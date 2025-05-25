@@ -43,6 +43,7 @@ use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Url;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Plugin\blogroll\Action\ActionsLinks;
 use Dotclear\Plugin\blogroll\Status\Link as StatusLink;
 
 /**
@@ -58,6 +59,13 @@ class Manage extends Process
         if (self::status(My::checkContext(My::MANAGE))) {
             App::backend()->blogroll = new Blogroll(App::blog());
             App::backend()->statuses = new StatusLink();
+
+            // Actions
+            // -------
+            App::backend()->links_actions_page = new ActionsLinks(App::backend()->url()->get('admin.plugin'), ['p' => My::id()]);
+            if (App::backend()->links_actions_page->process()) {
+                return self::status(false);
+            }
 
             if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
                 self::$edit = ManageEdit::init();
@@ -180,25 +188,6 @@ class Manage extends Process
             }
         }
 
-        if (!empty($_POST['removeaction']) && !empty($_POST['remove'])) {
-            // Delete link
-
-            foreach ($_POST['remove'] as $v) {
-                try {
-                    App::backend()->blogroll->delItem($v);
-                } catch (Exception $e) {
-                    App::error()->add($e->getMessage());
-
-                    break;
-                }
-            }
-
-            if (!App::error()->flag()) {
-                Notices::addSuccessNotice(__('Items have been successfully removed.'));
-                My::redirect();
-            }
-        }
-
         // Prepare order links
 
         $order = [];
@@ -242,6 +231,15 @@ class Manage extends Process
             ManageEdit::render();
 
             return;
+        }
+
+        // Action combo
+        $combo   = App::backend()->links_actions_page->getCombo();
+        $entries = [];
+        if (isset($_REQUEST['entries'])) {
+            foreach ($_REQUEST['entries'] as $v) {
+                $entries[(int) $v] = true;
+            }
         }
 
         // Languages combo
@@ -303,7 +301,7 @@ class Manage extends Process
                 $cols[] = (new Td())
                     ->class('minimal')
                     ->items([
-                        (new Checkbox(['remove[]']))
+                        (new Checkbox(['entries[]'], isset($entries[(int) $rs->link_id])))
                             ->value($rs->link_id)
                             ->title(__('select this link')),
                     ]);
@@ -409,10 +407,14 @@ class Manage extends Process
                             (new Para())
                                 ->class(['col', 'checkboxes-helpers']),
                             (new Para())
-                                ->class(['col', 'right'])
+                                ->class(['col', 'right', 'form-buttons'])
                                 ->items([
-                                    (new Submit(['removeaction','remove-action'], __('Delete selected links')))
-                                        ->class('delete'),
+                                    (new Select('action'))
+                                        ->items($combo)
+                                        ->label(new Label(__('Selected links action:'), Label::IL_TF)),
+                                    (new Submit('do-action', __('ok')))
+                                        ->disabled(true),
+                                    App::nonce()->formNonce(),
                                 ]),
                         ]),
                     (new Para())
