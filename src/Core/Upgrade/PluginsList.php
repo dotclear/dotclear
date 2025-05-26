@@ -62,13 +62,15 @@ class PluginsList extends ModulesList
     /**
      * Get settings URLs if any.
      *
-     * @param   string      $id     Module ID
-     * @param   boolean     $check  Check permission
-     * @param   boolean     $self   Include self URL (→ plugin index.php URL)
+     * @param   string      $id         Module ID
+     * @param   boolean     $check      Check permission
+     * @param   boolean     $self       Include self URL (→ plugin index.php URL)
+     * @param   boolean     $keys       Use string keys instead of numeric for links
+     * @param   boolean     $url_only   Get only URLs
      *
      * @return  array<string>   Array of settings URLs
      */
-    public static function getSettingsUrls(string $id, bool $check = false, bool $self = true): array
+    public static function getSettingsUrls(string $id, bool $check = false, bool $self = true, bool $keys = false, bool $url_only = false): array
     {
         return [];
     }

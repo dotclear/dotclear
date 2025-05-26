@@ -520,6 +520,12 @@ class Favorites
                 'small-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
                 'large-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
             ],
+            'settings' => [
+                'title'      => __('Plugins settings'),
+                'url'        => App::backend()->url()->get('admin.settings'),
+                'small-icon' => ['images/menu/settings.svg', 'images/menu/settings-dark.svg'],
+                'large-icon' => ['images/menu/settings.svg', 'images/menu/settings-dark.svg'],
+            ],
             'langs' => [
                 'title'      => __('Languages'),
                 'url'        => App::backend()->url()->get('admin.langs'),

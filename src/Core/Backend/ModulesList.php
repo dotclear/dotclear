@@ -1183,13 +1183,15 @@ class ModulesList
     /**
      * Get settings URLs if any
      *
-     * @param   string  $id     Module ID
-     * @param   boolean $check  Check permission
-     * @param   boolean $self   Include self URL (→ plugin index.php URL)
+     * @param   string  $id         Module ID
+     * @param   boolean $check      Check permission
+     * @param   boolean $self       Include self URL (→ plugin index.php URL)
+     * @param   boolean $keys       Use string keys instead of numeric for links
+     * @param   boolean $url_only   Get only URLs
      *
      * @return array<string>    Array of settings URLs
      */
-    public static function getSettingsUrls(string $id, bool $check = false, bool $self = true): array
+    public static function getSettingsUrls(string $id, bool $check = false, bool $self = true, bool $keys = false, bool $url_only = false): array
     {
         $settings_urls = [];
 
@@ -1206,11 +1208,14 @@ class ModulesList
                 if (!App::plugins()->moduleInfo($id, 'standalone_config') && !$self) {
                     $params['redir'] = App::backend()->url()->get('admin.plugin.' . $id);
                 }
-                $settings_urls[] = (new Link())
-                    ->href(App::backend()->url()->get('admin.plugins', $params))
-                    ->class('module-config')
-                    ->text(__('Configure plugin'))
-                ->render();
+                $index                 = $keys ? 'config' : count($settings_urls);
+                $settings_urls[$index] = $url_only ?
+                    App::backend()->url()->get('admin.plugins', $params) :
+                    (new Link())
+                        ->href(App::backend()->url()->get('admin.plugins', $params))
+                        ->class('module-config')
+                        ->text(__('Configure plugin'))
+                    ->render();
             }
             if (is_array($settings)) {
                 foreach ($settings as $sk => $sv) {
@@ -1219,11 +1224,14 @@ class ModulesList
                             if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::auth()->makePermissions([
                                 App::auth()::PERMISSION_ADMIN,
                             ]), App::blog()->id())) {
-                                $settings_urls[] = (new Link())
-                                    ->href(App::backend()->url()->get('admin.blog.pref') . $sv)
-                                    ->class('module-config')
-                                    ->text(__('Plugin settings (in blog parameters)'))
-                                ->render();
+                                $index                 = $keys ? 'blog' : count($settings_urls);
+                                $settings_urls[$index] = $url_only ?
+                                    App::backend()->url()->get('admin.blog.pref') . $sv :
+                                    (new Link())
+                                        ->href(App::backend()->url()->get('admin.blog.pref') . $sv)
+                                        ->class('module-config')
+                                        ->text(__('Plugin settings (in blog parameters)'))
+                                    ->render();
                             }
 
                             break;
@@ -1232,22 +1240,28 @@ class ModulesList
                                 App::auth()::PERMISSION_USAGE,
                                 App::auth()::PERMISSION_CONTENT_ADMIN,
                             ]), App::blog()->id())) {
-                                $settings_urls[] = (new Link())
-                                    ->href(App::backend()->url()->get('admin.user.preferences') . $sv)
-                                    ->class('module-config')
-                                    ->text(__('Plugin settings (in user preferences)'))
-                                ->render();
+                                $index                 = $keys ? 'pref' : count($settings_urls);
+                                $settings_urls[$index] = $url_only ?
+                                    App::backend()->url()->get('admin.user.preferences') . $sv :
+                                    (new Link())
+                                        ->href(App::backend()->url()->get('admin.user.preferences') . $sv)
+                                        ->class('module-config')
+                                        ->text(__('Plugin settings (in user preferences)'))
+                                    ->render();
                             }
 
                             break;
                         case 'self':
                             if ($self) {
                                 if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
-                                    $settings_urls[] = (new Link())
-                                        ->href(App::backend()->url()->get('admin.plugin.' . $id) . $sv)
-                                        ->class('module-config')
-                                        ->text(__('Plugin settings'))
-                                    ->render();
+                                    $index                 = $keys ? 'self' : count($settings_urls);
+                                    $settings_urls[$index] = $url_only ?
+                                        App::backend()->url()->get('admin.plugin.' . $id) . $sv :
+                                        (new Link())
+                                            ->href(App::backend()->url()->get('admin.plugin.' . $id) . $sv)
+                                            ->class('module-config')
+                                            ->text(__('Plugin settings'))
+                                        ->render();
                                 }
                                 // No need to use default index.php
                                 $index = false;
@@ -1256,11 +1270,14 @@ class ModulesList
                             break;
                         case 'other':
                             if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
-                                $settings_urls[] = (new Link())
-                                    ->href($sv)
-                                    ->class('module-config')
-                                    ->text(__('Plugin settings'))
-                                ->render();
+                                $index                 = $keys ? 'other' : count($settings_urls);
+                                $settings_urls[$index] = $url_only ?
+                                    $sv :
+                                    (new Link())
+                                        ->href($sv)
+                                        ->class('module-config')
+                                        ->text(__('Plugin settings'))
+                                    ->render();
                             }
 
                             break;
@@ -1268,11 +1285,14 @@ class ModulesList
                 }
             }
             if ($index && $self && (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id()))) {
-                $settings_urls[] = (new Link())
-                    ->href(App::backend()->url()->get('admin.plugin.' . $id))
-                    ->class('module-config')
-                    ->text(__('Plugin main page'))
-                ->render();
+                $index                 = $keys ? 'manage' : count($settings_urls);
+                $settings_urls[$index] = $url_only ?
+                    App::backend()->url()->get('admin.plugin.' . $id) :
+                    (new Link())
+                        ->href(App::backend()->url()->get('admin.plugin.' . $id))
+                        ->class('module-config')
+                        ->text(__('Plugin main page'))
+                    ->render();
             }
         }
 

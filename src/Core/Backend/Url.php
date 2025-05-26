@@ -303,6 +303,7 @@ class Url
         $this->register('admin.plugins', 'Plugins');
         $this->register('admin.plugin', 'Plugin');
         $this->register('admin.search', 'Search');
+        $this->register('admin.settings', 'Settings');
         $this->register('admin.user.preferences', 'UserPreferences');
         $this->register('admin.user', 'User');
         $this->register('admin.user.actions', 'UsersActions');

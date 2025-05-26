@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package Dotclear
  * @subpackage Backend
@@ -228,6 +229,19 @@ class Menus extends ArrayObject
             false,
             false,
             'Plugins'
+        );
+        $this->addItem(
+            self::MENU_SYSTEM,
+            __('Plugins settings'),
+            'admin.settings',
+            ['images/menu/settings.svg', 'images/menu/settings-dark.svg'],
+            App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_USAGE,
+                App::auth()::PERMISSION_CONTENT_ADMIN,
+            ]), App::blog()->id()),
+            false,
+            false,
+            'Settings'
         );
         $this->addItem(
             self::MENU_SYSTEM,
