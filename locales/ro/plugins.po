@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-25 13:29+0200\n"
-"PO-Revision-Date: 2025-05-25 15:59\n"
+"POT-Creation-Date: 2025-05-26 18:37+0200\n"
+"PO-Revision-Date: 2025-05-26 16:40\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -193,10 +193,6 @@ msgstr "preferințele aferente șterse"
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
 msgid "Failed to delete related preferences"
 msgstr "Nu s-a reușit ștergerea preferințelor aferente"
-
-#: plugins/Uninstaller/src/Cleaner/Settings.php:38
-msgid "Settings"
-msgstr "Setări"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -1049,11 +1045,11 @@ msgstr "Trebuie să inserezi un titlu al legăturii"
 msgid "You must provide a link URL"
 msgstr "Trebuie să inserezi o legătură web"
 
-#: plugins/blogroll/src/Blogroll.php:413
+#: plugins/blogroll/src/Blogroll.php:421
 msgid "You are not allowed to change link status"
 msgstr "Nu vi se permite să modificați statutul linkului"
 
-#: plugins/blogroll/src/Blogroll.php:443
+#: plugins/blogroll/src/Blogroll.php:454
 msgid "You are not allowed to delete links"
 msgstr "Nu aveți voie să ștergeți linkuri"
 
@@ -3097,10 +3093,6 @@ msgstr "utilizator:preferințe"
 #: plugins/userPref/src/Manage.php:89 plugins/userPref/src/Manage.php:108
 msgid "Preferences successfully updated"
 msgstr "Preferințe actualizate cu succes"
-
-#: plugins/userPref/src/Manage.php:148 plugins/userPref/src/Manage.php:150
-msgid "User preferences"
-msgstr "Preferințe utilizator"
 
 #: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"
