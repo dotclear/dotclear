@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-25 13:29+0200\n"
-"PO-Revision-Date: 2025-05-25 16:00\n"
+"POT-Creation-Date: 2025-05-26 18:37+0200\n"
+"PO-Revision-Date: 2025-05-26 16:41\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -193,10 +193,6 @@ msgstr "संबंधित वरीयता मिटाया"
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
 msgid "Failed to delete related preferences"
 msgstr "संबंधित वरीयताओं को मिटाने में असफल"
-
-#: plugins/Uninstaller/src/Cleaner/Settings.php:38
-msgid "Settings"
-msgstr "विन्यास"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -1047,11 +1043,11 @@ msgstr "आप एक लिंक शीर्षक प्रदान कर�
 msgid "You must provide a link URL"
 msgstr "आपको एक लिंक URL प्रदान करना होगा"
 
-#: plugins/blogroll/src/Blogroll.php:413
+#: plugins/blogroll/src/Blogroll.php:421
 msgid "You are not allowed to change link status"
 msgstr "आपको लिंक की स्थिति बदलने की अनुमति नहीं है"
 
-#: plugins/blogroll/src/Blogroll.php:443
+#: plugins/blogroll/src/Blogroll.php:454
 msgid "You are not allowed to delete links"
 msgstr "आपको लिंक हटाने की अनुमति नहीं है"
 
@@ -3091,10 +3087,6 @@ msgstr "उपयोक्ता: वरीयताएँ"
 #: plugins/userPref/src/Manage.php:89 plugins/userPref/src/Manage.php:108
 msgid "Preferences successfully updated"
 msgstr "वरीयताएँ सफलतापूर्वक अद्यतन किया गया"
-
-#: plugins/userPref/src/Manage.php:148 plugins/userPref/src/Manage.php:150
-msgid "User preferences"
-msgstr "उपयोक्ता पसंद"
 
 #: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
 msgid "Global preferences"
