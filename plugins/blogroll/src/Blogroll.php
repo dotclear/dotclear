@@ -380,7 +380,12 @@ class Blogroll
         return $res;    // @phpstan-ignore-line
     }
 
-    public function cleanIds($ids): array
+    /**
+     * @param      int|array<int, mixed>|ArrayObject<int, mixed>  $ids    The identifiers
+     *
+     * @return     array<int>
+     */
+    public function cleanIds(int|array|ArrayObject $ids): array
     {
         $clean_ids = [];
 
@@ -403,7 +408,10 @@ class Blogroll
         return $clean_ids;
     }
 
-    public function updLinksStatus($ids, int $status): void
+    /**
+     * @param      int|array<int, mixed>|ArrayObject<int, mixed>    $ids        The identifiers
+     */
+    public function updLinksStatus(int|array|ArrayObject $ids, int $status): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
             Blogroll::PERMISSION_BLOGROLL,
@@ -433,7 +441,10 @@ class Blogroll
         $this->blog->triggerBlog();
     }
 
-    public function delLinks($ids): void
+    /**
+     * @param      int|array<int, mixed>|ArrayObject<int, mixed>    $ids        The identifiers
+     */
+    public function delLinks(int|array|ArrayObject $ids): void
     {
         if (!App::auth()->check(App::auth()->makePermissions([
             Blogroll::PERMISSION_BLOGROLL,

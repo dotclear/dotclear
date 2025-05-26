@@ -24,7 +24,7 @@ class ActionsLinksDefault
     /**
      * Set links actions.
      *
-     * @param   ActionsPosts    $ap     The ActionsPosts instance
+     * @param   ActionsLinks    $ap     The ActionsPosts instance
      */
     public static function adminLinksActionsPage(ActionsLinks $ap): void
     {
